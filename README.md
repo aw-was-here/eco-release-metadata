@@ -6,3 +6,8 @@ Current status:
 
 * Changes lists all changes.
 * Release Notes now only lists JIRAs with actual release notes.
+
+---
+
+***
+
