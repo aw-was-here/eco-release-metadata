@@ -32,6 +32,7 @@ The hadoop kerbname subcommand has been added to ease operational pain in determ
 * [HADOOP-11460](https://issues.apache.org/jira/browse/HADOOP-11460) | Major |  (scripts) | Deprecate shell vars
 
 The following shell environment variables have been deprecated:
+
 | Old | New |
 |:---- |:---- |
 | HADOOP\_HDFS\_LOG\_DIR| HADOOP\_LOG\_DIR|
