@@ -1,6 +1,6 @@
 # Hadoop Changelog
 
-## Release 2.6.0 - 2015-03-04
+## Release 2.6.0 - 2015-03-05
 
 ### INCOMPATIBLE CHANGES:
 
@@ -239,7 +239,7 @@
 | [HADOOP-8158](https://issues.apache.org/jira/browse/HADOOP-8158) | Interrupting hadoop fs -put from the command line causes a LeaseExpiredException |  Major |  | Todd Lipcon | Daryn Sharp |
 
 
-### OTHER:
+### TESTS:
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
@@ -250,6 +250,12 @@
 | [HADOOP-11071](https://issues.apache.org/jira/browse/HADOOP-11071) | KMSClientProvider should drain the local generated EEK cache on key rollover |  Minor | (security) | Alejandro Abdelnur | Alejandro Abdelnur |
 | [HADOOP-11070](https://issues.apache.org/jira/browse/HADOOP-11070) | Create MiniKMS for testing |  Major | (security , test) | Alejandro Abdelnur | Alejandro Abdelnur |
 | [HADOOP-11060](https://issues.apache.org/jira/browse/HADOOP-11060) | Create a CryptoCodec test that verifies interoperability between the JCE and OpenSSL implementations |  Major | (security) | Alejandro Abdelnur | Yi Liu |
+
+
+### OTHER:
+
+| JIRA | Description | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-10994](https://issues.apache.org/jira/browse/HADOOP-10994) | KeyProviderCryptoExtension should use CryptoCodec for generation/decryption of keys |  Major | (security) | Alejandro Abdelnur | Alejandro Abdelnur |
 | [HADOOP-10992](https://issues.apache.org/jira/browse/HADOOP-10992) | Merge KMS to branch-2 |  Major | (security) | Alejandro Abdelnur | Alejandro Abdelnur |
 | [HADOOP-10882](https://issues.apache.org/jira/browse/HADOOP-10882) | Move DirectBufferPool into common util |  Minor | (util) | Todd Lipcon | Todd Lipcon |

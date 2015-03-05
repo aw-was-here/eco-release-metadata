@@ -1,6 +1,6 @@
 # Hadoop Changelog
 
-## Release 2.6.0 - 2015-03-04
+## Release 2.6.0 - 2015-03-05
 
 ### INCOMPATIBLE CHANGES:
 
@@ -234,7 +234,7 @@
 | [HDFS-2975](https://issues.apache.org/jira/browse/HDFS-2975) | Rename with overwrite flag true can make NameNode to stuck in safemode on NN (crash + restart). |  Major | (namenode) | Uma Maheswara Rao G | Yi Liu |
 
 
-### OTHER:
+### TESTS:
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
@@ -250,5 +250,11 @@
 | [HDFS-6638](https://issues.apache.org/jira/browse/HDFS-6638) | shorten test run time with a smaller retry timeout setting |  Major | (test) | Liang Xie | Liang Xie |
 | [HDFS-6617](https://issues.apache.org/jira/browse/HDFS-6617) | Flake TestDFSZKFailoverController.testManualFailoverWithDFSHAAdmin due to a long edit log sync op |  Minor | (auto-failover , test) | Liang Xie | Liang Xie |
 | [HDFS-5624](https://issues.apache.org/jira/browse/HDFS-5624) | Add HDFS tests for ACLs in combination with viewfs. |  Major | (hdfs-client , test) | Chris Nauroth | Stephen Chu |
+
+
+### OTHER:
+
+| JIRA | Description | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
 
 

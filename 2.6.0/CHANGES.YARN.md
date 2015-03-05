@@ -1,6 +1,6 @@
 # Hadoop Changelog
 
-## Release 2.6.0 - 2015-03-04
+## Release 2.6.0 - 2015-03-05
 
 ### INCOMPATIBLE CHANGES:
 
@@ -168,7 +168,7 @@
 | [YARN-1796](https://issues.apache.org/jira/browse/YARN-1796) | container-executor shouldn't require o-r permissions |  Minor | (nodemanager) | Aaron T. Myers | Aaron T. Myers |
 
 
-### OTHER:
+### TESTS:
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
@@ -186,6 +186,12 @@
 | [YARN-2519](https://issues.apache.org/jira/browse/YARN-2519) | Credential Provider related unit tests failed on Windows |  Major | (webapp) | Xiaoyu Yao | Xiaoyu Yao |
 | [YARN-2388](https://issues.apache.org/jira/browse/YARN-2388) | TestTimelineWebServices fails on trunk after HADOOP-10791 |  Major |  | Zhijie Shen | Zhijie Shen |
 | [YARN-2158](https://issues.apache.org/jira/browse/YARN-2158) | TestRMWebServicesAppsModification sometimes fails in trunk |  Minor |  | Ted Yu | Varun Vasudev |
+
+
+### OTHER:
+
+| JIRA | Description | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
 | [YARN-2789](https://issues.apache.org/jira/browse/YARN-2789) | Re-instate the NodeReport.newInstance API modified in YARN-2698 |  Critical |  | Siddharth Seth | Wangda Tan |
 | [YARN-2207](https://issues.apache.org/jira/browse/YARN-2207) | Add ability to roll over AMRMToken |  Major | (resourcemanager) | Xuan Gong | Xuan Gong |
 

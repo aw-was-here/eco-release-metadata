@@ -1,6 +1,6 @@
 # Hadoop Changelog
 
-## Release 2.6.0 - 2015-03-04
+## Release 2.6.0 - 2015-03-05
 
 ### INCOMPATIBLE CHANGES:
 
@@ -83,13 +83,19 @@
 | [MAPREDUCE-5279](https://issues.apache.org/jira/browse/MAPREDUCE-5279) | Jobs can deadlock if headroom is limited by cpu instead of memory |  Critical | (mrv2 , scheduler) | Peng Zhang | Peng Zhang |
 
 
-### OTHER:
+### TESTS:
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [MAPREDUCE-6115](https://issues.apache.org/jira/browse/MAPREDUCE-6115) | TestPipeApplication#testSubmitter fails in trunk |  Minor |  | Ted Yu | Binglin Chang |
 | [MAPREDUCE-6048](https://issues.apache.org/jira/browse/MAPREDUCE-6048) | TestJavaSerialization fails in trunk build |  Minor |  | Ted Yu | Varun Vasudev |
 | [MAPREDUCE-5866](https://issues.apache.org/jira/browse/MAPREDUCE-5866) | TestFixedLengthInputFormat fails in windows |  Major | (client , test) | Varun Vasudev | Varun Vasudev |
+
+
+### OTHER:
+
+| JIRA | Description | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
 | [MAPREDUCE-5910](https://issues.apache.org/jira/browse/MAPREDUCE-5910) | MRAppMaster should handle Resync from RM instead of shutting down. |  Major | (applicationmaster) | Rohith | Rohith |
 
 
