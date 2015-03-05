@@ -1,16 +1,22 @@
 # Hadoop HADOOP 2.3.0 Release Notes
 
-These release notes include new developer and user-facing incompatibilities, features, and major improvements.
+These release notes cover  new developer and user-facing incompatibilities, features, and major improvements.
 
 ## Changes since Hadoop 2.2.1
+
+---
 
 * [HADOOP-10047](https://issues.apache.org/jira/browse/HADOOP-10047) | Major | Add a directbuffer Decompressor API to hadoop
 
 Direct Bytebuffer decompressors for Zlib (Deflate &amp; Gzip) and Snappy 
 
+---
+
 * [HADOOP-9241](https://issues.apache.org/jira/browse/HADOOP-9241) | Trivial | DU refresh interval is not configurable
 
 The 'du' (disk usage command from Unix) script refresh monitor is now configurable in the same way as its 'df' counterpart, via the property 'fs.du.interval', the default of which is 10 minute (in ms).
+
+---
 
 * [HADOOP-8545](https://issues.apache.org/jira/browse/HADOOP-8545) | Major | Filesystem Implementation for OpenStack Swift
 
