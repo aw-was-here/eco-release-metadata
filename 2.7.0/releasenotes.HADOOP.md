@@ -2,7 +2,7 @@
 
 These release notes include new developer and user-facing incompatibilities, features, and major improvements.
 
-## Changes since Hadoop 2.6.0
+## Changes since Hadoop 2.6.1
 
 * [HADOOP-11498](https://issues.apache.org/jira/browse/HADOOP-11498) | Major | Bump the version of HTrace to 3.1.0-incubating
 

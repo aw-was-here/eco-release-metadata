@@ -2,7 +2,7 @@
 
 These release notes include new developer and user-facing incompatibilities, features, and major improvements.
 
-## Changes since Hadoop 2.6.0
+## Changes since Hadoop 2.6.1
 
 * [HDFS-7806](https://issues.apache.org/jira/browse/HDFS-7806) | Minor | Refactor: move StorageType from hadoop-hdfs to hadoop-common
 

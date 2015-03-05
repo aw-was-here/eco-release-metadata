@@ -2,7 +2,7 @@
 
 These release notes include new developer and user-facing incompatibilities, features, and major improvements.
 
-## Changes since Hadoop 2.6.0
+## Changes since Hadoop 2.6.1
 
 * [YARN-2230](https://issues.apache.org/jira/browse/YARN-2230) | Minor | Fix description of yarn.scheduler.maximum-allocation-vcores in yarn-default.xml (or code)
 
