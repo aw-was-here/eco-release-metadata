@@ -1,24 +1,34 @@
 # Hadoop  2.5.0 Release Notes
 
-These release notes include new developer and user-facing incompatibilities, features, and major improvements.
+These release notes cover  new developer and user-facing incompatibilities, features, and major improvements.
 
 ## Changes since Hadoop 2.4.1
+
+---
 
 * [YARN-2107](https://issues.apache.org/jira/browse/YARN-2107) | Major | Refactor timeline classes into server.timeline package
 
 No release note provided for this incompatible change.
 
+---
+
 * [HDFS-6471](https://issues.apache.org/jira/browse/HDFS-6471) | Major | Make moveFromLocal CLI testcases to be non-disruptive
 
 Committed to trunk and merged into branch-2. Thanks Dasha!
+
+---
 
 * [HDFS-6297](https://issues.apache.org/jira/browse/HDFS-6297) | Major | Add CLI testcases to reflect new features of dfs and dfsadmin
 
 Committed to the trunk and branch-2. Thanks Dasha!
 
+---
+
 * [HDFS-6293](https://issues.apache.org/jira/browse/HDFS-6293) | Blocker | Issues with OIV processing PB-based fsimages
 
 Set "dfs.namenode.legacy-oiv-image.dir" to an appropriate directory to make standby name node or secondary name node save its file system state in the old fsimage format during checkpointing. This image can be used for offline analysis using the OfflineImageViewer.  Use the "hdfs oiv\_legacy" command to process the old fsimage format.
+
+---
 
 * [HDFS-6273](https://issues.apache.org/jira/browse/HDFS-6273) | Major | Config options to allow wildcard endpoints for namenode HTTP and HTTPS servers
 
@@ -34,13 +44,19 @@ These keys complement the existing NameNode options:
 - dfs.namenode.rpc-bind-host
 - dfs.namenode.servicerpc-bind-host
 
+---
+
 * [HDFS-6168](https://issues.apache.org/jira/browse/HDFS-6168) | Major | Remove deprecated methods in DistributedFileSystem
 
 No release note provided for this incompatible change.
 
+---
+
 * [HDFS-6164](https://issues.apache.org/jira/browse/HDFS-6164) | Major | Remove lsr in OfflineImageViewer
 
 The offlineimageviewer no longer generates lsr-style outputs. The functionality has been superseded by a tool that takes the fsimage and exposes WebHDFS-like API for user queries.
+
+---
 
 * [HDFS-6110](https://issues.apache.org/jira/browse/HDFS-6110) | Major | adding more slow action log in critical write path
 
@@ -48,6 +64,8 @@ Log slow i/o.  Set log thresholds in dfsclient and datanode via the below  new c
 
 dfs.client.slow.io.warning.threshold.ms (Default 30 seconds)
 dfs.datanode.slow.io.warning.threshold.ms (Default 300ms)
+
+---
 
 * [HADOOP-10568](https://issues.apache.org/jira/browse/HADOOP-10568) | Major | Add s3 server-side encryption
 
@@ -58,6 +76,8 @@ To enable this feature, specify the following in your client-side configuration:
 name: fs.s3n.server-side-encryption-algorithm
 value: AES256
 
+---
+
 * [HADOOP-10451](https://issues.apache.org/jira/browse/HADOOP-10451) | Trivial | Remove unused field and imports from SaslRpcServer
 
 SaslRpcServer.SASL\_PROPS is removed.
@@ -65,9 +85,13 @@ Any use of this variable  should be replaced with the following code:
 SaslPropertiesResolver saslPropsResolver = SaslPropertiesResolver.getInstance(conf); 
 Map&lt;String, String&gt; sasl\_props = saslPropsResolver.getDefaultProperties();
 
+---
+
 * [HADOOP-10342](https://issues.apache.org/jira/browse/HADOOP-10342) | Major | Extend UserGroupInformation to return a UGI given a preauthenticated kerberos Subject
 
 Add getUGIFromSubject to leverage an external kerberos authentication
+
+---
 
 * [HADOOP-9919](https://issues.apache.org/jira/browse/HADOOP-9919) | Major | Update hadoop-metrics2.properties examples to Yarn
 
