@@ -23,6 +23,10 @@ Appends in HDFS can no longer be disabled.
 
 Support for hftp and hsftp has been removed.  They have superseded by webhdfs  and swebhdfs.
 
+* [HDFS-5079](https://issues.apache.org/jira/browse/HDFS-5079) | Major | Cleaning up NNHAStatusHeartbeat.State DatanodeProtocolProtos.
+
+No release note provided for this incompatible change.
+
 * [HDFS-3034](https://issues.apache.org/jira/browse/HDFS-3034) | Major | Remove the deprecated Syncable.sync() method
 
 Remove the deprecated DFSOutputStream.sync() method.

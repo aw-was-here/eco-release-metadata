@@ -8,9 +8,21 @@ These release notes include new developer and user-facing incompatibilities, fea
 
 The user 'yarn' is no longer allowed to run tasks for security reasons.
 
+* [MAPREDUCE-6234](https://issues.apache.org/jira/browse/MAPREDUCE-6234) | Major | TestHighRamJob fails due to the change in MAPREDUCE-5785
+
+No release note provided for this incompatible change.
+
+* [MAPREDUCE-6223](https://issues.apache.org/jira/browse/MAPREDUCE-6223) | Major | TestJobConf#testNegativeValueForTaskVmem failures
+
+No release note provided for this incompatible change.
+
 * [MAPREDUCE-5972](https://issues.apache.org/jira/browse/MAPREDUCE-5972) | Trivial | Fix typo 'programatically' in job.xml (and a few other places)
 
 Fix a typo. If a configuration is set through program, the source of the configuration is set to 'programmatically' instead of 'programatically' now.
+
+* [MAPREDUCE-5785](https://issues.apache.org/jira/browse/MAPREDUCE-5785) | Major | Derive heap size or mapreduce.*.memory.mb automatically
+
+No release note provided for this incompatible change.
 
 * [MAPREDUCE-5653](https://issues.apache.org/jira/browse/MAPREDUCE-5653) | Major | DistCp does not honour config-overrides for mapreduce.[map,reduce].memory.mb
 
@@ -40,6 +52,10 @@ Appends in HDFS can no longer be disabled.
 * [HDFS-5570](https://issues.apache.org/jira/browse/HDFS-5570) | Major | Deprecate hftp / hsftp and replace them with webhdfs / swebhdfs
 
 Support for hftp and hsftp has been removed.  They have superseded by webhdfs  and swebhdfs.
+
+* [HDFS-5079](https://issues.apache.org/jira/browse/HDFS-5079) | Major | Cleaning up NNHAStatusHeartbeat.State DatanodeProtocolProtos.
+
+No release note provided for this incompatible change.
 
 * [HDFS-3034](https://issues.apache.org/jira/browse/HDFS-3034) | Major | Remove the deprecated Syncable.sync() method
 
@@ -100,6 +116,10 @@ The following shell environment variables have been deprecated:
 | KMS\_CONFIG |HADOOP\_CONF\_DIR|
 | KMS\_LOG |HADOOP\_LOG\_DIR |
 
+* [HADOOP-11356](https://issues.apache.org/jira/browse/HADOOP-11356) | Major | Removed deprecated o.a.h.fs.permission.AccessControlException
+
+No release note provided for this incompatible change.
+
 * [HADOOP-11353](https://issues.apache.org/jira/browse/HADOOP-11353) | Major | Add support for .hadooprc
 
 .hadooprc allows users a convenient way to set and/or override the shell level settings.
@@ -117,6 +137,10 @@ This changes the output of the 'hadoop version' command to generically say 'Sour
 * Default heap sizes have been removed.  To re-enable the old default, configure HADOOP\_HEAPSIZE\_MAX="1g" in hadoop-env.sh. This will allow for the JVM to use auto-tuning based upon the memory size of the host. 
 
 * All global and daemon-specific heap size variables now support units.  If the variable is only a number, the size is assumed to be in megabytes.
+
+* [HADOOP-10474](https://issues.apache.org/jira/browse/HADOOP-10474) | Major | Move o.a.h.record to hadoop-streaming
+
+No release note provided for this incompatible change.
 
 * [HADOOP-9902](https://issues.apache.org/jira/browse/HADOOP-9902) | Major | Shell script rewrite
 
@@ -195,7 +219,7 @@ Options to sort output of fs -ls comment: -t (mtime), -S (size), -u (atime), -r 
 * [HADOOP-8776](https://issues.apache.org/jira/browse/HADOOP-8776) | Minor | Provide an option in test-patch that can enable / disable compiling native code
 
 test-patch.sh adds a new option "--build-native". When set to false native
-components are built. When set to true native components are built. The
+components are not built. When set to true native components are built. The
 default value is true.
 
 

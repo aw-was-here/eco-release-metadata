@@ -1,6 +1,6 @@
 # Hadoop Changelog
 
-## Release 3.0.0 - 2015-03-04
+## Release 3.0.0 - 2015-03-05
 
 ### INCOMPATIBLE CHANGES:
 
@@ -37,6 +37,12 @@
 | [YARN-2436](https://issues.apache.org/jira/browse/YARN-2436) | yarn application help doesn't work |  Major | (scripts) | Allen Wittenauer | Allen Wittenauer |
 | [YARN-1471](https://issues.apache.org/jira/browse/YARN-1471) | The SLS simulator is not running the preemption policy for CapacityScheduler |  Minor |  | Carlo Curino | Carlo Curino |
 | [YARN-524](https://issues.apache.org/jira/browse/YARN-524) | TestYarnVersionInfo failing if generated properties doesn't include an SVN URL |  Minor | (api) | Steve Loughran | Steve Loughran |
+
+
+### TESTS:
+
+| JIRA | Description | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### OTHER:

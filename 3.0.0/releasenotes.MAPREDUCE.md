@@ -4,9 +4,21 @@ These release notes include new developer and user-facing incompatibilities, fea
 
 ## Changes since Hadoop 2.7.0
 
+* [MAPREDUCE-6234](https://issues.apache.org/jira/browse/MAPREDUCE-6234) | Major | TestHighRamJob fails due to the change in MAPREDUCE-5785
+
+No release note provided for this incompatible change.
+
+* [MAPREDUCE-6223](https://issues.apache.org/jira/browse/MAPREDUCE-6223) | Major | TestJobConf#testNegativeValueForTaskVmem failures
+
+No release note provided for this incompatible change.
+
 * [MAPREDUCE-5972](https://issues.apache.org/jira/browse/MAPREDUCE-5972) | Trivial | Fix typo 'programatically' in job.xml (and a few other places)
 
 Fix a typo. If a configuration is set through program, the source of the configuration is set to 'programmatically' instead of 'programatically' now.
+
+* [MAPREDUCE-5785](https://issues.apache.org/jira/browse/MAPREDUCE-5785) | Major | Derive heap size or mapreduce.*.memory.mb automatically
+
+No release note provided for this incompatible change.
 
 * [MAPREDUCE-5653](https://issues.apache.org/jira/browse/MAPREDUCE-5653) | Major | DistCp does not honour config-overrides for mapreduce.[map,reduce].memory.mb
 

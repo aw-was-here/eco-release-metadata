@@ -51,6 +51,10 @@ The following shell environment variables have been deprecated:
 | KMS\_CONFIG |HADOOP\_CONF\_DIR|
 | KMS\_LOG |HADOOP\_LOG\_DIR |
 
+* [HADOOP-11356](https://issues.apache.org/jira/browse/HADOOP-11356) | Major | Removed deprecated o.a.h.fs.permission.AccessControlException
+
+No release note provided for this incompatible change.
+
 * [HADOOP-11353](https://issues.apache.org/jira/browse/HADOOP-11353) | Major | Add support for .hadooprc
 
 .hadooprc allows users a convenient way to set and/or override the shell level settings.
@@ -68,6 +72,10 @@ This changes the output of the 'hadoop version' command to generically say 'Sour
 * Default heap sizes have been removed.  To re-enable the old default, configure HADOOP\_HEAPSIZE\_MAX="1g" in hadoop-env.sh. This will allow for the JVM to use auto-tuning based upon the memory size of the host. 
 
 * All global and daemon-specific heap size variables now support units.  If the variable is only a number, the size is assumed to be in megabytes.
+
+* [HADOOP-10474](https://issues.apache.org/jira/browse/HADOOP-10474) | Major | Move o.a.h.record to hadoop-streaming
+
+No release note provided for this incompatible change.
 
 * [HADOOP-9902](https://issues.apache.org/jira/browse/HADOOP-9902) | Major | Shell script rewrite
 
@@ -146,7 +154,7 @@ Options to sort output of fs -ls comment: -t (mtime), -S (size), -u (atime), -r 
 * [HADOOP-8776](https://issues.apache.org/jira/browse/HADOOP-8776) | Minor | Provide an option in test-patch that can enable / disable compiling native code
 
 test-patch.sh adds a new option "--build-native". When set to false native
-components are built. When set to true native components are built. The
+components are not built. When set to true native components are built. The
 default value is true.
 
 
