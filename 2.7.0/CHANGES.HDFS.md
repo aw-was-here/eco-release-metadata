@@ -1,6 +1,6 @@
 # Hadoop Changelog
 
-## Release 2.7.0 - 2015-03-04
+## Release 2.7.0 - 2015-03-05
 
 ### INCOMPATIBLE CHANGES:
 
@@ -247,13 +247,19 @@
 | [HDFS-49](https://issues.apache.org/jira/browse/HDFS-49) | MiniDFSCluster.stopDataNode will always shut down a node in the cluster if a matching name is not found |  Minor | (test) | Steve Loughran | Steve Loughran |
 
 
-### OTHER:
+### TESTS:
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-7585](https://issues.apache.org/jira/browse/HDFS-7585) | Get TestEnhancedByteBufferAccess working on CPU architectures with page sizes other than 4096 |  Major | (test) | sam liu | sam liu |
 | [HDFS-7475](https://issues.apache.org/jira/browse/HDFS-7475) | Make TestLazyPersistFiles#testLazyPersistBlocksAreSaved deterministic  |  Major | (test) | Xiaoyu Yao | Xiaoyu Yao |
 | [HDFS-7448](https://issues.apache.org/jira/browse/HDFS-7448) | TestBookKeeperHACheckpoints fails in trunk build |  Minor |  | Ted Yu | Akira AJISAKA |
+
+
+### OTHER:
+
+| JIRA | Description | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-2486](https://issues.apache.org/jira/browse/HDFS-2486) | Review issues with UnderReplicatedBlocks |  Minor | (namenode) | Steve Loughran | Uma Maheswara Rao G |
 
 

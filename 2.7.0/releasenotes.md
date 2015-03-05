@@ -47,6 +47,14 @@ Point your browser to
 file:///tmp/hadoop-site/hadoop-project/hadoop-project-dist/hadoop-hdfs/HDFSCommands.html
 
 
+* [HDFS-6651](https://issues.apache.org/jira/browse/HDFS-6651) | Critical | Deletion failure can leak inodes permanently
+
+No release note provided for this incompatible change.
+
+* [HDFS-6252](https://issues.apache.org/jira/browse/HDFS-6252) | Minor | Phase out the old web UI in HDFS
+
+No release note provided for this incompatible change.
+
 * [HDFS-6133](https://issues.apache.org/jira/browse/HDFS-6133) | Major | Make Balancer support exclude specified path
 
 Add a feature for replica pinning so that when a replica is pinned in a datanode, it will not be moved by Balancer/Mover.  The replica pinning feature can be enabled/disabled by "dfs.datanode.block-pinning.enabled", where the default is false.
@@ -65,6 +73,10 @@ literals of "blk\_" in various files are also updated to use the same constant.
 
 Based on the reconfiguration framework provided by HADOOP-7001, enable reconfigure the dfs.datanode.data.dir and add new volumes into service.
 
+* [HADOOP-11498](https://issues.apache.org/jira/browse/HADOOP-11498) | Major | Bump the version of HTrace to 3.1.0-incubating
+
+No release note provided for this incompatible change.
+
 * [HADOOP-11497](https://issues.apache.org/jira/browse/HADOOP-11497) | Major | Fix typo in ClusterSetup.html#Hadoop\_Startup
 
 Correct startup command for cluster data nodes
@@ -81,6 +93,10 @@ fs.s3a.threads.core:    the number of threads to keep in the pool used by Transf
 fs.s3a.threads.keepalivetime:  when the number of threads is greater than the core, this is the maximum time that excess idle threads will wait for new tasks before terminating
 fs.s3a.max.total.tasks:    the maximum number of tasks that the LinkedBlockingQueue can hold
 
+* [HADOOP-11385](https://issues.apache.org/jira/browse/HADOOP-11385) | Critical | Prevent cross site scripting attack on JMXJSONServlet
+
+No release note provided for this incompatible change.
+
 * [HADOOP-11348](https://issues.apache.org/jira/browse/HADOOP-11348) | Minor | Remove unused variable from CMake error message for finding openssl
 
 Test failure is unrelated.  Committed to 2.7.  Thanks, Dian.
@@ -88,6 +104,10 @@ Test failure is unrelated.  Committed to 2.7.  Thanks, Dian.
 * [HADOOP-11311](https://issues.apache.org/jira/browse/HADOOP-11311) | Major | Restrict uppercase key names from being created with JCEKS
 
 Keys with uppercase names can no longer be created when using the JavaKeyStoreProvider to resolve ambiguity about case-sensitivity in the KeyStore spec.
+
+* [HADOOP-10530](https://issues.apache.org/jira/browse/HADOOP-10530) | Blocker | Make hadoop trunk build on Java7+ only
+
+No release note provided for this incompatible change.
 
 * [HADOOP-10181](https://issues.apache.org/jira/browse/HADOOP-10181) | Minor | GangliaContext does not work with multicast ganglia setup
 

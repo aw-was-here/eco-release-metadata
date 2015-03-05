@@ -35,6 +35,14 @@ Point your browser to
 file:///tmp/hadoop-site/hadoop-project/hadoop-project-dist/hadoop-hdfs/HDFSCommands.html
 
 
+* [HDFS-6651](https://issues.apache.org/jira/browse/HDFS-6651) | Critical | Deletion failure can leak inodes permanently
+
+No release note provided for this incompatible change.
+
+* [HDFS-6252](https://issues.apache.org/jira/browse/HDFS-6252) | Minor | Phase out the old web UI in HDFS
+
+No release note provided for this incompatible change.
+
 * [HDFS-6133](https://issues.apache.org/jira/browse/HDFS-6133) | Major | Make Balancer support exclude specified path
 
 Add a feature for replica pinning so that when a replica is pinned in a datanode, it will not be moved by Balancer/Mover.  The replica pinning feature can be enabled/disabled by "dfs.datanode.block-pinning.enabled", where the default is false.

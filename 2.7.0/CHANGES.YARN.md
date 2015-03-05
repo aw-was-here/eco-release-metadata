@@ -1,6 +1,6 @@
 # Hadoop Changelog
 
-## Release 2.7.0 - 2015-03-04
+## Release 2.7.0 - 2015-03-05
 
 ### INCOMPATIBLE CHANGES:
 
@@ -25,6 +25,7 @@
 | [YARN-3285](https://issues.apache.org/jira/browse/YARN-3285) | Convert branch-2 .apt.vm files of YARN to markdown |  Major | (documentation) | Masatake Iwasaki | Masatake Iwasaki |
 | [YARN-3272](https://issues.apache.org/jira/browse/YARN-3272) | Surface container locality info in RM web UI |  Major |  | Jian He | Jian He |
 | [YARN-3262](https://issues.apache.org/jira/browse/YARN-3262) |  Surface application outstanding resource requests table in RM web UI |  Major | (yarn) | Jian He | Jian He |
+| [YARN-3249](https://issues.apache.org/jira/browse/YARN-3249) | Add a "kill application" button to Resource Manager's Web UI |  Minor | (resourcemanager) | Ryu Kobayashi | Ryu Kobayashi |
 | [YARN-3236](https://issues.apache.org/jira/browse/YARN-3236) | cleanup RMAuthenticationFilter#AUTH_HANDLER_PROPERTY. |  Trivial | (resourcemanager) | zhihai xu | zhihai xu |
 | [YARN-3230](https://issues.apache.org/jira/browse/YARN-3230) | Clarify application states on the web UI |  Major |  | Jian He | Jian He |
 | [YARN-3203](https://issues.apache.org/jira/browse/YARN-3203) | Correct a log message in AuxServices |  Minor |  | Brahma Reddy Battula | Brahma Reddy Battula |
@@ -184,7 +185,7 @@
 | [YARN-570](https://issues.apache.org/jira/browse/YARN-570) | Time strings are formated in different timezone |  Major | (webapp) | Peng Zhang | Akira AJISAKA |
 
 
-### OTHER:
+### TESTS:
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
@@ -192,6 +193,12 @@
 | [YARN-2930](https://issues.apache.org/jira/browse/YARN-2930) | TestRMRestart#testRMRestartRecoveringNodeLabelManager sometimes fails against Java 7 &amp; 8 |  Minor |  | Ted Yu | Wangda Tan |
 | [YARN-1979](https://issues.apache.org/jira/browse/YARN-1979) | TestDirectoryCollection fails when the umask is unusual |  Major |  | Vinod Kumar Vavilapalli | Vinod Kumar Vavilapalli |
 | [YARN-1537](https://issues.apache.org/jira/browse/YARN-1537) | TestLocalResourcesTrackerImpl.testLocalResourceCache often failed |  Major | (nodemanager) | Hong Shen | Xuan Gong |
+
+
+### OTHER:
+
+| JIRA | Description | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
 | [YARN-3217](https://issues.apache.org/jira/browse/YARN-3217) | Remove httpclient dependency from hadoop-yarn-server-web-proxy |  Major |  | Akira AJISAKA | Brahma Reddy Battula |
 | [YARN-2949](https://issues.apache.org/jira/browse/YARN-2949) | Add documentation for CGroups |  Major | (documentation , nodemanager) | Varun Vasudev | Varun Vasudev |
 
