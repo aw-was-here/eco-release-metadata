@@ -130,7 +130,6 @@ INCOMPATIBLE CHANGES:
 * All HDFS\_*, YARN\_*, and MAPRED\_* environment variables act as overrides to their equivalent HADOOP\_* environment variables when 'hdfs', 'yarn', 'mapred', and related commands are executed. Previously, these were separated out which meant a significant amount of duplication of common settings.  
 * hdfs-config.sh and hdfs-config.cmd were inadvertently duplicated into libexec and sbin.  The sbin versions have been removed.
 * The log4j settings forcibly set by some *-daemon.sh commands have been removed.  These settings are now configurable in the *-env.sh files via *\_OPT. 
-* Some formerly 'documented' entries in yarn-env.sh have been undocumented as a simple form of deprecration in order to greatly simplify configuration and reduce unnecessary duplication.  They still work, but those variables will likely be removed in a future release.
 * Support for various undocumented YARN log4j.properties files has been removed.
 * Support for ${HADOOP\_MASTER} and the related rsync code have been removed.
 * The undocumented and unused yarn.id.str Java property has been removed.
@@ -138,7 +137,6 @@ INCOMPATIBLE CHANGES:
 * We now require bash v3 (released July 27, 2004) or better in order to take advantage of better regex handling and ${BASH\_SOURCE}.  POSIX sh will not work.
 * Support for --script has been removed. We now use ${HADOOP\_*\_PATH} or ${HADOOP\_PREFIX} to find the necessary binaries.  (See other note regarding ${HADOOP\_PREFIX} auto discovery.)
 * Non-existent classpaths, ld.so library paths, JNI library paths, etc, will be ignored and stripped from their respective environment settings.
-* cygwin support has been removed.
 
 NEW FEATURES:
 
