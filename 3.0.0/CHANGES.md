@@ -5,7 +5,7 @@
 ### INCOMPATIBLE CHANGES:
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |
+|:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-11657](https://issues.apache.org/jira/browse/HADOOP-11657) | Align the output of `hadoop fs -du` to be more Unix-like |  Minor |  | Nick Dimiduk | Akira AJISAKA |
 | [HADOOP-11356](https://issues.apache.org/jira/browse/HADOOP-11356) | Removed deprecated o.a.h.fs.permission.AccessControlException |  Major |  | Haohui Mai | Li Lu |
 | [HADOOP-11041](https://issues.apache.org/jira/browse/HADOOP-11041) | VersionInfo output specifies subversion |  Minor | (build) | Guo Ruijing | Tsuyoshi Ozawa |
@@ -30,8 +30,8 @@
 
 ### NEW FEATURES:
 
-| JIRA | Description | Contributor |
-|:---- |:---- | :--- |
+| JIRA | Description | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-11565](https://issues.apache.org/jira/browse/HADOOP-11565) | Add --slaves shell option |  Major | (scripts) | Allen Wittenauer | Allen Wittenauer |
 | [HADOOP-11554](https://issues.apache.org/jira/browse/HADOOP-11554) | Expose HadoopKerberosName as a hadoop subcommand |  Major | (scripts) | Allen Wittenauer | Allen Wittenauer |
 | [HADOOP-11485](https://issues.apache.org/jira/browse/HADOOP-11485) | Pluggable shell integration |  Major | (scripts) | Allen Wittenauer | Allen Wittenauer |
@@ -46,8 +46,8 @@
 
 ### IMPROVEMENTS:
 
-| JIRA | Description | Contributor |
-|:---- |:---- | :--- |
+| JIRA | Description | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-11596](https://issues.apache.org/jira/browse/HADOOP-11596) | Allow smart-apply-patch.sh to add new files in binary git patches |  Major |  | Ravi Prakash | Ravi Prakash |
 | [HADOOP-11593](https://issues.apache.org/jira/browse/HADOOP-11593) | Convert site documentation from apt to markdown (stragglers) |  Major | (documentation) | Allen Wittenauer | Masatake Iwasaki |
 | [HADOOP-11575](https://issues.apache.org/jira/browse/HADOOP-11575) | Daemon log documentation is misleading |  Major | (documentation) | Jagadesh Kiran N | Naganarasimha G R |
@@ -129,8 +129,8 @@
 
 ### BUG FIXES:
 
-| JIRA | Description | Contributor |
-|:---- |:---- | :--- |
+| JIRA | Description | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-11637](https://issues.apache.org/jira/browse/HADOOP-11637) | bash location hard-coded in shell scripts |  Major | (scripts) | Allen Wittenauer | Allen Wittenauer |
 | [HADOOP-11625](https://issues.apache.org/jira/browse/HADOOP-11625) | Minor fixes to command manual &amp; SLA doc |  Major | (documentation) | Allen Wittenauer | Allen Wittenauer |
 | [HADOOP-11585](https://issues.apache.org/jira/browse/HADOOP-11585) | Fix formatting in Tracing.md |  Trivial | (documentation) | Masatake Iwasaki | Masatake Iwasaki |
@@ -250,8 +250,8 @@
 
 ### OTHER:
 
-| JIRA | Description | Contributor |
-|:---- |:---- | :--- |
+| JIRA | Description | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-8844](https://issues.apache.org/jira/browse/HADOOP-8844) | Add a plaintext fs -text test-case |  Major | (fs) | Harsh J | Akira AJISAKA |
 | [HADOOP-8434](https://issues.apache.org/jira/browse/HADOOP-8434) | TestConfiguration currently has no tests for direct setter methods |  Major |  | Harsh J | madhukara phatak |
 | [HDFS-2127](https://issues.apache.org/jira/browse/HDFS-2127) | Add a test that ensure AccessControlExceptions contain a full path |  Major | (namenode) | Eli Collins | Stephen Chu |

@@ -5,7 +5,7 @@
 ### INCOMPATIBLE CHANGES:
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |
+|:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-7302](https://issues.apache.org/jira/browse/HDFS-7302) | namenode -rollingUpgrade downgrade may finalize a rolling upgrade |  Major | (namenode) | Tsz Wo Nicholas Sze | Kai Sasaki |
 | [HDFS-6246](https://issues.apache.org/jira/browse/HDFS-6246) | Remove 'dfs.support.append' flag from trunk code |  Minor |  | Uma Maheswara Rao G | Uma Maheswara Rao G |
 | [HDFS-5570](https://issues.apache.org/jira/browse/HDFS-5570) | Deprecate hftp / hsftp and replace them with webhdfs / swebhdfs |  Major |  | Haohui Mai | Haohui Mai |
@@ -16,14 +16,14 @@
 
 ### NEW FEATURES:
 
-| JIRA | Description | Contributor |
-|:---- |:---- | :--- |
+| JIRA | Description | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### IMPROVEMENTS:
 
-| JIRA | Description | Contributor |
-|:---- |:---- | :--- |
+| JIRA | Description | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-7546](https://issues.apache.org/jira/browse/HDFS-7546) | Document, and set an accepting default for dfs.namenode.kerberos.principal.pattern |  Minor | (security) | Harsh J | Harsh J |
 | [HDFS-7460](https://issues.apache.org/jira/browse/HDFS-7460) | Rewrite httpfs to use new shell framework |  Major |  | Allen Wittenauer | John Smith |
 | [HDFS-7322](https://issues.apache.org/jira/browse/HDFS-7322) | deprecate sbin/hadoop-daemon.sh |  Major | (scripts) | Allen Wittenauer | Allen Wittenauer |
@@ -42,8 +42,8 @@
 
 ### BUG FIXES:
 
-| JIRA | Description | Contributor |
-|:---- |:---- | :--- |
+| JIRA | Description | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-7803](https://issues.apache.org/jira/browse/HDFS-7803) | Wrong command mentioned in HDFSHighAvailabilityWithQJM documentation |  Minor | (documentation) | Arshad Mohammad | Arshad Mohammad |
 | [HDFS-7791](https://issues.apache.org/jira/browse/HDFS-7791) | dfs count -v should be added to quota documentation |  Major | (documentation) | Allen Wittenauer | Akira AJISAKA |
 | [HDFS-7755](https://issues.apache.org/jira/browse/HDFS-7755) | httpfs shell code has hardcoded path to bash |  Major | (scripts) | Dmitry Sivachenko | Dmitry Sivachenko |
@@ -86,8 +86,8 @@
 
 ### OTHER:
 
-| JIRA | Description | Contributor |
-|:---- |:---- | :--- |
+| JIRA | Description | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-2127](https://issues.apache.org/jira/browse/HDFS-2127) | Add a test that ensure AccessControlExceptions contain a full path |  Major | (namenode) | Eli Collins | Stephen Chu |
 | [HDFS-2776](https://issues.apache.org/jira/browse/HDFS-2776) | Missing interface annotation on JournalSet |  Trivial | (namenode) | Todd Lipcon | Brandon Li |
 
