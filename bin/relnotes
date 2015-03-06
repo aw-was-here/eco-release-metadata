@@ -25,6 +25,6 @@ oldp=$(pwd)
 cd "${hrmd}"
 d=$(date -u "+%Y-%m-%d %H:%m")
 git add "${new}/*"
-git commit -a -m "${d} UTC auto-commit"
+git commit -m "${d} UTC auto-commit"
 cd "${oldp}"
 #git push
