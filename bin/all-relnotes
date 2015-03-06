@@ -1,5 +1,11 @@
 #!/bin/bash
 
+this="${BASH_SOURCE-$0}"
+bin=$(cd -P -- "$(dirname -- "${this}")" >/dev/null && pwd -P)
+
+OPATH=${PATH}
+PATH=${bin}:${OPATH}
+
 relnotes 2.7.0 3.0.0
 relnotes 2.6.1 2.7.0
 relnotes 2.6.0 2.6.1
@@ -12,3 +18,4 @@ relnotes 2.3.0 2.4.0
 relnotes 2.2.1 2.3.0
 relnotes 2.2.0 2.2.1
 
+PATH=${OPATH}
