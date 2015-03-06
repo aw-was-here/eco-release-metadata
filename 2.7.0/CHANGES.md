@@ -392,6 +392,7 @@
 | [HADOOP-9087](https://issues.apache.org/jira/browse/HADOOP-9087) | Queue size metric for metric sinks isn't actually maintained |  Minor | (metrics) | Mostafa Elhemali | Akira AJISAKA |
 | [HADOOP-8642](https://issues.apache.org/jira/browse/HADOOP-8642) | Document that io.native.lib.available only controls native bz2 and zlib compression codecs |  Major | (documentation , native) | Eli Collins | Akira AJISAKA |
 | [HADOOP-6221](https://issues.apache.org/jira/browse/HADOOP-6221) | RPC Client operations cannot be interrupted |  Minor | (ipc) | Steve Loughran | Steve Loughran |
+| [HDFS-7885](https://issues.apache.org/jira/browse/HDFS-7885) | Datanode should not trust the generation stamp provided by client |  Critical | (datanode) | vitthal (Suhas) Gogate | Tsz Wo Nicholas Sze |
 | [HDFS-7879](https://issues.apache.org/jira/browse/HDFS-7879) | hdfs.dll does not export functions of the public libhdfs API |  Major | (build , libhdfs) | Chris Nauroth | Chris Nauroth |
 | [HDFS-7871](https://issues.apache.org/jira/browse/HDFS-7871) | NameNodeEditLogRoller can keep printing "Swallowing exception" message |  Critical |  | Jing Zhao | Jing Zhao |
 | [HDFS-7869](https://issues.apache.org/jira/browse/HDFS-7869) | Inconsistency in the return information while performing rolling upgrade |  Major |  | J.Andreina | J.Andreina |
