@@ -3,20 +3,26 @@
 old=$1
 new=$2
 
-repo=${HOME}/Src/aw-github/hadoop-release-metadata
+src=${HOME}/src/aw-github/hadoop/dev-support
+hrmd=${HOME}/Src/aw-github/hadoop-release-metadata
 
-./relnotes-md.py --previousVer "${old}" --version "${new}"
-./changes-md.py --version "${new}"
+if [[ ! -e "${src}/relnotes-md.py" ]]; then
+  echo "no relnotes-md.py"
+  exit 1
+fi
 
-mkdir -p "${repo}/${new}/"
+"${src}/relnotes-md.py" --previousVer "${old}" --version "${new}"
+"${src}/changes-md.py" --version "${new}"
+
+mkdir -p "${hrmd}/${new}/"
 
 for i in *.md
 do
   j=$(echo "${i}" | sed -e "s,.${new},,g")
-  mv "${i}" "${repo}/${new}/${j}"
+  mv "${i}" "${hrmd}/${new}/${j}"
 done
 oldp=$(pwd)
-cd "${repo}"
+cd "${hrmd}"
 d=$(date -u "+%Y-%m-%d %H:%m")
 git add "${new}/*"
 git commit -a -m "${d} UTC auto-commit"
