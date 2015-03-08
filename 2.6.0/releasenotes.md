@@ -6,27 +6,58 @@ These release notes cover  new developer and user-facing incompatibilities, feat
 
 ---
 
-* [YARN-2830](https://issues.apache.org/jira/browse/YARN-2830) | Blocker | Add backwords compatible ContainerId.newInstance constructor for use within Tez Local Mode
+* [HADOOP-10903](https://issues.apache.org/jira/browse/HADOOP-10903) | Major | Enhance hadoop classpath command to expand wildcards or write classpath into jar manifest.
 
-I just committed this. Thanks [~jeagles] for the patch and [~ozawa] for the reviews!
-
----
-
-* [YARN-2615](https://issues.apache.org/jira/browse/YARN-2615) | Blocker | ClientToAMTokenIdentifier and DelegationTokenIdentifier should allow extended fields
-
-No release note provided for this incompatible change.
+The "hadoop classpath" command has been enhanced to support options for automatic expansion of wildcards in classpath elements and writing the classpath to a jar file manifest.  These options make it easier to construct a correct classpath for libhdfs applications.
 
 ---
 
-* [YARN-1051](https://issues.apache.org/jira/browse/YARN-1051) | Major | YARN Admission Control/Planner: enhancing the resource allocation model with time.
+* [HADOOP-10839](https://issues.apache.org/jira/browse/HADOOP-10839) | Major | Add unregisterSource() to MetricsSystem API
 
-No release note provided for this incompatible change.
+The MetricsSystem abstract class has added a new abstract method, unregisterSource, for unregistering a previously registered metrics source.  Custom subclasses of MetricsSystem must be updated to provide an implementation of this method.
 
 ---
 
-* [YARN-668](https://issues.apache.org/jira/browse/YARN-668) | Blocker | TokenIdentifier serialization should consider Unknown fields
+* [HADOOP-10681](https://issues.apache.org/jira/browse/HADOOP-10681) | Major | Remove synchronized blocks from SnappyCodec and ZlibCodec buffering inner loop
 
-No release note provided for this incompatible change.
+Remove unnecessary synchronized blocks from Snappy/Zlib codecs.
+
+---
+
+* [HADOOP-10620](https://issues.apache.org/jira/browse/HADOOP-10620) | Major | /docs/current doesn't point to the latest version 2.4.0
+
+Verified http://hadoop.apache.org/docs/current/ link now point to current release (v2.6.0).
+
+---
+
+* [HADOOP-10583](https://issues.apache.org/jira/browse/HADOOP-10583) | Minor | bin/hadoop key throws NPE with no args and assorted other fixups
+
+bin/hadoop key
+with no args would throw an NPE.
+
+---
+
+* [HADOOP-10244](https://issues.apache.org/jira/browse/HADOOP-10244) | Major | TestKeyShell improperly tests the results of a Delete
+
+Fix of inappropriate test of delete functionality.
+
+---
+
+* [HADOOP-10201](https://issues.apache.org/jira/browse/HADOOP-10201) | Major | Add Listing Support to Key Management APIs
+
+I just committed this. Thanks, Larry!
+
+---
+
+* [HADOOP-8944](https://issues.apache.org/jira/browse/HADOOP-8944) | Trivial | Shell command fs -count should include human readable option
+
+Implements -h option for fs -count to show file sizes in human readable format. Additionally, ContentSummary.getHeader() now returns a different string that is incompatible with previous releases.
+
+---
+
+* [HADOOP-8069](https://issues.apache.org/jira/browse/HADOOP-8069) | Major | Enable TCP\_NODELAY by default for IPC
+
+This change enables the TCP\_NODELAY flag for all Hadoop IPC connections, hence bypassing TCP Nagling. Nagling interacts poorly with TCP delayed ACKs especially for request-response protocols.
 
 ---
 
@@ -90,58 +121,27 @@ The libhdfs C API is now supported on Windows.
 
 ---
 
-* [HADOOP-10903](https://issues.apache.org/jira/browse/HADOOP-10903) | Major | Enhance hadoop classpath command to expand wildcards or write classpath into jar manifest.
+* [YARN-2830](https://issues.apache.org/jira/browse/YARN-2830) | Blocker | Add backwords compatible ContainerId.newInstance constructor for use within Tez Local Mode
 
-The "hadoop classpath" command has been enhanced to support options for automatic expansion of wildcards in classpath elements and writing the classpath to a jar file manifest.  These options make it easier to construct a correct classpath for libhdfs applications.
-
----
-
-* [HADOOP-10839](https://issues.apache.org/jira/browse/HADOOP-10839) | Major | Add unregisterSource() to MetricsSystem API
-
-The MetricsSystem abstract class has added a new abstract method, unregisterSource, for unregistering a previously registered metrics source.  Custom subclasses of MetricsSystem must be updated to provide an implementation of this method.
+I just committed this. Thanks [~jeagles] for the patch and [~ozawa] for the reviews!
 
 ---
 
-* [HADOOP-10681](https://issues.apache.org/jira/browse/HADOOP-10681) | Major | Remove synchronized blocks from SnappyCodec and ZlibCodec buffering inner loop
+* [YARN-2615](https://issues.apache.org/jira/browse/YARN-2615) | Blocker | ClientToAMTokenIdentifier and DelegationTokenIdentifier should allow extended fields
 
-Remove unnecessary synchronized blocks from Snappy/Zlib codecs.
-
----
-
-* [HADOOP-10620](https://issues.apache.org/jira/browse/HADOOP-10620) | Major | /docs/current doesn't point to the latest version 2.4.0
-
-Verified http://hadoop.apache.org/docs/current/ link now point to current release (v2.6.0).
+No release note provided for this incompatible change.
 
 ---
 
-* [HADOOP-10583](https://issues.apache.org/jira/browse/HADOOP-10583) | Minor | bin/hadoop key throws NPE with no args and assorted other fixups
+* [YARN-1051](https://issues.apache.org/jira/browse/YARN-1051) | Major | YARN Admission Control/Planner: enhancing the resource allocation model with time.
 
-bin/hadoop key
-with no args would throw an NPE.
-
----
-
-* [HADOOP-10244](https://issues.apache.org/jira/browse/HADOOP-10244) | Major | TestKeyShell improperly tests the results of a Delete
-
-Fix of inappropriate test of delete functionality.
+No release note provided for this incompatible change.
 
 ---
 
-* [HADOOP-10201](https://issues.apache.org/jira/browse/HADOOP-10201) | Major | Add Listing Support to Key Management APIs
+* [YARN-668](https://issues.apache.org/jira/browse/YARN-668) | Blocker | TokenIdentifier serialization should consider Unknown fields
 
-I just committed this. Thanks, Larry!
-
----
-
-* [HADOOP-8944](https://issues.apache.org/jira/browse/HADOOP-8944) | Trivial | Shell command fs -count should include human readable option
-
-Implements -h option for fs -count to show file sizes in human readable format. Additionally, ContentSummary.getHeader() now returns a different string that is incompatible with previous releases.
-
----
-
-* [HADOOP-8069](https://issues.apache.org/jira/browse/HADOOP-8069) | Major | Enable TCP\_NODELAY by default for IPC
-
-This change enables the TCP\_NODELAY flag for all Hadoop IPC connections, hence bypassing TCP Nagling. Nagling interacts poorly with TCP delayed ACKs especially for request-response protocols.
+No release note provided for this incompatible change.
 
 
 
