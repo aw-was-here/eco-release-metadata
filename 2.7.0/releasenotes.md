@@ -39,7 +39,6 @@ LibHDFS now supports 32-bit build targets on Windows.
 1. Introduced quota by storage type as a hard limit on the amount of space usage allowed for different storage types (SSD, DISK, ARCHIVE) under the target directory.
 2. Added {{SetQuotaByStorageType}} API and {{-storagetype}} option for  {{hdfs dfsadmin -setSpaceQuota/-clrSpaceQuota}} commands to allow set/clear quota by storage type under the target directory.
 
-
 ---
 
 * [HDFS-7457](https://issues.apache.org/jira/browse/HDFS-7457) | Major | DatanodeID generates excessive garbage
@@ -59,7 +58,6 @@ $ mvn clean site; mvn site:stage -DstagingDirectory=/tmp/hadoop-site
 
 Point your browser to 
 file:///tmp/hadoop-site/hadoop-project/hadoop-project-dist/hadoop-hdfs/HDFSCommands.html
-
 
 ---
 
@@ -91,7 +89,7 @@ Add a feature for replica pinning so that when a replica is pinned in a datanode
 * [HDFS-1522](https://issues.apache.org/jira/browse/HDFS-1522) | Major | Merge Block.BLOCK\_FILE\_PREFIX and DataStorage.BLOCK\_FILE\_PREFIX into one constant
 
 This merges Block.BLOCK\_FILE\_PREFIX and DataStorage.BLOCK\_FILE\_PREFIX into one constant. Hard-coded
-literals of "blk\_" in various files are also updated to use the same constant. 
+literals of "blk\_" in various files are also updated to use the same constant.
 
 ---
 

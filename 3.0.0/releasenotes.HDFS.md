@@ -21,7 +21,6 @@ This deprecates the following environment variables:
 
 Remove "downgrade" from "namenode -rollingUpgrade" startup option since it may incorrectly finalize an ongoing rolling upgrade.
 
-
 ---
 
 * [HDFS-6246](https://issues.apache.org/jira/browse/HDFS-6246) | Minor | Remove 'dfs.support.append' flag from trunk code
@@ -48,7 +47,7 @@ Remove the deprecated DFSOutputStream.sync() method.
 
 ---
 
-* [HDFS-2538](https://issues.apache.org/jira/browse/HDFS-2538) | Minor | option to disable fsck dots 
+* [HDFS-2538](https://issues.apache.org/jira/browse/HDFS-2538) | Minor | option to disable fsck dots
 
 fsck does not print out dots for progress reporting by default. To print out dots, you should specify '-showprogress' option.
 

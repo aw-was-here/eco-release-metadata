@@ -47,7 +47,6 @@ Prior to this change, distcp had hard-coded values for memory usage.  Now distcp
 Adds a native implementation of the map output collector. The native library will build automatically with -Pnative. Users may choose the new collector on a job-by-job basis by setting mapreduce.job.map.output.collector.class=org.apache.hadoop.mapred.
 nativetask.NativeMapOutputCollectorDelegator in their job configuration. For shuffle-intensive jobs this may provide speed-ups of 30% or more.
 
-
 ---
 
 * [HDFS-7460](https://issues.apache.org/jira/browse/HDFS-7460) | Major | Rewrite httpfs to use new shell framework
@@ -64,7 +63,6 @@ This deprecates the following environment variables:
 * [HDFS-7302](https://issues.apache.org/jira/browse/HDFS-7302) | Major | namenode -rollingUpgrade downgrade may finalize a rolling upgrade
 
 Remove "downgrade" from "namenode -rollingUpgrade" startup option since it may incorrectly finalize an ongoing rolling upgrade.
-
 
 ---
 
@@ -92,7 +90,7 @@ Remove the deprecated DFSOutputStream.sync() method.
 
 ---
 
-* [HDFS-2538](https://issues.apache.org/jira/browse/HDFS-2538) | Minor | option to disable fsck dots 
+* [HDFS-2538](https://issues.apache.org/jira/browse/HDFS-2538) | Minor | option to disable fsck dots
 
 fsck does not print out dots for progress reporting by default. To print out dots, you should specify '-showprogress' option.
 
@@ -110,7 +108,7 @@ The output of du has now been made more Unix-like, with aligned output.
 
 ---
 
-* [HADOOP-11625](https://issues.apache.org/jira/browse/HADOOP-11625) | Major | Minor fixes to command manual &amp; SLA doc
+* [HADOOP-11625](https://issues.apache.org/jira/browse/HADOOP-11625) | Major | Minor fixes to command manual & SLA doc
 
 Just some minor printography fixes.
 
@@ -283,12 +281,11 @@ test-patch.sh adds a new option "--build-native". When set to false native
 components are not built. When set to true native components are built. The
 default value is true.
 
-
 ---
 
 * [HADOOP-8124](https://issues.apache.org/jira/browse/HADOOP-8124) | Major | Remove the deprecated Syncable.sync() method
 
-Remove the deprecated FSDataOutputStream constructor, FSDataOutputStream.sync() and Syncable.sync().  
+Remove the deprecated FSDataOutputStream constructor, FSDataOutputStream.sync() and Syncable.sync().
 
 ---
 
@@ -298,7 +295,7 @@ Added -v option to fs -count command to display a header record in the report.
 
 ---
 
-* [HADOOP-7704](https://issues.apache.org/jira/browse/HADOOP-7704) | Minor | JsonFactory can be created only once and used for every next request to create JsonGenerator inside JMXJsonServlet 
+* [HADOOP-7704](https://issues.apache.org/jira/browse/HADOOP-7704) | Minor | JsonFactory can be created only once and used for every next request to create JsonGenerator inside JMXJsonServlet
 
 Reduce number of object created by JMXJsonServlet. (Devaraj K via Eric Yang)
 
