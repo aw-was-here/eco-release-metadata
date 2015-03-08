@@ -6,7 +6,7 @@ These release notes cover  new developer and user-facing incompatibilities, feat
 
 ---
 
-* [HDFS-6102](https://issues.apache.org/jira/browse/HDFS-6102) | Blocker | Lower the default maximum items per directory to fix PB fsimage loading
+* [HDFS-6102](https://issues.apache.org/jira/browse/HDFS-6102) | *Blocker* | **Lower the default maximum items per directory to fix PB fsimage loading**
 
 No release note provided for this incompatible change.
 
@@ -60,7 +60,7 @@ Users can explicitly specify the port in the URI to access the file system which
 
 ---
 
-* [HDFS-5138](https://issues.apache.org/jira/browse/HDFS-5138) | Blocker | Support HDFS upgrade in HA
+* [HDFS-5138](https://issues.apache.org/jira/browse/HDFS-5138) | *Blocker* | **Support HDFS upgrade in HA**
 
 No release note provided for this incompatible change.
 

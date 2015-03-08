@@ -544,6 +544,7 @@
 | [MAPREDUCE-4286](https://issues.apache.org/jira/browse/MAPREDUCE-4286) | TestClientProtocolProviderImpls passes on failure conditions |  Major |  | Devaraj K | Devaraj K |
 | [MAPREDUCE-3283](https://issues.apache.org/jira/browse/MAPREDUCE-3283) | mapred classpath CLI does not display the complete classpath |  Minor | (scripts) | Ramya Sunil | Varun Saxena |
 | [MAPREDUCE-2815](https://issues.apache.org/jira/browse/MAPREDUCE-2815) | JavaDoc does not generate correctly for MultithreadedMapRunner |  Minor | (documentation) | Shane Butler | Chris Palmer |
+| [YARN-3296](https://issues.apache.org/jira/browse/YARN-3296) | yarn.nodemanager.container-monitor.process-tree.class is configurable but ResourceCalculatorProcessTree class is marked Private |  Major |  | Hitesh Shah | Hitesh Shah |
 | [YARN-3281](https://issues.apache.org/jira/browse/YARN-3281) | Add RMStateStore to StateMachine visualization list |  Minor | (scripts) | Chengbing Liu | Chengbing Liu |
 | [YARN-3275](https://issues.apache.org/jira/browse/YARN-3275) | CapacityScheduler: Preemption happening on non-preemptable queues |  Major |  | Eric Payne | Eric Payne |
 | [YARN-3270](https://issues.apache.org/jira/browse/YARN-3270) | node label expression not getting set in ApplicationSubmissionContext |  Minor |  | Rohit Agarwal | Rohit Agarwal |

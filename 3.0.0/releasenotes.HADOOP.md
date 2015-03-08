@@ -61,7 +61,7 @@ The following shell environment variables have been deprecated:
 
 ---
 
-* [HADOOP-11356](https://issues.apache.org/jira/browse/HADOOP-11356) | Major | Removed deprecated o.a.h.fs.permission.AccessControlException
+* [HADOOP-11356](https://issues.apache.org/jira/browse/HADOOP-11356) | *Major* | **Removed deprecated o.a.h.fs.permission.AccessControlException**
 
 No release note provided for this incompatible change.
 
@@ -91,7 +91,7 @@ This changes the output of the 'hadoop version' command to generically say 'Sour
 
 ---
 
-* [HADOOP-10474](https://issues.apache.org/jira/browse/HADOOP-10474) | Major | Move o.a.h.record to hadoop-streaming
+* [HADOOP-10474](https://issues.apache.org/jira/browse/HADOOP-10474) | *Major* | **Move o.a.h.record to hadoop-streaming**
 
 No release note provided for this incompatible change.
 

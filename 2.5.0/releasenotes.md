@@ -72,7 +72,7 @@ These keys complement the existing NameNode options:
 
 ---
 
-* [HDFS-6168](https://issues.apache.org/jira/browse/HDFS-6168) | Major | Remove deprecated methods in DistributedFileSystem
+* [HDFS-6168](https://issues.apache.org/jira/browse/HDFS-6168) | *Major* | **Remove deprecated methods in DistributedFileSystem**
 
 No release note provided for this incompatible change.
 
@@ -93,7 +93,7 @@ dfs.datanode.slow.io.warning.threshold.ms (Default 300ms)
 
 ---
 
-* [YARN-2107](https://issues.apache.org/jira/browse/YARN-2107) | Major | Refactor timeline classes into server.timeline package
+* [YARN-2107](https://issues.apache.org/jira/browse/YARN-2107) | *Major* | **Refactor timeline classes into server.timeline package**
 
 No release note provided for this incompatible change.
 

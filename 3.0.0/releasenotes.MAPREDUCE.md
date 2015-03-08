@@ -6,13 +6,13 @@ These release notes cover  new developer and user-facing incompatibilities, feat
 
 ---
 
-* [MAPREDUCE-6234](https://issues.apache.org/jira/browse/MAPREDUCE-6234) | Major | TestHighRamJob fails due to the change in MAPREDUCE-5785
+* [MAPREDUCE-6234](https://issues.apache.org/jira/browse/MAPREDUCE-6234) | *Major* | **TestHighRamJob fails due to the change in MAPREDUCE-5785**
 
 No release note provided for this incompatible change.
 
 ---
 
-* [MAPREDUCE-6223](https://issues.apache.org/jira/browse/MAPREDUCE-6223) | Major | TestJobConf#testNegativeValueForTaskVmem failures
+* [MAPREDUCE-6223](https://issues.apache.org/jira/browse/MAPREDUCE-6223) | *Major* | **TestJobConf#testNegativeValueForTaskVmem failures**
 
 No release note provided for this incompatible change.
 
@@ -24,7 +24,7 @@ Fix a typo. If a configuration is set through program, the source of the configu
 
 ---
 
-* [MAPREDUCE-5785](https://issues.apache.org/jira/browse/MAPREDUCE-5785) | Major | Derive heap size or mapreduce.*.memory.mb automatically
+* [MAPREDUCE-5785](https://issues.apache.org/jira/browse/MAPREDUCE-5785) | *Major* | **Derive heap size or mapreduce.*.memory.mb automatically**
 
 No release note provided for this incompatible change.
 

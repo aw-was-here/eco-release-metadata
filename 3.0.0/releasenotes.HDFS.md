@@ -35,7 +35,7 @@ Support for hftp and hsftp has been removed.  They have superseded by webhdfs  a
 
 ---
 
-* [HDFS-5079](https://issues.apache.org/jira/browse/HDFS-5079) | Major | Cleaning up NNHAStatusHeartbeat.State DatanodeProtocolProtos.
+* [HDFS-5079](https://issues.apache.org/jira/browse/HDFS-5079) | *Major* | **Cleaning up NNHAStatusHeartbeat.State DatanodeProtocolProtos.**
 
 No release note provided for this incompatible change.
 

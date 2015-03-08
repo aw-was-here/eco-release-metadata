@@ -79,6 +79,7 @@
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [YARN-3296](https://issues.apache.org/jira/browse/YARN-3296) | yarn.nodemanager.container-monitor.process-tree.class is configurable but ResourceCalculatorProcessTree class is marked Private |  Major |  | Hitesh Shah | Hitesh Shah |
 | [YARN-3281](https://issues.apache.org/jira/browse/YARN-3281) | Add RMStateStore to StateMachine visualization list |  Minor | (scripts) | Chengbing Liu | Chengbing Liu |
 | [YARN-3275](https://issues.apache.org/jira/browse/YARN-3275) | CapacityScheduler: Preemption happening on non-preemptable queues |  Major |  | Eric Payne | Eric Payne |
 | [YARN-3270](https://issues.apache.org/jira/browse/YARN-3270) | node label expression not getting set in ApplicationSubmissionContext |  Minor |  | Rohit Agarwal | Rohit Agarwal |

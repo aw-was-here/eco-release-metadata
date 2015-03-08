@@ -6,7 +6,7 @@ These release notes cover  new developer and user-facing incompatibilities, feat
 
 ---
 
-* [YARN-2107](https://issues.apache.org/jira/browse/YARN-2107) | Major | Refactor timeline classes into server.timeline package
+* [YARN-2107](https://issues.apache.org/jira/browse/YARN-2107) | *Major* | **Refactor timeline classes into server.timeline package**
 
 No release note provided for this incompatible change.
 

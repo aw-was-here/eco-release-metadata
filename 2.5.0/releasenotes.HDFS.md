@@ -40,7 +40,7 @@ These keys complement the existing NameNode options:
 
 ---
 
-* [HDFS-6168](https://issues.apache.org/jira/browse/HDFS-6168) | Major | Remove deprecated methods in DistributedFileSystem
+* [HDFS-6168](https://issues.apache.org/jira/browse/HDFS-6168) | *Major* | **Remove deprecated methods in DistributedFileSystem**
 
 No release note provided for this incompatible change.
 

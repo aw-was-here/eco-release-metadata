@@ -12,19 +12,19 @@ I just committed this. Thanks [~jeagles] for the patch and [~ozawa] for the revi
 
 ---
 
-* [YARN-2615](https://issues.apache.org/jira/browse/YARN-2615) | Blocker | ClientToAMTokenIdentifier and DelegationTokenIdentifier should allow extended fields
+* [YARN-2615](https://issues.apache.org/jira/browse/YARN-2615) | *Blocker* | **ClientToAMTokenIdentifier and DelegationTokenIdentifier should allow extended fields**
 
 No release note provided for this incompatible change.
 
 ---
 
-* [YARN-1051](https://issues.apache.org/jira/browse/YARN-1051) | Major | YARN Admission Control/Planner: enhancing the resource allocation model with time.
+* [YARN-1051](https://issues.apache.org/jira/browse/YARN-1051) | *Major* | **YARN Admission Control/Planner: enhancing the resource allocation model with time.**
 
 No release note provided for this incompatible change.
 
 ---
 
-* [YARN-668](https://issues.apache.org/jira/browse/YARN-668) | Blocker | TokenIdentifier serialization should consider Unknown fields
+* [YARN-668](https://issues.apache.org/jira/browse/YARN-668) | *Blocker* | **TokenIdentifier serialization should consider Unknown fields**
 
 No release note provided for this incompatible change.
 

@@ -45,13 +45,13 @@ file:///tmp/hadoop-site/hadoop-project/hadoop-project-dist/hadoop-hdfs/HDFSComma
 
 ---
 
-* [HDFS-6651](https://issues.apache.org/jira/browse/HDFS-6651) | Critical | Deletion failure can leak inodes permanently
+* [HDFS-6651](https://issues.apache.org/jira/browse/HDFS-6651) | *Critical* | **Deletion failure can leak inodes permanently**
 
 No release note provided for this incompatible change.
 
 ---
 
-* [HDFS-6252](https://issues.apache.org/jira/browse/HDFS-6252) | Minor | Phase out the old web UI in HDFS
+* [HDFS-6252](https://issues.apache.org/jira/browse/HDFS-6252) | *Minor* | **Phase out the old web UI in HDFS**
 
 No release note provided for this incompatible change.
 

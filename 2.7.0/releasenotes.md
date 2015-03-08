@@ -6,7 +6,7 @@ These release notes cover  new developer and user-facing incompatibilities, feat
 
 ---
 
-* [HADOOP-11498](https://issues.apache.org/jira/browse/HADOOP-11498) | Major | Bump the version of HTrace to 3.1.0-incubating
+* [HADOOP-11498](https://issues.apache.org/jira/browse/HADOOP-11498) | *Major* | **Bump the version of HTrace to 3.1.0-incubating**
 
 No release note provided for this incompatible change.
 
@@ -34,7 +34,7 @@ fs.s3a.max.total.tasks:    the maximum number of tasks that the LinkedBlockingQu
 
 ---
 
-* [HADOOP-11385](https://issues.apache.org/jira/browse/HADOOP-11385) | Critical | Prevent cross site scripting attack on JMXJSONServlet
+* [HADOOP-11385](https://issues.apache.org/jira/browse/HADOOP-11385) | *Critical* | **Prevent cross site scripting attack on JMXJSONServlet**
 
 No release note provided for this incompatible change.
 
@@ -52,7 +52,7 @@ Keys with uppercase names can no longer be created when using the JavaKeyStorePr
 
 ---
 
-* [HADOOP-10530](https://issues.apache.org/jira/browse/HADOOP-10530) | Blocker | Make hadoop trunk build on Java7+ only
+* [HADOOP-10530](https://issues.apache.org/jira/browse/HADOOP-10530) | *Blocker* | **Make hadoop trunk build on Java7+ only**
 
 No release note provided for this incompatible change.
 
@@ -121,13 +121,13 @@ file:///tmp/hadoop-site/hadoop-project/hadoop-project-dist/hadoop-hdfs/HDFSComma
 
 ---
 
-* [HDFS-6651](https://issues.apache.org/jira/browse/HDFS-6651) | Critical | Deletion failure can leak inodes permanently
+* [HDFS-6651](https://issues.apache.org/jira/browse/HDFS-6651) | *Critical* | **Deletion failure can leak inodes permanently**
 
 No release note provided for this incompatible change.
 
 ---
 
-* [HDFS-6252](https://issues.apache.org/jira/browse/HDFS-6252) | Minor | Phase out the old web UI in HDFS
+* [HDFS-6252](https://issues.apache.org/jira/browse/HDFS-6252) | *Minor* | **Phase out the old web UI in HDFS**
 
 No release note provided for this incompatible change.
 

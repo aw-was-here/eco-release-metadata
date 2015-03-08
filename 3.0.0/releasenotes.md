@@ -61,7 +61,7 @@ The following shell environment variables have been deprecated:
 
 ---
 
-* [HADOOP-11356](https://issues.apache.org/jira/browse/HADOOP-11356) | Major | Removed deprecated o.a.h.fs.permission.AccessControlException
+* [HADOOP-11356](https://issues.apache.org/jira/browse/HADOOP-11356) | *Major* | **Removed deprecated o.a.h.fs.permission.AccessControlException**
 
 No release note provided for this incompatible change.
 
@@ -91,7 +91,7 @@ This changes the output of the 'hadoop version' command to generically say 'Sour
 
 ---
 
-* [HADOOP-10474](https://issues.apache.org/jira/browse/HADOOP-10474) | Major | Move o.a.h.record to hadoop-streaming
+* [HADOOP-10474](https://issues.apache.org/jira/browse/HADOOP-10474) | *Major* | **Move o.a.h.record to hadoop-streaming**
 
 No release note provided for this incompatible change.
 
@@ -246,7 +246,7 @@ Support for hftp and hsftp has been removed.  They have superseded by webhdfs  a
 
 ---
 
-* [HDFS-5079](https://issues.apache.org/jira/browse/HDFS-5079) | Major | Cleaning up NNHAStatusHeartbeat.State DatanodeProtocolProtos.
+* [HDFS-5079](https://issues.apache.org/jira/browse/HDFS-5079) | *Major* | **Cleaning up NNHAStatusHeartbeat.State DatanodeProtocolProtos.**
 
 No release note provided for this incompatible change.
 
@@ -270,13 +270,13 @@ Change default namespace quota of root directory from Integer.MAX\_VALUE to Long
 
 ---
 
-* [MAPREDUCE-6234](https://issues.apache.org/jira/browse/MAPREDUCE-6234) | Major | TestHighRamJob fails due to the change in MAPREDUCE-5785
+* [MAPREDUCE-6234](https://issues.apache.org/jira/browse/MAPREDUCE-6234) | *Major* | **TestHighRamJob fails due to the change in MAPREDUCE-5785**
 
 No release note provided for this incompatible change.
 
 ---
 
-* [MAPREDUCE-6223](https://issues.apache.org/jira/browse/MAPREDUCE-6223) | Major | TestJobConf#testNegativeValueForTaskVmem failures
+* [MAPREDUCE-6223](https://issues.apache.org/jira/browse/MAPREDUCE-6223) | *Major* | **TestJobConf#testNegativeValueForTaskVmem failures**
 
 No release note provided for this incompatible change.
 
@@ -288,7 +288,7 @@ Fix a typo. If a configuration is set through program, the source of the configu
 
 ---
 
-* [MAPREDUCE-5785](https://issues.apache.org/jira/browse/MAPREDUCE-5785) | Major | Derive heap size or mapreduce.*.memory.mb automatically
+* [MAPREDUCE-5785](https://issues.apache.org/jira/browse/MAPREDUCE-5785) | *Major* | **Derive heap size or mapreduce.*.memory.mb automatically**
 
 No release note provided for this incompatible change.
 
