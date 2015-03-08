@@ -34,9 +34,9 @@ Committed to branch-2 and trunk.
 
 If a read from a block is slow, start up another parallel, 'hedged' read against a different block replica.  We then take the result of which ever read returns first (the outstanding read is cancelled).  This 'hedged' read feature will help rein in the outliers, the odd read that takes a long time because it hit a bad patch on the disc, etc.
 
-This feature is off by default.  To enable this feature, set &lt;code&gt;dfs.client.hedged.read.threadpool.size&lt;/code&gt; to a positive number.  The threadpool size is how many threads to dedicate to the running of these 'hedged', concurrent reads in your client.
+This feature is off by default.  To enable this feature, set <code>dfs.client.hedged.read.threadpool.size</code> to a positive number.  The threadpool size is how many threads to dedicate to the running of these 'hedged', concurrent reads in your client.
 
-Then set &lt;code&gt;dfs.client.hedged.read.threshold.millis&lt;/code&gt; to the number of milliseconds to wait before starting up a 'hedged' read.  For example, if you set this property to 10, then if a read has not returned within 10 milliseconds, we will start up a new read against a different block replica.
+Then set <code>dfs.client.hedged.read.threshold.millis</code> to the number of milliseconds to wait before starting up a 'hedged' read.  For example, if you set this property to 10, then if a read has not returned within 10 milliseconds, we will start up a new read against a different block replica.
 
 This feature emits new metrics:
 

@@ -18,13 +18,13 @@ SaslPropertiesResolver  or its subclass is used to resolve the QOP used for a co
 
 Note that this change, effectively removes SaslRpcServer.SASL\_PROPS which was a public field. Any use of this variable  should be replaced with the following code:
 SaslPropertiesResolver saslPropsResolver = SaslPropertiesResolver.getInstance(conf);
-Map&lt;String, String&gt; sasl\_props = saslPropsResolver.getDefaultProperties();
+Map<String, String> sasl\_props = saslPropsResolver.getDefaultProperties();
 
 ---
 
 * [HADOOP-10211](https://issues.apache.org/jira/browse/HADOOP-10211) | Major | Enable RPC protocol to negotiate SASL-QOP values between clients and servers
 
-The hadoop.rpc.protection configuration property previously supported specifying a single value: one of authentication, integrity or privacy.  An unrecognized value was silently assumed to mean authentication.  This configuration property now accepts a comma-separated list of any of the 3 values, and unrecognized values are rejected with an error. Existing configurations containing an invalid value must be corrected. If the property is empty or not specified, authentication is assumed. 
+The hadoop.rpc.protection configuration property previously supported specifying a single value: one of authentication, integrity or privacy.  An unrecognized value was silently assumed to mean authentication.  This configuration property now accepts a comma-separated list of any of the 3 values, and unrecognized values are rejected with an error. Existing configurations containing an invalid value must be corrected. If the property is empty or not specified, authentication is assumed.
 
 ---
 

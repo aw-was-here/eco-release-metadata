@@ -83,7 +83,7 @@ value: AES256
 SaslRpcServer.SASL\_PROPS is removed.
 Any use of this variable  should be replaced with the following code: 
 SaslPropertiesResolver saslPropsResolver = SaslPropertiesResolver.getInstance(conf); 
-Map&lt;String, String&gt; sasl\_props = saslPropsResolver.getDefaultProperties();
+Map<String, String> sasl\_props = saslPropsResolver.getDefaultProperties();
 
 ---
 

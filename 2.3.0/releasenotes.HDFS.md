@@ -21,8 +21,6 @@ dfs.client.retry.interval-ms.get-last-block-length
 
 They are set to the 3 and 4000 respectively, these being what was previously hardcoded.
 
-
-
 ---
 
 * [HDFS-5536](https://issues.apache.org/jira/browse/HDFS-5536) | Major | Implement HTTP policy for Namenode and DataNode

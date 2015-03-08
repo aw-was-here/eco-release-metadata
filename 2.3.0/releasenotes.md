@@ -29,8 +29,6 @@ dfs.client.retry.interval-ms.get-last-block-length
 
 They are set to the 3 and 4000 respectively, these being what was previously hardcoded.
 
-
-
 ---
 
 * [HDFS-5536](https://issues.apache.org/jira/browse/HDFS-5536) | Major | Implement HTTP policy for Namenode and DataNode
@@ -68,7 +66,7 @@ Add a new configuration property "dfs.webhdfs.user.provider.user.pattern" for sp
 
 * [HADOOP-10047](https://issues.apache.org/jira/browse/HADOOP-10047) | Major | Add a directbuffer Decompressor API to hadoop
 
-Direct Bytebuffer decompressors for Zlib (Deflate &amp; Gzip) and Snappy 
+Direct Bytebuffer decompressors for Zlib (Deflate & Gzip) and Snappy
 
 ---
 
@@ -86,14 +84,14 @@ Data locality issue solved by patch in Swift, commit procedure to OpenStack is i
 
 To use implementation add to core-site.xml following:
 ...
-	&lt;property&gt;
-	        &lt;name&gt;fs.swift.impl&lt;/name&gt;
-	    	&lt;value&gt;com.mirantis.fs.SwiftFileSystem&lt;/value&gt;
-	&lt;/property&gt;
-	&lt;property&gt;
-	    	&lt;name&gt;fs.swift.block.impl&lt;/name&gt;
-	         &lt;value&gt;com.mirantis.fs.block.SwiftBlockFileSystem&lt;/value&gt;
-        &lt;/property&gt;
+	<property>
+	        <name>fs.swift.impl</name>
+	    	<value>com.mirantis.fs.SwiftFileSystem</value>
+	</property>
+	<property>
+	    	<name>fs.swift.block.impl</name>
+	         <value>com.mirantis.fs.block.SwiftBlockFileSystem</value>
+        </property>
 ...
 
 In MapReduce job specify following configs for OpenStack Keystone authentication:
