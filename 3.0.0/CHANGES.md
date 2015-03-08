@@ -54,7 +54,7 @@
 | [HADOOP-11460](https://issues.apache.org/jira/browse/HADOOP-11460) | Deprecate shell vars |  Major | (scripts) | Allen Wittenauer | John Smith |
 | [HADOOP-11352](https://issues.apache.org/jira/browse/HADOOP-11352) | Clean up test-patch.sh to disable "+1 contrib tests" |  Major | (build) | Akira AJISAKA | Akira AJISAKA |
 | [HADOOP-11346](https://issues.apache.org/jira/browse/HADOOP-11346) | Rewrite sls/rumen to use new shell framework |  Major | (scripts , tools) | Allen Wittenauer | John Smith |
-| [HADOOP-11208](https://issues.apache.org/jira/browse/HADOOP-11208) | Replace "daemon" with better name in script subcommands |  Major |  | Yongjun Zhang | Allen Wittenauer |
+| [HADOOP-11208](https://issues.apache.org/jira/browse/HADOOP-11208) | Replace "daemon" with better name in script subcommands |  Major | (scripts) | Yongjun Zhang | Allen Wittenauer |
 | [HADOOP-11150](https://issues.apache.org/jira/browse/HADOOP-11150) | hadoop command should show the reason on failure by invalid COMMAND or CLASSNAME |  Minor | (scripts) | Masatake Iwasaki | Masatake Iwasaki |
 | [HADOOP-11092](https://issues.apache.org/jira/browse/HADOOP-11092) | hadoop shell commands should print usage if not given a class |  Major | (scripts) | Bruno Mah&#233; | Allen Wittenauer |
 | [HADOOP-11081](https://issues.apache.org/jira/browse/HADOOP-11081) | Document hadoop properties expected to be set by the shell code in *-env.sh |  Major | (documentation , scripts) | Allen Wittenauer | Allen Wittenauer |
@@ -72,7 +72,7 @@
 | [HADOOP-8838](https://issues.apache.org/jira/browse/HADOOP-8838) | Colorize the test-patch output sent to JIRA |  Trivial | (build) | Harsh J | Harsh J |
 | [HADOOP-8813](https://issues.apache.org/jira/browse/HADOOP-8813) | RPC Server and Client classes need InterfaceAudience and InterfaceStability annotations |  Trivial | (ipc) | Brandon Li | Brandon Li |
 | [HADOOP-8776](https://issues.apache.org/jira/browse/HADOOP-8776) | Provide an option in test-patch that can enable / disable compiling native code |  Minor | (build) | Hemanth Yamijala | Chris Nauroth |
-| [HADOOP-8719](https://issues.apache.org/jira/browse/HADOOP-8719) | Workaround for kerberos-related log errors upon running any hadoop command on OSX |  Trivial |  | Jianbin Wei | Jianbin Wei |
+| [HADOOP-8719](https://issues.apache.org/jira/browse/HADOOP-8719) | Workaround for kerberos-related log errors upon running any hadoop command on OSX |  Trivial | (scripts) | Jianbin Wei | Jianbin Wei |
 | [HADOOP-8593](https://issues.apache.org/jira/browse/HADOOP-8593) | add  the missed @Override to methods in Metric/Metric2 package |  Minor | (metrics) | Brandon Li | Brandon Li |
 | [HADOOP-8588](https://issues.apache.org/jira/browse/HADOOP-8588) | SerializationFactory shouldn't throw a NullPointerException if the serializations list is empty |  Minor | (io) | Harsh J | Sho Shimauchi |
 | [HADOOP-8523](https://issues.apache.org/jira/browse/HADOOP-8523) | test-patch.sh doesn't validate patches before building |  Minor | (build) | Jack Dintruff | Jack Dintruff |
@@ -91,7 +91,7 @@
 | [HADOOP-6964](https://issues.apache.org/jira/browse/HADOOP-6964) | Allow compact property description in xml |  Major | (conf) | Owen O'Malley | Kengo Seki |
 | [HADOOP-6616](https://issues.apache.org/jira/browse/HADOOP-6616) | Improve documentation for rack awareness |  Major | (documentation) | Jeff Hammerbacher | Adam Faris |
 | [HDFS-7546](https://issues.apache.org/jira/browse/HDFS-7546) | Document, and set an accepting default for dfs.namenode.kerberos.principal.pattern |  Minor | (security) | Harsh J | Harsh J |
-| [HDFS-7460](https://issues.apache.org/jira/browse/HDFS-7460) | Rewrite httpfs to use new shell framework |  Major |  | Allen Wittenauer | John Smith |
+| [HDFS-7460](https://issues.apache.org/jira/browse/HDFS-7460) | Rewrite httpfs to use new shell framework |  Major | (scripts) | Allen Wittenauer | John Smith |
 | [HDFS-7322](https://issues.apache.org/jira/browse/HDFS-7322) | deprecate sbin/hadoop-daemon.sh |  Major | (scripts) | Allen Wittenauer | Allen Wittenauer |
 | [HDFS-6228](https://issues.apache.org/jira/browse/HDFS-6228) | comments typo fix for FsDatasetImpl.java |  Trivial |  | zhaoyunjiong | zhaoyunjiong |
 | [HDFS-5041](https://issues.apache.org/jira/browse/HDFS-5041) | Add the time of last heartbeat to dead server Web UI |  Minor |  | Ted Yu | Ted Yu |
@@ -122,7 +122,7 @@
 | [YARN-3168](https://issues.apache.org/jira/browse/YARN-3168) | Convert site documentation from apt to markdown |  Major | (documentation) | Allen Wittenauer | Gururaj Shetty |
 | [YARN-2980](https://issues.apache.org/jira/browse/YARN-2980) | Move health check script related functionality to hadoop-common |  Major |  | Ming Ma | Varun Saxena |
 | [YARN-2796](https://issues.apache.org/jira/browse/YARN-2796) | deprecate sbin/yarn-daemon.sh |  Major | (scripts) | Allen Wittenauer | Allen Wittenauer |
-| [YARN-2472](https://issues.apache.org/jira/browse/YARN-2472) | yarn-daemons.sh should just call yarn directly |  Major |  | Allen Wittenauer | Masatake Iwasaki |
+| [YARN-2472](https://issues.apache.org/jira/browse/YARN-2472) | yarn-daemons.sh should just call yarn directly |  Major | (scripts) | Allen Wittenauer | Masatake Iwasaki |
 | [YARN-2438](https://issues.apache.org/jira/browse/YARN-2438) | yarn-env.sh cleanup |  Major | (scripts) | Allen Wittenauer | Allen Wittenauer |
 | [YARN-2437](https://issues.apache.org/jira/browse/YARN-2437) | start-yarn.sh/stop-yarn should give info |  Major | (scripts) | Allen Wittenauer | Varun Saxena |
 

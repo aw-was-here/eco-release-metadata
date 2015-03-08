@@ -41,7 +41,7 @@
 | [HADOOP-11460](https://issues.apache.org/jira/browse/HADOOP-11460) | Deprecate shell vars |  Major | (scripts) | Allen Wittenauer | John Smith |
 | [HADOOP-11352](https://issues.apache.org/jira/browse/HADOOP-11352) | Clean up test-patch.sh to disable "+1 contrib tests" |  Major | (build) | Akira AJISAKA | Akira AJISAKA |
 | [HADOOP-11346](https://issues.apache.org/jira/browse/HADOOP-11346) | Rewrite sls/rumen to use new shell framework |  Major | (scripts , tools) | Allen Wittenauer | John Smith |
-| [HADOOP-11208](https://issues.apache.org/jira/browse/HADOOP-11208) | Replace "daemon" with better name in script subcommands |  Major |  | Yongjun Zhang | Allen Wittenauer |
+| [HADOOP-11208](https://issues.apache.org/jira/browse/HADOOP-11208) | Replace "daemon" with better name in script subcommands |  Major | (scripts) | Yongjun Zhang | Allen Wittenauer |
 | [HADOOP-11150](https://issues.apache.org/jira/browse/HADOOP-11150) | hadoop command should show the reason on failure by invalid COMMAND or CLASSNAME |  Minor | (scripts) | Masatake Iwasaki | Masatake Iwasaki |
 | [HADOOP-11092](https://issues.apache.org/jira/browse/HADOOP-11092) | hadoop shell commands should print usage if not given a class |  Major | (scripts) | Bruno Mah&#233; | Allen Wittenauer |
 | [HADOOP-11081](https://issues.apache.org/jira/browse/HADOOP-11081) | Document hadoop properties expected to be set by the shell code in *-env.sh |  Major | (documentation , scripts) | Allen Wittenauer | Allen Wittenauer |
@@ -59,7 +59,7 @@
 | [HADOOP-8838](https://issues.apache.org/jira/browse/HADOOP-8838) | Colorize the test-patch output sent to JIRA |  Trivial | (build) | Harsh J | Harsh J |
 | [HADOOP-8813](https://issues.apache.org/jira/browse/HADOOP-8813) | RPC Server and Client classes need InterfaceAudience and InterfaceStability annotations |  Trivial | (ipc) | Brandon Li | Brandon Li |
 | [HADOOP-8776](https://issues.apache.org/jira/browse/HADOOP-8776) | Provide an option in test-patch that can enable / disable compiling native code |  Minor | (build) | Hemanth Yamijala | Chris Nauroth |
-| [HADOOP-8719](https://issues.apache.org/jira/browse/HADOOP-8719) | Workaround for kerberos-related log errors upon running any hadoop command on OSX |  Trivial |  | Jianbin Wei | Jianbin Wei |
+| [HADOOP-8719](https://issues.apache.org/jira/browse/HADOOP-8719) | Workaround for kerberos-related log errors upon running any hadoop command on OSX |  Trivial | (scripts) | Jianbin Wei | Jianbin Wei |
 | [HADOOP-8593](https://issues.apache.org/jira/browse/HADOOP-8593) | add  the missed @Override to methods in Metric/Metric2 package |  Minor | (metrics) | Brandon Li | Brandon Li |
 | [HADOOP-8588](https://issues.apache.org/jira/browse/HADOOP-8588) | SerializationFactory shouldn't throw a NullPointerException if the serializations list is empty |  Minor | (io) | Harsh J | Sho Shimauchi |
 | [HADOOP-8523](https://issues.apache.org/jira/browse/HADOOP-8523) | test-patch.sh doesn't validate patches before building |  Minor | (build) | Jack Dintruff | Jack Dintruff |

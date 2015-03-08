@@ -6,102 +6,6 @@ These release notes cover  new developer and user-facing incompatibilities, feat
 
 ---
 
-* [YARN-2428](https://issues.apache.org/jira/browse/YARN-2428) | Trivial | LCE default banned user list should have yarn
-
-The user 'yarn' is no longer allowed to run tasks for security reasons.
-
----
-
-* [MAPREDUCE-6234](https://issues.apache.org/jira/browse/MAPREDUCE-6234) | Major | TestHighRamJob fails due to the change in MAPREDUCE-5785
-
-No release note provided for this incompatible change.
-
----
-
-* [MAPREDUCE-6223](https://issues.apache.org/jira/browse/MAPREDUCE-6223) | Major | TestJobConf#testNegativeValueForTaskVmem failures
-
-No release note provided for this incompatible change.
-
----
-
-* [MAPREDUCE-5972](https://issues.apache.org/jira/browse/MAPREDUCE-5972) | Trivial | Fix typo 'programatically' in job.xml (and a few other places)
-
-Fix a typo. If a configuration is set through program, the source of the configuration is set to 'programmatically' instead of 'programatically' now.
-
----
-
-* [MAPREDUCE-5785](https://issues.apache.org/jira/browse/MAPREDUCE-5785) | Major | Derive heap size or mapreduce.*.memory.mb automatically
-
-No release note provided for this incompatible change.
-
----
-
-* [MAPREDUCE-5653](https://issues.apache.org/jira/browse/MAPREDUCE-5653) | Major | DistCp does not honour config-overrides for mapreduce.[map,reduce].memory.mb
-
-Prior to this change, distcp had hard-coded values for memory usage.  Now distcp will honor memory settings in a way compatible with the rest of MapReduce.
-
----
-
-* [MAPREDUCE-2841](https://issues.apache.org/jira/browse/MAPREDUCE-2841) | Major | Task level native optimization
-
-Adds a native implementation of the map output collector. The native library will build automatically with -Pnative. Users may choose the new collector on a job-by-job basis by setting mapreduce.job.map.output.collector.class=org.apache.hadoop.mapred.
-nativetask.NativeMapOutputCollectorDelegator in their job configuration. For shuffle-intensive jobs this may provide speed-ups of 30% or more.
-
----
-
-* [HDFS-7460](https://issues.apache.org/jira/browse/HDFS-7460) | Major | Rewrite httpfs to use new shell framework
-
-This deprecates the following environment variables:
-
-| Old | New |
-|:---- |:---- |
-| HTTPFS\_LOG | HADOOP\_LOG\_DIR|
-| HTTPFS\_CONFG | HADOOP\_CONF\_DIR |
-
----
-
-* [HDFS-7302](https://issues.apache.org/jira/browse/HDFS-7302) | Major | namenode -rollingUpgrade downgrade may finalize a rolling upgrade
-
-Remove "downgrade" from "namenode -rollingUpgrade" startup option since it may incorrectly finalize an ongoing rolling upgrade.
-
----
-
-* [HDFS-6246](https://issues.apache.org/jira/browse/HDFS-6246) | Minor | Remove 'dfs.support.append' flag from trunk code
-
-Appends in HDFS can no longer be disabled.
-
----
-
-* [HDFS-5570](https://issues.apache.org/jira/browse/HDFS-5570) | Major | Deprecate hftp / hsftp and replace them with webhdfs / swebhdfs
-
-Support for hftp and hsftp has been removed.  They have superseded by webhdfs  and swebhdfs.
-
----
-
-* [HDFS-5079](https://issues.apache.org/jira/browse/HDFS-5079) | Major | Cleaning up NNHAStatusHeartbeat.State DatanodeProtocolProtos.
-
-No release note provided for this incompatible change.
-
----
-
-* [HDFS-3034](https://issues.apache.org/jira/browse/HDFS-3034) | Major | Remove the deprecated Syncable.sync() method
-
-Remove the deprecated DFSOutputStream.sync() method.
-
----
-
-* [HDFS-2538](https://issues.apache.org/jira/browse/HDFS-2538) | Minor | option to disable fsck dots
-
-fsck does not print out dots for progress reporting by default. To print out dots, you should specify '-showprogress' option.
-
----
-
-* [HDFS-46](https://issues.apache.org/jira/browse/HDFS-46) | Major | The namespace quota of root directory should not be Integer.MAX\_VALUE
-
-Change default namespace quota of root directory from Integer.MAX\_VALUE to Long.MAX\_VALUE.
-
----
-
 * [HADOOP-11657](https://issues.apache.org/jira/browse/HADOOP-11657) | Minor | Align the output of `hadoop fs -du` to be more Unix-like
 
 The output of du has now been made more Unix-like, with aligned output.
@@ -310,6 +214,102 @@ Documented that the "fs -getmerge" shell command may not work properly over non 
 * [HADOOP-6857](https://issues.apache.org/jira/browse/HADOOP-6857) | Major | FsShell should report raw disk usage including replication factor
 
 The output format of hadoop fs -du has been changed. It shows not only the file size but also the raw disk usage including the replication factor.
+
+---
+
+* [HDFS-7460](https://issues.apache.org/jira/browse/HDFS-7460) | Major | Rewrite httpfs to use new shell framework
+
+This deprecates the following environment variables:
+
+| Old | New |
+|:---- |:---- |
+| HTTPFS\_LOG | HADOOP\_LOG\_DIR|
+| HTTPFS\_CONFG | HADOOP\_CONF\_DIR |
+
+---
+
+* [HDFS-7302](https://issues.apache.org/jira/browse/HDFS-7302) | Major | namenode -rollingUpgrade downgrade may finalize a rolling upgrade
+
+Remove "downgrade" from "namenode -rollingUpgrade" startup option since it may incorrectly finalize an ongoing rolling upgrade.
+
+---
+
+* [HDFS-6246](https://issues.apache.org/jira/browse/HDFS-6246) | Minor | Remove 'dfs.support.append' flag from trunk code
+
+Appends in HDFS can no longer be disabled.
+
+---
+
+* [HDFS-5570](https://issues.apache.org/jira/browse/HDFS-5570) | Major | Deprecate hftp / hsftp and replace them with webhdfs / swebhdfs
+
+Support for hftp and hsftp has been removed.  They have superseded by webhdfs  and swebhdfs.
+
+---
+
+* [HDFS-5079](https://issues.apache.org/jira/browse/HDFS-5079) | Major | Cleaning up NNHAStatusHeartbeat.State DatanodeProtocolProtos.
+
+No release note provided for this incompatible change.
+
+---
+
+* [HDFS-3034](https://issues.apache.org/jira/browse/HDFS-3034) | Major | Remove the deprecated Syncable.sync() method
+
+Remove the deprecated DFSOutputStream.sync() method.
+
+---
+
+* [HDFS-2538](https://issues.apache.org/jira/browse/HDFS-2538) | Minor | option to disable fsck dots
+
+fsck does not print out dots for progress reporting by default. To print out dots, you should specify '-showprogress' option.
+
+---
+
+* [HDFS-46](https://issues.apache.org/jira/browse/HDFS-46) | Major | The namespace quota of root directory should not be Integer.MAX\_VALUE
+
+Change default namespace quota of root directory from Integer.MAX\_VALUE to Long.MAX\_VALUE.
+
+---
+
+* [MAPREDUCE-6234](https://issues.apache.org/jira/browse/MAPREDUCE-6234) | Major | TestHighRamJob fails due to the change in MAPREDUCE-5785
+
+No release note provided for this incompatible change.
+
+---
+
+* [MAPREDUCE-6223](https://issues.apache.org/jira/browse/MAPREDUCE-6223) | Major | TestJobConf#testNegativeValueForTaskVmem failures
+
+No release note provided for this incompatible change.
+
+---
+
+* [MAPREDUCE-5972](https://issues.apache.org/jira/browse/MAPREDUCE-5972) | Trivial | Fix typo 'programatically' in job.xml (and a few other places)
+
+Fix a typo. If a configuration is set through program, the source of the configuration is set to 'programmatically' instead of 'programatically' now.
+
+---
+
+* [MAPREDUCE-5785](https://issues.apache.org/jira/browse/MAPREDUCE-5785) | Major | Derive heap size or mapreduce.*.memory.mb automatically
+
+No release note provided for this incompatible change.
+
+---
+
+* [MAPREDUCE-5653](https://issues.apache.org/jira/browse/MAPREDUCE-5653) | Major | DistCp does not honour config-overrides for mapreduce.[map,reduce].memory.mb
+
+Prior to this change, distcp had hard-coded values for memory usage.  Now distcp will honor memory settings in a way compatible with the rest of MapReduce.
+
+---
+
+* [MAPREDUCE-2841](https://issues.apache.org/jira/browse/MAPREDUCE-2841) | Major | Task level native optimization
+
+Adds a native implementation of the map output collector. The native library will build automatically with -Pnative. Users may choose the new collector on a job-by-job basis by setting mapreduce.job.map.output.collector.class=org.apache.hadoop.mapred.
+nativetask.NativeMapOutputCollectorDelegator in their job configuration. For shuffle-intensive jobs this may provide speed-ups of 30% or more.
+
+---
+
+* [YARN-2428](https://issues.apache.org/jira/browse/YARN-2428) | Trivial | LCE default banned user list should have yarn
+
+The user 'yarn' is no longer allowed to run tasks for security reasons.
 
 
 
