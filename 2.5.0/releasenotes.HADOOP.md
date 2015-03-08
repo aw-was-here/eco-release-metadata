@@ -6,7 +6,7 @@ These release notes cover  new developer and user-facing incompatibilities, feat
 
 ---
 
-* [HADOOP-10568](https://issues.apache.org/jira/browse/HADOOP-10568) | Major | Add s3 server-side encryption
+* [HADOOP-10568](https://issues.apache.org/jira/browse/HADOOP-10568) | *Major* | **Add s3 server-side encryption**
 
 s3 server-side encryption is now supported.
 
@@ -17,7 +17,7 @@ value: AES256
 
 ---
 
-* [HADOOP-10451](https://issues.apache.org/jira/browse/HADOOP-10451) | Trivial | Remove unused field and imports from SaslRpcServer
+* [HADOOP-10451](https://issues.apache.org/jira/browse/HADOOP-10451) | *Trivial* | **Remove unused field and imports from SaslRpcServer**
 
 SaslRpcServer.SASL\_PROPS is removed.
 Any use of this variable  should be replaced with the following code: 
@@ -26,13 +26,13 @@ Map<String, String> sasl\_props = saslPropsResolver.getDefaultProperties();
 
 ---
 
-* [HADOOP-10342](https://issues.apache.org/jira/browse/HADOOP-10342) | Major | Extend UserGroupInformation to return a UGI given a preauthenticated kerberos Subject
+* [HADOOP-10342](https://issues.apache.org/jira/browse/HADOOP-10342) | *Major* | **Extend UserGroupInformation to return a UGI given a preauthenticated kerberos Subject**
 
 Add getUGIFromSubject to leverage an external kerberos authentication
 
 ---
 
-* [HADOOP-9919](https://issues.apache.org/jira/browse/HADOOP-9919) | Major | Update hadoop-metrics2.properties examples to Yarn
+* [HADOOP-9919](https://issues.apache.org/jira/browse/HADOOP-9919) | *Major* | **Update hadoop-metrics2.properties examples to Yarn**
 
 Remove MRv1 settings from hadoop-metrics2.properties, add YARN settings instead.
 

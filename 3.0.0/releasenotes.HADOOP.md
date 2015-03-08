@@ -6,25 +6,25 @@ These release notes cover  new developer and user-facing incompatibilities, feat
 
 ---
 
-* [HADOOP-11657](https://issues.apache.org/jira/browse/HADOOP-11657) | Minor | Align the output of `hadoop fs -du` to be more Unix-like
+* [HADOOP-11657](https://issues.apache.org/jira/browse/HADOOP-11657) | *Minor* | **Align the output of `hadoop fs -du` to be more Unix-like**
 
 The output of du has now been made more Unix-like, with aligned output.
 
 ---
 
-* [HADOOP-11625](https://issues.apache.org/jira/browse/HADOOP-11625) | Major | Minor fixes to command manual & SLA doc
+* [HADOOP-11625](https://issues.apache.org/jira/browse/HADOOP-11625) | *Major* | **Minor fixes to command manual & SLA doc**
 
 Just some minor printography fixes.
 
 ---
 
-* [HADOOP-11554](https://issues.apache.org/jira/browse/HADOOP-11554) | Major | Expose HadoopKerberosName as a hadoop subcommand
+* [HADOOP-11554](https://issues.apache.org/jira/browse/HADOOP-11554) | *Major* | **Expose HadoopKerberosName as a hadoop subcommand**
 
 The hadoop kerbname subcommand has been added to ease operational pain in determining the output of auth\_to\_local rules.
 
 ---
 
-* [HADOOP-11460](https://issues.apache.org/jira/browse/HADOOP-11460) | Major | Deprecate shell vars
+* [HADOOP-11460](https://issues.apache.org/jira/browse/HADOOP-11460) | *Major* | **Deprecate shell vars**
 
 The following shell environment variables have been deprecated:
 
@@ -63,23 +63,23 @@ The following shell environment variables have been deprecated:
 
 * [HADOOP-11356](https://issues.apache.org/jira/browse/HADOOP-11356) | *Major* | **Removed deprecated o.a.h.fs.permission.AccessControlException**
 
-No release note provided for this incompatible change.
+**WARNING: No release note provided for this incompatible change.**
 
 ---
 
-* [HADOOP-11353](https://issues.apache.org/jira/browse/HADOOP-11353) | Major | Add support for .hadooprc
+* [HADOOP-11353](https://issues.apache.org/jira/browse/HADOOP-11353) | *Major* | **Add support for .hadooprc**
 
 .hadooprc allows users a convenient way to set and/or override the shell level settings.
 
 ---
 
-* [HADOOP-11041](https://issues.apache.org/jira/browse/HADOOP-11041) | Minor | VersionInfo output specifies subversion
+* [HADOOP-11041](https://issues.apache.org/jira/browse/HADOOP-11041) | *Minor* | **VersionInfo output specifies subversion**
 
 This changes the output of the 'hadoop version' command to generically say 'Source code repository' rather than specify which type of repo.
 
 ---
 
-* [HADOOP-10950](https://issues.apache.org/jira/browse/HADOOP-10950) | Major | rework  heap management  vars
+* [HADOOP-10950](https://issues.apache.org/jira/browse/HADOOP-10950) | *Major* | **rework  heap management  vars**
 
 * HADOOP\_HEAPSIZE variable has been deprecated  (It will still be honored if set, but expect it to go away in the future).    In its place, HADOOP\_HEAPSIZE\_MAX and HADOOP\_HEAPSIZE\_MIN have been introduced to set Xmx and Xms, respectively. 
 
@@ -93,11 +93,11 @@ This changes the output of the 'hadoop version' command to generically say 'Sour
 
 * [HADOOP-10474](https://issues.apache.org/jira/browse/HADOOP-10474) | *Major* | **Move o.a.h.record to hadoop-streaming**
 
-No release note provided for this incompatible change.
+**WARNING: No release note provided for this incompatible change.**
 
 ---
 
-* [HADOOP-9902](https://issues.apache.org/jira/browse/HADOOP-9902) | Major | Shell script rewrite
+* [HADOOP-9902](https://issues.apache.org/jira/browse/HADOOP-9902) | *Major* | **Shell script rewrite**
 
 The Hadoop shell scripts have been rewritten to fix many long standing bugs and include some new features.  While an eye has been kept towards compatibility, some changes may break existing installations.
 
@@ -161,25 +161,25 @@ IMPROVEMENTS:
 
 ---
 
-* [HADOOP-9265](https://issues.apache.org/jira/browse/HADOOP-9265) | Major | S3 blockstore filesystem breaks part of the Filesystem contract
+* [HADOOP-9265](https://issues.apache.org/jira/browse/HADOOP-9265) | *Major* | **S3 blockstore filesystem breaks part of the Filesystem contract**
 
 fixed in HADOOP-9258
 
 ---
 
-* [HADOOP-9261](https://issues.apache.org/jira/browse/HADOOP-9261) | Major | S3n filesystem can move a directory under itself -and so lose data
+* [HADOOP-9261](https://issues.apache.org/jira/browse/HADOOP-9261) | *Major* | **S3n filesystem can move a directory under itself -and so lose data**
 
 fixed in HADOOP-9258
 
 ---
 
-* [HADOOP-8934](https://issues.apache.org/jira/browse/HADOOP-8934) | Minor | Shell command ls should include sort options
+* [HADOOP-8934](https://issues.apache.org/jira/browse/HADOOP-8934) | *Minor* | **Shell command ls should include sort options**
 
 Options to sort output of fs -ls comment: -t (mtime), -S (size), -u (atime), -r (reverse)
 
 ---
 
-* [HADOOP-8776](https://issues.apache.org/jira/browse/HADOOP-8776) | Minor | Provide an option in test-patch that can enable / disable compiling native code
+* [HADOOP-8776](https://issues.apache.org/jira/browse/HADOOP-8776) | *Minor* | **Provide an option in test-patch that can enable / disable compiling native code**
 
 test-patch.sh adds a new option "--build-native". When set to false native
 components are not built. When set to true native components are built. The
@@ -187,31 +187,31 @@ default value is true.
 
 ---
 
-* [HADOOP-8124](https://issues.apache.org/jira/browse/HADOOP-8124) | Major | Remove the deprecated Syncable.sync() method
+* [HADOOP-8124](https://issues.apache.org/jira/browse/HADOOP-8124) | *Major* | **Remove the deprecated Syncable.sync() method**
 
 Remove the deprecated FSDataOutputStream constructor, FSDataOutputStream.sync() and Syncable.sync().
 
 ---
 
-* [HADOOP-7713](https://issues.apache.org/jira/browse/HADOOP-7713) | Trivial | dfs -count -q should label output column
+* [HADOOP-7713](https://issues.apache.org/jira/browse/HADOOP-7713) | *Trivial* | **dfs -count -q should label output column**
 
 Added -v option to fs -count command to display a header record in the report.
 
 ---
 
-* [HADOOP-7704](https://issues.apache.org/jira/browse/HADOOP-7704) | Minor | JsonFactory can be created only once and used for every next request to create JsonGenerator inside JMXJsonServlet
+* [HADOOP-7704](https://issues.apache.org/jira/browse/HADOOP-7704) | *Minor* | **JsonFactory can be created only once and used for every next request to create JsonGenerator inside JMXJsonServlet**
 
 Reduce number of object created by JMXJsonServlet. (Devaraj K via Eric Yang)
 
 ---
 
-* [HADOOP-7659](https://issues.apache.org/jira/browse/HADOOP-7659) | Minor | fs -getmerge isn't guaranteed to work well over non-HDFS filesystems
+* [HADOOP-7659](https://issues.apache.org/jira/browse/HADOOP-7659) | *Minor* | **fs -getmerge isn't guaranteed to work well over non-HDFS filesystems**
 
 Documented that the "fs -getmerge" shell command may not work properly over non HDFS-filesystem implementations due to platform-varying file list ordering.
 
 ---
 
-* [HADOOP-6857](https://issues.apache.org/jira/browse/HADOOP-6857) | Major | FsShell should report raw disk usage including replication factor
+* [HADOOP-6857](https://issues.apache.org/jira/browse/HADOOP-6857) | *Major* | **FsShell should report raw disk usage including replication factor**
 
 The output format of hadoop fs -du has been changed. It shows not only the file size but also the raw disk usage including the replication factor.
 
