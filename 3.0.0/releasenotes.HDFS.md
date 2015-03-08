@@ -9,8 +9,11 @@ These release notes cover  new developer and user-facing incompatibilities, feat
 * [HDFS-7460](https://issues.apache.org/jira/browse/HDFS-7460) | Major | Rewrite httpfs to use new shell framework
 
 This deprecates the following environment variables:
-HTTPFS\_CONFIG
-HTTPFS\_LOG
+
+| Old | New |
+|:---- |:---- |
+| HTTPFS\_LOG | HADOOP\_LOG\_DIR|
+| HTTPFS\_CONFG | HADOOP\_CONF\_DIR |
 
 ---
 

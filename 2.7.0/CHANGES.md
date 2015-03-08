@@ -1,6 +1,6 @@
 # Hadoop Changelog
 
-## Release 2.7.0 - 2015-03-06
+## Release 2.7.0 - 2015-03-08
 
 ### INCOMPATIBLE CHANGES:
 
@@ -31,6 +31,7 @@
 | [HDFS-7222](https://issues.apache.org/jira/browse/HDFS-7222) | Expose DataNode network errors as a metric |  Minor | (datanode) | Charles Lamb | Charles Lamb |
 | [HDFS-6982](https://issues.apache.org/jira/browse/HDFS-6982) | nntop: top&#173;-like tool for name node users |  Major |  | Maysam Yabandeh | Maysam Yabandeh |
 | [HDFS-6663](https://issues.apache.org/jira/browse/HDFS-6663) | Admin command to track file and locations from block id |  Major |  | Kihwal Lee | Chen He |
+| [HDFS-6488](https://issues.apache.org/jira/browse/HDFS-6488) | Support HDFS superuser in NFSv3 gateway |  Major | (nfs) | Stephen Chu | Brandon Li |
 | [HDFS-3689](https://issues.apache.org/jira/browse/HDFS-3689) | Add support for variable length block |  Major | (datanode , hdfs-client , namenode) | Suresh Srinivas | Jing Zhao |
 | [HDFS-3107](https://issues.apache.org/jira/browse/HDFS-3107) | HDFS truncate |  Major | (datanode , namenode) | Lei Chang | Plamen Jeliazkov |
 | [HDFS-1362](https://issues.apache.org/jira/browse/HDFS-1362) | Provide volume management functionality for DataNode |  Major | (datanode) | Wang Xu | Wang Xu |
@@ -40,6 +41,7 @@
 | [YARN-2574](https://issues.apache.org/jira/browse/YARN-2574) | Add support for FairScheduler to the ReservationSystem |  Major | (fairscheduler) | Subru Krishnan | Anubhav Dhoot |
 | [YARN-2427](https://issues.apache.org/jira/browse/YARN-2427) | Add support for moving apps between queues in RM web services |  Major | (resourcemanager) | Varun Vasudev | Varun Vasudev |
 | [YARN-2360](https://issues.apache.org/jira/browse/YARN-2360) | Fair Scheduler: Display dynamic fair share for queues on the scheduler page |  Major | (fairscheduler) | Ashwin Shankar | Ashwin Shankar |
+| [YARN-2190](https://issues.apache.org/jira/browse/YARN-2190) | Add CPU and memory limit options to the default container executor for Windows containers |  Major | (nodemanager) | Chuan Liu | Chuan Liu |
 
 
 ### IMPROVEMENTS:
@@ -48,6 +50,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-11658](https://issues.apache.org/jira/browse/HADOOP-11658) | Externalize io.compression.codecs property |  Minor |  | Kai Zheng | Kai Zheng |
 | [HADOOP-11648](https://issues.apache.org/jira/browse/HADOOP-11648) | Set DomainSocketWatcher thread name explicitly |  Major | (net) | Liang Xie | Liang Xie |
+| [HADOOP-11642](https://issues.apache.org/jira/browse/HADOOP-11642) | Upgrade azure sdk version from 0.6.0 to 2.0.0 |  Major | (tools) | shashank | shashank |
 | [HADOOP-11632](https://issues.apache.org/jira/browse/HADOOP-11632) | Cleanup Find.java to remove SupressWarnings annotations |  Minor |  | Akira AJISAKA | Akira AJISAKA |
 | [HADOOP-11620](https://issues.apache.org/jira/browse/HADOOP-11620) | Add support for load balancing across a group of KMS for HA |  Major | (kms) | Arun Suresh | Arun Suresh |
 | [HADOOP-11607](https://issues.apache.org/jira/browse/HADOOP-11607) | Reduce log spew in S3AFileSystem |  Trivial | (fs/s3) | Lei (Eddy) Xu | Lei (Eddy) Xu |
@@ -397,6 +400,7 @@
 | [HDFS-7871](https://issues.apache.org/jira/browse/HDFS-7871) | NameNodeEditLogRoller can keep printing "Swallowing exception" message |  Critical |  | Jing Zhao | Jing Zhao |
 | [HDFS-7869](https://issues.apache.org/jira/browse/HDFS-7869) | Inconsistency in the return information while performing rolling upgrade |  Major |  | J.Andreina | J.Andreina |
 | [HDFS-7831](https://issues.apache.org/jira/browse/HDFS-7831) | Fix the starting index and end condition of the loop in FileDiffList.findEarlierSnapshotBlocks() |  Major |  | Konstantin Shvachko | Konstantin Shvachko |
+| [HDFS-7818](https://issues.apache.org/jira/browse/HDFS-7818) | OffsetParam should return the default value instead of throwing NPE when the value is unspecified |  Blocker | (webhdfs) | Eric Payne | Eric Payne |
 | [HDFS-7813](https://issues.apache.org/jira/browse/HDFS-7813) | TestDFSHAAdminMiniCluster#testFencer testcase is failing frequently |  Major | (ha , test) | Rakesh R | Rakesh R |
 | [HDFS-7807](https://issues.apache.org/jira/browse/HDFS-7807) | libhdfs htable.c: fix htable resizing, add unit test |  Major | (native) | Colin Patrick McCabe | Colin Patrick McCabe |
 | [HDFS-7805](https://issues.apache.org/jira/browse/HDFS-7805) | NameNode recovery prompt should be printed on console |  Major | (namenode) | surendra singh lilhore | surendra singh lilhore |
@@ -541,6 +545,7 @@
 | [MAPREDUCE-3283](https://issues.apache.org/jira/browse/MAPREDUCE-3283) | mapred classpath CLI does not display the complete classpath |  Minor | (scripts) | Ramya Sunil | Varun Saxena |
 | [MAPREDUCE-2815](https://issues.apache.org/jira/browse/MAPREDUCE-2815) | JavaDoc does not generate correctly for MultithreadedMapRunner |  Minor | (documentation) | Shane Butler | Chris Palmer |
 | [YARN-3281](https://issues.apache.org/jira/browse/YARN-3281) | Add RMStateStore to StateMachine visualization list |  Minor | (scripts) | Chengbing Liu | Chengbing Liu |
+| [YARN-3275](https://issues.apache.org/jira/browse/YARN-3275) | CapacityScheduler: Preemption happening on non-preemptable queues |  Major |  | Eric Payne | Eric Payne |
 | [YARN-3270](https://issues.apache.org/jira/browse/YARN-3270) | node label expression not getting set in ApplicationSubmissionContext |  Minor |  | Rohit Agarwal | Rohit Agarwal |
 | [YARN-3256](https://issues.apache.org/jira/browse/YARN-3256) | TestClientToAMTokens#testClientTokenRace is not running against all Schedulers even when using ParameterizedSchedulerTestBase |  Major |  | Anubhav Dhoot | Anubhav Dhoot |
 | [YARN-3255](https://issues.apache.org/jira/browse/YARN-3255) | RM, NM, JobHistoryServer, and WebAppProxyServer's main() should support generic options |  Major | (nodemanager , resourcemanager) | Konstantin Shvachko | Konstantin Shvachko |
@@ -549,6 +554,7 @@
 | [YARN-3238](https://issues.apache.org/jira/browse/YARN-3238) | Connection timeouts to nodemanagers are retried at multiple levels |  Blocker |  | Jason Lowe | Jason Lowe |
 | [YARN-3237](https://issues.apache.org/jira/browse/YARN-3237) | AppLogAggregatorImpl fails to log error cause |  Major |  | Rushabh S Shah | Rushabh S Shah |
 | [YARN-3231](https://issues.apache.org/jira/browse/YARN-3231) | FairScheduler: Changing queueMaxRunningApps interferes with pending jobs |  Critical |  | Siqi Li | Siqi Li |
+| [YARN-3227](https://issues.apache.org/jira/browse/YARN-3227) | Timeline renew delegation token fails when RM user's TGT is expired |  Critical |  | Jonathan Eagles | Zhijie Shen |
 | [YARN-3222](https://issues.apache.org/jira/browse/YARN-3222) | RMNodeImpl#ReconnectNodeTransition should send scheduler events in sequential order |  Critical | (resourcemanager) | Rohith | Rohith |
 | [YARN-3207](https://issues.apache.org/jira/browse/YARN-3207) | secondary filter matches entites which do not have the key being filtered for. |  Major | (timelineserver) | Prakash Ramachandran | Zhijie Shen |
 | [YARN-3194](https://issues.apache.org/jira/browse/YARN-3194) | RM should handle NMContainerStatuses sent by NM while registering if NM is Reconnected node |  Blocker | (resourcemanager) | Rohith | Rohith |

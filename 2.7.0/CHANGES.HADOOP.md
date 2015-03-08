@@ -1,6 +1,6 @@
 # Hadoop Changelog
 
-## Release 2.7.0 - 2015-03-06
+## Release 2.7.0 - 2015-03-08
 
 ### INCOMPATIBLE CHANGES:
 
@@ -31,6 +31,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-11658](https://issues.apache.org/jira/browse/HADOOP-11658) | Externalize io.compression.codecs property |  Minor |  | Kai Zheng | Kai Zheng |
 | [HADOOP-11648](https://issues.apache.org/jira/browse/HADOOP-11648) | Set DomainSocketWatcher thread name explicitly |  Major | (net) | Liang Xie | Liang Xie |
+| [HADOOP-11642](https://issues.apache.org/jira/browse/HADOOP-11642) | Upgrade azure sdk version from 0.6.0 to 2.0.0 |  Major | (tools) | shashank | shashank |
 | [HADOOP-11632](https://issues.apache.org/jira/browse/HADOOP-11632) | Cleanup Find.java to remove SupressWarnings annotations |  Minor |  | Akira AJISAKA | Akira AJISAKA |
 | [HADOOP-11620](https://issues.apache.org/jira/browse/HADOOP-11620) | Add support for load balancing across a group of KMS for HA |  Major | (kms) | Arun Suresh | Arun Suresh |
 | [HADOOP-11607](https://issues.apache.org/jira/browse/HADOOP-11607) | Reduce log spew in S3AFileSystem |  Trivial | (fs/s3) | Lei (Eddy) Xu | Lei (Eddy) Xu |

@@ -1,6 +1,6 @@
 # Hadoop Changelog
 
-## Release 3.0.0 - 2015-03-06
+## Release 3.0.0 - 2015-03-08
 
 ### INCOMPATIBLE CHANGES:
 
@@ -83,6 +83,7 @@
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HADOOP-11653](https://issues.apache.org/jira/browse/HADOOP-11653) | shellprofiles should require .sh extension |  Major | (scripts) | Allen Wittenauer | Brahma Reddy Battula |
 | [HADOOP-11637](https://issues.apache.org/jira/browse/HADOOP-11637) | bash location hard-coded in shell scripts |  Major | (scripts) | Allen Wittenauer | Allen Wittenauer |
 | [HADOOP-11625](https://issues.apache.org/jira/browse/HADOOP-11625) | Minor fixes to command manual &amp; SLA doc |  Major | (documentation) | Allen Wittenauer | Allen Wittenauer |
 | [HADOOP-11585](https://issues.apache.org/jira/browse/HADOOP-11585) | Fix formatting in Tracing.md |  Trivial | (documentation) | Masatake Iwasaki | Masatake Iwasaki |

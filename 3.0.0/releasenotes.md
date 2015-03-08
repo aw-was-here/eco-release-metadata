@@ -53,8 +53,11 @@ nativetask.NativeMapOutputCollectorDelegator in their job configuration. For shu
 * [HDFS-7460](https://issues.apache.org/jira/browse/HDFS-7460) | Major | Rewrite httpfs to use new shell framework
 
 This deprecates the following environment variables:
-HTTPFS\_CONFIG
-HTTPFS\_LOG
+
+| Old | New |
+|:---- |:---- |
+| HTTPFS\_LOG | HADOOP\_LOG\_DIR|
+| HTTPFS\_CONFG | HADOOP\_CONF\_DIR |
 
 ---
 
@@ -180,7 +183,7 @@ This changes the output of the 'hadoop version' command to generically say 'Sour
 
 * The internal variable JAVA\_HEAP\_MAX has been removed.
 
-* Default heap sizes have been removed.  To re-enable the old default, configure HADOOP\_HEAPSIZE\_MAX="1g" in hadoop-env.sh. This will allow for the JVM to use auto-tuning based upon the memory size of the host. 
+* Default heap sizes have been removed. This will allow for the JVM to use auto-tuning based upon the memory size of the host. To re-enable the old default, configure HADOOP\_HEAPSIZE\_MAX="1g" in hadoop-env.sh. 
 
 * All global and daemon-specific heap size variables now support units.  If the variable is only a number, the size is assumed to be in megabytes.
 
