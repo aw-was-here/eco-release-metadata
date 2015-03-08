@@ -3,7 +3,7 @@
 old=$1
 new=$2
 
-src=${HOME}/src/aw-github/hadoop/dev-support
+src=${HOME}/Src/aw-github/hadoop/dev-support
 hrmd=${HOME}/Src/aw-github/hadoop-release-metadata
 
 if [[ ! -e "${src}/relnotes-md.py" ]]; then
@@ -23,8 +23,6 @@ do
 done
 oldp=$(pwd)
 cd "${hrmd}"
-d=$(date -u "+%Y-%m-%d %H:%m")
 git add "${new}/*"
-git commit -m "${d} UTC auto-commit"
 cd "${oldp}"
 #git push
