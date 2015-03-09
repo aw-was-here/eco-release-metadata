@@ -1,6 +1,6 @@
 # Hadoop Changelog
 
-## Release 2.7.0 - 2015-03-08
+## Release 2.7.0 - 2015-03-09
 
 ### INCOMPATIBLE CHANGES:
 
@@ -70,6 +70,7 @@
 | [MAPREDUCE-5988](https://issues.apache.org/jira/browse/MAPREDUCE-5988) | Fix dead links to the javadocs in mapreduce project |  Minor | (documentation) | Akira AJISAKA | Akira AJISAKA |
 | [MAPREDUCE-5918](https://issues.apache.org/jira/browse/MAPREDUCE-5918) | LineRecordReader can return the same decompressor to CodecPool multiple times |  Major |  | Sergey Murylev | Sergey Murylev |
 | [MAPREDUCE-5875](https://issues.apache.org/jira/browse/MAPREDUCE-5875) | Make Counter limits consistent across JobClient, MRAppMaster, and YarnChild |  Major | (applicationmaster , client , task) | Gera Shegalov | Gera Shegalov |
+| [MAPREDUCE-5657](https://issues.apache.org/jira/browse/MAPREDUCE-5657) | [JDK8] Fix Javadoc errors caused by incorrect or illegal tags in doc comments |  Minor | (documentation) | Andrew Purtell | Akira AJISAKA |
 | [MAPREDUCE-5568](https://issues.apache.org/jira/browse/MAPREDUCE-5568) | JHS returns invalid string for reducer completion percentage if AM restarts with 0 reducer. |  Major |  | Jian He | MinJi Kim |
 | [MAPREDUCE-4879](https://issues.apache.org/jira/browse/MAPREDUCE-4879) | TeraOutputFormat may overwrite an existing output directory |  Major | (examples) | Gera Shegalov | Gera Shegalov |
 | [MAPREDUCE-4286](https://issues.apache.org/jira/browse/MAPREDUCE-4286) | TestClientProtocolProviderImpls passes on failure conditions |  Major |  | Devaraj K | Devaraj K |

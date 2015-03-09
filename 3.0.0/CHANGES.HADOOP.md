@@ -1,6 +1,6 @@
 # Hadoop Changelog
 
-## Release 3.0.0 - 2015-03-08
+## Release 3.0.0 - 2015-03-09
 
 ### INCOMPATIBLE CHANGES:
 
@@ -35,6 +35,7 @@
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HADOOP-11673](https://issues.apache.org/jira/browse/HADOOP-11673) | Use org.junit.Assume to skip tests instead of return |  Minor | (test) | Akira AJISAKA | Brahma Reddy Battula |
 | [HADOOP-11596](https://issues.apache.org/jira/browse/HADOOP-11596) | Allow smart-apply-patch.sh to add new files in binary git patches |  Major |  | Ravi Prakash | Ravi Prakash |
 | [HADOOP-11593](https://issues.apache.org/jira/browse/HADOOP-11593) | Convert site documentation from apt to markdown (stragglers) |  Major | (documentation) | Allen Wittenauer | Masatake Iwasaki |
 | [HADOOP-11575](https://issues.apache.org/jira/browse/HADOOP-11575) | Daemon log documentation is misleading |  Major | (documentation) | Jagadesh Kiran N | Naganarasimha G R |

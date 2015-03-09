@@ -1,6 +1,6 @@
 # Hadoop Changelog
 
-## Release 2.7.0 - 2015-03-08
+## Release 2.7.0 - 2015-03-09
 
 ### INCOMPATIBLE CHANGES:
 
@@ -96,6 +96,7 @@
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HADOOP-11686](https://issues.apache.org/jira/browse/HADOOP-11686) | MiniKDC cannot change ORG_NAME or ORG_DOMAIN |  Major | (security , test) | zhangduo | zhangduo |
 | [HADOOP-11674](https://issues.apache.org/jira/browse/HADOOP-11674) | oneByteBuf in CryptoInputStream and CryptoOutputStream should be non static |  Critical | (io) | Sean Busbey | Sean Busbey |
 | [HADOOP-11666](https://issues.apache.org/jira/browse/HADOOP-11666) | Revert the format change of du output introduced by HADOOP-6857 |  Major |  | Akira AJISAKA | Byron Wong |
 | [HADOOP-11634](https://issues.apache.org/jira/browse/HADOOP-11634) | Description of webhdfs' principal/keytab should switch places each other |  Major | (documentation) | Brahma Reddy Battula | Brahma Reddy Battula |
@@ -104,6 +105,7 @@
 | [HADOOP-11615](https://issues.apache.org/jira/browse/HADOOP-11615) | Update ServiceLevelAuth.md for YARN |  Minor | (documentation) | Akira AJISAKA | Brahma Reddy Battula |
 | [HADOOP-11605](https://issues.apache.org/jira/browse/HADOOP-11605) | FilterFileSystem#create with ChecksumOpt should propagate it to wrapped FS |  Minor | (fs) | Gera Shegalov | Gera Shegalov |
 | [HADOOP-11604](https://issues.apache.org/jira/browse/HADOOP-11604) | Prevent ConcurrentModificationException while closing domain sockets during shutdown of DomainSocketWatcher thread. |  Critical | (net) | Liang Xie | Chris Nauroth |
+| [HADOOP-11602](https://issues.apache.org/jira/browse/HADOOP-11602) | Fix toUpperCase/toLowerCase to use Locale.ENGLISH |  Blocker |  | Tsuyoshi Ozawa | Tsuyoshi Ozawa |
 | [HADOOP-11595](https://issues.apache.org/jira/browse/HADOOP-11595) | Add default implementation for AbstractFileSystem#truncate |  Major | (fs) | Yi Liu | Yi Liu |
 | [HADOOP-11587](https://issues.apache.org/jira/browse/HADOOP-11587) | TestMapFile#testMainMethodMapFile creates test files in hadoop-common project root |  Trivial | (test) | Xiaoyu Yao | Xiaoyu Yao |
 | [HADOOP-11549](https://issues.apache.org/jira/browse/HADOOP-11549) | flaky test detection tool failed to handle special control characters in test result |  Major | (tools) | Yongjun Zhang | Yongjun Zhang |

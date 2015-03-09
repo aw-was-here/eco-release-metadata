@@ -1,6 +1,6 @@
 # Hadoop Changelog
 
-## Release 2.7.0 - 2015-03-08
+## Release 2.7.0 - 2015-03-09
 
 ### INCOMPATIBLE CHANGES:
 
@@ -30,6 +30,7 @@
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HDFS-7898](https://issues.apache.org/jira/browse/HDFS-7898) | Change TestAppendSnapshotTruncate to fail-fast |  Minor | (test) | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HDFS-7832](https://issues.apache.org/jira/browse/HDFS-7832) | Show 'Last Modified' in Namenode's 'Browse Filesystem' |  Major | (namenode) | Vinayakumar B | Vinayakumar B |
 | [HDFS-7808](https://issues.apache.org/jira/browse/HDFS-7808) | Remove obsolete -ns options in in DFSHAAdmin.java |  Minor |  | Arshad Mohammad | Arshad Mohammad |
 | [HDFS-7797](https://issues.apache.org/jira/browse/HDFS-7797) | Add audit log for setQuota operation |  Major | (namenode) | Rakesh R | Rakesh R |
@@ -78,6 +79,7 @@
 | [HDFS-7430](https://issues.apache.org/jira/browse/HDFS-7430) | Rewrite the BlockScanner to use O(1) memory and use multiple threads |  Major |  | Colin Patrick McCabe | Colin Patrick McCabe |
 | [HDFS-7426](https://issues.apache.org/jira/browse/HDFS-7426) | Change nntop JMX format to be a JSON blob |  Major | (namenode) | Andrew Wang | Andrew Wang |
 | [HDFS-7419](https://issues.apache.org/jira/browse/HDFS-7419) | Improve error messages for DataNode hot swap drive feature |  Major | (datanode) | Lei (Eddy) Xu | Lei (Eddy) Xu |
+| [HDFS-7411](https://issues.apache.org/jira/browse/HDFS-7411) | Refactor and improve decommissioning logic into DecommissionManager |  Major |  | Andrew Wang | Andrew Wang |
 | [HDFS-7409](https://issues.apache.org/jira/browse/HDFS-7409) | Allow dead nodes to finish decommissioning if all files are fully replicated |  Minor |  | Andrew Wang | Andrew Wang |
 | [HDFS-7404](https://issues.apache.org/jira/browse/HDFS-7404) | Remove o.a.h.hdfs.server.datanode.web.resources |  Major |  | Haohui Mai | Li Lu |
 | [HDFS-7398](https://issues.apache.org/jira/browse/HDFS-7398) | Reset cached thread-local FSEditLogOp's on every FSEditLog#logEdit |  Major | (namenode) | Gera Shegalov | Gera Shegalov |

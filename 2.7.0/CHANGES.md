@@ -1,6 +1,6 @@
 # Hadoop Changelog
 
-## Release 2.7.0 - 2015-03-08
+## Release 2.7.0 - 2015-03-09
 
 ### INCOMPATIBLE CHANGES:
 
@@ -109,6 +109,7 @@
 | [HADOOP-9869](https://issues.apache.org/jira/browse/HADOOP-9869) |  Configuration.getSocketAddr()/getEnum() should use getTrimmed() |  Minor | (conf) | Steve Loughran | Tsuyoshi Ozawa |
 | [HADOOP-8757](https://issues.apache.org/jira/browse/HADOOP-8757) | Metrics should disallow names with invalid characters |  Minor | (metrics) | Todd Lipcon | Ray Chiang |
 | [HADOOP-4297](https://issues.apache.org/jira/browse/HADOOP-4297) | Enable Java assertions when running tests |  Major | (build) | Yoram Kulbak | Tsz Wo Nicholas Sze |
+| [HDFS-7898](https://issues.apache.org/jira/browse/HDFS-7898) | Change TestAppendSnapshotTruncate to fail-fast |  Minor | (test) | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HDFS-7832](https://issues.apache.org/jira/browse/HDFS-7832) | Show 'Last Modified' in Namenode's 'Browse Filesystem' |  Major | (namenode) | Vinayakumar B | Vinayakumar B |
 | [HDFS-7808](https://issues.apache.org/jira/browse/HDFS-7808) | Remove obsolete -ns options in in DFSHAAdmin.java |  Minor |  | Arshad Mohammad | Arshad Mohammad |
 | [HDFS-7797](https://issues.apache.org/jira/browse/HDFS-7797) | Add audit log for setQuota operation |  Major | (namenode) | Rakesh R | Rakesh R |
@@ -157,6 +158,7 @@
 | [HDFS-7430](https://issues.apache.org/jira/browse/HDFS-7430) | Rewrite the BlockScanner to use O(1) memory and use multiple threads |  Major |  | Colin Patrick McCabe | Colin Patrick McCabe |
 | [HDFS-7426](https://issues.apache.org/jira/browse/HDFS-7426) | Change nntop JMX format to be a JSON blob |  Major | (namenode) | Andrew Wang | Andrew Wang |
 | [HDFS-7419](https://issues.apache.org/jira/browse/HDFS-7419) | Improve error messages for DataNode hot swap drive feature |  Major | (datanode) | Lei (Eddy) Xu | Lei (Eddy) Xu |
+| [HDFS-7411](https://issues.apache.org/jira/browse/HDFS-7411) | Refactor and improve decommissioning logic into DecommissionManager |  Major |  | Andrew Wang | Andrew Wang |
 | [HDFS-7409](https://issues.apache.org/jira/browse/HDFS-7409) | Allow dead nodes to finish decommissioning if all files are fully replicated |  Minor |  | Andrew Wang | Andrew Wang |
 | [HDFS-7404](https://issues.apache.org/jira/browse/HDFS-7404) | Remove o.a.h.hdfs.server.datanode.web.resources |  Major |  | Haohui Mai | Li Lu |
 | [HDFS-7398](https://issues.apache.org/jira/browse/HDFS-7398) | Reset cached thread-local FSEditLogOp's on every FSEditLog#logEdit |  Major | (namenode) | Gera Shegalov | Gera Shegalov |
@@ -277,6 +279,7 @@
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HADOOP-11686](https://issues.apache.org/jira/browse/HADOOP-11686) | MiniKDC cannot change ORG_NAME or ORG_DOMAIN |  Major | (security , test) | zhangduo | zhangduo |
 | [HADOOP-11674](https://issues.apache.org/jira/browse/HADOOP-11674) | oneByteBuf in CryptoInputStream and CryptoOutputStream should be non static |  Critical | (io) | Sean Busbey | Sean Busbey |
 | [HADOOP-11666](https://issues.apache.org/jira/browse/HADOOP-11666) | Revert the format change of du output introduced by HADOOP-6857 |  Major |  | Akira AJISAKA | Byron Wong |
 | [HADOOP-11634](https://issues.apache.org/jira/browse/HADOOP-11634) | Description of webhdfs' principal/keytab should switch places each other |  Major | (documentation) | Brahma Reddy Battula | Brahma Reddy Battula |
@@ -285,6 +288,7 @@
 | [HADOOP-11615](https://issues.apache.org/jira/browse/HADOOP-11615) | Update ServiceLevelAuth.md for YARN |  Minor | (documentation) | Akira AJISAKA | Brahma Reddy Battula |
 | [HADOOP-11605](https://issues.apache.org/jira/browse/HADOOP-11605) | FilterFileSystem#create with ChecksumOpt should propagate it to wrapped FS |  Minor | (fs) | Gera Shegalov | Gera Shegalov |
 | [HADOOP-11604](https://issues.apache.org/jira/browse/HADOOP-11604) | Prevent ConcurrentModificationException while closing domain sockets during shutdown of DomainSocketWatcher thread. |  Critical | (net) | Liang Xie | Chris Nauroth |
+| [HADOOP-11602](https://issues.apache.org/jira/browse/HADOOP-11602) | Fix toUpperCase/toLowerCase to use Locale.ENGLISH |  Blocker |  | Tsuyoshi Ozawa | Tsuyoshi Ozawa |
 | [HADOOP-11595](https://issues.apache.org/jira/browse/HADOOP-11595) | Add default implementation for AbstractFileSystem#truncate |  Major | (fs) | Yi Liu | Yi Liu |
 | [HADOOP-11587](https://issues.apache.org/jira/browse/HADOOP-11587) | TestMapFile#testMainMethodMapFile creates test files in hadoop-common project root |  Trivial | (test) | Xiaoyu Yao | Xiaoyu Yao |
 | [HADOOP-11549](https://issues.apache.org/jira/browse/HADOOP-11549) | flaky test detection tool failed to handle special control characters in test result |  Major | (tools) | Yongjun Zhang | Yongjun Zhang |
@@ -539,6 +543,7 @@
 | [MAPREDUCE-5988](https://issues.apache.org/jira/browse/MAPREDUCE-5988) | Fix dead links to the javadocs in mapreduce project |  Minor | (documentation) | Akira AJISAKA | Akira AJISAKA |
 | [MAPREDUCE-5918](https://issues.apache.org/jira/browse/MAPREDUCE-5918) | LineRecordReader can return the same decompressor to CodecPool multiple times |  Major |  | Sergey Murylev | Sergey Murylev |
 | [MAPREDUCE-5875](https://issues.apache.org/jira/browse/MAPREDUCE-5875) | Make Counter limits consistent across JobClient, MRAppMaster, and YarnChild |  Major | (applicationmaster , client , task) | Gera Shegalov | Gera Shegalov |
+| [MAPREDUCE-5657](https://issues.apache.org/jira/browse/MAPREDUCE-5657) | [JDK8] Fix Javadoc errors caused by incorrect or illegal tags in doc comments |  Minor | (documentation) | Andrew Purtell | Akira AJISAKA |
 | [MAPREDUCE-5568](https://issues.apache.org/jira/browse/MAPREDUCE-5568) | JHS returns invalid string for reducer completion percentage if AM restarts with 0 reducer. |  Major |  | Jian He | MinJi Kim |
 | [MAPREDUCE-4879](https://issues.apache.org/jira/browse/MAPREDUCE-4879) | TeraOutputFormat may overwrite an existing output directory |  Major | (examples) | Gera Shegalov | Gera Shegalov |
 | [MAPREDUCE-4286](https://issues.apache.org/jira/browse/MAPREDUCE-4286) | TestClientProtocolProviderImpls passes on failure conditions |  Major |  | Devaraj K | Devaraj K |
