@@ -39,7 +39,7 @@
 | [HDFS-7780](https://issues.apache.org/jira/browse/HDFS-7780) | Update use of Iterator to Iterable in DataXceiverServer and SnapshotDiffInfo |  Minor |  | Ray Chiang | Ray Chiang |
 | [HDFS-7773](https://issues.apache.org/jira/browse/HDFS-7773) | Additional metrics in HDFS to be accessed via jmx. |  Major | (datanode , namenode) | Anu Engineer | Anu Engineer |
 | [HDFS-7772](https://issues.apache.org/jira/browse/HDFS-7772) | Document hdfs balancer -exclude/-include option in HDFSCommands.html |  Trivial | (documentation) | Xiaoyu Yao | Xiaoyu Yao |
-| [HDFS-7771](https://issues.apache.org/jira/browse/HDFS-7771) | fuse_dfs should permit FILE: on the front of KRB5CCNAME |  Major |  | Colin Patrick McCabe | Colin Patrick McCabe |
+| [HDFS-7771](https://issues.apache.org/jira/browse/HDFS-7771) | fuse\_dfs should permit FILE: on the front of KRB5CCNAME |  Major |  | Colin Patrick McCabe | Colin Patrick McCabe |
 | [HDFS-7761](https://issues.apache.org/jira/browse/HDFS-7761) | cleanup unnecssary code logic in LocatedBlock |  Minor |  | Yi Liu | Yi Liu |
 | [HDFS-7757](https://issues.apache.org/jira/browse/HDFS-7757) | Misleading error messages in FSImage.java |  Major | (namenode) | Arpit Agarwal | Brahma Reddy Battula |
 | [HDFS-7752](https://issues.apache.org/jira/browse/HDFS-7752) | Improve description for "dfs.namenode.num.extra.edits.retained" and "dfs.namenode.num.checkpoints.retained" properties on hdfs-default.xml |  Minor | (documentation) | Wellington Chevreuil | Wellington Chevreuil |
@@ -82,7 +82,7 @@
 | [HDFS-7409](https://issues.apache.org/jira/browse/HDFS-7409) | Allow dead nodes to finish decommissioning if all files are fully replicated |  Minor |  | Andrew Wang | Andrew Wang |
 | [HDFS-7404](https://issues.apache.org/jira/browse/HDFS-7404) | Remove o.a.h.hdfs.server.datanode.web.resources |  Major |  | Haohui Mai | Li Lu |
 | [HDFS-7398](https://issues.apache.org/jira/browse/HDFS-7398) | Reset cached thread-local FSEditLogOp's on every FSEditLog#logEdit |  Major | (namenode) | Gera Shegalov | Gera Shegalov |
-| [HDFS-7386](https://issues.apache.org/jira/browse/HDFS-7386) | Replace check "port number &lt; 1024" with shared isPrivilegedPort method  |  Trivial | (datanode , security) | Yongjun Zhang | Yongjun Zhang |
+| [HDFS-7386](https://issues.apache.org/jira/browse/HDFS-7386) | Replace check "port number &lt; 1024" with shared isPrivilegedPort method |  Trivial | (datanode , security) | Yongjun Zhang | Yongjun Zhang |
 | [HDFS-7384](https://issues.apache.org/jira/browse/HDFS-7384) | 'getfacl' command and 'getAclStatus' output should be in sync |  Major | (namenode) | Vinayakumar B | Vinayakumar B |
 | [HDFS-7381](https://issues.apache.org/jira/browse/HDFS-7381) | Decouple the management of block id and gen stamps from FSNamesystem |  Major |  | Haohui Mai | Haohui Mai |
 | [HDFS-7375](https://issues.apache.org/jira/browse/HDFS-7375) | Move FSClusterStats to o.a.h.h.hdfs.server.blockmanagement |  Major |  | Haohui Mai | Haohui Mai |
@@ -156,7 +156,7 @@
 | [HDFS-7714](https://issues.apache.org/jira/browse/HDFS-7714) | Simultaneous restart of HA NameNodes and DataNode can cause DataNode to register successfully with only one NameNode. |  Major | (datanode) | Chris Nauroth | Vinayakumar B |
 | [HDFS-7709](https://issues.apache.org/jira/browse/HDFS-7709) | Fix findbug warnings in httpfs |  Major |  | Rakesh R | Rakesh R |
 | [HDFS-7707](https://issues.apache.org/jira/browse/HDFS-7707) | Edit log corruption due to delayed block removal again |  Major | (namenode) | Yongjun Zhang | Yongjun Zhang |
-| [HDFS-7704](https://issues.apache.org/jira/browse/HDFS-7704) | DN heartbeat to Active NN may be blocked and expire if connection to Standby NN continues to time out.  |  Major | (datanode , namenode) | Rushabh S Shah | Rushabh S Shah |
+| [HDFS-7704](https://issues.apache.org/jira/browse/HDFS-7704) | DN heartbeat to Active NN may be blocked and expire if connection to Standby NN continues to time out. |  Major | (datanode , namenode) | Rushabh S Shah | Rushabh S Shah |
 | [HDFS-7698](https://issues.apache.org/jira/browse/HDFS-7698) | Fix locking on HDFS read statistics and add a method for clearing them. |  Major |  | Colin Patrick McCabe | Colin Patrick McCabe |
 | [HDFS-7696](https://issues.apache.org/jira/browse/HDFS-7696) | FsDatasetImpl.getTmpInputStreams(..) may leak file descriptors |  Minor | (datanode) | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HDFS-7686](https://issues.apache.org/jira/browse/HDFS-7686) | Re-add rapid rescan of possibly corrupt block feature to the block scanner |  Blocker |  | Rushabh S Shah | Colin Patrick McCabe |
@@ -181,7 +181,7 @@
 | [HDFS-7563](https://issues.apache.org/jira/browse/HDFS-7563) | NFS gateway parseStaticMap NumberFormatException |  Major | (nfs) | Hari Sekhon | Yongjun Zhang |
 | [HDFS-7561](https://issues.apache.org/jira/browse/HDFS-7561) | TestFetchImage should write fetched-image-dir under target. |  Major |  | Konstantin Shvachko | Liang Xie |
 | [HDFS-7560](https://issues.apache.org/jira/browse/HDFS-7560) | ACLs removed by removeDefaultAcl() will be back after NameNode restart/failover |  Critical | (namenode) | Vinayakumar B | Vinayakumar B |
-| [HDFS-7552](https://issues.apache.org/jira/browse/HDFS-7552) | change FsVolumeList toString() to fix TestDataNodeVolumeFailureToleration  |  Major | (datanode , test) | Liang Xie | Liang Xie |
+| [HDFS-7552](https://issues.apache.org/jira/browse/HDFS-7552) | change FsVolumeList toString() to fix TestDataNodeVolumeFailureToleration |  Major | (datanode , test) | Liang Xie | Liang Xie |
 | [HDFS-7548](https://issues.apache.org/jira/browse/HDFS-7548) | Corrupt block reporting delayed until datablock scanner thread detects it |  Major |  | Rushabh S Shah | Rushabh S Shah |
 | [HDFS-7536](https://issues.apache.org/jira/browse/HDFS-7536) | Remove unused CryptoCodec in org.apache.hadoop.fs.Hdfs |  Minor | (security) | Yi Liu | Yi Liu |
 | [HDFS-7533](https://issues.apache.org/jira/browse/HDFS-7533) | Datanode sometimes does not shutdown on receiving upgrade shutdown command |  Major |  | Kihwal Lee | Eric Payne |
@@ -226,7 +226,7 @@
 | [HDFS-7258](https://issues.apache.org/jira/browse/HDFS-7258) | CacheReplicationMonitor rescan schedule log should use DEBUG level instead of INFO level |  Minor | (namenode) | Xiaoyu Yao | Xiaoyu Yao |
 | [HDFS-7235](https://issues.apache.org/jira/browse/HDFS-7235) | DataNode#transferBlock should report blocks that don't exist using reportBadBlock |  Major | (datanode , namenode) | Yongjun Zhang | Yongjun Zhang |
 | [HDFS-7232](https://issues.apache.org/jira/browse/HDFS-7232) | Populate hostname in httpfs audit log |  Trivial |  | Zoran Dimitrijevic | Zoran Dimitrijevic |
-| [HDFS-7227](https://issues.apache.org/jira/browse/HDFS-7227) | Fix findbugs warning about NP_DEREFERENCE_OF_READLINE_VALUE in SpanReceiverHost |  Minor |  | Colin Patrick McCabe | Colin Patrick McCabe |
+| [HDFS-7227](https://issues.apache.org/jira/browse/HDFS-7227) | Fix findbugs warning about NP\_DEREFERENCE\_OF\_READLINE\_VALUE in SpanReceiverHost |  Minor |  | Colin Patrick McCabe | Colin Patrick McCabe |
 | [HDFS-7225](https://issues.apache.org/jira/browse/HDFS-7225) | Remove stale block invalidation work when DN re-registers with different UUID |  Major | (namenode) | Zhe Zhang | Zhe Zhang |
 | [HDFS-7224](https://issues.apache.org/jira/browse/HDFS-7224) | Allow reuse of NN connections via webhdfs |  Major | (webhdfs) | Eric Payne | Eric Payne |
 | [HDFS-7213](https://issues.apache.org/jira/browse/HDFS-7213) | processIncrementalBlockReport performance degradation |  Critical | (namenode) | Daryn Sharp | Eric Payne |
@@ -248,7 +248,7 @@
 | [HDFS-5578](https://issues.apache.org/jira/browse/HDFS-5578) | [JDK8] Fix Javadoc errors caused by incorrect or illegal tags in doc comments |  Minor |  | Andrew Purtell | Andrew Purtell |
 | [HDFS-5445](https://issues.apache.org/jira/browse/HDFS-5445) | PacketReceiver populates the packetLen field in PacketHeader incorrectly |  Minor | (datanode) | Jonathan Mace | Jonathan Mace |
 | [HDFS-3519](https://issues.apache.org/jira/browse/HDFS-3519) | Checkpoint upload may interfere with a concurrent saveNamespace |  Critical | (namenode) | Todd Lipcon | Ming Ma |
-| [HDFS-1522](https://issues.apache.org/jira/browse/HDFS-1522) | Merge Block.BLOCK_FILE_PREFIX and DataStorage.BLOCK_FILE_PREFIX into one constant |  Major | (datanode) | Konstantin Shvachko | Dongming Liang |
+| [HDFS-1522](https://issues.apache.org/jira/browse/HDFS-1522) | Merge Block.BLOCK\_FILE\_PREFIX and DataStorage.BLOCK\_FILE\_PREFIX into one constant |  Major | (datanode) | Konstantin Shvachko | Dongming Liang |
 | [HDFS-49](https://issues.apache.org/jira/browse/HDFS-49) | MiniDFSCluster.stopDataNode will always shut down a node in the cluster if a matching name is not found |  Minor | (test) | Steve Loughran | Steve Loughran |
 
 
@@ -257,7 +257,7 @@
 | JIRA | Description | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-7585](https://issues.apache.org/jira/browse/HDFS-7585) | Get TestEnhancedByteBufferAccess working on CPU architectures with page sizes other than 4096 |  Major | (test) | sam liu | sam liu |
-| [HDFS-7475](https://issues.apache.org/jira/browse/HDFS-7475) | Make TestLazyPersistFiles#testLazyPersistBlocksAreSaved deterministic  |  Major | (test) | Xiaoyu Yao | Xiaoyu Yao |
+| [HDFS-7475](https://issues.apache.org/jira/browse/HDFS-7475) | Make TestLazyPersistFiles#testLazyPersistBlocksAreSaved deterministic |  Major | (test) | Xiaoyu Yao | Xiaoyu Yao |
 | [HDFS-7448](https://issues.apache.org/jira/browse/HDFS-7448) | TestBookKeeperHACheckpoints fails in trunk build |  Minor |  | Ted Yu | Akira AJISAKA |
 
 
