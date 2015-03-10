@@ -64,6 +64,7 @@
 | [HADOOP-10926](https://issues.apache.org/jira/browse/HADOOP-10926) | Improve smart-apply-patch.sh to apply binary diffs |  Major |  | Andrew Wang | Colin Patrick McCabe |
 | [HADOOP-10834](https://issues.apache.org/jira/browse/HADOOP-10834) | Typo in CredentialShell usage |  Minor | (security) | Benoy Antony | Benoy Antony |
 | [HADOOP-10485](https://issues.apache.org/jira/browse/HADOOP-10485) | Remove dead classes in hadoop-streaming |  Major | (tools) | Haohui Mai | Haohui Mai |
+| [HADOOP-10115](https://issues.apache.org/jira/browse/HADOOP-10115) | Exclude duplicate jars in hadoop package under different component's lib |  Major | (build) | Vinayakumar B | Vinayakumar B |
 | [HADOOP-9394](https://issues.apache.org/jira/browse/HADOOP-9394) | Port findHangingTest.sh from HBase to Hadoop |  Minor |  | Andrew Wang | Andrew Wang |
 | [HADOOP-9277](https://issues.apache.org/jira/browse/HADOOP-9277) | Improve javadoc for FileContext |  Minor |  | Andrew Wang | Andrew Wang |
 | [HADOOP-9121](https://issues.apache.org/jira/browse/HADOOP-9121) | InodeTree.java has redundant check for vName while throwing exception |  Trivial | (fs) | Arup Malakar | Arup Malakar |
@@ -132,6 +133,7 @@
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HADOOP-11668](https://issues.apache.org/jira/browse/HADOOP-11668) | hadoop-daemons.sh bw compat broke with --slaves change |  Major | (scripts) | Vinayakumar B | Vinayakumar B |
 | [HADOOP-11653](https://issues.apache.org/jira/browse/HADOOP-11653) | shellprofiles should require .sh extension |  Major | (scripts) | Allen Wittenauer | Brahma Reddy Battula |
 | [HADOOP-11637](https://issues.apache.org/jira/browse/HADOOP-11637) | bash location hard-coded in shell scripts |  Major | (scripts) | Allen Wittenauer | Allen Wittenauer |
 | [HADOOP-11625](https://issues.apache.org/jira/browse/HADOOP-11625) | Minor fixes to command manual &amp; SLA doc |  Major | (documentation) | Allen Wittenauer | Allen Wittenauer |

@@ -109,7 +109,6 @@
 | [HADOOP-9869](https://issues.apache.org/jira/browse/HADOOP-9869) |  Configuration.getSocketAddr()/getEnum() should use getTrimmed() |  Minor | (conf) | Steve Loughran | Tsuyoshi Ozawa |
 | [HADOOP-8757](https://issues.apache.org/jira/browse/HADOOP-8757) | Metrics should disallow names with invalid characters |  Minor | (metrics) | Todd Lipcon | Ray Chiang |
 | [HADOOP-4297](https://issues.apache.org/jira/browse/HADOOP-4297) | Enable Java assertions when running tests |  Major | (build) | Yoram Kulbak | Tsz Wo Nicholas Sze |
-| [HDFS-7898](https://issues.apache.org/jira/browse/HDFS-7898) | Change TestAppendSnapshotTruncate to fail-fast |  Minor | (test) | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HDFS-7832](https://issues.apache.org/jira/browse/HDFS-7832) | Show 'Last Modified' in Namenode's 'Browse Filesystem' |  Major | (namenode) | Vinayakumar B | Vinayakumar B |
 | [HDFS-7808](https://issues.apache.org/jira/browse/HDFS-7808) | Remove obsolete -ns options in in DFSHAAdmin.java |  Minor |  | Arshad Mohammad | Arshad Mohammad |
 | [HDFS-7797](https://issues.apache.org/jira/browse/HDFS-7797) | Add audit log for setQuota operation |  Major | (namenode) | Rakesh R | Rakesh R |
@@ -194,6 +193,7 @@
 | [HDFS-7182](https://issues.apache.org/jira/browse/HDFS-7182) | JMX metrics aren't accessible when NN is busy |  Major |  | Ming Ma | Ming Ma |
 | [HDFS-7165](https://issues.apache.org/jira/browse/HDFS-7165) | Separate block metrics for files with replication count 1 |  Major | (namenode) | Andrew Wang | Zhe Zhang |
 | [HDFS-7026](https://issues.apache.org/jira/browse/HDFS-7026) | Introduce a string constant for "Failed to obtain user group info..." |  Trivial |  | Yongjun Zhang | Yongjun Zhang |
+| [HDFS-6806](https://issues.apache.org/jira/browse/HDFS-6806) | HDFS Rolling upgrade document should mention the versions available |  Minor | (documentation) | Akira AJISAKA | J.Andreina |
 | [HDFS-6741](https://issues.apache.org/jira/browse/HDFS-6741) | Improve permission denied message when FSPermissionChecker#checkOwner fails |  Trivial |  | Stephen Chu | Harsh J |
 | [HDFS-6735](https://issues.apache.org/jira/browse/HDFS-6735) | A minor optimization to avoid pread() be blocked by read() inside the same DFSInputStream |  Major | (hdfs-client) | Liang Xie | Lars Hofhansl |
 | [HDFS-6565](https://issues.apache.org/jira/browse/HDFS-6565) | Use jackson instead jetty json in hdfs-client |  Major |  | Haohui Mai | Akira AJISAKA |
@@ -291,6 +291,7 @@
 | [HADOOP-11602](https://issues.apache.org/jira/browse/HADOOP-11602) | Fix toUpperCase/toLowerCase to use Locale.ENGLISH |  Blocker |  | Tsuyoshi Ozawa | Tsuyoshi Ozawa |
 | [HADOOP-11595](https://issues.apache.org/jira/browse/HADOOP-11595) | Add default implementation for AbstractFileSystem#truncate |  Major | (fs) | Yi Liu | Yi Liu |
 | [HADOOP-11587](https://issues.apache.org/jira/browse/HADOOP-11587) | TestMapFile#testMainMethodMapFile creates test files in hadoop-common project root |  Trivial | (test) | Xiaoyu Yao | Xiaoyu Yao |
+| [HADOOP-11571](https://issues.apache.org/jira/browse/HADOOP-11571) | &#220;ber-jira: S3a stabilisation phase I |  Blocker | (fs/s3) | Steve Loughran | Steve Loughran |
 | [HADOOP-11549](https://issues.apache.org/jira/browse/HADOOP-11549) | flaky test detection tool failed to handle special control characters in test result |  Major | (tools) | Yongjun Zhang | Yongjun Zhang |
 | [HADOOP-11548](https://issues.apache.org/jira/browse/HADOOP-11548) | checknative should display a nicer error message when openssl support is not compiled in |  Major | (build , native) | Colin Patrick McCabe | Anu Engineer |
 | [HADOOP-11547](https://issues.apache.org/jira/browse/HADOOP-11547) | hadoop-common native compilation fails on Windows due to missing support for __attribute__ declaration. |  Major | (native) | Chris Nauroth | Chris Nauroth |
@@ -550,6 +551,7 @@
 | [MAPREDUCE-3283](https://issues.apache.org/jira/browse/MAPREDUCE-3283) | mapred classpath CLI does not display the complete classpath |  Minor | (scripts) | Ramya Sunil | Varun Saxena |
 | [MAPREDUCE-2815](https://issues.apache.org/jira/browse/MAPREDUCE-2815) | JavaDoc does not generate correctly for MultithreadedMapRunner |  Minor | (documentation) | Shane Butler | Chris Palmer |
 | [YARN-3296](https://issues.apache.org/jira/browse/YARN-3296) | yarn.nodemanager.container-monitor.process-tree.class is configurable but ResourceCalculatorProcessTree class is marked Private |  Major |  | Hitesh Shah | Hitesh Shah |
+| [YARN-3287](https://issues.apache.org/jira/browse/YARN-3287) | TimelineClient kerberos authentication failure uses wrong login context. |  Major |  | Jonathan Eagles | Daryn Sharp |
 | [YARN-3281](https://issues.apache.org/jira/browse/YARN-3281) | Add RMStateStore to StateMachine visualization list |  Minor | (scripts) | Chengbing Liu | Chengbing Liu |
 | [YARN-3275](https://issues.apache.org/jira/browse/YARN-3275) | CapacityScheduler: Preemption happening on non-preemptable queues |  Major |  | Eric Payne | Eric Payne |
 | [YARN-3270](https://issues.apache.org/jira/browse/YARN-3270) | node label expression not getting set in ApplicationSubmissionContext |  Minor |  | Rohit Agarwal | Rohit Agarwal |

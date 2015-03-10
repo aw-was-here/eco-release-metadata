@@ -108,6 +108,7 @@
 | [HADOOP-11602](https://issues.apache.org/jira/browse/HADOOP-11602) | Fix toUpperCase/toLowerCase to use Locale.ENGLISH |  Blocker |  | Tsuyoshi Ozawa | Tsuyoshi Ozawa |
 | [HADOOP-11595](https://issues.apache.org/jira/browse/HADOOP-11595) | Add default implementation for AbstractFileSystem#truncate |  Major | (fs) | Yi Liu | Yi Liu |
 | [HADOOP-11587](https://issues.apache.org/jira/browse/HADOOP-11587) | TestMapFile#testMainMethodMapFile creates test files in hadoop-common project root |  Trivial | (test) | Xiaoyu Yao | Xiaoyu Yao |
+| [HADOOP-11571](https://issues.apache.org/jira/browse/HADOOP-11571) | &#220;ber-jira: S3a stabilisation phase I |  Blocker | (fs/s3) | Steve Loughran | Steve Loughran |
 | [HADOOP-11549](https://issues.apache.org/jira/browse/HADOOP-11549) | flaky test detection tool failed to handle special control characters in test result |  Major | (tools) | Yongjun Zhang | Yongjun Zhang |
 | [HADOOP-11548](https://issues.apache.org/jira/browse/HADOOP-11548) | checknative should display a nicer error message when openssl support is not compiled in |  Major | (build , native) | Colin Patrick McCabe | Anu Engineer |
 | [HADOOP-11547](https://issues.apache.org/jira/browse/HADOOP-11547) | hadoop-common native compilation fails on Windows due to missing support for __attribute__ declaration. |  Major | (native) | Chris Nauroth | Chris Nauroth |
