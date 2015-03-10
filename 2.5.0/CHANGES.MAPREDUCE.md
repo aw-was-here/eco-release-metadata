@@ -27,7 +27,7 @@
 | [MAPREDUCE-5809](https://issues.apache.org/jira/browse/MAPREDUCE-5809) | Enhance distcp to support preserving HDFS ACLs. |  Major | (distcp) | Chris Nauroth | Chris Nauroth |
 | [MAPREDUCE-5777](https://issues.apache.org/jira/browse/MAPREDUCE-5777) | Support utf-8 text with BOM (byte order marker) |  Major |  | bc Wong | zhihai xu |
 | [MAPREDUCE-5774](https://issues.apache.org/jira/browse/MAPREDUCE-5774) | Job overview in History UI should list reducer phases in chronological order |  Trivial | (jobhistoryserver) | Gera Shegalov | Gera Shegalov |
-| [MAPREDUCE-5402](https://issues.apache.org/jira/browse/MAPREDUCE-5402) | DynamicInputFormat should allow overriding of MAX_CHUNKS_TOLERABLE |  Major | (distcp , mrv2) | David Rosenstrauch | Tsuyoshi Ozawa |
+| [MAPREDUCE-5402](https://issues.apache.org/jira/browse/MAPREDUCE-5402) | DynamicInputFormat should allow overriding of MAX\_CHUNKS\_TOLERABLE |  Major | (distcp , mrv2) | David Rosenstrauch | Tsuyoshi Ozawa |
 | [MAPREDUCE-5014](https://issues.apache.org/jira/browse/MAPREDUCE-5014) | Extending DistCp through a custom CopyListing is not possible |  Major | (distcp) | Srikanth Sundarrajan | Srikanth Sundarrajan |
 
 
@@ -38,11 +38,11 @@
 | [MAPREDUCE-6002](https://issues.apache.org/jira/browse/MAPREDUCE-6002) | MR task should prevent report error to AM when process is shutting down |  Major | (task) | Wangda Tan | Wangda Tan |
 | [MAPREDUCE-5952](https://issues.apache.org/jira/browse/MAPREDUCE-5952) | LocalContainerLauncher#renameMapOutputForReduce incorrectly assumes a single dir for mapOutIndex |  Blocker | (mr-am , mrv2) | Gera Shegalov | Gera Shegalov |
 | [MAPREDUCE-5939](https://issues.apache.org/jira/browse/MAPREDUCE-5939) | StartTime showing up as the epoch time in JHS UI after upgrade |  Major |  | Kihwal Lee | Chen He |
-| [MAPREDUCE-5924](https://issues.apache.org/jira/browse/MAPREDUCE-5924) | Windows: Sort Job failed due to 'Invalid event: TA_COMMIT_PENDING at COMMIT_PENDING' |  Major |  | Yesha Vora | Zhijie Shen |
-| [MAPREDUCE-5920](https://issues.apache.org/jira/browse/MAPREDUCE-5920) | Add Xattr option in DistCp docs  |  Minor | (distcp , documentation) | Uma Maheswara Rao G | Yi Liu |
+| [MAPREDUCE-5924](https://issues.apache.org/jira/browse/MAPREDUCE-5924) | Windows: Sort Job failed due to 'Invalid event: TA\_COMMIT\_PENDING at COMMIT\_PENDING' |  Major |  | Yesha Vora | Zhijie Shen |
+| [MAPREDUCE-5920](https://issues.apache.org/jira/browse/MAPREDUCE-5920) | Add Xattr option in DistCp docs |  Minor | (distcp , documentation) | Uma Maheswara Rao G | Yi Liu |
 | [MAPREDUCE-5898](https://issues.apache.org/jira/browse/MAPREDUCE-5898) | distcp to support preserving HDFS extended attributes(XAttrs) |  Major | (distcp) | Uma Maheswara Rao G | Yi Liu |
 | [MAPREDUCE-5895](https://issues.apache.org/jira/browse/MAPREDUCE-5895) | FileAlreadyExistsException was thrown : Temporary Index File can not be cleaned up because OutputStream doesn't close properly |  Major | (client) | Kousuke Saruta | Kousuke Saruta |
-| [MAPREDUCE-5888](https://issues.apache.org/jira/browse/MAPREDUCE-5888) | Failed job leaves hung AM after it unregisters  |  Major | (mr-am) | Jason Lowe | Jason Lowe |
+| [MAPREDUCE-5888](https://issues.apache.org/jira/browse/MAPREDUCE-5888) | Failed job leaves hung AM after it unregisters |  Major | (mr-am) | Jason Lowe | Jason Lowe |
 | [MAPREDUCE-5884](https://issues.apache.org/jira/browse/MAPREDUCE-5884) | History server uses short user name when canceling tokens |  Major | (jobhistoryserver , security) | Mohammad Kamrul Islam | Mohammad Kamrul Islam |
 | [MAPREDUCE-5874](https://issues.apache.org/jira/browse/MAPREDUCE-5874) | Creating MapReduce REST API section |  Major | (documentation) | Ravi Prakash | Tsuyoshi Ozawa |
 | [MAPREDUCE-5868](https://issues.apache.org/jira/browse/MAPREDUCE-5868) | TestPipeApplication causing nightly build to fail |  Major | (test) | Jason Lowe | Akira AJISAKA |

@@ -18,7 +18,7 @@
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [HADOOP-11466](https://issues.apache.org/jira/browse/HADOOP-11466) | FastByteComparisons: do not use UNSAFE_COMPARER on the SPARC architecture because it is slower there |  Minor | (io , performance , util) | Suman Somasundar | Suman Somasundar |
+| [HADOOP-11466](https://issues.apache.org/jira/browse/HADOOP-11466) | FastByteComparisons: do not use UNSAFE\_COMPARER on the SPARC architecture because it is slower there |  Minor | (io , performance , util) | Suman Somasundar | Suman Somasundar |
 
 
 ### BUG FIXES:

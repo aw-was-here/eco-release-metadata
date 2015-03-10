@@ -36,7 +36,7 @@
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [MAPREDUCE-6156](https://issues.apache.org/jira/browse/MAPREDUCE-6156) | Fetcher - connect() doesn't handle connection refused correctly  |  Blocker |  | Sidharta Seethana | Junping Du |
+| [MAPREDUCE-6156](https://issues.apache.org/jira/browse/MAPREDUCE-6156) | Fetcher - connect() doesn't handle connection refused correctly |  Blocker |  | Sidharta Seethana | Junping Du |
 | [MAPREDUCE-6126](https://issues.apache.org/jira/browse/MAPREDUCE-6126) | (Rumen) Rumen tool returns error "ava.lang.IllegalArgumentException: JobBuilder.process(HistoryEvent): unknown event type" |  Major |  | Junping Du | Junping Du |
 | [MAPREDUCE-6125](https://issues.apache.org/jira/browse/MAPREDUCE-6125) | TestContainerLauncherImpl sometimes fails |  Major | (test) | Mit Desai | Mit Desai |
 | [MAPREDUCE-6123](https://issues.apache.org/jira/browse/MAPREDUCE-6123) | TestCombineFileInputFormat incorrectly starts 2 MiniDFSCluster instances. |  Trivial | (test) | Chris Nauroth | Chris Nauroth |
@@ -57,10 +57,10 @@
 | [MAPREDUCE-6036](https://issues.apache.org/jira/browse/MAPREDUCE-6036) | TestJobEndNotifier fails intermittently in branch-2 |  Major |  | Mit Desai | Chang Li |
 | [MAPREDUCE-6032](https://issues.apache.org/jira/browse/MAPREDUCE-6032) | Unable to check mapreduce job status if submitted using a non-default namenode |  Major | (jobhistoryserver) | Benjamin Zhitomirsky | Benjamin Zhitomirsky |
 | [MAPREDUCE-6029](https://issues.apache.org/jira/browse/MAPREDUCE-6029) | TestCommitterEventHandler fails in trunk |  Major |  | Ted Yu | Mit Desai |
-| [MAPREDUCE-6022](https://issues.apache.org/jira/browse/MAPREDUCE-6022) | map_input_file is missing from streaming job environment |  Major |  | Jason Lowe | Jason Lowe |
-| [MAPREDUCE-6021](https://issues.apache.org/jira/browse/MAPREDUCE-6021) | MR AM should have working directory in LD_LIBRARY_PATH |  Major | (mr-am) | Jason Lowe | Jason Lowe |
+| [MAPREDUCE-6022](https://issues.apache.org/jira/browse/MAPREDUCE-6022) | map\_input\_file is missing from streaming job environment |  Major |  | Jason Lowe | Jason Lowe |
+| [MAPREDUCE-6021](https://issues.apache.org/jira/browse/MAPREDUCE-6021) | MR AM should have working directory in LD\_LIBRARY\_PATH |  Major | (mr-am) | Jason Lowe | Jason Lowe |
 | [MAPREDUCE-6019](https://issues.apache.org/jira/browse/MAPREDUCE-6019) | MapReduce changes for exposing YARN/MR endpoints on multiple interfaces. |  Major |  | Xuan Gong | Craig Welch |
-| [MAPREDUCE-6014](https://issues.apache.org/jira/browse/MAPREDUCE-6014) | New task status field in task attempts table can lead to an empty web page  |  Major |  | Mit Desai | Mit Desai |
+| [MAPREDUCE-6014](https://issues.apache.org/jira/browse/MAPREDUCE-6014) | New task status field in task attempts table can lead to an empty web page |  Major |  | Mit Desai | Mit Desai |
 | [MAPREDUCE-6012](https://issues.apache.org/jira/browse/MAPREDUCE-6012) | DBInputSplit creates invalid ranges on Oracle |  Major |  | Julien Serdaru | Wei Yan |
 | [MAPREDUCE-6010](https://issues.apache.org/jira/browse/MAPREDUCE-6010) | HistoryServerFileSystemStateStore fails to update tokens |  Major | (jobhistoryserver) | Jason Lowe | Jason Lowe |
 | [MAPREDUCE-5999](https://issues.apache.org/jira/browse/MAPREDUCE-5999) | Fix dead link in InputFormat javadoc |  Minor | (documentation) | Akira AJISAKA | Akira AJISAKA |

@@ -28,7 +28,7 @@
 | [HADOOP-11195](https://issues.apache.org/jira/browse/HADOOP-11195) | Move Id-Name mapping in NFS to the hadoop-common area for better maintenance |  Major | (nfs , security) | Yongjun Zhang | Yongjun Zhang |
 | [HADOOP-11184](https://issues.apache.org/jira/browse/HADOOP-11184) | Update Hadoop's lz4 to r123 |  Major | (native) | Colin Patrick McCabe | Colin Patrick McCabe |
 | [HADOOP-11153](https://issues.apache.org/jira/browse/HADOOP-11153) | Make number of KMS threads configurable |  Major | (kms) | Andrew Wang | Andrew Wang |
-| [HADOOP-11111](https://issues.apache.org/jira/browse/HADOOP-11111) | MiniKDC to use locale EN_US for case conversions |  Minor | (tools) | Steve Loughran | Steve Loughran |
+| [HADOOP-11111](https://issues.apache.org/jira/browse/HADOOP-11111) | MiniKDC to use locale EN\_US for case conversions |  Minor | (tools) | Steve Loughran | Steve Loughran |
 | [HADOOP-11106](https://issues.apache.org/jira/browse/HADOOP-11106) | Document considerations of HAR and Encryption |  Minor | (documentation) | Andrew Wang | Charles Lamb |
 | [HADOOP-11101](https://issues.apache.org/jira/browse/HADOOP-11101) | How about inputstream close statement from catch block to finally block in FileContext#copy() ? |  Minor |  | skrho | skrho |
 | [HADOOP-11068](https://issues.apache.org/jira/browse/HADOOP-11068) | Match hadoop.auth cookie format to jetty output |  Major | (security) | Gregory Chanan | Gregory Chanan |
@@ -46,7 +46,7 @@
 | [HADOOP-10982](https://issues.apache.org/jira/browse/HADOOP-10982) | KMS: Support for multiple Kerberos principals |  Major |  | Andrew Wang | Alejandro Abdelnur |
 | [HADOOP-10975](https://issues.apache.org/jira/browse/HADOOP-10975) | org.apache.hadoop.util.DataChecksum should support native checksum calculation |  Major | (performance) | James Thomas | James Thomas |
 | [HADOOP-10970](https://issues.apache.org/jira/browse/HADOOP-10970) | Cleanup KMS configuration keys |  Major |  | Andrew Wang | Andrew Wang |
-| [HADOOP-10967](https://issues.apache.org/jira/browse/HADOOP-10967) | Improve DefaultCryptoExtension#generateEncryptedKey performance  |  Major | (security) | Yi Liu | Yi Liu |
+| [HADOOP-10967](https://issues.apache.org/jira/browse/HADOOP-10967) | Improve DefaultCryptoExtension#generateEncryptedKey performance |  Major | (security) | Yi Liu | Yi Liu |
 | [HADOOP-10954](https://issues.apache.org/jira/browse/HADOOP-10954) | Adding site documents of hadoop-tools |  Minor | (documentation) | Masatake Iwasaki | Masatake Iwasaki |
 | [HADOOP-10936](https://issues.apache.org/jira/browse/HADOOP-10936) | Change default KeyProvider bitlength to 128 |  Major |  | Andrew Wang | Andrew Wang |
 | [HADOOP-10922](https://issues.apache.org/jira/browse/HADOOP-10922) | User documentation for CredentialShell |  Major |  | Andrew Wang | Larry McCay |
@@ -64,7 +64,7 @@
 | [HADOOP-10833](https://issues.apache.org/jira/browse/HADOOP-10833) | Remove unused cache in UserProvider |  Major | (security) | Benoy Antony | Benoy Antony |
 | [HADOOP-10826](https://issues.apache.org/jira/browse/HADOOP-10826) | Iteration on KeyProviderFactory.serviceLoader  is thread-unsafe |  Major | (security) | Benoy Antony | Benoy Antony |
 | [HADOOP-10824](https://issues.apache.org/jira/browse/HADOOP-10824) | Refactor KMSACLs to avoid locking |  Major | (security) | Benoy Antony | Benoy Antony |
-| [HADOOP-10817](https://issues.apache.org/jira/browse/HADOOP-10817) | ProxyUsers configuration should support configurable prefixes  |  Major | (security) | Alejandro Abdelnur | Alejandro Abdelnur |
+| [HADOOP-10817](https://issues.apache.org/jira/browse/HADOOP-10817) | ProxyUsers configuration should support configurable prefixes |  Major | (security) | Alejandro Abdelnur | Alejandro Abdelnur |
 | [HADOOP-10815](https://issues.apache.org/jira/browse/HADOOP-10815) | Implement Windows equivalent of mlock. |  Major | (native) | Chris Nauroth | Chris Nauroth |
 | [HADOOP-10812](https://issues.apache.org/jira/browse/HADOOP-10812) | Delegate KeyProviderExtension#toString to underlying KeyProvider |  Trivial |  | Andrew Wang | Andrew Wang |
 | [HADOOP-10808](https://issues.apache.org/jira/browse/HADOOP-10808) | Remove unused native code for munlock. |  Minor | (native) | Chris Nauroth | Chris Nauroth |
@@ -101,8 +101,8 @@
 | [HADOOP-9457](https://issues.apache.org/jira/browse/HADOOP-9457) | add an SCM-ignored XML filename to keep secrets in (auth-keys.xml?) |  Minor | (build) | Steve Loughran |  |
 | [HADOOP-8896](https://issues.apache.org/jira/browse/HADOOP-8896) | Javadoc points to Wrong Reader and Writer classes in SequenceFile |  Trivial | (documentation , io) | Timothy Mann | Ray Chiang |
 | [HADOOP-8815](https://issues.apache.org/jira/browse/HADOOP-8815) | RandomDatum overrides equals(Object) but no hashCode() |  Minor | (test) | Brandon Li | Brandon Li |
-| [HADOOP-8069](https://issues.apache.org/jira/browse/HADOOP-8069) | Enable TCP_NODELAY by default for IPC |  Major | (ipc) | Todd Lipcon | Todd Lipcon |
-| [HADOOP-7664](https://issues.apache.org/jira/browse/HADOOP-7664) | o.a.h.conf.Configuration complains of overriding final parameter even if the value with which its attempting to override is the same.  |  Minor | (conf) | Ravi Prakash | Ravi Prakash |
+| [HADOOP-8069](https://issues.apache.org/jira/browse/HADOOP-8069) | Enable TCP\_NODELAY by default for IPC |  Major | (ipc) | Todd Lipcon | Todd Lipcon |
+| [HADOOP-7664](https://issues.apache.org/jira/browse/HADOOP-7664) | o.a.h.conf.Configuration complains of overriding final parameter even if the value with which its attempting to override is the same. |  Minor | (conf) | Ravi Prakash | Ravi Prakash |
 
 
 ### BUG FIXES:
@@ -111,11 +111,11 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-11286](https://issues.apache.org/jira/browse/HADOOP-11286) | Map/Reduce dangerously adds Guava @Beta class to CryptoUtils |  Blocker |  | Christopher Tubbs |  |
 | [HADOOP-11282](https://issues.apache.org/jira/browse/HADOOP-11282) | Skip NFS TestShellBasedIdMapping tests that are irrelevant on Windows. |  Trivial | (test) | Chris Nauroth | Chris Nauroth |
-| [HADOOP-11280](https://issues.apache.org/jira/browse/HADOOP-11280) | TestWinUtils#testChmod fails after removal of NO_PROPAGATE_INHERIT_ACE. |  Trivial | (native , test) | Chris Nauroth | Chris Nauroth |
+| [HADOOP-11280](https://issues.apache.org/jira/browse/HADOOP-11280) | TestWinUtils#testChmod fails after removal of NO\_PROPAGATE\_INHERIT\_ACE. |  Trivial | (native , test) | Chris Nauroth | Chris Nauroth |
 | [HADOOP-11265](https://issues.apache.org/jira/browse/HADOOP-11265) | Credential and Key Shell Commands not available on Windows |  Major | (scripts) | Larry McCay | Larry McCay |
 | [HADOOP-11260](https://issues.apache.org/jira/browse/HADOOP-11260) | Patch up Jetty to disable SSLv3 |  Blocker | (security) | Karthik Kambatla | Mike Yoder |
 | [HADOOP-11254](https://issues.apache.org/jira/browse/HADOOP-11254) | Promoting AccessControlList to be public |  Major |  | Zhijie Shen | Zhijie Shen |
-| [HADOOP-11250](https://issues.apache.org/jira/browse/HADOOP-11250) | fix endmacro of set_find_shared_library_without_version in CMakeLists |  Minor | (build) | Yi Liu | Yi Liu |
+| [HADOOP-11250](https://issues.apache.org/jira/browse/HADOOP-11250) | fix endmacro of set\_find\_shared\_library\_without\_version in CMakeLists |  Minor | (build) | Yi Liu | Yi Liu |
 | [HADOOP-11247](https://issues.apache.org/jira/browse/HADOOP-11247) | Fix a couple javac warnings in NFS |  Major | (nfs) | Brandon Li | Brandon Li |
 | [HADOOP-11243](https://issues.apache.org/jira/browse/HADOOP-11243) | SSLFactory shouldn't allow SSLv3 |  Blocker |  | Wei Yan | Wei Yan |
 | [HADOOP-11233](https://issues.apache.org/jira/browse/HADOOP-11233) | hadoop.security.kms.client.encrypted.key.cache.expiry property spelled wrong in core-default |  Minor | (conf) | Steve Loughran | Stephen Chu |
@@ -128,13 +128,13 @@
 | [HADOOP-11193](https://issues.apache.org/jira/browse/HADOOP-11193) | Fix uninitialized variables in NativeIO.c |  Major | (native) | Xiaoyu Yao | Xiaoyu Yao |
 | [HADOOP-11182](https://issues.apache.org/jira/browse/HADOOP-11182) | GraphiteSink emits wrong timestamps |  Major |  | Sascha Coenen | Ravi Prakash |
 | [HADOOP-11181](https://issues.apache.org/jira/browse/HADOOP-11181) | o.a.h.security.token.delegation.DelegationTokenManager should be more generalized to handle other DelegationTokenIdentifier |  Major | (security) | Zhijie Shen | Zhijie Shen |
-| [HADOOP-11179](https://issues.apache.org/jira/browse/HADOOP-11179) | Tarball as local resource type archive fails to localize on Windows  |  Major |  | Hitesh Shah | Craig Welch |
+| [HADOOP-11179](https://issues.apache.org/jira/browse/HADOOP-11179) | Tarball as local resource type archive fails to localize on Windows |  Major |  | Hitesh Shah | Craig Welch |
 | [HADOOP-11178](https://issues.apache.org/jira/browse/HADOOP-11178) | Fix findbugs exclude file |  Minor | (build) | Arun Suresh | Arun Suresh |
 | [HADOOP-11176](https://issues.apache.org/jira/browse/HADOOP-11176) | KMSClientProvider authentication fails when both currentUgi and loginUgi are a proxied user |  Major |  | Arun Suresh | Arun Suresh |
 | [HADOOP-11175](https://issues.apache.org/jira/browse/HADOOP-11175) | Fix several issues of hadoop security configuration in user doc. |  Trivial | (documentation , security) | Yi Liu | Yi Liu |
 | [HADOOP-11174](https://issues.apache.org/jira/browse/HADOOP-11174) | Delegation token for KMS should only be got once if it already exists |  Major | (kms , security) | Yi Liu | Yi Liu |
 | [HADOOP-11170](https://issues.apache.org/jira/browse/HADOOP-11170) | ZKDelegationTokenSecretManager fails to renewToken created by a peer |  Major |  | Arun Suresh | Arun Suresh |
-| [HADOOP-11169](https://issues.apache.org/jira/browse/HADOOP-11169) | Fix DelegationTokenAuthenticatedURL to pass the connection Configurator to the authenticator  |  Major |  | Arun Suresh | Arun Suresh |
+| [HADOOP-11169](https://issues.apache.org/jira/browse/HADOOP-11169) | Fix DelegationTokenAuthenticatedURL to pass the connection Configurator to the authenticator |  Major |  | Arun Suresh | Arun Suresh |
 | [HADOOP-11168](https://issues.apache.org/jira/browse/HADOOP-11168) | Remove duplicated entry "dfs.webhdfs.enabled" in the user doc |  Trivial | (documentation) | Yi Liu | Yi Liu |
 | [HADOOP-11163](https://issues.apache.org/jira/browse/HADOOP-11163) | MetricsSystemImpl may miss a registered source |  Minor | (metrics) | Chuan Liu | Chuan Liu |
 | [HADOOP-11161](https://issues.apache.org/jira/browse/HADOOP-11161) | Expose close method in KeyProvider to give clients of Provider implementations a hook to release resources |  Major |  | Arun Suresh | Arun Suresh |
@@ -146,11 +146,11 @@
 | [HADOOP-11140](https://issues.apache.org/jira/browse/HADOOP-11140) | hadoop-aws only need test-scoped dependency on hadoop-common's tests jar |  Major |  | Juan Yu | Juan Yu |
 | [HADOOP-11133](https://issues.apache.org/jira/browse/HADOOP-11133) | Should trim the content of keystore password file for JavaKeyStoreProvider |  Minor | (security) | zhubin | Yi Liu |
 | [HADOOP-11130](https://issues.apache.org/jira/browse/HADOOP-11130) | NFS updateMaps OS check is reversed |  Major | (nfs) | Allen Wittenauer | Brandon Li |
-| [HADOOP-11122](https://issues.apache.org/jira/browse/HADOOP-11122) | Fix findbugs in ZK DelegationTokenSecretManagers  |  Blocker |  | Karthik Kambatla | Arun Suresh |
+| [HADOOP-11122](https://issues.apache.org/jira/browse/HADOOP-11122) | Fix findbugs in ZK DelegationTokenSecretManagers |  Blocker |  | Karthik Kambatla | Arun Suresh |
 | [HADOOP-11113](https://issues.apache.org/jira/browse/HADOOP-11113) | Namenode not able to reconnect to KMS after KMS restart |  Major | (security) | Arun Suresh | Arun Suresh |
-| [HADOOP-11112](https://issues.apache.org/jira/browse/HADOOP-11112) | TestKMSWithZK does not use KEY_PROVIDER_URI |  Major | (security) | Alejandro Abdelnur | Alejandro Abdelnur |
+| [HADOOP-11112](https://issues.apache.org/jira/browse/HADOOP-11112) | TestKMSWithZK does not use KEY\_PROVIDER\_URI |  Major | (security) | Alejandro Abdelnur | Alejandro Abdelnur |
 | [HADOOP-11110](https://issues.apache.org/jira/browse/HADOOP-11110) | JavaKeystoreProvider should not report a key as created if it was not flushed to the backing file |  Major |  | Andrew Wang | Arun Suresh |
-| [HADOOP-11109](https://issues.apache.org/jira/browse/HADOOP-11109) | Site build is broken  |  Major |  | Jian He | Jian He |
+| [HADOOP-11109](https://issues.apache.org/jira/browse/HADOOP-11109) | Site build is broken |  Major |  | Jian He | Jian He |
 | [HADOOP-11105](https://issues.apache.org/jira/browse/HADOOP-11105) | MetricsSystemImpl could leak memory in registered callbacks |  Major | (metrics) | Chuan Liu | Chuan Liu |
 | [HADOOP-11099](https://issues.apache.org/jira/browse/HADOOP-11099) | KMS return HTTP UNAUTHORIZED 401 on ACL failure |  Major | (security) | Alejandro Abdelnur | Alejandro Abdelnur |
 | [HADOOP-11097](https://issues.apache.org/jira/browse/HADOOP-11097) | kms docs say proxyusers, not proxyuser for config params |  Trivial | (documentation) | Charles Lamb | Charles Lamb |
@@ -174,10 +174,10 @@
 | [HADOOP-10989](https://issues.apache.org/jira/browse/HADOOP-10989) | Work around buggy getgrouplist() implementations on Linux that return 0 on failure |  Major | (native) | Chris Nauroth | Chris Nauroth |
 | [HADOOP-10973](https://issues.apache.org/jira/browse/HADOOP-10973) | Native Libraries Guide contains format error |  Minor | (documentation) | Peter Klavins | Peter Klavins |
 | [HADOOP-10972](https://issues.apache.org/jira/browse/HADOOP-10972) | Native Libraries Guide contains mis-spelt build line |  Major | (documentation) | Peter Klavins | Peter Klavins |
-| [HADOOP-10968](https://issues.apache.org/jira/browse/HADOOP-10968) | hadoop native build fails to detect java_libarch on ppc64le |  Major | (build) | Dinar Valeev |  |
+| [HADOOP-10968](https://issues.apache.org/jira/browse/HADOOP-10968) | hadoop native build fails to detect java\_libarch on ppc64le |  Major | (build) | Dinar Valeev |  |
 | [HADOOP-10966](https://issues.apache.org/jira/browse/HADOOP-10966) | Hadoop Common native compilation broken in windows |  Blocker | (native) | Vinayakumar B | David Villegas |
 | [HADOOP-10964](https://issues.apache.org/jira/browse/HADOOP-10964) | Small fix for NetworkTopologyWithNodeGroup#sortByDistance |  Minor |  | Yi Liu | Yi Liu |
-| [HADOOP-10962](https://issues.apache.org/jira/browse/HADOOP-10962) | Flags for posix_fadvise are not valid in some architectures |  Major | (native) | David Villegas | David Villegas |
+| [HADOOP-10962](https://issues.apache.org/jira/browse/HADOOP-10962) | Flags for posix\_fadvise are not valid in some architectures |  Major | (native) | David Villegas | David Villegas |
 | [HADOOP-10946](https://issues.apache.org/jira/browse/HADOOP-10946) | Fix a bunch of typos in log messages |  Trivial |  | Ray Chiang | Ray Chiang |
 | [HADOOP-10939](https://issues.apache.org/jira/browse/HADOOP-10939) | Fix TestKeyProviderFactory testcases to use default 128 bit length keys |  Major |  | Arun Suresh | Arun Suresh |
 | [HADOOP-10937](https://issues.apache.org/jira/browse/HADOOP-10937) | Need to set version name correctly before decrypting EEK |  Major | (security) | Arun Suresh | Arun Suresh |
@@ -204,7 +204,7 @@
 | [HADOOP-10814](https://issues.apache.org/jira/browse/HADOOP-10814) | Update Tomcat version used by HttpFS and KMS to latest 6.x version |  Major |  | Alejandro Abdelnur | Robert Kanter |
 | [HADOOP-10810](https://issues.apache.org/jira/browse/HADOOP-10810) | Clean up native code compilation warnings. |  Minor | (native) | Chris Nauroth | Chris Nauroth |
 | [HADOOP-10781](https://issues.apache.org/jira/browse/HADOOP-10781) | Unportable getgrouplist() usage breaks FreeBSD |  Major |  | Dmitry Sivachenko | Dmitry Sivachenko |
-| [HADOOP-10780](https://issues.apache.org/jira/browse/HADOOP-10780) | hadoop_user_info_alloc fails on FreeBSD due to incorrect sysconf use |  Major |  | Dmitry Sivachenko | Dmitry Sivachenko |
+| [HADOOP-10780](https://issues.apache.org/jira/browse/HADOOP-10780) | hadoop\_user\_info\_alloc fails on FreeBSD due to incorrect sysconf use |  Major |  | Dmitry Sivachenko | Dmitry Sivachenko |
 | [HADOOP-10744](https://issues.apache.org/jira/browse/HADOOP-10744) | LZ4 Compression fails to recognize PowerPC Little Endian Architecture |  Major | (io , native) | Ayappan | Bert Sanders |
 | [HADOOP-10733](https://issues.apache.org/jira/browse/HADOOP-10733) | Potential null dereference in CredentialShell#promptForCredential() |  Minor |  | Ted Yu | Ted Yu |
 | [HADOOP-10732](https://issues.apache.org/jira/browse/HADOOP-10732) | Update without holding write lock in JavaKeyStoreProvider#innerSetCredential() |  Minor |  | Ted Yu | Ted Yu |

@@ -45,7 +45,7 @@
 | [MAPREDUCE-5725](https://issues.apache.org/jira/browse/MAPREDUCE-5725) | TestNetworkedJob relies on the Capacity Scheduler |  Major |  | Sandy Ryza | Sandy Ryza |
 | [MAPREDUCE-5724](https://issues.apache.org/jira/browse/MAPREDUCE-5724) | JobHistoryServer does not start if HDFS is not running |  Critical | (jobhistoryserver) | Alejandro Abdelnur | Alejandro Abdelnur |
 | [MAPREDUCE-5723](https://issues.apache.org/jira/browse/MAPREDUCE-5723) | MR AM container log can be truncated or empty |  Blocker | (applicationmaster) | Mohammad Kamrul Islam | Mohammad Kamrul Islam |
-| [MAPREDUCE-5694](https://issues.apache.org/jira/browse/MAPREDUCE-5694) | MR AM container syslog is empty   |  Major |  | Mohammad Kamrul Islam | Mohammad Kamrul Islam |
+| [MAPREDUCE-5694](https://issues.apache.org/jira/browse/MAPREDUCE-5694) | MR AM container syslog is empty |  Major |  | Mohammad Kamrul Islam | Mohammad Kamrul Islam |
 | [MAPREDUCE-5693](https://issues.apache.org/jira/browse/MAPREDUCE-5693) | Restore MRv1 behavior for log flush |  Major | (mrv2) | Gera Shegalov | Gera Shegalov |
 | [MAPREDUCE-5689](https://issues.apache.org/jira/browse/MAPREDUCE-5689) | MRAppMaster does not preempt reducers when scheduled maps cannot be fulfilled |  Critical |  | Lohit Vijayarenu | Lohit Vijayarenu |
 | [MAPREDUCE-5685](https://issues.apache.org/jira/browse/MAPREDUCE-5685) | getCacheFiles()  api doesn't work in WrappedReducer.java due to typo |  Blocker | (client) | Yi Song | Yi Song |
@@ -66,18 +66,18 @@
 | [MAPREDUCE-5569](https://issues.apache.org/jira/browse/MAPREDUCE-5569) | FloatSplitter is not generating correct splits |  Major |  | Nathan Roberts | Nathan Roberts |
 | [MAPREDUCE-5561](https://issues.apache.org/jira/browse/MAPREDUCE-5561) | org.apache.hadoop.mapreduce.v2.app.job.impl.TestJobImpl testcase failing on trunk |  Critical |  | Cindy Li | Karthik Kambatla |
 | [MAPREDUCE-5550](https://issues.apache.org/jira/browse/MAPREDUCE-5550) | Task Status message (reporter.setStatus) not shown in UI with Hadoop 2.0 |  Major |  | Vrushali C | Gera Shegalov |
-| [MAPREDUCE-5546](https://issues.apache.org/jira/browse/MAPREDUCE-5546) | mapred.cmd on Windows set HADOOP_OPTS incorrectly |  Major |  | Chuan Liu | Chuan Liu |
+| [MAPREDUCE-5546](https://issues.apache.org/jira/browse/MAPREDUCE-5546) | mapred.cmd on Windows set HADOOP\_OPTS incorrectly |  Major |  | Chuan Liu | Chuan Liu |
 | [MAPREDUCE-5522](https://issues.apache.org/jira/browse/MAPREDUCE-5522) | Incorrectly expect the array of JobQueueInfo returned by o.a.h.mapred.QueueManager#getJobQueueInfos to have a specific order. |  Minor | (test) | Jinghui Wang | Jinghui Wang |
 | [MAPREDUCE-5518](https://issues.apache.org/jira/browse/MAPREDUCE-5518) | Fix typo "can't read paritions file" |  Trivial | (examples) | Albert Chu | Albert Chu |
 | [MAPREDUCE-5514](https://issues.apache.org/jira/browse/MAPREDUCE-5514) | TestRMContainerAllocator fails on trunk |  Blocker |  | Zhijie Shen | Zhijie Shen |
 | [MAPREDUCE-5504](https://issues.apache.org/jira/browse/MAPREDUCE-5504) | mapred queue -info inconsistent with types |  Major | (client) | Thomas Graves | Kousuke Saruta |
-| [MAPREDUCE-5481](https://issues.apache.org/jira/browse/MAPREDUCE-5481) | Enable uber jobs to have multiple reducers  |  Blocker | (mrv2 , test) | Jason Lowe | Sandy Ryza |
-| [MAPREDUCE-5451](https://issues.apache.org/jira/browse/MAPREDUCE-5451) | MR uses LD_LIBRARY_PATH which doesn't mean anything in Windows |  Major |  | Mostafa Elhemali | Yingda Chen |
+| [MAPREDUCE-5481](https://issues.apache.org/jira/browse/MAPREDUCE-5481) | Enable uber jobs to have multiple reducers |  Blocker | (mrv2 , test) | Jason Lowe | Sandy Ryza |
+| [MAPREDUCE-5451](https://issues.apache.org/jira/browse/MAPREDUCE-5451) | MR uses LD\_LIBRARY\_PATH which doesn't mean anything in Windows |  Major |  | Mostafa Elhemali | Yingda Chen |
 | [MAPREDUCE-5431](https://issues.apache.org/jira/browse/MAPREDUCE-5431) | Missing pom dependency in MR-client |  Major | (build) | Timothy St. Clair | Timothy St. Clair |
 | [MAPREDUCE-5404](https://issues.apache.org/jira/browse/MAPREDUCE-5404) | HSAdminServer does not use ephemeral ports in minicluster mode |  Major | (jobhistoryserver) | Ted Yu | Ted Yu |
 | [MAPREDUCE-5380](https://issues.apache.org/jira/browse/MAPREDUCE-5380) | Invalid mapred command should return non-zero exit code |  Major |  | Stephen Chu | Stephen Chu |
 | [MAPREDUCE-5373](https://issues.apache.org/jira/browse/MAPREDUCE-5373) | TestFetchFailure.testFetchFailureMultipleReduces could fail intermittently |  Major |  | Chuan Liu | Jonathan Eagles |
-| [MAPREDUCE-5329](https://issues.apache.org/jira/browse/MAPREDUCE-5329) | APPLICATION_INIT is never sent to AuxServices other than the builtin ShuffleHandler |  Major | (mr-am) | Avner BenHanoch | Avner BenHanoch |
+| [MAPREDUCE-5329](https://issues.apache.org/jira/browse/MAPREDUCE-5329) | APPLICATION\_INIT is never sent to AuxServices other than the builtin ShuffleHandler |  Major | (mr-am) | Avner BenHanoch | Avner BenHanoch |
 | [MAPREDUCE-5316](https://issues.apache.org/jira/browse/MAPREDUCE-5316) | job -list-attempt-ids command does not handle illegal task-state |  Major | (client) | Ashwin Shankar | Ashwin Shankar |
 | [MAPREDUCE-5186](https://issues.apache.org/jira/browse/MAPREDUCE-5186) | mapreduce.job.max.split.locations causes some splits created by CombineFileInputFormat to fail |  Critical | (job submission) | Sangjin Lee | Robert Parker |
 | [MAPREDUCE-5052](https://issues.apache.org/jira/browse/MAPREDUCE-5052) | Job History UI and web services confusing job start time and job submit time |  Critical | (jobhistoryserver , webapps) | Kendall Thrapp | Chen He |
@@ -100,7 +100,7 @@
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [MAPREDUCE-5464](https://issues.apache.org/jira/browse/MAPREDUCE-5464) | Add analogs of the SLOTS_MILLIS counters that jive with the YARN resource model |  Major |  | Sandy Ryza | Sandy Ryza |
-| [MAPREDUCE-5463](https://issues.apache.org/jira/browse/MAPREDUCE-5463) | Deprecate SLOTS_MILLIS counters |  Major |  | Sandy Ryza | Tsuyoshi Ozawa |
+| [MAPREDUCE-5464](https://issues.apache.org/jira/browse/MAPREDUCE-5464) | Add analogs of the SLOTS\_MILLIS counters that jive with the YARN resource model |  Major |  | Sandy Ryza | Sandy Ryza |
+| [MAPREDUCE-5463](https://issues.apache.org/jira/browse/MAPREDUCE-5463) | Deprecate SLOTS\_MILLIS counters |  Major |  | Sandy Ryza | Tsuyoshi Ozawa |
 
 

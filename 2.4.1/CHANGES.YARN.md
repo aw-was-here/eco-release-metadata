@@ -38,7 +38,7 @@
 | [YARN-1929](https://issues.apache.org/jira/browse/YARN-1929) | DeadLock in RM when automatic failover is enabled. |  Blocker | (resourcemanager) | Rohith | Karthik Kambatla |
 | [YARN-1928](https://issues.apache.org/jira/browse/YARN-1928) | TestAMRMRPCNodeUpdates fails ocassionally |  Major |  | Zhijie Shen | Zhijie Shen |
 | [YARN-1926](https://issues.apache.org/jira/browse/YARN-1926) | DistributedShell unit tests fail on Windows |  Major |  | Varun Vasudev | Varun Vasudev |
-| [YARN-1924](https://issues.apache.org/jira/browse/YARN-1924) | STATE_STORE_OP_FAILED happens when ZKRMStateStore tries to update app(attempt) before storing it |  Critical |  | Arpit Gupta | Jian He |
+| [YARN-1924](https://issues.apache.org/jira/browse/YARN-1924) | STATE\_STORE\_OP\_FAILED happens when ZKRMStateStore tries to update app(attempt) before storing it |  Critical |  | Arpit Gupta | Jian He |
 | [YARN-1920](https://issues.apache.org/jira/browse/YARN-1920) | TestFileSystemApplicationHistoryStore.testMissingApplicationAttemptHistoryData fails in windows |  Major |  | Vinod Kumar Vavilapalli | Vinod Kumar Vavilapalli |
 | [YARN-1914](https://issues.apache.org/jira/browse/YARN-1914) | Test TestFSDownload.testDownloadPublicWithStatCache fails on Windows |  Major |  | Varun Vasudev | Varun Vasudev |
 | [YARN-1910](https://issues.apache.org/jira/browse/YARN-1910) | TestAMRMTokens fails on windows |  Major |  | Xuan Gong | Xuan Gong |

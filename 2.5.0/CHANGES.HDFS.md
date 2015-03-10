@@ -68,7 +68,7 @@
 | [HDFS-6167](https://issues.apache.org/jira/browse/HDFS-6167) | Relocate the non-public API classes in the hdfs.client package |  Major | (hdfs-client) | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HDFS-6158](https://issues.apache.org/jira/browse/HDFS-6158) | Clean up dead code for OfflineImageViewer |  Major |  | Haohui Mai | Haohui Mai |
 | [HDFS-6110](https://issues.apache.org/jira/browse/HDFS-6110) | adding more slow action log in critical write path |  Major | (datanode) | Liang Xie | Liang Xie |
-| [HDFS-6109](https://issues.apache.org/jira/browse/HDFS-6109) | let sync_file_range() system call run in background |  Major | (datanode) | Liang Xie | Liang Xie |
+| [HDFS-6109](https://issues.apache.org/jira/browse/HDFS-6109) | let sync\_file\_range() system call run in background |  Major | (datanode) | Liang Xie | Liang Xie |
 | [HDFS-6007](https://issues.apache.org/jira/browse/HDFS-6007) | Update documentation about short-circuit local reads |  Minor | (documentation) | Masatake Iwasaki |  |
 | [HDFS-5693](https://issues.apache.org/jira/browse/HDFS-5693) | Few NN metrics data points were collected via JMX when NN is under heavy load |  Major | (namenode) | Ming Ma | Ming Ma |
 | [HDFS-5683](https://issues.apache.org/jira/browse/HDFS-5683) | Better audit log messages for caching operations |  Major | (namenode) | Andrew Wang | Abhiraj Butala |
@@ -84,7 +84,7 @@
 | JIRA | Description | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-6793](https://issues.apache.org/jira/browse/HDFS-6793) | Missing changes in HftpFileSystem when Reintroduce dfs.http.port / dfs.https.port in branch-2 |  Blocker |  | Juan Yu | Juan Yu |
-| [HDFS-6752](https://issues.apache.org/jira/browse/HDFS-6752) | Avoid Address bind errors in TestDatanodeConfig#testMemlockLimit  |  Major | (test) | Vinayakumar B | Vinayakumar B |
+| [HDFS-6752](https://issues.apache.org/jira/browse/HDFS-6752) | Avoid Address bind errors in TestDatanodeConfig#testMemlockLimit |  Major | (test) | Vinayakumar B | Vinayakumar B |
 | [HDFS-6723](https://issues.apache.org/jira/browse/HDFS-6723) | New NN webUI no longer displays decommissioned state for dead node |  Major |  | Ming Ma | Ming Ma |
 | [HDFS-6712](https://issues.apache.org/jira/browse/HDFS-6712) | Document HDFS Multihoming Settings |  Major | (documentation) | Arpit Agarwal | Arpit Agarwal |
 | [HDFS-6703](https://issues.apache.org/jira/browse/HDFS-6703) | NFS: Files can be deleted from a read-only mount |  Major | (nfs) | Abhiraj Butala | Srikanth Upputuri |
@@ -112,7 +112,7 @@
 | [HDFS-6552](https://issues.apache.org/jira/browse/HDFS-6552) | add DN storage to a BlockInfo will not replace the different storage from same DN |  Trivial | (namenode) | Amir Langer | Amir Langer |
 | [HDFS-6551](https://issues.apache.org/jira/browse/HDFS-6551) | Rename with OVERWRITE option may throw NPE when the target file/directory is a reference INode |  Major | (namenode , snapshots) | Jing Zhao | Jing Zhao |
 | [HDFS-6549](https://issues.apache.org/jira/browse/HDFS-6549) | Add support for accessing the NFS gateway from the AIX NFS client |  Major | (nfs) | Aaron T. Myers | Aaron T. Myers |
-| [HDFS-6539](https://issues.apache.org/jira/browse/HDFS-6539) | test_native_mini_dfs is skipped in hadoop-hdfs/pom.xml |  Major |  | Binglin Chang | Binglin Chang |
+| [HDFS-6539](https://issues.apache.org/jira/browse/HDFS-6539) | test\_native\_mini\_dfs is skipped in hadoop-hdfs/pom.xml |  Major |  | Binglin Chang | Binglin Chang |
 | [HDFS-6535](https://issues.apache.org/jira/browse/HDFS-6535) | HDFS quota update is wrong when file is appended |  Major | (namenode) | George Wong | George Wong |
 | [HDFS-6530](https://issues.apache.org/jira/browse/HDFS-6530) | Fix Balancer documentation |  Minor | (documentation) | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HDFS-6527](https://issues.apache.org/jira/browse/HDFS-6527) | Edit log corruption due to defered INode removal |  Blocker |  | Kihwal Lee | Kihwal Lee |
@@ -135,10 +135,10 @@
 | [HDFS-6423](https://issues.apache.org/jira/browse/HDFS-6423) | Diskspace quota usage should be updated when appending data to partial block |  Major | (namenode) | Jing Zhao | Jing Zhao |
 | [HDFS-6422](https://issues.apache.org/jira/browse/HDFS-6422) | getfattr in CLI doesn't throw exception or return non-0 return code when xattr doesn't exist |  Blocker |  | Charles Lamb | Charles Lamb |
 | [HDFS-6421](https://issues.apache.org/jira/browse/HDFS-6421) | Fix vecsum.c compile on BSD and some other systems |  Major | (libhdfs) | Jason Lowe | Mit Desai |
-| [HDFS-6418](https://issues.apache.org/jira/browse/HDFS-6418) | Regression: DFS_NAMENODE_USER_NAME_KEY missing in trunk |  Blocker | (hdfs-client) | Steve Loughran | Tsz Wo Nicholas Sze |
+| [HDFS-6418](https://issues.apache.org/jira/browse/HDFS-6418) | Regression: DFS\_NAMENODE\_USER\_NAME\_KEY missing in trunk |  Blocker | (hdfs-client) | Steve Loughran | Tsz Wo Nicholas Sze |
 | [HDFS-6409](https://issues.apache.org/jira/browse/HDFS-6409) | Fix typo in log message about NameNode layout version upgrade. |  Trivial | (namenode) | Chris Nauroth | Chen He |
 | [HDFS-6404](https://issues.apache.org/jira/browse/HDFS-6404) | HttpFS should use a 000 umask for mkdir and create operations |  Major |  | Alejandro Abdelnur | Mike Yoder |
-| [HDFS-6400](https://issues.apache.org/jira/browse/HDFS-6400) | Cannot execute "hdfs oiv_legacy" |  Critical | (tools) | Akira AJISAKA | Akira AJISAKA |
+| [HDFS-6400](https://issues.apache.org/jira/browse/HDFS-6400) | Cannot execute "hdfs oiv\_legacy" |  Critical | (tools) | Akira AJISAKA | Akira AJISAKA |
 | [HDFS-6399](https://issues.apache.org/jira/browse/HDFS-6399) | Add note about setfacl in HDFS permissions guide |  Minor | (documentation , namenode) | Charles Lamb | Chris Nauroth |
 | [HDFS-6395](https://issues.apache.org/jira/browse/HDFS-6395) | Skip checking xattr limits for non-user-visible namespaces |  Major | (namenode) | Andrew Wang | Yi Liu |
 | [HDFS-6381](https://issues.apache.org/jira/browse/HDFS-6381) | Fix a typo in INodeReference.java |  Trivial | (documentation) | Binglin Chang | Binglin Chang |

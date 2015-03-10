@@ -46,12 +46,12 @@
 | [HADOOP-9998](https://issues.apache.org/jira/browse/HADOOP-9998) | Provide methods to clear only part of the DNSToSwitchMapping |  Major | (net) | Junping Du | Junping Du |
 | [HADOOP-9915](https://issues.apache.org/jira/browse/HADOOP-9915) | o.a.h.fs.Stat support on Macosx |  Trivial |  | Binglin Chang | Binglin Chang |
 | [HADOOP-9909](https://issues.apache.org/jira/browse/HADOOP-9909) | org.apache.hadoop.fs.Stat should permit other LANG |  Major | (fs) | Shinichi Yamashita |  |
-| [HADOOP-9897](https://issues.apache.org/jira/browse/HADOOP-9897) | Add method to get path start position without drive specifier in o.a.h.fs.Path   |  Trivial | (fs) | Binglin Chang | Binglin Chang |
+| [HADOOP-9897](https://issues.apache.org/jira/browse/HADOOP-9897) | Add method to get path start position without drive specifier in o.a.h.fs.Path |  Trivial | (fs) | Binglin Chang | Binglin Chang |
 | [HADOOP-9860](https://issues.apache.org/jira/browse/HADOOP-9860) | Remove class HackedKeytab and HackedKeytabEncoder from hadoop-minikdc once jira DIRSERVER-1882 solved |  Major |  | Wei Yan | Wei Yan |
 | [HADOOP-9784](https://issues.apache.org/jira/browse/HADOOP-9784) | Add a builder for HttpServer |  Major |  | Junping Du | Junping Du |
 | [HADOOP-9693](https://issues.apache.org/jira/browse/HADOOP-9693) | Shell should add a probe for OSX |  Trivial |  | Steve Loughran |  |
 | [HADOOP-9652](https://issues.apache.org/jira/browse/HADOOP-9652) | Allow RawLocalFs#getFileLinkStatus to fill in the link owner and mode if requested |  Major |  | Colin Patrick McCabe | Andrew Wang |
-| [HADOOP-9623](https://issues.apache.org/jira/browse/HADOOP-9623) | Update jets3t dependency to  0.9.0  |  Major | (fs/s3) | Timothy St. Clair | Amandeep Khurana |
+| [HADOOP-9623](https://issues.apache.org/jira/browse/HADOOP-9623) | Update jets3t dependency to  0.9.0 |  Major | (fs/s3) | Timothy St. Clair | Amandeep Khurana |
 | [HADOOP-9611](https://issues.apache.org/jira/browse/HADOOP-9611) | mvn-rpmbuild against google-guice &gt; 3.0 yields missing cglib dependency |  Major | (build) | Timothy St. Clair | Timothy St. Clair |
 | [HADOOP-9594](https://issues.apache.org/jira/browse/HADOOP-9594) | Update apache commons math dependency |  Major | (build) | Timothy St. Clair | Timothy St. Clair |
 | [HADOOP-9494](https://issues.apache.org/jira/browse/HADOOP-9494) | Excluded auto-generated and examples code from clover reports |  Major |  | Dennis Y | Andrey Klochkov |
@@ -85,12 +85,12 @@
 | [HADOOP-10223](https://issues.apache.org/jira/browse/HADOOP-10223) | MiniKdc#main() should close the FileReader it creates |  Minor |  | Ted Yu | Ted Yu |
 | [HADOOP-10214](https://issues.apache.org/jira/browse/HADOOP-10214) | Fix multithreaded correctness warnings in ActiveStandbyElector |  Major | (ha) | Liang Xie | Liang Xie |
 | [HADOOP-10212](https://issues.apache.org/jira/browse/HADOOP-10212) | Incorrect compile command in Native Library document |  Major | (documentation) | Akira AJISAKA | Akira AJISAKA |
-| [HADOOP-10203](https://issues.apache.org/jira/browse/HADOOP-10203) | Connection leak in Jets3tNativeFileSystemStore#retrieveMetadata  |  Major | (fs/s3) | Andrei Savu | Andrei Savu |
+| [HADOOP-10203](https://issues.apache.org/jira/browse/HADOOP-10203) | Connection leak in Jets3tNativeFileSystemStore#retrieveMetadata |  Major | (fs/s3) | Andrei Savu | Andrei Savu |
 | [HADOOP-10193](https://issues.apache.org/jira/browse/HADOOP-10193) | hadoop-auth's PseudoAuthenticationHandler can consume getInputStream |  Minor | (security) | Gregory Chanan | Gregory Chanan |
 | [HADOOP-10178](https://issues.apache.org/jira/browse/HADOOP-10178) | Configuration deprecation always emit "deprecated" warnings when a new key is used |  Major | (conf) | shanyu zhao | shanyu zhao |
 | [HADOOP-10175](https://issues.apache.org/jira/browse/HADOOP-10175) | Har files system authority should preserve userinfo |  Major | (fs) | Chuan Liu | Chuan Liu |
 | [HADOOP-10171](https://issues.apache.org/jira/browse/HADOOP-10171) | TestRPC fails intermittently on jkd7 |  Major |  | Mit Desai | Mit Desai |
-| [HADOOP-10168](https://issues.apache.org/jira/browse/HADOOP-10168) | fix javadoc of ReflectionUtils.copy  |  Major |  | Thejas M Nair | Thejas M Nair |
+| [HADOOP-10168](https://issues.apache.org/jira/browse/HADOOP-10168) | fix javadoc of ReflectionUtils.copy |  Major |  | Thejas M Nair | Thejas M Nair |
 | [HADOOP-10162](https://issues.apache.org/jira/browse/HADOOP-10162) | Fix symlink-related test failures in TestFileContextResolveAfs and TestStat in branch-2 |  Major |  | Mit Desai | Mit Desai |
 | [HADOOP-10147](https://issues.apache.org/jira/browse/HADOOP-10147) | Upgrade to commons-logging 1.1.3 to avoid potential deadlock in MiniDFSCluster |  Minor | (build) | Eric Sirianni | Steve Loughran |
 | [HADOOP-10146](https://issues.apache.org/jira/browse/HADOOP-10146) | Workaround JDK7 Process fd close bug |  Critical | (util) | Daryn Sharp | Daryn Sharp |
@@ -106,7 +106,7 @@
 | [HADOOP-10106](https://issues.apache.org/jira/browse/HADOOP-10106) | Incorrect thread name in RPC log messages |  Minor |  | Ming Ma | Ming Ma |
 | [HADOOP-10100](https://issues.apache.org/jira/browse/HADOOP-10100) | MiniKDC shouldn't use apacheds-all artifact |  Major |  | Robert Kanter | Robert Kanter |
 | [HADOOP-10094](https://issues.apache.org/jira/browse/HADOOP-10094) | NPE in GenericOptionsParser#preProcessForWindows() |  Trivial | (util) | Enis Soztutar | Enis Soztutar |
-| [HADOOP-10093](https://issues.apache.org/jira/browse/HADOOP-10093) | hadoop-env.cmd sets HADOOP_CLIENT_OPTS with a max heap size that is too small. |  Major | (conf) | shanyu zhao | shanyu zhao |
+| [HADOOP-10093](https://issues.apache.org/jira/browse/HADOOP-10093) | hadoop-env.cmd sets HADOOP\_CLIENT\_OPTS with a max heap size that is too small. |  Major | (conf) | shanyu zhao | shanyu zhao |
 | [HADOOP-10090](https://issues.apache.org/jira/browse/HADOOP-10090) | Jobtracker metrics not updated properly after execution of a mapreduce job |  Major | (metrics) | Ivan Mitic | Ivan Mitic |
 | [HADOOP-10088](https://issues.apache.org/jira/browse/HADOOP-10088) | copy-nativedistlibs.sh needs to quote snappy lib dir |  Major | (build) | Raja Aluri | Raja Aluri |
 | [HADOOP-10087](https://issues.apache.org/jira/browse/HADOOP-10087) | UserGroupInformation.getGroupNames() fails to return primary group first when JniBasedUnixGroupsMappingWithFallback is used |  Major | (security) | Yu Gao | Colin Patrick McCabe |
@@ -114,20 +114,20 @@
 | [HADOOP-10078](https://issues.apache.org/jira/browse/HADOOP-10078) | KerberosAuthenticator always does SPNEGO |  Minor | (security) | Robert Kanter | Robert Kanter |
 | [HADOOP-10072](https://issues.apache.org/jira/browse/HADOOP-10072) | TestNfsExports#testMultiMatchers fails due to non-deterministic timing around cache expiry check. |  Trivial | (nfs , test) | Chris Nauroth | Chris Nauroth |
 | [HADOOP-10058](https://issues.apache.org/jira/browse/HADOOP-10058) | TestMetricsSystemImpl#testInitFirstVerifyStopInvokedImmediately fails on trunk |  Minor | (metrics) | Akira AJISAKA | Chen He |
-| [HADOOP-10055](https://issues.apache.org/jira/browse/HADOOP-10055) | FileSystemShell.apt.vm doc has typo "numRepicas"  |  Trivial | (documentation) | Eli Collins | Akira AJISAKA |
+| [HADOOP-10055](https://issues.apache.org/jira/browse/HADOOP-10055) | FileSystemShell.apt.vm doc has typo "numRepicas" |  Trivial | (documentation) | Eli Collins | Akira AJISAKA |
 | [HADOOP-10040](https://issues.apache.org/jira/browse/HADOOP-10040) | hadoop.cmd in UNIX format and would not run by default on Windows |  Major |  | Yingda Chen | Chris Nauroth |
 | [HADOOP-10039](https://issues.apache.org/jira/browse/HADOOP-10039) | Add Hive to the list of projects using AbstractDelegationTokenSecretManager |  Major | (security) | Suresh Srinivas | Haohui Mai |
 | [HADOOP-10031](https://issues.apache.org/jira/browse/HADOOP-10031) | FsShell -get/copyToLocal/moveFromLocal should support Windows local path |  Major | (fs) | Chuan Liu | Chuan Liu |
 | [HADOOP-10030](https://issues.apache.org/jira/browse/HADOOP-10030) | FsShell -put/copyFromLocal should support Windows local path |  Major |  | Chuan Liu | Chuan Liu |
 | [HADOOP-10029](https://issues.apache.org/jira/browse/HADOOP-10029) | Specifying har file to MR job fails in secure cluster |  Major | (fs) | Suresh Srinivas | Suresh Srinivas |
-| [HADOOP-10028](https://issues.apache.org/jira/browse/HADOOP-10028) | Malformed ssl-server.xml.example  |  Minor |  | Jing Zhao | Haohui Mai |
+| [HADOOP-10028](https://issues.apache.org/jira/browse/HADOOP-10028) | Malformed ssl-server.xml.example |  Minor |  | Jing Zhao | Haohui Mai |
 | [HADOOP-10006](https://issues.apache.org/jira/browse/HADOOP-10006) | Compilation failure in trunk for o.a.h.fs.swift.util.JSONUtil |  Blocker | (fs , util) | Junping Du | Junping Du |
 | [HADOOP-9982](https://issues.apache.org/jira/browse/HADOOP-9982) | Fix dead links in hadoop site docs |  Major | (documentation) | Akira AJISAKA | Akira AJISAKA |
 | [HADOOP-9981](https://issues.apache.org/jira/browse/HADOOP-9981) | globStatus should minimize its listStatus and getFileStatus calls |  Critical |  | Kihwal Lee | Colin Patrick McCabe |
 | [HADOOP-9964](https://issues.apache.org/jira/browse/HADOOP-9964) | O.A.H.U.ReflectionUtils.printThreadInfo() is not thread-safe which cause TestHttpServer pending 10 minutes or longer. |  Major | (util) | Junping Du | Junping Du |
 | [HADOOP-9929](https://issues.apache.org/jira/browse/HADOOP-9929) | Insufficient permissions for a path reported as file not found |  Major | (fs) | Jason Lowe | Colin Patrick McCabe |
 | [HADOOP-9908](https://issues.apache.org/jira/browse/HADOOP-9908) | Fix NPE when versioninfo properties file is missing |  Major | (util) | Todd Lipcon | Todd Lipcon |
-| [HADOOP-9898](https://issues.apache.org/jira/browse/HADOOP-9898) | Set SO_KEEPALIVE on all our sockets |  Minor | (ipc , net) | Todd Lipcon | Todd Lipcon |
+| [HADOOP-9898](https://issues.apache.org/jira/browse/HADOOP-9898) | Set SO\_KEEPALIVE on all our sockets |  Minor | (ipc , net) | Todd Lipcon | Todd Lipcon |
 | [HADOOP-9889](https://issues.apache.org/jira/browse/HADOOP-9889) | Refresh the Krb5 configuration when creating a new kdc in Hadoop-MiniKDC |  Major |  | Wei Yan | Wei Yan |
 | [HADOOP-9887](https://issues.apache.org/jira/browse/HADOOP-9887) | globStatus does not correctly handle paths starting with a drive spec on Windows |  Major | (fs) | Chris Nauroth | Chuan Liu |
 | [HADOOP-9875](https://issues.apache.org/jira/browse/HADOOP-9875) | TestDoAsEffectiveUser can fail on JDK 7 |  Minor | (test) | Aaron T. Myers | Aaron T. Myers |
@@ -144,7 +144,7 @@
 | [HADOOP-9582](https://issues.apache.org/jira/browse/HADOOP-9582) | Non-existent file to "hadoop fs -conf" doesn't throw error |  Major | (conf) | Ashwin Shankar | Ashwin Shankar |
 | [HADOOP-9478](https://issues.apache.org/jira/browse/HADOOP-9478) | Fix race conditions during the initialization of Configuration related to deprecatedKeyMap |  Major | (conf) | Dongyong Wang | Colin Patrick McCabe |
 | [HADOOP-9420](https://issues.apache.org/jira/browse/HADOOP-9420) | Add percentile or max metric for rpcQueueTime, processing time |  Major | (ipc , metrics) | Todd Lipcon | Liang Xie |
-| [HADOOP-9350](https://issues.apache.org/jira/browse/HADOOP-9350) | Hadoop not building against Java7 on OSX  |  Minor | (build) | Steve Loughran | Robert Kanter |
+| [HADOOP-9350](https://issues.apache.org/jira/browse/HADOOP-9350) | Hadoop not building against Java7 on OSX |  Minor | (build) | Steve Loughran | Robert Kanter |
 | [HADOOP-9114](https://issues.apache.org/jira/browse/HADOOP-9114) | After defined the dfs.checksum.type as the NULL, write file and hflush will through java.lang.ArrayIndexOutOfBoundsException |  Minor |  | liuyang | sathish |
 | [HADOOP-9016](https://issues.apache.org/jira/browse/HADOOP-9016) | org.apache.hadoop.fs.HarFileSystem.HarFSDataInputStream.HarFsInputStream.skip(long) must never return negative value. |  Minor |  | Ivan A. Veselovsky | Ivan A. Veselovsky |
 | [HADOOP-8753](https://issues.apache.org/jira/browse/HADOOP-8753) | LocalDirAllocator throws "ArithmeticException: / by zero" when there is no available space on configured local dir |  Minor |  | Nishan Shetty | Benoy Antony |

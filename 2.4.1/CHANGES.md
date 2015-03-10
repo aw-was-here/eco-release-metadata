@@ -39,7 +39,7 @@
 | [HADOOP-8826](https://issues.apache.org/jira/browse/HADOOP-8826) | Docs still refer to 0.20.205 as stable line |  Minor |  | Robert Joseph Evans | Mit Desai |
 | [HDFS-6411](https://issues.apache.org/jira/browse/HDFS-6411) | nfs-hdfs-gateway mount raises I/O error and hangs when a unauthorized user attempts to access it |  Major | (nfs) | Zhongyi Xie | Brandon Li |
 | [HDFS-6402](https://issues.apache.org/jira/browse/HDFS-6402) | Suppress findbugs warning for failure to override equals and hashCode in FsAclPermission. |  Trivial | (namenode) | Chris Nauroth | Chris Nauroth |
-| [HDFS-6397](https://issues.apache.org/jira/browse/HDFS-6397) | NN shows inconsistent value in deadnode count  |  Critical |  | Mohammad Kamrul Islam | Mohammad Kamrul Islam |
+| [HDFS-6397](https://issues.apache.org/jira/browse/HDFS-6397) | NN shows inconsistent value in deadnode count |  Critical |  | Mohammad Kamrul Islam | Mohammad Kamrul Islam |
 | [HDFS-6362](https://issues.apache.org/jira/browse/HDFS-6362) | InvalidateBlocks is inconsistent in usage of DatanodeUuid and StorageID |  Blocker | (namenode) | Arpit Agarwal | Arpit Agarwal |
 | [HDFS-6361](https://issues.apache.org/jira/browse/HDFS-6361) | TestIdUserGroup.testUserUpdateSetting failed due to out of range nfsnobody Id |  Major | (nfs) | Yongjun Zhang | Yongjun Zhang |
 | [HDFS-6340](https://issues.apache.org/jira/browse/HDFS-6340) | DN can't finalize upgrade |  Blocker | (datanode) | Rahul Singhal | Rahul Singhal |
@@ -88,7 +88,7 @@
 | [YARN-1929](https://issues.apache.org/jira/browse/YARN-1929) | DeadLock in RM when automatic failover is enabled. |  Blocker | (resourcemanager) | Rohith | Karthik Kambatla |
 | [YARN-1928](https://issues.apache.org/jira/browse/YARN-1928) | TestAMRMRPCNodeUpdates fails ocassionally |  Major |  | Zhijie Shen | Zhijie Shen |
 | [YARN-1926](https://issues.apache.org/jira/browse/YARN-1926) | DistributedShell unit tests fail on Windows |  Major |  | Varun Vasudev | Varun Vasudev |
-| [YARN-1924](https://issues.apache.org/jira/browse/YARN-1924) | STATE_STORE_OP_FAILED happens when ZKRMStateStore tries to update app(attempt) before storing it |  Critical |  | Arpit Gupta | Jian He |
+| [YARN-1924](https://issues.apache.org/jira/browse/YARN-1924) | STATE\_STORE\_OP\_FAILED happens when ZKRMStateStore tries to update app(attempt) before storing it |  Critical |  | Arpit Gupta | Jian He |
 | [YARN-1920](https://issues.apache.org/jira/browse/YARN-1920) | TestFileSystemApplicationHistoryStore.testMissingApplicationAttemptHistoryData fails in windows |  Major |  | Vinod Kumar Vavilapalli | Vinod Kumar Vavilapalli |
 | [YARN-1914](https://issues.apache.org/jira/browse/YARN-1914) | Test TestFSDownload.testDownloadPublicWithStatCache fails on Windows |  Major |  | Varun Vasudev | Varun Vasudev |
 | [YARN-1910](https://issues.apache.org/jira/browse/YARN-1910) | TestAMRMTokens fails on windows |  Major |  | Xuan Gong | Xuan Gong |

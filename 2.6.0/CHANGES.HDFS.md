@@ -26,7 +26,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-7313](https://issues.apache.org/jira/browse/HDFS-7313) | Support optional configuration of AES cipher suite on DataTransferProtocol. |  Major | (datanode , hdfs-client , security) | Chris Nauroth | Chris Nauroth |
 | [HDFS-7276](https://issues.apache.org/jira/browse/HDFS-7276) | Limit the number of byte arrays used by DFSOutputStream |  Major | (hdfs-client) | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
-| [HDFS-7260](https://issues.apache.org/jira/browse/HDFS-7260) | Make DFSOutputStream.MAX_PACKETS configurable |  Minor | (hdfs-client) | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
+| [HDFS-7260](https://issues.apache.org/jira/browse/HDFS-7260) | Make DFSOutputStream.MAX\_PACKETS configurable |  Minor | (hdfs-client) | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HDFS-7233](https://issues.apache.org/jira/browse/HDFS-7233) | NN logs unnecessary org.apache.hadoop.hdfs.protocol.UnresolvedPathException |  Major | (namenode) | Rushabh S Shah | Rushabh S Shah |
 | [HDFS-7230](https://issues.apache.org/jira/browse/HDFS-7230) | Add rolling downgrade documentation |  Major | (documentation) | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HDFS-7228](https://issues.apache.org/jira/browse/HDFS-7228) | Add an SSD policy into the default BlockStoragePolicySuite |  Major |  | Jing Zhao | Jing Zhao |
@@ -71,7 +71,7 @@
 | [HDFS-6606](https://issues.apache.org/jira/browse/HDFS-6606) | Optimize HDFS Encrypted Transport performance |  Major | (datanode , hdfs-client , security) | Yi Liu | Yi Liu |
 | [HDFS-6597](https://issues.apache.org/jira/browse/HDFS-6597) | Add a new option to NN upgrade to terminate the process after upgrade on NN is completed |  Major | (namenode) | Danilo Vunjak | Danilo Vunjak |
 | [HDFS-6570](https://issues.apache.org/jira/browse/HDFS-6570) | add api that enables checking if a user has certain permissions on a file |  Major | (hdfs-client , namenode , webhdfs) | Thejas M Nair | Jitendra Nath Pandey |
-| [HDFS-6519](https://issues.apache.org/jira/browse/HDFS-6519) | Document oiv_legacy command |  Major | (documentation) | Akira AJISAKA | Akira AJISAKA |
+| [HDFS-6519](https://issues.apache.org/jira/browse/HDFS-6519) | Document oiv\_legacy command |  Major | (documentation) | Akira AJISAKA | Akira AJISAKA |
 | [HDFS-6511](https://issues.apache.org/jira/browse/HDFS-6511) | BlockManager#computeInvalidateWork() could do nothing |  Minor |  | Juan Yu | Juan Yu |
 | [HDFS-6482](https://issues.apache.org/jira/browse/HDFS-6482) | Use block ID-based block layout on datanodes |  Major | (datanode) | James Thomas | James Thomas |
 | [HDFS-6441](https://issues.apache.org/jira/browse/HDFS-6441) | Add ability to exclude/include specific datanodes while balancing |  Major | (balancer &amp; mover) | Benoy Antony | Benoy Antony |
@@ -105,7 +105,7 @@
 | [HDFS-7309](https://issues.apache.org/jira/browse/HDFS-7309) | XMLUtils.mangleXmlString doesn't seem to handle less than sign |  Minor |  | Ravi Prakash | Colin Patrick McCabe |
 | [HDFS-7305](https://issues.apache.org/jira/browse/HDFS-7305) | NPE seen in wbhdfs FS while running SLive |  Minor | (webhdfs) | Arpit Gupta | Jing Zhao |
 | [HDFS-7300](https://issues.apache.org/jira/browse/HDFS-7300) | The getMaxNodesPerRack() method in BlockPlacementPolicyDefault is flawed |  Critical |  | Kihwal Lee | Kihwal Lee |
-| [HDFS-7296](https://issues.apache.org/jira/browse/HDFS-7296) | HdfsConstants#MEMORY_STORAGE_POLICY_ID and HdfsConstants#MEMORY_STORAGE_POLICY_ID are missing in branch-2 |  Minor |  | Jing Zhao | Jing Zhao |
+| [HDFS-7296](https://issues.apache.org/jira/browse/HDFS-7296) | HdfsConstants#MEMORY\_STORAGE\_POLICY\_ID and HdfsConstants#MEMORY\_STORAGE\_POLICY\_ID are missing in branch-2 |  Minor |  | Jing Zhao | Jing Zhao |
 | [HDFS-7287](https://issues.apache.org/jira/browse/HDFS-7287) | The OfflineImageViewer (OIV) can output invalid XML depending on the filename |  Major |  | Ravi Prakash | Ravi Prakash |
 | [HDFS-7274](https://issues.apache.org/jira/browse/HDFS-7274) | Disable SSLv3 in HttpFS |  Blocker | (webhdfs) | Robert Kanter | Robert Kanter |
 | [HDFS-7259](https://issues.apache.org/jira/browse/HDFS-7259) | Unresponseive NFS mount point due to deferred COMMIT response |  Major | (nfs) | Brandon Li | Brandon Li |
@@ -140,7 +140,7 @@
 | [HDFS-7106](https://issues.apache.org/jira/browse/HDFS-7106) | Reconfiguring DataNode volumes does not release the lock files in removed volumes. |  Major | (datanode) | Chris Nauroth | Chris Nauroth |
 | [HDFS-7105](https://issues.apache.org/jira/browse/HDFS-7105) | Fix TestJournalNode#testFailToStartWithBadConfig to match log output change |  Minor | (test) | Ray Chiang | Ray Chiang |
 | [HDFS-7104](https://issues.apache.org/jira/browse/HDFS-7104) | Fix and clarify INodeInPath getter functions |  Minor |  | Zhe Zhang | Zhe Zhang |
-| [HDFS-7096](https://issues.apache.org/jira/browse/HDFS-7096) | Fix TestRpcProgramNfs3 to use DFS_ENCRYPTION_KEY_PROVIDER_URI |  Minor | (test) | Charles Lamb | Charles Lamb |
+| [HDFS-7096](https://issues.apache.org/jira/browse/HDFS-7096) | Fix TestRpcProgramNfs3 to use DFS\_ENCRYPTION\_KEY\_PROVIDER\_URI |  Minor | (test) | Charles Lamb | Charles Lamb |
 | [HDFS-7075](https://issues.apache.org/jira/browse/HDFS-7075) | hadoop-fuse-dfs fails because it cannot find JavaKeyStoreProvider$Factory |  Major |  | Colin Patrick McCabe | Colin Patrick McCabe |
 | [HDFS-7073](https://issues.apache.org/jira/browse/HDFS-7073) | Allow falling back to a non-SASL connection on DataTransferProtocol in several edge cases. |  Major | (datanode , hdfs-client , security) | Chris Nauroth | Chris Nauroth |
 | [HDFS-7065](https://issues.apache.org/jira/browse/HDFS-7065) | Pipeline close recovery race can cause block corruption |  Critical | (datanode) | Kihwal Lee | Kihwal Lee |
@@ -168,7 +168,7 @@
 | [HDFS-6870](https://issues.apache.org/jira/browse/HDFS-6870) | Blocks and INodes could leak for Rename with overwrite flag |  Major | (namenode) | Yi Liu | Yi Liu |
 | [HDFS-6868](https://issues.apache.org/jira/browse/HDFS-6868) | portmap and nfs3 are documented as hadoop commands instead of hdfs |  Major | (documentation , nfs) | Allen Wittenauer | Brandon Li |
 | [HDFS-6862](https://issues.apache.org/jira/browse/HDFS-6862) | Add missing timeout annotations to tests |  Major | (test) | Arpit Agarwal | Xiaoyu Yao |
-| [HDFS-6848](https://issues.apache.org/jira/browse/HDFS-6848) | Lack of synchronization on access to datanodeUuid in DataStorage#format()  |  Minor |  | Ted Yu | Xiaoyu Yao |
+| [HDFS-6848](https://issues.apache.org/jira/browse/HDFS-6848) | Lack of synchronization on access to datanodeUuid in DataStorage#format() |  Minor |  | Ted Yu | Xiaoyu Yao |
 | [HDFS-6840](https://issues.apache.org/jira/browse/HDFS-6840) | Clients are always sent to the same datanode when read is off rack |  Critical |  | Jason Lowe | Andrew Wang |
 | [HDFS-6838](https://issues.apache.org/jira/browse/HDFS-6838) | Code cleanup for unnecessary INode replacement |  Minor | (namenode) | Jing Zhao | Jing Zhao |
 | [HDFS-6831](https://issues.apache.org/jira/browse/HDFS-6831) | Inconsistency between 'hdfs dfsadmin' and 'hdfs dfsadmin -help' |  Minor |  | Akira AJISAKA | Xiaoyu Yao |
@@ -195,7 +195,7 @@
 | [HDFS-6715](https://issues.apache.org/jira/browse/HDFS-6715) | webhdfs wont fail over when it gets java.io.IOException: Namenode is in startup mode |  Major | (ha , webhdfs) | Arpit Gupta | Jing Zhao |
 | [HDFS-6714](https://issues.apache.org/jira/browse/HDFS-6714) | TestBlocksScheduledCounter#testBlocksScheduledCounter should shutdown cluster |  Minor | (test) | Vinayakumar B | Vinayakumar B |
 | [HDFS-6704](https://issues.apache.org/jira/browse/HDFS-6704) | Fix the command to launch JournalNode in HDFS-HA document |  Minor | (documentation) | Akira AJISAKA | Akira AJISAKA |
-| [HDFS-6702](https://issues.apache.org/jira/browse/HDFS-6702) | DFSClient should create blocks using StorageType  |  Major | (datanode , hdfs-client) | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
+| [HDFS-6702](https://issues.apache.org/jira/browse/HDFS-6702) | DFSClient should create blocks using StorageType |  Major | (datanode , hdfs-client) | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HDFS-6693](https://issues.apache.org/jira/browse/HDFS-6693) | TestDFSAdminWithHA fails on windows |  Major | (test , tools) | Vinayakumar B | Vinayakumar B |
 | [HDFS-6689](https://issues.apache.org/jira/browse/HDFS-6689) | NFS doesn't return correct lookup access for directories |  Major | (nfs) | Yesha Vora | Brandon Li |
 | [HDFS-6678](https://issues.apache.org/jira/browse/HDFS-6678) | MiniDFSCluster may still be partially running after initialization fails. |  Minor | (test) | Chris Nauroth | Chris Nauroth |
@@ -216,18 +216,18 @@
 | [HDFS-6478](https://issues.apache.org/jira/browse/HDFS-6478) | RemoteException can't be retried properly for non-HA scenario |  Major |  | Ming Ma | Ming Ma |
 | [HDFS-6456](https://issues.apache.org/jira/browse/HDFS-6456) | NFS should throw error for invalid entry in dfs.nfs.exports.allowed.hosts |  Major | (nfs) | Yesha Vora | Abhiraj Butala |
 | [HDFS-6455](https://issues.apache.org/jira/browse/HDFS-6455) | NFS: Exception should be added in NFS log for invalid separator in nfs.exports.allowed.hosts |  Major | (nfs) | Yesha Vora | Abhiraj Butala |
-| [HDFS-6451](https://issues.apache.org/jira/browse/HDFS-6451) | NFS should not return NFS3ERR_IO for AccessControlException  |  Major | (nfs) | Brandon Li | Abhiraj Butala |
+| [HDFS-6451](https://issues.apache.org/jira/browse/HDFS-6451) | NFS should not return NFS3ERR\_IO for AccessControlException |  Major | (nfs) | Brandon Li | Abhiraj Butala |
 | [HDFS-6376](https://issues.apache.org/jira/browse/HDFS-6376) | Distcp data between two HA clusters requires another configuration |  Major | (datanode , federation , hdfs-client) | Dave Marion | Dave Marion |
 | [HDFS-6247](https://issues.apache.org/jira/browse/HDFS-6247) | Avoid timeouts for replaceBlock() call by sending intermediate responses to Balancer |  Major | (balancer &amp; mover , datanode) | Vinayakumar B | Vinayakumar B |
-| [HDFS-6114](https://issues.apache.org/jira/browse/HDFS-6114) | Block Scan log rolling will never happen if blocks written continuously leading to huge size of dncp_block_verification.log.curr |  Critical | (datanode) | Vinayakumar B | Vinayakumar B |
+| [HDFS-6114](https://issues.apache.org/jira/browse/HDFS-6114) | Block Scan log rolling will never happen if blocks written continuously leading to huge size of dncp\_block\_verification.log.curr |  Critical | (datanode) | Vinayakumar B | Vinayakumar B |
 | [HDFS-5919](https://issues.apache.org/jira/browse/HDFS-5919) | FileJournalManager doesn't purge empty and corrupt inprogress edits files |  Major | (namenode) | Vinayakumar B | Vinayakumar B |
 | [HDFS-5809](https://issues.apache.org/jira/browse/HDFS-5809) | BlockPoolSliceScanner and high speed hdfs appending make datanode to drop into infinite loop |  Critical | (datanode) | ikweesung | Colin Patrick McCabe |
 | [HDFS-5723](https://issues.apache.org/jira/browse/HDFS-5723) | Append failed FINALIZED replica should not be accepted as valid when that block is underconstruction |  Major | (namenode) | Vinayakumar B | Vinayakumar B |
 | [HDFS-5185](https://issues.apache.org/jira/browse/HDFS-5185) | DN fails to startup if one of the data dir is full |  Critical | (datanode) | Vinayakumar B | Vinayakumar B |
-| [HDFS-5089](https://issues.apache.org/jira/browse/HDFS-5089) | When a LayoutVersion support SNAPSHOT, it must support FSIMAGE_NAME_OPTIMIZATION. |  Major | (namenode) | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
+| [HDFS-5089](https://issues.apache.org/jira/browse/HDFS-5089) | When a LayoutVersion support SNAPSHOT, it must support FSIMAGE\_NAME\_OPTIMIZATION. |  Major | (namenode) | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HDFS-4852](https://issues.apache.org/jira/browse/HDFS-4852) | libhdfs documentation is out of date |  Minor |  | Andrew Wang | Chris Nauroth |
 | [HDFS-4629](https://issues.apache.org/jira/browse/HDFS-4629) | Using com.sun.org.apache.xml.internal.serialize.* in XmlEditsVisitor.java is JVM vendor specific. Breaks IBM JAVA |  Major | (tools) | Amir Sanjar |  |
-| [HDFS-4227](https://issues.apache.org/jira/browse/HDFS-4227) | Document dfs.namenode.resource.*   |  Major | (documentation) | Eli Collins | Daisuke Kobayashi |
+| [HDFS-4227](https://issues.apache.org/jira/browse/HDFS-4227) | Document dfs.namenode.resource.* |  Major | (documentation) | Eli Collins | Daisuke Kobayashi |
 | [HDFS-4165](https://issues.apache.org/jira/browse/HDFS-4165) | Faulty sanity check in FsDirectory.unprotectedSetQuota |  Trivial | (namenode) | Binglin Chang | Binglin Chang |
 | [HDFS-3482](https://issues.apache.org/jira/browse/HDFS-3482) | hdfs balancer throws ArrayIndexOutOfBoundsException if option is specified without arguments |  Minor | (balancer &amp; mover) | Stephen Chu | madhukara phatak |
 | [HDFS-2976](https://issues.apache.org/jira/browse/HDFS-2976) | Remove unnecessary method (tokenRefetchNeeded) in DFSClient |  Trivial | (hdfs-client) | Uma Maheswara Rao G | Uma Maheswara Rao G |

@@ -56,7 +56,7 @@
 | [HDFS-5153](https://issues.apache.org/jira/browse/HDFS-5153) | Datanode should send block reports for each storage in a separate message |  Major | (datanode) | Arpit Agarwal | Arpit Agarwal |
 | [HDFS-4911](https://issues.apache.org/jira/browse/HDFS-4911) | Reduce PeerCache timeout to be commensurate with dfs.datanode.socket.reuse.keepalive |  Minor |  | Colin Patrick McCabe | Colin Patrick McCabe |
 | [HDFS-4370](https://issues.apache.org/jira/browse/HDFS-4370) | Fix typo Blanacer in DataNode |  Major | (datanode) | Konstantin Shvachko | Chu Tong |
-| [HDFS-4200](https://issues.apache.org/jira/browse/HDFS-4200) | Reduce the size of synchronized sections in PacketResponder  |  Major | (datanode) | Suresh Srinivas | Andrew Wang |
+| [HDFS-4200](https://issues.apache.org/jira/browse/HDFS-4200) | Reduce the size of synchronized sections in PacketResponder |  Major | (datanode) | Suresh Srinivas | Andrew Wang |
 | [HDFS-3405](https://issues.apache.org/jira/browse/HDFS-3405) | Checkpointing should use HTTP POST or PUT instead of GET-GET to send merged fsimages |  Major |  | Aaron T. Myers | Vinayakumar B |
 
 
@@ -65,7 +65,7 @@
 | JIRA | Description | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-6237](https://issues.apache.org/jira/browse/HDFS-6237) | TestDFSShell#testGet fails on Windows due to invalid file system path. |  Trivial | (hdfs-client , test) | Chris Nauroth | Chris Nauroth |
-| [HDFS-6166](https://issues.apache.org/jira/browse/HDFS-6166) | revisit balancer so_timeout  |  Blocker | (balancer &amp; mover) | Nathan Roberts | Nathan Roberts |
+| [HDFS-6166](https://issues.apache.org/jira/browse/HDFS-6166) | revisit balancer so\_timeout |  Blocker | (balancer &amp; mover) | Nathan Roberts | Nathan Roberts |
 | [HDFS-6163](https://issues.apache.org/jira/browse/HDFS-6163) | Fix a minor bug in the HA upgrade document |  Minor | (documentation) | Fengdong Yu | Fengdong Yu |
 | [HDFS-6157](https://issues.apache.org/jira/browse/HDFS-6157) | Fix the entry point of OfflineImageViewer for hdfs.cmd |  Major |  | Haohui Mai | Haohui Mai |
 | [HDFS-6140](https://issues.apache.org/jira/browse/HDFS-6140) | WebHDFS cannot create a file with spaces in the name after HA failover changes. |  Major | (webhdfs) | Chris Nauroth | Chris Nauroth |
@@ -92,7 +92,7 @@
 | [HDFS-6068](https://issues.apache.org/jira/browse/HDFS-6068) | Disallow snapshot names that are also invalid directory names |  Major | (snapshots) | Andrew Wang | sathish |
 | [HDFS-6067](https://issues.apache.org/jira/browse/HDFS-6067) | TestPread.testMaxOutHedgedReadPool is flaky |  Major | (hdfs-client) | Colin Patrick McCabe | Colin Patrick McCabe |
 | [HDFS-6065](https://issues.apache.org/jira/browse/HDFS-6065) | HDFS zero-copy reads should return null on EOF when doing ZCR |  Major | (hdfs-client) | Colin Patrick McCabe | Colin Patrick McCabe |
-| [HDFS-6064](https://issues.apache.org/jira/browse/HDFS-6064) | DFSConfigKeys.DFS_BLOCKREPORT_INTERVAL_MSEC_DEFAULT is not updated with latest block report interval of 6 hrs |  Minor | (datanode) | Vinayakumar B | Vinayakumar B |
+| [HDFS-6064](https://issues.apache.org/jira/browse/HDFS-6064) | DFSConfigKeys.DFS\_BLOCKREPORT\_INTERVAL\_MSEC\_DEFAULT is not updated with latest block report interval of 6 hrs |  Minor | (datanode) | Vinayakumar B | Vinayakumar B |
 | [HDFS-6063](https://issues.apache.org/jira/browse/HDFS-6063) | TestAclCLI fails intermittently when running test 24: copyFromLocal |  Minor | (test , tools) | Colin Patrick McCabe | Chris Nauroth |
 | [HDFS-6062](https://issues.apache.org/jira/browse/HDFS-6062) | TestRetryCacheWithHA#testConcat is flaky |  Minor |  | Jing Zhao | Jing Zhao |
 | [HDFS-6059](https://issues.apache.org/jira/browse/HDFS-6059) | TestBlockReaderLocal fails if native library is not available |  Major |  | Akira AJISAKA | Akira AJISAKA |
@@ -123,7 +123,7 @@
 | [HDFS-5904](https://issues.apache.org/jira/browse/HDFS-5904) | TestFileStatus fails intermittently on trunk and branch2 |  Major |  | Mit Desai | Mit Desai |
 | [HDFS-5901](https://issues.apache.org/jira/browse/HDFS-5901) | NameNode new UI doesn't support IE8 and IE9 on windows 7 |  Major | (namenode) | Vinayakumar B | Vinayakumar B |
 | [HDFS-5900](https://issues.apache.org/jira/browse/HDFS-5900) | Cannot set cache pool limit of "unlimited" via CacheAdmin |  Major | (caching) | Tassapol Athiapinya | Andrew Wang |
-| [HDFS-5895](https://issues.apache.org/jira/browse/HDFS-5895) | HDFS cacheadmin -listPools has exit_code of 1 when the command returns 0 result. |  Major | (tools) | Tassapol Athiapinya | Tassapol Athiapinya |
+| [HDFS-5895](https://issues.apache.org/jira/browse/HDFS-5895) | HDFS cacheadmin -listPools has exit\_code of 1 when the command returns 0 result. |  Major | (tools) | Tassapol Athiapinya | Tassapol Athiapinya |
 | [HDFS-5893](https://issues.apache.org/jira/browse/HDFS-5893) | HftpFileSystem.RangeHeaderUrlOpener uses the default URLConnectionFactory which does not import SSL certificates |  Major |  | Yesha Vora | Haohui Mai |
 | [HDFS-5891](https://issues.apache.org/jira/browse/HDFS-5891) | webhdfs should not try connecting the DN during redirection |  Major | (namenode , webhdfs) | Haohui Mai | Haohui Mai |
 | [HDFS-5886](https://issues.apache.org/jira/browse/HDFS-5886) | Potential null pointer deference in RpcProgramNfs3#readlink() |  Major | (nfs) | Ted Yu | Brandon Li |
@@ -132,7 +132,7 @@
 | [HDFS-5859](https://issues.apache.org/jira/browse/HDFS-5859) | DataNode#checkBlockToken should check block tokens even if security is not enabled |  Major | (datanode) | Colin Patrick McCabe | Colin Patrick McCabe |
 | [HDFS-5857](https://issues.apache.org/jira/browse/HDFS-5857) | TestWebHDFS#testNamenodeRestart fails intermittently with NPE |  Major |  | Mit Desai | Mit Desai |
 | [HDFS-5856](https://issues.apache.org/jira/browse/HDFS-5856) | DataNode.checkDiskError might throw NPE |  Minor | (datanode) | Josh Elser | Josh Elser |
-| [HDFS-5846](https://issues.apache.org/jira/browse/HDFS-5846) | Assigning DEFAULT_RACK in resolveNetworkLocation method can break data resiliency |  Major | (namenode) | Nikola Vujic | Nikola Vujic |
+| [HDFS-5846](https://issues.apache.org/jira/browse/HDFS-5846) | Assigning DEFAULT\_RACK in resolveNetworkLocation method can break data resiliency |  Major | (namenode) | Nikola Vujic | Nikola Vujic |
 | [HDFS-5843](https://issues.apache.org/jira/browse/HDFS-5843) | DFSClient.getFileChecksum() throws IOException if checksum is disabled |  Major | (datanode) | Laurent Goujon | Laurent Goujon |
 | [HDFS-5840](https://issues.apache.org/jira/browse/HDFS-5840) | Follow-up to HDFS-5138 to improve error handling during partial upgrade failures |  Blocker | (ha , journal-node , namenode) | Aaron T. Myers | Jing Zhao |
 | [HDFS-5828](https://issues.apache.org/jira/browse/HDFS-5828) | BlockPlacementPolicyWithNodeGroup can place multiple replicas on the same node group when dfs.namenode.avoid.write.stale.datanode is true |  Major | (namenode) | Taylor, Buddy | Taylor, Buddy |

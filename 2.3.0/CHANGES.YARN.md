@@ -38,7 +38,7 @@
 | [YARN-1010](https://issues.apache.org/jira/browse/YARN-1010) | FairScheduler: decouple container scheduling from nodemanager heartbeats |  Critical | (scheduler) | Alejandro Abdelnur | Wei Yan |
 | [YARN-985](https://issues.apache.org/jira/browse/YARN-985) | Nodemanager should log where a resource was localized |  Major | (nodemanager) | Ravi Prakash | Ravi Prakash |
 | [YARN-905](https://issues.apache.org/jira/browse/YARN-905) | Add state filters to nodes CLI |  Major |  | Sandy Ryza | Wei Yan |
-| [YARN-807](https://issues.apache.org/jira/browse/YARN-807) | When querying apps by queue, iterating over all apps is inefficient and limiting  |  Major |  | Sandy Ryza | Sandy Ryza |
+| [YARN-807](https://issues.apache.org/jira/browse/YARN-807) | When querying apps by queue, iterating over all apps is inefficient and limiting |  Major |  | Sandy Ryza | Sandy Ryza |
 | [YARN-786](https://issues.apache.org/jira/browse/YARN-786) | Expose application resource usage in RM REST API |  Major |  | Sandy Ryza | Sandy Ryza |
 
 
@@ -58,23 +58,23 @@
 | [YARN-1541](https://issues.apache.org/jira/browse/YARN-1541) | Invalidate AM Host/Port when app attempt is done so that in the mean-while client doesn&#8217;t get wrong information. |  Major |  | Jian He | Jian He |
 | [YARN-1527](https://issues.apache.org/jira/browse/YARN-1527) | yarn rmadmin command prints wrong usage info: |  Trivial |  | Jian He | Akira AJISAKA |
 | [YARN-1522](https://issues.apache.org/jira/browse/YARN-1522) | TestApplicationCleanup.testAppCleanup occasionally fails |  Major |  | Liyin Liang | Liyin Liang |
-| [YARN-1505](https://issues.apache.org/jira/browse/YARN-1505) | WebAppProxyServer should not set localhost as YarnConfiguration.PROXY_ADDRESS by itself |  Blocker |  | Xuan Gong | Xuan Gong |
+| [YARN-1505](https://issues.apache.org/jira/browse/YARN-1505) | WebAppProxyServer should not set localhost as YarnConfiguration.PROXY\_ADDRESS by itself |  Blocker |  | Xuan Gong | Xuan Gong |
 | [YARN-1491](https://issues.apache.org/jira/browse/YARN-1491) | Upgrade JUnit3 TestCase to JUnit 4 |  Trivial |  | Jonathan Eagles | Chen He |
-| [YARN-1454](https://issues.apache.org/jira/browse/YARN-1454) | TestRMRestart.testRMDelegationTokenRestoredOnRMRestart is failing intermittently  |  Critical |  | Jian He | Karthik Kambatla |
+| [YARN-1454](https://issues.apache.org/jira/browse/YARN-1454) | TestRMRestart.testRMDelegationTokenRestoredOnRMRestart is failing intermittently |  Critical |  | Jian He | Karthik Kambatla |
 | [YARN-1451](https://issues.apache.org/jira/browse/YARN-1451) | TestResourceManager relies on the scheduler assigning multiple containers in a single node update |  Minor |  | Sandy Ryza | Sandy Ryza |
 | [YARN-1450](https://issues.apache.org/jira/browse/YARN-1450) | TestUnmanagedAMLauncher#testDSShell fails on trunk |  Major | (applications/distributed-shell) | Akira AJISAKA | Binglin Chang |
 | [YARN-1435](https://issues.apache.org/jira/browse/YARN-1435) | Distributed Shell should not run other commands except "sh", and run the custom script at the same time. |  Major | (applications/distributed-shell) | Tassapol Athiapinya | Xuan Gong |
 | [YARN-1425](https://issues.apache.org/jira/browse/YARN-1425) | TestRMRestart fails because MockRM.waitForState(AttemptId) uses current attempt instead of the attempt passed as argument |  Major |  | Omkar Vinit Joshi | Omkar Vinit Joshi |
-| [YARN-1419](https://issues.apache.org/jira/browse/YARN-1419) | TestFifoScheduler.testAppAttemptMetrics fails intermittently under jdk7  |  Minor | (scheduler) | Jonathan Eagles | Jonathan Eagles |
+| [YARN-1419](https://issues.apache.org/jira/browse/YARN-1419) | TestFifoScheduler.testAppAttemptMetrics fails intermittently under jdk7 |  Minor | (scheduler) | Jonathan Eagles | Jonathan Eagles |
 | [YARN-1416](https://issues.apache.org/jira/browse/YARN-1416) | InvalidStateTransitions getting reported in multiple test cases even though they pass |  Major |  | Omkar Vinit Joshi | Jian He |
 | [YARN-1409](https://issues.apache.org/jira/browse/YARN-1409) | NonAggregatingLogHandler can throw RejectedExecutionException |  Major |  | Tsuyoshi Ozawa | Tsuyoshi Ozawa |
 | [YARN-1407](https://issues.apache.org/jira/browse/YARN-1407) | RM Web UI and REST APIs should uniformly use YarnApplicationState |  Major |  | Sandy Ryza | Sandy Ryza |
 | [YARN-1401](https://issues.apache.org/jira/browse/YARN-1401) | With zero sleep-delay-before-sigkill.ms, no signal is ever sent |  Major | (nodemanager) | Gera Shegalov | Gera Shegalov |
-| [YARN-1400](https://issues.apache.org/jira/browse/YARN-1400) | yarn.cmd uses HADOOP_RESOURCEMANAGER_OPTS. Should be YARN_RESOURCEMANAGER_OPTS. |  Trivial | (resourcemanager) | Raja Aluri | Raja Aluri |
+| [YARN-1400](https://issues.apache.org/jira/browse/YARN-1400) | yarn.cmd uses HADOOP\_RESOURCEMANAGER\_OPTS. Should be YARN\_RESOURCEMANAGER\_OPTS. |  Trivial | (resourcemanager) | Raja Aluri | Raja Aluri |
 | [YARN-1395](https://issues.apache.org/jira/browse/YARN-1395) | Distributed shell application master launched with debug flag can hang waiting for external ls process. |  Major | (applications/distributed-shell) | Chris Nauroth | Chris Nauroth |
 | [YARN-1388](https://issues.apache.org/jira/browse/YARN-1388) | Fair Scheduler page always displays blank fair share |  Trivial | (resourcemanager) | Liyin Liang | Liyin Liang |
 | [YARN-1386](https://issues.apache.org/jira/browse/YARN-1386) | NodeManager mistakenly loses resources and relocalizes them |  Critical | (nodemanager) | Jason Lowe | Jason Lowe |
-| [YARN-1381](https://issues.apache.org/jira/browse/YARN-1381) | Same relaxLocality appears twice in exception message of AMRMClientImpl#checkLocalityRelaxationConflict()  |  Minor |  | Ted Yu | Ted Yu |
+| [YARN-1381](https://issues.apache.org/jira/browse/YARN-1381) | Same relaxLocality appears twice in exception message of AMRMClientImpl#checkLocalityRelaxationConflict() |  Minor |  | Ted Yu | Ted Yu |
 | [YARN-1374](https://issues.apache.org/jira/browse/YARN-1374) | Resource Manager fails to start due to ConcurrentModificationException |  Blocker | (resourcemanager) | Devaraj K | Karthik Kambatla |
 | [YARN-1351](https://issues.apache.org/jira/browse/YARN-1351) | Invalid string format in Fair Scheduler log warn message |  Trivial | (resourcemanager) | Konstantin Weitz | Konstantin Weitz |
 | [YARN-1349](https://issues.apache.org/jira/browse/YARN-1349) | yarn.cmd does not support passthrough to any arbitrary class. |  Major | (client) | Chris Nauroth | Chris Nauroth |
@@ -100,7 +100,7 @@
 | [YARN-1182](https://issues.apache.org/jira/browse/YARN-1182) | MiniYARNCluster creates and inits the RM/NM only on start() |  Major |  | Karthik Kambatla | Karthik Kambatla |
 | [YARN-1180](https://issues.apache.org/jira/browse/YARN-1180) | Update capacity scheduler docs to include types on the configs |  Trivial | (capacityscheduler) | Thomas Graves | Chen He |
 | [YARN-1145](https://issues.apache.org/jira/browse/YARN-1145) | Potential file handle leak in aggregated logs web ui |  Major |  | Rohith | Rohith |
-| [YARN-1138](https://issues.apache.org/jira/browse/YARN-1138) | yarn.application.classpath is set to point to $HADOOP_CONF_DIR etc., which does not work on Windows |  Major | (api) | Yingda Chen | Chuan Liu |
+| [YARN-1138](https://issues.apache.org/jira/browse/YARN-1138) | yarn.application.classpath is set to point to $HADOOP\_CONF\_DIR etc., which does not work on Windows |  Major | (api) | Yingda Chen | Chuan Liu |
 | [YARN-1060](https://issues.apache.org/jira/browse/YARN-1060) | Two tests in TestFairScheduler are missing @Test annotation |  Major | (scheduler) | Sandy Ryza | Niranjan Singh |
 | [YARN-1053](https://issues.apache.org/jira/browse/YARN-1053) | Diagnostic message from ContainerExitEvent is ignored in ContainerImpl |  Blocker |  | Omkar Vinit Joshi | Omkar Vinit Joshi |
 | [YARN-1044](https://issues.apache.org/jira/browse/YARN-1044) | used/min/max resources do not display info in the scheduler page |  Critical | (resourcemanager , scheduler) | Sangjin Lee | Sangjin Lee |
@@ -130,6 +130,6 @@
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [YARN-1568](https://issues.apache.org/jira/browse/YARN-1568) | Rename clusterid to clusterId in ActiveRMInfoProto  |  Trivial | (resourcemanager) | Karthik Kambatla | Karthik Kambatla |
+| [YARN-1568](https://issues.apache.org/jira/browse/YARN-1568) | Rename clusterid to clusterId in ActiveRMInfoProto |  Trivial | (resourcemanager) | Karthik Kambatla | Karthik Kambatla |
 
 

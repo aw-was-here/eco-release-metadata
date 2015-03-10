@@ -23,7 +23,7 @@
 | [YARN-1570](https://issues.apache.org/jira/browse/YARN-1570) | Formatting the lines within 80 chars in YarnCommands.apt.vm |  Minor | (documentation) | Akira AJISAKA | Akira AJISAKA |
 | [YARN-1536](https://issues.apache.org/jira/browse/YARN-1536) | Cleanup: Get rid of ResourceManager#get*SecretManager() methods and use the RMContext methods instead |  Minor | (resourcemanager) | Karthik Kambatla | Anubhav Dhoot |
 | [YARN-1512](https://issues.apache.org/jira/browse/YARN-1512) | Enhance CS to decouple scheduling from node heartbeats |  Major |  | Arun C Murthy | Arun C Murthy |
-| [YARN-1171](https://issues.apache.org/jira/browse/YARN-1171) | Add default queue properties to Fair Scheduler documentation  |  Major | (documentation , scheduler) | Sandy Ryza | Naren Koneru |
+| [YARN-1171](https://issues.apache.org/jira/browse/YARN-1171) | Add default queue properties to Fair Scheduler documentation |  Major | (documentation , scheduler) | Sandy Ryza | Naren Koneru |
 
 
 ### BUG FIXES:
@@ -51,8 +51,8 @@
 | [YARN-1758](https://issues.apache.org/jira/browse/YARN-1758) | MiniYARNCluster broken post YARN-1666 |  Blocker |  | Hitesh Shah | Xuan Gong |
 | [YARN-1752](https://issues.apache.org/jira/browse/YARN-1752) | Unexpected Unregistered event at Attempt Launched state |  Major |  | Jian He | Rohith |
 | [YARN-1748](https://issues.apache.org/jira/browse/YARN-1748) | hadoop-yarn-server-tests packages core-site.xml breaking downstream tests |  Blocker |  | Sravya Tirukkovalur | Sravya Tirukkovalur |
-| [YARN-1742](https://issues.apache.org/jira/browse/YARN-1742) | Fix javadoc of parameter DEFAULT_NM_MIN_HEALTHY_DISKS_FRACTION |  Trivial | (documentation) | Akira AJISAKA | Akira AJISAKA |
-| [YARN-1724](https://issues.apache.org/jira/browse/YARN-1724) | Race condition in Fair Scheduler when continuous scheduling is turned on  |  Critical | (scheduler) | Sandy Ryza | Sandy Ryza |
+| [YARN-1742](https://issues.apache.org/jira/browse/YARN-1742) | Fix javadoc of parameter DEFAULT\_NM\_MIN\_HEALTHY\_DISKS\_FRACTION |  Trivial | (documentation) | Akira AJISAKA | Akira AJISAKA |
+| [YARN-1724](https://issues.apache.org/jira/browse/YARN-1724) | Race condition in Fair Scheduler when continuous scheduling is turned on |  Critical | (scheduler) | Sandy Ryza | Sandy Ryza |
 | [YARN-1721](https://issues.apache.org/jira/browse/YARN-1721) | When moving app between queues in Fair Scheduler, grab lock on FSSchedulerApp |  Critical | (scheduler) | Sandy Ryza | Sandy Ryza |
 | [YARN-1697](https://issues.apache.org/jira/browse/YARN-1697) | NodeManager reports negative running containers |  Major | (nodemanager) | Sandy Ryza | Sandy Ryza |
 | [YARN-1692](https://issues.apache.org/jira/browse/YARN-1692) | ConcurrentModificationException in fair scheduler AppSchedulable |  Major | (scheduler) | Sangjin Lee | Sangjin Lee |
@@ -65,7 +65,7 @@
 | [YARN-1632](https://issues.apache.org/jira/browse/YARN-1632) | TestApplicationMasterServices should be under org.apache.hadoop.yarn.server.resourcemanager package |  Minor |  | Chen He | Chen He |
 | [YARN-1617](https://issues.apache.org/jira/browse/YARN-1617) | Remove ancient comment and surround LOG.debug in AppSchedulingInfo.allocate |  Major | (scheduler) | Sandy Ryza | Sandy Ryza |
 | [YARN-1591](https://issues.apache.org/jira/browse/YARN-1591) | TestResourceTrackerService fails randomly on trunk |  Major |  | Vinod Kumar Vavilapalli | Tsuyoshi Ozawa |
-| [YARN-1590](https://issues.apache.org/jira/browse/YARN-1590) | _HOST doesn't expand properly for RM, NM, ProxyServer and JHS |  Major | (resourcemanager) | Mohammad Kamrul Islam | Mohammad Kamrul Islam |
+| [YARN-1590](https://issues.apache.org/jira/browse/YARN-1590) | \_HOST doesn't expand properly for RM, NM, ProxyServer and JHS |  Major | (resourcemanager) | Mohammad Kamrul Islam | Mohammad Kamrul Islam |
 | [YARN-1553](https://issues.apache.org/jira/browse/YARN-1553) | Do not use HttpConfig.isSecure() in YARN |  Major |  | Haohui Mai | Haohui Mai |
 | [YARN-1531](https://issues.apache.org/jira/browse/YARN-1531) | True up yarn command documentation |  Major | (documentation) | Akira AJISAKA | Akira AJISAKA |
 | [YARN-1528](https://issues.apache.org/jira/browse/YARN-1528) | Allow setting auth for ZK connections |  Blocker | (resourcemanager) | Karthik Kambatla | Karthik Kambatla |
@@ -85,7 +85,7 @@
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [YARN-1863](https://issues.apache.org/jira/browse/YARN-1863) | TestRMFailover fails with 'AssertionError: null'  |  Blocker |  | Ted Yu | Xuan Gong |
+| [YARN-1863](https://issues.apache.org/jira/browse/YARN-1863) | TestRMFailover fails with 'AssertionError: null' |  Blocker |  | Ted Yu | Xuan Gong |
 | [YARN-1855](https://issues.apache.org/jira/browse/YARN-1855) | TestRMFailover#testRMWebAppRedirect fails in trunk |  Critical |  | Ted Yu | Zhijie Shen |
 | [YARN-1854](https://issues.apache.org/jira/browse/YARN-1854) | Race condition in TestRMHA#testStartAndTransitions |  Blocker |  | Mit Desai | Rohith |
 

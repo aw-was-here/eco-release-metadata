@@ -26,14 +26,14 @@
 | [YARN-2159](https://issues.apache.org/jira/browse/YARN-2159) | Better logging in SchedulerNode#allocateContainer |  Trivial | (resourcemanager) | Ray Chiang | Ray Chiang |
 | [YARN-2089](https://issues.apache.org/jira/browse/YARN-2089) | FairScheduler: QueuePlacementPolicy and QueuePlacementRule are missing audience annotations |  Major | (scheduler) | Anubhav Dhoot | zhihai xu |
 | [YARN-2072](https://issues.apache.org/jira/browse/YARN-2072) | RM/NM UIs and webservices are missing vcore information |  Major | (nodemanager , resourcemanager , webapp) | Nathan Roberts | Nathan Roberts |
-| [YARN-2061](https://issues.apache.org/jira/browse/YARN-2061) | Revisit logging levels in ZKRMStateStore  |  Minor | (resourcemanager) | Karthik Kambatla | Ray Chiang |
+| [YARN-2061](https://issues.apache.org/jira/browse/YARN-2061) | Revisit logging levels in ZKRMStateStore |  Minor | (resourcemanager) | Karthik Kambatla | Ray Chiang |
 | [YARN-2030](https://issues.apache.org/jira/browse/YARN-2030) | Use StateMachine to simplify handleStoreEvent() in RMStateStore |  Major |  | Junping Du | Binglin Chang |
 | [YARN-2012](https://issues.apache.org/jira/browse/YARN-2012) | Fair Scheduler: allow default queue placement rule to take an arbitrary queue |  Major | (scheduler) | Ashwin Shankar | Ashwin Shankar |
 | [YARN-1987](https://issues.apache.org/jira/browse/YARN-1987) | Wrapper for leveldb DBIterator to aid in handling database exceptions |  Major |  | Jason Lowe | Jason Lowe |
 | [YARN-1923](https://issues.apache.org/jira/browse/YARN-1923) | Make FairScheduler resource ratio calculations terminate faster |  Major | (scheduler) | Anubhav Dhoot | Anubhav Dhoot |
 | [YARN-1889](https://issues.apache.org/jira/browse/YARN-1889) | In Fair Scheduler, avoid creating objects on each call to AppSchedulable comparator |  Minor | (scheduler) | Hong Zhiguo | Hong Zhiguo |
 | [YARN-1870](https://issues.apache.org/jira/browse/YARN-1870) | FileInputStream is not closed in ProcfsBasedProcessTree#constructProcessSMAPInfo() |  Minor | (resourcemanager) | Ted Yu | Fengdong Yu |
-| [YARN-1845](https://issues.apache.org/jira/browse/YARN-1845) |  Elapsed time for failed tasks that never started is  wrong  |  Major |  | Rushabh S Shah | Rushabh S Shah |
+| [YARN-1845](https://issues.apache.org/jira/browse/YARN-1845) |  Elapsed time for failed tasks that never started is  wrong |  Major |  | Rushabh S Shah | Rushabh S Shah |
 | [YARN-1751](https://issues.apache.org/jira/browse/YARN-1751) | Improve MiniYarnCluster for log aggregation testing |  Major | (nodemanager) | Ming Ma | Ming Ma |
 | [YARN-1561](https://issues.apache.org/jira/browse/YARN-1561) | Fix a generic type warning in FairScheduler |  Minor | (scheduler) | Junping Du | Chen He |
 | [YARN-1479](https://issues.apache.org/jira/browse/YARN-1479) | Invalid NaN values in Hadoop REST API JSON response |  Major |  | Kendall Thrapp | Chen He |
@@ -63,7 +63,7 @@
 | [YARN-2128](https://issues.apache.org/jira/browse/YARN-2128) | FairScheduler: Incorrect calculation of amResource usage |  Major |  | Wei Yan | Wei Yan |
 | [YARN-2124](https://issues.apache.org/jira/browse/YARN-2124) | ProportionalCapacityPreemptionPolicy cannot work because it's initialized before scheduler initialized |  Critical | (resourcemanager , scheduler) | Wangda Tan | Wangda Tan |
 | [YARN-2122](https://issues.apache.org/jira/browse/YARN-2122) | In AllocationFileLoaderService, the reloadThread should be created in init() and started in start() |  Major | (scheduler) | Karthik Kambatla | Robert Kanter |
-| [YARN-2119](https://issues.apache.org/jira/browse/YARN-2119) | DEFAULT_PROXY_ADDRESS should use DEFAULT_PROXY_PORT |  Major |  | Anubhav Dhoot | Anubhav Dhoot |
+| [YARN-2119](https://issues.apache.org/jira/browse/YARN-2119) | DEFAULT\_PROXY\_ADDRESS should use DEFAULT\_PROXY\_PORT |  Major |  | Anubhav Dhoot | Anubhav Dhoot |
 | [YARN-2112](https://issues.apache.org/jira/browse/YARN-2112) | Hadoop-client is missing jackson libs due to inappropriate configs in pom.xml |  Major |  | Zhijie Shen | Zhijie Shen |
 | [YARN-2111](https://issues.apache.org/jira/browse/YARN-2111) | In FairScheduler.attemptScheduling, we don't count containers as assigned if they have 0 memory but non-zero cores |  Major | (scheduler) | Sandy Ryza | Sandy Ryza |
 | [YARN-2109](https://issues.apache.org/jira/browse/YARN-2109) | Fix TestRM to work with both schedulers |  Major | (scheduler) | Anubhav Dhoot | Karthik Kambatla |
@@ -86,7 +86,7 @@
 | [YARN-1784](https://issues.apache.org/jira/browse/YARN-1784) | TestContainerAllocation assumes CapacityScheduler |  Minor | (resourcemanager) | Karthik Kambatla | Robert Kanter |
 | [YARN-1736](https://issues.apache.org/jira/browse/YARN-1736) | FS: AppSchedulable.assignContainer's priority argument is redundant |  Minor | (scheduler) | Sandy Ryza | Naren Koneru |
 | [YARN-1726](https://issues.apache.org/jira/browse/YARN-1726) | ResourceSchedulerWrapper broken due to AbstractYarnScheduler |  Blocker |  | Wei Yan | Wei Yan |
-| [YARN-1718](https://issues.apache.org/jira/browse/YARN-1718) | Fix a couple isTerminals in Fair Scheduler queue placement rules  |  Major | (scheduler) | Sandy Ryza | Sandy Ryza |
+| [YARN-1718](https://issues.apache.org/jira/browse/YARN-1718) | Fix a couple isTerminals in Fair Scheduler queue placement rules |  Major | (scheduler) | Sandy Ryza | Sandy Ryza |
 | [YARN-1678](https://issues.apache.org/jira/browse/YARN-1678) | Fair scheduler gabs incessantly about reservations |  Major | (scheduler) | Sandy Ryza | Sandy Ryza |
 | [YARN-1550](https://issues.apache.org/jira/browse/YARN-1550) | NPE in FairSchedulerAppsBlock#render |  Critical | (scheduler) | caolong | Anubhav Dhoot |
 | [YARN-1520](https://issues.apache.org/jira/browse/YARN-1520) | update capacity scheduler docs to include necessary parameters |  Major |  | Chen He | Chen He |

@@ -69,7 +69,7 @@
 | [HDFS-4983](https://issues.apache.org/jira/browse/HDFS-4983) | Numeric usernames do not work with WebHDFS FS |  Major | (webhdfs) | Harsh J | Yongjun Zhang |
 | [HDFS-4879](https://issues.apache.org/jira/browse/HDFS-4879) | Add "blocked ArrayList" collection to avoid CMS full GCs |  Major | (namenode) | Todd Lipcon | Todd Lipcon |
 | [HDFS-4860](https://issues.apache.org/jira/browse/HDFS-4860) | Add additional attributes to JMX beans |  Major | (namenode) | Trevor Lorimer | Trevor Lorimer |
-| [HDFS-4278](https://issues.apache.org/jira/browse/HDFS-4278) | Log an ERROR when DFS_BLOCK_ACCESS_TOKEN_ENABLE config  is disabled but security is turned on. |  Major | (datanode , namenode) | Harsh J | Kousuke Saruta |
+| [HDFS-4278](https://issues.apache.org/jira/browse/HDFS-4278) | Log an ERROR when DFS\_BLOCK\_ACCESS\_TOKEN\_ENABLE config  is disabled but security is turned on. |  Major | (datanode , namenode) | Harsh J | Kousuke Saruta |
 | [HDFS-2933](https://issues.apache.org/jira/browse/HDFS-2933) | Improve DataNode Web UI Index Page |  Major | (datanode) | Philip Zeyliger | Vivek Ganesan |
 
 
@@ -84,11 +84,11 @@
 | [HDFS-5844](https://issues.apache.org/jira/browse/HDFS-5844) | Fix broken link in WebHDFS.apt.vm |  Minor | (documentation) | Akira AJISAKA | Akira AJISAKA |
 | [HDFS-5842](https://issues.apache.org/jira/browse/HDFS-5842) | Cannot create hftp filesystem when using a proxy user ugi and a doAs on a secure cluster |  Major | (security) | Arpit Gupta | Jing Zhao |
 | [HDFS-5837](https://issues.apache.org/jira/browse/HDFS-5837) | dfs.namenode.replication.considerLoad does not consider decommissioned nodes |  Major | (namenode) | Bryan Beaudreault | Tao Luo |
-| [HDFS-5830](https://issues.apache.org/jira/browse/HDFS-5830) | WebHdfsFileSystem.getFileBlockLocations throws IllegalArgumentException when accessing another cluster.  |  Blocker | (caching , hdfs-client) | Yongjun Zhang | Yongjun Zhang |
+| [HDFS-5830](https://issues.apache.org/jira/browse/HDFS-5830) | WebHdfsFileSystem.getFileBlockLocations throws IllegalArgumentException when accessing another cluster. |  Blocker | (caching , hdfs-client) | Yongjun Zhang | Yongjun Zhang |
 | [HDFS-5806](https://issues.apache.org/jira/browse/HDFS-5806) | balancer should set SoTimeout to avoid indefinite hangs |  Major | (balancer &amp; mover) | Nathan Roberts | Nathan Roberts |
 | [HDFS-5800](https://issues.apache.org/jira/browse/HDFS-5800) | Typo: soft-limit for hard-limit in DFSClient |  Trivial | (hdfs-client) | Kousuke Saruta | Kousuke Saruta |
 | [HDFS-5789](https://issues.apache.org/jira/browse/HDFS-5789) | Some of snapshot APIs missing checkOperation double check in fsn |  Major | (namenode) | Uma Maheswara Rao G | Uma Maheswara Rao G |
-| [HDFS-5777](https://issues.apache.org/jira/browse/HDFS-5777) | Update LayoutVersion for the new editlog op OP_ADD_BLOCK |  Major | (namenode) | Jing Zhao | Jing Zhao |
+| [HDFS-5777](https://issues.apache.org/jira/browse/HDFS-5777) | Update LayoutVersion for the new editlog op OP\_ADD\_BLOCK |  Major | (namenode) | Jing Zhao | Jing Zhao |
 | [HDFS-5766](https://issues.apache.org/jira/browse/HDFS-5766) | In DFSInputStream, do not add datanode to deadNodes after InvalidEncryptionKeyException in fetchBlockByteRange |  Major | (hdfs-client) | Liang Xie | Liang Xie |
 | [HDFS-5762](https://issues.apache.org/jira/browse/HDFS-5762) | BlockReaderLocal doesn't return -1 on EOF when doing zero-length reads |  Major |  | Colin Patrick McCabe | Colin Patrick McCabe |
 | [HDFS-5756](https://issues.apache.org/jira/browse/HDFS-5756) | hadoopRzOptionsSetByteBufferPool does not accept NULL argument, contrary to docs |  Major | (libhdfs) | Colin Patrick McCabe | Colin Patrick McCabe |
@@ -96,10 +96,10 @@
 | [HDFS-5728](https://issues.apache.org/jira/browse/HDFS-5728) | [Diskfull] Block recovery will fail if the metafile does not have crc for all chunks of the block |  Critical | (datanode) | Vinayakumar B | Vinayakumar B |
 | [HDFS-5719](https://issues.apache.org/jira/browse/HDFS-5719) | FSImage#doRollback() should close prevState before return |  Minor | (namenode) | Ted Yu | Ted Yu |
 | [HDFS-5710](https://issues.apache.org/jira/browse/HDFS-5710) | FSDirectory#getFullPathName should check inodes against null |  Major |  | Ted Yu | Uma Maheswara Rao G |
-| [HDFS-5704](https://issues.apache.org/jira/browse/HDFS-5704) | Change OP_UPDATE_BLOCKS  with a new OP_ADD_BLOCK |  Major | (namenode) | Suresh Srinivas | Jing Zhao |
+| [HDFS-5704](https://issues.apache.org/jira/browse/HDFS-5704) | Change OP\_UPDATE\_BLOCKS  with a new OP\_ADD\_BLOCK |  Major | (namenode) | Suresh Srinivas | Jing Zhao |
 | [HDFS-5701](https://issues.apache.org/jira/browse/HDFS-5701) | Fix the CacheAdmin -addPool -maxTtl option name |  Minor | (caching , tools) | Stephen Chu | Stephen Chu |
 | [HDFS-5691](https://issues.apache.org/jira/browse/HDFS-5691) | Fix typo in ShortCircuitLocalRead document |  Minor | (documentation) | Akira AJISAKA | Akira AJISAKA |
-| [HDFS-5690](https://issues.apache.org/jira/browse/HDFS-5690) | DataNode fails to start in secure mode when dfs.http.policy equals to HTTP_ONLY |  Blocker |  | Haohui Mai | Haohui Mai |
+| [HDFS-5690](https://issues.apache.org/jira/browse/HDFS-5690) | DataNode fails to start in secure mode when dfs.http.policy equals to HTTP\_ONLY |  Blocker |  | Haohui Mai | Haohui Mai |
 | [HDFS-5681](https://issues.apache.org/jira/browse/HDFS-5681) | renewLease should not hold fsn write lock |  Major | (namenode) | Daryn Sharp | Daryn Sharp |
 | [HDFS-5675](https://issues.apache.org/jira/browse/HDFS-5675) | Add Mkdirs operation to NNThroughputBenchmark |  Minor | (benchmarks) | Plamen Jeliazkov | Plamen Jeliazkov |
 | [HDFS-5671](https://issues.apache.org/jira/browse/HDFS-5671) | Fix socket leak in DFSInputStream#getBlockReader |  Critical | (hdfs-client) | JamesLi | JamesLi |
@@ -108,7 +108,7 @@
 | [HDFS-5659](https://issues.apache.org/jira/browse/HDFS-5659) | dfsadmin -report doesn't output cache information properly |  Major | (caching) | Akira AJISAKA | Andrew Wang |
 | [HDFS-5657](https://issues.apache.org/jira/browse/HDFS-5657) | race condition causes writeback state error in NFS gateway |  Major | (nfs) | Brandon Li | Brandon Li |
 | [HDFS-5649](https://issues.apache.org/jira/browse/HDFS-5649) | Unregister NFS and Mount service when NFS gateway is shutting down |  Major | (nfs) | Brandon Li | Brandon Li |
-| [HDFS-5592](https://issues.apache.org/jira/browse/HDFS-5592) | "DIR* completeFile: /file is closed by DFSClient_" should be logged only for successful closure of the file. |  Major |  | Vinayakumar B | Vinayakumar B |
+| [HDFS-5592](https://issues.apache.org/jira/browse/HDFS-5592) | "DIR* completeFile: /file is closed by DFSClient\_" should be logged only for successful closure of the file. |  Major |  | Vinayakumar B | Vinayakumar B |
 | [HDFS-5590](https://issues.apache.org/jira/browse/HDFS-5590) | Block ID and generation stamp may be reused when persistBlocks is set to false |  Major |  | Jing Zhao | Jing Zhao |
 | [HDFS-5582](https://issues.apache.org/jira/browse/HDFS-5582) | hdfs getconf -excludeFile or -includeFile always failed |  Minor |  | Henry Hung | sathish |
 | [HDFS-5581](https://issues.apache.org/jira/browse/HDFS-5581) | NameNodeFsck should use only one instance of BlockPlacementPolicy |  Major | (namenode) | Vinayakumar B | Vinayakumar B |
@@ -126,7 +126,7 @@
 | [HDFS-5526](https://issues.apache.org/jira/browse/HDFS-5526) | Datanode cannot roll back to previous layout version |  Blocker | (datanode) | Tsz Wo Nicholas Sze | Kihwal Lee |
 | [HDFS-5513](https://issues.apache.org/jira/browse/HDFS-5513) | CacheAdmin commands fail when using . as the path |  Minor | (caching , tools) | Stephen Chu | Andrew Wang |
 | [HDFS-5512](https://issues.apache.org/jira/browse/HDFS-5512) | CacheAdmin -listPools fails with NPE when user lacks permissions to view all pools |  Major | (caching , tools) | Stephen Chu | Andrew Wang |
-| [HDFS-5504](https://issues.apache.org/jira/browse/HDFS-5504) | In HA mode, OP_DELETE_SNAPSHOT is not decrementing the safemode threshold, leads to NN safemode. |  Major | (snapshots) | Vinayakumar B | Vinayakumar B |
+| [HDFS-5504](https://issues.apache.org/jira/browse/HDFS-5504) | In HA mode, OP\_DELETE\_SNAPSHOT is not decrementing the safemode threshold, leads to NN safemode. |  Major | (snapshots) | Vinayakumar B | Vinayakumar B |
 | [HDFS-5482](https://issues.apache.org/jira/browse/HDFS-5482) | DistributedFileSystem#listPathBasedCacheDirectives must support relative paths |  Major | (tools) | Stephen Chu | Colin Patrick McCabe |
 | [HDFS-5476](https://issues.apache.org/jira/browse/HDFS-5476) | Snapshot: clean the blocks/files/directories under a renamed file/directory while deletion |  Major |  | Jing Zhao | Jing Zhao |
 | [HDFS-5474](https://issues.apache.org/jira/browse/HDFS-5474) | Deletesnapshot can make Namenode in safemode on NN restarts. |  Major | (snapshots) | Uma Maheswara Rao G | sathish |
@@ -146,7 +146,7 @@
 | [HDFS-5413](https://issues.apache.org/jira/browse/HDFS-5413) | hdfs.cmd does not support passthrough to any arbitrary class. |  Major | (scripts) | Chris Nauroth | Chris Nauroth |
 | [HDFS-5407](https://issues.apache.org/jira/browse/HDFS-5407) | Fix typos in DFSClientCache |  Trivial |  | Haohui Mai | Haohui Mai |
 | [HDFS-5403](https://issues.apache.org/jira/browse/HDFS-5403) | WebHdfs client cannot communicate with older WebHdfs servers post HDFS-5306 |  Major | (webhdfs) | Aaron T. Myers | Aaron T. Myers |
-| [HDFS-5400](https://issues.apache.org/jira/browse/HDFS-5400) | DFS_CLIENT_MMAP_CACHE_THREAD_RUNS_PER_TIMEOUT constant is set to the wrong value |  Major |  | Colin Patrick McCabe | Colin Patrick McCabe |
+| [HDFS-5400](https://issues.apache.org/jira/browse/HDFS-5400) | DFS\_CLIENT\_MMAP\_CACHE\_THREAD\_RUNS\_PER\_TIMEOUT constant is set to the wrong value |  Major |  | Colin Patrick McCabe | Colin Patrick McCabe |
 | [HDFS-5375](https://issues.apache.org/jira/browse/HDFS-5375) | hdfs.cmd does not expose several snapshot commands. |  Minor | (tools) | Chris Nauroth | Chris Nauroth |
 | [HDFS-5374](https://issues.apache.org/jira/browse/HDFS-5374) | Remove deadcode in DFSOutputStream |  Trivial |  | Suresh Srinivas | Suresh Srinivas |
 | [HDFS-5372](https://issues.apache.org/jira/browse/HDFS-5372) | In FSNamesystem, hasReadLock() returns false if the current thread holds the write lock |  Major | (namenode) | Tsz Wo Nicholas Sze | Vinayakumar B |
@@ -173,7 +173,7 @@
 | [HDFS-5093](https://issues.apache.org/jira/browse/HDFS-5093) | TestGlobPaths should re-use the MiniDFSCluster to avoid failure on Windows |  Minor | (test) | Chuan Liu | Chuan Liu |
 | [HDFS-5075](https://issues.apache.org/jira/browse/HDFS-5075) | httpfs-config.sh calls out incorrect env script name |  Major |  | Timothy St. Clair | Timothy St. Clair |
 | [HDFS-5074](https://issues.apache.org/jira/browse/HDFS-5074) | Allow starting up from an fsimage checkpoint in the middle of a segment |  Major | (ha , namenode) | Todd Lipcon | Todd Lipcon |
-| [HDFS-5073](https://issues.apache.org/jira/browse/HDFS-5073) | TestListCorruptFileBlocks fails intermittently  |  Minor | (test) | Kihwal Lee | Arpit Agarwal |
+| [HDFS-5073](https://issues.apache.org/jira/browse/HDFS-5073) | TestListCorruptFileBlocks fails intermittently |  Minor | (test) | Kihwal Lee | Arpit Agarwal |
 | [HDFS-5065](https://issues.apache.org/jira/browse/HDFS-5065) | TestSymlinkHdfsDisable fails on Windows |  Major | (hdfs-client , test) | Ivan Mitic | Ivan Mitic |
 | [HDFS-5035](https://issues.apache.org/jira/browse/HDFS-5035) | getFileLinkStatus and rename do not correctly check permissions of symlinks |  Major | (namenode) | Andrew Wang | Andrew Wang |
 | [HDFS-5023](https://issues.apache.org/jira/browse/HDFS-5023) | TestSnapshotPathINodes.testAllowSnapshot is failing with jdk7 |  Major | (snapshots , test) | Ravi Prakash | Mit Desai |

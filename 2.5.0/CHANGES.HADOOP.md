@@ -35,8 +35,8 @@
 | [HADOOP-10572](https://issues.apache.org/jira/browse/HADOOP-10572) | Example NFS mount command must pass noacl as it isn't supported by the server yet |  Trivial | (nfs) | Harsh J | Harsh J |
 | [HADOOP-10561](https://issues.apache.org/jira/browse/HADOOP-10561) | Copy command with preserve option should handle Xattrs |  Major | (fs) | Uma Maheswara Rao G | Yi Liu |
 | [HADOOP-10557](https://issues.apache.org/jira/browse/HADOOP-10557) | FsShell -cp -pa option for preserving extended ACLs |  Major | (fs) | Akira AJISAKA | Akira AJISAKA |
-| [HADOOP-10556](https://issues.apache.org/jira/browse/HADOOP-10556) | Add toLowerCase support to auth_to_local rules for service name |  Major | (security) | Alejandro Abdelnur | Alejandro Abdelnur |
-| [HADOOP-10549](https://issues.apache.org/jira/browse/HADOOP-10549) | MAX_SUBST and varPat should be final in Configuration.java |  Major | (conf) | Gera Shegalov | Gera Shegalov |
+| [HADOOP-10556](https://issues.apache.org/jira/browse/HADOOP-10556) | Add toLowerCase support to auth\_to\_local rules for service name |  Major | (security) | Alejandro Abdelnur | Alejandro Abdelnur |
+| [HADOOP-10549](https://issues.apache.org/jira/browse/HADOOP-10549) | MAX\_SUBST and varPat should be final in Configuration.java |  Major | (conf) | Gera Shegalov | Gera Shegalov |
 | [HADOOP-10539](https://issues.apache.org/jira/browse/HADOOP-10539) | Provide backward compatibility for ProxyUsers.authorize() call |  Minor | (security) | Benoy Antony | Benoy Antony |
 | [HADOOP-10535](https://issues.apache.org/jira/browse/HADOOP-10535) | Make the retry numbers in ActiveStandbyElector configurable |  Minor |  | Jing Zhao | Jing Zhao |
 | [HADOOP-10458](https://issues.apache.org/jira/browse/HADOOP-10458) | swifts should throw FileAlreadyExistsException on attempt to overwrite file |  Minor | (fs) | Steve Loughran | Steve Loughran |
@@ -60,7 +60,7 @@
 | [HADOOP-10890](https://issues.apache.org/jira/browse/HADOOP-10890) | TestDFVariations.testMount fails intermittently |  Major |  | Yongjun Zhang | Yongjun Zhang |
 | [HADOOP-10872](https://issues.apache.org/jira/browse/HADOOP-10872) | TestPathData fails intermittently with "Mkdirs failed to create d1" |  Major | (fs) | Yongjun Zhang | Yongjun Zhang |
 | [HADOOP-10801](https://issues.apache.org/jira/browse/HADOOP-10801) | Fix dead link in site.xml |  Major | (documentation) | Akira AJISAKA | Akira AJISAKA |
-| [HADOOP-10746](https://issues.apache.org/jira/browse/HADOOP-10746) | TestSocketIOWithTimeout#testSocketIOWithTimeout fails on Power PC  |  Major | (test) | Jinghui Wang | Jinghui Wang |
+| [HADOOP-10746](https://issues.apache.org/jira/browse/HADOOP-10746) | TestSocketIOWithTimeout#testSocketIOWithTimeout fails on Power PC |  Major | (test) | Jinghui Wang | Jinghui Wang |
 | [HADOOP-10739](https://issues.apache.org/jira/browse/HADOOP-10739) | Renaming a file into a directory containing the same filename results in a confusing I/O error |  Major | (fs) | Jason Lowe | Chang Li |
 | [HADOOP-10737](https://issues.apache.org/jira/browse/HADOOP-10737) | S3n silent failure on copy, data loss on rename |  Major | (fs/s3) | Gian Merlino | Steve Loughran |
 | [HADOOP-10716](https://issues.apache.org/jira/browse/HADOOP-10716) | Cannot use more than 1 har filesystem |  Critical | (conf , fs) | Daryn Sharp | Rushabh S Shah |
@@ -78,8 +78,8 @@
 | [HADOOP-10657](https://issues.apache.org/jira/browse/HADOOP-10657) | Have RetryInvocationHandler log failover attempt at INFO level |  Major |  | Ming Ma | Ming Ma |
 | [HADOOP-10656](https://issues.apache.org/jira/browse/HADOOP-10656) | The password keystore file is not picked by LDAP group mapping |  Major | (security) | Brandon Li | Brandon Li |
 | [HADOOP-10647](https://issues.apache.org/jira/browse/HADOOP-10647) | String Format Exception in SwiftNativeFileSystemStore.java |  Minor | (fs/swift) | Gene Kim | Gene Kim |
-| [HADOOP-10639](https://issues.apache.org/jira/browse/HADOOP-10639) | FileBasedKeyStoresFactory initialization is not using default for SSL_REQUIRE_CLIENT_CERT_KEY |  Major | (security) | Alejandro Abdelnur | Alejandro Abdelnur |
-| [HADOOP-10638](https://issues.apache.org/jira/browse/HADOOP-10638) | Updating hadoop-daemon.sh to work as expected when nfs is started as a privileged user.  |  Major | (nfs) | Manikandan Narayanaswamy | Manikandan Narayanaswamy |
+| [HADOOP-10639](https://issues.apache.org/jira/browse/HADOOP-10639) | FileBasedKeyStoresFactory initialization is not using default for SSL\_REQUIRE\_CLIENT\_CERT\_KEY |  Major | (security) | Alejandro Abdelnur | Alejandro Abdelnur |
+| [HADOOP-10638](https://issues.apache.org/jira/browse/HADOOP-10638) | Updating hadoop-daemon.sh to work as expected when nfs is started as a privileged user. |  Major | (nfs) | Manikandan Narayanaswamy | Manikandan Narayanaswamy |
 | [HADOOP-10630](https://issues.apache.org/jira/browse/HADOOP-10630) | Possible race condition in RetryInvocationHandler |  Major |  | Jing Zhao | Jing Zhao |
 | [HADOOP-10625](https://issues.apache.org/jira/browse/HADOOP-10625) | Configuration: names should be trimmed when putting/getting to properties |  Major | (conf) | Wangda Tan | Wangda Tan |
 | [HADOOP-10622](https://issues.apache.org/jira/browse/HADOOP-10622) | Shell.runCommand can deadlock |  Critical |  | Jason Lowe | Gera Shegalov |
@@ -109,7 +109,7 @@
 | [HADOOP-10462](https://issues.apache.org/jira/browse/HADOOP-10462) | DF#getFilesystem is not parsing the command output |  Major |  | Akira AJISAKA | Akira AJISAKA |
 | [HADOOP-10459](https://issues.apache.org/jira/browse/HADOOP-10459) | distcp V2 doesn't preserve root dir's attributes when -p is specified |  Major | (tools/distcp) | Yongjun Zhang | Yongjun Zhang |
 | [HADOOP-10419](https://issues.apache.org/jira/browse/HADOOP-10419) | BufferedFSInputStream NPEs on getPos() on a closed stream |  Minor | (fs) | Steve Loughran | Steve Loughran |
-| [HADOOP-10418](https://issues.apache.org/jira/browse/HADOOP-10418) | SaslRpcClient should not assume that remote principals are in the default_realm |  Major | (security) | Aaron T. Myers | Aaron T. Myers |
+| [HADOOP-10418](https://issues.apache.org/jira/browse/HADOOP-10418) | SaslRpcClient should not assume that remote principals are in the default\_realm |  Major | (security) | Aaron T. Myers | Aaron T. Myers |
 | [HADOOP-10414](https://issues.apache.org/jira/browse/HADOOP-10414) | Incorrect property name for RefreshUserMappingProtocol in hadoop-policy.xml |  Major | (conf) | Joey Echeverria | Joey Echeverria |
 | [HADOOP-10401](https://issues.apache.org/jira/browse/HADOOP-10401) | ShellBasedUnixGroupsMapping#getGroups does not always return primary group first |  Major | (util) | Colin Patrick McCabe | Akira AJISAKA |
 | [HADOOP-10378](https://issues.apache.org/jira/browse/HADOOP-10378) | Typo in help printed by hdfs dfs -help |  Major |  | Mit Desai | Mit Desai |

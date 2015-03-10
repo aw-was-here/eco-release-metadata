@@ -27,7 +27,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-6411](https://issues.apache.org/jira/browse/HDFS-6411) | nfs-hdfs-gateway mount raises I/O error and hangs when a unauthorized user attempts to access it |  Major | (nfs) | Zhongyi Xie | Brandon Li |
 | [HDFS-6402](https://issues.apache.org/jira/browse/HDFS-6402) | Suppress findbugs warning for failure to override equals and hashCode in FsAclPermission. |  Trivial | (namenode) | Chris Nauroth | Chris Nauroth |
-| [HDFS-6397](https://issues.apache.org/jira/browse/HDFS-6397) | NN shows inconsistent value in deadnode count  |  Critical |  | Mohammad Kamrul Islam | Mohammad Kamrul Islam |
+| [HDFS-6397](https://issues.apache.org/jira/browse/HDFS-6397) | NN shows inconsistent value in deadnode count |  Critical |  | Mohammad Kamrul Islam | Mohammad Kamrul Islam |
 | [HDFS-6362](https://issues.apache.org/jira/browse/HDFS-6362) | InvalidateBlocks is inconsistent in usage of DatanodeUuid and StorageID |  Blocker | (namenode) | Arpit Agarwal | Arpit Agarwal |
 | [HDFS-6361](https://issues.apache.org/jira/browse/HDFS-6361) | TestIdUserGroup.testUserUpdateSetting failed due to out of range nfsnobody Id |  Major | (nfs) | Yongjun Zhang | Yongjun Zhang |
 | [HDFS-6340](https://issues.apache.org/jira/browse/HDFS-6340) | DN can't finalize upgrade |  Blocker | (datanode) | Rahul Singhal | Rahul Singhal |

@@ -71,13 +71,13 @@
 | [YARN-2804](https://issues.apache.org/jira/browse/YARN-2804) | Timeline server .out log have JAXB binding exceptions and warnings. |  Critical |  | Zhijie Shen | Zhijie Shen |
 | [YARN-2803](https://issues.apache.org/jira/browse/YARN-2803) | MR distributed cache not working correctly on Windows after NodeManager privileged account changes. |  Critical | (nodemanager) | Chris Nauroth | Craig Welch |
 | [YARN-2798](https://issues.apache.org/jira/browse/YARN-2798) | YarnClient doesn't need to translate Kerberos name of timeline DT renewer |  Blocker | (timelineserver) | Arpit Gupta | Zhijie Shen |
-| [YARN-2794](https://issues.apache.org/jira/browse/YARN-2794) | Fix log msgs about distributing system-credentials  |  Major |  | Jian He | Jian He |
+| [YARN-2794](https://issues.apache.org/jira/browse/YARN-2794) | Fix log msgs about distributing system-credentials |  Major |  | Jian He | Jian He |
 | [YARN-2790](https://issues.apache.org/jira/browse/YARN-2790) | NM can't aggregate logs past HDFS delegation token expiry. |  Critical | (nodemanager) | Tassapol Athiapinya | Jian He |
 | [YARN-2788](https://issues.apache.org/jira/browse/YARN-2788) | yarn logs -applicationId on 2.6.0 should support logs written by 2.4.0 |  Blocker | (log-aggregation) | Gopal V | Xuan Gong |
 | [YARN-2779](https://issues.apache.org/jira/browse/YARN-2779) | SystemMetricsPublisher can use Kerberos directly instead of timeline DT |  Critical | (resourcemanager , timelineserver) | Zhijie Shen | Zhijie Shen |
-| [YARN-2769](https://issues.apache.org/jira/browse/YARN-2769) | Timeline server domain not set correctly when using shell_command on Windows |  Major | (applications/distributed-shell) | Varun Vasudev | Varun Vasudev |
+| [YARN-2769](https://issues.apache.org/jira/browse/YARN-2769) | Timeline server domain not set correctly when using shell\_command on Windows |  Major | (applications/distributed-shell) | Varun Vasudev | Varun Vasudev |
 | [YARN-2760](https://issues.apache.org/jira/browse/YARN-2760) | Completely remove word 'experimental' from FairScheduler docs |  Trivial | (documentation) | Harsh J | Harsh J |
-| [YARN-2755](https://issues.apache.org/jira/browse/YARN-2755) | NM fails to clean up usercache_DEL_&lt;timestamp&gt; dirs after YARN-661 |  Critical |  | Siqi Li | Siqi Li |
+| [YARN-2755](https://issues.apache.org/jira/browse/YARN-2755) | NM fails to clean up usercache\_DEL\_&lt;timestamp&gt; dirs after YARN-661 |  Critical |  | Siqi Li | Siqi Li |
 | [YARN-2752](https://issues.apache.org/jira/browse/YARN-2752) | ContainerExecutor always append "nice -n" in command on branch-2 |  Critical |  | Xuan Gong | Xuan Gong |
 | [YARN-2743](https://issues.apache.org/jira/browse/YARN-2743) | Yarn jobs via oozie fail with failed to renew token (secure) or digest mismatch (unsecure) errors when RM is being killed |  Blocker | (resourcemanager) | Arpit Gupta | Jian He |
 | [YARN-2741](https://issues.apache.org/jira/browse/YARN-2741) | Windows: Node manager cannot serve up log files via the web user interface when yarn.nodemanager.log-dirs to any drive letter other than C: (or, the drive that nodemanager is running on) |  Major | (nodemanager) | Craig Welch | Craig Welch |
@@ -85,12 +85,12 @@
 | [YARN-2732](https://issues.apache.org/jira/browse/YARN-2732) | Fix syntax error in SecureContainer.apt.vm |  Major |  | Jian He | Jian He |
 | [YARN-2730](https://issues.apache.org/jira/browse/YARN-2730) | DefaultContainerExecutor runs only one localizer at a time |  Critical |  | Siqi Li | Siqi Li |
 | [YARN-2724](https://issues.apache.org/jira/browse/YARN-2724) | If an unreadable file is encountered during log aggregation then aggregated file in HDFS badly formed |  Major | (log-aggregation) | Sumit Mohanty | Xuan Gong |
-| [YARN-2721](https://issues.apache.org/jira/browse/YARN-2721) | Race condition: ZKRMStateStore retry logic may throw NodeExist exception  |  Blocker |  | Jian He | Jian He |
+| [YARN-2721](https://issues.apache.org/jira/browse/YARN-2721) | Race condition: ZKRMStateStore retry logic may throw NodeExist exception |  Blocker |  | Jian He | Jian He |
 | [YARN-2720](https://issues.apache.org/jira/browse/YARN-2720) | Windows: Wildcard classpath variables not expanded against resources contained in archives |  Major | (nodemanager) | Craig Welch | Craig Welch |
 | [YARN-2715](https://issues.apache.org/jira/browse/YARN-2715) | Proxy user is problem for RPC interface if yarn.resourcemanager.webapp.proxyuser is not set. |  Blocker | (resourcemanager) | Zhijie Shen | Zhijie Shen |
 | [YARN-2707](https://issues.apache.org/jira/browse/YARN-2707) | Potential null dereference in FSDownload |  Minor |  | Ted Yu | Gera Shegalov |
-| [YARN-2701](https://issues.apache.org/jira/browse/YARN-2701) | Potential race condition in startLocalizer when using LinuxContainerExecutor   |  Blocker |  | Xuan Gong | Xuan Gong |
-| [YARN-2682](https://issues.apache.org/jira/browse/YARN-2682) | WindowsSecureContainerExecutor should not depend on DefaultContainerExecutor#getFirstApplicationDir.  |  Minor | (nodemanager) | zhihai xu | zhihai xu |
+| [YARN-2701](https://issues.apache.org/jira/browse/YARN-2701) | Potential race condition in startLocalizer when using LinuxContainerExecutor |  Blocker |  | Xuan Gong | Xuan Gong |
+| [YARN-2682](https://issues.apache.org/jira/browse/YARN-2682) | WindowsSecureContainerExecutor should not depend on DefaultContainerExecutor#getFirstApplicationDir. |  Minor | (nodemanager) | zhihai xu | zhihai xu |
 | [YARN-2671](https://issues.apache.org/jira/browse/YARN-2671) | ApplicationSubmissionContext change breaks the existing app submission |  Blocker | (resourcemanager) | Zhijie Shen | Wangda Tan |
 | [YARN-2667](https://issues.apache.org/jira/browse/YARN-2667) | Fix the release audit warning caused by hadoop-yarn-registry |  Minor |  | Yi Liu | Yi Liu |
 | [YARN-2662](https://issues.apache.org/jira/browse/YARN-2662) | TestCgroupsLCEResourcesHandler leaks file descriptors. |  Minor | (test) | Chris Nauroth | Chris Nauroth |
@@ -113,7 +113,7 @@
 | [YARN-2563](https://issues.apache.org/jira/browse/YARN-2563) | On secure clusters call to timeline server fails with authentication errors when running a job via oozie |  Blocker | (timelineserver) | Arpit Gupta | Zhijie Shen |
 | [YARN-2562](https://issues.apache.org/jira/browse/YARN-2562) | ContainerId@toString() is unreadable for epoch &gt;0 after YARN-2182 |  Critical |  | Vinod Kumar Vavilapalli | Tsuyoshi Ozawa |
 | [YARN-2559](https://issues.apache.org/jira/browse/YARN-2559) | ResourceManager sometime become un-responsive due to NPE in SystemMetricsPublisher |  Major | (resourcemanager , timelineserver) | Karam Singh | Zhijie Shen |
-| [YARN-2557](https://issues.apache.org/jira/browse/YARN-2557) | Add a parameter "attempt_Failures_Validity_Interval" in DistributedShell  |  Major | (applications/distributed-shell) | Xuan Gong | Xuan Gong |
+| [YARN-2557](https://issues.apache.org/jira/browse/YARN-2557) | Add a parameter "attempt\_Failures\_Validity\_Interval" in DistributedShell |  Major | (applications/distributed-shell) | Xuan Gong | Xuan Gong |
 | [YARN-2546](https://issues.apache.org/jira/browse/YARN-2546) | REST API for application creation/submission is using strings for numeric &amp; boolean values |  Major | (api) | Doug Haigh | Varun Vasudev |
 | [YARN-2541](https://issues.apache.org/jira/browse/YARN-2541) | Fix ResourceManagerRest.apt.vm syntax error |  Major |  | Jian He | Jian He |
 | [YARN-2540](https://issues.apache.org/jira/browse/YARN-2540) | FairScheduler: Queue filters not working on scheduler page in RM UI |  Major | (scheduler) | Ashwin Shankar | Ashwin Shankar |
@@ -121,7 +121,7 @@
 | [YARN-2527](https://issues.apache.org/jira/browse/YARN-2527) | NPE in ApplicationACLsManager |  Major | (resourcemanager) | Benoy Antony | Benoy Antony |
 | [YARN-2526](https://issues.apache.org/jira/browse/YARN-2526) | SLS can deadlock when all the threads are taken by AMSimulators |  Critical | (scheduler-load-simulator) | Wei Yan | Wei Yan |
 | [YARN-2523](https://issues.apache.org/jira/browse/YARN-2523) | ResourceManager UI showing negative value for "Decommissioned Nodes" field |  Major | (resourcemanager , webapp) | Nishan Shetty | Rohith |
-| [YARN-2484](https://issues.apache.org/jira/browse/YARN-2484) | FileSystemRMStateStore#readFile/writeFile should close FSData(In|Out)putStream in final block |  Trivial |  | Tsuyoshi Ozawa | Tsuyoshi Ozawa |
+| [YARN-2484](https://issues.apache.org/jira/browse/YARN-2484) | FileSystemRMStateStore#readFile/writeFile should close FSData(In\|Out)putStream in final block |  Trivial |  | Tsuyoshi Ozawa | Tsuyoshi Ozawa |
 | [YARN-2462](https://issues.apache.org/jira/browse/YARN-2462) | TestNodeManagerResync#testBlockNewContainerRequestsOnStartAndResync should have a test timeout |  Major |  | Jason Lowe | Eric Payne |
 | [YARN-2460](https://issues.apache.org/jira/browse/YARN-2460) | Remove obsolete entries from yarn-default.xml |  Minor |  | Ray Chiang | Ray Chiang |
 | [YARN-2459](https://issues.apache.org/jira/browse/YARN-2459) | RM crashes if App gets rejected for any reason and HA is enabled |  Major | (resourcemanager) | Mayank Bansal | Mayank Bansal |
@@ -133,7 +133,7 @@
 | [YARN-2440](https://issues.apache.org/jira/browse/YARN-2440) | Cgroups should allow YARN containers to be limited to allocated cores |  Major |  | Varun Vasudev | Varun Vasudev |
 | [YARN-2426](https://issues.apache.org/jira/browse/YARN-2426) | ResourceManger is not able renew WebHDFS token when application submitted by Yarn WebService |  Major | (nodemanager , resourcemanager , webapp) | Karam Singh | Varun Vasudev |
 | [YARN-2424](https://issues.apache.org/jira/browse/YARN-2424) | LCE should support non-cgroups, non-secure mode |  Blocker | (nodemanager) | Allen Wittenauer | Allen Wittenauer |
-| [YARN-2409](https://issues.apache.org/jira/browse/YARN-2409) | Active to StandBy transition does not stop rmDispatcher that causes 1 AsyncDispatcher thread leak.  |  Critical | (resourcemanager) | Nishan Shetty | Rohith |
+| [YARN-2409](https://issues.apache.org/jira/browse/YARN-2409) | Active to StandBy transition does not stop rmDispatcher that causes 1 AsyncDispatcher thread leak. |  Critical | (resourcemanager) | Nishan Shetty | Rohith |
 | [YARN-2405](https://issues.apache.org/jira/browse/YARN-2405) | NPE in FairSchedulerAppsBlock |  Major |  | Maysam Yabandeh | Tsuyoshi Ozawa |
 | [YARN-2400](https://issues.apache.org/jira/browse/YARN-2400) | TestAMRestart fails intermittently |  Major |  | Jian He | Jian He |
 | [YARN-2397](https://issues.apache.org/jira/browse/YARN-2397) | RM and TS web interfaces sometimes return request is a replay error in secure mode |  Critical |  | Varun Vasudev | Varun Vasudev |
@@ -142,17 +142,17 @@
 | [YARN-2373](https://issues.apache.org/jira/browse/YARN-2373) | WebAppUtils Should Use configuration.getPassword for Accessing SSL Passwords |  Major |  | Larry McCay | Larry McCay |
 | [YARN-2370](https://issues.apache.org/jira/browse/YARN-2370) | Fix comment in o.a.h.y.server.resourcemanager.schedulerAppSchedulingInfo |  Trivial | (resourcemanager) | Wenwu Peng | Wenwu Peng |
 | [YARN-2363](https://issues.apache.org/jira/browse/YARN-2363) | Submitted applications occasionally lack a tracking URL |  Major | (resourcemanager) | Jason Lowe | Jason Lowe |
-| [YARN-2359](https://issues.apache.org/jira/browse/YARN-2359) | Application hangs when it fails to launch AM container  |  Critical | (resourcemanager) | zhihai xu | zhihai xu |
+| [YARN-2359](https://issues.apache.org/jira/browse/YARN-2359) | Application hangs when it fails to launch AM container |  Critical | (resourcemanager) | zhihai xu | zhihai xu |
 | [YARN-2321](https://issues.apache.org/jira/browse/YARN-2321) | NodeManager web UI can incorrectly report Pmem enforcement |  Major | (nodemanager) | Leitao Guo | Leitao Guo |
 | [YARN-2314](https://issues.apache.org/jira/browse/YARN-2314) | ContainerManagementProtocolProxy can create thousands of threads for a large cluster |  Critical | (client) | Jason Lowe | Jason Lowe |
 | [YARN-2313](https://issues.apache.org/jira/browse/YARN-2313) | Livelock can occur in FairScheduler when there are lots of running apps |  Major | (fairscheduler) | Tsuyoshi Ozawa | Tsuyoshi Ozawa |
-| [YARN-2308](https://issues.apache.org/jira/browse/YARN-2308) | NPE happened when RM restart after CapacityScheduler queue configuration changed  |  Critical | (resourcemanager , scheduler) | Wangda Tan | Chang Li |
+| [YARN-2308](https://issues.apache.org/jira/browse/YARN-2308) | NPE happened when RM restart after CapacityScheduler queue configuration changed |  Critical | (resourcemanager , scheduler) | Wangda Tan | Chang Li |
 | [YARN-2273](https://issues.apache.org/jira/browse/YARN-2273) | NPE in ContinuousScheduling thread when we lose a node |  Major | (fairscheduler , resourcemanager) | Andy Skelton | Wei Yan |
 | [YARN-2269](https://issues.apache.org/jira/browse/YARN-2269) | External links need to be removed from YARN UI |  Major |  | Yesha Vora | Craig Welch |
 | [YARN-2264](https://issues.apache.org/jira/browse/YARN-2264) | Race in DrainDispatcher can cause random test failures |  Major |  | Siddharth Seth | Li Lu |
 | [YARN-2252](https://issues.apache.org/jira/browse/YARN-2252) | Intermittent failure of TestFairScheduler.testContinuousScheduling |  Major | (scheduler) | Ratandeep Ratti |  |
 | [YARN-2251](https://issues.apache.org/jira/browse/YARN-2251) | Avoid negative elapsed time in JHS/MRAM web UI and services |  Major |  | Zhijie Shen | Zhijie Shen |
-| [YARN-2244](https://issues.apache.org/jira/browse/YARN-2244) | FairScheduler missing handling of containers for unknown application attempts  |  Critical | (fairscheduler) | Anubhav Dhoot | Anubhav Dhoot |
+| [YARN-2244](https://issues.apache.org/jira/browse/YARN-2244) | FairScheduler missing handling of containers for unknown application attempts |  Critical | (fairscheduler) | Anubhav Dhoot | Anubhav Dhoot |
 | [YARN-2219](https://issues.apache.org/jira/browse/YARN-2219) | AMs and NMs can get exceptions after recovery but before scheduler knowns apps and app-attempts |  Major | (resourcemanager) | Ashwin Shankar | Jian He |
 | [YARN-2181](https://issues.apache.org/jira/browse/YARN-2181) | Add preemption info to RM Web UI and add logs when preemption occurs |  Major | (resourcemanager , webapp) | Wangda Tan | Wangda Tan |
 | [YARN-2161](https://issues.apache.org/jira/browse/YARN-2161) | Fix build on macosx: YARN parts |  Major |  | Binglin Chang | Binglin Chang |
