@@ -1,6 +1,6 @@
 # Hadoop Changelog
 
-## Release 2.8.0 - 2015-03-09
+## Release 2.8.0 - 2015-03-10
 
 ### INCOMPATIBLE CHANGES:
 
@@ -26,6 +26,7 @@
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HADOOP-11568](https://issues.apache.org/jira/browse/HADOOP-11568) | Description on usage of classpath in hadoop command is incomplete. |  Trivial | (tools) | Archana T | Archana T |
 
 
 ### TESTS:

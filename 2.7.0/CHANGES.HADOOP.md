@@ -1,12 +1,13 @@
 # Hadoop Changelog
 
-## Release 2.7.0 - 2015-03-09
+## Release 2.7.0 - 2015-03-10
 
 ### INCOMPATIBLE CHANGES:
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-11498](https://issues.apache.org/jira/browse/HADOOP-11498) | Bump the version of HTrace to 3.1.0-incubating |  Major |  | Masatake Iwasaki | Masatake Iwasaki |
+| [HADOOP-11492](https://issues.apache.org/jira/browse/HADOOP-11492) | Bump up curator version to 2.7.1 |  Major |  | Karthik Kambatla | Arun Suresh |
 | [HADOOP-11385](https://issues.apache.org/jira/browse/HADOOP-11385) | Prevent cross site scripting attack on JMXJSONServlet |  Critical |  | Haohui Mai | Haohui Mai |
 | [HADOOP-11311](https://issues.apache.org/jira/browse/HADOOP-11311) | Restrict uppercase key names from being created with JCEKS |  Major | (security) | Andrew Wang | Andrew Wang |
 | [HADOOP-10530](https://issues.apache.org/jira/browse/HADOOP-10530) | Make hadoop trunk build on Java7+ only |  Blocker | (build) | Steve Loughran | Steve Loughran |
@@ -102,6 +103,7 @@
 | [HADOOP-11634](https://issues.apache.org/jira/browse/HADOOP-11634) | Description of webhdfs' principal/keytab should switch places each other |  Major | (documentation) | Brahma Reddy Battula | Brahma Reddy Battula |
 | [HADOOP-11629](https://issues.apache.org/jira/browse/HADOOP-11629) | WASB filesystem should not start BandwidthGaugeUpdater if fs.azure.skip.metrics set to true |  Major | (tools) | shanyu zhao | shanyu zhao |
 | [HADOOP-11619](https://issues.apache.org/jira/browse/HADOOP-11619) | FTPFileSystem should override getDefaultPort |  Major | (fs) | Gera Shegalov | Brahma Reddy Battula |
+| [HADOOP-11618](https://issues.apache.org/jira/browse/HADOOP-11618) | DelegateToFileSystem erroneously uses default FS's port in constructor |  Major | (fs) | Gera Shegalov | Brahma Reddy Battula |
 | [HADOOP-11615](https://issues.apache.org/jira/browse/HADOOP-11615) | Update ServiceLevelAuth.md for YARN |  Minor | (documentation) | Akira AJISAKA | Brahma Reddy Battula |
 | [HADOOP-11605](https://issues.apache.org/jira/browse/HADOOP-11605) | FilterFileSystem#create with ChecksumOpt should propagate it to wrapped FS |  Minor | (fs) | Gera Shegalov | Gera Shegalov |
 | [HADOOP-11604](https://issues.apache.org/jira/browse/HADOOP-11604) | Prevent ConcurrentModificationException while closing domain sockets during shutdown of DomainSocketWatcher thread. |  Critical | (net) | Liang Xie | Chris Nauroth |
@@ -235,7 +237,6 @@
 | JIRA | Description | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-11612](https://issues.apache.org/jira/browse/HADOOP-11612) | Workaround for Curator's ChildReaper requiring Guava 15+ |  Major |  | Robert Kanter | Robert Kanter |
-| [HADOOP-11492](https://issues.apache.org/jira/browse/HADOOP-11492) | Bump up curator version to 2.7.1 |  Major |  | Karthik Kambatla | Arun Suresh |
 | [HADOOP-11489](https://issues.apache.org/jira/browse/HADOOP-11489) | Dropping dependency on io.netty from hadoop-nfs' pom.xml |  Minor | (nfs) | Ted Yu | Ted Yu |
 | [HADOOP-11463](https://issues.apache.org/jira/browse/HADOOP-11463) | Replace method-local TransferManager object with S3AFileSystem#transfers |  Major | (fs/s3) | Ted Yu | Ted Yu |
 

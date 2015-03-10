@@ -1,6 +1,6 @@
 # Hadoop Changelog
 
-## Release 2.7.0 - 2015-03-09
+## Release 2.7.0 - 2015-03-10
 
 ### INCOMPATIBLE CHANGES:
 
@@ -40,6 +40,7 @@
 | [MAPREDUCE-5612](https://issues.apache.org/jira/browse/MAPREDUCE-5612) | Add javadoc for TaskCompletionEvent.Status |  Minor | (documentation) | Sandy Ryza | Chris Palmer |
 | [MAPREDUCE-5583](https://issues.apache.org/jira/browse/MAPREDUCE-5583) | Ability to limit running map and reduce tasks |  Major | (mr-am , mrv2) | Jason Lowe | Jason Lowe |
 | [MAPREDUCE-5335](https://issues.apache.org/jira/browse/MAPREDUCE-5335) | Rename Job Tracker terminology in ShuffleSchedulerImpl |  Major | (applicationmaster) | Devaraj K | Devaraj K |
+| [MAPREDUCE-4815](https://issues.apache.org/jira/browse/MAPREDUCE-4815) | Speed up FileOutputCommitter#commitJob for many output files |  Major | (mrv2) | Jason Lowe | Siqi Li |
 | [MAPREDUCE-4431](https://issues.apache.org/jira/browse/MAPREDUCE-4431) | mapred command should print the reason on killing already completed jobs |  Minor | (mrv2) | Nishan Shetty | Devaraj K |
 
 

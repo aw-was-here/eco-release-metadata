@@ -31,6 +31,12 @@ Thanks for the reviews, gentlemen. I've committed this to trunk and branch-2. Th
 
 ---
 
+* [HDFS-7411](https://issues.apache.org/jira/browse/HDFS-7411) | *Major* | **Refactor and improve decommissioning logic into DecommissionManager**
+
+This change introduces a new configuration key used to throttle decommissioning work, "dfs.namenode.decommission.blocks.per.interval". This new key overrides and deprecates the previous related configuration key "dfs.namenode.decommission.nodes.per.interval". The new key is intended to result in more predictable pause times while scanning decommissioning nodes.
+
+---
+
 * [HDFS-7326](https://issues.apache.org/jira/browse/HDFS-7326) | *Minor* | **Add documentation for hdfs debug commands**
 
 Added documentation for the hdfs debug commands to the following URL in the documentation website.

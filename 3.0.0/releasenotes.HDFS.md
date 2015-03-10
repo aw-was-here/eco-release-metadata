@@ -10,10 +10,10 @@ These release notes cover  new developer and user-facing incompatibilities, feat
 
 This deprecates the following environment variables:
 
-| Old | New |
-|:---- |:---- |
-| HTTPFS\_LOG | HADOOP\_LOG\_DIR|
-| HTTPFS\_CONFG | HADOOP\_CONF\_DIR |
+\| Old \| New \|
+\|:---- \|:---- \|
+\| HTTPFS\_LOG \| HADOOP\_LOG\_DIR\|
+\| HTTPFS\_CONFG \| HADOOP\_CONF\_DIR \|
 
 ---
 

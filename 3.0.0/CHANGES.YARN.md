@@ -1,6 +1,6 @@
 # Hadoop Changelog
 
-## Release 3.0.0 - 2015-03-09
+## Release 3.0.0 - 2015-03-10
 
 ### INCOMPATIBLE CHANGES:
 
@@ -26,6 +26,7 @@
 | [YARN-2472](https://issues.apache.org/jira/browse/YARN-2472) | yarn-daemons.sh should just call yarn directly |  Major | (scripts) | Allen Wittenauer | Masatake Iwasaki |
 | [YARN-2438](https://issues.apache.org/jira/browse/YARN-2438) | yarn-env.sh cleanup |  Major | (scripts) | Allen Wittenauer | Allen Wittenauer |
 | [YARN-2437](https://issues.apache.org/jira/browse/YARN-2437) | start-yarn.sh/stop-yarn should give info |  Major | (scripts) | Allen Wittenauer | Varun Saxena |
+| [YARN-2280](https://issues.apache.org/jira/browse/YARN-2280) | Resource manager web service fields are not accessible |  Trivial | (resourcemanager) | Krisztian Horvath | Krisztian Horvath |
 
 
 ### BUG FIXES:

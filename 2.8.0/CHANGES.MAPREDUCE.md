@@ -1,6 +1,6 @@
 # Hadoop Changelog
 
-## Release 2.8.0 - 2015-03-09
+## Release 2.8.0 - 2015-03-10
 
 ### INCOMPATIBLE CHANGES:
 
@@ -24,6 +24,7 @@
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [MAPREDUCE-4742](https://issues.apache.org/jira/browse/MAPREDUCE-4742) | Fix typo in nnbench#displayUsage |  Trivial | (test) | Liang Xie |  |
 
 
 ### TESTS:

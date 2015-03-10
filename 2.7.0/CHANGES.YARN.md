@@ -1,6 +1,6 @@
 # Hadoop Changelog
 
-## Release 2.7.0 - 2015-03-09
+## Release 2.7.0 - 2015-03-10
 
 ### INCOMPATIBLE CHANGES:
 
@@ -31,6 +31,7 @@
 | [YARN-3230](https://issues.apache.org/jira/browse/YARN-3230) | Clarify application states on the web UI |  Major |  | Jian He | Jian He |
 | [YARN-3203](https://issues.apache.org/jira/browse/YARN-3203) | Correct a log message in AuxServices |  Minor |  | Brahma Reddy Battula | Brahma Reddy Battula |
 | [YARN-3195](https://issues.apache.org/jira/browse/YARN-3195) | Add -help to yarn logs and nodes CLI command |  Minor | (client) | Jagadesh Kiran N | Jagadesh Kiran N |
+| [YARN-3187](https://issues.apache.org/jira/browse/YARN-3187) | Documentation of Capacity Scheduler Queue mapping based on user or group |  Major | (capacityscheduler , documentation) | Naganarasimha G R | Gururaj Shetty |
 | [YARN-3182](https://issues.apache.org/jira/browse/YARN-3182) | Cleanup switch statement in ApplicationMasterLauncher#handle() |  Minor |  | Ray Chiang | Ray Chiang |
 | [YARN-3181](https://issues.apache.org/jira/browse/YARN-3181) | FairScheduler: Fix up outdated findbugs issues |  Major |  | Karthik Kambatla | Karthik Kambatla |
 | [YARN-3179](https://issues.apache.org/jira/browse/YARN-3179) | Update use of Iterator to Iterable |  Minor |  | Ray Chiang | Ray Chiang |
