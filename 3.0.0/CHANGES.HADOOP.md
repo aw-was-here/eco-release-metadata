@@ -1,6 +1,6 @@
 # Hadoop Changelog
 
-## Release 3.0.0 - 2015-03-10
+## Release 3.0.0 - 2015-03-12
 
 ### INCOMPATIBLE CHANGES:
 
@@ -86,6 +86,7 @@
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HADOOP-11703](https://issues.apache.org/jira/browse/HADOOP-11703) | git should ignore .DS\_Store files on Mac OS X |  Major |  | Abin Shahab | Abin Shahab |
 | [HADOOP-11668](https://issues.apache.org/jira/browse/HADOOP-11668) | hadoop-daemons.sh bw compat broke with --slaves change |  Major | (scripts) | Vinayakumar B | Vinayakumar B |
 | [HADOOP-11653](https://issues.apache.org/jira/browse/HADOOP-11653) | shellprofiles should require .sh extension |  Major | (scripts) | Allen Wittenauer | Brahma Reddy Battula |
 | [HADOOP-11637](https://issues.apache.org/jira/browse/HADOOP-11637) | bash location hard-coded in shell scripts |  Major | (scripts) | Allen Wittenauer | Allen Wittenauer |

@@ -1,6 +1,6 @@
 # Hadoop Changelog
 
-## Release 2.7.0 - 2015-03-10
+## Release 2.7.0 - 2015-03-12
 
 ### INCOMPATIBLE CHANGES:
 
@@ -68,6 +68,7 @@
 | [HDFS-7535](https://issues.apache.org/jira/browse/HDFS-7535) | Utilize Snapshot diff report for distcp |  Major | (distcp , snapshots) | Jing Zhao | Jing Zhao |
 | [HDFS-7531](https://issues.apache.org/jira/browse/HDFS-7531) | Improve the concurrent access on FsVolumeList |  Major | (datanode) | Lei (Eddy) Xu | Lei (Eddy) Xu |
 | [HDFS-7513](https://issues.apache.org/jira/browse/HDFS-7513) | HDFS inotify: add defaultBlockSize to CreateEvent |  Major | (namenode) | Colin Patrick McCabe | Colin Patrick McCabe |
+| [HDFS-7491](https://issues.apache.org/jira/browse/HDFS-7491) | Add incremental blockreport latency to DN metrics |  Minor | (datanode) | Ming Ma | Ming Ma |
 | [HDFS-7484](https://issues.apache.org/jira/browse/HDFS-7484) | Make FSDirectory#addINode take existing INodes as its parameter |  Major |  | Haohui Mai | Jing Zhao |
 | [HDFS-7478](https://issues.apache.org/jira/browse/HDFS-7478) | Move org.apache.hadoop.hdfs.server.namenode.NNConf to FSNamesystem |  Major |  | Li Lu | Li Lu |
 | [HDFS-7463](https://issues.apache.org/jira/browse/HDFS-7463) | Simplify FSNamesystem#getBlockLocationsUpdateTimes |  Major |  | Haohui Mai | Haohui Mai |
@@ -131,10 +132,12 @@
 | JIRA | Description | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-7885](https://issues.apache.org/jira/browse/HDFS-7885) | Datanode should not trust the generation stamp provided by client |  Critical | (datanode) | vitthal (Suhas) Gogate | Tsz Wo Nicholas Sze |
+| [HDFS-7880](https://issues.apache.org/jira/browse/HDFS-7880) | Remove the tests for legacy Web UI in branch-2 |  Blocker | (test) | Akira AJISAKA | Brahma Reddy Battula |
 | [HDFS-7879](https://issues.apache.org/jira/browse/HDFS-7879) | hdfs.dll does not export functions of the public libhdfs API |  Major | (build , libhdfs) | Chris Nauroth | Chris Nauroth |
 | [HDFS-7871](https://issues.apache.org/jira/browse/HDFS-7871) | NameNodeEditLogRoller can keep printing "Swallowing exception" message |  Critical |  | Jing Zhao | Jing Zhao |
 | [HDFS-7869](https://issues.apache.org/jira/browse/HDFS-7869) | Inconsistency in the return information while performing rolling upgrade |  Major |  | J.Andreina | J.Andreina |
 | [HDFS-7831](https://issues.apache.org/jira/browse/HDFS-7831) | Fix the starting index and end condition of the loop in FileDiffList.findEarlierSnapshotBlocks() |  Major |  | Konstantin Shvachko | Konstantin Shvachko |
+| [HDFS-7830](https://issues.apache.org/jira/browse/HDFS-7830) | DataNode does not release the volume lock when adding a volume fails. |  Major | (datanode) | Lei (Eddy) Xu | Lei (Eddy) Xu |
 | [HDFS-7818](https://issues.apache.org/jira/browse/HDFS-7818) | OffsetParam should return the default value instead of throwing NPE when the value is unspecified |  Blocker | (webhdfs) | Eric Payne | Eric Payne |
 | [HDFS-7813](https://issues.apache.org/jira/browse/HDFS-7813) | TestDFSHAAdminMiniCluster#testFencer testcase is failing frequently |  Major | (ha , test) | Rakesh R | Rakesh R |
 | [HDFS-7807](https://issues.apache.org/jira/browse/HDFS-7807) | libhdfs htable.c: fix htable resizing, add unit test |  Major | (native) | Colin Patrick McCabe | Colin Patrick McCabe |

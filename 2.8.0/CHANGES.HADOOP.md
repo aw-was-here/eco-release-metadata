@@ -1,6 +1,6 @@
 # Hadoop Changelog
 
-## Release 2.8.0 - 2015-03-10
+## Release 2.8.0 - 2015-03-12
 
 ### INCOMPATIBLE CHANGES:
 
@@ -27,6 +27,7 @@
 | JIRA | Description | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-11568](https://issues.apache.org/jira/browse/HADOOP-11568) | Description on usage of classpath in hadoop command is incomplete. |  Trivial | (tools) | Archana T | Archana T |
+| [HADOOP-10027](https://issues.apache.org/jira/browse/HADOOP-10027) | *Compressor\_deflateBytesDirect passes instance instead of jclass to GetStaticObjectField |  Minor | (native) | Eric Abbott | Hui Zheng |
 
 
 ### TESTS:
