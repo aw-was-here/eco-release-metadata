@@ -1,6 +1,6 @@
 # Hadoop Changelog
 
-## Release 2.7.0 - 2015-03-12
+## Release 2.7.0 - 2015-03-13
 
 ### INCOMPATIBLE CHANGES:
 
@@ -87,6 +87,7 @@
 | [YARN-3281](https://issues.apache.org/jira/browse/YARN-3281) | Add RMStateStore to StateMachine visualization list |  Minor | (scripts) | Chengbing Liu | Chengbing Liu |
 | [YARN-3275](https://issues.apache.org/jira/browse/YARN-3275) | CapacityScheduler: Preemption happening on non-preemptable queues |  Major |  | Eric Payne | Eric Payne |
 | [YARN-3270](https://issues.apache.org/jira/browse/YARN-3270) | node label expression not getting set in ApplicationSubmissionContext |  Minor |  | Rohit Agarwal | Rohit Agarwal |
+| [YARN-3267](https://issues.apache.org/jira/browse/YARN-3267) | Timelineserver applies the ACL rules after applying the limit on the number of records |  Major |  | Prakash Ramachandran | Chang Li |
 | [YARN-3256](https://issues.apache.org/jira/browse/YARN-3256) | TestClientToAMTokens#testClientTokenRace is not running against all Schedulers even when using ParameterizedSchedulerTestBase |  Major |  | Anubhav Dhoot | Anubhav Dhoot |
 | [YARN-3255](https://issues.apache.org/jira/browse/YARN-3255) | RM, NM, JobHistoryServer, and WebAppProxyServer's main() should support generic options |  Major | (nodemanager , resourcemanager) | Konstantin Shvachko | Konstantin Shvachko |
 | [YARN-3242](https://issues.apache.org/jira/browse/YARN-3242) | Asynchrony in ZK-close can lead to ZKRMStateStore watcher receiving events for old client |  Critical | (resourcemanager) | zhihai xu | zhihai xu |

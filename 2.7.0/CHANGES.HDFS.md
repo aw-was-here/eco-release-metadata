@@ -1,6 +1,6 @@
 # Hadoop Changelog
 
-## Release 2.7.0 - 2015-03-12
+## Release 2.7.0 - 2015-03-13
 
 ### INCOMPATIBLE CHANGES:
 
@@ -76,6 +76,7 @@
 | [HDFS-7454](https://issues.apache.org/jira/browse/HDFS-7454) | Reduce memory footprint for AclEntries in NameNode |  Major | (namenode) | Vinayakumar B | Vinayakumar B |
 | [HDFS-7446](https://issues.apache.org/jira/browse/HDFS-7446) | HDFS inotify should have the ability to determine what txid it has read up to |  Major | (dfsclient) | Colin Patrick McCabe | Colin Patrick McCabe |
 | [HDFS-7439](https://issues.apache.org/jira/browse/HDFS-7439) | Add BlockOpResponseProto's message to DFSClient's exception message |  Minor | (balancer &amp; mover , datanode , hdfs-client) | Ming Ma | Takanobu Asanuma |
+| [HDFS-7435](https://issues.apache.org/jira/browse/HDFS-7435) | PB encoding of block reports is very inefficient |  Critical | (datanode , namenode) | Daryn Sharp | Daryn Sharp |
 | [HDFS-7434](https://issues.apache.org/jira/browse/HDFS-7434) | DatanodeID hashCode should not be mutable |  Major | (namenode) | Daryn Sharp | Daryn Sharp |
 | [HDFS-7430](https://issues.apache.org/jira/browse/HDFS-7430) | Rewrite the BlockScanner to use O(1) memory and use multiple threads |  Major |  | Colin Patrick McCabe | Colin Patrick McCabe |
 | [HDFS-7426](https://issues.apache.org/jira/browse/HDFS-7426) | Change nntop JMX format to be a JSON blob |  Major | (namenode) | Andrew Wang | Andrew Wang |
@@ -131,6 +132,7 @@
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HDFS-7926](https://issues.apache.org/jira/browse/HDFS-7926) | NameNode implementation of ClientProtocol.truncate(..) is not idempotent |  Major | (namenode) | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HDFS-7885](https://issues.apache.org/jira/browse/HDFS-7885) | Datanode should not trust the generation stamp provided by client |  Critical | (datanode) | vitthal (Suhas) Gogate | Tsz Wo Nicholas Sze |
 | [HDFS-7880](https://issues.apache.org/jira/browse/HDFS-7880) | Remove the tests for legacy Web UI in branch-2 |  Blocker | (test) | Akira AJISAKA | Brahma Reddy Battula |
 | [HDFS-7879](https://issues.apache.org/jira/browse/HDFS-7879) | hdfs.dll does not export functions of the public libhdfs API |  Major | (build , libhdfs) | Chris Nauroth | Chris Nauroth |
@@ -154,6 +156,7 @@
 | [HDFS-7744](https://issues.apache.org/jira/browse/HDFS-7744) | Fix potential NPE in DFSInputStream after setDropBehind or setReadahead is called |  Major | (dfsclient) | Colin Patrick McCabe | Colin Patrick McCabe |
 | [HDFS-7741](https://issues.apache.org/jira/browse/HDFS-7741) | Remove unnecessary synchronized in FSDataInputStream and HdfsDataInputStream |  Minor |  | Yi Liu | Yi Liu |
 | [HDFS-7734](https://issues.apache.org/jira/browse/HDFS-7734) | Class cast exception in NameNode#main |  Blocker | (namenode) | Arpit Agarwal | Yi Liu |
+| [HDFS-7722](https://issues.apache.org/jira/browse/HDFS-7722) | DataNode#checkDiskError should also remove Storage when error is found. |  Major | (datanode) | Lei (Eddy) Xu | Lei (Eddy) Xu |
 | [HDFS-7721](https://issues.apache.org/jira/browse/HDFS-7721) | The HDFS BlockScanner may run fast during the first hour |  Major | (datanode) | Tsz Wo Nicholas Sze | Colin Patrick McCabe |
 | [HDFS-7719](https://issues.apache.org/jira/browse/HDFS-7719) | BlockPoolSliceStorage#removeVolumes fails to remove some in-memory state associated with volumes |  Major |  | Lei (Eddy) Xu | Lei (Eddy) Xu |
 | [HDFS-7718](https://issues.apache.org/jira/browse/HDFS-7718) | Store KeyProvider in ClientContext to avoid leaking key provider threads when using FileContext |  Major |  | Arun Suresh | Arun Suresh |
@@ -244,6 +247,7 @@
 | [HDFS-7008](https://issues.apache.org/jira/browse/HDFS-7008) | xlator should be closed upon exit from DFSAdmin#genericRefresh() |  Minor |  | Ted Yu | Tsuyoshi Ozawa |
 | [HDFS-6938](https://issues.apache.org/jira/browse/HDFS-6938) | Cleanup javac warnings in FSNamesystem |  Trivial | (namenode) | Charles Lamb | Charles Lamb |
 | [HDFS-6917](https://issues.apache.org/jira/browse/HDFS-6917) | Add an hdfs debug command to validate blocks, call recoverlease, etc. |  Major | (hdfs-client) | Colin Patrick McCabe | Colin Patrick McCabe |
+| [HDFS-6833](https://issues.apache.org/jira/browse/HDFS-6833) | DirectoryScanner should not register a deleting block with memory of DataNode |  Critical | (datanode) | Shinichi Yamashita | Shinichi Yamashita |
 | [HDFS-6753](https://issues.apache.org/jira/browse/HDFS-6753) | Initialize checkDisk when DirectoryScanner not able to get files list for scanning |  Major |  | J.Andreina | J.Andreina |
 | [HDFS-6662](https://issues.apache.org/jira/browse/HDFS-6662) | WebHDFS cannot open a file if its path contains "%" |  Critical | (namenode) | Brahma Reddy Battula | Gerson Carlos |
 | [HDFS-6657](https://issues.apache.org/jira/browse/HDFS-6657) | Remove link to 'Legacy UI' in Namenode UI |  Minor |  | Vinayakumar B | Vinayakumar B |
@@ -252,6 +256,7 @@
 | [HDFS-5578](https://issues.apache.org/jira/browse/HDFS-5578) | [JDK8] Fix Javadoc errors caused by incorrect or illegal tags in doc comments |  Minor |  | Andrew Purtell | Andrew Purtell |
 | [HDFS-5445](https://issues.apache.org/jira/browse/HDFS-5445) | PacketReceiver populates the packetLen field in PacketHeader incorrectly |  Minor | (datanode) | Jonathan Mace | Jonathan Mace |
 | [HDFS-3519](https://issues.apache.org/jira/browse/HDFS-3519) | Checkpoint upload may interfere with a concurrent saveNamespace |  Critical | (namenode) | Todd Lipcon | Ming Ma |
+| [HDFS-2605](https://issues.apache.org/jira/browse/HDFS-2605) | CHANGES.txt has two "Release 0.21.1" sections |  Major | (documentation) | Konstantin Shvachko | Allen Wittenauer |
 | [HDFS-1522](https://issues.apache.org/jira/browse/HDFS-1522) | Merge Block.BLOCK\_FILE\_PREFIX and DataStorage.BLOCK\_FILE\_PREFIX into one constant |  Major | (datanode) | Konstantin Shvachko | Dongming Liang |
 | [HDFS-49](https://issues.apache.org/jira/browse/HDFS-49) | MiniDFSCluster.stopDataNode will always shut down a node in the cluster if a matching name is not found |  Minor | (test) | Steve Loughran | Steve Loughran |
 
