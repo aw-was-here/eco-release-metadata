@@ -1,6 +1,6 @@
 # Hadoop Changelog
 
-## Release 2.7.0 - 2015-03-13
+## Release 2.7.0 - 2015-03-15
 
 ### INCOMPATIBLE CHANGES:
 
@@ -21,6 +21,7 @@
 | JIRA | Description | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [MAPREDUCE-6267](https://issues.apache.org/jira/browse/MAPREDUCE-6267) | Refactor JobSubmitter#copyAndConfigureFiles into it's own class |  Minor |  | Chris Trezzo | Chris Trezzo |
+| [MAPREDUCE-6265](https://issues.apache.org/jira/browse/MAPREDUCE-6265) | Make ContainerLauncherImpl.INITIAL\_POOL\_SIZE configurable to better control to launch/kill containers |  Major | (mrv2) | zhihai xu | zhihai xu |
 | [MAPREDUCE-6256](https://issues.apache.org/jira/browse/MAPREDUCE-6256) | Removed unused private methods in o.a.h.mapreduce.Job.java |  Minor |  | Devaraj K | Naganarasimha G R |
 | [MAPREDUCE-6255](https://issues.apache.org/jira/browse/MAPREDUCE-6255) | Fix JobCounter's format to use grouping separator |  Minor | (client) | Ryu Kobayashi | Ryu Kobayashi |
 | [MAPREDUCE-6253](https://issues.apache.org/jira/browse/MAPREDUCE-6253) | Update use of Iterator to Iterable |  Minor |  | Ray Chiang | Ray Chiang |
@@ -74,6 +75,7 @@
 | [MAPREDUCE-5657](https://issues.apache.org/jira/browse/MAPREDUCE-5657) | [JDK8] Fix Javadoc errors caused by incorrect or illegal tags in doc comments |  Minor | (documentation) | Andrew Purtell | Akira AJISAKA |
 | [MAPREDUCE-5568](https://issues.apache.org/jira/browse/MAPREDUCE-5568) | JHS returns invalid string for reducer completion percentage if AM restarts with 0 reducer. |  Major |  | Jian He | MinJi Kim |
 | [MAPREDUCE-4879](https://issues.apache.org/jira/browse/MAPREDUCE-4879) | TeraOutputFormat may overwrite an existing output directory |  Major | (examples) | Gera Shegalov | Gera Shegalov |
+| [MAPREDUCE-4742](https://issues.apache.org/jira/browse/MAPREDUCE-4742) | Fix typo in nnbench#displayUsage |  Trivial | (test) | Liang Xie | Liang Xie |
 | [MAPREDUCE-4286](https://issues.apache.org/jira/browse/MAPREDUCE-4286) | TestClientProtocolProviderImpls passes on failure conditions |  Major |  | Devaraj K | Devaraj K |
 | [MAPREDUCE-3283](https://issues.apache.org/jira/browse/MAPREDUCE-3283) | mapred classpath CLI does not display the complete classpath |  Minor | (scripts) | Ramya Sunil | Varun Saxena |
 | [MAPREDUCE-2815](https://issues.apache.org/jira/browse/MAPREDUCE-2815) | JavaDoc does not generate correctly for MultithreadedMapRunner |  Minor | (documentation) | Shane Butler | Chris Palmer |
