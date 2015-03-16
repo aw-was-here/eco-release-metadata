@@ -64,7 +64,7 @@
 | [HADOOP-9693](https://issues.apache.org/jira/browse/HADOOP-9693) | Shell should add a probe for OSX |  Trivial |  | Steve Loughran |  |
 | [HADOOP-9652](https://issues.apache.org/jira/browse/HADOOP-9652) | Allow RawLocalFs#getFileLinkStatus to fill in the link owner and mode if requested |  Major |  | Colin Patrick McCabe | Andrew Wang |
 | [HADOOP-9623](https://issues.apache.org/jira/browse/HADOOP-9623) | Update jets3t dependency to  0.9.0 |  Major | (fs/s3) | Timothy St. Clair | Amandeep Khurana |
-| [HADOOP-9611](https://issues.apache.org/jira/browse/HADOOP-9611) | mvn-rpmbuild against google-guice &gt; 3.0 yields missing cglib dependency |  Major | (build) | Timothy St. Clair | Timothy St. Clair |
+| [HADOOP-9611](https://issues.apache.org/jira/browse/HADOOP-9611) | mvn-rpmbuild against google-guice > 3.0 yields missing cglib dependency |  Major | (build) | Timothy St. Clair | Timothy St. Clair |
 | [HADOOP-9594](https://issues.apache.org/jira/browse/HADOOP-9594) | Update apache commons math dependency |  Major | (build) | Timothy St. Clair | Timothy St. Clair |
 | [HADOOP-9494](https://issues.apache.org/jira/browse/HADOOP-9494) | Excluded auto-generated and examples code from clover reports |  Major |  | Dennis Y | Andrey Klochkov |
 | [HADOOP-9487](https://issues.apache.org/jira/browse/HADOOP-9487) | Deprecation warnings in Configuration should go to their own log or otherwise be suppressible |  Major | (conf) | Steve Loughran |  |
@@ -247,7 +247,7 @@
 | [HDFS-5842](https://issues.apache.org/jira/browse/HDFS-5842) | Cannot create hftp filesystem when using a proxy user ugi and a doAs on a secure cluster |  Major | (security) | Arpit Gupta | Jing Zhao |
 | [HDFS-5837](https://issues.apache.org/jira/browse/HDFS-5837) | dfs.namenode.replication.considerLoad does not consider decommissioned nodes |  Major | (namenode) | Bryan Beaudreault | Tao Luo |
 | [HDFS-5830](https://issues.apache.org/jira/browse/HDFS-5830) | WebHdfsFileSystem.getFileBlockLocations throws IllegalArgumentException when accessing another cluster. |  Blocker | (caching , hdfs-client) | Yongjun Zhang | Yongjun Zhang |
-| [HDFS-5806](https://issues.apache.org/jira/browse/HDFS-5806) | balancer should set SoTimeout to avoid indefinite hangs |  Major | (balancer &amp; mover) | Nathan Roberts | Nathan Roberts |
+| [HDFS-5806](https://issues.apache.org/jira/browse/HDFS-5806) | balancer should set SoTimeout to avoid indefinite hangs |  Major | (balancer & mover) | Nathan Roberts | Nathan Roberts |
 | [HDFS-5800](https://issues.apache.org/jira/browse/HDFS-5800) | Typo: soft-limit for hard-limit in DFSClient |  Trivial | (hdfs-client) | Kousuke Saruta | Kousuke Saruta |
 | [HDFS-5789](https://issues.apache.org/jira/browse/HDFS-5789) | Some of snapshot APIs missing checkOperation double check in fsn |  Major | (namenode) | Uma Maheswara Rao G | Uma Maheswara Rao G |
 | [HDFS-5777](https://issues.apache.org/jira/browse/HDFS-5777) | Update LayoutVersion for the new editlog op OP\_ADD\_BLOCK |  Major | (namenode) | Jing Zhao | Jing Zhao |
@@ -346,7 +346,7 @@
 | [HDFS-4657](https://issues.apache.org/jira/browse/HDFS-4657) | Limit the number of blocks logged by the NN after a block report to a configurable value. |  Major | (namenode) | Aaron T. Myers | Aaron T. Myers |
 | [HDFS-4633](https://issues.apache.org/jira/browse/HDFS-4633) | TestDFSClientExcludedNodes fails sporadically if excluded nodes cache expires too quickly |  Major | (hdfs-client , test) | Chris Nauroth | Chris Nauroth |
 | [HDFS-4516](https://issues.apache.org/jira/browse/HDFS-4516) | Client crash after block allocation and NN switch before lease recovery for the same file can cause readers to fail forever |  Critical | (namenode) | Uma Maheswara Rao G | Vinayakumar B |
-| [HDFS-4376](https://issues.apache.org/jira/browse/HDFS-4376) |  Fix several race conditions in Balancer and resolve intermittent timeout of TestBalancerWithNodeGroup |  Major | (balancer &amp; mover) | Aaron T. Myers | Junping Du |
+| [HDFS-4376](https://issues.apache.org/jira/browse/HDFS-4376) |  Fix several race conditions in Balancer and resolve intermittent timeout of TestBalancerWithNodeGroup |  Major | (balancer & mover) | Aaron T. Myers | Junping Du |
 | [HDFS-4329](https://issues.apache.org/jira/browse/HDFS-4329) | DFSShell issues with directories with spaces in name |  Major | (hdfs-client) | Andy Isaacson | Cristina L. Abad |
 | [HDFS-4201](https://issues.apache.org/jira/browse/HDFS-4201) | NPE in BPServiceActor#sendHeartBeat |  Critical | (namenode) | Eli Collins | Jimmy Xiang |
 | [HDFS-3981](https://issues.apache.org/jira/browse/HDFS-3981) | access time is set without holding FSNamesystem write lock |  Major | (namenode) | Xiaobo Peng | Xiaobo Peng |
@@ -402,7 +402,7 @@
 | [YARN-1603](https://issues.apache.org/jira/browse/YARN-1603) | Remove two *.orig files which were unexpectedly committed |  Trivial |  | Zhijie Shen | Zhijie Shen |
 | [YARN-1601](https://issues.apache.org/jira/browse/YARN-1601) | 3rd party JARs are missing from hadoop-dist output |  Major |  | Alejandro Abdelnur | Alejandro Abdelnur |
 | [YARN-1600](https://issues.apache.org/jira/browse/YARN-1600) | RM does not startup when security is enabled without spnego configured |  Blocker | (resourcemanager) | Jason Lowe | Haohui Mai |
-| [YARN-1541](https://issues.apache.org/jira/browse/YARN-1541) | Invalidate AM Host/Port when app attempt is done so that in the mean-while client doesn&#8217;t get wrong information. |  Major |  | Jian He | Jian He |
+| [YARN-1541](https://issues.apache.org/jira/browse/YARN-1541) | Invalidate AM Host/Port when app attempt is done so that in the mean-while client doesn’t get wrong information. |  Major |  | Jian He | Jian He |
 | [YARN-1527](https://issues.apache.org/jira/browse/YARN-1527) | yarn rmadmin command prints wrong usage info: |  Trivial |  | Jian He | Akira AJISAKA |
 | [YARN-1522](https://issues.apache.org/jira/browse/YARN-1522) | TestApplicationCleanup.testAppCleanup occasionally fails |  Major |  | Liyin Liang | Liyin Liang |
 | [YARN-1505](https://issues.apache.org/jira/browse/YARN-1505) | WebAppProxyServer should not set localhost as YarnConfiguration.PROXY\_ADDRESS by itself |  Blocker |  | Xuan Gong | Xuan Gong |

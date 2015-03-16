@@ -58,7 +58,7 @@
 | [HADOOP-11427](https://issues.apache.org/jira/browse/HADOOP-11427) | ChunkedArrayList: fix removal via iterator and implement get |  Major |  | Colin Patrick McCabe | Colin Patrick McCabe |
 | [HADOOP-11422](https://issues.apache.org/jira/browse/HADOOP-11422) | Check CryptoCodec is AES-CTR for Crypto input/output stream |  Minor |  | Yi Liu | Yi Liu |
 | [HADOOP-11421](https://issues.apache.org/jira/browse/HADOOP-11421) | Add IOUtils#listDirectory |  Major |  | Colin Patrick McCabe | Colin Patrick McCabe |
-| [HADOOP-11419](https://issues.apache.org/jira/browse/HADOOP-11419) | improve hadoop-maven-plugins |  Minor | (build) | Herv&#233; Boutemy | Herv&#233; Boutemy |
+| [HADOOP-11419](https://issues.apache.org/jira/browse/HADOOP-11419) | improve hadoop-maven-plugins |  Minor | (build) | Hervé Boutemy | Hervé Boutemy |
 | [HADOOP-11416](https://issues.apache.org/jira/browse/HADOOP-11416) | Move ChunkedArrayList into hadoop-common |  Major |  | Colin Patrick McCabe | Colin Patrick McCabe |
 | [HADOOP-11410](https://issues.apache.org/jira/browse/HADOOP-11410) | make the rpath of libhadoop.so configurable |  Major |  | Colin Patrick McCabe | Colin Patrick McCabe |
 | [HADOOP-11399](https://issues.apache.org/jira/browse/HADOOP-11399) | Java Configuration file and .xml files should be automatically cross-compared |  Minor |  | Ray Chiang | Ray Chiang |
@@ -111,7 +111,7 @@
 | [HADOOP-11602](https://issues.apache.org/jira/browse/HADOOP-11602) | Fix toUpperCase/toLowerCase to use Locale.ENGLISH |  Blocker |  | Tsuyoshi Ozawa | Tsuyoshi Ozawa |
 | [HADOOP-11595](https://issues.apache.org/jira/browse/HADOOP-11595) | Add default implementation for AbstractFileSystem#truncate |  Major | (fs) | Yi Liu | Yi Liu |
 | [HADOOP-11587](https://issues.apache.org/jira/browse/HADOOP-11587) | TestMapFile#testMainMethodMapFile creates test files in hadoop-common project root |  Trivial | (test) | Xiaoyu Yao | Xiaoyu Yao |
-| [HADOOP-11571](https://issues.apache.org/jira/browse/HADOOP-11571) | &#220;ber-jira: S3a stabilisation phase I |  Blocker | (fs/s3) | Steve Loughran | Steve Loughran |
+| [HADOOP-11571](https://issues.apache.org/jira/browse/HADOOP-11571) | Über-jira: S3a stabilisation phase I |  Blocker | (fs/s3) | Steve Loughran | Steve Loughran |
 | [HADOOP-11558](https://issues.apache.org/jira/browse/HADOOP-11558) | Fix dead links to doc of hadoop-tools |  Minor | (documentation) | Masatake Iwasaki | Jean-Pierre Matsumoto |
 | [HADOOP-11549](https://issues.apache.org/jira/browse/HADOOP-11549) | flaky test detection tool failed to handle special control characters in test result |  Major | (tools) | Yongjun Zhang | Yongjun Zhang |
 | [HADOOP-11548](https://issues.apache.org/jira/browse/HADOOP-11548) | checknative should display a nicer error message when openssl support is not compiled in |  Major | (build , native) | Colin Patrick McCabe | Anu Engineer |
@@ -137,14 +137,14 @@
 | [HADOOP-11467](https://issues.apache.org/jira/browse/HADOOP-11467) | KerberosAuthenticator can connect to a non-secure cluster |  Critical | (security) | Robert Kanter | Yongjun Zhang |
 | [HADOOP-11462](https://issues.apache.org/jira/browse/HADOOP-11462) | TestSocketIOWithTimeout needs change for PowerPC platform |  Major | (test) | Ayappan | Ayappan |
 | [HADOOP-11459](https://issues.apache.org/jira/browse/HADOOP-11459) | Fix recent findbugs in ActiveStandbyElector, NetUtils and ShellBasedIdMapping |  Minor |  | Vinayakumar B | Vinayakumar B |
-| [HADOOP-11449](https://issues.apache.org/jira/browse/HADOOP-11449) | [JDK8] Cannot build on Windows: error: unexpected end tag: &lt;/ul&gt; |  Major | (build) | Alec Taylor | Chris Nauroth |
+| [HADOOP-11449](https://issues.apache.org/jira/browse/HADOOP-11449) | [JDK8] Cannot build on Windows: error: unexpected end tag: </ul> |  Major | (build) | Alec Taylor | Chris Nauroth |
 | [HADOOP-11446](https://issues.apache.org/jira/browse/HADOOP-11446) | S3AOutputStream should use shared thread pool to avoid OutOfMemoryError |  Major | (fs/s3) | Ted Yu | Ted Yu |
 | [HADOOP-11445](https://issues.apache.org/jira/browse/HADOOP-11445) | Bzip2Codec: Data block is skipped when position of newly created stream is equal to start of split |  Critical |  | Ankit Kamboj | Ankit Kamboj |
-| [HADOOP-11431](https://issues.apache.org/jira/browse/HADOOP-11431) | clean up redundant maven-site-plugin configuration |  Major |  | Herv&#233; Boutemy | Herv&#233; Boutemy |
+| [HADOOP-11431](https://issues.apache.org/jira/browse/HADOOP-11431) | clean up redundant maven-site-plugin configuration |  Major |  | Hervé Boutemy | Hervé Boutemy |
 | [HADOOP-11428](https://issues.apache.org/jira/browse/HADOOP-11428) | Remove obsolete reference to Cygwin in BUILDING.txt |  Major | (documentation) | Arpit Agarwal | Arpit Agarwal |
-| [HADOOP-11420](https://issues.apache.org/jira/browse/HADOOP-11420) | Use latest maven-site-plugin and replace link to svn with link to git |  Trivial | (site) | Herv&#233; Boutemy | Herv&#233; Boutemy |
+| [HADOOP-11420](https://issues.apache.org/jira/browse/HADOOP-11420) | Use latest maven-site-plugin and replace link to svn with link to git |  Trivial | (site) | Hervé Boutemy | Hervé Boutemy |
 | [HADOOP-11414](https://issues.apache.org/jira/browse/HADOOP-11414) | FileBasedIPList#readLines() can leak file descriptors |  Minor |  | Ted Yu | Tsuyoshi Ozawa |
-| [HADOOP-11412](https://issues.apache.org/jira/browse/HADOOP-11412) | POMs mention "The Apache Software License" rather than "Apache License" |  Trivial |  | Herv&#233; Boutemy | Herv&#233; Boutemy |
+| [HADOOP-11412](https://issues.apache.org/jira/browse/HADOOP-11412) | POMs mention "The Apache Software License" rather than "Apache License" |  Trivial |  | Hervé Boutemy | Hervé Boutemy |
 | [HADOOP-11411](https://issues.apache.org/jira/browse/HADOOP-11411) | Hive build failure on hadoop-2.7 due to HADOOP-11356 |  Major |  | Jason Dere |  |
 | [HADOOP-11409](https://issues.apache.org/jira/browse/HADOOP-11409) | FileContext.getFileContext can stack overflow if default fs misconfigured |  Major |  | Jason Lowe | Gera Shegalov |
 | [HADOOP-11403](https://issues.apache.org/jira/browse/HADOOP-11403) | Avoid using sys\_errlist on Solaris, which lacks support for it |  Major |  | Malcolm Kavalsky | Malcolm Kavalsky |

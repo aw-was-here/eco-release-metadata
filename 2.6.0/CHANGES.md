@@ -23,7 +23,7 @@
 | [HADOOP-10150](https://issues.apache.org/jira/browse/HADOOP-10150) | Hadoop cryptographic file system |  Major | (security) | Yi Liu | Yi Liu |
 | [HDFS-6959](https://issues.apache.org/jira/browse/HDFS-6959) | Make the HDFS home directory location customizable. |  Minor |  | Kevin Odell | Yongjun Zhang |
 | [HDFS-6634](https://issues.apache.org/jira/browse/HDFS-6634) | inotify in HDFS |  Major | (hdfs-client , namenode , qjm) | James Thomas | James Thomas |
-| [HDFS-6584](https://issues.apache.org/jira/browse/HDFS-6584) | Support Archival Storage |  Major | (balancer &amp; mover , namenode) | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
+| [HDFS-6584](https://issues.apache.org/jira/browse/HDFS-6584) | Support Archival Storage |  Major | (balancer & mover , namenode) | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HDFS-6581](https://issues.apache.org/jira/browse/HDFS-6581) | Write to single replica in memory |  Major | (datanode , hdfs-client , namenode) | Arpit Agarwal | Arpit Agarwal |
 | [HDFS-6134](https://issues.apache.org/jira/browse/HDFS-6134) | Transparent data at rest encryption |  Major | (security) | Alejandro Abdelnur | Charles Lamb |
 | [HDFS-4257](https://issues.apache.org/jira/browse/HDFS-4257) | The ReplaceDatanodeOnFailure policies could have a forgiving option |  Minor | (hdfs-client) | Harsh J | Tsz Wo Nicholas Sze |
@@ -138,14 +138,14 @@
 | [HDFS-6858](https://issues.apache.org/jira/browse/HDFS-6858) | Allow dfs.data.transfer.saslproperties.resolver.class default to hadoop.security.saslproperties.resolver.class |  Minor | (security) | Benoy Antony | Benoy Antony |
 | [HDFS-6850](https://issues.apache.org/jira/browse/HDFS-6850) | Move NFS out of order write unit tests into TestWrites class |  Minor | (nfs) | Zhe Zhang | Zhe Zhang |
 | [HDFS-6849](https://issues.apache.org/jira/browse/HDFS-6849) | Replace HttpFS custom proxyuser handling with common implementation |  Major | (security) | Alejandro Abdelnur | Alejandro Abdelnur |
-| [HDFS-6837](https://issues.apache.org/jira/browse/HDFS-6837) | Code cleanup for Balancer and Dispatcher |  Minor | (balancer &amp; mover) | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
-| [HDFS-6836](https://issues.apache.org/jira/browse/HDFS-6836) | HDFS INFO logging is verbose &amp; uses file appenders |  Major | (datanode) | Gopal V | Nathan Yao |
-| [HDFS-6828](https://issues.apache.org/jira/browse/HDFS-6828) | Separate block replica dispatching from Balancer |  Major | (balancer &amp; mover) | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
+| [HDFS-6837](https://issues.apache.org/jira/browse/HDFS-6837) | Code cleanup for Balancer and Dispatcher |  Minor | (balancer & mover) | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
+| [HDFS-6836](https://issues.apache.org/jira/browse/HDFS-6836) | HDFS INFO logging is verbose & uses file appenders |  Major | (datanode) | Gopal V | Nathan Yao |
+| [HDFS-6828](https://issues.apache.org/jira/browse/HDFS-6828) | Separate block replica dispatching from Balancer |  Major | (balancer & mover) | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HDFS-6812](https://issues.apache.org/jira/browse/HDFS-6812) | Remove addBlock and replaceBlock from DatanodeDescriptor |  Minor | (namenode) | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
-| [HDFS-6809](https://issues.apache.org/jira/browse/HDFS-6809) | Move some Balancer's inner classes to standalone classes |  Minor | (balancer &amp; mover) | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
+| [HDFS-6809](https://issues.apache.org/jira/browse/HDFS-6809) | Move some Balancer's inner classes to standalone classes |  Minor | (balancer & mover) | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HDFS-6800](https://issues.apache.org/jira/browse/HDFS-6800) | Support Datanode layout changes with rolling upgrade |  Major | (datanode) | Colin Patrick McCabe | James Thomas |
-| [HDFS-6798](https://issues.apache.org/jira/browse/HDFS-6798) | Add test case for incorrect data node condition during balancing |  Major | (balancer &amp; mover) | Benoy Antony | Benoy Antony |
-| [HDFS-6796](https://issues.apache.org/jira/browse/HDFS-6796) | Improving the argument check during balancer command line parsing |  Minor | (balancer &amp; mover) | Benoy Antony | Benoy Antony |
+| [HDFS-6798](https://issues.apache.org/jira/browse/HDFS-6798) | Add test case for incorrect data node condition during balancing |  Major | (balancer & mover) | Benoy Antony | Benoy Antony |
+| [HDFS-6796](https://issues.apache.org/jira/browse/HDFS-6796) | Improving the argument check during balancer command line parsing |  Minor | (balancer & mover) | Benoy Antony | Benoy Antony |
 | [HDFS-6794](https://issues.apache.org/jira/browse/HDFS-6794) | Update BlockManager methods to use DatanodeStorageInfo where possible |  Minor | (namenode) | Arpit Agarwal | Arpit Agarwal |
 | [HDFS-6781](https://issues.apache.org/jira/browse/HDFS-6781) | Separate HDFS commands from CommandsManual.apt.vm |  Major | (documentation) | Akira AJISAKA | Akira AJISAKA |
 | [HDFS-6779](https://issues.apache.org/jira/browse/HDFS-6779) | Add missing version subcommand for hdfs |  Minor | (scripts) | Allen Wittenauer | Sasaki Toru |
@@ -157,7 +157,7 @@
 | [HDFS-6701](https://issues.apache.org/jira/browse/HDFS-6701) | Make seed optional in NetworkTopology#sortByDistance |  Major | (namenode) | Ashwin Shankar | Ashwin Shankar |
 | [HDFS-6700](https://issues.apache.org/jira/browse/HDFS-6700) | BlockPlacementPolicy shoud choose storage but not datanode for deletion |  Minor | (namenode) | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HDFS-6690](https://issues.apache.org/jira/browse/HDFS-6690) | Deduplicate xattr names in memory |  Major | (namenode) | Andrew Wang | Andrew Wang |
-| [HDFS-6685](https://issues.apache.org/jira/browse/HDFS-6685) | Balancer should preserve storage type of replicas |  Major | (balancer &amp; mover) | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
+| [HDFS-6685](https://issues.apache.org/jira/browse/HDFS-6685) | Balancer should preserve storage type of replicas |  Major | (balancer & mover) | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HDFS-6655](https://issues.apache.org/jira/browse/HDFS-6655) | Add 'header banner' to 'explorer.html' also in Namenode UI |  Major |  | Vinayakumar B | Vinayakumar B |
 | [HDFS-6643](https://issues.apache.org/jira/browse/HDFS-6643) | Refactor INodeFile.HeaderFormat and INodeWithAdditionalFields.PermissionStatusFormat |  Minor | (namenode) | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HDFS-6627](https://issues.apache.org/jira/browse/HDFS-6627) | Rename DataNode#checkWriteAccess to checkReadAccess. |  Major | (datanode) | Liang Xie | Liang Xie |
@@ -168,7 +168,7 @@
 | [HDFS-6519](https://issues.apache.org/jira/browse/HDFS-6519) | Document oiv\_legacy command |  Major | (documentation) | Akira AJISAKA | Akira AJISAKA |
 | [HDFS-6511](https://issues.apache.org/jira/browse/HDFS-6511) | BlockManager#computeInvalidateWork() could do nothing |  Minor |  | Juan Yu | Juan Yu |
 | [HDFS-6482](https://issues.apache.org/jira/browse/HDFS-6482) | Use block ID-based block layout on datanodes |  Major | (datanode) | James Thomas | James Thomas |
-| [HDFS-6441](https://issues.apache.org/jira/browse/HDFS-6441) | Add ability to exclude/include specific datanodes while balancing |  Major | (balancer &amp; mover) | Benoy Antony | Benoy Antony |
+| [HDFS-6441](https://issues.apache.org/jira/browse/HDFS-6441) | Add ability to exclude/include specific datanodes while balancing |  Major | (balancer & mover) | Benoy Antony | Benoy Antony |
 | [HDFS-6188](https://issues.apache.org/jira/browse/HDFS-6188) | An ip whitelist based implementation of TrustedChannelResolver |  Major | (security) | Benoy Antony | Benoy Antony |
 | [HDFS-5202](https://issues.apache.org/jira/browse/HDFS-5202) | Support Centralized Cache Management on Windows. |  Major | (datanode) | Colin Patrick McCabe | Chris Nauroth |
 | [HDFS-5182](https://issues.apache.org/jira/browse/HDFS-5182) | BlockReaderLocal must allow zero-copy  reads only when the DN believes it's valid |  Major | (hdfs-client) | Colin Patrick McCabe | Colin Patrick McCabe |
@@ -354,7 +354,7 @@
 | [HDFS-7382](https://issues.apache.org/jira/browse/HDFS-7382) | DataNode in secure mode may throw NullPointerException if client connects before DataNode registers itself with NameNode. |  Minor | (datanode , security) | Chris Nauroth | Chris Nauroth |
 | [HDFS-7379](https://issues.apache.org/jira/browse/HDFS-7379) | TestBalancer#testBalancerWithRamDisk creates test files incorrectly |  Minor | (test) | Xiaoyu Yao | Xiaoyu Yao |
 | [HDFS-7367](https://issues.apache.org/jira/browse/HDFS-7367) | HDFS short-circuit read cannot negotiate shared memory slot and file descriptors when SASL is enabled on DataTransferProtocol. |  Major | (hdfs-client) | Chris Nauroth | Chris Nauroth |
-| [HDFS-7364](https://issues.apache.org/jira/browse/HDFS-7364) | Balancer always shows zero Bytes Already Moved |  Minor | (balancer &amp; mover) | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
+| [HDFS-7364](https://issues.apache.org/jira/browse/HDFS-7364) | Balancer always shows zero Bytes Already Moved |  Minor | (balancer & mover) | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HDFS-7359](https://issues.apache.org/jira/browse/HDFS-7359) | NameNode in secured HA cluster fails to start if dfs.namenode.secondary.http-address cannot be interpreted as a network address. |  Major | (journal-node , namenode) | Chris Nauroth | Chris Nauroth |
 | [HDFS-7340](https://issues.apache.org/jira/browse/HDFS-7340) | make rollingUpgrade start/finalize idempotent |  Major | (ha) | Arpit Gupta | Jing Zhao |
 | [HDFS-7334](https://issues.apache.org/jira/browse/HDFS-7334) | Fix periodic failures of TestCheckpoint#testTooManyEditReplayFailures |  Minor | (test) | Charles Lamb | Charles Lamb |
@@ -380,7 +380,7 @@
 | [HDFS-7176](https://issues.apache.org/jira/browse/HDFS-7176) | The namenode usage message doesn't include "-rollingupgrade started" |  Minor | (namenode) | Colin Patrick McCabe | Colin Patrick McCabe |
 | [HDFS-7172](https://issues.apache.org/jira/browse/HDFS-7172) | Test data files may be checked out of git with incorrect line endings, causing test failures in TestHDFSCLI. |  Trivial | (test) | Chris Nauroth | Chris Nauroth |
 | [HDFS-7169](https://issues.apache.org/jira/browse/HDFS-7169) | Fix a findbugs warning in ReplaceDatanodeOnFailure |  Minor | (build) | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
-| [HDFS-7167](https://issues.apache.org/jira/browse/HDFS-7167) | NPE while running Mover if the given path is for a file |  Major | (balancer &amp; mover) | Prabushankar Chinnasamy | Jing Zhao |
+| [HDFS-7167](https://issues.apache.org/jira/browse/HDFS-7167) | NPE while running Mover if the given path is for a file |  Major | (balancer & mover) | Prabushankar Chinnasamy | Jing Zhao |
 | [HDFS-7162](https://issues.apache.org/jira/browse/HDFS-7162) | Wrong path when deleting through fuse-dfs a file which already exists in trash |  Major | (fuse-dfs) | Chengbing Liu | Chengbing Liu |
 | [HDFS-7156](https://issues.apache.org/jira/browse/HDFS-7156) | Fsck documentation is outdated. |  Major | (documentation) | Konstantin Shvachko | Masahiro Yamaguchi |
 | [HDFS-7148](https://issues.apache.org/jira/browse/HDFS-7148) | TestEncryptionZones#testIsEncryptedMethod fails on branch-2 after archival storage merge |  Major | (encryption) | Andrew Wang | Andrew Wang |
@@ -389,7 +389,7 @@
 | [HDFS-7131](https://issues.apache.org/jira/browse/HDFS-7131) | During HA upgrade, JournalNode should create a new committedTxnId file in the current directory |  Major | (qjm) | Jing Zhao | Jing Zhao |
 | [HDFS-7130](https://issues.apache.org/jira/browse/HDFS-7130) | TestDataTransferKeepalive fails intermittently on Windows. |  Major | (test) | Chris Nauroth | Chris Nauroth |
 | [HDFS-7127](https://issues.apache.org/jira/browse/HDFS-7127) | TestLeaseRecovery leaks MiniDFSCluster instances. |  Major | (test) | Chris Nauroth | Chris Nauroth |
-| [HDFS-7122](https://issues.apache.org/jira/browse/HDFS-7122) | Use of ThreadLocal&lt;Random&gt; results in poor block placement |  Blocker | (namenode) | Jeff Buell | Andrew Wang |
+| [HDFS-7122](https://issues.apache.org/jira/browse/HDFS-7122) | Use of ThreadLocal<Random> results in poor block placement |  Blocker | (namenode) | Jeff Buell | Andrew Wang |
 | [HDFS-7111](https://issues.apache.org/jira/browse/HDFS-7111) | TestSafeMode assumes Unix line endings in safe mode tip. |  Trivial | (test) | Chris Nauroth | Chris Nauroth |
 | [HDFS-7110](https://issues.apache.org/jira/browse/HDFS-7110) | Skip tests related to short-circuit read on platforms that do not currently implement short-circuit read. |  Minor | (test) | Chris Nauroth | Chris Nauroth |
 | [HDFS-7109](https://issues.apache.org/jira/browse/HDFS-7109) | TestDataStorage does not release file locks between tests. |  Minor | (test) | Chris Nauroth | Chris Nauroth |
@@ -461,7 +461,7 @@
 | [HDFS-6646](https://issues.apache.org/jira/browse/HDFS-6646) | [ HDFS Rolling Upgrade - Shell  ] shutdownDatanode and getDatanodeInfo usage is missed |  Major | (tools) | Brahma Reddy Battula | Brahma Reddy Battula |
 | [HDFS-6640](https://issues.apache.org/jira/browse/HDFS-6640) | [ Web HDFS ] Syntax for MKDIRS, CREATESYMLINK, and SETXATTR are given wrongly(missed webhdfs/v1).). |  Major | (documentation , webhdfs) | Brahma Reddy Battula | Stephen Chu |
 | [HDFS-6630](https://issues.apache.org/jira/browse/HDFS-6630) | Unable to fetch the block information  by Browsing the file system on Namenode UI through IE9 |  Major | (namenode) | J.Andreina | Haohui Mai |
-| [HDFS-6621](https://issues.apache.org/jira/browse/HDFS-6621) | Hadoop Balancer prematurely exits iterations |  Major | (balancer &amp; mover) | Benjamin Bowman | Rafal Wojdyla |
+| [HDFS-6621](https://issues.apache.org/jira/browse/HDFS-6621) | Hadoop Balancer prematurely exits iterations |  Major | (balancer & mover) | Benjamin Bowman | Rafal Wojdyla |
 | [HDFS-6616](https://issues.apache.org/jira/browse/HDFS-6616) | bestNode shouldn't always return the first DataNode |  Minor | (webhdfs) | zhaoyunjiong | zhaoyunjiong |
 | [HDFS-6582](https://issues.apache.org/jira/browse/HDFS-6582) | Missing null check in RpcProgramNfs3#read(XDR, SecurityHandler) |  Minor | (nfs) | Ted Yu | Abhiraj Butala |
 | [HDFS-6569](https://issues.apache.org/jira/browse/HDFS-6569) | OOB message can't be sent to the client when DataNode shuts down for upgrade |  Major | (datanode) | Brandon Li | Brandon Li |
@@ -469,13 +469,13 @@
 | [HDFS-6544](https://issues.apache.org/jira/browse/HDFS-6544) | Broken Link for GFS in package.html |  Minor |  | Suraj Nayak M | Suraj Nayak M |
 | [HDFS-6534](https://issues.apache.org/jira/browse/HDFS-6534) | Fix build on macosx: HDFS parts |  Minor |  | Binglin Chang | Binglin Chang |
 | [HDFS-6517](https://issues.apache.org/jira/browse/HDFS-6517) | Remove hadoop-metrics2.properties from hdfs project |  Major |  | Akira AJISAKA | Akira AJISAKA |
-| [HDFS-6506](https://issues.apache.org/jira/browse/HDFS-6506) | Newly moved block replica been invalidated and deleted in TestBalancer |  Major | (balancer &amp; mover , test) | Binglin Chang | Binglin Chang |
+| [HDFS-6506](https://issues.apache.org/jira/browse/HDFS-6506) | Newly moved block replica been invalidated and deleted in TestBalancer |  Major | (balancer & mover , test) | Binglin Chang | Binglin Chang |
 | [HDFS-6478](https://issues.apache.org/jira/browse/HDFS-6478) | RemoteException can't be retried properly for non-HA scenario |  Major |  | Ming Ma | Ming Ma |
 | [HDFS-6456](https://issues.apache.org/jira/browse/HDFS-6456) | NFS should throw error for invalid entry in dfs.nfs.exports.allowed.hosts |  Major | (nfs) | Yesha Vora | Abhiraj Butala |
 | [HDFS-6455](https://issues.apache.org/jira/browse/HDFS-6455) | NFS: Exception should be added in NFS log for invalid separator in nfs.exports.allowed.hosts |  Major | (nfs) | Yesha Vora | Abhiraj Butala |
 | [HDFS-6451](https://issues.apache.org/jira/browse/HDFS-6451) | NFS should not return NFS3ERR\_IO for AccessControlException |  Major | (nfs) | Brandon Li | Abhiraj Butala |
 | [HDFS-6376](https://issues.apache.org/jira/browse/HDFS-6376) | Distcp data between two HA clusters requires another configuration |  Major | (datanode , federation , hdfs-client) | Dave Marion | Dave Marion |
-| [HDFS-6247](https://issues.apache.org/jira/browse/HDFS-6247) | Avoid timeouts for replaceBlock() call by sending intermediate responses to Balancer |  Major | (balancer &amp; mover , datanode) | Vinayakumar B | Vinayakumar B |
+| [HDFS-6247](https://issues.apache.org/jira/browse/HDFS-6247) | Avoid timeouts for replaceBlock() call by sending intermediate responses to Balancer |  Major | (balancer & mover , datanode) | Vinayakumar B | Vinayakumar B |
 | [HDFS-6114](https://issues.apache.org/jira/browse/HDFS-6114) | Block Scan log rolling will never happen if blocks written continuously leading to huge size of dncp\_block\_verification.log.curr |  Critical | (datanode) | Vinayakumar B | Vinayakumar B |
 | [HDFS-5919](https://issues.apache.org/jira/browse/HDFS-5919) | FileJournalManager doesn't purge empty and corrupt inprogress edits files |  Major | (namenode) | Vinayakumar B | Vinayakumar B |
 | [HDFS-5809](https://issues.apache.org/jira/browse/HDFS-5809) | BlockPoolSliceScanner and high speed hdfs appending make datanode to drop into infinite loop |  Critical | (datanode) | ikweesung | Colin Patrick McCabe |
@@ -486,7 +486,7 @@
 | [HDFS-4629](https://issues.apache.org/jira/browse/HDFS-4629) | Using com.sun.org.apache.xml.internal.serialize.* in XmlEditsVisitor.java is JVM vendor specific. Breaks IBM JAVA |  Major | (tools) | Amir Sanjar |  |
 | [HDFS-4227](https://issues.apache.org/jira/browse/HDFS-4227) | Document dfs.namenode.resource.* |  Major | (documentation) | Eli Collins | Daisuke Kobayashi |
 | [HDFS-4165](https://issues.apache.org/jira/browse/HDFS-4165) | Faulty sanity check in FsDirectory.unprotectedSetQuota |  Trivial | (namenode) | Binglin Chang | Binglin Chang |
-| [HDFS-3482](https://issues.apache.org/jira/browse/HDFS-3482) | hdfs balancer throws ArrayIndexOutOfBoundsException if option is specified without arguments |  Minor | (balancer &amp; mover) | Stephen Chu | madhukara phatak |
+| [HDFS-3482](https://issues.apache.org/jira/browse/HDFS-3482) | hdfs balancer throws ArrayIndexOutOfBoundsException if option is specified without arguments |  Minor | (balancer & mover) | Stephen Chu | madhukara phatak |
 | [HDFS-2976](https://issues.apache.org/jira/browse/HDFS-2976) | Remove unnecessary method (tokenRefetchNeeded) in DFSClient |  Trivial | (hdfs-client) | Uma Maheswara Rao G | Uma Maheswara Rao G |
 | [HDFS-2975](https://issues.apache.org/jira/browse/HDFS-2975) | Rename with overwrite flag true can make NameNode to stuck in safemode on NN (crash + restart). |  Major | (namenode) | Uma Maheswara Rao G | Yi Liu |
 | [MAPREDUCE-6156](https://issues.apache.org/jira/browse/MAPREDUCE-6156) | Fetcher - connect() doesn't handle connection refused correctly |  Blocker |  | Sidharta Seethana | Junping Du |
@@ -503,7 +503,7 @@
 | [MAPREDUCE-6090](https://issues.apache.org/jira/browse/MAPREDUCE-6090) | mapred hsadmin getGroups fails to connect in some cases |  Major | (client) | Robert Kanter | Robert Kanter |
 | [MAPREDUCE-6075](https://issues.apache.org/jira/browse/MAPREDUCE-6075) | HistoryServerFileSystemStateStore can create zero-length files |  Major | (jobhistoryserver) | Jason Lowe | Jason Lowe |
 | [MAPREDUCE-6073](https://issues.apache.org/jira/browse/MAPREDUCE-6073) | Description of mapreduce.job.speculative.slowtaskthreshold in mapred-default should be moved into description tags |  Trivial | (documentation) | Tsuyoshi Ozawa | Tsuyoshi Ozawa |
-| [MAPREDUCE-6063](https://issues.apache.org/jira/browse/MAPREDUCE-6063) | In sortAndSpill of MapTask.java, size is calculated wrongly when bufend &lt; bufstart. |  Major | (mrv1 , mrv2) | zhihai xu | zhihai xu |
+| [MAPREDUCE-6063](https://issues.apache.org/jira/browse/MAPREDUCE-6063) | In sortAndSpill of MapTask.java, size is calculated wrongly when bufend < bufstart. |  Major | (mrv1 , mrv2) | zhihai xu | zhihai xu |
 | [MAPREDUCE-6052](https://issues.apache.org/jira/browse/MAPREDUCE-6052) | Support overriding log4j.properties per job |  Major |  | Junping Du | Junping Du |
 | [MAPREDUCE-6051](https://issues.apache.org/jira/browse/MAPREDUCE-6051) | Fix typos in log messages |  Trivial |  | Ray Chiang | Ray Chiang |
 | [MAPREDUCE-6044](https://issues.apache.org/jira/browse/MAPREDUCE-6044) | Fully qualified intermediate done directory will break per-user dir creation on Windows |  Major | (jobhistoryserver) | Zhijie Shen | Zhijie Shen |
@@ -555,7 +555,7 @@
 | [YARN-2779](https://issues.apache.org/jira/browse/YARN-2779) | SystemMetricsPublisher can use Kerberos directly instead of timeline DT |  Critical | (resourcemanager , timelineserver) | Zhijie Shen | Zhijie Shen |
 | [YARN-2769](https://issues.apache.org/jira/browse/YARN-2769) | Timeline server domain not set correctly when using shell\_command on Windows |  Major | (applications/distributed-shell) | Varun Vasudev | Varun Vasudev |
 | [YARN-2760](https://issues.apache.org/jira/browse/YARN-2760) | Completely remove word 'experimental' from FairScheduler docs |  Trivial | (documentation) | Harsh J | Harsh J |
-| [YARN-2755](https://issues.apache.org/jira/browse/YARN-2755) | NM fails to clean up usercache\_DEL\_&lt;timestamp&gt; dirs after YARN-661 |  Critical |  | Siqi Li | Siqi Li |
+| [YARN-2755](https://issues.apache.org/jira/browse/YARN-2755) | NM fails to clean up usercache\_DEL\_<timestamp> dirs after YARN-661 |  Critical |  | Siqi Li | Siqi Li |
 | [YARN-2752](https://issues.apache.org/jira/browse/YARN-2752) | ContainerExecutor always append "nice -n" in command on branch-2 |  Critical |  | Xuan Gong | Xuan Gong |
 | [YARN-2743](https://issues.apache.org/jira/browse/YARN-2743) | Yarn jobs via oozie fail with failed to renew token (secure) or digest mismatch (unsecure) errors when RM is being killed |  Blocker | (resourcemanager) | Arpit Gupta | Jian He |
 | [YARN-2741](https://issues.apache.org/jira/browse/YARN-2741) | Windows: Node manager cannot serve up log files via the web user interface when yarn.nodemanager.log-dirs to any drive letter other than C: (or, the drive that nodemanager is running on) |  Major | (nodemanager) | Craig Welch | Craig Welch |
@@ -589,10 +589,10 @@
 | [YARN-2568](https://issues.apache.org/jira/browse/YARN-2568) | TestAMRMClientOnRMRestart test fails |  Major |  | Jian He | Jian He |
 | [YARN-2565](https://issues.apache.org/jira/browse/YARN-2565) | RM shouldn't use the old RMApplicationHistoryWriter unless explicitly setting FileSystemApplicationHistoryStore |  Major | (resourcemanager , timelineserver) | Karam Singh | Zhijie Shen |
 | [YARN-2563](https://issues.apache.org/jira/browse/YARN-2563) | On secure clusters call to timeline server fails with authentication errors when running a job via oozie |  Blocker | (timelineserver) | Arpit Gupta | Zhijie Shen |
-| [YARN-2562](https://issues.apache.org/jira/browse/YARN-2562) | ContainerId@toString() is unreadable for epoch &gt;0 after YARN-2182 |  Critical |  | Vinod Kumar Vavilapalli | Tsuyoshi Ozawa |
+| [YARN-2562](https://issues.apache.org/jira/browse/YARN-2562) | ContainerId@toString() is unreadable for epoch >0 after YARN-2182 |  Critical |  | Vinod Kumar Vavilapalli | Tsuyoshi Ozawa |
 | [YARN-2559](https://issues.apache.org/jira/browse/YARN-2559) | ResourceManager sometime become un-responsive due to NPE in SystemMetricsPublisher |  Major | (resourcemanager , timelineserver) | Karam Singh | Zhijie Shen |
 | [YARN-2557](https://issues.apache.org/jira/browse/YARN-2557) | Add a parameter "attempt\_Failures\_Validity\_Interval" in DistributedShell |  Major | (applications/distributed-shell) | Xuan Gong | Xuan Gong |
-| [YARN-2546](https://issues.apache.org/jira/browse/YARN-2546) | REST API for application creation/submission is using strings for numeric &amp; boolean values |  Major | (api) | Doug Haigh | Varun Vasudev |
+| [YARN-2546](https://issues.apache.org/jira/browse/YARN-2546) | REST API for application creation/submission is using strings for numeric & boolean values |  Major | (api) | Doug Haigh | Varun Vasudev |
 | [YARN-2541](https://issues.apache.org/jira/browse/YARN-2541) | Fix ResourceManagerRest.apt.vm syntax error |  Major |  | Jian He | Jian He |
 | [YARN-2540](https://issues.apache.org/jira/browse/YARN-2540) | FairScheduler: Queue filters not working on scheduler page in RM UI |  Major | (scheduler) | Ashwin Shankar | Ashwin Shankar |
 | [YARN-2534](https://issues.apache.org/jira/browse/YARN-2534) | FairScheduler: Potential integer overflow calculating totalMaxShare |  Major | (scheduler) | zhihai xu | zhihai xu |

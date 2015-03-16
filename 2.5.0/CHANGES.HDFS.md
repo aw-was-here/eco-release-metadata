@@ -25,7 +25,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-6620](https://issues.apache.org/jira/browse/HDFS-6620) | Snapshot docs should specify about preserve options with cp command |  Major | (namenode) | Uma Maheswara Rao G | Stephen Chu |
 | [HDFS-6603](https://issues.apache.org/jira/browse/HDFS-6603) | Add XAttr with ACL test |  Minor | (test) | Stephen Chu | Stephen Chu |
-| [HDFS-6595](https://issues.apache.org/jira/browse/HDFS-6595) | Configure the maximum threads allowed for balancing on datanodes |  Minor | (balancer &amp; mover , datanode) | Benoy Antony | Benoy Antony |
+| [HDFS-6595](https://issues.apache.org/jira/browse/HDFS-6595) | Configure the maximum threads allowed for balancing on datanodes |  Minor | (balancer & mover , datanode) | Benoy Antony | Benoy Antony |
 | [HDFS-6593](https://issues.apache.org/jira/browse/HDFS-6593) | Move SnapshotDiffInfo out of INodeDirectorySnapshottable |  Minor | (namenode , snapshots) | Jing Zhao | Jing Zhao |
 | [HDFS-6580](https://issues.apache.org/jira/browse/HDFS-6580) | FSNamesystem.mkdirsInt should call the getAuditFileInfo() wrapper |  Major | (namenode) | Zhilei Xu | Zhilei Xu |
 | [HDFS-6578](https://issues.apache.org/jira/browse/HDFS-6578) | add toString method to DatanodeStorage for easier debugging |  Major |  | Yongjun Zhang | Yongjun Zhang |
@@ -41,9 +41,9 @@
 | [HDFS-6460](https://issues.apache.org/jira/browse/HDFS-6460) | Ignore stale and decommissioned nodes in NetworkTopology#sortByDistance |  Minor |  | Yongjun Zhang | Yongjun Zhang |
 | [HDFS-6453](https://issues.apache.org/jira/browse/HDFS-6453) | use Time#monotonicNow to avoid system clock reset |  Major | (datanode , namenode) | Liang Xie | Liang Xie |
 | [HDFS-6448](https://issues.apache.org/jira/browse/HDFS-6448) | BlockReaderLocalLegacy should set socket timeout based on conf.socketTimeout |  Major | (hdfs-client) | Liang Xie | Liang Xie |
-| [HDFS-6447](https://issues.apache.org/jira/browse/HDFS-6447) | balancer should timestamp the completion message |  Trivial | (balancer &amp; mover) | Allen Wittenauer | Juan Yu |
+| [HDFS-6447](https://issues.apache.org/jira/browse/HDFS-6447) | balancer should timestamp the completion message |  Trivial | (balancer & mover) | Allen Wittenauer | Juan Yu |
 | [HDFS-6442](https://issues.apache.org/jira/browse/HDFS-6442) | Fix TestEditLogAutoroll and TestStandbyCheckpoints failure caused by port conficts |  Minor | (test) | Zesheng Wu | Zesheng Wu |
-| [HDFS-6433](https://issues.apache.org/jira/browse/HDFS-6433) | Replace BytesMoved class with AtomicLong |  Major | (balancer &amp; mover) | Benoy Antony | Benoy Antony |
+| [HDFS-6433](https://issues.apache.org/jira/browse/HDFS-6433) | Replace BytesMoved class with AtomicLong |  Major | (balancer & mover) | Benoy Antony | Benoy Antony |
 | [HDFS-6432](https://issues.apache.org/jira/browse/HDFS-6432) | Add snapshot related APIs to webhdfs |  Major | (namenode , webhdfs) | Suresh Srinivas | Jing Zhao |
 | [HDFS-6416](https://issues.apache.org/jira/browse/HDFS-6416) | Use Time#monotonicNow in OpenFileCtx and OpenFileCtxCatch to avoid system clock bugs |  Minor | (nfs) | Brandon Li | Abhiraj Butala |
 | [HDFS-6403](https://issues.apache.org/jira/browse/HDFS-6403) | Add metrics for log warnings reported by JVM pauses |  Major | (datanode , namenode) | Yongjun Zhang | Yongjun Zhang |
@@ -146,7 +146,7 @@
 | [HDFS-6378](https://issues.apache.org/jira/browse/HDFS-6378) | NFS registration should timeout instead of hanging when portmap/rpcbind is not available |  Major | (nfs) | Brandon Li | Abhiraj Butala |
 | [HDFS-6370](https://issues.apache.org/jira/browse/HDFS-6370) | Web UI fails to display in intranet under IE |  Major | (datanode , journal-node , namenode) | Haohui Mai | Haohui Mai |
 | [HDFS-6367](https://issues.apache.org/jira/browse/HDFS-6367) | EnumSetParam$Domain#parse fails for parameter containing more than one enum. |  Major | (webhdfs) | Yi Liu | Yi Liu |
-| [HDFS-6364](https://issues.apache.org/jira/browse/HDFS-6364) | Incorrect check for unknown datanode in Balancer |  Major | (balancer &amp; mover) | Benoy Antony | Benoy Antony |
+| [HDFS-6364](https://issues.apache.org/jira/browse/HDFS-6364) | Incorrect check for unknown datanode in Balancer |  Major | (balancer & mover) | Benoy Antony | Benoy Antony |
 | [HDFS-6355](https://issues.apache.org/jira/browse/HDFS-6355) | Fix divide-by-zero, improper use of wall-clock time in BlockPoolSliceScanner |  Major |  | Colin Patrick McCabe | Colin Patrick McCabe |
 | [HDFS-6345](https://issues.apache.org/jira/browse/HDFS-6345) | DFS.listCacheDirectives() should allow filtering based on cache directive ID |  Major | (caching) | Lenni Kuff | Andrew Wang |
 | [HDFS-6337](https://issues.apache.org/jira/browse/HDFS-6337) | Setfacl testcase is failing due to dash character in username in TestAclCLI |  Major | (test) | Uma Maheswara Rao G | Uma Maheswara Rao G |
@@ -164,7 +164,7 @@
 | [HDFS-6227](https://issues.apache.org/jira/browse/HDFS-6227) | ShortCircuitCache#unref should purge ShortCircuitReplicas whose streams have been closed by java interrupts |  Major |  | Jing Zhao | Colin Patrick McCabe |
 | [HDFS-6222](https://issues.apache.org/jira/browse/HDFS-6222) | Remove background token renewer from webhdfs |  Major | (webhdfs) | Daryn Sharp | Daryn Sharp |
 | [HDFS-6216](https://issues.apache.org/jira/browse/HDFS-6216) | Issues with webhdfs and http proxies |  Major | (webhdfs) | Daryn Sharp | Daryn Sharp |
-| [HDFS-6214](https://issues.apache.org/jira/browse/HDFS-6214) | Webhdfs has poor throughput for files &gt;2GB |  Major | (webhdfs) | Daryn Sharp | Daryn Sharp |
+| [HDFS-6214](https://issues.apache.org/jira/browse/HDFS-6214) | Webhdfs has poor throughput for files >2GB |  Major | (webhdfs) | Daryn Sharp | Daryn Sharp |
 | [HDFS-6213](https://issues.apache.org/jira/browse/HDFS-6213) | TestDataNodeConfig failing on Jenkins runs due to DN web port in use |  Minor | (test) | Steve Loughran | Andrew Wang |
 | [HDFS-6194](https://issues.apache.org/jira/browse/HDFS-6194) | Create new tests for ByteRangeInputStream |  Major |  | Haohui Mai | Akira AJISAKA |
 | [HDFS-6190](https://issues.apache.org/jira/browse/HDFS-6190) | minor textual fixes in DFSClient |  Trivial | (tools) | Charles Lamb | Charles Lamb |

@@ -55,7 +55,7 @@
 | [YARN-1603](https://issues.apache.org/jira/browse/YARN-1603) | Remove two *.orig files which were unexpectedly committed |  Trivial |  | Zhijie Shen | Zhijie Shen |
 | [YARN-1601](https://issues.apache.org/jira/browse/YARN-1601) | 3rd party JARs are missing from hadoop-dist output |  Major |  | Alejandro Abdelnur | Alejandro Abdelnur |
 | [YARN-1600](https://issues.apache.org/jira/browse/YARN-1600) | RM does not startup when security is enabled without spnego configured |  Blocker | (resourcemanager) | Jason Lowe | Haohui Mai |
-| [YARN-1541](https://issues.apache.org/jira/browse/YARN-1541) | Invalidate AM Host/Port when app attempt is done so that in the mean-while client doesn&#8217;t get wrong information. |  Major |  | Jian He | Jian He |
+| [YARN-1541](https://issues.apache.org/jira/browse/YARN-1541) | Invalidate AM Host/Port when app attempt is done so that in the mean-while client doesn’t get wrong information. |  Major |  | Jian He | Jian He |
 | [YARN-1527](https://issues.apache.org/jira/browse/YARN-1527) | yarn rmadmin command prints wrong usage info: |  Trivial |  | Jian He | Akira AJISAKA |
 | [YARN-1522](https://issues.apache.org/jira/browse/YARN-1522) | TestApplicationCleanup.testAppCleanup occasionally fails |  Major |  | Liyin Liang | Liyin Liang |
 | [YARN-1505](https://issues.apache.org/jira/browse/YARN-1505) | WebAppProxyServer should not set localhost as YarnConfiguration.PROXY\_ADDRESS by itself |  Blocker |  | Xuan Gong | Xuan Gong |

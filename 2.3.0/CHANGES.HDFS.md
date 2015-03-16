@@ -85,7 +85,7 @@
 | [HDFS-5842](https://issues.apache.org/jira/browse/HDFS-5842) | Cannot create hftp filesystem when using a proxy user ugi and a doAs on a secure cluster |  Major | (security) | Arpit Gupta | Jing Zhao |
 | [HDFS-5837](https://issues.apache.org/jira/browse/HDFS-5837) | dfs.namenode.replication.considerLoad does not consider decommissioned nodes |  Major | (namenode) | Bryan Beaudreault | Tao Luo |
 | [HDFS-5830](https://issues.apache.org/jira/browse/HDFS-5830) | WebHdfsFileSystem.getFileBlockLocations throws IllegalArgumentException when accessing another cluster. |  Blocker | (caching , hdfs-client) | Yongjun Zhang | Yongjun Zhang |
-| [HDFS-5806](https://issues.apache.org/jira/browse/HDFS-5806) | balancer should set SoTimeout to avoid indefinite hangs |  Major | (balancer &amp; mover) | Nathan Roberts | Nathan Roberts |
+| [HDFS-5806](https://issues.apache.org/jira/browse/HDFS-5806) | balancer should set SoTimeout to avoid indefinite hangs |  Major | (balancer & mover) | Nathan Roberts | Nathan Roberts |
 | [HDFS-5800](https://issues.apache.org/jira/browse/HDFS-5800) | Typo: soft-limit for hard-limit in DFSClient |  Trivial | (hdfs-client) | Kousuke Saruta | Kousuke Saruta |
 | [HDFS-5789](https://issues.apache.org/jira/browse/HDFS-5789) | Some of snapshot APIs missing checkOperation double check in fsn |  Major | (namenode) | Uma Maheswara Rao G | Uma Maheswara Rao G |
 | [HDFS-5777](https://issues.apache.org/jira/browse/HDFS-5777) | Update LayoutVersion for the new editlog op OP\_ADD\_BLOCK |  Major | (namenode) | Jing Zhao | Jing Zhao |
@@ -184,7 +184,7 @@
 | [HDFS-4657](https://issues.apache.org/jira/browse/HDFS-4657) | Limit the number of blocks logged by the NN after a block report to a configurable value. |  Major | (namenode) | Aaron T. Myers | Aaron T. Myers |
 | [HDFS-4633](https://issues.apache.org/jira/browse/HDFS-4633) | TestDFSClientExcludedNodes fails sporadically if excluded nodes cache expires too quickly |  Major | (hdfs-client , test) | Chris Nauroth | Chris Nauroth |
 | [HDFS-4516](https://issues.apache.org/jira/browse/HDFS-4516) | Client crash after block allocation and NN switch before lease recovery for the same file can cause readers to fail forever |  Critical | (namenode) | Uma Maheswara Rao G | Vinayakumar B |
-| [HDFS-4376](https://issues.apache.org/jira/browse/HDFS-4376) |  Fix several race conditions in Balancer and resolve intermittent timeout of TestBalancerWithNodeGroup |  Major | (balancer &amp; mover) | Aaron T. Myers | Junping Du |
+| [HDFS-4376](https://issues.apache.org/jira/browse/HDFS-4376) |  Fix several race conditions in Balancer and resolve intermittent timeout of TestBalancerWithNodeGroup |  Major | (balancer & mover) | Aaron T. Myers | Junping Du |
 | [HDFS-4329](https://issues.apache.org/jira/browse/HDFS-4329) | DFSShell issues with directories with spaces in name |  Major | (hdfs-client) | Andy Isaacson | Cristina L. Abad |
 | [HDFS-4201](https://issues.apache.org/jira/browse/HDFS-4201) | NPE in BPServiceActor#sendHeartBeat |  Critical | (namenode) | Eli Collins | Jimmy Xiang |
 | [HDFS-3981](https://issues.apache.org/jira/browse/HDFS-3981) | access time is set without holding FSNamesystem write lock |  Major | (namenode) | Xiaobo Peng | Xiaobo Peng |

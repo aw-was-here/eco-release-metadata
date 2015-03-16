@@ -18,7 +18,7 @@
 | [HDFS-7449](https://issues.apache.org/jira/browse/HDFS-7449) | Add metrics to NFS gateway |  Major | (nfs) | Brandon Li | Brandon Li |
 | [HDFS-7424](https://issues.apache.org/jira/browse/HDFS-7424) | Add web UI for NFS gateway |  Major | (nfs) | Brandon Li | Brandon Li |
 | [HDFS-7222](https://issues.apache.org/jira/browse/HDFS-7222) | Expose DataNode network errors as a metric |  Minor | (datanode) | Charles Lamb | Charles Lamb |
-| [HDFS-6982](https://issues.apache.org/jira/browse/HDFS-6982) | nntop: top&#173;-like tool for name node users |  Major |  | Maysam Yabandeh | Maysam Yabandeh |
+| [HDFS-6982](https://issues.apache.org/jira/browse/HDFS-6982) | nntop: top­-like tool for name node users |  Major |  | Maysam Yabandeh | Maysam Yabandeh |
 | [HDFS-6663](https://issues.apache.org/jira/browse/HDFS-6663) | Admin command to track file and locations from block id |  Major |  | Kihwal Lee | Chen He |
 | [HDFS-6488](https://issues.apache.org/jira/browse/HDFS-6488) | Support HDFS superuser in NFSv3 gateway |  Major | (nfs) | Stephen Chu | Brandon Li |
 | [HDFS-3689](https://issues.apache.org/jira/browse/HDFS-3689) | Add support for variable length block |  Major | (datanode , hdfs-client , namenode) | Suresh Srinivas | Jing Zhao |
@@ -64,7 +64,7 @@
 | [HDFS-7564](https://issues.apache.org/jira/browse/HDFS-7564) | NFS gateway dynamically reload UID/GID mapping file /etc/nfs.map |  Minor | (nfs) | Hari Sekhon | Yongjun Zhang |
 | [HDFS-7557](https://issues.apache.org/jira/browse/HDFS-7557) | Fix spacing for a few keys in DFSConfigKeys.java |  Minor |  | Colin Patrick McCabe | Colin Patrick McCabe |
 | [HDFS-7555](https://issues.apache.org/jira/browse/HDFS-7555) | Remove the support of unmanaged connectors in HttpServer2 |  Major |  | Haohui Mai | Haohui Mai |
-| [HDFS-7537](https://issues.apache.org/jira/browse/HDFS-7537) | fsck is confusing when dfs.namenode.replication.min &gt; 1 &amp;&amp; missing replicas &amp;&amp; NN restart |  Major | (namenode) | Allen Wittenauer | GAO Rui |
+| [HDFS-7537](https://issues.apache.org/jira/browse/HDFS-7537) | fsck is confusing when dfs.namenode.replication.min > 1 && missing replicas && NN restart |  Major | (namenode) | Allen Wittenauer | GAO Rui |
 | [HDFS-7535](https://issues.apache.org/jira/browse/HDFS-7535) | Utilize Snapshot diff report for distcp |  Major | (distcp , snapshots) | Jing Zhao | Jing Zhao |
 | [HDFS-7531](https://issues.apache.org/jira/browse/HDFS-7531) | Improve the concurrent access on FsVolumeList |  Major | (datanode) | Lei (Eddy) Xu | Lei (Eddy) Xu |
 | [HDFS-7513](https://issues.apache.org/jira/browse/HDFS-7513) | HDFS inotify: add defaultBlockSize to CreateEvent |  Major | (namenode) | Colin Patrick McCabe | Colin Patrick McCabe |
@@ -75,7 +75,7 @@
 | [HDFS-7458](https://issues.apache.org/jira/browse/HDFS-7458) | Add description to the nfs ports in core-site.xml used by nfs test to avoid confusion |  Minor | (nfs , test) | Yongjun Zhang | Yongjun Zhang |
 | [HDFS-7454](https://issues.apache.org/jira/browse/HDFS-7454) | Reduce memory footprint for AclEntries in NameNode |  Major | (namenode) | Vinayakumar B | Vinayakumar B |
 | [HDFS-7446](https://issues.apache.org/jira/browse/HDFS-7446) | HDFS inotify should have the ability to determine what txid it has read up to |  Major | (dfsclient) | Colin Patrick McCabe | Colin Patrick McCabe |
-| [HDFS-7439](https://issues.apache.org/jira/browse/HDFS-7439) | Add BlockOpResponseProto's message to DFSClient's exception message |  Minor | (balancer &amp; mover , datanode , hdfs-client) | Ming Ma | Takanobu Asanuma |
+| [HDFS-7439](https://issues.apache.org/jira/browse/HDFS-7439) | Add BlockOpResponseProto's message to DFSClient's exception message |  Minor | (balancer & mover , datanode , hdfs-client) | Ming Ma | Takanobu Asanuma |
 | [HDFS-7435](https://issues.apache.org/jira/browse/HDFS-7435) | PB encoding of block reports is very inefficient |  Critical | (datanode , namenode) | Daryn Sharp | Daryn Sharp |
 | [HDFS-7434](https://issues.apache.org/jira/browse/HDFS-7434) | DatanodeID hashCode should not be mutable |  Major | (namenode) | Daryn Sharp | Daryn Sharp |
 | [HDFS-7430](https://issues.apache.org/jira/browse/HDFS-7430) | Rewrite the BlockScanner to use O(1) memory and use multiple threads |  Major |  | Colin Patrick McCabe | Colin Patrick McCabe |
@@ -85,7 +85,7 @@
 | [HDFS-7409](https://issues.apache.org/jira/browse/HDFS-7409) | Allow dead nodes to finish decommissioning if all files are fully replicated |  Minor |  | Andrew Wang | Andrew Wang |
 | [HDFS-7404](https://issues.apache.org/jira/browse/HDFS-7404) | Remove o.a.h.hdfs.server.datanode.web.resources |  Major |  | Haohui Mai | Li Lu |
 | [HDFS-7398](https://issues.apache.org/jira/browse/HDFS-7398) | Reset cached thread-local FSEditLogOp's on every FSEditLog#logEdit |  Major | (namenode) | Gera Shegalov | Gera Shegalov |
-| [HDFS-7386](https://issues.apache.org/jira/browse/HDFS-7386) | Replace check "port number &lt; 1024" with shared isPrivilegedPort method |  Trivial | (datanode , security) | Yongjun Zhang | Yongjun Zhang |
+| [HDFS-7386](https://issues.apache.org/jira/browse/HDFS-7386) | Replace check "port number < 1024" with shared isPrivilegedPort method |  Trivial | (datanode , security) | Yongjun Zhang | Yongjun Zhang |
 | [HDFS-7384](https://issues.apache.org/jira/browse/HDFS-7384) | 'getfacl' command and 'getAclStatus' output should be in sync |  Major | (namenode) | Vinayakumar B | Vinayakumar B |
 | [HDFS-7381](https://issues.apache.org/jira/browse/HDFS-7381) | Decouple the management of block id and gen stamps from FSNamesystem |  Major |  | Haohui Mai | Haohui Mai |
 | [HDFS-7375](https://issues.apache.org/jira/browse/HDFS-7375) | Move FSClusterStats to o.a.h.h.hdfs.server.blockmanagement |  Major |  | Haohui Mai | Haohui Mai |
@@ -99,8 +99,8 @@
 | [HDFS-7329](https://issues.apache.org/jira/browse/HDFS-7329) | MiniDFSCluster should log the exception when createNameNodesAndSetConf() fails. |  Major | (test) | Konstantin Shvachko | Byron Wong |
 | [HDFS-7326](https://issues.apache.org/jira/browse/HDFS-7326) | Add documentation for hdfs debug commands |  Minor | (documentation) | Colin Patrick McCabe | Vijay Bhat |
 | [HDFS-7323](https://issues.apache.org/jira/browse/HDFS-7323) | Move the get/setStoragePolicy commands out from dfsadmin |  Major | (hdfs-client) | Tsz Wo Nicholas Sze | Jing Zhao |
-| [HDFS-7310](https://issues.apache.org/jira/browse/HDFS-7310) | Mover can give first priority to local DN if it has target storage type available in local DN |  Major | (balancer &amp; mover) | Uma Maheswara Rao G | Vinayakumar B |
-| [HDFS-7308](https://issues.apache.org/jira/browse/HDFS-7308) | DFSClient write packet size may &gt; 64kB |  Minor | (hdfs-client) | Tsz Wo Nicholas Sze | Takuya Fukudome |
+| [HDFS-7310](https://issues.apache.org/jira/browse/HDFS-7310) | Mover can give first priority to local DN if it has target storage type available in local DN |  Major | (balancer & mover) | Uma Maheswara Rao G | Vinayakumar B |
+| [HDFS-7308](https://issues.apache.org/jira/browse/HDFS-7308) | DFSClient write packet size may > 64kB |  Minor | (hdfs-client) | Tsz Wo Nicholas Sze | Takuya Fukudome |
 | [HDFS-7283](https://issues.apache.org/jira/browse/HDFS-7283) | Bump DataNode OOM log from WARN to ERROR |  Trivial | (datanode) | Stephen Chu | Stephen Chu |
 | [HDFS-7280](https://issues.apache.org/jira/browse/HDFS-7280) | Use netty 4 in WebImageViewer |  Major |  | Haohui Mai | Haohui Mai |
 | [HDFS-7279](https://issues.apache.org/jira/browse/HDFS-7279) | Use netty to implement DatanodeWebHdfsMethods |  Major | (datanode , webhdfs) | Haohui Mai | Haohui Mai |
@@ -121,11 +121,11 @@
 | [HDFS-6741](https://issues.apache.org/jira/browse/HDFS-6741) | Improve permission denied message when FSPermissionChecker#checkOwner fails |  Trivial |  | Stephen Chu | Harsh J |
 | [HDFS-6735](https://issues.apache.org/jira/browse/HDFS-6735) | A minor optimization to avoid pread() be blocked by read() inside the same DFSInputStream |  Major | (hdfs-client) | Liang Xie | Lars Hofhansl |
 | [HDFS-6565](https://issues.apache.org/jira/browse/HDFS-6565) | Use jackson instead jetty json in hdfs-client |  Major |  | Haohui Mai | Akira AJISAKA |
-| [HDFS-6133](https://issues.apache.org/jira/browse/HDFS-6133) | Make Balancer support exclude specified path |  Major | (balancer &amp; mover , datanode) | zhaoyunjiong | zhaoyunjiong |
+| [HDFS-6133](https://issues.apache.org/jira/browse/HDFS-6133) | Make Balancer support exclude specified path |  Major | (balancer & mover , datanode) | zhaoyunjiong | zhaoyunjiong |
 | [HDFS-5853](https://issues.apache.org/jira/browse/HDFS-5853) | Add "hadoop.user.group.metrics.percentiles.intervals" to hdfs-default.xml |  Minor | (documentation , namenode) | Akira AJISAKA | Akira AJISAKA |
 | [HDFS-3342](https://issues.apache.org/jira/browse/HDFS-3342) | SocketTimeoutException in BlockSender.sendChunks could have a better error message |  Minor | (datanode) | Todd Lipcon | Yongjun Zhang |
 | [HDFS-2219](https://issues.apache.org/jira/browse/HDFS-2219) | Fsck should work with fully qualified file paths. |  Minor | (tools) | Jitendra Nath Pandey | Tsz Wo Nicholas Sze |
-| [HDFS-316](https://issues.apache.org/jira/browse/HDFS-316) | Balancer should run for a configurable # of iterations |  Minor | (balancer &amp; mover) | Brian Bockelman | Xiaoyu Yao |
+| [HDFS-316](https://issues.apache.org/jira/browse/HDFS-316) | Balancer should run for a configurable # of iterations |  Minor | (balancer & mover) | Brian Bockelman | Xiaoyu Yao |
 
 
 ### BUG FIXES:

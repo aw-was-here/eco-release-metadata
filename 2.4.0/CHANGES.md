@@ -34,7 +34,7 @@
 | [HADOOP-10374](https://issues.apache.org/jira/browse/HADOOP-10374) | InterfaceAudience annotations should have RetentionPolicy.RUNTIME |  Major |  | Enis Soztutar | Enis Soztutar |
 | [HADOOP-10348](https://issues.apache.org/jira/browse/HADOOP-10348) | Deprecate hadoop.ssl.configuration in branch-2, and remove it in trunk |  Major |  | Haohui Mai | Haohui Mai |
 | [HADOOP-10343](https://issues.apache.org/jira/browse/HADOOP-10343) | Change info to debug log in LossyRetryInvocationHandler |  Minor |  | Arpit Gupta | Arpit Gupta |
-| [HADOOP-10333](https://issues.apache.org/jira/browse/HADOOP-10333) | Fix grammatical error in overview.html document |  Trivial |  | Ren&#233; Nyffenegger | Ren&#233; Nyffenegger |
+| [HADOOP-10333](https://issues.apache.org/jira/browse/HADOOP-10333) | Fix grammatical error in overview.html document |  Trivial |  | René Nyffenegger | René Nyffenegger |
 | [HADOOP-10295](https://issues.apache.org/jira/browse/HADOOP-10295) | Allow distcp to automatically identify the checksum type of source files and use it for the target |  Major | (tools/distcp) | Jing Zhao | Jing Zhao |
 | [HADOOP-10221](https://issues.apache.org/jira/browse/HADOOP-10221) | Add a plugin to specify SaslProperties for RPC protocol based on connection properties |  Major | (security) | Benoy Antony | Benoy Antony |
 | [HADOOP-10211](https://issues.apache.org/jira/browse/HADOOP-10211) | Enable RPC protocol to negotiate SASL-QOP values between clients and servers |  Major | (security) | Benoy Antony | Benoy Antony |
@@ -112,7 +112,7 @@
 | [HADOOP-10328](https://issues.apache.org/jira/browse/HADOOP-10328) | loadGenerator exit code is not reliable |  Major | (tools) | Arpit Gupta | Haohui Mai |
 | [HADOOP-10327](https://issues.apache.org/jira/browse/HADOOP-10327) | Trunk windows build broken after HDFS-5746 |  Blocker | (native) | Vinayakumar B | Vinayakumar B |
 | [HADOOP-10326](https://issues.apache.org/jira/browse/HADOOP-10326) | M/R jobs can not access S3 if Kerberos is enabled |  Major | (security) | Manuel DE FERRAN | bc Wong |
-| [HADOOP-10320](https://issues.apache.org/jira/browse/HADOOP-10320) | Javadoc in InterfaceStability.java lacks final &lt;/ul&gt; |  Trivial | (documentation) | Ren&#233; Nyffenegger | Ren&#233; Nyffenegger |
+| [HADOOP-10320](https://issues.apache.org/jira/browse/HADOOP-10320) | Javadoc in InterfaceStability.java lacks final </ul> |  Trivial | (documentation) | René Nyffenegger | René Nyffenegger |
 | [HADOOP-10314](https://issues.apache.org/jira/browse/HADOOP-10314) | The ls command help still shows outdated 0.16 format. |  Major |  | Kihwal Lee | Rushabh S Shah |
 | [HADOOP-10301](https://issues.apache.org/jira/browse/HADOOP-10301) | AuthenticationFilter should return Forbidden for failed authentication |  Blocker | (security) | Daryn Sharp | Daryn Sharp |
 | [HADOOP-10249](https://issues.apache.org/jira/browse/HADOOP-10249) | LdapGroupsMapping should trim ldap password read from file |  Major |  | Dilli Arumugam | Dilli Arumugam |
@@ -121,7 +121,7 @@
 | [HADOOP-10070](https://issues.apache.org/jira/browse/HADOOP-10070) | RPC client doesn't use per-connection conf to determine server's expected Kerberos principal name |  Major | (security) | Aaron T. Myers | Aaron T. Myers |
 | [HADOOP-10015](https://issues.apache.org/jira/browse/HADOOP-10015) | UserGroupInformation prints out excessive ERROR warnings |  Minor | (security) | Haohui Mai | Nicolas Liochon |
 | [HDFS-6237](https://issues.apache.org/jira/browse/HDFS-6237) | TestDFSShell#testGet fails on Windows due to invalid file system path. |  Trivial | (hdfs-client , test) | Chris Nauroth | Chris Nauroth |
-| [HDFS-6166](https://issues.apache.org/jira/browse/HDFS-6166) | revisit balancer so\_timeout |  Blocker | (balancer &amp; mover) | Nathan Roberts | Nathan Roberts |
+| [HDFS-6166](https://issues.apache.org/jira/browse/HDFS-6166) | revisit balancer so\_timeout |  Blocker | (balancer & mover) | Nathan Roberts | Nathan Roberts |
 | [HDFS-6163](https://issues.apache.org/jira/browse/HDFS-6163) | Fix a minor bug in the HA upgrade document |  Minor | (documentation) | Fengdong Yu | Fengdong Yu |
 | [HDFS-6157](https://issues.apache.org/jira/browse/HDFS-6157) | Fix the entry point of OfflineImageViewer for hdfs.cmd |  Major |  | Haohui Mai | Haohui Mai |
 | [HDFS-6140](https://issues.apache.org/jira/browse/HDFS-6140) | WebHDFS cannot create a file with spaces in the name after HA failover changes. |  Major | (webhdfs) | Chris Nauroth | Chris Nauroth |
