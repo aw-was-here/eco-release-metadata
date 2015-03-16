@@ -1,6 +1,6 @@
 # Hadoop Changelog
 
-## Release 2.6.1 - 2015-03-16
+## Release 2.0.0-alpha - 2015-03-16
 
 ### INCOMPATIBLE CHANGES:
 
@@ -24,7 +24,6 @@
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [MAPREDUCE-6237](https://issues.apache.org/jira/browse/MAPREDUCE-6237) | Multiple mappers with DBInputFormat don't work because of reusing conections |  Major | mrv2 | Kannan Rajah | Kannan Rajah |
 
 
 ### TESTS:
