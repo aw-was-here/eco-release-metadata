@@ -24,7 +24,7 @@
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [YARN-3251](https://issues.apache.org/jira/browse/YARN-3251) | Fix CapacityScheduler deadlock when computing absolute max avail capacity (short term fix for 2.6.1) |  Blocker |  | Jason Lowe | Craig Welch |
+| [YARN-3251](https://issues.apache.org/jira/browse/YARN-3251) | Fix CapacityScheduler deadlock when computing absolute max avail capacity (short term fix for 2.6.1) |  Blocker | (N/A) | Jason Lowe | Craig Welch |
 
 
 ### TESTS:
