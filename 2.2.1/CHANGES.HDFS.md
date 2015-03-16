@@ -18,7 +18,7 @@
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [HDFS-5587](https://issues.apache.org/jira/browse/HDFS-5587) | add debug information when NFS fails to start with duplicate user or group names |  Minor | (nfs) | Brandon Li | Brandon Li |
+| [HDFS-5587](https://issues.apache.org/jira/browse/HDFS-5587) | add debug information when NFS fails to start with duplicate user or group names |  Minor | nfs | Brandon Li | Brandon Li |
 
 
 ### BUG FIXES:

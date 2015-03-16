@@ -24,7 +24,7 @@
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [MAPREDUCE-6033](https://issues.apache.org/jira/browse/MAPREDUCE-6033) | Users are not allowed to view their own jobs, denied by JobACLsManager |  Major | (N/A) | Yu Gao | Yu Gao |
+| [MAPREDUCE-6033](https://issues.apache.org/jira/browse/MAPREDUCE-6033) | Users are not allowed to view their own jobs, denied by JobACLsManager |  Major | . | Yu Gao | Yu Gao |
 
 
 ### TESTS:
