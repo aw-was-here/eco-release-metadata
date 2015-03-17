@@ -2,7 +2,7 @@
 
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
 
-## Changes since Hadoop 1.2.0
+## Changes since Hadoop 0.23.2
 
 ---
 

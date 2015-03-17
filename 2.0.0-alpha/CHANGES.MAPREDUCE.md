@@ -18,13 +18,11 @@
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [MAPREDUCE-4274](https://issues.apache.org/jira/browse/MAPREDUCE-4274) | MapOutputBuffer should use native byte order for kvmeta |  Minor | performance, task | Todd Lipcon | Todd Lipcon |
 | [MAPREDUCE-4219](https://issues.apache.org/jira/browse/MAPREDUCE-4219) | make default container-executor.conf.dir be a path relative to the container-executor binary |  Major | security | Roman Shaposhnik | Roman Shaposhnik |
 | [MAPREDUCE-4138](https://issues.apache.org/jira/browse/MAPREDUCE-4138) | Reduce memory usage of counters due to non-static nested classes |  Major | . | Tom White | Tom White |
 | [MAPREDUCE-4103](https://issues.apache.org/jira/browse/MAPREDUCE-4103) | Fix HA docs for changes to shell command fencer args |  Major | documentation | Todd Lipcon | Todd Lipcon |
 | [MAPREDUCE-4093](https://issues.apache.org/jira/browse/MAPREDUCE-4093) | Improve RM WebApp start up when proxy address is not set |  Major | mrv2 | Devaraj K | Devaraj K |
 | [MAPREDUCE-3991](https://issues.apache.org/jira/browse/MAPREDUCE-3991) | Streaming FAQ has some wrong instructions about input files splitting |  Trivial | documentation | Harsh J | Harsh J |
-| [MAPREDUCE-3989](https://issues.apache.org/jira/browse/MAPREDUCE-3989) | cap space usage of default log4j rolling policy (mr specific changes) |  Major | . | Patrick Hunt | Patrick Hunt |
 | [MAPREDUCE-3955](https://issues.apache.org/jira/browse/MAPREDUCE-3955) | Replace ProtoOverHadoopRpcEngine with ProtobufRpcEngine. |  Blocker | mrv2 | Jitendra Nath Pandey | Jitendra Nath Pandey |
 | [MAPREDUCE-3909](https://issues.apache.org/jira/browse/MAPREDUCE-3909) | javadoc the Service interfaces |  Trivial | mrv2 | Steve Loughran | Steve Loughran |
 | [MAPREDUCE-3885](https://issues.apache.org/jira/browse/MAPREDUCE-3885) | Apply the fix similar to HADOOP-8084 |  Major | mrv2 | Devaraj Das | Devaraj Das |

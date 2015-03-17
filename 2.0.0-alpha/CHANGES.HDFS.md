@@ -58,18 +58,15 @@
 | [HDFS-3171](https://issues.apache.org/jira/browse/HDFS-3171) | The DatanodeID "name" field is overloaded |  Major | datanode | Eli Collins | Eli Collins |
 | [HDFS-3169](https://issues.apache.org/jira/browse/HDFS-3169) | TestFsck should test multiple -move operations in a row |  Minor | test | Colin Patrick McCabe | Colin Patrick McCabe |
 | [HDFS-3158](https://issues.apache.org/jira/browse/HDFS-3158) | LiveNodes member of NameNodeMXBean should list non-DFS used space and capacity per DN |  Major | namenode | Aaron T. Myers | Aaron T. Myers |
-| [HDFS-3139](https://issues.apache.org/jira/browse/HDFS-3139) | Minor Datanode logging improvement |  Minor | datanode | Eli Collins | Eli Collins |
 | [HDFS-3120](https://issues.apache.org/jira/browse/HDFS-3120) | Enable hsync and hflush by default |  Major | . | Eli Collins | Eli Collins |
 | [HDFS-3094](https://issues.apache.org/jira/browse/HDFS-3094) | add -nonInteractive and -force option to namenode -format command |  Major | . | Arpit Gupta | Arpit Gupta |
 | [HDFS-3091](https://issues.apache.org/jira/browse/HDFS-3091) | Update the usage limitations of ReplaceDatanodeOnFailure policy in the config description for the smaller clusters. |  Major | datanode, hdfs-client, namenode | Uma Maheswara Rao G | Tsz Wo Nicholas Sze |
 | [HDFS-3084](https://issues.apache.org/jira/browse/HDFS-3084) | FenceMethod.tryFence() and ShellCommandFencer should pass namenodeId as well as host:port |  Major | ha | Philip Zeyliger | Todd Lipcon |
 | [HDFS-3071](https://issues.apache.org/jira/browse/HDFS-3071) | haadmin failover command does not provide enough detail for when target NN is not ready to be active |  Major | ha | Philip Zeyliger | Todd Lipcon |
-| [HDFS-3066](https://issues.apache.org/jira/browse/HDFS-3066) | cap space usage of default log4j rolling policy (hdfs specific changes) |  Major | scripts | Patrick Hunt | Patrick Hunt |
 | [HDFS-3056](https://issues.apache.org/jira/browse/HDFS-3056) | Add an interface for DataBlockScanner logging |  Major | datanode | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HDFS-3050](https://issues.apache.org/jira/browse/HDFS-3050) | rework OEV to share more code with the NameNode |  Minor | namenode | Colin Patrick McCabe | Colin Patrick McCabe |
 | [HDFS-3036](https://issues.apache.org/jira/browse/HDFS-3036) | Remove unused method DFSUtil#isDefaultNamenodeAddress |  Trivial | namenode | Aaron T. Myers | Aaron T. Myers |
 | [HDFS-3030](https://issues.apache.org/jira/browse/HDFS-3030) | Remove getProtocolVersion and getProtocolSignature from translators |  Major | . | Jitendra Nath Pandey | Jitendra Nath Pandey |
-| [HDFS-3024](https://issues.apache.org/jira/browse/HDFS-3024) | Improve performance of stringification in addStoredBlock |  Minor | namenode | Todd Lipcon | Todd Lipcon |
 | [HDFS-3021](https://issues.apache.org/jira/browse/HDFS-3021) | Use generic type to declare FSDatasetInterface |  Major | datanode | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HDFS-3014](https://issues.apache.org/jira/browse/HDFS-3014) | FSEditLogOp and its subclasses should have toString() method |  Major | namenode | Sho Shimauchi | Sho Shimauchi |
 | [HDFS-3003](https://issues.apache.org/jira/browse/HDFS-3003) | Remove getHostPortString() from NameNode, replace it with NetUtils.getHostPortString() |  Trivial | namenode | Brandon Li | Brandon Li |
@@ -80,7 +77,6 @@
 | [HDFS-2708](https://issues.apache.org/jira/browse/HDFS-2708) | Stats for the # of blocks per DN |  Minor | datanode, namenode | Eli Collins | Aaron T. Myers |
 | [HDFS-2650](https://issues.apache.org/jira/browse/HDFS-2650) | Replace @inheritDoc with @Override |  Minor | . | Hari Mankude | Hari Mankude |
 | [HDFS-2564](https://issues.apache.org/jira/browse/HDFS-2564) | Cleanup unnecessary exceptions thrown and unnecessary casts |  Minor | datanode, hdfs-client, namenode | Hari Mankude | Hari Mankude |
-| [HDFS-2507](https://issues.apache.org/jira/browse/HDFS-2507) | HA: Allow saveNamespace operations to be canceled |  Major | namenode | Todd Lipcon | Todd Lipcon |
 | [HDFS-2496](https://issues.apache.org/jira/browse/HDFS-2496) | Separate datatypes for DatanodeProtocol |  Major | . | Suresh Srinivas | Suresh Srinivas |
 | [HDFS-2413](https://issues.apache.org/jira/browse/HDFS-2413) | Add public APIs for safemode |  Major | hdfs-client | Todd Lipcon | Harsh J |
 | [HDFS-2410](https://issues.apache.org/jira/browse/HDFS-2410) | Further clean up hard-coded configuration keys |  Minor | datanode, namenode, test | Suresh Srinivas | Suresh Srinivas |
@@ -91,7 +87,6 @@
 | [HDFS-2188](https://issues.apache.org/jira/browse/HDFS-2188) | HDFS-1580: Make FSEditLog create its journals from a list of URIs rather than NNStorage |  Major | . | Ivan Kelly | Ivan Kelly |
 | [HDFS-1580](https://issues.apache.org/jira/browse/HDFS-1580) | Add interface for generic Write Ahead Logging mechanisms |  Major | namenode | Ivan Kelly | Jitendra Nath Pandey |
 | [HDFS-309](https://issues.apache.org/jira/browse/HDFS-309) | FSEditLog should log progress during replay |  Major | . | Todd Lipcon | Sho Shimauchi |
-| [HDFS-208](https://issues.apache.org/jira/browse/HDFS-208) | name node should warn if only one dir is listed in dfs.name.dir |  Minor | namenode | Allen Wittenauer | Uma Maheswara Rao G |
 
 
 ### BUG FIXES:
@@ -134,7 +129,6 @@
 | [HDFS-3202](https://issues.apache.org/jira/browse/HDFS-3202) | NamespaceInfo PB translation drops build version |  Major | datanode | Aaron T. Myers | Aaron T. Myers |
 | [HDFS-3199](https://issues.apache.org/jira/browse/HDFS-3199) | TestValidateConfigurationSettings is failing |  Major | . | Eli Collins | Todd Lipcon |
 | [HDFS-3181](https://issues.apache.org/jira/browse/HDFS-3181) | testHardLeaseRecoveryAfterNameNodeRestart fails when length before restart is 1 byte less than CRC chunk size |  Minor | test | Colin Patrick McCabe | Tsz Wo Nicholas Sze |
-| [HDFS-3160](https://issues.apache.org/jira/browse/HDFS-3160) | httpfs should exec catalina instead of forking it |  Major | scripts | Roman Shaposhnik | Roman Shaposhnik |
 | [HDFS-3156](https://issues.apache.org/jira/browse/HDFS-3156) | TestDFSHAAdmin is failing post HADOOP-8202 |  Major | test | Aaron T. Myers | Aaron T. Myers |
 | [HDFS-3143](https://issues.apache.org/jira/browse/HDFS-3143) | TestGetBlocks.testGetBlocks is failing |  Major | test | Eli Collins | Arpit Gupta |
 | [HDFS-3142](https://issues.apache.org/jira/browse/HDFS-3142) | TestHDFSCLI.testAll is failing |  Blocker | test | Eli Collins | Brandon Li |
@@ -150,14 +144,12 @@
 | [HDFS-3062](https://issues.apache.org/jira/browse/HDFS-3062) | Fail to submit mapred job on a secured-HA-HDFS: logic URI cannot be picked up by job submission. |  Critical | ha, security | Mingjie Lai | Mingjie Lai |
 | [HDFS-3057](https://issues.apache.org/jira/browse/HDFS-3057) | httpfs and hdfs launcher scripts should honor CATALINA\_HOME and HADOOP\_LIBEXEC\_DIR |  Major | scripts | Roman Shaposhnik | Roman Shaposhnik |
 | [HDFS-3038](https://issues.apache.org/jira/browse/HDFS-3038) | Add FSEditLog.metrics to findbugs exclude list |  Trivial | . | Todd Lipcon | Todd Lipcon |
-| [HDFS-3032](https://issues.apache.org/jira/browse/HDFS-3032) | Lease renewer tries forever even if renewal is not possible |  Major | hdfs-client | Kihwal Lee | Kihwal Lee |
 | [HDFS-3026](https://issues.apache.org/jira/browse/HDFS-3026) | HA: Handle failure during HA state transition |  Major | ha, namenode | Aaron T. Myers | Aaron T. Myers |
 | [HDFS-3020](https://issues.apache.org/jira/browse/HDFS-3020) | Auto-logSync based on edit log buffer size broken |  Critical | namenode | Todd Lipcon | Todd Lipcon |
 | [HDFS-3005](https://issues.apache.org/jira/browse/HDFS-3005) | ConcurrentModificationException in FSDataset$FSVolume.getDfsUsed(..) |  Major | datanode | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HDFS-2995](https://issues.apache.org/jira/browse/HDFS-2995) | start-dfs.sh should only start the 2NN for namenodes with dfs.namenode.secondary.http-address configured |  Major | scripts | Todd Lipcon | Eli Collins |
 | [HDFS-2968](https://issues.apache.org/jira/browse/HDFS-2968) | Protocol translator for BlockRecoveryCommand broken when multiple blocks need recovery |  Blocker | datanode, namenode | Todd Lipcon | Todd Lipcon |
 | [HDFS-2878](https://issues.apache.org/jira/browse/HDFS-2878) | TestBlockRecovery does not compile |  Blocker | test | Eli Collins | Todd Lipcon |
-| [HDFS-2815](https://issues.apache.org/jira/browse/HDFS-2815) | Namenode is not coming out of safemode when we perform ( NN crash + restart ) .  Also FSCK report shows blocks missed. |  Critical | namenode | Uma Maheswara Rao G | Uma Maheswara Rao G |
 | [HDFS-2799](https://issues.apache.org/jira/browse/HDFS-2799) | Trim fs.checkpoint.dir values |  Major | namenode | Eli Collins | amith |
 | [HDFS-2768](https://issues.apache.org/jira/browse/HDFS-2768) | BackupNode stop can not close proxy connections because it is not a proxy instance. |  Major | namenode | Uma Maheswara Rao G | Uma Maheswara Rao G |
 | [HDFS-2765](https://issues.apache.org/jira/browse/HDFS-2765) | TestNameEditsConfigs is incorrectly swallowing IOE |  Major | test | Aaron T. Myers | Aaron T. Myers |
@@ -182,8 +174,6 @@
 | JIRA | Description | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-3129](https://issues.apache.org/jira/browse/HDFS-3129) | NetworkTopology: add test that getLeaf should check for invalid topologies |  Minor | . | Colin Patrick McCabe | Colin Patrick McCabe |
-| [HDFS-2505](https://issues.apache.org/jira/browse/HDFS-2505) | Add a test to verify getFileChecksum works with ViewFS |  Minor | test | Ravi Prakash | Ravi Prakash |
-| [HDFS-2038](https://issues.apache.org/jira/browse/HDFS-2038) | Update test to handle relative paths with globs |  Critical | test | Daryn Sharp | Kihwal Lee |
 
 
 ### OTHER:

@@ -6,11 +6,9 @@
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [HADOOP-8388](https://issues.apache.org/jira/browse/HADOOP-8388) | Remove unused BlockLocation serialization |  Minor | . | Colin Patrick McCabe | Colin Patrick McCabe |
 | [HADOOP-8314](https://issues.apache.org/jira/browse/HADOOP-8314) | HttpServer#hasAdminAccess should return false if authorization is enabled but user is not authenticated |  Major | security | Alejandro Abdelnur | Alejandro Abdelnur |
 | [HADOOP-8270](https://issues.apache.org/jira/browse/HADOOP-8270) | hadoop-daemon.sh stop action should return 0 for an already stopped service |  Minor | scripts | Roman Shaposhnik | Roman Shaposhnik |
 | [HADOOP-8184](https://issues.apache.org/jira/browse/HADOOP-8184) | ProtoBuf RPC engine does not need it own reply packet - it can use the IPC layer reply packet. |  Major | ipc | Sanjay Radia | Sanjay Radia |
-| [HADOOP-8164](https://issues.apache.org/jira/browse/HADOOP-8164) | Handle paths using back slash as path separator for windows only |  Major | fs | Suresh Srinivas | Daryn Sharp |
 | [HADOOP-8154](https://issues.apache.org/jira/browse/HADOOP-8154) | DNS#getIPs shouldn't silently return the local host IP for bogus interface names |  Major | conf | Eli Collins | Eli Collins |
 | [HADOOP-8149](https://issues.apache.org/jira/browse/HADOOP-8149) | cap space usage of default log4j rolling policy |  Major | conf | Patrick Hunt | Patrick Hunt |
 | [HADOOP-7524](https://issues.apache.org/jira/browse/HADOOP-7524) | Change RPC to allow multiple protocols including multiple versions of the same protocol |  Major | ipc | Sanjay Radia | Sanjay Radia |
@@ -35,7 +33,6 @@
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [HADOOP-8398](https://issues.apache.org/jira/browse/HADOOP-8398) | Cleanup BlockLocation |  Minor | . | Eli Collins | Eli Collins |
 | [HADOOP-8366](https://issues.apache.org/jira/browse/HADOOP-8366) | Use ProtoBuf for RpcResponseHeader |  Blocker | . | Sanjay Radia | Sanjay Radia |
 | [HADOOP-8356](https://issues.apache.org/jira/browse/HADOOP-8356) | FileSystem service loading mechanism should print the FileSystem impl it is failing to load |  Major | fs | Alejandro Abdelnur | Alejandro Abdelnur |
 | [HADOOP-8353](https://issues.apache.org/jira/browse/HADOOP-8353) | hadoop-daemon.sh and yarn-daemon.sh can be misleading on stop |  Major | scripts | Roman Shaposhnik | Roman Shaposhnik |
@@ -74,7 +71,6 @@
 | [HADOOP-7635](https://issues.apache.org/jira/browse/HADOOP-7635) | RetryInvocationHandler should release underlying resources on close |  Major | ipc | Aaron T. Myers | Aaron T. Myers |
 | [HADOOP-7607](https://issues.apache.org/jira/browse/HADOOP-7607) | Simplify the RPC proxy cleanup process |  Major | ipc | Aaron T. Myers | Aaron T. Myers |
 | [HADOOP-7549](https://issues.apache.org/jira/browse/HADOOP-7549) | Use JDK ServiceLoader mechanism to find FileSystem implementations |  Major | fs | Alejandro Abdelnur | Alejandro Abdelnur |
-| [HADOOP-7358](https://issues.apache.org/jira/browse/HADOOP-7358) | Improve log levels when exceptions caught in RPC handler |  Minor | ipc | Todd Lipcon | Todd Lipcon |
 | [HADOOP-7350](https://issues.apache.org/jira/browse/HADOOP-7350) | Use ServiceLoader to discover compression codec classes |  Major | conf, io | Tom White | Tom White |
 | [HADOOP-7069](https://issues.apache.org/jira/browse/HADOOP-7069) | Replace forrest with supported framework |  Major | documentation | Jakob Homan |  |
 | [HADOOP-3983](https://issues.apache.org/jira/browse/HADOOP-3983) | compile-c++ should honor the jvm size in compiling the c++ code |  Major | build | Owen O'Malley |  |
@@ -120,7 +116,6 @@
 | [HADOOP-7827](https://issues.apache.org/jira/browse/HADOOP-7827) | jsp pages missing DOCTYPE |  Trivial | . | Dave Vronay | Dave Vronay |
 | [HADOOP-7695](https://issues.apache.org/jira/browse/HADOOP-7695) | RPC.stopProxy can throw unintended exception while logging error |  Major | ipc | Aaron T. Myers | Aaron T. Myers |
 | [HADOOP-7669](https://issues.apache.org/jira/browse/HADOOP-7669) | Fix newly introduced release audit warning. |  Minor | . | Uma Maheswara Rao G | Uma Maheswara Rao G |
-| [HADOOP-7621](https://issues.apache.org/jira/browse/HADOOP-7621) | alfredo config should be in a file not readable by users |  Critical | security | Alejandro Abdelnur | Aaron T. Myers |
 | [HADOOP-6941](https://issues.apache.org/jira/browse/HADOOP-6941) | Support non-SUN JREs in UserGroupInformation |  Major | . | Stephen Watt | Devaraj Das |
 | [HADOOP-6924](https://issues.apache.org/jira/browse/HADOOP-6924) | Build fails with non-Sun JREs due to different pathing to the operating system architecture shared libraries |  Major | . | Stephen Watt | Devaraj Das |
 

@@ -2,13 +2,7 @@
 
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
 
-## Changes since Hadoop 1.2.0
-
----
-
-* [HADOOP-8388](https://issues.apache.org/jira/browse/HADOOP-8388) | *Minor* | **Remove unused BlockLocation serialization**
-
-**WARNING: No release note provided for this incompatible change.**
+## Changes since Hadoop 0.23.2
 
 ---
 
@@ -27,12 +21,6 @@ The daemon stop action no longer returns failure when stopping an already stoppe
 * [HADOOP-8184](https://issues.apache.org/jira/browse/HADOOP-8184) | *Major* | **ProtoBuf RPC engine does not need it own reply packet - it can use the IPC layer reply packet.**
 
 This change will affect the output of errors for some Hadoop CLI commands. Specifically, the name of the exception class will no longer appear, and instead only the text of the exception message will appear.
-
----
-
-* [HADOOP-8164](https://issues.apache.org/jira/browse/HADOOP-8164) | *Major* | **Handle paths using back slash as path separator for windows only**
-
-This jira only allows providing paths using back slash as separator on Windows. The back slash on *nix system will be used as escape character. The support for paths using back slash as path separator will be removed in HADOOP-8139 in release 23.3.
 
 ---
 
