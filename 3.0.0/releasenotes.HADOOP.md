@@ -205,12 +205,6 @@ Added -v option to fs -count command to display a header record in the report.
 
 ---
 
-* [HADOOP-7704](https://issues.apache.org/jira/browse/HADOOP-7704) | *Minor* | **JsonFactory can be created only once and used for every next request to create JsonGenerator inside JMXJsonServlet**
-
-Reduce number of object created by JMXJsonServlet. (Devaraj K via Eric Yang)
-
----
-
 * [HADOOP-7659](https://issues.apache.org/jira/browse/HADOOP-7659) | *Minor* | **fs -getmerge isn't guaranteed to work well over non-HDFS filesystems**
 
 Documented that the "fs -getmerge" shell command may not work properly over non HDFS-filesystem implementations due to platform-varying file list ordering.

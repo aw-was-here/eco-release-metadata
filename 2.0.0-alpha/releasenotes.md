@@ -2,7 +2,7 @@
 
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
 
-## Changes since Hadoop 0.23.2
+## Changes since Hadoop 1.2.0
 
 ---
 
@@ -36,13 +36,13 @@ Hadoop log files are now rolled by size instead of date (daily) by default. Tool
 
 ---
 
-* [HADOOP-7524](https://issues.apache.org/jira/browse/HADOOP-7524) | *Major* | **Change RPC to allow multiple protocols including multiple versions of the same protocol**
+* [HADOOP-7704](https://issues.apache.org/jira/browse/HADOOP-7704) | *Minor* | **JsonFactory can be created only once and used for every next request to create JsonGenerator inside JMXJsonServlet**
 
-**WARNING: No release note provided for this incompatible change.**
+Reduce number of object created by JMXJsonServlet. (Devaraj K via Eric Yang)
 
 ---
 
-* [HADOOP-7347](https://issues.apache.org/jira/browse/HADOOP-7347) | *Major* | **IPC Wire Compatibility**
+* [HADOOP-7524](https://issues.apache.org/jira/browse/HADOOP-7524) | *Major* | **Change RPC to allow multiple protocols including multiple versions of the same protocol**
 
 **WARNING: No release note provided for this incompatible change.**
 

@@ -1,6 +1,6 @@
 # Hadoop Changelog
 
-## Release 2.7.0 - 2015-03-16
+## Release 2.7.0 - 2015-03-17
 
 ### INCOMPATIBLE CHANGES:
 
@@ -23,6 +23,7 @@
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [YARN-3349](https://issues.apache.org/jira/browse/YARN-3349) | Treat all exceptions as failure in TestFSRMStateStore#testFSRMStateStoreClientRetry |  Minor | test | zhihai xu | zhihai xu |
 | [YARN-3285](https://issues.apache.org/jira/browse/YARN-3285) | Convert branch-2 .apt.vm files of YARN to markdown |  Major | documentation | Masatake Iwasaki | Masatake Iwasaki |
 | [YARN-3272](https://issues.apache.org/jira/browse/YARN-3272) | Surface container locality info in RM web UI |  Major | . | Jian He | Jian He |
 | [YARN-3262](https://issues.apache.org/jira/browse/YARN-3262) |  Surface application outstanding resource requests table in RM web UI |  Major | yarn | Jian He | Jian He |
@@ -33,7 +34,6 @@
 | [YARN-3195](https://issues.apache.org/jira/browse/YARN-3195) | Add -help to yarn logs and nodes CLI command |  Minor | client | Jagadesh Kiran N | Jagadesh Kiran N |
 | [YARN-3187](https://issues.apache.org/jira/browse/YARN-3187) | Documentation of Capacity Scheduler Queue mapping based on user or group |  Major | capacityscheduler, documentation | Naganarasimha G R | Gururaj Shetty |
 | [YARN-3182](https://issues.apache.org/jira/browse/YARN-3182) | Cleanup switch statement in ApplicationMasterLauncher#handle() |  Minor | . | Ray Chiang | Ray Chiang |
-| [YARN-3181](https://issues.apache.org/jira/browse/YARN-3181) | FairScheduler: Fix up outdated findbugs issues |  Major | . | Karthik Kambatla | Karthik Kambatla |
 | [YARN-3179](https://issues.apache.org/jira/browse/YARN-3179) | Update use of Iterator to Iterable |  Minor | . | Ray Chiang | Ray Chiang |
 | [YARN-3158](https://issues.apache.org/jira/browse/YARN-3158) | Correct log messages in ResourceTrackerService |  Major | . | Devaraj K | Varun Saxena |
 | [YARN-3157](https://issues.apache.org/jira/browse/YARN-3157) | Refactor the exception handling in ConverterUtils#to*Id |  Minor | resourcemanager | Bibin A Chundatt | Bibin A Chundatt |

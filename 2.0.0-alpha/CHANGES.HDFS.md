@@ -1,6 +1,6 @@
 # Hadoop Changelog
 
-## Release 2.0.0-alpha - 2015-03-16
+## Release 2.0.0-alpha - 2015-03-17
 
 ### INCOMPATIBLE CHANGES:
 
@@ -72,8 +72,6 @@
 | [HDFS-3003](https://issues.apache.org/jira/browse/HDFS-3003) | Remove getHostPortString() from NameNode, replace it with NetUtils.getHostPortString() |  Trivial | namenode | Brandon Li | Brandon Li |
 | [HDFS-2983](https://issues.apache.org/jira/browse/HDFS-2983) | Relax the build version check to permit rolling upgrades within a release |  Major | . | Eli Collins | Aaron T. Myers |
 | [HDFS-2895](https://issues.apache.org/jira/browse/HDFS-2895) | Remove Writable wire protocol related code that is no longer necessary |  Major | datanode, namenode | Suresh Srinivas | Suresh Srinivas |
-| [HDFS-2831](https://issues.apache.org/jira/browse/HDFS-2831) | Description of dfs.namenode.name.dir should be changed |  Minor | namenode | J.Andreina |  |
-| [HDFS-2743](https://issues.apache.org/jira/browse/HDFS-2743) | Streamline usage of bookkeeper journal manager |  Major | . | Ivan Kelly | Ivan Kelly |
 | [HDFS-2708](https://issues.apache.org/jira/browse/HDFS-2708) | Stats for the # of blocks per DN |  Minor | datanode, namenode | Eli Collins | Aaron T. Myers |
 | [HDFS-2650](https://issues.apache.org/jira/browse/HDFS-2650) | Replace @inheritDoc with @Override |  Minor | . | Hari Mankude | Hari Mankude |
 | [HDFS-2564](https://issues.apache.org/jira/browse/HDFS-2564) | Cleanup unnecessary exceptions thrown and unnecessary casts |  Minor | datanode, hdfs-client, namenode | Hari Mankude | Hari Mankude |
@@ -82,7 +80,6 @@
 | [HDFS-2410](https://issues.apache.org/jira/browse/HDFS-2410) | Further clean up hard-coded configuration keys |  Minor | datanode, namenode, test | Suresh Srinivas | Suresh Srinivas |
 | [HDFS-2351](https://issues.apache.org/jira/browse/HDFS-2351) | Change Namenode and Datanode to register each of their protocols seperately |  Major | . | Sanjay Radia | Sanjay Radia |
 | [HDFS-2337](https://issues.apache.org/jira/browse/HDFS-2337) | DFSClient shouldn't keep multiple RPC proxy references |  Major | hdfs-client | Aaron T. Myers | Aaron T. Myers |
-| [HDFS-2268](https://issues.apache.org/jira/browse/HDFS-2268) | Remove unused paranamer processing |  Major | . | Luke Lu | Luke Lu |
 | [HDFS-2223](https://issues.apache.org/jira/browse/HDFS-2223) | Untangle depencencies between NN components |  Major | namenode | Todd Lipcon | Todd Lipcon |
 | [HDFS-2188](https://issues.apache.org/jira/browse/HDFS-2188) | HDFS-1580: Make FSEditLog create its journals from a list of URIs rather than NNStorage |  Major | . | Ivan Kelly | Ivan Kelly |
 | [HDFS-1580](https://issues.apache.org/jira/browse/HDFS-1580) | Add interface for generic Write Ahead Logging mechanisms |  Major | namenode | Ivan Kelly | Jitendra Nath Pandey |
@@ -93,8 +90,6 @@
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [HDFS-3550](https://issues.apache.org/jira/browse/HDFS-3550) | raid added javadoc warnings |  Minor | build | Thomas Graves | Jason Lowe |
-| [HDFS-3549](https://issues.apache.org/jira/browse/HDFS-3549) | dist tar build fails in hadoop-hdfs-raid project |  Critical | build | Jason Lowe | Jason Lowe |
 | [HDFS-3396](https://issues.apache.org/jira/browse/HDFS-3396) | FUSE build fails on Ubuntu 12.04 |  Minor | fuse-dfs | Colin Patrick McCabe | Colin Patrick McCabe |
 | [HDFS-3395](https://issues.apache.org/jira/browse/HDFS-3395) | NN doesn't start with HA+security enabled and HTTP address set to 0.0.0.0 |  Major | namenode | Aaron T. Myers | Aaron T. Myers |
 | [HDFS-3376](https://issues.apache.org/jira/browse/HDFS-3376) | DFSClient fails to make connection to DN if there are many unusable cached sockets |  Critical | hdfs-client | Todd Lipcon | Todd Lipcon |
@@ -112,9 +107,7 @@
 | [HDFS-3303](https://issues.apache.org/jira/browse/HDFS-3303) | RemoteEditLogManifest doesn't need to implements Writable |  Minor | namenode | Brandon Li | Brandon Li |
 | [HDFS-3284](https://issues.apache.org/jira/browse/HDFS-3284) | bootstrapStandby fails in secure cluster |  Minor | ha, security | Todd Lipcon | Todd Lipcon |
 | [HDFS-3280](https://issues.apache.org/jira/browse/HDFS-3280) | DFSOutputStream.sync should not be synchronized |  Critical | hdfs-client | Todd Lipcon | Todd Lipcon |
-| [HDFS-3275](https://issues.apache.org/jira/browse/HDFS-3275) | Format command overwrites contents of non-empty shared edits dir if name dirs are empty without any prompting |  Major | ha, namenode | Vinithra Varadharajan | amith |
 | [HDFS-3268](https://issues.apache.org/jira/browse/HDFS-3268) | Hdfs mishandles token service & incompatible with HA |  Critical | ha, hdfs-client | Daryn Sharp | Daryn Sharp |
-| [HDFS-3265](https://issues.apache.org/jira/browse/HDFS-3265) | PowerPc Build error. |  Major | build | Kumar Ravi | Kumar Ravi |
 | [HDFS-3260](https://issues.apache.org/jira/browse/HDFS-3260) | TestDatanodeRegistration should set minimum DN version in addition to minimum NN version |  Major | . | Aaron T. Myers | Aaron T. Myers |
 | [HDFS-3256](https://issues.apache.org/jira/browse/HDFS-3256) | HDFS considers blocks under-replicated if topology script is configured with only 1 rack |  Major | . | Aaron T. Myers | Aaron T. Myers |
 | [HDFS-3255](https://issues.apache.org/jira/browse/HDFS-3255) | HA DFS returns wrong token service |  Critical | ha, hdfs-client | Daryn Sharp | Daryn Sharp |
@@ -133,7 +126,6 @@
 | [HDFS-3143](https://issues.apache.org/jira/browse/HDFS-3143) | TestGetBlocks.testGetBlocks is failing |  Major | test | Eli Collins | Arpit Gupta |
 | [HDFS-3142](https://issues.apache.org/jira/browse/HDFS-3142) | TestHDFSCLI.testAll is failing |  Blocker | test | Eli Collins | Brandon Li |
 | [HDFS-3132](https://issues.apache.org/jira/browse/HDFS-3132) | Findbugs warning on HDFS trunk |  Minor | namenode | Todd Lipcon | Todd Lipcon |
-| [HDFS-3121](https://issues.apache.org/jira/browse/HDFS-3121) | hdfs tests for HADOOP-8014 |  Major | . | John George | John George |
 | [HDFS-3119](https://issues.apache.org/jira/browse/HDFS-3119) | Overreplicated block is not deleted even after the replication factor is reduced after sync follwed by closing that file |  Minor | namenode | J.Andreina | Ashish Singhi |
 | [HDFS-3109](https://issues.apache.org/jira/browse/HDFS-3109) | Remove hsqldb exclusions from pom.xml |  Major | . | Ravi Prakash | Ravi Prakash |
 | [HDFS-3100](https://issues.apache.org/jira/browse/HDFS-3100) | failed to append data |  Major | datanode | Zhanwei Wang | Brandon Li |
@@ -163,8 +155,6 @@
 | [HDFS-2497](https://issues.apache.org/jira/browse/HDFS-2497) | Fix TestBackupNode failure |  Major | . | Suresh Srinivas | Suresh Srinivas |
 | [HDFS-2481](https://issues.apache.org/jira/browse/HDFS-2481) | Unknown protocol: org.apache.hadoop.hdfs.protocol.ClientProtocol |  Major | . | Tsz Wo Nicholas Sze | Sanjay Radia |
 | [HDFS-2405](https://issues.apache.org/jira/browse/HDFS-2405) | hadoop dfs command with webhdfs fails on secure hadoop |  Critical | webhdfs | Arpit Gupta | Jitendra Nath Pandey |
-| [HDFS-2373](https://issues.apache.org/jira/browse/HDFS-2373) | Commands using webhdfs and hftp print unnecessary debug information on the console with security enabled |  Major | webhdfs | Arpit Gupta | Arpit Gupta |
-| [HDFS-2350](https://issues.apache.org/jira/browse/HDFS-2350) | Secure DN doesn't print output to console when started interactively |  Major | datanode | Aaron T. Myers | Chris Nauroth |
 | [HDFS-1765](https://issues.apache.org/jira/browse/HDFS-1765) | Block Replication should respect under-replication block priority |  Major | namenode | Hairong Kuang | Uma Maheswara Rao G |
 | [HDFS-891](https://issues.apache.org/jira/browse/HDFS-891) | DataNode no longer needs to check for dfs.network.script |  Minor | datanode | Steve Loughran | Harsh J |
 
@@ -181,7 +171,6 @@
 | JIRA | Description | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-860](https://issues.apache.org/jira/browse/HDFS-860) | fuse-dfs truncate behavior causes issues with scp |  Minor | fuse-dfs | Brian Bockelman | Brian Bockelman |
-| [HDFS-3458](https://issues.apache.org/jira/browse/HDFS-3458) | Convert Forrest docs to APT |  Major | documentation | Eli Collins |  |
 | [HDFS-3111](https://issues.apache.org/jira/browse/HDFS-3111) | Missing license headers in trunk |  Trivial | . | Todd Lipcon | Uma Maheswara Rao G |
 
 

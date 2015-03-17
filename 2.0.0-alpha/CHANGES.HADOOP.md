@@ -1,6 +1,6 @@
 # Hadoop Changelog
 
-## Release 2.0.0-alpha - 2015-03-16
+## Release 2.0.0-alpha - 2015-03-17
 
 ### INCOMPATIBLE CHANGES:
 
@@ -12,7 +12,6 @@
 | [HADOOP-8154](https://issues.apache.org/jira/browse/HADOOP-8154) | DNS#getIPs shouldn't silently return the local host IP for bogus interface names |  Major | conf | Eli Collins | Eli Collins |
 | [HADOOP-8149](https://issues.apache.org/jira/browse/HADOOP-8149) | cap space usage of default log4j rolling policy |  Major | conf | Patrick Hunt | Patrick Hunt |
 | [HADOOP-7524](https://issues.apache.org/jira/browse/HADOOP-7524) | Change RPC to allow multiple protocols including multiple versions of the same protocol |  Major | ipc | Sanjay Radia | Sanjay Radia |
-| [HADOOP-7347](https://issues.apache.org/jira/browse/HADOOP-7347) | IPC Wire Compatibility |  Major | ipc | Sanjay Radia | Sanjay Radia |
 
 
 ### NEW FEATURES:
@@ -24,7 +23,6 @@
 | [HADOOP-8121](https://issues.apache.org/jira/browse/HADOOP-8121) | Active Directory Group Mapping Service |  Major | security | Jonathan Natkins | Jonathan Natkins |
 | [HADOOP-7876](https://issues.apache.org/jira/browse/HADOOP-7876) | Allow access to BlockKey/DelegationKey encoded key for RPC over protobuf |  Major | ipc | Suresh Srinivas | Suresh Srinivas |
 | [HADOOP-7806](https://issues.apache.org/jira/browse/HADOOP-7806) | Support binding to sub-interfaces |  Major | util | Harsh J | Harsh J |
-| [HADOOP-7788](https://issues.apache.org/jira/browse/HADOOP-7788) | HA: Simple HealthMonitor class to watch an HAService |  Major | ha | Todd Lipcon | Todd Lipcon |
 | [HADOOP-7454](https://issues.apache.org/jira/browse/HADOOP-7454) | Common side of High Availability Framework (HDFS-1623) |  Major | . | Aaron T. Myers |  |
 | [HADOOP-7030](https://issues.apache.org/jira/browse/HADOOP-7030) | Add TableMapping topology implementation to read host to rack mapping from a file |  Major | . | Patrick Angeles | Tom White |
 
@@ -47,7 +45,6 @@
 | [HADOOP-8183](https://issues.apache.org/jira/browse/HADOOP-8183) | Stop using "mapred.used.genericoptionsparser" to avoid unnecessary warnings |  Minor | util | Harsh J | Harsh J |
 | [HADOOP-8163](https://issues.apache.org/jira/browse/HADOOP-8163) | Improve ActiveStandbyElector to provide hooks for fencing old active |  Major | ha | Todd Lipcon | Todd Lipcon |
 | [HADOOP-8152](https://issues.apache.org/jira/browse/HADOOP-8152) | Expand public APIs for security library classes |  Major | security | Aaron T. Myers | Aaron T. Myers |
-| [HADOOP-8141](https://issues.apache.org/jira/browse/HADOOP-8141) | Add method to init krb5 cipher suites |  Trivial | security | Todd Lipcon | Todd Lipcon |
 | [HADOOP-8118](https://issues.apache.org/jira/browse/HADOOP-8118) | Print the stack trace of InstanceAlreadyExistsException in trace level |  Minor | metrics | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HADOOP-8117](https://issues.apache.org/jira/browse/HADOOP-8117) | Upgrade test build to Surefire 2.12 |  Trivial | build, test | Todd Lipcon | Todd Lipcon |
 | [HADOOP-8113](https://issues.apache.org/jira/browse/HADOOP-8113) | Correction to BUILDING.txt: HDFS needs ProtocolBuffer, too (not just MapReduce) |  Trivial | documentation | Eugene Koontz | Eugene Koontz |
@@ -72,8 +69,6 @@
 | [HADOOP-7607](https://issues.apache.org/jira/browse/HADOOP-7607) | Simplify the RPC proxy cleanup process |  Major | ipc | Aaron T. Myers | Aaron T. Myers |
 | [HADOOP-7549](https://issues.apache.org/jira/browse/HADOOP-7549) | Use JDK ServiceLoader mechanism to find FileSystem implementations |  Major | fs | Alejandro Abdelnur | Alejandro Abdelnur |
 | [HADOOP-7350](https://issues.apache.org/jira/browse/HADOOP-7350) | Use ServiceLoader to discover compression codec classes |  Major | conf, io | Tom White | Tom White |
-| [HADOOP-7069](https://issues.apache.org/jira/browse/HADOOP-7069) | Replace forrest with supported framework |  Major | documentation | Jakob Homan |  |
-| [HADOOP-3983](https://issues.apache.org/jira/browse/HADOOP-3983) | compile-c++ should honor the jvm size in compiling the c++ code |  Major | build | Owen O'Malley |  |
 
 
 ### BUG FIXES:
@@ -114,6 +109,7 @@
 | [HADOOP-7888](https://issues.apache.org/jira/browse/HADOOP-7888) | TestFailoverProxy fails intermittently on trunk |  Major | test | Jason Lowe | Jason Lowe |
 | [HADOOP-7833](https://issues.apache.org/jira/browse/HADOOP-7833) | Inner classes of org.apache.hadoop.ipc.protobuf.HadoopRpcProtos generates findbugs warnings which results in -1 for findbugs |  Major | ipc | John Lee | John Lee |
 | [HADOOP-7827](https://issues.apache.org/jira/browse/HADOOP-7827) | jsp pages missing DOCTYPE |  Trivial | . | Dave Vronay | Dave Vronay |
+| [HADOOP-7704](https://issues.apache.org/jira/browse/HADOOP-7704) | JsonFactory can be created only once and used for every next request to create JsonGenerator inside JMXJsonServlet |  Minor | . | Devaraj K | Devaraj K |
 | [HADOOP-7695](https://issues.apache.org/jira/browse/HADOOP-7695) | RPC.stopProxy can throw unintended exception while logging error |  Major | ipc | Aaron T. Myers | Aaron T. Myers |
 | [HADOOP-7669](https://issues.apache.org/jira/browse/HADOOP-7669) | Fix newly introduced release audit warning. |  Minor | . | Uma Maheswara Rao G | Uma Maheswara Rao G |
 | [HADOOP-6941](https://issues.apache.org/jira/browse/HADOOP-6941) | Support non-SUN JREs in UserGroupInformation |  Major | . | Stephen Watt | Devaraj Das |

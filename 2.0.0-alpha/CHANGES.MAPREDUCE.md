@@ -1,6 +1,6 @@
 # Hadoop Changelog
 
-## Release 2.0.0-alpha - 2015-03-16
+## Release 2.0.0-alpha - 2015-03-17
 
 ### INCOMPATIBLE CHANGES:
 
@@ -27,7 +27,6 @@
 | [MAPREDUCE-3909](https://issues.apache.org/jira/browse/MAPREDUCE-3909) | javadoc the Service interfaces |  Trivial | mrv2 | Steve Loughran | Steve Loughran |
 | [MAPREDUCE-3885](https://issues.apache.org/jira/browse/MAPREDUCE-3885) | Apply the fix similar to HADOOP-8084 |  Major | mrv2 | Devaraj Das | Devaraj Das |
 | [MAPREDUCE-3883](https://issues.apache.org/jira/browse/MAPREDUCE-3883) | Document yarn.nodemanager.delete.debug-delay-sec configuration property |  Minor | documentation, mrv2 | Eugene Koontz | Eugene Koontz |
-| [MAPREDUCE-3024](https://issues.apache.org/jira/browse/MAPREDUCE-3024) | Make all poms to have hadoop-project POM as common parent |  Major | build | Alejandro Abdelnur | Alejandro Abdelnur |
 | [MAPREDUCE-2934](https://issues.apache.org/jira/browse/MAPREDUCE-2934) | MR portion of HADOOP-7607 - Simplify the RPC proxy cleanup process |  Major | mrv2 | Aaron T. Myers | Aaron T. Myers |
 | [MAPREDUCE-2887](https://issues.apache.org/jira/browse/MAPREDUCE-2887) | MR changes to match HADOOP-7524 (multiple RPC protocols) |  Major | . | Sanjay Radia | Sanjay Radia |
 
@@ -64,7 +63,6 @@
 | [MAPREDUCE-3377](https://issues.apache.org/jira/browse/MAPREDUCE-3377) | Compatibility issue with 0.20.203. |  Major | . | Jane Chen | Jane Chen |
 | [MAPREDUCE-3353](https://issues.apache.org/jira/browse/MAPREDUCE-3353) | Need a RM->AM channel to inform AMs about faulty/unhealthy/lost nodes |  Major | applicationmaster, mrv2, resourcemanager | Vinod Kumar Vavilapalli | Bikas Saha |
 | [MAPREDUCE-3173](https://issues.apache.org/jira/browse/MAPREDUCE-3173) | MRV2 UI doesn't work properly without internet |  Critical | mrv2 | Devaraj K | Devaraj K |
-| [MAPREDUCE-3120](https://issues.apache.org/jira/browse/MAPREDUCE-3120) | JobHistory is not providing correct count failed,killed task |  Major | mrv2 | Subroto Sanyal | Subroto Sanyal |
 | [MAPREDUCE-2942](https://issues.apache.org/jira/browse/MAPREDUCE-2942) | TestNMAuditLogger.testNMAuditLoggerWithIP failing |  Critical | . | Vinod Kumar Vavilapalli | Thomas Graves |
 | [MAPREDUCE-1740](https://issues.apache.org/jira/browse/MAPREDUCE-1740) | NPE in getMatchingLevelForNodes when node locations are variable depth |  Major | jobtracker | Todd Lipcon | Ahmed Radwan |
 
