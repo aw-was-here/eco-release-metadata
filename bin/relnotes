@@ -6,13 +6,12 @@ new=$2
 src=${HOME}/Src/aw-github/hadoop/dev-support
 hrmd=${HOME}/Src/aw-github/hadoop-release-metadata
 
-if [[ ! -e "${src}/relnotes-md.py" ]]; then
-  echo "no relnotes-md.py"
+if [[ ! -e "${src}/releasemdmaker.py" ]]; then
+  echo "no releasemdmaker.py"
   exit 1
 fi
 
-"${src}/relnotes-md.py" --previousVer "${old}" --version "${new}"
-"${src}/changes-md.py" --version "${new}"
+"${src}/releasemdmaker.py" --previousVer "${old}" --version "${new}"
 
 mkdir -p "${hrmd}/${new}/"
 
