@@ -1,6 +1,6 @@
 # Hadoop Changelog
 
-## Release 2.7.0 - 2015-03-18
+## Release 2.7.0 - 2015-03-20
 
 ### INCOMPATIBLE CHANGES:
 
@@ -112,7 +112,9 @@
 | [HADOOP-8757](https://issues.apache.org/jira/browse/HADOOP-8757) | Metrics should disallow names with invalid characters |  Minor | metrics | Todd Lipcon | Ray Chiang |
 | [HADOOP-8059](https://issues.apache.org/jira/browse/HADOOP-8059) | Add javadoc to InterfaceAudience and InterfaceStability |  Major | documentation | Suresh Srinivas | Brandon Li |
 | [HADOOP-4297](https://issues.apache.org/jira/browse/HADOOP-4297) | Enable Java assertions when running tests |  Major | build | Yoram Kulbak | Tsz Wo Nicholas Sze |
+| [HDFS-7962](https://issues.apache.org/jira/browse/HDFS-7962) | Remove duplicated logs in BlockManager |  Minor | . | Yi Liu | Yi Liu |
 | [HDFS-7898](https://issues.apache.org/jira/browse/HDFS-7898) | Change TestAppendSnapshotTruncate to fail-fast |  Minor | test | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
+| [HDFS-7849](https://issues.apache.org/jira/browse/HDFS-7849) | Update documentation for enabling a new feature in rolling upgrade |  Minor | documentation | Tsz Wo Nicholas Sze | J.Andreina |
 | [HDFS-7832](https://issues.apache.org/jira/browse/HDFS-7832) | Show 'Last Modified' in Namenode's 'Browse Filesystem' |  Major | namenode | Vinayakumar B | Vinayakumar B |
 | [HDFS-7808](https://issues.apache.org/jira/browse/HDFS-7808) | Remove obsolete -ns options in in DFSHAAdmin.java |  Minor | . | Arshad Mohammad | Arshad Mohammad |
 | [HDFS-7797](https://issues.apache.org/jira/browse/HDFS-7797) | Add audit log for setQuota operation |  Major | namenode | Rakesh R | Rakesh R |
@@ -289,6 +291,7 @@
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HADOOP-11729](https://issues.apache.org/jira/browse/HADOOP-11729) | Fix link to cgroups doc in site.xml |  Minor | documentation | Masatake Iwasaki | Masatake Iwasaki |
 | [HADOOP-11722](https://issues.apache.org/jira/browse/HADOOP-11722) | Some Instances of Services using ZKDelegationTokenSecretManager go down when old token cannot be deleted |  Major | . | Arun Suresh | Arun Suresh |
 | [HADOOP-11720](https://issues.apache.org/jira/browse/HADOOP-11720) | [JDK8] Fix javadoc errors caused by incorrect or illegal tags in hadoop-tools |  Major | documentation | Akira AJISAKA | Akira AJISAKA |
 | [HADOOP-11693](https://issues.apache.org/jira/browse/HADOOP-11693) | Azure Storage FileSystem rename operations are throttled too aggressively to complete HBase WAL archiving. |  Major | tools | Duo Xu | Duo Xu |
@@ -405,6 +408,7 @@
 | [HADOOP-10748](https://issues.apache.org/jira/browse/HADOOP-10748) | HttpServer2 should not load JspServlet |  Major | . | Haohui Mai | Haohui Mai |
 | [HADOOP-10717](https://issues.apache.org/jira/browse/HADOOP-10717) | HttpServer2 should load jsp DTD from local jars instead of going remote |  Blocker | . | Dapeng Sun | Dapeng Sun |
 | [HADOOP-10714](https://issues.apache.org/jira/browse/HADOOP-10714) | AmazonS3Client.deleteObjects() need to be limited to 1000 entries per call |  Critical | fs/s3 | David S. Wang | Juan Yu |
+| [HADOOP-10703](https://issues.apache.org/jira/browse/HADOOP-10703) | HttpServer2 creates multiple authentication filters |  Major | security | Benoy Antony | Benoy Antony |
 | [HADOOP-10690](https://issues.apache.org/jira/browse/HADOOP-10690) | Lack of synchronization on access to InputStream in NativeAzureFileSystem#NativeAzureFsInputStream#close() |  Minor | tools | Ted Yu | Chen He |
 | [HADOOP-10689](https://issues.apache.org/jira/browse/HADOOP-10689) | InputStream is not closed in AzureNativeFileSystemStore#retrieve() |  Minor | tools | Ted Yu | Chen He |
 | [HADOOP-10181](https://issues.apache.org/jira/browse/HADOOP-10181) | GangliaContext does not work with multicast ganglia setup |  Minor | metrics | Andrew Otto | Andrew Johnson |
@@ -417,6 +421,11 @@
 | [HADOOP-8642](https://issues.apache.org/jira/browse/HADOOP-8642) | Document that io.native.lib.available only controls native bz2 and zlib compression codecs |  Major | documentation, native | Eli Collins | Akira AJISAKA |
 | [HADOOP-6221](https://issues.apache.org/jira/browse/HADOOP-6221) | RPC Client operations cannot be interrupted |  Minor | ipc | Steve Loughran | Steve Loughran |
 | [HDFS-7953](https://issues.apache.org/jira/browse/HDFS-7953) | NN Web UI fails to navigate to paths that contain # |  Minor | namenode | kanaka kumar avvaru | kanaka kumar avvaru |
+| [HDFS-7945](https://issues.apache.org/jira/browse/HDFS-7945) | The WebHdfs system on DN does not honor the length parameter |  Blocker | . | Haohui Mai | Haohui Mai |
+| [HDFS-7943](https://issues.apache.org/jira/browse/HDFS-7943) | Append cannot handle the last block with length greater than the preferred block size |  Blocker | . | Jing Zhao | Jing Zhao |
+| [HDFS-7932](https://issues.apache.org/jira/browse/HDFS-7932) | Speed up the shutdown of datanode during rolling upgrade |  Major | . | Kihwal Lee | Kihwal Lee |
+| [HDFS-7930](https://issues.apache.org/jira/browse/HDFS-7930) | commitBlockSynchronization() does not remove locations |  Blocker | namenode | Konstantin Shvachko | Yi Liu |
+| [HDFS-7929](https://issues.apache.org/jira/browse/HDFS-7929) | inotify unable fetch pre-upgrade edit log segments once upgrade starts |  Major | . | Zhe Zhang | Zhe Zhang |
 | [HDFS-7926](https://issues.apache.org/jira/browse/HDFS-7926) | NameNode implementation of ClientProtocol.truncate(..) is not idempotent |  Major | namenode | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HDFS-7915](https://issues.apache.org/jira/browse/HDFS-7915) | The DataNode can sometimes allocate a ShortCircuitShm slot and fail to tell the DFSClient about it because of a network error |  Major | . | Colin Patrick McCabe | Colin Patrick McCabe |
 | [HDFS-7886](https://issues.apache.org/jira/browse/HDFS-7886) | TestFileTruncate#testTruncateWithDataNodesRestart runs timeout sometimes |  Minor | test | Yi Liu | Plamen Jeliazkov |
@@ -428,6 +437,7 @@
 | [HDFS-7831](https://issues.apache.org/jira/browse/HDFS-7831) | Fix the starting index and end condition of the loop in FileDiffList.findEarlierSnapshotBlocks() |  Major | . | Konstantin Shvachko | Konstantin Shvachko |
 | [HDFS-7830](https://issues.apache.org/jira/browse/HDFS-7830) | DataNode does not release the volume lock when adding a volume fails. |  Major | datanode | Lei (Eddy) Xu | Lei (Eddy) Xu |
 | [HDFS-7818](https://issues.apache.org/jira/browse/HDFS-7818) | OffsetParam should return the default value instead of throwing NPE when the value is unspecified |  Blocker | webhdfs | Eric Payne | Eric Payne |
+| [HDFS-7816](https://issues.apache.org/jira/browse/HDFS-7816) | Unable to open webhdfs paths with "+" |  Blocker | webhdfs | Jason Lowe | Haohui Mai |
 | [HDFS-7813](https://issues.apache.org/jira/browse/HDFS-7813) | TestDFSHAAdminMiniCluster#testFencer testcase is failing frequently |  Major | ha, test | Rakesh R | Rakesh R |
 | [HDFS-7807](https://issues.apache.org/jira/browse/HDFS-7807) | libhdfs htable.c: fix htable resizing, add unit test |  Major | native | Colin Patrick McCabe | Colin Patrick McCabe |
 | [HDFS-7805](https://issues.apache.org/jira/browse/HDFS-7805) | NameNode recovery prompt should be printed on console |  Major | namenode | surendra singh lilhore | surendra singh lilhore |
@@ -469,6 +479,7 @@
 | [HDFS-7606](https://issues.apache.org/jira/browse/HDFS-7606) | Missing null check in INodeFile#getBlocks() |  Minor | . | Ted Yu | Byron Wong |
 | [HDFS-7603](https://issues.apache.org/jira/browse/HDFS-7603) | The background replication queue initialization may not let others run |  Critical | rolling upgrades | Kihwal Lee | Kihwal Lee |
 | [HDFS-7596](https://issues.apache.org/jira/browse/HDFS-7596) | NameNode should prune dead storages from storageMap |  Major | namenode | Arpit Agarwal | Arpit Agarwal |
+| [HDFS-7587](https://issues.apache.org/jira/browse/HDFS-7587) | Edit log corruption can happen if append fails with a quota violation |  Blocker | namenode | Kihwal Lee | Jing Zhao |
 | [HDFS-7583](https://issues.apache.org/jira/browse/HDFS-7583) | Fix findbug in TransferFsImage.java |  Minor | namenode | Vinayakumar B | Vinayakumar B |
 | [HDFS-7575](https://issues.apache.org/jira/browse/HDFS-7575) | Upgrade should generate a unique storage ID for each volume |  Critical | . | Lars Francke | Arpit Agarwal |
 | [HDFS-7572](https://issues.apache.org/jira/browse/HDFS-7572) | TestLazyPersistFiles#testDnRestartWithSavedReplicas is flaky on Windows |  Major | test | Arpit Agarwal | Arpit Agarwal |
@@ -548,6 +559,7 @@
 | [HDFS-1522](https://issues.apache.org/jira/browse/HDFS-1522) | Merge Block.BLOCK\_FILE\_PREFIX and DataStorage.BLOCK\_FILE\_PREFIX into one constant |  Major | datanode | Konstantin Shvachko | Dongming Liang |
 | [HDFS-49](https://issues.apache.org/jira/browse/HDFS-49) | MiniDFSCluster.stopDataNode will always shut down a node in the cluster if a matching name is not found |  Minor | test | Steve Loughran | Steve Loughran |
 | [MAPREDUCE-6277](https://issues.apache.org/jira/browse/MAPREDUCE-6277) | Job can post multiple history files if attempt loses connection to the RM |  Major | mr-am | Chang Li | Chang Li |
+| [MAPREDUCE-6275](https://issues.apache.org/jira/browse/MAPREDUCE-6275) | Race condition in FileOutputCommitter v2 for user-specified task output subdirs |  Critical | . | Siqi Li | Gera Shegalov |
 | [MAPREDUCE-6268](https://issues.apache.org/jira/browse/MAPREDUCE-6268) | Fix typo in Task Attempt API's URL |  Minor | . | Ryu Kobayashi | Ryu Kobayashi |
 | [MAPREDUCE-6261](https://issues.apache.org/jira/browse/MAPREDUCE-6261) | NullPointerException if MapOutputBuffer.flush invoked twice |  Major | mrv2 | Jason Lowe | Tsuyoshi Ozawa |
 | [MAPREDUCE-6243](https://issues.apache.org/jira/browse/MAPREDUCE-6243) | Fix findbugs warnings in hadoop-rumen |  Minor | tools/rumen | Akira AJISAKA | Masatake Iwasaki |
@@ -702,6 +714,7 @@
 | [HADOOP-11165](https://issues.apache.org/jira/browse/HADOOP-11165) | TestUTF8 fails when run against java 8 |  Minor | test | Ted Yu | Stephen Chu |
 | [HADOOP-11125](https://issues.apache.org/jira/browse/HADOOP-11125) | Remove redundant tests in TestOsSecureRandom |  Major | . | Ted Yu | Masanori Oyama |
 | [HADOOP-10668](https://issues.apache.org/jira/browse/HADOOP-10668) | TestZKFailoverControllerStress#testExpireBackAndForth occasionally fails |  Major | test | Ted Yu | Ming Ma |
+| [HDFS-7914](https://issues.apache.org/jira/browse/HDFS-7914) | TestJournalNode#testFailToStartWithBadConfig fails when the default dfs.journalnode.http-address port 8480 is in use |  Major | . | Xiaoyu Yao | Xiaoyu Yao |
 | [HDFS-7585](https://issues.apache.org/jira/browse/HDFS-7585) | Get TestEnhancedByteBufferAccess working on CPU architectures with page sizes other than 4096 |  Major | test | sam liu | sam liu |
 | [HDFS-7475](https://issues.apache.org/jira/browse/HDFS-7475) | Make TestLazyPersistFiles#testLazyPersistBlocksAreSaved deterministic |  Major | test | Xiaoyu Yao | Xiaoyu Yao |
 | [HDFS-7448](https://issues.apache.org/jira/browse/HDFS-7448) | TestBookKeeperHACheckpoints fails in trunk build |  Minor | . | Ted Yu | Akira AJISAKA |
@@ -718,6 +731,7 @@
 | [HADOOP-11612](https://issues.apache.org/jira/browse/HADOOP-11612) | Workaround for Curator's ChildReaper requiring Guava 15+ |  Major | . | Robert Kanter | Robert Kanter |
 | [HADOOP-11489](https://issues.apache.org/jira/browse/HADOOP-11489) | Dropping dependency on io.netty from hadoop-nfs' pom.xml |  Minor | nfs | Ted Yu | Ted Yu |
 | [HADOOP-11463](https://issues.apache.org/jira/browse/HADOOP-11463) | Replace method-local TransferManager object with S3AFileSystem#transfers |  Major | fs/s3 | Ted Yu | Ted Yu |
+| [HADOOP-9329](https://issues.apache.org/jira/browse/HADOOP-9329) | document native build dependencies in BUILDING.txt |  Trivial | documentation | Colin Patrick McCabe | Vijay Bhat |
 | [HDFS-2486](https://issues.apache.org/jira/browse/HDFS-2486) | Review issues with UnderReplicatedBlocks |  Minor | namenode | Steve Loughran | Uma Maheswara Rao G |
 | [MAPREDUCE-6264](https://issues.apache.org/jira/browse/MAPREDUCE-6264) | Remove httpclient dependency from hadoop-mapreduce-client |  Major | . | Akira AJISAKA | Brahma Reddy Battula |
 | [MAPREDUCE-5420](https://issues.apache.org/jira/browse/MAPREDUCE-5420) | Remove mapreduce.task.tmp.dir from mapred-default.xml |  Major | . | Sandy Ryza | James Carman |

@@ -6,6 +6,12 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [HADOOP-11729](https://issues.apache.org/jira/browse/HADOOP-11729) | *Minor* | **Fix link to cgroups doc in site.xml**
+
+Committed this to trunk, branch-2, and branch-2.7. Thanks Masatake for your contribution!
+
+---
+
 * [HADOOP-11498](https://issues.apache.org/jira/browse/HADOOP-11498) | *Major* | **Bump the version of HTrace to 3.1.0-incubating**
 
 **WARNING: No release note provided for this incompatible change.**
@@ -84,6 +90,16 @@ The Hadoop Common native components now support 32-bit build targets on Windows.
 * [HADOOP-9629](https://issues.apache.org/jira/browse/HADOOP-9629) | *Major* | **Support Windows Azure Storage - Blob as a file system in Hadoop**
 
 Hadoop now supports integration with Azure Storage as an alternative Hadoop Compatible File System.
+
+---
+
+* [HADOOP-9329](https://issues.apache.org/jira/browse/HADOOP-9329) | *Trivial* | **document native build dependencies in BUILDING.txt**
+
+Added a section to BUILDING.txt on how to install required / optional packages on a clean install of Ubuntu 14.04 LTS Desktop.
+
+Went through the CMakeLists.txt files in the repo and added the following optional library dependencies - Snappy, Bzip2, Linux FUSE and Jansson.
+
+Updated the required packages / version numbers from the trunk branch version of BUILDING.txt.
 
 ---
 

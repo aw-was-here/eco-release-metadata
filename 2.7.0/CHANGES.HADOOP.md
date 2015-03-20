@@ -1,6 +1,6 @@
 # Hadoop Changelog
 
-## Release 2.7.0 - 2015-03-18
+## Release 2.7.0 - 2015-03-20
 
 ### INCOMPATIBLE CHANGES:
 
@@ -99,6 +99,7 @@
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HADOOP-11729](https://issues.apache.org/jira/browse/HADOOP-11729) | Fix link to cgroups doc in site.xml |  Minor | documentation | Masatake Iwasaki | Masatake Iwasaki |
 | [HADOOP-11722](https://issues.apache.org/jira/browse/HADOOP-11722) | Some Instances of Services using ZKDelegationTokenSecretManager go down when old token cannot be deleted |  Major | . | Arun Suresh | Arun Suresh |
 | [HADOOP-11720](https://issues.apache.org/jira/browse/HADOOP-11720) | [JDK8] Fix javadoc errors caused by incorrect or illegal tags in hadoop-tools |  Major | documentation | Akira AJISAKA | Akira AJISAKA |
 | [HADOOP-11693](https://issues.apache.org/jira/browse/HADOOP-11693) | Azure Storage FileSystem rename operations are throttled too aggressively to complete HBase WAL archiving. |  Major | tools | Duo Xu | Duo Xu |
@@ -215,6 +216,7 @@
 | [HADOOP-10748](https://issues.apache.org/jira/browse/HADOOP-10748) | HttpServer2 should not load JspServlet |  Major | . | Haohui Mai | Haohui Mai |
 | [HADOOP-10717](https://issues.apache.org/jira/browse/HADOOP-10717) | HttpServer2 should load jsp DTD from local jars instead of going remote |  Blocker | . | Dapeng Sun | Dapeng Sun |
 | [HADOOP-10714](https://issues.apache.org/jira/browse/HADOOP-10714) | AmazonS3Client.deleteObjects() need to be limited to 1000 entries per call |  Critical | fs/s3 | David S. Wang | Juan Yu |
+| [HADOOP-10703](https://issues.apache.org/jira/browse/HADOOP-10703) | HttpServer2 creates multiple authentication filters |  Major | security | Benoy Antony | Benoy Antony |
 | [HADOOP-10690](https://issues.apache.org/jira/browse/HADOOP-10690) | Lack of synchronization on access to InputStream in NativeAzureFileSystem#NativeAzureFsInputStream#close() |  Minor | tools | Ted Yu | Chen He |
 | [HADOOP-10689](https://issues.apache.org/jira/browse/HADOOP-10689) | InputStream is not closed in AzureNativeFileSystemStore#retrieve() |  Minor | tools | Ted Yu | Chen He |
 | [HADOOP-10181](https://issues.apache.org/jira/browse/HADOOP-10181) | GangliaContext does not work with multicast ganglia setup |  Minor | metrics | Andrew Otto | Andrew Johnson |
@@ -246,5 +248,6 @@
 | [HADOOP-11612](https://issues.apache.org/jira/browse/HADOOP-11612) | Workaround for Curator's ChildReaper requiring Guava 15+ |  Major | . | Robert Kanter | Robert Kanter |
 | [HADOOP-11489](https://issues.apache.org/jira/browse/HADOOP-11489) | Dropping dependency on io.netty from hadoop-nfs' pom.xml |  Minor | nfs | Ted Yu | Ted Yu |
 | [HADOOP-11463](https://issues.apache.org/jira/browse/HADOOP-11463) | Replace method-local TransferManager object with S3AFileSystem#transfers |  Major | fs/s3 | Ted Yu | Ted Yu |
+| [HADOOP-9329](https://issues.apache.org/jira/browse/HADOOP-9329) | document native build dependencies in BUILDING.txt |  Trivial | documentation | Colin Patrick McCabe | Vijay Bhat |
 
 
