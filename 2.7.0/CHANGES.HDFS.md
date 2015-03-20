@@ -134,6 +134,7 @@
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HDFS-7957](https://issues.apache.org/jira/browse/HDFS-7957) | Truncate should verify quota before making changes |  Critical | namenode | Jing Zhao | Jing Zhao |
 | [HDFS-7953](https://issues.apache.org/jira/browse/HDFS-7953) | NN Web UI fails to navigate to paths that contain # |  Minor | namenode | kanaka kumar avvaru | kanaka kumar avvaru |
 | [HDFS-7945](https://issues.apache.org/jira/browse/HDFS-7945) | The WebHdfs system on DN does not honor the length parameter |  Blocker | . | Haohui Mai | Haohui Mai |
 | [HDFS-7943](https://issues.apache.org/jira/browse/HDFS-7943) | Append cannot handle the last block with length greater than the preferred block size |  Blocker | . | Jing Zhao | Jing Zhao |
@@ -260,6 +261,7 @@
 | [HDFS-7008](https://issues.apache.org/jira/browse/HDFS-7008) | xlator should be closed upon exit from DFSAdmin#genericRefresh() |  Minor | . | Ted Yu | Tsuyoshi Ozawa |
 | [HDFS-6938](https://issues.apache.org/jira/browse/HDFS-6938) | Cleanup javac warnings in FSNamesystem |  Trivial | namenode | Charles Lamb | Charles Lamb |
 | [HDFS-6917](https://issues.apache.org/jira/browse/HDFS-6917) | Add an hdfs debug command to validate blocks, call recoverlease, etc. |  Major | hdfs-client | Colin Patrick McCabe | Colin Patrick McCabe |
+| [HDFS-6841](https://issues.apache.org/jira/browse/HDFS-6841) | Use Time.monotonicNow() wherever applicable instead of Time.now() |  Major | . | Vinayakumar B | Vinayakumar B |
 | [HDFS-6833](https://issues.apache.org/jira/browse/HDFS-6833) | DirectoryScanner should not register a deleting block with memory of DataNode |  Critical | datanode | Shinichi Yamashita | Shinichi Yamashita |
 | [HDFS-6753](https://issues.apache.org/jira/browse/HDFS-6753) | Initialize checkDisk when DirectoryScanner not able to get files list for scanning |  Major | . | J.Andreina | J.Andreina |
 | [HDFS-6662](https://issues.apache.org/jira/browse/HDFS-6662) | WebHDFS cannot open a file if its path contains "%" |  Critical | namenode | Brahma Reddy Battula | Gerson Carlos |
