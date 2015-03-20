@@ -300,6 +300,12 @@ Prior to this change, distcp had hard-coded values for memory usage.  Now distcp
 
 ---
 
+* [MAPREDUCE-4424](https://issues.apache.org/jira/browse/MAPREDUCE-4424) | *Minor* | **'mapred job -list' command should show the job name as well**
+
+Now "mapred job -list" command displays the Job Name as well.
+
+---
+
 * [MAPREDUCE-2841](https://issues.apache.org/jira/browse/MAPREDUCE-2841) | *Major* | **Task level native optimization**
 
 Adds a native implementation of the map output collector. The native library will build automatically with -Pnative. Users may choose the new collector on a job-by-job basis by setting mapreduce.job.map.output.collector.class=org.apache.hadoop.mapred.

@@ -1,6 +1,6 @@
 # Hadoop Changelog
 
-## Release 2.8.0 - 2015-03-19
+## Release 2.8.0 - 2015-03-20
 
 ### INCOMPATIBLE CHANGES:
 
@@ -29,6 +29,7 @@
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [MAPREDUCE-6281](https://issues.apache.org/jira/browse/MAPREDUCE-6281) | Fix javadoc in Terasort |  Trivial | . | Albert Chu | Albert Chu |
 | [MAPREDUCE-5807](https://issues.apache.org/jira/browse/MAPREDUCE-5807) | Print usage for TeraSort job. |  Trivial | examples | Rohith | Rohith |
 
 

@@ -1,6 +1,6 @@
 # Hadoop Changelog
 
-## Release 3.0.0 - 2015-03-19
+## Release 3.0.0 - 2015-03-20
 
 ### INCOMPATIBLE CHANGES:
 
@@ -26,6 +26,7 @@
 | [MAPREDUCE-5972](https://issues.apache.org/jira/browse/MAPREDUCE-5972) | Fix typo 'programatically' in job.xml (and a few other places) |  Trivial | . | Akira AJISAKA | Akira AJISAKA |
 | [MAPREDUCE-5785](https://issues.apache.org/jira/browse/MAPREDUCE-5785) | Derive heap size or mapreduce.*.memory.mb automatically |  Major | mr-am, task | Gera Shegalov | Gera Shegalov |
 | [MAPREDUCE-5653](https://issues.apache.org/jira/browse/MAPREDUCE-5653) | DistCp does not honour config-overrides for mapreduce.[map,reduce].memory.mb |  Major | distcp | Mithun Radhakrishnan | Ratandeep Ratti |
+| [MAPREDUCE-4424](https://issues.apache.org/jira/browse/MAPREDUCE-4424) | 'mapred job -list' command should show the job name as well |  Minor | mrv2 | Harsh J | Avinash Kujur |
 | [YARN-2428](https://issues.apache.org/jira/browse/YARN-2428) | LCE default banned user list should have yarn |  Trivial | nodemanager | Allen Wittenauer | Varun Saxena |
 
 
