@@ -1,7 +1,6 @@
 #!/bin/bash
 
-old=$1
-new=$2
+new=$1
 
 src=${HOME}/Src/aw-github/hadoop/dev-support
 hrmd=${HOME}/Src/aw-github/hadoop-release-metadata
@@ -11,7 +10,7 @@ if [[ ! -e "${src}/releasemdmaker.py" ]]; then
   exit 1
 fi
 
-"${src}/releasemdmaker.py" --previousVer "${old}" --version "${new}"
+"${src}/releasemdmaker.py" --version "${new}"
 
 mkdir -p "${hrmd}/${new}/"
 

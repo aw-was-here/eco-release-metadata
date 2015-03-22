@@ -6,19 +6,19 @@ bin=$(cd -P -- "$(dirname -- "${this}")" >/dev/null && pwd -P)
 OPATH=${PATH}
 PATH=${bin}:${OPATH}
 
-relnotes 2.8.0 3.0.0
-relnotes 2.7.0 2.8.0
-#relnotes 2.6.1 2.7.0
-#relnotes 2.6.0 2.6.1
-#relnotes 2.5.2 2.6.0
-#relnotes 2.5.1 2.5.2
-#relnotes 2.5.0 2.5.1
-#relnotes 2.4.1 2.5.0
-#relnotes 2.4.0 2.4.1
-#relnotes 2.3.0 2.4.0
-#relnotes 2.2.1 2.3.0
-#relnotes 2.2.0 2.2.1
-#relnotes 1.2.0 2.0.0-alpha
+relnotes 3.0.0
+relnotes 2.8.0
+relnotes 2.7.0
+#relnotes 2.6.1
+#relnotes 2.6.0
+#relnotes 2.5.2
+#relnotes 2.5.1
+#relnotes 2.5.0
+#relnotes 2.4.1
+#relnotes 2.4.0
+#relnotes 2.3.0
+#relnotes 2.2.1
+#relnotes 2.0.0-alpha
 
 cd ${HOME}/Src/aw-github/hadoop-release-metadata
 
