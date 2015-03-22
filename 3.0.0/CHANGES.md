@@ -1,6 +1,6 @@
 # Hadoop Changelog
 
-## Release 3.0.0 - 2015-03-20
+## Release 3.0.0 - 2015-03-22
 
 ### INCOMPATIBLE CHANGES:
 
