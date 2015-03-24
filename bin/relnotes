@@ -5,12 +5,12 @@ new=$1
 src=${HOME}/Src/aw-github/hadoop/dev-support
 hrmd=${HOME}/Src/aw-github/hadoop-release-metadata
 
-if [[ ! -e "${src}/releasemdmaker.py" ]]; then
-  echo "no releasemdmaker.py"
+if [[ ! -e "${src}/releasedocmaker.py" ]]; then
+  echo "no releasedocmaker.py"
   exit 1
 fi
 
-"${src}/releasemdmaker.py" --version "${new}"
+"${src}/releasedocmaker.py" --version "${new}"
 
 mkdir -p "${hrmd}/${new}/"
 
