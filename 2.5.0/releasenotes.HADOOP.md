@@ -2,6 +2,7 @@
 
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
 
+
 ---
 
 * [HADOOP-10568](https://issues.apache.org/jira/browse/HADOOP-10568) | *Major* | **Add s3 server-side encryption**
@@ -13,6 +14,7 @@ To enable this feature, specify the following in your client-side configuration:
 name: fs.s3n.server-side-encryption-algorithm
 value: AES256
 
+
 ---
 
 * [HADOOP-10451](https://issues.apache.org/jira/browse/HADOOP-10451) | *Trivial* | **Remove unused field and imports from SaslRpcServer**
@@ -22,11 +24,13 @@ Any use of this variable  should be replaced with the following code:
 SaslPropertiesResolver saslPropsResolver = SaslPropertiesResolver.getInstance(conf); 
 Map<String, String> sasl\_props = saslPropsResolver.getDefaultProperties();
 
+
 ---
 
 * [HADOOP-10342](https://issues.apache.org/jira/browse/HADOOP-10342) | *Major* | **Extend UserGroupInformation to return a UGI given a preauthenticated kerberos Subject**
 
 Add getUGIFromSubject to leverage an external kerberos authentication
+
 
 ---
 

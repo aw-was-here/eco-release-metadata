@@ -2,6 +2,7 @@
 
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
 
+
 ---
 
 * [YARN-2230](https://issues.apache.org/jira/browse/YARN-2230) | *Minor* | **Fix description of yarn.scheduler.maximum-allocation-vcores in yarn-default.xml (or code)**
@@ -11,6 +12,7 @@ I have modified the description of the yarn.scheduler.maximum-allocation-vcores 
 Since this is a documentation change, I have not added any test cases.
 
 Please review the patch, thanks!
+
 
 ---
 

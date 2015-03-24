@@ -2,6 +2,7 @@
 
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
 
+
 ---
 
 * [MAPREDUCE-3818](https://issues.apache.org/jira/browse/MAPREDUCE-3818) | *Blocker* | **Trunk MRV1 compilation is broken.**

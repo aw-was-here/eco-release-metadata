@@ -2,32 +2,48 @@
 
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
 
+
 ---
 
 * [MAPREDUCE-6234](https://issues.apache.org/jira/browse/MAPREDUCE-6234) | *Major* | **TestHighRamJob fails due to the change in MAPREDUCE-5785**
+
+**WARNING: No release note provided for this incompatible change.**
+
+
 ---
 
 * [MAPREDUCE-6223](https://issues.apache.org/jira/browse/MAPREDUCE-6223) | *Major* | **TestJobConf#testNegativeValueForTaskVmem failures**
+
+**WARNING: No release note provided for this incompatible change.**
+
+
 ---
 
 * [MAPREDUCE-5972](https://issues.apache.org/jira/browse/MAPREDUCE-5972) | *Trivial* | **Fix typo 'programatically' in job.xml (and a few other places)**
 
 Fix a typo. If a configuration is set through program, the source of the configuration is set to 'programmatically' instead of 'programatically' now.
 
+
 ---
 
 * [MAPREDUCE-5785](https://issues.apache.org/jira/browse/MAPREDUCE-5785) | *Major* | **Derive heap size or mapreduce.*.memory.mb automatically**
+
+**WARNING: No release note provided for this incompatible change.**
+
+
 ---
 
 * [MAPREDUCE-5653](https://issues.apache.org/jira/browse/MAPREDUCE-5653) | *Major* | **DistCp does not honour config-overrides for mapreduce.[map,reduce].memory.mb**
 
 Prior to this change, distcp had hard-coded values for memory usage.  Now distcp will honor memory settings in a way compatible with the rest of MapReduce.
 
+
 ---
 
 * [MAPREDUCE-4424](https://issues.apache.org/jira/browse/MAPREDUCE-4424) | *Minor* | **'mapred job -list' command should show the job name as well**
 
 Now "mapred job -list" command displays the Job Name as well.
+
 
 ---
 

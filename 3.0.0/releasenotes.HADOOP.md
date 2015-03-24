@@ -2,11 +2,13 @@
 
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
 
+
 ---
 
 * [HADOOP-11657](https://issues.apache.org/jira/browse/HADOOP-11657) | *Minor* | **Align the output of `hadoop fs -du` to be more Unix-like**
 
 The output of du has now been made more Unix-like, with aligned output.
+
 
 ---
 
@@ -14,11 +16,13 @@ The output of du has now been made more Unix-like, with aligned output.
 
 Just some minor printography fixes.
 
+
 ---
 
 * [HADOOP-11554](https://issues.apache.org/jira/browse/HADOOP-11554) | *Major* | **Expose HadoopKerberosName as a hadoop subcommand**
 
 The hadoop kerbname subcommand has been added to ease operational pain in determining the output of auth\_to\_local rules.
+
 
 ---
 
@@ -57,20 +61,27 @@ The following shell environment variables have been deprecated:
 | KMS\_CONFIG |HADOOP\_CONF\_DIR|
 | KMS\_LOG |HADOOP\_LOG\_DIR |
 
+
 ---
 
 * [HADOOP-11356](https://issues.apache.org/jira/browse/HADOOP-11356) | *Major* | **Removed deprecated o.a.h.fs.permission.AccessControlException**
+
+**WARNING: No release note provided for this incompatible change.**
+
+
 ---
 
 * [HADOOP-11353](https://issues.apache.org/jira/browse/HADOOP-11353) | *Major* | **Add support for .hadooprc**
 
 .hadooprc allows users a convenient way to set and/or override the shell level settings.
 
+
 ---
 
 * [HADOOP-11041](https://issues.apache.org/jira/browse/HADOOP-11041) | *Minor* | **VersionInfo output specifies subversion**
 
 This changes the output of the 'hadoop version' command to generically say 'Source code repository' rather than specify which type of repo.
+
 
 ---
 
@@ -84,14 +95,20 @@ This changes the output of the 'hadoop version' command to generically say 'Sour
 
 * All global and daemon-specific heap size variables now support units.  If the variable is only a number, the size is assumed to be in megabytes.
 
+
 ---
 
 * [HADOOP-10474](https://issues.apache.org/jira/browse/HADOOP-10474) | *Major* | **Move o.a.h.record to hadoop-streaming**
+
+**WARNING: No release note provided for this incompatible change.**
+
+
 ---
 
 * [HADOOP-10115](https://issues.apache.org/jira/browse/HADOOP-10115) | *Major* | **Exclude duplicate jars in hadoop package under different component's lib**
 
 Jars in the various subproject lib directories are now de-duplicated against Hadoop common.  Users who interact directly with those directories must be sure to pull in common's dependencies as well.
+
 
 ---
 
@@ -157,11 +174,13 @@ IMPROVEMENTS:
 * Groundwork has been laid to allow for custom secure daemon setup using something other than jsvc (e.g., pfexec on Solaris).
 * Scripts now test and report better error messages for various states of the log and pid dirs on daemon startup.  Before, unprotected shell errors would be displayed to the user.
 
+
 ---
 
 * [HADOOP-9265](https://issues.apache.org/jira/browse/HADOOP-9265) | *Major* | **S3 blockstore filesystem breaks part of the Filesystem contract**
 
 fixed in HADOOP-9258
+
 
 ---
 
@@ -169,11 +188,13 @@ fixed in HADOOP-9258
 
 fixed in HADOOP-9258
 
+
 ---
 
 * [HADOOP-8934](https://issues.apache.org/jira/browse/HADOOP-8934) | *Minor* | **Shell command ls should include sort options**
 
 Options to sort output of fs -ls comment: -t (mtime), -S (size), -u (atime), -r (reverse)
+
 
 ---
 
@@ -183,11 +204,13 @@ test-patch.sh adds a new option "--build-native". When set to false native
 components are not built. When set to true native components are built. The
 default value is true.
 
+
 ---
 
 * [HADOOP-8124](https://issues.apache.org/jira/browse/HADOOP-8124) | *Major* | **Remove the deprecated Syncable.sync() method**
 
 Remove the deprecated FSDataOutputStream constructor, FSDataOutputStream.sync() and Syncable.sync().
+
 
 ---
 
@@ -195,11 +218,13 @@ Remove the deprecated FSDataOutputStream constructor, FSDataOutputStream.sync() 
 
 Added -v option to fs -count command to display a header record in the report.
 
+
 ---
 
 * [HADOOP-7659](https://issues.apache.org/jira/browse/HADOOP-7659) | *Minor* | **fs -getmerge isn't guaranteed to work well over non-HDFS filesystems**
 
 Documented that the "fs -getmerge" shell command may not work properly over non HDFS-filesystem implementations due to platform-varying file list ordering.
+
 
 ---
 

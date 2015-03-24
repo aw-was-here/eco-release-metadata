@@ -2,20 +2,27 @@
 
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
 
+
 ---
 
 * [HADOOP-11729](https://issues.apache.org/jira/browse/HADOOP-11729) | *Minor* | **Fix link to cgroups doc in site.xml**
 
 Committed this to trunk, branch-2, and branch-2.7. Thanks Masatake for your contribution!
 
+
 ---
 
 * [HADOOP-11498](https://issues.apache.org/jira/browse/HADOOP-11498) | *Major* | **Bump the version of HTrace to 3.1.0-incubating**
+
+**WARNING: No release note provided for this incompatible change.**
+
+
 ---
 
 * [HADOOP-11497](https://issues.apache.org/jira/browse/HADOOP-11497) | *Major* | **Fix typo in ClusterSetup.html#Hadoop\_Startup**
 
 Correct startup command for cluster data nodes
+
 
 ---
 
@@ -28,11 +35,13 @@ Apache Curator version change: Apache Hadoop has updated the version of Apache C
 
 Downstream users are reminded that while the Hadoop community will attempt to avoid egregious incompatible dependency changes, there is currently no policy around when Hadoop's exposed dependencies will change across versions (ref http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/Compatibility.html#Java\_Classpath).
 
+
 ---
 
 * [HADOOP-11464](https://issues.apache.org/jira/browse/HADOOP-11464) | *Major* | **Reinstate support for launching Hadoop processes on Windows using Cygwin.**
 
 We have reinstated support for launching Hadoop processes on Windows by using Cygwin to run the shell scripts.  All processes still must have access to the native components: hadoop.dll and winutils.exe.
+
 
 ---
 
@@ -44,14 +53,20 @@ fs.s3a.threads.core:    the number of threads to keep in the pool used by Transf
 fs.s3a.threads.keepalivetime:  when the number of threads is greater than the core, this is the maximum time that excess idle threads will wait for new tasks before terminating
 fs.s3a.max.total.tasks:    the maximum number of tasks that the LinkedBlockingQueue can hold
 
+
 ---
 
 * [HADOOP-11385](https://issues.apache.org/jira/browse/HADOOP-11385) | *Critical* | **Prevent cross site scripting attack on JMXJSONServlet**
+
+**WARNING: No release note provided for this incompatible change.**
+
+
 ---
 
 * [HADOOP-11348](https://issues.apache.org/jira/browse/HADOOP-11348) | *Minor* | **Remove unused variable from CMake error message for finding openssl**
 
 Test failure is unrelated.  Committed to 2.7.  Thanks, Dian.
+
 
 ---
 
@@ -59,14 +74,20 @@ Test failure is unrelated.  Committed to 2.7.  Thanks, Dian.
 
 Keys with uppercase names can no longer be created when using the JavaKeyStoreProvider to resolve ambiguity about case-sensitivity in the KeyStore spec.
 
+
 ---
 
 * [HADOOP-10530](https://issues.apache.org/jira/browse/HADOOP-10530) | *Blocker* | **Make hadoop trunk build on Java7+ only**
+
+**WARNING: No release note provided for this incompatible change.**
+
+
 ---
 
 * [HADOOP-10181](https://issues.apache.org/jira/browse/HADOOP-10181) | *Minor* | **GangliaContext does not work with multicast ganglia setup**
 
 Hadoop metrics sent to Ganglia over multicast now support optional configuration of socket TTL.  The default TTL is 1, which preserves the behavior of prior Hadoop versions.  Clusters that span multiple subnets/VLANs will likely want to increase this.
+
 
 ---
 
@@ -74,11 +95,13 @@ Hadoop metrics sent to Ganglia over multicast now support optional configuration
 
 The Hadoop Common native components now support 32-bit build targets on Windows.
 
+
 ---
 
 * [HADOOP-9629](https://issues.apache.org/jira/browse/HADOOP-9629) | *Major* | **Support Windows Azure Storage - Blob as a file system in Hadoop**
 
 Hadoop now supports integration with Azure Storage as an alternative Hadoop Compatible File System.
+
 
 ---
 
@@ -89,6 +112,7 @@ Added a section to BUILDING.txt on how to install required / optional packages o
 Went through the CMakeLists.txt files in the repo and added the following optional library dependencies - Snappy, Bzip2, Linux FUSE and Jansson.
 
 Updated the required packages / version numbers from the trunk branch version of BUILDING.txt.
+
 
 ---
 

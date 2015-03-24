@@ -2,20 +2,27 @@
 
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
 
+
 ---
 
 * [HADOOP-11729](https://issues.apache.org/jira/browse/HADOOP-11729) | *Minor* | **Fix link to cgroups doc in site.xml**
 
 Committed this to trunk, branch-2, and branch-2.7. Thanks Masatake for your contribution!
 
+
 ---
 
 * [HADOOP-11498](https://issues.apache.org/jira/browse/HADOOP-11498) | *Major* | **Bump the version of HTrace to 3.1.0-incubating**
+
+**WARNING: No release note provided for this incompatible change.**
+
+
 ---
 
 * [HADOOP-11497](https://issues.apache.org/jira/browse/HADOOP-11497) | *Major* | **Fix typo in ClusterSetup.html#Hadoop\_Startup**
 
 Correct startup command for cluster data nodes
+
 
 ---
 
@@ -28,11 +35,13 @@ Apache Curator version change: Apache Hadoop has updated the version of Apache C
 
 Downstream users are reminded that while the Hadoop community will attempt to avoid egregious incompatible dependency changes, there is currently no policy around when Hadoop's exposed dependencies will change across versions (ref http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/Compatibility.html#Java\_Classpath).
 
+
 ---
 
 * [HADOOP-11464](https://issues.apache.org/jira/browse/HADOOP-11464) | *Major* | **Reinstate support for launching Hadoop processes on Windows using Cygwin.**
 
 We have reinstated support for launching Hadoop processes on Windows by using Cygwin to run the shell scripts.  All processes still must have access to the native components: hadoop.dll and winutils.exe.
+
 
 ---
 
@@ -44,14 +53,20 @@ fs.s3a.threads.core:    the number of threads to keep in the pool used by Transf
 fs.s3a.threads.keepalivetime:  when the number of threads is greater than the core, this is the maximum time that excess idle threads will wait for new tasks before terminating
 fs.s3a.max.total.tasks:    the maximum number of tasks that the LinkedBlockingQueue can hold
 
+
 ---
 
 * [HADOOP-11385](https://issues.apache.org/jira/browse/HADOOP-11385) | *Critical* | **Prevent cross site scripting attack on JMXJSONServlet**
+
+**WARNING: No release note provided for this incompatible change.**
+
+
 ---
 
 * [HADOOP-11348](https://issues.apache.org/jira/browse/HADOOP-11348) | *Minor* | **Remove unused variable from CMake error message for finding openssl**
 
 Test failure is unrelated.  Committed to 2.7.  Thanks, Dian.
+
 
 ---
 
@@ -59,14 +74,20 @@ Test failure is unrelated.  Committed to 2.7.  Thanks, Dian.
 
 Keys with uppercase names can no longer be created when using the JavaKeyStoreProvider to resolve ambiguity about case-sensitivity in the KeyStore spec.
 
+
 ---
 
 * [HADOOP-10530](https://issues.apache.org/jira/browse/HADOOP-10530) | *Blocker* | **Make hadoop trunk build on Java7+ only**
+
+**WARNING: No release note provided for this incompatible change.**
+
+
 ---
 
 * [HADOOP-10181](https://issues.apache.org/jira/browse/HADOOP-10181) | *Minor* | **GangliaContext does not work with multicast ganglia setup**
 
 Hadoop metrics sent to Ganglia over multicast now support optional configuration of socket TTL.  The default TTL is 1, which preserves the behavior of prior Hadoop versions.  Clusters that span multiple subnets/VLANs will likely want to increase this.
+
 
 ---
 
@@ -74,11 +95,13 @@ Hadoop metrics sent to Ganglia over multicast now support optional configuration
 
 The Hadoop Common native components now support 32-bit build targets on Windows.
 
+
 ---
 
 * [HADOOP-9629](https://issues.apache.org/jira/browse/HADOOP-9629) | *Major* | **Support Windows Azure Storage - Blob as a file system in Hadoop**
 
 Hadoop now supports integration with Azure Storage as an alternative Hadoop Compatible File System.
+
 
 ---
 
@@ -90,11 +113,13 @@ Went through the CMakeLists.txt files in the repo and added the following option
 
 Updated the required packages / version numbers from the trunk branch version of BUILDING.txt.
 
+
 ---
 
 * [HADOOP-8989](https://issues.apache.org/jira/browse/HADOOP-8989) | *Major* | **hadoop fs -find feature**
 
 New fs -find command
+
 
 ---
 
@@ -102,11 +127,13 @@ New fs -find command
 
 This fix moves the public class StorageType from the package org.apache.hadoop.hdfs to org.apache.hadoop.fs.
 
+
 ---
 
 * [HDFS-7774](https://issues.apache.org/jira/browse/HDFS-7774) | *Critical* | **Unresolved symbols error while compiling HDFS on Windows 7/32 bit**
 
 LibHDFS now supports 32-bit build targets on Windows.
+
 
 ---
 
@@ -115,17 +142,20 @@ LibHDFS now supports 32-bit build targets on Windows.
 1. Introduced quota by storage type as a hard limit on the amount of space usage allowed for different storage types (SSD, DISK, ARCHIVE) under the target directory.
 2. Added {{SetQuotaByStorageType}} API and {{-storagetype}} option for  {{hdfs dfsadmin -setSpaceQuota/-clrSpaceQuota}} commands to allow set/clear quota by storage type under the target directory.
 
+
 ---
 
 * [HDFS-7457](https://issues.apache.org/jira/browse/HDFS-7457) | *Major* | **DatanodeID generates excessive garbage**
 
 Thanks for the reviews, gentlemen. I've committed this to trunk and branch-2. Thanks for identifying and working on the issue, Daryn.
 
+
 ---
 
 * [HDFS-7411](https://issues.apache.org/jira/browse/HDFS-7411) | *Major* | **Refactor and improve decommissioning logic into DecommissionManager**
 
 This change introduces a new configuration key used to throttle decommissioning work, "dfs.namenode.decommission.blocks.per.interval". This new key overrides and deprecates the previous related configuration key "dfs.namenode.decommission.nodes.per.interval". The new key is intended to result in more predictable pause times while scanning decommissioning nodes.
+
 
 ---
 
@@ -141,17 +171,27 @@ $ mvn clean site; mvn site:stage -DstagingDirectory=/tmp/hadoop-site
 Point your browser to 
 file:///tmp/hadoop-site/hadoop-project/hadoop-project-dist/hadoop-hdfs/HDFSCommands.html
 
+
 ---
 
 * [HDFS-6651](https://issues.apache.org/jira/browse/HDFS-6651) | *Critical* | **Deletion failure can leak inodes permanently**
+
+**WARNING: No release note provided for this incompatible change.**
+
+
 ---
 
 * [HDFS-6252](https://issues.apache.org/jira/browse/HDFS-6252) | *Minor* | **Phase out the old web UI in HDFS**
+
+**WARNING: No release note provided for this incompatible change.**
+
+
 ---
 
 * [HDFS-6133](https://issues.apache.org/jira/browse/HDFS-6133) | *Major* | **Make Balancer support exclude specified path**
 
 Add a feature for replica pinning so that when a replica is pinned in a datanode, it will not be moved by Balancer/Mover.  The replica pinning feature can be enabled/disabled by "dfs.datanode.block-pinning.enabled", where the default is false.
+
 
 ---
 
@@ -160,6 +200,7 @@ Add a feature for replica pinning so that when a replica is pinned in a datanode
 1. HDFS now can choose to append data to a new block instead of end of the last partial block. Users can pass {{CreateFlag.APPEND}} and  {{CreateFlag.NEW\_BLOCK}} to the {{append}} API to indicate this requirement.
 2. HDFS now allows users to pass {{SyncFlag.END\_BLOCK}} to the {{hsync}} API to finish the current block and write remaining data to a new block.
 
+
 ---
 
 * [HDFS-1522](https://issues.apache.org/jira/browse/HDFS-1522) | *Major* | **Merge Block.BLOCK\_FILE\_PREFIX and DataStorage.BLOCK\_FILE\_PREFIX into one constant**
@@ -167,11 +208,13 @@ Add a feature for replica pinning so that when a replica is pinned in a datanode
 This merges Block.BLOCK\_FILE\_PREFIX and DataStorage.BLOCK\_FILE\_PREFIX into one constant. Hard-coded
 literals of "blk\_" in various files are also updated to use the same constant.
 
+
 ---
 
 * [HDFS-1362](https://issues.apache.org/jira/browse/HDFS-1362) | *Major* | **Provide volume management functionality for DataNode**
 
 Based on the reconfiguration framework provided by HADOOP-7001, enable reconfigure the dfs.datanode.data.dir and add new volumes into service.
+
 
 ---
 
@@ -182,6 +225,7 @@ I have modified the description of the yarn.scheduler.maximum-allocation-vcores 
 Since this is a documentation change, I have not added any test cases.
 
 Please review the patch, thanks!
+
 
 ---
 

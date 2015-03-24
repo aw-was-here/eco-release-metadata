@@ -2,11 +2,13 @@
 
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
 
+
 ---
 
 * [HADOOP-10295](https://issues.apache.org/jira/browse/HADOOP-10295) | *Major* | **Allow distcp to automatically identify the checksum type of source files and use it for the target**
 
 Add option for distcp to preserve the checksum type of the source files. Users can use "-pc" as distcp command option to preserve the checksum type.
+
 
 ---
 
@@ -18,11 +20,13 @@ Note that this change, effectively removes SaslRpcServer.SASL\_PROPS which was a
 SaslPropertiesResolver saslPropsResolver = SaslPropertiesResolver.getInstance(conf);
 Map<String, String> sasl\_props = saslPropsResolver.getDefaultProperties();
 
+
 ---
 
 * [HADOOP-10211](https://issues.apache.org/jira/browse/HADOOP-10211) | *Major* | **Enable RPC protocol to negotiate SASL-QOP values between clients and servers**
 
 The hadoop.rpc.protection configuration property previously supported specifying a single value: one of authentication, integrity or privacy.  An unrecognized value was silently assumed to mean authentication.  This configuration property now accepts a comma-separated list of any of the 3 values, and unrecognized values are rejected with an error. Existing configurations containing an invalid value must be corrected. If the property is empty or not specified, authentication is assumed.
+
 
 ---
 

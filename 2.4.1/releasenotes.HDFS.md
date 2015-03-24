@@ -2,6 +2,7 @@
 
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
 
+
 ---
 
 * [HDFS-6325](https://issues.apache.org/jira/browse/HDFS-6325) | *Major* | **Append should fail if the last block has insufficient number of replicas**
