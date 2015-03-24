@@ -1,6 +1,6 @@
 # Hadoop Changelog
 
-## Release 2.0.0-alpha - 2015-03-23
+## Release 2.0.0-alpha - 2012-05-23
 
 ### INCOMPATIBLE CHANGES:
 

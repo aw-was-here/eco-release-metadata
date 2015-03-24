@@ -1,6 +1,6 @@
 # Hadoop Changelog
 
-## Release 2.5.1 - 2015-03-23
+## Release 2.5.1 - 2014-09-05
 
 ### INCOMPATIBLE CHANGES:
 
