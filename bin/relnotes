@@ -10,17 +10,6 @@ if [[ ! -e "${src}/releasedocmaker.py" ]]; then
   exit 1
 fi
 
-"${src}/releasedocmaker.py" --version "${new}"
+cd ${hrmd}
+"${src}/releasedocmaker.py" --version "${new}" --index
 
-mkdir -p "${hrmd}/${new}/"
-
-for i in *.md
-do
-  j=$(echo "${i}" | sed -e "s,.${new},,g")
-  mv "${i}" "${hrmd}/${new}/${j}"
-done
-oldp=$(pwd)
-cd "${hrmd}"
-git add "${new}/*"
-cd "${oldp}"
-#git push
