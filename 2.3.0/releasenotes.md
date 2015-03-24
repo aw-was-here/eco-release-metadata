@@ -2,8 +2,6 @@
 
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
 
-## Changes since Hadoop 2.2.1
-
 ---
 
 * [HADOOP-10047](https://issues.apache.org/jira/browse/HADOOP-10047) | *Major* | **Add a directbuffer Decompressor API to hadoop**

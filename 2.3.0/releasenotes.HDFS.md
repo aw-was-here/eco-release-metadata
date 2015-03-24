@@ -2,8 +2,6 @@
 
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
 
-## Changes since Hadoop 2.2.1
-
 ---
 
 * [HDFS-5704](https://issues.apache.org/jira/browse/HDFS-5704) | *Major* | **Change OP\_UPDATE\_BLOCKS  with a new OP\_ADD\_BLOCK**

@@ -2,8 +2,6 @@
 
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
 
-## Changes since Hadoop 1.2.0
-
 ---
 
 * [HDFS-3286](https://issues.apache.org/jira/browse/HDFS-3286) | *Major* | **When the threshold value for balancer is 0(zero) ,unexpected output is displayed**

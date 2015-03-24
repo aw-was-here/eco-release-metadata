@@ -1,11 +1,12 @@
 # Hadoop Changelog
 
-## Release 2.8.0 - 2015-03-22
+## Release 2.8.0 - 2015-03-23
 
 ### INCOMPATIBLE CHANGES:
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [YARN-3241](https://issues.apache.org/jira/browse/YARN-3241) | FairScheduler handles "invalid" queue names inconsistently |  Major | fairscheduler | zhihai xu | zhihai xu |
 
 
 ### NEW FEATURES:
@@ -20,6 +21,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YARN-3350](https://issues.apache.org/jira/browse/YARN-3350) | YARN RackResolver spams logs with messages at info level |  Major | . | Wilfred Spiegelenburg | Wilfred Spiegelenburg |
 | [YARN-3273](https://issues.apache.org/jira/browse/YARN-3273) | Improve web UI to facilitate scheduling analysis and debugging |  Major | . | Jian He | Rohith |
+| [YARN-2868](https://issues.apache.org/jira/browse/YARN-2868) | FairScheduler: Metric for latency to allocate first container for an application |  Major | . | Ray Chiang | Ray Chiang |
 
 
 ### BUG FIXES:

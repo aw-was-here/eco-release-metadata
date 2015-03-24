@@ -2,8 +2,6 @@
 
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
 
-## Changes since Hadoop 1.2.0
-
 ---
 
 * [HADOOP-8314](https://issues.apache.org/jira/browse/HADOOP-8314) | *Major* | **HttpServer#hasAdminAccess should return false if authorization is enabled but user is not authenticated**

@@ -1,6 +1,6 @@
 # Hadoop Changelog
 
-## Release 2.7.0 - 2015-03-22
+## Release 2.7.0 - 2015-03-23
 
 ### INCOMPATIBLE CHANGES:
 
@@ -82,8 +82,11 @@
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [YARN-3393](https://issues.apache.org/jira/browse/YARN-3393) | Getting application(s) goes wrong when app finishes before starting the attempt |  Critical | timelineserver | Zhijie Shen | Zhijie Shen |
+| [YARN-3384](https://issues.apache.org/jira/browse/YARN-3384) | TestLogAggregationService.verifyContainerLogs fails after YARN-2777 |  Minor | . | Naganarasimha G R | Naganarasimha G R |
 | [YARN-3369](https://issues.apache.org/jira/browse/YARN-3369) | Missing NullPointer check in AppSchedulingInfo causes RM to die |  Blocker | resourcemanager | Giovanni Matteo Fumarola | Brahma Reddy Battula |
 | [YARN-3338](https://issues.apache.org/jira/browse/YARN-3338) | Exclude jline dependency from YARN |  Blocker | build | Zhijie Shen | Zhijie Shen |
+| [YARN-3336](https://issues.apache.org/jira/browse/YARN-3336) | FileSystem memory leak in DelegationTokenRenewer |  Critical | resourcemanager | zhihai xu | zhihai xu |
 | [YARN-3296](https://issues.apache.org/jira/browse/YARN-3296) | yarn.nodemanager.container-monitor.process-tree.class is configurable but ResourceCalculatorProcessTree class is marked Private |  Major | . | Hitesh Shah | Hitesh Shah |
 | [YARN-3295](https://issues.apache.org/jira/browse/YARN-3295) | Fix documentation nits found in markdown conversion |  Trivial | documentation | Masatake Iwasaki | Masatake Iwasaki |
 | [YARN-3287](https://issues.apache.org/jira/browse/YARN-3287) | TimelineClient kerberos authentication failure uses wrong login context. |  Major | . | Jonathan Eagles | Daryn Sharp |

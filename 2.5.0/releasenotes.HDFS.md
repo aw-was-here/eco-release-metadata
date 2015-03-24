@@ -2,8 +2,6 @@
 
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
 
-## Changes since Hadoop 2.4.1
-
 ---
 
 * [HDFS-6471](https://issues.apache.org/jira/browse/HDFS-6471) | *Major* | **Make moveFromLocal CLI testcases to be non-disruptive**

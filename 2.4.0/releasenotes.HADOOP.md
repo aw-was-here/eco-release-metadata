@@ -2,8 +2,6 @@
 
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
 
-## Changes since Hadoop 2.3.0
-
 ---
 
 * [HADOOP-10295](https://issues.apache.org/jira/browse/HADOOP-10295) | *Major* | **Allow distcp to automatically identify the checksum type of source files and use it for the target**

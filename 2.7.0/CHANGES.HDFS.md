@@ -1,6 +1,6 @@
 # Hadoop Changelog
 
-## Release 2.7.0 - 2015-03-22
+## Release 2.7.0 - 2015-03-23
 
 ### INCOMPATIBLE CHANGES:
 
@@ -31,6 +31,7 @@
 | JIRA | Description | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-7962](https://issues.apache.org/jira/browse/HDFS-7962) | Remove duplicated logs in BlockManager |  Minor | . | Yi Liu | Yi Liu |
+| [HDFS-7917](https://issues.apache.org/jira/browse/HDFS-7917) | Use file to replace data dirs in test to simulate a disk failure. |  Minor | test | Lei (Eddy) Xu | Lei (Eddy) Xu |
 | [HDFS-7898](https://issues.apache.org/jira/browse/HDFS-7898) | Change TestAppendSnapshotTruncate to fail-fast |  Minor | test | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HDFS-7849](https://issues.apache.org/jira/browse/HDFS-7849) | Update documentation for enabling a new feature in rolling upgrade |  Minor | documentation | Tsz Wo Nicholas Sze | J.Andreina |
 | [HDFS-7832](https://issues.apache.org/jira/browse/HDFS-7832) | Show 'Last Modified' in Namenode's 'Browse Filesystem' |  Major | namenode | Vinayakumar B | Vinayakumar B |
@@ -138,6 +139,7 @@
 | [HDFS-7953](https://issues.apache.org/jira/browse/HDFS-7953) | NN Web UI fails to navigate to paths that contain # |  Minor | namenode | kanaka kumar avvaru | kanaka kumar avvaru |
 | [HDFS-7945](https://issues.apache.org/jira/browse/HDFS-7945) | The WebHdfs system on DN does not honor the length parameter |  Blocker | . | Haohui Mai | Haohui Mai |
 | [HDFS-7943](https://issues.apache.org/jira/browse/HDFS-7943) | Append cannot handle the last block with length greater than the preferred block size |  Blocker | . | Jing Zhao | Jing Zhao |
+| [HDFS-7942](https://issues.apache.org/jira/browse/HDFS-7942) | NFS: support regexp grouping in nfs.exports.allowed.hosts |  Major | nfs | Brandon Li | Brandon Li |
 | [HDFS-7932](https://issues.apache.org/jira/browse/HDFS-7932) | Speed up the shutdown of datanode during rolling upgrade |  Major | . | Kihwal Lee | Kihwal Lee |
 | [HDFS-7930](https://issues.apache.org/jira/browse/HDFS-7930) | commitBlockSynchronization() does not remove locations |  Blocker | namenode | Konstantin Shvachko | Yi Liu |
 | [HDFS-7929](https://issues.apache.org/jira/browse/HDFS-7929) | inotify unable fetch pre-upgrade edit log segments once upgrade starts |  Major | . | Zhe Zhang | Zhe Zhang |
@@ -145,6 +147,7 @@
 | [HDFS-7915](https://issues.apache.org/jira/browse/HDFS-7915) | The DataNode can sometimes allocate a ShortCircuitShm slot and fail to tell the DFSClient about it because of a network error |  Major | . | Colin Patrick McCabe | Colin Patrick McCabe |
 | [HDFS-7886](https://issues.apache.org/jira/browse/HDFS-7886) | TestFileTruncate#testTruncateWithDataNodesRestart runs timeout sometimes |  Minor | test | Yi Liu | Plamen Jeliazkov |
 | [HDFS-7885](https://issues.apache.org/jira/browse/HDFS-7885) | Datanode should not trust the generation stamp provided by client |  Critical | datanode | vitthal (Suhas) Gogate | Tsz Wo Nicholas Sze |
+| [HDFS-7881](https://issues.apache.org/jira/browse/HDFS-7881) | TestHftpFileSystem#testSeek fails in branch-2 |  Blocker | . | Akira AJISAKA | Brahma Reddy Battula |
 | [HDFS-7880](https://issues.apache.org/jira/browse/HDFS-7880) | Remove the tests for legacy Web UI in branch-2 |  Blocker | test | Akira AJISAKA | Brahma Reddy Battula |
 | [HDFS-7879](https://issues.apache.org/jira/browse/HDFS-7879) | hdfs.dll does not export functions of the public libhdfs API |  Major | build, libhdfs | Chris Nauroth | Chris Nauroth |
 | [HDFS-7871](https://issues.apache.org/jira/browse/HDFS-7871) | NameNodeEditLogRoller can keep printing "Swallowing exception" message |  Critical | . | Jing Zhao | Jing Zhao |

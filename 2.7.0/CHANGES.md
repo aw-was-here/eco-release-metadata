@@ -1,6 +1,6 @@
 # Hadoop Changelog
 
-## Release 2.7.0 - 2015-03-22
+## Release 2.7.0 - 2015-03-23
 
 ### INCOMPATIBLE CHANGES:
 
@@ -113,6 +113,7 @@
 | [HADOOP-8059](https://issues.apache.org/jira/browse/HADOOP-8059) | Add javadoc to InterfaceAudience and InterfaceStability |  Major | documentation | Suresh Srinivas | Brandon Li |
 | [HADOOP-4297](https://issues.apache.org/jira/browse/HADOOP-4297) | Enable Java assertions when running tests |  Major | build | Yoram Kulbak | Tsz Wo Nicholas Sze |
 | [HDFS-7962](https://issues.apache.org/jira/browse/HDFS-7962) | Remove duplicated logs in BlockManager |  Minor | . | Yi Liu | Yi Liu |
+| [HDFS-7917](https://issues.apache.org/jira/browse/HDFS-7917) | Use file to replace data dirs in test to simulate a disk failure. |  Minor | test | Lei (Eddy) Xu | Lei (Eddy) Xu |
 | [HDFS-7898](https://issues.apache.org/jira/browse/HDFS-7898) | Change TestAppendSnapshotTruncate to fail-fast |  Minor | test | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HDFS-7849](https://issues.apache.org/jira/browse/HDFS-7849) | Update documentation for enabling a new feature in rolling upgrade |  Minor | documentation | Tsz Wo Nicholas Sze | J.Andreina |
 | [HDFS-7832](https://issues.apache.org/jira/browse/HDFS-7832) | Show 'Last Modified' in Namenode's 'Browse Filesystem' |  Major | namenode | Vinayakumar B | Vinayakumar B |
@@ -425,6 +426,7 @@
 | [HDFS-7953](https://issues.apache.org/jira/browse/HDFS-7953) | NN Web UI fails to navigate to paths that contain # |  Minor | namenode | kanaka kumar avvaru | kanaka kumar avvaru |
 | [HDFS-7945](https://issues.apache.org/jira/browse/HDFS-7945) | The WebHdfs system on DN does not honor the length parameter |  Blocker | . | Haohui Mai | Haohui Mai |
 | [HDFS-7943](https://issues.apache.org/jira/browse/HDFS-7943) | Append cannot handle the last block with length greater than the preferred block size |  Blocker | . | Jing Zhao | Jing Zhao |
+| [HDFS-7942](https://issues.apache.org/jira/browse/HDFS-7942) | NFS: support regexp grouping in nfs.exports.allowed.hosts |  Major | nfs | Brandon Li | Brandon Li |
 | [HDFS-7932](https://issues.apache.org/jira/browse/HDFS-7932) | Speed up the shutdown of datanode during rolling upgrade |  Major | . | Kihwal Lee | Kihwal Lee |
 | [HDFS-7930](https://issues.apache.org/jira/browse/HDFS-7930) | commitBlockSynchronization() does not remove locations |  Blocker | namenode | Konstantin Shvachko | Yi Liu |
 | [HDFS-7929](https://issues.apache.org/jira/browse/HDFS-7929) | inotify unable fetch pre-upgrade edit log segments once upgrade starts |  Major | . | Zhe Zhang | Zhe Zhang |
@@ -432,6 +434,7 @@
 | [HDFS-7915](https://issues.apache.org/jira/browse/HDFS-7915) | The DataNode can sometimes allocate a ShortCircuitShm slot and fail to tell the DFSClient about it because of a network error |  Major | . | Colin Patrick McCabe | Colin Patrick McCabe |
 | [HDFS-7886](https://issues.apache.org/jira/browse/HDFS-7886) | TestFileTruncate#testTruncateWithDataNodesRestart runs timeout sometimes |  Minor | test | Yi Liu | Plamen Jeliazkov |
 | [HDFS-7885](https://issues.apache.org/jira/browse/HDFS-7885) | Datanode should not trust the generation stamp provided by client |  Critical | datanode | vitthal (Suhas) Gogate | Tsz Wo Nicholas Sze |
+| [HDFS-7881](https://issues.apache.org/jira/browse/HDFS-7881) | TestHftpFileSystem#testSeek fails in branch-2 |  Blocker | . | Akira AJISAKA | Brahma Reddy Battula |
 | [HDFS-7880](https://issues.apache.org/jira/browse/HDFS-7880) | Remove the tests for legacy Web UI in branch-2 |  Blocker | test | Akira AJISAKA | Brahma Reddy Battula |
 | [HDFS-7879](https://issues.apache.org/jira/browse/HDFS-7879) | hdfs.dll does not export functions of the public libhdfs API |  Major | build, libhdfs | Chris Nauroth | Chris Nauroth |
 | [HDFS-7871](https://issues.apache.org/jira/browse/HDFS-7871) | NameNodeEditLogRoller can keep printing "Swallowing exception" message |  Critical | . | Jing Zhao | Jing Zhao |
@@ -594,8 +597,11 @@
 | [MAPREDUCE-4286](https://issues.apache.org/jira/browse/MAPREDUCE-4286) | TestClientProtocolProviderImpls passes on failure conditions |  Major | . | Devaraj K | Devaraj K |
 | [MAPREDUCE-3283](https://issues.apache.org/jira/browse/MAPREDUCE-3283) | mapred classpath CLI does not display the complete classpath |  Minor | scripts | Ramya Sunil | Varun Saxena |
 | [MAPREDUCE-2815](https://issues.apache.org/jira/browse/MAPREDUCE-2815) | JavaDoc does not generate correctly for MultithreadedMapRunner |  Minor | documentation | Shane Butler | Chris Palmer |
+| [YARN-3393](https://issues.apache.org/jira/browse/YARN-3393) | Getting application(s) goes wrong when app finishes before starting the attempt |  Critical | timelineserver | Zhijie Shen | Zhijie Shen |
+| [YARN-3384](https://issues.apache.org/jira/browse/YARN-3384) | TestLogAggregationService.verifyContainerLogs fails after YARN-2777 |  Minor | . | Naganarasimha G R | Naganarasimha G R |
 | [YARN-3369](https://issues.apache.org/jira/browse/YARN-3369) | Missing NullPointer check in AppSchedulingInfo causes RM to die |  Blocker | resourcemanager | Giovanni Matteo Fumarola | Brahma Reddy Battula |
 | [YARN-3338](https://issues.apache.org/jira/browse/YARN-3338) | Exclude jline dependency from YARN |  Blocker | build | Zhijie Shen | Zhijie Shen |
+| [YARN-3336](https://issues.apache.org/jira/browse/YARN-3336) | FileSystem memory leak in DelegationTokenRenewer |  Critical | resourcemanager | zhihai xu | zhihai xu |
 | [YARN-3296](https://issues.apache.org/jira/browse/YARN-3296) | yarn.nodemanager.container-monitor.process-tree.class is configurable but ResourceCalculatorProcessTree class is marked Private |  Major | . | Hitesh Shah | Hitesh Shah |
 | [YARN-3295](https://issues.apache.org/jira/browse/YARN-3295) | Fix documentation nits found in markdown conversion |  Trivial | documentation | Masatake Iwasaki | Masatake Iwasaki |
 | [YARN-3287](https://issues.apache.org/jira/browse/YARN-3287) | TimelineClient kerberos authentication failure uses wrong login context. |  Major | . | Jonathan Eagles | Daryn Sharp |

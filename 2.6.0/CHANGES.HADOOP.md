@@ -1,6 +1,6 @@
 # Hadoop Changelog
 
-## Release 2.6.0 - 2015-03-18
+## Release 2.6.0 - 2015-03-23
 
 ### INCOMPATIBLE CHANGES:
 
@@ -16,7 +16,7 @@
 | [HADOOP-10893](https://issues.apache.org/jira/browse/HADOOP-10893) | isolated classloader on the client side |  Major | util | Sangjin Lee | Sangjin Lee |
 | [HADOOP-10719](https://issues.apache.org/jira/browse/HADOOP-10719) | Add generateEncryptedKey and decryptEncryptedKey methods to KeyProvider |  Major | security | Alejandro Abdelnur | Arun Suresh |
 | [HADOOP-10607](https://issues.apache.org/jira/browse/HADOOP-10607) | Create an API to Separate Credentials/Password Storage from Applications |  Major | security | Larry McCay | Larry McCay |
-| [HADOOP-10400](https://issues.apache.org/jira/browse/HADOOP-10400) | Incorporate new S3A FileSystem implementation |  Major | fs, fs/s3 | Jordan Mendelson |  |
+| [HADOOP-10400](https://issues.apache.org/jira/browse/HADOOP-10400) | Incorporate new S3A FileSystem implementation |  Major | fs, fs/s3 | Jordan Mendelson | Jordan Mendelson |
 | [HADOOP-10150](https://issues.apache.org/jira/browse/HADOOP-10150) | Hadoop cryptographic file system |  Major | security | Yi Liu | Yi Liu |
 
 
@@ -231,6 +231,7 @@
 | [HADOOP-10131](https://issues.apache.org/jira/browse/HADOOP-10131) | NetWorkTopology#countNumOfAvailableNodes() is returning wrong value if excluded nodes passed are not part of the cluster tree |  Major | . | Vinayakumar B | Vinayakumar B |
 | [HADOOP-10121](https://issues.apache.org/jira/browse/HADOOP-10121) | Fix javadoc spelling for HadoopArchives#writeTopLevelDirs |  Trivial | documentation | Akira AJISAKA | Akira AJISAKA |
 | [HADOOP-10059](https://issues.apache.org/jira/browse/HADOOP-10059) | RPC authentication and authorization metrics overflow to negative values on busy clusters |  Minor | metrics | Jason Lowe | Tsuyoshi Ozawa |
+| [HADOOP-10037](https://issues.apache.org/jira/browse/HADOOP-10037) | s3n read truncated, but doesn't throw exception |  Major | fs/s3 | David Rosenstrauch |  |
 | [HADOOP-9989](https://issues.apache.org/jira/browse/HADOOP-9989) | Bug introduced in HADOOP-9374, which parses the -tokenCacheFile as binary file but set it to the configuration as JSON file. |  Major | security, util | Jinghui Wang | zhihai xu |
 | [HADOOP-9921](https://issues.apache.org/jira/browse/HADOOP-9921) | daemon scripts should remove pid file on stop call after stop or process is found not running |  Major | . | Vinayakumar B | Vinayakumar B |
 | [HADOOP-9740](https://issues.apache.org/jira/browse/HADOOP-9740) | FsShell's Text command does not read avro data files stored on HDFS |  Major | fs | Allan Yan | Allan Yan |
