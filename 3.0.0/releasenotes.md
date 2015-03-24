@@ -4,25 +4,10 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
-* [HADOOP-11703](https://issues.apache.org/jira/browse/HADOOP-11703) | *Major* | **git should ignore .DS\_Store files on Mac OS X**
----
-
-* [HADOOP-11673](https://issues.apache.org/jira/browse/HADOOP-11673) | *Minor* | **Use org.junit.Assume to skip tests instead of return**
----
-
-* [HADOOP-11668](https://issues.apache.org/jira/browse/HADOOP-11668) | *Major* | **hadoop-daemons.sh bw compat broke with --slaves change**
----
-
 * [HADOOP-11657](https://issues.apache.org/jira/browse/HADOOP-11657) | *Minor* | **Align the output of `hadoop fs -du` to be more Unix-like**
 
 The output of du has now been made more Unix-like, with aligned output.
 
----
-
-* [HADOOP-11653](https://issues.apache.org/jira/browse/HADOOP-11653) | *Major* | **shellprofiles should require .sh extension**
----
-
-* [HADOOP-11637](https://issues.apache.org/jira/browse/HADOOP-11637) | *Major* | **bash location hard-coded in shell scripts**
 ---
 
 * [HADOOP-11625](https://issues.apache.org/jira/browse/HADOOP-11625) | *Major* | **Minor fixes to command manual & SLA doc**
@@ -31,46 +16,10 @@ Just some minor printography fixes.
 
 ---
 
-* [HADOOP-11596](https://issues.apache.org/jira/browse/HADOOP-11596) | *Major* | **Allow smart-apply-patch.sh to add new files in binary git patches**
----
-
-* [HADOOP-11593](https://issues.apache.org/jira/browse/HADOOP-11593) | *Major* | **Convert site documentation from apt to markdown (stragglers)**
----
-
-* [HADOOP-11585](https://issues.apache.org/jira/browse/HADOOP-11585) | *Trivial* | **Fix formatting in Tracing.md**
----
-
-* [HADOOP-11583](https://issues.apache.org/jira/browse/HADOOP-11583) | *Trivial* | **Fix syntax error in SecureMode.md**
----
-
-* [HADOOP-11581](https://issues.apache.org/jira/browse/HADOOP-11581) | *Major* | **Fix Multithreaded correctness Warnings #org.apache.hadoop.fs.shell.Ls**
----
-
-* [HADOOP-11580](https://issues.apache.org/jira/browse/HADOOP-11580) | *Major* | **Remove SingleNodeSetup.md from trunk**
----
-
-* [HADOOP-11575](https://issues.apache.org/jira/browse/HADOOP-11575) | *Major* | **Daemon log documentation is misleading**
----
-
-* [HADOOP-11565](https://issues.apache.org/jira/browse/HADOOP-11565) | *Major* | **Add --slaves shell option**
----
-
-* [HADOOP-11559](https://issues.apache.org/jira/browse/HADOOP-11559) | *Minor* | **Add links to RackAwareness and InterfaceClassification to site index**
----
-
 * [HADOOP-11554](https://issues.apache.org/jira/browse/HADOOP-11554) | *Major* | **Expose HadoopKerberosName as a hadoop subcommand**
 
 The hadoop kerbname subcommand has been added to ease operational pain in determining the output of auth\_to\_local rules.
 
----
-
-* [HADOOP-11485](https://issues.apache.org/jira/browse/HADOOP-11485) | *Major* | **Pluggable shell integration**
----
-
-* [HADOOP-11484](https://issues.apache.org/jira/browse/HADOOP-11484) | *Minor* | **hadoop-mapreduce-client-nativetask fails to build on ARM AARCH64 due to x86 asm statements**
----
-
-* [HADOOP-11473](https://issues.apache.org/jira/browse/HADOOP-11473) | *Major* | **test-patch says "-1 overall" even when all checks are +1**
 ---
 
 * [HADOOP-11460](https://issues.apache.org/jira/browse/HADOOP-11460) | *Major* | **Deprecate shell vars**
@@ -110,15 +59,6 @@ The following shell environment variables have been deprecated:
 
 ---
 
-* [HADOOP-11437](https://issues.apache.org/jira/browse/HADOOP-11437) | *Major* | **Remove the version and author information from distcp's README file**
----
-
-* [HADOOP-11397](https://issues.apache.org/jira/browse/HADOOP-11397) | *Trivial* | **Can't override HADOOP\_IDENT\_STRING**
----
-
-* [HADOOP-11380](https://issues.apache.org/jira/browse/HADOOP-11380) | *Major* | **Restore Rack Awareness documentation**
----
-
 * [HADOOP-11356](https://issues.apache.org/jira/browse/HADOOP-11356) | *Major* | **Removed deprecated o.a.h.fs.permission.AccessControlException**
 ---
 
@@ -128,70 +68,10 @@ The following shell environment variables have been deprecated:
 
 ---
 
-* [HADOOP-11352](https://issues.apache.org/jira/browse/HADOOP-11352) | *Major* | **Clean up test-patch.sh to disable "+1 contrib tests"**
----
-
-* [HADOOP-11346](https://issues.apache.org/jira/browse/HADOOP-11346) | *Major* | **Rewrite sls/rumen to use new shell framework**
----
-
-* [HADOOP-11298](https://issues.apache.org/jira/browse/HADOOP-11298) | *Trivial* | **slaves.sh and stop-all.sh are missing slashes**
----
-
-* [HADOOP-11296](https://issues.apache.org/jira/browse/HADOOP-11296) | *Major* | **hadoop-daemons.sh throws 'host1: bash: host3: command not found...'**
----
-
-* [HADOOP-11284](https://issues.apache.org/jira/browse/HADOOP-11284) | *Minor* | **Fix variable name mismatches in hadoop-functions.sh**
----
-
-* [HADOOP-11240](https://issues.apache.org/jira/browse/HADOOP-11240) | *Blocker* | **Jenkins build seems to be broken by changes in test-patch.sh**
----
-
-* [HADOOP-11208](https://issues.apache.org/jira/browse/HADOOP-11208) | *Major* | **Replace "daemon" with better name in script subcommands**
----
-
-* [HADOOP-11150](https://issues.apache.org/jira/browse/HADOOP-11150) | *Minor* | **hadoop command should show the reason on failure by invalid COMMAND or CLASSNAME**
----
-
-* [HADOOP-11092](https://issues.apache.org/jira/browse/HADOOP-11092) | *Major* | **hadoop shell commands should print usage if not given a class**
----
-
-* [HADOOP-11084](https://issues.apache.org/jira/browse/HADOOP-11084) | *Major* | **jenkins patchprocess links are broken**
----
-
-* [HADOOP-11081](https://issues.apache.org/jira/browse/HADOOP-11081) | *Major* | **Document hadoop properties expected to be set by the shell code in *-env.sh**
----
-
-* [HADOOP-11058](https://issues.apache.org/jira/browse/HADOOP-11058) | *Major* | **Missing HADOOP\_CONF\_DIR generates strange results**
----
-
-* [HADOOP-11055](https://issues.apache.org/jira/browse/HADOOP-11055) | *Blocker* | **non-daemon pid files are missing**
----
-
-* [HADOOP-11052](https://issues.apache.org/jira/browse/HADOOP-11052) | *Critical* | **hadoop\_verify\_secure\_prereq's results aren't checked in bin/hdfs**
----
-
 * [HADOOP-11041](https://issues.apache.org/jira/browse/HADOOP-11041) | *Minor* | **VersionInfo output specifies subversion**
 
 This changes the output of the 'hadoop version' command to generically say 'Source code repository' rather than specify which type of repo.
 
----
-
-* [HADOOP-11033](https://issues.apache.org/jira/browse/HADOOP-11033) | *Major* | **shell scripts ignore JAVA\_HOME on OS X**
----
-
-* [HADOOP-11025](https://issues.apache.org/jira/browse/HADOOP-11025) | *Major* | **hadoop-daemons.sh should just call hdfs directly**
----
-
-* [HADOOP-11022](https://issues.apache.org/jira/browse/HADOOP-11022) | *Critical* | **User replaced functions get lost 2-3 levels deep (e.g., sbin)**
----
-
-* [HADOOP-11013](https://issues.apache.org/jira/browse/HADOOP-11013) | *Major* | **CLASSPATH handling should be consolidated, debuggable**
----
-
-* [HADOOP-11002](https://issues.apache.org/jira/browse/HADOOP-11002) | *Major* | **shell escapes are incompatible with previous releases**
----
-
-* [HADOOP-10996](https://issues.apache.org/jira/browse/HADOOP-10996) | *Major* | **Stop violence in the *\_HOME**
 ---
 
 * [HADOOP-10950](https://issues.apache.org/jira/browse/HADOOP-10950) | *Major* | **rework  heap management  vars**
@@ -206,37 +86,13 @@ This changes the output of the 'hadoop version' command to generically say 'Sour
 
 ---
 
-* [HADOOP-10926](https://issues.apache.org/jira/browse/HADOOP-10926) | *Major* | **Improve smart-apply-patch.sh to apply binary diffs**
----
-
-* [HADOOP-10908](https://issues.apache.org/jira/browse/HADOOP-10908) | *Major* | **Common needs updates for shell rewrite**
----
-
-* [HADOOP-10834](https://issues.apache.org/jira/browse/HADOOP-10834) | *Minor* | **Typo in CredentialShell usage**
----
-
-* [HADOOP-10831](https://issues.apache.org/jira/browse/HADOOP-10831) | *Major* | **UserProvider is not thread safe**
----
-
-* [HADOOP-10774](https://issues.apache.org/jira/browse/HADOOP-10774) | *Major* | **Update KerberosTestUtils for hadoop-auth tests when using IBM Java**
----
-
-* [HADOOP-10485](https://issues.apache.org/jira/browse/HADOOP-10485) | *Major* | **Remove dead classes in hadoop-streaming**
----
-
 * [HADOOP-10474](https://issues.apache.org/jira/browse/HADOOP-10474) | *Major* | **Move o.a.h.record to hadoop-streaming**
----
-
-* [HADOOP-10325](https://issues.apache.org/jira/browse/HADOOP-10325) | *Major* | **improve jenkins javadoc warnings from test-patch.sh**
 ---
 
 * [HADOOP-10115](https://issues.apache.org/jira/browse/HADOOP-10115) | *Major* | **Exclude duplicate jars in hadoop package under different component's lib**
 
 Jars in the various subproject lib directories are now de-duplicated against Hadoop common.  Users who interact directly with those directories must be sure to pull in common's dependencies as well.
 
----
-
-* [HADOOP-10044](https://issues.apache.org/jira/browse/HADOOP-10044) | *Minor* | **Improve the javadoc of rpc code**
 ---
 
 * [HADOOP-9902](https://issues.apache.org/jira/browse/HADOOP-9902) | *Major* | **Shell script rewrite**
@@ -303,24 +159,6 @@ IMPROVEMENTS:
 
 ---
 
-* [HADOOP-9583](https://issues.apache.org/jira/browse/HADOOP-9583) | *Critical* | **test-patch gives +1 despite build failure when running tests**
----
-
-* [HADOOP-9433](https://issues.apache.org/jira/browse/HADOOP-9433) | *Major* | **TestLocalFileSystem#testHasFileDescriptor leaks file handle**
----
-
-* [HADOOP-9431](https://issues.apache.org/jira/browse/HADOOP-9431) | *Trivial* | **TestSecurityUtil#testLocalHostNameForNullOrWild on systems where hostname contains capital letters**
----
-
-* [HADOOP-9394](https://issues.apache.org/jira/browse/HADOOP-9394) | *Minor* | **Port findHangingTest.sh from HBase to Hadoop**
----
-
-* [HADOOP-9393](https://issues.apache.org/jira/browse/HADOOP-9393) | *Major* | **TestRPC fails with JDK7**
----
-
-* [HADOOP-9277](https://issues.apache.org/jira/browse/HADOOP-9277) | *Minor* | **Improve javadoc for FileContext**
----
-
 * [HADOOP-9265](https://issues.apache.org/jira/browse/HADOOP-9265) | *Major* | **S3 blockstore filesystem breaks part of the Filesystem contract**
 
 fixed in HADOOP-9258
@@ -333,70 +171,10 @@ fixed in HADOOP-9258
 
 ---
 
-* [HADOOP-9249](https://issues.apache.org/jira/browse/HADOOP-9249) | *Major* | **hadoop-maven-plugins version-info goal causes build failure when running with Clover**
----
-
-* [HADOOP-9202](https://issues.apache.org/jira/browse/HADOOP-9202) | *Major* | **test-patch.sh fails during mvn eclipse:eclipse if patch adds a new module to the build**
----
-
-* [HADOOP-9186](https://issues.apache.org/jira/browse/HADOOP-9186) | *Major* | **test-patch.sh should report build failure to JIRA**
----
-
-* [HADOOP-9139](https://issues.apache.org/jira/browse/HADOOP-9139) | *Minor* | **improve script hadoop-common-project/hadoop-common/src/test/resources/kdc/killKdc.sh**
----
-
-* [HADOOP-9121](https://issues.apache.org/jira/browse/HADOOP-9121) | *Trivial* | **InodeTree.java has redundant check for vName while throwing exception**
----
-
-* [HADOOP-9075](https://issues.apache.org/jira/browse/HADOOP-9075) | *Minor* | **FileContext#FSLinkResolver should be made static**
----
-
-* [HADOOP-9044](https://issues.apache.org/jira/browse/HADOOP-9044) | *Minor* | **add FindClass main class to provide classpath checking of installations**
----
-
-* [HADOOP-9037](https://issues.apache.org/jira/browse/HADOOP-9037) | *Critical* | **Bug in test-patch.sh and precommit build process**
----
-
-* [HADOOP-8974](https://issues.apache.org/jira/browse/HADOOP-8974) | *Major* | **TestDFVariations fails on Windows**
----
-
 * [HADOOP-8934](https://issues.apache.org/jira/browse/HADOOP-8934) | *Minor* | **Shell command ls should include sort options**
 
 Options to sort output of fs -ls comment: -t (mtime), -S (size), -u (atime), -r (reverse)
 
----
-
-* [HADOOP-8920](https://issues.apache.org/jira/browse/HADOOP-8920) | *Minor* | **Add more javadoc to metrics2 related classes**
----
-
-* [HADOOP-8918](https://issues.apache.org/jira/browse/HADOOP-8918) | *Major* | **dev-support/test-patch.sh is parsing modified files wrong**
----
-
-* [HADOOP-8910](https://issues.apache.org/jira/browse/HADOOP-8910) | *Minor* | **Add examples to GlobExpander#expand method**
----
-
-* [HADOOP-8864](https://issues.apache.org/jira/browse/HADOOP-8864) | *Trivial* | **Addendum to HADOOP-8840: Add a coloring case for +0 results too.**
----
-
-* [HADOOP-8844](https://issues.apache.org/jira/browse/HADOOP-8844) | *Major* | **Add a plaintext fs -text test-case**
----
-
-* [HADOOP-8840](https://issues.apache.org/jira/browse/HADOOP-8840) | *Major* | **Fix the test-patch colorizer to cover all sorts of +1 lines.**
----
-
-* [HADOOP-8839](https://issues.apache.org/jira/browse/HADOOP-8839) | *Trivial* | **test-patch's -1 on @author tag presence doesn't cause a -1 to the overall result**
----
-
-* [HADOOP-8838](https://issues.apache.org/jira/browse/HADOOP-8838) | *Trivial* | **Colorize the test-patch output sent to JIRA**
----
-
-* [HADOOP-8821](https://issues.apache.org/jira/browse/HADOOP-8821) | *Trivial* | **Findbugs warning Configuration.dumpDeprecatedKeys() concatenates strings using + in a loop**
----
-
-* [HADOOP-8818](https://issues.apache.org/jira/browse/HADOOP-8818) | *Minor* | **Should use equals() rather than == to compare String or Text in MD5MD5CRC32FileChecksum and TFileDumper**
----
-
-* [HADOOP-8813](https://issues.apache.org/jira/browse/HADOOP-8813) | *Trivial* | **RPC Server and Client classes need InterfaceAudience and InterfaceStability annotations**
 ---
 
 * [HADOOP-8776](https://issues.apache.org/jira/browse/HADOOP-8776) | *Minor* | **Provide an option in test-patch that can enable / disable compiling native code**
@@ -407,91 +185,10 @@ default value is true.
 
 ---
 
-* [HADOOP-8719](https://issues.apache.org/jira/browse/HADOOP-8719) | *Trivial* | **Workaround for kerberos-related log errors upon running any hadoop command on OSX**
----
-
-* [HADOOP-8593](https://issues.apache.org/jira/browse/HADOOP-8593) | *Minor* | **add  the missed @Override to methods in Metric/Metric2 package**
----
-
-* [HADOOP-8588](https://issues.apache.org/jira/browse/HADOOP-8588) | *Minor* | **SerializationFactory shouldn't throw a NullPointerException if the serializations list is empty**
----
-
-* [HADOOP-8584](https://issues.apache.org/jira/browse/HADOOP-8584) | *Major* | **test-patch.sh should not immediately exit when no tests are added or modified**
----
-
-* [HADOOP-8548](https://issues.apache.org/jira/browse/HADOOP-8548) | *Major* | **test-patch.sh shows an incorrect link in Jekins builds**
----
-
-* [HADOOP-8523](https://issues.apache.org/jira/browse/HADOOP-8523) | *Minor* | **test-patch.sh doesn't validate patches before building**
----
-
-* [HADOOP-8521](https://issues.apache.org/jira/browse/HADOOP-8521) | *Major* | **Port StreamInputFormat to new Map Reduce API**
----
-
-* [HADOOP-8436](https://issues.apache.org/jira/browse/HADOOP-8436) | *Major* | **NPE In getLocalPathForWrite ( path, conf ) when the required context item is not configured**
----
-
-* [HADOOP-8434](https://issues.apache.org/jira/browse/HADOOP-8434) | *Major* | **TestConfiguration currently has no tests for direct setter methods**
----
-
-* [HADOOP-8413](https://issues.apache.org/jira/browse/HADOOP-8413) | *Minor* | **test-patch.sh gives out the wrong links for newPatchFindbugsWarnings**
----
-
-* [HADOOP-8395](https://issues.apache.org/jira/browse/HADOOP-8395) | *Trivial* | **Text shell command unnecessarily demands that a SequenceFile's key class be WritableComparable**
----
-
-* [HADOOP-8375](https://issues.apache.org/jira/browse/HADOOP-8375) | *Major* | **test-patch should stop immediately once it has found compilation errors**
----
-
-* [HADOOP-8360](https://issues.apache.org/jira/browse/HADOOP-8360) | *Minor* | **empty-configuration.xml fails xml validation**
----
-
-* [HADOOP-8354](https://issues.apache.org/jira/browse/HADOOP-8354) | *Major* | **test-patch findbugs may fail if a dependent module is changed**
----
-
-* [HADOOP-8339](https://issues.apache.org/jira/browse/HADOOP-8339) | *Major* | **jenkins complaining about 16 javadoc warnings**
----
-
-* [HADOOP-8312](https://issues.apache.org/jira/browse/HADOOP-8312) | *Major* | **testpatch.sh should provide a simpler way to see which warnings changed**
----
-
-* [HADOOP-8308](https://issues.apache.org/jira/browse/HADOOP-8308) | *Major* | **Support cross-project Jenkins builds**
----
-
-* [HADOOP-8297](https://issues.apache.org/jira/browse/HADOOP-8297) | *Trivial* | **Writable javadocs don't carry default constructor**
----
-
-* [HADOOP-8290](https://issues.apache.org/jira/browse/HADOOP-8290) | *Trivial* | **Remove two remaining references to "hadoop.native.lib" oldprop**
----
-
-* [HADOOP-8177](https://issues.apache.org/jira/browse/HADOOP-8177) | *Minor* | **MBeans shouldn't try to register when it fails to create MBeanName**
----
-
-* [HADOOP-8151](https://issues.apache.org/jira/browse/HADOOP-8151) | *Major* | **Error handling in snappy decompressor throws invalid exceptions**
----
-
-* [HADOOP-8147](https://issues.apache.org/jira/browse/HADOOP-8147) | *Major* | **test-patch should run tests with -fn to avoid masking test failures**
----
-
 * [HADOOP-8124](https://issues.apache.org/jira/browse/HADOOP-8124) | *Major* | **Remove the deprecated Syncable.sync() method**
 
 Remove the deprecated FSDataOutputStream constructor, FSDataOutputStream.sync() and Syncable.sync().
 
----
-
-* [HADOOP-8078](https://issues.apache.org/jira/browse/HADOOP-8078) | *Major* | **Add capability to turn on security in unit tests.**
----
-
-* [HADOOP-8017](https://issues.apache.org/jira/browse/HADOOP-8017) | *Major* | **Configure hadoop-main pom to get rid of M2E plugin execution not covered**
----
-
-* [HADOOP-7930](https://issues.apache.org/jira/browse/HADOOP-7930) | *Major* | **Kerberos relogin interval in UserGroupInformation should be configurable**
----
-
-* [HADOOP-7769](https://issues.apache.org/jira/browse/HADOOP-7769) | *Major* | **TestJMXJsonServlet is failing**
----
-
-* [HADOOP-7757](https://issues.apache.org/jira/browse/HADOOP-7757) | *Major* | **Test file reference count is at least 3x actual value**
 ---
 
 * [HADOOP-7713](https://issues.apache.org/jira/browse/HADOOP-7713) | *Trivial* | **dfs -count -q should label output column**
@@ -506,58 +203,10 @@ Documented that the "fs -getmerge" shell command may not work properly over non 
 
 ---
 
-* [HADOOP-7256](https://issues.apache.org/jira/browse/HADOOP-7256) | *Minor* | **Resource leak during failure scenario of closing of resources.**
----
-
-* [HADOOP-6964](https://issues.apache.org/jira/browse/HADOOP-6964) | *Major* | **Allow compact property description in xml**
----
-
-* [HADOOP-6871](https://issues.apache.org/jira/browse/HADOOP-6871) | *Major* | **When the value of a configuration key is set to its unresolved form, it causes the IllegalStateException in Configuration.get() stating that substitution depth is too large.**
----
-
 * [HADOOP-6857](https://issues.apache.org/jira/browse/HADOOP-6857) | *Major* | **FsShell should report raw disk usage including replication factor**
 
 The output format of hadoop fs -du has been changed. It shows not only the file size but also the raw disk usage including the replication factor.
 
----
-
-* [HADOOP-6616](https://issues.apache.org/jira/browse/HADOOP-6616) | *Major* | **Improve documentation for rack awareness**
----
-
-* [HADOOP-6590](https://issues.apache.org/jira/browse/HADOOP-6590) | *Minor* | **Add a username check for hadoop sub-commands**
----
-
-* [HADOOP-6220](https://issues.apache.org/jira/browse/HADOOP-6220) | *Minor* | **HttpServer wraps InterruptedExceptions by IOExceptions if interrupted in startup**
----
-
-* [HDFS-7803](https://issues.apache.org/jira/browse/HDFS-7803) | *Minor* | **Wrong command mentioned in HDFSHighAvailabilityWithQJM documentation**
----
-
-* [HDFS-7791](https://issues.apache.org/jira/browse/HDFS-7791) | *Major* | **dfs count -v should be added to quota documentation**
----
-
-* [HDFS-7755](https://issues.apache.org/jira/browse/HDFS-7755) | *Major* | **httpfs shell code has hardcoded path to bash**
----
-
-* [HDFS-7751](https://issues.apache.org/jira/browse/HDFS-7751) | *Minor* | **Fix TestHDFSCLI for quota with storage type**
----
-
-* [HDFS-7711](https://issues.apache.org/jira/browse/HDFS-7711) | *Major* | **Fix various typos in ClusterSetup.md**
----
-
-* [HDFS-7670](https://issues.apache.org/jira/browse/HDFS-7670) | *Major* | **HDFS Quota guide has typos, incomplete command lines**
----
-
-* [HDFS-7669](https://issues.apache.org/jira/browse/HDFS-7669) | *Major* | **HDFS Design Doc references commands that no longer exist.**
----
-
-* [HDFS-7667](https://issues.apache.org/jira/browse/HDFS-7667) | *Minor* | **Various typos and improvements to HDFS Federation doc**
----
-
-* [HDFS-7581](https://issues.apache.org/jira/browse/HDFS-7581) | *Major* | **HDFS documentation needs updating post-shell rewrite**
----
-
-* [HDFS-7546](https://issues.apache.org/jira/browse/HDFS-7546) | *Minor* | **Document, and set an accepting default for dfs.namenode.kerberos.principal.pattern**
 ---
 
 * [HDFS-7460](https://issues.apache.org/jira/browse/HDFS-7460) | *Major* | **Rewrite httpfs to use new shell framework**
@@ -571,49 +220,16 @@ This deprecates the following environment variables:
 
 ---
 
-* [HDFS-7407](https://issues.apache.org/jira/browse/HDFS-7407) | *Minor* | **Minor typo in privileged pid/out/log names**
----
-
-* [HDFS-7322](https://issues.apache.org/jira/browse/HDFS-7322) | *Major* | **deprecate sbin/hadoop-daemon.sh**
----
-
-* [HDFS-7320](https://issues.apache.org/jira/browse/HDFS-7320) | *Minor* | **The appearance of hadoop-hdfs-httpfs site docs is inconsistent**
----
-
-* [HDFS-7319](https://issues.apache.org/jira/browse/HDFS-7319) | *Minor* | **Remove dead link to HFTP documentation from index.xml**
----
-
 * [HDFS-7302](https://issues.apache.org/jira/browse/HDFS-7302) | *Major* | **namenode -rollingUpgrade downgrade may finalize a rolling upgrade**
 
 Remove "downgrade" from "namenode -rollingUpgrade" startup option since it may incorrectly finalize an ongoing rolling upgrade.
 
 ---
 
-* [HDFS-7204](https://issues.apache.org/jira/browse/HDFS-7204) | *Blocker* | **balancer doesn't run as a daemon**
----
-
-* [HDFS-7184](https://issues.apache.org/jira/browse/HDFS-7184) | *Minor* | **Allow data migration tool to run as a daemon**
----
-
-* [HDFS-7071](https://issues.apache.org/jira/browse/HDFS-7071) | *Major* | **Updated editsStored and editsStored.xml to bump layout version and add LazyPersist flag**
----
-
-* [HDFS-6922](https://issues.apache.org/jira/browse/HDFS-6922) | *Major* | **Add LazyPersist flag to INodeFile, save it in FsImage and edit logs**
----
-
-* [HDFS-6893](https://issues.apache.org/jira/browse/HDFS-6893) | *Trivial* | **crypto subcommand is not sorted properly in hdfs's hadoop\_usage**
----
-
 * [HDFS-6246](https://issues.apache.org/jira/browse/HDFS-6246) | *Minor* | **Remove 'dfs.support.append' flag from trunk code**
 
 Appends in HDFS can no longer be disabled.
 
----
-
-* [HDFS-6228](https://issues.apache.org/jira/browse/HDFS-6228) | *Trivial* | **comments typo fix for FsDatasetImpl.java**
----
-
-* [HDFS-5794](https://issues.apache.org/jira/browse/HDFS-5794) | *Minor* | **Fix the inconsistency of layout version number of ADD\_DATANODE\_AND\_STORAGE\_UUIDS between trunk and branch-2**
 ---
 
 * [HDFS-5570](https://issues.apache.org/jira/browse/HDFS-5570) | *Major* | **Deprecate hftp / hsftp and replace them with webhdfs / swebhdfs**
@@ -625,121 +241,10 @@ Support for hftp and hsftp has been removed.  They have superseded by webhdfs  a
 * [HDFS-5079](https://issues.apache.org/jira/browse/HDFS-5079) | *Major* | **Cleaning up NNHAStatusHeartbeat.State DatanodeProtocolProtos.**
 ---
 
-* [HDFS-5041](https://issues.apache.org/jira/browse/HDFS-5041) | *Minor* | **Add the time of last heartbeat to dead server Web UI**
----
-
-* [HDFS-4904](https://issues.apache.org/jira/browse/HDFS-4904) | *Major* | **Remove JournalService**
----
-
-* [HDFS-4761](https://issues.apache.org/jira/browse/HDFS-4761) | *Minor* | **Refresh INodeMap in FSDirectory#reset()**
----
-
-* [HDFS-4757](https://issues.apache.org/jira/browse/HDFS-4757) | *Minor* | **Update FSDirectory#inodeMap when replacing an INodeDirectory while setting quota**
----
-
-* [HDFS-4681](https://issues.apache.org/jira/browse/HDFS-4681) | *Major* | **TestBlocksWithNotEnoughRacks#testCorruptBlockRereplicatedAcrossRacks fails using IBM java**
----
-
-* [HDFS-4665](https://issues.apache.org/jira/browse/HDFS-4665) | *Minor* | **Move TestNetworkTopologyWithNodeGroup to Common**
----
-
-* [HDFS-4391](https://issues.apache.org/jira/browse/HDFS-4391) | *Major* | **TestDataTransferKeepalive fails when tests are executed in a certain order.**
----
-
-* [HDFS-4366](https://issues.apache.org/jira/browse/HDFS-4366) | *Major* | **Block Replication Policy Implementation May Skip Higher-Priority Blocks for Lower-Priority Blocks**
----
-
-* [HDFS-4338](https://issues.apache.org/jira/browse/HDFS-4338) | *Major* | **TestNameNodeMetrics#testCorruptBlock is flaky**
----
-
-* [HDFS-4310](https://issues.apache.org/jira/browse/HDFS-4310) | *Major* | **fix test org.apache.hadoop.hdfs.server.datanode.TestStartSecureDataNode**
----
-
-* [HDFS-4275](https://issues.apache.org/jira/browse/HDFS-4275) | *Major* | **MiniDFSCluster-based tests fail on Windows due to failure to delete test namenode directory**
----
-
-* [HDFS-4115](https://issues.apache.org/jira/browse/HDFS-4115) | *Minor* | **TestHDFSCLI.testAll fails one test due to number format**
----
-
-* [HDFS-4067](https://issues.apache.org/jira/browse/HDFS-4067) | *Major* | **TestUnderReplicatedBlocks may fail due to ReplicaAlreadyExistsException**
----
-
-* [HDFS-4003](https://issues.apache.org/jira/browse/HDFS-4003) | *Major* | **test-patch should build the common native libs before running hdfs tests**
----
-
-* [HDFS-3995](https://issues.apache.org/jira/browse/HDFS-3995) | *Minor* | **Use DFSTestUtil.createFile() for file creation and writing in test cases**
----
-
-* [HDFS-3834](https://issues.apache.org/jira/browse/HDFS-3834) | *Minor* | **Unused Command.java fields NAME, DESCRIPTION and USAGE**
----
-
-* [HDFS-3768](https://issues.apache.org/jira/browse/HDFS-3768) | *Minor* | **Exception in TestJettyHelper is incorrect**
----
-
-* [HDFS-3750](https://issues.apache.org/jira/browse/HDFS-3750) | *Critical* | **API docs don't include HDFS**
----
-
-* [HDFS-3735](https://issues.apache.org/jira/browse/HDFS-3735) | *Major* | **NameNode WebUI should allow sorting live datanode list by fields Block Pool Used, Block Pool Used(%) and Failed Volumes.**
----
-
-* [HDFS-3614](https://issues.apache.org/jira/browse/HDFS-3614) | *Blocker* | **Revert unused MiniDFSCluster constructor from HDFS-3049**
----
-
-* [HDFS-3550](https://issues.apache.org/jira/browse/HDFS-3550) | *Minor* | **raid added javadoc warnings**
----
-
-* [HDFS-3549](https://issues.apache.org/jira/browse/HDFS-3549) | *Critical* | **dist tar build fails in hadoop-hdfs-raid project**
----
-
-* [HDFS-3478](https://issues.apache.org/jira/browse/HDFS-3478) | *Minor* | **Test quotas with Long.Max\_Value**
----
-
-* [HDFS-3476](https://issues.apache.org/jira/browse/HDFS-3476) | *Minor* | **Correct the default used in TestDFSClientRetries.busyTest() after HDFS-3462**
----
-
-* [HDFS-3462](https://issues.apache.org/jira/browse/HDFS-3462) | *Major* | **TestDFSClientRetries.busyTest() should restore default xceiver count in the config.**
----
-
-* [HDFS-3358](https://issues.apache.org/jira/browse/HDFS-3358) | *Trivial* | **Specify explicitly that the NN UI status total is talking of persistent objects on heap.**
----
-
-* [HDFS-3293](https://issues.apache.org/jira/browse/HDFS-3293) | *Minor* | **Implement equals for journainfo class.**
----
-
-* [HDFS-3292](https://issues.apache.org/jira/browse/HDFS-3292) | *Major* | **Remove the deprecated DistributedFileSystem.DiskStatus and the related methods**
----
-
-* [HDFS-3273](https://issues.apache.org/jira/browse/HDFS-3273) | *Major* | **Refactor BackupImage and FSEditLog**
----
-
-* [HDFS-3265](https://issues.apache.org/jira/browse/HDFS-3265) | *Major* | **PowerPc Build error.**
----
-
-* [HDFS-3197](https://issues.apache.org/jira/browse/HDFS-3197) | *Trivial* | **Incorrect class comments in a few tests**
----
-
-* [HDFS-3178](https://issues.apache.org/jira/browse/HDFS-3178) | *Major* | **Add states for journal synchronization in journal daemon**
----
-
-* [HDFS-3121](https://issues.apache.org/jira/browse/HDFS-3121) | *Major* | **hdfs tests for HADOOP-8014**
----
-
-* [HDFS-3116](https://issues.apache.org/jira/browse/HDFS-3116) | *Trivial* | **Typo in fetchdt error message**
----
-
 * [HDFS-3034](https://issues.apache.org/jira/browse/HDFS-3034) | *Major* | **Remove the deprecated Syncable.sync() method**
 
 Remove the deprecated DFSOutputStream.sync() method.
 
----
-
-* [HDFS-2776](https://issues.apache.org/jira/browse/HDFS-2776) | *Trivial* | **Missing interface annotation on JournalSet**
----
-
-* [HDFS-2743](https://issues.apache.org/jira/browse/HDFS-2743) | *Major* | **Streamline usage of bookkeeper journal manager**
----
-
-* [HDFS-2580](https://issues.apache.org/jira/browse/HDFS-2580) | *Minor* | **NameNode#main(...) can make use of GenericOptionsParser.**
 ---
 
 * [HDFS-2538](https://issues.apache.org/jira/browse/HDFS-2538) | *Minor* | **option to disable fsck dots**
@@ -748,37 +253,10 @@ fsck does not print out dots for progress reporting by default. To print out dot
 
 ---
 
-* [HDFS-2434](https://issues.apache.org/jira/browse/HDFS-2434) | *Major* | **TestNameNodeMetrics.testCorruptBlock fails intermittently**
----
-
-* [HDFS-2373](https://issues.apache.org/jira/browse/HDFS-2373) | *Major* | **Commands using webhdfs and hftp print unnecessary debug information on the console with security enabled**
----
-
-* [HDFS-2313](https://issues.apache.org/jira/browse/HDFS-2313) | *Major* | **Rat excludes has a typo for excluding editsStored files**
----
-
-* [HDFS-2312](https://issues.apache.org/jira/browse/HDFS-2312) | *Trivial* | **FSNamesystem header comment says it's for the DN**
----
-
-* [HDFS-2310](https://issues.apache.org/jira/browse/HDFS-2310) | *Major* | **TestBackupNode fails since HADOOP-7524 went in.**
----
-
-* [HDFS-2299](https://issues.apache.org/jira/browse/HDFS-2299) | *Major* | **TestOfflineEditsViewer is failing on trunk**
----
-
-* [HDFS-2127](https://issues.apache.org/jira/browse/HDFS-2127) | *Major* | **Add a test that ensure AccessControlExceptions contain a full path**
----
-
 * [HDFS-46](https://issues.apache.org/jira/browse/HDFS-46) | *Major* | **The namespace quota of root directory should not be Integer.MAX\_VALUE**
 
 Change default namespace quota of root directory from Integer.MAX\_VALUE to Long.MAX\_VALUE.
 
----
-
-* [MAPREDUCE-6260](https://issues.apache.org/jira/browse/MAPREDUCE-6260) | *Major* | **Convert site documentation to markdown**
----
-
-* [MAPREDUCE-6250](https://issues.apache.org/jira/browse/MAPREDUCE-6250) | *Major* | **deprecate sbin/mr-jobhistory-daemon.sh**
 ---
 
 * [MAPREDUCE-6234](https://issues.apache.org/jira/browse/MAPREDUCE-6234) | *Major* | **TestHighRamJob fails due to the change in MAPREDUCE-5785**
@@ -787,31 +265,13 @@ Change default namespace quota of root directory from Integer.MAX\_VALUE to Long
 * [MAPREDUCE-6223](https://issues.apache.org/jira/browse/MAPREDUCE-6223) | *Major* | **TestJobConf#testNegativeValueForTaskVmem failures**
 ---
 
-* [MAPREDUCE-6161](https://issues.apache.org/jira/browse/MAPREDUCE-6161) | *Major* | **mapred hsadmin command missing from trunk**
----
-
-* [MAPREDUCE-6078](https://issues.apache.org/jira/browse/MAPREDUCE-6078) | *Trivial* | **native-task: fix gtest build on macosx**
----
-
-* [MAPREDUCE-6013](https://issues.apache.org/jira/browse/MAPREDUCE-6013) | *Major* | **mapred version is missing**
----
-
 * [MAPREDUCE-5972](https://issues.apache.org/jira/browse/MAPREDUCE-5972) | *Trivial* | **Fix typo 'programatically' in job.xml (and a few other places)**
 
 Fix a typo. If a configuration is set through program, the source of the configuration is set to 'programmatically' instead of 'programatically' now.
 
 ---
 
-* [MAPREDUCE-5912](https://issues.apache.org/jira/browse/MAPREDUCE-5912) | *Major* | **Task.calculateOutputSize does not handle Windows files after MAPREDUCE-5196**
----
-
-* [MAPREDUCE-5867](https://issues.apache.org/jira/browse/MAPREDUCE-5867) | *Major* | **Possible NPE in KillAMPreemptionPolicy related to ProportionalCapacityPreemptionPolicy**
----
-
 * [MAPREDUCE-5785](https://issues.apache.org/jira/browse/MAPREDUCE-5785) | *Major* | **Derive heap size or mapreduce.*.memory.mb automatically**
----
-
-* [MAPREDUCE-5717](https://issues.apache.org/jira/browse/MAPREDUCE-5717) | *Major* | **Task pings are interpreted as task progress**
 ---
 
 * [MAPREDUCE-5653](https://issues.apache.org/jira/browse/MAPREDUCE-5653) | *Major* | **DistCp does not honour config-overrides for mapreduce.[map,reduce].memory.mb**
@@ -820,70 +280,10 @@ Prior to this change, distcp had hard-coded values for memory usage.  Now distcp
 
 ---
 
-* [MAPREDUCE-5232](https://issues.apache.org/jira/browse/MAPREDUCE-5232) | *Major* | **log classpath and other key properties on child JVM start**
----
-
-* [MAPREDUCE-5197](https://issues.apache.org/jira/browse/MAPREDUCE-5197) | *Major* | **Checkpoint Service: a library component to facilitate checkpoint of task state**
----
-
-* [MAPREDUCE-5196](https://issues.apache.org/jira/browse/MAPREDUCE-5196) | *Major* | **CheckpointAMPreemptionPolicy implements preemption in MR AM via checkpointing**
----
-
-* [MAPREDUCE-5189](https://issues.apache.org/jira/browse/MAPREDUCE-5189) | *Major* | **Basic AM changes to support preemption requests (per YARN-45)**
----
-
-* [MAPREDUCE-5012](https://issues.apache.org/jira/browse/MAPREDUCE-5012) | *Trivial* | **Typo in javadoc for IdentityMapper class**
----
-
-* [MAPREDUCE-4887](https://issues.apache.org/jira/browse/MAPREDUCE-4887) | *Major* | **Rehashing partitioner for better distribution**
----
-
-* [MAPREDUCE-4735](https://issues.apache.org/jira/browse/MAPREDUCE-4735) | *Trivial* | **Make arguments in TestDFSIO case insensitive**
----
-
-* [MAPREDUCE-4695](https://issues.apache.org/jira/browse/MAPREDUCE-4695) | *Blocker* | **Fix LocalRunner on trunk after MAPREDUCE-3223 broke it**
----
-
-* [MAPREDUCE-4686](https://issues.apache.org/jira/browse/MAPREDUCE-4686) | *Major* | **hadoop-mapreduce-client-core fails compilation in Eclipse due to missing Avro-generated classes**
----
-
-* [MAPREDUCE-4685](https://issues.apache.org/jira/browse/MAPREDUCE-4685) | *Major* | **DBCount should not use ACCESS**
----
-
-* [MAPREDUCE-4574](https://issues.apache.org/jira/browse/MAPREDUCE-4574) | *Trivial* | **Fix TotalOrderParitioner to work with non-WritableComparable key types**
----
-
 * [MAPREDUCE-4424](https://issues.apache.org/jira/browse/MAPREDUCE-4424) | *Minor* | **'mapred job -list' command should show the job name as well**
 
 Now "mapred job -list" command displays the Job Name as well.
 
----
-
-* [MAPREDUCE-4413](https://issues.apache.org/jira/browse/MAPREDUCE-4413) | *Critical* | **MR lib dir contains jdiff (which is gpl)**
----
-
-* [MAPREDUCE-4371](https://issues.apache.org/jira/browse/MAPREDUCE-4371) | *Major* | **Check for cyclic dependencies in Jobcontrol job DAG**
----
-
-* [MAPREDUCE-3990](https://issues.apache.org/jira/browse/MAPREDUCE-3990) | *Trivial* | **MRBench allows Long-sized input-lines value but parses CLI argument as an Integer**
----
-
-* [MAPREDUCE-3956](https://issues.apache.org/jira/browse/MAPREDUCE-3956) | *Minor* | **Remove the use of the deprecated Syncable.sync() method**
----
-
-* [MAPREDUCE-3302](https://issues.apache.org/jira/browse/MAPREDUCE-3302) | *Minor* | **Remove the last dependency call from org.apache.hadoop.record package in MR.**
----
-
-* [MAPREDUCE-3223](https://issues.apache.org/jira/browse/MAPREDUCE-3223) | *Major* | **Remove MR1 configs from mapred-default.xml**
----
-
-* [MAPREDUCE-3149](https://issues.apache.org/jira/browse/MAPREDUCE-3149) | *Major* | **add a test to verify that buildDTAuthority works for cases with no authority.**
----
-
-* [MAPREDUCE-2978](https://issues.apache.org/jira/browse/MAPREDUCE-2978) | *Major* | **hudson findbugs not reporting properly**
----
-
-* [MAPREDUCE-2944](https://issues.apache.org/jira/browse/MAPREDUCE-2944) | *Trivial* | **Improve checking of input for Api displayTasks()**
 ---
 
 * [MAPREDUCE-2841](https://issues.apache.org/jira/browse/MAPREDUCE-2841) | *Major* | **Task level native optimization**
@@ -893,54 +293,9 @@ nativetask.NativeMapOutputCollectorDelegator in their job configuration. For shu
 
 ---
 
-* [MAPREDUCE-2669](https://issues.apache.org/jira/browse/MAPREDUCE-2669) | *Minor* | **Some new examples and test cases for them.**
----
-
-* [MAPREDUCE-2384](https://issues.apache.org/jira/browse/MAPREDUCE-2384) | *Major* | **The job submitter should make sure to validate jobs before creation of necessary files**
----
-
-* [YARN-3199](https://issues.apache.org/jira/browse/YARN-3199) | *Minor* | **Fair Scheduler documentation improvements**
----
-
-* [YARN-3168](https://issues.apache.org/jira/browse/YARN-3168) | *Major* | **Convert site documentation from apt to markdown**
----
-
-* [YARN-3002](https://issues.apache.org/jira/browse/YARN-3002) | *Major* | **YARN documentation needs updating post-shell rewrite**
----
-
-* [YARN-2980](https://issues.apache.org/jira/browse/YARN-2980) | *Major* | **Move health check script related functionality to hadoop-common**
----
-
-* [YARN-2796](https://issues.apache.org/jira/browse/YARN-2796) | *Major* | **deprecate sbin/yarn-daemon.sh**
----
-
-* [YARN-2525](https://issues.apache.org/jira/browse/YARN-2525) | *Minor* | **yarn logs command gives error on trunk**
----
-
-* [YARN-2472](https://issues.apache.org/jira/browse/YARN-2472) | *Major* | **yarn-daemons.sh should just call yarn directly**
----
-
-* [YARN-2438](https://issues.apache.org/jira/browse/YARN-2438) | *Major* | **yarn-env.sh cleanup**
----
-
-* [YARN-2437](https://issues.apache.org/jira/browse/YARN-2437) | *Major* | **start-yarn.sh/stop-yarn should give info**
----
-
-* [YARN-2436](https://issues.apache.org/jira/browse/YARN-2436) | *Major* | **yarn application help doesn't work**
----
-
 * [YARN-2428](https://issues.apache.org/jira/browse/YARN-2428) | *Trivial* | **LCE default banned user list should have yarn**
 
 The user 'yarn' is no longer allowed to run tasks for security reasons.
 
----
-
-* [YARN-2280](https://issues.apache.org/jira/browse/YARN-2280) | *Trivial* | **Resource manager web service fields are not accessible**
----
-
-* [YARN-1471](https://issues.apache.org/jira/browse/YARN-1471) | *Minor* | **The SLS simulator is not running the preemption policy for CapacityScheduler**
----
-
-* [YARN-524](https://issues.apache.org/jira/browse/YARN-524) | *Minor* | **TestYarnVersionInfo failing if generated properties doesn't include an SVN URL**
 
 
