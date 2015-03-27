@@ -20,6 +20,7 @@
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [MAPREDUCE-6292](https://issues.apache.org/jira/browse/MAPREDUCE-6292) | Use org.junit package instead of junit.framework in TestCombineFileInputFormat |  Minor | test | Akira AJISAKA | Akira AJISAKA |
 | [MAPREDUCE-6267](https://issues.apache.org/jira/browse/MAPREDUCE-6267) | Refactor JobSubmitter#copyAndConfigureFiles into it's own class |  Minor | . | Chris Trezzo | Chris Trezzo |
 | [MAPREDUCE-6265](https://issues.apache.org/jira/browse/MAPREDUCE-6265) | Make ContainerLauncherImpl.INITIAL\_POOL\_SIZE configurable to better control to launch/kill containers |  Major | mrv2 | zhihai xu | zhihai xu |
 | [MAPREDUCE-6256](https://issues.apache.org/jira/browse/MAPREDUCE-6256) | Removed unused private methods in o.a.h.mapreduce.Job.java |  Minor | . | Devaraj K | Naganarasimha G R |

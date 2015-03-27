@@ -26,6 +26,13 @@ The hadoop kerbname subcommand has been added to ease operational pain in determ
 
 ---
 
+* [HADOOP-11553](https://issues.apache.org/jira/browse/HADOOP-11553) | *Blocker* | **Formalize the shell API**
+
+Python is now required to build the documentation.
+
+
+---
+
 * [HADOOP-11460](https://issues.apache.org/jira/browse/HADOOP-11460) | *Major* | **Deprecate shell vars**
 
 The following shell environment variables have been deprecated:
@@ -231,6 +238,13 @@ Documented that the "fs -getmerge" shell command may not work properly over non 
 * [HADOOP-6857](https://issues.apache.org/jira/browse/HADOOP-6857) | *Major* | **FsShell should report raw disk usage including replication factor**
 
 The output format of hadoop fs -du has been changed. It shows not only the file size but also the raw disk usage including the replication factor.
+
+
+---
+
+* [HDFS-7985](https://issues.apache.org/jira/browse/HDFS-7985) | *Major* | **WebHDFS should be always enabled**
+
+WebHDFS is mandatory and cannot be disabled.
 
 
 ---

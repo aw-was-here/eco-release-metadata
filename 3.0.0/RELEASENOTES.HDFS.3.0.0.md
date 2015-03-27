@@ -5,6 +5,13 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [HDFS-7985](https://issues.apache.org/jira/browse/HDFS-7985) | *Major* | **WebHDFS should be always enabled**
+
+WebHDFS is mandatory and cannot be disabled.
+
+
+---
+
 * [HDFS-7460](https://issues.apache.org/jira/browse/HDFS-7460) | *Major* | **Rewrite httpfs to use new shell framework**
 
 This deprecates the following environment variables:

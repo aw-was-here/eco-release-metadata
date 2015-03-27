@@ -26,6 +26,13 @@ The hadoop kerbname subcommand has been added to ease operational pain in determ
 
 ---
 
+* [HADOOP-11553](https://issues.apache.org/jira/browse/HADOOP-11553) | *Blocker* | **Formalize the shell API**
+
+Python is now required to build the documentation.
+
+
+---
+
 * [HADOOP-11460](https://issues.apache.org/jira/browse/HADOOP-11460) | *Major* | **Deprecate shell vars**
 
 The following shell environment variables have been deprecated:

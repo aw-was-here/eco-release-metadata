@@ -31,6 +31,7 @@
 | [HDFS-7424](https://issues.apache.org/jira/browse/HDFS-7424) | Add web UI for NFS gateway |  Major | nfs | Brandon Li | Brandon Li |
 | [HDFS-7222](https://issues.apache.org/jira/browse/HDFS-7222) | Expose DataNode network errors as a metric |  Minor | datanode | Charles Lamb | Charles Lamb |
 | [HDFS-6982](https://issues.apache.org/jira/browse/HDFS-6982) | nntop: top­-like tool for name node users |  Major | . | Maysam Yabandeh | Maysam Yabandeh |
+| [HDFS-6826](https://issues.apache.org/jira/browse/HDFS-6826) | Plugin interface to enable delegation of HDFS authorization assertions |  Major | security | Alejandro Abdelnur | Arun Suresh |
 | [HDFS-6663](https://issues.apache.org/jira/browse/HDFS-6663) | Admin command to track file and locations from block id |  Major | . | Kihwal Lee | Chen He |
 | [HDFS-6488](https://issues.apache.org/jira/browse/HDFS-6488) | Support HDFS superuser in NFSv3 gateway |  Major | nfs | Stephen Chu | Brandon Li |
 | [HDFS-3689](https://issues.apache.org/jira/browse/HDFS-3689) | Add support for variable length block |  Major | datanode, hdfs-client, namenode | Suresh Srinivas | Jing Zhao |
@@ -90,7 +91,7 @@
 | [HADOOP-11301](https://issues.apache.org/jira/browse/HADOOP-11301) | [optionally] update jmx cache to drop old metrics |  Major | . | Maysam Yabandeh | Maysam Yabandeh |
 | [HADOOP-11291](https://issues.apache.org/jira/browse/HADOOP-11291) | Log the cause of SASL connection failures |  Minor | security | Stephen Chu | Stephen Chu |
 | [HADOOP-11261](https://issues.apache.org/jira/browse/HADOOP-11261) | Set custom endpoint for S3A |  Major | fs/s3 | Thomas Demoor | Thomas Demoor |
-| [HADOOP-11257](https://issues.apache.org/jira/browse/HADOOP-11257) | Update "hadoop jar" documentation to warn against using it for launching yarn jars |  Major | . | Allen Wittenauer | Masatake Iwasaki |
+| [HADOOP-11257](https://issues.apache.org/jira/browse/HADOOP-11257) | Update "hadoop jar" documentation to warn against using it for launching yarn jars |  Blocker | . | Allen Wittenauer | Masatake Iwasaki |
 | [HADOOP-11231](https://issues.apache.org/jira/browse/HADOOP-11231) | Remove dead code in ServletUtil |  Minor | . | Haohui Mai | Li Lu |
 | [HADOOP-11188](https://issues.apache.org/jira/browse/HADOOP-11188) | hadoop-azure: automatically expand page blobs when they become full |  Major | fs | Eric Hanson | Eric Hanson |
 | [HADOOP-11173](https://issues.apache.org/jira/browse/HADOOP-11173) | Improve error messages for some KeyShell commands |  Minor | . | Andrew Wang | Andrew Wang |
@@ -103,6 +104,7 @@
 | [HADOOP-10847](https://issues.apache.org/jira/browse/HADOOP-10847) | Remove the usage of sun.security.x509.* in testing code |  Minor | security | Kai Zheng | pascal oliva |
 | [HADOOP-10809](https://issues.apache.org/jira/browse/HADOOP-10809) | hadoop-azure: page blob support |  Major | tools | Mike Liddell | Eric Hanson |
 | [HADOOP-10786](https://issues.apache.org/jira/browse/HADOOP-10786) | Fix UGI#reloginFromKeytab on Java 8 |  Major | security | Tobi Vollebregt | Stephen Chu |
+| [HADOOP-10670](https://issues.apache.org/jira/browse/HADOOP-10670) | Allow AuthenticationFilters to load secret from signature secret files |  Minor | security | Kai Zheng | Kai Zheng |
 | [HADOOP-10626](https://issues.apache.org/jira/browse/HADOOP-10626) | Limit Returning Attributes for LDAP search |  Major | security | Jason Hubbard | Jason Hubbard |
 | [HADOOP-10563](https://issues.apache.org/jira/browse/HADOOP-10563) | Remove the dependency of jsp in trunk |  Major | . | Haohui Mai | Haohui Mai |
 | [HADOOP-10525](https://issues.apache.org/jira/browse/HADOOP-10525) | Remove DRFA.MaxBackupIndex config from log4j.properties |  Minor | . | Akira AJISAKA | Akira AJISAKA |
@@ -168,6 +170,7 @@
 | [HDFS-7426](https://issues.apache.org/jira/browse/HDFS-7426) | Change nntop JMX format to be a JSON blob |  Major | namenode | Andrew Wang | Andrew Wang |
 | [HDFS-7419](https://issues.apache.org/jira/browse/HDFS-7419) | Improve error messages for DataNode hot swap drive feature |  Major | datanode | Lei (Eddy) Xu | Lei (Eddy) Xu |
 | [HDFS-7411](https://issues.apache.org/jira/browse/HDFS-7411) | Refactor and improve decommissioning logic into DecommissionManager |  Major | . | Andrew Wang | Andrew Wang |
+| [HDFS-7410](https://issues.apache.org/jira/browse/HDFS-7410) | Support CreateFlags with append() to support hsync() for appending streams |  Major | hdfs-client | Vinayakumar B | Vinayakumar B |
 | [HDFS-7409](https://issues.apache.org/jira/browse/HDFS-7409) | Allow dead nodes to finish decommissioning if all files are fully replicated |  Minor | . | Andrew Wang | Andrew Wang |
 | [HDFS-7404](https://issues.apache.org/jira/browse/HDFS-7404) | Remove o.a.h.hdfs.server.datanode.web.resources |  Major | . | Haohui Mai | Li Lu |
 | [HDFS-7398](https://issues.apache.org/jira/browse/HDFS-7398) | Reset cached thread-local FSEditLogOp's on every FSEditLog#logEdit |  Major | namenode | Gera Shegalov | Gera Shegalov |
@@ -212,6 +215,7 @@
 | [HDFS-3342](https://issues.apache.org/jira/browse/HDFS-3342) | SocketTimeoutException in BlockSender.sendChunks could have a better error message |  Minor | datanode | Todd Lipcon | Yongjun Zhang |
 | [HDFS-2219](https://issues.apache.org/jira/browse/HDFS-2219) | Fsck should work with fully qualified file paths. |  Minor | tools | Jitendra Nath Pandey | Tsz Wo Nicholas Sze |
 | [HDFS-316](https://issues.apache.org/jira/browse/HDFS-316) | Balancer should run for a configurable # of iterations |  Minor | balancer & mover | Brian Bockelman | Xiaoyu Yao |
+| [MAPREDUCE-6292](https://issues.apache.org/jira/browse/MAPREDUCE-6292) | Use org.junit package instead of junit.framework in TestCombineFileInputFormat |  Minor | test | Akira AJISAKA | Akira AJISAKA |
 | [MAPREDUCE-6267](https://issues.apache.org/jira/browse/MAPREDUCE-6267) | Refactor JobSubmitter#copyAndConfigureFiles into it's own class |  Minor | . | Chris Trezzo | Chris Trezzo |
 | [MAPREDUCE-6265](https://issues.apache.org/jira/browse/MAPREDUCE-6265) | Make ContainerLauncherImpl.INITIAL\_POOL\_SIZE configurable to better control to launch/kill containers |  Major | mrv2 | zhihai xu | zhihai xu |
 | [MAPREDUCE-6256](https://issues.apache.org/jira/browse/MAPREDUCE-6256) | Removed unused private methods in o.a.h.mapreduce.Job.java |  Minor | . | Devaraj K | Naganarasimha G R |
@@ -294,13 +298,17 @@
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HADOOP-11748](https://issues.apache.org/jira/browse/HADOOP-11748) | The secrets of auth cookies should not be specified in configuration in clear text |  Critical | . | Haohui Mai | Li Lu |
+| [HADOOP-11738](https://issues.apache.org/jira/browse/HADOOP-11738) | Fix a link of Protocol Buffers 2.5 for download in BUILDING.txt |  Major | . | Tsuyoshi Ozawa | Tsuyoshi Ozawa |
 | [HADOOP-11729](https://issues.apache.org/jira/browse/HADOOP-11729) | Fix link to cgroups doc in site.xml |  Minor | documentation | Masatake Iwasaki | Masatake Iwasaki |
 | [HADOOP-11722](https://issues.apache.org/jira/browse/HADOOP-11722) | Some Instances of Services using ZKDelegationTokenSecretManager go down when old token cannot be deleted |  Major | . | Arun Suresh | Arun Suresh |
 | [HADOOP-11720](https://issues.apache.org/jira/browse/HADOOP-11720) | [JDK8] Fix javadoc errors caused by incorrect or illegal tags in hadoop-tools |  Major | documentation | Akira AJISAKA | Akira AJISAKA |
 | [HADOOP-11693](https://issues.apache.org/jira/browse/HADOOP-11693) | Azure Storage FileSystem rename operations are throttled too aggressively to complete HBase WAL archiving. |  Major | tools | Duo Xu | Duo Xu |
+| [HADOOP-11691](https://issues.apache.org/jira/browse/HADOOP-11691) | X86 build of libwinutils is broken |  Critical | build, native | Remus Rusanu | Kiran Kumar M R |
 | [HADOOP-11686](https://issues.apache.org/jira/browse/HADOOP-11686) | MiniKDC cannot change ORG\_NAME or ORG\_DOMAIN |  Major | security, test | zhangduo | zhangduo |
 | [HADOOP-11674](https://issues.apache.org/jira/browse/HADOOP-11674) | oneByteBuf in CryptoInputStream and CryptoOutputStream should be non static |  Critical | io | Sean Busbey | Sean Busbey |
 | [HADOOP-11666](https://issues.apache.org/jira/browse/HADOOP-11666) | Revert the format change of du output introduced by HADOOP-6857 |  Major | . | Akira AJISAKA | Byron Wong |
+| [HADOOP-11639](https://issues.apache.org/jira/browse/HADOOP-11639) | Clean up Windows native code compilation warnings related to Windows Secure Container Executor. |  Major | native | Chris Nauroth | Remus Rusanu |
 | [HADOOP-11638](https://issues.apache.org/jira/browse/HADOOP-11638) | OpensslSecureRandom.c pthreads\_thread\_id should support FreeBSD and Solaris in addition to Linux |  Major | native | Dmitry Sivachenko | Kiran Kumar M R |
 | [HADOOP-11634](https://issues.apache.org/jira/browse/HADOOP-11634) | Description of webhdfs' principal/keytab should switch places each other |  Major | documentation | Brahma Reddy Battula | Brahma Reddy Battula |
 | [HADOOP-11629](https://issues.apache.org/jira/browse/HADOOP-11629) | WASB filesystem should not start BandwidthGaugeUpdater if fs.azure.skip.metrics set to true |  Major | tools | shanyu zhao | shanyu zhao |
@@ -404,6 +412,7 @@
 | [HADOOP-11157](https://issues.apache.org/jira/browse/HADOOP-11157) | ZKDelegationTokenSecretManager never shuts down listenerThreadPool |  Major | security | Gregory Chanan | Arun Suresh |
 | [HADOOP-11156](https://issues.apache.org/jira/browse/HADOOP-11156) | DelegateToFileSystem should implement getFsStatus(final Path f). |  Major | fs | zhihai xu | zhihai xu |
 | [HADOOP-11039](https://issues.apache.org/jira/browse/HADOOP-11039) | ByteBufferReadable API doc is inconsistent with the implementations. |  Minor | documentation | Yi Liu | Yi Liu |
+| [HADOOP-11014](https://issues.apache.org/jira/browse/HADOOP-11014) | Potential resource leak in JavaKeyStoreProvider due to unclosed stream |  Minor | security | Ted Yu | Tsuyoshi Ozawa |
 | [HADOOP-11008](https://issues.apache.org/jira/browse/HADOOP-11008) | Remove duplicated description about proxy-user in site documents |  Minor | documentation | Masatake Iwasaki | Masatake Iwasaki |
 | [HADOOP-11000](https://issues.apache.org/jira/browse/HADOOP-11000) | HAServiceProtocol's health state is incorrectly transitioned to SERVICE\_NOT\_RESPONDING |  Major | . | Ming Ma | Ming Ma |
 | [HADOOP-10953](https://issues.apache.org/jira/browse/HADOOP-10953) | NetworkTopology#add calls NetworkTopology#toString without holding the netlock |  Minor | net | Liang Xie | Liang Xie |
@@ -425,6 +434,7 @@
 | [HADOOP-8642](https://issues.apache.org/jira/browse/HADOOP-8642) | Document that io.native.lib.available only controls native bz2 and zlib compression codecs |  Major | documentation, native | Eli Collins | Akira AJISAKA |
 | [HADOOP-6221](https://issues.apache.org/jira/browse/HADOOP-6221) | RPC Client operations cannot be interrupted |  Minor | ipc | Steve Loughran | Steve Loughran |
 | [HDFS-7977](https://issues.apache.org/jira/browse/HDFS-7977) | NFS couldn't take percentile intervals |  Major | nfs | Brandon Li | Brandon Li |
+| [HDFS-7963](https://issues.apache.org/jira/browse/HDFS-7963) | Fix expected tracing spans in TestTracing along with HDFS-7054 |  Critical | test | Masatake Iwasaki | Masatake Iwasaki |
 | [HDFS-7961](https://issues.apache.org/jira/browse/HDFS-7961) | Trigger full block report after hot swapping disk |  Major | . | Lei (Eddy) Xu | Lei (Eddy) Xu |
 | [HDFS-7960](https://issues.apache.org/jira/browse/HDFS-7960) | The full block report should prune zombie storages even if they're not empty |  Critical | . | Lei (Eddy) Xu | Colin Patrick McCabe |
 | [HDFS-7957](https://issues.apache.org/jira/browse/HDFS-7957) | Truncate should verify quota before making changes |  Critical | namenode | Jing Zhao | Jing Zhao |
@@ -756,5 +766,6 @@
 | [MAPREDUCE-5420](https://issues.apache.org/jira/browse/MAPREDUCE-5420) | Remove mapreduce.task.tmp.dir from mapred-default.xml |  Major | . | Sandy Ryza | James Carman |
 | [YARN-3217](https://issues.apache.org/jira/browse/YARN-3217) | Remove httpclient dependency from hadoop-yarn-server-web-proxy |  Major | . | Akira AJISAKA | Brahma Reddy Battula |
 | [YARN-2949](https://issues.apache.org/jira/browse/YARN-2949) | Add documentation for CGroups |  Major | documentation, nodemanager | Varun Vasudev | Varun Vasudev |
+| [YARN-2213](https://issues.apache.org/jira/browse/YARN-2213) | Change proxy-user cookie log in AmIpFilter to DEBUG |  Minor | . | Ted Yu | Varun Saxena |
 
 
