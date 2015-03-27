@@ -26,7 +26,8 @@ There are two implementation: block and native (similar to Amazon S3 integration
 Data locality issue solved by patch in Swift, commit procedure to OpenStack is in progress.
 
 To use implementation add to core-site.xml following:
-...
+
+```xml
 	<property>
 	        <name>fs.swift.impl</name>
 	    	<value>com.mirantis.fs.SwiftFileSystem</value>
@@ -35,15 +36,17 @@ To use implementation add to core-site.xml following:
 	    	<name>fs.swift.block.impl</name>
 	         <value>com.mirantis.fs.block.SwiftBlockFileSystem</value>
         </property>
-...
+```
 
 In MapReduce job specify following configs for OpenStack Keystone authentication:
+```java
 conf.set("swift.auth.url", "http://172.18.66.117:5000/v2.0/tokens");
 conf.set("swift.tenant", "superuser");
 conf.set("swift.username", "admin1");
 conf.set("swift.password", "password");
 conf.setInt("swift.http.port", 8080);
 conf.setInt("swift.https.port", 443);
+```java
 
 Additional information specified on github: https://github.com/DmitryMezhensky/Hadoop-and-Swift-integration
 
