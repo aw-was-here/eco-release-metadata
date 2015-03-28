@@ -52,7 +52,7 @@
 | [HADOOP-9693](https://issues.apache.org/jira/browse/HADOOP-9693) | Shell should add a probe for OSX |  Trivial | . | Steve Loughran |  |
 | [HADOOP-9652](https://issues.apache.org/jira/browse/HADOOP-9652) | Allow RawLocalFs#getFileLinkStatus to fill in the link owner and mode if requested |  Major | . | Colin Patrick McCabe | Andrew Wang |
 | [HADOOP-9623](https://issues.apache.org/jira/browse/HADOOP-9623) | Update jets3t dependency to  0.9.0 |  Major | fs/s3 | Timothy St. Clair | Amandeep Khurana |
-| [HADOOP-9611](https://issues.apache.org/jira/browse/HADOOP-9611) | mvn-rpmbuild against google-guice > 3.0 yields missing cglib dependency |  Major | build | Timothy St. Clair | Timothy St. Clair |
+| [HADOOP-9611](https://issues.apache.org/jira/browse/HADOOP-9611) | mvn-rpmbuild against google-guice \> 3.0 yields missing cglib dependency |  Major | build | Timothy St. Clair | Timothy St. Clair |
 | [HADOOP-9594](https://issues.apache.org/jira/browse/HADOOP-9594) | Update apache commons math dependency |  Major | build | Timothy St. Clair | Timothy St. Clair |
 | [HADOOP-9494](https://issues.apache.org/jira/browse/HADOOP-9494) | Excluded auto-generated and examples code from clover reports |  Major | . | Dennis Y | Andrey Klochkov |
 | [HADOOP-9487](https://issues.apache.org/jira/browse/HADOOP-9487) | Deprecation warnings in Configuration should go to their own log or otherwise be suppressible |  Major | conf | Steve Loughran |  |

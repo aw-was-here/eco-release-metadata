@@ -132,7 +132,7 @@
 | [HDFS-7131](https://issues.apache.org/jira/browse/HDFS-7131) | During HA upgrade, JournalNode should create a new committedTxnId file in the current directory |  Major | qjm | Jing Zhao | Jing Zhao |
 | [HDFS-7130](https://issues.apache.org/jira/browse/HDFS-7130) | TestDataTransferKeepalive fails intermittently on Windows. |  Major | test | Chris Nauroth | Chris Nauroth |
 | [HDFS-7127](https://issues.apache.org/jira/browse/HDFS-7127) | TestLeaseRecovery leaks MiniDFSCluster instances. |  Major | test | Chris Nauroth | Chris Nauroth |
-| [HDFS-7122](https://issues.apache.org/jira/browse/HDFS-7122) | Use of ThreadLocal<Random> results in poor block placement |  Blocker | namenode | Jeff Buell | Andrew Wang |
+| [HDFS-7122](https://issues.apache.org/jira/browse/HDFS-7122) | Use of ThreadLocal\<Random\> results in poor block placement |  Blocker | namenode | Jeff Buell | Andrew Wang |
 | [HDFS-7111](https://issues.apache.org/jira/browse/HDFS-7111) | TestSafeMode assumes Unix line endings in safe mode tip. |  Trivial | test | Chris Nauroth | Chris Nauroth |
 | [HDFS-7110](https://issues.apache.org/jira/browse/HDFS-7110) | Skip tests related to short-circuit read on platforms that do not currently implement short-circuit read. |  Minor | test | Chris Nauroth | Chris Nauroth |
 | [HDFS-7109](https://issues.apache.org/jira/browse/HDFS-7109) | TestDataStorage does not release file locks between tests. |  Minor | test | Chris Nauroth | Chris Nauroth |

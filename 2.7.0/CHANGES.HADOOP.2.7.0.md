@@ -149,7 +149,7 @@
 | [HADOOP-11467](https://issues.apache.org/jira/browse/HADOOP-11467) | KerberosAuthenticator can connect to a non-secure cluster |  Critical | security | Robert Kanter | Yongjun Zhang |
 | [HADOOP-11462](https://issues.apache.org/jira/browse/HADOOP-11462) | TestSocketIOWithTimeout needs change for PowerPC platform |  Major | test | Ayappan | Ayappan |
 | [HADOOP-11459](https://issues.apache.org/jira/browse/HADOOP-11459) | Fix recent findbugs in ActiveStandbyElector, NetUtils and ShellBasedIdMapping |  Minor | . | Vinayakumar B | Vinayakumar B |
-| [HADOOP-11449](https://issues.apache.org/jira/browse/HADOOP-11449) | [JDK8] Cannot build on Windows: error: unexpected end tag: </ul> |  Major | build | Alec Taylor | Chris Nauroth |
+| [HADOOP-11449](https://issues.apache.org/jira/browse/HADOOP-11449) | [JDK8] Cannot build on Windows: error: unexpected end tag: \</ul\> |  Major | build | Alec Taylor | Chris Nauroth |
 | [HADOOP-11446](https://issues.apache.org/jira/browse/HADOOP-11446) | S3AOutputStream should use shared thread pool to avoid OutOfMemoryError |  Major | fs/s3 | Ted Yu | Ted Yu |
 | [HADOOP-11445](https://issues.apache.org/jira/browse/HADOOP-11445) | Bzip2Codec: Data block is skipped when position of newly created stream is equal to start of split |  Critical | . | Ankit Kamboj | Ankit Kamboj |
 | [HADOOP-11431](https://issues.apache.org/jira/browse/HADOOP-11431) | clean up redundant maven-site-plugin configuration |  Major | . | Hervé Boutemy | Hervé Boutemy |

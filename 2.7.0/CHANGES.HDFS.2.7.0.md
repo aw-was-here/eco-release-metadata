@@ -69,7 +69,7 @@
 | [HDFS-7564](https://issues.apache.org/jira/browse/HDFS-7564) | NFS gateway dynamically reload UID/GID mapping file /etc/nfs.map |  Minor | nfs | Hari Sekhon | Yongjun Zhang |
 | [HDFS-7557](https://issues.apache.org/jira/browse/HDFS-7557) | Fix spacing for a few keys in DFSConfigKeys.java |  Minor | . | Colin Patrick McCabe | Colin Patrick McCabe |
 | [HDFS-7555](https://issues.apache.org/jira/browse/HDFS-7555) | Remove the support of unmanaged connectors in HttpServer2 |  Major | . | Haohui Mai | Haohui Mai |
-| [HDFS-7537](https://issues.apache.org/jira/browse/HDFS-7537) | fsck is confusing when dfs.namenode.replication.min > 1 && missing replicas && NN restart |  Major | namenode | Allen Wittenauer | GAO Rui |
+| [HDFS-7537](https://issues.apache.org/jira/browse/HDFS-7537) | fsck is confusing when dfs.namenode.replication.min \> 1 && missing replicas && NN restart |  Major | namenode | Allen Wittenauer | GAO Rui |
 | [HDFS-7535](https://issues.apache.org/jira/browse/HDFS-7535) | Utilize Snapshot diff report for distcp |  Major | distcp, snapshots | Jing Zhao | Jing Zhao |
 | [HDFS-7531](https://issues.apache.org/jira/browse/HDFS-7531) | Improve the concurrent access on FsVolumeList |  Major | datanode | Lei (Eddy) Xu | Lei (Eddy) Xu |
 | [HDFS-7513](https://issues.apache.org/jira/browse/HDFS-7513) | HDFS inotify: add defaultBlockSize to CreateEvent |  Major | namenode | Colin Patrick McCabe | Colin Patrick McCabe |
@@ -91,7 +91,7 @@
 | [HDFS-7409](https://issues.apache.org/jira/browse/HDFS-7409) | Allow dead nodes to finish decommissioning if all files are fully replicated |  Minor | . | Andrew Wang | Andrew Wang |
 | [HDFS-7404](https://issues.apache.org/jira/browse/HDFS-7404) | Remove o.a.h.hdfs.server.datanode.web.resources |  Major | . | Haohui Mai | Li Lu |
 | [HDFS-7398](https://issues.apache.org/jira/browse/HDFS-7398) | Reset cached thread-local FSEditLogOp's on every FSEditLog#logEdit |  Major | namenode | Gera Shegalov | Gera Shegalov |
-| [HDFS-7386](https://issues.apache.org/jira/browse/HDFS-7386) | Replace check "port number < 1024" with shared isPrivilegedPort method |  Trivial | datanode, security | Yongjun Zhang | Yongjun Zhang |
+| [HDFS-7386](https://issues.apache.org/jira/browse/HDFS-7386) | Replace check "port number \< 1024" with shared isPrivilegedPort method |  Trivial | datanode, security | Yongjun Zhang | Yongjun Zhang |
 | [HDFS-7384](https://issues.apache.org/jira/browse/HDFS-7384) | 'getfacl' command and 'getAclStatus' output should be in sync |  Major | namenode | Vinayakumar B | Vinayakumar B |
 | [HDFS-7381](https://issues.apache.org/jira/browse/HDFS-7381) | Decouple the management of block id and gen stamps from FSNamesystem |  Major | . | Haohui Mai | Haohui Mai |
 | [HDFS-7375](https://issues.apache.org/jira/browse/HDFS-7375) | Move FSClusterStats to o.a.h.h.hdfs.server.blockmanagement |  Major | . | Haohui Mai | Haohui Mai |
@@ -106,7 +106,7 @@
 | [HDFS-7326](https://issues.apache.org/jira/browse/HDFS-7326) | Add documentation for hdfs debug commands |  Minor | documentation | Colin Patrick McCabe | Vijay Bhat |
 | [HDFS-7323](https://issues.apache.org/jira/browse/HDFS-7323) | Move the get/setStoragePolicy commands out from dfsadmin |  Major | hdfs-client | Tsz Wo Nicholas Sze | Jing Zhao |
 | [HDFS-7310](https://issues.apache.org/jira/browse/HDFS-7310) | Mover can give first priority to local DN if it has target storage type available in local DN |  Major | balancer & mover | Uma Maheswara Rao G | Vinayakumar B |
-| [HDFS-7308](https://issues.apache.org/jira/browse/HDFS-7308) | DFSClient write packet size may > 64kB |  Minor | hdfs-client | Tsz Wo Nicholas Sze | Takuya Fukudome |
+| [HDFS-7308](https://issues.apache.org/jira/browse/HDFS-7308) | DFSClient write packet size may \> 64kB |  Minor | hdfs-client | Tsz Wo Nicholas Sze | Takuya Fukudome |
 | [HDFS-7283](https://issues.apache.org/jira/browse/HDFS-7283) | Bump DataNode OOM log from WARN to ERROR |  Trivial | datanode | Stephen Chu | Stephen Chu |
 | [HDFS-7280](https://issues.apache.org/jira/browse/HDFS-7280) | Use netty 4 in WebImageViewer |  Major | . | Haohui Mai | Haohui Mai |
 | [HDFS-7279](https://issues.apache.org/jira/browse/HDFS-7279) | Use netty to implement DatanodeWebHdfsMethods |  Major | datanode, webhdfs | Haohui Mai | Haohui Mai |

@@ -390,7 +390,7 @@
 | [HDFS-7131](https://issues.apache.org/jira/browse/HDFS-7131) | During HA upgrade, JournalNode should create a new committedTxnId file in the current directory |  Major | qjm | Jing Zhao | Jing Zhao |
 | [HDFS-7130](https://issues.apache.org/jira/browse/HDFS-7130) | TestDataTransferKeepalive fails intermittently on Windows. |  Major | test | Chris Nauroth | Chris Nauroth |
 | [HDFS-7127](https://issues.apache.org/jira/browse/HDFS-7127) | TestLeaseRecovery leaks MiniDFSCluster instances. |  Major | test | Chris Nauroth | Chris Nauroth |
-| [HDFS-7122](https://issues.apache.org/jira/browse/HDFS-7122) | Use of ThreadLocal<Random> results in poor block placement |  Blocker | namenode | Jeff Buell | Andrew Wang |
+| [HDFS-7122](https://issues.apache.org/jira/browse/HDFS-7122) | Use of ThreadLocal\<Random\> results in poor block placement |  Blocker | namenode | Jeff Buell | Andrew Wang |
 | [HDFS-7111](https://issues.apache.org/jira/browse/HDFS-7111) | TestSafeMode assumes Unix line endings in safe mode tip. |  Trivial | test | Chris Nauroth | Chris Nauroth |
 | [HDFS-7110](https://issues.apache.org/jira/browse/HDFS-7110) | Skip tests related to short-circuit read on platforms that do not currently implement short-circuit read. |  Minor | test | Chris Nauroth | Chris Nauroth |
 | [HDFS-7109](https://issues.apache.org/jira/browse/HDFS-7109) | TestDataStorage does not release file locks between tests. |  Minor | test | Chris Nauroth | Chris Nauroth |
@@ -504,7 +504,7 @@
 | [MAPREDUCE-6090](https://issues.apache.org/jira/browse/MAPREDUCE-6090) | mapred hsadmin getGroups fails to connect in some cases |  Major | client | Robert Kanter | Robert Kanter |
 | [MAPREDUCE-6075](https://issues.apache.org/jira/browse/MAPREDUCE-6075) | HistoryServerFileSystemStateStore can create zero-length files |  Major | jobhistoryserver | Jason Lowe | Jason Lowe |
 | [MAPREDUCE-6073](https://issues.apache.org/jira/browse/MAPREDUCE-6073) | Description of mapreduce.job.speculative.slowtaskthreshold in mapred-default should be moved into description tags |  Trivial | documentation | Tsuyoshi Ozawa | Tsuyoshi Ozawa |
-| [MAPREDUCE-6063](https://issues.apache.org/jira/browse/MAPREDUCE-6063) | In sortAndSpill of MapTask.java, size is calculated wrongly when bufend < bufstart. |  Major | mrv1, mrv2 | zhihai xu | zhihai xu |
+| [MAPREDUCE-6063](https://issues.apache.org/jira/browse/MAPREDUCE-6063) | In sortAndSpill of MapTask.java, size is calculated wrongly when bufend \< bufstart. |  Major | mrv1, mrv2 | zhihai xu | zhihai xu |
 | [MAPREDUCE-6052](https://issues.apache.org/jira/browse/MAPREDUCE-6052) | Support overriding log4j.properties per job |  Major | . | Junping Du | Junping Du |
 | [MAPREDUCE-6051](https://issues.apache.org/jira/browse/MAPREDUCE-6051) | Fix typos in log messages |  Trivial | . | Ray Chiang | Ray Chiang |
 | [MAPREDUCE-6044](https://issues.apache.org/jira/browse/MAPREDUCE-6044) | Fully qualified intermediate done directory will break per-user dir creation on Windows |  Major | jobhistoryserver | Zhijie Shen | Zhijie Shen |
@@ -556,7 +556,7 @@
 | [YARN-2779](https://issues.apache.org/jira/browse/YARN-2779) | SystemMetricsPublisher can use Kerberos directly instead of timeline DT |  Critical | resourcemanager, timelineserver | Zhijie Shen | Zhijie Shen |
 | [YARN-2769](https://issues.apache.org/jira/browse/YARN-2769) | Timeline server domain not set correctly when using shell\_command on Windows |  Major | applications/distributed-shell | Varun Vasudev | Varun Vasudev |
 | [YARN-2760](https://issues.apache.org/jira/browse/YARN-2760) | Completely remove word 'experimental' from FairScheduler docs |  Trivial | documentation | Harsh J | Harsh J |
-| [YARN-2755](https://issues.apache.org/jira/browse/YARN-2755) | NM fails to clean up usercache\_DEL\_<timestamp> dirs after YARN-661 |  Critical | . | Siqi Li | Siqi Li |
+| [YARN-2755](https://issues.apache.org/jira/browse/YARN-2755) | NM fails to clean up usercache\_DEL\_\<timestamp\> dirs after YARN-661 |  Critical | . | Siqi Li | Siqi Li |
 | [YARN-2752](https://issues.apache.org/jira/browse/YARN-2752) | ContainerExecutor always append "nice -n" in command on branch-2 |  Critical | . | Xuan Gong | Xuan Gong |
 | [YARN-2743](https://issues.apache.org/jira/browse/YARN-2743) | Yarn jobs via oozie fail with failed to renew token (secure) or digest mismatch (unsecure) errors when RM is being killed |  Blocker | resourcemanager | Arpit Gupta | Jian He |
 | [YARN-2741](https://issues.apache.org/jira/browse/YARN-2741) | Windows: Node manager cannot serve up log files via the web user interface when yarn.nodemanager.log-dirs to any drive letter other than C: (or, the drive that nodemanager is running on) |  Major | nodemanager | Craig Welch | Craig Welch |
@@ -590,7 +590,7 @@
 | [YARN-2568](https://issues.apache.org/jira/browse/YARN-2568) | TestAMRMClientOnRMRestart test fails |  Major | . | Jian He | Jian He |
 | [YARN-2565](https://issues.apache.org/jira/browse/YARN-2565) | RM shouldn't use the old RMApplicationHistoryWriter unless explicitly setting FileSystemApplicationHistoryStore |  Major | resourcemanager, timelineserver | Karam Singh | Zhijie Shen |
 | [YARN-2563](https://issues.apache.org/jira/browse/YARN-2563) | On secure clusters call to timeline server fails with authentication errors when running a job via oozie |  Blocker | timelineserver | Arpit Gupta | Zhijie Shen |
-| [YARN-2562](https://issues.apache.org/jira/browse/YARN-2562) | ContainerId@toString() is unreadable for epoch >0 after YARN-2182 |  Critical | . | Vinod Kumar Vavilapalli | Tsuyoshi Ozawa |
+| [YARN-2562](https://issues.apache.org/jira/browse/YARN-2562) | ContainerId@toString() is unreadable for epoch \>0 after YARN-2182 |  Critical | . | Vinod Kumar Vavilapalli | Tsuyoshi Ozawa |
 | [YARN-2559](https://issues.apache.org/jira/browse/YARN-2559) | ResourceManager sometime become un-responsive due to NPE in SystemMetricsPublisher |  Major | resourcemanager, timelineserver | Karam Singh | Zhijie Shen |
 | [YARN-2557](https://issues.apache.org/jira/browse/YARN-2557) | Add a parameter "attempt\_Failures\_Validity\_Interval" in DistributedShell |  Major | applications/distributed-shell | Xuan Gong | Xuan Gong |
 | [YARN-2546](https://issues.apache.org/jira/browse/YARN-2546) | REST API for application creation/submission is using strings for numeric & boolean values |  Major | api | Doug Haigh | Varun Vasudev |

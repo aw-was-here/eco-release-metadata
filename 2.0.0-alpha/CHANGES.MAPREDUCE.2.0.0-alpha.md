@@ -61,7 +61,7 @@
 | [MAPREDUCE-3545](https://issues.apache.org/jira/browse/MAPREDUCE-3545) | Remove Avro RPC |  Major | . | Suresh Srinivas | Suresh Srinivas |
 | [MAPREDUCE-3431](https://issues.apache.org/jira/browse/MAPREDUCE-3431) | NPE in Resource Manager shutdown |  Minor | resourcemanager | Steve Loughran | Steve Loughran |
 | [MAPREDUCE-3377](https://issues.apache.org/jira/browse/MAPREDUCE-3377) | Compatibility issue with 0.20.203. |  Major | . | Jane Chen | Jane Chen |
-| [MAPREDUCE-3353](https://issues.apache.org/jira/browse/MAPREDUCE-3353) | Need a RM->AM channel to inform AMs about faulty/unhealthy/lost nodes |  Major | applicationmaster, mrv2, resourcemanager | Vinod Kumar Vavilapalli | Bikas Saha |
+| [MAPREDUCE-3353](https://issues.apache.org/jira/browse/MAPREDUCE-3353) | Need a RM-\>AM channel to inform AMs about faulty/unhealthy/lost nodes |  Major | applicationmaster, mrv2, resourcemanager | Vinod Kumar Vavilapalli | Bikas Saha |
 | [MAPREDUCE-3173](https://issues.apache.org/jira/browse/MAPREDUCE-3173) | MRV2 UI doesn't work properly without internet |  Critical | mrv2 | Devaraj K | Devaraj K |
 | [MAPREDUCE-2942](https://issues.apache.org/jira/browse/MAPREDUCE-2942) | TestNMAuditLogger.testNMAuditLoggerWithIP failing |  Critical | . | Vinod Kumar Vavilapalli | Thomas Graves |
 | [MAPREDUCE-1740](https://issues.apache.org/jira/browse/MAPREDUCE-1740) | NPE in getMatchingLevelForNodes when node locations are variable depth |  Major | jobtracker | Todd Lipcon | Ahmed Radwan |

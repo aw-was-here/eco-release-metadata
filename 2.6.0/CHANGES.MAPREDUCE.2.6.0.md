@@ -50,7 +50,7 @@
 | [MAPREDUCE-6090](https://issues.apache.org/jira/browse/MAPREDUCE-6090) | mapred hsadmin getGroups fails to connect in some cases |  Major | client | Robert Kanter | Robert Kanter |
 | [MAPREDUCE-6075](https://issues.apache.org/jira/browse/MAPREDUCE-6075) | HistoryServerFileSystemStateStore can create zero-length files |  Major | jobhistoryserver | Jason Lowe | Jason Lowe |
 | [MAPREDUCE-6073](https://issues.apache.org/jira/browse/MAPREDUCE-6073) | Description of mapreduce.job.speculative.slowtaskthreshold in mapred-default should be moved into description tags |  Trivial | documentation | Tsuyoshi Ozawa | Tsuyoshi Ozawa |
-| [MAPREDUCE-6063](https://issues.apache.org/jira/browse/MAPREDUCE-6063) | In sortAndSpill of MapTask.java, size is calculated wrongly when bufend < bufstart. |  Major | mrv1, mrv2 | zhihai xu | zhihai xu |
+| [MAPREDUCE-6063](https://issues.apache.org/jira/browse/MAPREDUCE-6063) | In sortAndSpill of MapTask.java, size is calculated wrongly when bufend \< bufstart. |  Major | mrv1, mrv2 | zhihai xu | zhihai xu |
 | [MAPREDUCE-6052](https://issues.apache.org/jira/browse/MAPREDUCE-6052) | Support overriding log4j.properties per job |  Major | . | Junping Du | Junping Du |
 | [MAPREDUCE-6051](https://issues.apache.org/jira/browse/MAPREDUCE-6051) | Fix typos in log messages |  Trivial | . | Ray Chiang | Ray Chiang |
 | [MAPREDUCE-6044](https://issues.apache.org/jira/browse/MAPREDUCE-6044) | Fully qualified intermediate done directory will break per-user dir creation on Windows |  Major | jobhistoryserver | Zhijie Shen | Zhijie Shen |

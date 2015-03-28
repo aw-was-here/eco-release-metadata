@@ -60,7 +60,7 @@
 | [HADOOP-10328](https://issues.apache.org/jira/browse/HADOOP-10328) | loadGenerator exit code is not reliable |  Major | tools | Arpit Gupta | Haohui Mai |
 | [HADOOP-10327](https://issues.apache.org/jira/browse/HADOOP-10327) | Trunk windows build broken after HDFS-5746 |  Blocker | native | Vinayakumar B | Vinayakumar B |
 | [HADOOP-10326](https://issues.apache.org/jira/browse/HADOOP-10326) | M/R jobs can not access S3 if Kerberos is enabled |  Major | security | Manuel DE FERRAN | bc Wong |
-| [HADOOP-10320](https://issues.apache.org/jira/browse/HADOOP-10320) | Javadoc in InterfaceStability.java lacks final </ul> |  Trivial | documentation | René Nyffenegger | René Nyffenegger |
+| [HADOOP-10320](https://issues.apache.org/jira/browse/HADOOP-10320) | Javadoc in InterfaceStability.java lacks final \</ul\> |  Trivial | documentation | René Nyffenegger | René Nyffenegger |
 | [HADOOP-10314](https://issues.apache.org/jira/browse/HADOOP-10314) | The ls command help still shows outdated 0.16 format. |  Major | . | Kihwal Lee | Rushabh S Shah |
 | [HADOOP-10301](https://issues.apache.org/jira/browse/HADOOP-10301) | AuthenticationFilter should return Forbidden for failed authentication |  Blocker | security | Daryn Sharp | Daryn Sharp |
 | [HADOOP-10249](https://issues.apache.org/jira/browse/HADOOP-10249) | LdapGroupsMapping should trim ldap password read from file |  Major | . | Dilli Arumugam | Dilli Arumugam |

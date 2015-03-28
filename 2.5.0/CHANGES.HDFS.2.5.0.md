@@ -164,7 +164,7 @@
 | [HDFS-6227](https://issues.apache.org/jira/browse/HDFS-6227) | ShortCircuitCache#unref should purge ShortCircuitReplicas whose streams have been closed by java interrupts |  Major | . | Jing Zhao | Colin Patrick McCabe |
 | [HDFS-6222](https://issues.apache.org/jira/browse/HDFS-6222) | Remove background token renewer from webhdfs |  Major | webhdfs | Daryn Sharp | Daryn Sharp |
 | [HDFS-6216](https://issues.apache.org/jira/browse/HDFS-6216) | Issues with webhdfs and http proxies |  Major | webhdfs | Daryn Sharp | Daryn Sharp |
-| [HDFS-6214](https://issues.apache.org/jira/browse/HDFS-6214) | Webhdfs has poor throughput for files >2GB |  Major | webhdfs | Daryn Sharp | Daryn Sharp |
+| [HDFS-6214](https://issues.apache.org/jira/browse/HDFS-6214) | Webhdfs has poor throughput for files \>2GB |  Major | webhdfs | Daryn Sharp | Daryn Sharp |
 | [HDFS-6213](https://issues.apache.org/jira/browse/HDFS-6213) | TestDataNodeConfig failing on Jenkins runs due to DN web port in use |  Minor | test | Steve Loughran | Andrew Wang |
 | [HDFS-6194](https://issues.apache.org/jira/browse/HDFS-6194) | Create new tests for ByteRangeInputStream |  Major | . | Haohui Mai | Akira AJISAKA |
 | [HDFS-6190](https://issues.apache.org/jira/browse/HDFS-6190) | minor textual fixes in DFSClient |  Trivial | tools | Charles Lamb | Charles Lamb |
