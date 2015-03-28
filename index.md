@@ -154,6 +154,123 @@
         * [HDFS Release Notes](2.2.1/RELEASENOTES.HDFS.2.2.1.html)
         * [MapReduce Release Notes](2.2.1/RELEASENOTES.MAPREDUCE.2.2.1.html)
         * [YARN Release Notes](2.2.1/RELEASENOTES.YARN.2.2.1.html)
+* Apache Hadoop v2.2.0
+    *  Changes
+        * [Combined Changes](2.2.0/CHANGES.2.2.0.html)
+        * [Hadoop Common Changes](2.2.0/CHANGES.HADOOP.2.2.0.html)
+        * [HDFS Changes](2.2.0/CHANGES.HDFS.2.2.0.html)
+        * [MapReduce Changes](2.2.0/CHANGES.MAPREDUCE.2.2.0.html)
+        * [YARN Changes](2.2.0/CHANGES.YARN.2.2.0.html)
+    *  Release Notes
+        * [Combined Release Notes](2.2.0/RELEASENOTES.2.2.0.html)
+        * [Hadoop Common Release Notes](2.2.0/RELEASENOTES.HADOOP.2.2.0.html)
+        * [HDFS Release Notes](2.2.0/RELEASENOTES.HDFS.2.2.0.html)
+        * [MapReduce Release Notes](2.2.0/RELEASENOTES.MAPREDUCE.2.2.0.html)
+        * [YARN Release Notes](2.2.0/RELEASENOTES.YARN.2.2.0.html)
+* Apache Hadoop v2.1.1-beta
+    *  Changes
+        * [Combined Changes](2.1.1-beta/CHANGES.2.1.1-beta.html)
+        * [Hadoop Common Changes](2.1.1-beta/CHANGES.HADOOP.2.1.1-beta.html)
+        * [HDFS Changes](2.1.1-beta/CHANGES.HDFS.2.1.1-beta.html)
+        * [MapReduce Changes](2.1.1-beta/CHANGES.MAPREDUCE.2.1.1-beta.html)
+        * [YARN Changes](2.1.1-beta/CHANGES.YARN.2.1.1-beta.html)
+    *  Release Notes
+        * [Combined Release Notes](2.1.1-beta/RELEASENOTES.2.1.1-beta.html)
+        * [Hadoop Common Release Notes](2.1.1-beta/RELEASENOTES.HADOOP.2.1.1-beta.html)
+        * [HDFS Release Notes](2.1.1-beta/RELEASENOTES.HDFS.2.1.1-beta.html)
+        * [MapReduce Release Notes](2.1.1-beta/RELEASENOTES.MAPREDUCE.2.1.1-beta.html)
+        * [YARN Release Notes](2.1.1-beta/RELEASENOTES.YARN.2.1.1-beta.html)
+* Apache Hadoop v2.1.0-beta
+    *  Changes
+        * [Combined Changes](2.1.0-beta/CHANGES.2.1.0-beta.html)
+        * [Hadoop Common Changes](2.1.0-beta/CHANGES.HADOOP.2.1.0-beta.html)
+        * [HDFS Changes](2.1.0-beta/CHANGES.HDFS.2.1.0-beta.html)
+        * [MapReduce Changes](2.1.0-beta/CHANGES.MAPREDUCE.2.1.0-beta.html)
+        * [YARN Changes](2.1.0-beta/CHANGES.YARN.2.1.0-beta.html)
+    *  Release Notes
+        * [Combined Release Notes](2.1.0-beta/RELEASENOTES.2.1.0-beta.html)
+        * [Hadoop Common Release Notes](2.1.0-beta/RELEASENOTES.HADOOP.2.1.0-beta.html)
+        * [HDFS Release Notes](2.1.0-beta/RELEASENOTES.HDFS.2.1.0-beta.html)
+        * [MapReduce Release Notes](2.1.0-beta/RELEASENOTES.MAPREDUCE.2.1.0-beta.html)
+        * [YARN Release Notes](2.1.0-beta/RELEASENOTES.YARN.2.1.0-beta.html)
+* Apache Hadoop v2.0.6-alpha
+    *  Changes
+        * [Combined Changes](2.0.6-alpha/CHANGES.2.0.6-alpha.html)
+        * [Hadoop Common Changes](2.0.6-alpha/CHANGES.HADOOP.2.0.6-alpha.html)
+        * [HDFS Changes](2.0.6-alpha/CHANGES.HDFS.2.0.6-alpha.html)
+        * [MapReduce Changes](2.0.6-alpha/CHANGES.MAPREDUCE.2.0.6-alpha.html)
+        * [YARN Changes](2.0.6-alpha/CHANGES.YARN.2.0.6-alpha.html)
+    *  Release Notes
+        * [Combined Release Notes](2.0.6-alpha/RELEASENOTES.2.0.6-alpha.html)
+        * [Hadoop Common Release Notes](2.0.6-alpha/RELEASENOTES.HADOOP.2.0.6-alpha.html)
+        * [HDFS Release Notes](2.0.6-alpha/RELEASENOTES.HDFS.2.0.6-alpha.html)
+        * [MapReduce Release Notes](2.0.6-alpha/RELEASENOTES.MAPREDUCE.2.0.6-alpha.html)
+        * [YARN Release Notes](2.0.6-alpha/RELEASENOTES.YARN.2.0.6-alpha.html)
+* Apache Hadoop v2.0.5-alpha
+    *  Changes
+        * [Combined Changes](2.0.5-alpha/CHANGES.2.0.5-alpha.html)
+        * [Hadoop Common Changes](2.0.5-alpha/CHANGES.HADOOP.2.0.5-alpha.html)
+        * [HDFS Changes](2.0.5-alpha/CHANGES.HDFS.2.0.5-alpha.html)
+        * [MapReduce Changes](2.0.5-alpha/CHANGES.MAPREDUCE.2.0.5-alpha.html)
+        * [YARN Changes](2.0.5-alpha/CHANGES.YARN.2.0.5-alpha.html)
+    *  Release Notes
+        * [Combined Release Notes](2.0.5-alpha/RELEASENOTES.2.0.5-alpha.html)
+        * [Hadoop Common Release Notes](2.0.5-alpha/RELEASENOTES.HADOOP.2.0.5-alpha.html)
+        * [HDFS Release Notes](2.0.5-alpha/RELEASENOTES.HDFS.2.0.5-alpha.html)
+        * [MapReduce Release Notes](2.0.5-alpha/RELEASENOTES.MAPREDUCE.2.0.5-alpha.html)
+        * [YARN Release Notes](2.0.5-alpha/RELEASENOTES.YARN.2.0.5-alpha.html)
+* Apache Hadoop v2.0.4-alpha
+    *  Changes
+        * [Combined Changes](2.0.4-alpha/CHANGES.2.0.4-alpha.html)
+        * [Hadoop Common Changes](2.0.4-alpha/CHANGES.HADOOP.2.0.4-alpha.html)
+        * [HDFS Changes](2.0.4-alpha/CHANGES.HDFS.2.0.4-alpha.html)
+        * [MapReduce Changes](2.0.4-alpha/CHANGES.MAPREDUCE.2.0.4-alpha.html)
+        * [YARN Changes](2.0.4-alpha/CHANGES.YARN.2.0.4-alpha.html)
+    *  Release Notes
+        * [Combined Release Notes](2.0.4-alpha/RELEASENOTES.2.0.4-alpha.html)
+        * [Hadoop Common Release Notes](2.0.4-alpha/RELEASENOTES.HADOOP.2.0.4-alpha.html)
+        * [HDFS Release Notes](2.0.4-alpha/RELEASENOTES.HDFS.2.0.4-alpha.html)
+        * [MapReduce Release Notes](2.0.4-alpha/RELEASENOTES.MAPREDUCE.2.0.4-alpha.html)
+        * [YARN Release Notes](2.0.4-alpha/RELEASENOTES.YARN.2.0.4-alpha.html)
+* Apache Hadoop v2.0.3-alpha
+    *  Changes
+        * [Combined Changes](2.0.3-alpha/CHANGES.2.0.3-alpha.html)
+        * [Hadoop Common Changes](2.0.3-alpha/CHANGES.HADOOP.2.0.3-alpha.html)
+        * [HDFS Changes](2.0.3-alpha/CHANGES.HDFS.2.0.3-alpha.html)
+        * [MapReduce Changes](2.0.3-alpha/CHANGES.MAPREDUCE.2.0.3-alpha.html)
+        * [YARN Changes](2.0.3-alpha/CHANGES.YARN.2.0.3-alpha.html)
+    *  Release Notes
+        * [Combined Release Notes](2.0.3-alpha/RELEASENOTES.2.0.3-alpha.html)
+        * [Hadoop Common Release Notes](2.0.3-alpha/RELEASENOTES.HADOOP.2.0.3-alpha.html)
+        * [HDFS Release Notes](2.0.3-alpha/RELEASENOTES.HDFS.2.0.3-alpha.html)
+        * [MapReduce Release Notes](2.0.3-alpha/RELEASENOTES.MAPREDUCE.2.0.3-alpha.html)
+        * [YARN Release Notes](2.0.3-alpha/RELEASENOTES.YARN.2.0.3-alpha.html)
+* Apache Hadoop v2.0.2-alpha
+    *  Changes
+        * [Combined Changes](2.0.2-alpha/CHANGES.2.0.2-alpha.html)
+        * [Hadoop Common Changes](2.0.2-alpha/CHANGES.HADOOP.2.0.2-alpha.html)
+        * [HDFS Changes](2.0.2-alpha/CHANGES.HDFS.2.0.2-alpha.html)
+        * [MapReduce Changes](2.0.2-alpha/CHANGES.MAPREDUCE.2.0.2-alpha.html)
+        * [YARN Changes](2.0.2-alpha/CHANGES.YARN.2.0.2-alpha.html)
+    *  Release Notes
+        * [Combined Release Notes](2.0.2-alpha/RELEASENOTES.2.0.2-alpha.html)
+        * [Hadoop Common Release Notes](2.0.2-alpha/RELEASENOTES.HADOOP.2.0.2-alpha.html)
+        * [HDFS Release Notes](2.0.2-alpha/RELEASENOTES.HDFS.2.0.2-alpha.html)
+        * [MapReduce Release Notes](2.0.2-alpha/RELEASENOTES.MAPREDUCE.2.0.2-alpha.html)
+        * [YARN Release Notes](2.0.2-alpha/RELEASENOTES.YARN.2.0.2-alpha.html)
+* Apache Hadoop v2.0.1-alpha
+    *  Changes
+        * [Combined Changes](2.0.1-alpha/CHANGES.2.0.1-alpha.html)
+        * [Hadoop Common Changes](2.0.1-alpha/CHANGES.HADOOP.2.0.1-alpha.html)
+        * [HDFS Changes](2.0.1-alpha/CHANGES.HDFS.2.0.1-alpha.html)
+        * [MapReduce Changes](2.0.1-alpha/CHANGES.MAPREDUCE.2.0.1-alpha.html)
+        * [YARN Changes](2.0.1-alpha/CHANGES.YARN.2.0.1-alpha.html)
+    *  Release Notes
+        * [Combined Release Notes](2.0.1-alpha/RELEASENOTES.2.0.1-alpha.html)
+        * [Hadoop Common Release Notes](2.0.1-alpha/RELEASENOTES.HADOOP.2.0.1-alpha.html)
+        * [HDFS Release Notes](2.0.1-alpha/RELEASENOTES.HDFS.2.0.1-alpha.html)
+        * [MapReduce Release Notes](2.0.1-alpha/RELEASENOTES.MAPREDUCE.2.0.1-alpha.html)
+        * [YARN Release Notes](2.0.1-alpha/RELEASENOTES.YARN.2.0.1-alpha.html)
 * Apache Hadoop v2.0.0-alpha
     *  Changes
         * [Combined Changes](2.0.0-alpha/CHANGES.2.0.0-alpha.html)
