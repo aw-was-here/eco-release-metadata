@@ -122,12 +122,14 @@
 | [YARN-3090](https://issues.apache.org/jira/browse/YARN-3090) | DeletionService can silently ignore deletion task failures |  Major | nodemanager | Jason Lowe | Varun Saxena |
 | [YARN-3089](https://issues.apache.org/jira/browse/YARN-3089) | LinuxContainerExecutor does not handle file arguments to deleteAsUser |  Blocker | . | Jason Lowe | Eric Payne |
 | [YARN-3088](https://issues.apache.org/jira/browse/YARN-3088) | LinuxContainerExecutor.deleteAsUser can throw NPE if native executor returns an error |  Major | nodemanager | Jason Lowe | Eric Payne |
+| [YARN-3082](https://issues.apache.org/jira/browse/YARN-3082) | Non thread safe access to systemCredentials in NodeHeartbeatResponse processing |  Major | . | Anubhav Dhoot | Anubhav Dhoot |
 | [YARN-3079](https://issues.apache.org/jira/browse/YARN-3079) | Scheduler should also update maximumAllocation when updateNodeResource. |  Major | . | zhihai xu | zhihai xu |
 | [YARN-3078](https://issues.apache.org/jira/browse/YARN-3078) | LogCLIHelpers lacks of a blank space before string 'does not exist' |  Minor | log-aggregation | sam liu |  |
 | [YARN-3074](https://issues.apache.org/jira/browse/YARN-3074) | Nodemanager dies when localizer runner tries to write to a full disk |  Major | nodemanager | Jason Lowe | Varun Saxena |
 | [YARN-3071](https://issues.apache.org/jira/browse/YARN-3071) | Remove invalid char from sample conf in doc of FairScheduler |  Trivial | documentation | Masatake Iwasaki | Masatake Iwasaki |
 | [YARN-3064](https://issues.apache.org/jira/browse/YARN-3064) | TestRMRestart/TestContainerResourceUsage/TestNodeManagerResync failure with allocation timeout |  Critical | scheduler | Wangda Tan | Jian He |
 | [YARN-3058](https://issues.apache.org/jira/browse/YARN-3058) | Fix error message of tokens' activation delay configuration |  Minor | . | Yi Liu | Yi Liu |
+| [YARN-3029](https://issues.apache.org/jira/browse/YARN-3029) | FSDownload.unpack() uses local locale for FS case conversion, may not work everywhere |  Major | nodemanager | Steve Loughran | Varun Saxena |
 | [YARN-3027](https://issues.apache.org/jira/browse/YARN-3027) | Scheduler should use totalAvailable resource from node instead of availableResource for maxAllocation |  Major | . | Anubhav Dhoot | Anubhav Dhoot |
 | [YARN-3024](https://issues.apache.org/jira/browse/YARN-3024) | LocalizerRunner should give DIE action when all resources are localized |  Major | nodemanager | Chengbing Liu | Chengbing Liu |
 | [YARN-3015](https://issues.apache.org/jira/browse/YARN-3015) | yarn classpath command should support same options as hadoop classpath. |  Minor | scripts | Chris Nauroth | Varun Saxena |
@@ -210,6 +212,76 @@
 | [YARN-2930](https://issues.apache.org/jira/browse/YARN-2930) | TestRMRestart#testRMRestartRecoveringNodeLabelManager sometimes fails against Java 7 & 8 |  Minor | . | Ted Yu | Wangda Tan |
 | [YARN-1979](https://issues.apache.org/jira/browse/YARN-1979) | TestDirectoryCollection fails when the umask is unusual |  Major | . | Vinod Kumar Vavilapalli | Vinod Kumar Vavilapalli |
 | [YARN-1537](https://issues.apache.org/jira/browse/YARN-1537) | TestLocalResourcesTrackerImpl.testLocalResourceCache often failed |  Major | nodemanager | Hong Shen | Xuan Gong |
+
+
+### SUB-TASKS:
+
+| JIRA | Description | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [YARN-3379](https://issues.apache.org/jira/browse/YARN-3379) | Missing data in localityTable and ResourceRequests table in RM WebUI |  Major | resourcemanager, webapp, yarn | Xuan Gong | Xuan Gong |
+| [YARN-3300](https://issues.apache.org/jira/browse/YARN-3300) | outstanding\_resource\_requests table should not be shown in AHS |  Major | resourcemanager | Xuan Gong | Xuan Gong |
+| [YARN-3265](https://issues.apache.org/jira/browse/YARN-3265) | CapacityScheduler deadlock when computing absolute max avail capacity (fix for trunk/branch-2) |  Blocker | capacityscheduler, resourcemanager | Wangda Tan | Wangda Tan |
+| [YARN-3171](https://issues.apache.org/jira/browse/YARN-3171) | Sort by Application id, AppAttempt & ContainerID doesn't work in ATS / RM web ui |  Minor | timelineserver | Jeff Zhang | Naganarasimha G R |
+| [YARN-3154](https://issues.apache.org/jira/browse/YARN-3154) | Should not upload partial logs for MR jobs or other "short-running' applications |  Blocker | nodemanager, resourcemanager | Xuan Gong | Xuan Gong |
+| [YARN-3132](https://issues.apache.org/jira/browse/YARN-3132) | RMNodeLabelsManager should remove node from node-to-label mapping when node becomes deactivated |  Major | api, client, resourcemanager | Wangda Tan | Wangda Tan |
+| [YARN-3124](https://issues.apache.org/jira/browse/YARN-3124) | Capacity Scheduler LeafQueue/ParentQueue should use QueueCapacities to track capacities-by-label |  Major | api, client, resourcemanager | Wangda Tan | Wangda Tan |
+| [YARN-3122](https://issues.apache.org/jira/browse/YARN-3122) | Metrics for container's actual CPU usage |  Major | nodemanager | Anubhav Dhoot | Anubhav Dhoot |
+| [YARN-3099](https://issues.apache.org/jira/browse/YARN-3099) | Capacity Scheduler LeafQueue/ParentQueue should use ResourceUsage to track used-resources-by-label. |  Major | api, client, resourcemanager | Wangda Tan | Wangda Tan |
+| [YARN-3098](https://issues.apache.org/jira/browse/YARN-3098) | Create common QueueCapacities class in Capacity Scheduler to track capacities-by-labels of queues |  Major | capacityscheduler | Wangda Tan | Wangda Tan |
+| [YARN-3092](https://issues.apache.org/jira/browse/YARN-3092) | Create common ResourceUsage class to track labeled resource usages in Capacity Scheduler |  Major | api, client, resourcemanager | Wangda Tan | Wangda Tan |
+| [YARN-3076](https://issues.apache.org/jira/browse/YARN-3076) | Add API/Implementation to YarnClient to retrieve label-to-node mapping |  Major | client | Varun Saxena | Varun Saxena |
+| [YARN-3075](https://issues.apache.org/jira/browse/YARN-3075) | NodeLabelsManager implementation to retrieve label to node mapping |  Major | resourcemanager | Varun Saxena | Varun Saxena |
+| [YARN-3028](https://issues.apache.org/jira/browse/YARN-3028) | Better syntax for replaceLabelsOnNode in RMAdmin CLI |  Major | api, client, resourcemanager | Jian He | Rohith |
+| [YARN-3019](https://issues.apache.org/jira/browse/YARN-3019) | Make work-preserving-recovery the default mechanism for RM recovery |  Major | resourcemanager | Jian He | Jian He |
+| [YARN-3014](https://issues.apache.org/jira/browse/YARN-3014) | Replaces labels on a host should update all NM's labels on that host |  Major | . | Wangda Tan | Wangda Tan |
+| [YARN-3011](https://issues.apache.org/jira/browse/YARN-3011) | NM dies because of the failure of resource localization |  Major | nodemanager | Wang Hao | Varun Saxena |
+| [YARN-2998](https://issues.apache.org/jira/browse/YARN-2998) | Abstract out scheduler independent PlanFollower components |  Major | fairscheduler | Anubhav Dhoot | Anubhav Dhoot |
+| [YARN-2994](https://issues.apache.org/jira/browse/YARN-2994) | Document work-preserving RM restart |  Major | resourcemanager | Jian He | Jian He |
+| [YARN-2984](https://issues.apache.org/jira/browse/YARN-2984) | Metrics for container's actual memory usage |  Major | nodemanager | Karthik Kambatla | Karthik Kambatla |
+| [YARN-2971](https://issues.apache.org/jira/browse/YARN-2971) | RM uses conf instead of token service address to renew timeline delegation tokens |  Major | timelineserver | Jonathan Eagles | Jonathan Eagles |
+| [YARN-2970](https://issues.apache.org/jira/browse/YARN-2970) | NodeLabel operations in RMAdmin CLI get missing in help command. |  Minor | api, client, resourcemanager | Junping Du | Varun Saxena |
+| [YARN-2944](https://issues.apache.org/jira/browse/YARN-2944) | InMemorySCMStore can not be instantiated with ReflectionUtils#newInstance |  Minor | . | Chris Trezzo | Chris Trezzo |
+| [YARN-2943](https://issues.apache.org/jira/browse/YARN-2943) | Add a node-labels page in RM web UI |  Major | resourcemanager | Wangda Tan | Wangda Tan |
+| [YARN-2933](https://issues.apache.org/jira/browse/YARN-2933) | Capacity Scheduler preemption policy should only consider capacity without labels temporarily |  Major | capacityscheduler | Wangda Tan | Mayank Bansal |
+| [YARN-2927](https://issues.apache.org/jira/browse/YARN-2927) | InMemorySCMStore properties are inconsistent |  Major | . | Ray Chiang | Ray Chiang |
+| [YARN-2924](https://issues.apache.org/jira/browse/YARN-2924) | Node to labels mapping should not transfer to lowercase when adding from RMAdminCLI |  Major | client | Wangda Tan | Wangda Tan |
+| [YARN-2920](https://issues.apache.org/jira/browse/YARN-2920) | CapacityScheduler should be notified when labels on nodes changed |  Major | . | Wangda Tan | Wangda Tan |
+| [YARN-2914](https://issues.apache.org/jira/browse/YARN-2914) | Potential race condition in Singleton implementation of SharedCacheUploaderMetrics, CleanerMetrics, ClientSCMMetrics |  Minor | . | Ted Yu | Varun Saxena |
+| [YARN-2881](https://issues.apache.org/jira/browse/YARN-2881) | Implement PlanFollower for FairScheduler |  Major | fairscheduler | Anubhav Dhoot | Anubhav Dhoot |
+| [YARN-2880](https://issues.apache.org/jira/browse/YARN-2880) | Add a test in TestRMRestart to make sure node labels will be recovered if it is enabled |  Major | resourcemanager | Wangda Tan | Rohith |
+| [YARN-2807](https://issues.apache.org/jira/browse/YARN-2807) | Option "--forceactive" not works as described in usage of "yarn rmadmin -transitionToActive" |  Minor | documentation, resourcemanager | Wangda Tan | Masatake Iwasaki |
+| [YARN-2800](https://issues.apache.org/jira/browse/YARN-2800) | Remove MemoryNodeLabelsStore and add a way to enable/disable node labels feature |  Major | client, resourcemanager | Wangda Tan | Wangda Tan |
+| [YARN-2786](https://issues.apache.org/jira/browse/YARN-2786) | Create yarn cluster CLI to enable list node labels collection |  Major | api, client, resourcemanager | Wangda Tan | Wangda Tan |
+| [YARN-2766](https://issues.apache.org/jira/browse/YARN-2766) |  ApplicationHistoryManager is expected to return a sorted list of apps/attempts/containers |  Major | timelineserver | Robert Kanter | Robert Kanter |
+| [YARN-2765](https://issues.apache.org/jira/browse/YARN-2765) | Add leveldb-based implementation for RMStateStore |  Major | resourcemanager | Jason Lowe | Jason Lowe |
+| [YARN-2762](https://issues.apache.org/jira/browse/YARN-2762) | RMAdminCLI node-labels-related args should be trimmed and checked before sending to RM |  Minor | resourcemanager | Rohith | Rohith |
+| [YARN-2738](https://issues.apache.org/jira/browse/YARN-2738) | Add FairReservationSystem for FairScheduler |  Major | fairscheduler | Anubhav Dhoot | Anubhav Dhoot |
+| [YARN-2712](https://issues.apache.org/jira/browse/YARN-2712) | TestWorkPreservingRMRestart: Augment FS tests with queue and headroom checks |  Major | resourcemanager | Tsuyoshi Ozawa | Tsuyoshi Ozawa |
+| [YARN-2694](https://issues.apache.org/jira/browse/YARN-2694) | Ensure only single node labels specified in resource request / host, and node label expression only specified when resourceName=ANY |  Major | capacityscheduler, resourcemanager | Wangda Tan | Wangda Tan |
+| [YARN-2690](https://issues.apache.org/jira/browse/YARN-2690) | Make ReservationSystem and its dependent classes independent of Scheduler type |  Major | fairscheduler | Anubhav Dhoot | Anubhav Dhoot |
+| [YARN-2683](https://issues.apache.org/jira/browse/YARN-2683) | registry config options: document and move to core-default |  Major | api, resourcemanager | Steve Loughran | Steve Loughran |
+| [YARN-2616](https://issues.apache.org/jira/browse/YARN-2616) | Add CLI client to the registry to list, view and manipulate entries |  Major | client | Steve Loughran | Akshay Radia |
+| [YARN-2543](https://issues.apache.org/jira/browse/YARN-2543) | Resource usage should be published to the timeline server as well |  Major | timelineserver | Zhijie Shen | Naganarasimha G R |
+| [YARN-2404](https://issues.apache.org/jira/browse/YARN-2404) | Remove ApplicationAttemptState and ApplicationState class in RMStateStore class |  Major | . | Jian He | Tsuyoshi Ozawa |
+| [YARN-2375](https://issues.apache.org/jira/browse/YARN-2375) | Allow enabling/disabling timeline server per framework |  Major | . | Jonathan Eagles | Mit Desai |
+| [YARN-2236](https://issues.apache.org/jira/browse/YARN-2236) | Shared Cache uploader service on the Node Manager |  Major | . | Chris Trezzo | Chris Trezzo |
+| [YARN-2217](https://issues.apache.org/jira/browse/YARN-2217) | Shared cache client side changes |  Major | . | Chris Trezzo | Chris Trezzo |
+| [YARN-2203](https://issues.apache.org/jira/browse/YARN-2203) | Web UI for cache manager |  Major | . | Chris Trezzo | Chris Trezzo |
+| [YARN-2189](https://issues.apache.org/jira/browse/YARN-2189) | Admin service for cache manager |  Major | . | Chris Trezzo | Chris Trezzo |
+| [YARN-2188](https://issues.apache.org/jira/browse/YARN-2188) | Client service for cache manager |  Major | . | Chris Trezzo | Chris Trezzo |
+| [YARN-2186](https://issues.apache.org/jira/browse/YARN-2186) | Node Manager uploader service for cache manager |  Major | . | Chris Trezzo | Chris Trezzo |
+| [YARN-2183](https://issues.apache.org/jira/browse/YARN-2183) | Cleaner service for cache manager |  Major | . | Chris Trezzo | Chris Trezzo |
+| [YARN-2180](https://issues.apache.org/jira/browse/YARN-2180) | In-memory backing store for cache manager |  Major | . | Chris Trezzo | Chris Trezzo |
+| [YARN-2179](https://issues.apache.org/jira/browse/YARN-2179) | Initial cache manager structure and context |  Major | . | Chris Trezzo | Chris Trezzo |
+| [YARN-2165](https://issues.apache.org/jira/browse/YARN-2165) | Timeline server should validate the numeric configuration values |  Major | timelineserver | Karam Singh | Vasanth kumar RJ |
+| [YARN-2079](https://issues.apache.org/jira/browse/YARN-2079) | Recover NonAggregatingLogHandler state upon nodemanager restart |  Major | nodemanager | Jason Lowe | Jason Lowe |
+| [YARN-2056](https://issues.apache.org/jira/browse/YARN-2056) | Disable preemption at Queue level |  Major | resourcemanager | Mayank Bansal | Eric Payne |
+| [YARN-1984](https://issues.apache.org/jira/browse/YARN-1984) | LeveldbTimelineStore does not handle db exceptions properly |  Major | . | Jason Lowe | Varun Saxena |
+| [YARN-1904](https://issues.apache.org/jira/browse/YARN-1904) | Uniform the XXXXNotFound messages from ClientRMService and ApplicationHistoryClientService |  Major | . | Zhijie Shen | Zhijie Shen |
+| [YARN-1884](https://issues.apache.org/jira/browse/YARN-1884) | ContainerReport should have nodeHttpAddress |  Major | . | Zhijie Shen | Xuan Gong |
+| [YARN-1809](https://issues.apache.org/jira/browse/YARN-1809) | Synchronize RM and Generic History Service Web-UIs |  Major | . | Zhijie Shen | Xuan Gong |
+| [YARN-1723](https://issues.apache.org/jira/browse/YARN-1723) | AMRMClientAsync missing blacklist addition and removal functionality |  Major | . | Bikas Saha | Bartosz Ługowski |
+| [YARN-1514](https://issues.apache.org/jira/browse/YARN-1514) | Utility to benchmark ZKRMStateStore#loadState for ResourceManager-HA |  Major | . | Tsuyoshi Ozawa | Tsuyoshi Ozawa |
 
 
 ### OTHER:

@@ -255,6 +255,36 @@
 | [HADOOP-10668](https://issues.apache.org/jira/browse/HADOOP-10668) | TestZKFailoverControllerStress#testExpireBackAndForth occasionally fails |  Major | test | Ted Yu | Ming Ma |
 
 
+### SUB-TASKS:
+
+| JIRA | Description | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [HADOOP-11710](https://issues.apache.org/jira/browse/HADOOP-11710) | Make CryptoOutputStream behave like DFSOutputStream wrt synchronization |  Critical | fs | Sean Busbey | Sean Busbey |
+| [HADOOP-11670](https://issues.apache.org/jira/browse/HADOOP-11670) | Regression: s3a auth setup broken |  Blocker | fs/s3 | Adam Budde | Adam Budde |
+| [HADOOP-11600](https://issues.apache.org/jira/browse/HADOOP-11600) | Fix up source codes to be compiled with Guava 17.0 |  Major | . | Tsuyoshi Ozawa | Tsuyoshi Ozawa |
+| [HADOOP-11584](https://issues.apache.org/jira/browse/HADOOP-11584) | s3a file block size set to 0 in getFileStatus |  Blocker | fs/s3 | Dan Hecht | Brahma Reddy Battula |
+| [HADOOP-11570](https://issues.apache.org/jira/browse/HADOOP-11570) | S3AInputStream.close() downloads the remaining bytes of the object from S3 |  Major | fs/s3 | Dan Hecht | Dan Hecht |
+| [HADOOP-11522](https://issues.apache.org/jira/browse/HADOOP-11522) | Update S3A Documentation |  Major | fs/s3 | Thomas Demoor | Thomas Demoor |
+| [HADOOP-11521](https://issues.apache.org/jira/browse/HADOOP-11521) | Make connection timeout configurable in s3a |  Minor | fs/s3 | Thomas Demoor | Thomas Demoor |
+| [HADOOP-11465](https://issues.apache.org/jira/browse/HADOOP-11465) | Fix findbugs warnings in hadoop-gridmix |  Major | . | Varun Saxena | Varun Saxena |
+| [HADOOP-11429](https://issues.apache.org/jira/browse/HADOOP-11429) | Findbugs warnings in hadoop extras |  Major | . | Varun Saxena | Varun Saxena |
+| [HADOOP-11389](https://issues.apache.org/jira/browse/HADOOP-11389) | Clean up byte to string encoding issues in hadoop-common |  Major | . | Haohui Mai | Haohui Mai |
+| [HADOOP-11381](https://issues.apache.org/jira/browse/HADOOP-11381) | Fix findbugs warnings in hadoop-distcp, hadoop-aws, hadoop-azure, and hadoop-openstack |  Major | . | Li Lu | Li Lu |
+| [HADOOP-11379](https://issues.apache.org/jira/browse/HADOOP-11379) | Fix new findbugs warnings in hadoop-auth* |  Major | . | Li Lu | Li Lu |
+| [HADOOP-11378](https://issues.apache.org/jira/browse/HADOOP-11378) | Fix new findbugs warnings in hadoop-kms |  Major | . | Li Lu | Li Lu |
+| [HADOOP-11372](https://issues.apache.org/jira/browse/HADOOP-11372) | Fix new findbugs warnings in mapreduce-examples |  Major | . | Li Lu | Li Lu |
+| [HADOOP-11370](https://issues.apache.org/jira/browse/HADOOP-11370) | Fix new findbug warnings hadoop-yarn |  Major | . | Zhijie Shen |  |
+| [HADOOP-11369](https://issues.apache.org/jira/browse/HADOOP-11369) | Fix new findbugs warnings in hadoop-mapreduce-client, non-core directories |  Major | . | Li Lu | Li Lu |
+| [HADOOP-11367](https://issues.apache.org/jira/browse/HADOOP-11367) | Fix warnings from findbugs 3.0 in hadoop-streaming |  Major | . | Li Lu | Li Lu |
+| [HADOOP-11317](https://issues.apache.org/jira/browse/HADOOP-11317) | Increment SLF4J version to 1.7.10 |  Major | build | Steve Loughran | Tim Robertson |
+| [HADOOP-11183](https://issues.apache.org/jira/browse/HADOOP-11183) | Memory-based S3AOutputstream |  Major | fs/s3 | Thomas Demoor | Thomas Demoor |
+| [HADOOP-10651](https://issues.apache.org/jira/browse/HADOOP-10651) | Add ability to restrict service access using IP addresses and hostnames |  Major | security | Benoy Antony | Benoy Antony |
+| [HADOOP-10574](https://issues.apache.org/jira/browse/HADOOP-10574) | Bump the maven plugin versions too -moving the numbers into properties |  Major | build | Steve Loughran | Akira AJISAKA |
+| [HADOOP-10482](https://issues.apache.org/jira/browse/HADOOP-10482) | Fix various findbugs warnings in hadoop-common |  Major | . | Haohui Mai | Haohui Mai |
+| [HADOOP-10478](https://issues.apache.org/jira/browse/HADOOP-10478) | Fix new findbugs warnings in hadoop-maven-plugins |  Major | . | Haohui Mai | Li Lu |
+| [HADOOP-10476](https://issues.apache.org/jira/browse/HADOOP-10476) | Bumping the findbugs version to 3.0.0 |  Major | build | Haohui Mai | Haohui Mai |
+
+
 ### OTHER:
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |
