@@ -168,6 +168,47 @@
 | [HDFS-5672](https://issues.apache.org/jira/browse/HDFS-5672) | TestHASafeMode#testSafeBlockTracking fails in trunk |  Major | namenode | Ted Yu | Jing Zhao |
 
 
+### SUB-TASKS:
+
+| JIRA | Description | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [HDFS-6124](https://issues.apache.org/jira/browse/HDFS-6124) | Add final modifier to class members |  Major | . | Suresh Srinivas | Suresh Srinivas |
+| [HDFS-6086](https://issues.apache.org/jira/browse/HDFS-6086) | Fix a case where zero-copy or no-checksum reads were not allowed even when the block was cached |  Major | datanode | Colin Patrick McCabe | Colin Patrick McCabe |
+| [HDFS-6076](https://issues.apache.org/jira/browse/HDFS-6076) | SimulatedDataSet should not create DatanodeRegistration with namenode layout version and type |  Minor | datanode, test | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
+| [HDFS-6061](https://issues.apache.org/jira/browse/HDFS-6061) | Allow dfs.datanode.shared.file.descriptor.path to contain multiple entries and fall back when needed |  Major | datanode | Colin Patrick McCabe | Colin Patrick McCabe |
+| [HDFS-6060](https://issues.apache.org/jira/browse/HDFS-6060) | NameNode should not check DataNode layout version |  Major | namenode | Brandon Li | Brandon Li |
+| [HDFS-6046](https://issues.apache.org/jira/browse/HDFS-6046) | add dfs.client.mmap.enabled |  Major | hdfs-client | Colin Patrick McCabe | Colin Patrick McCabe |
+| [HDFS-6040](https://issues.apache.org/jira/browse/HDFS-6040) | fix DFSClient issue without libhadoop.so and some other ShortCircuitShm cleanups |  Blocker | hdfs-client | Colin Patrick McCabe | Colin Patrick McCabe |
+| [HDFS-6038](https://issues.apache.org/jira/browse/HDFS-6038) | Allow JournalNode to handle editlog produced by new release with future layoutversion |  Major | journal-node, namenode | Haohui Mai | Jing Zhao |
+| [HDFS-5986](https://issues.apache.org/jira/browse/HDFS-5986) | Capture the number of blocks pending deletion on namenode webUI |  Major | namenode | Suresh Srinivas | Chris Nauroth |
+| [HDFS-5973](https://issues.apache.org/jira/browse/HDFS-5973) | add DomainSocket#shutdown method |  Major | hdfs-client | Colin Patrick McCabe | Colin Patrick McCabe |
+| [HDFS-5956](https://issues.apache.org/jira/browse/HDFS-5956) | A file size is multiplied by the replication factor in 'hdfs oiv -p FileDistribution' option |  Major | tools | Akira AJISAKA | Akira AJISAKA |
+| [HDFS-5950](https://issues.apache.org/jira/browse/HDFS-5950) | The DFSClient and DataNode should use shared memory segments to communicate short-circuit information |  Major | datanode, hdfs-client | Colin Patrick McCabe | Colin Patrick McCabe |
+| [HDFS-5942](https://issues.apache.org/jira/browse/HDFS-5942) | Fix javadoc in OfflineImageViewer |  Minor | documentation, tools | Akira AJISAKA | Akira AJISAKA |
+| [HDFS-5940](https://issues.apache.org/jira/browse/HDFS-5940) | Minor cleanups to ShortCircuitReplica, FsDatasetCache, and DomainSocketWatcher |  Major | hdfs-client | Colin Patrick McCabe | Colin Patrick McCabe |
+| [HDFS-5938](https://issues.apache.org/jira/browse/HDFS-5938) | Make BlockReaderFactory#BlockReaderPeer a static class |  Trivial | hdfs-client | Colin Patrick McCabe | Colin Patrick McCabe |
+| [HDFS-5898](https://issues.apache.org/jira/browse/HDFS-5898) | Allow NFS gateway to login/relogin from its kerberos keytab |  Major | nfs | Jing Zhao | Abin Shahab |
+| [HDFS-5868](https://issues.apache.org/jira/browse/HDFS-5868) | Make hsync implementation pluggable |  Major | datanode | Taylor, Buddy | Taylor, Buddy |
+| [HDFS-5866](https://issues.apache.org/jira/browse/HDFS-5866) | '-maxSize' and '-step' option fail in OfflineImageViewer |  Major | tools | Akira AJISAKA | Akira AJISAKA |
+| [HDFS-5847](https://issues.apache.org/jira/browse/HDFS-5847) | Consolidate INodeReference into a separate section |  Major | . | Haohui Mai | Jing Zhao |
+| [HDFS-5810](https://issues.apache.org/jira/browse/HDFS-5810) | Unify mmap cache and short-circuit file descriptor cache |  Major | hdfs-client | Colin Patrick McCabe | Colin Patrick McCabe |
+| [HDFS-5746](https://issues.apache.org/jira/browse/HDFS-5746) | add ShortCircuitSharedMemorySegment |  Major | datanode, hdfs-client | Colin Patrick McCabe | Colin Patrick McCabe |
+| [HDFS-5726](https://issues.apache.org/jira/browse/HDFS-5726) | Fix compilation error in AbstractINodeDiff for JDK7 |  Minor | namenode | Jing Zhao | Jing Zhao |
+| [HDFS-5715](https://issues.apache.org/jira/browse/HDFS-5715) | Use Snapshot ID to indicate the corresponding Snapshot for a FileDiff/DirectoryDiff |  Major | namenode | Jing Zhao | Jing Zhao |
+| [HDFS-5647](https://issues.apache.org/jira/browse/HDFS-5647) | Merge INodeDirectory.Feature and INodeFile.Feature |  Major | namenode | Haohui Mai | Haohui Mai |
+| [HDFS-5638](https://issues.apache.org/jira/browse/HDFS-5638) | HDFS implementation of FileContext API for ACLs. |  Major | hdfs-client | Chris Nauroth | Vinayakumar B |
+| [HDFS-5632](https://issues.apache.org/jira/browse/HDFS-5632) | Add Snapshot feature to INodeDirectory |  Major | namenode | Jing Zhao | Jing Zhao |
+| [HDFS-5623](https://issues.apache.org/jira/browse/HDFS-5623) | NameNode: add tests for skipping ACL enforcement when permission checks are disabled, user is superuser or user is member of supergroup. |  Major | namenode | Chris Nauroth | Chris Nauroth |
+| [HDFS-5554](https://issues.apache.org/jira/browse/HDFS-5554) | Add Snapshot Feature to INodeFile |  Major | namenode | Jing Zhao | Jing Zhao |
+| [HDFS-5537](https://issues.apache.org/jira/browse/HDFS-5537) | Remove FileWithSnapshot interface |  Major | namenode, snapshots | Jing Zhao | Jing Zhao |
+| [HDFS-5531](https://issues.apache.org/jira/browse/HDFS-5531) | Combine the getNsQuota() and getDsQuota() methods in INode |  Minor | namenode | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
+| [HDFS-5483](https://issues.apache.org/jira/browse/HDFS-5483) | NN should gracefully handle multiple block replicas on same DN |  Major | namenode | Arpit Agarwal | Arpit Agarwal |
+| [HDFS-5286](https://issues.apache.org/jira/browse/HDFS-5286) | Flatten INodeDirectory hierarchy: add DirectoryWithQuotaFeature |  Major | namenode | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
+| [HDFS-5285](https://issues.apache.org/jira/browse/HDFS-5285) | Flatten INodeFile hierarchy: Add UnderContruction Feature |  Major | namenode | Tsz Wo Nicholas Sze | Jing Zhao |
+| [HDFS-5167](https://issues.apache.org/jira/browse/HDFS-5167) | Add metrics about the NameNode retry cache |  Minor | ha, namenode | Jing Zhao | Tsuyoshi Ozawa |
+| [HDFS-4564](https://issues.apache.org/jira/browse/HDFS-4564) | Webhdfs returns incorrect http response codes for denied operations |  Blocker | webhdfs | Daryn Sharp | Daryn Sharp |
+
+
 ### OTHER:
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |

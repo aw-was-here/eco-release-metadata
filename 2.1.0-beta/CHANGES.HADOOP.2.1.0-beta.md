@@ -202,6 +202,23 @@
 | [HADOOP-9222](https://issues.apache.org/jira/browse/HADOOP-9222) | Cover package with org.apache.hadoop.io.lz4 unit tests |  Major | . | Vadim Bondarev | Vadim Bondarev |
 
 
+### SUB-TASKS:
+
+| JIRA | Description | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [HADOOP-9720](https://issues.apache.org/jira/browse/HADOOP-9720) | Rename Client#uuid to Client#clientId |  Major | . | Suresh Srinivas | Arpit Agarwal |
+| [HADOOP-9619](https://issues.apache.org/jira/browse/HADOOP-9619) | Mark stability of .proto files |  Major | documentation | Sanjay Radia | Sanjay Radia |
+| [HADOOP-9418](https://issues.apache.org/jira/browse/HADOOP-9418) | Add symlink resolution support to DistributedFileSystem |  Major | fs | Andrew Wang | Andrew Wang |
+| [HADOOP-9416](https://issues.apache.org/jira/browse/HADOOP-9416) | Add new symlink resolution methods in FileSystem and FileSystemLinkResolver |  Major | fs | Andrew Wang | Andrew Wang |
+| [HADOOP-9414](https://issues.apache.org/jira/browse/HADOOP-9414) | Refactor out FSLinkResolver and relevant helper methods |  Major | fs | Andrew Wang | Andrew Wang |
+| [HADOOP-9355](https://issues.apache.org/jira/browse/HADOOP-9355) | Abstract symlink tests to use either FileContext or FileSystem |  Major | fs | Andrew Wang | Andrew Wang |
+| [HADOOP-9258](https://issues.apache.org/jira/browse/HADOOP-9258) | Add stricter tests to FileSystemContractTestBase |  Major | test | Steve Loughran | Steve Loughran |
+| [HADOOP-9218](https://issues.apache.org/jira/browse/HADOOP-9218) | Document the Rpc-wrappers used internally |  Major | ipc | Sanjay Radia | Sanjay Radia |
+| [HADOOP-9140](https://issues.apache.org/jira/browse/HADOOP-9140) | Cleanup rpc PB protos |  Major | ipc | Sanjay Radia | Sanjay Radia |
+| [HADOOP-8470](https://issues.apache.org/jira/browse/HADOOP-8470) | Implementation of 4-layer subclass of NetworkTopology (NetworkTopologyWithNodeGroup) |  Major | . | Junping Du | Junping Du |
+| [HADOOP-8469](https://issues.apache.org/jira/browse/HADOOP-8469) | Make NetworkTopology class pluggable |  Major | . | Junping Du | Junping Du |
+
+
 ### OTHER:
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |

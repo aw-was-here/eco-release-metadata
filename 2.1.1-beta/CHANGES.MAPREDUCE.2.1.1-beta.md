@@ -56,6 +56,16 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 
 
+### SUB-TASKS:
+
+| JIRA | Description | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [MAPREDUCE-5476](https://issues.apache.org/jira/browse/MAPREDUCE-5476) | Job can fail when RM restarts after staging dir is cleaned but before MR successfully unregister with RM |  Blocker | . | Jian He | Jian He |
+| [MAPREDUCE-5466](https://issues.apache.org/jira/browse/MAPREDUCE-5466) | Historyserver does not refresh the result of restarted jobs after RM restart |  Blocker | . | Yesha Vora | Jian He |
+| [MAPREDUCE-5462](https://issues.apache.org/jira/browse/MAPREDUCE-5462) | In map-side sort, swap entire meta entries instead of indexes for better cache performance |  Major | performance, task | Sandy Ryza | Sandy Ryza |
+| [MAPREDUCE-5441](https://issues.apache.org/jira/browse/MAPREDUCE-5441) | JobClient exit whenever RM issue Reboot command to 1st attempt App Master. |  Major | applicationmaster, client | Rohith | Jian He |
+
+
 ### OTHER:
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |

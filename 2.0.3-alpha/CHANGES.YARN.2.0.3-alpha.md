@@ -120,6 +120,26 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 
 
+### SUB-TASKS:
+
+| JIRA | Description | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [YARN-280](https://issues.apache.org/jira/browse/YARN-280) | RM does not reject app submission with invalid tokens |  Major | resourcemanager | Daryn Sharp | Daryn Sharp |
+| [YARN-231](https://issues.apache.org/jira/browse/YARN-231) | Add FS-based persistent store implementation for RMStateStore |  Major | resourcemanager | Bikas Saha | Bikas Saha |
+| [YARN-230](https://issues.apache.org/jira/browse/YARN-230) | Make changes for RM restart phase 1 |  Major | resourcemanager | Bikas Saha | Bikas Saha |
+| [YARN-229](https://issues.apache.org/jira/browse/YARN-229) | Remove old code for restart |  Major | resourcemanager | Bikas Saha | Bikas Saha |
+| [YARN-219](https://issues.apache.org/jira/browse/YARN-219) | NM should aggregate logs when application finishes. |  Critical | nodemanager | Robert Joseph Evans | Robert Joseph Evans |
+| [YARN-204](https://issues.apache.org/jira/browse/YARN-204) | test coverage for org.apache.hadoop.tools |  Major | applications | Aleksey Gorshkov | Aleksey Gorshkov |
+| [YARN-202](https://issues.apache.org/jira/browse/YARN-202) | Log Aggregation generates a storm of fsync() for namenode |  Critical | . | Kihwal Lee | Kihwal Lee |
+| [YARN-188](https://issues.apache.org/jira/browse/YARN-188) | Coverage fixing for CapacityScheduler |  Major | capacityscheduler | Aleksey Gorshkov | Aleksey Gorshkov |
+| [YARN-186](https://issues.apache.org/jira/browse/YARN-186) | Coverage fixing LinuxContainerExecutor |  Major | resourcemanager, scheduler | Aleksey Gorshkov | Aleksey Gorshkov |
+| [YARN-135](https://issues.apache.org/jira/browse/YARN-135) | ClientTokens should be per app-attempt and be unregistered on App-finish. |  Major | resourcemanager | Vinod Kumar Vavilapalli | Vinod Kumar Vavilapalli |
+| [YARN-134](https://issues.apache.org/jira/browse/YARN-134) | ClientToAMSecretManager creates keys without checking for validity of the appID |  Major | . | Vinod Kumar Vavilapalli | Vinod Kumar Vavilapalli |
+| [YARN-103](https://issues.apache.org/jira/browse/YARN-103) | Add a yarn AM - RM client module |  Major | . | Bikas Saha | Bikas Saha |
+| [YARN-50](https://issues.apache.org/jira/browse/YARN-50) | Implement renewal / cancellation of Delegation Tokens |  Blocker | . | Siddharth Seth | Siddharth Seth |
+| [YARN-3](https://issues.apache.org/jira/browse/YARN-3) | Add support for CPU isolation/monitoring of containers |  Major | . | Arun C Murthy | Andrew Ferguson |
+
+
 ### OTHER:
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |

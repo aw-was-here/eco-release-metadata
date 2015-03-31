@@ -145,6 +145,23 @@
 | [HADOOP-9038](https://issues.apache.org/jira/browse/HADOOP-9038) | provide unit-test coverage of class org.apache.hadoop.fs.LocalDirAllocator.AllocatorPerContext.PathIterator |  Minor | . | Ivan A. Veselovsky | Ivan A. Veselovsky |
 
 
+### SUB-TASKS:
+
+| JIRA | Description | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [HADOOP-9035](https://issues.apache.org/jira/browse/HADOOP-9035) | Generalize setup of LoginContext |  Major | security | Daryn Sharp | Daryn Sharp |
+| [HADOOP-9021](https://issues.apache.org/jira/browse/HADOOP-9021) | Enforce configured SASL method on the server |  Major | ipc, security | Daryn Sharp | Daryn Sharp |
+| [HADOOP-9020](https://issues.apache.org/jira/browse/HADOOP-9020) | Add a SASL PLAIN server |  Major | ipc, security | Daryn Sharp | Daryn Sharp |
+| [HADOOP-9015](https://issues.apache.org/jira/browse/HADOOP-9015) | Standardize creation of SaslRpcServers |  Major | ipc | Daryn Sharp | Daryn Sharp |
+| [HADOOP-9014](https://issues.apache.org/jira/browse/HADOOP-9014) | Standardize creation of SaslRpcClients |  Major | ipc | Daryn Sharp | Daryn Sharp |
+| [HADOOP-9013](https://issues.apache.org/jira/browse/HADOOP-9013) | UGI should not hardcode loginUser's authenticationType |  Major | fs, security | Daryn Sharp | Daryn Sharp |
+| [HADOOP-9012](https://issues.apache.org/jira/browse/HADOOP-9012) | IPC Client sends wrong connection context |  Major | ipc | Daryn Sharp | Daryn Sharp |
+| [HADOOP-9010](https://issues.apache.org/jira/browse/HADOOP-9010) | Map UGI authenticationMethod to RPC authMethod |  Major | fs, security | Daryn Sharp | Daryn Sharp |
+| [HADOOP-9009](https://issues.apache.org/jira/browse/HADOOP-9009) | Add SecurityUtil methods to get/set authentication method |  Major | fs, security | Daryn Sharp | Daryn Sharp |
+| [HADOOP-8784](https://issues.apache.org/jira/browse/HADOOP-8784) | Improve IPC.Client's token use |  Major | ipc, security | Daryn Sharp | Daryn Sharp |
+| [HADOOP-8783](https://issues.apache.org/jira/browse/HADOOP-8783) | Improve RPC.Server's digest auth |  Major | ipc, security | Daryn Sharp | Daryn Sharp |
+
+
 ### OTHER:
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |

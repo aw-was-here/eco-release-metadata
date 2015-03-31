@@ -203,6 +203,78 @@
 | [HDFS-4491](https://issues.apache.org/jira/browse/HDFS-4491) | Parallel testing HDFS |  Major | test | Tsuyoshi Ozawa | Andrey Klochkov |
 
 
+### SUB-TASKS:
+
+| JIRA | Description | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [HDFS-5784](https://issues.apache.org/jira/browse/HDFS-5784) | reserve space in edit log header and fsimage header for feature flag section |  Major | namenode | Colin Patrick McCabe | Colin Patrick McCabe |
+| [HDFS-5708](https://issues.apache.org/jira/browse/HDFS-5708) | The CacheManager throws a NPE in the DataNode logs when processing cache reports that refer to a block not known to the BlockManager |  Major | namenode | Colin Patrick McCabe | Colin Patrick McCabe |
+| [HDFS-5667](https://issues.apache.org/jira/browse/HDFS-5667) | Include DatanodeStorage in StorageReport |  Major | datanode | Eric Sirianni | Arpit Agarwal |
+| [HDFS-5651](https://issues.apache.org/jira/browse/HDFS-5651) | Remove dfs.namenode.caching.enabled and improve CRM locking |  Major | namenode | Colin Patrick McCabe | Colin Patrick McCabe |
+| [HDFS-5636](https://issues.apache.org/jira/browse/HDFS-5636) | Enforce a max TTL per cache pool |  Major | caching, namenode | Andrew Wang | Andrew Wang |
+| [HDFS-5634](https://issues.apache.org/jira/browse/HDFS-5634) | allow BlockReaderLocal to switch between checksumming and not |  Major | hdfs-client | Colin Patrick McCabe | Colin Patrick McCabe |
+| [HDFS-5630](https://issues.apache.org/jira/browse/HDFS-5630) | Hook up cache directive and pool usage statistics |  Major | caching, namenode | Andrew Wang | Andrew Wang |
+| [HDFS-5629](https://issues.apache.org/jira/browse/HDFS-5629) | Support HTTPS in JournalNode and SecondaryNameNode |  Major | . | Haohui Mai | Haohui Mai |
+| [HDFS-5589](https://issues.apache.org/jira/browse/HDFS-5589) | Namenode loops caching and uncaching when data should be uncached |  Major | caching, namenode | Andrew Wang | Andrew Wang |
+| [HDFS-5565](https://issues.apache.org/jira/browse/HDFS-5565) | CacheAdmin help should match against non-dashed commands |  Minor | caching | Andrew Wang | Andrew Wang |
+| [HDFS-5556](https://issues.apache.org/jira/browse/HDFS-5556) | add some more NameNode cache statistics, cache pool stats |  Major | namenode | Colin Patrick McCabe | Colin Patrick McCabe |
+| [HDFS-5545](https://issues.apache.org/jira/browse/HDFS-5545) | Allow specifying endpoints for listeners in HttpServer |  Major | . | Haohui Mai | Haohui Mai |
+| [HDFS-5543](https://issues.apache.org/jira/browse/HDFS-5543) | fix narrow race condition in TestPathBasedCacheRequests |  Major | test | Colin Patrick McCabe | Colin Patrick McCabe |
+| [HDFS-5538](https://issues.apache.org/jira/browse/HDFS-5538) | URLConnectionFactory should pick up the SSL related configuration by default |  Major | . | Haohui Mai | Haohui Mai |
+| [HDFS-5536](https://issues.apache.org/jira/browse/HDFS-5536) | Implement HTTP policy for Namenode and DataNode |  Major | . | Haohui Mai | Haohui Mai |
+| [HDFS-5525](https://issues.apache.org/jira/browse/HDFS-5525) | Inline dust templates |  Major | . | Haohui Mai | Haohui Mai |
+| [HDFS-5520](https://issues.apache.org/jira/browse/HDFS-5520) | loading cache path directives from edit log doesn't update nextEntryId |  Major | namenode | Colin Patrick McCabe | Colin Patrick McCabe |
+| [HDFS-5519](https://issues.apache.org/jira/browse/HDFS-5519) | COMMIT handler should update the commit status after sync |  Minor | nfs | Brandon Li | Brandon Li |
+| [HDFS-5514](https://issues.apache.org/jira/browse/HDFS-5514) | FSNamesystem's fsLock should allow custom implementation |  Major | namenode | Daryn Sharp | Daryn Sharp |
+| [HDFS-5511](https://issues.apache.org/jira/browse/HDFS-5511) | improve CacheManipulator interface to allow better unit testing |  Major | datanode | Colin Patrick McCabe | Colin Patrick McCabe |
+| [HDFS-5509](https://issues.apache.org/jira/browse/HDFS-5509) | TestPathBasedCacheRequests#testReplicationFactor is flaky |  Major | datanode, namenode | Andrew Wang | Andrew Wang |
+| [HDFS-5506](https://issues.apache.org/jira/browse/HDFS-5506) | Use URLConnectionFactory in DelegationTokenFetcher |  Major | . | Haohui Mai | Haohui Mai |
+| [HDFS-5502](https://issues.apache.org/jira/browse/HDFS-5502) | Fix HTTPS support in HsftpFileSystem |  Major | . | Haohui Mai | Haohui Mai |
+| [HDFS-5489](https://issues.apache.org/jira/browse/HDFS-5489) | Use TokenAspect in WebHDFSFileSystem |  Major | . | Haohui Mai | Haohui Mai |
+| [HDFS-5488](https://issues.apache.org/jira/browse/HDFS-5488) | Clean up TestHftpURLTimeout |  Major | . | Haohui Mai | Haohui Mai |
+| [HDFS-5487](https://issues.apache.org/jira/browse/HDFS-5487) | Introduce unit test for TokenAspect |  Major | . | Haohui Mai | Haohui Mai |
+| [HDFS-5473](https://issues.apache.org/jira/browse/HDFS-5473) | Consistent naming of user-visible caching classes and methods |  Major | datanode, namenode | Andrew Wang | Colin Patrick McCabe |
+| [HDFS-5469](https://issues.apache.org/jira/browse/HDFS-5469) | Add configuration property for the sub-directroy export path |  Major | nfs | Brandon Li | Brandon Li |
+| [HDFS-5454](https://issues.apache.org/jira/browse/HDFS-5454) | DataNode UUID should be assigned prior to FsDataset initialization |  Minor | datanode | Eric Sirianni | Arpit Agarwal |
+| [HDFS-5451](https://issues.apache.org/jira/browse/HDFS-5451) | Add byte and file statistics to PathBasedCacheEntry |  Major | datanode, namenode | Colin Patrick McCabe | Colin Patrick McCabe |
+| [HDFS-5450](https://issues.apache.org/jira/browse/HDFS-5450) | better API for getting the cached blocks locations |  Minor | hdfs-client | Colin Patrick McCabe | Andrew Wang |
+| [HDFS-5444](https://issues.apache.org/jira/browse/HDFS-5444) | Choose default web UI based on browser capabilities |  Major | . | Haohui Mai | Haohui Mai |
+| [HDFS-5440](https://issues.apache.org/jira/browse/HDFS-5440) | Extract the logic of handling delegation tokens in HftpFileSystem to the TokenAspect class |  Major | . | Haohui Mai | Haohui Mai |
+| [HDFS-5436](https://issues.apache.org/jira/browse/HDFS-5436) | Move HsFtpFileSystem and HFtpFileSystem into org.apache.hdfs.web |  Major | . | Haohui Mai | Haohui Mai |
+| [HDFS-5431](https://issues.apache.org/jira/browse/HDFS-5431) | support cachepool-based limit management in path-based caching |  Major | datanode, namenode | Colin Patrick McCabe | Andrew Wang |
+| [HDFS-5430](https://issues.apache.org/jira/browse/HDFS-5430) | Support TTL on CacheDirectives |  Minor | datanode, namenode | Colin Patrick McCabe | Andrew Wang |
+| [HDFS-5406](https://issues.apache.org/jira/browse/HDFS-5406) | Send incremental block reports for all storages in a single call |  Major | datanode | Arpit Agarwal | Arpit Agarwal |
+| [HDFS-5394](https://issues.apache.org/jira/browse/HDFS-5394) | fix race conditions in DN caching and uncaching |  Major | datanode, namenode | Colin Patrick McCabe | Colin Patrick McCabe |
+| [HDFS-5393](https://issues.apache.org/jira/browse/HDFS-5393) | Serve bootstrap and jQuery locally |  Minor | . | Haohui Mai | Haohui Mai |
+| [HDFS-5386](https://issues.apache.org/jira/browse/HDFS-5386) | Add feature documentation for datanode caching. |  Major | documentation | Chris Nauroth | Colin Patrick McCabe |
+| [HDFS-5382](https://issues.apache.org/jira/browse/HDFS-5382) | Implement the UI of browsing filesystems in HTML 5 page |  Major | . | Haohui Mai | Haohui Mai |
+| [HDFS-5379](https://issues.apache.org/jira/browse/HDFS-5379) | Update links to datanode information in dfshealth.html |  Major | . | Haohui Mai | Haohui Mai |
+| [HDFS-5366](https://issues.apache.org/jira/browse/HDFS-5366) | recaching improvements |  Major | namenode | Colin Patrick McCabe | Colin Patrick McCabe |
+| [HDFS-5364](https://issues.apache.org/jira/browse/HDFS-5364) | Add OpenFileCtx cache |  Major | nfs | Brandon Li | Brandon Li |
+| [HDFS-5363](https://issues.apache.org/jira/browse/HDFS-5363) | Refactor WebHdfsFileSystem: move SPENGO-authenticated connection creation to URLConnectionFactory |  Major | . | Haohui Mai | Haohui Mai |
+| [HDFS-5347](https://issues.apache.org/jira/browse/HDFS-5347) | add HDFS NFS user guide |  Major | documentation | Brandon Li | Brandon Li |
+| [HDFS-5342](https://issues.apache.org/jira/browse/HDFS-5342) | Provide more information in the FSNamesystem JMX interfaces |  Major | . | Haohui Mai | Haohui Mai |
+| [HDFS-5337](https://issues.apache.org/jira/browse/HDFS-5337) | should do hsync for a commit request even there is no pending writes |  Major | nfs | Brandon Li | Brandon Li |
+| [HDFS-5334](https://issues.apache.org/jira/browse/HDFS-5334) | Implement dfshealth.jsp in HTML pages |  Major | . | Haohui Mai | Haohui Mai |
+| [HDFS-5330](https://issues.apache.org/jira/browse/HDFS-5330) | fix readdir and readdirplus for large directories |  Major | nfs | Brandon Li | Brandon Li |
+| [HDFS-5325](https://issues.apache.org/jira/browse/HDFS-5325) | Remove WebHdfsFileSystem#ConnRunner |  Major | . | Haohui Mai | Haohui Mai |
+| [HDFS-5320](https://issues.apache.org/jira/browse/HDFS-5320) | Add datanode caching metrics |  Minor | datanode | Andrew Wang | Andrew Wang |
+| [HDFS-5317](https://issues.apache.org/jira/browse/HDFS-5317) | Go back to DFS Home link does not work on datanode webUI |  Critical | . | Suresh Srinivas | Haohui Mai |
+| [HDFS-5316](https://issues.apache.org/jira/browse/HDFS-5316) | Namenode ignores the default https port |  Critical | . | Suresh Srinivas | Haohui Mai |
+| [HDFS-5312](https://issues.apache.org/jira/browse/HDFS-5312) | Generate HTTP / HTTPS URL in DFSUtil#getInfoServer() based on the configured http policy |  Major | . | Haohui Mai | Haohui Mai |
+| [HDFS-5307](https://issues.apache.org/jira/browse/HDFS-5307) | Support both HTTP and HTTPS in jsp pages |  Major | . | Haohui Mai | Haohui Mai |
+| [HDFS-5288](https://issues.apache.org/jira/browse/HDFS-5288) | Close idle connections in portmap |  Major | nfs | Haohui Mai | Haohui Mai |
+| [HDFS-5281](https://issues.apache.org/jira/browse/HDFS-5281) | COMMIT request should not block |  Major | nfs | Brandon Li | Brandon Li |
+| [HDFS-5252](https://issues.apache.org/jira/browse/HDFS-5252) | Stable write is not handled correctly in someplace |  Major | nfs | Brandon Li | Brandon Li |
+| [HDFS-5241](https://issues.apache.org/jira/browse/HDFS-5241) | Provide alternate queuing audit logger to reduce logging contention |  Major | namenode | Daryn Sharp | Daryn Sharp |
+| [HDFS-5240](https://issues.apache.org/jira/browse/HDFS-5240) | Separate formatting from logging in the audit logger API |  Major | namenode | Daryn Sharp | Daryn Sharp |
+| [HDFS-5239](https://issues.apache.org/jira/browse/HDFS-5239) | Allow FSNamesystem lock fairness to be configurable |  Major | namenode | Daryn Sharp | Daryn Sharp |
+| [HDFS-5171](https://issues.apache.org/jira/browse/HDFS-5171) | NFS should create input stream for a file and try to share it with multiple read requests |  Major | nfs | Brandon Li | Haohui Mai |
+| [HDFS-4885](https://issues.apache.org/jira/browse/HDFS-4885) | Update verifyBlockPlacement() API in BlockPlacementPolicy |  Major | . | Junping Du | Junping Du |
+| [HDFS-4096](https://issues.apache.org/jira/browse/HDFS-4096) | Add snapshot information to namenode WebUI |  Major | datanode, namenode | Jing Zhao | Haohui Mai |
+| [HDFS-3987](https://issues.apache.org/jira/browse/HDFS-3987) | Support webhdfs over HTTPS |  Major | . | Alejandro Abdelnur | Haohui Mai |
+
+
 ### OTHER:
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |

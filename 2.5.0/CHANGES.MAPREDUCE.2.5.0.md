@@ -77,6 +77,17 @@
 | [MAPREDUCE-5642](https://issues.apache.org/jira/browse/MAPREDUCE-5642) | TestMiniMRChildTask fails on Windows |  Minor | test | Chuan Liu | Chuan Liu |
 
 
+### SUB-TASKS:
+
+| JIRA | Description | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [MAPREDUCE-5900](https://issues.apache.org/jira/browse/MAPREDUCE-5900) | Container preemption interpreted as task failures and eventually job failures |  Major | applicationmaster, mr-am, mrv2 | Mayank Bansal | Mayank Bansal |
+| [MAPREDUCE-5639](https://issues.apache.org/jira/browse/MAPREDUCE-5639) | Port DistCp2 document to trunk |  Major | documentation | Akira AJISAKA | Akira AJISAKA |
+| [MAPREDUCE-5638](https://issues.apache.org/jira/browse/MAPREDUCE-5638) | Port Hadoop Archives document to trunk |  Major | documentation | Akira AJISAKA | Akira AJISAKA |
+| [MAPREDUCE-5637](https://issues.apache.org/jira/browse/MAPREDUCE-5637) | Convert Hadoop Streaming document to APT |  Major | documentation | Akira AJISAKA | Akira AJISAKA |
+| [MAPREDUCE-5636](https://issues.apache.org/jira/browse/MAPREDUCE-5636) | Convert MapReduce Tutorial document to APT |  Major | documentation | Akira AJISAKA | Akira AJISAKA |
+
+
 ### OTHER:
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |

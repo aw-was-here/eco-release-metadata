@@ -495,6 +495,146 @@
 | [YARN-1119](https://issues.apache.org/jira/browse/YARN-1119) | Add ClusterMetrics checks to tho TestRMNodeTransitions tests |  Major | resourcemanager | Robert Parker | Mit Desai |
 
 
+### SUB-TASKS:
+
+| JIRA | Description | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [HADOOP-10109](https://issues.apache.org/jira/browse/HADOOP-10109) | Fix test failure in TestOfflineEditsViewer introduced by HADOOP-10052 |  Major | test | Colin Patrick McCabe | Colin Patrick McCabe |
+| [HADOOP-10107](https://issues.apache.org/jira/browse/HADOOP-10107) | Server.getNumOpenConnections may throw NPE |  Major | ipc | Tsz Wo Nicholas Sze | Kihwal Lee |
+| [HADOOP-10103](https://issues.apache.org/jira/browse/HADOOP-10103) | update commons-lang to 2.6 |  Minor | build | Steve Loughran | Akira AJISAKA |
+| [HADOOP-10102](https://issues.apache.org/jira/browse/HADOOP-10102) | update commons IO from 2.1 to 2.4 |  Minor | build | Steve Loughran | Akira AJISAKA |
+| [HADOOP-10052](https://issues.apache.org/jira/browse/HADOOP-10052) | Temporarily disable client-side symlink resolution |  Major | fs | Andrew Wang | Andrew Wang |
+| [HADOOP-9956](https://issues.apache.org/jira/browse/HADOOP-9956) | RPC listener inefficiently assigns connections to readers |  Major | ipc | Daryn Sharp | Daryn Sharp |
+| [HADOOP-9955](https://issues.apache.org/jira/browse/HADOOP-9955) | RPC idle connection closing is extremely inefficient |  Major | ipc | Daryn Sharp | Daryn Sharp |
+| [HADOOP-9748](https://issues.apache.org/jira/browse/HADOOP-9748) | Reduce blocking on UGI.ensureInitialized |  Critical | security | Daryn Sharp | Daryn Sharp |
+| [HADOOP-9417](https://issues.apache.org/jira/browse/HADOOP-9417) | Support for symlink resolution in LocalFileSystem / RawLocalFileSystem |  Major | fs | Andrew Wang | Andrew Wang |
+| [HDFS-5784](https://issues.apache.org/jira/browse/HDFS-5784) | reserve space in edit log header and fsimage header for feature flag section |  Major | namenode | Colin Patrick McCabe | Colin Patrick McCabe |
+| [HDFS-5708](https://issues.apache.org/jira/browse/HDFS-5708) | The CacheManager throws a NPE in the DataNode logs when processing cache reports that refer to a block not known to the BlockManager |  Major | namenode | Colin Patrick McCabe | Colin Patrick McCabe |
+| [HDFS-5667](https://issues.apache.org/jira/browse/HDFS-5667) | Include DatanodeStorage in StorageReport |  Major | datanode | Eric Sirianni | Arpit Agarwal |
+| [HDFS-5651](https://issues.apache.org/jira/browse/HDFS-5651) | Remove dfs.namenode.caching.enabled and improve CRM locking |  Major | namenode | Colin Patrick McCabe | Colin Patrick McCabe |
+| [HDFS-5636](https://issues.apache.org/jira/browse/HDFS-5636) | Enforce a max TTL per cache pool |  Major | caching, namenode | Andrew Wang | Andrew Wang |
+| [HDFS-5634](https://issues.apache.org/jira/browse/HDFS-5634) | allow BlockReaderLocal to switch between checksumming and not |  Major | hdfs-client | Colin Patrick McCabe | Colin Patrick McCabe |
+| [HDFS-5630](https://issues.apache.org/jira/browse/HDFS-5630) | Hook up cache directive and pool usage statistics |  Major | caching, namenode | Andrew Wang | Andrew Wang |
+| [HDFS-5629](https://issues.apache.org/jira/browse/HDFS-5629) | Support HTTPS in JournalNode and SecondaryNameNode |  Major | . | Haohui Mai | Haohui Mai |
+| [HDFS-5589](https://issues.apache.org/jira/browse/HDFS-5589) | Namenode loops caching and uncaching when data should be uncached |  Major | caching, namenode | Andrew Wang | Andrew Wang |
+| [HDFS-5565](https://issues.apache.org/jira/browse/HDFS-5565) | CacheAdmin help should match against non-dashed commands |  Minor | caching | Andrew Wang | Andrew Wang |
+| [HDFS-5556](https://issues.apache.org/jira/browse/HDFS-5556) | add some more NameNode cache statistics, cache pool stats |  Major | namenode | Colin Patrick McCabe | Colin Patrick McCabe |
+| [HDFS-5545](https://issues.apache.org/jira/browse/HDFS-5545) | Allow specifying endpoints for listeners in HttpServer |  Major | . | Haohui Mai | Haohui Mai |
+| [HDFS-5543](https://issues.apache.org/jira/browse/HDFS-5543) | fix narrow race condition in TestPathBasedCacheRequests |  Major | test | Colin Patrick McCabe | Colin Patrick McCabe |
+| [HDFS-5538](https://issues.apache.org/jira/browse/HDFS-5538) | URLConnectionFactory should pick up the SSL related configuration by default |  Major | . | Haohui Mai | Haohui Mai |
+| [HDFS-5536](https://issues.apache.org/jira/browse/HDFS-5536) | Implement HTTP policy for Namenode and DataNode |  Major | . | Haohui Mai | Haohui Mai |
+| [HDFS-5525](https://issues.apache.org/jira/browse/HDFS-5525) | Inline dust templates |  Major | . | Haohui Mai | Haohui Mai |
+| [HDFS-5520](https://issues.apache.org/jira/browse/HDFS-5520) | loading cache path directives from edit log doesn't update nextEntryId |  Major | namenode | Colin Patrick McCabe | Colin Patrick McCabe |
+| [HDFS-5519](https://issues.apache.org/jira/browse/HDFS-5519) | COMMIT handler should update the commit status after sync |  Minor | nfs | Brandon Li | Brandon Li |
+| [HDFS-5514](https://issues.apache.org/jira/browse/HDFS-5514) | FSNamesystem's fsLock should allow custom implementation |  Major | namenode | Daryn Sharp | Daryn Sharp |
+| [HDFS-5511](https://issues.apache.org/jira/browse/HDFS-5511) | improve CacheManipulator interface to allow better unit testing |  Major | datanode | Colin Patrick McCabe | Colin Patrick McCabe |
+| [HDFS-5509](https://issues.apache.org/jira/browse/HDFS-5509) | TestPathBasedCacheRequests#testReplicationFactor is flaky |  Major | datanode, namenode | Andrew Wang | Andrew Wang |
+| [HDFS-5506](https://issues.apache.org/jira/browse/HDFS-5506) | Use URLConnectionFactory in DelegationTokenFetcher |  Major | . | Haohui Mai | Haohui Mai |
+| [HDFS-5502](https://issues.apache.org/jira/browse/HDFS-5502) | Fix HTTPS support in HsftpFileSystem |  Major | . | Haohui Mai | Haohui Mai |
+| [HDFS-5489](https://issues.apache.org/jira/browse/HDFS-5489) | Use TokenAspect in WebHDFSFileSystem |  Major | . | Haohui Mai | Haohui Mai |
+| [HDFS-5488](https://issues.apache.org/jira/browse/HDFS-5488) | Clean up TestHftpURLTimeout |  Major | . | Haohui Mai | Haohui Mai |
+| [HDFS-5487](https://issues.apache.org/jira/browse/HDFS-5487) | Introduce unit test for TokenAspect |  Major | . | Haohui Mai | Haohui Mai |
+| [HDFS-5473](https://issues.apache.org/jira/browse/HDFS-5473) | Consistent naming of user-visible caching classes and methods |  Major | datanode, namenode | Andrew Wang | Colin Patrick McCabe |
+| [HDFS-5469](https://issues.apache.org/jira/browse/HDFS-5469) | Add configuration property for the sub-directroy export path |  Major | nfs | Brandon Li | Brandon Li |
+| [HDFS-5454](https://issues.apache.org/jira/browse/HDFS-5454) | DataNode UUID should be assigned prior to FsDataset initialization |  Minor | datanode | Eric Sirianni | Arpit Agarwal |
+| [HDFS-5451](https://issues.apache.org/jira/browse/HDFS-5451) | Add byte and file statistics to PathBasedCacheEntry |  Major | datanode, namenode | Colin Patrick McCabe | Colin Patrick McCabe |
+| [HDFS-5450](https://issues.apache.org/jira/browse/HDFS-5450) | better API for getting the cached blocks locations |  Minor | hdfs-client | Colin Patrick McCabe | Andrew Wang |
+| [HDFS-5444](https://issues.apache.org/jira/browse/HDFS-5444) | Choose default web UI based on browser capabilities |  Major | . | Haohui Mai | Haohui Mai |
+| [HDFS-5440](https://issues.apache.org/jira/browse/HDFS-5440) | Extract the logic of handling delegation tokens in HftpFileSystem to the TokenAspect class |  Major | . | Haohui Mai | Haohui Mai |
+| [HDFS-5436](https://issues.apache.org/jira/browse/HDFS-5436) | Move HsFtpFileSystem and HFtpFileSystem into org.apache.hdfs.web |  Major | . | Haohui Mai | Haohui Mai |
+| [HDFS-5431](https://issues.apache.org/jira/browse/HDFS-5431) | support cachepool-based limit management in path-based caching |  Major | datanode, namenode | Colin Patrick McCabe | Andrew Wang |
+| [HDFS-5430](https://issues.apache.org/jira/browse/HDFS-5430) | Support TTL on CacheDirectives |  Minor | datanode, namenode | Colin Patrick McCabe | Andrew Wang |
+| [HDFS-5406](https://issues.apache.org/jira/browse/HDFS-5406) | Send incremental block reports for all storages in a single call |  Major | datanode | Arpit Agarwal | Arpit Agarwal |
+| [HDFS-5394](https://issues.apache.org/jira/browse/HDFS-5394) | fix race conditions in DN caching and uncaching |  Major | datanode, namenode | Colin Patrick McCabe | Colin Patrick McCabe |
+| [HDFS-5393](https://issues.apache.org/jira/browse/HDFS-5393) | Serve bootstrap and jQuery locally |  Minor | . | Haohui Mai | Haohui Mai |
+| [HDFS-5386](https://issues.apache.org/jira/browse/HDFS-5386) | Add feature documentation for datanode caching. |  Major | documentation | Chris Nauroth | Colin Patrick McCabe |
+| [HDFS-5382](https://issues.apache.org/jira/browse/HDFS-5382) | Implement the UI of browsing filesystems in HTML 5 page |  Major | . | Haohui Mai | Haohui Mai |
+| [HDFS-5379](https://issues.apache.org/jira/browse/HDFS-5379) | Update links to datanode information in dfshealth.html |  Major | . | Haohui Mai | Haohui Mai |
+| [HDFS-5366](https://issues.apache.org/jira/browse/HDFS-5366) | recaching improvements |  Major | namenode | Colin Patrick McCabe | Colin Patrick McCabe |
+| [HDFS-5364](https://issues.apache.org/jira/browse/HDFS-5364) | Add OpenFileCtx cache |  Major | nfs | Brandon Li | Brandon Li |
+| [HDFS-5363](https://issues.apache.org/jira/browse/HDFS-5363) | Refactor WebHdfsFileSystem: move SPENGO-authenticated connection creation to URLConnectionFactory |  Major | . | Haohui Mai | Haohui Mai |
+| [HDFS-5347](https://issues.apache.org/jira/browse/HDFS-5347) | add HDFS NFS user guide |  Major | documentation | Brandon Li | Brandon Li |
+| [HDFS-5342](https://issues.apache.org/jira/browse/HDFS-5342) | Provide more information in the FSNamesystem JMX interfaces |  Major | . | Haohui Mai | Haohui Mai |
+| [HDFS-5337](https://issues.apache.org/jira/browse/HDFS-5337) | should do hsync for a commit request even there is no pending writes |  Major | nfs | Brandon Li | Brandon Li |
+| [HDFS-5334](https://issues.apache.org/jira/browse/HDFS-5334) | Implement dfshealth.jsp in HTML pages |  Major | . | Haohui Mai | Haohui Mai |
+| [HDFS-5330](https://issues.apache.org/jira/browse/HDFS-5330) | fix readdir and readdirplus for large directories |  Major | nfs | Brandon Li | Brandon Li |
+| [HDFS-5325](https://issues.apache.org/jira/browse/HDFS-5325) | Remove WebHdfsFileSystem#ConnRunner |  Major | . | Haohui Mai | Haohui Mai |
+| [HDFS-5320](https://issues.apache.org/jira/browse/HDFS-5320) | Add datanode caching metrics |  Minor | datanode | Andrew Wang | Andrew Wang |
+| [HDFS-5317](https://issues.apache.org/jira/browse/HDFS-5317) | Go back to DFS Home link does not work on datanode webUI |  Critical | . | Suresh Srinivas | Haohui Mai |
+| [HDFS-5316](https://issues.apache.org/jira/browse/HDFS-5316) | Namenode ignores the default https port |  Critical | . | Suresh Srinivas | Haohui Mai |
+| [HDFS-5312](https://issues.apache.org/jira/browse/HDFS-5312) | Generate HTTP / HTTPS URL in DFSUtil#getInfoServer() based on the configured http policy |  Major | . | Haohui Mai | Haohui Mai |
+| [HDFS-5307](https://issues.apache.org/jira/browse/HDFS-5307) | Support both HTTP and HTTPS in jsp pages |  Major | . | Haohui Mai | Haohui Mai |
+| [HDFS-5288](https://issues.apache.org/jira/browse/HDFS-5288) | Close idle connections in portmap |  Major | nfs | Haohui Mai | Haohui Mai |
+| [HDFS-5281](https://issues.apache.org/jira/browse/HDFS-5281) | COMMIT request should not block |  Major | nfs | Brandon Li | Brandon Li |
+| [HDFS-5252](https://issues.apache.org/jira/browse/HDFS-5252) | Stable write is not handled correctly in someplace |  Major | nfs | Brandon Li | Brandon Li |
+| [HDFS-5241](https://issues.apache.org/jira/browse/HDFS-5241) | Provide alternate queuing audit logger to reduce logging contention |  Major | namenode | Daryn Sharp | Daryn Sharp |
+| [HDFS-5240](https://issues.apache.org/jira/browse/HDFS-5240) | Separate formatting from logging in the audit logger API |  Major | namenode | Daryn Sharp | Daryn Sharp |
+| [HDFS-5239](https://issues.apache.org/jira/browse/HDFS-5239) | Allow FSNamesystem lock fairness to be configurable |  Major | namenode | Daryn Sharp | Daryn Sharp |
+| [HDFS-5171](https://issues.apache.org/jira/browse/HDFS-5171) | NFS should create input stream for a file and try to share it with multiple read requests |  Major | nfs | Brandon Li | Haohui Mai |
+| [HDFS-4885](https://issues.apache.org/jira/browse/HDFS-4885) | Update verifyBlockPlacement() API in BlockPlacementPolicy |  Major | . | Junping Du | Junping Du |
+| [HDFS-4096](https://issues.apache.org/jira/browse/HDFS-4096) | Add snapshot information to namenode WebUI |  Major | datanode, namenode | Jing Zhao | Haohui Mai |
+| [HDFS-3987](https://issues.apache.org/jira/browse/HDFS-3987) | Support webhdfs over HTTPS |  Major | . | Alejandro Abdelnur | Haohui Mai |
+| [MAPREDUCE-5411](https://issues.apache.org/jira/browse/MAPREDUCE-5411) | Refresh size of loaded job cache on history server |  Major | jobhistoryserver | Ashwin Shankar | Ashwin Shankar |
+| [MAPREDUCE-5409](https://issues.apache.org/jira/browse/MAPREDUCE-5409) | MRAppMaster throws InvalidStateTransitonException: Invalid event: TA\_TOO\_MANY\_FETCH\_FAILURE at KILLED for TaskAttemptImpl |  Major | . | Devaraj K | Gera Shegalov |
+| [MAPREDUCE-5386](https://issues.apache.org/jira/browse/MAPREDUCE-5386) | Ability to refresh history server job retention and job cleaner settings |  Major | jobhistoryserver | Ashwin Shankar | Ashwin Shankar |
+| [MAPREDUCE-5356](https://issues.apache.org/jira/browse/MAPREDUCE-5356) | Ability to refresh aggregated log retention period and check interval |  Major | jobhistoryserver | Ashwin Shankar | Ashwin Shankar |
+| [MAPREDUCE-4421](https://issues.apache.org/jira/browse/MAPREDUCE-4421) | Run MapReduce framework via the distributed cache |  Major | . | Arun C Murthy | Jason Lowe |
+| [YARN-1642](https://issues.apache.org/jira/browse/YARN-1642) | RMDTRenewer#getRMClient should use ClientRMProxy |  Blocker | resourcemanager | Karthik Kambatla | Karthik Kambatla |
+| [YARN-1618](https://issues.apache.org/jira/browse/YARN-1618) | Fix invalid RMApp transition from NEW to FINAL\_SAVING |  Blocker | resourcemanager | Karthik Kambatla | Karthik Kambatla |
+| [YARN-1598](https://issues.apache.org/jira/browse/YARN-1598) | HA-related rmadmin commands don't work on a secure cluster |  Critical | client, resourcemanager | Karthik Kambatla | Karthik Kambatla |
+| [YARN-1579](https://issues.apache.org/jira/browse/YARN-1579) | ActiveRMInfoProto fields should be optional |  Trivial | resourcemanager | Karthik Kambatla | Karthik Kambatla |
+| [YARN-1575](https://issues.apache.org/jira/browse/YARN-1575) | Public localizer crashes with "Localized unkown resource" |  Critical | nodemanager | Jason Lowe | Jason Lowe |
+| [YARN-1574](https://issues.apache.org/jira/browse/YARN-1574) | RMDispatcher should be reset on transition to standby |  Blocker | . | Xuan Gong | Xuan Gong |
+| [YARN-1573](https://issues.apache.org/jira/browse/YARN-1573) | ZK store should use a private password for root-node-acls |  Major | resourcemanager | Karthik Kambatla | Karthik Kambatla |
+| [YARN-1559](https://issues.apache.org/jira/browse/YARN-1559) | Race between ServerRMProxy and ClientRMProxy setting RMProxy#INSTANCE |  Blocker | resourcemanager | Karthik Kambatla | Karthik Kambatla |
+| [YARN-1523](https://issues.apache.org/jira/browse/YARN-1523) | Use StandbyException instead of RMNotYetReadyException |  Major | . | Bikas Saha | Karthik Kambatla |
+| [YARN-1485](https://issues.apache.org/jira/browse/YARN-1485) | Enabling HA should verify the RM service addresses configurations have been set for every RM Ids defined in RM\_HA\_IDs |  Major | . | Xuan Gong | Xuan Gong |
+| [YARN-1482](https://issues.apache.org/jira/browse/YARN-1482) | WebApplicationProxy should be always-on w.r.t HA even if it is embedded in the RM |  Major | . | Vinod Kumar Vavilapalli | Xuan Gong |
+| [YARN-1481](https://issues.apache.org/jira/browse/YARN-1481) | Move internal services logic from AdminService to ResourceManager |  Major | . | Vinod Kumar Vavilapalli | Vinod Kumar Vavilapalli |
+| [YARN-1448](https://issues.apache.org/jira/browse/YARN-1448) | AM-RM protocol changes to support container resizing |  Major | api, resourcemanager | Wangda Tan (No longer used) | Wangda Tan (No longer used) |
+| [YARN-1447](https://issues.apache.org/jira/browse/YARN-1447) | Common PB type definitions for container resizing |  Major | api | Wangda Tan (No longer used) | Wangda Tan (No longer used) |
+| [YARN-1446](https://issues.apache.org/jira/browse/YARN-1446) | Change killing application to wait until state store is done |  Major | resourcemanager | Jian He | Jian He |
+| [YARN-1411](https://issues.apache.org/jira/browse/YARN-1411) | HA config shouldn't affect NodeManager RPC addresses |  Critical | . | Karthik Kambatla | Karthik Kambatla |
+| [YARN-1405](https://issues.apache.org/jira/browse/YARN-1405) | RM hangs on shutdown if calling system.exit in serviceInit or serviceStart |  Major | . | Yesha Vora | Jian He |
+| [YARN-1378](https://issues.apache.org/jira/browse/YARN-1378) | Implement a RMStateStore cleaner for deleting application/attempt info |  Major | resourcemanager | Jian He | Jian He |
+| [YARN-1325](https://issues.apache.org/jira/browse/YARN-1325) | Enabling HA should check Configuration contains multiple RMs |  Major | resourcemanager | Tsuyoshi Ozawa | Xuan Gong |
+| [YARN-1323](https://issues.apache.org/jira/browse/YARN-1323) | Set HTTPS webapp address along with other RPC addresses in HAUtil |  Major | . | Karthik Kambatla | Karthik Kambatla |
+| [YARN-1318](https://issues.apache.org/jira/browse/YARN-1318) | Promote AdminService to an Always-On service and merge in RMHAProtocolService |  Blocker | resourcemanager | Karthik Kambatla | Karthik Kambatla |
+| [YARN-1311](https://issues.apache.org/jira/browse/YARN-1311) | Fix app specific scheduler-events' names to be app-attempt based |  Trivial | . | Vinod Kumar Vavilapalli | Vinod Kumar Vavilapalli |
+| [YARN-1307](https://issues.apache.org/jira/browse/YARN-1307) | Rethink znode structure for RM HA |  Major | resourcemanager | Tsuyoshi Ozawa | Tsuyoshi Ozawa |
+| [YARN-1305](https://issues.apache.org/jira/browse/YARN-1305) | RMHAProtocolService#serviceInit should handle HAUtil's IllegalArgumentException |  Major | resourcemanager | Tsuyoshi Ozawa | Tsuyoshi Ozawa |
+| [YARN-1283](https://issues.apache.org/jira/browse/YARN-1283) | Invalid 'url of job' mentioned in Job output with yarn.http.policy=HTTPS\_ONLY |  Major | . | Yesha Vora | Omkar Vinit Joshi |
+| [YARN-1239](https://issues.apache.org/jira/browse/YARN-1239) | Save version information in the state store |  Major | resourcemanager | Bikas Saha | Jian He |
+| [YARN-1232](https://issues.apache.org/jira/browse/YARN-1232) | Configuration to support multiple RMs |  Major | resourcemanager | Karthik Kambatla | Karthik Kambatla |
+| [YARN-1222](https://issues.apache.org/jira/browse/YARN-1222) | Make improvements in ZKRMStateStore for fencing |  Major | . | Bikas Saha | Karthik Kambatla |
+| [YARN-1210](https://issues.apache.org/jira/browse/YARN-1210) | During RM restart, RM should start a new attempt only when previous attempt exits for real |  Major | . | Vinod Kumar Vavilapalli | Omkar Vinit Joshi |
+| [YARN-1185](https://issues.apache.org/jira/browse/YARN-1185) | FileSystemRMStateStore can leave partial files that prevent subsequent recovery |  Major | resourcemanager | Jason Lowe | Omkar Vinit Joshi |
+| [YARN-1181](https://issues.apache.org/jira/browse/YARN-1181) | Augment MiniYARNCluster to support HA mode |  Major | . | Karthik Kambatla | Karthik Kambatla |
+| [YARN-1172](https://issues.apache.org/jira/browse/YARN-1172) | Convert *SecretManagers in the RM to services |  Major | resourcemanager | Karthik Kambatla | Tsuyoshi Ozawa |
+| [YARN-1121](https://issues.apache.org/jira/browse/YARN-1121) | RMStateStore should flush all pending store events before closing |  Major | resourcemanager | Bikas Saha | Jian He |
+| [YARN-1098](https://issues.apache.org/jira/browse/YARN-1098) | Separate out RM services into "Always On" and "Active" |  Major | resourcemanager | Karthik Kambatla | Karthik Kambatla |
+| [YARN-1068](https://issues.apache.org/jira/browse/YARN-1068) | Add admin support for HA operations |  Major | resourcemanager | Karthik Kambatla | Karthik Kambatla |
+| [YARN-1033](https://issues.apache.org/jira/browse/YARN-1033) | Expose RM active/standby state to Web UI and REST API |  Major | . | Nemon Lou | Karthik Kambatla |
+| [YARN-1029](https://issues.apache.org/jira/browse/YARN-1029) | Allow embedding leader election into the RM |  Major | . | Bikas Saha | Karthik Kambatla |
+| [YARN-1028](https://issues.apache.org/jira/browse/YARN-1028) | Add FailoverProxyProvider like capability to RMProxy |  Major | . | Bikas Saha | Karthik Kambatla |
+| [YARN-1027](https://issues.apache.org/jira/browse/YARN-1027) | Implement RMHAProtocolService |  Major | . | Bikas Saha | Karthik Kambatla |
+| [YARN-976](https://issues.apache.org/jira/browse/YARN-976) | Document the meaning of a virtual core |  Major | documentation | Sandy Ryza | Sandy Ryza |
+| [YARN-895](https://issues.apache.org/jira/browse/YARN-895) | RM crashes if it restarts while the state-store is down |  Major | resourcemanager | Jian He | Jian He |
+| [YARN-891](https://issues.apache.org/jira/browse/YARN-891) | Store completed application information in RM state store |  Major | resourcemanager | Bikas Saha | Jian He |
+| [YARN-819](https://issues.apache.org/jira/browse/YARN-819) | ResourceManager and NodeManager should check for a minimum allowed version |  Major | nodemanager, resourcemanager | Robert Parker | Robert Parker |
+| [YARN-709](https://issues.apache.org/jira/browse/YARN-709) | verify that new jobs submitted with old RM delegation tokens after RM restart are accepted |  Major | resourcemanager | Jian He | Jian He |
+| [YARN-674](https://issues.apache.org/jira/browse/YARN-674) | Slow or failing DelegationToken renewals on submission itself make RM unavailable |  Major | resourcemanager | Vinod Kumar Vavilapalli | Omkar Vinit Joshi |
+| [YARN-649](https://issues.apache.org/jira/browse/YARN-649) | Make container logs available over HTTP in plain text |  Major | nodemanager | Sandy Ryza | Sandy Ryza |
+| [YARN-478](https://issues.apache.org/jira/browse/YARN-478) | fix coverage org.apache.hadoop.yarn.webapp.log |  Major | . | Aleksey Gorshkov | Aleksey Gorshkov |
+| [YARN-465](https://issues.apache.org/jira/browse/YARN-465) | fix coverage  org.apache.hadoop.yarn.server.webproxy |  Major | . | Aleksey Gorshkov | Andrey Klochkov |
+| [YARN-427](https://issues.apache.org/jira/browse/YARN-427) | Coverage fix for org.apache.hadoop.yarn.server.api.* |  Major | . | Aleksey Gorshkov | Aleksey Gorshkov |
+| [YARN-425](https://issues.apache.org/jira/browse/YARN-425) | coverage fix for yarn api |  Major | . | Aleksey Gorshkov | Aleksey Gorshkov |
+| [YARN-353](https://issues.apache.org/jira/browse/YARN-353) | Add Zookeeper-based store implementation for RMStateStore |  Major | resourcemanager | Hitesh Shah | Karthik Kambatla |
+| [YARN-312](https://issues.apache.org/jira/browse/YARN-312) | Add updateNodeResource in ResourceManagerAdministrationProtocol |  Major | api | Junping Du | Junping Du |
+| [YARN-311](https://issues.apache.org/jira/browse/YARN-311) | Dynamic node resource configuration: core scheduler changes |  Major | resourcemanager, scheduler | Junping Du | Junping Du |
+| [YARN-7](https://issues.apache.org/jira/browse/YARN-7) | Add support for DistributedShell to ask for CPUs along with memory |  Major | . | Arun C Murthy | Junping Du |
+
+
 ### OTHER:
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |

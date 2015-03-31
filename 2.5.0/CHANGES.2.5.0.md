@@ -428,6 +428,96 @@
 | [YARN-1970](https://issues.apache.org/jira/browse/YARN-1970) | Prepare YARN codebase for JUnit 4.11. |  Minor | . | Chris Nauroth | Chris Nauroth |
 
 
+### SUB-TASKS:
+
+| JIRA | Description | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [HADOOP-10894](https://issues.apache.org/jira/browse/HADOOP-10894) | Fix dead link in ToolRunner documentation |  Minor | documentation | Akira AJISAKA | Akira AJISAKA |
+| [HADOOP-10864](https://issues.apache.org/jira/browse/HADOOP-10864) | Tool documentenation is broken |  Minor | documentation | Allen Wittenauer | Akira AJISAKA |
+| [HADOOP-10659](https://issues.apache.org/jira/browse/HADOOP-10659) | Refactor AccessControlList to reuse utility functions and to improve performance |  Minor | security | Benoy Antony | Benoy Antony |
+| [HADOOP-10652](https://issues.apache.org/jira/browse/HADOOP-10652) | Refactor Proxyusers to use AccessControlList |  Major | security | Benoy Antony | Benoy Antony |
+| [HADOOP-10649](https://issues.apache.org/jira/browse/HADOOP-10649) | Allow overriding the default ACL for service authorization |  Major | security | Benoy Antony | Benoy Antony |
+| [HADOOP-10566](https://issues.apache.org/jira/browse/HADOOP-10566) | Refactor proxyservers out of ProxyUsers |  Major | security | Benoy Antony | Benoy Antony |
+| [HADOOP-10565](https://issues.apache.org/jira/browse/HADOOP-10565) | Support IP ranges (CIDR) in  proxyuser.hosts |  Major | security | Benoy Antony | Benoy Antony |
+| [HADOOP-10503](https://issues.apache.org/jira/browse/HADOOP-10503) | Move junit up to v 4.11 |  Minor | build | Steve Loughran | Chris Nauroth |
+| [HADOOP-10499](https://issues.apache.org/jira/browse/HADOOP-10499) | Remove unused parameter from ProxyUsers.authorize() |  Minor | security | Benoy Antony | Benoy Antony |
+| [HADOOP-10479](https://issues.apache.org/jira/browse/HADOOP-10479) | Fix new findbugs warnings in hadoop-minikdc |  Major | . | Haohui Mai | Swarnim Kulkarni |
+| [HADOOP-10471](https://issues.apache.org/jira/browse/HADOOP-10471) | Reduce the visibility of constants in ProxyUsers |  Major | security | Benoy Antony | Benoy Antony |
+| [HADOOP-10467](https://issues.apache.org/jira/browse/HADOOP-10467) | Enable proxyuser specification to support list of users in addition to list of groups. |  Major | security | Benoy Antony | Benoy Antony |
+| [HADOOP-10448](https://issues.apache.org/jira/browse/HADOOP-10448) | Support pluggable mechanism to specify proxy user settings |  Major | security | Benoy Antony | Benoy Antony |
+| [HADOOP-10439](https://issues.apache.org/jira/browse/HADOOP-10439) | Fix compilation error in branch-2 after HADOOP-10426 |  Major | build | Haohui Mai | Haohui Mai |
+| [HADOOP-10426](https://issues.apache.org/jira/browse/HADOOP-10426) | CreateOpts.getOpt(..) should declare with generic type argument |  Minor | fs | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
+| [HADOOP-10279](https://issues.apache.org/jira/browse/HADOOP-10279) | Create multiplexer, a requirement for the fair queue |  Major | . | Chris Li | Chris Li |
+| [HADOOP-10104](https://issues.apache.org/jira/browse/HADOOP-10104) | Update jackson to 1.9.13 |  Minor | build | Steve Loughran | Akira AJISAKA |
+| [HADOOP-9712](https://issues.apache.org/jira/browse/HADOOP-9712) | Write contract tests for FTP filesystem, fix places where it breaks |  Minor | fs/s3 | Steve Loughran |  |
+| [HADOOP-9711](https://issues.apache.org/jira/browse/HADOOP-9711) | Write contract tests for S3Native; fix places where it breaks |  Minor | fs/s3 | Steve Loughran | Steve Loughran |
+| [HADOOP-9371](https://issues.apache.org/jira/browse/HADOOP-9371) | Define Semantics of FileSystem more rigorously |  Major | fs | Steve Loughran | Steve Loughran |
+| [HDFS-6562](https://issues.apache.org/jira/browse/HDFS-6562) | Refactor rename() in FSDirectory |  Minor | namenode | Haohui Mai | Haohui Mai |
+| [HDFS-6557](https://issues.apache.org/jira/browse/HDFS-6557) | Move the reference of fsimage to FSNamesystem |  Major | namenode | Haohui Mai | Haohui Mai |
+| [HDFS-6480](https://issues.apache.org/jira/browse/HDFS-6480) | Move waitForReady() from FSDirectory to FSNamesystem |  Major | namenode | Haohui Mai | Haohui Mai |
+| [HDFS-6351](https://issues.apache.org/jira/browse/HDFS-6351) | Command "hdfs dfs -rm -r" can't remove empty directory |  Major | hdfs-client | Yongjun Zhang | Yongjun Zhang |
+| [HDFS-6330](https://issues.apache.org/jira/browse/HDFS-6330) | Move mkdirs() to FSNamesystem |  Major | namenode | Haohui Mai | Haohui Mai |
+| [HDFS-6328](https://issues.apache.org/jira/browse/HDFS-6328) | Clean up dead code in FSDirectory |  Major | namenode | Haohui Mai | Haohui Mai |
+| [HDFS-6315](https://issues.apache.org/jira/browse/HDFS-6315) | Decouple recording edit logs from FSDirectory |  Major | . | Haohui Mai | Haohui Mai |
+| [HDFS-6276](https://issues.apache.org/jira/browse/HDFS-6276) | Remove unnecessary conditions and null check |  Major | . | Suresh Srinivas | Suresh Srinivas |
+| [HDFS-6275](https://issues.apache.org/jira/browse/HDFS-6275) | Fix warnings - type arguments can be inferred and redudant local variable |  Major | . | Suresh Srinivas | Suresh Srinivas |
+| [HDFS-6274](https://issues.apache.org/jira/browse/HDFS-6274) | Cleanup javadoc warnings in HDFS code |  Major | . | Suresh Srinivas | Suresh Srinivas |
+| [HDFS-6240](https://issues.apache.org/jira/browse/HDFS-6240) | WebImageViewer returns 404 if LISTSTATUS to an empty directory |  Major | tools | Akira AJISAKA | Akira AJISAKA |
+| [HDFS-6219](https://issues.apache.org/jira/browse/HDFS-6219) | Proxy superuser configuration should use true client IP for address checks |  Major | namenode, webhdfs | Daryn Sharp | Daryn Sharp |
+| [HDFS-6218](https://issues.apache.org/jira/browse/HDFS-6218) | Audit log should use true client IP for proxied webhdfs operations |  Major | namenode, webhdfs | Daryn Sharp | Daryn Sharp |
+| [HDFS-6217](https://issues.apache.org/jira/browse/HDFS-6217) | Webhdfs PUT operations may not work via a http proxy |  Major | webhdfs | Daryn Sharp | Daryn Sharp |
+| [HDFS-6210](https://issues.apache.org/jira/browse/HDFS-6210) | Support GETACLSTATUS operation in WebImageViewer |  Major | tools | Akira AJISAKA | Akira AJISAKA |
+| [HDFS-6186](https://issues.apache.org/jira/browse/HDFS-6186) | Pause deletion of blocks when the namenode starts up |  Major | namenode | Suresh Srinivas | Jing Zhao |
+| [HDFS-6173](https://issues.apache.org/jira/browse/HDFS-6173) | Move the default processor from Ls to Web in OfflineImageViewer |  Major | tools | Akira AJISAKA | Akira AJISAKA |
+| [HDFS-6170](https://issues.apache.org/jira/browse/HDFS-6170) | Support GETFILESTATUS operation in WebImageViewer |  Major | tools | Akira AJISAKA | Akira AJISAKA |
+| [HDFS-6169](https://issues.apache.org/jira/browse/HDFS-6169) | Move the address in WebImageViewer |  Major | tools | Akira AJISAKA | Akira AJISAKA |
+| [HDFS-6162](https://issues.apache.org/jira/browse/HDFS-6162) | Format strings should use platform independent line separator |  Minor | . | Suresh Srinivas | Suresh Srinivas |
+| [HDFS-6155](https://issues.apache.org/jira/browse/HDFS-6155) | Fix Boxing/unboxing to parse a primitive findbugs warnings |  Major | . | Suresh Srinivas | Suresh Srinivas |
+| [HDFS-6125](https://issues.apache.org/jira/browse/HDFS-6125) | Cleanup unnecessary cast in HDFS code base |  Major | test | Suresh Srinivas | Suresh Srinivas |
+| [HDFS-6119](https://issues.apache.org/jira/browse/HDFS-6119) | FSNamesystem code cleanup |  Minor | namenode | Suresh Srinivas | Suresh Srinivas |
+| [HDFS-5978](https://issues.apache.org/jira/browse/HDFS-5978) | Create a tool to take fsimage and expose read-only WebHDFS API |  Major | tools | Akira AJISAKA | Akira AJISAKA |
+| [HDFS-5865](https://issues.apache.org/jira/browse/HDFS-5865) | Update OfflineImageViewer document |  Minor | documentation | Akira AJISAKA | Akira AJISAKA |
+| [HDFS-5411](https://issues.apache.org/jira/browse/HDFS-5411) | Update Bookkeeper dependency to 4.2.3 |  Minor | . | Robert Rati | Rakesh R |
+| [HDFS-4667](https://issues.apache.org/jira/browse/HDFS-4667) | Capture renamed files/directories in snapshot diff report |  Major | namenode | Jing Zhao | Jing Zhao |
+| [HDFS-4286](https://issues.apache.org/jira/browse/HDFS-4286) | Changes from BOOKKEEPER-203 broken capability of including bookkeeper-server jar in hidden package of BKJM |  Major | . | Vinayakumar B | Rakesh R |
+| [HDFS-4221](https://issues.apache.org/jira/browse/HDFS-4221) | Remove the format limitation point from BKJM documentation as HDFS-3810 closed |  Major | ha | Uma Maheswara Rao G | Rakesh R |
+| [MAPREDUCE-5900](https://issues.apache.org/jira/browse/MAPREDUCE-5900) | Container preemption interpreted as task failures and eventually job failures |  Major | applicationmaster, mr-am, mrv2 | Mayank Bansal | Mayank Bansal |
+| [MAPREDUCE-5639](https://issues.apache.org/jira/browse/MAPREDUCE-5639) | Port DistCp2 document to trunk |  Major | documentation | Akira AJISAKA | Akira AJISAKA |
+| [MAPREDUCE-5638](https://issues.apache.org/jira/browse/MAPREDUCE-5638) | Port Hadoop Archives document to trunk |  Major | documentation | Akira AJISAKA | Akira AJISAKA |
+| [MAPREDUCE-5637](https://issues.apache.org/jira/browse/MAPREDUCE-5637) | Convert Hadoop Streaming document to APT |  Major | documentation | Akira AJISAKA | Akira AJISAKA |
+| [MAPREDUCE-5636](https://issues.apache.org/jira/browse/MAPREDUCE-5636) | Convert MapReduce Tutorial document to APT |  Major | documentation | Akira AJISAKA | Akira AJISAKA |
+| [YARN-2247](https://issues.apache.org/jira/browse/YARN-2247) | Allow RM web services users to authenticate using delegation tokens |  Blocker | . | Varun Vasudev | Varun Vasudev |
+| [YARN-2233](https://issues.apache.org/jira/browse/YARN-2233) | Implement web services to create, renew and cancel delegation tokens |  Blocker | resourcemanager | Varun Vasudev | Varun Vasudev |
+| [YARN-2152](https://issues.apache.org/jira/browse/YARN-2152) | Recover missing container information |  Major | resourcemanager | Jian He | Jian He |
+| [YARN-2121](https://issues.apache.org/jira/browse/YARN-2121) | TimelineAuthenticator#hasDelegationToken may throw NPE |  Major | . | Zhijie Shen | Zhijie Shen |
+| [YARN-2118](https://issues.apache.org/jira/browse/YARN-2118) | Type mismatch in contains() check of TimelineWebServices#injectOwnerInfo() |  Major | . | Ted Yu | Ted Yu |
+| [YARN-2117](https://issues.apache.org/jira/browse/YARN-2117) | Close of Reader in TimelineAuthenticationFilterInitializer#initFilter() should be enclosed in finally block |  Minor | . | Ted Yu | Chen He |
+| [YARN-2115](https://issues.apache.org/jira/browse/YARN-2115) | Replace RegisterNodeManagerRequest#ContainerStatus with a new NMContainerStatus |  Major | . | Jian He | Jian He |
+| [YARN-2074](https://issues.apache.org/jira/browse/YARN-2074) | Preemption of AM containers shouldn't count towards AM failures |  Major | resourcemanager | Vinod Kumar Vavilapalli | Jian He |
+| [YARN-2071](https://issues.apache.org/jira/browse/YARN-2071) | Enforce more restricted permissions for the directory of Leveldb store |  Major | . | Zhijie Shen | Zhijie Shen |
+| [YARN-2059](https://issues.apache.org/jira/browse/YARN-2059) | Extend access control for admin acls |  Major | . | Zhijie Shen | Zhijie Shen |
+| [YARN-2052](https://issues.apache.org/jira/browse/YARN-2052) | ContainerId creation after work preserving restart is broken |  Major | resourcemanager | Tsuyoshi Ozawa | Tsuyoshi Ozawa |
+| [YARN-2049](https://issues.apache.org/jira/browse/YARN-2049) | Delegation token stuff for the timeline sever |  Major | . | Zhijie Shen | Zhijie Shen |
+| [YARN-2022](https://issues.apache.org/jira/browse/YARN-2022) | Preempting an Application Master container can be kept as least priority when multiple applications are marked for preemption by ProportionalCapacityPreemptionPolicy |  Major | resourcemanager | Sunil G | Sunil G |
+| [YARN-2017](https://issues.apache.org/jira/browse/YARN-2017) | Merge some of the common lib code in schedulers |  Major | resourcemanager | Jian He | Jian He |
+| [YARN-1982](https://issues.apache.org/jira/browse/YARN-1982) | Rename the daemon name to timelineserver |  Major | . | Zhijie Shen | Zhijie Shen |
+| [YARN-1938](https://issues.apache.org/jira/browse/YARN-1938) | Kerberos authentication for the timeline server |  Major | . | Zhijie Shen | Zhijie Shen |
+| [YARN-1937](https://issues.apache.org/jira/browse/YARN-1937) | Add entity-level access control of the timeline data for owners only |  Major | . | Zhijie Shen | Zhijie Shen |
+| [YARN-1936](https://issues.apache.org/jira/browse/YARN-1936) | Secured timeline client |  Major | . | Zhijie Shen | Zhijie Shen |
+| [YARN-1877](https://issues.apache.org/jira/browse/YARN-1877) | Document yarn.resourcemanager.zk-auth and its scope |  Critical | resourcemanager | Karthik Kambatla | Robert Kanter |
+| [YARN-1757](https://issues.apache.org/jira/browse/YARN-1757) | NM Recovery. Auxiliary service support. |  Major | nodemanager | Jason Lowe | Jason Lowe |
+| [YARN-1713](https://issues.apache.org/jira/browse/YARN-1713) | Implement getnewapplication and submitapp as part of RM web service |  Blocker | . | Varun Vasudev | Varun Vasudev |
+| [YARN-1702](https://issues.apache.org/jira/browse/YARN-1702) | Expose kill app functionality as part of RM web services |  Major | . | Varun Vasudev | Varun Vasudev |
+| [YARN-1474](https://issues.apache.org/jira/browse/YARN-1474) | Make schedulers services |  Major | scheduler | Sandy Ryza | Tsuyoshi Ozawa |
+| [YARN-1408](https://issues.apache.org/jira/browse/YARN-1408) | Preemption caused Invalid State Event: ACQUIRED at KILLED and caused a task timeout for 30mins |  Major | resourcemanager | Sunil G | Sunil G |
+| [YARN-1368](https://issues.apache.org/jira/browse/YARN-1368) | Common work to re-populate containers’ state into scheduler |  Major | . | Bikas Saha | Jian He |
+| [YARN-1366](https://issues.apache.org/jira/browse/YARN-1366) | AM should implement Resync with the ApplicationMasterService instead of shutting down |  Major | resourcemanager | Bikas Saha | Rohith |
+| [YARN-1365](https://issues.apache.org/jira/browse/YARN-1365) | ApplicationMasterService to allow Register of an app that was running before restart |  Major | resourcemanager | Bikas Saha | Anubhav Dhoot |
+| [YARN-1362](https://issues.apache.org/jira/browse/YARN-1362) | Distinguish between nodemanager shutdown for decommission vs shutdown for restart |  Major | nodemanager | Jason Lowe | Jason Lowe |
+| [YARN-1339](https://issues.apache.org/jira/browse/YARN-1339) | Recover DeletionService state upon nodemanager restart |  Major | nodemanager | Jason Lowe | Jason Lowe |
+| [YARN-1338](https://issues.apache.org/jira/browse/YARN-1338) | Recover localized resource cache state upon nodemanager restart |  Major | nodemanager | Jason Lowe | Jason Lowe |
+
+
 ### OTHER:
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |

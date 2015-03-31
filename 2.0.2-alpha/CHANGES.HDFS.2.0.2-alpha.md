@@ -262,6 +262,26 @@
 | [HDFS-3258](https://issues.apache.org/jira/browse/HDFS-3258) | Test for HADOOP-8144 (pseudoSortByDistance in NetworkTopology for first rack local node) |  Major | test | Eli Collins | Junping Du |
 
 
+### SUB-TASKS:
+
+| JIRA | Description | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [HDFS-3502](https://issues.apache.org/jira/browse/HDFS-3502) | Change INodeFile and INodeFileUnderConstruction to package private |  Major | namenode | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
+| [HDFS-3474](https://issues.apache.org/jira/browse/HDFS-3474) | Cleanup Exception handling in BookKeeper journal manager |  Major | . | Ivan Kelly | Ivan Kelly |
+| [HDFS-3468](https://issues.apache.org/jira/browse/HDFS-3468) | Make BKJM-ZK session timeout configurable. |  Major | . | Uma Maheswara Rao G | Uma Maheswara Rao G |
+| [HDFS-3452](https://issues.apache.org/jira/browse/HDFS-3452) | BKJM:Switch from standby to active fails and NN gets shut down due to delay in clearing of lock |  Blocker | . | suja s | Uma Maheswara Rao G |
+| [HDFS-3441](https://issues.apache.org/jira/browse/HDFS-3441) | Race condition between rolling logs at active NN and purging at standby |  Major | . | suja s | Rakesh R |
+| [HDFS-3423](https://issues.apache.org/jira/browse/HDFS-3423) | BKJM: NN startup is failing, when tries to recoverUnfinalizedSegments() a bad inProgress\_ ZNodes |  Major | . | Rakesh R | Ivan Kelly |
+| [HDFS-3408](https://issues.apache.org/jira/browse/HDFS-3408) | BKJM : Namenode format fails, if there is no BK root |  Minor | namenode | Rakesh R | Rakesh R |
+| [HDFS-3389](https://issues.apache.org/jira/browse/HDFS-3389) | Document the BKJM usage in Namenode HA. |  Major | namenode | Uma Maheswara Rao G | Uma Maheswara Rao G |
+| [HDFS-3369](https://issues.apache.org/jira/browse/HDFS-3369) | change variable names referring to inode in blockmanagement to more appropriate |  Minor | namenode | John George | John George |
+| [HDFS-3190](https://issues.apache.org/jira/browse/HDFS-3190) | Simple refactors in existing NN code to assist QuorumJournalManager extension |  Minor | namenode | Todd Lipcon | Todd Lipcon |
+| [HDFS-3168](https://issues.apache.org/jira/browse/HDFS-3168) | Clean up FSNamesystem and BlockManager |  Major | namenode | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
+| [HDFS-3058](https://issues.apache.org/jira/browse/HDFS-3058) | HA: Bring BookKeeperJournalManager up to date with HA changes |  Major | . | Ivan Kelly | Ivan Kelly |
+| [HDFS-2717](https://issues.apache.org/jira/browse/HDFS-2717) | BookKeeper Journal output stream doesn't check addComplete rc |  Major | . | Ivan Kelly | Ivan Kelly |
+| [HDFS-2330](https://issues.apache.org/jira/browse/HDFS-2330) | In NNStorage.java, IOExceptions of stream closures  can mask root exceptions. |  Major | namenode | Uma Maheswara Rao G | Uma Maheswara Rao G |
+
+
 ### OTHER:
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |

@@ -228,6 +228,19 @@
 | [MAPREDUCE-3983](https://issues.apache.org/jira/browse/MAPREDUCE-3983) | TestTTResourceReporting can fail, and should just be deleted |  Major | mrv1 | Robert Joseph Evans | Ravi Prakash |
 
 
+### SUB-TASKS:
+
+| JIRA | Description | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [MAPREDUCE-4163](https://issues.apache.org/jira/browse/MAPREDUCE-4163) | consistently set the bind address |  Major | mrv2 | Daryn Sharp | Daryn Sharp |
+| [MAPREDUCE-4162](https://issues.apache.org/jira/browse/MAPREDUCE-4162) | Correctly set token service |  Major | client, mrv2 | Daryn Sharp | Daryn Sharp |
+| [MAPREDUCE-4161](https://issues.apache.org/jira/browse/MAPREDUCE-4161) | create sockets consistently |  Major | client, mrv2 | Daryn Sharp | Daryn Sharp |
+| [MAPREDUCE-3972](https://issues.apache.org/jira/browse/MAPREDUCE-3972) | Locking and exception issues in JobHistory Server. |  Major | mrv2 | Robert Joseph Evans | Robert Joseph Evans |
+| [MAPREDUCE-3942](https://issues.apache.org/jira/browse/MAPREDUCE-3942) | Randomize master key generation for ApplicationTokenSecretManager and roll it every so often |  Major | mrv2, security | Vinod Kumar Vavilapalli | Vinod Kumar Vavilapalli |
+| [MAPREDUCE-3940](https://issues.apache.org/jira/browse/MAPREDUCE-3940) | ContainerTokens should have an expiry interval |  Major | mrv2, security | Vinod Kumar Vavilapalli | Vinod Kumar Vavilapalli |
+| [MAPREDUCE-3613](https://issues.apache.org/jira/browse/MAPREDUCE-3613) | web service calls header contains 2 content types |  Critical | mrv2 | Thomas Graves | Thomas Graves |
+
+
 ### OTHER:
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |

@@ -166,6 +166,21 @@
 | [HADOOP-9063](https://issues.apache.org/jira/browse/HADOOP-9063) | enhance unit-test coverage of class org.apache.hadoop.fs.FileUtil |  Minor | . | Ivan A. Veselovsky | Ivan A. Veselovsky |
 
 
+### SUB-TASKS:
+
+| JIRA | Description | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [HADOOP-10109](https://issues.apache.org/jira/browse/HADOOP-10109) | Fix test failure in TestOfflineEditsViewer introduced by HADOOP-10052 |  Major | test | Colin Patrick McCabe | Colin Patrick McCabe |
+| [HADOOP-10107](https://issues.apache.org/jira/browse/HADOOP-10107) | Server.getNumOpenConnections may throw NPE |  Major | ipc | Tsz Wo Nicholas Sze | Kihwal Lee |
+| [HADOOP-10103](https://issues.apache.org/jira/browse/HADOOP-10103) | update commons-lang to 2.6 |  Minor | build | Steve Loughran | Akira AJISAKA |
+| [HADOOP-10102](https://issues.apache.org/jira/browse/HADOOP-10102) | update commons IO from 2.1 to 2.4 |  Minor | build | Steve Loughran | Akira AJISAKA |
+| [HADOOP-10052](https://issues.apache.org/jira/browse/HADOOP-10052) | Temporarily disable client-side symlink resolution |  Major | fs | Andrew Wang | Andrew Wang |
+| [HADOOP-9956](https://issues.apache.org/jira/browse/HADOOP-9956) | RPC listener inefficiently assigns connections to readers |  Major | ipc | Daryn Sharp | Daryn Sharp |
+| [HADOOP-9955](https://issues.apache.org/jira/browse/HADOOP-9955) | RPC idle connection closing is extremely inefficient |  Major | ipc | Daryn Sharp | Daryn Sharp |
+| [HADOOP-9748](https://issues.apache.org/jira/browse/HADOOP-9748) | Reduce blocking on UGI.ensureInitialized |  Critical | security | Daryn Sharp | Daryn Sharp |
+| [HADOOP-9417](https://issues.apache.org/jira/browse/HADOOP-9417) | Support for symlink resolution in LocalFileSystem / RawLocalFileSystem |  Major | fs | Andrew Wang | Andrew Wang |
+
+
 ### OTHER:
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |

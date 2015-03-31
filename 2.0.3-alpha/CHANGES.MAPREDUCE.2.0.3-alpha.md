@@ -130,6 +130,15 @@
 | [MAPREDUCE-4803](https://issues.apache.org/jira/browse/MAPREDUCE-4803) | Duplicate copies of TestIndexCache.java |  Minor | test | Mariappan Asokan | Mariappan Asokan |
 
 
+### SUB-TASKS:
+
+| JIRA | Description | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [MAPREDUCE-4809](https://issues.apache.org/jira/browse/MAPREDUCE-4809) | Change visibility of classes for pluggable sort changes |  Major | . | Arun C Murthy | Mariappan Asokan |
+| [MAPREDUCE-4807](https://issues.apache.org/jira/browse/MAPREDUCE-4807) | Allow MapOutputBuffer to be pluggable |  Major | . | Arun C Murthy | Mariappan Asokan |
+| [MAPREDUCE-4049](https://issues.apache.org/jira/browse/MAPREDUCE-4049) | plugin for generic shuffle service |  Major | performance, task, tasktracker | Avner BenHanoch | Avner BenHanoch |
+
+
 ### OTHER:
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |

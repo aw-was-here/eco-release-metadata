@@ -73,6 +73,22 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 
 
+### SUB-TASKS:
+
+| JIRA | Description | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [YARN-1184](https://issues.apache.org/jira/browse/YARN-1184) | ClassCastException is thrown during preemption When a huge job is submitted to a queue B whose resources is used by a job in queueA |  Major | capacityscheduler, resourcemanager | J.Andreina | Chris Douglas |
+| [YARN-1116](https://issues.apache.org/jira/browse/YARN-1116) | Populate AMRMTokens back to AMRMTokenSecretManager after RM restarts |  Major | resourcemanager | Jian He | Jian He |
+| [YARN-1085](https://issues.apache.org/jira/browse/YARN-1085) | Yarn and MRv2 should do HTTP client authentication in kerberos setup. |  Blocker | nodemanager, resourcemanager | Jaimin D Jetly | Omkar Vinit Joshi |
+| [YARN-1049](https://issues.apache.org/jira/browse/YARN-1049) | ContainerExistStatus should define a status for preempted containers |  Blocker | api | Alejandro Abdelnur | Alejandro Abdelnur |
+| [YARN-906](https://issues.apache.org/jira/browse/YARN-906) | Cancelling ContainerLaunch#call at KILLING causes that the container cannot be completed |  Major | . | Zhijie Shen | Zhijie Shen |
+| [YARN-771](https://issues.apache.org/jira/browse/YARN-771) | AMRMClient  support for resource blacklisting |  Major | . | Bikas Saha | Junping Du |
+| [YARN-573](https://issues.apache.org/jira/browse/YARN-573) | Shared data structures in Public Localizer and Private Localizer are not Thread safe. |  Critical | . | Omkar Vinit Joshi | Omkar Vinit Joshi |
+| [YARN-540](https://issues.apache.org/jira/browse/YARN-540) | Race condition causing RM to potentially relaunch already unregistered AMs on RM restart |  Major | resourcemanager | Jian He | Jian He |
+| [YARN-502](https://issues.apache.org/jira/browse/YARN-502) | RM crash with NPE on NODE\_REMOVED event with FairScheduler |  Major | . | Lohit Vijayarenu | Mayank Bansal |
+| [YARN-292](https://issues.apache.org/jira/browse/YARN-292) | ResourceManager throws ArrayIndexOutOfBoundsException while handling CONTAINER\_ALLOCATED for application attempt |  Major | resourcemanager | Devaraj K | Zhijie Shen |
+
+
 ### OTHER:
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |

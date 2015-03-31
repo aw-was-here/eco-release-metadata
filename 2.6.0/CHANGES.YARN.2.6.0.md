@@ -188,6 +188,140 @@
 | [YARN-2158](https://issues.apache.org/jira/browse/YARN-2158) | TestRMWebServicesAppsModification sometimes fails in trunk |  Minor | . | Ted Yu | Varun Vasudev |
 
 
+### SUB-TASKS:
+
+| JIRA | Description | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [YARN-2843](https://issues.apache.org/jira/browse/YARN-2843) | NodeLabels manager should trim all inputs for hosts and labels |  Major | resourcemanager | Sushmitha Sreenivasan | Wangda Tan |
+| [YARN-2841](https://issues.apache.org/jira/browse/YARN-2841) | RMProxy should retry EOFException |  Critical | resourcemanager | Jian He | Jian He |
+| [YARN-2824](https://issues.apache.org/jira/browse/YARN-2824) | Capacity of labels should be zero by default |  Critical | resourcemanager | Wangda Tan | Wangda Tan |
+| [YARN-2795](https://issues.apache.org/jira/browse/YARN-2795) | Resource Manager fails startup with HDFS label storage and secure cluster |  Major | resourcemanager | Phil D'Amore | Wangda Tan |
+| [YARN-2778](https://issues.apache.org/jira/browse/YARN-2778) | YARN node CLI should display labels on returned node reports |  Major | client | Wangda Tan | Wangda Tan |
+| [YARN-2770](https://issues.apache.org/jira/browse/YARN-2770) | Timeline delegation tokens need to be automatically renewed by the RM |  Critical | timelineserver | Zhijie Shen | Zhijie Shen |
+| [YARN-2753](https://issues.apache.org/jira/browse/YARN-2753) | Fix potential issues and code clean up for *NodeLabelsManager |  Major | . | zhihai xu | zhihai xu |
+| [YARN-2744](https://issues.apache.org/jira/browse/YARN-2744) | Under some scenario, it is possible to end up with capacity scheduler configuration that uses labels that no longer exist |  Critical | capacityscheduler | Sumit Mohanty | Wangda Tan |
+| [YARN-2726](https://issues.apache.org/jira/browse/YARN-2726) | CapacityScheduler should explicitly log when an accessible label has no capacity |  Minor | capacityscheduler | Phil D'Amore | Wangda Tan |
+| [YARN-2723](https://issues.apache.org/jira/browse/YARN-2723) | rmadmin -replaceLabelsOnNode does not correctly parse port |  Major | client | Phil D'Amore | Naganarasimha G R |
+| [YARN-2717](https://issues.apache.org/jira/browse/YARN-2717) | containerLogNotFound log shows multiple time for the same container |  Major | log-aggregation | Xuan Gong | Xuan Gong |
+| [YARN-2709](https://issues.apache.org/jira/browse/YARN-2709) | Add retry for timeline client getDelegationToken method |  Major | . | Li Lu | Li Lu |
+| [YARN-2705](https://issues.apache.org/jira/browse/YARN-2705) | Changes of RM node label manager default configuration |  Critical | api, client, resourcemanager | Wangda Tan | Wangda Tan |
+| [YARN-2704](https://issues.apache.org/jira/browse/YARN-2704) |  Localization and log-aggregation will fail if hdfs delegation token expired after token-max-life-time |  Critical | . | Jian He | Jian He |
+| [YARN-2703](https://issues.apache.org/jira/browse/YARN-2703) | Add logUploadedTime into LogValue for better display |  Major | nodemanager, resourcemanager | Xuan Gong | Xuan Gong |
+| [YARN-2700](https://issues.apache.org/jira/browse/YARN-2700) | TestSecureRMRegistryOperations failing on windows: auth problems |  Major | api, resourcemanager | Steve Loughran | Steve Loughran |
+| [YARN-2699](https://issues.apache.org/jira/browse/YARN-2699) | Fix test timeout in TestResourceTrackerOnHA#testResourceTrackerOnHA |  Blocker | client | Wangda Tan | Wangda Tan |
+| [YARN-2698](https://issues.apache.org/jira/browse/YARN-2698) | Move getClusterNodeLabels and getNodeToLabels to YarnClient instead of AdminService |  Critical | api, client, resourcemanager | Wangda Tan | Wangda Tan |
+| [YARN-2692](https://issues.apache.org/jira/browse/YARN-2692) | ktutil test hanging on some machines/ktutil versions |  Major | . | Steve Loughran | Steve Loughran |
+| [YARN-2689](https://issues.apache.org/jira/browse/YARN-2689) | TestSecureRMRegistryOperations failing on windows: secure ZK won't start |  Major | api, resourcemanager | Steve Loughran | Steve Loughran |
+| [YARN-2685](https://issues.apache.org/jira/browse/YARN-2685) | Resource on each label not correct when multiple NMs in a same host and some has label some not |  Major | api, client, resourcemanager | Wangda Tan | Wangda Tan |
+| [YARN-2678](https://issues.apache.org/jira/browse/YARN-2678) | Improved Yarn Registry service record structure |  Major | api, resourcemanager | Gour Saha | Steve Loughran |
+| [YARN-2677](https://issues.apache.org/jira/browse/YARN-2677) | registry punycoding of usernames doesn't fix all usernames to be DNS-valid |  Major | api, resourcemanager | Steve Loughran | Steve Loughran |
+| [YARN-2676](https://issues.apache.org/jira/browse/YARN-2676) | Timeline authentication filter should add support for proxy user |  Major | timelineserver | Zhijie Shen | Zhijie Shen |
+| [YARN-2673](https://issues.apache.org/jira/browse/YARN-2673) | Add retry for timeline client put APIs |  Major | . | Li Lu | Li Lu |
+| [YARN-2668](https://issues.apache.org/jira/browse/YARN-2668) | yarn-registry JAR won't link against ZK 3.4.5 |  Major | client | Steve Loughran | Steve Loughran |
+| [YARN-2652](https://issues.apache.org/jira/browse/YARN-2652) | add hadoop-yarn-registry package under hadoop-yarn |  Major | api | Steve Loughran | Steve Loughran |
+| [YARN-2651](https://issues.apache.org/jira/browse/YARN-2651) | Spin off the LogRollingInterval from LogAggregationContext |  Major | nodemanager, resourcemanager | Xuan Gong | Xuan Gong |
+| [YARN-2647](https://issues.apache.org/jira/browse/YARN-2647) | Add yarn queue CLI to get queue infos |  Major | client | Wangda Tan | Sunil G |
+| [YARN-2644](https://issues.apache.org/jira/browse/YARN-2644) | Recalculate headroom more frequently to keep it accurate |  Major | . | Craig Welch | Craig Welch |
+| [YARN-2632](https://issues.apache.org/jira/browse/YARN-2632) | Document NM Restart feature |  Blocker | nodemanager | Junping Du | Junping Du |
+| [YARN-2629](https://issues.apache.org/jira/browse/YARN-2629) | Make distributed shell use the domain-based timeline ACLs |  Major | timelineserver | Zhijie Shen | Zhijie Shen |
+| [YARN-2621](https://issues.apache.org/jira/browse/YARN-2621) | Simplify the output when the user doesn't have the access for getDomain(s) |  Major | timelineserver | Zhijie Shen | Zhijie Shen |
+| [YARN-2611](https://issues.apache.org/jira/browse/YARN-2611) | Fix jenkins findbugs warning and test case failures for trunk merge patch |  Major | capacityscheduler, resourcemanager, scheduler | Subru Krishnan | Subru Krishnan |
+| [YARN-2591](https://issues.apache.org/jira/browse/YARN-2591) | AHSWebServices should return FORBIDDEN(403) if the request user doesn't have access to the history data |  Major | timelineserver | Zhijie Shen | Zhijie Shen |
+| [YARN-2583](https://issues.apache.org/jira/browse/YARN-2583) | Modify the LogDeletionService to support Log aggregation for LRS |  Major | nodemanager, resourcemanager | Xuan Gong | Xuan Gong |
+| [YARN-2582](https://issues.apache.org/jira/browse/YARN-2582) | Log related CLI and Web UI changes for Aggregated Logs in LRS |  Major | nodemanager, resourcemanager | Xuan Gong | Xuan Gong |
+| [YARN-2581](https://issues.apache.org/jira/browse/YARN-2581) | NMs need to find a way to get LogAggregationContext |  Major | nodemanager, resourcemanager | Xuan Gong | Xuan Gong |
+| [YARN-2576](https://issues.apache.org/jira/browse/YARN-2576) | Prepare yarn-1051 branch for merging with trunk |  Major | capacityscheduler, resourcemanager, scheduler | Subru Krishnan | Subru Krishnan |
+| [YARN-2569](https://issues.apache.org/jira/browse/YARN-2569) | API changes for handling logs of long-running services |  Major | nodemanager, resourcemanager | Xuan Gong | Xuan Gong |
+| [YARN-2566](https://issues.apache.org/jira/browse/YARN-2566) | DefaultContainerExecutor should pick a working directory randomly |  Critical | nodemanager | zhihai xu | zhihai xu |
+| [YARN-2561](https://issues.apache.org/jira/browse/YARN-2561) | MR job client cannot reconnect to AM after NM restart. |  Blocker | . | Tassapol Athiapinya | Junping Du |
+| [YARN-2558](https://issues.apache.org/jira/browse/YARN-2558) | Updating ContainerTokenIdentifier#read/write to use ContainerId#getContainerId |  Blocker | . | Tsuyoshi Ozawa | Tsuyoshi Ozawa |
+| [YARN-2547](https://issues.apache.org/jira/browse/YARN-2547) | Cross Origin Filter throws UnsupportedOperationException upon destroy |  Major | timelineserver | Jonathan Eagles | Mit Desai |
+| [YARN-2544](https://issues.apache.org/jira/browse/YARN-2544) | Common server side PB changes (not include user API PB changes) |  Major | api, client, resourcemanager | Wangda Tan | Wangda Tan |
+| [YARN-2542](https://issues.apache.org/jira/browse/YARN-2542) | "yarn application -status \<appId\>" throws NPE when retrieving the app from the timelineserver |  Major | . | Zhijie Shen | Zhijie Shen |
+| [YARN-2538](https://issues.apache.org/jira/browse/YARN-2538) | Add logs when RM send new AMRMToken to ApplicationMaster |  Major | resourcemanager | Xuan Gong | Xuan Gong |
+| [YARN-2529](https://issues.apache.org/jira/browse/YARN-2529) | Generic history service RPC interface doesn't work when service authorization is enabled |  Major | timelineserver | Zhijie Shen | Zhijie Shen |
+| [YARN-2528](https://issues.apache.org/jira/browse/YARN-2528) | Cross Origin Filter Http response split vulnerability protection rejects valid origins |  Major | timelineserver | Jonathan Eagles | Jonathan Eagles |
+| [YARN-2515](https://issues.apache.org/jira/browse/YARN-2515) | Update ConverterUtils#toContainerId to parse epoch |  Major | resourcemanager | Tsuyoshi Ozawa | Tsuyoshi Ozawa |
+| [YARN-2512](https://issues.apache.org/jira/browse/YARN-2512) | Allow for origin pattern matching in cross origin filter |  Major | timelineserver | Jonathan Eagles | Jonathan Eagles |
+| [YARN-2511](https://issues.apache.org/jira/browse/YARN-2511) | Allow All Origins by default when Cross Origin Filter is enabled |  Major | timelineserver | Jonathan Eagles | Jonathan Eagles |
+| [YARN-2509](https://issues.apache.org/jira/browse/YARN-2509) | Enable Cross Origin Filter for timeline server only and not all Yarn servers |  Major | timelineserver | Jonathan Eagles | Mit Desai |
+| [YARN-2508](https://issues.apache.org/jira/browse/YARN-2508) | Cross Origin configuration parameters prefix are not honored |  Major | timelineserver | Jonathan Eagles | Mit Desai |
+| [YARN-2507](https://issues.apache.org/jira/browse/YARN-2507) | Document Cross Origin Filter Configuration for ATS |  Major | documentation, timelineserver | Jonathan Eagles | Jonathan Eagles |
+| [YARN-2505](https://issues.apache.org/jira/browse/YARN-2505) | Support get/add/remove/change labels in RM REST API |  Major | resourcemanager | Wangda Tan | Craig Welch |
+| [YARN-2504](https://issues.apache.org/jira/browse/YARN-2504) | Support get/add/remove/change labels in RM admin CLI |  Critical | resourcemanager | Wangda Tan | Wangda Tan |
+| [YARN-2503](https://issues.apache.org/jira/browse/YARN-2503) | Changes in RM Web UI to better show labels to end users |  Major | resourcemanager | Wangda Tan | Wangda Tan |
+| [YARN-2502](https://issues.apache.org/jira/browse/YARN-2502) | Changes in distributed shell to support specify labels |  Major | resourcemanager | Wangda Tan | Wangda Tan |
+| [YARN-2501](https://issues.apache.org/jira/browse/YARN-2501) | Changes in AMRMClient to support labels |  Major | resourcemanager | Wangda Tan | Wangda Tan |
+| [YARN-2500](https://issues.apache.org/jira/browse/YARN-2500) | Miscellaneous changes in ResourceManager to support labels |  Major | resourcemanager | Wangda Tan | Wangda Tan |
+| [YARN-2496](https://issues.apache.org/jira/browse/YARN-2496) | Changes for capacity scheduler to support allocate resource respect labels |  Major | resourcemanager | Wangda Tan | Wangda Tan |
+| [YARN-2494](https://issues.apache.org/jira/browse/YARN-2494) | Node label manager API and storage implementations |  Major | resourcemanager | Wangda Tan | Wangda Tan |
+| [YARN-2493](https://issues.apache.org/jira/browse/YARN-2493) | API changes for users |  Major | api | Wangda Tan | Wangda Tan |
+| [YARN-2475](https://issues.apache.org/jira/browse/YARN-2475) | ReservationSystem: replan upon capacity reduction |  Major | resourcemanager | Carlo Curino | Carlo Curino |
+| [YARN-2468](https://issues.apache.org/jira/browse/YARN-2468) | Log handling for LRS |  Major | log-aggregation, nodemanager, resourcemanager | Xuan Gong | Xuan Gong |
+| [YARN-2456](https://issues.apache.org/jira/browse/YARN-2456) | Possible livelock in CapacityScheduler when RM is recovering apps |  Major | resourcemanager | Jian He | Jian He |
+| [YARN-2446](https://issues.apache.org/jira/browse/YARN-2446) | Using TimelineNamespace to shield the entities of a user |  Major | timelineserver | Zhijie Shen | Zhijie Shen |
+| [YARN-2434](https://issues.apache.org/jira/browse/YARN-2434) | RM should not recover containers from previously failed attempt when AM restart is not enabled |  Major | . | Jian He | Jian He |
+| [YARN-2431](https://issues.apache.org/jira/browse/YARN-2431) | NM restart: cgroup is not removed for reacquired containers |  Major | nodemanager | Jason Lowe | Jason Lowe |
+| [YARN-2406](https://issues.apache.org/jira/browse/YARN-2406) | Move RM recovery related proto to yarn\_server\_resourcemanager\_recovery.proto |  Major | . | Jian He | Tsuyoshi Ozawa |
+| [YARN-2389](https://issues.apache.org/jira/browse/YARN-2389) | Adding support for drainig a queue, ie killing all apps in the queue |  Major | capacityscheduler, fairscheduler | Subru Krishnan | Subru Krishnan |
+| [YARN-2378](https://issues.apache.org/jira/browse/YARN-2378) | Adding support for moving apps between queues in Capacity Scheduler |  Major | capacityscheduler | Subru Krishnan | Subru Krishnan |
+| [YARN-2354](https://issues.apache.org/jira/browse/YARN-2354) | DistributedShell may allocate more containers than client specified after it restarts |  Major | . | Jian He | Li Lu |
+| [YARN-2347](https://issues.apache.org/jira/browse/YARN-2347) | Consolidate RMStateVersion and NMDBSchemaVersion into StateVersion in yarn-server-common |  Major | . | Junping Du | Junping Du |
+| [YARN-2317](https://issues.apache.org/jira/browse/YARN-2317) | Update documentation about how to write YARN applications |  Major | documentation | Li Lu | Li Lu |
+| [YARN-2312](https://issues.apache.org/jira/browse/YARN-2312) | Marking ContainerId#getId as deprecated |  Major | resourcemanager | Tsuyoshi Ozawa | Tsuyoshi Ozawa |
+| [YARN-2302](https://issues.apache.org/jira/browse/YARN-2302) | Refactor TimelineWebServices |  Major | timelineserver | Zhijie Shen | Zhijie Shen |
+| [YARN-2298](https://issues.apache.org/jira/browse/YARN-2298) | Move TimelineClient to yarn-common project |  Major | client | Zhijie Shen | Zhijie Shen |
+| [YARN-2295](https://issues.apache.org/jira/browse/YARN-2295) | Refactor YARN distributed shell with existing public stable API |  Major | . | Li Lu | Li Lu |
+| [YARN-2288](https://issues.apache.org/jira/browse/YARN-2288) | Data persistent in timelinestore should be versioned |  Major | timelineserver | Junping Du | Junping Du |
+| [YARN-2279](https://issues.apache.org/jira/browse/YARN-2279) | Add UTs to cover timeline server authentication |  Major | timelineserver | Zhijie Shen | Zhijie Shen |
+| [YARN-2277](https://issues.apache.org/jira/browse/YARN-2277) | Add Cross-Origin support to the ATS REST API |  Major | timelineserver | Jonathan Eagles | Jonathan Eagles |
+| [YARN-2260](https://issues.apache.org/jira/browse/YARN-2260) | Add containers to launchedContainers list in RMNode on container recovery |  Major | resourcemanager | Jian He | Jian He |
+| [YARN-2249](https://issues.apache.org/jira/browse/YARN-2249) | AM release request may be lost on RM restart |  Major | resourcemanager | Jian He | Jian He |
+| [YARN-2248](https://issues.apache.org/jira/browse/YARN-2248) | Capacity Scheduler changes for moving apps between queues |  Major | capacityscheduler | Janos Matyas | Janos Matyas |
+| [YARN-2242](https://issues.apache.org/jira/browse/YARN-2242) | Improve exception information on AM launch crashes |  Major | . | Li Lu | Li Lu |
+| [YARN-2237](https://issues.apache.org/jira/browse/YARN-2237) | MRAppMaster changes for AMRMToken roll-up |  Major | resourcemanager | Xuan Gong | Xuan Gong |
+| [YARN-2229](https://issues.apache.org/jira/browse/YARN-2229) | ContainerId can overflow with RM restart |  Major | resourcemanager | Tsuyoshi Ozawa | Tsuyoshi Ozawa |
+| [YARN-2228](https://issues.apache.org/jira/browse/YARN-2228) | TimelineServer should load pseudo authentication filter when authentication = simple |  Major | . | Zhijie Shen | Zhijie Shen |
+| [YARN-2212](https://issues.apache.org/jira/browse/YARN-2212) | ApplicationMaster needs to find a way to update the AMRMToken periodically |  Major | resourcemanager | Xuan Gong | Xuan Gong |
+| [YARN-2211](https://issues.apache.org/jira/browse/YARN-2211) | RMStateStore needs to save AMRMToken master key for recovery when RM restart/failover happens |  Major | resourcemanager | Xuan Gong | Xuan Gong |
+| [YARN-2208](https://issues.apache.org/jira/browse/YARN-2208) | AMRMTokenManager need to have a way to roll over AMRMToken |  Major | resourcemanager | Xuan Gong | Xuan Gong |
+| [YARN-2182](https://issues.apache.org/jira/browse/YARN-2182) | Update ContainerId#toString() to avoid conflicts before and after RM restart |  Major | . | Tsuyoshi Ozawa | Tsuyoshi Ozawa |
+| [YARN-2174](https://issues.apache.org/jira/browse/YARN-2174) | Enabling HTTPs for the writer REST API of TimelineServer |  Major | . | Zhijie Shen | Zhijie Shen |
+| [YARN-2153](https://issues.apache.org/jira/browse/YARN-2153) | Ensure distributed shell work with RM work-preserving recovery |  Major | resourcemanager | Jian He | Jian He |
+| [YARN-2102](https://issues.apache.org/jira/browse/YARN-2102) | More generalized timeline ACLs |  Major | . | Zhijie Shen | Zhijie Shen |
+| [YARN-2080](https://issues.apache.org/jira/browse/YARN-2080) | Admission Control: Integrate Reservation subsystem with ResourceManager |  Major | resourcemanager | Subru Krishnan | Subru Krishnan |
+| [YARN-2070](https://issues.apache.org/jira/browse/YARN-2070) | DistributedShell publishes unfriendly user information to the timeline server |  Minor | . | Zhijie Shen | Robert Kanter |
+| [YARN-2045](https://issues.apache.org/jira/browse/YARN-2045) | Data persisted in NM should be versioned |  Major | nodemanager | Junping Du | Junping Du |
+| [YARN-2035](https://issues.apache.org/jira/browse/YARN-2035) | FileSystemApplicationHistoryStore blocks RM and AHS while NN is in safemode |  Major | . | Jonathan Eagles | Jonathan Eagles |
+| [YARN-2033](https://issues.apache.org/jira/browse/YARN-2033) | Merging generic-history into the Timeline Store |  Major | . | Vinod Kumar Vavilapalli | Zhijie Shen |
+| [YARN-2013](https://issues.apache.org/jira/browse/YARN-2013) | The diagnostics is always the ExitCodeException stack when the container crashes |  Major | nodemanager | Zhijie Shen | Tsuyoshi Ozawa |
+| [YARN-2008](https://issues.apache.org/jira/browse/YARN-2008) | CapacityScheduler may report incorrect queueMaxCap if there is hierarchy queue structure |  Major | . | Chen He | Craig Welch |
+| [YARN-2001](https://issues.apache.org/jira/browse/YARN-2001) | Threshold for RM to accept requests from AM after failover |  Major | resourcemanager | Jian He | Jian He |
+| [YARN-1972](https://issues.apache.org/jira/browse/YARN-1972) | Implement secure Windows Container Executor |  Major | nodemanager | Remus Rusanu | Remus Rusanu |
+| [YARN-1915](https://issues.apache.org/jira/browse/YARN-1915) | ClientToAMTokenMasterKey should be provided to AM at launch time |  Blocker | . | Hitesh Shah | Jason Lowe |
+| [YARN-1879](https://issues.apache.org/jira/browse/YARN-1879) | Mark Idempotent/AtMostOnce annotations to ApplicationMasterProtocol for RM fail over |  Critical | resourcemanager | Jian He | Tsuyoshi Ozawa |
+| [YARN-1857](https://issues.apache.org/jira/browse/YARN-1857) | CapacityScheduler headroom doesn't account for other AM's running |  Critical | capacityscheduler | Thomas Graves | Chen He |
+| [YARN-1779](https://issues.apache.org/jira/browse/YARN-1779) | Handle AMRMTokens across RM failover |  Blocker | resourcemanager | Karthik Kambatla | Jian He |
+| [YARN-1712](https://issues.apache.org/jira/browse/YARN-1712) | Admission Control: plan follower |  Major | capacityscheduler, resourcemanager | Carlo Curino | Carlo Curino |
+| [YARN-1711](https://issues.apache.org/jira/browse/YARN-1711) | CapacityOverTimePolicy: a policy to enforce quotas over time for YARN-1709 |  Major | . | Carlo Curino | Carlo Curino |
+| [YARN-1710](https://issues.apache.org/jira/browse/YARN-1710) | Admission Control: agents to allocate reservation |  Major | resourcemanager | Carlo Curino | Carlo Curino |
+| [YARN-1709](https://issues.apache.org/jira/browse/YARN-1709) | Admission Control: Reservation subsystem |  Major | resourcemanager | Carlo Curino | Subru Krishnan |
+| [YARN-1708](https://issues.apache.org/jira/browse/YARN-1708) | Add a public API to reserve resources (part of YARN-1051) |  Major | resourcemanager | Carlo Curino | Subru Krishnan |
+| [YARN-1707](https://issues.apache.org/jira/browse/YARN-1707) | Making the CapacityScheduler more dynamic |  Major | capacityscheduler | Carlo Curino | Carlo Curino |
+| [YARN-1372](https://issues.apache.org/jira/browse/YARN-1372) | Ensure all completed containers are reported to the AMs across RM restart |  Major | resourcemanager | Bikas Saha | Anubhav Dhoot |
+| [YARN-1370](https://issues.apache.org/jira/browse/YARN-1370) | Fair scheduler to re-populate container allocation state |  Major | resourcemanager | Bikas Saha | Anubhav Dhoot |
+| [YARN-1367](https://issues.apache.org/jira/browse/YARN-1367) | After restart NM should resync with the RM without killing containers |  Major | resourcemanager | Bikas Saha | Anubhav Dhoot |
+| [YARN-1354](https://issues.apache.org/jira/browse/YARN-1354) | Recover applications upon nodemanager restart |  Major | nodemanager | Jason Lowe | Jason Lowe |
+| [YARN-1342](https://issues.apache.org/jira/browse/YARN-1342) | Recover container tokens upon nodemanager restart |  Major | nodemanager | Jason Lowe | Jason Lowe |
+| [YARN-1341](https://issues.apache.org/jira/browse/YARN-1341) | Recover NMTokens upon nodemanager restart |  Major | nodemanager | Jason Lowe | Jason Lowe |
+| [YARN-1337](https://issues.apache.org/jira/browse/YARN-1337) | Recover containers upon nodemanager restart |  Major | nodemanager | Jason Lowe | Jason Lowe |
+| [YARN-1326](https://issues.apache.org/jira/browse/YARN-1326) | RM should log using RMStore at startup time |  Major | . | Tsuyoshi Ozawa | Tsuyoshi Ozawa |
+| [YARN-1250](https://issues.apache.org/jira/browse/YARN-1250) | Generic history service should support application-acls |  Major | . | Vinod Kumar Vavilapalli | Zhijie Shen |
+| [YARN-1063](https://issues.apache.org/jira/browse/YARN-1063) | Winutils needs ability to create task as domain user |  Major | nodemanager | Kyle Leckie | Remus Rusanu |
+| [YARN-611](https://issues.apache.org/jira/browse/YARN-611) | Add an AM retry count reset window to YARN RM |  Major | resourcemanager | Chris Riccomini | Xuan Gong |
+| [YARN-90](https://issues.apache.org/jira/browse/YARN-90) | NodeManager should identify failed disks becoming good again |  Major | nodemanager | Ravi Gummadi | Varun Vasudev |
+
+
 ### OTHER:
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |

@@ -41,6 +41,13 @@
 | [HADOOP-9948](https://issues.apache.org/jira/browse/HADOOP-9948) | Add a config value to CLITestHelper to skip tests on Windows |  Minor | test | Chuan Liu | Chuan Liu |
 
 
+### SUB-TASKS:
+
+| JIRA | Description | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [HADOOP-10017](https://issues.apache.org/jira/browse/HADOOP-10017) | Fix NPE in DFSClient#getDelegationToken when doing Distcp from a secured cluster to an insecured cluster |  Major | . | Jing Zhao | Haohui Mai |
+
+
 ### OTHER:
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |

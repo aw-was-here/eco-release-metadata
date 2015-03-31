@@ -300,6 +300,161 @@
 | [YARN-1854](https://issues.apache.org/jira/browse/YARN-1854) | Race condition in TestRMHA#testStartAndTransitions |  Blocker | . | Mit Desai | Rohith |
 
 
+### SUB-TASKS:
+
+| JIRA | Description | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [HADOOP-10449](https://issues.apache.org/jira/browse/HADOOP-10449) | Fix the javac warnings in the security packages. |  Minor | security | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
+| [HADOOP-10437](https://issues.apache.org/jira/browse/HADOOP-10437) | Fix the javac warnings in the conf and the util package |  Minor | conf, util | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
+| [HADOOP-10407](https://issues.apache.org/jira/browse/HADOOP-10407) | Fix the javac warnings in the ipc package. |  Minor | ipc | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
+| [HADOOP-10399](https://issues.apache.org/jira/browse/HADOOP-10399) | FileContext API for ACLs. |  Major | fs | Chris Nauroth | Vinayakumar B |
+| [HADOOP-10393](https://issues.apache.org/jira/browse/HADOOP-10393) | Fix hadoop-auth javac warnings |  Minor | security | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
+| [HADOOP-10285](https://issues.apache.org/jira/browse/HADOOP-10285) | Admin interface to swap callqueue at runtime |  Major | . | Chris Li | Chris Li |
+| [HADOOP-10280](https://issues.apache.org/jira/browse/HADOOP-10280) | Make Schedulables return a configurable identity of user or group |  Major | . | Chris Li | Chris Li |
+| [HADOOP-10278](https://issues.apache.org/jira/browse/HADOOP-10278) | Refactor to make CallQueue pluggable |  Major | ipc | Chris Li | Chris Li |
+| [HDFS-6124](https://issues.apache.org/jira/browse/HDFS-6124) | Add final modifier to class members |  Major | . | Suresh Srinivas | Suresh Srinivas |
+| [HDFS-6086](https://issues.apache.org/jira/browse/HDFS-6086) | Fix a case where zero-copy or no-checksum reads were not allowed even when the block was cached |  Major | datanode | Colin Patrick McCabe | Colin Patrick McCabe |
+| [HDFS-6076](https://issues.apache.org/jira/browse/HDFS-6076) | SimulatedDataSet should not create DatanodeRegistration with namenode layout version and type |  Minor | datanode, test | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
+| [HDFS-6061](https://issues.apache.org/jira/browse/HDFS-6061) | Allow dfs.datanode.shared.file.descriptor.path to contain multiple entries and fall back when needed |  Major | datanode | Colin Patrick McCabe | Colin Patrick McCabe |
+| [HDFS-6060](https://issues.apache.org/jira/browse/HDFS-6060) | NameNode should not check DataNode layout version |  Major | namenode | Brandon Li | Brandon Li |
+| [HDFS-6046](https://issues.apache.org/jira/browse/HDFS-6046) | add dfs.client.mmap.enabled |  Major | hdfs-client | Colin Patrick McCabe | Colin Patrick McCabe |
+| [HDFS-6040](https://issues.apache.org/jira/browse/HDFS-6040) | fix DFSClient issue without libhadoop.so and some other ShortCircuitShm cleanups |  Blocker | hdfs-client | Colin Patrick McCabe | Colin Patrick McCabe |
+| [HDFS-6038](https://issues.apache.org/jira/browse/HDFS-6038) | Allow JournalNode to handle editlog produced by new release with future layoutversion |  Major | journal-node, namenode | Haohui Mai | Jing Zhao |
+| [HDFS-5986](https://issues.apache.org/jira/browse/HDFS-5986) | Capture the number of blocks pending deletion on namenode webUI |  Major | namenode | Suresh Srinivas | Chris Nauroth |
+| [HDFS-5973](https://issues.apache.org/jira/browse/HDFS-5973) | add DomainSocket#shutdown method |  Major | hdfs-client | Colin Patrick McCabe | Colin Patrick McCabe |
+| [HDFS-5956](https://issues.apache.org/jira/browse/HDFS-5956) | A file size is multiplied by the replication factor in 'hdfs oiv -p FileDistribution' option |  Major | tools | Akira AJISAKA | Akira AJISAKA |
+| [HDFS-5950](https://issues.apache.org/jira/browse/HDFS-5950) | The DFSClient and DataNode should use shared memory segments to communicate short-circuit information |  Major | datanode, hdfs-client | Colin Patrick McCabe | Colin Patrick McCabe |
+| [HDFS-5942](https://issues.apache.org/jira/browse/HDFS-5942) | Fix javadoc in OfflineImageViewer |  Minor | documentation, tools | Akira AJISAKA | Akira AJISAKA |
+| [HDFS-5940](https://issues.apache.org/jira/browse/HDFS-5940) | Minor cleanups to ShortCircuitReplica, FsDatasetCache, and DomainSocketWatcher |  Major | hdfs-client | Colin Patrick McCabe | Colin Patrick McCabe |
+| [HDFS-5938](https://issues.apache.org/jira/browse/HDFS-5938) | Make BlockReaderFactory#BlockReaderPeer a static class |  Trivial | hdfs-client | Colin Patrick McCabe | Colin Patrick McCabe |
+| [HDFS-5898](https://issues.apache.org/jira/browse/HDFS-5898) | Allow NFS gateway to login/relogin from its kerberos keytab |  Major | nfs | Jing Zhao | Abin Shahab |
+| [HDFS-5868](https://issues.apache.org/jira/browse/HDFS-5868) | Make hsync implementation pluggable |  Major | datanode | Taylor, Buddy | Taylor, Buddy |
+| [HDFS-5866](https://issues.apache.org/jira/browse/HDFS-5866) | '-maxSize' and '-step' option fail in OfflineImageViewer |  Major | tools | Akira AJISAKA | Akira AJISAKA |
+| [HDFS-5847](https://issues.apache.org/jira/browse/HDFS-5847) | Consolidate INodeReference into a separate section |  Major | . | Haohui Mai | Jing Zhao |
+| [HDFS-5810](https://issues.apache.org/jira/browse/HDFS-5810) | Unify mmap cache and short-circuit file descriptor cache |  Major | hdfs-client | Colin Patrick McCabe | Colin Patrick McCabe |
+| [HDFS-5746](https://issues.apache.org/jira/browse/HDFS-5746) | add ShortCircuitSharedMemorySegment |  Major | datanode, hdfs-client | Colin Patrick McCabe | Colin Patrick McCabe |
+| [HDFS-5726](https://issues.apache.org/jira/browse/HDFS-5726) | Fix compilation error in AbstractINodeDiff for JDK7 |  Minor | namenode | Jing Zhao | Jing Zhao |
+| [HDFS-5715](https://issues.apache.org/jira/browse/HDFS-5715) | Use Snapshot ID to indicate the corresponding Snapshot for a FileDiff/DirectoryDiff |  Major | namenode | Jing Zhao | Jing Zhao |
+| [HDFS-5647](https://issues.apache.org/jira/browse/HDFS-5647) | Merge INodeDirectory.Feature and INodeFile.Feature |  Major | namenode | Haohui Mai | Haohui Mai |
+| [HDFS-5638](https://issues.apache.org/jira/browse/HDFS-5638) | HDFS implementation of FileContext API for ACLs. |  Major | hdfs-client | Chris Nauroth | Vinayakumar B |
+| [HDFS-5632](https://issues.apache.org/jira/browse/HDFS-5632) | Add Snapshot feature to INodeDirectory |  Major | namenode | Jing Zhao | Jing Zhao |
+| [HDFS-5623](https://issues.apache.org/jira/browse/HDFS-5623) | NameNode: add tests for skipping ACL enforcement when permission checks are disabled, user is superuser or user is member of supergroup. |  Major | namenode | Chris Nauroth | Chris Nauroth |
+| [HDFS-5554](https://issues.apache.org/jira/browse/HDFS-5554) | Add Snapshot Feature to INodeFile |  Major | namenode | Jing Zhao | Jing Zhao |
+| [HDFS-5537](https://issues.apache.org/jira/browse/HDFS-5537) | Remove FileWithSnapshot interface |  Major | namenode, snapshots | Jing Zhao | Jing Zhao |
+| [HDFS-5531](https://issues.apache.org/jira/browse/HDFS-5531) | Combine the getNsQuota() and getDsQuota() methods in INode |  Minor | namenode | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
+| [HDFS-5483](https://issues.apache.org/jira/browse/HDFS-5483) | NN should gracefully handle multiple block replicas on same DN |  Major | namenode | Arpit Agarwal | Arpit Agarwal |
+| [HDFS-5286](https://issues.apache.org/jira/browse/HDFS-5286) | Flatten INodeDirectory hierarchy: add DirectoryWithQuotaFeature |  Major | namenode | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
+| [HDFS-5285](https://issues.apache.org/jira/browse/HDFS-5285) | Flatten INodeFile hierarchy: Add UnderContruction Feature |  Major | namenode | Tsz Wo Nicholas Sze | Jing Zhao |
+| [HDFS-5167](https://issues.apache.org/jira/browse/HDFS-5167) | Add metrics about the NameNode retry cache |  Minor | ha, namenode | Jing Zhao | Tsuyoshi Ozawa |
+| [HDFS-4564](https://issues.apache.org/jira/browse/HDFS-4564) | Webhdfs returns incorrect http response codes for denied operations |  Blocker | webhdfs | Daryn Sharp | Daryn Sharp |
+| [MAPREDUCE-5787](https://issues.apache.org/jira/browse/MAPREDUCE-5787) | Modify ShuffleHandler to support Keep-Alive |  Critical | nodemanager | Rajesh Balamohan | Rajesh Balamohan |
+| [YARN-1893](https://issues.apache.org/jira/browse/YARN-1893) | Make ApplicationMasterProtocol#allocate AtMostOnce |  Blocker | resourcemanager | Xuan Gong | Xuan Gong |
+| [YARN-1850](https://issues.apache.org/jira/browse/YARN-1850) | Make enabling timeline service configurable |  Major | . | Zhijie Shen | Zhijie Shen |
+| [YARN-1838](https://issues.apache.org/jira/browse/YARN-1838) | Timeline service getEntities API should provide ability to get entities from given id |  Major | . | Srimanth Gunturi | Billie Rinaldi |
+| [YARN-1821](https://issues.apache.org/jira/browse/YARN-1821) | NPE on registerNodeManager if the request has containers for UnmanagedAMs |  Blocker | resourcemanager | Karthik Kambatla | Karthik Kambatla |
+| [YARN-1816](https://issues.apache.org/jira/browse/YARN-1816) | Succeeded application remains in accepted after RM restart |  Major | . | Arpit Gupta | Jian He |
+| [YARN-1812](https://issues.apache.org/jira/browse/YARN-1812) | Job stays in PREP state for long time after RM Restarts |  Major | . | Yesha Vora | Jian He |
+| [YARN-1811](https://issues.apache.org/jira/browse/YARN-1811) | RM HA: AM link broken if the AM is on nodes other than RM |  Major | resourcemanager | Robert Kanter | Robert Kanter |
+| [YARN-1800](https://issues.apache.org/jira/browse/YARN-1800) | YARN NodeManager with java.util.concurrent.RejectedExecutionException |  Critical | nodemanager | Paul Isaychuk | Varun Vasudev |
+| [YARN-1787](https://issues.apache.org/jira/browse/YARN-1787) | yarn applicationattempt/container print wrong usage information |  Major | . | Zhijie Shen | Zhijie Shen |
+| [YARN-1781](https://issues.apache.org/jira/browse/YARN-1781) | NM should allow users to specify max disk utilization for local disks |  Major | nodemanager | Varun Vasudev | Varun Vasudev |
+| [YARN-1780](https://issues.apache.org/jira/browse/YARN-1780) | Improve logging in timeline service |  Major | . | Zhijie Shen | Zhijie Shen |
+| [YARN-1776](https://issues.apache.org/jira/browse/YARN-1776) | renewDelegationToken should survive RM failover |  Major | . | Zhijie Shen | Zhijie Shen |
+| [YARN-1775](https://issues.apache.org/jira/browse/YARN-1775) | Create SMAPBasedProcessTree to get PSS information |  Major | nodemanager | Rajesh Balamohan | Rajesh Balamohan |
+| [YARN-1766](https://issues.apache.org/jira/browse/YARN-1766) | When RM does the initiation, it should use loaded Configuration instead of bootstrap configuration. |  Major | . | Xuan Gong | Xuan Gong |
+| [YARN-1765](https://issues.apache.org/jira/browse/YARN-1765) | Write test cases to verify that killApplication API works in RM HA |  Major | . | Xuan Gong | Xuan Gong |
+| [YARN-1764](https://issues.apache.org/jira/browse/YARN-1764) | Handle RM fail overs after the submitApplication call. |  Major | . | Xuan Gong | Xuan Gong |
+| [YARN-1761](https://issues.apache.org/jira/browse/YARN-1761) | RMAdminCLI should check whether HA is enabled before executes transitionToActive/transitionToStandby |  Major | . | Xuan Gong | Xuan Gong |
+| [YARN-1749](https://issues.apache.org/jira/browse/YARN-1749) | Review AHS configs and sync them up with the timeline-service configs |  Major | . | Zhijie Shen | Zhijie Shen |
+| [YARN-1734](https://issues.apache.org/jira/browse/YARN-1734) | RM should get the updated Configurations when it transits from Standby to Active |  Critical | . | Xuan Gong | Xuan Gong |
+| [YARN-1732](https://issues.apache.org/jira/browse/YARN-1732) | Change types of related entities and primary filters in ATSEntity |  Major | . | Billie Rinaldi | Billie Rinaldi |
+| [YARN-1730](https://issues.apache.org/jira/browse/YARN-1730) | Leveldb timeline store needs simple write locking |  Major | . | Billie Rinaldi | Billie Rinaldi |
+| [YARN-1729](https://issues.apache.org/jira/browse/YARN-1729) | TimelineWebServices always passes primary and secondary filters as strings |  Major | . | Billie Rinaldi | Billie Rinaldi |
+| [YARN-1719](https://issues.apache.org/jira/browse/YARN-1719) | ATSWebServices produces jersey warnings |  Major | . | Billie Rinaldi | Billie Rinaldi |
+| [YARN-1717](https://issues.apache.org/jira/browse/YARN-1717) | Enable offline deletion of entries in leveldb timeline store |  Major | . | Billie Rinaldi | Billie Rinaldi |
+| [YARN-1706](https://issues.apache.org/jira/browse/YARN-1706) | Create an utility function to dump timeline records to json |  Major | . | Zhijie Shen | Zhijie Shen |
+| [YARN-1704](https://issues.apache.org/jira/browse/YARN-1704) | Review LICENSE and NOTICE to reflect new levelDB releated libraries being used |  Blocker | . | Billie Rinaldi | Billie Rinaldi |
+| [YARN-1698](https://issues.apache.org/jira/browse/YARN-1698) | Replace MemoryApplicationTimelineStore with LeveldbApplicationTimelineStore as default |  Major | . | Zhijie Shen | Zhijie Shen |
+| [YARN-1690](https://issues.apache.org/jira/browse/YARN-1690) | Sending timeline entities+events from Distributed shell |  Major | . | Mayank Bansal | Mayank Bansal |
+| [YARN-1687](https://issues.apache.org/jira/browse/YARN-1687) | Refactoring timeline classes to remove "app" related words |  Major | . | Zhijie Shen | Zhijie Shen |
+| [YARN-1685](https://issues.apache.org/jira/browse/YARN-1685) | Bugs around log URL |  Major | . | Mayank Bansal | Zhijie Shen |
+| [YARN-1684](https://issues.apache.org/jira/browse/YARN-1684) | Fix history server heap size in yarn script |  Major | . | Billie Rinaldi | Billie Rinaldi |
+| [YARN-1676](https://issues.apache.org/jira/browse/YARN-1676) | Make admin refreshUserToGroupsMappings of configuration work across RM failover |  Major | . | Xuan Gong | Xuan Gong |
+| [YARN-1669](https://issues.apache.org/jira/browse/YARN-1669) | Make admin refreshServiceAcls work across RM failover |  Major | . | Xuan Gong | Xuan Gong |
+| [YARN-1668](https://issues.apache.org/jira/browse/YARN-1668) | Make admin refreshAdminAcls work across RM failover |  Major | . | Xuan Gong | Xuan Gong |
+| [YARN-1667](https://issues.apache.org/jira/browse/YARN-1667) | Make admin refreshSuperUserGroupsConfiguration work across RM failover |  Major | . | Xuan Gong | Xuan Gong |
+| [YARN-1666](https://issues.apache.org/jira/browse/YARN-1666) | Make admin refreshNodes work across RM failover |  Major | . | Xuan Gong | Xuan Gong |
+| [YARN-1665](https://issues.apache.org/jira/browse/YARN-1665) | Set better defaults for HA configs for automatic failover |  Major | resourcemanager | Arpit Gupta | Xuan Gong |
+| [YARN-1660](https://issues.apache.org/jira/browse/YARN-1660) | add the ability to set yarn.resourcemanager.hostname.rm-id instead of setting all the various host:port properties for RM |  Major | resourcemanager | Arpit Gupta | Xuan Gong |
+| [YARN-1659](https://issues.apache.org/jira/browse/YARN-1659) | Define the ApplicationTimelineStore store as an abstraction for implementing different storage impls for storing timeline information |  Major | . | Billie Rinaldi | Billie Rinaldi |
+| [YARN-1658](https://issues.apache.org/jira/browse/YARN-1658) | Webservice should redirect to active RM when HA is enabled. |  Major | . | Cindy Li | Cindy Li |
+| [YARN-1641](https://issues.apache.org/jira/browse/YARN-1641) | ZK store should attempt a write periodically to ensure it is still Active |  Major | resourcemanager | Karthik Kambatla | Karthik Kambatla |
+| [YARN-1640](https://issues.apache.org/jira/browse/YARN-1640) | Manual Failover does not work in secure clusters |  Blocker | . | Xuan Gong | Xuan Gong |
+| [YARN-1639](https://issues.apache.org/jira/browse/YARN-1639) | YARM RM HA requires different configs on different RM hosts |  Major | resourcemanager | Arpit Gupta | Xuan Gong |
+| [YARN-1637](https://issues.apache.org/jira/browse/YARN-1637) | Implement a client library for java users to post entities+events |  Major | . | Vinod Kumar Vavilapalli | Zhijie Shen |
+| [YARN-1636](https://issues.apache.org/jira/browse/YARN-1636) | Implement timeline related web-services inside AHS for storing and retrieving entities+events |  Major | . | Vinod Kumar Vavilapalli | Zhijie Shen |
+| [YARN-1635](https://issues.apache.org/jira/browse/YARN-1635) | Implement a Leveldb based ApplicationTimelineStore |  Major | . | Vinod Kumar Vavilapalli | Billie Rinaldi |
+| [YARN-1634](https://issues.apache.org/jira/browse/YARN-1634) | Define an in-memory implementation of ApplicationTimelineStore |  Major | . | Vinod Kumar Vavilapalli | Zhijie Shen |
+| [YARN-1633](https://issues.apache.org/jira/browse/YARN-1633) | Define user-faced entity, entity-info and event objects |  Major | . | Vinod Kumar Vavilapalli | Zhijie Shen |
+| [YARN-1625](https://issues.apache.org/jira/browse/YARN-1625) | mvn apache-rat:check outputs warning message in YARN-321 branch |  Trivial | . | Shinichi Yamashita | Shinichi Yamashita |
+| [YARN-1613](https://issues.apache.org/jira/browse/YARN-1613) | Fix config name YARN\_HISTORY\_SERVICE\_ENABLED |  Major | . | Zhijie Shen | Akira AJISAKA |
+| [YARN-1611](https://issues.apache.org/jira/browse/YARN-1611) | Make admin refresh of capacity scheduler configuration work across RM failover |  Major | . | Xuan Gong | Xuan Gong |
+| [YARN-1605](https://issues.apache.org/jira/browse/YARN-1605) | Fix formatting issues with new module in YARN-321 branch |  Major | . | Vinod Kumar Vavilapalli | Vinod Kumar Vavilapalli |
+| [YARN-1597](https://issues.apache.org/jira/browse/YARN-1597) | FindBugs warnings on YARN-321 branch |  Major | . | Vinod Kumar Vavilapalli | Vinod Kumar Vavilapalli |
+| [YARN-1596](https://issues.apache.org/jira/browse/YARN-1596) | Javadoc failures on YARN-321 branch |  Major | . | Vinod Kumar Vavilapalli | Vinod Kumar Vavilapalli |
+| [YARN-1595](https://issues.apache.org/jira/browse/YARN-1595) | Test failures on YARN-321 branch |  Major | . | Vinod Kumar Vavilapalli | Vinod Kumar Vavilapalli |
+| [YARN-1594](https://issues.apache.org/jira/browse/YARN-1594) | YARN-321 branch needs to be updated after YARN-888 pom changes |  Major | . | Vinod Kumar Vavilapalli | Vinod Kumar Vavilapalli |
+| [YARN-1588](https://issues.apache.org/jira/browse/YARN-1588) | Rebind NM tokens for previous attempt's running containers to the new attempt |  Major | . | Jian He | Jian He |
+| [YARN-1587](https://issues.apache.org/jira/browse/YARN-1587) | [YARN-321] Merge Patch for YARN-321 |  Major | . | Mayank Bansal | Vinod Kumar Vavilapalli |
+| [YARN-1578](https://issues.apache.org/jira/browse/YARN-1578) | Fix how to read history file in FileSystemApplicationHistoryStore |  Major | . | Shinichi Yamashita | Shinichi Yamashita |
+| [YARN-1577](https://issues.apache.org/jira/browse/YARN-1577) | Unmanaged AM is broken because of YARN-1493 |  Blocker | . | Jian He | Jian He |
+| [YARN-1566](https://issues.apache.org/jira/browse/YARN-1566) | Change distributed-shell to retain containers from previous AppAttempt |  Major | . | Jian He | Jian He |
+| [YARN-1555](https://issues.apache.org/jira/browse/YARN-1555) | [YARN-321] Failing tests in org.apache.hadoop.yarn.server.applicationhistoryservice.* |  Major | . | Vinod Kumar Vavilapalli | Vinod Kumar Vavilapalli |
+| [YARN-1534](https://issues.apache.org/jira/browse/YARN-1534) | TestAHSWebApp failed in YARN-321 branch |  Major | . | Shinichi Yamashita | Shinichi Yamashita |
+| [YARN-1525](https://issues.apache.org/jira/browse/YARN-1525) | Web UI should redirect to active RM when HA is enabled. |  Major | . | Xuan Gong | Cindy Li |
+| [YARN-1521](https://issues.apache.org/jira/browse/YARN-1521) | Mark appropriate protocol methods with the idempotent annotation or AtMostOnce annotation |  Blocker | . | Xuan Gong | Xuan Gong |
+| [YARN-1504](https://issues.apache.org/jira/browse/YARN-1504) | RM changes for moving apps between queues |  Major | resourcemanager | Sandy Ryza | Sandy Ryza |
+| [YARN-1499](https://issues.apache.org/jira/browse/YARN-1499) | Fair Scheduler changes for moving apps between queues |  Major | scheduler | Sandy Ryza | Sandy Ryza |
+| [YARN-1498](https://issues.apache.org/jira/browse/YARN-1498) | Common scheduler changes for moving apps between queues |  Major | resourcemanager | Sandy Ryza | Sandy Ryza |
+| [YARN-1497](https://issues.apache.org/jira/browse/YARN-1497) | Expose moving apps between queues on the command line |  Major | client | Sandy Ryza | Sandy Ryza |
+| [YARN-1496](https://issues.apache.org/jira/browse/YARN-1496) | Protocol additions to allow moving apps between queues |  Major | scheduler | Sandy Ryza | Sandy Ryza |
+| [YARN-1493](https://issues.apache.org/jira/browse/YARN-1493) | Schedulers don't recognize apps separately from app-attempts |  Major | . | Jian He | Jian He |
+| [YARN-1490](https://issues.apache.org/jira/browse/YARN-1490) | RM should optionally not kill all containers when an ApplicationMaster exits |  Major | . | Vinod Kumar Vavilapalli | Jian He |
+| [YARN-1461](https://issues.apache.org/jira/browse/YARN-1461) | RM API and RM changes to handle tags for running jobs |  Major | resourcemanager | Karthik Kambatla | Karthik Kambatla |
+| [YARN-1459](https://issues.apache.org/jira/browse/YARN-1459) | RM services should depend on ConfigurationProvider during startup too |  Major | resourcemanager | Karthik Kambatla | Xuan Gong |
+| [YARN-1428](https://issues.apache.org/jira/browse/YARN-1428) | RM cannot write the final state of RMApp/RMAppAttempt to the application history store in the transition to the final state |  Major | . | Zhijie Shen | Zhijie Shen |
+| [YARN-1410](https://issues.apache.org/jira/browse/YARN-1410) | Handle RM fails over after getApplicationID() and before submitApplication(). |  Major | . | Bikas Saha | Xuan Gong |
+| [YARN-1389](https://issues.apache.org/jira/browse/YARN-1389) | ApplicationClientProtocol and ApplicationHistoryProtocol should expose analogous APIs |  Major | . | Mayank Bansal | Mayank Bansal |
+| [YARN-1379](https://issues.apache.org/jira/browse/YARN-1379) | [YARN-321] AHS protocols need to be in yarn proto package name after YARN-1170 |  Major | . | Vinod Kumar Vavilapalli | Vinod Kumar Vavilapalli |
+| [YARN-1345](https://issues.apache.org/jira/browse/YARN-1345) | Removing FINAL\_SAVING from YarnApplicationAttemptState |  Major | . | Zhijie Shen | Zhijie Shen |
+| [YARN-1266](https://issues.apache.org/jira/browse/YARN-1266) | Implement PB service and client wrappers for ApplicationHistoryProtocol |  Major | . | Mayank Bansal | Mayank Bansal |
+| [YARN-1242](https://issues.apache.org/jira/browse/YARN-1242) | Script changes to start AHS as an individual process |  Major | . | Zhijie Shen | Mayank Bansal |
+| [YARN-1191](https://issues.apache.org/jira/browse/YARN-1191) | [YARN-321] Update artifact versions for application history service |  Major | . | Mayank Bansal | Mayank Bansal |
+| [YARN-1123](https://issues.apache.org/jira/browse/YARN-1123) | [YARN-321] Adding ContainerReport and Protobuf implementation |  Major | . | Zhijie Shen | Mayank Bansal |
+| [YARN-1041](https://issues.apache.org/jira/browse/YARN-1041) | Protocol changes for RM to bind and notify a restarted AM of existing containers |  Major | resourcemanager | Steve Loughran | Jian He |
+| [YARN-1023](https://issues.apache.org/jira/browse/YARN-1023) | [YARN-321] Webservices REST API's support for Application History |  Major | . | Devaraj K | Zhijie Shen |
+| [YARN-1017](https://issues.apache.org/jira/browse/YARN-1017) | Document RM Restart feature |  Blocker | resourcemanager | Jian He | Jian He |
+| [YARN-1007](https://issues.apache.org/jira/browse/YARN-1007) | [YARN-321] Enhance History Reader interface for Containers |  Major | . | Devaraj K | Mayank Bansal |
+| [YARN-987](https://issues.apache.org/jira/browse/YARN-987) | Adding ApplicationHistoryManager responsible for exposing reports to all clients |  Major | . | Mayank Bansal | Mayank Bansal |
+| [YARN-986](https://issues.apache.org/jira/browse/YARN-986) | RM DT token service should have service addresses of both RMs |  Blocker | . | Vinod Kumar Vavilapalli | Karthik Kambatla |
+| [YARN-984](https://issues.apache.org/jira/browse/YARN-984) | [YARN-321] Move classes from applicationhistoryservice.records.pb.impl package to applicationhistoryservice.records.impl.pb |  Major | . | Devaraj K | Devaraj K |
+| [YARN-979](https://issues.apache.org/jira/browse/YARN-979) | [YARN-321] Add more APIs related to ApplicationAttempt and Container in ApplicationHistoryProtocol |  Major | . | Mayank Bansal | Mayank Bansal |
+| [YARN-978](https://issues.apache.org/jira/browse/YARN-978) | [YARN-321] Adding ApplicationAttemptReport and Protobuf implementation |  Major | . | Mayank Bansal | Mayank Bansal |
+| [YARN-975](https://issues.apache.org/jira/browse/YARN-975) | Add a file-system implementation for history-storage |  Major | . | Zhijie Shen | Zhijie Shen |
+| [YARN-974](https://issues.apache.org/jira/browse/YARN-974) | RMContainer should collect more useful information to be recorded in Application-History |  Major | . | Zhijie Shen | Zhijie Shen |
+| [YARN-967](https://issues.apache.org/jira/browse/YARN-967) | [YARN-321] Command Line Interface(CLI) for Reading Application History Storage Data |  Major | . | Devaraj K | Mayank Bansal |
+| [YARN-962](https://issues.apache.org/jira/browse/YARN-962) | Update application\_history\_service.proto |  Major | . | Zhijie Shen | Zhijie Shen |
+| [YARN-956](https://issues.apache.org/jira/browse/YARN-956) | [YARN-321] Add a testable in-memory HistoryStorage |  Major | . | Vinod Kumar Vavilapalli | Zhijie Shen |
+| [YARN-955](https://issues.apache.org/jira/browse/YARN-955) | [YARN-321] Implementation of ApplicationHistoryProtocol |  Major | . | Vinod Kumar Vavilapalli | Mayank Bansal |
+| [YARN-954](https://issues.apache.org/jira/browse/YARN-954) | [YARN-321] History Service should create the webUI and wire it to HistoryStorage |  Major | . | Vinod Kumar Vavilapalli | Zhijie Shen |
+| [YARN-953](https://issues.apache.org/jira/browse/YARN-953) | [YARN-321] Enable ResourceManager to write history data |  Major | . | Vinod Kumar Vavilapalli | Zhijie Shen |
+| [YARN-947](https://issues.apache.org/jira/browse/YARN-947) | Defining the history data classes for the implementation of the reading/writing interface |  Major | . | Zhijie Shen | Zhijie Shen |
+| [YARN-935](https://issues.apache.org/jira/browse/YARN-935) | YARN-321 branch is broken due to applicationhistoryserver module's pom.xml |  Major | . | Zhijie Shen | Zhijie Shen |
+| [YARN-934](https://issues.apache.org/jira/browse/YARN-934) | HistoryStorage writer interface for Application History Server |  Major | . | Zhijie Shen | Zhijie Shen |
+| [YARN-930](https://issues.apache.org/jira/browse/YARN-930) | Bootstrap ApplicationHistoryService module |  Major | . | Vinod Kumar Vavilapalli | Vinod Kumar Vavilapalli |
+| [YARN-925](https://issues.apache.org/jira/browse/YARN-925) | HistoryStorage Reader Interface for Application History Server |  Major | . | Mayank Bansal | Mayank Bansal |
+
+
 ### OTHER:
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |

@@ -166,6 +166,61 @@
 | [HDFS-3129](https://issues.apache.org/jira/browse/HDFS-3129) | NetworkTopology: add test that getLeaf should check for invalid topologies |  Minor | . | Colin Patrick McCabe | Colin Patrick McCabe |
 
 
+### SUB-TASKS:
+
+| JIRA | Description | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [HDFS-3363](https://issues.apache.org/jira/browse/HDFS-3363) | blockmanagement should stop using INodeFile & INodeFileUC |  Minor | namenode | John George | John George |
+| [HDFS-3339](https://issues.apache.org/jira/browse/HDFS-3339) | change INode to package private |  Minor | namenode | John George | John George |
+| [HDFS-3322](https://issues.apache.org/jira/browse/HDFS-3322) | Update file context to use HdfsDataInputStream and HdfsDataOutputStream |  Major | hdfs-client | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
+| [HDFS-3298](https://issues.apache.org/jira/browse/HDFS-3298) | Add HdfsDataOutputStream as a public API |  Major | hdfs-client | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
+| [HDFS-3282](https://issues.apache.org/jira/browse/HDFS-3282) | Add HdfsDataInputStream as a public API |  Major | hdfs-client | Uma Maheswara Rao G | Uma Maheswara Rao G |
+| [HDFS-3211](https://issues.apache.org/jira/browse/HDFS-3211) | JournalProtocol changes required for introducing epoch and fencing |  Major | ha, namenode | Suresh Srinivas | Suresh Srinivas |
+| [HDFS-3187](https://issues.apache.org/jira/browse/HDFS-3187) | Upgrade guava to 11.0.2 |  Minor | build | Todd Lipcon | Todd Lipcon |
+| [HDFS-3155](https://issues.apache.org/jira/browse/HDFS-3155) | Clean up FSDataset implemenation related code. |  Major | datanode | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
+| [HDFS-3130](https://issues.apache.org/jira/browse/HDFS-3130) | Move FSDataset implemenation to a package |  Major | datanode | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
+| [HDFS-3126](https://issues.apache.org/jira/browse/HDFS-3126) | Journal stream from the namenode to backup needs to have a timeout |  Major | ha, namenode | Hari Mankude | Hari Mankude |
+| [HDFS-3105](https://issues.apache.org/jira/browse/HDFS-3105) | Add DatanodeStorage information to block recovery |  Major | datanode, hdfs-client | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
+| [HDFS-3089](https://issues.apache.org/jira/browse/HDFS-3089) | Move FSDatasetInterface and other related classes/interfaces to a package |  Major | datanode | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
+| [HDFS-3088](https://issues.apache.org/jira/browse/HDFS-3088) | Move FSDatasetInterface inner classes to a package |  Major | datanode | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
+| [HDFS-3086](https://issues.apache.org/jira/browse/HDFS-3086) | Change Datanode not to send storage list in registration - it will be sent in block report |  Major | datanode | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
+| [HDFS-3082](https://issues.apache.org/jira/browse/HDFS-3082) | Clean up FSDatasetInterface |  Major | datanode | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
+| [HDFS-2899](https://issues.apache.org/jira/browse/HDFS-2899) | Service protocol change to support multiple storages added in HDFS-2880 |  Major | . | Suresh Srinivas | Suresh Srinivas |
+| [HDFS-2880](https://issues.apache.org/jira/browse/HDFS-2880) | Protocol buffer changes to add support multiple storages |  Major | datanode, namenode | Suresh Srinivas | Suresh Srinivas |
+| [HDFS-2801](https://issues.apache.org/jira/browse/HDFS-2801) | Provide a method in client side translators to check for a methods supported in underlying protocol. |  Major | . | Jitendra Nath Pandey | Jitendra Nath Pandey |
+| [HDFS-2697](https://issues.apache.org/jira/browse/HDFS-2697) | Move RefreshAuthPolicy, RefreshUserMappings, GetUserMappings protocol to protocol buffers |  Major | . | Suresh Srinivas | Jitendra Nath Pandey |
+| [HDFS-2687](https://issues.apache.org/jira/browse/HDFS-2687) | Tests are failing with ClassCastException, due to new protocol changes |  Major | test | Uma Maheswara Rao G | Suresh Srinivas |
+| [HDFS-2669](https://issues.apache.org/jira/browse/HDFS-2669) | Enable protobuf rpc for ClientNamenodeProtocol |  Major | . | Sanjay Radia | Sanjay Radia |
+| [HDFS-2666](https://issues.apache.org/jira/browse/HDFS-2666) | TestBackupNode fails |  Major | test | Suresh Srinivas | Suresh Srinivas |
+| [HDFS-2663](https://issues.apache.org/jira/browse/HDFS-2663) | Optional parameters are not handled correctly |  Major | . | Suresh Srinivas | Suresh Srinivas |
+| [HDFS-2661](https://issues.apache.org/jira/browse/HDFS-2661) | Enable protobuf RPC for DatanodeProtocol |  Major | . | Jitendra Nath Pandey | Jitendra Nath Pandey |
+| [HDFS-2651](https://issues.apache.org/jira/browse/HDFS-2651) | ClientNameNodeProtocol Translators for Protocol Buffers |  Major | . | Sanjay Radia | Sanjay Radia |
+| [HDFS-2647](https://issues.apache.org/jira/browse/HDFS-2647) | Enable protobuf RPC for InterDatanodeProtocol, ClientDatanodeProtocol, JournalProtocol and NamenodeProtocol |  Major | balancer & mover, datanode, hdfs-client, namenode | Suresh Srinivas | Suresh Srinivas |
+| [HDFS-2642](https://issues.apache.org/jira/browse/HDFS-2642) | Protobuf translators for DatanodeProtocol |  Major | . | Jitendra Nath Pandey | Jitendra Nath Pandey |
+| [HDFS-2636](https://issues.apache.org/jira/browse/HDFS-2636) | Implement protobuf service for ClientDatanodeProtocol |  Major | . | Suresh Srinivas | Suresh Srinivas |
+| [HDFS-2629](https://issues.apache.org/jira/browse/HDFS-2629) | Implement protobuf service for InterDatanodeProtocol |  Major | datanode | Suresh Srinivas | Suresh Srinivas |
+| [HDFS-2618](https://issues.apache.org/jira/browse/HDFS-2618) | Implement protobuf service for NamenodeProtocol |  Major | namenode | Suresh Srinivas | Suresh Srinivas |
+| [HDFS-2597](https://issues.apache.org/jira/browse/HDFS-2597) |  ClientNameNodeProtocol in Protocol Buffers |  Major | . | Sanjay Radia | Sanjay Radia |
+| [HDFS-2581](https://issues.apache.org/jira/browse/HDFS-2581) | Implement protobuf service for JournalProtocol |  Major | namenode | Suresh Srinivas | Suresh Srinivas |
+| [HDFS-2520](https://issues.apache.org/jira/browse/HDFS-2520) | Protobuf - Add protobuf service for InterDatanodeProtocol |  Major | datanode | Suresh Srinivas | Suresh Srinivas |
+| [HDFS-2519](https://issues.apache.org/jira/browse/HDFS-2519) | Protobuf - Add protobuf service for DatanodeProtocol |  Major | datanode, namenode | Suresh Srinivas | Suresh Srinivas |
+| [HDFS-2518](https://issues.apache.org/jira/browse/HDFS-2518) | Protobuf - Add protobuf service for NamenodeProtocol |  Major | namenode | Suresh Srinivas | Suresh Srinivas |
+| [HDFS-2517](https://issues.apache.org/jira/browse/HDFS-2517) | Protobuf - Add protocol service for JournalProtocol |  Major | namenode | Suresh Srinivas | Suresh Srinivas |
+| [HDFS-2499](https://issues.apache.org/jira/browse/HDFS-2499) | Fix RPC client creation bug from HDFS-2459 |  Major | namenode | Suresh Srinivas | Suresh Srinivas |
+| [HDFS-2495](https://issues.apache.org/jira/browse/HDFS-2495) | Increase granularity of write operations in ReplicationMonitor thus reducing contention for write lock |  Major | namenode | Tomasz Nykiel | Tomasz Nykiel |
+| [HDFS-2489](https://issues.apache.org/jira/browse/HDFS-2489) | Move commands Finalize and Register out of DatanodeCommand class. |  Major | . | Suresh Srinivas | Suresh Srinivas |
+| [HDFS-2488](https://issues.apache.org/jira/browse/HDFS-2488) | Separate datatypes for InterDatanodeProtocol |  Major | datanode | Suresh Srinivas | Suresh Srinivas |
+| [HDFS-2480](https://issues.apache.org/jira/browse/HDFS-2480) | Separate datatypes for NamenodeProtocol |  Major | . | Suresh Srinivas | Suresh Srinivas |
+| [HDFS-2479](https://issues.apache.org/jira/browse/HDFS-2479) | HDFS Client Data Types in Protocol Buffers |  Major | . | Sanjay Radia | Sanjay Radia |
+| [HDFS-2477](https://issues.apache.org/jira/browse/HDFS-2477) | Optimize computing the diff between a block report and the namenode state. |  Major | namenode | Tomasz Nykiel | Tomasz Nykiel |
+| [HDFS-2476](https://issues.apache.org/jira/browse/HDFS-2476) | More CPU efficient data structure for under-replicated/over-replicated/invalidate blocks |  Major | namenode | Tomasz Nykiel | Tomasz Nykiel |
+| [HDFS-2459](https://issues.apache.org/jira/browse/HDFS-2459) | Separate datatypes for Journal protocol |  Major | . | Suresh Srinivas | Suresh Srinivas |
+| [HDFS-2334](https://issues.apache.org/jira/browse/HDFS-2334) | Add Closeable to JournalManager |  Major | namenode | Ivan Kelly | Ivan Kelly |
+| [HDFS-2181](https://issues.apache.org/jira/browse/HDFS-2181) | Separate HDFS Client wire protocol data types |  Major | . | Sanjay Radia | Sanjay Radia |
+| [HDFS-2158](https://issues.apache.org/jira/browse/HDFS-2158) | Add JournalSet to manage the set of journals. |  Major | . | Jitendra Nath Pandey | Jitendra Nath Pandey |
+| [HDFS-2018](https://issues.apache.org/jira/browse/HDFS-2018) | 1073: Move all journal stream management code into one place |  Major | . | Ivan Kelly | Ivan Kelly |
+
+
 ### OTHER:
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |

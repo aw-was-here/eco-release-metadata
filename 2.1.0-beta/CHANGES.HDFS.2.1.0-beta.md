@@ -232,6 +232,37 @@
 | [HDFS-4129](https://issues.apache.org/jira/browse/HDFS-4129) | Add utility methods to dump NameNode in memory tree for testing |  Minor | namenode | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 
 
+### SUB-TASKS:
+
+| JIRA | Description | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [HDFS-5025](https://issues.apache.org/jira/browse/HDFS-5025) | Record ClientId and CallId in EditLog to enable rebuilding retry cache in case of HA failover |  Major | ha, namenode | Jing Zhao | Jing Zhao |
+| [HDFS-4979](https://issues.apache.org/jira/browse/HDFS-4979) | Implement retry cache on the namenode |  Major | namenode | Suresh Srinivas | Suresh Srinivas |
+| [HDFS-4974](https://issues.apache.org/jira/browse/HDFS-4974) | Analyze and add annotations to Namenode protocol methods and enable retry |  Major | ha, namenode | Suresh Srinivas | Suresh Srinivas |
+| [HDFS-4908](https://issues.apache.org/jira/browse/HDFS-4908) | Reduce snapshot inode memory usage |  Major | namenode, snapshots | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
+| [HDFS-4876](https://issues.apache.org/jira/browse/HDFS-4876) | The javadoc of FileWithSnapshot is incorrect |  Minor | snapshots | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
+| [HDFS-4875](https://issues.apache.org/jira/browse/HDFS-4875) | Add a test for testing snapshot file length |  Minor | snapshots, test | Tsz Wo Nicholas Sze | Arpit Agarwal |
+| [HDFS-4842](https://issues.apache.org/jira/browse/HDFS-4842) | Snapshot: identify the correct prior snapshot when deleting a snapshot under a renamed subtree |  Major | snapshots | Jing Zhao | Jing Zhao |
+| [HDFS-4819](https://issues.apache.org/jira/browse/HDFS-4819) | Update Snapshot doc for HDFS-4758 |  Minor | documentation | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
+| [HDFS-4785](https://issues.apache.org/jira/browse/HDFS-4785) | Concat operation does not remove concatenated files from InodeMap |  Major | namenode | Suresh Srinivas | Suresh Srinivas |
+| [HDFS-4784](https://issues.apache.org/jira/browse/HDFS-4784) | NPE in FSDirectory.resolvePath() |  Major | namenode | Brandon Li | Brandon Li |
+| [HDFS-4762](https://issues.apache.org/jira/browse/HDFS-4762) | Provide HDFS based NFSv3 and Mountd implementation |  Major | nfs | Brandon Li | Brandon Li |
+| [HDFS-4661](https://issues.apache.org/jira/browse/HDFS-4661) | fix various bugs in short circuit read |  Major | datanode, hdfs-client | Colin Patrick McCabe | Colin Patrick McCabe |
+| [HDFS-4602](https://issues.apache.org/jira/browse/HDFS-4602) | TestBookKeeperHACheckpoints fails |  Major | . | Suresh Srinivas | Uma Maheswara Rao G |
+| [HDFS-4542](https://issues.apache.org/jira/browse/HDFS-4542) | Webhdfs doesn't support secure proxy users |  Blocker | webhdfs | Daryn Sharp | Daryn Sharp |
+| [HDFS-4525](https://issues.apache.org/jira/browse/HDFS-4525) | Provide an API for knowing that whether file is closed or not. |  Major | namenode | Uma Maheswara Rao G | SreeHari |
+| [HDFS-4502](https://issues.apache.org/jira/browse/HDFS-4502) | WebHdfsFileSystem handling of fileld breaks compatibility |  Blocker | webhdfs | Alejandro Abdelnur | Brandon Li |
+| [HDFS-4485](https://issues.apache.org/jira/browse/HDFS-4485) | HDFS-347: DN should chmod socket path a+w |  Critical | datanode | Todd Lipcon | Colin Patrick McCabe |
+| [HDFS-4374](https://issues.apache.org/jira/browse/HDFS-4374) | Display NameNode startup progress in UI |  Major | namenode | Chris Nauroth | Chris Nauroth |
+| [HDFS-4373](https://issues.apache.org/jira/browse/HDFS-4373) | Add HTTP API for querying NameNode startup progress |  Major | namenode | Chris Nauroth | Chris Nauroth |
+| [HDFS-4372](https://issues.apache.org/jira/browse/HDFS-4372) | Track NameNode startup progress |  Major | namenode | Chris Nauroth | Chris Nauroth |
+| [HDFS-4346](https://issues.apache.org/jira/browse/HDFS-4346) | Refactor INodeId and GenerationStamp |  Minor | namenode | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
+| [HDFS-4340](https://issues.apache.org/jira/browse/HDFS-4340) | Update addBlock() to inculde inode id as additional argument |  Major | hdfs-client, namenode | Brandon Li | Brandon Li |
+| [HDFS-4339](https://issues.apache.org/jira/browse/HDFS-4339) | Persist inode id in fsimage and editlog |  Major | namenode | Brandon Li | Brandon Li |
+| [HDFS-4334](https://issues.apache.org/jira/browse/HDFS-4334) | Add a unique id to each INode |  Major | namenode | Brandon Li | Brandon Li |
+| [HDFS-3769](https://issues.apache.org/jira/browse/HDFS-3769) | standby namenode become active fails because starting log segment fail on shared storage |  Critical | ha | liaowenrui |  |
+
+
 ### OTHER:
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |

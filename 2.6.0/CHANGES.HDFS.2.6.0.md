@@ -252,6 +252,93 @@
 | [HDFS-5624](https://issues.apache.org/jira/browse/HDFS-5624) | Add HDFS tests for ACLs in combination with viewfs. |  Major | hdfs-client, test | Chris Nauroth | Stephen Chu |
 
 
+### SUB-TASKS:
+
+| JIRA | Description | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [HDFS-7291](https://issues.apache.org/jira/browse/HDFS-7291) | Persist in-memory replicas with appropriate unbuffered copy API on POSIX and Windows |  Major | datanode | Xiaoyu Yao | Xiaoyu Yao |
+| [HDFS-7181](https://issues.apache.org/jira/browse/HDFS-7181) | Remove incorrect precondition check on key length in FileEncryptionInfo |  Critical | encryption | Andrew Wang | Andrew Wang |
+| [HDFS-7179](https://issues.apache.org/jira/browse/HDFS-7179) | DFSClient should instantiate a KeyProvider, not a KeyProviderCryptoExtension |  Critical | encryption | Andrew Wang | Andrew Wang |
+| [HDFS-7171](https://issues.apache.org/jira/browse/HDFS-7171) | Fix Jenkins failures in HDFS-6581 branch |  Major | datanode | Arpit Agarwal | Arpit Agarwal |
+| [HDFS-7159](https://issues.apache.org/jira/browse/HDFS-7159) | Use block storage policy to set lazy persist preference |  Major | namenode | Arpit Agarwal | Arpit Agarwal |
+| [HDFS-7157](https://issues.apache.org/jira/browse/HDFS-7157) | Using Time.now() for recording start/end time of reconfiguration tasks |  Major | datanode | Lei (Eddy) Xu | Lei (Eddy) Xu |
+| [HDFS-7155](https://issues.apache.org/jira/browse/HDFS-7155) | Bugfix in createLocatedFileStatus caused by bad merge |  Major | datanode | Arpit Agarwal | Arpit Agarwal |
+| [HDFS-7154](https://issues.apache.org/jira/browse/HDFS-7154) | Fix returning value of starting reconfiguration task |  Major | datanode | Lei (Eddy) Xu | Lei (Eddy) Xu |
+| [HDFS-7144](https://issues.apache.org/jira/browse/HDFS-7144) | Fix findbugs warnings in RamDiskReplicaTracker |  Minor | datanode | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
+| [HDFS-7143](https://issues.apache.org/jira/browse/HDFS-7143) | Fix findbugs warnings in HDFS-6581 branch |  Major | datanode | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
+| [HDFS-7140](https://issues.apache.org/jira/browse/HDFS-7140) | Add a tool to list all the existing block storage policies |  Minor | hdfs-client, namenode | Jing Zhao | Jing Zhao |
+| [HDFS-7139](https://issues.apache.org/jira/browse/HDFS-7139) | Unit test for creating encryption zone on root path |  Minor | . | Zhe Zhang | Zhe Zhang |
+| [HDFS-7138](https://issues.apache.org/jira/browse/HDFS-7138) | Fix hftp to work with encryption |  Major | namenode | Charles Lamb | Charles Lamb |
+| [HDFS-7129](https://issues.apache.org/jira/browse/HDFS-7129) | Metrics to track usage of memory for writes |  Major | datanode | Arpit Agarwal | Xiaoyu Yao |
+| [HDFS-7124](https://issues.apache.org/jira/browse/HDFS-7124) | Remove EncryptionZoneManager.NULL\_EZ |  Minor | namenode | Charles Lamb | Charles Lamb |
+| [HDFS-7119](https://issues.apache.org/jira/browse/HDFS-7119) | Split error checks in AtomicFileOutputStream#close into separate conditions to improve diagnostics. |  Minor | journal-node | Chris Nauroth | Chris Nauroth |
+| [HDFS-7118](https://issues.apache.org/jira/browse/HDFS-7118) | Improve diagnostics on storage directory rename operations by using NativeIO#renameTo in Storage#rename. |  Major | journal-node, namenode | Chris Nauroth | Chris Nauroth |
+| [HDFS-7112](https://issues.apache.org/jira/browse/HDFS-7112) | LazyWriter should use either async IO or one thread per physical disk |  Major | datanode | Arpit Agarwal | Xiaoyu Yao |
+| [HDFS-7108](https://issues.apache.org/jira/browse/HDFS-7108) | Fix unit test failures in SimulatedFsDataset |  Major | test | Arpit Agarwal | Arpit Agarwal |
+| [HDFS-7100](https://issues.apache.org/jira/browse/HDFS-7100) | Make eviction scheme pluggable |  Major | datanode | Arpit Agarwal | Arpit Agarwal |
+| [HDFS-7095](https://issues.apache.org/jira/browse/HDFS-7095) | TestStorageMover often fails in Jenkins |  Minor | test | Tsz Wo Nicholas Sze | Jing Zhao |
+| [HDFS-7091](https://issues.apache.org/jira/browse/HDFS-7091) | Add forwarding constructor for INodeFile for existing callers |  Minor | namenode, test | Arpit Agarwal | Arpit Agarwal |
+| [HDFS-7090](https://issues.apache.org/jira/browse/HDFS-7090) | Use unbuffered writes when persisting in-memory replicas |  Major | datanode | Arpit Agarwal | Xiaoyu Yao |
+| [HDFS-7084](https://issues.apache.org/jira/browse/HDFS-7084) | FsDatasetImpl#copyBlockFiles debug log can be improved |  Minor | datanode | Xiaoyu Yao | Xiaoyu Yao |
+| [HDFS-7081](https://issues.apache.org/jira/browse/HDFS-7081) | Add new DistributedFileSystem API for getting all the existing storage policies |  Major | balancer & mover, namenode | Jing Zhao | Jing Zhao |
+| [HDFS-7080](https://issues.apache.org/jira/browse/HDFS-7080) | Fix finalize and upgrade unit test failures |  Major | test | Arpit Agarwal | Arpit Agarwal |
+| [HDFS-7079](https://issues.apache.org/jira/browse/HDFS-7079) | Few more unit test fixes for HDFS-6581 |  Major | test | Arpit Agarwal | Arpit Agarwal |
+| [HDFS-7078](https://issues.apache.org/jira/browse/HDFS-7078) | Fix listEZs to work correctly with snapshots |  Major | encryption | Andrew Wang | Andrew Wang |
+| [HDFS-7077](https://issues.apache.org/jira/browse/HDFS-7077) | Separate CipherSuite from crypto protocol version |  Major | encryption | Andrew Wang | Andrew Wang |
+| [HDFS-7066](https://issues.apache.org/jira/browse/HDFS-7066) | LazyWriter#evictBlocks misses a null check for replicaState |  Minor | datanode | Xiaoyu Yao | Xiaoyu Yao |
+| [HDFS-7064](https://issues.apache.org/jira/browse/HDFS-7064) | Fix unit test failures in HDFS-6581 branch |  Major | test | Arpit Agarwal | Xiaoyu Yao |
+| [HDFS-7061](https://issues.apache.org/jira/browse/HDFS-7061) | Add test to verify encryption zone creation after NameNode restart without saving namespace |  Minor | encryption, test | Stephen Chu | Stephen Chu |
+| [HDFS-7047](https://issues.apache.org/jira/browse/HDFS-7047) | Expose FileStatus#isEncrypted in libhdfs |  Major | encryption | Andrew Wang | Colin Patrick McCabe |
+| [HDFS-7032](https://issues.apache.org/jira/browse/HDFS-7032) | Add WebHDFS support for reading and writing to encryption zones |  Major | encryption, webhdfs | Stephen Chu | Charles Lamb |
+| [HDFS-7004](https://issues.apache.org/jira/browse/HDFS-7004) | Update KeyProvider instantiation to create by URI |  Major | encryption | Andrew Wang | Andrew Wang |
+| [HDFS-7003](https://issues.apache.org/jira/browse/HDFS-7003) | Add NFS Gateway support for reading and writing to encryption zones |  Major | encryption, nfs | Stephen Chu | Charles Lamb |
+| [HDFS-6991](https://issues.apache.org/jira/browse/HDFS-6991) | Notify NN of evicted block before deleting it from RAM disk |  Major | datanode, namenode | Arpit Agarwal | Arpit Agarwal |
+| [HDFS-6990](https://issues.apache.org/jira/browse/HDFS-6990) | Add unit test for evict/delete RAM\_DISK block with open handle |  Major | datanode | Xiaoyu Yao | Xiaoyu Yao |
+| [HDFS-6988](https://issues.apache.org/jira/browse/HDFS-6988) | Improve HDFS-6581 eviction configuration |  Major | datanode | Arpit Agarwal | Xiaoyu Yao |
+| [HDFS-6987](https://issues.apache.org/jira/browse/HDFS-6987) | Move CipherSuite xattr information up to the encryption zone root |  Major | encryption | Andrew Wang | Zhe Zhang |
+| [HDFS-6986](https://issues.apache.org/jira/browse/HDFS-6986) | DistributedFileSystem must get delegation tokens from configured KeyProvider |  Major | security | Alejandro Abdelnur | Zhe Zhang |
+| [HDFS-6978](https://issues.apache.org/jira/browse/HDFS-6978) | Directory scanner should correctly reconcile blocks on RAM disk |  Major | datanode | Arpit Agarwal | Arpit Agarwal |
+| [HDFS-6977](https://issues.apache.org/jira/browse/HDFS-6977) | Delete all copies when a block is deleted from the block space |  Major | datanode | Nathan Yao | Arpit Agarwal |
+| [HDFS-6970](https://issues.apache.org/jira/browse/HDFS-6970) | Move startFile EDEK retries to the DFSClient |  Major | encryption | Andrew Wang | Andrew Wang |
+| [HDFS-6966](https://issues.apache.org/jira/browse/HDFS-6966) | Add additional unit tests for encryption zones |  Major | encryption | Stephen Chu | Stephen Chu |
+| [HDFS-6960](https://issues.apache.org/jira/browse/HDFS-6960) | Bugfix in LazyWriter, fix test case and some refactoring |  Major | datanode, test | Arpit Agarwal | Arpit Agarwal |
+| [HDFS-6956](https://issues.apache.org/jira/browse/HDFS-6956) | Allow dynamically changing the tracing level in Hadoop servers |  Major | datanode, namenode | Colin Patrick McCabe | Colin Patrick McCabe |
+| [HDFS-6951](https://issues.apache.org/jira/browse/HDFS-6951) | Correctly persist raw namespace xattrs to edit log and fsimage |  Major | encryption | Stephen Chu | Charles Lamb |
+| [HDFS-6950](https://issues.apache.org/jira/browse/HDFS-6950) | Add Additional unit tests for HDFS-6581 |  Major | . | Xiaoyu Yao | Xiaoyu Yao |
+| [HDFS-6934](https://issues.apache.org/jira/browse/HDFS-6934) | Move checksum computation off the hot path when writing to RAM disk |  Major | datanode, hdfs-client | Arpit Agarwal | Chris Nauroth |
+| [HDFS-6932](https://issues.apache.org/jira/browse/HDFS-6932) | Balancer and Mover tools should ignore replicas on RAM\_DISK |  Major | datanode | Arpit Agarwal | Xiaoyu Yao |
+| [HDFS-6931](https://issues.apache.org/jira/browse/HDFS-6931) | Move lazily persisted replicas to finalized directory on DN startup |  Major | datanode | Arpit Agarwal | Arpit Agarwal |
+| [HDFS-6930](https://issues.apache.org/jira/browse/HDFS-6930) | Improve replica eviction from RAM disk |  Major | datanode | Arpit Agarwal | Arpit Agarwal |
+| [HDFS-6929](https://issues.apache.org/jira/browse/HDFS-6929) | NN periodically unlinks lazy persist files with missing replicas from namespace |  Major | datanode | Arpit Agarwal | Arpit Agarwal |
+| [HDFS-6928](https://issues.apache.org/jira/browse/HDFS-6928) | 'hdfs put' command should accept lazyPersist flag for testing |  Major | datanode | Tassapol Athiapinya | Arpit Agarwal |
+| [HDFS-6927](https://issues.apache.org/jira/browse/HDFS-6927) | Add unit tests |  Major | datanode | Arpit Agarwal | Arpit Agarwal |
+| [HDFS-6926](https://issues.apache.org/jira/browse/HDFS-6926) | DN support for saving replicas to persistent storage and evicting in-memory replicas |  Major | datanode | Arpit Agarwal | Arpit Agarwal |
+| [HDFS-6925](https://issues.apache.org/jira/browse/HDFS-6925) | DataNode should attempt to place replicas on transient storage first if lazyPersist flag is received |  Major | datanode | Arpit Agarwal | Arpit Agarwal |
+| [HDFS-6924](https://issues.apache.org/jira/browse/HDFS-6924) | Add new RAM\_DISK storage type |  Major | datanode | Arpit Agarwal | Arpit Agarwal |
+| [HDFS-6923](https://issues.apache.org/jira/browse/HDFS-6923) | Propagate LazyPersist flag to DNs via DataTransferProtocol |  Major | datanode | Arpit Agarwal | Arpit Agarwal |
+| [HDFS-6921](https://issues.apache.org/jira/browse/HDFS-6921) | Add LazyPersist flag to FileStatus |  Major | . | Arpit Agarwal | Arpit Agarwal |
+| [HDFS-6894](https://issues.apache.org/jira/browse/HDFS-6894) | Add XDR parser method for each NFS response |  Major | nfs | Brandon Li | Brandon Li |
+| [HDFS-6892](https://issues.apache.org/jira/browse/HDFS-6892) | Add XDR packaging method for each NFS request |  Major | nfs | Brandon Li | Brandon Li |
+| [HDFS-6880](https://issues.apache.org/jira/browse/HDFS-6880) | Adding tracing to DataNode data transfer protocol |  Major | . | Masatake Iwasaki | Masatake Iwasaki |
+| [HDFS-6879](https://issues.apache.org/jira/browse/HDFS-6879) | Adding tracing to Hadoop RPC |  Major | . | Masatake Iwasaki | Masatake Iwasaki |
+| [HDFS-6865](https://issues.apache.org/jira/browse/HDFS-6865) | Byte array native checksumming on client side (HDFS changes) |  Major | hdfs-client, performance | James Thomas | James Thomas |
+| [HDFS-6851](https://issues.apache.org/jira/browse/HDFS-6851) | Refactor EncryptionZoneWithId and EncryptionZone |  Major | namenode, security | Charles Lamb | Charles Lamb |
+| [HDFS-6843](https://issues.apache.org/jira/browse/HDFS-6843) | Create FileStatus isEncrypted() method |  Major | namenode, security | Charles Lamb | Charles Lamb |
+| [HDFS-6808](https://issues.apache.org/jira/browse/HDFS-6808) | Add command line option to ask DataNode reload configuration. |  Major | datanode | Lei (Eddy) Xu | Lei (Eddy) Xu |
+| [HDFS-6777](https://issues.apache.org/jira/browse/HDFS-6777) | Supporting consistent edit log reads when in-progress edit log segments are included |  Major | qjm | James Thomas | James Thomas |
+| [HDFS-6774](https://issues.apache.org/jira/browse/HDFS-6774) | Make FsDataset and DataStore support removing volumes. |  Major | datanode | Lei (Eddy) Xu | Lei (Eddy) Xu |
+| [HDFS-6750](https://issues.apache.org/jira/browse/HDFS-6750) | The DataNode should use its shared memory segment to mark short-circuit replicas that have been unlinked as stale |  Major | datanode, hdfs-client | Colin Patrick McCabe | Colin Patrick McCabe |
+| [HDFS-6740](https://issues.apache.org/jira/browse/HDFS-6740) | Make FSDataset support adding data volumes dynamically |  Major | datanode | Lei (Eddy) Xu | Lei (Eddy) Xu |
+| [HDFS-6728](https://issues.apache.org/jira/browse/HDFS-6728) | Dynamically add new volumes to DataStorage, formatted if necessary. |  Major | datanode | Lei (Eddy) Xu | Lei (Eddy) Xu |
+| [HDFS-6727](https://issues.apache.org/jira/browse/HDFS-6727) | Refresh data volumes on DataNode based on configuration changes |  Major | datanode | Lei (Eddy) Xu | Lei (Eddy) Xu |
+| [HDFS-6722](https://issues.apache.org/jira/browse/HDFS-6722) | Display readable last contact time for dead nodes on NN webUI |  Major | . | Ming Ma | Ming Ma |
+| [HDFS-6717](https://issues.apache.org/jira/browse/HDFS-6717) | Jira HDFS-5804 breaks default nfs-gateway behavior for unsecured config |  Minor | nfs | Jeff Hansen | Brandon Li |
+| [HDFS-6705](https://issues.apache.org/jira/browse/HDFS-6705) | Create an XAttr that disallows the HDFS admin from accessing a file |  Major | namenode, security | Charles Lamb | Charles Lamb |
+| [HDFS-6609](https://issues.apache.org/jira/browse/HDFS-6609) | Use DirectorySnapshottableFeature to represent a snapshottable directory |  Major | namenode | Jing Zhao | Jing Zhao |
+| [HDFS-6385](https://issues.apache.org/jira/browse/HDFS-6385) | Show when block deletion will start after NameNode startup in WebUI |  Major | . | Jing Zhao | Chris Nauroth |
+| [HDFS-6036](https://issues.apache.org/jira/browse/HDFS-6036) | Forcibly timeout misbehaving DFSClients that try to do no-checksum reads that extend too long |  Major | caching, datanode | Colin Patrick McCabe | Colin Patrick McCabe |
+
+
 ### OTHER:
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |

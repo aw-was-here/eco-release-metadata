@@ -195,6 +195,38 @@
 | [HDFS-4007](https://issues.apache.org/jira/browse/HDFS-4007) | Rehabilitate bit-rotted unit tests under hadoop-hdfs-project/hadoop-hdfs/src/test/unit/ |  Minor | test | Colin Patrick McCabe | Colin Patrick McCabe |
 
 
+### SUB-TASKS:
+
+| JIRA | Description | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [HDFS-4445](https://issues.apache.org/jira/browse/HDFS-4445) | All BKJM ledgers are not checked while tailing, So failover will fail. |  Blocker | . | Vinayakumar B | Vinayakumar B |
+| [HDFS-4248](https://issues.apache.org/jira/browse/HDFS-4248) | Renames may remove file leases |  Blocker | namenode | Daryn Sharp | Daryn Sharp |
+| [HDFS-4247](https://issues.apache.org/jira/browse/HDFS-4247) | saveNamespace should be tolerant of dangling lease |  Blocker | namenode | Daryn Sharp | Daryn Sharp |
+| [HDFS-4130](https://issues.apache.org/jira/browse/HDFS-4130) | BKJM: The reading for editlog at NN starting using bkjm  is not efficient |  Major | ha, performance | Han Xiao | Han Xiao |
+| [HDFS-4100](https://issues.apache.org/jira/browse/HDFS-4100) | Fix all findbug security warings |  Major | datanode, journal-node, security | Liang Xie | Liang Xie |
+| [HDFS-4059](https://issues.apache.org/jira/browse/HDFS-4059) | Add number of stale DataNodes to metrics |  Minor | datanode, namenode | Jing Zhao | Jing Zhao |
+| [HDFS-4038](https://issues.apache.org/jira/browse/HDFS-4038) | Override toString() for BookKeeperEditLogInputStream |  Minor | ha | Vinayakumar B | Vinayakumar B |
+| [HDFS-4035](https://issues.apache.org/jira/browse/HDFS-4035) | LightWeightGSet and LightWeightHashSet increment a volatile without synchronization |  Major | . | Eli Collins | Eli Collins |
+| [HDFS-4034](https://issues.apache.org/jira/browse/HDFS-4034) | Remove redundant null checks |  Major | . | Eli Collins | Eli Collins |
+| [HDFS-4033](https://issues.apache.org/jira/browse/HDFS-4033) | Miscellaneous findbugs 2 fixes |  Major | . | Eli Collins | Eli Collins |
+| [HDFS-4032](https://issues.apache.org/jira/browse/HDFS-4032) | Specify the charset explicitly rather than rely on the default |  Major | . | Eli Collins | Eli Collins |
+| [HDFS-4031](https://issues.apache.org/jira/browse/HDFS-4031) | Update findbugsExcludeFile.xml to include findbugs 2 exclusions |  Major | namenode | Eli Collins | Eli Collins |
+| [HDFS-4030](https://issues.apache.org/jira/browse/HDFS-4030) | BlockManager excessBlocksCount and postponedMisreplicatedBlocksCount should be AtomicLongs |  Major | namenode | Eli Collins | Eli Collins |
+| [HDFS-4029](https://issues.apache.org/jira/browse/HDFS-4029) | GenerationStamp should use an AtomicLong |  Major | namenode | Eli Collins | Eli Collins |
+| [HDFS-3935](https://issues.apache.org/jira/browse/HDFS-3935) | QJM: Add JournalNode to the start / stop scripts |  Major | . | Eli Collins | Andy Isaacson |
+| [HDFS-3923](https://issues.apache.org/jira/browse/HDFS-3923) | libwebhdfs testing code cleanup |  Major | . | Jing Zhao | Jing Zhao |
+| [HDFS-3920](https://issues.apache.org/jira/browse/HDFS-3920) | libwebdhfs code cleanup: string processing and using strerror consistently to handle all errors |  Major | . | Jing Zhao | Jing Zhao |
+| [HDFS-3912](https://issues.apache.org/jira/browse/HDFS-3912) | Detecting and avoiding stale datanodes for writing |  Major | . | Jing Zhao | Jing Zhao |
+| [HDFS-3810](https://issues.apache.org/jira/browse/HDFS-3810) | Implement format() for BKJM |  Major | . | Ivan Kelly | Ivan Kelly |
+| [HDFS-3809](https://issues.apache.org/jira/browse/HDFS-3809) | Make BKJM use protobufs for all serialization with ZK |  Major | namenode | Ivan Kelly | Ivan Kelly |
+| [HDFS-3789](https://issues.apache.org/jira/browse/HDFS-3789) | JournalManager#format() should be able to throw IOException |  Major | ha, namenode | Ivan Kelly | Ivan Kelly |
+| [HDFS-3695](https://issues.apache.org/jira/browse/HDFS-3695) | Genericize format() to non-file JournalManagers |  Major | ha, namenode | Todd Lipcon | Todd Lipcon |
+| [HDFS-3623](https://issues.apache.org/jira/browse/HDFS-3623) | BKJM: zkLatchWaitTimeout hard coded to 6000. Make use of ZKSessionTimeout instead. |  Major | namenode | Uma Maheswara Rao G | Uma Maheswara Rao G |
+| [HDFS-3573](https://issues.apache.org/jira/browse/HDFS-3573) | Supply NamespaceInfo when instantiating JournalManagers |  Minor | namenode | Todd Lipcon | Todd Lipcon |
+| [HDFS-3571](https://issues.apache.org/jira/browse/HDFS-3571) | Allow EditLogFileInputStream to read from a remote URL |  Major | ha, namenode | Todd Lipcon | Todd Lipcon |
+| [HDFS-2908](https://issues.apache.org/jira/browse/HDFS-2908) | Add apache license header for StorageReport.java |  Minor | . | Suresh Srinivas | Brandon Li |
+
+
 ### OTHER:
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |

@@ -73,6 +73,18 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 
 
+### SUB-TASKS:
+
+| JIRA | Description | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [MAPREDUCE-4113](https://issues.apache.org/jira/browse/MAPREDUCE-4113) | Fix tests org.apache.hadoop.mapred.TestClusterMRNotification |  Major | mrv2, test | Devaraj K | Devaraj K |
+| [MAPREDUCE-4112](https://issues.apache.org/jira/browse/MAPREDUCE-4112) | Fix tests org.apache.hadoop.mapred.TestClusterMapReduceTestCase |  Major | mrv2, test | Devaraj K | Devaraj K |
+| [MAPREDUCE-4111](https://issues.apache.org/jira/browse/MAPREDUCE-4111) | Fix tests in org.apache.hadoop.mapred.TestJobName |  Major | mrv2, test | Devaraj K | Devaraj K |
+| [MAPREDUCE-4110](https://issues.apache.org/jira/browse/MAPREDUCE-4110) | Fix tests in org.apache.hadoop.mapred.TestMiniMRClasspath & org.apache.hadoop.mapred.TestMiniMRWithDFSWithDistinctUsers |  Major | mrv2, test | Devaraj K | Devaraj K |
+| [MAPREDUCE-4108](https://issues.apache.org/jira/browse/MAPREDUCE-4108) | Fix tests in org.apache.hadoop.util.TestRunJar |  Major | mrv2 | Devaraj K | Devaraj K |
+| [MAPREDUCE-4107](https://issues.apache.org/jira/browse/MAPREDUCE-4107) | Fix tests in org.apache.hadoop.ipc.TestSocketFactory |  Major | mrv2 | Devaraj K | Devaraj K |
+
+
 ### OTHER:
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |

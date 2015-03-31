@@ -60,6 +60,19 @@
 | [YARN-1281](https://issues.apache.org/jira/browse/YARN-1281) | TestZKRMStateStoreZKClientConnections fails intermittently |  Major | resourcemanager | Karthik Kambatla | Tsuyoshi Ozawa |
 
 
+### SUB-TASKS:
+
+| JIRA | Description | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [YARN-2053](https://issues.apache.org/jira/browse/YARN-2053) | Slider AM fails to restart: NPE in RegisterApplicationMasterResponseProto$Builder.addAllNmTokensFromPreviousAttempts |  Major | resourcemanager | Sumit Mohanty | Wangda Tan |
+| [YARN-1962](https://issues.apache.org/jira/browse/YARN-1962) | Timeline server is enabled by default |  Major | . | Mohammad Kamrul Islam | Mohammad Kamrul Islam |
+| [YARN-1957](https://issues.apache.org/jira/browse/YARN-1957) | ProportionalCapacitPreemptionPolicy handling of corner cases... |  Major | resourcemanager | Carlo Curino | Carlo Curino |
+| [YARN-1898](https://issues.apache.org/jira/browse/YARN-1898) | Standby RM's conf, stacks, logLevel, metrics, jmx and logs links are redirecting to Active RM |  Major | resourcemanager | Yesha Vora | Xuan Gong |
+| [YARN-1861](https://issues.apache.org/jira/browse/YARN-1861) | Both RM stuck in standby mode when automatic failover is enabled |  Blocker | resourcemanager | Arpit Gupta | Karthik Kambatla |
+| [YARN-1701](https://issues.apache.org/jira/browse/YARN-1701) | Improve default paths of timeline store and generic history store |  Major | . | Gera Shegalov | Tsuyoshi Ozawa |
+| [YARN-1696](https://issues.apache.org/jira/browse/YARN-1696) | Document RM HA |  Blocker | resourcemanager | Karthik Kambatla | Tsuyoshi Ozawa |
+
+
 ### OTHER:
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |

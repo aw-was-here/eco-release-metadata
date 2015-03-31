@@ -56,6 +56,24 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 
 
+### SUB-TASKS:
+
+| JIRA | Description | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [YARN-1277](https://issues.apache.org/jira/browse/YARN-1277) | Add http policy support for YARN daemons |  Major | . | Suresh Srinivas | Omkar Vinit Joshi |
+| [YARN-1260](https://issues.apache.org/jira/browse/YARN-1260) | RM\_HOME link breaks when webapp.https.address related properties are not specified |  Major | . | Yesha Vora | Omkar Vinit Joshi |
+| [YARN-1256](https://issues.apache.org/jira/browse/YARN-1256) | NM silently ignores non-existent service in StartContainerRequest |  Critical | . | Bikas Saha | Xuan Gong |
+| [YARN-1254](https://issues.apache.org/jira/browse/YARN-1254) | NM is polluting container's credentials |  Major | . | Vinod Kumar Vavilapalli | Omkar Vinit Joshi |
+| [YARN-1214](https://issues.apache.org/jira/browse/YARN-1214) | Register ClientToken MasterKey in SecretManager after it is saved |  Critical | resourcemanager | Jian He | Jian He |
+| [YARN-1204](https://issues.apache.org/jira/browse/YARN-1204) | Need to add https port related property in Yarn |  Major | . | Yesha Vora | Omkar Vinit Joshi |
+| [YARN-1203](https://issues.apache.org/jira/browse/YARN-1203) | Application Manager UI does not appear with Https enabled |  Major | . | Yesha Vora | Omkar Vinit Joshi |
+| [YARN-1131](https://issues.apache.org/jira/browse/YARN-1131) | $yarn logs command should return an appropriate error message if YARN application is still running |  Minor | client | Tassapol Athiapinya | Siddharth Seth |
+| [YARN-1070](https://issues.apache.org/jira/browse/YARN-1070) | ContainerImpl State Machine: Invalid event: CONTAINER\_KILLED\_ON\_REQUEST at CONTAINER\_CLEANEDUP\_AFTER\_KILL |  Major | nodemanager | Hitesh Shah | Zhijie Shen |
+| [YARN-899](https://issues.apache.org/jira/browse/YARN-899) | Get queue administration ACLs working |  Major | scheduler | Sandy Ryza | Xuan Gong |
+| [YARN-621](https://issues.apache.org/jira/browse/YARN-621) | RM triggers web auth failure before first job |  Critical | resourcemanager | Allen Wittenauer | Omkar Vinit Joshi |
+| [YARN-49](https://issues.apache.org/jira/browse/YARN-49) | Improve distributed shell application to work on a secure cluster |  Major | applications/distributed-shell | Hitesh Shah | Vinod Kumar Vavilapalli |
+
+
 ### OTHER:
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |

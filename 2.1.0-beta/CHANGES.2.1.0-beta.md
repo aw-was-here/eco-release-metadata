@@ -731,6 +731,153 @@
 | [YARN-866](https://issues.apache.org/jira/browse/YARN-866) | Add test for class ResourceWeights |  Major | . | Wei Yan | Wei Yan |
 
 
+### SUB-TASKS:
+
+| JIRA | Description | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [HADOOP-9720](https://issues.apache.org/jira/browse/HADOOP-9720) | Rename Client#uuid to Client#clientId |  Major | . | Suresh Srinivas | Arpit Agarwal |
+| [HADOOP-9619](https://issues.apache.org/jira/browse/HADOOP-9619) | Mark stability of .proto files |  Major | documentation | Sanjay Radia | Sanjay Radia |
+| [HADOOP-9418](https://issues.apache.org/jira/browse/HADOOP-9418) | Add symlink resolution support to DistributedFileSystem |  Major | fs | Andrew Wang | Andrew Wang |
+| [HADOOP-9416](https://issues.apache.org/jira/browse/HADOOP-9416) | Add new symlink resolution methods in FileSystem and FileSystemLinkResolver |  Major | fs | Andrew Wang | Andrew Wang |
+| [HADOOP-9414](https://issues.apache.org/jira/browse/HADOOP-9414) | Refactor out FSLinkResolver and relevant helper methods |  Major | fs | Andrew Wang | Andrew Wang |
+| [HADOOP-9355](https://issues.apache.org/jira/browse/HADOOP-9355) | Abstract symlink tests to use either FileContext or FileSystem |  Major | fs | Andrew Wang | Andrew Wang |
+| [HADOOP-9258](https://issues.apache.org/jira/browse/HADOOP-9258) | Add stricter tests to FileSystemContractTestBase |  Major | test | Steve Loughran | Steve Loughran |
+| [HADOOP-9218](https://issues.apache.org/jira/browse/HADOOP-9218) | Document the Rpc-wrappers used internally |  Major | ipc | Sanjay Radia | Sanjay Radia |
+| [HADOOP-9140](https://issues.apache.org/jira/browse/HADOOP-9140) | Cleanup rpc PB protos |  Major | ipc | Sanjay Radia | Sanjay Radia |
+| [HADOOP-8470](https://issues.apache.org/jira/browse/HADOOP-8470) | Implementation of 4-layer subclass of NetworkTopology (NetworkTopologyWithNodeGroup) |  Major | . | Junping Du | Junping Du |
+| [HADOOP-8469](https://issues.apache.org/jira/browse/HADOOP-8469) | Make NetworkTopology class pluggable |  Major | . | Junping Du | Junping Du |
+| [HDFS-5025](https://issues.apache.org/jira/browse/HDFS-5025) | Record ClientId and CallId in EditLog to enable rebuilding retry cache in case of HA failover |  Major | ha, namenode | Jing Zhao | Jing Zhao |
+| [HDFS-4979](https://issues.apache.org/jira/browse/HDFS-4979) | Implement retry cache on the namenode |  Major | namenode | Suresh Srinivas | Suresh Srinivas |
+| [HDFS-4974](https://issues.apache.org/jira/browse/HDFS-4974) | Analyze and add annotations to Namenode protocol methods and enable retry |  Major | ha, namenode | Suresh Srinivas | Suresh Srinivas |
+| [HDFS-4908](https://issues.apache.org/jira/browse/HDFS-4908) | Reduce snapshot inode memory usage |  Major | namenode, snapshots | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
+| [HDFS-4876](https://issues.apache.org/jira/browse/HDFS-4876) | The javadoc of FileWithSnapshot is incorrect |  Minor | snapshots | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
+| [HDFS-4875](https://issues.apache.org/jira/browse/HDFS-4875) | Add a test for testing snapshot file length |  Minor | snapshots, test | Tsz Wo Nicholas Sze | Arpit Agarwal |
+| [HDFS-4842](https://issues.apache.org/jira/browse/HDFS-4842) | Snapshot: identify the correct prior snapshot when deleting a snapshot under a renamed subtree |  Major | snapshots | Jing Zhao | Jing Zhao |
+| [HDFS-4819](https://issues.apache.org/jira/browse/HDFS-4819) | Update Snapshot doc for HDFS-4758 |  Minor | documentation | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
+| [HDFS-4785](https://issues.apache.org/jira/browse/HDFS-4785) | Concat operation does not remove concatenated files from InodeMap |  Major | namenode | Suresh Srinivas | Suresh Srinivas |
+| [HDFS-4784](https://issues.apache.org/jira/browse/HDFS-4784) | NPE in FSDirectory.resolvePath() |  Major | namenode | Brandon Li | Brandon Li |
+| [HDFS-4762](https://issues.apache.org/jira/browse/HDFS-4762) | Provide HDFS based NFSv3 and Mountd implementation |  Major | nfs | Brandon Li | Brandon Li |
+| [HDFS-4661](https://issues.apache.org/jira/browse/HDFS-4661) | fix various bugs in short circuit read |  Major | datanode, hdfs-client | Colin Patrick McCabe | Colin Patrick McCabe |
+| [HDFS-4602](https://issues.apache.org/jira/browse/HDFS-4602) | TestBookKeeperHACheckpoints fails |  Major | . | Suresh Srinivas | Uma Maheswara Rao G |
+| [HDFS-4542](https://issues.apache.org/jira/browse/HDFS-4542) | Webhdfs doesn't support secure proxy users |  Blocker | webhdfs | Daryn Sharp | Daryn Sharp |
+| [HDFS-4525](https://issues.apache.org/jira/browse/HDFS-4525) | Provide an API for knowing that whether file is closed or not. |  Major | namenode | Uma Maheswara Rao G | SreeHari |
+| [HDFS-4502](https://issues.apache.org/jira/browse/HDFS-4502) | WebHdfsFileSystem handling of fileld breaks compatibility |  Blocker | webhdfs | Alejandro Abdelnur | Brandon Li |
+| [HDFS-4485](https://issues.apache.org/jira/browse/HDFS-4485) | HDFS-347: DN should chmod socket path a+w |  Critical | datanode | Todd Lipcon | Colin Patrick McCabe |
+| [HDFS-4374](https://issues.apache.org/jira/browse/HDFS-4374) | Display NameNode startup progress in UI |  Major | namenode | Chris Nauroth | Chris Nauroth |
+| [HDFS-4373](https://issues.apache.org/jira/browse/HDFS-4373) | Add HTTP API for querying NameNode startup progress |  Major | namenode | Chris Nauroth | Chris Nauroth |
+| [HDFS-4372](https://issues.apache.org/jira/browse/HDFS-4372) | Track NameNode startup progress |  Major | namenode | Chris Nauroth | Chris Nauroth |
+| [HDFS-4346](https://issues.apache.org/jira/browse/HDFS-4346) | Refactor INodeId and GenerationStamp |  Minor | namenode | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
+| [HDFS-4340](https://issues.apache.org/jira/browse/HDFS-4340) | Update addBlock() to inculde inode id as additional argument |  Major | hdfs-client, namenode | Brandon Li | Brandon Li |
+| [HDFS-4339](https://issues.apache.org/jira/browse/HDFS-4339) | Persist inode id in fsimage and editlog |  Major | namenode | Brandon Li | Brandon Li |
+| [HDFS-4334](https://issues.apache.org/jira/browse/HDFS-4334) | Add a unique id to each INode |  Major | namenode | Brandon Li | Brandon Li |
+| [HDFS-3769](https://issues.apache.org/jira/browse/HDFS-3769) | standby namenode become active fails because starting log segment fail on shared storage |  Critical | ha | liaowenrui |  |
+| [MAPREDUCE-5299](https://issues.apache.org/jira/browse/MAPREDUCE-5299) | Mapred API: void setTaskID(TaskAttemptID) is missing in TaskCompletionEvent |  Major | . | Zhijie Shen | Zhijie Shen |
+| [MAPREDUCE-5296](https://issues.apache.org/jira/browse/MAPREDUCE-5296) | Mapred API: Function signature change in JobControl |  Major | . | Zhijie Shen | Zhijie Shen |
+| [MAPREDUCE-5280](https://issues.apache.org/jira/browse/MAPREDUCE-5280) | Mapreduce API: ClusterMetrics incompatibility issues with MR1 |  Major | . | Zhijie Shen | Mayank Bansal |
+| [MAPREDUCE-5275](https://issues.apache.org/jira/browse/MAPREDUCE-5275) | Mapreduce API: TokenCache incompatibility issues with MR1 |  Major | . | Zhijie Shen | Mayank Bansal |
+| [MAPREDUCE-5274](https://issues.apache.org/jira/browse/MAPREDUCE-5274) | Mapreduce API: String toHex(byte[]) is removed from SecureShuffleUtils |  Major | . | Zhijie Shen | Mayank Bansal |
+| [MAPREDUCE-5273](https://issues.apache.org/jira/browse/MAPREDUCE-5273) | Protected variables are removed from CombineFileRecordReader in both mapred and mapreduce |  Major | . | Zhijie Shen | Mayank Bansal |
+| [MAPREDUCE-5263](https://issues.apache.org/jira/browse/MAPREDUCE-5263) | filecache.DistributedCache incompatiblity issues with MR1 |  Major | . | Zhijie Shen | Zhijie Shen |
+| [MAPREDUCE-5245](https://issues.apache.org/jira/browse/MAPREDUCE-5245) | A number of public static variables are removed from JobConf |  Major | . | Zhijie Shen | Zhijie Shen |
+| [MAPREDUCE-5244](https://issues.apache.org/jira/browse/MAPREDUCE-5244) | Two functions changed their visibility in JobStatus |  Major | . | Zhijie Shen | Zhijie Shen |
+| [MAPREDUCE-5235](https://issues.apache.org/jira/browse/MAPREDUCE-5235) | mapred.Counters incompatiblity issues with MR1 |  Major | . | Zhijie Shen | Mayank Bansal |
+| [MAPREDUCE-5231](https://issues.apache.org/jira/browse/MAPREDUCE-5231) | Constructor of DBInputFormat.DBRecordReader in mapred is changed |  Major | . | Zhijie Shen | Zhijie Shen |
+| [MAPREDUCE-5230](https://issues.apache.org/jira/browse/MAPREDUCE-5230) | createFileSplit is removed from NLineInputFormat of mapred |  Major | . | Zhijie Shen | Mayank Bansal |
+| [MAPREDUCE-5229](https://issues.apache.org/jira/browse/MAPREDUCE-5229) | TEMP\_DIR\_NAME is removed from of FileOutputCommitter of mapreduce |  Major | . | Zhijie Shen | Zhijie Shen |
+| [MAPREDUCE-5228](https://issues.apache.org/jira/browse/MAPREDUCE-5228) | Enum Counter is removed from FileInputFormat and FileOutputFormat of both mapred and mapreduce |  Major | . | Zhijie Shen | Mayank Bansal |
+| [MAPREDUCE-5222](https://issues.apache.org/jira/browse/MAPREDUCE-5222) | Fix JobClient incompatibilities with MR1 |  Major | . | Karthik Kambatla | Karthik Kambatla |
+| [MAPREDUCE-5220](https://issues.apache.org/jira/browse/MAPREDUCE-5220) | Mapred API: TaskCompletionEvent incompatibility issues with MR1 |  Major | client | Sandy Ryza | Zhijie Shen |
+| [MAPREDUCE-5199](https://issues.apache.org/jira/browse/MAPREDUCE-5199) | AppTokens file can/should be removed |  Blocker | security | Vinod Kumar Vavilapalli | Daryn Sharp |
+| [MAPREDUCE-5184](https://issues.apache.org/jira/browse/MAPREDUCE-5184) | Document MR Binary Compatibility vis-a-vis hadoop-1 and hadoop-2 |  Major | documentation | Arun C Murthy | Zhijie Shen |
+| [MAPREDUCE-5159](https://issues.apache.org/jira/browse/MAPREDUCE-5159) | Aggregatewordcount and aggregatewordhist in hadoop-1 examples are not binary compatible with hadoop-2 mapred.lib.aggregate |  Major | . | Zhijie Shen | Zhijie Shen |
+| [MAPREDUCE-5157](https://issues.apache.org/jira/browse/MAPREDUCE-5157) | Sort in hadoop-1 examples is not binary compatible with hadoop-2 mapred.lib |  Major | . | Zhijie Shen | Zhijie Shen |
+| [MAPREDUCE-5086](https://issues.apache.org/jira/browse/MAPREDUCE-5086) | MR app master deletes staging dir when sent a reboot command from the RM |  Major | . | Jian He | Jian He |
+| [MAPREDUCE-4951](https://issues.apache.org/jira/browse/MAPREDUCE-4951) | Container preemption interpreted as task failure |  Major | applicationmaster, mr-am, mrv2 | Sandy Ryza | Sandy Ryza |
+| [YARN-961](https://issues.apache.org/jira/browse/YARN-961) | ContainerManagerImpl should enforce token on server. Today it is [TOKEN, SIMPLE] |  Blocker | . | Omkar Vinit Joshi | Omkar Vinit Joshi |
+| [YARN-922](https://issues.apache.org/jira/browse/YARN-922) | Change FileSystemRMStateStore to use directories |  Major | resourcemanager | Jian He | Jian He |
+| [YARN-877](https://issues.apache.org/jira/browse/YARN-877) | Allow for black-listing resources in FifoScheduler |  Major | scheduler | Junping Du | Junping Du |
+| [YARN-873](https://issues.apache.org/jira/browse/YARN-873) | YARNClient.getApplicationReport(unknownAppId) returns a null report |  Major | . | Bikas Saha | Xuan Gong |
+| [YARN-850](https://issues.apache.org/jira/browse/YARN-850) | Rename getClusterAvailableResources to getAvailableResources in AMRMClients |  Major | . | Jian He | Jian He |
+| [YARN-846](https://issues.apache.org/jira/browse/YARN-846) | Move pb Impl from yarn-api to yarn-common |  Major | . | Jian He | Jian He |
+| [YARN-845](https://issues.apache.org/jira/browse/YARN-845) | RM crash with NPE on NODE\_UPDATE |  Major | resourcemanager | Arpit Gupta | Mayank Bansal |
+| [YARN-827](https://issues.apache.org/jira/browse/YARN-827) | Need to make Resource arithmetic methods accessible |  Critical | . | Bikas Saha | Jian He |
+| [YARN-825](https://issues.apache.org/jira/browse/YARN-825) | Fix yarn-common javadoc annotations |  Blocker | . | Vinod Kumar Vavilapalli | Vinod Kumar Vavilapalli |
+| [YARN-820](https://issues.apache.org/jira/browse/YARN-820) | NodeManager has invalid state transition after error in resource localization |  Major | . | Bikas Saha | Mayank Bansal |
+| [YARN-814](https://issues.apache.org/jira/browse/YARN-814) | Difficult to diagnose a failed container launch when error due to invalid environment variable |  Major | . | Hitesh Shah | Jian He |
+| [YARN-805](https://issues.apache.org/jira/browse/YARN-805) | Fix yarn-api javadoc annotations |  Blocker | . | Jian He | Jian He |
+| [YARN-781](https://issues.apache.org/jira/browse/YARN-781) | Expose LOGDIR that containers should use for logging |  Major | . | Devaraj Das | Jian He |
+| [YARN-773](https://issues.apache.org/jira/browse/YARN-773) | Move YarnRuntimeException from package api.yarn to api.yarn.exceptions |  Major | . | Jian He | Jian He |
+| [YARN-759](https://issues.apache.org/jira/browse/YARN-759) | Create Command enum in AllocateResponse |  Major | . | Bikas Saha | Bikas Saha |
+| [YARN-750](https://issues.apache.org/jira/browse/YARN-750) | Allow for black-listing resources in YARN API and Impl in CS |  Major | . | Arun C Murthy | Arun C Murthy |
+| [YARN-739](https://issues.apache.org/jira/browse/YARN-739) | NM startContainer should validate the NodeId |  Major | . | Siddharth Seth | Omkar Vinit Joshi |
+| [YARN-737](https://issues.apache.org/jira/browse/YARN-737) | Some Exceptions no longer need to be wrapped by YarnException and can be directly thrown out after YARN-142 |  Major | . | Jian He | Jian He |
+| [YARN-731](https://issues.apache.org/jira/browse/YARN-731) | RPCUtil.unwrapAndThrowException should unwrap remote RuntimeExceptions |  Major | . | Siddharth Seth | Zhijie Shen |
+| [YARN-727](https://issues.apache.org/jira/browse/YARN-727) | ClientRMProtocol.getAllApplications should accept ApplicationType as a parameter |  Blocker | . | Siddharth Seth | Xuan Gong |
+| [YARN-719](https://issues.apache.org/jira/browse/YARN-719) | Move RMIdentifier from Container to ContainerTokenIdentifier |  Major | . | Vinod Kumar Vavilapalli | Vinod Kumar Vavilapalli |
+| [YARN-717](https://issues.apache.org/jira/browse/YARN-717) | Copy BuilderUtil methods into token-related records |  Major | . | Jian He | Jian He |
+| [YARN-714](https://issues.apache.org/jira/browse/YARN-714) | AMRM protocol changes for sending NMToken list |  Major | . | Omkar Vinit Joshi | Omkar Vinit Joshi |
+| [YARN-711](https://issues.apache.org/jira/browse/YARN-711) | Copy BuilderUtil methods into individual records |  Major | . | Vinod Kumar Vavilapalli | Jian He |
+| [YARN-695](https://issues.apache.org/jira/browse/YARN-695) | masterContainer and status are in ApplicationReportProto but not in ApplicationReport |  Major | . | Zhijie Shen | Zhijie Shen |
+| [YARN-693](https://issues.apache.org/jira/browse/YARN-693) | Sending NMToken to AM on allocate call |  Major | . | Omkar Vinit Joshi | Omkar Vinit Joshi |
+| [YARN-692](https://issues.apache.org/jira/browse/YARN-692) | Creating NMToken master key on RM and sharing it with NM as a part of RM-NM heartbeat. |  Major | . | Omkar Vinit Joshi | Omkar Vinit Joshi |
+| [YARN-686](https://issues.apache.org/jira/browse/YARN-686) | Flatten NodeReport |  Major | api | Sandy Ryza | Sandy Ryza |
+| [YARN-663](https://issues.apache.org/jira/browse/YARN-663) | Change ResourceTracker API and LocalizationProtocol API to throw YarnRemoteException and IOException |  Major | . | Xuan Gong | Xuan Gong |
+| [YARN-660](https://issues.apache.org/jira/browse/YARN-660) | Improve AMRMClient with matching requests |  Major | . | Bikas Saha | Bikas Saha |
+| [YARN-651](https://issues.apache.org/jira/browse/YARN-651) | Change ContainerManagerPBClientImpl and RMAdminProtocolPBClientImpl to throw IOException and YarnRemoteException |  Major | . | Xuan Gong | Xuan Gong |
+| [YARN-638](https://issues.apache.org/jira/browse/YARN-638) | Restore RMDelegationTokens after RM Restart |  Major | resourcemanager | Jian He | Jian He |
+| [YARN-634](https://issues.apache.org/jira/browse/YARN-634) | Make YarnRemoteException not backed by PB and introduce a SerializedException |  Major | . | Siddharth Seth | Siddharth Seth |
+| [YARN-628](https://issues.apache.org/jira/browse/YARN-628) | Fix YarnException unwrapping |  Major | . | Siddharth Seth | Siddharth Seth |
+| [YARN-625](https://issues.apache.org/jira/browse/YARN-625) | Move unwrapAndThrowException from YarnRemoteExceptionPBImpl to RPCUtil |  Major | . | Siddharth Seth | Siddharth Seth |
+| [YARN-617](https://issues.apache.org/jira/browse/YARN-617) | In unsercure mode, AM can fake resource requirements |  Minor | . | Vinod Kumar Vavilapalli | Omkar Vinit Joshi |
+| [YARN-613](https://issues.apache.org/jira/browse/YARN-613) | Create NM proxy per NM instead of per container |  Major | . | Bikas Saha | Omkar Vinit Joshi |
+| [YARN-595](https://issues.apache.org/jira/browse/YARN-595) | Refactor fair scheduler to use common Resources |  Major | scheduler | Sandy Ryza | Sandy Ryza |
+| [YARN-591](https://issues.apache.org/jira/browse/YARN-591) | RM recovery related records do not belong to the API |  Major | . | Vinod Kumar Vavilapalli | Vinod Kumar Vavilapalli |
+| [YARN-583](https://issues.apache.org/jira/browse/YARN-583) | Application cache files should be localized under local-dir/usercache/userid/appcache/appid/filecache |  Major | . | Omkar Vinit Joshi | Omkar Vinit Joshi |
+| [YARN-582](https://issues.apache.org/jira/browse/YARN-582) | Restore appToken and clientToken for app attempt after RM restart |  Major | resourcemanager | Bikas Saha | Jian He |
+| [YARN-581](https://issues.apache.org/jira/browse/YARN-581) | Test and verify that app delegation tokens are added to tokenRenewer after RM restart |  Major | resourcemanager | Bikas Saha | Jian He |
+| [YARN-578](https://issues.apache.org/jira/browse/YARN-578) | NodeManager should use SecureIOUtils for serving and aggregating logs |  Major | nodemanager | Vinod Kumar Vavilapalli | Omkar Vinit Joshi |
+| [YARN-577](https://issues.apache.org/jira/browse/YARN-577) | ApplicationReport does not provide progress value of application |  Major | . | Hitesh Shah | Hitesh Shah |
+| [YARN-569](https://issues.apache.org/jira/browse/YARN-569) | CapacityScheduler: support for preemption (using a capacity monitor) |  Major | capacityscheduler | Carlo Curino | Carlo Curino |
+| [YARN-568](https://issues.apache.org/jira/browse/YARN-568) | FairScheduler: support for work-preserving preemption |  Major | scheduler | Carlo Curino | Carlo Curino |
+| [YARN-567](https://issues.apache.org/jira/browse/YARN-567) | RM changes to support preemption for FairScheduler and CapacityScheduler |  Major | resourcemanager | Carlo Curino | Carlo Curino |
+| [YARN-563](https://issues.apache.org/jira/browse/YARN-563) | Add application type to ApplicationReport |  Major | . | Thomas Weise | Mayank Bansal |
+| [YARN-562](https://issues.apache.org/jira/browse/YARN-562) | NM should reject containers allocated by previous RM |  Major | resourcemanager | Jian He | Jian He |
+| [YARN-549](https://issues.apache.org/jira/browse/YARN-549) | YarnClient.submitApplication should wait for application to be accepted by the RM |  Major | . | Zhijie Shen | Zhijie Shen |
+| [YARN-548](https://issues.apache.org/jira/browse/YARN-548) | Add tests for YarnUncaughtExceptionHandler |  Major | . | Vadim Bondarev | Vadim Bondarev |
+| [YARN-547](https://issues.apache.org/jira/browse/YARN-547) | Race condition in Public / Private Localizer may result into resource getting downloaded again |  Major | . | Omkar Vinit Joshi | Omkar Vinit Joshi |
+| [YARN-539](https://issues.apache.org/jira/browse/YARN-539) | LocalizedResources are leaked in memory in case resource localization fails |  Major | . | Omkar Vinit Joshi | Omkar Vinit Joshi |
+| [YARN-534](https://issues.apache.org/jira/browse/YARN-534) | AM max attempts is not checked when RM restart and try to recover attempts |  Major | resourcemanager | Jian He | Jian He |
+| [YARN-523](https://issues.apache.org/jira/browse/YARN-523) | Container localization failures aren't reported from NM to RM |  Major | . | Vinod Kumar Vavilapalli | Jian He |
+| [YARN-521](https://issues.apache.org/jira/browse/YARN-521) | Augment AM - RM client module to be able to request containers only at specific locations |  Major | api | Sandy Ryza | Sandy Ryza |
+| [YARN-514](https://issues.apache.org/jira/browse/YARN-514) | Delayed store operations should not result in RM unavailability for app submission |  Major | resourcemanager | Bikas Saha | Zhijie Shen |
+| [YARN-513](https://issues.apache.org/jira/browse/YARN-513) | Create common proxy client for communicating with RM |  Major | resourcemanager | Bikas Saha | Jian He |
+| [YARN-486](https://issues.apache.org/jira/browse/YARN-486) | Change startContainer NM API to accept Container as a parameter and make ContainerLaunchContext user land |  Major | . | Bikas Saha | Xuan Gong |
+| [YARN-482](https://issues.apache.org/jira/browse/YARN-482) | FS: Extend SchedulingMode to intermediate queues |  Major | scheduler | Karthik Kambatla | Karthik Kambatla |
+| [YARN-475](https://issues.apache.org/jira/browse/YARN-475) | Remove ApplicationConstants.AM\_APP\_ATTEMPT\_ID\_ENV as it is no longer set in an AM's environment |  Major | . | Hitesh Shah | Hitesh Shah |
+| [YARN-469](https://issues.apache.org/jira/browse/YARN-469) | Make scheduling mode in FS pluggable |  Major | scheduler | Karthik Kambatla | Karthik Kambatla |
+| [YARN-468](https://issues.apache.org/jira/browse/YARN-468) | coverage fix for org.apache.hadoop.yarn.server.webproxy.amfilter |  Major | . | Aleksey Gorshkov | Aleksey Gorshkov |
+| [YARN-467](https://issues.apache.org/jira/browse/YARN-467) | Jobs fail during resource localization when public distributed-cache hits unix directory limits |  Major | nodemanager | Omkar Vinit Joshi | Omkar Vinit Joshi |
+| [YARN-450](https://issues.apache.org/jira/browse/YARN-450) | Define value for * in the scheduling protocol |  Major | . | Bikas Saha | Zhijie Shen |
+| [YARN-444](https://issues.apache.org/jira/browse/YARN-444) | Move special container exit codes from YarnConfiguration to API |  Major | api, applications/distributed-shell | Sandy Ryza | Sandy Ryza |
+| [YARN-441](https://issues.apache.org/jira/browse/YARN-441) | Clean up unused collection methods in various APIs |  Major | . | Siddharth Seth | Xuan Gong |
+| [YARN-422](https://issues.apache.org/jira/browse/YARN-422) | Add NM client library |  Major | . | Bikas Saha | Zhijie Shen |
+| [YARN-417](https://issues.apache.org/jira/browse/YARN-417) | Create AMRMClient wrapper that provides asynchronous callbacks |  Major | api, applications | Sandy Ryza | Sandy Ryza |
+| [YARN-398](https://issues.apache.org/jira/browse/YARN-398) | Enhance CS to allow for white-list of resources |  Major | . | Arun C Murthy | Arun C Murthy |
+| [YARN-392](https://issues.apache.org/jira/browse/YARN-392) | Make it possible to specify hard locality constraints in resource requests |  Major | resourcemanager | Bikas Saha | Sandy Ryza |
+| [YARN-378](https://issues.apache.org/jira/browse/YARN-378) | ApplicationMaster retry times should be set by Client |  Major | client, resourcemanager | xieguiming | Zhijie Shen |
+| [YARN-369](https://issues.apache.org/jira/browse/YARN-369) | Handle ( or throw a proper error when receiving) status updates from application masters that have not registered |  Major | resourcemanager | Hitesh Shah | Mayank Bansal |
+| [YARN-365](https://issues.apache.org/jira/browse/YARN-365) | Each NM heartbeat should not generate an event for the Scheduler |  Major | resourcemanager, scheduler | Siddharth Seth | Xuan Gong |
+| [YARN-309](https://issues.apache.org/jira/browse/YARN-309) | Make RM provide heartbeat interval to NM |  Major | resourcemanager | Xuan Gong | Xuan Gong |
+| [YARN-295](https://issues.apache.org/jira/browse/YARN-295) | Resource Manager throws InvalidStateTransitonException: Invalid event: CONTAINER\_FINISHED at ALLOCATED for RMAppAttemptImpl |  Major | resourcemanager | Devaraj K | Mayank Bansal |
+| [YARN-200](https://issues.apache.org/jira/browse/YARN-200) | yarn log does not output all needed information, and is in a binary format |  Major | . | Robert Joseph Evans | Ravi Prakash |
+| [YARN-125](https://issues.apache.org/jira/browse/YARN-125) | Make Yarn Client service shutdown operations robust |  Minor | . | Steve Loughran | Steve Loughran |
+| [YARN-124](https://issues.apache.org/jira/browse/YARN-124) | Make Yarn Node Manager services robust against shutdown |  Minor | . | Steve Loughran | Steve Loughran |
+| [YARN-123](https://issues.apache.org/jira/browse/YARN-123) | Make yarn Resource Manager services robust against shutdown |  Minor | . | Steve Loughran | Steve Loughran |
+| [YARN-112](https://issues.apache.org/jira/browse/YARN-112) | Race in localization can cause containers to fail |  Major | nodemanager | Jason Lowe | Omkar Vinit Joshi |
+| [YARN-99](https://issues.apache.org/jira/browse/YARN-99) | Jobs fail during resource localization when private distributed-cache hits unix directory limits |  Major | nodemanager | Devaraj K | Omkar Vinit Joshi |
+| [YARN-62](https://issues.apache.org/jira/browse/YARN-62) | AM should not be able to abuse container tokens for repetitive container launches |  Major | . | Vinod Kumar Vavilapalli | Omkar Vinit Joshi |
+
+
 ### OTHER:
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |

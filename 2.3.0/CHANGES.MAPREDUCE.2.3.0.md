@@ -96,6 +96,17 @@
 | [MAPREDUCE-5084](https://issues.apache.org/jira/browse/MAPREDUCE-5084) | fix coverage  org.apache.hadoop.mapreduce.v2.app.webapp and org.apache.hadoop.mapreduce.v2.hs.webapp |  Major | . | Aleksey Gorshkov | Aleksey Gorshkov |
 
 
+### SUB-TASKS:
+
+| JIRA | Description | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [MAPREDUCE-5411](https://issues.apache.org/jira/browse/MAPREDUCE-5411) | Refresh size of loaded job cache on history server |  Major | jobhistoryserver | Ashwin Shankar | Ashwin Shankar |
+| [MAPREDUCE-5409](https://issues.apache.org/jira/browse/MAPREDUCE-5409) | MRAppMaster throws InvalidStateTransitonException: Invalid event: TA\_TOO\_MANY\_FETCH\_FAILURE at KILLED for TaskAttemptImpl |  Major | . | Devaraj K | Gera Shegalov |
+| [MAPREDUCE-5386](https://issues.apache.org/jira/browse/MAPREDUCE-5386) | Ability to refresh history server job retention and job cleaner settings |  Major | jobhistoryserver | Ashwin Shankar | Ashwin Shankar |
+| [MAPREDUCE-5356](https://issues.apache.org/jira/browse/MAPREDUCE-5356) | Ability to refresh aggregated log retention period and check interval |  Major | jobhistoryserver | Ashwin Shankar | Ashwin Shankar |
+| [MAPREDUCE-4421](https://issues.apache.org/jira/browse/MAPREDUCE-4421) | Run MapReduce framework via the distributed cache |  Major | . | Arun C Murthy | Jason Lowe |
+
+
 ### OTHER:
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |

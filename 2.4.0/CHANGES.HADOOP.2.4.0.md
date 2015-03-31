@@ -77,6 +77,20 @@
 | [HADOOP-9525](https://issues.apache.org/jira/browse/HADOOP-9525) | Add tests that validate winutils chmod behavior on folders |  Major | test, util | Ivan Mitic | Ivan Mitic |
 
 
+### SUB-TASKS:
+
+| JIRA | Description | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [HADOOP-10449](https://issues.apache.org/jira/browse/HADOOP-10449) | Fix the javac warnings in the security packages. |  Minor | security | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
+| [HADOOP-10437](https://issues.apache.org/jira/browse/HADOOP-10437) | Fix the javac warnings in the conf and the util package |  Minor | conf, util | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
+| [HADOOP-10407](https://issues.apache.org/jira/browse/HADOOP-10407) | Fix the javac warnings in the ipc package. |  Minor | ipc | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
+| [HADOOP-10399](https://issues.apache.org/jira/browse/HADOOP-10399) | FileContext API for ACLs. |  Major | fs | Chris Nauroth | Vinayakumar B |
+| [HADOOP-10393](https://issues.apache.org/jira/browse/HADOOP-10393) | Fix hadoop-auth javac warnings |  Minor | security | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
+| [HADOOP-10285](https://issues.apache.org/jira/browse/HADOOP-10285) | Admin interface to swap callqueue at runtime |  Major | . | Chris Li | Chris Li |
+| [HADOOP-10280](https://issues.apache.org/jira/browse/HADOOP-10280) | Make Schedulables return a configurable identity of user or group |  Major | . | Chris Li | Chris Li |
+| [HADOOP-10278](https://issues.apache.org/jira/browse/HADOOP-10278) | Refactor to make CallQueue pluggable |  Major | ipc | Chris Li | Chris Li |
+
+
 ### OTHER:
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |

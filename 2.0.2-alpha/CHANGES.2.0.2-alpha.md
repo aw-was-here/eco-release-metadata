@@ -651,6 +651,37 @@
 | [MAPREDUCE-3983](https://issues.apache.org/jira/browse/MAPREDUCE-3983) | TestTTResourceReporting can fail, and should just be deleted |  Major | mrv1 | Robert Joseph Evans | Ravi Prakash |
 
 
+### SUB-TASKS:
+
+| JIRA | Description | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [HADOOP-7754](https://issues.apache.org/jira/browse/HADOOP-7754) | Expose file descriptors from Hadoop-wrapped local FileSystems |  Major | native, performance | Todd Lipcon | Todd Lipcon |
+| [HDFS-3502](https://issues.apache.org/jira/browse/HDFS-3502) | Change INodeFile and INodeFileUnderConstruction to package private |  Major | namenode | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
+| [HDFS-3474](https://issues.apache.org/jira/browse/HDFS-3474) | Cleanup Exception handling in BookKeeper journal manager |  Major | . | Ivan Kelly | Ivan Kelly |
+| [HDFS-3468](https://issues.apache.org/jira/browse/HDFS-3468) | Make BKJM-ZK session timeout configurable. |  Major | . | Uma Maheswara Rao G | Uma Maheswara Rao G |
+| [HDFS-3452](https://issues.apache.org/jira/browse/HDFS-3452) | BKJM:Switch from standby to active fails and NN gets shut down due to delay in clearing of lock |  Blocker | . | suja s | Uma Maheswara Rao G |
+| [HDFS-3441](https://issues.apache.org/jira/browse/HDFS-3441) | Race condition between rolling logs at active NN and purging at standby |  Major | . | suja s | Rakesh R |
+| [HDFS-3423](https://issues.apache.org/jira/browse/HDFS-3423) | BKJM: NN startup is failing, when tries to recoverUnfinalizedSegments() a bad inProgress\_ ZNodes |  Major | . | Rakesh R | Ivan Kelly |
+| [HDFS-3408](https://issues.apache.org/jira/browse/HDFS-3408) | BKJM : Namenode format fails, if there is no BK root |  Minor | namenode | Rakesh R | Rakesh R |
+| [HDFS-3389](https://issues.apache.org/jira/browse/HDFS-3389) | Document the BKJM usage in Namenode HA. |  Major | namenode | Uma Maheswara Rao G | Uma Maheswara Rao G |
+| [HDFS-3369](https://issues.apache.org/jira/browse/HDFS-3369) | change variable names referring to inode in blockmanagement to more appropriate |  Minor | namenode | John George | John George |
+| [HDFS-3190](https://issues.apache.org/jira/browse/HDFS-3190) | Simple refactors in existing NN code to assist QuorumJournalManager extension |  Minor | namenode | Todd Lipcon | Todd Lipcon |
+| [HDFS-3168](https://issues.apache.org/jira/browse/HDFS-3168) | Clean up FSNamesystem and BlockManager |  Major | namenode | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
+| [HDFS-3058](https://issues.apache.org/jira/browse/HDFS-3058) | HA: Bring BookKeeperJournalManager up to date with HA changes |  Major | . | Ivan Kelly | Ivan Kelly |
+| [HDFS-2717](https://issues.apache.org/jira/browse/HDFS-2717) | BookKeeper Journal output stream doesn't check addComplete rc |  Major | . | Ivan Kelly | Ivan Kelly |
+| [HDFS-2330](https://issues.apache.org/jira/browse/HDFS-2330) | In NNStorage.java, IOExceptions of stream closures  can mask root exceptions. |  Major | namenode | Uma Maheswara Rao G | Uma Maheswara Rao G |
+| [MAPREDUCE-4163](https://issues.apache.org/jira/browse/MAPREDUCE-4163) | consistently set the bind address |  Major | mrv2 | Daryn Sharp | Daryn Sharp |
+| [MAPREDUCE-4162](https://issues.apache.org/jira/browse/MAPREDUCE-4162) | Correctly set token service |  Major | client, mrv2 | Daryn Sharp | Daryn Sharp |
+| [MAPREDUCE-4161](https://issues.apache.org/jira/browse/MAPREDUCE-4161) | create sockets consistently |  Major | client, mrv2 | Daryn Sharp | Daryn Sharp |
+| [MAPREDUCE-3972](https://issues.apache.org/jira/browse/MAPREDUCE-3972) | Locking and exception issues in JobHistory Server. |  Major | mrv2 | Robert Joseph Evans | Robert Joseph Evans |
+| [MAPREDUCE-3942](https://issues.apache.org/jira/browse/MAPREDUCE-3942) | Randomize master key generation for ApplicationTokenSecretManager and roll it every so often |  Major | mrv2, security | Vinod Kumar Vavilapalli | Vinod Kumar Vavilapalli |
+| [MAPREDUCE-3940](https://issues.apache.org/jira/browse/MAPREDUCE-3940) | ContainerTokens should have an expiry interval |  Major | mrv2, security | Vinod Kumar Vavilapalli | Vinod Kumar Vavilapalli |
+| [MAPREDUCE-3613](https://issues.apache.org/jira/browse/MAPREDUCE-3613) | web service calls header contains 2 content types |  Critical | mrv2 | Thomas Graves | Thomas Graves |
+| [YARN-60](https://issues.apache.org/jira/browse/YARN-60) | NMs rejects all container tokens after secret key rolls |  Blocker | nodemanager | Daryn Sharp | Vinod Kumar Vavilapalli |
+| [YARN-39](https://issues.apache.org/jira/browse/YARN-39) | RM-NM secret-keys should be randomly generated and rolled every so often |  Critical | . | Vinod Kumar Vavilapalli | Vinod Kumar Vavilapalli |
+| [YARN-29](https://issues.apache.org/jira/browse/YARN-29) | Add a yarn-client module |  Major | client | Vinod Kumar Vavilapalli | Vinod Kumar Vavilapalli |
+
+
 ### OTHER:
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |

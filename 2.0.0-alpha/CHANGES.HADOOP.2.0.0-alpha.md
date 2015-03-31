@@ -123,6 +123,21 @@
 | [HADOOP-8157](https://issues.apache.org/jira/browse/HADOOP-8157) | TestRPCCallBenchmark#testBenchmarkWithWritable fails with RTE |  Major | . | Eli Collins | Todd Lipcon |
 
 
+### SUB-TASKS:
+
+| JIRA | Description | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [HADOOP-8211](https://issues.apache.org/jira/browse/HADOOP-8211) | Update commons-net version to 3.1 |  Major | io, performance | Eli Collins | Eli Collins |
+| [HADOOP-8210](https://issues.apache.org/jira/browse/HADOOP-8210) | Common side of HDFS-3148 |  Major | io, performance | Eli Collins | Eli Collins |
+| [HADOOP-7994](https://issues.apache.org/jira/browse/HADOOP-7994) | Remove getProtocolVersion and getProtocolSignature from the client side translator and server side implementation |  Major | . | Jitendra Nath Pandey | Jitendra Nath Pandey |
+| [HADOOP-7965](https://issues.apache.org/jira/browse/HADOOP-7965) | Support for protocol version and signature in PB |  Major | ipc | Jitendra Nath Pandey | Jitendra Nath Pandey |
+| [HADOOP-7913](https://issues.apache.org/jira/browse/HADOOP-7913) | Fix bug in ProtoBufRpcEngine - |  Major | ipc | Sanjay Radia | Sanjay Radia |
+| [HADOOP-7862](https://issues.apache.org/jira/browse/HADOOP-7862) | Move the support for multiple protocols to lower layer so that Writable, PB and Avro can all use it |  Major | ipc | Sanjay Radia | Sanjay Radia |
+| [HADOOP-7776](https://issues.apache.org/jira/browse/HADOOP-7776) | Make the Ipc-Header in a RPC-Payload an explicit header |  Major | ipc | Sanjay Radia | Sanjay Radia |
+| [HADOOP-7773](https://issues.apache.org/jira/browse/HADOOP-7773) | Add support for protocol buffer based RPC engine |  Major | ipc | Suresh Srinivas | Suresh Srinivas |
+| [HADOOP-7557](https://issues.apache.org/jira/browse/HADOOP-7557) | Make  IPC  header be extensible |  Major | . | Sanjay Radia | Sanjay Radia |
+
+
 ### OTHER:
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |

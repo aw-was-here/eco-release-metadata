@@ -69,6 +69,29 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 
 
+### SUB-TASKS:
+
+| JIRA | Description | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [HDFS-5249](https://issues.apache.org/jira/browse/HDFS-5249) | Fix dumper thread which may die silently |  Major | nfs | Brandon Li | Brandon Li |
+| [HDFS-5234](https://issues.apache.org/jira/browse/HDFS-5234) | Move RpcFrameDecoder out of the public API |  Minor | nfs | Haohui Mai | Haohui Mai |
+| [HDFS-5212](https://issues.apache.org/jira/browse/HDFS-5212) | Refactor RpcMessage and NFS3Response to support different types of authentication information |  Major | nfs | Jing Zhao | Jing Zhao |
+| [HDFS-5199](https://issues.apache.org/jira/browse/HDFS-5199) | Add more debug trace for NFS READ and WRITE |  Trivial | nfs | Brandon Li | Brandon Li |
+| [HDFS-5136](https://issues.apache.org/jira/browse/HDFS-5136) | MNT EXPORT should give the full group list which can mount the exports |  Major | nfs | Brandon Li | Brandon Li |
+| [HDFS-5110](https://issues.apache.org/jira/browse/HDFS-5110) | Change FSDataOutputStream to HdfsDataOutputStream for opened streams to fix type cast error |  Major | nfs | Brandon Li | Brandon Li |
+| [HDFS-5107](https://issues.apache.org/jira/browse/HDFS-5107) | Fix array copy error in Readdir and Readdirplus responses |  Major | nfs | Brandon Li | Brandon Li |
+| [HDFS-5104](https://issues.apache.org/jira/browse/HDFS-5104) | Support dotdot name in NFS LOOKUP operation |  Major | nfs | Brandon Li | Brandon Li |
+| [HDFS-5085](https://issues.apache.org/jira/browse/HDFS-5085) | Refactor o.a.h.nfs to support different types of authentications |  Major | nfs | Brandon Li | Jing Zhao |
+| [HDFS-5078](https://issues.apache.org/jira/browse/HDFS-5078) | Support file append in NFSv3 gateway to enable data streaming to HDFS |  Major | nfs | Brandon Li | Brandon Li |
+| [HDFS-5071](https://issues.apache.org/jira/browse/HDFS-5071) | Change hdfs-nfs parent project to hadoop-project |  Major | nfs | Kihwal Lee | Brandon Li |
+| [HDFS-5069](https://issues.apache.org/jira/browse/HDFS-5069) | Include hadoop-nfs and hadoop-hdfs-nfs into hadoop dist for NFS deployment |  Major | nfs | Brandon Li | Brandon Li |
+| [HDFS-5067](https://issues.apache.org/jira/browse/HDFS-5067) | Support symlink operations |  Major | nfs | Brandon Li | Brandon Li |
+| [HDFS-4971](https://issues.apache.org/jira/browse/HDFS-4971) | Move IO operations out of locking in OpenFileCtx |  Major | nfs | Jing Zhao | Jing Zhao |
+| [HDFS-4962](https://issues.apache.org/jira/browse/HDFS-4962) | Use enum for nfs constants |  Minor | nfs | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
+| [HDFS-4947](https://issues.apache.org/jira/browse/HDFS-4947) | Add NFS server export table to control export by hostname or IP range |  Major | nfs | Brandon Li | Jing Zhao |
+| [HDFS-4763](https://issues.apache.org/jira/browse/HDFS-4763) | Add script changes/utility for starting NFS gateway |  Major | nfs | Brandon Li | Brandon Li |
+
+
 ### OTHER:
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |

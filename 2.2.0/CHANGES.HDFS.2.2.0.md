@@ -48,6 +48,16 @@
 | [HDFS-5186](https://issues.apache.org/jira/browse/HDFS-5186) | TestFileJournalManager fails on Windows due to file handle leaks |  Minor | namenode, test | Chuan Liu | Chuan Liu |
 
 
+### SUB-TASKS:
+
+| JIRA | Description | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [HDFS-5306](https://issues.apache.org/jira/browse/HDFS-5306) | Datanode https port is not available at the namenode |  Major | datanode, namenode | Suresh Srinivas | Suresh Srinivas |
+| [HDFS-5259](https://issues.apache.org/jira/browse/HDFS-5259) | Support client which combines appended data with old data before sends it to NFS server |  Major | nfs | Yesha Vora | Brandon Li |
+| [HDFS-5246](https://issues.apache.org/jira/browse/HDFS-5246) | Make Hadoop nfs server port and mount daemon port configurable |  Major | nfs | Jinghui Wang | Jinghui Wang |
+| [HDFS-5230](https://issues.apache.org/jira/browse/HDFS-5230) | Introduce RpcInfo to decouple XDR classes from the RPC API |  Major | nfs | Haohui Mai | Haohui Mai |
+
+
 ### OTHER:
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |

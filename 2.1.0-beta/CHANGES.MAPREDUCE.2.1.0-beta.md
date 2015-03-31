@@ -171,6 +171,34 @@
 | [MAPREDUCE-4875](https://issues.apache.org/jira/browse/MAPREDUCE-4875) | coverage fixing for org.apache.hadoop.mapred |  Major | test | Aleksey Gorshkov | Aleksey Gorshkov |
 
 
+### SUB-TASKS:
+
+| JIRA | Description | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [MAPREDUCE-5299](https://issues.apache.org/jira/browse/MAPREDUCE-5299) | Mapred API: void setTaskID(TaskAttemptID) is missing in TaskCompletionEvent |  Major | . | Zhijie Shen | Zhijie Shen |
+| [MAPREDUCE-5296](https://issues.apache.org/jira/browse/MAPREDUCE-5296) | Mapred API: Function signature change in JobControl |  Major | . | Zhijie Shen | Zhijie Shen |
+| [MAPREDUCE-5280](https://issues.apache.org/jira/browse/MAPREDUCE-5280) | Mapreduce API: ClusterMetrics incompatibility issues with MR1 |  Major | . | Zhijie Shen | Mayank Bansal |
+| [MAPREDUCE-5275](https://issues.apache.org/jira/browse/MAPREDUCE-5275) | Mapreduce API: TokenCache incompatibility issues with MR1 |  Major | . | Zhijie Shen | Mayank Bansal |
+| [MAPREDUCE-5274](https://issues.apache.org/jira/browse/MAPREDUCE-5274) | Mapreduce API: String toHex(byte[]) is removed from SecureShuffleUtils |  Major | . | Zhijie Shen | Mayank Bansal |
+| [MAPREDUCE-5273](https://issues.apache.org/jira/browse/MAPREDUCE-5273) | Protected variables are removed from CombineFileRecordReader in both mapred and mapreduce |  Major | . | Zhijie Shen | Mayank Bansal |
+| [MAPREDUCE-5263](https://issues.apache.org/jira/browse/MAPREDUCE-5263) | filecache.DistributedCache incompatiblity issues with MR1 |  Major | . | Zhijie Shen | Zhijie Shen |
+| [MAPREDUCE-5245](https://issues.apache.org/jira/browse/MAPREDUCE-5245) | A number of public static variables are removed from JobConf |  Major | . | Zhijie Shen | Zhijie Shen |
+| [MAPREDUCE-5244](https://issues.apache.org/jira/browse/MAPREDUCE-5244) | Two functions changed their visibility in JobStatus |  Major | . | Zhijie Shen | Zhijie Shen |
+| [MAPREDUCE-5235](https://issues.apache.org/jira/browse/MAPREDUCE-5235) | mapred.Counters incompatiblity issues with MR1 |  Major | . | Zhijie Shen | Mayank Bansal |
+| [MAPREDUCE-5231](https://issues.apache.org/jira/browse/MAPREDUCE-5231) | Constructor of DBInputFormat.DBRecordReader in mapred is changed |  Major | . | Zhijie Shen | Zhijie Shen |
+| [MAPREDUCE-5230](https://issues.apache.org/jira/browse/MAPREDUCE-5230) | createFileSplit is removed from NLineInputFormat of mapred |  Major | . | Zhijie Shen | Mayank Bansal |
+| [MAPREDUCE-5229](https://issues.apache.org/jira/browse/MAPREDUCE-5229) | TEMP\_DIR\_NAME is removed from of FileOutputCommitter of mapreduce |  Major | . | Zhijie Shen | Zhijie Shen |
+| [MAPREDUCE-5228](https://issues.apache.org/jira/browse/MAPREDUCE-5228) | Enum Counter is removed from FileInputFormat and FileOutputFormat of both mapred and mapreduce |  Major | . | Zhijie Shen | Mayank Bansal |
+| [MAPREDUCE-5222](https://issues.apache.org/jira/browse/MAPREDUCE-5222) | Fix JobClient incompatibilities with MR1 |  Major | . | Karthik Kambatla | Karthik Kambatla |
+| [MAPREDUCE-5220](https://issues.apache.org/jira/browse/MAPREDUCE-5220) | Mapred API: TaskCompletionEvent incompatibility issues with MR1 |  Major | client | Sandy Ryza | Zhijie Shen |
+| [MAPREDUCE-5199](https://issues.apache.org/jira/browse/MAPREDUCE-5199) | AppTokens file can/should be removed |  Blocker | security | Vinod Kumar Vavilapalli | Daryn Sharp |
+| [MAPREDUCE-5184](https://issues.apache.org/jira/browse/MAPREDUCE-5184) | Document MR Binary Compatibility vis-a-vis hadoop-1 and hadoop-2 |  Major | documentation | Arun C Murthy | Zhijie Shen |
+| [MAPREDUCE-5159](https://issues.apache.org/jira/browse/MAPREDUCE-5159) | Aggregatewordcount and aggregatewordhist in hadoop-1 examples are not binary compatible with hadoop-2 mapred.lib.aggregate |  Major | . | Zhijie Shen | Zhijie Shen |
+| [MAPREDUCE-5157](https://issues.apache.org/jira/browse/MAPREDUCE-5157) | Sort in hadoop-1 examples is not binary compatible with hadoop-2 mapred.lib |  Major | . | Zhijie Shen | Zhijie Shen |
+| [MAPREDUCE-5086](https://issues.apache.org/jira/browse/MAPREDUCE-5086) | MR app master deletes staging dir when sent a reboot command from the RM |  Major | . | Jian He | Jian He |
+| [MAPREDUCE-4951](https://issues.apache.org/jira/browse/MAPREDUCE-4951) | Container preemption interpreted as task failure |  Major | applicationmaster, mr-am, mrv2 | Sandy Ryza | Sandy Ryza |
+
+
 ### OTHER:
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |

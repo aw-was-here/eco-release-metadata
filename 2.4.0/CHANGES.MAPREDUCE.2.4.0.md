@@ -61,6 +61,13 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 
 
+### SUB-TASKS:
+
+| JIRA | Description | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [MAPREDUCE-5787](https://issues.apache.org/jira/browse/MAPREDUCE-5787) | Modify ShuffleHandler to support Keep-Alive |  Critical | nodemanager | Rajesh Balamohan | Rajesh Balamohan |
+
+
 ### OTHER:
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |

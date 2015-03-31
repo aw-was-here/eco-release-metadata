@@ -253,6 +253,23 @@
 | [HADOOP-11060](https://issues.apache.org/jira/browse/HADOOP-11060) | Create a CryptoCodec test that verifies interoperability between the JCE and OpenSSL implementations |  Major | security | Alejandro Abdelnur | Yi Liu |
 
 
+### SUB-TASKS:
+
+| JIRA | Description | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [HADOOP-11074](https://issues.apache.org/jira/browse/HADOOP-11074) | Move s3-related FS connector code to hadoop-aws |  Major | fs/s3 | David S. Wang | David S. Wang |
+| [HADOOP-10933](https://issues.apache.org/jira/browse/HADOOP-10933) | FileBasedKeyStoresFactory Should use Configuration.getPassword for SSL Passwords |  Major | security | Larry McCay | Larry McCay |
+| [HADOOP-10905](https://issues.apache.org/jira/browse/HADOOP-10905) | LdapGroupsMapping Should use configuration.getPassword for SSL and LDAP Passwords |  Major | security | Larry McCay | Larry McCay |
+| [HADOOP-10886](https://issues.apache.org/jira/browse/HADOOP-10886) | CryptoCodec#getCodecclasses throws NPE when configurations not loaded. |  Major | fs | Uma Maheswara Rao G | Uma Maheswara Rao G |
+| [HADOOP-10884](https://issues.apache.org/jira/browse/HADOOP-10884) | Fix dead link in Configuration javadoc |  Minor | documentation | Akira AJISAKA | Akira AJISAKA |
+| [HADOOP-10868](https://issues.apache.org/jira/browse/HADOOP-10868) | Create a ZooKeeper-backed secret provider |  Major | security | Robert Kanter | Robert Kanter |
+| [HADOOP-10650](https://issues.apache.org/jira/browse/HADOOP-10650) | Add ability to specify a reverse ACL (black list) of users and groups |  Major | security | Benoy Antony | Benoy Antony |
+| [HADOOP-10635](https://issues.apache.org/jira/browse/HADOOP-10635) | Add a method to CryptoCodec to generate SRNs for IV |  Major | security | Alejandro Abdelnur | Yi Liu |
+| [HADOOP-10632](https://issues.apache.org/jira/browse/HADOOP-10632) | Minor improvements to Crypto input and output streams |  Major | security | Alejandro Abdelnur | Yi Liu |
+| [HADOOP-10281](https://issues.apache.org/jira/browse/HADOOP-10281) | Create a scheduler, which assigns schedulables a priority level |  Major | . | Chris Li | Chris Li |
+| [HADOOP-10201](https://issues.apache.org/jira/browse/HADOOP-10201) | Add Listing Support to Key Management APIs |  Major | security | Larry McCay | Larry McCay |
+
+
 ### OTHER:
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |

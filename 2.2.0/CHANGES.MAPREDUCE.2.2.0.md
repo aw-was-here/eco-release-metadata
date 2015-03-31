@@ -47,6 +47,19 @@
 | [MAPREDUCE-5525](https://issues.apache.org/jira/browse/MAPREDUCE-5525) | Increase timeout of TestDFSIO.testAppend and TestMRJobsWithHistoryService.testJobHistoryData |  Minor | mrv2, test | Chuan Liu | Chuan Liu |
 
 
+### SUB-TASKS:
+
+| JIRA | Description | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [MAPREDUCE-5562](https://issues.apache.org/jira/browse/MAPREDUCE-5562) | MR AM should exit when unregister() throws exception |  Major | . | Zhijie Shen | Zhijie Shen |
+| [MAPREDUCE-5551](https://issues.apache.org/jira/browse/MAPREDUCE-5551) | Binary Incompatibility of O.A.H.U.mapred.SequenceFileAsBinaryOutputFormat.WritableValueBytes |  Blocker | . | Zhijie Shen | Zhijie Shen |
+| [MAPREDUCE-5538](https://issues.apache.org/jira/browse/MAPREDUCE-5538) | MRAppMaster#shutDownJob shouldn't send job end notification before checking isLastRetry |  Blocker | . | Zhijie Shen | Zhijie Shen |
+| [MAPREDUCE-5531](https://issues.apache.org/jira/browse/MAPREDUCE-5531) | Binary and source incompatibility in mapreduce.TaskID and mapreduce.TaskAttemptID between branch-1 and branch-2 |  Blocker | mrv1, mrv2 | Robert Kanter | Robert Kanter |
+| [MAPREDUCE-5530](https://issues.apache.org/jira/browse/MAPREDUCE-5530) | Binary and source incompatibility in mapred.lib.CombineFileInputFormat between branch-1 and branch-2 |  Blocker | mrv1, mrv2 | Robert Kanter | Robert Kanter |
+| [MAPREDUCE-5529](https://issues.apache.org/jira/browse/MAPREDUCE-5529) | Binary incompatibilities in mapred.lib.TotalOrderPartitioner between branch-1 and branch-2 |  Blocker | mrv1, mrv2 | Robert Kanter | Robert Kanter |
+| [MAPREDUCE-5505](https://issues.apache.org/jira/browse/MAPREDUCE-5505) | Clients should be notified job finished only after job successfully unregistered |  Critical | . | Jian He | Zhijie Shen |
+
+
 ### OTHER:
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |

@@ -110,6 +110,42 @@
 | [YARN-1970](https://issues.apache.org/jira/browse/YARN-1970) | Prepare YARN codebase for JUnit 4.11. |  Minor | . | Chris Nauroth | Chris Nauroth |
 
 
+### SUB-TASKS:
+
+| JIRA | Description | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [YARN-2247](https://issues.apache.org/jira/browse/YARN-2247) | Allow RM web services users to authenticate using delegation tokens |  Blocker | . | Varun Vasudev | Varun Vasudev |
+| [YARN-2233](https://issues.apache.org/jira/browse/YARN-2233) | Implement web services to create, renew and cancel delegation tokens |  Blocker | resourcemanager | Varun Vasudev | Varun Vasudev |
+| [YARN-2152](https://issues.apache.org/jira/browse/YARN-2152) | Recover missing container information |  Major | resourcemanager | Jian He | Jian He |
+| [YARN-2121](https://issues.apache.org/jira/browse/YARN-2121) | TimelineAuthenticator#hasDelegationToken may throw NPE |  Major | . | Zhijie Shen | Zhijie Shen |
+| [YARN-2118](https://issues.apache.org/jira/browse/YARN-2118) | Type mismatch in contains() check of TimelineWebServices#injectOwnerInfo() |  Major | . | Ted Yu | Ted Yu |
+| [YARN-2117](https://issues.apache.org/jira/browse/YARN-2117) | Close of Reader in TimelineAuthenticationFilterInitializer#initFilter() should be enclosed in finally block |  Minor | . | Ted Yu | Chen He |
+| [YARN-2115](https://issues.apache.org/jira/browse/YARN-2115) | Replace RegisterNodeManagerRequest#ContainerStatus with a new NMContainerStatus |  Major | . | Jian He | Jian He |
+| [YARN-2074](https://issues.apache.org/jira/browse/YARN-2074) | Preemption of AM containers shouldn't count towards AM failures |  Major | resourcemanager | Vinod Kumar Vavilapalli | Jian He |
+| [YARN-2071](https://issues.apache.org/jira/browse/YARN-2071) | Enforce more restricted permissions for the directory of Leveldb store |  Major | . | Zhijie Shen | Zhijie Shen |
+| [YARN-2059](https://issues.apache.org/jira/browse/YARN-2059) | Extend access control for admin acls |  Major | . | Zhijie Shen | Zhijie Shen |
+| [YARN-2052](https://issues.apache.org/jira/browse/YARN-2052) | ContainerId creation after work preserving restart is broken |  Major | resourcemanager | Tsuyoshi Ozawa | Tsuyoshi Ozawa |
+| [YARN-2049](https://issues.apache.org/jira/browse/YARN-2049) | Delegation token stuff for the timeline sever |  Major | . | Zhijie Shen | Zhijie Shen |
+| [YARN-2022](https://issues.apache.org/jira/browse/YARN-2022) | Preempting an Application Master container can be kept as least priority when multiple applications are marked for preemption by ProportionalCapacityPreemptionPolicy |  Major | resourcemanager | Sunil G | Sunil G |
+| [YARN-2017](https://issues.apache.org/jira/browse/YARN-2017) | Merge some of the common lib code in schedulers |  Major | resourcemanager | Jian He | Jian He |
+| [YARN-1982](https://issues.apache.org/jira/browse/YARN-1982) | Rename the daemon name to timelineserver |  Major | . | Zhijie Shen | Zhijie Shen |
+| [YARN-1938](https://issues.apache.org/jira/browse/YARN-1938) | Kerberos authentication for the timeline server |  Major | . | Zhijie Shen | Zhijie Shen |
+| [YARN-1937](https://issues.apache.org/jira/browse/YARN-1937) | Add entity-level access control of the timeline data for owners only |  Major | . | Zhijie Shen | Zhijie Shen |
+| [YARN-1936](https://issues.apache.org/jira/browse/YARN-1936) | Secured timeline client |  Major | . | Zhijie Shen | Zhijie Shen |
+| [YARN-1877](https://issues.apache.org/jira/browse/YARN-1877) | Document yarn.resourcemanager.zk-auth and its scope |  Critical | resourcemanager | Karthik Kambatla | Robert Kanter |
+| [YARN-1757](https://issues.apache.org/jira/browse/YARN-1757) | NM Recovery. Auxiliary service support. |  Major | nodemanager | Jason Lowe | Jason Lowe |
+| [YARN-1713](https://issues.apache.org/jira/browse/YARN-1713) | Implement getnewapplication and submitapp as part of RM web service |  Blocker | . | Varun Vasudev | Varun Vasudev |
+| [YARN-1702](https://issues.apache.org/jira/browse/YARN-1702) | Expose kill app functionality as part of RM web services |  Major | . | Varun Vasudev | Varun Vasudev |
+| [YARN-1474](https://issues.apache.org/jira/browse/YARN-1474) | Make schedulers services |  Major | scheduler | Sandy Ryza | Tsuyoshi Ozawa |
+| [YARN-1408](https://issues.apache.org/jira/browse/YARN-1408) | Preemption caused Invalid State Event: ACQUIRED at KILLED and caused a task timeout for 30mins |  Major | resourcemanager | Sunil G | Sunil G |
+| [YARN-1368](https://issues.apache.org/jira/browse/YARN-1368) | Common work to re-populate containers’ state into scheduler |  Major | . | Bikas Saha | Jian He |
+| [YARN-1366](https://issues.apache.org/jira/browse/YARN-1366) | AM should implement Resync with the ApplicationMasterService instead of shutting down |  Major | resourcemanager | Bikas Saha | Rohith |
+| [YARN-1365](https://issues.apache.org/jira/browse/YARN-1365) | ApplicationMasterService to allow Register of an app that was running before restart |  Major | resourcemanager | Bikas Saha | Anubhav Dhoot |
+| [YARN-1362](https://issues.apache.org/jira/browse/YARN-1362) | Distinguish between nodemanager shutdown for decommission vs shutdown for restart |  Major | nodemanager | Jason Lowe | Jason Lowe |
+| [YARN-1339](https://issues.apache.org/jira/browse/YARN-1339) | Recover DeletionService state upon nodemanager restart |  Major | nodemanager | Jason Lowe | Jason Lowe |
+| [YARN-1338](https://issues.apache.org/jira/browse/YARN-1338) | Recover localized resource cache state upon nodemanager restart |  Major | nodemanager | Jason Lowe | Jason Lowe |
+
+
 ### OTHER:
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |

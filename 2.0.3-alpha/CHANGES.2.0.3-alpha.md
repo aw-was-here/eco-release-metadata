@@ -494,6 +494,66 @@
 | [MAPREDUCE-4803](https://issues.apache.org/jira/browse/MAPREDUCE-4803) | Duplicate copies of TestIndexCache.java |  Minor | test | Mariappan Asokan | Mariappan Asokan |
 
 
+### SUB-TASKS:
+
+| JIRA | Description | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [HADOOP-9035](https://issues.apache.org/jira/browse/HADOOP-9035) | Generalize setup of LoginContext |  Major | security | Daryn Sharp | Daryn Sharp |
+| [HADOOP-9021](https://issues.apache.org/jira/browse/HADOOP-9021) | Enforce configured SASL method on the server |  Major | ipc, security | Daryn Sharp | Daryn Sharp |
+| [HADOOP-9020](https://issues.apache.org/jira/browse/HADOOP-9020) | Add a SASL PLAIN server |  Major | ipc, security | Daryn Sharp | Daryn Sharp |
+| [HADOOP-9015](https://issues.apache.org/jira/browse/HADOOP-9015) | Standardize creation of SaslRpcServers |  Major | ipc | Daryn Sharp | Daryn Sharp |
+| [HADOOP-9014](https://issues.apache.org/jira/browse/HADOOP-9014) | Standardize creation of SaslRpcClients |  Major | ipc | Daryn Sharp | Daryn Sharp |
+| [HADOOP-9013](https://issues.apache.org/jira/browse/HADOOP-9013) | UGI should not hardcode loginUser's authenticationType |  Major | fs, security | Daryn Sharp | Daryn Sharp |
+| [HADOOP-9012](https://issues.apache.org/jira/browse/HADOOP-9012) | IPC Client sends wrong connection context |  Major | ipc | Daryn Sharp | Daryn Sharp |
+| [HADOOP-9010](https://issues.apache.org/jira/browse/HADOOP-9010) | Map UGI authenticationMethod to RPC authMethod |  Major | fs, security | Daryn Sharp | Daryn Sharp |
+| [HADOOP-9009](https://issues.apache.org/jira/browse/HADOOP-9009) | Add SecurityUtil methods to get/set authentication method |  Major | fs, security | Daryn Sharp | Daryn Sharp |
+| [HADOOP-8784](https://issues.apache.org/jira/browse/HADOOP-8784) | Improve IPC.Client's token use |  Major | ipc, security | Daryn Sharp | Daryn Sharp |
+| [HADOOP-8783](https://issues.apache.org/jira/browse/HADOOP-8783) | Improve RPC.Server's digest auth |  Major | ipc, security | Daryn Sharp | Daryn Sharp |
+| [HDFS-4445](https://issues.apache.org/jira/browse/HDFS-4445) | All BKJM ledgers are not checked while tailing, So failover will fail. |  Blocker | . | Vinayakumar B | Vinayakumar B |
+| [HDFS-4248](https://issues.apache.org/jira/browse/HDFS-4248) | Renames may remove file leases |  Blocker | namenode | Daryn Sharp | Daryn Sharp |
+| [HDFS-4247](https://issues.apache.org/jira/browse/HDFS-4247) | saveNamespace should be tolerant of dangling lease |  Blocker | namenode | Daryn Sharp | Daryn Sharp |
+| [HDFS-4130](https://issues.apache.org/jira/browse/HDFS-4130) | BKJM: The reading for editlog at NN starting using bkjm  is not efficient |  Major | ha, performance | Han Xiao | Han Xiao |
+| [HDFS-4100](https://issues.apache.org/jira/browse/HDFS-4100) | Fix all findbug security warings |  Major | datanode, journal-node, security | Liang Xie | Liang Xie |
+| [HDFS-4059](https://issues.apache.org/jira/browse/HDFS-4059) | Add number of stale DataNodes to metrics |  Minor | datanode, namenode | Jing Zhao | Jing Zhao |
+| [HDFS-4038](https://issues.apache.org/jira/browse/HDFS-4038) | Override toString() for BookKeeperEditLogInputStream |  Minor | ha | Vinayakumar B | Vinayakumar B |
+| [HDFS-4035](https://issues.apache.org/jira/browse/HDFS-4035) | LightWeightGSet and LightWeightHashSet increment a volatile without synchronization |  Major | . | Eli Collins | Eli Collins |
+| [HDFS-4034](https://issues.apache.org/jira/browse/HDFS-4034) | Remove redundant null checks |  Major | . | Eli Collins | Eli Collins |
+| [HDFS-4033](https://issues.apache.org/jira/browse/HDFS-4033) | Miscellaneous findbugs 2 fixes |  Major | . | Eli Collins | Eli Collins |
+| [HDFS-4032](https://issues.apache.org/jira/browse/HDFS-4032) | Specify the charset explicitly rather than rely on the default |  Major | . | Eli Collins | Eli Collins |
+| [HDFS-4031](https://issues.apache.org/jira/browse/HDFS-4031) | Update findbugsExcludeFile.xml to include findbugs 2 exclusions |  Major | namenode | Eli Collins | Eli Collins |
+| [HDFS-4030](https://issues.apache.org/jira/browse/HDFS-4030) | BlockManager excessBlocksCount and postponedMisreplicatedBlocksCount should be AtomicLongs |  Major | namenode | Eli Collins | Eli Collins |
+| [HDFS-4029](https://issues.apache.org/jira/browse/HDFS-4029) | GenerationStamp should use an AtomicLong |  Major | namenode | Eli Collins | Eli Collins |
+| [HDFS-3935](https://issues.apache.org/jira/browse/HDFS-3935) | QJM: Add JournalNode to the start / stop scripts |  Major | . | Eli Collins | Andy Isaacson |
+| [HDFS-3923](https://issues.apache.org/jira/browse/HDFS-3923) | libwebhdfs testing code cleanup |  Major | . | Jing Zhao | Jing Zhao |
+| [HDFS-3920](https://issues.apache.org/jira/browse/HDFS-3920) | libwebdhfs code cleanup: string processing and using strerror consistently to handle all errors |  Major | . | Jing Zhao | Jing Zhao |
+| [HDFS-3912](https://issues.apache.org/jira/browse/HDFS-3912) | Detecting and avoiding stale datanodes for writing |  Major | . | Jing Zhao | Jing Zhao |
+| [HDFS-3810](https://issues.apache.org/jira/browse/HDFS-3810) | Implement format() for BKJM |  Major | . | Ivan Kelly | Ivan Kelly |
+| [HDFS-3809](https://issues.apache.org/jira/browse/HDFS-3809) | Make BKJM use protobufs for all serialization with ZK |  Major | namenode | Ivan Kelly | Ivan Kelly |
+| [HDFS-3789](https://issues.apache.org/jira/browse/HDFS-3789) | JournalManager#format() should be able to throw IOException |  Major | ha, namenode | Ivan Kelly | Ivan Kelly |
+| [HDFS-3695](https://issues.apache.org/jira/browse/HDFS-3695) | Genericize format() to non-file JournalManagers |  Major | ha, namenode | Todd Lipcon | Todd Lipcon |
+| [HDFS-3623](https://issues.apache.org/jira/browse/HDFS-3623) | BKJM: zkLatchWaitTimeout hard coded to 6000. Make use of ZKSessionTimeout instead. |  Major | namenode | Uma Maheswara Rao G | Uma Maheswara Rao G |
+| [HDFS-3573](https://issues.apache.org/jira/browse/HDFS-3573) | Supply NamespaceInfo when instantiating JournalManagers |  Minor | namenode | Todd Lipcon | Todd Lipcon |
+| [HDFS-3571](https://issues.apache.org/jira/browse/HDFS-3571) | Allow EditLogFileInputStream to read from a remote URL |  Major | ha, namenode | Todd Lipcon | Todd Lipcon |
+| [HDFS-2908](https://issues.apache.org/jira/browse/HDFS-2908) | Add apache license header for StorageReport.java |  Minor | . | Suresh Srinivas | Brandon Li |
+| [MAPREDUCE-4809](https://issues.apache.org/jira/browse/MAPREDUCE-4809) | Change visibility of classes for pluggable sort changes |  Major | . | Arun C Murthy | Mariappan Asokan |
+| [MAPREDUCE-4807](https://issues.apache.org/jira/browse/MAPREDUCE-4807) | Allow MapOutputBuffer to be pluggable |  Major | . | Arun C Murthy | Mariappan Asokan |
+| [MAPREDUCE-4049](https://issues.apache.org/jira/browse/MAPREDUCE-4049) | plugin for generic shuffle service |  Major | performance, task, tasktracker | Avner BenHanoch | Avner BenHanoch |
+| [YARN-280](https://issues.apache.org/jira/browse/YARN-280) | RM does not reject app submission with invalid tokens |  Major | resourcemanager | Daryn Sharp | Daryn Sharp |
+| [YARN-231](https://issues.apache.org/jira/browse/YARN-231) | Add FS-based persistent store implementation for RMStateStore |  Major | resourcemanager | Bikas Saha | Bikas Saha |
+| [YARN-230](https://issues.apache.org/jira/browse/YARN-230) | Make changes for RM restart phase 1 |  Major | resourcemanager | Bikas Saha | Bikas Saha |
+| [YARN-229](https://issues.apache.org/jira/browse/YARN-229) | Remove old code for restart |  Major | resourcemanager | Bikas Saha | Bikas Saha |
+| [YARN-219](https://issues.apache.org/jira/browse/YARN-219) | NM should aggregate logs when application finishes. |  Critical | nodemanager | Robert Joseph Evans | Robert Joseph Evans |
+| [YARN-204](https://issues.apache.org/jira/browse/YARN-204) | test coverage for org.apache.hadoop.tools |  Major | applications | Aleksey Gorshkov | Aleksey Gorshkov |
+| [YARN-202](https://issues.apache.org/jira/browse/YARN-202) | Log Aggregation generates a storm of fsync() for namenode |  Critical | . | Kihwal Lee | Kihwal Lee |
+| [YARN-188](https://issues.apache.org/jira/browse/YARN-188) | Coverage fixing for CapacityScheduler |  Major | capacityscheduler | Aleksey Gorshkov | Aleksey Gorshkov |
+| [YARN-186](https://issues.apache.org/jira/browse/YARN-186) | Coverage fixing LinuxContainerExecutor |  Major | resourcemanager, scheduler | Aleksey Gorshkov | Aleksey Gorshkov |
+| [YARN-135](https://issues.apache.org/jira/browse/YARN-135) | ClientTokens should be per app-attempt and be unregistered on App-finish. |  Major | resourcemanager | Vinod Kumar Vavilapalli | Vinod Kumar Vavilapalli |
+| [YARN-134](https://issues.apache.org/jira/browse/YARN-134) | ClientToAMSecretManager creates keys without checking for validity of the appID |  Major | . | Vinod Kumar Vavilapalli | Vinod Kumar Vavilapalli |
+| [YARN-103](https://issues.apache.org/jira/browse/YARN-103) | Add a yarn AM - RM client module |  Major | . | Bikas Saha | Bikas Saha |
+| [YARN-50](https://issues.apache.org/jira/browse/YARN-50) | Implement renewal / cancellation of Delegation Tokens |  Blocker | . | Siddharth Seth | Siddharth Seth |
+| [YARN-3](https://issues.apache.org/jira/browse/YARN-3) | Add support for CPU isolation/monitoring of containers |  Major | . | Arun C Murthy | Andrew Ferguson |
+
+
 ### OTHER:
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |

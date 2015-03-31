@@ -48,6 +48,7 @@
 | [MAPREDUCE-6093](https://issues.apache.org/jira/browse/MAPREDUCE-6093) | minor distcp doc edits |  Trivial | distcp, documentation | Charles Lamb | Charles Lamb |
 | [MAPREDUCE-6091](https://issues.apache.org/jira/browse/MAPREDUCE-6091) | YARNRunner.getJobStatus() fails with ApplicationNotFoundException if the job rolled off the RM view |  Major | client | Sangjin Lee | Sangjin Lee |
 | [MAPREDUCE-6090](https://issues.apache.org/jira/browse/MAPREDUCE-6090) | mapred hsadmin getGroups fails to connect in some cases |  Major | client | Robert Kanter | Robert Kanter |
+| [MAPREDUCE-6087](https://issues.apache.org/jira/browse/MAPREDUCE-6087) | MRJobConfig#MR\_CLIENT\_TO\_AM\_IPC\_MAX\_RETRIES\_ON\_TIMEOUTS config name is wrong |  Major | . | Jian He | Akira AJISAKA |
 | [MAPREDUCE-6075](https://issues.apache.org/jira/browse/MAPREDUCE-6075) | HistoryServerFileSystemStateStore can create zero-length files |  Major | jobhistoryserver | Jason Lowe | Jason Lowe |
 | [MAPREDUCE-6073](https://issues.apache.org/jira/browse/MAPREDUCE-6073) | Description of mapreduce.job.speculative.slowtaskthreshold in mapred-default should be moved into description tags |  Trivial | documentation | Tsuyoshi Ozawa | Tsuyoshi Ozawa |
 | [MAPREDUCE-6063](https://issues.apache.org/jira/browse/MAPREDUCE-6063) | In sortAndSpill of MapTask.java, size is calculated wrongly when bufend \< bufstart. |  Major | mrv1, mrv2 | zhihai xu | zhihai xu |
@@ -90,6 +91,21 @@
 | [MAPREDUCE-6115](https://issues.apache.org/jira/browse/MAPREDUCE-6115) | TestPipeApplication#testSubmitter fails in trunk |  Minor | . | Ted Yu | Binglin Chang |
 | [MAPREDUCE-6048](https://issues.apache.org/jira/browse/MAPREDUCE-6048) | TestJavaSerialization fails in trunk build |  Minor | . | Ted Yu | Varun Vasudev |
 | [MAPREDUCE-5866](https://issues.apache.org/jira/browse/MAPREDUCE-5866) | TestFixedLengthInputFormat fails in windows |  Major | client, test | Varun Vasudev | Varun Vasudev |
+
+
+### SUB-TASKS:
+
+| JIRA | Description | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [MAPREDUCE-6142](https://issues.apache.org/jira/browse/MAPREDUCE-6142) | Test failure in TestJobHistoryEventHandler and TestMRTimelineEventHandling |  Critical | . | Zhijie Shen | Zhijie Shen |
+| [MAPREDUCE-6018](https://issues.apache.org/jira/browse/MAPREDUCE-6018) | Create a framework specific config to enable timeline server |  Major | . | Jonathan Eagles | Robert Kanter |
+| [MAPREDUCE-5974](https://issues.apache.org/jira/browse/MAPREDUCE-5974) | Allow specifying multiple MapOutputCollectors with fallback |  Major | task | Todd Lipcon | Todd Lipcon |
+| [MAPREDUCE-5963](https://issues.apache.org/jira/browse/MAPREDUCE-5963) | ShuffleHandler DB schema should be versioned with compatible/incompatible changes |  Major | . | Junping Du | Junping Du |
+| [MAPREDUCE-5956](https://issues.apache.org/jira/browse/MAPREDUCE-5956) | MapReduce AM should not use maxAttempts to determine if this is the last retry |  Blocker | applicationmaster, mrv2 | Vinod Kumar Vavilapalli | Wangda Tan |
+| [MAPREDUCE-5945](https://issues.apache.org/jira/browse/MAPREDUCE-5945) | Update the description of GenericOptionsParser -jt option |  Minor | documentation | Akira AJISAKA | Akira AJISAKA |
+| [MAPREDUCE-5942](https://issues.apache.org/jira/browse/MAPREDUCE-5942) | Remove MRv1 commands from CommandsManual.apt.vm |  Minor | documentation | Akira AJISAKA | Akira AJISAKA |
+| [MAPREDUCE-5933](https://issues.apache.org/jira/browse/MAPREDUCE-5933) | Enable MR AM to post history events to the timeline server |  Major | mr-am | Zhijie Shen | Robert Kanter |
+| [MAPREDUCE-5891](https://issues.apache.org/jira/browse/MAPREDUCE-5891) | Improved shuffle error handling across NM restarts |  Major | . | Jason Lowe | Junping Du |
 
 
 ### OTHER:
