@@ -50,11 +50,13 @@
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [MAPREDUCE-6295](https://issues.apache.org/jira/browse/MAPREDUCE-6295) | Fix MR resource counter to handle negative value for getting memory resource after YARN-3304 |  Critical | . | Junping Du | Junping Du |
 | [MAPREDUCE-6286](https://issues.apache.org/jira/browse/MAPREDUCE-6286) | A typo in HistoryViewer makes some code useless, which causes counter limits are not reset correctly. |  Major | client | zhihai xu | zhihai xu |
 | [MAPREDUCE-6285](https://issues.apache.org/jira/browse/MAPREDUCE-6285) | ClientServiceDelegate should not retry upon AuthenticationException |  Major | . | Jonathan Eagles | Jonathan Eagles |
 | [MAPREDUCE-6277](https://issues.apache.org/jira/browse/MAPREDUCE-6277) | Job can post multiple history files if attempt loses connection to the RM |  Major | mr-am | Chang Li | Chang Li |
 | [MAPREDUCE-6275](https://issues.apache.org/jira/browse/MAPREDUCE-6275) | Race condition in FileOutputCommitter v2 for user-specified task output subdirs |  Critical | . | Siqi Li | Gera Shegalov |
 | [MAPREDUCE-6268](https://issues.apache.org/jira/browse/MAPREDUCE-6268) | Fix typo in Task Attempt API's URL |  Minor | . | Ryu Kobayashi | Ryu Kobayashi |
+| [MAPREDUCE-6263](https://issues.apache.org/jira/browse/MAPREDUCE-6263) | Configurable timeout between YARNRunner terminate the application and forcefully kill. |  Major | client | Jason Lowe | Eric Payne |
 | [MAPREDUCE-6261](https://issues.apache.org/jira/browse/MAPREDUCE-6261) | NullPointerException if MapOutputBuffer.flush invoked twice |  Major | mrv2 | Jason Lowe | Tsuyoshi Ozawa |
 | [MAPREDUCE-6243](https://issues.apache.org/jira/browse/MAPREDUCE-6243) | Fix findbugs warnings in hadoop-rumen |  Minor | tools/rumen | Akira AJISAKA | Masatake Iwasaki |
 | [MAPREDUCE-6233](https://issues.apache.org/jira/browse/MAPREDUCE-6233) | org.apache.hadoop.mapreduce.TestLargeSort.testLargeSort failed in trunk |  Major | test | Yongjun Zhang | zhihai xu |

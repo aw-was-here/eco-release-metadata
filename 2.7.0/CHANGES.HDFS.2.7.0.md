@@ -178,6 +178,7 @@
 | [HDFS-7756](https://issues.apache.org/jira/browse/HDFS-7756) | Restore method signature for LocatedBlock#getLocations() |  Major | . | Ted Yu | Ted Yu |
 | [HDFS-7753](https://issues.apache.org/jira/browse/HDFS-7753) | Fix Multithreaded correctness Warnings in BackupImage.java |  Major | . | Rakesh R | Konstantin Shvachko |
 | [HDFS-7744](https://issues.apache.org/jira/browse/HDFS-7744) | Fix potential NPE in DFSInputStream after setDropBehind or setReadahead is called |  Major | dfsclient | Colin Patrick McCabe | Colin Patrick McCabe |
+| [HDFS-7742](https://issues.apache.org/jira/browse/HDFS-7742) | favoring decommissioning node for replication can cause a block to stay underreplicated for long periods |  Major | namenode | Nathan Roberts | Nathan Roberts |
 | [HDFS-7741](https://issues.apache.org/jira/browse/HDFS-7741) | Remove unnecessary synchronized in FSDataInputStream and HdfsDataInputStream |  Minor | . | Yi Liu | Yi Liu |
 | [HDFS-7734](https://issues.apache.org/jira/browse/HDFS-7734) | Class cast exception in NameNode#main |  Blocker | namenode | Arpit Agarwal | Yi Liu |
 | [HDFS-7722](https://issues.apache.org/jira/browse/HDFS-7722) | DataNode#checkDiskError should also remove Storage when error is found. |  Major | datanode | Lei (Eddy) Xu | Lei (Eddy) Xu |

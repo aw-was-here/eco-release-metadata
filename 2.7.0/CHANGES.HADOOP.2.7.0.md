@@ -34,6 +34,7 @@
 | [HADOOP-11658](https://issues.apache.org/jira/browse/HADOOP-11658) | Externalize io.compression.codecs property |  Minor | . | Kai Zheng | Kai Zheng |
 | [HADOOP-11648](https://issues.apache.org/jira/browse/HADOOP-11648) | Set DomainSocketWatcher thread name explicitly |  Major | net | Liang Xie | Liang Xie |
 | [HADOOP-11642](https://issues.apache.org/jira/browse/HADOOP-11642) | Upgrade azure sdk version from 0.6.0 to 2.0.0 |  Major | tools | shashank | shashank |
+| [HADOOP-11633](https://issues.apache.org/jira/browse/HADOOP-11633) | Convert remaining branch-2 .apt.vm files to markdown |  Major | documentation | Colin Patrick McCabe | Masatake Iwasaki |
 | [HADOOP-11632](https://issues.apache.org/jira/browse/HADOOP-11632) | Cleanup Find.java to remove SupressWarnings annotations |  Minor | . | Akira AJISAKA | Akira AJISAKA |
 | [HADOOP-11620](https://issues.apache.org/jira/browse/HADOOP-11620) | Add support for load balancing across a group of KMS for HA |  Major | kms | Arun Suresh | Arun Suresh |
 | [HADOOP-11607](https://issues.apache.org/jira/browse/HADOOP-11607) | Reduce log spew in S3AFileSystem |  Trivial | fs/s3 | Lei (Eddy) Xu | Lei (Eddy) Xu |
@@ -100,6 +101,8 @@
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HADOOP-11761](https://issues.apache.org/jira/browse/HADOOP-11761) | Fix findbugs warnings in org.apache.hadoop.security.authentication |  Minor | . | Li Lu | Li Lu |
+| [HADOOP-11754](https://issues.apache.org/jira/browse/HADOOP-11754) | RM fails to start in non-secure mode due to authentication filter failure |  Blocker | . | Sangjin Lee | Haohui Mai |
 | [HADOOP-11748](https://issues.apache.org/jira/browse/HADOOP-11748) | The secrets of auth cookies should not be specified in configuration in clear text |  Critical | . | Haohui Mai | Li Lu |
 | [HADOOP-11738](https://issues.apache.org/jira/browse/HADOOP-11738) | Fix a link of Protocol Buffers 2.5 for download in BUILDING.txt |  Major | . | Tsuyoshi Ozawa | Tsuyoshi Ozawa |
 | [HADOOP-11729](https://issues.apache.org/jira/browse/HADOOP-11729) | Fix link to cgroups doc in site.xml |  Minor | documentation | Masatake Iwasaki | Masatake Iwasaki |
@@ -149,6 +152,7 @@
 | [HADOOP-11467](https://issues.apache.org/jira/browse/HADOOP-11467) | KerberosAuthenticator can connect to a non-secure cluster |  Critical | security | Robert Kanter | Yongjun Zhang |
 | [HADOOP-11462](https://issues.apache.org/jira/browse/HADOOP-11462) | TestSocketIOWithTimeout needs change for PowerPC platform |  Major | test | Ayappan | Ayappan |
 | [HADOOP-11459](https://issues.apache.org/jira/browse/HADOOP-11459) | Fix recent findbugs in ActiveStandbyElector, NetUtils and ShellBasedIdMapping |  Minor | . | Vinayakumar B | Vinayakumar B |
+| [HADOOP-11450](https://issues.apache.org/jira/browse/HADOOP-11450) | Cleanup DistCpV1 not to use deprecated methods and fix javadocs |  Minor | tools/distcp | Tsuyoshi Ozawa | Varun Saxena |
 | [HADOOP-11449](https://issues.apache.org/jira/browse/HADOOP-11449) | [JDK8] Cannot build on Windows: error: unexpected end tag: \</ul\> |  Major | build | Alec Taylor | Chris Nauroth |
 | [HADOOP-11446](https://issues.apache.org/jira/browse/HADOOP-11446) | S3AOutputStream should use shared thread pool to avoid OutOfMemoryError |  Major | fs/s3 | Ted Yu | Ted Yu |
 | [HADOOP-11445](https://issues.apache.org/jira/browse/HADOOP-11445) | Bzip2Codec: Data block is skipped when position of newly created stream is equal to start of split |  Critical | . | Ankit Kamboj | Ankit Kamboj |
@@ -202,6 +206,7 @@
 | [HADOOP-11256](https://issues.apache.org/jira/browse/HADOOP-11256) | Some site docs have inconsistent appearance |  Minor | documentation | Masatake Iwasaki | Masatake Iwasaki |
 | [HADOOP-11248](https://issues.apache.org/jira/browse/HADOOP-11248) | Add hadoop configuration to disable Azure Filesystem metrics collection |  Major | fs | shanyu zhao | shanyu zhao |
 | [HADOOP-11246](https://issues.apache.org/jira/browse/HADOOP-11246) | Move jenkins to Java 7 |  Major | . | Haohui Mai | Steve Loughran |
+| [HADOOP-11238](https://issues.apache.org/jira/browse/HADOOP-11238) | Update the NameNode's Group Cache in the background when possible |  Minor | . | Chris Li | Chris Li |
 | [HADOOP-11236](https://issues.apache.org/jira/browse/HADOOP-11236) | NFS: Fix javadoc warning in RpcProgram.java |  Trivial | documentation | Abhiraj Butala | Abhiraj Butala |
 | [HADOOP-11230](https://issues.apache.org/jira/browse/HADOOP-11230) | Add missing dependency of bouncycastle for kms, httpfs, hdfs, MR and YARN |  Major | test | Robert Kanter | Robert Kanter |
 | [HADOOP-11213](https://issues.apache.org/jira/browse/HADOOP-11213) | Typos in html pages: SecureMode and EncryptedShuffle |  Minor | . | Wei Yan | Wei Yan |
@@ -226,6 +231,7 @@
 | [HADOOP-10703](https://issues.apache.org/jira/browse/HADOOP-10703) | HttpServer2 creates multiple authentication filters |  Major | security | Benoy Antony | Benoy Antony |
 | [HADOOP-10690](https://issues.apache.org/jira/browse/HADOOP-10690) | Lack of synchronization on access to InputStream in NativeAzureFileSystem#NativeAzureFsInputStream#close() |  Minor | tools | Ted Yu | Chen He |
 | [HADOOP-10689](https://issues.apache.org/jira/browse/HADOOP-10689) | InputStream is not closed in AzureNativeFileSystemStore#retrieve() |  Minor | tools | Ted Yu | Chen He |
+| [HADOOP-10542](https://issues.apache.org/jira/browse/HADOOP-10542) | Potential null pointer dereference in Jets3tFileSystemStore#retrieveBlock() |  Minor | fs/s3 | Ted Yu | Ted Yu |
 | [HADOOP-10181](https://issues.apache.org/jira/browse/HADOOP-10181) | GangliaContext does not work with multicast ganglia setup |  Minor | metrics | Andrew Otto | Andrew Johnson |
 | [HADOOP-10134](https://issues.apache.org/jira/browse/HADOOP-10134) | [JDK8] Fix Javadoc errors caused by incorrect or illegal tags in doc comments |  Minor | . | Andrew Purtell | Andrew Purtell |
 | [HADOOP-10062](https://issues.apache.org/jira/browse/HADOOP-10062) | race condition in MetricsSystemImpl#publishMetricsNow that causes incorrect results |  Major | metrics | Shinichi Yamashita | Sangjin Lee |
@@ -241,6 +247,7 @@
 
 | JIRA | Description | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HADOOP-11535](https://issues.apache.org/jira/browse/HADOOP-11535) | TableMapping related tests failed due to 'successful' resolving of invalid test hostname |  Minor | . | Kai Zheng | Kai Zheng |
 | [HADOOP-11432](https://issues.apache.org/jira/browse/HADOOP-11432) | Fix SymlinkBaseTest#testCreateLinkUsingPartQualPath2 |  Major | fs | Liang Xie | Liang Xie |
 | [HADOOP-11358](https://issues.apache.org/jira/browse/HADOOP-11358) | Tests for encryption/decryption with IV calculation overflow |  Major | security, test | Yi Liu | Yi Liu |
 | [HADOOP-11165](https://issues.apache.org/jira/browse/HADOOP-11165) | TestUTF8 fails when run against java 8 |  Minor | test | Ted Yu | Stephen Chu |

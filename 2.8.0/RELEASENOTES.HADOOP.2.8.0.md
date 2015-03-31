@@ -5,6 +5,13 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [HADOOP-11660](https://issues.apache.org/jira/browse/HADOOP-11660) | *Minor* | **Add support for hardware crc of HDFS checksums on ARM aarch64 architecture**
+
+Add support for aarch64 CRC instructions
+
+
+---
+
 * [HADOOP-11226](https://issues.apache.org/jira/browse/HADOOP-11226) | *Major* | **Add a configuration to set ipc.Client's traffic class with IPTOS\_LOWDELAY\|IPTOS\_RELIABILITY**
 
 Use low latency TCP connections for hadoop IPC

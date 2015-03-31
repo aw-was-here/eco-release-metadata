@@ -32,6 +32,6 @@ relnotes 2.7.0
 #relnotes 2.0.0-alpha
 
 d=$(date -u "+%Y-%m-%d %H:%m")
-git commit -m "${d} UTC auto-commit"
+git commit -a -m "${d} UTC auto-commit"
 
 PATH=${OPATH}
