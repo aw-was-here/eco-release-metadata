@@ -2,7 +2,7 @@
 
 new=$1
 
-src=${HOME}/Src/aw-github/hadoop/dev-support
+src=${HOME}/Src/apache-git/hadoop/dev-support
 hrmd=${HOME}/Src/aw-github/hadoop-release-metadata
 
 if [[ ! -e "${src}/releasedocmaker.py" ]]; then
