@@ -5,6 +5,13 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [HDFS-8001](https://issues.apache.org/jira/browse/HDFS-8001) | *Trivial* | **RpcProgramNfs3 : wrong parsing of dfs.blocksize**
+
+patch is fully backward compatible.
+
+
+---
+
 * [HDFS-7806](https://issues.apache.org/jira/browse/HDFS-7806) | *Minor* | **Refactor: move StorageType from hadoop-hdfs to hadoop-common**
 
 This fix moves the public class StorageType from the package org.apache.hadoop.hdfs to org.apache.hadoop.fs.
