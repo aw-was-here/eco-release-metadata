@@ -593,6 +593,7 @@
 | [HDFS-2605](https://issues.apache.org/jira/browse/HDFS-2605) | CHANGES.txt has two "Release 0.21.1" sections |  Major | documentation | Konstantin Shvachko | Allen Wittenauer |
 | [HDFS-1522](https://issues.apache.org/jira/browse/HDFS-1522) | Merge Block.BLOCK\_FILE\_PREFIX and DataStorage.BLOCK\_FILE\_PREFIX into one constant |  Major | datanode | Konstantin Shvachko | Dongming Liang |
 | [HDFS-49](https://issues.apache.org/jira/browse/HDFS-49) | MiniDFSCluster.stopDataNode will always shut down a node in the cluster if a matching name is not found |  Minor | test | Steve Loughran | Steve Loughran |
+| [MAPREDUCE-6303](https://issues.apache.org/jira/browse/MAPREDUCE-6303) | Read timeout when retrying a fetch error can be fatal to a reducer |  Blocker | . | Jason Lowe | Jason Lowe |
 | [MAPREDUCE-6285](https://issues.apache.org/jira/browse/MAPREDUCE-6285) | ClientServiceDelegate should not retry upon AuthenticationException |  Major | . | Jonathan Eagles | Jonathan Eagles |
 | [MAPREDUCE-6277](https://issues.apache.org/jira/browse/MAPREDUCE-6277) | Job can post multiple history files if attempt loses connection to the RM |  Major | mr-am | Chang Li | Chang Li |
 | [MAPREDUCE-6275](https://issues.apache.org/jira/browse/MAPREDUCE-6275) | Race condition in FileOutputCommitter v2 for user-specified task output subdirs |  Critical | . | Siqi Li | Gera Shegalov |
@@ -796,6 +797,7 @@
 | [HADOOP-10482](https://issues.apache.org/jira/browse/HADOOP-10482) | Fix various findbugs warnings in hadoop-common |  Major | . | Haohui Mai | Haohui Mai |
 | [HADOOP-10478](https://issues.apache.org/jira/browse/HADOOP-10478) | Fix new findbugs warnings in hadoop-maven-plugins |  Major | . | Haohui Mai | Li Lu |
 | [HADOOP-10476](https://issues.apache.org/jira/browse/HADOOP-10476) | Bumping the findbugs version to 3.0.0 |  Major | build | Haohui Mai | Haohui Mai |
+| [HDFS-7954](https://issues.apache.org/jira/browse/HDFS-7954) | TestBalancer#testBalancerWithPinnedBlocks failed on Windows |  Minor | test | Xiaoyu Yao | Xiaoyu Yao |
 | [HDFS-7951](https://issues.apache.org/jira/browse/HDFS-7951) | Fix NPE for TestFsDatasetImpl#testAddVolumeFailureReleasesInUseLock on Linux |  Major | test | Xiaoyu Yao | Xiaoyu Yao |
 | [HDFS-7950](https://issues.apache.org/jira/browse/HDFS-7950) | Fix TestFsDatasetImpl#testAddVolumes failure on Windows |  Major | test | Xiaoyu Yao | Xiaoyu Yao |
 | [HDFS-7948](https://issues.apache.org/jira/browse/HDFS-7948) | TestDataNodeHotSwapVolumes#testAddVolumeFailures failed on Windows |  Major | test | Xiaoyu Yao | Xiaoyu Yao |

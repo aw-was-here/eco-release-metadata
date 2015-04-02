@@ -4,26 +4,26 @@
 
 ### INCOMPATIBLE CHANGES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### NEW FEATURES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### IMPROVEMENTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YARN-1892](https://issues.apache.org/jira/browse/YARN-1892) | Excessive logging in RM |  Minor | scheduler | Siddharth Seth | Jian He |
 
 
 ### BUG FIXES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YARN-2081](https://issues.apache.org/jira/browse/YARN-2081) | TestDistributedShell fails after YARN-1962 |  Minor | applications/distributed-shell | Hong Zhiguo | Hong Zhiguo |
 | [YARN-2066](https://issues.apache.org/jira/browse/YARN-2066) | Wrong field is referenced in GetApplicationsRequestPBImpl#mergeLocalToBuilder() |  Minor | . | Ted Yu | Hong Zhiguo |
@@ -52,7 +52,7 @@
 
 ### TESTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YARN-1947](https://issues.apache.org/jira/browse/YARN-1947) | TestRMDelegationTokens#testRMDTMasterKeyStateOnRollingMasterKey is failing intermittently |  Major | . | Jian He | Jian He |
 | [YARN-1905](https://issues.apache.org/jira/browse/YARN-1905) | TestProcfsBasedProcessTree must only run on Linux. |  Trivial | nodemanager | Chris Nauroth | Chris Nauroth |
@@ -62,7 +62,7 @@
 
 ### SUB-TASKS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YARN-2053](https://issues.apache.org/jira/browse/YARN-2053) | Slider AM fails to restart: NPE in RegisterApplicationMasterResponseProto$Builder.addAllNmTokensFromPreviousAttempts |  Major | resourcemanager | Sumit Mohanty | Wangda Tan |
 | [YARN-1962](https://issues.apache.org/jira/browse/YARN-1962) | Timeline server is enabled by default |  Major | . | Mohammad Kamrul Islam | Mohammad Kamrul Islam |
@@ -75,7 +75,7 @@
 
 ### OTHER:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 
 

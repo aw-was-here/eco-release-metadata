@@ -4,7 +4,7 @@
 
 ### INCOMPATIBLE CHANGES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YARN-1170](https://issues.apache.org/jira/browse/YARN-1170) | yarn proto definitions should specify package as 'hadoop.yarn' |  Blocker | . | Arun C Murthy | Binglin Chang |
 | [YARN-707](https://issues.apache.org/jira/browse/YARN-707) | Add user info in the YARN ClientToken |  Blocker | . | Bikas Saha | Jason Lowe |
@@ -12,13 +12,13 @@
 
 ### NEW FEATURES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### IMPROVEMENTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YARN-1137](https://issues.apache.org/jira/browse/YARN-1137) | Add support whitelist for system users to Yarn container-executor.c |  Major | nodemanager | Alejandro Abdelnur | Roman Shaposhnik |
 | [YARN-1117](https://issues.apache.org/jira/browse/YARN-1117) | Improve help message for $ yarn applications and $yarn node |  Major | client | Tassapol Athiapinya | Xuan Gong |
@@ -33,7 +33,7 @@
 
 ### BUG FIXES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YARN-1194](https://issues.apache.org/jira/browse/YARN-1194) | TestContainerLogsPage fails with native builds |  Minor | nodemanager | Roman Shaposhnik | Roman Shaposhnik |
 | [YARN-1189](https://issues.apache.org/jira/browse/YARN-1189) | NMTokenSecretManagerInNM is not being told when applications have finished |  Blocker | . | Jason Lowe | Omkar Vinit Joshi |
@@ -69,13 +69,13 @@
 
 ### TESTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### SUB-TASKS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YARN-1184](https://issues.apache.org/jira/browse/YARN-1184) | ClassCastException is thrown during preemption When a huge job is submitted to a queue B whose resources is used by a job in queueA |  Major | capacityscheduler, resourcemanager | J.Andreina | Chris Douglas |
 | [YARN-1116](https://issues.apache.org/jira/browse/YARN-1116) | Populate AMRMTokens back to AMRMTokenSecretManager after RM restarts |  Major | resourcemanager | Jian He | Jian He |
@@ -91,7 +91,7 @@
 
 ### OTHER:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YARN-1034](https://issues.apache.org/jira/browse/YARN-1034) | Remove "experimental" in the Fair Scheduler documentation |  Trivial | documentation, scheduler | Sandy Ryza | Karthik Kambatla |
 | [YARN-1001](https://issues.apache.org/jira/browse/YARN-1001) | YARN should provide per application-type and state statistics |  Blocker | api | Srimanth Gunturi | Zhijie Shen |

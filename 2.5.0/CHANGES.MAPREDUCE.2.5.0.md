@@ -4,19 +4,19 @@
 
 ### INCOMPATIBLE CHANGES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### NEW FEATURES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### IMPROVEMENTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [MAPREDUCE-5899](https://issues.apache.org/jira/browse/MAPREDUCE-5899) | Support incremental data copy in DistCp |  Major | distcp | Jing Zhao | Jing Zhao |
 | [MAPREDUCE-5896](https://issues.apache.org/jira/browse/MAPREDUCE-5896) | InputSplits should indicate which locations have the block cached in memory |  Major | . | Sandy Ryza | Sandy Ryza |
@@ -33,7 +33,7 @@
 
 ### BUG FIXES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [MAPREDUCE-6002](https://issues.apache.org/jira/browse/MAPREDUCE-6002) | MR task should prevent report error to AM when process is shutting down |  Major | task | Wangda Tan | Wangda Tan |
 | [MAPREDUCE-5952](https://issues.apache.org/jira/browse/MAPREDUCE-5952) | LocalContainerLauncher#renameMapOutputForReduce incorrectly assumes a single dir for mapOutIndex |  Blocker | mr-am, mrv2 | Gera Shegalov | Gera Shegalov |
@@ -70,7 +70,7 @@
 
 ### TESTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [MAPREDUCE-5852](https://issues.apache.org/jira/browse/MAPREDUCE-5852) | Prepare MapReduce codebase for JUnit 4.11. |  Minor | test | Chris Nauroth | Chris Nauroth |
 | [MAPREDUCE-5804](https://issues.apache.org/jira/browse/MAPREDUCE-5804) | TestMRJobsWithProfiler#testProfiler timesout |  Major | . | Mit Desai | Mit Desai |
@@ -79,7 +79,7 @@
 
 ### SUB-TASKS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [MAPREDUCE-5900](https://issues.apache.org/jira/browse/MAPREDUCE-5900) | Container preemption interpreted as task failures and eventually job failures |  Major | applicationmaster, mr-am, mrv2 | Mayank Bansal | Mayank Bansal |
 | [MAPREDUCE-5639](https://issues.apache.org/jira/browse/MAPREDUCE-5639) | Port DistCp2 document to trunk |  Major | documentation | Akira AJISAKA | Akira AJISAKA |
@@ -90,7 +90,7 @@
 
 ### OTHER:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [MAPREDUCE-4282](https://issues.apache.org/jira/browse/MAPREDUCE-4282) | Convert Forrest docs to APT |  Major | documentation | Eli Collins | Akira AJISAKA |
 

@@ -4,13 +4,13 @@
 
 ### INCOMPATIBLE CHANGES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### NEW FEATURES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [MAPREDUCE-5332](https://issues.apache.org/jira/browse/MAPREDUCE-5332) | Support token-preserving restart of history server |  Major | jobhistoryserver | Jason Lowe | Jason Lowe |
 | [MAPREDUCE-5266](https://issues.apache.org/jira/browse/MAPREDUCE-5266) | Ability to refresh retention settings on history server |  Major | jobhistoryserver | Jason Lowe | Ashwin Shankar |
@@ -20,7 +20,7 @@
 
 ### IMPROVEMENTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [MAPREDUCE-5692](https://issues.apache.org/jira/browse/MAPREDUCE-5692) | Add explicit diagnostics when a task attempt is killed due to speculative execution |  Major | mrv2 | Gera Shegalov | Gera Shegalov |
 | [MAPREDUCE-5672](https://issues.apache.org/jira/browse/MAPREDUCE-5672) | Provide optional RollingFileAppender for container log4j (syslog) |  Major | mr-am, mrv2 | Gera Shegalov | Gera Shegalov |
@@ -37,7 +37,7 @@
 
 ### BUG FIXES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [MAPREDUCE-5744](https://issues.apache.org/jira/browse/MAPREDUCE-5744) | Job hangs because RMContainerAllocator$AssignedRequests.preemptReduce() violates the comparator contract |  Blocker | . | Sangjin Lee | Gera Shegalov |
 | [MAPREDUCE-5743](https://issues.apache.org/jira/browse/MAPREDUCE-5743) | TestRMContainerAllocator is failing |  Major | . | Ted Yu | Ted Yu |
@@ -86,7 +86,7 @@
 
 ### TESTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [MAPREDUCE-5687](https://issues.apache.org/jira/browse/MAPREDUCE-5687) | TestYARNRunner#testResourceMgrDelegate fails with NPE after YARN-1446 |  Major | . | Ted Yu | Jian He |
 | [MAPREDUCE-5632](https://issues.apache.org/jira/browse/MAPREDUCE-5632) | TestRMContainerAllocator#testUpdatedNodes fails |  Major | . | Ted Yu | Jonathan Eagles |
@@ -98,7 +98,7 @@
 
 ### SUB-TASKS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [MAPREDUCE-5411](https://issues.apache.org/jira/browse/MAPREDUCE-5411) | Refresh size of loaded job cache on history server |  Major | jobhistoryserver | Ashwin Shankar | Ashwin Shankar |
 | [MAPREDUCE-5409](https://issues.apache.org/jira/browse/MAPREDUCE-5409) | MRAppMaster throws InvalidStateTransitonException: Invalid event: TA\_TOO\_MANY\_FETCH\_FAILURE at KILLED for TaskAttemptImpl |  Major | . | Devaraj K | Gera Shegalov |
@@ -109,7 +109,7 @@
 
 ### OTHER:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [MAPREDUCE-5464](https://issues.apache.org/jira/browse/MAPREDUCE-5464) | Add analogs of the SLOTS\_MILLIS counters that jive with the YARN resource model |  Major | . | Sandy Ryza | Sandy Ryza |
 | [MAPREDUCE-5463](https://issues.apache.org/jira/browse/MAPREDUCE-5463) | Deprecate SLOTS\_MILLIS counters |  Major | . | Sandy Ryza | Tsuyoshi Ozawa |

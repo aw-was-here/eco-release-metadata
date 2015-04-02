@@ -4,14 +4,14 @@
 
 ### INCOMPATIBLE CHANGES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-8944](https://issues.apache.org/jira/browse/HADOOP-8944) | Shell command fs -count should include human readable option |  Trivial | . | Jonathan Allen | Jonathan Allen |
 
 
 ### NEW FEATURES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-10893](https://issues.apache.org/jira/browse/HADOOP-10893) | isolated classloader on the client side |  Major | util | Sangjin Lee | Sangjin Lee |
 | [HADOOP-10719](https://issues.apache.org/jira/browse/HADOOP-10719) | Add generateEncryptedKey and decryptEncryptedKey methods to KeyProvider |  Major | security | Alejandro Abdelnur | Arun Suresh |
@@ -22,7 +22,7 @@
 
 ### IMPROVEMENTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-11216](https://issues.apache.org/jira/browse/HADOOP-11216) | Improve Openssl library finding |  Major | security | Yi Liu | Colin Patrick McCabe |
 | [HADOOP-11195](https://issues.apache.org/jira/browse/HADOOP-11195) | Move Id-Name mapping in NFS to the hadoop-common area for better maintenance |  Major | nfs, security | Yongjun Zhang | Yongjun Zhang |
@@ -107,7 +107,7 @@
 
 ### BUG FIXES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-11286](https://issues.apache.org/jira/browse/HADOOP-11286) | Map/Reduce dangerously adds Guava @Beta class to CryptoUtils |  Blocker | . | Christopher Tubbs |  |
 | [HADOOP-11282](https://issues.apache.org/jira/browse/HADOOP-11282) | Skip NFS TestShellBasedIdMapping tests that are irrelevant on Windows. |  Trivial | test | Chris Nauroth | Chris Nauroth |
@@ -242,7 +242,7 @@
 
 ### TESTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-11253](https://issues.apache.org/jira/browse/HADOOP-11253) | Hadoop streaming test TestStreamXmlMultipleRecords fails on Windows |  Major | tools | Varun Vasudev | Varun Vasudev |
 | [HADOOP-11241](https://issues.apache.org/jira/browse/HADOOP-11241) | TestNMSimulator fails sometimes due to timing issue |  Major | . | Varun Vasudev | Varun Vasudev |
@@ -255,7 +255,7 @@
 
 ### SUB-TASKS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-11074](https://issues.apache.org/jira/browse/HADOOP-11074) | Move s3-related FS connector code to hadoop-aws |  Major | fs/s3 | David S. Wang | David S. Wang |
 | [HADOOP-10933](https://issues.apache.org/jira/browse/HADOOP-10933) | FileBasedKeyStoresFactory Should use Configuration.getPassword for SSL Passwords |  Major | security | Larry McCay | Larry McCay |
@@ -272,7 +272,7 @@
 
 ### OTHER:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-10994](https://issues.apache.org/jira/browse/HADOOP-10994) | KeyProviderCryptoExtension should use CryptoCodec for generation/decryption of keys |  Major | security | Alejandro Abdelnur | Alejandro Abdelnur |
 | [HADOOP-10992](https://issues.apache.org/jira/browse/HADOOP-10992) | Merge KMS to branch-2 |  Major | security | Alejandro Abdelnur | Alejandro Abdelnur |

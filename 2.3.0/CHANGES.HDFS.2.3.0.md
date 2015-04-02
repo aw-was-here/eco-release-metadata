@@ -4,14 +4,14 @@
 
 ### INCOMPATIBLE CHANGES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-4997](https://issues.apache.org/jira/browse/HDFS-4997) | libhdfs doesn't return correct error codes in most cases |  Major | libhdfs | Colin Patrick McCabe | Colin Patrick McCabe |
 
 
 ### NEW FEATURES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-5703](https://issues.apache.org/jira/browse/HDFS-5703) | Add support for HTTPS and swebhdfs to HttpFS |  Major | webhdfs | Alejandro Abdelnur | Alejandro Abdelnur |
 | [HDFS-5260](https://issues.apache.org/jira/browse/HDFS-5260) | Merge zero-copy memory-mapped HDFS client reads to trunk and branch-2. |  Major | hdfs-client, libhdfs | Chris Nauroth | Chris Nauroth |
@@ -21,7 +21,7 @@
 
 ### IMPROVEMENTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-5841](https://issues.apache.org/jira/browse/HDFS-5841) | Update HDFS caching documentation with new changes |  Major | . | Andrew Wang | Andrew Wang |
 | [HDFS-5833](https://issues.apache.org/jira/browse/HDFS-5833) | SecondaryNameNode have an incorrect java doc |  Trivial | namenode | Bangtao Zhou |  |
@@ -75,7 +75,7 @@
 
 ### BUG FIXES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-5921](https://issues.apache.org/jira/browse/HDFS-5921) | Cannot browse file system via NN web UI if any directory has the sticky bit set |  Critical | namenode | Aaron T. Myers | Aaron T. Myers |
 | [HDFS-5876](https://issues.apache.org/jira/browse/HDFS-5876) | SecureDataNodeStarter does not pick up configuration in hdfs-site.xml |  Major | datanode | Haohui Mai | Haohui Mai |
@@ -192,7 +192,7 @@
 
 ### TESTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-5679](https://issues.apache.org/jira/browse/HDFS-5679) | TestCacheDirectives should handle the case where native code is not available |  Major | . | Ted Yu | Andrew Wang |
 | [HDFS-5130](https://issues.apache.org/jira/browse/HDFS-5130) | Add test for snapshot related FsShell and DFSAdmin commands |  Minor | test | Binglin Chang | Binglin Chang |
@@ -205,7 +205,7 @@
 
 ### SUB-TASKS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-5784](https://issues.apache.org/jira/browse/HDFS-5784) | reserve space in edit log header and fsimage header for feature flag section |  Major | namenode | Colin Patrick McCabe | Colin Patrick McCabe |
 | [HDFS-5708](https://issues.apache.org/jira/browse/HDFS-5708) | The CacheManager throws a NPE in the DataNode logs when processing cache reports that refer to a block not known to the BlockManager |  Major | namenode | Colin Patrick McCabe | Colin Patrick McCabe |
@@ -277,7 +277,7 @@
 
 ### OTHER:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 
 

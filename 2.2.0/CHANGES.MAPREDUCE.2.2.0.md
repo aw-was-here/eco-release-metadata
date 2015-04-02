@@ -4,25 +4,25 @@
 
 ### INCOMPATIBLE CHANGES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### NEW FEATURES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### IMPROVEMENTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### BUG FIXES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [MAPREDUCE-5554](https://issues.apache.org/jira/browse/MAPREDUCE-5554) | hdfs-site.xml included in hadoop-mapreduce-client-jobclient tests jar is breaking tests for downstream components |  Minor | test | Robert Kanter | Robert Kanter |
 | [MAPREDUCE-5545](https://issues.apache.org/jira/browse/MAPREDUCE-5545) | org.apache.hadoop.mapred.TestTaskAttemptListenerImpl.testCommitWindow times out |  Major | . | Robert Kanter | Robert Kanter |
@@ -42,14 +42,14 @@
 
 ### TESTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [MAPREDUCE-5525](https://issues.apache.org/jira/browse/MAPREDUCE-5525) | Increase timeout of TestDFSIO.testAppend and TestMRJobsWithHistoryService.testJobHistoryData |  Minor | mrv2, test | Chuan Liu | Chuan Liu |
 
 
 ### SUB-TASKS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [MAPREDUCE-5562](https://issues.apache.org/jira/browse/MAPREDUCE-5562) | MR AM should exit when unregister() throws exception |  Major | . | Zhijie Shen | Zhijie Shen |
 | [MAPREDUCE-5551](https://issues.apache.org/jira/browse/MAPREDUCE-5551) | Binary Incompatibility of O.A.H.U.mapred.SequenceFileAsBinaryOutputFormat.WritableValueBytes |  Blocker | . | Zhijie Shen | Zhijie Shen |
@@ -62,7 +62,7 @@
 
 ### OTHER:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 
 

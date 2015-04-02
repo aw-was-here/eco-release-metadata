@@ -4,7 +4,7 @@
 
 ### INCOMPATIBLE CHANGES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-8314](https://issues.apache.org/jira/browse/HADOOP-8314) | HttpServer#hasAdminAccess should return false if authorization is enabled but user is not authenticated |  Major | security | Alejandro Abdelnur | Alejandro Abdelnur |
 | [HADOOP-8270](https://issues.apache.org/jira/browse/HADOOP-8270) | hadoop-daemon.sh stop action should return 0 for an already stopped service |  Minor | scripts | Roman Shaposhnik | Roman Shaposhnik |
@@ -24,7 +24,7 @@
 
 ### NEW FEATURES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-8343](https://issues.apache.org/jira/browse/HADOOP-8343) | Allow configuration of authorization for JmxJsonServlet and MetricsServlet |  Major | util | Philip Zeyliger | Alejandro Abdelnur |
 | [HADOOP-8206](https://issues.apache.org/jira/browse/HADOOP-8206) | Common portion of ZK-based failover controller |  Major | ha | Todd Lipcon | Todd Lipcon |
@@ -47,7 +47,7 @@
 
 ### IMPROVEMENTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-8366](https://issues.apache.org/jira/browse/HADOOP-8366) | Use ProtoBuf for RpcResponseHeader |  Blocker | . | Sanjay Radia | Sanjay Radia |
 | [HADOOP-8356](https://issues.apache.org/jira/browse/HADOOP-8356) | FileSystem service loading mechanism should print the FileSystem impl it is failing to load |  Major | fs | Alejandro Abdelnur | Alejandro Abdelnur |
@@ -150,7 +150,7 @@
 
 ### BUG FIXES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-8355](https://issues.apache.org/jira/browse/HADOOP-8355) | SPNEGO filter throws/logs exception when authentication fails |  Minor | security | Alejandro Abdelnur | Alejandro Abdelnur |
 | [HADOOP-8349](https://issues.apache.org/jira/browse/HADOOP-8349) | ViewFS doesn't work when the root of a file system is mounted |  Major | viewfs | Aaron T. Myers | Aaron T. Myers |
@@ -292,7 +292,7 @@
 
 ### TESTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-8157](https://issues.apache.org/jira/browse/HADOOP-8157) | TestRPCCallBenchmark#testBenchmarkWithWritable fails with RTE |  Major | . | Eli Collins | Todd Lipcon |
 | [HDFS-3129](https://issues.apache.org/jira/browse/HDFS-3129) | NetworkTopology: add test that getLeaf should check for invalid topologies |  Minor | . | Colin Patrick McCabe | Colin Patrick McCabe |
@@ -300,7 +300,7 @@
 
 ### SUB-TASKS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-8211](https://issues.apache.org/jira/browse/HADOOP-8211) | Update commons-net version to 3.1 |  Major | io, performance | Eli Collins | Eli Collins |
 | [HADOOP-8210](https://issues.apache.org/jira/browse/HADOOP-8210) | Common side of HDFS-3148 |  Major | io, performance | Eli Collins | Eli Collins |
@@ -370,7 +370,7 @@
 
 ### OTHER:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-860](https://issues.apache.org/jira/browse/HDFS-860) | fuse-dfs truncate behavior causes issues with scp |  Minor | fuse-dfs | Brian Bockelman | Brian Bockelman |
 | [HADOOP-8359](https://issues.apache.org/jira/browse/HADOOP-8359) | Clear up javadoc warnings in hadoop-common-project |  Trivial | conf | Harsh J | Anupam Seth |

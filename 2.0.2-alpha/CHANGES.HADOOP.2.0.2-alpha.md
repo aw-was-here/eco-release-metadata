@@ -4,7 +4,7 @@
 
 ### INCOMPATIBLE CHANGES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-8794](https://issues.apache.org/jira/browse/HADOOP-8794) | Modifiy bin/hadoop to point to HADOOP\_YARN\_HOME |  Major | . | Vinod Kumar Vavilapalli | Vinod Kumar Vavilapalli |
 | [HADOOP-8710](https://issues.apache.org/jira/browse/HADOOP-8710) | Remove ability for users to easily run the trash emptier |  Major | fs | Eli Collins | Eli Collins |
@@ -17,7 +17,7 @@
 
 ### NEW FEATURES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-8644](https://issues.apache.org/jira/browse/HADOOP-8644) | AuthenticatedURL should be able to use SSLFactory |  Critical | security | Alejandro Abdelnur | Alejandro Abdelnur |
 | [HADOOP-8581](https://issues.apache.org/jira/browse/HADOOP-8581) | add support for HTTPS to the web UIs |  Major | security | Alejandro Abdelnur | Alejandro Abdelnur |
@@ -27,7 +27,7 @@
 
 ### IMPROVEMENTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-8754](https://issues.apache.org/jira/browse/HADOOP-8754) | Deprecate all the RPC.getServer() variants |  Minor | ipc | Brandon Li | Brandon Li |
 | [HADOOP-8748](https://issues.apache.org/jira/browse/HADOOP-8748) | Move dfsclient retry to a util class |  Minor | io | Arun C Murthy | Arun C Murthy |
@@ -70,7 +70,7 @@
 
 ### BUG FIXES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-8801](https://issues.apache.org/jira/browse/HADOOP-8801) | ExitUtil#terminate should capture the exception stack trace |  Major | . | Eli Collins | Eli Collins |
 | [HADOOP-8781](https://issues.apache.org/jira/browse/HADOOP-8781) | hadoop-config.sh should add JAVA\_LIBRARY\_PATH to LD\_LIBRARY\_PATH |  Major | scripts | Alejandro Abdelnur | Alejandro Abdelnur |
@@ -191,21 +191,21 @@
 
 ### TESTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-8283](https://issues.apache.org/jira/browse/HADOOP-8283) | Allow tests to control token service value |  Major | test | Daryn Sharp | Daryn Sharp |
 
 
 ### SUB-TASKS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-7754](https://issues.apache.org/jira/browse/HADOOP-7754) | Expose file descriptors from Hadoop-wrapped local FileSystems |  Major | native, performance | Todd Lipcon | Todd Lipcon |
 
 
 ### OTHER:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-8403](https://issues.apache.org/jira/browse/HADOOP-8403) | bump up POMs version to 2.0.1-SNAPSHOT |  Major | build | Alejandro Abdelnur | Alejandro Abdelnur |
 

@@ -4,7 +4,7 @@
 
 ### INCOMPATIBLE CHANGES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-8691](https://issues.apache.org/jira/browse/HADOOP-8691) | FsShell can print "Found xxx items" unnecessarily often |  Minor | fs | Jason Lowe | Daryn Sharp |
 | [HDFS-6102](https://issues.apache.org/jira/browse/HDFS-6102) | Lower the default maximum items per directory to fix PB fsimage loading |  Blocker | namenode | Andrew Wang | Andrew Wang |
@@ -16,7 +16,7 @@
 
 ### NEW FEATURES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-10184](https://issues.apache.org/jira/browse/HADOOP-10184) | Hadoop Common changes required to support HDFS ACLs. |  Major | fs, security | Chris Nauroth | Chris Nauroth |
 | [HDFS-5535](https://issues.apache.org/jira/browse/HDFS-5535) | Umbrella jira for improved HDFS rolling upgrades |  Major | datanode, ha, hdfs-client, namenode | Nathan Roberts | Tsz Wo Nicholas Sze |
@@ -25,7 +25,7 @@
 
 ### IMPROVEMENTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-10423](https://issues.apache.org/jira/browse/HADOOP-10423) | Clarify compatibility policy document for combination of new client and old server. |  Minor | documentation | Chris Nauroth | Chris Nauroth |
 | [HADOOP-10386](https://issues.apache.org/jira/browse/HADOOP-10386) | Log proxy hostname in various exceptions being thrown in a HA setup |  Minor | ha | Arpit Gupta | Haohui Mai |
@@ -89,7 +89,7 @@
 
 ### BUG FIXES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-10450](https://issues.apache.org/jira/browse/HADOOP-10450) | Build zlib native code bindings in hadoop.dll for Windows. |  Major | io, native | Chris Nauroth | Chris Nauroth |
 | [HADOOP-10442](https://issues.apache.org/jira/browse/HADOOP-10442) | Group look-up can cause segmentation fault when certain JNI-based mapping module is used. |  Blocker | . | Kihwal Lee | Kihwal Lee |
@@ -288,7 +288,7 @@
 
 ### TESTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-9525](https://issues.apache.org/jira/browse/HADOOP-9525) | Add tests that validate winutils chmod behavior on folders |  Major | test, util | Ivan Mitic | Ivan Mitic |
 | [HDFS-5953](https://issues.apache.org/jira/browse/HDFS-5953) | TestBlockReaderFactory fails if libhadoop.so has not been built |  Major | . | Ted Yu | Akira AJISAKA |
@@ -302,7 +302,7 @@
 
 ### SUB-TASKS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-10449](https://issues.apache.org/jira/browse/HADOOP-10449) | Fix the javac warnings in the security packages. |  Minor | security | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HADOOP-10437](https://issues.apache.org/jira/browse/HADOOP-10437) | Fix the javac warnings in the conf and the util package |  Minor | conf, util | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
@@ -457,7 +457,7 @@
 
 ### OTHER:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-6030](https://issues.apache.org/jira/browse/HDFS-6030) | Remove an unused constructor in INode.java |  Trivial | . | Yongjun Zhang | Yongjun Zhang |
 | [HDFS-6025](https://issues.apache.org/jira/browse/HDFS-6025) | Update findbugsExcludeFile.xml |  Minor | build | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |

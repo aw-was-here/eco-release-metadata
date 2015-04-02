@@ -4,7 +4,7 @@
 
 ### INCOMPATIBLE CHANGES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-5083](https://issues.apache.org/jira/browse/HDFS-5083) | Update the HDFS compatibility version range |  Blocker | . | Kihwal Lee | Kihwal Lee |
 | [HDFS-4866](https://issues.apache.org/jira/browse/HDFS-4866) | Protocol buffer support cannot compile under C |  Blocker | namenode | Ralph Castain | Arpit Agarwal |
@@ -16,7 +16,7 @@
 
 ### NEW FEATURES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-4249](https://issues.apache.org/jira/browse/HDFS-4249) | Add status NameNode startup to webUI |  Major | namenode | Suresh Srinivas | Chris Nauroth |
 | [HDFS-4124](https://issues.apache.org/jira/browse/HDFS-4124) | Refactor INodeDirectory#getExistingPathINodes() to enable returning more than INode array |  Minor | . | Jing Zhao | Jing Zhao |
@@ -29,7 +29,7 @@
 
 ### IMPROVEMENTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-5027](https://issues.apache.org/jira/browse/HDFS-5027) | On startup, DN should scan volumes in parallel |  Major | datanode | Aaron T. Myers | Aaron T. Myers |
 | [HDFS-5020](https://issues.apache.org/jira/browse/HDFS-5020) | Make DatanodeProtocol#blockReceivedAndDeleted idempotent |  Major | namenode | Jing Zhao | Jing Zhao |
@@ -78,7 +78,7 @@
 
 ### BUG FIXES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-5024](https://issues.apache.org/jira/browse/HDFS-5024) | Make DatanodeProtocol#commitBlockSynchronization idempotent |  Major | namenode | Arpit Agarwal | Arpit Agarwal |
 | [HDFS-5018](https://issues.apache.org/jira/browse/HDFS-5018) | Misspelled DFSConfigKeys#DFS\_NAMENODE\_STALE\_DATANODE\_INTERVAL\_DEFAULT in javadoc of DatanodeInfo#isStale() |  Minor | . | Ted Yu | Ted Yu |
@@ -227,14 +227,14 @@
 
 ### TESTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-4129](https://issues.apache.org/jira/browse/HDFS-4129) | Add utility methods to dump NameNode in memory tree for testing |  Minor | namenode | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 
 
 ### SUB-TASKS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-5025](https://issues.apache.org/jira/browse/HDFS-5025) | Record ClientId and CallId in EditLog to enable rebuilding retry cache in case of HA failover |  Major | ha, namenode | Jing Zhao | Jing Zhao |
 | [HDFS-4979](https://issues.apache.org/jira/browse/HDFS-4979) | Implement retry cache on the namenode |  Major | namenode | Suresh Srinivas | Suresh Srinivas |
@@ -265,7 +265,7 @@
 
 ### OTHER:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 
 

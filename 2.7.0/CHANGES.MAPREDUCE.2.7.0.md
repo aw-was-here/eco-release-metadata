@@ -50,6 +50,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [MAPREDUCE-6303](https://issues.apache.org/jira/browse/MAPREDUCE-6303) | Read timeout when retrying a fetch error can be fatal to a reducer |  Blocker | . | Jason Lowe | Jason Lowe |
 | [MAPREDUCE-6285](https://issues.apache.org/jira/browse/MAPREDUCE-6285) | ClientServiceDelegate should not retry upon AuthenticationException |  Major | . | Jonathan Eagles | Jonathan Eagles |
 | [MAPREDUCE-6277](https://issues.apache.org/jira/browse/MAPREDUCE-6277) | Job can post multiple history files if attempt loses connection to the RM |  Major | mr-am | Chang Li | Chang Li |
 | [MAPREDUCE-6275](https://issues.apache.org/jira/browse/MAPREDUCE-6275) | Race condition in FileOutputCommitter v2 for user-specified task output subdirs |  Critical | . | Siqi Li | Gera Shegalov |

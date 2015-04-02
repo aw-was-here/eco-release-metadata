@@ -4,19 +4,19 @@
 
 ### INCOMPATIBLE CHANGES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### NEW FEATURES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### IMPROVEMENTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-5308](https://issues.apache.org/jira/browse/HDFS-5308) | Replace HttpConfig#getSchemePrefix with implicit schemes in HDFS JSP |  Major | . | Haohui Mai | Haohui Mai |
 | [HDFS-5256](https://issues.apache.org/jira/browse/HDFS-5256) | Use guava LoadingCache to implement DFSClientCache |  Major | nfs | Haohui Mai | Haohui Mai |
@@ -26,7 +26,7 @@
 
 ### BUG FIXES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-5300](https://issues.apache.org/jira/browse/HDFS-5300) | FSNameSystem#deleteSnapshot() should not check owner in case of permissions disabled |  Major | namenode | Vinayakumar B | Vinayakumar B |
 | [HDFS-5299](https://issues.apache.org/jira/browse/HDFS-5299) | DFS client hangs in updatePipeline RPC when failover happened |  Blocker | namenode | Vinayakumar B | Vinayakumar B |
@@ -43,14 +43,14 @@
 
 ### TESTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-5186](https://issues.apache.org/jira/browse/HDFS-5186) | TestFileJournalManager fails on Windows due to file handle leaks |  Minor | namenode, test | Chuan Liu | Chuan Liu |
 
 
 ### SUB-TASKS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-5306](https://issues.apache.org/jira/browse/HDFS-5306) | Datanode https port is not available at the namenode |  Major | datanode, namenode | Suresh Srinivas | Suresh Srinivas |
 | [HDFS-5259](https://issues.apache.org/jira/browse/HDFS-5259) | Support client which combines appended data with old data before sends it to NFS server |  Major | nfs | Yesha Vora | Brandon Li |
@@ -60,7 +60,7 @@
 
 ### OTHER:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 
 

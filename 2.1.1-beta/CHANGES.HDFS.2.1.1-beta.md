@@ -4,13 +4,13 @@
 
 ### INCOMPATIBLE CHANGES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### NEW FEATURES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-5118](https://issues.apache.org/jira/browse/HDFS-5118) | Provide testing support for DFSClient to drop RPC responses |  Major | . | Jing Zhao | Jing Zhao |
 | [HDFS-5076](https://issues.apache.org/jira/browse/HDFS-5076) | Add MXBean methods to query NN's transaction information and JournalNode's journal status |  Minor | . | Jing Zhao | Jing Zhao |
@@ -18,7 +18,7 @@
 
 ### IMPROVEMENTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-5128](https://issues.apache.org/jira/browse/HDFS-5128) | Allow multiple net interfaces to be used with HA namenode RPC server |  Critical | . | Kihwal Lee | Kihwal Lee |
 | [HDFS-5061](https://issues.apache.org/jira/browse/HDFS-5061) | Make FSNameSystem#auditLoggers an unmodifiable list |  Major | namenode | Arpit Agarwal | Arpit Agarwal |
@@ -31,7 +31,7 @@
 
 ### BUG FIXES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-5231](https://issues.apache.org/jira/browse/HDFS-5231) | Fix broken links in the document of HDFS Federation |  Minor | . | Haohui Mai | Haohui Mai |
 | [HDFS-5219](https://issues.apache.org/jira/browse/HDFS-5219) | Add configuration keys for retry policy in WebHDFSFileSystem |  Major | webhdfs | Haohui Mai | Haohui Mai |
@@ -65,13 +65,13 @@
 
 ### TESTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### SUB-TASKS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-5249](https://issues.apache.org/jira/browse/HDFS-5249) | Fix dumper thread which may die silently |  Major | nfs | Brandon Li | Brandon Li |
 | [HDFS-5234](https://issues.apache.org/jira/browse/HDFS-5234) | Move RpcFrameDecoder out of the public API |  Minor | nfs | Haohui Mai | Haohui Mai |
@@ -94,7 +94,7 @@
 
 ### OTHER:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 
 

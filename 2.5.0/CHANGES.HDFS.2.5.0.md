@@ -4,7 +4,7 @@
 
 ### INCOMPATIBLE CHANGES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-6168](https://issues.apache.org/jira/browse/HDFS-6168) | Remove deprecated methods in DistributedFileSystem |  Major | hdfs-client | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HDFS-6164](https://issues.apache.org/jira/browse/HDFS-6164) | Remove lsr in OfflineImageViewer |  Major | tools | Haohui Mai | Haohui Mai |
@@ -12,7 +12,7 @@
 
 ### NEW FEATURES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-6435](https://issues.apache.org/jira/browse/HDFS-6435) | Add support for specifying a static uid/gid mapping for the NFS gateway |  Major | nfs | Aaron T. Myers | Aaron T. Myers |
 | [HDFS-6406](https://issues.apache.org/jira/browse/HDFS-6406) | Add capability for NFS gateway to reject connections from unprivileged ports |  Major | nfs | Aaron T. Myers | Aaron T. Myers |
@@ -21,7 +21,7 @@
 
 ### IMPROVEMENTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-6620](https://issues.apache.org/jira/browse/HDFS-6620) | Snapshot docs should specify about preserve options with cp command |  Major | namenode | Uma Maheswara Rao G | Stephen Chu |
 | [HDFS-6603](https://issues.apache.org/jira/browse/HDFS-6603) | Add XAttr with ACL test |  Minor | test | Stephen Chu | Stephen Chu |
@@ -81,7 +81,7 @@
 
 ### BUG FIXES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-6793](https://issues.apache.org/jira/browse/HDFS-6793) | Missing changes in HftpFileSystem when Reintroduce dfs.http.port / dfs.https.port in branch-2 |  Blocker | . | Juan Yu | Juan Yu |
 | [HDFS-6752](https://issues.apache.org/jira/browse/HDFS-6752) | Avoid Address bind errors in TestDatanodeConfig#testMemlockLimit |  Major | test | Vinayakumar B | Vinayakumar B |
@@ -191,7 +191,7 @@
 
 ### TESTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-6614](https://issues.apache.org/jira/browse/HDFS-6614) | shorten TestPread run time with a smaller retry timeout setting |  Minor | test | Liang Xie | Liang Xie |
 | [HDFS-6419](https://issues.apache.org/jira/browse/HDFS-6419) | TestBookKeeperHACheckpoints#TestSBNCheckpoints fails on trunk |  Major | . | Akira AJISAKA | Akira AJISAKA |
@@ -205,7 +205,7 @@
 
 ### SUB-TASKS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-6562](https://issues.apache.org/jira/browse/HDFS-6562) | Refactor rename() in FSDirectory |  Minor | namenode | Haohui Mai | Haohui Mai |
 | [HDFS-6557](https://issues.apache.org/jira/browse/HDFS-6557) | Move the reference of fsimage to FSNamesystem |  Major | namenode | Haohui Mai | Haohui Mai |
@@ -240,7 +240,7 @@
 
 ### OTHER:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-6486](https://issues.apache.org/jira/browse/HDFS-6486) | Add user doc for XAttrs via WebHDFS. |  Minor | webhdfs | Yi Liu | Yi Liu |
 | [HDFS-6430](https://issues.apache.org/jira/browse/HDFS-6430) | HTTPFS - Implement XAttr support |  Major | . | Yi Liu | Yi Liu |

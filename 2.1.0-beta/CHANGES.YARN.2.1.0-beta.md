@@ -4,7 +4,7 @@
 
 ### INCOMPATIBLE CHANGES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YARN-1056](https://issues.apache.org/jira/browse/YARN-1056) | Fix configs yarn.resourcemanager.resourcemanager.connect.{max.wait.secs\|retry\_interval.secs} |  Trivial | . | Karthik Kambatla | Karthik Kambatla |
 | [YARN-926](https://issues.apache.org/jira/browse/YARN-926) | ContainerManagerProtcol APIs should take in requests for multiple containers |  Blocker | . | Vinod Kumar Vavilapalli | Jian He |
@@ -64,14 +64,14 @@
 
 ### NEW FEATURES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YARN-326](https://issues.apache.org/jira/browse/YARN-326) | Add multi-resource scheduling to the fair scheduler |  Major | scheduler | Sandy Ryza | Sandy Ryza |
 
 
 ### IMPROVEMENTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YARN-1045](https://issues.apache.org/jira/browse/YARN-1045) | Improve toString implementation for PBImpls |  Major | . | Siddharth Seth | Jian He |
 | [YARN-883](https://issues.apache.org/jira/browse/YARN-883) | Expose Fair Scheduler-specific queue metrics |  Major | scheduler | Sandy Ryza | Sandy Ryza |
@@ -104,7 +104,7 @@
 
 ### BUG FIXES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YARN-1046](https://issues.apache.org/jira/browse/YARN-1046) | Disable mem monitoring by default in MiniYARNCluster |  Major | . | Karthik Kambatla | Karthik Kambatla |
 | [YARN-1043](https://issues.apache.org/jira/browse/YARN-1043) | YARN Queue metrics are getting pushed to neither file nor Ganglia |  Major | . | Yusaku Sako | Jian He |
@@ -217,14 +217,14 @@
 
 ### TESTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YARN-866](https://issues.apache.org/jira/browse/YARN-866) | Add test for class ResourceWeights |  Major | . | Wei Yan | Wei Yan |
 
 
 ### SUB-TASKS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YARN-961](https://issues.apache.org/jira/browse/YARN-961) | ContainerManagerImpl should enforce token on server. Today it is [TOKEN, SIMPLE] |  Blocker | . | Omkar Vinit Joshi | Omkar Vinit Joshi |
 | [YARN-922](https://issues.apache.org/jira/browse/YARN-922) | Change FileSystemRMStateStore to use directories |  Major | resourcemanager | Jian He | Jian He |
@@ -313,7 +313,7 @@
 
 ### OTHER:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YARN-927](https://issues.apache.org/jira/browse/YARN-927) | Change ContainerRequest to not have more than 1 container count and remove StoreContainerRequest |  Major | . | Bikas Saha | Bikas Saha |
 | [YARN-708](https://issues.apache.org/jira/browse/YARN-708) | Move RecordFactory classes to hadoop-yarn-api, miscellaneous fixes to the interfaces |  Major | . | Siddharth Seth | Siddharth Seth |

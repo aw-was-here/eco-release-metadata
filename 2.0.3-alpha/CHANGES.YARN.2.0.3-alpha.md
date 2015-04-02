@@ -4,13 +4,13 @@
 
 ### INCOMPATIBLE CHANGES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### NEW FEATURES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YARN-286](https://issues.apache.org/jira/browse/YARN-286) | Add a YARN ApplicationClassLoader |  Major | applications | Tom White | Tom White |
 | [YARN-187](https://issues.apache.org/jira/browse/YARN-187) | Add hierarchical queues to the fair scheduler |  Major | scheduler | Sandy Ryza | Sandy Ryza |
@@ -21,7 +21,7 @@
 
 ### IMPROVEMENTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YARN-331](https://issues.apache.org/jira/browse/YARN-331) | Fill in missing fair scheduler documentation |  Major | scheduler | Sandy Ryza | Sandy Ryza |
 | [YARN-328](https://issues.apache.org/jira/browse/YARN-328) | Use token request messages defined in hadoop common |  Major | resourcemanager | Suresh Srinivas | Suresh Srinivas |
@@ -42,7 +42,7 @@
 
 ### BUG FIXES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YARN-364](https://issues.apache.org/jira/browse/YARN-364) | AggregatedLogDeletionService can take too long to delete logs |  Major | . | Jason Lowe | Jason Lowe |
 | [YARN-360](https://issues.apache.org/jira/browse/YARN-360) | Allow apps to concurrently register tokens for renewal |  Critical | . | Daryn Sharp | Daryn Sharp |
@@ -116,13 +116,13 @@
 
 ### TESTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### SUB-TASKS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YARN-280](https://issues.apache.org/jira/browse/YARN-280) | RM does not reject app submission with invalid tokens |  Major | resourcemanager | Daryn Sharp | Daryn Sharp |
 | [YARN-231](https://issues.apache.org/jira/browse/YARN-231) | Add FS-based persistent store implementation for RMStateStore |  Major | resourcemanager | Bikas Saha | Bikas Saha |
@@ -142,7 +142,7 @@
 
 ### OTHER:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YARN-372](https://issues.apache.org/jira/browse/YARN-372) | Move InlineDispatcher from hadoop-yarn-server-resourcemanager to hadoop-yarn-common |  Minor | . | Siddharth Seth | Siddharth Seth |
 

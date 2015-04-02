@@ -4,21 +4,21 @@
 
 ### INCOMPATIBLE CHANGES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YARN-2107](https://issues.apache.org/jira/browse/YARN-2107) | Refactor timeline classes into server.timeline package |  Major | . | Vinod Kumar Vavilapalli | Vinod Kumar Vavilapalli |
 
 
 ### NEW FEATURES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YARN-1864](https://issues.apache.org/jira/browse/YARN-1864) | Fair Scheduler Dynamic Hierarchical User Queues |  Major | scheduler | Ashwin Shankar | Ashwin Shankar |
 
 
 ### IMPROVEMENTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YARN-2335](https://issues.apache.org/jira/browse/YARN-2335) | Annotate all hadoop-sls APIs as @Private |  Minor | . | Wei Yan | Wei Yan |
 | [YARN-2300](https://issues.apache.org/jira/browse/YARN-2300) | Document better sample requests for RM web services for submitting apps |  Major | documentation | Varun Vasudev | Varun Vasudev |
@@ -44,7 +44,7 @@
 
 ### BUG FIXES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YARN-2250](https://issues.apache.org/jira/browse/YARN-2250) | FairScheduler.findLowestCommonAncestorQueue returns null when queues not identical |  Major | scheduler | Krisztian Horvath | Krisztian Horvath |
 | [YARN-2241](https://issues.apache.org/jira/browse/YARN-2241) | ZKRMStateStore: On startup, show nicer messages if znodes already exist |  Minor | resourcemanager | Robert Kanter | Robert Kanter |
@@ -98,7 +98,7 @@
 
 ### TESTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YARN-2319](https://issues.apache.org/jira/browse/YARN-2319) | Fix MiniKdc not close in TestRMWebServicesDelegationTokens.java |  Major | resourcemanager | Wenwu Peng | Wenwu Peng |
 | [YARN-2270](https://issues.apache.org/jira/browse/YARN-2270) | TestFSDownload#testDownloadPublicWithStatCache fails in trunk |  Minor | . | Ted Yu | Akira AJISAKA |
@@ -112,7 +112,7 @@
 
 ### SUB-TASKS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YARN-2247](https://issues.apache.org/jira/browse/YARN-2247) | Allow RM web services users to authenticate using delegation tokens |  Blocker | . | Varun Vasudev | Varun Vasudev |
 | [YARN-2233](https://issues.apache.org/jira/browse/YARN-2233) | Implement web services to create, renew and cancel delegation tokens |  Blocker | resourcemanager | Varun Vasudev | Varun Vasudev |
@@ -148,7 +148,7 @@
 
 ### OTHER:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YARN-2125](https://issues.apache.org/jira/browse/YARN-2125) | ProportionalCapacityPreemptionPolicy should only log CSV when debug enabled |  Minor | resourcemanager, scheduler | Wangda Tan | Wangda Tan |
 | [YARN-2091](https://issues.apache.org/jira/browse/YARN-2091) | Add more values to ContainerExitStatus and pass it from NM to RM and then to app masters |  Major | . | Bikas Saha | Tsuyoshi Ozawa |

@@ -4,19 +4,19 @@
 
 ### INCOMPATIBLE CHANGES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### NEW FEATURES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### IMPROVEMENTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [MAPREDUCE-6086](https://issues.apache.org/jira/browse/MAPREDUCE-6086) | mapreduce.job.credentials.binary should allow all URIs |  Major | security | zhihai xu | zhihai xu |
 | [MAPREDUCE-6072](https://issues.apache.org/jira/browse/MAPREDUCE-6072) | Remove INSTALL document |  Minor | documentation | Akira AJISAKA | Akira AJISAKA |
@@ -34,7 +34,7 @@
 
 ### BUG FIXES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [MAPREDUCE-6156](https://issues.apache.org/jira/browse/MAPREDUCE-6156) | Fetcher - connect() doesn't handle connection refused correctly |  Blocker | . | Sidharta Seethana | Junping Du |
 | [MAPREDUCE-6126](https://issues.apache.org/jira/browse/MAPREDUCE-6126) | (Rumen) Rumen tool returns error "ava.lang.IllegalArgumentException: JobBuilder.process(HistoryEvent): unknown event type" |  Major | . | Junping Du | Junping Du |
@@ -86,7 +86,7 @@
 
 ### TESTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [MAPREDUCE-6115](https://issues.apache.org/jira/browse/MAPREDUCE-6115) | TestPipeApplication#testSubmitter fails in trunk |  Minor | . | Ted Yu | Binglin Chang |
 | [MAPREDUCE-6048](https://issues.apache.org/jira/browse/MAPREDUCE-6048) | TestJavaSerialization fails in trunk build |  Minor | . | Ted Yu | Varun Vasudev |
@@ -95,7 +95,7 @@
 
 ### SUB-TASKS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [MAPREDUCE-6142](https://issues.apache.org/jira/browse/MAPREDUCE-6142) | Test failure in TestJobHistoryEventHandler and TestMRTimelineEventHandling |  Critical | . | Zhijie Shen | Zhijie Shen |
 | [MAPREDUCE-6018](https://issues.apache.org/jira/browse/MAPREDUCE-6018) | Create a framework specific config to enable timeline server |  Major | . | Jonathan Eagles | Robert Kanter |
@@ -110,7 +110,7 @@
 
 ### OTHER:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [MAPREDUCE-5910](https://issues.apache.org/jira/browse/MAPREDUCE-5910) | MRAppMaster should handle Resync from RM instead of shutting down. |  Major | applicationmaster | Rohith | Rohith |
 

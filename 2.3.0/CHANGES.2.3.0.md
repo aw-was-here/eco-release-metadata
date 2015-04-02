@@ -4,14 +4,14 @@
 
 ### INCOMPATIBLE CHANGES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-4997](https://issues.apache.org/jira/browse/HDFS-4997) | libhdfs doesn't return correct error codes in most cases |  Major | libhdfs | Colin Patrick McCabe | Colin Patrick McCabe |
 
 
 ### NEW FEATURES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-10047](https://issues.apache.org/jira/browse/HADOOP-10047) | Add a directbuffer Decompressor API to hadoop |  Major | io | Gopal V | Gopal V |
 | [HADOOP-9848](https://issues.apache.org/jira/browse/HADOOP-9848) | Create a MiniKDC for use with security testing |  Major | security, test | Wei Yan | Wei Yan |
@@ -33,7 +33,7 @@
 
 ### IMPROVEMENTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-10274](https://issues.apache.org/jira/browse/HADOOP-10274) | Lower the logging level from ERROR to WARN for UGI.doAs method |  Minor | security | takeshi.miao | takeshi.miao |
 | [HADOOP-10248](https://issues.apache.org/jira/browse/HADOOP-10248) | Property name should be included in the exception where property value is null |  Major | . | Ted Yu | Akira AJISAKA |
@@ -154,7 +154,7 @@
 
 ### BUG FIXES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-10317](https://issues.apache.org/jira/browse/HADOOP-10317) | Rename branch-2.3 release version from 2.4.0-SNAPSHOT to 2.3.0-SNAPSHOT |  Major | . | Andrew Wang | Andrew Wang |
 | [HADOOP-10313](https://issues.apache.org/jira/browse/HADOOP-10313) | Script and jenkins job to produce Hadoop release artifacts |  Major | build | Alejandro Abdelnur | Alejandro Abdelnur |
@@ -463,7 +463,7 @@
 
 ### TESTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-10207](https://issues.apache.org/jira/browse/HADOOP-10207) | TestUserGroupInformation#testLogin is flaky |  Minor | . | Jimmy Xiang | Jimmy Xiang |
 | [HADOOP-9866](https://issues.apache.org/jira/browse/HADOOP-9866) | convert hadoop-auth testcases requiring kerberos to use minikdc |  Major | test | Alejandro Abdelnur | Wei Yan |
@@ -497,7 +497,7 @@
 
 ### SUB-TASKS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-10109](https://issues.apache.org/jira/browse/HADOOP-10109) | Fix test failure in TestOfflineEditsViewer introduced by HADOOP-10052 |  Major | test | Colin Patrick McCabe | Colin Patrick McCabe |
 | [HADOOP-10107](https://issues.apache.org/jira/browse/HADOOP-10107) | Server.getNumOpenConnections may throw NPE |  Major | ipc | Tsz Wo Nicholas Sze | Kihwal Lee |
@@ -637,7 +637,7 @@
 
 ### OTHER:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [MAPREDUCE-5464](https://issues.apache.org/jira/browse/MAPREDUCE-5464) | Add analogs of the SLOTS\_MILLIS counters that jive with the YARN resource model |  Major | . | Sandy Ryza | Sandy Ryza |
 | [MAPREDUCE-5463](https://issues.apache.org/jira/browse/MAPREDUCE-5463) | Deprecate SLOTS\_MILLIS counters |  Major | . | Sandy Ryza | Tsuyoshi Ozawa |

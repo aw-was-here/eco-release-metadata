@@ -4,13 +4,13 @@
 
 ### INCOMPATIBLE CHANGES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### NEW FEATURES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YARN-1392](https://issues.apache.org/jira/browse/YARN-1392) | Allow sophisticated app-to-queue placement policies in the Fair Scheduler |  Major | scheduler | Sandy Ryza | Sandy Ryza |
 | [YARN-1253](https://issues.apache.org/jira/browse/YARN-1253) | Changes to LinuxContainerExecutor to run containers as a single dedicated user in non-secure mode |  Blocker | nodemanager | Alejandro Abdelnur | Roman Shaposhnik |
@@ -19,7 +19,7 @@
 
 ### IMPROVEMENTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YARN-1623](https://issues.apache.org/jira/browse/YARN-1623) | Include queue name in RegisterApplicationMasterResponse |  Major | scheduler | Sandy Ryza | Sandy Ryza |
 | [YARN-1616](https://issues.apache.org/jira/browse/YARN-1616) | RMFatalEventDispatcher should log the cause of the event |  Trivial | resourcemanager | Karthik Kambatla | Karthik Kambatla |
@@ -44,7 +44,7 @@
 
 ### BUG FIXES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YARN-1630](https://issues.apache.org/jira/browse/YARN-1630) | Introduce timeout for async polling operations in YarnClientImpl |  Major | client | Aditya Acharya | Aditya Acharya |
 | [YARN-1629](https://issues.apache.org/jira/browse/YARN-1629) | IndexOutOfBoundsException in Fair Scheduler MaxRunningAppsEnforcer |  Major | scheduler | Sandy Ryza | Sandy Ryza |
@@ -116,7 +116,7 @@
 
 ### TESTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YARN-1560](https://issues.apache.org/jira/browse/YARN-1560) | TestYarnClient#testAMMRTokens fails with null AMRM token |  Major | . | Ted Yu | Ted Yu |
 | [YARN-1549](https://issues.apache.org/jira/browse/YARN-1549) | TestUnmanagedAMLauncher#testDSShell fails in trunk |  Major | . | Ted Yu | haosdent |
@@ -128,7 +128,7 @@
 
 ### SUB-TASKS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YARN-1642](https://issues.apache.org/jira/browse/YARN-1642) | RMDTRenewer#getRMClient should use ClientRMProxy |  Blocker | resourcemanager | Karthik Kambatla | Karthik Kambatla |
 | [YARN-1618](https://issues.apache.org/jira/browse/YARN-1618) | Fix invalid RMApp transition from NEW to FINAL\_SAVING |  Blocker | resourcemanager | Karthik Kambatla | Karthik Kambatla |
@@ -188,7 +188,7 @@
 
 ### OTHER:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YARN-1568](https://issues.apache.org/jira/browse/YARN-1568) | Rename clusterid to clusterId in ActiveRMInfoProto |  Trivial | resourcemanager | Karthik Kambatla | Karthik Kambatla |
 

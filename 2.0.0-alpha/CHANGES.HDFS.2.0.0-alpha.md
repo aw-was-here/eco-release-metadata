@@ -4,7 +4,7 @@
 
 ### INCOMPATIBLE CHANGES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-3286](https://issues.apache.org/jira/browse/HDFS-3286) | When the threshold value for balancer is 0(zero) ,unexpected output is displayed |  Major | balancer & mover | J.Andreina | Ashish Singhi |
 | [HDFS-3164](https://issues.apache.org/jira/browse/HDFS-3164) | Move DatanodeInfo#hostName to DatanodeID |  Major | datanode | Eli Collins | Eli Collins |
@@ -18,7 +18,7 @@
 
 ### NEW FEATURES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-3167](https://issues.apache.org/jira/browse/HDFS-3167) | CLI-based driver for MiniDFSCluster |  Minor | test | Henry Robinson | Henry Robinson |
 | [HDFS-3148](https://issues.apache.org/jira/browse/HDFS-3148) | The client should be able to use multiple local interfaces for data transfer |  Major | hdfs-client, performance | Eli Collins | Eli Collins |
@@ -34,7 +34,7 @@
 
 ### IMPROVEMENTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-3418](https://issues.apache.org/jira/browse/HDFS-3418) | Rename BlockWithLocationsProto datanodeIDs field to storageIDs |  Minor | . | Eli Collins | Eli Collins |
 | [HDFS-3378](https://issues.apache.org/jira/browse/HDFS-3378) | Remove DFS\_NAMENODE\_SECONDARY\_HTTPS\_PORT\_KEY and DEFAULT |  Trivial | . | Eli Collins | Eli Collins |
@@ -88,7 +88,7 @@
 
 ### BUG FIXES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-3396](https://issues.apache.org/jira/browse/HDFS-3396) | FUSE build fails on Ubuntu 12.04 |  Minor | fuse-dfs | Colin Patrick McCabe | Colin Patrick McCabe |
 | [HDFS-3395](https://issues.apache.org/jira/browse/HDFS-3395) | NN doesn't start with HA+security enabled and HTTP address set to 0.0.0.0 |  Major | namenode | Aaron T. Myers | Aaron T. Myers |
@@ -161,14 +161,14 @@
 
 ### TESTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-3129](https://issues.apache.org/jira/browse/HDFS-3129) | NetworkTopology: add test that getLeaf should check for invalid topologies |  Minor | . | Colin Patrick McCabe | Colin Patrick McCabe |
 
 
 ### SUB-TASKS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-3363](https://issues.apache.org/jira/browse/HDFS-3363) | blockmanagement should stop using INodeFile & INodeFileUC |  Minor | namenode | John George | John George |
 | [HDFS-3339](https://issues.apache.org/jira/browse/HDFS-3339) | change INode to package private |  Minor | namenode | John George | John George |
@@ -223,7 +223,7 @@
 
 ### OTHER:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-860](https://issues.apache.org/jira/browse/HDFS-860) | fuse-dfs truncate behavior causes issues with scp |  Minor | fuse-dfs | Brian Bockelman | Brian Bockelman |
 | [HDFS-3111](https://issues.apache.org/jira/browse/HDFS-3111) | Missing license headers in trunk |  Trivial | . | Todd Lipcon | Uma Maheswara Rao G |

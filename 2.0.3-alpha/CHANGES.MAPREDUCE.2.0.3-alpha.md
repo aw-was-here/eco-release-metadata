@@ -4,7 +4,7 @@
 
 ### INCOMPATIBLE CHANGES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [MAPREDUCE-4928](https://issues.apache.org/jira/browse/MAPREDUCE-4928) | Use token request messages defined in hadoop common |  Major | applicationmaster, security | Suresh Srinivas | Suresh Srinivas |
 | [MAPREDUCE-4123](https://issues.apache.org/jira/browse/MAPREDUCE-4123) | ./mapred groups gives NoClassDefFoundError |  Critical | mrv2 | Nishan Shetty | Devaraj K |
@@ -12,7 +12,7 @@
 
 ### NEW FEATURES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [MAPREDUCE-4808](https://issues.apache.org/jira/browse/MAPREDUCE-4808) | Refactor MapOutput and MergeManager to facilitate reuse by Shuffle implementations |  Major | . | Arun C Murthy | Mariappan Asokan |
 | [MAPREDUCE-4520](https://issues.apache.org/jira/browse/MAPREDUCE-4520) | Add experimental support for MR AM to schedule CPUs along-with memory |  Major | . | Arun C Murthy | Arun C Murthy |
@@ -22,7 +22,7 @@
 
 ### IMPROVEMENTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [MAPREDUCE-4977](https://issues.apache.org/jira/browse/MAPREDUCE-4977) | Documentation for pluggable shuffle and pluggable sort |  Major | documentation | Alejandro Abdelnur | Alejandro Abdelnur |
 | [MAPREDUCE-4971](https://issues.apache.org/jira/browse/MAPREDUCE-4971) | Minor extensibility enhancements |  Minor | . | Arun C Murthy | Arun C Murthy |
@@ -51,7 +51,7 @@
 
 ### BUG FIXES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [MAPREDUCE-4969](https://issues.apache.org/jira/browse/MAPREDUCE-4969) | TestKeyValueTextInputFormat test fails with Open JDK 7 |  Major | test | Arpit Agarwal | Arpit Agarwal |
 | [MAPREDUCE-4953](https://issues.apache.org/jira/browse/MAPREDUCE-4953) | HadoopPipes misuses fprintf |  Major | pipes | Andy Isaacson | Andy Isaacson |
@@ -124,7 +124,7 @@
 
 ### TESTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [MAPREDUCE-4905](https://issues.apache.org/jira/browse/MAPREDUCE-4905) | test org.apache.hadoop.mapred.pipes |  Major | . | Aleksey Gorshkov | Aleksey Gorshkov |
 | [MAPREDUCE-4803](https://issues.apache.org/jira/browse/MAPREDUCE-4803) | Duplicate copies of TestIndexCache.java |  Minor | test | Mariappan Asokan | Mariappan Asokan |
@@ -132,7 +132,7 @@
 
 ### SUB-TASKS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [MAPREDUCE-4809](https://issues.apache.org/jira/browse/MAPREDUCE-4809) | Change visibility of classes for pluggable sort changes |  Major | . | Arun C Murthy | Mariappan Asokan |
 | [MAPREDUCE-4807](https://issues.apache.org/jira/browse/MAPREDUCE-4807) | Allow MapOutputBuffer to be pluggable |  Major | . | Arun C Murthy | Mariappan Asokan |
@@ -141,7 +141,7 @@
 
 ### OTHER:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [MAPREDUCE-4596](https://issues.apache.org/jira/browse/MAPREDUCE-4596) | Split StateMachine state from states seen by MRClientProtocol (for Job, Task, TaskAttempt) |  Major | applicationmaster, mrv2 | Siddharth Seth | Siddharth Seth |
 | [MAPREDUCE-4266](https://issues.apache.org/jira/browse/MAPREDUCE-4266) | remove Ant remnants from MR |  Major | build | Alejandro Abdelnur | Alejandro Abdelnur |

@@ -4,7 +4,7 @@
 
 ### INCOMPATIBLE CHANGES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-4451](https://issues.apache.org/jira/browse/HDFS-4451) | hdfs balancer command returns exit code 1 on success instead of 0 |  Major | balancer & mover | Joshua Blatt |  |
 | [HDFS-4369](https://issues.apache.org/jira/browse/HDFS-4369) | GetBlockKeysResponseProto does not handle null response |  Blocker | namenode | Suresh Srinivas | Suresh Srinivas |
@@ -19,7 +19,7 @@
 
 ### NEW FEATURES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-4456](https://issues.apache.org/jira/browse/HDFS-4456) | Add concat to HttpFS and WebHDFS REST API docs |  Major | webhdfs | Tsz Wo Nicholas Sze | Plamen Jeliazkov |
 | [HDFS-4213](https://issues.apache.org/jira/browse/HDFS-4213) | When the client calls hsync, allows the client to update the file length in the NameNode |  Major | hdfs-client, namenode | Jing Zhao | Jing Zhao |
@@ -31,7 +31,7 @@
 
 ### IMPROVEMENTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-4393](https://issues.apache.org/jira/browse/HDFS-4393) | Empty request and responses in protocol translators can be static final members |  Minor | . | Brandon Li | Brandon Li |
 | [HDFS-4392](https://issues.apache.org/jira/browse/HDFS-4392) | Use NetUtils#getFreeSocketPort in MiniDFSCluster |  Trivial | test | Andrew Purtell | Andrew Purtell |
@@ -72,7 +72,7 @@
 
 ### BUG FIXES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-4468](https://issues.apache.org/jira/browse/HDFS-4468) | Fix TestHDFSCLI and TestQuota for HADOOP-9252 |  Minor | . | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HDFS-4462](https://issues.apache.org/jira/browse/HDFS-4462) | 2NN will fail to checkpoint after an HDFS upgrade from a pre-federation version of HDFS |  Major | namenode | Aaron T. Myers | Aaron T. Myers |
@@ -188,7 +188,7 @@
 
 ### TESTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-4349](https://issues.apache.org/jira/browse/HDFS-4349) | Test reading files from BackupNode |  Major | namenode, test | Konstantin Shvachko | Konstantin Shvachko |
 | [HDFS-4199](https://issues.apache.org/jira/browse/HDFS-4199) | Provide test for HdfsVolumeId |  Minor | . | Ivan A. Veselovsky | Ivan A. Veselovsky |
@@ -197,7 +197,7 @@
 
 ### SUB-TASKS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-4445](https://issues.apache.org/jira/browse/HDFS-4445) | All BKJM ledgers are not checked while tailing, So failover will fail. |  Blocker | . | Vinayakumar B | Vinayakumar B |
 | [HDFS-4248](https://issues.apache.org/jira/browse/HDFS-4248) | Renames may remove file leases |  Blocker | namenode | Daryn Sharp | Daryn Sharp |
@@ -229,7 +229,7 @@
 
 ### OTHER:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-4326](https://issues.apache.org/jira/browse/HDFS-4326) | bump up Tomcat version for HttpFS to 6.0.36 |  Major | . | Alejandro Abdelnur | Alejandro Abdelnur |
 | [HDFS-3944](https://issues.apache.org/jira/browse/HDFS-3944) | Httpfs resolveAuthority() is not resolving host correctly |  Major | . | Alejandro Abdelnur | Alejandro Abdelnur |

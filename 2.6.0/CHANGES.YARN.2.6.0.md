@@ -4,7 +4,7 @@
 
 ### INCOMPATIBLE CHANGES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YARN-2615](https://issues.apache.org/jira/browse/YARN-2615) | ClientToAMTokenIdentifier and DelegationTokenIdentifier should allow extended fields |  Blocker | . | Junping Du | Junping Du |
 | [YARN-1051](https://issues.apache.org/jira/browse/YARN-1051) | YARN Admission Control/Planner: enhancing the resource allocation model with time. |  Major | capacityscheduler, resourcemanager, scheduler | Carlo Curino | Carlo Curino |
@@ -13,7 +13,7 @@
 
 ### NEW FEATURES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YARN-2395](https://issues.apache.org/jira/browse/YARN-2395) | FairScheduler: Preemption timeout should be configurable per queue |  Major | fairscheduler | Ashwin Shankar | Wei Yan |
 | [YARN-2394](https://issues.apache.org/jira/browse/YARN-2394) | FairScheduler: Configure fairSharePreemptionThreshold per queue |  Major | fairscheduler | Ashwin Shankar | Wei Yan |
@@ -25,7 +25,7 @@
 
 ### IMPROVEMENTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YARN-2627](https://issues.apache.org/jira/browse/YARN-2627) | Add logs when attemptFailuresValidityInterval is enabled |  Major | . | Xuan Gong | Xuan Gong |
 | [YARN-2577](https://issues.apache.org/jira/browse/YARN-2577) | Clarify ACL delimiter and how to configure ACL groups only |  Trivial | documentation, fairscheduler | Miklos Christine | Miklos Christine |
@@ -54,7 +54,7 @@
 
 ### BUG FIXES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YARN-2853](https://issues.apache.org/jira/browse/YARN-2853) | Killing app may hang while AM is unregistering |  Major | . | Jian He | Jian He |
 | [YARN-2846](https://issues.apache.org/jira/browse/YARN-2846) | Incorrect persist exit code for running containers in reacquireContainer() that interrupted by NodeManager restart. |  Blocker | nodemanager | Junping Du | Junping Du |
@@ -170,7 +170,7 @@
 
 ### TESTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YARN-2812](https://issues.apache.org/jira/browse/YARN-2812) | TestApplicationHistoryServer is likely to fail on less powerful machine |  Major | timelineserver | Zhijie Shen | Zhijie Shen |
 | [YARN-2810](https://issues.apache.org/jira/browse/YARN-2810) | TestRMProxyUsersConf fails on Windows VMs |  Major | resourcemanager | Varun Vasudev | Varun Vasudev |
@@ -190,7 +190,7 @@
 
 ### SUB-TASKS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YARN-2843](https://issues.apache.org/jira/browse/YARN-2843) | NodeLabels manager should trim all inputs for hosts and labels |  Major | resourcemanager | Sushmitha Sreenivasan | Wangda Tan |
 | [YARN-2841](https://issues.apache.org/jira/browse/YARN-2841) | RMProxy should retry EOFException |  Critical | resourcemanager | Jian He | Jian He |
@@ -324,7 +324,7 @@
 
 ### OTHER:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YARN-2789](https://issues.apache.org/jira/browse/YARN-2789) | Re-instate the NodeReport.newInstance API modified in YARN-2698 |  Critical | . | Siddharth Seth | Wangda Tan |
 | [YARN-2207](https://issues.apache.org/jira/browse/YARN-2207) | Add ability to roll over AMRMToken |  Major | resourcemanager | Xuan Gong | Xuan Gong |

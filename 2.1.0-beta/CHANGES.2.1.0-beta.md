@@ -4,7 +4,7 @@
 
 ### INCOMPATIBLE CHANGES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-9832](https://issues.apache.org/jira/browse/HADOOP-9832) | Add RPC header to client ping |  Blocker | ipc | Daryn Sharp | Daryn Sharp |
 | [HADOOP-9820](https://issues.apache.org/jira/browse/HADOOP-9820) | RPCv9 wire protocol is insufficient to support multiplexing |  Blocker | ipc, security | Daryn Sharp | Daryn Sharp |
@@ -93,7 +93,7 @@
 
 ### NEW FEATURES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-9763](https://issues.apache.org/jira/browse/HADOOP-9763) | Extends LightWeightGSet to support eviction of expired elements |  Major | util | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HADOOP-9515](https://issues.apache.org/jira/browse/HADOOP-9515) | Add general interface for NFS and Mount |  Major | . | Brandon Li | Brandon Li |
@@ -116,7 +116,7 @@
 
 ### IMPROVEMENTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-9845](https://issues.apache.org/jira/browse/HADOOP-9845) | Update protobuf to 2.5 from 2.4.x |  Blocker | performance | stack | Alejandro Abdelnur |
 | [HADOOP-9792](https://issues.apache.org/jira/browse/HADOOP-9792) | Retry the methods that are tagged @AtMostOnce along with @Idempotent |  Major | ipc | Suresh Srinivas | Suresh Srinivas |
@@ -252,7 +252,7 @@
 
 ### BUG FIXES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-9872](https://issues.apache.org/jira/browse/HADOOP-9872) | Improve protoc version handling and detection |  Blocker | build | Alejandro Abdelnur | Alejandro Abdelnur |
 | [HADOOP-9850](https://issues.apache.org/jira/browse/HADOOP-9850) | RPC kerberos errors don't trigger relogin |  Blocker | ipc | Daryn Sharp | Daryn Sharp |
@@ -715,7 +715,7 @@
 
 ### TESTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-9624](https://issues.apache.org/jira/browse/HADOOP-9624) | TestFSMainOperationsLocalFileSystem failed when the Hadoop test root path has "X" in its name |  Minor | test | Xi Fang | Xi Fang |
 | [HADOOP-9287](https://issues.apache.org/jira/browse/HADOOP-9287) | Parallel testing hadoop-common |  Major | test | Tsuyoshi Ozawa | Andrey Klochkov |
@@ -733,7 +733,7 @@
 
 ### SUB-TASKS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-9720](https://issues.apache.org/jira/browse/HADOOP-9720) | Rename Client#uuid to Client#clientId |  Major | . | Suresh Srinivas | Arpit Agarwal |
 | [HADOOP-9619](https://issues.apache.org/jira/browse/HADOOP-9619) | Mark stability of .proto files |  Major | documentation | Sanjay Radia | Sanjay Radia |
@@ -880,7 +880,7 @@
 
 ### OTHER:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [MAPREDUCE-5286](https://issues.apache.org/jira/browse/MAPREDUCE-5286) | startContainer call should use the ContainerToken instead of Container [YARN-684] |  Major | . | Siddharth Seth | Vinod Kumar Vavilapalli |
 | [MAPREDUCE-5194](https://issues.apache.org/jira/browse/MAPREDUCE-5194) | Heed interrupts during Fetcher shutdown |  Minor | task | Chris Douglas | Chris Douglas |

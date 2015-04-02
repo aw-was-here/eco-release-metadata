@@ -4,7 +4,7 @@
 
 ### INCOMPATIBLE CHANGES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-3675](https://issues.apache.org/jira/browse/HDFS-3675) | libhdfs: follow documented return codes |  Minor | libhdfs | Colin Patrick McCabe | Colin Patrick McCabe |
 | [HDFS-3522](https://issues.apache.org/jira/browse/HDFS-3522) | If NN is in safemode, it should throw SafeModeException when getBlockLocations has zero locations |  Major | namenode | Brandon Li | Brandon Li |
@@ -17,7 +17,7 @@
 
 ### NEW FEATURES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-3637](https://issues.apache.org/jira/browse/HDFS-3637) | Add support for encrypting the DataTransferProtocol |  Major | datanode, hdfs-client, security | Aaron T. Myers | Aaron T. Myers |
 | [HDFS-3535](https://issues.apache.org/jira/browse/HDFS-3535) | Audit logging should log denied accesses |  Major | namenode | Andy Isaacson | Andy Isaacson |
@@ -31,7 +31,7 @@
 
 ### IMPROVEMENTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-3907](https://issues.apache.org/jira/browse/HDFS-3907) | Allow multiple users for local block readers |  Major | datanode | Eli Collins | Eli Collins |
 | [HDFS-3887](https://issues.apache.org/jira/browse/HDFS-3887) | Remove redundant chooseTarget methods in BlockPlacementPolicy.java |  Trivial | namenode | Jing Zhao | Jing Zhao |
@@ -101,7 +101,7 @@
 
 ### BUG FIXES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-3972](https://issues.apache.org/jira/browse/HDFS-3972) | Trash emptier fails in secure HA cluster |  Critical | namenode | Todd Lipcon | Todd Lipcon |
 | [HDFS-3928](https://issues.apache.org/jira/browse/HDFS-3928) | MiniDFSCluster should reset the first ExitException on shutdown |  Major | test | Eli Collins | Eli Collins |
@@ -252,7 +252,7 @@
 
 ### TESTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-3709](https://issues.apache.org/jira/browse/HDFS-3709) | TestStartup tests still binding to the ephemeral port |  Major | test | Eli Collins | Eli Collins |
 | [HDFS-3665](https://issues.apache.org/jira/browse/HDFS-3665) | Add a test for renaming across file systems via a symlink |  Major | test | Eli Collins | Eli Collins |
@@ -264,7 +264,7 @@
 
 ### SUB-TASKS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-3502](https://issues.apache.org/jira/browse/HDFS-3502) | Change INodeFile and INodeFileUnderConstruction to package private |  Major | namenode | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HDFS-3474](https://issues.apache.org/jira/browse/HDFS-3474) | Cleanup Exception handling in BookKeeper journal manager |  Major | . | Ivan Kelly | Ivan Kelly |
@@ -284,7 +284,7 @@
 
 ### OTHER:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 
 

@@ -4,7 +4,7 @@
 
 ### INCOMPATIBLE CHANGES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-6102](https://issues.apache.org/jira/browse/HDFS-6102) | Lower the default maximum items per directory to fix PB fsimage loading |  Blocker | namenode | Andrew Wang | Andrew Wang |
 | [HDFS-6055](https://issues.apache.org/jira/browse/HDFS-6055) | Change default configuration to limit file name length in HDFS |  Major | namenode | Suresh Srinivas | Chris Nauroth |
@@ -15,7 +15,7 @@
 
 ### NEW FEATURES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-5535](https://issues.apache.org/jira/browse/HDFS-5535) | Umbrella jira for improved HDFS rolling upgrades |  Major | datanode, ha, hdfs-client, namenode | Nathan Roberts | Tsz Wo Nicholas Sze |
 | [HDFS-4685](https://issues.apache.org/jira/browse/HDFS-4685) | Implementation of ACLs in HDFS |  Major | hdfs-client, namenode, security | Sachin Jose | Chris Nauroth |
@@ -23,7 +23,7 @@
 
 ### IMPROVEMENTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-6150](https://issues.apache.org/jira/browse/HDFS-6150) | Add inode id information in the logs to make debugging easier |  Minor | namenode | Suresh Srinivas | Suresh Srinivas |
 | [HDFS-6138](https://issues.apache.org/jira/browse/HDFS-6138) | User Guide for how to use viewfs with federation |  Minor | documentation | Sanjay Radia | Sanjay Radia |
@@ -62,7 +62,7 @@
 
 ### BUG FIXES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-6237](https://issues.apache.org/jira/browse/HDFS-6237) | TestDFSShell#testGet fails on Windows due to invalid file system path. |  Trivial | hdfs-client, test | Chris Nauroth | Chris Nauroth |
 | [HDFS-6166](https://issues.apache.org/jira/browse/HDFS-6166) | revisit balancer so\_timeout |  Blocker | balancer & mover | Nathan Roberts | Nathan Roberts |
@@ -160,7 +160,7 @@
 
 ### TESTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-5953](https://issues.apache.org/jira/browse/HDFS-5953) | TestBlockReaderFactory fails if libhadoop.so has not been built |  Major | . | Ted Yu | Akira AJISAKA |
 | [HDFS-5936](https://issues.apache.org/jira/browse/HDFS-5936) | MiniDFSCluster does not clean data left behind by SecondaryNameNode. |  Major | namenode, test | Andrew Wang | Binglin Chang |
@@ -170,7 +170,7 @@
 
 ### SUB-TASKS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-6124](https://issues.apache.org/jira/browse/HDFS-6124) | Add final modifier to class members |  Major | . | Suresh Srinivas | Suresh Srinivas |
 | [HDFS-6086](https://issues.apache.org/jira/browse/HDFS-6086) | Fix a case where zero-copy or no-checksum reads were not allowed even when the block was cached |  Major | datanode | Colin Patrick McCabe | Colin Patrick McCabe |
@@ -211,7 +211,7 @@
 
 ### OTHER:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-6030](https://issues.apache.org/jira/browse/HDFS-6030) | Remove an unused constructor in INode.java |  Trivial | . | Yongjun Zhang | Yongjun Zhang |
 | [HDFS-6025](https://issues.apache.org/jira/browse/HDFS-6025) | Update findbugsExcludeFile.xml |  Minor | build | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |

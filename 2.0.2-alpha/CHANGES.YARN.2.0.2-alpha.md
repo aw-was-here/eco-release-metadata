@@ -4,19 +4,19 @@
 
 ### INCOMPATIBLE CHANGES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### NEW FEATURES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### IMPROVEMENTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YARN-420](https://issues.apache.org/jira/browse/YARN-420) | Enable the RM to work with AM's that are not managed by it |  Major | . | Bikas Saha | Bikas Saha |
 | [YARN-137](https://issues.apache.org/jira/browse/YARN-137) | Change the default scheduler to the CapacityScheduler |  Major | scheduler | Siddharth Seth | Siddharth Seth |
@@ -27,7 +27,7 @@
 
 ### BUG FIXES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YARN-174](https://issues.apache.org/jira/browse/YARN-174) | TestNodeStatusUpdater is failing in trunk |  Major | nodemanager | Robert Joseph Evans | Vinod Kumar Vavilapalli |
 | [YARN-138](https://issues.apache.org/jira/browse/YARN-138) | Improve default config values for YARN |  Major | resourcemanager, scheduler | Arun C Murthy | Harsh J |
@@ -57,13 +57,13 @@
 
 ### TESTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### SUB-TASKS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YARN-60](https://issues.apache.org/jira/browse/YARN-60) | NMs rejects all container tokens after secret key rolls |  Blocker | nodemanager | Daryn Sharp | Vinod Kumar Vavilapalli |
 | [YARN-39](https://issues.apache.org/jira/browse/YARN-39) | RM-NM secret-keys should be randomly generated and rolled every so often |  Critical | . | Vinod Kumar Vavilapalli | Vinod Kumar Vavilapalli |
@@ -72,7 +72,7 @@
 
 ### OTHER:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YARN-154](https://issues.apache.org/jira/browse/YARN-154) | Create Yarn trunk and commit jobs |  Major | . | Eli Collins | Robert Joseph Evans |
 | [YARN-1](https://issues.apache.org/jira/browse/YARN-1) | Move YARN out of hadoop-mapreduce |  Major | . | Arun C Murthy | Arun C Murthy |

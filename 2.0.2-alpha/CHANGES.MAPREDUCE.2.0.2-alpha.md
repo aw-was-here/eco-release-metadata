@@ -4,7 +4,7 @@
 
 ### INCOMPATIBLE CHANGES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [MAPREDUCE-4629](https://issues.apache.org/jira/browse/MAPREDUCE-4629) | Remove JobHistory.DEBUG\_MODE |  Major | . | Karthik Kambatla | Karthik Kambatla |
 | [MAPREDUCE-4311](https://issues.apache.org/jira/browse/MAPREDUCE-4311) | Capacity scheduler.xml does not accept decimal values for capacity and maximum-capacity settings |  Major | capacity-sched, mrv2 | Thomas Graves | Karthik Kambatla |
@@ -14,7 +14,7 @@
 
 ### NEW FEATURES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [MAPREDUCE-4417](https://issues.apache.org/jira/browse/MAPREDUCE-4417) | add support for encrypted shuffle |  Major | mrv2, security | Alejandro Abdelnur | Alejandro Abdelnur |
 | [MAPREDUCE-4355](https://issues.apache.org/jira/browse/MAPREDUCE-4355) | Add RunningJob.getJobStatus() |  Major | mrv1, mrv2 | Karthik Kambatla | Karthik Kambatla |
@@ -25,7 +25,7 @@
 
 ### IMPROVEMENTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [MAPREDUCE-4638](https://issues.apache.org/jira/browse/MAPREDUCE-4638) | MR AppMaster shouldn't rely on YARN\_APPLICATION\_CLASSPATH providing MR jars |  Major | . | Arun C Murthy | Arun C Murthy |
 | [MAPREDUCE-4614](https://issues.apache.org/jira/browse/MAPREDUCE-4614) | Simplify debugging a job's tokens |  Major | client, task | Daryn Sharp | Daryn Sharp |
@@ -58,7 +58,7 @@
 
 ### BUG FIXES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [MAPREDUCE-4691](https://issues.apache.org/jira/browse/MAPREDUCE-4691) | Historyserver can report "Unknown job" after RM says job has completed |  Critical | jobhistoryserver, mrv2 | Jason Lowe | Robert Joseph Evans |
 | [MAPREDUCE-4689](https://issues.apache.org/jira/browse/MAPREDUCE-4689) | JobClient.getMapTaskReports on failed job results in NPE |  Major | client | Jason Lowe | Jason Lowe |
@@ -222,7 +222,7 @@
 
 ### TESTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [MAPREDUCE-4212](https://issues.apache.org/jira/browse/MAPREDUCE-4212) | TestJobClientGetJob sometimes fails |  Major | test | Daryn Sharp | Daryn Sharp |
 | [MAPREDUCE-3983](https://issues.apache.org/jira/browse/MAPREDUCE-3983) | TestTTResourceReporting can fail, and should just be deleted |  Major | mrv1 | Robert Joseph Evans | Ravi Prakash |
@@ -230,7 +230,7 @@
 
 ### SUB-TASKS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [MAPREDUCE-4163](https://issues.apache.org/jira/browse/MAPREDUCE-4163) | consistently set the bind address |  Major | mrv2 | Daryn Sharp | Daryn Sharp |
 | [MAPREDUCE-4162](https://issues.apache.org/jira/browse/MAPREDUCE-4162) | Correctly set token service |  Major | client, mrv2 | Daryn Sharp | Daryn Sharp |
@@ -243,7 +243,7 @@
 
 ### OTHER:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [MAPREDUCE-4134](https://issues.apache.org/jira/browse/MAPREDUCE-4134) | Remove references of mapred.child.ulimit etc. since they are not being used any more |  Major | mrv2 | Ravi Prakash | Ravi Prakash |
 | [MAPREDUCE-4051](https://issues.apache.org/jira/browse/MAPREDUCE-4051) | Remove the empty hadoop-mapreduce-project/assembly/all.xml file |  Major | . | Ravi Prakash | Ravi Prakash |

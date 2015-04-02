@@ -4,19 +4,19 @@
 
 ### INCOMPATIBLE CHANGES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### NEW FEATURES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### IMPROVEMENTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [MAPREDUCE-5773](https://issues.apache.org/jira/browse/MAPREDUCE-5773) | Provide dedicated MRAppMaster syslog length limit |  Blocker | mr-am | Gera Shegalov | Gera Shegalov |
 | [MAPREDUCE-5761](https://issues.apache.org/jira/browse/MAPREDUCE-5761) | Add a log message like "encrypted shuffle is ON" in nodemanager logs |  Trivial | . | Yesha Vora | Jian He |
@@ -28,7 +28,7 @@
 
 ### BUG FIXES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [MAPREDUCE-5813](https://issues.apache.org/jira/browse/MAPREDUCE-5813) | YarnChild does not load job.xml with mapreduce.job.classloader=true |  Blocker | mrv2, task | Gera Shegalov | Gera Shegalov |
 | [MAPREDUCE-5810](https://issues.apache.org/jira/browse/MAPREDUCE-5810) | TestStreamingTaskLog#testStreamingTaskLogWithHadoopCmd is failing |  Major | contrib/streaming | Mit Desai | Akira AJISAKA |
@@ -57,20 +57,20 @@
 
 ### TESTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### SUB-TASKS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [MAPREDUCE-5787](https://issues.apache.org/jira/browse/MAPREDUCE-5787) | Modify ShuffleHandler to support Keep-Alive |  Critical | nodemanager | Rajesh Balamohan | Rajesh Balamohan |
 
 
 ### OTHER:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 
 

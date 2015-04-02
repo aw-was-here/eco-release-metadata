@@ -4,19 +4,19 @@
 
 ### INCOMPATIBLE CHANGES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### NEW FEATURES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### IMPROVEMENTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [MAPREDUCE-4219](https://issues.apache.org/jira/browse/MAPREDUCE-4219) | make default container-executor.conf.dir be a path relative to the container-executor binary |  Major | security | Roman Shaposhnik | Roman Shaposhnik |
 | [MAPREDUCE-4138](https://issues.apache.org/jira/browse/MAPREDUCE-4138) | Reduce memory usage of counters due to non-static nested classes |  Major | . | Tom White | Tom White |
@@ -33,7 +33,7 @@
 
 ### BUG FIXES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [MAPREDUCE-4231](https://issues.apache.org/jira/browse/MAPREDUCE-4231) | Update RAID to not to use FSInodeInfo |  Major | contrib/raid | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [MAPREDUCE-4202](https://issues.apache.org/jira/browse/MAPREDUCE-4202) | TestYarnClientProtocolProvider is broken |  Major | test | Daryn Sharp | Daryn Sharp |
@@ -69,13 +69,13 @@
 
 ### TESTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### SUB-TASKS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [MAPREDUCE-4113](https://issues.apache.org/jira/browse/MAPREDUCE-4113) | Fix tests org.apache.hadoop.mapred.TestClusterMRNotification |  Major | mrv2, test | Devaraj K | Devaraj K |
 | [MAPREDUCE-4112](https://issues.apache.org/jira/browse/MAPREDUCE-4112) | Fix tests org.apache.hadoop.mapred.TestClusterMapReduceTestCase |  Major | mrv2, test | Devaraj K | Devaraj K |
@@ -87,7 +87,7 @@
 
 ### OTHER:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 
 

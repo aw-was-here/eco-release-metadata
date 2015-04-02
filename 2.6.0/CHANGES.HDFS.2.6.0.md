@@ -4,13 +4,13 @@
 
 ### INCOMPATIBLE CHANGES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### NEW FEATURES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-6959](https://issues.apache.org/jira/browse/HDFS-6959) | Make the HDFS home directory location customizable. |  Minor | . | Kevin Odell | Yongjun Zhang |
 | [HDFS-6634](https://issues.apache.org/jira/browse/HDFS-6634) | inotify in HDFS |  Major | hdfs-client, namenode, qjm | James Thomas | James Thomas |
@@ -22,7 +22,7 @@
 
 ### IMPROVEMENTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-7313](https://issues.apache.org/jira/browse/HDFS-7313) | Support optional configuration of AES cipher suite on DataTransferProtocol. |  Major | datanode, hdfs-client, security | Chris Nauroth | Chris Nauroth |
 | [HDFS-7276](https://issues.apache.org/jira/browse/HDFS-7276) | Limit the number of byte arrays used by DFSOutputStream |  Major | hdfs-client | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
@@ -88,7 +88,7 @@
 
 ### BUG FIXES:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-7391](https://issues.apache.org/jira/browse/HDFS-7391) | Renable SSLv2Hello in HttpFS |  Blocker | webhdfs | Robert Kanter | Robert Kanter |
 | [HDFS-7387](https://issues.apache.org/jira/browse/HDFS-7387) | NFS may only do partial commit due to a race between COMMIT and write |  Critical | nfs | Brandon Li | Brandon Li |
@@ -236,7 +236,7 @@
 
 ### TESTS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-7355](https://issues.apache.org/jira/browse/HDFS-7355) | TestDataNodeVolumeFailure#testUnderReplicationAfterVolFailure fails on Windows, because we cannot deny access to the file owner. |  Trivial | test | Chris Nauroth | Chris Nauroth |
 | [HDFS-7126](https://issues.apache.org/jira/browse/HDFS-7126) | TestEncryptionZonesWithHA assumes Unix path separator for KMS key store path |  Minor | security, test | Xiaoyu Yao | Xiaoyu Yao |
@@ -254,7 +254,7 @@
 
 ### SUB-TASKS:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-7291](https://issues.apache.org/jira/browse/HDFS-7291) | Persist in-memory replicas with appropriate unbuffered copy API on POSIX and Windows |  Major | datanode | Xiaoyu Yao | Xiaoyu Yao |
 | [HDFS-7181](https://issues.apache.org/jira/browse/HDFS-7181) | Remove incorrect precondition check on key length in FileEncryptionInfo |  Critical | encryption | Andrew Wang | Andrew Wang |
@@ -341,7 +341,7 @@
 
 ### OTHER:
 
-| JIRA | Description | Priority | Component | Reporter | Contributor |
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 
 
