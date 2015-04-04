@@ -459,8 +459,10 @@
 | [HADOOP-9087](https://issues.apache.org/jira/browse/HADOOP-9087) | Queue size metric for metric sinks isn't actually maintained |  Minor | metrics | Mostafa Elhemali | Akira AJISAKA |
 | [HADOOP-8642](https://issues.apache.org/jira/browse/HADOOP-8642) | Document that io.native.lib.available only controls native bz2 and zlib compression codecs |  Major | documentation, native | Eli Collins | Akira AJISAKA |
 | [HADOOP-6221](https://issues.apache.org/jira/browse/HADOOP-6221) | RPC Client operations cannot be interrupted |  Minor | ipc | Steve Loughran | Steve Loughran |
+| [HDFS-8051](https://issues.apache.org/jira/browse/HDFS-8051) | FsVolumeList#addVolume should release volume reference if not put it into BlockScanner. |  Major | datanode | Lei (Eddy) Xu | Lei (Eddy) Xu |
 | [HDFS-8036](https://issues.apache.org/jira/browse/HDFS-8036) | Use snapshot path as source when using snapshot diff report in DistCp |  Major | distcp | Jing Zhao | Jing Zhao |
 | [HDFS-8001](https://issues.apache.org/jira/browse/HDFS-8001) | RpcProgramNfs3 : wrong parsing of dfs.blocksize |  Trivial | nfs | Remi Catherinot | Remi Catherinot |
+| [HDFS-7996](https://issues.apache.org/jira/browse/HDFS-7996) | After swapping a volume, BlockReceiver reports ReplicaNotFoundException |  Critical | datanode | Lei (Eddy) Xu | Lei (Eddy) Xu |
 | [HDFS-7977](https://issues.apache.org/jira/browse/HDFS-7977) | NFS couldn't take percentile intervals |  Major | nfs | Brandon Li | Brandon Li |
 | [HDFS-7963](https://issues.apache.org/jira/browse/HDFS-7963) | Fix expected tracing spans in TestTracing along with HDFS-7054 |  Critical | test | Masatake Iwasaki | Masatake Iwasaki |
 | [HDFS-7961](https://issues.apache.org/jira/browse/HDFS-7961) | Trigger full block report after hot swapping disk |  Major | . | Lei (Eddy) Xu | Lei (Eddy) Xu |
@@ -815,6 +817,7 @@
 | [HADOOP-10482](https://issues.apache.org/jira/browse/HADOOP-10482) | Fix various findbugs warnings in hadoop-common |  Major | . | Haohui Mai | Haohui Mai |
 | [HADOOP-10478](https://issues.apache.org/jira/browse/HADOOP-10478) | Fix new findbugs warnings in hadoop-maven-plugins |  Major | . | Haohui Mai | Li Lu |
 | [HADOOP-10476](https://issues.apache.org/jira/browse/HADOOP-10476) | Bumping the findbugs version to 3.0.0 |  Major | build | Haohui Mai | Haohui Mai |
+| [HDFS-8039](https://issues.apache.org/jira/browse/HDFS-8039) | Fix TestDebugAdmin#testRecoverLease and testVerfiyBlockChecksumCommand on Windows |  Minor | test | Xiaoyu Yao | Xiaoyu Yao |
 | [HDFS-7954](https://issues.apache.org/jira/browse/HDFS-7954) | TestBalancer#testBalancerWithPinnedBlocks failed on Windows |  Minor | test | Xiaoyu Yao | Xiaoyu Yao |
 | [HDFS-7951](https://issues.apache.org/jira/browse/HDFS-7951) | Fix NPE for TestFsDatasetImpl#testAddVolumeFailureReleasesInUseLock on Linux |  Major | test | Xiaoyu Yao | Xiaoyu Yao |
 | [HDFS-7950](https://issues.apache.org/jira/browse/HDFS-7950) | Fix TestFsDatasetImpl#testAddVolumes failure on Windows |  Major | test | Xiaoyu Yao | Xiaoyu Yao |
@@ -828,6 +831,7 @@
 | [HDFS-7824](https://issues.apache.org/jira/browse/HDFS-7824) | GetContentSummary API and its namenode implementation for Storage Type Quota/Usage |  Major | datanode, namenode | Xiaoyu Yao | Xiaoyu Yao |
 | [HDFS-7819](https://issues.apache.org/jira/browse/HDFS-7819) | Log WARN message for the blocks which are not in Block ID based layout |  Major | datanode | Rakesh R | Rakesh R |
 | [HDFS-7814](https://issues.apache.org/jira/browse/HDFS-7814) | Fix usage string of storageType parameter for "dfsadmin -setSpaceQuota/clrSpaceQuota" |  Minor | datanode, namenode | Xiaoyu Yao | Xiaoyu Yao |
+| [HDFS-7811](https://issues.apache.org/jira/browse/HDFS-7811) | Avoid recursive call getStoragePolicyID in INodeFile#computeQuotaUsage |  Minor | namenode | Xiaoyu Yao | Xiaoyu Yao |
 | [HDFS-7806](https://issues.apache.org/jira/browse/HDFS-7806) | Refactor: move StorageType from hadoop-hdfs to hadoop-common |  Minor | datanode, namenode | Xiaoyu Yao | Xiaoyu Yao |
 | [HDFS-7776](https://issues.apache.org/jira/browse/HDFS-7776) | Adding additional unit tests for Quota By Storage Type |  Major | test | Xiaoyu Yao | Xiaoyu Yao |
 | [HDFS-7775](https://issues.apache.org/jira/browse/HDFS-7775) | Use consistent naming for NN-internal quota related types and functions |  Minor | datanode, namenode | Xiaoyu Yao | Xiaoyu Yao |

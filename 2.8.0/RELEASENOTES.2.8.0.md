@@ -51,6 +51,13 @@ Fixed a bug where the StandbyNameNode's TransactionsSinceLastCheckpoint metric m
 
 ---
 
+* [YARN-3365](https://issues.apache.org/jira/browse/YARN-3365) | *Major* | **Add support for using the 'tc' tool via container-executor**
+
+Adding support for using the 'tc' tool in batch mode via container-executor. This is a prerequisite for traffic-shaping functionality that is necessary to support outbound bandwidth as a resource in YARN.
+
+
+---
+
 * [YARN-3241](https://issues.apache.org/jira/browse/YARN-3241) | *Major* | **FairScheduler handles "invalid" queue names inconsistently**
 
 FairScheduler does not allow queue names with leading or tailing spaces or empty sub-queue names anymore.
