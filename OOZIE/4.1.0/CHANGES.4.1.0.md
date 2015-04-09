@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-# Hadoop Changelog
+# Changelog
 
 ## Release 4.1.0 - 2014-12-08
 
