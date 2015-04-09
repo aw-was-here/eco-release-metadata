@@ -6,7 +6,7 @@ bin=$(cd -P -- "$(dirname -- "${this}")" >/dev/null && pwd -P)
 OPATH=${PATH}
 PATH=${bin}:${OPATH}
 
-cd ${HOME}/Src/aw-github/hadoop-release-metadata
+cd ${HOME}/Src/aw-github/hadoop-release-metadata/HADOOP
 
 relnotes 3.0.0
 relnotes 2.8.0
