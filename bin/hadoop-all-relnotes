@@ -8,28 +8,28 @@ PATH=${bin}:${OPATH}
 
 cd ${HOME}/Src/aw-github/hadoop-release-metadata/HADOOP
 
-relnotes 3.0.0
-relnotes 2.8.0
-relnotes 2.7.0
-#relnotes 2.6.1
-#relnotes 2.6.0
-#relnotes 2.5.2
-#relnotes 2.5.1
-#relnotes 2.5.0
-#relnotes 2.4.1
-#relnotes 2.4.0
-#relnotes 2.3.0
-#relnotes 2.2.1
-#relnotes 2.2.0
-#relnotes 2.1.1-beta
-#relnotes 2.1.0-beta
-#relnotes 2.0.6-alpha
-#relnotes 2.0.5-alpha
-#relnotes 2.0.4-alpha
-#relnotes 2.0.3-alpha
-#relnotes 2.0.2-alpha
-#relnotes 2.0.1-alpha
-#relnotes 2.0.0-alpha
+hadoop-relnotes 3.0.0
+hadoop-relnotes 2.8.0
+hadoop-relnotes 2.7.0
+#hadoop-relnotes 2.6.1
+#hadoop-relnotes 2.6.0
+#hadoop-relnotes 2.5.2
+#hadoop-relnotes 2.5.1
+#hadoop-relnotes 2.5.0
+#hadoop-relnotes 2.4.1
+#hadoop-relnotes 2.4.0
+#hadoop-relnotes 2.3.0
+#hadoop-relnotes 2.2.1
+#hadoop-relnotes 2.2.0
+#hadoop-relnotes 2.1.1-beta
+#hadoop-relnotes 2.1.0-beta
+#hadoop-relnotes 2.0.6-alpha
+#hadoop-relnotes 2.0.5-alpha
+#hadoop-relnotes 2.0.4-alpha
+#hadoop-relnotes 2.0.3-alpha
+#hadoop-relnotes 2.0.2-alpha
+#hadoop-relnotes 2.0.1-alpha
+#hadoop-relnotes 2.0.0-alpha
 
 d=$(date -u "+%Y-%m-%d %H:%m")
 git commit -a -m "${d} UTC auto-commit"
