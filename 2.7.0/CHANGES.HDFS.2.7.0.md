@@ -49,13 +49,13 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HDFS-8071](https://issues.apache.org/jira/browse/HDFS-8071) | Redundant checkFileProgress() in PART II of getAdditionalBlock() |  Major | . | Konstantin Shvachko | Konstantin Shvachko |
 | [HDFS-7976](https://issues.apache.org/jira/browse/HDFS-7976) | Update NFS user guide for mount option "sync" to minimize or avoid reordered writes |  Major | documentation, nfs | Brandon Li | Brandon Li |
 | [HDFS-7962](https://issues.apache.org/jira/browse/HDFS-7962) | Remove duplicated logs in BlockManager |  Minor | . | Yi Liu | Yi Liu |
 | [HDFS-7917](https://issues.apache.org/jira/browse/HDFS-7917) | Use file to replace data dirs in test to simulate a disk failure. |  Minor | test | Lei (Eddy) Xu | Lei (Eddy) Xu |
 | [HDFS-7898](https://issues.apache.org/jira/browse/HDFS-7898) | Change TestAppendSnapshotTruncate to fail-fast |  Minor | test | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HDFS-7849](https://issues.apache.org/jira/browse/HDFS-7849) | Update documentation for enabling a new feature in rolling upgrade |  Minor | documentation | Tsz Wo Nicholas Sze | J.Andreina |
 | [HDFS-7832](https://issues.apache.org/jira/browse/HDFS-7832) | Show 'Last Modified' in Namenode's 'Browse Filesystem' |  Major | namenode | Vinayakumar B | Vinayakumar B |
-| [HDFS-7808](https://issues.apache.org/jira/browse/HDFS-7808) | Remove obsolete -ns options in in DFSHAAdmin.java |  Minor | . | Arshad Mohammad | Arshad Mohammad |
 | [HDFS-7797](https://issues.apache.org/jira/browse/HDFS-7797) | Add audit log for setQuota operation |  Major | namenode | Rakesh R | Rakesh R |
 | [HDFS-7795](https://issues.apache.org/jira/browse/HDFS-7795) | Show warning if not all favored nodes were chosen by namenode |  Minor | . | Kihwal Lee | Kihwal Lee |
 | [HDFS-7790](https://issues.apache.org/jira/browse/HDFS-7790) | Do not create optional fields in DFSInputStream unless they are needed |  Minor | hdfs-client | Colin Patrick McCabe | Colin Patrick McCabe |
@@ -156,9 +156,13 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HDFS-8072](https://issues.apache.org/jira/browse/HDFS-8072) | Reserved RBW space is not released if client terminates while writing block |  Major | datanode | Arpit Agarwal | Arpit Agarwal |
+| [HDFS-8063](https://issues.apache.org/jira/browse/HDFS-8063) | Fix intermittent test failures in TestTracing |  Minor | test | Masatake Iwasaki | Masatake Iwasaki |
 | [HDFS-8051](https://issues.apache.org/jira/browse/HDFS-8051) | FsVolumeList#addVolume should release volume reference if not put it into BlockScanner. |  Major | datanode | Lei (Eddy) Xu | Lei (Eddy) Xu |
 | [HDFS-8036](https://issues.apache.org/jira/browse/HDFS-8036) | Use snapshot path as source when using snapshot diff report in DistCp |  Major | distcp | Jing Zhao | Jing Zhao |
+| [HDFS-8025](https://issues.apache.org/jira/browse/HDFS-8025) | Addendum fix for HDFS-3087 Decomissioning on NN restart can complete without blocks being replicated |  Major | . | Ming Ma | Ming Ma |
 | [HDFS-8001](https://issues.apache.org/jira/browse/HDFS-8001) | RpcProgramNfs3 : wrong parsing of dfs.blocksize |  Trivial | nfs | Remi Catherinot | Remi Catherinot |
+| [HDFS-7999](https://issues.apache.org/jira/browse/HDFS-7999) | FsDatasetImpl#createTemporary sometimes holds the FSDatasetImpl lock for a very long time |  Major | . | zhouyingchao | zhouyingchao |
 | [HDFS-7996](https://issues.apache.org/jira/browse/HDFS-7996) | After swapping a volume, BlockReceiver reports ReplicaNotFoundException |  Critical | datanode | Lei (Eddy) Xu | Lei (Eddy) Xu |
 | [HDFS-7977](https://issues.apache.org/jira/browse/HDFS-7977) | NFS couldn't take percentile intervals |  Major | nfs | Brandon Li | Brandon Li |
 | [HDFS-7963](https://issues.apache.org/jira/browse/HDFS-7963) | Fix expected tracing spans in TestTracing along with HDFS-7054 |  Critical | test | Masatake Iwasaki | Masatake Iwasaki |
@@ -273,7 +277,6 @@
 | [HDFS-7366](https://issues.apache.org/jira/browse/HDFS-7366) | BlockInfo should take replication as an short in the constructor |  Minor | . | Haohui Mai | Li Lu |
 | [HDFS-7361](https://issues.apache.org/jira/browse/HDFS-7361) | TestCheckpoint#testStorageAlreadyLockedErrorMessage fails after change of log message related to locking violation. |  Minor | datanode, namenode, test | Chris Nauroth | Konstantin Shvachko |
 | [HDFS-7358](https://issues.apache.org/jira/browse/HDFS-7358) | Clients may get stuck waiting when using ByteArrayManager |  Major | hdfs-client | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
-| [HDFS-7324](https://issues.apache.org/jira/browse/HDFS-7324) | haadmin command usage prints incorrect command name |  Major | ha, tools | Brahma Reddy Battula | Brahma Reddy Battula |
 | [HDFS-7315](https://issues.apache.org/jira/browse/HDFS-7315) | DFSTestUtil.readFileBuffer opens extra FSDataInputStream |  Trivial | . | Plamen Jeliazkov | Plamen Jeliazkov |
 | [HDFS-7303](https://issues.apache.org/jira/browse/HDFS-7303) | NN UI fails to distinguish datanodes on the same host |  Minor | . | Benoy Antony | Benoy Antony |
 | [HDFS-7301](https://issues.apache.org/jira/browse/HDFS-7301) | TestMissingBlocksAlert should use MXBeans instead of old web UI |  Minor | . | Zhe Zhang | Zhe Zhang |
@@ -327,6 +330,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-8039](https://issues.apache.org/jira/browse/HDFS-8039) | Fix TestDebugAdmin#testRecoverLease and testVerfiyBlockChecksumCommand on Windows |  Minor | test | Xiaoyu Yao | Xiaoyu Yao |
+| [HDFS-8038](https://issues.apache.org/jira/browse/HDFS-8038) | PBImageDelimitedTextWriter#getEntry output HDFS path in platform-specific format. |  Minor | tools | Xiaoyu Yao | Xiaoyu Yao |
 | [HDFS-7954](https://issues.apache.org/jira/browse/HDFS-7954) | TestBalancer#testBalancerWithPinnedBlocks failed on Windows |  Minor | test | Xiaoyu Yao | Xiaoyu Yao |
 | [HDFS-7951](https://issues.apache.org/jira/browse/HDFS-7951) | Fix NPE for TestFsDatasetImpl#testAddVolumeFailureReleasesInUseLock on Linux |  Major | test | Xiaoyu Yao | Xiaoyu Yao |
 | [HDFS-7950](https://issues.apache.org/jira/browse/HDFS-7950) | Fix TestFsDatasetImpl#testAddVolumes failure on Windows |  Major | test | Xiaoyu Yao | Xiaoyu Yao |

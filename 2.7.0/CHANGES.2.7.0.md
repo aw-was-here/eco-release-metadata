@@ -68,6 +68,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HADOOP-11801](https://issues.apache.org/jira/browse/HADOOP-11801) | Update BUILDING.txt for Ubuntu |  Minor | documentation | Gabor Liptak | Gabor Liptak |
 | [HADOOP-11714](https://issues.apache.org/jira/browse/HADOOP-11714) | Add more trace log4j messages to SpanReceiverHost |  Minor | tracing | Colin Patrick McCabe | Colin Patrick McCabe |
 | [HADOOP-11658](https://issues.apache.org/jira/browse/HADOOP-11658) | Externalize io.compression.codecs property |  Minor | . | Kai Zheng | Kai Zheng |
 | [HADOOP-11648](https://issues.apache.org/jira/browse/HADOOP-11648) | Set DomainSocketWatcher thread name explicitly |  Major | net | Liang Xie | Liang Xie |
@@ -133,13 +134,13 @@
 | [HADOOP-8757](https://issues.apache.org/jira/browse/HADOOP-8757) | Metrics should disallow names with invalid characters |  Minor | metrics | Todd Lipcon | Ray Chiang |
 | [HADOOP-8059](https://issues.apache.org/jira/browse/HADOOP-8059) | Add javadoc to InterfaceAudience and InterfaceStability |  Major | documentation | Suresh Srinivas | Brandon Li |
 | [HADOOP-4297](https://issues.apache.org/jira/browse/HADOOP-4297) | Enable Java assertions when running tests |  Major | build | Yoram Kulbak | Tsz Wo Nicholas Sze |
+| [HDFS-8071](https://issues.apache.org/jira/browse/HDFS-8071) | Redundant checkFileProgress() in PART II of getAdditionalBlock() |  Major | . | Konstantin Shvachko | Konstantin Shvachko |
 | [HDFS-7976](https://issues.apache.org/jira/browse/HDFS-7976) | Update NFS user guide for mount option "sync" to minimize or avoid reordered writes |  Major | documentation, nfs | Brandon Li | Brandon Li |
 | [HDFS-7962](https://issues.apache.org/jira/browse/HDFS-7962) | Remove duplicated logs in BlockManager |  Minor | . | Yi Liu | Yi Liu |
 | [HDFS-7917](https://issues.apache.org/jira/browse/HDFS-7917) | Use file to replace data dirs in test to simulate a disk failure. |  Minor | test | Lei (Eddy) Xu | Lei (Eddy) Xu |
 | [HDFS-7898](https://issues.apache.org/jira/browse/HDFS-7898) | Change TestAppendSnapshotTruncate to fail-fast |  Minor | test | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HDFS-7849](https://issues.apache.org/jira/browse/HDFS-7849) | Update documentation for enabling a new feature in rolling upgrade |  Minor | documentation | Tsz Wo Nicholas Sze | J.Andreina |
 | [HDFS-7832](https://issues.apache.org/jira/browse/HDFS-7832) | Show 'Last Modified' in Namenode's 'Browse Filesystem' |  Major | namenode | Vinayakumar B | Vinayakumar B |
-| [HDFS-7808](https://issues.apache.org/jira/browse/HDFS-7808) | Remove obsolete -ns options in in DFSHAAdmin.java |  Minor | . | Arshad Mohammad | Arshad Mohammad |
 | [HDFS-7797](https://issues.apache.org/jira/browse/HDFS-7797) | Add audit log for setQuota operation |  Major | namenode | Rakesh R | Rakesh R |
 | [HDFS-7795](https://issues.apache.org/jira/browse/HDFS-7795) | Show warning if not all favored nodes were chosen by namenode |  Minor | . | Kihwal Lee | Kihwal Lee |
 | [HDFS-7790](https://issues.apache.org/jira/browse/HDFS-7790) | Do not create optional fields in DFSInputStream unless they are needed |  Minor | hdfs-client | Colin Patrick McCabe | Colin Patrick McCabe |
@@ -260,6 +261,7 @@
 | [MAPREDUCE-4431](https://issues.apache.org/jira/browse/MAPREDUCE-4431) | mapred command should print the reason on killing already completed jobs |  Minor | mrv2 | Nishan Shetty | Devaraj K |
 | [YARN-3349](https://issues.apache.org/jira/browse/YARN-3349) | Treat all exceptions as failure in TestFSRMStateStore#testFSRMStateStoreClientRetry |  Minor | test | zhihai xu | zhihai xu |
 | [YARN-3285](https://issues.apache.org/jira/browse/YARN-3285) | Convert branch-2 .apt.vm files of YARN to markdown |  Major | documentation | Masatake Iwasaki | Masatake Iwasaki |
+| [YARN-3273](https://issues.apache.org/jira/browse/YARN-3273) | Improve web UI to facilitate scheduling analysis and debugging |  Major | . | Jian He | Rohith |
 | [YARN-3272](https://issues.apache.org/jira/browse/YARN-3272) | Surface container locality info in RM web UI |  Major | . | Jian He | Jian He |
 | [YARN-3262](https://issues.apache.org/jira/browse/YARN-3262) |  Surface application outstanding resource requests table in RM web UI |  Major | yarn | Jian He | Jian He |
 | [YARN-3249](https://issues.apache.org/jira/browse/YARN-3249) | Add a "kill application" button to Resource Manager's Web UI |  Minor | resourcemanager | Ryu Kobayashi | Ryu Kobayashi |
@@ -317,7 +319,9 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HADOOP-11815](https://issues.apache.org/jira/browse/HADOOP-11815) | HttpServer2 should destroy SignerSecretProvider when it stops |  Blocker | . | Rohith | Rohith |
 | [HADOOP-11787](https://issues.apache.org/jira/browse/HADOOP-11787) | OpensslSecureRandom.c pthread\_threadid\_np usage signature is wrong on 32-bit Mac |  Critical | native | Colin Patrick McCabe | Kiran Kumar M R |
+| [HADOOP-11776](https://issues.apache.org/jira/browse/HADOOP-11776) | jdiff is broken in Hadoop 2 |  Blocker | . | Li Lu | Li Lu |
 | [HADOOP-11761](https://issues.apache.org/jira/browse/HADOOP-11761) | Fix findbugs warnings in org.apache.hadoop.security.authentication |  Minor | . | Li Lu | Li Lu |
 | [HADOOP-11757](https://issues.apache.org/jira/browse/HADOOP-11757) | NFS gateway should shutdown when it can't start UDP or TCP server |  Major | nfs | Brandon Li | Brandon Li |
 | [HADOOP-11754](https://issues.apache.org/jira/browse/HADOOP-11754) | RM fails to start in non-secure mode due to authentication filter failure |  Blocker | . | Sangjin Lee | Haohui Mai |
@@ -459,9 +463,13 @@
 | [HADOOP-9087](https://issues.apache.org/jira/browse/HADOOP-9087) | Queue size metric for metric sinks isn't actually maintained |  Minor | metrics | Mostafa Elhemali | Akira AJISAKA |
 | [HADOOP-8642](https://issues.apache.org/jira/browse/HADOOP-8642) | Document that io.native.lib.available only controls native bz2 and zlib compression codecs |  Major | documentation, native | Eli Collins | Akira AJISAKA |
 | [HADOOP-6221](https://issues.apache.org/jira/browse/HADOOP-6221) | RPC Client operations cannot be interrupted |  Minor | ipc | Steve Loughran | Steve Loughran |
+| [HDFS-8072](https://issues.apache.org/jira/browse/HDFS-8072) | Reserved RBW space is not released if client terminates while writing block |  Major | datanode | Arpit Agarwal | Arpit Agarwal |
+| [HDFS-8063](https://issues.apache.org/jira/browse/HDFS-8063) | Fix intermittent test failures in TestTracing |  Minor | test | Masatake Iwasaki | Masatake Iwasaki |
 | [HDFS-8051](https://issues.apache.org/jira/browse/HDFS-8051) | FsVolumeList#addVolume should release volume reference if not put it into BlockScanner. |  Major | datanode | Lei (Eddy) Xu | Lei (Eddy) Xu |
 | [HDFS-8036](https://issues.apache.org/jira/browse/HDFS-8036) | Use snapshot path as source when using snapshot diff report in DistCp |  Major | distcp | Jing Zhao | Jing Zhao |
+| [HDFS-8025](https://issues.apache.org/jira/browse/HDFS-8025) | Addendum fix for HDFS-3087 Decomissioning on NN restart can complete without blocks being replicated |  Major | . | Ming Ma | Ming Ma |
 | [HDFS-8001](https://issues.apache.org/jira/browse/HDFS-8001) | RpcProgramNfs3 : wrong parsing of dfs.blocksize |  Trivial | nfs | Remi Catherinot | Remi Catherinot |
+| [HDFS-7999](https://issues.apache.org/jira/browse/HDFS-7999) | FsDatasetImpl#createTemporary sometimes holds the FSDatasetImpl lock for a very long time |  Major | . | zhouyingchao | zhouyingchao |
 | [HDFS-7996](https://issues.apache.org/jira/browse/HDFS-7996) | After swapping a volume, BlockReceiver reports ReplicaNotFoundException |  Critical | datanode | Lei (Eddy) Xu | Lei (Eddy) Xu |
 | [HDFS-7977](https://issues.apache.org/jira/browse/HDFS-7977) | NFS couldn't take percentile intervals |  Major | nfs | Brandon Li | Brandon Li |
 | [HDFS-7963](https://issues.apache.org/jira/browse/HDFS-7963) | Fix expected tracing spans in TestTracing along with HDFS-7054 |  Critical | test | Masatake Iwasaki | Masatake Iwasaki |
@@ -576,7 +584,6 @@
 | [HDFS-7366](https://issues.apache.org/jira/browse/HDFS-7366) | BlockInfo should take replication as an short in the constructor |  Minor | . | Haohui Mai | Li Lu |
 | [HDFS-7361](https://issues.apache.org/jira/browse/HDFS-7361) | TestCheckpoint#testStorageAlreadyLockedErrorMessage fails after change of log message related to locking violation. |  Minor | datanode, namenode, test | Chris Nauroth | Konstantin Shvachko |
 | [HDFS-7358](https://issues.apache.org/jira/browse/HDFS-7358) | Clients may get stuck waiting when using ByteArrayManager |  Major | hdfs-client | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
-| [HDFS-7324](https://issues.apache.org/jira/browse/HDFS-7324) | haadmin command usage prints incorrect command name |  Major | ha, tools | Brahma Reddy Battula | Brahma Reddy Battula |
 | [HDFS-7315](https://issues.apache.org/jira/browse/HDFS-7315) | DFSTestUtil.readFileBuffer opens extra FSDataInputStream |  Trivial | . | Plamen Jeliazkov | Plamen Jeliazkov |
 | [HDFS-7303](https://issues.apache.org/jira/browse/HDFS-7303) | NN UI fails to distinguish datanodes on the same host |  Minor | . | Benoy Antony | Benoy Antony |
 | [HDFS-7301](https://issues.apache.org/jira/browse/HDFS-7301) | TestMissingBlocksAlert should use MXBeans instead of old web UI |  Minor | . | Zhe Zhang | Zhe Zhang |
@@ -793,6 +800,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HADOOP-11796](https://issues.apache.org/jira/browse/HADOOP-11796) | Skip TestShellBasedIdMapping.testStaticMapUpdate on Windows |  Minor | test | Xiaoyu Yao | Xiaoyu Yao |
 | [HADOOP-11710](https://issues.apache.org/jira/browse/HADOOP-11710) | Make CryptoOutputStream behave like DFSOutputStream wrt synchronization |  Critical | fs | Sean Busbey | Sean Busbey |
 | [HADOOP-11670](https://issues.apache.org/jira/browse/HADOOP-11670) | Regression: s3a auth setup broken |  Blocker | fs/s3 | Adam Budde | Adam Budde |
 | [HADOOP-11600](https://issues.apache.org/jira/browse/HADOOP-11600) | Fix up source codes to be compiled with Guava 17.0 |  Major | . | Tsuyoshi Ozawa | Tsuyoshi Ozawa |
@@ -806,6 +814,7 @@
 | [HADOOP-11381](https://issues.apache.org/jira/browse/HADOOP-11381) | Fix findbugs warnings in hadoop-distcp, hadoop-aws, hadoop-azure, and hadoop-openstack |  Major | . | Li Lu | Li Lu |
 | [HADOOP-11379](https://issues.apache.org/jira/browse/HADOOP-11379) | Fix new findbugs warnings in hadoop-auth* |  Major | . | Li Lu | Li Lu |
 | [HADOOP-11378](https://issues.apache.org/jira/browse/HADOOP-11378) | Fix new findbugs warnings in hadoop-kms |  Major | . | Li Lu | Li Lu |
+| [HADOOP-11377](https://issues.apache.org/jira/browse/HADOOP-11377) | jdiff failing on java 7 and java 8, "Null.java" not found |  Major | build | Steve Loughran | Tsuyoshi Ozawa |
 | [HADOOP-11372](https://issues.apache.org/jira/browse/HADOOP-11372) | Fix new findbugs warnings in mapreduce-examples |  Major | . | Li Lu | Li Lu |
 | [HADOOP-11370](https://issues.apache.org/jira/browse/HADOOP-11370) | Fix new findbug warnings hadoop-yarn |  Major | . | Zhijie Shen |  |
 | [HADOOP-11369](https://issues.apache.org/jira/browse/HADOOP-11369) | Fix new findbugs warnings in hadoop-mapreduce-client, non-core directories |  Major | . | Li Lu | Li Lu |
@@ -818,6 +827,7 @@
 | [HADOOP-10478](https://issues.apache.org/jira/browse/HADOOP-10478) | Fix new findbugs warnings in hadoop-maven-plugins |  Major | . | Haohui Mai | Li Lu |
 | [HADOOP-10476](https://issues.apache.org/jira/browse/HADOOP-10476) | Bumping the findbugs version to 3.0.0 |  Major | build | Haohui Mai | Haohui Mai |
 | [HDFS-8039](https://issues.apache.org/jira/browse/HDFS-8039) | Fix TestDebugAdmin#testRecoverLease and testVerfiyBlockChecksumCommand on Windows |  Minor | test | Xiaoyu Yao | Xiaoyu Yao |
+| [HDFS-8038](https://issues.apache.org/jira/browse/HDFS-8038) | PBImageDelimitedTextWriter#getEntry output HDFS path in platform-specific format. |  Minor | tools | Xiaoyu Yao | Xiaoyu Yao |
 | [HDFS-7954](https://issues.apache.org/jira/browse/HDFS-7954) | TestBalancer#testBalancerWithPinnedBlocks failed on Windows |  Minor | test | Xiaoyu Yao | Xiaoyu Yao |
 | [HDFS-7951](https://issues.apache.org/jira/browse/HDFS-7951) | Fix NPE for TestFsDatasetImpl#testAddVolumeFailureReleasesInUseLock on Linux |  Major | test | Xiaoyu Yao | Xiaoyu Yao |
 | [HDFS-7950](https://issues.apache.org/jira/browse/HDFS-7950) | Fix TestFsDatasetImpl#testAddVolumes failure on Windows |  Major | test | Xiaoyu Yao | Xiaoyu Yao |
@@ -890,6 +900,7 @@
 | [HDFS-5631](https://issues.apache.org/jira/browse/HDFS-5631) | Expose interfaces required by FsDatasetSpi implementations |  Minor | datanode | David Powell | Joe Pallas |
 | [HDFS-4266](https://issues.apache.org/jira/browse/HDFS-4266) | BKJM: Separate write and ack quorum |  Major | ha | Ivan Kelly | Rakesh R |
 | [HDFS-4265](https://issues.apache.org/jira/browse/HDFS-4265) | BKJM doesn't take advantage of speculative reads |  Major | ha | Ivan Kelly | Rakesh R |
+| [YARN-3430](https://issues.apache.org/jira/browse/YARN-3430) | RMAppAttempt headroom data is missing in RM Web UI |  Blocker | resourcemanager, webapp, yarn | Xuan Gong | Xuan Gong |
 | [YARN-3379](https://issues.apache.org/jira/browse/YARN-3379) | Missing data in localityTable and ResourceRequests table in RM WebUI |  Major | resourcemanager, webapp, yarn | Xuan Gong | Xuan Gong |
 | [YARN-3300](https://issues.apache.org/jira/browse/YARN-3300) | outstanding\_resource\_requests table should not be shown in AHS |  Major | resourcemanager | Xuan Gong | Xuan Gong |
 | [YARN-3265](https://issues.apache.org/jira/browse/YARN-3265) | CapacityScheduler deadlock when computing absolute max avail capacity (fix for trunk/branch-2) |  Blocker | capacityscheduler, resourcemanager | Wangda Tan | Wangda Tan |

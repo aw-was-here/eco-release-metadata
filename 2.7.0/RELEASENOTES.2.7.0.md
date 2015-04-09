@@ -23,6 +23,13 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [HADOOP-11801](https://issues.apache.org/jira/browse/HADOOP-11801) | *Minor* | **Update BUILDING.txt for Ubuntu**
+
+ProtocolBuffer is packaged in Ubuntu
+
+
+---
+
 * [HADOOP-11729](https://issues.apache.org/jira/browse/HADOOP-11729) | *Minor* | **Fix link to cgroups doc in site.xml**
 
 Committed this to trunk, branch-2, and branch-2.7. Thanks Masatake for your contribution!

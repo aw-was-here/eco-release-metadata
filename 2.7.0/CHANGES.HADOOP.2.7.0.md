@@ -48,6 +48,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HADOOP-11801](https://issues.apache.org/jira/browse/HADOOP-11801) | Update BUILDING.txt for Ubuntu |  Minor | documentation | Gabor Liptak | Gabor Liptak |
 | [HADOOP-11714](https://issues.apache.org/jira/browse/HADOOP-11714) | Add more trace log4j messages to SpanReceiverHost |  Minor | tracing | Colin Patrick McCabe | Colin Patrick McCabe |
 | [HADOOP-11658](https://issues.apache.org/jira/browse/HADOOP-11658) | Externalize io.compression.codecs property |  Minor | . | Kai Zheng | Kai Zheng |
 | [HADOOP-11648](https://issues.apache.org/jira/browse/HADOOP-11648) | Set DomainSocketWatcher thread name explicitly |  Major | net | Liang Xie | Liang Xie |
@@ -119,7 +120,9 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HADOOP-11815](https://issues.apache.org/jira/browse/HADOOP-11815) | HttpServer2 should destroy SignerSecretProvider when it stops |  Blocker | . | Rohith | Rohith |
 | [HADOOP-11787](https://issues.apache.org/jira/browse/HADOOP-11787) | OpensslSecureRandom.c pthread\_threadid\_np usage signature is wrong on 32-bit Mac |  Critical | native | Colin Patrick McCabe | Kiran Kumar M R |
+| [HADOOP-11776](https://issues.apache.org/jira/browse/HADOOP-11776) | jdiff is broken in Hadoop 2 |  Blocker | . | Li Lu | Li Lu |
 | [HADOOP-11761](https://issues.apache.org/jira/browse/HADOOP-11761) | Fix findbugs warnings in org.apache.hadoop.security.authentication |  Minor | . | Li Lu | Li Lu |
 | [HADOOP-11757](https://issues.apache.org/jira/browse/HADOOP-11757) | NFS gateway should shutdown when it can't start UDP or TCP server |  Major | nfs | Brandon Li | Brandon Li |
 | [HADOOP-11754](https://issues.apache.org/jira/browse/HADOOP-11754) | RM fails to start in non-secure mode due to authentication filter failure |  Blocker | . | Sangjin Lee | Haohui Mai |
@@ -279,6 +282,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HADOOP-11796](https://issues.apache.org/jira/browse/HADOOP-11796) | Skip TestShellBasedIdMapping.testStaticMapUpdate on Windows |  Minor | test | Xiaoyu Yao | Xiaoyu Yao |
 | [HADOOP-11710](https://issues.apache.org/jira/browse/HADOOP-11710) | Make CryptoOutputStream behave like DFSOutputStream wrt synchronization |  Critical | fs | Sean Busbey | Sean Busbey |
 | [HADOOP-11670](https://issues.apache.org/jira/browse/HADOOP-11670) | Regression: s3a auth setup broken |  Blocker | fs/s3 | Adam Budde | Adam Budde |
 | [HADOOP-11600](https://issues.apache.org/jira/browse/HADOOP-11600) | Fix up source codes to be compiled with Guava 17.0 |  Major | . | Tsuyoshi Ozawa | Tsuyoshi Ozawa |
@@ -292,6 +296,7 @@
 | [HADOOP-11381](https://issues.apache.org/jira/browse/HADOOP-11381) | Fix findbugs warnings in hadoop-distcp, hadoop-aws, hadoop-azure, and hadoop-openstack |  Major | . | Li Lu | Li Lu |
 | [HADOOP-11379](https://issues.apache.org/jira/browse/HADOOP-11379) | Fix new findbugs warnings in hadoop-auth* |  Major | . | Li Lu | Li Lu |
 | [HADOOP-11378](https://issues.apache.org/jira/browse/HADOOP-11378) | Fix new findbugs warnings in hadoop-kms |  Major | . | Li Lu | Li Lu |
+| [HADOOP-11377](https://issues.apache.org/jira/browse/HADOOP-11377) | jdiff failing on java 7 and java 8, "Null.java" not found |  Major | build | Steve Loughran | Tsuyoshi Ozawa |
 | [HADOOP-11372](https://issues.apache.org/jira/browse/HADOOP-11372) | Fix new findbugs warnings in mapreduce-examples |  Major | . | Li Lu | Li Lu |
 | [HADOOP-11370](https://issues.apache.org/jira/browse/HADOOP-11370) | Fix new findbug warnings hadoop-yarn |  Major | . | Zhijie Shen |  |
 | [HADOOP-11369](https://issues.apache.org/jira/browse/HADOOP-11369) | Fix new findbugs warnings in hadoop-mapreduce-client, non-core directories |  Major | . | Li Lu | Li Lu |
