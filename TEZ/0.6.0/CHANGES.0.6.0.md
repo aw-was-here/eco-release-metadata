@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-# Hadoop Changelog
+# Changelog
 
 ## Release 0.6.0 - 2015-01-23
 
