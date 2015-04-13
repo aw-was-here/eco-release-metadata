@@ -3,7 +3,7 @@
 new=$1
 
 src=${HOME}/Src/apache-git/hadoop-trunk/dev-support
-hrmd=${HOME}/Src/aw-github/eco-release-metadata
+hrmd=${HOME}/Src/aw-github/eco-release-metadata/HADOOP
 
 if [[ ! -e "${src}/releasedocmaker.py" ]]; then
   echo "no releasedocmaker.py"

@@ -10,6 +10,7 @@ cd ${HOME}/Src/aw-github/eco-release-metadata/HADOOP
 
 hadoop-relnotes 3.0.0
 hadoop-relnotes 2.8.0
+hadoop-relnotes 2.7.1
 hadoop-relnotes 2.7.0
 #hadoop-relnotes 2.6.1
 #hadoop-relnotes 2.6.0
