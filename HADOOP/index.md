@@ -24,6 +24,19 @@
         * [HDFS Release Notes](2.8.0/RELEASENOTES.HDFS.2.8.0.html)
         * [MapReduce Release Notes](2.8.0/RELEASENOTES.MAPREDUCE.2.8.0.html)
         * [YARN Release Notes](2.8.0/RELEASENOTES.YARN.2.8.0.html)
+* Apache Hadoop v2.7.1
+    *  Changes
+        * [Combined Changes](2.7.1/CHANGES.2.7.1.html)
+        * [Hadoop Common Changes](2.7.1/CHANGES.HADOOP.2.7.1.html)
+        * [HDFS Changes](2.7.1/CHANGES.HDFS.2.7.1.html)
+        * [MapReduce Changes](2.7.1/CHANGES.MAPREDUCE.2.7.1.html)
+        * [YARN Changes](2.7.1/CHANGES.YARN.2.7.1.html)
+    *  Release Notes
+        * [Combined Release Notes](2.7.1/RELEASENOTES.2.7.1.html)
+        * [Hadoop Common Release Notes](2.7.1/RELEASENOTES.HADOOP.2.7.1.html)
+        * [HDFS Release Notes](2.7.1/RELEASENOTES.HDFS.2.7.1.html)
+        * [MapReduce Release Notes](2.7.1/RELEASENOTES.MAPREDUCE.2.7.1.html)
+        * [YARN Release Notes](2.7.1/RELEASENOTES.YARN.2.7.1.html)
 * Apache Hadoop v2.7.0
     *  Changes
         * [Combined Changes](2.7.0/CHANGES.2.7.0.html)

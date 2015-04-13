@@ -149,6 +149,7 @@
 | [YARN-3071](https://issues.apache.org/jira/browse/YARN-3071) | Remove invalid char from sample conf in doc of FairScheduler |  Trivial | documentation | Masatake Iwasaki | Masatake Iwasaki |
 | [YARN-3064](https://issues.apache.org/jira/browse/YARN-3064) | TestRMRestart/TestContainerResourceUsage/TestNodeManagerResync failure with allocation timeout |  Critical | scheduler | Wangda Tan | Jian He |
 | [YARN-3058](https://issues.apache.org/jira/browse/YARN-3058) | Fix error message of tokens' activation delay configuration |  Minor | . | Yi Liu | Yi Liu |
+| [YARN-3055](https://issues.apache.org/jira/browse/YARN-3055) | The token is not renewed properly if it's shared by jobs (oozie) in DelegationTokenRenewer |  Blocker | security | Yi Liu | Daryn Sharp |
 | [YARN-3029](https://issues.apache.org/jira/browse/YARN-3029) | FSDownload.unpack() uses local locale for FS case conversion, may not work everywhere |  Major | nodemanager | Steve Loughran | Varun Saxena |
 | [YARN-3027](https://issues.apache.org/jira/browse/YARN-3027) | Scheduler should use totalAvailable resource from node instead of availableResource for maxAllocation |  Major | . | Anubhav Dhoot | Anubhav Dhoot |
 | [YARN-3024](https://issues.apache.org/jira/browse/YARN-3024) | LocalizerRunner should give DIE action when all resources are localized |  Major | nodemanager | Chengbing Liu | Chengbing Liu |
