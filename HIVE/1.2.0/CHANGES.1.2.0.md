@@ -51,7 +51,9 @@
 | [HIVE-10214](https://issues.apache.org/jira/browse/HIVE-10214) | log metastore call timing information aggregated at query level |  Major | Metastore | Thejas M Nair | Thejas M Nair |
 | [HIVE-10206](https://issues.apache.org/jira/browse/HIVE-10206) | Improve Alter Table to not initialize Serde unnecessarily |  Minor | Serializers/Deserializers | Szehon Ho | Szehon Ho |
 | [HIVE-10177](https://issues.apache.org/jira/browse/HIVE-10177) | Enable constant folding for char & varchar |  Major | Logical Optimizer | Ashutosh Chauhan | Ashutosh Chauhan |
+| [HIVE-10160](https://issues.apache.org/jira/browse/HIVE-10160) | Give a warning when grouping or ordering by a constant column |  Minor | Query Processor | Lefty Leverenz | Yongzhi Chen |
 | [HIVE-10146](https://issues.apache.org/jira/browse/HIVE-10146) | Not count session as idle if query is running |  Minor | . | Jimmy Xiang | Jimmy Xiang |
+| [HIVE-10119](https://issues.apache.org/jira/browse/HIVE-10119) | Allow Log verbosity to be set in hiveserver2 session |  Major | HiveServer2 | Hari Sankar Sivarama Subramaniyan | Hari Sankar Sivarama Subramaniyan |
 | [HIVE-10114](https://issues.apache.org/jira/browse/HIVE-10114) | Split strategies for ORC |  Major | . | Prasanth Jayachandran | Prasanth Jayachandran |
 | [HIVE-10072](https://issues.apache.org/jira/browse/HIVE-10072) | Add vectorization support for Hybrid Grace Hash Join |  Major | . | Wei Zheng | Wei Zheng |
 | [HIVE-10027](https://issues.apache.org/jira/browse/HIVE-10027) | Use descriptions from Avro schema files in column comments |  Minor | Metastore | Jeremy Beard | Chaoyu Tang |
@@ -98,14 +100,20 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HIVE-10271](https://issues.apache.org/jira/browse/HIVE-10271) | remove hive.server2.thrift.http.min/max.worker.threads properties |  Major | . | Hari Sankar Sivarama Subramaniyan | Hari Sankar Sivarama Subramaniyan |
+| [HIVE-10267](https://issues.apache.org/jira/browse/HIVE-10267) | HIVE-9664 makes hive depend on ivysettings.xml : trivial breakage fix |  Major | . | Sushanth Sowmyan | Sushanth Sowmyan |
+| [HIVE-10265](https://issues.apache.org/jira/browse/HIVE-10265) | Hive CLI crashes on != inequality |  Major | CLI | Szehon Ho | Szehon Ho |
 | [HIVE-10231](https://issues.apache.org/jira/browse/HIVE-10231) | Compute partition column stats fails if partition col type is date |  Major | Statistics | Chaoyu Tang | Chaoyu Tang |
 | [HIVE-10229](https://issues.apache.org/jira/browse/HIVE-10229) | Set conf and processor context in the constructor instead of init |  Major | . | Sergey Shelukhin | Siddharth Seth |
 | [HIVE-10225](https://issues.apache.org/jira/browse/HIVE-10225) | CLI JLine does not flush history on quit/Ctrl-C |  Major | . | Thejas M Nair | Thejas M Nair |
 | [HIVE-10208](https://issues.apache.org/jira/browse/HIVE-10208) | templeton.hive.extra.files should be commented out in webhcat-default.xml |  Major | WebHCat | Eugene Koifman | Eugene Koifman |
+| [HIVE-10202](https://issues.apache.org/jira/browse/HIVE-10202) | Beeline outputs prompt+query on standard output when used in non-interactive mode |  Major | . | Sergio Peña | Naveen Gangam |
+| [HIVE-10186](https://issues.apache.org/jira/browse/HIVE-10186) | Hive does not log Tez diagnostics on errors |  Major | . | Hitesh Shah | Gunther Hagleitner |
 | [HIVE-10178](https://issues.apache.org/jira/browse/HIVE-10178) | DateWritable incorrectly calculates daysSinceEpoch for negative Unix time |  Major | Types | Alexander Pivovarov | Alexander Pivovarov |
 | [HIVE-10172](https://issues.apache.org/jira/browse/HIVE-10172) | Fix performance regression caused by HIVE-8122 for ORC |  Major | . | Prasanth Jayachandran | Prasanth Jayachandran |
 | [HIVE-10167](https://issues.apache.org/jira/browse/HIVE-10167) | HS2 logs the server started only before the server is shut down |  Trivial | . | Jimmy Xiang | Jimmy Xiang |
 | [HIVE-10150](https://issues.apache.org/jira/browse/HIVE-10150) | delete from acidTbl where a in(select a from nonAcidOrcTbl) fails |  Major | Query Planning, Transactions | Eugene Koifman | Eugene Koifman |
+| [HIVE-10148](https://issues.apache.org/jira/browse/HIVE-10148) | update of bucking column should not be allowed |  Major | Transactions | Eugene Koifman | Eugene Koifman |
 | [HIVE-10145](https://issues.apache.org/jira/browse/HIVE-10145) | set Tez ACLs appropriately in hive |  Major | . | Thejas M Nair | Thejas M Nair |
 | [HIVE-10136](https://issues.apache.org/jira/browse/HIVE-10136) | BaseWork.vectorMode hides AbstractOperatorDesc.vectorMode |  Minor | Query Planning | Alexander Pivovarov | Alexander Pivovarov |
 | [HIVE-10128](https://issues.apache.org/jira/browse/HIVE-10128) | BytesBytesMultiHashMap does not allow concurrent read-only access |  Major | . | Gopal V | Sergey Shelukhin |
@@ -120,10 +128,12 @@
 | [HIVE-10085](https://issues.apache.org/jira/browse/HIVE-10085) | Lateral view on top of a view throws RuntimeException |  Major | Logical Optimizer, Query Planning | Aihua Xu | Aihua Xu |
 | [HIVE-10083](https://issues.apache.org/jira/browse/HIVE-10083) | SMBJoin fails in case one table is uninitialized |  Minor | Logical Optimizer | Alain Schröder | Na Yang |
 | [HIVE-10078](https://issues.apache.org/jira/browse/HIVE-10078) | Optionally allow logging of records processed in fixed intervals |  Major | . | Gunther Hagleitner | Gunther Hagleitner |
+| [HIVE-10074](https://issues.apache.org/jira/browse/HIVE-10074) | Ability to run HCat Client Unit tests in a system test setting |  Major | Tests | Deepesh Khandelwal | Deepesh Khandelwal |
 | [HIVE-10066](https://issues.apache.org/jira/browse/HIVE-10066) | Hive on Tez job submission through WebHCat doesn't ship Tez artifacts |  Major | Tez, WebHCat | Eugene Koifman | Eugene Koifman |
 | [HIVE-10059](https://issues.apache.org/jira/browse/HIVE-10059) | Make udaf\_percentile\_approx\_23.q test more stable |  Major | Tests | Alexander Pivovarov | Alexander Pivovarov |
 | [HIVE-10050](https://issues.apache.org/jira/browse/HIVE-10050) | Support overriding memory configuration for AM launched for TempletonControllerJob |  Major | WebHCat | Hitesh Shah | Hitesh Shah |
 | [HIVE-10042](https://issues.apache.org/jira/browse/HIVE-10042) | clean up TreeReaders - ORC refactoring for LLAP on trunk |  Major | . | Sergey Shelukhin | Prasanth Jayachandran |
+| [HIVE-10032](https://issues.apache.org/jira/browse/HIVE-10032) | Remove HCatalog broken java file from source code |  Minor | . | Ferdinand Xu | Ferdinand Xu |
 | [HIVE-10001](https://issues.apache.org/jira/browse/HIVE-10001) | SMB join in reduce side |  Major | . | Vikram Dixit K | Vikram Dixit K |
 | [HIVE-9997](https://issues.apache.org/jira/browse/HIVE-9997) | minor tweaks for bytes mapjoin hash table |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
 | [HIVE-9994](https://issues.apache.org/jira/browse/HIVE-9994) | Hive query plan returns sensitive data to external applications |  Major | . | Sergio Peña | Sergio Peña |
@@ -197,6 +207,7 @@
 | [HIVE-9655](https://issues.apache.org/jira/browse/HIVE-9655) | Dynamic partition table insertion error |  Major | Logical Optimizer | Chao | Chao |
 | [HIVE-9652](https://issues.apache.org/jira/browse/HIVE-9652) | Tez in place updates should detect redirection of STDERR |  Major | . | Prasanth Jayachandran | Prasanth Jayachandran |
 | [HIVE-9648](https://issues.apache.org/jira/browse/HIVE-9648) | Null check key provider before doing set |  Major | Encryption | Brock Noland | Brock Noland |
+| [HIVE-9647](https://issues.apache.org/jira/browse/HIVE-9647) | Discrepancy in cardinality estimates between partitioned and un-partitioned tables |  Major | Statistics | Mostafa Mokhtar | Pengcheng Xiong |
 | [HIVE-9633](https://issues.apache.org/jira/browse/HIVE-9633) | Add HCatClient.dropPartitions() overload to skip deletion of partition-directories. |  Major | API, HCatalog, Metastore | Mithun Radhakrishnan | Mithun Radhakrishnan |
 | [HIVE-9628](https://issues.apache.org/jira/browse/HIVE-9628) | HiveMetaStoreClient.dropPartitions(...List\<ObjectPair\<Integer,byte[]\>\>...) doesn't take (boolean needResult) |  Major | API, Metastore | Mithun Radhakrishnan | Mithun Radhakrishnan |
 | [HIVE-9623](https://issues.apache.org/jira/browse/HIVE-9623) | NullPointerException in MapJoinOperator.processOp(MapJoinOperator.java:253) for TPC-DS Q75 against un-partitioned schema |  Major | Query Processor | Mostafa Mokhtar | Gunther Hagleitner |
@@ -246,6 +257,7 @@
 | [HIVE-9002](https://issues.apache.org/jira/browse/HIVE-9002) | union all does not generate correct result for order by and limit |  Major | . | Pengcheng Xiong | Pengcheng Xiong |
 | [HIVE-8746](https://issues.apache.org/jira/browse/HIVE-8746) | ORC timestamp columns are sensitive to daylight savings time |  Major | . | Owen O'Malley | Prasanth Jayachandran |
 | [HIVE-8626](https://issues.apache.org/jira/browse/HIVE-8626) | Extend HDFS super-user checks to dropPartitions |  Major | Metastore | Mithun Radhakrishnan | Mithun Radhakrishnan |
+| [HIVE-7351](https://issues.apache.org/jira/browse/HIVE-7351) | ANALYZE TABLE statement fails on postgres metastore |  Minor | Metastore | Damien Carol | Navis |
 | [HIVE-7018](https://issues.apache.org/jira/browse/HIVE-7018) | Table and Partition tables have column LINK\_TARGET\_ID in Mysql scripts but not others |  Major | . | Brock Noland | Yongzhi Chen |
 | [HIVE-6099](https://issues.apache.org/jira/browse/HIVE-6099) | Multi insert does not work properly with distinct count |  Major | Query Processor | Pavan Gadam Manohar | Ashutosh Chauhan |
 | [HIVE-6069](https://issues.apache.org/jira/browse/HIVE-6069) | Improve error message in GenericUDFRound |  Trivial | UDF | Xuefu Zhang | Alexander Pivovarov |
@@ -266,7 +278,9 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HIVE-10263](https://issues.apache.org/jira/browse/HIVE-10263) | CBO (Calcite Return Path): Aggregate checking input for bucketing should be conditional |  Major | CBO | Laljo John Pullokkaran | Jesus Camacho Rodriguez |
 | [HIVE-10262](https://issues.apache.org/jira/browse/HIVE-10262) | CBO (Calcite Return Path): Temporarily disable Aggregate check input for bucketing |  Major | CBO | Laljo John Pullokkaran | Laljo John Pullokkaran |
+| [HIVE-10252](https://issues.apache.org/jira/browse/HIVE-10252) | Make PPD work for Parquet in row group level |  Major | . | Dong Chen | Dong Chen |
 | [HIVE-10131](https://issues.apache.org/jira/browse/HIVE-10131) | LLAP: BytesBytesMultiHashMap and mapjoin container should reuse refs |  Major | . | Sergey Shelukhin | Matt McCline |
 | [HIVE-10076](https://issues.apache.org/jira/browse/HIVE-10076) | Bump up parquet-hadoop-bundle and parquet-column to the version of 1.6.0rc6 |  Major | . | Ferdinand Xu | Ferdinand Xu |
 | [HIVE-10053](https://issues.apache.org/jira/browse/HIVE-10053) | Override new init API fom ReadSupport instead of the deprecated one |  Major | . | Ferdinand Xu | Ferdinand Xu |
@@ -284,6 +298,7 @@
 | [HIVE-9666](https://issues.apache.org/jira/browse/HIVE-9666) | Improve some qtests |  Minor | Spark | Rui Li | Rui Li |
 | [HIVE-9657](https://issues.apache.org/jira/browse/HIVE-9657) | Use new parquet Types API builder to construct data types |  Major | . | Sergio Peña | Ferdinand Xu |
 | [HIVE-9563](https://issues.apache.org/jira/browse/HIVE-9563) | CBO(Calcite Return Path): Translate GB to Hive OP [CBO branch] |  Major | CBO | Laljo John Pullokkaran | Laljo John Pullokkaran |
+| [HIVE-9558](https://issues.apache.org/jira/browse/HIVE-9558) | [Parquet] support HiveDecimalWritable, HiveCharWritable, HiveVarcharWritable in vectorized mode |  Major | . | Dong Chen | Dong Chen |
 | [HIVE-9550](https://issues.apache.org/jira/browse/HIVE-9550) | ObjectStore.getNextNotification() can return events inside NotificationEventResponse as null which conflicts with its thrift "required" tag |  Major | . | Sushanth Sowmyan | Sushanth Sowmyan |
 | [HIVE-9501](https://issues.apache.org/jira/browse/HIVE-9501) | DbNotificationListener doesn't include dbname in create database notification and does not include tablename in create table notification |  Major | . | Alan Gates | Alan Gates |
 | [HIVE-9432](https://issues.apache.org/jira/browse/HIVE-9432) | CBO (Calcite Return Path): Removing QB from ParseContext |  Major | CBO | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |

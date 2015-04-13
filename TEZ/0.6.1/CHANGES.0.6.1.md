@@ -47,6 +47,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-2289](https://issues.apache.org/jira/browse/TEZ-2289) | ATSHistoryLoggingService can generate ArrayOutOfBoundsException |  Major | . | Jonathan Eagles | Chang Li |
 | [TEZ-2242](https://issues.apache.org/jira/browse/TEZ-2242) | Refactor ShuffleVertexManager code |  Major | . | Bikas Saha | Bikas Saha |
 | [TEZ-2240](https://issues.apache.org/jira/browse/TEZ-2240) | Fix toUpperCase/toLowerCase to use Locale.ENGLISH |  Major | . | Tsuyoshi Ozawa | Tsuyoshi Ozawa |
 | [TEZ-2214](https://issues.apache.org/jira/browse/TEZ-2214) | FetcherOrderedGrouped can get stuck indefinitely when MergeManager misses memToDiskMerging |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
@@ -117,6 +118,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [TEZ-2205](https://issues.apache.org/jira/browse/TEZ-2205) | Tez still tries to post to ATS when yarn.timeline-service.enabled=false |  Major | . | Chang Li | Chang Li |
+| [TEZ-1909](https://issues.apache.org/jira/browse/TEZ-1909) | Remove need to copy over all events from attempt 1 to attempt 2 dir |  Major | . | Hitesh Shah | Jeff Zhang |
 
 
 ### OTHER:

@@ -28,4 +28,43 @@ These release notes cover new developer and user-facing incompatibilities, featu
 As a result, that test always uses the default shuffle settings, rather than using the shuffle manager / other settings set by tests that extend ShuffleSuite.
 
 
+---
+
+* [SPARK-5969](https://issues.apache.org/jira/browse/SPARK-5969) | *Major* | **The pyspark.rdd.sortByKey always fills only two partitions when ascending=False.**
+
+The pyspark.rdd.sortByKey always fills only two partitions when ascending=False -- the first one and the last one.
+
+Simple example sorting numbers 0..999 into 10 partitions in descending order:
+{code}
+sc.parallelize(range(1000)).keyBy(lambda x:x).sortByKey(ascending=False, numPartitions=10).glom().map(len).collect()
+{code}
+returns the following partition sizes:
+{code}
+[469, 0, 0, 0, 0, 0, 0, 0, 0, 531]
+{code}
+
+When ascending=True, all works as expected:
+{code}
+sc.parallelize(range(1000)).keyBy(lambda x:x).sortByKey(ascending=True, numPartitions=10).glom().map(len).collect()
+Out: [116, 96, 100, 87, 132, 101, 101, 95, 87, 85]
+{code}
+
+The problem is caused by the following line 565 in rdd.py:
+{code}
+        samples = sorted(samples, reverse=(not ascending), key=keyfunc)
+{code}
+That sorts the samples descending if ascending=False. Nevertheless samples should always be in ascending order, because it is (after subsampling to variable bounds) used in a bisect\_left call:
+{code}
+        def rangePartitioner(k):
+            p = bisect.bisect\_left(bounds, keyfunc(k))
+            if ascending:
+                return p
+            else:
+                return numPartitions - 1 - p
+{code}
+
+As you can see, rangePartitioner already handles the ascending=False by itself, so the fix for the whole problem is really trivial: just change line rdd.py:565 to
+{{samples = sorted(samples, -reverse=(not ascending),- key=keyfunc)}}
+
+
 

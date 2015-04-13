@@ -23,6 +23,35 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [TEZ-2289](https://issues.apache.org/jira/browse/TEZ-2289) | *Major* | **ATSHistoryLoggingService can generate ArrayOutOfBoundsException**
+
+2015-04-07 23:11:20,459 INFO [main] app.DAGAppMaster: Running DAG: MRRSleepJob
+2015-04-07 23:11:20,546 INFO [IPC Server handler 0 on 50500] ipc.Server: IPC Server handler 0 on 50500, call org.apache.tez.dag.api.client.rpc.DAGClientAMProtocolBlockingPB.getDAGStatus from 127.0.0.1:53151 Call#93 Retry#0
+org.apache.tez.dag.api.TezException: No running dag at present
+        at org.apache.tez.dag.api.client.DAGClientHandler.getDAG(DAGClientHandler.java:84)
+        at org.apache.tez.dag.api.client.DAGClientHandler.getACLManager(DAGClientHandler.java:151)
+        at org.apache.tez.dag.api.client.rpc.DAGClientAMProtocolBlockingPBServerImpl.getDAGStatus(DAGClientAMProtocolBlockingPBServerImpl.java:94)
+        at org.apache.tez.dag.api.client.rpc.DAGClientAMProtocolRPC$DAGClientAMProtocol$2.callBlockingMethod(DAGClientAMProtocolRPC.java:7375)
+        at org.apache.hadoop.ipc.ProtobufRpcEngine$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine.java:619)
+        at org.apache.hadoop.ipc.RPC$Server.call(RPC.java:962)
+        at org.apache.hadoop.ipc.Server$Handler$1.run(Server.java:2086)
+        at org.apache.hadoop.ipc.Server$Handler$1.run(Server.java:2082)
+        at java.security.AccessController.doPrivileged(Native Method)
+        at javax.security.auth.Subject.doAs(Subject.java:415)
+        at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1694)
+        at org.apache.hadoop.ipc.Server$Handler.run(Server.java:2080)
+2015-04-07 23:11:20,875 INFO [main] history.HistoryEventHandler: [HISTORY][DAG:dag\_1427297554817\_0149\_1][Event:DAG\_SUBMITTED]: dagID=dag\_1427297554817\_0149\_1, submitTime=1428448280397
+2015-04-07 23:11:20,905 WARN [HistoryEventHandlingThread] ats.ATSHistoryLoggingService: Could not post history event to ATS, atsPutError=6, entityId=dag\_1427297554817\_0149\_1, eventType=DAG\_SUBMITTED
+2015-04-07 23:11:20,906 WARN [HistoryEventHandlingThread] ats.ATSHistoryLoggingService: Could not handle history events
+java.lang.ArrayIndexOutOfBoundsException: 1
+        at org.apache.tez.dag.history.logging.ats.ATSHistoryLoggingService.handleEvents(ATSHistoryLoggingService.java:312)
+        at org.apache.tez.dag.history.logging.ats.ATSHistoryLoggingService.access$700(ATSHistoryLoggingService.java:50)
+        at org.apache.tez.dag.history.logging.ats.ATSHistoryLoggingService$1.run(ATSHistoryLoggingService.java:159)
+        at java.lang.Thread.run(Thread.java:722)
+
+
+---
+
 * [TEZ-2240](https://issues.apache.org/jira/browse/TEZ-2240) | *Major* | **Fix toUpperCase/toLowerCase to use Locale.ENGLISH**
 
 String#toLowerCase()/toUpperCase() without a locale argument can occur unexpected behavior based on the locale. It's written in Javadoc:
@@ -722,6 +751,13 @@ create table testData as select ss\_sold\_date\_sk,ss\_sold\_time\_sk,ss\_item\_
 * [TEZ-1917](https://issues.apache.org/jira/browse/TEZ-1917) | *Major* | **Examples should extend TezExampleBase**
 
 To get rid of a lot of boiler plate code from each example.
+
+
+---
+
+* [TEZ-1909](https://issues.apache.org/jira/browse/TEZ-1909) | *Major* | **Remove need to copy over all events from attempt 1 to attempt 2 dir**
+
+Use of file versions should prevent the need for copying over data into a second attempt dir. Care needs to be taken to handle "last corrupt record" handling.
 
 
 ---

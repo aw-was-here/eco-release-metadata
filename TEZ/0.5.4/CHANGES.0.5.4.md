@@ -44,6 +44,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-2289](https://issues.apache.org/jira/browse/TEZ-2289) | ATSHistoryLoggingService can generate ArrayOutOfBoundsException |  Major | . | Jonathan Eagles | Chang Li |
 | [TEZ-2257](https://issues.apache.org/jira/browse/TEZ-2257) | NPEs in TaskReporter |  Major | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-2240](https://issues.apache.org/jira/browse/TEZ-2240) | Fix toUpperCase/toLowerCase to use Locale.ENGLISH |  Major | . | Tsuyoshi Ozawa | Tsuyoshi Ozawa |
 | [TEZ-2238](https://issues.apache.org/jira/browse/TEZ-2238) | TestContainerReuse flaky |  Major | . | Bikas Saha | Bikas Saha |

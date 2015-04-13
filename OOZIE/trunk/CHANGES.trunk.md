@@ -46,6 +46,7 @@
 | [OOZIE-2186](https://issues.apache.org/jira/browse/OOZIE-2186) | Upgrade Tomcat to 6.0.43 |  Major | core | Robert Kanter | Robert Kanter |
 | [OOZIE-2184](https://issues.apache.org/jira/browse/OOZIE-2184) | Change default value of action tmp dir removal to true |  Minor | action | Viji | Viji |
 | [OOZIE-2174](https://issues.apache.org/jira/browse/OOZIE-2174) | Add missing admin commands to OozieClient and OozieCLI |  Major | client | Robert Kanter | Robert Kanter |
+| [OOZIE-2170](https://issues.apache.org/jira/browse/OOZIE-2170) | Oozie should automatically set configs to make Spark jobs show up in the Spark History Server |  Major | action | Robert Kanter | Robert Kanter |
 | [OOZIE-2164](https://issues.apache.org/jira/browse/OOZIE-2164) | make master parameterizable in Spark action example |  Major | examples | Wing Yew Poon | Wing Yew Poon |
 | [OOZIE-2111](https://issues.apache.org/jira/browse/OOZIE-2111) | Kerberized Oozie doesn't allow connections from users with a lot of groups |  Major | security | Robert Kanter | Robert Kanter |
 | [OOZIE-2107](https://issues.apache.org/jira/browse/OOZIE-2107) | Schema config properties should be consistent with ActionExecutor config properties |  Major | core | Robert Kanter | Robert Kanter |
@@ -92,6 +93,7 @@
 | [OOZIE-2146](https://issues.apache.org/jira/browse/OOZIE-2146) | Add option to filter sla information by bundle id or name |  Major | . | Ryota Egashira | Ryota Egashira |
 | [OOZIE-2145](https://issues.apache.org/jira/browse/OOZIE-2145) | ZooKeeper paths should start with a "/" |  Critical | HA | Robert Kanter | Robert Kanter |
 | [OOZIE-2142](https://issues.apache.org/jira/browse/OOZIE-2142) | Changing the JT whitelist causes running Workflows to stay RUNNING forever |  Major | core | Robert Kanter | Robert Kanter |
+| [OOZIE-2140](https://issues.apache.org/jira/browse/OOZIE-2140) | Audit Log should be shown in Oozie UI |  Major | . | Purshotam Shah | Purshotam Shah |
 | [OOZIE-2139](https://issues.apache.org/jira/browse/OOZIE-2139) | Coord update doesn't work for job which is submitted by bundle |  Major | . | Purshotam Shah | Purshotam Shah |
 | [OOZIE-2132](https://issues.apache.org/jira/browse/OOZIE-2132) | FS actions are not retried |  Major | . | Ryota Egashira | Ryota Egashira |
 | [OOZIE-2131](https://issues.apache.org/jira/browse/OOZIE-2131) | Add flag to sqoop action to skip hbase delegation token generation |  Major | . | Abraham Elmahrek | Abraham Elmahrek |

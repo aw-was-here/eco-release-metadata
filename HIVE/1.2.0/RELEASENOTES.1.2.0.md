@@ -23,6 +23,13 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [HIVE-10271](https://issues.apache.org/jira/browse/HIVE-10271) | *Major* | **remove hive.server2.thrift.http.min/max.worker.threads properties**
+
+Need to mark hive.server2.thrift.http.min/max.worker.threads parameters in  https://cwiki.apache.org/confluence/display/Hive/Setting+Up+HiveServer2 as unused since hive 0.14.0
+
+
+---
+
 * [HIVE-10145](https://issues.apache.org/jira/browse/HIVE-10145) | *Major* | **set Tez ACLs appropriately in hive**
 
 Earlier if hive.server2.enable.doAs was set to false, and tez acls were enabled, the end user who is running this query would not have access to the DAG information for the query.
@@ -34,6 +41,13 @@ With this change the end user has permissions to view it.
 * [HIVE-10128](https://issues.apache.org/jira/browse/HIVE-10128) | *Major* | **BytesBytesMultiHashMap does not allow concurrent read-only access**
 
 HIVE-10128: BytesBytesMultiHashMap does not allow concurrent read-only access (Sergey Shelukhin, reviewed by Gunther Hagleitner)
+
+
+---
+
+* [HIVE-10119](https://issues.apache.org/jira/browse/HIVE-10119) | *Major* | **Allow Log verbosity to be set in hiveserver2 session**
+
+The description for the newly added parameter, hive.server2.logging.level should go into beeline wiki https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients under a new section describing beeline logging. It should also be described under https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties#ConfigurationProperties-hive.server2.logging.operation.verbose . Also, hive.server2.logging.operation.verbose will be no longer available, hence it should be marked as not used anymore in beeline wiki.
 
 
 ---
@@ -138,6 +152,13 @@ Fixed ORC timestamp columns for daylight savings changes.
 * [HIVE-7998](https://issues.apache.org/jira/browse/HIVE-7998) | *Trivial* | **Enhance JDBC Driver to not require class specification**
 
 Applications no longer need to explicitly load JDBC drivers using Class.forName()
+
+
+---
+
+* [HIVE-7351](https://issues.apache.org/jira/browse/HIVE-7351) | *Minor* | **ANALYZE TABLE statement fails on postgres metastore**
+
+Users who use Postgres as the RDBMS for their metastore and who wish to collect stats must set hive.stats.jdbc.timeout -1.
 
 
 ---

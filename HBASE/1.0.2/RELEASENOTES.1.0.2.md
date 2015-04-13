@@ -21,11 +21,4 @@
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
 
 
----
-
-* [HBASE-13289](https://issues.apache.org/jira/browse/HBASE-13289) | *Major* | **typo in splitSuccessCount  metric**
-
-In hbase 1.0.0, 0.98.10, 0.98.10.1, 0.98.11, and 0.98.12 'splitSuccessCount' was misspelled as 'splitSuccessCounnt'
-
-
 

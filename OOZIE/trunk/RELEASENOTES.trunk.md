@@ -180,6 +180,26 @@ We have to replace {{'}} with {{''}} to escape it.
 
 ---
 
+* [OOZIE-2170](https://issues.apache.org/jira/browse/OOZIE-2170) | *Major* | **Oozie should automatically set configs to make Spark jobs show up in the Spark History Server**
+
+If you use "yarn-cluster" for the Spark action's master, the Spark jobs don't show up in the Spark History Server or properly link to it from the Spark AM.
+
+The user needs to set this in their Spark action in the workflow.xml:
+{code:xml}
+<spark-opts>--conf spark.yarn.historyServer.address=http://SPH18088 --conf spark.eventLog.dir=hdfs://NN:8020/user/spark/applicationHistory --conf spark.eventLog.enabled=true</spark-opts>
+{code}
+
+It would be nice if Oozie did this automatically via some oozie-site.xml config(s).  We could do something similar how the hadoop configs are setup where it will load a Spark .conf file from a directory based on the RM specified in the <job-tracker>.
+
+While we're at it, it might be good to document how to use Spark on YARN:
+# Include the spark-assembly jar with your workflow (this is unfortunately not published in maven)
+# Specify "yarn-cluster" as the master
+
+Also, the Spark example should delete the output dir in {{<prepare>}}
+
+
+---
+
 * [OOZIE-2169](https://issues.apache.org/jira/browse/OOZIE-2169) | *Major* | **Fix return type for fs:dirSize, fs:fileSize and fs:blockSize in WF spec**
 
 Currently WorkflowFunctionalSpec says that return type for these functions is boolean
