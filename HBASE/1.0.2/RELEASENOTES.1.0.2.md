@@ -21,4 +21,11 @@
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
 
 
+---
+
+* [HBASE-13419](https://issues.apache.org/jira/browse/HBASE-13419) | *Major* | **Thrift gateway should propagate text from exception causes.**
+
+Compose thrift exception text from the text of the entire cause chain of the underlying exception.
+
+
 

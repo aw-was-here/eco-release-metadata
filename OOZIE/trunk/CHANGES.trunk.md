@@ -123,6 +123,7 @@
 | [OOZIE-2065](https://issues.apache.org/jira/browse/OOZIE-2065) | Oozie returns incorrect total action for coord dryrun |  Major | . | Purshotam Shah | Purshotam Shah |
 | [OOZIE-2055](https://issues.apache.org/jira/browse/OOZIE-2055) | PauseTransitService does not proceed forward if any job has issue |  Major | . | Purshotam Shah | Purshotam Shah |
 | [OOZIE-2053](https://issues.apache.org/jira/browse/OOZIE-2053) | Change old HCatalog API |  Major | . | Ryota Egashira | Ryota Egashira |
+| [OOZIE-2051](https://issues.apache.org/jira/browse/OOZIE-2051) | Allows multiple default action configuration files per action |  Major | . | Venkat Ranganathan | Venkat Ranganathan |
 | [OOZIE-2048](https://issues.apache.org/jira/browse/OOZIE-2048) | HadoopAccessorService should also process ssl\_client.xml |  Major | . | Venkat Ranganathan | Venkat Ranganathan |
 | [OOZIE-2045](https://issues.apache.org/jira/browse/OOZIE-2045) | Symlink support for sharelib |  Major | . | Purshotam Shah | Purshotam Shah |
 | [OOZIE-2043](https://issues.apache.org/jira/browse/OOZIE-2043) | Misc test failures against JDK8 |  Major | tests | Robert Kanter | Robert Kanter |

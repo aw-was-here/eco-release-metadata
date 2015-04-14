@@ -927,6 +927,15 @@ New package where most bug fixes go – org.apache.hive.hcatalog
 
 ---
 
+* [OOZIE-2051](https://issues.apache.org/jira/browse/OOZIE-2051) | *Major* | **Allows multiple default action configuration files per action**
+
+Today, in oozie, we have a action-conf directory with one configuration file per action to provide default values.   It is desirable to have a per action config directory where multiple configuration files can be either copied (or symlinked).
+
+This is useful for example, when we have an hive action with Tez engine (or Pig with tez engine) or other similar scenarios.
+
+
+---
+
 * [OOZIE-2048](https://issues.apache.org/jira/browse/OOZIE-2048) | *Major* | **HadoopAccessorService should also process ssl\_client.xml**
 
 In HadoopAccessorService, per cluster, oozie processes the following configuration files per cluster

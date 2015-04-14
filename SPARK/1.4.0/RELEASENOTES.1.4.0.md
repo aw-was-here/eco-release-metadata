@@ -23,6 +23,34 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-6881](https://issues.apache.org/jira/browse/SPARK-6881) | *Trivial* | **Change the checkpoint directory name from checkpoints to checkpoint**
+
+Name "checkpoint" instead of "checkpoints" is included in .gitignore
+
+
+---
+
+* [SPARK-6878](https://issues.apache.org/jira/browse/SPARK-6878) | *Minor* | **Sum on empty RDD fails with exception**
+
+{{Sum}} on an empty RDD throws an exception. Expected result is {{0}}.
+
+A simple fix is the replace
+
+{noformat}
+class DoubleRDDFunctions {
+  def sum(): Double = self.reduce(\_ + \_)
+{noformat} 
+
+with:
+
+{noformat}
+class DoubleRDDFunctions {
+  def sum(): Double = self.aggregate(0.0)(\_ + \_, \_ + \_)
+{noformat}
+
+
+---
+
 * [SPARK-6870](https://issues.apache.org/jira/browse/SPARK-6870) | *Trivial* | **Catch InterruptedException when yarn application state monitor thread been interrupted**
 
 On PR #5305 we interrupt the monitor thread but forget to catch the InterruptedException, then in the log will print the stack info, so we need to catch it.
@@ -44,6 +72,15 @@ The fix is to prefix container log links with https:// instead of http:// if yar
 * [SPARK-6866](https://issues.apache.org/jira/browse/SPARK-6866) | *Trivial* | **Cleanup duplicated dependency in pom.xml**
 
 It turns out launcher/pom.xml has duplicated scalatest dependency. We should remove it in this child pom.xml since it has already inherited the dependency from the parent pom.xml.
+
+
+---
+
+* [SPARK-6865](https://issues.apache.org/jira/browse/SPARK-6865) | *Blocker* | **Decide on semantics for string identifiers in DataFrame API**
+
+There are two options:
+ - Quoted Identifiers: meaning that the strings are treated as though they were in backticks in SQL.  Any weird characters (spaces, or, etc) are considered part of the identifier.  Kind of weird given that `*` is already a special identifier explicitly allowed by the API
+ - Unquoted parsed identifiers: would allow users to specify things like tableAlias.*  However, would also require explicit use of `backticks` for identifiers with weird characters in them.
 
 
 ---
@@ -162,6 +199,13 @@ scala> query.where('key > 30).select(avg('key)).collect()
 
 ---
 
+* [SPARK-6765](https://issues.apache.org/jira/browse/SPARK-6765) | *Major* | **Turn scalastyle on for test code**
+
+We should turn scalastyle on for test code. Test code should be as important as main code.
+
+
+---
+
 * [SPARK-6762](https://issues.apache.org/jira/browse/SPARK-6762) | *Minor* | **Fix potential resource leaks in CheckPoint CheckpointWriter and CheckpointReader**
 
 The close action should be placed within finally block to avoid the potential resource leaks
@@ -234,6 +278,17 @@ The problem is that, {{QueryPlan.schema}} is a function, and since 1.3.0, {{conv
 
 ---
 
+* [SPARK-6742](https://issues.apache.org/jira/browse/SPARK-6742) | *Major* | **Spark pushes down filters in old parquet path that reference partitioning columns**
+
+Create a table with multiple fields partitioned on 'market' column. run a query like : 
+
+SELECT start\_sp\_time, end\_sp\_time, imsi, imei,  enb\_common\_enbid FROM csl\_data\_parquet WHERE (((technology = 'FDD') AND (bandclass = '800') AND (region = 'R15') AND (market = 'LA metro')) OR ((technology = 'FDD') AND (bandclass = '1900') AND (region = 'R15') AND (market = 'Indianapolis'))) AND start\_sp\_time >= 1.4158368E9 AND end\_sp\_time < 1.4159232E9 AND dt >= '2014-11-13-00-00' AND dt < '2014-11-14-00-00' ORDER BY end\_sp\_time DESC LIMIT 100
+
+The or filter is pushed down in this case , resulting in column not found exception from parquet
+
+
+---
+
 * [SPARK-6737](https://issues.apache.org/jira/browse/SPARK-6737) | *Critical* | **OutputCommitCoordinator.authorizedCommittersByStage map out of memory**
 
 I am using spark streaming(1.3.1)  as a long time running service and out of memory after running for 7 days. 
@@ -263,6 +318,13 @@ import scala.language.existentials
 {code}
 
 should have suppressed all warnings regarding the use of scala existential code.
+
+
+---
+
+* [SPARK-6731](https://issues.apache.org/jira/browse/SPARK-6731) | *Minor* | **Upgrade Apache commons-math3 to 3.4.1**
+
+Spark depends on Apache commons-math3 version 3.1.1, which is 2 years old. The current version (3.4.1) includes approximate percentile statistics (among other things).
 
 
 ---
@@ -573,6 +635,17 @@ PySpark tests hang while collecting:
 * [SPARK-6663](https://issues.apache.org/jira/browse/SPARK-6663) | *Major* | **Use Literal.create instead of constructor**
 
 In order to do type checking and conversion, we should use Literal.create() instead of constructor to create Literal with DataType.
+
+
+---
+
+* [SPARK-6662](https://issues.apache.org/jira/browse/SPARK-6662) | *Minor* | **Allow variable substitution in spark.yarn.historyServer.address**
+
+In Spark on YARN, explicit hostname and port number need to be set for "spark.yarn.historyServer.address" in SparkConf to make the HISTORY link. If the history server address is known and static, this is usually not a problem.
+
+But in cloud, that is usually not true. Particularly in EMR, the history server always runs on the same node as with RM. So I could simply set it to {{$\{yarn.resourcemanager.hostname\}:18080}} if variable substitution is allowed.
+
+In fact, Hadoop configuration already implements variable substitution, so if this property is read via YarnConf, this can be easily achievable.
 
 
 ---
@@ -2460,10 +2533,12 @@ df.filter(df("name") > 21).show()
 
 This is useful for using pre-defined UDFs in SQLContext;
 
+{code}
 val df = Seq(("id1", 1), ("id2", 4), ("id3", 5)).toDF("id", "value")
 val sqlctx = df.sqlContext
 sqlctx.udf.register("simpleUdf", (v: Int) => v * v)
-df.select($"id", sqlctx.callUdf("simpleUdf", $"value"))
+df.select($"id", callUdf("simpleUdf", $"value"))
+{code}
 
 
 ---
@@ -2592,6 +2667,13 @@ We should create UDTs for data types of these expressions.
 * [SPARK-6361](https://issues.apache.org/jira/browse/SPARK-6361) | *Major* | **Support adding a column with metadata in DataFrames**
 
 There is no easy way to add a column with metadata in DataFrames. This is required by ML transformers to generate ML attributes.
+
+
+---
+
+* [SPARK-6352](https://issues.apache.org/jira/browse/SPARK-6352) | *Major* | **Supporting non-default OutputCommitter when using saveAsParquetFile**
+
+SPARK-3595 only handles custom OutputCommitter for saveAsHadoopFile, it can be nice to have similar behavior in saveAsParquetFile. It maybe difficult to have a fully customizable OutputCommitter solution, at least adding something like a DirectParquetOutputCommitter and letting users choose between this and the default should be enough.
 
 
 ---
@@ -2900,6 +2982,19 @@ VectorUDT should override simpleString instead of relying on the default impleme
 The link to "Specifying the Hadoop Version" now points to http://spark.apache.org/docs/latest/building-with-maven.html#specifying-the-hadoop-version.
 
 The correct link is: http://spark.apache.org/docs/latest/building-spark.html#specifying-the-hadoop-version
+
+
+---
+
+* [SPARK-6303](https://issues.apache.org/jira/browse/SPARK-6303) | *Minor* | **Remove unnecessary Average in GeneratedAggregate**
+
+Because {{Average}} is a {{PartialAggregate}}, we never get a {{Average}} node when reaching {{HashAggregation}} to prepare {{GeneratedAggregate}}.
+
+That is why in SQLQuerySuite there is already a test for {{avg}} with codegen. And it works.
+
+But we can find a case in {{GeneratedAggregate}} to deal with {{Average}}. Based on the above, we actually never execute this case.
+
+So we can remove this case from {{GeneratedAggregate}}.
 
 
 ---
@@ -3352,6 +3447,13 @@ If (2) does not add any extra test dependencies to the main Kafka pom, then 2 sh
 
 ---
 
+* [SPARK-6207](https://issues.apache.org/jira/browse/SPARK-6207) | *Major* | **YARN secure cluster mode doesn't obtain a hive-metastore token**
+
+When running a spark job, on YARN in secure mode, with "--deploy-mode cluster",  org.apache.spark.deploy.yarn.Client() does not obtain a delegation token to the hive-metastore. Therefore any attempts to talk to the hive-metastore fail with a "GSSException: No valid credentials provided..."
+
+
+---
+
 * [SPARK-6205](https://issues.apache.org/jira/browse/SPARK-6205) | *Minor* | **UISeleniumSuite fails for Hadoop 2.x test with NoClassDefFoundError**
 
 {code}
@@ -3613,6 +3715,29 @@ Caused by: org.apache.spark.SparkException: Failed to get broadcast\_0\_piece0 o
         at org.apache.spark.broadcast.TorrentBroadcast$$anonfun$org$apache$spark$broadcast$TorrentBroadcast$$readBlocks$1$$anonfun$2.apply(TorrentBroadcast.scala:137)
         at scala.Option.getOrElse(Option.scala:120)
 {code}
+
+
+---
+
+* [SPARK-6130](https://issues.apache.org/jira/browse/SPARK-6130) | *Major* | **support if not exists for insert overwrite into partition in hiveQl**
+
+Standard syntax:
+INSERT OVERWRITE TABLE tablename1 [PARTITION (partcol1=val1, partcol2=val2 ...) [IF NOT EXISTS]] select\_statement1 FROM from\_statement;
+INSERT INTO TABLE tablename1 [PARTITION (partcol1=val1, partcol2=val2 ...)] select\_statement1 FROM from\_statement;
+ 
+Hive extension (multiple inserts):
+FROM from\_statement
+INSERT OVERWRITE TABLE tablename1 [PARTITION (partcol1=val1, partcol2=val2 ...) [IF NOT EXISTS]] select\_statement1
+[INSERT OVERWRITE TABLE tablename2 [PARTITION ... [IF NOT EXISTS]] select\_statement2]
+[INSERT INTO TABLE tablename2 [PARTITION ...] select\_statement2] ...;
+FROM from\_statement
+INSERT INTO TABLE tablename1 [PARTITION (partcol1=val1, partcol2=val2 ...)] select\_statement1
+[INSERT INTO TABLE tablename2 [PARTITION ...] select\_statement2]
+[INSERT OVERWRITE TABLE tablename2 [PARTITION ... [IF NOT EXISTS]] select\_statement2] ...;
+ 
+Hive extension (dynamic partition inserts):
+INSERT OVERWRITE TABLE tablename PARTITION (partcol1[=val1], partcol2[=val2] ...) select\_statement FROM from\_statement;
+INSERT INTO TABLE tablename PARTITION (partcol1[=val1], partcol2[=val2] ...) select\_statement FROM from\_statement;
 
 
 ---
@@ -3940,6 +4065,13 @@ Since the validation error does not change monotonically, in practice, it should
 
 ---
 
+* [SPARK-5988](https://issues.apache.org/jira/browse/SPARK-5988) | *Major* | **Model import/export for PowerIterationClusteringModel**
+
+Add save/load for PowerIterationClusteringModel
+
+
+---
+
 * [SPARK-5987](https://issues.apache.org/jira/browse/SPARK-5987) | *Major* | **Model import/export for GaussianMixtureModel**
 
 Support save/load for GaussianMixtureModel
@@ -3961,6 +4093,13 @@ This was flagged a while ago during a routine security scan: the HTTP-based Spar
 Spark's HTTP services are based on Jetty, which by default does not enable TRACE (like Tomcat). However, the services do reply to TRACE requests. I think it is because the use of Jetty is pretty 'raw' and does not enable much of the default additional configuration you might get by using Jetty as a standalone server.
 
 I know that it is at least possible to stop the reply to TRACE with a few extra lines of code, so I think it is worth shutting off TRACE requests. Although the security risk is quite theoretical, it should be easy to fix and bring the Spark services into line with the common default of HTTP servers today.
+
+
+---
+
+* [SPARK-5972](https://issues.apache.org/jira/browse/SPARK-5972) | *Minor* | **Cache residuals for GradientBoostedTrees during training**
+
+In gradient boosting, the current model's prediction is re-computed for each training instance on every iteration.  The current residual (cumulative prediction of previously trained trees in the ensemble) should be cached.  That could reduce both computation (only computing the prediction of the most recently trained tree) and communication (only sending the most recently trained tree to the workers).
 
 
 ---
@@ -4091,6 +4230,15 @@ As you can see, rangePartitioner already handles the ascending=False by itself, 
 
 ---
 
+* [SPARK-5957](https://issues.apache.org/jira/browse/SPARK-5957) | *Major* | **Better handling of default parameter values.**
+
+We store the default value of a parameter in the Param instance. In many cases, the default value depends on the algorithm and other parameters defined in the same algorithm. We need to think a better approach to handle default parameter values.
+
+The design doc was posted in the parent JIRA: https://issues.apache.org/jira/browse/SPARK-5874
+
+
+---
+
 * [SPARK-5955](https://issues.apache.org/jira/browse/SPARK-5955) | *Major* | **Add checkpointInterval to ALS**
 
 We should add checkpoint interval to ALS to prevent the following:
@@ -4120,6 +4268,36 @@ When more than 2000 partitions are being used with Kryo, the following classes n
 - short[]
 
 Our project doesn't have dependency on roaring bitmap and HighlyCompressedMapStatus is intended for internal spark usage. Spark should take care of this registration when Kryo is used.
+
+
+---
+
+* [SPARK-5941](https://issues.apache.org/jira/browse/SPARK-5941) | *Major* | **Unit Test loads the table `src` twice for leftsemijoin.q**
+
+In leftsemijoin.q, there is a data loading command for table "sales" already, but in TestHive, it also creates/loads the table "sales", which causes duplicated records inserted into the "sales".
+
+
+---
+
+* [SPARK-5931](https://issues.apache.org/jira/browse/SPARK-5931) | *Major* | **Use consistent naming for time properties**
+
+This is SPARK-5932's sister issue.
+
+The naming of existing time configs is inconsistent. We currently have the following throughout the code base:
+{code}
+spark.network.timeout // seconds
+spark.executor.heartbeatInterval // milliseconds
+spark.storage.blockManagerSlaveTimeoutMs // milliseconds
+spark.yarn.scheduler.heartbeat.interval-ms // milliseconds
+{code}
+Instead, my proposal is to simplify the config name itself and make everything accept time using the following format: 5s, 2ms, 100us. For instance:
+{code}
+spark.network.timeout = 5s
+spark.executor.heartbeatInterval = 500ms
+spark.storage.blockManagerSlaveTimeout = 100ms
+spark.yarn.scheduler.heartbeatInterval = 400ms
+{code}
+All existing configs that are relevant will be deprecated in favor of the new ones. We should do this soon before we keep introducing more time configs.
 
 
 ---
@@ -5327,6 +5505,19 @@ I think it would be nice to have a small library that handles that for users. On
 * [SPARK-4894](https://issues.apache.org/jira/browse/SPARK-4894) | *Major* | **Add Bernoulli-variant of Naive Bayes**
 
 MLlib only supports the multinomial-variant of Naive Bayes.  The Bernoulli version of Naive Bayes is more useful for situations where the features are binary values.
+
+
+---
+
+* [SPARK-4848](https://issues.apache.org/jira/browse/SPARK-4848) | *Major* | **Allow different Worker configurations in standalone cluster**
+
+On a stand-alone spark cluster, much of the determination of worker specifics, especially one has multiple instances per node, is done only on the master.
+
+The master loops over instances, and starts a worker per instance on each node.
+
+This means, if your workers have different values of SPARK\_WORKER\_INSTANCES or SPARK\_WORKER\_WEBUI\_PORT from each other (or from the master), all values are ignored except the one on the master.
+
+SPARK\_WORKER\_PORT looks like it is unread in scripts, but read in code - I'm not sure how it will behave, since all instances will read the same value from the environment.
 
 
 ---

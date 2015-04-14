@@ -23,6 +23,27 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-6878](https://issues.apache.org/jira/browse/SPARK-6878) | *Minor* | **Sum on empty RDD fails with exception**
+
+{{Sum}} on an empty RDD throws an exception. Expected result is {{0}}.
+
+A simple fix is the replace
+
+{noformat}
+class DoubleRDDFunctions {
+  def sum(): Double = self.reduce(\_ + \_)
+{noformat} 
+
+with:
+
+{noformat}
+class DoubleRDDFunctions {
+  def sum(): Double = self.aggregate(0.0)(\_ + \_, \_ + \_)
+{noformat}
+
+
+---
+
 * [SPARK-6868](https://issues.apache.org/jira/browse/SPARK-6868) | *Minor* | **Container link broken on Spark UI Executors page when YARN is set to HTTPS\_ONLY**
 
 The stdout and stderr log links on the executor page will use the http:// prefix even if the node manager does not support http and only https via setting yarn.http.policy=HTTPS\_ONLY.

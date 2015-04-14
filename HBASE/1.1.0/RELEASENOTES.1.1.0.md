@@ -23,6 +23,13 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [HBASE-13419](https://issues.apache.org/jira/browse/HBASE-13419) | *Major* | **Thrift gateway should propagate text from exception causes.**
+
+Compose thrift exception text from the text of the entire cause chain of the underlying exception.
+
+
+---
+
 * [HBASE-13362](https://issues.apache.org/jira/browse/HBASE-13362) | *Major* | **Set max result size from client only (like scanner caching).**
 
 This introduces a new config option: hbase.server.scanner.max.result.size
