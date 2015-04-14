@@ -259,13 +259,6 @@ Remove the deprecated FSDataOutputStream constructor, FSDataOutputStream.sync() 
 
 ---
 
-* [HADOOP-7713](https://issues.apache.org/jira/browse/HADOOP-7713) | *Trivial* | **dfs -count -q should label output column**
-
-Added -v option to fs -count command to display a header record in the report.
-
-
----
-
 * [HADOOP-7659](https://issues.apache.org/jira/browse/HADOOP-7659) | *Minor* | **fs -getmerge isn't guaranteed to work well over non-HDFS filesystems**
 
 Documented that the "fs -getmerge" shell command may not work properly over non HDFS-filesystem implementations due to platform-varying file list ordering.
