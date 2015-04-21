@@ -42,4 +42,11 @@ Adding support for using the 'tc' tool in batch mode via container-executor. Thi
 FairScheduler does not allow queue names with leading or tailing spaces or empty sub-queue names anymore.
 
 
+---
+
+* [YARN-3021](https://issues.apache.org/jira/browse/YARN-3021) | *Major* | **YARN's delegation-token handling disallows certain trust setups to operate properly over DistCp**
+
+ResourceManager renews delegation tokens for applications. This behavior has been changed to renew tokens only if the token's renewer is a non-empty string. MapReduce jobs can instruct ResourceManager to skip renewal of tokens obtained from certain hosts by specifying the hosts with configuration mapreduce.job.hdfs-servers.token-renewal.exclude=<host1>,<host2>,..,<hostN>.
+
+
 

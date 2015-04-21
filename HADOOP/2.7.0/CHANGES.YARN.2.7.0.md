@@ -66,7 +66,7 @@
 | [YARN-3077](https://issues.apache.org/jira/browse/YARN-3077) | RM should create yarn.resourcemanager.zk-state-store.parent-path recursively |  Major | resourcemanager | Chun Chen | Chun Chen |
 | [YARN-3056](https://issues.apache.org/jira/browse/YARN-3056) | add verification for containerLaunchDuration in TestNodeManagerMetrics. |  Trivial | test | zhihai xu | zhihai xu |
 | [YARN-3022](https://issues.apache.org/jira/browse/YARN-3022) | Expose Container resource information from NodeManager for monitoring |  Major | . | Anubhav Dhoot | Anubhav Dhoot |
-| [YARN-3005](https://issues.apache.org/jira/browse/YARN-3005) | [JDK7] Use switch statement for String instead of if-else statement in RegistrySecurity.java |  Trivial | . | Akira AJISAKA |  |
+| [YARN-3005](https://issues.apache.org/jira/browse/YARN-3005) | [JDK7] Use switch statement for String instead of if-else statement in RegistrySecurity.java |  Trivial | . | Akira AJISAKA | Kengo Seki |
 | [YARN-2996](https://issues.apache.org/jira/browse/YARN-2996) | Refine fs operations in FileSystemRMStateStore and few fixes |  Major | resourcemanager | Yi Liu | Yi Liu |
 | [YARN-2957](https://issues.apache.org/jira/browse/YARN-2957) | Create unit test to automatically compare YarnConfiguration and yarn-default.xml |  Minor | . | Ray Chiang | Ray Chiang |
 | [YARN-2950](https://issues.apache.org/jira/browse/YARN-2950) | Change message to mandate, not suggest JS requirement on UI |  Minor | webapp | Harsh J | Dustin Cote |
