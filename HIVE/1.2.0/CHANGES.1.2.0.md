@@ -113,6 +113,7 @@
 | [HIVE-10309](https://issues.apache.org/jira/browse/HIVE-10309) | TestJdbcWithMiniHS2.java broken because of the removal of hive.server2.thrift.http.max.worker.threads |  Major | HiveServer2, JDBC | Hari Sankar Sivarama Subramaniyan | Hari Sankar Sivarama Subramaniyan |
 | [HIVE-10306](https://issues.apache.org/jira/browse/HIVE-10306) | We need to print tez summary when hive.server2.logging.level \>= PERFORMANCE. |  Major | . | Hari Sankar Sivarama Subramaniyan | Hari Sankar Sivarama Subramaniyan |
 | [HIVE-10305](https://issues.apache.org/jira/browse/HIVE-10305) | TestOrcFile has a mistake that makes metadata test ineffective |  Major | . | Owen O'Malley | Owen O'Malley |
+| [HIVE-10303](https://issues.apache.org/jira/browse/HIVE-10303) | HIVE-9471 broke forward compatibility of ORC files |  Major | File Formats | Owen O'Malley | Prasanth Jayachandran |
 | [HIVE-10290](https://issues.apache.org/jira/browse/HIVE-10290) | Add negative test case to modify a non-existent config value when hive security authorization is enabled. |  Major | . | Hari Sankar Sivarama Subramaniyan | Hari Sankar Sivarama Subramaniyan |
 | [HIVE-10288](https://issues.apache.org/jira/browse/HIVE-10288) | Cannot call permanent UDFs |  Major | . | Nezih Yigitbasi | Chinna Rao Lalam |
 | [HIVE-10285](https://issues.apache.org/jira/browse/HIVE-10285) | Incorrect endFunction call in HiveMetaStore |  Minor | Logging, Metastore | Nezih Yigitbasi | Nezih Yigitbasi |
@@ -212,6 +213,7 @@
 | [HIVE-9817](https://issues.apache.org/jira/browse/HIVE-9817) | fix DateFormat pattern in hive-exec |  Minor | . | Alexander Pivovarov | Alexander Pivovarov |
 | [HIVE-9813](https://issues.apache.org/jira/browse/HIVE-9813) | Hive JDBC - DatabaseMetaData.getColumns method cannot find classes added with "add jar" command |  Major | Metastore | Yongzhi Chen | Yongzhi Chen |
 | [HIVE-9797](https://issues.apache.org/jira/browse/HIVE-9797) | Need update some spark tests for java 8 |  Major | . | Sergio Peña | Sergio Peña |
+| [HIVE-9791](https://issues.apache.org/jira/browse/HIVE-9791) | insert into table throws NPE |  Major | . | Alexander Pivovarov | Yongzhi Chen |
 | [HIVE-9779](https://issues.apache.org/jira/browse/HIVE-9779) | ATSHook does not log the end user if doAs=false (it logs the hs2 server user) |  Major | HiveServer2 | Abdelrahman Shettia | Abdelrahman Shettia |
 | [HIVE-9772](https://issues.apache.org/jira/browse/HIVE-9772) | Hive parquet timestamp conversion doesn't work with new Parquet |  Major | . | Jimmy Xiang | Jimmy Xiang |
 | [HIVE-9770](https://issues.apache.org/jira/browse/HIVE-9770) | Beeline ignores --showHeader for non-tablular output formats i.e csv,tsv,dsv |  Critical | Beeline | Naveen Gangam | Naveen Gangam |
@@ -300,6 +302,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HIVE-10396](https://issues.apache.org/jira/browse/HIVE-10396) | decimal\_precision2.q test is failing on trunk |  Major | Types | Ashutosh Chauhan | Jason Dere |
 | [HIVE-10168](https://issues.apache.org/jira/browse/HIVE-10168) | make groupby3\_map.q more stable |  Major | Tests | Alexander Pivovarov | Alexander Pivovarov |
 | [HIVE-10135](https://issues.apache.org/jira/browse/HIVE-10135) | Add qtest to access  struct\<\> data type with parquet format after parquet column index access enabled |  Major | . | Ferdinand Xu | Ferdinand Xu |
 | [HIVE-9525](https://issues.apache.org/jira/browse/HIVE-9525) | Enable constant propagation optimization in few existing tests where it was disabled. |  Major | Logical Optimizer | Ashutosh Chauhan | Ashutosh Chauhan |

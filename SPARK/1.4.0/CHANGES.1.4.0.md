@@ -66,6 +66,7 @@
 | [SPARK-6993](https://issues.apache.org/jira/browse/SPARK-6993) | Adding default max and min methods for JavaDoubleRDD |  Minor | Java API | Olivier Girardot | Olivier Girardot |
 | [SPARK-6988](https://issues.apache.org/jira/browse/SPARK-6988) | Fix Spark SQL documentation for 1.3.x |  Minor | SQL | Olivier Girardot | Olivier Girardot |
 | [SPARK-6956](https://issues.apache.org/jira/browse/SPARK-6956) | Improve DataFrame API compatibility with Pandas |  Major | SQL | Reynold Xin | Davies Liu |
+| [SPARK-6949](https://issues.apache.org/jira/browse/SPARK-6949) | Support Date/Timestamp in Column expression of DataFrame Python API |  Blocker | PySpark, SQL | Davies Liu | Davies Liu |
 | [SPARK-6938](https://issues.apache.org/jira/browse/SPARK-6938) | Add informative error messages to require statements. |  Trivial | MLlib | Juliet Hougland | Juliet Hougland |
 | [SPARK-6911](https://issues.apache.org/jira/browse/SPARK-6911) | API for access MapType in DataFrame |  Critical | SQL | Davies Liu | Davies Liu |
 | [SPARK-6881](https://issues.apache.org/jira/browse/SPARK-6881) | Change the checkpoint directory name from checkpoints to checkpoint |  Trivial | SparkR | Hao |  |
@@ -205,6 +206,7 @@
 | [SPARK-7003](https://issues.apache.org/jira/browse/SPARK-7003) | Improve reliability of connection failure detection between Netty block transfer service endpoints |  Major | Spark Core | Aaron Davidson | Aaron Davidson |
 | [SPARK-6998](https://issues.apache.org/jira/browse/SPARK-6998) | Make StreamingKMeans `Serializable` |  Major | MLlib | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-6992](https://issues.apache.org/jira/browse/SPARK-6992) | Spark SQL documentation for programmatically adding a Schema is broken for Java API |  Minor | Documentation | Olivier Girardot | Olivier Girardot |
+| [SPARK-6985](https://issues.apache.org/jira/browse/SPARK-6985) | Receiver maxRate over 1000 causes a StackOverflowError |  Critical | Streaming | David McGuire | David McGuire |
 | [SPARK-6975](https://issues.apache.org/jira/browse/SPARK-6975) | Argument checking conflict in Yarn when dynamic allocation is enabled |  Minor | YARN | Saisai Shao | Saisai Shao |
 | [SPARK-6966](https://issues.apache.org/jira/browse/SPARK-6966) | JDBC datasources use Class.forName to load driver |  Blocker | SQL | Michael Armbrust | Michael Armbrust |
 | [SPARK-6963](https://issues.apache.org/jira/browse/SPARK-6963) | Flaky test: o.a.s.ContextCleanerSuite automatically cleanup checkpoint |  Major | Spark Core | Andrew Or | Guoqiang Li |
@@ -386,6 +388,7 @@
 | [SPARK-5380](https://issues.apache.org/jira/browse/SPARK-5380) | There will be an ArrayIndexOutOfBoundsException if the format of the source file is wrong |  Minor | GraphX | Leo\_lh | Leo\_lh |
 | [SPARK-5371](https://issues.apache.org/jira/browse/SPARK-5371) | Failure to analyze query with UNION ALL and double aggregation |  Critical | SQL | David Ross | Michael Armbrust |
 | [SPARK-5363](https://issues.apache.org/jira/browse/SPARK-5363) | Spark 1.2 freeze without error notification |  Blocker | PySpark | Tassilo Klein | Davies Liu |
+| [SPARK-5360](https://issues.apache.org/jira/browse/SPARK-5360) | For CoGroupedRDD, rdds for narrow dependencies and shuffle handles are included twice in serialized task |  Minor | Spark Core | Kay Ousterhout | Kay Ousterhout |
 | [SPARK-5320](https://issues.apache.org/jira/browse/SPARK-5320) | Joins on simple table created using select gives error |  Major | SQL | Kuldeep | Yuri Saito |
 | [SPARK-5277](https://issues.apache.org/jira/browse/SPARK-5277) | SparkSqlSerializer does not register user specified KryoRegistrators |  Major | SQL | Max Seiden |  |
 | [SPARK-5242](https://issues.apache.org/jira/browse/SPARK-5242) | "ec2/spark\_ec2.py lauch" does not work with VPC if no public DNS or IP is available |  Major | EC2 | Vladimir Grigor | Michelangelo D'Agostino |
@@ -423,8 +426,8 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [SPARK-6983](https://issues.apache.org/jira/browse/SPARK-6983) | Update ReceiverTrackerActor to use the new Rpc interface |  Major | Streaming | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-6979](https://issues.apache.org/jira/browse/SPARK-6979) | Replace JobScheduler.eventActor and JobGenerator.eventActor with EventLoop |  Minor | Streaming | Shixiong Zhu | Shixiong Zhu |
-| [SPARK-6958](https://issues.apache.org/jira/browse/SPARK-6958) | sort |  Major | SQL | Reynold Xin | Davies Liu |
-| [SPARK-6957](https://issues.apache.org/jira/browse/SPARK-6957) | groupby |  Major | SQL | Reynold Xin | Davies Liu |
+| [SPARK-6958](https://issues.apache.org/jira/browse/SPARK-6958) | Add Pandas style sort operator |  Major | SQL | Reynold Xin | Davies Liu |
+| [SPARK-6957](https://issues.apache.org/jira/browse/SPARK-6957) | Add Pandas style group by operator |  Major | SQL | Reynold Xin | Davies Liu |
 | [SPARK-6893](https://issues.apache.org/jira/browse/SPARK-6893) | Better handling of pipeline parameters in PySpark |  Major | PySpark | Xiangrui Meng | Xiangrui Meng |
 | [SPARK-6865](https://issues.apache.org/jira/browse/SPARK-6865) | Decide on semantics for string identifiers in DataFrame API |  Blocker | SQL | Michael Armbrust | Reynold Xin |
 | [SPARK-6796](https://issues.apache.org/jira/browse/SPARK-6796) | Add the batch list to StreamingPage |  Major | Streaming, Web UI | Shixiong Zhu | Shixiong Zhu |
@@ -448,6 +451,7 @@
 | [SPARK-6096](https://issues.apache.org/jira/browse/SPARK-6096) | Support model save/load in Python's naive Bayes |  Major | MLlib, PySpark | Xiangrui Meng | Xusen Yin |
 | [SPARK-6095](https://issues.apache.org/jira/browse/SPARK-6095) | Support model save/load in Python's linear models |  Major | MLlib, PySpark | Xiangrui Meng | Yanbo Liang |
 | [SPARK-6090](https://issues.apache.org/jira/browse/SPARK-6090) | Add BinaryClassificationMetrics in PySpark/MLlib |  Major | MLlib, PySpark | Xiangrui Meng | Xiangrui Meng |
+| [SPARK-5990](https://issues.apache.org/jira/browse/SPARK-5990) | Model import/export for IsotonicRegression |  Major | MLlib | Joseph K. Bradley | Yanbo Liang |
 | [SPARK-5988](https://issues.apache.org/jira/browse/SPARK-5988) | Model import/export for PowerIterationClusteringModel |  Major | MLlib | Joseph K. Bradley | Xusen Yin |
 | [SPARK-5987](https://issues.apache.org/jira/browse/SPARK-5987) | Model import/export for GaussianMixtureModel |  Major | MLlib | Joseph K. Bradley | Manoj Kumar |
 | [SPARK-5986](https://issues.apache.org/jira/browse/SPARK-5986) | Model import/export for KMeansModel |  Major | MLlib | Joseph K. Bradley | Xusen Yin |

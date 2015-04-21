@@ -93,6 +93,25 @@ The most important one being how to map a DataFrame result, using the javaRDD me
 
 ---
 
+* [SPARK-6985](https://issues.apache.org/jira/browse/SPARK-6985) | *Critical* | **Receiver maxRate over 1000 causes a StackOverflowError**
+
+Attempting to set the streaming receiver max rate (streaming.receiverMaxRate) for the RateLimiter to anything over 1000 causes a fatal error in the receiver with the following stacktrace:
+
+15/04/16 10:41:50 ERROR KafkaReceiver: Error handling message; exiting
+java.lang.StackOverflowError
+	at org.apache.spark.streaming.receiver.RateLimiter.waitToPush(RateLimiter.scala:66)
+	at org.apache.spark.streaming.receiver.RateLimiter.waitToPush(RateLimiter.scala:66)
+	at org.apache.spark.streaming.receiver.RateLimiter.waitToPush(RateLimiter.scala:66)
+	at org.apache.spark.streaming.receiver.RateLimiter.waitToPush(RateLimiter.scala:66)
+	at org.apache.spark.streaming.receiver.RateLimiter.waitToPush(RateLimiter.scala:66)
+	at org.apache.spark.streaming.receiver.RateLimiter.waitToPush(RateLimiter.scala:66)
+	at org.apache.spark.streaming.receiver.RateLimiter.waitToPush(RateLimiter.scala:66)
+	at org.apache.spark.streaming.receiver.RateLimiter.waitToPush(RateLimiter.scala:66)
+	at org.apache.spark.streaming.receiver.RateLimiter.waitToPush(RateLimiter.scala:66)
+
+
+---
+
 * [SPARK-6983](https://issues.apache.org/jira/browse/SPARK-6983) | *Major* | **Update ReceiverTrackerActor to use the new Rpc interface**
 
 Title says it all.
@@ -159,7 +178,7 @@ sbt.ForkMain$ForkError: fs.exists(org.apache.spark.rdd.RDDCheckpointData.rddChec
 
 ---
 
-* [SPARK-6958](https://issues.apache.org/jira/browse/SPARK-6958) | *Major* | **sort**
+* [SPARK-6958](https://issues.apache.org/jira/browse/SPARK-6958) | *Major* | **Add Pandas style sort operator**
 
 Support something like this
 
@@ -172,7 +191,7 @@ df.sort(['A', 'B'], ascending=[1, 0])
 
 ---
 
-* [SPARK-6957](https://issues.apache.org/jira/browse/SPARK-6957) | *Major* | **groupby**
+* [SPARK-6957](https://issues.apache.org/jira/browse/SPARK-6957) | *Major* | **Add Pandas style group by operator**
 
 Alias groupby = groupBy.
 
@@ -201,6 +220,15 @@ This is not always possible, but whenever possible we should remove or reduce th
 {{sbin/spark-daemon.sh}} uses {{ps -p "$TARGET\_PID" -o args=}} to figure out whether the process running with the expected PID is actually a Spark daemon. When running with a large classpath, the output of {{ps}} gets truncated and the check fails spuriously.
 
 I think we should weaken the check to see if it's a java command (which is something we do in other parts of the script) rather than looking for the specific main class name. This means that SPARK-4832 might happen under a slightly broader range of circumstances (a *java* program happened to reuse the same PID), but it seems worthwhile compared to failing consistently with a large classpath.
+
+
+---
+
+* [SPARK-6949](https://issues.apache.org/jira/browse/SPARK-6949) | *Blocker* | **Support Date/Timestamp in Column expression of DataFrame Python API**
+
+Currently, we reply on Py4j to pass the Python object into JVM for Column expression, but Py4j can not pass datatime.date, datetime.datetime to JVM automatically.
+
+One way is to update the py4j to support them (it may slip the 1.4 release), or we handle them ourselves (in short term).
 
 
 ---
@@ -5027,6 +5055,13 @@ Since the validation error does not change monotonically, in practice, it should
 
 ---
 
+* [SPARK-5990](https://issues.apache.org/jira/browse/SPARK-5990) | *Major* | **Model import/export for IsotonicRegression**
+
+Add save/load for IsotonicRegressionModel
+
+
+---
+
 * [SPARK-5988](https://issues.apache.org/jira/browse/SPARK-5988) | *Major* | **Model import/export for PowerIterationClusteringModel**
 
 Add save/load for PowerIterationClusteringModel
@@ -6261,6 +6296,31 @@ check the mode for the private key. User should set it to 600.
 After a number of calls to a map().collect() statement Spark freezes without reporting any error.  Within the map a large broadcast variable is used.
 
 The freezing can be avoided by setting 'spark.python.worker.reuse = false' (Spark 1.2) or using an earlier version, however, at the prize of low speed.
+
+
+---
+
+* [SPARK-5360](https://issues.apache.org/jira/browse/SPARK-5360) | *Minor* | **For CoGroupedRDD, rdds for narrow dependencies and shuffle handles are included twice in serialized task**
+
+CoGroupPartition, part of CoGroupedRDD, includes references to each RDD that the CoGroupedRDD narrowly depends on, and a reference to the ShuffleHandle.  The partition is serialized separately from the RDD, so when the RDD and partition arrive on the worker, the references in the partition and in the RDD no longer point to the same object.
+
+This is a relatively minor performance issue (the closure can be 2x larger than it needs to be because the rdds and partitions are serialized twice; see numbers below) but is more annoying as a developer issue (this is where I ran into): if any state is stored in the RDD or ShuffleHandle on the worker side, subtle bugs can appear due to the fact that the references to the RDD / ShuffleHandle in the RDD and in the partition point to separate objects.  I'm not sure if this is enough of a potential future problem to fix this old and central part of the code, so hoping to get input from others here.
+
+I did some simple experiments to see how much this effects closure size.  For this example: 
+$ val a = sc.parallelize(1 to 10).map((\_, 1))
+$ val b = sc.parallelize(1 to 2).map(x => (x, 2*x))
+$ a.cogroup(b).collect()
+
+the closure was 1902 bytes with current Spark, and 1129 bytes after my change.  The difference comes from eliminating duplicate serialization of the shuffle handle.
+
+For this example:
+$ val sortedA = a.sortByKey()
+$ val sortedB = b.sortByKey()
+$ sortedA.cogroup(sortedB).collect()
+
+the closure was 3491 bytes with current Spark, and 1333 bytes after my change. Here, the difference comes from eliminating duplicate serialization of the two RDDs for the narrow dependencies.
+
+The ShuffleHandle includes the ShuffleDependency, so this difference will get larger if a ShuffleDependency includes a serializer, a key ordering, or an aggregator (all set to None by default).  However, the difference is not affected by the size of the function the user specifies, which (based on my understanding) is typically the source of large task closures.
 
 
 ---
