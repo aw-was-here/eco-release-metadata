@@ -23,6 +23,42 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [OOZIE-2210](https://issues.apache.org/jira/browse/OOZIE-2210) | *Major* | **Update extjs 2.2 link**
+
+The docs say to download extjs from http://extjs.com/deploy/ext-2.2.zip; however, that link occasionally doesn't work.  It redirects to http://dev.sencha.com/deploy/ext-2.2.zip anyway, so we may as well update the docs to point to http://dev.sencha.com/deploy/ext-2.2.zip instead.
+
+
+---
+
+* [OOZIE-2209](https://issues.apache.org/jira/browse/OOZIE-2209) | *Major* | **Oozie launchers to set "java.io.tmpdir" to "./tmp"**
+
+We had couple of cases when pig launcher tried to create a relatively large job jar on /tmp/ and fail with not enough space.This can be avoided if the launcher used the current working directory which should have a lot more space.  Also, it'll always get cleaned up by the NodeManager even if the task crashes in the middle.
+
+
+---
+
+* [OOZIE-2206](https://issues.apache.org/jira/browse/OOZIE-2206) | *Major* | **Change Reaper mode on ChildReaper in ZKLocksService**
+
+OOZIE-1906 added znode cleanup thread.
+currently passing Reaper.Mode.REAP\_INDEFINITELY, but this enforce Oozie server to keep reaping znode even after znode is cleaned up.  (https://github.com/apache/curator/blob/master/curator-recipes/src/main/java/org/apache/curator/framework/recipes/locks/Reaper.java) 
+This adds memory pressure on oozie server. Need to change to REAP\_UNTIL\_GONE  or REAP\_UNTIL\_DELETE
+  
+{code}
+reaper = new ChildReaper(zk.getClient(), LOCKS\_NODE, Reaper.Mode.REAP\_INDEFINITELY, getExecutorService(), ConfigurationService.getInt(services.getConf(), REAPING\_THRESHOLD) * 1000, REAPING\_LEADER\_PATH);
+{code}
+
+we hit one scenario where  one ZK quorum slows down for short period, causing many Zk locks not released properly, right after ChildReaper (every 5 min ) runs, which keep checking the list of Znode ever since, in the end, Oozie server hit OOM.
+
+
+---
+
+* [OOZIE-2205](https://issues.apache.org/jira/browse/OOZIE-2205) | *Major* | **add option to load default/site.xml to actionConf on compute node**
+
+currently actionConf is loaded from *-default, *-site.xml (core-site, hdfs-site, mapred-site, etc) on oozie server, and some default value is passed into child job as it is, which we observed cause unexpected behavior for pig and hive action. this patch is to add option to load default/site.xml to actionConf on compute node, for pig and hive actions.
+
+
+---
+
 * [OOZIE-2191](https://issues.apache.org/jira/browse/OOZIE-2191) | *Major* | **Upgrade jackson version for hadoop-2 profile**
 
 in hadoop 2,  jackson version upgraded to 1.9.13

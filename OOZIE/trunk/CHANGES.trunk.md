@@ -43,6 +43,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [OOZIE-2209](https://issues.apache.org/jira/browse/OOZIE-2209) | Oozie launchers to set "java.io.tmpdir" to "./tmp" |  Major | . | Kailong Sheng | Kailong Sheng |
 | [OOZIE-2186](https://issues.apache.org/jira/browse/OOZIE-2186) | Upgrade Tomcat to 6.0.43 |  Major | core | Robert Kanter | Robert Kanter |
 | [OOZIE-2184](https://issues.apache.org/jira/browse/OOZIE-2184) | Change default value of action tmp dir removal to true |  Minor | action | Viji | Viji |
 | [OOZIE-2174](https://issues.apache.org/jira/browse/OOZIE-2174) | Add missing admin commands to OozieClient and OozieCLI |  Major | client | Robert Kanter | Robert Kanter |
@@ -75,6 +76,8 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [OOZIE-2206](https://issues.apache.org/jira/browse/OOZIE-2206) | Change Reaper mode on ChildReaper in ZKLocksService |  Major | . | Ryota Egashira | Ryota Egashira |
+| [OOZIE-2205](https://issues.apache.org/jira/browse/OOZIE-2205) | add option to load default/site.xml to actionConf on compute node |  Major | . | Ryota Egashira | Ryota Egashira |
 | [OOZIE-2191](https://issues.apache.org/jira/browse/OOZIE-2191) | Upgrade jackson version for hadoop-2 profile |  Major | . | Ryota Egashira | Ryota Egashira |
 | [OOZIE-2188](https://issues.apache.org/jira/browse/OOZIE-2188) | Fix typos in twiki documentation |  Trivial | docs | Jacob Tolar | Jacob Tolar |
 | [OOZIE-2183](https://issues.apache.org/jira/browse/OOZIE-2183) | provide an option to disable cleanup for output dataset in rerun |  Major | . | Ryota Egashira | Ryota Egashira |
@@ -180,6 +183,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [OOZIE-2210](https://issues.apache.org/jira/browse/OOZIE-2210) | Update extjs 2.2 link |  Major | docs | Robert Kanter | Bowen Zhang |
 | [OOZIE-2092](https://issues.apache.org/jira/browse/OOZIE-2092) | Provide option to supply config to workflow during rerun of coordinator |  Major | . | Jaydeep Vishwakarma | Jaydeep Vishwakarma |
 | [OOZIE-2029](https://issues.apache.org/jira/browse/OOZIE-2029) | Workflow re-run with RERUN\_FAIL\_NODES=true should re-run only the failed nodes of the sub-workflow |  Major | workflow | Jaydeep Vishwakarma | Jaydeep Vishwakarma |
 | [OOZIE-2028](https://issues.apache.org/jira/browse/OOZIE-2028) | Coord action rerun with -failed option should rerun existing workflow with RERUN\_FAIL\_NODES=true |  Major | workflow | Jaydeep Vishwakarma | Jaydeep Vishwakarma |

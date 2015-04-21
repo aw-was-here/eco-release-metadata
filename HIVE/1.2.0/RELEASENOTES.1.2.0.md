@@ -170,6 +170,13 @@ Added an --password-file (or, -w) option to BeeLine CLI, to read a password from
 
 ---
 
+* [HIVE-6950](https://issues.apache.org/jira/browse/HIVE-6950) | *Major* | **Parsing Error in GROUPING SETS**
+
+addressed in HIVE-6617
+
+
+---
+
 * [HIVE-6617](https://issues.apache.org/jira/browse/HIVE-6617) | *Major* | **Reduce ambiguity in grammar**
 
 SQL distinguishes between reserved and non-reserved keywords. We reserved 74 key words in this patch according to the SQL2011 standard. There are two ways if the user still would like to use the reserved keywords as identifiers, (1)	Use quoted identifiers (2) set hive.support.sql11.reserved.keywords=false;

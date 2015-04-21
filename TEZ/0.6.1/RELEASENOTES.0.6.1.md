@@ -23,6 +23,13 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [TEZ-2334](https://issues.apache.org/jira/browse/TEZ-2334) | *Major* | **ContainerManagementProtocolProxy modifies IPC timeout conf without making a copy**
+
+yarn-client's ContainerManagementProtocolProxy is updating ipc.client.connection.maxidletime in the conf passed in without making a copy of it. That modification "leaks" into other systems using the same conf and can cause them to setup RPC connections with a timeout of zero as well. relate to YARN-3497. This is a work around for tez running on 2.6 and 2.7.0 grids.
+
+
+---
+
 * [TEZ-2289](https://issues.apache.org/jira/browse/TEZ-2289) | *Major* | **ATSHistoryLoggingService can generate ArrayOutOfBoundsException**
 
 2015-04-07 23:11:20,459 INFO [main] app.DAGAppMaster: Running DAG: MRRSleepJob
@@ -48,6 +55,13 @@ java.lang.ArrayIndexOutOfBoundsException: 1
         at org.apache.tez.dag.history.logging.ats.ATSHistoryLoggingService.access$700(ATSHistoryLoggingService.java:50)
         at org.apache.tez.dag.history.logging.ats.ATSHistoryLoggingService$1.run(ATSHistoryLoggingService.java:159)
         at java.lang.Thread.run(Thread.java:722)
+
+
+---
+
+* [TEZ-2287](https://issues.apache.org/jira/browse/TEZ-2287) | *Blocker* | **Deprecate VertexManagerPluginContext.getTaskContainer()**
+
+This allows TEZ-2048
 
 
 ---

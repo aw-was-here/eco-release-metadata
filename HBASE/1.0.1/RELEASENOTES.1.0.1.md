@@ -23,6 +23,42 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [HBASE-13481](https://issues.apache.org/jira/browse/HBASE-13481) | *Major* | **Master should respect master (old) DNS/bind related configurations**
+
+Master now honors configuration options as was before 1.0.0 releases:
+hbase.master.ipc.address
+hbase.master.dns.interface
+hbase.master.dns.nameserver
+hbase.master.info.bindAddress
+This jira also adds hbase.master.hostname parameter as an extension to HBASE-12954.
+
+
+---
+
+* [HBASE-13479](https://issues.apache.org/jira/browse/HBASE-13479) | *Blocker* | **[branch-1.0] Master should not bind to region server ports**
+
+HBase master now respects the configuration hbase.master.port if set. By default it is not set in hbase-default.xml in 1.0.x releases. Master also respects the parameter hbase.master.info.port, which is not changed. However, master will not bind to hbase.regionserver.info.port anymore. It only binds to hbase.master.info.port. 
+
+The behavior:
+1.0.0:
+RPC: hbase.master.port IS NOT respected. Master binds to hbase.regionserver.port
+INFO: Master binds to hbase.master.info.port AND hbase.regionserver.info.port.
+By default, master will use: 16010, 16020, 16030 
+1.0.1+:
+RPC: hbase.master.port IS respected if configured. Master binds to hbase.regionserver.port by default if not configured.
+INFO: Master binds to hbase.master.info.port only. 
+By default, master will use: 16010, 16020.
+
+
+---
+
+* [HBASE-13419](https://issues.apache.org/jira/browse/HBASE-13419) | *Major* | **Thrift gateway should propagate text from exception causes.**
+
+Compose thrift exception text from the text of the entire cause chain of the underlying exception.
+
+
+---
+
 * [HBASE-13362](https://issues.apache.org/jira/browse/HBASE-13362) | *Major* | **Set max result size from client only (like scanner caching).**
 
 This introduces a new config option: hbase.server.scanner.max.result.size

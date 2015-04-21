@@ -44,6 +44,8 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-2334](https://issues.apache.org/jira/browse/TEZ-2334) | ContainerManagementProtocolProxy modifies IPC timeout conf without making a copy |  Major | . | Chang Li | Chang Li |
+| [TEZ-2317](https://issues.apache.org/jira/browse/TEZ-2317) | Event processing backlog can result in task failures for short tasks |  Major | . | Rohini Palaniswamy | Bikas Saha |
 | [TEZ-2289](https://issues.apache.org/jira/browse/TEZ-2289) | ATSHistoryLoggingService can generate ArrayOutOfBoundsException |  Major | . | Jonathan Eagles | Chang Li |
 | [TEZ-2257](https://issues.apache.org/jira/browse/TEZ-2257) | NPEs in TaskReporter |  Major | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-2240](https://issues.apache.org/jira/browse/TEZ-2240) | Fix toUpperCase/toLowerCase to use Locale.ENGLISH |  Major | . | Tsuyoshi Ozawa | Tsuyoshi Ozawa |
