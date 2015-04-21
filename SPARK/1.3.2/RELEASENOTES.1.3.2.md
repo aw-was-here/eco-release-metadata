@@ -51,6 +51,25 @@ The most important one being how to map a DataFrame result, using the javaRDD me
 
 ---
 
+* [SPARK-6985](https://issues.apache.org/jira/browse/SPARK-6985) | *Critical* | **Receiver maxRate over 1000 causes a StackOverflowError**
+
+Attempting to set the streaming receiver max rate (streaming.receiverMaxRate) for the RateLimiter to anything over 1000 causes a fatal error in the receiver with the following stacktrace:
+
+15/04/16 10:41:50 ERROR KafkaReceiver: Error handling message; exiting
+java.lang.StackOverflowError
+	at org.apache.spark.streaming.receiver.RateLimiter.waitToPush(RateLimiter.scala:66)
+	at org.apache.spark.streaming.receiver.RateLimiter.waitToPush(RateLimiter.scala:66)
+	at org.apache.spark.streaming.receiver.RateLimiter.waitToPush(RateLimiter.scala:66)
+	at org.apache.spark.streaming.receiver.RateLimiter.waitToPush(RateLimiter.scala:66)
+	at org.apache.spark.streaming.receiver.RateLimiter.waitToPush(RateLimiter.scala:66)
+	at org.apache.spark.streaming.receiver.RateLimiter.waitToPush(RateLimiter.scala:66)
+	at org.apache.spark.streaming.receiver.RateLimiter.waitToPush(RateLimiter.scala:66)
+	at org.apache.spark.streaming.receiver.RateLimiter.waitToPush(RateLimiter.scala:66)
+	at org.apache.spark.streaming.receiver.RateLimiter.waitToPush(RateLimiter.scala:66)
+
+
+---
+
 * [SPARK-6975](https://issues.apache.org/jira/browse/SPARK-6975) | *Minor* | **Argument checking conflict in Yarn when dynamic allocation is enabled**
 
 When dynamic allocation is enabled in yarn with default parameter, {{numExecutors}} will be set to 0, but this will be failed in the following {{valideArgs()}}, here {{numExecutors}} must > 0, but for dynamic allocation, this executor number can be 0 (with default setting). The exception is shown as below:

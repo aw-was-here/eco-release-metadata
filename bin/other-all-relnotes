@@ -48,6 +48,7 @@ projdocmaker.py --project TEZ --version 0.5.4
 
 cd ${HOME}/Src/aw-github/eco-release-metadata/KAFKA
 projdocmaker.py --project KAFKA --version 0.9.0
+projdocmaker.py --project KAFKA --version 0.8.3
 projdocmaker.py --project KAFKA --version 0.8.2.1
 #projdocmaker.py --project KAFKA --version 0.8.2.0
 projdocmaker.py --project KAFKA --version 0.8.1.2
