@@ -23,6 +23,30 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [HADOOP-11861](https://issues.apache.org/jira/browse/HADOOP-11861) | *Major* | **test-patch.sh rewrite addendum patch**
+
+* --build-native=false should work now
+* --branch option lets one specify a branch to test against on the command line
+* On certain Jenkins machines, the artifact directory sometimes gets deleted from outside the test-patch script.  There is now some code to try to detect, alert, and quick exit if that happens.
+* Various semi-critical output and bug fixes
+
+
+---
+
+* [HADOOP-11848](https://issues.apache.org/jira/browse/HADOOP-11848) | *Major* | **Incorrect arguments to sizeof in DomainSocket.c**
+
+Small one-line bug fix
+
+
+---
+
+* [HADOOP-11843](https://issues.apache.org/jira/browse/HADOOP-11843) | *Major* | **Make setting up the build environment easier**
+
+Includes a docker based solution for setting up a build environment with minimal effort.
+
+
+---
+
 * [HADOOP-11746](https://issues.apache.org/jira/browse/HADOOP-11746) | *Major* | **rewrite test-patch.sh**
 
 * test-patch.sh now has new output that is different than the previous versions
@@ -61,6 +85,13 @@ Add support for aarch64 CRC instructions
 * [HADOOP-11226](https://issues.apache.org/jira/browse/HADOOP-11226) | *Major* | **Add a configuration to set ipc.Client's traffic class with IPTOS\_LOWDELAY\|IPTOS\_RELIABILITY**
 
 Use low latency TCP connections for hadoop IPC
+
+
+---
+
+* [HADOOP-10597](https://issues.apache.org/jira/browse/HADOOP-10597) | *Major* | **RPC Server signals backoff to clients when all request queues are full**
+
+This change introduces a new configuration key used by RPC server to decide whether to send backoff signal to RPC Client when RPC call queue is full. When the feature is enabled, RPC server will no longer block on the processing of RPC requests when RPC call queue is full. It helps to improve quality of service when the service is under heavy load. The configuration key is in the format of "ipc.#port#.backoff.enable" where #port# is the port number that RPC server listens on. For example, if you want to enable the feature for the RPC server that listens on 8020, set ipc.8020.backoff.enable to true.
 
 
 ---

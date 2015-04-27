@@ -50,6 +50,13 @@ The output of du has now been made more Unix-like, with aligned output.
 
 ---
 
+* [HADOOP-11627](https://issues.apache.org/jira/browse/HADOOP-11627) | *Major* | **Remove io.native.lib.available**
+
+io.native.lib.available was removed. Always use native libraries if they exist.
+
+
+---
+
 * [HADOOP-11625](https://issues.apache.org/jira/browse/HADOOP-11625) | *Major* | **Minor fixes to command manual & SLA doc**
 
 Just some minor printography fixes.

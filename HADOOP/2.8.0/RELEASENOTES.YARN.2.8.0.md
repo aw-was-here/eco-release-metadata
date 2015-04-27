@@ -30,6 +30,14 @@ The current cgroups implementation is closely tied to supporting CPU as a resour
 
 ---
 
+* [YARN-3366](https://issues.apache.org/jira/browse/YARN-3366) | *Major* | **Outbound network bandwidth : classify/shape traffic originating from YARN containers**
+
+1) A TrafficController class that provides an implementation for traffic shaping using tc. 
+2) A ResourceHandler implementation for OutboundBandwidth as a resource - isolation/enforcement using cgroups and tc.
+
+
+---
+
 * [YARN-3365](https://issues.apache.org/jira/browse/YARN-3365) | *Major* | **Add support for using the 'tc' tool via container-executor**
 
 Adding support for using the 'tc' tool in batch mode via container-executor. This is a prerequisite for traffic-shaping functionality that is necessary to support outbound bandwidth as a resource in YARN.

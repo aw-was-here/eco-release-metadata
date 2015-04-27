@@ -250,6 +250,25 @@ Based on the reconfiguration framework provided by HADOOP-7001, enable reconfigu
 
 ---
 
+* [MAPREDUCE-5583](https://issues.apache.org/jira/browse/MAPREDUCE-5583) | *Major* | **Ability to limit running map and reduce tasks**
+
+This introduces two new MR2 job configs, mentioned below, which allow users to control the maximum simultaneously-running tasks of the submitted job, across the cluster:
+
+* mapreduce.job.running.map.limit (default: 0, for no limit)
+* mapreduce.job.running.reduce.limit (default: 0, for no limit)
+
+This is controllable at a per-job level.
+
+
+---
+
+* [YARN-3154](https://issues.apache.org/jira/browse/YARN-3154) | *Blocker* | **Should not upload partial logs for MR jobs or other "short-running' applications**
+
+Applications which made use of the LogAggregationContext in their application will need to revisit this code in order to make sure that their logs continue to get rolled out.
+
+
+---
+
 * [YARN-2230](https://issues.apache.org/jira/browse/YARN-2230) | *Minor* | **Fix description of yarn.scheduler.maximum-allocation-vcores in yarn-default.xml (or code)**
 
 I have modified the description of the yarn.scheduler.maximum-allocation-vcores setting in yarn-default.xml to be reflective of the actual behavior (throw InvalidRequestException when the limit is crossed).

@@ -21,4 +21,16 @@
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
 
 
+---
+
+* [MAPREDUCE-5583](https://issues.apache.org/jira/browse/MAPREDUCE-5583) | *Major* | **Ability to limit running map and reduce tasks**
+
+This introduces two new MR2 job configs, mentioned below, which allow users to control the maximum simultaneously-running tasks of the submitted job, across the cluster:
+
+* mapreduce.job.running.map.limit (default: 0, for no limit)
+* mapreduce.job.running.reduce.limit (default: 0, for no limit)
+
+This is controllable at a per-job level.
+
+
 

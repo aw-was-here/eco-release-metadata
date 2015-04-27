@@ -18,12 +18,13 @@
 -->
 # Hadoop Changelog
 
-## Release 2.7.0 - Unreleased
+## Release 2.7.0 - 2015-04-20
 
 ### INCOMPATIBLE CHANGES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [YARN-3154](https://issues.apache.org/jira/browse/YARN-3154) | Should not upload partial logs for MR jobs or other "short-running' applications |  Blocker | nodemanager, resourcemanager | Xuan Gong | Xuan Gong |
 
 
 ### NEW FEATURES:
@@ -244,7 +245,6 @@
 | [YARN-3300](https://issues.apache.org/jira/browse/YARN-3300) | outstanding\_resource\_requests table should not be shown in AHS |  Major | resourcemanager | Xuan Gong | Xuan Gong |
 | [YARN-3265](https://issues.apache.org/jira/browse/YARN-3265) | CapacityScheduler deadlock when computing absolute max avail capacity (fix for trunk/branch-2) |  Blocker | capacityscheduler, resourcemanager | Wangda Tan | Wangda Tan |
 | [YARN-3171](https://issues.apache.org/jira/browse/YARN-3171) | Sort by Application id, AppAttempt & ContainerID doesn't work in ATS / RM web ui |  Minor | timelineserver | Jeff Zhang | Naganarasimha G R |
-| [YARN-3154](https://issues.apache.org/jira/browse/YARN-3154) | Should not upload partial logs for MR jobs or other "short-running' applications |  Blocker | nodemanager, resourcemanager | Xuan Gong | Xuan Gong |
 | [YARN-3132](https://issues.apache.org/jira/browse/YARN-3132) | RMNodeLabelsManager should remove node from node-to-label mapping when node becomes deactivated |  Major | api, client, resourcemanager | Wangda Tan | Wangda Tan |
 | [YARN-3124](https://issues.apache.org/jira/browse/YARN-3124) | Capacity Scheduler LeafQueue/ParentQueue should use QueueCapacities to track capacities-by-label |  Major | api, client, resourcemanager | Wangda Tan | Wangda Tan |
 | [YARN-3122](https://issues.apache.org/jira/browse/YARN-3122) | Metrics for container's actual CPU usage |  Major | nodemanager | Anubhav Dhoot | Anubhav Dhoot |
