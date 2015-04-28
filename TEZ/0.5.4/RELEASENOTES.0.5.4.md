@@ -30,6 +30,13 @@ yarn-client's ContainerManagementProtocolProxy is updating ipc.client.connection
 
 ---
 
+* [TEZ-2303](https://issues.apache.org/jira/browse/TEZ-2303) | *Major* | **ConcurrentModificationException while processing recovery**
+
+Saw a Tez AM log a few ConcurrentModificationException messages while trying to recover from a previous attempt that crashed.  Exception details to follow.
+
+
+---
+
 * [TEZ-2289](https://issues.apache.org/jira/browse/TEZ-2289) | *Major* | **ATSHistoryLoggingService can generate ArrayOutOfBoundsException**
 
 2015-04-07 23:11:20,459 INFO [main] app.DAGAppMaster: Running DAG: MRRSleepJob
@@ -149,6 +156,13 @@ HADOOP-11602 is an issue to address this problem at the Hadoop side.
 It depends on containers being released predictably but that is not guaranteed by the code.
  org.apache.tez.dag.app.rm.TestContainerReuse.testSimpleReuse
  org.apache.tez.dag.app.rm.TestContainerReuse.testDelayedReuseContainerBecomesAvailable
+
+
+---
+
+* [TEZ-2224](https://issues.apache.org/jira/browse/TEZ-2224) | *Major* | **EventQueue empty doesn't mean events are consumed in RecoveryService**
+
+If the event queue is empty, the event may still been processing. Should fix it like AsyncDispatcher
 
 
 ---

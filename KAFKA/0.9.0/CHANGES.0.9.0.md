@@ -37,6 +37,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [KAFKA-1483](https://issues.apache.org/jira/browse/KAFKA-1483) | Split Brain about Leader Partitions |  Major | . | Guozhang Wang | Sriharsha Chintalapani |
+| [KAFKA-1054](https://issues.apache.org/jira/browse/KAFKA-1054) | Eliminate Compilation Warnings for 0.8 Final Release |  Major | . | Guozhang Wang | Ismael Juma |
 | [KAFKA-855](https://issues.apache.org/jira/browse/KAFKA-855) | Ant+Ivy build for Kafka |  Major | . | David Arthur |  |
 | [KAFKA-322](https://issues.apache.org/jira/browse/KAFKA-322) | Remove one-off Send objects |  Minor | core | Jay Kreps | Jay Kreps |
 

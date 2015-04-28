@@ -46,10 +46,12 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [TEZ-2334](https://issues.apache.org/jira/browse/TEZ-2334) | ContainerManagementProtocolProxy modifies IPC timeout conf without making a copy |  Major | . | Chang Li | Chang Li |
 | [TEZ-2317](https://issues.apache.org/jira/browse/TEZ-2317) | Event processing backlog can result in task failures for short tasks |  Major | . | Rohini Palaniswamy | Bikas Saha |
+| [TEZ-2303](https://issues.apache.org/jira/browse/TEZ-2303) | ConcurrentModificationException while processing recovery |  Major | . | Jason Lowe | Jeff Zhang |
 | [TEZ-2289](https://issues.apache.org/jira/browse/TEZ-2289) | ATSHistoryLoggingService can generate ArrayOutOfBoundsException |  Major | . | Jonathan Eagles | Chang Li |
 | [TEZ-2257](https://issues.apache.org/jira/browse/TEZ-2257) | NPEs in TaskReporter |  Major | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-2240](https://issues.apache.org/jira/browse/TEZ-2240) | Fix toUpperCase/toLowerCase to use Locale.ENGLISH |  Major | . | Tsuyoshi Ozawa | Tsuyoshi Ozawa |
 | [TEZ-2238](https://issues.apache.org/jira/browse/TEZ-2238) | TestContainerReuse flaky |  Major | . | Bikas Saha | Bikas Saha |
+| [TEZ-2224](https://issues.apache.org/jira/browse/TEZ-2224) | EventQueue empty doesn't mean events are consumed in RecoveryService |  Major | . | Jeff Zhang | Jeff Zhang |
 | [TEZ-2220](https://issues.apache.org/jira/browse/TEZ-2220) | TestTezJobs compile failure in branch 0.5 |  Major | . | Rajesh Balamohan | Hitesh Shah |
 | [TEZ-2217](https://issues.apache.org/jira/browse/TEZ-2217) | The min-held-containers being released prematurely |  Major | . | Gopal V | Bikas Saha |
 | [TEZ-2214](https://issues.apache.org/jira/browse/TEZ-2214) | FetcherOrderedGrouped can get stuck indefinitely when MergeManager misses memToDiskMerging |  Major | . | Rajesh Balamohan | Rajesh Balamohan |

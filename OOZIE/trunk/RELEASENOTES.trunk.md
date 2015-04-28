@@ -23,6 +23,13 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [OOZIE-2213](https://issues.apache.org/jira/browse/OOZIE-2213) | *Major* | **oozie-setup.ps1 should use "start-process" rather than "cmd /c" to invoke OozieSharelibCLI or OozieDBCLI commands**
+
+In some windows environments, "cmd /c" cannot correctly process the subcommands when invoking sharelibCLI or DBCLI.
+
+
+---
+
 * [OOZIE-2210](https://issues.apache.org/jira/browse/OOZIE-2210) | *Major* | **Update extjs 2.2 link**
 
 The docs say to download extjs from http://extjs.com/deploy/ext-2.2.zip; however, that link occasionally doesn't work.  It redirects to http://dev.sencha.com/deploy/ext-2.2.zip anyway, so we may as well update the docs to point to http://dev.sencha.com/deploy/ext-2.2.zip instead.
@@ -520,6 +527,15 @@ fs actions are not retried even when user explicitly set retry-max/interval.
 * [OOZIE-2131](https://issues.apache.org/jira/browse/OOZIE-2131) | *Major* | **Add flag to sqoop action to skip hbase delegation token generation**
 
 SQOOP-2057 adds a flag to skip hbase delegation token generation in Sqoop. Oozie generates this token already, so sqoop shouldn't generate another one.
+
+
+---
+
+* [OOZIE-2129](https://issues.apache.org/jira/browse/OOZIE-2129) | *Major* | **Duplicate child jobs per instance**
+
+OOZIE-1722 ensures that child job is killed at launcher restart. But this doesn't work for java actions as the tag is not passed to the child job.
+
+In case of coord action rerun, new workflow is created and hence new tag. So, it doesn't ensure old child job is killed at launcher start
 
 
 ---

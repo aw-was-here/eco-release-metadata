@@ -66,6 +66,20 @@ This allows TEZ-2048
 
 ---
 
+* [TEZ-2259](https://issues.apache.org/jira/browse/TEZ-2259) | *Major* | **Push additional data to Timeline for Recovery for better consumption in UI**
+
+Some things I can think of: 
+ 
+   - applicationAttemptId in which the dag was submitted
+   - appAttemptId in which the dag was completed 
+
+Above provides implicit information on how many app attempts the dag spanned ( and therefore recovered how many times ).
+  
+   - Maybe an implicit event mentioning that the DAG was recovered and in which attempt it was recovered. Possibly add information on what state was recovered?
+
+
+---
+
 * [TEZ-2240](https://issues.apache.org/jira/browse/TEZ-2240) | *Major* | **Fix toUpperCase/toLowerCase to use Locale.ENGLISH**
 
 String#toLowerCase()/toUpperCase() without a locale argument can occur unexpected behavior based on the locale. It's written in Javadoc:
@@ -75,6 +89,13 @@ For instance, "TITLE".toLowerCase() in a Turkish locale returns "t\u0131tle", wh
 {quote}
 
 HADOOP-11602 is an issue to address this problem at the Hadoop side.
+
+
+---
+
+* [TEZ-2224](https://issues.apache.org/jira/browse/TEZ-2224) | *Major* | **EventQueue empty doesn't mean events are consumed in RecoveryService**
+
+If the event queue is empty, the event may still been processing. Should fix it like AsyncDispatcher
 
 
 ---
@@ -663,6 +684,15 @@ Dag View
 6. Toggling display of sources & sinks.
 7. Orientation change
 8. Vertex tooltip customization - Now counters can also be displayed on the tooltip.
+
+
+---
+
+* [TEZ-1969](https://issues.apache.org/jira/browse/TEZ-1969) | *Major* | **Stop the DAGAppMaster when a local mode client is stopped**
+
+https://issues.apache.org/jira/browse/TEZ-1661?focusedCommentId=14275366&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-14275366
+
+Running multiple local clients in a single JVM will leak DAGAppMaster and related threads.
 
 
 ---

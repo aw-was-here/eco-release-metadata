@@ -23,6 +23,84 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-7187](https://issues.apache.org/jira/browse/SPARK-7187) | *Major* | **Exceptions in SerializationDebugger should not crash user code**
+
+When issues like SPARK-7180 occurs, it ends up crashing user code through the ClosureCleaner in mysterious ways.
+
+
+---
+
+* [SPARK-7140](https://issues.apache.org/jira/browse/SPARK-7140) | *Major* | **Do not scan all values in Vector.hashCode**
+
+It makes hashCode really expensive. The Pyrolite version we are using in Spark calls it in serialization. Scanning the first few nonzeros should be sufficient.
+
+
+---
+
+* [SPARK-7103](https://issues.apache.org/jira/browse/SPARK-7103) | *Critical* | **SparkContext.union crashed when some RDDs have no partitioner**
+
+I encountered a bug where Spark crashes with the following stack trace:
+
+{noformat}
+java.util.NoSuchElementException: None.get
+	at scala.None$.get(Option.scala:313)
+	at scala.None$.get(Option.scala:311)
+	at org.apache.spark.rdd.PartitionerAwareUnionRDD.getPartitions(PartitionerAwareUnionRDD.scala:69)
+{noformat}
+
+Here's a minimal example that reproduces it on the Spark shell:
+
+{noformat}
+val x = sc.parallelize(Seq(1->true,2->true,3->false)).partitionBy(new HashPartitioner(1))
+val y = sc.parallelize(Seq(1->true))
+sc.union(y, x).count() // crashes
+sc.union(x, y).count() // This works since the first RDD has a partitioner
+{noformat}
+
+We had to resort to instantiating the UnionRDD directly to avoid the PartitionerAwareUnionRDD.
+
+
+---
+
+* [SPARK-7070](https://issues.apache.org/jira/browse/SPARK-7070) | *Critical* | **LDA.setBeta calls itself**
+
+Should call setTopicConcentration.
+
+Reported by buring: http://apache-spark-user-list.1001560.n3.nabble.com/LDA-code-little-error-Xiangrui-Meng-td22621.html
+
+
+---
+
+* [SPARK-7039](https://issues.apache.org/jira/browse/SPARK-7039) | *Minor* | **JdbcRdd doesn't support java.sql.Types.NVARCHAR**
+
+When create a DataFrame from jdbc method through SqlContext:
+{code}
+DataFrame df = sql.jdbc(url, fullTableName);
+{code}
+
+If there is column type NVARCHAR, below exception will be thrown:
+
+{code}
+Caused by: java.sql.SQLException: Unsupported type -9
+	at org.apache.spark.sql.jdbc.JDBCRDD$.getCatalystType(JDBCRDD.scala:78)
+	at org.apache.spark.sql.jdbc.JDBCRDD$.resolveTable(JDBCRDD.scala:112)
+	at org.apache.spark.sql.jdbc.JDBCRelation.<init>(JDBCRelation.scala:133)
+	at org.apache.spark.sql.SQLContext.jdbc(SQLContext.scala:900)
+	at org.apache.spark.sql.SQLContext.jdbc(SQLContext.scala:852)
+{code}
+
+When comparing the code between JDBCRDD.scala and java.sql.Types.java, the only type is not supported in JDBCRDD.scala is NVARCHAR. Because NCHAR is supported, so I think this is just a small mistake that people skip this type instead of ignore it intentionally.
+
+
+---
+
+* [SPARK-7036](https://issues.apache.org/jira/browse/SPARK-7036) | *Minor* | **ALS.train should support DataFrames in PySpark**
+
+ALS.train works with SchemaRDDs in 1.2. We should support DataFrames for compatibility.
+
+
+---
+
 * [SPARK-6998](https://issues.apache.org/jira/browse/SPARK-6998) | *Major* | **Make StreamingKMeans `Serializable`**
 
 If `StreamingKMeans` is not `Serializable`, we cannot do checkpoint for applications that using `StreamingKMeans`. So we should make it `Serializable`.
@@ -75,6 +153,43 @@ java.lang.StackOverflowError
 When dynamic allocation is enabled in yarn with default parameter, {{numExecutors}} will be set to 0, but this will be failed in the following {{valideArgs()}}, here {{numExecutors}} must > 0, but for dynamic allocation, this executor number can be 0 (with default setting). The exception is shown as below:
 
 Exception in thread "main" java.lang.IllegalArgumentException: You must specify at least 1 executor!
+
+
+---
+
+* [SPARK-6967](https://issues.apache.org/jira/browse/SPARK-6967) | *Blocker* | **Internal DateType not handled correctly in caching**
+
+From the user list.  It looks like data is not implemented correctly in in-memory caching.  We should also check the JDBC datasource support for date.
+
+{code}
+Stack trace of an exception being reported since upgrade to 1.3.0:
+java.lang.ClassCastException: java.sql.Date cannot be cast to
+java.lang.Integer
+        at scala.runtime.BoxesRunTime.unboxToInt(BoxesRunTime.java:105)
+~[scala-library-2.11.6.jar:na]
+        at
+org.apache.spark.sql.catalyst.expressions.GenericRow.getInt(rows.scala:83)
+~[spark-catalyst\_2.11-1.3.0.jar:1.3.0]
+        at
+org.apache.spark.sql.columnar.IntColumnStats.gatherStats(ColumnStats.scala:191)
+~[spark-sql\_2.11-1.3.0.jar:1.3.0]
+        at
+org.apache.spark.sql.columnar.NullableColumnBuilder$class.appendFrom(NullableColumnBuilder.scala:56)
+~[spark-sql\_2.11-1.3.0.jar:1.3.0]
+        at
+org.apache.spark.sql.columnar.NativeColumnBuilder.org$apache$spark$sql$columnar$compression$CompressibleColumnBuilder$$super$appendFrom(ColumnBuilder.scala:87)
+~[spark-sql\_2.11-1.3.0.jar:1.3.0]
+        at
+org.apache.spark.sql.columnar.compression.CompressibleColumnBuilder$class.appendFrom(CompressibleColumnBuilder.scala:78)
+~[spark-sql\_2.11-1.3.0.jar:1.3.0]
+        at
+org.apache.spark.sql.columnar.NativeColumnBuilder.appendFrom(ColumnBuilder.scala:87)
+~[spark-sql\_2.11-1.3.0.jar:1.3.0]
+        at
+org.apache.spark.sql.columnar.InMemoryRelation$$anonfun$3$$anon$1.next(InMemoryColumnarTableScan.scala:135)
+~[spark-sql\_2.11-1.3.0.jar:1.3.0]
+        at
+{code}
 
 
 ---

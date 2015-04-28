@@ -52,6 +52,14 @@ The description for the newly added parameter, hive.server2.logging.level should
 
 ---
 
+* [HIVE-9917](https://issues.apache.org/jira/browse/HIVE-9917) | *Major* | **After HIVE-3454 is done, make int to timestamp conversion configurable**
+
+
+With the change of HIVE-9917, we support an additional configuration "hive.int.timestamp.conversion.in.seconds" to enable the interpretation the BOOLEAN/BYTE/TINYINT/SMALLINT/INT/BIGINT value in seconds during the timestamp conversion without breaking the existing customers. By default, the existing functionality is kept.
+
+
+---
+
 * [HIVE-9848](https://issues.apache.org/jira/browse/HIVE-9848) | *Trivial* | **readlink -f is GNU coreutils only (used in bin/hive)**
 
 Prevent GNU style readlink -f from being invoked unnecessarily
@@ -82,6 +90,13 @@ test.a,test.b
 28,"aa"
 37,a"b
 2 rows selected (1.421 seconds)
+
+
+---
+
+* [HIVE-9711](https://issues.apache.org/jira/browse/HIVE-9711) | *Major* | **ORC Vectorization DoubleColumnVector.isRepeating=false if all entries are NaN**
+
+Fix isRepeating checks for NaN in Float and Double vectorized readers
 
 
 ---

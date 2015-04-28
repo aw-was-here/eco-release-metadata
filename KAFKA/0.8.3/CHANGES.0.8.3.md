@@ -38,6 +38,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [KAFKA-2131](https://issues.apache.org/jira/browse/KAFKA-2131) | Update new producer javadocs with correct documentation links |  Trivial | clients | Manikumar Reddy | Manikumar Reddy |
+| [KAFKA-2128](https://issues.apache.org/jira/browse/KAFKA-2128) | kafka.Kafka should return non-zero exit code when caught exception. |  Minor | core | Sasaki Toru | Sasaki Toru |
 | [KAFKA-2119](https://issues.apache.org/jira/browse/KAFKA-2119) | ConsumerRecord key() and value() methods should not have throws Exception |  Trivial | clients, consumer | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-2110](https://issues.apache.org/jira/browse/KAFKA-2110) | Doc: Clarify that max number of consumer instances is per consumer group |  Trivial | . | Peter Vandenabeele | Peter Vandenabeele |
 | [KAFKA-2109](https://issues.apache.org/jira/browse/KAFKA-2109) | Support retries in KafkaLog4jAppender |  Minor | producer | Dave Beech | Dave Beech |
@@ -72,8 +73,10 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-2118](https://issues.apache.org/jira/browse/KAFKA-2118) | Cleaner cannot clean after shutdown during replaceSegments |  Major | . | Gian Merlino | Rajini Sivaram |
 | [KAFKA-2117](https://issues.apache.org/jira/browse/KAFKA-2117) | OffsetManager uses incorrect field for metadata |  Major | core | Jun Rao | Guozhang Wang |
 | [KAFKA-2115](https://issues.apache.org/jira/browse/KAFKA-2115) | Error updating metrics in RequestChannel |  Major | . | Gwen Shapira | Gwen Shapira |
+| [KAFKA-2114](https://issues.apache.org/jira/browse/KAFKA-2114) | Unable to change min.insync.replicas default |  Major | . | Bryan Baugher | Gwen Shapira |
 | [KAFKA-2113](https://issues.apache.org/jira/browse/KAFKA-2113) | TestPurgatoryPerformance does not compile using IBM JDK |  Major | . | Rajini Sivaram | Rajini Sivaram |
 | [KAFKA-2112](https://issues.apache.org/jira/browse/KAFKA-2112) | make overflowWheel volatile |  Major | purgatory | Yasuhiro Matsuda | Yasuhiro Matsuda |
 | [KAFKA-2104](https://issues.apache.org/jira/browse/KAFKA-2104) |  testDuplicateListeners()  has a typo |  Major | . | Gwen Shapira | Gwen Shapira |
@@ -95,6 +98,7 @@
 | [KAFKA-1959](https://issues.apache.org/jira/browse/KAFKA-1959) | Class CommitThread overwrite group of Thread class causing compile errors |  Major | core | Tong Li | Tong Li |
 | [KAFKA-1948](https://issues.apache.org/jira/browse/KAFKA-1948) | kafka.api.consumerTests are hanging |  Major | . | Gwen Shapira | Guozhang Wang |
 | [KAFKA-1947](https://issues.apache.org/jira/browse/KAFKA-1947) | can't explicitly set replica-assignment when add partitions |  Major | core | Honghai Chen |  |
+| [KAFKA-1940](https://issues.apache.org/jira/browse/KAFKA-1940) | Initial checkout and build failing |  Major | build | Martin Lemanski | Martin Lemanski |
 | [KAFKA-1896](https://issues.apache.org/jira/browse/KAFKA-1896) | Record size funcition of record in mirror maker hit NPE when the message value is null. |  Major | . | Jiangjie Qin | Jiangjie Qin |
 | [KAFKA-1891](https://issues.apache.org/jira/browse/KAFKA-1891) | MirrorMaker hides consumer exception - making troubleshooting challenging |  Major | . | Gwen Shapira | Gwen Shapira |
 | [KAFKA-1890](https://issues.apache.org/jira/browse/KAFKA-1890) | Fix bug preventing Mirror Maker from successful rebalance. |  Blocker | . | Jiangjie Qin | Jiangjie Qin |

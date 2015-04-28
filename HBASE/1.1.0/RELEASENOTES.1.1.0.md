@@ -23,6 +23,15 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [HBASE-13517](https://issues.apache.org/jira/browse/HBASE-13517) | *Major* | **Publish a client artifact with shaded dependencies**
+
+HBase now provides added convince artifacts that shade most dependencies. These jars hbase-shaded-client and hbase-shaded-server are meant to be used when dependency conflicts can not be solved any other way. The normal jars hbase-client and hbase-server should still be preferred when possible.
+
+Do not use hbase-shaded-server or hbase-shaded-client inside of a co-processor as bad things will happen.
+
+
+---
+
 * [HBASE-13481](https://issues.apache.org/jira/browse/HBASE-13481) | *Major* | **Master should respect master (old) DNS/bind related configurations**
 
 Master now honors configuration options as was before 1.0.0 releases:
@@ -31,6 +40,23 @@ hbase.master.dns.interface
 hbase.master.dns.nameserver
 hbase.master.info.bindAddress
 This jira also adds hbase.master.hostname parameter as an extension to HBASE-12954.
+
+
+---
+
+* [HBASE-13469](https://issues.apache.org/jira/browse/HBASE-13469) | *Major* | **[branch-1.1] Procedure V2 - Make procedure v2 configurable in branch-1.1**
+
+In 1.1 release, we implemented Procedure V2 to execute table DDL operations (create/delete/modify/truncate/enable/disable table; add/delete/modify column) to replace 1.0 release's handler implementation. By default, Procedure V2 feature is enabled in 1.1 release. We provide a config for customer to go back to 1.0 release implementation.
+The "hbase.master.procedure.tableddl" configuration accepts 2 values to change the behavior (other values treats as default - Procedure "enabled"):
+(1). "unused" 
+(1a). uses handler implementation to execute new table DDLs; 
+(1b).in case of unclean shutdown (crash), we could have unfinished DDLs in Procedure store, Procedure code will replay those operations and completes them.
+(2). "disabled" - (in case customer run into some problem and want to completely disable the Procedure V2 feature), 
+(2a). this value would use handler implementation to execute new table DDLs; 
+(2b). in case of unclean shutdown (crash), we could have unfinished DDLs in Procedure store, to prevent possible problem, the files in procedure store (WAL) will be deleted so that we would get into a clean state when the Procedure is enabled.
+Note: 
+(A). This configuration is only checked during master start up (in constructor) - so you have to re-start master after changing the value
+(B). In case of crash and unclean shut down, HBCK is needed to clean up corruptions. "disable" case has more chance to lead to half-completed operation and hence customer should not be surprised when running HBCK is needed.
 
 
 ---

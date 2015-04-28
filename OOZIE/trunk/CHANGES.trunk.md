@@ -76,6 +76,8 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [OOZIE-2214](https://issues.apache.org/jira/browse/OOZIE-2214) | fix test case TestCoordRerunXCommand.testCoordRerunDateNeg |  Major | . | Ryota Egashira | Ryota Egashira |
+| [OOZIE-2213](https://issues.apache.org/jira/browse/OOZIE-2213) | oozie-setup.ps1 should use "start-process" rather than "cmd /c" to invoke OozieSharelibCLI or OozieDBCLI commands |  Major | scripts, tools | Bowen Zhang | Bowen Zhang |
 | [OOZIE-2206](https://issues.apache.org/jira/browse/OOZIE-2206) | Change Reaper mode on ChildReaper in ZKLocksService |  Major | . | Ryota Egashira | Ryota Egashira |
 | [OOZIE-2205](https://issues.apache.org/jira/browse/OOZIE-2205) | add option to load default/site.xml to actionConf on compute node |  Major | . | Ryota Egashira | Ryota Egashira |
 | [OOZIE-2191](https://issues.apache.org/jira/browse/OOZIE-2191) | Upgrade jackson version for hadoop-2 profile |  Major | . | Ryota Egashira | Ryota Egashira |
@@ -100,6 +102,7 @@
 | [OOZIE-2139](https://issues.apache.org/jira/browse/OOZIE-2139) | Coord update doesn't work for job which is submitted by bundle |  Major | . | Purshotam Shah | Purshotam Shah |
 | [OOZIE-2132](https://issues.apache.org/jira/browse/OOZIE-2132) | FS actions are not retried |  Major | . | Ryota Egashira | Ryota Egashira |
 | [OOZIE-2131](https://issues.apache.org/jira/browse/OOZIE-2131) | Add flag to sqoop action to skip hbase delegation token generation |  Major | . | Abraham Elmahrek | Abraham Elmahrek |
+| [OOZIE-2129](https://issues.apache.org/jira/browse/OOZIE-2129) | Duplicate child jobs per instance |  Major | . | Shwetha G S | Jaydeep Vishwakarma |
 | [OOZIE-2127](https://issues.apache.org/jira/browse/OOZIE-2127) | Add created time to RecoveryService WF queries |  Major | . | Purshotam Shah | Purshotam Shah |
 | [OOZIE-2126](https://issues.apache.org/jira/browse/OOZIE-2126) | SSH action can be too fast for Oozie sometimes |  Major | action | Robert Kanter | Robert Kanter |
 | [OOZIE-2123](https://issues.apache.org/jira/browse/OOZIE-2123) | Disable launcher uber mode if classloader options are set |  Major | . | Ryota Egashira | Ryota Egashira |

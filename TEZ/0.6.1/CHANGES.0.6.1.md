@@ -47,12 +47,15 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-2365](https://issues.apache.org/jira/browse/TEZ-2365) | Update tez-ui war's license/notice to reflect OFL license correctly |  Major | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-2334](https://issues.apache.org/jira/browse/TEZ-2334) | ContainerManagementProtocolProxy modifies IPC timeout conf without making a copy |  Major | . | Chang Li | Chang Li |
 | [TEZ-2326](https://issues.apache.org/jira/browse/TEZ-2326) | Update branch 0.6 version to 0.6.1-SNAPSHOT |  Minor | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-2289](https://issues.apache.org/jira/browse/TEZ-2289) | ATSHistoryLoggingService can generate ArrayOutOfBoundsException |  Major | . | Jonathan Eagles | Chang Li |
 | [TEZ-2287](https://issues.apache.org/jira/browse/TEZ-2287) | Deprecate VertexManagerPluginContext.getTaskContainer() |  Blocker | . | Bikas Saha | Hitesh Shah |
+| [TEZ-2259](https://issues.apache.org/jira/browse/TEZ-2259) | Push additional data to Timeline for Recovery for better consumption in UI |  Major | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-2242](https://issues.apache.org/jira/browse/TEZ-2242) | Refactor ShuffleVertexManager code |  Major | . | Bikas Saha | Bikas Saha |
 | [TEZ-2240](https://issues.apache.org/jira/browse/TEZ-2240) | Fix toUpperCase/toLowerCase to use Locale.ENGLISH |  Major | . | Tsuyoshi Ozawa | Tsuyoshi Ozawa |
+| [TEZ-2224](https://issues.apache.org/jira/browse/TEZ-2224) | EventQueue empty doesn't mean events are consumed in RecoveryService |  Major | . | Jeff Zhang | Jeff Zhang |
 | [TEZ-2214](https://issues.apache.org/jira/browse/TEZ-2214) | FetcherOrderedGrouped can get stuck indefinitely when MergeManager misses memToDiskMerging |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-2199](https://issues.apache.org/jira/browse/TEZ-2199) | updateLocalResourcesForInputSplits assumes wrongly that split data is on same FS as the default FS |  Major | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-2192](https://issues.apache.org/jira/browse/TEZ-2192) | Relocalization does not check for source |  Blocker | . | Rohini Palaniswamy | Hitesh Shah |
@@ -120,7 +123,9 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-2226](https://issues.apache.org/jira/browse/TEZ-2226) | Disable writing history to timeline if domain creation fails. |  Blocker | . | Hitesh Shah | Chang Li |
 | [TEZ-2205](https://issues.apache.org/jira/browse/TEZ-2205) | Tez still tries to post to ATS when yarn.timeline-service.enabled=false |  Major | . | Chang Li | Chang Li |
+| [TEZ-1969](https://issues.apache.org/jira/browse/TEZ-1969) | Stop the DAGAppMaster when a local mode client is stopped |  Major | . | Siddharth Seth | Prakash Ramachandran |
 | [TEZ-1909](https://issues.apache.org/jira/browse/TEZ-1909) | Remove need to copy over all events from attempt 1 to attempt 2 dir |  Major | . | Hitesh Shah | Jeff Zhang |
 
 

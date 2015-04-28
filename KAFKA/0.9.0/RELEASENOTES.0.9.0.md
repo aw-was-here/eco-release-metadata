@@ -330,6 +330,19 @@ Details behind this http://mail-archives.apache.org/mod\_mbox/kafka-dev/201310.m
 
 ---
 
+* [KAFKA-1054](https://issues.apache.org/jira/browse/KAFKA-1054) | *Major* | **Eliminate Compilation Warnings for 0.8 Final Release**
+
+Currently we have a total number of 38 warnings for source code compilation of 0.8.
+
+1) 3 from "Unchecked type pattern"
+2) 6 from "Unchecked conversion"
+3) 29 from "Deprecated Hadoop API functions"
+
+It's better we finish these before the final release of 0.8
+
+
+---
+
 * [KAFKA-1032](https://issues.apache.org/jira/browse/KAFKA-1032) | *Major* | **Messages sent to the old leader will be lost on broker GC resulted failure**
 
 As pointed out by Swapnil, today when a broker in on long GC, it will marked by the controller as failed and trigger the onBrokerFailure function to migrate leadership to other brokers. However, since the Controller does not notify the broker with stopReplica request even after a new leader has been elected for its partitions. The new leader will hence stop fetching from the old leader while the old leader is not aware that he is no longer the leader. And since the old leader is not really dead producers will not refresh their metadata immediately and will continue sending messages to the old leader. The old leader will only know it is no longer the leader when it gets notified by controller in the onBrokerStartup function, and message sent starting from the time the new leader is elected to the timestamp the old leader realize it is no longer the leader will be lost.
