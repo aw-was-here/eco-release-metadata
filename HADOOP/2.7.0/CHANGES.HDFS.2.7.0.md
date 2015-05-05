@@ -167,7 +167,7 @@
 | [HDFS-7977](https://issues.apache.org/jira/browse/HDFS-7977) | NFS couldn't take percentile intervals |  Major | nfs | Brandon Li | Brandon Li |
 | [HDFS-7963](https://issues.apache.org/jira/browse/HDFS-7963) | Fix expected tracing spans in TestTracing along with HDFS-7054 |  Critical | test | Masatake Iwasaki | Masatake Iwasaki |
 | [HDFS-7961](https://issues.apache.org/jira/browse/HDFS-7961) | Trigger full block report after hot swapping disk |  Major | . | Lei (Eddy) Xu | Lei (Eddy) Xu |
-| [HDFS-7960](https://issues.apache.org/jira/browse/HDFS-7960) | The full block report should prune zombie storages even if they're not empty |  Critical | . | Lei (Eddy) Xu | Samuel Otero Schmidt |
+| [HDFS-7960](https://issues.apache.org/jira/browse/HDFS-7960) | The full block report should prune zombie storages even if they're not empty |  Critical | . | Lei (Eddy) Xu | Colin Patrick McCabe |
 | [HDFS-7957](https://issues.apache.org/jira/browse/HDFS-7957) | Truncate should verify quota before making changes |  Critical | namenode | Jing Zhao | Jing Zhao |
 | [HDFS-7956](https://issues.apache.org/jira/browse/HDFS-7956) | Improve logging for DatanodeRegistration. |  Major | namenode | Konstantin Shvachko | Plamen Jeliazkov |
 | [HDFS-7953](https://issues.apache.org/jira/browse/HDFS-7953) | NN Web UI fails to navigate to paths that contain # |  Minor | namenode | kanaka kumar avvaru | kanaka kumar avvaru |
