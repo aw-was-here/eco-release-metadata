@@ -23,6 +23,34 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [OOZIE-2223](https://issues.apache.org/jira/browse/OOZIE-2223) | *Major* | **Improve documentation with regard to Java action retries**
+
+My organization has been bitten by a mistake in the way we have written Java action applications.  I would like to introduce a documentation change that might reduce the likelihood that others new to Oozie make the same mistake.
+
+The mistake is not accounting for the possibility that launcher tasks will fail due to reasons such as cluster maintenance.  We have a number of jobs that take input and output paths as arguments.  Our code had been specifically written such that if the output path already exists the job fails to avoid inadvertently deleting an output that may have been consumed by a downstream job.
+
+This has bitten us during cluster maintenance that requires TaskTracker restarts.  During such an event any launcher running on a TaskTracker at the time of the TaskTracker restart fails and is retried on another TaskTracker.  The new attempt of the launcher task fails due to the output directory already existing.  This in turn fails the whole workflow.  Maintenance that requires restarting all TaskTrackers can end up causing a lot of workflow failures.
+
+The current documentation does hint at such issues via mention of the “prepare” block, but I don’t think the explanation of this block is clear enough for newcomers to understand its use.  Furthermore, I’m not sure the prepare block is the best answer for how to handle the specific types of issues I am referring to.  A “delete” action in a prepare block will delete content regardless of state, which provides the possibility that a previously completed good output could be deleted.  This can lead to issues such as corrupted traceability when there is a need to trace an output back to the inputs that produced it.
+
+I believe a more appropriate implementation to address the possibility of launcher task failure is to write the action such that it uses a previous complete output without deleting or reprocessing.  Only if it detects an incomplete output does it delete the output and re-run the processing to produce the output.  This protects from the possibility of accidental output destruction.
+
+Furthermore, some types of actions spawn activity that runs asynchronously outside the context of the launcher task itself.  In such cases the action author must take care to clean up any stray activity spawned prior to the failure of the initial launcher task to ensure it does not collide with activity produced by the new attempt of the launcher.  In the case of my organization, such activity includes child M/R jobs spawned from the Apache Crunch pipelines we invoke from our Java actions.  Depending on the design of the action, it can be required to find and kill such child jobs before invoking the new pipeline and spawning new child jobs.
+
+I will attach a patch that demonstrates one possible documentation improvement to shed light on these issues but I appreciate feedback and any other ideas.
+
+
+---
+
+* [OOZIE-2218](https://issues.apache.org/jira/browse/OOZIE-2218) | *Blocker* | **META-INF directories in the war file have 777 permissions**
+
+When the war file is exploded, the META-INF subdirectories have 777 permissions, which means anyone can write to there.  It should 755.
+
+We can fix this by simply updating the maven-war-plugin from version 2.1 to version 2.4.
+
+
+---
+
 * [OOZIE-2213](https://issues.apache.org/jira/browse/OOZIE-2213) | *Major* | **oozie-setup.ps1 should use "start-process" rather than "cmd /c" to invoke OozieSharelibCLI or OozieDBCLI commands**
 
 In some windows environments, "cmd /c" cannot correctly process the subcommands when invoking sharelibCLI or DBCLI.
@@ -62,6 +90,13 @@ we hit one scenario where  one ZK quorum slows down for short period, causing ma
 * [OOZIE-2205](https://issues.apache.org/jira/browse/OOZIE-2205) | *Major* | **add option to load default/site.xml to actionConf on compute node**
 
 currently actionConf is loaded from *-default, *-site.xml (core-site, hdfs-site, mapred-site, etc) on oozie server, and some default value is passed into child job as it is, which we observed cause unexpected behavior for pig and hive action. this patch is to add option to load default/site.xml to actionConf on compute node, for pig and hive actions.
+
+
+---
+
+* [OOZIE-2199](https://issues.apache.org/jira/browse/OOZIE-2199) | *Major* | **Ooziedb.cmd and oozie-setup.ps1 are missing jars in lib/ for classpath on Windows**
+
+Oozie-1876 forgot to bring the same changes in .sh file into .cmd file.
 
 
 ---
@@ -527,6 +562,28 @@ fs actions are not retried even when user explicitly set retry-max/interval.
 * [OOZIE-2131](https://issues.apache.org/jira/browse/OOZIE-2131) | *Major* | **Add flag to sqoop action to skip hbase delegation token generation**
 
 SQOOP-2057 adds a flag to skip hbase delegation token generation in Sqoop. Oozie generates this token already, so sqoop shouldn't generate another one.
+
+
+---
+
+* [OOZIE-2130](https://issues.apache.org/jira/browse/OOZIE-2130) | *Major* | **Add EL Function for offsetting a date by a timezone amount including DST**
+
+If a Coordinator has a data dependency, you can use the {{tzOffset}} EL Function to get the offset from the dataset timezone to the coordinator timezone (including DST), so that you can pass to your workflow a time in your timezone.  We also have a generic {{dateOffset}} EL Function that lets you offset a date by a specific amount.  For users not using a data dependency who want to take into account a timezone offset (including DST), they cannot use the {{tzOffset}} function, and the {{dateOffset}} function is not enough.
+
+We should add a {{dateTzOffset}} function that takes an arbitrary date and a timezone that will offset the given date by the given timezone relative to the Oozie processing timezone, including DST.
+
+In other words, it's like the {{dateOffset}} function, but instead of giving it a fixed offset, you gave it the difference between the Oozie processing timezone and the given timezone, at the time of the given date.
+
+For example:
+{noformat}
+${coord:dateTzOffset("2012-06-13T00:00Z", "America/Los\_Angeles")}
+{noformat}
+would evaluate to "2012-06-12T17:00Z" (-0700 in Summer)
+and
+{noformat}
+${coord:dateTzOffset("2012-12-13T00:00Z", "America/Los\_Angeles")}
+{noformat}
+would evaluate to "2012-12-12T16:00Z" (-0800 in Winter)
 
 
 ---

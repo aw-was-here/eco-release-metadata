@@ -37,6 +37,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-2256](https://issues.apache.org/jira/browse/TEZ-2256) | Avoid use of BufferTooSmallException to signal end of buffer in UnorderedPartitionedKVWriter |  Critical | . | Cyrille Chépélov | Cyrille Chépélov |
 | [TEZ-2091](https://issues.apache.org/jira/browse/TEZ-2091) | Add support for hosting TEZ\_UI with nodejs |  Major | UI | Chang Li | Chang Li |
 | [TEZ-2043](https://issues.apache.org/jira/browse/TEZ-2043) | Tez UI: add progress info from am webservice to dag and vertex views |  Major | UI | Prakash Ramachandran | Prakash Ramachandran |
 | [TEZ-2035](https://issues.apache.org/jira/browse/TEZ-2035) | Make timeline server putDomain exceptions non-fatal - work-around |  Major | . | Jonathan Eagles | Jonathan Eagles |
@@ -47,15 +48,23 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-2397](https://issues.apache.org/jira/browse/TEZ-2397) | Translation of LocalResources via Tez plan serialization can be lossy |  Critical | . | Siddharth Seth | Siddharth Seth |
+| [TEZ-2390](https://issues.apache.org/jira/browse/TEZ-2390) | tez-tools swimlane tool fails to parse large jobs \>8K containers |  Major | . | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-2385](https://issues.apache.org/jira/browse/TEZ-2385) | branch-0.6 compile failure caused by TEZ-2226 |  Critical | . | Jeff Zhang | Hitesh Shah |
+| [TEZ-2380](https://issues.apache.org/jira/browse/TEZ-2380) | Disable fall back to reading from timeline if timeline disabled |  Major | . | Hitesh Shah | Chang Li |
+| [TEZ-2379](https://issues.apache.org/jira/browse/TEZ-2379) | org.apache.hadoop.yarn.state.InvalidStateTransitonException: Invalid event: T\_ATTEMPT\_KILLED at KILLED |  Blocker | . | Rajesh Balamohan | Hitesh Shah |
 | [TEZ-2365](https://issues.apache.org/jira/browse/TEZ-2365) | Update tez-ui war's license/notice to reflect OFL license correctly |  Major | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-2334](https://issues.apache.org/jira/browse/TEZ-2334) | ContainerManagementProtocolProxy modifies IPC timeout conf without making a copy |  Major | . | Chang Li | Chang Li |
 | [TEZ-2326](https://issues.apache.org/jira/browse/TEZ-2326) | Update branch 0.6 version to 0.6.1-SNAPSHOT |  Minor | . | Hitesh Shah | Hitesh Shah |
+| [TEZ-2305](https://issues.apache.org/jira/browse/TEZ-2305) | MR compatibility sleep job fails with IOException: Undefined job output-path |  Critical | . | Tassapol Athiapinya | Jeff Zhang |
 | [TEZ-2289](https://issues.apache.org/jira/browse/TEZ-2289) | ATSHistoryLoggingService can generate ArrayOutOfBoundsException |  Major | . | Jonathan Eagles | Chang Li |
 | [TEZ-2287](https://issues.apache.org/jira/browse/TEZ-2287) | Deprecate VertexManagerPluginContext.getTaskContainer() |  Blocker | . | Bikas Saha | Hitesh Shah |
 | [TEZ-2259](https://issues.apache.org/jira/browse/TEZ-2259) | Push additional data to Timeline for Recovery for better consumption in UI |  Major | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-2242](https://issues.apache.org/jira/browse/TEZ-2242) | Refactor ShuffleVertexManager code |  Major | . | Bikas Saha | Bikas Saha |
 | [TEZ-2240](https://issues.apache.org/jira/browse/TEZ-2240) | Fix toUpperCase/toLowerCase to use Locale.ENGLISH |  Major | . | Tsuyoshi Ozawa | Tsuyoshi Ozawa |
+| [TEZ-2237](https://issues.apache.org/jira/browse/TEZ-2237) | Valid events should be sent out when an Output is not started |  Critical | . | Cyrille Chépélov | Siddharth Seth |
 | [TEZ-2224](https://issues.apache.org/jira/browse/TEZ-2224) | EventQueue empty doesn't mean events are consumed in RecoveryService |  Major | . | Jeff Zhang | Jeff Zhang |
+| [TEZ-2221](https://issues.apache.org/jira/browse/TEZ-2221) | VertexGroup name should be unqiue |  Major | . | Jeff Zhang | Jeff Zhang |
 | [TEZ-2214](https://issues.apache.org/jira/browse/TEZ-2214) | FetcherOrderedGrouped can get stuck indefinitely when MergeManager misses memToDiskMerging |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-2199](https://issues.apache.org/jira/browse/TEZ-2199) | updateLocalResourcesForInputSplits assumes wrongly that split data is on same FS as the default FS |  Major | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-2192](https://issues.apache.org/jira/browse/TEZ-2192) | Relocalization does not check for source |  Blocker | . | Rohini Palaniswamy | Hitesh Shah |
@@ -104,6 +113,7 @@
 | [TEZ-2012](https://issues.apache.org/jira/browse/TEZ-2012) | TEZ UI - Show page number in all tables, and display more readable task/attempt ids |  Critical | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2010](https://issues.apache.org/jira/browse/TEZ-2010) | History payload generated from conf has ${var} placeholders |  Minor | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-1990](https://issues.apache.org/jira/browse/TEZ-1990) | Tez UI: DAG details page shows Nan for end time when a DAG is running |  Trivial | . | Hitesh Shah | Sreenath Somarajapuram |
+| [TEZ-1988](https://issues.apache.org/jira/browse/TEZ-1988) | Tez UI: does not work when using file:// in a browser |  Major | UI | Hitesh Shah | Prakash Ramachandran |
 | [TEZ-1987](https://issues.apache.org/jira/browse/TEZ-1987) | non-standalone mode protocol correction + Row count selector in all tables + Format numbers displayed + Prettifications |  Trivial | . | Gopal V | Sreenath Somarajapuram |
 | [TEZ-1983](https://issues.apache.org/jira/browse/TEZ-1983) | Tez UI swimlane task attempt link is broken |  Major | . | Jonathan Eagles | Jonathan Eagles |
 | [TEZ-1973](https://issues.apache.org/jira/browse/TEZ-1973) | Dag View |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
@@ -111,6 +121,7 @@
 | [TEZ-1929](https://issues.apache.org/jira/browse/TEZ-1929) | pre-empted tasks should be marked as killed instead of failed |  Major | . | Rajesh Balamohan | Bikas Saha |
 | [TEZ-1923](https://issues.apache.org/jira/browse/TEZ-1923) | FetcherOrderedGrouped gets into infinite loop due to memory pressure |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-1661](https://issues.apache.org/jira/browse/TEZ-1661) | LocalTaskScheduler hangs when shutdown |  Major | . | Oleg Zhurakousky | Jeff Zhang |
+| [TEZ-1560](https://issues.apache.org/jira/browse/TEZ-1560) | Invalid state machine handling for V\_SOURCE\_VERTEX\_RECOVERED in recovery |  Critical | . | Jeff Zhang | Jeff Zhang |
 
 
 ### TESTS:
@@ -127,6 +138,7 @@
 | [TEZ-2205](https://issues.apache.org/jira/browse/TEZ-2205) | Tez still tries to post to ATS when yarn.timeline-service.enabled=false |  Major | . | Chang Li | Chang Li |
 | [TEZ-1969](https://issues.apache.org/jira/browse/TEZ-1969) | Stop the DAGAppMaster when a local mode client is stopped |  Major | . | Siddharth Seth | Prakash Ramachandran |
 | [TEZ-1909](https://issues.apache.org/jira/browse/TEZ-1909) | Remove need to copy over all events from attempt 1 to attempt 2 dir |  Major | . | Hitesh Shah | Jeff Zhang |
+| [TEZ-1521](https://issues.apache.org/jira/browse/TEZ-1521) | VertexDataMovementEventsGeneratedEvent may be logged twice in recovery log |  Critical | . | Jeff Zhang | Jeff Zhang |
 
 
 ### OTHER:

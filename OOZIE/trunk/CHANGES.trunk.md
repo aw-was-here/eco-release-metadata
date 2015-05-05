@@ -31,6 +31,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [OOZIE-2133](https://issues.apache.org/jira/browse/OOZIE-2133) | Support getting ATS delegation tokens for tez jobs |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
+| [OOZIE-2130](https://issues.apache.org/jira/browse/OOZIE-2130) | Add EL Function for offsetting a date by a timezone amount including DST |  Major | . | Robert Kanter | Robert Kanter |
 | [OOZIE-1983](https://issues.apache.org/jira/browse/OOZIE-1983) | Add spark action executor |  Major | . | Shwetha G S | pavan kumar kolamuri |
 | [OOZIE-1954](https://issues.apache.org/jira/browse/OOZIE-1954) | Add a way for the MapReduce action to be configured by Java code |  Major | . | Robert Kanter | Robert Kanter |
 | [OOZIE-1653](https://issues.apache.org/jira/browse/OOZIE-1653) | Support ALL to allowed error code of the user retry |  Minor | action | Azrael | Azrael |
@@ -43,6 +44,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [OOZIE-2223](https://issues.apache.org/jira/browse/OOZIE-2223) | Improve documentation with regard to Java action retries |  Major | docs | Ben Roling |  |
 | [OOZIE-2209](https://issues.apache.org/jira/browse/OOZIE-2209) | Oozie launchers to set "java.io.tmpdir" to "./tmp" |  Major | . | Kailong Sheng | Kailong Sheng |
 | [OOZIE-2186](https://issues.apache.org/jira/browse/OOZIE-2186) | Upgrade Tomcat to 6.0.43 |  Major | core | Robert Kanter | Robert Kanter |
 | [OOZIE-2184](https://issues.apache.org/jira/browse/OOZIE-2184) | Change default value of action tmp dir removal to true |  Minor | action | Viji | Viji |
@@ -76,10 +78,13 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [OOZIE-2221](https://issues.apache.org/jira/browse/OOZIE-2221) | Oozie audit log has null id for some of input request |  Major | . | Purshotam Shah | Purshotam Shah |
+| [OOZIE-2218](https://issues.apache.org/jira/browse/OOZIE-2218) | META-INF directories in the war file have 777 permissions |  Blocker | core, security | Robert Kanter | Robert Kanter |
 | [OOZIE-2214](https://issues.apache.org/jira/browse/OOZIE-2214) | fix test case TestCoordRerunXCommand.testCoordRerunDateNeg |  Major | . | Ryota Egashira | Ryota Egashira |
 | [OOZIE-2213](https://issues.apache.org/jira/browse/OOZIE-2213) | oozie-setup.ps1 should use "start-process" rather than "cmd /c" to invoke OozieSharelibCLI or OozieDBCLI commands |  Major | scripts, tools | Bowen Zhang | Bowen Zhang |
 | [OOZIE-2206](https://issues.apache.org/jira/browse/OOZIE-2206) | Change Reaper mode on ChildReaper in ZKLocksService |  Major | . | Ryota Egashira | Ryota Egashira |
 | [OOZIE-2205](https://issues.apache.org/jira/browse/OOZIE-2205) | add option to load default/site.xml to actionConf on compute node |  Major | . | Ryota Egashira | Ryota Egashira |
+| [OOZIE-2199](https://issues.apache.org/jira/browse/OOZIE-2199) | Ooziedb.cmd and oozie-setup.ps1 are missing jars in lib/ for classpath on Windows |  Major | . | Bowen Zhang | Venkat Ranganathan |
 | [OOZIE-2191](https://issues.apache.org/jira/browse/OOZIE-2191) | Upgrade jackson version for hadoop-2 profile |  Major | . | Ryota Egashira | Ryota Egashira |
 | [OOZIE-2188](https://issues.apache.org/jira/browse/OOZIE-2188) | Fix typos in twiki documentation |  Trivial | docs | Jacob Tolar | Jacob Tolar |
 | [OOZIE-2183](https://issues.apache.org/jira/browse/OOZIE-2183) | provide an option to disable cleanup for output dataset in rerun |  Major | . | Ryota Egashira | Ryota Egashira |
@@ -137,6 +142,7 @@
 | [OOZIE-2031](https://issues.apache.org/jira/browse/OOZIE-2031) | Credentials doc uses 'hive' name for HBase Credentials example |  Trivial | docs | Harsh J | Harsh J |
 | [OOZIE-2023](https://issues.apache.org/jira/browse/OOZIE-2023) | Job rerun can stuck in prep |  Major | . | Purshotam Shah | Purshotam Shah |
 | [OOZIE-2014](https://issues.apache.org/jira/browse/OOZIE-2014) | TestAuthFilterAuthOozieClient fails after OOZIE-1917 |  Major | tests | Robert Kanter | Robert Kanter |
+| [OOZIE-2012](https://issues.apache.org/jira/browse/OOZIE-2012) | coordinator with an invalid cron frequency throws NPE after validation |  Major | . | Bowen Zhang | Bowen Zhang |
 | [OOZIE-2009](https://issues.apache.org/jira/browse/OOZIE-2009) | Requeue CoordActionInputCheck in case of permission error |  Major | . | Ryota Egashira | Ryota Egashira |
 | [OOZIE-2003](https://issues.apache.org/jira/browse/OOZIE-2003) | Checkstyle issues |  Major | . | Shwetha G S | Robert Kanter |
 | [OOZIE-2001](https://issues.apache.org/jira/browse/OOZIE-2001) | Workflow re-runs doesn't update coord action status |  Major | . | Shwetha G S | Jaydeep Vishwakarma |

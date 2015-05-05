@@ -23,9 +23,132 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-7323](https://issues.apache.org/jira/browse/SPARK-7323) | *Minor* | **Use insertAll instead of individual insert while merging combiners**
+
+Currently we invoke combiners.insert() for each tuple in Aggregator - which results in creation of an Iterator per tuple, and iterating over this iterator : instead, we can directly call insertAll to avoid the object creation, method invocation and iteration overhead - for each tuple when combiners are used.
+
+
+---
+
+* [SPARK-7234](https://issues.apache.org/jira/browse/SPARK-7234) | *Major* | **When codegen on DateType defaultPrimitive will throw type mismatch exception**
+
+When codegen on, the defaultPrimitive of DateType is null. This will rise below error.
+
+select COUNT(a) from table
+a -> DateType
+
+type mismatch;
+ found   : Null(null)
+ required: DateType.this.InternalType
+
+
+---
+
+* [SPARK-7229](https://issues.apache.org/jira/browse/SPARK-7229) | *Major* | **SpecificMutableRow should take integer type as internal representation for DateType**
+
+{code}
+  test("test DATE types in cache") {
+    val rows = TestSQLContext.jdbc(urlWithUserAndPass, "TEST.TIMETYPES").collect()
+    TestSQLContext.jdbc(urlWithUserAndPass, "TEST.TIMETYPES").cache().registerTempTable("mycached\_date")
+    val cachedRows = sql("select * from mycached\_date").collect()
+    assert(rows(0).getAs[java.sql.Date](1) === java.sql.Date.valueOf("1996-01-01"))
+    assert(cachedRows(0).getAs[java.sql.Date](1) === java.sql.Date.valueOf("1996-01-01"))
+  }
+{code}
+java.lang.ClassCastException: org.apache.spark.sql.catalyst.expressions.MutableAny cannot be cast to org.apache.spark.sql.catalyst.expressions.MutableInt
+	at org.apache.spark.sql.catalyst.expressions.SpecificMutableRow.getInt(SpecificMutableRow.scala:252)
+	at org.apache.spark.sql.columnar.IntColumnStats.gatherStats(ColumnStats.scala:208)
+	at org.apache.spark.sql.columnar.NullableColumnBuilder$class.appendFrom(NullableColumnBuilder.scala:56)
+	at org.apache.spark.sql.columnar.NativeColumnBuilder.org$apache$spark$sql$columnar$compression$CompressibleColumnBuilder$$super$appendFrom(ColumnBuilder.scala:87)
+	at org.apache.spark.sql.columnar.compression.CompressibleColumnBuilder$class.appendFrom(CompressibleColumnBuilder.scala:78)
+	at org.apache.spark.sql.columnar.NativeColumnBuilder.appendFrom(ColumnBuilder.scala:87)
+	at org.apache.spark.sql.columnar.InMemoryRelation$$anonfun$3$$anon$1.next(InMemoryColumnarTableScan.scala:148)
+	at org.apache.spark.sql.columnar.InMemoryRelation$$anonfun$3$$anon$1.next(InMemoryColumnarTableScan.scala:124)
+	at org.apache.spark.storage.MemoryStore.unrollSafely(MemoryStore.scala:277)
+	at org.apache.spark.CacheManager.putInBlockManager(CacheManager.scala:171)
+	at org.apache.spark.CacheManager.getOrCompute(CacheManager.scala:78)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:242)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:35)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:277)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:244)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:35)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:277)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:244)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:63)
+	at org.apache.spark.scheduler.Task.run(Task.scala:64)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:209)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+{panel}
+
+{panel}
+
+
+---
+
+* [SPARK-7204](https://issues.apache.org/jira/browse/SPARK-7204) | *Critical* | **Call sites in UI are not accurate for DataFrame operations**
+
+Spark core computes callsites by climbing up the stack until we reach the stack frame at the boundary of user code and spark code. The way we compute whether a given frame is internal (Spark) or user code does not work correctly with the new dataframe API.
+
+Once the scope work goes in, we'll have a nicer way to express units of operator scope, but until then there is a simple fix where we just make sure the SQL internal classes are also skipped as we climb up the stack.
+
+
+---
+
+* [SPARK-7196](https://issues.apache.org/jira/browse/SPARK-7196) | *Major* | **decimal precision lost when loading DataFrame from JDBC**
+
+I have a decimal database field that is defined as 10.2 (i.e. ##########.##). When I load it into Spark via sqlContext.jdbc(..), the type of the corresponding field in the DataFrame is DecimalType, with precisionInfo None. Because of that loss of precision information, SPARK-4176 is triggered when I try to .saveAsTable(..).
+
+
+---
+
 * [SPARK-7187](https://issues.apache.org/jira/browse/SPARK-7187) | *Major* | **Exceptions in SerializationDebugger should not crash user code**
 
 When issues like SPARK-7180 occurs, it ends up crashing user code through the ClosureCleaner in mysterious ways.
+
+
+---
+
+* [SPARK-7181](https://issues.apache.org/jira/browse/SPARK-7181) | *Critical* | **External Sorter merge with aggregation go to an infinite loop when we have a total ordering**
+
+In the function {{mergeWithAggregation}} of {{ExternalSorter.scala}}, when there is a total ordering for keys K, values of the same key in the sorted iterator should be combined. Currently this is done by this:
+
+{code}
+  val elem = sorted.next()
+  val k = elem.\_1
+  var c = elem.\_2
+  while (sorted.hasNext && sorted.head.\_1 == k) {
+    c = mergeCombiners(c, sorted.head.\_2)
+  }
+{code}
+
+This will go to an infinite loop when there are more than 1 values with the same key. `sorted.next()` should be called to fix this.
+
+
+---
+
+* [SPARK-7155](https://issues.apache.org/jira/browse/SPARK-7155) | *Major* | **SparkContext's newAPIHadoopFile does not support comma-separated list of files, but the other API hadoopFile does.**
+
+SparkContext's newAPIHadoopFile() does not support comma-separated list of files. For example, the following:
+
+sc.newAPIHadoopFile("/root/file1.txt,/root/file2.txt", classOf[TextInputFormat], classOf[LongWritable], classOf[Text])
+
+will throw
+
+org.apache.hadoop.mapreduce.lib.input.InvalidInputException: Input path does not exist: file:/root/file1.txt,/root/file2.txt
+
+However, the other API hadoopFile() is able to process comma-separated list of files correctly.
+
+In addition, since sc.textFile() uses hadoopFile(), it is also able to process comma-separated list of files correctly.
+
+The problem is that newAPIHadoopFile() use addInputPath() to add the file path into NewHadoopRDD. See Ln 928-931, master branch:
+    val job = new NewHadoopJob(conf)
+    NewFileInputFormat.addInputPath(job, new Path(path))
+    val updatedConf = job.getConfiguration
+    new NewHadoopRDD(this, fClass, kClass, vClass, updatedConf).setName(path)
+
+Change addInputPath(job, new Path(path)) to addInputPaths(job, path) will resolve this issue.
 
 
 ---
@@ -190,6 +313,48 @@ org.apache.spark.sql.columnar.InMemoryRelation$$anonfun$3$$anon$1.next(InMemoryC
 ~[spark-sql\_2.11-1.3.0.jar:1.3.0]
         at
 {code}
+
+
+---
+
+* [SPARK-6954](https://issues.apache.org/jira/browse/SPARK-6954) | *Major* | **ExecutorAllocationManager can end up requesting a negative number of executors**
+
+I have a simple test case for dynamic allocation on YARN that fails with the following stack trace-
+{code}
+15/04/16 00:52:14 ERROR Utils: Uncaught exception in thread spark-dynamic-executor-allocation-0
+java.lang.IllegalArgumentException: Attempted to request a negative number of executor(s) -21 from the cluster manager. Please specify a positive number!
+	at org.apache.spark.scheduler.cluster.CoarseGrainedSchedulerBackend.requestTotalExecutors(CoarseGrainedSchedulerBackend.scala:338)
+	at org.apache.spark.SparkContext.requestTotalExecutors(SparkContext.scala:1137)
+	at org.apache.spark.ExecutorAllocationManager.addExecutors(ExecutorAllocationManager.scala:294)
+	at org.apache.spark.ExecutorAllocationManager.addOrCancelExecutorRequests(ExecutorAllocationManager.scala:263)
+	at org.apache.spark.ExecutorAllocationManager.org$apache$spark$ExecutorAllocationManager$$schedule(ExecutorAllocationManager.scala:230)
+	at org.apache.spark.ExecutorAllocationManager$$anon$1$$anonfun$run$1.apply$mcV$sp(ExecutorAllocationManager.scala:189)
+	at org.apache.spark.ExecutorAllocationManager$$anon$1$$anonfun$run$1.apply(ExecutorAllocationManager.scala:189)
+	at org.apache.spark.ExecutorAllocationManager$$anon$1$$anonfun$run$1.apply(ExecutorAllocationManager.scala:189)
+	at org.apache.spark.util.Utils$.logUncaughtExceptions(Utils.scala:1618)
+	at org.apache.spark.ExecutorAllocationManager$$anon$1.run(ExecutorAllocationManager.scala:189)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:304)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:178)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+{code}
+My test is as follows-
+# Start spark-shell with a single executor.
+# Run a {{select count(\*)}} query. The number of executors rises as input size is non-trivial.
+# After the job finishes, the number of  executors falls as most of them become idle.
+# Rerun the same query again, and the request to add executors fails with the above error. In fact, the job itself continues to run with whatever executors it already has, but it never gets more executors unless the shell is closed and restarted. 
+
+In fact, this error only happens when I configure {{executorIdleTimeout}} very small. For eg, I can reproduce it with the following configs-
+{code}
+spark.dynamicAllocation.executorIdleTimeout     5
+spark.dynamicAllocation.schedulerBacklogTimeout 5
+{code}
+Although I can simply increase {{executorIdleTimeout}} to something like 60 secs to avoid the error, I think this is still a bug to be fixed.
+
+The root cause seems that {{numExecutorsPending}} accidentally becomes negative if executors are killed too aggressively (i.e. {{executorIdleTimeout}} is too small) because under that circumstance, the new target # of executors can be smaller than the current # of executors. When that happens, {{ExecutorAllocationManager}} ends up trying to add a negative number of executors, which throws an exception.
 
 
 ---
@@ -447,6 +612,25 @@ Did you specify the correct logging directory? (etc etc)
 {noformat}
 
 That's the same message used when no complete applications are found; it should probably be tweaked for the incomplete apps case.
+
+
+---
+
+* [SPARK-5529](https://issues.apache.org/jira/browse/SPARK-5529) | *Major* | **BlockManager heartbeat expiration does not kill executor**
+
+When I run a spark job, one executor is hold, after 120s, blockManager is removed by driver, but after half an hour before the executor is remove by  driver. Here is the log:
+{code}
+15/02/02 14:58:43 WARN BlockManagerMasterActor: Removing BlockManager BlockManagerId(1, 10.215.143.14, 47234) with no recent heart beats: 147198ms exceeds 120000ms
+....
+15/02/02 15:26:55 ERROR YarnClientClusterScheduler: Lost executor 1 on 10.215.143.14: remote Akka client disassociated
+15/02/02 15:26:55 WARN ReliableDeliverySupervisor: Association with remote system [akka.tcp://sparkExecutor@10.215.143.14:46182] has failed, address is now gated for [5000] ms. Reason is: [Disassociated].
+15/02/02 15:26:55 INFO TaskSetManager: Re-queueing tasks for 1 from TaskSet 0.0
+15/02/02 15:26:55 WARN TaskSetManager: Lost task 3.0 in stage 0.0 (TID 3, 10.215.143.14): ExecutorLostFailure (executor 1 lost)
+15/02/02 15:26:55 ERROR YarnClientSchedulerBackend: Asked to remove non-existent executor 1
+15/02/02 15:26:55 INFO DAGScheduler: Executor lost: 1 (epoch 0)
+15/02/02 15:26:55 INFO BlockManagerMasterActor: Trying to remove executor 1 from BlockManagerMaster.
+15/02/02 15:26:55 INFO BlockManagerMaster: Removed 1 successfully in removeExecutor
+{code}
 
 
 

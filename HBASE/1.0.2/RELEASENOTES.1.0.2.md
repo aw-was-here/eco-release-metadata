@@ -21,4 +21,34 @@
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
 
 
+---
+
+* [HBASE-13564](https://issues.apache.org/jira/browse/HBASE-13564) | *Major* | **Master MBeans are not published**
+
+To use the coprocessor-based JMX implementation provided by HBase for Master.
+Add below property in hbase-site.xml file: 
+
+<property>
+  <name>hbase.coprocessor.master.classes</name>
+  <value>org.apache.hadoop.hbase.JMXListener</value>
+</property>
+
+NOTE: DO NOT set `com.sun.management.jmxremote.port` for Java VM at the same time.
+
+By default, the JMX listens on TCP port 10101 for Master, we can further configure the port using below properties:
+
+<property>
+  <name>master.rmi.registry.port</name>
+  <value>61110</value>
+</property>
+<property>
+  <name>master.rmi.connector.port</name>
+  <value>61120</value>
+</property>
+----
+
+The registry port can be shared with connector port in most cases, so you only need to configure master.rmi.registry.port.
+However if you want to use SSL communication, the 2 ports must be configured to different values.
+
+
 

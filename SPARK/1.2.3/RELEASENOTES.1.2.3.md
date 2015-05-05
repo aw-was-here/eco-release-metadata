@@ -23,6 +23,24 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-7181](https://issues.apache.org/jira/browse/SPARK-7181) | *Critical* | **External Sorter merge with aggregation go to an infinite loop when we have a total ordering**
+
+In the function {{mergeWithAggregation}} of {{ExternalSorter.scala}}, when there is a total ordering for keys K, values of the same key in the sorted iterator should be combined. Currently this is done by this:
+
+{code}
+  val elem = sorted.next()
+  val k = elem.\_1
+  var c = elem.\_2
+  while (sorted.hasNext && sorted.head.\_1 == k) {
+    c = mergeCombiners(c, sorted.head.\_2)
+  }
+{code}
+
+This will go to an infinite loop when there are more than 1 values with the same key. `sorted.next()` should be called to fix this.
+
+
+---
+
 * [SPARK-6998](https://issues.apache.org/jira/browse/SPARK-6998) | *Major* | **Make StreamingKMeans `Serializable`**
 
 If `StreamingKMeans` is not `Serializable`, we cannot do checkpoint for applications that using `StreamingKMeans`. So we should make it `Serializable`.

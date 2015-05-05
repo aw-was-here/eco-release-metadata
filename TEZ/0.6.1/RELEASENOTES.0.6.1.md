@@ -23,9 +23,122 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [TEZ-2397](https://issues.apache.org/jira/browse/TEZ-2397) | *Critical* | **Translation of LocalResources via Tez plan serialization can be lossy**
+
+Happens when there's no port information. The way we serialize a YarnURL into a string causes the reconstructed path to include the port as -1, which is an invalid URL. Path/URL reconstruction from this causes the hostname to be lost.
+This is problematic on clusters running HDFA HA - since there's no host:port information, only a service name. I'd imaging it'll be a problem for viewfs as well.
+
+
+---
+
+* [TEZ-2385](https://issues.apache.org/jira/browse/TEZ-2385) | *Critical* | **branch-0.6 compile failure caused by TEZ-2226**
+
+due to TEZ-2226.  DAG/Vertex level configuration is not available in 0.6, may need to use the AM configuration or either back port TEZ-1233 to 0.6
+
+
+---
+
+* [TEZ-2380](https://issues.apache.org/jira/browse/TEZ-2380) | *Major* | **Disable fall back to reading from timeline if timeline disabled**
+
+As part of TEZ-2226, timeline logging can get disabled in cases where domain creation fails. In this scenario, the dag client shoudl also not fall back to reading from timeline.
+
+
+---
+
+* [TEZ-2379](https://issues.apache.org/jira/browse/TEZ-2379) | *Blocker* | **org.apache.hadoop.yarn.state.InvalidStateTransitonException: Invalid event: T\_ATTEMPT\_KILLED at KILLED**
+
+{noformat}
+2015-04-28 04:49:32,455 ERROR [Dispatcher thread: Central] impl.TaskImpl: Can't handle this event at current state for task\_1429683757595\_0479\_1\_03\_000013
+org.apache.hadoop.yarn.state.InvalidStateTransitonException: Invalid event: T\_ATTEMPT\_KILLED at KILLED
+        at org.apache.hadoop.yarn.state.StateMachineFactory.doTransition(StateMachineFactory.java:305)
+        at org.apache.hadoop.yarn.state.StateMachineFactory.access$300(StateMachineFactory.java:46)
+        at org.apache.hadoop.yarn.state.StateMachineFactory$InternalStateMachine.doTransition(StateMachineFactory.java:448)
+        at org.apache.tez.state.StateMachineTez.doTransition(StateMachineTez.java:57)
+        at org.apache.tez.dag.app.dag.impl.TaskImpl.handle(TaskImpl.java:853)
+        at org.apache.tez.dag.app.dag.impl.TaskImpl.handle(TaskImpl.java:106)
+        at org.apache.tez.dag.app.DAGAppMaster$TaskEventDispatcher.handle(DAGAppMaster.java:1874)
+        at org.apache.tez.dag.app.DAGAppMaster$TaskEventDispatcher.handle(DAGAppMaster.java:1860)
+        at org.apache.tez.common.AsyncDispatcher.dispatch(AsyncDispatcher.java:182)
+        at org.apache.tez.common.AsyncDispatcher$1.run(AsyncDispatcher.java:113)
+        at java.lang.Thread.run(Thread.java:745)
+{noformat}
+
+Additional notes:
+============
+Hive - latest build 
+Tez - master
+tpch-200 gb scale q\_17 (kill the job in the middle of execution)
+
+
+---
+
 * [TEZ-2334](https://issues.apache.org/jira/browse/TEZ-2334) | *Major* | **ContainerManagementProtocolProxy modifies IPC timeout conf without making a copy**
 
 yarn-client's ContainerManagementProtocolProxy is updating ipc.client.connection.maxidletime in the conf passed in without making a copy of it. That modification "leaks" into other systems using the same conf and can cause them to setup RPC connections with a timeout of zero as well. relate to YARN-3497. This is a work around for tez running on 2.6 and 2.7.0 grids.
+
+
+---
+
+* [TEZ-2305](https://issues.apache.org/jira/browse/TEZ-2305) | *Critical* | **MR compatibility sleep job fails with IOException: Undefined job output-path**
+
+Running MR sleep job has an IOException.
+
+{code}
+15/04/09 20:52:25 INFO mapreduce.Job: Job job\_1428612196442\_0002 failed with state FAILED due to: Vertex failed, vertexName=initialmap, vertexId=vertex\_1428612196442\_0002\_1\_00, diagnostics=[Task failed, taskId=task\_1428612196442\_0002\_1\_00\_000001, diagnostics=[TaskAttempt 0 failed, info=[Error: Failure while running task:java.io.IOException: Undefined job output-path
+	at org.apache.hadoop.mapred.FileOutputFormat.getTaskOutputPath(FileOutputFormat.java:248)
+	at org.apache.hadoop.mapred.TextOutputFormat.getRecordWriter(TextOutputFormat.java:121)
+	at org.apache.tez.mapreduce.output.MROutput.initialize(MROutput.java:401)
+	at org.apache.tez.runtime.LogicalIOProcessorRuntimeTask$InitializeOutputCallable.callInternal(LogicalIOProcessorRuntimeTask.java:436)
+	at org.apache.tez.runtime.LogicalIOProcessorRuntimeTask$InitializeOutputCallable.callInternal(LogicalIOProcessorRuntimeTask.java:415)
+	at org.apache.tez.common.CallableWithNdc.call(CallableWithNdc.java:36)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+], TaskAttempt 1 failed, info=[Error: Failure while running task:java.io.IOException: Undefined job output-path
+	at org.apache.hadoop.mapred.FileOutputFormat.getTaskOutputPath(FileOutputFormat.java:248)
+	at org.apache.hadoop.mapred.TextOutputFormat.getRecordWriter(TextOutputFormat.java:121)
+	at org.apache.tez.mapreduce.output.MROutput.initialize(MROutput.java:401)
+	at org.apache.tez.runtime.LogicalIOProcessorRuntimeTask$InitializeOutputCallable.callInternal(LogicalIOProcessorRuntimeTask.java:436)
+	at org.apache.tez.runtime.LogicalIOProcessorRuntimeTask$InitializeOutputCallable.callInternal(LogicalIOProcessorRuntimeTask.java:415)
+	at org.apache.tez.common.CallableWithNdc.call(CallableWithNdc.java:36)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+], TaskAttempt 2 failed, info=[Error: Failure while running task:java.io.IOException: Undefined job output-path
+	at org.apache.hadoop.mapred.FileOutputFormat.getTaskOutputPath(FileOutputFormat.java:248)
+	at org.apache.hadoop.mapred.TextOutputFormat.getRecordWriter(TextOutputFormat.java:121)
+	at org.apache.tez.mapreduce.output.MROutput.initialize(MROutput.java:401)
+	at org.apache.tez.runtime.LogicalIOProcessorRuntimeTask$InitializeOutputCallable.callInternal(LogicalIOProcessorRuntimeTask.java:436)
+	at org.apache.tez.runtime.LogicalIOProcessorRuntimeTask$InitializeOutputCallable.callInternal(LogicalIOProcessorRuntimeTask.java:415)
+	at org.apache.tez.common.CallableWithNdc.call(CallableWithNdc.java:36)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+], TaskAttempt 3 failed, info=[Error: Failure while running task:java.io.IOException: Undefined job output-path
+	at org.apache.hadoop.mapred.FileOutputFormat.getTaskOutputPath(FileOutputFormat.java:248)
+	at org.apache.hadoop.mapred.TextOutputFormat.getRecordWriter(TextOutputFormat.java:121)
+	at org.apache.tez.mapreduce.output.MROutput.initialize(MROutput.java:401)
+	at org.apache.tez.runtime.LogicalIOProcessorRuntimeTask$InitializeOutputCallable.callInternal(LogicalIOProcessorRuntimeTask.java:436)
+	at org.apache.tez.runtime.LogicalIOProcessorRuntimeTask$InitializeOutputCallable.callInternal(LogicalIOProcessorRuntimeTask.java:415)
+	at org.apache.tez.common.CallableWithNdc.call(CallableWithNdc.java:36)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+]], Vertex failed as one or more tasks failed. failedTasks:1, Vertex vertex\_1428612196442\_0002\_1\_00 [initialmap] killed/failed due to:null]. DAG failed due to vertex failure. failedVertices:1 killedVertices:0
+15/04/09 20:52:25 INFO mapreduce.Job: Counters: 0
+{code}
 
 
 ---
@@ -80,6 +193,19 @@ Above provides implicit information on how many app attempts the dag spanned ( a
 
 ---
 
+* [TEZ-2256](https://issues.apache.org/jira/browse/TEZ-2256) | *Critical* | **Avoid use of BufferTooSmallException to signal end of buffer in UnorderedPartitionedKVWriter**
+
+UnorderedPartitionedKVWriter delegates serialization to the application, passing it a private ByteArrayOutputStream. In case the buffer is exhausted, ByteArrayOutputStream signals that with a private BufferTooSmallException, which can be seen but not dealt with by the application. As [~cwensel] pointed out, when the application is in fact a complex framework, there is no way to distinguish this exception from a real failure, which compels logging the full stack even for reasonable events such as "buffer complete".
+
+Suggested approach: set a "complete" flag in ByteArrayOutputStream that disables any further output, and replace  BufferTooSmallException (BTSE) handling by checking that flag. 
+
+[~sseth] suggested checking out SortedOutput as well, as the mechanisms there should be similar.
+
+I'll give this a go this week.
+
+
+---
+
 * [TEZ-2240](https://issues.apache.org/jira/browse/TEZ-2240) | *Major* | **Fix toUpperCase/toLowerCase to use Locale.ENGLISH**
 
 String#toLowerCase()/toUpperCase() without a locale argument can occur unexpected behavior based on the locale. It's written in Javadoc:
@@ -93,9 +219,32 @@ HADOOP-11602 is an issue to address this problem at the Hadoop side.
 
 ---
 
+* [TEZ-2237](https://issues.apache.org/jira/browse/TEZ-2237) | *Critical* | **Valid events should be sent out when an Output is not started**
+
+On a specific DAG with many vertices (actually part of a larger meta-DAG), after about a hour of processing, several BufferTooSmallException are raised in UnorderedPartitionedKVWriter (about one every two or three spills).
+
+Once these exceptions are raised, the DAG remains indefinitely "active", tying up memory and CPU resources as far as YARN is concerned, while little if any actual processing takes place. 
+
+It seems two separate issues are at hand:
+  1. BufferTooSmallException are raised even though, small as the actually allocated buffers seem to be (around a couple megabytes were allotted whereas 100MiB were requested), the actual keys and values are never bigger than 24 and 1024 bytes respectively.
+
+  2. In the event BufferTooSmallExceptions are raised, the DAG fails to stop (stop requests appear to be sent 7 hours after the BTSE exceptions are raised, but 9 hours after these stop requests, the DAG was still lingering on with all containers present tying up memory and CPU allocations)
+
+The emergence of the BTSE prevent the Cascade to complete, preventing from validating the results compared to traditional MR1-based results. The lack of conclusion renders the cluster queue unavailable.
+
+
+---
+
 * [TEZ-2224](https://issues.apache.org/jira/browse/TEZ-2224) | *Major* | **EventQueue empty doesn't mean events are consumed in RecoveryService**
 
 If the event queue is empty, the event may still been processing. Should fix it like AsyncDispatcher
+
+
+---
+
+* [TEZ-2221](https://issues.apache.org/jira/browse/TEZ-2221) | *Major* | **VertexGroup name should be unqiue**
+
+VertexGroupCommitStartedEvent & VertexGroupCommitFinishedEvent use vertex group name to identify the vertex group commit, the same name of vertex group will conflict. While in the current equals & hashCode of VertexGroup, vertex group name and members name are used.
 
 
 ---
@@ -646,6 +795,13 @@ The current conf to json conversion utility ends up generating json which has  $
 
 ---
 
+* [TEZ-1988](https://issues.apache.org/jira/browse/TEZ-1988) | *Major* | **Tez UI: does not work when using file:// in a browser**
+
+Docs mention that it defaults to using http://localhost for RM and Timeline server but it does not seem to be doing so. It uses file:///:8188 instead.
+
+
+---
+
 * [TEZ-1987](https://issues.apache.org/jira/browse/TEZ-1987) | *Trivial* | **non-standalone mode protocol correction + Row count selector in all tables + Format numbers displayed + Prettifications**
 
 When Tez UI is used in non-standalone mode, it accesses "http//<hostname>:8188" instead of the correct protocol setting.
@@ -826,6 +982,46 @@ Below is jstack output observed when running in Tez local mode:
         at org.apache.tez.dag.app.rm.LocalTaskSchedulerService$AsyncDelegateRequestHandler.run(LocalTaskSchedulerService.java:304)
         at java.lang.Thread.run(Thread.java:745)
 {code}
+
+
+---
+
+* [TEZ-1560](https://issues.apache.org/jira/browse/TEZ-1560) | *Critical* | **Invalid state machine handling for V\_SOURCE\_VERTEX\_RECOVERED in recovery**
+
+{code}
+2014-09-04 16:08:25,504 INFO [main] org.apache.tez.dag.app.dag.impl.DAGImpl: dag\_1409818083015\_0001\_1 transitioned from NEW to RUNNING
+2014-09-04 16:08:25,504 INFO [AsyncDispatcher event handler] org.apache.tez.dag.app.dag.impl.VertexImpl: Recovered Vertex State, vertexId=vertex\_1409818083015\_0001\_1\_00 [v1], state=NEW, numInitedSourceVertices=0, numStartedSourceVertices=0, numRecoveredSourceVertices=0, recoveredEvents=0, tasksIsNull=false, numTasks=0
+2014-09-04 16:08:25,505 INFO [AsyncDispatcher event handler] org.apache.tez.dag.app.dag.impl.VertexImpl: Root Inputs exist for Vertex: v1 : {Input={InputName=Input}, {Descriptor=ClassName=org.apache.tez.test.dag.MultiAttemptDAG$NoOpInput, hasPayload=false}, {ControllerDescriptor=ClassName=org.apache.tez.test.dag.MultiAttemptDAG$TestRootInputInitializer, hasPayload=false}}
+2014-09-04 16:08:25,505 INFO [AsyncDispatcher event handler] org.apache.tez.dag.app.dag.impl.VertexImpl: Starting root input initializer for input: Input, with class: [org.apache.tez.test.dag.MultiAttemptDAG$TestRootInputInitializer]
+2014-09-04 16:08:25,506 INFO [AsyncDispatcher event handler] org.apache.tez.dag.app.dag.impl.VertexImpl: Setting user vertex manager plugin: org.apache.tez.test.dag.MultiAttemptDAG$FailOnAttemptVertexManagerPlugin on vertex: v1
+2014-09-04 16:08:25,508 INFO [AsyncDispatcher event handler] org.apache.tez.dag.app.dag.impl.VertexImpl: Creating 2 for vertex: vertex\_1409818083015\_0001\_1\_00 [v1]
+2014-09-04 16:08:25,518 INFO [AsyncDispatcher event handler] org.apache.tez.dag.app.dag.impl.VertexImpl: Starting root input initializers: 1
+2014-09-04 16:08:25,520 INFO [InputInitializer [v1] #0] org.apache.tez.dag.app.dag.RootInputInitializerManager: Starting InputInitializer for Input: Input on vertex vertex\_1409818083015\_0001\_1\_00 [v1]
+2014-09-04 16:08:25,522 INFO [AsyncDispatcher event handler] org.apache.tez.dag.app.dag.RootInputInitializerManager: Succeeded InputInitializer for Input: Input on vertex vertex\_1409818083015\_0001\_1\_00 [v1]
+2014-09-04 16:08:25,523 INFO [AsyncDispatcher event handler] org.apache.tez.dag.app.dag.impl.VertexImpl: vertex\_1409818083015\_0001\_1\_00 [v1] transitioned from NEW to INITIALIZING due to event V\_INIT
+2014-09-04 16:08:25,523 INFO [AsyncDispatcher event handler] org.apache.tez.dag.app.dag.impl.VertexImpl: Recovered Vertex State, vertexId=vertex\_1409818083015\_0001\_1\_01 [v2], state=NEW, numInitedSourceVertices0, numStartedSourceVertices=0, numRecoveredSourceVertices=1, tasksIsNull=false, numTasks=0
+2014-09-04 16:08:25,523 ERROR [AsyncDispatcher event handler] org.apache.tez.dag.app.dag.impl.VertexImpl: Can't handle Invalid event V\_SOURCE\_VERTEX\_RECOVERED on vertex v2 with vertexId vertex\_1409818083015\_0001\_1\_01 at current state NEW
+org.apache.hadoop.yarn.state.InvalidStateTransitonException: Invalid event: V\_SOURCE\_VERTEX\_RECOVERED at NEW
+	at org.apache.hadoop.yarn.state.StateMachineFactory$MultipleInternalArc.doTransition(StateMachineFactory.java:388)
+	at org.apache.hadoop.yarn.state.StateMachineFactory.doTransition(StateMachineFactory.java:302)
+	at org.apache.hadoop.yarn.state.StateMachineFactory.access$300(StateMachineFactory.java:46)
+	at org.apache.hadoop.yarn.state.StateMachineFactory$InternalStateMachine.doTransition(StateMachineFactory.java:448)
+	at org.apache.tez.dag.app.dag.impl.VertexImpl.handle(VertexImpl.java:1344)
+	at org.apache.tez.dag.app.dag.impl.VertexImpl.handle(VertexImpl.java:1)
+	at org.apache.tez.dag.app.DAGAppMaster$VertexEventDispatcher.handle(DAGAppMaster.java:1641)
+	at org.apache.tez.dag.app.DAGAppMaster$VertexEventDispatcher.handle(DAGAppMaster.java:1)
+	at org.apache.hadoop.yarn.event.AsyncDispatcher.dispatch(AsyncDispatcher.java:173)
+	at org.apache.hadoop.yarn.event.AsyncDispatcher$1.run(AsyncDispatcher.java:106)
+	at java.lang.Thread.run(Thread.java:745)
+2014-09-04 16:08:25,524 FATAL [AsyncDispatcher event handler] org.apache.hadoop.yarn.event.AsyncDispatcher: Error in dispatcher thread
+{code}
+
+
+---
+
+* [TEZ-1521](https://issues.apache.org/jira/browse/TEZ-1521) | *Critical* | **VertexDataMovementEventsGeneratedEvent may be logged twice in recovery log**
+
+The TezEvents may be added to pendingTaskEvents and route again later when task is not scheduled. In this case, VertexDataMovementEventsGeneratedEvent will been logged twice.
 
 
 

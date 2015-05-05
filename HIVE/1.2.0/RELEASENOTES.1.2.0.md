@@ -23,6 +23,14 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [HIVE-10564](https://issues.apache.org/jira/browse/HIVE-10564) | *Major* | **webhcat should use webhcat-site.xml properties for controller job submission**
+
+This change enables various hadoop properties to be passed to the LauncherTask via webhcat-site.xml.
+Earlier hadoop properties in webhcat-site.xml would get used in most other places, except for the launch of the LauncherTask. Only a few parameters could be set, and they had to be set using templeton.* parameters. For example templeton.mapper.memory.mb was used to set mapreduce.map.memory.mb.
+
+
+---
+
 * [HIVE-10271](https://issues.apache.org/jira/browse/HIVE-10271) | *Major* | **remove hive.server2.thrift.http.min/max.worker.threads properties**
 
 Need to mark hive.server2.thrift.http.min/max.worker.threads parameters in  https://cwiki.apache.org/confluence/display/Hive/Setting+Up+HiveServer2 as unused since hive 0.14.0

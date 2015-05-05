@@ -44,14 +44,19 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-2397](https://issues.apache.org/jira/browse/TEZ-2397) | Translation of LocalResources via Tez plan serialization can be lossy |  Critical | . | Siddharth Seth | Siddharth Seth |
+| [TEZ-2379](https://issues.apache.org/jira/browse/TEZ-2379) | org.apache.hadoop.yarn.state.InvalidStateTransitonException: Invalid event: T\_ATTEMPT\_KILLED at KILLED |  Blocker | . | Rajesh Balamohan | Hitesh Shah |
+| [TEZ-2348](https://issues.apache.org/jira/browse/TEZ-2348) | EOF exception during UnorderedKVReader.next() |  Major | . | Jason Dere | Rajesh Balamohan |
 | [TEZ-2334](https://issues.apache.org/jira/browse/TEZ-2334) | ContainerManagementProtocolProxy modifies IPC timeout conf without making a copy |  Major | . | Chang Li | Chang Li |
 | [TEZ-2317](https://issues.apache.org/jira/browse/TEZ-2317) | Event processing backlog can result in task failures for short tasks |  Major | . | Rohini Palaniswamy | Bikas Saha |
+| [TEZ-2305](https://issues.apache.org/jira/browse/TEZ-2305) | MR compatibility sleep job fails with IOException: Undefined job output-path |  Critical | . | Tassapol Athiapinya | Jeff Zhang |
 | [TEZ-2303](https://issues.apache.org/jira/browse/TEZ-2303) | ConcurrentModificationException while processing recovery |  Major | . | Jason Lowe | Jeff Zhang |
 | [TEZ-2289](https://issues.apache.org/jira/browse/TEZ-2289) | ATSHistoryLoggingService can generate ArrayOutOfBoundsException |  Major | . | Jonathan Eagles | Chang Li |
 | [TEZ-2257](https://issues.apache.org/jira/browse/TEZ-2257) | NPEs in TaskReporter |  Major | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-2240](https://issues.apache.org/jira/browse/TEZ-2240) | Fix toUpperCase/toLowerCase to use Locale.ENGLISH |  Major | . | Tsuyoshi Ozawa | Tsuyoshi Ozawa |
 | [TEZ-2238](https://issues.apache.org/jira/browse/TEZ-2238) | TestContainerReuse flaky |  Major | . | Bikas Saha | Bikas Saha |
 | [TEZ-2224](https://issues.apache.org/jira/browse/TEZ-2224) | EventQueue empty doesn't mean events are consumed in RecoveryService |  Major | . | Jeff Zhang | Jeff Zhang |
+| [TEZ-2221](https://issues.apache.org/jira/browse/TEZ-2221) | VertexGroup name should be unqiue |  Major | . | Jeff Zhang | Jeff Zhang |
 | [TEZ-2220](https://issues.apache.org/jira/browse/TEZ-2220) | TestTezJobs compile failure in branch 0.5 |  Major | . | Rajesh Balamohan | Hitesh Shah |
 | [TEZ-2217](https://issues.apache.org/jira/browse/TEZ-2217) | The min-held-containers being released prematurely |  Major | . | Gopal V | Bikas Saha |
 | [TEZ-2214](https://issues.apache.org/jira/browse/TEZ-2214) | FetcherOrderedGrouped can get stuck indefinitely when MergeManager misses memToDiskMerging |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
@@ -83,6 +88,7 @@
 | [TEZ-1836](https://issues.apache.org/jira/browse/TEZ-1836) | Provide better error messages when tez.runtime.io.sort.mb is wrongly configured |  Major | . | Rajesh Balamohan | Vasanth kumar RJ |
 | [TEZ-1800](https://issues.apache.org/jira/browse/TEZ-1800) | Integer overflow in ExternalSorter.getInitialMemoryRequirement() |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-1642](https://issues.apache.org/jira/browse/TEZ-1642) | TestAMRecovery sometimes fail |  Major | . | Jeff Zhang | Jeff Zhang |
+| [TEZ-1560](https://issues.apache.org/jira/browse/TEZ-1560) | Invalid state machine handling for V\_SOURCE\_VERTEX\_RECOVERED in recovery |  Critical | . | Jeff Zhang | Jeff Zhang |
 | [TEZ-900](https://issues.apache.org/jira/browse/TEZ-900) | Confusing message for incorrect queue for some tez examples |  Major | . | Jonathan Eagles | Chang Li |
 
 
@@ -97,6 +103,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [TEZ-1962](https://issues.apache.org/jira/browse/TEZ-1962) | Running out of threads in tez local mode |  Critical | . | Gunther Hagleitner | Siddharth Seth |
+| [TEZ-1521](https://issues.apache.org/jira/browse/TEZ-1521) | VertexDataMovementEventsGeneratedEvent may be logged twice in recovery log |  Critical | . | Jeff Zhang | Jeff Zhang |
 
 
 ### OTHER:
