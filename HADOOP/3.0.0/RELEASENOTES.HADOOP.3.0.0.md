@@ -23,6 +23,13 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [HADOOP-11813](https://issues.apache.org/jira/browse/HADOOP-11813) | *Minor* | **releasedocmaker.py should use today's date instead of unreleased**
+
+Use today instead of 'Unreleased' in releasedocmaker.py when --usetoday is given as an option.
+
+
+---
+
 * [HADOOP-11781](https://issues.apache.org/jira/browse/HADOOP-11781) | *Major* | **fix race conditions and add URL support to smart-apply-patch.sh**
 
 Now auto-downloads patch from issue-id; fixed race conditions; fixed bug affecting some patches.

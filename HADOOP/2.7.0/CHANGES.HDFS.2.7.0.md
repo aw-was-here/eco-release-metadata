@@ -375,7 +375,7 @@
 | [HDFS-7486](https://issues.apache.org/jira/browse/HDFS-7486) | Consolidate XAttr-related implementation into a single class |  Major | . | Haohui Mai | Haohui Mai |
 | [HDFS-7476](https://issues.apache.org/jira/browse/HDFS-7476) | Consolidate ACL-related operations to a single class |  Major | namenode | Haohui Mai | Haohui Mai |
 | [HDFS-7474](https://issues.apache.org/jira/browse/HDFS-7474) | Avoid resolving path in FSPermissionChecker |  Major | namenode | Jing Zhao | Jing Zhao |
-| [HDFS-7468](https://issues.apache.org/jira/browse/HDFS-7468) | Moving verify* functions to corresponding classes |  Major | . | Li Lu | Li Lu |
+| [HDFS-7468](https://issues.apache.org/jira/browse/HDFS-7468) | Moving verify\* functions to corresponding classes |  Major | . | Li Lu | Li Lu |
 | [HDFS-7467](https://issues.apache.org/jira/browse/HDFS-7467) | Provide storage tier information for a directory via fsck |  Major | balancer & mover | Benoy Antony | Benoy Antony |
 | [HDFS-7462](https://issues.apache.org/jira/browse/HDFS-7462) | Consolidate implementation of mkdirs() into a single class |  Major | . | Haohui Mai | Haohui Mai |
 | [HDFS-7459](https://issues.apache.org/jira/browse/HDFS-7459) | Consolidate cache-related implementation in FSNamesystem into a single class |  Major | . | Haohui Mai | Haohui Mai |

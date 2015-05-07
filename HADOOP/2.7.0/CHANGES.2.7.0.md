@@ -122,7 +122,7 @@
 | [HADOOP-11032](https://issues.apache.org/jira/browse/HADOOP-11032) | Replace use of Guava's Stopwatch with Hadoop's StopWatch |  Major | . | Gary Steelman | Tsuyoshi Ozawa |
 | [HADOOP-10987](https://issues.apache.org/jira/browse/HADOOP-10987) | Provide an iterator-based listing API for FileSystem |  Major | . | Kihwal Lee | Kihwal Lee |
 | [HADOOP-10976](https://issues.apache.org/jira/browse/HADOOP-10976) | moving the source code of hadoop-tools docs to the directory under hadoop-tools |  Minor | documentation | Masatake Iwasaki | Masatake Iwasaki |
-| [HADOOP-10847](https://issues.apache.org/jira/browse/HADOOP-10847) | Remove the usage of sun.security.x509.* in testing code |  Minor | security | Kai Zheng | pascal oliva |
+| [HADOOP-10847](https://issues.apache.org/jira/browse/HADOOP-10847) | Remove the usage of sun.security.x509.\* in testing code |  Minor | security | Kai Zheng | pascal oliva |
 | [HADOOP-10809](https://issues.apache.org/jira/browse/HADOOP-10809) | hadoop-azure: page blob support |  Major | tools | Mike Liddell | Eric Hanson |
 | [HADOOP-10786](https://issues.apache.org/jira/browse/HADOOP-10786) | Fix UGI#reloginFromKeytab on Java 8 |  Major | security | Tobi Vollebregt | Stephen Chu |
 | [HADOOP-10670](https://issues.apache.org/jira/browse/HADOOP-10670) | Allow AuthenticationFilters to load secret from signature secret files |  Minor | security | Kai Zheng | Kai Zheng |
@@ -274,7 +274,7 @@
 | [YARN-3182](https://issues.apache.org/jira/browse/YARN-3182) | Cleanup switch statement in ApplicationMasterLauncher#handle() |  Minor | . | Ray Chiang | Ray Chiang |
 | [YARN-3179](https://issues.apache.org/jira/browse/YARN-3179) | Update use of Iterator to Iterable |  Minor | . | Ray Chiang | Ray Chiang |
 | [YARN-3158](https://issues.apache.org/jira/browse/YARN-3158) | Correct log messages in ResourceTrackerService |  Major | . | Devaraj K | Varun Saxena |
-| [YARN-3157](https://issues.apache.org/jira/browse/YARN-3157) | Refactor the exception handling in ConverterUtils#to*Id |  Minor | resourcemanager | Bibin A Chundatt | Bibin A Chundatt |
+| [YARN-3157](https://issues.apache.org/jira/browse/YARN-3157) | Refactor the exception handling in ConverterUtils#to\*Id |  Minor | resourcemanager | Bibin A Chundatt | Bibin A Chundatt |
 | [YARN-3147](https://issues.apache.org/jira/browse/YARN-3147) | Clean up RM web proxy code |  Major | webapp | Steve Loughran | Steve Loughran |
 | [YARN-3144](https://issues.apache.org/jira/browse/YARN-3144) | Configuration for making delegation token failures to timeline server not-fatal |  Major | . | Jonathan Eagles | Jonathan Eagles |
 | [YARN-3123](https://issues.apache.org/jira/browse/YARN-3123) | Make YARN CLI show a single completed container even if the app is running |  Major | client | Zhijie Shen | Naganarasimha G R |
@@ -306,7 +306,7 @@
 | [YARN-2669](https://issues.apache.org/jira/browse/YARN-2669) | FairScheduler: queue names shouldn't allow periods |  Major | . | Wei Yan | Wei Yan |
 | [YARN-2643](https://issues.apache.org/jira/browse/YARN-2643) | Don't create a new DominantResourceCalculator on every FairScheduler.allocate call |  Trivial | . | Sandy Ryza | Karthik Kambatla |
 | [YARN-2641](https://issues.apache.org/jira/browse/YARN-2641) | Decommission nodes on -refreshNodes instead of next NM-RM heartbeat |  Major | resourcemanager | zhihai xu | zhihai xu |
-| [YARN-2604](https://issues.apache.org/jira/browse/YARN-2604) | Scheduler should consider max-allocation-* in conjunction with the largest node |  Major | scheduler | Karthik Kambatla | Robert Kanter |
+| [YARN-2604](https://issues.apache.org/jira/browse/YARN-2604) | Scheduler should consider max-allocation-\* in conjunction with the largest node |  Major | scheduler | Karthik Kambatla | Robert Kanter |
 | [YARN-2301](https://issues.apache.org/jira/browse/YARN-2301) | Improve yarn container command |  Major | . | Jian He | Naganarasimha G R |
 | [YARN-2254](https://issues.apache.org/jira/browse/YARN-2254) | TestRMWebServicesAppsModification should run against both CS and FS |  Minor | . | zhihai xu | zhihai xu |
 | [YARN-2157](https://issues.apache.org/jira/browse/YARN-2157) | Document YARN metrics |  Major | documentation | Akira AJISAKA | Akira AJISAKA |
@@ -815,7 +815,7 @@
 | [HADOOP-11429](https://issues.apache.org/jira/browse/HADOOP-11429) | Findbugs warnings in hadoop extras |  Major | . | Varun Saxena | Varun Saxena |
 | [HADOOP-11389](https://issues.apache.org/jira/browse/HADOOP-11389) | Clean up byte to string encoding issues in hadoop-common |  Major | . | Haohui Mai | Haohui Mai |
 | [HADOOP-11381](https://issues.apache.org/jira/browse/HADOOP-11381) | Fix findbugs warnings in hadoop-distcp, hadoop-aws, hadoop-azure, and hadoop-openstack |  Major | . | Li Lu | Li Lu |
-| [HADOOP-11379](https://issues.apache.org/jira/browse/HADOOP-11379) | Fix new findbugs warnings in hadoop-auth* |  Major | . | Li Lu | Li Lu |
+| [HADOOP-11379](https://issues.apache.org/jira/browse/HADOOP-11379) | Fix new findbugs warnings in hadoop-auth\* |  Major | . | Li Lu | Li Lu |
 | [HADOOP-11378](https://issues.apache.org/jira/browse/HADOOP-11378) | Fix new findbugs warnings in hadoop-kms |  Major | . | Li Lu | Li Lu |
 | [HADOOP-11377](https://issues.apache.org/jira/browse/HADOOP-11377) | jdiff failing on java 7 and java 8, "Null.java" not found |  Major | build | Steve Loughran | Tsuyoshi Ozawa |
 | [HADOOP-11372](https://issues.apache.org/jira/browse/HADOOP-11372) | Fix new findbugs warnings in mapreduce-examples |  Major | . | Li Lu | Li Lu |
@@ -875,7 +875,7 @@
 | [HDFS-7486](https://issues.apache.org/jira/browse/HDFS-7486) | Consolidate XAttr-related implementation into a single class |  Major | . | Haohui Mai | Haohui Mai |
 | [HDFS-7476](https://issues.apache.org/jira/browse/HDFS-7476) | Consolidate ACL-related operations to a single class |  Major | namenode | Haohui Mai | Haohui Mai |
 | [HDFS-7474](https://issues.apache.org/jira/browse/HDFS-7474) | Avoid resolving path in FSPermissionChecker |  Major | namenode | Jing Zhao | Jing Zhao |
-| [HDFS-7468](https://issues.apache.org/jira/browse/HDFS-7468) | Moving verify* functions to corresponding classes |  Major | . | Li Lu | Li Lu |
+| [HDFS-7468](https://issues.apache.org/jira/browse/HDFS-7468) | Moving verify\* functions to corresponding classes |  Major | . | Li Lu | Li Lu |
 | [HDFS-7467](https://issues.apache.org/jira/browse/HDFS-7467) | Provide storage tier information for a directory via fsck |  Major | balancer & mover | Benoy Antony | Benoy Antony |
 | [HDFS-7462](https://issues.apache.org/jira/browse/HDFS-7462) | Consolidate implementation of mkdirs() into a single class |  Major | . | Haohui Mai | Haohui Mai |
 | [HDFS-7459](https://issues.apache.org/jira/browse/HDFS-7459) | Consolidate cache-related implementation in FSNamesystem into a single class |  Major | . | Haohui Mai | Haohui Mai |

@@ -44,7 +44,7 @@ Fix a typo. If a configuration is set through program, the source of the configu
 
 ---
 
-* [MAPREDUCE-5785](https://issues.apache.org/jira/browse/MAPREDUCE-5785) | *Major* | **Derive heap size or mapreduce.*.memory.mb automatically**
+* [MAPREDUCE-5785](https://issues.apache.org/jira/browse/MAPREDUCE-5785) | *Major* | **Derive heap size or mapreduce.\*.memory.mb automatically**
 
 **WARNING: No release note provided for this incompatible change.**
 

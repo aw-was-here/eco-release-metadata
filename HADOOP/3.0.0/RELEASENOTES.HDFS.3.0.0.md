@@ -49,6 +49,18 @@ Remove "downgrade" from "namenode -rollingUpgrade" startup option since it may i
 
 ---
 
+* [HDFS-7281](https://issues.apache.org/jira/browse/HDFS-7281) | *Major* | **Missing block is marked as corrupted block**
+
+The patch improves the reporting around missing blocks and corrupted blocks.
+ 
+1. A block is missing if and only if all DNs of its expected replicas are dead. 
+2. A block is corrupted if and only if all its available replicas are corrupted. So if a block has 3 replicas; one of the DN is dead, the other two replicas are corrupted; it will be marked as corrupted.
+3. A new line is added to fsck output to display the corrupt block size per file.
+4. A new line is added to fsck output to display the number of missing blocks in the summary section.
+
+
+---
+
 * [HDFS-6246](https://issues.apache.org/jira/browse/HDFS-6246) | *Minor* | **Remove 'dfs.support.append' flag from trunk code**
 
 Appends in HDFS can no longer be disabled.
