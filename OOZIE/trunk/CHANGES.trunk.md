@@ -78,6 +78,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [OOZIE-2227](https://issues.apache.org/jira/browse/OOZIE-2227) | PartitionDependencyManagerService keeps on purging delete coord actions |  Major | . | Purshotam Shah | Purshotam Shah |
 | [OOZIE-2221](https://issues.apache.org/jira/browse/OOZIE-2221) | Oozie audit log has null id for some of input request |  Major | . | Purshotam Shah | Purshotam Shah |
 | [OOZIE-2218](https://issues.apache.org/jira/browse/OOZIE-2218) | META-INF directories in the war file have 777 permissions |  Blocker | core, security | Robert Kanter | Robert Kanter |
 | [OOZIE-2214](https://issues.apache.org/jira/browse/OOZIE-2214) | fix test case TestCoordRerunXCommand.testCoordRerunDateNeg |  Major | . | Ryota Egashira | Ryota Egashira |

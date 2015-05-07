@@ -49,10 +49,12 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [TEZ-2397](https://issues.apache.org/jira/browse/TEZ-2397) | Translation of LocalResources via Tez plan serialization can be lossy |  Critical | . | Siddharth Seth | Siddharth Seth |
+| [TEZ-2396](https://issues.apache.org/jira/browse/TEZ-2396) | pig-tez-tfile-parser pom is hard coded to depend on 0.6.0-SNAPSHOT version |  Major | . | Jonathan Eagles | Rajesh Balamohan |
 | [TEZ-2390](https://issues.apache.org/jira/browse/TEZ-2390) | tez-tools swimlane tool fails to parse large jobs \>8K containers |  Major | . | Jonathan Eagles | Jonathan Eagles |
 | [TEZ-2385](https://issues.apache.org/jira/browse/TEZ-2385) | branch-0.6 compile failure caused by TEZ-2226 |  Critical | . | Jeff Zhang | Hitesh Shah |
 | [TEZ-2380](https://issues.apache.org/jira/browse/TEZ-2380) | Disable fall back to reading from timeline if timeline disabled |  Major | . | Hitesh Shah | Chang Li |
 | [TEZ-2379](https://issues.apache.org/jira/browse/TEZ-2379) | org.apache.hadoop.yarn.state.InvalidStateTransitonException: Invalid event: T\_ATTEMPT\_KILLED at KILLED |  Blocker | . | Rajesh Balamohan | Hitesh Shah |
+| [TEZ-2369](https://issues.apache.org/jira/browse/TEZ-2369) | Add a few unit tests for RootInputInitializerManager |  Major | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-2365](https://issues.apache.org/jira/browse/TEZ-2365) | Update tez-ui war's license/notice to reflect OFL license correctly |  Major | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-2334](https://issues.apache.org/jira/browse/TEZ-2334) | ContainerManagementProtocolProxy modifies IPC timeout conf without making a copy |  Major | . | Chang Li | Chang Li |
 | [TEZ-2326](https://issues.apache.org/jira/browse/TEZ-2326) | Update branch 0.6 version to 0.6.1-SNAPSHOT |  Minor | . | Hitesh Shah | Hitesh Shah |

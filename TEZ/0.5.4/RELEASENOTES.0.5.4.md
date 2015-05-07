@@ -58,6 +58,18 @@ tpch-200 gb scale q\_17 (kill the job in the middle of execution)
 
 ---
 
+* [TEZ-2369](https://issues.apache.org/jira/browse/TEZ-2369) | *Major* | **Add a few unit tests for RootInputInitializerManager**
+
+{code}
+-      Integer successfulAttempt = vertexSuccessfulAttemptMap.get(taskId);
++      Integer successfulAttempt = vertexSuccessfulAttemptMap.get(taskId.getId());
+{code}
+
+This could cause events to be sent multiple times.
+
+
+---
+
 * [TEZ-2348](https://issues.apache.org/jira/browse/TEZ-2348) | *Major* | **EOF exception during UnorderedKVReader.next()**
 
 {noformat}

@@ -23,6 +23,32 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [OOZIE-2227](https://issues.apache.org/jira/browse/OOZIE-2227) | *Major* | **PartitionDependencyManagerService keeps on purging delete coord actions**
+
+Because of that PartitionDependencyManagerService takes more than 10 min to complete.
+
+{code}
+Long regTime = registeredCoordActionMap.get(actionId);
+                if(regTime < (currentTime - timeToLive * 1000)){
+                    CoordinatorActionBean caBean = null;
+                    try {
+                        caBean = CoordActionQueryExecutor.getInstance().get(CoordActionQuery.GET\_COORD\_ACTION\_STATUS, actionId);
+                    }
+                    catch (JPAExecutorException e) {
+                        LOG.warn("Error in checking coord action:" + actionId + "to purge, skipping", e);
+                    }
+                    if(caBean != null && !caBean.getStatus().equals(CoordinatorAction.Status.WAITING)){
+                        staleActions.add(actionId);
+                        actionItr.remove();
+                    }
+
+{code}
+
+Should remove actionId if JPAExecutorException = no row found
+
+
+---
+
 * [OOZIE-2223](https://issues.apache.org/jira/browse/OOZIE-2223) | *Major* | **Improve documentation with regard to Java action retries**
 
 My organization has been bitten by a mistake in the way we have written Java action applications.  I would like to introduce a documentation change that might reduce the likelihood that others new to Oozie make the same mistake.

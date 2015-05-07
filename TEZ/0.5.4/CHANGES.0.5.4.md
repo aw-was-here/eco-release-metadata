@@ -46,6 +46,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [TEZ-2397](https://issues.apache.org/jira/browse/TEZ-2397) | Translation of LocalResources via Tez plan serialization can be lossy |  Critical | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-2379](https://issues.apache.org/jira/browse/TEZ-2379) | org.apache.hadoop.yarn.state.InvalidStateTransitonException: Invalid event: T\_ATTEMPT\_KILLED at KILLED |  Blocker | . | Rajesh Balamohan | Hitesh Shah |
+| [TEZ-2369](https://issues.apache.org/jira/browse/TEZ-2369) | Add a few unit tests for RootInputInitializerManager |  Major | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-2348](https://issues.apache.org/jira/browse/TEZ-2348) | EOF exception during UnorderedKVReader.next() |  Major | . | Jason Dere | Rajesh Balamohan |
 | [TEZ-2334](https://issues.apache.org/jira/browse/TEZ-2334) | ContainerManagementProtocolProxy modifies IPC timeout conf without making a copy |  Major | . | Chang Li | Chang Li |
 | [TEZ-2317](https://issues.apache.org/jira/browse/TEZ-2317) | Event processing backlog can result in task failures for short tasks |  Major | . | Rohini Palaniswamy | Bikas Saha |

@@ -23,6 +23,13 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-7330](https://issues.apache.org/jira/browse/SPARK-7330) | *Major* | **JDBC RDD could lead to NPE when the date field is null**
+
+because we call DateUtils.fromDate(rs.getDate(xx)) no matter it is null or not.
+
+
+---
+
 * [SPARK-7323](https://issues.apache.org/jira/browse/SPARK-7323) | *Minor* | **Use insertAll instead of individual insert while merging combiners**
 
 Currently we invoke combiners.insert() for each tuple in Aggregator - which results in creation of an Iterator per tuple, and iterating over this iterator : instead, we can directly call insertAll to avoid the object creation, method invocation and iteration overhead - for each tuple when combiners are used.
@@ -631,6 +638,66 @@ When I run a spark job, one executor is hold, after 120s, blockManager is remove
 15/02/02 15:26:55 INFO BlockManagerMasterActor: Trying to remove executor 1 from BlockManagerMaster.
 15/02/02 15:26:55 INFO BlockManagerMaster: Removed 1 successfully in removeExecutor
 {code}
+
+
+---
+
+* [SPARK-5456](https://issues.apache.org/jira/browse/SPARK-5456) | *Blocker* | **Decimal Type comparison issue**
+
+Not quite able to figure this out but here is a junit test to reproduce this, in JavaAPISuite.java
+
+{code:title=DecimalBug.java}
+  @Test
+  public void decimalQueryTest() {
+    List<Row> decimalTable = new ArrayList<Row>();
+    decimalTable.add(RowFactory.create(new BigDecimal("1"), new BigDecimal("2")));
+    decimalTable.add(RowFactory.create(new BigDecimal("3"), new BigDecimal("4")));
+    JavaRDD<Row> rows = sc.parallelize(decimalTable);
+    List<StructField> fields = new ArrayList<StructField>(7);
+    fields.add(DataTypes.createStructField("a", DataTypes.createDecimalType(), true));
+    fields.add(DataTypes.createStructField("b", DataTypes.createDecimalType(), true));
+    sqlContext.applySchema(rows.rdd(), DataTypes.createStructType(fields)).registerTempTable("foo");
+    Assert.assertEquals(sqlContext.sql("select * from foo where a > 0").collectAsList(), decimalTable);
+
+  }
+{code}
+
+Fails with
+java.lang.ClassCastException: java.math.BigDecimal cannot be cast to org.apache.spark.sql.types.Decimal
+
+
+---
+
+* [SPARK-5074](https://issues.apache.org/jira/browse/SPARK-5074) | *Critical* | **Flaky test: o.a.s.scheduler.DAGSchedulerSuite**
+
+fix the following non-deterministic test in org.apache.spark.scheduler.DAGSchedulerSuite
+
+{noformat}
+[info] DAGSchedulerSuite:
+[info] - [SPARK-3353] parent stage should have lower stage id *** FAILED *** (27 milliseconds)
+[info]   1 did not equal 2 (DAGSchedulerSuite.scala:242)
+[info]   org.scalatest.exceptions.TestFailedException:
+[info]   at org.scalatest.Assertions$class.newAssertionFailedException(Assertions.scala:500)
+[info]   at org.scalatest.FunSuite.newAssertionFailedException(FunSuite.scala:1555)
+[info]   at org.scalatest.Assertions$AssertionsHelper.macroAssert(Assertions.scala:466)
+[info]   at org.apache.spark.scheduler.DAGSchedulerSuite$$anonfun$2.apply$mcV$sp(DAGSchedulerSuite.scala:242)
+[info]   at org.apache.spark.scheduler.DAGSchedulerSuite$$anonfun$2.apply(DAGSchedulerSuite.scala:239)
+[info]   at org.apache.spark.scheduler.DAGSchedulerSuite$$anonfun$2.apply(DAGSchedulerSuite.scala:239)
+[info]   at org.scalatest.Transformer$$anonfun$apply$1.apply$mcV$sp(Transformer.scala:22)
+[info]   at org.scalatest.OutcomeOf$class.outcomeOf(OutcomeOf.scala:85)
+[info]   at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)
+[info]   at org.scalatest.Transformer.apply(Transformer.scala:22)
+[info]   at org.scalatest.Transformer.apply(Transformer.scala:20)
+[info]   at org.scalatest.FunSuiteLike$$anon$1.apply(FunSuiteLike.scala:166)
+[info]   at org.scalatest.Suite$class.withFixture(Suite.scala:1122)
+[info]   at org.scalatest.FunSuite.withFixture(FunSuite.scala:1555)
+[info]   at org.scalatest.FunSuiteLike$class.invokeWithFixture$1(FunSuiteLike.scala:163)
+[info]   at org.scalatest.FunSuiteLike$$anonfun$runTest$1.apply(FunSuiteLike.scala:175)
+[info]   at org.scalatest.FunSuiteLike$$anonfun$runTest$1.apply(FunSuiteLike.scala:175)
+[info]   at org.scalatest.SuperEngine.runTestImpl(Engine.scala:306)
+[info]   at org.scalatest.FunSuiteLike$class.runTest(FunSuiteLike.scala:175)
+[info]   at org.apache.spark.scheduler.DAGSchedulerSuite.org$scalatest$BeforeAndAfter$$super$runTest(DAGSchedulerSuite.scala:60)
+{noformat}
 
 
 

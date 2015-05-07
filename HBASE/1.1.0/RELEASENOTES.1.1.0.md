@@ -25,7 +25,7 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 * [HBASE-13517](https://issues.apache.org/jira/browse/HBASE-13517) | *Major* | **Publish a client artifact with shaded dependencies**
 
-HBase now provides added convince artifacts that shade most dependencies. These jars hbase-shaded-client and hbase-shaded-server are meant to be used when dependency conflicts can not be solved any other way. The normal jars hbase-client and hbase-server should still be preferred when possible.
+HBase now provides added convenience artifacts that shade most dependencies. These jars hbase-shaded-client and hbase-shaded-server are meant to be used when dependency conflicts can not be solved any other way. The normal jars hbase-client and hbase-server should still be preferred when possible.
 
 Do not use hbase-shaded-server or hbase-shaded-client inside of a co-processor as bad things will happen.
 
