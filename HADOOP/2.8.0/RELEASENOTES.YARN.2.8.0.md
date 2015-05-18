@@ -23,6 +23,13 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [YARN-3587](https://issues.apache.org/jira/browse/YARN-3587) | *Minor* | **Fix the javadoc of DelegationTokenSecretManager in projects of yarn, etc.**
+
+Update DelegationTokenSecretManager Javadoc (milliseconds)
+
+
+---
+
 * [YARN-3443](https://issues.apache.org/jira/browse/YARN-3443) | *Major* | **Create a 'ResourceHandler' subsystem to ease addition of support for new resource types on the NM**
 
 The current cgroups implementation is closely tied to supporting CPU as a resource . This patch separates out CGroups implementation into a reusable class as well as provides a simple ResourceHandler subsystem that will enable us to add support for new resource types on the NM - e.g Network, Disk etc.

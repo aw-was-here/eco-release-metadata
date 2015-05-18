@@ -71,4 +71,11 @@ Adds a native implementation of the map output collector. The native library wil
 nativetask.NativeMapOutputCollectorDelegator in their job configuration. For shuffle-intensive jobs this may provide speed-ups of 30% or more.
 
 
+---
+
+* [MAPREDUCE-2632](https://issues.apache.org/jira/browse/MAPREDUCE-2632) | *Major* | **Avoid calling the partitioner when the numReduceTasks is 1.**
+
+**WARNING: No release note provided for this incompatible change.**
+
+
 

@@ -23,6 +23,27 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [HDFS-8349](https://issues.apache.org/jira/browse/HDFS-8349) | *Minor* | **Remove .xml and documentation references to dfs.webhdfs.enabled**
+
+**WARNING: No release note provided for this incompatible change.**
+
+
+---
+
+* [HDFS-8332](https://issues.apache.org/jira/browse/HDFS-8332) | *Major* | **DFS client API calls should check filesystem closed**
+
+Users may need special attention for this change while upgrading to this version. Previously user could call some APIs(example: setReplication) wrongly even after closing the fs object. With this change DFS client will not allow any operations to call on closed fs objects.  As calling fs operations on closed fs is not right thing to do, users need to correct the usage if any.
+
+
+---
+
+* [HDFS-8241](https://issues.apache.org/jira/browse/HDFS-8241) | *Minor* | **Remove unused NameNode startup option -finalize**
+
+Remove -finalize option from hdfs namenode command.
+
+
+---
+
 * [HDFS-7985](https://issues.apache.org/jira/browse/HDFS-7985) | *Major* | **WebHDFS should be always enabled**
 
 WebHDFS is mandatory and cannot be disabled.
