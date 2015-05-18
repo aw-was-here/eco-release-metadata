@@ -73,6 +73,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-2121](https://issues.apache.org/jira/browse/KAFKA-2121) | prevent potential resource leak in KafkaProducer and KafkaConsumer |  Major | producer | Steven Zhen Wu | Steven Zhen Wu |
 | [KAFKA-2118](https://issues.apache.org/jira/browse/KAFKA-2118) | Cleaner cannot clean after shutdown during replaceSegments |  Major | . | Gian Merlino | Rajini Sivaram |
 | [KAFKA-2117](https://issues.apache.org/jira/browse/KAFKA-2117) | OffsetManager uses incorrect field for metadata |  Major | core | Jun Rao | Guozhang Wang |
 | [KAFKA-2115](https://issues.apache.org/jira/browse/KAFKA-2115) | Error updating metrics in RequestChannel |  Major | . | Gwen Shapira | Gwen Shapira |
@@ -102,6 +103,7 @@
 | [KAFKA-1896](https://issues.apache.org/jira/browse/KAFKA-1896) | Record size funcition of record in mirror maker hit NPE when the message value is null. |  Major | . | Jiangjie Qin | Jiangjie Qin |
 | [KAFKA-1891](https://issues.apache.org/jira/browse/KAFKA-1891) | MirrorMaker hides consumer exception - making troubleshooting challenging |  Major | . | Gwen Shapira | Gwen Shapira |
 | [KAFKA-1890](https://issues.apache.org/jira/browse/KAFKA-1890) | Fix bug preventing Mirror Maker from successful rebalance. |  Blocker | . | Jiangjie Qin | Jiangjie Qin |
+| [KAFKA-1884](https://issues.apache.org/jira/browse/KAFKA-1884) | Print metadata response errors |  Major | producer | Manikumar Reddy | Manikumar Reddy |
 | [KAFKA-1883](https://issues.apache.org/jira/browse/KAFKA-1883) | NullPointerException in RequestSendThread |  Major | core | jaikiran pai | jaikiran pai |
 | [KAFKA-1881](https://issues.apache.org/jira/browse/KAFKA-1881) | transient unit test failure in testDeleteTopicWithCleaner due to OOME |  Major | core | Jun Rao | Ewen Cheslack-Postava |
 | [KAFKA-1878](https://issues.apache.org/jira/browse/KAFKA-1878) | ProducerFailureHandlingTest.testCannotSendToInternalTopic fails with TimeoutException while trying to fetch metadata for topic |  Major | system tests | jaikiran pai | jaikiran pai |

@@ -23,6 +23,71 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-7668](https://issues.apache.org/jira/browse/SPARK-7668) | *Major* | **Matrix.map should preserve transpose property**
+
+Currently calling map on both DenseMatrix and SparseMatrix will throw original transpose property away. It should be preserved.
+
+
+---
+
+* [SPARK-7660](https://issues.apache.org/jira/browse/SPARK-7660) | *Blocker* | **Snappy-java buffer-sharing bug leads to data corruption / test failures**
+
+snappy-java contains a bug that can lead to situations where separate SnappyOutputStream instances end up sharing the same input and output buffers, which can lead to data corruption issues.  See https://github.com/xerial/snappy-java/issues/107 for my upstream bug report and https://github.com/xerial/snappy-java/pull/108 for my patch to fix this issue.
+
+I discovered this issue because the buffer-sharing was leading to a test failure in JavaAPISuite: one of the repartition-and-sort tests was returning the wrong answer because both tasks wrote their output using the same compression buffers and one task won the race, causing its output to be written to both shuffle output files. As a result, the test returned the result of collecting one partition twice (see https://github.com/apache/spark/pull/5868#issuecomment-101954962 for more details).
+
+The buffer-sharing can only occur if {{close()}} is called twice on the same SnappyOutputStream \_and\_ the JVM experiences little GC / memory pressure (for a more precise description of when this issue may occur, see my upstream tickets).  I think that this double-close happens somewhere in some test code that was added as part of my Tungsten shuffle patch, exposing this bug (to see this, download a recent build of master and run https://gist.github.com/JoshRosen/eb3257a75c16597d769f locally in order to force the test execution order that triggers the bug).
+
+I think that it's rare that this bug would lead to silent failures like this. In more realistic workloads that aren't writing only a handful of bytes per task, I would expect this issue to lead to stream corruption issues like SPARK-4105.
+
+
+---
+
+* [SPARK-7651](https://issues.apache.org/jira/browse/SPARK-7651) | *Minor* | **PySpark GMM predict, predictSoft should fail on bad input**
+
+In PySpark, GaussianMixtureModel predict and predictSoft test if the argument is an RDD and operate correctly if so.  But if the argument is not an RDD, they fail silently, returning nothing.
+
+[https://github.com/apache/spark/blob/11a1a135d1fe892cd48a9116acc7554846aed84c/python/pyspark/mllib/clustering.py#L176]
+
+Instead, they should raise errors.
+
+
+---
+
+* [SPARK-7522](https://issues.apache.org/jira/browse/SPARK-7522) | *Minor* | **ML Examples option for dataFormat should not be enclosed in angle brackets**
+
+Some ML examples include an option for specifying the data format, such as DecisionTreeExample, but the option is enclosed in angle brackets like "opt[String]("<dataFormat>")."  This is probably just a typo but makes it awkward to use the option.
+
+
+---
+
+* [SPARK-7436](https://issues.apache.org/jira/browse/SPARK-7436) | *Major* | **Cannot implement nor use custom StandaloneRecoveryModeFactory implementations**
+
+At least, this code fragment is buggy ({{Master.scala}}):
+
+{code}
+      case "CUSTOM" =>
+        val clazz = Class.forName(conf.get("spark.deploy.recoveryMode.factory"))
+        val factory = clazz.getConstructor(conf.getClass, Serialization.getClass)
+          .newInstance(conf, SerializationExtension(context.system))
+          .asInstanceOf[StandaloneRecoveryModeFactory]
+        (factory.createPersistenceEngine(), factory.createLeaderElectionAgent(this))
+{code}
+
+Because here: {{val factory = clazz.getConstructor(conf.getClass, Serialization.getClass)}} it tries to find the constructor which accepts {{org.apache.spark.SparkConf}} and class of companion object of {{akka.serialization.Serialization}} and then it tries to instantiate {{newInstance(conf, SerializationExtension(context.system))}} with instance of {{SparkConf}} and instance of {{Serialization}} class - not the companion objects.
+
+
+---
+
+* [SPARK-7345](https://issues.apache.org/jira/browse/SPARK-7345) | *Major* | **Spark cannot detect renamed columns using JDBC connector**
+
+sqlContext.load("jdbc", Map("url" -> "some url", "dbtable" -> "(select column as column1, column as column2 from table)")) creates DataFrame with wrong schema which fails on action.
+ 
+Most likely JDBC SQL connector uses getColumnName instead of getColumnLabel to deduce DataFrame schema from ResultSetMetaData.
+
+
+---
+
 * [SPARK-7330](https://issues.apache.org/jira/browse/SPARK-7330) | *Major* | **JDBC RDD could lead to NPE when the date field is null**
 
 because we call DateUtils.fromDate(rs.getDate(xx)) no matter it is null or not.
@@ -33,6 +98,39 @@ because we call DateUtils.fromDate(rs.getDate(xx)) no matter it is null or not.
 * [SPARK-7323](https://issues.apache.org/jira/browse/SPARK-7323) | *Minor* | **Use insertAll instead of individual insert while merging combiners**
 
 Currently we invoke combiners.insert() for each tuple in Aggregator - which results in creation of an Iterator per tuple, and iterating over this iterator : instead, we can directly call insertAll to avoid the object creation, method invocation and iteration overhead - for each tuple when combiners are used.
+
+
+---
+
+* [SPARK-7278](https://issues.apache.org/jira/browse/SPARK-7278) | *Major* | **Inconsistent handling of dates in PySparks Row object**
+
+Consider the following Python code:
+
+{code:none}
+import datetime
+
+rdd = sc.parallelize([[0, datetime.date(2014, 11, 11)], [1, datetime.date(2015,6,4)]])
+df = rdd.toDF(schema=['rid', 'date'])
+row = df.first()
+{code}
+
+Accessing the {{date}} column via {{\\_\\_getitem\\_\\_}} returns a {{datetime.datetime}} instance
+
+{code:none}
+>>>row[1]
+datetime.datetime(2014, 11, 11, 0, 0)
+{code}
+
+while access via {{getattr}} returns a {{datetime.date}} instance:
+
+{code:none}
+>>>row.date
+datetime.date(2014, 11, 11)
+{code}
+
+The problem seems to be that that Java deserializes the {{datetime.date}} objects to {{datetime.datetime}}. This is taken care of [here|https://github.com/apache/spark/blob/master/python/pyspark/sql/\_types.py#L1027] when using {{getattr}}, but is overlooked when directly accessing the tuple by index.
+
+Is there an easy way to fix this?
 
 
 ---
@@ -569,6 +667,15 @@ PR coming...
 
 ---
 
+* [SPARK-6197](https://issues.apache.org/jira/browse/SPARK-6197) | *Minor* | **handle json parse exception for eventlog file not finished writing**
+
+This is a following JIRA for [SPARK-6107|https://issues.apache.org/jira/browse/SPARK-6107]. In  [SPARK-6107|https://issues.apache.org/jira/browse/SPARK-6107], webUI can display event log files that with suffix *.inprogress*. However, the eventlog file may be not finished writing for some abnormal cases (e.g. Ctrl+C), In which case, the file maybe  truncated in the last line, leading to the line being not in valid Json format. Which will cause Json parse exception when reading the file. 
+
+For this case, we can just ignore the last line content, since the history for abnormal cases showed on web is only a reference for user, it can demonstrate the past status of the app before terminated abnormally (we can not guarantee the history can show exactly the last moment when app encounter the abnormal situation).
+
+
+---
+
 * [SPARK-5969](https://issues.apache.org/jira/browse/SPARK-5969) | *Major* | **The pyspark.rdd.sortByKey always fills only two partitions when ascending=False.**
 
 The pyspark.rdd.sortByKey always fills only two partitions when ascending=False -- the first one and the last one.
@@ -668,6 +775,26 @@ java.lang.ClassCastException: java.math.BigDecimal cannot be cast to org.apache.
 
 ---
 
+* [SPARK-5412](https://issues.apache.org/jira/browse/SPARK-5412) | *Major* | **Cannot bind Master to a specific hostname as per the documentation**
+
+Documentation on http://spark.apache.org/docs/latest/spark-standalone.html indicates:
+
+{quote}
+You can start a standalone master server by executing:
+./sbin/start-master.sh
+...
+the following configuration options can be passed to the master and worker:
+...
+-h HOST, --host HOST	Hostname to listen on
+{quote}
+
+The "\-h" or "--host" parameter actually doesn't work with the start-master.sh script. Instead, one has to set the "SPARK\_MASTER\_IP" variable prior to executing the script.
+
+Either the script or the documentation should be updated.
+
+
+---
+
 * [SPARK-5074](https://issues.apache.org/jira/browse/SPARK-5074) | *Critical* | **Flaky test: o.a.s.scheduler.DAGSchedulerSuite**
 
 fix the following non-deterministic test in org.apache.spark.scheduler.DAGSchedulerSuite
@@ -698,6 +825,169 @@ fix the following non-deterministic test in org.apache.spark.scheduler.DAGSchedu
 [info]   at org.scalatest.FunSuiteLike$class.runTest(FunSuiteLike.scala:175)
 [info]   at org.apache.spark.scheduler.DAGSchedulerSuite.org$scalatest$BeforeAndAfter$$super$runTest(DAGSchedulerSuite.scala:60)
 {noformat}
+
+
+---
+
+* [SPARK-2018](https://issues.apache.org/jira/browse/SPARK-2018) | *Major* | **Big-Endian (IBM Power7)  Spark Serialization issue**
+
+We have an application run on Spark on Power7 System .
+But we meet an important issue about serialization.
+The example HdfsWordCount can meet the problem.
+./bin/run-example      org.apache.spark.examples.streaming.HdfsWordCount localdir
+We used Power7 (Big-Endian arch) and Redhat  6.4.
+Big-Endian  is the main cause since the example ran successfully in another Power-based Little Endian setup.
+
+here is the exception stack and log:
+
+Spark Executor Command: "/opt/ibm/java-ppc64-70//bin/java" "-cp" "/home/test1/spark-1.0.0-bin-hadoop2/lib::/home/test1/src/spark-1.0.0-bin-hadoop2/conf:/home/test1/src/spark-1.0.0-bin-hadoop2/lib/spark-assembly-1.0.0-hadoop2.2.0.jar:/home/test1/src/spark-1.0.0-bin-hadoop2/lib/datanucleus-rdbms-3.2.1.jar:/home/test1/src/spark-1.0.0-bin-hadoop2/lib/datanucleus-api-jdo-3.2.1.jar:/home/test1/src/spark-1.0.0-bin-hadoop2/lib/datanucleus-core-3.2.2.jar:/home/test1/src/hadoop-2.3.0-cdh5.0.0/etc/hadoop/:/home/test1/src/hadoop-2.3.0-cdh5.0.0/etc/hadoop/" "-XX:MaxPermSize=128m"  "-Xdebug" "-Xrunjdwp:transport=dt\_socket,address=99999,server=y,suspend=n" "-Xms512M" "-Xmx512M" "org.apache.spark.executor.CoarseGrainedExecutorBackend" "akka.tcp://spark@9.186.105.141:60253/user/CoarseGrainedScheduler" "2" "p7hvs7br16" "4" "akka.tcp://sparkWorker@p7hvs7br16:59240/user/Worker" "app-20140604023054-0000"
+========================================
+
+14/06/04 02:31:20 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+14/06/04 02:31:21 INFO spark.SecurityManager: Changing view acls to: test1,yifeng
+14/06/04 02:31:21 INFO spark.SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: Set(test1, yifeng)
+14/06/04 02:31:22 INFO slf4j.Slf4jLogger: Slf4jLogger started
+14/06/04 02:31:22 INFO Remoting: Starting remoting
+14/06/04 02:31:22 INFO Remoting: Remoting started; listening on addresses :[akka.tcp://sparkExecutor@p7hvs7br16:39658]
+14/06/04 02:31:22 INFO Remoting: Remoting now listens on addresses: [akka.tcp://sparkExecutor@p7hvs7br16:39658]
+14/06/04 02:31:22 INFO executor.CoarseGrainedExecutorBackend: Connecting to driver: akka.tcp://spark@9.186.105.141:60253/user/CoarseGrainedScheduler
+14/06/04 02:31:22 INFO worker.WorkerWatcher: Connecting to worker akka.tcp://sparkWorker@p7hvs7br16:59240/user/Worker
+14/06/04 02:31:23 INFO worker.WorkerWatcher: Successfully connected to akka.tcp://sparkWorker@p7hvs7br16:59240/user/Worker
+14/06/04 02:31:24 INFO executor.CoarseGrainedExecutorBackend: Successfully registered with driver
+14/06/04 02:31:24 INFO spark.SecurityManager: Changing view acls to: test1,yifeng
+14/06/04 02:31:24 INFO spark.SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: Set(test1, yifeng)
+14/06/04 02:31:24 INFO slf4j.Slf4jLogger: Slf4jLogger started
+14/06/04 02:31:24 INFO Remoting: Starting remoting
+14/06/04 02:31:24 INFO Remoting: Remoting started; listening on addresses :[akka.tcp://spark@p7hvs7br16:58990]
+14/06/04 02:31:24 INFO Remoting: Remoting now listens on addresses: [akka.tcp://spark@p7hvs7br16:58990]
+14/06/04 02:31:24 INFO spark.SparkEnv: Connecting to MapOutputTracker: akka.tcp://spark@9.186.105.141:60253/user/MapOutputTracker
+14/06/04 02:31:25 INFO spark.SparkEnv: Connecting to BlockManagerMaster: akka.tcp://spark@9.186.105.141:60253/user/BlockManagerMaster
+14/06/04 02:31:25 INFO storage.DiskBlockManager: Created local directory at /tmp/spark-local-20140604023125-3f61
+14/06/04 02:31:25 INFO storage.MemoryStore: MemoryStore started with capacity 307.2 MB.
+14/06/04 02:31:25 INFO network.ConnectionManager: Bound socket to port 39041 with id = ConnectionManagerId(p7hvs7br16,39041)
+14/06/04 02:31:25 INFO storage.BlockManagerMaster: Trying to register BlockManager
+14/06/04 02:31:25 INFO storage.BlockManagerMaster: Registered BlockManager
+14/06/04 02:31:25 INFO spark.HttpFileServer: HTTP File server directory is /tmp/spark-7bce4e43-2833-4666-93af-bd97c327497b
+14/06/04 02:31:25 INFO spark.HttpServer: Starting HTTP Server
+14/06/04 02:31:25 INFO server.Server: jetty-8.y.z-SNAPSHOT
+14/06/04 02:31:26 INFO server.AbstractConnector: Started SocketConnector@0.0.0.0:39958
+14/06/04 02:31:26 INFO executor.CoarseGrainedExecutorBackend: Got assigned task 2
+14/06/04 02:31:26 INFO executor.Executor: Running task ID 2
+14/06/04 02:31:26 ERROR executor.Executor: Exception in task ID 2
+java.io.InvalidClassException: scala.reflect.ClassTag$$anon$1; local class incompatible: stream classdesc serialVersionUID = -8102093212602380348, local class serialVersionUID = -4937928798201944954
+        at java.io.ObjectStreamClass.initNonProxy(ObjectStreamClass.java:678)
+        at java.io.ObjectInputStream.readNonProxyDesc(ObjectInputStream.java:1678)
+        at java.io.ObjectInputStream.readClassDesc(ObjectInputStream.java:1573)
+        at java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:1827)
+        at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1406)
+        at java.io.ObjectInputStream.defaultReadFields(ObjectInputStream.java:2047)
+        at java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:1971)
+        at java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:1854)
+        at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1406)
+        at java.io.ObjectInputStream.defaultReadFields(ObjectInputStream.java:2047)
+        at java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:1971)
+        at java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:1854)
+        at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1406)
+        at java.io.ObjectInputStream.readObject(ObjectInputStream.java:409)
+        at scala.collection.immutable.$colon$colon.readObject(List.scala:362)
+        at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+        at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:76)
+        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+        at java.lang.reflect.Method.invoke(Method.java:607)
+        at java.io.ObjectStreamClass.invokeReadObject(ObjectStreamClass.java:1078)
+        at java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:1949)
+        at java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:1854)
+        at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1406)
+        at java.io.ObjectInputStream.defaultReadFields(ObjectInputStream.java:2047)
+        at java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:1971)
+
+at java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:1854)
+        at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1406)
+        at java.io.ObjectInputStream.readObject(ObjectInputStream.java:409)
+        at scala.collection.immutable.$colon$colon.readObject(List.scala:362)
+        at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+        at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:76)
+        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+        at java.lang.reflect.Method.invoke(Method.java:607)
+        at java.io.ObjectStreamClass.invokeReadObject(ObjectStreamClass.java:1078)
+        at java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:1949)
+        at java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:1854)
+        at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1406)
+        at java.io.ObjectInputStream.defaultReadFields(ObjectInputStream.java:2047)
+        at java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:1971)
+        at java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:1854)
+        at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1406)
+        at java.io.ObjectInputStream.defaultReadFields(ObjectInputStream.java:2047)
+        at java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:1971)
+        at java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:1854)
+        at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1406)
+        at java.io.ObjectInputStream.readObject(ObjectInputStream.java:409)
+        at scala.collection.immutable.$colon$colon.readObject(List.scala:362)
+        at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+        at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:76)
+        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+        at java.lang.reflect.Method.invoke(Method.java:607)
+        at java.io.ObjectStreamClass.invokeReadObject(ObjectStreamClass.java:1078)
+        at java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:1949)
+        at java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:1854)
+        at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1406)
+        at java.io.ObjectInputStream.defaultReadFields(ObjectInputStream.java:2047)
+        at java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:1971)
+        at java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:1854)
+        at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1406)
+        at java.io.ObjectInputStream.defaultReadFields(ObjectInputStream.java:2047)
+        at java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:1971)
+        at java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:1854)
+        at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1406)
+        at java.io.ObjectInputStream.readObject(ObjectInputStream.java:409)
+        at scala.collection.immutable.$colon$colon.readObject(List.scala:362)
+        at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+        at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:76)
+        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+        at java.lang.reflect.Method.invoke(Method.java:607)
+        at java.io.ObjectStreamClass.invokeReadObject(ObjectStreamClass.java:1078)
+        at java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:1949)
+        at java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:1854)
+        at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1406)
+        at java.io.ObjectInputStream.defaultReadFields(ObjectInputStream.java:2047)
+        at java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:1971)
+        at java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:1854)
+        at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1406)
+        at java.io.ObjectInputStream.defaultReadFields(ObjectInputStream.java:2047)
+        at java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:1971)
+        at java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:1854)
+        at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1406)
+        at java.io.ObjectInputStream.readObject(ObjectInputStream.java:409)
+        at scala.collection.immutable.$colon$colon.readObject(List.scala:362)
+        at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+        at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:76)
+        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+        at java.lang.reflect.Method.invoke(Method.java:607)
+
+   at java.lang.reflect.Method.invoke(Method.java:607)
+        at java.io.ObjectStreamClass.invokeReadObject(ObjectStreamClass.java:1078)
+        at java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:1949)
+        at java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:1854)
+        at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1406)
+        at java.io.ObjectInputStream.defaultReadFields(ObjectInputStream.java:2047)
+        at java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:1971)
+        at java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:1854)
+        at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1406)
+        at java.io.ObjectInputStream.readObject(ObjectInputStream.java:409)
+        at org.apache.spark.serializer.JavaDeserializationStream.readObject(JavaSerializer.scala:63)
+        at org.apache.spark.scheduler.ResultTask$.deserializeInfo(ResultTask.scala:61)
+        at org.apache.spark.scheduler.ResultTask.readExternal(ResultTask.scala:141)
+        at java.io.ObjectInputStream.readExternalData(ObjectInputStream.java:1893)
+        at java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:1852)
+        at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1406)
+        at java.io.ObjectInputStream.readObject(ObjectInputStream.java:409)
+        at org.apache.spark.serializer.JavaDeserializationStream.readObject(JavaSerializer.scala:63)
+        at org.apache.spark.serializer.JavaSerializerInstance.deserialize(JavaSerializer.scala:85)
+        at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:169)
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+        at java.lang.Thread.run(Thread.java:781)
+14/06/04 02:31:26 ERROR executor.CoarseGrainedExecutorBackend: Driver Disassociated [akka.tcp://sparkExecutor@p7hvs7br16:39658] -> [akka.tcp://spark@9.186.105.141:60253] disassociated! Shutting down.
 
 
 

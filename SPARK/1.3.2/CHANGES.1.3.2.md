@@ -46,7 +46,15 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-7668](https://issues.apache.org/jira/browse/SPARK-7668) | Matrix.map should preserve transpose property |  Major | MLlib | Liang-Chi Hsieh | Liang-Chi Hsieh |
+| [SPARK-7660](https://issues.apache.org/jira/browse/SPARK-7660) | Snappy-java buffer-sharing bug leads to data corruption / test failures |  Blocker | Shuffle, Spark Core | Josh Rosen | Josh Rosen |
+| [SPARK-7651](https://issues.apache.org/jira/browse/SPARK-7651) | PySpark GMM predict, predictSoft should fail on bad input |  Minor | MLlib, PySpark | Joseph K. Bradley | Meethu Mathew |
+| [SPARK-7552](https://issues.apache.org/jira/browse/SPARK-7552) | Close files correctly when iteration is finished in WAL recovery |  Major | Streaming | Saisai Shao | Saisai Shao |
+| [SPARK-7522](https://issues.apache.org/jira/browse/SPARK-7522) | ML Examples option for dataFormat should not be enclosed in angle brackets |  Minor | Examples | Bryan Cutler | Bryan Cutler |
+| [SPARK-7436](https://issues.apache.org/jira/browse/SPARK-7436) | Cannot implement nor use custom StandaloneRecoveryModeFactory implementations |  Major | Deploy | Jacek Lewandowski | Jacek Lewandowski |
+| [SPARK-7345](https://issues.apache.org/jira/browse/SPARK-7345) | Spark cannot detect renamed columns using JDBC connector |  Major | SQL | Oleg Sidorkin | Oleg Sidorkin |
 | [SPARK-7330](https://issues.apache.org/jira/browse/SPARK-7330) | JDBC RDD could lead to NPE when the date field is null |  Major | SQL | Adrian Wang | Adrian Wang |
+| [SPARK-7278](https://issues.apache.org/jira/browse/SPARK-7278) | Inconsistent handling of dates in PySparks Row object |  Major | PySpark | Kalle Jepsen | Kalle Jepsen |
 | [SPARK-7234](https://issues.apache.org/jira/browse/SPARK-7234) | When codegen on DateType defaultPrimitive will throw type mismatch exception |  Major | SQL | Chen Song | Chen Song |
 | [SPARK-7229](https://issues.apache.org/jira/browse/SPARK-7229) | SpecificMutableRow should take integer type as internal representation for DateType |  Major | SQL | Cheng Hao | Cheng Hao |
 | [SPARK-7204](https://issues.apache.org/jira/browse/SPARK-7204) | Call sites in UI are not accurate for DataFrame operations |  Critical | SQL | Patrick Wendell | Patrick Wendell |
@@ -74,13 +82,17 @@
 | [SPARK-6766](https://issues.apache.org/jira/browse/SPARK-6766) | StreamingListenerBatchSubmitted isn't sent and StreamingListenerBatchStarted.batchInfo.processingStartTime is a wrong value |  Major | Streaming | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-6753](https://issues.apache.org/jira/browse/SPARK-6753) | Unit test for SPARK-3426 (in ShuffleSuite) doesn't correctly clone the SparkConf |  Minor | Tests | Kay Ousterhout | Kay Ousterhout |
 | [SPARK-6636](https://issues.apache.org/jira/browse/SPARK-6636) | Use public DNS hostname everywhere in spark\_ec2.py |  Minor | EC2 | Matt Aasted | Matt Aasted |
+| [SPARK-6595](https://issues.apache.org/jira/browse/SPARK-6595) | DataFrame self joins with MetastoreRelations fail |  Blocker | SQL | Michael Armbrust | Michael Armbrust |
 | [SPARK-6506](https://issues.apache.org/jira/browse/SPARK-6506) | python support yarn cluster mode requires SPARK\_HOME to be set |  Major | YARN | Thomas Graves | Marcelo Vanzin |
 | [SPARK-6205](https://issues.apache.org/jira/browse/SPARK-6205) | UISeleniumSuite fails for Hadoop 2.x test with NoClassDefFoundError |  Minor | Tests | Sean Owen | Sean Owen |
+| [SPARK-6197](https://issues.apache.org/jira/browse/SPARK-6197) | handle json parse exception for eventlog file not finished writing |  Minor | Web UI | Zhang, Liye | Zhang, Liye |
 | [SPARK-5969](https://issues.apache.org/jira/browse/SPARK-5969) | The pyspark.rdd.sortByKey always fills only two partitions when ascending=False. |  Major | PySpark | Milan Straka | Milan Straka |
 | [SPARK-5634](https://issues.apache.org/jira/browse/SPARK-5634) | History server shows misleading message when there are no incomplete apps |  Minor | Spark Core | Marcelo Vanzin | Marcelo Vanzin |
 | [SPARK-5529](https://issues.apache.org/jira/browse/SPARK-5529) | BlockManager heartbeat expiration does not kill executor |  Major | Spark Core, YARN | Hong Shen | Hong Shen |
 | [SPARK-5456](https://issues.apache.org/jira/browse/SPARK-5456) | Decimal Type comparison issue |  Blocker | SQL | Kuldeep | Adrian Wang |
+| [SPARK-5412](https://issues.apache.org/jira/browse/SPARK-5412) | Cannot bind Master to a specific hostname as per the documentation |  Major | Deploy | Alexis Seigneurin | Sean Owen |
 | [SPARK-5074](https://issues.apache.org/jira/browse/SPARK-5074) | Flaky test: o.a.s.scheduler.DAGSchedulerSuite |  Critical | Spark Core | Shixiong Zhu | Shixiong Zhu |
+| [SPARK-2018](https://issues.apache.org/jira/browse/SPARK-2018) | Big-Endian (IBM Power7)  Spark Serialization issue |  Major | Deploy | Yanjie Gao | Tim Ellison |
 
 
 ### TESTS:

@@ -23,6 +23,21 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [TEZ-2437](https://issues.apache.org/jira/browse/TEZ-2437) | *Major* | **FilterLinesByWord NPEs when run in Localmode**
+
+Subsequent to Tez-1969 [https://issues.apache.org/jira/browse/TEZ-1969] I've noticed that org.apache.tez.mapreduce.examples.FilterLinesByWord.java NPEs with this stack trace, when run on Localmode:
+
+at org.apache.tez.client.LocalClient.getApplicationReport(LocalClient.java:145)
+	at org.apache.tez.dag.api.client.rpc.DAGClientRPCImpl.getAppReport(DAGClientRPCImpl.java:213)
+	at org.apache.tez.dag.api.client.rpc.DAGClientRPCImpl.createAMProxyIfNeeded(DAGClientRPCImpl.java:230)
+	at org.apache.tez.dag.api.client.rpc.DAGClientRPCImpl.getVertexStatus(DAGClientRPCImpl.java:102)
+	at org.apache.tez.dag.api.client.DAGClientImpl.getVertexStatusViaAM(DAGClientImpl.java:257)
+	at org.apache.tez.dag.api.client.DAGClientImpl.getVertexStatus(DAGClientImpl.java:166)
+	at org.apache.tez.mapreduce.examples.ExampleDriver.printDAGStatus(ExampleDriver.java:122)
+
+
+---
+
 * [TEZ-2397](https://issues.apache.org/jira/browse/TEZ-2397) | *Critical* | **Translation of LocalResources via Tez plan serialization can be lossy**
 
 Happens when there's no port information. The way we serialize a YarnURL into a string causes the reconstructed path to include the port as -1, which is an invalid URL. Path/URL reconstruction from this causes the hostname to be lost.
@@ -187,6 +202,13 @@ java.lang.ArrayIndexOutOfBoundsException: 1
 * [TEZ-2287](https://issues.apache.org/jira/browse/TEZ-2287) | *Blocker* | **Deprecate VertexManagerPluginContext.getTaskContainer()**
 
 This allows TEZ-2048
+
+
+---
+
+* [TEZ-2282](https://issues.apache.org/jira/browse/TEZ-2282) | *Major* | **Delimit reused yarn container logs (stderr, stdout, syslog) with task attempt start/stop events**
+
+This could help with debugging in some cases where logging is task specific. For example GC log is going to stdout, it will be nice to see task attempt start/stop times
 
 
 ---
@@ -703,6 +725,13 @@ Some issue in height handling, element gets truncated.
 * [TEZ-2061](https://issues.apache.org/jira/browse/TEZ-2061) | *Major* | **Tez UI: vertex id column and filter on tasks page should be changed to vertex name**
 
 VertexId search box is not really useful unless one types in the whole vertex id. At some point later, vertex name might be a better option. May need backend changes or could be done on the UI with an additional call to convert name to id from the dag info.
+
+
+---
+
+* [TEZ-2057](https://issues.apache.org/jira/browse/TEZ-2057) | *Major* | **tez-dag/pom.xml contains versions for dependencies**
+
+Introduced accidentally as part of TEZ-2018. Versions should only be specified in the top-level pom.xml
 
 
 ---

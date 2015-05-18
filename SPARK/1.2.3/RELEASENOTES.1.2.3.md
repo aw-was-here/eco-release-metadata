@@ -23,6 +23,53 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-7660](https://issues.apache.org/jira/browse/SPARK-7660) | *Blocker* | **Snappy-java buffer-sharing bug leads to data corruption / test failures**
+
+snappy-java contains a bug that can lead to situations where separate SnappyOutputStream instances end up sharing the same input and output buffers, which can lead to data corruption issues.  See https://github.com/xerial/snappy-java/issues/107 for my upstream bug report and https://github.com/xerial/snappy-java/pull/108 for my patch to fix this issue.
+
+I discovered this issue because the buffer-sharing was leading to a test failure in JavaAPISuite: one of the repartition-and-sort tests was returning the wrong answer because both tasks wrote their output using the same compression buffers and one task won the race, causing its output to be written to both shuffle output files. As a result, the test returned the result of collecting one partition twice (see https://github.com/apache/spark/pull/5868#issuecomment-101954962 for more details).
+
+The buffer-sharing can only occur if {{close()}} is called twice on the same SnappyOutputStream \_and\_ the JVM experiences little GC / memory pressure (for a more precise description of when this issue may occur, see my upstream tickets).  I think that this double-close happens somewhere in some test code that was added as part of my Tungsten shuffle patch, exposing this bug (to see this, download a recent build of master and run https://gist.github.com/JoshRosen/eb3257a75c16597d769f locally in order to force the test execution order that triggers the bug).
+
+I think that it's rare that this bug would lead to silent failures like this. In more realistic workloads that aren't writing only a handful of bytes per task, I would expect this issue to lead to stream corruption issues like SPARK-4105.
+
+
+---
+
+* [SPARK-7522](https://issues.apache.org/jira/browse/SPARK-7522) | *Minor* | **ML Examples option for dataFormat should not be enclosed in angle brackets**
+
+Some ML examples include an option for specifying the data format, such as DecisionTreeExample, but the option is enclosed in angle brackets like "opt[String]("<dataFormat>")."  This is probably just a typo but makes it awkward to use the option.
+
+
+---
+
+* [SPARK-7331](https://issues.apache.org/jira/browse/SPARK-7331) | *Minor* | **Create HiveConf per application instead of per query in HiveQl.scala**
+
+A new HiveConf is created per query in getAst method in HiveQl.scala
+
+  def getAst(sql: String): ASTNode = {
+
+    /*
+     * Context has to be passed in hive0.13.1.
+     * Otherwise, there will be Null pointer exception,
+     * when retrieving properties form HiveConf.
+     */
+
+    val hContext = new Context(new HiveConf())
+
+    val node = ParseUtils.findRootNonNullToken((new ParseDriver).parse(sql, hContext))
+
+    hContext.clear()
+
+    node
+
+  }
+
+Creating hiveConf adds a minimum of 90ms delay per query. So moving its creation in Object such that it gets created once.
+
+
+---
+
 * [SPARK-7181](https://issues.apache.org/jira/browse/SPARK-7181) | *Critical* | **External Sorter merge with aggregation go to an infinite loop when we have a total ordering**
 
 In the function {{mergeWithAggregation}} of {{ExternalSorter.scala}}, when there is a total ordering for keys K, values of the same key in the sorted iterator should be combined. Currently this is done by this:
@@ -229,6 +276,26 @@ That sorts the samples descending if ascending=False. Nevertheless samples shoul
 
 As you can see, rangePartitioner already handles the ascending=False by itself, so the fix for the whole problem is really trivial: just change line rdd.py:565 to
 {{samples = sorted(samples, -reverse=(not ascending),- key=keyfunc)}}
+
+
+---
+
+* [SPARK-5412](https://issues.apache.org/jira/browse/SPARK-5412) | *Major* | **Cannot bind Master to a specific hostname as per the documentation**
+
+Documentation on http://spark.apache.org/docs/latest/spark-standalone.html indicates:
+
+{quote}
+You can start a standalone master server by executing:
+./sbin/start-master.sh
+...
+the following configuration options can be passed to the master and worker:
+...
+-h HOST, --host HOST	Hostname to listen on
+{quote}
+
+The "\-h" or "--host" parameter actually doesn't work with the start-master.sh script. Instead, one has to set the "SPARK\_MASTER\_IP" variable prior to executing the script.
+
+Either the script or the documentation should be updated.
 
 
 

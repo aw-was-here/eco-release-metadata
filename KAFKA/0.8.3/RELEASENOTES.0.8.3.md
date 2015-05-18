@@ -39,6 +39,123 @@ I think that it should return non-zero exit code when caught exception.
 
 ---
 
+* [KAFKA-2121](https://issues.apache.org/jira/browse/KAFKA-2121) | *Major* | **prevent potential resource leak in KafkaProducer and KafkaConsumer**
+
+On Mon, Apr 13, 2015 at 7:17 PM, Guozhang Wang <wangguoz@gmail.com> wrote:
+It is a valid problem and we should correct it as soon as possible, I'm
+with Ewen regarding the solution.
+
+On Mon, Apr 13, 2015 at 5:05 PM, Ewen Cheslack-Postava <ewen@confluent.io>
+wrote:
+
+> Steven,
+>
+> Looks like there is even more that could potentially be leaked -- since key
+> and value serializers are created and configured at the end, even the IO
+> thread allocated by the producer could leak. Given that, I think 1 isn't a
+> great option since, as you said, it doesn't really address the underlying
+> issue.
+>
+> 3 strikes me as bad from a user experience perspective. It's true we might
+> want to introduce additional constructors to make testing easier, but the
+> more components I need to allocate myself and inject into the producer's
+> constructor, the worse the default experience is. And since you would have
+> to inject the dependencies to get correct, non-leaking behavior, it will
+> always be more code than previously (and a backwards incompatible change).
+> Additionally, the code creating a the producer would have be more
+> complicated since it would have to deal with the cleanup carefully whereas
+> it previously just had to deal with the exception. Besides, for testing
+> specifically, you can avoid exposing more constructors just for testing by
+> using something like PowerMock that let you mock private methods. That
+> requires a bit of code reorganization, but doesn't affect the public
+> interface at all.
+>
+> So my take is that a variant of 2 is probably best. I'd probably do two
+> things. First, make close() safe to call even if some fields haven't been
+> initialized, which presumably just means checking for null fields. (You
+> might also want to figure out if all the methods close() calls are
+> idempotent and decide whether some fields should be marked non-final and
+> cleared to null when close() is called). Second, add the try/catch as you
+> suggested, but just use close().
+>
+> -Ewen
+>
+>
+> On Mon, Apr 13, 2015 at 3:53 PM, Steven Wu <stevenz3wu@gmail.com> wrote:
+>
+> > Here is the resource leak problem that we have encountered when 0.8.2
+> java
+> > KafkaProducer failed in constructor. here is the code snippet of
+> > KafkaProducer to illustrate the problem.
+> >
+> > -------------------------------
+> > public KafkaProducer(ProducerConfig config, Serializer<K> keySerializer,
+> > Serializer<V> valueSerializer) {
+> >
+> >     // create metrcis reporter via reflection
+> >     List<MetricsReporter> reporters =
+> >
+> >
+> config.getConfiguredInstances(ProducerConfig.METRIC\_REPORTER\_CLASSES\_CONFIG,
+> > MetricsReporter.class);
+> >
+> >     // validate bootstrap servers
+> >     List<InetSocketAddress> addresses =
+> >
+> >
+> ClientUtils.parseAndValidateAddresses(config.getList(ProducerConfig.BOOTSTRAP\_SERVERS\_CONFIG));
+> >
+> > }
+> > -------------------------------
+> >
+> > let's say MyMetricsReporter creates a thread in constructor. if hostname
+> > validation threw an exception, constructor won't call the close method of
+> > MyMetricsReporter to clean up the resource. as a result, we created
+> thread
+> > leak issue. this becomes worse when we try to auto recovery (i.e. keep
+> > creating KafkaProducer again -> failing again -> more thread leaks).
+> >
+> > there are multiple options of fixing this.
+> >
+> > 1) just move the hostname validation to the beginning. but this is only
+> fix
+> > one symtom. it didn't fix the fundamental problem. what if some other
+> lines
+> > throw an exception.
+> >
+> > 2) use try-catch. in the catch section, try to call close methods for any
+> > non-null objects constructed so far.
+> >
+> > 3) explicitly declare the dependency in the constructor. this way, when
+> > KafkaProducer threw an exception, I can call close method of metrics
+> > reporters for releasing resources.
+> >     KafkaProducer(..., List<MetricsReporter> reporters)
+> > we don't have to dependency injection framework. but generally hiding
+> > dependency is a bad coding practice. it is also hard to plug in mocks for
+> > dependencies. this is probably the most intrusive change.
+> >
+> > I am willing to submit a patch. but like to hear your opinions on how we
+> > should fix the issue.
+> >
+> > Thanks,
+> > Steven
+> >
+>
+>
+>
+> --
+> Thanks,
+> Ewen
+>
+
+
+
+--
+-- Guozhang
+
+
+---
+
 * [KAFKA-2119](https://issues.apache.org/jira/browse/KAFKA-2119) | *Trivial* | **ConsumerRecord key() and value() methods should not have throws Exception**
 
 There were some leftover throws clauses in ConsumerRecord. It looks like the initial implementation removed errors from the ConsumerRecord but didn't clean up these clauses.
@@ -762,6 +879,47 @@ I've found this useful when I need to do some quick tests and also reproduce iss
 This currently only works for the "clients" and not for "core" --because the "core" doesn't have the Java plugin applied to it in the gradle build--. I've a patch which does that (and one other related thing) which then allowed me to run individual test methods even for the core tests. I will create a review request for it.
 
 Edit: I was wrong about the java plugin not being applied to "core". It is indeed already applied but my attempt to get test methods running individually for "core" were failing for a different reason related to JUnit version dependency. I'll be addressing that in the patch and uploading for review.
+
+
+---
+
+* [KAFKA-1884](https://issues.apache.org/jira/browse/KAFKA-1884) | *Major* | **Print metadata response errors**
+
+Print metadata response errors.
+
+producer logs:
+
+DEBUG [2015-01-20 12:46:13,406] NetworkClient: maybeUpdateMetadata(): Trying to send metadata request to node -1
+DEBUG [2015-01-20 12:46:13,406] NetworkClient: maybeUpdateMetadata(): Sending metadata request ClientRequest(expectResponse=true, payload=null, request=RequestSend(header={api\_key=3,api\_version=0,correlation\_id=50845,client\_id=my-producer}, body={topics=[TOPIC=]})) to node -1
+TRACE [2015-01-20 12:46:13,416] NetworkClient: handleMetadataResponse(): Ignoring empty metadata response with correlation id 50845.
+DEBUG [2015-01-20 12:46:13,417] NetworkClient: maybeUpdateMetadata(): Trying to send metadata request to node -1
+DEBUG [2015-01-20 12:46:13,417] NetworkClient: maybeUpdateMetadata(): Sending metadata request ClientRequest(expectResponse=true, payload=null, request=RequestSend(header={api\_key=3,api\_version=0,correlation\_id=50846,client\_id=my-producer}, body={topics=[TOPIC=]})) to node -1
+TRACE [2015-01-20 12:46:13,417] NetworkClient: handleMetadataResponse(): Ignoring empty metadata response with correlation id 50846.
+DEBUG [2015-01-20 12:46:13,417] NetworkClient: maybeUpdateMetadata(): Trying to send metadata request to node -1
+DEBUG [2015-01-20 12:46:13,418] NetworkClient: maybeUpdateMetadata(): Sending metadata request ClientRequest(expectResponse=true, payload=null, request=RequestSend(header={api\_key=3,api\_version=0,correlation\_id=50847,client\_id=my-producer}, body={topics=[TOPIC=]})) to node -1
+TRACE [2015-01-20 12:46:13,418] NetworkClient: handleMetadataResponse(): Ignoring empty metadata response with correlation id 50847.
+
+Broker logs:
+
+[2015-01-20 12:46:14,074] ERROR [KafkaApi-0] error when handling request Name: TopicMetadataRequest; Version: 0; CorrelationId: 51020; ClientId: my-producer; Topics: TOPIC= (kafka.server.KafkaApis)
+kafka.common.InvalidTopicException: topic name TOPIC= is illegal, contains a character other than ASCII alphanumerics, '.', '\_' and '-'
+	at kafka.common.Topic$.validate(Topic.scala:42)
+	at kafka.admin.AdminUtils$.createOrUpdateTopicPartitionAssignmentPathInZK(AdminUtils.scala:186)
+	at kafka.admin.AdminUtils$.createTopic(AdminUtils.scala:177)
+	at kafka.server.KafkaApis$$anonfun$5.apply(KafkaApis.scala:367)
+	at kafka.server.KafkaApis$$anonfun$5.apply(KafkaApis.scala:350)
+	at scala.collection.TraversableLike$$anonfun$map$1.apply(TraversableLike.scala:244)
+	at scala.collection.TraversableLike$$anonfun$map$1.apply(TraversableLike.scala:244)
+	at scala.collection.immutable.Set$Set1.foreach(Set.scala:74)
+	at scala.collection.TraversableLike$class.map(TraversableLike.scala:244)
+	at scala.collection.AbstractSet.scala$collection$SetLike$$super$map(Set.scala:47)
+	at scala.collection.SetLike$class.map(SetLike.scala:93)
+	at scala.collection.AbstractSet.map(Set.scala:47)
+	at kafka.server.KafkaApis.getTopicMetadata(KafkaApis.scala:350)
+	at kafka.server.KafkaApis.handleTopicMetadataRequest(KafkaApis.scala:389)
+	at kafka.server.KafkaApis.handle(KafkaApis.scala:57)
+	at kafka.server.KafkaRequestHandler.run(KafkaRequestHandler.scala:59)
+	at java.lang.Thread.run(Thread.java:722)
 
 
 ---

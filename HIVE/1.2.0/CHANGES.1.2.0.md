@@ -32,6 +32,8 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HIVE-10636](https://issues.apache.org/jira/browse/HIVE-10636) | CASE comparison operator rotation optimization |  Major | Logical Optimizer | Ashutosh Chauhan | Ashutosh Chauhan |
+| [HIVE-10591](https://issues.apache.org/jira/browse/HIVE-10591) | Support limited integer type promotion in ORC |  Major | . | Prasanth Jayachandran | Prasanth Jayachandran |
 | [HIVE-10099](https://issues.apache.org/jira/browse/HIVE-10099) | Enable constant folding for Decimal |  Major | Logical Optimizer | Ashutosh Chauhan | Ashutosh Chauhan |
 | [HIVE-10038](https://issues.apache.org/jira/browse/HIVE-10038) | Add Calcite's ProjectMergeRule. |  Major | CBO, Logical Optimizer | Ashutosh Chauhan | Ashutosh Chauhan |
 | [HIVE-9780](https://issues.apache.org/jira/browse/HIVE-9780) | Add another level of explain for RDBMS audience |  Minor | Diagnosability | Pengcheng Xiong | Pengcheng Xiong |
@@ -46,6 +48,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HIVE-10568](https://issues.apache.org/jira/browse/HIVE-10568) | Select count(distinct()) can have more optimal execution plan |  Major | CBO, Logical Optimizer | Mostafa Mokhtar | Ashutosh Chauhan |
 | [HIVE-10546](https://issues.apache.org/jira/browse/HIVE-10546) | genFileSinkPlan should use the generated SEL's RR for the partition col of FS |  Major | Query Planning | Pengcheng Xiong | Pengcheng Xiong |
 | [HIVE-10467](https://issues.apache.org/jira/browse/HIVE-10467) | Switch to GIT repository on Jenkins precommit tests |  Major | Testing Infrastructure | Sergio Peña | Sergio Peña |
 | [HIVE-10403](https://issues.apache.org/jira/browse/HIVE-10403) | Add n-way join support for Hybrid Grace Hash Join |  Major | . | Wei Zheng | Wei Zheng |
@@ -110,9 +113,11 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HIVE-10688](https://issues.apache.org/jira/browse/HIVE-10688) | constant folding is broken for case-when udf |  Major | Logical Optimizer | Jagruti Varia | Ashutosh Chauhan |
 | [HIVE-10614](https://issues.apache.org/jira/browse/HIVE-10614) | schemaTool upgrade from 0.14.0 to 1.3.0 causes failure |  Critical | Metastore | Hari Sankar Sivarama Subramaniyan | Hari Sankar Sivarama Subramaniyan |
 | [HIVE-10612](https://issues.apache.org/jira/browse/HIVE-10612) | HIVE-10578 broke TestSQLStdHiveAccessControllerHS2 tests |  Major | Authorization | Thejas M Nair | Thejas M Nair |
 | [HIVE-10610](https://issues.apache.org/jira/browse/HIVE-10610) | hive command fails to get hadoop version |  Major | . | Shwetha G S | Shwetha G S |
+| [HIVE-10609](https://issues.apache.org/jira/browse/HIVE-10609) | Vectorization : Q64 fails with ClassCastException |  Major | Vectorization | Mostafa Mokhtar | Matt McCline |
 | [HIVE-10607](https://issues.apache.org/jira/browse/HIVE-10607) | Combination of ReducesinkDedup + TopN optimization yields incorrect result if there are multiple GBY in reducer |  Major | Logical Optimizer, Tez | Ashutosh Chauhan | Ashutosh Chauhan |
 | [HIVE-10604](https://issues.apache.org/jira/browse/HIVE-10604) | update webhcat-default.xml with 1.2 version numbers |  Minor | WebHCat | Eugene Koifman | Eugene Koifman |
 | [HIVE-10603](https://issues.apache.org/jira/browse/HIVE-10603) | increase default permgen space for HS2 on windows |  Major | HiveServer2 | Thejas M Nair | Ivan Malamen |
@@ -122,8 +127,10 @@
 | [HIVE-10576](https://issues.apache.org/jira/browse/HIVE-10576) | add jar command does not work with Windows OS |  Major | . | Hari Sankar Sivarama Subramaniyan | Hari Sankar Sivarama Subramaniyan |
 | [HIVE-10572](https://issues.apache.org/jira/browse/HIVE-10572) | Improve Hive service test to check empty string |  Major | HiveServer2 | Chao Sun | Chao Sun |
 | [HIVE-10564](https://issues.apache.org/jira/browse/HIVE-10564) | webhcat should use webhcat-site.xml properties for controller job submission |  Major | . | Thejas M Nair | Thejas M Nair |
+| [HIVE-10548](https://issues.apache.org/jira/browse/HIVE-10548) | Remove dependency to s3 repository in root pom |  Major | Build Infrastructure | Szehon Ho | Chengxiang Li |
 | [HIVE-10544](https://issues.apache.org/jira/browse/HIVE-10544) | Beeline/Hive JDBC Driver fails in HTTP mode on Windows with java.lang.NoSuchFieldError: INSTANCE |  Major | . | Hari Sankar Sivarama Subramaniyan | Hari Sankar Sivarama Subramaniyan |
 | [HIVE-10543](https://issues.apache.org/jira/browse/HIVE-10543) | improve error message in MetaStoreAuthzAPIAuthorizerEmbedOnly |  Major | . | Thejas M Nair | Thejas M Nair |
+| [HIVE-10542](https://issues.apache.org/jira/browse/HIVE-10542) | Full outer joins in tez produce incorrect results in certain cases |  Blocker | Tez | Vikram Dixit K | Vikram Dixit K |
 | [HIVE-10539](https://issues.apache.org/jira/browse/HIVE-10539) | set default value of hive.repl.task.factory |  Major | . | Thejas M Nair | Thejas M Nair |
 | [HIVE-10538](https://issues.apache.org/jira/browse/HIVE-10538) | Fix NPE in FileSinkOperator from hashcode mismatch |  Critical | Query Processor | Peter Slawski | Peter Slawski |
 | [HIVE-10530](https://issues.apache.org/jira/browse/HIVE-10530) | Aggregate stats cache: bug fixes for RDBMS path |  Major | Metastore | Vaibhav Gumashta | Vaibhav Gumashta |
@@ -341,6 +348,7 @@
 | [HIVE-9507](https://issues.apache.org/jira/browse/HIVE-9507) | Make "LATERAL VIEW inline(expression) mytable" tolerant to nulls |  Minor | Query Processor, UDF | Moustafa Aboul Atta | Navis |
 | [HIVE-9496](https://issues.apache.org/jira/browse/HIVE-9496) | Slf4j warning in hive command |  Minor | CLI | Philippe Kernevez | Alexander Pivovarov |
 | [HIVE-9489](https://issues.apache.org/jira/browse/HIVE-9489) | add javadoc for UDFType annotation |  Major | Documentation, UDF | Thejas M Nair | Thejas M Nair |
+| [HIVE-9486](https://issues.apache.org/jira/browse/HIVE-9486) | Use session classloader instead of application loader |  Minor | Query Processor | Navis | Navis |
 | [HIVE-9484](https://issues.apache.org/jira/browse/HIVE-9484) | ThriftCLIService#getDelegationToken does case sensitive comparison |  Minor | . | Jimmy Xiang | Jimmy Xiang |
 | [HIVE-9482](https://issues.apache.org/jira/browse/HIVE-9482) | Hive parquet timestamp compatibility |  Major | File Formats | Szehon Ho | Szehon Ho |
 | [HIVE-9481](https://issues.apache.org/jira/browse/HIVE-9481) | allow column list specification in INSERT statement |  Major | Parser, Query Processor, SQL | Eugene Koifman | Eugene Koifman |
@@ -468,6 +476,9 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HIVE-10676](https://issues.apache.org/jira/browse/HIVE-10676) | Update Hive's README to mention spark, and to remove jdk1.6 |  Trivial | . | Sushanth Sowmyan | Sushanth Sowmyan |
+| [HIVE-10327](https://issues.apache.org/jira/browse/HIVE-10327) | Remove ExprNodeNullDesc |  Major | Query Planning | Ashutosh Chauhan | Ashutosh Chauhan |
+| [HIVE-10325](https://issues.apache.org/jira/browse/HIVE-10325) | Remove ExprNodeNullEvaluator |  Major | Query Processor | Ashutosh Chauhan | Ashutosh Chauhan |
 | [HIVE-10268](https://issues.apache.org/jira/browse/HIVE-10268) | Merge cbo branch into trunk |  Major | CBO | Ashutosh Chauhan | Ashutosh Chauhan |
 | [HIVE-10222](https://issues.apache.org/jira/browse/HIVE-10222) | Upgrade Calcite dependency to newest version |  Major | CBO | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
 | [HIVE-10019](https://issues.apache.org/jira/browse/HIVE-10019) | Configure jenkins precommit jobs to run HMS upgrade tests |  Major | Testing Infrastructure | Sergio Peña | Sergio Peña |

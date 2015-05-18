@@ -24,6 +24,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-2437](https://issues.apache.org/jira/browse/TEZ-2437) | FilterLinesByWord NPEs when run in Localmode |  Major | . | Amit Tiwari |  |
 
 
 ### NEW FEATURES:
@@ -61,6 +62,7 @@
 | [TEZ-2305](https://issues.apache.org/jira/browse/TEZ-2305) | MR compatibility sleep job fails with IOException: Undefined job output-path |  Critical | . | Tassapol Athiapinya | Jeff Zhang |
 | [TEZ-2289](https://issues.apache.org/jira/browse/TEZ-2289) | ATSHistoryLoggingService can generate ArrayOutOfBoundsException |  Major | . | Jonathan Eagles | Chang Li |
 | [TEZ-2287](https://issues.apache.org/jira/browse/TEZ-2287) | Deprecate VertexManagerPluginContext.getTaskContainer() |  Blocker | . | Bikas Saha | Hitesh Shah |
+| [TEZ-2282](https://issues.apache.org/jira/browse/TEZ-2282) | Delimit reused yarn container logs (stderr, stdout, syslog) with task attempt start/stop events |  Major | . | Jonathan Eagles | Mit Desai |
 | [TEZ-2259](https://issues.apache.org/jira/browse/TEZ-2259) | Push additional data to Timeline for Recovery for better consumption in UI |  Major | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-2242](https://issues.apache.org/jira/browse/TEZ-2242) | Refactor ShuffleVertexManager code |  Major | . | Bikas Saha | Bikas Saha |
 | [TEZ-2240](https://issues.apache.org/jira/browse/TEZ-2240) | Fix toUpperCase/toLowerCase to use Locale.ENGLISH |  Major | . | Tsuyoshi Ozawa | Tsuyoshi Ozawa |
@@ -102,6 +104,7 @@
 | [TEZ-2063](https://issues.apache.org/jira/browse/TEZ-2063) | Tez UI: Flaky log url in tasks table |  Major | UI | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2062](https://issues.apache.org/jira/browse/TEZ-2062) | Tez UI: Showing 50 elements not working properly |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2061](https://issues.apache.org/jira/browse/TEZ-2061) | Tez UI: vertex id column and filter on tasks page should be changed to vertex name |  Major | UI | Prakash Ramachandran | Prakash Ramachandran |
+| [TEZ-2057](https://issues.apache.org/jira/browse/TEZ-2057) | tez-dag/pom.xml contains versions for dependencies |  Major | . | Hitesh Shah | Jonathan Eagles |
 | [TEZ-2056](https://issues.apache.org/jira/browse/TEZ-2056) | Tez UI: fix VertexID filter,show only tez configs by default,fix appattemptid |  Major | . | Prakash Ramachandran | Prakash Ramachandran |
 | [TEZ-2052](https://issues.apache.org/jira/browse/TEZ-2052) | Tez UI: log view fixes, show version from build, better handling of ats url config |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2047](https://issues.apache.org/jira/browse/TEZ-2047) | Build fails against hadoop-2.2 post TEZ-2018 |  Blocker | . | Hitesh Shah | Prakash Ramachandran |
