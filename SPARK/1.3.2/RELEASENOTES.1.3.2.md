@@ -23,6 +23,26 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-7883](https://issues.apache.org/jira/browse/SPARK-7883) | *Trivial* | **Fixing broken trainImplicit example in MLlib Collaborative Filtering documentation.**
+
+The trainImplicit Scala example near the end of the MLlib Collaborative Filtering documentation refers to an ALS.trainImplicit function signature that does not exist.  Rather than add an extra function, let's just fix the example.
+
+Currently, the example refers to a function that would have the following signature: 
+def trainImplicit(ratings: RDD[Rating], rank: Int, iterations: Int, alpha: Double) : MatrixFactorizationModel
+
+Instead, let's change the example to refer to this function, which does exist (notice the addition of the lambda parameter):
+def trainImplicit(ratings: RDD[Rating], rank: Int, iterations: Int, lambda: Double, alpha: Double) : MatrixFactorizationModel
+
+
+---
+
+* [SPARK-7744](https://issues.apache.org/jira/browse/SPARK-7744) | *Minor* | **"Distributed matrix" section in MLlib "Data Types" documentation should be reordered.**
+
+The documentation for BlockMatrix should come after RowMatrix, IndexedRowMatrix, and CoordinateMatrix, as BlockMatrix references the later three types, and RowMatrix is considered the "basic" distributed matrix.  This will improve comprehensibility of the "Distributed matrix" section, especially for the new reader.
+
+
+---
+
 * [SPARK-7668](https://issues.apache.org/jira/browse/SPARK-7668) | *Major* | **Matrix.map should preserve transpose property**
 
 Currently calling map on both DenseMatrix and SparseMatrix will throw original transpose property away. It should be preserved.
@@ -50,6 +70,92 @@ In PySpark, GaussianMixtureModel predict and predictSoft test if the argument is
 [https://github.com/apache/spark/blob/11a1a135d1fe892cd48a9116acc7554846aed84c/python/pyspark/mllib/clustering.py#L176]
 
 Instead, they should raise errors.
+
+
+---
+
+* [SPARK-7624](https://issues.apache.org/jira/browse/SPARK-7624) | *Major* | **Task scheduler delay is increasing time over time in spark local mode**
+
+I am running a simple spark streaming program with spark 1.3.1 in local mode, it receives json string from a socket with rate 50 events per second, it can run well in first 6 hours (although the minor gc count per minute is increasing all the time), after that, i can see that the scheduler delay in every task is significant increased from 10 ms to 100 ms, after 10 hours running, the task delay is about 800 ms and cpu is also increased from 2% to 30%. This causes the steaming job can not finish in one batch interval (5 seconds). I dumped the java memory after 16 hours and can see there are about 200000 {{org.apache.spark.scheduler.local.ReviveOffers}} objects in {{akka.actor.LightArrayRevolverScheduler$TaskQueue[]}}. Then i checked the code and see only one place may put the {{ReviveOffers}} to akka {{LightArrayRevolverScheduler}}: the {{LocalActor::reviveOffers}}
+{code}
+ def reviveOffers() {
+    val offers = Seq(new WorkerOffer(localExecutorId, localExecutorHostname, freeCores))
+    val tasks = scheduler.resourceOffers(offers).flatten
+    for (task <- tasks) {
+      freeCores -= scheduler.CPUS\_PER\_TASK
+      executor.launchTask(executorBackend, taskId = task.taskId, attemptNumber = task.attemptNumber,
+        task.name, task.serializedTask)
+    }
+
+    if (tasks.isEmpty && scheduler.activeTaskSets.nonEmpty) {
+      // Try to reviveOffer after 1 second, because scheduler may wait for locality timeout
+      context.system.scheduler.scheduleOnce(1000 millis, self, ReviveOffers)
+    }
+}
+{code}
+
+I removed the last three lines in this method (the whole {{if}} block, which is introduced from https://issues.apache.org/jira/browse/SPARK-4939), it worked smooth after 20 hours running, the scheduler delay is about 10 ms all the time. So there should have some conditions that the ReviveOffers will be duplicate scheduled? I am not sure why this happens, but i feel that this is the root cause of this issue. 
+
+My spark settings:
+#  Memor: 3G
+# CPU: 8 cores 
+# Streaming Batch interval: 5 seconds.  
+
+Here are my streaming code:
+{code}
+val input = ssc.socketTextStream(
+      hostname, port, StorageLevel.MEMORY\_ONLY\_SER).mapPartitions(
+      /// parse the json to Order
+      Order(\_), preservePartitioning = true)
+val mresult = input.map(
+      v => (v.customer, UserSpending(v.customer, v.count * v.price, v.timestamp.toLong))).cache()
+val tempr  = mresult.window(
+            Seconds(firstStageWindowSize), 
+            Seconds(firstStageWindowSize)
+          ).transform(
+            rdd => rdd.union(rdd).union(rdd).union(rdd)
+          )
+tempr.count.print
+tempr.cache().foreachRDD((rdd, t) => {
+            for (i <- 1 to 5) {
+              val c = rdd.filter(x=>scala.util.Random.nextInt(5) == i).count()
+              println("""T: """ + t + """: """ + c)
+            }
+          })
+{code}
+
+========================================================
+Updated at 2015-05-15
+I did print some detail schedule times of the suspect lines in {{LocalActor::reviveOffers}}: {color:red}*1685343501*{color} times after 18 hours running.
+
+
+---
+
+* [SPARK-7621](https://issues.apache.org/jira/browse/SPARK-7621) | *Major* | **Report KafkaReceiver MessageHandler errors so StreamingListeners can take action**
+
+Currently, when a MessageHandler (for any of the Kafka Receiver implementations) encounters an error handling a message, the error is only logged with:
+
+{code:none}
+case e: Exception => logError("Error handling message", e)
+{code}
+
+It would be \_incredibly\_ useful to be able to notify any registered StreamingListener of this receiver error (especially since this {{try...catch}} block masks more fatal Kafka connection exceptions).
+
+
+---
+
+* [SPARK-7566](https://issues.apache.org/jira/browse/SPARK-7566) | *Major* | **HiveContext.analyzer cannot be overriden**
+
+Trying to override HiveContext.analyzer will give the following compilation error:
+
+{code}
+Error:(51, 36) overriding lazy value analyzer in class HiveContext of type org.apache.spark.sql.catalyst.analysis.Analyzer{val extendedResolutionRules: List[org.apache.spark.sql.catalyst.rules.Rule[org.apache.spark.sql.catalyst.plans.logical.LogicalPlan]]};
+ lazy value analyzer has incompatible type
+  override protected[sql] lazy val analyzer: Analyzer = {
+                                   ^
+{code}
+
+That is because the type changed inadvertedly when omitting the type declaration of the return type.
 
 
 ---
@@ -667,15 +773,6 @@ PR coming...
 
 ---
 
-* [SPARK-6197](https://issues.apache.org/jira/browse/SPARK-6197) | *Minor* | **handle json parse exception for eventlog file not finished writing**
-
-This is a following JIRA for [SPARK-6107|https://issues.apache.org/jira/browse/SPARK-6107]. In  [SPARK-6107|https://issues.apache.org/jira/browse/SPARK-6107], webUI can display event log files that with suffix *.inprogress*. However, the eventlog file may be not finished writing for some abnormal cases (e.g. Ctrl+C), In which case, the file maybe  truncated in the last line, leading to the line being not in valid Json format. Which will cause Json parse exception when reading the file. 
-
-For this case, we can just ignore the last line content, since the history for abnormal cases showed on web is only a reference for user, it can demonstrate the past status of the app before terminated abnormally (we can not guarantee the history can show exactly the last moment when app encounter the abnormal situation).
-
-
----
-
 * [SPARK-5969](https://issues.apache.org/jira/browse/SPARK-5969) | *Major* | **The pyspark.rdd.sortByKey always fills only two partitions when ascending=False.**
 
 The pyspark.rdd.sortByKey always fills only two partitions when ascending=False -- the first one and the last one.
@@ -791,6 +888,34 @@ the following configuration options can be passed to the master and worker:
 The "\-h" or "--host" parameter actually doesn't work with the start-master.sh script. Instead, one has to set the "SPARK\_MASTER\_IP" variable prior to executing the script.
 
 Either the script or the documentation should be updated.
+
+
+---
+
+* [SPARK-5220](https://issues.apache.org/jira/browse/SPARK-5220) | *Major* | **keepPushingBlocks in BlockGenerator terminated when an exception occurs, which causes the block pushing thread to terminate and blocks receiver**
+
+I am running a Spark streaming application with ReliableKafkaReceiver. It uses BlockGenerator to push blocks to BlockManager. However, writing WALs to HDFS may time out that causes keepPushingBlocks in BlockGenerator to terminate.
+
+15/01/12 19:07:06 ERROR receiver.BlockGenerator: Error in block pushing thread
+java.util.concurrent.TimeoutException: Futures timed out after [30 seconds]
+        at scala.concurrent.impl.Promise$DefaultPromise.ready(Promise.scala:219)
+        at scala.concurrent.impl.Promise$DefaultPromise.result(Promise.scala:223)
+        at scala.concurrent.Await$$anonfun$result$1.apply(package.scala:107)
+        at scala.concurrent.BlockContext$DefaultBlockContext$.blockOn(BlockContext.scala:53)
+        at scala.concurrent.Await$.result(package.scala:107)
+        at org.apache.spark.streaming.receiver.WriteAheadLogBasedBlockHandler.storeBlock(ReceivedBlockHandler.scala:176)
+        at org.apache.spark.streaming.receiver.ReceiverSupervisorImpl.pushAndReportBlock(ReceiverSupervisorImpl.scala:160)
+        at org.apache.spark.streaming.receiver.ReceiverSupervisorImpl.pushArrayBuffer(ReceiverSupervisorImpl.scala:126)
+        at org.apache.spark.streaming.receiver.Receiver.store(Receiver.scala:124)
+        at org.apache.spark.streaming.kafka.ReliableKafkaReceiver.org$apache$spark$streaming$kafka$ReliableKafkaReceiver$$storeBlockAndCommitOffset(ReliableKafkaReceiver.scala:207)
+        at org.apache.spark.streaming.kafka.ReliableKafkaReceiver$GeneratedBlockHandler.onPushBlock(ReliableKafkaReceiver.scala:275)
+        at org.apache.spark.streaming.receiver.BlockGenerator.pushBlock(BlockGenerator.scala:181)
+        at org.apache.spark.streaming.receiver.BlockGenerator.org$apache$spark$streaming$receiver$BlockGenerator$$keepPushingBlocks(BlockGenerator.scala:154)
+        at org.apache.spark.streaming.receiver.BlockGenerator$$anon$1.run(BlockGenerator.scala:86)
+
+Then the block pushing thread is done and no subsequent blocks can be pushed into blockManager. In turn this blocks receiver from receiving new data.
+
+So when running my app and the TimeoutException happens, the ReliableKafkaReceiver stays in ACTIVE status but doesn't do anything at all. The application rogues.
 
 
 ---

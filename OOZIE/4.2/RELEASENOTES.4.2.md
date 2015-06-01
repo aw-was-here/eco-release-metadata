@@ -23,6 +23,22 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [OOZIE-2240](https://issues.apache.org/jira/browse/OOZIE-2240) | *Major* | **add configuration to disable email attachment support**
+
+OOZIE-2160 enable email attachment support as default.
+but depending on cluster security policy,  this might need to be switched off.
+this patch is to make it configurable.
+
+
+---
+
+* [OOZIE-2236](https://issues.apache.org/jira/browse/OOZIE-2236) | *Critical* | **Need to package hive-hcatalog-server-extensions.jar in the hcatalog sharelib**
+
+We used to package hive-hcatalog-server-extensions-<version>.jar with hcatalog sharelib which is depended on by upstream projects like Falcon.   We have to add it back as it became unavailable after the latest POM changes
+
+
+---
+
 * [OOZIE-2227](https://issues.apache.org/jira/browse/OOZIE-2227) | *Major* | **PartitionDependencyManagerService keeps on purging delete coord actions**
 
 Because of that PartitionDependencyManagerService takes more than 10 min to complete.
@@ -1154,6 +1170,13 @@ If a workflow has sub-workflow and some actions in the sub-workflow has failed, 
 
 ---
 
+* [OOZIE-2027](https://issues.apache.org/jira/browse/OOZIE-2027) | *Major* | **Disable re-runs using the workflow directly if it has a parent**
+
+Disable re-runs using the workflow directly if it has a parent. This applies to both cases where parent is coord action/another workflow. This check should be controlled using oozie-site config and should be disabled by default for backward compatibility.
+
+
+---
+
 * [OOZIE-2023](https://issues.apache.org/jira/browse/OOZIE-2023) | *Major* | **Job rerun can stuck in prep**
 
 Job rerun is divided into two commands.
@@ -1306,6 +1329,18 @@ SignalXCommand:
 
 ---
 
+* [OOZIE-1993](https://issues.apache.org/jira/browse/OOZIE-1993) | *Major* | **Rerun fails during join in certain condition**
+
+As [~puru] described in [this comment|https://issues.apache.org/jira/browse/OOZIE-1989?focusedCommentId=14123509&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-14123509] in OOZIE-1989:
+{quote}
+At first run job first fails at pig action.  When we rerun from failed node, oozie.wf.rerun.failnodes=true. Oozie tries to join it and fails with error message.
+{quote}
+
+We should investigate why this is happening and fix it.
+
+
+---
+
 * [OOZIE-1968](https://issues.apache.org/jira/browse/OOZIE-1968) | *Major* | **Building modules independently**
 
 {noformat}
@@ -1318,6 +1353,13 @@ SignalXCommand:
 * [OOZIE-1964](https://issues.apache.org/jira/browse/OOZIE-1964) | *Major* | **Hive Server 2 action doesn't return Hadoop Job IDs**
 
 Beeline currently doesn't support getting the Hadoop Job IDs for jobs launched by Hive Server 2.  When/If Beeline ever adds support for this, we should update the Hive Server 2 action to parse the IDs and return them back to the Oozie server like most actions do.
+
+
+---
+
+* [OOZIE-1963](https://issues.apache.org/jira/browse/OOZIE-1963) | *Major* | **Create a Hive Server 2 example**
+
+Create an example for the new Hive Server 2 action.
 
 
 ---

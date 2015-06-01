@@ -73,6 +73,8 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [OOZIE-2240](https://issues.apache.org/jira/browse/OOZIE-2240) | add configuration to disable email attachment support |  Major | . | Ryota Egashira | Ryota Egashira |
+| [OOZIE-2236](https://issues.apache.org/jira/browse/OOZIE-2236) | Need to package hive-hcatalog-server-extensions.jar in the hcatalog sharelib |  Critical | . | Venkat Ranganathan | Venkat Ranganathan |
 | [OOZIE-2227](https://issues.apache.org/jira/browse/OOZIE-2227) | PartitionDependencyManagerService keeps on purging delete coord actions |  Major | . | Purshotam Shah | Purshotam Shah |
 | [OOZIE-2221](https://issues.apache.org/jira/browse/OOZIE-2221) | Oozie audit log has null id for some of input request |  Major | . | Purshotam Shah | Purshotam Shah |
 | [OOZIE-2218](https://issues.apache.org/jira/browse/OOZIE-2218) | META-INF directories in the war file have 777 permissions |  Blocker | core, security | Robert Kanter | Robert Kanter |
@@ -142,6 +144,7 @@
 | [OOZIE-2009](https://issues.apache.org/jira/browse/OOZIE-2009) | Requeue CoordActionInputCheck in case of permission error |  Major | . | Ryota Egashira | Ryota Egashira |
 | [OOZIE-2003](https://issues.apache.org/jira/browse/OOZIE-2003) | Checkstyle issues |  Major | . | Shwetha G S | Robert Kanter |
 | [OOZIE-2001](https://issues.apache.org/jira/browse/OOZIE-2001) | Workflow re-runs doesn't update coord action status |  Major | . | Shwetha G S | Jaydeep Vishwakarma |
+| [OOZIE-1993](https://issues.apache.org/jira/browse/OOZIE-1993) | Rerun fails during join in certain condition |  Major | core | Robert Kanter | Shwetha G S |
 | [OOZIE-1985](https://issues.apache.org/jira/browse/OOZIE-1985) | support dropping hcat dataset in coord rerun with cleanup option |  Major | . | Ryota Egashira | Ryota Egashira |
 | [OOZIE-1957](https://issues.apache.org/jira/browse/OOZIE-1957) | Coord update command override group when oozie.service.AuthorizationService.default.group.as.acl is set and group/acl is not configured in job property |  Major | . | Purshotam Shah | Purshotam Shah |
 | [OOZIE-1941](https://issues.apache.org/jira/browse/OOZIE-1941) | Bundle coordinator name can't be parameterized |  Major | . | Purshotam Shah | Purshotam Shah |
@@ -178,10 +181,12 @@
 | [OOZIE-2092](https://issues.apache.org/jira/browse/OOZIE-2092) | Provide option to supply config to workflow during rerun of coordinator |  Major | . | Jaydeep Vishwakarma | Jaydeep Vishwakarma |
 | [OOZIE-2029](https://issues.apache.org/jira/browse/OOZIE-2029) | Workflow re-run with RERUN\_FAIL\_NODES=true should re-run only the failed nodes of the sub-workflow |  Major | workflow | Jaydeep Vishwakarma | Jaydeep Vishwakarma |
 | [OOZIE-2028](https://issues.apache.org/jira/browse/OOZIE-2028) | Coord action rerun with -failed option should rerun existing workflow with RERUN\_FAIL\_NODES=true |  Major | workflow | Jaydeep Vishwakarma | Jaydeep Vishwakarma |
+| [OOZIE-2027](https://issues.apache.org/jira/browse/OOZIE-2027) | Disable re-runs using the workflow directly if it has a parent |  Major | workflow | Jaydeep Vishwakarma | Jaydeep Vishwakarma |
 | [OOZIE-2006](https://issues.apache.org/jira/browse/OOZIE-2006) | Hive 2 action should support tez delegation tokens |  Major | action | Robert Kanter | Bowen Zhang |
 | [OOZIE-1968](https://issues.apache.org/jira/browse/OOZIE-1968) | Building modules independently |  Major | . | Shwetha G S | Shwetha G S |
 | [OOZIE-1966](https://issues.apache.org/jira/browse/OOZIE-1966) | Fix Headers in java code |  Major | . | Shwetha G S | Shwetha G S |
 | [OOZIE-1964](https://issues.apache.org/jira/browse/OOZIE-1964) | Hive Server 2 action doesn't return Hadoop Job IDs |  Major | action | Robert Kanter | Robert Kanter |
+| [OOZIE-1963](https://issues.apache.org/jira/browse/OOZIE-1963) | Create a Hive Server 2 example |  Major | action | Robert Kanter | Harsh J |
 | [OOZIE-1853](https://issues.apache.org/jira/browse/OOZIE-1853) | Improve the Credentials documentation |  Major | docs | Robert Kanter | Robert Kanter |
 | [OOZIE-1728](https://issues.apache.org/jira/browse/OOZIE-1728) | When an ApplicationMaster restarts, it restarts the launcher job: DistCp followup |  Major | . | Robert Kanter | Ryota Egashira |
 | [OOZIE-1696](https://issues.apache.org/jira/browse/OOZIE-1696) | Document how to get the action conf in the Java action |  Major | docs | Robert Kanter | James Kinley |

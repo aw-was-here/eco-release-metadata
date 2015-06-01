@@ -21,4 +21,26 @@
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
 
 
+---
+
+* [TEZ-2483](https://issues.apache.org/jira/browse/TEZ-2483) | *Major* | **Tez should close task if processor fail**
+
+The symptom is if PigProcessor fail, MRInput is not closed. On Windows, this creates a problem since Pig client cannot remove the input file.
+
+In general, if a task fail, Tez shall close all input/output handles in cleanup. MROutput is closed in MROutput.abort() which Pig invokes explicitly right now. Attach a demo patch.
+
+
+---
+
+* [TEZ-2080](https://issues.apache.org/jira/browse/TEZ-2080) | *Major* | **Localclient should be using tezconf in init instead of yarnconf**
+
+currently in the LocalClient the config used is yarnconf. this should be tezconf.
+
+{code:title=LocalClient.java}
+@Override
+  public void init(TezConfiguration tezConf, YarnConfiguration yarnConf) {
+    this.conf = yarnConf;
+{code}
+
+
 

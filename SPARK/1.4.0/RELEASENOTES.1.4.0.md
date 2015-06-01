@@ -23,6 +23,958 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-7971](https://issues.apache.org/jira/browse/SPARK-7971) | *Major* | **Add JavaDoc style deprecation for deprecated DataFrame methods**
+
+Scala @deprecated annotation actually doesn't show up in JavaDoc.
+
+
+---
+
+* [SPARK-7962](https://issues.apache.org/jira/browse/SPARK-7962) | *Critical* | **Mesos cluster mode is broken**
+
+Rest submission client prepends extra spark:// for non standalone master urls
+
+
+---
+
+* [SPARK-7950](https://issues.apache.org/jira/browse/SPARK-7950) | *Critical* | **HiveThriftServer2.startWithContext() doesn't set "spark.sql.hive.version"**
+
+While testing the newly released Simba Spark SQL ODBC driver 1.0.8.1006 against 1.4.0-SNAPSHOT, we found that if {{HiveThriftServer2}} is started with {{HiveThriftServer2.startWithContext()}}, then simple queries like
+{code:sql}
+SELECT * FROM src
+{code}
+fail with the following error message (need to turn on ODBC trace log):
+{noformat}
+DIAG [S0002] [Simba][SQLEngine] (31740) Table or view not found: SPARK..src
+{noformat}
+However, JDBC client like Beeline is fine. Also, if the server is started via {{sbin/start-thriftserver.sh}}, both ODBC and JDBC work fine.
+
+The reason for this failure is that, {{HiveThriftServer2.startWithContext()}} doesn't properly set the "spark.sql.hive.version" property. It seems that Simba ODBC driver 1.0.8.1006 behaves differently when this property is missing. What I observed is that, in this case, the ODBC driver issues a {{GetColumns}} command, which isn't overriden in Spark {{HiveThriftServer2}}, and this falls back to original Hive code path, which results in unexpected behavior.
+
+
+---
+
+* [SPARK-7949](https://issues.apache.org/jira/browse/SPARK-7949) | *Minor* | **update document with some missing save/load**
+
+As part of 7541,
+add save load for examples:
+KMeansModel
+PowerIterationClusteringModel
+Word2VecModel
+IsotonicRegressionModel
+
+
+---
+
+* [SPARK-7933](https://issues.apache.org/jira/browse/SPARK-7933) | *Minor* | **The default merge script JIRA username / password should be empty**
+
+It looks like this was changed accidentally a few months ago.
+
+
+---
+
+* [SPARK-7932](https://issues.apache.org/jira/browse/SPARK-7932) | *Minor* | **Scheduler delay shown in event timeline is incorrect**
+
+In StagePage.scala, we round *down* to the nearest percent when computing the proportion of a task's time spend in each phase of execution.  Scheduler delay is computed by taking 100 - sum(all other proportions), which means that a few extra percent may go into the scheduler delay.  As a result, scheduler delay can appear larger in the visualization than it actually is.
+
+cc [~shivaram]
+
+
+---
+
+* [SPARK-7931](https://issues.apache.org/jira/browse/SPARK-7931) | *Critical* | **Do not restart a socket receiver when the receiver is being shutdown**
+
+Attempts to restart the socket receiver when it is supposed to be stopped causes undesirable error messages.
+
+
+---
+
+* [SPARK-7930](https://issues.apache.org/jira/browse/SPARK-7930) | *Critical* | **Shutdown hook deletes rool local dir before SparkContext is stopped, throwing errors**
+
+Shutdown hook for temp directories had priority 100 while SparkContext was 50. So the local root directory was deleted before SparkContext was shutdown. This leads to scary errors on running jobs, at the time of shutdown. This is especially a problem when running streaming examples, where Ctrl-C is the only way to  shutdown.
+
+
+---
+
+* [SPARK-7929](https://issues.apache.org/jira/browse/SPARK-7929) | *Major* | **Remove Bagel examples**
+
+Bagel has been deprecated for a while. We should remove the example code.
+
+
+---
+
+* [SPARK-7927](https://issues.apache.org/jira/browse/SPARK-7927) | *Major* | **Enforce whitespace for more tokens in style checker**
+
+Enforce whitespace on comma, colon, if, while, etc ... so we don't need to keep spending time on this in code reviews.
+
+
+---
+
+* [SPARK-7926](https://issues.apache.org/jira/browse/SPARK-7926) | *Major* | **Switch to the official Pyrolite release**
+
+Since there are official releases of Pyrolite on Maven Central, it is time for us to switch to them.
+
+
+---
+
+* [SPARK-7922](https://issues.apache.org/jira/browse/SPARK-7922) | *Major* | **ALSModel in the pipeline API should return DataFrames for factors**
+
+This is to be more consistent with the pipeline API. It also helps maintain consistent APIs across languages.
+
+
+---
+
+* [SPARK-7921](https://issues.apache.org/jira/browse/SPARK-7921) | *Major* | **Change includeFirst to dropLast in OneHotEncoder**
+
+Change includeFirst to dropLast and leave the default to true. There are couple benefits:
+
+a. consistent with other tutorials of one-hot encoding (or dummy coding) (e.g., http://www.ats.ucla.edu/stat/mult\_pkg/faq/general/dummy.htm)
+b. keep the indices unmodified in the output vector. If we drop the first, all indices will be shifted by 1.
+c. If users use StringIndex, the last element is the least frequent one.
+
+
+---
+
+* [SPARK-7920](https://issues.apache.org/jira/browse/SPARK-7920) | *Minor* | **Make MLlib ChiSqSelector Serializable (& Fix Related Documentation Example).**
+
+The MLlib ChiSqSelector class is not serializable, and so the example in the ChiSqSelector documentation fails.  Also, that example is missing the import of ChiSqSelector.  ChiSqSelector should just extend Serializable.
+
+Steps:
+1. Locate the MLlib ChiSqSelector documentation example.
+2. Fix the example by adding an import statement for ChiSqSelector.
+3. Attempt to run -> notice that it will fail due to ChiSqSelector not being serializable.
+
+
+---
+
+* [SPARK-7918](https://issues.apache.org/jira/browse/SPARK-7918) | *Major* | **MLlib Python doc parity check for evaluation and feature**
+
+Check then make the MLlib Python evaluation and feature doc to be as complete as the Scala doc.
+
+
+---
+
+* [SPARK-7912](https://issues.apache.org/jira/browse/SPARK-7912) | *Major* | **Make OneHotEncoder more optimistic about the input**
+
+OneHotEncoder should be more robust on input. If the input column doesn't have ML attribute. We should make scan its values and generate one.
+
+
+---
+
+* [SPARK-7911](https://issues.apache.org/jira/browse/SPARK-7911) | *Major* | **A workaround for VectorUDT serialize (or deserialize) being called multiple times**
+
+There are bugs in UDT serialization because we don't have a clear separation between internal SQL types and language specific types (including UDT). UDT serialize and deserialize may get called twice. A workaround is to accept Row in serialize and Vector in deserialize, though this doesn't completely solve the issue.
+
+
+---
+
+* [SPARK-7907](https://issues.apache.org/jira/browse/SPARK-7907) | *Blocker* | **Rename ThriftServer tab in Spark UI**
+
+For users, it is confusing to see ThriftServer at there.
+
+
+---
+
+* [SPARK-7896](https://issues.apache.org/jira/browse/SPARK-7896) | *Blocker* | **IndexOutOfBoundsException in ChainedBuffer**
+
+I've run into this on two tasks that use the same dataset.
+
+The dataset is a collection of strings where the most common string appears ~200M times and the next few appear ~50M times each.
+
+for this rdd: RDD[String], I can do rdd.map( x => (x, 1)).reduceByKey( \_ + \_) to get the counts (how I got the number above), but I hit the error on rdd.groupByKey().
+
+Also, I have a second RDD of strings rdd2: RDD[String] and I cannot do rdd2.leftOuterJoin(rdd) without hitting this error
+
+{code}
+15/05/26 23:27:55 WARN scheduler.TaskSetManager: Lost task 3169.1 in stage 5.0 (TID 4843, demeter-csmaz10-19.demeter.hpc.mssm.edu): java.lang.IndexOutOfBoundsException: 512
+        at scala.collection.mutable.ResizableArray$class.apply(ResizableArray.scala:43)
+        at scala.collection.mutable.ArrayBuffer.apply(ArrayBuffer.scala:47)
+        at org.apache.spark.util.collection.ChainedBuffer.write(ChainedBuffer.scala:110)
+        at org.apache.spark.util.collection.ChainedBufferOutputStream.write(ChainedBuffer.scala:141)
+        at com.esotericsoftware.kryo.io.Output.flush(Output.java:155)
+        at org.apache.spark.serializer.KryoSerializationStream.flush(KryoSerializer.scala:147)
+        at org.apache.spark.util.collection.PartitionedSerializedPairBuffer.insert(PartitionedSerializedPairBuffer.scala:78)
+        at org.apache.spark.util.collection.ExternalSorter.insertAll(ExternalSorter.scala:219)
+        at org.apache.spark.shuffle.sort.SortShuffleWriter.write(SortShuffleWriter.scala:62)
+        at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:70)
+        at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:41)
+        at org.apache.spark.scheduler.Task.run(Task.scala:70)
+        at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:213)
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+        at java.lang.Thread.run(Thread.java:745)
+{code}
+
+
+---
+
+* [SPARK-7895](https://issues.apache.org/jira/browse/SPARK-7895) | *Major* | **Move Kafka examples from scala-2.10/src to src**
+
+Since spark-streaming-kafka now is published for both Scala 2.10 and 2.11, we can move KafkaWordCount and DirectKafkaWordCount from "examples/scala-2.10/src/" to "examples/src/" so that they will appear in "spark-examples-***-jar" for Scala 2.11.
+
+
+---
+
+* [SPARK-7883](https://issues.apache.org/jira/browse/SPARK-7883) | *Trivial* | **Fixing broken trainImplicit example in MLlib Collaborative Filtering documentation.**
+
+The trainImplicit Scala example near the end of the MLlib Collaborative Filtering documentation refers to an ALS.trainImplicit function signature that does not exist.  Rather than add an extra function, let's just fix the example.
+
+Currently, the example refers to a function that would have the following signature: 
+def trainImplicit(ratings: RDD[Rating], rank: Int, iterations: Int, alpha: Double) : MatrixFactorizationModel
+
+Instead, let's change the example to refer to this function, which does exist (notice the addition of the lambda parameter):
+def trainImplicit(ratings: RDD[Rating], rank: Int, iterations: Int, lambda: Double, alpha: Double) : MatrixFactorizationModel
+
+
+---
+
+* [SPARK-7873](https://issues.apache.org/jira/browse/SPARK-7873) | *Blocker* | **Serializer re-use + Kryo autoReset disabled leads to AraryIndexOutOfBounds exception in sort-shuffle bypassMergeSort path**
+
+This is a somewhat obscure bug, but I think that it will seriously impact KryoSerializer users who use custom registrators which disabled auto-reset.  When auto-reset is disabled, then this breaks things in some of our shuffle paths which actually end up creating multiple OutputStreams from the same shared SerializerInstance (which is unsafe).  To illustrate this, the following test fails in 1.4:
+
+{code}
+class KryoSerializerAutoResetDisabledSuite extends FunSuite with SharedSparkContext {
+  conf.set("spark.serializer", classOf[KryoSerializer].getName)
+  conf.set("spark.kryo.registrator", classOf[RegistratorWithoutAutoReset].getName)
+
+  test("sort-shuffle with bypassMergeSort") {
+    val myObject = ("Hello", "World")
+    assert(sc.parallelize(Seq.fill(100)(myObject)).repartition(2).collect().toSet === Set(myObject))
+  }
+}
+{code}
+
+This was introduced by a patch (SPARK-3386) which enables serializer re-use in some of the shuffle paths, since constructing new serializer instances is actually pretty costly for KryoSerializer.  We had already fixed another corner-case (SPARK-7766) bug related to this, but missed this one.  From an engineering risk management perspective, we probably should have just reverted the original serializer reuse patch and added a big cross-product-of-configurations-and-shuffle-managers test suite before attempting to fix the defects.
+
+I think that I have a pretty simple fix for this, but we still might want to consider a revert for 1.4 just to be safe.
+
+
+---
+
+* [SPARK-7868](https://issues.apache.org/jira/browse/SPARK-7868) | *Major* | **Ignores "\_temporary" directories while listing files in HadoopFsRelation**
+
+In some cases, failed tasks/jobs may leave uncommitted partial/corrupted data in {{\_temporary}} directory. These files should be counted as input files of a {{HadoopFsRelation}}.
+
+
+---
+
+* [SPARK-7864](https://issues.apache.org/jira/browse/SPARK-7864) | *Blocker* | **Clicking a job's DAG graph on Web UI kills the job as the link is broken**
+
+When clicking a job's DAG graph on Web UI, the user is expected to be redirected to the corresponding stage page. The link is got from the stage table by selecting the first link. But there are two links in each row, the first one is the killLink, the second is the nameLink.
+
+
+---
+
+* [SPARK-7858](https://issues.apache.org/jira/browse/SPARK-7858) | *Critical* | **DataSourceStrategy.createPhysicalRDD should use output schema when performing row conversions, not relation schema**
+
+In {{DataSourceStrategy.createPhysicalRDD}}, we use the relation schema as the target schema for converting incoming rows into Catalyst rows.  However, we should be using the output schema instead, since our scan might return a subset of the relation's columns.
+
+
+---
+
+* [SPARK-7853](https://issues.apache.org/jira/browse/SPARK-7853) | *Blocker* | **ClassNotFoundException for SparkSQL**
+
+Reproduce steps:
+{code}
+bin/spark-sql --jars ./sql/hive/src/test/resources/hive-hcatalog-core-0.13.1.jar
+CREATE TABLE t1(a string, b string) ROW FORMAT SERDE 'org.apache.hive.hcatalog.data.JsonSerDe';
+{code}
+
+Throws Exception like:
+{noformat}
+15/05/26 00:16:33 ERROR SparkSQLDriver: Failed in [CREATE TABLE t1(a string, b string) ROW FORMAT SERDE 'org.apache.hive.hcatalog.data.JsonSerDe']
+org.apache.spark.sql.execution.QueryExecutionException: FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Cannot validate serde: org.apache.hive.hcatalog.data.JsonSerDe
+	at org.apache.spark.sql.hive.client.ClientWrapper$$anonfun$runHive$1.apply(ClientWrapper.scala:333)
+	at org.apache.spark.sql.hive.client.ClientWrapper$$anonfun$runHive$1.apply(ClientWrapper.scala:310)
+	at org.apache.spark.sql.hive.client.ClientWrapper.withHiveState(ClientWrapper.scala:139)
+	at org.apache.spark.sql.hive.client.ClientWrapper.runHive(ClientWrapper.scala:310)
+	at org.apache.spark.sql.hive.client.ClientWrapper.runSqlHive(ClientWrapper.scala:300)
+	at org.apache.spark.sql.hive.HiveContext.runSqlHive(HiveContext.scala:457)
+	at org.apache.spark.sql.hive.execution.HiveNativeCommand.run(HiveNativeCommand.scala:33)
+	at org.apache.spark.sql.execution.ExecutedCommand.sideEffectResult$lzycompute(commands.scala:57)
+	at org.apache.spark.sql.execution.ExecutedCommand.sideEffectResult(commands.scala:57)
+	at org.apache.spark.sql.execution.ExecutedCommand.doExecute(commands.scala:68)
+	at org.apache.spark.sql.execution.SparkPlan$$anonfun$execute$1.apply(SparkPlan.scala:88)
+	at org.apache.spark.sql.execution.SparkPlan$$anonfun$execute$1.apply(SparkPlan.scala:88)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:148)
+	at org.apache.spark.sql.execution.SparkPlan.execute(SparkPlan.scala:87)
+	at org.apache.spark.sql.SQLContext$QueryExecution.toRdd$lzycompute(SQLContext.scala:922)
+	at org.apache.spark.sql.SQLContext$QueryExecution.toRdd(SQLContext.scala:922)
+	at org.apache.spark.sql.DataFrame.<init>(DataFrame.scala:147)
+	at org.apache.spark.sql.DataFrame.<init>(DataFrame.scala:131)
+	at org.apache.spark.sql.DataFrame$.apply(DataFrame.scala:51)
+	at org.apache.spark.sql.SQLContext.sql(SQLContext.scala:727)
+	at org.apache.spark.sql.hive.thriftserver.AbstractSparkSQLDriver.run(AbstractSparkSQLDriver.scala:57)
+	at org.apache.spark.sql.hive.thriftserver.SparkSQLCLIDriver.processCmd(SparkSQLCLIDriver.scala:283)
+	at org.apache.hadoop.hive.cli.CliDriver.processLine(CliDriver.java:423)
+	at org.apache.spark.sql.hive.thriftserver.SparkSQLCLIDriver$.main(SparkSQLCLIDriver.scala:218)
+	at org.apache.spark.sql.hive.thriftserver.SparkSQLCLIDriver.main(SparkSQLCLIDriver.scala)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.apache.spark.deploy.SparkSubmit$.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:664)
+	at org.apache.spark.deploy.SparkSubmit$.doRunMain$1(SparkSubmit.scala:169)
+	at org.apache.spark.deploy.SparkSubmit$.submit(SparkSubmit.scala:192)
+	at org.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:111)
+	at org.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)
+{noformat}
+
+
+---
+
+* [SPARK-7850](https://issues.apache.org/jira/browse/SPARK-7850) | *Minor* | **Hive 0.12.0 profile in POM should be removed**
+
+Spark 1.4 supports the multiple metastore versions in a single build (hive-0.13.1) by introducing the IsolatedClientLoader, so {{-Phive-0.12.0}} is no longer needed.
+
+
+---
+
+* [SPARK-7849](https://issues.apache.org/jira/browse/SPARK-7849) | *Critical* | **Update Spark SQL Hive support documentation for 1.4**
+
+Hive support contents need to be updated for 1.4. Most importantly, after introducing the isolated classloader mechanism in 1.4, the following questions need to be clarified:
+
+# How to enable Hive support
+# What versions of Hive are supported
+# How to specify metastore version
+
+
+---
+
+* [SPARK-7847](https://issues.apache.org/jira/browse/SPARK-7847) | *Critical* | **Fix dynamic partition path escaping**
+
+Background: when writing dynamic partitions, partition values are converted to string and escaped if necessary. For example, a partition column {{p}} of type {{String}} may have a value {{A/B}}, then the corresponding partition directory name is escaped into {{p=A%2fB}}.
+
+Currently, there are two issues regarding to dynamic partition path escaping. The first issue is that, when reading back partition values, escaped strings are not unescaped. This one is easy to fix.
+
+The second issue is more subtle. In [PR #5381|https://github.com/apache/spark/pull/5381/files#diff-c69b9e667e93b7e4693812cc72abb65fR492] we tried to use {{Path.toUri.toString}} to fix an escaping issue related to S3 credentials with {{/}} character. Unfortunately, {{Path.toUri.toString}} also escapes {{%}} characters in the path. Thus, using the dynamic partitioning case mentioned above, {{p=A%2fB}} is double escaped into {{p=A%252fB}} ({{%}} escaped into {{%25}}).
+
+The expected behavior here should be, only escaping the URI user info part (S3 key and secret) but leave all other components untouched.
+
+
+---
+
+* [SPARK-7845](https://issues.apache.org/jira/browse/SPARK-7845) | *Critical* | **Bump "Hadoop 1" tests to version 1.2.1**
+
+A small number of API's in Hadoop were added between 1.0.4 and 1.2.1. It appears this is one cause of SPARK-7843 since some Hive code relies on newer Hadoop API's. My feeling is we should just bump our tested version up to 1.2.1 (both versions are extremely old). If users are still on < 1.2.1 and run into some of these corner cases, we can consider doing some engineering and supporting the older versions. I'd like to bump our test version though and let this be driven by users, if they exist.
+
+https://github.com/apache/spark/blob/master/dev/run-tests#L43
+
+
+---
+
+* [SPARK-7844](https://issues.apache.org/jira/browse/SPARK-7844) | *Critical* | **Broken tests in KernelDensity**
+
+The densities in KernelDensity are scaled down by (number of parallel processes X number of points). This results in broken tests in KernelDensitySuite which haven't been tested properly. I think it should just be scaled down by (number of samples, i.e number of gaussian distributions)
+
+
+---
+
+* [SPARK-7842](https://issues.apache.org/jira/browse/SPARK-7842) | *Critical* | **For InsertIntoHadoopFsRelation, if an exception is thrown while committing a task, the task is not aborted**
+
+This is related to spark-7838, where an exception is thrown when committing a task which writes a Parquet file. To be more specific, an exception is thrown from {{OutputWriter.close()}}. In this case, we should catch the exception and call {{abortTask()}} accordingly.
+
+
+---
+
+* [SPARK-7838](https://issues.apache.org/jira/browse/SPARK-7838) | *Critical* | **Set scope name for Kinesis stream**
+
+Currently the scope shows up as "receiver stream" as Kinesis uses ssc.receiverStream()
+
+
+---
+
+* [SPARK-7836](https://issues.apache.org/jira/browse/SPARK-7836) | *Blocker* | **DataFrame.ntile() should only accept Int as parameter**
+
+see https://msdn.microsoft.com/en-us/library/ms175126.aspx and http://docs.oracle.com/cd/B19306\_01/server.102/b14200/functions101.htm
+
+
+---
+
+* [SPARK-7833](https://issues.apache.org/jira/browse/SPARK-7833) | *Major* | **Add python wrapper for RegressionEvaluator**
+
+Add a python wrapper for RegressionEvaluator in the ML Pipeline
+
+
+---
+
+* [SPARK-7832](https://issues.apache.org/jira/browse/SPARK-7832) | *Critical* | **Always run SQL tests in master build.**
+
+Our master build does not run Hive compatibility tests. We need to enable them.
+
+
+---
+
+* [SPARK-7830](https://issues.apache.org/jira/browse/SPARK-7830) | *Trivial* | **ML doc cleanup: logreg, classification link**
+
+Add logistic regression to the list of Multiclass Classification Supported Methods in the MLlib Classification and Regression documentation, and fix related broken link.
+
+
+---
+
+* [SPARK-7806](https://issues.apache.org/jira/browse/SPARK-7806) | *Minor* | **spark-ec2 launch script fails for Python3**
+
+Depending on the options used the spark-ec2 script will terminate ungracefully.  
+
+Relevant buglets include:
+ - urlopen() returning bytes vs. string
+ - floor division change for partition calculation
+ - filter() iteration behavior change in module calculation
+
+I have a fixed version that I wish to contribute.
+
+
+---
+
+* [SPARK-7805](https://issues.apache.org/jira/browse/SPARK-7805) | *Critical* | **Move SQLTestUtils.scala form src/main**
+
+These trigger binary compatibility issues when changed. In general we shouldn't be putting test code in src/main. If it's needed by multiple modules, IIRC we have a way to do that (look elsewhere in Spark).
+
+
+---
+
+* [SPARK-7800](https://issues.apache.org/jira/browse/SPARK-7800) | *Minor* | **isDefined should not marked too early in putNewKey**
+
+isDefined is marked as true twice in Location.putNewKey. The first one is unnecessary and will cause problem because it is too early and before some assert checking.
+
+
+---
+
+* [SPARK-7794](https://issues.apache.org/jira/browse/SPARK-7794) | *Major* | **Update RegexTokenizer default settings.**
+
+Should use a simple default.
+
+
+---
+
+* [SPARK-7793](https://issues.apache.org/jira/browse/SPARK-7793) | *Minor* | **Use getOrElse for getting the threshold of SVM model**
+
+same issue and fix as in Spark-7694
+
+
+---
+
+* [SPARK-7788](https://issues.apache.org/jira/browse/SPARK-7788) | *Blocker* | **Streaming \| Kinesis \| KinesisReceiver blocks in onStart**
+
+KinesisReceiver calls worker.run() which is a blocking call (while loop) as per source code of kinesis-client library - https://github.com/awslabs/amazon-kinesis-client/blob/v1.2.1/src/main/java/com/amazonaws/services/kinesis/clientlibrary/lib/worker/Worker.java.
+
+This results in infinite loop while calling sparkStreamingContext.stop(stopSparkContext = false, stopGracefully = true) perhaps because ReceiverTracker is never able to register the receiver (it's receiverInfo field is a empty map) causing it to be stuck in infinite loop while waiting for running flag to be set to false. 
+
+Also, we should investigate a way to have receiver restart in case of failures.
+
+
+---
+
+* [SPARK-7787](https://issues.apache.org/jira/browse/SPARK-7787) | *Blocker* | **SerializableAWSCredentials in KinesisReceiver cannot be deserialized**
+
+Lack of default constructor causes deserialization to fail. This occurs only when the AWS credentials are explicitly specified through KinesisUtils.
+
+
+---
+
+* [SPARK-7782](https://issues.apache.org/jira/browse/SPARK-7782) | *Minor* | **A small problem on history server webpage**
+
+A very little problem on spark history server webpage.
+
+we can click on head of each row to sort the app lists, for example sort by "start time" or "completed time". But when it shows with the down arrow, it's actually with ascending order.
+
+
+---
+
+* [SPARK-7779](https://issues.apache.org/jira/browse/SPARK-7779) | *Major* | **Dynamic allocation: confusing message when canceling requests**
+
+Right now a long-running job with DA outputs the following. This is somewhat confusing to the user (why is my new desired total dropping??)
+{code}
+INFO ExecutorAllocationManager: Requesting 0 new executor(s) because tasks are backlogged (new desired total will be 46)
+INFO ExecutorAllocationManager: Requesting 0 new executor(s) because tasks are backlogged (new desired total will be 44)
+INFO ExecutorAllocationManager: Requesting 0 new executor(s) because tasks are backlogged (new desired total will be 42)
+INFO ExecutorAllocationManager: Requesting 0 new executor(s) because tasks are backlogged (new desired total will be 40)
+INFO ExecutorAllocationManager: Requesting 0 new executor(s) because tasks are backlogged (new desired total will be 38)
+INFO ExecutorAllocationManager: Requesting 0 new executor(s) because tasks are backlogged (new desired total will be 36)
+...
+{code}
+
+
+---
+
+* [SPARK-7777](https://issues.apache.org/jira/browse/SPARK-7777) | *Minor* | **Fix a flaky test: org.apache.spark.streaming.BasicOperationsSuite.rdd cleanup - input blocks and persisted RDDs**
+
+Fix the following flaky test:
+
+https://amplab.cs.berkeley.edu/jenkins/job/SparkPullRequestBuilder/33166/testReport/junit/org.apache.spark.streaming/BasicOperationsSuite/rdd\_cleanup\_\_\_input\_blocks\_and\_persisted\_RDDs/
+
+
+---
+
+* [SPARK-7776](https://issues.apache.org/jira/browse/SPARK-7776) | *Blocker* | **Add shutdown hook to stop StreamingContext**
+
+Shutdown hook to stop SparkContext was added recently. This results in ugly errors when a streaming application is terminated by ctrl-C.
+
+{code}
+Exception in thread "Thread-27" org.apache.spark.SparkException: Job cancelled because SparkContext was shut down
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$cleanUpAfterSchedulerStop$1.apply(DAGScheduler.scala:736)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$cleanUpAfterSchedulerStop$1.apply(DAGScheduler.scala:735)
+	at scala.collection.mutable.HashSet.foreach(HashSet.scala:79)
+	at org.apache.spark.scheduler.DAGScheduler.cleanUpAfterSchedulerStop(DAGScheduler.scala:735)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onStop(DAGScheduler.scala:1468)
+	at org.apache.spark.util.EventLoop.stop(EventLoop.scala:84)
+	at org.apache.spark.scheduler.DAGScheduler.stop(DAGScheduler.scala:1403)
+	at org.apache.spark.SparkContext.stop(SparkContext.scala:1642)
+	at org.apache.spark.SparkContext$$anonfun$3.apply$mcV$sp(SparkContext.scala:559)
+	at org.apache.spark.util.SparkShutdownHook.run(Utils.scala:2266)
+	at org.apache.spark.util.SparkShutdownHookManager$$anonfun$runAll$1$$anonfun$apply$mcV$sp$1.apply$mcV$sp(Utils.scala:2236)
+	at org.apache.spark.util.SparkShutdownHookManager$$anonfun$runAll$1$$anonfun$apply$mcV$sp$1.apply(Utils.scala:2236)
+	at org.apache.spark.util.SparkShutdownHookManager$$anonfun$runAll$1$$anonfun$apply$mcV$sp$1.apply(Utils.scala:2236)
+	at org.apache.spark.util.Utils$.logUncaughtExceptions(Utils.scala:1764)
+	at org.apache.spark.util.SparkShutdownHookManager$$anonfun$runAll$1.apply$mcV$sp(Utils.scala:2236)
+	at org.apache.spark.util.SparkShutdownHookManager$$anonfun$runAll$1.apply(Utils.scala:2236)
+	at org.apache.spark.util.SparkShutdownHookManager$$anonfun$runAll$1.apply(Utils.scala:2236)
+	at scala.util.Try$.apply(Try.scala:161)
+	at org.apache.spark.util.SparkShutdownHookManager.runAll(Utils.scala:2236)
+	at org.apache.spark.util.SparkShutdownHookManager$$anon$6.run(Utils.scala:2218)
+	at org.apache.hadoop.util.ShutdownHookManager$1.run(ShutdownHookManager.java:54)
+{code}
+
+This is because the Spark's shutdown hook stops the context, and the streaming jobs fail in the middle. The correct solution is to stop the streaming context before the spark context.
+
+
+---
+
+* [SPARK-7774](https://issues.apache.org/jira/browse/SPARK-7774) | *Minor* | **Add sqlContext to MLlibTestSparkContext**
+
+to simplify test suites that requires a SQLContext.
+
+
+---
+
+* [SPARK-7771](https://issues.apache.org/jira/browse/SPARK-7771) | *Major* | **Dynamic allocation: lower timeouts further**
+
+While testing, I found that the existing timeouts of 5s to add and 600s to remove still too high for many workloads.
+
+
+---
+
+* [SPARK-7767](https://issues.apache.org/jira/browse/SPARK-7767) | *Critical* | **Fail fast if the DStream checkpoint is not serializable**
+
+Currently, the background checkpointing thread fails silently if the checkpoint is not serializable. It is hard to debug and therefore its best to fail fast at `start()` when checkpointing is enabled and the checkpoint is not serializable.
+
+
+---
+
+* [SPARK-7766](https://issues.apache.org/jira/browse/SPARK-7766) | *Blocker* | **KryoSerializerInstance reuse is not safe when auto-reset is disabled**
+
+SPARK-3386 modified the shuffle write path to re-use serializer instances across multiple calls to DiskBlockObjectWriter.  It turns out that this introduced a very rare bug when using KryoSerializer: if auto-reset is disabled and reference-tracking is enabled, then we'll end up re-using the same serializer instance to write multiple output streams without calling {{reset()}} between write calls, which can lead to cases where objects in one file may contain references to objects that are in previous files, which can cause errors during deserialization.
+
+The fix should be simple: add {{reset}} calls at the end of {{serialize}} and {{serializeStream}}.
+
+Thanks to John Carrino for reporting this issue on GItHub: https://github.com/apache/spark/pull/5606#issuecomment-103995103
+
+
+---
+
+* [SPARK-7763](https://issues.apache.org/jira/browse/SPARK-7763) | *Blocker* | **Partition columns of data source tables should be persisted into metastore when creating persisted tables**
+
+Partition columns of {{HadoopFsRelation}} should be persisted into Hive metastore together with relation schema. However, storing paths of all partitions into metastore might become a bottleneck. Instead, we always do a partition discovery while loading back the relation.
+
+
+---
+
+* [SPARK-7762](https://issues.apache.org/jira/browse/SPARK-7762) | *Major* | **Set default value for outputCol based on UID**
+
+For transformers in the middle of a pipeline, users may not care about the output column names. We can set the default value of outputCol based on the UID, instead of forcing users to name one.
+
+
+---
+
+* [SPARK-7760](https://issues.apache.org/jira/browse/SPARK-7760) | *Blocker* | **Master & Worker json endpoints missing**
+
+the standalone cluster master & worker "/json" endpoints were accidentally removed in https://issues.apache.org/jira/browse/SPARK-3454.  Need to add them back in
+
+
+---
+
+* [SPARK-7758](https://issues.apache.org/jira/browse/SPARK-7758) | *Blocker* | **Failed to start thrift server when metastore is postgre sql**
+
+I am using today's master branch to start thrift server with setting metastore to postgre sql, and it shows error like:
+{code}
+15/05/20 20:43:57 DEBUG Schema: DROP TABLE DELETEME1432125837197 CASCADE
+15/05/20 20:43:57 ERROR Datastore: Error thrown executing DROP TABLE DELETEME1432125837197 CASCADE : Syntax error: Encountered "CASCADE" at line 1, column 34.
+java.sql.SQLSyntaxErrorException: Syntax error: Encountered "CASCADE" at line 1, column 34.
+	at org.apache.derby.impl.jdbc.SQLExceptionFactory40.getSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.Util.generateCsSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.TransactionResourceImpl.wrapInSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.TransactionResourceImpl.handleException(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection.handleException(Unknown Source)
+	at org.apache.derby.impl.jdbc.ConnectionChild.handleException(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedStatement.execute(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedStatement.execute(Unknown Source)
+	at org.datanucleus.store.rdbms.datasource.dbcp.DelegatingStatement.execute(DelegatingStatement.java:264)
+	at org.datanucleus.store.rdbms.datasource.dbcp.DelegatingStatement.execute(DelegatingStatement.java:264)`
+
+But it works well with earlier master branch (on 7th, April).
+After printing their debug level log, I found current branch tries to connect with derby but didn't know why, maybe the big reconstructure in sql module cause this issue.
+
+The Datastore shows in current branch:
+15/05/20 20:43:57 DEBUG Datastore: ======================= Datastore =========================
+15/05/20 20:43:57 DEBUG Datastore: StoreManager : "rdbms" (org.datanucleus.store.rdbms.RDBMSStoreManager)
+15/05/20 20:43:57 DEBUG Datastore: Datastore : read-write
+15/05/20 20:43:57 DEBUG Datastore: Schema Control : AutoCreate(None), Validate(None)
+15/05/20 20:43:57 DEBUG Datastore: Query Languages : [JDOQL, JPQL, SQL, STOREDPROC]
+15/05/20 20:43:57 DEBUG Datastore: Queries : Timeout=0
+15/05/20 20:43:57 DEBUG Datastore: ===========================================================
+15/05/20 20:43:57 DEBUG Datastore: Datastore Adapter : org.datanucleus.store.rdbms.adapter.PostgreSQLAdapter
+15/05/20 20:43:57 DEBUG Datastore: Datastore : name="Apache Derby" version="10.10.1.1 - (1458268)"
+15/05/20 20:43:57 DEBUG Datastore: Datastore Driver : name="Apache Derby Embedded JDBC Driver" version="10.10.1.1 - (1458268)"
+15/05/20 20:43:57 DEBUG Datastore: Primary Connection Factory : URL[jdbc:derby:;databaseName=/tmp/spark-8b38e943-01e5-4341-9c92-7c250f2dec96/metastore;create=true]
+15/05/20 20:43:57 DEBUG Datastore: Secondary Connection Factory : URL[jdbc:derby:;databaseName=/tmp/spark-8b38e943-01e5-4341-9c92-7c250f2dec96/metastore;create=true]
+15/05/20 20:43:57 DEBUG Datastore: Datastore Identifiers : factory="datanucleus1" case=UPPERCASE catalog= schema=SPARK
+15/05/20 20:43:57 DEBUG Datastore: Supported Identifier Cases : "MixedCase" UPPERCASE "MixedCase-Sensitive" 
+15/05/20 20:43:57 DEBUG Datastore: Supported Identifier Lengths (max) : Table=128 Column=128 Constraint=128 Index=128 Delimiter="
+15/05/20 20:43:57 DEBUG Datastore: Support for Identifiers in DDL : catalog=false schema=true
+15/05/20 20:43:57 DEBUG Datastore: Datastore : checkTableViewExistence, rdbmsConstraintCreateMode=DataNucleus, initialiseColumnInfo=ALL
+15/05/20 20:43:57 DEBUG Datastore: Support Statement Batching : yes (max-batch-size=50)
+15/05/20 20:43:57 DEBUG Datastore: Queries : Results direction=forward, type=forward-only, concurrency=read-only
+15/05/20 20:43:57 DEBUG Datastore: Java-Types : string-default-length=255
+15/05/20 20:43:57 DEBUG Datastore: JDBC-Types : [id=2009], BLOB, CLOB, TIME, DATE, BOOLEAN, VARCHAR, DECIMAL, NUMERIC, CHAR, BINARY, FLOAT, LONGVARBINARY, VARBINARY, JAVA\_OBJECT
+15/05/20 20:43:57 DEBUG Datastore: ===========================================================
+
+The Datastore in earlier master branch:
+15/05/20 20:18:10 DEBUG Datastore: ======================= Datastore =========================
+15/05/20 20:18:10 DEBUG Datastore: StoreManager : "rdbms" (org.datanucleus.store.rdbms.RDBMSStoreManager)
+15/05/20 20:18:10 DEBUG Datastore: Datastore : read-write
+15/05/20 20:18:10 DEBUG Datastore: Schema Control : AutoCreate(None), Validate(None)
+15/05/20 20:18:10 DEBUG Datastore: Query Languages : [JDOQL, JPQL, SQL, STOREDPROC]
+15/05/20 20:18:10 DEBUG Datastore: Queries : Timeout=0
+15/05/20 20:18:10 DEBUG Datastore: ===========================================================
+15/05/20 20:18:10 DEBUG Datastore: Datastore Adapter : org.datanucleus.store.rdbms.adapter.PostgreSQLAdapter
+15/05/20 20:18:10 DEBUG Datastore: Datastore : name="GaussDB" version="9.2.1"
+15/05/20 20:18:10 DEBUG Datastore: Datastore Driver : name="PostgreSQL Native Driver" version="PostgreSQL 9.1 JDBC4 (build 902)"
+15/05/20 20:18:10 DEBUG Datastore: Primary Connection Factory : URL[jdbc:postgresql://9.91.88.98:20051/sparkhivemeta]
+15/05/20 20:18:10 DEBUG Datastore: Secondary Connection Factory : URL[jdbc:postgresql://9.91.88.98:20051/sparkhivemeta]
+15/05/20 20:18:10 DEBUG Datastore: Datastore Identifiers : factory="datanucleus1" case=UPPERCASE schema=PUBLIC
+15/05/20 20:18:10 DEBUG Datastore: Supported Identifier Cases : "MixedCase" UPPERCASE "MixedCase-Sensitive" 
+15/05/20 20:18:10 DEBUG Datastore: Supported Identifier Lengths (max) : Table=63 Column=63 Constraint=63 Index=63 Delimiter="
+15/05/20 20:18:10 DEBUG Datastore: Support for Identifiers in DDL : catalog=false schema=true
+15/05/20 20:18:10 DEBUG Datastore: Datastore : checkTableViewExistence, rdbmsConstraintCreateMode=DataNucleus, initialiseColumnInfo=ALL
+15/05/20 20:18:10 DEBUG Datastore: Support Statement Batching : yes (max-batch-size=50)
+15/05/20 20:18:10 DEBUG Datastore: Queries : Results direction=forward, type=forward-only, concurrency=read-only
+15/05/20 20:18:10 DEBUG Datastore: Java-Types : string-default-length=255
+15/05/20 20:18:10 DEBUG Datastore: JDBC-Types : BLOB, CLOB, TIMESTAMP, TIME, STRUCT, DATE, [id=3838], ARRAY, VARCHAR, NUMERIC, CHAR, REAL, LONGVARCHAR, LONGVARBINARY, SMALLINT, INTEGER, BIGINT, BIT, DOUBLE, DISTINCT
+15/05/20 20:18:10 DEBUG Datastore: ===========================================================
+{code}
+
+I pasted the two logs and hive-site.xml here, the launch command is just "./start-thriftserver.sh".
+
+Hope someone can help solve this. THanks!
+
+
+---
+
+* [SPARK-7756](https://issues.apache.org/jira/browse/SPARK-7756) | *Minor* | **Ensure Spark runs clean on IBM Java implementation**
+
+Spark should run successfully on the IBM Java implementation.  This issue is to gather any minor issues seen running the tests and examples that are attributable to differences in Java vendor.
+
+
+---
+
+* [SPARK-7753](https://issues.apache.org/jira/browse/SPARK-7753) | *Major* | **Improve kernel density API**
+
+Kernel density estimation is provided in many statistics libraries: http://en.wikipedia.org/wiki/Kernel\_density\_estimation#Statistical\_implementation. We should make sure that we implement a similar API. The two most important parameters of kernel density estimation are kernel type and bandwidth. Besides density estimation, it is also used for smoothing. The current API is designed only for Gaussian kernel and density estimation:
+
+{code}
+def kernelDensity(samples: RDD[Double], standardDeviation: Double, evaluationPoints: Iterable[Double]): Array[Double]
+{code}
+
+It would be nice if we can come up with an extensible API.
+
+
+---
+
+* [SPARK-7752](https://issues.apache.org/jira/browse/SPARK-7752) | *Minor* | **NaiveBayes.modelType should use lowercase letters**
+
+And we also need to update the implementation to use vals instead of hard-coded strings.
+
+
+---
+
+* [SPARK-7750](https://issues.apache.org/jira/browse/SPARK-7750) | *Critical* | **Rename "json" endpoints to "api" endpoints**
+
+Sorry for bringing this in at the last moment, but we should rename the endpoints from <address>/json/v1... to <address>/api/v1.. since it is likely we will add API that can do more than return JSON, like being able to download event logs. In that case the current api can be misleading.
+
+This is a compatibility issue, so it has to go into 1.4
+
+
+---
+
+* [SPARK-7749](https://issues.apache.org/jira/browse/SPARK-7749) | *Blocker* | **Parquet metastore conversion does not use metastore cache**
+
+Seems https://github.com/apache/spark/blob/master/sql/core/src/main/scala/org/apache/spark/sql/sources/interfaces.scala#L462-467 is wrong.
+
+
+---
+
+* [SPARK-7748](https://issues.apache.org/jira/browse/SPARK-7748) | *Critical* | **Graduate spark.ml from alpha**
+
+With descent coverage of feature transformers, algorithms, and model tuning support, it is time to graduate spark.ml from alpha.
+
+
+---
+
+* [SPARK-7746](https://issues.apache.org/jira/browse/SPARK-7746) | *Major* | **SetFetchSize for JDBCRDD's prepareStatement**
+
+The prepareStatement created internal to compute() method in JDBCRDD should have some options that the setFetchSize() can be set.  We found that the parameter can affect Oracle DB tremendously. With current implementation, we have no way to set the size.  
+
+One of my team did his implementation, and we found 10X improvement by setting the size to a proper number.
+
+
+---
+
+* [SPARK-7745](https://issues.apache.org/jira/browse/SPARK-7745) | *Minor* | **Replace assertions with requires (IllegalArgumentException) and modify other state checks**
+
+Assertions can be turned off. Require throws an IllegalArgumentException, which makes more sense, when it's a variable set by the user. Also, some SparkException's can be changed to IllegalStateExceptions for the streaming spark context state checks.
+
+
+---
+
+* [SPARK-7744](https://issues.apache.org/jira/browse/SPARK-7744) | *Minor* | **"Distributed matrix" section in MLlib "Data Types" documentation should be reordered.**
+
+The documentation for BlockMatrix should come after RowMatrix, IndexedRowMatrix, and CoordinateMatrix, as BlockMatrix references the later three types, and RowMatrix is considered the "basic" distributed matrix.  This will improve comprehensibility of the "Distributed matrix" section, especially for the new reader.
+
+
+---
+
+* [SPARK-7742](https://issues.apache.org/jira/browse/SPARK-7742) | *Critical* | **Figure out what to do with insertInto w.r.t. DataFrameWriter API**
+
+See https://github.com/apache/spark/pull/6216
+
+
+---
+
+* [SPARK-7741](https://issues.apache.org/jira/browse/SPARK-7741) | *Blocker* | **ContextCleaner not used by many DStream operations**
+
+In the 1.4 branch, this results in java.io.NotSerializableExceptions when trying to use operators wrapped in `withScope` but do not clean closures.
+
+
+---
+
+* [SPARK-7738](https://issues.apache.org/jira/browse/SPARK-7738) | *Critical* | **DataFrame reader/writer API in Python**
+
+The data source read/write API in Python
+
+
+---
+
+* [SPARK-7737](https://issues.apache.org/jira/browse/SPARK-7737) | *Blocker* | **parquet schema discovery should not fail because of empty \_temporary dir**
+
+Parquet schema discovery will fail when the dir is like 
+{code}
+/partitions5k/i=2/\_SUCCESS
+/partitions5k/i=2/\_temporary/
+/partitions5k/i=2/part-r-00001.gz.parquet
+/partitions5k/i=2/part-r-00002.gz.parquet
+/partitions5k/i=2/part-r-00003.gz.parquet
+/partitions5k/i=2/part-r-00004.gz.parquet
+{code}
+
+{code}
+java.lang.AssertionError: assertion failed: Conflicting partition column names detected:
+	
+	at scala.Predef$.assert(Predef.scala:179)
+	at org.apache.spark.sql.sources.PartitioningUtils$.resolvePartitions(PartitioningUtils.scala:159)
+	at org.apache.spark.sql.sources.PartitioningUtils$.parsePartitions(PartitioningUtils.scala:71)
+	at org.apache.spark.sql.sources.HadoopFsRelation.org$apache$spark$sql$sources$HadoopFsRelation$$discoverPartitions(interfaces.scala:468)
+	at org.apache.spark.sql.sources.HadoopFsRelation$$anonfun$partitionSpec$3.apply(interfaces.scala:424)
+	at org.apache.spark.sql.sources.HadoopFsRelation$$anonfun$partitionSpec$3.apply(interfaces.scala:423)
+	at scala.Option.getOrElse(Option.scala:120)
+	at org.apache.spark.sql.sources.HadoopFsRelation.partitionSpec(interfaces.scala:422)
+	at org.apache.spark.sql.sources.HadoopFsRelation.schema$lzycompute(interfaces.scala:482)
+	at org.apache.spark.sql.sources.HadoopFsRelation.schema(interfaces.scala:480)
+	at org.apache.spark.sql.sources.LogicalRelation.<init>(LogicalRelation.scala:30)
+	at org.apache.spark.sql.DataFrameReader.load(DataFrameReader.scala:134)
+	at org.apache.spark.sql.DataFrameReader.load(DataFrameReader.scala:118)
+	at org.apache.spark.sql.SQLContext.load(SQLContext.scala:1135)
+{code}
+
+1.3 works fine.
+
+
+---
+
+* [SPARK-7726](https://issues.apache.org/jira/browse/SPARK-7726) | *Blocker* | **Maven Install Breaks When Upgrading Scala 2.11.2--\>[2.11.3 or higher]**
+
+This one took a long time to track down. The Maven install phase is part of our release process. It runs the "scala:doc" target to generate doc jars. Between Scala 2.11.2 and Scala 2.11.3, the behavior of this plugin changed in a way that breaks our build. In both cases, it returned an error (there has been a long running error here that we've always ignored), however in 2.11.3 that error became fatal and failed the entire build process. The upgrade occurred in SPARK-7092. Here is a simple reproduction:
+
+{code}
+./dev/change-version-to-2.11.sh
+mvn clean install -pl network/common -pl network/shuffle -DskipTests -Dscala-2.11
+{code} 
+
+This command exits success when Spark is at Scala 2.11.2 and fails with 2.11.3 or higher. In either case an error is printed:
+
+{code}
+[INFO] 
+[INFO] --- scala-maven-plugin:3.2.0:doc-jar (attach-scaladocs) @ spark-network-shuffle\_2.11 ---
+/Users/pwendell/Documents/spark/network/shuffle/src/main/java/org/apache/spark/network/shuffle/protocol/UploadBlock.java:56: error: not found: type Type
+  protected Type type() { return Type.UPLOAD\_BLOCK; }
+            ^
+/Users/pwendell/Documents/spark/network/shuffle/src/main/java/org/apache/spark/network/shuffle/protocol/StreamHandle.java:37: error: not found: type Type
+  protected Type type() { return Type.STREAM\_HANDLE; }
+            ^
+/Users/pwendell/Documents/spark/network/shuffle/src/main/java/org/apache/spark/network/shuffle/protocol/RegisterExecutor.java:44: error: not found: type Type
+  protected Type type() { return Type.REGISTER\_EXECUTOR; }
+            ^
+/Users/pwendell/Documents/spark/network/shuffle/src/main/java/org/apache/spark/network/shuffle/protocol/OpenBlocks.java:40: error: not found: type Type
+  protected Type type() { return Type.OPEN\_BLOCKS; }
+            ^
+model contains 22 documentable templates
+four errors found
+{code}
+
+Ideally we'd just dig in and fix this error. Unfortunately it's a very confusing error and I have no idea why it is appearing. I'd propose reverting SPARK-7092 in the mean time.
+
+
+---
+
+* [SPARK-7724](https://issues.apache.org/jira/browse/SPARK-7724) | *Trivial* | **Add support for Intersect and Except in Catalyst DSL**
+
+Catalyst DSL to create logical plans supports most of the current plan, but it is missing Except and Intersect. See LogicalPlanFunctions:
+
+https://github.com/apache/spark/blob/6008ec14ed6491d0a854bb50548c46f2f9709269/sql/catalyst/src/main/scala/org/apache/spark/sql/catalyst/dsl/package.scala#L248
+
+
+---
+
+* [SPARK-7723](https://issues.apache.org/jira/browse/SPARK-7723) | *Trivial* | **Fix string interpolation in pipeline examples**
+
+String interpolation prefix s is missing in the example: Estimator, Transformer, and Param.
+
+File: docs/ml-guide.md
+
+
+---
+
+* [SPARK-7722](https://issues.apache.org/jira/browse/SPARK-7722) | *Critical* | **Style checks do not run for Kinesis on Jenkins**
+
+This caused the release build to fail late in the game. We should make sure jenkins is proactively checking it:
+
+https://git-wip-us.apache.org/repos/asf?p=spark.git;a=commitdiff;h=23cf897112624ece19a3b5e5394cdf71b9c3c8b3;hp=9ebb44f8abb1a13f045eed60190954db904ffef7
+
+
+---
+
+* [SPARK-7719](https://issues.apache.org/jira/browse/SPARK-7719) | *Critical* | **Java 6 code in UnsafeShuffleWriterSuite**
+
+This was causing a compile failure because emptyIterator() is not exposed in some versions of Java 6. I lost the exact compile error along the way in the console, but it's just a simple visibility issue.
+
+https://github.com/apache/spark/commit/9ebb44f8abb1a13f045eed60190954db904ffef7
+
+I've removed the test code for now, but we probably want to use something from Guava instead for this:
+http://docs.guava-libraries.googlecode.com/git/javadoc/com/google/common/collect/Iterators.html
+
+
+---
+
+* [SPARK-7718](https://issues.apache.org/jira/browse/SPARK-7718) | *Critical* | **Speed up data source partitioning by avoiding cleaning closures**
+
+The new partitioning support strategy creates a bunch of RDDs (1 per partition, could be up to several thousands), then calls `mapPartitions` on every single one of these RDDs. This causes us to clean the same closure many times. Since we provide the closure in Spark we know for sure it is serializable, so we can bypass the cleaning for performance.
+
+According to [~yhuai] cleaning 5000 closures take up to 6-7 seconds in a 12 seconds job that involves data source partitioning.
+
+
+---
+
+* [SPARK-7713](https://issues.apache.org/jira/browse/SPARK-7713) | *Blocker* | **Use shared broadcast hadoop conf for partitioned table scan.**
+
+While debugging SPARK-7673, we also found that we are broadcasting a hadoop conf for every Partition (backed by a Hadoop RDD). It also causes the performance regression of compiling a query involving a large number of partitions.
+
+
+---
+
+* [SPARK-7711](https://issues.apache.org/jira/browse/SPARK-7711) | *Minor* | **startTime() is missing**
+
+In PySpark 1.3, there appears to be no [startTime|https://spark.apache.org/docs/latest/api/java/org/apache/spark/SparkContext.html#startTime%28%29]:
+{code}
+>>> sc.startTime  
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'SparkContext' object has no attribute 'startTime'
+{code}
+Scala has the method:
+{code}
+scala> sc.startTime
+res1: Long = 1431974499272
+{code}
+
+
+---
+
+* [SPARK-7704](https://issues.apache.org/jira/browse/SPARK-7704) | *Trivial* | **Updating Programming Guides per SPARK-4397**
+
+The change per SPARK-4397 makes implicit objects in SparkContext to be found by the compiler automatically. So that we don't need to import SparkContext.\_ explicitly any more and can remove the statement of "implicit conversions" from the latest Programming Guides (1.3.0 and higher)
+
+http://spark.apache.org/docs/latest/programming-guide.html
+
+
+---
+
+* [SPARK-7698](https://issues.apache.org/jira/browse/SPARK-7698) | *Major* | **Implement buffer pooling / re-use in ExecutorMemoryManager when using HeapAllocator**
+
+When on-heap memory allocation is used, ExecutorMemoryManager should maintain a cache / pool of buffers for re-use by tasks.  This will significantly improve the performance of the new Tungsten's sort-shuffle for jobs with many short-lived tasks by eliminating a major source of GC.
+
+
+---
+
+* [SPARK-7697](https://issues.apache.org/jira/browse/SPARK-7697) | *Major* | **Column with an unsigned int should be treated as long in JDBCRDD**
+
+Columns with an unsigned numeric type in JDBC should be treated as the next 'larger' Java type
+in JDBCRDD#getCatalystType .
+https://github.com/apache/spark/blob/517eb37a85e0a28820bcfd5d98c50d02df6521c6/sql/core/src/main/scala/org/apache/spark/sql/jdbc/JDBCRDD.scala#L49
+
+{code:title=q.sql}
+create table t1 (id int unsigned);
+insert into t1 values (4234567890);
+{code}
+
+{code:title=T1.scala}
+import org.apache.spark.{SparkConf, SparkContext}
+import org.apache.spark.sql.SQLContext
+
+object T1 {
+  def main(args: Array[String]) {
+    val sc = new SparkContext(new SparkConf())
+    val s = new SQLContext(sc)
+    val url = "jdbc:mysql://localhost/test"
+    val t1 = s.jdbc(url, "t1")
+    t1.printSchema()
+    t1.collect().foreach(println)
+  }
+}
+{code}
+
+This code caused error like below.
+{noformat}
+15/05/18 11:39:51 WARN TaskSetManager: Lost task 0.0 in stage 0.0 (TID 0, xxx): com.mysql.jdbc.exceptions.jdbc4.MySQLDataException: '4.23456789E9' in column '1' is outside valid range for the datatype INTEGER.
+        at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+        at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57)
+        at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+        at java.lang.reflect.Constructor.newInstance(Constructor.java:526)
+        at com.mysql.jdbc.Util.handleNewInstance(Util.java:377)
+        at com.mysql.jdbc.Util.getInstance(Util.java:360)
+        at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:963)
+        at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:935)
+        at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:924)
+        at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:870)
+        at com.mysql.jdbc.ResultSetImpl.throwRangeException(ResultSetImpl.java:7090)
+        at com.mysql.jdbc.ResultSetImpl.parseIntAsDouble(ResultSetImpl.java:6364)
+        at com.mysql.jdbc.ResultSetImpl.getInt(ResultSetImpl.java:2484)
+        at org.apache.spark.sql.jdbc.JDBCRDD$$anon$1.getNext(JDBCRDD.scala:344)
+        at org.apache.spark.sql.jdbc.JDBCRDD$$anon$1.hasNext(JDBCRDD.scala:399)
+...
+{noformat}
+
+
+---
+
 * [SPARK-7694](https://issues.apache.org/jira/browse/SPARK-7694) | *Minor* | **Use getOrElse for getting the threshold of LR model**
 
 The toString method of LogisticRegressionModel calls get method on an Option (threshold) without a safeguard. In spark-shell, the following code 
@@ -43,9 +995,84 @@ So Spark should always use its own thread pools for safety.
 
 ---
 
+* [SPARK-7687](https://issues.apache.org/jira/browse/SPARK-7687) | *Critical* | **DataFrame.describe() should cast all aggregates to String**
+
+In DataFrame.describe(), the count aggregate produces an integer, the avg and stdev aggregates produce doubles, and min and max aggregates can produce varying types depending on what type of column they're applied to. As a result, we should cast all aggregate results to String so that describe()'s output types match its declared output schema.
+
+
+---
+
 * [SPARK-7686](https://issues.apache.org/jira/browse/SPARK-7686) | *Critical* | **Runnable DescribeCommand is assigned wrong physical plan output attributes in SparkStrategies**
 
 In SparkStrategies, RunnableDescribeCommand is passed the output attributes of the table being described rather than the attributes of the describe command's output.  I noticed this when it caused problems in some UnsafeRow conversion code that I'm working on.
+
+
+---
+
+* [SPARK-7684](https://issues.apache.org/jira/browse/SPARK-7684) | *Major* | **TestHive.reset complains Database does not exist: default**
+
+To see the error, try {{test-only org.apache.spark.sql.hive.MetastoreDataSourcesSuite}}. You will see
+{code}
+19:23:30.487 ERROR org.apache.spark.sql.hive.test.TestHive: FATAL ERROR: Failed to reset TestDB state.
+org.apache.spark.sql.execution.QueryExecutionException: FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Database does not exist: default
+	at org.apache.spark.sql.hive.client.ClientWrapper$$anonfun$runHive$1.apply(ClientWrapper.scala:333)
+	at org.apache.spark.sql.hive.client.ClientWrapper$$anonfun$runHive$1.apply(ClientWrapper.scala:310)
+	at org.apache.spark.sql.hive.client.ClientWrapper.withHiveState(ClientWrapper.scala:139)
+	at org.apache.spark.sql.hive.client.ClientWrapper.runHive(ClientWrapper.scala:310)
+	at org.apache.spark.sql.hive.client.ClientWrapper.runSqlHive(ClientWrapper.scala:300)
+	at org.apache.spark.sql.hive.HiveContext.runSqlHive(HiveContext.scala:425)
+	at org.apache.spark.sql.hive.test.TestHiveContext.runSqlHive(TestHive.scala:94)
+	at org.apache.spark.sql.hive.test.TestHiveContext.reset(TestHive.scala:433)
+	at org.apache.spark.sql.hive.MetastoreDataSourcesSuite.afterEach(MetastoreDataSourcesSuite.scala:43)
+	at org.scalatest.BeforeAndAfterEach$class.afterEach(BeforeAndAfterEach.scala:205)
+	at org.apache.spark.sql.hive.MetastoreDataSourcesSuite.afterEach(MetastoreDataSourcesSuite.scala:40)
+	at org.scalatest.BeforeAndAfterEach$class.afterEach(BeforeAndAfterEach.scala:220)
+	at org.apache.spark.sql.hive.MetastoreDataSourcesSuite.afterEach(MetastoreDataSourcesSuite.scala:40)
+	at org.scalatest.BeforeAndAfterEach$class.runTest(BeforeAndAfterEach.scala:264)
+	at org.apache.spark.sql.hive.MetastoreDataSourcesSuite.runTest(MetastoreDataSourcesSuite.scala:40)
+	at org.scalatest.FunSuiteLike$$anonfun$runTests$1.apply(FunSuiteLike.scala:208)
+	at org.scalatest.FunSuiteLike$$anonfun$runTests$1.apply(FunSuiteLike.scala:208)
+	at org.scalatest.SuperEngine$$anonfun$traverseSubNodes$1$1.apply(Engine.scala:413)
+	at org.scalatest.SuperEngine$$anonfun$traverseSubNodes$1$1.apply(Engine.scala:401)
+	at scala.collection.immutable.List.foreach(List.scala:318)
+	at org.scalatest.SuperEngine.traverseSubNodes$1(Engine.scala:401)
+	at org.scalatest.SuperEngine.org$scalatest$SuperEngine$$runTestsInBranch(Engine.scala:396)
+	at org.scalatest.SuperEngine.runTestsImpl(Engine.scala:483)
+	at org.scalatest.FunSuiteLike$class.runTests(FunSuiteLike.scala:208)
+	at org.scalatest.FunSuite.runTests(FunSuite.scala:1555)
+	at org.scalatest.Suite$class.run(Suite.scala:1424)
+	at org.scalatest.FunSuite.org$scalatest$FunSuiteLike$$super$run(FunSuite.scala:1555)
+	at org.scalatest.FunSuiteLike$$anonfun$run$1.apply(FunSuiteLike.scala:212)
+	at org.scalatest.FunSuiteLike$$anonfun$run$1.apply(FunSuiteLike.scala:212)
+	at org.scalatest.SuperEngine.runImpl(Engine.scala:545)
+	at org.scalatest.FunSuiteLike$class.run(FunSuiteLike.scala:212)
+	at org.scalatest.FunSuite.run(FunSuite.scala:1555)
+	at org.scalatest.tools.Framework.org$scalatest$tools$Framework$$runSuite(Framework.scala:462)
+	at org.scalatest.tools.Framework$ScalaTestTask.execute(Framework.scala:671)
+	at sbt.ForkMain$Run$2.call(ForkMain.java:294)
+	at sbt.ForkMain$Run$2.call(ForkMain.java:284)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+
+{code}
+
+
+---
+
+* [SPARK-7681](https://issues.apache.org/jira/browse/SPARK-7681) | *Major* | **Add SparseVector support for gemv**
+
+Current gemv only works on DenseVector (with DenseMatrix and SparseMatrix). This ticket is proposed to add SparseVector support.
+
+
+---
+
+* [SPARK-7678](https://issues.apache.org/jira/browse/SPARK-7678) | *Minor* | **Scala ML seed Param should be fixed but vary per class**
+
+In [SPARK-7511], we decided to use fixed random seeds per class, rather than generating a new random seed whenever an algorithm is instantiated.  We need to change this in Scala's HasSeed Param.
+
+The default seed should be produced via some hash of the class name.
 
 
 ---
@@ -62,6 +1089,13 @@ Now that we upgraded Kafka in SPARK-2808 we can enable it in the Scala 2.11 buil
 SPARK-7296 added a per-stage visualization to the UI.  There's some unneeded code left in this commit from the many iterations that should be removed. We should also remove the functionality to highlight the row in the task table when someone mouses over one of the tasks in the visualization, because there are typically far too many tasks in the table for this to be useful (because the user can't see which row is highlighted).
 
 There's also a small bug where the end time is based on the last task's launch time, rather than the last task's finish time.
+
+
+---
+
+* [SPARK-7673](https://issues.apache.org/jira/browse/SPARK-7673) | *Blocker* | **DataSourceStrategy's buildPartitionedTableScan always list list file status for all data files**
+
+See https://github.com/apache/spark/blob/master/sql/core/src/main/scala/org/apache/spark/sql/sources/DataSourceStrategy.scala#L134-141
 
 
 ---
@@ -136,6 +1170,34 @@ In JobPage, we can jump a StagePage when we click corresponding box of DAG viz b
 
 ---
 
+* [SPARK-7662](https://issues.apache.org/jira/browse/SPARK-7662) | *Blocker* | **Exception of multi-attribute generator anlysis in projection**
+
+{code}
+select explode(map(value, key)) from src;
+{code}
+
+It throws exception like
+{panel}
+org.apache.spark.sql.AnalysisException: The number of aliases supplied in the AS clause does not match the number of columns output by the UDTF expected 2 aliases but got \_c0 ;
+	at org.apache.spark.sql.catalyst.analysis.CheckAnalysis$class.failAnalysis(CheckAnalysis.scala:38)
+	at org.apache.spark.sql.catalyst.analysis.Analyzer.failAnalysis(Analyzer.scala:43)
+	at org.apache.spark.sql.catalyst.analysis.Analyzer$ResolveGenerate$.org$apache$spark$sql$catalyst$analysis$Analyzer$ResolveGenerate$$makeGeneratorOutput(Analyzer.scala:605)
+	at org.apache.spark.sql.catalyst.analysis.Analyzer$ResolveGenerate$$anonfun$apply$16$$anonfun$22.apply(Analyzer.scala:562)
+	at org.apache.spark.sql.catalyst.analysis.Analyzer$ResolveGenerate$$anonfun$apply$16$$anonfun$22.apply(Analyzer.scala:548)
+	at scala.collection.TraversableLike$$anonfun$flatMap$1.apply(TraversableLike.scala:251)
+	at scala.collection.TraversableLike$$anonfun$flatMap$1.apply(TraversableLike.scala:251)
+	at scala.collection.mutable.ResizableArray$class.foreach(ResizableArray.scala:59)
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:47)
+	at scala.collection.TraversableLike$class.flatMap(TraversableLike.scala:251)
+	at scala.collection.AbstractTraversable.flatMap(Traversable.scala:105)
+	at org.apache.spark.sql.catalyst.analysis.Analyzer$ResolveGenerate$$anonfun$apply$16.applyOrElse(Analyzer.scala:548)
+	at org.apache.spark.sql.catalyst.analysis.Analyzer$ResolveGenerate$$anonfun$apply$16.applyOrElse(Analyzer.scala:538)
+	at org.apache.spark.sql.catalyst.trees.TreeNode$$anonfun$3.apply(TreeNode.scala:222)
+{panel}
+
+
+---
+
 * [SPARK-7660](https://issues.apache.org/jira/browse/SPARK-7660) | *Blocker* | **Snappy-java buffer-sharing bug leads to data corruption / test failures**
 
 snappy-java contains a bug that can lead to situations where separate SnappyOutputStream instances end up sharing the same input and output buffers, which can lead to data corruption issues.  See https://github.com/xerial/snappy-java/issues/107 for my upstream bug report and https://github.com/xerial/snappy-java/pull/108 for my patch to fix this issue.
@@ -145,6 +1207,13 @@ I discovered this issue because the buffer-sharing was leading to a test failure
 The buffer-sharing can only occur if {{close()}} is called twice on the same SnappyOutputStream \_and\_ the JVM experiences little GC / memory pressure (for a more precise description of when this issue may occur, see my upstream tickets).  I think that this double-close happens somewhere in some test code that was added as part of my Tungsten shuffle patch, exposing this bug (to see this, download a recent build of master and run https://gist.github.com/JoshRosen/eb3257a75c16597d769f locally in order to force the test execution order that triggers the bug).
 
 I think that it's rare that this bug would lead to silent failures like this. In more realistic workloads that aren't writing only a handful of bytes per task, I would expect this issue to lead to stream corruption issues like SPARK-4105.
+
+
+---
+
+* [SPARK-7656](https://issues.apache.org/jira/browse/SPARK-7656) | *Major* | **use CatalystConf in FunctionRegistry**
+
+should use CatalystConf in FunctionRegistry
 
 
 ---
@@ -180,6 +1249,20 @@ java.util.concurrent.TimeoutException: Futures timed out after [120 seconds]
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
 	at java.lang.Thread.run(Thread.java:745)
 {code}
+
+
+---
+
+* [SPARK-7654](https://issues.apache.org/jira/browse/SPARK-7654) | *Blocker* | **DataFrameReader and DataFrameWriter for input/output API**
+
+We have a proliferation of save options now. It'd make more sense to have a builder pattern for write.
+
+
+---
+
+* [SPARK-7652](https://issues.apache.org/jira/browse/SPARK-7652) | *Major* | **Performance regression in naive Bayes prediction**
+
+Saw some performance regression in naive Bayes prediction. Since the multinomial code hasn't been changed since 1.3. I guess the root cause may be the breeze upgrade. So we may consider updating the implementation in prediction as well.
 
 
 ---
@@ -223,6 +1306,101 @@ Saw this in the storage tab of an RDD on a 1.4 cluster. An RDD is distributed am
 
 ---
 
+* [SPARK-7631](https://issues.apache.org/jira/browse/SPARK-7631) | *Minor* | **treenode argString should not print children**
+
+spark-sql> explain extended                                                         
+         > select * from (                                                          
+         > select key from src union all                                            
+         > select key from src) t;        
+
+the spark plan will print children in argString		 
+		 		 
+== Physical Plan ==
+Union[ HiveTableScan [key#1], (MetastoreRelation default, src, None), None,
+ HiveTableScan [key#3], (MetastoreRelation default, src, None), None]
+ HiveTableScan [key#1], (MetastoreRelation default, src, None), None
+ HiveTableScan [key#3], (MetastoreRelation default, src, None), None
+
+
+---
+
+* [SPARK-7627](https://issues.apache.org/jira/browse/SPARK-7627) | *Major* | **DAG visualization: cached RDDs not shown on job page**
+
+It's a small styling issue.
+
+
+---
+
+* [SPARK-7624](https://issues.apache.org/jira/browse/SPARK-7624) | *Major* | **Task scheduler delay is increasing time over time in spark local mode**
+
+I am running a simple spark streaming program with spark 1.3.1 in local mode, it receives json string from a socket with rate 50 events per second, it can run well in first 6 hours (although the minor gc count per minute is increasing all the time), after that, i can see that the scheduler delay in every task is significant increased from 10 ms to 100 ms, after 10 hours running, the task delay is about 800 ms and cpu is also increased from 2% to 30%. This causes the steaming job can not finish in one batch interval (5 seconds). I dumped the java memory after 16 hours and can see there are about 200000 {{org.apache.spark.scheduler.local.ReviveOffers}} objects in {{akka.actor.LightArrayRevolverScheduler$TaskQueue[]}}. Then i checked the code and see only one place may put the {{ReviveOffers}} to akka {{LightArrayRevolverScheduler}}: the {{LocalActor::reviveOffers}}
+{code}
+ def reviveOffers() {
+    val offers = Seq(new WorkerOffer(localExecutorId, localExecutorHostname, freeCores))
+    val tasks = scheduler.resourceOffers(offers).flatten
+    for (task <- tasks) {
+      freeCores -= scheduler.CPUS\_PER\_TASK
+      executor.launchTask(executorBackend, taskId = task.taskId, attemptNumber = task.attemptNumber,
+        task.name, task.serializedTask)
+    }
+
+    if (tasks.isEmpty && scheduler.activeTaskSets.nonEmpty) {
+      // Try to reviveOffer after 1 second, because scheduler may wait for locality timeout
+      context.system.scheduler.scheduleOnce(1000 millis, self, ReviveOffers)
+    }
+}
+{code}
+
+I removed the last three lines in this method (the whole {{if}} block, which is introduced from https://issues.apache.org/jira/browse/SPARK-4939), it worked smooth after 20 hours running, the scheduler delay is about 10 ms all the time. So there should have some conditions that the ReviveOffers will be duplicate scheduled? I am not sure why this happens, but i feel that this is the root cause of this issue. 
+
+My spark settings:
+#  Memor: 3G
+# CPU: 8 cores 
+# Streaming Batch interval: 5 seconds.  
+
+Here are my streaming code:
+{code}
+val input = ssc.socketTextStream(
+      hostname, port, StorageLevel.MEMORY\_ONLY\_SER).mapPartitions(
+      /// parse the json to Order
+      Order(\_), preservePartitioning = true)
+val mresult = input.map(
+      v => (v.customer, UserSpending(v.customer, v.count * v.price, v.timestamp.toLong))).cache()
+val tempr  = mresult.window(
+            Seconds(firstStageWindowSize), 
+            Seconds(firstStageWindowSize)
+          ).transform(
+            rdd => rdd.union(rdd).union(rdd).union(rdd)
+          )
+tempr.count.print
+tempr.cache().foreachRDD((rdd, t) => {
+            for (i <- 1 to 5) {
+              val c = rdd.filter(x=>scala.util.Random.nextInt(5) == i).count()
+              println("""T: """ + t + """: """ + c)
+            }
+          })
+{code}
+
+========================================================
+Updated at 2015-05-15
+I did print some detail schedule times of the suspect lines in {{LocalActor::reviveOffers}}: {color:red}*1685343501*{color} times after 18 hours running.
+
+
+---
+
+* [SPARK-7621](https://issues.apache.org/jira/browse/SPARK-7621) | *Major* | **Report KafkaReceiver MessageHandler errors so StreamingListeners can take action**
+
+Currently, when a MessageHandler (for any of the Kafka Receiver implementations) encounters an error handling a message, the error is only logged with:
+
+{code:none}
+case e: Exception => logError("Error handling message", e)
+{code}
+
+It would be \_incredibly\_ useful to be able to notify any registered StreamingListener of this receiver error (especially since this {{try...catch}} block masks more fatal Kafka connection exceptions).
+
+
+---
+
 * [SPARK-7619](https://issues.apache.org/jira/browse/SPARK-7619) | *Major* | **autodoc\_docstring\_signature doesn't work for some classes/methods under spark.ml**
 
 We use autodoc\_docstring\_signature to handle signature for methods wrapped by keyword\_only. However, it only works for some methods but not all. Need to look into this issue.
@@ -230,9 +1408,57 @@ We use autodoc\_docstring\_signature to handle signature for methods wrapped by 
 
 ---
 
+* [SPARK-7616](https://issues.apache.org/jira/browse/SPARK-7616) | *Blocker* | **Column order can be corrupted when saving DataFrame as a partitioned table**
+
+When saved as a partitioned table, partition columns of a DataFrame are appended after data columns. However, column names are not adjusted accordingly.
+{code}
+import sqlContext.\_
+import sqlContext.implicits.\_
+
+val df = (1 to 3).map(i => i -> i * 2).toDF("a", "b")
+
+df.write
+  .format("parquet")
+  .mode("overwrite")
+  .partitionBy("a")
+  .saveAsTable("t")
+
+table("t").orderBy('a).show()
+{code}
+Expected output:
+{noformat}
++-+-+
+|b|a|
++-+-+
+|2|1|
+|4|2|
+|6|3|
++-+-+
+{noformat}
+Actual output:
+{noformat}
++-+-+
+|b|a|
++-+-+
+|1|2|
+|2|4|
+|3|6|
++-+-+
+{noformat}
+
+
+---
+
 * [SPARK-7612](https://issues.apache.org/jira/browse/SPARK-7612) | *Minor* | **Use BLAS in naive Bayes training**
 
 Similar to the changes we made to k-means, replacing the implementation by MLlib's BLAS wrappers gives us better control on the performance.
+
+
+---
+
+* [SPARK-7608](https://issues.apache.org/jira/browse/SPARK-7608) | *Critical* | **Memory leak in RDDOperationGraphListener**
+
+{{RDDOperationGraphListener}} does not clean {{jobIdToStageIds}}, which leaks a lot of memory for a long-time application.
 
 
 ---
@@ -330,6 +1556,111 @@ The solution is to explicitly set the resolution as "Fixed" and not count on def
 
 ---
 
+* [SPARK-7586](https://issues.apache.org/jira/browse/SPARK-7586) | *Major* | **User guide update for spark.ml Word2Vec**
+
+Copied from [SPARK-7443]:
+{quote}
+Now that we have algorithms in spark.ml which are not in spark.mllib, we should start making subsections for the spark.ml API as needed. We can follow the structure of the spark.mllib user guide.
+* The spark.ml user guide can provide: (a) code examples and (b) info on algorithms which do not exist in spark.mllib.
+* We should not duplicate info in the spark.ml guides. Since spark.mllib is still the primary API, we should provide links to the corresponding algorithms in the spark.mllib user guide for more info.
+{quote}
+
+Note: I created a new subsection for links to spark.ml-specific guides in this JIRA's PR: [SPARK-7557]. This transformer can go within the new subsection. I'll try to get that PR merged ASAP.
+
+
+---
+
+* [SPARK-7585](https://issues.apache.org/jira/browse/SPARK-7585) | *Major* | **User guide update for VectorIndexer**
+
+Copied from [SPARK-7443]:
+{quote}
+Now that we have algorithms in spark.ml which are not in spark.mllib, we should start making subsections for the spark.ml API as needed. We can follow the structure of the spark.mllib user guide.
+* The spark.ml user guide can provide: (a) code examples and (b) info on algorithms which do not exist in spark.mllib.
+* We should not duplicate info in the spark.ml guides. Since spark.mllib is still the primary API, we should provide links to the corresponding algorithms in the spark.mllib user guide for more info.
+{quote}
+
+Note: I created a new subsection for links to spark.ml-specific guides in this JIRA's PR: [SPARK-7557]. This transformer can go within the new subsection. I'll try to get that PR merged ASAP.
+
+
+---
+
+* [SPARK-7581](https://issues.apache.org/jira/browse/SPARK-7581) | *Major* | **User guide update for PolynomialExpansion**
+
+Copied from [SPARK-7443]:
+{quote}
+Now that we have algorithms in spark.ml which are not in spark.mllib, we should start making subsections for the spark.ml API as needed. We can follow the structure of the spark.mllib user guide.
+* The spark.ml user guide can provide: (a) code examples and (b) info on algorithms which do not exist in spark.mllib.
+* We should not duplicate info in the spark.ml guides. Since spark.mllib is still the primary API, we should provide links to the corresponding algorithms in the spark.mllib user guide for more info.
+{quote}
+
+Note: I created a new subsection for links to spark.ml-specific guides in this JIRA's PR: [SPARK-7557]. This transformer can go within the new subsection. I'll try to get that PR merged ASAP.
+
+
+---
+
+* [SPARK-7579](https://issues.apache.org/jira/browse/SPARK-7579) | *Major* | **User guide update for OneHotEncoder**
+
+Copied from [SPARK-7443]:
+{quote}
+Now that we have algorithms in spark.ml which are not in spark.mllib, we should start making subsections for the spark.ml API as needed. We can follow the structure of the spark.mllib user guide.
+* The spark.ml user guide can provide: (a) code examples and (b) info on algorithms which do not exist in spark.mllib.
+* We should not duplicate info in the spark.ml guides. Since spark.mllib is still the primary API, we should provide links to the corresponding algorithms in the spark.mllib user guide for more info.
+{quote}
+
+Note: I created a new subsection for links to spark.ml-specific guides in this JIRA's PR: [SPARK-7557]. This transformer can go within the new subsection. I'll try to get that PR merged ASAP.
+
+
+---
+
+* [SPARK-7578](https://issues.apache.org/jira/browse/SPARK-7578) | *Major* | **User guide update for spark.ml IDF, Normalizer, StandardScaler**
+
+Copied from [SPARK-7443]:
+{quote}
+Now that we have algorithms in spark.ml which are not in spark.mllib, we should start making subsections for the spark.ml API as needed. We can follow the structure of the spark.mllib user guide.
+* The spark.ml user guide can provide: (a) code examples and (b) info on algorithms which do not exist in spark.mllib.
+* We should not duplicate info in the spark.ml guides. Since spark.mllib is still the primary API, we should provide links to the corresponding algorithms in the spark.mllib user guide for more info.
+{quote}
+
+Note: I created a new subsection for links to spark.ml-specific guides in this JIRA's PR: [SPARK-7557]. This transformer can go within the new subsection. I'll try to get that PR merged ASAP.
+
+
+---
+
+* [SPARK-7577](https://issues.apache.org/jira/browse/SPARK-7577) | *Major* | **User guide update for Bucketizer**
+
+Copied from [SPARK-7443]:
+{quote}
+Now that we have algorithms in spark.ml which are not in spark.mllib, we should start making subsections for the spark.ml API as needed. We can follow the structure of the spark.mllib user guide.
+* The spark.ml user guide can provide: (a) code examples and (b) info on algorithms which do not exist in spark.mllib.
+* We should not duplicate info in the spark.ml guides. Since spark.mllib is still the primary API, we should provide links to the corresponding algorithms in the spark.mllib user guide for more info.
+{quote}
+
+Note: I created a new subsection for links to spark.ml-specific guides in this JIRA's PR: [SPARK-7557]. This transformer can go within the new subsection. I'll try to get that PR merged ASAP.
+
+
+---
+
+* [SPARK-7576](https://issues.apache.org/jira/browse/SPARK-7576) | *Major* | **User guide update for spark.ml ElementwiseProduct**
+
+Copied from [SPARK-7443]:
+{quote}
+Now that we have algorithms in spark.ml which are not in spark.mllib, we should start making subsections for the spark.ml API as needed. We can follow the structure of the spark.mllib user guide.
+* The spark.ml user guide can provide: (a) code examples and (b) info on algorithms which do not exist in spark.mllib.
+* We should not duplicate info in the spark.ml guides. Since spark.mllib is still the primary API, we should provide links to the corresponding algorithms in the spark.mllib user guide for more info.
+{quote}
+
+Note: I created a new subsection for links to spark.ml-specific guides in this JIRA's PR: [SPARK-7557]. This transformer can go within the new subsection. I'll try to get that PR merged ASAP.
+
+
+---
+
+* [SPARK-7574](https://issues.apache.org/jira/browse/SPARK-7574) | *Major* | **User guide update for OneVsRest**
+
+Note: I created a new subsection for links to spark.ml-specific guides in this JIRA's PR: [SPARK-7557], which I'll try to merge ASAP.  OneVsRest probably belongs in an ensembles subsection, which can be linked from the main spark.ml guide.  Thanks!
+
+
+---
+
 * [SPARK-7573](https://issues.apache.org/jira/browse/SPARK-7573) | *Minor* | **OneVsRest cleanups**
 
 Minor cleanups discussed with [~mengxr]:
@@ -349,6 +1680,13 @@ to match Scala namespaces.
 * [SPARK-7571](https://issues.apache.org/jira/browse/SPARK-7571) | *Trivial* | **Rename `Math` to `math` in MLlib's Scala code**
 
 scala.Math was deprecated since 2.8.
+
+
+---
+
+* [SPARK-7570](https://issues.apache.org/jira/browse/SPARK-7570) | *Critical* | **Ignore \_temporary folders during partition discovery**
+
+When speculation is turned on, directories named {{\_temporary}} may be left in data directories after saving a DataFrame. These directories should be ignored. Currently they simply fail partition discovery.
 
 
 ---
@@ -403,6 +1741,55 @@ Error:(51, 36) overriding lazy value analyzer in class HiveContext of type org.a
 {code}
 
 That is because the type changed inadvertedly when omitting the type declaration of the return type.
+
+
+---
+
+* [SPARK-7565](https://issues.apache.org/jira/browse/SPARK-7565) | *Blocker* | **Broken maps in jsonRDD**
+
+When I use the following JSON:
+{code}
+{"obj": {"a": "hello"}}
+{code}
+
+And load it with the following python code:
+{code}
+tf = sc.textFile('test.json')
+v = sqlContext.jsonRDD(tf, StructType([StructField("obj", MapType(StringType(), StringType()), True)]))
+v.save('test.parquet', mode='overwrite')
+{code}
+
+I get the following error in spark master branch:
+{code}
+Py4JJavaError: An error occurred while calling o78.save.
+: org.apache.spark.SparkException: Job aborted due to stage failure: Task 1 in stage 5.0 failed 1 times, most recent failure: Lost task 1.0 in stage 5.0 (TID 11, localhost): java.lang.ClassCastException: java.lang.String cannot be cast to org.apache.spark.sql.types.UTF8String
+        at org.apache.spark.sql.parquet.RowWriteSupport.writePrimitive(ParquetTableSupport.scala:201)
+        at org.apache.spark.sql.parquet.RowWriteSupport.writeValue(ParquetTableSupport.scala:192)
+        at org.apache.spark.sql.parquet.RowWriteSupport$$anonfun$writeMap$2.apply(ParquetTableSupport.scala:284)
+        at org.apache.spark.sql.parquet.RowWriteSupport$$anonfun$writeMap$2.apply(ParquetTableSupport.scala:281)
+        at scala.collection.TraversableLike$WithFilter$$anonfun$foreach$1.apply(TraversableLike.scala:772)
+        at scala.collection.immutable.Map$Map1.foreach(Map.scala:109)
+        at scala.collection.TraversableLike$WithFilter.foreach(TraversableLike.scala:771)
+        at org.apache.spark.sql.parquet.RowWriteSupport.writeMap(ParquetTableSupport.scala:281)
+        at org.apache.spark.sql.parquet.RowWriteSupport.writeValue(ParquetTableSupport.scala:186)
+        at org.apache.spark.sql.parquet.RowWriteSupport.write(ParquetTableSupport.scala:171)
+        at org.apache.spark.sql.parquet.RowWriteSupport.write(ParquetTableSupport.scala:134)
+        at parquet.hadoop.InternalParquetRecordWriter.write(InternalParquetRecordWriter.java:120)
+        at parquet.hadoop.ParquetRecordWriter.write(ParquetRecordWriter.java:81)
+        at parquet.hadoop.ParquetRecordWriter.write(ParquetRecordWriter.java:37)
+        at org.apache.spark.sql.parquet.ParquetRelation2.org$apache$spark$sql$parquet$ParquetRelation2$$writeShard$1(newParquet.scala:699)
+        at org.apache.spark.sql.parquet.ParquetRelation2$$anonfun$insert$2.apply(newParquet.scala:717)
+        at org.apache.spark.sql.parquet.ParquetRelation2$$anonfun$insert$2.apply(newParquet.scala:717)
+        at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:63)
+        at org.apache.spark.scheduler.Task.run(Task.scala:70)
+        at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:213)
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+        at java.lang.Thread.run(Thread.java:745)
+
+{code}
+
+This worked well in spark 1.3
 
 
 ---
@@ -507,6 +1894,35 @@ dataframe.py is getting large again. We should just make each class its own file
 
 ---
 
+* [SPARK-7537](https://issues.apache.org/jira/browse/SPARK-7537) | *Major* | **Audit new public Scala APIs for MLlib 1.4**
+
+Audit new public Scala APIs added to MLlib in 1.4.  Take note of:
+* Protected/public classes or methods.  If access can be more private, then it should be.
+* Documentation: Missing?  Bad links or formatting?
+
+*Make sure to check the object doc!*
+
+
+---
+
+* [SPARK-7535](https://issues.apache.org/jira/browse/SPARK-7535) | *Major* | **Audit Pipeline APIs for 1.4**
+
+This is an umbrella for auditing the Pipeline (spark.ml) APIs.  Items to check:
+* Public/protected/private access
+* Consistency across spark.ml
+* Classes, methods, and parameters in spark.mllib but missing in spark.ml
+** We should create JIRAs for each of these (under an umbrella) as to-do items for future releases.
+
+For each algorithm or API component, create a subtask under this umbrella.  Some major new items:
+* new feature transformers
+* tree models
+* elastic-net
+* ML attributes
+* developer APIs (Predictor, Classifier, Regressor)
+
+
+---
+
 * [SPARK-7534](https://issues.apache.org/jira/browse/SPARK-7534) | *Minor* | **Fix the Stage table when a stage is missing**
 
 Just improved the Stage table when a stage is missing.
@@ -589,6 +2005,17 @@ Detailed description of the bug at http://stackoverflow.com/questions/30057702/s
 
 ---
 
+* [SPARK-7511](https://issues.apache.org/jira/browse/SPARK-7511) | *Minor* | **PySpark ML seed Param should be varied per class**
+
+Currently, Scala's HasSeed mix-in uses a random Long as the default value for seed.  Python uses 42.  After discussions, we've decided to use a seed which varies based on the class name, but which is fixed instead of random.  This will make behavior reproducible, rather than random, by default.  Users will still be able to change the random seed.
+
+The default seed should be produced via some hash of the class name.
+
+Scala's seed will be fixed in a separate patch.
+
+
+---
+
 * [SPARK-7508](https://issues.apache.org/jira/browse/SPARK-7508) | *Minor* | **JettyUtils-generated servlets to log & report all errors**
 
 the servlets created by JettyUtils to render pages do handle {{IllegalArgumentException}} exceptions, but all others are just thrown up. This stops them being logged or converted to meaningful error messages.
@@ -628,9 +2055,25 @@ Right now we get a blank viz in the job page if this happens. Then the JS error 
 
 ---
 
+* [SPARK-7501](https://issues.apache.org/jira/browse/SPARK-7501) | *Critical* | **DAG visualization: show DStream operations for Streaming**
+
+Similar to SQL in SPARK-7469, we should show higher level constructs that the user is more familiar with.
+
+
+---
+
 * [SPARK-7500](https://issues.apache.org/jira/browse/SPARK-7500) | *Minor* | **DAG visualization: cluster name bleeds beyond the cluster**
 
 This happens only for long names. See screenshot.
+
+
+---
+
+* [SPARK-7498](https://issues.apache.org/jira/browse/SPARK-7498) | *Major* | **Params.setDefault should keep varargs annotation**
+
+In [SPARK-7429] and PR [https://github.com/apache/spark/pull/5960], I added the varargs annotation to Params.setDefault which takes a variable number of ParamPairs.  It worked locally and on Jenkins for me.
+
+However, @mengxr reported issues compiling on his machine.  So I'm reverting the change introduced in [https://github.com/apache/spark/pull/5960] by removing varargs.
 
 
 ---
@@ -709,6 +2152,19 @@ more discussion can be found at https://issues.apache.org/jira/browse/SPARK-6812
 
 ---
 
+* [SPARK-7478](https://issues.apache.org/jira/browse/SPARK-7478) | *Blocker* | **Add a SQLContext.getOrCreate to maintain a singleton instance of SQLContext**
+
+Having a SQLContext singleton would make it easier for applications to use a lazily instantiated single shared instance of SQLContext when needed. It would avoid problems like 
+
+1. In REPL/notebook environment, rerunning the line {{val sqlContext = new SQLContext}} multiple times created different contexts while overriding the reference to previous context, leading to issues like registered temp tables going missing.
+
+2. In Streaming, creating SQLContext directly leads to serialization/deserialization issues when attempting to recover from DStream checkpoints. See [SPARK-6770]. Also to get around this problem I had to suggest creating a singleton instance - https://github.com/apache/spark/blob/master/examples/src/main/scala/org/apache/spark/examples/streaming/SqlNetworkWordCount.scala
+
+This can be solved by {{SQLContext.getOrCreate}} which get or creates a new singleton instance of SQLContext using either a given SparkContext or a given SparkConf
+
+
+---
+
 * [SPARK-7475](https://issues.apache.org/jira/browse/SPARK-7475) | *Minor* | **adjust ldaExample for online LDA**
 
 Add a new argument to specify the algorithm applied to LDA, to exhibit the basic usage of LDAOptimizer.
@@ -735,6 +2191,13 @@ True
 * [SPARK-7473](https://issues.apache.org/jira/browse/SPARK-7473) | *Trivial* | **Use reservoir sample in RandomForest when choosing features per node**
 
 See sampling in selectNodesToSplit method
+
+
+---
+
+* [SPARK-7472](https://issues.apache.org/jira/browse/SPARK-7472) | *Major* | **DAG visualization: handle skipped stages differently**
+
+Currently it will look the same as other non-skipped stages, and when you try to click on it it will take you to an empty stage page.
 
 
 ---
@@ -785,6 +2248,13 @@ If you have an RDD instantiated outside of a scope, it is rendered as a weird ba
 * [SPARK-7464](https://issues.apache.org/jira/browse/SPARK-7464) | *Major* | **DAG visualization: highlight the same RDDs on hover**
 
 We should make it clear that different RDDs are really the same ones if they are referenced across different stages in the same job.
+
+
+---
+
+* [SPARK-7459](https://issues.apache.org/jira/browse/SPARK-7459) | *Minor* | **Add Java example for ElementwiseProduct in programming guide**
+
+Duplicate Scala example, but in Java.
 
 
 ---
@@ -947,6 +2417,13 @@ The bug is because SPARK-7139 removed some codes from SPARK-7112 unintentionally
 
 ---
 
+* [SPARK-7404](https://issues.apache.org/jira/browse/SPARK-7404) | *Major* | **Add RegressionEvaluator to spark.ml**
+
+This allows users to tune regression models using the pipeline API.
+
+
+---
+
 * [SPARK-7403](https://issues.apache.org/jira/browse/SPARK-7403) | *Minor* | **Link URL in objects on Timeline View is wrong in case of running on YARN**
 
 When we use Spark on YARN and have AllJobPage via ResourceManager's proxy, the link URL in objects which represent each job on timeline view is wrong.
@@ -997,6 +2474,13 @@ Exception in thread "main" kafka.common.FailedToSendMessageException: Failed to 
 
 ---
 
+* [SPARK-7394](https://issues.apache.org/jira/browse/SPARK-7394) | *Major* | **Add Pandas style cast (astype)**
+
+Basically alias astype == cast in Column for Python (and Python only).
+
+
+---
+
 * [SPARK-7392](https://issues.apache.org/jira/browse/SPARK-7392) | *Critical* | **Kryo buffer size can not be larger than 2M**
 
 when set *spark.kryoserializer.buffer* larger than 2048k, *IllegalArgumentException* will be thrown.
@@ -1030,6 +2514,13 @@ Python can't set Array[T] type params, because py4j casts a list to an ArrayList
 Fixed the following failure: https://amplab.cs.berkeley.edu/jenkins/job/Spark-1.3-Maven-pre-YARN/hadoop.version=1.0.4,label=centos/452/testReport/junit/org.apache.spark.broadcast/BroadcastSuite/Unpersisting\_HttpBroadcast\_on\_executors\_and\_driver\_in\_distributed\_mode/
 
 The tests should wait until all slaves are up. Otherwise, there may be only a part of {{BlockManager}}s registered, and fail the tests.
+
+
+---
+
+* [SPARK-7380](https://issues.apache.org/jira/browse/SPARK-7380) | *Major* | **Python: Transformer/Estimator should be copyable**
+
+Same as [SPARK-5956]
 
 
 ---
@@ -1114,9 +2605,23 @@ Most likely JDBC SQL connector uses getColumnName instead of getColumnLabel to d
 
 ---
 
+* [SPARK-7343](https://issues.apache.org/jira/browse/SPARK-7343) | *Minor* | **C4 instance types need to be added to spark\_ec2.py**
+
+The C4 instance types have not been added to the spark\_ec2.py script, so launching a cluster containing "c4.4xlarge" nodes will result in an error that the "Virtualization type 'hvm' is required for instances of type 'c4.4xlarge'."
+
+
+---
+
 * [SPARK-7341](https://issues.apache.org/jira/browse/SPARK-7341) | *Minor* | **Fix the flaky test: org.apache.spark.streaming.InputStreamsSuite.socket input stream**
 
 Remove non-deterministic "Thread.sleep" and use deterministic strategies to fix the flaky failure: https://amplab.cs.berkeley.edu/jenkins/job/Spark-Master-Maven-pre-YARN/hadoop.version=1.0.4,label=centos/2127/testReport/junit/org.apache.spark.streaming/InputStreamsSuite/socket\_input\_stream/
+
+
+---
+
+* [SPARK-7339](https://issues.apache.org/jira/browse/SPARK-7339) | *Minor* | **PySpark shuffle spill memory sometimes are not correct**
+
+In PySpark we get memory used before and after spill, then use the difference of these two value as memorySpilled, but if the before value is small than after value, then we will get a negative value, but this scenario 0 value may be more reasonable.
 
 
 ---
@@ -1275,6 +2780,57 @@ Currently we invoke combiners.insert() for each tuple in Aggregator - which resu
 
 ---
 
+* [SPARK-7322](https://issues.apache.org/jira/browse/SPARK-7322) | *Major* | **Window function support in Scala/Java DataFrame DSL**
+
+Here's a proposal for supporting window functions in the DataFrame DSL:
+
+1. Add an over function to Column:
+{code}
+class Column {
+  ...
+  def over(window: Window): Column
+  ...
+}
+{code}
+
+2. Window:
+{code}
+object Window {
+  def partitionBy(...): Window
+  def orderBy(...): Window
+
+  object Frame {
+    def unbounded: Frame
+    def preceding(n: Long): Frame
+    def following(n: Long): Frame
+  }
+
+  class Frame
+}
+
+class Window {
+  def orderBy(...): Window
+  def rowsBetween(Frame, Frame): Window
+  def rangeBetween(Frame, Frame): Window  // maybe add this later
+}
+{code}
+
+Here's an example to use it:
+{code}
+df.select(
+  avg(“age”).over(Window.partitionBy(“..”, “..”).orderBy(“..”, “..”)
+    .rowsBetween(Frame.unbounded, Frame.currentRow))
+)
+
+df.select(
+  avg(“age”).over(Window.partitionBy(“..”, “..”).orderBy(“..”, “..”)
+    .rowsBetween(Frame.preceding(50), Frame.following(10)))
+)
+{code}
+
+
+---
+
 * [SPARK-7321](https://issues.apache.org/jira/browse/SPARK-7321) | *Critical* | **Add Column expression for conditional statements (if, case)**
 
 A good reference implementation is http://www.jooq.org/doc/3.6/manual-single-page/#case-expressions
@@ -1283,6 +2839,20 @@ As an example in Python:
 {code}
 when(df.age == 1, "one").when(df.age == 2, "two").otherwise("unknown")
 {code}
+
+
+---
+
+* [SPARK-7320](https://issues.apache.org/jira/browse/SPARK-7320) | *Major* | **Add rollup and cube support to DataFrame Java/Scala DSL**
+
+We should add two functions to GroupedData in order to support rollup and cube for the DataFrame DSL.
+
+{code}
+def rollup(): GroupedData
+def cube(): GroupedData
+{code}
+
+These two should return new GroupedData with the appropriate state set so when we run an Aggregate, we translate the underlying logical operator into Rollup or Cube.
 
 
 ---
@@ -1777,6 +3347,178 @@ Add user guide for PMML model export with some example code.
 
 ---
 
+* [SPARK-7270](https://issues.apache.org/jira/browse/SPARK-7270) | *Major* | **StringType dynamic partition cast to DecimalType in Spark Sql Hive**
+
+Create a hive table with two partitons,the first type is bigint and the second type is string.When insert overwrite the table with one static partiton and one dynamic partiton, the second StringType dynamic partition will be cast to DecimalType.
+{noformat}
+desc test;                                                                 
+OK
+a                   	string              	None                
+b                   	bigint              	None                
+c                   	string              	None                
+	 	 
+# Partition Information	 	 
+# col\_name            	data\_type           	comment             
+	 	 
+b                   	bigint              	None                
+c                   	string              	None·
+{noformat}
+
+when run following hive sql in HiveContext
+{noformat}sqlContext.sql("insert overwrite table test partition (b=1,c) select 'a','c' from ptest"){noformat}
+
+get the result of partition is
+{noformat}test[1,\_\_HIVE\_DEFAULT\_PARTITION\_\_]{noformat}
+
+spark log
+{noformat}15/04/30 10:38:09 WARN HiveConf: DEPRECATED: hive.metastore.ds.retry.* no longer has any effect.  Use hive.hmshandler.retry.* instead
+15/04/30 10:38:09 INFO ParseDriver: Parsing command: insert overwrite table test partition (b=1,c) select 'a','c' from ptest
+15/04/30 10:38:09 INFO ParseDriver: Parse Completed
+15/04/30 10:38:09 WARN HiveConf: DEPRECATED: hive.metastore.ds.retry.* no longer has any effect.  Use hive.hmshandler.retry.* instead
+15/04/30 10:38:10 INFO HiveMetaStore: 0: Opening raw store with implemenation class:org.apache.hadoop.hive.metastore.ObjectStore
+15/04/30 10:38:10 INFO ObjectStore: ObjectStore, initialize called
+15/04/30 10:38:10 INFO Persistence: Property datanucleus.cache.level2 unknown - will be ignored
+15/04/30 10:38:10 INFO Persistence: Property hive.metastore.integral.jdo.pushdown unknown - will be ignored
+15/04/30 10:38:10 WARN Connection: BoneCP specified but not present in CLASSPATH (or one of dependencies)
+15/04/30 10:38:10 WARN Connection: BoneCP specified but not present in CLASSPATH (or one of dependencies)
+15/04/30 10:38:11 WARN HiveConf: DEPRECATED: hive.metastore.ds.retry.* no longer has any effect.  Use hive.hmshandler.retry.* instead
+15/04/30 10:38:11 INFO ObjectStore: Setting MetaStore object pin classes with hive.metastore.cache.pinobjtypes="Table,StorageDescriptor,SerDeInfo,Partition,Database,Type,FieldSchema,Order"
+15/04/30 10:38:11 INFO Datastore: The class "org.apache.hadoop.hive.metastore.model.MFieldSchema" is tagged as "embedded-only" so does not have its own datastore table.
+15/04/30 10:38:11 INFO Datastore: The class "org.apache.hadoop.hive.metastore.model.MOrder" is tagged as "embedded-only" so does not have its own datastore table.
+15/04/30 10:38:12 INFO Datastore: The class "org.apache.hadoop.hive.metastore.model.MFieldSchema" is tagged as "embedded-only" so does not have its own datastore table.
+15/04/30 10:38:12 INFO Datastore: The class "org.apache.hadoop.hive.metastore.model.MOrder" is tagged as "embedded-only" so does not have its own datastore table.
+15/04/30 10:38:12 INFO Query: Reading in results for query "org.datanucleus.store.rdbms.query.SQLQuery@0" since the connection used is closing
+15/04/30 10:38:12 INFO ObjectStore: Initialized ObjectStore
+15/04/30 10:38:12 INFO HiveMetaStore: Added admin role in metastore
+15/04/30 10:38:12 INFO HiveMetaStore: Added public role in metastore
+15/04/30 10:38:12 INFO HiveMetaStore: No user is added in admin role, since config is empty
+15/04/30 10:38:12 INFO SessionState: No Tez session required at this point. hive.execution.engine=mr.
+15/04/30 10:38:13 INFO HiveMetaStore: 0: get\_table : db=default tbl=test
+15/04/30 10:38:13 INFO audit: ugi=root	ip=unknown-ip-addr	cmd=get\_table : db=default tbl=test	
+15/04/30 10:38:13 INFO HiveMetaStore: 0: get\_partitions : db=default tbl=test
+15/04/30 10:38:13 INFO audit: ugi=root	ip=unknown-ip-addr	cmd=get\_partitions : db=default tbl=test	
+15/04/30 10:38:13 INFO HiveMetaStore: 0: get\_table : db=default tbl=ptest
+15/04/30 10:38:13 INFO audit: ugi=root	ip=unknown-ip-addr	cmd=get\_table : db=default tbl=ptest	
+15/04/30 10:38:13 INFO HiveMetaStore: 0: get\_partitions : db=default tbl=ptest
+15/04/30 10:38:13 INFO audit: ugi=root	ip=unknown-ip-addr	cmd=get\_partitions : db=default tbl=ptest	
+15/04/30 10:38:13 INFO deprecation: mapred.map.tasks is deprecated. Instead, use mapreduce.job.maps
+15/04/30 10:38:13 INFO MemoryStore: ensureFreeSpace(451930) called with curMem=0, maxMem=2291041566
+15/04/30 10:38:13 INFO MemoryStore: Block broadcast\_0 stored as values in memory (estimated size 441.3 KB, free 2.1 GB)
+15/04/30 10:38:13 INFO MemoryStore: ensureFreeSpace(71321) called with curMem=451930, maxMem=2291041566
+15/04/30 10:38:13 INFO MemoryStore: Block broadcast\_0\_piece0 stored as bytes in memory (estimated size 69.6 KB, free 2.1 GB)
+15/04/30 10:38:13 INFO BlockManagerInfo: Added broadcast\_0\_piece0 in memory on 10.134.72.169:45859 (size: 69.6 KB, free: 2.1 GB)
+15/04/30 10:38:13 INFO BlockManagerMaster: Updated info of block broadcast\_0\_piece0
+15/04/30 10:38:13 INFO SparkContext: Created broadcast 0 from broadcast at TableReader.scala:68
+15/04/30 10:38:13 INFO deprecation: mapred.output.compress is deprecated. Instead, use mapreduce.output.fileoutputformat.compress
+15/04/30 10:38:13 INFO deprecation: mapred.output.compression.codec is deprecated. Instead, use mapreduce.output.fileoutputformat.compress.codec
+15/04/30 10:38:13 INFO deprecation: mapred.output.compression.type is deprecated. Instead, use mapreduce.output.fileoutputformat.compress.type
+15/04/30 10:38:14 INFO deprecation: mapred.job.id is deprecated. Instead, use mapreduce.job.id
+15/04/30 10:38:14 INFO deprecation: mapred.tip.id is deprecated. Instead, use mapreduce.task.id
+15/04/30 10:38:14 INFO deprecation: mapred.task.id is deprecated. Instead, use mapreduce.task.attempt.id
+15/04/30 10:38:14 INFO deprecation: mapred.task.is.map is deprecated. Instead, use mapreduce.task.ismap
+15/04/30 10:38:14 INFO deprecation: mapred.task.partition is deprecated. Instead, use mapreduce.task.partition
+15/04/30 10:38:14 INFO GPLNativeCodeLoader: Loaded native gpl library
+15/04/30 10:38:14 INFO LzoCodec: Successfully loaded & initialized native-lzo library [hadoop-lzo rev 7041408c0d57cb3b6f51d004772ccf5073ecc95e]
+15/04/30 10:38:14 INFO FileInputFormat: Total input paths to process : 1
+15/04/30 10:38:14 INFO SparkContext: Starting job: runJob at InsertIntoHiveTable.scala:93
+15/04/30 10:38:14 INFO DAGScheduler: Got job 0 (runJob at InsertIntoHiveTable.scala:93) with 1 output partitions (allowLocal=false)
+15/04/30 10:38:14 INFO DAGScheduler: Final stage: Stage 0(runJob at InsertIntoHiveTable.scala:93)
+15/04/30 10:38:14 INFO DAGScheduler: Parents of final stage: List()
+15/04/30 10:38:14 INFO DAGScheduler: Missing parents: List()
+15/04/30 10:38:14 INFO DAGScheduler: Submitting Stage 0 (MapPartitionsRDD[5] at mapPartitions at basicOperators.scala:43), which has no missing parents
+15/04/30 10:38:14 INFO MemoryStore: ensureFreeSpace(125560) called with curMem=523251, maxMem=2291041566
+15/04/30 10:38:14 INFO MemoryStore: Block broadcast\_1 stored as values in memory (estimated size 122.6 KB, free 2.1 GB)
+15/04/30 10:38:14 INFO MemoryStore: ensureFreeSpace(82648) called with curMem=648811, maxMem=2291041566
+15/04/30 10:38:14 INFO MemoryStore: Block broadcast\_1\_piece0 stored as bytes in memory (estimated size 80.7 KB, free 2.1 GB)
+15/04/30 10:38:14 INFO BlockManagerInfo: Added broadcast\_1\_piece0 in memory on 10.134.72.169:45859 (size: 80.7 KB, free: 2.1 GB)
+15/04/30 10:38:14 INFO BlockManagerMaster: Updated info of block broadcast\_1\_piece0
+15/04/30 10:38:14 INFO SparkContext: Created broadcast 1 from broadcast at DAGScheduler.scala:838
+15/04/30 10:38:14 INFO DAGScheduler: Submitting 1 missing tasks from Stage 0 (MapPartitionsRDD[5] at mapPartitions at basicOperators.scala:43)
+15/04/30 10:38:14 INFO YarnClientClusterScheduler: Adding task set 0.0 with 1 tasks
+15/04/30 10:38:14 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0, rsync.slave006.yarn.hadoop.sjs.sogou-op.org, NODE\_LOCAL, 1794 bytes)
+15/04/30 10:38:14 INFO BlockManagerInfo: Added broadcast\_1\_piece0 in memory on rsync.slave006.yarn.hadoop.sjs.sogou-op.org:55678 (size: 80.7 KB, free: 5.3 GB)
+15/04/30 10:38:16 INFO BlockManagerInfo: Added broadcast\_0\_piece0 in memory on rsync.slave006.yarn.hadoop.sjs.sogou-op.org:55678 (size: 69.6 KB, free: 5.3 GB)
+15/04/30 10:38:17 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 3152 ms on rsync.slave006.yarn.hadoop.sjs.sogou-op.org (1/1)
+15/04/30 10:38:17 INFO DAGScheduler: Stage 0 (runJob at InsertIntoHiveTable.scala:93) finished in 3.162 s
+15/04/30 10:38:17 INFO YarnClientClusterScheduler: Removed TaskSet 0.0, whose tasks have all completed, from pool 
+15/04/30 10:38:17 INFO DAGScheduler: Job 0 finished: runJob at InsertIntoHiveTable.scala:93, took 3.369777 s
+15/04/30 10:38:17 INFO HiveMetaStore: 0: partition\_name\_has\_valid\_characters
+15/04/30 10:38:17 INFO audit: ugi=root	ip=unknown-ip-addr	cmd=partition\_name\_has\_valid\_characters	
+15/04/30 10:38:17 INFO HiveMetaStore: 0: partition\_name\_has\_valid\_characters
+15/04/30 10:38:17 INFO audit: ugi=root	ip=unknown-ip-addr	cmd=partition\_name\_has\_valid\_characters	
+15/04/30 10:38:17 WARN UserGroupInformation: No groups available for user root
+15/04/30 10:38:17 WARN UserGroupInformation: No groups available for user root
+15/04/30 10:38:17 WARN HiveConf: DEPRECATED: hive.metastore.ds.retry.* no longer has any effect.  Use hive.hmshandler.retry.* instead
+15/04/30 10:38:17 INFO HiveMetaStore: 0: get\_table : db=default tbl=test
+15/04/30 10:38:17 INFO audit: ugi=root	ip=unknown-ip-addr	cmd=get\_table : db=default tbl=test	
+15/04/30 10:38:17 INFO HiveMetaStore: 0: get\_partition\_with\_auth : db=default tbl=test[1,\_\_HIVE\_DEFAULT\_PARTITION\_\_]
+15/04/30 10:38:17 INFO audit: ugi=root	ip=unknown-ip-addr	cmd=get\_partition\_with\_auth : db=default tbl=test[1,\_\_HIVE\_DEFAULT\_PARTITION\_\_]	
+15/04/30 10:38:17 INFO Hive: Replacing src:hdfs://yarncluster/tmp/hive-root/hive\_2015-04-30\_10-38-13\_846\_3096248751564356035-1/-ext-10000/c=\_\_HIVE\_DEFAULT\_PARTITION\_\_;dest: hdfs://yarncluster/user/root/hive/warehouse/test/b=1/c=\_\_HIVE\_DEFAULT\_PARTITION\_\_;Status:true
+15/04/30 10:38:17 INFO HiveMetaStore: 0: get\_partition\_with\_auth : db=default tbl=test[1,\_\_HIVE\_DEFAULT\_PARTITION\_\_]
+15/04/30 10:38:17 INFO audit: ugi=root	ip=unknown-ip-addr	cmd=get\_partition\_with\_auth : db=default tbl=test[1,\_\_HIVE\_DEFAULT\_PARTITION\_\_]	
+15/04/30 10:38:17 INFO HiveMetaStore: 0: append\_partition : db=default tbl=test[1,\_\_HIVE\_DEFAULT\_PARTITION\_\_]
+15/04/30 10:38:17 INFO audit: ugi=root	ip=unknown-ip-addr	cmd=append\_partition : db=default tbl=test[1,\_\_HIVE\_DEFAULT\_PARTITION\_\_]	
+15/04/30 10:38:17 WARN log: Updating partition stats fast for: test
+15/04/30 10:38:17 WARN log: Updated size to 10
+15/04/30 10:38:17 INFO Hive: New loading path = hdfs://yarncluster/tmp/hive-root/hive\_2015-04-30\_10-38-13\_846\_3096248751564356035-1/-ext-10000/c=\_\_HIVE\_DEFAULT\_PARTITION\_\_ with partSpec {b=1, c=\_\_HIVE\_DEFAULT\_PARTITION\_\_}
+res0: org.apache.spark.sql.SchemaRDD = 
+SchemaRDD[0] at RDD at SchemaRDD.scala:108
+== Query Plan ==
+== Physical Plan ==
+InsertIntoHiveTable (MetastoreRelation default, test, None), Map(b -> Some(1), c -> None), true
+ Project [a AS \_c0#0,CAST(CAST(c AS \_c1#1, DecimalType()), LongType) AS \_c1#8L]
+  HiveTableScan [], (MetastoreRelation default, ptest, None), None
+{noformat}
+
+
+---
+
+* [SPARK-7269](https://issues.apache.org/jira/browse/SPARK-7269) | *Major* | **Incorrect aggregation analysis**
+
+In a case insensitive analyzer (HiveContext), the attribute name captial differences will fail the analysis check for aggregation.
+{code}
+test("check analysis failed in case in-sensitive") {
+    Seq(1,2,3).map(i => (i, i.toString)).toDF("key", "value").registerTempTable("df\_analysis")
+    sql("SELECT kEy from df\_analysis group by key")
+}
+{code}
+
+{noformat}
+expression 'kEy' is neither present in the group by, nor is it an aggregate function. Add to group by or wrap in first() if you don't care which value you get.;
+org.apache.spark.sql.AnalysisException: expression 'kEy' is neither present in the group by, nor is it an aggregate function. Add to group by or wrap in first() if you don't care which value you get.;
+	at org.apache.spark.sql.catalyst.analysis.CheckAnalysis$class.failAnalysis(CheckAnalysis.scala:38)
+	at org.apache.spark.sql.catalyst.analysis.Analyzer.failAnalysis(Analyzer.scala:39)
+	at org.apache.spark.sql.catalyst.analysis.CheckAnalysis$$anonfun$checkAnalysis$1.org$apache$spark$sql$catalyst$analysis$CheckAnalysis$class$$anonfun$$checkValidAggregateExpression$1(CheckAnalysis.scala:85)
+	at org.apache.spark.sql.catalyst.analysis.CheckAnalysis$$anonfun$checkAnalysis$1$$anonfun$apply$4.apply(CheckAnalysis.scala:101)
+	at org.apache.spark.sql.catalyst.analysis.CheckAnalysis$$anonfun$checkAnalysis$1$$anonfun$apply$4.apply(CheckAnalysis.scala:101)
+	at scala.collection.mutable.ResizableArray$class.foreach(ResizableArray.scala:59)
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:47)
+	at org.apache.spark.sql.catalyst.analysis.CheckAnalysis$$anonfun$checkAnalysis$1.apply(CheckAnalysis.scala:101)
+	at org.apache.spark.sql.catalyst.analysis.CheckAnalysis$$anonfun$checkAnalysis$1.apply(CheckAnalysis.scala:50)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.foreachUp(TreeNode.scala:89)
+	at org.apache.spark.sql.catalyst.analysis.CheckAnalysis$class.checkAnalysis(CheckAnalysis.scala:50)
+	at org.apache.spark.sql.catalyst.analysis.Analyzer.checkAnalysis(Analyzer.scala:39)
+	at org.apache.spark.sql.SQLContext$QueryExecution.assertAnalyzed(SQLContext.scala:1121)
+	at org.apache.spark.sql.DataFrame.<init>(DataFrame.scala:133)
+	at org.apache.spark.sql.DataFrame$.apply(DataFrame.scala:51)
+	at org.apache.spark.sql.hive.HiveContext.sql(HiveContext.scala:97)
+	at org.apache.spark.sql.hive.execution.SQLQuerySuite$$anonfun$15.apply$mcV$sp(SQLQuerySuite.scala:408)
+	at org.apache.spark.sql.hive.execution.SQLQuerySuite$$anonfun$15.apply(SQLQuerySuite.scala:406)
+	at org.apache.spark.sql.hive.execution.SQLQuerySuite$$anonfun$15.apply(SQLQuerySuite.scala:406)
+	at org.scalatest.Transformer$$anonfun$apply$1.apply$mcV$sp(Transformer.scala:22)
+	at org.scalatest.OutcomeOf$class.outcomeOf(OutcomeOf.scala:85)
+	at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)
+	at org.scalatest.Transformer.apply(Transformer.scala:22)
+	at org.scalatest.Transformer.apply(Transformer.scala:20)
+	at org.scalatest.FunSuiteLike$$anon$1.apply(FunSuiteLike.scala:166)
+	at org.scalatest.Suite$class.withFixture(Suite.scala:1122)
+	at org.scalatest.FunSuite.withFixture(FunSuite.scala:1555)
+	at org.scalatest.FunSuiteLike$class.invokeWithFixture$1(FunSuiteLike.scala:163)
+{noformat}
+
+
+---
+
 * [SPARK-7267](https://issues.apache.org/jira/browse/SPARK-7267) | *Critical* | **Push down Project when it's child is Limit**
 
 SQL
@@ -1834,6 +3576,13 @@ Purpose: match StringIndexer
 I noticed there was no documentation for [spark.streaming.kafka.maxRetries|https://github.com/apache/spark/blob/master/external/kafka/src/main/scala/org/apache/spark/streaming/kafka/DirectKafkaInputDStream.scala#L66] was not documented in the [configuration pagehttp://spark.apache.org/docs/latest/configuration.html#spark-streaming].
 
 Is this on purpose?
+
+
+---
+
+* [SPARK-7251](https://issues.apache.org/jira/browse/SPARK-7251) | *Major* | **Perform sequential scan when iterating over entries in BytesToBytesMap**
+
+In BytesToBytesMap, {{iterator()}} iterates in order of set bits in the bitmap, but it would be faster to iterate directly through the data pages, since this will result in less random memory access.
 
 
 ---
@@ -2142,6 +3891,13 @@ It did not combineLimits
 
 ---
 
+* [SPARK-7224](https://issues.apache.org/jira/browse/SPARK-7224) | *Critical* | **Mock repositories for testing with --packages**
+
+Create mock repositories (folders with jars and pom in MAven format) for testing --packages without the need for internet connection.
+
+
+---
+
 * [SPARK-7223](https://issues.apache.org/jira/browse/SPARK-7223) | *Major* | **Rename RPC askWithReply -\> askWithReply, sendWithReply -\> ask**
 
 Current naming is too confusing between askWithReply and sendWithReply.
@@ -2152,6 +3908,13 @@ Current naming is too confusing between askWithReply and sendWithReply.
 * [SPARK-7222](https://issues.apache.org/jira/browse/SPARK-7222) | *Major* | **Added mathematical derivation in comment and compressed the model to LinearRegression with ElasticNet**
 
 Added detailed mathematical derivation of how scaling and LeastSquaresAggregator work. Also refactored the code so the model is compressed based on the storage. We may try compress based on the prediction time. TODO: Add test that fail the test when the correction terms are not correctly computed.
+
+
+---
+
+* [SPARK-7219](https://issues.apache.org/jira/browse/SPARK-7219) | *Trivial* | **HashingTF should output ML attributes**
+
+HashingTF knows the output feature dimension, which should be in the output ML attributes.
 
 
 ---
@@ -2198,6 +3961,13 @@ We need Sparse MatrixPicker similar to that of DenseMatrixPickler.
 * [SPARK-7201](https://issues.apache.org/jira/browse/SPARK-7201) | *Major* | **Move identifiable to ml.util**
 
 It shouldn't live under spark.ml package.
+
+
+---
+
+* [SPARK-7198](https://issues.apache.org/jira/browse/SPARK-7198) | *Major* | **VectorAssembler should carry ML metadata**
+
+Now it only outputs assembled vectors.
 
 
 ---
@@ -2496,6 +4266,33 @@ Change addInputPath(job, new Path(path)) to addInputPaths(job, path) will resolv
 * [SPARK-7152](https://issues.apache.org/jira/browse/SPARK-7152) | *Major* | **Add a Column expression for partition ID**
 
 Partition ID can be useful for seeding random number generators, or for seeding unique record IDs.
+
+
+---
+
+* [SPARK-7150](https://issues.apache.org/jira/browse/SPARK-7150) | *Minor* | **SQLContext.range()**
+
+It would be handy to have easy ways to construct random columns for DataFrames.  Proposed API:
+{code}
+class SQLContext {
+  // Return a DataFrame with a single column named "id" that has consecutive value from 0 to n.
+  def range(n: Long): DataFrame
+
+  def range(n: Long, numPartitions: Int): DataFrame
+}
+{code}
+
+Usage:
+{code}
+// uniform distribution
+ctx.range(1000).select(rand())
+
+// normal distribution
+ctx.range(1000).select(randn())
+{code}
+
+
+We should add an RangeIterator that supports long start/stop position, and then use it to create an RDD as the basis for this DataFrame.
 
 
 ---
@@ -2943,6 +4740,15 @@ There was a resolved JIRA : SPARK-6966 , which handled same issue only in 'JDBCR
 * [SPARK-7052](https://issues.apache.org/jira/browse/SPARK-7052) | *Minor* | **Add ThreadUtils and move thread methods from Utils to ThreadUtils**
 
 As per [~rxin] 's suggestion in https://github.com/apache/spark/pull/5392/files#r28757176
+
+
+---
+
+* [SPARK-7047](https://issues.apache.org/jira/browse/SPARK-7047) | *Minor* | **Model parent should be Optional**
+
+Ensembles' component Models have no parents.  Instead of making those values null, we should make them Options.
+
+For Python, "None" is probably the correct equivalent.
 
 
 ---
@@ -3730,6 +5536,23 @@ Later, with Apache admin assistance:
 
 ---
 
+* [SPARK-6888](https://issues.apache.org/jira/browse/SPARK-6888) | *Minor* | **Make DriverQuirks editable**
+
+JDBC type conversion is currently handled by spark with the help of DriverQuirks (org.apache.spark.sql.jdbc.DriverQuirks).
+
+However some cases can't be resolved, e.g. MySQL "BIGINT UNSIGNED". (other UNSIGNED conversions won't work either but could be resolved automatically by using the next larger type)
+An invalid type conversion (e.g. loading an unsigned bigint with the highest bit set as a long value) causes the jdbc driver to throw an exception.
+
+The target type is determined automatically and bound to the resulting DataFrame where it's immutable.
+
+Alternative solutions:
+- Subqueries. Produce extra load on the server
+- SQLContext / jdbc methods with schema support
+- Making it possible to change the schema of data frames
+
+
+---
+
 * [SPARK-6887](https://issues.apache.org/jira/browse/SPARK-6887) | *Major* | **ColumnBuilder misses FloatType**
 
 To reproduce ...
@@ -4192,9 +6015,23 @@ Error in filter(df, df$age > 21) :
 
 ---
 
+* [SPARK-6811](https://issues.apache.org/jira/browse/SPARK-6811) | *Blocker* | **Building binary R packages for SparkR**
+
+We should figure out how to distribute binary packages for SparkR as a part of the release process. R packages for Windows might need to be built separately and we could offer a separate download link for Windows users.
+
+
+---
+
 * [SPARK-6807](https://issues.apache.org/jira/browse/SPARK-6807) | *Blocker* | **Merge recent changes in SparkR-pkg into Spark**
 
 There are a few of new features happened on SparkR-pkg while merging, we should pull them all in.
+
+
+---
+
+* [SPARK-6806](https://issues.apache.org/jira/browse/SPARK-6806) | *Critical* | **SparkR examples in programming guide**
+
+Add R examples for Spark Core and DataFrame programming guide
 
 
 ---
@@ -4409,6 +6246,17 @@ scala> query.where('key > 30).select(avg('key)).collect()
 
 ---
 
+* [SPARK-6767](https://issues.apache.org/jira/browse/SPARK-6767) | *Trivial* | **Documentation error in Spark SQL Readme file**
+
+Error in Spark SQL Documentation file . The sample script for SQL DSL   throwing below error
+
+scala> query.where('key > 30).select(avg('key)).collect()
+<console>:43: error: value > is not a member of Symbol
+              query.where('key > 30).select(avg('key)).collect()
+
+
+---
+
 * [SPARK-6766](https://issues.apache.org/jira/browse/SPARK-6766) | *Major* | **StreamingListenerBatchSubmitted isn't sent and StreamingListenerBatchStarted.batchInfo.processingStartTime is a wrong value**
 
 1. Now there is no place posting StreamingListenerBatchSubmitted. It should be post when JobSet is submitted.
@@ -4519,6 +6367,30 @@ It turned out that {{DataFrame.collect()}} calls {{SparkPlan.executeCollect()}},
 execute().map(ScalaReflection.convertRowToScala(\_, schema)).collect()
 {code}
 The problem is that, {{QueryPlan.schema}} is a function, and since 1.3.0, {{convertRowToScala}} starts returning a {{GenericRowWithSchema}}. These two facts result in 10 million rows, each with a separate schema object.
+
+
+---
+
+* [SPARK-6743](https://issues.apache.org/jira/browse/SPARK-6743) | *Critical* | **Join with empty projection on one side produces invalid results**
+
+{code:java}
+val sqlContext = new SQLContext(sc)
+val tab0 = sc.parallelize(Seq(
+      (83,0,38),
+      (26,0,79),
+      (43,81,24)
+    ))
+    sqlContext.registerDataFrameAsTable(sqlContext.createDataFrame(tab0), "tab0")
+sqlContext.cacheTable("tab0")   
+val df1 = sqlContext.sql("SELECT tab0.\_2, cor0.\_2 FROM tab0, tab0 cor0 GROUP BY tab0.\_2, cor0.\_2")
+val result1 = df1.collect()
+val df2 = sqlContext.sql("SELECT cor0.\_2 FROM tab0, tab0 cor0 GROUP BY cor0.\_2")
+val result2 = df2.collect()
+val df3 = sqlContext.sql("SELECT cor0.\_2 FROM tab0 cor0 GROUP BY cor0.\_2")
+val result3 = df3.collect()
+{code}
+
+Given the previous code, result2 equals to Row(43), Row(83), Row(26), which is wrong. These results correspond to cor0.\_1, instead of cor0.\_2. Correct results would be Row(0), Row(81), which are ok for the third query. The first query also produces valid results, and the only difference is that the left side of the join is not empty.
 
 
 ---
@@ -4903,6 +6775,73 @@ original toString of Matrix only print like following,
 0.5396875653953941     0.3267864552779176    ...
 
 The   def toString(maxLines : Int, maxWidth : Int) is useful when debuging, logging and saving matrix to files.
+
+
+---
+
+* [SPARK-6690](https://issues.apache.org/jira/browse/SPARK-6690) | *Minor* | **spark-sql script ends up throwing Exception when event logging is enabled.**
+
+When event logging is enabled, spark-sql script ends up throwing Exception like as follows.
+
+{code}
+15/04/03 13:51:49 INFO handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/jobs,null}
+15/04/03 13:51:49 ERROR scheduler.LiveListenerBus: Listener EventLoggingListener threw an exception
+java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.apache.spark.scheduler.EventLoggingListener$$anonfun$logEvent$3.apply(EventLoggingListener.scala:144)
+	at org.apache.spark.scheduler.EventLoggingListener$$anonfun$logEvent$3.apply(EventLoggingListener.scala:144)
+	at scala.Option.foreach(Option.scala:236)
+	at org.apache.spark.scheduler.EventLoggingListener.logEvent(EventLoggingListener.scala:144)
+	at org.apache.spark.scheduler.EventLoggingListener.onApplicationEnd(EventLoggingListener.scala:188)
+	at org.apache.spark.scheduler.SparkListenerBus$class.onPostEvent(SparkListenerBus.scala:54)
+	at org.apache.spark.scheduler.LiveListenerBus.onPostEvent(LiveListenerBus.scala:31)
+	at org.apache.spark.scheduler.LiveListenerBus.onPostEvent(LiveListenerBus.scala:31)
+	at org.apache.spark.util.ListenerBus$class.postToAll(ListenerBus.scala:53)
+	at org.apache.spark.util.AsynchronousListenerBus.postToAll(AsynchronousListenerBus.scala:37)
+	at org.apache.spark.util.AsynchronousListenerBus$$anon$1$$anonfun$run$1.apply$mcV$sp(AsynchronousListenerBus.scala:79)
+	at org.apache.spark.util.Utils$.tryOrStopSparkContext(Utils.scala:1171)
+	at org.apache.spark.util.AsynchronousListenerBus$$anon$1.run(AsynchronousListenerBus.scala:63)
+Caused by: java.io.IOException: Filesystem closed
+	at org.apache.hadoop.hdfs.DFSClient.checkOpen(DFSClient.java:707)
+	at org.apache.hadoop.hdfs.DFSOutputStream.flushOrSync(DFSOutputStream.java:1843)
+	at org.apache.hadoop.hdfs.DFSOutputStream.hflush(DFSOutputStream.java:1804)
+	at org.apache.hadoop.fs.FSDataOutputStream.hflush(FSDataOutputStream.java:127)
+	... 17 more
+15/04/03 13:51:49 INFO ui.SparkUI: Stopped Spark web UI at http://sarutak-devel:4040
+15/04/03 13:51:49 INFO scheduler.DAGScheduler: Stopping DAGScheduler
+Exception in thread "Thread-6" java.io.IOException: Filesystem closed
+	at org.apache.hadoop.hdfs.DFSClient.checkOpen(DFSClient.java:707)
+	at org.apache.hadoop.hdfs.DFSClient.getFileInfo(DFSClient.java:1760)
+	at org.apache.hadoop.hdfs.DistributedFileSystem$17.doCall(DistributedFileSystem.java:1124)
+	at org.apache.hadoop.hdfs.DistributedFileSystem$17.doCall(DistributedFileSystem.java:1120)
+	at org.apache.hadoop.fs.FileSystemLinkResolver.resolve(FileSystemLinkResolver.java:81)
+	at org.apache.hadoop.hdfs.DistributedFileSystem.getFileStatus(DistributedFileSystem.java:1120)
+	at org.apache.hadoop.fs.FileSystem.exists(FileSystem.java:1398)
+	at org.apache.spark.scheduler.EventLoggingListener.stop(EventLoggingListener.scala:209)
+	at org.apache.spark.SparkContext$$anonfun$stop$3.apply(SparkContext.scala:1408)
+	at org.apache.spark.SparkContext$$anonfun$stop$3.apply(SparkContext.scala:1408)
+	at scala.Option.foreach(Option.scala:236)
+	at org.apache.spark.SparkContext.stop(SparkContext.scala:1408)
+	at org.apache.spark.sql.hive.thriftserver.SparkSQLEnv$.stop(SparkSQLEnv.scala:66)
+	at org.apache.spark.sql.hive.thriftserver.SparkSQLCLIDriver$$anon$1.run(SparkSQLCLIDriver.scala:107)
+{code}
+
+This is because FileSystem#close is called by the shutdown hook registered in SparkSQLCLIDriver.
+
+{code}
+    Runtime.getRuntime.addShutdownHook(
+      new Thread() {
+        override def run() {
+          SparkSQLEnv.stop()
+        }
+      }
+    )
+{code}
+
+This issue was resolved by SPARK-3062 but I think, it's brought again by SPARK-2261.
 
 
 ---
@@ -7061,6 +9000,38 @@ There is one consequence: the JARs will also end being published to mvn central.
 
 ---
 
+* [SPARK-6432](https://issues.apache.org/jira/browse/SPARK-6432) | *Major* | **Cannot load parquet data with partitions if not all partition columns match data columns**
+
+Suppose we have a dataset in the following folder structure:
+
+{noformat}
+parquet/source=live/date=2015-03-18/
+parquet/source=live/date=2015-03-19/
+...
+{noformat}
+
+And the data schema has the following columns:
+- id
+- *event\_date*
+- source
+- value
+
+Where partition key source matches data column source, but partition key date doesn't match any columns in data.
+
+Then we cannot load dataset in Spark using parquetFile. It reports:
+
+{code}
+org.apache.spark.sql.AnalysisException: Ambiguous references to source: (source#2,List()),(source#5,List());
+...
+{code}
+
+Currently if partition columns has overlaps with data columns, partition columns have to be a subset of the data columns.
+
+Jianshi
+
+
+---
+
 * [SPARK-6431](https://issues.apache.org/jira/browse/SPARK-6431) | *Major* | **Couldn't find leader offsets exception when creating KafkaDirectStream**
 
 When I try to create an InputDStream using the createDirectStream method of the KafkaUtils class and the kafka topic does not have any messages yet am getting the following error:
@@ -7230,6 +9201,13 @@ Virtual columns like GROUPING\_\_ID should never be considered as missing input,
 
 The current implementation of getCacheLocs include searching a HashMap many times, we can avoid this.
 And BlockManager.blockIdsToExecutorIds isn't called anywhere, we can remove it. Also we can combine BlockManager.blockIdsToHosts and blockIdsToBlockManagers into a single method in order to remove some unnecessary layers of indirection / collection creation.
+
+
+---
+
+* [SPARK-6391](https://issues.apache.org/jira/browse/SPARK-6391) | *Major* | **Update Tachyon version compatibility documentation**
+
+Tachyon v0.6 has an api change in the client, it would be helpful to document the Tachyon-Spark compatibility across versions.
 
 
 ---
@@ -7844,6 +9822,48 @@ at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:
 
 ---
 
+* [SPARK-6295](https://issues.apache.org/jira/browse/SPARK-6295) | *Minor* | **spark.ml.Evaluator should have evaluate method not taking ParamMap**
+
+spark.ml.Evaluator requires that the user pass a ParamMap, but it is not always necessary.  It should have a default implementation with no ParamMap (similar to fit() and transform() in Estimator and Transformer).
+
+
+---
+
+* [SPARK-6294](https://issues.apache.org/jira/browse/SPARK-6294) | *Critical* | **PySpark task may hang while call take() on in Java/Scala**
+
+{code}
+>>> rdd = sc.parallelize(range(1<<20)).map(lambda x: str(x))
+>>> rdd.\_jrdd.first()
+{code}
+
+There is the stacktrace while hanging:
+
+{code}
+"Executor task launch worker-5" daemon prio=10 tid=0x00007f8fd01a9800 nid=0x566 in Object.wait() [0x00007f90481d7000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x0000000630929340> (a org.apache.spark.api.python.PythonRDD$WriterThread)
+	at java.lang.Thread.join(Thread.java:1281)
+	- locked <0x0000000630929340> (a org.apache.spark.api.python.PythonRDD$WriterThread)
+	at java.lang.Thread.join(Thread.java:1355)
+	at org.apache.spark.api.python.PythonRDD$$anonfun$compute$1.apply(PythonRDD.scala:78)
+	at org.apache.spark.api.python.PythonRDD$$anonfun$compute$1.apply(PythonRDD.scala:76)
+	at org.apache.spark.TaskContextImpl$$anon$1.onTaskCompletion(TaskContextImpl.scala:49)
+	at org.apache.spark.TaskContextImpl$$anonfun$markTaskCompleted$1.apply(TaskContextImpl.scala:68)
+	at org.apache.spark.TaskContextImpl$$anonfun$markTaskCompleted$1.apply(TaskContextImpl.scala:66)
+	at scala.collection.mutable.ResizableArray$class.foreach(ResizableArray.scala:59)
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:47)
+	at org.apache.spark.TaskContextImpl.markTaskCompleted(TaskContextImpl.scala:66)
+	at org.apache.spark.scheduler.Task.run(Task.scala:58)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:196)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+{code}
+
+
+---
+
 * [SPARK-6291](https://issues.apache.org/jira/browse/SPARK-6291) | *Minor* | **GLM toString should not output full weight vector**
 
 GeneralizedLinearModel.toString prints (weights, intercept)
@@ -8241,6 +10261,52 @@ An easy lint check for Python would be to make sure the stuff at least compiles.
 
 ---
 
+* [SPARK-6216](https://issues.apache.org/jira/browse/SPARK-6216) | *Major* | **Check Python version in worker before run PySpark job**
+
+PySpark can only run with the same major version both in driver and worker ( both of the are 2.6 or 2.7), it will cause random error if it have 2.7 in driver or 2.6 in worker (or vice).
+
+For example:
+{code}
+davies@localhost:~/work/spark$ PYSPARK\_PYTHON=python2.6 PYSPARK\_DRIVER\_PYTHON=python2.7 bin/pyspark
+Using Python version 2.7.7 (default, Jun  2 2014 12:48:16)
+SparkContext available as sc, SQLContext available as sqlCtx.
+>>> sc.textFile('LICENSE').map(lambda l: l.split()).count()
+org.apache.spark.api.python.PythonException: Traceback (most recent call last):
+  File "/Users/davies/work/spark/python/pyspark/worker.py", line 101, in main
+    process()
+  File "/Users/davies/work/spark/python/pyspark/worker.py", line 96, in process
+    serializer.dump\_stream(func(split\_index, iterator), outfile)
+  File "/Users/davies/work/spark/python/pyspark/rdd.py", line 2251, in pipeline\_func
+    return func(split, prev\_func(split, iterator))
+  File "/Users/davies/work/spark/python/pyspark/rdd.py", line 2251, in pipeline\_func
+    return func(split, prev\_func(split, iterator))
+  File "/Users/davies/work/spark/python/pyspark/rdd.py", line 2251, in pipeline\_func
+    return func(split, prev\_func(split, iterator))
+  File "/Users/davies/work/spark/python/pyspark/rdd.py", line 281, in func
+    return f(iterator)
+  File "/Users/davies/work/spark/python/pyspark/rdd.py", line 931, in <lambda>
+    return self.mapPartitions(lambda i: [sum(1 for \_ in i)]).sum()
+  File "/Users/davies/work/spark/python/pyspark/rdd.py", line 931, in <genexpr>
+    return self.mapPartitions(lambda i: [sum(1 for \_ in i)]).sum()
+  File "<stdin>", line 1, in <lambda>
+TypeError: 'bool' object is not callable
+
+	at org.apache.spark.api.python.PythonRDD$$anon$1.read(PythonRDD.scala:136)
+	at org.apache.spark.api.python.PythonRDD$$anon$1.<init>(PythonRDD.scala:177)
+	at org.apache.spark.api.python.PythonRDD.compute(PythonRDD.scala:95)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:277)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:244)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:61)
+	at org.apache.spark.scheduler.Task.run(Task.scala:64)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:203)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+{code}
+
+
+---
+
 * [SPARK-6211](https://issues.apache.org/jira/browse/SPARK-6211) | *Critical* | **Test Python Kafka API using Python unit tests**
 
 This is tricky in python because the KafkaStreamSuiteBase (which has the functionality of creating embedded kafka clusters) is in the test package, which is not in the python path. To fix that, we have to ways. 
@@ -8412,15 +10478,6 @@ Jianshi
 * [SPARK-6199](https://issues.apache.org/jira/browse/SPARK-6199) | *Major* | **Support CTE**
 
 Support CTE in SQLContext and HiveContext
-
-
----
-
-* [SPARK-6197](https://issues.apache.org/jira/browse/SPARK-6197) | *Minor* | **handle json parse exception for eventlog file not finished writing**
-
-This is a following JIRA for [SPARK-6107|https://issues.apache.org/jira/browse/SPARK-6107]. In  [SPARK-6107|https://issues.apache.org/jira/browse/SPARK-6107], webUI can display event log files that with suffix *.inprogress*. However, the eventlog file may be not finished writing for some abnormal cases (e.g. Ctrl+C), In which case, the file maybe  truncated in the last line, leading to the line being not in valid Json format. Which will cause Json parse exception when reading the file. 
-
-For this case, we can just ignore the last line content, since the history for abnormal cases showed on web is only a reference for user, it can demonstrate the past status of the app before terminated abnormally (we can not guarantee the history can show exactly the last moment when app encounter the abnormal situation).
 
 
 ---
@@ -9104,6 +11161,13 @@ Exception in thread "Thread-3" java.io.IOException: Filesystem closed
 	at org.apache.spark.sql.hive.thriftserver.SparkSQLEnv$.stop(SparkSQLEnv.scala:66)
 	at org.apache.spark.sql.hive.thriftserver.SparkSQLCLIDriver$$anon$1.run(SparkSQLCLIDriver.scala:107)
 {code}
+
+
+---
+
+* [SPARK-6013](https://issues.apache.org/jira/browse/SPARK-6013) | *Major* | **Add more Python ML examples for spark.ml**
+
+Now that the spark.ml Pipelines API is supported within Python, we should duplicate the remaining Scala/Java spark.ml examples within Python.
 
 
 ---
@@ -10298,6 +12362,15 @@ Helps when trying out different branches or forks of spark-ec2.
 
 ---
 
+* [SPARK-5610](https://issues.apache.org/jira/browse/SPARK-5610) | *Major* | **Generate Java docs without package private classes and methods**
+
+The current generated Java doc is a mixed of public and package private classes and methods. We can update genjavadoc to hide them.
+
+Upstream PR: https://github.com/typesafehub/genjavadoc/pull/47
+
+
+---
+
 * [SPARK-5566](https://issues.apache.org/jira/browse/SPARK-5566) | *Major* | **Tokenizer for mllib package**
 
 There exist tokenizer classes in the spark.ml.feature package and in the LDAExample in the spark.examples.mllib package.  The Tokenizer in the LDAExample is more advanced and should be made into a full-fledged public class in spark.mllib.feature.  The spark.ml.feature.Tokenizer class should become a wrapper around the new Tokenizer.
@@ -10510,6 +12583,13 @@ The snapshot of function shows as below:
 !https://dl.dropboxusercontent.com/u/19230832/master\_ui.png!
 
 Add a kill action for each active application, kill action here is to simply stop the specific application.
+
+
+---
+
+* [SPARK-5494](https://issues.apache.org/jira/browse/SPARK-5494) | *Major* | **SparkSqlSerializer Ignores KryoRegistrators**
+
+We should make SparkSqlSerializer call {{super.newKryo}} before doing any of it's custom stuff in order to make sure it picks up on custom KryoRegistrators.
 
 
 ---
@@ -11022,6 +13102,34 @@ The bug is already fixed in my fork, I am going to submit pull request
 
 ---
 
+* [SPARK-5220](https://issues.apache.org/jira/browse/SPARK-5220) | *Major* | **keepPushingBlocks in BlockGenerator terminated when an exception occurs, which causes the block pushing thread to terminate and blocks receiver**
+
+I am running a Spark streaming application with ReliableKafkaReceiver. It uses BlockGenerator to push blocks to BlockManager. However, writing WALs to HDFS may time out that causes keepPushingBlocks in BlockGenerator to terminate.
+
+15/01/12 19:07:06 ERROR receiver.BlockGenerator: Error in block pushing thread
+java.util.concurrent.TimeoutException: Futures timed out after [30 seconds]
+        at scala.concurrent.impl.Promise$DefaultPromise.ready(Promise.scala:219)
+        at scala.concurrent.impl.Promise$DefaultPromise.result(Promise.scala:223)
+        at scala.concurrent.Await$$anonfun$result$1.apply(package.scala:107)
+        at scala.concurrent.BlockContext$DefaultBlockContext$.blockOn(BlockContext.scala:53)
+        at scala.concurrent.Await$.result(package.scala:107)
+        at org.apache.spark.streaming.receiver.WriteAheadLogBasedBlockHandler.storeBlock(ReceivedBlockHandler.scala:176)
+        at org.apache.spark.streaming.receiver.ReceiverSupervisorImpl.pushAndReportBlock(ReceiverSupervisorImpl.scala:160)
+        at org.apache.spark.streaming.receiver.ReceiverSupervisorImpl.pushArrayBuffer(ReceiverSupervisorImpl.scala:126)
+        at org.apache.spark.streaming.receiver.Receiver.store(Receiver.scala:124)
+        at org.apache.spark.streaming.kafka.ReliableKafkaReceiver.org$apache$spark$streaming$kafka$ReliableKafkaReceiver$$storeBlockAndCommitOffset(ReliableKafkaReceiver.scala:207)
+        at org.apache.spark.streaming.kafka.ReliableKafkaReceiver$GeneratedBlockHandler.onPushBlock(ReliableKafkaReceiver.scala:275)
+        at org.apache.spark.streaming.receiver.BlockGenerator.pushBlock(BlockGenerator.scala:181)
+        at org.apache.spark.streaming.receiver.BlockGenerator.org$apache$spark$streaming$receiver$BlockGenerator$$keepPushingBlocks(BlockGenerator.scala:154)
+        at org.apache.spark.streaming.receiver.BlockGenerator$$anon$1.run(BlockGenerator.scala:86)
+
+Then the block pushing thread is done and no subsequent blocks can be pushed into blockManager. In turn this blocks receiver from receiving new data.
+
+So when running my app and the TimeoutException happens, the ReliableKafkaReceiver stays in ACTIVE status but doesn't do anything at all. The application rogues.
+
+
+---
+
 * [SPARK-5213](https://issues.apache.org/jira/browse/SPARK-5213) | *Major* | **Pluggable SQL Parser Support**
 
 Currently, the SQL Parser dialect is hard code in SQLContext, which is not easy to extend, we need the features like:
@@ -11380,6 +13488,15 @@ In SBT add:
 {code}
 +    scalacOptions in Compile ++= Seq("-Xmax-classfile-name", "128"),
 {code}
+
+
+---
+
+* [SPARK-4808](https://issues.apache.org/jira/browse/SPARK-4808) | *Major* | **Spark fails to spill with small number of large objects**
+
+Spillable's maybeSpill does not allow spill to occur until at least 1000 elements have been spilled, and then will only evaluate spill every 32nd element thereafter.  When there is a small number of very large items being tracked, out-of-memory conditions may occur.
+
+I suspect that this and the every-32nd-element behavior was to reduce the impact of the estimateSize() call.  This method was extracted into SizeTracker, which implements its own exponential backup for size estimation, so now we are only avoiding using the resulting estimated size.
 
 
 ---
@@ -11749,6 +13866,30 @@ This issue was originally reported by [~nkronenfeld] on the dev mailing list: ht
 
 ---
 
+* [SPARK-3674](https://issues.apache.org/jira/browse/SPARK-3674) | *Major* | **Add support for launching YARN clusters in spark-ec2**
+
+Right now spark-ec2 only supports launching Spark Standalone clusters. While this is sufficient for basic usage it is hard to test features or do performance benchmarking on YARN. It will be good to add support for installing, configuring a Apache YARN cluster at a fixed version -- say the latest stable version 2.4.0
+
+
+---
+
+* [SPARK-3644](https://issues.apache.org/jira/browse/SPARK-3644) | *Major* | **REST API for Spark application info (jobs / stages / tasks / storage info)**
+
+This JIRA is a forum to draft a design proposal for a REST interface for accessing information about Spark applications, such as job / stage / task / storage status.
+
+There have been a number of proposals to serve JSON representations of the information displayed in Spark's web UI.  Given that we might redesign the pages of the web UI (and possibly re-implement the UI as a client of a REST API), the API endpoints and their responses should be independent of what we choose to display on particular web UI pages / layouts.
+
+Let's start a discussion of what a good REST API would look like from first-principles.  We can discuss what urls / endpoints expose access to data, how our JSON responses will be formatted, how fields will be named, how the API will be documented and tested, etc.
+
+Some links for inspiration:
+
+https://developer.github.com/v3/
+http://developer.netflix.com/docs/REST\_API\_Reference
+https://helloreverb.com/developers/swagger
+
+
+---
+
 * [SPARK-3596](https://issues.apache.org/jira/browse/SPARK-3596) | *Major* | **Support changing the yarn client monitor interval**
 
 Right now spark on yarn has a monitor interval that can be configured by spark.yarn.report.interval.  This is how often the client checks with the RM to get status on the running application in cluster mode.   We should allow users to set this interval as some may not need to check so often.   There is another jira filed to make it so the client doesn't have to stay around for cluster mode.
@@ -11913,6 +14054,13 @@ ALS returns a matrix factorization model, which we can use to predict ratings fo
 1) collect one side (either user or product) and broadcast it as a matrix
 2) use level-3 BLAS to compute inner products
 3) use Utils.takeOrdered to find top-k
+
+
+---
+
+* [SPARK-2883](https://issues.apache.org/jira/browse/SPARK-2883) | *Critical* | **Spark Support for ORCFile format**
+
+Verify the support of OrcInputFormat in spark, fix issues if exists and add documentation of its usage.
 
 
 ---
@@ -12257,6 +14405,15 @@ Since I'm not 100% on what SPARK\_TOOLS\_JAR is even for, I'm assigning this to 
 * [SPARK-911](https://issues.apache.org/jira/browse/SPARK-911) | *Major* | **Support map pruning on sorted (K, V) RDD's**
 
 If someone has sorted a (K, V) rdd, we should offer them a way to filter a range of the partitions that employs map pruning. This would be simple using a small range index within the rdd itself. A good example is I sort my dataset by time and then I want to serve queries that are restricted to a certain time range.
+
+
+---
+
+* [SPARK-677](https://issues.apache.org/jira/browse/SPARK-677) | *Major* | **PySpark should not collect results through local filesystem**
+
+Py4J is slow when transferring large arrays, so PySpark currently dumps data to the disk and reads it back in order to collect() RDDs.  On large enough datasets, this data will spill from the buffer cache and write to the physical disk, resulting in terrible performance.
+
+Instead, we should stream the data from Java to Python over a local socket or a FIFO.
 
 
 

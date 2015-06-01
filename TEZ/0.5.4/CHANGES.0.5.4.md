@@ -66,6 +66,7 @@
 | [TEZ-2192](https://issues.apache.org/jira/browse/TEZ-2192) | Relocalization does not check for source |  Blocker | . | Rohini Palaniswamy | Hitesh Shah |
 | [TEZ-2162](https://issues.apache.org/jira/browse/TEZ-2162) | org.apache.hadoop.mapreduce.lib.output.SequenceFileOutputFormat is not recognized |  Critical | . | Oleg Zhurakousky | Jeff Zhang |
 | [TEZ-2133](https://issues.apache.org/jira/browse/TEZ-2133) | Secured Impersonation: Failed to delete tez scratch data dir |  Major | . | Johannes Zillmann | Chang Li |
+| [TEZ-2080](https://issues.apache.org/jira/browse/TEZ-2080) | Localclient should be using tezconf in init instead of yarnconf |  Major | . | Prakash Ramachandran | Siddharth Seth |
 | [TEZ-2071](https://issues.apache.org/jira/browse/TEZ-2071) | TestAMRecovery should set test names for test DAGs |  Major | . | Bikas Saha | Jeff Zhang |
 | [TEZ-2058](https://issues.apache.org/jira/browse/TEZ-2058) | Flaky test: TestTezJobs::testInvalidQueueSubmission |  Blocker | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-2037](https://issues.apache.org/jira/browse/TEZ-2037) | Should log TaskAttemptFinishedEvent if taskattempt is recovered to KILLED |  Major | . | Jeff Zhang | Jeff Zhang |

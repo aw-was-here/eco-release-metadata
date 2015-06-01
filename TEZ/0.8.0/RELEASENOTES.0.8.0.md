@@ -23,6 +23,47 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [TEZ-2503](https://issues.apache.org/jira/browse/TEZ-2503) | *Minor* | **findbugs version isn't reported properly in test-patch report**
+
+Post TEZ-1883
+
+
+---
+
+* [TEZ-2482](https://issues.apache.org/jira/browse/TEZ-2482) | *Major* | **Tez UI: Mouse events not working on IE11**
+
+In IE 11 mouse events are not delivered to the page anymore at all after a SVG use element which has was under the mouse is removed - https://connect.microsoft.com/IE/feedback/details/796745
+
+this affects IE on win7 and win2012 r2
+
+
+---
+
+* [TEZ-2481](https://issues.apache.org/jira/browse/TEZ-2481) | *Major* | **Tez UI: graphical view does not render properly on IE11**
+
+The issue was because of IE's poor/broken support of css in SVG.
+# IE doesn't support transform in css like other browsers. This caused the bubbles in a vertex to appear at the origin - https://connect.microsoft.com/IE/feedbackdetail/view/920928
+# IE have a broken support for the marker(Arrow on the path). This was causing the links/paths to disappear - https://connect.microsoft.com/IE/feedback/details/801938
+
+
+---
+
+* [TEZ-2468](https://issues.apache.org/jira/browse/TEZ-2468) | *Major* | **Change master to build against Java 7**
+
+**WARNING: No release note provided for this incompatible change.**
+
+
+---
+
+* [TEZ-2461](https://issues.apache.org/jira/browse/TEZ-2461) | *Major* | **tez-history-parser compile fails with hadoop-2.4**
+
+https://builds.apache.org/job/Tez-Build-Hadoop-2.4/98/console
+
+\cc [~rajesh.balamohan]
+
+
+---
+
 * [TEZ-2455](https://issues.apache.org/jira/browse/TEZ-2455) | *Major* | **Tez UI: Dag view caching, error handling and minor layout changes**
 
 # Enable caching in Dag View.
@@ -31,6 +72,13 @@ These release notes cover new developer and user-facing incompatibilities, featu
 # Vetex & Input nodes at the same level slightly overlaps at times
 # Entities under a DAG not loading in IE
 # Prevent 'All DAGs' page from hitting ATS with a huge limit when rowCount is manually edited
+
+
+---
+
+* [TEZ-2454](https://issues.apache.org/jira/browse/TEZ-2454) | *Major* | **Change FetcherOrderedGroup to work as Callables instead of blocking threads**
+
+The Fetcher threads for Ordered Input currently run and block till merge completes, which makes it difficult to use them via ThreadPools.
 
 
 ---
@@ -57,6 +105,13 @@ It would be useful to show this information.
 
 ---
 
+* [TEZ-2450](https://issues.apache.org/jira/browse/TEZ-2450) | *Major* | **support async http clients in ordered & unordered inputs**
+
+It will be helpful to switch between JDK & other async http impls.  For LLAP scenarios, it would be useful to make http clients interruptible which is supported in async libraries.
+
+
+---
+
 * [TEZ-2447](https://issues.apache.org/jira/browse/TEZ-2447) | *Major* | **Tez UI: Generic changes based on feedbacks.**
 
 1. Status icon in all DAGs table is not inline with the text always.
@@ -71,6 +126,39 @@ It would be useful to show this information.
 
 TEZ-2159 - Enables downloading timeline data for offline use.  It would be good to add TEZ\_APPLICATION (Which contains tezVersion, configs etc) along with this.
 \cc [~pramachandran]
+
+
+---
+
+* [TEZ-2440](https://issues.apache.org/jira/browse/TEZ-2440) | *Major* | **Sorter should check for indexCacheList.size() in flush()**
+
+{noformat}
+015-05-11 20:28:20,225 INFO [main] task.TezTaskRunner: Shutdown requested... returning
+2015-05-11 20:28:20,225 INFO [main] task.TezChild: Got a shouldDie notification via hearbeats. Shutting down
+2015-05-11 20:28:20,231 INFO [TezChild] impl.PipelinedSorter: Thread interrupted, cleaned up stale data, sorter threads shutdown=true, terminated=false
+2015-05-11 20:28:20,231 INFO [TezChild] runtime.LogicalIOProcessorRuntimeTask: Joining on EventRouter
+2015-05-11 20:28:20,231 INFO [TezChild] runtime.LogicalIOProcessorRuntimeTask: Ignoring interrupt while waiting for the router thread to die
+2015-05-11 20:28:20,232 INFO [TezChild] task.TezTaskRunner: Encounted an error while executing task: attempt\_1429683757595\_0875\_1\_07\_000000\_0
+java.lang.ArrayIndexOutOfBoundsException: -1
+        at java.util.ArrayList.elementData(ArrayList.java:418)
+        at java.util.ArrayList.get(ArrayList.java:431)
+        at org.apache.tez.runtime.library.common.sort.impl.PipelinedSorter.flush(PipelinedSorter.java:462)
+        at org.apache.tez.runtime.library.output.OrderedPartitionedKVOutput.close(OrderedPartitionedKVOutput.java:183)
+        at org.apache.tez.runtime.LogicalIOProcessorRuntimeTask.close(LogicalIOProcessorRuntimeTask.java:360)
+        at org.apache.tez.runtime.task.TezTaskRunner$TaskRunnerCallable$1.run(TezTaskRunner.java:181)
+        at org.apache.tez.runtime.task.TezTaskRunner$TaskRunnerCallable$1.run(TezTaskRunner.java:171)
+        at java.security.AccessController.doPrivileged(Native Method)
+        at javax.security.auth.Subject.doAs(Subject.java:422)
+        at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1628)
+        at org.apache.tez.runtime.task.TezTaskRunner$TaskRunnerCallable.callInternal(TezTaskRunner.java:171)
+        at org.apache.tez.runtime.task.TezTaskRunner$TaskRunnerCallable.callInternal(TezTaskRunner.java:167)
+        at org.apache.tez.common.CallableWithNdc.call(CallableWithNdc.java:36)
+        at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+{noformat}
+
+When a DAG is killed in the middle, sometimes these exceptions are thrown (e.g q\_17 in TPC-DS).  Even though it is completely harmless, it would be better to fix it to avoid distraction when debugging
 
 
 ---
@@ -94,6 +182,40 @@ Attempt Index and Attempt No serves the same purpose.
 - We will auto-populate all the counter names including io counter names to the tasks (under a vertex) and task attempts (under task, vertex).
 - To enable navigation the column names will be searchable in the pop-up for column selection.
 - Per-io counter names will not be stored in the personalization settings given they are dag / vertex specific.
+
+
+---
+
+* [TEZ-2198](https://issues.apache.org/jira/browse/TEZ-2198) | *Major* | **Fix sorter spill counts**
+
+Prior to pipelined shuffle, tez merged all spilled data into a single file.  This ended up creating one index file and one output file. In this context, TaskCounter.ADDITIONAL\_SPILL\_COUNT was referred as the number of additional spills and there was no counter needed to track the number of merges.
+
+With pipelined shuffle, there is no final merge and ADDITIONAL\_SPILL\_COUNT would be misleading, as these spills are direct output files which are consumed by the consumers.
+
+It would be good to have the following 
+- ADDITIONAL\_SPILL\_COUNT: represents the spills that are needed by the task to generate the final merged output
+- TOTAL\_SPILLS: represents the total number of shuffle directories (index + output files) that got created at the end of processing.
+
+For e.g, Assume sorter generated 5 spills in an attempt
+Without pipelining:
+==============
+ADDITIONAL\_SPILL\_COUNT = 5 <-- Additional spills involved in sorting
+TOTAL\_SPILLS = 1 <-- Final merged output
+
+With pipelining:
+============
+ADDITIONAL\_SPILL\_COUNT = 0 <-- Additional spills involved in sorting
+TOTAL\_SPILLS = 5 <--- all spills are final output
+
+
+---
+
+* [TEZ-2076](https://issues.apache.org/jira/browse/TEZ-2076) | *Major* | **Tez framework to extract/analyze data stored in ATS for specific dag**
+
+- Users should be able to download ATS data pertaining to a DAG from Tez-UI (more like a zip file containing DAG/Vertex/Task/TaskAttempt info).
+- This can be plugged to an analyzer which parses the data, adds semantics and provides an in-memory representation for further analysis.
+- This will enable to write different analyzer rules, which can be run on top of this in-memory representation to come up with analysis on the DAG.
+- Results of this analyzer rules can be rendered on to UI (standalone webapp) later point in time.
 
 
 ---

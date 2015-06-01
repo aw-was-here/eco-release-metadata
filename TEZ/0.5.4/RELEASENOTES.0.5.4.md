@@ -550,6 +550,19 @@ org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.hdfs.server.namenode.Lea
 
 ---
 
+* [TEZ-2080](https://issues.apache.org/jira/browse/TEZ-2080) | *Major* | **Localclient should be using tezconf in init instead of yarnconf**
+
+currently in the LocalClient the config used is yarnconf. this should be tezconf.
+
+{code:title=LocalClient.java}
+@Override
+  public void init(TezConfiguration tezConf, YarnConfiguration yarnConf) {
+    this.conf = yarnConf;
+{code}
+
+
+---
+
 * [TEZ-2071](https://issues.apache.org/jira/browse/TEZ-2071) | *Major* | **TestAMRecovery should set test names for test DAGs**
 
 Without names, its difficult to trace the test case failure to its test dag in the logs of the session.

@@ -23,6 +23,72 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [KAFKA-2226](https://issues.apache.org/jira/browse/KAFKA-2226) | *Major* | **NullPointerException in TestPurgatoryPerformance**
+
+A NullPointerException sometimes shows up in TimerTaskList.remove while running TestPurgatoryPerformance. I’m on the HEAD of trunk.
+{code}
+> ./bin/kafka-run-class.sh kafka.TestPurgatoryPerformance --key-space-size 100000 --keys 3 --num 100000 --pct50 50 --pct75 75 --rate 1000 --size 50 --timeout 20
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/Users/okaraman/code/kafka/core/build/dependant-libs-2.10.5/slf4j-log4j12-1.6.1.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/Users/okaraman/code/kafka/core/build/dependant-libs-2.10.5/slf4j-log4j12-1.7.6.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple\_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+[2015-05-27 10:02:14,782] ERROR [completion thread], Error due to  (kafka.TestPurgatoryPerformance$CompletionQueue$$anon$1)
+java.lang.NullPointerException
+  at kafka.utils.timer.TimerTaskList.remove(TimerTaskList.scala:80)
+  at kafka.utils.timer.TimerTaskEntry.remove(TimerTaskList.scala:128)
+  at kafka.utils.timer.TimerTask$class.cancel(TimerTask.scala:27)
+  at kafka.server.DelayedOperation.cancel(DelayedOperation.scala:50)
+  at kafka.server.DelayedOperation.forceComplete(DelayedOperation.scala:71)
+  at kafka.TestPurgatoryPerformance$CompletionQueue$$anon$1.doWork(TestPurgatoryPerformance.scala:263)
+  at kafka.utils.ShutdownableThread.run(ShutdownableThread.scala:60)
+{code}
+
+
+---
+
+* [KAFKA-2189](https://issues.apache.org/jira/browse/KAFKA-2189) | *Blocker* | **Snappy compression of message batches less efficient in 0.8.2.1**
+
+We are using snappy compression and noticed a fairly substantial increase (about 2.25x) in log filesystem space consumption after upgrading a Kafka cluster from 0.8.1.1 to 0.8.2.1. We found that this is caused by messages being seemingly recompressed individually (or possibly with a much smaller buffer or dictionary?) instead of as a batch as sent by producers. We eventually tracked down the change in compression ratio/scope to this [1] commit that updated the snappy version from 1.0.5 to 1.1.1.3. The Kafka client version does not appear to be relevant as we can reproduce this with both the 0.8.1.1 and 0.8.2.1 Producer.
+
+Here are the log files from our troubleshooting that contain the same set of 1000 messages, for batch sizes of 1, 10, 100, and 1000. f9d9b was the last commit with 0.8.1.1-like behavior prior to f5ab8 introducing the issue.
+
+{noformat}
+-rw-rw-r-- 1 kafka kafka 404967 May 12 11:45 /var/kafka2/f9d9b-batch-1-0/00000000000000000000.log
+-rw-rw-r-- 1 kafka kafka 119951 May 12 11:45 /var/kafka2/f9d9b-batch-10-0/00000000000000000000.log
+-rw-rw-r-- 1 kafka kafka  89645 May 12 11:45 /var/kafka2/f9d9b-batch-100-0/00000000000000000000.log
+-rw-rw-r-- 1 kafka kafka  88279 May 12 11:45 /var/kafka2/f9d9b-batch-1000-0/00000000000000000000.log
+
+-rw-rw-r-- 1 kafka kafka 402837 May 12 11:41 /var/kafka2/f5ab8-batch-1-0/00000000000000000000.log
+-rw-rw-r-- 1 kafka kafka 382437 May 12 11:41 /var/kafka2/f5ab8-batch-10-0/00000000000000000000.log
+-rw-rw-r-- 1 kafka kafka 364791 May 12 11:41 /var/kafka2/f5ab8-batch-100-0/00000000000000000000.log
+-rw-rw-r-- 1 kafka kafka 380693 May 12 11:41 /var/kafka2/f5ab8-batch-1000-0/00000000000000000000.log
+{noformat}
+
+[1] https://github.com/apache/kafka/commit/f5ab8e1780cf80f267906e3259ad4f9278c32d28
+
+
+---
+
+* [KAFKA-2185](https://issues.apache.org/jira/browse/KAFKA-2185) | *Minor* | **Update to Gradle 2.4**
+
+Gradle 2.4 has been released recently while Kafka is still using Gradle 2.0. There have been a large number of improvements over the various releases (including performance improvements):
+
+https://gradle.org/docs/2.1/release-notes
+https://gradle.org/docs/2.2/release-notes
+https://gradle.org/docs/2.3/release-notes
+http://gradle.org/docs/current/release-notes
+
+
+---
+
+* [KAFKA-2169](https://issues.apache.org/jira/browse/KAFKA-2169) | *Critical* | **Upgrade to zkclient-0.5**
+
+zkclient-0.5 is released http://mvnrepository.com/artifact/com.101tec/zkclient/0.5 and has the fix for KAFKA-824
+
+
+---
+
 * [KAFKA-2131](https://issues.apache.org/jira/browse/KAFKA-2131) | *Trivial* | **Update new producer javadocs with correct documentation links**
 
 New producer java docs are referring to old producer documentation.
@@ -1753,6 +1819,18 @@ http://mail-archives.apache.org/mod\_mbox/kafka-users/201405.mbox/%3cCAOq\_b1w=S
 The current replica fetcher thread will retry in a tight loop if any error occurs during the fetch call. For example, we've seen cases where the fetch continuously throws a connection refused exception leading to several replica fetcher threads that spin in a pretty tight loop.
 
 To a much lesser degree this is also an issue in the consumer fetcher thread, although the fact that erroring partitions are removed so a leader can be re-discovered helps some.
+
+
+---
+
+* [KAFKA-1374](https://issues.apache.org/jira/browse/KAFKA-1374) | *Major* | **LogCleaner (compaction) does not support compressed topics**
+
+This is a known issue, but opening a ticket to track.
+
+If you try to compact a topic that has compressed messages you will run into
+various exceptions - typically because during iteration we advance the
+position based on the decompressed size of the message. I have a bunch of
+stack traces, but it should be straightforward to reproduce.
 
 
 ---
