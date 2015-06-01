@@ -44,6 +44,13 @@ Remove -finalize option from hdfs namenode command.
 
 ---
 
+* [HDFS-8135](https://issues.apache.org/jira/browse/HDFS-8135) | *Major* | **Remove the deprecated FSConstants class**
+
+The FSConstants class has been deprecated since 0.23 and it is removed in the release.
+
+
+---
+
 * [HDFS-7985](https://issues.apache.org/jira/browse/HDFS-7985) | *Major* | **WebHDFS should be always enabled**
 
 WebHDFS is mandatory and cannot be disabled.
@@ -82,6 +89,13 @@ The patch improves the reporting around missing blocks and corrupted blocks.
 
 ---
 
+* [HDFS-6353](https://issues.apache.org/jira/browse/HDFS-6353) | *Major* | **Check and make checkpoint before stopping the NameNode**
+
+Stopping the namenode on secure systems now requires the user be authenticated.
+
+
+---
+
 * [HDFS-6246](https://issues.apache.org/jira/browse/HDFS-6246) | *Minor* | **Remove 'dfs.support.append' flag from trunk code**
 
 Appends in HDFS can no longer be disabled.
@@ -99,6 +113,13 @@ Support for hftp and hsftp has been removed.  They have superseded by webhdfs  a
 * [HDFS-5079](https://issues.apache.org/jira/browse/HDFS-5079) | *Major* | **Cleaning up NNHAStatusHeartbeat.State DatanodeProtocolProtos.**
 
 **WARNING: No release note provided for this incompatible change.**
+
+
+---
+
+* [HDFS-5033](https://issues.apache.org/jira/browse/HDFS-5033) | *Minor* | **Bad error message for fs -put/copyFromLocal if user doesn't have permissions to read the source**
+
+"Permission denied" error message when unable to read local file for -put/copyFromLocal
 
 
 ---

@@ -50,6 +50,13 @@ Now auto-downloads patch from issue-id; fixed race conditions; fixed bug affecti
 
 ---
 
+* [HADOOP-11698](https://issues.apache.org/jira/browse/HADOOP-11698) | *Major* | **Remove DistCpV1 and Logalyzer**
+
+Removed DistCpV1 and Logalyzer.
+
+
+---
+
 * [HADOOP-11657](https://issues.apache.org/jira/browse/HADOOP-11657) | *Minor* | **Align the output of `hadoop fs -du` to be more Unix-like**
 
 The output of du has now been made more Unix-like, with aligned output.
@@ -171,6 +178,13 @@ Jars in the various subproject lib directories are now de-duplicated against Had
 
 ---
 
+* [HADOOP-9905](https://issues.apache.org/jira/browse/HADOOP-9905) | *Major* | **remove dependency of zookeeper for hadoop-client**
+
+Zookeeper jar removed from hadoop-client dependency tree.
+
+
+---
+
 * [HADOOP-9902](https://issues.apache.org/jira/browse/HADOOP-9902) | *Major* | **Shell script rewrite**
 
 The Hadoop shell scripts have been rewritten to fix many long standing bugs and include some new features.  While an eye has been kept towards compatibility, some changes may break existing installations.
@@ -246,13 +260,6 @@ fixed in HADOOP-9258
 * [HADOOP-9261](https://issues.apache.org/jira/browse/HADOOP-9261) | *Major* | **S3n filesystem can move a directory under itself -and so lose data**
 
 fixed in HADOOP-9258
-
-
----
-
-* [HADOOP-8934](https://issues.apache.org/jira/browse/HADOOP-8934) | *Minor* | **Shell command ls should include sort options**
-
-Options to sort output of fs -ls comment: -t (mtime), -S (size), -u (atime), -r (reverse)
 
 
 ---

@@ -28,4 +28,11 @@ These release notes cover new developer and user-facing incompatibilities, featu
 The user 'yarn' is no longer allowed to run tasks for security reasons.
 
 
+---
+
+* [YARN-2355](https://issues.apache.org/jira/browse/YARN-2355) | *Major* | **MAX\_APP\_ATTEMPTS\_ENV may no longer be a useful env var for a container**
+
+Removed consumption of the MAX\_APP\_ATTEMPTS\_ENV environment variable
+
+
 

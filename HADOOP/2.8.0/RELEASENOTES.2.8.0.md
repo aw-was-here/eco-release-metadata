@@ -47,6 +47,13 @@ Includes a docker based solution for setting up a build environment with minimal
 
 ---
 
+* [HADOOP-11772](https://issues.apache.org/jira/browse/HADOOP-11772) | *Major* | **RPC Invoker relies on static ClientCache which has synchronized(this) blocks**
+
+The Client#call() methods that are deprecated since 0.23 have been removed.
+
+
+---
+
 * [HADOOP-11746](https://issues.apache.org/jira/browse/HADOOP-11746) | *Major* | **rewrite test-patch.sh**
 
 * test-patch.sh now has new output that is different than the previous versions
@@ -103,6 +110,13 @@ Add posixGroups support for LDAP groups mapping service. The change in LDAPGroup
 
 ---
 
+* [HADOOP-8934](https://issues.apache.org/jira/browse/HADOOP-8934) | *Minor* | **Shell command ls should include sort options**
+
+Options to sort output of fs -ls comment: -t (mtime), -S (size), -u (atime), -r (reverse)
+
+
+---
+
 * [HADOOP-7713](https://issues.apache.org/jira/browse/HADOOP-7713) | *Trivial* | **dfs -count -q should label output column**
 
 Added -v option to fs -count command to display a header record in the report.
@@ -141,6 +155,13 @@ Specific HDFS ops can be selectively excluded from audit logging via 'dfs.nameno
 * [HDFS-6666](https://issues.apache.org/jira/browse/HDFS-6666) | *Minor* | **Abort NameNode and DataNode startup if security is enabled but block access token is not enabled.**
 
 NameNode and DataNode now abort during startup if attempting to run in secure mode, but block access tokens are not enabled by setting configuration property dfs.block.access.token.enable to true in hdfs-site.xml.  Previously, this case logged a warning, because this would be an insecure configuration.
+
+
+---
+
+* [YARN-3684](https://issues.apache.org/jira/browse/YARN-3684) | *Major* | **Change ContainerExecutor's primary lifecycle methods to use a more extensible mechanism for passing information.**
+
+Modifying key methods in ContainerExecutor to use context objects instead of an argument list. This is more extensible and less brittle.
 
 
 ---
@@ -184,6 +205,13 @@ FairScheduler does not allow queue names with leading or tailing spaces or empty
 * [YARN-3021](https://issues.apache.org/jira/browse/YARN-3021) | *Major* | **YARN's delegation-token handling disallows certain trust setups to operate properly over DistCp**
 
 ResourceManager renews delegation tokens for applications. This behavior has been changed to renew tokens only if the token's renewer is a non-empty string. MapReduce jobs can instruct ResourceManager to skip renewal of tokens obtained from certain hosts by specifying the hosts with configuration mapreduce.job.hdfs-servers.token-renewal.exclude=<host1>,<host2>,..,<hostN>.
+
+
+---
+
+* [YARN-2336](https://issues.apache.org/jira/browse/YARN-2336) | *Major* | **Fair scheduler REST api returns a missing '[' bracket JSON for deep queue tree**
+
+This incompatible change should be fixed on branch-2 because the API is broken in branch-2.
 
 
 

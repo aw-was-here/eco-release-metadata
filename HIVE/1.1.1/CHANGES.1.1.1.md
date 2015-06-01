@@ -43,8 +43,6 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HIVE-10573](https://issues.apache.org/jira/browse/HIVE-10573) | Improve Hive service for connection |  Major | HiveServer2 | Chao Sun | Chao Sun |
-| [HIVE-9831](https://issues.apache.org/jira/browse/HIVE-9831) | HiveServer2 should use ConcurrentHashMap in ThreadFactory |  Major | HiveServer2 | Vaibhav Gumashta | Vaibhav Gumashta |
-| [HIVE-9509](https://issues.apache.org/jira/browse/HIVE-9509) | Restore partition spec validation removed by HIVE-9445 |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
 
 
 ### TESTS:

@@ -23,6 +23,50 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [MAPREDUCE-6336](https://issues.apache.org/jira/browse/MAPREDUCE-6336) | *Major* | **Enable v2 FileOutputCommitter by default**
+
+mapreduce.fileoutputcommitter.algorithm.version now defaults to 2.
+  
+In algorithm version 1:
+
+  1. commitTask renames directory
+  $joboutput/\_temporary/$appAttemptID/\_temporary/$taskAttemptID/
+  to
+  $joboutput/\_temporary/$appAttemptID/$taskID/
+
+  2. recoverTask renames
+  $joboutput/\_temporary/$appAttemptID/$taskID/
+  to
+  $joboutput/\_temporary/($appAttemptID + 1)/$taskID/
+
+  3. commitJob merges every task output file in
+  $joboutput/\_temporary/$appAttemptID/$taskID/
+  to
+  $joboutput/, then it will delete $joboutput/\_temporary/
+  and write $joboutput/\_SUCCESS
+
+commitJob's run time, number of RPC, is O(n) in terms of output files, which is discussed in MAPREDUCE-4815, and can take minutes. 
+
+Algorithm version 2 changes the behavior of commitTask, recoverTask, and commitJob.
+
+  1. commitTask renames all files in
+  $joboutput/\_temporary/$appAttemptID/\_temporary/$taskAttemptID/
+  to $joboutput/
+
+  2. recoverTask is a nop strictly speaking, but for
+  upgrade from version 1 to version 2 case, it checks if there
+  are any files in
+  $joboutput/\_temporary/($appAttemptID - 1)/$taskID/
+  and renames them to $joboutput/
+
+  3. commitJob deletes $joboutput/\_temporary and writes
+  $joboutput/\_SUCCESS
+
+Algorithm 2 takes advantage of task parallelism and makes commitJob itself O(1). However, the window of vulnerability for having incomplete output in $jobOutput directory is much larger. Therefore, pipeline logic for consuming job outputs should be built on checking for existence of \_SUCCESS marker.
+
+
+---
+
 * [MAPREDUCE-6234](https://issues.apache.org/jira/browse/MAPREDUCE-6234) | *Major* | **TestHighRamJob fails due to the change in MAPREDUCE-5785**
 
 **WARNING: No release note provided for this incompatible change.**

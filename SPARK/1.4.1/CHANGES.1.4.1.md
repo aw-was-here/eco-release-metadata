@@ -36,12 +36,15 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-7957](https://issues.apache.org/jira/browse/SPARK-7957) | Preserve partitioning in randomSplit in RDD.scala |  Major | Spark Core | Burak Yavuz | Burak Yavuz |
+| [SPARK-7954](https://issues.apache.org/jira/browse/SPARK-7954) | Implicitly create SparkContext in sparkRSQL.init |  Major | SparkR | Shivaram Venkataraman | Shivaram Venkataraman |
 
 
 ### BUG FIXES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-7978](https://issues.apache.org/jira/browse/SPARK-7978) | DecimalType should not be singleton |  Blocker | PySpark, SQL | Davies Liu | Davies Liu |
 
 
 ### TESTS:
@@ -54,6 +57,11 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-7979](https://issues.apache.org/jira/browse/SPARK-7979) | Enforce structural type checker |  Major | Project Infra | Reynold Xin | Reynold Xin |
+| [SPARK-7976](https://issues.apache.org/jira/browse/SPARK-7976) | Add style checker to disallow overriding finalize |  Major | Project Infra | Reynold Xin | Reynold Xin |
+| [SPARK-7975](https://issues.apache.org/jira/browse/SPARK-7975) | CovariantEqualsChecker |  Major | Project Infra | Reynold Xin | Reynold Xin |
+| [SPARK-7890](https://issues.apache.org/jira/browse/SPARK-7890) | Document that Spark 2.11 now supports Kafka |  Critical | Documentation | Patrick Wendell | Sean Owen |
+| [SPARK-7227](https://issues.apache.org/jira/browse/SPARK-7227) | Support fillna / dropna in R DataFrame |  Critical | SparkR | Reynold Xin | Sun Rui |
 
 
 ### OTHER:

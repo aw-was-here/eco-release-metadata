@@ -50,6 +50,13 @@ Now auto-downloads patch from issue-id; fixed race conditions; fixed bug affecti
 
 ---
 
+* [HADOOP-11698](https://issues.apache.org/jira/browse/HADOOP-11698) | *Major* | **Remove DistCpV1 and Logalyzer**
+
+Removed DistCpV1 and Logalyzer.
+
+
+---
+
 * [HADOOP-11657](https://issues.apache.org/jira/browse/HADOOP-11657) | *Minor* | **Align the output of `hadoop fs -du` to be more Unix-like**
 
 The output of du has now been made more Unix-like, with aligned output.
@@ -171,6 +178,13 @@ Jars in the various subproject lib directories are now de-duplicated against Had
 
 ---
 
+* [HADOOP-9905](https://issues.apache.org/jira/browse/HADOOP-9905) | *Major* | **remove dependency of zookeeper for hadoop-client**
+
+Zookeeper jar removed from hadoop-client dependency tree.
+
+
+---
+
 * [HADOOP-9902](https://issues.apache.org/jira/browse/HADOOP-9902) | *Major* | **Shell script rewrite**
 
 The Hadoop shell scripts have been rewritten to fix many long standing bugs and include some new features.  While an eye has been kept towards compatibility, some changes may break existing installations.
@@ -250,13 +264,6 @@ fixed in HADOOP-9258
 
 ---
 
-* [HADOOP-8934](https://issues.apache.org/jira/browse/HADOOP-8934) | *Minor* | **Shell command ls should include sort options**
-
-Options to sort output of fs -ls comment: -t (mtime), -S (size), -u (atime), -r (reverse)
-
-
----
-
 * [HADOOP-8776](https://issues.apache.org/jira/browse/HADOOP-8776) | *Minor* | **Provide an option in test-patch that can enable / disable compiling native code**
 
 test-patch.sh adds a new option "--build-native". When set to false native
@@ -308,6 +315,13 @@ Remove -finalize option from hdfs namenode command.
 
 ---
 
+* [HDFS-8135](https://issues.apache.org/jira/browse/HDFS-8135) | *Major* | **Remove the deprecated FSConstants class**
+
+The FSConstants class has been deprecated since 0.23 and it is removed in the release.
+
+
+---
+
 * [HDFS-7985](https://issues.apache.org/jira/browse/HDFS-7985) | *Major* | **WebHDFS should be always enabled**
 
 WebHDFS is mandatory and cannot be disabled.
@@ -346,6 +360,13 @@ The patch improves the reporting around missing blocks and corrupted blocks.
 
 ---
 
+* [HDFS-6353](https://issues.apache.org/jira/browse/HDFS-6353) | *Major* | **Check and make checkpoint before stopping the NameNode**
+
+Stopping the namenode on secure systems now requires the user be authenticated.
+
+
+---
+
 * [HDFS-6246](https://issues.apache.org/jira/browse/HDFS-6246) | *Minor* | **Remove 'dfs.support.append' flag from trunk code**
 
 Appends in HDFS can no longer be disabled.
@@ -367,6 +388,13 @@ Support for hftp and hsftp has been removed.  They have superseded by webhdfs  a
 
 ---
 
+* [HDFS-5033](https://issues.apache.org/jira/browse/HDFS-5033) | *Minor* | **Bad error message for fs -put/copyFromLocal if user doesn't have permissions to read the source**
+
+"Permission denied" error message when unable to read local file for -put/copyFromLocal
+
+
+---
+
 * [HDFS-3034](https://issues.apache.org/jira/browse/HDFS-3034) | *Major* | **Remove the deprecated Syncable.sync() method**
 
 Remove the deprecated DFSOutputStream.sync() method.
@@ -384,6 +412,50 @@ fsck does not print out dots for progress reporting by default. To print out dot
 * [HDFS-46](https://issues.apache.org/jira/browse/HDFS-46) | *Major* | **The namespace quota of root directory should not be Integer.MAX\_VALUE**
 
 Change default namespace quota of root directory from Integer.MAX\_VALUE to Long.MAX\_VALUE.
+
+
+---
+
+* [MAPREDUCE-6336](https://issues.apache.org/jira/browse/MAPREDUCE-6336) | *Major* | **Enable v2 FileOutputCommitter by default**
+
+mapreduce.fileoutputcommitter.algorithm.version now defaults to 2.
+  
+In algorithm version 1:
+
+  1. commitTask renames directory
+  $joboutput/\_temporary/$appAttemptID/\_temporary/$taskAttemptID/
+  to
+  $joboutput/\_temporary/$appAttemptID/$taskID/
+
+  2. recoverTask renames
+  $joboutput/\_temporary/$appAttemptID/$taskID/
+  to
+  $joboutput/\_temporary/($appAttemptID + 1)/$taskID/
+
+  3. commitJob merges every task output file in
+  $joboutput/\_temporary/$appAttemptID/$taskID/
+  to
+  $joboutput/, then it will delete $joboutput/\_temporary/
+  and write $joboutput/\_SUCCESS
+
+commitJob's run time, number of RPC, is O(n) in terms of output files, which is discussed in MAPREDUCE-4815, and can take minutes. 
+
+Algorithm version 2 changes the behavior of commitTask, recoverTask, and commitJob.
+
+  1. commitTask renames all files in
+  $joboutput/\_temporary/$appAttemptID/\_temporary/$taskAttemptID/
+  to $joboutput/
+
+  2. recoverTask is a nop strictly speaking, but for
+  upgrade from version 1 to version 2 case, it checks if there
+  are any files in
+  $joboutput/\_temporary/($appAttemptID - 1)/$taskID/
+  and renames them to $joboutput/
+
+  3. commitJob deletes $joboutput/\_temporary and writes
+  $joboutput/\_SUCCESS
+
+Algorithm 2 takes advantage of task parallelism and makes commitJob itself O(1). However, the window of vulnerability for having incomplete output in $jobOutput directory is much larger. Therefore, pipeline logic for consuming job outputs should be built on checking for existence of \_SUCCESS marker.
 
 
 ---
@@ -448,6 +520,13 @@ nativetask.NativeMapOutputCollectorDelegator in their job configuration. For shu
 * [YARN-2428](https://issues.apache.org/jira/browse/YARN-2428) | *Trivial* | **LCE default banned user list should have yarn**
 
 The user 'yarn' is no longer allowed to run tasks for security reasons.
+
+
+---
+
+* [YARN-2355](https://issues.apache.org/jira/browse/YARN-2355) | *Major* | **MAX\_APP\_ATTEMPTS\_ENV may no longer be a useful env var for a container**
+
+Removed consumption of the MAX\_APP\_ATTEMPTS\_ENV environment variable
 
 
 
