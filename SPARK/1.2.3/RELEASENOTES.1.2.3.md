@@ -23,6 +23,13 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-8032](https://issues.apache.org/jira/browse/SPARK-8032) | *Major* | **Make NumPy version checking in mllib/\_\_init\_\_.py**
+
+The current checking does version `1.x' is less than `1.4' this will fail if x has greater than 1 digit, since x > 4, however `1.x` < `1.4`
+
+
+---
+
 * [SPARK-7883](https://issues.apache.org/jira/browse/SPARK-7883) | *Trivial* | **Fixing broken trainImplicit example in MLlib Collaborative Filtering documentation.**
 
 The trainImplicit Scala example near the end of the MLlib Collaborative Filtering documentation refers to an ALS.trainImplicit function signature that does not exist.  Rather than add an extra function, let's just fix the example.

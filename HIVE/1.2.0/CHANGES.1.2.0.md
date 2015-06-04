@@ -393,6 +393,7 @@
 | [HIVE-8524](https://issues.apache.org/jira/browse/HIVE-8524) | When table is renamed stats are lost as changes are not propagated to metastore tables TAB\_COL\_STATS and PART\_COL\_STATS |  Major | Metastore | Mostafa Mokhtar | Ashutosh Chauhan |
 | [HIVE-7351](https://issues.apache.org/jira/browse/HIVE-7351) | ANALYZE TABLE statement fails on postgres metastore |  Minor | Metastore | Damien Carol | Navis |
 | [HIVE-6950](https://issues.apache.org/jira/browse/HIVE-6950) | Parsing Error in GROUPING SETS |  Major | . | Rohit Agarwal | Pengcheng Xiong |
+| [HIVE-6865](https://issues.apache.org/jira/browse/HIVE-6865) | Failed to load data into Hive from Pig using HCatStorer() |  Major | HCatalog | Bing Li | Bing Li |
 | [HIVE-6099](https://issues.apache.org/jira/browse/HIVE-6099) | Multi insert does not work properly with distinct count |  Major | Query Processor | Pavan Gadam Manohar | Ashutosh Chauhan |
 | [HIVE-6069](https://issues.apache.org/jira/browse/HIVE-6069) | Improve error message in GenericUDFRound |  Trivial | UDF | Xuefu Zhang | Alexander Pivovarov |
 | [HIVE-5733](https://issues.apache.org/jira/browse/HIVE-5733) | Publish hive-exec artifact without all the dependencies |  Major | . | Jarek Jarcec Cecho | Amareshwari Sriramadasu |

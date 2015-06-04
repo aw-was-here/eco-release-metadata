@@ -23,6 +23,119 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [TEZ-2523](https://issues.apache.org/jira/browse/TEZ-2523) | *Major* | **Tez UI: derive applicationId from dag/vertex id instead of relying on json data**
+
+currently the applicationId for the models dag/vertex is picked up from primary filter data for the dag/vertex json. deriving this from the dagid/vertexid on the models has the below benefits.
+* ensures applicationId is not null (in some corner cases this causes exception in store.find)
+* makes the ui backward compatible (0.5).
+* allows to remove the appid from primary filter (TEZ-2485)
+
+
+---
+
+* [TEZ-2509](https://issues.apache.org/jira/browse/TEZ-2509) | *Major* | **YarnTaskSchedulerService should not try to allocate containers if AM is shutting down**
+
+Observed when doing some recovery testing: 
+
+Failure as during dag shutdown, 4 attempts of the same task failed. 
+
+{code}
+2015-06-01 07:38:27,184 INFO [Dispatcher thread: Central] history.HistoryEventHandler: [HISTORY][DAG:dag\_1433141118424\_0012\_2][Event:TASK\_FINISHED]: vertexName=initialmap, taskId=task\_1433141118424\_0012\_2\_00\_000003, startTime=1433144297281, finishTime=1433144307184, timeTaken=9903, status=FAILED, successfulAttemptID=null, diagnostics=TaskAttempt 0 failed, info=[Container container\_e02\_1433141118424\_0012\_01\_000018 hit an invalid transition - C\_NM\_STOP\_SENT at RUNNING]
+TaskAttempt 1 failed, info=[AttemptId: attempt\_1433141118424\_0012\_2\_00\_000003\_1 cannot be allocated to container: container\_e02\_1433141118424\_0012\_01\_000011 in STOP\_REQUESTED state]
+TaskAttempt 2 failed, info=[Container container\_e02\_1433141118424\_0012\_01\_000012 hit an invalid transition - C\_NM\_STOP\_SENT at RUNNING]
+TaskAttempt 3 failed, info=[Container container\_e02\_1433141118424\_0012\_01\_000025 hit an invalid transition - C\_NM\_STOP\_SENT at RUNNING], counters=Counters: 0
+{code}
+  
+
+DAG kill signal received.
+{code}
+2015-06-01 07:38:25,811 INFO [Thread-3] app.DAGAppMaster: DAGAppMasterShutdownHook invoked
+2015-06-01 07:38:25,811 INFO [Thread-3] app.DAGAppMaster: DAGAppMaster received a signal. Signaling TaskScheduler
+{code}
+
+First attempt marked as failed as container was killed.
+{code}
+2015-06-01 07:38:26,906 INFO [Dispatcher thread: Central] history.HistoryEventHandler: [HISTORY][DAG:dag\_1433141118424\_0012\_2][Event:TASK\_ATTEMPT\_FINISHED]: vertexName=initialmap, taskAttemptId=attempt\_1433141118424\_0012\_2\_00\_000003\_0, startTime=1433144297281, finishTime=1433144306904, timeTaken=9623, status=FAILED, errorEnum=FRAMEWORK\_ERROR, diagnostics=Container container\_e02\_1433141118424\_0012\_01\_000018 hit an invalid transition - C\_NM\_STOP\_SENT at RUNNING, counters=Counters: 0
+{code}
+
+Subsequent attempt scheduled, assigned and eventually fails. 
+{code}
+2015-06-01 07:38:26,919 INFO [DelayedContainerManager] rm.YarnTaskSchedulerService: Assigning container to task, container=Container: [ContainerId: container\_e02\_1433141118424\_0012\_01\_000011, NodeId: ip-172-31-18-41.ec2.internal:45454, NodeHttpAddress: ip-172-31-18-41.ec2.internal:8042, Resource: <memory:1536, vCores:1>, Priority: 2, Token: Token { kind: ContainerToken, service: 172.31.18.41:45454 }, ], task=attempt\_1433141118424\_0012\_2\_00\_000003\_1, containerHost=ip-172-31, localityMatchType=NodeLocal, matchedLocation=ip-172-31-18-41.ec2.internal, honorLocalityFlags=true, reusedContainer=true, delayedContainers=4, containerResourceMemory=1536, containerResourceVCores=1
+{code}
+
+Scheduler stops too late.
+{code}
+2015-06-01 07:38:27,403 DEBUG [Thread-3] service.AbstractService: Service: org.apache.tez.dag.app.rm.YarnTaskSchedulerService entered state STOPPED
+{code}
+
+
+---
+
+* [TEZ-2506](https://issues.apache.org/jira/browse/TEZ-2506) | *Major* | **TestAysncHttpConnection failing**
+
+{code}
+https://builds.apache.org/job/PreCommit-TEZ-Build/767//testReport/org.apache.tez.http/TestHttpConnection/testAsyncHttpConnectionInterrupt/
+{code}
+
+{code}
+2015-05-29 20:19:01,802 INFO  [Thread-0] netty.AsyncHttpConnection (AsyncHttpConnection.java:initClient(78)) - Initializing AsyncClient (TezBodyDeferringAsyncHandler)
+2015-05-29 20:19:02,057 ERROR [pool-4-thread-1] netty.TezBodyDeferringAsyncHandler (TezBodyDeferringAsyncHandler.java:onThrowable(84)) - Error in asyncHandler 
+java.net.ConnectException: http://10.255.255.255:10221/
+	at com.ning.http.client.providers.netty.NettyConnectListener.operationComplete(NettyConnectListener.java:104)
+	at org.jboss.netty.channel.DefaultChannelFuture.notifyListener(DefaultChannelFuture.java:427)
+	at org.jboss.netty.channel.DefaultChannelFuture.addListener(DefaultChannelFuture.java:145)
+	at com.ning.http.client.providers.netty.NettyAsyncHttpProvider.doConnect(NettyAsyncHttpProvider.java:1139)
+	at com.ning.http.client.providers.netty.NettyAsyncHttpProvider.execute(NettyAsyncHttpProvider.java:944)
+	at com.ning.http.client.providers.netty.NettyAsyncHttpProvider.nextRequest(NettyAsyncHttpProvider.java:1404)
+	at com.ning.http.client.providers.netty.NettyAsyncHttpProvider.nextRequest(NettyAsyncHttpProvider.java:1400)
+	at com.ning.http.client.providers.netty.NettyAsyncHttpProvider.remotelyClosed(NettyAsyncHttpProvider.java:1521)
+	at com.ning.http.client.providers.netty.NettyConnectListener.operationComplete(NettyConnectListener.java:96)
+	at org.jboss.netty.channel.DefaultChannelFuture.notifyListener(DefaultChannelFuture.java:427)
+	at org.jboss.netty.channel.DefaultChannelFuture.addListener(DefaultChannelFuture.java:145)
+	at com.ning.http.client.providers.netty.NettyAsyncHttpProvider.doConnect(NettyAsyncHttpProvider.java:1139)
+	at com.ning.http.client.providers.netty.NettyAsyncHttpProvider.execute(NettyAsyncHttpProvider.java:940)
+	at com.ning.http.client.AsyncHttpClient.executeRequest(AsyncHttpClient.java:499)
+	at org.apache.tez.http.async.netty.AsyncHttpConnection.connect(AsyncHttpConnection.java:154)
+	at org.apache.tez.http.async.netty.AsyncHttpConnection$$EnhancerByMockitoWithCGLIB$$93c3f8e5.CGLIB$connect$3(<generated>)
+	at org.apache.tez.http.async.netty.AsyncHttpConnection$$EnhancerByMockitoWithCGLIB$$93c3f8e5$$FastClassByMockitoWithCGLIB$$b69a0361.invoke(<generated>)
+	at org.mockito.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:216)
+	at org.mockito.internal.creation.AbstractMockitoMethodProxy.invokeSuper(AbstractMockitoMethodProxy.java:10)
+	at org.mockito.internal.invocation.realmethod.CGLIBProxyRealMethod.invoke(CGLIBProxyRealMethod.java:22)
+	at org.mockito.internal.invocation.realmethod.FilteredCGLIBProxyRealMethod.invoke(FilteredCGLIBProxyRealMethod.java:27)
+	at org.mockito.internal.invocation.InvocationImpl.callRealMethod(InvocationImpl.java:112)
+	at org.mockito.internal.stubbing.answers.CallsRealMethods.answer(CallsRealMethods.java:36)
+	at org.mockito.internal.handler.MockHandlerImpl.handle(MockHandlerImpl.java:93)
+	at org.mockito.internal.handler.NullResultGuardian.handle(NullResultGuardian.java:29)
+	at org.mockito.internal.handler.InvocationNotifierHandler.handle(InvocationNotifierHandler.java:38)
+	at org.mockito.internal.creation.MethodInterceptorFilter.intercept(MethodInterceptorFilter.java:61)
+	at org.apache.tez.http.async.netty.AsyncHttpConnection$$EnhancerByMockitoWithCGLIB$$93c3f8e5.connect(<generated>)
+	at org.apache.tez.http.TestHttpConnection$Worker.call(TestHttpConnection.java:185)
+	at org.apache.tez.http.TestHttpConnection$Worker.call(TestHttpConnection.java:170)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.nio.channels.ClosedByInterruptException
+	at java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:202)
+	at sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:681)
+	at org.jboss.netty.channel.socket.nio.NioClientSocketPipelineSink.connect(NioClientSocketPipelineSink.java:108)
+	at org.jboss.netty.channel.socket.nio.NioClientSocketPipelineSink.eventSunk(NioClientSocketPipelineSink.java:70)
+	at org.jboss.netty.handler.codec.oneone.OneToOneEncoder.handleDownstream(OneToOneEncoder.java:54)
+	at org.jboss.netty.handler.codec.http.HttpClientCodec.handleDownstream(HttpClientCodec.java:97)
+	at org.jboss.netty.handler.stream.ChunkedWriteHandler.handleDownstream(ChunkedWriteHandler.java:109)
+	at org.jboss.netty.channel.Channels.connect(Channels.java:634)
+	at org.jboss.netty.channel.AbstractChannel.connect(AbstractChannel.java:207)
+	at org.jboss.netty.bootstrap.ClientBootstrap.connect(ClientBootstrap.java:229)
+	at org.jboss.netty.bootstrap.ClientBootstrap.connect(ClientBootstrap.java:182)
+	at com.ning.http.client.providers.netty.NettyAsyncHttpProvider.doConnect(NettyAsyncHttpProvider.java:1100)
+	... 30 more
+{code}
+
+[~rajesh.balamohan] - could you pleas take a look.
+
+
+---
+
 * [TEZ-2503](https://issues.apache.org/jira/browse/TEZ-2503) | *Minor* | **findbugs version isn't reported properly in test-patch report**
 
 Post TEZ-1883
@@ -182,6 +295,20 @@ Attempt Index and Attempt No serves the same purpose.
 - We will auto-populate all the counter names including io counter names to the tasks (under a vertex) and task attempts (under task, vertex).
 - To enable navigation the column names will be searchable in the pop-up for column selection.
 - Per-io counter names will not be stored in the personalization settings given they are dag / vertex specific.
+
+
+---
+
+* [TEZ-2391](https://issues.apache.org/jira/browse/TEZ-2391) | *Blocker* | **TestVertexImpl timing out at times on jenkins builds**
+
+For example, https://builds.apache.org/job/Tez-Build/1028/console
+
+
+---
+
+* [TEZ-2376](https://issues.apache.org/jira/browse/TEZ-2376) | *Major* | **Remove TaskAttemptEventType.TA\_DIAGNOSTICS\_UPDATE**
+
+It is never used.
 
 
 ---

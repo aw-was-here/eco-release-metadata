@@ -23,6 +23,13 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-8032](https://issues.apache.org/jira/browse/SPARK-8032) | *Major* | **Make NumPy version checking in mllib/\_\_init\_\_.py**
+
+The current checking does version `1.x' is less than `1.4' this will fail if x has greater than 1 digit, since x > 4, however `1.x` < `1.4`
+
+
+---
+
 * [SPARK-7883](https://issues.apache.org/jira/browse/SPARK-7883) | *Trivial* | **Fixing broken trainImplicit example in MLlib Collaborative Filtering documentation.**
 
 The trainImplicit Scala example near the end of the MLlib Collaborative Filtering documentation refers to an ALS.trainImplicit function signature that does not exist.  Rather than add an extra function, let's just fix the example.
@@ -156,6 +163,15 @@ Error:(51, 36) overriding lazy value analyzer in class HiveContext of type org.a
 {code}
 
 That is because the type changed inadvertedly when omitting the type declaration of the return type.
+
+
+---
+
+* [SPARK-7558](https://issues.apache.org/jira/browse/SPARK-7558) | *Major* | **Log test name when starting and finishing each test**
+
+Right now it's really tough to interpret testing output because logs for different tests are interspersed in the same unit-tests.log file. This makes it particularly hard to diagnose flaky tests. This would be much easier if we logged the test name before and after every test (e.g. "Starting test XX", "Finished test XX"). Then you could get right to the logs.
+
+I think one way to do this might be to create a custom test fixture that logs the test class name and then mix that into every test suite /cc [~joshrosen] for his superb knowledge of Scalatest.
 
 
 ---

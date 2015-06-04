@@ -48,6 +48,7 @@
 | [KAFKA-2044](https://issues.apache.org/jira/browse/KAFKA-2044) | Support requests and responses from o.a.k.common in KafkaApis |  Major | . | Gwen Shapira | Gwen Shapira |
 | [KAFKA-2039](https://issues.apache.org/jira/browse/KAFKA-2039) | Update Scala to 2.10.5 and 2.11.6 |  Minor | . | Ismael Juma | Ismael Juma |
 | [KAFKA-2016](https://issues.apache.org/jira/browse/KAFKA-2016) | RollingBounceTest takes long |  Major | . | Jun Rao | Ted Malaska |
+| [KAFKA-1997](https://issues.apache.org/jira/browse/KAFKA-1997) | Refactor Mirror Maker |  Major | . | Jiangjie Qin | Jiangjie Qin |
 | [KAFKA-1994](https://issues.apache.org/jira/browse/KAFKA-1994) | Evaluate performance effect of chroot check on Topic creation |  Major | . | Ashish K Singh | Ashish K Singh |
 | [KAFKA-1990](https://issues.apache.org/jira/browse/KAFKA-1990) | Add unlimited time-based log retention |  Major | . | Jay Kreps | Jeff Holoman |
 | [KAFKA-1989](https://issues.apache.org/jira/browse/KAFKA-1989) | New purgatory design |  Critical | purgatory | Yasuhiro Matsuda | Yasuhiro Matsuda |
@@ -77,6 +78,7 @@
 | [KAFKA-2226](https://issues.apache.org/jira/browse/KAFKA-2226) | NullPointerException in TestPurgatoryPerformance |  Major | . | Onur Karaman | Yasuhiro Matsuda |
 | [KAFKA-2189](https://issues.apache.org/jira/browse/KAFKA-2189) | Snappy compression of message batches less efficient in 0.8.2.1 |  Blocker | build, compression, log | Olson,Andrew | Ismael Juma |
 | [KAFKA-2169](https://issues.apache.org/jira/browse/KAFKA-2169) | Upgrade to zkclient-0.5 |  Critical | . | Neha Narkhede | Parth Brahmbhatt |
+| [KAFKA-2161](https://issues.apache.org/jira/browse/KAFKA-2161) | Fix a few copyrights |  Trivial | . | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-2121](https://issues.apache.org/jira/browse/KAFKA-2121) | prevent potential resource leak in KafkaProducer and KafkaConsumer |  Major | producer | Steven Zhen Wu | Steven Zhen Wu |
 | [KAFKA-2118](https://issues.apache.org/jira/browse/KAFKA-2118) | Cleaner cannot clean after shutdown during replaceSegments |  Major | . | Gian Merlino | Rajini Sivaram |
 | [KAFKA-2117](https://issues.apache.org/jira/browse/KAFKA-2117) | OffsetManager uses incorrect field for metadata |  Major | core | Jun Rao | Guozhang Wang |
@@ -168,6 +170,7 @@
 | [KAFKA-1986](https://issues.apache.org/jira/browse/KAFKA-1986) | Producer request failure rate should not include InvalidMessageSizeException and OffsetOutOfRangeException |  Major | . | Aditya Auradkar | Aditya Auradkar |
 | [KAFKA-1953](https://issues.apache.org/jira/browse/KAFKA-1953) | Disambiguate metrics from different purgatories |  Major | purgatory | Joel Koshy | Joel Koshy |
 | [KAFKA-1943](https://issues.apache.org/jira/browse/KAFKA-1943) | Producer request failure rate should not include MessageSetSizeTooLarge and MessageSizeTooLargeException |  Major | . | Aditya A Auradkar | Aditya Auradkar |
+| [KAFKA-1928](https://issues.apache.org/jira/browse/KAFKA-1928) | Move kafka.network over to using the network classes in org.apache.kafka.common.network |  Major | security | Jun Rao | Gwen Shapira |
 | [KAFKA-1925](https://issues.apache.org/jira/browse/KAFKA-1925) | Coordinator Node Id set to INT\_MAX breaks coordinator metadata updates |  Critical | consumer | Guozhang Wang | Guozhang Wang |
 | [KAFKA-1914](https://issues.apache.org/jira/browse/KAFKA-1914) | Count TotalProduceRequestRate and TotalFetchRequestRate in BrokerTopicMetrics |  Major | core | Aditya A Auradkar | Aditya Auradkar |
 | [KAFKA-1910](https://issues.apache.org/jira/browse/KAFKA-1910) | Refactor KafkaConsumer |  Major | consumer | Guozhang Wang | Guozhang Wang |

@@ -23,68 +23,138 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
-* [SPARK-7979](https://issues.apache.org/jira/browse/SPARK-7979) | *Major* | **Enforce structural type checker**
+* [SPARK-8088](https://issues.apache.org/jira/browse/SPARK-8088) | *Major* | **ExecutionAllocationManager spamming INFO logs about "Lowering target number of executors"**
 
-Structural types in Scala can use reflection - this can have unexpected performance consequences.
-
-See http://www.scalastyle.org/rules-0.7.0.html#org\_scalastyle\_scalariform\_StructuralTypeChecker
-
-
----
-
-* [SPARK-7978](https://issues.apache.org/jira/browse/SPARK-7978) | *Blocker* | **DecimalType should not be singleton**
-
-The DecimalType can not be constructed with parameters. When it's constructed without parameters, we always get same objects, which is wrong.
+I am running a {{spark-shell}} built at 1.4.0-rc4, with:
 
 {code}
->>> from pyspark.sql.types import *
->>> DecimalType(1, 2)
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-TypeError: \_\_call\_\_() takes exactly 1 argument (3 given)
->>> DecimalType()
-DecimalType()
+  --conf spark.dynamicAllocation.enabled=true \
+  --conf spark.dynamicAllocation.minExecutors=5 \
+  --conf spark.dynamicAllocation.maxExecutors=300 \
+  --conf spark.dynamicAllocation.schedulerBacklogTimeout=3 \
+  --conf spark.dynamicAllocation.executorIdleTimeout=600 \
 {code}
 
+I can't really type any commands because I am getting 10 of these per second:
 
----
+{code}
+15/06/03 20:49:09 INFO spark.ExecutorAllocationManager: Lowering target number of executors to 5 because not all requests are actually needed (previously 5)
+15/06/03 20:49:09 INFO spark.ExecutorAllocationManager: Lowering target number of executors to 5 because not all requests are actually needed (previously 5)
+15/06/03 20:49:09 INFO spark.ExecutorAllocationManager: Lowering target number of executors to 5 because not all requests are actually needed (previously 5)
+15/06/03 20:49:09 INFO spark.ExecutorAllocationManager: Lowering target number of executors to 5 because not all requests are actually needed (previously 5)
+15/06/03 20:49:09 INFO spark.ExecutorAllocationManager: Lowering target number of executors to 5 because not all requests are actually needed (previously 5)
+15/06/03 20:49:09 INFO spark.ExecutorAllocationManager: Lowering target number of executors to 5 because not all requests are actually needed (previously 5)
+{code}
 
-* [SPARK-7976](https://issues.apache.org/jira/browse/SPARK-7976) | *Major* | **Add style checker to disallow overriding finalize**
-
-finalize() is called when the object is garbage collected, and garbage collection is not guaranteed to happen. It is therefore unwise to rely on code in finalize() method.
-
-
-See http://www.scalastyle.org/rules-0.7.0.html#org\_scalastyle\_scalariform\_NoFinalizeChecker
-
-
----
-
-* [SPARK-7975](https://issues.apache.org/jira/browse/SPARK-7975) | *Major* | **CovariantEqualsChecker**
-
-Mistakenly defining a covariant equals() method without overriding method equals(java.lang.Object) can produce unexpected runtime behaviour.
-
-See http://www.scalastyle.org/rules-0.7.0.html#org\_scalastyle\_scalariform\_CovariantEqualsChecker
+It should not print anything if it is not in fact lowering the number of executors / is already at the minimum, right?
 
 
 ---
 
-* [SPARK-7957](https://issues.apache.org/jira/browse/SPARK-7957) | *Major* | **Preserve partitioning in randomSplit in RDD.scala**
+* [SPARK-8084](https://issues.apache.org/jira/browse/SPARK-8084) | *Major* | **SparkR install script should fail with error if any packages required are not found**
 
-The randomSplit method in RDD.scala used to preserve partitioning, but with a change I made, to make it re-usable with Spark SQL, it doesn't preserve partitioning anymore (forgot to add the argument)
+This is to avoid cases where the script fails but the build is green
 
-
----
-
-* [SPARK-7954](https://issues.apache.org/jira/browse/SPARK-7954) | *Major* | **Implicitly create SparkContext in sparkRSQL.init**
-
-Right now SparkR users need to first create a SparkContext with sparkR.init and a SQLContext with sparkRSQL.init -- As users will only use DataFrames in the first release we can save them one step by implicitly creating a SparkContext in sparkRSQL.init
+https://amplab.cs.berkeley.edu/jenkins/job/Spark-Master-Package/73/console
 
 
 ---
 
-* [SPARK-7890](https://issues.apache.org/jira/browse/SPARK-7890) | *Critical* | **Document that Spark 2.11 now supports Kafka**
+* [SPARK-8083](https://issues.apache.org/jira/browse/SPARK-8083) | *Major* | **Fix return to drivers link in Mesos driver page**
 
-The building-spark.html page needs to be updated. It's a simple fix, just remove the caveat about Kafka.
+The current path is set to "/" but this doesn't work with a proxy. We need to prepend the proxy base uri if it's set.
+
+
+---
+
+* [SPARK-8074](https://issues.apache.org/jira/browse/SPARK-8074) | *Major* | **Parquet should throw AnalysisException during setup for data type/name related failures**
+
+Change sys.error/RuntimeException to AnalysisException.
+
+
+---
+
+* [SPARK-8063](https://issues.apache.org/jira/browse/SPARK-8063) | *Major* | **Spark master URL conflict between MASTER env variable and --master command line option**
+
+Currently, Spark supports several ways to specify the Spark master URL, like --master option for spark-submit, spark.master configuration option, MASTER env variable. They have different precedences, for example, --master overrides MASTER if both are specified.
+
+However, for SparkR shell, it always use the master URL specified by MASTER, not honoring --master.
+
+
+---
+
+* [SPARK-8054](https://issues.apache.org/jira/browse/SPARK-8054) | *Major* | **Java compatibility fixes for MLlib 1.4**
+
+See [SPARK-7529]
+
+
+---
+
+* [SPARK-8053](https://issues.apache.org/jira/browse/SPARK-8053) | *Minor* | **ElementwiseProduct scalingVec param name should match between ml,mllib**
+
+spark.mllib's ElementwiseProduct uses "scalingVector"
+
+spark.ml's ElementwiseProduct uses "scalingVec"
+
+We should make them match.
+
+
+---
+
+* [SPARK-8051](https://issues.apache.org/jira/browse/SPARK-8051) | *Major* | **StringIndexerModel (and other models) shouldn't complain if the input column is missing.**
+
+If a transformer is not used during transformation, it should keep silent if the input column is missing.
+
+
+---
+
+* [SPARK-8043](https://issues.apache.org/jira/browse/SPARK-8043) | *Minor* | **update NaiveBayes and SVM examples in doc**
+
+I found some issues during testing the save/load examples in markdown Documents, as a part of 1.4 QA plan
+
+
+---
+
+* [SPARK-8032](https://issues.apache.org/jira/browse/SPARK-8032) | *Major* | **Make NumPy version checking in mllib/\_\_init\_\_.py**
+
+The current checking does version `1.x' is less than `1.4' this will fail if x has greater than 1 digit, since x > 4, however `1.x` < `1.4`
+
+
+---
+
+* [SPARK-8001](https://issues.apache.org/jira/browse/SPARK-8001) | *Minor* | **Make AsynchronousListenerBus.waitUntilEmpty throw TimeoutException if timeout**
+
+TimeoutException is a more explicit failure. In addition, the caller may forget to call {{assert}} to check the return value of {{AsynchronousListenerBus.waitUntilEmpty}}.
+
+
+---
+
+* [SPARK-7989](https://issues.apache.org/jira/browse/SPARK-7989) | *Major* | **Fix flaky tests in ExternalShuffleServiceSuite and SparkListenerWithClusterSuite**
+
+The flaky tests in ExternalShuffleServiceSuite and SparkListenerWithClusterSuite will fail if there are not enough executors up before running the jobs.
+
+
+---
+
+* [SPARK-7980](https://issues.apache.org/jira/browse/SPARK-7980) | *Major* | **Support SQLContext.range(end)**
+
+SQLContext.range should also allow only specifying the end position, similar to Python's own range.
+
+
+---
+
+* [SPARK-7558](https://issues.apache.org/jira/browse/SPARK-7558) | *Major* | **Log test name when starting and finishing each test**
+
+Right now it's really tough to interpret testing output because logs for different tests are interspersed in the same unit-tests.log file. This makes it particularly hard to diagnose flaky tests. This would be much easier if we logged the test name before and after every test (e.g. "Starting test XX", "Finished test XX"). Then you could get right to the logs.
+
+I think one way to do this might be to create a custom test fixture that logs the test class name and then mix that into every test suite /cc [~joshrosen] for his superb knowledge of Scalatest.
+
+
+---
+
+* [SPARK-7387](https://issues.apache.org/jira/browse/SPARK-7387) | *Minor* | **CrossValidator example code in Python**
+
+We should add example code for CrossValidator after SPARK-6940 is merged. This should be similar to the CrossValidator example in Scala/Java.
 
 
 

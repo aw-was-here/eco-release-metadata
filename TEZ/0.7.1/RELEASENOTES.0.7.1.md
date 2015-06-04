@@ -23,6 +23,155 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [TEZ-2523](https://issues.apache.org/jira/browse/TEZ-2523) | *Major* | **Tez UI: derive applicationId from dag/vertex id instead of relying on json data**
+
+currently the applicationId for the models dag/vertex is picked up from primary filter data for the dag/vertex json. deriving this from the dagid/vertexid on the models has the below benefits.
+* ensures applicationId is not null (in some corner cases this causes exception in store.find)
+* makes the ui backward compatible (0.5).
+* allows to remove the appid from primary filter (TEZ-2485)
+
+
+---
+
+* [TEZ-2509](https://issues.apache.org/jira/browse/TEZ-2509) | *Major* | **YarnTaskSchedulerService should not try to allocate containers if AM is shutting down**
+
+Observed when doing some recovery testing: 
+
+Failure as during dag shutdown, 4 attempts of the same task failed. 
+
+{code}
+2015-06-01 07:38:27,184 INFO [Dispatcher thread: Central] history.HistoryEventHandler: [HISTORY][DAG:dag\_1433141118424\_0012\_2][Event:TASK\_FINISHED]: vertexName=initialmap, taskId=task\_1433141118424\_0012\_2\_00\_000003, startTime=1433144297281, finishTime=1433144307184, timeTaken=9903, status=FAILED, successfulAttemptID=null, diagnostics=TaskAttempt 0 failed, info=[Container container\_e02\_1433141118424\_0012\_01\_000018 hit an invalid transition - C\_NM\_STOP\_SENT at RUNNING]
+TaskAttempt 1 failed, info=[AttemptId: attempt\_1433141118424\_0012\_2\_00\_000003\_1 cannot be allocated to container: container\_e02\_1433141118424\_0012\_01\_000011 in STOP\_REQUESTED state]
+TaskAttempt 2 failed, info=[Container container\_e02\_1433141118424\_0012\_01\_000012 hit an invalid transition - C\_NM\_STOP\_SENT at RUNNING]
+TaskAttempt 3 failed, info=[Container container\_e02\_1433141118424\_0012\_01\_000025 hit an invalid transition - C\_NM\_STOP\_SENT at RUNNING], counters=Counters: 0
+{code}
+  
+
+DAG kill signal received.
+{code}
+2015-06-01 07:38:25,811 INFO [Thread-3] app.DAGAppMaster: DAGAppMasterShutdownHook invoked
+2015-06-01 07:38:25,811 INFO [Thread-3] app.DAGAppMaster: DAGAppMaster received a signal. Signaling TaskScheduler
+{code}
+
+First attempt marked as failed as container was killed.
+{code}
+2015-06-01 07:38:26,906 INFO [Dispatcher thread: Central] history.HistoryEventHandler: [HISTORY][DAG:dag\_1433141118424\_0012\_2][Event:TASK\_ATTEMPT\_FINISHED]: vertexName=initialmap, taskAttemptId=attempt\_1433141118424\_0012\_2\_00\_000003\_0, startTime=1433144297281, finishTime=1433144306904, timeTaken=9623, status=FAILED, errorEnum=FRAMEWORK\_ERROR, diagnostics=Container container\_e02\_1433141118424\_0012\_01\_000018 hit an invalid transition - C\_NM\_STOP\_SENT at RUNNING, counters=Counters: 0
+{code}
+
+Subsequent attempt scheduled, assigned and eventually fails. 
+{code}
+2015-06-01 07:38:26,919 INFO [DelayedContainerManager] rm.YarnTaskSchedulerService: Assigning container to task, container=Container: [ContainerId: container\_e02\_1433141118424\_0012\_01\_000011, NodeId: ip-172-31-18-41.ec2.internal:45454, NodeHttpAddress: ip-172-31-18-41.ec2.internal:8042, Resource: <memory:1536, vCores:1>, Priority: 2, Token: Token { kind: ContainerToken, service: 172.31.18.41:45454 }, ], task=attempt\_1433141118424\_0012\_2\_00\_000003\_1, containerHost=ip-172-31, localityMatchType=NodeLocal, matchedLocation=ip-172-31-18-41.ec2.internal, honorLocalityFlags=true, reusedContainer=true, delayedContainers=4, containerResourceMemory=1536, containerResourceVCores=1
+{code}
+
+Scheduler stops too late.
+{code}
+2015-06-01 07:38:27,403 DEBUG [Thread-3] service.AbstractService: Service: org.apache.tez.dag.app.rm.YarnTaskSchedulerService entered state STOPPED
+{code}
+
+
+---
+
+* [TEZ-2505](https://issues.apache.org/jira/browse/TEZ-2505) | *Major* | **PipelinedSorter uses Comparator objects concurrently from multiple threads**
+
+When attempting to run the same multi-DAG application (that worked fine under the same environment except Cascading-3.0.0-wip-115 and tez 0.6.1), one of the early, and simplest DAG crashes on the PipelinedSorter.
+
+The stack at the crash site looks like:
+{code}
+2015-05-28 11:52:47,120 ERROR [TezChild] element.TrapHandler: caught Throwable, no trap available, rethrowing
+cascading.CascadingException: unable to compare stream elements in position: 0
+        at cascading.tuple.hadoop.util.DeserializerComparator.compareTuples(DeserializerComparator.java:164)
+        at cascading.tuple.hadoop.util.TupleComparator.compare(TupleComparator.java:38)
+        at org.apache.tez.runtime.library.common.sort.impl.PipelinedSorter$SortSpan.compareKeys(PipelinedSorter.java:669)
+        at org.apache.tez.runtime.library.common.sort.impl.PipelinedSorter$SortSpan.compare(PipelinedSorter.java:684)
+        at org.apache.hadoop.util.QuickSort.sortInternal(QuickSort.java:99)
+        at org.apache.hadoop.util.QuickSort.sort(QuickSort.java:63)
+        at org.apache.tez.runtime.library.common.sort.impl.PipelinedSorter$SortSpan.sort(PipelinedSorter.java:631)
+        at org.apache.tez.runtime.library.common.sort.impl.PipelinedSorter.sort(PipelinedSorter.java:230)
+        at org.apache.tez.runtime.library.common.sort.impl.PipelinedSorter.collect(PipelinedSorter.java:311)
+        at org.apache.tez.runtime.library.common.sort.impl.PipelinedSorter.write(PipelinedSorter.java:272)
+        at org.apache.tez.runtime.library.output.OrderedPartitionedKVOutput$1.write(OrderedPartitionedKVOutput.java:164)
+        at cascading.flow.tez.stream.element.OldOutputCollector.collect(OldOutputCollector.java:51)
+        at cascading.tap.hadoop.util.MeasuredOutputCollector.collect(MeasuredOutputCollector.java:69)
+        at cascading.flow.tez.stream.element.TezCoGroupGate.wrapGroupingAndCollect(TezCoGroupGate.java:193)
+        at cascading.flow.hadoop.stream.HadoopGroupGate.receive(HadoopGroupGate.java:103)
+        at cascading.flow.hadoop.stream.HadoopGroupGate.receive(HadoopGroupGate.java:45)
+        at cascading.flow.stream.element.FunctionEachStage$1.collect(FunctionEachStage.java:81)
+        at cascading.tuple.TupleEntryCollector.safeCollect(TupleEntryCollector.java:145)
+        at cascading.tuple.TupleEntryCollector.add(TupleEntryCollector.java:133)
+        at com.twitter.scalding.FlatMapFunction$$anonfun$operate$2.apply(Operations.scala:49)
+        at com.twitter.scalding.FlatMapFunction$$anonfun$operate$2.apply(Operations.scala:47)
+        at scala.collection.Iterator$class.foreach(Iterator.scala:750)
+        at scala.collection.AbstractIterator.foreach(Iterator.scala:1202)
+        at com.twitter.scalding.FlatMapFunction.operate(Operations.scala:47)
+        at cascading.flow.stream.element.FunctionEachStage.receive(FunctionEachStage.java:100)
+        at cascading.flow.stream.element.FunctionEachStage.receive(FunctionEachStage.java:40)
+        at cascading.flow.stream.element.FunctionEachStage$1.collect(FunctionEachStage.java:81)
+        at cascading.tuple.TupleEntryCollector.safeCollect(TupleEntryCollector.java:145)
+        at cascading.tuple.TupleEntryCollector.add(TupleEntryCollector.java:133)
+        at com.twitter.scalding.MapFunction.operate(Operations.scala:60)
+        at cascading.flow.stream.element.FunctionEachStage.receive(FunctionEachStage.java:100)
+        at cascading.flow.stream.element.FunctionEachStage.receive(FunctionEachStage.java:40)
+        at cascading.flow.stream.element.FunctionEachStage$1.collect(FunctionEachStage.java:81)
+        at cascading.tuple.TupleEntryCollector.safeCollect(TupleEntryCollector.java:145)
+        at cascading.tuple.TupleEntryCollector.add(TupleEntryCollector.java:133)
+        at cascading.operation.Identity$1.operate(Identity.java:124)
+        at cascading.operation.Identity.operate(Identity.java:150)
+        at cascading.flow.stream.element.FunctionEachStage.receive(FunctionEachStage.java:100)
+        at cascading.flow.stream.element.FunctionEachStage.receive(FunctionEachStage.java:40)
+        at cascading.flow.stream.element.SourceStage.map(SourceStage.java:110)
+        at cascading.flow.stream.element.SourceStage.run(SourceStage.java:66)
+        at cascading.flow.tez.stream.element.TezSourceStage.run(TezSourceStage.java:95)
+        at cascading.flow.tez.FlowProcessor.run(FlowProcessor.java:165)
+        at org.apache.tez.runtime.LogicalIOProcessorRuntimeTask.run(LogicalIOProcessorRuntimeTask.java:337)
+        at org.apache.tez.runtime.task.TezTaskRunner$TaskRunnerCallable$1.run(TezTaskRunner.java:179)
+        at org.apache.tez.runtime.task.TezTaskRunner$TaskRunnerCallable$1.run(TezTaskRunner.java:171)
+        at java.security.AccessController.doPrivileged(Native Method)
+        at javax.security.auth.Subject.doAs(Subject.java:422)
+        at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1628)
+        at org.apache.tez.runtime.task.TezTaskRunner$TaskRunnerCallable.callInternal(TezTaskRunner.java:171)
+        at org.apache.tez.runtime.task.TezTaskRunner$TaskRunnerCallable.callInternal(TezTaskRunner.java:167)
+        at org.apache.tez.common.CallableWithNdc.call(CallableWithNdc.java:36)
+        at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+        at java.lang.Thread.run(Thread.java:745)
+Caused by: cascading.CascadingException: unable to read element from underlying stream
+        at cascading.tuple.hadoop.util.TupleElementComparator.compare(TupleElementComparator.java:82)
+        at cascading.tuple.hadoop.util.TupleElementComparator.compare(TupleElementComparator.java:33)
+        at cascading.tuple.hadoop.util.DeserializerComparator.compareTuples(DeserializerComparator.java:160)
+        ... 55 more
+Caused by: java.io.EOFException
+        at java.io.DataInputStream.readFully(DataInputStream.java:197)
+        at java.io.DataInputStream.readFully(DataInputStream.java:169)
+        at org.apache.hadoop.io.WritableUtils.readString(WritableUtils.java:125)
+        at cascading.tuple.hadoop.io.HadoopTupleInputStream.readString(HadoopTupleInputStream.java:75)
+        at cascading.tuple.hadoop.io.HadoopTupleInputStream.readType(HadoopTupleInputStream.java:85)
+        at cascading.tuple.hadoop.io.HadoopTupleInputStream.getNextElement(HadoopTupleInputStream.java:52)
+        at cascading.tuple.hadoop.util.TupleElementComparator.compare(TupleElementComparator.java:77)
+        ... 57 more
+{code}
+
+with an apparently random variation at the top of stack which is
+{code}
+2015-05-28 13:10:13,459 ERROR [TezChild] element.TrapHandler: caught Throwable, no trap available, rethrowing
+cascading.CascadingException: java.io.EOFException
+        at cascading.tuple.hadoop.util.TupleComparator.compare(TupleComparator.java:42)
+        at org.apache.tez.runtime.library.common.sort.impl.PipelinedSorter$SortSpan.compareKeys(PipelinedSorter.java:669)
+        at org.apache.tez.runtime.library.common.sort.impl.PipelinedSorter$SortSpan.compare(PipelinedSorter.java:684)
+        at org.apache.hadoop.util.QuickSort.sortInternal(QuickSort.java:99)
+        at org.apache.hadoop.util.QuickSort.sort(QuickSort.java:63)
+        at org.apache.tez.runtime.library.common.sort.impl.PipelinedSorter$SortSpan.sort(PipelinedSorter.java:631)
+{code}
+
+all running TezChildren fail with the same stacks (either variant) at the same time on the same node, which is straight off a HDFS-backed CSV file.
+
+The cascading.tuple.hadoop.util.TupleComparator#compare code at the top of stack has been in use in a MAPREDUCE context for over 2.5 years; first analysis with [~cwensel] (who successfully reproduced the issue without scalding) points towards an issue on tez side.
+
+as a workaround, it is possible to run with {code:scala}"tez.runtime.sorter.class" -> "LEGACY"{code}, but this is impractical in the long run.
+
+
+---
+
 * [TEZ-2483](https://issues.apache.org/jira/browse/TEZ-2483) | *Major* | **Tez should close task if processor fail**
 
 The symptom is if PigProcessor fail, MRInput is not closed. On Windows, this creates a problem since Pig client cannot remove the input file.
@@ -238,6 +387,20 @@ It would be useful to show this information.
 * [TEZ-2409](https://issues.apache.org/jira/browse/TEZ-2409) | *Critical* | **Allow different edges to have different routing plugins**
 
 It may be useful to allow different edge manager plugin types based on different requirements. In order to support this, we would need to support different plugins per edge for routing the events on that edge. A motivating scenario is when a custom plugin from an older release of a downstream project is using older API's while the latest release of that project has moved on to newer API's. This would allow both old and new releases to work with the latest Tez framework as optimally as possible.
+
+
+---
+
+* [TEZ-2391](https://issues.apache.org/jira/browse/TEZ-2391) | *Blocker* | **TestVertexImpl timing out at times on jenkins builds**
+
+For example, https://builds.apache.org/job/Tez-Build/1028/console
+
+
+---
+
+* [TEZ-2304](https://issues.apache.org/jira/browse/TEZ-2304) | *Major* | **InvalidStateTransitonException TA\_SCHEDULE at START\_WAIT during recovery**
+
+I saw a Tez AM throw a few InvalidStateTransitonException (sic) instances during recovery complaining about TA\_SCHEDULE arriving at the START\_WAIT state.
 
 
 

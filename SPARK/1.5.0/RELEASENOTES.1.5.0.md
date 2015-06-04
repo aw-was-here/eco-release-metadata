@@ -23,6 +23,126 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-8088](https://issues.apache.org/jira/browse/SPARK-8088) | *Major* | **ExecutionAllocationManager spamming INFO logs about "Lowering target number of executors"**
+
+I am running a {{spark-shell}} built at 1.4.0-rc4, with:
+
+{code}
+  --conf spark.dynamicAllocation.enabled=true \
+  --conf spark.dynamicAllocation.minExecutors=5 \
+  --conf spark.dynamicAllocation.maxExecutors=300 \
+  --conf spark.dynamicAllocation.schedulerBacklogTimeout=3 \
+  --conf spark.dynamicAllocation.executorIdleTimeout=600 \
+{code}
+
+I can't really type any commands because I am getting 10 of these per second:
+
+{code}
+15/06/03 20:49:09 INFO spark.ExecutorAllocationManager: Lowering target number of executors to 5 because not all requests are actually needed (previously 5)
+15/06/03 20:49:09 INFO spark.ExecutorAllocationManager: Lowering target number of executors to 5 because not all requests are actually needed (previously 5)
+15/06/03 20:49:09 INFO spark.ExecutorAllocationManager: Lowering target number of executors to 5 because not all requests are actually needed (previously 5)
+15/06/03 20:49:09 INFO spark.ExecutorAllocationManager: Lowering target number of executors to 5 because not all requests are actually needed (previously 5)
+15/06/03 20:49:09 INFO spark.ExecutorAllocationManager: Lowering target number of executors to 5 because not all requests are actually needed (previously 5)
+15/06/03 20:49:09 INFO spark.ExecutorAllocationManager: Lowering target number of executors to 5 because not all requests are actually needed (previously 5)
+{code}
+
+It should not print anything if it is not in fact lowering the number of executors / is already at the minimum, right?
+
+
+---
+
+* [SPARK-8084](https://issues.apache.org/jira/browse/SPARK-8084) | *Major* | **SparkR install script should fail with error if any packages required are not found**
+
+This is to avoid cases where the script fails but the build is green
+
+https://amplab.cs.berkeley.edu/jenkins/job/Spark-Master-Package/73/console
+
+
+---
+
+* [SPARK-8083](https://issues.apache.org/jira/browse/SPARK-8083) | *Major* | **Fix return to drivers link in Mesos driver page**
+
+The current path is set to "/" but this doesn't work with a proxy. We need to prepend the proxy base uri if it's set.
+
+
+---
+
+* [SPARK-8074](https://issues.apache.org/jira/browse/SPARK-8074) | *Major* | **Parquet should throw AnalysisException during setup for data type/name related failures**
+
+Change sys.error/RuntimeException to AnalysisException.
+
+
+---
+
+* [SPARK-8063](https://issues.apache.org/jira/browse/SPARK-8063) | *Major* | **Spark master URL conflict between MASTER env variable and --master command line option**
+
+Currently, Spark supports several ways to specify the Spark master URL, like --master option for spark-submit, spark.master configuration option, MASTER env variable. They have different precedences, for example, --master overrides MASTER if both are specified.
+
+However, for SparkR shell, it always use the master URL specified by MASTER, not honoring --master.
+
+
+---
+
+* [SPARK-8059](https://issues.apache.org/jira/browse/SPARK-8059) | *Minor* | **Reduce latency between executor requests and RM heartbeat**
+
+This is a follow up to SPARK-7533. On top of the changes done as part of that issue, we could reduce allocation latency by waking up the allocation thread when the driver send new requests.
+
+
+---
+
+* [SPARK-8054](https://issues.apache.org/jira/browse/SPARK-8054) | *Major* | **Java compatibility fixes for MLlib 1.4**
+
+See [SPARK-7529]
+
+
+---
+
+* [SPARK-8053](https://issues.apache.org/jira/browse/SPARK-8053) | *Minor* | **ElementwiseProduct scalingVec param name should match between ml,mllib**
+
+spark.mllib's ElementwiseProduct uses "scalingVector"
+
+spark.ml's ElementwiseProduct uses "scalingVec"
+
+We should make them match.
+
+
+---
+
+* [SPARK-8051](https://issues.apache.org/jira/browse/SPARK-8051) | *Major* | **StringIndexerModel (and other models) shouldn't complain if the input column is missing.**
+
+If a transformer is not used during transformation, it should keep silent if the input column is missing.
+
+
+---
+
+* [SPARK-8043](https://issues.apache.org/jira/browse/SPARK-8043) | *Minor* | **update NaiveBayes and SVM examples in doc**
+
+I found some issues during testing the save/load examples in markdown Documents, as a part of 1.4 QA plan
+
+
+---
+
+* [SPARK-8032](https://issues.apache.org/jira/browse/SPARK-8032) | *Major* | **Make NumPy version checking in mllib/\_\_init\_\_.py**
+
+The current checking does version `1.x' is less than `1.4' this will fail if x has greater than 1 digit, since x > 4, however `1.x` < `1.4`
+
+
+---
+
+* [SPARK-8001](https://issues.apache.org/jira/browse/SPARK-8001) | *Minor* | **Make AsynchronousListenerBus.waitUntilEmpty throw TimeoutException if timeout**
+
+TimeoutException is a more explicit failure. In addition, the caller may forget to call {{assert}} to check the return value of {{AsynchronousListenerBus.waitUntilEmpty}}.
+
+
+---
+
+* [SPARK-7989](https://issues.apache.org/jira/browse/SPARK-7989) | *Major* | **Fix flaky tests in ExternalShuffleServiceSuite and SparkListenerWithClusterSuite**
+
+The flaky tests in ExternalShuffleServiceSuite and SparkListenerWithClusterSuite will fail if there are not enough executors up before running the jobs.
+
+
+---
+
 * [SPARK-7986](https://issues.apache.org/jira/browse/SPARK-7986) | *Major* | **Refactor scalastyle-config.xml to divide it into 3 sections**
 
 This file should be divided into 3 sections:
@@ -33,26 +153,20 @@ This file should be divided into 3 sections:
 
 ---
 
-* [SPARK-7976](https://issues.apache.org/jira/browse/SPARK-7976) | *Major* | **Add style checker to disallow overriding finalize**
+* [SPARK-7983](https://issues.apache.org/jira/browse/SPARK-7983) | *Minor* | **Add require for one-based indices in loadLibSVMFile**
 
-finalize() is called when the object is garbage collected, and garbage collection is not guaranteed to happen. It is therefore unwise to rely on code in finalize() method.
+Add require for one-based indices in loadLibSVMFile
 
+Customers frequently use zero-based indices in their LIBSVM files. No warnings or errors from Spark will be reported during their computation afterwards, and usually it will lead to wired result for many algorithms (like GBDT).
 
-See http://www.scalastyle.org/rules-0.7.0.html#org\_scalastyle\_scalariform\_NoFinalizeChecker
-
-
----
-
-* [SPARK-7957](https://issues.apache.org/jira/browse/SPARK-7957) | *Major* | **Preserve partitioning in randomSplit in RDD.scala**
-
-The randomSplit method in RDD.scala used to preserve partitioning, but with a change I made, to make it re-usable with Spark SQL, it doesn't preserve partitioning anymore (forgot to add the argument)
+add a quick check.
 
 
 ---
 
-* [SPARK-7954](https://issues.apache.org/jira/browse/SPARK-7954) | *Major* | **Implicitly create SparkContext in sparkRSQL.init**
+* [SPARK-7980](https://issues.apache.org/jira/browse/SPARK-7980) | *Major* | **Support SQLContext.range(end)**
 
-Right now SparkR users need to first create a SparkContext with sparkR.init and a SQLContext with sparkRSQL.init -- As users will only use DataFrames in the first release we can save them one step by implicitly creating a SparkContext in sparkRSQL.init
+SQLContext.range should also allow only specifying the end position, similar to Python's own range.
 
 
 ---
@@ -76,28 +190,6 @@ If user left a space after a value(say spark.driver.extraClassPath) then it prob
 * [SPARK-7910](https://issues.apache.org/jira/browse/SPARK-7910) | *Minor* | **Expose partitioner information in JavaRDD**
 
 It would be useful to expose the partitioner info in the Java & Python APIs for RDDs.
-
-
----
-
-* [SPARK-7899](https://issues.apache.org/jira/browse/SPARK-7899) | *Major* | **PySpark sql/tests breaks pylint validation**
-
-The pyspark.sql.types module is dynamically named {{types}} from {{\_types}} which messes up pylint validation
-
-From [~justin.uang] below:
-
-In commit 04e44b37, the migration to Python 3, {{pyspark/sql/types.py}} was renamed to {{pyspark/sql/\\_types.py}} and then some magic in {{pyspark/sql/\\_\\_init\\_\\_.py}} dynamically renamed the module back to {{types}}. I imagine that this is some naming conflict with Python 3, but what was the error that showed up?
-
-The reason why I'm asking about this is because it's messing with pylint, since pylint cannot now statically find the module. I tried also importing the package so that {{\\_\\_init\\_\\_}} would be run in a init-hook, but that isn't what the discovery mechanism is using. I imagine it's probably just crawling the directory structure.
-
-One way to work around this would be something akin to this (http://stackoverflow.com/questions/9602811/how-to-tell-pylint-to-ignore-certain-imports), where I would have to create a fake module, but I would probably be missing a ton of pylint features on users of that module, and it's pretty hacky.
-
-
----
-
-* [SPARK-7890](https://issues.apache.org/jira/browse/SPARK-7890) | *Critical* | **Document that Spark 2.11 now supports Kafka**
-
-The building-spark.html page needs to be updated. It's a simple fix, just remove the caveat about Kafka.
 
 
 ---
@@ -193,6 +285,13 @@ However on one of the worker, I did a "kill -9 <worker process id>" and restarte
 
 ---
 
+* [SPARK-7691](https://issues.apache.org/jira/browse/SPARK-7691) | *Major* | **Use type-specific row accessor functions in CatalystTypeConverters' toScala functions**
+
+CatalystTypeConverters's Catalyst row to Scala row converters access columns' values via the generic {{Row.get()}} call rather than using type-specific accessor methods.  If we refactor the internal converter interfaces slightly, we can pass the row and column number into the converter function and allow it to do its own type-specific field extraction, similar to what we do in UnsafeRowConverter.  This is a blocker for being able to unit test new operators that I'm developing as part of Project Tungsten, since those operators may output {{UnsafeRow}} instances which don't support the generic {{get()}}.
+
+
+---
+
 * [SPARK-7663](https://issues.apache.org/jira/browse/SPARK-7663) | *Minor* | **[MLLIB] feature.Word2Vec throws empty iterator error when the vocabulary size is zero**
 
 mllib.feature.Word2Vec at line 442: https://github.com/apache/spark/blob/master/mllib/src/main/scala/org/apache/spark/mllib/feature/Word2Vec.scala#L442 uses `.head` to get the vector size. But it would throw an empty iterator error if the `minCount` is large enough to remove all words in the dataset.
@@ -243,6 +342,26 @@ PR to be submitted shortly.
 
 ---
 
+* [SPARK-7562](https://issues.apache.org/jira/browse/SPARK-7562) | *Major* | **Improve error reporting for expression data type mismatch**
+
+There is currently no error reporting for expression data types in analysis (we rely on "resolved" for that, which doesn't provide great error messages for types). It would be great to have that in checkAnalysis.
+
+Ideally, it should be the responsibility of each Expression itself to specify the types it requires, and report errors that way. We would need to define a simple interface for that so each Expression can implement. The default implementation can just use the information provided by ExpectsInputTypes.expectedChildTypes. 
+
+cc [~marmbrus] what we discussed offline today.
+
+
+---
+
+* [SPARK-7558](https://issues.apache.org/jira/browse/SPARK-7558) | *Major* | **Log test name when starting and finishing each test**
+
+Right now it's really tough to interpret testing output because logs for different tests are interspersed in the same unit-tests.log file. This makes it particularly hard to diagnose flaky tests. This would be much easier if we logged the test name before and after every test (e.g. "Starting test XX", "Finished test XX"). Then you could get right to the logs.
+
+I think one way to do this might be to create a custom test fixture that logs the test class name and then mix that into every test suite /cc [~joshrosen] for his superb knowledge of Scalatest.
+
+
+---
+
 * [SPARK-7533](https://issues.apache.org/jira/browse/SPARK-7533) | *Major* | **Decrease spacing between AM-RM heartbeats.**
 
 The current default of spark.yarn.scheduler.heartbeat.interval-ms is 5 seconds.  This is really long.  For reference, the MR equivalent is 1 second.
@@ -285,6 +404,13 @@ In our testing, when data size is huge, this patch reduces about 30% GC time and
 
 ---
 
+* [SPARK-7387](https://issues.apache.org/jira/browse/SPARK-7387) | *Minor* | **CrossValidator example code in Python**
+
+We should add example code for CrossValidator after SPARK-6940 is merged. This should be similar to the CrossValidator example in Scala/Java.
+
+
+---
+
 * [SPARK-7357](https://issues.apache.org/jira/browse/SPARK-7357) | *Minor* | **Improving HBaseTest example**
 
 Minor improvement to HBaseTest example, when Hbase related configurations e.g: zookeeper quorum, zookeeper client port or zookeeper.znode.parent are not set to default (localhost:2181), connection to zookeeper might hang as shown in following stack
@@ -296,6 +422,15 @@ Minor improvement to HBaseTest example, when Hbase related configurations e.g: z
 15/03/26 18:31:21 INFO client.ZooKeeperRegistry: ClusterId read in ZooKeeper is null
 
 this is due to hbase-site.xml is not placed on spark class path.
+
+
+---
+
+* [SPARK-7161](https://issues.apache.org/jira/browse/SPARK-7161) | *Minor* | **Provide REST api to download event logs from History Server**
+
+The idea is to tar up the logs and return the tar.gz file using a REST api. This can be used for debugging even after the app is done.
+
+I am planning to take a look at this.
 
 
 ---
@@ -321,6 +456,73 @@ from /service/pmrs/45638/20/opt/ibm/biginsights/jdk/jre/lib/amd64/compressedrefs
 
 this is an issue introduced by a bug in net.jpountz.lz4.lz4-1.2.0.jar, and fixed in 1.3.0 version.  Sun JDK /Open JDK doesn't complain this issue, but this issue will trigger assertion failure when IBM JDK is used. here is the link to the fix 
 https://github.com/jpountz/lz4-java/commit/07229aa2f788229ab4f50379308297f428e3d2d2
+
+
+---
+
+* [SPARK-6444](https://issues.apache.org/jira/browse/SPARK-6444) | *Major* | **SQL functions (either built-in or UDF) should check for data types of their arguments**
+
+SQL functions should remain unresolved if their arguments don't satisfy their argument type requirements. Take {{Sum}} as an example, the data type of {{Sum(Literal("1"))}} is {{StringType}}, and now it's considered resolved, which may cause problems.
+
+Here is a simplified version of a problematic query reported by [~cenyuhai]. Spark shell session for reproducing this issue:
+{code}
+import sqlContext.\_
+
+sql("""
+    CREATE TABLE IF NOT EXISTS ut (
+        c1 STRING,
+        c2 STRING
+    )
+    """)
+
+sql("""
+    SELECT SUM(c3) FROM (
+        SELECT SUM(c1) AS c3, 0 AS c4 FROM ut     -- (1)
+        UNION ALL
+        SELECT 0 AS c3, COUNT(c2) AS c4 FROM ut   -- (2)
+    ) t
+    """).queryExecution.optimizedPlan
+{code}
+Exception thrown:
+{noformat}
+java.util.NoSuchElementException: key not found: c3#10
+        at scala.collection.MapLike$class.default(MapLike.scala:228)
+        at org.apache.spark.sql.catalyst.expressions.AttributeMap.default(AttributeMap.scala:29)
+        at scala.collection.MapLike$class.apply(MapLike.scala:141)
+        at org.apache.spark.sql.catalyst.expressions.AttributeMap.apply(AttributeMap.scala:29)
+        at org.apache.spark.sql.catalyst.optimizer.UnionPushdown$$anonfun$1.applyOrElse(Optimizer.scala:80)
+        at org.apache.spark.sql.catalyst.optimizer.UnionPushdown$$anonfun$1.applyOrElse(Optimizer.scala:79)
+        at org.apache.spark.sql.catalyst.trees.TreeNode$$anonfun$3.apply(TreeNode.scala:187)
+        at org.apache.spark.sql.catalyst.trees.TreeNode$$anonfun$3.apply(TreeNode.scala:187)
+        at org.apache.spark.sql.catalyst.trees.CurrentOrigin$.withOrigin(TreeNode.scala:50)
+        at org.apache.spark.sql.catalyst.trees.TreeNode.transformDown(TreeNode.scala:186)
+        at org.apache.spark.sql.catalyst.trees.TreeNode.transform(TreeNode.scala:177)
+        at org.apache.spark.sql.catalyst.optimizer.UnionPushdown$.pushToRight(Optimizer.scala:79)
+        at org.apache.spark.sql.catalyst.optimizer.UnionPushdown$$anonfun$apply$1$$anonfun$applyOrElse$6.apply(Optimizer.scala:101)
+        at org.apache.spark.sql.catalyst.optimizer.UnionPushdown$$anonfun$apply$1$$anonfun$applyOrElse$6.apply(Optimizer.scala:101)
+        ...
+{noformat}
+The analyzed plan of the query is:
+{noformat}
+== Analyzed Logical Plan ==
+!Aggregate [], [SUM(CAST(c3#153, DoubleType)) AS \_c0#157]                   (c)
+ Union
+  Project [CAST(c3#153, StringType) AS c3#164,c4#163L]                      (d)
+   Project [c3#153,CAST(c4#154, LongType) AS c4#163L]
+    Aggregate [], [SUM(CAST(c1#158, DoubleType)) AS c3#153,0 AS c4#154]     (b)
+     MetastoreRelation default, ut, None
+  Project [CAST(c3#155, StringType) AS c3#162,c4#156L]                      (a)
+   Aggregate [], [0 AS c3#155,COUNT(c2#161) AS c4#156L]
+    MetastoreRelation default, ut, None
+{noformat}
+This case is very interesting. It involves 2 analysis rules, {{WidenTypes}} and {{PromoteStrings}}, and 1 optimizer rule, {{UnionPushdown}}. To see the details, we can turn on TRACE level log and check detailed rule execution process. The TL;DR is:
+# Since {{c1}} is STRING, {{SUM(c1)}} is also STRING (which is the root cause of the whole issue).
+# {{c3}} in {{(1)}} is STRING, while the one in {{(2)}} is INT. Thus {{WidenTypes}} casts the latter to STRING to ensure both sides of the UNION have the same schema.  See {{(a)}}.
+# {{PromoteStrings}} casts {{c1}} in {{SUM(c1)}} to DOUBLE, which consequently changes data type of {{SUM(c1)}} and {{c3}} to DOUBLE.  See {{(b)}}.
+# {{c3}} in the top level {{Aggregate}} is resolved as DOUBLE (c)
+# Since schemas of the two sides of the UNION are different again, {{WidenTypes}} casts {{SUM(c1) AS c3}} to STRING.  See {{(d)}}.
+# Int the top level {{Aggregate}}, {{c3#153}} becomes a missing input attribute because it is hidden by {{(d)}} now.
+# In the optimizing phase, {{UnionPushdown}} throws because the top level {{Aggregate}} has missing input attribute.
 
 
 ---
@@ -361,6 +563,13 @@ boto.exception.EC2ResponseError: EC2ResponseError: 400 Bad Request
 {code}
 
 This problem seems to be with {{get\_all\_instance\_status()}}, though I am not sure if other methods are affected too.
+
+
+---
+
+* [SPARK-6164](https://issues.apache.org/jira/browse/SPARK-6164) | *Minor* | **CrossValidatorModel should keep stats from fitting**
+
+CrossValidator computes stats for each (model, fold) pair, but they are thrown out by the created model.  CrossValidatorModel should keep this info and expose it to users.
 
 
 ---

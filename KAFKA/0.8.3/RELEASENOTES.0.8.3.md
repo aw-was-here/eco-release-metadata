@@ -89,6 +89,13 @@ zkclient-0.5 is released http://mvnrepository.com/artifact/com.101tec/zkclient/0
 
 ---
 
+* [KAFKA-2161](https://issues.apache.org/jira/browse/KAFKA-2161) | *Trivial* | **Fix a few copyrights**
+
+I noticed that I accidentally let some incorrect copyright headers slip in with the KAKFA-1501 patch.
+
+
+---
+
 * [KAFKA-2131](https://issues.apache.org/jira/browse/KAFKA-2131) | *Trivial* | **Update new producer javadocs with correct documentation links**
 
 New producer java docs are referring to old producer documentation.
@@ -638,6 +645,13 @@ The test checks for just one out of two possible exceptions.
 
 ---
 
+* [KAFKA-1997](https://issues.apache.org/jira/browse/KAFKA-1997) | *Major* | **Refactor Mirror Maker**
+
+Refactor mirror maker based on KIP-3
+
+
+---
+
 * [KAFKA-1994](https://issues.apache.org/jira/browse/KAFKA-1994) | *Major* | **Evaluate performance effect of chroot check on Topic creation**
 
 KAFKA-1664 adds check for chroot while creating a node in ZK. ZkPath checks if namespace exists before trying to create a path in ZK. This raises a concern that checking namespace for each path creation might be unnecessary and can potentially make creations expensive.
@@ -829,6 +843,15 @@ I am evaluating kafka for my company and wanted to run some tests with it, but c
 * [KAFKA-1938](https://issues.apache.org/jira/browse/KAFKA-1938) | *Trivial* | **[doc] Quick start example should reference appropriate Kafka version**
 
 Kafka 0.8.2.0 documentation, quick start example on https://kafka.apache.org/documentation.html#quickstart in step 1 links and instructs reader to download Kafka 0.8.1.1.
+
+
+---
+
+* [KAFKA-1928](https://issues.apache.org/jira/browse/KAFKA-1928) | *Major* | **Move kafka.network over to using the network classes in org.apache.kafka.common.network**
+
+As part of the common package we introduced a bunch of network related code and abstractions.
+
+We should look into replacing a lot of what is in kafka.network with this code. Duplicate classes include things like Receive, Send, etc. It is likely possible to also refactor the SocketServer to make use of Selector which should significantly simplify it's code.
 
 
 ---

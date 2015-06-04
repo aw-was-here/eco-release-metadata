@@ -164,6 +164,13 @@ Running MR sleep job has an IOException.
 
 ---
 
+* [TEZ-2304](https://issues.apache.org/jira/browse/TEZ-2304) | *Major* | **InvalidStateTransitonException TA\_SCHEDULE at START\_WAIT during recovery**
+
+I saw a Tez AM throw a few InvalidStateTransitonException (sic) instances during recovery complaining about TA\_SCHEDULE arriving at the START\_WAIT state.
+
+
+---
+
 * [TEZ-2303](https://issues.apache.org/jira/browse/TEZ-2303) | *Major* | **ConcurrentModificationException while processing recovery**
 
 Saw a Tez AM log a few ConcurrentModificationException messages while trying to recover from a previous attempt that crashed.  Exception details to follow.
