@@ -214,4 +214,11 @@ ResourceManager renews delegation tokens for applications. This behavior has bee
 This incompatible change should be fixed on branch-2 because the API is broken in branch-2.
 
 
+---
+
+* [YARN-41](https://issues.apache.org/jira/browse/YARN-41) | *Major* | **The RM should handle the graceful shutdown of the NM.**
+
+The behavior of shutdown a NM could be different (if NM work preserving is not enabled): NM will unregister to RM immediately rather than waiting for timeout to be LOST. A new status of NodeStatus - SHUTDOWN is involved which could affect UI, CLI and ClusterMetrics for node's status.
+
+
 

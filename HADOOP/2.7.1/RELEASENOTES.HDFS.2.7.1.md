@@ -23,6 +23,13 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [HDFS-8270](https://issues.apache.org/jira/browse/HDFS-8270) | *Major* | **create() always retried with hardcoded timeout when file already exists with open lease**
+
+Proxy level retries will not be done on AlreadyBeingCreatedExeption for create() op.
+
+
+---
+
 * [HDFS-8226](https://issues.apache.org/jira/browse/HDFS-8226) | *Blocker* | **Non-HA rollback compatibility broken**
 
 Non-HA rollback steps have been changed. Run the rollback command on the namenode (`bin/hdfs namenode -rollback`) before starting cluster with '-rollback' option using (sbin/start-dfs.sh -rollback).
