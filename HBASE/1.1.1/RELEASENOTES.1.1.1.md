@@ -30,6 +30,20 @@ hbase-shaded-client and hbase-shaded-server modules will not build the actual ja
 
 ---
 
+* [HBASE-13686](https://issues.apache.org/jira/browse/HBASE-13686) | *Major* | **Fail to limit rate in RateLimiter**
+
+As per this jira contribution. We now support two kinds of RateLimiter.
+1) org.apache.hadoop.hbase.quotas.AverageIntervalRateLimiter : This limiter will refill resources at every TimeUnit/resources interval.
+Example: For a limiter configured with 10resources/second, then 1resource will be refilled after every 100ms.
+
+2) org.apache.hadoop.hbase.quotas.FixedIntervalRateLimiter: This limiter will refill resources only after a given fixed interval of time.
+
+Client can configure anyone of this rate limiter for the cluster by setting the value for the property "hbase.quota.rate.limiter" in the hbase-site.xml. org.apache.hadoop.hbase.quotas.AverageIntervalRateLimiter is the default value.
+Note: Client needs to restart the cluster for the configuration to take into effect.
+
+
+---
+
 * [HBASE-13625](https://issues.apache.org/jira/browse/HBASE-13625) | *Major* | **Use HDFS for HFileOutputFormat2 partitioner's path**
 
 Introduces a new config hbase.fs.tmp.dir which is a directory in HDFS (or default file system) to use as a staging directory for HFileOutputFormat2.

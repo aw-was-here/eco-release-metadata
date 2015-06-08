@@ -48,6 +48,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-8098](https://issues.apache.org/jira/browse/SPARK-8098) | Show correct length of bytes on log page |  Minor | Web UI | Carson Wang | Carson Wang |
 | [SPARK-8032](https://issues.apache.org/jira/browse/SPARK-8032) | Make NumPy version checking in mllib/\_\_init\_\_.py |  Major | MLlib, PySpark | Manoj Kumar | Manoj Kumar |
 | [SPARK-7946](https://issues.apache.org/jira/browse/SPARK-7946) | DecayFactor wrongly set in StreamingKMeans |  Major | MLlib, Streaming | Manoj Kumar | Manoj Kumar |
 | [SPARK-7883](https://issues.apache.org/jira/browse/SPARK-7883) | Fixing broken trainImplicit example in MLlib Collaborative Filtering documentation. |  Trivial | Documentation, MLlib | Mike Dusenberry | Mike Dusenberry |
@@ -59,6 +60,8 @@
 | [SPARK-7552](https://issues.apache.org/jira/browse/SPARK-7552) | Close files correctly when iteration is finished in WAL recovery |  Major | Streaming | Saisai Shao | Saisai Shao |
 | [SPARK-7522](https://issues.apache.org/jira/browse/SPARK-7522) | ML Examples option for dataFormat should not be enclosed in angle brackets |  Minor | Examples | Bryan Cutler | Bryan Cutler |
 | [SPARK-7436](https://issues.apache.org/jira/browse/SPARK-7436) | Cannot implement nor use custom StandaloneRecoveryModeFactory implementations |  Major | Deploy | Jacek Lewandowski | Jacek Lewandowski |
+| [SPARK-7418](https://issues.apache.org/jira/browse/SPARK-7418) | Flaky test: o.a.s.deploy.SparkSubmitUtilsSuite search for artifacts |  Critical | Tests | Andrew Or | Burak Yavuz |
+| [SPARK-7417](https://issues.apache.org/jira/browse/SPARK-7417) | Flaky test: o.a.s.deploy.SparkSubmitUtilsSuite neglect dependencies |  Critical | Tests | Andrew Or | Burak Yavuz |
 | [SPARK-7345](https://issues.apache.org/jira/browse/SPARK-7345) | Spark cannot detect renamed columns using JDBC connector |  Major | SQL | Oleg Sidorkin | Oleg Sidorkin |
 | [SPARK-7330](https://issues.apache.org/jira/browse/SPARK-7330) | JDBC RDD could lead to NPE when the date field is null |  Major | SQL | Adrian Wang | Adrian Wang |
 | [SPARK-7278](https://issues.apache.org/jira/browse/SPARK-7278) | Inconsistent handling of dates in PySparks Row object |  Major | PySpark | Kalle Jepsen | Kalle Jepsen |

@@ -23,6 +23,13 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-8098](https://issues.apache.org/jira/browse/SPARK-8098) | *Minor* | **Show correct length of bytes on log page**
+
+The log page should only show desired length of bytes. Currently it shows bytes from the startIndex to the end of the file. The "Next" button on the page is always disabled.
+
+
+---
+
 * [SPARK-8032](https://issues.apache.org/jira/browse/SPARK-8032) | *Major* | **Make NumPy version checking in mllib/\_\_init\_\_.py**
 
 The current checking does version `1.x' is less than `1.4' this will fail if x has greater than 1 digit, since x > 4, however `1.x` < `1.4`
@@ -197,6 +204,34 @@ At least, this code fragment is buggy ({{Master.scala}}):
 {code}
 
 Because here: {{val factory = clazz.getConstructor(conf.getClass, Serialization.getClass)}} it tries to find the constructor which accepts {{org.apache.spark.SparkConf}} and class of companion object of {{akka.serialization.Serialization}} and then it tries to instantiate {{newInstance(conf, SerializationExtension(context.system))}} with instance of {{SparkConf}} and instance of {{Serialization}} class - not the companion objects.
+
+
+---
+
+* [SPARK-7418](https://issues.apache.org/jira/browse/SPARK-7418) | *Critical* | **Flaky test: o.a.s.deploy.SparkSubmitUtilsSuite search for artifacts**
+
+{code}
+   java.lang.RuntimeException: [unresolved dependency: com.agimatec#agimatec-validation;0.9.3: not found]
+      at org.apache.spark.deploy.SparkSubmitUtils$.resolveMavenCoordinates(SparkSubmit.scala:931)
+      at org.apache.spark.deploy.SparkSubmitUtilsSuite$$anonfun$5.apply$mcV$sp(SparkSubmitUtilsSuite.scala:108)
+      at org.apache.spark.deploy.SparkSubmitUtilsSuite$$anonfun$5.apply(SparkSubmitUtilsSuite.scala:107)
+      at 
+{code}
+
+https://amplab.cs.berkeley.edu/jenkins/view/Spark/job/Spark-Master-Maven-with-YARN/2075/HADOOP\_PROFILE=hadoop-2.4,label=centos/testReport/junit/org.apache.spark.deploy/SparkSubmitUtilsSuite/search\_for\_artifact\_at\_other\_repositories/
+...
+
+
+---
+
+* [SPARK-7417](https://issues.apache.org/jira/browse/SPARK-7417) | *Critical* | **Flaky test: o.a.s.deploy.SparkSubmitUtilsSuite neglect dependencies**
+
+{code}
+Expected exception java.lang.RuntimeException to be thrown, but no exception was thrown.
+{code}
+
+https://amplab.cs.berkeley.edu/jenkins/job/Spark-Master-Maven-pre-YARN/hadoop.version=1.0.4,label=centos/2201/testReport/junit/org.apache.spark.deploy/SparkSubmitUtilsSuite/neglects\_Spark\_and\_Spark\_s\_dependencies/
+...
 
 
 ---

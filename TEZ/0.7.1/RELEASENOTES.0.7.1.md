@@ -23,12 +23,64 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [TEZ-2533](https://issues.apache.org/jira/browse/TEZ-2533) | *Major* | **AM deadlock when shutdown**
+
+AM is shutdown due to AM\_REBOOT signal
+{noformat}
+2015-06-03 15:44:25,637 INFO [Dispatcher thread: Central] app.DAGAppMaster: Received an AM\_REBOOT signal
+2015-06-03 15:44:25,637 INFO [Dispatcher thread: Central] app.DAGAppMaster: DAGAppMasterShutdownHandler invoked
+2015-06-03 15:44:25,637 INFO [Dispatcher thread: Central] app.DAGAppMaster: Handling DAGAppMaster shutdown
+2015-06-03 15:44:25,639 INFO [AMShutdownThread] app.DAGAppMaster: Calling stop for all the services
+2015-06-03 15:44:25,640 INFO [AMShutdownThread] history.HistoryEventHandler: Stopping HistoryEventHandler
+2015-06-03 15:44:25,640 INFO [AMShutdownThread] recovery.RecoveryService: Stopping RecoveryService
+2015-06-03 15:44:25,640 INFO [AMShutdownThread] recovery.RecoveryService: Handle the remaining events in queue, queue size=0
+2015-06-03 15:44:25,640 INFO [RecoveryEventHandlingThread] recovery.RecoveryService: EventQueue take interrupted. Returning
+{noformat}
+Then AM is failed to shutdown 
+{noformat}
+2015-06-03 15:44:25,814 WARN [AMShutdownThread] app.DAGAppMaster: Graceful stop failed
+{noformat}
+And at the same time AM shutdown hook is invoked and hang there, wait for lock of DAGAppMaster#shutdownHandlerRunning
+{noformat}
+2015-06-03 15:44:25,818 INFO [Thread-1] app.DAGAppMaster: DAGAppMasterShutdownHook invoked
+2015-06-03 15:44:25,818 INFO [Thread-1] app.DAGAppMaster: The shutdown handler is still running, waiting for it to complete
+{noformat}
+
+
+---
+
 * [TEZ-2523](https://issues.apache.org/jira/browse/TEZ-2523) | *Major* | **Tez UI: derive applicationId from dag/vertex id instead of relying on json data**
 
 currently the applicationId for the models dag/vertex is picked up from primary filter data for the dag/vertex json. deriving this from the dagid/vertexid on the models has the below benefits.
 * ensures applicationId is not null (in some corner cases this causes exception in store.find)
 * makes the ui backward compatible (0.5).
 * allows to remove the appid from primary filter (TEZ-2485)
+
+
+---
+
+* [TEZ-2511](https://issues.apache.org/jira/browse/TEZ-2511) | *Major* | **Add exitCode to diagnostics when container fails**
+
+Currently we only identify the container failure cause for PREEMPTED / DISKS\_FAILED, that means except for these 2 cases, there would be no clear diagnostic message for other cases. 
+
+{code}
+      String message = "Container completed. ";
+      TaskAttemptTerminationCause errCause = TaskAttemptTerminationCause.CONTAINER\_EXITED;
+      int exitStatus = containerStatus.getExitStatus();
+      if (exitStatus == ContainerExitStatus.PREEMPTED) {
+        message = "Container preempted externally. ";
+        errCause = TaskAttemptTerminationCause.EXTERNAL\_PREEMPTION;
+      } else if (exitStatus == ContainerExitStatus.DISKS\_FAILED) {
+        message = "Container disk failed. ";
+        errCause = TaskAttemptTerminationCause.NODE\_DISK\_ERROR;
+      } else if (exitStatus != ContainerExitStatus.SUCCESS){
+        message = "Container failed. ";
+      }
+      if (containerStatus.getDiagnostics() != null) {
+        message += containerStatus.getDiagnostics();
+      }
+      sendEvent(new AMContainerEventCompleted(amContainer.getContainerId(), exitStatus, message, errCause));
+{code}
 
 
 ---
@@ -168,6 +220,31 @@ all running TezChildren fail with the same stacks (either variant) at the same t
 The cascading.tuple.hadoop.util.TupleComparator#compare code at the top of stack has been in use in a MAPREDUCE context for over 2.5 years; first analysis with [~cwensel] (who successfully reproduced the issue without scalding) points towards an issue on tez side.
 
 as a workaround, it is possible to run with {code:scala}"tez.runtime.sorter.class" -> "LEGACY"{code}, but this is impractical in the long run.
+
+
+---
+
+* [TEZ-2489](https://issues.apache.org/jira/browse/TEZ-2489) | *Major* | **Disable warn log for Timeline ACL error when tez.allow.disabled.timeline-domains set to true**
+
+15/05/26 22:57:38 WARN client.TezClient: Could not instantiate object for org.apache.tez.dag.history.ats.acls.ATSHistoryACLPolicyManager. ACLs cannot be enforced correctly for history data in Timeline
+org.apache.tez.dag.api.TezUncheckedException: Unable to load class: org.apache.tez.dag.history.ats.acls.ATSHistoryACLPolicyManager
+       at org.apache.tez.common.ReflectionUtils.getClazz(ReflectionUtils.java:45)
+       at org.apache.tez.common.ReflectionUtils.createClazzInstance(ReflectionUtils.java:88)
+       at org.apache.tez.client.TezClient.start(TezClient.java:317)
+       at cascading.flow.tez.planner.Hadoop2TezFlowStepJob.internalNonBlockingStart(Hadoop2TezFlowStepJob.java:137)
+       at cascading.flow.planner.FlowStepJob.blockOnJob(FlowStepJob.java:248)
+       at cascading.flow.planner.FlowStepJob.start(FlowStepJob.java:172)
+       at cascading.flow.planner.FlowStepJob.call(FlowStepJob.java:134)
+       at cascading.flow.planner.FlowStepJob.call(FlowStepJob.java:45)
+       at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+       at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+       at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+       at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.ClassNotFoundException: org.apache.tez.dag.history.ats.acls.ATSHistoryACLPolicyManager
+       at java.net.URLClassLoader$1.run(URLClassLoader.java:366)
+       at java.net.URLClassLoader$1.run(URLClassLoader.java:355)
+
+Reported by @chris wensel
 
 
 ---

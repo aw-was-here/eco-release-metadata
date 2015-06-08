@@ -1157,6 +1157,13 @@ With descent coverage of feature transformers, algorithms, and model tuning supp
 
 ---
 
+* [SPARK-7747](https://issues.apache.org/jira/browse/SPARK-7747) | *Minor* | **Document spark.sql.planner.externalSort option**
+
+The configuration option *spark.sql.planner.externalSort* introduced in SPARK-4410 is not documented
+
+
+---
+
 * [SPARK-7746](https://issues.apache.org/jira/browse/SPARK-7746) | *Major* | **SetFetchSize for JDBCRDD's prepareStatement**
 
 The prepareStatement created internal to compute() method in JDBCRDD should have some options that the setFetchSize() can be set.  We found that the parameter can affect Oracle DB tremendously. With current implementation, we have no way to set the size.  
@@ -2906,6 +2913,34 @@ Planned changes, primarily to allow us more flexibility in the future:
 * Mark LDAOptimizer trait sealed and DeveloperApi.
 * Mark LDAOptimizer subclasses as final.
 * Mark setOptimizer (the one taking an LDAOptimizer) and getOptimizer as DeveloperApi since we may need to change them in the future
+
+
+---
+
+* [SPARK-7418](https://issues.apache.org/jira/browse/SPARK-7418) | *Critical* | **Flaky test: o.a.s.deploy.SparkSubmitUtilsSuite search for artifacts**
+
+{code}
+   java.lang.RuntimeException: [unresolved dependency: com.agimatec#agimatec-validation;0.9.3: not found]
+      at org.apache.spark.deploy.SparkSubmitUtils$.resolveMavenCoordinates(SparkSubmit.scala:931)
+      at org.apache.spark.deploy.SparkSubmitUtilsSuite$$anonfun$5.apply$mcV$sp(SparkSubmitUtilsSuite.scala:108)
+      at org.apache.spark.deploy.SparkSubmitUtilsSuite$$anonfun$5.apply(SparkSubmitUtilsSuite.scala:107)
+      at 
+{code}
+
+https://amplab.cs.berkeley.edu/jenkins/view/Spark/job/Spark-Master-Maven-with-YARN/2075/HADOOP\_PROFILE=hadoop-2.4,label=centos/testReport/junit/org.apache.spark.deploy/SparkSubmitUtilsSuite/search\_for\_artifact\_at\_other\_repositories/
+...
+
+
+---
+
+* [SPARK-7417](https://issues.apache.org/jira/browse/SPARK-7417) | *Critical* | **Flaky test: o.a.s.deploy.SparkSubmitUtilsSuite neglect dependencies**
+
+{code}
+Expected exception java.lang.RuntimeException to be thrown, but no exception was thrown.
+{code}
+
+https://amplab.cs.berkeley.edu/jenkins/job/Spark-Master-Maven-pre-YARN/hadoop.version=1.0.4,label=centos/2201/testReport/junit/org.apache.spark.deploy/SparkSubmitUtilsSuite/neglects\_Spark\_and\_Spark\_s\_dependencies/
+...
 
 
 ---
@@ -4672,6 +4707,21 @@ jstack log:
 {code}
 
 Thanks for [~yhuai] providing the helpful jstack log.
+
+
+---
+
+* [SPARK-7169](https://issues.apache.org/jira/browse/SPARK-7169) | *Minor* | **Allow to specify metrics configuration more flexibly**
+
+Metrics are configured in {{metrics.properties}} file. Path to this file is specified in {{SparkConf}} at a key {{spark.metrics.conf}}. The property is read when {{MetricsSystem}} is created which means, during {{SparkEnv}} initialisation. 
+
+h5.Problem
+When the user runs his application he has no way to provide the metrics configuration for executors. Although one can specify the path to metrics configuration file (1) the path is common for all the nodes and the client machine so there is implicit assumption that all the machines has same file in the same location, and (2) actually the user needs to copy the file manually to the worker nodes because the file is read before the user files are populated to the executor local directories. All of this makes it very difficult to play with the metrics configuration.
+
+h5. Proposed solution
+I think that the easiest and the most consistent solution would be to move the configuration from a separate file directly to {{SparkConf}}. We may prefix all the configuration settings from the metrics configuration by, say {{spark.metrics.props}}. For the backward compatibility, these properties would be loaded from the specified as it works now. Such a solution doesn't change the API so maybe it could be even included in patch release of Spark 1.2 and Spark 1.3.
+
+Appreciate any feedback.
 
 
 ---
