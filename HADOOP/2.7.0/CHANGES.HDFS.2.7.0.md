@@ -123,7 +123,6 @@
 | [HDFS-7329](https://issues.apache.org/jira/browse/HDFS-7329) | MiniDFSCluster should log the exception when createNameNodesAndSetConf() fails. |  Major | test | Konstantin Shvachko | Byron Wong |
 | [HDFS-7326](https://issues.apache.org/jira/browse/HDFS-7326) | Add documentation for hdfs debug commands |  Minor | documentation | Colin Patrick McCabe | Vijay Bhat |
 | [HDFS-7323](https://issues.apache.org/jira/browse/HDFS-7323) | Move the get/setStoragePolicy commands out from dfsadmin |  Major | hdfs-client | Tsz Wo Nicholas Sze | Jing Zhao |
-| [HDFS-7310](https://issues.apache.org/jira/browse/HDFS-7310) | Mover can give first priority to local DN if it has target storage type available in local DN |  Major | balancer & mover | Uma Maheswara Rao G | Vinayakumar B |
 | [HDFS-7308](https://issues.apache.org/jira/browse/HDFS-7308) | DFSClient write packet size may \> 64kB |  Minor | hdfs-client | Tsz Wo Nicholas Sze | Takuya Fukudome |
 | [HDFS-7283](https://issues.apache.org/jira/browse/HDFS-7283) | Bump DataNode OOM log from WARN to ERROR |  Trivial | datanode | Stephen Chu | Stephen Chu |
 | [HDFS-7280](https://issues.apache.org/jira/browse/HDFS-7280) | Use netty 4 in WebImageViewer |  Major | . | Haohui Mai | Haohui Mai |
@@ -386,6 +385,7 @@
 | [HDFS-7415](https://issues.apache.org/jira/browse/HDFS-7415) | Move FSNameSystem.resolvePath() to FSDirectory |  Major | . | Haohui Mai | Haohui Mai |
 | [HDFS-7413](https://issues.apache.org/jira/browse/HDFS-7413) | Some unit tests should use NameNodeProtocols instead of FSNameSystem |  Major | test | Haohui Mai | Haohui Mai |
 | [HDFS-7412](https://issues.apache.org/jira/browse/HDFS-7412) | Move RetryCache to NameNodeRpcServer |  Major | . | Haohui Mai | Haohui Mai |
+| [HDFS-7310](https://issues.apache.org/jira/browse/HDFS-7310) | Mover can give first priority to local DN if it has target storage type available in local DN |  Major | balancer & mover | Uma Maheswara Rao G | Vinayakumar B |
 | [HDFS-7254](https://issues.apache.org/jira/browse/HDFS-7254) | Add documentation for hot swaping DataNode drives |  Major | datanode | Lei (Eddy) Xu | Lei (Eddy) Xu |
 | [HDFS-7209](https://issues.apache.org/jira/browse/HDFS-7209) | Populate EDEK cache when creating encryption zone |  Major | encryption, performance | Yi Liu | Yi Liu |
 | [HDFS-7189](https://issues.apache.org/jira/browse/HDFS-7189) | Add trace spans for DFSClient metadata operations |  Major | datanode, namenode | Colin Patrick McCabe | Colin Patrick McCabe |
