@@ -9,18 +9,18 @@ PATH=${bin}:${OPATH}
 cd ${HOME}/Src/aw-github/eco-release-metadata/PIG
 projdocmaker.py --project PIG --version 0.16.0
 projdocmaker.py --project PIG --version 0.15.1
-projdocmaker.py --project PIG --version 0.15.0
+#projdocmaker.py --project PIG --version 0.15.0
 projdocmaker.py --project PIG --version 0.14.1
-projdocmaker.py --project PIG --version 0.14.0
+#projdocmaker.py --project PIG --version 0.14.0
 projdocmaker.py --project PIG --version 0.13.1
-projdocmaker.py --project PIG --version 0.13.0
+#projdocmaker.py --project PIG --version 0.13.0
 
 cd ${HOME}/Src/aw-github/eco-release-metadata/ZOOKEEPER
 projdocmaker.py --project ZOOKEEPER --version 4.0.0
 projdocmaker.py --project ZOOKEEPER --version 3.6.0
 projdocmaker.py --project ZOOKEEPER --version 3.5.2
 projdocmaker.py --project ZOOKEEPER --version 3.5.1
-projdocmaker.py --project ZOOKEEPER --version 3.5.0
+#projdocmaker.py --project ZOOKEEPER --version 3.5.0
 
 cd ${HOME}/Src/aw-github/eco-release-metadata/HBASE
 projdocmaker.py --project HBASE --version 2.0.0
