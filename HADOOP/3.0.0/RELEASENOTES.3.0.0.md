@@ -294,6 +294,13 @@ The output format of hadoop fs -du has been changed. It shows not only the file 
 
 ---
 
+* [HDFS-8591](https://issues.apache.org/jira/browse/HDFS-8591) | *Minor* | **Remove support for deprecated configuration key dfs.namenode.decommission.nodes.per.interval**
+
+**WARNING: No release note provided for this incompatible change.**
+
+
+---
+
 * [HDFS-8349](https://issues.apache.org/jira/browse/HDFS-8349) | *Minor* | **Remove .xml and documentation references to dfs.webhdfs.enabled**
 
 **WARNING: No release note provided for this incompatible change.**
