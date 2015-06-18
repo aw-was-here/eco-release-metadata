@@ -23,6 +23,22 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-8394](https://issues.apache.org/jira/browse/SPARK-8394) | *Minor* | **HistoryServer doesn't read kerberos opts from config**
+
+the history server calls {{initSecurity()}} before it reads in the configuration. As a result you can't configure kerberos options in {{spark-defaults.conf}}, but only in {{SPARK\_HISTORY\_OPTS}}
+
+(this has already been fixed; I'm filing the JIRA as it wasn't there & I'd just hit the same problem in branch-1.3)
+
+
+---
+
+* [SPARK-8299](https://issues.apache.org/jira/browse/SPARK-8299) | *Major* | **Improve error message reporting for DataFrame and SQL**
+
+See https://github.com/apache/spark/pull/4558
+
+
+---
+
 * [SPARK-8038](https://issues.apache.org/jira/browse/SPARK-8038) | *Blocker* | **PySpark SQL when functions is broken on Column**
 
 
@@ -845,6 +861,39 @@ Our master build does not run Hive compatibility tests. We need to enable them.
 * [SPARK-7830](https://issues.apache.org/jira/browse/SPARK-7830) | *Trivial* | **ML doc cleanup: logreg, classification link**
 
 Add logistic regression to the list of Multiclass Classification Supported Methods in the MLlib Classification and Regression documentation, and fix related broken link.
+
+
+---
+
+* [SPARK-7819](https://issues.apache.org/jira/browse/SPARK-7819) | *Critical* | **Isolated Hive Client Loader appears to cause Native Library libMapRClient.4.0.2-mapr.so already loaded in another classloader error**
+
+In reference to the pull request: https://github.com/apache/spark/pull/5876
+
+I have been running the Spark 1.3 branch for some time with no major hiccups, and recently switched to the Spark 1.4 branch.
+
+I build my spark distribution with the following build command:
+{noformat}
+make-distribution.sh --tgz --skip-java-test --with-tachyon -Phive -Phive-0.13.1 -Pmapr4 -Pspark-ganglia-lgpl -Pkinesis-asl -Phive-thriftserver
+{noformat}
+When running a python script containing a series of smoke tests I use to validate the build, I encountered an error under the following conditions:
+
+* start a spark context
+* start a hive context
+* run any hive query
+* stop the spark context
+* start a second spark context
+* run any hive query
+** ERROR
+
+From what I can tell, the Isolated Class Loader is hitting a MapR class that is loading its native library (presumedly as part of a static initializer).
+
+Unfortunately, the JVM prohibits this the second time around.
+
+I would think that shutting down the SparkContext would clear out any vestigials of the JVM, so I'm surprised that this would even be a problem.
+
+Note: all other smoke tests we are running passes fine.
+
+I will attach the stacktrace and a python script reproducing the issue (at least for my environment and build).
 
 
 ---
@@ -8988,6 +9037,17 @@ Add `contains` to test whether a key exists in an OpenHashMap.
 
 ---
 
+* [SPARK-6511](https://issues.apache.org/jira/browse/SPARK-6511) | *Major* | **Publish "hadoop provided" build with instructions for different distros**
+
+Currently we publish a series of binaries with different Hadoop client jars. This mostly works, but some users have reported compatibility issues with different distributions.
+
+One improvement moving forward might be to publish a binary build that simply asks you to set HADOOP\_HOME to pick up the Hadoop client location. That way it would work across multiple distributions, even if they have subtle incompatibilities with upstream Hadoop.
+
+I think a first step for this would be to produce such a build for the community and see how well it works. One potential issue is that our fancy excludes and dependency re-writing won't work with the simpler "append Hadoop's classpath to Spark". Also, how we deal with the Hive dependency is unclear, i.e. should we continue to bundle Spark's Hive (which has some fixes for dependency conflicts) or do we allow for linking against vanilla Hive at runtime.
+
+
+---
+
 * [SPARK-6510](https://issues.apache.org/jira/browse/SPARK-6510) | *Major* | **Add Graph#minus method to act as Set#difference**
 
 Right now GraphX does not have a Set#difference method to operate on VertexIds. We do however have a {{diff}} method although that works on values. Given the optimizations of tombstoning already present this method can be implemented in a very efficient manner.
@@ -13806,6 +13866,40 @@ org.apache.spark.sql.catalyst.errors.package$TreeNodeException: Unresolved attri
 	at org.apache.spark.sql.hive.thriftserver.SparkSQLCLIDriver$.main(SparkSQLCLIDriver.scala:211)
 	at org.apache.spark.sql.hive.thriftserver.SparkSQLCLIDriver.main(SparkSQLCLIDriver.scala)
 {noformat}
+
+
+---
+
+* [SPARK-5162](https://issues.apache.org/jira/browse/SPARK-5162) | *Major* | **Python yarn-cluster mode**
+
+Running pyspark in yarn is currently limited to ‘yarn-client’ mode. It would be great to be able to submit python applications to the cluster and (just like java classes) have the resource manager setup an AM on any node in the cluster. Does anyone know the issues blocking this feature? I was snooping around with enabling python apps:
+
+Removing the logic stopping python and yarn-cluster from sparkSubmit.scala
+
+...
+    // The following modes are not supported or applicable
+    (clusterManager, deployMode) match {
+      ...
+      case (\_, CLUSTER) if args.isPython =>
+        printErrorAndExit("Cluster deploy mode is currently not supported for python applications.")
+      ...
+    }
+
+…
+
+and submitting application via:
+
+HADOOP\_CONF\_DIR={{insert conf dir}} ./bin/spark-submit --master yarn-cluster --num-executors 2  —-py-files {{insert location of egg here}} --executor-cores 1  ../tools/canary.py
+
+Everything looks to run alright, pythonRunner is picked up as main class, resources get setup, yarn client gets launched but falls flat on its face:
+
+2015-01-08 18:48:03,444 INFO org.apache.hadoop.yarn.server.nodemanager.containermanager.localizer.ResourceLocalizationService: DEBUG: FAILED { {{redacted}}/.sparkStaging/application\_1420594669313\_4687/canary.py, 1420742868009, FILE, null }, Resource {{redacted}}/.sparkStaging/application\_1420594669313\_4687/canary.py changed on src filesystem (expected 1420742868009, was 1420742869284
+
+and
+
+2015-01-08 18:48:03,446 INFO org.apache.hadoop.yarn.server.nodemanager.containermanager.localizer.LocalizedResource: Resource {{redacted}}/.sparkStaging/application\_1420594669313\_4687/canary.py(->/data/4/yarn/nm/usercache/klassen/filecache/11/canary.py) transitioned from DOWNLOADING to FAILED
+
+Tracked this down to the apache hadoop code(FSDownload.java line 249) related to container localization of files upon downloading. At this point thought it would be best to raise the issue here and get input.
 
 
 ---

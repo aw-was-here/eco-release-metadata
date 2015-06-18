@@ -48,6 +48,7 @@
 | [KAFKA-2044](https://issues.apache.org/jira/browse/KAFKA-2044) | Support requests and responses from o.a.k.common in KafkaApis |  Major | . | Gwen Shapira | Gwen Shapira |
 | [KAFKA-2039](https://issues.apache.org/jira/browse/KAFKA-2039) | Update Scala to 2.10.5 and 2.11.6 |  Minor | . | Ismael Juma | Ismael Juma |
 | [KAFKA-2016](https://issues.apache.org/jira/browse/KAFKA-2016) | RollingBounceTest takes long |  Major | . | Jun Rao | Ted Malaska |
+| [KAFKA-2005](https://issues.apache.org/jira/browse/KAFKA-2005) | Generate html report for system tests |  Major | system tests | Ashish K Singh | Ashish K Singh |
 | [KAFKA-1997](https://issues.apache.org/jira/browse/KAFKA-1997) | Refactor Mirror Maker |  Major | . | Jiangjie Qin | Jiangjie Qin |
 | [KAFKA-1994](https://issues.apache.org/jira/browse/KAFKA-1994) | Evaluate performance effect of chroot check on Topic creation |  Major | . | Ashish K Singh | Ashish K Singh |
 | [KAFKA-1990](https://issues.apache.org/jira/browse/KAFKA-1990) | Add unlimited time-based log retention |  Major | . | Jay Kreps | Jeff Holoman |
@@ -75,9 +76,20 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-2272](https://issues.apache.org/jira/browse/KAFKA-2272) | listeners endpoint parsing fails if the hostname has capital letter |  Major | . | Sriharsha Chintalapani | Sriharsha Chintalapani |
+| [KAFKA-2270](https://issues.apache.org/jira/browse/KAFKA-2270) | incorrect package name in unit tests |  Minor | core | Jun Rao | Proneet Verma |
+| [KAFKA-2266](https://issues.apache.org/jira/browse/KAFKA-2266) | Client Selector can drop idle connections without notifying NetworkClient |  Major | . | Jason Gustafson | Jason Gustafson |
+| [KAFKA-2264](https://issues.apache.org/jira/browse/KAFKA-2264) | SESSION\_TIMEOUT\_MS\_CONFIG in ConsumerConfig should be int |  Trivial | clients | Jun Rao | Manikumar Reddy |
+| [KAFKA-2262](https://issues.apache.org/jira/browse/KAFKA-2262) | LogSegmentSize validation should be consistent |  Trivial | core | Jun Rao | Manikumar Reddy |
+| [KAFKA-2253](https://issues.apache.org/jira/browse/KAFKA-2253) | Deadlock in delayed operation purgatory |  Major | . | Mayuresh Gharat | Guozhang Wang |
+| [KAFKA-2252](https://issues.apache.org/jira/browse/KAFKA-2252) | Socket connection closing is logged, but not corresponding opening of socket |  Major | . | Jason Rosenberg | Gwen Shapira |
+| [KAFKA-2251](https://issues.apache.org/jira/browse/KAFKA-2251) | "Connection reset by peer" IOExceptions should not be logged as ERROR |  Major | . | Jason Rosenberg |  |
+| [KAFKA-2250](https://issues.apache.org/jira/browse/KAFKA-2250) | ConcurrentModificationException in metrics reporting |  Major | . | Jason Rosenberg |  |
+| [KAFKA-2232](https://issues.apache.org/jira/browse/KAFKA-2232) | make MockProducer generic |  Major | clients | Jun Rao | Alexander Pakulov |
 | [KAFKA-2226](https://issues.apache.org/jira/browse/KAFKA-2226) | NullPointerException in TestPurgatoryPerformance |  Major | . | Onur Karaman | Yasuhiro Matsuda |
 | [KAFKA-2189](https://issues.apache.org/jira/browse/KAFKA-2189) | Snappy compression of message batches less efficient in 0.8.2.1 |  Blocker | build, compression, log | Olson,Andrew | Ismael Juma |
 | [KAFKA-2169](https://issues.apache.org/jira/browse/KAFKA-2169) | Upgrade to zkclient-0.5 |  Critical | . | Neha Narkhede | Parth Brahmbhatt |
+| [KAFKA-2164](https://issues.apache.org/jira/browse/KAFKA-2164) | ReplicaFetcherThread: suspicious log message on reset offset |  Major | . | Alexey Ozeritskiy |  |
 | [KAFKA-2161](https://issues.apache.org/jira/browse/KAFKA-2161) | Fix a few copyrights |  Trivial | . | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-2121](https://issues.apache.org/jira/browse/KAFKA-2121) | prevent potential resource leak in KafkaProducer and KafkaConsumer |  Major | producer | Steven Zhen Wu | Steven Zhen Wu |
 | [KAFKA-2118](https://issues.apache.org/jira/browse/KAFKA-2118) | Cleaner cannot clean after shutdown during replaceSegments |  Major | . | Gian Merlino | Rajini Sivaram |
@@ -87,6 +99,7 @@
 | [KAFKA-2113](https://issues.apache.org/jira/browse/KAFKA-2113) | TestPurgatoryPerformance does not compile using IBM JDK |  Major | . | Rajini Sivaram | Rajini Sivaram |
 | [KAFKA-2112](https://issues.apache.org/jira/browse/KAFKA-2112) | make overflowWheel volatile |  Major | purgatory | Yasuhiro Matsuda | Yasuhiro Matsuda |
 | [KAFKA-2104](https://issues.apache.org/jira/browse/KAFKA-2104) |  testDuplicateListeners()  has a typo |  Major | . | Gwen Shapira | Gwen Shapira |
+| [KAFKA-2101](https://issues.apache.org/jira/browse/KAFKA-2101) | Metric metadata-age is reset on a failed update |  Major | . | Tim Brooks | Tim Brooks |
 | [KAFKA-2099](https://issues.apache.org/jira/browse/KAFKA-2099) | BrokerEndPoint file, methods and object names should match |  Major | . | Gwen Shapira | Gwen Shapira |
 | [KAFKA-2088](https://issues.apache.org/jira/browse/KAFKA-2088) | kafka-console-consumer.sh should not create zookeeper path when no brokers found and chroot was set in zookeeper.connect |  Minor | clients | Zhiqiang He | Zhiqiang He |
 | [KAFKA-2043](https://issues.apache.org/jira/browse/KAFKA-2043) | CompressionType is passed in each RecordAccumulator append |  Minor | clients | Grant Henke | Grant Henke |
@@ -166,6 +179,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-2195](https://issues.apache.org/jira/browse/KAFKA-2195) | Add versionId to AbstractRequest.getErrorResponse and AbstractRequest.getRequest |  Major | . | Andrii Biletskyi | Andrii Biletskyi |
 | [KAFKA-2056](https://issues.apache.org/jira/browse/KAFKA-2056) | PartitionAssignorTest.testRangePartitionAssignor transient failure |  Major | . | Guozhang Wang | Fangmin Lv |
 | [KAFKA-1986](https://issues.apache.org/jira/browse/KAFKA-1986) | Producer request failure rate should not include InvalidMessageSizeException and OffsetOutOfRangeException |  Major | . | Aditya Auradkar | Aditya Auradkar |
 | [KAFKA-1953](https://issues.apache.org/jira/browse/KAFKA-1953) | Disambiguate metrics from different purgatories |  Major | purgatory | Joel Koshy | Joel Koshy |
@@ -179,6 +193,12 @@
 | [KAFKA-1760](https://issues.apache.org/jira/browse/KAFKA-1760) | Implement new consumer client |  Major | consumer | Jay Kreps | Jay Kreps |
 | [KAFKA-1750](https://issues.apache.org/jira/browse/KAFKA-1750) | handle "topic not exists" scenario |  Major | tools | Dmitry Pekar | Dmitry Pekar |
 | [KAFKA-1471](https://issues.apache.org/jira/browse/KAFKA-1471) | Add Producer Unit Tests for LZ4 and LZ4HC compression |  Major | . | James Oliver | Ewen Cheslack-Postava |
+| [KAFKA-1335](https://issues.apache.org/jira/browse/KAFKA-1335) | Add rebalancing logic to the coordinator / consumer |  Major | consumer | Neha Narkhede | Guozhang Wang |
+| [KAFKA-1334](https://issues.apache.org/jira/browse/KAFKA-1334) | Coordinator should detect consumer failures |  Major | consumer | Neha Narkhede | Onur Karaman |
+| [KAFKA-1333](https://issues.apache.org/jira/browse/KAFKA-1333) | Add consumer co-ordinator module to the server |  Major | consumer | Neha Narkhede | Guozhang Wang |
+| [KAFKA-1329](https://issues.apache.org/jira/browse/KAFKA-1329) | Add metadata fetch and refresh functionality to the consumer |  Major | consumer | Neha Narkhede | Neha Narkhede |
+| [KAFKA-1328](https://issues.apache.org/jira/browse/KAFKA-1328) | Add new consumer APIs |  Major | consumer | Neha Narkhede | Neha Narkhede |
+| [KAFKA-1316](https://issues.apache.org/jira/browse/KAFKA-1316) | Refactor Sender |  Major | clients | Jay Kreps | Jay Kreps |
 
 
 ### OTHER:

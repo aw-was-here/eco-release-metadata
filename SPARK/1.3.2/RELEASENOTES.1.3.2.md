@@ -23,6 +23,33 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-8309](https://issues.apache.org/jira/browse/SPARK-8309) | *Critical* | **OpenHashMap doesn't work with more than 12M items**
+
+The problem might be demonstrated with the following testcase:
+
+{code}
+  test("support for more than 12M items") {
+    val cnt = 12000000 // 12M
+    val map = new OpenHashMap[Int, Int](cnt)
+    for (i <- 0 until cnt) {
+      map(i) = 1
+    }
+    val numInvalidValues = map.iterator.count(\_.\_2 == 0)
+    assertResult(0)(numInvalidValues)
+  }
+
+{code}
+
+
+---
+
+* [SPARK-8126](https://issues.apache.org/jira/browse/SPARK-8126) | *Minor* | **Use temp directory under build dir for unit tests**
+
+Spark's unit tests leave a lot of garbage in /tmp after a run, making it hard to clean things up. Let's place those files under the build dir so that "mvn|sbt|git clean" can do their job.
+
+
+---
+
 * [SPARK-8098](https://issues.apache.org/jira/browse/SPARK-8098) | *Minor* | **Show correct length of bytes on log page**
 
 The log page should only show desired length of bytes. Currently it shows bytes from the startIndex to the end of the file. The "Next" button on the page is always disabled.

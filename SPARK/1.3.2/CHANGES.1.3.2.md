@@ -36,6 +36,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-8126](https://issues.apache.org/jira/browse/SPARK-8126) | Use temp directory under build dir for unit tests |  Minor | Build | Marcelo Vanzin | Marcelo Vanzin |
 | [SPARK-7744](https://issues.apache.org/jira/browse/SPARK-7744) | "Distributed matrix" section in MLlib "Data Types" documentation should be reordered. |  Minor | Documentation, MLlib | Mike Dusenberry | Mike Dusenberry |
 | [SPARK-7621](https://issues.apache.org/jira/browse/SPARK-7621) | Report KafkaReceiver MessageHandler errors so StreamingListeners can take action |  Major | Streaming | Jeremy A. Lucas | Jeremy A. Lucas |
 | [SPARK-7323](https://issues.apache.org/jira/browse/SPARK-7323) | Use insertAll instead of individual insert while merging combiners |  Minor | Spark Core | Mridul Muralidharan | Mridul Muralidharan |
@@ -48,6 +49,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-8309](https://issues.apache.org/jira/browse/SPARK-8309) | OpenHashMap doesn't work with more than 12M items |  Critical | Spark Core | Vyacheslav Baranov | Vyacheslav Baranov |
 | [SPARK-8098](https://issues.apache.org/jira/browse/SPARK-8098) | Show correct length of bytes on log page |  Minor | Web UI | Carson Wang | Carson Wang |
 | [SPARK-8032](https://issues.apache.org/jira/browse/SPARK-8032) | Make NumPy version checking in mllib/\_\_init\_\_.py |  Major | MLlib, PySpark | Manoj Kumar | Manoj Kumar |
 | [SPARK-7946](https://issues.apache.org/jira/browse/SPARK-7946) | DecayFactor wrongly set in StreamingKMeans |  Major | MLlib, Streaming | Manoj Kumar | Manoj Kumar |

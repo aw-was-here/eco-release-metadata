@@ -30,18 +30,21 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [PIG-4570](https://issues.apache.org/jira/browse/PIG-4570) | Allow AvroStorage to use a class for the schema |  Minor | . | Paul Mazak | Paul Mazak |
 
 
 ### IMPROVEMENTS:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [PIG-4578](https://issues.apache.org/jira/browse/PIG-4578) | ToDateISO should support optional ' ' space variant used by JDBC |  Minor | internal-udfs | Michael Howard | Michael Howard |
 
 
 ### BUG FIXES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [PIG-4533](https://issues.apache.org/jira/browse/PIG-4533) | Document error: Pig does support concatenated gz file |  Major | documentation, parser | Tomas Hudik | Daniel Dai |
 
 
 ### TESTS:
@@ -60,5 +63,6 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [PIG-4365](https://issues.apache.org/jira/browse/PIG-4365) | TOP udf should implement Accumulator interface |  Major | . | Rohini Palaniswamy | Eyal Allweil |
 
 

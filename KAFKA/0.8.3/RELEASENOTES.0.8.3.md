@@ -23,6 +23,242 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [KAFKA-2270](https://issues.apache.org/jira/browse/KAFKA-2270) | *Minor* | **incorrect package name in unit tests**
+
+There are a bunch of test files with incorrect package prefix unit.
+
+core/src/test/scala/unit/kafka/common/ConfigTest.scala:package unit.kafka.common
+core/src/test/scala/unit/kafka/common/TopicTest.scala:package unit.kafka.common
+core/src/test/scala/unit/kafka/consumer/PartitionAssignorTest.scala:package unit.kafka.consumer
+core/src/test/scala/unit/kafka/integration/MinIsrConfigTest.scala:package unit.kafka.integration
+core/src/test/scala/unit/kafka/KafkaConfigTest.scala:package unit.kafka
+core/src/test/scala/unit/kafka/log/LogConfigTest.scala:package unit.kafka.log
+core/src/test/scala/unit/kafka/server/KafkaConfigConfigDefTest.scala:package unit.kafka.server
+core/src/test/scala/unit/kafka/utils/ByteBoundedBlockingQueueTest.scala:package unit.kafka.utils
+core/src/test/scala/unit/kafka/utils/CommandLineUtilsTest.scala:package unit.kafka.utils
+core/src/test/scala/unit/kafka/zk/ZKPathTest.scala:package unit.kafka.zk
+
+
+---
+
+* [KAFKA-2266](https://issues.apache.org/jira/browse/KAFKA-2266) | *Major* | **Client Selector can drop idle connections without notifying NetworkClient**
+
+I've run into this while testing the new consumer. The class org.apache.kafka.common.networ.Selector has code to drop idle connections, but when one is dropped, it is not added to the list of disconnections. This causes inconsistency between Selector and NetworkClient, which depends on this list to update its internal connection states. When a new request is sent to NetworkClient, it still sees the connection as good and forwards it to Selector, which results in an IllegalStateException.
+
+
+---
+
+* [KAFKA-2264](https://issues.apache.org/jira/browse/KAFKA-2264) | *Trivial* | **SESSION\_TIMEOUT\_MS\_CONFIG in ConsumerConfig should be int**
+
+In our wire protocol, session timeout is an int in JoinGroupRequest. However, in ConsumerConfig, session timeout is a long. We should make them consistent.
+
+
+---
+
+* [KAFKA-2262](https://issues.apache.org/jira/browse/KAFKA-2262) | *Trivial* | **LogSegmentSize validation should be consistent**
+
+In KafkaConfig, we have the following constraint on LogSegmentBytes
+      .define(LogSegmentBytesProp, INT, Defaults.LogSegmentBytes, atLeast(Message.MinHeaderSize), HIGH, LogSegmentBytesDoc)
+
+However, at LogConfig level, the constraint is a bit different. We should make it to be the same as in KafkaConfig.
+      .define(SegmentBytesProp, INT, Defaults.SegmentSize, atLeast(0), MEDIUM, SegmentSizeDoc)
+
+
+---
+
+* [KAFKA-2253](https://issues.apache.org/jira/browse/KAFKA-2253) | *Major* | **Deadlock in delayed operation purgatory**
+
+We hit a deadlock while running brokers with git hash: 9e894aa0173b14d64a900bcf780d6b7809368384
+
+There's a circular wait between the removeWatchersLock and an operations intrinsic lock.
+
+{code}
+Found one Java-level deadlock:
+=============================
+"kafka-request-handler-a":
+  waiting for ownable synchronizer 0x00000006da08f9e0, (a java.util.concurrent.locks.ReentrantReadWriteLock$NonfairSync),
+  which is held by "ExpirationReaper-xyz"
+"ExpirationReaper-xyz":
+  waiting to lock monitor 0x00007f4500004e18 (object 0x00000006b0563fe8, a java.util.LinkedList),
+  which is held by "kafka-request-handler-b"
+"kafka-request-handler-b":
+  waiting for ownable synchronizer 0x00000006da08f9e0, (a java.util.concurrent.locks.ReentrantReadWriteLock$NonfairSync),
+  which is held by "ExpirationReaper-xyz"
+
+"kafka-request-handler-a":
+        at sun.misc.Unsafe.park(Native Method)
+        - parking to wait for  <0x00000006da08f9e0> (a java.util.concurrent.locks.ReentrantReadWriteLock$NonfairSync)
+        at java.util.concurrent.locks.LockSupport.park(LockSupport.java:175)
+        at java.util.concurrent.locks.AbstractQueuedSynchronizer.parkAndCheckInterrupt(AbstractQueuedSynchronizer.java:836)
+        at java.util.concurrent.locks.AbstractQueuedSynchronizer.doAcquireShared(AbstractQueuedSynchronizer.java:967)
+        at java.util.concurrent.locks.AbstractQueuedSynchronizer.acquireShared(AbstractQueuedSynchronizer.java:1283)
+        at java.util.concurrent.locks.ReentrantReadWriteLock$ReadLock.lock(ReentrantReadWriteLock.java:727)
+        at kafka.utils.CoreUtils$.inLock(CoreUtils.scala:296)
+        at kafka.utils.CoreUtils$.inReadLock(CoreUtils.scala:304)
+        at kafka.server.DelayedOperationPurgatory.checkAndComplete(DelayedOperation.scala:224)
+        at kafka.server.ReplicaManager.tryCompleteDelayedFetch(ReplicaManager.scala:166)
+        at kafka.cluster.Partition.kafka$cluster$Partition$$maybeIncrementLeaderHW(Partition.scala:358)
+        at kafka.cluster.Partition$$anonfun$maybeExpandIsr$1.apply$mcV$sp(Partition.scala:288)
+        at kafka.cluster.Partition$$anonfun$maybeExpandIsr$1.apply(Partition.scala:270)
+        at kafka.cluster.Partition$$anonfun$maybeExpandIsr$1.apply(Partition.scala:270)
+        at kafka.utils.CoreUtils$.inLock(CoreUtils.scala:298)
+        at kafka.utils.CoreUtils$.inWriteLock(CoreUtils.scala:306)
+        at kafka.cluster.Partition.maybeExpandIsr(Partition.scala:268)
+        at kafka.cluster.Partition.updateReplicaLogReadResult(Partition.scala:244)
+        at kafka.server.ReplicaManager$$anonfun$updateFollowerLogReadResults$2.apply(ReplicaManager.scala:790)
+        at kafka.server.ReplicaManager$$anonfun$updateFollowerLogReadResults$2.apply(ReplicaManager.scala:787)
+        at scala.collection.immutable.Map$Map4.foreach(Map.scala:181)
+        at kafka.server.ReplicaManager.updateFollowerLogReadResults(ReplicaManager.scala:787)
+        at kafka.server.ReplicaManager.fetchMessages(ReplicaManager.scala:432)
+        at kafka.server.KafkaApis.handleFetchRequest(KafkaApis.scala:312)
+        at kafka.server.KafkaApis.handle(KafkaApis.scala:60)
+        at kafka.server.KafkaRequestHandler.run(KafkaRequestHandler.scala:60)
+        at java.lang.Thread.run(Thread.java:745)
+
+"ExpirationReaper-xyz":
+        at kafka.server.DelayedOperationPurgatory$Watchers.watched(DelayedOperation.scala:278)
+        - waiting to lock <0x00000006b0563fe8> (a java.util.LinkedList)
+        at kafka.server.DelayedOperationPurgatory$$anonfun$kafka$server$DelayedOperationPurgatory$$removeKeyIfEmpty$1.apply(DelayedOperation.scala:258)
+        at kafka.utils.CoreUtils$.inLock(CoreUtils.scala:298)
+        at kafka.utils.CoreUtils$.inWriteLock(CoreUtils.scala:306)
+        at kafka.server.DelayedOperationPurgatory.kafka$server$DelayedOperationPurgatory$$removeKeyIfEmpty(DelayedOperation.scala:256)
+        at kafka.server.DelayedOperationPurgatory$Watchers.purgeCompleted(DelayedOperation.scala:322)
+        - locked <0x000000071a86a478> (a java.util.LinkedList)
+        at kafka.server.DelayedOperationPurgatory$ExpiredOperationReaper$$anonfun$3.apply(DelayedOperation.scala:347)
+        at kafka.server.DelayedOperationPurgatory$ExpiredOperationReaper$$anonfun$3.apply(DelayedOperation.scala:347)
+        at scala.collection.TraversableLike$$anonfun$map$1.apply(TraversableLike.scala:244)
+        at scala.collection.TraversableLike$$anonfun$map$1.apply(TraversableLike.scala:244)
+        at scala.collection.Iterator$class.foreach(Iterator.scala:727)
+        at scala.collection.AbstractIterator.foreach(Iterator.scala:1157)
+        at scala.collection.IterableLike$class.foreach(IterableLike.scala:72)
+        at scala.collection.AbstractIterable.foreach(Iterable.scala:54)
+        at scala.collection.TraversableLike$class.map(TraversableLike.scala:244)
+        at scala.collection.AbstractTraversable.map(Traversable.scala:105)
+        at kafka.server.DelayedOperationPurgatory$ExpiredOperationReaper.doWork(DelayedOperation.scala:347)
+        at kafka.utils.ShutdownableThread.run(ShutdownableThread.scala:60)
+
+"kafka-request-handler-b":
+        at sun.misc.Unsafe.park(Native Method)
+        - parking to wait for  <0x00000006da08f9e0> (a java.util.concurrent.locks.ReentrantReadWriteLock$NonfairSync)
+        at java.util.concurrent.locks.LockSupport.park(LockSupport.java:175)
+        at java.util.concurrent.locks.AbstractQueuedSynchronizer.parkAndCheckInterrupt(AbstractQueuedSynchronizer.java:836)
+        at java.util.concurrent.locks.AbstractQueuedSynchronizer.acquireQueued(AbstractQueuedSynchronizer.java:870)
+        at java.util.concurrent.locks.AbstractQueuedSynchronizer.acquire(AbstractQueuedSynchronizer.java:1199)
+        at java.util.concurrent.locks.ReentrantReadWriteLock$WriteLock.lock(ReentrantReadWriteLock.java:943)
+        at kafka.utils.CoreUtils$.inLock(CoreUtils.scala:296)
+        at kafka.utils.CoreUtils$.inWriteLock(CoreUtils.scala:306)
+        at kafka.server.DelayedOperationPurgatory.kafka$server$DelayedOperationPurgatory$$removeKeyIfEmpty(DelayedOperation.scala:256)
+        at kafka.server.DelayedOperationPurgatory$Watchers.tryCompleteWatched(DelayedOperation.scala:303)
+        - locked <0x00000006b0563fe8> (a java.util.LinkedList)
+        at kafka.server.DelayedOperationPurgatory.checkAndComplete(DelayedOperation.scala:228)
+        at kafka.server.ReplicaManager.tryCompleteDelayedFetch(ReplicaManager.scala:166)
+        at kafka.cluster.Partition$$anonfun$appendMessagesToLeader$1.apply(Partition.scala:426)
+        at kafka.cluster.Partition$$anonfun$appendMessagesToLeader$1.apply(Partition.scala:410)
+        at kafka.utils.CoreUtils$.inLock(CoreUtils.scala:298)
+        at kafka.utils.CoreUtils$.inReadLock(CoreUtils.scala:304)
+        at kafka.cluster.Partition.appendMessagesToLeader(Partition.scala:410)
+        at kafka.server.ReplicaManager$$anonfun$appendToLocalLog$2.apply(ReplicaManager.scala:365)
+        at kafka.server.ReplicaManager$$anonfun$appendToLocalLog$2.apply(ReplicaManager.scala:350)
+        at scala.collection.TraversableLike$$anonfun$map$1.apply(TraversableLike.scala:244)
+        at scala.collection.TraversableLike$$anonfun$map$1.apply(TraversableLike.scala:244)
+        at scala.collection.mutable.HashMap$$anonfun$foreach$1.apply(HashMap.scala:98)
+        at scala.collection.mutable.HashMap$$anonfun$foreach$1.apply(HashMap.scala:98)
+        at scala.collection.mutable.HashTable$class.foreachEntry(HashTable.scala:226)
+        at scala.collection.mutable.HashMap.foreachEntry(HashMap.scala:39)
+        at scala.collection.mutable.HashMap.foreach(HashMap.scala:98)
+        at scala.collection.TraversableLike$class.map(TraversableLike.scala:244)
+        at scala.collection.AbstractTraversable.map(Traversable.scala:105)
+        at kafka.server.ReplicaManager.appendToLocalLog(ReplicaManager.scala:350)
+        at kafka.server.ReplicaManager.appendMessages(ReplicaManager.scala:286)
+        at kafka.server.KafkaApis.handleProducerRequest(KafkaApis.scala:272)
+        at kafka.server.KafkaApis.handle(KafkaApis.scala:59)
+        at kafka.server.KafkaRequestHandler.run(KafkaRequestHandler.scala:60)
+        at java.lang.Thread.run(Thread.java:745)
+
+Found 1 deadlock.
+{code}
+
+
+---
+
+* [KAFKA-2252](https://issues.apache.org/jira/browse/KAFKA-2252) | *Major* | **Socket connection closing is logged, but not corresponding opening of socket**
+
+(using 0.8.2.1)
+We see a large number of "Closing socket connection" logging to the broker logs, e.g.:
+
+{code}
+2015-06-04 16:49:30,262  INFO [kafka-network-thread-27330-2] network.Processor - Closing socket connection to /1.2.3.4.
+2015-06-04 16:49:30,262  INFO [kafka-network-thread-27330-0] network.Processor - Closing socket connection to /5.6.7.8.
+2015-06-04 16:49:30,695  INFO [kafka-network-thread-27330-0] network.Processor - Closing socket connection to /9.10.11.12.
+2015-06-04 16:49:31,465  INFO [kafka-network-thread-27330-1] network.Processor - Closing socket connection to /13.14.15.16.
+2015-06-04 16:49:31,806  INFO [kafka-network-thread-27330-0] network.Processor - Closing socket connection to /17.18.19.20.
+2015-06-04 16:49:31,842  INFO [kafka-network-thread-27330-2] network.Processor - Closing socket connection to /21.22.23.24.
+{code}
+
+However, we have no corresponding logging for when these connections are established.  Consequently, it's not very useful to see a flood of closed connections, etc.  I'd think we'd want to see the corresponding 'connection established' messages, also logged as INFO.
+
+Occasionally, we see a flood of the above messages, and have no idea as to whether it indicates a problem, etc.  (Sometimes it might be due to an ongoing rolling restart, or a change in the Zookeeper cluster).
+
+
+---
+
+* [KAFKA-2251](https://issues.apache.org/jira/browse/KAFKA-2251) | *Major* | **"Connection reset by peer" IOExceptions should not be logged as ERROR**
+
+It's normal to see lots of these exceptions logged in the broker logs:
+
+{code}
+2015-06-04 16:49:30,146 ERROR [kafka-network-thread-27330-1] network.Processor - Closing socket for /1.2.3.4 because of error
+java.io.IOException: Connection reset by peer
+        at sun.nio.ch.FileDispatcherImpl.read0(Native Method)
+        at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:39)
+        at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+        at sun.nio.ch.IOUtil.read(IOUtil.java:197)
+        at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+        at kafka.utils.Utils$.read(Utils.scala:380)
+        at kafka.network.BoundedByteBufferReceive.readFrom(BoundedByteBufferReceive.scala:54)
+        at kafka.network.Processor.read(SocketServer.scala:444)
+        at kafka.network.Processor.run(SocketServer.scala:340)
+        at java.lang.Thread.run(Thread.java:745)
+{code}
+
+These are routine exceptions, that occur regularly in response to clients going away, etc.  The server should not log these as 'ERROR' level, instead they should be probably just 'WARN', and should not log the full stack trace (maybe just the exception message).
+
+The problem is that if we want to alert on actual errors, innocuous errors such as this make it difficult to alert properly, etc.
+
+We are using 0.8.2.1, fwiw
+
+
+---
+
+* [KAFKA-2250](https://issues.apache.org/jira/browse/KAFKA-2250) | *Major* | **ConcurrentModificationException in metrics reporting**
+
+This occurred in a broker log (we're running 0.8.2.1):
+
+{code}
+java.util.ConcurrentModificationException
+        at java.util.HashMap$HashIterator.nextNode(HashMap.java:1429)
+        at java.util.HashMap$KeyIterator.next(HashMap.java:1453)
+        at java.util.Collections$UnmodifiableCollection$1.next(Collections.java:1042)
+        at kafka.network.AbstractServerThread.countInterestOps(SocketServer.scala:188)
+        at kafka.network.SocketServer$$anon$1$$anonfun$value$1.apply(SocketServer.scala:79)
+        at kafka.network.SocketServer$$anon$1$$anonfun$value$1.apply(SocketServer.scala:79)
+        at scala.collection.IndexedSeqOptimized$class.foldl(IndexedSeqOptimized.scala:57)
+        at scala.collection.IndexedSeqOptimized$class.foldLeft(IndexedSeqOptimized.scala:66)
+        at scala.collection.mutable.ArrayOps$ofRef.foldLeft(ArrayOps.scala:186)
+        at kafka.network.SocketServer$$anon$1.value(SocketServer.scala:79)
+        at kafka.network.SocketServer$$anon$1.value(SocketServer.scala:78)
+{code}
+
+
+---
+
+* [KAFKA-2232](https://issues.apache.org/jira/browse/KAFKA-2232) | *Major* | **make MockProducer generic**
+
+Currently, MockProducer implements Producer<byte[], byte[]>. Instead, we should implement MockProducer<K, V>.
+
+
+---
+
 * [KAFKA-2226](https://issues.apache.org/jira/browse/KAFKA-2226) | *Major* | **NullPointerException in TestPurgatoryPerformance**
 
 A NullPointerException sometimes shows up in TimerTaskList.remove while running TestPurgatoryPerformance. I’m on the HEAD of trunk.
@@ -43,6 +279,16 @@ java.lang.NullPointerException
   at kafka.TestPurgatoryPerformance$CompletionQueue$$anon$1.doWork(TestPurgatoryPerformance.scala:263)
   at kafka.utils.ShutdownableThread.run(ShutdownableThread.scala:60)
 {code}
+
+
+---
+
+* [KAFKA-2195](https://issues.apache.org/jira/browse/KAFKA-2195) | *Major* | **Add versionId to AbstractRequest.getErrorResponse and AbstractRequest.getRequest**
+
+This is needed to support versioning.
+1) getRequest: to parse bytes into correct schema you need to know it's version; by default it's the latest version (current\_schema)
+
+2) getErrorResponse: after filling map with error codes you need to create respective Response message which dependes on versionId
 
 
 ---
@@ -85,6 +331,42 @@ http://gradle.org/docs/current/release-notes
 * [KAFKA-2169](https://issues.apache.org/jira/browse/KAFKA-2169) | *Critical* | **Upgrade to zkclient-0.5**
 
 zkclient-0.5 is released http://mvnrepository.com/artifact/com.101tec/zkclient/0.5 and has the fix for KAFKA-824
+
+
+---
+
+* [KAFKA-2164](https://issues.apache.org/jira/browse/KAFKA-2164) | *Major* | **ReplicaFetcherThread: suspicious log message on reset offset**
+
+If log.logEndOffset < leaderStartOffset the follower resets its offset and prints the following:
+{code}
+[2015-03-25 11:11:08,975] WARN [ReplicaFetcherThread-0-21], Replica 30 for partition [topic,11] reset its fetch offset from 49322124 to current leader 21's start offset 49322124 (kafka.server.ReplicaFetcherThread)
+[2015-03-25 11:11:08,976] ERROR [ReplicaFetcherThread-0-21], Current offset 54369274 for partition [topic,11] out of range; reset offset to 49322124 (kafka.server.ReplicaFetcherThread)
+{code}
+I think the right message should be:
+{code}
+[2015-03-25 11:11:08,975] WARN [ReplicaFetcherThread-0-21], Replica 30 for partition [topic,11] reset its fetch offset from 54369274 to current leader 21's start offset 49322124 (kafka.server.ReplicaFetcherThread)
+[2015-03-25 11:11:08,976] ERROR [ReplicaFetcherThread-0-21], Current offset 54369274 for partition [topic,11] out of range; reset offset to 49322124 (kafka.server.ReplicaFetcherThread)
+{code}
+
+This occurs because ReplicaFetcherThread resets the offset and then print log message.
+Posible solution:
+{code}
+diff --git a/core/src/main/scala/kafka/server/ReplicaFetcherThread.scala b/core/
+index b31b432..181cbc1 100644
+--- a/core/src/main/scala/kafka/server/ReplicaFetcherThread.scala
++++ b/core/src/main/scala/kafka/server/ReplicaFetcherThread.scala
+@@ -111,9 +111,9 @@ class ReplicaFetcherThread(name:String,
+        * Roll out a new log at the follower with the start offset equal to the
+        */
+       val leaderStartOffset = simpleConsumer.earliestOrLatestOffset(topicAndPar
+-      replicaMgr.logManager.truncateFullyAndStartAt(topicAndPartition, leaderSt
+       warn("Replica %d for partition %s reset its fetch offset from %d to curre
+         .format(brokerConfig.brokerId, topicAndPartition, replica.logEndOffset.
++      replicaMgr.logManager.truncateFullyAndStartAt(topicAndPartition, leaderSt
+       leaderStartOffset
+     }
+   }
+{code}
 
 
 ---
@@ -469,6 +751,19 @@ props.put("advertised.listeners", "PLAINTEXT://localhost:9091,TRACE://localhost:
 
 ---
 
+* [KAFKA-2101](https://issues.apache.org/jira/browse/KAFKA-2101) | *Major* | **Metric metadata-age is reset on a failed update**
+
+In org.apache.kafka.clients.Metadata there is a lastUpdate() method that returns the time the metadata was lasted updated. This is only called by metadata-age metric. 
+
+However the lastRefreshMs is updated on a failed update (when MetadataResponse has not valid nodes). This is confusing since the metric's name suggests that it is a true reflection of the age of the current metadata. But the age might be reset by a failed update. 
+
+Additionally, lastRefreshMs is not reset on a failed update due to no node being available. This seems slightly inconsistent, since one failure condition resets the metrics, but another one does not. Especially since both failure conditions do trigger the backoff (for the next attempt).
+
+I have not implemented a patch yet, because I am unsure what expected behavior is.
+
+
+---
+
 * [KAFKA-2099](https://issues.apache.org/jira/browse/KAFKA-2099) | *Major* | **BrokerEndPoint file, methods and object names should match**
 
 [~harsha\_ch] commented on KAFKA-1809:
@@ -607,6 +902,13 @@ We need a micro benchmark test for measuring the purgatory performance.
 * [KAFKA-2009](https://issues.apache.org/jira/browse/KAFKA-2009) | *Major* | **Fix UncheckedOffset.removeOffset synchronization and trace logging issue in mirror maker**
 
 This ticket is to fix the mirror maker problem on current trunk which is introduced in KAFKA-1650.
+
+
+---
+
+* [KAFKA-2005](https://issues.apache.org/jira/browse/KAFKA-2005) | *Major* | **Generate html report for system tests**
+
+System test results are kind of huge and painful to read. A html report will be very useful.
 
 
 ---
@@ -1854,6 +2156,65 @@ If you try to compact a topic that has compressed messages you will run into
 various exceptions - typically because during iteration we advance the
 position based on the decompressed size of the message. I have a bunch of
 stack traces, but it should be straightforward to reproduce.
+
+
+---
+
+* [KAFKA-1335](https://issues.apache.org/jira/browse/KAFKA-1335) | *Major* | **Add rebalancing logic to the coordinator / consumer**
+
+This implements the group management protocol. This will be a tricky and potentially large change since it will involve implementing the group management protocol, which include:
+
+1) Adding the rebalance logic on the coordinator that can be triggered from membership change (either through failure detector or join group requests) and topic / partition ZK listener fires.
+2) Adding the rebalance logic on the consumer upon topic change / error code from coordinator.
+
+
+---
+
+* [KAFKA-1334](https://issues.apache.org/jira/browse/KAFKA-1334) | *Major* | **Coordinator should detect consumer failures**
+
+Add failure detection capability to the coordinator when group management is used.
+
+
+---
+
+* [KAFKA-1333](https://issues.apache.org/jira/browse/KAFKA-1333) | *Major* | **Add consumer co-ordinator module to the server**
+
+Scope of this JIRA is to just add a consumer co-ordinator module that do the following:
+
+1) coordinator start-up, metadata initialization
+2) simple join group handling (just updating metadata, no failure detection / rebalancing): this should be sufficient for consumers doing self offset / partition management.
+
+Offset manager will still run side-by-side with the coordinator in this JIRA, and we will merge it in KAFKA-1740.
+
+
+---
+
+* [KAFKA-1329](https://issues.apache.org/jira/browse/KAFKA-1329) | *Major* | **Add metadata fetch and refresh functionality to the consumer**
+
+Add metadata fetch and refresh functionality to the consumer. This is dependent on https://issues.apache.org/jira/browse/KAFKA-1316 as we first need to refactor the Sender to be able to use a common set of APIs to update metadata
+
+
+---
+
+* [KAFKA-1328](https://issues.apache.org/jira/browse/KAFKA-1328) | *Major* | **Add new consumer APIs**
+
+New consumer API discussion is here - http://mail-archives.apache.org/mod\_mbox/kafka-users/201402.mbox/%3CCAOG\_4QYBHwyi0xN=HL1FpnRTkVfJZX14uJFntfT3nn\_Mw3+XgQ@mail.gmail.com%3E
+
+This JIRA includes reviewing and checking in the new consumer APIs
+
+
+---
+
+* [KAFKA-1316](https://issues.apache.org/jira/browse/KAFKA-1316) | *Major* | **Refactor Sender**
+
+Currently most of the logic of the producer I/O thread is in Sender.java.
+
+However we will need to do a fair number of similar things in the new consumer. Specifically:
+ - Track in-flight requests
+ - Fetch metadata
+ - Manage connection lifecycle
+
+It may be possible to refactor some of this into a helper class that can be shared with the consumer. This will require some detailed thought.
 
 
 ---

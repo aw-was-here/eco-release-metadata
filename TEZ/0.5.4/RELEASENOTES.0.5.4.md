@@ -49,6 +49,36 @@ And at the same time AM shutdown hook is invoked and hang there, wait for lock o
 
 ---
 
+* [TEZ-2475](https://issues.apache.org/jira/browse/TEZ-2475) | *Major* | **Tez local mode hanging in big testsuite**
+
+we have a big test suite for lingual, our SQL layer for cascading. We are trying very hard to make it work correctly on Tez, but I am stuck:
+
+The setup is a huge suite of SQL based tests (6000+), which are being executed in order in local mode. At certain moments the whole process just stops. Nothing gets executed any longer. This is not all the time, but quite often. Note that it is not happening at the same line of code, more at random, which makes it quite complex to debug.
+
+What I am seeing, is these kind of stacktraces in the middle of the run:
+
+2015-05-21 16:07:42,413 ERROR [TaskHeartbeatThread] task.TezTaskRunner (TezTaskRunner.java:reportError(333)) - TaskReporter reported error
+    java.lang.InterruptedException
+        at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.reportInterruptAfterWait(AbstractQueuedSynchronizer.java:2017)
+        at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2188)
+        at org.apache.tez.runtime.task.TaskReporter$HeartbeatCallable.call(TaskReporter.java:187)
+        at org.apache.tez.runtime.task.TaskReporter$HeartbeatCallable.call(TaskReporter.java:118)
+        at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+        at java.lang.Thread.run(Thread.java:745)
+
+This looks like it could be related to the hang, but the hang is not happening immediately afterwards, but some time later.
+
+I have gone through quite a few JIRAs and saw that there were problems with locks and hanging threads before, which should be fixed, but it still happens.
+
+I have tried 0.6.1 and 0.7.0. Both show the same behaviour.
+
+This gist contains a thread dump of a hanging build: https://gist.github.com/fs111/1ee44469bf5cc31e5a52
+
+
+---
+
 * [TEZ-2397](https://issues.apache.org/jira/browse/TEZ-2397) | *Critical* | **Translation of LocalResources via Tez plan serialization can be lossy**
 
 Happens when there's no port information. The way we serialize a YarnURL into a string causes the reconstructed path to include the port as -1, which is an invalid URL. Path/URL reconstruction from this causes the hostname to be lost.

@@ -23,6 +23,346 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [TEZ-2558](https://issues.apache.org/jira/browse/TEZ-2558) | *Major* | **Upload additional Tez images**
+
+Converted current to eps format. 
+Additional powered by images provided by Sally Khudairi.
+
+
+---
+
+* [TEZ-2554](https://issues.apache.org/jira/browse/TEZ-2554) | *Major* | **Tez UI: View log link does not correctly propagate login crendential to read log from yarn web.**
+
+Append "user.name=<am user>" to the view/download logs url as a query param.
+
+Sample url:
+http://address:19888/jobhistory/logs/address:45454/container\_e18\_1434089649193\_0001\_01\_000002/container\_e18\_1434089649193\_0001\_01\_000002/hrt\_qa?user.name=hrt\_qa
+
+Reported by [~tassapola] offline.
+
+
+---
+
+* [TEZ-2548](https://issues.apache.org/jira/browse/TEZ-2548) | *Major* | **TezClient submitDAG can hang if the AM is in the process of shutting down**
+
+submitDAG and serviceStop are both synchronized causing submitDAG to be locked out during the shutdown process. 
+
+Seen by [~gopalv]
+
+
+---
+
+* [TEZ-2546](https://issues.apache.org/jira/browse/TEZ-2546) | *Major* | **Tez UI: Fetch hive query text from timeline if dagInfo is not set**
+
+Followup to TEZ-2453, to make UI backward compatible and display hive queries in order versions.
+
+
+---
+
+* [TEZ-2545](https://issues.apache.org/jira/browse/TEZ-2545) | *Major* | **It is not necessary to start the vertex group commit when DAG is in TERMINATING**
+
+{noformat}
+Failed
+
+org.apache.tez.dag.app.dag.impl.TestCommit.testDAGKilledWhileRunning\_OnVertexSuccess
+
+Failing for the past 2 builds (Since Unstable#3372 )
+运行时间：5 秒
+Error Message
+
+test timed out after 5000 milliseconds
+Stacktrace
+
+java.lang.Exception: test timed out after 5000 milliseconds
+	at java.lang.Thread.sleep(Native Method)
+	at org.apache.tez.dag.app.dag.impl.TestCommit.waitUntil(TestCommit.java:355)
+	at org.apache.tez.dag.app.dag.impl.TestCommit.testDAGKilledWhileRunning\_OnVertexSuccess(TestCommit.java:1652)
+
+Standard Output
+
+2015-06-09 04:12:25,778 INFO  [Thread-43] impl.TestCommit (TestCommit.java:createDAGPlan(401)) - Setting up group dag plan
+2015-06-09 04:12:25,782 INFO  [Thread-43] event.AsyncDispatcher (AsyncDispatcher.java:register(200)) - Registering class org.apache.tez.dag.app.dag.event.CallableEventType for class org.apache.tez.dag.app.dag.impl.CallableEventDispatcher
+2015-06-09 04:12:25,782 INFO  [Thread-43] event.AsyncDispatcher (AsyncDispatcher.java:register(200)) - Registering class org.apache.tez.dag.app.dag.event.TaskEventType for class org.apache.tez.dag.app.dag.impl.TestCommit$TaskEventDispatcher
+2015-06-09 04:12:25,782 INFO  [Thread-43] event.AsyncDispatcher (AsyncDispatcher.java:register(200)) - Registering class org.apache.tez.dag.app.dag.event.TaskAttemptEventType for class org.apache.tez.dag.app.dag.impl.TestCommit$TaskAttemptEventDispatcher
+2015-06-09 04:12:25,782 INFO  [Thread-43] event.AsyncDispatcher (AsyncDispatcher.java:register(200)) - Registering class org.apache.tez.dag.app.dag.event.VertexEventType for class org.apache.tez.dag.app.dag.impl.TestCommit$VertexEventDispatcher
+2015-06-09 04:12:25,782 INFO  [Thread-43] event.AsyncDispatcher (AsyncDispatcher.java:register(200)) - Registering class org.apache.tez.dag.app.dag.event.DAGEventType for class org.apache.tez.dag.app.dag.impl.TestCommit$DagEventDispatcher
+2015-06-09 04:12:25,783 INFO  [Thread-43] event.AsyncDispatcher (AsyncDispatcher.java:register(200)) - Registering class org.apache.tez.dag.app.dag.event.DAGAppMasterEventType for class org.apache.tez.dag.app.dag.impl.TestCommit$DAGFinishEventHandler
+2015-06-09 04:12:25,784 INFO  [Thread-43] impl.VertexImpl (VertexImpl.java:setAdditionalOutputs(4497)) - setting additional outputs for vertex vertex2
+2015-06-09 04:12:25,784 INFO  [Thread-43] impl.VertexImpl (VertexImpl.java:setAdditionalOutputs(4497)) - setting additional outputs for vertex vertex1
+2015-06-09 04:12:25,786 INFO  [Thread-43] impl.VertexImpl (VertexImpl.java:setAdditionalOutputs(4497)) - setting additional outputs for vertex vertex3
+2015-06-09 04:12:25,787 INFO  [Thread-43] impl.DAGImpl (DAGImpl.java:assignDAGScheduler(1488)) - Using DAG Scheduler: org.apache.tez.dag.app.dag.impl.DAGSchedulerNaturalOrder
+2015-06-09 04:12:25,788 INFO  [Thread-43] impl.DAGImpl (DAGImpl.java:handle(1100)) - dag\_100\_0001\_1 transitioned from NEW to INITED
+2015-06-09 04:12:25,789 INFO  [AsyncDispatcher event handler] impl.DAGImpl (DAGImpl.java:handle(1100)) - dag\_100\_0001\_1 transitioned from INITED to RUNNING
+2015-06-09 04:12:25,790 INFO  [AsyncDispatcher event handler] impl.VertexImpl (VertexImpl.java:assignVertexManager(2469)) - Setting vertexManager to ImmediateStartVertexManager for vertex\_100\_0001\_1\_01 [vertex1]
+2015-06-09 04:12:25,790 INFO  [AsyncDispatcher event handler] impl.VertexImpl (VertexImpl.java:handleInitEvent(3246)) - Creating 1 tasks for vertex: vertex\_100\_0001\_1\_01 [vertex1]
+2015-06-09 04:12:25,790 INFO  [AsyncDispatcher event handler] impl.VertexImpl (VertexImpl.java:handleInitEvent(3258)) - Directly initializing vertex: vertex\_100\_0001\_1\_01 [vertex1]
+2015-06-09 04:12:25,790 INFO  [AsyncDispatcher event handler] impl.VertexImpl (VertexImpl.java:initializeCommitters(2131)) - Invoking committer inits for vertex, vertexId=vertex\_100\_0001\_1\_01 [vertex1]
+2015-06-09 04:12:25,790 INFO  [AsyncDispatcher event handler] impl.VertexImpl (VertexImpl.java:initializeCommitters(2143)) - Instantiating committer for output=v12Out, vertexId=vertex\_100\_0001\_1\_01 [vertex1], committerClass=org.apache.tez.dag.app.dag.impl.TestCommit$CountingOutputCommitter
+2015-06-09 04:12:25,791 INFO  [AsyncDispatcher event handler] impl.VertexImpl (VertexImpl.java:run(2161)) - Invoking committer init for output=v12Out, vertexId=vertex\_100\_0001\_1\_01 [vertex1]
+2015-06-09 04:12:25,791 INFO  [AsyncDispatcher event handler] impl.VertexImpl (VertexImpl.java:run(2165)) - Invoking committer setup for output=v12Out, vertexId=vertex\_100\_0001\_1\_01 [vertex1]
+2015-06-09 04:12:25,791 INFO  [AsyncDispatcher event handler] impl.VertexImpl (VertexImpl.java:handle(1812)) - vertex\_100\_0001\_1\_01 [vertex1] transitioned from NEW to INITED due to event V\_INIT
+2015-06-09 04:12:25,791 INFO  [AsyncDispatcher event handler] impl.VertexImpl (VertexImpl.java:assignVertexManager(2469)) - Setting vertexManager to ImmediateStartVertexManager for vertex\_100\_0001\_1\_00 [vertex2]
+2015-06-09 04:12:25,792 INFO  [AsyncDispatcher event handler] impl.VertexImpl (VertexImpl.java:handleInitEvent(3246)) - Creating 1 tasks for vertex: vertex\_100\_0001\_1\_00 [vertex2]
+2015-06-09 04:12:25,792 INFO  [AsyncDispatcher event handler] impl.VertexImpl (VertexImpl.java:handleInitEvent(3258)) - Directly initializing vertex: vertex\_100\_0001\_1\_00 [vertex2]
+2015-06-09 04:12:25,792 INFO  [AsyncDispatcher event handler] impl.VertexImpl (VertexImpl.java:initializeCommitters(2131)) - Invoking committer inits for vertex, vertexId=vertex\_100\_0001\_1\_00 [vertex2]
+2015-06-09 04:12:25,792 INFO  [AsyncDispatcher event handler] impl.VertexImpl (VertexImpl.java:initializeCommitters(2143)) - Instantiating committer for output=v12Out, vertexId=vertex\_100\_0001\_1\_00 [vertex2], committerClass=org.apache.tez.dag.app.dag.impl.TestCommit$CountingOutputCommitter
+2015-06-09 04:12:25,793 INFO  [AsyncDispatcher event handler] impl.VertexImpl (VertexImpl.java:run(2161)) - Invoking committer init for output=v12Out, vertexId=vertex\_100\_0001\_1\_00 [vertex2]
+2015-06-09 04:12:25,794 INFO  [AsyncDispatcher event handler] impl.VertexImpl (VertexImpl.java:run(2165)) - Invoking committer setup for output=v12Out, vertexId=vertex\_100\_0001\_1\_00 [vertex2]
+2015-06-09 04:12:25,794 INFO  [AsyncDispatcher event handler] impl.VertexImpl (VertexImpl.java:handle(1812)) - vertex\_100\_0001\_1\_00 [vertex2] transitioned from NEW to INITED due to event V\_INIT
+2015-06-09 04:12:25,794 INFO  [AsyncDispatcher event handler] impl.VertexImpl (VertexImpl.java:handle(1812)) - vertex\_100\_0001\_1\_01 [vertex1] transitioned from INITED to RUNNING due to event V\_START
+2015-06-09 04:12:25,794 INFO  [AsyncDispatcher event handler] impl.VertexImpl (VertexImpl.java:handle(1812)) - vertex\_100\_0001\_1\_00 [vertex2] transitioned from INITED to RUNNING due to event V\_START
+2015-06-09 04:12:25,795 INFO  [AsyncDispatcher event handler] impl.VertexImpl (VertexImpl.java:assignVertexManager(2462)) - Setting vertexManager to ShuffleVertexManager for vertex\_100\_0001\_1\_02 [vertex3]
+2015-06-09 04:12:25,823 INFO  [AsyncDispatcher event handler] vertexmanager.ShuffleVertexManager (ShuffleVertexManager.java:initialize(813)) - Shuffle Vertex Manager: settings minFrac:0.25 maxFrac:0.75 auto:false desiredTaskIput:104857600 minTasks:1
+2015-06-09 04:12:25,823 INFO  [AsyncDispatcher event handler] impl.VertexImpl (VertexImpl.java:handleInitEvent(3246)) - Creating 1 tasks for vertex: vertex\_100\_0001\_1\_02 [vertex3]
+2015-06-09 04:12:25,826 INFO  [AsyncDispatcher event handler] impl.VertexImpl (VertexImpl.java:handleInitEvent(3258)) - Directly initializing vertex: vertex\_100\_0001\_1\_02 [vertex3]
+2015-06-09 04:12:25,826 INFO  [AsyncDispatcher event handler] impl.VertexImpl (VertexImpl.java:initializeCommitters(2131)) - Invoking committer inits for vertex, vertexId=vertex\_100\_0001\_1\_02 [vertex3]
+2015-06-09 04:12:25,826 INFO  [AsyncDispatcher event handler] impl.VertexImpl (VertexImpl.java:initializeCommitters(2143)) - Instantiating committer for output=v3Out, vertexId=vertex\_100\_0001\_1\_02 [vertex3], committerClass=org.apache.tez.dag.app.dag.impl.TestCommit$CountingOutputCommitter
+2015-06-09 04:12:25,827 INFO  [App Shared Pool - #0] impl.ImmediateStartVertexManager (ImmediateStartVertexManager.java:scheduleTasks(99)) - Starting 1 in vertex1
+2015-06-09 04:12:25,827 INFO  [App Shared Pool - #1] impl.ImmediateStartVertexManager (ImmediateStartVertexManager.java:scheduleTasks(99)) - Starting 1 in vertex2
+2015-06-09 04:12:25,827 INFO  [AsyncDispatcher event handler] impl.VertexImpl (VertexImpl.java:run(2161)) - Invoking committer init for output=v3Out, vertexId=vertex\_100\_0001\_1\_02 [vertex3]
+2015-06-09 04:12:25,827 INFO  [AsyncDispatcher event handler] impl.VertexImpl (VertexImpl.java:run(2165)) - Invoking committer setup for output=v3Out, vertexId=vertex\_100\_0001\_1\_02 [vertex3]
+2015-06-09 04:12:25,828 INFO  [AsyncDispatcher event handler] impl.VertexImpl (VertexImpl.java:handle(1812)) - vertex\_100\_0001\_1\_02 [vertex3] transitioned from NEW to INITED due to event V\_INIT
+2015-06-09 04:12:25,829 INFO  [AsyncDispatcher event handler] impl.VertexImpl (VertexImpl.java:transition(3407)) - Source vertex started: vertex\_100\_0001\_1\_01 for vertex: vertex\_100\_0001\_1\_02 [vertex3] numStartedSources: 1 numSources: 2
+2015-06-09 04:12:25,829 INFO  [AsyncDispatcher event handler] impl.VertexImpl (VertexImpl.java:transition(3412)) - Cannot start vertex: vertex\_100\_0001\_1\_02 [vertex3] numStartedSources: 1 numSources: 2
+2015-06-09 04:12:25,829 INFO  [AsyncDispatcher event handler] impl.VertexImpl (VertexImpl.java:transition(3407)) - Source vertex started: vertex\_100\_0001\_1\_00 for vertex: vertex\_100\_0001\_1\_02 [vertex3] numStartedSources: 2 numSources: 2
+2015-06-09 04:12:25,829 INFO  [AsyncDispatcher event handler] impl.VertexImpl (VertexImpl.java:startIfPossible(3293)) - Triggering start event for vertex: vertex\_100\_0001\_1\_02 [vertex3] with distanceFromRoot: 1
+2015-06-09 04:12:25,830 INFO  [AsyncDispatcher event handler] impl.TaskImpl (TaskImpl.java:handle(899)) - task\_100\_0001\_1\_01\_000000 Task Transitioned from NEW to SCHEDULED due to event T\_SCHEDULE
+2015-06-09 04:12:25,830 INFO  [AsyncDispatcher event handler] impl.TaskImpl (TaskImpl.java:handle(899)) - task\_100\_0001\_1\_00\_000000 Task Transitioned from NEW to SCHEDULED due to event T\_SCHEDULE
+2015-06-09 04:12:25,830 INFO  [AsyncDispatcher event handler] impl.VertexImpl (VertexImpl.java:handle(1812)) - vertex\_100\_0001\_1\_02 [vertex3] transitioned from INITED to RUNNING due to event V\_START
+2015-06-09 04:12:25,831 INFO  [Thread-43] impl.VertexImpl (VertexImpl.java:transition(3817)) - Num completed Tasks for vertex\_100\_0001\_1\_01 [vertex1] : 1
+2015-06-09 04:12:25,831 INFO  [Thread-43] impl.VertexImpl (VertexImpl.java:checkTasksForCompletion(1955)) - Checking tasks for vertex completion for vertex\_100\_0001\_1\_01 [vertex1], numTasks=1, failedTaskCount=0, killedTaskCount=0, successfulTaskCount=1, completedTaskCount=1, commitInProgress=0, terminationCause=null
+2015-06-09 04:12:25,832 INFO  [Thread-43] impl.VertexImpl (VertexImpl.java:checkTasksForCompletion(1983)) - All tasks are succeeded, vertex:vertex\_100\_0001\_1\_01 [vertex1]
+2015-06-09 04:12:25,832 INFO  [Thread-43] impl.VertexImpl (VertexImpl.java:handle(1812)) - vertex\_100\_0001\_1\_01 [vertex1] transitioned from RUNNING to SUCCEEDED due to event V\_TASK\_COMPLETED
+2015-06-09 04:12:25,832 INFO  [AsyncDispatcher event handler] impl.DAGImpl (DAGImpl.java:transition(1883)) - Vertex vertex\_100\_0001\_1\_01 [vertex1] completed., numCompletedVertices=1, numSuccessfulVertices=1, numFailedVertices=0, numKilledVertices=0, numVertices=3
+2015-06-09 04:12:25,834 INFO  [AsyncDispatcher event handler] impl.DAGImpl (DAGImpl.java:checkVerticesForCompletion(1178)) - Checking vertices for DAG completion, numCompletedVertices=1, numSuccessfulVertices=1, numFailedVertices=0, numKilledVertices=0, numVertices=3, commitInProgress=0, terminationCause=null
+2015-06-09 04:12:25,833 INFO  [Thread-43] impl.VertexImpl (VertexImpl.java:transition(3817)) - Num completed Tasks for vertex\_100\_0001\_1\_00 [vertex2] : 1
+2015-06-09 04:12:25,834 INFO  [Thread-43] impl.VertexImpl (VertexImpl.java:checkTasksForCompletion(1955)) - Checking tasks for vertex completion for vertex\_100\_0001\_1\_00 [vertex2], numTasks=1, failedTaskCount=0, killedTaskCount=0, successfulTaskCount=1, completedTaskCount=1, commitInProgress=0, terminationCause=null
+2015-06-09 04:12:25,834 INFO  [Thread-43] impl.VertexImpl (VertexImpl.java:checkTasksForCompletion(1983)) - All tasks are succeeded, vertex:vertex\_100\_0001\_1\_00 [vertex2]
+2015-06-09 04:12:25,834 INFO  [Thread-43] impl.VertexImpl (VertexImpl.java:handle(1812)) - vertex\_100\_0001\_1\_00 [vertex2] transitioned from RUNNING to SUCCEEDED due to event V\_TASK\_COMPLETED
+2015-06-09 04:12:25,834 INFO  [Thread-43] impl.VertexImpl (VertexImpl.java:transition(3817)) - Num completed Tasks for vertex\_100\_0001\_1\_02 [vertex3] : 1
+2015-06-09 04:12:25,834 INFO  [Thread-43] impl.VertexImpl (VertexImpl.java:checkTasksForCompletion(1955)) - Checking tasks for vertex completion for vertex\_100\_0001\_1\_02 [vertex3], numTasks=1, failedTaskCount=0, killedTaskCount=0, successfulTaskCount=1, completedTaskCount=1, commitInProgress=0, terminationCause=null
+2015-06-09 04:12:25,835 INFO  [Thread-43] impl.VertexImpl (VertexImpl.java:checkTasksForCompletion(1983)) - All tasks are succeeded, vertex:vertex\_100\_0001\_1\_02 [vertex3]
+2015-06-09 04:12:25,836 INFO  [Thread-43] impl.VertexImpl (VertexImpl.java:commitOrFinish(1907)) - Invoking committer commit for vertex, vertexId=vertex\_100\_0001\_1\_02 [vertex3]
+2015-06-09 04:12:25,836 INFO  [Thread-43] impl.VertexImpl (VertexImpl.java:handle(1812)) - vertex\_100\_0001\_1\_02 [vertex3] transitioned from RUNNING to COMMITTING due to event V\_TASK\_COMPLETED
+2015-06-09 04:12:25,836 INFO  [Thread-43] impl.DAGImpl (DAGImpl.java:handle(1100)) - dag\_100\_0001\_1 transitioned from RUNNING to TERMINATING
+2015-06-09 04:12:25,836 INFO  [Thread-43] impl.TestCommit (TestCommit.java:waitUntil(353)) - Wait for dag go to state:KILLED
+2015-06-09 04:12:25,834 INFO  [App Shared Pool - #1] vertexmanager.ShuffleVertexManager (ShuffleVertexManager.java:onVertexStarted(467)) - OnVertexStarted vertex: vertex3 with 2 source tasks and 1 pending tasks
+2015-06-09 04:12:25,836 INFO  [App Shared Pool - #0] impl.VertexImpl (VertexImpl.java:run(1930)) - Invoking committer commit for output=v3Out, vertexId=vertex\_100\_0001\_1\_02 [vertex3]
+2015-06-09 04:12:25,838 INFO  [AsyncDispatcher event handler] impl.DAGImpl (DAGImpl.java:vertexSucceeded(1943)) - All members of group: uv12 are succeeded. Commiting outputs
+2015-06-09 04:12:25,838 INFO  [AsyncDispatcher event handler] impl.DAGImpl (DAGImpl.java:transition(1883)) - Vertex vertex\_100\_0001\_1\_00 [vertex2] completed., numCompletedVertices=2, numSuccessfulVertices=2, numFailedVertices=0, numKilledVertices=0, numVertices=3
+2015-06-09 04:12:25,838 INFO  [AsyncDispatcher event handler] impl.DAGImpl (DAGImpl.java:checkVerticesForCompletion(1178)) - Checking vertices for DAG completion, numCompletedVertices=2, numSuccessfulVertices=2, numFailedVertices=0, numKilledVertices=0, numVertices=3, commitInProgress=1, terminationCause=DAG\_KILL
+2015-06-09 04:12:25,838 INFO  [AsyncDispatcher event handler] impl.VertexImpl (VertexImpl.java:transition(3710)) - Vertex received Kill while in COMMITTING state, terminationCause=DAG\_KILL, vertex=vertex\_100\_0001\_1\_02 [vertex3]
+2015-06-09 04:12:25,838 INFO  [AsyncDispatcher event handler] impl.VertexImpl (VertexImpl.java:cancelCommits(3979)) - Canceling commit of output:v3Out, vertexId=vertex\_100\_0001\_1\_02 [vertex3]
+2015-06-09 04:12:25,838 INFO  [App Shared Pool - #2] vertexmanager.ShuffleVertexManager (ShuffleVertexManager.java:handleVertexStateUpdate(837)) - Received configured notification : CONFIGURED for vertex: vertex1 in vertex: vertex3
+2015-06-09 04:12:25,838 INFO  [AsyncDispatcher event handler] impl.VertexImpl (VertexImpl.java:handle(1812)) - vertex\_100\_0001\_1\_02 [vertex3] transitioned from COMMITTING to TERMINATING due to event V\_TERMINATE
+2015-06-09 04:12:25,839 INFO  [AsyncDispatcher event handler] impl.VertexImpl (VertexImpl.java:commitCompleted(3959)) - Commit failed for output:v3Out, vertexId=vertex\_100\_0001\_1\_02 [vertex3], java.util.concurrent.CancellationException
+	at java.util.concurrent.FutureTask$Sync.innerGet(FutureTask.java:250)
+	at java.util.concurrent.FutureTask.get(FutureTask.java:111)
+	at com.google.common.util.concurrent.Uninterruptibles.getUninterruptibly(Uninterruptibles.java:132)
+	at com.google.common.util.concurrent.Futures$6.run(Futures.java:974)
+	at com.google.common.util.concurrent.MoreExecutors$SameThreadExecutorService.execute(MoreExecutors.java:253)
+	at com.google.common.util.concurrent.ExecutionList$RunnableExecutorPair.execute(ExecutionList.java:149)
+	at com.google.common.util.concurrent.ExecutionList.execute(ExecutionList.java:134)
+	at com.google.common.util.concurrent.ListenableFutureTask.done(ListenableFutureTask.java:86)
+	at java.util.concurrent.FutureTask$Sync.innerCancel(FutureTask.java:322)
+	at java.util.concurrent.FutureTask.cancel(FutureTask.java:104)
+	at org.apache.tez.dag.app.dag.impl.VertexImpl.cancelCommits(VertexImpl.java:3980)
+	at org.apache.tez.dag.app.dag.impl.VertexImpl.access$5600(VertexImpl.java:199)
+	at org.apache.tez.dag.app.dag.impl.VertexImpl$VertexKilledWhileCommittingTransition.transition(VertexImpl.java:3713)
+	at org.apache.tez.dag.app.dag.impl.VertexImpl$VertexKilledWhileCommittingTransition.transition(VertexImpl.java:3701)
+	at org.apache.hadoop.yarn.state.StateMachineFactory$SingleInternalArc.doTransition(StateMachineFactory.java:362)
+	at org.apache.hadoop.yarn.state.StateMachineFactory.doTransition(StateMachineFactory.java:302)
+	at org.apache.hadoop.yarn.state.StateMachineFactory.access$300(StateMachineFactory.java:46)
+	at org.apache.hadoop.yarn.state.StateMachineFactory$InternalStateMachine.doTransition(StateMachineFactory.java:448)
+	at org.apache.tez.state.StateMachineTez.doTransition(StateMachineTez.java:57)
+	at org.apache.tez.dag.app.dag.impl.VertexImpl.handle(VertexImpl.java:1799)
+	at org.apache.tez.dag.app.dag.impl.VertexImpl.handle(VertexImpl.java:198)
+	at org.apache.tez.dag.app.dag.impl.TestCommit$VertexEventDispatcher.handle(TestCommit.java:168)
+	at org.apache.tez.dag.app.dag.impl.TestCommit$VertexEventDispatcher.handle(TestCommit.java:162)
+	at org.apache.hadoop.yarn.event.AsyncDispatcher.dispatch(AsyncDispatcher.java:175)
+	at org.apache.hadoop.yarn.event.AsyncDispatcher$1.run(AsyncDispatcher.java:108)
+	at java.lang.Thread.run(Thread.java:722)
+
+2015-06-09 04:12:25,839 INFO  [AsyncDispatcher event handler] impl.VertexImpl (VertexImpl.java:checkCommitsForCompletion(2001)) - Checking commits for vertex completion for vertex\_100\_0001\_1\_02 [vertex3], numTasks=1, failedTaskCount=0, killedTaskCount=0, successfulTaskCount=1, completedTaskCount=1, commitInProgress=0, terminationCause=DAG\_KILL
+2015-06-09 04:12:25,840 INFO  [AsyncDispatcher event handler] impl.VertexImpl (VertexImpl.java:finishWithTerminationCause(2038)) - Vertex did not succeed due to DAG\_KILL, failedTasks:0 killedTasks:0
+2015-06-09 04:12:25,840 INFO  [AsyncDispatcher event handler] impl.VertexImpl (VertexImpl.java:abortVertex(3556)) - Invoking committer abort for vertex, vertexId=vertex\_100\_0001\_1\_02 [vertex3]
+2015-06-09 04:12:25,840 INFO  [AsyncDispatcher event handler] impl.VertexImpl (VertexImpl.java:run(3563)) - Invoking committer abort for output=v3Out, vertexId=vertex\_100\_0001\_1\_02 [vertex3]
+2015-06-09 04:12:25,841 INFO  [AsyncDispatcher event handler] impl.VertexImpl (VertexImpl.java:handle(1812)) - vertex\_100\_0001\_1\_02 [vertex3] transitioned from TERMINATING to KILLED due to event V\_COMMIT\_COMPLETED
+2015-06-09 04:12:25,842 INFO  [AsyncDispatcher event handler] impl.DAGImpl (DAGImpl.java:transition(1883)) - Vertex vertex\_100\_0001\_1\_02 [vertex3] completed., numCompletedVertices=3, numSuccessfulVertices=2, numFailedVertices=0, numKilledVertices=1, numVertices=3
+2015-06-09 04:12:25,842 INFO  [AsyncDispatcher event handler] impl.DAGImpl (DAGImpl.java:checkVerticesForCompletion(1178)) - Checking vertices for DAG completion, numCompletedVertices=3, numSuccessfulVertices=2, numFailedVertices=0, numKilledVertices=1, numVertices=3, commitInProgress=1, terminationCause=DAG\_KILL
+2015-06-09 04:12:25,838 INFO  [App Shared Pool - #3] impl.DAGImpl (DAGImpl.java:call(1971)) - Committing output: v12Out
+2015-06-09 04:12:25,840 INFO  [App Shared Pool - #0] vertexmanager.ShuffleVertexManager (ShuffleVertexManager.java:handleVertexStateUpdate(837)) - Received configured notification : CONFIGURED for vertex: vertex2 in vertex: vertex3
+2015-06-09 04:12:25,936 INFO  [Thread-43] impl.TestCommit (TestCommit.java:waitUntil(353)) - Wait for dag go to state:KILLED
+2015-06-09 04:12:25,943 INFO  [App Shared Pool - #3] impl.TestCommit (TestCommit.java:commitOutput(234)) - committing output:v12Out
+2015-06-09 04:12:26,039 INFO  [Thread-43] impl.TestCommit (TestCommit.java:waitUntil(353)) - Wait for dag go to state:KILLED
+2015-06-09 04:12:26,044 INFO  [App Shared Pool - #3] impl.TestCommit (TestCommit.java:commitOutput(234)) - committing output:v12Out
+2015-06-09 04:12:26,141 INFO  [Thread-43] impl.TestCommit (TestCommit.java:waitUntil(353)) - Wait for dag go to state:KILLED
+2015-06-09 04:12:26,144 INFO  [App Shared Pool - #3] impl.TestCommit (TestCommit.java:commitOutput(234)) - committing output:v12Out
+2015-06-09 04:12:26,242 INFO  [Thread-43] impl.TestCommit (TestCommit.java:waitUntil(353)) - Wait for dag go to state:KILLED
+2015-06-09 04:12:26,245 INFO  [App Shared Pool - #3] impl.TestCommit (TestCommit.java:commitOutput(234)) - committing output:v12Out
+2015-06-09 04:12:26,342 INFO  [Thread-43] impl.TestCommit (TestCommit.java:waitUntil(353)) - Wait for dag go to state:KILLED
+2015-06-09 04:12:26,345 INFO  [App Shared Pool - #3] impl.TestCommit (TestCommit.java:commitOutput(234)) - committing output:v12Out
+2015-06-09 04:12:26,443 INFO  [Thread-43] impl.TestCommit (TestCommit.java:waitUntil(353)) - Wait for dag go to state:KILLED
+2015-06-09 04:12:26,446 INFO  [App Shared Pool - #3] impl.TestCommit (TestCommit.java:commitOutput(234)) - committing output:v12Out
+2015-06-09 04:12:26,544 INFO  [Thread-43] impl.TestCommit (TestCommit.java:waitUntil(353)) - Wait for dag go to state:KILLED
+2015-06-09 04:12:26,547 INFO  [App Shared Pool - #3] impl.TestCommit (TestCommit.java:commitOutput(234)) - committing output:v12Out
+2015-06-09 04:12:26,644 INFO  [Thread-43] impl.TestCommit (TestCommit.java:waitUntil(353)) - Wait for dag go to state:KILLED
+2015-06-09 04:12:26,647 INFO  [App Shared Pool - #3] impl.TestCommit (TestCommit.java:commitOutput(234)) - committing output:v12Out
+2015-06-09 04:12:26,745 INFO  [Thread-43] impl.TestCommit (TestCommit.java:waitUntil(353)) - Wait for dag go to state:KILLED
+2015-06-09 04:12:26,749 INFO  [App Shared Pool - #3] impl.TestCommit (TestCommit.java:commitOutput(234)) - committing output:v12Out
+2015-06-09 04:12:26,846 INFO  [Thread-43] impl.TestCommit (TestCommit.java:waitUntil(353)) - Wait for dag go to state:KILLED
+2015-06-09 04:12:26,849 INFO  [App Shared Pool - #3] impl.TestCommit (TestCommit.java:commitOutput(234)) - committing output:v12Out
+2015-06-09 04:12:26,947 INFO  [Thread-43] impl.TestCommit (TestCommit.java:waitUntil(353)) - Wait for dag go to state:KILLED
+2015-06-09 04:12:26,950 INFO  [App Shared Pool - #3] impl.TestCommit (TestCommit.java:commitOutput(234)) - committing output:v12Out
+2015-06-09 04:12:27,048 INFO  [Thread-43] impl.TestCommit (TestCommit.java:waitUntil(353)) - Wait for dag go to state:KILLED
+2015-06-09 04:12:27,050 INFO  [App Shared Pool - #3] impl.TestCommit (TestCommit.java:commitOutput(234)) - committing output:v12Out
+2015-06-09 04:12:27,148 INFO  [Thread-43] impl.TestCommit (TestCommit.java:waitUntil(353)) - Wait for dag go to state:KILLED
+2015-06-09 04:12:27,151 INFO  [App Shared Pool - #3] impl.TestCommit (TestCommit.java:commitOutput(234)) - committing output:v12Out
+2015-06-09 04:12:27,249 INFO  [Thread-43] impl.TestCommit (TestCommit.java:waitUntil(353)) - Wait for dag go to state:KILLED
+2015-06-09 04:12:27,252 INFO  [App Shared Pool - #3] impl.TestCommit (TestCommit.java:commitOutput(234)) - committing output:v12Out
+2015-06-09 04:12:27,349 INFO  [Thread-43] impl.TestCommit (TestCommit.java:waitUntil(353)) - Wait for dag go to state:KILLED
+2015-06-09 04:12:27,353 INFO  [App Shared Pool - #3] impl.TestCommit (TestCommit.java:commitOutput(234)) - committing output:v12Out
+2015-06-09 04:12:27,450 INFO  [Thread-43] impl.TestCommit (TestCommit.java:waitUntil(353)) - Wait for dag go to state:KILLED
+2015-06-09 04:12:27,454 INFO  [App Shared Pool - #3] impl.TestCommit (TestCommit.java:commitOutput(234)) - committing output:v12Out
+2015-06-09 04:12:27,550 INFO  [Thread-43] impl.TestCommit (TestCommit.java:waitUntil(353)) - Wait for dag go to state:KILLED
+2015-06-09 04:12:27,555 INFO  [App Shared Pool - #3] impl.TestCommit (TestCommit.java:commitOutput(234)) - committing output:v12Out
+2015-06-09 04:12:27,651 INFO  [Thread-43] impl.TestCommit (TestCommit.java:waitUntil(353)) - Wait for dag go to state:KILLED
+2015-06-09 04:12:27,656 INFO  [App Shared Pool - #3] impl.TestCommit (TestCommit.java:commitOutput(234)) - committing output:v12Out
+2015-06-09 04:12:27,752 INFO  [Thread-43] impl.TestCommit (TestCommit.java:waitUntil(353)) - Wait for dag go to state:KILLED
+2015-06-09 04:12:27,757 INFO  [App Shared Pool - #3] impl.TestCommit (TestCommit.java:commitOutput(234)) - committing output:v12Out
+2015-06-09 04:12:27,852 INFO  [Thread-43] impl.TestCommit (TestCommit.java:waitUntil(353)) - Wait for dag go to state:KILLED
+2015-06-09 04:12:27,857 INFO  [App Shared Pool - #3] impl.TestCommit (TestCommit.java:commitOutput(234)) - committing output:v12Out
+2015-06-09 04:12:27,953 INFO  [Thread-43] impl.TestCommit (TestCommit.java:waitUntil(353)) - Wait for dag go to state:KILLED
+2015-06-09 04:12:27,958 INFO  [App Shared Pool - #3] impl.TestCommit (TestCommit.java:commitOutput(234)) - committing output:v12Out
+2015-06-09 04:12:28,053 INFO  [Thread-43] impl.TestCommit (TestCommit.java:waitUntil(353)) - Wait for dag go to state:KILLED
+2015-06-09 04:12:28,058 INFO  [App Shared Pool - #3] impl.TestCommit (TestCommit.java:commitOutput(234)) - committing output:v12Out
+2015-06-09 04:12:28,155 INFO  [Thread-43] impl.TestCommit (TestCommit.java:waitUntil(353)) - Wait for dag go to state:KILLED
+2015-06-09 04:12:28,159 INFO  [App Shared Pool - #3] impl.TestCommit (TestCommit.java:commitOutput(234)) - committing output:v12Out
+2015-06-09 04:12:28,256 INFO  [Thread-43] impl.TestCommit (TestCommit.java:waitUntil(353)) - Wait for dag go to state:KILLED
+2015-06-09 04:12:28,259 INFO  [App Shared Pool - #3] impl.TestCommit (TestCommit.java:commitOutput(234)) - committing output:v12Out
+2015-06-09 04:12:28,356 INFO  [Thread-43] impl.TestCommit (TestCommit.java:waitUntil(353)) - Wait for dag go to state:KILLED
+2015-06-09 04:12:28,360 INFO  [App Shared Pool - #3] impl.TestCommit (TestCommit.java:commitOutput(234)) - committing output:v12Out
+2015-06-09 04:12:28,457 INFO  [Thread-43] impl.TestCommit (TestCommit.java:waitUntil(353)) - Wait for dag go to state:KILLED
+2015-06-09 04:12:28,462 INFO  [App Shared Pool - #3] impl.TestCommit (TestCommit.java:commitOutput(234)) - committing output:v12Out
+2015-06-09 04:12:28,557 INFO  [Thread-43] impl.TestCommit (TestCommit.java:waitUntil(353)) - Wait for dag go to state:KILLED
+2015-06-09 04:12:28,562 INFO  [App Shared Pool - #3] impl.TestCommit (TestCommit.java:commitOutput(234)) - committing output:v12Out
+2015-06-09 04:12:28,658 INFO  [Thread-43] impl.TestCommit (TestCommit.java:waitUntil(353)) - Wait for dag go to state:KILLED
+2015-06-09 04:12:28,663 INFO  [App Shared Pool - #3] impl.TestCommit (TestCommit.java:commitOutput(234)) - committing output:v12Out
+2015-06-09 04:12:28,759 INFO  [Thread-43] impl.TestCommit (TestCommit.java:waitUntil(353)) - Wait for dag go to state:KILLED
+2015-06-09 04:12:28,763 INFO  [App Shared Pool - #3] impl.TestCommit (TestCommit.java:commitOutput(234)) - committing output:v12Out
+2015-06-09 04:12:28,859 INFO  [Thread-43] impl.TestCommit (TestCommit.java:waitUntil(353)) - Wait for dag go to state:KILLED
+2015-06-09 04:12:28,864 INFO  [App Shared Pool - #3] impl.TestCommit (TestCommit.java:commitOutput(234)) - committing output:v12Out
+2015-06-09 04:12:28,960 INFO  [Thread-43] impl.TestCommit (TestCommit.java:waitUntil(353)) - Wait for dag go to state:KILLED
+2015-06-09 04:12:28,966 INFO  [App Shared Pool - #3] impl.TestCommit (TestCommit.java:commitOutput(234)) - committing output:v12Out
+2015-06-09 04:12:29,061 INFO  [Thread-43] impl.TestCommit (TestCommit.java:waitUntil(353)) - Wait for dag go to state:KILLED
+2015-06-09 04:12:29,067 INFO  [App Shared Pool - #3] impl.TestCommit (TestCommit.java:commitOutput(234)) - committing output:v12Out
+2015-06-09 04:12:29,162 INFO  [Thread-43] impl.TestCommit (TestCommit.java:waitUntil(353)) - Wait for dag go to state:KILLED
+2015-06-09 04:12:29,168 INFO  [App Shared Pool - #3] impl.TestCommit (TestCommit.java:commitOutput(234)) - committing output:v12Out
+2015-06-09 04:12:29,262 INFO  [Thread-43] impl.TestCommit (TestCommit.java:waitUntil(353)) - Wait for dag go to state:KILLED
+2015-06-09 04:12:29,268 INFO  [App Shared Pool - #3] impl.TestCommit (TestCommit.java:commitOutput(234)) - committing output:v12Out
+2015-06-09 04:12:29,363 INFO  [Thread-43] impl.TestCommit (TestCommit.java:waitUntil(353)) - Wait for dag go to state:KILLED
+2015-06-09 04:12:29,369 INFO  [App Shared Pool - #3] impl.TestCommit (TestCommit.java:commitOutput(234)) - committing output:v12Out
+2015-06-09 04:12:29,464 INFO  [Thread-43] impl.TestCommit (TestCommit.java:waitUntil(353)) - Wait for dag go to state:KILLED
+2015-06-09 04:12:29,469 INFO  [App Shared Pool - #3] impl.TestCommit (TestCommit.java:commitOutput(234)) - committing output:v12Out
+2015-06-09 04:12:29,565 INFO  [Thread-43] impl.TestCommit (TestCommit.java:waitUntil(353)) - Wait for dag go to state:KILLED
+2015-06-09 04:12:29,570 INFO  [App Shared Pool - #3] impl.TestCommit (TestCommit.java:commitOutput(234)) - committing output:v12Out
+2015-06-09 04:12:29,666 INFO  [Thread-43] impl.TestCommit (TestCommit.java:waitUntil(353)) - Wait for dag go to state:KILLED
+2015-06-09 04:12:29,671 INFO  [App Shared Pool - #3] impl.TestCommit (TestCommit.java:commitOutput(234)) - committing output:v12Out
+2015-06-09 04:12:29,766 INFO  [Thread-43] impl.TestCommit (TestCommit.java:waitUntil(353)) - Wait for dag go to state:KILLED
+2015-06-09 04:12:29,771 INFO  [App Shared Pool - #3] impl.TestCommit (TestCommit.java:commitOutput(234)) - committing output:v12Out
+2015-06-09 04:12:29,869 INFO  [Thread-43] impl.TestCommit (TestCommit.java:waitUntil(353)) - Wait for dag go to state:KILLED
+2015-06-09 04:12:29,872 INFO  [App Shared Pool - #3] impl.TestCommit (TestCommit.java:commitOutput(234)) - committing output:v12Out
+2015-06-09 04:12:29,970 INFO  [Thread-43] impl.TestCommit (TestCommit.java:waitUntil(353)) - Wait for dag go to state:KILLED
+2015-06-09 04:12:29,972 INFO  [App Shared Pool - #3] impl.TestCommit (TestCommit.java:commitOutput(234)) - committing output:v12Out
+2015-06-09 04:12:30,072 INFO  [Thread-43] impl.TestCommit (TestCommit.java:waitUntil(353)) - Wait for dag go to state:KILLED
+2015-06-09 04:12:30,073 INFO  [App Shared Pool - #3] impl.TestCommit (TestCommit.java:commitOutput(234)) - committing output:v12Out
+2015-06-09 04:12:30,173 INFO  [Thread-43] impl.TestCommit (TestCommit.java:waitUntil(353)) - Wait for dag go to state:KILLED
+2015-06-09 04:12:30,174 INFO  [App Shared Pool - #3] impl.TestCommit (TestCommit.java:commitOutput(234)) - committing output:v12Out
+2015-06-09 04:12:30,274 INFO  [Thread-43] impl.TestCommit (TestCommit.java:waitUntil(353)) - Wait for dag go to state:KILLED
+2015-06-09 04:12:30,275 INFO  [App Shared Pool - #3] impl.TestCommit (TestCommit.java:commitOutput(234)) - committing output:v12Out
+2015-06-09 04:12:30,376 INFO  [Thread-43] impl.TestCommit (TestCommit.java:waitUntil(353)) - Wait for dag go to state:KILLED
+2015-06-09 04:12:30,376 INFO  [App Shared Pool - #3] impl.TestCommit (TestCommit.java:commitOutput(234)) - committing output:v12Out
+2015-06-09 04:12:30,476 INFO  [Thread-43] impl.TestCommit (TestCommit.java:waitUntil(353)) - Wait for dag go to state:KILLED
+2015-06-09 04:12:30,476 INFO  [App Shared Pool - #3] impl.TestCommit (TestCommit.java:commitOutput(234)) - committing output:v12Out
+2015-06-09 04:12:30,577 INFO  [Thread-43] impl.TestCommit (TestCommit.java:waitUntil(353)) - Wait for dag go to state:KILLED
+2015-06-09 04:12:30,577 INFO  [App Shared Pool - #3] impl.TestCommit (TestCommit.java:commitOutput(234)) - committing output:v12Out
+2015-06-09 04:12:30,678 INFO  [Thread-43] impl.TestCommit (TestCommit.java:waitUntil(353)) - Wait for dag go to state:KILLED
+2015-06-09 04:12:30,679 INFO  [App Shared Pool - #3] impl.TestCommit (TestCommit.java:commitOutput(234)) - committing output:v12Out
+2015-06-09 04:12:30,786 INFO  [Thread-43] impl.TestCommit (TestCommit.java:waitUntil(353)) - Wait for dag go to state:KILLED
+2015-06-09 04:12:30,808 INFO  [App Shared Pool - #3] impl.TestCommit (TestCommit.java:commitOutput(234)) - committing output:v12Out
+2015-06-09 04:12:30,815 INFO  [Thread-43] impl.TestCommit (TestCommit.java:waitUntil(353)) - Wait for dag go to state:KILLED
+Standard Error
+
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method)
+	at org.apache.tez.dag.app.dag.impl.TestCommit.waitUntil(TestCommit.java:355)
+	at org.apache.tez.dag.app.dag.impl.TestCommit.testDAGKilledWhileRunning\_OnVertexSuccess(TestCommit.java:1652)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)
+{noformat}
+
+
+---
+
+* [TEZ-2534](https://issues.apache.org/jira/browse/TEZ-2534) | *Major* | **Error handling summary event when shutting down AM**
+
+When AM is shutting down, it will close the summary stream, but there may be still some events in the queue which will cause exception when handling summary event. And this would cause the next AM fail to recover the running dag. 
+One way to resolve this issue is to always drain the events in the queue before closing the summary stream (set drainEventsFlag as true), but this flag may be useful in unit test. 
+{noformat}
+2015-06-03 16:37:15,761 INFO [Thread-1] app.DAGAppMaster: DAGAppMasterShutdownHook invoked
+2015-06-03 16:37:15,761 INFO [Thread-1] app.DAGAppMaster: DAGAppMaster received a signal. Signaling TaskScheduler
+2015-06-03 16:37:15,761 INFO [Thread-1] rm.TaskSchedulerEventHandler: TaskScheduler notified that iSignalled was : true
+2015-06-03 16:37:15,762 INFO [Thread-1] history.HistoryEventHandler: Stopping HistoryEventHandler
+2015-06-03 16:37:15,762 INFO [Thread-1] recovery.RecoveryService: Stopping RecoveryService
+2015-06-03 16:37:15,762 INFO [Thread-1] recovery.RecoveryService: Closing Summary Stream
+2015-06-03 16:37:15,772 INFO [Thread-1] recovery.RecoveryService: Closing Output Stream for DAG dag\_1433320263267\_0019\_1
+2015-06-03 16:37:15,773 ERROR [Dispatcher thread: Central] recovery.RecoveryService: Error handling summary event, eventType=VERTEX\_FINISHED
+java.nio.channels.ClosedChannelException
+	at org.apache.hadoop.hdfs.DFSOutputStream.checkClosed(DFSOutputStream.java:1622)
+	at org.apache.hadoop.fs.FSOutputSummer.write(FSOutputSummer.java:104)
+	at org.apache.hadoop.fs.FSDataOutputStream$PositionCache.write(FSDataOutputStream.java:58)
+	at java.io.DataOutputStream.write(DataOutputStream.java:107)
+	at com.google.protobuf.CodedOutputStream.refreshBuffer(CodedOutputStream.java:833)
+	at com.google.protobuf.CodedOutputStream.flush(CodedOutputStream.java:843)
+	at com.google.protobuf.AbstractMessageLite.writeDelimitedTo(AbstractMessageLite.java:91)
+	at org.apache.tez.dag.history.events.VertexFinishedEvent.toSummaryProtoStream(VertexFinishedEvent.java:207)
+	at org.apache.tez.dag.history.recovery.RecoveryService.handleSummaryEvent(RecoveryService.java:373)
+	at org.apache.tez.dag.history.recovery.RecoveryService.handle(RecoveryService.java:285)
+	at org.apache.tez.dag.history.HistoryEventHandler.handleCriticalEvent(HistoryEventHandler.java:105)
+	at org.apache.tez.dag.app.dag.impl.VertexImpl.logJobHistoryVertexCompletedHelper(VertexImpl.java:1890)
+	at org.apache.tez.dag.app.dag.impl.VertexImpl.logJobHistoryVertexFinishedEvent(VertexImpl.java:1869)
+	at org.apache.tez.dag.app.dag.impl.VertexImpl.finished(VertexImpl.java:2107)
+	at org.apache.tez.dag.app.dag.impl.VertexImpl.finished(VertexImpl.java:2125)
+	at org.apache.tez.dag.app.dag.impl.VertexImpl.checkTasksForCompletion(VertexImpl.java:1989)
+	at org.apache.tez.dag.app.dag.impl.VertexImpl$TaskCompletedTransition.transition(VertexImpl.java:3833)
+	at org.apache.tez.dag.app.dag.impl.VertexImpl$TaskCompletedTransition.transition(VertexImpl.java:1)
+	at org.apache.hadoop.yarn.state.StateMachineFactory$MultipleInternalArc.doTransition(StateMachineFactory.java:385)
+	at org.apache.hadoop.yarn.state.StateMachineFactory.doTransition(StateMachineFactory.java:302)
+	at org.apache.hadoop.yarn.state.StateMachineFactory.access$300(StateMachineFactory.java:46)
+	at org.apache.hadoop.yarn.state.StateMachineFactory$InternalStateMachine.doTransition(StateMachineFactory.java:448)
+	at org.apache.tez.state.StateMachineTez.doTransition(StateMachineTez.java:57)
+	at org.apache.tez.dag.app.dag.impl.VertexImpl.handle(VertexImpl.java:1799)
+	at org.apache.tez.dag.app.dag.impl.VertexImpl.handle(VertexImpl.java:1)
+	at org.apache.tez.dag.app.DAGAppMaster$VertexEventDispatcher.handle(DAGAppMaster.java:1954)
+	at org.apache.tez.dag.app.DAGAppMaster$VertexEventDispatcher.handle(DAGAppMaster.java:1)
+	at org.apache.tez.common.AsyncDispatcher.dispatch(AsyncDispatcher.java:183)
+	at org.apache.tez.common.AsyncDispatcher$1.run(AsyncDispatcher.java:114)
+	at java.lang.Thread.run(Thread.java:745)
+2015-06-03 16:37:15,775 ERROR [Dispatcher thread: Central] recovery.RecoveryService: Adding a flag to ensure next AM attempt does not start up, flagFile=hdfs://localhost:58857/tmp/owc-staging-dir/.tez/application\_1433320263267\_0019/recovery/1/RecoveryFatalErrorOccurred
+2015-06-03 16:37:15,781 ERROR [Dispatcher thread: Central] recovery.RecoveryService: Recovery failure occurred. Skipping all events
+2015-06-03 16:37:15,781 INFO [HistoryEventHandlingThread] impl.SimpleHistoryLoggingService: Writing event VERTEX\_FINISHED to history file
+{noformat}
+
+
+---
+
 * [TEZ-2533](https://issues.apache.org/jira/browse/TEZ-2533) | *Major* | **AM deadlock when shutdown**
 
 AM is shutdown due to AM\_REBOOT signal
@@ -55,6 +395,13 @@ currently the applicationId for the models dag/vertex is picked up from primary 
 * ensures applicationId is not null (in some corner cases this causes exception in store.find)
 * makes the ui backward compatible (0.5).
 * allows to remove the appid from primary filter (TEZ-2485)
+
+
+---
+
+* [TEZ-2513](https://issues.apache.org/jira/browse/TEZ-2513) | *Major* | **Tez UI: Allow filtering by DAG ID on All dags table**
+
+On using the filter display the record with the specific id, if not available display a No Records found message.
 
 
 ---
@@ -234,6 +581,43 @@ this affects IE on win7 and win2012 r2
 The issue was because of IE's poor/broken support of css in SVG.
 # IE doesn't support transform in css like other browsers. This caused the bubbles in a vertex to appear at the origin - https://connect.microsoft.com/IE/feedbackdetail/view/920928
 # IE have a broken support for the marker(Arrow on the path). This was causing the links/paths to disappear - https://connect.microsoft.com/IE/feedback/details/801938
+
+
+---
+
+* [TEZ-2475](https://issues.apache.org/jira/browse/TEZ-2475) | *Major* | **Tez local mode hanging in big testsuite**
+
+we have a big test suite for lingual, our SQL layer for cascading. We are trying very hard to make it work correctly on Tez, but I am stuck:
+
+The setup is a huge suite of SQL based tests (6000+), which are being executed in order in local mode. At certain moments the whole process just stops. Nothing gets executed any longer. This is not all the time, but quite often. Note that it is not happening at the same line of code, more at random, which makes it quite complex to debug.
+
+What I am seeing, is these kind of stacktraces in the middle of the run:
+
+2015-05-21 16:07:42,413 ERROR [TaskHeartbeatThread] task.TezTaskRunner (TezTaskRunner.java:reportError(333)) - TaskReporter reported error
+    java.lang.InterruptedException
+        at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.reportInterruptAfterWait(AbstractQueuedSynchronizer.java:2017)
+        at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2188)
+        at org.apache.tez.runtime.task.TaskReporter$HeartbeatCallable.call(TaskReporter.java:187)
+        at org.apache.tez.runtime.task.TaskReporter$HeartbeatCallable.call(TaskReporter.java:118)
+        at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+        at java.lang.Thread.run(Thread.java:745)
+
+This looks like it could be related to the hang, but the hang is not happening immediately afterwards, but some time later.
+
+I have gone through quite a few JIRAs and saw that there were problems with locks and hanging threads before, which should be fixed, but it still happens.
+
+I have tried 0.6.1 and 0.7.0. Both show the same behaviour.
+
+This gist contains a thread dump of a hanging build: https://gist.github.com/fs111/1ee44469bf5cc31e5a52
+
+
+---
+
+* [TEZ-2473](https://issues.apache.org/jira/browse/TEZ-2473) | *Major* | **Consider using RawLocalFileSystem in MapOutput.createDiskMapOutput**
+
+Currently it makes use of LocalFileSystem which would go through checksumming. This can save some CPU cycles in tasks involving disk merges.
 
 
 ---
@@ -427,6 +811,32 @@ TOTAL\_SPILLS = 5 <--- all spills are final output
 * [TEZ-1970](https://issues.apache.org/jira/browse/TEZ-1970) | *Major* | **Fix javadoc warnings in SortMergeJoinExample**
 
 test-patch reports 3 existing javadoc warnings.
+
+
+---
+
+* [TEZ-1961](https://issues.apache.org/jira/browse/TEZ-1961) | *Critical* | **Remove misleading exception "No running dag" from AM logs**
+
+{code}
+15/01/14 16:45:06 INFO ipc.Server: IPC Server handler 0 on 51000, call org.apache.tez.dag.api.client.rpc.DAGClientAMProtocolBlockingPB.getDAGStatus from  Call#0 Retry#0
+org.apache.tez.dag.api.TezException: No running dag at present
+	at org.apache.tez.dag.api.client.DAGClientHandler.getDAG(DAGClientHandler.java:84)
+	at org.apache.tez.dag.api.client.DAGClientHandler.getACLManager(DAGClientHandler.java:151)
+	at org.apache.tez.dag.api.client.rpc.DAGClientAMProtocolBlockingPBServerImpl.getDAGStatus(DAGClientAMProtocolBlockingPBServerImpl.java:94)
+	at org.apache.tez.dag.api.client.rpc.DAGClientAMProtocolRPC$DAGClientAMProtocol$2.callBlockingMethod(DAGClientAMProtocolRPC.java:7375)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine.java:617)
+	at org.apache.hadoop.ipc.RPC$Server.call(RPC.java:962)
+	at org.apache.hadoop.ipc.Server$Handler$1.run(Server.java:2041)
+	at org.apache.hadoop.ipc.Server$Handler$1.run(Server.java:2037)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:415)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1657)
+	at org.apache.hadoop.ipc.Server$Handler.run(Server.java:2035)
+15/01/14 16:45:06 INFO client.DAGClientImpl: DAG initialized: CurrentState=Running
+{code}
+
+This exception shows up fairly often and isn't very relevant - queries before a DAG is submitted to the AM.
+This is very misleading, especially for folks new to Tez, and should be removed.
 
 
 ---

@@ -49,7 +49,14 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [OOZIE-2270](https://issues.apache.org/jira/browse/OOZIE-2270) | Audit log doesn't get loaded when "audit log" tab is clicked for coord job |  Major | . | Purshotam Shah | Purshotam Shah |
+| [OOZIE-2268](https://issues.apache.org/jira/browse/OOZIE-2268) | Update ActiveMQ version for security and other fixes |  Major | . | Robert Kanter | Robert Kanter |
+| [OOZIE-2264](https://issues.apache.org/jira/browse/OOZIE-2264) | Fix coord:offset(n,"DAY") to resolve correct data set |  Major | . | Kailong Sheng | Kailong Sheng |
+| [OOZIE-2260](https://issues.apache.org/jira/browse/OOZIE-2260) | Only set "java.io.tmpdir" to "./tmp"  for the AM |  Major | . | Rohini Palaniswamy | Ryota Egashira |
+| [OOZIE-2257](https://issues.apache.org/jira/browse/OOZIE-2257) | BundleStatusTransitXCommand doesn't update last modified time. |  Major | . | Purshotam Shah | Purshotam Shah |
 | [OOZIE-2236](https://issues.apache.org/jira/browse/OOZIE-2236) | Need to package hive-hcatalog-server-extensions.jar in the hcatalog sharelib |  Critical | . | Venkat Ranganathan | Venkat Ranganathan |
+| [OOZIE-2215](https://issues.apache.org/jira/browse/OOZIE-2215) | Support glob in FS EL function |  Major | . | Ryota Egashira | Ryota Egashira |
+| [OOZIE-2178](https://issues.apache.org/jira/browse/OOZIE-2178) | fix javadoc to compile on JDK8 |  Major | . | Ryota Egashira | Robert Kanter |
 | [OOZIE-2160](https://issues.apache.org/jira/browse/OOZIE-2160) | Support attachment in email action |  Major | . | Ryota Egashira | Ryota Egashira |
 | [OOZIE-2109](https://issues.apache.org/jira/browse/OOZIE-2109) | Possibly incorrect job ID may be printed for map-reduce action errors |  Major | action | Harsh J | Harsh J |
 | [OOZIE-2102](https://issues.apache.org/jira/browse/OOZIE-2102) | Streaming actions are broken cause of incorrect method signature |  Blocker | action | Harsh J | Harsh J |

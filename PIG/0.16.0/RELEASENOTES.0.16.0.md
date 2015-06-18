@@ -21,4 +21,18 @@
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
 
 
+---
+
+* [PIG-4578](https://issues.apache.org/jira/browse/PIG-4578) | *Minor* | **ToDateISO should support optional ' ' space variant used by JDBC**
+
+Built-in UDF ToDateISO(chararray) now allows a space character instead of requiring a 'T' between date and time in an ISO-8601 timestamp. Facilitates parsing of JDBC timestamp format.
+
+
+---
+
+* [PIG-4365](https://issues.apache.org/jira/browse/PIG-4365) | *Major* | **TOP udf should implement Accumulator interface**
+
+TOP udf implements Accumulator interface
+
+
 

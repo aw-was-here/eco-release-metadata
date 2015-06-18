@@ -23,9 +23,62 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [OOZIE-2268](https://issues.apache.org/jira/browse/OOZIE-2268) | *Major* | **Update ActiveMQ version for security and other fixes**
+
+We're currently using ActiveMQ 5.8.0.  We should use the latest Java 6 compatible version, 5.10.2, which includes various security and bug fixes.
+
+
+---
+
+* [OOZIE-2264](https://issues.apache.org/jira/browse/OOZIE-2264) | *Major* | **Fix coord:offset(n,"DAY") to resolve correct data set**
+
+Time unit was hardcoded as "Minute" when materializing the instances.
+
+
+---
+
+* [OOZIE-2260](https://issues.apache.org/jira/browse/OOZIE-2260) | *Major* | **Only set "java.io.tmpdir" to "./tmp"  for the AM**
+
+OOZIE-2209 sets java.io.tmpdir to ./tmp for AM, map and reduce for both launcher and action jobs.
+
+MapReduceChildJVM already sets java.io.tmpdir to ./tmp
+{code}
+Path childTmpDir = new Path(Environment.PWD.$(),
+        YarnConfiguration.DEFAULT\_CONTAINER\_TEMP\_DIR);
+    vargs.add("-Djava.io.tmpdir=" + childTmpDir);
+{code}
+
+So it is only needed to be set for AM in launcher because of uber mode.
+
+
+---
+
 * [OOZIE-2236](https://issues.apache.org/jira/browse/OOZIE-2236) | *Critical* | **Need to package hive-hcatalog-server-extensions.jar in the hcatalog sharelib**
 
 We used to package hive-hcatalog-server-extensions-<version>.jar with hcatalog sharelib which is depended on by upstream projects like Falcon.   We have to add it back as it became unavailable after the latest POM changes
+
+
+---
+
+* [OOZIE-2215](https://issues.apache.org/jira/browse/OOZIE-2215) | *Major* | **Support glob in FS EL function**
+
+this patch is to support glob in fs\_exists EL funct similar to OOZIE-1471.  need to set upper-limit in number of files to check, not to slow down oozie server.
+
+
+---
+
+* [OOZIE-2178](https://issues.apache.org/jira/browse/OOZIE-2178) | *Major* | **fix javadoc to compile on JDK8**
+
+creating this JIRA from discussion on OOZIE-2177 
+
+JDK8 enforce strict HTML4 checking on javadoc.  
+when compiling oozie on JDK8, hit following javadoc error
+{quote}
+[ERROR] /Users/egashira/Projects/git/aoozie-cms/client/src/main/java/org/apache/oozie/cli/OozieCLI.java:205: error: self-closing element not allowed
+[ERROR] * <p/>
+{quote}
+
+the fix is to change self-closing element <p/>, <br/> to <p></p>, <br></br>
 
 
 ---

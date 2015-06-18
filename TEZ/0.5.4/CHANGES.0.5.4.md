@@ -46,6 +46,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [TEZ-2537](https://issues.apache.org/jira/browse/TEZ-2537) | mapreduce.map.env and mapreduce.reduce.env need to fall back to mapred.child.env for compatibility |  Major | . | Jonathan Eagles | Rohini Palaniswamy |
 | [TEZ-2533](https://issues.apache.org/jira/browse/TEZ-2533) | AM deadlock when shutdown |  Major | . | Jeff Zhang | Jeff Zhang |
+| [TEZ-2475](https://issues.apache.org/jira/browse/TEZ-2475) | Tez local mode hanging in big testsuite |  Major | . | André Kelpe | Siddharth Seth |
 | [TEZ-2397](https://issues.apache.org/jira/browse/TEZ-2397) | Translation of LocalResources via Tez plan serialization can be lossy |  Critical | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-2379](https://issues.apache.org/jira/browse/TEZ-2379) | org.apache.hadoop.yarn.state.InvalidStateTransitonException: Invalid event: T\_ATTEMPT\_KILLED at KILLED |  Blocker | . | Rajesh Balamohan | Hitesh Shah |
 | [TEZ-2369](https://issues.apache.org/jira/browse/TEZ-2369) | Add a few unit tests for RootInputInitializerManager |  Major | . | Siddharth Seth | Siddharth Seth |
