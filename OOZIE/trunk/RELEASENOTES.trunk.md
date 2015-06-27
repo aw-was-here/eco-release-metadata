@@ -23,6 +23,15 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [OOZIE-2271](https://issues.apache.org/jira/browse/OOZIE-2271) | *Major* | **Upgrade Tomcat to 6.0.44**
+
+We should upgrade Tomcat to 6.0.44, which includes bug and security fixes.
+
+http://tomcat.apache.org/security-6.html#Fixed\_in\_Apache\_Tomcat\_6.0.44
+
+
+---
+
 * [OOZIE-2268](https://issues.apache.org/jira/browse/OOZIE-2268) | *Major* | **Update ActiveMQ version for security and other fixes**
 
 We're currently using ActiveMQ 5.8.0.  We should use the latest Java 6 compatible version, 5.10.2, which includes various security and bug fixes.
@@ -30,9 +39,23 @@ We're currently using ActiveMQ 5.8.0.  We should use the latest Java 6 compatibl
 
 ---
 
+* [OOZIE-2266](https://issues.apache.org/jira/browse/OOZIE-2266) | *Major* | **Fix 'total' actions returned in coordinator job info**
+
+Coordinator job info doesn't take filtering into account when returning 'total' actions. It always returns total actions.
+
+
+---
+
 * [OOZIE-2264](https://issues.apache.org/jira/browse/OOZIE-2264) | *Major* | **Fix coord:offset(n,"DAY") to resolve correct data set**
 
 Time unit was hardcoded as "Minute" when materializing the instances.
+
+
+---
+
+* [OOZIE-2262](https://issues.apache.org/jira/browse/OOZIE-2262) | *Major* | **Fix log streaming from other server with start/end filter**
+
+Log streaming from other server fails with start/end filter. Fixed the bug by encoding the start/end filter.
 
 
 ---
@@ -86,6 +109,23 @@ the fix is to change self-closing element <p/>, <br/> to <p></p>, <br></br>
 * [OOZIE-2160](https://issues.apache.org/jira/browse/OOZIE-2160) | *Major* | **Support attachment in email action**
 
 Make email action able to attach a file on HDFS.
+
+
+---
+
+* [OOZIE-2159](https://issues.apache.org/jira/browse/OOZIE-2159) | *Major* | **'oozie validate' command should be moved server-side**
+
+The {{oozie validate}} command runs an XML validator against a workflow, coordinator, or bundle XML file to check that it's valid with any of the XSD schema files we have.
+
+Currently, this is implemented in the Oozie CLI ({{OozieCLI.validateCommand(...)}}, which has some downsides:
+# It's only available to OozieCLI users; anyone using the REST API can't use it
+# It's currently hardcoded to the specific XSD files we ship with Oozie
+## Whenever we add a new schema, we have to also manually update this, which is easy to forget
+## Users can't validate custom schemas that the Oozie server would accept
+
+We should move this to the Oozie server, perhaps at a new "validate" endpoint.  It should be able to accept a local file path (the current behavior) and perhaps also an HDFS file while we're at it.  For the local XML file, it can just be uploaded as part of the REST call.
+
+Also, the description for the command needs to be updated to mention that it also handles coordinators and bundles.
 
 
 ---

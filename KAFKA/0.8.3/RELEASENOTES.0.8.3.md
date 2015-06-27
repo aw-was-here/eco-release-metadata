@@ -23,6 +23,13 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [KAFKA-2290](https://issues.apache.org/jira/browse/KAFKA-2290) | *Major* | **OffsetIndex should open RandomAccessFile consistently**
+
+We open RandomAccessFile in "rw" mode in the constructor, but in "rws" mode in resize(). We should use "rw" in both cases since it's more efficient.
+
+
+---
+
 * [KAFKA-2270](https://issues.apache.org/jira/browse/KAFKA-2270) | *Minor* | **incorrect package name in unit tests**
 
 There are a bunch of test files with incorrect package prefix unit.
@@ -44,6 +51,13 @@ core/src/test/scala/unit/kafka/zk/ZKPathTest.scala:package unit.kafka.zk
 * [KAFKA-2266](https://issues.apache.org/jira/browse/KAFKA-2266) | *Major* | **Client Selector can drop idle connections without notifying NetworkClient**
 
 I've run into this while testing the new consumer. The class org.apache.kafka.common.networ.Selector has code to drop idle connections, but when one is dropped, it is not added to the list of disconnections. This causes inconsistency between Selector and NetworkClient, which depends on this list to update its internal connection states. When a new request is sent to NetworkClient, it still sees the connection as good and forwards it to Selector, which results in an IllegalStateException.
+
+
+---
+
+* [KAFKA-2265](https://issues.apache.org/jira/browse/KAFKA-2265) | *Major* | **creating a topic with large number of partitions takes a long time**
+
+Currently, creating a topic with 3K partitions can take 15 mins. We should be able to do that much faster. There is perhaps some redundant accesses to ZK during topic creation.
 
 
 ---
@@ -248,6 +262,124 @@ java.util.ConcurrentModificationException
         at kafka.network.SocketServer$$anon$1.value(SocketServer.scala:79)
         at kafka.network.SocketServer$$anon$1.value(SocketServer.scala:78)
 {code}
+
+
+---
+
+* [KAFKA-2245](https://issues.apache.org/jira/browse/KAFKA-2245) | *Critical* | **Add response tests for ConsumerCoordinator**
+
+We can validate error codes from JoinGroupResponses and HeartbeatResponses. Currently this includes:
+- JoinGroupRequest to the wrong coordinator returns NOT\_COORDINATOR\_FOR\_CONSUMER
+- JoinGroupRequest with an unknown partition assignment strategy returns UNKNOWN\_PARTITION\_ASSIGNMENT\_STRATEGY
+- JoinGroupRequest with an out-of-range session timeout returns INVALID\_SESSION\_TIMEOUT
+- JoinGroupRequest on a brand new group with an unrecognized consumer id produces UNKNOWN\_CONSUMER\_ID
+- JoinGroupRequest with mismatched partition assignment strategy compared to the rest of the group returns INCONSISTENT\_PARTITION\_ASSIGNMENT\_STRATEGY
+- JoinGroupRequest on an existing group with an unrecognized consumer id produces UNKNOWN\_CONSUMER\_ID
+- A correct JoinGroupRequest returns NONE
+- HeartbeatRequest to the wrong coordinator returns NOT\_COORDINATOR\_FOR\_CONSUMER
+- HeartbeatRequest with an unknown group returns UNKNOWN\_CONSUMER\_ID
+- HeartbeatRequest with an unrecognized consumer id returns UNKNOWN\_CONSUMER\_ID
+- HeartbeatRequest with generation id mismatch returns ILLEGAL\_GENERATION
+- A correct HeartbeatRequest returns NONE
+
+We can validate the generation id increments on rebalance based on the JoinGroupResponse.
+
+
+---
+
+* [KAFKA-2235](https://issues.apache.org/jira/browse/KAFKA-2235) | *Major* | **LogCleaner offset map overflow**
+
+We've seen log cleaning generating an error for a topic with lots of small messages. It seems that cleanup map overflow is possible if a log segment contains more unique keys than empty slots in offsetMap. Check for baseOffset and map utilization before processing segment seems to be not enough because it doesn't take into account segment size (number of unique messages in the segment).
+
+I suggest to estimate upper bound of keys in a segment as a number of messages in the segment and compare it with the number of available slots in the map (keeping in mind desired load factor). It should work in cases where an empty map is capable to hold all the keys for a single segment. If even a single segment no able to fit into an empty map cleanup process will still fail. Probably there should be a limit on the log segment entries count?
+
+Here is the stack trace for this error:
+2015-05-19 16:52:48,758 ERROR [kafka-log-cleaner-thread-0] kafka.log.LogCleaner - [kafka-log-cleaner-thread-0], Error due to
+java.lang.IllegalArgumentException: requirement failed: Attempt to add a new entry to a full offset map.
+       at scala.Predef$.require(Predef.scala:233)
+       at kafka.log.SkimpyOffsetMap.put(OffsetMap.scala:79)
+       at kafka.log.Cleaner$$anonfun$kafka$log$Cleaner$$buildOffsetMapForSegment$1.apply(LogCleaner.scala:543)
+       at kafka.log.Cleaner$$anonfun$kafka$log$Cleaner$$buildOffsetMapForSegment$1.apply(LogCleaner.scala:538)
+       at scala.collection.Iterator$class.foreach(Iterator.scala:727)
+       at kafka.utils.IteratorTemplate.foreach(IteratorTemplate.scala:32)
+       at scala.collection.IterableLike$class.foreach(IterableLike.scala:72)
+       at kafka.message.MessageSet.foreach(MessageSet.scala:67)
+       at kafka.log.Cleaner.kafka$log$Cleaner$$buildOffsetMapForSegment(LogCleaner.scala:538)
+       at kafka.log.Cleaner$$anonfun$buildOffsetMap$3.apply(LogCleaner.scala:515)
+       at kafka.log.Cleaner$$anonfun$buildOffsetMap$3.apply(LogCleaner.scala:512)
+       at scala.collection.immutable.Stream.foreach(Stream.scala:547)
+       at kafka.log.Cleaner.buildOffsetMap(LogCleaner.scala:512)
+       at kafka.log.Cleaner.clean(LogCleaner.scala:307)
+       at kafka.log.LogCleaner$CleanerThread.cleanOrSleep(LogCleaner.scala:221)
+       at kafka.log.LogCleaner$CleanerThread.doWork(LogCleaner.scala:199)
+       at kafka.utils.ShutdownableThread.run(ShutdownableThread.scala:60)
+
+
+---
+
+* [KAFKA-2234](https://issues.apache.org/jira/browse/KAFKA-2234) | *Blocker* | **Partition reassignment of a nonexistent topic prevents future reassignments**
+
+The results of this bug are like those of KAFKA-822.  If I erroneously list a non-existent topic in a partition reassignment request, then it will never complete and it becomes impossible to do reassignments until the admin/reassign-partitions node is deleted by hand from zookeeper.
+
+Note too the incoherent messaging in the bad command.  First it says ERROR what I'm trying to do is bad, and then it says it has successfully started it (which indeed it has, at least in the sense of writing an empty list to to zookeeper :)).
+
+# reassignment.json is bad, it refers to the non-existent topic "bad-foo"
+
+$ cat reassignment.json
+ {"partitions":                         
+  [{"topic": "bad-foo",                     
+    "partition": 0,                     
+    "replicas": [2] }],             
+  "version":1                            
+ }    
+
+$ kafka-reassign-partitions.sh --reassignment-json-file reassignment.json --zookeeper localhost:2181/kafka --execute
+Current partition replica assignment
+
+{"version":1,"partitions":[]}
+
+Save this to use as the --reassignment-json-file option during rollback
+[2015-06-01 06:34:26,275] ERROR Skipping reassignment of partition [bad-foo,0] since it doesn't exist (kafka.admin.ReassignPartitionsCommand)
+Successfully started reassignment of partitions {"version":1,"partitions":[{"topic":"bad-foo","partition":0,"replicas":[2]}]}
+
+$ zkCli
+Connecting to localhost:2181
+Welcome to ZooKeeper!
+JLine support is enabled
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:None path:null
+[zk: localhost:2181(CONNECTED) 2] get /kafka/admin/reassign\_partitions
+{"version":1,"partitions":[]}
+cZxid = 0x5d
+ctime = Mon Jun 01 06:34:26 PDT 2015
+mZxid = 0x5d
+mtime = Mon Jun 01 06:34:26 PDT 2015
+pZxid = 0x5d
+cversion = 0
+dataVersion = 0
+aclVersion = 0
+ephemeralOwner = 0x0
+dataLength = 29
+numChildren = 0
+
+^C
+
+# Fix reassignment.json
+
+$kafka-reassign-partitions.sh --reassignment-json-file reassignment.json --zookeeper localhost:2181/kafka --executetions
+Current partition replica assignment
+
+{"version":1,"partitions":[{"topic":"good-foo","partition":0,"replicas":[2]}]}
+
+Save this to use as the --reassignment-json-file option during rollback
+Partitions reassignment failed due to Partition reassignment currently in progress for Map(). Aborting operation
+kafka.common.AdminCommandFailedException: Partition reassignment currently in progress for Map(). Aborting operation
+	at kafka.admin.ReassignPartitionsCommand.reassignPartitions(ReassignPartitionsCommand.scala:216)
+	at kafka.admin.ReassignPartitionsCommand$.executeAssignment(ReassignPartitionsCommand.scala:133)
+	at kafka.admin.ReassignPartitionsCommand$.main(ReassignPartitionsCommand.scala:47)
+	at kafka.admin.ReassignPartitionsCommand.main(ReassignPartitionsCommand.scala)
 
 
 ---
@@ -895,6 +1027,35 @@ RollingBounceTest.testRollingBounce() currently takes about 48 secs. This is a b
 * [KAFKA-2013](https://issues.apache.org/jira/browse/KAFKA-2013) | *Trivial* | **benchmark test for the purgatory**
 
 We need a micro benchmark test for measuring the purgatory performance.
+
+
+---
+
+* [KAFKA-2012](https://issues.apache.org/jira/browse/KAFKA-2012) | *Major* | **Broker should automatically handle corrupt index files**
+
+We had a bunch of unclean system shutdowns (power failure), which caused corruption on our disks holding log segments in many cases. While the broker is handling the log segment corruption properly (truncation), it is having problems with corruption in the index files. Additionally, this only seems to be happening on some startups (while we are upgrading).
+
+The broker should just do what I do when I hit a corrupt index file - remove it and rebuild it.
+
+2015/03/09 17:58:53.873 FATAL [KafkaServerStartable] [main] [kafka-server] [] Fatal error during KafkaServerStartable startup. Prepare to shutdown
+java.lang.IllegalArgumentException: requirement failed: Corrupt index found, index file (/export/content/kafka/i001\_caches/\_\_consumer\_offsets-39/00000000000000000000.index) has non-zero size but the last offset is -2121629628 and the base offset is 0
+	at scala.Predef$.require(Predef.scala:233)
+	at kafka.log.OffsetIndex.sanityCheck(OffsetIndex.scala:352)
+	at kafka.log.Log$$anonfun$loadSegments$5.apply(Log.scala:185)
+	at kafka.log.Log$$anonfun$loadSegments$5.apply(Log.scala:184)
+	at scala.collection.Iterator$class.foreach(Iterator.scala:727)
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1157)
+	at scala.collection.IterableLike$class.foreach(IterableLike.scala:72)
+	at scala.collection.AbstractIterable.foreach(Iterable.scala:54)
+	at kafka.log.Log.loadSegments(Log.scala:184)
+	at kafka.log.Log.<init>(Log.scala:82)
+	at kafka.log.LogManager$$anonfun$loadLogs$2$$anonfun$3$$anonfun$apply$7$$anonfun$apply$1.apply$mcV$sp(LogManager.scala:141)
+	at kafka.utils.Utils$$anon$1.run(Utils.scala:54)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
 
 
 ---
@@ -1672,6 +1833,47 @@ Implement a consumer client.
 
 ---
 
+* [KAFKA-1758](https://issues.apache.org/jira/browse/KAFKA-1758) | *Major* | **corrupt recovery file prevents startup**
+
+Hi,
+
+We recently had a kafka node go down suddenly. When it came back up, it apparently had a corrupt recovery file, and refused to startup:
+
+{code}
+2014-11-06 08:17:19,299  WARN [main] server.KafkaServer - Error starting up KafkaServer
+java.lang.NumberFormatException: For input string: "^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@
+^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@"
+        at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+        at java.lang.Integer.parseInt(Integer.java:481)
+        at java.lang.Integer.parseInt(Integer.java:527)
+        at scala.collection.immutable.StringLike$class.toInt(StringLike.scala:229)
+        at scala.collection.immutable.StringOps.toInt(StringOps.scala:31)
+        at kafka.server.OffsetCheckpoint.read(OffsetCheckpoint.scala:76)
+        at kafka.log.LogManager$$anonfun$loadLogs$1.apply(LogManager.scala:106)
+        at kafka.log.LogManager$$anonfun$loadLogs$1.apply(LogManager.scala:105)
+        at scala.collection.IndexedSeqOptimized$class.foreach(IndexedSeqOptimized.scala:33)
+        at scala.collection.mutable.WrappedArray.foreach(WrappedArray.scala:34)
+        at kafka.log.LogManager.loadLogs(LogManager.scala:105)
+        at kafka.log.LogManager.<init>(LogManager.scala:57)
+        at kafka.server.KafkaServer.createLogManager(KafkaServer.scala:275)
+        at kafka.server.KafkaServer.startup(KafkaServer.scala:72)
+{code}
+
+And the app is under a monitor (so it was repeatedly restarting and failing with this error for several minutes before we got to it)…
+
+We moved the ‘recovery-point-offset-checkpoint’ file out of the way, and it then restarted cleanly (but of course re-synced all it’s data from replicas, so we had no data loss).
+
+Anyway, I’m wondering if that’s the expected behavior? Or should it not declare it corrupt and then proceed automatically to an unclean restart?
+
+Should this NumberFormatException be handled a bit more gracefully?
+
+We saved the corrupt file if it’s worth inspecting (although I doubt it will be useful!)….
+
+The corrupt files appeared to be all zeroes.
+
+
+---
+
 * [KAFKA-1757](https://issues.apache.org/jira/browse/KAFKA-1757) | *Minor* | **Can not delete Topic index on Windows**
 
 When running the Kafka 0.8.2-Beta (Scala 2.10) on Windows, an attempt to delete the Topic throwed an error:
@@ -2011,6 +2213,14 @@ kafka.common.ConsumerRebalanceFailedException: kafka-audit\_lva1-app0007.corp-14
 
 ---
 
+* [KAFKA-1646](https://issues.apache.org/jira/browse/KAFKA-1646) | *Major* | **Improve consumer read performance for Windows**
+
+This patch is for Window platform only. In Windows platform, if there are more than one replicas writing to disk, the segment log files will not be consistent in disk and then consumer reading performance will be dropped down greatly. This fix allocates more disk spaces when rolling a new segment, and then it will improve the consumer reading performance in NTFS file system.
+This patch doesn't affect file allocation of other filesystems, for it only adds statements like 'if(Os.iswindow)' or adds methods used on Windows.
+
+
+---
+
 * [KAFKA-1644](https://issues.apache.org/jira/browse/KAFKA-1644) | *Major* | **Inherit FetchResponse from RequestOrResponse**
 
 Unlike all other Kafka API responses {{FetchResponse}} is not a subclass of RequestOrResponse, which requires handling it as a special case while processing responses.
@@ -2135,6 +2345,42 @@ But, when just getting started with kafka, using the console producer and consum
 
 Background:
 http://mail-archives.apache.org/mod\_mbox/kafka-users/201405.mbox/%3cCAOq\_b1w=SLZe5jRNAkxvaK0Gu9cTDKPaZaK1G4DygVqZbSgUyg@mail.gmail.com%3e
+
+
+---
+
+* [KAFKA-1465](https://issues.apache.org/jira/browse/KAFKA-1465) | *Major* | **kafka-reassign-partitions.sh fails when topic name contains dash/hyphen**
+
+{{./bin/kafka-reassign-partitions.sh --topics-to-move-json-file ~/rebalance-topic.json --broker-list "18,19" --zookeeper $ZK\_QUORUM --execute}}
+
+{code}
+Partitions reassignment failed due to Can't parse json string: null
+kafka.common.KafkaException: Can't parse json string: null
+	at kafka.utils.Json$.liftedTree1$1(Json.scala:36)
+	at kafka.utils.Json$.parseFull(Json.scala:32)
+	at kafka.utils.ZkUtils$$anonfun$getReplicaAssignmentForTopics$1.apply(ZkUtils.scala:529)
+	at kafka.utils.ZkUtils$$anonfun$getReplicaAssignmentForTopics$1.apply(ZkUtils.scala:525)
+	at scala.collection.LinearSeqOptimized$class.foreach(LinearSeqOptimized.scala:61)
+	at scala.collection.immutable.List.foreach(List.scala:45)
+	at kafka.utils.ZkUtils$.getReplicaAssignmentForTopics(ZkUtils.scala:525)
+	at kafka.admin.ReassignPartitionsCommand$.main(ReassignPartitionsCommand.scala:112)
+	at kafka.admin.ReassignPartitionsCommand.main(ReassignPartitionsCommand.scala)
+Caused by: java.lang.NullPointerException
+	at scala.util.parsing.combinator.lexical.Scanners$Scanner.<init>(Scanners.scala:52)
+	at scala.util.parsing.json.JSON$.parseRaw(JSON.scala:71)
+	at scala.util.parsing.json.JSON$.parseFull(JSON.scala:85)
+	at kafka.utils.Json$.liftedTree1$1(Json.scala:33)
+	... 8 more
+
+{code}
+
+*rebalance-topic.json*
+{code}
+{"topics":
+     [{"topic": "metrics-logs"}],
+     "version":1
+}
+{code}
 
 
 ---

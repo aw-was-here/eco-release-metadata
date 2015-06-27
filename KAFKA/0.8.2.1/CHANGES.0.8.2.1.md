@@ -46,6 +46,7 @@
 | [KAFKA-1971](https://issues.apache.org/jira/browse/KAFKA-1971) | starting a broker with a conflicting id will delete the previous broker registration |  Blocker | . | Jun Rao | Jun Rao |
 | [KAFKA-1952](https://issues.apache.org/jira/browse/KAFKA-1952) | High CPU Usage in 0.8.2 release |  Critical | . | Jay Kreps | Jun Rao |
 | [KAFKA-1919](https://issues.apache.org/jira/browse/KAFKA-1919) | Metadata request issued with no backoff in new producer if there are no topics |  Blocker | . | Jay Kreps | Jay Kreps |
+| [KAFKA-1100](https://issues.apache.org/jira/browse/KAFKA-1100) | metrics shouldn't have generation/timestamp specific names |  Major | . | Jason Rosenberg |  |
 
 
 ### TESTS:

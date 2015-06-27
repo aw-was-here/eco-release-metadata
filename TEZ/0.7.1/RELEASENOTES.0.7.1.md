@@ -23,6 +23,76 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [TEZ-2568](https://issues.apache.org/jira/browse/TEZ-2568) | *Blocker* | **V\_INPUT\_DATA\_INFORMATION may happen after vertex is initialized**
+
+{code}
+2015-06-19 15:57:28,462 ERROR [Dispatcher thread: Central] impl.VertexImpl: Can't handle Invalid event V\_INPUT\_DATA\_INFORMATION on vertex Map 2 with vertexId vertex\_1434754502979\_0002\_2\_00 at current state INITED
+org.apache.hadoop.yarn.state.InvalidStateTransitonException: Invalid event: V\_INPUT\_DATA\_INFORMATION at INITED
+        at org.apache.hadoop.yarn.state.StateMachineFactory.doTransition(StateMachineFactory.java:305)
+        at org.apache.hadoop.yarn.state.StateMachineFactory.access$300(StateMachineFactory.java:46)
+        at org.apache.hadoop.yarn.state.StateMachineFactory$InternalStateMachine.doTransition(StateMachineFactory.java:448)
+        at org.apache.tez.state.StateMachineTez.doTransition(StateMachineTez.java:57)
+        at org.apache.tez.dag.app.dag.impl.VertexImpl.handle(VertexImpl.java:1799)
+        at org.apache.tez.dag.app.dag.impl.VertexImpl.handle(VertexImpl.java:198)
+        at org.apache.tez.dag.app.DAGAppMaster$VertexEventDispatcher.handle(DAGAppMaster.java:1963)
+        at org.apache.tez.dag.app.DAGAppMaster$VertexEventDispatcher.handle(DAGAppMaster.java:1949)
+        at org.apache.tez.common.AsyncDispatcher.dispatch(AsyncDispatcher.java:183)
+        at org.apache.tez.common.AsyncDispatcher$1.run(AsyncDispatcher.java:114)
+        at java.lang.Thread.run(Thread.java:722)
+{code}
+
+Vertex move to INITED as long as its parallelism is determined, no null edges and root inputs are initialized. RootInputDataInformation handling is not a precondition of vertex move to INITED.   We can't wait for all the V\_INPUT\_DATA\_INFORMATION events available in INITIALIZING state, because it is not know how many V\_INPUT\_DATA\_INFORMATION we may receive, it is determined by VM.  So will allow V\_INPUT\_DATA\_INFORMATION happens when vertex is initialized.
+
+
+---
+
+* [TEZ-2567](https://issues.apache.org/jira/browse/TEZ-2567) | *Major* | **Tez UI: download dag data does not work within ambari**
+
+downloading of dag data from the ui while using a ambari fails. 
+This is due to the fact that $.ajax call does not know how to parse the data as the content-type headers are removed by the ambari proxy (this was a getJSON call later changed to ajax call as we needed to pass the credentials).
+
+
+---
+
+* [TEZ-2566](https://issues.apache.org/jira/browse/TEZ-2566) | *Major* | **Allow TaskAttemptFinishedEvent without TaskAttemptStartedEvent when it is KILLED/FAILED**
+
+TEZ-2304 allow logging TaskAttempFinishedEvent even without TaskAttemptStartedEvent but don't change the logic in Task#restoreFromEvent.
+Task attempt is possible to be KILLED/FAILED before it is started, but not possible to be SUCCEEDED without started.
+
+
+---
+
+* [TEZ-2561](https://issues.apache.org/jira/browse/TEZ-2561) | *Major* | **Port for TaskAttemptListenerImpTezDag should be configurable**
+
+Noticed sporadic DAG failures in our ec2 test environment.
+Tasks failing with that:
+{noformat}
+2015-06-17 11:19:51,064 INFO [main] impl.MetricsSystemImpl: Scheduled snapshot period at 10 second(s).
+2015-06-17 11:19:51,064 INFO [main] impl.MetricsSystemImpl: TezTask metrics system started
+2015-06-17 11:19:51,259 INFO [TezChild] task.ContainerReporter: Attempting to fetch new task
+2015-06-17 11:20:11,311 INFO [TezChild] ipc.Client: Retrying connect to server: ip-10-149-102-100.ec2.internal/10.149.102.100:60630. Already tried 0 time(s); maxRetries=5
+2015-06-17 11:20:31,312 INFO [TezChild] ipc.Client: Retrying connect to server: ip-10-149-102-100.ec2.internal/10.149.102.100:60630. Already tried 1 time(s); maxRetries=5
+2015-06-17 11:20:51,313 INFO [TezChild] ipc.Client: Retrying connect to server: ip-10-149-102-100.ec2.internal/10.149.102.100:60630. Already tried 2 time(s); maxRetries=5
+2015-06-17 11:21:11,314 INFO [TezChild] ipc.Client: Retrying connect to server: ip-10-149-102-100.ec2.internal/10.149.102.100:60630. Already tried 3 time(s); maxRetries=5
+2015-06-17 11:21:31,315 INFO [TezChild] ipc.Client: Retrying connect to server: ip-10-149-102-100.ec2.internal/10.149.102.100:60630. Already tried 4 time(s); maxRetries=5
+2015-06-17 11:21:51,317 INFO [main] impl.MetricsSystemImpl: Stopping TezTask metrics system...
+2015-06-17 11:21:51,318 INFO [main] impl.MetricsSystemImpl: TezTask metrics system stopped.
+2015-06-17 11:21:51,318 INFO [main] impl.MetricsSystemImpl: TezTask metrics system shutdown complete.
+{noformat}
+
+From the AppMaster:
+{noformat}
+Created DAGAppMaster for application appattempt\_1434553606315\_0022\_000001
+2015-06-17 11:19:43,655 INFO [Socket Reader #1 for port 60630] ipc.Server: Starting Socket Reader #1 for port 60630
+2015-06-17 11:19:43,656 INFO [Socket Reader #1 for port 31001] ipc.Server: Starting Socket Reader #1 for port 31001
+2015-06-17 11:19:43,713 WARN [ServiceThread:org.apache.tez.dag.history.HistoryEventHandler] conf.Configuration: mapred-site.xml:an attempt to override final parameter: mapreduce.cluster.local.dir;  Ignoring.
+{noformat}
+
+[~hitesh] mentioned its likely to be the TaskAttemptListenerImpTezDag which starts on that port. Would be nice if the port(-range) can be configured!!!
+
+
+---
+
 * [TEZ-2554](https://issues.apache.org/jira/browse/TEZ-2554) | *Major* | **Tez UI: View log link does not correctly propagate login crendential to read log from yarn web.**
 
 Append "user.name=<am user>" to the view/download logs url as a query param.
@@ -851,6 +921,14 @@ I saw a Tez AM throw a few InvalidStateTransitonException (sic) instances during
 
 ---
 
+* [TEZ-2291](https://issues.apache.org/jira/browse/TEZ-2291) | *Major* | **TEZ UI: Improper vertex name in tables.**
+
+-1. Counters values are not getting displayed in tables.-
+2. There is probably a race condition where the vertex name does not get displayed - reproduction - go to all tasks page of one dag, go back to all dags, go to another dag all tasks, check if the vertex name is getting displayed. at times i was seeing vertex id instead. a refresh would show the vertex name.
+
+
+---
+
 * [TEZ-1961](https://issues.apache.org/jira/browse/TEZ-1961) | *Critical* | **Remove misleading exception "No running dag" from AM logs**
 
 {code}
@@ -873,6 +951,13 @@ org.apache.tez.dag.api.TezException: No running dag at present
 
 This exception shows up fairly often and isn't very relevant - queries before a DAG is submitted to the AM.
 This is very misleading, especially for folks new to Tez, and should be removed.
+
+
+---
+
+* [TEZ-1529](https://issues.apache.org/jira/browse/TEZ-1529) | *Blocker* | **ATS and TezClient integration  in secure kerberos enabled cluster**
+
+This is a follow up for TEZ-1495 which address ATS - TezClient integration. however it does not enable it  in secure kerberos enabled cluster.
 
 
 

@@ -32,6 +32,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [SPARK-7746](https://issues.apache.org/jira/browse/SPARK-7746) | SetFetchSize for JDBCRDD's prepareStatement |  Major | SQL | Paul Wu | Liang-Chi Hsieh |
 | [SPARK-7698](https://issues.apache.org/jira/browse/SPARK-7698) | Implement buffer pooling / re-use in ExecutorMemoryManager when using HeapAllocator |  Major | Spark Core | Josh Rosen | Josh Rosen |
+| [SPARK-7648](https://issues.apache.org/jira/browse/SPARK-7648) | Additional methods in ALS JavaModel wrappers |  Major | ML, PySpark | Xiangrui Meng | Xiangrui Meng |
 | [SPARK-7647](https://issues.apache.org/jira/browse/SPARK-7647) | Additional methods in GLM JavaModel wrappers |  Major | ML, PySpark | Xiangrui Meng | Xiangrui Meng |
 | [SPARK-7593](https://issues.apache.org/jira/browse/SPARK-7593) | Python API for Bucketizer |  Major | ML, PySpark | Xiangrui Meng | Burak Yavuz |
 | [SPARK-7553](https://issues.apache.org/jira/browse/SPARK-7553) | Add methods to maintain a singleton StreamingContext |  Blocker | Streaming | Tathagata Das | Tathagata Das |
@@ -103,6 +104,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-8053](https://issues.apache.org/jira/browse/SPARK-8053) | ElementwiseProduct scalingVec param name should match between ml,mllib |  Minor | MLlib | Joseph K. Bradley | Joseph K. Bradley |
 | [SPARK-8025](https://issues.apache.org/jira/browse/SPARK-8025) | Add JavaDoc style deprecation for deprecated Streaming methods |  Major | Streaming | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-7957](https://issues.apache.org/jira/browse/SPARK-7957) | Preserve partitioning in randomSplit in RDD.scala |  Major | Spark Core | Burak Yavuz | Burak Yavuz |
 | [SPARK-7954](https://issues.apache.org/jira/browse/SPARK-7954) | Implicitly create SparkContext in sparkRSQL.init |  Major | SparkR | Shivaram Venkataraman | Shivaram Venkataraman |
@@ -189,7 +191,6 @@
 | [SPARK-7216](https://issues.apache.org/jira/browse/SPARK-7216) | Show driver details in Mesos cluster UI |  Major | Mesos | Timothy Chen | Timothy Chen |
 | [SPARK-7201](https://issues.apache.org/jira/browse/SPARK-7201) | Move identifiable to ml.util |  Major | ML | Xiangrui Meng | Xiangrui Meng |
 | [SPARK-7198](https://issues.apache.org/jira/browse/SPARK-7198) | VectorAssembler should carry ML metadata |  Major | ML | Xiangrui Meng | Xiangrui Meng |
-| [SPARK-7169](https://issues.apache.org/jira/browse/SPARK-7169) | Allow to specify metrics configuration more flexibly |  Minor | Spark Core | Jacek Lewandowski | Marcelo Vanzin |
 | [SPARK-7168](https://issues.apache.org/jira/browse/SPARK-7168) | Update plugin versions in Maven build and centralize versions |  Trivial | Build | Sean Owen | Sean Owen |
 | [SPARK-7145](https://issues.apache.org/jira/browse/SPARK-7145) | commons-lang (2.x) classes used instead of commons-lang3 (3.x); commons-io used without dependency |  Minor | Spark Core, SQL, Streaming | Sean Owen | Sean Owen |
 | [SPARK-7140](https://issues.apache.org/jira/browse/SPARK-7140) | Do not scan all values in Vector.hashCode |  Major | MLlib | Xiangrui Meng | Xiangrui Meng |
@@ -406,7 +407,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [SPARK-8394](https://issues.apache.org/jira/browse/SPARK-8394) | HistoryServer doesn't read kerberos opts from config |  Minor | Spark Core | Steve Loughran |  |
+| [SPARK-8394](https://issues.apache.org/jira/browse/SPARK-8394) | HistoryServer doesn't read kerberos opts from config |  Minor | Spark Core | Steve Loughran | Marcelo Vanzin |
 | [SPARK-8038](https://issues.apache.org/jira/browse/SPARK-8038) | PySpark SQL when functions is broken on Column |  Blocker | PySpark, SQL | Olivier Girardot | Olivier Girardot |
 | [SPARK-8037](https://issues.apache.org/jira/browse/SPARK-8037) | Ignores files whose name starts with "." while enumerating files in HadoopFsRelation |  Minor | SQL | Cheng Lian | Cheng Lian |
 | [SPARK-8028](https://issues.apache.org/jira/browse/SPARK-8028) | SparkR does not work with `--jars` and `--packages` |  Critical | SparkR | Shivaram Venkataraman | Shivaram Venkataraman |
@@ -816,6 +817,7 @@
 | [SPARK-3266](https://issues.apache.org/jira/browse/SPARK-3266) | JavaDoubleRDD doesn't contain max() |  Major | Java API | Amey Chaugule | Sean Owen |
 | [SPARK-3090](https://issues.apache.org/jira/browse/SPARK-3090) |  Avoid not stopping SparkContext with YARN Client mode |  Major | Spark Core, YARN | Kousuke Saruta | Marcelo Vanzin |
 | [SPARK-2669](https://issues.apache.org/jira/browse/SPARK-2669) | Hadoop configuration is not localised when submitting job in yarn-cluster mode |  Major | YARN | Maxim Ivanov | Marcelo Vanzin |
+| [SPARK-2319](https://issues.apache.org/jira/browse/SPARK-2319) | Number of tasks on executors become negative after executor failures |  Major | Web UI | Reynold Xin | Andrew Or |
 | [SPARK-2312](https://issues.apache.org/jira/browse/SPARK-2312) | Spark Actors do not handle unknown messages in their receive methods |  Trivial | Spark Core | Kam Kasravi | Isaias Barroso |
 | [SPARK-2155](https://issues.apache.org/jira/browse/SPARK-2155) | Support effectful / non-deterministic key expressions in CASE WHEN statements |  Minor | SQL | Zongheng Yang | Wenchen Fan |
 | [SPARK-2018](https://issues.apache.org/jira/browse/SPARK-2018) | Big-Endian (IBM Power7)  Spark Serialization issue |  Major | Deploy | Yanjie Gao | Tim Ellison |
@@ -974,6 +976,7 @@
 | [SPARK-6526](https://issues.apache.org/jira/browse/SPARK-6526) | Add Normalizer transformer |  Major | ML | Xusen Yin | Xusen Yin |
 | [SPARK-6490](https://issues.apache.org/jira/browse/SPARK-6490) | Deprecate configurations for "askWithReply" and use new configuration names |  Major | Spark Core | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-6418](https://issues.apache.org/jira/browse/SPARK-6418) | Add simple per-stage visualization to the UI |  Major | Web UI | Kay Ousterhout | Kousuke Saruta |
+| [SPARK-6265](https://issues.apache.org/jira/browse/SPARK-6265) | PySpark GLMs missing doc for intercept, weights |  Minor | Documentation, MLlib, PySpark | Joseph K. Bradley | Yanbo Liang |
 | [SPARK-6262](https://issues.apache.org/jira/browse/SPARK-6262) | Python MLlib API missing items: Statistics |  Major | MLlib, PySpark | Joseph K. Bradley | Kai Sasaki |
 | [SPARK-6258](https://issues.apache.org/jira/browse/SPARK-6258) | Python MLlib API missing items: Clustering |  Major | MLlib, PySpark | Joseph K. Bradley | Yanbo Liang |
 | [SPARK-6257](https://issues.apache.org/jira/browse/SPARK-6257) | Python MLlib API missing items: Recommendation |  Major | MLlib, PySpark | Joseph K. Bradley | Manoj Kumar |
@@ -1043,6 +1046,7 @@
 | [SPARK-7496](https://issues.apache.org/jira/browse/SPARK-7496) | User guide update for Online LDA |  Minor | Documentation, MLlib | Joseph K. Bradley | yuhao yang |
 | [SPARK-7474](https://issues.apache.org/jira/browse/SPARK-7474) | ParamGridBuilder's doctest doesn't show up correctly in the generated doc |  Major | Documentation, ML | Xiangrui Meng | Xiangrui Meng |
 | [SPARK-7459](https://issues.apache.org/jira/browse/SPARK-7459) | Add Java example for ElementwiseProduct in programming guide |  Minor | Documentation, Java API, ML | Joseph K. Bradley | Octavian Geagla |
+| [SPARK-7443](https://issues.apache.org/jira/browse/SPARK-7443) | MLlib 1.4 QA plan |  Critical | ML, MLlib | Xiangrui Meng | Joseph K. Bradley |
 | [SPARK-7427](https://issues.apache.org/jira/browse/SPARK-7427) | Make sharedParams match in Scala, Python |  Trivial | ML, PySpark | Joseph K. Bradley | Glenn Weidner |
 | [SPARK-7381](https://issues.apache.org/jira/browse/SPARK-7381) | Missing Python API for o.a.s.ml in 1.4 |  Major | ML, PySpark | Burak Yavuz | Burak Yavuz |
 | [SPARK-7351](https://issues.apache.org/jira/browse/SPARK-7351) | Add spark.streaming.ui.retainedBatches to docs |  Major | Documentation, Streaming | Shixiong Zhu | Shixiong Zhu |
@@ -1063,6 +1067,7 @@
 | [SPARK-6336](https://issues.apache.org/jira/browse/SPARK-6336) | LBFGS should document what convergenceTol means |  Trivial | Documentation, MLlib | Joseph K. Bradley | Kai Sasaki |
 | [SPARK-6278](https://issues.apache.org/jira/browse/SPARK-6278) | Mention the change of step size in the migration guide |  Major | Documentation, MLlib | Xiangrui Meng | Xiangrui Meng |
 | [SPARK-6275](https://issues.apache.org/jira/browse/SPARK-6275) | Miss toDF() function in docs/sql-programming-guide.md |  Trivial | Documentation | Zhichao  Zhang | Zhichao  Zhang |
+| [SPARK-5884](https://issues.apache.org/jira/browse/SPARK-5884) | Implement feature transformers to ML pipelines for Spark 1.4 |  Critical | ML | Xiangrui Meng | Xiangrui Meng |
 | [SPARK-5814](https://issues.apache.org/jira/browse/SPARK-5814) | Remove JBLAS from runtime dependencies |  Major | GraphX, MLlib | Xiangrui Meng | Xiangrui Meng |
 | [SPARK-5610](https://issues.apache.org/jira/browse/SPARK-5610) | Generate Java docs without package private classes and methods |  Major | Documentation | Xiangrui Meng | Xiangrui Meng |
 | [SPARK-7973](https://issues.apache.org/jira/browse/SPARK-7973) | Increase the timeout of CliSuite's "Commands using SerDe provided in --jars" and "Single command with -e" |  Major | SQL, Tests | Yin Huai | Yin Huai |

@@ -72,4 +72,27 @@ I have re-run my unit test with 0.8.2.0. same tight-loop problem happened
 after a few mins.
 
 
+---
+
+* [KAFKA-1100](https://issues.apache.org/jira/browse/KAFKA-1100) | *Major* | **metrics shouldn't have generation/timestamp specific names**
+
+I've noticed that there are several metrics that seem useful for monitoring overtime, but which contain generational timestamps in the metric name.
+
+We are using yammer metrics libraries to send metrics data in a background thread every 10 seconds (to kafka actually), and then they eventually end up in a metrics database (graphite, opentsdb).  The metrics then get graphed via UI, and we can see metrics going way back, etc.
+
+Unfortunately, many of the metrics coming from kafka seem to have metric names that change any time the server or consumer is restarted, which makes it hard to easily create graphs over long periods of time (spanning app restarts).
+
+For example:
+
+names like: 
+kafka.consumer.FetchRequestAndResponseMetrics....square-1371718712833-e9bb4d10-0-508818741-AllBrokersFetchRequestRateAndTimeMs
+
+or: 
+kafka.consumer.ZookeeperConsumerConnector...topicName.....square-1373476779391-78aa2e83-0-FetchQueueSize
+
+In our staging environment, we have our servers on regular auto-deploy cycles (they restart every few hours).  So just not longitudinally usable to have metric names constantly changing like this.
+
+Is there something that can easily be done?  Is it really necessary to have so much cryptic info in the metric name?
+
+
 

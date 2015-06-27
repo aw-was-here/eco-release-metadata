@@ -23,9 +23,30 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [HIVE-11043](https://issues.apache.org/jira/browse/HIVE-11043) | *Major* | **ORC split strategies should adapt based on number of files**
+
+Use ETLStrategy for a small number of ORC files.
+
+
+---
+
 * [HIVE-10974](https://issues.apache.org/jira/browse/HIVE-10974) | *Major* | **Use Configuration::getRaw() for the Base64 data**
 
 Use Configuration::getRaw() to read Base64 data out of Configuration objects
+
+
+---
+
+* [HIVE-10746](https://issues.apache.org/jira/browse/HIVE-10746) | *Critical* | ** Hive 1.2.0+Tez produces 1-byte FileSplits from mapred.TextInputFormat**
+
+Use sane split min-sizes when using legacy mapred.InputFormat::getSplits(job, num)
+
+
+---
+
+* [HIVE-10707](https://issues.apache.org/jira/browse/HIVE-10707) | *Trivial* | **CBO: debug logging OOMs**
+
+CBO: dump AST only when in DEBUG mode.
 
 
 ---
@@ -40,6 +61,13 @@ Hive master/trunk version bumped up to 1.3
 * [HIVE-9365](https://issues.apache.org/jira/browse/HIVE-9365) | *Minor* | **The Metastore should take port configuration from hive-site.xml**
 
 **WARNING: No release note provided for this incompatible change.**
+
+
+---
+
+* [HIVE-6026](https://issues.apache.org/jira/browse/HIVE-6026) | *Minor* | **Ldap Authenticator should be more generic with BindDN**
+
+Hive LDAP Authenticator now has filter support for LDAP users and groups.
 
 
 

@@ -47,6 +47,17 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HIVE-11074](https://issues.apache.org/jira/browse/HIVE-11074) | Update tests for HIVE-9302 after removing binaries |  Major | Tests | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
+| [HIVE-11066](https://issues.apache.org/jira/browse/HIVE-11066) | Ensure tests don't share directories on FS |  Major | Tests | Eugene Koifman | Eugene Koifman |
+| [HIVE-11059](https://issues.apache.org/jira/browse/HIVE-11059) | hcatalog-server-extensions tests scope should depend on hive-exec |  Minor | Tests | Sushanth Sowmyan | Sushanth Sowmyan |
+| [HIVE-11050](https://issues.apache.org/jira/browse/HIVE-11050) | testCliDriver\_vector\_outer\_join.* failures in Unit tests due to unstable data creation queries |  Blocker | Hive | Matt McCline | Matt McCline |
+| [HIVE-11047](https://issues.apache.org/jira/browse/HIVE-11047) | Update versions of branch-1.2 to 1.2.1 |  Major | . | Sushanth Sowmyan | Sushanth Sowmyan |
+| [HIVE-11041](https://issues.apache.org/jira/browse/HIVE-11041) | Update tests for HIVE-9302 after removing binaries |  Major | Tests | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
+| [HIVE-11040](https://issues.apache.org/jira/browse/HIVE-11040) | Change Derby dependency version to 10.10.2.0 |  Major | Metastore | Jason Dere | Jason Dere |
+| [HIVE-11035](https://issues.apache.org/jira/browse/HIVE-11035) | PPD: Orc Split elimination fails because filterColumns=[-1] |  Major | . | Gopal V | Prasanth Jayachandran |
+| [HIVE-11033](https://issues.apache.org/jira/browse/HIVE-11033) | BloomFilter index is not honored by ORC reader |  Major | . | Allan Yan | Prasanth Jayachandran |
+| [HIVE-11031](https://issues.apache.org/jira/browse/HIVE-11031) | ORC concatenation of old files can fail while merging column statistics |  Critical | . | Prasanth Jayachandran | Prasanth Jayachandran |
+| [HIVE-11027](https://issues.apache.org/jira/browse/HIVE-11027) | Hive on tez: Bucket map joins fail when hashcode goes negative |  Major | Tez | Vikram Dixit K | Prasanth Jayachandran |
 | [HIVE-11023](https://issues.apache.org/jira/browse/HIVE-11023) | Disable directSQL if datanucleus.identifierFactory = datanucleus2 |  Critical | Metastore | Sushanth Sowmyan | Sushanth Sowmyan |
 | [HIVE-11006](https://issues.apache.org/jira/browse/HIVE-11006) | improve logging wrt ACID module |  Major | Transactions | Eugene Koifman | Eugene Koifman |
 | [HIVE-11001](https://issues.apache.org/jira/browse/HIVE-11001) | HS2 http cookie mode does not honor doAs url parameter |  Major | . | Thejas M Nair | Thejas M Nair |
@@ -94,6 +105,7 @@
 | [HIVE-10768](https://issues.apache.org/jira/browse/HIVE-10768) | In QTestGenTask.execute() we should not throw an exception right away if we are unable to clean any old files |  Major | Testing Infrastructure | Hari Sankar Sivarama Subramaniyan | Hari Sankar Sivarama Subramaniyan |
 | [HIVE-10760](https://issues.apache.org/jira/browse/HIVE-10760) | Templeton: HCatalog Get Column for Non-existent column returns Server Error (500) rather than Not Found(404) |  Minor | HCatalog, Hive, WebHCat | Lekha Thota | Lekha Thota |
 | [HIVE-10753](https://issues.apache.org/jira/browse/HIVE-10753) | hs2 jdbc url - wrong connection string cause  error on beeline/jdbc/odbc client, misleading message |  Major | Beeline, JDBC | Hari Sankar Sivarama Subramaniyan | Hari Sankar Sivarama Subramaniyan |
+| [HIVE-10746](https://issues.apache.org/jira/browse/HIVE-10746) |  Hive 1.2.0+Tez produces 1-byte FileSplits from mapred.TextInputFormat |  Critical | Hive, Tez | Greg Senia | Gopal V |
 | [HIVE-10745](https://issues.apache.org/jira/browse/HIVE-10745) | Better null handling by Vectorizer |  Major | Vectorization | Jagruti Varia | Ashutosh Chauhan |
 | [HIVE-10741](https://issues.apache.org/jira/browse/HIVE-10741) | count distinct rewrite is not firing |  Major | Query Planning | Mostafa Mokhtar | Ashutosh Chauhan |
 | [HIVE-10736](https://issues.apache.org/jira/browse/HIVE-10736) | HiveServer2 shutdown of cached tez app-masters is not clean |  Major | HiveServer2 | Gopal V | Vikram Dixit K |
@@ -107,6 +119,7 @@
 | [HIVE-10689](https://issues.apache.org/jira/browse/HIVE-10689) | HS2 metadata api calls should use HiveAuthorizer interface for authorization |  Major | Authorization, SQLStandardAuthorization | Thejas M Nair | Thejas M Nair |
 | [HIVE-10688](https://issues.apache.org/jira/browse/HIVE-10688) | constant folding is broken for case-when udf |  Major | Logical Optimizer | Jagruti Varia | Ashutosh Chauhan |
 | [HIVE-10686](https://issues.apache.org/jira/browse/HIVE-10686) | java.lang.IndexOutOfBoundsException for query with rank() over(partition ...) |  Major | . | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
+| [HIVE-10685](https://issues.apache.org/jira/browse/HIVE-10685) | Alter table concatenate oparetor will cause duplicate data |  Critical | . | guoliming | guoliming |
 | [HIVE-10684](https://issues.apache.org/jira/browse/HIVE-10684) | Fix the unit test failures for HIVE-7553 after HIVE-10674 removed the binary jar files |  Major | Tests | Ferdinand Xu | Ferdinand Xu |
 | [HIVE-10679](https://issues.apache.org/jira/browse/HIVE-10679) | JsonSerde ignores varchar and char size limit specified during table creation |  Major | Serializers/Deserializers | Jagruti Varia | Jason Dere |
 | [HIVE-10678](https://issues.apache.org/jira/browse/HIVE-10678) | update sql standard authorization configuration whitelist - more optimization flags |  Major | . | Thejas M Nair | Thejas M Nair |
@@ -122,6 +135,7 @@
 | [HIVE-10605](https://issues.apache.org/jira/browse/HIVE-10605) | Make hive version number update automatically in webhcat-default.xml during hive tar generation |  Major | WebHCat | Eugene Koifman | Eugene Koifman |
 | [HIVE-10563](https://issues.apache.org/jira/browse/HIVE-10563) | MiniTezCliDriver tests ordering issues |  Major | . | Hari Sankar Sivarama Subramaniyan | Hari Sankar Sivarama Subramaniyan |
 | [HIVE-10528](https://issues.apache.org/jira/browse/HIVE-10528) | Hiveserver2 in HTTP mode is not applying auth\_to\_local rules |  Major | HiveServer2 | Abdelrahman Shettia | Abdelrahman Shettia |
+| [HIVE-10453](https://issues.apache.org/jira/browse/HIVE-10453) | HS2 leaking open file descriptors when using UDFs |  Major | UDF | Yongzhi Chen | Yongzhi Chen |
 | [HIVE-10244](https://issues.apache.org/jira/browse/HIVE-10244) | Vectorization : TPC-DS Q80 fails with java.lang.ClassCastException when hive.vectorized.execution.reduce.enabled is enabled |  Major | Vectorization | Mostafa Mokhtar | Matt McCline |
 | [HIVE-10107](https://issues.apache.org/jira/browse/HIVE-10107) | Union All : Vertex missing stats resulting in OOM and in-efficient plans |  Major | Physical Optimizer | Mostafa Mokhtar | Pengcheng Xiong |
 | [HIVE-9842](https://issues.apache.org/jira/browse/HIVE-9842) | Enable session/operation timeout by default in HiveServer2 |  Major | HiveServer2 | Vaibhav Gumashta | Vaibhav Gumashta |

@@ -39,6 +39,17 @@ See https://github.com/apache/spark/pull/4558
 
 ---
 
+* [SPARK-8053](https://issues.apache.org/jira/browse/SPARK-8053) | *Minor* | **ElementwiseProduct scalingVec param name should match between ml,mllib**
+
+spark.mllib's ElementwiseProduct uses "scalingVector"
+
+spark.ml's ElementwiseProduct uses "scalingVec"
+
+We should make them match.
+
+
+---
+
 * [SPARK-8038](https://issues.apache.org/jira/browse/SPARK-8038) | *Blocker* | **PySpark SQL when functions is broken on Column**
 
 
@@ -1778,6 +1789,13 @@ Use window.localStorage to store the status rather than the url so that the url 
 
 ---
 
+* [SPARK-7648](https://issues.apache.org/jira/browse/SPARK-7648) | *Major* | **Additional methods in ALS JavaModel wrappers**
+
+ml.ALSModel is a simple wrapper that only provide transform. We should add methods to get rank/userFactors/itemFactors (in DataFrames).
+
+
+---
+
 * [SPARK-7647](https://issues.apache.org/jira/browse/SPARK-7647) | *Major* | **Additional methods in GLM JavaModel wrappers**
 
 We wrap Scala implementation of estimators and models as JavaEstimator and JavaModel in Python, which provides fit/transform by default. However, no additional methods are provided under the Python API. So basically user can call transform but they cannot get model weights out. We should provide those methods.
@@ -2836,6 +2854,58 @@ I have approximate 200 parquet files with key=<date>. When I load the dataframe 
 However the problem I have is that once I have the dataframe. Doing any operation on the dataframe seems to have a 10-30 second lag before it actually starts processing the Job and shows up as an Active Job in the Spark Manager. This was an instant operation in all previous versions of Spark. Once the job actually is running the performance is fantastic, however this job submission lag is horrible.
 
 I'm wondering if there is a bug with recomputing the schema merging. Running top on the master node shows some thread maxed out on 1 cpu during the lagging time which makes me think it's not net i/o but something pre-processing before job submission.
+
+
+---
+
+* [SPARK-7443](https://issues.apache.org/jira/browse/SPARK-7443) | *Critical* | **MLlib 1.4 QA plan**
+
+h2. API
+
+* Check API compliance using java-compliance-checker (SPARK-7458)
+
+* Audit new public APIs (from the generated html doc)
+** Scala (do not forget to check the object doc) (SPARK-7537)
+** Java compatibility (SPARK-7529)
+** Python API coverage (SPARK-7536)
+
+* audit Pipeline APIs (SPARK-7535)
+
+* graduate spark.ml from alpha (SPARK-7748)
+** remove AlphaComponent annotations
+** remove mima excludes for spark.ml
+** mark concrete classes final wherever reasonable
+
+h2. Algorithms and performance
+
+*Performance*
+* \_List any other missing performance tests from spark-perf here\_
+* LDA online/EM (SPARK-7455)
+* ElasticNet for linear regression and logistic regression (SPARK-7456)
+* Bernoulli naive Bayes (SPARK-7453)
+* PIC (SPARK-7454)
+* ALS.recommendAll (SPARK-7457)
+* perf-tests in Python (SPARK-7539)
+
+*Correctness*
+* PMML
+** scoring using PMML evaluator vs. MLlib models (SPARK-7540)
+* model save/load (SPARK-7541)
+
+h2. Documentation and example code
+
+* Create JIRAs for the user guide to each new algorithm and assign them to the corresponding author.  Link here as "requires"
+** Now that we have algorithms in spark.ml which are not in spark.mllib, we should start making subsections for the spark.ml API as needed.  We can follow the structure of the spark.mllib user guide.
+*** The spark.ml user guide can provide: (a) code examples and (b) info on algorithms which do not exist in spark.mllib.
+*** We should not duplicate info in the spark.ml guides.  Since spark.mllib is still the primary API, we should provide links to the corresponding algorithms in the spark.mllib user guide for more info.
+
+* Create example code for major components.  Link here as "requires"
+** cross validation in python (SPARK-7387)
+** pipeline with complex feature transformations (scala/java/python) (SPARK-7546)
+** elastic-net (possibly with cross validation) (SPARK-7547)
+** kernel density (SPARK-7707)
+
+* Update Programming Guide for 1.4 (towards end of QA) (SPARK-7715)
 
 
 ---
@@ -4756,21 +4826,6 @@ jstack log:
 {code}
 
 Thanks for [~yhuai] providing the helpful jstack log.
-
-
----
-
-* [SPARK-7169](https://issues.apache.org/jira/browse/SPARK-7169) | *Minor* | **Allow to specify metrics configuration more flexibly**
-
-Metrics are configured in {{metrics.properties}} file. Path to this file is specified in {{SparkConf}} at a key {{spark.metrics.conf}}. The property is read when {{MetricsSystem}} is created which means, during {{SparkEnv}} initialisation. 
-
-h5.Problem
-When the user runs his application he has no way to provide the metrics configuration for executors. Although one can specify the path to metrics configuration file (1) the path is common for all the nodes and the client machine so there is implicit assumption that all the machines has same file in the same location, and (2) actually the user needs to copy the file manually to the worker nodes because the file is read before the user files are populated to the executor local directories. All of this makes it very difficult to play with the metrics configuration.
-
-h5. Proposed solution
-I think that the easiest and the most consistent solution would be to move the configuration from a separate file directly to {{SparkConf}}. We may prefix all the configuration settings from the metrics configuration by, say {{spark.metrics.props}}. For the backward compatibility, these properties would be loaded from the specified as it works now. Such a solution doesn't change the API so maybe it could be even included in patch release of Spark 1.2 and Spark 1.3.
-
-Appreciate any feedback.
 
 
 ---
@@ -10661,6 +10716,13 @@ KMeans has many setters for parameters.  It should have matching getters.
 
 ---
 
+* [SPARK-6265](https://issues.apache.org/jira/browse/SPARK-6265) | *Minor* | **PySpark GLMs missing doc for intercept, weights**
+
+In PySpark MLlib, the GLMs (e.g., LinearRegressionModel) have no documentation for the intercept and weights attributes.
+
+
+---
+
 * [SPARK-6262](https://issues.apache.org/jira/browse/SPARK-6262) | *Major* | **Python MLlib API missing items: Statistics**
 
 This JIRA lists items missing in the Python API for this sub-package of MLlib.
@@ -12328,6 +12390,13 @@ val va = new VectorAssembler()
 {code}
 
 In the first version, it should be okay if it doesn't handle ML attributes (SPARK-4588).
+
+
+---
+
+* [SPARK-5884](https://issues.apache.org/jira/browse/SPARK-5884) | *Critical* | **Implement feature transformers to ML pipelines for Spark 1.4**
+
+This is an umbrella JIRA to keep a list of feature transformers for ML pipelines we want to have in Spark 1.4. I added a few basic transformers. Feel free to pick up one or propose more.
 
 
 ---
@@ -14811,6 +14880,13 @@ on YARN cluster side are changed to use SparkHadoopUtil.get.conf
 Please note that it fixes only core Spark, the part which I am
 comfortable to test and verify the result. I didn't descend into
 steaming/shark directories, so things might need to be changed there too.
+
+
+---
+
+* [SPARK-2319](https://issues.apache.org/jira/browse/SPARK-2319) | *Major* | **Number of tasks on executors become negative after executor failures**
+
+See attached screenshot.
 
 
 ---

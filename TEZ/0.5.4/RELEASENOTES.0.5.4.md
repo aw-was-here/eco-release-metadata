@@ -23,6 +23,73 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [TEZ-2569](https://issues.apache.org/jira/browse/TEZ-2569) | *Major* | **branch 0.5 build fails due to cannot find symbol TaskAttemptTerminationCause**
+
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.1:testCompile (default-testCompile) on project tez-dag: Compilation failure: Compilation failure:
+[ERROR] /Users/pramachandran/src/tez/tez-dag/src/test/java/org/apache/tez/dag/app/dag/impl/TestTaskRecovery.java:[66,34] cannot find symbol
+[ERROR] symbol:   class TaskAttemptTerminationCause
+[ERROR] location: package org.apache.tez.dag.records
+[ERROR] /Users/pramachandran/src/tez/tez-dag/src/test/java/org/apache/tez/dag/app/dag/impl/TestTaskRecovery.java:[286,42] cannot find symbol
+[ERROR] symbol:   variable TaskAttemptTerminationCause
+[ERROR] location: class org.apache.tez.dag.app.dag.impl.TestTaskRecovery
+[ERROR] /Users/pramachandran/src/tez/tez-dag/src/test/java/org/apache/tez/dag/app/dag/impl/TestTaskRecovery.java:[307,42] cannot find symbol
+[ERROR] symbol:   variable TaskAttemptTerminationCause
+[ERROR] location: class org.apache.tez.dag.app.dag.impl.TestTaskRecovery
+[ERROR] /Users/pramachandran/src/tez/tez-dag/src/test/java/org/apache/tez/dag/app/dag/impl/TestTaskRecovery.java:[328,29] no suitable constructor found for TaskAttemptFinishedEvent(org.apache.tez.dag.records.TezTaskAttemptID,java.lang.String,long,long,org.apache.tez.dag.api.oldrecords.TaskAttemptState,<nulltype>,java.lang.String,org.apache.tez.common.counters.TezCounters)
+[ERROR] constructor org.apache.tez.dag.history.events.TaskAttemptFinishedEvent.TaskAttemptFinishedEvent() is not applicable
+[ERROR] (actual and formal argument lists differ in length)
+[ERROR] constructor org.apache.tez.dag.history.events.TaskAttemptFinishedEvent.TaskAttemptFinishedEvent(org.apache.tez.dag.records.TezTaskAttemptID,java.lang.String,long,long,org.apache.tez.dag.api.oldrecords.TaskAttemptState,java.lang.String,org.apache.tez.common.counters.TezCounters) is not applicable
+[ERROR] (actual and formal argument lists differ in length)
+
+
+---
+
+* [TEZ-2566](https://issues.apache.org/jira/browse/TEZ-2566) | *Major* | **Allow TaskAttemptFinishedEvent without TaskAttemptStartedEvent when it is KILLED/FAILED**
+
+TEZ-2304 allow logging TaskAttempFinishedEvent even without TaskAttemptStartedEvent but don't change the logic in Task#restoreFromEvent.
+Task attempt is possible to be KILLED/FAILED before it is started, but not possible to be SUCCEEDED without started.
+
+
+---
+
+* [TEZ-2561](https://issues.apache.org/jira/browse/TEZ-2561) | *Major* | **Port for TaskAttemptListenerImpTezDag should be configurable**
+
+Noticed sporadic DAG failures in our ec2 test environment.
+Tasks failing with that:
+{noformat}
+2015-06-17 11:19:51,064 INFO [main] impl.MetricsSystemImpl: Scheduled snapshot period at 10 second(s).
+2015-06-17 11:19:51,064 INFO [main] impl.MetricsSystemImpl: TezTask metrics system started
+2015-06-17 11:19:51,259 INFO [TezChild] task.ContainerReporter: Attempting to fetch new task
+2015-06-17 11:20:11,311 INFO [TezChild] ipc.Client: Retrying connect to server: ip-10-149-102-100.ec2.internal/10.149.102.100:60630. Already tried 0 time(s); maxRetries=5
+2015-06-17 11:20:31,312 INFO [TezChild] ipc.Client: Retrying connect to server: ip-10-149-102-100.ec2.internal/10.149.102.100:60630. Already tried 1 time(s); maxRetries=5
+2015-06-17 11:20:51,313 INFO [TezChild] ipc.Client: Retrying connect to server: ip-10-149-102-100.ec2.internal/10.149.102.100:60630. Already tried 2 time(s); maxRetries=5
+2015-06-17 11:21:11,314 INFO [TezChild] ipc.Client: Retrying connect to server: ip-10-149-102-100.ec2.internal/10.149.102.100:60630. Already tried 3 time(s); maxRetries=5
+2015-06-17 11:21:31,315 INFO [TezChild] ipc.Client: Retrying connect to server: ip-10-149-102-100.ec2.internal/10.149.102.100:60630. Already tried 4 time(s); maxRetries=5
+2015-06-17 11:21:51,317 INFO [main] impl.MetricsSystemImpl: Stopping TezTask metrics system...
+2015-06-17 11:21:51,318 INFO [main] impl.MetricsSystemImpl: TezTask metrics system stopped.
+2015-06-17 11:21:51,318 INFO [main] impl.MetricsSystemImpl: TezTask metrics system shutdown complete.
+{noformat}
+
+From the AppMaster:
+{noformat}
+Created DAGAppMaster for application appattempt\_1434553606315\_0022\_000001
+2015-06-17 11:19:43,655 INFO [Socket Reader #1 for port 60630] ipc.Server: Starting Socket Reader #1 for port 60630
+2015-06-17 11:19:43,656 INFO [Socket Reader #1 for port 31001] ipc.Server: Starting Socket Reader #1 for port 31001
+2015-06-17 11:19:43,713 WARN [ServiceThread:org.apache.tez.dag.history.HistoryEventHandler] conf.Configuration: mapred-site.xml:an attempt to override final parameter: mapreduce.cluster.local.dir;  Ignoring.
+{noformat}
+
+[~hitesh] mentioned its likely to be the TaskAttemptListenerImpTezDag which starts on that port. Would be nice if the port(-range) can be configured!!!
+
+
+---
+
+* [TEZ-2557](https://issues.apache.org/jira/browse/TEZ-2557) | *Blocker* | **Port TEZ-1910 to branch-0.5**
+
+Seen in 0.5.4 RC0 vote.
+
+
+---
+
 * [TEZ-2533](https://issues.apache.org/jira/browse/TEZ-2533) | *Major* | **AM deadlock when shutdown**
 
 AM is shutdown due to AM\_REBOOT signal
@@ -1177,6 +1244,13 @@ org.apache.hadoop.yarn.state.InvalidStateTransitonException: Invalid event: V\_S
 	at java.lang.Thread.run(Thread.java:745)
 2014-09-04 16:08:25,524 FATAL [AsyncDispatcher event handler] org.apache.hadoop.yarn.event.AsyncDispatcher: Error in dispatcher thread
 {code}
+
+
+---
+
+* [TEZ-1529](https://issues.apache.org/jira/browse/TEZ-1529) | *Blocker* | **ATS and TezClient integration  in secure kerberos enabled cluster**
+
+This is a follow up for TEZ-1495 which address ATS - TezClient integration. however it does not enable it  in secure kerberos enabled cluster.
 
 
 ---

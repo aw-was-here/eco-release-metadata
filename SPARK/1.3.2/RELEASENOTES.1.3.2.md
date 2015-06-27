@@ -23,6 +23,44 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-8541](https://issues.apache.org/jira/browse/SPARK-8541) | *Minor* | **sumApprox and meanApprox doctests are incorrect**
+
+The doctests for sumApprox and meanApprox methods test against an upper bound but not a lower bound. If there was a regression in the underlying code that caused things to go wrong the doctest may not fail. For example if sumApprox returned 0 the doctest would return -1 which is less than 0.05. Solution is to use the abs() function to test that the approximate answer is within 5% of the exact answer.
+
+
+---
+
+* [SPARK-8525](https://issues.apache.org/jira/browse/SPARK-8525) | *Minor* | **Bug in Streaming k-means documentation**
+
+The expected input format is wrong in Streaming K-means documentation.
+https://spark.apache.org/docs/latest/mllib-clustering.html#streaming-k-means
+
+It might be a bug in implementation though, not sure.
+
+There shouldn't be any spaces in test data points. I.e. instead of 
+(y, [x1, x2, x3]) it should be
+(y,[x1,x2,x3])
+
+The exception thrown 
+org.apache.spark.SparkException: Cannot parse a double from:  
+	at org.apache.spark.mllib.util.NumericParser$.parseDouble(NumericParser.scala:118)
+	at org.apache.spark.mllib.util.NumericParser$.parseTuple(NumericParser.scala:103)
+	at org.apache.spark.mllib.util.NumericParser$.parse(NumericParser.scala:41)
+	at org.apache.spark.mllib.regression.LabeledPoint$.parse(LabeledPoint.scala:49)
+
+
+Also I would improve documentation saying explicitly that expected data types for both 'x' and 'y' is Double. At the moment it's not obvious especially for 'y'.
+
+
+---
+
+* [SPARK-8451](https://issues.apache.org/jira/browse/SPARK-8451) | *Major* | **SparkSubmitSuite never checks for process exit code**
+
+We just never did. If the subprocess throws an exception we just ignore it.
+
+
+---
+
 * [SPARK-8309](https://issues.apache.org/jira/browse/SPARK-8309) | *Critical* | **OpenHashMap doesn't work with more than 12M items**
 
 The problem might be demonstrated with the following testcase:

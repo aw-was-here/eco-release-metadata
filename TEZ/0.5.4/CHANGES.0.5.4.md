@@ -36,6 +36,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-2561](https://issues.apache.org/jira/browse/TEZ-2561) | Port for TaskAttemptListenerImpTezDag should be configurable |  Major | . | Johannes Zillmann | Jeff Zhang |
 | [TEZ-2219](https://issues.apache.org/jira/browse/TEZ-2219) | Should verify the input\_name/output\_name to be unique per vertex |  Major | . | Jeff Zhang | Jeff Zhang |
 | [TEZ-1775](https://issues.apache.org/jira/browse/TEZ-1775) | Allow setting log level per logger |  Major | . | Siddharth Seth | Siddharth Seth |
 
@@ -44,6 +45,9 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-2569](https://issues.apache.org/jira/browse/TEZ-2569) | branch 0.5 build fails due to cannot find symbol TaskAttemptTerminationCause |  Major | . | Prakash Ramachandran | Prakash Ramachandran |
+| [TEZ-2566](https://issues.apache.org/jira/browse/TEZ-2566) | Allow TaskAttemptFinishedEvent without TaskAttemptStartedEvent when it is KILLED/FAILED |  Major | . | Jeff Zhang | Jeff Zhang |
+| [TEZ-2557](https://issues.apache.org/jira/browse/TEZ-2557) | Port TEZ-1910 to branch-0.5 |  Blocker | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-2537](https://issues.apache.org/jira/browse/TEZ-2537) | mapreduce.map.env and mapreduce.reduce.env need to fall back to mapred.child.env for compatibility |  Major | . | Jonathan Eagles | Rohini Palaniswamy |
 | [TEZ-2533](https://issues.apache.org/jira/browse/TEZ-2533) | AM deadlock when shutdown |  Major | . | Jeff Zhang | Jeff Zhang |
 | [TEZ-2475](https://issues.apache.org/jira/browse/TEZ-2475) | Tez local mode hanging in big testsuite |  Major | . | André Kelpe | Siddharth Seth |
@@ -95,6 +99,7 @@
 | [TEZ-1800](https://issues.apache.org/jira/browse/TEZ-1800) | Integer overflow in ExternalSorter.getInitialMemoryRequirement() |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-1642](https://issues.apache.org/jira/browse/TEZ-1642) | TestAMRecovery sometimes fail |  Major | . | Jeff Zhang | Jeff Zhang |
 | [TEZ-1560](https://issues.apache.org/jira/browse/TEZ-1560) | Invalid state machine handling for V\_SOURCE\_VERTEX\_RECOVERED in recovery |  Critical | . | Jeff Zhang | Jeff Zhang |
+| [TEZ-1529](https://issues.apache.org/jira/browse/TEZ-1529) | ATS and TezClient integration  in secure kerberos enabled cluster |  Blocker | . | Prakash Ramachandran | Prakash Ramachandran |
 | [TEZ-900](https://issues.apache.org/jira/browse/TEZ-900) | Confusing message for incorrect queue for some tez examples |  Major | . | Jonathan Eagles | Chang Li |
 
 

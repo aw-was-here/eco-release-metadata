@@ -35,7 +35,7 @@
 | [OOZIE-2108](https://issues.apache.org/jira/browse/OOZIE-2108) | bulk kill, suspend, resume jobs using existing filter, offset, len, and jobtype params |  Major | . | Bowen Zhang | Bowen Zhang |
 | [OOZIE-1983](https://issues.apache.org/jira/browse/OOZIE-1983) | Add spark action executor |  Major | . | Shwetha G S | pavan kumar kolamuri |
 | [OOZIE-1954](https://issues.apache.org/jira/browse/OOZIE-1954) | Add a way for the MapReduce action to be configured by Java code |  Major | . | Robert Kanter | Robert Kanter |
-| [OOZIE-1653](https://issues.apache.org/jira/browse/OOZIE-1653) | Support ALL to allowed error code of the user retry |  Minor | action | Azrael | Azrael |
+| [OOZIE-1653](https://issues.apache.org/jira/browse/OOZIE-1653) | Support ALL to allowed error code of the user retry |  Minor | action | Azrael Seoeun | Azrael Seoeun |
 | [OOZIE-1567](https://issues.apache.org/jira/browse/OOZIE-1567) | Provide a wait tool in Oozie |  Trivial | core | Viji | Robert Kanter |
 | [OOZIE-1457](https://issues.apache.org/jira/browse/OOZIE-1457) | Create a Hive Server 2 action |  Minor | action | Robert Kanter | Robert Kanter |
 
@@ -54,13 +54,13 @@
 | [OOZIE-2111](https://issues.apache.org/jira/browse/OOZIE-2111) | Kerberized Oozie doesn't allow connections from users with a lot of groups |  Major | security | Robert Kanter | Robert Kanter |
 | [OOZIE-2107](https://issues.apache.org/jira/browse/OOZIE-2107) | Schema config properties should be consistent with ActionExecutor config properties |  Major | core | Robert Kanter | Robert Kanter |
 | [OOZIE-2088](https://issues.apache.org/jira/browse/OOZIE-2088) | Exponential retries for transient failures |  Major | . | pavan kumar kolamuri | pavan kumar kolamuri |
-| [OOZIE-2042](https://issues.apache.org/jira/browse/OOZIE-2042) | Max substitution for config variables should be configurable |  Major | core | Robert Kanter | Azrael |
+| [OOZIE-2042](https://issues.apache.org/jira/browse/OOZIE-2042) | Max substitution for config variables should be configurable |  Major | core | Robert Kanter | Azrael Seoeun |
 | [OOZIE-1917](https://issues.apache.org/jira/browse/OOZIE-1917) | Authentication secret should be random by default and needs to coordinate with HA |  Critical | HA, security | Robert Kanter | Robert Kanter |
 | [OOZIE-1913](https://issues.apache.org/jira/browse/OOZIE-1913) | Devise a way to turn off SLA alerts for bundle/coordinator flexibly |  Major | . | Mona Chitnis | Purshotam Shah |
 | [OOZIE-1889](https://issues.apache.org/jira/browse/OOZIE-1889) | Convert NamedNativeQueries to JPQL |  Major | . | David Villegas | David Villegas |
 | [OOZIE-1876](https://issues.apache.org/jira/browse/OOZIE-1876) | use pom properties rather than specific version numbers in the pom files of hbaselibs, hcataloglibs, sharelib, etc |  Major | build | Xiaoshuang LU | Shwetha G S |
-| [OOZIE-1846](https://issues.apache.org/jira/browse/OOZIE-1846) | Convert CoordActionMaterializeCommand to an XCommand and remove Command |  Major | core | Robert Kanter | Azrael |
-| [OOZIE-1830](https://issues.apache.org/jira/browse/OOZIE-1830) | Change hadoop-1 profile to use 1.2.1 |  Minor | . | Azrael | Azrael |
+| [OOZIE-1846](https://issues.apache.org/jira/browse/OOZIE-1846) | Convert CoordActionMaterializeCommand to an XCommand and remove Command |  Major | core | Robert Kanter | Azrael Seoeun |
+| [OOZIE-1830](https://issues.apache.org/jira/browse/OOZIE-1830) | Change hadoop-1 profile to use 1.2.1 |  Minor | . | Azrael Seoeun | Azrael Seoeun |
 | [OOZIE-1803](https://issues.apache.org/jira/browse/OOZIE-1803) | Improvement in Purge service |  Major | core | Jaydeep Vishwakarma | Jaydeep Vishwakarma |
 | [OOZIE-1730](https://issues.apache.org/jira/browse/OOZIE-1730) | Change hadoop-2 profile to use 2.4.0 |  Major | . | Robert Kanter | Jaydeep Vishwakarma |
 | [OOZIE-1726](https://issues.apache.org/jira/browse/OOZIE-1726) | Oozie does not support \_HOST when configuring kerberos security |  Major | core | Mingjiang Shi | Venkat Ranganathan |
@@ -149,13 +149,13 @@
 | [OOZIE-1957](https://issues.apache.org/jira/browse/OOZIE-1957) | Coord update command override group when oozie.service.AuthorizationService.default.group.as.acl is set and group/acl is not configured in job property |  Major | . | Purshotam Shah | Purshotam Shah |
 | [OOZIE-1941](https://issues.apache.org/jira/browse/OOZIE-1941) | Bundle coordinator name can't be parameterized |  Major | . | Purshotam Shah | Purshotam Shah |
 | [OOZIE-1940](https://issues.apache.org/jira/browse/OOZIE-1940) | StatusTransitService has race condition |  Major | . | Purshotam Shah | Purshotam Shah |
-| [OOZIE-1939](https://issues.apache.org/jira/browse/OOZIE-1939) | Incorrect job information is set while logging |  Major | . | Purshotam Shah | Azrael |
+| [OOZIE-1939](https://issues.apache.org/jira/browse/OOZIE-1939) | Incorrect job information is set while logging |  Major | . | Purshotam Shah | Azrael Seoeun |
 | [OOZIE-1923](https://issues.apache.org/jira/browse/OOZIE-1923) | ZKLocksService locks are not re-entrant like MemoryLocks |  Major | HA | Purshotam Shah | Purshotam Shah |
 | [OOZIE-1914](https://issues.apache.org/jira/browse/OOZIE-1914) | CLI should retry on timeout |  Major | HA | Purshotam Shah | Purshotam Shah |
 | [OOZIE-1896](https://issues.apache.org/jira/browse/OOZIE-1896) | ZKUUIDService - Too many job submission fails |  Major | HA | Purshotam Shah | Purshotam Shah |
 | [OOZIE-1894](https://issues.apache.org/jira/browse/OOZIE-1894) | Better error reporting to user |  Major | . | Purshotam Shah | Purshotam Shah |
 | [OOZIE-1891](https://issues.apache.org/jira/browse/OOZIE-1891) | Parametrize surefire argLine to bump up heap memory for testing |  Major | . | Ryota Egashira | Ryota Egashira |
-| [OOZIE-1890](https://issues.apache.org/jira/browse/OOZIE-1890) | Make oozie-site empty and reconcile defaults between oozie-default and the code |  Major | core | Robert Kanter | Azrael |
+| [OOZIE-1890](https://issues.apache.org/jira/browse/OOZIE-1890) | Make oozie-site empty and reconcile defaults between oozie-default and the code |  Major | core | Robert Kanter | Azrael Seoeun |
 | [OOZIE-1847](https://issues.apache.org/jira/browse/OOZIE-1847) | HA - Oozie servers should shutdown (or go in safe mode) in case of ZK failure |  Major | HA | Purshotam Shah | Purshotam Shah |
 | [OOZIE-1843](https://issues.apache.org/jira/browse/OOZIE-1843) | Bulk update for coord last modified time for CoordMaterializeTriggerService |  Major | . | Purshotam Shah | Purshotam Shah |
 | [OOZIE-1818](https://issues.apache.org/jira/browse/OOZIE-1818) | CoordMaterializeTransitionXCommand verifyPrecondition doesn't verify current time |  Major | . | Purshotam Shah | Purshotam Shah |
@@ -177,7 +177,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [OOZIE-2210](https://issues.apache.org/jira/browse/OOZIE-2210) | Update extjs 2.2 link |  Major | docs | Robert Kanter | Bowen Zhang |
-| [OOZIE-2163](https://issues.apache.org/jira/browse/OOZIE-2163) | Remove CoordinatorStore |  Major | . | Bowen Zhang | Azrael |
+| [OOZIE-2163](https://issues.apache.org/jira/browse/OOZIE-2163) | Remove CoordinatorStore |  Major | . | Bowen Zhang | Azrael Seoeun |
 | [OOZIE-2092](https://issues.apache.org/jira/browse/OOZIE-2092) | Provide option to supply config to workflow during rerun of coordinator |  Major | . | Jaydeep Vishwakarma | Jaydeep Vishwakarma |
 | [OOZIE-2029](https://issues.apache.org/jira/browse/OOZIE-2029) | Workflow re-run with RERUN\_FAIL\_NODES=true should re-run only the failed nodes of the sub-workflow |  Major | workflow | Jaydeep Vishwakarma | Jaydeep Vishwakarma |
 | [OOZIE-2028](https://issues.apache.org/jira/browse/OOZIE-2028) | Coord action rerun with -failed option should rerun existing workflow with RERUN\_FAIL\_NODES=true |  Major | workflow | Jaydeep Vishwakarma | Jaydeep Vishwakarma |

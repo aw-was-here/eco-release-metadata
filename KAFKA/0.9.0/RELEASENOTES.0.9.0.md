@@ -23,6 +23,22 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [KAFKA-2294](https://issues.apache.org/jira/browse/KAFKA-2294) | *Major* | **javadoc compile error due to illegal \<p/\> , build failing (jdk 8)**
+
+Quick one,
+
+kafka/clients/src/main/java/org/apache/kafka/clients/producer/KafkaProducer.java:525: error: self-closing element not allowed
+     * <p/>
+
+This is causing build to fail under java 8 due to strict html checking.
+
+Replace that <p/> with <p>
+
+Regards,
+
+
+---
+
 * [KAFKA-1863](https://issues.apache.org/jira/browse/KAFKA-1863) | *Major* | **Exception categories / hierarchy in clients**
 
 In the new clients package we introduces a new set of exceptions, but its hierarchy is not very clear as of today:

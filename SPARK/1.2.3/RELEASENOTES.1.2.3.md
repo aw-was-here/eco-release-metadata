@@ -23,6 +23,30 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-8525](https://issues.apache.org/jira/browse/SPARK-8525) | *Minor* | **Bug in Streaming k-means documentation**
+
+The expected input format is wrong in Streaming K-means documentation.
+https://spark.apache.org/docs/latest/mllib-clustering.html#streaming-k-means
+
+It might be a bug in implementation though, not sure.
+
+There shouldn't be any spaces in test data points. I.e. instead of 
+(y, [x1, x2, x3]) it should be
+(y,[x1,x2,x3])
+
+The exception thrown 
+org.apache.spark.SparkException: Cannot parse a double from:  
+	at org.apache.spark.mllib.util.NumericParser$.parseDouble(NumericParser.scala:118)
+	at org.apache.spark.mllib.util.NumericParser$.parseTuple(NumericParser.scala:103)
+	at org.apache.spark.mllib.util.NumericParser$.parse(NumericParser.scala:41)
+	at org.apache.spark.mllib.regression.LabeledPoint$.parse(LabeledPoint.scala:49)
+
+
+Also I would improve documentation saying explicitly that expected data types for both 'x' and 'y' is Double. At the moment it's not obvious especially for 'y'.
+
+
+---
+
 * [SPARK-8062](https://issues.apache.org/jira/browse/SPARK-8062) | *Major* | **NullPointerException in SparkHadoopUtil.getFileSystemThreadStatistics**
 
 I received the following error report from a user:

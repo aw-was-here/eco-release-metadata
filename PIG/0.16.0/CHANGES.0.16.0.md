@@ -57,6 +57,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [PIG-4574](https://issues.apache.org/jira/browse/PIG-4574) | Eliminate identity vertex for order by and skewed join right after LOAD |  Major | tez | Rohini Palaniswamy | Rohini Palaniswamy |
 
 
 ### OTHER:

@@ -23,6 +23,13 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [HIVE-10707](https://issues.apache.org/jira/browse/HIVE-10707) | *Trivial* | **CBO: debug logging OOMs**
+
+CBO: dump AST only when in DEBUG mode.
+
+
+---
+
 * [HIVE-10509](https://issues.apache.org/jira/browse/HIVE-10509) | *Major* | **Bump trunk version to 1.3 as branch-1.2 has been created.**
 
 Hive master/trunk version bumped up to 1.3
@@ -33,6 +40,13 @@ Hive master/trunk version bumped up to 1.3
 * [HIVE-9365](https://issues.apache.org/jira/browse/HIVE-9365) | *Minor* | **The Metastore should take port configuration from hive-site.xml**
 
 **WARNING: No release note provided for this incompatible change.**
+
+
+---
+
+* [HIVE-6026](https://issues.apache.org/jira/browse/HIVE-6026) | *Minor* | **Ldap Authenticator should be more generic with BindDN**
+
+Hive LDAP Authenticator now has filter support for LDAP users and groups.
 
 
 

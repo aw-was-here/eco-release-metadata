@@ -30,6 +30,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [OOZIE-2159](https://issues.apache.org/jira/browse/OOZIE-2159) | 'oozie validate' command should be moved server-side |  Major | . | Robert Kanter | Azrael Seoeun |
 | [OOZIE-1299](https://issues.apache.org/jira/browse/OOZIE-1299) | Rerunning the main workflow to rerun sub-workflow and not create new one |  Major | workflow | PriyaSundararajan |  |
 
 
@@ -37,6 +38,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [OOZIE-2271](https://issues.apache.org/jira/browse/OOZIE-2271) | Upgrade Tomcat to 6.0.44 |  Major | security | Robert Kanter | Robert Kanter |
 | [OOZIE-2072](https://issues.apache.org/jira/browse/OOZIE-2072) | Improve the whitelist error message by showing allowed values |  Minor | core | Harsh J | Harsh J |
 | [OOZIE-2024](https://issues.apache.org/jira/browse/OOZIE-2024) | Confusing message when a job can't be looked up by JavaActionExecutor |  Minor | action | Harsh J | Harsh J |
 | [OOZIE-1736](https://issues.apache.org/jira/browse/OOZIE-1736) | Switch to Hadoop 2.3.0 for the hadoop-2 profile |  Major | . | Robert Kanter | Robert Kanter |
@@ -51,7 +53,9 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [OOZIE-2270](https://issues.apache.org/jira/browse/OOZIE-2270) | Audit log doesn't get loaded when "audit log" tab is clicked for coord job |  Major | . | Purshotam Shah | Purshotam Shah |
 | [OOZIE-2268](https://issues.apache.org/jira/browse/OOZIE-2268) | Update ActiveMQ version for security and other fixes |  Major | . | Robert Kanter | Robert Kanter |
+| [OOZIE-2266](https://issues.apache.org/jira/browse/OOZIE-2266) | Fix 'total' actions returned in coordinator job info |  Major | core | Sai Chirravuri | Sai Chirravuri |
 | [OOZIE-2264](https://issues.apache.org/jira/browse/OOZIE-2264) | Fix coord:offset(n,"DAY") to resolve correct data set |  Major | . | Kailong Sheng | Kailong Sheng |
+| [OOZIE-2262](https://issues.apache.org/jira/browse/OOZIE-2262) | Fix log streaming from other server with start/end filter |  Major | . | Kailong Sheng | Kailong Sheng |
 | [OOZIE-2260](https://issues.apache.org/jira/browse/OOZIE-2260) | Only set "java.io.tmpdir" to "./tmp"  for the AM |  Major | . | Rohini Palaniswamy | Ryota Egashira |
 | [OOZIE-2257](https://issues.apache.org/jira/browse/OOZIE-2257) | BundleStatusTransitXCommand doesn't update last modified time. |  Major | . | Purshotam Shah | Purshotam Shah |
 | [OOZIE-2236](https://issues.apache.org/jira/browse/OOZIE-2236) | Need to package hive-hcatalog-server-extensions.jar in the hcatalog sharelib |  Critical | . | Venkat Ranganathan | Venkat Ranganathan |

@@ -23,6 +23,52 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [HBASE-13963](https://issues.apache.org/jira/browse/HBASE-13963) | *Critical* | **avoid leaking jdk.tools**
+
+HBase now ensures that the JDK tools jar used during the build process is not exposed to downstream clients as a transitive dependency of hbase-annotations.
+
+If you need to have the JDK tools jar in your classpath, you should add a system dependency on it. See the hbase-annotations pom for an example of the necessary pom additions.
+
+
+---
+
+* [HBASE-13930](https://issues.apache.org/jira/browse/HBASE-13930) | *Major* | **Exclude Findbugs packages from shaded jars**
+
+Exclude Findbugs packages from shaded jars
+
+
+---
+
+* [HBASE-13900](https://issues.apache.org/jira/browse/HBASE-13900) | *Minor* | **duplicate methods between ProtobufMagic and ProtobufUtil**
+
+Use ProtobufMagic methods in ProtobufUtil
+
+
+---
+
+* [HBASE-13898](https://issues.apache.org/jira/browse/HBASE-13898) | *Minor* | **correct additional javadoc failures under java 8**
+
+Correct Javadoc generation errors
+
+
+---
+
+* [HBASE-13869](https://issues.apache.org/jira/browse/HBASE-13869) | *Trivial* | **Fix typo in HBase book**
+
+Fix typo in HBase book
+
+
+---
+
+* [HBASE-13843](https://issues.apache.org/jira/browse/HBASE-13843) | *Trivial* | **Fix internal constant text in ReplicationManager.java**
+
+In previous versions of HBase, the ReplicationAdmin utility erroneously used the string key "columnFamlyName" when listing replicated column families. It now uses the corrected spelling of "columnFamilyName" (note the added "i").
+
+Downstream code that parsed the replication entries returned from listReplicated will need to be updated to use the new key. Previously compiled code that relied on the static CFNAME member of ReplicationAdmin will need to be recompiled in order to see the updated value.
+
+
+---
+
 * [HBASE-13816](https://issues.apache.org/jira/browse/HBASE-13816) | *Major* | **Build shaded modules only in release profile**
 
 hbase-shaded-client and hbase-shaded-server modules will not build the actual jars unless -Prelease is supplied in mvn.
@@ -48,6 +94,13 @@ Example: For a limiter configured with 10resources/second, then 1resource will b
 
 Client can configure anyone of this rate limiter for the cluster by setting the value for the property "hbase.quota.rate.limiter" in the hbase-site.xml. org.apache.hadoop.hbase.quotas.AverageIntervalRateLimiter is the default value.
 Note: Client needs to restart the cluster for the configuration to take into effect.
+
+
+---
+
+* [HBASE-13666](https://issues.apache.org/jira/browse/HBASE-13666) | *Major* | **book.pdf is not renamed during site build**
+
+Correct PDF renaming and bump version of maven-antrun-plugin
 
 
 ---
@@ -244,6 +297,13 @@ The concept of managed connections in HBase (deprecated before) has now been ext
 
 ---
 
+* [HBASE-13214](https://issues.apache.org/jira/browse/HBASE-13214) | *Major* | **Remove deprecated and unused methods from HTable class**
+
+**WARNING: No release note provided for this incompatible change.**
+
+
+---
+
 * [HBASE-13198](https://issues.apache.org/jira/browse/HBASE-13198) | *Major* | **Remove HConnectionManager**
 
 **WARNING: No release note provided for this incompatible change.**
@@ -306,6 +366,13 @@ To check how the reservoir is doing, enable trace level logging for a few second
 * [HBASE-13118](https://issues.apache.org/jira/browse/HBASE-13118) | *Major* | **[PE] Add being able to write many columns**
 
 Adds a --columns option to PE so you can write more than one column (changes default qualifier from 'data' to '0').
+
+
+---
+
+* [HBASE-13103](https://issues.apache.org/jira/browse/HBASE-13103) | *Major* | **[ergonomics] add region size balancing as a feature of master**
+
+This patch adds optional ability for HMaster to normalize regions in size (disabled by default, change hbase.normalizer.enabled property to true to turn it on). If enabled, HMaster periodically (every 30 minutes by default) monitors tables for which normalization is enabled in table configuration and performs splits/merges as seems appropriate. Users may implement their own normalization strategies by implementing RegionNormalizer interface and configuring it in hbase-site.xml.
 
 
 ---

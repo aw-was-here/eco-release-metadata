@@ -21,4 +21,11 @@
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
 
 
+---
+
+* [HIVE-10746](https://issues.apache.org/jira/browse/HIVE-10746) | *Critical* | ** Hive 1.2.0+Tez produces 1-byte FileSplits from mapred.TextInputFormat**
+
+Use sane split min-sizes when using legacy mapred.InputFormat::getSplits(job, num)
+
+
 
