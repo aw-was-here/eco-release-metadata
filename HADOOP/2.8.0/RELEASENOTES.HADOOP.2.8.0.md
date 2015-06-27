@@ -122,4 +122,11 @@ Options to sort output of fs -ls comment: -t (mtime), -S (size), -u (atime), -r 
 Added -v option to fs -count command to display a header record in the report.
 
 
+---
+
+* [HADOOP-7139](https://issues.apache.org/jira/browse/HADOOP-7139) | *Major* | **Allow appending to existing SequenceFiles**
+
+Existing sequence files can be appended.
+
+
 

@@ -88,9 +88,9 @@
 | [MAPREDUCE-6172](https://issues.apache.org/jira/browse/MAPREDUCE-6172) | TestDbClasses timeouts are too aggressive |  Minor | test | Jason Lowe | Varun Saxena |
 | [MAPREDUCE-6166](https://issues.apache.org/jira/browse/MAPREDUCE-6166) | Reducers do not validate checksum of map outputs when fetching directly to disk |  Major | mrv2 | Eric Payne | Eric Payne |
 | [MAPREDUCE-6162](https://issues.apache.org/jira/browse/MAPREDUCE-6162) | mapred hsadmin fails on a secure cluster |  Blocker | jobhistoryserver | Jason Lowe | Jason Lowe |
-| [MAPREDUCE-6160](https://issues.apache.org/jira/browse/MAPREDUCE-6160) | Potential NullPointerException in MRClientProtocol interface implementation. |  Major | . | Rohith | Rohith |
+| [MAPREDUCE-6160](https://issues.apache.org/jira/browse/MAPREDUCE-6160) | Potential NullPointerException in MRClientProtocol interface implementation. |  Major | . | Rohith Sharma K S | Rohith Sharma K S |
 | [MAPREDUCE-6136](https://issues.apache.org/jira/browse/MAPREDUCE-6136) | MRAppMaster doesn't shutdown file systems |  Major | applicationmaster | Noah Watkins | Brahma Reddy Battula |
-| [MAPREDUCE-6049](https://issues.apache.org/jira/browse/MAPREDUCE-6049) | AM JVM does not exit if MRClientService gracefull shutdown fails |  Major | applicationmaster, resourcemanager | Nishan Shetty | Rohith |
+| [MAPREDUCE-6049](https://issues.apache.org/jira/browse/MAPREDUCE-6049) | AM JVM does not exit if MRClientService gracefull shutdown fails |  Major | applicationmaster, resourcemanager | Nishan Shetty | Rohith Sharma K S |
 | [MAPREDUCE-6045](https://issues.apache.org/jira/browse/MAPREDUCE-6045) | need close the DataInputStream after open it in TestMapReduce.java |  Minor | test | zhihai xu | zhihai xu |
 | [MAPREDUCE-5988](https://issues.apache.org/jira/browse/MAPREDUCE-5988) | Fix dead links to the javadocs in mapreduce project |  Minor | documentation | Akira AJISAKA | Akira AJISAKA |
 | [MAPREDUCE-5918](https://issues.apache.org/jira/browse/MAPREDUCE-5918) | LineRecordReader can return the same decompressor to CodecPool multiple times |  Major | . | Sergey Murylev | Sergey Murylev |

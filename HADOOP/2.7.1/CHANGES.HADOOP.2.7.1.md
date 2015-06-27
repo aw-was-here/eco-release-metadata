@@ -43,6 +43,8 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HADOOP-12103](https://issues.apache.org/jira/browse/HADOOP-12103) | Small refactoring of DelegationTokenAuthenticationFilter to allow code sharing |  Minor | security | Yongjun Zhang | Yongjun Zhang |
+| [HADOOP-12100](https://issues.apache.org/jira/browse/HADOOP-12100) | ImmutableFsPermission should not override applyUmask since that method doesn't modify the FsPermission |  Major | . | Robert Kanter | Bibin A Chundatt |
 | [HADOOP-12078](https://issues.apache.org/jira/browse/HADOOP-12078) | The default retry policy does not handle RetriableException correctly |  Critical | ipc | Arpit Agarwal | Arpit Agarwal |
 | [HADOOP-12058](https://issues.apache.org/jira/browse/HADOOP-12058) | Fix dead links to DistCp and Hadoop Archives pages. |  Minor | documentation, site | Kazuho Fujii | Kazuho Fujii |
 | [HADOOP-11973](https://issues.apache.org/jira/browse/HADOOP-11973) | Ensure ZkDelegationTokenSecretManager namespace znodes get created with ACLs |  Major | security | Gregory Chanan | Gregory Chanan |
