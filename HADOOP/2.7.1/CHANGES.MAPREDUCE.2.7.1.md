@@ -42,13 +42,8 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [MAPREDUCE-6410](https://issues.apache.org/jira/browse/MAPREDUCE-6410) | Aggregated Logs Deletion doesnt work after refreshing Log Retention Settings in secure cluster |  Critical | . | Zhang Wei | Varun Saxena |
-| [MAPREDUCE-6387](https://issues.apache.org/jira/browse/MAPREDUCE-6387) | Serialize the recently added Task#encryptedSpillKey field at the end |  Minor | . | Arun Suresh | Arun Suresh |
-| [MAPREDUCE-6361](https://issues.apache.org/jira/browse/MAPREDUCE-6361) | NPE issue in shuffle caused by concurrent issue between copySucceeded() in one thread and copyFailed() in another thread on the same host |  Critical | . | Junping Du | Junping Du |
 | [MAPREDUCE-6339](https://issues.apache.org/jira/browse/MAPREDUCE-6339) | Job history file is not flushed correctly because isTimerActive flag is not set true when flushTimerTask is scheduled. |  Critical | mrv2 | zhihai xu | zhihai xu |
-| [MAPREDUCE-6334](https://issues.apache.org/jira/browse/MAPREDUCE-6334) | Fetcher#copyMapOutput is leaking usedMemory upon IOException during InMemoryMapOutput shuffle handler |  Blocker | . | Eric Payne | Eric Payne |
 | [MAPREDUCE-6324](https://issues.apache.org/jira/browse/MAPREDUCE-6324) | Uber jobs fail to update AMRM token when it rolls over |  Blocker | mr-am | Jason Lowe | Jason Lowe |
-| [MAPREDUCE-6300](https://issues.apache.org/jira/browse/MAPREDUCE-6300) | Task list sort by task id broken |  Minor | . | Siqi Li | Siqi Li |
 | [MAPREDUCE-6259](https://issues.apache.org/jira/browse/MAPREDUCE-6259) | IllegalArgumentException due to missing job submit time |  Major | jobhistoryserver | zhihai xu | zhihai xu |
 | [MAPREDUCE-6252](https://issues.apache.org/jira/browse/MAPREDUCE-6252) | JobHistoryServer should not fail when encountering a missing directory |  Major | jobhistoryserver | Craig Welch | Craig Welch |
 | [MAPREDUCE-6251](https://issues.apache.org/jira/browse/MAPREDUCE-6251) | JobClient needs additional retries at a higher level to address not-immediately-consistent dfs corner cases |  Major | jobhistoryserver, mrv2 | Craig Welch | Craig Welch |

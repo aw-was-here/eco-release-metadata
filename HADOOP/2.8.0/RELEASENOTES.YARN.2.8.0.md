@@ -23,6 +23,13 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [YARN-3823](https://issues.apache.org/jira/browse/YARN-3823) | *Minor* | **Fix mismatch in default values for yarn.scheduler.maximum-allocation-vcores property**
+
+Default value for 'yarn.scheduler.maximum-allocation-vcores' changed from 32 to 4.
+
+
+---
+
 * [YARN-3684](https://issues.apache.org/jira/browse/YARN-3684) | *Major* | **Change ContainerExecutor's primary lifecycle methods to use a more extensible mechanism for passing information.**
 
 Modifying key methods in ContainerExecutor to use context objects instead of an argument list. This is more extensible and less brittle.
