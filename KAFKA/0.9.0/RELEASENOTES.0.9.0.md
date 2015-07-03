@@ -82,6 +82,19 @@ We need better to
 
 ---
 
+* [KAFKA-1735](https://issues.apache.org/jira/browse/KAFKA-1735) | *Major* | **MemoryRecords.Iterator needs to handle partial reads from compressed stream**
+
+Found a bug in the MemoryRecords.Iterator implementation, where 
+
+{code}
+stream.read(recordBuffer, 0, size)
+{code}
+
+can read less than size'ed bytes, and rest of the recordBuffer would set to "\0".
+
+
+---
+
 * [KAFKA-1720](https://issues.apache.org/jira/browse/KAFKA-1720) | *Major* | **[Renaming / Comments] Delayed Operations**
 
 After KAFKA-1583 checked in, we would better renaming the delayed requests to delayed operations.

@@ -23,6 +23,15 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [KAFKA-2291](https://issues.apache.org/jira/browse/KAFKA-2291) | *Trivial* | **Documentation Error**
+
+http://kafka.apache.org/documentation.html#design
+
+Under the design section, the last second paragraph says this "Finally in cases where the stream is fed into other data systems for serving we new[knew] the system would have to be able to guarantee fault-tolerance in the presence of machine failures." But there is a spelling mistake, it should be "knew" instead of "new".
+
+
+---
+
 * [KAFKA-2290](https://issues.apache.org/jira/browse/KAFKA-2290) | *Major* | **OffsetIndex should open RandomAccessFile consistently**
 
 We open RandomAccessFile in "rw" mode in the constructor, but in "rws" mode in resize(). We should use "rw" in both cases since it's more efficient.
@@ -463,6 +472,22 @@ http://gradle.org/docs/current/release-notes
 * [KAFKA-2169](https://issues.apache.org/jira/browse/KAFKA-2169) | *Critical* | **Upgrade to zkclient-0.5**
 
 zkclient-0.5 is released http://mvnrepository.com/artifact/com.101tec/zkclient/0.5 and has the fix for KAFKA-824
+
+
+---
+
+* [KAFKA-2168](https://issues.apache.org/jira/browse/KAFKA-2168) | *Critical* | **New consumer poll() can block other calls like position(), commit(), and close() indefinitely**
+
+The new consumer is currently using very coarse-grained synchronization. For most methods this isn't a problem since they finish quickly once the lock is acquired, but poll() might run for a long time (and commonly will since polling with long timeouts is a normal use case). This means any operations invoked from another thread may block until the poll() call completes.
+
+Some example use cases where this can be a problem:
+
+* A shutdown hook is registered to trigger shutdown and invokes close(). It gets invoked from another thread and blocks indefinitely.
+* User wants to manage offset commit themselves in a background thread. If the commit policy is not purely time based, it's not currently possibly to make sure the call to commit() will be processed promptly.
+
+Two possible solutions to this:
+1. Make sure a lock is not held during the actual select call. Since we have multiple layers (KafkaConsumer -> NetworkClient -> Selector -> nio Selector) this is probably hard to make work cleanly since locking is currently only performed at the KafkaConsumer level and we'd want it unlocked around a single line of code in Selector.
+2. Wake up the selector before synchronizing for certain operations. This would require some additional coordination to make sure the caller of wakeup() is able to acquire the lock promptly (instead of, e.g., the poll() thread being woken up and then promptly reacquiring the lock with a subsequent long poll() call).
 
 
 ---
@@ -1932,6 +1957,13 @@ The system test scripts don't handle errors well. A couple of key issues:
 * Unexpected exceptions during tests are just ignored and the tests appear to be successful in the reports.
 * The scripts exit code is always 0, even if tests fail.
 * Almost no subprocess calls are checked. In a lot of cases this is ok, and sometimes it's not possible (e.g. after starting a long-running remote process), but in some cases such as calls to DumpLogSegments, the tests can miss that the tools is exiting with an exception and the test appears to be successful even though no data was verified.
+
+
+---
+
+* [KAFKA-1740](https://issues.apache.org/jira/browse/KAFKA-1740) | *Critical* | **Merge Offset manager into Coordinator**
+
+This JIRA involves refactoring offset manager and merge it into coordinator, including adding the logic for consumer-id / generation-id checking.
 
 
 ---

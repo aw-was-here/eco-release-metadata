@@ -23,6 +23,19 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [TEZ-2579](https://issues.apache.org/jira/browse/TEZ-2579) | *Major* | **Incorrect comparison of TaskAttemptId**
+
+TaskImpl#AttemptSucceededTransition
+{code}
+      // issue kill to all other attempts
+      for (TaskAttempt attempt : task.attempts.values()) {
+        if (attempt.getID() != task.successfulAttempt &&  // should use !equals 
+        !attempt.isFinished()) {           // but it won't affect the state machine transition, because the successful task attempt should already complete. 
+{code}
+
+
+---
+
 * [TEZ-2568](https://issues.apache.org/jira/browse/TEZ-2568) | *Blocker* | **V\_INPUT\_DATA\_INFORMATION may happen after vertex is initialized**
 
 {code}

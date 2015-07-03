@@ -23,6 +23,19 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [TEZ-2579](https://issues.apache.org/jira/browse/TEZ-2579) | *Major* | **Incorrect comparison of TaskAttemptId**
+
+TaskImpl#AttemptSucceededTransition
+{code}
+      // issue kill to all other attempts
+      for (TaskAttempt attempt : task.attempts.values()) {
+        if (attempt.getID() != task.successfulAttempt &&  // should use !equals 
+        !attempt.isFinished()) {           // but it won't affect the state machine transition, because the successful task attempt should already complete. 
+{code}
+
+
+---
+
 * [TEZ-2566](https://issues.apache.org/jira/browse/TEZ-2566) | *Major* | **Allow TaskAttemptFinishedEvent without TaskAttemptStartedEvent when it is KILLED/FAILED**
 
 TEZ-2304 allow logging TaskAttempFinishedEvent even without TaskAttemptStartedEvent but don't change the logic in Task#restoreFromEvent.

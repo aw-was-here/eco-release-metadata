@@ -39,6 +39,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [OOZIE-2271](https://issues.apache.org/jira/browse/OOZIE-2271) | Upgrade Tomcat to 6.0.44 |  Major | security | Robert Kanter | Robert Kanter |
+| [OOZIE-2250](https://issues.apache.org/jira/browse/OOZIE-2250) | Show log for WAITING and TIMEDOUT coord actions |  Major | . | Rohini Palaniswamy | Kailong Sheng |
 | [OOZIE-2072](https://issues.apache.org/jira/browse/OOZIE-2072) | Improve the whitelist error message by showing allowed values |  Minor | core | Harsh J | Harsh J |
 | [OOZIE-2024](https://issues.apache.org/jira/browse/OOZIE-2024) | Confusing message when a job can't be looked up by JavaActionExecutor |  Minor | action | Harsh J | Harsh J |
 | [OOZIE-1736](https://issues.apache.org/jira/browse/OOZIE-1736) | Switch to Hadoop 2.3.0 for the hadoop-2 profile |  Major | . | Robert Kanter | Robert Kanter |
@@ -51,6 +52,8 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [OOZIE-2286](https://issues.apache.org/jira/browse/OOZIE-2286) | Update Log4j and Log4j-extras to latest 1.2.x release |  Major | . | Robert Kanter | Robert Kanter |
+| [OOZIE-2284](https://issues.apache.org/jira/browse/OOZIE-2284) | HBaseCredentials should only add hbase-default.xml and hbase-site.xml to actionConf |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 | [OOZIE-2270](https://issues.apache.org/jira/browse/OOZIE-2270) | Audit log doesn't get loaded when "audit log" tab is clicked for coord job |  Major | . | Purshotam Shah | Purshotam Shah |
 | [OOZIE-2268](https://issues.apache.org/jira/browse/OOZIE-2268) | Update ActiveMQ version for security and other fixes |  Major | . | Robert Kanter | Robert Kanter |
 | [OOZIE-2266](https://issues.apache.org/jira/browse/OOZIE-2266) | Fix 'total' actions returned in coordinator job info |  Major | core | Sai Chirravuri | Sai Chirravuri |

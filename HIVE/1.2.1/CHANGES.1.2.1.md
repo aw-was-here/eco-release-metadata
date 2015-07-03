@@ -47,10 +47,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [HIVE-11074](https://issues.apache.org/jira/browse/HIVE-11074) | Update tests for HIVE-9302 after removing binaries |  Major | Tests | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
-| [HIVE-11066](https://issues.apache.org/jira/browse/HIVE-11066) | Ensure tests don't share directories on FS |  Major | Tests | Eugene Koifman | Eugene Koifman |
-| [HIVE-11059](https://issues.apache.org/jira/browse/HIVE-11059) | hcatalog-server-extensions tests scope should depend on hive-exec |  Minor | Tests | Sushanth Sowmyan | Sushanth Sowmyan |
-| [HIVE-11050](https://issues.apache.org/jira/browse/HIVE-11050) | testCliDriver\_vector\_outer\_join.* failures in Unit tests due to unstable data creation queries |  Blocker | Hive | Matt McCline | Matt McCline |
+| [HIVE-11102](https://issues.apache.org/jira/browse/HIVE-11102) | ReaderImpl: getColumnIndicesFromNames does not work for some cases |  Major | File Formats | Gopal V | Sergey Shelukhin |
 | [HIVE-11047](https://issues.apache.org/jira/browse/HIVE-11047) | Update versions of branch-1.2 to 1.2.1 |  Major | . | Sushanth Sowmyan | Sushanth Sowmyan |
 | [HIVE-11041](https://issues.apache.org/jira/browse/HIVE-11041) | Update tests for HIVE-9302 after removing binaries |  Major | Tests | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
 | [HIVE-11040](https://issues.apache.org/jira/browse/HIVE-11040) | Change Derby dependency version to 10.10.2.0 |  Major | Metastore | Jason Dere | Jason Dere |
@@ -134,6 +131,7 @@
 | [HIVE-10606](https://issues.apache.org/jira/browse/HIVE-10606) | Divide by zero error in HybridHashTableContainer |  Major | Query Processor | Jason Dere | Jason Dere |
 | [HIVE-10605](https://issues.apache.org/jira/browse/HIVE-10605) | Make hive version number update automatically in webhcat-default.xml during hive tar generation |  Major | WebHCat | Eugene Koifman | Eugene Koifman |
 | [HIVE-10563](https://issues.apache.org/jira/browse/HIVE-10563) | MiniTezCliDriver tests ordering issues |  Major | . | Hari Sankar Sivarama Subramaniyan | Hari Sankar Sivarama Subramaniyan |
+| [HIVE-10559](https://issues.apache.org/jira/browse/HIVE-10559) | IndexOutOfBoundsException with RemoveDynamicPruningBySize |  Major | Tez | Wei Zheng | Wei Zheng |
 | [HIVE-10528](https://issues.apache.org/jira/browse/HIVE-10528) | Hiveserver2 in HTTP mode is not applying auth\_to\_local rules |  Major | HiveServer2 | Abdelrahman Shettia | Abdelrahman Shettia |
 | [HIVE-10453](https://issues.apache.org/jira/browse/HIVE-10453) | HS2 leaking open file descriptors when using UDFs |  Major | UDF | Yongzhi Chen | Yongzhi Chen |
 | [HIVE-10244](https://issues.apache.org/jira/browse/HIVE-10244) | Vectorization : TPC-DS Q80 fails with java.lang.ClassCastException when hive.vectorized.execution.reduce.enabled is enabled |  Major | Vectorization | Mostafa Mokhtar | Matt McCline |

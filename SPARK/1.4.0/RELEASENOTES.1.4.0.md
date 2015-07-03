@@ -14720,13 +14720,6 @@ Fortunately, WebUI has renderJson method so we can implement the method in each 
 
 ---
 
-* [SPARK-3444](https://issues.apache.org/jira/browse/SPARK-3444) | *Minor* | **Provide a way to easily change the log level in the Spark shell while running**
-
-Right now its difficult to change the log level while running. Our log messages can be quite verbose at the more detailed levels, and some users want to run at WARN until they encounter an issue and then increase the logging level to debug without restarting the shell.
-
-
----
-
 * [SPARK-3381](https://issues.apache.org/jira/browse/SPARK-3381) | *Trivial* | **DecisionTree: eliminate bins for unordered features**
 
 Code simplification: DecisionTree currently allocates bins for unordered features (in findSplitsBins).  However, those bins are not needed; only the splits are required.  This change will require modifying findSplitsBins, as well as modifying a few other functions to use splits instead of bins.

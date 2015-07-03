@@ -48,6 +48,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [KAFKA-2294](https://issues.apache.org/jira/browse/KAFKA-2294) | javadoc compile error due to illegal \<p/\> , build failing (jdk 8) |  Major | . | Jeremy Fields | Jeff Maxwell |
 | [KAFKA-1863](https://issues.apache.org/jira/browse/KAFKA-1863) | Exception categories / hierarchy in clients |  Major | . | Guozhang Wang | Guozhang Wang |
+| [KAFKA-1735](https://issues.apache.org/jira/browse/KAFKA-1735) | MemoryRecords.Iterator needs to handle partial reads from compressed stream |  Major | . | Guozhang Wang | Guozhang Wang |
 | [KAFKA-1720](https://issues.apache.org/jira/browse/KAFKA-1720) | [Renaming / Comments] Delayed Operations |  Major | . | Guozhang Wang | Guozhang Wang |
 | [KAFKA-1536](https://issues.apache.org/jira/browse/KAFKA-1536) | Change the status of the JIRA to "Patch Available" in the kafka-review-tool |  Major | . | Guozhang Wang | Manikumar Reddy |
 | [KAFKA-1445](https://issues.apache.org/jira/browse/KAFKA-1445) | New Producer should send all partitions that have non-empty batches when on of them is ready |  Major | . | Guozhang Wang |  |

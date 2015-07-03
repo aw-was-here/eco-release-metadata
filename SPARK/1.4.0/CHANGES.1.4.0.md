@@ -116,7 +116,7 @@
 | [SPARK-7912](https://issues.apache.org/jira/browse/SPARK-7912) | Make OneHotEncoder more optimistic about the input |  Major | ML | Xiangrui Meng | Xiangrui Meng |
 | [SPARK-7911](https://issues.apache.org/jira/browse/SPARK-7911) | A workaround for VectorUDT serialize (or deserialize) being called multiple times |  Major | MLlib | Xiangrui Meng | Xiangrui Meng |
 | [SPARK-7895](https://issues.apache.org/jira/browse/SPARK-7895) | Move Kafka examples from scala-2.10/src to src |  Major | Examples, Streaming | Shixiong Zhu | Shixiong Zhu |
-| [SPARK-7845](https://issues.apache.org/jira/browse/SPARK-7845) | Bump "Hadoop 1" tests to version 1.2.1 |  Critical | Tests | Patrick Wendell | Yin Huai |
+| [SPARK-7845](https://issues.apache.org/jira/browse/SPARK-7845) | Bump "Hadoop 1" tests to version 1.2.1 |  Critical | Tests | Patrick Wendell | Cheng Lian |
 | [SPARK-7838](https://issues.apache.org/jira/browse/SPARK-7838) | Set scope name for Kinesis stream |  Critical | Streaming | Tathagata Das | Tathagata Das |
 | [SPARK-7833](https://issues.apache.org/jira/browse/SPARK-7833) | Add python wrapper for RegressionEvaluator |  Major | . | Ram Sriharsha | Ram Sriharsha |
 | [SPARK-7830](https://issues.apache.org/jira/browse/SPARK-7830) | ML doc cleanup: logreg, classification link |  Trivial | Documentation, MLlib | Mike Dusenberry | Mike Dusenberry |
@@ -390,7 +390,6 @@
 | [SPARK-3591](https://issues.apache.org/jira/browse/SPARK-3591) | Provide "fire and forget" option for YARN cluster mode |  Major | YARN | Andrew Or | Tao Wang |
 | [SPARK-3524](https://issues.apache.org/jira/browse/SPARK-3524) | remove workaround to pickle array of float for Pyrolite |  Major | PySpark | Davies Liu | Xiangrui Meng |
 | [SPARK-3454](https://issues.apache.org/jira/browse/SPARK-3454) | Expose JSON representation of data shown in WebUI |  Major | Web UI | Kousuke Saruta | Imran Rashid |
-| [SPARK-3444](https://issues.apache.org/jira/browse/SPARK-3444) | Provide a way to easily change the log level in the Spark shell while running |  Minor | Spark Shell | holdenk | Holden Karau |
 | [SPARK-3381](https://issues.apache.org/jira/browse/SPARK-3381) | DecisionTree: eliminate bins for unordered features |  Trivial | MLlib | Joseph K. Bradley | Manoj Kumar |
 | [SPARK-3357](https://issues.apache.org/jira/browse/SPARK-3357) | Internal log messages should be set at DEBUG level instead of INFO |  Minor | Spark Core | Xiangrui Meng | Sean Owen |
 | [SPARK-3355](https://issues.apache.org/jira/browse/SPARK-3355) | Allow running maven tests in run-tests |  Major | Project Infra | Patrick Wendell | Brennon York |

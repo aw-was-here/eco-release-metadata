@@ -23,6 +23,139 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-8803](https://issues.apache.org/jira/browse/SPARK-8803) | *Major* | **Crosstab element's can't contain null's and back ticks**
+
+Having back ticks or null as elements causes problems. 
+
+Since elements become column names, we have to drop them from the element as back ticks are special characters.
+
+Having null throws exceptions, we could replace them with empty strings.
+
+
+---
+
+* [SPARK-8787](https://issues.apache.org/jira/browse/SPARK-8787) | *Trivial* | **Change the parameter  order of @deprecated in package object sql**
+
+Parameter order of @deprecated annotation  in package object sql is wrong 
+deprecated("1.3.0", "use DataFrame") .
+
+This has to be changed to  deprecated("use DataFrame", "1.3.0")
+
+
+---
+
+* [SPARK-8781](https://issues.apache.org/jira/browse/SPARK-8781) | *Blocker* | **Published POMs are no longer effective POMs**
+
+Published to maven repository POMs are no longer effective POMs. E.g. 
+
+In https://repository.apache.org/content/repositories/snapshots/org/apache/spark/spark-core\_2.11/1.4.2-SNAPSHOT/spark-core\_2.11-1.4.2-20150702.043114-52.pom:
+
+{noformat}
+...
+<dependency>
+<groupId>org.apache.spark</groupId>
+<artifactId>spark-launcher\_${scala.binary.version}</artifactId>
+<version>${project.version}</version>
+</dependency>
+...
+{noformat}
+
+while it should be
+
+{noformat}
+...
+<dependency>
+<groupId>org.apache.spark</groupId>
+<artifactId>spark-launcher\_2.11</artifactId>
+<version>${project.version}</version>
+</dependency>
+...
+{noformat}
+
+
+The following commits are most likely the cause of it:
+- for branch-1.3: https://github.com/apache/spark/commit/ce137b8ed3b240b7516046699ac96daa55ddc129
+- for branch-1.4: https://github.com/apache/spark/commit/84da653192a2d9edb82d0dbe50f577c4dc6a0c78
+- for master: https://github.com/apache/spark/commit/984ad60147c933f2d5a2040c87ae687c14eb1724
+
+On branch-1.4 reverting the commit fixed the issue.
+
+See SPARK-3812 for additional details
+
+
+---
+
+* [SPARK-8776](https://issues.apache.org/jira/browse/SPARK-8776) | *Major* | **Increase the default MaxPermSize**
+
+Since 1.4.0, Spark SQL has isolated class loaders for seperating hive dependencies on metastore and execution, which increases the memory consumption of PermGen. How about we increase the default size from 128m to 256m? Seems the change we need to make is https://github.com/apache/spark/blob/3c0156899dc1ec1f7dfe6d7c8af47fa6dc7d00bf/launcher/src/main/java/org/apache/spark/launcher/AbstractCommandBuilder.java#L139.
+
+
+---
+
+* [SPARK-8769](https://issues.apache.org/jira/browse/SPARK-8769) | *Trivial* | **toLocalIterator should mention it results in many jobs**
+
+toLocalIterator on RDDs should mention that it results in mutliple jobs, and that to avoid re-computing, if the input was the result of a wide-transformation, the input should be cached.
+
+
+---
+
+* [SPARK-8754](https://issues.apache.org/jira/browse/SPARK-8754) | *Minor* | **YarnClientSchedulerBackend doesn't stop gracefully in failure conditions**
+
+{code:xml}
+java.lang.NullPointerException
+        at org.apache.spark.scheduler.cluster.YarnClientSchedulerBackend.stop(YarnClientSchedulerBackend.scala:151)
+        at org.apache.spark.scheduler.TaskSchedulerImpl.stop(TaskSchedulerImpl.scala:421)
+        at org.apache.spark.scheduler.DAGScheduler.stop(DAGScheduler.scala:1447)
+        at org.apache.spark.SparkContext.stop(SparkContext.scala:1651)
+        at org.apache.spark.SparkContext.<init>(SparkContext.scala:572)
+        at org.apache.spark.examples.SparkPi$.main(SparkPi.scala:28)
+        at org.apache.spark.examples.SparkPi.main(SparkPi.scala)
+        at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+        at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+        at java.lang.reflect.Method.invoke(Method.java:606)
+        at org.apache.spark.deploy.SparkSubmit$.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:621)
+        at org.apache.spark.deploy.SparkSubmit$.doRunMain$1(SparkSubmit.scala:170)
+        at org.apache.spark.deploy.SparkSubmit$.submit(SparkSubmit.scala:193)
+        at org.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:112)
+        at org.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)
+{code}
+
+If the application has FINISHED/FAILED/KILLED or failed to launch application master, monitorThread is not getting initialized but monitorThread.interrupt() is getting invoked as part of stop() without any check and It is causing to throw NPE and also it is preventing to stop the client.
+
+
+---
+
+* [SPARK-8746](https://issues.apache.org/jira/browse/SPARK-8746) | *Trivial* | **Need to update download link for Hive 0.13.1 jars (HiveComparisonTest)**
+
+The Spark SQL documentation (https://github.com/apache/spark/tree/master/sql) describes how to generate golden answer files for new hive comparison test cases. However the download link for the Hive 0.13.1 jars points to https://hive.apache.org/downloads.html but none of the linked mirror sites still has the 0.13.1 version.
+
+We need to update the link to https://archive.apache.org/dist/hive/hive-0.13.1/
+
+
+---
+
+* [SPARK-8736](https://issues.apache.org/jira/browse/SPARK-8736) | *Critical* | **GBTRegressionModel thresholds prediction but should not**
+
+It outputs 0/1 as though it is doing classification.  It should not.
+
+
+---
+
+* [SPARK-8720](https://issues.apache.org/jira/browse/SPARK-8720) | *Critical* | **PR #7036 breaks branch-1.4 because of a malformed comment**
+
+There's an unfortunate {{/*}} in [this line|https://github.com/apache/spark/pull/7036/files#diff-364713d7776956cb8b0a771e9b62f82dR826] and thus started another unclosed comment block.
+
+
+---
+
+* [SPARK-8687](https://issues.apache.org/jira/browse/SPARK-8687) | *Major* | **Spark on yarn-client mode can't send `spark.yarn.credentials.file` to executor.**
+
+Yarn will set +spark.yarn.credentials.file+ after *DriverEndpoint* initialized. So executor will fetch the old configuration and will cause the problem.
+
+
+---
+
 * [SPARK-8639](https://issues.apache.org/jira/browse/SPARK-8639) | *Trivial* | **Instructions for executing jekyll in docs/README.md could be slightly more clear, typo in docs/api.md**
 
 In docs/README.md, the text states around line 31
@@ -48,9 +181,76 @@ This was a bug introduced in https://github.com/apache/spark/pull/6928 and affec
 
 ---
 
+* [SPARK-8628](https://issues.apache.org/jira/browse/SPARK-8628) | *Critical* | **Race condition in AbstractSparkSQLParser.parse**
+
+SPARK-5009 introduced the following code in AbstractSparkSQLParser:
+
+{code}
+def parse(input: String): LogicalPlan = {
+    // Initialize the Keywords.
+    lexical.initialize(reservedWords)
+    phrase(start)(new lexical.Scanner(input)) match {
+      case Success(plan, \_) => plan
+      case failureOrError => sys.error(failureOrError.toString)
+    }
+  }
+{code}
+
+The corresponding initialize method in SqlLexical is not thread-safe:
+
+{code}
+  /* This is a work around to support the lazy setting */
+  def initialize(keywords: Seq[String]): Unit = {
+    reserved.clear()
+    reserved ++= keywords
+  }
+{code}
+
+I'm hitting this when parsing multiple SQL queries concurrently. When one query parsing starts, it empties the reserved keyword list, then a race-condition occurs and other queries fail to parse because they recognize keywords as identifiers.
+
+
+---
+
+* [SPARK-8621](https://issues.apache.org/jira/browse/SPARK-8621) | *Critical* | **crosstab exception when one of the value is empty**
+
+I think this happened because some value is empty.
+
+{code}
+scala> df1.stat.crosstab("role", "lang")
+org.apache.spark.sql.AnalysisException: syntax error in attribute name: ;
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.parseAttributeName(LogicalPlan.scala:145)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.resolveQuoted(LogicalPlan.scala:135)
+	at org.apache.spark.sql.DataFrame.resolve(DataFrame.scala:157)
+	at org.apache.spark.sql.DataFrame.col(DataFrame.scala:603)
+	at org.apache.spark.sql.DataFrameNaFunctions.org$apache$spark$sql$DataFrameNaFunctions$$fillCol(DataFrameNaFunctions.scala:394)
+	at org.apache.spark.sql.DataFrameNaFunctions$$anonfun$2.apply(DataFrameNaFunctions.scala:160)
+	at org.apache.spark.sql.DataFrameNaFunctions$$anonfun$2.apply(DataFrameNaFunctions.scala:157)
+	at scala.collection.TraversableLike$$anonfun$map$1.apply(TraversableLike.scala:244)
+	at scala.collection.TraversableLike$$anonfun$map$1.apply(TraversableLike.scala:244)
+	at scala.collection.IndexedSeqOptimized$class.foreach(IndexedSeqOptimized.scala:33)
+	at scala.collection.mutable.ArrayOps$ofRef.foreach(ArrayOps.scala:108)
+	at scala.collection.TraversableLike$class.map(TraversableLike.scala:244)
+	at scala.collection.mutable.ArrayOps$ofRef.map(ArrayOps.scala:108)
+	at org.apache.spark.sql.DataFrameNaFunctions.fill(DataFrameNaFunctions.scala:157)
+	at org.apache.spark.sql.DataFrameNaFunctions.fill(DataFrameNaFunctions.scala:147)
+	at org.apache.spark.sql.DataFrameNaFunctions.fill(DataFrameNaFunctions.scala:132)
+	at org.apache.spark.sql.execution.stat.StatFunctions$.crossTabulate(StatFunctions.scala:132)
+	at org.apache.spark.sql.DataFrameStatFunctions.crosstab(DataFrameStatFunctions.scala:91)
+{code}
+
+
+---
+
 * [SPARK-8604](https://issues.apache.org/jira/browse/SPARK-8604) | *Major* | **Parquet data source doesn't write summary file while doing appending**
 
 Currently, Parquet and ORC data sources don't set their output format class, as we override the output committer in Spark SQL. However, SPARK-8678 ignores user defined output committer class while doing appending to avoid potential issues brought by direct output committers (e.g. {{DirectParquetOutputCommitter}}). This makes both of these data sources fallback to the default output committer retrieved from {{TextOutputFormat}}, which is {{FileOutputCommitter}}. For ORC, it's totally fine since ORC itself just uses {{FileOutputCommitter}}. But for Parquet, {{ParquetOutputCommitter}} also writes the summary files while committing the job.
+
+
+---
+
+* [SPARK-8578](https://issues.apache.org/jira/browse/SPARK-8578) | *Major* | **Should ignore user defined output committer when appending data**
+
+When appending data to a file system via Hadoop API, it's safer to ignore user defined output committer classes like {{DirectParquetOutputCommitter}}. Because it's relatively hard to handle task failure in this case.  For example, {{DirectParquetOutputCommitter}} directly writes to the output directory to boost write performance when working with S3. However, there's no general way to determine task output file path of a specific task in Hadoop API, thus we don't know to revert a failed append job. (When doing overwrite, we can just remove the whole output directory.)
 
 
 ---
@@ -97,9 +297,72 @@ Background: see this blog post http://www.nodalpoint.com/unexpected-behavior-of-
 
 ---
 
+* [SPARK-8567](https://issues.apache.org/jira/browse/SPARK-8567) | *Critical* | **Flaky test: o.a.s.sql.hive.HiveSparkSubmitSuite --jars**
+
+Seems tests in HiveSparkSubmitSuite fail with timeout pretty frequently.
+
+
+---
+
+* [SPARK-8563](https://issues.apache.org/jira/browse/SPARK-8563) | *Major* | **Bug that IndexedRowMatrix.computeSVD() yields the U with wrong numCols**
+
+IndexedRowMatrix.computeSVD() yields a wrong U which *U.numCols() = self.nCols*.
+
+It should have been *U.numCols() = k = svd.U.numCols()*
+
+{code}
+self = U * sigma * V.transpose
+(m x n) = (m x n) * (k x k) * (k x n)
+-->
+(m x n) = (m x k) * (k x k) * (k x n)
+{code}
+
+
+Proposed fix: https://github.com/apache/spark/pull/6953
+
+
+---
+
 * [SPARK-8548](https://issues.apache.org/jira/browse/SPARK-8548) | *Major* | **Remove the trailing whitespaces from the SparkR files**
 
 On the {{lint-r}}'s advice, remove the trailing whiltespace from the SparkR files.
+
+
+---
+
+* [SPARK-8535](https://issues.apache.org/jira/browse/SPARK-8535) | *Major* | **PySpark : Can't create DataFrame from Pandas dataframe with no explicit column name**
+
+Trying to create a Spark DataFrame from a pandas dataframe with no explicit column name : 
+
+pandasDF = pd.DataFrame([[1, 2], [5, 6]])
+sparkDF = sqlContext.createDataFrame(pandasDF)
+
+***********
+
+----> 1 sparkDF = sqlContext.createDataFrame(pandasDF)
+
+/usr/local/Cellar/apache-spark/1.4.0/libexec/python/pyspark/sql/context.pyc in createDataFrame(self, data, schema, samplingRatio)
+    344 
+    345         jrdd = self.\_jvm.SerDeUtil.toJavaArray(rdd.\_to\_java\_object\_rdd())
+--> 346         df = self.\_ssql\_ctx.applySchemaToPythonRDD(jrdd.rdd(), schema.json())
+    347         return DataFrame(df, self)
+    348 
+
+/usr/local/Cellar/apache-spark/1.4.0/libexec/python/lib/py4j-0.8.2.1-src.zip/py4j/java\_gateway.py in \_\_call\_\_(self, *args)
+    536         answer = self.gateway\_client.send\_command(command)
+    537         return\_value = get\_return\_value(answer, self.gateway\_client,
+--> 538                 self.target\_id, self.name)
+    539 
+    540         for temp\_arg in temp\_args:
+
+/usr/local/Cellar/apache-spark/1.4.0/libexec/python/lib/py4j-0.8.2.1-src.zip/py4j/protocol.py in get\_return\_value(answer, gateway\_client, target\_id, name)
+    298                 raise Py4JJavaError(
+    299                     'An error occurred while calling {0}{1}{2}.\n'.
+--> 300                     format(target\_id, '.', name), value)
+    301             else:
+    302                 raise Py4JError(
+
+Py4JJavaError: An error occurred while calling o87.applySchemaToPythonRDD.
 
 
 ---
@@ -1124,6 +1387,54 @@ Manufacturer#1	almond antique burnished rose metallic	2	258.10677784349235	258.1
 
 ---
 
+* [SPARK-7820](https://issues.apache.org/jira/browse/SPARK-7820) | *Critical* | **Java8-tests suite compile error under SBT**
+
+Lots of compilation error is shown when java 8 test suite is enabled in SBT:
+
+{{JAVA\_HOME=/usr/java/jdk1.8.0\_45 ./sbt/sbt -Pyarn -Phadoop-2.4 -Dhadoop.version=2.6.0 -Pjava8-tests}}
+
+{code}
+[error] /mnt/data/project/apache-spark/extras/java8-tests/src/test/java/org/apache/spark/streaming/Java8APISuite.java:43: error: cannot find symbol
+[error] public class Java8APISuite extends LocalJavaStreamingContext implements Serializable {
+[error]                                    ^
+[error]   symbol: class LocalJavaStreamingContext
+[error] /mnt/data/project/apache-spark/extras/java8-tests/src/test/java/org/apache/spark/streaming/Java8APISuite.java:55: error: cannot find symbol
+[error]     JavaDStream<String> stream = JavaTestUtils.attachTestInputStream(ssc, inputData, 1);
+[error]                                                                      ^
+[error]   symbol:   variable ssc
+[error]   location: class Java8APISuite
+[error] /mnt/data/project/apache-spark/extras/java8-tests/src/test/java/org/apache/spark/streaming/Java8APISuite.java:55: error: cannot find symbol
+[error]     JavaDStream<String> stream = JavaTestUtils.attachTestInputStream(ssc, inputData, 1);
+[error]                                  ^
+[error]   symbol:   variable JavaTestUtils
+[error]   location: class Java8APISuite
+[error] /mnt/data/project/apache-spark/extras/java8-tests/src/test/java/org/apache/spark/streaming/Java8APISuite.java:57: error: cannot find symbol
+[error]     JavaTestUtils.attachTestOutputStream(letterCount);
+[error]     ^
+[error]   symbol:   variable JavaTestUtils
+[error]   location: class Java8APISuite
+[error] /mnt/data/project/apache-spark/extras/java8-tests/src/test/java/org/apache/spark/streaming/Java8APISuite.java:58: error: cannot find symbol
+[error]     List<List<Integer>> result = JavaTestUtils.runStreams(ssc, 2, 2);
+[error]                                                           ^
+[error]   symbol:   variable ssc
+[error]   location: class Java8APISuite
+[error] /mnt/data/project/apache-spark/extras/java8-tests/src/test/java/org/apache/spark/streaming/Java8APISuite.java:58: error: cannot find symbol
+[error]     List<List<Integer>> result = JavaTestUtils.runStreams(ssc, 2, 2);
+[error]                                  ^
+[error]   symbol:   variable JavaTestUtils
+[error]   location: class Java8APISuite
+[error] /mnt/data/project/apache-spark/extras/java8-tests/src/test/java/org/apache/spark/streaming/Java8APISuite.java:73: error: cannot find symbol
+[error]     JavaDStream<String> stream = JavaTestUtils.attachTestInputStream(ssc, inputData, 1);
+[error]                                                                      ^
+[error]   symbol:   variable ssc
+[error]   location: class Java8APISuite
+{code}
+
+The class {{JavaAPISuite}} relies on {{LocalJavaStreamingContext}} which exists in streaming test jar. It is OK for maven compile, since it will generate test jar, but will be failed in sbt test compile, sbt do not generate test jar by default.
+
+
+---
+
 * [SPARK-7781](https://issues.apache.org/jira/browse/SPARK-7781) | *Major* | **GradientBoostedTrees is missing maxBins parameter in pyspark**
 
 I'm running Spark v1.3.1 and when I run the following against my dataset:
@@ -1228,6 +1539,20 @@ We should add example code for CrossValidator after SPARK-6940 is merged. This s
 
 ---
 
+* [SPARK-7287](https://issues.apache.org/jira/browse/SPARK-7287) | *Critical* | **Flaky test: o.a.s.deploy.SparkSubmitSuite --packages**
+
+Error message was not helpful (did not complete within 60 seconds or something).
+
+Observed only in master:
+
+https://amplab.cs.berkeley.edu/jenkins/job/Spark-Master-SBT/AMPLAB\_JENKINS\_BUILD\_PROFILE=hadoop1.0,label=centos/2239/
+https://amplab.cs.berkeley.edu/jenkins/job/Spark-Master-SBT/AMPLAB\_JENKINS\_BUILD\_PROFILE=hadoop2.0,label=centos/2238/
+https://amplab.cs.berkeley.edu/jenkins/job/Spark-Master-Maven-pre-YARN/hadoop.version=1.0.4,label=centos/2163/
+...
+
+
+---
+
 * [SPARK-7284](https://issues.apache.org/jira/browse/SPARK-7284) | *Critical* | **Update streaming documentation for Spark 1.4.0 release**
 
 Things to update (continuously updated list)
@@ -1310,6 +1635,13 @@ The 'Executors' tab in the Spark UI shows something different.  It shows the mem
 Right now this doc starts off with a big list of config options, and only then tells you how to submit an app. It would be better to put that part and the packaging part first, and the config options only at the end.
 
 In addition, the doc mentions yarn-cluster vs yarn-client as separate masters, which is inconsistent with the help output from spark-submit (which says to always use "yarn").
+
+
+---
+
+* [SPARK-3444](https://issues.apache.org/jira/browse/SPARK-3444) | *Minor* | **Provide a way to easily change the log level in the Spark shell while running**
+
+Right now its difficult to change the log level while running. Our log messages can be quite verbose at the more detailed levels, and some users want to run at WARN until they encounter an issue and then increase the logging level to debug without restarting the shell.
 
 
 

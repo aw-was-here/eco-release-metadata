@@ -23,6 +23,26 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [OOZIE-2286](https://issues.apache.org/jira/browse/OOZIE-2286) | *Major* | **Update Log4j and Log4j-extras to latest 1.2.x release**
+
+Oozie currently uses log4j 1.2.16 and log4j-extras 1.1.  These were released way back in 2010.  We should update to the newest releases 1.2.17 (though they're also pretty old at 2012 and 2013 respectively), which fix some bugs.
+
+The changelogs are pretty minimal:
+log4j: https://logging.apache.org/log4j/1.2/changes-report.html#a1.2.17
+log4j-extras: http://logging.apache.org/log4j/extras/changes-report.html#a1.2.17
+
+Looks like log4j-extras changed their versioning scheme to match log4j's because 1.2.17 is the next release after 1.1.
+
+
+---
+
+* [OOZIE-2284](https://issues.apache.org/jira/browse/OOZIE-2284) | *Major* | **HBaseCredentials should only add hbase-default.xml and hbase-site.xml to actionConf**
+
+  OOZIE-2205 added support to not automatically add *-default.xml and *-site.xml to the actionConf (just pig and hive for now) and pick them from classpath of the hadoop node. This makes rolling upgrades work well as it will pick up latest config changes without having to upgrade Oozie server. But HBaseCredentials ends up adding the *-default.xml and *-site.xml to the actionConf.
+
+
+---
+
 * [OOZIE-2271](https://issues.apache.org/jira/browse/OOZIE-2271) | *Major* | **Upgrade Tomcat to 6.0.44**
 
 We should upgrade Tomcat to 6.0.44, which includes bug and security fixes.
@@ -72,6 +92,13 @@ Path childTmpDir = new Path(Environment.PWD.$(),
 {code}
 
 So it is only needed to be set for AM in launcher because of uber mode.
+
+
+---
+
+* [OOZIE-2250](https://issues.apache.org/jira/browse/OOZIE-2250) | *Major* | **Show log for WAITING and TIMEDOUT coord actions**
+
+   It would be good to be automatically taken to the logs tab when clicked on actions without an external id. i.e WAITING, TIMEDOUT, etc.
 
 
 ---

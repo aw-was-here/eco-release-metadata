@@ -23,6 +23,27 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [HIVE-11073](https://issues.apache.org/jira/browse/HIVE-11073) | *Minor* | **ORC FileDump utility ignores errors when writing output**
+
+orcfiledump exits if errors are detected when writing to stdout.
+
+
+---
+
+* [HIVE-11055](https://issues.apache.org/jira/browse/HIVE-11055) | *Major* | **HPL/SQL - Implementing Procedural SQL in Hive (PL/HQL Contribution)**
+
+Adds procedural SQL to Hive
+
+
+---
+
+* [HIVE-11051](https://issues.apache.org/jira/browse/HIVE-11051) | *Critical* | **Hive 1.2.0  MapJoin w/Tez - LazyBinaryArray cannot be cast to [Ljava.lang.Object;**
+
+HIVE-11051: Hive 1.2.0 MapJoin w/Tez - LazyBinaryArray cannot be cast to [Ljava.lang.Object; (Matt McCline via Gopal V)
+
+
+---
+
 * [HIVE-11043](https://issues.apache.org/jira/browse/HIVE-11043) | *Major* | **ORC split strategies should adapt based on number of files**
 
 Use ETLStrategy for a small number of ORC files.
@@ -54,6 +75,20 @@ CBO: dump AST only when in DEBUG mode.
 * [HIVE-10509](https://issues.apache.org/jira/browse/HIVE-10509) | *Major* | **Bump trunk version to 1.3 as branch-1.2 has been created.**
 
 Hive master/trunk version bumped up to 1.3
+
+
+---
+
+* [HIVE-10191](https://issues.apache.org/jira/browse/HIVE-10191) | *Major* | **ORC: Cleanup writer per-row synchronization**
+
+Remove per-row synchronization from ORC WriterImpl
+
+
+---
+
+* [HIVE-10165](https://issues.apache.org/jira/browse/HIVE-10165) | *Major* | **Improve hive-hcatalog-streaming extensibility and support updates and deletes.**
+
+Expanded streaming API to include update and delete operations and support merge type processes.
 
 
 ---

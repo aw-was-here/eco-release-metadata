@@ -23,6 +23,15 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [HBASE-13983](https://issues.apache.org/jira/browse/HBASE-13983) | *Minor* | **Doc how the oddball HTable methods getStartKey, getEndKey, etc. will be removed in 2.0.0**
+
+Adds extra doc on getStartKeys, getEndKeys, and getStartEndKeys in HTable explaining that they will be removed in 2.0.0 (these methods did not get the proper full major version deprecation cycle).
+
+In this issue, we actually also remove these methods in master/2.0.0 branch.
+
+
+---
+
 * [HBASE-13963](https://issues.apache.org/jira/browse/HBASE-13963) | *Critical* | **avoid leaking jdk.tools**
 
 HBase now ensures that the JDK tools jar used during the build process is not exposed to downstream clients as a transitive dependency of hbase-annotations.
@@ -80,6 +89,13 @@ hbase-shaded-client and hbase-shaded-server modules will not build the actual ja
 
 This jira has removed the already deprecated method 
 KeyValue#oswrite(final KeyValue kv, final OutputStream out)
+
+
+---
+
+* [HBASE-13747](https://issues.apache.org/jira/browse/HBASE-13747) | *Critical* | **Promote Java 8 to "yes" in support matrix**
+
+Java 8 is considered supported and tested as of HBase 1.2+
 
 
 ---

@@ -23,6 +23,19 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [TEZ-2579](https://issues.apache.org/jira/browse/TEZ-2579) | *Major* | **Incorrect comparison of TaskAttemptId**
+
+TaskImpl#AttemptSucceededTransition
+{code}
+      // issue kill to all other attempts
+      for (TaskAttempt attempt : task.attempts.values()) {
+        if (attempt.getID() != task.successfulAttempt &&  // should use !equals 
+        !attempt.isFinished()) {           // but it won't affect the state machine transition, because the successful task attempt should already complete. 
+{code}
+
+
+---
+
 * [TEZ-2568](https://issues.apache.org/jira/browse/TEZ-2568) | *Blocker* | **V\_INPUT\_DATA\_INFORMATION may happen after vertex is initialized**
 
 {code}
@@ -517,6 +530,20 @@ java.lang.InterruptedException: sleep interrupted
 	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
 	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)
 {noformat}
+
+
+---
+
+* [TEZ-2542](https://issues.apache.org/jira/browse/TEZ-2542) | *Minor* | **TezDAGID fromString array length check**
+
+When invalid DAG Id passed
+
+>java -cp tez-history-parser-0.8.0-SNAPSHOT-jar-with-dependencies.jar org.apache.tez.history.ATSImportTool --dagId dag\_1433663662240\_0001 --downloadDir /tmp/history/
+java.lang.ArrayIndexOutOfBoundsException: 3
+	at org.apache.tez.dag.records.TezDAGID.fromString(TezDAGID.java:185)
+	at org.apache.tez.history.ATSImportTool.<init>(ATSImportTool.java:133)
+	at org.apache.tez.history.ATSImportTool.process(ATSImportTool.java:452)
+	at org.apache.tez.history.ATSImportTool.main(ATSImportTool.java:476)
 
 
 ---
@@ -1047,6 +1074,13 @@ TOTAL\_SPILLS = 5 <--- all spills are final output
 - This can be plugged to an analyzer which parses the data, adds semantics and provides an in-memory representation for further analysis.
 - This will enable to write different analyzer rules, which can be run on top of this in-memory representation to come up with analysis on the DAG.
 - Results of this analyzer rules can be rendered on to UI (standalone webapp) later point in time.
+
+
+---
+
+* [TEZ-2048](https://issues.apache.org/jira/browse/TEZ-2048) | *Blocker* | **Remove VertexManagerPluginContext.getTaskContainer()**
+
+This should have been removed earlier. It exposes internal execution details that may not be safe to provide to user code.
 
 
 ---

@@ -78,6 +78,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-2291](https://issues.apache.org/jira/browse/KAFKA-2291) | Documentation Error |  Trivial | website | UTKARSH BHATNAGAR |  |
 | [KAFKA-2290](https://issues.apache.org/jira/browse/KAFKA-2290) | OffsetIndex should open RandomAccessFile consistently |  Major | core | Jun Rao | Chris Black |
 | [KAFKA-2272](https://issues.apache.org/jira/browse/KAFKA-2272) | listeners endpoint parsing fails if the hostname has capital letter |  Major | . | Sriharsha Chintalapani | Sriharsha Chintalapani |
 | [KAFKA-2270](https://issues.apache.org/jira/browse/KAFKA-2270) | incorrect package name in unit tests |  Minor | core | Jun Rao | Proneet Verma |
@@ -189,6 +190,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [KAFKA-2245](https://issues.apache.org/jira/browse/KAFKA-2245) | Add response tests for ConsumerCoordinator |  Critical | consumer | Onur Karaman | Onur Karaman |
 | [KAFKA-2195](https://issues.apache.org/jira/browse/KAFKA-2195) | Add versionId to AbstractRequest.getErrorResponse and AbstractRequest.getRequest |  Major | . | Andrii Biletskyi | Andrii Biletskyi |
+| [KAFKA-2168](https://issues.apache.org/jira/browse/KAFKA-2168) | New consumer poll() can block other calls like position(), commit(), and close() indefinitely |  Critical | clients, consumer | Ewen Cheslack-Postava | Jason Gustafson |
 | [KAFKA-2056](https://issues.apache.org/jira/browse/KAFKA-2056) | PartitionAssignorTest.testRangePartitionAssignor transient failure |  Major | . | Guozhang Wang | Fangmin Lv |
 | [KAFKA-1986](https://issues.apache.org/jira/browse/KAFKA-1986) | Producer request failure rate should not include InvalidMessageSizeException and OffsetOutOfRangeException |  Major | . | Aditya Auradkar | Aditya Auradkar |
 | [KAFKA-1953](https://issues.apache.org/jira/browse/KAFKA-1953) | Disambiguate metrics from different purgatories |  Major | purgatory | Joel Koshy | Joel Koshy |
@@ -201,6 +203,7 @@
 | [KAFKA-1809](https://issues.apache.org/jira/browse/KAFKA-1809) | Refactor brokers to allow listening on multiple ports and IPs |  Major | security | Gwen Shapira | Gwen Shapira |
 | [KAFKA-1760](https://issues.apache.org/jira/browse/KAFKA-1760) | Implement new consumer client |  Major | consumer | Jay Kreps | Jay Kreps |
 | [KAFKA-1750](https://issues.apache.org/jira/browse/KAFKA-1750) | handle "topic not exists" scenario |  Major | tools | Dmitry Pekar | Dmitry Pekar |
+| [KAFKA-1740](https://issues.apache.org/jira/browse/KAFKA-1740) | Merge Offset manager into Coordinator |  Critical | consumer | Guozhang Wang | Guozhang Wang |
 | [KAFKA-1471](https://issues.apache.org/jira/browse/KAFKA-1471) | Add Producer Unit Tests for LZ4 and LZ4HC compression |  Major | . | James Oliver | Ewen Cheslack-Postava |
 | [KAFKA-1335](https://issues.apache.org/jira/browse/KAFKA-1335) | Add rebalancing logic to the coordinator / consumer |  Major | consumer | Neha Narkhede | Guozhang Wang |
 | [KAFKA-1334](https://issues.apache.org/jira/browse/KAFKA-1334) | Coordinator should detect consumer failures |  Major | consumer | Neha Narkhede | Onur Karaman |

@@ -23,9 +23,115 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-8781](https://issues.apache.org/jira/browse/SPARK-8781) | *Blocker* | **Published POMs are no longer effective POMs**
+
+Published to maven repository POMs are no longer effective POMs. E.g. 
+
+In https://repository.apache.org/content/repositories/snapshots/org/apache/spark/spark-core\_2.11/1.4.2-SNAPSHOT/spark-core\_2.11-1.4.2-20150702.043114-52.pom:
+
+{noformat}
+...
+<dependency>
+<groupId>org.apache.spark</groupId>
+<artifactId>spark-launcher\_${scala.binary.version}</artifactId>
+<version>${project.version}</version>
+</dependency>
+...
+{noformat}
+
+while it should be
+
+{noformat}
+...
+<dependency>
+<groupId>org.apache.spark</groupId>
+<artifactId>spark-launcher\_2.11</artifactId>
+<version>${project.version}</version>
+</dependency>
+...
+{noformat}
+
+
+The following commits are most likely the cause of it:
+- for branch-1.3: https://github.com/apache/spark/commit/ce137b8ed3b240b7516046699ac96daa55ddc129
+- for branch-1.4: https://github.com/apache/spark/commit/84da653192a2d9edb82d0dbe50f577c4dc6a0c78
+- for master: https://github.com/apache/spark/commit/984ad60147c933f2d5a2040c87ae687c14eb1724
+
+On branch-1.4 reverting the commit fixed the issue.
+
+See SPARK-3812 for additional details
+
+
+---
+
+* [SPARK-8606](https://issues.apache.org/jira/browse/SPARK-8606) | *Critical* | **Exceptions in RDD.getPreferredLocations() and getPartitions() should not be able to crash DAGScheduler**
+
+RDD.getPreferredLocations() and RDD.getPartitions() may throw exceptions but the DAGScheduler does not guard against this, leaving it vulnerable to crashing and stopping the SparkContext if exceptions occur there.
+
+We should fix this by adding more try blocks around these calls in DAGScheduler.
+
+
+---
+
+* [SPARK-8563](https://issues.apache.org/jira/browse/SPARK-8563) | *Major* | **Bug that IndexedRowMatrix.computeSVD() yields the U with wrong numCols**
+
+IndexedRowMatrix.computeSVD() yields a wrong U which *U.numCols() = self.nCols*.
+
+It should have been *U.numCols() = k = svd.U.numCols()*
+
+{code}
+self = U * sigma * V.transpose
+(m x n) = (m x n) * (k x k) * (k x n)
+-->
+(m x n) = (m x k) * (k x k) * (k x n)
+{code}
+
+
+Proposed fix: https://github.com/apache/spark/pull/6953
+
+
+---
+
 * [SPARK-8541](https://issues.apache.org/jira/browse/SPARK-8541) | *Minor* | **sumApprox and meanApprox doctests are incorrect**
 
 The doctests for sumApprox and meanApprox methods test against an upper bound but not a lower bound. If there was a regression in the underlying code that caused things to go wrong the doctest may not fail. For example if sumApprox returned 0 the doctest would return -1 which is less than 0.05. Solution is to use the abs() function to test that the approximate answer is within 5% of the exact answer.
+
+
+---
+
+* [SPARK-8535](https://issues.apache.org/jira/browse/SPARK-8535) | *Major* | **PySpark : Can't create DataFrame from Pandas dataframe with no explicit column name**
+
+Trying to create a Spark DataFrame from a pandas dataframe with no explicit column name : 
+
+pandasDF = pd.DataFrame([[1, 2], [5, 6]])
+sparkDF = sqlContext.createDataFrame(pandasDF)
+
+***********
+
+----> 1 sparkDF = sqlContext.createDataFrame(pandasDF)
+
+/usr/local/Cellar/apache-spark/1.4.0/libexec/python/pyspark/sql/context.pyc in createDataFrame(self, data, schema, samplingRatio)
+    344 
+    345         jrdd = self.\_jvm.SerDeUtil.toJavaArray(rdd.\_to\_java\_object\_rdd())
+--> 346         df = self.\_ssql\_ctx.applySchemaToPythonRDD(jrdd.rdd(), schema.json())
+    347         return DataFrame(df, self)
+    348 
+
+/usr/local/Cellar/apache-spark/1.4.0/libexec/python/lib/py4j-0.8.2.1-src.zip/py4j/java\_gateway.py in \_\_call\_\_(self, *args)
+    536         answer = self.gateway\_client.send\_command(command)
+    537         return\_value = get\_return\_value(answer, self.gateway\_client,
+--> 538                 self.target\_id, self.name)
+    539 
+    540         for temp\_arg in temp\_args:
+
+/usr/local/Cellar/apache-spark/1.4.0/libexec/python/lib/py4j-0.8.2.1-src.zip/py4j/protocol.py in get\_return\_value(answer, gateway\_client, target\_id, name)
+    298                 raise Py4JJavaError(
+    299                     'An error occurred while calling {0}{1}{2}.\n'.
+--> 300                     format(target\_id, '.', name), value)
+    301             else:
+    302                 raise Py4JError(
+
+Py4JJavaError: An error occurred while calling o87.applySchemaToPythonRDD.
 
 
 ---
@@ -111,6 +217,13 @@ def trainImplicit(ratings: RDD[Rating], rank: Int, iterations: Int, alpha: Doubl
 
 Instead, let's change the example to refer to this function, which does exist (notice the addition of the lambda parameter):
 def trainImplicit(ratings: RDD[Rating], rank: Int, iterations: Int, lambda: Double, alpha: Double) : MatrixFactorizationModel
+
+
+---
+
+* [SPARK-7810](https://issues.apache.org/jira/browse/SPARK-7810) | *Major* | **rdd.py "\_load\_from\_socket" cannot load data from jvm socket if ipv6 is used**
+
+Method "\_load\_from\_socket" in rdd.py cannot load data from jvm socket if ipv6 is used. The current method only works well with ipv4. New modification should work around both two protocols.
 
 
 ---

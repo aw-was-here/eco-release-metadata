@@ -18,7 +18,7 @@
 -->
 # Changelog
 
-## Release 0.5.4 - Unreleased
+## Release 0.5.4 - 2015-06-26
 
 ### INCOMPATIBLE CHANGES:
 

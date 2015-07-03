@@ -23,6 +23,25 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-8563](https://issues.apache.org/jira/browse/SPARK-8563) | *Major* | **Bug that IndexedRowMatrix.computeSVD() yields the U with wrong numCols**
+
+IndexedRowMatrix.computeSVD() yields a wrong U which *U.numCols() = self.nCols*.
+
+It should have been *U.numCols() = k = svd.U.numCols()*
+
+{code}
+self = U * sigma * V.transpose
+(m x n) = (m x n) * (k x k) * (k x n)
+-->
+(m x n) = (m x k) * (k x k) * (k x n)
+{code}
+
+
+Proposed fix: https://github.com/apache/spark/pull/6953
+
+
+---
+
 * [SPARK-8525](https://issues.apache.org/jira/browse/SPARK-8525) | *Minor* | **Bug in Streaming k-means documentation**
 
 The expected input format is wrong in Streaming K-means documentation.
