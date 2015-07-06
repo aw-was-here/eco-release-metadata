@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-#  0.5.0 Release Notes
+# Apache Tez  0.5.0 Release Notes
 
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
 
@@ -489,7 +489,7 @@ From Hitesh:
 
 ---
 
-* [TEZ-1417](https://issues.apache.org/jira/browse/TEZ-1417) | *Blocker* | **Rename *Configurer**
+* [TEZ-1417](https://issues.apache.org/jira/browse/TEZ-1417) | *Blocker* | **Rename \*Configurer**
 
 From offline feedback from [~bikassaha], [~acmurthy] and [~hagleitn] - this needs to be renamed.
 Something like Configurator as Bikas had earlier suggested, or ConfigBuilder which I like more.
@@ -1040,7 +1040,7 @@ As part of TEZ-1206, a change was proposed to modify environment variables with 
 
 ---
 
-* [TEZ-1279](https://issues.apache.org/jira/browse/TEZ-1279) | *Major* | **Rename *EdgeConfiguration to *EdgeConfigurer**
+* [TEZ-1279](https://issues.apache.org/jira/browse/TEZ-1279) | *Major* | **Rename \*EdgeConfiguration to \*EdgeConfigurer**
 
 **WARNING: No release note provided for this incompatible change.**
 
@@ -1097,7 +1097,7 @@ It checks for session mode and if not true, and if there are no outstanding requ
 
 ---
 
-* [TEZ-1266](https://issues.apache.org/jira/browse/TEZ-1266) | *Major* | **Create *EdgeConfigurer.createDefaultCustomEdge() and force setting partitioners**
+* [TEZ-1266](https://issues.apache.org/jira/browse/TEZ-1266) | *Major* | **Create \*EdgeConfigurer.createDefaultCustomEdge() and force setting partitioners**
 
 Reference https://issues.apache.org/jira/browse/TEZ-1080?focusedCommentId=14054194&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-14054194 from TEZ-1080
 
@@ -2532,6 +2532,13 @@ Currently, the context is passed to IPO objects in the initialize method and its
 * [TEZ-692](https://issues.apache.org/jira/browse/TEZ-692) | *Major* | **Unify job submission in either TezClient or TezSession**
 
 Its confusing to have 2 ways to create and submit a tez job. The developer has to spend time thinking about and deciding which method to use.
+
+
+---
+
+* [TEZ-690](https://issues.apache.org/jira/browse/TEZ-690) | *Major* | **Tez API Ease of Use**
+
+Recently we wrote the wordcount example from scratch using Tez API's in TEZ-689. The code shows some room for improvement in making the Tez API's more concise and less error prone. This jira tracks some of those changes. The improvements in this jira will be reflected in the cleanliness and conciseness of the word count example job.
 
 
 ---
