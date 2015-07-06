@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-#  0.8.2.0 Release Notes
+# Apache Kafka  0.8.2.0 Release Notes
 
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
 
@@ -2274,15 +2274,6 @@ New producer configs have been added somewhat haphazardly. Before we consider th
 
 ---
 
-* [KAFKA-1328](https://issues.apache.org/jira/browse/KAFKA-1328) | *Major* | **Add new consumer APIs**
-
-New consumer API discussion is here - http://mail-archives.apache.org/mod\_mbox/kafka-users/201402.mbox/%3CCAOG\_4QYBHwyi0xN=HL1FpnRTkVfJZX14uJFntfT3nn\_Mw3+XgQ@mail.gmail.com%3E
-
-This JIRA includes reviewing and checking in the new consumer APIs
-
-
----
-
 * [KAFKA-1325](https://issues.apache.org/jira/browse/KAFKA-1325) | *Major* | **Fix inconsistent per topic log configs**
 
 Related thread from the user mailing list - http://mail-archives.apache.org/mod\_mbox/kafka-users/201403.mbox/%3Cd8f6f3857b82c4ccd8725aba6fd68cb8%40cweb01.nmdf.nhnsystem.com%3E
@@ -2299,20 +2290,6 @@ change the per-topic configs to be consistent with the server defaults.
 * [KAFKA-1318](https://issues.apache.org/jira/browse/KAFKA-1318) | *Major* | **waiting for producer to stop is not reliable in system tests**
 
 Occasionally, system hangs because the producer already stopped, but the script was still waiting for the producer to stop.
-
-
----
-
-* [KAFKA-1316](https://issues.apache.org/jira/browse/KAFKA-1316) | *Major* | **Refactor Sender**
-
-Currently most of the logic of the producer I/O thread is in Sender.java.
-
-However we will need to do a fair number of similar things in the new consumer. Specifically:
- - Track in-flight requests
- - Fetch metadata
- - Manage connection lifecycle
-
-It may be possible to refactor some of this into a helper class that can be shared with the consumer. This will require some detailed thought.
 
 
 ---
@@ -3053,6 +3030,18 @@ This Jira will involve following:
 * [KAFKA-1002](https://issues.apache.org/jira/browse/KAFKA-1002) | *Major* | **Delete aliveLeaders field from LeaderAndIsrRequest**
 
 After KAFKA-999 is committed, we don't need aliveLeaders in LeaderAndIsrRequest.
+
+
+---
+
+* [KAFKA-1000](https://issues.apache.org/jira/browse/KAFKA-1000) | *Minor* | **Inbuilt consumer offset management feature for kakfa**
+
+Kafka currently stores offsets in zookeeper. This is a problem for several reasons. First it means the consumer must embed the zookeeper client which is not available in all languages. Secondly offset commits are actually quite frequent and Zookeeper does not scale this kind of high-write load. 
+
+This Jira is for tracking the phase #2 of Offset Management [0]. Joel and I have been working on this. [1] is the overall design of the feature.
+
+[0] : https://cwiki.apache.org/confluence/display/KAFKA/Offset+Management
+[1] : https://cwiki.apache.org/confluence/display/KAFKA/Inbuilt+Consumer+Offset+Management
 
 
 ---

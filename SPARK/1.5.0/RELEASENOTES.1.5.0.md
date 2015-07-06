@@ -16,9 +16,25 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-#  1.5.0 Release Notes
+# Apache Spark  1.5.0 Release Notes
 
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
+
+
+---
+
+* [SPARK-8822](https://issues.apache.org/jira/browse/SPARK-8822) | *Major* | **clean up type checking in math.scala**
+
+There are various issues w.r.t. type checking in math.scala. Most of the custom implementation of checkInputTypes can be replaced with mixin ExpectsInputTypes.
+
+There are also other minor issues, such as over complicating certain expressions due to the previous lack of implicit type casting among numeric types.
+
+
+---
+
+* [SPARK-8810](https://issues.apache.org/jira/browse/SPARK-8810) | *Major* | **Gaps in SQL UDF test coverage**
+
+SQL UDFs are untested in GROUP BY, WHERE and HAVING clauses, and in combination.
 
 
 ---
@@ -145,6 +161,13 @@ The following commits are most likely the cause of it:
 On branch-1.4 reverting the commit fixed the issue.
 
 See SPARK-3812 for additional details
+
+
+---
+
+* [SPARK-8777](https://issues.apache.org/jira/browse/SPARK-8777) | *Major* | **Add random data generation test utilities to Spark SQL**
+
+We should add utility functions for generating data that conforms to a given SparkSQL DataType or Schema. This would make it significantly easier to write certain types of tests.
 
 
 ---
@@ -992,6 +1015,21 @@ Both of these options are useful when spark-ec2 is being used as part of an auto
 * [SPARK-8575](https://issues.apache.org/jira/browse/SPARK-8575) | *Minor* | **Deprecate callUDF in favor of udf**
 
 Follow-up of [SPARK-8356|https://issues.apache.org/jira/browse/SPARK-8356] to use {{callUDF}} in favor of {{udf}} wherever possible.
+
+
+---
+
+* [SPARK-8572](https://issues.apache.org/jira/browse/SPARK-8572) | *Critical* | **Type coercion for ScalaUDFs**
+
+Seems we do not do type coercion for ScalaUDFs. The following code will hit a runtime exception.
+{code}
+import org.apache.spark.sql.functions.\_
+val myUDF = udf((x: Int) => x + 1)
+val df = sqlContext.range(1, 10).toDF("i").select(myUDF($"i"))
+df.explain(true)
+df.show
+{code}
+It is also good to check if we do type coercion for PythonUDFs.
 
 
 ---
@@ -2484,7 +2522,7 @@ Beyond ~2^112 the precision is truncated even if the precision was set to n and 
 
 ---
 
-* [SPARK-8358](https://issues.apache.org/jira/browse/SPARK-8358) | *Blocker* | **DataFrame explode with alias and * fails**
+* [SPARK-8358](https://issues.apache.org/jira/browse/SPARK-8358) | *Blocker* | **DataFrame explode with alias and \* fails**
 
 {code}
 scala> Seq((Array("a"), 1)).toDF("a", "b").select(explode($"a").as("a"), $"*")
@@ -2870,6 +2908,24 @@ There's another mistake in the FP-GrowthModel in the same section, the link poin
 
 ---
 
+* [SPARK-8270](https://issues.apache.org/jira/browse/SPARK-8270) | *Major* | **string function: levenshtein**
+
+levenshtein(string A, string B): int
+
+Returns the Levenshtein distance between two strings (as of Hive 1.2.0). For example, levenshtein('kitten', 'sitting') results in 3.
+
+
+---
+
+* [SPARK-8268](https://issues.apache.org/jira/browse/SPARK-8268) | *Major* | **string function: unbase64**
+
+unbase64(string str): binary
+
+Converts the argument from a base 64 string to BINARY.
+
+
+---
+
 * [SPARK-8265](https://issues.apache.org/jira/browse/SPARK-8265) | *Minor* | **Add LinearDataGenerator to pyspark.mllib.utils**
 
 This is useful in testing various linear models in pyspark
@@ -2896,6 +2952,42 @@ Alias lower/lcase in FunctionRegistry.
 length(string A): int
 
 Returns the length of the string.
+
+
+---
+
+* [SPARK-8243](https://issues.apache.org/jira/browse/SPARK-8243) | *Major* | **string function: encode**
+
+encode(string src, string charset): binary
+
+Encodes the first argument into a BINARY using the provided character set (one of 'US-ASCII', 'ISO-8859-1', 'UTF-8', 'UTF-16BE', 'UTF-16LE', 'UTF-16'). If either argument is null, the result will also be null. (As of Hive 0.12.0.)
+
+
+---
+
+* [SPARK-8242](https://issues.apache.org/jira/browse/SPARK-8242) | *Major* | **string function: decode**
+
+decode(binary bin, string charset): string
+
+Decodes the first argument into a String using the provided character set (one of 'US-ASCII', 'ISO-8859-1', 'UTF-8', 'UTF-16BE', 'UTF-16LE', 'UTF-16'). If either argument is null, the result will also be null. (As of Hive 0.12.0.)
+
+
+---
+
+* [SPARK-8239](https://issues.apache.org/jira/browse/SPARK-8239) | *Major* | **string function: base64**
+
+base64(binary bin): string
+
+Converts the argument from binary to a base 64 string
+
+
+---
+
+* [SPARK-8238](https://issues.apache.org/jira/browse/SPARK-8238) | *Major* | **string function: ascii**
+
+ascii(string str): int
+
+Returns the numeric value of the first character of str.
 
 
 ---
@@ -2957,6 +3049,15 @@ Just need to register it in FunctionRegistry.
 unhex(STRING a): BINARY
 
 Inverse of hex. Interprets each pair of characters as a hexadecimal number and converts to the byte representation of the number.
+
+
+---
+
+* [SPARK-8226](https://issues.apache.org/jira/browse/SPARK-8226) | *Major* | **math function: shiftrightunsigned**
+
+shiftrightunsigned(INT a), shiftrightunsigned(BIGINT a)	
+
+Bitwise unsigned right shift (as of Hive 1.2.0). Returns int for tinyint, smallint and int a. Returns bigint for bigint a.
 
 
 ---
@@ -3142,6 +3243,29 @@ When training a streaming logistic regression model or a streaming linear regres
   at org.apache.spark.mllib.regression.StreamingLinearAlgorithm$$anonfun$trainOn$1.apply(StreamingLinearAlgorithm.scala:85)
   at org.apache.spark.streaming.dstream.ForEachDStream$$anonfun$1$$anonfun$apply$mcV$sp$1.apply$mcV$sp(ForEachDStream.scala:42)
   at org.apache.spark.streaming.dstream.ForEachDStream$$anonfun$1$$anonfun$apply$mcV$sp$1.apply(ForEachDStream.scala:40)
+
+
+---
+
+* [SPARK-8193](https://issues.apache.org/jira/browse/SPARK-8193) | *Major* | **date/time function: current\_timestamp**
+
+current\_timestamp(): timestamp
+
+Returns the current timestamp at the start of query evaluation (as of Hive 1.2.0). All calls of current\_timestamp within the same query return the same value.
+
+
+We should just replace this with a timestamp literal in the optimizer.
+
+
+---
+
+* [SPARK-8192](https://issues.apache.org/jira/browse/SPARK-8192) | *Major* | **date/time function: current\_date**
+
+current\_date(): date
+
+Returns the current date at the start of query evaluation (as of Hive 1.2.0). All calls of current\_date within the same query return the same value.
+
+We should just replace this with a date literal in the optimizer.
 
 
 ---
@@ -5092,6 +5216,15 @@ test("get item") {
 }
 {code}
 This test will fail as "b" is inferred as Long type.
+
+
+---
+
+* [SPARK-7137](https://issues.apache.org/jira/browse/SPARK-7137) | *Trivial* | **Add checkInputColumn back to Params and print more info**
+
+In the PR for [https://issues.apache.org/jira/browse/SPARK-5957], Params.checkInputColumn was moved to SchemaUtils and renamed to checkColumnType.  The downside is that it no longer has access to the parameter info, so it cannot state which input column parameter was incorrect.
+
+We should keep checkColumnType but also add checkInputColumn back to Params.  It should print out the parameter name and description.  Internally, it may call checkColumnType.
 
 
 ---

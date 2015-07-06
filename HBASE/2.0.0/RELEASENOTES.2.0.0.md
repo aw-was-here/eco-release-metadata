@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-#  2.0.0 Release Notes
+# Apache HBase  2.0.0 Release Notes
 
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
 
@@ -168,6 +168,13 @@ However if you want to use SSL communication, the 2 ports must be configured to 
 * [HBASE-13537](https://issues.apache.org/jira/browse/HBASE-13537) | *Major* | **Change the admin interface for async operations to return Future.**
 
 As we made changes to return types in asynchronous methods of Admin API, this change is going to break binary compatibility. The source compatibility is kept intact though. The applications running against this change needs to be recompiled to keep things working.
+
+
+---
+
+* [HBASE-13533](https://issues.apache.org/jira/browse/HBASE-13533) | *Trivial* | **section on configuring ~/.m2/settings.xml has no anchor**
+
+Correct setting.xml anchor in book
 
 
 ---

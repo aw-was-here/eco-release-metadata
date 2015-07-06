@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-# Changelog
+# Apache HBase Changelog
 
 ## Release 1.1.0.1 - 2015-05-25
 
@@ -42,7 +42,6 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [HBASE-13768](https://issues.apache.org/jira/browse/HBASE-13768) | ZooKeeper znodes are bootstrapped with insecure ACLs in a secure configuration |  Blocker | . | Andrew Purtell | Enis Soztutar |
 
 
 ### TESTS:

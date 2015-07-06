@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-#  1.2.0 Release Notes
+# Apache HBase  1.2.0 Release Notes
 
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
 
@@ -37,6 +37,13 @@ In this issue, we actually also remove these methods in master/2.0.0 branch.
 HBase now ensures that the JDK tools jar used during the build process is not exposed to downstream clients as a transitive dependency of hbase-annotations.
 
 If you need to have the JDK tools jar in your classpath, you should add a system dependency on it. See the hbase-annotations pom for an example of the necessary pom additions.
+
+
+---
+
+* [HBASE-13930](https://issues.apache.org/jira/browse/HBASE-13930) | *Major* | **Exclude Findbugs packages from shaded jars**
+
+Exclude Findbugs packages from shaded jars
 
 
 ---
@@ -123,22 +130,6 @@ By default, the JMX listens on TCP port 10101 for Master, we can further configu
 
 The registry port can be shared with connector port in most cases, so you only need to configure master.rmi.registry.port.
 However if you want to use SSL communication, the 2 ports must be configured to different values.
-
-
----
-
-* [HBASE-13533](https://issues.apache.org/jira/browse/HBASE-13533) | *Trivial* | **section on configuring ~/.m2/settings.xml has no anchor**
-
-Correct setting.xml anchor in book
-
-
----
-
-* [HBASE-13517](https://issues.apache.org/jira/browse/HBASE-13517) | *Major* | **Publish a client artifact with shaded dependencies**
-
-HBase now provides added convenience artifacts that shade most dependencies. These jars hbase-shaded-client and hbase-shaded-server are meant to be used when dependency conflicts can not be solved any other way. The normal jars hbase-client and hbase-server should still be preferred when possible.
-
-Do not use hbase-shaded-server or hbase-shaded-client inside of a co-processor as bad things will happen.
 
 
 ---

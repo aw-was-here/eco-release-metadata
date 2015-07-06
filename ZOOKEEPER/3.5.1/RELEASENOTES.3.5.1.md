@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-#  3.5.1 Release Notes
+# Apache Zookeeper  3.5.1 Release Notes
 
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
 
@@ -31,7 +31,7 @@ branch-3.5: http://svn.apache.org/viewvc?view=revision&revision=1679446
 
 ---
 
-* [ZOOKEEPER-2114](https://issues.apache.org/jira/browse/ZOOKEEPER-2114) | *Major* | **jute generated allocate\_* functions are not externally visible**
+* [ZOOKEEPER-2114](https://issues.apache.org/jira/browse/ZOOKEEPER-2114) | *Major* | **jute generated allocate\_\* functions are not externally visible**
 
 Expose jute-generated allocate\_XXX functions in libzookeeper.
 

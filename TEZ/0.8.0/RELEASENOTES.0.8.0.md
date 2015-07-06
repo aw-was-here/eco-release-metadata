@@ -16,9 +16,28 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-#  0.8.0 Release Notes
+# Apache Tez  0.8.0 Release Notes
 
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
+
+
+---
+
+* [TEZ-2599](https://issues.apache.org/jira/browse/TEZ-2599) | *Major* | **Dont send obsoleted data movement events to tasks**
+
+Since events are sent in bulk and in sequential order to tasks they can end up getting a bunch of data movement events in round 1 and then an input failed event in round 2. The task may end up scheduling fetches for these obsoleted events before round 2, leading to wastage. 
+Given that an input failed event and data movement event can be matched via their source task attempt ids, the AM can use this match to obsolete the data movements events ahead of time and not send them to the tasks in the first place.
+The input failed events still need to be sent to the tasks, so that they can obsolete any data movements events that they may have received much earlier from the failed task attempt.
+
+
+---
+
+* [TEZ-2588](https://issues.apache.org/jira/browse/TEZ-2588) | *Trivial* | **Improper argument name**
+
+TezVertexID.java
+{code}
+public static TezVertexID fromString(String taskIdStr) {  // should be vertexIdStr
+{code}
 
 
 ---
@@ -32,6 +51,18 @@ TaskImpl#AttemptSucceededTransition
         if (attempt.getID() != task.successfulAttempt &&  // should use !equals 
         !attempt.isFinished()) {           // but it won't affect the state machine transition, because the successful task attempt should already complete. 
 {code}
+
+
+---
+
+* [TEZ-2575](https://issues.apache.org/jira/browse/TEZ-2575) | *Major* | **Handle KeyValue pairs size which do not fit in a single block**
+
+In the present implementation, the available buffer is divided into blocks (specified in the constructor for pipeline sort). and a linked list of these block byte buffers is maintained. 
+A span is created out of the buffers. 
+The present logic, doesnot handle scenario where a single key-value pair size doesnot fit into any of the blocks.
+example if 1mb total memory is divided into 4 blocks, (256 kb each),
+if a single KV pair is greater than the blocksize(~ignoring meta data size), 
+then it fails with buffer exceptions.
 
 
 ---

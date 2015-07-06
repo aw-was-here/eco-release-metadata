@@ -16,9 +16,35 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-#  1.3.0 Release Notes
+# Apache Spark  1.3.0 Release Notes
 
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
+
+
+---
+
+* [SPARK-7044](https://issues.apache.org/jira/browse/SPARK-7044) | *Major* | **[Spark SQL] query would hang when using scripts in SQL statement**
+
+Query with 'USING' operator like below would hang when using scripts in SQL statement
+{code}
+INSERT INTO TABLE ${hiveconf:RESULT\_TABLE}
+SELECT pid1, pid2, COUNT (*) AS cnt
+FROM (
+  --Make items basket
+  FROM (
+    -- Joining two tables
+    SELECT s.ss\_ticket\_number AS oid , s.ss\_item\_sk AS pid
+    FROM store\_sales s
+    INNER JOIN item i ON (s.ss\_item\_sk = i.i\_item\_sk)
+    WHERE i.i\_category\_id in (${hiveconf:q01\_i\_category\_id\_IN})
+    AND s.ss\_store\_sk in (${hiveconf:q01\_ss\_store\_sk\_IN})
+    CLUSTER BY oid
+  ) q01\_map\_output
+  REDUCE q01\_map\_output.oid, q01\_map\_output.pid
+  USING '${env:BIG\_BENCH\_JAVA} ${env:BIG\_BENCH\_java\_child\_process\_xmx} -cp bigbenchqueriesmr.jar de.bankmark.bigbench.queries.q01.Red -ITEM\_SET\_MAX ${hiveconf:q01\_NPATH\_ITEM\_SET\_MAX} '
+  AS (pid1 BIGINT, pid2 BIGINT)
+) q01\_temp\_basket
+{code}
 
 
 ---
@@ -1076,6 +1102,13 @@ LocalReadTime was added to TaskMetrics for the 1.3.0 release.  However, this tim
 
 ---
 
+* [SPARK-5980](https://issues.apache.org/jira/browse/SPARK-5980) | *Minor* | **Add GradientBoostedTrees Python examples to ML guide**
+
+GBT now has a Python API and should have examples in the ML guide
+
+
+---
+
 * [SPARK-5979](https://issues.apache.org/jira/browse/SPARK-5979) | *Blocker* | **`--packages` should not exclude spark streaming assembly jars for kafka and flume**
 
 Currently `--packages` has an exclude rule for all dependencies with the groupId `org.apache.spark` assuming that these are packaged inside the spark-assembly jar. This is not the case and more fine grained filtering is required.
@@ -1793,7 +1826,7 @@ java.io.NotSerializableException: org.apache.hadoop.conf.Configuration
 
 ---
 
-* [SPARK-5825](https://issues.apache.org/jira/browse/SPARK-5825) | *Blocker* | **Failure stopping Services while command line argument is too long**
+* [SPARK-5825](https://issues.apache.org/jira/browse/SPARK-5825) | *Critical* | **Failure stopping Services while command line argument is too long**
 
 Stopping service in `spark-daemon.sh` will confirm the process id by fuzzy matching the class name, however, it will fail if the java process arguments is very long (greater than 4096).
 
@@ -3087,6 +3120,18 @@ make hivecontext support "unset tblproperties("key")"
 like :
 alter view viewName unset tblproperties("k")
 alter table tableName unset tblproperties("k")
+
+
+---
+
+* [SPARK-5645](https://issues.apache.org/jira/browse/SPARK-5645) | *Major* | **Track local bytes read for shuffles - update UI**
+
+Currently we do not track the local bytes read for a shuffle read. The UI only shows the remote bytes read. This is pretty confusing to the user because:
+1) In local mode all shuffle reads are local
+2) the shuffle bytes written from the previous stage might not add up if there are some bytes that are read locally on the shuffle read side
+3) With https://github.com/apache/spark/pull/4067 we display the total number of records so that won't line up with only showing the remote bytes read. 
+
+I propose we track the remote and local bytes read separately. In the UI show the total bytes read and in brackets show the remote bytes read for a shuffle.
 
 
 ---
@@ -5909,6 +5954,29 @@ First of all, the pipeline API is in its alpha stage and we need to see more use
 
 ---
 
+* [SPARK-5252](https://issues.apache.org/jira/browse/SPARK-5252) | *Major* | **Streaming StatefulNetworkWordCount example hangs**
+
+Running the stateful network word count example in Python (on one local node):
+https://github.com/apache/spark/blob/master/examples/src/main/python/streaming/stateful\_network\_wordcount.py
+
+At the beginning, when no data is streamed, empty status outputs are generated, only decorated by the current Time, e.g.:
+-------------------------------------------
+Time: 2015-01-14 17:58:20
+-------------------------------------------
+
+-------------------------------------------
+Time: 2015-01-14 17:58:21
+-------------------------------------------
+
+As soon as I stream some data via netcat, no new status updates will show. Instead, one line saying
+
+[Stage <number>:====================================================>                          (2 + 0) / 3]
+
+where <number> is some integer number, e.g. 132. There is no further output on stdout.
+
+
+---
+
 * [SPARK-5247](https://issues.apache.org/jira/browse/SPARK-5247) | *Blocker* | **Enable javadoc/scaladoc for public classes in catalyst project**
 
 We previously did not generate any docs for the entire catalyst project. Since now we are defining public APIs in that (under org.apache.spark.sql outside of org.apache.spark.sql.catalyst, such as Row, types.\_), we should start generating javadoc/scaladoc for those.
@@ -6324,7 +6392,7 @@ now when we run python application on yarn cluster mode through spark-submit, sp
 
 ---
 
-* [SPARK-5172](https://issues.apache.org/jira/browse/SPARK-5172) | *Minor* | **spark-examples-***.jar shades a wrong Hadoop distribution**
+* [SPARK-5172](https://issues.apache.org/jira/browse/SPARK-5172) | *Minor* | **spark-examples-\*\*\*.jar shades a wrong Hadoop distribution**
 
 Steps to check it:
 
@@ -7330,6 +7398,17 @@ when the application is completed, yarn's nodemanager can remove application's l
 
 In SparkSubmitArguments we first search SPARK\_CONF\_DIR then SPARK\_HOME/conf directory to find "spark-defaults.conf" file.
 I think in spark-submit script it should follow the same rule also.
+
+
+---
+
+* [SPARK-4989](https://issues.apache.org/jira/browse/SPARK-4989) | *Critical* | **wrong application configuration cause cluster down in standalone mode**
+
+when enabling eventlog in standalone mode, if give the wrong configuration, the standalone cluster will down (cause master restart, lose connection with workers). 
+
+How to reproduce: just give an invalid value to "spark.eventLog.dir", for example: *spark.eventLog.dir=hdfs://tmp/logdir1, hdfs://tmp/logdir2*. This will throw illegalArgumentException, which will cause the *Master* restart. And the whole cluster is not available.
+
+This is not acceptable that cluster is crashed by one application's wrong setting.
 
 
 ---
@@ -9325,7 +9404,7 @@ The NettyBlockTransferService always binds to a random port, and does not use th
 
 ---
 
-* [SPARK-4835](https://issues.apache.org/jira/browse/SPARK-4835) | *Critical* | **Streaming saveAs*HadoopFiles() methods may throw FileAlreadyExistsException during checkpoint recovery**
+* [SPARK-4835](https://issues.apache.org/jira/browse/SPARK-4835) | *Critical* | **Streaming saveAs\*HadoopFiles() methods may throw FileAlreadyExistsException during checkpoint recovery**
 
 While running (a slightly modified version of) the "recovery with saveAsHadoopFiles operation" test in the streaming CheckpointSuite, I noticed the following error message in the streaming driver log:
 
@@ -10533,6 +10612,200 @@ In `JoinSuite` add `BroadcastNestedLoopJoin` operator selection
 
 ---
 
+* [SPARK-4520](https://issues.apache.org/jira/browse/SPARK-4520) | *Critical* | **SparkSQL exception when reading certain columns from a parquet file**
+
+I am seeing this issue with spark sql throwing an exception when trying to read selective columns from a thrift parquet file and also when caching them.
+On some further digging, I was able to narrow it down to at-least one particular column type: map<string, set<string>> to be causing this issue. To reproduce this I created a test thrift file with a very basic schema and stored some sample data in a parquet file:
+
+Test.thrift
+===========
+{code}
+typedef binary SomeId
+
+enum SomeExclusionCause {
+  WHITELIST = 1,
+  HAS\_PURCHASE = 2,
+}
+
+struct SampleThriftObject {
+  10: string col\_a;
+  20: string col\_b;
+  30: string col\_c;
+  40: optional map<SomeExclusionCause, set<SomeId>> col\_d;
+}
+{code}
+=============
+
+And loading the data in spark through schemaRDD:
+{code}
+import org.apache.spark.sql.SchemaRDD
+val sqlContext = new org.apache.spark.sql.SQLContext(sc);
+val parquetFile = "/path/to/generated/parquet/file"
+val parquetFileRDD = sqlContext.parquetFile(parquetFile)
+parquetFileRDD.printSchema
+root
+ |-- col\_a: string (nullable = true)
+ |-- col\_b: string (nullable = true)
+ |-- col\_c: string (nullable = true)
+ |-- col\_d: map (nullable = true)
+ |    |-- key: string
+ |    |-- value: array (valueContainsNull = true)
+ |    |    |-- element: string (containsNull = false)
+
+parquetFileRDD.registerTempTable("test")
+sqlContext.cacheTable("test")
+sqlContext.sql("select col\_a from test").collect() <-- see the exception stack here 
+{code}
+{code}
+org.apache.spark.SparkException: Job aborted due to stage failure: Task 0 in stage 0.0 failed 1 times, most recent failure: Lost task 0.0 in stage 0.0 (TID 0, localhost): parquet.io.ParquetDecodingException: Can not read value at 0 in block -1 in file file:/tmp/xyz/part-r-00000.parquet
+	at parquet.hadoop.InternalParquetRecordReader.nextKeyValue(InternalParquetRecordReader.java:213)
+	at parquet.hadoop.ParquetRecordReader.nextKeyValue(ParquetRecordReader.java:204)
+	at org.apache.spark.rdd.NewHadoopRDD$$anon$1.hasNext(NewHadoopRDD.scala:145)
+	at org.apache.spark.InterruptibleIterator.hasNext(InterruptibleIterator.scala:39)
+	at scala.collection.Iterator$$anon$11.hasNext(Iterator.scala:327)
+	at scala.collection.Iterator$$anon$14.hasNext(Iterator.scala:388)
+	at scala.collection.Iterator$$anon$11.hasNext(Iterator.scala:327)
+	at scala.collection.Iterator$class.foreach(Iterator.scala:727)
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1157)
+	at scala.collection.generic.Growable$class.$plus$plus$eq(Growable.scala:48)
+	at scala.collection.mutable.ArrayBuffer.$plus$plus$eq(ArrayBuffer.scala:103)
+	at scala.collection.mutable.ArrayBuffer.$plus$plus$eq(ArrayBuffer.scala:47)
+	at scala.collection.TraversableOnce$class.to(TraversableOnce.scala:273)
+	at scala.collection.AbstractIterator.to(Iterator.scala:1157)
+	at scala.collection.TraversableOnce$class.toBuffer(TraversableOnce.scala:265)
+	at scala.collection.AbstractIterator.toBuffer(Iterator.scala:1157)
+	at scala.collection.TraversableOnce$class.toArray(TraversableOnce.scala:252)
+	at scala.collection.AbstractIterator.toArray(Iterator.scala:1157)
+	at org.apache.spark.rdd.RDD$$anonfun$16.apply(RDD.scala:780)
+	at org.apache.spark.rdd.RDD$$anonfun$16.apply(RDD.scala:780)
+	at org.apache.spark.SparkContext$$anonfun$runJob$3.apply(SparkContext.scala:1223)
+	at org.apache.spark.SparkContext$$anonfun$runJob$3.apply(SparkContext.scala:1223)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:61)
+	at org.apache.spark.scheduler.Task.run(Task.scala:56)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:195)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+Caused by: java.lang.ArrayIndexOutOfBoundsException: -1
+	at java.util.ArrayList.elementData(ArrayList.java:418)
+	at java.util.ArrayList.get(ArrayList.java:431)
+	at parquet.io.GroupColumnIO.getLast(GroupColumnIO.java:95)
+	at parquet.io.GroupColumnIO.getLast(GroupColumnIO.java:95)
+	at parquet.io.PrimitiveColumnIO.getLast(PrimitiveColumnIO.java:80)
+	at parquet.io.PrimitiveColumnIO.isLast(PrimitiveColumnIO.java:74)
+	at parquet.io.RecordReaderImplementation.<init>(RecordReaderImplementation.java:282)
+	at parquet.io.MessageColumnIO$1.visit(MessageColumnIO.java:131)
+	at parquet.io.MessageColumnIO$1.visit(MessageColumnIO.java:96)
+	at parquet.filter2.compat.FilterCompat$NoOpFilter.accept(FilterCompat.java:136)
+	at parquet.io.MessageColumnIO.getRecordReader(MessageColumnIO.java:96)
+	at parquet.hadoop.InternalParquetRecordReader.checkRead(InternalParquetRecordReader.java:126)
+	at parquet.hadoop.InternalParquetRecordReader.nextKeyValue(InternalParquetRecordReader.java:193)
+	... 27 more
+{code}
+
+If you take out the col\_d from the thrift file, the problem goes away. The problem also shows up when trying to read the particular column without caching the table first. The same file can be dumped/read using parquet-tools just fine. Here is the file dump using parquet-tools:
+{code}
+row group 0 
+--------------------------------------------------------------------------------
+col\_a:           BINARY UNCOMPRESSED DO:0 FPO:4 SZ:89/89/1.00 VC:9 ENC [more]...
+col\_b:           BINARY UNCOMPRESSED DO:0 FPO:93 SZ:89/89/1.00 VC:9 EN [more]...
+col\_c:           BINARY UNCOMPRESSED DO:0 FPO:182 SZ:89/89/1.00 VC:9 E [more]...
+col\_d:          
+.map:           
+..key:           BINARY UNCOMPRESSED DO:0 FPO:271 SZ:29/29/1.00 VC:9 E [more]...
+..value:        
+...value\_tuple:  BINARY UNCOMPRESSED DO:0 FPO:300 SZ:29/29/1.00 VC:9 E [more]...
+
+    col\_a TV=9 RL=0 DL=1
+    ----------------------------------------------------------------------------
+    page 0:  DLE:RLE RLE:BIT\_PACKED VLE:PLAIN SZ:60 VC:9
+
+    col\_b TV=9 RL=0 DL=1
+    ----------------------------------------------------------------------------
+    page 0:  DLE:RLE RLE:BIT\_PACKED VLE:PLAIN SZ:60 VC:9
+
+    col\_c TV=9 RL=0 DL=1
+    ----------------------------------------------------------------------------
+    page 0:  DLE:RLE RLE:BIT\_PACKED VLE:PLAIN SZ:60 VC:9
+
+    col\_d.map.key TV=9 RL=1 DL=2
+    ----------------------------------------------------------------------------
+    page 0:  DLE:RLE RLE:RLE VLE:PLAIN SZ:12 VC:9
+
+    col\_d.map.value.value\_tuple TV=9 RL=2 DL=4
+    ----------------------------------------------------------------------------
+    page 0:  DLE:RLE RLE:RLE VLE:PLAIN SZ:12 VC:9
+
+BINARY col\_a 
+--------------------------------------------------------------------------------
+*** row group 1 of 1, values 1 to 9 *** 
+value 1: R:1 D:1 V:a1
+value 2: R:1 D:1 V:a2
+value 3: R:1 D:1 V:a3
+value 4: R:1 D:1 V:a4
+value 5: R:1 D:1 V:a5
+value 6: R:1 D:1 V:a6
+value 7: R:1 D:1 V:a7
+value 8: R:1 D:1 V:a8
+value 9: R:1 D:1 V:a9
+
+BINARY col\_b 
+--------------------------------------------------------------------------------
+*** row group 1 of 1, values 1 to 9 *** 
+value 1: R:1 D:1 V:b1
+value 2: R:1 D:1 V:b2
+value 3: R:1 D:1 V:b3
+value 4: R:1 D:1 V:b4
+value 5: R:1 D:1 V:b5
+value 6: R:1 D:1 V:b6
+value 7: R:1 D:1 V:b7
+value 8: R:1 D:1 V:b8
+value 9: R:1 D:1 V:b9
+
+BINARY col\_c 
+--------------------------------------------------------------------------------
+*** row group 1 of 1, values 1 to 9 *** 
+value 1: R:1 D:1 V:c1
+value 2: R:1 D:1 V:c2
+value 3: R:1 D:1 V:c3
+value 4: R:1 D:1 V:c4
+value 5: R:1 D:1 V:c5
+value 6: R:1 D:1 V:c6
+value 7: R:1 D:1 V:c7
+value 8: R:1 D:1 V:c8
+value 9: R:1 D:1 V:c9
+
+BINARY col\_d.map.key 
+--------------------------------------------------------------------------------
+*** row group 1 of 1, values 1 to 9 *** 
+value 1: R:0 D:0 V:<null>
+value 2: R:0 D:0 V:<null>
+value 3: R:0 D:0 V:<null>
+value 4: R:0 D:0 V:<null>
+value 5: R:0 D:0 V:<null>
+value 6: R:0 D:0 V:<null>
+value 7: R:0 D:0 V:<null>
+value 8: R:0 D:0 V:<null>
+value 9: R:0 D:0 V:<null>
+
+BINARY col\_d.map.value.value\_tuple 
+--------------------------------------------------------------------------------
+*** row group 1 of 1, values 1 to 9 *** 
+value 1: R:0 D:0 V:<null>
+value 2: R:0 D:0 V:<null>
+value 3: R:0 D:0 V:<null>
+value 4: R:0 D:0 V:<null>
+value 5: R:0 D:0 V:<null>
+value 6: R:0 D:0 V:<null>
+value 7: R:0 D:0 V:<null>
+value 8: R:0 D:0 V:<null>
+value 9: R:0 D:0 V:<null>
+{code}
+
+
+---
+
 * [SPARK-4512](https://issues.apache.org/jira/browse/SPARK-4512) | *Major* | **Unresolved Attribute Exception for sort by**
 
 It will cause exception while do query like:
@@ -10796,7 +11069,7 @@ When SVD is called with k < 1, it still tries to compute the SVD, causing a lowe
 
 ---
 
-* [SPARK-4405](https://issues.apache.org/jira/browse/SPARK-4405) | *Minor* | **Matrices.* construction methods should check for rows x cols overflow**
+* [SPARK-4405](https://issues.apache.org/jira/browse/SPARK-4405) | *Minor* | **Matrices.\* construction methods should check for rows x cols overflow**
 
 Matrices has several methods which construct new all-0, all-1, or random matrices.  They take numRows, numCols as Int and multiply them to get the matrix size.  They should check for overflow before trying to create the matrix.
 
@@ -11240,6 +11513,20 @@ Looks like when the driver class path is loaded from spark-default.conf, the REP
 
 ---
 
+* [SPARK-4159](https://issues.apache.org/jira/browse/SPARK-4159) | *Critical* | **Maven build doesn't run JUnit test suites**
+
+It turns out our Maven build isn't running any Java test suites, and likely hasn't ever.
+
+After some fishing I believe the following is the issue. We use scalatest [1] in our maven build which, by default can't automatically detect JUnit tests. Scalatest will allow you to enumerate a list of suites via "JUnitClasses", but I cant' find a way for it to auto-detect all JUnit tests. It turns out this works in SBT because of our use of the junit-interface[2] which does this for you. 
+
+An okay fix for this might be to simply enable the normal (surefire) maven tests in addition to our scalatest in the maven build. The only thing to watch out for is that they don't overlap in some way. We'd also have to copy over environment variables, memory settings, etc to that plugin.
+
+[1] http://www.scalatest.org/user\_guide/using\_the\_scalatest\_maven\_plugin
+[2] https://github.com/sbt/junit-interface
+
+
+---
+
 * [SPARK-4156](https://issues.apache.org/jira/browse/SPARK-4156) | *Major* | **Add expectation maximization for Gaussian mixture models to MLLib clustering**
 
 As an additional clustering algorithm, implement expectation maximization for Gaussian mixture models
@@ -11407,15 +11694,6 @@ In the parent pom.xml, specified a version of jackson-mapper-asl. This is used b
 
 ---
 
-* [SPARK-3928](https://issues.apache.org/jira/browse/SPARK-3928) | *Minor* | **Support wildcard matches on Parquet files**
-
-{{SparkContext.textFile()}} supports patterns like {{part-*}} and {{2014-\?\?-\?\?}}. 
-
-It would be nice if {{SparkContext.parquetFile()}} did the same.
-
-
----
-
 * [SPARK-3926](https://issues.apache.org/jira/browse/SPARK-3926) | *Major* | **result of JavaRDD collectAsMap() is not serializable**
 
 Using the Java API, I want to collect the result of a RDD<String, String> as a HashMap using collectAsMap function:
@@ -11553,7 +11831,7 @@ Spark configuration is sent through (1). Spark configuration may contain sensiti
 
 ---
 
-* [SPARK-3852](https://issues.apache.org/jira/browse/SPARK-3852) | *Major* | **Document spark.driver.extra* configs**
+* [SPARK-3852](https://issues.apache.org/jira/browse/SPARK-3852) | *Major* | **Document spark.driver.extra\* configs**
 
 They are not documented...
 
@@ -11942,6 +12220,269 @@ Also, if Spark is built using avro-mapred for hadoop2, it works fine as well.
 Standalone uses "spark.files.userClassPathFirst" while Yarn uses "spark.yarn.user.classpath.first". Adding support for the former in Yarn should be pretty trivial.
 
 Don't know if Mesos has anything similar.
+
+
+---
+
+* [SPARK-2984](https://issues.apache.org/jira/browse/SPARK-2984) | *Critical* | **FileNotFoundException on \_temporary directory**
+
+We've seen several stacktraces and threads on the user mailing list where people are having issues with a {{FileNotFoundException}} stemming from an HDFS path containing {{\_temporary}}.
+
+I ([~aash]) think this may be related to {{spark.speculation}}.  I think the error condition might manifest in this circumstance:
+
+1) task T starts on a executor E1
+2) it takes a long time, so task T' is started on another executor E2
+3) T finishes in E1 so moves its data from {{\_temporary}} to the final destination and deletes the {{\_temporary}} directory during cleanup
+4) T' finishes in E2 and attempts to move its data from {{\_temporary}}, but those files no longer exist!  exception
+
+Some samples:
+
+{noformat}
+14/08/11 08:05:08 ERROR JobScheduler: Error running job streaming job 1407744300000 ms.0
+java.io.FileNotFoundException: File hdfs://hadoopc/user/csong/output/human\_bot/-1407744300000.out/\_temporary/0/task\_201408110805\_0000\_m\_000007 does not exist.
+        at org.apache.hadoop.hdfs.DistributedFileSystem.listStatusInternal(DistributedFileSystem.java:654)
+        at org.apache.hadoop.hdfs.DistributedFileSystem.access$600(DistributedFileSystem.java:102)
+        at org.apache.hadoop.hdfs.DistributedFileSystem$14.doCall(DistributedFileSystem.java:712)
+        at org.apache.hadoop.hdfs.DistributedFileSystem$14.doCall(DistributedFileSystem.java:708)
+        at org.apache.hadoop.fs.FileSystemLinkResolver.resolve(FileSystemLinkResolver.java:81)
+        at org.apache.hadoop.hdfs.DistributedFileSystem.listStatus(DistributedFileSystem.java:708)
+        at org.apache.hadoop.mapreduce.lib.output.FileOutputCommitter.mergePaths(FileOutputCommitter.java:360)
+        at org.apache.hadoop.mapreduce.lib.output.FileOutputCommitter.commitJob(FileOutputCommitter.java:310)
+        at org.apache.hadoop.mapred.FileOutputCommitter.commitJob(FileOutputCommitter.java:136)
+        at org.apache.spark.SparkHadoopWriter.commitJob(SparkHadoopWriter.scala:126)
+        at org.apache.spark.rdd.PairRDDFunctions.saveAsHadoopDataset(PairRDDFunctions.scala:841)
+        at org.apache.spark.rdd.PairRDDFunctions.saveAsHadoopFile(PairRDDFunctions.scala:724)
+        at org.apache.spark.rdd.PairRDDFunctions.saveAsHadoopFile(PairRDDFunctions.scala:643)
+        at org.apache.spark.rdd.RDD.saveAsTextFile(RDD.scala:1068)
+        at org.apache.spark.streaming.dstream.DStream$$anonfun$8.apply(DStream.scala:773)
+        at org.apache.spark.streaming.dstream.DStream$$anonfun$8.apply(DStream.scala:771)
+        at org.apache.spark.streaming.dstream.ForEachDStream$$anonfun$1.apply$mcV$sp(ForEachDStream.scala:41)
+        at org.apache.spark.streaming.dstream.ForEachDStream$$anonfun$1.apply(ForEachDStream.scala:40)
+        at org.apache.spark.streaming.dstream.ForEachDStream$$anonfun$1.apply(ForEachDStream.scala:40)
+        at scala.util.Try$.apply(Try.scala:161)
+        at org.apache.spark.streaming.scheduler.Job.run(Job.scala:32)
+        at org.apache.spark.streaming.scheduler.JobScheduler$JobHandler.run(JobScheduler.scala:172)
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+        at java.lang.Thread.run(Thread.java:745)
+{noformat}
+-- Chen Song at http://apache-spark-user-list.1001560.n3.nabble.com/saveAsTextFiles-file-not-found-exception-td10686.html
+
+
+
+{noformat}
+I am running a Spark Streaming job that uses saveAsTextFiles to save results into hdfs files. However, it has an exception after 20 batches
+
+result-1406312340000/\_temporary/0/task\_201407251119\_0000\_m\_000003 does not exist.
+{noformat}
+and
+{noformat}
+org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.hdfs.server.namenode.LeaseExpiredException): No lease on /apps/data/vddil/real-time/checkpoint/temp: File does not exist. Holder DFSClient\_NONMAPREDUCE\_327993456\_13 does not have any open files.
+	at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.checkLease(FSNamesystem.java:2946)
+	at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.analyzeFileState(FSNamesystem.java:2766)
+	at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.getAdditionalBlock(FSNamesystem.java:2674)
+	at org.apache.hadoop.hdfs.server.namenode.NameNodeRpcServer.addBlock(NameNodeRpcServer.java:584)
+	at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolServerSideTranslatorPB.addBlock(ClientNamenodeProtocolServerSideTranslatorPB.java:440)
+	at org.apache.hadoop.hdfs.protocol.proto.ClientNamenodeProtocolProtos$ClientNamenodeProtocol$2.callBlockingMethod(ClientNamenodeProtocolProtos.java)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine.java:585)
+	at org.apache.hadoop.ipc.RPC$Server.call(RPC.java:928)
+	at org.apache.hadoop.ipc.Server$Handler$1.run(Server.java:2013)
+	at org.apache.hadoop.ipc.Server$Handler$1.run(Server.java:2009)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:415)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1557)
+	at org.apache.hadoop.ipc.Server$Handler.run(Server.java:2007)
+
+	at org.apache.hadoop.ipc.Client.call(Client.java:1410)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1363)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine$Invoker.invoke(ProtobufRpcEngine.java:206)
+	at com.sun.proxy.$Proxy14.addBlock(Unknown Source)
+	at sun.reflect.GeneratedMethodAccessor146.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler.invokeMethod(RetryInvocationHandler.java:190)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler.invoke(RetryInvocationHandler.java:103)
+	at com.sun.proxy.$Proxy14.addBlock(Unknown Source)
+	at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolTranslatorPB.addBlock(ClientNamenodeProtocolTranslatorPB.java:361)
+	at org.apache.hadoop.hdfs.DFSOutputStream$DataStreamer.locateFollowingBlock(DFSOutputStream.java:1439)
+	at org.apache.hadoop.hdfs.DFSOutputStream$DataStreamer.nextBlockOutputStream(DFSOutputStream.java:1261)
+	at org.apache.hadoop.hdfs.DFSOutputStream$DataStreamer.run(DFSOutputStream.java:525)
+14/07/25 14:45:12 WARN CheckpointWriter: Error in attempt 1 of writing checkpoint to hdfs://gnosis-01-01-01.crl.samsung.com/apps/data/vddil/real-time/checkpoint/checkpoint-1406324700000
+{noformat}
+-- Bill Jay at http://apache-spark-user-list.1001560.n3.nabble.com/saveAsTextFiles-file-not-found-exception-td10686.html
+
+
+
+
+{noformat}
+scala> d3.sample(false,0.01,1).map( pair => pair.\_2 ).saveAsTextFile("10000.txt")
+
+
+14/06/09 22:06:40 ERROR TaskSetManager: Task 0.0:0 failed 4 times; aborting job
+org.apache.spark.SparkException: Job aborted: Task 0.0:0 failed 4 times (most recent failure: Exception failure: java.io.IOException: The temporary job-output directory file:/data/spark-0.9.1-bin-hadoop1/10000.txt/\_temporary doesn't exist!)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$org$apache$spark$scheduler$DAGScheduler$$abortStage$1.apply(DAGScheduler.scala:1020)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$org$apache$spark$scheduler$DAGScheduler$$abortStage$1.apply(DAGScheduler.scala:1018)
+	at scala.collection.mutable.ResizableArray$class.foreach(ResizableArray.scala:59)
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:47)
+	at org.apache.spark.scheduler.DAGScheduler.org$apache$spark$scheduler$DAGScheduler$$abortStage(DAGScheduler.scala:1018)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$processEvent$10.apply(DAGScheduler.scala:604)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$processEvent$10.apply(DAGScheduler.scala:604)
+	at scala.Option.foreach(Option.scala:236)
+	at org.apache.spark.scheduler.DAGScheduler.processEvent(DAGScheduler.scala:604)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$start$1$$anon$2$$anonfun$receive$1.applyOrElse(DAGScheduler.scala:190)
+	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:498)
+	at akka.actor.ActorCell.invoke(ActorCell.scala:456)
+	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:237)
+	at akka.dispatch.Mailbox.run(Mailbox.scala:219)
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:386)
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
+{noformat}
+-- Oleg Proudnikov at http://mail-archives.apache.org/mod\_mbox/incubator-spark-user/201406.mbox/%3CCAFEaGwKYSXz2Gyviqu44-DvP-V1JzbVFAPd1x5dLHCQBOgTnjg@mail.gmail.com%3E
+
+
+
+
+{noformat}
+[INFO] 11 Dec 2013 12:00:33 - org.apache.spark.Logging$class - Loss was due to org.apache.hadoop.util.Shell$ExitCodeException
+org.apache.hadoop.util.Shell$ExitCodeException: chmod: getting attributes of `/cygdrive/c/somepath/\_temporary/\_attempt\_201312111200\_0000\_m\_000000\_0/part-00000': No such file or directory
+        at org.apache.hadoop.util.Shell.runCommand(Shell.java:261)
+        at org.apache.hadoop.util.Shell.run(Shell.java:188)
+        at org.apache.hadoop.util.Shell$ShellCommandExecutor.execute(Shell.java:381)
+        at org.apache.hadoop.util.Shell.execCommand(Shell.java:467)
+        at org.apache.hadoop.util.Shell.execCommand(Shell.java:450)
+        at org.apache.hadoop.fs.RawLocalFileSystem.execCommand(RawLocalFileSystem.java:593)
+        at org.apache.hadoop.fs.RawLocalFileSystem.setPermission(RawLocalFileSystem.java:584)
+        at org.apache.hadoop.fs.FilterFileSystem.setPermission(FilterFileSystem.java:427)
+        at org.apache.hadoop.fs.ChecksumFileSystem.create(ChecksumFileSystem.java:465)
+        at org.apache.hadoop.fs.ChecksumFileSystem.create(ChecksumFileSystem.java:433)
+        at org.apache.hadoop.fs.FileSystem.create(FileSystem.java:886)
+        at org.apache.hadoop.fs.FileSystem.create(FileSystem.java:781)
+        at org.apache.hadoop.mapred.TextOutputFormat.getRecordWriter(TextOutputFormat.java:118)
+        at org.apache.hadoop.mapred.SparkHadoopWriter.open(SparkHadoopWriter.scala:86)
+        at org.apache.spark.rdd.PairRDDFunctions.writeToFile$1(PairRDDFunctions.scala:667)
+        at org.apache.spark.rdd.PairRDDFunctions$$anonfun$saveAsHadoopDataset$2.apply(PairRDDFunctions.scala:680)
+        at org.apache.spark.rdd.PairRDDFunctions$$anonfun$saveAsHadoopDataset$2.apply(PairRDDFunctions.scala:680)
+        at org.apache.spark.scheduler.ResultTask.run(ResultTask.scala:99)
+        at org.apache.spark.scheduler.local.LocalScheduler.runTask(LocalScheduler.scala:198)
+        at org.apache.spark.scheduler.local.LocalActor$$anonfun$launchTask$1$$anon$1.run(LocalScheduler.scala:68)
+        at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)
+        at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+        at java.lang.Thread.run(Thread.java:744)
+[INFO] 11 Dec 2013 12:00:33 - org.apache.spark.Logging$class - Remove TaskSet 0.0 from pool
+[INFO] 11 Dec 2013 12:00:33 - org.apache.spark.Logging$class - Failed to run saveAsTextFile at Test.scala:19
+Exception in thread "main" org.apache.spark.SparkException: Job failed: Task 0.0:0 failed more than 4 times; aborting job org.apache.hadoop.util.Shell$ExitCodeException: chmod: getting attributes of `/cygdrive/c/somepath/\_temporary/\_attempt\_201312111200\_0000\_m\_000000\_0/part-00000': No such file or directory
+        at org.apache.spark.scheduler.DAGScheduler$$anonfun$abortStage$1.apply(DAGScheduler.scala:760)
+        at org.apache.spark.scheduler.DAGScheduler$$anonfun$abortStage$1.apply(DAGScheduler.scala:758)
+        at scala.collection.mutable.ResizableArray$class.foreach(ResizableArray.scala:60)
+        at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:47)
+        at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:758)
+        at org.apache.spark.scheduler.DAGScheduler.processEvent(DAGScheduler.scala:379)
+        at org.apache.spark.scheduler.DAGScheduler.org$apache$spark$scheduler$DAGScheduler$$run(DAGScheduler.scala:441)
+        at org.apache.spark.scheduler.DAGScheduler$$anon$1.run(DAGScheduler.scala:149)
+{noformat}
+On a Windows box!
+-- Nathan Kronenfeld at http://mail-archives.apache.org/mod\_mbox/spark-user/201312.mbox/%3CCAEpWh49EvUEWdnsfKJGvU5MB9V5QsR=HQ=wHpufUmEetU19frg@mail.gmail.com%3E
+
+
+
+
+{noformat}
+14/07/29 16:16:57 ERROR executor.Executor: Exception in task ID 6087
+ java.io.IOException: The temporary job-output directory hdfs://mybox:8020/path/to/a/dir/\_temporary doesn't exist!
+         at org.apache.hadoop.mapred.FileOutputCommitter.getWorkPath(FileOutputCommitter.java:250)
+         at org.apache.hadoop.mapred.FileOutputFormat.getTaskOutputPath(FileOutputFormat.java:240)
+         at org.apache.avro.mapred.AvroOutputFormat.getRecordWriter(AvroOutputFormat.java:154)
+         at org.apache.hadoop.mapred.SparkHadoopWriter.open(SparkHadoopWriter.scala:90)
+         at org.apache.spark.rdd.PairRDDFunctions.org$apache$spark$rdd$PairRDDFunctions$$writeToFile$1(PairRDDFunctions.scala:728)
+         at org.apache.spark.rdd.PairRDDFunctions$$anonfun$saveAsHadoopDataset$2.apply(PairRDDFunctions.scala:741)
+         at org.apache.spark.rdd.PairRDDFunctions$$anonfun$saveAsHadoopDataset$2.apply(PairRDDFunctions.scala:741)
+         at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:109)
+         at org.apache.spark.scheduler.Task.run(Task.scala:53)
+         at org.apache.spark.executor.Executor$TaskRunner$$anonfun$run$1.apply$mcV$sp(Executor.scala:211)
+         at org.apache.spark.deploy.SparkHadoopUtil$$anon$1.run(SparkHadoopUtil.scala:42)
+         at org.apache.spark.deploy.SparkHadoopUtil$$anon$1.run(SparkHadoopUtil.scala:41)
+         at java.security.AccessController.doPrivileged(Native Method)
+         at javax.security.auth.Subject.doAs(Subject.java:415)
+         at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1408)
+         at org.apache.spark.deploy.SparkHadoopUtil.runAsUser(SparkHadoopUtil.scala:41)
+         at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:176)
+         at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+         at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+         at java.lang.Thread.run(Thread.java:745)
+{noformat}
+and
+{noformat}
+14/07/29 16:16:57 ERROR executor.Executor: Exception in task ID 6158
+ org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.hdfs.server.namenode.LeaseExpiredException): No lease on /path/to/a/dir/\_temporary/\_attempt\_201407291616\_0000\_m\_0002
+         at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.checkLease(FSNamesystem.java:2445)
+         at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.checkLease(FSNamesystem.java:2437)
+         at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.completeFileInternal(FSNamesystem.java:2503)
+         at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.completeFile(FSNamesystem.java:2480)
+         at org.apache.hadoop.hdfs.server.namenode.NameNodeRpcServer.complete(NameNodeRpcServer.java:556)
+         at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolServerSideTranslatorPB.complete(ClientNamenodeProtocolServerSideTranslatorPB.java:337)
+         at org.apache.hadoop.hdfs.protocol.proto.ClientNamenodeProtocolProtos$ClientNamenodeProtocol$2.callBlockingMethod(ClientNamenodeProtocolProtos.java:44958)
+         at org.apache.hadoop.ipc.ProtobufRpcEngine$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine.java:453)
+         at org.apache.hadoop.ipc.RPC$Server.call(RPC.java:1002)
+         at org.apache.hadoop.ipc.Server$Handler$1.run(Server.java:1751)
+         at org.apache.hadoop.ipc.Server$Handler$1.run(Server.java:1747)
+         at java.security.AccessController.doPrivileged(Native Method)
+         at javax.security.auth.Subject.doAs(Subject.java:415)
+         at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1408)
+         at org.apache.hadoop.ipc.Server$Handler.run(Server.java:1745)
+
+         at org.apache.hadoop.ipc.Client.call(Client.java:1225)
+         at org.apache.hadoop.ipc.ProtobufRpcEngine$Invoker.invoke(ProtobufRpcEngine.java:202)
+         at com.sun.proxy.$Proxy13.complete(Unknown Source)
+         at sun.reflect.GeneratedMethodAccessor45.invoke(Unknown Source)
+         at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+         at java.lang.reflect.Method.invoke(Method.java:606)
+         at org.apache.hadoop.io.retry.RetryInvocationHandler.invokeMethod(RetryInvocationHandler.java:164)
+         at org.apache.hadoop.io.retry.RetryInvocationHandler.invoke(RetryInvocationHandler.java:83)
+         at com.sun.proxy.$Proxy13.complete(Unknown Source)
+         at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolTranslatorPB.complete(ClientNamenodeProtocolTranslatorPB.java:329)
+         at org.apache.hadoop.hdfs.DFSOutputStream.completeFile(DFSOutputStream.java:1769)
+         at org.apache.hadoop.hdfs.DFSOutputStream.close(DFSOutputStream.java:1756)
+         at org.apache.hadoop.fs.FSDataOutputStream$PositionCache.close(FSDataOutputStream.java:66)
+         at org.apache.hadoop.fs.FSDataOutputStream.close(FSDataOutputStream.java:99)
+         at java.io.FilterOutputStream.close(FilterOutputStream.java:160)
+         at java.io.FilterOutputStream.close(FilterOutputStream.java:160)
+         at org.apache.avro.file.DataFileWriter.close(DataFileWriter.java:376)
+         at org.apache.avro.mapred.AvroOutputFormat$1.close(AvroOutputFormat.java:163)
+         at org.apache.hadoop.mapred.SparkHadoopWriter.close(SparkHadoopWriter.scala:102)
+         at org.apache.spark.rdd.PairRDDFunctions.org$apache$spark$rdd$PairRDDFunctions$$writeToFile$1(PairRDDFunctions.scala:737)
+         at org.apache.spark.rdd.PairRDDFunctions$$anonfun$saveAsHadoopDataset$2.apply(PairRDDFunctions.scala:741)
+         at org.apache.spark.rdd.PairRDDFunctions$$anonfun$saveAsHadoopDataset$2.apply(PairRDDFunctions.scala:741)
+         at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:109)
+         at org.apache.spark.scheduler.Task.run(Task.scala:53)
+         at org.apache.spark.executor.Executor$TaskRunner$$anonfun$run$1.apply$mcV$sp(Executor.scala:211)
+         at org.apache.spark.deploy.SparkHadoopUtil$$anon$1.run(SparkHadoopUtil.scala:42)
+{noformat}
+and
+{noformat}
+14/07/29 21:01:33 ERROR executor.Executor: Exception in task ID 150
+ org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.hdfs.server.namenode.LeaseExpiredException): No lease on /path/to/dir/main/\_temporary/\_attempt\_201407292101\_0000\_m\_000125\_150/part-0012
+         at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.checkLease(FSNamesystem.java:2445)
+         at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.checkLease(FSNamesystem.java:2437)
+         at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.completeFileInternal(FSNamesystem.java:2503)
+         at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.completeFile(FSNamesystem.java:2480)
+         at org.apache.hadoop.hdfs.server.namenode.NameNodeRpcServer.complete(NameNodeRpcServer.java:556)
+         at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolServerSideTranslatorPB.complete(ClientNamenodeProtocolServerSideTranslatorPB.java:337)
+         at org.apache.hadoop.hdfs.protocol.proto.ClientNamenodeProtocolProtos$ClientNamenodeProtocol$2.callBlockingMethod(ClientNamenodeProtocolProtos.java:44958)
+         at org.apache.hadoop.ipc.ProtobufRpcEngine$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine.java:453)
+         at org.apache.hadoop.ipc.RPC$Server.call(RPC.java:1002)
+         at org.apache.hadoop.ipc.Server$Handler$1.run(Server.java:1751)
+         at org.apache.hadoop.ipc.Server$Handler$1.run(Server.java:1747)
+         at java.security.AccessController.doPrivileged(Native Method)
+         at javax.security.auth.Subject.doAs(Subject.java:415)
+         at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1408)
+         at org.apache.hadoop.ipc.Server$Handler.run(Server.java:1745)
+{noformat}
+-- Andrew Ash
 
 
 ---

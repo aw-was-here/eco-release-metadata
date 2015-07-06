@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-# Changelog
+# Apache Spark Changelog
 
 ## Release 1.3.2 - Unreleased
 
@@ -37,7 +37,6 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [SPARK-8126](https://issues.apache.org/jira/browse/SPARK-8126) | Use temp directory under build dir for unit tests |  Minor | Build | Marcelo Vanzin | Marcelo Vanzin |
-| [SPARK-7810](https://issues.apache.org/jira/browse/SPARK-7810) | rdd.py "\_load\_from\_socket" cannot load data from jvm socket if ipv6 is used |  Major | PySpark | Ai He | Ai He |
 | [SPARK-7744](https://issues.apache.org/jira/browse/SPARK-7744) | "Distributed matrix" section in MLlib "Data Types" documentation should be reordered. |  Minor | Documentation, MLlib | Mike Dusenberry | Mike Dusenberry |
 | [SPARK-7621](https://issues.apache.org/jira/browse/SPARK-7621) | Report KafkaReceiver MessageHandler errors so StreamingListeners can take action |  Major | Streaming | Jeremy A. Lucas | Jeremy A. Lucas |
 | [SPARK-7323](https://issues.apache.org/jira/browse/SPARK-7323) | Use insertAll instead of individual insert while merging combiners |  Minor | Spark Core | Mridul Muralidharan | Mridul Muralidharan |

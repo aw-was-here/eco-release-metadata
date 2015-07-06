@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-#  1.2.1 Release Notes
+# Apache Spark  1.2.1 Release Notes
 
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
 
@@ -603,6 +603,17 @@ We normally config spark.port.maxRetries in properties file or SparkConf. But in
 * [SPARK-4999](https://issues.apache.org/jira/browse/SPARK-4999) | *Major* | **No need to put WAL-backed block into block manager by default**
 
 Currently WAL-backed block is read out from HDFS and put into BlockManger with storage level MEMORY\_ONLY\_SER by default, since WAL-backed block is already fault-tolerant, no need to put into BlockManger again by default.
+
+
+---
+
+* [SPARK-4989](https://issues.apache.org/jira/browse/SPARK-4989) | *Critical* | **wrong application configuration cause cluster down in standalone mode**
+
+when enabling eventlog in standalone mode, if give the wrong configuration, the standalone cluster will down (cause master restart, lose connection with workers). 
+
+How to reproduce: just give an invalid value to "spark.eventLog.dir", for example: *spark.eventLog.dir=hdfs://tmp/logdir1, hdfs://tmp/logdir2*. This will throw illegalArgumentException, which will cause the *Master* restart. And the whole cluster is not available.
+
+This is not acceptable that cluster is crashed by one application's wrong setting.
 
 
 ---
@@ -1834,7 +1845,7 @@ The NettyBlockTransferService always binds to a random port, and does not use th
 
 ---
 
-* [SPARK-4835](https://issues.apache.org/jira/browse/SPARK-4835) | *Critical* | **Streaming saveAs*HadoopFiles() methods may throw FileAlreadyExistsException during checkpoint recovery**
+* [SPARK-4835](https://issues.apache.org/jira/browse/SPARK-4835) | *Critical* | **Streaming saveAs\*HadoopFiles() methods may throw FileAlreadyExistsException during checkpoint recovery**
 
 While running (a slightly modified version of) the "recovery with saveAsHadoopFiles operation" test in the streaming CheckpointSuite, I noticed the following error message in the streaming driver log:
 

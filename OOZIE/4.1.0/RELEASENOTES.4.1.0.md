@@ -16,57 +16,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-#  4.1.0 Release Notes
+# Apache Oozie  4.1.0 Release Notes
 
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
-
-
----
-
-* [OOZIE-2063](https://issues.apache.org/jira/browse/OOZIE-2063) | *Blocker* | **Cron syntax creates duplicate actions**
-
-If you use cron syntax, you'll get duplicate actions (i.e. actions with the same nominal time) at every throttle interval.  For example, if throttle=12 (the default), you'll have a duplicate action every 12 actions.  
-
-Here's my coordinator:
-{code:xml}
-<coordinator-app name="cron-coord" frequency="*/5 * * * *" start="${start}" end="${end}" timezone="UTC"
-                 xmlns="uri:oozie:coordinator:0.2">
-  <controls>
-    <throttle>3</throttle>
-  </controls>
-        <action>
-        <workflow>
-            <app-path>${workflowAppUri}</app-path>
-            <configuration>
-                <property>
-                    <name>jobTracker</name>
-                    <value>${jobTracker}</value>
-                </property>
-                <property>
-                    <name>nameNode</name>
-                    <value>${nameNode}</value>
-                </property>
-                <property>
-                    <name>queueName</name>
-                    <value>${queueName}</value>
-                </property>
-            </configuration>
-        </workflow>
-    </action>
-</coordinator-app>
-{code}
-It runs every 5 min on the hour.  I also ran a similar coordinator, but with the frequency set to {{coord:minutes(5)}}.  I set the throttle to 3 so it would be easier to see the problem.
-
-Here are the two screenshots (make sure to either open them directly or widen the page to see the nominal time column):
-!cron.jpg!
-
-!min.jpg!
-
-As you can see in the cron screenshot, every 3 actions there's a duplicate action.  And the next materialization time is the same as the latest materialized action, so it's going to do it again when it materializes more actions.  On the minute screenshot, it's behaving correctly.  You'll also see that the next materialized action is now 15 minutes ahead of the cron version!
-
-This has two major problems:
-- You have duplicate actions
-- The coordinator slowly gets further and further behind where it should be
 
 
 ---
@@ -74,17 +26,6 @@ This has two major problems:
 * [OOZIE-2054](https://issues.apache.org/jira/browse/OOZIE-2054) | *Major* | **SharelibService hits NullPointerException when server starts**
 
 This is because SharelibService is initialized before ActionCheckService initialized, and SharelibService call ActionCheckService's method.  need to change order in oozie-default.xml,   this was recently changed by OOZIE-1932
-
-
----
-
-* [OOZIE-2047](https://issues.apache.org/jira/browse/OOZIE-2047) | *Major* | **Oozie does not support Hive tables that use datatypes introduced since Hive 0.8**
-
-Oozie uses HCatalog APIs in org.apache.hcatalog packages.  Those APIs were present until Hive 0.13 but were frozen in their support of the Hive features to what existed in Hive 0.7  Using these APIs precludes users from using Oozie hcatalog dependencies on tables that use the new APIs.
-
-The fix is to simply change the package used to the new org.apache.hive.hcatalog packag.  .
-
-Note that these APIs are not available in HCatalog 0.5 or 0.6.  So we have to drop support for those HCatalog versions once we start using this package
 
 
 ---
@@ -123,71 +64,6 @@ rkanter-has-3.ent.cloudera.com : https://rkanter-has-3.ent.cloudera.com:11000/oo
 * [OOZIE-2026](https://issues.apache.org/jira/browse/OOZIE-2026) | *Major* | **fix synchronization in SLACalculatorMemory.addJobStatus to avoid duplicated SLA message**
 
 there is case where job generates start event by SLACalculatorMemory.addJobStatus, but before eventProcessed flag updated on DB side, SLA worker thread picks the action (SLACalculatorMemory.updateJobSla), end up sending duplicated messages. this patch is to fix synchronized block in addJobStatus to prevent this.
-
-
----
-
-* [OOZIE-2023](https://issues.apache.org/jira/browse/OOZIE-2023) | *Major* | **Job rerun can stuck in prep**
-
-Job rerun is divided into two commands.
-1. ReRunXCommand, which delete action and set job status to prep.
-2. StartXCommand, which start WF.
-
-If ReRunXCommand fails to acquire job lock, it's requeued and oozie will start StartXCommand command. ReRunXCommand will run again ( after/parallel to StartXCommand) when it can acquire lock.
-
-
-{code}
-    public void reRun(String jobId, Configuration conf) throws DagEngineException {
-        try {
-            WorkflowJobBean wfBean = WorkflowJobQueryExecutor.getInstance().get(WorkflowJobQuery.GET\_WORKFLOW, jobId);
-            Configuration wfConf = new XConfiguration(new StringReader(wfBean.getConf()));
-            XConfiguration.copy(conf, wfConf);
-            validateReRunConfiguration(wfConf);
-            new ReRunXCommand(jobId, wfConf).call();
-            start(jobId);
-        }
-        catch (CommandException ex) {
-            throw new DagEngineException(ex);
-        }
-        catch (JPAExecutorException ex) {
-            throw new DagEngineException(ex);
-        }
-        catch (IOException ex) {
-            throw new DagEngineException(ErrorCode.E0803, ex.getMessage());
-        }
-    }
-{code}
-
-
----
-
-* [OOZIE-2019](https://issues.apache.org/jira/browse/OOZIE-2019) | *Major* | **SLA miss processed on server2 not send email**
-
-It's because of below function. When we try to load config string from DB and recreate event action map, it doesn't create event map properly.
- "StringTokenizer(slaConfig, "},");" has issue. It tries to tokenized on ","  and "},".
-
-
-a.slaConfig="{alert\_contact=hadoopqa@oozie.com},{alert\_events=START\_MET,DURATION\_MISS,END\_MET},";
-Will become
-alert\_events=START\_MET
-alert\_contact=hadoopqa@oozie.com.
-
-Fix is used to use String.split().
-
-{code}
-    private void slaConfigStringToMap() {
-        if (slaConfig != null) {
-            StringTokenizer st = new StringTokenizer(slaConfig, "},");
-            while (st.hasMoreTokens()) {
-                String token = st.nextToken();
-                String[] pair = token.split("=");
-                if (pair.length == 2) {
-                    slaConfigMap.put(pair[0].substring(1), pair[1]);
-                }
-            }
-        }
-    }
-{code}
 
 
 ---
@@ -463,14 +339,6 @@ this patch is to do
 
 ---
 
-* [OOZIE-1957](https://issues.apache.org/jira/browse/OOZIE-1957) | *Major* | **Coord update command override group when oozie.service.AuthorizationService.default.group.as.acl is set and group/acl is not configured in job property**
-
-When oozie.service.AuthorizationService.default.group.as.acl is set, and group/acl is not configured in job property. Default group is used.
-Update overrides the default group.
-
-
----
-
 * [OOZIE-1950](https://issues.apache.org/jira/browse/OOZIE-1950) | *Major* | **Coordinator job info should support timestamp (nominal time)**
 
 It will be useful for user to list all actions (with length and offset) after/before nominal time.
@@ -591,16 +459,6 @@ We should upgrade tomcat to 6.0.41, which includes bug and security fixes.
 
 ---
 
-* [OOZIE-1923](https://issues.apache.org/jira/browse/OOZIE-1923) | *Major* | **ZKLocksService locks are not re-entrant like MemoryLocks**
-
-This is because we are creating InterProcessReadWriteLock instance for every path. 
-We should store InterProcessReadWriteLock and reuse for same path like MemoryLocksService.
-
-We should also add tests for both ZKLocksService and MemoryLocksService to verify.
-
-
----
-
 * [OOZIE-1920](https://issues.apache.org/jira/browse/OOZIE-1920) | *Blocker* | **Capture Output for SSH Action doesn't work**
 
 Running a simple workflow that have a shell action with capture-output enabled, the SShActionExecutor look at the wrong stdout file. This is the the command that I found in the log:
@@ -635,14 +493,6 @@ This are mostly used for HA.
 
 Let's have only one way of configuration, through oozie-default/oozie-site.
 It will avoid confusion and ease deployment.
-
-
----
-
-* [OOZIE-1914](https://issues.apache.org/jira/browse/OOZIE-1914) | *Major* | **CLI should retry on timeout**
-
-In HA VIP/load balancer might take some time to realized that system is down.
-In case of timeout CLI should retry ( after some delay), so that VIP can redirect it to other server.
 
 
 ---
@@ -741,16 +591,6 @@ We can fix this in the same way we fixed in it OOZIE-1674.
 * [OOZIE-1906](https://issues.apache.org/jira/browse/OOZIE-1906) | *Major* | **Service to periodically remove ZK lock**
 
 We might have a case where lock are held-up and it never released bcz of exception. Service should remove those locks.
-
-
----
-
-* [OOZIE-1896](https://issues.apache.org/jira/browse/OOZIE-1896) | *Major* | **ZKUUIDService - Too many job submission fails**
-
-DistributedAtomicLong.prevalue and postValue  =0 and succeeded = false.
-
-ZK error.
-Thu Jun 12 22:22:00 2014: 2014-06-12 22:22:00,981 - INFO  [ProcessThread(sid:0 cport:-1)::PrepRequestProcessor@627] - Got user-level KeeperException when processing sessionid:0x145bf4221730116 type:setData cxid:0x2f992 zxid:0x30b14d txntype:-1 reqpath:n/a Error Path:/oozie\_test1/job\_id\_sequence Error:KeeperErrorCode = BadVersion for /oozie\_test1/job\_id\_sequence
 
 
 ---
@@ -1753,32 +1593,6 @@ Something like:
      <value>path/to/hive-site.xml</value>
 </property>
 {code}
-
-
----
-
-* [OOZIE-1722](https://issues.apache.org/jira/browse/OOZIE-1722) | *Major* | **When an ApplicationMaster restarts, it restarts the launcher job**
-
-When using Yarn, there are some situations in which the ApplicationMaster can be restarted (e.g. RM failover, the AM dies and another attempt is made, etc).  
-
-When this happens, it starts the launcher job again, which will start over.  So, if that launcher has already launched a job, we'll end up with two instances of the same job, which can be problematic.  For example, if you have a Pig action, the Pig client might run a job, but then the launcher gets restarted by an AM restart and launches that same job again.  
-
-We don't have a way of "re-attaching" to previously launched jobs; however, with YARN-1461 and MAPREDUCE-5699, we can use yarn tags to find anything the launcher previously launched that's running and kill them.  We still have to start over, but at least we're not running two instances of a job at the same time.
-
-Here's what we can do for each action type:
-- Pig, Sqoop, Hive
--- Kill previously launched jobs and start over
-- MapReduce (different because of the optimization)
--- Exit launcher if a previously launched job already exists
-- Java, Shell
--- No out-of-the-box support for this
--- Like with other things, the Java action can take advantage of this like Pig, Sqoop, and Hive if the user adds some code
-- DistCp
--- Not supported
-- SSH, Email
--- N/A
-
-The yarn tags won't be available until Hadoop 2.4.0, but is in the nightly (i.e. Hadoop 3.0.0-SNAPSHOT); and its obviously not in Hadoop 1.x.  To be able to use the Yarn methods and the new methods for tagging, we can add a new type of Hadooplib called "Hadoop Utils" where we can put classes that are specific to a specific version of Hadoop; the other implementations can have dummy versions.  For example, in the Hadoop-2 Hadoop Utils, we can put a method foo() that calls some yarn stuff but in the Hadoop-1 Hadoop Utils, the foo() method would either do the equivalent in MR1 or a no-op.  So for now, I put some methods in the Hadoop-3 Hadoop Utils that use the tags and the Hadoop-1, Hadoop-2, and Hadoop-23 Hadoop Utils all have dummy implementations that don't do anything (so the existing behavior is preserved).  The Hadoop Utils modules will allow us to take advantage of Hadoop 2 only features in the future, while still being able to compile against Hadoop 1; so it's not just limited to this feature.
 
 
 ---

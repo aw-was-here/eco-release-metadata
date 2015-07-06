@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-#  1.3.2 Release Notes
+# Apache Spark  1.3.2 Release Notes
 
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
 
@@ -217,13 +217,6 @@ def trainImplicit(ratings: RDD[Rating], rank: Int, iterations: Int, alpha: Doubl
 
 Instead, let's change the example to refer to this function, which does exist (notice the addition of the lambda parameter):
 def trainImplicit(ratings: RDD[Rating], rank: Int, iterations: Int, lambda: Double, alpha: Double) : MatrixFactorizationModel
-
-
----
-
-* [SPARK-7810](https://issues.apache.org/jira/browse/SPARK-7810) | *Major* | **rdd.py "\_load\_from\_socket" cannot load data from jvm socket if ipv6 is used**
-
-Method "\_load\_from\_socket" in rdd.py cannot load data from jvm socket if ipv6 is used. The current method only works well with ipv4. New modification should work around both two protocols.
 
 
 ---

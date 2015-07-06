@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-#  1.1.0 Release Notes
+# Apache Hive  1.1.0 Release Notes
 
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
 
@@ -89,6 +89,13 @@ Upgrade 0.23 hadoop-shims version to the latest stable version (2.6.0)
 * [HIVE-9174](https://issues.apache.org/jira/browse/HIVE-9174) | *Major* | **Enable queuing of HCatalog notification events in metastore DB**
 
 Introduces new DbNotificationListener as another possible Metastore EventListener. This enables integration with external tools like Falcon to implement Replication.
+
+
+---
+
+* [HIVE-8885](https://issues.apache.org/jira/browse/HIVE-8885) | *Major* | **Investigate test failure on auto\_join13.q [Spark Branch]**
+
+Fixed after HIVE-8867 is resolved.
 
 
 ---

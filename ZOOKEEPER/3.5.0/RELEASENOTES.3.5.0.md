@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-#  3.5.0 Release Notes
+# Apache Zookeeper  3.5.0 Release Notes
 
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
 

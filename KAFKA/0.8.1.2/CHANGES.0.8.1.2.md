@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-# Changelog
+# Apache Kafka Changelog
 
 ## Release 0.8.1.2 - Unreleased
 
@@ -43,7 +43,6 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [KAFKA-1382](https://issues.apache.org/jira/browse/KAFKA-1382) | Update zkVersion on partition state update failures |  Major | . | Joel Koshy | Sriharsha Chintalapani |
 
 
 ### TESTS:

@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-# Changelog
+# Apache Spark Changelog
 
 ## Release 1.4.0 - 2015-06-11
 
@@ -118,7 +118,6 @@
 | [SPARK-7895](https://issues.apache.org/jira/browse/SPARK-7895) | Move Kafka examples from scala-2.10/src to src |  Major | Examples, Streaming | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-7845](https://issues.apache.org/jira/browse/SPARK-7845) | Bump "Hadoop 1" tests to version 1.2.1 |  Critical | Tests | Patrick Wendell | Cheng Lian |
 | [SPARK-7838](https://issues.apache.org/jira/browse/SPARK-7838) | Set scope name for Kinesis stream |  Critical | Streaming | Tathagata Das | Tathagata Das |
-| [SPARK-7833](https://issues.apache.org/jira/browse/SPARK-7833) | Add python wrapper for RegressionEvaluator |  Major | . | Ram Sriharsha | Ram Sriharsha |
 | [SPARK-7830](https://issues.apache.org/jira/browse/SPARK-7830) | ML doc cleanup: logreg, classification link |  Trivial | Documentation, MLlib | Mike Dusenberry | Mike Dusenberry |
 | [SPARK-7794](https://issues.apache.org/jira/browse/SPARK-7794) | Update RegexTokenizer default settings. |  Major | ML | Xiangrui Meng | Xiangrui Meng |
 | [SPARK-7774](https://issues.apache.org/jira/browse/SPARK-7774) | Add sqlContext to MLlibTestSparkContext |  Minor | ML, MLlib | Xiangrui Meng | Xiangrui Meng |
@@ -281,7 +280,7 @@
 | [SPARK-6475](https://issues.apache.org/jira/browse/SPARK-6475) | DataFrame should support array types when creating DFs from JavaBeans. |  Major | SQL | Xiangrui Meng | Xiangrui Meng |
 | [SPARK-6471](https://issues.apache.org/jira/browse/SPARK-6471) | Metastore schema should only be a subset of parquet schema to support dropping of columns using replace columns |  Blocker | SQL | Yash Datta | Yash Datta |
 | [SPARK-6459](https://issues.apache.org/jira/browse/SPARK-6459) | Warn when Column API is constructing trivially true equality |  Critical | SQL | Michael Armbrust | Michael Armbrust |
-| [SPARK-6453](https://issues.apache.org/jira/browse/SPARK-6453) | Some Mesos*Suite have a different package with their classes |  Trivial | Mesos | Jongyoul Lee | Jongyoul Lee |
+| [SPARK-6453](https://issues.apache.org/jira/browse/SPARK-6453) | Some Mesos\*Suite have a different package with their classes |  Trivial | Mesos | Jongyoul Lee | Jongyoul Lee |
 | [SPARK-6448](https://issues.apache.org/jira/browse/SPARK-6448) | History server doesn't log exception when failing to replay log file |  Trivial | Spark Core | Ryan Williams | Ryan Williams |
 | [SPARK-6439](https://issues.apache.org/jira/browse/SPARK-6439) | Show per-task metrics when you hover over a task in the web UI visualization |  Major | Web UI | Kay Ousterhout | Kousuke Saruta |
 | [SPARK-6433](https://issues.apache.org/jira/browse/SPARK-6433) | hive tests to import spark-sql test JAR for QueryTest access |  Minor | Build, SQL | Steve Loughran | Steve Loughran |
@@ -576,7 +575,6 @@
 | [SPARK-7044](https://issues.apache.org/jira/browse/SPARK-7044) | [Spark SQL] query would hang when using scripts in SQL statement |  Major | SQL | Yi Zhou | Cheng Hao |
 | [SPARK-7039](https://issues.apache.org/jira/browse/SPARK-7039) | JdbcRdd doesn't support java.sql.Types.NVARCHAR |  Minor | SQL | Shuai Zheng | Shuai Zheng |
 | [SPARK-7036](https://issues.apache.org/jira/browse/SPARK-7036) | ALS.train should support DataFrames in PySpark |  Minor | MLlib | Xiangrui Meng | Xiangrui Meng |
-| [SPARK-7011](https://issues.apache.org/jira/browse/SPARK-7011) | Build fails with scala 2.11 option, because a protected[sql] type is accessed in ml package. |  Major | . | Prashant Sharma | Prashant Sharma |
 | [SPARK-7003](https://issues.apache.org/jira/browse/SPARK-7003) | Improve reliability of connection failure detection between Netty block transfer service endpoints |  Major | Spark Core | Aaron Davidson | Aaron Davidson |
 | [SPARK-6999](https://issues.apache.org/jira/browse/SPARK-6999) | infinite recursion with createDataFrame(JavaRDD[Row], java.util.List[String]) |  Blocker | SQL | Justin Uang | Cheng Hao |
 | [SPARK-6998](https://issues.apache.org/jira/browse/SPARK-6998) | Make StreamingKMeans `Serializable` |  Major | MLlib | Shixiong Zhu | Shixiong Zhu |
@@ -625,7 +623,6 @@
 | [SPARK-6766](https://issues.apache.org/jira/browse/SPARK-6766) | StreamingListenerBatchSubmitted isn't sent and StreamingListenerBatchStarted.batchInfo.processingStartTime is a wrong value |  Major | Streaming | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-6762](https://issues.apache.org/jira/browse/SPARK-6762) | Fix potential resource leaks in CheckPoint CheckpointWriter and CheckpointReader |  Minor | Streaming | zhichao-li | zhichao-li |
 | [SPARK-6753](https://issues.apache.org/jira/browse/SPARK-6753) | Unit test for SPARK-3426 (in ShuffleSuite) doesn't correctly clone the SparkConf |  Minor | Tests | Kay Ousterhout | Kay Ousterhout |
-| [SPARK-6748](https://issues.apache.org/jira/browse/SPARK-6748) | QueryPlan.schema should be a lazy val to avoid creating excessive duplicate StructType objects |  Major | . | Cheng Lian | Cheng Lian |
 | [SPARK-6743](https://issues.apache.org/jira/browse/SPARK-6743) | Join with empty projection on one side produces invalid results |  Critical | SQL | Santiago M. Mola | Michael Armbrust |
 | [SPARK-6742](https://issues.apache.org/jira/browse/SPARK-6742) | Spark pushes down filters in old parquet path that reference partitioning columns |  Major | SQL | Yash Datta | Yash Datta |
 | [SPARK-6738](https://issues.apache.org/jira/browse/SPARK-6738) | EstimateSize  is difference with spill file size |  Major | Spark Core | Hong Shen | Hong Shen |
@@ -845,7 +842,6 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [SPARK-8299](https://issues.apache.org/jira/browse/SPARK-8299) | Improve error message reporting for DataFrame and SQL |  Major | SQL | Reynold Xin | Michael Armbrust |
 | [SPARK-8026](https://issues.apache.org/jira/browse/SPARK-8026) | Add Column.alias to Scala/Java API |  Major | SQL | Reynold Xin | Reynold Xin |
-| [SPARK-8021](https://issues.apache.org/jira/browse/SPARK-8021) | DataFrameReader/Writer in Python does not match Scala |  Blocker | . | Michael Armbrust | Davies Liu |
 | [SPARK-7982](https://issues.apache.org/jira/browse/SPARK-7982) | crosstab should use 0 instead of null for pairs that don't appear |  Major | SQL | Reynold Xin | Reynold Xin |
 | [SPARK-7979](https://issues.apache.org/jira/browse/SPARK-7979) | Enforce structural type checker |  Major | Project Infra | Reynold Xin | Reynold Xin |
 | [SPARK-7976](https://issues.apache.org/jira/browse/SPARK-7976) | Add style checker to disallow overriding finalize |  Major | Project Infra | Reynold Xin | Reynold Xin |

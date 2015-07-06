@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-#  0.7.0 Release Notes
+# Apache Tez  0.7.0 Release Notes
 
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
 
@@ -2116,7 +2116,7 @@ Removing the 2 GB resitrction on MergeManager.memlimit would help in such situat
 
 ---
 
-* [TEZ-1941](https://issues.apache.org/jira/browse/TEZ-1941) | *Major* | **Memory provided by *Context.getAvailableMemory needs to be setup explicitly**
+* [TEZ-1941](https://issues.apache.org/jira/browse/TEZ-1941) | *Major* | **Memory provided by \*Context.getAvailableMemory needs to be setup explicitly**
 
 *Contexts.getAvailableMemory rely on Runtime..getMaxMemory(). This doesn't work for memory scaling if multiple tasks are running within a JVM.
 

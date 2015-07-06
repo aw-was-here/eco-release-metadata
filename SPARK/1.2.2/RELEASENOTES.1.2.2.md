@@ -16,9 +16,37 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-#  1.2.2 Release Notes
+# Apache Spark  1.2.2 Release Notes
 
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
+
+
+---
+
+* [SPARK-7027](https://issues.apache.org/jira/browse/SPARK-7027) | *Critical* | **Spark 1.2.2 Hadoop 2.4 download is missing**
+
+Can't download Spark 1.2.2 pre-built for Hadoop 2.4 from https://spark.apache.org/downloads.html.
+
+
+---
+
+* [SPARK-6878](https://issues.apache.org/jira/browse/SPARK-6878) | *Minor* | **Sum on empty RDD fails with exception**
+
+{{Sum}} on an empty RDD throws an exception. Expected result is {{0}}.
+
+A simple fix is the replace
+
+{noformat}
+class DoubleRDDFunctions {
+  def sum(): Double = self.reduce(\_ + \_)
+{noformat} 
+
+with:
+
+{noformat}
+class DoubleRDDFunctions {
+  def sum(): Double = self.aggregate(0.0)(\_ + \_, \_ + \_)
+{noformat}
 
 
 ---
@@ -356,7 +384,7 @@ Spark SQL current sets the scheduler pool and job description AFTER jobs run (se
 
 ---
 
-* [SPARK-5825](https://issues.apache.org/jira/browse/SPARK-5825) | *Blocker* | **Failure stopping Services while command line argument is too long**
+* [SPARK-5825](https://issues.apache.org/jira/browse/SPARK-5825) | *Critical* | **Failure stopping Services while command line argument is too long**
 
 Stopping service in `spark-daemon.sh` will confirm the process id by fuzzy matching the class name, however, it will fail if the java process arguments is very long (greater than 4096).
 
@@ -1471,6 +1499,15 @@ I once reported in dev mail list: http://apache-spark-developers-list.1001551.n3
 * [SPARK-794](https://issues.apache.org/jira/browse/SPARK-794) | *Major* | **Remove sleep() in ClusterScheduler.stop**
 
 This temporary change made a while back slows down the unit tests quite a bit.
+
+
+---
+
+* [SPARK-677](https://issues.apache.org/jira/browse/SPARK-677) | *Major* | **PySpark should not collect results through local filesystem**
+
+Py4J is slow when transferring large arrays, so PySpark currently dumps data to the disk and reads it back in order to collect() RDDs.  On large enough datasets, this data will spill from the buffer cache and write to the physical disk, resulting in terrible performance.
+
+Instead, we should stream the data from Java to Python over a local socket or a FIFO.
 
 
 

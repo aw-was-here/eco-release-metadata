@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-#  1.4.0 Release Notes
+# Apache Spark  1.4.0 Release Notes
 
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
 
@@ -9516,7 +9516,7 @@ There are actually a number of instances of links to PySpark docs that end in {{
 
 ---
 
-* [SPARK-6453](https://issues.apache.org/jira/browse/SPARK-6453) | *Trivial* | **Some Mesos*Suite have a different package with their classes**
+* [SPARK-6453](https://issues.apache.org/jira/browse/SPARK-6453) | *Trivial* | **Some Mesos\*Suite have a different package with their classes**
 
 The name of package of {{MesosSchedulerBackend}} and {{MesosTaskLaunchData}} is {{org.apache.spark.scheduler.cluster.mesos}}, but the one of their testSuite is {{org.apache.spark.scheduler.mesos}}.
 

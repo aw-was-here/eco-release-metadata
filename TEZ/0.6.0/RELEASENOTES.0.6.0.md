@@ -16,9 +16,23 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-#  0.6.0 Release Notes
+# Apache Tez  0.6.0 Release Notes
 
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
+
+
+---
+
+* [TEZ-2370](https://issues.apache.org/jira/browse/TEZ-2370) | *Minor* | **Add stages information to RM UI for debugging / visibility on job progress**
+
+Something that has been bugging me since last year is the difficulty of debugging Tez jobs compared to MapReduce jobs.
+
+This is because Resource Manager / Application Master does not display the job stats and stages that we are used to seeing in MapReduce eg. Map and Reduce task counts and progress. I appreciate that Tez is a more flexible framework with a DAG but it would be nice if it could surface the information on the different stages, number of tasks running, completed, failed, killed, successful etc, similar to how Spark does, and the stage breakdown would be useful in understanding what the job is doing at different times, what stage is getting stuck/failing etc.
+
+At the moment the only thing available is to trawl the logs or hope to have a console output where some of that information is available, both of which are non-ideal when debugging other's people's jobs after the fact.
+
+Hari Sekhon
+http://www.linkedin.com/in/harisekhon
 
 
 ---
