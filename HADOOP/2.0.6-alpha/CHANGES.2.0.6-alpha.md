@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-# Hadoop Changelog
+# Apache Hadoop Changelog
 
 ## Release 2.0.6-alpha - 2013-08-22
 
@@ -42,7 +42,6 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [YARN-854](https://issues.apache.org/jira/browse/YARN-854) | App submission fails on secure deploy |  Blocker | . | Ramya Sunil | Omkar Vinit Joshi |
 
 
 ### TESTS:

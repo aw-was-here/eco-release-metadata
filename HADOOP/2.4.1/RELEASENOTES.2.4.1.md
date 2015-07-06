@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-# Hadoop  2.4.1 Release Notes
+# Apache Hadoop  2.4.1 Release Notes
 
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
 

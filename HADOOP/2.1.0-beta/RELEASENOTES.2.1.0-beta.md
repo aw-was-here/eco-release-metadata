@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-# Hadoop  2.1.0-beta Release Notes
+# Apache Hadoop  2.1.0-beta Release Notes
 
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
 
@@ -434,7 +434,7 @@ Makes Gridmix use the uncompressed input data size while simulating map tasks in
 
 ---
 
-* [YARN-834](https://issues.apache.org/jira/browse/YARN-834) | *Blocker* | **Review/fix annotations for yarn-client module and clearly differentiate *Async apis**
+* [YARN-834](https://issues.apache.org/jira/browse/YARN-834) | *Blocker* | **Review/fix annotations for yarn-client module and clearly differentiate \*Async apis**
 
 **WARNING: No release note provided for this incompatible change.**
 

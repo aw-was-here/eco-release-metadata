@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-# Hadoop  2.5.0 Release Notes
+# Apache Hadoop  2.5.0 Release Notes
 
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
 
@@ -107,6 +107,13 @@ These keys complement the existing NameNode options:
 * [HDFS-6164](https://issues.apache.org/jira/browse/HDFS-6164) | *Major* | **Remove lsr in OfflineImageViewer**
 
 The offlineimageviewer no longer generates lsr-style outputs. The functionality has been superseded by a tool that takes the fsimage and exposes WebHDFS-like API for user queries.
+
+
+---
+
+* [HDFS-6153](https://issues.apache.org/jira/browse/HDFS-6153) | *Minor* | **Document "fileId" and "childrenNum" fields in the FileStatus Json schema**
+
+**WARNING: No release note provided for this incompatible change.**
 
 
 ---

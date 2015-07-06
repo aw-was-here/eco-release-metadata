@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-# Hadoop Changelog
+# Apache Hadoop Changelog
 
 ## Release 2.0.1-alpha - 2012-07-25
 
@@ -44,6 +44,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HADOOP-8552](https://issues.apache.org/jira/browse/HADOOP-8552) | Conflict: Same security.log.file for multiple users. |  Major | conf, security | Karthik Kambatla | Karthik Kambatla |
 
 
 ### TESTS:

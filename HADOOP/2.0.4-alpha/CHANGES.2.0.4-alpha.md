@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-# Hadoop Changelog
+# Apache Hadoop Changelog
 
 ## Release 2.0.4-alpha - 2013-04-25
 
@@ -36,7 +36,6 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [HADOOP-9379](https://issues.apache.org/jira/browse/HADOOP-9379) | capture the ulimit info after printing the log to the console |  Trivial | . | Arpit Gupta | Arpit Gupta |
 | [HADOOP-9374](https://issues.apache.org/jira/browse/HADOOP-9374) | Add tokens from -tokenCacheFile into UGI |  Major | security | Daryn Sharp | Daryn Sharp |
 | [YARN-443](https://issues.apache.org/jira/browse/YARN-443) | allow OS scheduling priority of NM to be different than the containers it launches |  Major | nodemanager | Thomas Graves | Thomas Graves |
 
@@ -60,16 +59,12 @@
 | [HDFS-4571](https://issues.apache.org/jira/browse/HDFS-4571) | WebHDFS should not set the service hostname on the server side |  Major | webhdfs | Alejandro Abdelnur | Alejandro Abdelnur |
 | [HDFS-3344](https://issues.apache.org/jira/browse/HDFS-3344) | Unreliable corrupt blocks counting in TestProcessCorruptBlocks |  Major | namenode | Tsz Wo Nicholas Sze | Kihwal Lee |
 | [MAPREDUCE-5117](https://issues.apache.org/jira/browse/MAPREDUCE-5117) | With security enabled HS delegation token renewer fails |  Blocker | security | Roman Shaposhnik | Siddharth Seth |
-| [MAPREDUCE-5094](https://issues.apache.org/jira/browse/MAPREDUCE-5094) | Disable mem monitoring by default in MiniMRYarnCluster |  Major | . | Siddharth Seth | Siddharth Seth |
-| [MAPREDUCE-5088](https://issues.apache.org/jira/browse/MAPREDUCE-5088) | MR Client gets an renewer token exception while Oozie is submitting a job |  Blocker | . | Roman Shaposhnik | Daryn Sharp |
 | [MAPREDUCE-5083](https://issues.apache.org/jira/browse/MAPREDUCE-5083) | MiniMRCluster should use a random component when creating an actual cluster |  Major | mrv2 | Siddharth Seth | Siddharth Seth |
-| [MAPREDUCE-5053](https://issues.apache.org/jira/browse/MAPREDUCE-5053) | java.lang.InternalError from decompression codec cause reducer to fail |  Major | . | Robert Parker | Robert Parker |
 | [MAPREDUCE-5023](https://issues.apache.org/jira/browse/MAPREDUCE-5023) | History Server Web Services missing Job Counters |  Critical | jobhistoryserver, webapps | Kendall Thrapp | Ravi Prakash |
 | [MAPREDUCE-5006](https://issues.apache.org/jira/browse/MAPREDUCE-5006) | streaming tests failing |  Major | contrib/streaming | Alejandro Abdelnur | Sandy Ryza |
 | [MAPREDUCE-4549](https://issues.apache.org/jira/browse/MAPREDUCE-4549) | Distributed cache conflicts breaks backwards compatability |  Blocker | mrv2 | Robert Joseph Evans | Robert Joseph Evans |
 | [MAPREDUCE-3685](https://issues.apache.org/jira/browse/MAPREDUCE-3685) | There are some bugs in implementation of MergeManager |  Critical | mrv2 | anty.rao | anty |
 | [YARN-470](https://issues.apache.org/jira/browse/YARN-470) | Support a way to disable resource monitoring on the NodeManager |  Major | nodemanager | Hitesh Shah | Siddharth Seth |
-| [YARN-449](https://issues.apache.org/jira/browse/YARN-449) | HBase test failures when running against Hadoop 2 |  Blocker | . | Siddharth Seth |  |
 | [YARN-429](https://issues.apache.org/jira/browse/YARN-429) | capacity-scheduler config missing from yarn-test artifact |  Blocker | resourcemanager | Siddharth Seth | Siddharth Seth |
 
 
@@ -87,7 +82,6 @@
 | [HDFS-4567](https://issues.apache.org/jira/browse/HDFS-4567) | Webhdfs does not need a token for token operations |  Major | webhdfs | Daryn Sharp | Daryn Sharp |
 | [HDFS-4566](https://issues.apache.org/jira/browse/HDFS-4566) | Webdhfs token cancelation should use authentication |  Major | webhdfs | Daryn Sharp | Daryn Sharp |
 | [HDFS-4560](https://issues.apache.org/jira/browse/HDFS-4560) | Webhdfs cannot use tokens obtained by another user |  Major | webhdfs | Daryn Sharp | Daryn Sharp |
-| [HDFS-4548](https://issues.apache.org/jira/browse/HDFS-4548) | Webhdfs doesn't renegotiate SPNEGO token |  Blocker | . | Daryn Sharp | Daryn Sharp |
 
 
 ### OTHER:

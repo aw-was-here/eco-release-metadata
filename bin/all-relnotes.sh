@@ -6,6 +6,11 @@ bin=$(cd -P -- "$(dirname -- "${this}")" >/dev/null && pwd -P)
 OPATH=${PATH}
 PATH=${bin}:${OPATH}
 
+cd ${HOME}/Src/aw-github/eco-release-metadata/HADOOP
+releasedocmaker.py --project HADOOP --project HDFS --project YARN --project MAPREDUCE \
+        --projecttitle "Apache Hadoop" \
+        --range --version 2.6.0 --version 3.0.0 --index
+
 cd ${HOME}/Src/aw-github/eco-release-metadata/PIG
 releasedocmaker.py --project PIG --projecttitle "Apache Pig" \
 	--range --version 0.15.0 --version 0.17.0 --index
@@ -40,7 +45,7 @@ releasedocmaker.py --project OOZIE --projecttitle "Apache Oozie" \
 
 cd ${HOME}/Src/aw-github/eco-release-metadata/ORC
 releasedocmaker.py --project ORC --projecttitle "Apache Orc" \
-        --range --version 0 --version 2.0.0 --index
+        --range --version 1.0.0 --version 2.0.0 --index
 
 d=$(date -u "+%Y-%m-%d %H:%m")
 git commit -a -m "${d} UTC auto-commit"
