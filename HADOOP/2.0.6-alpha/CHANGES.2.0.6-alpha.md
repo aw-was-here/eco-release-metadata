@@ -24,6 +24,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [YARN-854](https://issues.apache.org/jira/browse/YARN-854) | App submission fails on secure deploy |  Blocker | . | Ramya Sunil | Omkar Vinit Joshi |
 
 
 ### TESTS:

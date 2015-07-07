@@ -33,12 +33,16 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HADOOP-8843](https://issues.apache.org/jira/browse/HADOOP-8843) | Old trash directories are never deleted on upgrade from 1.x |  Critical | . | Robert Joseph Evans | Jason Lowe |
+| [HADOOP-8822](https://issues.apache.org/jira/browse/HADOOP-8822) | relnotes.py was deleted post mavenization |  Major | . | Robert Joseph Evans | Robert Joseph Evans |
 | [HADOOP-8684](https://issues.apache.org/jira/browse/HADOOP-8684) | Deadlock between WritableComparator and WritableComparable |  Minor | io | Hiroshi Ikeda | Jing Zhao |
 | [HADOOP-8310](https://issues.apache.org/jira/browse/HADOOP-8310) | FileContext#checkPath should handle URIs with no port |  Major | fs | Aaron T. Myers | Aaron T. Myers |
 | [HDFS-3922](https://issues.apache.org/jira/browse/HDFS-3922) | 0.22 and 0.23 namenode throws away blocks under construction on restart |  Critical | namenode | Kihwal Lee | Kihwal Lee |
+| [HDFS-3860](https://issues.apache.org/jira/browse/HDFS-3860) | HeartbeatManager#Monitor may wrongly hold the writelock of namesystem |  Major | . | Jing Zhao | Jing Zhao |
 | [HDFS-3831](https://issues.apache.org/jira/browse/HDFS-3831) | Failure to renew tokens due to test-sources left in classpath |  Critical | security | Jason Lowe | Jason Lowe |
 | [HDFS-3731](https://issues.apache.org/jira/browse/HDFS-3731) | 2.0 release upgrade must handle blocks being written from 1.0 |  Blocker | datanode | Suresh Srinivas | Kihwal Lee |
 | [HDFS-3626](https://issues.apache.org/jira/browse/HDFS-3626) | Creating file with invalid path can corrupt edit log |  Blocker | namenode | Todd Lipcon | Todd Lipcon |
+| [HDFS-3553](https://issues.apache.org/jira/browse/HDFS-3553) | Hftp proxy tokens are broken |  Blocker | . | Daryn Sharp | Daryn Sharp |
 | [HDFS-3373](https://issues.apache.org/jira/browse/HDFS-3373) | FileContext HDFS implementation can leak socket caches |  Major | hdfs-client | Todd Lipcon | John George |
 | [MAPREDUCE-4691](https://issues.apache.org/jira/browse/MAPREDUCE-4691) | Historyserver can report "Unknown job" after RM says job has completed |  Critical | jobhistoryserver, mrv2 | Jason Lowe | Robert Joseph Evans |
 | [MAPREDUCE-4689](https://issues.apache.org/jira/browse/MAPREDUCE-4689) | JobClient.getMapTaskReports on failed job results in NPE |  Major | client | Jason Lowe | Jason Lowe |
@@ -50,6 +54,7 @@
 | [YARN-106](https://issues.apache.org/jira/browse/YARN-106) | Nodemanager needs to set permissions of local directories |  Major | nodemanager | Jason Lowe | Jason Lowe |
 | [YARN-93](https://issues.apache.org/jira/browse/YARN-93) | Diagnostics missing from applications that have finished but failed |  Major | resourcemanager | Jason Lowe | Jason Lowe |
 | [YARN-88](https://issues.apache.org/jira/browse/YARN-88) | DefaultContainerExecutor can fail to set proper permissions |  Major | nodemanager | Jason Lowe | Jason Lowe |
+| [YARN-75](https://issues.apache.org/jira/browse/YARN-75) | RMContainer should handle a RELEASE event while RUNNING |  Major | . | Siddharth Seth | Siddharth Seth |
 | [YARN-42](https://issues.apache.org/jira/browse/YARN-42) | Node Manager throws NPE on startup |  Major | nodemanager | Devaraj K | Devaraj K |
 
 

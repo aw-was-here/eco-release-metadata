@@ -24,7 +24,14 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HADOOP-6017](https://issues.apache.org/jira/browse/HADOOP-6017) | NameNode and SecondaryNameNode fail to restart because of abnormal filenames. |  Blocker | . | Raghu Angadi | Tsz Wo Nicholas Sze |
+| [HADOOP-5644](https://issues.apache.org/jira/browse/HADOOP-5644) | Namnode is stuck in safe mode |  Major | . | Suresh Srinivas | Suresh Srinivas |
 | [HADOOP-5557](https://issues.apache.org/jira/browse/HADOOP-5557) | Two minor problems in TestOverReplicatedBlocks |  Minor | test | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
+| [HADOOP-5465](https://issues.apache.org/jira/browse/HADOOP-5465) | Blocks remain under-replicated |  Blocker | . | Hairong Kuang | Hairong Kuang |
+| [HADOOP-5412](https://issues.apache.org/jira/browse/HADOOP-5412) | TestInjectionForSimulatedStorage occasionally fails on timeout |  Major | . | Hairong Kuang | Hairong Kuang |
+| [HADOOP-5311](https://issues.apache.org/jira/browse/HADOOP-5311) | Write pipeline recovery fails |  Blocker | . | Hairong Kuang | dhruba borthakur |
+| [HADOOP-5192](https://issues.apache.org/jira/browse/HADOOP-5192) | Block reciever should not remove a finalized block when block replication fails |  Blocker | . | Hairong Kuang | Hairong Kuang |
+| [HADOOP-5134](https://issues.apache.org/jira/browse/HADOOP-5134) | FSNamesystem#commitBlockSynchronization adds under-construction block locations to blocksMap |  Blocker | . | Hairong Kuang | dhruba borthakur |
 
 
 ### TESTS:

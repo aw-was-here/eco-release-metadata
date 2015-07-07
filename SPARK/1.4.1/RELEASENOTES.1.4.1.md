@@ -568,6 +568,50 @@ Please correct me if I'm wrong, but RegressionEvaluator seems to implement the e
 
 ---
 
+* [SPARK-8463](https://issues.apache.org/jira/browse/SPARK-8463) | *Major* | **No suitable driver found for write.jdbc**
+
+I am getting a java.sql.SQLException: No suitable driver found for jdbc:mysql://dbhost/test when using df.write.jdbc.
+
+I do not get this error when reading from the same database. 
+
+This simple script can repeat the problem.
+First one must create a database called test with a table called table1 and insert some rows in it. The user test:secret must have read/write permissions.
+
+*testJDBC.scala:*
+import java.util.Properties
+import org.apache.spark.sql.Row
+import java.sql.Struct
+import org.apache.spark.sql.types.\{StructField, StructType, IntegerType, StringType}
+import org.apache.spark.\{SparkConf, SparkContext}
+import org.apache.spark.sql.SQLContext
+
+val properties = new Properties()
+properties.setProperty("user", "test")
+properties.setProperty("password", "secret")
+val readTable = sqlContext.read.jdbc("jdbc:mysql://dbhost/test", "table1", properties)
+
+print(readTable.show())
+
+val rows = sc.parallelize(List(Row(1, "write"), Row(2, "me")))
+val writeTable = sqlContext.createDataFrame(rows, StructType(List(StructField("id", IntegerType), StructField("name", StringType))))
+writeTable.write.jdbc("jdbc:mysql://dbhost/test", "table2", properties)}}
+
+This is run using:
+{{spark-shell --conf spark.executor.extraClassPath=/path/to/mysql-connector-java-5.1.35-bin.jar --driver-class-path /path/to/mysql-connector-java-5.1.35-bin.jar --jars /path/to/mysql-connector-java-5.1.35-bin.jar -i:testJDBC.scala}}
+
+The read works fine and will print the rows in the table. The write fails with {{java.sql.SQLException: No suitable driver found for jdbc:mysql://dbhost/test}}. The new table is successfully created but it is empty.
+
+I have tested this on a Mesos cluster with Spark 1.4.0 and the current master branch as of June 18th.
+
+In the executor logs I do see before the error:
+INFO Utils: Fetching http://146.203.54.236:50624/jars/mysql-connector-java-5.1.35-bin.jar
+INFO Executor: Adding file:/tmp/mesos/slaves/.../mysql-connector-java-5.1.35-bin.jar to class loader
+
+A workaround is to add the mysql-connector-java-5.1.35-bin.jar to the same location on each executor node as defined in spark.executor.extraClassPath.
+
+
+---
+
 * [SPARK-8462](https://issues.apache.org/jira/browse/SPARK-8462) | *Minor* | **Documentation fixes for Spark SQL**
 
 This fixes various minor documentation issues on the Spark SQL page

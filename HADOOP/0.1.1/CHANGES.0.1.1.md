@@ -18,6 +18,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HADOOP-116](https://issues.apache.org/jira/browse/HADOOP-116) | cleaning up /tmp/hadoop/mapred/system |  Major | . | raghavendra prabhu | Doug Cutting |
 
 
 ### BUG FIXES:
@@ -25,6 +26,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-125](https://issues.apache.org/jira/browse/HADOOP-125) | LocalFileSystem.makeAbsolute bug on Windows |  Minor | fs | p sutter | Doug Cutting |
+| [HADOOP-117](https://issues.apache.org/jira/browse/HADOOP-117) | mapred temporary files not deleted |  Blocker | . | raghavendra prabhu | Doug Cutting |
 
 
 ### TESTS:

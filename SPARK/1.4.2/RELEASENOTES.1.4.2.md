@@ -21,4 +21,23 @@
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
 
 
+---
+
+* [SPARK-8821](https://issues.apache.org/jira/browse/SPARK-8821) | *Major* | **The ec2 script doesn't run on python 3 with an utf8 env**
+
+Otherwise the script will crash with
+
+ - Downloading boto...
+Traceback (most recent call last):
+  File "ec2/spark\_ec2.py", line 148, in <module>
+    setup\_external\_libs(external\_libs)
+  File "ec2/spark\_ec2.py", line 128, in setup\_external\_libs
+    if hashlib.md5(tar.read()).hexdigest() != lib["md5"]:
+  File "/usr/lib/python3.4/codecs.py", line 319, in decode
+    (result, consumed) = self.\_buffer\_decode(data, self.errors, final)
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0x8b in position 1: invalid start byte
+
+In case of an utf8 env setting.
+
+
 

@@ -24,6 +24,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HADOOP-2647](https://issues.apache.org/jira/browse/HADOOP-2647) | dfs -put hangs |  Major | . | Lohit Vijayarenu | Raghu Angadi |
 
 
 ### TESTS:

@@ -14,6 +14,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-2316](https://issues.apache.org/jira/browse/HDFS-2316) | [umbrella] WebHDFS: a complete FileSystem implementation for accessing HDFS over HTTP |  Major | webhdfs | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
+| [HDFS-2137](https://issues.apache.org/jira/browse/HDFS-2137) | Datanode Disk Fail Inplace |  Major | datanode | Bharath Mundlapudi |  |
 
 
 ### IMPROVEMENTS:
@@ -21,11 +22,13 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-7804](https://issues.apache.org/jira/browse/HADOOP-7804) | enable hadoop config generator to set dfs.block.local-path-access.user to enable short circuit read |  Major | conf | Arpit Gupta | Arpit Gupta |
+| [HADOOP-7710](https://issues.apache.org/jira/browse/HADOOP-7710) | create a script to setup application in order to create root directories for application such hbase, hcat, hive etc |  Major | . | Arpit Gupta | Arpit Gupta |
 | [HADOOP-7664](https://issues.apache.org/jira/browse/HADOOP-7664) | o.a.h.conf.Configuration complains of overriding final parameter even if the value with which its attempting to override is the same. |  Minor | conf | Ravi Prakash | Ravi Prakash |
 | [HADOOP-6886](https://issues.apache.org/jira/browse/HADOOP-6886) | LocalFileSystem Needs createNonRecursive API |  Minor | fs | Nicolas Spiegelberg | Nicolas Spiegelberg |
 | [HADOOP-6840](https://issues.apache.org/jira/browse/HADOOP-6840) | Support non-recursive create() in FileSystem & SequenceFile.Writer |  Minor | fs, io | Nicolas Spiegelberg | Nicolas Spiegelberg |
+| [HADOOP-5124](https://issues.apache.org/jira/browse/HADOOP-5124) | A few optimizations to FsNamesystem#RecentInvalidateSets |  Major | . | Hairong Kuang | Hairong Kuang |
 | [HDFS-2604](https://issues.apache.org/jira/browse/HDFS-2604) | Add a log message to show if WebHDFS is enabled |  Minor | webhdfs | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
-| [HDFS-617](https://issues.apache.org/jira/browse/HDFS-617) | Support for non-recursive create() in HDFS |  Major | hdfs-client, namenode | Kan Zhang | Kan Zhang |
+| [HDFS-2246](https://issues.apache.org/jira/browse/HDFS-2246) | Shortcut a local client reads to a Datanodes files directly |  Major | . | Sanjay Radia | Jitendra Nath Pandey |
 | [MAPREDUCE-3169](https://issues.apache.org/jira/browse/MAPREDUCE-3169) | Create a new MiniMRCluster equivalent which only provides client APIs cross MR1 and MR2 |  Major | mrv1, mrv2, test | Todd Lipcon | Ahmed Radwan |
 
 
@@ -33,10 +36,16 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HADOOP-9128](https://issues.apache.org/jira/browse/HADOOP-9128) | MetricsDynamicMBeanBase can cause high cpu load |  Major | metrics | Nate Putnam |  |
+| [HADOOP-8389](https://issues.apache.org/jira/browse/HADOOP-8389) | MetricsDynamicMBeanBase throws IllegalArgumentException for empty attribute list |  Major | metrics | Elias Ross |  |
+| [HADOOP-8067](https://issues.apache.org/jira/browse/HADOOP-8067) | Errors building hadoop-gpl-compression with Hadoop 1.0.0 and HBase 0.92.0 |  Major | build | John Lewis |  |
 | [HADOOP-7903](https://issues.apache.org/jira/browse/HADOOP-7903) | hadoop artifacts do not contain 64 bit libhdfs native lib |  Major | build | Arpit Gupta | Matt Foley |
 | [HADOOP-7869](https://issues.apache.org/jira/browse/HADOOP-7869) | HADOOP\_HOME warning happens all of the time |  Critical | scripts | Owen O'Malley | Owen O'Malley |
+| [HADOOP-7865](https://issues.apache.org/jira/browse/HADOOP-7865) | Test Failures in 1.0.0 hdfs/common |  Major | . | Jitendra Nath Pandey | Jitendra Nath Pandey |
 | [HADOOP-7854](https://issues.apache.org/jira/browse/HADOOP-7854) | UGI getCurrentUser is not synchronized |  Critical | security | Daryn Sharp | Daryn Sharp |
+| [HADOOP-7816](https://issues.apache.org/jira/browse/HADOOP-7816) | Allow HADOOP\_HOME deprecated warning suppression based on config specified in hadoop-env.sh |  Major | . | Dave Thompson | Dave Thompson |
 | [HADOOP-7815](https://issues.apache.org/jira/browse/HADOOP-7815) | Map memory mb is being incorrectly set by hadoop-setup-conf.sh |  Minor | conf | Ramya Sunil | Ramya Sunil |
+| [HADOOP-7784](https://issues.apache.org/jira/browse/HADOOP-7784) | secure datanodes fail to come up stating jsvc not found |  Major | . | Arpit Gupta | Eric Yang |
 | [HADOOP-7765](https://issues.apache.org/jira/browse/HADOOP-7765) | Debian package contain both system and tar ball layout |  Major | build | Eric Yang | Eric Yang |
 | [HADOOP-7740](https://issues.apache.org/jira/browse/HADOOP-7740) | security audit logger is not on by default, fix the log4j properties to enable the logger |  Minor | conf | Arpit Gupta | Arpit Gupta |
 | [HADOOP-7728](https://issues.apache.org/jira/browse/HADOOP-7728) | hadoop-setup-conf.sh should be modified to enable task memory manager |  Major | conf | Ramya Sunil | Ramya Sunil |
@@ -45,13 +54,19 @@
 | [HDFS-2673](https://issues.apache.org/jira/browse/HDFS-2673) | While Namenode processing the blocksBeingWrittenReport, it will log incorrect number blocks count |  Trivial | namenode | Uma Maheswara Rao G | Uma Maheswara Rao G |
 | [HDFS-2590](https://issues.apache.org/jira/browse/HDFS-2590) | Some links in WebHDFS forrest doc do not work |  Major | webhdfs | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HDFS-2589](https://issues.apache.org/jira/browse/HDFS-2589) | unnecessary hftp token fetch and renewal thread |  Major | security | Daryn Sharp | Daryn Sharp |
+| [HDFS-2450](https://issues.apache.org/jira/browse/HDFS-2450) | Only complete hostname is supported to access data via hdfs:// |  Major | . | Rajit Saha | Daryn Sharp |
 | [HDFS-2346](https://issues.apache.org/jira/browse/HDFS-2346) | TestHost2NodesMap & TestReplicasMap will fail depending upon execution order of test methods |  Blocker | test | Uma Maheswara Rao G | Laxman |
+| [HDFS-2065](https://issues.apache.org/jira/browse/HDFS-2065) | Fix NPE in DFSClient.getFileChecksum |  Major | . | Bharath Mundlapudi | Uma Maheswara Rao G |
 | [HDFS-1943](https://issues.apache.org/jira/browse/HDFS-1943) | fail to start datanode while start-dfs.sh is executed by root user |  Blocker | scripts | Wei Yongjun | Matt Foley |
 | [HDFS-1257](https://issues.apache.org/jira/browse/HDFS-1257) | Race condition on FSNamesystem#recentInvalidateSets introduced by HADOOP-5124 |  Major | namenode | Ramkumar Vadali | Eric Payne |
+| [HDFS-838](https://issues.apache.org/jira/browse/HDFS-838) | libhdfs causes a segfault due to race condition |  Major | libhdfs | Brian Bockelman |  |
 | [HDFS-611](https://issues.apache.org/jira/browse/HDFS-611) | Heartbeats times from Datanodes increase when there are plenty of blocks to delete |  Major | datanode | dhruba borthakur | Zheng Shao |
 | [MAPREDUCE-4935](https://issues.apache.org/jira/browse/MAPREDUCE-4935) | Support timeout limitation to MRv1 job end notifications |  Major | jobtracker, mrv1 | Olga Shen | Brad Liu |
+| [MAPREDUCE-3480](https://issues.apache.org/jira/browse/MAPREDUCE-3480) | TestJvmReuse fails in 1.0 |  Major | . | Jitendra Nath Pandey | Jitendra Nath Pandey |
 | [MAPREDUCE-3475](https://issues.apache.org/jira/browse/MAPREDUCE-3475) | JT can't renew its own tokens |  Major | jobtracker | Daryn Sharp | Daryn Sharp |
+| [MAPREDUCE-3374](https://issues.apache.org/jira/browse/MAPREDUCE-3374) | src/c++/task-controller/configure is not set executable in the tarball and that prevents task-controller from rebuilding |  Major | task-controller | Roman Shaposhnik |  |
 | [MAPREDUCE-3319](https://issues.apache.org/jira/browse/MAPREDUCE-3319) | multifilewc from hadoop examples seems to be broken in 0.20.205.0 |  Blocker | examples | Roman Shaposhnik | Subroto Sanyal |
+| [MAPREDUCE-1744](https://issues.apache.org/jira/browse/MAPREDUCE-1744) | DistributedCache creates its own FileSytem instance when adding a file/archive to the path |  Major | . | Dick King | Dick King |
 
 
 ### TESTS:
@@ -64,6 +79,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HDFS-2540](https://issues.apache.org/jira/browse/HDFS-2540) | Change WebHdfsFileSystem to two-step create/append |  Major | . | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HDFS-2539](https://issues.apache.org/jira/browse/HDFS-2539) | Support doAs and GETHOMEDIRECTORY in webhdfs |  Major | webhdfs | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HDFS-2528](https://issues.apache.org/jira/browse/HDFS-2528) | webhdfs rest call to a secure dn fails when a token is sent |  Major | webhdfs | Arpit Gupta | Tsz Wo Nicholas Sze |
 | [HDFS-2527](https://issues.apache.org/jira/browse/HDFS-2527) | Remove the use of Range header from webhdfs |  Major | webhdfs | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |

@@ -42,6 +42,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [ORC-23](https://issues.apache.org/jira/browse/ORC-23) | Simplify the C++ directory structure a bit |  Major | C++ | Owen O'Malley | Owen O'Malley |
 
 
 ### TESTS:
@@ -54,6 +55,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [ORC-18](https://issues.apache.org/jira/browse/ORC-18) | Replace Buffer with DataBuffer\<char\> and implement a posix-style read() for InputStreams |  Major | C++ | Aliaksei Sandryhaila | Aliaksei Sandryhaila |
 
 
 ### OTHER:

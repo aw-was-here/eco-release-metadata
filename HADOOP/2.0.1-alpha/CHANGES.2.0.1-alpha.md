@@ -26,7 +26,6 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [HADOOP-8552](https://issues.apache.org/jira/browse/HADOOP-8552) | Conflict: Same security.log.file for multiple users. |  Major | conf, security | Karthik Kambatla | Karthik Kambatla |
 
 
 ### TESTS:

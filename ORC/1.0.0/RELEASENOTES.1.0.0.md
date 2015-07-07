@@ -23,6 +23,16 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [ORC-23](https://issues.apache.org/jira/browse/ORC-23) | *Major* | **Simplify the C++ directory structure a bit**
+
+I want to simplify the directory structure a bit:
+* c++/src/orc -> c++/src
+* c++/test/orc -> c++/test
+* tools-c++ -> tools
+
+
+---
+
 * [ORC-3](https://issues.apache.org/jira/browse/ORC-3) | *Major* | **Import native code from github**
 
 Import C++ implementation from

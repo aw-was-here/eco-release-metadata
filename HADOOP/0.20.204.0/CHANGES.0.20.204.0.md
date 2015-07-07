@@ -13,6 +13,8 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HADOOP-7398](https://issues.apache.org/jira/browse/HADOOP-7398) | create a mechanism to suppress the HADOOP\_HOME deprecated warning |  Major | . | Owen O'Malley | Owen O'Malley |
+| [HADOOP-7144](https://issues.apache.org/jira/browse/HADOOP-7144) | Expose JMX with something like JMXProxyServlet |  Major | . | Luke Lu | Robert Joseph Evans |
 | [MAPREDUCE-2558](https://issues.apache.org/jira/browse/MAPREDUCE-2558) | Add queue-level metrics 0.20-security branch |  Major | jobtracker | Jeffrey Naisbitt | Jeffrey Naisbitt |
 | [MAPREDUCE-1938](https://issues.apache.org/jira/browse/MAPREDUCE-1938) | Ability for having user's classes take precedence over the system classes for tasks' classpath |  Blocker | job submission, task, tasktracker | Devaraj Das | Krishna Ramachandran |
 
@@ -35,7 +37,10 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HADOOP-7475](https://issues.apache.org/jira/browse/HADOOP-7475) | hadoop-setup-single-node.sh is broken |  Blocker | . | Eric Yang | Eric Yang |
+| [HADOOP-7373](https://issues.apache.org/jira/browse/HADOOP-7373) | Tarball deployment doesn't work with {start,stop}-{dfs,mapred} |  Major | . | Owen O'Malley | Owen O'Malley |
 | [HADOOP-7364](https://issues.apache.org/jira/browse/HADOOP-7364) | TestMiniMRDFSCaching fails if test.build.dir is set to something other than build/test |  Major | test | Thomas Graves | Thomas Graves |
+| [HADOOP-7356](https://issues.apache.org/jira/browse/HADOOP-7356) | RPM packages broke bin/hadoop script for hadoop 0.20.205 |  Blocker | . | Eric Yang | Eric Yang |
 | [HADOOP-7330](https://issues.apache.org/jira/browse/HADOOP-7330) | The metrics source mbean implementation should return the attribute value instead of the object |  Major | metrics | Luke Lu | Luke Lu |
 | [HADOOP-7324](https://issues.apache.org/jira/browse/HADOOP-7324) | Ganglia plugins for metrics v2 |  Blocker | metrics | Luke Lu | Priyo Mustafi |
 | [HADOOP-7274](https://issues.apache.org/jira/browse/HADOOP-7274) | CLONE - IOUtils.readFully and IOUtils.skipFully have typo in exception creation's message |  Minor | util | Jonathan Eagles | Jonathan Eagles |
@@ -45,23 +50,35 @@
 | [HDFS-1878](https://issues.apache.org/jira/browse/HDFS-1878) | TestHDFSServerPorts unit test failure - race condition in FSNamesystem.close() causes NullPointerException without serious consequence |  Minor | namenode | Matt Foley | Matt Foley |
 | [HDFS-1822](https://issues.apache.org/jira/browse/HDFS-1822) | Editlog opcodes overlap between 20 security and later releases |  Blocker | namenode | Suresh Srinivas | Suresh Srinivas |
 | [HDFS-1758](https://issues.apache.org/jira/browse/HDFS-1758) | Web UI JSP pages thread safety issue |  Minor | tools | Tanping Wang | Tanping Wang |
+| [HDFS-1750](https://issues.apache.org/jira/browse/HDFS-1750) | fs -ls hftp://file not working |  Major | . | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HDFS-1692](https://issues.apache.org/jira/browse/HDFS-1692) | In secure mode, Datanode process doesn't exit when disks fail. |  Major | datanode | Bharath Mundlapudi | Bharath Mundlapudi |
+| [HDFS-1592](https://issues.apache.org/jira/browse/HDFS-1592) | Datanode startup doesn't honor volumes.tolerated |  Major | . | Bharath Mundlapudi | Bharath Mundlapudi |
 | [HDFS-1377](https://issues.apache.org/jira/browse/HDFS-1377) | Quota bug for partial blocks allows quotas to be violated |  Blocker | namenode | Eli Collins | Eli Collins |
 | [HDFS-1258](https://issues.apache.org/jira/browse/HDFS-1258) | Clearing namespace quota on "/" corrupts FS image |  Blocker | namenode | Aaron T. Myers | Aaron T. Myers |
 | [HDFS-1189](https://issues.apache.org/jira/browse/HDFS-1189) | Quota counts missed between clear quota and set quota |  Major | namenode | Kang Xiao | John George |
 | [MAPREDUCE-2846](https://issues.apache.org/jira/browse/MAPREDUCE-2846) | a small % of all tasks fail with DefaultTaskController |  Blocker | task, task-controller, tasktracker | Allen Wittenauer | Owen O'Malley |
+| [MAPREDUCE-2804](https://issues.apache.org/jira/browse/MAPREDUCE-2804) | "Creation of symlink to attempt log dir failed." message is not useful |  Blocker | . | Allen Wittenauer | Owen O'Malley |
 | [MAPREDUCE-2651](https://issues.apache.org/jira/browse/MAPREDUCE-2651) | Race condition in Linux Task Controller for job log directory creation |  Major | task-controller | Bharath Mundlapudi | Bharath Mundlapudi |
+| [MAPREDUCE-2621](https://issues.apache.org/jira/browse/MAPREDUCE-2621) | TestCapacityScheduler fails with "Queue "q1" does not exist" |  Minor | . | Sherry Chen | Sherry Chen |
 | [MAPREDUCE-2555](https://issues.apache.org/jira/browse/MAPREDUCE-2555) | JvmInvalidate errors in the gridmix TT logs |  Minor | tasktracker | Thomas Graves | Thomas Graves |
 | [MAPREDUCE-2529](https://issues.apache.org/jira/browse/MAPREDUCE-2529) | Recognize Jetty bug 1342 and handle it |  Major | tasktracker | Thomas Graves | Thomas Graves |
 | [MAPREDUCE-2514](https://issues.apache.org/jira/browse/MAPREDUCE-2514) | ReinitTrackerAction class name misspelled RenitTrackerAction in task tracker log |  Trivial | tasktracker | Jonathan Eagles | Jonathan Eagles |
 | [MAPREDUCE-2451](https://issues.apache.org/jira/browse/MAPREDUCE-2451) | Log the reason string of healthcheck script |  Trivial | jobtracker | Thomas Graves | Thomas Graves |
+| [MAPREDUCE-2447](https://issues.apache.org/jira/browse/MAPREDUCE-2447) | Set JvmContext sooner for a task - MR2429 |  Minor | . | Siddharth Seth | Siddharth Seth |
 | [MAPREDUCE-2443](https://issues.apache.org/jira/browse/MAPREDUCE-2443) | Fix FI build - broken after MR-2429 |  Minor | test | Siddharth Seth | Siddharth Seth |
 | [MAPREDUCE-2429](https://issues.apache.org/jira/browse/MAPREDUCE-2429) | Check jvmid during task status report |  Major | tasktracker | Arun C Murthy | Siddharth Seth |
+| [MAPREDUCE-2418](https://issues.apache.org/jira/browse/MAPREDUCE-2418) | Errors not shown in the JobHistory servlet (specifically Counter Limit Exceeded) |  Minor | . | Siddharth Seth | Siddharth Seth |
+| [MAPREDUCE-2411](https://issues.apache.org/jira/browse/MAPREDUCE-2411) | When you submit a job to a queue with no ACLs you get an inscrutible NPE |  Minor | . | Dick King | Dick King |
 | [MAPREDUCE-2409](https://issues.apache.org/jira/browse/MAPREDUCE-2409) | Distributed Cache does not differentiate between file /archive for files with the same path |  Major | distributed-cache | Siddharth Seth | Siddharth Seth |
 | [MAPREDUCE-2366](https://issues.apache.org/jira/browse/MAPREDUCE-2366) | TaskTracker can't retrieve stdout and stderr from web UI |  Major | tasktracker | Owen O'Malley | Dick King |
 | [MAPREDUCE-2364](https://issues.apache.org/jira/browse/MAPREDUCE-2364) | Shouldn't hold lock on rjob while localizing resources. |  Major | tasktracker | Owen O'Malley | Devaraj Das |
 | [MAPREDUCE-2362](https://issues.apache.org/jira/browse/MAPREDUCE-2362) | Unit test failures: TestBadRecords and TestTaskTrackerMemoryManager |  Major | test | Owen O'Malley | Greg Roelofs |
+| [MAPREDUCE-2360](https://issues.apache.org/jira/browse/MAPREDUCE-2360) | Pig fails when using non-default FileSystem |  Major | client | Owen O'Malley |  |
+| [MAPREDUCE-2359](https://issues.apache.org/jira/browse/MAPREDUCE-2359) | Distributed cache doesn't use non-default FileSystems correctly |  Major | . | Owen O'Malley | Krishna Ramachandran |
+| [MAPREDUCE-2358](https://issues.apache.org/jira/browse/MAPREDUCE-2358) | MapReduce assumes HDFS as the default filesystem |  Major | . | Owen O'Malley | Krishna Ramachandran |
 | [MAPREDUCE-2357](https://issues.apache.org/jira/browse/MAPREDUCE-2357) | When extending inputsplit (non-FileSplit), all exceptions are ignored |  Major | task | Owen O'Malley | Luke Lu |
+| [MAPREDUCE-2356](https://issues.apache.org/jira/browse/MAPREDUCE-2356) | A task succeeded even though there were errors on all attempts. |  Major | . | Owen O'Malley | Luke Lu |
+| [MAPREDUCE-517](https://issues.apache.org/jira/browse/MAPREDUCE-517) | The capacity-scheduler should assign multiple tasks per heartbeat |  Critical | . | Arun C Murthy | Arun C Murthy |
 | [MAPREDUCE-118](https://issues.apache.org/jira/browse/MAPREDUCE-118) | Job.getJobID() will always return null |  Blocker | client | Amar Kamat | Amareshwari Sriramadasu |
 
 

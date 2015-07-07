@@ -42,6 +42,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HIVE-10996](https://issues.apache.org/jira/browse/HIVE-10996) | Aggregation / Projection over Multi-Join Inner Query producing incorrect results |  Critical | Query Planning | Gautam Kowshik | Jesus Camacho Rodriguez |
 | [HIVE-10573](https://issues.apache.org/jira/browse/HIVE-10573) | Improve Hive service for connection |  Major | HiveServer2 | Chao Sun | Chao Sun |
 
 
