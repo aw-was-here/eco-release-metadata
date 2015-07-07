@@ -518,11 +518,10 @@ def main():
         print lintMessage
         print "======================================="
         print "%s: Error:%d, Warning:%d \n" % (vstr, errorCount, warningCount)
-
-    if (errorCount>0):
-        haderrors=True
-        cleanOutputDir(vstr)
-        continue
+        if (errorCount>0):
+           haderrors=True
+           cleanOutputDir(vstr)
+           continue
 
     reloutputs.writeAll("\n\n")
     reloutputs.close()

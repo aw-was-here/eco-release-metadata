@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-# Apache Hadoop Changelog
+# Apache hadoop Changelog
 
 ## Release 2.7.2 - Unreleased
 
