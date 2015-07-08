@@ -23,6 +23,13 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-8804](https://issues.apache.org/jira/browse/SPARK-8804) | *Blocker* | ** order of UTF8String is wrong if there is any non-ascii character in it**
+
+We compare the UTF8String byte by byte, but byte in JVM is signed, it should be compared as unsigned.
+
+
+---
+
 * [SPARK-8803](https://issues.apache.org/jira/browse/SPARK-8803) | *Major* | **Crosstab element's can't contain null's and back ticks**
 
 Having back ticks or null as elements causes problems. 

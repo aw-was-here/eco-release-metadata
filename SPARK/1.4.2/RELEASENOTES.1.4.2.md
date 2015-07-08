@@ -23,6 +23,22 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-8868](https://issues.apache.org/jira/browse/SPARK-8868) | *Minor* | **SqlSerializer2 can go into infinite loop when row consists only of NullType columns**
+
+The following SQL query will cause an infinite loop in SqlSerializer2 code:
+
+{code}
+val df = sqlContext.sql("select null where 1 = 1")
+df.unionAll(df).sort("\_c0").collect()
+{code}
+
+The same problem occurs if we add more null-literals, but does not occur as long as there is a column of any other type (e.g. {{select 1, null where 1 == 1}}).
+
+I think that what's happening here is that if you have a row that consists only of columns of NullType (not columns of other types which happen to only contain null values, but only columns of null literals), SqlSerializer will end up writing / reading no data for rows of this type.  Since the deserialization stream will never try to read any data but nevertheless will be able to return an empty row, DeserializationStream.asIterator will go into an infinite loop since there will never be a read to trigger an EOF exception.
+
+
+---
+
 * [SPARK-8821](https://issues.apache.org/jira/browse/SPARK-8821) | *Major* | **The ec2 script doesn't run on python 3 with an utf8 env**
 
 Otherwise the script will crash with

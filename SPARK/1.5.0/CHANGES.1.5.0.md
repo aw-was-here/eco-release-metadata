@@ -69,6 +69,9 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-8883](https://issues.apache.org/jira/browse/SPARK-8883) | Remove the class OverrideFunctionRegistry |  Minor | SQL | Cheng Hao | Cheng Hao |
+| [SPARK-8879](https://issues.apache.org/jira/browse/SPARK-8879) | Remove EmptyRow class |  Major | SQL | Reynold Xin | Reynold Xin |
+| [SPARK-8876](https://issues.apache.org/jira/browse/SPARK-8876) | Remove InternalRow type alias in expressions package |  Major | SQL | Reynold Xin | Reynold Xin |
 | [SPARK-8837](https://issues.apache.org/jira/browse/SPARK-8837) | support using keyword in column name |  Major | SQL | Wenchen Fan | Wenchen Fan |
 | [SPARK-8823](https://issues.apache.org/jira/browse/SPARK-8823) | Optimizations for sparse vector products in pyspark.mllib.linalg |  Minor | MLlib, PySpark | Manoj Kumar | Manoj Kumar |
 | [SPARK-8809](https://issues.apache.org/jira/browse/SPARK-8809) | Remove ConvertNaNs analyzer rule |  Major | SQL | Reynold Xin | Reynold Xin |
@@ -211,9 +214,13 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-8868](https://issues.apache.org/jira/browse/SPARK-8868) | SqlSerializer2 can go into infinite loop when row consists only of NullType columns |  Minor | SQL | Josh Rosen | Yin Huai |
+| [SPARK-8845](https://issues.apache.org/jira/browse/SPARK-8845) | ML use of Breeze optimization: use adjustedValue not value? |  Minor | ML | Joseph K. Bradley | DB Tsai |
 | [SPARK-8841](https://issues.apache.org/jira/browse/SPARK-8841) | Fix partition pruning percentage log message |  Trivial | SQL | Steve Lindemann | Steve Lindemann |
 | [SPARK-8821](https://issues.apache.org/jira/browse/SPARK-8821) | The ec2 script doesn't run on python 3 with an utf8 env |  Major | EC2 | Simon Hafner | Simon Hafner |
+| [SPARK-8804](https://issues.apache.org/jira/browse/SPARK-8804) |  order of UTF8String is wrong if there is any non-ascii character in it |  Blocker | SQL | Davies Liu | Davies Liu |
 | [SPARK-8803](https://issues.apache.org/jira/browse/SPARK-8803) | Crosstab element's can't contain null's and back ticks |  Major | SQL | Burak Yavuz | Burak Yavuz |
+| [SPARK-8794](https://issues.apache.org/jira/browse/SPARK-8794) | Column pruning isn't applied beneath sample |  Major | SQL | Eron Wright | Liang-Chi Hsieh |
 | [SPARK-8781](https://issues.apache.org/jira/browse/SPARK-8781) | Published POMs are no longer effective POMs |  Blocker | Build | Konstantin Shaposhnikov | Andrew Or |
 | [SPARK-8763](https://issues.apache.org/jira/browse/SPARK-8763) | executing run-tests.py with Python 2.6 fails with absence of subprocess.check\_output function |  Major | PySpark | Tomohiko K. | Tomohiko K. |
 | [SPARK-8754](https://issues.apache.org/jira/browse/SPARK-8754) | YarnClientSchedulerBackend doesn't stop gracefully in failure conditions |  Minor | YARN | Devaraj K | Devaraj K |
@@ -356,6 +363,7 @@
 | [SPARK-7088](https://issues.apache.org/jira/browse/SPARK-7088) | [REGRESSION] Spark 1.3.1 breaks analysis of third-party logical plans |  Critical | SQL | Santiago M. Mola | Santiago M. Mola |
 | [SPARK-7067](https://issues.apache.org/jira/browse/SPARK-7067) | Can't resolve nested column in ORDER BY |  Major | SQL | Wenchen Fan | Wenchen Fan |
 | [SPARK-7063](https://issues.apache.org/jira/browse/SPARK-7063) | Update lz4 for Java 7 to avoid: when lz4 compression is used, it causes core dump |  Minor | Spark Core | Jenny MA | Jenny MA |
+| [SPARK-7050](https://issues.apache.org/jira/browse/SPARK-7050) | Fix Python Kafka test assembly jar not found issue under Maven build |  Minor | Build | Saisai Shao | Saisai Shao |
 | [SPARK-6973](https://issues.apache.org/jira/browse/SPARK-6973) | The total stages on the allJobsPage is wrong |  Minor | Web UI | meiyoula | meiyoula |
 | [SPARK-6785](https://issues.apache.org/jira/browse/SPARK-6785) | DateUtils can not handle date before 1970/01/01 correctly |  Major | SQL | Davies Liu | Christian Kadner |
 | [SPARK-6747](https://issues.apache.org/jira/browse/SPARK-6747) | Throw an AnalysisException when unsupported Java list types used in Hive UDF |  Major | SQL | Takeshi Yamamuro | Takeshi Yamamuro |
@@ -386,6 +394,8 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-8886](https://issues.apache.org/jira/browse/SPARK-8886) | Python style usually don't add space before/after the = in named parameters |  Trivial | Documentation | Tijo Thomas | Tijo Thomas |
+| [SPARK-8878](https://issues.apache.org/jira/browse/SPARK-8878) | Improve unit test coverage for bitwise expressions |  Major | SQL | Reynold Xin | Reynold Xin |
 | [SPARK-8864](https://issues.apache.org/jira/browse/SPARK-8864) | Date/time function and data type design |  Major | SQL | Reynold Xin | Reynold Xin |
 | [SPARK-8831](https://issues.apache.org/jira/browse/SPARK-8831) | Support AbstractDataType in TypeCollection |  Major | SQL | Reynold Xin | Reynold Xin |
 | [SPARK-8822](https://issues.apache.org/jira/browse/SPARK-8822) | clean up type checking in math.scala |  Major | SQL | Reynold Xin | Reynold Xin |
@@ -401,6 +411,7 @@
 | [SPARK-8702](https://issues.apache.org/jira/browse/SPARK-8702) | Avoid massive concating strings in Javascript |  Major | Web UI | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-8698](https://issues.apache.org/jira/browse/SPARK-8698) | partitionBy in Python DataFrame reader/writer interface should not default to empty tuple |  Major | SQL | Reynold Xin | Reynold Xin |
 | [SPARK-8693](https://issues.apache.org/jira/browse/SPARK-8693) | profiles and goals are not printed in a nice way |  Minor | Build, Project Infra | Yin Huai | Brennon York |
+| [SPARK-8685](https://issues.apache.org/jira/browse/SPARK-8685) | dataframe left joins are not working as expected in pyspark |  Major | PySpark, SQL | axel dahl | Davies Liu |
 | [SPARK-8681](https://issues.apache.org/jira/browse/SPARK-8681) | crosstab column names in wrong order |  Critical | SQL | Burak Yavuz | Burak Yavuz |
 | [SPARK-8664](https://issues.apache.org/jira/browse/SPARK-8664) | Add PCA transformer |  Major | ML | Yanbo Liang | Yanbo Liang |
 | [SPARK-8621](https://issues.apache.org/jira/browse/SPARK-8621) | crosstab exception when one of the value is empty |  Critical | SQL | Reynold Xin | Wenchen Fan |
@@ -465,7 +476,6 @@
 | [SPARK-8192](https://issues.apache.org/jira/browse/SPARK-8192) | date/time function: current\_date |  Major | SQL | Reynold Xin | Adrian Wang |
 | [SPARK-8148](https://issues.apache.org/jira/browse/SPARK-8148) | Do not use FloatType in partition column inference |  Major | SQL | Reynold Xin | Reynold Xin |
 | [SPARK-8146](https://issues.apache.org/jira/browse/SPARK-8146) | DataFrame Python API: Alias replace in DataFrameNaFunctions |  Major | SQL | Reynold Xin | Reynold Xin |
-| [SPARK-8118](https://issues.apache.org/jira/browse/SPARK-8118) | Turn off noisy log output produced by Parquet 1.7.0 |  Minor | SQL | Cheng Lian | Cheng Lian |
 | [SPARK-8074](https://issues.apache.org/jira/browse/SPARK-8074) | Parquet should throw AnalysisException during setup for data type/name related failures |  Major | SQL | Reynold Xin | Reynold Xin |
 | [SPARK-8072](https://issues.apache.org/jira/browse/SPARK-8072) | Better AnalysisException for writing DataFrame with identically named columns |  Blocker | SQL | Reynold Xin | Animesh Baranawal |
 | [SPARK-8067](https://issues.apache.org/jira/browse/SPARK-8067) | Add support for connecting to Hive 1.1 |  Major | SQL | Reynold Xin | Marcelo Vanzin |

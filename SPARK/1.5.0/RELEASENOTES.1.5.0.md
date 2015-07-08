@@ -23,9 +23,65 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-8886](https://issues.apache.org/jira/browse/SPARK-8886) | *Trivial* | **Python style usually don't add space before/after the = in named parameters**
+
+python style usually don't add space before/after the = in named parameters. can you submit a follow up patch to fix that?
+thanks.
+
+
+---
+
+* [SPARK-8883](https://issues.apache.org/jira/browse/SPARK-8883) | *Minor* | **Remove the class OverrideFunctionRegistry**
+
+The class `OverrideFunctionRegistry` is redundant since the `HiveFunctionRegistry` has its own way to the underlying registry.
+
+
+---
+
+* [SPARK-8879](https://issues.apache.org/jira/browse/SPARK-8879) | *Major* | **Remove EmptyRow class**
+
+Right now InternalRow is megamorphic because it has many different implementations. We should work towards having only one or at most two InternalRow implementations.
+
+
+---
+
+* [SPARK-8876](https://issues.apache.org/jira/browse/SPARK-8876) | *Major* | **Remove InternalRow type alias in expressions package**
+
+The type alias was there because initially when I moved Row around, I didn't want to do massive changes to the expression code. But now it should be pretty easy to just remove it. One less concept to worry about.
+
+
+---
+
+* [SPARK-8868](https://issues.apache.org/jira/browse/SPARK-8868) | *Minor* | **SqlSerializer2 can go into infinite loop when row consists only of NullType columns**
+
+The following SQL query will cause an infinite loop in SqlSerializer2 code:
+
+{code}
+val df = sqlContext.sql("select null where 1 = 1")
+df.unionAll(df).sort("\_c0").collect()
+{code}
+
+The same problem occurs if we add more null-literals, but does not occur as long as there is a column of any other type (e.g. {{select 1, null where 1 == 1}}).
+
+I think that what's happening here is that if you have a row that consists only of columns of NullType (not columns of other types which happen to only contain null values, but only columns of null literals), SqlSerializer will end up writing / reading no data for rows of this type.  Since the deserialization stream will never try to read any data but nevertheless will be able to return an empty row, DeserializationStream.asIterator will go into an infinite loop since there will never be a read to trigger an EOF exception.
+
+
+---
+
 * [SPARK-8864](https://issues.apache.org/jira/browse/SPARK-8864) | *Major* | **Date/time function and data type design**
 
 Please see the attached design doc.
+
+
+---
+
+* [SPARK-8845](https://issues.apache.org/jira/browse/SPARK-8845) | *Minor* | **ML use of Breeze optimization: use adjustedValue not value?**
+
+In LinearRegression and LogisticRegression, we use Breeze's optimizers (LBFGS and OWLQN).  We check the {{State.value}} to see the current objective.  However, Breeze's documentation makes it sound like {{value}} and {{adjustedValue}} differ for some optimizers, possibly including OWLQN: [https://github.com/scalanlp/breeze/blob/26faf622862e8d7a42a401aef601347aac655f2b/math/src/main/scala/breeze/optimize/FirstOrderMinimizer.scala#L36]
+
+If that is the case, then we should use adjustedValue instead of value.  This is relevant to [SPARK-8538] and [SPARK-8539], where we will provide the objective trace to the user.
+
+CC: [~dbtsai] Could you please take a look?  Thanks!
 
 
 ---
@@ -93,6 +149,13 @@ Cast already handles "NaN" when casting from string to double/float. I don't thi
 
 ---
 
+* [SPARK-8804](https://issues.apache.org/jira/browse/SPARK-8804) | *Blocker* | ** order of UTF8String is wrong if there is any non-ascii character in it**
+
+We compare the UTF8String byte by byte, but byte in JVM is signed, it should be compared as unsigned.
+
+
+---
+
 * [SPARK-8803](https://issues.apache.org/jira/browse/SPARK-8803) | *Major* | **Crosstab element's can't contain null's and back ticks**
 
 Having back ticks or null as elements causes problems. 
@@ -109,6 +172,18 @@ Having null throws exceptions, we could replace them with empty strings.
 Some functions support more than one input types for each parameter. For example, length supports binary and string, and maybe array/struct in the future.
 
 This ticket proposes a TypeCollection AbstractDataType that supports multiple data types.
+
+
+---
+
+* [SPARK-8794](https://issues.apache.org/jira/browse/SPARK-8794) | *Major* | **Column pruning isn't applied beneath sample**
+
+I observe that certain transformations (e.g. sample) on DataFrame cause the underlying relation's support for column pruning to be disregarded in subsequent queries.
+
+I encountered this issue while using an ML pipeline with a typical dataset of (label, features).   For my particular data source (which implements PrunedScan), the 'features' column is expensive to compute while the 'label' column is cheap.  The first stage of the pipeline - StringIndexer - operates only on the label and so should be quick.   Yet I found that the 'features' column would be materialized.   Upon investigation,  the issue occurs when the dataset is split into train/test with sampling.   The sampling transformation causes the pruning optimization to be lost.
+
+See this gist for a sample program demonstrating the issue:
+[https://gist.github.com/EronWright/cb5fb9af46fd810194f8]
 
 
 ---
@@ -604,6 +679,68 @@ Yarn will set +spark.yarn.credentials.file+ after *DriverEndpoint* initialized. 
 * [SPARK-8686](https://issues.apache.org/jira/browse/SPARK-8686) | *Minor* | **DataFrame should support `where` with expression represented by String**
 
 DataFrame supports `filter` function with two types of argument, `Column` and `String`. But `where` doesn't.
+
+
+---
+
+* [SPARK-8685](https://issues.apache.org/jira/browse/SPARK-8685) | *Major* | **dataframe left joins are not working as expected in pyspark**
+
+I have the following code:
+
+{code}
+from pyspark import SQLContext
+
+d1 = [{'name':'bob', 'country': 'usa', 'age': 1},
+{'name':'alice', 'country': 'jpn', 'age': 2}, 
+{'name':'carol', 'country': 'ire', 'age': 3}]
+
+d2 = [{'name':'bob', 'country': 'usa', 'colour':'red'},
+{'name':'carol', 'country': 'ire', 'colour':'green'}]
+
+r1 = sc.parallelize(d1)
+r2 = sc.parallelize(d2)
+
+sqlContext = SQLContext(sc)
+df1 = sqlContext.createDataFrame(d1)
+df2 = sqlContext.createDataFrame(d2)
+df1.join(df2, (df1.name == df2.name) & (df1.country == df2.country), 'left\_outer').collect()
+{code}
+
+When I run it I get the following, (notice in the first row, all join keys are take from the right-side and so are blanked out):
+
+{code}
+[Row(age=2, country=None, name=None, colour=None, country=None, name=None),
+Row(age=1, country=u'usa', name=u'bob', colour=u'red', country=u'usa', name=u'bob'),
+Row(age=3, country=u'ire', name=u'carol', colour=u'green', country=u'ire', name=u'alice')]
+{code}
+
+I would expect to get (though ideally without duplicate columns):
+{code}
+[Row(age=2, country=u'ire', name=u'alice', colour=None, country=None, name=None),
+Row(age=1, country=u'usa', name=u'bob', colour=u'red', country=u'usa', name=u'bob'),
+Row(age=3, country=u'ire', name=u'carol', colour=u'green', country=u'ire', name=u'alice')]
+{code}
+
+The workaround for now is this rather clunky piece of code:
+{code}
+df2 = sqlContext.createDataFrame(d2).withColumnRenamed('name', 'name2').withColumnRenamed('country', 'country2')
+df1.join(df2, (df1.name == df2.name2) & (df1.country == df2.country2), 'left\_outer').collect()
+{code}
+
+Also, {{.show()}} works
+{code}
+sqlContext = SQLContext(sc)
+df1 = sqlContext.createDataFrame(d1)
+df2 = sqlContext.createDataFrame(d2)
+df1.join(df2, (df1.name == df2.name) & (df1.country == df2.country), 'left\_outer').show()
++---+-------+-----+------+-------+-----+
+|age|country| name|colour|country| name|
++---+-------+-----+------+-------+-----+
+|  3|    ire|carol| green|    ire|carol|
+|  2|    jpn|alice|  null|   null| null|
+|  1|    usa|  bob|   red|    usa|  bob|
++---+-------+-----+------+-------+-----+
+{code}
 
 
 ---
@@ -3688,13 +3825,6 @@ Spark's unit tests leave a lot of garbage in /tmp after a run, making it hard to
 
 ---
 
-* [SPARK-8118](https://issues.apache.org/jira/browse/SPARK-8118) | *Minor* | **Turn off noisy log output produced by Parquet 1.7.0**
-
-Parquet 1.7.0 renames package name to "org.apache.parquet", need to adjust {{ParquetRelation.enableLogForwarding}} accordingly to avoid noisy log output.
-
-
----
-
 * [SPARK-8117](https://issues.apache.org/jira/browse/SPARK-8117) | *Major* | **Push codegen into Expression**
 
 Push the codegen implementation of expression into Expression itself, make it easy to manage and extend.
@@ -5622,6 +5752,13 @@ from /service/pmrs/45638/20/opt/ibm/biginsights/jdk/jre/lib/amd64/compressedrefs
 
 this is an issue introduced by a bug in net.jpountz.lz4.lz4-1.2.0.jar, and fixed in 1.3.0 version.  Sun JDK /Open JDK doesn't complain this issue, but this issue will trigger assertion failure when IBM JDK is used. here is the link to the fix 
 https://github.com/jpountz/lz4-java/commit/07229aa2f788229ab4f50379308297f428e3d2d2
+
+
+---
+
+* [SPARK-7050](https://issues.apache.org/jira/browse/SPARK-7050) | *Minor* | **Fix Python Kafka test assembly jar not found issue under Maven build**
+
+The behavior of {{mvn package}} and {{sbt kafka-assembly/assembly}} under kafka-assembly module is different, sbt will generate an assembly jar under target/scala-version/, while mvn generates this jar under target/, which will make python Kafka streaming unit test fail to find the related jar.
 
 
 ---

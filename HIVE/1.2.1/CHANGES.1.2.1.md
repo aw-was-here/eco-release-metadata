@@ -157,6 +157,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HIVE-11016](https://issues.apache.org/jira/browse/HIVE-11016) | MiniTez mergejoin test fails with Tez input error (issue in merge join under certain conditions) |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
 | [HIVE-10910](https://issues.apache.org/jira/browse/HIVE-10910) | Alter table drop partition queries in encrypted zone failing to remove data from HDFS |  Major | Hive | Aswathy Chellammal Sreekumar | Eugene Koifman |
 | [HIVE-10747](https://issues.apache.org/jira/browse/HIVE-10747) | Enable the cleanup of side effect for the Encryption related qfile test |  Major | Testing Infrastructure | Ferdinand Xu | Ferdinand Xu |
 | [HIVE-10658](https://issues.apache.org/jira/browse/HIVE-10658) | Insert with values clause may expose data that should be encrypted |  Major | Security | Eugene Koifman | Eugene Koifman |

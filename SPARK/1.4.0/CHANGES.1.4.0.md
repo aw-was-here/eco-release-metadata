@@ -369,7 +369,6 @@
 | [SPARK-5338](https://issues.apache.org/jira/browse/SPARK-5338) | Support cluster mode with Mesos |  Major | Mesos | Timothy Chen | Timothy Chen |
 | [SPARK-5313](https://issues.apache.org/jira/browse/SPARK-5313) | Create simple framework for highlighting changes introduced in a PR |  Minor | Project Infra | Nicholas Chammas | Brennon York |
 | [SPARK-5283](https://issues.apache.org/jira/browse/SPARK-5283) | ML sharedParams should be private |  Major | ML | Joseph K. Bradley | Joseph K. Bradley |
-| [SPARK-5180](https://issues.apache.org/jira/browse/SPARK-5180) | Data source API improvement |  Blocker | SQL | Yin Huai | Cheng Lian |
 | [SPARK-5157](https://issues.apache.org/jira/browse/SPARK-5157) | Configure more JVM options properly when we use ConcMarkSweepGC for AM. |  Trivial | YARN | Kousuke Saruta | Kousuke Saruta |
 | [SPARK-5134](https://issues.apache.org/jira/browse/SPARK-5134) | Bump default Hadoop version to 2+ |  Minor | Build | Ryan Williams | Ryan Williams |
 | [SPARK-5112](https://issues.apache.org/jira/browse/SPARK-5112) | Expose SizeEstimator as a developer API |  Minor | Spark Core | Sandy Ryza | Sandy Ryza |
