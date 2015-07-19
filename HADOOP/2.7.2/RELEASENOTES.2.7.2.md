@@ -21,4 +21,18 @@
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
 
 
+---
+
+* [HDFS-8727](https://issues.apache.org/jira/browse/HDFS-8727) | *Major* | **Allow using path style addressing for accessing the s3 endpoint**
+
+Add new flag to allow supporting path style addressing for s3a
+
+
+---
+
+* [YARN-3905](https://issues.apache.org/jira/browse/YARN-3905) | *Major* | **Application History Server UI NPEs when accessing apps run after RM restart**
+
+Resubmitting patch after fixing checkstyle warnings.
+
+
 

@@ -30,6 +30,15 @@ hbase-shaded-client and hbase-shaded-server modules will not build the actual ja
 
 ---
 
+* [HBASE-13764](https://issues.apache.org/jira/browse/HBASE-13764) | *Minor* | **Backport HBASE-7782 (HBaseTestingUtility.truncateTable() not acting like CLI) to branch-1.x**
+
+HBaseTestingUtility now uses the truncate API added in HBASE-8332 so that calls to HBTU.truncateTable will behave like the shell command: effectively dropping the table and recreating a new one with the same split points. 
+
+Previously, HBTU.truncateTable instead issued deletes for all the data already in the table. If you wish to maintain the same behavior, you should use the newly added HBTU.deleteTableData method.
+
+
+---
+
 * [HBASE-13686](https://issues.apache.org/jira/browse/HBASE-13686) | *Major* | **Fail to limit rate in RateLimiter**
 
 As per this jira contribution. We now support two kinds of RateLimiter.
@@ -47,6 +56,13 @@ Note: Client needs to restart the cluster for the configuration to take into eff
 * [HBASE-13666](https://issues.apache.org/jira/browse/HBASE-13666) | *Major* | **book.pdf is not renamed during site build**
 
 Correct PDF renaming and bump version of maven-antrun-plugin
+
+
+---
+
+* [HBASE-13632](https://issues.apache.org/jira/browse/HBASE-13632) | *Trivial* | **Backport HBASE-13368 to branch-1 and 0.98**
+
+Several utility classes related to making message digests were mistakenly marked InterfaceAudience.Public. This change corrects them to be InterfaceAudience.Private. Though this change itself will not break downstream users future changes may happen to these classes in patch releases. As such, downstream users are strongly encouraged to migrate away from uses the following classes in the org.apache.hadoop.hbase.util package: Hash, JenkinsHash, MurmurHash, and MurmurHash3.
 
 
 ---

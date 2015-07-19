@@ -370,7 +370,7 @@
 | [HIVE-9487](https://issues.apache.org/jira/browse/HIVE-9487) | Make Remote Spark Context secure [Spark Branch] |  Major | Spark | Marcelo Vanzin | Marcelo Vanzin |
 | [HIVE-9477](https://issues.apache.org/jira/browse/HIVE-9477) | No error thrown when global limit optimization failed to find enough number of rows [Spark Branch] |  Blocker | Spark | Rui Li | Rui Li |
 | [HIVE-9450](https://issues.apache.org/jira/browse/HIVE-9450) | [Parquet] Check all data types work for Parquet in Group By operator |  Major | . | Dong Chen | Dong Chen |
-| [HIVE-9449](https://issues.apache.org/jira/browse/HIVE-9449) | Push YARN configuration to Spark while deply Spark on YARN[Spark Branch] |  Major | Spark | Chengxiang Li | Chengxiang Li |
+| [HIVE-9449](https://issues.apache.org/jira/browse/HIVE-9449) | Push YARN configuration to Spark while deply Spark on YARN [Spark Branch] |  Major | Spark | Chengxiang Li | Chengxiang Li |
 | [HIVE-9444](https://issues.apache.org/jira/browse/HIVE-9444) | CBO (Calcite Return Path): Rewrite GlobalLimitOptimizer |  Major | CBO | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
 | [HIVE-9434](https://issues.apache.org/jira/browse/HIVE-9434) | Shim the method Path.getPathWithoutSchemeAndAuthority |  Major | . | Brock Noland | Dong Chen |
 | [HIVE-9431](https://issues.apache.org/jira/browse/HIVE-9431) | CBO (Calcite Return Path): Removing AST from ParseContext |  Major | CBO | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |

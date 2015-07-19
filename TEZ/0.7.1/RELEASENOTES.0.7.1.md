@@ -23,6 +23,43 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [TEZ-2600](https://issues.apache.org/jira/browse/TEZ-2600) | *Major* | **When used with HDFS federation(viewfs) ,tez will throw a error**
+
+When I execute the exapmle of tez,orderedwordcount ,Tez throw a error
+{code}
+java.lang.IllegalArgumentException: Wrong FS: hdfs://SunshineNameNode2/user/wang/tez-0.6.0.tar.gz, expected: viewfs://nsX/
+        at org.apache.hadoop.fs.FileSystem.checkPath(FileSystem.java:645)
+        at org.apache.hadoop.fs.viewfs.ViewFileSystem.getUriPath(ViewFileSystem.java:117)
+        at org.apache.hadoop.fs.viewfs.ViewFileSystem.getFileStatus(ViewFileSystem.java:346)
+        at org.apache.hadoop.fs.FileSystem.isDirectory(FileSystem.java:1413)
+        at org.apache.tez.client.TezClientUtils.getLRFileStatus(TezClientUtils.java:130)
+        at org.apache.tez.client.TezClientUtils.setupTezJarsLocalResources(TezClientUtils.java:179)
+        at org.apache.tez.client.TezClient.getTezJarResources(TezClient.java:757)
+        at org.apache.tez.client.TezClient.submitDAGApplication(TezClient.java:725)
+        at org.apache.tez.client.TezClient.submitDAGApplication(TezClient.java:703)
+        at org.apache.tez.client.TezClient.submitDAG(TezClient.java:383)
+        at org.apache.tez.examples.OrderedWordCount.run(OrderedWordCount.java:208)
+        at org.apache.tez.examples.OrderedWordCount.run(OrderedWordCount.java:232)
+        at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:70)
+        at org.apache.tez.examples.OrderedWordCount.main(OrderedWordCount.java:240)
+        at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+        at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+        at java.lang.reflect.Method.invoke(Method.java:606)
+        at org.apache.hadoop.util.ProgramDriver$ProgramDescription.invoke(ProgramDriver.java:72)
+        at org.apache.hadoop.util.ProgramDriver.run(ProgramDriver.java:145)
+        at org.apache.tez.examples.ExampleDriver.main(ExampleDriver.java:61)
+        at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+        at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+        at java.lang.reflect.Method.invoke(Method.java:606)
+        at org.apache.hadoop.util.RunJar.main(RunJar.java:212)
+
+{code}
+
+
+---
+
 * [TEZ-2579](https://issues.apache.org/jira/browse/TEZ-2579) | *Major* | **Incorrect comparison of TaskAttemptId**
 
 TaskImpl#AttemptSucceededTransition

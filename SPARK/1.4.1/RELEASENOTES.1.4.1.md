@@ -23,6 +23,165 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-9087](https://issues.apache.org/jira/browse/SPARK-9087) | *Critical* | **Broken SQL on where condition involving timestamp and time string.**
+
+Suppose mytable has a field called greenwich, which is in  timestamp type.  The table is registered through a java bean. The following code used to work in 1.3 and 1.3.1, now it is broken: there are records having time newer 01/14/2015 , but it now returns nothing. This is a block issue for us. Is there any workaround? 
+
+SELECT *  FROM mytable  WHERE    greenwich >  '2015-01-14'
+
+
+---
+
+* [SPARK-8909](https://issues.apache.org/jira/browse/SPARK-8909) | *Trivial* | **Nice to have all the examples in scala, java,python, R to be same in sql-programming-guide**
+
+in the sql-programming-guide. in the section manually specifying the options. Our scala example is not in sync with the  java, python, R examples.
+
+So to be consistent it would be nice to have format as parquest for scala code section
+
+
+---
+
+* [SPARK-8903](https://issues.apache.org/jira/browse/SPARK-8903) | *Blocker* | **Fix NPE when cross tab elements contain nulls (branch 1.4)**
+
+The backport of SPARK-8803 to branch-1.4 contains an error:
+
+It calls 
+
+{code}
+countsRow.setString(0, cleanElement(col1Item.toString))
+{code}
+
+instead of 
+
+{code}
+countsRow.setString(0, cleanElement(col1Item))
+{code}
+
+which leads to a NullPointerException when col1Item == null.'
+
+This caused a test failure in DataFrameStatSuite:
+
+{code}
+- special crosstab elements (., '', null, ``) *** FAILED ***
+  java.lang.NullPointerException:
+  at org.apache.spark.sql.execution.stat.StatFunctions$$anonfun$4.apply(StatFunctions.scala:131)
+  at org.apache.spark.sql.execution.stat.StatFunctions$$anonfun$4.apply(StatFunctions.scala:121)
+  at scala.collection.TraversableLike$$anonfun$map$1.apply(TraversableLike.scala:244)
+  at scala.collection.TraversableLike$$anonfun$map$1.apply(TraversableLike.scala:244)
+  at scala.collection.immutable.Map$Map4.foreach(Map.scala:181)
+  at scala.collection.TraversableLike$class.map(TraversableLike.scala:244)
+  at scala.collection.AbstractTraversable.map(Traversable.scala:105)
+  at org.apache.spark.sql.execution.stat.StatFunctions$.crossTabulate(StatFunctions.scala:121)
+  at org.apache.spark.sql.DataFrameStatFunctions.crosstab(DataFrameStatFunctions.scala:94)
+  at org.apache.spark.sql.DataFrameStatSuite$$anonfun$5.apply$mcV$sp(DataFrameStatSuite.scala:97)
+ {code}
+
+
+---
+
+* [SPARK-8902](https://issues.apache.org/jira/browse/SPARK-8902) | *Trivial* | **Hostname missing in spark-ec2 error message**
+
+When SSH to a machine fails, the following message is printed:
+
+{noformat}
+Failed to SSH to remote host {0}.
+Please check that you have provided the correct --identity-file and --key-pair parameters and try again.
+{noformat}
+
+The intention is to print the host name, but instead {0} is printed.
+
+I have a pull request for this: https://github.com/apache/spark/pull/7288
+
+
+---
+
+* [SPARK-8900](https://issues.apache.org/jira/browse/SPARK-8900) | *Major* | **sparkPackages flag name is wrong in the documentation**
+
+The SparkR documentation example in http://people.apache.org/~pwendell/spark-releases/latest/sparkr.html is incorrect.
+
+    sc <- sparkR.init(packages="com.databricks:spark-csv\_2.11:1.0.3")
+should be
+    sc <- sparkR.init(sparkPackages="com.databricks:spark-csv\_2.11:1.0.3")
+
+
+---
+
+* [SPARK-8894](https://issues.apache.org/jira/browse/SPARK-8894) | *Major* | **Example code errors in SparkR documentation**
+
+There are errors in SparkR related documentation.
+1. in https://spark.apache.org/docs/latest/sql-programming-guide.html#hive-tables, for R part, 
+{code}
+results = sqlContext.sql("FROM src SELECT key, value").collect()
+{code}
+should be
+{code}
+results <- collect(sql(sqlContext, "FROM src SELECT key, value"))
+{code}
+
+2. in https://spark.apache.org/docs/latest/sparkr.html#from-hive-tables, 
+{code}
+results <- hiveContext.sql("FROM src SELECT key, value")
+{code}
+should be
+{code}
+results <- sql(hiveContext, "FROM src SELECT key, value")
+{code}
+
+
+---
+
+* [SPARK-8868](https://issues.apache.org/jira/browse/SPARK-8868) | *Minor* | **SqlSerializer2 can go into infinite loop when row consists only of NullType columns**
+
+The following SQL query will cause an infinite loop in SqlSerializer2 code:
+
+{code}
+val df = sqlContext.sql("select null where 1 = 1")
+df.unionAll(df).sort("\_c0").collect()
+{code}
+
+The same problem occurs if we add more null-literals, but does not occur as long as there is a column of any other type (e.g. {{select 1, null where 1 == 1}}).
+
+I think that what's happening here is that if you have a row that consists only of columns of NullType (not columns of other types which happen to only contain null values, but only columns of null literals), SqlSerializer will end up writing / reading no data for rows of this type.  Since the deserialization stream will never try to read any data but nevertheless will be able to return an empty row, DeserializationStream.asIterator will go into an infinite loop since there will never be a read to trigger an EOF exception.
+
+
+---
+
+* [SPARK-8821](https://issues.apache.org/jira/browse/SPARK-8821) | *Major* | **The ec2 script doesn't run on python 3 with an utf8 env**
+
+Otherwise the script will crash with
+
+ - Downloading boto...
+Traceback (most recent call last):
+  File "ec2/spark\_ec2.py", line 148, in <module>
+    setup\_external\_libs(external\_libs)
+  File "ec2/spark\_ec2.py", line 128, in setup\_external\_libs
+    if hashlib.md5(tar.read()).hexdigest() != lib["md5"]:
+  File "/usr/lib/python3.4/codecs.py", line 319, in decode
+    (result, consumed) = self.\_buffer\_decode(data, self.errors, final)
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0x8b in position 1: invalid start byte
+
+In case of an utf8 env setting.
+
+
+---
+
+* [SPARK-8819](https://issues.apache.org/jira/browse/SPARK-8819) | *Blocker* | **Spark doesn't compile with maven 3.3.x**
+
+Simple reproduction: Install maven 3.3.3 and run "build/mvn clean package -DskipTests"
+
+This works just fine for maven 3.2.1 but not for 3.3.x. The result is an infinite loop caused by MSHADE-148:
+{code}
+[INFO] Replacing /Users/andrew/Documents/dev/spark/andrew-spark/bagel/target/spark-bagel\_2.10-1.5.0-SNAPSHOT.jar with /Users/andrew/Documents/dev/spark/andrew-spark/bagel/target/spark-bagel\_2.10-1.5.0-SNAPSHOT-shaded.jar
+[INFO] Dependency-reduced POM written at: /Users/andrew/Documents/dev/spark/andrew-spark/bagel/dependency-reduced-pom.xml
+[INFO] Dependency-reduced POM written at: /Users/andrew/Documents/dev/spark/andrew-spark/bagel/dependency-reduced-pom.xml
+...
+{code}
+
+This is ultimately caused by SPARK-7558 (master 9eb222c13991c2b4a22db485710dc2e27ccf06dd) but is recently revealed through SPARK-8781 (master 82cf3315e690f4ac15b50edea6a3d673aa5be4c0).
+
+
+---
+
 * [SPARK-8804](https://issues.apache.org/jira/browse/SPARK-8804) | *Blocker* | ** order of UTF8String is wrong if there is any non-ascii character in it**
 
 We compare the UTF8String byte by byte, but byte in JVM is signed, it should be compared as unsigned.
@@ -191,6 +350,51 @@ SparkR tests for equality using `all.equal` on environments fail in R 3.2.
 This is due to a change in how equality between environments is handled in the new version of R.
 
 This should most likely not be a huge problem, we'll just have to rewrite some of the tests to be more fine-grained instead of testing equality on entire environments.
+
+
+---
+
+* [SPARK-8657](https://issues.apache.org/jira/browse/SPARK-8657) | *Minor* | **Fail to upload conf archive to viewfs**
+
+When I run in spark-1.4 yarn-client mode, I throws the following Exception when trying to upload conf archive to viewfs:
+
+15/06/26 17:56:37 INFO yarn.Client: Uploading resource file:/tmp/spark-095ec3d2-5dad-468c-8d46-2c813457404d/\_\_hadoop\_conf\_\_8436284925771788661
+.zip -> viewfs://nsX/user/ultraman/.sparkStaging/application\_1434370929997\_191242/\_\_hadoop\_conf\_\_8436284925771788661.zip
+15/06/26 17:56:38 INFO yarn.Client: Deleting staging directory .sparkStaging/application\_1434370929997\_191242
+15/06/26 17:56:38 ERROR spark.SparkContext: Error initializing SparkContext.
+java.lang.IllegalArgumentException: Wrong FS: hdfs://SunshineNameNode2:8020/user/ultraman/.sparkStaging/application\_1434370929997\_191242/\_\_had
+oop\_conf\_\_8436284925771788661.zip, expected: viewfs://nsX/
+        at org.apache.hadoop.fs.FileSystem.checkPath(FileSystem.java:645)
+        at org.apache.hadoop.fs.viewfs.ViewFileSystem.getUriPath(ViewFileSystem.java:117)
+        at org.apache.hadoop.fs.viewfs.ViewFileSystem.getFileStatus(ViewFileSystem.java:346)
+        at org.apache.spark.deploy.yarn.ClientDistributedCacheManager.addResource(ClientDistributedCacheManager.scala:67)
+        at org.apache.spark.deploy.yarn.Client$$anonfun$prepareLocalResources$5.apply(Client.scala:341)
+        at org.apache.spark.deploy.yarn.Client$$anonfun$prepareLocalResources$5.apply(Client.scala:338)
+        at scala.Option.foreach(Option.scala:236)
+        at org.apache.spark.deploy.yarn.Client.prepareLocalResources(Client.scala:338)
+        at org.apache.spark.deploy.yarn.Client.createContainerLaunchContext(Client.scala:559)
+        at org.apache.spark.deploy.yarn.Client.submitApplication(Client.scala:115)
+        at org.apache.spark.scheduler.cluster.YarnClientSchedulerBackend.start(YarnClientSchedulerBackend.scala:58)
+        at org.apache.spark.scheduler.TaskSchedulerImpl.start(TaskSchedulerImpl.scala:141)
+        at org.apache.spark.SparkContext.<init>(SparkContext.scala:497)
+        at org.apache.spark.repl.SparkILoop.createSparkContext(SparkILoop.scala:1017)
+        at $line3.$read$$iwC$$iwC.<init>(<console>:9)
+        at $line3.$read$$iwC.<init>(<console>:18)
+        at $line3.$read.<init>(<console>:20)
+        at $line3.$read$.<init>(<console>:24)
+        at $line3.$read$.<clinit>(<console>)
+        at $line3.$eval$.<init>(<console>:7)
+        at $line3.$eval$.<clinit>(<console>)
+        at $line3.$eval.$print(<console>)
+        at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+        at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+        at java.lang.reflect.Method.invoke(Method.java:606)
+        at org.apache.spark.repl.SparkIMain$ReadEvalPrint.call(SparkIMain.scala:1065)
+        at org.apache.spark.repl.SparkIMain$Request.loadAndRun(SparkIMain.scala:1338)
+        at org.apache.spark.repl.SparkIMain.loadAndRunReq$1(SparkIMain.scala:840)
+
+The bug is easy to fix, we should pass the correct file system object to addResource. The similar issure is: https://github.com/apache/spark/pull/1483. I will attach my bug fix PR very soon.
 
 
 ---
@@ -838,6 +1042,37 @@ has changed as follows,
 		:: asm#asm;3.2!asm.jar
 
 		::::::::::::::::::::::::::::::::::::::::::::::
+
+
+---
+
+* [SPARK-8408](https://issues.apache.org/jira/browse/SPARK-8408) | *Minor* | **Python OR operator is not considered while creating a column of boolean type**
+
+h3. Given
+
+{code}
+    d = [{'name': 'Alice', 'age': 1},{'name': 'Bob', 'age': 2}]
+    person\_df = sqlContext.createDataFrame(d)
+{code}
+h3. When
+{code}
+    person\_df.filter(person\_df.age==1 or person\_df.age==2).collect()
+{code}
+h3. Expected
+
+[Row(age=1, name=u'Alice'), Row(age=2, name=u'Bob')]
+
+h3. Actual
+
+[Row(age=1, name=u'Alice')]
+
+h3. While
+{code}
+    person\_df.filter("age = 1 or age = 2").collect()
+{code}
+yields the correct result:
+
+[Row(age=1, name=u'Alice'), Row(age=2, name=u'Bob')]
 
 
 ---

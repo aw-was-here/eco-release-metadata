@@ -23,6 +23,34 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-8865](https://issues.apache.org/jira/browse/SPARK-8865) | *Minor* | **Fix bug:  init SimpleConsumerConfig with kafka params**
+
+"zookeeper.connect" and "group.id" aren't necessary for anything in the kafka direct stream.
+
+But they're expected to be present in a kafka consumer config, and overriding that behavior wasn't possible. So as a workaround, we set them to a blank string. That way users don't have to define unnecessary settings in the kafka param map passed to the KafkaUtils constructor. We talked through that during the original development of the direct stream.
+
+The code as it is released today is almost always going to set a blank string, regardless of what users pass in, because contains on a java property object is not the equivalent of containsKey, it is containsValue. The intention was that if the user sets those properties (whatever personal reasons they have), the values should not get overwritten with a blank string.
+
+
+---
+
+* [SPARK-8819](https://issues.apache.org/jira/browse/SPARK-8819) | *Blocker* | **Spark doesn't compile with maven 3.3.x**
+
+Simple reproduction: Install maven 3.3.3 and run "build/mvn clean package -DskipTests"
+
+This works just fine for maven 3.2.1 but not for 3.3.x. The result is an infinite loop caused by MSHADE-148:
+{code}
+[INFO] Replacing /Users/andrew/Documents/dev/spark/andrew-spark/bagel/target/spark-bagel\_2.10-1.5.0-SNAPSHOT.jar with /Users/andrew/Documents/dev/spark/andrew-spark/bagel/target/spark-bagel\_2.10-1.5.0-SNAPSHOT-shaded.jar
+[INFO] Dependency-reduced POM written at: /Users/andrew/Documents/dev/spark/andrew-spark/bagel/dependency-reduced-pom.xml
+[INFO] Dependency-reduced POM written at: /Users/andrew/Documents/dev/spark/andrew-spark/bagel/dependency-reduced-pom.xml
+...
+{code}
+
+This is ultimately caused by SPARK-7558 (master 9eb222c13991c2b4a22db485710dc2e27ccf06dd) but is recently revealed through SPARK-8781 (master 82cf3315e690f4ac15b50edea6a3d673aa5be4c0).
+
+
+---
+
 * [SPARK-8781](https://issues.apache.org/jira/browse/SPARK-8781) | *Blocker* | **Published POMs are no longer effective POMs**
 
 Published to maven repository POMs are no longer effective POMs. E.g. 
@@ -1172,6 +1200,25 @@ fix the following non-deterministic test in org.apache.spark.scheduler.DAGSchedu
 [info]   at org.scalatest.FunSuiteLike$class.runTest(FunSuiteLike.scala:175)
 [info]   at org.apache.spark.scheduler.DAGSchedulerSuite.org$scalatest$BeforeAndAfter$$super$runTest(DAGSchedulerSuite.scala:60)
 {noformat}
+
+
+---
+
+* [SPARK-4315](https://issues.apache.org/jira/browse/SPARK-4315) | *Major* | **PySpark pickling of pyspark.sql.Row objects is extremely inefficient**
+
+Working with an RDD of pyspark.sql.Row objects, created by reading a file with SQLContext in a local PySpark context.
+
+Operations on the RDD, such as: data.groupBy(lambda x: x.field\_name) are extremely slow (more than 10x slower than an equivalent Scala/Spark implementation). Obviously I expected it to be somewhat slower, but I did a bit of digging given the difference was so huge.
+
+Luckily it's fairly easy to add profiling to the Python workers. I see that the vast majority of time is spent in:
+
+spark-1.1.0-bin-cdh4/python/pyspark/sql.py:757(\_restore\_object)
+
+It seems that this line attempts to accelerate pickling of Rows with the use of a cache. Some debugging reveals that this cache becomes quite big (100s of entries). Disabling the cache by adding:
+
+return \_create\_cls(dataType)(obj)
+
+as the first line of \_restore\_object made my query run 5x faster. Implying that the caching is not providing the desired acceleration...
 
 
 ---

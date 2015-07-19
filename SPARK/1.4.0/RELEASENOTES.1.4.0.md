@@ -14485,6 +14485,25 @@ See discussion on https://github.com/apache/spark/pull/3143
 
 ---
 
+* [SPARK-4315](https://issues.apache.org/jira/browse/SPARK-4315) | *Major* | **PySpark pickling of pyspark.sql.Row objects is extremely inefficient**
+
+Working with an RDD of pyspark.sql.Row objects, created by reading a file with SQLContext in a local PySpark context.
+
+Operations on the RDD, such as: data.groupBy(lambda x: x.field\_name) are extremely slow (more than 10x slower than an equivalent Scala/Spark implementation). Obviously I expected it to be somewhat slower, but I did a bit of digging given the difference was so huge.
+
+Luckily it's fairly easy to add profiling to the Python workers. I see that the vast majority of time is spent in:
+
+spark-1.1.0-bin-cdh4/python/pyspark/sql.py:757(\_restore\_object)
+
+It seems that this line attempts to accelerate pickling of Rows with the use of a cache. Some debugging reveals that this cache becomes quite big (100s of entries). Disabling the cache by adding:
+
+return \_create\_cls(dataType)(obj)
+
+as the first line of \_restore\_object made my query run 5x faster. Implying that the caching is not providing the desired acceleration...
+
+
+---
+
 * [SPARK-4300](https://issues.apache.org/jira/browse/SPARK-4300) | *Minor* | **Race condition during SparkWorker shutdown**
 
 When a shark job is done. there are some error message as following show in the log

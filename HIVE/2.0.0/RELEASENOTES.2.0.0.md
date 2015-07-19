@@ -23,6 +23,27 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [HIVE-11228](https://issues.apache.org/jira/browse/HIVE-11228) | *Major* | **Mutation API should use semi-shared locks.**
+
+Streaming mutation API uses semi-shared locks.
+
+
+---
+
+* [HIVE-11215](https://issues.apache.org/jira/browse/HIVE-11215) | *Minor* | **Vectorized grace hash-join throws FileUtil warnings**
+
+ HIVE-11215: Delete spills only if they exist (Gopal V, reviewed by Matt Mccline)
+
+
+---
+
+* [HIVE-11145](https://issues.apache.org/jira/browse/HIVE-11145) | *Major* | **Remove OFFLINE and NO\_DROP from tables and partitions**
+
+OFFLINE and NO\_DROP mode for partitions removed, use SQLStandardAuth or other authorization scheme to prevent partitions from being dropped or read.
+
+
+---
+
 * [HIVE-11073](https://issues.apache.org/jira/browse/HIVE-11073) | *Minor* | **ORC FileDump utility ignores errors when writing output**
 
 orcfiledump exits if errors are detected when writing to stdout.

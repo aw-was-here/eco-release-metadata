@@ -23,6 +23,13 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [HIVE-11215](https://issues.apache.org/jira/browse/HIVE-11215) | *Minor* | **Vectorized grace hash-join throws FileUtil warnings**
+
+ HIVE-11215: Delete spills only if they exist (Gopal V, reviewed by Matt Mccline)
+
+
+---
+
 * [HIVE-11054](https://issues.apache.org/jira/browse/HIVE-11054) | *Major* | **Read error : Partition Varchar column cannot be cast to string**
 
 HIVE-11054: Handle varchar/char partition columns in vectorization

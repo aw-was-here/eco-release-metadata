@@ -187,6 +187,20 @@ Users may need special attention for this change while upgrading to this version
 
 ---
 
+* [MAPREDUCE-6427](https://issues.apache.org/jira/browse/MAPREDUCE-6427) | *Minor* | **Fix typo in JobHistoryEventHandler**
+
+There is a typo in the event string "WORKFLOW\_ID" (as "WORKLFOW\_ID").  The branch-2 change will publish both event strings for compatibility with consumers, but the misspelled metric will be removed in trunk.
+
+
+---
+
+* [YARN-3905](https://issues.apache.org/jira/browse/YARN-3905) | *Major* | **Application History Server UI NPEs when accessing apps run after RM restart**
+
+Resubmitting patch after fixing checkstyle warnings.
+
+
+---
+
 * [YARN-3823](https://issues.apache.org/jira/browse/YARN-3823) | *Minor* | **Fix mismatch in default values for yarn.scheduler.maximum-allocation-vcores property**
 
 Default value for 'yarn.scheduler.maximum-allocation-vcores' changed from 32 to 4.
@@ -233,6 +247,13 @@ Adding support for using the 'tc' tool in batch mode via container-executor. Thi
 * [YARN-3241](https://issues.apache.org/jira/browse/YARN-3241) | *Major* | **FairScheduler handles "invalid" queue names inconsistently**
 
 FairScheduler does not allow queue names with leading or tailing spaces or empty sub-queue names anymore.
+
+
+---
+
+* [YARN-3069](https://issues.apache.org/jira/browse/YARN-3069) | *Major* | **Document missing properties in yarn-default.xml**
+
+Documented missing properties and added the regression test to verify that there are no missing properties in yarn-default.xml.
 
 
 ---

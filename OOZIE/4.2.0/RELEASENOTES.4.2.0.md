@@ -783,6 +783,19 @@ this change reduce the load on Namenode in terms of the number of tokens it has 
 
 ---
 
+* [OOZIE-2109](https://issues.apache.org/jira/browse/OOZIE-2109) | *Major* | **Possibly incorrect job ID may be printed for map-reduce action errors**
+
+Follow-up to OOZIE-2024, based on comment posted there:
+
+{quote}
+bq. "JA017: Could not lookup launched hadoop job ID [job\_12048563533402\_20232] which was associated with action [1129661-1909061866638236-oozie-oozi-W@java-action]. Failing this action!”
+
+Is not that incorrect? After Id swap, jobId will be child jobId not launcher jobId.
+{quote}
+
+
+---
+
 * [OOZIE-2108](https://issues.apache.org/jira/browse/OOZIE-2108) | *Major* | **bulk kill, suspend, resume jobs using existing filter, offset, len, and jobtype params**
 
 Currently, there is no bulk write operations in "jobs" API. We would like to first introduce a bulk kill operation that kills all jobs which satisfy the filter. The desired usage will be {noformat}oozie jobs -oozie http://localhost:11000/oozie -kill -filter name=something{noformat}

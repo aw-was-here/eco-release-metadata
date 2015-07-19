@@ -23,6 +23,40 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [HBASE-14047](https://issues.apache.org/jira/browse/HBASE-14047) | *Major* | **Cleanup deprecated APIs from Cell class**
+
+The following API from Cell (which were deprecated since past few major versions) are removed now.
+getRow
+getFamily
+getQualifier
+getValue
+getMvccVersion
+The above apis can be replaced with their respective CellUtil#cloneXXX (allocates a copy) or Cell#getXXXArray (essentially just returns a pointer) based on the use case.
+
+
+---
+
+* [HBASE-14045](https://issues.apache.org/jira/browse/HBASE-14045) | *Major* | **Bumping thrift version to 0.9.2.**
+
+This changes upgrades thrift dependency of HBase to 0.9.2. Though this doesn't break any HBase compatibility promises, it might impact any downstream projects that share thrift dependency with HBase.
+
+
+---
+
+* [HBASE-14029](https://issues.apache.org/jira/browse/HBASE-14029) | *Major* | **getting started for standalone still references hadoop-version-specific binary artifacts**
+
+HBASE-14029 Correct documentation for Hadoop version specific artifacts
+
+
+---
+
+* [HBASE-14027](https://issues.apache.org/jira/browse/HBASE-14027) | *Major* | **Clean up netty dependencies**
+
+HBase's convenience binary artifact no longer contains the netty 3.2.4 jar . This jar was not directly used by HBase, but may have been relied on by downstream applications.
+
+
+---
+
 * [HBASE-13983](https://issues.apache.org/jira/browse/HBASE-13983) | *Minor* | **Doc how the oddball HTable methods getStartKey, getEndKey, etc. will be removed in 2.0.0**
 
 Adds extra doc on getStartKeys, getEndKeys, and getStartEndKeys in HTable explaining that they will be removed in 2.0.0 (these methods did not get the proper full major version deprecation cycle).
@@ -1087,6 +1121,15 @@ This was fixed by patches for other issues.
 
 ---
 
+* [HBASE-12016](https://issues.apache.org/jira/browse/HBASE-12016) | *Minor* | **Reduce number of versions in Meta table. Make it configurable**
+
+Clients fetch META table descriptor using RPC. That gives an opportunity to change META table parameters on running cluster. Prior this change all clients used statically compiled META table descriptor and to apply new parameters new code need to be deployed.
+META table versions can be configured by 'hbase.meta.versions' and now has 3 versions by default (was 10).
+Block size for META table can be configured by 'hbase.meta.blocksize' (default 8k)
+
+
+---
+
 * [HBASE-11997](https://issues.apache.org/jira/browse/HBASE-11997) | *Minor* | **CopyTable with bulkload**
 
 CopyTable now can generate HFiles and bulkload to the destination table.
@@ -1692,6 +1735,15 @@ Adds compaction throughput limit mechanism(the word "throttle" is already used w
 3. If some stores have too many store files(storefilesCount > blockingFileCount), then there is no limitation no matter peak or off peak.
 You can set "hbase.regionserver.throughput.controller" to org.apache.hadoop.hbase.regionserver.compactions.NoLimitCompactionThroughputController to disable throughput controlling.
 And we have implemented ConfigurationObserver which means you can change all configurations above and do not need to restart cluster.
+
+
+---
+
+* [HBASE-7782](https://issues.apache.org/jira/browse/HBASE-7782) | *Minor* | **HBaseTestingUtility.truncateTable() not acting like CLI**
+
+HBaseTestingUtility now uses the truncate API added in HBASE-8332 so that calls to HBTU.truncateTable will behave like the shell command: effectively dropping the table and recreating a new one with the same split points.
+
+Previously, HBTU.truncateTable instead issued deletes for all the data already in the table. If you wish to maintain the same behavior, you should use the newly added HBTU.deleteTableData method.
 
 
 ---

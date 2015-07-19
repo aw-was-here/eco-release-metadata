@@ -23,6 +23,107 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [KAFKA-2345](https://issues.apache.org/jira/browse/KAFKA-2345) | *Major* | **Attempt to delete a topic already marked for deletion throws ZkNodeExistsException**
+
+Throwing a TopicAlreadyMarkedForDeletionException will make much more sense. A user does not necessarily have to know about involvement of zk in the process.
+
+
+---
+
+* [KAFKA-2335](https://issues.apache.org/jira/browse/KAFKA-2335) | *Major* | **Javadoc for Consumer says that it's thread-safe**
+
+This looks like it was left there by mistake:
+
+{quote}
+ * The consumer is thread safe but generally will be used only from within a single thread. The consumer client has no threads of it's own, all work is done in the caller's thread when calls are made on the various methods exposed.
+{quote}
+
+A few paragraphs below it says:
+
+{quote}
+The Kafka consumer is NOT thread-safe. All network I/O happens in the thread of the application making the call. It is the responsibility of the user to ensure that multi-threaded access is properly synchronized. Un-synchronized access will result in {@link ConcurrentModificationException}.
+{quote}
+
+This matches what the code does, so the former quoted section should probably be deleted.
+
+
+---
+
+* [KAFKA-2327](https://issues.apache.org/jira/browse/KAFKA-2327) | *Minor* | **broker doesn't start if config defines advertised.host but not advertised.port**
+
+To reproduce locally, in server.properties, define "advertised.host" and "port", but not "advertised.port" 
+
+port=9092
+advertised.host.name=localhost
+
+Then start zookeeper and try to start kafka. The result is an error like so:
+[2015-07-09 11:29:20,760] FATAL  (kafka.Kafka$)
+kafka.common.KafkaException: Unable to parse PLAINTEXT://localhost:null to a broker endpoint
+	at kafka.cluster.EndPoint$.createEndPoint(EndPoint.scala:49)
+	at kafka.utils.CoreUtils$$anonfun$listenerListToEndPoints$1.apply(CoreUtils.scala:309)
+	at kafka.utils.CoreUtils$$anonfun$listenerListToEndPoints$1.apply(CoreUtils.scala:309)
+	at scala.collection.TraversableLike$$anonfun$map$1.apply(TraversableLike.scala:244)
+	at scala.collection.TraversableLike$$anonfun$map$1.apply(TraversableLike.scala:244)
+	at scala.collection.IndexedSeqOptimized$class.foreach(IndexedSeqOptimized.scala:33)
+	at scala.collection.mutable.WrappedArray.foreach(WrappedArray.scala:34)
+	at scala.collection.TraversableLike$class.map(TraversableLike.scala:244)
+	at scala.collection.AbstractTraversable.map(Traversable.scala:105)
+	at kafka.utils.CoreUtils$.listenerListToEndPoints(CoreUtils.scala:309)
+	at kafka.server.KafkaConfig.getAdvertisedListeners(KafkaConfig.scala:728)
+	at kafka.server.KafkaConfig.<init>(KafkaConfig.scala:668)
+	at kafka.server.KafkaConfig$.fromProps(KafkaConfig.scala:541)
+	at kafka.Kafka$.main(Kafka.scala:58)
+	at kafka.Kafka.main(Kafka.scala)
+
+
+Looks like this was changed in 5c9040745466945a04ea0315de583ccdab0614ac
+
+the cause seems to be in KafkaConfig.scala in the getAdvertisedListeners method, and I believe the fix is (starting at line 727)
+
+{code}
+...
+    } else if (getString(KafkaConfig.AdvertisedHostNameProp) != null || getInt(KafkaConfig.AdvertisedPortProp) != null) {
+      CoreUtils.listenerListToEndPoints("PLAINTEXT://" +
+            getString(KafkaConfig.AdvertisedHostNameProp) + ":" + getInt(KafkaConfig.AdvertisedPortProp))
+...
+{code}
+
+->
+
+{code}
+    } else if (getString(KafkaConfig.AdvertisedHostNameProp) != null || getInt(KafkaConfig.AdvertisedPortProp) != null) {
+      CoreUtils.listenerListToEndPoints("PLAINTEXT://" +
+            advertisedHostName + ":" + advertisedPort
+{code}
+
+
+---
+
+* [KAFKA-2324](https://issues.apache.org/jira/browse/KAFKA-2324) | *Minor* | **Update to Scala 2.11.7**
+
+There are a number of fixes and improvements in the Scala 2.11.7 release, which is backwards and forwards compatible with 2.11.6:
+
+http://www.scala-lang.org/news/2.11.7
+
+
+---
+
+* [KAFKA-2323](https://issues.apache.org/jira/browse/KAFKA-2323) | *Minor* | **Simplify ScalaTest dependency versions**
+
+We currently use the following ScalaTest versions:
+* 1.8 for Scala 2.9.x
+* 1.9.1 for Scala 2.10.x
+* 2.2.0 for Scala 2.11.x
+
+I propose we simplify it to:
+* 1.9.1 for Scala 2.9.x
+* 2.2.5 for every other Scala version (currently 2.10.x and 2.11.x)
+
+And since we will drop support for Scala 2.9.x soon, then the conditional check for ScalaTest can be removed altogether.
+
+
+---
+
 * [KAFKA-2317](https://issues.apache.org/jira/browse/KAFKA-2317) | *Major* | **De-register isrChangeNotificationListener on controller resignation**
 
 KAFKA-1367 adds isrChangeNotificationListener to controller. This listener needs to be de-registered during controller resignation.
@@ -40,6 +141,98 @@ Previously, message for `message.handler` was simply copy-pasted from `"consumer
 * [KAFKA-2313](https://issues.apache.org/jira/browse/KAFKA-2313) | *Trivial* | **javadoc fix for KafkaConsumer deserialization**
 
 KafkaConsumer javadocs mention serializers instead of deserializers.
+
+
+---
+
+* [KAFKA-2312](https://issues.apache.org/jira/browse/KAFKA-2312) | *Minor* | **Use AtomicLong opposed to AtomicReference to store currentThread in consumer**
+
+When a thread id is returned by Thread.currentThread().getId() it is a primitive. Storing it in an AtomicReference requires boxing and additional indirection.
+
+An AtomicLong seems more natural to store a long. 
+
+The current implementation relies on knowing that null means no owner. Since thread ids are always positive (specified in javadoc), it is possible to create a constant NO\_CURRENT\_THREAD for -1. Which allows the usage of an AtomicLong and makes the functionality explicit.
+
+
+---
+
+* [KAFKA-2308](https://issues.apache.org/jira/browse/KAFKA-2308) | *Major* | **New producer + Snappy face un-compression errors after broker restart**
+
+Looks like the new producer, when used with Snappy, following a broker restart is sending messages the brokers can't decompress. This issue was discussed at few mailing lists thread, but I don't think we ever resolved it.
+
+I can reproduce with trunk and Snappy 1.1.1.7. 
+
+To reproduce:
+1. Start 3 brokers
+2. Create a topic with 3 partitions and 3 replicas each.
+2. Start performance producer with --new-producer --compression-codec 2 (and set the number of messages to fairly high, to give you time. I went with 10M)
+3. Bounce one of the brokers
+4. The log of one of the surviving nodes should contain errors like:
+
+{code}
+2015-07-02 13:45:59,300 ERROR kafka.server.ReplicaManager: [Replica Manager on Broker 66]: Error processing append operation on partition [t3,0]
+kafka.common.KafkaException:
+        at kafka.message.ByteBufferMessageSet$$anon$1.makeNext(ByteBufferMessageSet.scala:94)
+        at kafka.message.ByteBufferMessageSet$$anon$1.makeNext(ByteBufferMessageSet.scala:64)
+        at kafka.utils.IteratorTemplate.maybeComputeNext(IteratorTemplate.scala:66)
+        at kafka.utils.IteratorTemplate.hasNext(IteratorTemplate.scala:58)
+        at kafka.message.ByteBufferMessageSet$$anon$2.innerDone(ByteBufferMessageSet.scala:177)
+        at kafka.message.ByteBufferMessageSet$$anon$2.makeNext(ByteBufferMessageSet.scala:218)
+        at kafka.message.ByteBufferMessageSet$$anon$2.makeNext(ByteBufferMessageSet.scala:173)
+        at kafka.utils.IteratorTemplate.maybeComputeNext(IteratorTemplate.scala:66)
+        at kafka.utils.IteratorTemplate.hasNext(IteratorTemplate.scala:58)
+        at scala.collection.Iterator$$anon$11.hasNext(Iterator.scala:327)
+        at scala.collection.Iterator$class.foreach(Iterator.scala:727)
+        at scala.collection.AbstractIterator.foreach(Iterator.scala:1157)
+        at scala.collection.generic.Growable$class.$plus$plus$eq(Growable.scala:48)
+        at scala.collection.mutable.ArrayBuffer.$plus$plus$eq(ArrayBuffer.scala:103)
+        at scala.collection.mutable.ArrayBuffer.$plus$plus$eq(ArrayBuffer.scala:47)
+        at scala.collection.TraversableOnce$class.to(TraversableOnce.scala:273)
+        at scala.collection.AbstractIterator.to(Iterator.scala:1157)
+        at scala.collection.TraversableOnce$class.toBuffer(TraversableOnce.scala:265)
+        at scala.collection.AbstractIterator.toBuffer(Iterator.scala:1157)
+        at kafka.message.ByteBufferMessageSet.validateMessagesAndAssignOffsets(ByteBufferMessageSet.scala:267)
+        at kafka.log.Log.liftedTree1$1(Log.scala:327)
+        at kafka.log.Log.append(Log.scala:326)
+        at kafka.cluster.Partition$$anonfun$appendMessagesToLeader$1.apply(Partition.scala:423)
+        at kafka.cluster.Partition$$anonfun$appendMessagesToLeader$1.apply(Partition.scala:409)
+        at kafka.utils.CoreUtils$.inLock(CoreUtils.scala:262)
+        at kafka.utils.CoreUtils$.inReadLock(CoreUtils.scala:268)
+        at kafka.cluster.Partition.appendMessagesToLeader(Partition.scala:409)
+        at kafka.server.ReplicaManager$$anonfun$appendToLocalLog$2.apply(ReplicaManager.scala:365)
+        at kafka.server.ReplicaManager$$anonfun$appendToLocalLog$2.apply(ReplicaManager.scala:350)
+        at scala.collection.TraversableLike$$anonfun$map$1.apply(TraversableLike.scala:244)
+        at scala.collection.TraversableLike$$anonfun$map$1.apply(TraversableLike.scala:244)
+        at scala.collection.mutable.HashMap$$anonfun$foreach$1.apply(HashMap.scala:98)
+        at scala.collection.mutable.HashMap$$anonfun$foreach$1.apply(HashMap.scala:98)
+        at scala.collection.mutable.HashTable$class.foreachEntry(HashTable.scala:226)
+        at scala.collection.mutable.HashMap.foreachEntry(HashMap.scala:39)
+        at scala.collection.mutable.HashMap.foreach(HashMap.scala:98)
+        at scala.collection.TraversableLike$class.map(TraversableLike.scala:244)
+        at scala.collection.AbstractTraversable.map(Traversable.scala:105)
+        at kafka.server.ReplicaManager.appendToLocalLog(ReplicaManager.scala:350)
+        at kafka.server.ReplicaManager.appendMessages(ReplicaManager.scala:286)
+        at kafka.server.KafkaApis.handleProducerRequest(KafkaApis.scala:270)
+        at kafka.server.KafkaApis.handle(KafkaApis.scala:57)
+        at kafka.server.KafkaRequestHandler.run(KafkaRequestHandler.scala:60)
+        at java.lang.Thread.run(Thread.java:745)
+Caused by: java.io.IOException: PARSING\_ERROR(2)
+        at org.xerial.snappy.SnappyNative.throw\_error(SnappyNative.java:84)
+        at org.xerial.snappy.SnappyNative.uncompressedLength(Native Method)
+        at org.xerial.snappy.Snappy.uncompressedLength(Snappy.java:594)
+        at org.xerial.snappy.SnappyInputStream.hasNextChunk(SnappyInputStream.java:358)
+        at org.xerial.snappy.SnappyInputStream.rawRead(SnappyInputStream.java:167)
+        at org.xerial.snappy.SnappyInputStream.read(SnappyInputStream.java:150)
+        at java.io.DataInputStream.readFully(DataInputStream.java:195)
+        at kafka.message.ByteBufferMessageSet$$anon$1.makeNext(ByteBufferMessageSet.scala:82)
+        ... 43 more
+{code}
+
+The client has the following messages:
+{code}
+[2015-07-02 13:46:00,478] ERROR Error when sending message to topic t3 with key: 4 bytes, value: 100 bytes with error: The server experienced an unexpected error when processing the request (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+java: target/snappy-1.1.1/snappy.cc:423: char* snappy::internal::CompressFragment(const char*, size\_t, char*, snappy::uint16*, int): Assertion `0 == memcmp(base, candidate, matched)' failed.
+{code}
 
 
 ---
@@ -65,6 +258,20 @@ Under the design section, the last second paragraph says this "Finally in cases 
 * [KAFKA-2290](https://issues.apache.org/jira/browse/KAFKA-2290) | *Major* | **OffsetIndex should open RandomAccessFile consistently**
 
 We open RandomAccessFile in "rw" mode in the constructor, but in "rws" mode in resize(). We should use "rw" in both cases since it's more efficient.
+
+
+---
+
+* [KAFKA-2271](https://issues.apache.org/jira/browse/KAFKA-2271) | *Major* | **transient unit test failure in KafkaConfigConfigDefTest.testFromPropsToProps**
+
+Saw the following transient failure in jenkins.
+
+    java.lang.AssertionError: expected:<{num.io.threads=2051678117, log.dir=/tmp/log, num.network.threads=442579598, offsets.topic.num.partitions=1996793767, log.cleaner.enable=true, inter.broker.protocol.version=0.8.3.X, host.name=????????? , log.cleaner.backoff.ms=2080497098, log.segment.delete.delay.ms=516834257, controller.socket.timeout.ms=444411414, queued.max.requests=673019914, controlled.shutdown.max.retries=1810738435, num.replica.fetchers=1160759331, socket.request.max.bytes=1453815395, log.flush.interval.ms=762170329, offsets.topic.replication.factor=1011, log.flush.offset.checkpoint.interval.ms=923125288, security.inter.broker.protocol=PLAINTEXT, zookeeper.session.timeout.ms=413974606, metrics.sample.window.ms=1000, offsets.topic.compression.codec=1, zookeeper.connection.timeout.ms=2068179601, fetch.purgatory.purge.interval.requests=1242197204, log.retention.bytes=692466534, log.dirs=/tmp/logs,/tmp/logs2, replica.fetch.min.bytes=1791426389, compression.type=lz4, log.roll.jitter.ms=356707666, log.cleaner.threads=2, replica.lag.time.max.ms=1073834162, advertised.port=4321, max.connections.per.ip.overrides=127.0.0.1:2, 127.0.0.2:3, socket.send.buffer.bytes=1319605180, metrics.num.samples=2, port=1234, replica.fetch.wait.max.ms=321, log.segment.bytes=468671022, log.retention.minutes=772707425, auto.create.topics.enable=true, replica.socket.receive.buffer.bytes=1923367476, log.cleaner.io.max.bytes.per.second=0.2, zookeeper.sync.time.ms=2072589946, log.roll.jitter.hours=2106718330, log.retention.check.interval.ms=906922522, reserved.broker.max.id=100, unclean.leader.election.enable=true, advertised.listeners=PLAINTEXT://:2909, log.cleaner.io.buffer.load.factor=1.0, consumer.min.session.timeout.ms=422104288, log.retention.ms=1496447411, replica.high.watermark.checkpoint.interval.ms=118464842, log.cleanup.policy=delete, log.cleaner.dedupe.buffer.size=3145729, offsets.commit.timeout.ms=2084609508, min.insync.replicas=963487957, zookeeper.connect=127.0.0.1:2181, leader.imbalance.per.broker.percentage=148038876, log.index.interval.bytes=242075900, leader.imbalance.check.interval.seconds=1376263302, offsets.retention.minutes=1781435041, socket.receive.buffer.bytes=369224522, log.cleaner.delete.retention.ms=898157008, replica.socket.timeout.ms=493318414, num.partitions=2, offsets.topic.segment.bytes=852590082, default.replication.factor=549663639, log.cleaner.io.buffer.size=905972186, offsets.commit.required.acks=-1, num.recovery.threads.per.data.dir=1012415473, log.retention.hours=1115262747, replica.fetch.max.bytes=2041540755, log.roll.hours=115708840, metric.reporters=, message.max.bytes=1234, log.cleaner.min.cleanable.ratio=0.6, offsets.load.buffer.size=1818565888, delete.topic.enable=true, listeners=PLAINTEXT://:9092, offset.metadata.max.bytes=1563320007, controlled.shutdown.retry.backoff.ms=1270013702, max.connections.per.ip=359602609, consumer.max.session.timeout.ms=2124317921, log.roll.ms=241126032, advertised.host.name=??????????, log.flush.scheduler.interval.ms=1548906710, auto.leader.rebalance.enable=false, producer.purgatory.purge.interval.requests=1640729755, controlled.shutdown.enable=false, log.index.size.max.bytes=1748380064, log.flush.interval.messages=982245822, broker.id=15, offsets.retention.check.interval.ms=593078788, replica.fetch.backoff.ms=394858256, background.threads=124969300, connections.max.idle.ms=554679959}> but was:<{num.io.threads=2051678117, log.dir=/tmp/log, num.network.threads=442579598, offsets.topic.num.partitions=1996793767, inter.broker.protocol.version=0.8.3.X, log.cleaner.enable=true, host.name=?????????, log.cleaner.backoff.ms=2080497098, log.segment.delete.delay.ms=516834257, controller.socket.timeout.ms=444411414, controlled.shutdown.max.retries=1810738435, queued.max.requests=673019914, num.replica.fetchers=1160759331, socket.request.max.bytes=1453815395, log.flush.interval.ms=762170329, offsets.topic.replication.factor=1011, log.flush.offset.checkpoint.interval.ms=923125288, security.inter.broker.protocol=PLAINTEXT, zookeeper.session.timeout.ms=413974606, metrics.sample.window.ms=1000, offsets.topic.compression.codec=1, zookeeper.connection.timeout.ms=2068179601, fetch.purgatory.purge.interval.requests=1242197204, log.retention.bytes=692466534, log.dirs=/tmp/logs,/tmp/logs2, compression.type=lz4, replica.fetch.min.bytes=1791426389, log.roll.jitter.ms=356707666, log.cleaner.threads=2, replica.lag.time.max.ms=1073834162, advertised.port=4321, max.connections.per.ip.overrides=127.0.0.1:2, 127.0.0.2:3, socket.send.buffer.bytes=1319605180, metrics.num.samples=2, port=1234, replica.fetch.wait.max.ms=321, log.segment.bytes=468671022, log.retention.minutes=772707425, auto.create.topics.enable=true, replica.socket.receive.buffer.bytes=1923367476, log.cleaner.io.max.bytes.per.second=0.2, zookeeper.sync.time.ms=2072589946, log.roll.jitter.hours=2106718330, log.retention.check.interval.ms=906922522, reserved.broker.max.id=100, unclean.leader.election.enable=true, advertised.listeners=PLAINTEXT://:2909, log.cleaner.io.buffer.load.factor=1.0, consumer.min.session.timeout.ms=422104288, log.retention.ms=1496447411, replica.high.watermark.checkpoint.interval.ms=118464842, log.cleanup.policy=delete, log.cleaner.dedupe.buffer.size=3145729, offsets.commit.timeout.ms=2084609508, min.insync.replicas=963487957, leader.imbalance.per.broker.percentage=148038876, zookeeper.connect=127.0.0.1:2181, offsets.retention.minutes=1781435041, leader.imbalance.check.interval.seconds=1376263302, log.index.interval.bytes=242075900, socket.receive.buffer.bytes=369224522, log.cleaner.delete.retention.ms=898157008, replica.socket.timeout.ms=493318414, num.partitions=2, offsets.topic.segment.bytes=852590082, default.replication.factor=549663639, offsets.commit.required.acks=-1, log.cleaner.io.buffer.size=905972186, num.recovery.threads.per.data.dir=1012415473, log.retention.hours=1115262747, replica.fetch.max.bytes=2041540755, log.roll.hours=115708840, metric.reporters=, message.max.bytes=1234, offsets.load.buffer.size=1818565888, log.cleaner.min.cleanable.ratio=0.6, delete.topic.enable=true, listeners=PLAINTEXT://:9092, offset.metadata.max.bytes=1563320007, controlled.shutdown.retry.backoff.ms=1270013702, max.connections.per.ip=359602609, consumer.max.session.timeout.ms=2124317921, log.roll.ms=241126032, advertised.host.name=??????????, log.flush.scheduler.interval.ms=1548906710, auto.leader.rebalance.enable=false, producer.purgatory.purge.interval.requests=1640729755, controlled.shutdown.enable=false, log.index.size.max.bytes=1748380064, log.flush.interval.messages=982245822, broker.id=15, offsets.retention.check.interval.ms=593078788, replica.fetch.backoff.ms=394858256, background.threads=124969300, connections.max.idle.ms=554679959}>
+        at org.junit.Assert.fail(Assert.java:92)
+        at org.junit.Assert.failNotEquals(Assert.java:689)
+        at org.junit.Assert.assertEquals(Assert.java:127)
+        at org.junit.Assert.assertEquals(Assert.java:146)
+        at unit.kafka.server.KafkaConfigConfigDefTest.testFromPropsToProps(KafkaConfigConfigDefTest.scala:257)
 
 
 ---
@@ -305,6 +512,18 @@ java.util.ConcurrentModificationException
 
 ---
 
+* [KAFKA-2249](https://issues.apache.org/jira/browse/KAFKA-2249) | *Major* | **KafkaConfig does not preserve original Properties**
+
+We typically generate configuration from properties objects (or maps).
+The old KafkaConfig, and the new ProducerConfig and ConsumerConfig all retain the original Properties object, which means that if the user specified properties that are not part of ConfigDef definitions, they are still accessible.
+
+This is important especially for MetricReporters where we want to allow users to pass arbitrary properties for the reporter.
+
+One way to support this is by having KafkaConfig implement AbstractConfig, which will give us other nice functionality too.
+
+
+---
+
 * [KAFKA-2248](https://issues.apache.org/jira/browse/KAFKA-2248) | *Major* | **Use Apache Rat to enforce copyright headers**
 
 Follow up to KAFKA-2161. Use Apache Rat during builds to make sure copyright headers are present so we don't forget any and don't allow any incorrect ones to be checked in.
@@ -329,6 +548,21 @@ We can validate error codes from JoinGroupResponses and HeartbeatResponses. Curr
 - A correct HeartbeatRequest returns NONE
 
 We can validate the generation id increments on rebalance based on the JoinGroupResponse.
+
+
+---
+
+* [KAFKA-2241](https://issues.apache.org/jira/browse/KAFKA-2241) | *Major* | **AbstractFetcherThread.shutdown() should not block on ReadableByteChannel.read(buffer)**
+
+This is likely a bug from Java. This affects Kafka and here is the patch to fix it.
+
+Here is the description of the bug. By description of SocketChannel in Java 7 Documentation. If another thread interrupts the current thread while the read operation is in progress, the it should closes the channel and throw ClosedByInterruptException. However, we find that interrupting the thread will not unblock the channel immediately. Instead, it waits for response or socket timeout before throwing an exception.
+
+This will cause problem in the following scenario. Suppose one console\_consumer\_1 is reading from a topic, and due to quota delay or whatever reason, it block on channel.read(buffer). At this moment, another console\_consumer\_2 joins and triggers rebalance at console\_consumer\_1. But consumer\_1 will block waiting on the channel.read before it can release partition ownership, causing consumer\_2 to fail after a number of failed attempts to obtain partition ownership.
+
+In other words, AbstractFetcherThread.shutdown() is not guaranteed to shutdown due to this bug.
+
+The problem is confirmed with Java 1.7 and java 1.6. To check it by yourself, you can use the attached server.java and client.java -- start the server before the client and see if client unblock after interruption.
 
 
 ---
@@ -461,6 +695,41 @@ java.lang.NullPointerException
 
 ---
 
+* [KAFKA-2198](https://issues.apache.org/jira/browse/KAFKA-2198) | *Major* | **kafka-topics.sh exits with 0 status on failures**
+
+In the two failure cases below, kafka-topics.sh exits with status 0.  You shouldn't need to parse output from the command to know if it failed or not.
+
+Case 1: Forgetting to add Kafka zookeeper chroot path to zookeeper spec
+
+$ kafka-topics.sh --alter --topic foo --config min.insync.replicas=2 --zookeeper 10.0.0.1 && echo succeeded
+succeeded
+
+Case 2: Bad config option.  (Also, do we really need the java backtrace?  It's a lot of noise most of the time.)
+
+$ kafka-topics.sh --alter --topic foo --config min.insync.replicasTYPO=2 --zookeeper 10.0.0.1/kafka && echo succeeded
+Error while executing topic command requirement failed: Unknown configuration "min.insync.replicasTYPO".
+java.lang.IllegalArgumentException: requirement failed: Unknown configuration "min.insync.replicasTYPO".
+    at scala.Predef$.require(Predef.scala:233)
+    at kafka.log.LogConfig$$anonfun$validateNames$1.apply(LogConfig.scala:183)
+    at kafka.log.LogConfig$$anonfun$validateNames$1.apply(LogConfig.scala:182)
+    at scala.collection.Iterator$class.foreach(Iterator.scala:727)
+    at scala.collection.AbstractIterator.foreach(Iterator.scala:1157)
+    at kafka.log.LogConfig$.validateNames(LogConfig.scala:182)
+    at kafka.log.LogConfig$.validate(LogConfig.scala:190)
+    at kafka.admin.TopicCommand$.parseTopicConfigsToBeAdded(TopicCommand.scala:205)
+    at kafka.admin.TopicCommand$$anonfun$alterTopic$1.apply(TopicCommand.scala:103)
+    at kafka.admin.TopicCommand$$anonfun$alterTopic$1.apply(TopicCommand.scala:100)
+    at scala.collection.mutable.ResizableArray$class.foreach(ResizableArray.scala:59)
+    at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:47)
+    at kafka.admin.TopicCommand$.alterTopic(TopicCommand.scala:100)
+    at kafka.admin.TopicCommand$.main(TopicCommand.scala:57)
+    at kafka.admin.TopicCommand.main(TopicCommand.scala)
+
+succeeded
+
+
+---
+
 * [KAFKA-2195](https://issues.apache.org/jira/browse/KAFKA-2195) | *Major* | **Add versionId to AbstractRequest.getErrorResponse and AbstractRequest.getRequest**
 
 This is needed to support versioning.
@@ -490,6 +759,17 @@ Here are the log files from our troubleshooting that contain the same set of 100
 {noformat}
 
 [1] https://github.com/apache/kafka/commit/f5ab8e1780cf80f267906e3259ad4f9278c32d28
+
+
+---
+
+* [KAFKA-2187](https://issues.apache.org/jira/browse/KAFKA-2187) | *Minor* | **Introduce merge-kafka-pr.py script**
+
+This script will be used to merge GitHub pull requests and it will pull from the Apache Git repo to the current branch, squash and merge the PR, push the commit to trunk, close the PR (via commit message) and close the relevant JIRA issue (via JIRA API).
+
+Spark has a script that does most (if not all) of this and that will be used as the starting point:
+
+https://github.com/apache/spark/blob/master/dev/merge\_spark\_pr.py
 
 
 ---
@@ -594,6 +874,27 @@ New producer java docs are referring to old producer documentation.
 kafka.Kafka Object always return exit code zero.
 I think that it should return non-zero exit code when caught exception.
 (for example FileNotFoundException caught, since server.properies is not exist)
+
+
+---
+
+* [KAFKA-2123](https://issues.apache.org/jira/browse/KAFKA-2123) | *Critical* | **Make new consumer offset commit API use callback + future**
+
+The current version of the offset commit API in the new consumer is
+
+void commit(offsets, commit type)
+
+where the commit type is either sync or async. This means you need to use sync if you ever want confirmation that the commit succeeded. Some applications will want to use asynchronous offset commit, but be able to tell when the commit completes.
+
+This is basically the same problem that had to be fixed going from old consumer -> new consumer and I'd suggest the same fix using a callback + future combination. The new API would be
+
+Future<Void> commit(Map<TopicPartition, Long> offsets, ConsumerCommitCallback callback);
+
+where ConsumerCommitCallback contains a single method:
+
+public void onCompletion(Exception exception);
+
+We can provide shorthand variants of commit() for eliding the different arguments.
 
 
 ---
@@ -955,6 +1256,30 @@ props.put("advertised.listeners", "PLAINTEXT://localhost:9091,TRACE://localhost:
 
 ---
 
+* [KAFKA-2103](https://issues.apache.org/jira/browse/KAFKA-2103) | *Major* | **kafka.producer.AsyncProducerTest failure.**
+
+I saw this test consistently failing on trunk.
+The recent changes are KAFKA-2099, KAFKA-1926, KAFKA-1809.
+kafka.producer.AsyncProducerTest > testNoBroker FAILED
+    org.scalatest.junit.JUnitTestFailedError: Should fail with FailedToSendMessageException
+        at org.scalatest.junit.AssertionsForJUnit$class.newAssertionFailedException(AssertionsForJUnit.scala:101)
+        at org.scalatest.junit.JUnit3Suite.newAssertionFailedException(JUnit3Suite.scala:149)
+        at org.scalatest.Assertions$class.fail(Assertions.scala:711)
+        at org.scalatest.junit.JUnit3Suite.fail(JUnit3Suite.scala:149)
+        at kafka.producer.AsyncProducerTest.testNoBroker(AsyncProducerTest.scala:300)
+
+kafka.producer.AsyncProducerTest > testIncompatibleEncoder PASSED
+
+kafka.producer.AsyncProducerTest > testRandomPartitioner PASSED
+
+kafka.producer.AsyncProducerTest > testFailedSendRetryLogic FAILED
+    kafka.common.FailedToSendMessageException: Failed to send messages after 3 tries.
+        at kafka.producer.async.DefaultEventHandler.handle(DefaultEventHandler.scala:91)
+        at kafka.producer.AsyncProducerTest.testFailedSendRetryLogic(AsyncProducerTest.scala:415)
+
+
+---
+
 * [KAFKA-2101](https://issues.apache.org/jira/browse/KAFKA-2101) | *Major* | **Metric metadata-age is reset on a failed update**
 
 In org.apache.kafka.clients.Metadata there is a lastUpdate() method that returns the time the metadata was lasted updated. This is only called by metadata-age metric. 
@@ -1085,6 +1410,13 @@ Scala 2.10.5 (the last release of the 2.10.x series) is binary compatible with 2
 * [KAFKA-2033](https://issues.apache.org/jira/browse/KAFKA-2033) | *Major* | **Small typo in documentation**
 
 The javadoc still mentions "metadata.broker.list" in the consumer config.
+
+
+---
+
+* [KAFKA-2032](https://issues.apache.org/jira/browse/KAFKA-2032) | *Major* | **ConsumerConfig doesn't validate partition.assignment.strategy values**
+
+In the ConsumerConfig class, there are validation checks to make sure that string based configuration properties conform to allowed values.  However, this validation appears to be missing for the partition.assignment.strategy.  E.g. there is validation for autooffset.reset and offsets.storage.
 
 
 ---
@@ -1885,6 +2217,13 @@ ConfigDef.parseType() currently uses Boolean.parseBoolean(trimmed) to parse bool
 
 ---
 
+* [KAFKA-1788](https://issues.apache.org/jira/browse/KAFKA-1788) | *Major* | **producer record can stay in RecordAccumulator forever if leader is no available**
+
+In the new producer, when a partition has no leader for a long time (e.g., all replicas are down), the records for that partition will stay in the RecordAccumulator until the leader is available. This may cause the bufferpool to be full and the callback for the produced message to block for a long time.
+
+
+---
+
 * [KAFKA-1762](https://issues.apache.org/jira/browse/KAFKA-1762) | *Major* | **Update max-inflight-request doc string**
 
 The new Producer client introduces a config for the max # of inFlight messages. When it is set > 1 on MirrorMaker, however, there is a risk for data loss even with KAFKA-1650 because the offsets recorded in the MM's offset map is no longer continuous.
@@ -2645,6 +2984,184 @@ It would be nice to have Kafka brokers auto-assign node ids rather than having t
 * [KAFKA-1057](https://issues.apache.org/jira/browse/KAFKA-1057) | *Major* | **Trim whitespaces from user specified configs**
 
 Whitespaces in configs are a common problem that leads to config errors. It will be nice if Kafka can trim the whitespaces from configs automatically
+
+
+---
+
+* [KAFKA-972](https://issues.apache.org/jira/browse/KAFKA-972) | *Major* | **MetadataRequest returns stale list of brokers**
+
+When we issue an metadatarequest towards the cluster, the list of brokers is stale. I mean, even when a broker is down, it's returned back to the client. The following are examples of two invocations one with both brokers online and the second with a broker down:
+
+{
+    "brokers": [
+        {
+            "nodeId": 0,
+            "host": "10.139.245.106",
+            "port": 9092,
+            "byteLength": 24
+        },
+        {
+            "nodeId": 1,
+            "host": "localhost",
+            "port": 9093,
+            "byteLength": 19
+        }
+    ],
+    "topicMetadata": [
+        {
+            "topicErrorCode": 0,
+            "topicName": "foozbar",
+            "partitions": [
+                {
+                    "replicas": [
+                        0
+                    ],
+                    "isr": [
+                        0
+                    ],
+                    "partitionErrorCode": 0,
+                    "partitionId": 0,
+                    "leader": 0,
+                    "byteLength": 26
+                },
+                {
+                    "replicas": [
+                        1
+                    ],
+                    "isr": [
+                        1
+                    ],
+                    "partitionErrorCode": 0,
+                    "partitionId": 1,
+                    "leader": 1,
+                    "byteLength": 26
+                },
+                {
+                    "replicas": [
+                        0
+                    ],
+                    "isr": [
+                        0
+                    ],
+                    "partitionErrorCode": 0,
+                    "partitionId": 2,
+                    "leader": 0,
+                    "byteLength": 26
+                },
+                {
+                    "replicas": [
+                        1
+                    ],
+                    "isr": [
+                        1
+                    ],
+                    "partitionErrorCode": 0,
+                    "partitionId": 3,
+                    "leader": 1,
+                    "byteLength": 26
+                },
+                {
+                    "replicas": [
+                        0
+                    ],
+                    "isr": [
+                        0
+                    ],
+                    "partitionErrorCode": 0,
+                    "partitionId": 4,
+                    "leader": 0,
+                    "byteLength": 26
+                }
+            ],
+            "byteLength": 145
+        }
+    ],
+    "responseSize": 200,
+    "correlationId": -1000
+}
+
+
+{
+    "brokers": [
+        {
+            "nodeId": 0,
+            "host": "10.139.245.106",
+            "port": 9092,
+            "byteLength": 24
+        },
+        {
+            "nodeId": 1,
+            "host": "localhost",
+            "port": 9093,
+            "byteLength": 19
+        }
+    ],
+    "topicMetadata": [
+        {
+            "topicErrorCode": 0,
+            "topicName": "foozbar",
+            "partitions": [
+                {
+                    "replicas": [
+                        0
+                    ],
+                    "isr": [],
+                    "partitionErrorCode": 5,
+                    "partitionId": 0,
+                    "leader": -1,
+                    "byteLength": 22
+                },
+                {
+                    "replicas": [
+                        1
+                    ],
+                    "isr": [
+                        1
+                    ],
+                    "partitionErrorCode": 0,
+                    "partitionId": 1,
+                    "leader": 1,
+                    "byteLength": 26
+                },
+                {
+                    "replicas": [
+                        0
+                    ],
+                    "isr": [],
+                    "partitionErrorCode": 5,
+                    "partitionId": 2,
+                    "leader": -1,
+                    "byteLength": 22
+                },
+                {
+                    "replicas": [
+                        1
+                    ],
+                    "isr": [
+                        1
+                    ],
+                    "partitionErrorCode": 0,
+                    "partitionId": 3,
+                    "leader": 1,
+                    "byteLength": 26
+                },
+                {
+                    "replicas": [
+                        0
+                    ],
+                    "isr": [],
+                    "partitionErrorCode": 5,
+                    "partitionId": 4,
+                    "leader": -1,
+                    "byteLength": 22
+                }
+            ],
+            "byteLength": 133
+        }
+    ],
+    "responseSize": 188,
+    "correlationId": -1000
+}
 
 
 ---

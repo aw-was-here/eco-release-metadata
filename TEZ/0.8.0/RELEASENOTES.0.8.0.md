@@ -23,6 +23,64 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [TEZ-2616](https://issues.apache.org/jira/browse/TEZ-2616) | *Major* | **Fix build warning by undefined version of maven-findbugs-plugin**
+
+{quote}
+[WARNING] Some problems were encountered while building the effective model for org.apache.tez:tez-api:jar:0.8.0-SNAPSHOT
+[WARNING] 'reporting.plugins.plugin.version' for org.codehaus.mojo:findbugs-maven-plugin is missing. @ org.apache.tez:tez:0.8.0-SNAPSHOT, /home/ubuntu/tezdev/pom.xml, line 1148, column 15
+{quote}
+
+This problem is caused since the plugin is used not only in build section, but also reporting section. The usage is same as maven-javadoc-plugin, so similar issue can happen for maven-javadoc-plugin. This JIRA suggests we add new properties findbugs-maven-plugin.version and javadoc-maven-plugin.version for avoiding similar issues.
+
+
+---
+
+* [TEZ-2610](https://issues.apache.org/jira/browse/TEZ-2610) | *Major* | **Swimlane for DAGs that use containers from previous DAGs**
+
+PROBELM:
+
+Swimlane can not draw for DAGs that uses containers from previous DAGs.
+
+
+---
+
+* [TEZ-2600](https://issues.apache.org/jira/browse/TEZ-2600) | *Major* | **When used with HDFS federation(viewfs) ,tez will throw a error**
+
+When I execute the exapmle of tez,orderedwordcount ,Tez throw a error
+{code}
+java.lang.IllegalArgumentException: Wrong FS: hdfs://SunshineNameNode2/user/wang/tez-0.6.0.tar.gz, expected: viewfs://nsX/
+        at org.apache.hadoop.fs.FileSystem.checkPath(FileSystem.java:645)
+        at org.apache.hadoop.fs.viewfs.ViewFileSystem.getUriPath(ViewFileSystem.java:117)
+        at org.apache.hadoop.fs.viewfs.ViewFileSystem.getFileStatus(ViewFileSystem.java:346)
+        at org.apache.hadoop.fs.FileSystem.isDirectory(FileSystem.java:1413)
+        at org.apache.tez.client.TezClientUtils.getLRFileStatus(TezClientUtils.java:130)
+        at org.apache.tez.client.TezClientUtils.setupTezJarsLocalResources(TezClientUtils.java:179)
+        at org.apache.tez.client.TezClient.getTezJarResources(TezClient.java:757)
+        at org.apache.tez.client.TezClient.submitDAGApplication(TezClient.java:725)
+        at org.apache.tez.client.TezClient.submitDAGApplication(TezClient.java:703)
+        at org.apache.tez.client.TezClient.submitDAG(TezClient.java:383)
+        at org.apache.tez.examples.OrderedWordCount.run(OrderedWordCount.java:208)
+        at org.apache.tez.examples.OrderedWordCount.run(OrderedWordCount.java:232)
+        at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:70)
+        at org.apache.tez.examples.OrderedWordCount.main(OrderedWordCount.java:240)
+        at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+        at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+        at java.lang.reflect.Method.invoke(Method.java:606)
+        at org.apache.hadoop.util.ProgramDriver$ProgramDescription.invoke(ProgramDriver.java:72)
+        at org.apache.hadoop.util.ProgramDriver.run(ProgramDriver.java:145)
+        at org.apache.tez.examples.ExampleDriver.main(ExampleDriver.java:61)
+        at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+        at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+        at java.lang.reflect.Method.invoke(Method.java:606)
+        at org.apache.hadoop.util.RunJar.main(RunJar.java:212)
+
+{code}
+
+
+---
+
 * [TEZ-2599](https://issues.apache.org/jira/browse/TEZ-2599) | *Major* | **Dont send obsoleted data movement events to tasks**
 
 Since events are sent in bulk and in sequential order to tasks they can end up getting a bunch of data movement events in round 1 and then an input failed event in round 2. The task may end up scheduling fetches for these obsoleted events before round 2, leading to wastage. 

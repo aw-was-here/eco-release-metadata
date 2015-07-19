@@ -808,6 +808,7 @@
 | [SPARK-4705](https://issues.apache.org/jira/browse/SPARK-4705) | Driver retries in cluster mode always fail if event logging is enabled |  Major | Spark Core, YARN | Marcelo Vanzin | Marcelo Vanzin |
 | [SPARK-4704](https://issues.apache.org/jira/browse/SPARK-4704) | SparkSubmitDriverBootstrap doesn't flush output |  Major | Spark Core | Stephen Haberman | Sean Owen |
 | [SPARK-4687](https://issues.apache.org/jira/browse/SPARK-4687) | SparkContext#addFile doesn't keep file folder information |  Major | Spark Core | Jimmy Xiang | Sandy Ryza |
+| [SPARK-4315](https://issues.apache.org/jira/browse/SPARK-4315) | PySpark pickling of pyspark.sql.Row objects is extremely inefficient |  Major | PySpark | Adam Davison | Davies Liu |
 | [SPARK-4300](https://issues.apache.org/jira/browse/SPARK-4300) | Race condition during SparkWorker shutdown |  Minor | Spark Shell | Alex Liu | Sean Owen |
 | [SPARK-4194](https://issues.apache.org/jira/browse/SPARK-4194) | Exceptions thrown during SparkContext or SparkEnv construction might lead to resource leaks or corrupted global state |  Critical | Spark Core | Josh Rosen | Marcelo Vanzin |
 | [SPARK-4012](https://issues.apache.org/jira/browse/SPARK-4012) | Uncaught OOM in ContextCleaner |  Major | Spark Core | Nan Zhu | Nan Zhu |

@@ -612,6 +612,7 @@
 | [HDFS-6841](https://issues.apache.org/jira/browse/HDFS-6841) | Use Time.monotonicNow() wherever applicable instead of Time.now() |  Major | . | Vinayakumar B | Vinayakumar B |
 | [HDFS-6833](https://issues.apache.org/jira/browse/HDFS-6833) | DirectoryScanner should not register a deleting block with memory of DataNode |  Critical | datanode | Shinichi Yamashita | Shinichi Yamashita |
 | [HDFS-6753](https://issues.apache.org/jira/browse/HDFS-6753) | Initialize checkDisk when DirectoryScanner not able to get files list for scanning |  Major | . | J.Andreina | J.Andreina |
+| [HDFS-6672](https://issues.apache.org/jira/browse/HDFS-6672) | Regression with hdfs oiv tool |  Minor | . | Lei (Eddy) Xu | Lei (Eddy) Xu |
 | [HDFS-6662](https://issues.apache.org/jira/browse/HDFS-6662) | WebHDFS cannot open a file if its path contains "%" |  Critical | namenode | Brahma Reddy Battula | Gerson Carlos |
 | [HDFS-6657](https://issues.apache.org/jira/browse/HDFS-6657) | Remove link to 'Legacy UI' in Namenode UI |  Minor | . | Vinayakumar B | Vinayakumar B |
 | [HDFS-6538](https://issues.apache.org/jira/browse/HDFS-6538) | Comment format error in ShortCircuitRegistry javadoc |  Trivial | datanode | debugging | David Luo |

@@ -118,6 +118,7 @@
 | [OOZIE-2113](https://issues.apache.org/jira/browse/OOZIE-2113) | Oozie Command Line Utilities are failing as hadoop-auth jar not found |  Major | . | pavan kumar kolamuri | Shwetha G S |
 | [OOZIE-2112](https://issues.apache.org/jira/browse/OOZIE-2112) | Child Job URL doesn't show properly with Hive on Tez |  Major | . | Ryota Egashira | Ryota Egashira |
 | [OOZIE-2110](https://issues.apache.org/jira/browse/OOZIE-2110) | cancel delegation token of launcher jobs that stay till child jobs finish |  Major | . | Ryota Egashira | Ryota Egashira |
+| [OOZIE-2109](https://issues.apache.org/jira/browse/OOZIE-2109) | Possibly incorrect job ID may be printed for map-reduce action errors |  Major | action | Harsh J | Harsh J |
 | [OOZIE-2104](https://issues.apache.org/jira/browse/OOZIE-2104) | oozie server dies on startup if oozie-site redefines ActionExecutor classes |  Blocker | . | Robert Kanter | Robert Kanter |
 | [OOZIE-2100](https://issues.apache.org/jira/browse/OOZIE-2100) | Publish oozie-webapp artifact |  Major | build | Suresh Srinivas | Suresh Srinivas |
 | [OOZIE-2098](https://issues.apache.org/jira/browse/OOZIE-2098) | Add Apache parent POM to oozie |  Major | . | Suresh Srinivas | Suresh Srinivas |
