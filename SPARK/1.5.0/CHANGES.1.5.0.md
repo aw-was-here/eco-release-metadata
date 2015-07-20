@@ -32,7 +32,9 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [SPARK-9143](https://issues.apache.org/jira/browse/SPARK-9143) | Add planner rule for automatically inserting Unsafe \<-\> Safe row format converters |  Major | SQL | Josh Rosen | Josh Rosen |
 | [SPARK-9115](https://issues.apache.org/jira/browse/SPARK-9115) | date/time function: dayInYear |  Major | SQL | Tarek Auel | Tarek Auel |
+| [SPARK-9023](https://issues.apache.org/jira/browse/SPARK-9023) | UnsafeExchange |  Major | SQL | Reynold Xin | Josh Rosen |
 | [SPARK-9022](https://issues.apache.org/jira/browse/SPARK-9022) | UnsafeProject |  Major | SQL | Reynold Xin | Davies Liu |
+| [SPARK-8996](https://issues.apache.org/jira/browse/SPARK-8996) | Add Python API for Kolmogorov-Smirnov Test |  Major | MLlib, PySpark | Xiangrui Meng | Manoj Kumar |
 | [SPARK-8932](https://issues.apache.org/jira/browse/SPARK-8932) | Support copy in UnsafeRow as long as ObjectPool is not used |  Major | SQL | Josh Rosen | Josh Rosen |
 | [SPARK-8807](https://issues.apache.org/jira/browse/SPARK-8807) | Add between operator in SparkR |  Major | SparkR | Yu Ishikawa | Liang-Chi Hsieh |
 | [SPARK-8782](https://issues.apache.org/jira/browse/SPARK-8782) | GenerateOrdering fails for NullType (i.e. ORDER BY NULL crashes) |  Blocker | SQL | Josh Rosen | Josh Rosen |
@@ -68,6 +70,7 @@
 | [SPARK-7547](https://issues.apache.org/jira/browse/SPARK-7547) | Example code for ElasticNet |  Major | ML | Joseph K. Bradley | DB Tsai |
 | [SPARK-7514](https://issues.apache.org/jira/browse/SPARK-7514) | Add MinMaxScaler to feature transformation |  Major | MLlib | yuhao yang | yuhao yang |
 | [SPARK-7440](https://issues.apache.org/jira/browse/SPARK-7440) | Remove physical Distinct operator in favor of Aggregate |  Major | SQL | Reynold Xin | Reynold Xin |
+| [SPARK-7422](https://issues.apache.org/jira/browse/SPARK-7422) | Add argmax to Vector, SparseVector |  Minor | MLlib | Joseph K. Bradley | George Dittmar |
 | [SPARK-7387](https://issues.apache.org/jira/browse/SPARK-7387) | CrossValidator example code in Python |  Minor | ML, PySpark | Xiangrui Meng | Ram Sriharsha |
 | [SPARK-7199](https://issues.apache.org/jira/browse/SPARK-7199) | Add date and timestamp support to UnsafeRow |  Major | SQL | Josh Rosen | Liang-Chi Hsieh |
 | [SPARK-7186](https://issues.apache.org/jira/browse/SPARK-7186) | Decouple internal Row from external Row |  Blocker | SQL | Reynold Xin | Davies Liu |
@@ -85,6 +88,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-9185](https://issues.apache.org/jira/browse/SPARK-9185) | improve code gen for mutable states to support complex initialization |  Major | SQL | Wenchen Fan | Wenchen Fan |
 | [SPARK-9179](https://issues.apache.org/jira/browse/SPARK-9179) | Allow committers to specify the primary author of the PR to be merged |  Minor | Build | Cheng Lian | Cheng Lian |
 | [SPARK-9174](https://issues.apache.org/jira/browse/SPARK-9174) | Add documentation for all public SQLConfs |  Major | SQL | Reynold Xin | Reynold Xin |
 | [SPARK-9142](https://issues.apache.org/jira/browse/SPARK-9142) | Removing unnecessary self types in Catalyst |  Major | SQL | Reynold Xin | Reynold Xin |
@@ -129,6 +133,7 @@
 | [SPARK-8776](https://issues.apache.org/jira/browse/SPARK-8776) | Increase the default MaxPermSize |  Major | Spark Core | Yin Huai | Yin Huai |
 | [SPARK-8771](https://issues.apache.org/jira/browse/SPARK-8771) | Actor system deprecation tag uses deprecated deprecation tag |  Trivial | . | holdenk | holdenk |
 | [SPARK-8759](https://issues.apache.org/jira/browse/SPARK-8759) | add default eval to binary and unary expression according to default behavior of nullable |  Minor | SQL | Wenchen Fan | Wenchen Fan |
+| [SPARK-8749](https://issues.apache.org/jira/browse/SPARK-8749) | Remove HiveTypeCoercion trait |  Major | SQL | Reynold Xin | Reynold Xin |
 | [SPARK-8748](https://issues.apache.org/jira/browse/SPARK-8748) | Move castability test out from Cast case class into Cast object |  Major | SQL | Reynold Xin | Reynold Xin |
 | [SPARK-8740](https://issues.apache.org/jira/browse/SPARK-8740) | Support GitHub OAuth tokens in dev/merge\_spark\_pr.py |  Minor | Project Infra | Josh Rosen | Josh Rosen |
 | [SPARK-8727](https://issues.apache.org/jira/browse/SPARK-8727) | Add missing python api |  Major | SQL | Tarek Auel | Tarek Auel |
@@ -287,7 +292,7 @@
 | [SPARK-9050](https://issues.apache.org/jira/browse/SPARK-9050) | Remove out-of-date code in Exchange that was obsoleted by SPARK-8317 |  Major | SQL | Josh Rosen | Josh Rosen |
 | [SPARK-9045](https://issues.apache.org/jira/browse/SPARK-9045) | Fix Scala 2.11 build break due in UnsafeExternalRowSorter |  Blocker | SQL | Josh Rosen | Josh Rosen |
 | [SPARK-9031](https://issues.apache.org/jira/browse/SPARK-9031) | Merge BlockObjectWriter and DiskBlockObject writer to remove abstract class |  Major | Shuffle, Spark Core | Josh Rosen | Josh Rosen |
-| [SPARK-9021](https://issues.apache.org/jira/browse/SPARK-9021) |  Change RDD.aggregate() to do reduce(mapPartitions()) instead of mapPartitions.fold() |  Major | PySpark | Nicholas Hwang |  |
+| [SPARK-9021](https://issues.apache.org/jira/browse/SPARK-9021) |  Change RDD.aggregate() to do reduce(mapPartitions()) instead of mapPartitions.fold() |  Major | PySpark | Nicholas Hwang | Nicholas Hwang |
 | [SPARK-9012](https://issues.apache.org/jira/browse/SPARK-9012) | Accumulators in the task table should be escaped |  Major | Web UI | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-9006](https://issues.apache.org/jira/browse/SPARK-9006) | TimestampType may loss a microsecond after a round trip in Python DataFrame |  Blocker | PySpark, SQL | Davies Liu | Davies Liu |
 | [SPARK-9005](https://issues.apache.org/jira/browse/SPARK-9005) | RegressionMetrics computing incorrect explainedVariance |  Major | MLlib | Feynman Liang | Feynman Liang |
@@ -336,6 +341,7 @@
 | [SPARK-8736](https://issues.apache.org/jira/browse/SPARK-8736) | GBTRegressionModel thresholds prediction but should not |  Critical | ML | Joseph K. Bradley | Joseph K. Bradley |
 | [SPARK-8710](https://issues.apache.org/jira/browse/SPARK-8710) | ScalaReflection.mirror should be a def |  Major | SQL | Yin Huai | Yin Huai |
 | [SPARK-8709](https://issues.apache.org/jira/browse/SPARK-8709) | Exclude hadoop-client's mockito-all dependency to fix test compilation break for Hadoop 2 |  Major | . | Josh Rosen | Josh Rosen |
+| [SPARK-8705](https://issues.apache.org/jira/browse/SPARK-8705) | Javascript error in the web console when `totalExecutionTime` of a task is 0 |  Major | Web UI | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-8688](https://issues.apache.org/jira/browse/SPARK-8688) | Hadoop Configuration has to disable client cache when writing or reading delegation tokens. |  Major | YARN | SaintBacchus | SaintBacchus |
 | [SPARK-8687](https://issues.apache.org/jira/browse/SPARK-8687) | Spark on yarn-client mode can't send `spark.yarn.credentials.file` to executor. |  Major | YARN | SaintBacchus | SaintBacchus |
 | [SPARK-8683](https://issues.apache.org/jira/browse/SPARK-8683) | Depend on mockito-core instead of mockito-all |  Major | Build | Josh Rosen | Josh Rosen |
@@ -514,10 +520,14 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-9186](https://issues.apache.org/jira/browse/SPARK-9186) | make deterministic describing the tree rather than the expression |  Major | SQL | Wenchen Fan | Wenchen Fan |
+| [SPARK-9177](https://issues.apache.org/jira/browse/SPARK-9177) | Reuse Calendar instance in WeekOfYear |  Major | SQL | Reynold Xin | Tarek Auel |
+| [SPARK-9172](https://issues.apache.org/jira/browse/SPARK-9172) | DecimalPrecision should also support Intersect and Except in addition to Union |  Major | SQL | Reynold Xin | Liang-Chi Hsieh |
 | [SPARK-9171](https://issues.apache.org/jira/browse/SPARK-9171) | add and improve tests for nondeterministic expressions |  Trivial | SQL | Wenchen Fan | Wenchen Fan |
 | [SPARK-9169](https://issues.apache.org/jira/browse/SPARK-9169) | Improve unit test coverage for null expressions |  Major | SQL | Reynold Xin | Reynold Xin |
 | [SPARK-9167](https://issues.apache.org/jira/browse/SPARK-9167) | use UTC Calendar in `stringToDate` |  Major | SQL | Wenchen Fan | Wenchen Fan |
 | [SPARK-9166](https://issues.apache.org/jira/browse/SPARK-9166) | Hide JVM stack trace for IllegalArgumentException in Python |  Major | SQL | Reynold Xin | Liang-Chi Hsieh |
+| [SPARK-9153](https://issues.apache.org/jira/browse/SPARK-9153) | Implement code generation for StringLPad and StringRPad |  Major | SQL | Reynold Xin | Tarek Auel |
 | [SPARK-9151](https://issues.apache.org/jira/browse/SPARK-9151) | Implement code generation for Abs |  Major | SQL | Reynold Xin | Liang-Chi Hsieh |
 | [SPARK-9150](https://issues.apache.org/jira/browse/SPARK-9150) | Create CodegenFallback and Unevaluable trait |  Critical | SQL | Reynold Xin | Reynold Xin |
 | [SPARK-9102](https://issues.apache.org/jira/browse/SPARK-9102) | Improve project collapse with nondeterministic expressions |  Major | SQL | Wenchen Fan | Wenchen Fan |
@@ -530,6 +540,8 @@
 | [SPARK-9061](https://issues.apache.org/jira/browse/SPARK-9061) | Fix and re-enable ignored tests in ExpressionTypeCheckingSuite |  Blocker | SQL | Reynold Xin | Wenchen Fan |
 | [SPARK-9060](https://issues.apache.org/jira/browse/SPARK-9060) | Revert SPARK-8359, SPARK-8800, and SPARK-8677 |  Major | SQL | Yin Huai | Yin Huai |
 | [SPARK-9055](https://issues.apache.org/jira/browse/SPARK-9055) | WidenTypes should also support Intersect and Except in addition to Union |  Major | SQL | Reynold Xin | Yijie Shen |
+| [SPARK-9049](https://issues.apache.org/jira/browse/SPARK-9049) | UnsafeExchange operator |  Major | SQL | Reynold Xin | Josh Rosen |
+| [SPARK-9048](https://issues.apache.org/jira/browse/SPARK-9048) | UnsafeSqlSerializer |  Major | SQL | Reynold Xin | Josh Rosen |
 | [SPARK-9027](https://issues.apache.org/jira/browse/SPARK-9027) | Generalize predicate pushdown into the metastore |  Major | SQL | Michael Armbrust | Michael Armbrust |
 | [SPARK-9020](https://issues.apache.org/jira/browse/SPARK-9020) | Support mutable state in code gen expressions |  Major | SQL | Reynold Xin | Wenchen Fan |
 | [SPARK-9018](https://issues.apache.org/jira/browse/SPARK-9018) | Implement a generic Stopwatch utility for ML algorithms |  Major | ML, MLlib | Xiangrui Meng | Xiangrui Meng |
@@ -621,6 +633,7 @@
 | [SPARK-8245](https://issues.apache.org/jira/browse/SPARK-8245) | string function: format\_number |  Major | SQL | Reynold Xin | Cheng Hao |
 | [SPARK-8243](https://issues.apache.org/jira/browse/SPARK-8243) | string function: encode |  Major | SQL | Reynold Xin | Cheng Hao |
 | [SPARK-8242](https://issues.apache.org/jira/browse/SPARK-8242) | string function: decode |  Major | SQL | Reynold Xin | Cheng Hao |
+| [SPARK-8241](https://issues.apache.org/jira/browse/SPARK-8241) | string function: concat\_ws |  Major | SQL | Reynold Xin | Reynold Xin |
 | [SPARK-8240](https://issues.apache.org/jira/browse/SPARK-8240) | string function: concat |  Major | SQL | Reynold Xin | Reynold Xin |
 | [SPARK-8239](https://issues.apache.org/jira/browse/SPARK-8239) | string function: base64 |  Major | SQL | Reynold Xin | Cheng Hao |
 | [SPARK-8238](https://issues.apache.org/jira/browse/SPARK-8238) | string function: ascii |  Major | SQL | Reynold Xin | Cheng Hao |

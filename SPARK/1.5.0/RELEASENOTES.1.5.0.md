@@ -34,6 +34,20 @@ manually right before the merge script pushes to Apache Git repo. It would be ni
 
 ---
 
+* [SPARK-9177](https://issues.apache.org/jira/browse/SPARK-9177) | *Major* | **Reuse Calendar instance in WeekOfYear**
+
+Right now WeekOfYear creates a new Calendar instance for every record, both in code gen and in interpreted mode. We should just reuse the same Calendar instance (i.e. initialize it as a member variable in interpreted mode, and use mutable state in codegen mode).
+
+
+---
+
+* [SPARK-9172](https://issues.apache.org/jira/browse/SPARK-9172) | *Major* | **DecimalPrecision should also support Intersect and Except in addition to Union**
+
+DecimalPrecision transforms only Union. It should also transform Intersect and Except.
+
+
+---
+
 * [SPARK-9166](https://issues.apache.org/jira/browse/SPARK-9166) | *Major* | **Hide JVM stack trace for IllegalArgumentException in Python**
 
 We now hide stack trace for AnalysisException. We should also hide it for IllegalArgumentException.
@@ -253,6 +267,20 @@ There's still some leftover cleanup from that patch which needs to be performed:
 
 ---
 
+* [SPARK-9049](https://issues.apache.org/jira/browse/SPARK-9049) | *Major* | **UnsafeExchange operator**
+
+Create a version of Exchange that expects UnsafeRow as inputs.
+
+
+---
+
+* [SPARK-9048](https://issues.apache.org/jira/browse/SPARK-9048) | *Major* | **UnsafeSqlSerializer**
+
+Create a UnsafeSqlSerializer that serializes UnsafeRows.
+
+
+---
+
 * [SPARK-9045](https://issues.apache.org/jira/browse/SPARK-9045) | *Blocker* | **Fix Scala 2.11 build break due in UnsafeExternalRowSorter**
 
 {code}
@@ -274,6 +302,13 @@ It turns out that this can be fixed by making AbstractScalaRowIterator into a co
 * [SPARK-9031](https://issues.apache.org/jira/browse/SPARK-9031) | *Major* | **Merge BlockObjectWriter and DiskBlockObject writer to remove abstract class**
 
 BlockObjectWriter has only one concrete non-test class, DiskBlockObjectWriter.  In order to simplify the code in preparation for other refactorings, I think that we should remove this base class and have only DiskBlockObjectWriter.
+
+
+---
+
+* [SPARK-9023](https://issues.apache.org/jira/browse/SPARK-9023) | *Major* | **UnsafeExchange**
+
+Create a version of Exchange that accepts UnsafeRow and exploits the fact that data is passed in as bytes.
 
 
 ---
@@ -386,6 +421,13 @@ We can improve the performance by:
 1. run should output Iterator instead of Array
 2. Local count shouldn't use groupBy, which creates too many arrays. We can use PrimitiveKeyOpenHashMap
 3. We can use list to avoid materialize frequent sequences
+
+
+---
+
+* [SPARK-8996](https://issues.apache.org/jira/browse/SPARK-8996) | *Major* | **Add Python API for Kolmogorov-Smirnov Test**
+
+Add Python API for the Kolmogorov-Smirnov test implemented in SPARK-8598. It should be similar to ChiSqTest in Python.
 
 
 ---
@@ -1567,6 +1609,13 @@ Related Hive ticket: https://issues.apache.org/jira/browse/HIVE-9792
 
 ---
 
+* [SPARK-8749](https://issues.apache.org/jira/browse/SPARK-8749) | *Major* | **Remove HiveTypeCoercion trait**
+
+It is easier to test rules if they are in the companion object.
+
+
+---
+
 * [SPARK-8748](https://issues.apache.org/jira/browse/SPARK-8748) | *Major* | **Move castability test out from Cast case class into Cast object**
 
 So we can use it as static methods in the analyzer.
@@ -1757,6 +1806,15 @@ Bellow is an example on tiny sample (same on large dataset):
 It would be nice to implement Pylint / Prospector (https://github.com/landscapeio/prospector) checks for PySpark. As with the style checker rules, I'll imagine that we'll want to roll out new rules gradually in order to avoid a mass refactoring commit.
 
 For starters, we should create a pull request that introduces the harness for running the linters, add a configuration file which enables only the lint checks that currently pass, and install the required dependencies on Jenkins. Once we've done this, we can open a series of smaller followup PRs to gradually enable more linting checks and to fix existing violations.
+
+
+---
+
+* [SPARK-8705](https://issues.apache.org/jira/browse/SPARK-8705) | *Major* | **Javascript error in the web console when `totalExecutionTime` of a task is 0**
+
+Because System.currentTimeMillis() is not accurate for tasks that only need several milliseconds, sometimes totalExecutionTime in makeTimeline will be 0. If totalExecutionTime is 0, there will the following error in the console.
+
+!https://cloud.githubusercontent.com/assets/1000778/8406776/5cd38e04-1e92-11e5-89f2-0c5134fe4b6b.png!
 
 
 ---
@@ -5229,6 +5287,15 @@ Decodes the first argument into a String using the provided character set (one o
 
 ---
 
+* [SPARK-8241](https://issues.apache.org/jira/browse/SPARK-8241) | *Major* | **string function: concat\_ws**
+
+concat\_ws(string SEP, string A, string B...): string
+
+concat\_ws(string SEP, array<string>): string
+
+
+---
+
 * [SPARK-8240](https://issues.apache.org/jira/browse/SPARK-8240) | *Major* | **string function: concat**
 
 concat(string|binary A, string|binary B...): string / binary
@@ -7557,6 +7624,15 @@ We can just rewrite distinct using groupby (i.e. aggregate operator).
 * [SPARK-7426](https://issues.apache.org/jira/browse/SPARK-7426) | *Minor* | **spark.ml AttributeFactory.fromStructField should allow other NumericTypes**
 
 It currently only supports DoubleType, but it should support others, at least for fromStructField (importing into ML attribute format, rather than exporting).
+
+
+---
+
+* [SPARK-7422](https://issues.apache.org/jira/browse/SPARK-7422) | *Minor* | **Add argmax to Vector, SparseVector**
+
+DenseVector has an argmax method which is currently private to Spark.  It would be nice to add that method to Vector and SparseVector.  Adding it to SparseVector would require being careful about handling the inactive elements correctly and efficiently.
+
+We should make argmax public and add unit tests.
 
 
 ---

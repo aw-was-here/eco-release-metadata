@@ -209,6 +209,16 @@ It should be smart enough to atleast show the second successful attempt.
 
 ---
 
+* [SPARK-8052](https://issues.apache.org/jira/browse/SPARK-8052) | *Major* | **Hive on Spark: CAST string AS BIGINT produces wrong value**
+
+Example hive query:
+SELECT CAST("775983671874188101" as BIGINT)
+produces:           775983671874188160L
+Look at: last 2 digits.
+
+
+---
+
 * [SPARK-7555](https://issues.apache.org/jira/browse/SPARK-7555) | *Major* | **User guide update for ElasticNet**
 
 Copied from [SPARK-7443]:
@@ -231,6 +241,17 @@ Failing with error messages like
 Various tests in the suite seem to be failing with similar error messages:
 https://amplab.cs.berkeley.edu/jenkins/job/Spark-Master-SBT/AMPLAB\_JENKINS\_BUILD\_PROFILE=hadoop2.3,label=centos/2228/
 https://amplab.cs.berkeley.edu/jenkins/job/Spark-Master-SBT/AMPLAB\_JENKINS\_BUILD\_PROFILE=hadoop2.0,label=centos/2230/
+
+
+---
+
+* [SPARK-7246](https://issues.apache.org/jira/browse/SPARK-7246) | *Major* | **Rank for DataFrames**
+
+`rank` maps a numeric column to a long column with rankings. `rank` should be an expression. Where it lives is TBD. One suggestion is `funcs.stat`.
+
+{code}
+df.select("name", rank("time"))
+{code}
 
 
 ---
