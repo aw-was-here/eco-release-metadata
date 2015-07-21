@@ -30,6 +30,15 @@ Throwing a TopicAlreadyMarkedForDeletionException will make much more sense. A u
 
 ---
 
+* [KAFKA-2337](https://issues.apache.org/jira/browse/KAFKA-2337) | *Major* | **Verify that metric names will not collide when creating new topics**
+
+When creating a new topic, convert the proposed topic name to the name that will be used in metrics and validate that there are no collisions with existing names.
+
+See this discussion for context: http://s.apache.org/snW
+
+
+---
+
 * [KAFKA-2335](https://issues.apache.org/jira/browse/KAFKA-2335) | *Major* | **Javadoc for Consumer says that it's thread-safe**
 
 This looks like it was left there by mistake:
@@ -45,6 +54,17 @@ The Kafka consumer is NOT thread-safe. All network I/O happens in the thread of 
 {quote}
 
 This matches what the code does, so the former quoted section should probably be deleted.
+
+
+---
+
+* [KAFKA-2328](https://issues.apache.org/jira/browse/KAFKA-2328) | *Minor* | **merge-kafka-pr.py script should not leave user in a detached branch**
+
+[~gwenshap] asked:
+
+"If I start a merge and cancel (say, by choosing 'n' when asked if I want to proceed), I'm left on a detached branch. Any chance the script can put me back in the original branch? or in trunk?"
+
+Reference https://issues.apache.org/jira/browse/KAFKA-2187?focusedCommentId=14621243&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-14621243
 
 
 ---

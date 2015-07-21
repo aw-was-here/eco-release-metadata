@@ -23,6 +23,40 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-9198](https://issues.apache.org/jira/browse/SPARK-9198) | *Minor* | **Typo in PySpark SparseVector docs (bad index)**
+
+Several places in the PySpark SparseVector docs have one defined as:
+{code}
+SparseVector(4, [2, 4], [1.0, 2.0])
+{code}
+The index 4 goes out of bounds (but this is not checked).
+
+
+---
+
+* [SPARK-9175](https://issues.apache.org/jira/browse/SPARK-9175) | *Critical* | **BLAS.gemm fails to update matrix C when alpha==0 and beta!=1**
+
+In the BLAS wrapper, gemm is supposed to update matrix C to be alpha * A * B + beta * C. However, the current implementation will not update C as long as alpha == 0. This is incorrect when beta is not equal to 1. 
+
+Example:
+val p = 3 
+val a = DenseMatrix.zeros(p,p)
+val b = DenseMatrix.zeros(p,p)
+var c = DenseMatrix.eye(p)
+BLAS.gemm(0, a, b, 5, c)
+
+c is unchanged in the Spark 1.4 even though it should be multiplied by 5 element-wise.
+
+The bug is caused by the following in BLAS.gemm:
+if (alpha == 0.0) {
+  logDebug("gemm: alpha is equal to 0. Returning C.")
+}
+
+Will submit PR to fix this.
+
+
+---
+
 * [SPARK-9109](https://issues.apache.org/jira/browse/SPARK-9109) | *Minor* | **Unpersist a graph object does not work properly**
 
 Unpersist a graph object does not work properly.
@@ -43,6 +77,44 @@ graph.unpersist()
 {code}
 
 There should not be any cached RDDs in storage (http://localhost:4040/storage/).
+
+
+---
+
+* [SPARK-9101](https://issues.apache.org/jira/browse/SPARK-9101) | *Major* | **Can't use null in selectExpr**
+
+In 1.3.1 this worked:
+
+{code:python}
+df = sqlContext.createDataFrame([[1]], schema=['col'])
+df.selectExpr('null as newCol').collect()
+{code}
+
+In 1.4.0 it fails with the following stacktrace:
+
+{code}
+Traceback (most recent call last):
+  File "<input>", line 1, in <module>
+  File "/opt/boxen/homebrew/opt/apache-spark/libexec/python/pyspark/sql/dataframe.py", line 316, in collect
+    cls = \_create\_cls(self.schema)
+  File "/opt/boxen/homebrew/opt/apache-spark/libexec/python/pyspark/sql/dataframe.py", line 229, in schema
+    self.\_schema = \_parse\_datatype\_json\_string(self.\_jdf.schema().json())
+  File "/opt/boxen/homebrew/opt/apache-spark/libexec/python/pyspark/sql/types.py", line 519, in \_parse\_datatype\_json\_string
+    return \_parse\_datatype\_json\_value(json.loads(json\_string))
+  File "/opt/boxen/homebrew/opt/apache-spark/libexec/python/pyspark/sql/types.py", line 539, in \_parse\_datatype\_json\_value
+    return \_all\_complex\_types[tpe].fromJson(json\_value)
+  File "/opt/boxen/homebrew/opt/apache-spark/libexec/python/pyspark/sql/types.py", line 386, in fromJson
+    return StructType([StructField.fromJson(f) for f in json["fields"]])
+  File "/opt/boxen/homebrew/opt/apache-spark/libexec/python/pyspark/sql/types.py", line 347, in fromJson
+    \_parse\_datatype\_json\_value(json["type"]),
+  File "/opt/boxen/homebrew/opt/apache-spark/libexec/python/pyspark/sql/types.py", line 535, in \_parse\_datatype\_json\_value
+    raise ValueError("Could not parse datatype: %s" % json\_value)
+ValueError: Could not parse datatype: null
+{code}
+
+https://github.com/apache/spark/blob/v1.4.0/python/pyspark/sql/types.py#L461
+
+The cause:\_atomic\_types doesn't contain NullType
 
 
 ---

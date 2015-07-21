@@ -23,6 +23,40 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-9198](https://issues.apache.org/jira/browse/SPARK-9198) | *Minor* | **Typo in PySpark SparseVector docs (bad index)**
+
+Several places in the PySpark SparseVector docs have one defined as:
+{code}
+SparseVector(4, [2, 4], [1.0, 2.0])
+{code}
+The index 4 goes out of bounds (but this is not checked).
+
+
+---
+
+* [SPARK-9175](https://issues.apache.org/jira/browse/SPARK-9175) | *Critical* | **BLAS.gemm fails to update matrix C when alpha==0 and beta!=1**
+
+In the BLAS wrapper, gemm is supposed to update matrix C to be alpha * A * B + beta * C. However, the current implementation will not update C as long as alpha == 0. This is incorrect when beta is not equal to 1. 
+
+Example:
+val p = 3 
+val a = DenseMatrix.zeros(p,p)
+val b = DenseMatrix.zeros(p,p)
+var c = DenseMatrix.eye(p)
+BLAS.gemm(0, a, b, 5, c)
+
+c is unchanged in the Spark 1.4 even though it should be multiplied by 5 element-wise.
+
+The bug is caused by the following in BLAS.gemm:
+if (alpha == 0.0) {
+  logDebug("gemm: alpha is equal to 0. Returning C.")
+}
+
+Will submit PR to fix this.
+
+
+---
+
 * [SPARK-8865](https://issues.apache.org/jira/browse/SPARK-8865) | *Minor* | **Fix bug:  init SimpleConsumerConfig with kafka params**
 
 "zookeeper.connect" and "group.id" aren't necessary for anything in the kafka direct stream.

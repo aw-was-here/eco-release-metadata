@@ -868,6 +868,48 @@ Post TEZ-1883
 
 ---
 
+* [TEZ-2496](https://issues.apache.org/jira/browse/TEZ-2496) | *Major* | **Consider scheduling tasks in ShuffleVertexManager based on the partition sizes from the source**
+
+Consider scheduling tasks in ShuffleVertexManager based on the partition sizes from the source.  This would be helpful in scenarios, where there is limited resources (or concurrent jobs running or multiple waves) with dataskew and the task which gets large amount of data gets sceheduled much later.
+
+e.g Consider the following hive query running in a queue with limited capacity (42 slots in total) @ 200 GB scale
+
+{noformat}
+CREATE TEMPORARY TABLE sampleData AS
+  SELECT CASE
+           WHEN ss\_sold\_time\_sk IS NULL THEN 70429
+           ELSE ss\_sold\_time\_sk
+       END AS ss\_sold\_time\_sk,
+       ss\_item\_sk,
+       ss\_customer\_sk,
+       ss\_cdemo\_sk,
+       ss\_hdemo\_sk,
+       ss\_addr\_sk,
+       ss\_store\_sk,
+       ss\_promo\_sk,
+       ss\_ticket\_number,
+       ss\_quantity,
+       ss\_wholesale\_cost,
+       ss\_list\_price,
+       ss\_sales\_price,
+       ss\_ext\_discount\_amt,
+       ss\_ext\_sales\_price,
+       ss\_ext\_wholesale\_cost,
+       ss\_ext\_list\_price,
+       ss\_ext\_tax,
+       ss\_coupon\_amt,
+       ss\_net\_paid,
+       ss\_net\_paid\_inc\_tax,
+       ss\_net\_profit,
+       ss\_sold\_date\_sk
+  FROM store\_sales distribute by ss\_sold\_time\_sk;
+{noformat}
+
+This generated 39 maps and 134 reduce slots (3 reduce waves). When lots of nulls are there for ss\_sold\_time\_sk, it would tend to have data skew towards 70429.  If the reducer which gets this data gets scheduled much earlier (i.e in first wave itself), entire job would finish fast.
+
+
+---
+
 * [TEZ-2489](https://issues.apache.org/jira/browse/TEZ-2489) | *Major* | **Disable warn log for Timeline ACL error when tez.allow.disabled.timeline-domains set to true**
 
 15/05/26 22:57:38 WARN client.TezClient: Could not instantiate object for org.apache.tez.dag.history.ats.acls.ATSHistoryACLPolicyManager. ACLs cannot be enforced correctly for history data in Timeline

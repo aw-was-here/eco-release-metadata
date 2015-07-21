@@ -45,6 +45,8 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HIVE-11291](https://issues.apache.org/jira/browse/HIVE-11291) | Avoid allocation storm while doing rule matching on operator/expression trees |  Major | . | Ashutosh Chauhan | Ashutosh Chauhan |
+| [HIVE-11262](https://issues.apache.org/jira/browse/HIVE-11262) | Skip MapJoin processing if the join hash table is empty |  Major | Query Processor | Jason Dere | Jason Dere |
+| [HIVE-11244](https://issues.apache.org/jira/browse/HIVE-11244) | Beeline prompt info improvement for cluster mode |  Minor | Beeline | Nemon Lou | Nemon Lou |
 | [HIVE-11240](https://issues.apache.org/jira/browse/HIVE-11240) | Change value type from int to long for HiveConf.ConfVars.METASTORESERVERMAXMESSAGESIZE |  Major | Metastore | Xuefu Zhang | Ferdinand Xu |
 | [HIVE-11179](https://issues.apache.org/jira/browse/HIVE-11179) | HIVE should allow custom converting from HivePrivilegeObjectDesc to privilegeObject for different authorizers |  Major | . | Dapeng Sun | Dapeng Sun |
 | [HIVE-11139](https://issues.apache.org/jira/browse/HIVE-11139) | Emit more lineage information |  Major | . | Jimmy Xiang | Jimmy Xiang |
@@ -100,6 +102,7 @@
 | [HIVE-11152](https://issues.apache.org/jira/browse/HIVE-11152) | Swapping join inputs in ASTConverter |  Major | CBO | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
 | [HIVE-11151](https://issues.apache.org/jira/browse/HIVE-11151) | Calcite transitive predicate inference rule should not transitively add not null filter on non-nullable input |  Major | CBO, Logical Optimizer | Ashutosh Chauhan | Ashutosh Chauhan |
 | [HIVE-11147](https://issues.apache.org/jira/browse/HIVE-11147) | MetaTool doesn't update FS root location for partitions with space in name |  Major | Metastore | Wei Zheng | Wei Zheng |
+| [HIVE-11141](https://issues.apache.org/jira/browse/HIVE-11141) | Improve RuleRegExp when the Expression node stack gets huge |  Major | . | Hari Sankar Sivarama Subramaniyan | Hari Sankar Sivarama Subramaniyan |
 | [HIVE-11135](https://issues.apache.org/jira/browse/HIVE-11135) | Fix the Beeline set and save command in order to avoid the NullPointerException |  Major | Beeline | Shinichi Yamashita | Shinichi Yamashita |
 | [HIVE-11129](https://issues.apache.org/jira/browse/HIVE-11129) | Issue a warning when copied from UTF-8 to ISO 8859-1 |  Major | File Formats | Aihua Xu | Aihua Xu |
 | [HIVE-11128](https://issues.apache.org/jira/browse/HIVE-11128) | Stats Annotation misses extracting stats for cols in some cases |  Major | Statistics | Ashutosh Chauhan | Ashutosh Chauhan |

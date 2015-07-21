@@ -75,6 +75,13 @@ If you need to have the JDK tools jar in your classpath, you should add a system
 
 ---
 
+* [HBASE-13954](https://issues.apache.org/jira/browse/HBASE-13954) | *Major* | **Remove HTableInterface#getRowOrBefore related server side code**
+
+**WARNING: No release note provided for this incompatible change.**
+
+
+---
+
 * [HBASE-13930](https://issues.apache.org/jira/browse/HBASE-13930) | *Major* | **Exclude Findbugs packages from shaded jars**
 
 Exclude Findbugs packages from shaded jars

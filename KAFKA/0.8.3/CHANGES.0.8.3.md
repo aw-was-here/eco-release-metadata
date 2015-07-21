@@ -38,6 +38,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-2328](https://issues.apache.org/jira/browse/KAFKA-2328) | merge-kafka-pr.py script should not leave user in a detached branch |  Minor | . | Ismael Juma | Ismael Juma |
 | [KAFKA-2324](https://issues.apache.org/jira/browse/KAFKA-2324) | Update to Scala 2.11.7 |  Minor | . | Ismael Juma | Ismael Juma |
 | [KAFKA-2323](https://issues.apache.org/jira/browse/KAFKA-2323) | Simplify ScalaTest dependency versions |  Minor | . | Ismael Juma | Ismael Juma |
 | [KAFKA-2314](https://issues.apache.org/jira/browse/KAFKA-2314) | Proper help message for MirrorMaker's `message.handler` property |  Trivial | . | Kostya Golikov | Kostya Golikov |
@@ -85,6 +86,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [KAFKA-2345](https://issues.apache.org/jira/browse/KAFKA-2345) | Attempt to delete a topic already marked for deletion throws ZkNodeExistsException |  Major | . | Ashish K Singh | Ashish K Singh |
+| [KAFKA-2337](https://issues.apache.org/jira/browse/KAFKA-2337) | Verify that metric names will not collide when creating new topics |  Major | . | Gwen Shapira | Grant Henke |
 | [KAFKA-2335](https://issues.apache.org/jira/browse/KAFKA-2335) | Javadoc for Consumer says that it's thread-safe |  Major | consumer | Ismael Juma | Jason Gustafson |
 | [KAFKA-2327](https://issues.apache.org/jira/browse/KAFKA-2327) | broker doesn't start if config defines advertised.host but not advertised.port |  Minor | . | Geoffrey Anderson | Geoffrey Anderson |
 | [KAFKA-2317](https://issues.apache.org/jira/browse/KAFKA-2317) | De-register isrChangeNotificationListener on controller resignation |  Major | controller | Ashish K Singh | Ashish K Singh |

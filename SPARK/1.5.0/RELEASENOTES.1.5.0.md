@@ -23,6 +23,33 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-9201](https://issues.apache.org/jira/browse/SPARK-9201) | *Major* | **Integrate MLlib with SparkR using RFormula**
+
+We need to interface R glm() and predict() with mllib R formula support.
+
+Design doc from umbrella task: https://docs.google.com/document/d/10NZNSEurN2EdWM31uFYsgayIPfCFHiuIu3pCWrUmP\_c/edit
+
+
+---
+
+* [SPARK-9198](https://issues.apache.org/jira/browse/SPARK-9198) | *Minor* | **Typo in PySpark SparseVector docs (bad index)**
+
+Several places in the PySpark SparseVector docs have one defined as:
+{code}
+SparseVector(4, [2, 4], [1.0, 2.0])
+{code}
+The index 4 goes out of bounds (but this is not checked).
+
+
+---
+
+* [SPARK-9187](https://issues.apache.org/jira/browse/SPARK-9187) | *Minor* | **Timeline view may show negative value for running tasks**
+
+For running tasks, the executorRunTime metrics is 0 which causes negative executorComputingTime in the timeline. It also causes an incorrect SchedulerDelay time.
+
+
+---
+
 * [SPARK-9179](https://issues.apache.org/jira/browse/SPARK-9179) | *Minor* | **Allow committers to specify the primary author of the PR to be merged**
 
 It's a common case that some contributor contributes an initial version of a feature/bugfix, and later on some other people (mostly committers) fork and add more improvements. When merging these PRs, we probably want to specify the original author as the primary author. Currently we can only do this by running
@@ -34,9 +61,39 @@ manually right before the merge script pushes to Apache Git repo. It would be ni
 
 ---
 
+* [SPARK-9178](https://issues.apache.org/jira/browse/SPARK-9178) | *Trivial* | **UTF8String empty string method**
+
+Create a method in UTF8String that returns an empty string, in order to avoid calls of UTF8String.fromString("")
+
+
+---
+
 * [SPARK-9177](https://issues.apache.org/jira/browse/SPARK-9177) | *Major* | **Reuse Calendar instance in WeekOfYear**
 
 Right now WeekOfYear creates a new Calendar instance for every record, both in code gen and in interpreted mode. We should just reuse the same Calendar instance (i.e. initialize it as a member variable in interpreted mode, and use mutable state in codegen mode).
+
+
+---
+
+* [SPARK-9175](https://issues.apache.org/jira/browse/SPARK-9175) | *Critical* | **BLAS.gemm fails to update matrix C when alpha==0 and beta!=1**
+
+In the BLAS wrapper, gemm is supposed to update matrix C to be alpha * A * B + beta * C. However, the current implementation will not update C as long as alpha == 0. This is incorrect when beta is not equal to 1. 
+
+Example:
+val p = 3 
+val a = DenseMatrix.zeros(p,p)
+val b = DenseMatrix.zeros(p,p)
+var c = DenseMatrix.eye(p)
+BLAS.gemm(0, a, b, 5, c)
+
+c is unchanged in the Spark 1.4 even though it should be multiplied by 5 element-wise.
+
+The bug is caused by the following in BLAS.gemm:
+if (alpha == 0.0) {
+  logDebug("gemm: alpha is equal to 0. Returning C.")
+}
+
+Will submit PR to fix this.
 
 
 ---
@@ -112,6 +169,13 @@ e.g. dayInYear("2015-01-01") == 1, dayInYear("2015-12-31") == 365
 
 ---
 
+* [SPARK-9114](https://issues.apache.org/jira/browse/SPARK-9114) | *Blocker* | **The returned value is not converted into internal type in Python UDF**
+
+The returned value is not converted into internal type in Python UDF
+
+
+---
+
 * [SPARK-9109](https://issues.apache.org/jira/browse/SPARK-9109) | *Minor* | **Unpersist a graph object does not work properly**
 
 Unpersist a graph object does not work properly.
@@ -132,6 +196,44 @@ graph.unpersist()
 {code}
 
 There should not be any cached RDDs in storage (http://localhost:4040/storage/).
+
+
+---
+
+* [SPARK-9101](https://issues.apache.org/jira/browse/SPARK-9101) | *Major* | **Can't use null in selectExpr**
+
+In 1.3.1 this worked:
+
+{code:python}
+df = sqlContext.createDataFrame([[1]], schema=['col'])
+df.selectExpr('null as newCol').collect()
+{code}
+
+In 1.4.0 it fails with the following stacktrace:
+
+{code}
+Traceback (most recent call last):
+  File "<input>", line 1, in <module>
+  File "/opt/boxen/homebrew/opt/apache-spark/libexec/python/pyspark/sql/dataframe.py", line 316, in collect
+    cls = \_create\_cls(self.schema)
+  File "/opt/boxen/homebrew/opt/apache-spark/libexec/python/pyspark/sql/dataframe.py", line 229, in schema
+    self.\_schema = \_parse\_datatype\_json\_string(self.\_jdf.schema().json())
+  File "/opt/boxen/homebrew/opt/apache-spark/libexec/python/pyspark/sql/types.py", line 519, in \_parse\_datatype\_json\_string
+    return \_parse\_datatype\_json\_value(json.loads(json\_string))
+  File "/opt/boxen/homebrew/opt/apache-spark/libexec/python/pyspark/sql/types.py", line 539, in \_parse\_datatype\_json\_value
+    return \_all\_complex\_types[tpe].fromJson(json\_value)
+  File "/opt/boxen/homebrew/opt/apache-spark/libexec/python/pyspark/sql/types.py", line 386, in fromJson
+    return StructType([StructField.fromJson(f) for f in json["fields"]])
+  File "/opt/boxen/homebrew/opt/apache-spark/libexec/python/pyspark/sql/types.py", line 347, in fromJson
+    \_parse\_datatype\_json\_value(json["type"]),
+  File "/opt/boxen/homebrew/opt/apache-spark/libexec/python/pyspark/sql/types.py", line 535, in \_parse\_datatype\_json\_value
+    raise ValueError("Could not parse datatype: %s" % json\_value)
+ValueError: Could not parse datatype: null
+{code}
+
+https://github.com/apache/spark/blob/v1.4.0/python/pyspark/sql/types.py#L461
+
+The cause:\_atomic\_types doesn't contain NullType
 
 
 ---
@@ -254,6 +356,17 @@ Since it is hard to fix these problems without causing new issues, I'd say we sh
 * [SPARK-9055](https://issues.apache.org/jira/browse/SPARK-9055) | *Major* | **WidenTypes should also support Intersect and Except in addition to Union**
 
 HiveTypeCoercion.WidenTypes only supports Union right now. It should also support Intersect and Except.
+
+
+---
+
+* [SPARK-9052](https://issues.apache.org/jira/browse/SPARK-9052) | *Major* | **Fix comments after curly braces**
+
+Right now we have a number of style check errors of the form 
+
+{code}
+Opening curly braces should never go on their own line and should always and be followed by a new line.
+{code}
 
 
 ---
@@ -5992,6 +6105,13 @@ Spark's unit tests leave a lot of garbage in /tmp after a run, making it hard to
 
 ---
 
+* [SPARK-8125](https://issues.apache.org/jira/browse/SPARK-8125) | *Blocker* | **Accelerate ParquetRelation2 metadata discovery**
+
+For large Parquet tables (e.g., with thousands of partitions), it can be very slow to discover Parquet metadata for schema merging and generating splits for Spark jobs. We need to accelerate this processes. One possible solution is to do the discovery via a distributed Spark job.
+
+
+---
+
 * [SPARK-8124](https://issues.apache.org/jira/browse/SPARK-8124) | *Minor* | **Created more examples on SparkR DataFrames**
 
 (Components please) https://cwiki.apache.org/confluence/display/SPARK/Contributing+to+Spark
@@ -6031,6 +6151,50 @@ We should enable this in our test system properties in order to speed up the Hiv
 * [SPARK-8104](https://issues.apache.org/jira/browse/SPARK-8104) | *Major* | **move the auto alias logic into Analyzer**
 
 Currently we auto alias expression in parser. However, during parser phase we don't have enough information to do the right alias. For example, Generator that has more than 1 kind of element need MultiAlias, ExtractValue don't need Alias if it's in middle of a ExtractValue chain.
+
+
+---
+
+* [SPARK-8103](https://issues.apache.org/jira/browse/SPARK-8103) | *Major* | **DAGScheduler should not launch multiple concurrent attempts for one stage on fetch failures**
+
+When there is a fetch failure, {{DAGScheduler}} is supposed to fail the stage, retry the necessary portions of the preceding shuffle stage which generated the shuffle data, and eventually rerun the stage.  
+
+We generally expect to get multiple fetch failures together, but only want to re-start the stage once.  The code already makes an attempt to address this https://github.com/apache/spark/blob/10ba1880878d0babcdc5c9b688df5458ea131531/core/src/main/scala/org/apache/spark/scheduler/DAGScheduler.scala#L1108 .  
+
+{code}
+       // It is likely that we receive multiple FetchFailed for a single stage (because we have
+        // multiple tasks running concurrently on different executors). In that case, it is possible
+        // the fetch failure has already been handled by the scheduler.
+        if (runningStages.contains(failedStage)) {
+{code}
+
+However, this logic is flawed because the stage may have been **resubmitted** by the time we get these fetch failures.  In that case, {{runningStages.contains(failedStage)}} will be true, but we've already handled these failures.
+
+This results in multiple concurrent non-zombie attempts for one stage.  In addition to being very confusing, and a waste of resources, this also can lead to later stages being submitted before the previous stage has registered its map output.  This happens because
+
+(a) when one attempt finishes all its tasks, it may not register its map output because the stage still has pending tasks, from other attempts https://github.com/apache/spark/blob/10ba1880878d0babcdc5c9b688df5458ea131531/core/src/main/scala/org/apache/spark/scheduler/DAGScheduler.scala#L1046
+
+{code}
+            if (runningStages.contains(shuffleStage) && shuffleStage.pendingTasks.isEmpty) {
+{code}
+
+and (b) {{submitStage}} thinks the following stage is ready to go, because {{getMissingParentStages}} thinks the stage is complete as long it has all of its map outputs: https://github.com/apache/spark/blob/10ba1880878d0babcdc5c9b688df5458ea131531/core/src/main/scala/org/apache/spark/scheduler/DAGScheduler.scala#L397
+
+{code}
+                if (!mapStage.isAvailable) {
+                  missing += mapStage
+                }
+{code}
+
+
+So the following stage is submitted repeatedly, but it is doomed to fail because its shuffle output has never been registered with the map output tracker.  Here's an example failure in this case:
+{noformat}
+WARN TaskSetManager: Lost task 5.0 in stage 3.2 (TID 294, 192.168.1.104): FetchFailed(null, shuffleId=0, mapId=-1, reduceId=5, message=
+org.apache.spark.shuffle.MetadataFetchFailedException: Missing output locations for shuffle ...
+{noformat}
+
+
+Note that this is a subset of the problems originally described in SPARK-7308, limited to just the issues effecting the DAGScheduler
 
 
 ---

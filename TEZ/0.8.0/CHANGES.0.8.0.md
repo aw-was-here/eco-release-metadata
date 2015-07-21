@@ -43,6 +43,7 @@
 | [TEZ-2588](https://issues.apache.org/jira/browse/TEZ-2588) | Improper argument name |  Trivial | . | Jeff Zhang | Gabor Liptak |
 | [TEZ-2575](https://issues.apache.org/jira/browse/TEZ-2575) | Handle KeyValue pairs size which do not fit in a single block |  Major | . | Saikat | Saikat |
 | [TEZ-2561](https://issues.apache.org/jira/browse/TEZ-2561) | Port for TaskAttemptListenerImpTezDag should be configurable |  Major | . | Johannes Zillmann | Jeff Zhang |
+| [TEZ-2496](https://issues.apache.org/jira/browse/TEZ-2496) | Consider scheduling tasks in ShuffleVertexManager based on the partition sizes from the source |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-2478](https://issues.apache.org/jira/browse/TEZ-2478) | Move OneToOne routing to store events in Tasks |  Major | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-2463](https://issues.apache.org/jira/browse/TEZ-2463) | Update site for 0.7.0 release |  Major | . | Jeff Zhang | Jeff Zhang |
 | [TEZ-2454](https://issues.apache.org/jira/browse/TEZ-2454) | Change FetcherOrderedGroup to work as Callables instead of blocking threads |  Major | . | Siddharth Seth | Siddharth Seth |
