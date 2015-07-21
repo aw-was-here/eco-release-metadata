@@ -288,6 +288,7 @@
 | [SPARK-3161](https://issues.apache.org/jira/browse/SPARK-3161) | Cache example-node map for DecisionTree training |  Major | MLlib | Joseph K. Bradley | Sung Chung |
 | [SPARK-3160](https://issues.apache.org/jira/browse/SPARK-3160) | Simplify DecisionTree data structure for training |  Minor | MLlib | Joseph K. Bradley | Joseph K. Bradley |
 | [SPARK-3158](https://issues.apache.org/jira/browse/SPARK-3158) | Avoid 1 extra aggregation for DecisionTree training |  Major | MLlib | Joseph K. Bradley | Qiping Li |
+| [SPARK-3157](https://issues.apache.org/jira/browse/SPARK-3157) | Avoid duplicated stats in DecisionTree extractLeftRightNodeAggregates |  Minor | MLlib | Joseph K. Bradley | Joseph K. Bradley |
 | [SPARK-3156](https://issues.apache.org/jira/browse/SPARK-3156) | DecisionTree: Order categorical features adaptively |  Major | MLlib | Joseph K. Bradley | Joseph K. Bradley |
 | [SPARK-3128](https://issues.apache.org/jira/browse/SPARK-3128) | Use streaming test suite for StreamingLR |  Minor | MLlib, Streaming | Jeremy Freeman |  |
 | [SPARK-3123](https://issues.apache.org/jira/browse/SPARK-3123) | override the "setName" function to set EdgeRDD's name manually just as VertexRDD does. |  Minor | GraphX | uncleGen |  |

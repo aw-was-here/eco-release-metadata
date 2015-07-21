@@ -69,6 +69,13 @@ Correct Javadoc generation errors
 
 ---
 
+* [HBASE-13881](https://issues.apache.org/jira/browse/HBASE-13881) | *Major* | **Bug in HTable#incrementColumnValue implementation**
+
+HBASE-13881 Correct HTable incrementColumnValue implementation
+
+
+---
+
 * [HBASE-13849](https://issues.apache.org/jira/browse/HBASE-13849) | *Major* | **Remove restore and clone snapshot from the WebUI**
 
 The HBase master status web page no longer allows operators to clone snapshots nor restore snapshots.

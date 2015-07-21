@@ -138,13 +138,6 @@ Added SFTP filesystem by using the JSch library.
 
 ---
 
-* [HDFS-8344](https://issues.apache.org/jira/browse/HDFS-8344) | *Major* | **NameNode doesn't recover lease for files with missing blocks**
-
-Allow a configuration to specify the maximum number of recovery attempts for blocks under construction.
-
-
----
-
 * [HDFS-8157](https://issues.apache.org/jira/browse/HDFS-8157) | *Major* | **Writes to RAM DISK reserve locked memory for block files**
 
 This change requires setting the dfs.datanode.max.locked.memory configuration key to use the HDFS Lazy Persist feature. Its value limits the combined off-heap memory for blocks in RAM via caching and lazy persist writes.
@@ -162,6 +155,13 @@ This change requires setting the dfs.datanode.max.locked.memory configuration ke
 * [HDFS-7645](https://issues.apache.org/jira/browse/HDFS-7645) | *Major* | **Rolling upgrade is restoring blocks from trash multiple times**
 
 **WARNING: No release note provided for this incompatible change.**
+
+
+---
+
+* [HDFS-7582](https://issues.apache.org/jira/browse/HDFS-7582) | *Major* | **Enforce maximum number of ACL entries separately per access and default.**
+
+Limit on Maximum number of ACL entries(32) will be enforced separately on access and default ACLs. So in total, max. 64 ACL entries can be present in a ACL spec.
 
 
 ---

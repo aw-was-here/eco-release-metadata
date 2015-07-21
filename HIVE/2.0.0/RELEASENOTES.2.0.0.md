@@ -23,6 +23,13 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [HIVE-11229](https://issues.apache.org/jira/browse/HIVE-11229) | *Major* | **Mutation API: Coordinator communication with meta store should be optional**
+
+Mutation coordinator meta store dependency now optional.
+
+
+---
+
 * [HIVE-11228](https://issues.apache.org/jira/browse/HIVE-11228) | *Major* | **Mutation API should use semi-shared locks.**
 
 Streaming mutation API uses semi-shared locks.

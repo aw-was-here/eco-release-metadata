@@ -34,6 +34,15 @@ The index 4 goes out of bounds (but this is not checked).
 
 ---
 
+* [SPARK-9193](https://issues.apache.org/jira/browse/SPARK-9193) | *Major* | **Avoid assigning tasks to executors under killing**
+
+Now, when some executors are killed by dynamic-allocation, it leads to some mis-assignment onto lost executors sometimes. Such kind of mis-assignment causes task failure(s) or even job failure if it repeats that errors for 4 times.
+
+The root cause is that killExecutors doesn't remove those executors under killing ASAP. It depends on the OnDisassociated event to refresh the active working list later. The delay time really depends on your cluster status (from several milliseconds to sub-minute). When new tasks to be scheduled during that period of time, it will be assigned to those "active" but "under killing" executors. Then the tasks will be failed due to "executor lost". The better way is to exclude those executors under killing in the makeOffers(). Then all those tasks won't be allocated onto those executors "to be lost" any more.
+
+
+---
+
 * [SPARK-9175](https://issues.apache.org/jira/browse/SPARK-9175) | *Critical* | **BLAS.gemm fails to update matrix C when alpha==0 and beta!=1**
 
 In the BLAS wrapper, gemm is supposed to update matrix C to be alpha * A * B + beta * C. However, the current implementation will not update C as long as alpha == 0. This is incorrect when beta is not equal to 1. 

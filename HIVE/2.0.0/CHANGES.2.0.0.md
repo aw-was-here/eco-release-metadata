@@ -76,12 +76,14 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HIVE-11311](https://issues.apache.org/jira/browse/HIVE-11311) | Avoid dumping AST tree String in Explain unless necessary |  Major | . | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
 | [HIVE-11285](https://issues.apache.org/jira/browse/HIVE-11285) | ObjectInspector for partition columns in FetchOperator in SMBJoin causes exception |  Major | . | Pengcheng Xiong | Pengcheng Xiong |
 | [HIVE-11284](https://issues.apache.org/jira/browse/HIVE-11284) | Fix cbo\_rp\_join0 failure on master |  Major | CBO, Query Planning | Ashutosh Chauhan | Jesus Camacho Rodriguez |
 | [HIVE-11279](https://issues.apache.org/jira/browse/HIVE-11279) | Hive should emit lineage information in json compact format |  Major | Logging | Lenni Kuff | Lenni Kuff |
 | [HIVE-11255](https://issues.apache.org/jira/browse/HIVE-11255) | get\_table\_objects\_by\_name() in HiveMetaStore.java needs to retrieve table objects in multiple batches |  Major | Database/Schema | Aihua Xu | Aihua Xu |
 | [HIVE-11243](https://issues.apache.org/jira/browse/HIVE-11243) | Changing log level in Utilities.getBaseWork |  Minor | Logging | Nemon Lou | Nemon Lou |
 | [HIVE-11230](https://issues.apache.org/jira/browse/HIVE-11230) | IMetaStoreClient getPartition method arguments incorrectly named |  Minor | Hive, Metastore | Elliot West | Elliot West |
+| [HIVE-11229](https://issues.apache.org/jira/browse/HIVE-11229) | Mutation API: Coordinator communication with meta store should be optional |  Major | HCatalog | Elliot West | Elliot West |
 | [HIVE-11224](https://issues.apache.org/jira/browse/HIVE-11224) | AggregateStatsCache triggers java.util.ConcurrentModificationException under some conditions |  Major | . | Pengcheng Xiong | Pengcheng Xiong |
 | [HIVE-11221](https://issues.apache.org/jira/browse/HIVE-11221) | In Tez mode, alter table concatenate orc files can intermittently fail with NPE |  Major | . | Prasanth Jayachandran | Prasanth Jayachandran |
 | [HIVE-11216](https://issues.apache.org/jira/browse/HIVE-11216) | UDF GenericUDFMapKeys throws NPE when a null map value is passed in |  Major | UDF | Yibing Shi | Yibing Shi |
@@ -96,6 +98,7 @@
 | [HIVE-11190](https://issues.apache.org/jira/browse/HIVE-11190) | No prompting info or warning provided when METASTORE\_FILTER\_HOOK in authorization V2 is overridden |  Major | . | Dapeng Sun | Dapeng Sun |
 | [HIVE-11184](https://issues.apache.org/jira/browse/HIVE-11184) | Lineage - ExprProcFactory#getExprString may throw NullPointerException |  Minor | . | Jimmy Xiang | Jimmy Xiang |
 | [HIVE-11174](https://issues.apache.org/jira/browse/HIVE-11174) | Hive does not treat floating point signed zeros as equal (-0.0 should equal 0.0 according to IEEE floating point spec) |  Critical | Query Processor | Lenni Kuff | Sergio Peña |
+| [HIVE-11172](https://issues.apache.org/jira/browse/HIVE-11172) | Vectorization wrong results for aggregate query with where clause without group by |  Critical | Hive | Yi Zhang | Hari Sankar Sivarama Subramaniyan |
 | [HIVE-11171](https://issues.apache.org/jira/browse/HIVE-11171) | Join reordering algorithm might introduce projects between joins |  Major | CBO | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
 | [HIVE-11170](https://issues.apache.org/jira/browse/HIVE-11170) | port parts of HIVE-11015 to master for ease of future merging |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
 | [HIVE-11157](https://issues.apache.org/jira/browse/HIVE-11157) | Hive.get(HiveConf) returns same Hive object to different user sessions |  Major | Hive | Chaoyu Tang | Chaoyu Tang |
@@ -261,6 +264,7 @@
 | [HIVE-11232](https://issues.apache.org/jira/browse/HIVE-11232) | CBO: Calcite Operator To Hive Operator (Calcite Return Path): fix the output of select\_same\_col.q |  Major | CBO | Pengcheng Xiong | Pengcheng Xiong |
 | [HIVE-11231](https://issues.apache.org/jira/browse/HIVE-11231) | CBO: Calcite Operator To Hive Operator (Calcite Return Path): make the output of ba\_table\_union.q more stable |  Minor | CBO | Pengcheng Xiong | Pengcheng Xiong |
 | [HIVE-11223](https://issues.apache.org/jira/browse/HIVE-11223) | CBO (Calcite Return Path): MapJoin and SMBJoin conversion not triggered |  Major | CBO | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
+| [HIVE-11210](https://issues.apache.org/jira/browse/HIVE-11210) | Remove dependency on HiveConf from Orc reader & writer |  Major | . | Owen O'Malley | Owen O'Malley |
 | [HIVE-11206](https://issues.apache.org/jira/browse/HIVE-11206) | CBO (Calcite Return Path): Join translation should update all ExprNode recursively |  Major | CBO | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
 | [HIVE-11161](https://issues.apache.org/jira/browse/HIVE-11161) | create patch for branch-1 for HiveOnTez: make explain user level = true as default |  Major | Diagnosability | Pengcheng Xiong | Pengcheng Xiong |
 | [HIVE-11137](https://issues.apache.org/jira/browse/HIVE-11137) | In DateWritable remove the use of LazyBinaryUtils |  Major | . | Owen O'Malley | Owen O'Malley |

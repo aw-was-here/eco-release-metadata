@@ -46,6 +46,13 @@ With this patch NeedUnmanagedConnectionException is effectively treated as non-r
 
 ---
 
+* [HBASE-13881](https://issues.apache.org/jira/browse/HBASE-13881) | *Major* | **Bug in HTable#incrementColumnValue implementation**
+
+HBASE-13881 Correct HTable incrementColumnValue implementation
+
+
+---
+
 * [HBASE-13666](https://issues.apache.org/jira/browse/HBASE-13666) | *Major* | **book.pdf is not renamed during site build**
 
 Correct PDF renaming and bump version of maven-antrun-plugin

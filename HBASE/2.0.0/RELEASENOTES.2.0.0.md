@@ -77,7 +77,17 @@ If you need to have the JDK tools jar in your classpath, you should add a system
 
 * [HBASE-13954](https://issues.apache.org/jira/browse/HBASE-13954) | *Major* | **Remove HTableInterface#getRowOrBefore related server side code**
 
-**WARNING: No release note provided for this incompatible change.**
+Removed Table#getRowOrBefore, Region#getClosestRowBefore, Store#getRowKeyAtOrBefore, RemoteHTable#getRowOrBefore apis and Thrift support for getRowOrBefore.
+Also removed two coprocessor hooks preGetClosestRowBefore and postGetClosestRowBefore.
+User using this api can instead use reverse scan something like below, 
+{code} 
+ Scan scan = new Scan(row); 
+  scan.setSmall(true); 
+  scan.setCaching(1); 
+  scan.setReversed(true); 
+  scan.addFamily(family); 
+{code} 
+pass this scan object to the scanner and retrieve the first Result from scanner output.
 
 
 ---
@@ -886,6 +896,15 @@ Adds a new chaos monkey noKill that won't kill services. Instead it runs two or 
 * [HBASE-12297](https://issues.apache.org/jira/browse/HBASE-12297) | *Major* | **Support DBB usage in Bloom and HFileIndex area**
 
 **WARNING: No release note provided for this incompatible change.**
+
+
+---
+
+* [HBASE-12295](https://issues.apache.org/jira/browse/HBASE-12295) | *Major* | **Prevent block eviction under us if reads are in progress from the BBs**
+
+We try to delay the eviction of the block till the cellblocks are formed at the Rpc layer. A simple reference counting mechanism is introduced when ever a block is accessed from the Bucket cache.  Once a scanner completes using a block the reference count is decremented.  The eviction of the block happens only when the reference count of that block is 0.
+We also introduce a concept of ShareableMemory based on the type of blocks we create from the Block cache. The blocks from the ByteBufferIOEngine directly refer to the buckets in offheap and such blocks are marked SHARED memory type. The blocks from LRU, HDFS and file mode of Bucket cache are all marked EXCLUSIVE because these blocks have their own exclusive memory.
+For the CP case, any cell coming out of SHARED memory block is copied before returning the results, because CPs can use the results as its state so that eviction cannot corrupt the results.
 
 
 ---

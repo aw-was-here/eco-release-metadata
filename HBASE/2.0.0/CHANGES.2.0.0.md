@@ -104,6 +104,7 @@
 | [HBASE-14110](https://issues.apache.org/jira/browse/HBASE-14110) | Add CostFunction for balancing primary region replicas |  Major | . | Ted Yu | Ted Yu |
 | [HBASE-14099](https://issues.apache.org/jira/browse/HBASE-14099) | StoreFile.passesKeyRangeFilter need not create Cells from the Scan's start and stop Row |  Major | Performance, Scanners | ramkrishna.s.vasudevan | ramkrishna.s.vasudevan |
 | [HBASE-14045](https://issues.apache.org/jira/browse/HBASE-14045) | Bumping thrift version to 0.9.2. |  Major | . | Srikanth Srungarapu | Srikanth Srungarapu |
+| [HBASE-14039](https://issues.apache.org/jira/browse/HBASE-14039) | BackupHandler.deleteSnapshot MUST use HBase Snapshot API |  Major | . | Vladimir Rodionov | Vladimir Rodionov |
 | [HBASE-14015](https://issues.apache.org/jira/browse/HBASE-14015) | Allow setting a richer state value when toString a pv2 |  Minor | proc-v2 | stack | stack |
 | [HBASE-14002](https://issues.apache.org/jira/browse/HBASE-14002) | Add --noReplicationSetup option to IntegrationTestReplication |  Major | integration tests | Dima Spivak | Dima Spivak |
 | [HBASE-14001](https://issues.apache.org/jira/browse/HBASE-14001) | Optimize write(OutputStream out, boolean withTags) for SizeCachedNoTagsKeyValue |  Minor | . | Anoop Sam John | Anoop Sam John |
@@ -1418,6 +1419,7 @@
 | [HBASE-12343](https://issues.apache.org/jira/browse/HBASE-12343) | Document recommended configuration for 0.98 from HBASE-11964 |  Major | . | Andrew Purtell | Andrew Purtell |
 | [HBASE-12313](https://issues.apache.org/jira/browse/HBASE-12313) | Redo the hfile index length optimization so cell-based rather than serialized KV key |  Major | regionserver, Scanners | stack | stack |
 | [HBASE-12296](https://issues.apache.org/jira/browse/HBASE-12296) | Filters should work with ByteBufferedCell |  Major | regionserver, Scanners | ramkrishna.s.vasudevan | Anoop Sam John |
+| [HBASE-12295](https://issues.apache.org/jira/browse/HBASE-12295) | Prevent block eviction under us if reads are in progress from the BBs |  Major | regionserver, Scanners | ramkrishna.s.vasudevan | ramkrishna.s.vasudevan |
 | [HBASE-12288](https://issues.apache.org/jira/browse/HBASE-12288) | Support DirectByteBuffer usage in DataBlock Encoding area |  Major | regionserver, Scanners | Anoop Sam John | Anoop Sam John |
 | [HBASE-12210](https://issues.apache.org/jira/browse/HBASE-12210) | Avoid KeyValue in Prefix Tree |  Major | regionserver | ramkrishna.s.vasudevan | ramkrishna.s.vasudevan |
 | [HBASE-12202](https://issues.apache.org/jira/browse/HBASE-12202) | Support DirectByteBuffer usage in HFileBlock |  Major | regionserver, Scanners | Anoop Sam John | Anoop Sam John |

@@ -53,6 +53,7 @@
 | [TEZ-2149](https://issues.apache.org/jira/browse/TEZ-2149) | Optimizations for the timed version of DAGClient.getStatus |  Major | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-2083](https://issues.apache.org/jira/browse/TEZ-2083) | Make PipelinedSorter as the default sorter |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-2016](https://issues.apache.org/jira/browse/TEZ-2016) | Tez UI: Dag View Fit and Finish |  Major | UI | Jonathan Eagles | Sreenath Somarajapuram |
+| [TEZ-2001](https://issues.apache.org/jira/browse/TEZ-2001) | Support pipelined data transfer for ordered output |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-1967](https://issues.apache.org/jira/browse/TEZ-1967) | Add a monitoring API on DAGClient which returns after a time interval or on DAG state change |  Major | . | Siddharth Seth | Vasanth kumar RJ |
 | [TEZ-1917](https://issues.apache.org/jira/browse/TEZ-1917) | Examples should extend TezExampleBase |  Major | . | Siddharth Seth | Vasanth kumar RJ |
 | [TEZ-1867](https://issues.apache.org/jira/browse/TEZ-1867) | Create new central dispatcher for Tez AM |  Major | . | Bikas Saha | Bikas Saha |

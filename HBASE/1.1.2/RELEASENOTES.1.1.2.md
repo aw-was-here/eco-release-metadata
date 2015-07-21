@@ -37,4 +37,11 @@ In this issue, we actually also remove these methods in master/2.0.0 branch.
 Exclude Findbugs packages from shaded jars
 
 
+---
+
+* [HBASE-13881](https://issues.apache.org/jira/browse/HBASE-13881) | *Major* | **Bug in HTable#incrementColumnValue implementation**
+
+HBASE-13881 Correct HTable incrementColumnValue implementation
+
+
 

@@ -10709,6 +10709,16 @@ Some above notes were copied from discussion in [https://github.com/apache/spark
 
 ---
 
+* [SPARK-3157](https://issues.apache.org/jira/browse/SPARK-3157) | *Minor* | **Avoid duplicated stats in DecisionTree extractLeftRightNodeAggregates**
+
+Improvement: computation, memory usage
+
+For ordered features, extractLeftRightNodeAggregates() computes pairs of cumulative sums.  However, these sums are redundant since they are simply cumulative sums accumulating from the left and right ends, respectively.  Only compute one sum.
+For unordered features, the left and right aggregates are essentially the same data, copied from the original aggregates, but shifted by one index.  Avoid copying data.
+
+
+---
+
 * [SPARK-3156](https://issues.apache.org/jira/browse/SPARK-3156) | *Major* | **DecisionTree: Order categorical features adaptively**
 
 Improvement: accuracy

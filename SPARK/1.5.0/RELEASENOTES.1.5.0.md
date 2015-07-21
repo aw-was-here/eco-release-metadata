@@ -23,6 +23,134 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-9206](https://issues.apache.org/jira/browse/SPARK-9206) | *Major* | **ClassCastException using HiveContext with GoogleHadoopFileSystem as fs.defaultFS**
+
+Originally reported on StackOverflow: http://stackoverflow.com/questions/31478955/googlehadoopfilesystem-cannot-be-cast-to-hadoop-filesystem
+
+Google's "bdutil" command-line tool (https://github.com/GoogleCloudPlatform/bdutil) is one of the main supported ways of deploying Hadoop and Spark cluster on Google Cloud Platform, and has default settings which configure fs.defaultFS to use the Google Cloud Storage connector for Hadoop (and performs installation of the connector jarfile on top of tarball-based Hadoop and Spark distributions).
+
+Starting in Spark 1.4.1, taking a default bdutil-based Spark deployment, running "spark-shell", and then trying to read a file with sqlContext like:
+
+{code}
+sqlContext.parquetFile("gs://my-bucket/my-file.parquet")
+{code}
+
+results in the following:
+
+{noformat}
+15/07/20 20:59:14 DEBUG IsolatedClientLoader: shared class: com.google.cloud.hadoop.fs.gcs.GoogleHadoopFileSystem
+java.lang.RuntimeException: java.lang.ClassCastException: com.google.cloud.hadoop.fs.gcs.GoogleHadoopFileSystem cannot be cast to org.apache.hadoop.fs.FileSystem
+	at org.apache.hadoop.hive.ql.session.SessionState.start(SessionState.java:346)
+	at org.apache.spark.sql.hive.client.ClientWrapper.<init>(ClientWrapper.scala:116)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:526)
+	at org.apache.spark.sql.hive.client.IsolatedClientLoader.liftedTree1$1(IsolatedClientLoader.scala:172)
+	at org.apache.spark.sql.hive.client.IsolatedClientLoader.<init>(IsolatedClientLoader.scala:168)
+	at org.apache.spark.sql.hive.HiveContext.metadataHive$lzycompute(HiveContext.scala:213)
+	at org.apache.spark.sql.hive.HiveContext.metadataHive(HiveContext.scala:176)
+	at org.apache.spark.sql.hive.HiveContext$$anon$2.<init>(HiveContext.scala:371)
+	at org.apache.spark.sql.hive.HiveContext.catalog$lzycompute(HiveContext.scala:371)
+	at org.apache.spark.sql.hive.HiveContext.catalog(HiveContext.scala:370)
+	at org.apache.spark.sql.hive.HiveContext$$anon$1.<init>(HiveContext.scala:383)
+	at org.apache.spark.sql.hive.HiveContext.analyzer$lzycompute(HiveContext.scala:383)
+	at org.apache.spark.sql.hive.HiveContext.analyzer(HiveContext.scala:382)
+	at org.apache.spark.sql.SQLContext$QueryExecution.assertAnalyzed(SQLContext.scala:931)
+	at org.apache.spark.sql.DataFrame.<init>(DataFrame.scala:131)
+	at org.apache.spark.sql.DataFrame$.apply(DataFrame.scala:51)
+	at org.apache.spark.sql.SQLContext.baseRelationToDataFrame(SQLContext.scala:438)
+	at org.apache.spark.sql.DataFrameReader.parquet(DataFrameReader.scala:264)
+	at org.apache.spark.sql.SQLContext.parquetFile(SQLContext.scala:1099)
+	at $iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC.<init>(<console>:19)
+	at $iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC.<init>(<console>:24)
+	at $iwC$$iwC$$iwC$$iwC$$iwC$$iwC.<init>(<console>:26)
+	at $iwC$$iwC$$iwC$$iwC$$iwC.<init>(<console>:28)
+	at $iwC$$iwC$$iwC$$iwC.<init>(<console>:30)
+	at $iwC$$iwC$$iwC.<init>(<console>:32)
+	at $iwC$$iwC.<init>(<console>:34)
+	at $iwC.<init>(<console>:36)
+	at <init>(<console>:38)
+	at .<init>(<console>:42)
+	at .<clinit>(<console>)
+	at .<init>(<console>:7)
+	at .<clinit>(<console>)
+	at $print(<console>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.apache.spark.repl.SparkIMain$ReadEvalPrint.call(SparkIMain.scala:1065)
+	at org.apache.spark.repl.SparkIMain$Request.loadAndRun(SparkIMain.scala:1338)
+	at org.apache.spark.repl.SparkIMain.loadAndRunReq$1(SparkIMain.scala:840)
+	at org.apache.spark.repl.SparkIMain.interpret(SparkIMain.scala:871)
+	at org.apache.spark.repl.SparkIMain.interpret(SparkIMain.scala:819)
+	at org.apache.spark.repl.SparkILoop.reallyInterpret$1(SparkILoop.scala:857)
+	at org.apache.spark.repl.SparkILoop.interpretStartingWith(SparkILoop.scala:902)
+	at org.apache.spark.repl.SparkILoop.command(SparkILoop.scala:814)
+	at org.apache.spark.repl.SparkILoop.processLine$1(SparkILoop.scala:657)
+	at org.apache.spark.repl.SparkILoop.innerLoop$1(SparkILoop.scala:665)
+	at org.apache.spark.repl.SparkILoop.org$apache$spark$repl$SparkILoop$$loop(SparkILoop.scala:670)
+	at org.apache.spark.repl.SparkILoop$$anonfun$org$apache$spark$repl$SparkILoop$$process$1.apply$mcZ$sp(SparkILoop.scala:997)
+	at org.apache.spark.repl.SparkILoop$$anonfun$org$apache$spark$repl$SparkILoop$$process$1.apply(SparkILoop.scala:945)
+	at org.apache.spark.repl.SparkILoop$$anonfun$org$apache$spark$repl$SparkILoop$$process$1.apply(SparkILoop.scala:945)
+	at scala.tools.nsc.util.ScalaClassLoader$.savingContextLoader(ScalaClassLoader.scala:135)
+	at org.apache.spark.repl.SparkILoop.org$apache$spark$repl$SparkILoop$$process(SparkILoop.scala:945)
+	at org.apache.spark.repl.SparkILoop.process(SparkILoop.scala:1059)
+	at org.apache.spark.repl.Main$.main(Main.scala:31)
+	at org.apache.spark.repl.Main.main(Main.scala)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.apache.spark.deploy.SparkSubmit$.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:665)
+	at org.apache.spark.deploy.SparkSubmit$.doRunMain$1(SparkSubmit.scala:170)
+	at org.apache.spark.deploy.SparkSubmit$.submit(SparkSubmit.scala:193)
+	at org.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:112)
+	at org.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)
+Caused by: java.lang.ClassCastException: com.google.cloud.hadoop.fs.gcs.GoogleHadoopFileSystem cannot be cast to org.apache.hadoop.fs.FileSystem
+	at org.apache.hadoop.fs.FileSystem.createFileSystem(FileSystem.java:2595)
+	at org.apache.hadoop.fs.FileSystem.access$200(FileSystem.java:91)
+	at org.apache.hadoop.fs.FileSystem$Cache.getInternal(FileSystem.java:2630)
+	at org.apache.hadoop.fs.FileSystem$Cache.get(FileSystem.java:2612)
+	at org.apache.hadoop.fs.FileSystem.get(FileSystem.java:370)
+	at org.apache.hadoop.fs.FileSystem.get(FileSystem.java:169)
+	at org.apache.hadoop.hive.ql.session.SessionState.start(SessionState.java:342)
+	... 67 more
+{noformat}
+
+This appears to be a combination of https://github.com/apache/spark/commit/9ac8393663d759860c67799e000ec072ced76493 and its related "isolated classloader" changes with the IsolatedClientLoader.isSharedClass method including "com.google.*" alongside java.lang.*, java.net.*, etc., as shared classes, presumably for inclusion of Guava and possibly protobuf and gson libraries.
+
+Unfortunately, this also includes the Hadoop extended libraries like com.google.cloud.hadoop.fs.gcs.GoogleHadoopFileSystem (https://github.com/GoogleCloudPlatform/bigdata-interop) and com.google.cloud.bigtable.* (https://github.com/GoogleCloudPlatform/cloud-bigtable-client).
+
+This can be reproduced by downloading bdutil from https://github.com/GoogleCloudPlatform/bdutil, modifying bdutil/extensions/spark/spark\_env.sh to set SPARK\_HADOOP2\_TARBALL\_URI to some Spark 1.4.1 tarball URI (http URIs should work as well) and then deploying a cluster with:
+
+{code}
+./bdutil -p <your project> -b <your GCS bucket> -z us-central1-f -e hadoop2 -e spark deploy
+./bdutil -p <your project> -b <your GCS bucket> -z us-central1-f -e hadoop2 -e spark shell
+{code}
+
+The last command opens an SSH session; then type:
+
+{code}
+spark-shell
+> sqlContext.parquetFile("gs://your-bucket/some/path/to/parquet/file.parquet")
+{code}
+
+The ClassCastException should then immediately get thrown.
+
+The simple fix of simply excluding com.google.cloud.* from being "shared classes" appears to work just fine in an end-to-end bdutil-based deployment.
+
+
+---
+
+* [SPARK-9204](https://issues.apache.org/jira/browse/SPARK-9204) | *Trivial* | **Add default params test to linear regression**
+
+ML's logisitc regression has tests for the default params, we should have similar tests for linear regression.
+
+
+---
+
 * [SPARK-9201](https://issues.apache.org/jira/browse/SPARK-9201) | *Major* | **Integrate MLlib with SparkR using RFormula**
 
 We need to interface R glm() and predict() with mllib R formula support.
@@ -39,6 +167,15 @@ Several places in the PySpark SparseVector docs have one defined as:
 SparseVector(4, [2, 4], [1.0, 2.0])
 {code}
 The index 4 goes out of bounds (but this is not checked).
+
+
+---
+
+* [SPARK-9193](https://issues.apache.org/jira/browse/SPARK-9193) | *Major* | **Avoid assigning tasks to executors under killing**
+
+Now, when some executors are killed by dynamic-allocation, it leads to some mis-assignment onto lost executors sometimes. Such kind of mis-assignment causes task failure(s) or even job failure if it repeats that errors for 4 times.
+
+The root cause is that killExecutors doesn't remove those executors under killing ASAP. It depends on the OnDisassociated event to refresh the active working list later. The delay time really depends on your cluster status (from several milliseconds to sub-minute). When new tasks to be scheduled during that period of time, it will be assigned to those "active" but "under killing" executors. Then the tasks will be failed due to "executor lost". The better way is to exclude those executors under killing in the makeOffers(). Then all those tasks won't be allocated onto those executors "to be lost" any more.
 
 
 ---
@@ -98,9 +235,27 @@ Will submit PR to fix this.
 
 ---
 
+* [SPARK-9173](https://issues.apache.org/jira/browse/SPARK-9173) | *Major* | **UnionPushDown should also support Intersect and Except in addition to Union**
+
+UnionPushDown transforms only Union. It should also transform Intersect and Except.
+
+
+---
+
 * [SPARK-9172](https://issues.apache.org/jira/browse/SPARK-9172) | *Major* | **DecimalPrecision should also support Intersect and Except in addition to Union**
 
 DecimalPrecision transforms only Union. It should also transform Intersect and Except.
+
+
+---
+
+* [SPARK-9168](https://issues.apache.org/jira/browse/SPARK-9168) | *Major* | **Add nanvl expression**
+
+Similar to Oracle's nanvl:
+
+nanvl(v1, v2)
+
+if v1 is NaN, returns v2; otherwise, returns v1.
 
 
 ---
@@ -124,6 +279,29 @@ Additionally, this patch creates an Unevaluable trait that can be used to track 
 
 ---
 
+* [SPARK-9147](https://issues.apache.org/jira/browse/SPARK-9147) | *Major* | **UnsafeRow should canonicalize NaN values**
+
+NaN has many different representations in raw bytes.
+
+When we set a double/float value, we should check whether it is NaN, and a binary representation that is canonicalized, so we can do comparison on bytes directly.
+
+
+---
+
+* [SPARK-9146](https://issues.apache.org/jira/browse/SPARK-9146) | *Critical* | **NaN should be greater than all other values**
+
+Based on the design in SPARK-9079, NaN should be greater than all other non-NaN numeric values.
+
+
+---
+
+* [SPARK-9145](https://issues.apache.org/jira/browse/SPARK-9145) | *Critical* | **Equality test on NaN = NaN should return true**
+
+Based on the design in SPARK-9079, we want NaN = NaN to return true in SQL/DataFrame.
+
+
+---
+
 * [SPARK-9143](https://issues.apache.org/jira/browse/SPARK-9143) | *Major* | **Add planner rule for automatically inserting Unsafe \<-\> Safe row format converters**
 
 Now that we have two different internal row formats, UnsafeRow and the old Java-object-based row format, we end up having to perform conversions between these two formats. These conversions should not be performed by the operators themselves; instead, the planner should be responsible for inserting appropriate format conversions when they are needed.
@@ -141,6 +319,20 @@ A small change, based on code review and offline discussion with [~dragos].
 * [SPARK-9138](https://issues.apache.org/jira/browse/SPARK-9138) | *Critical* | **Vectors.dense() in Python should accept numbers directly**
 
 We already use this feature in doctests
+
+
+---
+
+* [SPARK-9132](https://issues.apache.org/jira/browse/SPARK-9132) | *Major* | **Implement code gen for Conv**
+
+Would be great to refactor the thing slightly so we can do code generation. Since conv actually have some internal buffer, I think the best way is to create a new NumberConverter class that contains the internal buffer, and move most of the methods there. And then in Conv expression, we just create a NumberConverter, and call it to do the conversion.
+
+
+---
+
+* [SPARK-9128](https://issues.apache.org/jira/browse/SPARK-9128) | *Major* | **Get outerclasses and objects at the same time in ClosureCleaner**
+
+Currently, in ClosureCleaner, the outerclasses and objects are retrieved using two different methods. However, the logic of the two methods is the same, and we can get both the outerclasses and objects with only one method calling.
 
 
 ---
@@ -408,6 +600,17 @@ Create a UnsafeSqlSerializer that serializes UnsafeRows.
 {code}
 
 It turns out that this can be fixed by making AbstractScalaRowIterator into a concrete class instead of an abstract class.
+
+
+---
+
+* [SPARK-9036](https://issues.apache.org/jira/browse/SPARK-9036) | *Minor* | **SparkListenerExecutorMetricsUpdate messages not included in JsonProtocol**
+
+The JsonProtocol added in SPARK-3454 [doesn't include|https://github.com/apache/spark/blob/v1.4.1-rc4/core/src/main/scala/org/apache/spark/util/JsonProtocol.scala#L95-L96] code for ser/de of [{{SparkListenerExecutorMetricsUpdate}}|https://github.com/apache/spark/blob/v1.4.1-rc4/core/src/main/scala/org/apache/spark/scheduler/SparkListener.scala#L107-L110] messages.
+
+The comment notes that they are "not used", which presumably refers to the fact that the [{{EventLoggingListener}} doesn't write these events|https://github.com/apache/spark/blob/v1.4.1-rc4/core/src/main/scala/org/apache/spark/scheduler/EventLoggingListener.scala#L200-L201].
+
+However, individual listeners can and should make that determination for themselves; I have recently written custom listeners that would like to consume metrics-update messages as JSON, so it would be nice to round out the JsonProtocol implementation by supporting them.
 
 
 ---
@@ -1083,6 +1286,13 @@ The type alias was there because initially when I moved Row around, I didn't wan
 
 ---
 
+* [SPARK-8875](https://issues.apache.org/jira/browse/SPARK-8875) | *Minor* | **Shuffle code cleanup: remove BlockStoreShuffleFetcher class**
+
+The shuffle code has gotten increasingly difficult to read as it has evolved, and many classes have evolved significantly since they were originally created. The BlockStoreShuffleFetcher class now serves little purpose other than to make the code more difficult to read; we should move its functionality into the ShuffleBlockFetcherIterator class.
+
+
+---
+
 * [SPARK-8872](https://issues.apache.org/jira/browse/SPARK-8872) | *Minor* | **Improve FPGrowthSuite with equivalent R code**
 
 In `FPGrowthSuite`, we only tested output with minSupport 0.5, where the expected output is hard-coded. We can add equivalent R code using the arules package to generate the expect output for validation purpose, similar to https://github.com/apache/spark/blob/master/mllib/src/test/scala/org/apache/spark/ml/regression/LinearRegressionSuite.scala#L98 and the test code in https://github.com/apache/spark/pull/7005.
@@ -1376,6 +1586,13 @@ Having null throws exceptions, we could replace them with empty strings.
 Some functions support more than one input types for each parameter. For example, length supports binary and string, and maybe array/struct in the future.
 
 This ticket proposes a TypeCollection AbstractDataType that supports multiple data types.
+
+
+---
+
+* [SPARK-8797](https://issues.apache.org/jira/browse/SPARK-8797) | *Critical* | **Sorting float/double column containing NaNs can lead to "Comparison method violates its general contract!" errors**
+
+When sorting a float or double column that contains NaN (not a number) values, TimSort may throw a ""Comparison method violates its general contract!" error.
 
 
 ---
@@ -3111,6 +3328,15 @@ AWS released M4 instances recently (https://aws.amazon.com/blogs/aws/the-new-m4-
 
 ---
 
+* [SPARK-8481](https://issues.apache.org/jira/browse/SPARK-8481) | *Minor* | **GaussianMixtureModel predict accepting single vector**
+
+GaussianMixtureModel lacks a method to predict a cluster for a single input vector where no spark context would be involved, i.e.
+/** Maps given point to its cluster index. */
+def predict(point: Vector) : Int
+
+
+---
+
 * [SPARK-8479](https://issues.apache.org/jira/browse/SPARK-8479) | *Minor* | **Add numNonzeros and numActives to linalg.Matrices**
 
 Add
@@ -4504,6 +4730,99 @@ Notice that the newly added ORC data source is less likely to hit this issue bec
 
 ---
 
+* [SPARK-8401](https://issues.apache.org/jira/browse/SPARK-8401) | *Minor* | **Build system scala version selection script fails on Mac OS X**
+
+The {{dev/change-version-to-*.sh}} selection scripts use syntax for GNU sed which produces incorrect results when run with Mac OS X's built in version of sed. For example:
+
+{noformat}
+[msa@Michaels-MacBook-Pro spark-1.4]$ ./dev/change-version-to-2.11.sh 
+[msa@Michaels-MacBook-Pro spark-1.4]$ gst
+On branch scala-versions
+Your branch and 'vamp/scala-versions' have diverged,
+and have 7 and 4 different commits each, respectively.
+  (use "git pull" to merge the remote branch into yours)
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   assembly/pom.xml
+	modified:   bagel/pom.xml
+	modified:   core/pom.xml
+	modified:   dev/change-scala-version.sh
+	modified:   docs/\_plugins/copy\_api\_dirs.rb
+	modified:   examples/pom.xml
+	modified:   external/flume-sink/pom.xml
+	modified:   external/flume/pom.xml
+	modified:   external/kafka-assembly/pom.xml
+	modified:   external/kafka/pom.xml
+	modified:   external/mqtt/pom.xml
+	modified:   external/twitter/pom.xml
+	modified:   external/zeromq/pom.xml
+	modified:   extras/java8-tests/pom.xml
+	modified:   extras/kinesis-asl/pom.xml
+	modified:   extras/spark-ganglia-lgpl/pom.xml
+	modified:   graphx/pom.xml
+	modified:   launcher/pom.xml
+	modified:   mllib/pom.xml
+	modified:   network/common/pom.xml
+	modified:   network/shuffle/pom.xml
+	modified:   network/yarn/pom.xml
+	modified:   pom.xml
+	modified:   repl/pom.xml
+	modified:   sql/catalyst/pom.xml
+	modified:   sql/core/pom.xml
+	modified:   sql/hive-thriftserver/pom.xml
+	modified:   sql/hive/pom.xml
+	modified:   streaming/pom.xml
+	modified:   tools/pom.xml
+	modified:   unsafe/pom.xml
+	modified:   yarn/pom.xml
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	assembly/pom.xml-e
+	bagel/pom.xml-e
+	core/pom.xml-e
+	dev/audit-release/blank\_maven\_build/pom.xml-e
+	dev/audit-release/maven\_app\_core/pom.xml-e
+	docs/\_plugins/copy\_api\_dirs.rb-e
+	examples/pom.xml-e
+	external/flume-sink/pom.xml-e
+	external/flume/pom.xml-e
+	external/kafka-assembly/pom.xml-e
+	external/kafka/pom.xml-e
+	external/mqtt/pom.xml-e
+	external/twitter/pom.xml-e
+	external/zeromq/pom.xml-e
+        extras/java8-tests/pom.xml-e
+	extras/kinesis-asl/pom.xml-e
+	extras/spark-ganglia-lgpl/pom.xml-e
+	graphx/pom.xml-e
+	launcher/pom.xml-e
+	mllib/pom.xml-e
+	network/common/pom.xml-e
+	network/shuffle/pom.xml-e
+	network/yarn/pom.xml-e
+	pom.xml-e
+	repl/pom.xml-e
+	sql/catalyst/pom.xml-e
+	sql/core/pom.xml-e
+	sql/hive-thriftserver/pom.xml-e
+	sql/hive/pom.xml-e
+	streaming/pom.xml-e
+	tools/pom.xml-e
+	unsafe/pom.xml-e
+	yarn/pom.xml-e
+
+no changes added to commit (use "git add" and/or "git commit -a")
+{noformat}
+
+Homebrew and MacPorts provide packages for GNU sed which install it as {{gsed}}. Therefore, I suggest that if the default system {{sed}} command is not GNU sed, we look for {{gsed}} and use it if available.
+
+
+---
+
 * [SPARK-8399](https://issues.apache.org/jira/browse/SPARK-8399) | *Minor* | **Overlap between histograms and axis' name in Spark Streaming UI**
 
 If you have an histogram skewed towards the maximum of the displayed values as is the case with the number of messages processed per batchInterval with the Kafka direct API (since it's a constant) for example, the histogram will overlap with the name of the X axis (#batches).
@@ -4740,6 +5059,13 @@ org.apache.spark.sql.catalyst.analysis.UnresolvedException: Invalid call to data
         at scala.collection.TraversableLike$$anonfun$flatMap$1.apply(TraversableLike.scala:251)
 ...
 {code}
+
+
+---
+
+* [SPARK-8357](https://issues.apache.org/jira/browse/SPARK-8357) | *Critical* | **Memory leakage on unsafe aggregation path with empty input**
+
+Currently, unsafe-based hash is released on 'next' call but if input is empty, it would not be called ever.
 
 
 ---
@@ -5302,6 +5628,24 @@ Repeats str n times.
 
 ---
 
+* [SPARK-8256](https://issues.apache.org/jira/browse/SPARK-8256) | *Major* | **string function: regexp\_replace**
+
+regexp\_replace(string INITIAL\_STRING, string PATTERN, string REPLACEMENT): string
+
+Returns the string resulting from replacing all substrings in INITIAL\_STRING that match the java regular expression syntax defined in PATTERN with instances of REPLACEMENT. For example, regexp\_replace("foobar", "oo|ar", "") returns 'fb.' Note that some care is necessary in using predefined character classes: using '\s' as the second argument will match the letter s; '\\s' is necessary to match whitespace, etc.
+
+
+---
+
+* [SPARK-8255](https://issues.apache.org/jira/browse/SPARK-8255) | *Major* | **string function: regexp\_extract**
+
+regexp\_extract(string subject, string pattern, int index): string
+
+Returns the string extracted using the pattern. For example, regexp\_extract('foothebar', 'foo(.*?)(bar)', 2) returns 'bar.' Note that some care is necessary in using predefined character classes: using '\s' as the second argument will match the letter s; '\\s' is necessary to match whitespace, etc. The 'index' parameter is the Java regex Matcher group() method index. See docs/api/java/util/regex/Matcher.html for more information on the 'index' or Java regex group() method.
+
+
+---
+
 * [SPARK-8254](https://issues.apache.org/jira/browse/SPARK-8254) | *Major* | **string function: printf**
 
 printf(String format, Obj... args): string
@@ -5470,6 +5814,17 @@ Calculates the SHA-1 digest for string or binary and returns the value as a hex 
 md5(string/binary): string
 
 Calculates an MD5 128-bit checksum for the string or binary (as of Hive 1.3.0). The value is returned as a string of 32 hex digits, or NULL if the argument was NULL. Example: md5('ABC') = '902fbdd2b1df0c4f70b4a5d23525e932'.
+
+
+---
+
+* [SPARK-8230](https://issues.apache.org/jira/browse/SPARK-8230) | *Major* | **complex function: size**
+
+size(Map<K.V>): int
+
+size(Array<T>): int
+
+return the number of elements in the map or array.
 
 
 ---
@@ -8039,6 +8394,21 @@ I ran into this when trying to serialize a test suite that extends `FunSuite` (d
 
 ---
 
+* [SPARK-7171](https://issues.apache.org/jira/browse/SPARK-7171) | *Minor* | **Allow for more flexible use of metric sources**
+
+With the current API, the user is allowed to add a custom metric source by providing its class in metrics configuration. Metrics themselves are provided by Codahale and therefore they allow to register multiple metrics in a single source. Basically we can break the available types of metrics into two types: "push" and "pull" - by push metrics I mean that some execution code updates the metric by itself either periodically or every n events. On the other hand, the pull metrics include some function which pulls the data from the execution environment, when triggered. 
+
+h5.Problem
+The metric source is instantiated and registered during initialisation. Then, the user has no way to access the instantiated object. It is also almost impossible to access the execution environment of the current task. Therefore, the user who wanted to provide his own {{RDD}} implementation along with a dedicated metrics source, would find it very difficult to do this in a safe, concise and elegant way.
+
+h5.Proposed solution
+At least, for the "push" metrics, it would be nice to be able to retrieve the metrics source of particular type or with particular id from {{TaskContext}}. It would allow custom tasks to update various metrics and would greatly improve the usability of metrics.
+This could be achieved quite easily since {{TaskContext}} is created by {{Executor}}, which has access to the metrics system, it would inject some method to retrieve the particular metrics source. 
+This solution wouldn't change the current API, but just introduce one more method in {{TaskContext}}.
+
+
+---
+
 * [SPARK-7169](https://issues.apache.org/jira/browse/SPARK-7169) | *Minor* | **Allow to specify metrics configuration more flexibly**
 
 Metrics are configured in {{metrics.properties}} file. Path to this file is specified in {{SparkConf}} at a key {{spark.metrics.conf}}. The property is read when {{MetricsSystem}} is created which means, during {{SparkEnv}} initialisation. 
@@ -8962,6 +9332,13 @@ For two parquet files for the same table having an array column, if values of th
 
 ---
 
+* [SPARK-5989](https://issues.apache.org/jira/browse/SPARK-5989) | *Major* | **Model import/export for LDAModel**
+
+Add save/load for LDAModel and its local and distributed variants.
+
+
+---
+
 * [SPARK-5962](https://issues.apache.org/jira/browse/SPARK-5962) | *Major* | **[MLLIB] Python support for Power Iteration Clustering**
 
 Add python support for the Power Iteration Clustering feature.  Here is a fragment of the python API as we plan to implement it:
@@ -9206,6 +9583,26 @@ There were no row groups that could be dropped due to filter predicates
 
 ---
 
+* [SPARK-5423](https://issues.apache.org/jira/browse/SPARK-5423) | *Major* | **ExternalAppendOnlyMap won't delete temp spilled file if some exception happens during using it**
+
+ExternalAppendOnlyMap won't delete temp spilled file if some exception happens during using it.
+
+There is already a TODO in the comment:
+{code}
+    // TODO: Ensure this gets called even if the iterator isn't drained.
+    private def cleanup() {
+      batchIndex = batchOffsets.length  // Prevent reading any other batch
+      val ds = deserializeStream
+      deserializeStream = null
+      fileStream = null
+      ds.close()
+      file.delete()
+    }
+{code}
+
+
+---
+
 * [SPARK-5295](https://issues.apache.org/jira/browse/SPARK-5295) | *Major* | **Stabilize data types**
 
 1. We expose all the stuff in data types right now, including NumericTypes, etc. These should be hidden from users. We should only expose the leaf types.
@@ -9274,6 +9671,17 @@ For this JIRA I propose we do the following:
  - Rewrite all the UDFs that are currently hacked into the various parsers using this new functionality.
 
 Depending on how big this refactoring becomes we could split parts 1&2 from part 3 above.
+
+
+---
+
+* [SPARK-4598](https://issues.apache.org/jira/browse/SPARK-4598) | *Major* | **Paginate stage page to avoid OOM with \> 100,000 tasks**
+
+In HistoryServer stage page, clicking the task href in Description, it occurs the GC error. The detail error message is:
+2014-11-17 16:36:30,851 | WARN  | [qtp1083955615-352] | Error for /history/application\_1416206401491\_0010/stages/stage/ | org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:590)
+java.lang.OutOfMemoryError: GC overhead limit exceeded
+2014-11-17 16:36:30,851 | WARN  | [qtp1083955615-364] | handle failed | org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:697)
+java.lang.OutOfMemoryError: GC overhead limit exceeded
 
 
 ---
