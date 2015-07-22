@@ -23,6 +23,35 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-9232](https://issues.apache.org/jira/browse/SPARK-9232) | *Minor* | **Duplicate code in JSONRelation**
+
+The following block appears identically in two places:
+
+{code}
+var success: Boolean = false
+try {
+  success = fs.delete(filesystemPath, true)
+} catch {
+  case e: IOException =>
+    throw new IOException(
+      s"Unable to clear output directory ${filesystemPath.toString} prior"
+        + s" to writing to JSON table:\n${e.toString}")
+}
+if (!success) {
+  throw new IOException(
+    s"Unable to clear output directory ${filesystemPath.toString} prior"
+      + s" to writing to JSON table.")
+  }
+}
+{code}
+
+https://github.com/apache/spark/blob/e5d2c37c68ac00a57c2542e62d1c5b4ca267c89e/sql/core/src/main/scala/org/apache/spark/sql/json/JSONRelation.scala#L72
+
+https://github.com/apache/spark/blob/e5d2c37c68ac00a57c2542e62d1c5b4ca267c89e/sql/core/src/main/scala/org/apache/spark/sql/json/JSONRelation.scala#L131
+
+
+---
+
 * [SPARK-9206](https://issues.apache.org/jira/browse/SPARK-9206) | *Major* | **ClassCastException using HiveContext with GoogleHadoopFileSystem as fs.defaultFS**
 
 Originally reported on StackOverflow: http://stackoverflow.com/questions/31478955/googlehadoopfilesystem-cannot-be-cast-to-hadoop-filesystem
@@ -344,6 +373,19 @@ Thread.sleep() might run overtime if Jenkins is busy.
 
 ---
 
+* [SPARK-9121](https://issues.apache.org/jira/browse/SPARK-9121) | *Major* | **Get rid of the warnings about `no visible global function definition` in SparkR**
+
+We have a lot of warnings about {{no visible global function definition}} in SparkR. So we should get rid of them.
+
+{noformat}
+R/utils.R:513:5: warning: no visible global function definition for ‘processClosure’
+    processClosure(func.body, oldEnv, defVars, checkedFuncs, newEnv)
+    ^~~~~~~~~~~~~~
+{noformat}
+
+
+---
+
 * [SPARK-9118](https://issues.apache.org/jira/browse/SPARK-9118) | *Minor* | **Implement integer array parameters for ml.param as IntArrayParam**
 
 ml/param/params.scala lacks integer array parameter. It is needed for some models such as multilayer perceptron to specify the layer sizes. I suggest to implement it as IntArrayParam similarly to DoubleArrayParam.
@@ -461,6 +503,32 @@ Residual is defined as label - prediction (https://en.wikipedia.org/wiki/Least\_
 * [SPARK-9085](https://issues.apache.org/jira/browse/SPARK-9085) | *Major* | **Remove LeafNode, UnaryNode, BinaryNode from TreeNode**
 
 They are not very useful, and cause problems with toString due to the order they are mixed in.
+
+
+---
+
+* [SPARK-9082](https://issues.apache.org/jira/browse/SPARK-9082) | *Major* | **Filter using non-deterministic expressions should not be pushed down**
+
+For example,
+{code}
+val df = sqlContext.range(1, 10).select($"id", rand(0).as('r))
+df.as("a").join(df.filter($"r" < 0.5).as("b"), $"a.id" === $"b.id").explain(true)
+{code}
+The plan is 
+{code}
+== Physical Plan ==
+ShuffledHashJoin [id#55323L], [id#55327L], BuildRight
+ Exchange (HashPartitioning 200)
+  Project [id#55323L,Rand 0 AS r#55324]
+   PhysicalRDD [id#55323L], MapPartitionsRDD[42268] at range at <console>:37
+ Exchange (HashPartitioning 200)
+  Project [id#55327L,Rand 0 AS r#55325]
+   Filter (LessThan)
+    PhysicalRDD [id#55327L], MapPartitionsRDD[42268] at range at <console>:37
+{code}
+The rand get evaluated twice instead of once. 
+
+This is caused by when we push down predicates we replace the attribute reference in the predicate with the actual expression.
 
 
 ---
@@ -9697,6 +9765,13 @@ We are planning to create a {{BroadcastHashouterJoin}} to implement the broadcas
 
 ---
 
+* [SPARK-4367](https://issues.apache.org/jira/browse/SPARK-4367) | *Major* | **Partial aggregation support the DISTINCT aggregation**
+
+Most of aggregate function(e.g average) with "distinct" value will requires all of the records in the same group to be shuffled into a single node, however, as part of the optimization, those records can be partially aggregated before shuffling, that probably reduces the overhead of shuffling significantly.
+
+
+---
+
 * [SPARK-4362](https://issues.apache.org/jira/browse/SPARK-4362) | *Minor* | **Make prediction probability available in NaiveBayesModel**
 
 There is currently no way to get the posterior probability of a prediction with Naive Baye's model during prediction. This should be made available along with the label.
@@ -9733,6 +9808,13 @@ This occurs when reading parquet data encoded with the older version of the libr
 
 ---
 
+* [SPARK-4233](https://issues.apache.org/jira/browse/SPARK-4233) | *Major* | **Simplify the Aggregation Function implementation**
+
+Currently, the UDAF implementation is quite complicated, and we have to provide distinct & non-distinct version.
+
+
+---
+
 * [SPARK-4127](https://issues.apache.org/jira/browse/SPARK-4127) | *Major* | **Streaming Linear Regression- Python bindings**
 
 Create python bindings for Streaming Linear Regression (MLlib).
@@ -9753,6 +9835,13 @@ which adds Streaming K-means functionality to MLLib.
 * [SPARK-4072](https://issues.apache.org/jira/browse/SPARK-4072) | *Critical* | **Storage UI does not reflect memory usage by streaming blocks**
 
 The storage page in the web ui does not show the memory usage of non-RDD, non-Broadcast blocks. In other words, the memory used by data received through Spark Streaming is not shown on the web ui.
+
+
+---
+
+* [SPARK-3947](https://issues.apache.org/jira/browse/SPARK-3947) | *Major* | **Support UDAF**
+
+Right now only Hive UDAFs are supported. It would be nice to have UDAF similar to UDF through SQLContext.registerFunction.
 
 
 ---
@@ -9801,6 +9890,13 @@ I suggest
 
 1. 2GB in local mode and warn users if executor memory is set a bigger value
 2. same as worker memory on an EC2 standalone server
+
+
+---
+
+* [SPARK-3056](https://issues.apache.org/jira/browse/SPARK-3056) | *Major* | **Sort-based Aggregation**
+
+Currently, SparkSQL only support the hash-based aggregation, which may cause OOM if too many identical keys in the input tuples.
 
 
 ---

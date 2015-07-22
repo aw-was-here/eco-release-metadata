@@ -63,6 +63,7 @@
 | [HADOOP-12206](https://issues.apache.org/jira/browse/HADOOP-12206) | The preceding invocations of findlargest in test-patch effect the following invocation results |  Major | yetus | Kengo Seki | Kengo Seki |
 | [HADOOP-12202](https://issues.apache.org/jira/browse/HADOOP-12202) | releasedocmaker drops missing component and assignee entries |  Blocker | yetus | Allen Wittenauer | Allen Wittenauer |
 | [HADOOP-12199](https://issues.apache.org/jira/browse/HADOOP-12199) | Optimize find\_changed\_modules |  Trivial | yetus | Allen Wittenauer | Kengo Seki |
+| [HADOOP-12198](https://issues.apache.org/jira/browse/HADOOP-12198) | hadoop patches that hit multiple modules need to build at the union |  Major | yetus | Allen Wittenauer | Allen Wittenauer |
 | [HADOOP-12197](https://issues.apache.org/jira/browse/HADOOP-12197) | smart-apply-patch shouldn't print successful dryrun in apply mode |  Major | yetus | Allen Wittenauer | Kengo Seki |
 | [HADOOP-12196](https://issues.apache.org/jira/browse/HADOOP-12196) | shellcheck plugin is picking up target executables |  Major | yetus | Allen Wittenauer | Kengo Seki |
 | [HADOOP-12188](https://issues.apache.org/jira/browse/HADOOP-12188) | javac warning file is always empty on ant-based projects |  Major | yetus | Kengo Seki | Kengo Seki |

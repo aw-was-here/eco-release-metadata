@@ -44,6 +44,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HIVE-10996](https://issues.apache.org/jira/browse/HIVE-10996) | Aggregation / Projection over Multi-Join Inner Query producing incorrect results |  Critical | Query Planning | Gautam Kowshik | Jesus Camacho Rodriguez |
 | [HIVE-10573](https://issues.apache.org/jira/browse/HIVE-10573) | Improve Hive service for connection |  Major | HiveServer2 | Chao Sun | Chao Sun |
+| [HIVE-9613](https://issues.apache.org/jira/browse/HIVE-9613) | Left join query plan outputs  wrong column when using subquery |  Major | Parser, Query Planning | Li Xin | Gunther Hagleitner |
 
 
 ### TESTS:

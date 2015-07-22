@@ -51,6 +51,13 @@ CBO: dump AST only when in DEBUG mode.
 
 ---
 
+* [HIVE-10673](https://issues.apache.org/jira/browse/HIVE-10673) | *Major* | **Dynamically partitioned hash join for Tez**
+
+This adds configuration parameter hive.optimize.dynamic.partition.hashjoin, which enables selection of the dynamically partitioned hash join with the Tez execution engine
+
+
+---
+
 * [HIVE-10509](https://issues.apache.org/jira/browse/HIVE-10509) | *Major* | **Bump trunk version to 1.3 as branch-1.2 has been created.**
 
 Hive master/trunk version bumped up to 1.3

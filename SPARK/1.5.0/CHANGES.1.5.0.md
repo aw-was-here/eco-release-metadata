@@ -90,6 +90,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-9232](https://issues.apache.org/jira/browse/SPARK-9232) | Duplicate code in JSONRelation |  Minor | SQL | Andrew Or | Andrew Or |
 | [SPARK-9185](https://issues.apache.org/jira/browse/SPARK-9185) | improve code gen for mutable states to support complex initialization |  Major | SQL | Wenchen Fan | Wenchen Fan |
 | [SPARK-9179](https://issues.apache.org/jira/browse/SPARK-9179) | Allow committers to specify the primary author of the PR to be merged |  Minor | Build | Cheng Lian | Cheng Lian |
 | [SPARK-9174](https://issues.apache.org/jira/browse/SPARK-9174) | Add documentation for all public SQLConfs |  Major | SQL | Reynold Xin | Reynold Xin |
@@ -548,6 +549,7 @@
 | [SPARK-9168](https://issues.apache.org/jira/browse/SPARK-9168) | Add nanvl expression |  Major | SQL | Reynold Xin | Yijie Shen |
 | [SPARK-9167](https://issues.apache.org/jira/browse/SPARK-9167) | use UTC Calendar in `stringToDate` |  Major | SQL | Wenchen Fan | Wenchen Fan |
 | [SPARK-9166](https://issues.apache.org/jira/browse/SPARK-9166) | Hide JVM stack trace for IllegalArgumentException in Python |  Major | SQL | Reynold Xin | Liang-Chi Hsieh |
+| [SPARK-9165](https://issues.apache.org/jira/browse/SPARK-9165) | Implement code generation for CreateArray, CreateStruct, and CreateNamedStruct |  Major | SQL | Reynold Xin | Yijie Shen |
 | [SPARK-9164](https://issues.apache.org/jira/browse/SPARK-9164) | Implement code generation for Hex and Unhex |  Major | SQL | Reynold Xin | Tarek Auel |
 | [SPARK-9161](https://issues.apache.org/jira/browse/SPARK-9161) | Implement code generation for FormatNumber |  Major | SQL | Reynold Xin | Tarek Auel |
 | [SPARK-9160](https://issues.apache.org/jira/browse/SPARK-9160) | Implement code generation for Encode and Decode |  Major | SQL | Reynold Xin | Tarek Auel |
@@ -563,9 +565,11 @@
 | [SPARK-9146](https://issues.apache.org/jira/browse/SPARK-9146) | NaN should be greater than all other values |  Critical | SQL | Reynold Xin | Josh Rosen |
 | [SPARK-9145](https://issues.apache.org/jira/browse/SPARK-9145) | Equality test on NaN = NaN should return true |  Critical | SQL | Reynold Xin | Josh Rosen |
 | [SPARK-9132](https://issues.apache.org/jira/browse/SPARK-9132) | Implement code gen for Conv |  Major | SQL | Reynold Xin | Tarek Auel |
+| [SPARK-9121](https://issues.apache.org/jira/browse/SPARK-9121) | Get rid of the warnings about `no visible global function definition` in SparkR |  Major | SparkR | Yu Ishikawa | Yu Ishikawa |
 | [SPARK-9102](https://issues.apache.org/jira/browse/SPARK-9102) | Improve project collapse with nondeterministic expressions |  Major | SQL | Wenchen Fan | Wenchen Fan |
 | [SPARK-9093](https://issues.apache.org/jira/browse/SPARK-9093) | Fix single-quotes strings in SparkR |  Major | SparkR | Yu Ishikawa | Yu Ishikawa |
 | [SPARK-9086](https://issues.apache.org/jira/browse/SPARK-9086) | Remove BinaryNode from TreeNode |  Major | SQL | Reynold Xin | Reynold Xin |
+| [SPARK-9082](https://issues.apache.org/jira/browse/SPARK-9082) | Filter using non-deterministic expressions should not be pushed down |  Major | SQL | Yin Huai | Wenchen Fan |
 | [SPARK-9081](https://issues.apache.org/jira/browse/SPARK-9081) | fillna/dropna should also fill/drop NaN values in addition to null values |  Blocker | SQL | Reynold Xin |  |
 | [SPARK-9080](https://issues.apache.org/jira/browse/SPARK-9080) | IsNaN expression |  Critical | SQL | Reynold Xin | Yijie Shen |
 | [SPARK-9079](https://issues.apache.org/jira/browse/SPARK-9079) | Design NaN semantics |  Major | SQL | Reynold Xin | Michael Armbrust |
@@ -762,10 +766,14 @@
 | [SPARK-5288](https://issues.apache.org/jira/browse/SPARK-5288) | Stabilize Spark SQL data type API followup |  Major | SQL | Yin Huai | Reynold Xin |
 | [SPARK-4867](https://issues.apache.org/jira/browse/SPARK-4867) | UDF clean up |  Blocker | SQL | Michael Armbrust | Reynold Xin |
 | [SPARK-4598](https://issues.apache.org/jira/browse/SPARK-4598) | Paginate stage page to avoid OOM with \> 100,000 tasks |  Major | Web UI | meiyoula | Shixiong Zhu |
+| [SPARK-4367](https://issues.apache.org/jira/browse/SPARK-4367) | Partial aggregation support the DISTINCT aggregation |  Major | SQL | Cheng Hao | Yin Huai |
 | [SPARK-4258](https://issues.apache.org/jira/browse/SPARK-4258) | NPE with new Parquet Filters |  Critical | SQL | Michael Armbrust | Thomas Omans |
+| [SPARK-4233](https://issues.apache.org/jira/browse/SPARK-4233) | Simplify the Aggregation Function implementation |  Major | SQL | Cheng Hao | Cheng Hao |
 | [SPARK-4127](https://issues.apache.org/jira/browse/SPARK-4127) | Streaming Linear Regression- Python bindings |  Major | MLlib, PySpark | Anant Daksh Asthana | Manoj Kumar |
 | [SPARK-4118](https://issues.apache.org/jira/browse/SPARK-4118) | Create python bindings for Streaming KMeans |  Major | MLlib, PySpark, Streaming | Anant Daksh Asthana | Manoj Kumar |
+| [SPARK-3947](https://issues.apache.org/jira/browse/SPARK-3947) | Support UDAF |  Major | SQL | Pei-Lun Lee | Yin Huai |
 | [SPARK-3850](https://issues.apache.org/jira/browse/SPARK-3850) | Scala style: disallow trailing spaces |  Minor | Project Infra | Nicholas Chammas | Reynold Xin |
+| [SPARK-3056](https://issues.apache.org/jira/browse/SPARK-3056) | Sort-based Aggregation |  Major | SQL | Cheng Hao | Yin Huai |
 | [SPARK-2017](https://issues.apache.org/jira/browse/SPARK-2017) | web ui stage page becomes unresponsive when the number of tasks is large |  Major | Web UI | Reynold Xin | Andrew Or |
 
 

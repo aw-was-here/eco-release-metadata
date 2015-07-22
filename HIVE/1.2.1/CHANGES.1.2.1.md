@@ -47,6 +47,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HIVE-11313](https://issues.apache.org/jira/browse/HIVE-11313) | dynamic partition with null key from union select will fail |  Major | Tez | Jay Lee |  |
 | [HIVE-11102](https://issues.apache.org/jira/browse/HIVE-11102) | ReaderImpl: getColumnIndicesFromNames does not work for some cases |  Major | File Formats | Gopal V | Sergey Shelukhin |
 | [HIVE-11047](https://issues.apache.org/jira/browse/HIVE-11047) | Update versions of branch-1.2 to 1.2.1 |  Major | . | Sushanth Sowmyan | Sushanth Sowmyan |
 | [HIVE-11041](https://issues.apache.org/jira/browse/HIVE-11041) | Update tests for HIVE-9302 after removing binaries |  Major | Tests | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
