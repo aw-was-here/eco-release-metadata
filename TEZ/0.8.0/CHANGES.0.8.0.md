@@ -62,8 +62,10 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-2632](https://issues.apache.org/jira/browse/TEZ-2632) | A -Paws and -Pazure build profiles for hadoop-{aws,azure} inclusion |  Major | . | Gopal V | Gopal V |
 | [TEZ-2616](https://issues.apache.org/jira/browse/TEZ-2616) | Fix build warning by undefined version of maven-findbugs-plugin |  Major | . | Tsuyoshi Ozawa | Tsuyoshi Ozawa |
 | [TEZ-2610](https://issues.apache.org/jira/browse/TEZ-2610) | Swimlane for DAGs that use containers from previous DAGs |  Major | UI | Yi Zhang | Gopal V |
+| [TEZ-2602](https://issues.apache.org/jira/browse/TEZ-2602) | Throwing EOFException when launching MR job |  Major | . | Tsuyoshi Ozawa | Rajesh Balamohan |
 | [TEZ-2600](https://issues.apache.org/jira/browse/TEZ-2600) | When used with HDFS federation(viewfs) ,tez will throw a error |  Major | . | Xiaowei Wang | Xiaowei Wang |
 | [TEZ-2579](https://issues.apache.org/jira/browse/TEZ-2579) | Incorrect comparison of TaskAttemptId |  Major | . | Jeff Zhang | Jeff Zhang |
 | [TEZ-2570](https://issues.apache.org/jira/browse/TEZ-2570) | Fix license header issue for eps image files |  Trivial | . | Hitesh Shah | Hitesh Shah |

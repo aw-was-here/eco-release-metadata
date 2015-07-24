@@ -58,8 +58,8 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-12237](https://issues.apache.org/jira/browse/HADOOP-12237) | releasedocmaker.py doesn't work behind a proxy |  Major | yetus | Tsuyoshi Ozawa | Tsuyoshi Ozawa |
-| [HADOOP-12226](https://issues.apache.org/jira/browse/HADOOP-12226) | CHANGED\_MODULES is wrong for ant |  Major | yetus | Allen Wittenauer | Allen Wittenauer |
 | [HADOOP-12225](https://issues.apache.org/jira/browse/HADOOP-12225) | Add docs-overview page |  Major | yetus | Sean Busbey | Sean Busbey |
+| [HADOOP-12207](https://issues.apache.org/jira/browse/HADOOP-12207) | Add support for pylint |  Major | yetus | Allen Wittenauer | Kengo Seki |
 | [HADOOP-12206](https://issues.apache.org/jira/browse/HADOOP-12206) | The preceding invocations of findlargest in test-patch effect the following invocation results |  Major | yetus | Kengo Seki | Kengo Seki |
 | [HADOOP-12202](https://issues.apache.org/jira/browse/HADOOP-12202) | releasedocmaker drops missing component and assignee entries |  Blocker | yetus | Allen Wittenauer | Allen Wittenauer |
 | [HADOOP-12199](https://issues.apache.org/jira/browse/HADOOP-12199) | Optimize find\_changed\_modules |  Trivial | yetus | Allen Wittenauer | Kengo Seki |

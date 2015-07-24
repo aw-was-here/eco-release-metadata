@@ -138,6 +138,7 @@
 | [SPARK-7676](https://issues.apache.org/jira/browse/SPARK-7676) | Cleanup unnecessary code and fix small bug in the stage timeline view |  Major | Web UI | Kay Ousterhout | Kay Ousterhout |
 | [SPARK-7658](https://issues.apache.org/jira/browse/SPARK-7658) | Update the mouse behaviors for the timeline graphs |  Major | Streaming, Web UI | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-7656](https://issues.apache.org/jira/browse/SPARK-7656) | use CatalystConf in FunctionRegistry |  Major | SQL | Fei Wang | Fei Wang |
+| [SPARK-7650](https://issues.apache.org/jira/browse/SPARK-7650) | Move streaming css and js files to the streaming project |  Major | Streaming, Web UI | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-7649](https://issues.apache.org/jira/browse/SPARK-7649) | Use window.localStorage to store the status rather than the url |  Major | Streaming, Web UI | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-7645](https://issues.apache.org/jira/browse/SPARK-7645) | Show milliseconds in the UI if the batch interval \< 1 second |  Major | Streaming, Web UI | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-7621](https://issues.apache.org/jira/browse/SPARK-7621) | Report KafkaReceiver MessageHandler errors so StreamingListeners can take action |  Major | Streaming | Jeremy A. Lucas | Jeremy A. Lucas |

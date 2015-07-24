@@ -23,9 +23,67 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [KAFKA-2355](https://issues.apache.org/jira/browse/KAFKA-2355) | *Minor* | **Add an unit test to validate the deletion of a partition marked as deleted**
+
+Trying to delete a partition marked as deleted throws {{TopicAlreadyMarkedForDeletionException}} so this ticket add a unit test to validate this behaviour.
+
+
+---
+
+* [KAFKA-2353](https://issues.apache.org/jira/browse/KAFKA-2353) | *Major* | **SocketServer.Processor should catch exception and close the socket properly in configureNewConnections.**
+
+We see an increasing number of sockets in CLOSE\_WAIT status in our production environment in recent couple of days. From the thread dump it seems one of the Processor thread has died but the acceptor was still putting many new connections its new connection queue.
+
+The cause of dead Processor thread was due to we are not catching all the exceptions in the Processor thread. For example, in our case it seems to be an exception thrown in configureNewConnections().
+
+
+---
+
+* [KAFKA-2348](https://issues.apache.org/jira/browse/KAFKA-2348) | *Major* | **Drop support for Scala 2.9**
+
+Summary of why we should drop Scala 2.9:
+
+* Doubles the number of builds required from 2 to 4 (2.9.1 and 2.9.2 are not binary compatible).
+* Code has been committed to trunk that doesn't build with Scala 2.9 weeks ago and no-one seems to have noticed or cared (well, I filed https://issues.apache.org/jira/browse/KAFKA-2325). Can we really support a version if we don't test it?
+* New clients library is written in Java and won't be affected. It also has received a lot of work and it's much improved since the last release.
+* It was released 4 years ago, it has been unsupported for a long time and most projects have dropped support for it (for example, we use a different version of ScalaTest for Scala 2.9)
+* Scala 2.10 introduced Futures and a few useful features like String interpolation and value classes.
+* Doesn't work with Java 8 (https://issues.apache.org/jira/browse/KAFKA-2203).
+
+Vote thread: http://search-hadoop.com/m/uyzND1DIE422mz94I1
+
+
+---
+
 * [KAFKA-2345](https://issues.apache.org/jira/browse/KAFKA-2345) | *Major* | **Attempt to delete a topic already marked for deletion throws ZkNodeExistsException**
 
 Throwing a TopicAlreadyMarkedForDeletionException will make much more sense. A user does not necessarily have to know about involvement of zk in the process.
+
+
+---
+
+* [KAFKA-2344](https://issues.apache.org/jira/browse/KAFKA-2344) | *Minor* | **kafka-merge-pr improvements**
+
+Two suggestions for the new pr-merge tool:
+
+* The tool doesn't allow to credit reviewers while committing. I thought the review credits were a nice habit of the Kafka community and I hate losing it. OTOH, I don't want to force-push to trunk just to add credits. Perhaps the tool can ask about committers?
+
+* Looks like the tool doesn't automatically resolve the JIRA. Would be nice if it did.
+
+
+---
+
+* [KAFKA-2342](https://issues.apache.org/jira/browse/KAFKA-2342) | *Major* | **KafkaConsumer rebalance with in-flight fetch can cause invalid position**
+
+If a rebalance occurs with an in-flight fetch, the new KafkaConsumer can end up updating the fetch position of a partition to an offset which is no longer valid. The consequence is that we may end up either returning to the user messages with an unexpected position or we may fail to give back the right offset in position(). 
+
+Additionally, this bug causes transient test failures in ConsumerBounceTest.testConsumptionWithBrokerFailures with the following exception:
+
+kafka.api.ConsumerBounceTest > testConsumptionWithBrokerFailures FAILED
+    java.lang.NullPointerException
+        at org.apache.kafka.clients.consumer.KafkaConsumer.position(KafkaConsumer.java:949)
+        at kafka.api.ConsumerBounceTest.consumeWithBrokerFailures(ConsumerBounceTest.scala:86)
+        at kafka.api.ConsumerBounceTest.testConsumptionWithBrokerFailures(ConsumerBounceTest.scala:61)
 
 
 ---

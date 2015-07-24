@@ -47,6 +47,13 @@ Includes a docker based solution for setting up a build environment with minimal
 
 ---
 
+* [HADOOP-11813](https://issues.apache.org/jira/browse/HADOOP-11813) | *Minor* | **releasedocmaker.py should use today's date instead of unreleased**
+
+Use today instead of 'Unreleased' in releasedocmaker.py when --usetoday is given as an option.
+
+
+---
+
 * [HADOOP-11772](https://issues.apache.org/jira/browse/HADOOP-11772) | *Major* | **RPC Invoker relies on static ClientCache which has synchronized(this) blocks**
 
 The Client#call() methods that are deprecated since 0.23 have been removed.
@@ -78,6 +85,19 @@ The Client#call() methods that are deprecated since 0.23 have been removed.
 * Some logic to determine if a patch references a particular JIRA issue.
 * Unit tests are only flagged as necessary with native or Java code, since Hadoop has no framework in place yet for other types of unit tests.
 * test-patch now exits with a failure status if problems arise trying to do git checkouts.  Previously the exit code was success.
+
+
+---
+
+* [HADOOP-11731](https://issues.apache.org/jira/browse/HADOOP-11731) | *Major* | **Rework the changelog and releasenotes**
+
+* The release notes now only contains JIRA issues with incompatible changes and actual release notes.  The generated format has been changed from HTML to markdown.
+
+* The changelog is now automatically generated from data stored in JIRA rather than manually maintained. The format has been changed from pure text to markdown as well as containing more of the information that was previously stored in the release notes.
+
+* In order to generate the changes file, python must be installed.
+
+* New -Preleasedocs profile added to maven in order to trigger this functionality.
 
 
 ---

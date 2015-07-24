@@ -195,7 +195,7 @@ Purge support for parsing zookeepers zoo.cfg deprecated since hbase-0.96.0
 
 * [HBASE-13625](https://issues.apache.org/jira/browse/HBASE-13625) | *Major* | **Use HDFS for HFileOutputFormat2 partitioner's path**
 
-Introduces a new config hbase.fs.tmp.dir which is a directory in HDFS (or default file system) to use as a staging directory for HFileOutputFormat2.
+Introduces a new config hbase.fs.tmp.dir which is a directory in HDFS (or default file system) to use as a staging directory for HFileOutputFormat2. This is also used as the default for hbase.bulkload.staging.dir
 
 
 ---
@@ -1506,6 +1506,15 @@ SlabCache is no longer support. For off-heap blockcache needs, please see Bucket
 * [HBASE-11344](https://issues.apache.org/jira/browse/HBASE-11344) | *Major* | **Hide row keys and such from the web UIs**
 
 Configure "hbase.display.keys" to false (default: true) in the master/regionservers if the row-keys should be hidden in the webUIs (like in the webUI for table details).
+
+
+---
+
+* [HBASE-11339](https://issues.apache.org/jira/browse/HBASE-11339) | *Major* | **HBase MOB**
+
+The Moderate Object Storage (MOB) feature (HBASE-11339[1]) is modified I/O and compaction path that allows individual moderately sized values (100KB-10MB) to be stored in a way that write amplification is reduced when compared to the normal I/O path. MOB is defined in the column family and it is almost isolated with other components, the features and performance cannot be effected in normal columns.
+
+For more details on how to use the feature please consult the HBase Reference Guide
 
 
 ---

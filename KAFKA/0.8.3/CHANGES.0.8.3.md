@@ -38,6 +38,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-2344](https://issues.apache.org/jira/browse/KAFKA-2344) | kafka-merge-pr improvements |  Minor | . | Gwen Shapira | Ismael Juma |
 | [KAFKA-2328](https://issues.apache.org/jira/browse/KAFKA-2328) | merge-kafka-pr.py script should not leave user in a detached branch |  Minor | . | Ismael Juma | Ismael Juma |
 | [KAFKA-2324](https://issues.apache.org/jira/browse/KAFKA-2324) | Update to Scala 2.11.7 |  Minor | . | Ismael Juma | Ismael Juma |
 | [KAFKA-2323](https://issues.apache.org/jira/browse/KAFKA-2323) | Simplify ScalaTest dependency versions |  Minor | . | Ismael Juma | Ismael Juma |
@@ -85,6 +86,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-2353](https://issues.apache.org/jira/browse/KAFKA-2353) | SocketServer.Processor should catch exception and close the socket properly in configureNewConnections. |  Major | . | Jiangjie Qin | Jiangjie Qin |
 | [KAFKA-2345](https://issues.apache.org/jira/browse/KAFKA-2345) | Attempt to delete a topic already marked for deletion throws ZkNodeExistsException |  Major | . | Ashish K Singh | Ashish K Singh |
 | [KAFKA-2337](https://issues.apache.org/jira/browse/KAFKA-2337) | Verify that metric names will not collide when creating new topics |  Major | . | Gwen Shapira | Grant Henke |
 | [KAFKA-2335](https://issues.apache.org/jira/browse/KAFKA-2335) | Javadoc for Consumer says that it's thread-safe |  Major | consumer | Ismael Juma | Jason Gustafson |
@@ -206,6 +208,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-2355](https://issues.apache.org/jira/browse/KAFKA-2355) | Add an unit test to validate the deletion of a partition marked as deleted |  Minor | . | Edward Ribeiro | Edward Ribeiro |
 | [KAFKA-2013](https://issues.apache.org/jira/browse/KAFKA-2013) | benchmark test for the purgatory |  Trivial | purgatory | Yasuhiro Matsuda | Yasuhiro Matsuda |
 
 
@@ -213,6 +216,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-2342](https://issues.apache.org/jira/browse/KAFKA-2342) | KafkaConsumer rebalance with in-flight fetch can cause invalid position |  Major | core | Jun Rao | Jason Gustafson |
 | [KAFKA-2271](https://issues.apache.org/jira/browse/KAFKA-2271) | transient unit test failure in KafkaConfigConfigDefTest.testFromPropsToProps |  Major | core | Jun Rao | Jason Gustafson |
 | [KAFKA-2245](https://issues.apache.org/jira/browse/KAFKA-2245) | Add response tests for ConsumerCoordinator |  Critical | consumer | Onur Karaman | Onur Karaman |
 | [KAFKA-2195](https://issues.apache.org/jira/browse/KAFKA-2195) | Add versionId to AbstractRequest.getErrorResponse and AbstractRequest.getRequest |  Major | . | Andrii Biletskyi | Andrii Biletskyi |
@@ -246,6 +250,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [KAFKA-1476](https://issues.apache.org/jira/browse/KAFKA-1476) | Get a list of consumer groups |  Major | tools | Ryan Williams | Onur Karaman |
+| [KAFKA-2348](https://issues.apache.org/jira/browse/KAFKA-2348) | Drop support for Scala 2.9 |  Major | . | Ismael Juma | Ismael Juma |
 | [KAFKA-1856](https://issues.apache.org/jira/browse/KAFKA-1856) | Add PreCommit Patch Testing |  Major | . | Ashish K Singh | Ashish K Singh |
 | [KAFKA-1661](https://issues.apache.org/jira/browse/KAFKA-1661) | Move MockConsumer and MockProducer from src/main to src/test |  Trivial | clients, consumer, producer | Andras Hatvani |  |
 

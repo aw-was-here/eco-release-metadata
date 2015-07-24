@@ -23,6 +23,15 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [TEZ-2632](https://issues.apache.org/jira/browse/TEZ-2632) | *Major* | **A -Paws and -Pazure build profiles for hadoop-{aws,azure} inclusion**
+
+A number of S3a workloads which work with MRv2 (after HADOOP-10400) is failing to work with Tez.
+
+That compatibility issue can be bypassed with a trivial build profile switch (same for azure after HADOOP-9629)
+
+
+---
+
 * [TEZ-2616](https://issues.apache.org/jira/browse/TEZ-2616) | *Major* | **Fix build warning by undefined version of maven-findbugs-plugin**
 
 {quote}
@@ -40,6 +49,63 @@ This problem is caused since the plugin is used not only in build section, but a
 PROBELM:
 
 Swimlane can not draw for DAGs that uses containers from previous DAGs.
+
+
+---
+
+* [TEZ-2602](https://issues.apache.org/jira/browse/TEZ-2602) | *Major* | **Throwing EOFException when launching MR job**
+
+{quote}
+$hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.1.jar wordcount   -Dmapreduce.framework.name=yarn-tez -Dmapr
+ed.reduce.tasks=15 -Dtez.runtime.sort.threads=1 wc10g tezwc10g5 
+15/07/07 13:24:30 INFO client.RMProxy: Connecting to ResourceManager at /127.0.0.1:8081                                                                                                                                                                       
+15/07/07 13:24:30 INFO client.AHSProxy: Connecting to Application History server at /0.0.0.0:10200
+15/07/07 13:24:30 INFO mapreduce.Job: The url to track the job: http://ip-172-31-4-8.ap-northeast-1.compute.internal:8088/proxy/application\_1435943097882\_0019/                                                                                               
+15/07/07 13:24:30 INFO mapreduce.Job: Running job: job\_1435943097882\_0019
+15/07/07 13:24:31 INFO mapreduce.Job: Job job\_1435943097882\_0019 running in uber mode : false                                                                                                                                                                 
+15/07/07 13:24:31 INFO mapreduce.Job:  map 0% reduce 0%
+15/07/07 13:24:59 INFO mapreduce.Job: Job job\_1435943097882\_0019 failed with state FAILED due to: Vertex failed, vertexName=initialmap, vertexId=vertex\_1435943097882\_0019\_1\_00, diagnostics=[Task failed, taskId=task\_1435943097882\_0019\_1\_00\_000005, diagnostics=[TaskAttempt 0 failed, info=[Error: Failure while running task:java.io.EOFException
+        at java.io.DataInputStream.readFully(DataInputStream.java:197)                                                                                                                                                                                        
+        at org.apache.hadoop.io.Text.readWithKnownLength(Text.java:319)
+        at org.apache.hadoop.io.Text.readFields(Text.java:291)                                                                                                                                                                                                
+        at org.apache.hadoop.io.serializer.WritableSerialization$WritableDeserializer.deserialize(WritableSerialization.java:71)
+        at org.apache.hadoop.io.serializer.WritableSerialization$WritableDeserializer.deserialize(WritableSerialization.java:42)                                                                                                                              
+        at org.apache.hadoop.mapreduce.task.ReduceContextImpl.nextKeyValue(ReduceContextImpl.java:142)
+        at org.apache.hadoop.mapreduce.task.ReduceContextImpl.nextKey(ReduceContextImpl.java:121)                                                                                                                                                             
+        at org.apache.hadoop.mapreduce.lib.reduce.WrappedReducer$Context.nextKey(WrappedReducer.java:302)
+        at org.apache.hadoop.mapreduce.Reducer.run(Reducer.java:170)                                                                                                                                                                                          
+        at org.apache.tez.mapreduce.combine.MRCombiner.runNewCombiner(MRCombiner.java:191)
+        at org.apache.tez.mapreduce.combine.MRCombiner.combine(MRCombiner.java:115)                                                                                                                                                                           
+        at org.apache.tez.runtime.library.common.sort.impl.ExternalSorter.runCombineProcessor(ExternalSorter.java:285)
+        at org.apache.tez.runtime.library.common.sort.impl.PipelinedSorter.spill(PipelinedSorter.java:463)                                                                                                                                                    
+        at org.apache.tez.runtime.library.common.sort.impl.PipelinedSorter.sort(PipelinedSorter.java:219)
+        at org.apache.tez.runtime.library.common.sort.impl.PipelinedSorter.collect(PipelinedSorter.java:311)                                                                                                                                                  
+        at org.apache.tez.runtime.library.common.sort.impl.PipelinedSorter.write(PipelinedSorter.java:267)
+        at org.apache.tez.runtime.library.output.OrderedPartitionedKVOutput$1.write(OrderedPartitionedKVOutput.java:164)                                                                                                                                      
+        at org.apache.tez.mapreduce.processor.map.MapProcessor$NewOutputCollector.write(MapProcessor.java:363)
+        at org.apache.tez.mapreduce.hadoop.mapreduce.TaskInputOutputContextImpl.write(TaskInputOutputContextImpl.java:90)                                                                                                                                     
+        at org.apache.hadoop.mapreduce.lib.map.WrappedMapper$Context.write(WrappedMapper.java:112)
+        at org.apache.hadoop.examples.WordCount$TokenizerMapper.map(WordCount.java:47)                                                                                                                                                                        
+        at org.apache.hadoop.examples.WordCount$TokenizerMapper.map(WordCount.java:36)
+        at org.apache.hadoop.mapreduce.Mapper.run(Mapper.java:146)                                                                                                                                                                                            
+        at org.apache.tez.mapreduce.processor.map.MapProcessor.runNewMapper(MapProcessor.java:237)
+        at org.apache.tez.mapreduce.processor.map.MapProcessor.run(MapProcessor.java:124)                                                                                                                                                                     
+        at org.apache.tez.runtime.LogicalIOProcessorRuntimeTask.run(LogicalIOProcessorRuntimeTask.java:345)
+        at org.apache.tez.runtime.task.TezTaskRunner$TaskRunnerCallable$1.run(TezTaskRunner.java:179)                                                                                                                                                         
+        at org.apache.tez.runtime.task.TezTaskRunner$TaskRunnerCallable$1.run(TezTaskRunner.java:171)
+        at java.security.AccessController.doPrivileged(Native Method)                                                                                                                                                                                         
+        at javax.security.auth.Subject.doAs(Subject.java:415)
+        at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1657)                                                                                                                                                               
+        at org.apache.tez.runtime.task.TezTaskRunner$TaskRunnerCallable.callInternal(TezTaskRunner.java:171)
+        at org.apache.tez.runtime.task.TezTaskRunner$TaskRunnerCallable.callInternal(TezTaskRunner.java:167)                                                                                                                                                  
+        at org.apache.tez.common.CallableWithNdc.call(CallableWithNdc.java:36)
+        at java.util.concurrent.FutureTask.run(FutureTask.java:262)                                                                                                                                                                                           
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)                                                                                                                                                                    
+        at java.lang.Thread.run(Thread.java:745)
+]], Vertex did not succeed due to OWN\_TASK\_FAILURE, failedTasks:1 killedTasks:89, Vertex vertex\_1435943097882\_0019\_1\_00 [initialmap] killed/failed due to:null]. Vertex killed, vertexName=finalreduce, vertexId=vertex\_1435943097882\_0019\_1\_01, diagnostics=[Vertex received Kill while in RUNNING state., Vertex did not succeed due to OTHER\_VERTEX\_FAILURE, failedTasks:0 killedTasks:15, Vertex vertex\_1435943097882\_0019\_1\_01 [finalreduce] killed/failed due to:null]. DAG did not succeed due to VERTEX\_FAILURE. failedVertices:1 killedVertices:1                                                                                                                                                                                                                                
+15/07/07 13:24:59 INFO mapreduce.Job: Counters: 0
+{quote}
 
 
 ---

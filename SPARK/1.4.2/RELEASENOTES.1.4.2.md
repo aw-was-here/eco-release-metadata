@@ -23,6 +23,57 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-9238](https://issues.apache.org/jira/browse/SPARK-9238) | *Trivial* | **two extra useless entries for bytesOfCodePointInUTF8**
+
+Only a trial thing, not sure if I understand correctly or not but I guess only 2 entries in bytesOfCodePointInUTF8 for the case of 6 bytes codepoint(1111110x) is enough.
+Details can be found from https://en.wikipedia.org/wiki/UTF-8 in "Description" section.
+
+
+---
+
+* [SPARK-9236](https://issues.apache.org/jira/browse/SPARK-9236) | *Major* | **Left Outer Join with empty JavaPairRDD returns empty RDD**
+
+When the *left outer join* is performed on a non-empty {{JavaPairRDD}} with a {{JavaPairRDD}} which was created with the {{emptyRDD()}} method the resulting RDD is empty. In the following unit test the latest assert fails.
+
+{code}
+import static org.assertj.core.api.Assertions.assertThat;
+
+import java.util.Collections;
+
+import lombok.val;
+
+import org.apache.spark.SparkConf;
+import org.apache.spark.api.java.JavaSparkContext;
+import org.junit.Test;
+
+import scala.Tuple2;
+
+public class SparkTest {
+
+  @Test
+  public void joinEmptyRDDTest() {
+    val sparkConf = new SparkConf().setAppName("test").setMaster("local");
+
+    try (val sparkContext = new JavaSparkContext(sparkConf)) {
+      val oneRdd = sparkContext.parallelize(Collections.singletonList("one"));
+      val twoRdd = sparkContext.parallelize(Collections.singletonList("two"));
+      val threeRdd = sparkContext.emptyRDD();
+
+      val onePair = oneRdd.mapToPair(t -> new Tuple2<Integer, String>(1, t));
+      val twoPair = twoRdd.groupBy(t -> 1);
+      val threePair = threeRdd.groupBy(t -> 1);
+
+      assertThat(onePair.leftOuterJoin(twoPair).collect()).isNotEmpty();
+      assertThat(onePair.leftOuterJoin(threePair).collect()).isNotEmpty();
+    }
+  }
+
+}
+{code}
+
+
+---
+
 * [SPARK-9198](https://issues.apache.org/jira/browse/SPARK-9198) | *Minor* | **Typo in PySpark SparseVector docs (bad index)**
 
 Several places in the PySpark SparseVector docs have one defined as:
