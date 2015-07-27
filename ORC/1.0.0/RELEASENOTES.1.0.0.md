@@ -33,6 +33,13 @@ I want to simplify the directory structure a bit:
 
 ---
 
+* [ORC-9](https://issues.apache.org/jira/browse/ORC-9) | *Major* | **Create a ColumnVectorBatch for Timestamps**
+
+Create a TimestampVectorBatch that uses time\_t and the number of nanoseconds.
+
+
+---
+
 * [ORC-3](https://issues.apache.org/jira/browse/ORC-3) | *Major* | **Import native code from github**
 
 Import C++ implementation from

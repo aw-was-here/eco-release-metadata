@@ -143,6 +143,13 @@ Created DAGAppMaster for application appattempt\_1434553606315\_0022\_000001
 
 ---
 
+* [TEZ-2560](https://issues.apache.org/jira/browse/TEZ-2560) | *Major* | **fix tex-ui build for maven 3.3+**
+
+currently tez-ui build fails if mvn version is 3.3 due to the frontend-maven-plugin. this is fixed in 0.0.23 version of the plugin but it fails on maven version below 3.1
+
+
+---
+
 * [TEZ-2554](https://issues.apache.org/jira/browse/TEZ-2554) | *Major* | **Tez UI: View log link does not correctly propagate login crendential to read log from yarn web.**
 
 Append "user.name=<am user>" to the view/download logs url as a query param.

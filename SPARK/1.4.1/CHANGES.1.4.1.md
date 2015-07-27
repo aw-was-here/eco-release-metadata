@@ -68,6 +68,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-9382](https://issues.apache.org/jira/browse/SPARK-9382) | Tachyon version mismatch |  Major | EC2 | Daniel Darabos |  |
 | [SPARK-9087](https://issues.apache.org/jira/browse/SPARK-9087) | Broken SQL on where condition involving timestamp and time string. |  Critical | SQL | Paul Wu | Michael Armbrust |
 | [SPARK-8909](https://issues.apache.org/jira/browse/SPARK-8909) | Nice to have all the examples in scala, java,python, R to be same in sql-programming-guide |  Trivial | Documentation | Alok Singh | Alok Singh |
 | [SPARK-8903](https://issues.apache.org/jira/browse/SPARK-8903) | Fix NPE when cross tab elements contain nulls (branch 1.4) |  Blocker | SQL | Josh Rosen | Josh Rosen |

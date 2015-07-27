@@ -28,11 +28,4 @@ These release notes cover new developer and user-facing incompatibilities, featu
 Add new flag to allow supporting path style addressing for s3a
 
 
----
-
-* [YARN-3905](https://issues.apache.org/jira/browse/YARN-3905) | *Major* | **Application History Server UI NPEs when accessing apps run after RM restart**
-
-Resubmitting patch after fixing checkstyle warnings.
-
-
 

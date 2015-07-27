@@ -30,13 +30,6 @@ This is an incompatible change with previous versions of smart-apply-patch due t
 
 ---
 
-* [HADOOP-12135](https://issues.apache.org/jira/browse/HADOOP-12135) | *Major* | **cleanup releasedocmaker**
-
-This version is incompatible with the version currently in Hadoop trunk, as this version requires the project to be specified and will only produce one set of files per release, rather than one per subproject.
-
-
----
-
 * [HADOOP-12113](https://issues.apache.org/jira/browse/HADOOP-12113) | *Major* | **update test-patch branch to latest code**
 
 The following changes have occurred vs. the release currently shipping with Hadoop:

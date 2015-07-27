@@ -23,6 +23,27 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-9326](https://issues.apache.org/jira/browse/SPARK-9326) | *Minor* | **Spark never closes the lock file used to prevent concurrent downloads**
+
+A lock file is used to ensure multiple executors running on the same machine don't download the same file concurrently. Spark never closes these lock files (we release the lock, but releasing the lock does not close the  underlying file). In theory, if an executor fetched a large number of files, this could eventually lead to an issue with too many open files.
+
+
+---
+
+* [SPARK-9260](https://issues.apache.org/jira/browse/SPARK-9260) | *Major* | **Standalone scheduling can overflow a worker with cores**
+
+If the cluster is started with `spark.deploy.spreadOut = false`, then we may allocate more cores than is available on a worker. E.g. a worker has 8 cores, and an application sets `spark.cores.max = 10`, then we end up with the following screenshot:
+
+
+---
+
+* [SPARK-9254](https://issues.apache.org/jira/browse/SPARK-9254) | *Major* | **sbt-launch-lib.bash should use `curl --location` to support HTTP/HTTPS redirection**
+
+The {{curl}} call in the script should use {{--location}} to support HTTP/HTTPS redirection, since target file(s) can be hosted on CDN nodes.
+
+
+---
+
 * [SPARK-9238](https://issues.apache.org/jira/browse/SPARK-9238) | *Trivial* | **two extra useless entries for bytesOfCodePointInUTF8**
 
 Only a trial thing, not sure if I understand correctly or not but I guess only 2 entries in bytesOfCodePointInUTF8 for the case of 6 bytes codepoint(1111110x) is enough.
@@ -303,6 +324,20 @@ https://amplab.cs.berkeley.edu/jenkins/job/SparkPullRequestBuilder/36826/console
 
 ---
 
+* [SPARK-8881](https://issues.apache.org/jira/browse/SPARK-8881) | *Critical* | **Standalone mode scheduling fails because cores assignment is not atomic**
+
+Current scheduling algorithm (in Master.scala) has two issues:
+
+1. cores are allocated one at a time instead of spark.executor.cores at a time
+2. when spark.cores.max/spark.executor.cores < num\_workers, executors are not launched and the app hangs (due to 1)
+
+=== Edit by Andrew ===
+
+Here's an example from the PR. Let's say we have 4 workers with 16 cores each. We set `spark.cores.max` to 48 and `spark.executor.cores` to 16. Because in spread out mode, the existing code allocates 1 core at a time, we end up allocating 12 cores on each worker, and no executors can be launched because each one wants at least 16 cores. Instead, we should allocate 16 cores at a time.
+
+
+---
+
 * [SPARK-8865](https://issues.apache.org/jira/browse/SPARK-8865) | *Minor* | **Fix bug:  init SimpleConsumerConfig with kafka params**
 
 "zookeeper.connect" and "group.id" aren't necessary for anything in the kafka direct stream.
@@ -337,6 +372,17 @@ The UI shows them if I set the showIncomplete=true.
 Removing the inprogress file allows it to show up when showIncomplete is false.
 
 It should be smart enough to atleast show the second successful attempt.
+
+
+---
+
+* [SPARK-8405](https://issues.apache.org/jira/browse/SPARK-8405) | *Major* | **Show executor logs on Web UI when Yarn log aggregation is enabled**
+
+When running Spark application in Yarn mode and Yarn log aggregation is enabled, customer is not able to view executor logs on the history server Web UI. The only way for customer to view the logs is through the Yarn command "yarn logs -applicationId <appId>".
+
+An screenshot of the error is attached. When you click an executor’s log link on the Spark history server, you’ll see the error if Yarn log aggregation is enabled. The log URL redirects user to the node manager’s UI. This works if the logs are located on that node. But since log aggregation is enabled, the local logs are deleted once log aggregation is completed. 
+
+The logs should be available through the web UIs just like other Hadoop components like MapReduce. For security reasons, end users may not be able to log into the nodes and run the yarn logs -applicationId command. The web UIs can be viewable and exposed through the firewall if necessary.
 
 
 ---

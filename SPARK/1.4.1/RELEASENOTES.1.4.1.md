@@ -23,6 +23,24 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-9382](https://issues.apache.org/jira/browse/SPARK-9382) | *Major* | **Tachyon version mismatch**
+
+The spark-ec2 script installs Tachyon 0.5.0 ({{tachyon-0.5.0-bin.tar.gz}}). But the Tachyon client that comes with Spark 1.4.0 ({{spark-1.4.0-bin-hadoop1.tgz}}) is version 0.6.4.
+
+The client is unable to connect to the server.
+
+{noformat}
+15/07/27 14:11:05 INFO : Tachyon client (version 0.6.4) is trying to connect master @ ec2-54-157-219-241.compute-1.amazonaws.com/10.45.51.200:19998
+15/07/27 14:11:05 INFO : User registered at the master ec2-54-157-219-241.compute-1.amazonaws.com/10.45.51.200:19998 got UserId 737
+15/07/27 14:11:05 ERROR : Invalid method name: 'user\_getUfsAddress'
+tachyon.org.apache.thrift.TApplicationException: Invalid method name: 'user\_getUfsAddress'
+{noformat}
+
+{{user\_getUfsAddress}} was [added|https://github.com/amplab/tachyon/commit/c324f970cb08d2d5b49ecd7a66df313d93f1a23c] in Tachyon 0.6.0.
+
+
+---
+
 * [SPARK-9087](https://issues.apache.org/jira/browse/SPARK-9087) | *Critical* | **Broken SQL on where condition involving timestamp and time string.**
 
 Suppose mytable has a field called greenwich, which is in  timestamp type.  The table is registered through a java bean. The following code used to work in 1.3 and 1.3.1, now it is broken: there are records having time newer 01/14/2015 , but it now returns nothing. This is a block issue for us. Is there any workaround? 

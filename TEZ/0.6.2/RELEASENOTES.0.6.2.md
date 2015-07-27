@@ -112,6 +112,13 @@ Created DAGAppMaster for application appattempt\_1434553606315\_0022\_000001
 
 ---
 
+* [TEZ-2560](https://issues.apache.org/jira/browse/TEZ-2560) | *Major* | **fix tex-ui build for maven 3.3+**
+
+currently tez-ui build fails if mvn version is 3.3 due to the frontend-maven-plugin. this is fixed in 0.0.23 version of the plugin but it fails on maven version below 3.1
+
+
+---
+
 * [TEZ-2548](https://issues.apache.org/jira/browse/TEZ-2548) | *Major* | **TezClient submitDAG can hang if the AM is in the process of shutting down**
 
 submitDAG and serviceStop are both synchronized causing submitDAG to be locked out during the shutdown process. 

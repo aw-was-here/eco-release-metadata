@@ -221,13 +221,6 @@ There is a typo in the event string "WORKFLOW\_ID" (as "WORKLFOW\_ID").  The bra
 
 ---
 
-* [YARN-3905](https://issues.apache.org/jira/browse/YARN-3905) | *Major* | **Application History Server UI NPEs when accessing apps run after RM restart**
-
-Resubmitting patch after fixing checkstyle warnings.
-
-
----
-
 * [YARN-3823](https://issues.apache.org/jira/browse/YARN-3823) | *Minor* | **Fix mismatch in default values for yarn.scheduler.maximum-allocation-vcores property**
 
 Default value for 'yarn.scheduler.maximum-allocation-vcores' changed from 32 to 4.

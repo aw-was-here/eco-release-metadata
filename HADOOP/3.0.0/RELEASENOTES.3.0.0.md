@@ -517,13 +517,6 @@ nativetask.NativeMapOutputCollectorDelegator in their job configuration. For shu
 
 ---
 
-* [YARN-3905](https://issues.apache.org/jira/browse/YARN-3905) | *Major* | **Application History Server UI NPEs when accessing apps run after RM restart**
-
-Resubmitting patch after fixing checkstyle warnings.
-
-
----
-
 * [YARN-2428](https://issues.apache.org/jira/browse/YARN-2428) | *Trivial* | **LCE default banned user list should have yarn**
 
 The user 'yarn' is no longer allowed to run tasks for security reasons.

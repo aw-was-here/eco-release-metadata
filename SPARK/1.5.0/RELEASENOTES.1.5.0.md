@@ -23,9 +23,91 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-9364](https://issues.apache.org/jira/browse/SPARK-9364) | *Major* | **Fix array out of bounds and use-after-free bugs in UnsafeExternalSorter**
+
+UnsafeExternalSorter does not properly update freeSpaceInCurrentPage, which can cause it to write past the end of memory pages and trigger segfaults.
+
+UnsafeExternalRowSorter has a use-after-free bug when returning the last row from an iterator.
+
+
+---
+
+* [SPARK-9356](https://issues.apache.org/jira/browse/SPARK-9356) | *Major* | **Remove the internal use of DecimalType.Unlimited**
+
+We still have a few places that reference DecimalType.Unlimited, which is deprecated. We should remove those cases (or replace them with fixed precision).
+
+{code}
+> git grep Unlimited
+
+sql/catalyst/src/main/scala/org/apache/spark/sql/catalyst/expressions/Cast.scala:      case DecimalType.Unlimited =>
+sql/catalyst/src/test/scala/org/apache/spark/sql/catalyst/expressions/NullFunctionsSuite.scala:      Literal.create(null, DecimalType.Unlimited),
+sql/core/src/main/scala/org/apache/spark/sql/execution/datasources/PartitioningUtils.scala:   *   DoubleType -> DecimalType.Unlimited ->
+{code}
+
+
+---
+
+* [SPARK-9350](https://issues.apache.org/jira/browse/SPARK-9350) | *Major* | **Introduce an InternalRow generic getter that requires a DataType**
+
+We can use that to support generic getters in UnsafeRow.
+
+
+---
+
+* [SPARK-9348](https://issues.apache.org/jira/browse/SPARK-9348) | *Major* | **Remove apply method on InternalRow**
+
+apply incurs another virtual function call. This just removes the extra method internally and converge on the generic getter "get".
+
+
+---
+
+* [SPARK-9337](https://issues.apache.org/jira/browse/SPARK-9337) | *Trivial* | **Add an ut for Word2Vec to verify the empty vocabulary check**
+
+Word2Vec should throw exception when vocabulary is empty
+
+
+---
+
+* [SPARK-9336](https://issues.apache.org/jira/browse/SPARK-9336) | *Major* | **Remove all extra JoinedRows**
+
+They were added to improve performance (so JIT can inline the JoinedRow calls). However, we can also just improve it by projecting output out to UnsafeRow in Tungsten variant of the operators.
+
+
+---
+
+* [SPARK-9331](https://issues.apache.org/jira/browse/SPARK-9331) | *Major* | **Indent generated code properly when dumping them in debug code or exception mode**
+
+Our generated code isn't well indented. It would be great to format the code when we dump it in debug mode or when we see an exception.
+
+
+---
+
+* [SPARK-9326](https://issues.apache.org/jira/browse/SPARK-9326) | *Minor* | **Spark never closes the lock file used to prevent concurrent downloads**
+
+A lock file is used to ensure multiple executors running on the same machine don't download the same file concurrently. Spark never closes these lock files (we release the lock, but releasing the lock does not close the  underlying file). In theory, if an executor fetched a large number of files, this could eventually lead to an issue with too many open files.
+
+
+---
+
+* [SPARK-9306](https://issues.apache.org/jira/browse/SPARK-9306) | *Major* | **SortMergeJoin crashes when trying to join on unsortable columns**
+
+When sort merge join is enabled, it's possible to crash at runtime when trying to join on two StructFields: the problem is that we don't support ordering by struct fields or arrays. When the join columns are unsortable then we should not choose the SMJ join strategy.
+
+
+---
+
 * [SPARK-9305](https://issues.apache.org/jira/browse/SPARK-9305) | *Major* | **Rename org.apache.spark.Row to Item**
 
 It's a thing used in test cases, but named Row. Pretty annoying because everytime I search for Row, it shows up before the Spark SQL Row, which is what a developer wants most of the time.
+
+
+---
+
+* [SPARK-9304](https://issues.apache.org/jira/browse/SPARK-9304) | *Critical* | **Improve backwards compatibility of SPARK-8401**
+
+In SPARK-8401 a backwards incompatible change was made to the scala 2.11 build process. It would be good to add scripts with the older names to avoid breaking compatibility for harnesses or other automated builds that build for Scala 2.11. The can just be a one line shell script with a comment explaining it is for backwards compatibility purposes.
+
+/cc [~srowen]
 
 
 ---
@@ -49,6 +131,13 @@ The following data frame query should fail analysis but instead fails at runtime
 This should fail with an AnalysisException because the column "A" is not a boolean and thus cannot be used as a join condition.
 
 This can be fixed by adding a new analysis rule which checks that the join condition has BooleanType.
+
+
+---
+
+* [SPARK-9291](https://issues.apache.org/jira/browse/SPARK-9291) | *Blocker* | **Conversion is applied twice on partitioned data sources**
+
+We currently apply conversion twice: once in DataSourceStrategy (search for toCatalystRDD), and another in HadoopFsRelation.buildScan (search for rowToRowRdd).
 
 
 ---
@@ -140,6 +229,20 @@ There's a minor issue in {{StreamingTab}} that has hit me a couple of times when
 It calls methods in {{JettyUtils}} and {{WebUI}} that expose Jetty types (namely {{ServletContextHandler}}). Since Jetty is now shaded, it's not safe to do that, since when running unit tests the spark-core jar will have the shaded version of the APIs while the streaming classes haven't been shaded yet.
 
 This seems, at the lowest level, to be a bug in scalac (I've run into this issue in other modules before), since the code shouldn't compile at all, but we should avoid that kind of thing in the first place.
+
+
+---
+
+* [SPARK-9260](https://issues.apache.org/jira/browse/SPARK-9260) | *Major* | **Standalone scheduling can overflow a worker with cores**
+
+If the cluster is started with `spark.deploy.spreadOut = false`, then we may allocate more cores than is available on a worker. E.g. a worker has 8 cores, and an application sets `spark.cores.max = 10`, then we end up with the following screenshot:
+
+
+---
+
+* [SPARK-9254](https://issues.apache.org/jira/browse/SPARK-9254) | *Major* | **sbt-launch-lib.bash should use `curl --location` to support HTTP/HTTPS redirection**
+
+The {{curl}} call in the script should use {{--location}} to support HTTP/HTTPS redirection, since target file(s) can be hosted on CDN nodes.
 
 
 ---
@@ -466,6 +569,18 @@ The index 4 goes out of bounds (but this is not checked).
 Now, when some executors are killed by dynamic-allocation, it leads to some mis-assignment onto lost executors sometimes. Such kind of mis-assignment causes task failure(s) or even job failure if it repeats that errors for 4 times.
 
 The root cause is that killExecutors doesn't remove those executors under killing ASAP. It depends on the OnDisassociated event to refresh the active working list later. The delay time really depends on your cluster status (from several milliseconds to sub-minute). When new tasks to be scheduled during that period of time, it will be assigned to those "active" but "under killing" executors. Then the tasks will be failed due to "executor lost". The better way is to exclude those executors under killing in the makeOffers(). Then all those tasks won't be allocated onto those executors "to be lost" any more.
+
+
+---
+
+* [SPARK-9192](https://issues.apache.org/jira/browse/SPARK-9192) | *Major* | **add initialization phase for nondeterministic expression**
+
+Currently nondeterministic expression is broken without a explicit initialization phase.
+
+Let me take `MonotonicallyIncreasingID` as an example. This expression need a mutable state to remember how many times it has been evaluated, so we use `@transient var count: Long` there. By being transient, the `count` will be reset to 0 and **only** to 0 when serialize and deserialize it, as deserialize transient variable will result to default value. There is *no way* to use another initial value for `count`, until we add the explicit initialization phase.
+For now no nondeterministic expression need this feature, but we may add new ones with the need of a different initial value for mutable state in the future.
+
+Another use case is local execution for LocalRelation, there is no serialize and deserialize phase and thus we can't reset mutable states for it.
 
 
 ---
@@ -838,6 +953,13 @@ The cause:\_atomic\_types doesn't contain NullType
 
 ---
 
+* [SPARK-9095](https://issues.apache.org/jira/browse/SPARK-9095) | *Major* | **Removes old Parquet support code**
+
+As the new Parquet external data source matures, we should remove the old Parquet support now.
+
+
+---
+
 * [SPARK-9094](https://issues.apache.org/jira/browse/SPARK-9094) | *Minor* | **Increase io.dropwizard.metrics dependency to 3.1.2**
 
 This change is described in pull request:
@@ -949,7 +1071,7 @@ The hive test {{JavaDataFrameSuite}} NPEs in teardown if setup failed.
 
 ---
 
-* [SPARK-9069](https://issues.apache.org/jira/browse/SPARK-9069) | *Blocker* | **Remove unlimited DecimalType**
+* [SPARK-9069](https://issues.apache.org/jira/browse/SPARK-9069) | *Blocker* | **Remove DecimalType unlimited precision/scale support**
 
 We should remove DecimalType.Unlimited, because BigDecimal does not really support unlimited precision, especially for division.
 
@@ -1805,6 +1927,20 @@ The class `OverrideFunctionRegistry` is redundant since the `HiveFunctionRegistr
 
 ---
 
+* [SPARK-8881](https://issues.apache.org/jira/browse/SPARK-8881) | *Critical* | **Standalone mode scheduling fails because cores assignment is not atomic**
+
+Current scheduling algorithm (in Master.scala) has two issues:
+
+1. cores are allocated one at a time instead of spark.executor.cores at a time
+2. when spark.cores.max/spark.executor.cores < num\_workers, executors are not launched and the app hangs (due to 1)
+
+=== Edit by Andrew ===
+
+Here's an example from the PR. Let's say we have 4 workers with 16 cores each. We set `spark.cores.max` to 48 and `spark.executor.cores` to 16. Because in spread out mode, the existing code allocates 1 core at a time, we end up allocating 12 cores on each worker, and no executors can be launched because each one wants at least 16 cores. Instead, we should allocate 16 cores at a time.
+
+
+---
+
 * [SPARK-8880](https://issues.apache.org/jira/browse/SPARK-8880) | *Minor* | **Fix confusing Stage.attemptId member variable**
 
 This variable very confusingly refers to the *next* stageId that should be used, making this code especially hard to understand.
@@ -1859,6 +1995,13 @@ df.unionAll(df).sort("\_c0").collect()
 The same problem occurs if we add more null-literals, but does not occur as long as there is a column of any other type (e.g. {{select 1, null where 1 == 1}}).
 
 I think that what's happening here is that if you have a row that consists only of columns of NullType (not columns of other types which happen to only contain null values, but only columns of null literals), SqlSerializer will end up writing / reading no data for rows of this type.  Since the deserialization stream will never try to read any data but nevertheless will be able to return an empty row, DeserializationStream.asIterator will go into an infinite loop since there will never be a read to trigger an EOF exception.
+
+
+---
+
+* [SPARK-8867](https://issues.apache.org/jira/browse/SPARK-8867) | *Major* | **Show the UDF usage for user.**
+
+As Hive does, we need to provide the feature for user, to show the usage of a UDF.
 
 
 ---
@@ -2614,6 +2757,15 @@ columnNames may turn out to be less than 9 elements. Use columnNames.length in t
 
 ---
 
+* [SPARK-8714](https://issues.apache.org/jira/browse/SPARK-8714) | *Major* | **Refresh table not working with non-default databases**
+
+I created an external table with sqlContext.createExternalTable from parquet data in S3. After that, I placed a new partition (directory with some parquet files) in S3. Then I did a sql refresh table. It worked great.
+
+I created a separate cluster and changed the database from default to my database. I repeated the above process for the new database. Now the createExternalTable works fine but the refresh table doesn't work. The first time I got an exception stack trace but the next time I don't see any error but when I do a count on the # of rows, the new data is not reflected.
+
+
+---
+
 * [SPARK-8713](https://issues.apache.org/jira/browse/SPARK-8713) | *Major* | **Support codegen for not thread-safe expressions**
 
 Currently, we disable codegen if any expression is not thread safe. We should support that, but disable caching the compiled expresssions.
@@ -2916,6 +3068,13 @@ Loading a Parquet 1.7 file that contains a binary ENUM field in Spark 1.5-SNAPSH
   at org.apache.spark.sql.parquet.CatalystSchemaConverter.convertField(CatalystSchemaConverter.scala:114)
 ...
 {noformat}
+
+
+---
+
+* [SPARK-8668](https://issues.apache.org/jira/browse/SPARK-8668) | *Major* | **expr function to convert SQL expression into a Column**
+
+selectExpr uses the expression parser to parse a string expressions. would be great to create an "expr" function in functions.scala/functions.py that converts a string into an expression (or a list of expressions separated by comma).
 
 
 ---
@@ -5085,6 +5244,64 @@ scala> f.count()
 
 ---
 
+* [SPARK-8435](https://issues.apache.org/jira/browse/SPARK-8435) | *Major* | **Cannot create tables in an specific database using a provider**
+
+Hello,
+
+I've been trying to create tables in different catalogs using a Hive metastore and when I execute the "CREATE" statement, I realized that it is created into the default catalog.
+
+This is what I'm trying. 
+{quote}
+scala> sqlContext.sql("CREATE DATABASE IF NOT EXISTS testmetastore COMMENT 'Testing catalogs' ")
+scala> sqlContext.sql("USE testmetastore")
+scala> sqlContext.sql("CREATE TABLE students USING org.apache.spark.sql.parquet OPTIONS (path '/user/hive, highavailability 'true', DefaultLimit '1000')")
+{quote}
+
+And this is what I get. I can see that it is kind of working because it seems that when it checks if the table exists, it searchs in the correct catalog (testmetastore). But finally when it tries to create the table, it uses the default catalog.
+
+{quote}
+scala> sqlContext.sql("CREATE TABLE students USING a OPTIONS (highavailability 'true', DefaultLimit '1000')").show
+15/06/18 10:28:48 INFO HiveMetaStore: 0: get\_table : db=*testmetastore* tbl=students
+15/06/18 10:28:48 INFO audit: ugi=ccaballero	ip=unknown-ip-addr	cmd=get\_table : db=testmetastore tbl=students	
+15/06/18 10:28:48 INFO Persistence: Request to load fields "comment,name,type" of class org.apache.hadoop.hive.metastore.model.MFieldSchema but object is embedded, so ignored
+15/06/18 10:28:48 INFO Persistence: Request to load fields "comment,name,type" of class org.apache.hadoop.hive.metastore.model.MFieldSchema but object is embedded, so ignored
+15/06/18 10:28:48 INFO HiveMetaStore: 0: create\_table: Table(tableName:students, dbName:*default*, owner:ccaballero, createTime:1434616128, lastAccessTime:0, retention:0, sd:StorageDescriptor(cols:[FieldSchema(name:col, type:array<string>, comment:from deserializer)], location:null, inputFormat:org.apache.hadoop.mapred.SequenceFileInputFormat, outputFormat:org.apache.hadoop.hive.ql.io.HiveSequenceFileOutputFormat, compressed:false, numBuckets:-1, serdeInfo:SerDeInfo(name:null, serializationLib:org.apache.hadoop.hive.serde2.MetadataTypedColumnsetSerDe, parameters:{DefaultLimit=1000, serialization.format=1, highavailability=true}), bucketCols:[], sortCols:[], parameters:{}, skewedInfo:SkewedInfo(skewedColNames:[], skewedColValues:[], skewedColValueLocationMaps:{})), partitionKeys:[], parameters:{EXTERNAL=TRUE, spark.sql.sources.provider=a}, viewOriginalText:null, viewExpandedText:null, tableType:MANAGED\_TABLE)
+15/06/18 10:28:48 INFO audit: ugi=ccaballero	ip=unknown-ip-addr	cmd=create\_table: Table(tableName:students, dbName:default, owner:ccaballero, createTime:1434616128, lastAccessTime:0, retention:0, sd:StorageDescriptor(cols:[FieldSchema(name:col, type:array<string>, comment:from deserializer)], location:null, inputFormat:org.apache.hadoop.mapred.SequenceFileInputFormat, outputFormat:org.apache.hadoop.hive.ql.io.HiveSequenceFileOutputFormat, compressed:false, numBuckets:-1, serdeInfo:SerDeInfo(name:null, serializationLib:org.apache.hadoop.hive.serde2.MetadataTypedColumnsetSerDe, parameters:{DefaultLimit=1000, serialization.format=1, highavailability=true}), bucketCols:[], sortCols:[], parameters:{}, skewedInfo:SkewedInfo(skewedColNames:[], skewedColValues:[], skewedColValueLocationMaps:{})), partitionKeys:[], parameters:{EXTERNAL=TRUE, spark.sql.sources.provider=a}, viewOriginalText:null, viewExpandedText:null, tableType:MANAGED\_TABLE)	
+15/06/18 10:28:49 INFO SparkContext: Starting job: show at <console>:20
+15/06/18 10:28:49 INFO DAGScheduler: Got job 2 (show at <console>:20) with 1 output partitions (allowLocal=false)
+15/06/18 10:28:49 INFO DAGScheduler: Final stage: ResultStage 2(show at <console>:20)
+15/06/18 10:28:49 INFO DAGScheduler: Parents of final stage: List()
+15/06/18 10:28:49 INFO DAGScheduler: Missing parents: List()
+15/06/18 10:28:49 INFO DAGScheduler: Submitting ResultStage 2 (MapPartitionsRDD[6] at show at <console>:20), which has no missing parents
+15/06/18 10:28:49 INFO MemoryStore: ensureFreeSpace(1792) called with curMem=0, maxMem=278302556
+15/06/18 10:28:49 INFO MemoryStore: Block broadcast\_2 stored as values in memory (estimated size 1792.0 B, free 265.4 MB)
+15/06/18 10:28:49 INFO MemoryStore: ensureFreeSpace(1139) called with curMem=1792, maxMem=278302556
+15/06/18 10:28:49 INFO MemoryStore: Block broadcast\_2\_piece0 stored as bytes in memory (estimated size 1139.0 B, free 265.4 MB)
+15/06/18 10:28:49 INFO BlockManagerInfo: Added broadcast\_2\_piece0 in memory on localhost:59110 (size: 1139.0 B, free: 265.4 MB)
+15/06/18 10:28:49 INFO SparkContext: Created broadcast 2 from broadcast at DAGScheduler.scala:874
+15/06/18 10:28:49 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 2 (MapPartitionsRDD[6] at show at <console>:20)
+15/06/18 10:28:49 INFO TaskSchedulerImpl: Adding task set 2.0 with 1 tasks
+15/06/18 10:28:49 INFO TaskSetManager: Starting task 0.0 in stage 2.0 (TID 2, localhost, PROCESS\_LOCAL, 1379 bytes)
+15/06/18 10:28:49 INFO Executor: Running task 0.0 in stage 2.0 (TID 2)
+15/06/18 10:28:49 INFO Executor: Finished task 0.0 in stage 2.0 (TID 2). 628 bytes result sent to driver
+15/06/18 10:28:49 INFO TaskSetManager: Finished task 0.0 in stage 2.0 (TID 2) in 10 ms on localhost (1/1)
+15/06/18 10:28:49 INFO DAGScheduler: ResultStage 2 (show at <console>:20) finished in 0.010 s
+15/06/18 10:28:49 INFO TaskSchedulerImpl: Removed TaskSet 2.0, whose tasks have all completed, from pool 
+15/06/18 10:28:49 INFO DAGScheduler: Job 2 finished: show at <console>:20, took 0.016204 s
+++
+||
+++
+++
+
+{quote}
+
+Any suggestions would be appreciated.
+
+Thank you.
+
+
+---
+
 * [SPARK-8434](https://issues.apache.org/jira/browse/SPARK-8434) | *Major* | **Add a "pretty" parameter to show**
 
 Sometimes the user may want to show the complete content of cells, such as "sql("set -v")"
@@ -7089,6 +7306,20 @@ https://github.com/python/cpython/blob/master/Objects/rangeobject.c#L87
 Derby has a configuration property named {{derby.system.durability}} that disables I/O synchronization calls for many writes.  This sacrifices durability but can result in large performance gains, which is appropriate for tests.
 
 We should enable this in our test system properties in order to speed up the Hive compatibility tests.  I saw 2-3x speedups locally with this change.
+
+
+---
+
+* [SPARK-8105](https://issues.apache.org/jira/browse/SPARK-8105) | *Critical* | **sqlContext.table("databaseName.tableName") broke with SPARK-6908**
+
+Since the introduction of Dataframes in Spark 1.3.0 and prior to SPARK-6908 landing into master, a user could get a DataFrame to a Hive table using `sqlContext.table("databaseName.tableName")` 
+Since SPARK-6908, the user now receives a NoSuchTableException.
+
+This amounts to a change in  non experimental sqlContext.table() api and will require user code to be modified to work properly with 1.4.0.
+
+The only viable work around I could find is
+`sqlContext.sql("select * from databseName.tableName")`
+which seems like a hack.
 
 
 ---
@@ -9234,6 +9465,15 @@ The behavior of {{mvn package}} and {{sbt kafka-assembly/assembly}} under kafka-
 
 ---
 
+* [SPARK-7045](https://issues.apache.org/jira/browse/SPARK-7045) | *Minor* | **Word2Vec: avoid intermediate representation when creating model**
+
+Word2VecModel now stores the word vectors as a single, flat array; Word2Vec does as well.  However, when Word2Vec creates the model, it builds an intermediate representation.  We should skip that intermediate representation.
+
+However, it will be nice to create a public constructor for Word2VecModel which takes that intermediate representation (a Map from String words to their Vectors), since it's a user-friendly representation.
+
+
+---
+
 * [SPARK-7042](https://issues.apache.org/jira/browse/SPARK-7042) | *Minor* | **Spark version of akka-actor\_2.11 is not compatible with the official akka-actor\_2.11 2.3.x**
 
 When connecting to a remote Spark cluster (that runs Spark branch-1.3 built with Scala 2.11) from an application that uses akka 2.3.9 I get the following error:
@@ -10351,6 +10591,13 @@ Currently, the UDAF implementation is quite complicated, and we have to provide 
 
 ---
 
+* [SPARK-4176](https://issues.apache.org/jira/browse/SPARK-4176) | *Major* | **Support decimals with precision \> 18 in Parquet**
+
+After https://issues.apache.org/jira/browse/SPARK-3929, only decimals with precisions <= 18 (that can be read into a Long) will be readable from Parquet, so we still need more work to support these larger ones.
+
+
+---
+
 * [SPARK-4127](https://issues.apache.org/jira/browse/SPARK-4127) | *Major* | **Streaming Linear Regression- Python bindings**
 
 Create python bindings for Streaming Linear Regression (MLlib).
@@ -10371,13 +10618,6 @@ which adds Streaming K-means functionality to MLLib.
 * [SPARK-4072](https://issues.apache.org/jira/browse/SPARK-4072) | *Critical* | **Storage UI does not reflect memory usage by streaming blocks**
 
 The storage page in the web ui does not show the memory usage of non-RDD, non-Broadcast blocks. In other words, the memory used by data received through Spark Streaming is not shown on the web ui.
-
-
----
-
-* [SPARK-4024](https://issues.apache.org/jira/browse/SPARK-4024) | *Minor* | **Remember user preferences for metrics to show in the UI**
-
-We should remember the metrics a user has previously chosen to display for each stage, so that the user doesn't need to reselect interesting metric each time they open a stage detail page.
 
 
 ---

@@ -262,7 +262,7 @@
 | [HIVE-9892](https://issues.apache.org/jira/browse/HIVE-9892) | various MSSQL upgrade scripts don't work |  Major | Metastore | Sergey Shelukhin | Sergey Shelukhin |
 | [HIVE-9886](https://issues.apache.org/jira/browse/HIVE-9886) | Hive on tez: NPE when converting join to SMB in sub-query |  Critical | Tez | Vikram Dixit K | Vikram Dixit K |
 | [HIVE-9877](https://issues.apache.org/jira/browse/HIVE-9877) | Beeline cannot run multiple statements in the same row |  Major | Beeline | Zoltan Fedor | Chaoyu Tang |
-| [HIVE-9873](https://issues.apache.org/jira/browse/HIVE-9873) | Hive on MR throws DeprecatedParquetHiveInput exception |  Major | . | Sergio Peña | Sergio Peña |
+| [HIVE-9873](https://issues.apache.org/jira/browse/HIVE-9873) | Hive on MR throws DeprecatedParquetHiveInput exception |  Major | Hive | Sergio Peña | Sergio Peña |
 | [HIVE-9872](https://issues.apache.org/jira/browse/HIVE-9872) | Making yarn-cluster default for Hive on Spark [Spark Branch] |  Major | Spark | Chao Sun | Chao Sun |
 | [HIVE-9869](https://issues.apache.org/jira/browse/HIVE-9869) | Trunk doesn't build with hadoop-1 |  Major | . | Rui Li | Rui Li |
 | [HIVE-9866](https://issues.apache.org/jira/browse/HIVE-9866) | Changing a column's type doesn't change column stats type in metastore |  Major | . | Henry Robinson | Chaoyu Tang |

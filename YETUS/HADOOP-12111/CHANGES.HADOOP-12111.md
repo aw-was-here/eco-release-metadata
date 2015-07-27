@@ -25,7 +25,6 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-12156](https://issues.apache.org/jira/browse/HADOOP-12156) | modernize smart-apply-patch |  Major | yetus | Allen Wittenauer | Allen Wittenauer |
-| [HADOOP-12135](https://issues.apache.org/jira/browse/HADOOP-12135) | cleanup releasedocmaker |  Major | yetus | Allen Wittenauer | Allen Wittenauer |
 
 
 ### NEW FEATURES:
@@ -38,7 +37,6 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [HADOOP-11807](https://issues.apache.org/jira/browse/HADOOP-11807) | add a lint mode to releasedocmaker |  Minor | build, documentation, yetus | Allen Wittenauer | ramtin |
 
 
 ### BUG FIXES:
@@ -57,11 +55,9 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [HADOOP-12237](https://issues.apache.org/jira/browse/HADOOP-12237) | releasedocmaker.py doesn't work behind a proxy |  Major | yetus | Tsuyoshi Ozawa | Tsuyoshi Ozawa |
 | [HADOOP-12225](https://issues.apache.org/jira/browse/HADOOP-12225) | Add docs-overview page |  Major | yetus | Sean Busbey | Sean Busbey |
 | [HADOOP-12207](https://issues.apache.org/jira/browse/HADOOP-12207) | Add support for pylint |  Major | yetus | Allen Wittenauer | Kengo Seki |
 | [HADOOP-12206](https://issues.apache.org/jira/browse/HADOOP-12206) | The preceding invocations of findlargest in test-patch effect the following invocation results |  Major | yetus | Kengo Seki | Kengo Seki |
-| [HADOOP-12202](https://issues.apache.org/jira/browse/HADOOP-12202) | releasedocmaker drops missing component and assignee entries |  Blocker | yetus | Allen Wittenauer | Allen Wittenauer |
 | [HADOOP-12199](https://issues.apache.org/jira/browse/HADOOP-12199) | Optimize find\_changed\_modules |  Trivial | yetus | Allen Wittenauer | Kengo Seki |
 | [HADOOP-12198](https://issues.apache.org/jira/browse/HADOOP-12198) | hadoop patches that hit multiple modules need to build at the union |  Major | yetus | Allen Wittenauer | Allen Wittenauer |
 | [HADOOP-12197](https://issues.apache.org/jira/browse/HADOOP-12197) | smart-apply-patch shouldn't print successful dryrun in apply mode |  Major | yetus | Allen Wittenauer | Kengo Seki |
