@@ -33,6 +33,13 @@ I want to simplify the directory structure a bit:
 
 ---
 
+* [ORC-22](https://issues.apache.org/jira/browse/ORC-22) | *Major* | **Make buffer block size configurable**
+
+The current implementation of seekable file input stream reads files, by default, in 256K chunks. This parameter should be configurable via ReaderOptions.
+
+
+---
+
 * [ORC-9](https://issues.apache.org/jira/browse/ORC-9) | *Major* | **Create a ColumnVectorBatch for Timestamps**
 
 Create a TimestampVectorBatch that uses time\_t and the number of nanoseconds.
