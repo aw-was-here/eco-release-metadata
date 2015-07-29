@@ -97,6 +97,7 @@
 | [SPARK-9397](https://issues.apache.org/jira/browse/SPARK-9397) | DataFrame should provide an API to find source data files if applicable |  Critical | SQL | Aaron Davidson | Aaron Davidson |
 | [SPARK-9376](https://issues.apache.org/jira/browse/SPARK-9376) | use a seed in RandomDataGeneratorSuite |  Minor | SQL | Wenchen Fan | Wenchen Fan |
 | [SPARK-9373](https://issues.apache.org/jira/browse/SPARK-9373) | Support StructType in Tungsten style Projection |  Major | SQL | Reynold Xin | Reynold Xin |
+| [SPARK-9352](https://issues.apache.org/jira/browse/SPARK-9352) | Add tests for standalone scheduling code |  Critical | Deploy, Tests | Andrew Or | Andrew Or |
 | [SPARK-9351](https://issues.apache.org/jira/browse/SPARK-9351) | remove literals from grouping expressions in Aggregate |  Trivial | SQL | Wenchen Fan | Wenchen Fan |
 | [SPARK-9337](https://issues.apache.org/jira/browse/SPARK-9337) | Add an ut for Word2Vec to verify the empty vocabulary check |  Trivial | MLlib | yuhao yang | yuhao yang |
 | [SPARK-9336](https://issues.apache.org/jira/browse/SPARK-9336) | Remove all extra JoinedRows |  Major | SQL | Reynold Xin | Reynold Xin |
@@ -320,6 +321,7 @@
 | [SPARK-3382](https://issues.apache.org/jira/browse/SPARK-3382) | GradientDescent convergence tolerance |  Minor | MLlib | Joseph K. Bradley | Kai Sasaki |
 | [SPARK-3071](https://issues.apache.org/jira/browse/SPARK-3071) | Increase default driver memory |  Major | Spark Core | Xiangrui Meng | Ilya Ganelin |
 | [SPARK-2774](https://issues.apache.org/jira/browse/SPARK-2774) | Set preferred locations for reduce tasks |  Major | Spark Core | Shivaram Venkataraman | Shivaram Venkataraman |
+| [SPARK-746](https://issues.apache.org/jira/browse/SPARK-746) | Automatically Use Avro Serialization for Avro Objects |  Major | Spark Core | Patrick Cogan | Joseph Batchik |
 
 
 ### BUG FIXES:

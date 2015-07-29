@@ -259,6 +259,13 @@ sql/core/src/main/scala/org/apache/spark/sql/execution/datasources/PartitioningU
 
 ---
 
+* [SPARK-9352](https://issues.apache.org/jira/browse/SPARK-9352) | *Critical* | **Add tests for standalone scheduling code**
+
+There are no tests for the standalone Master scheduling code! This has caused issues like SPARK-8881 and SPARK-9260 in the past. It is crucial that we have some level of confidence that this code actually works...
+
+
+---
+
 * [SPARK-9350](https://issues.apache.org/jira/browse/SPARK-9350) | *Major* | **Introduce an InternalRow generic getter that requires a DataType**
 
 We can use that to support generic getters in UnsafeRow.
@@ -11355,6 +11362,15 @@ There are again a few different alternatives:
 0. Limit the number of tasks we show.
 1. Pagination
 2. By default only show the aggregate metrics and failed tasks, and hide the successful ones.
+
+
+---
+
+* [SPARK-746](https://issues.apache.org/jira/browse/SPARK-746) | *Major* | **Automatically Use Avro Serialization for Avro Objects**
+
+All generated objects extend org.apache.avro.specific.SpecificRecordBase (or there may be a higher up class as well).
+
+Since Avro records aren't JavaSerializable by default people currently have to wrap their records. It would be good if we could use an implicit conversion to do this for them.
 
 
 

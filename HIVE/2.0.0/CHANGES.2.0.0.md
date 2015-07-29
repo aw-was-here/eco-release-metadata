@@ -273,6 +273,7 @@
 | [HIVE-11321](https://issues.apache.org/jira/browse/HIVE-11321) | Move OrcFile.OrcTableProperties from OrcFile into OrcConf. |  Major | . | Owen O'Malley | Owen O'Malley |
 | [HIVE-11307](https://issues.apache.org/jira/browse/HIVE-11307) | Remove getWritableObject from ColumnVectorBatch |  Major | Vectorization | Owen O'Malley | Owen O'Malley |
 | [HIVE-11282](https://issues.apache.org/jira/browse/HIVE-11282) | CBO (Calcite Return Path): Inferring Hive type char/varchar of length zero which is not allowed |  Major | CBO | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
+| [HIVE-11253](https://issues.apache.org/jira/browse/HIVE-11253) | Move SearchArgument and VectorizedRowBatch classes to storage-api. |  Major | . | Owen O'Malley | Owen O'Malley |
 | [HIVE-11252](https://issues.apache.org/jira/browse/HIVE-11252) | CBO (Calcite Return Path): DUMMY project in plan |  Major | CBO | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
 | [HIVE-11251](https://issues.apache.org/jira/browse/HIVE-11251) | CBO (Calcite Return Path): Extending ExprNodeConverter to consider additional types |  Major | CBO | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
 | [HIVE-11239](https://issues.apache.org/jira/browse/HIVE-11239) | Test encryption\_insert\_partition\_static.q fails with different output results on other environments |  Major | Tests | Sergio Peña | Sergio Peña |

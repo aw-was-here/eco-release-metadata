@@ -23,6 +23,13 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-9352](https://issues.apache.org/jira/browse/SPARK-9352) | *Critical* | **Add tests for standalone scheduling code**
+
+There are no tests for the standalone Master scheduling code! This has caused issues like SPARK-8881 and SPARK-9260 in the past. It is crucial that we have some level of confidence that this code actually works...
+
+
+---
+
 * [SPARK-9326](https://issues.apache.org/jira/browse/SPARK-9326) | *Minor* | **Spark never closes the lock file used to prevent concurrent downloads**
 
 A lock file is used to ensure multiple executors running on the same machine don't download the same file concurrently. Spark never closes these lock files (we release the lock, but releasing the lock does not close the  underlying file). In theory, if an executor fetched a large number of files, this could eventually lead to an issue with too many open files.
