@@ -36,6 +36,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [ORC-22](https://issues.apache.org/jira/browse/ORC-22) | Make buffer block size configurable |  Major | C++ | Aliaksei Sandryhaila | Aliaksei Sandryhaila |
 | [ORC-9](https://issues.apache.org/jira/browse/ORC-9) | Create a ColumnVectorBatch for Timestamps |  Major | C++, encoding | Owen O'Malley | Owen O'Malley |
 
 
@@ -63,7 +64,6 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [ORC-23](https://issues.apache.org/jira/browse/ORC-23) | Simplify the C++ directory structure a bit |  Major | C++ | Owen O'Malley | Owen O'Malley |
-| [ORC-22](https://issues.apache.org/jira/browse/ORC-22) | Make buffer block size configurable |  Major | . | Aliaksei Sandryhaila | Aliaksei Sandryhaila |
 | [ORC-3](https://issues.apache.org/jira/browse/ORC-3) | Import native code from github |  Major | C++ | Owen O'Malley | Owen O'Malley |
 
 

@@ -23,6 +23,13 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [KAFKA-2381](https://issues.apache.org/jira/browse/KAFKA-2381) | *Major* | **Possible ConcurrentModificationException while unsubscribing from a topic in new consumer**
+
+Possible ConcurrentModificationException while unsubscribing from a topic in new consumer. Attempt is made to modify AssignedPartitions while looping over it.
+
+
+---
+
 * [KAFKA-2355](https://issues.apache.org/jira/browse/KAFKA-2355) | *Minor* | **Add an unit test to validate the deletion of a partition marked as deleted**
 
 Trying to delete a partition marked as deleted throws {{TopicAlreadyMarkedForDeletionException}} so this ticket add a unit test to validate this behaviour.
@@ -39,6 +46,13 @@ The cause of dead Processor thread was due to we are not catching all the except
 
 ---
 
+* [KAFKA-2349](https://issues.apache.org/jira/browse/KAFKA-2349) | *Major* | **`contributing` website page should link to "Contributing Code Changes" wiki page**
+
+This should be merged at the same time as https://issues.apache.org/jira/browse/KAFKA-2321 and only after a vote takes place in the mailing list.
+
+
+---
+
 * [KAFKA-2348](https://issues.apache.org/jira/browse/KAFKA-2348) | *Major* | **Drop support for Scala 2.9**
 
 Summary of why we should drop Scala 2.9:
@@ -51,6 +65,13 @@ Summary of why we should drop Scala 2.9:
 * Doesn't work with Java 8 (https://issues.apache.org/jira/browse/KAFKA-2203).
 
 Vote thread: http://search-hadoop.com/m/uyzND1DIE422mz94I1
+
+
+---
+
+* [KAFKA-2347](https://issues.apache.org/jira/browse/KAFKA-2347) | *Major* | **Add setConsumerRebalanceListener method to ZookeeperConsuemrConnector java api.**
+
+The setConsumerRebalanceListener() method is in scala API but not in java api. Needs to add it back.
 
 
 ---
@@ -202,6 +223,13 @@ And since we will drop support for Scala 2.9.x soon, then the conditional check 
 
 ---
 
+* [KAFKA-2321](https://issues.apache.org/jira/browse/KAFKA-2321) | *Major* | **Introduce CONTRIBUTING.md**
+
+This file is displayed when people create a pull request in GitHub. It should link to the relevant pages in the wiki and website.
+
+
+---
+
 * [KAFKA-2317](https://issues.apache.org/jira/browse/KAFKA-2317) | *Major* | **De-register isrChangeNotificationListener on controller resignation**
 
 KAFKA-1367 adds isrChangeNotificationListener to controller. This listener needs to be de-registered during controller resignation.
@@ -336,6 +364,30 @@ Under the design section, the last second paragraph says this "Finally in cases 
 * [KAFKA-2290](https://issues.apache.org/jira/browse/KAFKA-2290) | *Major* | **OffsetIndex should open RandomAccessFile consistently**
 
 We open RandomAccessFile in "rw" mode in the constructor, but in "rws" mode in resize(). We should use "rw" in both cases since it's more efficient.
+
+
+---
+
+* [KAFKA-2276](https://issues.apache.org/jira/browse/KAFKA-2276) | *Major* | **Initial patch for KIP-25**
+
+Submit initial patch for KIP-25 (https://cwiki.apache.org/confluence/display/KAFKA/KIP-25+-+System+test+improvements)
+
+This patch should contain a few Service classes and a few tests which can serve as examples
+
+
+---
+
+* [KAFKA-2275](https://issues.apache.org/jira/browse/KAFKA-2275) | *Critical* | **Add a ListTopics() API to the new consumer**
+
+With regex subscription like
+
+{code}
+consumer.subscribe("topic*")
+{code}
+
+The partition assignment is automatically done at the Kafka side, while there are some use cases where consumers want regex subscriptions but not Kafka-side partition assignment, rather with their own specific partition assignment. With ListTopics() they can periodically check for topic list changes and specifically subscribe to the partitions of the new topics.
+
+For implementation, it involves sending a TopicMetadataRequest to a random broker and parse the response.
 
 
 ---
@@ -1399,6 +1451,19 @@ It is confirmed during our experiment of this change that entries in netstat whe
 In the NetworkClient class on a call to poll() there are three checks (timeToNextMetadataUpdate, timeToNextReconnectAttempt, waitForMetadataFetch) made to see if a metadata update should be made. If all of these == 0 then an update is performed.
 
 However, in the if block a second check is made to metadataFetchInProgress. This only make sense in a multithreaded environment. However, as the variable is not volatile I suspect this is not the case.
+
+
+---
+
+* [KAFKA-2089](https://issues.apache.org/jira/browse/KAFKA-2089) | *Major* | **MetadataTest transient failure**
+
+org.apache.kafka.clients.MetadataTest > testMetadata FAILED
+    java.lang.AssertionError:
+        at org.junit.Assert.fail(Assert.java:91)
+        at org.junit.Assert.assertTrue(Assert.java:43)
+        at org.junit.Assert.assertFalse(Assert.java:68)
+        at org.junit.Assert.assertFalse(Assert.java:79)
+        at org.apache.kafka.clients.MetadataTest.tearDown(MetadataTest.java:34)
 
 
 ---

@@ -23,6 +23,218 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-9422](https://issues.apache.org/jira/browse/SPARK-9422) | *Major* | **Remove the placeholder attributes used in the aggregation buffers**
+
+Originally, to merge two aggregation buffers, we create a mutable buffer with extra placeholder attributes to represent grouping expressions (because the input aggregation buffer has grouping keys). This was done to make the first implementation easy. We can remove it now, which can also help us to implement the hash aggregate operator using unsafe row as the buffer.
+
+
+---
+
+* [SPARK-9421](https://issues.apache.org/jira/browse/SPARK-9421) | *Major* | **Fix null-handling bug in UnsafeRow.getDouble, getFloat(), and get(ordinal, dataType)**
+
+UnsafeRow.getDouble and getFloat() return NaN when called on columns that are null, which is inconsistent with the behavior of other row classes (which is to return 0.0).
+
+In addition, the generic get(ordinal, dataType) method should always return {{null}} for a null literal, but currently it returns the same thing as the more specific getters.
+
+
+---
+
+* [SPARK-9420](https://issues.apache.org/jira/browse/SPARK-9420) | *Major* | **Move expressions in sql/core package to catalyst.**
+
+Since catalyst package already depends on Spark core, we can move those expressions into catalyst, and simplify function registry.
+
+
+---
+
+* [SPARK-9419](https://issues.apache.org/jira/browse/SPARK-9419) | *Critical* | **ShuffleMemoryManager and MemoryStore should track memory on a per-task, not per-thread, basis**
+
+Spark's ShuffleMemoryManager and MemoryStore track memory on a per-thread basis, which causes problems in the handful of cases where we have tasks that use multiple threads. In PythonRDD, RRDD, ScriptTransformation, and PipedRDD we consume the input iterator in a separate thread in order to write it to an external process.  As a result, these RDD's input iterators are consumed in a different thread than the thread that created them, which can cause problems in our memory allocation tracking. For example, if allocations are performed in one thread but deallocations are performed in a separate thread then memory may be leaked or we may get errors complaining that more memory was allocated than was freed.
+
+I think that the right way to fix this is to change our accounting to be performed on a per-task instead of per-thread basis.  Note that the current per-thread tracking has caused problems in the past; SPARK-3731 (#2668) fixes a memory leak in PythonRDD that was caused by this issue (that fix is no longer necessary as of this patch).
+
+
+---
+
+* [SPARK-9418](https://issues.apache.org/jira/browse/SPARK-9418) | *Major* | **Use sort-merge join as the default shuffle join**
+
+Sort-merge join is more robust in Spark since sorting can be made using the Tungsten sort operator.
+
+
+---
+
+* [SPARK-9402](https://issues.apache.org/jira/browse/SPARK-9402) | *Major* | **Remove CodegenFallback from Abs / FormatNumber**
+
+It already implements code gen.
+
+
+---
+
+* [SPARK-9398](https://issues.apache.org/jira/browse/SPARK-9398) | *Critical* | **Add unit test for null inputs for date functions**
+
+Unit tests in DateExpressionsSuite didn't cover null inputs.
+
+For each expression, we should add test cases where inputs were null to test behavior with null inputs.
+
+Note that I have a related pull request https://github.com/apache/spark/pull/7718 that added null test cases for next\_day.
+
+
+---
+
+* [SPARK-9397](https://issues.apache.org/jira/browse/SPARK-9397) | *Critical* | **DataFrame should provide an API to find source data files if applicable**
+
+Certain applications would benefit from being able to inspect DataFrames that are straightforwardly produced by data sources that stem from files, and find out their source data. For example, one might want to display to a user the size of the data underlying a table, or to copy or mutate it.
+
+Currently, there is not a good way to get this information in a public API.
+
+
+---
+
+* [SPARK-9395](https://issues.apache.org/jira/browse/SPARK-9395) | *Major* | **Create a SpecializedGetters interface to track all the specialized getters**
+
+As we are adding more and more specialized getters to more classes, we should have an interface to make sure we always declare all of them in all classes.
+
+{code}
+public interface SpecializedGetters {
+
+  boolean isNullAt(int ordinal);
+
+  boolean getBoolean(int ordinal);
+
+  byte getByte(int ordinal);
+
+  short getShort(int ordinal);
+
+  int getInt(int ordinal);
+
+  long getLong(int ordinal);
+
+  float getFloat(int ordinal);
+
+  double getDouble(int ordinal);
+
+  Decimal getDecimal(int ordinal);
+
+  UTF8String getUTF8String(int ordinal);
+
+  byte[] getBinary(int ordinal);
+
+  Interval getInterval(int ordinal);
+
+  InternalRow getStruct(int ordinal, int numFields);
+
+}
+
+{code}
+
+
+---
+
+* [SPARK-9394](https://issues.apache.org/jira/browse/SPARK-9394) | *Major* | **CodeFormatter should handle parentheses**
+
+Our CodeFormatter currently does not handle parentheses, and as a result in code dump, we see code formatted this way:
+
+{code}
+foo(
+a,
+b,
+c)
+{code}
+
+
+---
+
+* [SPARK-9393](https://issues.apache.org/jira/browse/SPARK-9393) | *Critical* | **Fix several error-handling bugs in ScriptTransform operator**
+
+SparkSQL's ScriptTransform operator has several serious bugs which make debugging fairly difficult:
+
+- If exceptions are thrown in the writing thread then the child process will not be killed, leading to a deadlock because the reader thread will block while waiting for input that will never arrive.
+- TaskContext is not propagated to the writer thread, which may cause errors in upstream pipelined operators.
+- Exceptions which occur in the writer thread are not propagated to the main reader thread, which may cause upstream errors to be silently ignored instead of killing the job.  This can lead to silently incorrect query results.
+- The writer thread is not a daemon thread, but it should be.
+
+In addition, the code in this file is extremely messy:
+
+- Lots of fields are nullable but the nullability isn't clearly explained.
+- Many confusing variable names: for instance, there are variables named {{iter}} and {{iterator}} that are defined in the same scope.
+- Lots of code was misindented.
+- The {{*serdeClass}} variables are actually expected to be single-quoted strings, which is really confusing: I feel that this parsing / extraction should be performed in the analyzer, not in the operator itself.
+- There were no unit tests for the operator itself, only end-to-end tests.
+
+I have a pull request that fixes all of these issues.
+
+
+---
+
+* [SPARK-9391](https://issues.apache.org/jira/browse/SPARK-9391) | *Major* | **Support minus, dot, and intercept operators in SparkR RFormula**
+
+The RFormula parser should be extended to support the '.', '-', and intercept operators.
+
+See umbrella design doc https://docs.google.com/document/d/10NZNSEurN2EdWM31uFYsgayIPfCFHiuIu3pCWrUmP\_c/edit?usp=sharing
+
+
+---
+
+* [SPARK-9386](https://issues.apache.org/jira/browse/SPARK-9386) | *Blocker* | **Feature flag for metastore partitioning**
+
+There are a lot of test failures related to metastore partition pruning.  We should put this behind a flag in case there are other regressions after the release.
+
+
+---
+
+* [SPARK-9378](https://issues.apache.org/jira/browse/SPARK-9378) | *Major* | **Test case "CTAS with serde" fails occasionally**
+
+The reason why "CTAS with serde" fails is that the {{MetastoreRelation}} gets converted to a Parquet data source relation by default.
+
+However, this behavior can be reproduced pretty steadily. I'm pretty puzzled why this test case only fails occasionally. A possible explanation is that, some test cases may set {{spark.sql.hive.convertMetastoreParquet}} to false without properly restoring the original value. When such a test case is executed before "CTAS with serde", no failure occurs.
+
+
+---
+
+* [SPARK-9373](https://issues.apache.org/jira/browse/SPARK-9373) | *Major* | **Support StructType in Tungsten style Projection**
+
+GenerateUnsafeProjection currently doesn't support StructType.
+
+
+---
+
+* [SPARK-9369](https://issues.apache.org/jira/browse/SPARK-9369) | *Major* | **Support IntervalType in UnsafeRow**
+
+Should be pretty straightforward to support:
+
+1. Add getInterval accessor to InternalRow.
+
+2. Use two longs in the variable length portion of UnsafeRow to store the interval data.
+
+3. Add IntervalWriter to UnsafeRowWriters.
+
+4. In GenerateUnsafeProjection, add support for IntervalType, using the newly added UnsafeRowWriters.IntervalWriter.
+
+5. Change BoundReference to use the specialized getter for IntervalType.
+
+6. Update the accessor for codegen in CodeGenerator.
+
+
+---
+
+* [SPARK-9366](https://issues.apache.org/jira/browse/SPARK-9366) | *Major* | **TaskEnd event emitted for task has different stage attempt ID than TaskStart for same task**
+
+During a simple job I ran yesterday, I observed the following in the event log:
+
+{code}
+{"Event":"SparkListenerTaskStart","Stage ID":0,"Stage Attempt ID":1,"Task Info":{"Task ID":10244,"Index":55,"Attempt":1,"Launch Time":1437767843724,"Executor ID":"8","Host":"demeter-csmaz10-6.demeter.hpc.mssm.edu","Locality":"PROCESS\_LOCAL","Speculative":true,"Getting Result Time":0,"Finish Time":1437767844387,"Failed":false,"Accumulables":[]}}
+…
+{"Event":"SparkListenerTaskEnd","Stage ID":0,"Stage Attempt ID":2,"Task Type":"ShuffleMapTask","Task End Reason":{"Reason":"Success"},"Task Info":{"Task ID":10244,"Index":55,"Attempt":1,"Launch Time":1437767843724,"Executor ID":"8","Host":"demeter-csmaz10-6.demeter.hpc.mssm.edu","Locality":"PROCESS\_LOCAL","Speculative":true,"Getting Result Time":0,"Finish Time":1437767844387,"Failed":false,"Accumulables":[]},"Task Metrics":{"Host Name":"demeter-csmaz10-6.demeter.hpc.mssm.edu","Executor Deserialize Time":63,"Executor Run Time":579,"Result Size":2235,"JVM GC Time":0,"Result Serialization Time":1,"Memory Bytes Spilled":0,"Disk Bytes Spilled":0,"Shuffle Write Metrics":{"Shuffle Bytes Written":2736,"Shuffle Write Time":1388809,"Shuffle Records Written":100},"Input Metrics":{"Data Read Method":"Network","Bytes Read":636000,"Records Read":100000}}}
+{code}
+
+The {{TaskStart}} event for task 10244 listed it (correctly) as coming from stage 0, attempt 1, but the {{TaskEnd}} shows it as part of stage 0, attempt 2.
+
+I'm pretty sure this is due to [this line|https://github.com/apache/spark/blob/1efe97dc9ed31e3b8727b81be633b7e96dd3cd34/core/src/main/scala/org/apache/spark/scheduler/DAGScheduler.scala#L930] in the DAGScheduler, which fills in the latest attempt ID for the task's stage, instead of the attempt that the task actually belongs to.
+
+I know there's a lot of flux right now around concurrent stage attempts and attempt-id-tracking, but this seems trivial to fix independent of that so I'll send a PR momentarily.
+
+
+---
+
 * [SPARK-9364](https://issues.apache.org/jira/browse/SPARK-9364) | *Major* | **Fix array out of bounds and use-after-free bugs in UnsafeExternalSorter**
 
 UnsafeExternalSorter does not properly update freeSpaceInCurrentPage, which can cause it to write past the end of memory pages and trigger segfaults.
@@ -54,6 +266,19 @@ We can use that to support generic getters in UnsafeRow.
 
 ---
 
+* [SPARK-9349](https://issues.apache.org/jira/browse/SPARK-9349) | *Blocker* | **UDAF cleanup for 1.5**
+
+1. Remove the public o.a.s.sql.expressions.aggregate package
+
+2. Move all private classes into execution or catalyst. Don't expose them.
+
+3. Define an interface for AggregationBuffer, and only expose the interface to users. Internally we can do whatever we want, but don't expose the specific implementations directly.
+
+4. Label it as experimental.
+
+
+---
+
 * [SPARK-9348](https://issues.apache.org/jira/browse/SPARK-9348) | *Major* | **Remove apply method on InternalRow**
 
 apply incurs another virtual function call. This just removes the extra method internally and converge on the generic getter "get".
@@ -75,9 +300,59 @@ They were added to improve performance (so JIT can inline the JoinedRow calls). 
 
 ---
 
+* [SPARK-9332](https://issues.apache.org/jira/browse/SPARK-9332) | *Critical* | **CatalystTypeConverters.toScala does not work on UnsafeRows**
+
+When CatalystTypeConverters.toScala is applied to an UnsafeRow it may lead to an UnsupportedOperationException when it tries to use a generic getter to retrieve primitive columns.
+
+For example:
+
+{code}
+== Parsed Logical Plan ==
+Sort [c183#208 ASC,c183#208 ASC], true
+ Project [c183#208,c184#209]
+  LogicalRDD [c183#208,c184#209], MapPartitionsRDD[367] at DataFrameFuzzingSuite at NativeConstructorAccessorImpl.java:-2
+
+== Analyzed Logical Plan ==
+c183: binary, c184: int
+Sort [c183#208 ASC,c183#208 ASC], true
+ Project [c183#208,c184#209]
+  LogicalRDD [c183#208,c184#209], MapPartitionsRDD[367] at DataFrameFuzzingSuite at NativeConstructorAccessorImpl.java:-2
+
+== Optimized Logical Plan ==
+Sort [c183#208 ASC,c183#208 ASC], true
+ LogicalRDD [c183#208,c184#209], MapPartitionsRDD[367] at DataFrameFuzzingSuite at NativeConstructorAccessorImpl.java:-2
+
+== Physical Plan ==
+UnsafeExternalSort [c183#208 ASC,c183#208 ASC], true, 0
+ Exchange rangepartitioning(c183#208 ASC,c183#208 ASC)
+  PhysicalRDD [c183#208,c184#209], MapPartitionsRDD[367] at DataFrameFuzzingSuite at NativeConstructorAccessorImpl.java:-2
+{code}
+
+{code}
+java.lang.UnsupportedOperationException
+	at org.apache.spark.sql.catalyst.expressions.UnsafeRow.get(UnsafeRow.java:223)
+	at org.apache.spark.sql.catalyst.CatalystTypeConverters$IdentityConverter$.toScalaImpl(CatalystTypeConverters.scala:143)
+	at org.apache.spark.sql.catalyst.CatalystTypeConverters$CatalystTypeConverter.toScala(CatalystTypeConverters.scala:118)
+	at org.apache.spark.sql.catalyst.CatalystTypeConverters$StructConverter.toScala(CatalystTypeConverters.scala:266)
+	at org.apache.spark.sql.catalyst.CatalystTypeConverters$StructConverter.toScala(CatalystTypeConverters.scala:233)
+	at org.apache.spark.sql.catalyst.CatalystTypeConverters$$anonfun$createToScalaConverter$2.apply(CatalystTypeConverters.scala:386)
+	at org.apache.spark.sql.DataFrame$$anonfun$rdd$1$$anonfun$apply$9.apply(DataFrame.scala:1480)
+	at org.apache.spark.sql.DataFrame$$anonfun$rdd$1$$anonfun$apply$9.apply(DataFrame.scala:1480)
+{code}
+
+
+---
+
 * [SPARK-9331](https://issues.apache.org/jira/browse/SPARK-9331) | *Major* | **Indent generated code properly when dumping them in debug code or exception mode**
 
 Our generated code isn't well indented. It would be great to format the code when we dump it in debug mode or when we see an exception.
+
+
+---
+
+* [SPARK-9327](https://issues.apache.org/jira/browse/SPARK-9327) | *Major* | **Docs incorrectly state that "spark.\*.extraClassPath" append entries**
+
+The docs state that those config options append entries to the driver / executor classpath, when they actually prepend.
 
 
 ---
@@ -152,6 +427,19 @@ The {{eval()}} and {{genCode()}} methods in SQL's {{Unevaluable}} trait should b
 * [SPARK-9285](https://issues.apache.org/jira/browse/SPARK-9285) | *Major* | **Remove InternalRow's inheritance from Row**
 
 It is a big change, but it lets us use the type information to prevent accidentally passing internal types to external types.
+
+
+---
+
+* [SPARK-9281](https://issues.apache.org/jira/browse/SPARK-9281) | *Major* | **Parse literals as decimal in SQL**
+
+Right now, we use double to parse all the float number in SQL. When it's used in expression together with DecimalType, it will turn the decimal into double as well.
+
+Also it will loss some precision when using double.
+
+It's better to parse the float number as decimal (we will know exactly the precision and scale is), it also work well with double.
+
+BTW, this is a break change.
 
 
 ---
@@ -283,6 +571,13 @@ R/deserialize.R:109:3: warning: local variable ‘data’ assigned but may not b
 
 ---
 
+* [SPARK-9247](https://issues.apache.org/jira/browse/SPARK-9247) | *Critical* | **Use BytesToBytesMap in unsafe broadcast join**
+
+For better performance (both CPU and memory)
+
+
+---
+
 * [SPARK-9244](https://issues.apache.org/jira/browse/SPARK-9244) | *Minor* | **Increase some default memory limits**
 
 There are a few memory limits that people hit often and that we could make higher, especially now that memory sizes have grown.
@@ -377,6 +672,13 @@ if (!success) {
 https://github.com/apache/spark/blob/e5d2c37c68ac00a57c2542e62d1c5b4ca267c89e/sql/core/src/main/scala/org/apache/spark/sql/json/JSONRelation.scala#L72
 
 https://github.com/apache/spark/blob/e5d2c37c68ac00a57c2542e62d1c5b4ca267c89e/sql/core/src/main/scala/org/apache/spark/sql/json/JSONRelation.scala#L131
+
+
+---
+
+* [SPARK-9230](https://issues.apache.org/jira/browse/SPARK-9230) | *Major* | **SparkR RFormula should support StringType features**
+
+StringType features will need to be encoded using OneHotEncoder to be used for regression. See umbrella design doc https://docs.google.com/document/d/10NZNSEurN2EdWM31uFYsgayIPfCFHiuIu3pCWrUmP\_c/edit?usp=sharing
 
 
 ---
@@ -838,6 +1140,163 @@ Currently, in ClosureCleaner, the outerclasses and objects are retrieved using t
 
 ---
 
+* [SPARK-9127](https://issues.apache.org/jira/browse/SPARK-9127) | *Blocker* | **Rand/Randn codegen fails with long seed**
+
+{code}
+ERROR GenerateMutableProjection: failed to compile:
+
+      public Object generate(org.apache.spark.sql.catalyst.expressions.Expression[] expr) {
+        return new SpecificProjection(expr);
+      }
+
+      class SpecificProjection extends org.apache.spark.sql.catalyst.expressions.codegen.BaseMutableProjection {
+
+        private org.apache.spark.sql.catalyst.expressions.Expression[] expressions = null;
+        private org.apache.spark.sql.catalyst.expressions.MutableRow mutableRow = null;
+        private org.apache.spark.util.random.XORShiftRandom rng4 = new org.apache.spark.util.random.XORShiftRandom(-5419823303878592871 + org.apache.spark.TaskContext.getPartitionId());
+
+        public SpecificProjection(org.apache.spark.sql.catalyst.expressions.Expression[] expr) {
+          expressions = expr;
+          mutableRow = new org.apache.spark.sql.catalyst.expressions.GenericMutableRow(2);
+        }
+
+        public org.apache.spark.sql.catalyst.expressions.codegen.BaseMutableProjection target(org.apache.spark.sql.catalyst.expressions.MutableRow row) {
+          mutableRow = row;
+          return this;
+        }
+
+        /* Provide immutable access to the last projected row. */
+        public InternalRow currentValue() {
+          return (InternalRow) mutableRow;
+        }
+
+        public Object apply(Object \_i) {
+          InternalRow i = (InternalRow) \_i;
+
+        boolean isNull0 = i.isNullAt(0);
+        long primitive1 = isNull0 ?
+            -1L : (i.getLong(0));
+
+          if(isNull0)
+            mutableRow.setNullAt(0);
+          else
+            mutableRow.setLong(0, primitive1);
+
+
+      final double primitive3 = rng4.nextDouble();
+
+          if(false)
+            mutableRow.setNullAt(1);
+          else
+            mutableRow.setDouble(1, primitive3);
+
+
+          return mutableRow;
+        }
+      }
+
+org.codehaus.commons.compiler.CompileException: Line 10, Column 117: Value of decimal integer literal '5419823303878592871' is out of range
+	at org.codehaus.janino.UnitCompiler.compileException(UnitCompiler.java:10473)
+	at org.codehaus.janino.UnitCompiler.getConstantValue2(UnitCompiler.java:4696)
+	at org.codehaus.janino.UnitCompiler.access$9200(UnitCompiler.java:185)
+	at org.codehaus.janino.UnitCompiler$11.visitIntegerLiteral(UnitCompiler.java:4402)
+	at org.codehaus.janino.Java$IntegerLiteral.accept(Java.java:4321)
+	at org.codehaus.janino.UnitCompiler.getConstantValue(UnitCompiler.java:4427)
+	at org.codehaus.janino.UnitCompiler.getNegatedConstantValue2(UnitCompiler.java:4856)
+	at org.codehaus.janino.UnitCompiler.getNegatedConstantValue2(UnitCompiler.java:4890)
+	at org.codehaus.janino.UnitCompiler.access$10400(UnitCompiler.java:185)
+	at org.codehaus.janino.UnitCompiler$12.visitIntegerLiteral(UnitCompiler.java:4823)
+	at org.codehaus.janino.Java$IntegerLiteral.accept(Java.java:4321)
+	at org.codehaus.janino.UnitCompiler.getNegatedConstantValue(UnitCompiler.java:4848)
+	at org.codehaus.janino.UnitCompiler.getConstantValue2(UnitCompiler.java:4451)
+	at org.codehaus.janino.UnitCompiler.access$8800(UnitCompiler.java:185)
+	at org.codehaus.janino.UnitCompiler$11.visitUnaryOperation(UnitCompiler.java:4393)
+	at org.codehaus.janino.Java$UnaryOperation.accept(Java.java:3647)
+	at org.codehaus.janino.UnitCompiler.getConstantValue(UnitCompiler.java:4427)
+	at org.codehaus.janino.UnitCompiler.getConstantValue2(UnitCompiler.java:4498)
+	at org.codehaus.janino.UnitCompiler.access$8900(UnitCompiler.java:185)
+	at org.codehaus.janino.UnitCompiler$11.visitBinaryOperation(UnitCompiler.java:4394)
+	at org.codehaus.janino.Java$BinaryOperation.accept(Java.java:3768)
+	at org.codehaus.janino.UnitCompiler.getConstantValue(UnitCompiler.java:4427)
+	at org.codehaus.janino.UnitCompiler.compileGetValue(UnitCompiler.java:4360)
+	at org.codehaus.janino.UnitCompiler.invokeConstructor(UnitCompiler.java:6681)
+	at org.codehaus.janino.UnitCompiler.compileGet2(UnitCompiler.java:4126)
+	at org.codehaus.janino.UnitCompiler.access$7600(UnitCompiler.java:185)
+	at org.codehaus.janino.UnitCompiler$10.visitNewClassInstance(UnitCompiler.java:3275)
+	at org.codehaus.janino.Java$NewClassInstance.accept(Java.java:4085)
+	at org.codehaus.janino.UnitCompiler.compileGet(UnitCompiler.java:3290)
+	at org.codehaus.janino.UnitCompiler.compileGetValue(UnitCompiler.java:4368)
+	at org.codehaus.janino.UnitCompiler.compile2(UnitCompiler.java:1659)
+	at org.codehaus.janino.UnitCompiler.access$800(UnitCompiler.java:185)
+	at org.codehaus.janino.UnitCompiler$4.visitFieldDeclaration(UnitCompiler.java:933)
+	at org.codehaus.janino.Java$FieldDeclaration.accept(Java.java:1818)
+	at org.codehaus.janino.UnitCompiler.compile(UnitCompiler.java:958)
+	at org.codehaus.janino.UnitCompiler.initializeInstanceVariablesAndInvokeInstanceInitializers(UnitCompiler.java:6101)
+	at org.codehaus.janino.UnitCompiler.compile(UnitCompiler.java:2284)
+	at org.codehaus.janino.UnitCompiler.compile2(UnitCompiler.java:518)
+	at org.codehaus.janino.UnitCompiler.compile2(UnitCompiler.java:658)
+	at org.codehaus.janino.UnitCompiler.compile2(UnitCompiler.java:662)
+	at org.codehaus.janino.UnitCompiler.access$600(UnitCompiler.java:185)
+	at org.codehaus.janino.UnitCompiler$2.visitMemberClassDeclaration(UnitCompiler.java:350)
+	at org.codehaus.janino.Java$MemberClassDeclaration.accept(Java.java:1035)
+	at org.codehaus.janino.UnitCompiler.compile(UnitCompiler.java:354)
+	at org.codehaus.janino.UnitCompiler.compileDeclaredMemberTypes(UnitCompiler.java:769)
+	at org.codehaus.janino.UnitCompiler.compile2(UnitCompiler.java:532)
+	at org.codehaus.janino.UnitCompiler.compile2(UnitCompiler.java:393)
+	at org.codehaus.janino.UnitCompiler.access$400(UnitCompiler.java:185)
+	at org.codehaus.janino.UnitCompiler$2.visitPackageMemberClassDeclaration(UnitCompiler.java:347)
+	at org.codehaus.janino.Java$PackageMemberClassDeclaration.accept(Java.java:1139)
+	at org.codehaus.janino.UnitCompiler.compile(UnitCompiler.java:354)
+	at org.codehaus.janino.UnitCompiler.compileUnit(UnitCompiler.java:322)
+	at org.codehaus.janino.SimpleCompiler.compileToClassLoader(SimpleCompiler.java:383)
+	at org.codehaus.janino.ClassBodyEvaluator.compileToClass(ClassBodyEvaluator.java:315)
+	at org.codehaus.janino.ClassBodyEvaluator.cook(ClassBodyEvaluator.java:233)
+	at org.codehaus.janino.SimpleCompiler.cook(SimpleCompiler.java:192)
+	at org.codehaus.commons.compiler.Cookable.cook(Cookable.java:84)
+	at org.codehaus.commons.compiler.Cookable.cook(Cookable.java:77)
+	at org.apache.spark.sql.catalyst.expressions.codegen.CodeGenerator.org$apache$spark$sql$catalyst$expressions$codegen$CodeGenerator$$doCompile(CodeGenerator.scala:268)
+	at org.apache.spark.sql.catalyst.expressions.codegen.CodeGenerator$$anon$1.load(CodeGenerator.scala:292)
+	at org.apache.spark.sql.catalyst.expressions.codegen.CodeGenerator$$anon$1.load(CodeGenerator.scala:289)
+	at com.google.common.cache.LocalCache$LoadingValueReference.loadFuture(LocalCache.java:3599)
+	at com.google.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2379)
+	at com.google.common.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2342)
+	at com.google.common.cache.LocalCache$Segment.get(LocalCache.java:2257)
+	at com.google.common.cache.LocalCache.get(LocalCache.java:4000)
+	at com.google.common.cache.LocalCache.getOrLoad(LocalCache.java:4004)
+	at com.google.common.cache.LocalCache$LocalLoadingCache.get(LocalCache.java:4874)
+	at org.apache.spark.sql.catalyst.expressions.codegen.CodeGenerator.compile(CodeGenerator.scala:256)
+	at org.apache.spark.sql.catalyst.expressions.codegen.GenerateMutableProjection$.create(GenerateMutableProjection.scala:89)
+	at org.apache.spark.sql.catalyst.expressions.codegen.GenerateMutableProjection$.create(GenerateMutableProjection.scala:29)
+	at org.apache.spark.sql.catalyst.expressions.codegen.CodeGenerator.generate(CodeGenerator.scala:305)
+	at org.apache.spark.sql.catalyst.expressions.codegen.CodeGenerator.generate(CodeGenerator.scala:302)
+	at org.apache.spark.sql.execution.SparkPlan.newMutableProjection(SparkPlan.scala:186)
+	at org.apache.spark.sql.execution.Project.buildProjection$lzycompute(basicOperators.scala:42)
+	at org.apache.spark.sql.execution.Project.buildProjection(basicOperators.scala:42)
+	at org.apache.spark.sql.execution.Project$$anonfun$1.apply(basicOperators.scala:45)
+	at org.apache.spark.sql.execution.Project$$anonfun$1.apply(basicOperators.scala:44)
+	at org.apache.spark.rdd.RDD$$anonfun$mapPartitions$1$$anonfun$apply$17.apply(RDD.scala:686)
+	at org.apache.spark.rdd.RDD$$anonfun$mapPartitions$1$$anonfun$apply$17.apply(RDD.scala:686)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:35)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:277)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:244)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:35)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:277)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:244)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:35)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:277)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:244)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:63)
+	at org.apache.spark.scheduler.Task.run(Task.scala:70)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:213)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+15/07/16 21:56:16 ERROR Project: Failed to generate mutable projection, fallback to interpreted
+{code}
+
+
+---
+
 * [SPARK-9126](https://issues.apache.org/jira/browse/SPARK-9126) | *Major* | **StopwatchSuite shouldn't use Thread.sleep()**
 
 Thread.sleep() might run overtime if Jenkins is busy.
@@ -991,6 +1450,13 @@ Residual is defined as label - prediction (https://en.wikipedia.org/wiki/Least\_
 * [SPARK-9085](https://issues.apache.org/jira/browse/SPARK-9085) | *Major* | **Remove LeafNode, UnaryNode, BinaryNode from TreeNode**
 
 They are not very useful, and cause problems with toString due to the order they are mixed in.
+
+
+---
+
+* [SPARK-9083](https://issues.apache.org/jira/browse/SPARK-9083) | *Major* | **If order by clause has non-deterministic expressions, we should add a project to materialize results of these expressions**
+
+When a order by clause has a non-deterministic expression, we actually evaluate it twice, once in the exchange operator when we try to figure out the range partitioner's boundaries and once in the sort operator. We should use a project to materialize the result first.
 
 
 ---
@@ -1418,6 +1884,72 @@ To workaround this issue, use the following instead:
 {noformat}
 sqlContext.read.option("mergeSchema", "false").format("parquet").load(path)
 {noformat}
+
+
+---
+
+* [SPARK-8988](https://issues.apache.org/jira/browse/SPARK-8988) | *Major* | **Driver logs links is missing on secure cluster**
+
+On a secure cluster, the {{NodeReports}} api throws an exception:
+
+{code}
+INFO cluster.YarnClusterSchedulerBackend: Node Report API is not available in the version of YARN being used, so AM logs link will not appear in application UI
+java.io.IOException: Failed on local exception: java.io.IOException: org.apache.hadoop.security.AccessControlException: Client cannot authenticate via:[TOKEN, KERBEROS]; Host Details : local host is: "hsp-4.vpc.cloudera.com/172.28.195.51"; destination host is: "hsp-1.vpc.cloudera.com":8032; 
+	at org.apache.hadoop.net.NetUtils.wrapException(NetUtils.java:772)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1472)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1399)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine$Invoker.invoke(ProtobufRpcEngine.java:232)
+	at com.sun.proxy.$Proxy22.getClusterNodes(Unknown Source)
+	at org.apache.hadoop.yarn.api.impl.pb.client.ApplicationClientProtocolPBClientImpl.getClusterNodes(ApplicationClientProtocolPBClientImpl.java:262)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler.invokeMethod(RetryInvocationHandler.java:187)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler.invoke(RetryInvocationHandler.java:102)
+	at com.sun.proxy.$Proxy23.getClusterNodes(Unknown Source)
+	at org.apache.hadoop.yarn.client.api.impl.YarnClientImpl.getNodeReports(YarnClientImpl.java:475)
+	at org.apache.spark.scheduler.cluster.YarnClusterSchedulerBackend$$anonfun$getDriverLogUrls$1.apply(YarnClusterSchedulerBackend.scala:92)
+	at org.apache.spark.scheduler.cluster.YarnClusterSchedulerBackend$$anonfun$getDriverLogUrls$1.apply(YarnClusterSchedulerBackend.scala:73)
+	at scala.Option.foreach(Option.scala:236)
+	at org.apache.spark.scheduler.cluster.YarnClusterSchedulerBackend.getDriverLogUrls(YarnClusterSchedulerBackend.scala:73)
+	at org.apache.spark.SparkContext.postApplicationStart(SparkContext.scala:2015)
+	at org.apache.spark.SparkContext.<init>(SparkContext.scala:553)
+	at org.apache.spark.streaming.StreamingContext$.createNewSparkContext(StreamingContext.scala:842)
+	at org.apache.spark.streaming.StreamingContext.<init>(StreamingContext.scala:80)
+	at org.apache.spark.testing.testing.HdfsWordCount$.main(HdfsWordCount.scala:41)
+	at org.apache.spark.testing.testing.HdfsWordCount.main(HdfsWordCount.scala)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.apache.spark.deploy.yarn.ApplicationMaster$$anon$2.run(ApplicationMaster.scala:504)
+Caused by: java.io.IOException: org.apache.hadoop.security.AccessControlException: Client cannot authenticate via:[TOKEN, KERBEROS]
+	at org.apache.hadoop.ipc.Client$Connection$1.run(Client.java:680)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:415)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1671)
+	at org.apache.hadoop.ipc.Client$Connection.handleSaslConnectionFailure(Client.java:643)
+	at org.apache.hadoop.ipc.Client$Connection.setupIOstreams(Client.java:730)
+	at org.apache.hadoop.ipc.Client$Connection.access$2800(Client.java:368)
+	at org.apache.hadoop.ipc.Client.getConnection(Client.java:1521)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1438)
+	... 27 more
+Caused by: org.apache.hadoop.security.AccessControlException: Client cannot authenticate via:[TOKEN, KERBEROS]
+	at org.apache.hadoop.security.SaslRpcClient.selectSaslClient(SaslRpcClient.java:172)
+	at org.apache.hadoop.security.SaslRpcClient.saslConnect(SaslRpcClient.java:396)
+	at org.apache.hadoop.ipc.Client$Connection.setupSaslConnection(Client.java:553)
+	at org.apache.hadoop.ipc.Client$Connection.access$1800(Client.java:368)
+	at org.apache.hadoop.ipc.Client$Connection$2.run(Client.java:722)
+	at org.apache.hadoop.ipc.Client$Connection$2.run(Client.java:718)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:415)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1671)
+	at org.apache.hadoop.ipc.Client$Connection.setupIOstreams(Client.java:717)
+	... 30 more
+{code}
+
+So the link to the driver is not available in secure mode.
 
 
 ---
@@ -1927,6 +2459,13 @@ The class `OverrideFunctionRegistry` is redundant since the `HiveFunctionRegistr
 
 ---
 
+* [SPARK-8882](https://issues.apache.org/jira/browse/SPARK-8882) | *Major* | **A New Receiver Scheduling Mechanism**
+
+The design doc: https://docs.google.com/document/d/1ZsoRvHjpISPrDmSjsGzuSu8UjwgbtmoCTzmhgTurHJw/edit?usp=sharing
+
+
+---
+
 * [SPARK-8881](https://issues.apache.org/jira/browse/SPARK-8881) | *Critical* | **Standalone mode scheduling fails because cores assignment is not atomic**
 
 Current scheduling algorithm (in Master.scala) has two issues:
@@ -2154,6 +2693,13 @@ We currently rely on commons-lang's levenshtein implementation. Ideally, we shou
 
 1. Reduce external dependency
 2. Work directly against UTF8String so we don't need to convert to/from java.lang.String back and forth.
+
+
+---
+
+* [SPARK-8828](https://issues.apache.org/jira/browse/SPARK-8828) | *Critical* | **Revert the change of SPARK-5680**
+
+SPARK-5680 introduced a bug to sum function. After this change, when all input values are nulls, it returns 0.0 instead of null, which is wrong.
 
 
 ---
@@ -3531,6 +4077,13 @@ Currently, Parquet and ORC data sources don't set their output format class, as 
 * [SPARK-8600](https://issues.apache.org/jira/browse/SPARK-8600) | *Major* | **Naive Bayes API for spark.ml Pipelines**
 
 Create a NaiveBayes API for the spark.ml Pipelines API. This should wrap the existing NaiveBayes implementation under spark.mllib package. Should also keep the parameter names consistent. The output columns could include both the prediction and confidence scores.
+
+
+---
+
+* [SPARK-8599](https://issues.apache.org/jira/browse/SPARK-8599) | *Critical* | **Improve non-deterministic expression handling**
+
+Right now, we are using expressions for Random distribution generating expressions. But, we have to track them in lots of places in the optimizer to handle them carefully. Otherwise, these expressions will be treated as stateless expressions and have unexpected behaviors (e.g. SPARK-8023).
 
 
 ---
@@ -6915,6 +7468,28 @@ dayofyear(date) is date\_format(date, 'D')
 
 ---
 
+* [SPARK-8196](https://issues.apache.org/jira/browse/SPARK-8196) | *Major* | **date/time function: next\_day**
+
+next\_day(string start\_date, string day\_of\_week): string
+
+next\_day(date start\_date, string day\_of\_week): string
+
+Returns the first date which is later than start\_date and named as day\_of\_week (as of Hive 1.2.0). start\_date is a string/date/timestamp. day\_of\_week is 2 letters, 3 letters or full name of the day of the week (e.g. Mo, tue, FRIDAY). The time part of start\_date is ignored. Example: next\_day('2015-01-14', 'TU') = 2015-01-20.
+
+
+---
+
+* [SPARK-8195](https://issues.apache.org/jira/browse/SPARK-8195) | *Major* | **date/time function: last\_day**
+
+last\_day(string date): string
+
+last\_day(date date): date
+
+Returns the last day of the month which the date belongs to (as of Hive 1.1.0). date is a string in the format 'yyyy-MM-dd HH:mm:ss' or 'yyyy-MM-dd'. The time part of date is ignored.
+
+
+---
+
 * [SPARK-8193](https://issues.apache.org/jira/browse/SPARK-8193) | *Major* | **date/time function: current\_timestamp**
 
 current\_timestamp(): timestamp
@@ -7906,6 +8481,13 @@ A correct query would have been
 {code}
 SELECT `key`.`value` FROM ....
 {code}
+
+
+---
+
+* [SPARK-8003](https://issues.apache.org/jira/browse/SPARK-8003) | *Major* | **Support SPARK\_\_PARTITION\_\_ID in SQL**
+
+SPARK\_\_PARTITION\_\_ID column should return the partition index of the Spark partition. Note that we already have a DataFrame function for it: https://github.com/apache/spark/blob/78a6723e8758b429f877166973cc4f1bbfce73c4/sql/core/src/main/scala/org/apache/spark/sql/functions.scala#L705
 
 
 ---
@@ -8964,6 +9546,13 @@ We can just rewrite distinct using groupby (i.e. aggregate operator).
 * [SPARK-7426](https://issues.apache.org/jira/browse/SPARK-7426) | *Minor* | **spark.ml AttributeFactory.fromStructField should allow other NumericTypes**
 
 It currently only supports DoubleType, but it should support others, at least for fromStructField (importing into ML attribute format, rather than exporting).
+
+
+---
+
+* [SPARK-7423](https://issues.apache.org/jira/browse/SPARK-7423) | *Minor* | **spark.ml Classifier predict should not convert vectors to dense format**
+
+spark.ml.classification.ClassificationModel and ProbabilisticClassificationModel both use DenseVector.argmax to implement prediction (computing the prediction from the rawPrediction or probability Vectors).  It would be best to implement argmax for Vector and SparseVector and use Vector.argmax, rather than converting Vectors to dense format.
 
 
 ---
@@ -10544,6 +11133,15 @@ Most of aggregate function(e.g average) with "distinct" value will requires all 
 * [SPARK-4362](https://issues.apache.org/jira/browse/SPARK-4362) | *Minor* | **Make prediction probability available in NaiveBayesModel**
 
 There is currently no way to get the posterior probability of a prediction with Naive Baye's model during prediction. This should be made available along with the label.
+
+
+---
+
+* [SPARK-4352](https://issues.apache.org/jira/browse/SPARK-4352) | *Critical* | **Incorporate locality preferences in dynamic allocation requests**
+
+Currently, achieving data locality in Spark is difficult unless an application takes resources on every node in the cluster.  preferredNodeLocalityData provides a sort of hacky workaround that has been broken since 1.0.
+
+With dynamic executor allocation, Spark requests executors in response to demand from the application.  When this occurs, it would be useful to look at the pending tasks and communicate their location preferences to the cluster resource manager.
 
 
 ---

@@ -23,6 +23,19 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [TEZ-2623](https://issues.apache.org/jira/browse/TEZ-2623) | *Major* | **Fix module dependencies related to hadoop-auth**
+
+Tez doesn't compile when the {{.m2}} directory is empty. It needs to depend on {{hadoop-auth}} as well.
+
+{code}
+[ERROR] /Users/rjain/workspace/tez/tez-runtime-library/src/main/java/org/apache/tez/runtime/library/common/shuffle/HttpConnection.java:[402,51] cannot access org.apache.hadoop.security.authentication.client.ConnectionConfigurator
+  class file for org.apache.hadoop.security.authentication.client.ConnectionConfigurator not found
+[INFO] 1 error
+{code}
+
+
+---
+
 * [TEZ-2600](https://issues.apache.org/jira/browse/TEZ-2600) | *Major* | **When used with HDFS federation(viewfs) ,tez will throw a error**
 
 When I execute the exapmle of tez,orderedwordcount ,Tez throw a error

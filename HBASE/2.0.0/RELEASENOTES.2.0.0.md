@@ -57,6 +57,19 @@ HBase's convenience binary artifact no longer contains the netty 3.2.4 jar . Thi
 
 ---
 
+* [HBASE-13992](https://issues.apache.org/jira/browse/HBASE-13992) | *Major* | **Integrate SparkOnHBase into HBase**
+
+This release includes initial support for running Spark against HBase with a richer feature set than was previously possible with MapReduce bindings:
+
+* Support for Spark and Spark Streaming against Spark 1.3
+* RDD/DStream formation from scan operations
+* convenience methods for interacting with HBase from an HBase backed RDD / DStream instance
+* examples in both the Spark Java API and Spark Scala API
+* support for running against a secure HBase cluster
+
+
+---
+
 * [HBASE-13983](https://issues.apache.org/jira/browse/HBASE-13983) | *Minor* | **Doc how the oddball HTable methods getStartKey, getEndKey, etc. will be removed in 2.0.0**
 
 Adds extra doc on getStartKeys, getEndKeys, and getStartEndKeys in HTable explaining that they will be removed in 2.0.0 (these methods did not get the proper full major version deprecation cycle).

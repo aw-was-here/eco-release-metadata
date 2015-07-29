@@ -23,11 +23,42 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [TEZ-2645](https://issues.apache.org/jira/browse/TEZ-2645) | *Major* | **Provide standard analyzers for job analysis**
+
+TEZ-2076 provided a way in which job history data can be parsed/normalized and represented in-memory. Based on this, standard set of analyzers (e.g ContainerReuseAnalyzer, LocalityAnalyzer, SlowNodeAnalyzer etc) can provided in tez-tools for job analysis. Results can be stored in CSVResult which could be rendered differently based on UI requirements.
+
+
+---
+
 * [TEZ-2632](https://issues.apache.org/jira/browse/TEZ-2632) | *Major* | **A -Paws and -Pazure build profiles for hadoop-{aws,azure} inclusion**
 
 A number of S3a workloads which work with MRv2 (after HADOOP-10400) is failing to work with Tez.
 
 That compatibility issue can be bypassed with a trivial build profile switch (same for azure after HADOOP-9629)
+
+
+---
+
+* [TEZ-2627](https://issues.apache.org/jira/browse/TEZ-2627) | *Major* | **Support for Tez Job Priorities**
+
+When a Tez Job is submitted via TezClient, an ApplicationSubmissionContext is created before submitting the job. ApplicationSubmissionContext has a priority field which can be used to provide a priority for the job.
+
+There is an ongoing effort in the Yarn Community to enable application priorities(https://issues.apache.org/jira/browse/YARN-1963).
+
+https://issues.apache.org/jira/browse/YARN-2003 implements the necessary changes in RM and Capacity Scheduler.
+
+
+---
+
+* [TEZ-2623](https://issues.apache.org/jira/browse/TEZ-2623) | *Major* | **Fix module dependencies related to hadoop-auth**
+
+Tez doesn't compile when the {{.m2}} directory is empty. It needs to depend on {{hadoop-auth}} as well.
+
+{code}
+[ERROR] /Users/rjain/workspace/tez/tez-runtime-library/src/main/java/org/apache/tez/runtime/library/common/shuffle/HttpConnection.java:[402,51] cannot access org.apache.hadoop.security.authentication.client.ConnectionConfigurator
+  class file for org.apache.hadoop.security.authentication.client.ConnectionConfigurator not found
+[INFO] 1 error
+{code}
 
 
 ---

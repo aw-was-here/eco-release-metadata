@@ -42,6 +42,7 @@
 | [KAFKA-2328](https://issues.apache.org/jira/browse/KAFKA-2328) | merge-kafka-pr.py script should not leave user in a detached branch |  Minor | . | Ismael Juma | Ismael Juma |
 | [KAFKA-2324](https://issues.apache.org/jira/browse/KAFKA-2324) | Update to Scala 2.11.7 |  Minor | . | Ismael Juma | Ismael Juma |
 | [KAFKA-2323](https://issues.apache.org/jira/browse/KAFKA-2323) | Simplify ScalaTest dependency versions |  Minor | . | Ismael Juma | Ismael Juma |
+| [KAFKA-2321](https://issues.apache.org/jira/browse/KAFKA-2321) | Introduce CONTRIBUTING.md |  Major | . | Ismael Juma | Ismael Juma |
 | [KAFKA-2314](https://issues.apache.org/jira/browse/KAFKA-2314) | Proper help message for MirrorMaker's `message.handler` property |  Trivial | . | Kostya Golikov | Kostya Golikov |
 | [KAFKA-2312](https://issues.apache.org/jira/browse/KAFKA-2312) | Use AtomicLong opposed to AtomicReference to store currentThread in consumer |  Minor | clients | Tim Brooks | Tim Brooks |
 | [KAFKA-2265](https://issues.apache.org/jira/browse/KAFKA-2265) | creating a topic with large number of partitions takes a long time |  Major | core | Jun Rao | Manikumar Reddy |
@@ -86,7 +87,9 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-2381](https://issues.apache.org/jira/browse/KAFKA-2381) | Possible ConcurrentModificationException while unsubscribing from a topic in new consumer |  Major | consumer | Ashish K Singh | Ashish K Singh |
 | [KAFKA-2353](https://issues.apache.org/jira/browse/KAFKA-2353) | SocketServer.Processor should catch exception and close the socket properly in configureNewConnections. |  Major | . | Jiangjie Qin | Jiangjie Qin |
+| [KAFKA-2347](https://issues.apache.org/jira/browse/KAFKA-2347) | Add setConsumerRebalanceListener method to ZookeeperConsuemrConnector java api. |  Major | . | Jiangjie Qin | Ashish K Singh |
 | [KAFKA-2345](https://issues.apache.org/jira/browse/KAFKA-2345) | Attempt to delete a topic already marked for deletion throws ZkNodeExistsException |  Major | . | Ashish K Singh | Ashish K Singh |
 | [KAFKA-2337](https://issues.apache.org/jira/browse/KAFKA-2337) | Verify that metric names will not collide when creating new topics |  Major | . | Gwen Shapira | Grant Henke |
 | [KAFKA-2335](https://issues.apache.org/jira/browse/KAFKA-2335) | Javadoc for Consumer says that it's thread-safe |  Major | consumer | Ismael Juma | Jason Gustafson |
@@ -99,6 +102,7 @@
 | [KAFKA-2304](https://issues.apache.org/jira/browse/KAFKA-2304) | Support enabling JMX in Kafka Vagrantfile |  Minor | . | Stevo Slavic | Stevo Slavic |
 | [KAFKA-2291](https://issues.apache.org/jira/browse/KAFKA-2291) | Documentation Error |  Trivial | website | UTKARSH BHATNAGAR |  |
 | [KAFKA-2290](https://issues.apache.org/jira/browse/KAFKA-2290) | OffsetIndex should open RandomAccessFile consistently |  Major | core | Jun Rao | Chris Black |
+| [KAFKA-2276](https://issues.apache.org/jira/browse/KAFKA-2276) | Initial patch for KIP-25 |  Major | . | Geoffrey Anderson | Geoffrey Anderson |
 | [KAFKA-2272](https://issues.apache.org/jira/browse/KAFKA-2272) | listeners endpoint parsing fails if the hostname has capital letter |  Major | . | Sriharsha Chintalapani | Sriharsha Chintalapani |
 | [KAFKA-2270](https://issues.apache.org/jira/browse/KAFKA-2270) | incorrect package name in unit tests |  Minor | core | Jun Rao | Proneet Verma |
 | [KAFKA-2266](https://issues.apache.org/jira/browse/KAFKA-2266) | Client Selector can drop idle connections without notifying NetworkClient |  Major | . | Jason Gustafson | Jason Gustafson |
@@ -217,12 +221,15 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [KAFKA-2342](https://issues.apache.org/jira/browse/KAFKA-2342) | KafkaConsumer rebalance with in-flight fetch can cause invalid position |  Major | core | Jun Rao | Jason Gustafson |
+| [KAFKA-2301](https://issues.apache.org/jira/browse/KAFKA-2301) | Deprecate ConsumerOffsetChecker |  Major | tools | Ashish K Singh | Ashish K Singh |
+| [KAFKA-2275](https://issues.apache.org/jira/browse/KAFKA-2275) | Add a ListTopics() API to the new consumer |  Critical | consumer | Guozhang Wang | Ashish K Singh |
 | [KAFKA-2271](https://issues.apache.org/jira/browse/KAFKA-2271) | transient unit test failure in KafkaConfigConfigDefTest.testFromPropsToProps |  Major | core | Jun Rao | Jason Gustafson |
 | [KAFKA-2245](https://issues.apache.org/jira/browse/KAFKA-2245) | Add response tests for ConsumerCoordinator |  Critical | consumer | Onur Karaman | Onur Karaman |
 | [KAFKA-2195](https://issues.apache.org/jira/browse/KAFKA-2195) | Add versionId to AbstractRequest.getErrorResponse and AbstractRequest.getRequest |  Major | . | Andrii Biletskyi | Andrii Biletskyi |
 | [KAFKA-2168](https://issues.apache.org/jira/browse/KAFKA-2168) | New consumer poll() can block other calls like position(), commit(), and close() indefinitely |  Critical | clients, consumer | Ewen Cheslack-Postava | Jason Gustafson |
 | [KAFKA-2123](https://issues.apache.org/jira/browse/KAFKA-2123) | Make new consumer offset commit API use callback + future |  Critical | clients, consumer | Ewen Cheslack-Postava | Jason Gustafson |
 | [KAFKA-2103](https://issues.apache.org/jira/browse/KAFKA-2103) | kafka.producer.AsyncProducerTest failure. |  Major | . | Jiangjie Qin | Ewen Cheslack-Postava |
+| [KAFKA-2089](https://issues.apache.org/jira/browse/KAFKA-2089) | MetadataTest transient failure |  Major | . | Jun Rao | Rajini Sivaram |
 | [KAFKA-2056](https://issues.apache.org/jira/browse/KAFKA-2056) | PartitionAssignorTest.testRangePartitionAssignor transient failure |  Major | . | Guozhang Wang | Fangmin Lv |
 | [KAFKA-1986](https://issues.apache.org/jira/browse/KAFKA-1986) | Producer request failure rate should not include InvalidMessageSizeException and OffsetOutOfRangeException |  Major | . | Aditya Auradkar | Aditya Auradkar |
 | [KAFKA-1953](https://issues.apache.org/jira/browse/KAFKA-1953) | Disambiguate metrics from different purgatories |  Major | purgatory | Joel Koshy | Joel Koshy |
@@ -250,6 +257,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [KAFKA-1476](https://issues.apache.org/jira/browse/KAFKA-1476) | Get a list of consumer groups |  Major | tools | Ryan Williams | Onur Karaman |
+| [KAFKA-2349](https://issues.apache.org/jira/browse/KAFKA-2349) | `contributing` website page should link to "Contributing Code Changes" wiki page |  Major | . | Ismael Juma | Ismael Juma |
 | [KAFKA-2348](https://issues.apache.org/jira/browse/KAFKA-2348) | Drop support for Scala 2.9 |  Major | . | Ismael Juma | Ismael Juma |
 | [KAFKA-1856](https://issues.apache.org/jira/browse/KAFKA-1856) | Add PreCommit Patch Testing |  Major | . | Ashish K Singh | Ashish K Singh |
 | [KAFKA-1661](https://issues.apache.org/jira/browse/KAFKA-1661) | Move MockConsumer and MockProducer from src/main to src/test |  Trivial | clients, consumer, producer | Andras Hatvani |  |
