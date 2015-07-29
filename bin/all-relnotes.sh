@@ -5,10 +5,15 @@ bin=$(cd -P -- "$(dirname -- "${this}")" >/dev/null && pwd -P)
 
 OPATH=${PATH}
 PATH=${bin}:${OPATH}
+
 cd ${HOME}/Src/aw-github/eco-release-metadata/YETUS
 releasedocmaker.py --project HADOOP \
         --projecttitle "Apache Hadoop Yetus" \
         --version HADOOP-12111
+
+cd ${HOME}/Src/aw-github/eco-release-metadata/BIGTOP
+releasedocmaker.py --project BIGTOP --projecttitle "Apache BigTop" \
+        --range --version 1.0.0 --version 2.0.0
 
 cd ${HOME}/Src/aw-github/eco-release-metadata/HADOOP
 releasedocmaker.py --project HADOOP --project HDFS --project YARN --project MAPREDUCE \
