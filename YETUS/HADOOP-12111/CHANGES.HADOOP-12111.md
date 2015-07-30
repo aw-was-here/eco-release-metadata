@@ -56,8 +56,11 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-12273](https://issues.apache.org/jira/browse/HADOOP-12273) | releasedocmaker.py fails with stacktrace if --project option is not specified |  Trivial | yetus | Kengo Seki | Kengo Seki |
+| [HADOOP-12266](https://issues.apache.org/jira/browse/HADOOP-12266) | make test-patch plugins more consistent |  Major | yetus | Kengo Seki | Kengo Seki |
 | [HADOOP-12265](https://issues.apache.org/jira/browse/HADOOP-12265) | Pylint should be installed in test-patch docker environment |  Major | yetus | Kengo Seki | Kengo Seki |
+| [HADOOP-12255](https://issues.apache.org/jira/browse/HADOOP-12255) | Add support for rubocop |  Major | yetus | Allen Wittenauer | Kengo Seki |
 | [HADOOP-12254](https://issues.apache.org/jira/browse/HADOOP-12254) | test-patch.sh should run findbugs if only findbugs-exclude.xml has changed |  Major | yetus | Varun Saxena | Kengo Seki |
+| [HADOOP-12243](https://issues.apache.org/jira/browse/HADOOP-12243) | Rewrite grep -o's to be POSIX compliant |  Major | yetus | Kengo Seki | Kengo Seki |
 | [HADOOP-12226](https://issues.apache.org/jira/browse/HADOOP-12226) | CHANGED\_MODULES is wrong for ant |  Major | yetus | Allen Wittenauer | Allen Wittenauer |
 | [HADOOP-12225](https://issues.apache.org/jira/browse/HADOOP-12225) | Add docs-overview page |  Major | yetus | Sean Busbey | Sean Busbey |
 | [HADOOP-12207](https://issues.apache.org/jira/browse/HADOOP-12207) | Add support for pylint |  Major | yetus | Allen Wittenauer | Kengo Seki |

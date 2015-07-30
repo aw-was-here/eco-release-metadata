@@ -43,9 +43,33 @@ root@fcf41830c410 /]# service kafka-server status
 
 ---
 
+* [BIGTOP-1925](https://issues.apache.org/jira/browse/BIGTOP-1925) | *Trivial* | **Add ywkim as a maintainer for YCSB**
+
+Once YCSB get in on Bigtop, I'll maintain the component.
+
+
+---
+
 * [BIGTOP-1923](https://issues.apache.org/jira/browse/BIGTOP-1923) | *Major* | **Bump Ignite to 1.2 with major fixes**
 
 Let's bump Ignite to the latest 1.2 to take advantage of all latest improvements and updates. As an exception, I propose to get it into pending 1.0 branch as well.
+
+
+---
+
+* [BIGTOP-1921](https://issues.apache.org/jira/browse/BIGTOP-1921) | *Minor* | **Puppet recipe for YCSB**
+
+Puppet recipe for YCSB(BIGTOP-1920)
+
+
+---
+
+* [BIGTOP-1920](https://issues.apache.org/jira/browse/BIGTOP-1920) | *Minor* | **Include YCSB in Bigtop**
+
+Yahoo! Cloud Serving Benchmark (YCSB) [1][2] is a widely used benchmark tool for NoSQL databases and other data stores. It would be useful if Bigtop has that as a component to provide a benchmark tool for Apache HBase. Currently there is no YCSB binding for Apache Phoenix but Hopefully, Phoenix would use it to benchmark and evaluate the performance in near future
+
+[1] https://github.com/brianfrankcooper/YCSB/wiki
+[2] http://labs.yahoo.com/news/yahoo-cloud-serving-benchmark/
 
 
 ---
@@ -183,6 +207,15 @@ This is a problem because builds like datafu pick up their pig dependency via iv
 * [BIGTOP-1795](https://issues.apache.org/jira/browse/BIGTOP-1795) | *Major* | **Upgrade bigtop\_toolchain to Maven 3.2.5**
 
 Zeppelin (see BIGTOP-1769 for main Zeppelin Integration JIRA) requires Maven 3.1+ as of https://github.com/apache/incubator-zeppelin/commit/2498e5d
+
+
+---
+
+* [BIGTOP-1149](https://issues.apache.org/jira/browse/BIGTOP-1149) | *Major* | **Package Kite**
+
+I was looking into morphline and Apache Flume and noticed that CDK was needed in order to get the morphline jars.
+
+So let's package morphline so other projects can benefit from it!
 
 
 

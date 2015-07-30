@@ -23,6 +23,13 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [TEZ-2636](https://issues.apache.org/jira/browse/TEZ-2636) | *Major* | **MRInput and MultiMRInput should work for cases when there are 0 physical inputs**
+
+It's possible that an Input is setup without any actual data. This is especially valid when a task is processing multiple MRInputs. One side has data, but the other does not. In such cases - we currently end up generating an error.
+
+
+---
+
 * [TEZ-2623](https://issues.apache.org/jira/browse/TEZ-2623) | *Major* | **Fix module dependencies related to hadoop-auth**
 
 Tez doesn't compile when the {{.m2}} directory is empty. It needs to depend on {{hadoop-auth}} as well.

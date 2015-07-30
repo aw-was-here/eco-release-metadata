@@ -23,9 +23,36 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-9460](https://issues.apache.org/jira/browse/SPARK-9460) | *Major* | **Avoid byte array allocation in StringPrefixComparator**
+
+StringPrefixComparator converts the long values back to byte arrays in order to compare them. We should be able to optimize this to compare the longs directly, rather than turning the longs into byte arrays and comparing them byte by byte. 
+
+{code}
+    public int compare(long aPrefix, long bPrefix) {
+      // TODO: can done more efficiently
+      byte[] a = Longs.toByteArray(aPrefix);
+      byte[] b = Longs.toByteArray(bPrefix);
+      for (int i = 0; i < 8; i++) {
+        int c = UnsignedBytes.compare(a[i], b[i]);
+        if (c != 0) return c;
+      }
+      return 0;
+    }
+{code}
+
+
+---
+
 * [SPARK-9448](https://issues.apache.org/jira/browse/SPARK-9448) | *Blocker* | **GenerateUnsafeProjection should not share expressions across instances**
 
 We accidentally moved the list of expressions from the generated code instance to the class wrapper, and as a result, different threads are sharing the same set of expressions, which cause problems when the expressions have mutable state.
+
+
+---
+
+* [SPARK-9440](https://issues.apache.org/jira/browse/SPARK-9440) | *Critical* | **LocalLDAModel should save docConcentration, topicConcentration, and gammaShape**
+
+LocalLDAModel needs to save these parameters in order for {{logPerplexity}} and {{bound}} (see SPARK-6793) to work correctly.
 
 
 ---
@@ -50,6 +77,13 @@ Based on offline discussion with [~marmbrus].
 In 1.6, I think we should just create a TimeInterval type, which stores only the interval in terms of number of microseconds. TimeInterval can then be comparable.
 
 In 1.5, we should rename the existing IntervalType to CalendarInterval, so we won't have name clashes in 1.6.
+
+
+---
+
+* [SPARK-9428](https://issues.apache.org/jira/browse/SPARK-9428) | *Blocker* | **Add test cases for null inputs for expression unit tests**
+
+We need to audit expression unit tests to make sure we pass in null inputs to test null behavior.
 
 
 ---
@@ -222,6 +256,29 @@ See umbrella design doc https://docs.google.com/document/d/10NZNSEurN2EdWM31uFYs
 
 ---
 
+* [SPARK-9390](https://issues.apache.org/jira/browse/SPARK-9390) | *Major* | **Create an array abstract class ArrayData and a default implementation backed by Array[Object]**
+
+{code}
+interface ArrayData implements SpecializedGetters {
+  int numElements();
+  int sizeInBytes();
+}
+{code}
+
+
+We should also add to SpecializedGetters a method to get array, i.e.
+
+{code}
+interface SpecializedGetters {
+  ...
+  ArrayData getArray(int ordinal);
+  ...
+}
+{code}
+
+
+---
+
 * [SPARK-9386](https://issues.apache.org/jira/browse/SPARK-9386) | *Blocker* | **Feature flag for metastore partitioning**
 
 There are a lot of test failures related to metastore partition pruning.  We should put this behind a flag in case there are other regressions after the release.
@@ -351,6 +408,17 @@ Word2Vec should throw exception when vocabulary is empty
 * [SPARK-9336](https://issues.apache.org/jira/browse/SPARK-9336) | *Major* | **Remove all extra JoinedRows**
 
 They were added to improve performance (so JIT can inline the JoinedRow calls). However, we can also just improve it by projecting output out to UnsafeRow in Tungsten variant of the operators.
+
+
+---
+
+* [SPARK-9335](https://issues.apache.org/jira/browse/SPARK-9335) | *Critical* | **Kinesis test hits rate limit**
+
+This test is failing many pull request builds because of rate limits:
+
+https://amplab.cs.berkeley.edu/jenkins/job/SparkPullRequestBuilder/38396/testReport/org.apache.spark.streaming.kinesis/KinesisBackedBlockRDDSuite/\_It\_is\_not\_a\_test\_/
+
+I disabled the test. I wonder if it's better to not have this test run by default since it's a bit brittle to depend on an external system like this (what if Kinesis goes down, for instance, it will block all development).
 
 
 ---
@@ -499,6 +567,42 @@ BTW, this is a break change.
 
 ---
 
+* [SPARK-9277](https://issues.apache.org/jira/browse/SPARK-9277) | *Minor* | **SparseVector constructor must throw an error when declared number of elements less than array length**
+
+I found that one can create SparseVector inconsistently and it will lead to an Java error in runtime, for example when training LogisticRegressionWithSGD.
+
+Here is the test case:
+
+
+In [2]:
+sc.version
+Out[2]:
+u'1.3.1'
+In [13]:
+from pyspark.mllib.linalg import SparseVector
+from pyspark.mllib.regression import LabeledPoint
+from pyspark.mllib.classification import LogisticRegressionWithSGD
+In [3]:
+x =  SparseVector(2, {1:1, 2:2, 3:3, 4:4, 5:5})
+In [10]:
+l = LabeledPoint(0, x)
+In [12]:
+r = sc.parallelize([l])
+In [14]:
+m = LogisticRegressionWithSGD.train(r)
+
+Error:
+
+
+Py4JJavaError: An error occurred while calling o86.trainLogisticRegressionModelWithSGD.
+: org.apache.spark.SparkException: Job aborted due to stage failure: Task 7 in stage 11.0 failed 1 times, most recent failure: Lost task 7.0 in stage 11.0 (TID 47, localhost): java.lang.ArrayIndexOutOfBoundsException: 2
+
+
+Attached is the notebook with the scenario and the full message
+
+
+---
+
 * [SPARK-9270](https://issues.apache.org/jira/browse/SPARK-9270) | *Minor* | **Allow --name option in pyspark**
 
 Currently, the app name is hardcoded in pyspark as "PySparkShell", and the app name cannot be changed.
@@ -626,6 +730,20 @@ R/deserialize.R:109:3: warning: local variable ‘data’ assigned but may not b
 
 ---
 
+* [SPARK-9248](https://issues.apache.org/jira/browse/SPARK-9248) | *Minor* | **Closing curly-braces should always be on their own line**
+
+Closing curly-braces should always be on their own line
+
+For example,
+{noformat}
+inst/tests/test\_sparkSQL.R:606:3: style: Closing curly-braces should always be on their own line, unless it's followed by an else.
+  }, error = function(err) {
+  ^
+{noformat}
+
+
+---
+
 * [SPARK-9247](https://issues.apache.org/jira/browse/SPARK-9247) | *Critical* | **Use BytesToBytesMap in unsafe broadcast join**
 
 For better performance (both CPU and memory)
@@ -734,6 +852,13 @@ https://github.com/apache/spark/blob/e5d2c37c68ac00a57c2542e62d1c5b4ca267c89e/sq
 * [SPARK-9230](https://issues.apache.org/jira/browse/SPARK-9230) | *Major* | **SparkR RFormula should support StringType features**
 
 StringType features will need to be encoded using OneHotEncoder to be used for regression. See umbrella design doc https://docs.google.com/document/d/10NZNSEurN2EdWM31uFYsgayIPfCFHiuIu3pCWrUmP\_c/edit?usp=sharing
+
+
+---
+
+* [SPARK-9225](https://issues.apache.org/jira/browse/SPARK-9225) | *Minor* | **LDASuite needs unit tests for empty documents**
+
+We need to add a unit test to {{LDASuite}} which check that empty documents are handled appropriately without crashing. This would require defining an empty corpus within {{LDASuite}} and adding tests for the available LDA optimizers (currently EM and Online). Note that only {{SparseVector}}s can be empty.
 
 
 ---
@@ -1388,6 +1513,13 @@ ml/param/params.scala lacks integer array parameter. It is needed for some model
 
 ---
 
+* [SPARK-9116](https://issues.apache.org/jira/browse/SPARK-9116) | *Critical* | **python UDT in \_\_main\_\_ cannot be serialized by PySpark**
+
+It's good that we can support UDT defined in \_\_main\_\_, for example, in pyspark-shell.
+
+
+---
+
 * [SPARK-9115](https://issues.apache.org/jira/browse/SPARK-9115) | *Major* | **date/time function: dayInYear**
 
 dayInyear(date): Int
@@ -1846,6 +1978,13 @@ Example error:
 [error] /spark/unsafe/src/main/java/org/apache/spark/unsafe/bitset/BitSet.java:93: error: bad use of '>'
 [error]    *  for (long i = bs.nextSetBit(0); i >= 0; i = bs.nextSetBit(i + 1)) {
 [error]                                         ^
+
+
+---
+
+* [SPARK-8998](https://issues.apache.org/jira/browse/SPARK-8998) | *Major* | **Collect enough frequent prefixes before projection in PrefixSpan**
+
+The implementation in SPARK-6487 might have scalability issues when the number of frequent items is very small. In this case, we can generate candidate sets of higher orders using Apriori-like algorithms and count them, until we collect enough prefixes.
 
 
 ---
@@ -2747,6 +2886,13 @@ If there are about 150+ JDBC clients connectting to the Thrift Server,  some cli
 java.sql.SQLException: java.util.NoSuchElementException: key not found: 90d93e56-7f6d-45bf-b340-e3ee09dd60fc
  at org.apache.hive.jdbc.Utils.verifySuccess(Utils.java:155)
 {code}
+
+
+---
+
+* [SPARK-8838](https://issues.apache.org/jira/browse/SPARK-8838) | *Major* | **Add config to enable/disable merging part-files when merging parquet schema**
+
+Currently all part-files are merged when merging parquet schema. However, in case there are many part-files and we can make sure that all the part-files have the same schema as their summary file. If so, we provide a configuration to disable merging part-files when merging parquet schema.
 
 
 ---
@@ -8538,6 +8684,15 @@ Since Hive will always do this. It need to be fixed.
 
 ---
 
+* [SPARK-8005](https://issues.apache.org/jira/browse/SPARK-8005) | *Major* | **Support INPUT\_\_FILE\_\_NAME virtual column**
+
+INPUT\_\_FILE\_\_NAME: input file name.
+
+One way to do this is to do it through a thread local variable in the SqlNewHadoopRDD.scala, and read that thread local variable in an expression. (similar to SparkPartitionID expression)
+
+
+---
+
 * [SPARK-8004](https://issues.apache.org/jira/browse/SPARK-8004) | *Major* | **Spark does not enclose column names when fetchting from jdbc sources**
 
 Spark failes to load tables that have a keyword as column names
@@ -9671,6 +9826,17 @@ In our testing, when data size is huge, this patch reduces about 30% GC time and
 * [SPARK-7387](https://issues.apache.org/jira/browse/SPARK-7387) | *Minor* | **CrossValidator example code in Python**
 
 We should add example code for CrossValidator after SPARK-6940 is merged. This should be similar to the CrossValidator example in Scala/Java.
+
+
+---
+
+* [SPARK-7368](https://issues.apache.org/jira/browse/SPARK-7368) | *Major* | **add QR decomposition for RowMatrix**
+
+Add QR decomposition for RowMatrix.
+
+There's a great distributed algorithm for QR decomposition, which I'm currently referring to.
+
+Austin R. Benson, David F. Gleich, James Demmel. "Direct QR factorizations for tall-and-skinny matrices in MapReduce architectures", 2013 IEEE International Conference on Big Data
 
 
 ---
@@ -11019,6 +11185,20 @@ Sometimes the receiver will be registered into tracker after ssc.stop is called.
 Latent Dirichlet Allocation (LDA) could easily be given empty documents when people select a small vocabulary.  We should check to make sure it is robust to empty documents.
 
 This will hopefully take the form of a unit test, but may require modifying the LDA implementation.
+
+
+---
+
+* [SPARK-5561](https://issues.apache.org/jira/browse/SPARK-5561) | *Major* | **Generalize PeriodicGraphCheckpointer for RDDs**
+
+PeriodicGraphCheckpointer was introduced for Latent Dirichlet Allocation (LDA), but it could be generalized to work with both Graphs and RDDs.  It should be generalized and moved out of MLlib.
+
+(For those who are not familiar with it, it tries to automatically handle persisting/unpersisting and checkpointing/removing checkpoint files in a lineage of Graphs.)
+
+A generalized version might be immediately useful for:
+* RandomForest
+* Streaming
+* GLMs
 
 
 ---

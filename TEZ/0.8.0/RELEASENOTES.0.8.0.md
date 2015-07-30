@@ -30,6 +30,13 @@ TEZ-2076 provided a way in which job history data can be parsed/normalized and r
 
 ---
 
+* [TEZ-2636](https://issues.apache.org/jira/browse/TEZ-2636) | *Major* | **MRInput and MultiMRInput should work for cases when there are 0 physical inputs**
+
+It's possible that an Input is setup without any actual data. This is especially valid when a task is processing multiple MRInputs. One side has data, but the other does not. In such cases - we currently end up generating an error.
+
+
+---
+
 * [TEZ-2632](https://issues.apache.org/jira/browse/TEZ-2632) | *Major* | **A -Paws and -Pazure build profiles for hadoop-{aws,azure} inclusion**
 
 A number of S3a workloads which work with MRv2 (after HADOOP-10400) is failing to work with Tez.
