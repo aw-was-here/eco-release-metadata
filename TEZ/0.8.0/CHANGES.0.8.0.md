@@ -41,6 +41,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [TEZ-2645](https://issues.apache.org/jira/browse/TEZ-2645) | Provide standard analyzers for job analysis |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-2627](https://issues.apache.org/jira/browse/TEZ-2627) | Support for Tez Job Priorities |  Major | . | Saikat | Saikat |
+| [TEZ-2613](https://issues.apache.org/jira/browse/TEZ-2613) | Fetcher(unordered) using List to store InputAttemptIdentifier can lead to some inefficiency during remove() operation |  Major | . | Saikat | Saikat |
 | [TEZ-2599](https://issues.apache.org/jira/browse/TEZ-2599) | Dont send obsoleted data movement events to tasks |  Major | . | Bikas Saha | Bikas Saha |
 | [TEZ-2588](https://issues.apache.org/jira/browse/TEZ-2588) | Improper argument name |  Trivial | . | Jeff Zhang | Gabor Liptak |
 | [TEZ-2575](https://issues.apache.org/jira/browse/TEZ-2575) | Handle KeyValue pairs size which do not fit in a single block |  Major | . | Saikat | Saikat |

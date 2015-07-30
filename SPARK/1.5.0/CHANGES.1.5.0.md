@@ -78,13 +78,12 @@
 | [SPARK-7422](https://issues.apache.org/jira/browse/SPARK-7422) | Add argmax to Vector, SparseVector |  Minor | MLlib | Joseph K. Bradley | George Dittmar |
 | [SPARK-7387](https://issues.apache.org/jira/browse/SPARK-7387) | CrossValidator example code in Python |  Minor | ML, PySpark | Xiangrui Meng | Ram Sriharsha |
 | [SPARK-7254](https://issues.apache.org/jira/browse/SPARK-7254) | Extend PIC to handle Graphs directly |  Major | GraphX, MLlib | Joseph K. Bradley | Liang-Chi Hsieh |
-| [SPARK-7079](https://issues.apache.org/jira/browse/SPARK-7079) | Cache-aware external sort |  Major | Shuffle, Spark Core | Reynold Xin | Josh Rosen |
-| [SPARK-7078](https://issues.apache.org/jira/browse/SPARK-7078) | Cache-aware binary processing in-memory sort |  Major | Shuffle | Reynold Xin | Josh Rosen |
 | [SPARK-6964](https://issues.apache.org/jira/browse/SPARK-6964) | Support Cancellation in the Thrift Server |  Critical | SQL | Michael Armbrust | Dong Wang |
 | [SPARK-6833](https://issues.apache.org/jira/browse/SPARK-6833) | Extend `addPackage` so that any given R file can be sourced in the worker before functions are run. |  Minor | SparkR | Shivaram Venkataraman | Sun Rui |
 | [SPARK-6820](https://issues.apache.org/jira/browse/SPARK-6820) | Convert NAs to null type in SparkR DataFrames |  Critical | SparkR | Shivaram Venkataraman | Qian Huang |
 | [SPARK-6487](https://issues.apache.org/jira/browse/SPARK-6487) | Add sequential pattern mining algorithm PrefixSpan to Spark MLlib |  Critical | MLlib | Zhang JiaJin | Zhang JiaJin |
 | [SPARK-6390](https://issues.apache.org/jira/browse/SPARK-6390) | Add MatrixUDT in PySpark |  Major | MLlib, PySpark | Xiangrui Meng | Manoj Kumar |
+| [SPARK-6129](https://issues.apache.org/jira/browse/SPARK-6129) | Create MLlib metrics user guide with algorithm definitions and complete code examples. |  Major | Documentation, MLlib | Xiangrui Meng | Seth Hendrickson |
 | [SPARK-5962](https://issues.apache.org/jira/browse/SPARK-5962) | [MLLIB] Python support for Power Iteration Clustering |  Major | MLlib | Stephen Boesch | Yanbo Liang |
 | [SPARK-4176](https://issues.apache.org/jira/browse/SPARK-4176) | Support decimals with precision \> 18 in Parquet |  Major | SQL | Matei Zaharia | Rene Treffer |
 
@@ -93,7 +92,9 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-9436](https://issues.apache.org/jira/browse/SPARK-9436) | Simplify Pregel by merging joins |  Minor | GraphX | Alexander Ulanov | Alexander Ulanov |
 | [SPARK-9418](https://issues.apache.org/jira/browse/SPARK-9418) | Use sort-merge join as the default shuffle join |  Major | SQL | Reynold Xin | Reynold Xin |
+| [SPARK-9411](https://issues.apache.org/jira/browse/SPARK-9411) | Make page size configurable |  Critical | Spark Core | Reynold Xin | Josh Rosen |
 | [SPARK-9397](https://issues.apache.org/jira/browse/SPARK-9397) | DataFrame should provide an API to find source data files if applicable |  Critical | SQL | Aaron Davidson | Aaron Davidson |
 | [SPARK-9376](https://issues.apache.org/jira/browse/SPARK-9376) | use a seed in RandomDataGeneratorSuite |  Minor | SQL | Wenchen Fan | Wenchen Fan |
 | [SPARK-9373](https://issues.apache.org/jira/browse/SPARK-9373) | Support StructType in Tungsten style Projection |  Major | SQL | Reynold Xin | Reynold Xin |
@@ -296,6 +297,7 @@
 | [SPARK-6980](https://issues.apache.org/jira/browse/SPARK-6980) | Akka timeout exceptions indicate which conf controls them |  Minor | Spark Core | Imran Rashid | Bryan Cutler |
 | [SPARK-6941](https://issues.apache.org/jira/browse/SPARK-6941) | Provide a better error message to explain that tables created from RDDs are immutable |  Blocker | SQL | Yin Huai | Yijie Shen |
 | [SPARK-6797](https://issues.apache.org/jira/browse/SPARK-6797) | Add support for YARN cluster mode |  Critical | SparkR | Shivaram Venkataraman | Sun Rui |
+| [SPARK-6793](https://issues.apache.org/jira/browse/SPARK-6793) | Implement perplexity for LDA |  Major | MLlib | Joseph K. Bradley | Feynman Liang |
 | [SPARK-6782](https://issues.apache.org/jira/browse/SPARK-6782) | add sbt-revolver plugin to sbt build |  Minor | Build | Imran Rashid | Imran Rashid |
 | [SPARK-6749](https://issues.apache.org/jira/browse/SPARK-6749) | Make metastore client robust to underlying socket connection loss |  Critical | SQL | Yin Huai | Eric Liang |
 | [SPARK-6707](https://issues.apache.org/jira/browse/SPARK-6707) | Mesos Scheduler should allow the user to specify constraints based on slave attributes |  Major | Mesos, Scheduler | Ankur Chauhan | Ankur Chauhan |
@@ -328,6 +330,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-9448](https://issues.apache.org/jira/browse/SPARK-9448) | GenerateUnsafeProjection should not share expressions across instances |  Blocker | SQL | Reynold Xin | Reynold Xin |
 | [SPARK-9421](https://issues.apache.org/jira/browse/SPARK-9421) | Fix null-handling bug in UnsafeRow.getDouble, getFloat(), and get(ordinal, dataType) |  Major | SQL | Josh Rosen | Josh Rosen |
 | [SPARK-9419](https://issues.apache.org/jira/browse/SPARK-9419) | ShuffleMemoryManager and MemoryStore should track memory on a per-task, not per-thread, basis |  Critical | Block Manager, Spark Core | Josh Rosen | Josh Rosen |
 | [SPARK-9394](https://issues.apache.org/jira/browse/SPARK-9394) | CodeFormatter should handle parentheses |  Major | SQL | Reynold Xin | Reynold Xin |
@@ -335,7 +338,6 @@
 | [SPARK-9378](https://issues.apache.org/jira/browse/SPARK-9378) | Test case "CTAS with serde" fails occasionally |  Major | SQL | Liang-Chi Hsieh | Liang-Chi Hsieh |
 | [SPARK-9371](https://issues.apache.org/jira/browse/SPARK-9371) | Special chars in column names is broken in HiveContext |  Major | SQL | Wenchen Fan | Wenchen Fan |
 | [SPARK-9366](https://issues.apache.org/jira/browse/SPARK-9366) | TaskEnd event emitted for task has different stage attempt ID than TaskStart for same task |  Major | Spark Core | Ryan Williams | Ryan Williams |
-| [SPARK-9364](https://issues.apache.org/jira/browse/SPARK-9364) | Fix array out of bounds and use-after-free bugs in UnsafeExternalSorter |  Major | SQL | Josh Rosen | Josh Rosen |
 | [SPARK-9331](https://issues.apache.org/jira/browse/SPARK-9331) | Indent generated code properly when dumping them in debug code or exception mode |  Major | SQL | Reynold Xin | Reynold Xin |
 | [SPARK-9327](https://issues.apache.org/jira/browse/SPARK-9327) | Docs incorrectly state that "spark.\*.extraClassPath" append entries |  Major | Documentation | Marcelo Vanzin | Marcelo Vanzin |
 | [SPARK-9326](https://issues.apache.org/jira/browse/SPARK-9326) | Spark never closes the lock file used to prevent concurrent downloads |  Minor | Spark Core | Kay Ousterhout | Kay Ousterhout |
@@ -602,6 +604,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-9430](https://issues.apache.org/jira/browse/SPARK-9430) | Rename IntervalType to CalendarInterval |  Major | SQL | Reynold Xin | Reynold Xin |
 | [SPARK-9422](https://issues.apache.org/jira/browse/SPARK-9422) | Remove the placeholder attributes used in the aggregation buffers |  Major | SQL | Yin Huai | Yin Huai |
 | [SPARK-9420](https://issues.apache.org/jira/browse/SPARK-9420) | Move expressions in sql/core package to catalyst. |  Major | SQL | Reynold Xin | Reynold Xin |
 | [SPARK-9402](https://issues.apache.org/jira/browse/SPARK-9402) | Remove CodegenFallback from Abs / FormatNumber |  Major | SQL | Reynold Xin | Reynold Xin |
@@ -610,6 +613,7 @@
 | [SPARK-9386](https://issues.apache.org/jira/browse/SPARK-9386) | Feature flag for metastore partitioning |  Blocker | SQL | Michael Armbrust | Michael Armbrust |
 | [SPARK-9369](https://issues.apache.org/jira/browse/SPARK-9369) | Support IntervalType in UnsafeRow |  Major | SQL | Reynold Xin | Wenchen Fan |
 | [SPARK-9368](https://issues.apache.org/jira/browse/SPARK-9368) | Support get(ordinal, dataType) generic getter in UnsafeRow |  Major | SQL | Reynold Xin | Reynold Xin |
+| [SPARK-9364](https://issues.apache.org/jira/browse/SPARK-9364) | Fix array out of bounds and use-after-free bugs in UnsafeExternalSorter |  Major | SQL | Josh Rosen | Josh Rosen |
 | [SPARK-9356](https://issues.apache.org/jira/browse/SPARK-9356) | Remove the internal use of DecimalType.Unlimited |  Major | SQL | Reynold Xin | Yijie Shen |
 | [SPARK-9355](https://issues.apache.org/jira/browse/SPARK-9355) | Remove InternalRow.get generic getter call in columnar cache code |  Major | SQL | Reynold Xin | Wenchen Fan |
 | [SPARK-9354](https://issues.apache.org/jira/browse/SPARK-9354) | Remove InternalRow.get generic getter call in Hive integration code |  Major | SQL | Reynold Xin | Reynold Xin |
@@ -677,7 +681,9 @@
 | [SPARK-9027](https://issues.apache.org/jira/browse/SPARK-9027) | Generalize predicate pushdown into the metastore |  Major | SQL | Michael Armbrust | Michael Armbrust |
 | [SPARK-9020](https://issues.apache.org/jira/browse/SPARK-9020) | Support mutable state in code gen expressions |  Major | SQL | Reynold Xin | Wenchen Fan |
 | [SPARK-9018](https://issues.apache.org/jira/browse/SPARK-9018) | Implement a generic Stopwatch utility for ML algorithms |  Major | ML, MLlib | Xiangrui Meng | Xiangrui Meng |
+| [SPARK-9016](https://issues.apache.org/jira/browse/SPARK-9016) | Make random forest classifier extend Classifier abstraction |  Minor | ML | holdenk | holdenk |
 | [SPARK-8993](https://issues.apache.org/jira/browse/SPARK-8993) | More comprehensive type checking in expressions |  Major | SQL | Reynold Xin | Reynold Xin |
+| [SPARK-8977](https://issues.apache.org/jira/browse/SPARK-8977) | Define the RateEstimator interface, and implement the ReceiverRateController |  Major | Streaming | Iulian Dragos | Iulian Dragos |
 | [SPARK-8975](https://issues.apache.org/jira/browse/SPARK-8975) | Implement a mechanism to send a new rate from the driver to the block generator |  Major | Streaming | Iulian Dragos | Iulian Dragos |
 | [SPARK-8969](https://issues.apache.org/jira/browse/SPARK-8969) | move type-check from BinaryArithmetic and BinaryComparison to BinaryOperator |  Trivial | SQL | Wenchen Fan | Reynold Xin |
 | [SPARK-8962](https://issues.apache.org/jira/browse/SPARK-8962) | Disallow Class.forName |  Major | Project Infra | Josh Rosen | Josh Rosen |
@@ -690,6 +696,7 @@
 | [SPARK-8932](https://issues.apache.org/jira/browse/SPARK-8932) | Support copy in UnsafeRow as long as ObjectPool is not used |  Major | SQL | Josh Rosen | Josh Rosen |
 | [SPARK-8926](https://issues.apache.org/jira/browse/SPARK-8926) | Good errors for invalid input to ExpectsInput expressions |  Critical | SQL | Michael Armbrust | Michael Armbrust |
 | [SPARK-8923](https://issues.apache.org/jira/browse/SPARK-8923) | Add @since tags to mllib.fpm |  Minor | Documentation, MLlib | Xiangrui Meng | Rahul Palamuttam |
+| [SPARK-8921](https://issues.apache.org/jira/browse/SPARK-8921) | Add @since tags to mllib.stat |  Minor | Documentation, MLlib | Xiangrui Meng | bimal tandel |
 | [SPARK-8919](https://issues.apache.org/jira/browse/SPARK-8919) | Add @since tags to mllib.recommendation |  Minor | Documentation, MLlib | Xiangrui Meng | Vinod KC |
 | [SPARK-8915](https://issues.apache.org/jira/browse/SPARK-8915) | Add @since tags to mllib.classification |  Minor | Documentation, MLlib | Xiangrui Meng | Patrick Baier |
 | [SPARK-8907](https://issues.apache.org/jira/browse/SPARK-8907) | Speed up path construction in DynamicPartitionWriterContainer.outputWriterForRow |  Major | SQL | Reynold Xin | Cheng Lian |
@@ -868,6 +875,8 @@
 | [SPARK-7158](https://issues.apache.org/jira/browse/SPARK-7158) | collect and take return different results |  Blocker | SQL | Reynold Xin | Cheng Hao |
 | [SPARK-7105](https://issues.apache.org/jira/browse/SPARK-7105) | Support model save/load in Python's GaussianMixture |  Minor | MLlib, PySpark | Joseph K. Bradley | Manoj Kumar |
 | [SPARK-7104](https://issues.apache.org/jira/browse/SPARK-7104) | Support model save/load in Python's Word2Vec |  Minor | MLlib, PySpark | Joseph K. Bradley | Yu Ishikawa |
+| [SPARK-7079](https://issues.apache.org/jira/browse/SPARK-7079) | Cache-aware external sort |  Major | Shuffle, Spark Core | Reynold Xin | Josh Rosen |
+| [SPARK-7078](https://issues.apache.org/jira/browse/SPARK-7078) | Cache-aware binary processing in-memory sort |  Major | Shuffle | Reynold Xin | Josh Rosen |
 | [SPARK-7017](https://issues.apache.org/jira/browse/SPARK-7017) | Refactor dev/run-tests into Python |  Major | Build, Project Infra | Brennon York | Brennon York |
 | [SPARK-6910](https://issues.apache.org/jira/browse/SPARK-6910) | Support for pushing predicates down to metastore for partition pruning |  Critical | SQL | Michael Armbrust | Cheolsoo Park |
 | [SPARK-6909](https://issues.apache.org/jira/browse/SPARK-6909) | Remove Hive Shim code |  Critical | SQL | Michael Armbrust | Cheolsoo Park |

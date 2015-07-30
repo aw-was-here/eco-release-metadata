@@ -23,6 +23,19 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [KAFKA-2357](https://issues.apache.org/jira/browse/KAFKA-2357) | *Major* | **Update zookeeper.connect description in Kafka documentation**
+
+Since https://issues.apache.org/jira/browse/KAFKA-404 chroot pass is created on startup.
+
+So the description quoted below is wrong:
+
+bq. Note that you must create this path yourself prior to starting the broker
+
+cf. http://mail-archives.apache.org/mod\_mbox/kafka-users/201507.mbox/%3CCAHBV8WcjXeUnEH4KGZ\_2f\_kPGJ5M%3DC%3DPaAuiOSGdx52cA4s4gg%40mail.gmail.com%3E
+
+
+---
+
 * [KAFKA-1419](https://issues.apache.org/jira/browse/KAFKA-1419) | *Blocker* | **cross build for scala 2.11**
 
 Please publish builds for scala 2.11, hopefully just needs a small tweak to the gradle conf?

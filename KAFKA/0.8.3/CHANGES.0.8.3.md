@@ -88,6 +88,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [KAFKA-2381](https://issues.apache.org/jira/browse/KAFKA-2381) | Possible ConcurrentModificationException while unsubscribing from a topic in new consumer |  Major | consumer | Ashish K Singh | Ashish K Singh |
+| [KAFKA-2357](https://issues.apache.org/jira/browse/KAFKA-2357) | Update zookeeper.connect description in Kafka documentation |  Major | . | Yuto Sasaki | David Jacot |
 | [KAFKA-2353](https://issues.apache.org/jira/browse/KAFKA-2353) | SocketServer.Processor should catch exception and close the socket properly in configureNewConnections. |  Major | . | Jiangjie Qin | Jiangjie Qin |
 | [KAFKA-2347](https://issues.apache.org/jira/browse/KAFKA-2347) | Add setConsumerRebalanceListener method to ZookeeperConsuemrConnector java api. |  Major | . | Jiangjie Qin | Ashish K Singh |
 | [KAFKA-2345](https://issues.apache.org/jira/browse/KAFKA-2345) | Attempt to delete a topic already marked for deletion throws ZkNodeExistsException |  Major | . | Ashish K Singh | Ashish K Singh |

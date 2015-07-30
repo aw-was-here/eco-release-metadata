@@ -43,6 +43,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-2357](https://issues.apache.org/jira/browse/KAFKA-2357) | Update zookeeper.connect description in Kafka documentation |  Major | . | Yuto Sasaki | David Jacot |
 | [KAFKA-1382](https://issues.apache.org/jira/browse/KAFKA-1382) | Update zkVersion on partition state update failures |  Major | . | Joel Koshy | Sriharsha Chintalapani |
 
 

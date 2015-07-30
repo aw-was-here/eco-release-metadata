@@ -407,6 +407,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-9380](https://issues.apache.org/jira/browse/SPARK-9380) | Pregel example fix in graphx-programming-guide |  Major | Documentation | Alexander Ulanov |  |
 | [SPARK-8726](https://issues.apache.org/jira/browse/SPARK-8726) | Wrong spark.executor.memory when using different EC2 master and worker machine types |  Major | EC2 | Stefano Parmesan | Stefano Parmesan |
 | [SPARK-8394](https://issues.apache.org/jira/browse/SPARK-8394) | HistoryServer doesn't read kerberos opts from config |  Minor | Spark Core | Steve Loughran | Marcelo Vanzin |
 | [SPARK-8038](https://issues.apache.org/jira/browse/SPARK-8038) | PySpark SQL when functions is broken on Column |  Blocker | PySpark, SQL | Olivier Girardot | Olivier Girardot |

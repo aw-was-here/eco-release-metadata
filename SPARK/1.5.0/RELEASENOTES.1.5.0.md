@@ -23,6 +23,37 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-9448](https://issues.apache.org/jira/browse/SPARK-9448) | *Blocker* | **GenerateUnsafeProjection should not share expressions across instances**
+
+We accidentally moved the list of expressions from the generated code instance to the class wrapper, and as a result, different threads are sharing the same set of expressions, which cause problems when the expressions have mutable state.
+
+
+---
+
+* [SPARK-9436](https://issues.apache.org/jira/browse/SPARK-9436) | *Minor* | **Simplify Pregel by merging joins**
+
+Pregel code contains two consecutive joins: 
+```
+g.vertices.innerJoin(messages)(vprog)
+...
+g = g.outerJoinVertices(newVerts) { (vid, old, newOpt) => newOpt.getOrElse(old) }
+```
+They can be replaced by one join. Ankur Dave proposed a patch based on our discussion in mailing list: https://www.mail-archive.com/dev@spark.apache.org/msg10316.html
+
+
+---
+
+* [SPARK-9430](https://issues.apache.org/jira/browse/SPARK-9430) | *Major* | **Rename IntervalType to CalendarInterval**
+
+Based on offline discussion with [~marmbrus].
+
+In 1.6, I think we should just create a TimeInterval type, which stores only the interval in terms of number of microseconds. TimeInterval can then be comparable.
+
+In 1.5, we should rename the existing IntervalType to CalendarInterval, so we won't have name clashes in 1.6.
+
+
+---
+
 * [SPARK-9422](https://issues.apache.org/jira/browse/SPARK-9422) | *Major* | **Remove the placeholder attributes used in the aggregation buffers**
 
 Originally, to merge two aggregation buffers, we create a mutable buffer with extra placeholder attributes to represent grouping expressions (because the input aggregation buffer has grouping keys). This was done to make the first implementation easy. We can remove it now, which can also help us to implement the hash aggregate operator using unsafe row as the buffer.
@@ -58,6 +89,23 @@ I think that the right way to fix this is to change our accounting to be perform
 * [SPARK-9418](https://issues.apache.org/jira/browse/SPARK-9418) | *Major* | **Use sort-merge join as the default shuffle join**
 
 Sort-merge join is more robust in Spark since sorting can be made using the Tungsten sort operator.
+
+
+---
+
+* [SPARK-9411](https://issues.apache.org/jira/browse/SPARK-9411) | *Critical* | **Make page size configurable**
+
+We need to make page sizes configurable so we can reduce them in unit tests and increase them in real production workloads.
+
+The following hardcoded page sizes need to be updated:
+
+- Spark Core: UnsafeShuffleExternalSorter.PAGE\_SIZE
+- Spark SQL: UnsafeExternalSorter.PAGE\_SIZE
+- Unsafe: BytesToBytesMap.PAGE\_SIZE\_BYTES
+
+While updating the page sizes, we should also update certain size calculations which are based on the page size so that they do not assume that all pages are the same size.  This isn't strictly necessary in this patch but should be done eventually as part of supporting overflow pages for large records.
+
+A number of unit tests also need to be updated to account for the new page sizes.
 
 
 ---
@@ -1731,6 +1779,13 @@ The Timer utility should be based on the one implemented in trees. In particular
 
 ---
 
+* [SPARK-9016](https://issues.apache.org/jira/browse/SPARK-9016) | *Minor* | **Make random forest classifier extend Classifier abstraction**
+
+This is a blocking issue for https://issues.apache.org/jira/browse/SPARK-8069 . Since we want to add thresholding/cutoff support to RandomForest and we wish to do this in a general way we should move RandomForest over to the Clasisfication trait.
+
+
+---
+
 * [SPARK-9015](https://issues.apache.org/jira/browse/SPARK-9015) | *Minor* | **Maven cleanup / Clean Project Import in scala-ide**
 
 Cleanup maven for a clean import in scala-ide / eclipse.
@@ -1957,6 +2012,15 @@ Caused by: org.apache.hadoop.security.AccessControlException: Client cannot auth
 {code}
 
 So the link to the driver is not available in secure mode.
+
+
+---
+
+* [SPARK-8977](https://issues.apache.org/jira/browse/SPARK-8977) | *Major* | **Define the RateEstimator interface, and implement the ReceiverRateController**
+
+Full [design doc|https://docs.google.com/document/d/1ls\_g5fFmfbbSTIfQQpUxH56d0f3OksF567zwA00zK9E/edit?usp=sharing]
+
+Implement a rate controller for receiver-based InputDStreams that estimates a maximum rate and sends it to each receiver supervisor.
 
 
 ---
@@ -10216,6 +10280,13 @@ SparkR currently does not work in YARN cluster mode as the R package is not ship
 
 ---
 
+* [SPARK-6793](https://issues.apache.org/jira/browse/SPARK-6793) | *Major* | **Implement perplexity for LDA**
+
+LDA should be able to compute perplexity.  This JIRA is for computing it on the training dataset.  See the linked JIRA for computing it on a new corpus: [SPARK-5567]
+
+
+---
+
 * [SPARK-6785](https://issues.apache.org/jira/browse/SPARK-6785) | *Major* | **DateUtils can not handle date before 1970/01/01 correctly**
 
 {code}
@@ -10754,6 +10825,13 @@ Build v1.3.0-rc2 with Scala 2.11 using instructions in the documentation failed 
 
 
 Jianshi
+
+
+---
+
+* [SPARK-6129](https://issues.apache.org/jira/browse/SPARK-6129) | *Major* | **Create MLlib metrics user guide with algorithm definitions and complete code examples.**
+
+We now have evaluation metrics for binary, multiclass, ranking, and multilabel in MLlib. It would be nice to have a section in the user guide to summarize them.
 
 
 ---

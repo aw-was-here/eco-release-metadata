@@ -62,6 +62,7 @@
 | [HADOOP-12225](https://issues.apache.org/jira/browse/HADOOP-12225) | Add docs-overview page |  Major | yetus | Sean Busbey | Sean Busbey |
 | [HADOOP-12207](https://issues.apache.org/jira/browse/HADOOP-12207) | Add support for pylint |  Major | yetus | Allen Wittenauer | Kengo Seki |
 | [HADOOP-12206](https://issues.apache.org/jira/browse/HADOOP-12206) | The preceding invocations of findlargest in test-patch effect the following invocation results |  Major | yetus | Kengo Seki | Kengo Seki |
+| [HADOOP-12204](https://issues.apache.org/jira/browse/HADOOP-12204) | releasedocmaker should pass pylint |  Minor | yetus | Chris Nauroth | Kengo Seki |
 | [HADOOP-12199](https://issues.apache.org/jira/browse/HADOOP-12199) | Optimize find\_changed\_modules |  Trivial | yetus | Allen Wittenauer | Kengo Seki |
 | [HADOOP-12198](https://issues.apache.org/jira/browse/HADOOP-12198) | hadoop patches that hit multiple modules need to build at the union |  Major | yetus | Allen Wittenauer | Allen Wittenauer |
 | [HADOOP-12197](https://issues.apache.org/jira/browse/HADOOP-12197) | smart-apply-patch shouldn't print successful dryrun in apply mode |  Major | yetus | Allen Wittenauer | Kengo Seki |

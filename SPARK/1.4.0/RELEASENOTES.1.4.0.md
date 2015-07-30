@@ -23,6 +23,14 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-9380](https://issues.apache.org/jira/browse/SPARK-9380) | *Major* | **Pregel example fix in graphx-programming-guide**
+
+Pregel operator to express single source
+shortest path does not work due to incorrect type of the graph: Graph[Int, Double] should be Graph[Long, Double]
+
+
+---
+
 * [SPARK-8726](https://issues.apache.org/jira/browse/SPARK-8726) | *Major* | **Wrong spark.executor.memory when using different EC2 master and worker machine types**
 
 \_(this is a mirror of [MESOS-2985|https://issues.apache.org/jira/browse/MESOS-2985])\_

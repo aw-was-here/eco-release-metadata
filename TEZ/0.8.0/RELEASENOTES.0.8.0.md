@@ -75,6 +75,13 @@ This problem is caused since the plugin is used not only in build section, but a
 
 ---
 
+* [TEZ-2613](https://issues.apache.org/jira/browse/TEZ-2613) | *Major* | **Fetcher(unordered) using List to store InputAttemptIdentifier can lead to some inefficiency during remove() operation**
+
+remove() operation on the remaining list can be inefficient.
+
+
+---
+
 * [TEZ-2610](https://issues.apache.org/jira/browse/TEZ-2610) | *Major* | **Swimlane for DAGs that use containers from previous DAGs**
 
 PROBELM:
