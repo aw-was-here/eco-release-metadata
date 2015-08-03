@@ -182,6 +182,13 @@ pool-1-thread-1-ScalaTest-running-TungstenSortSuite" prio=5 tid=0x00007f822bc828
 
 ---
 
+* [SPARK-9528](https://issues.apache.org/jira/browse/SPARK-9528) | *Major* | **RandomForestClassifier should extend ProbabilisticClassifier**
+
+Now that DecisionTreeClassifier extends ProbabilisticClassifier, we can have RandomForestClassifier extends ProbabilisticClassifier as well.
+
+
+---
+
 * [SPARK-9527](https://issues.apache.org/jira/browse/SPARK-9527) | *Critical* | **PrefixSpan.run should return a PrefixSpanModel instead of an RDD and it should be Java-friendly**
 
 With a model wrapping the result RDD, it would be more flexible to add features in the future. And it should be Java-friendly.

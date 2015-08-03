@@ -109,6 +109,7 @@
 | [SPARK-9537](https://issues.apache.org/jira/browse/SPARK-9537) | DecisionTreeClassifierModel support probability prediction for PySpark.ml |  Minor | ML, PySpark | Yanbo Liang | Yanbo Liang |
 | [SPARK-9536](https://issues.apache.org/jira/browse/SPARK-9536) | NaiveBayesModel support probability prediction for PySpark.ml |  Minor | ML, PySpark | Yanbo Liang | Yanbo Liang |
 | [SPARK-9535](https://issues.apache.org/jira/browse/SPARK-9535) | Modify document for codegen |  Minor | Documentation, SQL | Kousuke Saruta | KaiXinXIaoLei |
+| [SPARK-9528](https://issues.apache.org/jira/browse/SPARK-9528) | RandomForestClassifier should extend ProbabilisticClassifier |  Major | MLlib | Joseph K. Bradley | Joseph K. Bradley |
 | [SPARK-9527](https://issues.apache.org/jira/browse/SPARK-9527) | PrefixSpan.run should return a PrefixSpanModel instead of an RDD and it should be Java-friendly |  Critical | MLlib | Xiangrui Meng | Xiangrui Meng |
 | [SPARK-9521](https://issues.apache.org/jira/browse/SPARK-9521) | Require Maven 3.3.3+ in the build |  Trivial | Build | Sean Owen | Sean Owen |
 | [SPARK-9507](https://issues.apache.org/jira/browse/SPARK-9507) | Remove dependency reduced POM hack now that shade plugin is updated |  Minor | Build | Sean Owen | Sean Owen |
@@ -710,7 +711,6 @@
 | [SPARK-9349](https://issues.apache.org/jira/browse/SPARK-9349) | UDAF cleanup for 1.5 |  Blocker | SQL | Reynold Xin | Yin Huai |
 | [SPARK-9348](https://issues.apache.org/jira/browse/SPARK-9348) | Remove apply method on InternalRow |  Major | SQL | Reynold Xin | Reynold Xin |
 | [SPARK-9332](https://issues.apache.org/jira/browse/SPARK-9332) | CatalystTypeConverters.toScala does not work on UnsafeRows |  Critical | SQL | Josh Rosen | Reynold Xin |
-| [SPARK-9330](https://issues.apache.org/jira/browse/SPARK-9330) | create specialized getStruct getter in InternalRow |  Major | SQL | Reynold Xin | Reynold Xin |
 | [SPARK-9330](https://issues.apache.org/jira/browse/SPARK-9330) | create specialized getStruct getter in InternalRow |  Major | SQL | Reynold Xin | Reynold Xin |
 | [SPARK-9324](https://issues.apache.org/jira/browse/SPARK-9324) | Add `unique` as a synonym for `distinct` |  Major | SparkR | Shivaram Venkataraman | Hossein Falaki |
 | [SPARK-9322](https://issues.apache.org/jira/browse/SPARK-9322) | Add rbind as a synonym for `unionAll` |  Major | SparkR | Shivaram Venkataraman | Hossein Falaki |

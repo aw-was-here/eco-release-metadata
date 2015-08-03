@@ -60,4 +60,5 @@ ${RDM} --project ZOOKEEPER --projecttitle "Apache Zookeeper" \
 
 
 d=$(date -u "+%Y-%m-%d %H:%m")
+git add -A
 git commit -a -m "${d} UTC auto-commit"
