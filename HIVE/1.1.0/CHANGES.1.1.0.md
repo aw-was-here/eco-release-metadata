@@ -657,6 +657,7 @@
 | [HIVE-7335](https://issues.apache.org/jira/browse/HIVE-7335) | Create SparkPlan, DAG representation of a Spark job [Spark Branch] |  Major | . | Xuefu Zhang | Xuefu Zhang |
 | [HIVE-7334](https://issues.apache.org/jira/browse/HIVE-7334) | Create SparkShuffler, shuffling data between map-side data processing and reduce-side processing [Spark Branch] |  Major | . | Xuefu Zhang | Rui Li |
 | [HIVE-7331](https://issues.apache.org/jira/browse/HIVE-7331) | Create SparkCompiler [Spark Branch] |  Major | Spark | Xuefu Zhang | Xuefu Zhang |
+| [HIVE-7329](https://issues.apache.org/jira/browse/HIVE-7329) | Create SparkWork [Spark Branch] |  Major | Spark | Xuefu Zhang | Xuefu Zhang |
 | [HIVE-7073](https://issues.apache.org/jira/browse/HIVE-7073) | Implement Binary in ParquetSerDe |  Major | . | David Chen | Ferdinand Xu |
 
 

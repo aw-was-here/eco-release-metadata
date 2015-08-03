@@ -59,6 +59,27 @@ The cause of dead Processor thread was due to we are not catching all the except
 
 ---
 
+* [KAFKA-2350](https://issues.apache.org/jira/browse/KAFKA-2350) | *Major* | **Add KafkaConsumer pause capability**
+
+There are some use cases in stream processing where it is helpful to be able to pause consumption of a topic. For example, when joining two topics, you may need to delay processing of one topic while you wait for the consumer of the other topic to catch up. The new consumer currently doesn't provide a nice way to do this. If you skip calls to poll() or if you unsubscribe, then a rebalance will be triggered and your partitions will be reassigned to another consumer. The desired behavior is instead that you keep the partition assigned and simply 
+
+One way to achieve this would be to add two new methods to KafkaConsumer:
+
+{code}
+void pause(TopicPartition... partitions);
+void resume(TopicPartition... partitions);
+{code}
+
+Here is the expected behavior of pause/resume:
+
+* When a partition is paused, calls to KafkaConsumer.poll will not initiate any new fetches for that partition.
+* After the partition is resumed, fetches will begin again. 
+* While a partition is paused, seek() and position() can still be used to advance or query the current position.
+* Rebalance does not preserve pause/resume state.
+
+
+---
+
 * [KAFKA-2349](https://issues.apache.org/jira/browse/KAFKA-2349) | *Major* | **`contributing` website page should link to "Contributing Code Changes" wiki page**
 
 This should be merged at the same time as https://issues.apache.org/jira/browse/KAFKA-2321 and only after a vote takes place in the mailing list.
@@ -1573,6 +1594,17 @@ The javadoc still mentions "metadata.broker.list" in the consumer config.
 * [KAFKA-2032](https://issues.apache.org/jira/browse/KAFKA-2032) | *Major* | **ConsumerConfig doesn't validate partition.assignment.strategy values**
 
 In the ConsumerConfig class, there are validation checks to make sure that string based configuration properties conform to allowed values.  However, this validation appears to be missing for the partition.assignment.strategy.  E.g. there is validation for autooffset.reset and offsets.storage.
+
+
+---
+
+* [KAFKA-2026](https://issues.apache.org/jira/browse/KAFKA-2026) | *Trivial* | **Logging of unused options always shows null for the value and is misleading if the option is used by serializers**
+
+This is a really simple issue. When AbstractConfig logs unused messages, it gets the value from the parsed configs. Since those are generated from the ConfigDef, they value will not have been parsed or copied over from the original map. This is especially confusing if you've explicitly set an option to pass through to the serializers since you're always going to see these warnings in your log.
+
+The simplest patch would grab the original value from this.originals. But now I'm not sure logging this makes sense at all anymore since configuring any serializer that has options that aren't in ProducerConfig will create a misleading warning message. Further, using AbstractConfig for your serializer implementation would cause all the producer's config settings to be logged as unused. Since a single set of properties is being used to configure multiple components, trying to log unused keys may not make sense anymore.
+
+Example of confusion caused by this: http://mail-archives.apache.org/mod\_mbox/kafka-users/201503.mbox/%3CCAPAVcJ8nwSVjia3%2BH893V%2B87StST6r0xN4O2ac8Es2bEXjv1OA%40mail.gmail.com%3E
 
 
 ---

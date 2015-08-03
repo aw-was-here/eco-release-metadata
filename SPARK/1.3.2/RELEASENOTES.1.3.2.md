@@ -23,6 +23,20 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-9507](https://issues.apache.org/jira/browse/SPARK-9507) | *Minor* | **Remove dependency reduced POM hack now that shade plugin is updated**
+
+See https://issues.apache.org/jira/browse/SPARK-8819 for the original problem. The shade plugin is fixed, and so I believe this workaround can be removed.
+
+
+---
+
+* [SPARK-9254](https://issues.apache.org/jira/browse/SPARK-9254) | *Major* | **sbt-launch-lib.bash should use `curl --location` to support HTTP/HTTPS redirection**
+
+The {{curl}} call in the script should use {{--location}} to support HTTP/HTTPS redirection, since target file(s) can be hosted on CDN nodes.
+
+
+---
+
 * [SPARK-9236](https://issues.apache.org/jira/browse/SPARK-9236) | *Major* | **Left Outer Join with empty JavaPairRDD returns empty RDD**
 
 When the *left outer join* is performed on a non-empty {{JavaPairRDD}} with a {{JavaPairRDD}} which was created with the {{emptyRDD()}} method the resulting RDD is empty. In the following unit test the latest assert fails.

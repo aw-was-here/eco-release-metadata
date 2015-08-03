@@ -195,8 +195,6 @@
 | [SPARK-7168](https://issues.apache.org/jira/browse/SPARK-7168) | Update plugin versions in Maven build and centralize versions |  Trivial | Build | Sean Owen | Sean Owen |
 | [SPARK-7145](https://issues.apache.org/jira/browse/SPARK-7145) | commons-lang (2.x) classes used instead of commons-lang3 (3.x); commons-io used without dependency |  Minor | Spark Core, SQL, Streaming | Sean Owen | Sean Owen |
 | [SPARK-7140](https://issues.apache.org/jira/browse/SPARK-7140) | Do not scan all values in Vector.hashCode |  Major | MLlib | Xiangrui Meng | Xiangrui Meng |
-| [SPARK-7139](https://issues.apache.org/jira/browse/SPARK-7139) | Allow received block metadata to be saved to WAL and recovered on driver failure |  Blocker | Streaming | Tathagata Das | Tathagata Das |
-| [SPARK-7138](https://issues.apache.org/jira/browse/SPARK-7138) | Add method to BlockGenerator to add multiple records to BlockGenerator with single callback |  Minor | Streaming | Tathagata Das | Tathagata Das |
 | [SPARK-7136](https://issues.apache.org/jira/browse/SPARK-7136) | Spark SQL and DataFrame Guide - missing file paths and non-existent example file |  Minor | Documentation | Deborah Siegel | Deborah Siegel |
 | [SPARK-7120](https://issues.apache.org/jira/browse/SPARK-7120) | ClosureCleaner lacks documentation |  Major | Documentation | Andrew Or | Andrew Or |
 | [SPARK-7116](https://issues.apache.org/jira/browse/SPARK-7116) | Intermediate RDD cached but never unpersisted |  Major | PySpark, SQL | Kalle Jepsen | Kalle Jepsen |
@@ -939,6 +937,8 @@
 | [SPARK-7156](https://issues.apache.org/jira/browse/SPARK-7156) | Add randomSplit method to DataFrame |  Minor | SQL | Joseph K. Bradley | Burak Yavuz |
 | [SPARK-7152](https://issues.apache.org/jira/browse/SPARK-7152) | Add a Column expression for partition ID |  Major | SQL | Reynold Xin | Reynold Xin |
 | [SPARK-7150](https://issues.apache.org/jira/browse/SPARK-7150) | SQLContext.range() |  Minor | ML, SQL | Joseph K. Bradley | Adrian Wang |
+| [SPARK-7139](https://issues.apache.org/jira/browse/SPARK-7139) | Allow received block metadata to be saved to WAL and recovered on driver failure |  Blocker | Streaming | Tathagata Das | Tathagata Das |
+| [SPARK-7138](https://issues.apache.org/jira/browse/SPARK-7138) | Add method to BlockGenerator to add multiple records to BlockGenerator with single callback |  Minor | Streaming | Tathagata Das | Tathagata Das |
 | [SPARK-7135](https://issues.apache.org/jira/browse/SPARK-7135) | Expression for monotonically increasing IDs |  Major | SQL | Reynold Xin | Reynold Xin |
 | [SPARK-7133](https://issues.apache.org/jira/browse/SPARK-7133) | Implement struct, array, and map field accessor using apply in Scala and \_\_getitem\_\_ in Python |  Blocker | SQL | Reynold Xin | Wenchen Fan |
 | [SPARK-7118](https://issues.apache.org/jira/browse/SPARK-7118) | Add coalesce Spark SQL function to PySpark API |  Minor | PySpark, SQL | Olivier Girardot | Olivier Girardot |

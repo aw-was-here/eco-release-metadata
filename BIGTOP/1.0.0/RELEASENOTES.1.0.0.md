@@ -23,6 +23,38 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [BIGTOP-1950](https://issues.apache.org/jira/browse/BIGTOP-1950) | *Blocker* | **Upgrade maven-assembly plugin: StackOverFlowException is thrown**
+
+During the {{fatjar}} creation an NPE is thrown by maven-assembly plugin. A bit of investigation shows that it is caused by StackOverflowException.
+
+The upgrade to 2.5.5 seems to solve the issue.
+
+
+---
+
+* [BIGTOP-1949](https://issues.apache.org/jira/browse/BIGTOP-1949) | *Blocker* | **Sqoop 1.4.5 artifacts aren't getting resolved in the release...**
+
+test-artifacts can not be deployed nor verified. the following message is getting thrown from the maven run:
+
+{verbatim}
+[ERROR] Failed to execute goal on project sqoop-smoke: Could not resolve dependencies for project org.apache.bigtop.itest:sqoop-smoke:jar:1.0.0: The following artifacts could not be resolved: org.apache.sqoop:sqoop-core:jar:1.4.5, org.apache.sqoop:sqoop-client:jar:1.4.5: Could not find artifact org.apache.sqoop:sqoop-core:jar:1.4.5 in central (http://repo.maven.apache.org/maven2) -> [Help 1]
+{verbatim}
+Indeed https://repo1.maven.org/maven2/org/apache/sqoop/ does have nothing of the sort. Does Sqoop community still publish 1.4.* artifacts at all?
+
+
+---
+
+* [BIGTOP-1946](https://issues.apache.org/jira/browse/BIGTOP-1946) | *Blocker* | **Missing ASL header in some of iTest files**
+
+The following files are missing the ASL headers
+{code}
+bigtop-test-framework/src/main/groovy/org/apache/bigtop/itest/failures/FailureExecutor.groovy
+bigtop-test-framework/src/main/groovy/org/apache/bigtop/itest/failures/FailureVars.groovy
+{code}
+
+
+---
+
 * [BIGTOP-1939](https://issues.apache.org/jira/browse/BIGTOP-1939) | *Trivial* | **Enable basic hdfs-nfs gateway configuration**
 
 Enable basic configuration of the HDFS-NFS in core-site.xml.

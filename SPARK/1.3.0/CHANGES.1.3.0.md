@@ -642,6 +642,7 @@
 | [SPARK-4493](https://issues.apache.org/jira/browse/SPARK-4493) | Don't pushdown Eq, NotEq, Lt, LtEq, Gt and GtEq predicates with nulls for Parquet |  Major | SQL | Cheng Lian | Cheng Lian |
 | [SPARK-4465](https://issues.apache.org/jira/browse/SPARK-4465) | runAsSparkUser doesn't affect TaskRunner in Mesos environment at all. |  Critical | Deploy, Input/Output, Mesos | Jongyoul Lee | Jongyoul Lee |
 | [SPARK-4461](https://issues.apache.org/jira/browse/SPARK-4461) | Pass java options to yarn master to handle system properties correctly. |  Major | YARN | Zhan Zhang | Zhan Zhang |
+| [SPARK-4454](https://issues.apache.org/jira/browse/SPARK-4454) | Race condition in DAGScheduler |  Critical | Scheduler | Rafal Kwasny | Josh Rosen |
 | [SPARK-4430](https://issues.apache.org/jira/browse/SPARK-4430) | Apache RAT Checks fail spuriously on test files |  Major | Build | Ryan Williams | Sean Owen |
 | [SPARK-4383](https://issues.apache.org/jira/browse/SPARK-4383) | Delay scheduling doesn't work right when jobs have tasks with different locality levels |  Major | Scheduler | Kay Ousterhout |  |
 | [SPARK-4377](https://issues.apache.org/jira/browse/SPARK-4377) | ZooKeeperPersistenceEngine: java.lang.IllegalStateException: Trying to deserialize a serialized ActorRef without an ActorSystem in scope. |  Blocker | Deploy, Spark Core | Josh Rosen | Prashant Sharma |

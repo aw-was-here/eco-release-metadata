@@ -23,6 +23,87 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-9507](https://issues.apache.org/jira/browse/SPARK-9507) | *Minor* | **Remove dependency reduced POM hack now that shade plugin is updated**
+
+See https://issues.apache.org/jira/browse/SPARK-8819 for the original problem. The shade plugin is fixed, and so I believe this workaround can be removed.
+
+
+---
+
+* [SPARK-9496](https://issues.apache.org/jira/browse/SPARK-9496) | *Minor* | **Do not print password in Hive Config**
+
+We better do not print the password in log.
+
+
+---
+
+* [SPARK-9491](https://issues.apache.org/jira/browse/SPARK-9491) | *Blocker* | **App running on secure YARN with no HBase config will hang**
+
+Because HBase may not be available, or the default config may be pointing at the wrong information for HBase, the YARN backend may end up waiting forever at this point:
+
+{noformat}
+"main" prio=10 tid=0x00007f96c8016000 nid=0x1aa6 waiting on condition [0x00007f96cda96000]
+   java.lang.Thread.State: TIMED\_WAITING (sleeping)
+        at java.lang.Thread.sleep(Native Method)
+        at org.apache.hadoop.hbase.zookeeper.MetaTableLocator.blockUntilAvailable(MetaTableLocator.java:443)
+        at org.apache.hadoop.hbase.client.ZooKeeperRegistry.getMetaRegionLocation(ZooKeeperRegistry.java:60)
+        at org.apache.hadoop.hbase.client.ConnectionManager$HConnectionImplementation.locateRegion(ConnectionManager.java:1123)
+        at org.apache.hadoop.hbase.client.ConnectionManager$HConnectionImplementation.locateRegion(ConnectionManager.java:1110)
+        at org.apache.hadoop.hbase.client.ConnectionManager$HConnectionImplementation.locateRegion(ConnectionManager.java:1067)
+        at org.apache.hadoop.hbase.client.ConnectionManager$HConnectionImplementation.getRegionLocation(ConnectionManager.java:902)
+        at org.apache.hadoop.hbase.client.RegionServerCallable.prepare(RegionServerCallable.java:78)
+        at org.apache.hadoop.hbase.client.RpcRetryingCaller.callWithRetries(RpcRetryingCaller.java:124)
+        at org.apache.hadoop.hbase.ipc.RegionCoprocessorRpcChannel.callExecService(RegionCoprocessorRpcChannel.java:95)
+        at org.apache.hadoop.hbase.ipc.CoprocessorRpcChannel.callBlockingMethod(CoprocessorRpcChannel.java:73)
+        at org.apache.hadoop.hbase.protobuf.generated.AuthenticationProtos$AuthenticationService$BlockingStub.getAuthenticationToken(AuthenticationProtos.java:4512)
+        at org.apache.hadoop.hbase.security.token.TokenUtil.obtainToken(TokenUtil.java:86)
+        at org.apache.hadoop.hbase.security.token.TokenUtil.obtainToken(TokenUtil.java:69)
+        at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+        at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+        at java.lang.reflect.Method.invoke(Method.java:606)
+        at org.apache.spark.deploy.yarn.Client$.obtainTokenForHBase(Client.scala:1299)
+        at org.apache.spark.deploy.yarn.Client.prepareLocalResources(Client.scala:270)
+{noformat}
+
+The code shouldn't try to fetch HBase delegation tokens when HBase is not configured.
+
+
+---
+
+* [SPARK-9446](https://issues.apache.org/jira/browse/SPARK-9446) | *Minor* | **Clear Active SparkContext in stop() method**
+
+In thread 'stopped SparkContext remaining active' on mailing list, Andres observed the following in driver log:
+{code}
+15/07/29 15:17:09 WARN YarnSchedulerBackend$YarnSchedulerEndpoint: ApplicationMaster has disassociated: <address removed>
+15/07/29 15:17:09 INFO YarnClientSchedulerBackend: Shutting down all executors
+Exception in thread "Yarn application state monitor" org.apache.spark.SparkException: Error asking standalone scheduler to shut down executors
+        at org.apache.spark.scheduler.cluster.CoarseGrainedSchedulerBackend.stopExecutors(CoarseGrainedSchedulerBackend.scala:261)
+        at org.apache.spark.scheduler.cluster.CoarseGrainedSchedulerBackend.stop(CoarseGrainedSchedulerBackend.scala:266)
+        at org.apache.spark.scheduler.cluster.YarnClientSchedulerBackend.stop(YarnClientSchedulerBackend.scala:158)
+        at org.apache.spark.scheduler.TaskSchedulerImpl.stop(TaskSchedulerImpl.scala:416)
+        at org.apache.spark.scheduler.DAGScheduler.stop(DAGScheduler.scala:1411)
+        at org.apache.spark.SparkContext.stop(SparkContext.scala:1644)
+        at org.apache.spark.scheduler.cluster.YarnClientSchedulerBackend$$anon$1.run(YarnClientSchedulerBackend.scala:139)
+Caused by: java.lang.InterruptedException
+        at java.util.concurrent.locks.AbstractQueuedSynchronizer.tryAcquireSharedNanos(AbstractQueuedSynchronizer.java:1325)
+        at scala.concurrent.impl.Promise$DefaultPromise.tryAwait(Promise.scala:208)
+        at scala.concurrent.impl.Promise$DefaultPromise.ready(Promise.scala:218)
+        at scala.concurrent.impl.Promise$DefaultPromise.result(Promise.scala:223)
+        at scala.concurrent.Await$$anonfun$result$1.apply(package.scala:190)
+        at scala.concurrent.BlockContext$DefaultBlockContext$.blockOn(BlockContext.scala:53)
+        at scala.concurrent.Await$.result(package.scala:190)15/07/29 15:17:09 INFO YarnClientSchedulerBackend: Asking each executor to shut down
+
+        at org.apache.spark.rpc.RpcEndpointRef.askWithRetry(RpcEndpointRef.scala:102)
+        at org.apache.spark.rpc.RpcEndpointRef.askWithRetry(RpcEndpointRef.scala:78)
+        at org.apache.spark.scheduler.cluster.CoarseGrainedSchedulerBackend.stopExecutors(CoarseGrainedSchedulerBackend.scala:257)
+        ... 6 more
+{code}
+Effect of the above exception is that a stopped SparkContext is returned to user since SparkContext.clearActiveContext() is not called.
+
+
+---
+
 * [SPARK-9352](https://issues.apache.org/jira/browse/SPARK-9352) | *Critical* | **Add tests for standalone scheduling code**
 
 There are no tests for the standalone Master scheduling code! This has caused issues like SPARK-8881 and SPARK-9260 in the past. It is crucial that we have some level of confidence that this code actually works...

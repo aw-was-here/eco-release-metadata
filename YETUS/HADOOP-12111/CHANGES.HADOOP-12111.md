@@ -55,12 +55,17 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HADOOP-12289](https://issues.apache.org/jira/browse/HADOOP-12289) | Move recent yetus docker changes to the yetus dockerfile |  Major | yetus | Allen Wittenauer | Allen Wittenauer |
+| [HADOOP-12287](https://issues.apache.org/jira/browse/HADOOP-12287) | add support for perlcritic |  Major | yetus | Allen Wittenauer | Kengo Seki |
+| [HADOOP-12286](https://issues.apache.org/jira/browse/HADOOP-12286) | test-patch pylint plugin should support indent-string option |  Major | yetus | Kengo Seki | Kengo Seki |
 | [HADOOP-12273](https://issues.apache.org/jira/browse/HADOOP-12273) | releasedocmaker.py fails with stacktrace if --project option is not specified |  Trivial | yetus | Kengo Seki | Kengo Seki |
 | [HADOOP-12266](https://issues.apache.org/jira/browse/HADOOP-12266) | make test-patch plugins more consistent |  Major | yetus | Kengo Seki | Kengo Seki |
 | [HADOOP-12265](https://issues.apache.org/jira/browse/HADOOP-12265) | Pylint should be installed in test-patch docker environment |  Major | yetus | Kengo Seki | Kengo Seki |
+| [HADOOP-12256](https://issues.apache.org/jira/browse/HADOOP-12256) | add support for ruby-lint |  Major | yetus | Allen Wittenauer | Kengo Seki |
 | [HADOOP-12255](https://issues.apache.org/jira/browse/HADOOP-12255) | Add support for rubocop |  Major | yetus | Allen Wittenauer | Kengo Seki |
 | [HADOOP-12254](https://issues.apache.org/jira/browse/HADOOP-12254) | test-patch.sh should run findbugs if only findbugs-exclude.xml has changed |  Major | yetus | Varun Saxena | Kengo Seki |
 | [HADOOP-12243](https://issues.apache.org/jira/browse/HADOOP-12243) | Rewrite grep -o's to be POSIX compliant |  Major | yetus | Kengo Seki | Kengo Seki |
+| [HADOOP-12228](https://issues.apache.org/jira/browse/HADOOP-12228) | Document releasedocmaker |  Major | yetus | Allen Wittenauer | Allen Wittenauer |
 | [HADOOP-12226](https://issues.apache.org/jira/browse/HADOOP-12226) | CHANGED\_MODULES is wrong for ant |  Major | yetus | Allen Wittenauer | Allen Wittenauer |
 | [HADOOP-12225](https://issues.apache.org/jira/browse/HADOOP-12225) | Add docs-overview page |  Major | yetus | Sean Busbey | Sean Busbey |
 | [HADOOP-12207](https://issues.apache.org/jira/browse/HADOOP-12207) | Add support for pylint |  Major | yetus | Allen Wittenauer | Kengo Seki |
@@ -77,7 +82,9 @@
 | [HADOOP-12147](https://issues.apache.org/jira/browse/HADOOP-12147) | bundled dockerfile should use the JDK version of openjdk, not JRE |  Trivial | yetus | Allen Wittenauer | Allen Wittenauer |
 | [HADOOP-12142](https://issues.apache.org/jira/browse/HADOOP-12142) | Test code modification is not detected if test directory is at the top level of the project |  Major | yetus | Kengo Seki | Kengo Seki |
 | [HADOOP-12134](https://issues.apache.org/jira/browse/HADOOP-12134) | Pig personality always fails at precheck\_javac and check\_patch\_javac |  Major | yetus | Kengo Seki | Kengo Seki |
+| [HADOOP-12130](https://issues.apache.org/jira/browse/HADOOP-12130) | document features added in 12113 |  Major | yetus | Allen Wittenauer | Allen Wittenauer |
 | [HADOOP-12127](https://issues.apache.org/jira/browse/HADOOP-12127) | some personalities are still using releaseaudit instead of asflicense |  Trivial | yetus | Allen Wittenauer | Allen Wittenauer |
+| [HADOOP-12121](https://issues.apache.org/jira/browse/HADOOP-12121) | smarter branch detection |  Major | yetus | Allen Wittenauer | Allen Wittenauer |
 | [HADOOP-12113](https://issues.apache.org/jira/browse/HADOOP-12113) | update test-patch branch to latest code |  Major | yetus | Allen Wittenauer | Allen Wittenauer |
 | [HADOOP-11914](https://issues.apache.org/jira/browse/HADOOP-11914) | test-patch.sh confused by certain patch formats |  Critical | yetus | Allen Wittenauer | Kengo Seki |
 
