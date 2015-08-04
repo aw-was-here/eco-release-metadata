@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-# Apache hadoop Changelog
+# Apache Hadoop Changelog
 
 ## Release 1.0.0 - 2011-12-27
 

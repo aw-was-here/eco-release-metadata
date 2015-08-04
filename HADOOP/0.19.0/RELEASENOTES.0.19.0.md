@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-# Apache hadoop  0.19.0 Release Notes
+# Apache Hadoop  0.19.0 Release Notes
 
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
 
@@ -220,7 +220,7 @@ Changed DistCp error messages when there is a RemoteException.  Changed the corr
 
 * [HADOOP-3873](https://issues.apache.org/jira/browse/HADOOP-3873) | *Major* | **DistCp should have an option for limiting the number of files/bytes being copied**
 
-Added two new options -filelimit <n> and -sizelimit <n> to DistCp for limiting the total number of files and the total size in bytes, respectively.
+Added two new options -filelimit \<n\> and -sizelimit \<n\> to DistCp for limiting the total number of files and the total size in bytes, respectively.
 
 
 ---
@@ -432,7 +432,7 @@ Introduced recovery of jobs when JobTracker restarts. This facility is off by de
 * [HADOOP-3150](https://issues.apache.org/jira/browse/HADOOP-3150) | *Major* | **Move task file promotion into the task**
 
 Moved task file promotion to the Task. When the task has finished, it will do a commit and is declared SUCCEDED. Job cleanup is done by a separate task. Job is declared SUCCEDED/FAILED after the cleanup task has finished. Added public classes org.apache.hadoop.mapred.JobContext, TaskAttemptContext, OutputCommitter and FileOutputCommiitter. Added public APIs:   public OutputCommitter getOutputCommitter() and 
-public void setOutputCommitter(Class<? extends OutputCommitter> theClass) in org.apache.hadoop.mapred.JobConf
+public void setOutputCommitter(Class\<? extends OutputCommitter\> theClass) in org.apache.hadoop.mapred.JobConf
 
 
 ---

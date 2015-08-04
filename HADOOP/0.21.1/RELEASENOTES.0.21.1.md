@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-# Apache hadoop  0.21.1 Release Notes
+# Apache Hadoop  0.21.1 Release Notes
 
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
 
@@ -88,7 +88,7 @@ Clears a problem that {{TestJobCleanup}} leaves behind files that cause {{TestJo
 
 * [MAPREDUCE-1905](https://issues.apache.org/jira/browse/MAPREDUCE-1905) | *Blocker* | **Context.setStatus() and progress() api are ignored**
 
-Moved the api public Counter getCounter(Enum<?> counterName), public Counter getCounter(String groupName, String counterName) from org.apache.hadoop.mapreduce.TaskInputOutputContext to org.apache.hadoop.mapreduce.TaskAttemptContext
+Moved the api public Counter getCounter(Enum\<?\> counterName), public Counter getCounter(String groupName, String counterName) from org.apache.hadoop.mapreduce.TaskInputOutputContext to org.apache.hadoop.mapreduce.TaskAttemptContext
 
 
 

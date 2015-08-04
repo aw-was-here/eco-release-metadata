@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-# Apache hadoop  0.18.0 Release Notes
+# Apache Hadoop  0.18.0 Release Notes
 
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
 
@@ -32,7 +32,7 @@ Changed streaming tasks to adhere to task timeout value specified in the job con
 
 * [HADOOP-3808](https://issues.apache.org/jira/browse/HADOOP-3808) | *Blocker* | **[HOD] Include job tracker RPC in notes attribute after job submission**
 
-Modified HOD to include the RPC port of the JobTracker in the 'notes' attribute of the resource manager. The RPC port is included as the string 'Mapred RPC Port:<port number>'. Tools that depend on the value of the notes attribute must change to parse this new value.
+Modified HOD to include the RPC port of the JobTracker in the 'notes' attribute of the resource manager. The RPC port is included as the string 'Mapred RPC Port:\<port number\>'. Tools that depend on the value of the notes attribute must change to parse this new value.
 
 
 ---
@@ -236,7 +236,7 @@ Changed fetchOutputs() so that LocalFSMerger and InMemFSMergeThread threads are 
 
 * [HADOOP-3317](https://issues.apache.org/jira/browse/HADOOP-3317) | *Minor* | **add default port for hdfs namenode**
 
-Changed the default port for  "hdfs:" URIs to be 8020, so that one may simply use URIs of the form "hdfs://example.com/dir/file".
+Changed the default port for  "hdfs:" URIs to be 8020, so that one may simply use URIs of the form "hdfs\://example.com/dir/file".
 
 
 ---
@@ -293,7 +293,7 @@ Changed 'du' command to run in a seperate thread so that it does not block user.
 
 * [HADOOP-3230](https://issues.apache.org/jira/browse/HADOOP-3230) | *Major* | **Add command line access to named counters**
 
-Added command line tool "job -counter <job-id> <group-name> <counter-name>" to access counters.
+Added command line tool "job -counter \<job-id\> \<group-name\> \<counter-name\>" to access counters.
 
 
 ---
@@ -448,7 +448,7 @@ Improved management of replicas of the name space image. If all replicas on the 
 
 * [HADOOP-2427](https://issues.apache.org/jira/browse/HADOOP-2427) | *Major* | **Cleanup of mapred.local.dir after maptask is complete**
 
-The current working directory of a task, i.e. ${mapred.local.dir}/taskTracker/jobcache/<jobid>/<task\_dir>/work is cleanedup, as soon as the task is finished.
+The current working directory of a task, i.e. ${mapred.local.dir}/taskTracker/jobcache/\<jobid\>/\<task\_dir\>/work is cleanedup, as soon as the task is finished.
 
 
 ---
@@ -511,7 +511,7 @@ Reduced buffer copies as data is written to HDFS. The order of sending data byte
 
 * [HADOOP-1328](https://issues.apache.org/jira/browse/HADOOP-1328) | *Major* | **Hadoop Streaming needs to provide a way for the stream plugin to update global counters**
 
-Introduced a way for a streaming process to update global counters and status using stderr stream to emit information. Use "reporter:counter:<group>,<counter>,<amount> " to update a counter. Use "reporter:status:<message>" to update status.
+Introduced a way for a streaming process to update global counters and status using stderr stream to emit information. Use "reporter:counter:\<group\>,\<counter\>,\<amount\> " to update a counter. Use "reporter:status:\<message\>" to update status.
 
 
 ---

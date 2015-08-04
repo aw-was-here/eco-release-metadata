@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-# Apache hadoop  0.20.203.0 Release Notes
+# Apache Hadoop  0.20.203.0 Release Notes
 
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
 
@@ -95,7 +95,7 @@ The new API described above, which can be used to programmatically obtain histor
        public String getJobName() { ... }
     }
 
-    public class JobHistoryRecordRetriever implements Iterator<JobHistoryJobRecord> {
+    public class JobHistoryRecordRetriever implements Iterator\<JobHistoryJobRecord\> {
        // usual Interface methods -- remove() throws UnsupportedOperationException
        // returns the number of calls to next() that will succeed
        public int numMatches() { ... }

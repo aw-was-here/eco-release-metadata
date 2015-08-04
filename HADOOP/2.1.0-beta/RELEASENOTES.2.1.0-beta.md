@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-# Apache hadoop  2.1.0-beta Release Notes
+# Apache Hadoop  2.1.0-beta Release Notes
 
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
 
@@ -198,7 +198,7 @@ To run secure Datanodes users must install jsvc for their platform and set JSVC\
 
 * [HDFS-4434](https://issues.apache.org/jira/browse/HDFS-4434) | *Major* | **Provide a mapping from INodeId to INode**
 
-This change adds support for referencing files and directories based on fileID/inodeID using a path /.reserved/.inodes/<inodeid>. With this change creating a file or directory /.reserved is not longer allowed. Before upgrading to a release with this change, files /.reserved needs to be renamed to another name.
+This change adds support for referencing files and directories based on fileID/inodeID using a path /.reserved/.inodes/\<inodeid\>. With this change creating a file or directory /.reserved is not longer allowed. Before upgrading to a release with this change, files /.reserved needs to be renamed to another name.
 
 
 ---

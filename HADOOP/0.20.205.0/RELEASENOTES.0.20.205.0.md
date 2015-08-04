@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-# Apache hadoop  0.20.205.0 Release Notes
+# Apache Hadoop  0.20.205.0 Release Notes
 
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
 
@@ -131,7 +131,7 @@ Added two new conf properties dfs.web.authentication.kerberos.principal and dfs.
 
 * [HDFS-2202](https://issues.apache.org/jira/browse/HDFS-2202) | *Major* | **Changes to balancer bandwidth should not require datanode restart.**
 
-New dfsadmin command added: [-setBalancerBandwidth <bandwidth>] where bandwidth is max network bandwidth in bytes per second that the balancer is allowed to use on each datanode during balacing.
+New dfsadmin command added: [-setBalancerBandwidth \<bandwidth\>] where bandwidth is max network bandwidth in bytes per second that the balancer is allowed to use on each datanode during balacing.
 
 This is an incompatible change in 0.23.  The versions of ClientProtocol and DatanodeProtocol are changed.
 

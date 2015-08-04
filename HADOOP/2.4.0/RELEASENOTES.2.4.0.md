@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-# Apache hadoop  2.4.0 Release Notes
+# Apache Hadoop  2.4.0 Release Notes
 
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
 
@@ -36,7 +36,7 @@ SaslPropertiesResolver  or its subclass is used to resolve the QOP used for a co
 
 Note that this change, effectively removes SaslRpcServer.SASL\_PROPS which was a public field. Any use of this variable  should be replaced with the following code:
 SaslPropertiesResolver saslPropsResolver = SaslPropertiesResolver.getInstance(conf);
-Map<String, String> sasl\_props = saslPropsResolver.getDefaultProperties();
+Map\<String, String\> sasl\_props = saslPropsResolver.getDefaultProperties();
 
 
 ---
@@ -87,9 +87,9 @@ Committed to branch-2 and trunk.
 
 If a read from a block is slow, start up another parallel, 'hedged' read against a different block replica.  We then take the result of which ever read returns first (the outstanding read is cancelled).  This 'hedged' read feature will help rein in the outliers, the odd read that takes a long time because it hit a bad patch on the disc, etc.
 
-This feature is off by default.  To enable this feature, set <code>dfs.client.hedged.read.threadpool.size</code> to a positive number.  The threadpool size is how many threads to dedicate to the running of these 'hedged', concurrent reads in your client.
+This feature is off by default.  To enable this feature, set \<code\>dfs.client.hedged.read.threadpool.size\</code\> to a positive number.  The threadpool size is how many threads to dedicate to the running of these 'hedged', concurrent reads in your client.
 
-Then set <code>dfs.client.hedged.read.threshold.millis</code> to the number of milliseconds to wait before starting up a 'hedged' read.  For example, if you set this property to 10, then if a read has not returned within 10 milliseconds, we will start up a new read against a different block replica.
+Then set \<code\>dfs.client.hedged.read.threshold.millis\</code\> to the number of milliseconds to wait before starting up a 'hedged' read.  For example, if you set this property to 10, then if a read has not returned within 10 milliseconds, we will start up a new read against a different block replica.
 
 This feature emits new metrics:
 

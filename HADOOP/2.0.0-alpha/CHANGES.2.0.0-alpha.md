@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-# Apache hadoop Changelog
+# Apache Hadoop Changelog
 
 ## Release 2.0.0-alpha - 2012-05-23
 

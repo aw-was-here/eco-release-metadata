@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-# Apache hadoop  0.21.0 Release Notes
+# Apache Hadoop  0.21.0 Release Notes
 
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
 
@@ -46,7 +46,7 @@ Commands chmod, chown and chgrp now returns non zero exit code and an error mess
 
 * [HADOOP-6692](https://issues.apache.org/jira/browse/HADOOP-6692) | *Major* | **Add FileContext#listStatus that returns an iterator**
 
-This issue adds Iterator<FileStatus> listStatus(Path) to FileContext, moves FileStatus[] listStatus(Path) to FileContext#Util, and adds Iterator<FileStatus> listStatusItor(Path) to AbstractFileSystem which provides a default implementation by using FileStatus[] listStatus(Path).
+This issue adds Iterator\<FileStatus\> listStatus(Path) to FileContext, moves FileStatus[] listStatus(Path) to FileContext#Util, and adds Iterator\<FileStatus\> listStatusItor(Path) to AbstractFileSystem which provides a default implementation by using FileStatus[] listStatus(Path).
 
 
 ---
@@ -236,15 +236,15 @@ RPC can use Avro serialization.
 * [HADOOP-6161](https://issues.apache.org/jira/browse/HADOOP-6161) | *Minor* | **Add get/setEnum to Configuration**
 
 Added following APIs to Configuration:
-- public <T extends Enum<T>> T getEnum(String name, T defaultValue)
-- public <T extends Enum<T>> void setEnum(String name, T value)
+- public \<T extends Enum\<T\>\> T getEnum(String name, T defaultValue)
+- public \<T extends Enum\<T\>\> void setEnum(String name, T value)
 
 
 ---
 
 * [HADOOP-6151](https://issues.apache.org/jira/browse/HADOOP-6151) | *Critical* | **The servlets should quote html characters**
 
-The input parameters for all of the servlets will have the 5 html meta characters quoted. The characters are '&', '<', '>', '"' and the apostrophe. The goal is to ensure that our web ui servlets can't be used for cross site scripting (XSS) attacks. In particular, it blocks the frequent (especially for errors) case where the servlet echos back the parameters to the user.
+The input parameters for all of the servlets will have the 5 html meta characters quoted. The characters are '&', '\<', '\>', '"' and the apostrophe. The goal is to ensure that our web ui servlets can't be used for cross site scripting (XSS) attacks. In particular, it blocks the frequent (especially for errors) case where the servlet echos back the parameters to the user.
 
 
 ---
@@ -744,7 +744,7 @@ Streaming allows binary (or other non-UTF8) streams.
 * [HDFS-1016](https://issues.apache.org/jira/browse/HDFS-1016) | *Major* | **HDFS side change for HADOOP-6569**
 
 When cat a directory or a non-existent file from the command line, the error message gets printed becomes
-cat: io.java.FileNotFoundException: File does not exist: <absolute path name>
+cat: io.java.FileNotFoundException: File does not exist: \<absolute path name\>
 
 
 ---
@@ -1378,7 +1378,7 @@ Fixed errors that caused occasional failure of TestGridmixSubmission, and additi
 
 * [MAPREDUCE-1105](https://issues.apache.org/jira/browse/MAPREDUCE-1105) | *Blocker* | **CapacityScheduler: It should be possible to set queue hard-limit beyond it's actual capacity**
 
-Replaced the existing max task limits variables "mapred.capacity-scheduler.queue.<queue-name>.max.map.slots" and "mapred.capacity-scheduler.queue.<queue-name>.max.reduce.slots"  with  "mapred.capacity-scheduler.queue.<queue-name>.maximum-capacity" . 
+Replaced the existing max task limits variables "mapred.capacity-scheduler.queue.\<queue-name\>.max.map.slots" and "mapred.capacity-scheduler.queue.\<queue-name\>.max.reduce.slots"  with  "mapred.capacity-scheduler.queue.\<queue-name\>.maximum-capacity" . 
 
 max task limit variables were used to throttle the queue, i.e, these were the hard limit and not allowing queue to grow further.
 maximum-capacity variable defines a limit beyond which a queue cannot use the capacity of the cluster. This provides a means to limit how much excess capacity a queue can use.
@@ -1799,7 +1799,7 @@ Modifies LineRecordReader to report an approximate progress, instead of just ret
 
 Provides an ability to dump jobtracker configuration in JSON format to standard output and exits.
 To dump, use hadoop jobtracker -dumpConfiguration
-The format of the dump is {"properties":[{"key":<key>,"value":<value>,"isFinal":<true/false>,"resource" : <resource>}] }
+The format of the dump is {"properties":[{"key":\<key\>,"value":\<value\>,"isFinal":\<true/false\>,"resource" : \<resource\>}] }
 
 
 ---
@@ -1930,7 +1930,7 @@ Added XML-based JobTracker status JSP page for metrics reporting
 
 * [MAPREDUCE-677](https://issues.apache.org/jira/browse/MAPREDUCE-677) | *Major* | **TestNodeRefresh timesout**
 
-TestNodeRefresh sometimes timed out. This happened because the test started a MR cluster with 2 trackers and ran a half-waiting-mapper job. Tasks that have id > total-maps/2 wait for a signal. Because of 2 trackers, the tasks got scheduled out of order (locality) and hence the job got stuck. The fix is to start only one tracker and then add a new tracker later.
+TestNodeRefresh sometimes timed out. This happened because the test started a MR cluster with 2 trackers and ran a half-waiting-mapper job. Tasks that have id \> total-maps/2 wait for a signal. Because of 2 trackers, the tasks got scheduled out of order (locality) and hence the job got stuck. The fix is to start only one tracker and then add a new tracker later.
 
 
 ---

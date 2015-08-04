@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-# Apache hadoop Changelog
+# Apache Hadoop Changelog
 
 ## Release 2.5.0 - 2014-08-11
 
@@ -27,6 +27,7 @@
 | [HDFS-6168](https://issues.apache.org/jira/browse/HDFS-6168) | Remove deprecated methods in DistributedFileSystem |  Major | hdfs-client | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HDFS-6164](https://issues.apache.org/jira/browse/HDFS-6164) | Remove lsr in OfflineImageViewer |  Major | tools | Haohui Mai | Haohui Mai |
 | [HDFS-6153](https://issues.apache.org/jira/browse/HDFS-6153) | Document "fileId" and "childrenNum" fields in the FileStatus Json schema |  Minor | documentation, webhdfs | Akira AJISAKA | Akira AJISAKA |
+| [MAPREDUCE-5777](https://issues.apache.org/jira/browse/MAPREDUCE-5777) | Support utf-8 text with BOM (byte order marker) |  Major | . | bc Wong | zhihai xu |
 | [YARN-2107](https://issues.apache.org/jira/browse/YARN-2107) | Refactor timeline classes into server.timeline package |  Major | . | Vinod Kumar Vavilapalli | Vinod Kumar Vavilapalli |
 
 
@@ -137,7 +138,6 @@
 | [MAPREDUCE-5825](https://issues.apache.org/jira/browse/MAPREDUCE-5825) | Provide diagnostics for reducers killed during ramp down |  Major | mr-am | Gera Shegalov | Gera Shegalov |
 | [MAPREDUCE-5812](https://issues.apache.org/jira/browse/MAPREDUCE-5812) |  Make job context available to OutputCommitter.isRecoverySupported() |  Major | mr-am | Mohammad Kamrul Islam | Mohammad Kamrul Islam |
 | [MAPREDUCE-5809](https://issues.apache.org/jira/browse/MAPREDUCE-5809) | Enhance distcp to support preserving HDFS ACLs. |  Major | distcp | Chris Nauroth | Chris Nauroth |
-| [MAPREDUCE-5777](https://issues.apache.org/jira/browse/MAPREDUCE-5777) | Support utf-8 text with BOM (byte order marker) |  Major | . | bc Wong | zhihai xu |
 | [MAPREDUCE-5774](https://issues.apache.org/jira/browse/MAPREDUCE-5774) | Job overview in History UI should list reducer phases in chronological order |  Trivial | jobhistoryserver | Gera Shegalov | Gera Shegalov |
 | [MAPREDUCE-5402](https://issues.apache.org/jira/browse/MAPREDUCE-5402) | DynamicInputFormat should allow overriding of MAX\_CHUNKS\_TOLERABLE |  Major | distcp, mrv2 | David Rosenstrauch | Tsuyoshi Ozawa |
 | [MAPREDUCE-5014](https://issues.apache.org/jira/browse/MAPREDUCE-5014) | Extending DistCp through a custom CopyListing is not possible |  Major | distcp | Srikanth Sundarrajan | Srikanth Sundarrajan |

@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-# Apache hadoop  0.17.0 Release Notes
+# Apache Hadoop  0.17.0 Release Notes
 
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
 
@@ -344,7 +344,7 @@ public void org.apache.hadoop.JobConf.setSpeculativeExecution(boolean speculativ
 * [HADOOP-2818](https://issues.apache.org/jira/browse/HADOOP-2818) | *Major* | **Remove deprecated Counters.getDisplayName(),  getCounterNames(),   getCounter(String counterName)**
 
 The deprecated methods public String org.apache.hadoop.mapred.Counters.getDisplayName(String counter) and 
-public synchronized Collection<String> org.apache.hadoop.mapred.Counters.getCounterNames() are removed.
+public synchronized Collection\<String\> org.apache.hadoop.mapred.Counters.getCounterNames() are removed.
 The deprecated method public synchronized long org.apache.hadoop.mapred.Counters.getCounter(String counterName) is undeprecated.
 
 
@@ -437,7 +437,7 @@ Improved FSDirectory.mkdirs(...) performance.  In NNThroughputBenchmark-create, 
 
 * [HADOOP-2410](https://issues.apache.org/jira/browse/HADOOP-2410) | *Major* | **Make EC2 cluster nodes more independent of each other**
 
-The command "hadoop-ec2 run" has been replaced by "hadoop-ec2 launch-cluster <group> <number of instances>", and "hadoop-ec2 start-hadoop" has been removed since Hadoop is started on instance start up. See http://wiki.apache.org/hadoop/AmazonEC2 for details.
+The command "hadoop-ec2 run" has been replaced by "hadoop-ec2 launch-cluster \<group\> \<number of instances\>", and "hadoop-ec2 start-hadoop" has been removed since Hadoop is started on instance start up. See http://wiki.apache.org/hadoop/AmazonEC2 for details.
 
 
 ---
@@ -539,9 +539,9 @@ class MyMapper implements Mapper {
 
 will need to be changed to refer to the parameterized type. For example:
 
-class MyMapper implements Mapper<WritableComparable, Writable, WritableComparable, Writable> {
+class MyMapper implements Mapper\<WritableComparable, Writable, WritableComparable, Writable\> {
   public void map(WritableComparable key, Writable val,
-    OutputCollector<WritableComparable, Writable> out, Reporter reporter) throws IOException {
+    OutputCollector\<WritableComparable, Writable\> out, Reporter reporter) throws IOException {
     // ...
   }
   // ...
@@ -554,7 +554,7 @@ Similarly implementations of the following raw interfaces will need modification
 
 * [HADOOP-1985](https://issues.apache.org/jira/browse/HADOOP-1985) | *Major* | **Abstract node to switch mapping into a topology service class used by namenode and jobtracker**
 
-This issue introduces rack awareness for map tasks. It also moves the rack resolution logic to the central servers - NameNode & JobTracker. The administrator can specify a loadable class given by topology.node.switch.mapping.impl to specify the class implementing the logic for rack resolution. The class must implement a method - resolve(List<String> names), where names is the list of DNS-names/IP-addresses that we want resolved. The return value is a list of resolved network paths of the form /foo/rack, where rack is the rackID where the node belongs to and foo is the switch where multiple racks are connected, and so on. The default implementation of this class is packaged along with hadoop and points to org.apache.hadoop.net.ScriptBasedMapping and this class loads a script that can be used for rack resolution. The script location is configurable. It is specified by topology.script.file.name and defaults to an empty script. In the case where the script name is empty, /default-rack is returned for all dns-names/IP-addresses. The loadable topology.node.switch.mapping.impl provides administrators fleixibilty to define how their site's node resolution should happen.
+This issue introduces rack awareness for map tasks. It also moves the rack resolution logic to the central servers - NameNode & JobTracker. The administrator can specify a loadable class given by topology.node.switch.mapping.impl to specify the class implementing the logic for rack resolution. The class must implement a method - resolve(List\<String\> names), where names is the list of DNS-names/IP-addresses that we want resolved. The return value is a list of resolved network paths of the form /foo/rack, where rack is the rackID where the node belongs to and foo is the switch where multiple racks are connected, and so on. The default implementation of this class is packaged along with hadoop and points to org.apache.hadoop.net.ScriptBasedMapping and this class loads a script that can be used for rack resolution. The script location is configurable. It is specified by topology.script.file.name and defaults to an empty script. In the case where the script name is empty, /default-rack is returned for all dns-names/IP-addresses. The loadable topology.node.switch.mapping.impl provides administrators fleixibilty to define how their site's node resolution should happen.
 For mapred, one can also specify the level of the cache w.r.t the number of levels in the resolved network path - defaults to two. This means that the JobTracker will cache tasks at the host level and at the rack level. 
 Known issue: the task caching will not work with levels greater than 2 (beyond racks). This bug is tracked in HADOOP-3296.
 
@@ -568,7 +568,7 @@ This patch allows new command line options for
 hadoop jar 
 which are 
 
-hadoop jar -files <comma seperated list of files> -libjars <comma seperated list of jars> -archives <comma seperated list of archives>
+hadoop jar -files \<comma seperated list of files\> -libjars \<comma seperated list of jars\> -archives \<comma seperated list of archives\>
 
 -files options allows you to speficy comma seperated list of path which would be present in your current working directory of your task
 -libjars option allows you to add jars to the classpaths of the maps and reduces. 

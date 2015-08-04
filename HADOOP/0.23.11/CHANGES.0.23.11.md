@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-# Apache hadoop Changelog
+# Apache Hadoop Changelog
 
 ## Release 0.23.11 - 2014-06-25
 
@@ -72,6 +72,7 @@
 | [MAPREDUCE-5623](https://issues.apache.org/jira/browse/MAPREDUCE-5623) | TestJobCleanup fails because of RejectedExecutionException and NPE. |  Major | . | Tsuyoshi Ozawa | Jason Lowe |
 | [MAPREDUCE-5454](https://issues.apache.org/jira/browse/MAPREDUCE-5454) | TestDFSIO fails intermittently on JDK7 |  Major | test | Karthik Kambatla | Karthik Kambatla |
 | [MAPREDUCE-3191](https://issues.apache.org/jira/browse/MAPREDUCE-3191) | docs for map output compression incorrectly reference SequenceFile |  Trivial | . | Todd Lipcon | Chen He |
+| [YARN-3829](https://issues.apache.org/jira/browse/YARN-3829) | The History Tracking UI is broken for Tez application on ResourceManager WebUI |  Critical | applications | Irina Easterling |  |
 | [YARN-1932](https://issues.apache.org/jira/browse/YARN-1932) | Javascript injection on the job status page |  Blocker | . | Mit Desai | Mit Desai |
 | [YARN-1670](https://issues.apache.org/jira/browse/YARN-1670) | aggregated log writer can write more log data then it says is the log length |  Critical | . | Thomas Graves | Mit Desai |
 | [YARN-1592](https://issues.apache.org/jira/browse/YARN-1592) | CapacityScheduler tries to reserve more than a node's total memory on branch-0.23 |  Major | capacityscheduler | Thomas Graves | Thomas Graves |

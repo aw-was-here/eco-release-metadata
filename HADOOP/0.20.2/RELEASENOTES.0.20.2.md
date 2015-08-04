@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-# Apache hadoop  0.20.2 Release Notes
+# Apache Hadoop  0.20.2 Release Notes
 
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
 
@@ -46,7 +46,7 @@ Corrected arithmetic error that made sleep times less than zero.
 
 * [HADOOP-6231](https://issues.apache.org/jira/browse/HADOOP-6231) | *Major* | **Allow caching of filesystem instances to be disabled on a per-instance basis**
 
-Allow a general mechanism to disable the cache on a per filesystem basis by using property fs.<schemename>.impl.disable.cache. eg. fs.har.impl.disable.cache in core-default.xml
+Allow a general mechanism to disable the cache on a per filesystem basis by using property fs.\<schemename\>.impl.disable.cache. eg. fs.har.impl.disable.cache in core-default.xml
 
 
 ---

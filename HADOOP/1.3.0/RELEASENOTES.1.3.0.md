@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-# Apache hadoop  1.3.0 Release Notes
+# Apache Hadoop  1.3.0 Release Notes
 
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
 
@@ -40,6 +40,13 @@ DistCp v1 currently copies files to a temporary location and then renames that t
 * [HDFS-5685](https://issues.apache.org/jira/browse/HDFS-5685) | *Major* | **DistCp will fail to copy with -delete switch**
 
 Has dependency on MAPREDUCE-1285/MAPREDUCE-5698
+
+
+---
+
+* [MAPREDUCE-5777](https://issues.apache.org/jira/browse/MAPREDUCE-5777) | *Major* | **Support utf-8 text with BOM (byte order marker)**
+
+**WARNING: No release note provided for this incompatible change.**
 
 
 ---

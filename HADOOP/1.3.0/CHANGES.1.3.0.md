@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-# Apache hadoop Changelog
+# Apache Hadoop Changelog
 
 ## Release 1.3.0 - Unreleased
 
@@ -24,6 +24,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [MAPREDUCE-5777](https://issues.apache.org/jira/browse/MAPREDUCE-5777) | Support utf-8 text with BOM (byte order marker) |  Major | . | bc Wong | zhihai xu |
 
 
 ### NEW FEATURES:
@@ -47,7 +48,6 @@
 | [HDFS-4903](https://issues.apache.org/jira/browse/HDFS-4903) | Print trash configuration and trash emptier state in namenode log |  Minor | namenode | Suresh Srinivas | Arpit Agarwal |
 | [HDFS-4521](https://issues.apache.org/jira/browse/HDFS-4521) | invalid network topologies should not be cached |  Minor | . | Colin Patrick McCabe | Colin Patrick McCabe |
 | [MAPREDUCE-6088](https://issues.apache.org/jira/browse/MAPREDUCE-6088) | TestTokenCache tests should use their own JobConf instances |  Major | mrv1, test | zhihai xu | zhihai xu |
-| [MAPREDUCE-5777](https://issues.apache.org/jira/browse/MAPREDUCE-5777) | Support utf-8 text with BOM (byte order marker) |  Major | . | bc Wong | zhihai xu |
 | [MAPREDUCE-5712](https://issues.apache.org/jira/browse/MAPREDUCE-5712) | Backport Fair Scheduler pool placement by secondary group |  Major | scheduler | Ted Malaska | Ted Malaska |
 | [MAPREDUCE-5651](https://issues.apache.org/jira/browse/MAPREDUCE-5651) | Backport Fair Scheduler queue placement policies to branch-1 |  Major | scheduler | Sandy Ryza | Ted Malaska |
 | [MAPREDUCE-5609](https://issues.apache.org/jira/browse/MAPREDUCE-5609) | Add debug log message when sending job end notification |  Major | . | Robert Kanter | Robert Kanter |

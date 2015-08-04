@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-# Apache hadoop  0.18.3 Release Notes
+# Apache Hadoop  0.18.3 Release Notes
 
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
 
@@ -91,7 +91,7 @@ TestDistributedUpgrade used succeed for wrong reasons.
 
 * [HADOOP-4150](https://issues.apache.org/jira/browse/HADOOP-4150) | *Blocker* | **Include librecordio as part of the release**
 
-Included librecordio in release for use by xerces-c  (ant  -Dlibrecordio=true -Dxercescroot=<path to the xerces-c root>)
+Included librecordio in release for use by xerces-c  (ant  -Dlibrecordio=true -Dxercescroot=\<path to the xerces-c root\>)
 
 
 ---

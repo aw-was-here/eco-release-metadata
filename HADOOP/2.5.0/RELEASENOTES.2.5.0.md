@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-# Apache hadoop  2.5.0 Release Notes
+# Apache Hadoop  2.5.0 Release Notes
 
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
 
@@ -40,7 +40,7 @@ value: AES256
 SaslRpcServer.SASL\_PROPS is removed.
 Any use of this variable  should be replaced with the following code: 
 SaslPropertiesResolver saslPropsResolver = SaslPropertiesResolver.getInstance(conf); 
-Map<String, String> sasl\_props = saslPropsResolver.getDefaultProperties();
+Map\<String, String\> sasl\_props = saslPropsResolver.getDefaultProperties();
 
 
 ---
@@ -124,6 +124,13 @@ Log slow i/o.  Set log thresholds in dfsclient and datanode via the below  new c
 
 dfs.client.slow.io.warning.threshold.ms (Default 30 seconds)
 dfs.datanode.slow.io.warning.threshold.ms (Default 300ms)
+
+
+---
+
+* [MAPREDUCE-5777](https://issues.apache.org/jira/browse/MAPREDUCE-5777) | *Major* | **Support utf-8 text with BOM (byte order marker)**
+
+**WARNING: No release note provided for this incompatible change.**
 
 
 ---

@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-# Apache hadoop  0.20.0 Release Notes
+# Apache Hadoop  0.20.0 Release Notes
 
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
 
@@ -250,7 +250,7 @@ Changed public class org.apache.hadoop.mapreduce.ID to be an abstract class. Rem
 
 * [HADOOP-4188](https://issues.apache.org/jira/browse/HADOOP-4188) | *Major* | **Remove Task's dependency on concrete file systems**
 
-Removed Task's dependency on concrete file systems by taking list from FileSystem class. Added statistics table to FileSystem class. Deprecated FileSystem method getStatistics(Class<? extends FileSystem> cls).
+Removed Task's dependency on concrete file systems by taking list from FileSystem class. Added statistics table to FileSystem class. Deprecated FileSystem method getStatistics(Class\<? extends FileSystem\> cls).
 
 
 ---
