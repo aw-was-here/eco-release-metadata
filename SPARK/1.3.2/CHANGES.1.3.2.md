@@ -50,6 +50,8 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-9608](https://issues.apache.org/jira/browse/SPARK-9608) | Incorrect zinc -status check in build/mvn |  Minor | Build | Ryan Williams | Ryan Williams |
+| [SPARK-9607](https://issues.apache.org/jira/browse/SPARK-9607) | Incorrect zinc check in build/mvn |  Minor | Build | Ryan Williams | Ryan Williams |
 | [SPARK-9254](https://issues.apache.org/jira/browse/SPARK-9254) | sbt-launch-lib.bash should use `curl --location` to support HTTP/HTTPS redirection |  Major | Build | Cheng Lian | Cheng Lian |
 | [SPARK-9236](https://issues.apache.org/jira/browse/SPARK-9236) | Left Outer Join with empty JavaPairRDD returns empty RDD |  Major | Java API | Vitalii Slobodianyk | François Garillot |
 | [SPARK-9175](https://issues.apache.org/jira/browse/SPARK-9175) | BLAS.gemm fails to update matrix C when alpha==0 and beta!=1 |  Critical | MLlib | Meihua Wu | Meihua Wu |
@@ -117,6 +119,7 @@
 | [SPARK-5220](https://issues.apache.org/jira/browse/SPARK-5220) | keepPushingBlocks in BlockGenerator terminated when an exception occurs, which causes the block pushing thread to terminate and blocks receiver |  Major | Streaming | Max Xu | Hari Shreedharan |
 | [SPARK-5074](https://issues.apache.org/jira/browse/SPARK-5074) | Flaky test: o.a.s.scheduler.DAGSchedulerSuite |  Critical | Spark Core | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-4315](https://issues.apache.org/jira/browse/SPARK-4315) | PySpark pickling of pyspark.sql.Row objects is extremely inefficient |  Major | PySpark | Adam Davison | Davies Liu |
+| [SPARK-3190](https://issues.apache.org/jira/browse/SPARK-3190) | Creation of large graph(\> 2.15 B nodes) seems to be broken:possible overflow somewhere |  Critical | GraphX | npanj | Ankur Dave |
 | [SPARK-2018](https://issues.apache.org/jira/browse/SPARK-2018) | Big-Endian (IBM Power7)  Spark Serialization issue |  Major | Deploy | Yanjie Gao | Tim Ellison |
 
 

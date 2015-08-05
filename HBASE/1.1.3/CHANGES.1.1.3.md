@@ -16,9 +16,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-# Apache Pig Changelog
+# Apache HBase Changelog
 
-## Release 0.15.1 - Unreleased
+## Release 1.1.3 - Unreleased
 
 ### INCOMPATIBLE CHANGES:
 
@@ -42,7 +42,6 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [PIG-4624](https://issues.apache.org/jira/browse/PIG-4624) | Error on ORC empty file without schema |  Major | . | Thejas M Nair | Daniel Dai |
 
 
 ### TESTS:

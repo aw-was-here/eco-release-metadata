@@ -137,6 +137,14 @@ so `mapreduce` is typed as `mapredcue` which is not that big of a deal, because 
 
 ---
 
+* [BIGTOP-1900](https://issues.apache.org/jira/browse/BIGTOP-1900) | *Major* | **Upgrade bigtop/slaves images on bigtop's dockerhub**
+
+Same reason with BIGTOP-1898, we'll need to build new set of [bigtop/slaves|https://registry.hub.docker.com/u/bigtop/slaves/tags/manage/] images for those supported OSs. A simple way to do this is to setup a [CI job|http://bigtop01.cloudera.org:8080/view/Docker/job/Docker-Toolchain-Evans/] which spin up containers and runs bigtop\_toolchain in side containers to have packages installed. Then we can manually commit and push images up to dockerhub.
+This is also blocking 1.0 release since the build process requires build/slaves images.
+
+
+---
+
 * [BIGTOP-1896](https://issues.apache.org/jira/browse/BIGTOP-1896) | *Major* | **bigtop\_toolchain broken bei ant update**
 
 apache-ant-1.9.4-bin.zip has been removed from servers.

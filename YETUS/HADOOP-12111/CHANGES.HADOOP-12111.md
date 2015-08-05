@@ -64,6 +64,7 @@
 | [HADOOP-12256](https://issues.apache.org/jira/browse/HADOOP-12256) | add support for ruby-lint |  Major | yetus | Allen Wittenauer | Kengo Seki |
 | [HADOOP-12255](https://issues.apache.org/jira/browse/HADOOP-12255) | Add support for rubocop |  Major | yetus | Allen Wittenauer | Kengo Seki |
 | [HADOOP-12254](https://issues.apache.org/jira/browse/HADOOP-12254) | test-patch.sh should run findbugs if only findbugs-exclude.xml has changed |  Major | yetus | Varun Saxena | Kengo Seki |
+| [HADOOP-12247](https://issues.apache.org/jira/browse/HADOOP-12247) | Convert 'unit' to 'junit' |  Blocker | yetus | Allen Wittenauer | Allen Wittenauer |
 | [HADOOP-12243](https://issues.apache.org/jira/browse/HADOOP-12243) | Rewrite grep -o's to be POSIX compliant |  Major | yetus | Kengo Seki | Kengo Seki |
 | [HADOOP-12228](https://issues.apache.org/jira/browse/HADOOP-12228) | Document releasedocmaker |  Major | yetus | Allen Wittenauer | Allen Wittenauer |
 | [HADOOP-12226](https://issues.apache.org/jira/browse/HADOOP-12226) | CHANGED\_MODULES is wrong for ant |  Major | yetus | Allen Wittenauer | Allen Wittenauer |

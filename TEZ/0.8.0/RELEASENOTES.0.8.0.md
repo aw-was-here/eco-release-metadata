@@ -23,6 +23,180 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [TEZ-2684](https://issues.apache.org/jira/browse/TEZ-2684) | *Major* | **ShuffleVertexManager.parsePartitionStats throws IllegalStateException: Stats should be initialized**
+
+When I run hive qfile test (attached) using TestMiniTezCliDriver. My WIP patch is also attached for problem reproduction purpose, as well as hive.log.
+
+Here's the explain and backtrace I got from qfile output:
+{code}
+EXPLAIN select count(*) from srcpart join srcpart\_date on (srcpart.ds = srcpart\_date.ds) where srcpart\_date.`date` = '2008-04-08'
+POSTHOOK: type: QUERY
+STAGE DEPENDENCIES:
+  Stage-1 is a root stage
+  Stage-0 depends on stages: Stage-1
+
+STAGE PLANS:
+  Stage: Stage-1
+    Tez
+      Edges:
+        Reducer 2 <- Map 1 (SIMPLE\_EDGE), Map 4 (SIMPLE\_EDGE)
+        Reducer 3 <- Reducer 2 (SIMPLE\_EDGE)
+      DagName: wzheng\_20150803161620\_55c139de-c26c-467f-b592-7d4333053ac6:38
+      Vertices:
+        Map 1
+            Map Operator Tree:
+                TableScan
+                  alias: srcpart
+                  filterExpr: ds is not null (type: boolean)
+                  Statistics: Num rows: 2000 Data size: 21248 Basic stats: COMPLETE Column stats: NONE
+                  Reduce Output Operator
+                    key expressions: ds (type: string)
+                    sort order: +
+                    Map-reduce partition columns: ds (type: string)
+                    Statistics: Num rows: 2000 Data size: 21248 Basic stats: COMPLETE Column stats: NONE
+        Map 4
+            Map Operator Tree:
+                TableScan
+                  alias: srcpart\_date
+                  filterExpr: (ds is not null and (date = '2008-04-08')) (type: boolean)
+                  Statistics: Num rows: 2 Data size: 42 Basic stats: COMPLETE Column stats: NONE
+                  Filter Operator
+                    predicate: (ds is not null and (date = '2008-04-08')) (type: boolean)
+                    Statistics: Num rows: 1 Data size: 21 Basic stats: COMPLETE Column stats: NONE
+                    Reduce Output Operator
+                      key expressions: ds (type: string)
+                      sort order: +
+                      Map-reduce partition columns: ds (type: string)
+                      Statistics: Num rows: 1 Data size: 21 Basic stats: COMPLETE Column stats: NONE
+                    Select Operator
+                      expressions: ds (type: string)
+                      outputColumnNames: \_col0
+                      Statistics: Num rows: 1 Data size: 21 Basic stats: COMPLETE Column stats: NONE
+                      Group By Operator
+                        keys: \_col0 (type: string)
+                        mode: hash
+                        outputColumnNames: \_col0
+                        Statistics: Num rows: 1 Data size: 21 Basic stats: COMPLETE Column stats: NONE
+                        Dynamic Partitioning Event Operator
+                          Target Input: srcpart
+                          Partition key expr: ds
+                          Statistics: Num rows: 1 Data size: 21 Basic stats: COMPLETE Column stats: NONE
+                          Target column: ds
+                          Target Vertex: Map 1
+        Reducer 2
+            Reduce Operator Tree:
+              Merge Join Operator
+                condition map:
+                     Inner Join 0 to 1
+                keys:
+                  0 ds (type: string)
+                  1 ds (type: string)
+                Statistics: Num rows: 2200 Data size: 23372 Basic stats: COMPLETE Column stats: NONE
+                Group By Operator
+                  aggregations: count()
+                  mode: hash
+                  outputColumnNames: \_col0
+                  Statistics: Num rows: 1 Data size: 8 Basic stats: COMPLETE Column stats: NONE
+                  Reduce Output Operator
+                    sort order:
+                    Statistics: Num rows: 1 Data size: 8 Basic stats: COMPLETE Column stats: NONE
+                    value expressions: \_col0 (type: bigint)
+        Reducer 3
+            Reduce Operator Tree:
+              Group By Operator
+                aggregations: count(VALUE.\_col0)
+                mode: mergepartial
+                outputColumnNames: \_col0
+                Statistics: Num rows: 1 Data size: 8 Basic stats: COMPLETE Column stats: NONE
+                File Output Operator
+                  compressed: false
+                  Statistics: Num rows: 1 Data size: 8 Basic stats: COMPLETE Column stats: NONE
+                  table:
+                      input format: org.apache.hadoop.mapred.TextInputFormat
+                      output format: org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat
+                      serde: org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe
+
+  Stage: Stage-0
+    Fetch Operator
+      limit: -1
+      Processor Tree:
+        ListSink
+
+PREHOOK: query: select count(*) from srcpart join srcpart\_date on (srcpart.ds = srcpart\_date.ds) where srcpart\_date.`date` = '2008-04-08'
+PREHOOK: type: QUERY
+PREHOOK: Input: default@srcpart
+PREHOOK: Input: default@srcpart@ds=2008-04-08/hr=11
+PREHOOK: Input: default@srcpart@ds=2008-04-08/hr=12
+PREHOOK: Input: default@srcpart@ds=2008-04-09/hr=11
+PREHOOK: Input: default@srcpart@ds=2008-04-09/hr=12
+PREHOOK: Input: default@srcpart\_date
+PREHOOK: Output: file:/Users/wzheng/bf/hive/itests/qtest/target/tmp/localscratchdir/93b335b5-3ced-4f4d-abdd-2fd5defd11e4/hive\_2015-08-03\_16-16-21\_046\_5066458626645110592-1/-mr-10001
+Status: Failed
+Vertex failed, vertexName=Reducer 2, vertexId=vertex\_1438643776809\_0001\_8\_02, diagnostics=[Vertex vertex\_1438643776809\_0001\_8\_02 [Reducer 2] killed/failed due to:AM\_USERCODE\_FAILURE, Exception in VertexManager, vertex:vertex\_1438643776809\_0001\_8\_02 [Reducer 2], java.lang.IllegalStateException: Stats should be initialized
+	at com.google.common.base.Preconditions.checkState(Preconditions.java:149)
+	at org.apache.tez.dag.library.vertexmanager.ShuffleVertexManager.parsePartitionStats(ShuffleVertexManager.java:535)
+	at org.apache.tez.dag.library.vertexmanager.ShuffleVertexManager.onVertexManagerEventReceived(ShuffleVertexManager.java:575)
+	at org.apache.tez.dag.app.dag.impl.VertexManager$VertexManagerEventReceived.invoke(VertexManager.java:602)
+	at org.apache.tez.dag.app.dag.impl.VertexManager$VertexManagerEvent$1.run(VertexManager.java:643)
+	at org.apache.tez.dag.app.dag.impl.VertexManager$VertexManagerEvent$1.run(VertexManager.java:638)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:415)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1628)
+	at org.apache.tez.dag.app.dag.impl.VertexManager$VertexManagerEvent.call(VertexManager.java:638)
+	at org.apache.tez.dag.app.dag.impl.VertexManager$VertexManagerEvent.call(VertexManager.java:627)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+]
+Vertex killed, vertexName=Reducer 3, vertexId=vertex\_1438643776809\_0001\_8\_03, diagnostics=[Vertex received Kill in INITED state., Vertex vertex\_1438643776809\_0001\_8\_03 [Reducer 3] killed/failed due to:null]
+Vertex killed, vertexName=Map 1, vertexId=vertex\_1438643776809\_0001\_8\_01, diagnostics=[Vertex received Kill in INITED state., Vertex vertex\_1438643776809\_0001\_8\_01 [Map 1] killed/failed due to:null]
+DAG did not succeed due to VERTEX\_FAILURE. failedVertices:1 killedVertices:2
+FAILED: Execution Error, return code 2 from org.apache.hadoop.hive.ql.exec.tez.TezTask. Vertex failed, vertexName=Reducer 2, vertexId=vertex\_1438643776809\_0001\_8\_02, diagnostics=[Vertex vertex\_1438643776809\_0001\_8\_02 [Reducer 2] killed/failed due to:AM\_USERCODE\_FAILURE, Exception in VertexManager, vertex:vertex\_1438643776809\_0001\_8\_02 [Reducer 2], java.lang.IllegalStateException: Stats should be initialized
+	at com.google.common.base.Preconditions.checkState(Preconditions.java:149)
+	at org.apache.tez.dag.library.vertexmanager.ShuffleVertexManager.parsePartitionStats(ShuffleVertexManager.java:535)
+	at org.apache.tez.dag.library.vertexmanager.ShuffleVertexManager.onVertexManagerEventReceived(ShuffleVertexManager.java:575)
+	at org.apache.tez.dag.app.dag.impl.VertexManager$VertexManagerEventReceived.invoke(VertexManager.java:602)
+	at org.apache.tez.dag.app.dag.impl.VertexManager$VertexManagerEvent$1.run(VertexManager.java:643)
+	at org.apache.tez.dag.app.dag.impl.VertexManager$VertexManagerEvent$1.run(VertexManager.java:638)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:415)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1628)
+	at org.apache.tez.dag.app.dag.impl.VertexManager$VertexManagerEvent.call(VertexManager.java:638)
+	at org.apache.tez.dag.app.dag.impl.VertexManager$VertexManagerEvent.call(VertexManager.java:627)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+]Vertex killed, vertexName=Reducer 3, vertexId=vertex\_1438643776809\_0001\_8\_03, diagnostics=[Vertex received Kill in INITED state., Vertex vertex\_1438643776809\_0001\_8\_03 [Reducer 3] killed/failed due to:null]Vertex killed, vertexName=Map 1, vertexId=vertex\_1438643776809\_0001\_8\_01, diagnostics=[Vertex received Kill in INITED state., Vertex vertex\_1438643776809\_0001\_8\_01 [Map 1] killed/failed due to:null]DAG did not succeed due to VERTEX\_FAILURE. failedVertices:1 killedVertices:2
+{code}
+
+
+---
+
+* [TEZ-2647](https://issues.apache.org/jira/browse/TEZ-2647) | *Major* | **Add input causality dependency for attempts**
+
+Attempts can have input dependencies on the producer task attempts that produced the data being consumed by the attempt.
+DataMovement events capture this dependency. In the interest of space, we need to be able to capture the dependency that matters - the one that provided the last data for the input to complete.
+For starters, we could 
+1) have the system track the last data movement event that was sent to an attempt
+2) then have the inputs be able to report the last relevant data movement event
+
+
+---
+
+* [TEZ-2646](https://issues.apache.org/jira/browse/TEZ-2646) | *Major* | **Add scheduling casual dependency for attempts**
+
+When a task gets scheduled then we dont know what caused it. Some possibilities are
+1) initial scheduling by the vertex manager - causality determined by VM. E.g. dynamic partition pruning VM in Hive can point causality to the attempt that sent it the stats needed to complete the partition pruning logic.
+2) re-scheduling due to own previous version failure - causality points to the previous version that just failed
+3) re-scheduling because read error reported by consumer - causality points to the consumer attempt that reported the error and caused the scheduling.
+
+This causality relationship can be used to stitch together scheduling dependencies in the execution timeline of the DAG.
+
+
+---
+
 * [TEZ-2645](https://issues.apache.org/jira/browse/TEZ-2645) | *Major* | **Provide standard analyzers for job analysis**
 
 TEZ-2076 provided a way in which job history data can be parsed/normalized and represented in-memory. Based on this, standard set of analyzers (e.g ContainerReuseAnalyzer, LocalityAnalyzer, SlowNodeAnalyzer etc) can provided in tez-tools for job analysis. Results can be stored in CSVResult which could be rendered differently based on UI requirements.
@@ -1256,6 +1430,19 @@ With pipelining:
 ============
 ADDITIONAL\_SPILL\_COUNT = 0 <-- Additional spills involved in sorting
 TOTAL\_SPILLS = 5 <--- all spills are final output
+
+
+---
+
+* [TEZ-2172](https://issues.apache.org/jira/browse/TEZ-2172) | *Major* | **FetcherOrderedGrouped using List to store InputAttemptIdentifier can lead to some inefficiency during remove() operation**
+
+As part of fixing TEZ-2001, FetcherOrderedGrouped stores InputAttemptIdentifier in List.  This can lead to some inefficiency - since the size of this list can be ~30, and remove() calls can be expensive. 
+
+Option 1:  by using the spillId in the hashCode - or a wrapping structure for just this. However, SpillId can not be added to the hashCode as it would break ShuffleScheduler shuffleInfoEventsMap. 
+
+Option 2: consider using Map with an identifier. 
+
+Need to consider other options as well. Creating this jira as a placeholder to fix this issue.
 
 
 ---

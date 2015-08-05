@@ -321,6 +321,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [BIGTOP-1900](https://issues.apache.org/jira/browse/BIGTOP-1900) | Upgrade bigtop/slaves images on bigtop's dockerhub |  Major | build | Evans Ye | Evans Ye |
 | [BIGTOP-1842](https://issues.apache.org/jira/browse/BIGTOP-1842) | Remove gridgain-hadoop from BOM |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-1768](https://issues.apache.org/jira/browse/BIGTOP-1768) | Use openjdk in ubuntu14, Remove references to jdk6 |  Major | build | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-1765](https://issues.apache.org/jira/browse/BIGTOP-1765) | Bump the stack version to 1.0 |  Major | general | Konstantin Boudnik | Konstantin Boudnik |

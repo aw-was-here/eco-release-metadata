@@ -23,6 +23,13 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [BIGTOP-1954](https://issues.apache.org/jira/browse/BIGTOP-1954) | *Major* | **Change the component name in the MAINTAINERS.txt**
+
+MAINTAINERS.txt has {{gridgain-hadoop}} component. Should be {{ignite-hadoop}}
+
+
+---
+
 * [BIGTOP-1950](https://issues.apache.org/jira/browse/BIGTOP-1950) | *Blocker* | **Upgrade maven-assembly plugin: StackOverFlowException is thrown**
 
 During the {{fatjar}} creation an NPE is thrown by maven-assembly plugin. A bit of investigation shows that it is caused by StackOverflowException.
@@ -40,6 +47,13 @@ test-artifacts can not be deployed nor verified. the following message is gettin
 [ERROR] Failed to execute goal on project sqoop-smoke: Could not resolve dependencies for project org.apache.bigtop.itest:sqoop-smoke:jar:1.0.0: The following artifacts could not be resolved: org.apache.sqoop:sqoop-core:jar:1.4.5, org.apache.sqoop:sqoop-client:jar:1.4.5: Could not find artifact org.apache.sqoop:sqoop-core:jar:1.4.5 in central (http://repo.maven.apache.org/maven2) -> [Help 1]
 {verbatim}
 Indeed https://repo1.maven.org/maven2/org/apache/sqoop/ does have nothing of the sort. Does Sqoop community still publish 1.4.* artifacts at all?
+
+
+---
+
+* [BIGTOP-1947](https://issues.apache.org/jira/browse/BIGTOP-1947) | *Major* | **Fix RAT plugin configuration to be able to RAT-validate all published artifacts**
+
+Right now an attempt to run {{mvn deploy -Prelease -f bigtop-test-framework/pom.xml}} will fail the RAT-check because some of the static test data files don't have ASL header. This needs to be properly excluded from the validation.
 
 
 ---
@@ -109,6 +123,19 @@ Yahoo! Cloud Serving Benchmark (YCSB) [1][2] is a widely used benchmark tool for
 
 [1] https://github.com/brianfrankcooper/YCSB/wiki
 [2] http://labs.yahoo.com/news/yahoo-cloud-serving-benchmark/
+
+
+---
+
+* [BIGTOP-1917](https://issues.apache.org/jira/browse/BIGTOP-1917) | *Major* | **Simplify gradle creating apt/yum repositories for better CI**
+
+I propose to simplify the {{packages.gradle}} in order to better support the new docker based CI .
+
+So all the target-yum / target-apt tagets have been removed and a simple repository creation is done by gradle yum/apt which can be run after all packages have been done. Complexity of gradle is removed as a side effect.
+
+In the CI the only thing to be done is to schedule a "gradle yum/apt" .
+
+Maybe we have to discuss to remove the dependencies at all in order to generate *anything* if something failed before.
 
 
 ---

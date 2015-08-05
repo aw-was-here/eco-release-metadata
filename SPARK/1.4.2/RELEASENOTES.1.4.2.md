@@ -23,6 +23,30 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-9608](https://issues.apache.org/jira/browse/SPARK-9608) | *Minor* | **Incorrect zinc -status check in build/mvn**
+
+{{build/mvn}} [uses a {{-z `zinc -status`}} test|https://github.com/apache/spark/blob/5a23213c148bfe362514f9c71f5273ebda0a848a/build/mvn#L138] to determine whether a {{zinc}} process is running.
+
+However, {{zinc -status}} checks port {{3030}} by default.
+
+This means that if a {{$ZINC\_PORT}} env var is set to some value besides {{3030}}, and an existing {{zinc}} process is running on port {{3030}}, {{build/mvn}} will skip starting a {{zinc}} process, thinking that a suitable one is running.
+
+Subsequent compilations will look for a {{zinc}} at port {{$ZINC\_PORT}} and not find one.
+
+The {{zinc -status}} call should get the flag {{-port "$ZINC\_PORT"}} added to it.
+
+
+---
+
+* [SPARK-9607](https://issues.apache.org/jira/browse/SPARK-9607) | *Minor* | **Incorrect zinc check in build/mvn**
+
+[This check|https://github.com/apache/spark/blob/5a23213c148bfe362514f9c71f5273ebda0a848a/build/mvn#L84-L85] in {{build/mvn}} attempts to determine whether {{zinc}} has been installed, but it fails to add the prefix {{build/}} to the path, so it always thinks that {{zinc}} is not installed, sets {{ZINC\_INSTALL\_FLAG}} to {{1}}, and attempts to install {{zinc}}.
+
+This error manifests later because [the {{zinc -shutdown}} and {{zinc -start}} commands|https://github.com/apache/spark/blob/5a23213c148bfe362514f9c71f5273ebda0a848a/build/mvn#L140-L143] are always run, even if zinc was not installed and is running.
+
+
+---
+
 * [SPARK-9507](https://issues.apache.org/jira/browse/SPARK-9507) | *Minor* | **Remove dependency reduced POM hack now that shade plugin is updated**
 
 See https://issues.apache.org/jira/browse/SPARK-8819 for the original problem. The shade plugin is fixed, and so I believe this workaround can be removed.
@@ -518,6 +542,29 @@ https://amplab.cs.berkeley.edu/jenkins/job/Spark-Master-SBT/AMPLAB\_JENKINS\_BUI
 {code}
 df.select("name", rank("time"))
 {code}
+
+
+---
+
+* [SPARK-3190](https://issues.apache.org/jira/browse/SPARK-3190) | *Critical* | **Creation of large graph(\> 2.15 B nodes) seems to be broken:possible overflow somewhere**
+
+While creating a graph with 6B nodes and 12B edges, I noticed that 'numVertices' api returns incorrect result; 'numEdges' reports correct number. For few times(with different dataset > 2.5B nodes) I have also notices that numVertices is returned as -ive number; so I suspect that there is some overflow (may be we are using Int for some field?).
+
+Here is some details of experiments  I have done so far: 
+1. Input: numNodes=6101995593 ; noEdges=12163784626
+   Graph returns: numVertices=1807028297 ;  numEdges=12163784626
+
+2. Input : numNodes=2157586441 ; noEdges=2747322705
+   Graph Returns: numVertices=-2137380855 ;  numEdges=2747322705
+
+3. Input: numNodes=1725060105 ; noEdges=204176821
+   Graph: numVertices=1725060105 ;  numEdges=2041768213
+
+You can find the code to generate this bug here: 
+
+https://gist.github.com/npanj/92e949d86d08715bf4bf
+
+Note: Nodes are labeled are 1...6B .
 
 
 ---

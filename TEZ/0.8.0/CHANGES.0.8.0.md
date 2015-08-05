@@ -53,7 +53,9 @@
 | [TEZ-2446](https://issues.apache.org/jira/browse/TEZ-2446) | Tez UI: Add tezVersion details when downloading timeline data for offline use |  Major | . | Rajesh Balamohan | Prakash Ramachandran |
 | [TEZ-2419](https://issues.apache.org/jira/browse/TEZ-2419) | Inputs/Outputs should inform the Processor about Interrupts when interrupted during a blocking Op |  Major | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-2296](https://issues.apache.org/jira/browse/TEZ-2296) | Add option to print counters for tez-examples |  Minor | . | Jeff Zhang | Saikat |
+| [TEZ-2211](https://issues.apache.org/jira/browse/TEZ-2211) | Tez UI: Allow users to configure timezone |  Major | UI | Jonathan Eagles | Jonathan Eagles |
 | [TEZ-2198](https://issues.apache.org/jira/browse/TEZ-2198) | Fix sorter spill counts |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
+| [TEZ-2172](https://issues.apache.org/jira/browse/TEZ-2172) | FetcherOrderedGrouped using List to store InputAttemptIdentifier can lead to some inefficiency during remove() operation |  Major | . | Rajesh Balamohan | Saikat |
 | [TEZ-2076](https://issues.apache.org/jira/browse/TEZ-2076) | Tez framework to extract/analyze data stored in ATS for specific dag |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-1961](https://issues.apache.org/jira/browse/TEZ-1961) | Remove misleading exception "No running dag" from AM logs |  Critical | . | Siddharth Seth | Jeff Zhang |
 | [TEZ-1752](https://issues.apache.org/jira/browse/TEZ-1752) | Inputs / Outputs in the Runtime library should be interruptable |  Major | . | Siddharth Seth | Rajesh Balamohan |
@@ -64,6 +66,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-2684](https://issues.apache.org/jira/browse/TEZ-2684) | ShuffleVertexManager.parsePartitionStats throws IllegalStateException: Stats should be initialized |  Major | . | Wei Zheng | Rajesh Balamohan |
 | [TEZ-2636](https://issues.apache.org/jira/browse/TEZ-2636) | MRInput and MultiMRInput should work for cases when there are 0 physical inputs |  Major | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-2635](https://issues.apache.org/jira/browse/TEZ-2635) | Limit number of attempts being downloaded in unordered fetch |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-2632](https://issues.apache.org/jira/browse/TEZ-2632) | A -Paws and -Pazure build profiles for hadoop-{aws,azure} inclusion |  Major | . | Gopal V | Gopal V |
@@ -132,6 +135,8 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-2647](https://issues.apache.org/jira/browse/TEZ-2647) | Add input causality dependency for attempts |  Major | . | Bikas Saha | Bikas Saha |
+| [TEZ-2646](https://issues.apache.org/jira/browse/TEZ-2646) | Add scheduling casual dependency for attempts |  Major | . | Bikas Saha | Bikas Saha |
 | [TEZ-2549](https://issues.apache.org/jira/browse/TEZ-2549) | Reduce Counter Load on the Timeline Server |  Major | . | Jonathan Eagles | Jason Lowe |
 | [TEZ-2511](https://issues.apache.org/jira/browse/TEZ-2511) | Add exitCode to diagnostics when container fails |  Major | . | Jeff Zhang | Jeff Zhang |
 
