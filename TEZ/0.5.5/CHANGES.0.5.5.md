@@ -18,7 +18,7 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.5.5 - Unreleased
+## Release 0.5.5 - Unreleased (as of 2015-08-10)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -44,6 +44,8 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [TEZ-2636](https://issues.apache.org/jira/browse/TEZ-2636) | MRInput and MultiMRInput should work for cases when there are 0 physical inputs |  Major | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-2635](https://issues.apache.org/jira/browse/TEZ-2635) | Limit number of attempts being downloaded in unordered fetch |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
+| [TEZ-2630](https://issues.apache.org/jira/browse/TEZ-2630) | TezChild receives IP address instead of FQDN |  Critical | . | Rajat Jain | Hitesh Shah |
+| [TEZ-2552](https://issues.apache.org/jira/browse/TEZ-2552) | CRC errors can cause job to run for very long time in large jobs |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 
 
 ### TESTS:

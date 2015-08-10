@@ -23,6 +23,191 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [KAFKA-2415](https://issues.apache.org/jira/browse/KAFKA-2415) | *Major* | **Transient failure in LogRecoveryTest.testHWCheckpointWithFailuresMultipleLogSegments**
+
+See transient failure in the test with the following error message.
+kafka.server.LogRecoveryTest > testHWCheckpointWithFailuresMultipleLogSegments FAILED
+    java.util.NoSuchElementException: None.get
+        at scala.None$.get(Option.scala:313)
+        at scala.None$.get(Option.scala:311)
+        at kafka.server.LogRecoveryTest$$anonfun$testHWCheckpointWithFailuresMultipleLogSegments$8.apply$mcZ$sp(LogRecoveryTest.scala:215)
+        at kafka.utils.TestUtils$.waitUntilTrue(TestUtils.scala:616)
+        at kafka.server.LogRecoveryTest.testHWCheckpointWithFailuresMultipleLogSegments(LogRecoveryTest.scala:214)
+
+It looks the fix is to wait for the new broker to create the replica before check its HW.
+
+
+---
+
+* [KAFKA-2413](https://issues.apache.org/jira/browse/KAFKA-2413) | *Major* | **New consumer's subscribe(Topic...) api fails if called more than once**
+
+I believe new consumer is supposed to allow adding to existing topic subscriptions. If it is then the issue is that on trying to subscribe to a topic when consumer is already subscribed to a topic, below exception is thrown.
+
+{code}
+[2015-08-06 16:06:48,591] ERROR [KafkaApi-2] error when handling request null (kafka.server.KafkaApis:103)
+java.util.NoSuchElementException: key not found: topic
+	at scala.collection.MapLike$class.default(MapLike.scala:228)
+	at scala.collection.AbstractMap.default(Map.scala:58)
+	at scala.collection.MapLike$class.apply(MapLike.scala:141)
+	at scala.collection.AbstractMap.apply(Map.scala:58)
+	at kafka.coordinator.RangeAssignor$$anonfun$4.apply(PartitionAssignor.scala:109)
+	at kafka.coordinator.RangeAssignor$$anonfun$4.apply(PartitionAssignor.scala:108)
+	at scala.collection.TraversableLike$$anonfun$flatMap$1.apply(TraversableLike.scala:251)
+	at scala.collection.TraversableLike$$anonfun$flatMap$1.apply(TraversableLike.scala:251)
+	at scala.collection.mutable.ResizableArray$class.foreach(ResizableArray.scala:59)
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:47)
+	at scala.collection.TraversableLike$class.flatMap(TraversableLike.scala:251)
+	at scala.collection.AbstractTraversable.flatMap(Traversable.scala:105)
+	at kafka.coordinator.RangeAssignor.assign(PartitionAssignor.scala:108)
+	at kafka.coordinator.ConsumerCoordinator.reassignPartitions(ConsumerCoordinator.scala:378)
+	at kafka.coordinator.ConsumerCoordinator.rebalance(ConsumerCoordinator.scala:360)
+	at kafka.coordinator.ConsumerCoordinator.onCompleteRebalance(ConsumerCoordinator.scala:414)
+	at kafka.coordinator.DelayedRebalance.onComplete(DelayedRebalance.scala:39)
+	at kafka.server.DelayedOperation.forceComplete(DelayedOperation.scala:72)
+	at kafka.coordinator.DelayedRebalance$$anonfun$tryComplete$1.apply$mcZ$sp(DelayedRebalance.scala:37)
+	at kafka.coordinator.ConsumerCoordinator.tryCompleteRebalance(ConsumerCoordinator.scala:388)
+	at kafka.coordinator.DelayedRebalance.tryComplete(DelayedRebalance.scala:37)
+	at kafka.server.DelayedOperationPurgatory$Watchers.tryCompleteWatched(DelayedOperation.scala:307)
+	at kafka.server.DelayedOperationPurgatory.checkAndComplete(DelayedOperation.scala:227)
+	at kafka.coordinator.ConsumerCoordinator.doJoinGroup(ConsumerCoordinator.scala:186)
+	at kafka.coordinator.ConsumerCoordinator.handleJoinGroup(ConsumerCoordinator.scala:131)
+	at kafka.server.KafkaApis.handleJoinGroupRequest(KafkaApis.scala:578)
+	at kafka.server.KafkaApis.handle(KafkaApis.scala:67)
+	at kafka.server.KafkaRequestHandler.run(KafkaRequestHandler.scala:60)
+	at java.lang.Thread.run(Thread.java:745)
+
+Unexpected error in join group response: The server experienced an unexpected error when processing the request
+org.apache.kafka.common.KafkaException: Unexpected error in join group response: The server experienced an unexpected error when processing the request
+	at org.apache.kafka.clients.consumer.internals.Coordinator$JoinGroupResponseHandler.handle(Coordinator.java:362)
+	at org.apache.kafka.clients.consumer.internals.Coordinator$JoinGroupResponseHandler.handle(Coordinator.java:311)
+	at org.apache.kafka.clients.consumer.internals.Coordinator$CoordinatorResponseHandler.onSuccess(Coordinator.java:703)
+	at org.apache.kafka.clients.consumer.internals.Coordinator$CoordinatorResponseHandler.onSuccess(Coordinator.java:677)
+	at org.apache.kafka.clients.consumer.internals.RequestFuture$1.onSuccess(RequestFuture.java:163)
+	at org.apache.kafka.clients.consumer.internals.RequestFuture.fireSuccess(RequestFuture.java:129)
+	at org.apache.kafka.clients.consumer.internals.RequestFuture.complete(RequestFuture.java:105)
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient$RequestFutureCompletionHandler.onComplete(ConsumerNetworkClient.java:293)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:237)
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.clientPoll(ConsumerNetworkClient.java:274)
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:182)
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:172)
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:145)
+	at org.apache.kafka.clients.consumer.internals.Coordinator.reassignPartitions(Coordinator.java:197)
+	at org.apache.kafka.clients.consumer.internals.Coordinator.ensurePartitionAssignment(Coordinator.java:172)
+	at org.apache.kafka.clients.consumer.KafkaConsumer.pollOnce(KafkaConsumer.java:764)
+	at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:725)
+	at kafka.api.ConsumerTest$$anonfun$testRepetitiveTopicSubscription$2.apply$mcZ$sp(ConsumerTest.scala:80)
+	at kafka.utils.TestUtils$.waitUntilTrue(TestUtils.scala:616)
+	at kafka.api.ConsumerTest.testRepetitiveTopicSubscription(ConsumerTest.scala:79)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at junit.framework.TestCase.runTest(TestCase.java:168)
+	at junit.framework.TestCase.runBare(TestCase.java:134)
+	at junit.framework.TestResult$1.protect(TestResult.java:110)
+	at junit.framework.TestResult.runProtected(TestResult.java:128)
+	at junit.framework.TestResult.run(TestResult.java:113)
+	at junit.framework.TestCase.run(TestCase.java:124)
+	at junit.framework.TestSuite.runTest(TestSuite.java:232)
+	at junit.framework.TestSuite.run(TestSuite.java:227)
+	at org.scalatest.junit.JUnit3Suite.run(JUnit3Suite.scala:309)
+	at org.scalatest.tools.SuiteRunner.run(SuiteRunner.scala:55)
+	at org.scalatest.tools.Runner$$anonfun$doRunRunRunDaDoRunRun$3.apply(Runner.scala:2563)
+	at org.scalatest.tools.Runner$$anonfun$doRunRunRunDaDoRunRun$3.apply(Runner.scala:2557)
+	at scala.collection.immutable.List.foreach(List.scala:318)
+	at org.scalatest.tools.Runner$.doRunRunRunDaDoRunRun(Runner.scala:2557)
+	at org.scalatest.tools.Runner$$anonfun$runOptionallyWithPassFailReporter$2.apply(Runner.scala:1044)
+	at org.scalatest.tools.Runner$$anonfun$runOptionallyWithPassFailReporter$2.apply(Runner.scala:1043)
+	at org.scalatest.tools.Runner$.withClassLoaderAndDispatchReporter(Runner.scala:2722)
+	at org.scalatest.tools.Runner$.runOptionallyWithPassFailReporter(Runner.scala:1043)
+	at org.scalatest.tools.Runner$.run(Runner.scala:883)
+	at org.scalatest.tools.Runner.run(Runner.scala)
+	at org.jetbrains.plugins.scala.testingSupport.scalaTest.ScalaTestRunner.runScalaTest2(ScalaTestRunner.java:138)
+	at org.jetbrains.plugins.scala.testingSupport.scalaTest.ScalaTestRunner.main(ScalaTestRunner.java:28)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:140)
+{code}
+
+
+---
+
+* [KAFKA-2407](https://issues.apache.org/jira/browse/KAFKA-2407) | *Major* | **Only create a log directory when it will be used**
+
+Currently kafka-run-class.sh will default the $LOG\_DIR and create the directory regardless of it's use. This can cause permissions issues depending on what users are utilizing tools such as kafka-topics.sh.
+
+Further down in the script there is logic to detect whether $KAFKA\_LOG4J\_OPTS is set. If it is not set this is assumed to be a tool call and the script sets tools-log4j.properties which only uses the console appender. In this scenario a logging directory is not needed. In all other cases $KAFKA\_LOG4J\_OPTS will be set and we can move the $LOG\_DIR defaulting & creation logic there. For example kafka-server-start.sh sets $KAFKA\_LOG4J\_OPTS to use its own log4j.properties file which respects the $LOG\_DIR/kafka.log4j.dir setting.
+
+
+---
+
+* [KAFKA-2405](https://issues.apache.org/jira/browse/KAFKA-2405) | *Major* | **KafkaHealthCheck kills the JVM in handleSessionEstablishmentError**
+
+The current code in KafkaHealthCheck in trunk does this:
+
+{code}
+override def handleSessionEstablishmentError(error: Throwable): Unit = {
+      fatal("Could not establish session with zookeeper", error)
+      System.exit(-1)
+    }
+{code}
+
+thus terminating the JVM. A session establishment error shouldn't cause the JVM to terminate.
+
+
+---
+
+* [KAFKA-2401](https://issues.apache.org/jira/browse/KAFKA-2401) | *Major* | **Fix transient failure of ProducerSendTest.testCloseWithZeroTimeoutFromSenderThread()**
+
+The transient failure can happen because of a race condition of the callback firing order for messages produced to broker 0 and broker 1.
+
+
+---
+
+* [KAFKA-2400](https://issues.apache.org/jira/browse/KAFKA-2400) | *Minor* | **Expose heartbeat frequency in new consumer configuration**
+
+The consumer coordinator communicates the need to rebalance through responses to heartbeat requests sent from each member of the consumer group. The heartbeat frequency therefore controls how long normal rebalances will take. Currently, the frequency is hard-coded to 3 heartbeats per the configured session timeout, but it would be nice to expose this setting so that the user can control the impact from rebalancing.
+
+Since the consumer is currently single-threaded and heartbeats are sent in poll(), we cannot guarantee that the heartbeats will actually be sent at the configured frequency. In practice, the user may have to adjust their fetch size to ensure that poll() is called often enough to get the desired heartbeat frequency. For most users, the consumption rate is probably fast enough for this not to matter, but we should make the documentation clear on this point. In any case, we expect that most users will accept the default value.
+
+
+---
+
+* [KAFKA-2393](https://issues.apache.org/jira/browse/KAFKA-2393) | *Major* | **Correctly Handle InvalidTopicException in KafkaApis.getTopicMetadata()**
+
+It seems that in KafkaApis.getTopicMetadata(), we need to handle InvalidTopicException explicitly when calling AdminUtils.createTopic (by returning the corresponding error code for that topic). Otherwise, we may not be able to get the metadata for other valid topics. This seems to be an existing problem, but KAFKA-2337 makes InvalidTopicException more likely to happen.
+
+
+---
+
+* [KAFKA-2386](https://issues.apache.org/jira/browse/KAFKA-2386) | *Major* | **Transient test failure: testGenerationIdIncrementsOnRebalance**
+
+Seen this in some builds. Might be caused by gc pause (or similar) which delays group join in the test.
+
+{code}
+kafka.coordinator.ConsumerCoordinatorResponseTest > testGenerationIdIncrementsOnRebalance FAILED
+    java.util.concurrent.TimeoutException: Futures timed out after [40 milliseconds]
+        at scala.concurrent.impl.Promise$DefaultPromise.ready(Promise.scala:219)
+        at scala.concurrent.impl.Promise$DefaultPromise.result(Promise.scala:223)
+        at scala.concurrent.Await$$anonfun$result$1.apply(package.scala:107)
+        at scala.concurrent.BlockContext$DefaultBlockContext$.blockOn(BlockContext.scala:53)
+        at scala.concurrent.Await$.result(package.scala:107)
+        at kafka.coordinator.ConsumerCoordinatorResponseTest.joinGroup(ConsumerCoordinatorResponseTest.scala:313)
+        at kafka.coordinator.ConsumerCoordinatorResponseTest.testGenerationIdIncrementsOnRebalance(ConsumerCoordinatorResponseTest.scala:272)
+{code}
+
+
+---
+
+* [KAFKA-2384](https://issues.apache.org/jira/browse/KAFKA-2384) | *Major* | **Override commit message title in kafka-merge-pr.py**
+
+It would be more convenient allow setting the commit message in the merging script; right now the script takes the PR title as is and the contributors have to change them according to the submission-review guidelines before doing the merge.
+
+
+---
+
 * [KAFKA-2381](https://issues.apache.org/jira/browse/KAFKA-2381) | *Major* | **Possible ConcurrentModificationException while unsubscribing from a topic in new consumer**
 
 Possible ConcurrentModificationException while unsubscribing from a topic in new consumer. Attempt is made to modify AssignedPartitions while looping over it.
@@ -139,6 +324,19 @@ kafka.api.ConsumerBounceTest > testConsumptionWithBrokerFailures FAILED
         at org.apache.kafka.clients.consumer.KafkaConsumer.position(KafkaConsumer.java:949)
         at kafka.api.ConsumerBounceTest.consumeWithBrokerFailures(ConsumerBounceTest.scala:86)
         at kafka.api.ConsumerBounceTest.testConsumptionWithBrokerFailures(ConsumerBounceTest.scala:61)
+
+
+---
+
+* [KAFKA-2340](https://issues.apache.org/jira/browse/KAFKA-2340) | *Major* | **Add additional unit tests for new consumer Fetcher**
+
+There are a number of cases in Fetcher which have no corresponding unit tests. To name a few:
+
+- list offset with partition leader unknown
+- list offset disconnect
+- fetch disconnect
+
+Additionally, updateFetchPosition (which was moved from KafkaConsumer) has no tests.
 
 
 ---
@@ -398,6 +596,24 @@ Under the design section, the last second paragraph says this "Finally in cases 
 * [KAFKA-2290](https://issues.apache.org/jira/browse/KAFKA-2290) | *Major* | **OffsetIndex should open RandomAccessFile consistently**
 
 We open RandomAccessFile in "rw" mode in the constructor, but in "rws" mode in resize(). We should use "rw" in both cases since it's more efficient.
+
+
+---
+
+* [KAFKA-2288](https://issues.apache.org/jira/browse/KAFKA-2288) | *Major* | **Follow-up to KAFKA-2249 - reduce logging and testing**
+
+As [~junrao] commented on KAFKA-2249, we have a needless test and we are logging configuration for every single partition now. 
+
+Lets reduce the noise.
+
+
+---
+
+* [KAFKA-2281](https://issues.apache.org/jira/browse/KAFKA-2281) | *Major* | **org.apache.kafka.clients.producer.internals.ErrorLoggingCallback holds unnecessary byte[] value**
+
+org.apache.kafka.clients.producer.internals.ErrorLoggingCallback is constructed with byte[] value as one of the input. It holds the reference to the value until it finishes its lifecycle. The value is not used except for logging its size. This behavior causes unnecessary memory consumption.
+
+The fix is to keep reference to the value size instead of value itself when logAsString is false
 
 
 ---
@@ -855,6 +1071,15 @@ java.lang.NullPointerException
   at kafka.TestPurgatoryPerformance$CompletionQueue$$anon$1.doWork(TestPurgatoryPerformance.scala:263)
   at kafka.utils.ShutdownableThread.run(ShutdownableThread.scala:60)
 {code}
+
+
+---
+
+* [KAFKA-2205](https://issues.apache.org/jira/browse/KAFKA-2205) | *Major* | **Generalize TopicConfigManager to handle multiple entity configs**
+
+Acceptance Criteria:
+- TopicConfigManager should be generalized to handle Topic and Client configs (and any type of config in the future). As described in KIP-21
+- Add a ConfigCommand tool to change topic and client configuration
 
 
 ---
@@ -1539,6 +1764,33 @@ unit.kafka.consumer.PartitionAssignorTest > testRangePartitionAssignor FAILED
         at unit.kafka.consumer.PartitionAssignorTest$$anonfun$testRangePartitionAssignor$1.apply$mcVI$sp(PartitionAssignorTest.scala:79)
         at scala.collection.immutable.Range.foreach$mVc$sp(Range.scala:141)
         at unit.kafka.consumer.PartitionAssignorTest.testRangePartitionAssignor(PartitionAssignorTest.scala:60)
+{code}
+
+
+---
+
+* [KAFKA-2055](https://issues.apache.org/jira/browse/KAFKA-2055) | *Major* | **ConsumerBounceTest.testSeekAndCommitWithBrokerFailures transient failure**
+
+{code}
+kafka.api.ConsumerBounceTest > testSeekAndCommitWithBrokerFailures FAILED
+    java.lang.AssertionError: expected:<1000> but was:<976>
+        at org.junit.Assert.fail(Assert.java:92)
+        at org.junit.Assert.failNotEquals(Assert.java:689)
+        at org.junit.Assert.assertEquals(Assert.java:127)
+        at org.junit.Assert.assertEquals(Assert.java:514)
+        at org.junit.Assert.assertEquals(Assert.java:498)
+        at kafka.api.ConsumerBounceTest.seekAndCommitWithBrokerFailures(ConsumerBounceTest.scala:117)
+        at kafka.api.ConsumerBounceTest.testSeekAndCommitWithBrokerFailures(ConsumerBounceTest.scala:98)
+
+kafka.api.ConsumerBounceTest > testSeekAndCommitWithBrokerFailures FAILED
+    java.lang.AssertionError: expected:<1000> but was:<913>
+        at org.junit.Assert.fail(Assert.java:92)
+        at org.junit.Assert.failNotEquals(Assert.java:689)
+        at org.junit.Assert.assertEquals(Assert.java:127)
+        at org.junit.Assert.assertEquals(Assert.java:514)
+        at org.junit.Assert.assertEquals(Assert.java:498)
+        at kafka.api.ConsumerBounceTest.seekAndCommitWithBrokerFailures(ConsumerBounceTest.scala:117)
+        at kafka.api.ConsumerBounceTest.testSeekAndCommitWithBrokerFailures(ConsumerBounceTest.scala:98)
 {code}
 
 

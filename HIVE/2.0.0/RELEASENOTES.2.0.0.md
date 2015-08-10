@@ -23,6 +23,13 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [HIVE-11476](https://issues.apache.org/jira/browse/HIVE-11476) | *Minor* | **TypeInfoParser cannot handle column names with spaces in them**
+
+HIVE-11476: TypeInfoParser cannot handle column names with spaces in them (Gopal V, reviewed by Hari Sankar Sivarama Subramaniyan)
+
+
+---
+
 * [HIVE-11229](https://issues.apache.org/jira/browse/HIVE-11229) | *Major* | **Mutation API: Coordinator communication with meta store should be optional**
 
 Mutation coordinator meta store dependency now optional.

@@ -21,4 +21,11 @@
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
 
 
+---
+
+* [SPARK-9748](https://issues.apache.org/jira/browse/SPARK-9748) | *Trivial* | **Centriod typo in KMeansModel**
+
+A minor typo (centriod -> centroid). Readable variable names help every users.
+
+
 

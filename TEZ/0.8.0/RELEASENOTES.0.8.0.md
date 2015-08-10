@@ -174,6 +174,37 @@ FAILED: Execution Error, return code 2 from org.apache.hadoop.hive.ql.exec.tez.T
 
 ---
 
+* [TEZ-2663](https://issues.apache.org/jira/browse/TEZ-2663) | *Major* | **SessionNotRunning exceptions are wrapped in a ServiceException from a dying AM**
+
+The scenario in TEZ-2548 throws a SessionNotRunning from the AM right now, which gets wrapped in a ServiceException by the protobuf layer, so that the exception thrown by TezClient cannot be caught and handled cleanly.
+
+{code}
+2015-07-30 01:32:50,997 ERROR [HiveServer2-Background-Pool: Thread-494()]: exec.Task (TezTask.java:execute(191)) - Failed to execute tez graph.
+org.apache.tez.dag.api.TezException: com.google.protobuf.ServiceException: org.apache.hadoop.ipc.RemoteException(org.apache.tez.dag.api.SessionNotRunning): AM unable to accept new DAG submissions. In the process of shutting down
+        at org.apache.tez.dag.app.DAGAppMaster.submitDAGToAppMaster(DAGAppMaster.java:1265)
+        at org.apache.tez.dag.api.client.DAGClientHandler.submitDAG(DAGClientHandler.java:120)
+        at org.apache.tez.dag.api.client.rpc.DAGClientAMProtocolBlockingPBServerImpl.submitDAG(DAGClientAMProtocolBlockingPBServerImpl.java:161)
+        at org.apache.tez.dag.api.client.rpc.DAGClientAMProtocolRPC$DAGClientAMProtocol$2.callBlockingMethod(DAGClientAMProtocolRPC.java:7471)
+        at org.apache.hadoop.ipc.ProtobufRpcEngine$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine.java:616)
+        at org.apache.hadoop.ipc.RPC$Server.call(RPC.java:969)
+        at org.apache.hadoop.ipc.Server$Handler$1.run(Server.java:2049)
+        at org.apache.hadoop.ipc.Server$Handler$1.run(Server.java:2045)
+        at java.security.AccessController.doPrivileged(Native Method)
+        at javax.security.auth.Subject.doAs(Subject.java:422)
+        at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1657)
+        at org.apache.hadoop.ipc.Server$Handler.run(Server.java:2045)
+{code}
+
+
+---
+
+* [TEZ-2650](https://issues.apache.org/jira/browse/TEZ-2650) | *Major* | **Timing details on Vertex state changes**
+
+E.g. how long did it wait to get initialized - tasks or edges. Did it wait for a long time for a predecessor vertex to initialize.
+
+
+---
+
 * [TEZ-2647](https://issues.apache.org/jira/browse/TEZ-2647) | *Major* | **Add input causality dependency for attempts**
 
 Attempts can have input dependencies on the producer task attempts that produced the data being consumed by the attempt.
@@ -238,11 +269,59 @@ tez.runtime.shuffle.fetch.max.task.output.at.once is provided only for ordered f
 
 ---
 
+* [TEZ-2633](https://issues.apache.org/jira/browse/TEZ-2633) | *Major* | **Allow VertexManagerPlugins to receive and report based on attempts instead of tasks**
+
+If the same event is sent from an attempt and its retry then there is no way to differentiate between them.
+
+
+---
+
 * [TEZ-2632](https://issues.apache.org/jira/browse/TEZ-2632) | *Major* | **A -Paws and -Pazure build profiles for hadoop-{aws,azure} inclusion**
 
 A number of S3a workloads which work with MRv2 (after HADOOP-10400) is failing to work with Tez.
 
 That compatibility issue can be bypassed with a trivial build profile switch (same for azure after HADOOP-9629)
+
+
+---
+
+* [TEZ-2630](https://issues.apache.org/jira/browse/TEZ-2630) | *Critical* | **TezChild receives IP address instead of FQDN**
+
+I am running a yarn cluster on AWS. The slave nodes (NMs) are all configured to listen on private DNS. For example, a sample node manager listens on ip-10-16-141-168.ec2.internal:8042.
+
+When I'm trying to run a Tez job (even simple ones like select count(*) from nation) - they fail because child tasks are unable to connect to the AM. The issue is they are trying to connect to the IP instead of the private DNS. Here's a sample log line (couple of them added by me for debugging):
+
+{code}
+2015-07-21 17:08:21,919 INFO [main] task.TezChild: TezChild starting
+2015-07-21 17:08:22,310 INFO [main] task.TezChild: Using socket factory class: org.apache.hadoop.net.StandardSocketFactory
+2015-07-21 17:08:22,336 INFO [main] task.TezChild: PID, containerIdentifier:  3699, container\_1437498369268\_0001\_01\_000002
+2015-07-21 17:08:22,418 INFO [main] Configuration.deprecation: fs.default.name is deprecated. Instead, use fs.defaultFS
+2015-07-21 17:08:23,025 INFO [main] task.TezChild: Got host:port: 10.16.141.168:37949
+2015-07-21 17:08:23,035 INFO [main] task.TezChild: address variables: 10.16.141.168:37949
+2015-07-21 17:08:23,143 INFO [TezChild] task.ContainerReporter: Attempting to fetch new task
+2015-07-21 17:08:24,201 INFO [TezChild] ipc.Client: Retrying connect to server: 10.16.141.168/10.16.141.168:37949. Already tried 0 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=50, sleepTime=1000 MILLISECONDS)
+2015-07-21 17:08:25,202 INFO [TezChild] ipc.Client: Retrying connect to server: 10.16.141.168/10.16.141.168:37949. Already tried 1 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=50, sleepTime=1000 MILLISECONDS)
+2015-07-21 17:08:26,757 INFO [TezChild] ipc.Client: Retrying connect to server: 10.16.141.168/10.16.141.168:37949. Already tried 2 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=50, sleepTime=1000 MILLISECONDS)
+2015-07-21 17:08:27,758 INFO [TezChild] ipc.Client: Retrying connect to server: 10.16.141.168/10.16.141.168:37949. Already tried 3 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=50, sleepTime=1000 MILLISECONDS)
+{code}
+
+AM is listening at the right address. But TezChild is receiving the IP address instead of the private DNS. 
+
+AM logs:
+{code}
+2015-07-21 18:09:27,906 INFO [ServiceThread:org.apache.tez.dag.app.TaskAttemptListenerImpTezDag] app.TaskAttemptListenerImpTezDag: Listening at address: ip-10-234-2-80.ec2.internal:49967
+{code}
+
+TezChild logs:
+{code}
+2015-07-21 18:09:35,353 INFO [main] task.TezChild: TezChild starting
+2015-07-21 18:09:35,379 INFO [main] task.TezChild: Args: 10.234.2.80,49967,container\_1437501941642\_0001\_01\_000002,application\_1437501941642\_0001,1
+2015-07-21 18:09:35,770 INFO [main] task.TezChild: Using socket factory class: org.apache.hadoop.net.StandardSocketFactory
+2015-07-21 18:09:35,785 INFO [main] task.TezChild: PID, containerIdentifier:  8670, container\_1437501941642\_0001\_01\_000002
+2015-07-21 18:09:35,864 INFO [main] Configuration.deprecation: fs.default.name is deprecated. Instead, use fs.defaultFS
+2015-07-21 18:09:36,403 INFO [main] task.TezChild: Got host:port: 10.234.2.80:49967
+2015-07-21 18:09:36,413 INFO [main] task.TezChild: address variables: 10.234.2.80:49967
+{code}
 
 
 ---
@@ -579,6 +658,90 @@ Sample url:
 http://address:19888/jobhistory/logs/address:45454/container\_e18\_1434089649193\_0001\_01\_000002/container\_e18\_1434089649193\_0001\_01\_000002/hrt\_qa?user.name=hrt\_qa
 
 Reported by [~tassapola] offline.
+
+
+---
+
+* [TEZ-2552](https://issues.apache.org/jira/browse/TEZ-2552) | *Major* | **CRC errors can cause job to run for very long time in large jobs**
+
+Ran a fairly large job at 10 TB scale which had 1009 reducers.
+
+One of the machine had bad disk and NM did not delist that disk.  Machine hosting NM has disk issues (sdf & sde holds shuffle data).  exceptions.
+
+{noformat}
+Info fld=0x8960894
+sd 6:0:5:0: [sdf]  Add. Sense: Unrecovered read error
+sd 6:0:5:0: [sdf] CDB: Read(10): 28 00 08 96 08 90 00 00 08 00
+end\_request: critical medium error, dev sdf, sector 144050320
+sd 6:0:5:0: [sdf]  Result: hostbyte=DID\_OK driverbyte=DRIVER\_SENSE
+sd 6:0:5:0: [sdf]  Sense Key : Medium Error [current]
+Info fld=0x895a2b9
+sd 6:0:5:0: [sdf]  Add. Sense: Unrecovered read error
+sd 6:0:5:0: [sdf] CDB: Read(10): 28 00 08 95 a2 b8 00 00 08 00
+end\_request: critical medium error, dev sdf, sector 144024248
+sd 6:0:5:0: [sdf]  Result: hostbyte=DID\_OK driverbyte=DRIVER\_SENSE
+sd 6:0:5:0: [sdf]  Sense Key : Medium Error [current]
+Info fld=0x895a2b9
+sd 6:0:5:0: [sdf]  Add. Sense: Unrecovered read error
+sd 6:0:5:0: [sdf] CDB: Read(10): 28 00 08 95 a2 b8 00 00 08 00
+end\_request: critical medium error, dev sdf, sector 144024248
+sd 6:0:5:0: [sdf]  Result: hostbyte=DID\_OK driverbyte=DRIVER\_SENSE
+sd 6:0:5:0: [sdf]  Sense Key : Medium Error [current]
+Info fld=0x8849edb
+sd 6:0:5:0: [sdf]  Add. Sense: Unrecovered read error
+sd 6:0:5:0: [sdf] CDB: Read(10): 28 00 08 84 9e d8 00 00 08 00
+end\_request: critical medium error, dev sdf, sector 142909144
+sd 6:0:5:0: [sdf]  Result: hostbyte=DID\_OK driverbyte=DRIVER\_SENSE
+sd 6:0:5:0: [sdf]  Sense Key : Medium Error [current]
+Info fld=0x8849edb
+sd 6:0:5:0: [sdf]  Add. Sense: Unrecovered read error
+sd 6:0:5:0: [sdf] CDB: Read(10): 28 00 08 84 9e d8 00 00 08 00
+end\_request: critical medium error, dev sdf, sector 142909144
+{noformat}
+
+In-memory fetches start throwing CRC as follows.  
+
+{noformat}
+2015-06-11 01:01:03,728 INFO [ShuffleAndMergeRunner [Map\_11]] orderedgrouped.ShuffleScheduler: PendingHosts=[]
+2015-06-11 01:01:03,730 INFO [Fetcher [Map\_11] #0] http.HttpConnection: for url=http://cn056-10.l42scl.hortonworks.com:13562/mapOutput?job=job\_1433813751839\_0124&reduce=3&map=attempt\_1433813751839\_0124\_1\_04\_000446\_0\_10027&keepAlive=true sent hash and receievd reply 0 ms
+2015-06-11 01:01:03,730 INFO [Fetcher [Map\_11] #0] orderedgrouped.FetcherOrderedGrouped: fetcher#439 about to shuffle output of map InputAttemptIdentifier [inputIdentifier=InputIdentifier [inputIndex=446], attemptNumber=0, pathComponent=attempt\_1433813751839\_0124\_1\_04\_000446\_0\_10027, fetchTypeInfo=FINAL\_MERGE\_ENABLED, spillEventId=-1] decomp: 45475 len: 23974 to MEMORY
+2015-06-11 01:01:07,206 INFO [Fetcher [Map\_11] #0] impl.IFileInputStream:  CurrentOffset=2510, offset=2510, off=2502, dataLength=23966, origLen=21456, len=21456, length=23970, checksumSize=4
+2015-06-11 01:01:07,207 INFO [Fetcher [Map\_11] #0] impl.IFileInputStream:  CurrentOffset=2510, offset=2510, off=0, dataLength=23966, origLen=21456, len=21456, length=23970, checksumSize=4
+2015-06-11 01:01:07,207 WARN [Fetcher [Map\_11] #0] orderedgrouped.FetcherOrderedGrouped: Failed to shuffle output of InputAttemptIdentifier [inputIdentifier=InputIdentifier [inputIndex=446], attemptNumber=0, pathComponent=attempt\_1433813751839\_0124\_1\_04\_000446\_0\_10027, fetchTypeInfo=FINAL\_MERGE\_ENABLED, spillEventId=-1] from cn056-10.l42scl.hortonworks.com:13562
+org.apache.hadoop.fs.ChecksumException: Checksum Error:  CurrentOffset=2510, offset=2510, off=2502, dataLength=23966, origLen=21456, len=21456, length=23970, checksumSize=4
+	at org.apache.tez.runtime.library.common.sort.impl.IFileInputStream.doRead(IFileInputStream.java:255)
+	at org.apache.tez.runtime.library.common.sort.impl.IFileInputStream.read(IFileInputStream.java:185)
+	at org.apache.hadoop.io.compress.BlockDecompressorStream.getCompressedData(BlockDecompressorStream.java:127)
+	at org.apache.hadoop.io.compress.BlockDecompressorStream.decompress(BlockDecompressorStream.java:98)
+	at org.apache.hadoop.io.compress.DecompressorStream.read(DecompressorStream.java:85)
+	at org.apache.hadoop.io.IOUtils.readFully(IOUtils.java:192)
+	at org.apache.tez.runtime.library.common.sort.impl.IFile$Reader.readToMemory(IFile.java:619)
+	at org.apache.tez.runtime.library.common.shuffle.ShuffleUtils.shuffleToMemory(ShuffleUtils.java:113)
+	at org.apache.tez.runtime.library.common.shuffle.orderedgrouped.FetcherOrderedGrouped.copyMapOutput(FetcherOrderedGrouped.java:471)
+	at org.apache.tez.runtime.library.common.shuffle.orderedgrouped.FetcherOrderedGrouped.copyFromHost(FetcherOrderedGrouped.java:267)
+	at org.apache.tez.runtime.library.common.shuffle.orderedgrouped.FetcherOrderedGrouped.fetchNext(FetcherOrderedGrouped.java:164)
+	at org.apache.tez.runtime.library.common.shuffle.orderedgrouped.FetcherOrderedGrouped.callInternal(FetcherOrderedGrouped.java:177)
+	at org.apache.tez.runtime.library.common.shuffle.orderedgrouped.FetcherOrderedGrouped.callInternal(FetcherOrderedGrouped.java:52)
+	at org.apache.tez.common.CallableWithNdc.call(CallableWithNdc.java:36)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+{noformat}
+
+TaskAttemptImpl didn't fail it due to the following code
+
+{noformat}
+float failureFraction = ((float) attempt.uniquefailedOutputReports.size())
+          / outputFailedEvent.getConsumerTaskNumber();
+{noformat}
+
+In this case, reducer ran in 180 slot waves.  So even if all 180 tasks report the error, it would be around 180/1009 = 0.17 (which is less than 0.25 MAX\_ALLOWED\_OUTPUT\_FAILURES\_FRACTION) and the job runs for ever (killed the job after 2 hours; normally run in couple of minutes)
+
+In fetcher side, reducer state would be healthy and it would continue to wait.
+
+Env: Tez master & Hive master
+Ref: Query\_88 @ 10 TB scale.
 
 
 ---

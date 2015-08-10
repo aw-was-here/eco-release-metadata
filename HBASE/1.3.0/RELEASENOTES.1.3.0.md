@@ -53,6 +53,13 @@ HBASE-13881 Correct HTable incrementColumnValue implementation
 
 ---
 
+* [HBASE-13865](https://issues.apache.org/jira/browse/HBASE-13865) | *Trivial* | **Increase the default value for hbase.hregion.memstore.block.multipler from 2 to 4 (part 2)**
+
+Increase default hbase.hregion.memstore.block.multiplier from 2 to 4 in the code to match the default value in the config files.
+
+
+---
+
 * [HBASE-13666](https://issues.apache.org/jira/browse/HBASE-13666) | *Major* | **book.pdf is not renamed during site build**
 
 Correct PDF renaming and bump version of maven-antrun-plugin

@@ -18,7 +18,7 @@
 -->
 # Apache Hive Changelog
 
-## Release 1.2.1 - Unreleased
+## Release 1.2.1 - Unreleased (as of 2015-08-10)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -38,6 +38,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HIVE-11179](https://issues.apache.org/jira/browse/HIVE-11179) | HIVE should allow custom converting from HivePrivilegeObjectDesc to privilegeObject for different authorizers |  Major | . | Dapeng Sun | Dapeng Sun |
 | [HIVE-10900](https://issues.apache.org/jira/browse/HIVE-10900) | Fix the indeterministic stats for some hive queries |  Minor | Tests | Pengcheng Xiong | Pengcheng Xiong |
 | [HIVE-10812](https://issues.apache.org/jira/browse/HIVE-10812) | Scaling PK/FK's selectivity for stats annotation |  Major | Physical Optimizer, Statistics | Pengcheng Xiong | Pengcheng Xiong |
 | [HIVE-8769](https://issues.apache.org/jira/browse/HIVE-8769) | Physical optimizer : Incorrect CE results in a shuffle join instead of a Map join (PK/FK pattern not detected) |  Major | Physical Optimizer | Mostafa Mokhtar | Pengcheng Xiong |
@@ -47,6 +48,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HIVE-11456](https://issues.apache.org/jira/browse/HIVE-11456) | HCatStorer should honor mapreduce.output.basename |  Critical | . | Rohini Palaniswamy | Mithun Radhakrishnan |
 | [HIVE-11313](https://issues.apache.org/jira/browse/HIVE-11313) | dynamic partition with null key from union select will fail |  Major | Tez | Jay Lee |  |
 | [HIVE-11102](https://issues.apache.org/jira/browse/HIVE-11102) | ReaderImpl: getColumnIndicesFromNames does not work for some cases |  Major | File Formats | Gopal V | Sergey Shelukhin |
 | [HIVE-11047](https://issues.apache.org/jira/browse/HIVE-11047) | Update versions of branch-1.2 to 1.2.1 |  Major | . | Sushanth Sowmyan | Sushanth Sowmyan |

@@ -677,6 +677,7 @@
 | [SPARK-3290](https://issues.apache.org/jira/browse/SPARK-3290) | No unpersist callls in SVDPlusPlus |  Major | GraphX | Dou Wenjuan | Sean Owen |
 | [SPARK-3060](https://issues.apache.org/jira/browse/SPARK-3060) | spark-shell.cmd doesn't accept application options in Windows OS |  Major | Windows | Masayoshi TSUZUKI | Masayoshi TSUZUKI |
 | [SPARK-3039](https://issues.apache.org/jira/browse/SPARK-3039) | Spark assembly for new hadoop API (hadoop 2) contains avro-mapred for hadoop 1 API |  Critical | Build, Input/Output, Spark Core | Bertrand Bossy | Bertrand Bossy |
+| [SPARK-3033](https://issues.apache.org/jira/browse/SPARK-3033) | [Hive] java.math.BigDecimal cannot be cast to org.apache.hadoop.hive.common.type.HiveDecimal |  Major | SQL | pengyanhong | Cheng Hao |
 | [SPARK-2984](https://issues.apache.org/jira/browse/SPARK-2984) | FileNotFoundException on \_temporary directory |  Critical | Spark Core | Andrew Ash | Josh Rosen |
 | [SPARK-2823](https://issues.apache.org/jira/browse/SPARK-2823) | GraphX jobs throw IllegalArgumentException |  Major | GraphX | Lu Lu |  |
 | [SPARK-2757](https://issues.apache.org/jira/browse/SPARK-2757) | Add Mima test for Spark Sink after 1.1.0 is released |  Major | Streaming | Hari Shreedharan | Hari Shreedharan |

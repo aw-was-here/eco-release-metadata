@@ -23,9 +23,64 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [BIGTOP-1958](https://issues.apache.org/jira/browse/BIGTOP-1958) | *Blocker* | **Upgrade default repositories and docker images to 1.0**
+
+The default repositories in puppet recipes and bigtop provisioner configurations are still 0.8.0. We should upgrade them to 1.0.0 repo and switch the docker image to 1.0 version as well.
+
+
+---
+
+* [BIGTOP-1955](https://issues.apache.org/jira/browse/BIGTOP-1955) | *Major* | **Upgrade Ignite Hadoop component version from 1.2.0 to 1.3.0**
+
+Since Apache Ignite version 1.3.0 was released, we should upgrade its version in BigTop to 1.3.0.
+
+
+---
+
 * [BIGTOP-1954](https://issues.apache.org/jira/browse/BIGTOP-1954) | *Major* | **Change the component name in the MAINTAINERS.txt**
 
 MAINTAINERS.txt has {{gridgain-hadoop}} component. Should be {{ignite-hadoop}}
+
+
+---
+
+* [BIGTOP-1951](https://issues.apache.org/jira/browse/BIGTOP-1951) | *Blocker* | **Fix licenses in the source files**
+
+The following files are missing ASL header
+{code}
+  bigtop-deploy/puppet/modules/hue/templates/hue.ini
+  bigtop-deploy/puppet/modules/tachyon/templates/log4j.properties
+  bigtop-deploy/puppet/modules/tachyon/templates/tachyon-env.sh
+  bigtop-deploy/vm/utils/smoke-tests.sh
+  bigtop-deploy/vm/vagrant-puppet-docker/boot2docker/Vagrantfile
+  bigtop-deploy/vm/vagrant-puppet-docker/vagrantconfig.yaml
+  bigtop-deploy/vm/vagrant-puppet-docker/vagrantconfig\_debian.yaml
+  bigtop-deploy/vm/vagrant-puppet-docker/docker-hadoop.sh
+  bigtop-deploy/vm/vagrant-puppet-vm/vagrantconfig.yaml
+  bigtop-deploy/vm/vagrant-puppet-openstack/para-provision.sh
+  bigtop-deploy/vm/vagrant-puppet-openstack/vagrantconfig.yaml
+  bigtop-ci/jenkins/jobsCreator.groovy
+  MAINTAINERS.txt
+  docker/bigtop-puppet/centos-6/Dockerfile
+  docker/bigtop-puppet/centos-6/build.sh
+  docker/bigtop-puppet/centos-7/Dockerfile
+  docker/bigtop-puppet/centos-7/build.sh
+  docker/bigtop-puppet/debian-8/Dockerfile
+  docker/bigtop-puppet/debian-8/build.sh
+  docker/bigtop-puppet/fedora-20/Dockerfile
+  docker/bigtop-puppet/fedora-20/build.sh
+  docker/bigtop-puppet/opensuse-13.2/Dockerfile
+  docker/bigtop-puppet/opensuse-13.2/build.sh
+  docker/bigtop-puppet/ubuntu-14.04/Dockerfile
+  docker/bigtop-puppet/ubuntu-14.04/build.sh
+  bigtop-bigpetstore/README.md
+  bigtop-bigpetstore/bigpetstore-data-generator/README.md
+  bigtop-bigpetstore/bigpetstore-spark/README.md
+  bigtop-bigpetstore/bigpetstore-spark/src/test/scala/org/apache/bigpetstore/spark/TestFullPipeline.scala
+  bigtop-bigpetstore/bigpetstore-transaction-queue/Dockerfile
+  bigtop-bigpetstore/bigpetstore-transaction-queue/README.md
+  bigtop-bigpetstore/bigpetstore-transaction-queue/build.gradle
+{code}
 
 
 ---
@@ -179,6 +234,13 @@ We should provide a more robust toolchain support...
 
 ---
 
+* [BIGTOP-1894](https://issues.apache.org/jira/browse/BIGTOP-1894) | *Major* | **Snappy development packages are missing from bigtop\_toolchain**
+
+bigtop\_toolchain does not install snappy development packages.
+
+
+---
+
 * [BIGTOP-1893](https://issues.apache.org/jira/browse/BIGTOP-1893) | *Major* | **Compilation of hadoop-yarn-client failed**
 
 When I tried buid rpm packages of bigtop distribution on current master via gradle:
@@ -204,6 +266,17 @@ import org.jboss.netty.logging.CommonsLoggerFactory;
 * [BIGTOP-1892](https://issues.apache.org/jira/browse/BIGTOP-1892) | *Minor* | **Current required version of gradle 2.4 is not used everywhere**
 
 Based on the current state of puppet orchestration, Bigtop requires gradle 2.4, but this is not used/stated on all places.
+
+
+---
+
+* [BIGTOP-1888](https://issues.apache.org/jira/browse/BIGTOP-1888) | *Minor* | **Upgrade Flume to 1.6.0**
+
+Bump up Flume version to 1.6.0
+
+In this Flume release has many fixes and improvements, especially it looks that Kafka integration has been improved [1]
+
+[1]. http://flume.apache.org/releases/1.6.0.html
 
 
 ---
@@ -266,6 +339,23 @@ Recent release of Apache Crunch added a bunch of  features and improvements. eg.
 The pig build does not execute the mvn-install target. This means that other pieces of the bigtop ecosystem do not pick up the correct pig dependencies from the bigtop build. Instead, they pick them up from the central maven repository (or they fail to find them if a bigtop has pig version that is not publicly released).
 
 This is a problem because builds like datafu pick up their pig dependency via ivy and they are not able to do so.
+
+
+---
+
+* [BIGTOP-1821](https://issues.apache.org/jira/browse/BIGTOP-1821) | *Major* | **Add smoke tests for Ignite Hadoop Bigtop module**
+
+The tests should be reworked from former GridGain smoke tests.
+
+
+---
+
+* [BIGTOP-1809](https://issues.apache.org/jira/browse/BIGTOP-1809) | *Critical* | **Remove gridgain-hadoop component once ignite-hadoop gets added**
+
+GridGain Hadoop superseded by Ignite Hadoop.
+Once ignite-hadoop added to BigTop, gridgain should be removed from there.
+
+See https://issues.apache.org/jira/browse/BIGTOP-1806
 
 
 ---

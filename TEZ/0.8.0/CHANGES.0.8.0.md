@@ -18,7 +18,7 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.8.0 - Unreleased
+## Release 0.8.0 - Unreleased (as of 2015-08-10)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -66,10 +66,13 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-2699](https://issues.apache.org/jira/browse/TEZ-2699) | Internalize strings in ATF parser |  Major | . | Bikas Saha | Bikas Saha |
 | [TEZ-2684](https://issues.apache.org/jira/browse/TEZ-2684) | ShuffleVertexManager.parsePartitionStats throws IllegalStateException: Stats should be initialized |  Major | . | Wei Zheng | Rajesh Balamohan |
+| [TEZ-2663](https://issues.apache.org/jira/browse/TEZ-2663) | SessionNotRunning exceptions are wrapped in a ServiceException from a dying AM |  Major | . | Gopal V | Hitesh Shah |
 | [TEZ-2636](https://issues.apache.org/jira/browse/TEZ-2636) | MRInput and MultiMRInput should work for cases when there are 0 physical inputs |  Major | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-2635](https://issues.apache.org/jira/browse/TEZ-2635) | Limit number of attempts being downloaded in unordered fetch |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-2632](https://issues.apache.org/jira/browse/TEZ-2632) | A -Paws and -Pazure build profiles for hadoop-{aws,azure} inclusion |  Major | . | Gopal V | Gopal V |
+| [TEZ-2630](https://issues.apache.org/jira/browse/TEZ-2630) | TezChild receives IP address instead of FQDN |  Critical | . | Rajat Jain | Hitesh Shah |
 | [TEZ-2623](https://issues.apache.org/jira/browse/TEZ-2623) | Fix module dependencies related to hadoop-auth |  Major | . | Rajat Jain | Rajat Jain |
 | [TEZ-2616](https://issues.apache.org/jira/browse/TEZ-2616) | Fix build warning by undefined version of maven-findbugs-plugin |  Major | . | Tsuyoshi Ozawa | Tsuyoshi Ozawa |
 | [TEZ-2610](https://issues.apache.org/jira/browse/TEZ-2610) | Swimlane for DAGs that use containers from previous DAGs |  Major | UI | Yi Zhang | Gopal V |
@@ -84,6 +87,7 @@
 | [TEZ-2559](https://issues.apache.org/jira/browse/TEZ-2559) | tez-ui fails compilation due to version dependency of frontend-maven-plugin |  Major | . | Rajesh Balamohan | Prakash Ramachandran |
 | [TEZ-2558](https://issues.apache.org/jira/browse/TEZ-2558) | Upload additional Tez images |  Major | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-2554](https://issues.apache.org/jira/browse/TEZ-2554) | Tez UI: View log link does not correctly propagate login crendential to read log from yarn web. |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
+| [TEZ-2552](https://issues.apache.org/jira/browse/TEZ-2552) | CRC errors can cause job to run for very long time in large jobs |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-2548](https://issues.apache.org/jira/browse/TEZ-2548) | TezClient submitDAG can hang if the AM is in the process of shutting down |  Major | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-2547](https://issues.apache.org/jira/browse/TEZ-2547) | Tez UI: Download Data fails on secure, cross-origin clusters |  Critical | UI | Jonathan Eagles | Jonathan Eagles |
 | [TEZ-2545](https://issues.apache.org/jira/browse/TEZ-2545) | It is not necessary to start the vertex group commit when DAG is in TERMINATING |  Major | . | Jeff Zhang | Jeff Zhang |
@@ -135,8 +139,10 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-2650](https://issues.apache.org/jira/browse/TEZ-2650) | Timing details on Vertex state changes |  Major | . | Bikas Saha | Bikas Saha |
 | [TEZ-2647](https://issues.apache.org/jira/browse/TEZ-2647) | Add input causality dependency for attempts |  Major | . | Bikas Saha | Bikas Saha |
 | [TEZ-2646](https://issues.apache.org/jira/browse/TEZ-2646) | Add scheduling casual dependency for attempts |  Major | . | Bikas Saha | Bikas Saha |
+| [TEZ-2633](https://issues.apache.org/jira/browse/TEZ-2633) | Allow VertexManagerPlugins to receive and report based on attempts instead of tasks |  Major | . | Bikas Saha | Bikas Saha |
 | [TEZ-2549](https://issues.apache.org/jira/browse/TEZ-2549) | Reduce Counter Load on the Timeline Server |  Major | . | Jonathan Eagles | Jason Lowe |
 | [TEZ-2511](https://issues.apache.org/jira/browse/TEZ-2511) | Add exitCode to diagnostics when container fails |  Major | . | Jeff Zhang | Jeff Zhang |
 

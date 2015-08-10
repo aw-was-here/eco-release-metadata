@@ -18,7 +18,7 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.6.3 - Unreleased
+## Release 0.6.3 - Unreleased (as of 2015-08-10)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -42,6 +42,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-2630](https://issues.apache.org/jira/browse/TEZ-2630) | TezChild receives IP address instead of FQDN |  Critical | . | Rajat Jain | Hitesh Shah |
 
 
 ### TESTS:

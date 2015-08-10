@@ -18,7 +18,7 @@
 -->
 # Apache Orc Changelog
 
-## Release 1.0.0 - Unreleased
+## Release 1.0.0 - Unreleased (as of 2015-08-10)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -44,6 +44,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [ORC-24](https://issues.apache.org/jira/browse/ORC-24) | C++ reader for direct string encodings occasionally skips bytes |  Major | C++ | Owen O'Malley | Owen O'Malley |
 
 
 ### TESTS:

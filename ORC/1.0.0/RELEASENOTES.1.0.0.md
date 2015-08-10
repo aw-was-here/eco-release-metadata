@@ -23,6 +23,19 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [ORC-24](https://issues.apache.org/jira/browse/ORC-24) | *Major* | **C++ reader for direct string encodings occasionally skips bytes**
+
+The ORC C++ direct string column reader can occasionally skip bytes in the blob stream.
+
+The necessary conditions are:
+* The column is a string column and is directly encoded.
+* The blob stream for the row batch crosses a compression block boundary.
+* There is a null value toward the end of the block boundary.
+* The value in the length value of the null value crosses the block boundary, but the length value of the following value does not.
+
+
+---
+
 * [ORC-23](https://issues.apache.org/jira/browse/ORC-23) | *Major* | **Simplify the C++ directory structure a bit**
 
 I want to simplify the directory structure a bit:

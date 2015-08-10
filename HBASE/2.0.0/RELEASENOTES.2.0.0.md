@@ -23,6 +23,13 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [HBASE-14081](https://issues.apache.org/jira/browse/HBASE-14081) | *Minor* | **(outdated) references to SVN/trunk in documentation**
+
+HBASE-14081 Remove (outdated) references to SVN/trunk from documentation
+
+
+---
+
 * [HBASE-14047](https://issues.apache.org/jira/browse/HBASE-14047) | *Major* | **Cleanup deprecated APIs from Cell class**
 
 The following API from Cell (which were deprecated since past few major versions) are removed now.
@@ -129,6 +136,13 @@ Correct Javadoc generation errors
 * [HBASE-13869](https://issues.apache.org/jira/browse/HBASE-13869) | *Trivial* | **Fix typo in HBase book**
 
 Fix typo in HBase book
+
+
+---
+
+* [HBASE-13865](https://issues.apache.org/jira/browse/HBASE-13865) | *Trivial* | **Increase the default value for hbase.hregion.memstore.block.multipler from 2 to 4 (part 2)**
+
+Increase default hbase.hregion.memstore.block.multiplier from 2 to 4 in the code to match the default value in the config files.
 
 
 ---

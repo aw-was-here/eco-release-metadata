@@ -12296,6 +12296,45 @@ Also, if Spark is built using avro-mapred for hadoop2, it works fine as well.
 
 ---
 
+* [SPARK-3033](https://issues.apache.org/jira/browse/SPARK-3033) | *Major* | **[Hive] java.math.BigDecimal cannot be cast to org.apache.hadoop.hive.common.type.HiveDecimal**
+
+run a complex HiveQL via yarn-cluster, got error as below:
+{quote}
+14/08/14 15:05:24 WARN org.apache.spark.Logging$class.logWarning(Logging.scala:70): Loss was due to java.lang.ClassCastException
+java.lang.ClassCastException: java.math.BigDecimal cannot be cast to org.apache.hadoop.hive.common.type.HiveDecimal
+	at org.apache.hadoop.hive.serde2.objectinspector.primitive.JavaHiveDecimalObjectInspector.getPrimitiveJavaObject(JavaHiveDecimalObjectInspector.java:51)
+	at org.apache.hadoop.hive.serde2.objectinspector.primitive.PrimitiveObjectInspectorUtils.getHiveDecimal(PrimitiveObjectInspectorUtils.java:1022)
+	at org.apache.hadoop.hive.serde2.objectinspector.primitive.PrimitiveObjectInspectorConverter$HiveDecimalConverter.convert(PrimitiveObjectInspectorConverter.java:306)
+	at org.apache.hadoop.hive.ql.udf.generic.GenericUDFUtils$ReturnObjectInspectorResolver.convertIfNecessary(GenericUDFUtils.java:179)
+	at org.apache.hadoop.hive.ql.udf.generic.GenericUDFIf.evaluate(GenericUDFIf.java:82)
+	at org.apache.spark.sql.hive.HiveGenericUdf.eval(hiveUdfs.scala:276)
+	at org.apache.spark.sql.catalyst.expressions.Alias.eval(namedExpressions.scala:84)
+	at org.apache.spark.sql.catalyst.expressions.MutableProjection.apply(Projection.scala:62)
+	at org.apache.spark.sql.catalyst.expressions.MutableProjection.apply(Projection.scala:51)
+	at scala.collection.Iterator$$anon$11.next(Iterator.scala:328)
+	at scala.collection.Iterator$class.foreach(Iterator.scala:727)
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1157)
+	at org.apache.spark.sql.execution.BroadcastNestedLoopJoin$$anonfun$4.apply(joins.scala:309)
+	at org.apache.spark.sql.execution.BroadcastNestedLoopJoin$$anonfun$4.apply(joins.scala:303)
+	at org.apache.spark.rdd.RDD$$anonfun$13.apply(RDD.scala:571)
+	at org.apache.spark.rdd.RDD$$anonfun$13.apply(RDD.scala:571)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:35)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:262)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:229)
+	at org.apache.spark.rdd.MappedRDD.compute(MappedRDD.scala:31)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:262)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:229)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:111)
+	at org.apache.spark.scheduler.Task.run(Task.scala:51)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:183)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
+	at java.lang.Thread.run(Thread.java:662)
+{quote}
+
+
+---
+
 * [SPARK-2996](https://issues.apache.org/jira/browse/SPARK-2996) | *Major* | **Standalone and Yarn have different settings for adding the user classpath first**
 
 Standalone uses "spark.files.userClassPathFirst" while Yarn uses "spark.yarn.user.classpath.first". Adding support for the former in Yarn should be pretty trivial.

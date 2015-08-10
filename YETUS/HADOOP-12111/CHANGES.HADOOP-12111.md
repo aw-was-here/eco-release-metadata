@@ -18,7 +18,7 @@
 -->
 # Apache Hadoop Yetus Changelog
 
-## Release HADOOP-12111 - Unreleased
+## Release HADOOP-12111 - Unreleased (as of 2015-08-10)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -55,15 +55,18 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HADOOP-12310](https://issues.apache.org/jira/browse/HADOOP-12310) | final memory report sometimes generates spurious errors |  Major | yetus | Allen Wittenauer | Kengo Seki |
 | [HADOOP-12289](https://issues.apache.org/jira/browse/HADOOP-12289) | Move recent yetus docker changes to the yetus dockerfile |  Major | yetus | Allen Wittenauer | Allen Wittenauer |
 | [HADOOP-12287](https://issues.apache.org/jira/browse/HADOOP-12287) | add support for perlcritic |  Major | yetus | Allen Wittenauer | Kengo Seki |
 | [HADOOP-12286](https://issues.apache.org/jira/browse/HADOOP-12286) | test-patch pylint plugin should support indent-string option |  Major | yetus | Kengo Seki | Kengo Seki |
+| [HADOOP-12275](https://issues.apache.org/jira/browse/HADOOP-12275) | releasedocmaker: unreleased should still be dated |  Trivial | yetus | Allen Wittenauer | Kengo Seki |
 | [HADOOP-12273](https://issues.apache.org/jira/browse/HADOOP-12273) | releasedocmaker.py fails with stacktrace if --project option is not specified |  Trivial | yetus | Kengo Seki | Kengo Seki |
 | [HADOOP-12266](https://issues.apache.org/jira/browse/HADOOP-12266) | make test-patch plugins more consistent |  Major | yetus | Kengo Seki | Kengo Seki |
 | [HADOOP-12265](https://issues.apache.org/jira/browse/HADOOP-12265) | Pylint should be installed in test-patch docker environment |  Major | yetus | Kengo Seki | Kengo Seki |
 | [HADOOP-12256](https://issues.apache.org/jira/browse/HADOOP-12256) | add support for ruby-lint |  Major | yetus | Allen Wittenauer | Kengo Seki |
 | [HADOOP-12255](https://issues.apache.org/jira/browse/HADOOP-12255) | Add support for rubocop |  Major | yetus | Allen Wittenauer | Kengo Seki |
 | [HADOOP-12254](https://issues.apache.org/jira/browse/HADOOP-12254) | test-patch.sh should run findbugs if only findbugs-exclude.xml has changed |  Major | yetus | Varun Saxena | Kengo Seki |
+| [HADOOP-12248](https://issues.apache.org/jira/browse/HADOOP-12248) | Add native support for TAP |  Major | yetus | Allen Wittenauer | Allen Wittenauer |
 | [HADOOP-12247](https://issues.apache.org/jira/browse/HADOOP-12247) | Convert 'unit' to 'junit' |  Blocker | yetus | Allen Wittenauer | Allen Wittenauer |
 | [HADOOP-12243](https://issues.apache.org/jira/browse/HADOOP-12243) | Rewrite grep -o's to be POSIX compliant |  Major | yetus | Kengo Seki | Kengo Seki |
 | [HADOOP-12228](https://issues.apache.org/jira/browse/HADOOP-12228) | Document releasedocmaker |  Major | yetus | Allen Wittenauer | Allen Wittenauer |

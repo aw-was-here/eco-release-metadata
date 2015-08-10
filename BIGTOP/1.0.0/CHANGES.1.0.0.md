@@ -18,7 +18,7 @@
 -->
 # Apache BigTop Changelog
 
-## Release 1.0.0 - Unreleased
+## Release 1.0.0 - Unreleased (as of 2015-08-10)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -54,6 +54,7 @@
 | [BIGTOP-1851](https://issues.apache.org/jira/browse/BIGTOP-1851) | Upgrade to HBase 0.98.12 |  Major | hbase | Andrew Purtell | Andrew Purtell |
 | [BIGTOP-1836](https://issues.apache.org/jira/browse/BIGTOP-1836) | Better UX for Docker provisioner by integrating it into gradle |  Major | deployment | Evans Ye | Evans Ye |
 | [BIGTOP-1829](https://issues.apache.org/jira/browse/BIGTOP-1829) | Tachyon configuration files should reside in /etc/tachyon/conf instead of /etc/tachyon |  Major | build, deployment | Evans Ye | Evans Ye |
+| [BIGTOP-1809](https://issues.apache.org/jira/browse/BIGTOP-1809) | Remove gridgain-hadoop component once ignite-hadoop gets added |  Critical | build | Ivan Veselovsky | Ivan Veselovsky |
 | [BIGTOP-1803](https://issues.apache.org/jira/browse/BIGTOP-1803) | Overide Vagrant configurations from environment variables |  Trivial | . | YoungWoo Kim | YoungWoo Kim |
 | [BIGTOP-1801](https://issues.apache.org/jira/browse/BIGTOP-1801) | Generalize subst pattern matching for BOM file |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-1794](https://issues.apache.org/jira/browse/BIGTOP-1794) | Update README for bigtop\_toolchain |  Minor | documentation | YoungWoo Kim | YoungWoo Kim |
@@ -140,6 +141,8 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [BIGTOP-1958](https://issues.apache.org/jira/browse/BIGTOP-1958) | Upgrade default repositories and docker images to 1.0 |  Blocker | deployment | Evans Ye | Evans Ye |
+| [BIGTOP-1951](https://issues.apache.org/jira/browse/BIGTOP-1951) | Fix licenses in the source files |  Blocker | build | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-1950](https://issues.apache.org/jira/browse/BIGTOP-1950) | Upgrade maven-assembly plugin: StackOverFlowException is thrown |  Blocker | build, tests | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-1949](https://issues.apache.org/jira/browse/BIGTOP-1949) | Sqoop 1.4.5 artifacts aren't getting resolved in the release... |  Blocker | build, tests | Konstantin Boudnik | YoungWoo Kim |
 | [BIGTOP-1946](https://issues.apache.org/jira/browse/BIGTOP-1946) | Missing ASL header in some of iTest files |  Blocker | tests | Konstantin Boudnik | Konstantin Boudnik |
@@ -297,6 +300,7 @@
 | [BIGTOP-1357](https://issues.apache.org/jira/browse/BIGTOP-1357) | Get rid of HCatalog packaging code |  Major | debian, rpm | Mark Grover | Giridharan Kesavan |
 | [BIGTOP-1356](https://issues.apache.org/jira/browse/BIGTOP-1356) | Generate hive.install on the fly |  Major | debian | Mark Grover | Julien Eid |
 | [BIGTOP-1327](https://issues.apache.org/jira/browse/BIGTOP-1327) | bigpetstore.arch is out of date |  Minor | blueprints | jay vyas | jay vyas |
+| [BIGTOP-1315](https://issues.apache.org/jira/browse/BIGTOP-1315) | Pig smoke tests:  Refactor ? |  Major | tests | jay vyas | jay vyas |
 | [BIGTOP-1287](https://issues.apache.org/jira/browse/BIGTOP-1287) | Mahout smokes : Remove dirchlet/meanshift clustering |  Major | tests | jay vyas | jay vyas |
 | [BIGTOP-1277](https://issues.apache.org/jira/browse/BIGTOP-1277) | Remove Windows files from unix packaging |  Major | debian, rpm | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-1194](https://issues.apache.org/jira/browse/BIGTOP-1194) | redhat-lsb-core is sufficient in spec files |  Minor | rpm | Regis Nebor | Newton Alex |
@@ -321,6 +325,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [BIGTOP-1947](https://issues.apache.org/jira/browse/BIGTOP-1947) | Fix RAT plugin configuration to be able to RAT-validate all published artifacts |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-1900](https://issues.apache.org/jira/browse/BIGTOP-1900) | Upgrade bigtop/slaves images on bigtop's dockerhub |  Major | build | Evans Ye | Evans Ye |
 | [BIGTOP-1842](https://issues.apache.org/jira/browse/BIGTOP-1842) | Remove gridgain-hadoop from BOM |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-1768](https://issues.apache.org/jira/browse/BIGTOP-1768) | Use openjdk in ubuntu14, Remove references to jdk6 |  Major | build | Olaf Flebbe | Olaf Flebbe |

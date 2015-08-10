@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 1.3.2 - Unreleased
+## Release 1.3.2 - Unreleased (as of 2015-08-10)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -36,6 +36,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-9633](https://issues.apache.org/jira/browse/SPARK-9633) | SBT download locations outdated; need an update |  Minor | Build | Sean Owen | Sean Owen |
 | [SPARK-9507](https://issues.apache.org/jira/browse/SPARK-9507) | Remove dependency reduced POM hack now that shade plugin is updated |  Minor | Build | Sean Owen | Sean Owen |
 | [SPARK-8126](https://issues.apache.org/jira/browse/SPARK-8126) | Use temp directory under build dir for unit tests |  Minor | Build | Marcelo Vanzin | Marcelo Vanzin |
 | [SPARK-7744](https://issues.apache.org/jira/browse/SPARK-7744) | "Distributed matrix" section in MLlib "Data Types" documentation should be reordered. |  Minor | Documentation, MLlib | Mike Dusenberry | Mike Dusenberry |

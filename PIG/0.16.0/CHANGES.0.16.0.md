@@ -18,7 +18,7 @@
 -->
 # Apache Pig Changelog
 
-## Release 0.16.0 - Unreleased
+## Release 0.16.0 - Unreleased (as of 2015-08-10)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -30,6 +30,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [PIG-4639](https://issues.apache.org/jira/browse/PIG-4639) | Add better parser for Apache HTTPD access log. |  Major | piggybank | Niels Basjes | Niels Basjes |
 | [PIG-4570](https://issues.apache.org/jira/browse/PIG-4570) | Allow AvroStorage to use a class for the schema |  Minor | . | Paul Mazak | Paul Mazak |
 
 
@@ -37,7 +38,9 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [PIG-4638](https://issues.apache.org/jira/browse/PIG-4638) | Allow TOMAP to accept dynamically sized input |  Major | . | Niels Basjes | Niels Basjes |
 | [PIG-4578](https://issues.apache.org/jira/browse/PIG-4578) | ToDateISO should support optional ' ' space variant used by JDBC |  Minor | internal-udfs | Michael Howard | Michael Howard |
+| [PIG-4405](https://issues.apache.org/jira/browse/PIG-4405) | Adding 'map[]' support to mock/Storage |  Major | . | Niels Basjes | Niels Basjes |
 | [PIG-3622](https://issues.apache.org/jira/browse/PIG-3622) | Allow casting bytearray fields to bytearray type |  Minor | . | Redis Liu | Redis Liu |
 
 
@@ -45,6 +48,8 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [PIG-4650](https://issues.apache.org/jira/browse/PIG-4650) | ant mvn-deploy target is broken |  Major | build | Daniel Dai | Daniel Dai |
+| [PIG-4649](https://issues.apache.org/jira/browse/PIG-4649) | [Pig on Tez] Union followed by HCatStorer misses some data |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-4636](https://issues.apache.org/jira/browse/PIG-4636) | Occurred spelled incorrectly in error message for Launcher and POMergeCogroup |  Trivial | . | Steven Magana-Zook | Steven Magana-Zook |
 | [PIG-4624](https://issues.apache.org/jira/browse/PIG-4624) | Error on ORC empty file without schema |  Major | . | Thejas M Nair | Daniel Dai |
 | [PIG-4618](https://issues.apache.org/jira/browse/PIG-4618) | When use tez as the engine , set pig.user.cache.enabled=true  do  not take effect |  Major | tez | Xiaowei Wang | Xiaowei Wang |

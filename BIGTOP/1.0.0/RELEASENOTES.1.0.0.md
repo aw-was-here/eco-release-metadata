@@ -23,6 +23,54 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [BIGTOP-1958](https://issues.apache.org/jira/browse/BIGTOP-1958) | *Blocker* | **Upgrade default repositories and docker images to 1.0**
+
+The default repositories in puppet recipes and bigtop provisioner configurations are still 0.8.0. We should upgrade them to 1.0.0 repo and switch the docker image to 1.0 version as well.
+
+
+---
+
+* [BIGTOP-1951](https://issues.apache.org/jira/browse/BIGTOP-1951) | *Blocker* | **Fix licenses in the source files**
+
+The following files are missing ASL header
+{code}
+  bigtop-deploy/puppet/modules/hue/templates/hue.ini
+  bigtop-deploy/puppet/modules/tachyon/templates/log4j.properties
+  bigtop-deploy/puppet/modules/tachyon/templates/tachyon-env.sh
+  bigtop-deploy/vm/utils/smoke-tests.sh
+  bigtop-deploy/vm/vagrant-puppet-docker/boot2docker/Vagrantfile
+  bigtop-deploy/vm/vagrant-puppet-docker/vagrantconfig.yaml
+  bigtop-deploy/vm/vagrant-puppet-docker/vagrantconfig\_debian.yaml
+  bigtop-deploy/vm/vagrant-puppet-docker/docker-hadoop.sh
+  bigtop-deploy/vm/vagrant-puppet-vm/vagrantconfig.yaml
+  bigtop-deploy/vm/vagrant-puppet-openstack/para-provision.sh
+  bigtop-deploy/vm/vagrant-puppet-openstack/vagrantconfig.yaml
+  bigtop-ci/jenkins/jobsCreator.groovy
+  MAINTAINERS.txt
+  docker/bigtop-puppet/centos-6/Dockerfile
+  docker/bigtop-puppet/centos-6/build.sh
+  docker/bigtop-puppet/centos-7/Dockerfile
+  docker/bigtop-puppet/centos-7/build.sh
+  docker/bigtop-puppet/debian-8/Dockerfile
+  docker/bigtop-puppet/debian-8/build.sh
+  docker/bigtop-puppet/fedora-20/Dockerfile
+  docker/bigtop-puppet/fedora-20/build.sh
+  docker/bigtop-puppet/opensuse-13.2/Dockerfile
+  docker/bigtop-puppet/opensuse-13.2/build.sh
+  docker/bigtop-puppet/ubuntu-14.04/Dockerfile
+  docker/bigtop-puppet/ubuntu-14.04/build.sh
+  bigtop-bigpetstore/README.md
+  bigtop-bigpetstore/bigpetstore-data-generator/README.md
+  bigtop-bigpetstore/bigpetstore-spark/README.md
+  bigtop-bigpetstore/bigpetstore-spark/src/test/scala/org/apache/bigpetstore/spark/TestFullPipeline.scala
+  bigtop-bigpetstore/bigpetstore-transaction-queue/Dockerfile
+  bigtop-bigpetstore/bigpetstore-transaction-queue/README.md
+  bigtop-bigpetstore/bigpetstore-transaction-queue/build.gradle
+{code}
+
+
+---
+
 * [BIGTOP-1950](https://issues.apache.org/jira/browse/BIGTOP-1950) | *Blocker* | **Upgrade maven-assembly plugin: StackOverFlowException is thrown**
 
 During the {{fatjar}} creation an NPE is thrown by maven-assembly plugin. A bit of investigation shows that it is caused by StackOverflowException.
@@ -40,6 +88,13 @@ test-artifacts can not be deployed nor verified. the following message is gettin
 [ERROR] Failed to execute goal on project sqoop-smoke: Could not resolve dependencies for project org.apache.bigtop.itest:sqoop-smoke:jar:1.0.0: The following artifacts could not be resolved: org.apache.sqoop:sqoop-core:jar:1.4.5, org.apache.sqoop:sqoop-client:jar:1.4.5: Could not find artifact org.apache.sqoop:sqoop-core:jar:1.4.5 in central (http://repo.maven.apache.org/maven2) -> [Help 1]
 {verbatim}
 Indeed https://repo1.maven.org/maven2/org/apache/sqoop/ does have nothing of the sort. Does Sqoop community still publish 1.4.* artifacts at all?
+
+
+---
+
+* [BIGTOP-1947](https://issues.apache.org/jira/browse/BIGTOP-1947) | *Major* | **Fix RAT plugin configuration to be able to RAT-validate all published artifacts**
+
+Right now an attempt to run {{mvn deploy -Prelease -f bigtop-test-framework/pom.xml}} will fail the RAT-check because some of the static test data files don't have ASL header. This needs to be properly excluded from the validation.
 
 
 ---
@@ -735,6 +790,16 @@ Going to add `/user/hbase` in `init-hcfs.json`.
 * [BIGTOP-1810](https://issues.apache.org/jira/browse/BIGTOP-1810) | *Major* | **Spark thriftserver service does not indicate success**
 
 Although the thriftsever starts running the return code is wrong, so systemctl reports a failure to start.  Currently checkstatusofproc tests for the pid which is supposed to be stored in "/var/run/spark/${DAEMON}.pid", but this file does not exist.  I have a patch for this which I have tested to confirm that the service indicates success/failure appropriately.
+
+
+---
+
+* [BIGTOP-1809](https://issues.apache.org/jira/browse/BIGTOP-1809) | *Critical* | **Remove gridgain-hadoop component once ignite-hadoop gets added**
+
+GridGain Hadoop superseded by Ignite Hadoop.
+Once ignite-hadoop added to BigTop, gridgain should be removed from there.
+
+See https://issues.apache.org/jira/browse/BIGTOP-1806
 
 
 ---
@@ -3461,6 +3526,23 @@ clrQuota
 setSpaceQuota
 setBalancerBandwidth
 finalizeUpgrade
+
+
+---
+
+* [BIGTOP-1315](https://issues.apache.org/jira/browse/BIGTOP-1315) | *Major* | **Pig smoke tests:  Refactor ?**
+
+The pig tests which we ship are only running the TestPigTest and TestGruntParser tests.
+
+As usual, I'll make my trademark statement :) 
+
+1) Is all the indirection of including a jar file maintained externally really worth it for two simple tests, neither of  which are customizable, and both of which run on very small data sets, built for  a local machine only ? We can easily maintain our own Itest based groovy tests in the Style of BIGTOP-1222.    Would be easier for others to use and adopt.   
+
+The second test "TestGruntParser" doesnt really seem like it should even run inside of bigtop, should it?
+
+2) If we still do want to keep using the artifacts from pigsmoke, for now we will should to upgrade to pigsmoke 0.12.1.
+
+My personal opinion (if you havent already guessed...) is that I think pig's definition of a "smoke" test isnt quite the same as ours (unless im missing something), so id like to think some more about (1), as a possible option / alternative. :)
 
 
 ---

@@ -23,9 +23,30 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [PIG-4639](https://issues.apache.org/jira/browse/PIG-4639) | *Major* | **Add better parser for Apache HTTPD access log.**
+
+In piggybank there is now a generic Apache httpd access log loader that supports (almost) all custom LogFormats.
+
+
+---
+
+* [PIG-4638](https://issues.apache.org/jira/browse/PIG-4638) | *Major* | **Allow TOMAP to accept dynamically sized input**
+
+The TOMAP function now also accepts a bag of key-value pairs as input.
+
+
+---
+
 * [PIG-4578](https://issues.apache.org/jira/browse/PIG-4578) | *Minor* | **ToDateISO should support optional ' ' space variant used by JDBC**
 
 Built-in UDF ToDateISO(chararray) now allows a space character instead of requiring a 'T' between date and time in an ISO-8601 timestamp. Facilitates parsing of JDBC timestamp format.
+
+
+---
+
+* [PIG-4405](https://issues.apache.org/jira/browse/PIG-4405) | *Major* | **Adding 'map[]' support to mock/Storage**
+
+The Storage mocking feature supports input and output of "map" types.
 
 
 ---

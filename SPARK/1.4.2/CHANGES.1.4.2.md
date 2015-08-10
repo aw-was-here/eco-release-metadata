@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 1.4.2 - Unreleased
+## Release 1.4.2 - Unreleased (as of 2015-08-10)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -36,23 +36,27 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-9633](https://issues.apache.org/jira/browse/SPARK-9633) | SBT download locations outdated; need an update |  Minor | Build | Sean Owen | Sean Owen |
 | [SPARK-9507](https://issues.apache.org/jira/browse/SPARK-9507) | Remove dependency reduced POM hack now that shade plugin is updated |  Minor | Build | Sean Owen | Sean Owen |
 | [SPARK-9496](https://issues.apache.org/jira/browse/SPARK-9496) | Do not print password in Hive Config |  Minor | SQL | Tao Wang | Tao Wang |
 | [SPARK-9352](https://issues.apache.org/jira/browse/SPARK-9352) | Add tests for standalone scheduling code |  Critical | Deploy, Tests | Andrew Or | Andrew Or |
 | [SPARK-9094](https://issues.apache.org/jira/browse/SPARK-9094) | Increase io.dropwizard.metrics dependency to 3.1.2 |  Minor | Spark Core | Carl Anders Düvel | Carl Anders Düvel |
 | [SPARK-9010](https://issues.apache.org/jira/browse/SPARK-9010) | Improve the Spark Configuration document about `spark.kryoserializer.buffer` |  Trivial | Documentation | StanZhai | StanZhai |
 | [SPARK-8390](https://issues.apache.org/jira/browse/SPARK-8390) | Update DirectKafkaWordCount examples to show how offset ranges can be used |  Major | Streaming | Tathagata Das | Cody Koeninger |
+| [SPARK-6591](https://issues.apache.org/jira/browse/SPARK-6591) | Python data source load options should auto convert common types into strings |  Major | PySpark, SQL | Reynold Xin | Yijie Shen |
 
 
 ### BUG FIXES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-9691](https://issues.apache.org/jira/browse/SPARK-9691) | PySpark SQL rand function treats seed 0 as no seed |  Major | PySpark, SQL | Joseph K. Bradley | Yin Huai |
 | [SPARK-9608](https://issues.apache.org/jira/browse/SPARK-9608) | Incorrect zinc -status check in build/mvn |  Minor | Build | Ryan Williams | Ryan Williams |
 | [SPARK-9607](https://issues.apache.org/jira/browse/SPARK-9607) | Incorrect zinc check in build/mvn |  Minor | Build | Ryan Williams | Ryan Williams |
 | [SPARK-9491](https://issues.apache.org/jira/browse/SPARK-9491) | App running on secure YARN with no HBase config will hang |  Blocker | YARN | Marcelo Vanzin | Marcelo Vanzin |
 | [SPARK-9446](https://issues.apache.org/jira/browse/SPARK-9446) | Clear Active SparkContext in stop() method |  Minor | Spark Core | Ted Yu | Ted Yu |
 | [SPARK-9371](https://issues.apache.org/jira/browse/SPARK-9371) | Special chars in column names is broken in HiveContext |  Major | SQL | Wenchen Fan | Wenchen Fan |
+| [SPARK-9353](https://issues.apache.org/jira/browse/SPARK-9353) | Standalone scheduling memory requirement incorrect if cores per executor is not set |  Major | Deploy | Andrew Or | Andrew Or |
 | [SPARK-9326](https://issues.apache.org/jira/browse/SPARK-9326) | Spark never closes the lock file used to prevent concurrent downloads |  Minor | Spark Core | Kay Ousterhout | Kay Ousterhout |
 | [SPARK-9260](https://issues.apache.org/jira/browse/SPARK-9260) | Standalone scheduling can overflow a worker with cores |  Major | Deploy | Andrew Or | Nishkam Ravi |
 | [SPARK-9254](https://issues.apache.org/jira/browse/SPARK-9254) | sbt-launch-lib.bash should use `curl --location` to support HTTP/HTTPS redirection |  Major | Build | Cheng Lian | Cheng Lian |

@@ -21,4 +21,11 @@
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
 
 
+---
+
+* [HBASE-13865](https://issues.apache.org/jira/browse/HBASE-13865) | *Trivial* | **Increase the default value for hbase.hregion.memstore.block.multipler from 2 to 4 (part 2)**
+
+Increase default hbase.hregion.memstore.block.multiplier from 2 to 4 in the code to match the default value in the config files.
+
+
 

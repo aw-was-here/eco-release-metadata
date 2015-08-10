@@ -23,6 +23,24 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-9691](https://issues.apache.org/jira/browse/SPARK-9691) | *Major* | **PySpark SQL rand function treats seed 0 as no seed**
+
+In PySpark SQL's rand() function, it tests for a seed in a way such that seed 0 is treated as no seed, leading to non-deterministic results when a user would expect deterministic results.
+
+See: [https://github.com/apache/spark/blob/98e69467d4fda2c26a951409b5b7c6f1e9345ce4/python/pyspark/sql/functions.py#L271]
+
+
+---
+
+* [SPARK-9633](https://issues.apache.org/jira/browse/SPARK-9633) | *Minor* | **SBT download locations outdated; need an update**
+
+The SBT download script tries to download from two locations, typesafe.artifactoryonline.com and repo.typesafe.com. The former is offline; the latter redirects to dl.bintray.com now. In fact, bintray seems like the only place to download SBT at this point. We should update to reference bintray directly.
+
+PS: we should download SBT over HTTPS too, not HTTP
+
+
+---
+
 * [SPARK-9608](https://issues.apache.org/jira/browse/SPARK-9608) | *Minor* | **Incorrect zinc -status check in build/mvn**
 
 {{build/mvn}} [uses a {{-z `zinc -status`}} test|https://github.com/apache/spark/blob/5a23213c148bfe362514f9c71f5273ebda0a848a/build/mvn#L138] to determine whether a {{zinc}} process is running.
@@ -124,6 +142,17 @@ Caused by: java.lang.InterruptedException
         ... 6 more
 {code}
 Effect of the above exception is that a stopped SparkContext is returned to user since SparkContext.clearActiveContext() is not called.
+
+
+---
+
+* [SPARK-9353](https://issues.apache.org/jira/browse/SPARK-9353) | *Major* | **Standalone scheduling memory requirement incorrect if cores per executor is not set**
+
+I tried to come up with a more succinct title.
+
+The issue only happens if `spark.executor.cores` is not set. Right now if we have a worker with 8G, and we set `spark.executor.memory` to 1G, then the executor launched on the worker can have at most 8 cores, even if the worker has more cores available.
+
+This is caused by the fix in SPARK-8881.
 
 
 ---
@@ -542,6 +571,24 @@ https://amplab.cs.berkeley.edu/jenkins/job/Spark-Master-SBT/AMPLAB\_JENKINS\_BUI
 {code}
 df.select("name", rank("time"))
 {code}
+
+
+---
+
+* [SPARK-6591](https://issues.apache.org/jira/browse/SPARK-6591) | *Major* | **Python data source load options should auto convert common types into strings**
+
+See the discussion at : https://github.com/databricks/spark-csv/pull/39
+
+If the caller invokes
+{code}
+sqlContext.load("com.databricks.spark.csv", path = "cars.csv", header = True)
+{code}
+
+We should automatically turn header into "true" in string form.
+
+We should do this for booleans and numeric values.
+
+cc [~yhuai]
 
 
 ---

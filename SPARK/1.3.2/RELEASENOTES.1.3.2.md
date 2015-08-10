@@ -23,6 +23,15 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-9633](https://issues.apache.org/jira/browse/SPARK-9633) | *Minor* | **SBT download locations outdated; need an update**
+
+The SBT download script tries to download from two locations, typesafe.artifactoryonline.com and repo.typesafe.com. The former is offline; the latter redirects to dl.bintray.com now. In fact, bintray seems like the only place to download SBT at this point. We should update to reference bintray directly.
+
+PS: we should download SBT over HTTPS too, not HTTP
+
+
+---
+
 * [SPARK-9608](https://issues.apache.org/jira/browse/SPARK-9608) | *Minor* | **Incorrect zinc -status check in build/mvn**
 
 {{build/mvn}} [uses a {{-z `zinc -status`}} test|https://github.com/apache/spark/blob/5a23213c148bfe362514f9c71f5273ebda0a848a/build/mvn#L138] to determine whether a {{zinc}} process is running.

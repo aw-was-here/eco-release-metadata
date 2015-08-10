@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.8.3 - Unreleased
+## Release 0.8.3 - Unreleased (as of 2015-08-10)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -38,6 +38,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-2384](https://issues.apache.org/jira/browse/KAFKA-2384) | Override commit message title in kafka-merge-pr.py |  Major | . | Guozhang Wang | Ismael Juma |
 | [KAFKA-2350](https://issues.apache.org/jira/browse/KAFKA-2350) | Add KafkaConsumer pause capability |  Major | consumer | Jason Gustafson | Jason Gustafson |
 | [KAFKA-2344](https://issues.apache.org/jira/browse/KAFKA-2344) | kafka-merge-pr improvements |  Minor | . | Gwen Shapira | Ismael Juma |
 | [KAFKA-2328](https://issues.apache.org/jira/browse/KAFKA-2328) | merge-kafka-pr.py script should not leave user in a detached branch |  Minor | . | Ismael Juma | Ismael Juma |
@@ -88,6 +89,10 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-2413](https://issues.apache.org/jira/browse/KAFKA-2413) | New consumer's subscribe(Topic...) api fails if called more than once |  Major | consumer | Ashish K Singh | Onur Karaman |
+| [KAFKA-2407](https://issues.apache.org/jira/browse/KAFKA-2407) | Only create a log directory when it will be used |  Major | . | Grant Henke | Grant Henke |
+| [KAFKA-2405](https://issues.apache.org/jira/browse/KAFKA-2405) | KafkaHealthCheck kills the JVM in handleSessionEstablishmentError |  Major | core | jaikiran pai | jaikiran pai |
+| [KAFKA-2393](https://issues.apache.org/jira/browse/KAFKA-2393) | Correctly Handle InvalidTopicException in KafkaApis.getTopicMetadata() |  Major | . | Grant Henke | Grant Henke |
 | [KAFKA-2381](https://issues.apache.org/jira/browse/KAFKA-2381) | Possible ConcurrentModificationException while unsubscribing from a topic in new consumer |  Major | consumer | Ashish K Singh | Ashish K Singh |
 | [KAFKA-2357](https://issues.apache.org/jira/browse/KAFKA-2357) | Update zookeeper.connect description in Kafka documentation |  Major | . | Yuto Sasaki | David Jacot |
 | [KAFKA-2353](https://issues.apache.org/jira/browse/KAFKA-2353) | SocketServer.Processor should catch exception and close the socket properly in configureNewConnections. |  Major | . | Jiangjie Qin | Jiangjie Qin |
@@ -104,6 +109,8 @@
 | [KAFKA-2304](https://issues.apache.org/jira/browse/KAFKA-2304) | Support enabling JMX in Kafka Vagrantfile |  Minor | . | Stevo Slavic | Stevo Slavic |
 | [KAFKA-2291](https://issues.apache.org/jira/browse/KAFKA-2291) | Documentation Error |  Trivial | website | UTKARSH BHATNAGAR |  |
 | [KAFKA-2290](https://issues.apache.org/jira/browse/KAFKA-2290) | OffsetIndex should open RandomAccessFile consistently |  Major | core | Jun Rao | Chris Black |
+| [KAFKA-2288](https://issues.apache.org/jira/browse/KAFKA-2288) | Follow-up to KAFKA-2249 - reduce logging and testing |  Major | . | Gwen Shapira | Gwen Shapira |
+| [KAFKA-2281](https://issues.apache.org/jira/browse/KAFKA-2281) | org.apache.kafka.clients.producer.internals.ErrorLoggingCallback holds unnecessary byte[] value |  Major | producer | TAO XIAO | TAO XIAO |
 | [KAFKA-2276](https://issues.apache.org/jira/browse/KAFKA-2276) | Initial patch for KIP-25 |  Major | . | Geoffrey Anderson | Geoffrey Anderson |
 | [KAFKA-2272](https://issues.apache.org/jira/browse/KAFKA-2272) | listeners endpoint parsing fails if the hostname has capital letter |  Major | . | Sriharsha Chintalapani | Sriharsha Chintalapani |
 | [KAFKA-2270](https://issues.apache.org/jira/browse/KAFKA-2270) | incorrect package name in unit tests |  Minor | core | Jun Rao | Proneet Verma |
@@ -216,6 +223,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [KAFKA-2355](https://issues.apache.org/jira/browse/KAFKA-2355) | Add an unit test to validate the deletion of a partition marked as deleted |  Minor | . | Edward Ribeiro | Edward Ribeiro |
+| [KAFKA-2340](https://issues.apache.org/jira/browse/KAFKA-2340) | Add additional unit tests for new consumer Fetcher |  Major | . | Jason Gustafson | Jason Gustafson |
 | [KAFKA-2013](https://issues.apache.org/jira/browse/KAFKA-2013) | benchmark test for the purgatory |  Trivial | purgatory | Yasuhiro Matsuda | Yasuhiro Matsuda |
 
 
@@ -223,17 +231,23 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-2415](https://issues.apache.org/jira/browse/KAFKA-2415) | Transient failure in LogRecoveryTest.testHWCheckpointWithFailuresMultipleLogSegments |  Major | . | Jiangjie Qin | Jiangjie Qin |
+| [KAFKA-2401](https://issues.apache.org/jira/browse/KAFKA-2401) | Fix transient failure of ProducerSendTest.testCloseWithZeroTimeoutFromSenderThread() |  Major | . | Jiangjie Qin | Jiangjie Qin |
+| [KAFKA-2400](https://issues.apache.org/jira/browse/KAFKA-2400) | Expose heartbeat frequency in new consumer configuration |  Minor | . | Jason Gustafson | Jason Gustafson |
+| [KAFKA-2386](https://issues.apache.org/jira/browse/KAFKA-2386) | Transient test failure: testGenerationIdIncrementsOnRebalance |  Major | . | Jason Gustafson | Jason Gustafson |
 | [KAFKA-2342](https://issues.apache.org/jira/browse/KAFKA-2342) | KafkaConsumer rebalance with in-flight fetch can cause invalid position |  Major | core | Jun Rao | Jason Gustafson |
 | [KAFKA-2301](https://issues.apache.org/jira/browse/KAFKA-2301) | Deprecate ConsumerOffsetChecker |  Major | tools | Ashish K Singh | Ashish K Singh |
 | [KAFKA-2275](https://issues.apache.org/jira/browse/KAFKA-2275) | Add a ListTopics() API to the new consumer |  Critical | consumer | Guozhang Wang | Ashish K Singh |
 | [KAFKA-2271](https://issues.apache.org/jira/browse/KAFKA-2271) | transient unit test failure in KafkaConfigConfigDefTest.testFromPropsToProps |  Major | core | Jun Rao | Jason Gustafson |
 | [KAFKA-2245](https://issues.apache.org/jira/browse/KAFKA-2245) | Add response tests for ConsumerCoordinator |  Critical | consumer | Onur Karaman | Onur Karaman |
+| [KAFKA-2205](https://issues.apache.org/jira/browse/KAFKA-2205) | Generalize TopicConfigManager to handle multiple entity configs |  Major | . | Aditya Auradkar | Aditya Auradkar |
 | [KAFKA-2195](https://issues.apache.org/jira/browse/KAFKA-2195) | Add versionId to AbstractRequest.getErrorResponse and AbstractRequest.getRequest |  Major | . | Andrii Biletskyi | Andrii Biletskyi |
 | [KAFKA-2168](https://issues.apache.org/jira/browse/KAFKA-2168) | New consumer poll() can block other calls like position(), commit(), and close() indefinitely |  Critical | clients, consumer | Ewen Cheslack-Postava | Jason Gustafson |
 | [KAFKA-2123](https://issues.apache.org/jira/browse/KAFKA-2123) | Make new consumer offset commit API use callback + future |  Critical | clients, consumer | Ewen Cheslack-Postava | Jason Gustafson |
 | [KAFKA-2103](https://issues.apache.org/jira/browse/KAFKA-2103) | kafka.producer.AsyncProducerTest failure. |  Major | . | Jiangjie Qin | Ewen Cheslack-Postava |
 | [KAFKA-2089](https://issues.apache.org/jira/browse/KAFKA-2089) | MetadataTest transient failure |  Major | . | Jun Rao | Rajini Sivaram |
 | [KAFKA-2056](https://issues.apache.org/jira/browse/KAFKA-2056) | PartitionAssignorTest.testRangePartitionAssignor transient failure |  Major | . | Guozhang Wang | Fangmin Lv |
+| [KAFKA-2055](https://issues.apache.org/jira/browse/KAFKA-2055) | ConsumerBounceTest.testSeekAndCommitWithBrokerFailures transient failure |  Major | . | Guozhang Wang | Fangmin Lv |
 | [KAFKA-1986](https://issues.apache.org/jira/browse/KAFKA-1986) | Producer request failure rate should not include InvalidMessageSizeException and OffsetOutOfRangeException |  Major | . | Aditya Auradkar | Aditya Auradkar |
 | [KAFKA-1953](https://issues.apache.org/jira/browse/KAFKA-1953) | Disambiguate metrics from different purgatories |  Major | purgatory | Joel Koshy | Joel Koshy |
 | [KAFKA-1943](https://issues.apache.org/jira/browse/KAFKA-1943) | Producer request failure rate should not include MessageSetSizeTooLarge and MessageSizeTooLargeException |  Major | . | Aditya A Auradkar | Aditya Auradkar |
