@@ -18,7 +18,7 @@
 -->
 # Apache Hadoop Yetus Changelog
 
-## Release HADOOP-12111 - Unreleased (as of 2015-08-10)
+## Release HADOOP-12111 - Unreleased (as of 2015-08-13)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -55,7 +55,10 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HADOOP-12316](https://issues.apache.org/jira/browse/HADOOP-12316) | Potential false-positive and false-negative in parsing TAP output |  Major | yetus | Kengo Seki | Kengo Seki |
+| [HADOOP-12315](https://issues.apache.org/jira/browse/HADOOP-12315) | hbaseprotoc\_postapply in the test-patch hbase personality can return a wrong status |  Major | yetus | Kengo Seki | Kengo Seki |
 | [HADOOP-12310](https://issues.apache.org/jira/browse/HADOOP-12310) | final memory report sometimes generates spurious errors |  Major | yetus | Allen Wittenauer | Kengo Seki |
+| [HADOOP-12297](https://issues.apache.org/jira/browse/HADOOP-12297) | test-patch's basedir and patch-dir must be directories under the user's home in docker mode if using boot2docker |  Major | yetus | Kengo Seki | Kengo Seki |
 | [HADOOP-12289](https://issues.apache.org/jira/browse/HADOOP-12289) | Move recent yetus docker changes to the yetus dockerfile |  Major | yetus | Allen Wittenauer | Allen Wittenauer |
 | [HADOOP-12287](https://issues.apache.org/jira/browse/HADOOP-12287) | add support for perlcritic |  Major | yetus | Allen Wittenauer | Kengo Seki |
 | [HADOOP-12286](https://issues.apache.org/jira/browse/HADOOP-12286) | test-patch pylint plugin should support indent-string option |  Major | yetus | Kengo Seki | Kengo Seki |
@@ -68,6 +71,7 @@
 | [HADOOP-12254](https://issues.apache.org/jira/browse/HADOOP-12254) | test-patch.sh should run findbugs if only findbugs-exclude.xml has changed |  Major | yetus | Varun Saxena | Kengo Seki |
 | [HADOOP-12248](https://issues.apache.org/jira/browse/HADOOP-12248) | Add native support for TAP |  Major | yetus | Allen Wittenauer | Allen Wittenauer |
 | [HADOOP-12247](https://issues.apache.org/jira/browse/HADOOP-12247) | Convert 'unit' to 'junit' |  Blocker | yetus | Allen Wittenauer | Allen Wittenauer |
+| [HADOOP-12244](https://issues.apache.org/jira/browse/HADOOP-12244) | recover broken rebase during precommit |  Critical | yetus | Allen Wittenauer | Allen Wittenauer |
 | [HADOOP-12243](https://issues.apache.org/jira/browse/HADOOP-12243) | Rewrite grep -o's to be POSIX compliant |  Major | yetus | Kengo Seki | Kengo Seki |
 | [HADOOP-12228](https://issues.apache.org/jira/browse/HADOOP-12228) | Document releasedocmaker |  Major | yetus | Allen Wittenauer | Allen Wittenauer |
 | [HADOOP-12226](https://issues.apache.org/jira/browse/HADOOP-12226) | CHANGED\_MODULES is wrong for ant |  Major | yetus | Allen Wittenauer | Allen Wittenauer |

@@ -30,6 +30,20 @@ HIVE-11476: TypeInfoParser cannot handle column names with spaces in them (Gopal
 
 ---
 
+* [HIVE-11462](https://issues.apache.org/jira/browse/HIVE-11462) | *Major* | **GenericUDFStruct should constant fold at compile time**
+
+Constant fold struct() UDF
+
+
+---
+
+* [HIVE-11457](https://issues.apache.org/jira/browse/HIVE-11457) | *Major* | **Vectorization: Improve SIMD JIT in GenVectorCode StringExpr instrinsics**
+
+Vectorization: Improve GenVectorCode string equals intrinsic
+
+
+---
+
 * [HIVE-11215](https://issues.apache.org/jira/browse/HIVE-11215) | *Minor* | **Vectorized grace hash-join throws FileUtil warnings**
 
  HIVE-11215: Delete spills only if they exist (Gopal V, reviewed by Matt Mccline)

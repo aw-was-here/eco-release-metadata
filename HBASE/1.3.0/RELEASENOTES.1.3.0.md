@@ -30,6 +30,14 @@ This changes upgrades thrift dependency of HBase to 0.9.2. Though this doesn't b
 
 ---
 
+* [HBASE-13985](https://issues.apache.org/jira/browse/HBASE-13985) | *Minor* | **Add configuration to skip validating HFile format when bulk loading**
+
+A new config, hbase.loadincremental.validate.hfile , is introduced - default to true
+When set to false, checking hfile format is skipped during bulkloading.
+
+
+---
+
 * [HBASE-13963](https://issues.apache.org/jira/browse/HBASE-13963) | *Critical* | **avoid leaking jdk.tools**
 
 HBase now ensures that the JDK tools jar used during the build process is not exposed to downstream clients as a transitive dependency of hbase-annotations.
@@ -56,6 +64,13 @@ HBASE-13881 Correct HTable incrementColumnValue implementation
 * [HBASE-13865](https://issues.apache.org/jira/browse/HBASE-13865) | *Trivial* | **Increase the default value for hbase.hregion.memstore.block.multipler from 2 to 4 (part 2)**
 
 Increase default hbase.hregion.memstore.block.multiplier from 2 to 4 in the code to match the default value in the config files.
+
+
+---
+
+* [HBASE-13706](https://issues.apache.org/jira/browse/HBASE-13706) | *Minor* | **CoprocessorClassLoader should not exempt Hive classes**
+
+Starting from HBase 2.0, CoprocessorClassLoader will not exempt hadoop classes or zookeeper classes.  This means that if the custom coprocessor jar contains hadoop or zookeeper packages and classes, they will be loaded by the CoprocessorClassLoader.  Only hbase packages and classes  are exempted from the CoprocessorClassLoader. They (and their dependencies) are loaded by the parent server class loader.
 
 
 ---

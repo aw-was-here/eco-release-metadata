@@ -23,6 +23,15 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [HBASE-14201](https://issues.apache.org/jira/browse/HBASE-14201) | *Major* | **hbck should not take a lock unless fixing errors**
+
+HBCK no longer takes a lock until there are changes to the cluster being made.
+
+The old behavior can be achieved by passing the -exclusive flag.
+
+
+---
+
 * [HBASE-14081](https://issues.apache.org/jira/browse/HBASE-14081) | *Minor* | **(outdated) references to SVN/trunk in documentation**
 
 HBASE-14081 Remove (outdated) references to SVN/trunk from documentation
@@ -73,6 +82,14 @@ This release includes initial support for running Spark against HBase with a ric
 * convenience methods for interacting with HBase from an HBase backed RDD / DStream instance
 * examples in both the Spark Java API and Spark Scala API
 * support for running against a secure HBase cluster
+
+
+---
+
+* [HBASE-13985](https://issues.apache.org/jira/browse/HBASE-13985) | *Minor* | **Add configuration to skip validating HFile format when bulk loading**
+
+A new config, hbase.loadincremental.validate.hfile , is introduced - default to true
+When set to false, checking hfile format is skipped during bulkloading.
 
 
 ---
@@ -181,6 +198,13 @@ KeyValue#oswrite(final KeyValue kv, final OutputStream out)
 * [HBASE-13747](https://issues.apache.org/jira/browse/HBASE-13747) | *Critical* | **Promote Java 8 to "yes" in support matrix**
 
 Java 8 is considered supported and tested as of HBase 1.2+
+
+
+---
+
+* [HBASE-13706](https://issues.apache.org/jira/browse/HBASE-13706) | *Minor* | **CoprocessorClassLoader should not exempt Hive classes**
+
+Starting from HBase 2.0, CoprocessorClassLoader will not exempt hadoop classes or zookeeper classes.  This means that if the custom coprocessor jar contains hadoop or zookeeper packages and classes, they will be loaded by the CoprocessorClassLoader.  Only hbase packages and classes  are exempted from the CoprocessorClassLoader. They (and their dependencies) are loaded by the parent server class loader.
 
 
 ---

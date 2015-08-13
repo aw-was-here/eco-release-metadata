@@ -602,6 +602,13 @@ java.lang.InterruptedException: sleep interrupted
 
 ---
 
+* [TEZ-2540](https://issues.apache.org/jira/browse/TEZ-2540) | *Major* | **Create both tez-dist minimal and minimal.tar.gz formats as part of build**
+
+the full builds create both directory and corresponding tar.gz. this change would have the minimal build do the same.
+
+
+---
+
 * [TEZ-2534](https://issues.apache.org/jira/browse/TEZ-2534) | *Major* | **Error handling summary event when shutting down AM**
 
 When AM is shutting down, it will close the summary stream, but there may be still some events in the queue which will cause exception when handling summary event. And this would cause the next AM fail to recover the running dag. 

@@ -18,7 +18,7 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.8.0 - Unreleased (as of 2015-08-10)
+## Release 0.8.0 - Unreleased (as of 2015-08-13)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -67,7 +67,9 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [TEZ-2699](https://issues.apache.org/jira/browse/TEZ-2699) | Internalize strings in ATF parser |  Major | . | Bikas Saha | Bikas Saha |
+| [TEZ-2692](https://issues.apache.org/jira/browse/TEZ-2692) | bugfixes & enhancements related to job parser and analyzer |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-2684](https://issues.apache.org/jira/browse/TEZ-2684) | ShuffleVertexManager.parsePartitionStats throws IllegalStateException: Stats should be initialized |  Major | . | Wei Zheng | Rajesh Balamohan |
+| [TEZ-2683](https://issues.apache.org/jira/browse/TEZ-2683) | TestHttpConnection::testAsyncHttpConnectionInterrupt fails in certain environments |  Major | . | Hitesh Shah | Rajesh Balamohan |
 | [TEZ-2663](https://issues.apache.org/jira/browse/TEZ-2663) | SessionNotRunning exceptions are wrapped in a ServiceException from a dying AM |  Major | . | Gopal V | Hitesh Shah |
 | [TEZ-2636](https://issues.apache.org/jira/browse/TEZ-2636) | MRInput and MultiMRInput should work for cases when there are 0 physical inputs |  Major | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-2635](https://issues.apache.org/jira/browse/TEZ-2635) | Limit number of attempts being downloaded in unordered fetch |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
@@ -139,6 +141,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-2694](https://issues.apache.org/jira/browse/TEZ-2694) | Add TaskConcurrencyAnalyzer |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-2650](https://issues.apache.org/jira/browse/TEZ-2650) | Timing details on Vertex state changes |  Major | . | Bikas Saha | Bikas Saha |
 | [TEZ-2647](https://issues.apache.org/jira/browse/TEZ-2647) | Add input causality dependency for attempts |  Major | . | Bikas Saha | Bikas Saha |
 | [TEZ-2646](https://issues.apache.org/jira/browse/TEZ-2646) | Add scheduling casual dependency for attempts |  Major | . | Bikas Saha | Bikas Saha |

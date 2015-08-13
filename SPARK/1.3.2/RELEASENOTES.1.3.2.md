@@ -23,6 +23,32 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-9801](https://issues.apache.org/jira/browse/SPARK-9801) | *Minor* | **Spark streaming deletes the temp file and backup files without checking if they exist or not**
+
+For spark streaming, when checkpoint is happening, it is getting below error message from spark driver log: 
+
+{code}
+15/07/29 11:04:50 INFO CheckpointWriter: Saving checkpoint for time 1438135490000 ms to file 'maprfs:/user/mapr/spark-checkpoint2/checkpoint-1438135490000' 
+15/07/29 11:04:50 ERROR MapRFileSystem: Failed to delete path maprfs:/user/mapr/spark-checkpoint2/temp, error: No such file or directory (2) 
+15/07/29 11:04:50 ERROR MapRFileSystem: Failed to delete path maprfs:/user/mapr/spark-checkpoint2/checkpoint-1438135490000.bk, error: No such file or directory (2) 
+15/07/29 11:04:50 INFO CheckpointWriter: Deleting maprfs:///user/mapr/spark-checkpoint2/checkpoint-1438135480000 
+15/07/29 11:04:50 INFO CheckpointWriter: Checkpoint for time 1438135490000 ms saved to file 'maprfs:/user/mapr/spark-checkpoint2/checkpoint-1438135490000', took 8729 bytes and 14 ms 
+15/07/29 11:04:50 INFO DStreamGraph: Clearing checkpoint data for time 1438135490000 ms 
+15/07/29 11:04:50 INFO DStreamGraph: Cleared checkpoint data for time 1438135490000 ms
+{code}
+
+From the source code : 
+https://github.com/apache/spark/blob/master/streaming/src/main/scala/org/apache/spark/streaming/Checkpoint.scala
+
+When Spark tries to delete the 2 files, it did not check if the 2 files exist or not. 
+fs.delete(tempFile, true) // just in case it exists 
+fs.delete(backupFile, true) // just in case it exists
+
+We should add the logic to check if the files exist or not before deleting.
+
+
+---
+
 * [SPARK-9633](https://issues.apache.org/jira/browse/SPARK-9633) | *Minor* | **SBT download locations outdated; need an update**
 
 The SBT download script tries to download from two locations, typesafe.artifactoryonline.com and repo.typesafe.com. The former is offline; the latter redirects to dl.bintray.com now. In fact, bintray seems like the only place to download SBT at this point. We should update to reference bintray directly.

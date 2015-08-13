@@ -170,6 +170,7 @@
 | [SPARK-7407](https://issues.apache.org/jira/browse/SPARK-7407) | Use uid and param name to identify a parameter instead of the param object |  Major | ML | Xiangrui Meng | Xiangrui Meng |
 | [SPARK-7406](https://issues.apache.org/jira/browse/SPARK-7406) | Add tooltips for "Scheduling Delay", "Processing Time" and "Total Delay" in Streaming WebUI |  Minor | Streaming, Web UI | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-7396](https://issues.apache.org/jira/browse/SPARK-7396) | Update Producer in Kafka example to use new API of Kafka 0.8.2 |  Major | Examples, Streaming | Saisai Shao | Saisai Shao |
+| [SPARK-7373](https://issues.apache.org/jira/browse/SPARK-7373) | Support launching Spark drivers in Docker images with Mesos cluster mode |  Major | Mesos | Timothy Chen | Timothy Chen |
 | [SPARK-7350](https://issues.apache.org/jira/browse/SPARK-7350) | Attach the Streaming page when calling ssc.start() |  Minor | Streaming | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-7339](https://issues.apache.org/jira/browse/SPARK-7339) | PySpark shuffle spill memory sometimes are not correct |  Minor | PySpark | Weizhong | Weizhong |
 | [SPARK-7329](https://issues.apache.org/jira/browse/SPARK-7329) | Use itertools.product in ParamGridBuilder |  Minor | ML, PySpark | Xiangrui Meng | Xiangrui Meng |

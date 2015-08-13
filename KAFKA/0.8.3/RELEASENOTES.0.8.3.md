@@ -23,6 +23,22 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [KAFKA-2430](https://issues.apache.org/jira/browse/KAFKA-2430) | *Major* | **Listing of PR commits in commit message should be optional**
+
+Listing of PR commits is useful for curated branches, but the PRs for the Kafka project are often for organic branches and some of them has a large number of commits that are basically noise. Listing is also not useful if there is a single commit in the PR.
+
+This change in the PR script will not list the commit if there is a single one and let the merger decide whether listing the commits is useful or not for other cases.
+
+
+---
+
+* [KAFKA-2429](https://issues.apache.org/jira/browse/KAFKA-2429) | *Major* | **Add annotations to mark classes as stable/unstable**
+
+We should have some annotations so that we can mark classes as public and stable vs. in development and unstable. This will help address two issues. First, we already get fairly regular emails on the mailing list about non-functioning code because we sometimes check in stubbed out code to get started on some new code. Sometimes that also makes it into a release (e.g. the stubbed out interface for the new consumer). We don't expect that code to work, but it's not obvious to users that it shouldn't. Second, we sometimes want to be able to check in imperfect draft code because it's new, expected to be unstable, and it helps with reviewing to be able to get something smaller checked in and then iterate on it.
+
+
+---
+
 * [KAFKA-2415](https://issues.apache.org/jira/browse/KAFKA-2415) | *Major* | **Transient failure in LogRecoveryTest.testHWCheckpointWithFailuresMultipleLogSegments**
 
 See transient failure in the test with the following error message.
@@ -130,6 +146,25 @@ org.apache.kafka.common.KafkaException: Unexpected error in join group response:
 	at java.lang.reflect.Method.invoke(Method.java:606)
 	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:140)
 {code}
+
+
+---
+
+* [KAFKA-2408](https://issues.apache.org/jira/browse/KAFKA-2408) | *Major* | **(new) system tests: ConsoleConsumerService occasionally fails to register consumed message**
+
+There have been a few spurious failures in ReplicationTest.test\_hard\_bounce, where it was reported that a few of the acked messages were not consumed.
+
+Checking the logs, however, it is clear that they were consumed, but ConsoleConsumerService failed to parse.
+
+Lines causing parsing failure looks something like:
+
+779725[2015-08-03 07:25:47,757] ERROR [ConsumerFetcherThread-console-consumer-78957\_ip-172-31-5-20-1438586715191-249db71c-0-1], Error for partition [test\_topic,0] to broker 1:class kafka.common.NotLeaderForPartitionException (kafka.consumer.ConsumerFetcherThread)
+
+(i.e. the consumed message, and a log message appear on the same line)
+
+ConsoleConsumerService simply tries to strip each line of whitespace and parse as an integer, which will clearly fail in this case.
+
+Solution should either redirect stderr elsewhere or update parsing to handle this.
 
 
 ---
@@ -346,6 +381,19 @@ Additionally, updateFetchPosition (which was moved from KafkaConsumer) has no te
 When creating a new topic, convert the proposed topic name to the name that will be used in metrics and validate that there are no collisions with existing names.
 
 See this discussion for context: http://s.apache.org/snW
+
+
+---
+
+* [KAFKA-2336](https://issues.apache.org/jira/browse/KAFKA-2336) | *Major* | **Changing offsets.topic.num.partitions after the offset topic is created breaks consumer group partition assignment**
+
+Currently adjusting offsets.topic.num.partitions after the offset topic is created is not supported. Meaning that the number of partitions will not change once the topic has been created.
+
+However, changing the value in the configuration should not cause issues and instead simply be ignored. Currently this is not the case. 
+
+When the value of offsets.topic.num.partitions is changed after the offset topic is created the consumer group partition assignment completely changes even though the number of partitions does not change. 
+
+This is because \_kafka.server.OffsetManager.partitionFor(group: String)\_ uses the configured value and not the value of the actual topic.
 
 
 ---
@@ -580,6 +628,43 @@ java: target/snappy-1.1.1/snappy.cc:423: char* snappy::internal::CompressFragmen
 In the old producer we have droppedMessageRate that allows user to monitor the number of messages dropped when buffer is full and block on buffer full is set to false. This metric is useful in operation. However, in the new producer we don't have this a metric.
 
 The "errors" sensor in new-producers measures per-record error that is not limited to those caused by BufferExhaustedException. Thus it is not good enough.
+
+
+---
+
+* [KAFKA-2300](https://issues.apache.org/jira/browse/KAFKA-2300) | *Major* | **Error in controller log when broker tries to rejoin cluster**
+
+Hello Kafka folks,
+
+We are having an issue where a broker attempts to join the cluster after being restarted, but is never added to the ISR for its assigned partitions. This is a three-node cluster, and the controller is broker 2.
+
+When broker 1 starts, we see the following message in broker 2's controller.log.
+
+{{
+[2015-06-23 13:57:16,535] ERROR [BrokerChangeListener on Controller 2]: Error while handling broker changes (kafka.controller.ReplicaStateMachine$BrokerChangeListener)
+java.lang.IllegalStateException: Controller to broker state change requests batch is not empty while creating a new one. Some UpdateMetadata state changes Map(2 -> Map([prod-sver-end,1] -> (LeaderAndIsrInfo:(Leader:-2,ISR:1,LeaderEpoch:0,ControllerEpoch:165),ReplicationFactor:1),AllReplicas:1)), 1 -> Map([prod-sver-end,1] -> (LeaderAndIsrInfo:(Leader:-2,ISR:1,LeaderEpoch:0,ControllerEpoch:165),ReplicationFactor:1),AllReplicas:1)), 3 -> Map([prod-sver-end,1] -> (LeaderAndIsrInfo:(Leader:-2,ISR:1,LeaderEpoch:0,ControllerEpoch:165),ReplicationFactor:1),AllReplicas:1))) might be lost 
+  at kafka.controller.ControllerBrokerRequestBatch.newBatch(ControllerChannelManager.scala:202)
+  at kafka.controller.KafkaController.sendUpdateMetadataRequest(KafkaController.scala:974)
+  at kafka.controller.KafkaController.onBrokerStartup(KafkaController.scala:399)
+  at kafka.controller.ReplicaStateMachine$BrokerChangeListener$$anonfun$handleChildChange$1$$anonfun$apply$mcV$sp$1.apply$mcV$sp(ReplicaStateMachine.scala:371)
+  at kafka.controller.ReplicaStateMachine$BrokerChangeListener$$anonfun$handleChildChange$1$$anonfun$apply$mcV$sp$1.apply(ReplicaStateMachine.scala:359)
+  at kafka.controller.ReplicaStateMachine$BrokerChangeListener$$anonfun$handleChildChange$1$$anonfun$apply$mcV$sp$1.apply(ReplicaStateMachine.scala:359)
+  at kafka.metrics.KafkaTimer.time(KafkaTimer.scala:33)
+  at kafka.controller.ReplicaStateMachine$BrokerChangeListener$$anonfun$handleChildChange$1.apply$mcV$sp(ReplicaStateMachine.scala:358)
+  at kafka.controller.ReplicaStateMachine$BrokerChangeListener$$anonfun$handleChildChange$1.apply(ReplicaStateMachine.scala:357)
+  at kafka.controller.ReplicaStateMachine$BrokerChangeListener$$anonfun$handleChildChange$1.apply(ReplicaStateMachine.scala:357)
+  at kafka.utils.Utils$.inLock(Utils.scala:535)
+  at kafka.controller.ReplicaStateMachine$BrokerChangeListener.handleChildChange(ReplicaStateMachine.scala:356)
+  at org.I0Itec.zkclient.ZkClient$7.run(ZkClient.java:568)
+  at org.I0Itec.zkclient.ZkEventThread.run(ZkEventThread.java:71)
+}}
+
+{{prod-sver-end}} is a topic we previously deleted. It seems some remnant of it persists in the controller's memory, causing an exception which interrupts the state change triggered by the broker startup.
+
+Has anyone seen something like this? Any idea what's happening here? Any information would be greatly appreciated.
+
+Thanks,
+Johnny
 
 
 ---
@@ -1080,6 +1165,21 @@ java.lang.NullPointerException
 Acceptance Criteria:
 - TopicConfigManager should be generalized to handle Topic and Client configs (and any type of config in the future). As described in KIP-21
 - Add a ConfigCommand tool to change topic and client configuration
+
+
+---
+
+* [KAFKA-2202](https://issues.apache.org/jira/browse/KAFKA-2202) | *Minor* | **ConsumerPerformance reports a throughput much higher than the actual one**
+
+I've been using the kafka.tools.ConsumerPerformance tool for some benchmarking until in one of my tests I got a throughput much higher than the supported by my network interface.
+The test consisted in consuming around ~4900 MB from one topic using one consumer with one thread. The reported throughput reported was ~1400 MB/s which surpasses the 10 Gbps of the network. The time for the whole operation was ~8 seconds, which should correspond to a throughput of ~612 MB/s.
+Digging the ConsumerPerformance code, I've found this at line 73:
+{code:java}
+val elapsedSecs = (endMs - startMs - config.consumerConfig.consumerTimeoutMs) / 1000.0
+{code}
+The {{consumerTimeoutMs}} defined as 5000 at line 131 is always considered leading to wrong results.
+
+This bug seems to be related to this one [https://issues.apache.org/jira/browse/KAFKA-1828]
 
 
 ---
@@ -2660,6 +2760,91 @@ ConfigDef.parseType() currently uses Boolean.parseBoolean(trimmed) to parse bool
 * [KAFKA-1788](https://issues.apache.org/jira/browse/KAFKA-1788) | *Major* | **producer record can stay in RecordAccumulator forever if leader is no available**
 
 In the new producer, when a partition has no leader for a long time (e.g., all replicas are down), the records for that partition will stay in the RecordAccumulator until the leader is available. This may cause the bufferpool to be full and the callback for the produced message to block for a long time.
+
+
+---
+
+* [KAFKA-1782](https://issues.apache.org/jira/browse/KAFKA-1782) | *Major* | **Junit3 Misusage**
+
+This is found while I was working on KAFKA-1580: in many of our cases where we explicitly extend from junit3suite (e.g. ProducerFailureHandlingTest), we are actually misusing a bunch of features that only exist in Junit4, such as (expected=classOf). For example, the following code
+
+{code}
+import org.scalatest.junit.JUnit3Suite
+import org.junit.Test
+
+import java.io.IOException
+
+class MiscTest extends JUnit3Suite {
+  @Test (expected = classOf[IOException])
+  def testSendOffset() {
+  }
+}
+{code}
+
+will actually pass even though IOException was not thrown since this annotation is not supported in Junit3. Whereas
+
+{code}
+import org.junit.\_
+
+import java.io.IOException
+
+class MiscTest extends JUnit3Suite {
+  @Test (expected = classOf[IOException])
+  def testSendOffset() {
+  }
+}
+{code}
+
+or
+
+{code}
+import org.scalatest.junit.JUnitSuite
+import org.junit.\_
+
+import java.io.IOException
+
+class MiscTest extends JUnit3Suite {
+  @Test (expected = classOf[IOException])
+  def testSendOffset() {
+  }
+}
+{code}
+
+or
+
+{code}
+import org.junit.\_
+
+import java.io.IOException
+
+class MiscTest {
+  @Test (expected = classOf[IOException])
+  def testSendOffset() {
+  }
+}
+{code}
+
+will fail.
+
+I would propose to not rely on Junit annotations other than @Test itself but use scala unit test annotations instead, for example:
+
+{code}
+import org.junit.\_
+
+import java.io.IOException
+
+class MiscTest {
+  @Test
+  def testSendOffset() {
+    intercept[IOException] {
+      //nothing
+    }
+  }
+}
+
+{code}
+
+will fail with a clearer stacktrace.
 
 
 ---

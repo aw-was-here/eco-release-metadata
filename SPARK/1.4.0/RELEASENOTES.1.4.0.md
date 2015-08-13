@@ -3262,6 +3262,13 @@ As mentioned in SPARK-4479, a long-term fix for this issue might be to add hooks
 
 ---
 
+* [SPARK-7373](https://issues.apache.org/jira/browse/SPARK-7373) | *Major* | **Support launching Spark drivers in Docker images with Mesos cluster mode**
+
+Support launching Spark drivers in Docker images with Mesos cluster mode
+
+
+---
+
 * [SPARK-7371](https://issues.apache.org/jira/browse/SPARK-7371) | *Major* | **DAG visualization: put less emphasis on RDDs on stage page**
 
 These are largely internal and users shouldn't really care about them that much.

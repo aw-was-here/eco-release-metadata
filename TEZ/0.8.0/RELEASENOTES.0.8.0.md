@@ -174,6 +174,45 @@ FAILED: Execution Error, return code 2 from org.apache.hadoop.hive.ql.exec.tez.T
 
 ---
 
+* [TEZ-2683](https://issues.apache.org/jira/browse/TEZ-2683) | *Major* | **TestHttpConnection::testAsyncHttpConnectionInterrupt fails in certain environments**
+
+2015-08-03 11:36:10,064 ERROR [pool-4-thread-1] netty.TezBodyDeferringAsyncHandler (TezBodyDeferringAsyncHandler.java:onThrowable(84)) - Error in asyncHandler
+java.net.ConnectException: Permission denied to http://10.255.255.255:10221/
+        at com.ning.http.client.providers.netty.NettyConnectListener.operationComplete(NettyConnectListener.java:104)
+        at org.jboss.netty.channel.DefaultChannelFuture.notifyListener(DefaultChannelFuture.java:427)
+        at org.jboss.netty.channel.DefaultChannelFuture.addListener(DefaultChannelFuture.java:145)
+        at com.ning.http.client.providers.netty.NettyAsyncHttpProvider.doConnect(NettyAsyncHttpProvider.java:1139)
+        at com.ning.http.client.providers.netty.NettyAsyncHttpProvider.execute(NettyAsyncHttpProvider.java:940)
+        at com.ning.http.client.AsyncHttpClient.executeRequest(AsyncHttpClient.java:499)
+        at org.apache.tez.http.async.netty.AsyncHttpConnection.connect(AsyncHttpConnection.java:154)
+        at org.apache.tez.http.async.netty.AsyncHttpConnection$$EnhancerByMockitoWithCGLIB$$1efd06aa.CGLIB$connect$3(<generated>)
+        at org.apache.tez.http.async.netty.AsyncHttpConnection$$EnhancerByMockitoWithCGLIB$$1efd06aa$$FastClassByMockitoWithCGLIB$$d440a4cd.invoke(<generated>)
+        at org.mockito.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:216)
+        at org.mockito.internal.creation.AbstractMockitoMethodProxy.invokeSuper(AbstractMockitoMethodProxy.java:10)
+        at org.mockito.internal.invocation.realmethod.CGLIBProxyRealMethod.invoke(CGLIBProxyRealMethod.java:22)
+        at org.mockito.internal.invocation.realmethod.FilteredCGLIBProxyRealMethod.invoke(FilteredCGLIBProxyRealMethod.java:27)
+        at org.mockito.internal.invocation.InvocationImpl.callRealMethod(InvocationImpl.java:112)
+        at org.mockito.internal.stubbing.answers.CallsRealMethods.answer(CallsRealMethods.java:36)
+        at org.mockito.internal.handler.MockHandlerImpl.handle(MockHandlerImpl.java:93)
+        at org.mockito.internal.handler.NullResultGuardian.handle(NullResultGuardian.java:29)
+        at org.mockito.internal.handler.InvocationNotifierHandler.handle(InvocationNotifierHandler.java:38)
+        at org.mockito.internal.creation.MethodInterceptorFilter.intercept(MethodInterceptorFilter.java:61)
+        at org.apache.tez.http.async.netty.AsyncHttpConnection$$EnhancerByMockitoWithCGLIB$$1efd06aa.connect(<generated>)
+        at org.apache.tez.http.TestHttpConnection$Worker.call(TestHttpConnection.java:186)
+        at org.apache.tez.http.TestHttpConnection$Worker.call(TestHttpConnection.java:171)
+        at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+        at java.lang.Thread.run(Thread.java:745)
+Caused by: java.net.SocketException: Permission denied
+        at sun.nio.ch.Net.connect0(Native Method)
+        at sun.nio.ch.Net.connect(Net.java:465)
+        at sun.nio.ch.Net.connect(Net.java:457)
+        at sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:670)
+
+
+---
+
 * [TEZ-2663](https://issues.apache.org/jira/browse/TEZ-2663) | *Major* | **SessionNotRunning exceptions are wrapped in a ServiceException from a dying AM**
 
 The scenario in TEZ-2548 throws a SessionNotRunning from the AM right now, which gets wrapped in a ServiceException by the protobuf layer, so that the exception thrown by TezClient cannot be caught and handled cleanly.

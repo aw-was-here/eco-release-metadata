@@ -23,6 +23,90 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-9826](https://issues.apache.org/jira/browse/SPARK-9826) | *Minor* | **Cannot use custom classes in log4j.properties**
+
+log4j is initialized before spark class loader is set on the thread context.
+Therefore it cannot use classes embedded in fat-jars submitted to spark.
+
+While parsing arguments, spark calls methods on Utils class and triggers ShutdownHookManager static initialization.  This then leads to log4j being initialized before spark gets the chance to specify custom class MutableURLClassLoader on the thread context.
+
+See detailed explanation here:
+http://apache-spark-user-list.1001560.n3.nabble.com/log4j-custom-appender-ClassNotFoundException-with-spark-1-4-1-tt24159.html
+
+
+---
+
+* [SPARK-9806](https://issues.apache.org/jira/browse/SPARK-9806) | *Minor* | **Don't share ReplayListenerBus between multiple applications**
+
+Currently, we are sharing {{ReplayListenerBus}} for replaying the event logs of various apps.
+https://github.com/apache/spark/blob/v1.4.0/core/src/main/scala/org/apache/spark/deploy/history/FsHistoryProvider.scala#L226
+
+While replaying the event log for a particular app, we add an {{ApplicationEventListener}} to the bus.
+https://github.com/apache/spark/blob/v1.4.0/core/src/main/scala/org/apache/spark/deploy/history/FsHistoryProvider.scala#L391
+But we never remove it.
+
+This results in one {{ReplayListenerBus}} being associated with multiple {{ApplicationEventListener}}:
+{code}
+15/08/11 00:04:00 log-replay-executor INFO FsHistoryProvider: Replaying log path: hdfs://localhost:9000/spark-history/application\_1438993108319\_0146\_1.snappy
+15/08/11 00:04:01 log-replay-executor INFO ApplicationEventListener: onEnvUpdate
+15/08/11 00:04:01 log-replay-executor INFO ApplicationEventListener: onApplicationStart
+15/08/11 00:04:40 log-replay-executor INFO ApplicationEventListener: onApplicationEnd
+15/08/11 00:04:40 log-replay-executor INFO FsHistoryProvider: Elapsed time: 39.730114407s
+15/08/11 00:04:40 log-replay-executor INFO FsHistoryProvider: Application log application\_1438993108319\_0146\_1.snappy loaded successfully.
+15/08/11 00:04:40 log-replay-executor INFO FsHistoryProvider: Replaying log path: hdfs://localhost:9000/spark-history/application\_1438993108319\_0126\_1.snappy
+15/08/11 00:04:40 log-replay-executor INFO ApplicationEventListener: onEnvUpdate
+15/08/11 00:04:40 log-replay-executor INFO ApplicationEventListener: onEnvUpdate
+15/08/11 00:04:40 log-replay-executor INFO ApplicationEventListener: onApplicationStart
+15/08/11 00:04:40 log-replay-executor INFO ApplicationEventListener: onApplicationStart
+15/08/11 00:05:00 log-replay-executor INFO ApplicationEventListener: onApplicationEnd
+15/08/11 00:05:00 log-replay-executor INFO ApplicationEventListener: onApplicationEnd
+15/08/11 00:05:00 log-replay-executor INFO FsHistoryProvider: Elapsed time: 20.483128154s
+15/08/11 00:05:00 log-replay-executor INFO FsHistoryProvider: Application log application\_1438993108319\_0126\_1.snappy loaded successfully.
+15/08/11 00:05:00 log-replay-executor INFO FsHistoryProvider: Replaying log path: hdfs://localhost:9000/spark-history/application\_1438993108319\_0116\_1.snappy
+15/08/11 00:05:00 log-replay-executor INFO ApplicationEventListener: onEnvUpdate
+15/08/11 00:05:00 log-replay-executor INFO ApplicationEventListener: onEnvUpdate
+15/08/11 00:05:00 log-replay-executor INFO ApplicationEventListener: onEnvUpdate
+15/08/11 00:05:00 log-replay-executor INFO ApplicationEventListener: onApplicationStart
+15/08/11 00:05:00 log-replay-executor INFO ApplicationEventListener: onApplicationStart
+15/08/11 00:05:00 log-replay-executor INFO ApplicationEventListener: onApplicationStart
+15/08/11 00:05:29 log-replay-executor INFO ApplicationEventListener: onApplicationEnd
+15/08/11 00:05:29 log-replay-executor INFO ApplicationEventListener: onApplicationEnd
+15/08/11 00:05:29 log-replay-executor INFO ApplicationEventListener: onApplicationEnd
+15/08/11 00:05:29 log-replay-executor INFO FsHistoryProvider: Elapsed time: 29.110070845s
+15/08/11 00:05:29 log-replay-executor INFO FsHistoryProvider: Application log application\_1438993108319\_0116\_1.snappy loaded successfully.
+{code}
+
+We should either remove the listener from the bus or create a new bus for each app.
+
+
+---
+
+* [SPARK-9801](https://issues.apache.org/jira/browse/SPARK-9801) | *Minor* | **Spark streaming deletes the temp file and backup files without checking if they exist or not**
+
+For spark streaming, when checkpoint is happening, it is getting below error message from spark driver log: 
+
+{code}
+15/07/29 11:04:50 INFO CheckpointWriter: Saving checkpoint for time 1438135490000 ms to file 'maprfs:/user/mapr/spark-checkpoint2/checkpoint-1438135490000' 
+15/07/29 11:04:50 ERROR MapRFileSystem: Failed to delete path maprfs:/user/mapr/spark-checkpoint2/temp, error: No such file or directory (2) 
+15/07/29 11:04:50 ERROR MapRFileSystem: Failed to delete path maprfs:/user/mapr/spark-checkpoint2/checkpoint-1438135490000.bk, error: No such file or directory (2) 
+15/07/29 11:04:50 INFO CheckpointWriter: Deleting maprfs:///user/mapr/spark-checkpoint2/checkpoint-1438135480000 
+15/07/29 11:04:50 INFO CheckpointWriter: Checkpoint for time 1438135490000 ms saved to file 'maprfs:/user/mapr/spark-checkpoint2/checkpoint-1438135490000', took 8729 bytes and 14 ms 
+15/07/29 11:04:50 INFO DStreamGraph: Clearing checkpoint data for time 1438135490000 ms 
+15/07/29 11:04:50 INFO DStreamGraph: Cleared checkpoint data for time 1438135490000 ms
+{code}
+
+From the source code : 
+https://github.com/apache/spark/blob/master/streaming/src/main/scala/org/apache/spark/streaming/Checkpoint.scala
+
+When Spark tries to delete the 2 files, it did not check if the 2 files exist or not. 
+fs.delete(tempFile, true) // just in case it exists 
+fs.delete(backupFile, true) // just in case it exists
+
+We should add the logic to check if the files exist or not before deleting.
+
+
+---
+
 * [SPARK-9691](https://issues.apache.org/jira/browse/SPARK-9691) | *Major* | **PySpark SQL rand function treats seed 0 as no seed**
 
 In PySpark SQL's rand() function, it tests for a seed in a way such that seed 0 is treated as no seed, leading to non-deterministic results when a user would expect deterministic results.

@@ -23,6 +23,13 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [BIGTOP-1964](https://issues.apache.org/jira/browse/BIGTOP-1964) | *Major* | **Upgrade Tez version to 0.6.2**
+
+Upgrade Tez version to 0.6.2
+
+
+---
+
 * [BIGTOP-1958](https://issues.apache.org/jira/browse/BIGTOP-1958) | *Blocker* | **Upgrade default repositories and docker images to 1.0**
 
 The default repositories in puppet recipes and bigtop provisioner configurations are still 0.8.0. We should upgrade them to 1.0.0 repo and switch the docker image to 1.0 version as well.

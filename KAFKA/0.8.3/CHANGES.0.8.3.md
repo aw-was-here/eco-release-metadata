@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.8.3 - Unreleased (as of 2015-08-10)
+## Release 0.8.3 - Unreleased (as of 2015-08-13)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -38,6 +38,8 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-2430](https://issues.apache.org/jira/browse/KAFKA-2430) | Listing of PR commits in commit message should be optional |  Major | . | Ismael Juma | Ismael Juma |
+| [KAFKA-2429](https://issues.apache.org/jira/browse/KAFKA-2429) | Add annotations to mark classes as stable/unstable |  Major | . | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-2384](https://issues.apache.org/jira/browse/KAFKA-2384) | Override commit message title in kafka-merge-pr.py |  Major | . | Guozhang Wang | Ismael Juma |
 | [KAFKA-2350](https://issues.apache.org/jira/browse/KAFKA-2350) | Add KafkaConsumer pause capability |  Major | consumer | Jason Gustafson | Jason Gustafson |
 | [KAFKA-2344](https://issues.apache.org/jira/browse/KAFKA-2344) | kafka-merge-pr improvements |  Minor | . | Gwen Shapira | Ismael Juma |
@@ -90,6 +92,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [KAFKA-2413](https://issues.apache.org/jira/browse/KAFKA-2413) | New consumer's subscribe(Topic...) api fails if called more than once |  Major | consumer | Ashish K Singh | Onur Karaman |
+| [KAFKA-2408](https://issues.apache.org/jira/browse/KAFKA-2408) | (new) system tests: ConsoleConsumerService occasionally fails to register consumed message |  Major | . | Geoffrey Anderson | Geoffrey Anderson |
 | [KAFKA-2407](https://issues.apache.org/jira/browse/KAFKA-2407) | Only create a log directory when it will be used |  Major | . | Grant Henke | Grant Henke |
 | [KAFKA-2405](https://issues.apache.org/jira/browse/KAFKA-2405) | KafkaHealthCheck kills the JVM in handleSessionEstablishmentError |  Major | core | jaikiran pai | jaikiran pai |
 | [KAFKA-2393](https://issues.apache.org/jira/browse/KAFKA-2393) | Correctly Handle InvalidTopicException in KafkaApis.getTopicMetadata() |  Major | . | Grant Henke | Grant Henke |
@@ -99,6 +102,7 @@
 | [KAFKA-2347](https://issues.apache.org/jira/browse/KAFKA-2347) | Add setConsumerRebalanceListener method to ZookeeperConsuemrConnector java api. |  Major | . | Jiangjie Qin | Ashish K Singh |
 | [KAFKA-2345](https://issues.apache.org/jira/browse/KAFKA-2345) | Attempt to delete a topic already marked for deletion throws ZkNodeExistsException |  Major | . | Ashish K Singh | Ashish K Singh |
 | [KAFKA-2337](https://issues.apache.org/jira/browse/KAFKA-2337) | Verify that metric names will not collide when creating new topics |  Major | . | Gwen Shapira | Grant Henke |
+| [KAFKA-2336](https://issues.apache.org/jira/browse/KAFKA-2336) | Changing offsets.topic.num.partitions after the offset topic is created breaks consumer group partition assignment |  Major | core | Grant Henke | Grant Henke |
 | [KAFKA-2335](https://issues.apache.org/jira/browse/KAFKA-2335) | Javadoc for Consumer says that it's thread-safe |  Major | consumer | Ismael Juma | Jason Gustafson |
 | [KAFKA-2327](https://issues.apache.org/jira/browse/KAFKA-2327) | broker doesn't start if config defines advertised.host but not advertised.port |  Minor | . | Geoffrey Anderson | Geoffrey Anderson |
 | [KAFKA-2317](https://issues.apache.org/jira/browse/KAFKA-2317) | De-register isrChangeNotificationListener on controller resignation |  Major | controller | Ashish K Singh | Ashish K Singh |
@@ -107,6 +111,7 @@
 | [KAFKA-2308](https://issues.apache.org/jira/browse/KAFKA-2308) | New producer + Snappy face un-compression errors after broker restart |  Major | . | Gwen Shapira | Gwen Shapira |
 | [KAFKA-2306](https://issues.apache.org/jira/browse/KAFKA-2306) | New producer should emit metrics for buffer exhaustion |  Major | . | Dong Lin | Dong Lin |
 | [KAFKA-2304](https://issues.apache.org/jira/browse/KAFKA-2304) | Support enabling JMX in Kafka Vagrantfile |  Minor | . | Stevo Slavic | Stevo Slavic |
+| [KAFKA-2300](https://issues.apache.org/jira/browse/KAFKA-2300) | Error in controller log when broker tries to rejoin cluster |  Major | . | Johnny Brown | Flavio Junqueira |
 | [KAFKA-2291](https://issues.apache.org/jira/browse/KAFKA-2291) | Documentation Error |  Trivial | website | UTKARSH BHATNAGAR |  |
 | [KAFKA-2290](https://issues.apache.org/jira/browse/KAFKA-2290) | OffsetIndex should open RandomAccessFile consistently |  Major | core | Jun Rao | Chris Black |
 | [KAFKA-2288](https://issues.apache.org/jira/browse/KAFKA-2288) | Follow-up to KAFKA-2249 - reduce logging and testing |  Major | . | Gwen Shapira | Gwen Shapira |
@@ -128,6 +133,7 @@
 | [KAFKA-2234](https://issues.apache.org/jira/browse/KAFKA-2234) | Partition reassignment of a nonexistent topic prevents future reassignments |  Blocker | . | Bob Halley | Manikumar Reddy |
 | [KAFKA-2232](https://issues.apache.org/jira/browse/KAFKA-2232) | make MockProducer generic |  Major | clients | Jun Rao | Alexander Pakulov |
 | [KAFKA-2226](https://issues.apache.org/jira/browse/KAFKA-2226) | NullPointerException in TestPurgatoryPerformance |  Major | . | Onur Karaman | Yasuhiro Matsuda |
+| [KAFKA-2202](https://issues.apache.org/jira/browse/KAFKA-2202) | ConsumerPerformance reports a throughput much higher than the actual one |  Minor | tools | Micael Capitão | Manikumar Reddy |
 | [KAFKA-2198](https://issues.apache.org/jira/browse/KAFKA-2198) | kafka-topics.sh exits with 0 status on failures |  Major | admin | Bob Halley | Manikumar Reddy |
 | [KAFKA-2189](https://issues.apache.org/jira/browse/KAFKA-2189) | Snappy compression of message batches less efficient in 0.8.2.1 |  Blocker | build, compression, log | Olson,Andrew | Ismael Juma |
 | [KAFKA-2169](https://issues.apache.org/jira/browse/KAFKA-2169) | Upgrade to zkclient-0.5 |  Critical | . | Neha Narkhede | Parth Brahmbhatt |
@@ -184,6 +190,7 @@
 | [KAFKA-1803](https://issues.apache.org/jira/browse/KAFKA-1803) | UncleanLeaderElectionEnableProp in LogConfig should be of boolean |  Major | core | Jun Rao | Dave Parfitt |
 | [KAFKA-1798](https://issues.apache.org/jira/browse/KAFKA-1798) | ConfigDef.parseType() should throw exception on invalid boolean value |  Major | . | Jun Rao | dokovan |
 | [KAFKA-1788](https://issues.apache.org/jira/browse/KAFKA-1788) | producer record can stay in RecordAccumulator forever if leader is no available |  Major | core, producer | Jun Rao | Parth Brahmbhatt |
+| [KAFKA-1782](https://issues.apache.org/jira/browse/KAFKA-1782) | Junit3 Misusage |  Major | . | Guozhang Wang | Alexander Pakulov |
 | [KAFKA-1762](https://issues.apache.org/jira/browse/KAFKA-1762) | Update max-inflight-request doc string |  Major | . | Guozhang Wang | Guozhang Wang |
 | [KAFKA-1758](https://issues.apache.org/jira/browse/KAFKA-1758) | corrupt recovery file prevents startup |  Major | log | Jason Rosenberg | Manikumar Reddy |
 | [KAFKA-1757](https://issues.apache.org/jira/browse/KAFKA-1757) | Can not delete Topic index on Windows |  Minor | log | Lukáš Vyhlídka | Sriharsha Chintalapani |
