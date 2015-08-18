@@ -103,6 +103,13 @@ In this issue, we actually also remove these methods in master/2.0.0 branch.
 
 ---
 
+* [HBASE-13966](https://issues.apache.org/jira/browse/HBASE-13966) | *Minor* | **Limit column width in table.jsp**
+
+Wraps region, start key, end key columns if too long.
+
+
+---
+
 * [HBASE-13963](https://issues.apache.org/jira/browse/HBASE-13963) | *Critical* | **avoid leaking jdk.tools**
 
 HBase now ensures that the JDK tools jar used during the build process is not exposed to downstream clients as a transitive dependency of hbase-annotations.
@@ -1637,6 +1644,13 @@ Deletes can be specified with Cell Visibility as done for puts.
 Cells covered by the delete is found by doing pattern matching. 
 A deleteFamily issued for row1, f1 with Cell Visibility (A & B) would delete only those cells of row1 under family f1 which has cell visibility A&B or B&A. A delete without any cell visibility would only delete those cells that does not have any cell visibility.
 In case of delete specific column with latest version only the latest cell with the specified cell visibility will be covered by the delete marker. In case there is no such cell with the specified cell visibility then no cell gets deleted.
+
+
+---
+
+* [HBASE-10844](https://issues.apache.org/jira/browse/HBASE-10844) | *Major* | **Coprocessor failure during batchmutation leaves the memstore datastructs in an inconsistent state**
+
+Promotes an -ea assert to logged FATAL and RS abort when memstore is found to be in an inconsistent state.
 
 
 ---

@@ -30,6 +30,13 @@ This is an incompatible change with previous versions of smart-apply-patch due t
 
 ---
 
+* [HADOOP-12129](https://issues.apache.org/jira/browse/HADOOP-12129) | *Blocker* | **rework test-patch bug system support**
+
+**WARNING: No release note provided for this incompatible change.**
+
+
+---
+
 * [HADOOP-12113](https://issues.apache.org/jira/browse/HADOOP-12113) | *Major* | **update test-patch branch to latest code**
 
 The following changes have occurred vs. the release currently shipping with Hadoop:

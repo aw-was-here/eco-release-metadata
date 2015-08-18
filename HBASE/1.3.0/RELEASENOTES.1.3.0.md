@@ -38,6 +38,13 @@ When set to false, checking hfile format is skipped during bulkloading.
 
 ---
 
+* [HBASE-13966](https://issues.apache.org/jira/browse/HBASE-13966) | *Minor* | **Limit column width in table.jsp**
+
+Wraps region, start key, end key columns if too long.
+
+
+---
+
 * [HBASE-13963](https://issues.apache.org/jira/browse/HBASE-13963) | *Critical* | **avoid leaking jdk.tools**
 
 HBase now ensures that the JDK tools jar used during the build process is not exposed to downstream clients as a transitive dependency of hbase-annotations.
@@ -85,6 +92,13 @@ Correct PDF renaming and bump version of maven-antrun-plugin
 * [HBASE-13103](https://issues.apache.org/jira/browse/HBASE-13103) | *Major* | **[ergonomics] add region size balancing as a feature of master**
 
 This patch adds optional ability for HMaster to normalize regions in size (disabled by default, change hbase.normalizer.enabled property to true to turn it on). If enabled, HMaster periodically (every 30 minutes by default) monitors tables for which normalization is enabled in table configuration and performs splits/merges as seems appropriate. Users may implement their own normalization strategies by implementing RegionNormalizer interface and configuring it in hbase-site.xml.
+
+
+---
+
+* [HBASE-10844](https://issues.apache.org/jira/browse/HBASE-10844) | *Major* | **Coprocessor failure during batchmutation leaves the memstore datastructs in an inconsistent state**
+
+Promotes an -ea assert to logged FATAL and RS abort when memstore is found to be in an inconsistent state.
 
 
 

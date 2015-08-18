@@ -21,4 +21,18 @@
 These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
 
 
+---
+
+* [HBASE-13966](https://issues.apache.org/jira/browse/HBASE-13966) | *Minor* | **Limit column width in table.jsp**
+
+Wraps region, start key, end key columns if too long.
+
+
+---
+
+* [HBASE-10844](https://issues.apache.org/jira/browse/HBASE-10844) | *Major* | **Coprocessor failure during batchmutation leaves the memstore datastructs in an inconsistent state**
+
+Promotes an -ea assert to logged FATAL and RS abort when memstore is found to be in an inconsistent state.
+
+
 

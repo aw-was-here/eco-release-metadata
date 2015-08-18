@@ -144,13 +144,6 @@ Added -v option to fs -count command to display a header record in the report.
 
 ---
 
-* [HADOOP-7139](https://issues.apache.org/jira/browse/HADOOP-7139) | *Major* | **Allow appending to existing SequenceFiles**
-
-Existing sequence files can be appended.
-
-
----
-
 * [HADOOP-5732](https://issues.apache.org/jira/browse/HADOOP-5732) | *Minor* | **Add SFTP FileSystem**
 
 Added SFTP filesystem by using the JSch library.

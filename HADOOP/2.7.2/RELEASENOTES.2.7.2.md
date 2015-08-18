@@ -23,6 +23,13 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [HADOOP-7139](https://issues.apache.org/jira/browse/HADOOP-7139) | *Major* | **Allow appending to existing SequenceFiles**
+
+Existing sequence files can be appended.
+
+
+---
+
 * [HDFS-8727](https://issues.apache.org/jira/browse/HDFS-8727) | *Major* | **Allow using path style addressing for accessing the s3 endpoint**
 
 Add new flag to allow supporting path style addressing for s3a

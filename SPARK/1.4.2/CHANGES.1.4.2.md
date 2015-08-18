@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 1.4.2 - Unreleased (as of 2015-08-13)
+## Release 1.4.2 - Unreleased (as of 2015-08-18)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -50,7 +50,9 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [SPARK-9826](https://issues.apache.org/jira/browse/SPARK-9826) | Cannot use custom classes in log4j.properties |  Minor | Spark Core | Michel Lemay |  |
+| [SPARK-9978](https://issues.apache.org/jira/browse/SPARK-9978) | Window functions require partitionBy to work as expected |  Major | PySpark | Maciej Szymkiewicz | Davies Liu |
+| [SPARK-9828](https://issues.apache.org/jira/browse/SPARK-9828) | Should not share `{}` among instances |  Critical | ML, PySpark | Xiangrui Meng | Manoj Kumar |
+| [SPARK-9826](https://issues.apache.org/jira/browse/SPARK-9826) | Cannot use custom classes in log4j.properties |  Minor | Spark Core | Michel Lemay | Michel Lemay |
 | [SPARK-9806](https://issues.apache.org/jira/browse/SPARK-9806) | Don't share ReplayListenerBus between multiple applications |  Minor | Web UI | Rohit Agarwal | Rohit Agarwal |
 | [SPARK-9801](https://issues.apache.org/jira/browse/SPARK-9801) | Spark streaming deletes the temp file and backup files without checking if they exist or not |  Minor | Streaming | Hao Zhu | Hao Zhu |
 | [SPARK-9691](https://issues.apache.org/jira/browse/SPARK-9691) | PySpark SQL rand function treats seed 0 as no seed |  Major | PySpark, SQL | Joseph K. Bradley | Yin Huai |
@@ -72,6 +74,7 @@
 | [SPARK-9021](https://issues.apache.org/jira/browse/SPARK-9021) |  Change RDD.aggregate() to do reduce(mapPartitions()) instead of mapPartitions.fold() |  Major | PySpark | Nicholas Hwang | Nicholas Hwang |
 | [SPARK-9012](https://issues.apache.org/jira/browse/SPARK-9012) | Accumulators in the task table should be escaped |  Major | Web UI | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-8990](https://issues.apache.org/jira/browse/SPARK-8990) | DataFrameReader.parquet() ignores user specified data source options |  Major | SQL | Cheng Lian | Cheng Lian |
+| [SPARK-8976](https://issues.apache.org/jira/browse/SPARK-8976) | Python 3 crash: ValueError: invalid mode 'a+' (only r, w, b allowed) |  Major | PySpark | Olivier Delalleau | Davies Liu |
 | [SPARK-8974](https://issues.apache.org/jira/browse/SPARK-8974) | There is a bug in dynamicAllocation. When there is no running tasks, the number of executor a long time without running tasks, the number of executor does not reduce to the value of "spark.dynamicAllocation.minExecutors". |  Minor | Spark Core | KaiXinXIaoLei | KaiXinXIaoLei |
 | [SPARK-8937](https://issues.apache.org/jira/browse/SPARK-8937) | A setting `spark.unsafe.exceptionOnMemoryLeak ` is missing in ScalaTest config. |  Minor | Tests | Kousuke Saruta | Kousuke Saruta |
 | [SPARK-8910](https://issues.apache.org/jira/browse/SPARK-8910) | MiMa test is flaky because it starts a SQLContext |  Critical | Tests | Andrew Or | Andrew Or |

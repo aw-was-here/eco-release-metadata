@@ -18,7 +18,7 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.8.0 - Unreleased (as of 2015-08-13)
+## Release 0.8.0 - Unreleased (as of 2015-08-18)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -38,6 +38,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-2719](https://issues.apache.org/jira/browse/TEZ-2719) | Consider reducing logs in unordered fetcher with shared-fetch option |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-2645](https://issues.apache.org/jira/browse/TEZ-2645) | Provide standard analyzers for job analysis |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-2627](https://issues.apache.org/jira/browse/TEZ-2627) | Support for Tez Job Priorities |  Major | . | Saikat | Saikat |
 | [TEZ-2613](https://issues.apache.org/jira/browse/TEZ-2613) | Fetcher(unordered) using List to store InputAttemptIdentifier can lead to some inefficiency during remove() operation |  Major | . | Saikat | Saikat |
@@ -141,6 +142,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-2701](https://issues.apache.org/jira/browse/TEZ-2701) | Add time at which container was allocated to attempt |  Major | . | Bikas Saha | Bikas Saha |
 | [TEZ-2694](https://issues.apache.org/jira/browse/TEZ-2694) | Add TaskConcurrencyAnalyzer |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-2650](https://issues.apache.org/jira/browse/TEZ-2650) | Timing details on Vertex state changes |  Major | . | Bikas Saha | Bikas Saha |
 | [TEZ-2647](https://issues.apache.org/jira/browse/TEZ-2647) | Add input causality dependency for attempts |  Major | . | Bikas Saha | Bikas Saha |

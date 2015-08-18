@@ -18,7 +18,7 @@
 -->
 # Apache Pig Changelog
 
-## Release 0.15.1 - Unreleased (as of 2015-08-13)
+## Release 0.15.1 - Unreleased (as of 2015-08-18)
 
 ### INCOMPATIBLE CHANGES:
 

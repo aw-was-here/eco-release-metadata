@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.8.3 - Unreleased (as of 2015-08-13)
+## Release 0.8.3 - Unreleased (as of 2015-08-18)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -38,6 +38,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-2433](https://issues.apache.org/jira/browse/KAFKA-2433) | Remove documentation on dead configuration item: replica.lag.max.messages |  Trivial | website | Stephen Powis |  |
 | [KAFKA-2430](https://issues.apache.org/jira/browse/KAFKA-2430) | Listing of PR commits in commit message should be optional |  Major | . | Ismael Juma | Ismael Juma |
 | [KAFKA-2429](https://issues.apache.org/jira/browse/KAFKA-2429) | Add annotations to mark classes as stable/unstable |  Major | . | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-2384](https://issues.apache.org/jira/browse/KAFKA-2384) | Override commit message title in kafka-merge-pr.py |  Major | . | Guozhang Wang | Ismael Juma |
@@ -91,9 +92,11 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-2438](https://issues.apache.org/jira/browse/KAFKA-2438) | add maxParallelForks to build.gradle to speedup tests |  Major | . | Sriharsha Chintalapani | Sriharsha Chintalapani |
 | [KAFKA-2413](https://issues.apache.org/jira/browse/KAFKA-2413) | New consumer's subscribe(Topic...) api fails if called more than once |  Major | consumer | Ashish K Singh | Onur Karaman |
 | [KAFKA-2408](https://issues.apache.org/jira/browse/KAFKA-2408) | (new) system tests: ConsoleConsumerService occasionally fails to register consumed message |  Major | . | Geoffrey Anderson | Geoffrey Anderson |
 | [KAFKA-2407](https://issues.apache.org/jira/browse/KAFKA-2407) | Only create a log directory when it will be used |  Major | . | Grant Henke | Grant Henke |
+| [KAFKA-2406](https://issues.apache.org/jira/browse/KAFKA-2406) | ISR propagation should be throttled to avoid overwhelming controller. |  Blocker | . | Jiangjie Qin | Jiangjie Qin |
 | [KAFKA-2405](https://issues.apache.org/jira/browse/KAFKA-2405) | KafkaHealthCheck kills the JVM in handleSessionEstablishmentError |  Major | core | jaikiran pai | jaikiran pai |
 | [KAFKA-2393](https://issues.apache.org/jira/browse/KAFKA-2393) | Correctly Handle InvalidTopicException in KafkaApis.getTopicMetadata() |  Major | . | Grant Henke | Grant Henke |
 | [KAFKA-2381](https://issues.apache.org/jira/browse/KAFKA-2381) | Possible ConcurrentModificationException while unsubscribing from a topic in new consumer |  Major | consumer | Ashish K Singh | Ashish K Singh |
@@ -242,6 +245,7 @@
 | [KAFKA-2401](https://issues.apache.org/jira/browse/KAFKA-2401) | Fix transient failure of ProducerSendTest.testCloseWithZeroTimeoutFromSenderThread() |  Major | . | Jiangjie Qin | Jiangjie Qin |
 | [KAFKA-2400](https://issues.apache.org/jira/browse/KAFKA-2400) | Expose heartbeat frequency in new consumer configuration |  Minor | . | Jason Gustafson | Jason Gustafson |
 | [KAFKA-2386](https://issues.apache.org/jira/browse/KAFKA-2386) | Transient test failure: testGenerationIdIncrementsOnRebalance |  Major | . | Jason Gustafson | Jason Gustafson |
+| [KAFKA-2366](https://issues.apache.org/jira/browse/KAFKA-2366) | Initial patch for Copycat |  Major | copycat | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-2342](https://issues.apache.org/jira/browse/KAFKA-2342) | KafkaConsumer rebalance with in-flight fetch can cause invalid position |  Major | core | Jun Rao | Jason Gustafson |
 | [KAFKA-2301](https://issues.apache.org/jira/browse/KAFKA-2301) | Deprecate ConsumerOffsetChecker |  Major | tools | Ashish K Singh | Ashish K Singh |
 | [KAFKA-2275](https://issues.apache.org/jira/browse/KAFKA-2275) | Add a ListTopics() API to the new consumer |  Critical | consumer | Guozhang Wang | Ashish K Singh |

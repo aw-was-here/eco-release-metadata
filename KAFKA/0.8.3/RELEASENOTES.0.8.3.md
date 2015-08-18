@@ -23,6 +23,30 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [KAFKA-2438](https://issues.apache.org/jira/browse/KAFKA-2438) | *Major* | **add maxParallelForks to build.gradle to speedup tests**
+
+With current trunk unit tests on my machine takes 16+ mins and with this patch runs about 6mins. Tested on OS X and linux.
+Before 
+{code}
+Total time: 18 mins 29.806 secs
+{code}
+After
+{code}
+BUILD SUCCESSFUL
+
+Total time: 5 mins 37.194 secs
+{code}
+
+
+---
+
+* [KAFKA-2433](https://issues.apache.org/jira/browse/KAFKA-2433) | *Trivial* | **Remove documentation on dead configuration item: replica.lag.max.messages**
+
+Digging thru the source code it looks like the configuration property replica.lag.max.messages is no longer used.  The website should be updated to no longer advertise this as a configurable option.
+
+
+---
+
 * [KAFKA-2430](https://issues.apache.org/jira/browse/KAFKA-2430) | *Major* | **Listing of PR commits in commit message should be optional**
 
 Listing of PR commits is useful for curated branches, but the PRs for the Kafka project are often for organic branches and some of them has a large number of commits that are basically noise. Listing is also not useful if there is a single commit in the PR.
@@ -178,6 +202,14 @@ Further down in the script there is logic to detect whether $KAFKA\_LOG4J\_OPTS 
 
 ---
 
+* [KAFKA-2406](https://issues.apache.org/jira/browse/KAFKA-2406) | *Blocker* | **ISR propagation should be throttled to avoid overwhelming controller.**
+
+This is a follow up patch for KAFKA-1367.
+We need to throttle the ISR propagation rate to avoid flooding in controller to broker traffic. This might significantly increase time of controlled shutdown or cluster startup.
+
+
+---
+
 * [KAFKA-2405](https://issues.apache.org/jira/browse/KAFKA-2405) | *Major* | **KafkaHealthCheck kills the JVM in handleSessionEstablishmentError**
 
 The current code in KafkaHealthCheck in trunk does this:
@@ -246,6 +278,17 @@ It would be more convenient allow setting the commit message in the merging scri
 * [KAFKA-2381](https://issues.apache.org/jira/browse/KAFKA-2381) | *Major* | **Possible ConcurrentModificationException while unsubscribing from a topic in new consumer**
 
 Possible ConcurrentModificationException while unsubscribing from a topic in new consumer. Attempt is made to modify AssignedPartitions while looping over it.
+
+
+---
+
+* [KAFKA-2366](https://issues.apache.org/jira/browse/KAFKA-2366) | *Major* | **Initial patch for Copycat**
+
+This covers the initial patch for Copycat. The goal here is to get some baseline code in place, not necessarily the finalized implementation.
+
+The key thing we'll want here is the connector/task API, which defines how third parties write connectors.
+
+Beyond that the goal is to have a basically functional standalone Copycat implementation -- enough that we can run and test any connector code with reasonable coverage of functionality; specifically, it's important that core concepts like offset commit and resuming connector tasks function properly. These two things obviously interact, so development of the standalone worker may affect the design of connector APIs.
 
 
 ---

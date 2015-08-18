@@ -23,6 +23,32 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [BIGTOP-1967](https://issues.apache.org/jira/browse/BIGTOP-1967) | *Major* | **Update the front-page of the website with new CI hostname**
+
+We have a correct CNAME for the ci.bigtop.apache.org - let's use on the front page.
+
+
+---
+
+* [BIGTOP-1966](https://issues.apache.org/jira/browse/BIGTOP-1966) | *Blocker* | **site's index.xml is malformatted**
+
+Trying to compile new version of website on the master I am hitting this error:
+
+{code}
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-site-plugin:3.3:site (default-cli) on project bigtop: Error during page generation: Error parsing '/biggy/workspaces/bigtop/src/site/xdoc/index.xml': line [81] Error parsing the model: end tag name </ul> must match start tag name <p> from line 78 (position: TEXT seen ...ackage tests and a job to build package\n\t\t\t\trepositories.\n\t\t\t</ul>... @81:9) -> [Help 1]
+{code}
+This seems to be the result of BIGTOP-1916
+
+
+---
+
+* [BIGTOP-1965](https://issues.apache.org/jira/browse/BIGTOP-1965) | *Major* | **Remove the link to 0.8.0 from the website**
+
+I have removed previous releases of the Bigtop from dist. So, we need to also reflect that 0.8 isn't there anymore on the website. Only 1.0 (the latest) should remain.
+
+
+---
+
 * [BIGTOP-1964](https://issues.apache.org/jira/browse/BIGTOP-1964) | *Major* | **Upgrade Tez version to 0.6.2**
 
 Upgrade Tez version to 0.6.2
@@ -198,6 +224,15 @@ So all the target-yum / target-apt tagets have been removed and a simple reposit
 In the CI the only thing to be done is to schedule a "gradle yum/apt" .
 
 Maybe we have to discuss to remove the dependencies at all in order to generate *anything* if something failed before.
+
+
+---
+
+* [BIGTOP-1916](https://issues.apache.org/jira/browse/BIGTOP-1916) | *Major* | **Update Website for 1.0**
+
+Will provide a first patch to remove obsolete infos from website.
+
+Is it consensus we will use the wiki for documentation?
 
 
 ---

@@ -18,7 +18,7 @@
 -->
 # Apache Zookeeper Changelog
 
-## Release 3.5.2 - Unreleased (as of 2015-08-13)
+## Release 3.5.2 - Unreleased (as of 2015-08-18)
 
 ### INCOMPATIBLE CHANGES:
 

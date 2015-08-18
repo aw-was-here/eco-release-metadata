@@ -56,6 +56,13 @@ In this issue, we actually also remove these methods in master/2.0.0 branch.
 
 ---
 
+* [HBASE-13966](https://issues.apache.org/jira/browse/HBASE-13966) | *Minor* | **Limit column width in table.jsp**
+
+Wraps region, start key, end key columns if too long.
+
+
+---
+
 * [HBASE-13963](https://issues.apache.org/jira/browse/HBASE-13963) | *Critical* | **avoid leaking jdk.tools**
 
 HBase now ensures that the JDK tools jar used during the build process is not exposed to downstream clients as a transitive dependency of hbase-annotations.
@@ -230,6 +237,13 @@ Default checksum algorithm has been changed from CRC32 to CRC32C primarily becau
 * [HBASE-11658](https://issues.apache.org/jira/browse/HBASE-11658) | *Major* | **Piped commands to hbase shell should return non-zero if shell command failed.**
 
 Adds a noninteractive mode (-n or --noninteractive) to the hbase shell that exits with a non-zero error code on failed or invalid shell command executions, and exits with a zero error code upon successful execution.
+
+
+---
+
+* [HBASE-10844](https://issues.apache.org/jira/browse/HBASE-10844) | *Major* | **Coprocessor failure during batchmutation leaves the memstore datastructs in an inconsistent state**
+
+Promotes an -ea assert to logged FATAL and RS abort when memstore is found to be in an inconsistent state.
 
 
 ---

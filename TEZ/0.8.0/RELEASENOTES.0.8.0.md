@@ -23,6 +23,35 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [TEZ-2719](https://issues.apache.org/jira/browse/TEZ-2719) | *Major* | **Consider reducing logs in unordered fetcher with shared-fetch option**
+
+For large broadcast, this can be a problem
+e.g 
+In one of the jobs (query\_17 @ 10 TB scale), Map 7 generates around 1.1 GB of data which is given to 330 tasks in downstream Map 1.
+
+Map 1 uses all slots in cluster (~ 224 per wave). Until data is downloaded, shared fetch would end up re-queuing fetches.  As a part of it, it would end up printing 3 logs per attempt. E.g
+
+{noformat}
+2015-08-14 02:09:11,761 INFO [Fetcher [Map\_7] #0] shuffle.Fetcher: Requeuing machine1:13562 downloads because we didn't get a lock
+2015-08-14 02:09:11,761 INFO [Fetcher [Map\_7] #0] shuffle.Fetcher: Shared fetch failed to return 1 inputs on this try
+2015-08-14 02:09:11,761 INFO [ShuffleRunner [Map\_7]] impl.ShuffleManager: Scheduling fetch for inputHost: machine1:13562
+2015-08-14 02:09:11,761 INFO [ShuffleRunner [Map\_7]] impl.ShuffleManager: Created Fetcher for host: machine1 with inputs: [InputAttemptIdentifier [inputIdentifier=InputIdentifier [inputIndex=0], attemptNumber=0, pathComponent=attempt\_1439264591968\_0058\_1\_04\_000000\_0\_10029, fetchTypeInfo=FINAL\_MERGE\_ENABLED, spillEventId=-1]]
+{noformat}
+
+Based on disk / network, it  might take time for fetcher to finish downloading and release the lock.  Since there was only one task in Map-1, it ended up in a sort of tight loop generating relatively larger logs.
+
+Looks like 260-290 MB task log files are created in this case per attempt.  That would be around 2.3 GB to 3 GB (depending on number of slots waiting) in machine with 8-10 slots.
+
+
+---
+
+* [TEZ-2701](https://issues.apache.org/jira/browse/TEZ-2701) | *Major* | **Add time at which container was allocated to attempt**
+
+We have startTime but not allocation time and launch start time. So we don't know how long it took to allocate and how long it took to launch.
+
+
+---
+
 * [TEZ-2684](https://issues.apache.org/jira/browse/TEZ-2684) | *Major* | **ShuffleVertexManager.parsePartitionStats throws IllegalStateException: Stats should be initialized**
 
 When I run hive qfile test (attached) using TestMiniTezCliDriver. My WIP patch is also attached for problem reproduction purpose, as well as hive.log.

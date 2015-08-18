@@ -23,6 +23,87 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-9978](https://issues.apache.org/jira/browse/SPARK-9978) | *Major* | **Window functions require partitionBy to work as expected**
+
+I am trying to reproduce following SQL query:
+
+{code}
+df.registerTempTable("df")
+sqlContext.sql("SELECT x, row\_number() OVER (ORDER BY x) as rn FROM df").show()
+
++----+--+
+|   x|rn|
++----+--+
+|0.25| 1|
+| 0.5| 2|
+|0.75| 3|
++----+--+
+{code}
+
+using PySpark API. Unfortunately it doesn't work as expected:
+
+{code}
+from pyspark.sql.window import Window
+from pyspark.sql.functions import rowNumber
+
+df = sqlContext.createDataFrame([{"x": 0.25}, {"x": 0.5}, {"x": 0.75}])
+df.select(df["x"], rowNumber().over(Window.orderBy("x")).alias("rn")).show()
+
++----+--+
+|   x|rn|
++----+--+
+| 0.5| 1|
+|0.25| 1|
+|0.75| 1|
++----+--+
+{code}
+
+As a workaround It is possible to call partitionBy without additional arguments:
+
+{code}
+df.select(
+    df["x"],
+    rowNumber().over(Window.partitionBy().orderBy("x")).alias("rn")
+).show()
+
++----+--+
+|   x|rn|
++----+--+
+|0.25| 1|
+| 0.5| 2|
+|0.75| 3|
++----+--+
+{code}
+
+but as far as I can tell it is not documented and is rather counterintuitive considering SQL syntax. Moreover this problem doesn't affect Scala API:
+
+{code}
+import org.apache.spark.sql.expressions.Window
+import org.apache.spark.sql.functions.rowNumber
+
+case class Record(x: Double)
+val df = sqlContext.createDataFrame(Record(0.25) :: Record(0.5) :: Record(0.75))
+df.select($"x", rowNumber().over(Window.orderBy($"x")).alias("rn")).show
+
++----+--+
+|   x|rn|
++----+--+
+|0.25| 1|
+| 0.5| 2|
+|0.75| 3|
++----+--+
+{code}
+
+
+---
+
+* [SPARK-9828](https://issues.apache.org/jira/browse/SPARK-9828) | *Critical* | **Should not share `{}` among instances**
+
+We use `{}` as the initial value in some places, e.g., https://github.com/apache/spark/blob/master/python/pyspark/ml/param/\_\_init\_\_.py#L64. This makes instances sharing the same param map.
+
+
+---
+
 * [SPARK-9826](https://issues.apache.org/jira/browse/SPARK-9826) | *Minor* | **Cannot use custom classes in log4j.properties**
 
 log4j is initialized before spark class loader is set on the thread context.
@@ -493,6 +574,13 @@ To workaround this issue, use the following instead:
 {noformat}
 sqlContext.read.option("mergeSchema", "false").format("parquet").load(path)
 {noformat}
+
+
+---
+
+* [SPARK-8976](https://issues.apache.org/jira/browse/SPARK-8976) | *Major* | **Python 3 crash: ValueError: invalid mode 'a+' (only r, w, b allowed)**
+
+See Github report: https://github.com/apache/spark/pull/5173#issuecomment-113410652
 
 
 ---
