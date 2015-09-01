@@ -183,6 +183,7 @@
 | [HIVE-10229](https://issues.apache.org/jira/browse/HIVE-10229) | Set conf and processor context in the constructor instead of init |  Major | . | Sergey Shelukhin | Siddharth Seth |
 | [HIVE-10226](https://issues.apache.org/jira/browse/HIVE-10226) | Column stats for Date columns not supported |  Major | Statistics | Jason Dere | Jason Dere |
 | [HIVE-10225](https://issues.apache.org/jira/browse/HIVE-10225) | CLI JLine does not flush history on quit/Ctrl-C |  Major | . | Thejas M Nair | Thejas M Nair |
+| [HIVE-10215](https://issues.apache.org/jira/browse/HIVE-10215) | Large IN() clauses: deep hashCode performance during optimizer pass |  Minor | Logical Optimizer | Gopal V | Gopal V |
 | [HIVE-10213](https://issues.apache.org/jira/browse/HIVE-10213) | MapReduce jobs using dynamic-partitioning fail on commit. |  Major | HCatalog | Mithun Radhakrishnan | Mithun Radhakrishnan |
 | [HIVE-10209](https://issues.apache.org/jira/browse/HIVE-10209) | FetchTask with VC may fail because ExecMapper.done is true |  Major | Query Processor | Chao Sun | Chao Sun |
 | [HIVE-10208](https://issues.apache.org/jira/browse/HIVE-10208) | templeton.hive.extra.files should be commented out in webhcat-default.xml |  Major | WebHCat | Eugene Koifman | Eugene Koifman |
@@ -192,6 +193,7 @@
 | [HIVE-10178](https://issues.apache.org/jira/browse/HIVE-10178) | DateWritable incorrectly calculates daysSinceEpoch for negative Unix time |  Major | Types | Alexander Pivovarov | Alexander Pivovarov |
 | [HIVE-10172](https://issues.apache.org/jira/browse/HIVE-10172) | Fix performance regression caused by HIVE-8122 for ORC |  Major | . | Prasanth Jayachandran | Prasanth Jayachandran |
 | [HIVE-10167](https://issues.apache.org/jira/browse/HIVE-10167) | HS2 logs the server started only before the server is shut down |  Trivial | . | Jimmy Xiang | Jimmy Xiang |
+| [HIVE-10163](https://issues.apache.org/jira/browse/HIVE-10163) | CommonMergeJoinOperator calls WritableComparator.get() in the inner loop |  Major | Query Processor | Gopal V | Gunther Hagleitner |
 | [HIVE-10152](https://issues.apache.org/jira/browse/HIVE-10152) | ErrorMsg.formatToErrorMsgMap has bad regex |  Major | Logging | Eugene Koifman | Eugene Koifman |
 | [HIVE-10150](https://issues.apache.org/jira/browse/HIVE-10150) | delete from acidTbl where a in(select a from nonAcidOrcTbl) fails |  Major | Query Planning, Transactions | Eugene Koifman | Eugene Koifman |
 | [HIVE-10148](https://issues.apache.org/jira/browse/HIVE-10148) | update of bucketing column should not be allowed |  Major | Transactions | Eugene Koifman | Eugene Koifman |
@@ -357,7 +359,6 @@
 | [HIVE-9350](https://issues.apache.org/jira/browse/HIVE-9350) | Add ability for HiveAuthorizer implementations to filter out results of 'show tables', 'show databases' |  Major | Authorization | Thejas M Nair | Thejas M Nair |
 | [HIVE-9322](https://issues.apache.org/jira/browse/HIVE-9322) | Make null-checks consistent for MapObjectInspector subclasses. |  Minor | Serializers/Deserializers | Mithun Radhakrishnan | Mithun Radhakrishnan |
 | [HIVE-9303](https://issues.apache.org/jira/browse/HIVE-9303) | Parquet files are written with incorrect definition levels |  Major | . | Skye Wanderman-Milne | Sergio Peña |
-| [HIVE-9228](https://issues.apache.org/jira/browse/HIVE-9228) | Problem with subquery using windowing functions |  Major | PTF-Windowing | Aihua Xu | Navis |
 | [HIVE-9151](https://issues.apache.org/jira/browse/HIVE-9151) | Checking s against null in TezJobMonitor#getNameWithProgress() should be done earlier |  Minor | . | Ted Yu | Prasanth Jayachandran |
 | [HIVE-9118](https://issues.apache.org/jira/browse/HIVE-9118) | Support auto-purge for tables, when dropping tables/partitions. |  Major | Metastore | Mithun Radhakrishnan | Mithun Radhakrishnan |
 | [HIVE-9115](https://issues.apache.org/jira/browse/HIVE-9115) | Hive build failure on hadoop-2.7 due to HADOOP-11356 |  Major | . | Jason Dere | Jason Dere |

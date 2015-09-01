@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 1.5.1 - Unreleased (as of 2015-08-18)
+## Release 1.5.1 - Unreleased (as of 2015-09-01)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -36,6 +36,9 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-10354](https://issues.apache.org/jira/browse/SPARK-10354) | First cost RDD shouldn't be cached in k-means\|\| and the following cost RDD should use MEMORY\_AND\_DISK |  Minor | MLlib | Xiangrui Meng | Xiangrui Meng |
+| [SPARK-10348](https://issues.apache.org/jira/browse/SPARK-10348) | Improve Spark ML user guide |  Major | Documentation, ML | Xiangrui Meng | Xiangrui Meng |
+| [SPARK-10331](https://issues.apache.org/jira/browse/SPARK-10331) | Update user guide to address minor comments during code review |  Major | Documentation, ML, MLlib | Xiangrui Meng | Xiangrui Meng |
 
 
 ### BUG FIXES:
@@ -60,5 +63,6 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-10398](https://issues.apache.org/jira/browse/SPARK-10398) | Migrate Spark download page to use new lua mirroring scripts |  Minor | Project Infra | Luciano Resende | Luciano Resende |
 
 

@@ -23,6 +23,13 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [ORC-25](https://issues.apache.org/jira/browse/ORC-25) | *Major* | **Clean up Coverity scans**
+
+I've scanned the ORC C++ code base and it identified some potential issues. Looking through them, so far they have all been harmless, but they should be cleaned up so that the analysis can come back clean.
+
+
+---
+
 * [ORC-24](https://issues.apache.org/jira/browse/ORC-24) | *Major* | **C++ reader for direct string encodings occasionally skips bytes**
 
 The ORC C++ direct string column reader can occasionally skip bytes in the blob stream.

@@ -23,6 +23,81 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-10377](https://issues.apache.org/jira/browse/SPARK-10377) | *Major* | **Cassandra connector affected by backport change**
+
+The backport in SPARK-7289 and SPARK-9949 includes the refactor of TakeOrdered to TakeOrderedAndProject, which breaks code that refers to TakeOrdered. In a minor version update that is perhaps not expected - specifically, the Cassandra connector refers to this by name and no longer works.
+
+Example use case it to use the Cassandra connector in Scala and creating a CassandraSQLContext:
+import com.datastax.spark.connector.\_
+import sqlContext.implicits.\_
+import org.apache.spark.sql.cassandra.CassandraSQLContext
+
+val cassandraSQLContext = new CassandraSQLContext(sc);
+
+java.lang.NoSuchMethodError: org.apache.spark.sql.cassandra.CassandraSQLContext$$anon$1.TakeOrdered()Lorg/apache/spark/sql/execution/SparkStrategies$TakeOrdered$;
+	at org.apache.spark.sql.cassandra.CassandraSQLContext$$anon$1.<init>(CassandraSQLContext.scala:90)
+	at org.apache.spark.sql.cassandra.CassandraSQLContext.<init>(CassandraSQLContext.scala:85)
+
+(Source code link: https://github.com/datastax/spark-cassandra-connector/blob/v1.4.0-M3/spark-cassandra-connector/src/main/scala/org/apache/spark/sql/cassandra/CassandraSQLContext.scala) 
+This is with version 1.4.0M3 of the Datastax Cassandra connector, but affects other 1.4 versions as well.
+
+Issue has also been reported to Datastax, here: 
+https://datastax-oss.atlassian.net/browse/SPARKC-238
+
+
+---
+
+* [SPARK-10354](https://issues.apache.org/jira/browse/SPARK-10354) | *Minor* | **First cost RDD shouldn't be cached in k-means\|\| and the following cost RDD should use MEMORY\_AND\_DISK**
+
+The first RDD doesn't need to be cached, other cost RDDs should use MEMORY\_AND\_DISK to avoid recomputing.
+
+
+---
+
+* [SPARK-10321](https://issues.apache.org/jira/browse/SPARK-10321) | *Critical* | **OrcRelation doesn't override sizeInBytes**
+
+This hurts performance badly because broadcast join can never be enabled.
+
+
+---
+
+* [SPARK-10169](https://issues.apache.org/jira/browse/SPARK-10169) | *Critical* | **Evaluating AggregateFunction1 (old code path) may return wrong answers when grouping expressions are used as arguments of aggregate functions**
+
+Before Spark 1.5, if an aggregate function use an grouping expression as input argument, the result of the query can be wrong. The reason is we are using transformUp when we do aggregate results rewriting (see https://github.com/apache/spark/blob/branch-1.4/sql/catalyst/src/main/scala/org/apache/spark/sql/catalyst/planning/patterns.scala#L154). 
+
+To reproduce the problem, you can use
+{code}
+import org.apache.spark.sql.functions.\_
+sc.parallelize((1 to 1000), 50).map(i => Tuple1(i)).toDF("i").registerTempTable("t")
+sqlContext.sql(""" 
+select i % 10, sum(if(i % 10 = 5, 1, 0)), count(i)
+from t
+where i % 10 = 5
+group by i % 10""").explain()
+
+== Physical Plan ==
+Aggregate false, [PartialGroup#234], [PartialGroup#234 AS \_c0#225,SUM(CAST(HiveGenericUdf#org.apache.hadoop.hive.ql.udf.generic.GenericUDFIf((PartialGroup#234 = 5),1,0), LongType)) AS \_c1#226L,Coalesce(SUM(PartialCount#233L),0) AS \_c2#227L]
+ Exchange (HashPartitioning [PartialGroup#234], 200)
+  Aggregate true, [(i#191 % 10)], [(i#191 % 10) AS PartialGroup#234,SUM(CAST(HiveGenericUdf#org.apache.hadoop.hive.ql.udf.generic.GenericUDFIf(((i#191 % 10) = 5),1,0), LongType)) AS PartialSum#232L,COUNT(1) AS PartialCount#233L]
+   Project [\_1#190 AS i#191]
+    Filter ((\_1#190 % 10) = 5)
+     PhysicalRDD [\_1#190], MapPartitionsRDD[93] at mapPartitions at ExistingRDD.scala:37
+
+sqlContext.sql(""" 
+select i % 10, sum(if(i % 10 = 5, 1, 0)), count(i)
+from t
+where i % 10 = 5
+group by i % 10""").show
+
+\_c0 \_c1 \_c2
+5   50  100
+{code}
+
+In Spark 1.5, new aggregation code path does not have the problem. The old code path is fixed by https://github.com/apache/spark/commit/dd9ae7945ab65d353ed2b113e0c1a00a0533ffd6.
+
+
+---
+
 * [SPARK-9978](https://issues.apache.org/jira/browse/SPARK-9978) | *Major* | **Window functions require partitionBy to work as expected**
 
 I am trying to reproduce following SQL query:
@@ -93,6 +168,24 @@ df.select($"x", rowNumber().over(Window.orderBy($"x")).alias("rn")).show
 |0.75| 3|
 +----+--+
 {code}
+
+
+---
+
+* [SPARK-9949](https://issues.apache.org/jira/browse/SPARK-9949) | *Blocker* | **TakeOrderedAndProject returns wrong output attributes when project is pushed in to it**
+
+In {{TakeOrderedAndProject}}, we have
+{code}
+case class TakeOrderedAndProject(
+    limit: Int,
+    sortOrder: Seq[SortOrder],
+    projectList: Option[Seq[NamedExpression]],
+    child: SparkPlan) extends UnaryNode {
+
+  override def output: Seq[Attribute] = child.output
+{code}
+
+When projectList is set, we should use its attributes as the output.
 
 
 ---
@@ -700,6 +793,13 @@ The logs should be available through the web UIs just like other Hadoop componen
 
 ---
 
+* [SPARK-8057](https://issues.apache.org/jira/browse/SPARK-8057) | *Major* | **Call TaskAttemptContext.getTaskAttemptID using Reflection**
+
+Someone may use the Spark core jar in the maven repo with hadoop 1. SPARK-2075 has already resolved the compatibility issue to support it. But "SparkHadoopMapRedUtil.commitTask" broke it recently.
+
+
+---
+
 * [SPARK-8052](https://issues.apache.org/jira/browse/SPARK-8052) | *Major* | **Hive on Spark: CAST string AS BIGINT produces wrong value**
 
 Example hive query:
@@ -732,6 +832,76 @@ Failing with error messages like
 Various tests in the suite seem to be failing with similar error messages:
 https://amplab.cs.berkeley.edu/jenkins/job/Spark-Master-SBT/AMPLAB\_JENKINS\_BUILD\_PROFILE=hadoop2.3,label=centos/2228/
 https://amplab.cs.berkeley.edu/jenkins/job/Spark-Master-SBT/AMPLAB\_JENKINS\_BUILD\_PROFILE=hadoop2.0,label=centos/2230/
+
+
+---
+
+* [SPARK-7289](https://issues.apache.org/jira/browse/SPARK-7289) | *Major* | **Combine Limit and Sort to avoid total ordering**
+
+Optimize following sql
+
+select key from (select * from testData order by key) t limit 5
+
+from 
+
+== Parsed Logical Plan ==
+'Limit 5
+ 'Project ['key]
+  'Subquery t
+   'Sort ['key ASC], true
+    'Project [*]
+     'UnresolvedRelation [testData], None
+
+== Analyzed Logical Plan ==
+Limit 5
+ Project [key#0]
+  Subquery t
+   Sort [key#0 ASC], true
+    Project [key#0,value#1]
+     Subquery testData
+      LogicalRDD [key#0,value#1], MapPartitionsRDD[1] 
+
+== Optimized Logical Plan ==
+Limit 5
+ Project [key#0]
+  Sort [key#0 ASC], true
+   LogicalRDD [key#0,value#1], MapPartitionsRDD[1] 
+== Physical Plan ==
+Limit 5
+ Project [key#0]
+  Sort [key#0 ASC], true
+   Exchange (RangePartitioning [key#0 ASC], 5), []
+    PhysicalRDD [key#0,value#1], MapPartitionsRDD[1] 
+
+to
+
+== Parsed Logical Plan ==
+'Limit 5
+ 'Project ['key]
+  'Subquery t
+   'Sort ['key ASC], true
+    'Project [*]
+     'UnresolvedRelation [testData], None
+
+== Analyzed Logical Plan ==
+Limit 5
+ Project [key#0]
+  Subquery t
+   Sort [key#0 ASC], true
+    Project [key#0,value#1]
+     Subquery testData
+      LogicalRDD [key#0,value#1], MapPartitionsRDD[1]
+
+== Optimized Logical Plan ==
+Project [key#0]
+ Limit 5
+  Sort [key#0 ASC], true
+   LogicalRDD [key#0,value#1], MapPartitionsRDD[1] 
+
+== Physical Plan ==
+Project [key#0]
+ TakeOrdered 5, [key#0 ASC]
+  PhysicalRDD [key#0,value#1], MapPartitionsRDD[1]
 
 
 ---

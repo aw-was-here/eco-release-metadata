@@ -349,7 +349,6 @@
 | [SPARK-5924](https://issues.apache.org/jira/browse/SPARK-5924) | Add the ability to specify withMean or withStd parameters with StandarScaler |  Trivial | ML | Jao Rabary | Jao Rabary |
 | [SPARK-5922](https://issues.apache.org/jira/browse/SPARK-5922) | Add diff(other: RDD[VertexId, VD]) in VertexRDD |  Trivial | GraphX | Takeshi Yamamuro | Brennon York |
 | [SPARK-5911](https://issues.apache.org/jira/browse/SPARK-5911) | Make Column.cast(to: String) support fixed precision and scale decimal type |  Major | SQL | Yin Huai | Yin Huai |
-| [SPARK-5836](https://issues.apache.org/jira/browse/SPARK-5836) | Highlight in Spark documentation that by default Spark does not delete its temporary files |  Minor | Documentation | Tomasz Dudziak | Ilya Ganelin |
 | [SPARK-5831](https://issues.apache.org/jira/browse/SPARK-5831) | When checkpoint file size is bigger than 10, then delete them |  Trivial | Streaming | meiyoula | meiyoula |
 | [SPARK-5790](https://issues.apache.org/jira/browse/SPARK-5790) | Add tests for: VertexRDD's won't zip properly for `diff` capability |  Minor | GraphX, Tests | Brennon York | Brennon York |
 | [SPARK-5750](https://issues.apache.org/jira/browse/SPARK-5750) | Document that ordering of elements in shuffled partitions is not deterministic across runs |  Minor | Documentation | Josh Rosen | Ilya Ganelin |
@@ -362,6 +361,7 @@
 | [SPARK-5628](https://issues.apache.org/jira/browse/SPARK-5628) | Add option to return spark-ec2 version |  Minor | EC2 | Nicholas Chammas | Nicholas Chammas |
 | [SPARK-5611](https://issues.apache.org/jira/browse/SPARK-5611) | Allow spark-ec2 repo to be specified in CLI of spark\_ec2.py |  Minor | EC2 | Florian Verhein | Florian Verhein |
 | [SPARK-5563](https://issues.apache.org/jira/browse/SPARK-5563) | LDA with online variational inference |  Major | MLlib | Joseph K. Bradley | yuhao yang |
+| [SPARK-5560](https://issues.apache.org/jira/browse/SPARK-5560) | LDA EM should scale to more iterations |  Major | MLlib | Joseph K. Bradley | Joseph K. Bradley |
 | [SPARK-5559](https://issues.apache.org/jira/browse/SPARK-5559) | Flaky test: o.a.s.streaming.flume.FlumeStreamSuite |  Major | Streaming, Tests | Kousuke Saruta | Kousuke Saruta |
 | [SPARK-5522](https://issues.apache.org/jira/browse/SPARK-5522) | Accelerate the History Server start |  Major | Spark Core, Web UI | Liangliang Gu | Liangliang Gu |
 | [SPARK-5436](https://issues.apache.org/jira/browse/SPARK-5436) | Validate GradientBoostedTrees during training |  Major | MLlib | Joseph K. Bradley | Manoj Kumar |

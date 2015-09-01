@@ -23,16 +23,16 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
-* [HBASE-13966](https://issues.apache.org/jira/browse/HBASE-13966) | *Minor* | **Limit column width in table.jsp**
+* [HBASE-14313](https://issues.apache.org/jira/browse/HBASE-14313) | *Critical* | **After a Connection sees ConnectionClosingException it never recovers**
 
-Wraps region, start key, end key columns if too long.
+HConnection could get stuck when talking to a host that went down and then returned. This has been fixed by closing the connection in all paths.
 
 
 ---
 
-* [HBASE-10844](https://issues.apache.org/jira/browse/HBASE-10844) | *Major* | **Coprocessor failure during batchmutation leaves the memstore datastructs in an inconsistent state**
+* [HBASE-14224](https://issues.apache.org/jira/browse/HBASE-14224) | *Critical* | **Fix coprocessor handling of duplicate classes**
 
-Promotes an -ea assert to logged FATAL and RS abort when memstore is found to be in an inconsistent state.
+Prevent Coprocessors being doubly-loaded; a particular coprocessor can only be loaded once.
 
 
 

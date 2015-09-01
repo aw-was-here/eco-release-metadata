@@ -38,6 +38,13 @@ Need to mark hive.server2.thrift.http.min/max.worker.threads parameters in  http
 
 ---
 
+* [HIVE-10215](https://issues.apache.org/jira/browse/HIVE-10215) | *Minor* | **Large IN() clauses: deep hashCode performance during optimizer pass**
+
+Use object identity to prevent recursion instead of equality in the optimizer visitor pattern
+
+
+---
+
 * [HIVE-10145](https://issues.apache.org/jira/browse/HIVE-10145) | *Major* | **set Tez ACLs appropriately in hive**
 
 Earlier if hive.server2.enable.doAs was set to false, and tez acls were enabled, the end user who is running this query would not have access to the DAG information for the query.

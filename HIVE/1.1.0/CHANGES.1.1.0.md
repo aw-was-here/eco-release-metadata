@@ -269,7 +269,6 @@
 | [HIVE-8496](https://issues.apache.org/jira/browse/HIVE-8496) | Re-enable statistics [Spark Branch] |  Major | Spark | Chao Sun | Chao Sun |
 | [HIVE-8491](https://issues.apache.org/jira/browse/HIVE-8491) | Fix build name in ptest pre-commit message |  Major | . | Mohit Sabharwal | Mohit Sabharwal |
 | [HIVE-8457](https://issues.apache.org/jira/browse/HIVE-8457) | MapOperator initialization fails when multiple Spark threads is enabled [Spark Branch] |  Major | Spark | Chao Sun | Chao Sun |
-| [HIVE-8450](https://issues.apache.org/jira/browse/HIVE-8450) | Create table like does not copy over table properties |  Critical | . | Brock Noland | Navis |
 | [HIVE-8448](https://issues.apache.org/jira/browse/HIVE-8448) | Union All might not work due to the type conversion issue |  Major | Query Processor | Chaoyu Tang | Yongzhi Chen |
 | [HIVE-8426](https://issues.apache.org/jira/browse/HIVE-8426) | paralle.q assert failed.[Spark Branch] |  Major | Spark | Chengxiang Li | Chengxiang Li |
 | [HIVE-8425](https://issues.apache.org/jira/browse/HIVE-8425) | enable vectorized\_mapjoin.q,vectorized\_nested\_mapjoin.q [Sparch Branch] |  Major | . | Chinna Rao Lalam | Chinna Rao Lalam |

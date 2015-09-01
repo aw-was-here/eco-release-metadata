@@ -23,9 +23,9 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
-* [HBASE-13865](https://issues.apache.org/jira/browse/HBASE-13865) | *Trivial* | **Increase the default value for hbase.hregion.memstore.block.multipler from 2 to 4 (part 2)**
+* [HBASE-14313](https://issues.apache.org/jira/browse/HBASE-14313) | *Critical* | **After a Connection sees ConnectionClosingException it never recovers**
 
-Increase default hbase.hregion.memstore.block.multiplier from 2 to 4 in the code to match the default value in the config files.
+HConnection could get stuck when talking to a host that went down and then returned. This has been fixed by closing the connection in all paths.
 
 
 

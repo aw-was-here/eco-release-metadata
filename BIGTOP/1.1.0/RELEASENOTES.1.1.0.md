@@ -23,6 +23,116 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [BIGTOP-1997](https://issues.apache.org/jira/browse/BIGTOP-1997) | *Major* | **Bump bigtop-groovy runtime to 2.4.4**
+
+As discussed in BIGTOP-1993 Groovy runtime provided by bigtop-groovy packages needs to be moved forward to the latest version of the SDK.
+
+
+---
+
+* [BIGTOP-1995](https://issues.apache.org/jira/browse/BIGTOP-1995) | *Major* | **Update BigPetStore to use external locations  data**
+
+When BIGTOP-1986 was added, I must not have added changes in the BigPetStore data generator for the new location data to the patch.  This issue is to update the references in the BPS data generator and the {{settings.gradle}} file.
+
+
+---
+
+* [BIGTOP-1993](https://issues.apache.org/jira/browse/BIGTOP-1993) | *Major* | **Bump groovy to 2.4.4 in the development toolchain**
+
+Groovy 2.4.4 has fixed some security bugs and is, after all, the first Apache release of the platform. Let's update the toolchain to it
+
+
+---
+
+* [BIGTOP-1992](https://issues.apache.org/jira/browse/BIGTOP-1992) | *Blocker* | **Fix RAT check errors resulting from BPS data generator move**
+
+The following files are failing:
+
+{noformat}
+ bigtop-data-generators/bigtop-name-generator/src/main/resources/input\_data/namedb/namedb.info
+ bigtop-data-generators/bigtop-location-data/src/main/resources/input\_data/ACS\_12\_5YR\_S1903/ACS\_12\_5YR\_S1903.txt
+ bigtop-data-generators/bigtop-location-data/src/main/resources/input\_data/ACS\_12\_5YR\_S1903/ACS\_12\_5YR\_S1903\_metadata.csv
+ bigtop-data-generators/bigtop-location-data/src/main/resources/input\_data/ACS\_12\_5YR\_S1903/ACS\_12\_5YR\_S1903\_with\_ann.csv
+ bigtop-data-generators/bigtop-location-data/src/main/resources/input\_data/population\_data.csv
+ bigtop-data-generators/bigtop-location-data/src/main/resources/input\_data/zips.csv
+{noformat}
+
+
+---
+
+* [BIGTOP-1990](https://issues.apache.org/jira/browse/BIGTOP-1990) | *Minor* | **Add gradle multi-project build files for bigtop-data-generators**
+
+To make it easier to build the BigTop Data Generators, we should add a Gradle multi-project build.
+
+
+---
+
+* [BIGTOP-1986](https://issues.apache.org/jira/browse/BIGTOP-1986) | *Minor* | **Extract location dataset from BigPetStore data generator**
+
+Extract location dataset from BigPetStore data generator
+
+
+---
+
+* [BIGTOP-1985](https://issues.apache.org/jira/browse/BIGTOP-1985) | *Minor* | **Extract name generator from BigPetStore data generator**
+
+Extract name generator from BigPetStore data generator
+
+
+---
+
+* [BIGTOP-1984](https://issues.apache.org/jira/browse/BIGTOP-1984) | *Minor* | **Extract samplers library from BigPetStore data generator**
+
+Extract samplers library from BigPetStore data generator.
+
+
+---
+
+* [BIGTOP-1983](https://issues.apache.org/jira/browse/BIGTOP-1983) | *Minor* | **Move BigPetStore data generator to bigtop-data-generators**
+
+Move bigpetstore-data-generator to bigtop-data-generators
+
+
+---
+
+* [BIGTOP-1976](https://issues.apache.org/jira/browse/BIGTOP-1976) | *Minor* | **Replace Pair type with Apache Commons Lang Pair type**
+
+Replace Pair type with Apache Commons Lang Pair type
+
+
+---
+
+* [BIGTOP-1975](https://issues.apache.org/jira/browse/BIGTOP-1975) | *Major* | **Smoke tests for Spark SQL**
+
+Add a smoke test for Spark SQL using Spark's examples
+
+
+---
+
+* [BIGTOP-1974](https://issues.apache.org/jira/browse/BIGTOP-1974) | *Major* | **Revise SPARK\_HOME/conf/spark-env.sh**
+
+Current spark-env.sh is a bit complex; It's not easy to read and edit. It would be nice to have a simplified spark-env.sh
+
+
+---
+
+* [BIGTOP-1973](https://issues.apache.org/jira/browse/BIGTOP-1973) | *Minor* | **Add new tests for HDFS Balancer functionality**
+
+Add below tests related to HDFS admin module to the existing test class file TestHDFSBalancer.groovy:
+    - test threshold with negative value.
+    - test threshold with zero value.
+    - test threshold with max value.
+
+
+---
+
+* [BIGTOP-1971](https://issues.apache.org/jira/browse/BIGTOP-1971) | *Major* | **Support Spark SQL CLI with Apache Hive out of the box**
+
+Spark SQL supports reading and writing Apache Hive tables. To run the spark-sql CLI with Hive support, It's required $\{SPARK\_HOME\}/conf/hive-site.xml file, so, Bigtop should package the hive-site.xml for Spark SQL (with Hive support)
+
+
+---
+
 * [BIGTOP-1967](https://issues.apache.org/jira/browse/BIGTOP-1967) | *Major* | **Update the front-page of the website with new CI hostname**
 
 We have a correct CNAME for the ci.bigtop.apache.org - let's use on the front page.
@@ -56,9 +166,23 @@ Upgrade Tez version to 0.6.2
 
 ---
 
+* [BIGTOP-1963](https://issues.apache.org/jira/browse/BIGTOP-1963) | *Major* | **Upgrade Mahout to 0.11.0**
+
+Bump up Mahout version to 0.11.0, Expecting enhancement on Spark support
+
+
+---
+
 * [BIGTOP-1958](https://issues.apache.org/jira/browse/BIGTOP-1958) | *Blocker* | **Upgrade default repositories and docker images to 1.0**
 
 The default repositories in puppet recipes and bigtop provisioner configurations are still 0.8.0. We should upgrade them to 1.0.0 repo and switch the docker image to 1.0 version as well.
+
+
+---
+
+* [BIGTOP-1956](https://issues.apache.org/jira/browse/BIGTOP-1956) | *Major* | **Multi RS HBase requires unique hbase.tmp.dir to be set for each RS on a node**
+
+In a multi RS set-up of HBase, each RS instance need to have a unique "hbase.tmp.dir" without which starting of RS automatically at the same time will fail if HBase coprocessors are used due to contention on the temp directory.
 
 
 ---
@@ -73,6 +197,13 @@ Since Apache Ignite version 1.3.0 was released, we should upgrade its version in
 * [BIGTOP-1954](https://issues.apache.org/jira/browse/BIGTOP-1954) | *Major* | **Change the component name in the MAINTAINERS.txt**
 
 MAINTAINERS.txt has {{gridgain-hadoop}} component. Should be {{ignite-hadoop}}
+
+
+---
+
+* [BIGTOP-1953](https://issues.apache.org/jira/browse/BIGTOP-1953) | *Major* | **Upgrade bigtop\_toolchain to Maven 3.3.3**
+
+In order to upgrade to Spark 1.5.0 once it is released (~Sep 2015), we will need to upgrade the Bigtop toolchain to Maven 3.3.3 due to https://issues.apache.org/jira/browse/SPARK-9521.
 
 
 ---
@@ -414,6 +545,13 @@ Zeppelin (see BIGTOP-1769 for main Zeppelin Integration JIRA) requires Maven 3.1
 I was looking into morphline and Apache Flume and noticed that CDK was needed in order to get the morphline jars.
 
 So let's package morphline so other projects can benefit from it!
+
+
+---
+
+* [BIGTOP-1126](https://issues.apache.org/jira/browse/BIGTOP-1126) | *Major* | **Add Hama to Bigtop**
+
+Hama is being excluded since 0.4 version. Since latest Hama version is compatible with Hadoop 2, we can start to integrate.
 
 
 

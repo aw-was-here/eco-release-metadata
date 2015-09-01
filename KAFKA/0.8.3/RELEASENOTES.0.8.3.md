@@ -23,6 +23,244 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [KAFKA-2486](https://issues.apache.org/jira/browse/KAFKA-2486) | *Major* | **New consumer performance**
+
+The new consumer was previously reaching getting good performance. However, a recent report on the mailing list indicates it's dropped significantly. After evaluation, even with a local broker it seems to only be reaching a 2-10MB/s, compared to 600+MB/s previously. Before release, we should get the performance back on par.
+
+Some details about where the regression occurred from the mailing list http://mail-archives.apache.org/mod\_mbox/kafka-dev/201508.mbox/%3CCAAdKFaE8bPSeWZf%2BF9RuA-xZazRpBrZG6vo454QLVHBAk\_VOJg%40mail.gmail.com%3E :
+
+bq. At 49026f11781181c38e9d5edb634be9d27245c961 (May 14th), we went from good performance -> an error due to broker apparently not accepting the partition assignment strategy. Since this commit seems to add heartbeats and the server side code for partition assignment strategies, I assume we were missing something on the client side and by filling in the server side, things stopped working.
+bq. On either 84636272422b6379d57d4c5ef68b156edc1c67f8 or a5b11886df8c7aad0548efd2c7c3dbc579232f03 (July 17th), I am able to run the perf test again, but it's slow -- ~10MB/s for me vs the 2MB/s Jay was seeing, but that's still far less than the 600MB/s I saw on the earlier commits.
+
+Ideally we would also at least have a system test in place for the new consumer, even if regressions weren't automatically detected. It would at least allow for manually checking for regressions. This should not be difficult since there are already old consumer performance tests.
+
+
+---
+
+* [KAFKA-2485](https://issues.apache.org/jira/browse/KAFKA-2485) | *Major* | **Allow producer performance to take properties from a file via --producer.config command line parameter**
+
+In order to allow ProducerPerformance to produce via ssl connection, we need the following (example) configuration:
+
+security.protocol=SSL
+ssl.protocol=TLS
+ssl.truststore.type=JKS
+ssl.truststore.location=serverkeystore.jks
+ssl.truststore.password=password
+ssl.keymanager.algorithm=SunX509
+ssl.trustmanager.algorithm=SunX509
+
+There are two ways to achieve it: 1) extend ProducerPerformance to explicitly accept all 7 ssl-related parameters; 2) allow ProducerPerformance to take properties from a file via --consumer.config command line parameter.
+
+It seems option 2) is better, because it requires less code, allows new options to be easily added in the future, and doesn't require user to specify password in the command line.
+
+
+---
+
+* [KAFKA-2475](https://issues.apache.org/jira/browse/KAFKA-2475) | *Major* | **Reduce copycat configs to only specify a converter or serializer, not both**
+
+Ultimately, all we care about is getting from byte[] -> Copycat data API. The current split of the interfaces makes it easy to reuse existing serializers, but you still have to implement a new class.
+
+It will be simpler, both conceptually and by requiring fewer configs, to combine both these steps into a single API. This also allows certain formats to preserve more information across these (e.g. for primitive types in schema, which otherwise could lose certain schema information).
+
+
+---
+
+* [KAFKA-2469](https://issues.apache.org/jira/browse/KAFKA-2469) | *Minor* | **System test console consumer logs should write all messages to debug logger**
+
+Currently every message read back from the ConsoleConsumer services is logged to the debug logger like this:
+
+[DEBUG - 2015-08-25 07:21:12,466 - console\_consumer - \_worker - lineno:177]: consumed a message: 772367
+
+This results in huge log files that are pretty difficult to work with (hundreds of megs), and isn't required for the tests. VerifiableProducer removed its logging for this same reason, preferring to save it to a log file that could optionally be collected if it was needed. The ConsoleConsumer service should do the same.
+
+
+---
+
+* [KAFKA-2468](https://issues.apache.org/jira/browse/KAFKA-2468) | *Major* | **SIGINT during Kafka server startup can leave server deadlocked**
+
+KafkaServer on receiving a SIGINT will try to shutdown and if this happens while the server is starting up, it will get into deadlock.
+
+Thread dump after deadlock
+{code}
+2015-08-24 22:03:52
+Full thread dump Java HotSpot(TM) 64-Bit Server VM (24.55-b03 mixed mode):
+
+"Attach Listener" daemon prio=5 tid=0x00007fc08e827800 nid=0x5807 waiting on condition [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"Thread-2" prio=5 tid=0x00007fc08b9de000 nid=0x6b03 waiting for monitor entry [0x000000011ad3a000]
+   java.lang.Thread.State: BLOCKED (on object monitor)
+	at java.lang.Shutdown.exit(Shutdown.java:212)
+	- waiting to lock <0x00000007bae86ac0> (a java.lang.Class for java.lang.Shutdown)
+	at java.lang.Runtime.exit(Runtime.java:109)
+	at java.lang.System.exit(System.java:962)
+	at kafka.server.KafkaServerStartable.shutdown(KafkaServerStartable.scala:46)
+	at kafka.Kafka$$anon$1.run(Kafka.scala:65)
+
+"SIGINT handler" daemon prio=5 tid=0x00007fc08ca51800 nid=0x6503 in Object.wait() [0x000000011aa31000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007bcb40610> (a kafka.Kafka$$anon$1)
+	at java.lang.Thread.join(Thread.java:1281)
+	- locked <0x00000007bcb40610> (a kafka.Kafka$$anon$1)
+	at java.lang.Thread.join(Thread.java:1355)
+	at java.lang.ApplicationShutdownHooks.runHooks(ApplicationShutdownHooks.java:106)
+	at java.lang.ApplicationShutdownHooks$1.run(ApplicationShutdownHooks.java:46)
+	at java.lang.Shutdown.runHooks(Shutdown.java:123)
+	at java.lang.Shutdown.sequence(Shutdown.java:167)
+	at java.lang.Shutdown.exit(Shutdown.java:212)
+	- locked <0x00000007bae86ac0> (a java.lang.Class for java.lang.Shutdown)
+	at java.lang.Terminator$1.handle(Terminator.java:52)
+	at sun.misc.Signal$1.run(Signal.java:212)
+	at java.lang.Thread.run(Thread.java:745)
+
+"RMI TCP Accept-0" daemon prio=5 tid=0x00007fc08c164000 nid=0x5c07 runnable [0x0000000119fe8000]
+   java.lang.Thread.State: RUNNABLE
+	at java.net.PlainSocketImpl.socketAccept(Native Method)
+	at java.net.AbstractPlainSocketImpl.accept(AbstractPlainSocketImpl.java:398)
+	at java.net.ServerSocket.implAccept(ServerSocket.java:530)
+	at java.net.ServerSocket.accept(ServerSocket.java:498)
+	at sun.management.jmxremote.LocalRMIServerSocketFactory$1.accept(LocalRMIServerSocketFactory.java:52)
+	at sun.rmi.transport.tcp.TCPTransport$AcceptLoop.executeAcceptLoop(TCPTransport.java:388)
+	at sun.rmi.transport.tcp.TCPTransport$AcceptLoop.run(TCPTransport.java:360)
+	at java.lang.Thread.run(Thread.java:745)
+
+"Service Thread" daemon prio=5 tid=0x00007fc08d015000 nid=0x5503 runnable [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"C2 CompilerThread1" daemon prio=5 tid=0x00007fc08c82b000 nid=0x5303 waiting on condition [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"C2 CompilerThread0" daemon prio=5 tid=0x00007fc08c82a000 nid=0x5103 waiting on condition [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"Signal Dispatcher" daemon prio=5 tid=0x00007fc08c829800 nid=0x4f03 runnable [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"Surrogate Locker Thread (Concurrent GC)" daemon prio=5 tid=0x00007fc08d002000 nid=0x400b waiting on condition [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"Finalizer" daemon prio=5 tid=0x00007fc08d012800 nid=0x3b03 in Object.wait() [0x0000000117ee6000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007bae05568> (a java.lang.ref.ReferenceQueue$Lock)
+	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:135)
+	- locked <0x00000007bae05568> (a java.lang.ref.ReferenceQueue$Lock)
+	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:151)
+	at java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:189)
+
+"Reference Handler" daemon prio=5 tid=0x00007fc08c803000 nid=0x3903 in Object.wait() [0x0000000117de3000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000007bae050f0> (a java.lang.ref.Reference$Lock)
+	at java.lang.Object.wait(Object.java:503)
+	at java.lang.ref.Reference$ReferenceHandler.run(Reference.java:133)
+	- locked <0x00000007bae050f0> (a java.lang.ref.Reference$Lock)
+
+"main" prio=5 tid=0x00007fc08d000800 nid=0x1303 waiting for monitor entry [0x000000010f353000]
+   java.lang.Thread.State: BLOCKED (on object monitor)
+	at java.lang.Shutdown.exit(Shutdown.java:212)
+	- waiting to lock <0x00000007bae86ac0> (a java.lang.Class for java.lang.Shutdown)
+	at java.lang.Runtime.exit(Runtime.java:109)
+	at java.lang.System.exit(System.java:962)
+	at kafka.server.KafkaServerStartable.startup(KafkaServerStartable.scala:35)
+	at kafka.Kafka$.main(Kafka.scala:69)
+	at kafka.Kafka.main(Kafka.scala)
+
+"VM Thread" prio=5 tid=0x00007fc08b83b000 nid=0x3703 runnable 
+
+"Gang worker#0 (Parallel GC Threads)" prio=5 tid=0x00007fc08d00f800 nid=0x2103 runnable 
+
+"Gang worker#1 (Parallel GC Threads)" prio=5 tid=0x00007fc08b80e000 nid=0x2303 runnable 
+
+"Gang worker#2 (Parallel GC Threads)" prio=5 tid=0x00007fc08c801000 nid=0x2503 runnable 
+
+"Gang worker#3 (Parallel GC Threads)" prio=5 tid=0x00007fc08c801800 nid=0x2703 runnable 
+
+"Gang worker#4 (Parallel GC Threads)" prio=5 tid=0x00007fc08c804000 nid=0x2903 runnable 
+
+"Gang worker#5 (Parallel GC Threads)" prio=5 tid=0x00007fc08c804800 nid=0x2b03 runnable 
+
+"Gang worker#6 (Parallel GC Threads)" prio=5 tid=0x00007fc08c805000 nid=0x2d03 runnable 
+
+"Gang worker#7 (Parallel GC Threads)" prio=5 tid=0x00007fc08c806000 nid=0x2f03 runnable 
+
+"Concurrent Mark-Sweep GC Thread" prio=5 tid=0x00007fc08c806800 nid=0x3503 runnable 
+"Gang worker#0 (Parallel CMS Threads)" prio=5 tid=0x00007fc08c0bd800 nid=0x3103 runnable 
+
+"Gang worker#1 (Parallel CMS Threads)" prio=5 tid=0x00007fc08c0be800 nid=0x3303 runnable 
+
+"VM Periodic Task Thread" prio=5 tid=0x00007fc08c155000 nid=0x5d03 waiting on condition 
+
+JNI global references: 239
+{code}
+
+
+---
+
+* [KAFKA-2467](https://issues.apache.org/jira/browse/KAFKA-2467) | *Major* | **ConsoleConsumer regressions**
+
+It seems that the patch for KAFKA-2015 caused a few changes in the behavior of the console consumer. I picked this up because it caused the new mirror maker sanity system test to hang. We need a separate fix for ducktape to address the lack of a timeout where it got stuck, but I'd also like to get this fixed ASAP since it affects pretty much all system test efforts since they commonly use console consumer to validate data produced to Kafka.
+
+I've tracked down a couple of changes so far:
+
+1. The --consumer.config option handling was changed entirely. I think the new approach was trying to parse it as key=value parameters, but it's supposed to be a properties file *containing* key=value pairs.
+2. A few different exceptions during message processing are not handled the same way. The skipMessageOnErrorOpt is not longer being used at all (it's parsed, but that option is never checked anymore). Also, exceptions during iteration are not caught. After fixing the consumer.config issue, which was keeping the consumer.timeout.ms setting from making it into the consumer config, this also caused the process to hang. It killed the main thread, but there must be another non-daemon thread still running (presumably the consumer threads?)
+3. The "consumed X messages" message changed from stderr to stdout.
+
+
+---
+
+* [KAFKA-2466](https://issues.apache.org/jira/browse/KAFKA-2466) | *Major* | **ConsoleConsumer throws ConcurrentModificationException on termination**
+
+ConsoleConsumer throws ConcurrentModificationException on termination.
+
+ST:
+{code}
+Exception in thread "Thread-1" java.util.ConcurrentModificationException: KafkaConsumer is not safe for multi-threaded access
+	at org.apache.kafka.clients.consumer.KafkaConsumer.acquire(KafkaConsumer.java:1169)
+	at org.apache.kafka.clients.consumer.KafkaConsumer.close(KafkaConsumer.java:1087)
+	at kafka.consumer.NewShinyConsumer.close(BaseConsumer.scala:50)
+	at kafka.tools.ConsoleConsumer$$anon$1.run(ConsoleConsumer.scala:74)
+{code}
+
+Other thread which constantly tries to consume is
+{code}
+"main" prio=10 tid=0x00007f3aa800c000 nid=0x1314 runnable [0x00007f3aae37d000]
+   java.lang.Thread.State: RUNNABLE
+	at sun.nio.ch.EPollArrayWrapper.epollWait(Native Method)
+	at sun.nio.ch.EPollArrayWrapper.poll(EPollArrayWrapper.java:269)
+	at sun.nio.ch.EPollSelectorImpl.doSelect(EPollSelectorImpl.java:79)
+	at sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:87)
+	- locked <0x00000000dd1df130> (a sun.nio.ch.Util$2)
+	- locked <0x00000000dd1df120> (a java.util.Collections$UnmodifiableSet)
+	- locked <0x00000000dd0af720> (a sun.nio.ch.EPollSelectorImpl)
+	at sun.nio.ch.SelectorImpl.select(SelectorImpl.java:98)
+	at org.apache.kafka.common.network.Selector.select(Selector.java:440)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:263)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:221)
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.clientPoll(ConsumerNetworkClient.java:274)
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:182)
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:172)
+	at org.apache.kafka.clients.consumer.KafkaConsumer.pollOnce(KafkaConsumer.java:779)
+	at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:730)
+	at kafka.consumer.NewShinyConsumer.receive(BaseConsumer.scala:43)
+	at kafka.tools.ConsoleConsumer$.process(ConsoleConsumer.scala:87)
+	at kafka.tools.ConsoleConsumer$.run(ConsoleConsumer.scala:54)
+	at kafka.tools.ConsoleConsumer$.main(ConsoleConsumer.scala:39)
+	at kafka.tools.ConsoleConsumer.main(ConsoleConsumer.scala)
+{code}
+
+
+---
+
+* [KAFKA-2457](https://issues.apache.org/jira/browse/KAFKA-2457) | *Critical* | **StackOverflowError during builds**
+
+We need to set -Xss to avoid this problem. Will submit PR.
+
+
+---
+
 * [KAFKA-2438](https://issues.apache.org/jira/browse/KAFKA-2438) | *Major* | **add maxParallelForks to build.gradle to speedup tests**
 
 With current trunk unit tests on my machine takes 16+ mins and with this patch runs about 6mins. Tested on OS X and linux.
@@ -36,6 +274,13 @@ BUILD SUCCESSFUL
 
 Total time: 5 mins 37.194 secs
 {code}
+
+
+---
+
+* [KAFKA-2436](https://issues.apache.org/jira/browse/KAFKA-2436) | *Critical* | **log.retention.hours should be honored by LogManager**
+
+Currently log.retention.hours is used to calculate KafkaConfig.logRetentionTimeMillis. But it is not used in LogManager to decide when to delete a log. LogManager is only using the log.retention.ms in the broker configuration.
 
 
 ---
@@ -249,6 +494,38 @@ It seems that in KafkaApis.getTopicMetadata(), we need to handle InvalidTopicExc
 
 ---
 
+* [KAFKA-2388](https://issues.apache.org/jira/browse/KAFKA-2388) | *Major* | **subscribe(topic)/unsubscribe(topic) should either take a callback to allow user to handle exceptions or it should be synchronous.**
+
+According to the mailing list discussion on the consumer interface, we'll replace:
+{code}
+public void subscribe(String... topics);
+public void subscribe(TopicPartition... partitions);
+public Set<TopicPartition> subscriptions();
+{code}
+with:
+{code}
+void subscribe(List<String> topics, RebalanceCallback callback);
+void assign(List<TopicPartition> partitions);
+List<String> subscriptions();
+List<TopicPartition> assignments();
+{code}
+
+We don't need the unsubscribe APIs anymore.
+
+The RebalanceCallback would look like:
+{code}
+interface RebalanceCallback {
+  void onAssignment(List<TopicPartition> partitions);
+  void onRevocation(List<TopicPartition> partitions);
+
+  // handle non-existing topics, etc.
+  void onError(Exception e);
+}
+{code}
+
+
+---
+
 * [KAFKA-2386](https://issues.apache.org/jira/browse/KAFKA-2386) | *Major* | **Transient test failure: testGenerationIdIncrementsOnRebalance**
 
 Seen this in some builds. Might be caused by gc pause (or similar) which delays group join in the test.
@@ -278,6 +555,24 @@ It would be more convenient allow setting the commit message in the merging scri
 * [KAFKA-2381](https://issues.apache.org/jira/browse/KAFKA-2381) | *Major* | **Possible ConcurrentModificationException while unsubscribing from a topic in new consumer**
 
 Possible ConcurrentModificationException while unsubscribing from a topic in new consumer. Attempt is made to modify AssignedPartitions while looping over it.
+
+
+---
+
+* [KAFKA-2377](https://issues.apache.org/jira/browse/KAFKA-2377) | *Major* | **Add copycat system tests**
+
+Add baseline system tests for Copycat, covering both standalone and distributed mode.
+
+This should cover basic failure modes and verify at-least-one delivery of data, both from source system -> Kafka and Kafka -> sink system. This, of course, requires testing the core, built-in connectors provided with Copycat.
+
+
+---
+
+* [KAFKA-2367](https://issues.apache.org/jira/browse/KAFKA-2367) | *Major* | **Add Copycat runtime data API**
+
+Design the API used for runtime data in Copycat. This API is used to construct schemas and records that Copycat processes. This needs to be a fairly general data model (think Avro, JSON, Protobufs, Thrift) in order to support complex, varied data types that may be input from/output to many data systems.
+
+This should issue should also address the serialization interfaces used within Copycat, which translate the runtime data into serialized byte[] form. It is important that these be considered together because the data format can be used in multiple ways (records, partition IDs, partition offsets), so it and the corresponding serializers must be sufficient for all these use cases.
 
 
 ---
@@ -456,6 +751,13 @@ The Kafka consumer is NOT thread-safe. All network I/O happens in the thread of 
 {quote}
 
 This matches what the code does, so the former quoted section should probably be deleted.
+
+
+---
+
+* [KAFKA-2330](https://issues.apache.org/jira/browse/KAFKA-2330) | *Minor* | **Vagrantfile sets global configs instead of per-provider override configs**
+
+There's a couple of minor incorrect usages of the global configuration object in the Vagrantfile inside provider-specific override blocks where we should be using the override config object. Two end up being harmless since they have no affect on other providers (but should still be corrected). The third results in using rsync when using Virtualbox, which is unnecessary, slower, and requires copying the entire kafka directory to every VM.
 
 
 ---
@@ -1401,6 +1703,13 @@ New producer java docs are referring to old producer documentation.
 
 ---
 
+* [KAFKA-2130](https://issues.apache.org/jira/browse/KAFKA-2130) | *Trivial* | **Resource leakage in AppInfo.scala during initialization**
+
+Minor InputStream leakage during the server initialization in AppInfo.scala. Patch attached.
+
+
+---
+
 * [KAFKA-2128](https://issues.apache.org/jira/browse/KAFKA-2128) | *Minor* | **kafka.Kafka should return non-zero exit code when caught exception.**
 
 kafka.Kafka Object always return exit code zero.
@@ -1427,6 +1736,15 @@ where ConsumerCommitCallback contains a single method:
 public void onCompletion(Exception exception);
 
 We can provide shorthand variants of commit() for eliding the different arguments.
+
+
+---
+
+* [KAFKA-2122](https://issues.apache.org/jira/browse/KAFKA-2122) | *Major* | **Remove controller.message.queue.size Config**
+
+A deadlock can happen during a delete topic if controller.message.queue.size is overridden to a custom value. Details are here: https://issues.apache.org/jira/browse/KAFKA-2046?focusedCommentId=14380776&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-14380776
+
+Given that KAFKA-1993 is enabling delete topic by default, it would be unsafe to simultaneously allow a configurable controller.message.queue.size
 
 
 ---
@@ -2011,6 +2329,13 @@ RollingBounceTest.testRollingBounce() currently takes about 48 secs. This is a b
 
 ---
 
+* [KAFKA-2015](https://issues.apache.org/jira/browse/KAFKA-2015) | *Major* | **Enable ConsoleConsumer to use new consumer**
+
+As titled, enable ConsoleConsumer to use new consumer.
+
+
+---
+
 * [KAFKA-2013](https://issues.apache.org/jira/browse/KAFKA-2013) | *Trivial* | **benchmark test for the purgatory**
 
 We need a micro benchmark test for measuring the purgatory performance.
@@ -2362,6 +2687,19 @@ KafkaConsumer now contains all the logic on the consumer side, making it a very 
 
 ---
 
+* [KAFKA-1901](https://issues.apache.org/jira/browse/KAFKA-1901) | *Major* | **Move Kafka version to be generated in code by build (instead of in manifest)**
+
+With 0.8.2 (rc2), I've started seeing this warning in the logs of apps deployed to our staging (both server and client):
+
+{code}
+2015-01-23 00:55:25,273  WARN [async-message-sender-0] common.AppInfo$ - Can't read Kafka version from MANIFEST.MF. Possible cause: java.lang.NullPointerException
+{code}
+
+The issues is that in our deployment, apps are deployed with single 'shaded' jars (e.g. using the maven shade plugin).  This means the MANIFEST.MF file won't have a kafka version.  Instead, suggest the kafka build generate the proper version in code, as part of the build.
+
+
+---
+
 * [KAFKA-1896](https://issues.apache.org/jira/browse/KAFKA-1896) | *Major* | **Record size funcition of record in mirror maker hit NPE when the message value is null.**
 
 The byte bounded queue should not assume the message value is not null. For compacted topics, the tombstone message will have a null value, which lead to an NPE.
@@ -2558,6 +2896,19 @@ This failure appears like it's intermittent when the ProducerFailureHandlingTest
 The real issue is that the initialization of the  \_\_consumer\_offset topic (being accessed in the testCannotSendToInternalTopic test method) is time consuming because that topic is backed by 50 partitions (default) and it takes a while for each of them to be assigned a leader and do other initialization. This times out the metadata fetch (3 seconds) being done by the producer during a send(), which causes the test method to fail.
 
 I've a patch to fix that test method which I'll send shortly.
+
+
+---
+
+* [KAFKA-1877](https://issues.apache.org/jira/browse/KAFKA-1877) | *Major* | **Expose version via JMX for 'new' producer**
+
+Add version of Kafka to jmx (monitoring tool can use this info).
+Something like that
+{code}
+kafka.common:type=AppInfo,name=Version
+      Value java.lang.Object = 0.8.2-beta
+{code}
+we already have this in "core" Kafka module (see kafka.common.AppInfo object).
 
 
 ---
@@ -2796,13 +3147,6 @@ An alternative solution: remove the system property from kafka-run-class.sh and 
 * [KAFKA-1798](https://issues.apache.org/jira/browse/KAFKA-1798) | *Major* | **ConfigDef.parseType() should throw exception on invalid boolean value**
 
 ConfigDef.parseType() currently uses Boolean.parseBoolean(trimmed) to parse boolean value from a String. However, it simply returns false for anything that's not "true". It would be better if we throw an exception if the input string is not either "true" or "false".
-
-
----
-
-* [KAFKA-1788](https://issues.apache.org/jira/browse/KAFKA-1788) | *Major* | **producer record can stay in RecordAccumulator forever if leader is no available**
-
-In the new producer, when a partition has no leader for a long time (e.g., all replicas are down), the records for that partition will stay in the RecordAccumulator until the leader is available. This may cause the bufferpool to be full and the callback for the produced message to block for a long time.
 
 
 ---
@@ -3177,6 +3521,22 @@ We should use it to validate the actual configured value.
 We removed the ack>1 support from the producer client in kafka-1555. We can completely remove the code in the broker that supports ack>1.
 
 Also, we probably want to make NotEnoughReplicasAfterAppend a non-retriable exception and let the client decide what to do.
+
+
+---
+
+* [KAFKA-1685](https://issues.apache.org/jira/browse/KAFKA-1685) | *Major* | **Implement TLS/SSL tests**
+
+We need to write a suite of unit tests for TLS authentication. This should be doable with a junit integration test. We can use the simple authorization plugin with only a single user whitelisted. The test can start the server and then connects with and without TLS and validates that access is only possible when authenticated.
+
+
+---
+
+* [KAFKA-1683](https://issues.apache.org/jira/browse/KAFKA-1683) | *Major* | **Implement a "session" concept in the socket server**
+
+To implement authentication we need a way to keep track of some things between requests. The initial use for this would be remembering the authenticated user/principle info, but likely more uses would come up (for example we will also need to remember whether and which encryption or integrity measures are in place on the socket so we can wrap and unwrap writes and reads).
+
+I was thinking we could just add a Session object that might have a user field. The session object would need to get added to RequestChannel.Request so it is passed down to the API layer with each request.
 
 
 ---

@@ -23,6 +23,50 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-10354](https://issues.apache.org/jira/browse/SPARK-10354) | *Minor* | **First cost RDD shouldn't be cached in k-means\|\| and the following cost RDD should use MEMORY\_AND\_DISK**
+
+The first RDD doesn't need to be cached, other cost RDDs should use MEMORY\_AND\_DISK to avoid recomputing.
+
+
+---
+
+* [SPARK-10169](https://issues.apache.org/jira/browse/SPARK-10169) | *Critical* | **Evaluating AggregateFunction1 (old code path) may return wrong answers when grouping expressions are used as arguments of aggregate functions**
+
+Before Spark 1.5, if an aggregate function use an grouping expression as input argument, the result of the query can be wrong. The reason is we are using transformUp when we do aggregate results rewriting (see https://github.com/apache/spark/blob/branch-1.4/sql/catalyst/src/main/scala/org/apache/spark/sql/catalyst/planning/patterns.scala#L154). 
+
+To reproduce the problem, you can use
+{code}
+import org.apache.spark.sql.functions.\_
+sc.parallelize((1 to 1000), 50).map(i => Tuple1(i)).toDF("i").registerTempTable("t")
+sqlContext.sql(""" 
+select i % 10, sum(if(i % 10 = 5, 1, 0)), count(i)
+from t
+where i % 10 = 5
+group by i % 10""").explain()
+
+== Physical Plan ==
+Aggregate false, [PartialGroup#234], [PartialGroup#234 AS \_c0#225,SUM(CAST(HiveGenericUdf#org.apache.hadoop.hive.ql.udf.generic.GenericUDFIf((PartialGroup#234 = 5),1,0), LongType)) AS \_c1#226L,Coalesce(SUM(PartialCount#233L),0) AS \_c2#227L]
+ Exchange (HashPartitioning [PartialGroup#234], 200)
+  Aggregate true, [(i#191 % 10)], [(i#191 % 10) AS PartialGroup#234,SUM(CAST(HiveGenericUdf#org.apache.hadoop.hive.ql.udf.generic.GenericUDFIf(((i#191 % 10) = 5),1,0), LongType)) AS PartialSum#232L,COUNT(1) AS PartialCount#233L]
+   Project [\_1#190 AS i#191]
+    Filter ((\_1#190 % 10) = 5)
+     PhysicalRDD [\_1#190], MapPartitionsRDD[93] at mapPartitions at ExistingRDD.scala:37
+
+sqlContext.sql(""" 
+select i % 10, sum(if(i % 10 = 5, 1, 0)), count(i)
+from t
+where i % 10 = 5
+group by i % 10""").show
+
+\_c0 \_c1 \_c2
+5   50  100
+{code}
+
+In Spark 1.5, new aggregation code path does not have the problem. The old code path is fixed by https://github.com/apache/spark/commit/dd9ae7945ab65d353ed2b113e0c1a00a0533ffd6.
+
+
+---
+
 * [SPARK-9801](https://issues.apache.org/jira/browse/SPARK-9801) | *Minor* | **Spark streaming deletes the temp file and backup files without checking if they exist or not**
 
 For spark streaming, when checkpoint is happening, it is getting below error message from spark driver log: 
@@ -341,6 +385,13 @@ Also I would improve documentation saying explicitly that expected data types fo
 * [SPARK-8451](https://issues.apache.org/jira/browse/SPARK-8451) | *Major* | **SparkSubmitSuite never checks for process exit code**
 
 We just never did. If the subprocess throws an exception we just ignore it.
+
+
+---
+
+* [SPARK-8400](https://issues.apache.org/jira/browse/SPARK-8400) | *Minor* | **ml.ALS doesn't handle -1 block size**
+
+Under spark.mllib, if number blocks is set to -1, we set the block size automatically based on the input partition size. However, this behavior is not preserved in the spark.ml API. If user sets -1 in Spark 1.3, it will not work, but no error messages will show.
 
 
 ---

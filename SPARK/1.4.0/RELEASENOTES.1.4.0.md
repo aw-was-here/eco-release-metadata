@@ -12466,15 +12466,6 @@ It would be nice if users of the Java API could specify the map-side-combine and
 
 ---
 
-* [SPARK-5836](https://issues.apache.org/jira/browse/SPARK-5836) | *Minor* | **Highlight in Spark documentation that by default Spark does not delete its temporary files**
-
-We recently learnt the hard way (in a prod system) that Spark by default does not delete its temporary files until it is stopped. WIthin a relatively short time span of heavy Spark use the disk of our prod machine filled up completely because of multiple shuffle files written to it. We think there should be better documentation around the fact that after a job is finished it leaves a lot of rubbish behind so that this does not come as a surprise.
-
-Probably a good place to highlight that fact would be the documentation of {{spark.local.dir}} property, which controls where Spark temporary files are written.
-
-
----
-
 * [SPARK-5821](https://issues.apache.org/jira/browse/SPARK-5821) | *Major* | **JSONRelation and ParquetRelation2 should check if delete is successful for the overwrite operation.**
 
 When you run CTAS command such as
@@ -13139,6 +13130,21 @@ The implementation will ideally use the same API as the existing LDA but use a d
 This will require hooking in to the existing mllib.optimization frameworks.
 
 This will require some discussion about whether batch versions of online variational inference should be supported, as well as what variational approximation should be used now or in the future.
+
+
+---
+
+* [SPARK-5560](https://issues.apache.org/jira/browse/SPARK-5560) | *Major* | **LDA EM should scale to more iterations**
+
+Latent Dirichlet Allocation (LDA) sometimes fails to run for many iterations on large datasets, even when it is able to run for a few iterations.  It should be able to run for as many iterations as the user likes, with proper persistence and checkpointing.
+
+Here is an example from a test on 16 workers (EC2 r3.2xlarge) on a big Wikipedia dataset:
+* 100 topics
+* Training set size: 4072243 documents
+* Vocabulary size: 9869422 terms
+* Training set size: 1041734290 tokens
+
+It runs for about 10-15 iterations before failing, even when using a variety of checkpointInterval values and longer timeout settings (up to 5 minutes).  The failure varies from disconnections from workers/driver to workers running out of disk space.  I would not expect workers to run out of memory or disk space based on rough calculations.  There was some job imbalance, but not a significant amount.
 
 
 ---

@@ -23,11 +23,43 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [HBASE-14313](https://issues.apache.org/jira/browse/HBASE-14313) | *Critical* | **After a Connection sees ConnectionClosingException it never recovers**
+
+HConnection could get stuck when talking to a host that went down and then returned. This has been fixed by closing the connection in all paths.
+
+
+---
+
+* [HBASE-14309](https://issues.apache.org/jira/browse/HBASE-14309) | *Major* | **Allow load balancer to operate when there is region in transition by adding force flag**
+
+This issue adds boolean parameter, force, to 'balancer' command so that admin can force region balancing even when there is region (other than hbase:meta) in transition - assuming RIT being transient.
+If hbase:meta is in transition, balancer command returns false.
+
+WARNING: For experts only. Forcing a balance may do more damage than repair when assignment is confused
+
+
+---
+
+* [HBASE-14224](https://issues.apache.org/jira/browse/HBASE-14224) | *Critical* | **Fix coprocessor handling of duplicate classes**
+
+Prevent Coprocessors being doubly-loaded; a particular coprocessor can only be loaded once.
+
+
+---
+
 * [HBASE-14201](https://issues.apache.org/jira/browse/HBASE-14201) | *Major* | **hbck should not take a lock unless fixing errors**
 
 HBCK no longer takes a lock until there are changes to the cluster being made.
 
 The old behavior can be achieved by passing the -exclusive flag.
+
+
+---
+
+* [HBASE-14148](https://issues.apache.org/jira/browse/HBASE-14148) | *Major* | **Web UI Framable Page**
+
+Security fix: Adds protection from clickjacking using X-Frame-Options header.
+This will prevent use of HBase UI in frames. To disable this feature, set the configuration 'hbase.http.filter.xframeoptions.mode' to 'ALLOW' (default is 'DENY').
 
 
 ---
@@ -115,6 +147,13 @@ Wraps region, start key, end key columns if too long.
 HBase now ensures that the JDK tools jar used during the build process is not exposed to downstream clients as a transitive dependency of hbase-annotations.
 
 If you need to have the JDK tools jar in your classpath, you should add a system dependency on it. See the hbase-annotations pom for an example of the necessary pom additions.
+
+
+---
+
+* [HBASE-13959](https://issues.apache.org/jira/browse/HBASE-13959) | *Critical* | **Region splitting uses a single thread in most common cases**
+
+The performance of region splitting has been improved by using a thread pool to split the store files concurrently. Prior to this change, the store files were always split sequentially in a single thread, so a region with multiple store files ended up taking several seconds. The thread pool is sized dynamically with the aim of getting maximum concurrency, without exceeding the number of cores available for HBase Java process. A lower limit for the thread pool can be explicitly set using the property hbase.regionserver.region.split.threads.max.
 
 
 ---
@@ -288,7 +327,7 @@ However if you want to use SSL communication, the 2 ports must be configured to 
 
 ---
 
-* [HBASE-13537](https://issues.apache.org/jira/browse/HBASE-13537) | *Major* | **Change the admin interface for async operations to return Future.**
+* [HBASE-13537](https://issues.apache.org/jira/browse/HBASE-13537) | *Major* | **Procedure V2 - Change the admin interface for async operations to return Future (incompatible with branch-1.x)**
 
 As we made changes to return types in asynchronous methods of Admin API, this change is going to break binary compatibility. The source compatibility is kept intact though. The applications running against this change needs to be recompiled to keep things working.
 
@@ -365,6 +404,13 @@ Use hbase.client.scanner.max.result.size instead to enforce practical chunk size
 * [HBASE-13361](https://issues.apache.org/jira/browse/HBASE-13361) | *Minor* | **Remove or undeprecate {get\|set}ScannerCaching in HTable**
 
 Removed getScannerCaching and setScannerCaching from Table
+
+
+---
+
+* [HBASE-13339](https://issues.apache.org/jira/browse/HBASE-13339) | *Blocker* | **Update default Hadoop version to latest for master**
+
+Master/2.0.0 now builds on the latest stable hadoop by default.
 
 
 ---
@@ -505,6 +551,15 @@ The buffer reservoir is bounded at a maximum count after which we will start log
 The reservoir will not cache buffers in excess of hbase.ipc.server.reservoir.max.buffer.size  The default is 10MB. This means that if a row is very large, then we will allocate a buffer of the average size that is currently in the pool and we will then resize it till we can accommodate the return. These resizes are expensive. The resultant buffer will be used and then discarded.
 
 To check how the reservoir is doing, enable trace level logging for a few seconds on a regionserver. You can do this from the regionserver UI. See 'Log Level'. Set org.apache.hadoop.hbase.io.BoundedByteBufferPool to TRACE. The BoundedByteBufferPool will spew report to the log. Disable the TRACE level and then check the log. You'll see allocation rate, size of pool, size of buffers in pool, etc.
+
+
+---
+
+* [HBASE-13127](https://issues.apache.org/jira/browse/HBASE-13127) | *Major* | **Add timeouts on all tests so less zombie sightings**
+
+Use junit facility to impose timeout on test. Use test category to chose which timeout to apply: small tests timeout after 30 seconds, medium tests after 180 seconds, and large tests after ten minutes.
+
+Updated junit version from 4.11 to 4.12. 4.12 has support for feature used here.
 
 
 ---

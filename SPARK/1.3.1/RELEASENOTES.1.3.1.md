@@ -2641,15 +2641,6 @@ We should add checkpoint interval to ALS to prevent the following:
 
 ---
 
-* [SPARK-5836](https://issues.apache.org/jira/browse/SPARK-5836) | *Minor* | **Highlight in Spark documentation that by default Spark does not delete its temporary files**
-
-We recently learnt the hard way (in a prod system) that Spark by default does not delete its temporary files until it is stopped. WIthin a relatively short time span of heavy Spark use the disk of our prod machine filled up completely because of multiple shuffle files written to it. We think there should be better documentation around the fact that after a job is finished it leaves a lot of rubbish behind so that this does not come as a surprise.
-
-Probably a good place to highlight that fact would be the documentation of {{spark.local.dir}} property, which controls where Spark temporary files are written.
-
-
----
-
 * [SPARK-5821](https://issues.apache.org/jira/browse/SPARK-5821) | *Major* | **JSONRelation and ParquetRelation2 should check if delete is successful for the overwrite operation.**
 
 When you run CTAS command such as

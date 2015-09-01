@@ -23,9 +23,37 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [HIVE-11638](https://issues.apache.org/jira/browse/HIVE-11638) | *Major* | **ExprNodeDesc hashMap accidentally degrades into O(N) instead of O(1)**
+
+Use fastest hashmap implementation of ExprNodeDesc lookups
+
+
+---
+
+* [HIVE-11594](https://issues.apache.org/jira/browse/HIVE-11594) | *Major* | **Analyze Table For Columns cannot handle columns with embedded spaces**
+
+Analyze Table for column names with embedded spaces
+
+
+---
+
+* [HIVE-11573](https://issues.apache.org/jira/browse/HIVE-11573) | *Major* | **PointLookupOptimizer can be pessimistic at a low nDV**
+
+Provide configurable limits to the PointLookupOptimizer
+
+
+---
+
 * [HIVE-11476](https://issues.apache.org/jira/browse/HIVE-11476) | *Minor* | **TypeInfoParser cannot handle column names with spaces in them**
 
 HIVE-11476: TypeInfoParser cannot handle column names with spaces in them (Gopal V, reviewed by Hari Sankar Sivarama Subramaniyan)
+
+
+---
+
+* [HIVE-11472](https://issues.apache.org/jira/browse/HIVE-11472) | *Minor* | **ORC StringDirectTreeReader is thrashing the GC due to byte[] allocation per row**
+
+HIVE-11472: ORC StringDirectTreeReader is thrashing the GC due to byte[] allocation per row (Gopal V, reviewed by Ashutosh Chauhan)
 
 
 ---
@@ -40,6 +68,13 @@ Constant fold struct() UDF
 * [HIVE-11457](https://issues.apache.org/jira/browse/HIVE-11457) | *Major* | **Vectorization: Improve SIMD JIT in GenVectorCode StringExpr instrinsics**
 
 Vectorization: Improve GenVectorCode string equals intrinsic
+
+
+---
+
+* [HIVE-11366](https://issues.apache.org/jira/browse/HIVE-11366) | *Major* | **Avoid right leaning tree hashCode depth during ExprNodeDescEqualityWrapper HashMaps**
+
+HIVE-11366: Avoid right leaning tree hashCode depth in ExprNodeDescEqualityWrapper hashmaps (Gopal V, reviewed by Ashutosh Chauhan)
 
 
 ---

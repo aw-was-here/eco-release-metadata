@@ -23,6 +23,13 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [HADOOP-12352](https://issues.apache.org/jira/browse/HADOOP-12352) | *Trivial* | **Delay in checkpointing Trash can leave trash for 2 intervals before deleting**
+
+Fixes an Trash related issue wherein a delay in the periodic checkpointing of one user's directory causes the subsequent user directory checkpoints to carry a newer timestamp, thereby delaying their eventual deletion.
+
+
+---
+
 * [HADOOP-11861](https://issues.apache.org/jira/browse/HADOOP-11861) | *Major* | **test-patch.sh rewrite addendum patch**
 
 * --build-native=false should work now
@@ -147,6 +154,13 @@ Added -v option to fs -count command to display a header record in the report.
 * [HADOOP-5732](https://issues.apache.org/jira/browse/HADOOP-5732) | *Minor* | **Add SFTP FileSystem**
 
 Added SFTP filesystem by using the JSch library.
+
+
+---
+
+* [HDFS-8900](https://issues.apache.org/jira/browse/HDFS-8900) | *Major* | **Compact XAttrs to optimize memory footprint.**
+
+The config key "dfs.namenode.fs-limits.max-xattr-size" can no longer be set to a value of 0 (previously used to indicate unlimited) or a value greater than 32KB. This is a constraint on xattr size similar to many local filesystems.
 
 
 ---

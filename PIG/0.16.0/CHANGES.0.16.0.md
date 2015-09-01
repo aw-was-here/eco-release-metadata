@@ -18,7 +18,7 @@
 -->
 # Apache Pig Changelog
 
-## Release 0.16.0 - Unreleased (as of 2015-08-18)
+## Release 0.16.0 - Unreleased (as of 2015-09-01)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -68,6 +68,8 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [PIG-4657](https://issues.apache.org/jira/browse/PIG-4657) | [Pig on Tez] Optimize GroupBy and Distinct key comparison |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
+| [PIG-4654](https://issues.apache.org/jira/browse/PIG-4654) | Reduce tez memory.reserve-fraction and clear spillables for better memory utilization |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-4574](https://issues.apache.org/jira/browse/PIG-4574) | Eliminate identity vertex for order by and skewed join right after LOAD |  Major | tez | Rohini Palaniswamy | Rohini Palaniswamy |
 
 

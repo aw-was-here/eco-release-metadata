@@ -18,7 +18,7 @@
 -->
 # Apache Hive Changelog
 
-## Release 1.2.2 - Unreleased (as of 2015-08-18)
+## Release 1.2.2 - Unreleased (as of 2015-09-01)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -37,6 +37,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HIVE-11076](https://issues.apache.org/jira/browse/HIVE-11076) | Explicitly set hive.cbo.enable=true for some tests |  Major | . | Pengcheng Xiong | Pengcheng Xiong |
+| [HIVE-9583](https://issues.apache.org/jira/browse/HIVE-9583) | Rolling upgrade of Hive MetaStore Server |  Major | HCatalog, Metastore | Thiruvel Thirumoolan | Thiruvel Thirumoolan |
 
 
 ### BUG FIXES:
