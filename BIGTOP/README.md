@@ -17,11 +17,11 @@
 # limitations under the License.
 -->
 * Apache BigTop v1.1.0
-    * Changes (1.1.0/CHANGES.1.1.0.md)
-    * Release Notes (1.1.0/RELEASENOTES.1.1.0.md)
+    * [Changes](1.1.0/CHANGES.1.1.0.md)
+    * [Release Notes](1.1.0/RELEASENOTES.1.1.0.md)
 * Apache BigTop v1.0.1
-    * Changes (1.0.1/CHANGES.1.0.1.md)
-    * Release Notes (1.0.1/RELEASENOTES.1.0.1.md)
+    * [Changes](1.0.1/CHANGES.1.0.1.md)
+    * [Release Notes](1.0.1/RELEASENOTES.1.0.1.md)
 * Apache BigTop v1.0.0
-    * Changes (1.0.0/CHANGES.1.0.0.md)
-    * Release Notes (1.0.0/RELEASENOTES.1.0.0.md)
+    * [Changes](1.0.0/CHANGES.1.0.0.md)
+    * [Release Notes](1.0.0/RELEASENOTES.1.0.0.md)
