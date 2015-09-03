@@ -17,8 +17,8 @@
 # limitations under the License.
 -->
 * Apache Hadoop v3.0.0
-    * Changes (3.0.0/CHANGES.3.0.0.md)
-    * Release Notes (RELEASENOTES.3.0.0.md)
+    * [Changes](3.0.0/CHANGES.3.0.0.md)
+    * [Release Notes](RELEASENOTES.3.0.0.md)
 * Apache Hadoop v2.8.0
     * Changes (2.8.0/CHANGES.2.8.0.md)
     * Release Notes (2.8.0/RELEASENOTES.2.8.0.md)
