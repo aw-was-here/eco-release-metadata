@@ -70,6 +70,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-2752](https://issues.apache.org/jira/browse/TEZ-2752) | logUnsuccessful completion in Attempt should write original finish time to ATS |  Major | . | Bikas Saha | Bikas Saha |
 | [TEZ-2445](https://issues.apache.org/jira/browse/TEZ-2445) | Disable the object cleanup in local mode in LogicalIOProcessorRuntimeTask |  Blocker | . | Jeff Zhang | Jeff Zhang |
 | [TEZ-2432](https://issues.apache.org/jira/browse/TEZ-2432) | Syntax error in DOAP file release section |  Major | . | Sebb | Hitesh Shah |
 | [TEZ-2426](https://issues.apache.org/jira/browse/TEZ-2426) | Ensure the eventRouter thread completes before switching to a new task and thread safety fixes in IPOContexts. |  Critical | . | Bikas Saha | Siddharth Seth |

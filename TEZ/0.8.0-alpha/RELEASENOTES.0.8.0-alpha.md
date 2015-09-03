@@ -741,7 +741,7 @@ TaskImpl#AttemptSucceededTransition
 
 ---
 
-* [TEZ-2575](https://issues.apache.org/jira/browse/TEZ-2575) | *Major* | **Handle KeyValue pairs size which do not fit in a single block**
+* [TEZ-2575](https://issues.apache.org/jira/browse/TEZ-2575) | *Major* | **Handle KeyValue pairs size which do not fit in a single block in PipelinedSorter**
 
 In the present implementation, the available buffer is divided into blocks (specified in the constructor for pipeline sort). and a linked list of these block byte buffers is maintained. 
 A span is created out of the buffers. 

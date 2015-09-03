@@ -3082,7 +3082,7 @@ Components:
   Oozie 4.0.1
   Giraph 1.1.0
   Groovy 2.3
-  Gridgain 6.5.6
+  Ignite 1.2
   Hue 3.7.1
   DataFU 1.0.0
   Solr 4.9.0

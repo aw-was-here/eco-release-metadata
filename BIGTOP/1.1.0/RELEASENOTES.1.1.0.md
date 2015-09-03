@@ -23,6 +23,43 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [BIGTOP-2007](https://issues.apache.org/jira/browse/BIGTOP-2007) | *Major* | **bigtop.mk version of the stack needs to be bumped to 1.1.0-SNAPSHOT**
+
+The version of the stack hasn't been moved to the latest one.
+
+
+---
+
+* [BIGTOP-2005](https://issues.apache.org/jira/browse/BIGTOP-2005) | *Minor* | **Remove SCALA\_HOME requirement**
+
+{{SCALA\_HOME}} isn't required by Spark and Kafka since Scala is retrieved by Maven.
+
+
+---
+
+* [BIGTOP-2004](https://issues.apache.org/jira/browse/BIGTOP-2004) | *Major* | **Download task fails with Gradle 2.6**
+
+Older versions of the [download task fail|https://github.com/michel-kraemer/gradle-download-task/issues/29] with Gradle 2.6. 
+
+Upgrading to version 2.0.0 fixes the problem.
+
+
+---
+
+* [BIGTOP-2000](https://issues.apache.org/jira/browse/BIGTOP-2000) | *Minor* | **Add BigTop Data Generators to maintainers file**
+
+Add BigTop Data Generator maintainers to the maintainers file.
+
+
+---
+
+* [BIGTOP-1999](https://issues.apache.org/jira/browse/BIGTOP-1999) | *Major* | **website link to the release bits is broken and points to the top-level mirror's directory**
+
+As discussed in BIGTOP-1998 a similar thing needs to be done for the website, because the release links don't point to the Bigtop releases but rather to the top-level directory of the mirror sites.
+
+
+---
+
 * [BIGTOP-1997](https://issues.apache.org/jira/browse/BIGTOP-1997) | *Major* | **Bump bigtop-groovy runtime to 2.4.4**
 
 As discussed in BIGTOP-1993 Groovy runtime provided by bigtop-groovy packages needs to be moved forward to the latest version of the SDK.

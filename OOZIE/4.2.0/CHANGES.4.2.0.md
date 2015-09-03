@@ -73,6 +73,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [OOZIE-2350](https://issues.apache.org/jira/browse/OOZIE-2350) | Package changes for release |  Major | . | Shwetha G S | Shwetha G S |
 | [OOZIE-2240](https://issues.apache.org/jira/browse/OOZIE-2240) | add configuration to disable email attachment support |  Major | . | Ryota Egashira | Ryota Egashira |
 | [OOZIE-2236](https://issues.apache.org/jira/browse/OOZIE-2236) | Need to package hive-hcatalog-server-extensions.jar in the hcatalog sharelib |  Critical | . | Venkat Ranganathan | Venkat Ranganathan |
 | [OOZIE-2227](https://issues.apache.org/jira/browse/OOZIE-2227) | PartitionDependencyManagerService keeps on purging delete coord actions |  Major | . | Purshotam Shah | Purshotam Shah |

@@ -165,6 +165,16 @@ The config key "dfs.namenode.fs-limits.max-xattr-size" can no longer be set to a
 
 ---
 
+* [HDFS-8890](https://issues.apache.org/jira/browse/HDFS-8890) | *Major* | **Allow admin to specify which blockpools the balancer should run on**
+
+Adds a new blockpools flag to the balancer. This allows admins to specify which blockpools the balancer will run on.
+Usage:
+-blockpools <comma-separated list of blockpool ids>
+The balancer will only run on blockpools included in this list.
+
+
+---
+
 * [HDFS-8866](https://issues.apache.org/jira/browse/HDFS-8866) | *Trivial* | **Typo in docs: Rumtime -\> Runtime**
 
 HDFS-8866 Correct typo in WebHDFS.md

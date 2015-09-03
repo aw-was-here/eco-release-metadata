@@ -23,6 +23,106 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-10435](https://issues.apache.org/jira/browse/SPARK-10435) | *Major* | **SparkSubmit should fail fast for Mesos cluster mode with R**
+
+Pretty sure Mesos cluster mode with R is not supported yet. The current behavior is undefined. Instead we should just fail fast with a clear error message.
+
+
+---
+
+* [SPARK-10432](https://issues.apache.org/jira/browse/SPARK-10432) | *Minor* | **spark.port.maxRetries documentation is unclear**
+
+The documentation for spark.port.maxRetries says:
+
+spark.port.maxRetries	16	Default maximum number of retries when binding to a port before giving up.
+
+But what really happens when the port for that service is not 0 is:
+
+   * Each subsequent attempt uses 1 + the port used in the previous attempt (unless the port is 0).
+
+
+---
+
+* [SPARK-10431](https://issues.apache.org/jira/browse/SPARK-10431) | *Critical* | **Flaky test: o.a.s.metrics.InputOutputMetricsSuite - input metrics with cache and coalesce**
+
+I sometimes get test failures such as:
+
+- input metrics with cache and coalesce *** FAILED ***
+  5994472 did not equal 6044472 (InputOutputMetricsSuite.scala:101)
+
+Tracking this down by adding some debug it seems this is a timing issue in the test.
+
+test("input metrics with cache and coalesce") {
+    // prime the cache manager
+    val rdd = sc.textFile(tmpFilePath, 4).cache()
+    rdd.collect()     // <== #1
+
+    val bytesRead = runAndReturnBytesRead {      // <== #2
+      rdd.count()
+    }
+    val bytesRead2 = runAndReturnBytesRead {
+      rdd.coalesce(4).count()
+    }
+
+    // for count and coelesce, the same bytes should be read.
+    assert(bytesRead != 0)
+    assert(bytesRead2 == bytesRead) // fails
+  }
+
+What is happening is that the runAndReturnBytesRead (#2) function adds a SparkListener to monitor TaskEnd events to total the bytes read from eg the rdd.count()
+
+In the case where this fails the listener receives a TaskEnd event from earlier tasks (eg #1) and this mucks up the totalling. This happens because the asynchronous thread processing the event queue and notifying the listeners has not processed one of the taskEnd events before the new listener is added so it also receives that event.
+
+There is a simple fix to the test to wait for the event queue to be empty before adding the new listener and I will submit a pull request for that.
+
+I also notice that a lot of the tests add a listener and as there is no removeSparkListener api the number of listeners on the context builds up during the running of the suite. This is probably why I see this issue running on slow machines.
+
+A wider question may be: should a listener receive events that occurred before it was added?
+
+
+---
+
+* [SPARK-10430](https://issues.apache.org/jira/browse/SPARK-10430) | *Minor* | **AccumulableInfo and RDDOperationScope violates hashCode + equals contract**
+
+hashCode implementation is missing in classes AccumulableInfo and RDDOperationScope which are overriding equals methods
+
+
+---
+
+* [SPARK-10417](https://issues.apache.org/jira/browse/SPARK-10417) | *Minor* | **Iterating through Column results in infinite loop**
+
+Iterating through a \_Column\_ object results in an infinite loop.
+
+{code}
+df = sqlContext.jsonRDD(sc.parallelize(['{"name": "El Magnifico"}']))
+for i in df["name"]: print i
+{code}
+
+Result:
+{code}
+Column<name[0]>
+Column<name[1]>
+Column<name[2]>
+Column<name[3]>
+...
+{code}
+
+
+---
+
+* [SPARK-10411](https://issues.apache.org/jira/browse/SPARK-10411) | *Minor* | **In SQL tab move visualization above explain output**
+
+Request from [~pwendell]:
+
+(1) The visualization is much more interesting than the DF explain output. That should be at the top of the page.
+
+(2) The DF explain output is for advanced users and should be collapsed by default
+
+These are just minor UX optimizations.
+
+
+---
+
 * [SPARK-10398](https://issues.apache.org/jira/browse/SPARK-10398) | *Minor* | **Migrate Spark download page to use new lua mirroring scripts**
 
 From infra team :
@@ -32,6 +132,102 @@ www.apache.org/dyn/closer.lua instead from now on.
 
 Any non-conforming CGI scripts are no longer enabled, and are all
 rewritten to go to our new mirror system.
+
+
+---
+
+* [SPARK-10392](https://issues.apache.org/jira/browse/SPARK-10392) | *Major* | **Pyspark - Wrong DateType support on JDBC connection**
+
+I have following problem.
+I created table.
+
+{code}
+CREATE TABLE `spark\_test` (
+	`id` INT(11) NULL,
+	`date` DATE NULL
+)
+COLLATE='utf8\_general\_ci'
+ENGINE=InnoDB
+;
+INSERT INTO `spark\_test` (`id`, `date`) VALUES (1, '1970-01-01');
+{code}
+
+Then I'm trying to read data - date '1970-01-01' is converted to int. This makes data frame incompatible with its own schema.
+
+{code}
+df = sqlCtx.read.jdbc("jdbc:mysql://host/sandbox?user=user&password=password", 'spark\_test')
+print(df.collect())
+df = sqlCtx.createDataFrame(df.rdd, df.schema)
+
+[Row(id=1, date=0)]
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+<ipython-input-36-ebc1d94e0d8c> in <module>()
+      1 df = sqlCtx.read.jdbc("jdbc:mysql://a2.adpilot.co/sandbox?user=mbrynski&password=CebO3ax4", 'spark\_test')
+      2 print(df.collect())
+----> 3 df = sqlCtx.createDataFrame(df.rdd, df.schema)
+
+/mnt/spark/spark/python/pyspark/sql/context.py in createDataFrame(self, data, schema, samplingRatio)
+    402 
+    403         if isinstance(data, RDD):
+--> 404             rdd, schema = self.\_createFromRDD(data, schema, samplingRatio)
+    405         else:
+    406             rdd, schema = self.\_createFromLocal(data, schema)
+
+/mnt/spark/spark/python/pyspark/sql/context.py in \_createFromRDD(self, rdd, schema, samplingRatio)
+    296             rows = rdd.take(10)
+    297             for row in rows:
+--> 298                 \_verify\_type(row, schema)
+    299 
+    300         else:
+
+/mnt/spark/spark/python/pyspark/sql/types.py in \_verify\_type(obj, dataType)
+   1152                              "length of fields (%d)" % (len(obj), len(dataType.fields)))
+   1153         for v, f in zip(obj, dataType.fields):
+-> 1154             \_verify\_type(v, f.dataType)
+   1155 
+   1156 
+
+/mnt/spark/spark/python/pyspark/sql/types.py in \_verify\_type(obj, dataType)
+   1136         # subclass of them can not be fromInternald in JVM
+   1137         if type(obj) not in \_acceptable\_types[\_type]:
+-> 1138             raise TypeError("%s can not accept object in type %s" % (dataType, type(obj)))
+   1139 
+   1140     if isinstance(dataType, ArrayType):
+
+TypeError: DateType can not accept object in type <class 'int'>
+
+{code}
+
+
+---
+
+* [SPARK-10389](https://issues.apache.org/jira/browse/SPARK-10389) | *Major* | **support order by non-attribute grouping expression on Aggregate**
+
+For example, we should support "SELECT MAX(value) FROM src GROUP BY key + 1 ORDER BY key + 1".
+
+
+---
+
+* [SPARK-10379](https://issues.apache.org/jira/browse/SPARK-10379) | *Critical* | **UnsafeShuffleExternalSorter should preserve first page**
+
+
+{code}
+
+5/08/31 18:41:25 WARN TaskSetManager: Lost task 16.1 in stage 316.0 (TID 32686, lon4-hadoopslave-b925.lon4.spotify.net): java.io.IOException: Unable to acquire 67108864 bytes of memory
+        at org.apache.spark.shuffle.unsafe.UnsafeShuffleExternalSorter.acquireNewPageIfNecessary(UnsafeShuffleExternalSorter.java:385)
+        at org.apache.spark.shuffle.unsafe.UnsafeShuffleExternalSorter.insertRecord(UnsafeShuffleExternalSorter.java:435)
+        at org.apache.spark.shuffle.unsafe.UnsafeShuffleWriter.insertRecordIntoSorter(UnsafeShuffleWriter.java:246)
+        at org.apache.spark.shuffle.unsafe.UnsafeShuffleWriter.write(UnsafeShuffleWriter.java:174)
+        at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:73)
+        at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:41)
+        at org.apache.spark.scheduler.Task.run(Task.scala:88)
+        at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:214)
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+        at java.lang.Thread.run(Thread.java:745)
+
+{code}
 
 
 ---
@@ -63,6 +259,24 @@ This will also cause a {{NullPointerException}} when {{getString}} is called wit
 
 Currently OneVsRest use UDF to generate new binary label during training.
 Considering that SPARK-7321 has been merged, we can use "when ... otherwise" which will be more efficiency.
+
+
+---
+
+* [SPARK-10332](https://issues.apache.org/jira/browse/SPARK-10332) | *Minor* | **spark-submit to yarn doesn't fail if executors is 0**
+
+Running spark-submit with yarn with number-executors equal to 0 when not using dynamic allocation should error out.  
+
+In spark 1.5.0 it continues and ends up hanging.
+
+yarn.ClientArguments still has the check so something else must have changed.
+
+spark-submit   --master yarn --deploy-mode cluster --class org.apache.spark.examples.SparkPi --num-executors 0 ....
+
+spark 1.4.1 errors with:
+java.lang.IllegalArgumentException:
+Number of executors was 0, but must be at least 1
+(or 0 if dynamic executor allocation is enabled).
 
 
 ---
@@ -389,6 +603,13 @@ Note: To register this class use: kryo.register(scala.Tuple2[].class);
 
 ---
 
+* [SPARK-10247](https://issues.apache.org/jira/browse/SPARK-10247) | *Trivial* | **Cleanup DAGSchedulerSuite "ignore late map task completion"**
+
+the "ignore late map task completion" test in {{DAGSchedulerSuite}} is a bit confusing, we can add a few asserts & comments to clarify a little
+
+
+---
+
 * [SPARK-10184](https://issues.apache.org/jira/browse/SPARK-10184) | *Minor* | **Optimization for bounds determination in RangePartitioner**
 
 Change {{cumWeight > target}} to {{cumWeight >= target}} in {{RangePartitioner.determineBounds}} method to make the output partitions more balanced.
@@ -472,6 +693,25 @@ Write is failing because by default JDBC data source implementation generating t
 
 ---
 
+* [SPARK-10162](https://issues.apache.org/jira/browse/SPARK-10162) | *Major* | **PySpark filters with datetimes mess up when datetimes have timezones.**
+
+PySpark appears to ignore timezone information when filtering on (and working in general with) datetimes.
+
+Please see the example below. The generated filter in the query plan is 5 hours off (my computer is EST).
+
+{code}
+In [1]: df = sc.sql.createDataFrame([], StructType([StructField("dt", TimestampType())]))
+
+In [2]: df.filter(df.dt > datetime(2000, 01, 01, tzinfo=UTC)).explain()
+Filter (dt#9 > 946702800000000)
+ Scan PhysicalRDD[dt#9]
+{code}
+
+Note that 946702800000000 == Sat  1 Jan 2000 05:00:00 UTC
+
+
+---
+
 * [SPARK-10040](https://issues.apache.org/jira/browse/SPARK-10040) | *Major* | **JDBC writer change to use batch insert for performance**
 
 Currently JDBC write is using single row insert using executeUpdate() command instead change to executeBatch() which will handle multiple inserts by most databases in more efficient manner.
@@ -484,6 +724,24 @@ Currently JDBC write is using single row insert using executeUpdate() command in
 it is an issue followed by SPARK-9814.
 
 Datasources (after {{selectFilters()}} in {{org.apache.spark.sql.execution.datasources.DataSourceStrategy}}) pass {{EqualNotNull}} to {{ParquetRelation}} but  {{ParquetFilters}} for {{ParquetRelation}} does not take and process this.
+
+
+---
+
+* [SPARK-10034](https://issues.apache.org/jira/browse/SPARK-10034) | *Major* | **add regression test for Sort on Aggregate**
+
+Before #8371, there was a bug for `Sort` on `Aggregate` that we can't use aggregate expressions named `\_aggOrdering` and can't use more than one ordering expressions which contains aggregate functions. The reason of this bug is that: The aggregate expression in `SortOrder` never get resolved, we alias it with `\_aggOrdering` and call `toAttribute` which gives us an `UnresolvedAttribute`. So actually we are referencing aggregate expression by name, not by exprId like we thought. And if there is already an aggregate expression named `\_aggOrdering` or there are more than one ordering expressions having aggregate functions, we will have conflict names and can't search by name.
+
+However, after #8371 got merged, the `SortOrder`s are guaranteed to be resolved and we are always referencing aggregate expression by exprId. The Bug doesn't exist anymore and this PR add regression tests for it.
+
+
+---
+
+* [SPARK-10004](https://issues.apache.org/jira/browse/SPARK-10004) | *Critical* | **Shuffle service should make sure applications are allowed to read shuffle data**
+
+The shuffle service currently performs authentication of clients; but once a client is authenticated, it blindly trusts the client to send proper requests.
+
+A malicious client could send a {{OpenBlocks}} message to open another application's shuffle data, and the shuffle service will just do it. This can be used to work around the fact that the app cannot go directly to the other app's files in the local filesystem (due to permissions), while the shuffle service can.
 
 
 ---
@@ -552,6 +810,35 @@ Not sure why it was made a Long, but every usage assumes it's an Int.
 
 ---
 
+* [SPARK-9869](https://issues.apache.org/jira/browse/SPARK-9869) | *Critical* | **Flaky test: o.a.s.streaming.InputStreamSuite - socket input stream**
+
+https://amplab.cs.berkeley.edu/jenkins/view/Spark-QA-Test/job/Spark-1.5-SBT/68/AMPLAB\_JENKINS\_BUILD\_PROFILE=hadoop2.3,label=centos/testReport/junit/org.apache.spark.streaming/InputStreamsSuite/socket\_input\_stream/
+
+{code}
+org.apache.spark.streaming.InputStreamsSuite.socket input stream
+
+
+sbt.ForkMain$ForkError: 4 did not equal 5
+	at org.scalatest.Assertions$class.newAssertionFailedException(Assertions.scala:500)
+	at org.scalatest.FunSuite.newAssertionFailedException(FunSuite.scala:1555)
+	at org.scalatest.Assertions$AssertionsHelper.macroAssert(Assertions.scala:466)
+	at org.apache.spark.streaming.InputStreamsSuite$$anonfun$1$$anonfun$apply$mcV$sp$4$$anonfun$apply$5.apply(InputStreamsSuite.scala:80)
+	at org.apache.spark.streaming.InputStreamsSuite$$anonfun$1$$anonfun$apply$mcV$sp$4$$anonfun$apply$5.apply(InputStreamsSuite.scala:53)
+	at org.apache.spark.streaming.TestSuiteBase$class.withStreamingContext(TestSuiteBase.scala:272)
+	at org.apache.spark.streaming.InputStreamsSuite.withStreamingContext(InputStreamsSuite.scala:45)
+	at org.apache.spark.streaming.InputStreamsSuite$$anonfun$1$$anonfun$apply$mcV$sp$4.apply(InputStreamsSuite.scala:53)
+	at org.apache.spark.streaming.InputStreamsSuite$$anonfun$1$$anonfun$apply$mcV$sp$4.apply(InputStreamsSuite.scala:48)
+	at org.apache.spark.streaming.TestSuiteBase$class.withTestServer(TestSuiteBase.scala:289)
+	at org.apache.spark.streaming.InputStreamsSuite.withTestServer(InputStreamsSuite.scala:45)
+	at org.apache.spark.streaming.InputStreamsSuite$$anonfun$1.apply$mcV$sp(InputStreamsSuite.scala:48)
+	at org.apache.spark.streaming.InputStreamsSuite$$anonfun$1.apply(InputStreamsSuite.scala:48)
+	at org.apache.spark.streaming.InputStreamsSuite$$anonfun$1.apply(InputStreamsSuite.scala:48)
+
+{code}
+
+
+---
+
 * [SPARK-9833](https://issues.apache.org/jira/browse/SPARK-9833) | *Minor* | **Add options to explicitly disable delegation token retrieval for non-HDFS**
 
 In 1.4, code was added to fetch delegation tokens for Hive metastores and HBase masters. That code is run regardless of whether the user app actually needs those tokens, since there's no way for Spark to know otherwise.
@@ -600,9 +887,162 @@ A minor typo (centriod -> centroid). Readable variable names help every users.
 
 ---
 
+* [SPARK-9723](https://issues.apache.org/jira/browse/SPARK-9723) | *Minor* | **Params.getOrDefault should throw more meaningful exception**
+
+Params.getOrDefault should throw a more meaningful exception than what you get from a bad key lookup.
+
+
+---
+
+* [SPARK-9672](https://issues.apache.org/jira/browse/SPARK-9672) | *Minor* | **Drivers run in cluster mode on mesos may not have spark-env variables available**
+
+This issue definitely affects Mesos mode, but may effect complex standalone topologies as well.
+
+When running spark-submit with {noformat}--deploy-mode cluster{noformat} environment variables set in {{spark-env.sh}} that are not prefixed with {{SPARK\_}} are not available in the driver process. The behavior I expect is that any variables set in {{spark-env.sh}} are available on the driver and all executors.
+
+{{spark-env.sh}} is executed by {{load-spark-env.sh}} which uses an environment variable {{SPARK\_ENV\_LOADED}} [[code|https://github.com/apache/spark/blob/master/bin/load-spark-env.sh#L25]] to ensure that it is only run once. When using the {{RestSubmissionClient}}, spark submit propagates all environment variables that are prefixed with {{SPARK\_}} [[code|https://github.com/apache/spark/blob/3c0156899dc1ec1f7dfe6d7c8af47fa6dc7d00bf/core/src/main/scala/org/apache/spark/deploy/rest/RestSubmissionClient.scala#L400]] to the {{MesosRestServer}} where they are used to initialize the driver [[code|https://github.com/apache/spark/blob/3c0156899dc1ec1f7dfe6d7c8af47fa6dc7d00bf/core/src/main/scala/org/apache/spark/deploy/rest/StandaloneRestServer.scala#L155]]. During this process, {{SPARK\_ENV\_LOADED}} is propagated to the new driver process (since running spark submit has caused {{load-spark-env.sh}} to be run on the submitter's machine) [[code|https://github.com/apache/spark/blob/d86bbb4e286f16f77ba125452b07827684eafeed/core/src/main/scala/org/apache/spark/scheduler/cluster/mesos/MesosClusterScheduler.scala#L371]]. Now when {{load-spark-env.sh}} is called by {{MesosClusterScheduler}} {{SPARK\_ENV\_LOADED}} is set and {{spark-env.sh}} is never sourced.
+
+[This gist|https://gist.github.com/pashields/9fe662d6ec5c079bdf70] shows the testing setup I used while investigating this issue. An example invocation looked like {noformat}spark-1.5.0-SNAPSHOT-bin-custom-spark/bin/spark-submit --deploy-mode cluster --master mesos://172.31.34.154:7077 --class Test spark-env-var-test\_2.10-0.1-SNAPSHOT.jar{noformat}
+
+
+---
+
 * [SPARK-9613](https://issues.apache.org/jira/browse/SPARK-9613) | *Major* | **Ban use of JavaConversions and migrate all existing uses to JavaConverters**
 
 Spark's style checker should ban the use of Scala's JavaConversions, which provides implicit conversions between Java and Scala collections types.  Instead, we should be performing these conversions explicitly using JavaConverters (or forgoing the conversions altogether if they're occurring inside of performance-critical code).
+
+
+---
+
+* [SPARK-9596](https://issues.apache.org/jira/browse/SPARK-9596) | *Major* | **Avoid reloading Hadoop classes like UserGroupInformation**
+
+Some hadoop classes contains global information such as authentication in UserGroupInformation. If we load them again in `IsolatedClientLoader`, the message they carry will be dropped.
+
+So we should treat hadoop classes as "shared" too.
+
+
+---
+
+* [SPARK-9591](https://issues.apache.org/jira/browse/SPARK-9591) | *Major* | **Job failed for exception during getting Broadcast variable**
+
+Job might failed for exception throw when  we  getting the broadcast variable especially using dynamic resource allocate.
+driver log
+{noformat}
+2015-07-21 05:36:31 INFO 15/07/21 05:36:31 WARN TaskSetManager: Lost task 496.1 in stage 19.0 (TID 1715, XXXXXX): java.io.IOException: Failed to connect to XXXXX:27072
+at org.apache.spark.network.client.TransportClientFactory.createClient(TransportClientFactory.java:191)
+at org.apache.spark.network.client.TransportClientFactory.createClient(TransportClientFactory.java:156)
+at org.apache.spark.network.netty.NettyBlockTransferService$$anon$1.createAndStart(NettyBlockTransferService.scala:78)
+at org.apache.spark.network.shuffle.RetryingBlockFetcher.fetchAllOutstanding(RetryingBlockFetcher.java:140)
+at org.apache.spark.network.shuffle.RetryingBlockFetcher.access$200(RetryingBlockFetcher.java:43)
+at org.apache.spark.network.shuffle.RetryingBlockFetcher$1.run(RetryingBlockFetcher.java:170)
+at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:441)
+at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
+at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
+at java.lang.Thread.run(Thread.java:662)
+Caused by: java.net.ConnectException: Connection refused: xxxxxx:27072
+at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:567)
+at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:208)
+at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:287)
+at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:528)
+at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:468)
+at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:382)
+at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:354)
+at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:116)
+... 1 more
+15/07/21 05:36:32 WARN TaskSetManager: Lost task 496.2 in stage 19.0 (TID 1744, xxxxx): java.io.IOException: Failed to connect to XXXX/XXXXXXXX:34070
+at org.apache.spark.network.client.TransportClientFactory.createClient(TransportClientFactory.java:191)
+at org.apache.spark.network.client.TransportClientFactory.createClient(TransportClientFactory.java:156)
+at org.apache.spark.network.netty.NettyBlockTransferService$$anon$1.createAndStart(NettyBlockTransferService.scala:78)
+at org.apache.spark.network.shuffle.RetryingBlockFetcher.fetchAllOutstanding(RetryingBlockFetcher.java:140)
+at org.apache.spark.network.shuffle.RetryingBlockFetcher.access$200(RetryingBlockFetcher.java:43)
+at org.apache.spark.network.shuffle.RetryingBlockFetcher$1.run(RetryingBlockFetcher.java:170)
+at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:441)
+at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
+at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
+at java.lang.Thread.run(Thread.java:662)
+Caused by: java.net.ConnectException: Connection refused: xxx:34070
+at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:567)
+at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:208)
+at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:287)
+at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:528)
+at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:468)
+at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:382)
+at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:354)
+at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:116)
+... 1 more
+
+org.apache.spark.SparkException: Job aborted due to stage failure: Task 496 in stage 19.0 failed 4 times
+{noformat}
+
+executor log
+{noformat}
+15/07/21 05:36:17 ERROR shuffle.RetryingBlockFetcher: Exception while beginning fetch of 1 outstanding blocks
+java.io.IOException: Failed to connect to xxx
+        at org.apache.spark.network.client.TransportClientFactory.createClient(TransportClientFactory.java:191)
+        at org.apache.spark.network.client.TransportClientFactory.createClient(TransportClientFactory.java:156)
+        at org.apache.spark.network.netty.NettyBlockTransferService$$anon$1.createAndStart(NettyBlockTransferService.scala:78)
+        at org.apache.spark.network.shuffle.RetryingBlockFetcher.fetchAllOutstanding(RetryingBlockFetcher.java:140)
+        at org.apache.spark.network.shuffle.RetryingBlockFetcher.start(RetryingBlockFetcher.java:120)
+        at org.apache.spark.network.netty.NettyBlockTransferService.fetchBlocks(NettyBlockTransferService.scala:87)
+        at org.apache.spark.network.BlockTransferService.fetchBlockSync(BlockTransferService.scala:89)
+        at org.apache.spark.storage.BlockManager$$anonfun$doGetRemote$2.apply(BlockManager.scala:592)
+        at org.apache.spark.storage.BlockManager$$anonfun$doGetRemote$2.apply(BlockManager.scala:590)
+        at scala.collection.mutable.ResizableArray$class.foreach(ResizableArray.scala:59)
+        at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:47)
+        at org.apache.spark.storage.BlockManager.doGetRemote(BlockManager.scala:590)
+        at org.apache.spark.storage.BlockManager.getRemoteBytes(BlockManager.scala:584)
+        at org.apache.spark.broadcast.TorrentBroadcast$$anonfun$org$apache$spark$broadcast$TorrentBroadcast$$readBlocks$1.org$apache$spark$broadcast$TorrentBroadcast$$anonfun$$getRemote$1(TorrentBroadcast.scala:127)
+        at org.apache.spark.broadcast.TorrentBroadcast$$anonfun$org$apache$spark$broadcast$TorrentBroadcast$$readBlocks$1$$anonfun$1.apply(TorrentBroadcast.scala:137)
+        at org.apache.spark.broadcast.TorrentBroadcast$$anonfun$org$apache$spark$broadcast$TorrentBroadcast$$readBlocks$1$$anonfun$1.apply(TorrentBroadcast.scala:137)
+        at scala.Option.orElse(Option.scala:257)
+        at org.apache.spark.broadcast.TorrentBroadcast$$anonfun$org$apache$spark$broadcast$TorrentBroadcast$$readBlocks$1.apply$mcVI$sp(TorrentBroadcast.scala:137)
+        at org.apache.spark.broadcast.TorrentBroadcast$$anonfun$org$apache$spark$broadcast$TorrentBroadcast$$readBlocks$1.apply(TorrentBroadcast.scala:120)
+        at org.apache.spark.broadcast.TorrentBroadcast$$anonfun$org$apache$spark$broadcast$TorrentBroadcast$$readBlocks$1.apply(TorrentBroadcast.scala:120)
+        at scala.collection.immutable.List.foreach(List.scala:318)
+        at org.apache.spark.broadcast.TorrentBroadcast.org$apache$spark$broadcast$TorrentBroadcast$$readBlocks(TorrentBroadcast.scala:120)
+        at org.apache.spark.broadcast.TorrentBroadcast$$anonfun$readBroadcastBlock$1.apply(TorrentBroadcast.scala:175)
+        at org.apache.spark.util.Utils$.tryOrIOException(Utils.scala:1246)
+        at org.apache.spark.broadcast.TorrentBroadcast.readBroadcastBlock(TorrentBroadcast.scala:165)
+        at org.apache.spark.broadcast.TorrentBroadcast.\_value$lzycompute(TorrentBroadcast.scala:64)
+        at org.apache.spark.broadcast.TorrentBroadcast.\_value(TorrentBroadcast.scala:64)
+        at org.apache.spark.broadcast.TorrentBroadcast.getValue(TorrentBroadcast.scala:88)
+        at org.apache.spark.broadcast.Broadcast.value(Broadcast.scala:70)
+        at org.apache.spark.rdd.HadoopRDD.getJobConf(HadoopRDD.scala:132)
+        at org.apache.spark.rdd.HadoopRDD$$anon$1.<init>(HadoopRDD.scala:216)
+        at org.apache.spark.rdd.HadoopRDD.compute(HadoopRDD.scala:212)
+        at org.apache.spark.rdd.HadoopRDD.compute(HadoopRDD.scala:93)
+        at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:277)
+        at org.apache.spark.rdd.RDD.iterator(RDD.scala:244)
+        at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:35)
+        at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:277)
+        at org.apache.spark.rdd.RDD.iterator(RDD.scala:244)
+        at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:35)
+        at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:277)
+        at org.apache.spark.rdd.RDD.iterator(RDD.scala:244)
+        at org.apache.spark.rdd.UnionRDD.compute(UnionRDD.scala:87)
+        at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:277)
+        at org.apache.spark.rdd.RDD.iterator(RDD.scala:244)
+        at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:35)
+        at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:277)
+        at org.apache.spark.rdd.RDD.iterator(RDD.scala:244)
+        at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:35)
+        at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:277)
+        at org.apache.spark.rdd.RDD.iterator(RDD.scala:244)
+        at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:70)
+        at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:41)
+        at org.apache.spark.scheduler.Task.run(Task.scala:64)
+        at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:209)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
+        at java.lang.Thread.run(Thread.java:662)
+{noformat}
+When we getting the broadcast variable, we can fetch the block form several location,but now when connecting the *lost blockmanager*(idle for enough time removed by driver when using dynamic resource allocate and so on)  will cause task fail,and the worse case will caused the job fail.
 
 
 ---
@@ -640,6 +1080,37 @@ This is because when the NM restarts (and restarts the ExternalShuffleService), 
 * [SPARK-9401](https://issues.apache.org/jira/browse/SPARK-9401) | *Major* | **Fully implement code generation for ConcatWs**
 
 In ConcatWs, we fall back to interpreted mode if the input is a mix of string and array of strings. We should have code gen for those as well.
+
+
+---
+
+* [SPARK-8951](https://issues.apache.org/jira/browse/SPARK-8951) | *Minor* | **support CJK characters in collect()**
+
+Spark gives an error message and does not show the output when a field of the result DataFrame contains characters in CJK.
+I found out that SerDe in R API only supports ASCII format for strings right now as commented in source code.  
+So, I fixed SerDe.scala a little to support CJK as the file attached. 
+I did not care efficiency, but just wanted to see if it works.
+
+{noformat}
+people.json
+{"name":"가나"}
+{"name":"테스트123", "age":30}
+{"name":"Justin", "age":19}
+
+df <- read.df(sqlContext, "./people.json", "json")
+head(df)
+
+Error in rawtochar(string) : embedded nul in string : '\0 \x98'
+{noformat}
+
+{code:title=core/src/main/scala/org/apache/spark/api/r/SerDe.scala}
+  // NOTE: Only works for ASCII right now
+  def writeString(out: DataOutputStream, value: String): Unit = {
+    val len = value.length
+    out.writeInt(len + 1) // For the \0
+    out.writeBytes(value)
+    out.writeByte(0)
+{code}
 
 
 ---
@@ -722,6 +1193,51 @@ class Foo extends Serializable {
 
 ---
 
+* [SPARK-8707](https://issues.apache.org/jira/browse/SPARK-8707) | *Major* | **RDD#toDebugString fails if any cached RDD has invalid partitions**
+
+Repro:
+
+{code}
+sc.textFile("/ThisFileDoesNotExist").cache()
+sc.parallelize(0 until 100).toDebugString
+{code}
+
+Output:
+
+{code}
+java.io.IOException: Not a file: /ThisFileDoesNotExist
+	at org.apache.hadoop.mapred.FileInputFormat.getSplits(FileInputFormat.java:215)
+	at org.apache.spark.rdd.HadoopRDD.getPartitions(HadoopRDD.scala:207)
+	at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:219)
+	at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:217)
+	at scala.Option.getOrElse(Option.scala:120)
+	at org.apache.spark.rdd.RDD.partitions(RDD.scala:217)
+	at org.apache.spark.rdd.MapPartitionsRDD.getPartitions(MapPartitionsRDD.scala:32)
+	at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:219)
+	at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:217)
+	at scala.Option.getOrElse(Option.scala:120)
+	at org.apache.spark.rdd.RDD.partitions(RDD.scala:217)
+	at org.apache.spark.storage.RDDInfo$.fromRdd(RDDInfo.scala:59)
+	at org.apache.spark.SparkContext$$anonfun$34.apply(SparkContext.scala:1455)
+	at org.apache.spark.SparkContext$$anonfun$34.apply(SparkContext.scala:1455)
+	at scala.collection.TraversableLike$$anonfun$map$1.apply(TraversableLike.scala:244)
+	at scala.collection.TraversableLike$$anonfun$map$1.apply(TraversableLike.scala:244)
+	at scala.collection.Iterator$class.foreach(Iterator.scala:727)
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1157)
+	at scala.collection.MapLike$DefaultValuesIterable.foreach(MapLike.scala:206)
+	at scala.collection.TraversableLike$class.map(TraversableLike.scala:244)
+	at scala.collection.AbstractTraversable.map(Traversable.scala:105)
+	at org.apache.spark.SparkContext.getRDDStorageInfo(SparkContext.scala:1455)
+	at org.apache.spark.rdd.RDD.debugSelf$1(RDD.scala:1573)
+	at org.apache.spark.rdd.RDD.firstDebugString$1(RDD.scala:1607)
+	at org.apache.spark.rdd.RDD.toDebugString(RDD.scala:1637
+{code}
+
+This is because toDebugString gets all the partitions from all RDDs, which fails (via SparkContext#getRDDStorageInfo). This pathway should definitely be resilient to other RDDs being invalid (and getRDDStorageInfo should probably also be).
+
+
+---
+
 * [SPARK-8505](https://issues.apache.org/jira/browse/SPARK-8505) | *Major* | **Add settings to kick `lint-r` from `./dev/run-test.py`**
 
 Add some settings to kick `lint-r` script from `./dev/run-test.py`
@@ -750,6 +1266,43 @@ where "\_\_THIS\_\_" will be replaced by a temp table that represents the DataFr
 
 ---
 
+* [SPARK-7336](https://issues.apache.org/jira/browse/SPARK-7336) | *Minor* | **Sometimes the status of finished job show on JobHistory UI will be active, and never update.**
+
+When I run a SparkPi job, the status of the job on JobHistory UI was 'active'. After the job finished for a long time, the status on JobHistory UI never update again, and the job keep in the 'Incomplete applications' list. 
+This problem appears occasionally. And the configuration of JobHistory is default value.
+
+
+---
+
+* [SPARK-5945](https://issues.apache.org/jira/browse/SPARK-5945) | *Critical* | **Spark should not retry a stage infinitely on a FetchFailedException**
+
+While investigating SPARK-5928, I noticed some very strange behavior in the way spark retries stages after a FetchFailedException.  It seems that on a FetchFailedException, instead of simply killing the task and retrying, Spark aborts the stage and retries.  If it just retried the task, the task might fail 4 times and then trigger the usual job killing mechanism.  But by killing the stage instead, the max retry logic is skipped (it looks to me like there is no limit for retries on a stage).
+
+After a bit of discussion with Kay Ousterhout, it seems the idea is that if a fetch fails, we assume that the block manager we are fetching from has failed, and that it will succeed if we retry the stage w/out that block manager.  In that case, it wouldn't make any sense to retry the task, since its doomed to fail every time, so we might as well kill the whole stage.  But this raises two questions:
+
+
+1) Is it really safe to assume that a FetchFailedException means that the BlockManager has failed, and ti will work if we just try another one?  SPARK-5928 shows that there are at least some cases where that assumption is wrong.  Even if we fix that case, this logic seems brittle to the next case we find.  I guess the idea is that this behavior is what gives us the "R" in RDD ... but it seems like its not really that robust and maybe should be reconsidered.
+
+2) Should stages only be retried a limited number of times?  It would be pretty easy to put in a limited number of retries per stage.  Though again, we encounter issues with keeping things resilient.  Theoretically one stage could have many retries, but due to failures in different stages further downstream, so we might need to track the cause of each retry as well to still have the desired behavior.
+
+In general it just seems there is some flakiness in the retry logic.  This is the only reproducible example I have at the moment, but I vaguely recall hitting other cases of strange behavior w/ retries when trying to run long pipelines.  Eg., if one executor is stuck in a GC during a fetch, the fetch fails, but the executor eventually comes back and the stage gets retried again, but the same GC issues happen the second time around, etc.
+
+Copied from SPARK-5928, here's the example program that can regularly produce a loop of stage failures.  Note that it will only fail from a remote fetch, so it can't be run locally -- I ran with {{MASTER=yarn-client spark-shell --num-executors 2 --executor-memory 4000m}}
+
+{code}
+    val rdd = sc.parallelize(1 to 1e6.toInt, 1).map{ ignore =>
+      val n = 3e3.toInt
+      val arr = new Array[Byte](n)
+      //need to make sure the array doesn't compress to something small
+      scala.util.Random.nextBytes(arr)
+      arr
+    }
+    rdd.map { x => (1, x)}.groupByKey().count()
+{code}
+
+
+---
+
 * [SPARK-5754](https://issues.apache.org/jira/browse/SPARK-5754) | *Major* | **Spark AM not launching on Windows**
 
 I'm trying to run Spark Pi on a YARN cluster running on Windows and the AM container fails to start. The problem seems to be in the generation of the YARN command which adds single quotes (') surrounding some of the java options. In particular, the part of the code that is adding those is the escapeForShell function in YarnSparkHadoopUtil. Apparently, Windows does not like the quotes for these options. Here is an example of the command that the container tries to execute:
@@ -765,6 +1318,13 @@ Everything seems to start.
 How should I deal with this? Creating a separate function like escapeForShell for Windows and call it whenever I detect this is for Windows? Or should I add some sanity check on YARN?
 
 I checked a little and there seems to be people that is able to run Spark on YARN on Windows, so it might be something else. I didn't find anything related on Jira either.
+
+
+---
+
+* [SPARK-4223](https://issues.apache.org/jira/browse/SPARK-4223) | *Major* | **Support \* (meaning all users) as part of the acls**
+
+Currently we support setting view and modify acls but you have to specify a list of users.  It would be nice to support * meaning all users have access.
 
 
 

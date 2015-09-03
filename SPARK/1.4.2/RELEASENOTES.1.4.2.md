@@ -54,6 +54,24 @@ The first RDD doesn't need to be cached, other cost RDDs should use MEMORY\_AND\
 
 ---
 
+* [SPARK-10353](https://issues.apache.org/jira/browse/SPARK-10353) | *Major* | **MLlib BLAS gemm outputs wrong result when beta = 0.0 for transpose transpose matrix multiplication**
+
+Basically 
+{code}
+if (beta != 0.0) {
+  f2jBLAS.dscal(C.values.length, beta, C.values, 1)
+}
+{code}
+should be
+{code}
+if (beta != 1.0) {
+  f2jBLAS.dscal(C.values.length, beta, C.values, 1)
+}
+{code}
+
+
+---
+
 * [SPARK-10321](https://issues.apache.org/jira/browse/SPARK-10321) | *Critical* | **OrcRelation doesn't override sizeInBytes**
 
 This hurts performance badly because broadcast join can never be enabled.

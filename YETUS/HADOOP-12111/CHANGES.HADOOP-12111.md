@@ -18,7 +18,7 @@
 -->
 # Apache Hadoop Yetus Changelog
 
-## Release HADOOP-12111 - Unreleased (as of 2015-09-01)
+## Release HADOOP-12111 - Unreleased (as of 2015-09-03)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -58,6 +58,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-12340](https://issues.apache.org/jira/browse/HADOOP-12340) | test-patch docker mode fails in downloading findbugs with curl |  Major | yetus | Kengo Seki | Kengo Seki |
 | [HADOOP-12339](https://issues.apache.org/jira/browse/HADOOP-12339) | Wrong help message about --curl-cmd option |  Minor | yetus | Kengo Seki | Gabor Liptak |
+| [HADOOP-12336](https://issues.apache.org/jira/browse/HADOOP-12336) | github\_jira\_bridge doesn't work |  Blocker | yetus | Allen Wittenauer | Kengo Seki |
 | [HADOOP-12316](https://issues.apache.org/jira/browse/HADOOP-12316) | Potential false-positive and false-negative in parsing TAP output |  Major | yetus | Kengo Seki | Kengo Seki |
 | [HADOOP-12315](https://issues.apache.org/jira/browse/HADOOP-12315) | hbaseprotoc\_postapply in the test-patch hbase personality can return a wrong status |  Major | yetus | Kengo Seki | Kengo Seki |
 | [HADOOP-12314](https://issues.apache.org/jira/browse/HADOOP-12314) | check\_unittests in test-patch.sh can return a wrong status |  Major | yetus | Kengo Seki | Kengo Seki |

@@ -23,6 +23,17 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [KAFKA-2492](https://issues.apache.org/jira/browse/KAFKA-2492) | *Trivial* | **Upgrade zkclient dependency to 0.6**
+
+If zkclient does not get replaced with curator (via KAFKA-873) sooner please consider upgrading zkclient dependency to recently released 0.6.
+
+zkclient 0.6 has few important changes included like:
+- [fix|https://github.com/sgroschupf/zkclient/commit/0630c9c6e67ab49a51e80bfd939e4a0d01a69dfe] to fail retryUntilConnected actions with clear exception in case client gets closed
+- [upgraded zookeeper dependency from 3.4.6 to 3.4.3|https://github.com/sgroschupf/zkclient/commit/8975c1790f7f36cc5d4feea077df337fb1ddabdb]
+
+
+---
+
 * [KAFKA-2486](https://issues.apache.org/jira/browse/KAFKA-2486) | *Major* | **New consumer performance**
 
 The new consumer was previously reaching getting good performance. However, a recent report on the mailing list indicates it's dropped significantly. After evaluation, even with a local broker it seems to only be reaching a 2-10MB/s, compared to 600+MB/s previously. Before release, we should get the performance back on par.
@@ -254,6 +265,24 @@ Other thread which constantly tries to consume is
 
 ---
 
+* [KAFKA-2461](https://issues.apache.org/jira/browse/KAFKA-2461) | *Blocker* | **request logger no longer logs extra information in debug mode**
+
+Currently request logging calls are identical for trace and debug:
+
+{code}
+if(requestLogger.isTraceEnabled)
+        requestLogger.trace("Completed request:%s from connection %s;totalTime:%d,requestQueueTime:%d,localTime:%d,remoteTime:%d,responseQueueTime:%d,sendTime:%d"
+                .format(requestDesc, connectionId, totalTime, requestQueueTime, apiLocalTime, apiRemoteTime, responseQueueTime, responseSendTime))
+      else if(requestLogger.isDebugEnabled)
+        requestLogger.debug("Completed request:%s from connection %s;totalTime:%d,requestQueueTime:%d,localTime:%d,remoteTime:%d,responseQueueTime:%d,sendTime:%d"
+          .format(requestDesc, connectionId, totalTime, requestQueueTime, apiLocalTime, apiRemoteTime, responseQueueTime, responseSendTime))
+{code}
+
+I think in the past (3 refactoring steps ago), we used to print more information about specific topics and partitions in debug mode.
+
+
+---
+
 * [KAFKA-2457](https://issues.apache.org/jira/browse/KAFKA-2457) | *Critical* | **StackOverflowError during builds**
 
 We need to set -Xss to avoid this problem. Will submit PR.
@@ -274,6 +303,13 @@ BUILD SUCCESSFUL
 
 Total time: 5 mins 37.194 secs
 {code}
+
+
+---
+
+* [KAFKA-2437](https://issues.apache.org/jira/browse/KAFKA-2437) | *Major* | **Controller does not handle zk node deletion correctly.**
+
+We see this issue occasionally. The symptom is that when /controller path got deleted, the old controller does not resign so we end up having more than one controller in the cluster (although the requests from controller with old epoch will not be accepted). After checking zookeeper watcher by using wchp, it looks the zookeeper session who created the /controller path does not have a watcher on /controller. That causes the old controller not resigning.
 
 
 ---
@@ -415,6 +451,16 @@ org.apache.kafka.common.KafkaException: Unexpected error in join group response:
 	at java.lang.reflect.Method.invoke(Method.java:606)
 	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:140)
 {code}
+
+
+---
+
+* [KAFKA-2411](https://issues.apache.org/jira/browse/KAFKA-2411) | *Blocker* | **remove usage of BlockingChannel in the broker**
+
+In KAFKA-1690, we are adding the SSL support at Selector. However, there are still a few places where we use BlockingChannel for inter-broker communication. We need to replace those usage with Selector/NetworkClient to enable inter-broker communication over SSL. Specially, BlockingChannel is currently used in the following places.
+1. ControllerChannelManager: for the controller to propagate metadata to the brokers.
+2. KafkaServer: for the broker to send controlled shutdown request to the controller.
+3. -AbstractFetcherThread: for the follower to fetch data from the leader (through SimpleConsumer)- moved to KAFKA-2440
 
 
 ---
@@ -751,6 +797,13 @@ The Kafka consumer is NOT thread-safe. All network I/O happens in the thread of 
 {quote}
 
 This matches what the code does, so the former quoted section should probably be deleted.
+
+
+---
+
+* [KAFKA-2332](https://issues.apache.org/jira/browse/KAFKA-2332) | *Major* | **Add quota metrics to old producer and consumer**
+
+Quota metrics have only been added to the new producer and consumer. It may be beneficial to add these to the existing consumer and old producer also for clients using the older versions.
 
 
 ---
@@ -1505,6 +1558,15 @@ java.lang.NullPointerException
 
 ---
 
+* [KAFKA-2210](https://issues.apache.org/jira/browse/KAFKA-2210) | *Blocker* | **KafkaAuthorizer: Add all public entities, config changes and changes to KafkaAPI and kafkaServer to allow pluggable authorizer implementation.**
+
+This is the first subtask for Kafka-1688. As Part of this jira we intend to agree on all the public entities, configs and changes to existing kafka classes to allow pluggable authorizer implementation.
+
+Please see KIP-11 https://cwiki.apache.org/confluence/display/KAFKA/KIP-11+-+Authorization+Interface for detailed design.
+
+
+---
+
 * [KAFKA-2205](https://issues.apache.org/jira/browse/KAFKA-2205) | *Major* | **Generalize TopicConfigManager to handle multiple entity configs**
 
 Acceptance Criteria:
@@ -1682,6 +1744,13 @@ index b31b432..181cbc1 100644
 * [KAFKA-2161](https://issues.apache.org/jira/browse/KAFKA-2161) | *Trivial* | **Fix a few copyrights**
 
 I noticed that I accidentally let some incorrect copyright headers slip in with the KAKFA-1501 patch.
+
+
+---
+
+* [KAFKA-2136](https://issues.apache.org/jira/browse/KAFKA-2136) | *Blocker* | **Client side protocol changes to return quota delays**
+
+As described in KIP-13, evolve the protocol to return a throttle\_time\_ms in the Fetch and the ProduceResponse objects. Add client side metrics on the new producer and consumer to expose the delay time.
 
 
 ---
@@ -2209,6 +2278,24 @@ zookeeper.connect = 192.168.0.10:2181,192.168.0.10:2181,192.168.0.10:2181/kafka
 [zookeeper, consumers, kafka, storm, brokers]
 
 so it is a bug. consumer should not create "/consumer" and "/brokers" path .
+
+
+---
+
+* [KAFKA-2067](https://issues.apache.org/jira/browse/KAFKA-2067) | *Major* | **Add LeaderAndISR request/response to org.apache.kafka.common.requests**
+
+Add LeaderAndISR request/response to org.apache.kafka.common.requests.
+
+Note that this will require adding a bunch of new objects to o.a.k.common - LeaderAndISR, LeaderISRAndEpoch and possibly others.
+
+It may be nice to have a scala implicit to translate those objects from their old (core) implementation to the o.a.k.common implementation.
+
+
+---
+
+* [KAFKA-2065](https://issues.apache.org/jira/browse/KAFKA-2065) | *Major* | **Add ControlledShutdown to  org.apache.kafka.common.requests**
+
+Add ControlledShutdown to  org.apache.kafka.common.requests
 
 
 ---
@@ -4190,6 +4277,52 @@ When we issue an metadatarequest towards the cluster, the list of brokers is sta
     "responseSize": 188,
     "correlationId": -1000
 }
+
+
+---
+
+* [KAFKA-824](https://issues.apache.org/jira/browse/KAFKA-824) | *Major* | **java.lang.NullPointerException in commitOffsets**
+
+Neha Narkhede
+
+"Yes, I have. Unfortunately, I never quite around to fixing it. My guess is
+that it is caused due to a race condition between the rebalance thread and
+the offset commit thread when a rebalance is triggered or the client is
+being shutdown. Do you mind filing a bug ?"
+
+
+2013/03/25 12:08:32.020 WARN [ZookeeperConsumerConnector] [] 0\_lu-ml-test10.bj-1364184411339-7c88f710 exception during commitOffsets
+java.lang.NullPointerException
+        at org.I0Itec.zkclient.ZkConnection.writeData(ZkConnection.java:111)
+        at org.I0Itec.zkclient.ZkClient$10.call(ZkClient.java:813)
+        at org.I0Itec.zkclient.ZkClient.retryUntilConnected(ZkClient.java:675)
+        at org.I0Itec.zkclient.ZkClient.writeData(ZkClient.java:809)
+        at org.I0Itec.zkclient.ZkClient.writeData(ZkClient.java:777)
+        at kafka.utils.ZkUtils$.updatePersistentPath(ZkUtils.scala:103)
+        at kafka.consumer.ZookeeperConsumerConnector$$anonfun$commitOffsets$2$$anonfun$apply$4.apply(ZookeeperConsumerConnector.scala:251)
+        at kafka.consumer.ZookeeperConsumerConnector$$anonfun$commitOffsets$2$$anonfun$apply$4.apply(ZookeeperConsumerConnector.scala:248)
+        at scala.collection.Iterator$class.foreach(Iterator.scala:631)
+        at scala.collection.JavaConversions$JIteratorWrapper.foreach(JavaConversions.scala:549)
+        at scala.collection.IterableLike$class.foreach(IterableLike.scala:79)
+        at scala.collection.JavaConversions$JCollectionWrapper.foreach(JavaConversions.scala:570)
+        at kafka.consumer.ZookeeperConsumerConnector$$anonfun$commitOffsets$2.apply(ZookeeperConsumerConnector.scala:248)
+        at kafka.consumer.ZookeeperConsumerConnector$$anonfun$commitOffsets$2.apply(ZookeeperConsumerConnector.scala:246)
+        at scala.collection.Iterator$class.foreach(Iterator.scala:631)
+        at kafka.utils.Pool$$anon$1.foreach(Pool.scala:53)
+        at scala.collection.IterableLike$class.foreach(IterableLike.scala:79)
+        at kafka.utils.Pool.foreach(Pool.scala:24)
+        at kafka.consumer.ZookeeperConsumerConnector.commitOffsets(ZookeeperConsumerConnector.scala:246)
+        at kafka.consumer.ZookeeperConsumerConnector.autoCommit(ZookeeperConsumerConnector.scala:232)
+        at kafka.consumer.ZookeeperConsumerConnector$$anonfun$1.apply$mcV$sp(ZookeeperConsumerConnector.scala:126)
+        at kafka.utils.Utils$$anon$2.run(Utils.scala:58)
+        at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)
+        at java.util.concurrent.FutureTask$Sync.innerRunAndReset(FutureTask.java:351)
+        at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:178)
+        at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:178)
+        at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+        at java.lang.Thread.run(Thread.java:722)
 
 
 ---

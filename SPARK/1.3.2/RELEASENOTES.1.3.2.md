@@ -30,6 +30,24 @@ The first RDD doesn't need to be cached, other cost RDDs should use MEMORY\_AND\
 
 ---
 
+* [SPARK-10353](https://issues.apache.org/jira/browse/SPARK-10353) | *Major* | **MLlib BLAS gemm outputs wrong result when beta = 0.0 for transpose transpose matrix multiplication**
+
+Basically 
+{code}
+if (beta != 0.0) {
+  f2jBLAS.dscal(C.values.length, beta, C.values, 1)
+}
+{code}
+should be
+{code}
+if (beta != 1.0) {
+  f2jBLAS.dscal(C.values.length, beta, C.values, 1)
+}
+{code}
+
+
+---
+
 * [SPARK-10169](https://issues.apache.org/jira/browse/SPARK-10169) | *Critical* | **Evaluating AggregateFunction1 (old code path) may return wrong answers when grouping expressions are used as arguments of aggregate functions**
 
 Before Spark 1.5, if an aggregate function use an grouping expression as input argument, the result of the query can be wrong. The reason is we are using transformUp when we do aggregate results rewriting (see https://github.com/apache/spark/blob/branch-1.4/sql/catalyst/src/main/scala/org/apache/spark/sql/catalyst/planning/patterns.scala#L154). 

@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 1.5.0 - Unreleased (as of 2015-09-01)
+## Release 1.5.0 - Unreleased (as of 2015-09-03)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -122,7 +122,10 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-10354](https://issues.apache.org/jira/browse/SPARK-10354) | First cost RDD shouldn't be cached in k-means\|\| and the following cost RDD should use MEMORY\_AND\_DISK |  Minor | MLlib | Xiangrui Meng | Xiangrui Meng |
+| [SPARK-10348](https://issues.apache.org/jira/browse/SPARK-10348) | Improve Spark ML user guide |  Major | Documentation, ML | Xiangrui Meng | Xiangrui Meng |
 | [SPARK-10344](https://issues.apache.org/jira/browse/SPARK-10344) | Add tests for extraStrategies |  Major | SQL | Michael Armbrust | Michael Armbrust |
+| [SPARK-10331](https://issues.apache.org/jira/browse/SPARK-10331) | Update user guide to address minor comments during code review |  Major | Documentation, ML, MLlib | Xiangrui Meng | Xiangrui Meng |
 | [SPARK-10295](https://issues.apache.org/jira/browse/SPARK-10295) | Dynamic allocation in Mesos does not release when RDDs are cached |  Minor | Documentation, Spark Core | Hans van den Bogert | Sean Owen |
 | [SPARK-10230](https://issues.apache.org/jira/browse/SPARK-10230) | LDA public API should use docConcentration |  Minor | MLlib | Feynman Liang | Feynman Liang |
 | [SPARK-10178](https://issues.apache.org/jira/browse/SPARK-10178) | HiveComparision test should print out dependent tables |  Major | SQL | Michael Armbrust | Michael Armbrust |
@@ -486,6 +489,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [SPARK-10391](https://issues.apache.org/jira/browse/SPARK-10391) | Spark 1.4.1 released news under news/spark-1-3-1-released.html |  Minor | Documentation | Jacek Laskowski | Sean Owen |
 | [SPARK-10369](https://issues.apache.org/jira/browse/SPARK-10369) | Fix a bug that Receiver could not be started after deregistering |  Critical | Streaming | Shixiong Zhu | Shixiong Zhu |
+| [SPARK-10353](https://issues.apache.org/jira/browse/SPARK-10353) | MLlib BLAS gemm outputs wrong result when beta = 0.0 for transpose transpose matrix multiplication |  Major | MLlib | Burak Yavuz | Burak Yavuz |
 | [SPARK-10350](https://issues.apache.org/jira/browse/SPARK-10350) | Fix SQL Programming Guide |  Minor | Documentation, SQL | Guoqiang Li | Guoqiang Li |
 | [SPARK-10341](https://issues.apache.org/jira/browse/SPARK-10341) | SMJ fail with unable to acquire memory |  Critical | SQL | Davies Liu | Davies Liu |
 | [SPARK-10339](https://issues.apache.org/jira/browse/SPARK-10339) | When scanning a partitioned table having thousands of partitions, Driver has a very high memory pressure because of SQL metrics |  Blocker | SQL | Yin Huai | Yin Huai |
@@ -499,6 +503,7 @@
 | [SPARK-10315](https://issues.apache.org/jira/browse/SPARK-10315) | remove document on spark.akka.failure-detector.threshold |  Minor | Documentation | Nan Zhu | Nan Zhu |
 | [SPARK-10308](https://issues.apache.org/jira/browse/SPARK-10308) | %in% is not exported in SparkR |  Major | SparkR | Shivaram Venkataraman | Shivaram Venkataraman |
 | [SPARK-10305](https://issues.apache.org/jira/browse/SPARK-10305) | PySpark createDataFrame on list of LabeledPoints fails (regression) |  Critical | ML, PySpark, SQL | Joseph K. Bradley | Davies Liu |
+| [SPARK-10298](https://issues.apache.org/jira/browse/SPARK-10298) | PySpark can't JSON serialize a DataFrame with DecimalType columns. |  Major | SQL | Kevin Cox |  |
 | [SPARK-10287](https://issues.apache.org/jira/browse/SPARK-10287) | After processing a query using JSON data, Spark SQL continuously refreshes metadata of the table |  Critical | SQL | Yin Huai | Yin Huai |
 | [SPARK-10245](https://issues.apache.org/jira/browse/SPARK-10245) | SQLContext can't parse literal less than 0.1 (e.g. 0.01) |  Blocker | SQL | Davies Liu | Davies Liu |
 | [SPARK-10226](https://issues.apache.org/jira/browse/SPARK-10226) | Error occured in SparkSQL when using  != |  Major | SQL | wangwei | wangwei |
@@ -517,6 +522,7 @@
 | [SPARK-10166](https://issues.apache.org/jira/browse/SPARK-10166) | Python Streaming checkpoint recovery fails if an active Python SparkContext already exists |  Critical | PySpark, Streaming | Tathagata Das | Tathagata Das |
 | [SPARK-10165](https://issues.apache.org/jira/browse/SPARK-10165) | Nested Hive UDF resolution fails in Analyzer |  Blocker | SQL | Michael Armbrust | Michael Armbrust |
 | [SPARK-10164](https://issues.apache.org/jira/browse/SPARK-10164) | GMM bug: match error |  Critical | MLlib | Joseph K. Bradley | Joseph K. Bradley |
+| [SPARK-10159](https://issues.apache.org/jira/browse/SPARK-10159) | Hive 1.3.x GenericUDFDate NPE issue |  Major | SQL | Alex Liu |  |
 | [SPARK-10144](https://issues.apache.org/jira/browse/SPARK-10144) | Actually show peak execution memory on UI by default |  Major | Web UI | Andrew Or | Andrew Or |
 | [SPARK-10143](https://issues.apache.org/jira/browse/SPARK-10143) | Parquet changed the behavior of calculating splits |  Critical | SQL | Yin Huai | Yin Huai |
 | [SPARK-10142](https://issues.apache.org/jira/browse/SPARK-10142) | Python Streaming checkpoint recovery does not work with non-local file path |  Critical | PySpark, Streaming | Tathagata Das | Tathagata Das |
