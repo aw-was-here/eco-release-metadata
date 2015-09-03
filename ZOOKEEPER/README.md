@@ -17,17 +17,17 @@
 # limitations under the License.
 -->
 * Apache Zookeeper v4.0.0
-    * Changes (4.0.0/CHANGES.4.0.0.md)
-    * Release Notes (4.0.0/RELEASENOTES.4.0.0.md)
+    * [Changes](4.0.0/CHANGES.4.0.0.md)
+    * [Release Notes](4.0.0/RELEASENOTES.4.0.0.md)
 * Apache Zookeeper v3.6.0
-    * Changes (3.6.0/CHANGES.3.6.0.md)
-    * Release Notes (3.6.0/RELEASENOTES.3.6.0.md)
+    * [Changes](3.6.0/CHANGES.3.6.0.md)
+    * [Release Notes](3.6.0/RELEASENOTES.3.6.0.md)
 * Apache Zookeeper v3.5.2
-    * Changes (3.5.2/CHANGES.3.5.2.md)
-    * Release Notes (3.5.2/RELEASENOTES.3.5.2.md)
+    * [Changes](3.5.2/CHANGES.3.5.2.md)
+    * [Release Notes](3.5.2/RELEASENOTES.3.5.2.md)
 * Apache Zookeeper v3.5.1
-    * Changes (3.5.1/CHANGES.3.5.1.md)
-    * Release Notes (3.5.1/RELEASENOTES.3.5.1.md)
+    * [Changes](3.5.1/CHANGES.3.5.1.md)
+    * [Release Notes](3.5.1/RELEASENOTES.3.5.1.md)
 * Apache Zookeeper v3.5.0
-    * Changes (3.5.0/CHANGES.3.5.0.md)
-    * Release Notes (3.5.0/RELEASENOTES.3.5.0.md)
+    * [Changes](3.5.0/CHANGES.3.5.0.md)
+    * [Release Notes](3.5.0/RELEASENOTES.3.5.0.md)

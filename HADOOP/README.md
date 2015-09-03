@@ -18,364 +18,364 @@
 -->
 * Apache Hadoop v3.0.0
     * [Changes](3.0.0/CHANGES.3.0.0.md)
-    * [Release Notes](RELEASENOTES.3.0.0.md)
+    * [Release Notes](3.0.0/RELEASENOTES.3.0.0.md)
 * Apache Hadoop v2.8.0
-    * Changes (2.8.0/CHANGES.2.8.0.md)
-    * Release Notes (2.8.0/RELEASENOTES.2.8.0.md)
+    * [Changes](2.8.0/CHANGES.2.8.0.md)
+    * [Release Notes](2.8.0/RELEASENOTES.2.8.0.md)
 * Apache Hadoop v2.7.2
-    * Changes (2.7.2/CHANGES.2.7.2.md)
-    * Release Notes (2.7.2/RELEASENOTES.2.7.2.md)
+    * [Changes](2.7.2/CHANGES.2.7.2.md)
+    * [Release Notes](2.7.2/RELEASENOTES.2.7.2.md)
 * Apache Hadoop v2.7.1
-    * Changes (2.7.1/CHANGES.2.7.1.md)
-    * Release Notes (2.7.1/RELEASENOTES.2.7.1.md)
+    * [Changes](2.7.1/CHANGES.2.7.1.md)
+    * [Release Notes](2.7.1/RELEASENOTES.2.7.1.md)
 * Apache Hadoop v2.7.0
-    * Changes (2.7.0/CHANGES.2.7.0.md)
-    * Release Notes (2.7.0/RELEASENOTES.2.7.0.md)
+    * [Changes](2.7.0/CHANGES.2.7.0.md)
+    * [Release Notes](2.7.0/RELEASENOTES.2.7.0.md)
 * Apache Hadoop v2.6.2
-    * Changes (2.6.2/CHANGES.2.6.2.md)
-    * Release Notes (2.6.2/RELEASENOTES.2.6.2.md)
+    * [Changes](2.6.2/CHANGES.2.6.2.md)
+    * [Release Notes](2.6.2/RELEASENOTES.2.6.2.md)
 * Apache Hadoop v2.6.1
-    * Changes (2.6.1/CHANGES.2.6.1.md)
-    * Release Notes (2.6.1/RELEASENOTES.2.6.1.md)
+    * [Changes](2.6.1/CHANGES.2.6.1.md)
+    * [Release Notes](2.6.1/RELEASENOTES.2.6.1.md)
 * Apache Hadoop v2.6.0
-    * Changes (2.6.0/CHANGES.2.6.0.md)
-    * Release Notes (2.6.0/RELEASENOTES.2.6.0.md)
+    * [Changes](2.6.0/CHANGES.2.6.0.md)
+    * [Release Notes](2.6.0/RELEASENOTES.2.6.0.md)
 * Apache Hadoop v2.5.2
-    * Changes (2.5.2/CHANGES.2.5.2.md)
-    * Release Notes (2.5.2/RELEASENOTES.2.5.2.md)
+    * [Changes](2.5.2/CHANGES.2.5.2.md)
+    * [Release Notes](2.5.2/RELEASENOTES.2.5.2.md)
 * Apache Hadoop v2.5.1
-    * Changes (2.5.1/CHANGES.2.5.1.md)
-    * Release Notes (2.5.1/RELEASENOTES.2.5.1.md)
+    * [Changes](2.5.1/CHANGES.2.5.1.md)
+    * [Release Notes](2.5.1/RELEASENOTES.2.5.1.md)
 * Apache Hadoop v2.5.0
-    * Changes (2.5.0/CHANGES.2.5.0.md)
-    * Release Notes (2.5.0/RELEASENOTES.2.5.0.md)
+    * [Changes](2.5.0/CHANGES.2.5.0.md)
+    * [Release Notes](2.5.0/RELEASENOTES.2.5.0.md)
 * Apache Hadoop v2.4.1
-    * Changes (2.4.1/CHANGES.2.4.1.md)
-    * Release Notes (2.4.1/RELEASENOTES.2.4.1.md)
+    * [Changes](2.4.1/CHANGES.2.4.1.md)
+    * [Release Notes](2.4.1/RELEASENOTES.2.4.1.md)
 * Apache Hadoop v2.4.0
-    * Changes (2.4.0/CHANGES.2.4.0.md)
-    * Release Notes (2.4.0/RELEASENOTES.2.4.0.md)
+    * [Changes](2.4.0/CHANGES.2.4.0.md)
+    * [Release Notes](2.4.0/RELEASENOTES.2.4.0.md)
 * Apache Hadoop v2.3.0
-    * Changes (2.3.0/CHANGES.2.3.0.md)
-    * Release Notes (2.3.0/RELEASENOTES.2.3.0.md)
+    * [Changes](2.3.0/CHANGES.2.3.0.md)
+    * [Release Notes](2.3.0/RELEASENOTES.2.3.0.md)
 * Apache Hadoop v2.2.1
-    * Changes (2.2.1/CHANGES.2.2.1.md)
-    * Release Notes (2.2.1/RELEASENOTES.2.2.1.md)
+    * [Changes](2.2.1/CHANGES.2.2.1.md)
+    * [Release Notes](2.2.1/RELEASENOTES.2.2.1.md)
 * Apache Hadoop v2.2.0
-    * Changes (2.2.0/CHANGES.2.2.0.md)
-    * Release Notes (2.2.0/RELEASENOTES.2.2.0.md)
+    * [Changes](2.2.0/CHANGES.2.2.0.md)
+    * [Release Notes](2.2.0/RELEASENOTES.2.2.0.md)
 * Apache Hadoop v2.1.1-beta
-    * Changes (2.1.1-beta/CHANGES.2.1.1-beta.md)
-    * Release Notes (2.1.1-beta/RELEASENOTES.2.1.1-beta.md)
+    * [Changes](2.1.1-beta/CHANGES.2.1.1-beta.md)
+    * [Release Notes](2.1.1-beta/RELEASENOTES.2.1.1-beta.md)
 * Apache Hadoop v2.1.0-beta
-    * Changes (2.1.0-beta/CHANGES.2.1.0-beta.md)
-    * Release Notes (2.1.0-beta/RELEASENOTES.2.1.0-beta.md)
+    * [Changes](2.1.0-beta/CHANGES.2.1.0-beta.md)
+    * [Release Notes](2.1.0-beta/RELEASENOTES.2.1.0-beta.md)
 * Apache Hadoop v2.0.6-alpha
-    * Changes (2.0.6-alpha/CHANGES.2.0.6-alpha.md)
-    * Release Notes (2.0.6-alpha/RELEASENOTES.2.0.6-alpha.md)
+    * [Changes](2.0.6-alpha/CHANGES.2.0.6-alpha.md)
+    * [Release Notes](2.0.6-alpha/RELEASENOTES.2.0.6-alpha.md)
 * Apache Hadoop v2.0.5-alpha
-    * Changes (2.0.5-alpha/CHANGES.2.0.5-alpha.md)
-    * Release Notes (2.0.5-alpha/RELEASENOTES.2.0.5-alpha.md)
+    * [Changes](2.0.5-alpha/CHANGES.2.0.5-alpha.md)
+    * [Release Notes](2.0.5-alpha/RELEASENOTES.2.0.5-alpha.md)
 * Apache Hadoop v2.0.4-alpha
-    * Changes (2.0.4-alpha/CHANGES.2.0.4-alpha.md)
-    * Release Notes (2.0.4-alpha/RELEASENOTES.2.0.4-alpha.md)
+    * [Changes](2.0.4-alpha/CHANGES.2.0.4-alpha.md)
+    * [Release Notes](2.0.4-alpha/RELEASENOTES.2.0.4-alpha.md)
 * Apache Hadoop v2.0.3-alpha
-    * Changes (2.0.3-alpha/CHANGES.2.0.3-alpha.md)
-    * Release Notes (2.0.3-alpha/RELEASENOTES.2.0.3-alpha.md)
+    * [Changes](2.0.3-alpha/CHANGES.2.0.3-alpha.md)
+    * [Release Notes](2.0.3-alpha/RELEASENOTES.2.0.3-alpha.md)
 * Apache Hadoop v2.0.2-alpha
-    * Changes (2.0.2-alpha/CHANGES.2.0.2-alpha.md)
-    * Release Notes (2.0.2-alpha/RELEASENOTES.2.0.2-alpha.md)
+    * [Changes](2.0.2-alpha/CHANGES.2.0.2-alpha.md)
+    * [Release Notes](2.0.2-alpha/RELEASENOTES.2.0.2-alpha.md)
 * Apache Hadoop v2.0.1-alpha
-    * Changes (2.0.1-alpha/CHANGES.2.0.1-alpha.md)
-    * Release Notes (2.0.1-alpha/RELEASENOTES.2.0.1-alpha.md)
+    * [Changes](2.0.1-alpha/CHANGES.2.0.1-alpha.md)
+    * [Release Notes](2.0.1-alpha/RELEASENOTES.2.0.1-alpha.md)
 * Apache Hadoop v2.0.0-alpha
-    * Changes (2.0.0-alpha/CHANGES.2.0.0-alpha.md)
-    * Release Notes (2.0.0-alpha/RELEASENOTES.2.0.0-alpha.md)
+    * [Changes](2.0.0-alpha/CHANGES.2.0.0-alpha.md)
+    * [Release Notes](2.0.0-alpha/RELEASENOTES.2.0.0-alpha.md)
 * Apache Hadoop v1.3.0
-    * Changes (1.3.0/CHANGES.1.3.0.md)
-    * Release Notes (1.3.0/RELEASENOTES.1.3.0.md)
+    * [Changes](1.3.0/CHANGES.1.3.0.md)
+    * [Release Notes](1.3.0/RELEASENOTES.1.3.0.md)
 * Apache Hadoop v1.2.2
-    * Changes (1.2.2/CHANGES.1.2.2.md)
-    * Release Notes (1.2.2/RELEASENOTES.1.2.2.md)
+    * [Changes](1.2.2/CHANGES.1.2.2.md)
+    * [Release Notes](1.2.2/RELEASENOTES.1.2.2.md)
 * Apache Hadoop v1.2.1
-    * Changes (1.2.1/CHANGES.1.2.1.md)
-    * Release Notes (1.2.1/RELEASENOTES.1.2.1.md)
+    * [Changes](1.2.1/CHANGES.1.2.1.md)
+    * [Release Notes](1.2.1/RELEASENOTES.1.2.1.md)
 * Apache Hadoop v1.2.0
-    * Changes (1.2.0/CHANGES.1.2.0.md)
-    * Release Notes (1.2.0/RELEASENOTES.1.2.0.md)
+    * [Changes](1.2.0/CHANGES.1.2.0.md)
+    * [Release Notes](1.2.0/RELEASENOTES.1.2.0.md)
 * Apache Hadoop v1.1.3
-    * Changes (1.1.3/CHANGES.1.1.3.md)
-    * Release Notes (1.1.3/RELEASENOTES.1.1.3.md)
+    * [Changes](1.1.3/CHANGES.1.1.3.md)
+    * [Release Notes](1.1.3/RELEASENOTES.1.1.3.md)
 * Apache Hadoop v1.1.2
-    * Changes (1.1.2/CHANGES.1.1.2.md)
-    * Release Notes (1.1.2/RELEASENOTES.1.1.2.md)
+    * [Changes](1.1.2/CHANGES.1.1.2.md)
+    * [Release Notes](1.1.2/RELEASENOTES.1.1.2.md)
 * Apache Hadoop v1.1.1
-    * Changes (1.1.1/CHANGES.1.1.1.md)
-    * Release Notes (1.1.1/RELEASENOTES.1.1.1.md)
+    * [Changes](1.1.1/CHANGES.1.1.1.md)
+    * [Release Notes](1.1.1/RELEASENOTES.1.1.1.md)
 * Apache Hadoop v1.1.0
-    * Changes (1.1.0/CHANGES.1.1.0.md)
-    * Release Notes (1.1.0/RELEASENOTES.1.1.0.md)
+    * [Changes](1.1.0/CHANGES.1.1.0.md)
+    * [Release Notes](1.1.0/RELEASENOTES.1.1.0.md)
 * Apache Hadoop v1.0.4
-    * Changes (1.0.4/CHANGES.1.0.4.md)
-    * Release Notes (1.0.4/RELEASENOTES.1.0.4.md)
+    * [Changes](1.0.4/CHANGES.1.0.4.md)
+    * [Release Notes](1.0.4/RELEASENOTES.1.0.4.md)
 * Apache Hadoop v1.0.3
-    * Changes (1.0.3/CHANGES.1.0.3.md)
-    * Release Notes (1.0.3/RELEASENOTES.1.0.3.md)
+    * [Changes](1.0.3/CHANGES.1.0.3.md)
+    * [Release Notes](1.0.3/RELEASENOTES.1.0.3.md)
 * Apache Hadoop v1.0.2
-    * Changes (1.0.2/CHANGES.1.0.2.md)
-    * Release Notes (1.0.2/RELEASENOTES.1.0.2.md)
+    * [Changes](1.0.2/CHANGES.1.0.2.md)
+    * [Release Notes](1.0.2/RELEASENOTES.1.0.2.md)
 * Apache Hadoop v1.0.1
-    * Changes (1.0.1/CHANGES.1.0.1.md)
-    * Release Notes (1.0.1/RELEASENOTES.1.0.1.md)
+    * [Changes](1.0.1/CHANGES.1.0.1.md)
+    * [Release Notes](1.0.1/RELEASENOTES.1.0.1.md)
 * Apache Hadoop v1.0.0
-    * Changes (1.0.0/CHANGES.1.0.0.md)
-    * Release Notes (1.0.0/RELEASENOTES.1.0.0.md)
+    * [Changes](1.0.0/CHANGES.1.0.0.md)
+    * [Release Notes](1.0.0/RELEASENOTES.1.0.0.md)
 * Apache Hadoop v0.9.2
-    * Changes (0.9.2/CHANGES.0.9.2.md)
-    * Release Notes (0.9.2/RELEASENOTES.0.9.2.md)
+    * [Changes](0.9.2/CHANGES.0.9.2.md)
+    * [Release Notes](0.9.2/RELEASENOTES.0.9.2.md)
 * Apache Hadoop v0.9.1
-    * Changes (0.9.1/CHANGES.0.9.1.md)
-    * Release Notes (0.9.1/RELEASENOTES.0.9.1.md)
+    * [Changes](0.9.1/CHANGES.0.9.1.md)
+    * [Release Notes](0.9.1/RELEASENOTES.0.9.1.md)
 * Apache Hadoop v0.9.0
-    * Changes (0.9.0/CHANGES.0.9.0.md)
-    * Release Notes (0.9.0/RELEASENOTES.0.9.0.md)
+    * [Changes](0.9.0/CHANGES.0.9.0.md)
+    * [Release Notes](0.9.0/RELEASENOTES.0.9.0.md)
 * Apache Hadoop v0.8.0
-    * Changes (0.8.0/CHANGES.0.8.0.md)
-    * Release Notes (0.8.0/RELEASENOTES.0.8.0.md)
+    * [Changes](0.8.0/CHANGES.0.8.0.md)
+    * [Release Notes](0.8.0/RELEASENOTES.0.8.0.md)
 * Apache Hadoop v0.7.2
-    * Changes (0.7.2/CHANGES.0.7.2.md)
-    * Release Notes (0.7.2/RELEASENOTES.0.7.2.md)
+    * [Changes](0.7.2/CHANGES.0.7.2.md)
+    * [Release Notes](0.7.2/RELEASENOTES.0.7.2.md)
 * Apache Hadoop v0.7.1
-    * Changes (0.7.1/CHANGES.0.7.1.md)
-    * Release Notes (0.7.1/RELEASENOTES.0.7.1.md)
+    * [Changes](0.7.1/CHANGES.0.7.1.md)
+    * [Release Notes](0.7.1/RELEASENOTES.0.7.1.md)
 * Apache Hadoop v0.7.0
-    * Changes (0.7.0/CHANGES.0.7.0.md)
-    * Release Notes (0.7.0/RELEASENOTES.0.7.0.md)
+    * [Changes](0.7.0/CHANGES.0.7.0.md)
+    * [Release Notes](0.7.0/RELEASENOTES.0.7.0.md)
 * Apache Hadoop v0.6.2
-    * Changes (0.6.2/CHANGES.0.6.2.md)
-    * Release Notes (0.6.2/RELEASENOTES.0.6.2.md)
+    * [Changes](0.6.2/CHANGES.0.6.2.md)
+    * [Release Notes](0.6.2/RELEASENOTES.0.6.2.md)
 * Apache Hadoop v0.6.1
-    * Changes (0.6.1/CHANGES.0.6.1.md)
-    * Release Notes (0.6.1/RELEASENOTES.0.6.1.md)
+    * [Changes](0.6.1/CHANGES.0.6.1.md)
+    * [Release Notes](0.6.1/RELEASENOTES.0.6.1.md)
 * Apache Hadoop v0.6.0
-    * Changes (0.6.0/CHANGES.0.6.0.md)
-    * Release Notes (0.6.0/RELEASENOTES.0.6.0.md)
+    * [Changes](0.6.0/CHANGES.0.6.0.md)
+    * [Release Notes](0.6.0/RELEASENOTES.0.6.0.md)
 * Apache Hadoop v0.5.0
-    * Changes (0.5.0/CHANGES.0.5.0.md)
-    * Release Notes (0.5.0/RELEASENOTES.0.5.0.md)
+    * [Changes](0.5.0/CHANGES.0.5.0.md)
+    * [Release Notes](0.5.0/RELEASENOTES.0.5.0.md)
 * Apache Hadoop v0.4.0
-    * Changes (0.4.0/CHANGES.0.4.0.md)
-    * Release Notes (0.4.0/RELEASENOTES.0.4.0.md)
+    * [Changes](0.4.0/CHANGES.0.4.0.md)
+    * [Release Notes](0.4.0/RELEASENOTES.0.4.0.md)
 * Apache Hadoop v0.3.2
-    * Changes (0.3.2/CHANGES.0.3.2.md)
-    * Release Notes (0.3.2/RELEASENOTES.0.3.2.md)
+    * [Changes](0.3.2/CHANGES.0.3.2.md)
+    * [Release Notes](0.3.2/RELEASENOTES.0.3.2.md)
 * Apache Hadoop v0.3.1
-    * Changes (0.3.1/CHANGES.0.3.1.md)
-    * Release Notes (0.3.1/RELEASENOTES.0.3.1.md)
+    * [Changes](0.3.1/CHANGES.0.3.1.md)
+    * [Release Notes](0.3.1/RELEASENOTES.0.3.1.md)
 * Apache Hadoop v0.3.0
-    * Changes (0.3.0/CHANGES.0.3.0.md)
-    * Release Notes (0.3.0/RELEASENOTES.0.3.0.md)
+    * [Changes](0.3.0/CHANGES.0.3.0.md)
+    * [Release Notes](0.3.0/RELEASENOTES.0.3.0.md)
 * Apache Hadoop v0.24.0
-    * Changes (0.24.0/CHANGES.0.24.0.md)
-    * Release Notes (0.24.0/RELEASENOTES.0.24.0.md)
+    * [Changes](0.24.0/CHANGES.0.24.0.md)
+    * [Release Notes](0.24.0/RELEASENOTES.0.24.0.md)
 * Apache Hadoop v0.23.9
-    * Changes (0.23.9/CHANGES.0.23.9.md)
-    * Release Notes (0.23.9/RELEASENOTES.0.23.9.md)
+    * [Changes](0.23.9/CHANGES.0.23.9.md)
+    * [Release Notes](0.23.9/RELEASENOTES.0.23.9.md)
 * Apache Hadoop v0.23.8
-    * Changes (0.23.8/CHANGES.0.23.8.md)
-    * Release Notes (0.23.8/RELEASENOTES.0.23.8.md)
+    * [Changes](0.23.8/CHANGES.0.23.8.md)
+    * [Release Notes](0.23.8/RELEASENOTES.0.23.8.md)
 * Apache Hadoop v0.23.7
-    * Changes (0.23.7/CHANGES.0.23.7.md)
-    * Release Notes (0.23.7/RELEASENOTES.0.23.7.md)
+    * [Changes](0.23.7/CHANGES.0.23.7.md)
+    * [Release Notes](0.23.7/RELEASENOTES.0.23.7.md)
 * Apache Hadoop v0.23.6
-    * Changes (0.23.6/CHANGES.0.23.6.md)
-    * Release Notes (0.23.6/RELEASENOTES.0.23.6.md)
+    * [Changes](0.23.6/CHANGES.0.23.6.md)
+    * [Release Notes](0.23.6/RELEASENOTES.0.23.6.md)
 * Apache Hadoop v0.23.5
-    * Changes (0.23.5/CHANGES.0.23.5.md)
-    * Release Notes (0.23.5/RELEASENOTES.0.23.5.md)
+    * [Changes](0.23.5/CHANGES.0.23.5.md)
+    * [Release Notes](0.23.5/RELEASENOTES.0.23.5.md)
 * Apache Hadoop v0.23.4
-    * Changes (0.23.4/CHANGES.0.23.4.md)
-    * Release Notes (0.23.4/RELEASENOTES.0.23.4.md)
+    * [Changes](0.23.4/CHANGES.0.23.4.md)
+    * [Release Notes](0.23.4/RELEASENOTES.0.23.4.md)
 * Apache Hadoop v0.23.3
-    * Changes (0.23.3/CHANGES.0.23.3.md)
-    * Release Notes (0.23.3/RELEASENOTES.0.23.3.md)
+    * [Changes](0.23.3/CHANGES.0.23.3.md)
+    * [Release Notes](0.23.3/RELEASENOTES.0.23.3.md)
 * Apache Hadoop v0.23.2
-    * Changes (0.23.2/CHANGES.0.23.2.md)
-    * Release Notes (0.23.2/RELEASENOTES.0.23.2.md)
+    * [Changes](0.23.2/CHANGES.0.23.2.md)
+    * [Release Notes](0.23.2/RELEASENOTES.0.23.2.md)
 * Apache Hadoop v0.23.11
-    * Changes (0.23.11/CHANGES.0.23.11.md)
-    * Release Notes (0.23.11/RELEASENOTES.0.23.11.md)
+    * [Changes](0.23.11/CHANGES.0.23.11.md)
+    * [Release Notes](0.23.11/RELEASENOTES.0.23.11.md)
 * Apache Hadoop v0.23.10
-    * Changes (0.23.10/CHANGES.0.23.10.md)
-    * Release Notes (0.23.10/RELEASENOTES.0.23.10.md)
+    * [Changes](0.23.10/CHANGES.0.23.10.md)
+    * [Release Notes](0.23.10/RELEASENOTES.0.23.10.md)
 * Apache Hadoop v0.23.1
-    * Changes (0.23.1/CHANGES.0.23.1.md)
-    * Release Notes (0.23.1/RELEASENOTES.0.23.1.md)
+    * [Changes](0.23.1/CHANGES.0.23.1.md)
+    * [Release Notes](0.23.1/RELEASENOTES.0.23.1.md)
 * Apache Hadoop v0.23.0
-    * Changes (0.23.0/CHANGES.0.23.0.md)
-    * Release Notes (0.23.0/RELEASENOTES.0.23.0.md)
+    * [Changes](0.23.0/CHANGES.0.23.0.md)
+    * [Release Notes](0.23.0/RELEASENOTES.0.23.0.md)
 * Apache Hadoop v0.22.1
-    * Changes (0.22.1/CHANGES.0.22.1.md)
-    * Release Notes (0.22.1/RELEASENOTES.0.22.1.md)
+    * [Changes](0.22.1/CHANGES.0.22.1.md)
+    * [Release Notes](0.22.1/RELEASENOTES.0.22.1.md)
 * Apache Hadoop v0.22.0
-    * Changes (0.22.0/CHANGES.0.22.0.md)
-    * Release Notes (0.22.0/RELEASENOTES.0.22.0.md)
+    * [Changes](0.22.0/CHANGES.0.22.0.md)
+    * [Release Notes](0.22.0/RELEASENOTES.0.22.0.md)
 * Apache Hadoop v0.21.1
-    * Changes (0.21.1/CHANGES.0.21.1.md)
-    * Release Notes (0.21.1/RELEASENOTES.0.21.1.md)
+    * [Changes](0.21.1/CHANGES.0.21.1.md)
+    * [Release Notes](0.21.1/RELEASENOTES.0.21.1.md)
 * Apache Hadoop v0.21.0
-    * Changes (0.21.0/CHANGES.0.21.0.md)
-    * Release Notes (0.21.0/RELEASENOTES.0.21.0.md)
+    * [Changes](0.21.0/CHANGES.0.21.0.md)
+    * [Release Notes](0.21.0/RELEASENOTES.0.21.0.md)
 * Apache Hadoop v0.20.3
-    * Changes (0.20.3/CHANGES.0.20.3.md)
-    * Release Notes (0.20.3/RELEASENOTES.0.20.3.md)
+    * [Changes](0.20.3/CHANGES.0.20.3.md)
+    * [Release Notes](0.20.3/RELEASENOTES.0.20.3.md)
 * Apache Hadoop v0.20.205.0
-    * Changes (0.20.205.0/CHANGES.0.20.205.0.md)
-    * Release Notes (0.20.205.0/RELEASENOTES.0.20.205.0.md)
+    * [Changes](0.20.205.0/CHANGES.0.20.205.0.md)
+    * [Release Notes](0.20.205.0/RELEASENOTES.0.20.205.0.md)
 * Apache Hadoop v0.20.204.1
-    * Changes (0.20.204.1/CHANGES.0.20.204.1.md)
-    * Release Notes (0.20.204.1/RELEASENOTES.0.20.204.1.md)
+    * [Changes](0.20.204.1/CHANGES.0.20.204.1.md)
+    * [Release Notes](0.20.204.1/RELEASENOTES.0.20.204.1.md)
 * Apache Hadoop v0.20.204.0
-    * Changes (0.20.204.0/CHANGES.0.20.204.0.md)
-    * Release Notes (0.20.204.0/RELEASENOTES.0.20.204.0.md)
+    * [Changes](0.20.204.0/CHANGES.0.20.204.0.md)
+    * [Release Notes](0.20.204.0/RELEASENOTES.0.20.204.0.md)
 * Apache Hadoop v0.20.203.1
-    * Changes (0.20.203.1/CHANGES.0.20.203.1.md)
-    * Release Notes (0.20.203.1/RELEASENOTES.0.20.203.1.md)
+    * [Changes](0.20.203.1/CHANGES.0.20.203.1.md)
+    * [Release Notes](0.20.203.1/RELEASENOTES.0.20.203.1.md)
 * Apache Hadoop v0.20.203.0
-    * Changes (0.20.203.0/CHANGES.0.20.203.0.md)
-    * Release Notes (0.20.203.0/RELEASENOTES.0.20.203.0.md)
+    * [Changes](0.20.203.0/CHANGES.0.20.203.0.md)
+    * [Release Notes](0.20.203.0/RELEASENOTES.0.20.203.0.md)
 * Apache Hadoop v0.20.2
-    * Changes (0.20.2/CHANGES.0.20.2.md)
-    * Release Notes (0.20.2/RELEASENOTES.0.20.2.md)
+    * [Changes](0.20.2/CHANGES.0.20.2.md)
+    * [Release Notes](0.20.2/RELEASENOTES.0.20.2.md)
 * Apache Hadoop v0.20.1
-    * Changes (0.20.1/CHANGES.0.20.1.md)
-    * Release Notes (0.20.1/RELEASENOTES.0.20.1.md)
+    * [Changes](0.20.1/CHANGES.0.20.1.md)
+    * [Release Notes](0.20.1/RELEASENOTES.0.20.1.md)
 * Apache Hadoop v0.20.0
-    * Changes (0.20.0/CHANGES.0.20.0.md)
-    * Release Notes (0.20.0/RELEASENOTES.0.20.0.md)
+    * [Changes](0.20.0/CHANGES.0.20.0.md)
+    * [Release Notes](0.20.0/RELEASENOTES.0.20.0.md)
 * Apache Hadoop v0.2.1
-    * Changes (0.2.1/CHANGES.0.2.1.md)
-    * Release Notes (0.2.1/RELEASENOTES.0.2.1.md)
+    * [Changes](0.2.1/CHANGES.0.2.1.md)
+    * [Release Notes](0.2.1/RELEASENOTES.0.2.1.md)
 * Apache Hadoop v0.2.0
-    * Changes (0.2.0/CHANGES.0.2.0.md)
-    * Release Notes (0.2.0/RELEASENOTES.0.2.0.md)
+    * [Changes](0.2.0/CHANGES.0.2.0.md)
+    * [Release Notes](0.2.0/RELEASENOTES.0.2.0.md)
 * Apache Hadoop v0.19.2
-    * Changes (0.19.2/CHANGES.0.19.2.md)
-    * Release Notes (0.19.2/RELEASENOTES.0.19.2.md)
+    * [Changes](0.19.2/CHANGES.0.19.2.md)
+    * [Release Notes](0.19.2/RELEASENOTES.0.19.2.md)
 * Apache Hadoop v0.19.1
-    * Changes (0.19.1/CHANGES.0.19.1.md)
-    * Release Notes (0.19.1/RELEASENOTES.0.19.1.md)
+    * [Changes](0.19.1/CHANGES.0.19.1.md)
+    * [Release Notes](0.19.1/RELEASENOTES.0.19.1.md)
 * Apache Hadoop v0.19.0
-    * Changes (0.19.0/CHANGES.0.19.0.md)
-    * Release Notes (0.19.0/RELEASENOTES.0.19.0.md)
+    * [Changes](0.19.0/CHANGES.0.19.0.md)
+    * [Release Notes](0.19.0/RELEASENOTES.0.19.0.md)
 * Apache Hadoop v0.18.4
-    * Changes (0.18.4/CHANGES.0.18.4.md)
-    * Release Notes (0.18.4/RELEASENOTES.0.18.4.md)
+    * [Changes](0.18.4/CHANGES.0.18.4.md)
+    * [Release Notes](0.18.4/RELEASENOTES.0.18.4.md)
 * Apache Hadoop v0.18.3
-    * Changes (0.18.3/CHANGES.0.18.3.md)
-    * Release Notes (0.18.3/RELEASENOTES.0.18.3.md)
+    * [Changes](0.18.3/CHANGES.0.18.3.md)
+    * [Release Notes](0.18.3/RELEASENOTES.0.18.3.md)
 * Apache Hadoop v0.18.2
-    * Changes (0.18.2/CHANGES.0.18.2.md)
-    * Release Notes (0.18.2/RELEASENOTES.0.18.2.md)
+    * [Changes](0.18.2/CHANGES.0.18.2.md)
+    * [Release Notes](0.18.2/RELEASENOTES.0.18.2.md)
 * Apache Hadoop v0.18.1
-    * Changes (0.18.1/CHANGES.0.18.1.md)
-    * Release Notes (0.18.1/RELEASENOTES.0.18.1.md)
+    * [Changes](0.18.1/CHANGES.0.18.1.md)
+    * [Release Notes](0.18.1/RELEASENOTES.0.18.1.md)
 * Apache Hadoop v0.18.0
-    * Changes (0.18.0/CHANGES.0.18.0.md)
-    * Release Notes (0.18.0/RELEASENOTES.0.18.0.md)
+    * [Changes](0.18.0/CHANGES.0.18.0.md)
+    * [Release Notes](0.18.0/RELEASENOTES.0.18.0.md)
 * Apache Hadoop v0.17.3
-    * Changes (0.17.3/CHANGES.0.17.3.md)
-    * Release Notes (0.17.3/RELEASENOTES.0.17.3.md)
+    * [Changes](0.17.3/CHANGES.0.17.3.md)
+    * [Release Notes](0.17.3/RELEASENOTES.0.17.3.md)
 * Apache Hadoop v0.17.2
-    * Changes (0.17.2/CHANGES.0.17.2.md)
-    * Release Notes (0.17.2/RELEASENOTES.0.17.2.md)
+    * [Changes](0.17.2/CHANGES.0.17.2.md)
+    * [Release Notes](0.17.2/RELEASENOTES.0.17.2.md)
 * Apache Hadoop v0.17.1
-    * Changes (0.17.1/CHANGES.0.17.1.md)
-    * Release Notes (0.17.1/RELEASENOTES.0.17.1.md)
+    * [Changes](0.17.1/CHANGES.0.17.1.md)
+    * [Release Notes](0.17.1/RELEASENOTES.0.17.1.md)
 * Apache Hadoop v0.17.0
-    * Changes (0.17.0/CHANGES.0.17.0.md)
-    * Release Notes (0.17.0/RELEASENOTES.0.17.0.md)
+    * [Changes](0.17.0/CHANGES.0.17.0.md)
+    * [Release Notes](0.17.0/RELEASENOTES.0.17.0.md)
 * Apache Hadoop v0.16.4
-    * Changes (0.16.4/CHANGES.0.16.4.md)
-    * Release Notes (0.16.4/RELEASENOTES.0.16.4.md)
+    * [Changes](0.16.4/CHANGES.0.16.4.md)
+    * [Release Notes](0.16.4/RELEASENOTES.0.16.4.md)
 * Apache Hadoop v0.16.3
-    * Changes (0.16.3/CHANGES.0.16.3.md)
-    * Release Notes (0.16.3/RELEASENOTES.0.16.3.md)
+    * [Changes](0.16.3/CHANGES.0.16.3.md)
+    * [Release Notes](0.16.3/RELEASENOTES.0.16.3.md)
 * Apache Hadoop v0.16.2
-    * Changes (0.16.2/CHANGES.0.16.2.md)
-    * Release Notes (0.16.2/RELEASENOTES.0.16.2.md)
+    * [Changes](0.16.2/CHANGES.0.16.2.md)
+    * [Release Notes](0.16.2/RELEASENOTES.0.16.2.md)
 * Apache Hadoop v0.16.1
-    * Changes (0.16.1/CHANGES.0.16.1.md)
-    * Release Notes (0.16.1/RELEASENOTES.0.16.1.md)
+    * [Changes](0.16.1/CHANGES.0.16.1.md)
+    * [Release Notes](0.16.1/RELEASENOTES.0.16.1.md)
 * Apache Hadoop v0.16.0
-    * Changes (0.16.0/CHANGES.0.16.0.md)
-    * Release Notes (0.16.0/RELEASENOTES.0.16.0.md)
+    * [Changes](0.16.0/CHANGES.0.16.0.md)
+    * [Release Notes](0.16.0/RELEASENOTES.0.16.0.md)
 * Apache Hadoop v0.15.4
-    * Changes (0.15.4/CHANGES.0.15.4.md)
-    * Release Notes (0.15.4/RELEASENOTES.0.15.4.md)
+    * [Changes](0.15.4/CHANGES.0.15.4.md)
+    * [Release Notes](0.15.4/RELEASENOTES.0.15.4.md)
 * Apache Hadoop v0.15.3
-    * Changes (0.15.3/CHANGES.0.15.3.md)
-    * Release Notes (0.15.3/RELEASENOTES.0.15.3.md)
+    * [Changes](0.15.3/CHANGES.0.15.3.md)
+    * [Release Notes](0.15.3/RELEASENOTES.0.15.3.md)
 * Apache Hadoop v0.15.2
-    * Changes (0.15.2/CHANGES.0.15.2.md)
-    * Release Notes (0.15.2/RELEASENOTES.0.15.2.md)
+    * [Changes](0.15.2/CHANGES.0.15.2.md)
+    * [Release Notes](0.15.2/RELEASENOTES.0.15.2.md)
 * Apache Hadoop v0.15.1
-    * Changes (0.15.1/CHANGES.0.15.1.md)
-    * Release Notes (0.15.1/RELEASENOTES.0.15.1.md)
+    * [Changes](0.15.1/CHANGES.0.15.1.md)
+    * [Release Notes](0.15.1/RELEASENOTES.0.15.1.md)
 * Apache Hadoop v0.15.0
-    * Changes (0.15.0/CHANGES.0.15.0.md)
-    * Release Notes (0.15.0/RELEASENOTES.0.15.0.md)
+    * [Changes](0.15.0/CHANGES.0.15.0.md)
+    * [Release Notes](0.15.0/RELEASENOTES.0.15.0.md)
 * Apache Hadoop v0.14.4
-    * Changes (0.14.4/CHANGES.0.14.4.md)
-    * Release Notes (0.14.4/RELEASENOTES.0.14.4.md)
+    * [Changes](0.14.4/CHANGES.0.14.4.md)
+    * [Release Notes](0.14.4/RELEASENOTES.0.14.4.md)
 * Apache Hadoop v0.14.3
-    * Changes (0.14.3/CHANGES.0.14.3.md)
-    * Release Notes (0.14.3/RELEASENOTES.0.14.3.md)
+    * [Changes](0.14.3/CHANGES.0.14.3.md)
+    * [Release Notes](0.14.3/RELEASENOTES.0.14.3.md)
 * Apache Hadoop v0.14.2
-    * Changes (0.14.2/CHANGES.0.14.2.md)
-    * Release Notes (0.14.2/RELEASENOTES.0.14.2.md)
+    * [Changes](0.14.2/CHANGES.0.14.2.md)
+    * [Release Notes](0.14.2/RELEASENOTES.0.14.2.md)
 * Apache Hadoop v0.14.1
-    * Changes (0.14.1/CHANGES.0.14.1.md)
-    * Release Notes (0.14.1/RELEASENOTES.0.14.1.md)
+    * [Changes](0.14.1/CHANGES.0.14.1.md)
+    * [Release Notes](0.14.1/RELEASENOTES.0.14.1.md)
 * Apache Hadoop v0.14.0
-    * Changes (0.14.0/CHANGES.0.14.0.md)
-    * Release Notes (0.14.0/RELEASENOTES.0.14.0.md)
+    * [Changes](0.14.0/CHANGES.0.14.0.md)
+    * [Release Notes](0.14.0/RELEASENOTES.0.14.0.md)
 * Apache Hadoop v0.13.1
-    * Changes (0.13.1/CHANGES.0.13.1.md)
-    * Release Notes (0.13.1/RELEASENOTES.0.13.1.md)
+    * [Changes](0.13.1/CHANGES.0.13.1.md)
+    * [Release Notes](0.13.1/RELEASENOTES.0.13.1.md)
 * Apache Hadoop v0.13.0
-    * Changes (0.13.0/CHANGES.0.13.0.md)
-    * Release Notes (0.13.0/RELEASENOTES.0.13.0.md)
+    * [Changes](0.13.0/CHANGES.0.13.0.md)
+    * [Release Notes](0.13.0/RELEASENOTES.0.13.0.md)
 * Apache Hadoop v0.12.3
-    * Changes (0.12.3/CHANGES.0.12.3.md)
-    * Release Notes (0.12.3/RELEASENOTES.0.12.3.md)
+    * [Changes](0.12.3/CHANGES.0.12.3.md)
+    * [Release Notes](0.12.3/RELEASENOTES.0.12.3.md)
 * Apache Hadoop v0.12.2
-    * Changes (0.12.2/CHANGES.0.12.2.md)
-    * Release Notes (0.12.2/RELEASENOTES.0.12.2.md)
+    * [Changes](0.12.2/CHANGES.0.12.2.md)
+    * [Release Notes](0.12.2/RELEASENOTES.0.12.2.md)
 * Apache Hadoop v0.12.1
-    * Changes (0.12.1/CHANGES.0.12.1.md)
-    * Release Notes (0.12.1/RELEASENOTES.0.12.1.md)
+    * [Changes](0.12.1/CHANGES.0.12.1.md)
+    * [Release Notes](0.12.1/RELEASENOTES.0.12.1.md)
 * Apache Hadoop v0.12.0
-    * Changes (0.12.0/CHANGES.0.12.0.md)
-    * Release Notes (0.12.0/RELEASENOTES.0.12.0.md)
+    * [Changes](0.12.0/CHANGES.0.12.0.md)
+    * [Release Notes](0.12.0/RELEASENOTES.0.12.0.md)
 * Apache Hadoop v0.11.2
-    * Changes (0.11.2/CHANGES.0.11.2.md)
-    * Release Notes (0.11.2/RELEASENOTES.0.11.2.md)
+    * [Changes](0.11.2/CHANGES.0.11.2.md)
+    * [Release Notes](0.11.2/RELEASENOTES.0.11.2.md)
 * Apache Hadoop v0.11.1
-    * Changes (0.11.1/CHANGES.0.11.1.md)
-    * Release Notes (0.11.1/RELEASENOTES.0.11.1.md)
+    * [Changes](0.11.1/CHANGES.0.11.1.md)
+    * [Release Notes](0.11.1/RELEASENOTES.0.11.1.md)
 * Apache Hadoop v0.11.0
-    * Changes (0.11.0/CHANGES.0.11.0.md)
-    * Release Notes (0.11.0/RELEASENOTES.0.11.0.md)
+    * [Changes](0.11.0/CHANGES.0.11.0.md)
+    * [Release Notes](0.11.0/RELEASENOTES.0.11.0.md)
 * Apache Hadoop v0.10.1
-    * Changes (0.10.1/CHANGES.0.10.1.md)
-    * Release Notes (0.10.1/RELEASENOTES.0.10.1.md)
+    * [Changes](0.10.1/CHANGES.0.10.1.md)
+    * [Release Notes](0.10.1/RELEASENOTES.0.10.1.md)
 * Apache Hadoop v0.10.0
-    * Changes (0.10.0/CHANGES.0.10.0.md)
-    * Release Notes (0.10.0/RELEASENOTES.0.10.0.md)
+    * [Changes](0.10.0/CHANGES.0.10.0.md)
+    * [Release Notes](0.10.0/RELEASENOTES.0.10.0.md)
 * Apache Hadoop v0.1.1
-    * Changes (0.1.1/CHANGES.0.1.1.md)
-    * Release Notes (0.1.1/RELEASENOTES.0.1.1.md)
+    * [Changes](0.1.1/CHANGES.0.1.1.md)
+    * [Release Notes](0.1.1/RELEASENOTES.0.1.1.md)
 * Apache Hadoop v0.1.0
-    * Changes (0.1.0/CHANGES.0.1.0.md)
-    * Release Notes (0.1.0/RELEASENOTES.0.1.0.md)
+    * [Changes](0.1.0/CHANGES.0.1.0.md)
+    * [Release Notes](0.1.0/RELEASENOTES.0.1.0.md)

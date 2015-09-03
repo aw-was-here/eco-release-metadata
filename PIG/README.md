@@ -17,23 +17,23 @@
 # limitations under the License.
 -->
 * Apache Pig v0.16.0
-    * Changes (0.16.0/CHANGES.0.16.0.md)
-    * Release Notes (0.16.0/RELEASENOTES.0.16.0.md)
+    * [Changes](0.16.0/CHANGES.0.16.0.md)
+    * [Release Notes](0.16.0/RELEASENOTES.0.16.0.md)
 * Apache Pig v0.15.1
-    * Changes (0.15.1/CHANGES.0.15.1.md)
-    * Release Notes (0.15.1/RELEASENOTES.0.15.1.md)
+    * [Changes](0.15.1/CHANGES.0.15.1.md)
+    * [Release Notes](0.15.1/RELEASENOTES.0.15.1.md)
 * Apache Pig v0.15.0
-    * Changes (0.15.0/CHANGES.0.15.0.md)
-    * Release Notes (0.15.0/RELEASENOTES.0.15.0.md)
+    * [Changes](0.15.0/CHANGES.0.15.0.md)
+    * [Release Notes](0.15.0/RELEASENOTES.0.15.0.md)
 * Apache Pig v0.14.1
-    * Changes (0.14.1/CHANGES.0.14.1.md)
-    * Release Notes (0.14.1/RELEASENOTES.0.14.1.md)
+    * [Changes](0.14.1/CHANGES.0.14.1.md)
+    * [Release Notes](0.14.1/RELEASENOTES.0.14.1.md)
 * Apache Pig v0.14.0
-    * Changes (0.14.0/CHANGES.0.14.0.md)
-    * Release Notes (0.14.0/RELEASENOTES.0.14.0.md)
+    * [Changes](0.14.0/CHANGES.0.14.0.md)
+    * [Release Notes](0.14.0/RELEASENOTES.0.14.0.md)
 * Apache Pig v0.13.1
-    * Changes (0.13.1/CHANGES.0.13.1.md)
-    * Release Notes (0.13.1/RELEASENOTES.0.13.1.md)
+    * [Changes](0.13.1/CHANGES.0.13.1.md)
+    * [Release Notes](0.13.1/RELEASENOTES.0.13.1.md)
 * Apache Pig v0.13.0
-    * Changes (0.13.0/CHANGES.0.13.0.md)
-    * Release Notes (0.13.0/RELEASENOTES.0.13.0.md)
+    * [Changes](0.13.0/CHANGES.0.13.0.md)
+    * [Release Notes](0.13.0/RELEASENOTES.0.13.0.md)

@@ -17,44 +17,44 @@
 # limitations under the License.
 -->
 * Apache Spark v1.6.0
-    * Changes (1.6.0/CHANGES.1.6.0.md)
-    * Release Notes (1.6.0/RELEASENOTES.1.6.0.md)
+    * [Changes](1.6.0/CHANGES.1.6.0.md)
+    * [Release Notes](1.6.0/RELEASENOTES.1.6.0.md)
 * Apache Spark v1.5.1,1.6.0
-    * Changes (1.5.1,1.6.0/CHANGES.1.5.1,1.6.0.md)
-    * Release Notes (1.5.1,1.6.0/RELEASENOTES.1.5.1,1.6.0.md)
+    * [Changes](1.5.1,1.6.0/CHANGES.1.5.1,1.6.0.md)
+    * [Release Notes](1.5.1,1.6.0/RELEASENOTES.1.5.1,1.6.0.md)
 * Apache Spark v1.5.1
-    * Changes (1.5.1/CHANGES.1.5.1.md)
-    * Release Notes (1.5.1/RELEASENOTES.1.5.1.md)
+    * [Changes](1.5.1/CHANGES.1.5.1.md)
+    * [Release Notes](1.5.1/RELEASENOTES.1.5.1.md)
 * Apache Spark v1.5.0
-    * Changes (1.5.0/CHANGES.1.5.0.md)
-    * Release Notes (1.5.0/RELEASENOTES.1.5.0.md)
+    * [Changes](1.5.0/CHANGES.1.5.0.md)
+    * [Release Notes](1.5.0/RELEASENOTES.1.5.0.md)
 * Apache Spark v1.4.2
-    * Changes (1.4.2/CHANGES.1.4.2.md)
-    * Release Notes (1.4.2/RELEASENOTES.1.4.2.md)
+    * [Changes](1.4.2/CHANGES.1.4.2.md)
+    * [Release Notes](1.4.2/RELEASENOTES.1.4.2.md)
 * Apache Spark v1.4.1
-    * Changes (1.4.1/CHANGES.1.4.1.md)
-    * Release Notes (1.4.1/RELEASENOTES.1.4.1.md)
+    * [Changes](1.4.1/CHANGES.1.4.1.md)
+    * [Release Notes](1.4.1/RELEASENOTES.1.4.1.md)
 * Apache Spark v1.4.0
-    * Changes (1.4.0/CHANGES.1.4.0.md)
-    * Release Notes (1.4.0/RELEASENOTES.1.4.0.md)
+    * [Changes](1.4.0/CHANGES.1.4.0.md)
+    * [Release Notes](1.4.0/RELEASENOTES.1.4.0.md)
 * Apache Spark v1.3.2
-    * Changes (1.3.2/CHANGES.1.3.2.md)
-    * Release Notes (1.3.2/RELEASENOTES.1.3.2.md)
+    * [Changes](1.3.2/CHANGES.1.3.2.md)
+    * [Release Notes](1.3.2/RELEASENOTES.1.3.2.md)
 * Apache Spark v1.3.1
-    * Changes (1.3.1/CHANGES.1.3.1.md)
-    * Release Notes (1.3.1/RELEASENOTES.1.3.1.md)
+    * [Changes](1.3.1/CHANGES.1.3.1.md)
+    * [Release Notes](1.3.1/RELEASENOTES.1.3.1.md)
 * Apache Spark v1.3.0
-    * Changes (1.3.0/CHANGES.1.3.0.md)
-    * Release Notes (1.3.0/RELEASENOTES.1.3.0.md)
+    * [Changes](1.3.0/CHANGES.1.3.0.md)
+    * [Release Notes](1.3.0/RELEASENOTES.1.3.0.md)
 * Apache Spark v1.2.3
-    * Changes (1.2.3/CHANGES.1.2.3.md)
-    * Release Notes (1.2.3/RELEASENOTES.1.2.3.md)
+    * [Changes](1.2.3/CHANGES.1.2.3.md)
+    * [Release Notes](1.2.3/RELEASENOTES.1.2.3.md)
 * Apache Spark v1.2.2
-    * Changes (1.2.2/CHANGES.1.2.2.md)
-    * Release Notes (1.2.2/RELEASENOTES.1.2.2.md)
+    * [Changes](1.2.2/CHANGES.1.2.2.md)
+    * [Release Notes](1.2.2/RELEASENOTES.1.2.2.md)
 * Apache Spark v1.2.1
-    * Changes (1.2.1/CHANGES.1.2.1.md)
-    * Release Notes (1.2.1/RELEASENOTES.1.2.1.md)
+    * [Changes](1.2.1/CHANGES.1.2.1.md)
+    * [Release Notes](1.2.1/RELEASENOTES.1.2.1.md)
 * Apache Spark v1.2.0
-    * Changes (1.2.0/CHANGES.1.2.0.md)
-    * Release Notes (1.2.0/RELEASENOTES.1.2.0.md)
+    * [Changes](1.2.0/CHANGES.1.2.0.md)
+    * [Release Notes](1.2.0/RELEASENOTES.1.2.0.md)
