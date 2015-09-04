@@ -254,8 +254,8 @@ Based on the reconfiguration framework provided by HADOOP-7001, enable reconfigu
 
 This introduces two new MR2 job configs, mentioned below, which allow users to control the maximum simultaneously-running tasks of the submitted job, across the cluster:
 
-* mapreduce.job.running.map.limit (default: 0, for no limit)
-* mapreduce.job.running.reduce.limit (default: 0, for no limit)
+\* mapreduce.job.running.map.limit (default: 0, for no limit)
+\* mapreduce.job.running.reduce.limit (default: 0, for no limit)
 
 This is controllable at a per-job level.
 

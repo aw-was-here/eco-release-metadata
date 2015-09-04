@@ -289,7 +289,7 @@ Scenario:
 - commitMemory & usedMemory are beyond their allowed threshold.
 - InMemoryMerge kicks off and is in the process of flushing memory contents to disk
 - As it progresses, it releases memory segments as well (but not yet over).
-- Fetchers who need memory < maxSingleShuffleLimit, get scheduled.
+- Fetchers who need memory \< maxSingleShuffleLimit, get scheduled.
 - If fetchers are fast, this quickly adds up to commitMemory & usedMemory. Since InMemoryMerge is already in progress, this wouldn't trigger another merge().
 - Pretty soon all fetchers would be stalled and get into the following state.
 
@@ -558,8 +558,8 @@ if more than one filters are specified , sometimes the filtering wont work and r
 
 * [TEZ-2114](https://issues.apache.org/jira/browse/TEZ-2114) | *Major* | **Tez UI: task/task attempt status is not available when its running**
 
-* The task/task attempt status is not available when the task/attempt is running.
-* the task/attempt status is not displayed when the application has been killed
+\* The task/task attempt status is not available when the task/attempt is running.
+\* the task/attempt status is not displayed when the application has been killed
 
 
 ---
@@ -593,10 +593,10 @@ Add Home button in book mark
 
 * [TEZ-2098](https://issues.apache.org/jira/browse/TEZ-2098) | *Major* | **Tez UI: Dag details should be the default page for dag, fix invalid time entries for failed Vertices**
 
-* The default tab for a DAG should go to the details page where the exception is shown.
-* for failed dags the following time displays are incorrect
-** Task stats for average, max, min duration tasks show -1
-** First Task start time in vertices shows the epoch time.
+\* The default tab for a DAG should go to the details page where the exception is shown.
+\* for failed dags the following time displays are incorrect
+\*\* Task stats for average, max, min duration tasks show -1
+\*\* First Task start time in vertices shows the epoch time.
 
 
 ---
@@ -738,9 +738,9 @@ Introduced accidentally as part of TEZ-2018. Versions should only be specified i
 
 * [TEZ-2056](https://issues.apache.org/jira/browse/TEZ-2056) | *Major* | **Tez UI: fix VertexID filter,show only tez configs by default,fix appattemptid**
 
-* Searching by a vertexId is broken on dag tasks view.
-* Configuration shows all settings in alphabetical order instead of showing only tez.* at the top
-* When status is not Finished, app attempt id shows up with a "-"
+\* Searching by a vertexId is broken on dag tasks view.
+\* Configuration shows all settings in alphabetical order instead of showing only tez.\* at the top
+\* When status is not Finished, app attempt id shows up with a "-"
 
 
 ---
@@ -759,7 +759,7 @@ Introduced accidentally as part of TEZ-2018. Versions should only be specified i
 Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.1:compile (default-compile) on project tez-dag: Compilation failure: Compilation failure:
 [ERROR] /home/jenkins/jenkins-slave/workspace/Tez-Build-Hadoop-2.2/tez-dag/src/main/java/org/apache/tez/dag/app/web/WebUIService.java:[85,13] cannot find symbol
 [ERROR] symbol  : method withHttpPolicy(org.apache.hadoop.conf.Configuration,org.apache.hadoop.http.HttpConfig.Policy)
-[ERROR] location: class org.apache.hadoop.yarn.webapp.WebApps.Builder<org.apache.tez.dag.app.web.WebUIService.TezAMWebApp>
+[ERROR] location: class org.apache.hadoop.yarn.webapp.WebApps.Builder\<org.apache.tez.dag.app.web.WebUIService.TezAMWebApp\>
 [ERROR] /home/jenkins/jenkins-slave/workspace/Tez-Build-Hadoop-2.2/tez-dag/src/main/java/org/apache/tez/dag/app/web/WebUIService.java:[87,45] cannot find symbol
 [ERROR] symbol  : method getConnectorAddress(int)
 [ERROR] location: class org.apache.hadoop.http.HttpServer
@@ -816,7 +816,7 @@ Also scrolling doesn't happens when mouse is over header cells.
 * [TEZ-2013](https://issues.apache.org/jira/browse/TEZ-2013) | *Critical* | **TEZ UI - App Details Page UI Nits**
 
 1. YARN RM Tracking URL should mention just the app Id without tez\_ prefix
-2. Made tez-apps->dags table similar to dags (Without applications column).
+2. Made tez-apps-\>dags table similar to dags (Without applications column).
 
 
 ---
@@ -845,7 +845,7 @@ Docs mention that it defaults to using http://localhost for RM and Timeline serv
 
 * [TEZ-1987](https://issues.apache.org/jira/browse/TEZ-1987) | *Trivial* | **non-standalone mode protocol correction + Row count selector in all tables + Format numbers displayed + Prettifications**
 
-When Tez UI is used in non-standalone mode, it accesses "http//<hostname>:8188" instead of the correct protocol setting.
+When Tez UI is used in non-standalone mode, it accesses "http//\<hostname\>:8188" instead of the correct protocol setting.
 
 That is parsed as a relative URL than as an absolute host:port URI.
 
@@ -869,11 +869,11 @@ Dag View
  - Color coded links (Based on type) with support for backward links, to show possible issues in the DAG.
 
 2. On click redirection for all items.
- - Vertex -> Vertex details page
-   - Tasks bubble -> Task list
-   - sources/sink bubble -> Sources & sinks page
- - Input -> Respective input's configuration page
- - Output -> Respective output configurations page
+ - Vertex -\> Vertex details page
+   - Tasks bubble -\> Task list
+   - sources/sink bubble -\> Sources & sinks page
+ - Input -\> Respective input's configuration page
+ - Output -\> Respective output configurations page
 
 3. Double click - Toggle display of sources & sinks.
 4. Panning, zooming, fit button, full screen button.
@@ -966,16 +966,16 @@ Additional debug/patch statements revealed that InMemoryMerge is not invoked app
 
 {code}
 
-syslog\_attempt\_1420000126204\_0201\_1\_01\_000034\_0:2015-01-07 02:05:48,332 INFO [fetcher [Map\_1] #2] orderedgrouped.MergeManager: Patch..usedMemory=1551867234, memoryLimit=1073741824, commitMemory=883028388, mergeThreshold=708669632  <<=== InMemoryMerge would be started in this case as commitMemory >= mergeThreshold
+syslog\_attempt\_1420000126204\_0201\_1\_01\_000034\_0:2015-01-07 02:05:48,332 INFO [fetcher [Map\_1] #2] orderedgrouped.MergeManager: Patch..usedMemory=1551867234, memoryLimit=1073741824, commitMemory=883028388, mergeThreshold=708669632  \<\<=== InMemoryMerge would be started in this case as commitMemory \>= mergeThreshold
 
-syslog\_attempt\_1420000126204\_0201\_1\_01\_000034\_0:2015-01-07 02:05:52,900 INFO [fetcher [Map\_1] #2] orderedgrouped.MergeManager: Patch..usedMemory=1273349784, memoryLimit=1073741824, commitMemory=347296632, mergeThreshold=708669632 <<=== InMemoryMerge would *NOT* be started in this case as commitMemory < mergeThreshold.  But the usedMemory is higher than memoryLimit.  Fetchers would keep waiting indefinitely until memory is released. InMemoryMerge will not kick in and not release memory.
+syslog\_attempt\_1420000126204\_0201\_1\_01\_000034\_0:2015-01-07 02:05:52,900 INFO [fetcher [Map\_1] #2] orderedgrouped.MergeManager: Patch..usedMemory=1273349784, memoryLimit=1073741824, commitMemory=347296632, mergeThreshold=708669632 \<\<=== InMemoryMerge would \*NOT\* be started in this case as commitMemory \< mergeThreshold.  But the usedMemory is higher than memoryLimit.  Fetchers would keep waiting indefinitely until memory is released. InMemoryMerge will not kick in and not release memory.
 
-syslog\_attempt\_1420000126204\_0201\_1\_01\_000034\_0:2015-01-07 02:05:53,163 INFO [fetcher [Map\_1] #1] orderedgrouped.MergeManager: Patch..usedMemory=1191994052, memoryLimit=1073741824, commitMemory=523155206, mergeThreshold=708669632 <<=== InMemoryMerge would *NOT* be started in this case as commitMemory < mergeThreshold.  But the usedMemory is higher than memoryLimit.  Fetchers would keep waiting indefinitely until memory is released.  InMemoryMerge will not kick in and not release memory.
+syslog\_attempt\_1420000126204\_0201\_1\_01\_000034\_0:2015-01-07 02:05:53,163 INFO [fetcher [Map\_1] #1] orderedgrouped.MergeManager: Patch..usedMemory=1191994052, memoryLimit=1073741824, commitMemory=523155206, mergeThreshold=708669632 \<\<=== InMemoryMerge would \*NOT\* be started in this case as commitMemory \< mergeThreshold.  But the usedMemory is higher than memoryLimit.  Fetchers would keep waiting indefinitely until memory is released.  InMemoryMerge will not kick in and not release memory.
 {code}
 
 In MergeManager, in memory merging is invoked under the following condition
 {code}
-if (!inMemoryMerger.isInProgress() && commitMemory >= mergeThreshold)
+if (!inMemoryMerger.isInProgress() && commitMemory \>= mergeThreshold)
 {code}
 
 
@@ -1012,10 +1012,10 @@ Below is jstack output observed when running in Tez local mode:
    java.lang.Thread.State: RUNNABLE
         at java.lang.Throwable.fillInStackTrace(Native Method)
         at java.lang.Throwable.fillInStackTrace(Throwable.java:783)
-        - locked <0x00000007b6ce60a0> (a java.lang.InterruptedException)
-        at java.lang.Throwable.<init>(Throwable.java:250)
-        at java.lang.Exception.<init>(Exception.java:54)
-        at java.lang.InterruptedException.<init>(InterruptedException.java:57)
+        - locked \<0x00000007b6ce60a0\> (a java.lang.InterruptedException)
+        at java.lang.Throwable.\<init\>(Throwable.java:250)
+        at java.lang.Exception.\<init\>(Exception.java:54)
+        at java.lang.InterruptedException.\<init\>(InterruptedException.java:57)
         at java.util.concurrent.locks.AbstractQueuedSynchronizer.acquireInterruptibly(AbstractQueuedSynchronizer.java:1219)
         at java.util.concurrent.locks.ReentrantLock.lockInterruptibly(ReentrantLock.java:340)
         at java.util.concurrent.PriorityBlockingQueue.take(PriorityBlockingQueue.java:535)

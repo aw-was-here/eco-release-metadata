@@ -23,6 +23,14 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [TEZ-2761](https://issues.apache.org/jira/browse/TEZ-2761) | *Major* | **Tez UI: update the progress on the dag and vertices pages with info from AM**
+
+The data displayed on the UI for running tasks should be updated with the latest status fetched from AM.
+This includes the status, progress, task count etc. The api should also allow querying the values for the tasks (running, failed, succeeded...).
+
+
+---
+
 * [TEZ-2755](https://issues.apache.org/jira/browse/TEZ-2755) | *Major* | **Fix findbugs warning in TezClient**
 
 {code}
@@ -55,6 +63,20 @@ Attach the screenshot, currently the starttime and endtime is displayed with mil
 * [TEZ-2752](https://issues.apache.org/jira/browse/TEZ-2752) | *Major* | **logUnsuccessful completion in Attempt should write original finish time to ATS**
 
 Currently it overwrites with the current time and that results in wrong information since in reality the attempt might have finished earlier if the failure was output failure. Other failures also set the finish time in the terminate transition and thus even in non output failed cases the value of finishtime can be used instead of using current time.
+
+
+---
+
+* [TEZ-2745](https://issues.apache.org/jira/browse/TEZ-2745) | *Major* | **ClassNotFoundException of user code should fail dag**
+
+This ClassNotFoundException is not captured now. The current behavior is AM crashed and relaunched again until max app attempt is reached. 
+
+Here's user code used in AM:
+\* EdgeManager
+\* VertexManager
+\* InputInitializer
+\* OutputCommitter
+\* Other user pluggable components (like DAGScheduler, HistoryServiceLogging etc.)
 
 
 ---
@@ -170,7 +192,7 @@ tez.runtime.shuffle.fetch.max.task.output.at.once is provided only for ordered f
 
 I am running a yarn cluster on AWS. The slave nodes (NMs) are all configured to listen on private DNS. For example, a sample node manager listens on ip-10-16-141-168.ec2.internal:8042.
 
-When I'm trying to run a Tez job (even simple ones like select count(*) from nation) - they fail because child tasks are unable to connect to the AM. The issue is they are trying to connect to the IP instead of the private DNS. Here's a sample log line (couple of them added by me for debugging):
+When I'm trying to run a Tez job (even simple ones like select count(\*) from nation) - they fail because child tasks are unable to connect to the AM. The issue is they are trying to connect to the IP instead of the private DNS. Here's a sample log line (couple of them added by me for debugging):
 
 {code}
 2015-07-21 17:08:21,919 INFO [main] task.TezChild: TezChild starting
@@ -469,7 +491,7 @@ currently tez-ui build fails if mvn version is 3.3 due to the frontend-maven-plu
 
 * [TEZ-2554](https://issues.apache.org/jira/browse/TEZ-2554) | *Major* | **Tez UI: View log link does not correctly propagate login crendential to read log from yarn web.**
 
-Append "user.name=<am user>" to the view/download logs url as a query param.
+Append "user.name=\<am user\>" to the view/download logs url as a query param.
 
 Sample url:
 http://address:19888/jobhistory/logs/address:45454/container\_e18\_1434089649193\_0001\_01\_000002/container\_e18\_1434089649193\_0001\_01\_000002/hrt\_qa?user.name=hrt\_qa
@@ -919,9 +941,9 @@ And at the same time AM shutdown hook is invoked and hang there, wait for lock o
 * [TEZ-2523](https://issues.apache.org/jira/browse/TEZ-2523) | *Major* | **Tez UI: derive applicationId from dag/vertex id instead of relying on json data**
 
 currently the applicationId for the models dag/vertex is picked up from primary filter data for the dag/vertex json. deriving this from the dagid/vertexid on the models has the below benefits.
-* ensures applicationId is not null (in some corner cases this causes exception in store.find)
-* makes the ui backward compatible (0.5).
-* allows to remove the appid from primary filter (TEZ-2485)
+\* ensures applicationId is not null (in some corner cases this causes exception in store.find)
+\* makes the ui backward compatible (0.5).
+\* allows to remove the appid from primary filter (TEZ-2485)
 
 
 ---
@@ -986,7 +1008,7 @@ First attempt marked as failed as container was killed.
 
 Subsequent attempt scheduled, assigned and eventually fails. 
 {code}
-2015-06-01 07:38:26,919 INFO [DelayedContainerManager] rm.YarnTaskSchedulerService: Assigning container to task, container=Container: [ContainerId: container\_e02\_1433141118424\_0012\_01\_000011, NodeId: ip-172-31-18-41.ec2.internal:45454, NodeHttpAddress: ip-172-31-18-41.ec2.internal:8042, Resource: <memory:1536, vCores:1>, Priority: 2, Token: Token { kind: ContainerToken, service: 172.31.18.41:45454 }, ], task=attempt\_1433141118424\_0012\_2\_00\_000003\_1, containerHost=ip-172-31, localityMatchType=NodeLocal, matchedLocation=ip-172-31-18-41.ec2.internal, honorLocalityFlags=true, reusedContainer=true, delayedContainers=4, containerResourceMemory=1536, containerResourceVCores=1
+2015-06-01 07:38:26,919 INFO [DelayedContainerManager] rm.YarnTaskSchedulerService: Assigning container to task, container=Container: [ContainerId: container\_e02\_1433141118424\_0012\_01\_000011, NodeId: ip-172-31-18-41.ec2.internal:45454, NodeHttpAddress: ip-172-31-18-41.ec2.internal:8042, Resource: \<memory:1536, vCores:1\>, Priority: 2, Token: Token { kind: ContainerToken, service: 172.31.18.41:45454 }, ], task=attempt\_1433141118424\_0012\_2\_00\_000003\_1, containerHost=ip-172-31, localityMatchType=NodeLocal, matchedLocation=ip-172-31-18-41.ec2.internal, honorLocalityFlags=true, reusedContainer=true, delayedContainers=4, containerResourceMemory=1536, containerResourceVCores=1
 {code}
 
 Scheduler stops too late.
@@ -1093,7 +1115,7 @@ all running TezChildren fail with the same stacks (either variant) at the same t
 
 The cascading.tuple.hadoop.util.TupleComparator#compare code at the top of stack has been in use in a MAPREDUCE context for over 2.5 years; first analysis with [~cwensel] (who successfully reproduced the issue without scalding) points towards an issue on tez side.
 
-as a workaround, it is possible to run with {code:scala}"tez.runtime.sorter.class" -> "LEGACY"{code}, but this is impractical in the long run.
+as a workaround, it is possible to run with {code:scala}"tez.runtime.sorter.class" -\> "LEGACY"{code}, but this is impractical in the long run.
 
 
 ---
@@ -1253,7 +1275,7 @@ Due to YARN-2560, DAGClient can't get the correct diagnostics, this jira is to m
 2015-05-18 16:57:50,249 INFO [ServiceThread:org.apache.tez.dag.app.web.WebUIService] http.HttpServer2: Added global filter 'safety' (class=org.apache.hadoop.http.HttpServer2$QuotingInputFilter)
 2015-05-18 16:57:50,254 INFO [ServiceThread:org.apache.tez.dag.app.web.WebUIService] http.HttpServer2: Added filter AM\_PROXY\_FILTER (class=org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter) to context 
 2015-05-18 16:57:50,254 INFO [ServiceThread:org.apache.tez.dag.app.web.WebUIService] http.HttpServer2: Added filter AM\_PROXY\_FILTER (class=org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter) to context static
-2015-05-18 16:57:50,257 INFO [ServiceThread:org.apache.tez.dag.app.web.WebUIService] http.HttpServer2: adding path spec: /*
+2015-05-18 16:57:50,257 INFO [ServiceThread:org.apache.tez.dag.app.web.WebUIService] http.HttpServer2: adding path spec: /\*
 2015-05-18 16:57:50,276 INFO [ServiceThread:org.apache.tez.dag.app.web.WebUIService] http.HttpServer2: Jetty bound to port 39924
 2015-05-18 16:57:50,276 INFO [ServiceThread:org.apache.tez.dag.app.web.WebUIService] mortbay.log: jetty-6.1.26.hwx
 2015-05-18 16:57:50,325 INFO [ServiceThread:org.apache.tez.dag.app.web.WebUIService] mortbay.log: Extract jar:file:/hadoop/yarn/local/filecache/15/tez.tar.gz/lib/hadoop-yarn-common-2.6.0.2.2.3.0-2611.jar!/webapps/ to /tmp/Jetty\_0\_0\_0\_0\_39924\_webapps\_\_\_\_jab5s/webapp
@@ -1338,17 +1360,17 @@ java.lang.InterruptedException
 hive/pig etc can set additional info on the dag using 
 
 {code}
-/**
-   * Set description info for this DAG that can be used for visualization purposes.
-   * @param dagInfo JSON blob as a serialized string.
-   *                Recognized keys by the UI are:
-   *                    "context" - The application context in which this DAG is being used.
-   *                                For example, this could be set to "Hive" or "Pig" if
-   *                                this is being run as part of a Hive or Pig script.
-   *                    "description" - General description on what this DAG is going to do.
-   *                                In the case of Hive, this could be the SQL query text.
-   * @return {@link DAG}
-   */
+/\*\*
+   \* Set description info for this DAG that can be used for visualization purposes.
+   \* @param dagInfo JSON blob as a serialized string.
+   \*                Recognized keys by the UI are:
+   \*                    "context" - The application context in which this DAG is being used.
+   \*                                For example, this could be set to "Hive" or "Pig" if
+   \*                                this is being run as part of a Hive or Pig script.
+   \*                    "description" - General description on what this DAG is going to do.
+   \*                                In the case of Hive, this could be the SQL query text.
+   \* @return {@link DAG}
+   \*/
 {code}
 It would be useful to show this information.
 
@@ -1454,13 +1476,13 @@ It would be good to have the following
 For e.g, Assume sorter generated 5 spills in an attempt
 Without pipelining:
 ==============
-ADDITIONAL\_SPILL\_COUNT = 5 <-- Additional spills involved in sorting
-TOTAL\_SPILLS = 1 <-- Final merged output
+ADDITIONAL\_SPILL\_COUNT = 5 \<-- Additional spills involved in sorting
+TOTAL\_SPILLS = 1 \<-- Final merged output
 
 With pipelining:
 ============
-ADDITIONAL\_SPILL\_COUNT = 0 <-- Additional spills involved in sorting
-TOTAL\_SPILLS = 5 <--- all spills are final output
+ADDITIONAL\_SPILL\_COUNT = 0 \<-- Additional spills involved in sorting
+TOTAL\_SPILLS = 5 \<--- all spills are final output
 
 
 ---

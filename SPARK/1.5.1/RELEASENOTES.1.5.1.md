@@ -27,7 +27,7 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 I sometimes get test failures such as:
 
-- input metrics with cache and coalesce *** FAILED ***
+- input metrics with cache and coalesce \*\*\* FAILED \*\*\*
   5994472 did not equal 6044472 (InputOutputMetricsSuite.scala:101)
 
 Tracking this down by adding some debug it seems this is a timing issue in the test.
@@ -35,9 +35,9 @@ Tracking this down by adding some debug it seems this is a timing issue in the t
 test("input metrics with cache and coalesce") {
     // prime the cache manager
     val rdd = sc.textFile(tmpFilePath, 4).cache()
-    rdd.collect()     // <== #1
+    rdd.collect()     // \<== #1
 
-    val bytesRead = runAndReturnBytesRead {      // <== #2
+    val bytesRead = runAndReturnBytesRead {      // \<== #2
       rdd.count()
     }
     val bytesRead2 = runAndReturnBytesRead {
@@ -68,11 +68,11 @@ We have a clone method in {{ColumnType}} (https://github.com/apache/spark/blob/v
 
 {code}
 val df =
-  ctx.range(1, 30000).selectExpr("id % 500 as id").rdd.map(id => Tuple1(s"str\_$id")).toDF("i")
+  ctx.range(1, 30000).selectExpr("id % 500 as id").rdd.map(id =\> Tuple1(s"str\_$id")).toDF("i")
 val cached = df.cache()
 cached.count()
 
-[info] - SPARK-10422: String column in InMemoryColumnarCache needs to override clone method *** FAILED *** (9 seconds, 152 milliseconds)
+[info] - SPARK-10422: String column in InMemoryColumnarCache needs to override clone method \*\*\* FAILED \*\*\* (9 seconds, 152 milliseconds)
 [info]   org.apache.spark.SparkException: Job aborted due to stage failure: Task 1 in stage 0.0 failed 1 times, most recent failure: Lost task 1.0 in stage 0.0 (TID 1, localhost): java.util.NoSuchElementException: key not found: str\_[0]
 [info] 	at scala.collection.MapLike$class.default(MapLike.scala:228)
 [info] 	at scala.collection.AbstractMap.default(Map.scala:58)
@@ -148,40 +148,40 @@ df = sqlCtx.createDataFrame(df.rdd, df.schema)
 [Row(id=1, date=0)]
 ---------------------------------------------------------------------------
 TypeError                                 Traceback (most recent call last)
-<ipython-input-36-ebc1d94e0d8c> in <module>()
+\<ipython-input-36-ebc1d94e0d8c\> in \<module\>()
       1 df = sqlCtx.read.jdbc("jdbc:mysql://a2.adpilot.co/sandbox?user=mbrynski&password=CebO3ax4", 'spark\_test')
       2 print(df.collect())
-----> 3 df = sqlCtx.createDataFrame(df.rdd, df.schema)
+----\> 3 df = sqlCtx.createDataFrame(df.rdd, df.schema)
 
 /mnt/spark/spark/python/pyspark/sql/context.py in createDataFrame(self, data, schema, samplingRatio)
     402 
     403         if isinstance(data, RDD):
---> 404             rdd, schema = self.\_createFromRDD(data, schema, samplingRatio)
+--\> 404             rdd, schema = self.\_createFromRDD(data, schema, samplingRatio)
     405         else:
     406             rdd, schema = self.\_createFromLocal(data, schema)
 
 /mnt/spark/spark/python/pyspark/sql/context.py in \_createFromRDD(self, rdd, schema, samplingRatio)
     296             rows = rdd.take(10)
     297             for row in rows:
---> 298                 \_verify\_type(row, schema)
+--\> 298                 \_verify\_type(row, schema)
     299 
     300         else:
 
 /mnt/spark/spark/python/pyspark/sql/types.py in \_verify\_type(obj, dataType)
    1152                              "length of fields (%d)" % (len(obj), len(dataType.fields)))
    1153         for v, f in zip(obj, dataType.fields):
--> 1154             \_verify\_type(v, f.dataType)
+-\> 1154             \_verify\_type(v, f.dataType)
    1155 
    1156 
 
 /mnt/spark/spark/python/pyspark/sql/types.py in \_verify\_type(obj, dataType)
    1136         # subclass of them can not be fromInternald in JVM
    1137         if type(obj) not in \_acceptable\_types[\_type]:
--> 1138             raise TypeError("%s can not accept object in type %s" % (dataType, type(obj)))
+-\> 1138             raise TypeError("%s can not accept object in type %s" % (dataType, type(obj)))
    1139 
    1140     if isinstance(dataType, ArrayType):
 
-TypeError: DateType can not accept object in type <class 'int'>
+TypeError: DateType can not accept object in type \<class 'int'\>
 
 {code}
 

@@ -34,7 +34,7 @@ this patch is to make it configurable.
 
 * [OOZIE-2236](https://issues.apache.org/jira/browse/OOZIE-2236) | *Critical* | **Need to package hive-hcatalog-server-extensions.jar in the hcatalog sharelib**
 
-We used to package hive-hcatalog-server-extensions-<version>.jar with hcatalog sharelib which is depended on by upstream projects like Falcon.   We have to add it back as it became unavailable after the latest POM changes
+We used to package hive-hcatalog-server-extensions-\<version\>.jar with hcatalog sharelib which is depended on by upstream projects like Falcon.   We have to add it back as it became unavailable after the latest POM changes
 
 
 ---
@@ -45,7 +45,7 @@ Because of that PartitionDependencyManagerService takes more than 10 min to comp
 
 {code}
 Long regTime = registeredCoordActionMap.get(actionId);
-                if(regTime < (currentTime - timeToLive * 1000)){
+                if(regTime \< (currentTime - timeToLive \* 1000)){
                     CoordinatorActionBean caBean = null;
                     try {
                         caBean = CoordActionQueryExecutor.getInstance().get(CoordActionQuery.GET\_COORD\_ACTION\_STATUS, actionId);
@@ -121,7 +121,7 @@ currently passing Reaper.Mode.REAP\_INDEFINITELY, but this enforce Oozie server 
 This adds memory pressure on oozie server. Need to change to REAP\_UNTIL\_GONE  or REAP\_UNTIL\_DELETE
   
 {code}
-reaper = new ChildReaper(zk.getClient(), LOCKS\_NODE, Reaper.Mode.REAP\_INDEFINITELY, getExecutorService(), ConfigurationService.getInt(services.getConf(), REAPING\_THRESHOLD) * 1000, REAPING\_LEADER\_PATH);
+reaper = new ChildReaper(zk.getClient(), LOCKS\_NODE, Reaper.Mode.REAP\_INDEFINITELY, getExecutorService(), ConfigurationService.getInt(services.getConf(), REAPING\_THRESHOLD) \* 1000, REAPING\_LEADER\_PATH);
 {code}
 
 we hit one scenario where  one ZK quorum slows down for short period, causing many Zk locks not released properly, right after ChildReaper (every 5 min ) runs, which keep checking the list of Znode ever since, in the end, Oozie server hit OOM.
@@ -131,7 +131,7 @@ we hit one scenario where  one ZK quorum slows down for short period, causing ma
 
 * [OOZIE-2205](https://issues.apache.org/jira/browse/OOZIE-2205) | *Major* | **add option to load default/site.xml to actionConf on compute node**
 
-currently actionConf is loaded from *-default, *-site.xml (core-site, hdfs-site, mapred-site, etc) on oozie server, and some default value is passed into child job as it is, which we observed cause unexpected behavior for pig and hive action. this patch is to add option to load default/site.xml to actionConf on compute node, for pig and hive actions.
+currently actionConf is loaded from \*-default, \*-site.xml (core-site, hdfs-site, mapred-site, etc) on oozie server, and some default value is passed into child job as it is, which we observed cause unexpected behavior for pig and hive action. this patch is to add option to load default/site.xml to actionConf on compute node, for pig and hive actions.
 
 
 ---
@@ -145,7 +145,7 @@ Oozie-1876 forgot to bring the same changes in .sh file into .cmd file.
 
 * [OOZIE-2197](https://issues.apache.org/jira/browse/OOZIE-2197) | *Major* | **ooziedb.cmd command failed due to classpath being too long on windows.**
 
-In ooziedb.sh|cmd, the way we compose the classpath will be too long for windows environment to handle. In windows, we need to set classpath with * without enumerating all the jar names.
+In ooziedb.sh\|cmd, the way we compose the classpath will be too long for windows environment to handle. In windows, we need to set classpath with \* without enumerating all the jar names.
 
 
 ---
@@ -178,7 +178,7 @@ Caused by: java.lang.NoSuchFieldError: EXTERNAL\_PROPERTY
         at org.apache.curator.x.discovery.details.ServiceDiscoveryImpl.internalRegisterService(ServiceDiscoveryImpl.java:166) ~[na:na]
         at org.apache.curator.x.discovery.details.ServiceDiscoveryImpl.registerService(ServiceDiscoveryImpl.java:150) ~[na:na]
         at org.apache.oozie.util.ZKUtils.advertiseService(ZKUtils.java:217) ~[na:na]
-        at org.apache.oozie.util.ZKUtils.<init>(ZKUtils.java:141) ~[na:na]
+        at org.apache.oozie.util.ZKUtils.\<init\>(ZKUtils.java:141) ~[na:na]
         at org.apache.oozie.util.ZKUtils.register(ZKUtils.java:154) ~[na:na]
         at org.apache.oozie.service.ZKLocksService.init(ZKLocksService.java:70) ~[na:na]
         at org.apache.oozie.service.Services.setServiceInternal(Services.java:386) ~[na:na]
@@ -253,16 +253,16 @@ We should:
 
 * [OOZIE-2177](https://issues.apache.org/jira/browse/OOZIE-2177) | *Major* | **Parameterize javadoc plugin configuration**
 
-this patch is to add <additionalparam> to org.apache.maven.plugins, and allow it to be overwritten by -D option from CLI.
+this patch is to add \<additionalparam\> to org.apache.maven.plugins, and allow it to be overwritten by -D option from CLI.
 
 this is necessary when building oozie on JDK8,  since it hit following javadoc error, which fails builds
 {quote}
 [ERROR] /Users/egashira/Projects/git/aoozie-cms/client/src/main/java/org/apache/oozie/cli/OozieCLI.java:205: error: self-closing element not allowed
-[ERROR] * <p/>
+[ERROR] \* \<p/\>
 {quote}
 
 http://stackoverflow.com/questions/26049329/javadoc-in-jdk-8-invalid-self-closing-element-not-allowed
-JDK 8 it has been decided that tags like <br /> and <p /> should generate errors, because they are invalid (strict) HTML 4.  
+JDK 8 it has been decided that tags like \<br /\> and \<p /\> should generate errors, because they are invalid (strict) HTML 4.  
 
 this can be avoided by disabling specific checks, by passing -Xdoclint:none to javadoc plugin parameter.
 
@@ -313,16 +313,16 @@ If you use "yarn-cluster" for the Spark action's master, the Spark jobs don't sh
 
 The user needs to set this in their Spark action in the workflow.xml:
 {code:xml}
-<spark-opts>--conf spark.yarn.historyServer.address=http://SPH18088 --conf spark.eventLog.dir=hdfs://NN:8020/user/spark/applicationHistory --conf spark.eventLog.enabled=true</spark-opts>
+\<spark-opts\>--conf spark.yarn.historyServer.address=http://SPH18088 --conf spark.eventLog.dir=hdfs://NN:8020/user/spark/applicationHistory --conf spark.eventLog.enabled=true\</spark-opts\>
 {code}
 
-It would be nice if Oozie did this automatically via some oozie-site.xml config(s).  We could do something similar how the hadoop configs are setup where it will load a Spark .conf file from a directory based on the RM specified in the <job-tracker>.
+It would be nice if Oozie did this automatically via some oozie-site.xml config(s).  We could do something similar how the hadoop configs are setup where it will load a Spark .conf file from a directory based on the RM specified in the \<job-tracker\>.
 
 While we're at it, it might be good to document how to use Spark on YARN:
 # Include the spark-assembly jar with your workflow (this is unfortunately not published in maven)
 # Specify "yarn-cluster" as the master
 
-Also, the Spark example should delete the output dir in {{<prepare>}}
+Also, the Spark example should delete the output dir in {{\<prepare\>}}
 
 
 ---
@@ -338,9 +338,9 @@ https://oozie.apache.org/docs/4.1.0/WorkflowFunctionalSpec.html#a4.2.7\_HDFS\_EL
 
 * [OOZIE-2167](https://issues.apache.org/jira/browse/OOZIE-2167) | *Major* | **TestCoordMaterializeTransitionXCommand fails**
 
-*{{TestCoordMaterializeTransitionXCommand.testMaterizationLookup}}*
+\*{{TestCoordMaterializeTransitionXCommand.testMaterizationLookup}}\*
 {noformat}
-junit.framework.AssertionFailedError: expected:<Mon Mar 09 17:21:12 PDT 2015> but was:<Mon Mar 09 16:21:12 PDT 2015>
+junit.framework.AssertionFailedError: expected:\<Mon Mar 09 17:21:12 PDT 2015\> but was:\<Mon Mar 09 16:21:12 PDT 2015\>
 	at junit.framework.Assert.fail(Assert.java:50)
 	at junit.framework.Assert.failNotEquals(Assert.java:287)
 	at junit.framework.Assert.assertEquals(Assert.java:67)
@@ -369,9 +369,9 @@ junit.framework.AssertionFailedError: expected:<Mon Mar 09 17:21:12 PDT 2015> bu
 	at java.lang.Thread.run(Thread.java:744)
 {noformat}
 
-*{{TestCoordMaterializeTransitionXCommand.testMaterizationEndOfMonths}}*
+\*{{TestCoordMaterializeTransitionXCommand.testMaterizationEndOfMonths}}\*
 {noformat}
-junit.framework.AssertionFailedError: expected:<2> but was:<3>
+junit.framework.AssertionFailedError: expected:\<2\> but was:\<3\>
 	at junit.framework.Assert.fail(Assert.java:50)
 	at junit.framework.Assert.failNotEquals(Assert.java:287)
 	at junit.framework.Assert.assertEquals(Assert.java:67)
@@ -406,7 +406,7 @@ junit.framework.AssertionFailedError: expected:<2> but was:<3>
 
 * [OOZIE-2164](https://issues.apache.org/jira/browse/OOZIE-2164) | *Major* | **make master parameterizable in Spark action example**
 
-In the example added to demonstrate the new Spark action, the Spark master is hardcoded as "local[*]". It would be useful to make the master parameterizable, so users can readily run the example with Spark on YARN or a Spark standalone cluster.
+In the example added to demonstrate the new Spark action, the Spark master is hardcoded as "local[\*]". It would be useful to make the master parameterizable, so users can readily run the example with Spark on YARN or a Spark standalone cluster.
 
 
 ---
@@ -432,30 +432,30 @@ We discovered a critical bug where incorrect Daylight Saving Time shifts were oc
 
 Try running this Coordinator:
 {code:xml}
-<coordinator-app name=“foo” frequency="${coord:hours(1)}" start="2014-11-02T04:15Z" end="2014-11-02T16:00Z" timezone=“UTC” xmlns="uri:oozie:coordinator:0.1">
-   <controls>
-      <concurrency>10</concurrency>
-   </controls>
-   <action>
-      <workflow>
-         <app-path>${appPath}</app-path>
-         <configuration>
-            <property>
-               <name>jobTracker</name>
-               <value>${jobTracker}</value>
-            </property>
-            <property>
-               <name>nameNode</name>
-               <value>${nameNode}</value>
-            </property>
-            <property>
-               <name>queueName</name>
-               <value>${queueName}</value>
-            </property>
-         </configuration>
-      </workflow>
-   </action>     
-</coordinator-app>
+\<coordinator-app name=“foo” frequency="${coord:hours(1)}" start="2014-11-02T04:15Z" end="2014-11-02T16:00Z" timezone=“UTC” xmlns="uri:oozie:coordinator:0.1"\>
+   \<controls\>
+      \<concurrency\>10\</concurrency\>
+   \</controls\>
+   \<action\>
+      \<workflow\>
+         \<app-path\>${appPath}\</app-path\>
+         \<configuration\>
+            \<property\>
+               \<name\>jobTracker\</name\>
+               \<value\>${jobTracker}\</value\>
+            \</property\>
+            \<property\>
+               \<name\>nameNode\</name\>
+               \<value\>${nameNode}\</value\>
+            \</property\>
+            \<property\>
+               \<name\>queueName\</name\>
+               \<value\>${queueName}\</value\>
+            \</property\>
+         \</configuration\>
+      \</workflow\>
+   \</action\>     
+\</coordinator-app\>
 {code}
 Note that it runs over a DST shift (at least in most US timezones).
 
@@ -479,21 +479,21 @@ Action 5's nominal time should be {{2014-11-02 01:15 PDT}}, not {{2014-11-02 01:
 
 Using the debugger some more, I verified that Oozie is creating the nominal times correctly, and writing them to the database correctly (at least, it's converting them to Java's SQL TimeStamp objects correctly; OpenJPA handles writing them).  But when the problematic value is read back from the database, it has the wrong value!
 
-Here's something interesting from the [MySQL documentation|http://dev.mysql.com/doc/refman/5.5/en/datetime.html]:
+Here's something interesting from the [MySQL documentation\|http://dev.mysql.com/doc/refman/5.5/en/datetime.html]:
 {quote}MySQL converts TIMESTAMP values from the current time zone to UTC for storage, and back from UTC to the current time zone for retrieval. (This does not occur for other types such as DATETIME.) By default, the current time zone for each connection is the server's time. The time zone can be set on a per-connection basis. As long as the time zone setting remains constant, you get back the same value you store. If you store a TIMESTAMP value, and then change the time zone and retrieve the value, the retrieved value is different from the value you stored. This occurs because the same time zone was not used for conversion in both directions.
 {quote}
-So, I think what's happening is that it's interpreting everything in PST, and not in PST and PDT depending on the time itself.  Ideally, it would just store the time since epoch, like Java's Date does, but it's doing this broken interpretation instead.  In fact, this [Stack Overflow|http://stackoverflow.com/questions/1646171/mysql-datetime-fields-and-daylight-savings-time-how-do-i-reference-the-extra/1650910#1650910] I found talks about this problem.
+So, I think what's happening is that it's interpreting everything in PST, and not in PST and PDT depending on the time itself.  Ideally, it would just store the time since epoch, like Java's Date does, but it's doing this broken interpretation instead.  In fact, this [Stack Overflow\|http://stackoverflow.com/questions/1646171/mysql-datetime-fields-and-daylight-savings-time-how-do-i-reference-the-extra/1650910#1650910] I found talks about this problem.
 
 I tried to create a unit test to show the problem without all the action stuff, but it seems like HSQLDB doesn't have this problem, so the test passes.  I've confirmed that this affects Derby and MySQL; I'm not sure about Postgres, Oracle, or SQLServer.
 
 I was able to find a workaround for Derby and one of my colleagues found one for MySQL:
-- For Derby, you just need to change the JVM's timezone to GMT (see [here|http://objectmix.com/apache/647950-moving-derby-database-across-timezones.html]).  All you have to do is add {{-Duser.timezone=GMT}} to {{CATALINA\_OPTS}}.
+- For Derby, you just need to change the JVM's timezone to GMT (see [here\|http://objectmix.com/apache/647950-moving-derby-database-across-timezones.html]).  All you have to do is add {{-Duser.timezone=GMT}} to {{CATALINA\_OPTS}}.
 - For MySQL, you can either change the global timezone to GMT (which the DB admin probably won't go for), or you can add {{useLegacyDatetimeCode=false&serverTimezone=GMT}} to JDBC URL.  For example:
 {code:xml}
-<property>
-   <name>oozie.service.JPAService.jdbc.url</name>
-   <value>jdbc:mysql://HOST/oozie?useUnicode=true&characterEncoding=UTF-8&useLegacyDatetimeCode=false&serverTimezone=GMT</value>
-</property>
+\<property\>
+   \<name\>oozie.service.JPAService.jdbc.url\</name\>
+   \<value\>jdbc:mysql://HOST/oozie?useUnicode=true&characterEncoding=UTF-8&useLegacyDatetimeCode=false&serverTimezone=GMT\</value\>
+\</property\>
 {code}
 I imagine the Derby workaround won't work for anything else, but perhaps the MySQL workaround would?  
 
@@ -561,8 +561,8 @@ org.apache.oozie.service.ServiceException: E1700: Issue communicating with ZooKe
         at java.lang.Thread.run(Thread.java:745)
 Caused by: java.lang.IllegalArgumentException: Path must start with / character
         at org.apache.curator.utils.PathUtils.validatePath(PathUtils.java:54)
-        at org.apache.curator.framework.recipes.atomic.DistributedAtomicValue.<init>(DistributedAtomicValue.java:74)
-        at org.apache.curator.framework.recipes.atomic.DistributedAtomicLong.<init>(DistributedAtomicLong.java:66)
+        at org.apache.curator.framework.recipes.atomic.DistributedAtomicValue.\<init\>(DistributedAtomicValue.java:74)
+        at org.apache.curator.framework.recipes.atomic.DistributedAtomicLong.\<init\>(DistributedAtomicLong.java:66)
         at org.apache.oozie.service.ZKUUIDService.init(ZKUUIDService.java:79)
         ... 22 more
 {noformat}
@@ -755,7 +755,7 @@ Caused by: java.lang.ClassNotFoundException: org.apache.hadoop.security.authenti
 
 * [OOZIE-2112](https://issues.apache.org/jira/browse/OOZIE-2112) | *Major* | **Child Job URL doesn't show properly with Hive on Tez**
 
-hiveMain relies on regex pattern "Ended Job = (job\_\\S*)"  to extract child job ID, but the pattern changes when Hive on tez is used.
+hiveMain relies on regex pattern "Ended Job = (job\_\\S\*)"  to extract child job ID, but the pattern changes when Hive on tez is used.
 
 
 ---
@@ -862,11 +862,11 @@ This jira proposes adding Apache parent POM to oozie to help publishing the rele
 
 {noformat}
 Running org.apache.oozie.command.wf.TestSubmitXCommand
-Tests run: 9, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 209.081 sec <<< FAILURE!
+Tests run: 9, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 209.081 sec \<\<\< FAILURE!
 
 Results :
 
-Failed tests:   testProtoConfStorage(org.apache.oozie.command.wf.TestSubmitXCommand): expected:<3> but was:<2>
+Failed tests:   testProtoConfStorage(org.apache.oozie.command.wf.TestSubmitXCommand): expected:\<3\> but was:\<2\>
 
 Tests run: 9, Failures: 1, Errors: 0, Skipped: 0
 {noformat}
@@ -945,61 +945,61 @@ coord job should have 1 action, where action-nominal-time="2009-12-15T06:00Z".
 but dryrun reported 0.
 {code}
 $ oozie job -dryrun -config job.properties -oozie  https://localhost:4443/oozie
-***coordJob after parsing: ***
-<?xml version="1.0" encoding="UTF-8"?>
-<coordinator-app xmlns="uri:oozie:coordinator:0.2" name="END2END-13" frequency="1" start="2009-12-15T06:00Z" end="2009-12-18T01:00Z" timezone="UTC" freq\_timeunit="MONTH" end\_of\_duration="NONE">
-   <controls>
-      <timeout>10</timeout>
-      <concurrency>1</concurrency>
-      <execution>FIFO</execution>
-   </controls>
-   <input-events>
-      <data-in name="din2" dataset="din2">
-         <dataset name="din2" frequency="1" initial-instance="2009-06-01T05:00Z" timezone="UTC" freq\_timeunit="DAY" end\_of\_duration="NONE">
-            <uri-template>hdfs://localhost/coord-input/${YEAR}/${MONTH}/${DAY}/${HOUR}/${MINUTE}</uri-template>
-         </dataset>
-         <start-instance>${coord:current(-coord:daysInMonth(-(START\_OFFSET)) - (START\_OFFSET) + 1)}</start-instance>
-         <end-instance>${coord:current(- (END\_OFFSET))}</end-instance>
-      </data-in>
-   </input-events>
-   <output-events>
-      <data-out name="OUT" dataset="dout">
-         <dataset name="dout" frequency="15" initial-instance="2009-06-01T05:00Z" timezone="UTC" freq\_timeunit="MINUTE" end\_of\_duration="NONE">
-            <uri-template>hdfs://localhost/coord-input/${YEAR}/${MONTH}/${DAY}/${HOUR}/${MINUTE}</uri-template>
-         </dataset>
-         <instance>${coord:current((variable1))}</instance>
-      </data-out>
-   </output-events>
-   <action>
-      <workflow>
-         <app-path>hdfs://localhost/wf-mr</app-path>
-         <configuration>
-            <property>
-               <name>jobTracker</name>
-               <value>${jobTracker}</value>
-            </property>
-            <property>
-               <name>nameNode</name>
-               <value>${nameNode}</value>
-            </property>
-            <property>
-               <name>queueName</name>
-               <value>${queueName}</value>
-            </property>
-            <property>
-               <name>inputDir</name>
-               <value>${coord:dataIn('din2')}</value>
-            </property>
-            <property>
-               <name>outputDir</name>
-               <value>${coord:dataOut('OUT')}</value>
-            </property>
-         </configuration>
-      </workflow>
-   </action>
-</coordinator-app>
-***actions for instance***
-***total coord actions is 0 ***
+\*\*\*coordJob after parsing: \*\*\*
+\<?xml version="1.0" encoding="UTF-8"?\>
+\<coordinator-app xmlns="uri:oozie:coordinator:0.2" name="END2END-13" frequency="1" start="2009-12-15T06:00Z" end="2009-12-18T01:00Z" timezone="UTC" freq\_timeunit="MONTH" end\_of\_duration="NONE"\>
+   \<controls\>
+      \<timeout\>10\</timeout\>
+      \<concurrency\>1\</concurrency\>
+      \<execution\>FIFO\</execution\>
+   \</controls\>
+   \<input-events\>
+      \<data-in name="din2" dataset="din2"\>
+         \<dataset name="din2" frequency="1" initial-instance="2009-06-01T05:00Z" timezone="UTC" freq\_timeunit="DAY" end\_of\_duration="NONE"\>
+            \<uri-template\>hdfs://localhost/coord-input/${YEAR}/${MONTH}/${DAY}/${HOUR}/${MINUTE}\</uri-template\>
+         \</dataset\>
+         \<start-instance\>${coord:current(-coord:daysInMonth(-(START\_OFFSET)) - (START\_OFFSET) + 1)}\</start-instance\>
+         \<end-instance\>${coord:current(- (END\_OFFSET))}\</end-instance\>
+      \</data-in\>
+   \</input-events\>
+   \<output-events\>
+      \<data-out name="OUT" dataset="dout"\>
+         \<dataset name="dout" frequency="15" initial-instance="2009-06-01T05:00Z" timezone="UTC" freq\_timeunit="MINUTE" end\_of\_duration="NONE"\>
+            \<uri-template\>hdfs://localhost/coord-input/${YEAR}/${MONTH}/${DAY}/${HOUR}/${MINUTE}\</uri-template\>
+         \</dataset\>
+         \<instance\>${coord:current((variable1))}\</instance\>
+      \</data-out\>
+   \</output-events\>
+   \<action\>
+      \<workflow\>
+         \<app-path\>hdfs://localhost/wf-mr\</app-path\>
+         \<configuration\>
+            \<property\>
+               \<name\>jobTracker\</name\>
+               \<value\>${jobTracker}\</value\>
+            \</property\>
+            \<property\>
+               \<name\>nameNode\</name\>
+               \<value\>${nameNode}\</value\>
+            \</property\>
+            \<property\>
+               \<name\>queueName\</name\>
+               \<value\>${queueName}\</value\>
+            \</property\>
+            \<property\>
+               \<name\>inputDir\</name\>
+               \<value\>${coord:dataIn('din2')}\</value\>
+            \</property\>
+            \<property\>
+               \<name\>outputDir\</name\>
+               \<value\>${coord:dataOut('OUT')}\</value\>
+            \</property\>
+         \</configuration\>
+      \</workflow\>
+   \</action\>
+\</coordinator-app\>
+\*\*\*actions for instance\*\*\*
+\*\*\*total coord actions is 0 \*\*\*
 {code}
 
 
@@ -1011,31 +1011,31 @@ If you use cron syntax, you'll get duplicate actions (i.e. actions with the same
 
 Here's my coordinator:
 {code:xml}
-<coordinator-app name="cron-coord" frequency="*/5 * * * *" start="${start}" end="${end}" timezone="UTC"
-                 xmlns="uri:oozie:coordinator:0.2">
-  <controls>
-    <throttle>3</throttle>
-  </controls>
-        <action>
-        <workflow>
-            <app-path>${workflowAppUri}</app-path>
-            <configuration>
-                <property>
-                    <name>jobTracker</name>
-                    <value>${jobTracker}</value>
-                </property>
-                <property>
-                    <name>nameNode</name>
-                    <value>${nameNode}</value>
-                </property>
-                <property>
-                    <name>queueName</name>
-                    <value>${queueName}</value>
-                </property>
-            </configuration>
-        </workflow>
-    </action>
-</coordinator-app>
+\<coordinator-app name="cron-coord" frequency="\*/5 \* \* \* \*" start="${start}" end="${end}" timezone="UTC"
+                 xmlns="uri:oozie:coordinator:0.2"\>
+  \<controls\>
+    \<throttle\>3\</throttle\>
+  \</controls\>
+        \<action\>
+        \<workflow\>
+            \<app-path\>${workflowAppUri}\</app-path\>
+            \<configuration\>
+                \<property\>
+                    \<name\>jobTracker\</name\>
+                    \<value\>${jobTracker}\</value\>
+                \</property\>
+                \<property\>
+                    \<name\>nameNode\</name\>
+                    \<value\>${nameNode}\</value\>
+                \</property\>
+                \<property\>
+                    \<name\>queueName\</name\>
+                    \<value\>${queueName}\</value\>
+                \</property\>
+            \</configuration\>
+        \</workflow\>
+    \</action\>
+\</coordinator-app\>
 {code}
 It runs every 5 min on the hour.  I also ran a similar coordinator, but with the frequency set to {{coord:minutes(5)}}.  I set the throttle to 3 so it would be easier to see the problem.
 
@@ -1144,7 +1144,7 @@ where /tmp/pig\_latest is a symlink pointing to latest available version.
 Using the below procedure, I built Oozie with Java 7 and then built and ran the tests with Java 8:
 - set java 7
 - {{mvn clean test -DskipTests}}
-- {{find . -name test-classes | grep target/test-classes | xargs rm -rf}}       // Delete test classes
+- {{find . -name test-classes \| grep target/test-classes \| xargs rm -rf}}       // Delete test classes
 - set java 8
 - {{mvn test -DtargetJavaVersion=1.8}}
 
@@ -1260,8 +1260,8 @@ Fix is used to use String.split().
 As part of OOZIE-1917, we removed the {{oozie.authentication.signature.secret}} property so it will default to a randomly generated secret instead of "oozie" as the secret.  This causes {{TestAuthFilterAuthOozieClient.testClientAuthTokenCache}} to fail because it's comparing the auth token from two calls to two different Oozie server instances, which now don't match because the secret is different.
 
 {noformat}
-testClientAuthTokenCache(org.apache.oozie.servlet.TestAuthFilterAuthOozieClient)  Time elapsed: 0.008 sec  <<< FAILURE!
-junit.framework.ComparisonFailure: expected:<...=simple&e=1411181460[262&s=ih179o8nT7c1pRorbFhE17QKemQ]=> but was:<...=simple&e=1411181460[645&s=mh9optNIM2eTqJsrXT7rcJjeTiI]=>
+testClientAuthTokenCache(org.apache.oozie.servlet.TestAuthFilterAuthOozieClient)  Time elapsed: 0.008 sec  \<\<\< FAILURE!
+junit.framework.ComparisonFailure: expected:\<...=simple&e=1411181460[262&s=ih179o8nT7c1pRorbFhE17QKemQ]=\> but was:\<...=simple&e=1411181460[645&s=mh9optNIM2eTqJsrXT7rcJjeTiI]=\>
 	at junit.framework.Assert.assertEquals(Assert.java:85)
 	at junit.framework.Assert.assertEquals(Assert.java:91)
 	at org.apache.oozie.servlet.TestAuthFilterAuthOozieClient.testClientAuthTokenCache(TestAuthFilterAuthOozieClient.java:193)
@@ -1312,12 +1312,12 @@ hiveConf.set("tez.credentials.path", delegationToken);
 
 Looks like the build is broken after last commit. [~rkanter], can you fix this please:
 {noformat}
-/work/git/oozie/core/src/main/java/org/apache/oozie/action/hadoop/Hive2ActionExecutor.java:10: Line does not match expected header line of ' *      http://www.apache.org/licenses/LICENSE-2.0'.
-/work/git/oozie/core/src/test/java/org/apache/oozie/test/hive/AbstractHiveService.java:10: Line does not match expected header line of ' *      http://www.apache.org/licenses/LICENSE-2.0'.
-/work/git/oozie/core/src/test/java/org/apache/oozie/test/hive/MiniHS2.java:10: Line does not match expected header line of ' *      http://www.apache.org/licenses/LICENSE-2.0'.
+/work/git/oozie/core/src/main/java/org/apache/oozie/action/hadoop/Hive2ActionExecutor.java:10: Line does not match expected header line of ' \*      http://www.apache.org/licenses/LICENSE-2.0'.
+/work/git/oozie/core/src/test/java/org/apache/oozie/test/hive/AbstractHiveService.java:10: Line does not match expected header line of ' \*      http://www.apache.org/licenses/LICENSE-2.0'.
+/work/git/oozie/core/src/test/java/org/apache/oozie/test/hive/MiniHS2.java:10: Line does not match expected header line of ' \*      http://www.apache.org/licenses/LICENSE-2.0'.
 
 [INFO] Apache Oozie Core ................................. FAILURE [37.299s]
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-checkstyle-plugin:2.9.1:check (default) on project oozie-core: You have 3 Checkstyle violations. -> [Help 1]
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-checkstyle-plugin:2.9.1:check (default) on project oozie-core: You have 3 Checkstyle violations. -\> [Help 1]
 {noformat}
 
 
@@ -1344,7 +1344,7 @@ SignalXCommand:
 
 * [OOZIE-1993](https://issues.apache.org/jira/browse/OOZIE-1993) | *Major* | **Rerun fails during join in certain condition**
 
-As [~puru] described in [this comment|https://issues.apache.org/jira/browse/OOZIE-1989?focusedCommentId=14123509&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-14123509] in OOZIE-1989:
+As [~puru] described in [this comment\|https://issues.apache.org/jira/browse/OOZIE-1989?focusedCommentId=14123509&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-14123509] in OOZIE-1989:
 {quote}
 At first run job first fails at pig action.  When we rerun from failed node, oozie.wf.rerun.failnodes=true. Oozie tries to join it and fails with error message.
 {quote}
@@ -1357,7 +1357,7 @@ We should investigate why this is happening and fix it.
 * [OOZIE-1968](https://issues.apache.org/jira/browse/OOZIE-1968) | *Major* | **Building modules independently**
 
 {noformat}
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-checkstyle-plugin:2.9.1:check (default) on project oozie-core: Failed during checkstyle configuration: cannot initialize module Header - unable to load header file src/main/resources/checkstyle-header.txt: src/main/resources/checkstyle-header.txt (No such file or directory) -> [Help 1]
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-checkstyle-plugin:2.9.1:check (default) on project oozie-core: Failed during checkstyle configuration: cannot initialize module Header - unable to load header file src/main/resources/checkstyle-header.txt: src/main/resources/checkstyle-header.txt (No such file or directory) -\> [Help 1]
 {noformat}
 
 
@@ -1389,14 +1389,14 @@ Update overrides the default group.
 
 With certain other components (e.g. Avro, HFileOutputFormat (HBase), etc), it becomes impractical to use the MapReduce action and users must instead use the Java action. The problem is that these components require a lot of extra configuration that is often hidden from the user in Java code (e.g. HFileOutputFormat.configureIncrementalLoad(job, table); which can also include decision logic, serialization, and other things that we can't do in an XML file directly.
 
-One way to solve this problem is to allow the user to give the MR action some Java code that would do this configuration, similar to how we allow the {{<job-xml>}} field to specify an external XML file of configuration properties.
+One way to solve this problem is to allow the user to give the MR action some Java code that would do this configuration, similar to how we allow the {{\<job-xml\>}} field to specify an external XML file of configuration properties.
 In more detail, we could have an interface; something like this:
 {code}
 public interface OozieActionConfigurator {
      public void updateOozieActionConfiguration(Configuration conf);
 }
 {code}
-that the user can implement, create a jar, and include with their MR action (i.e. add a "{{<config-class>}}" field that let's them specify the class name). To protect the Oozie server from running user code (which could do anything it wants really), it would have to be run in the Launcher Job. The Launcher Job could call this method after it loads the configuration prepared by the Oozie server.
+that the user can implement, create a jar, and include with their MR action (i.e. add a "{{\<config-class\>}}" field that let's them specify the class name). To protect the Oozie server from running user code (which could do anything it wants really), it would have to be run in the Launcher Job. The Launcher Job could call this method after it loads the configuration prepared by the Oozie server.
 
 Another thing this will be helpful is with users who use the Java action to launch MR jobs and expect a bunch of things to be done for them that are not (e.g. delegation token propagation, config loading, returning the hadoop job to Oozie, etc). These are all done with the MR action, so the more users we can move to the MR action from the Java action, the less they'll run into these difficulties.
 
@@ -1572,7 +1572,7 @@ New appender.
 * [OOZIE-1891](https://issues.apache.org/jira/browse/OOZIE-1891) | *Major* | **Parametrize surefire argLine to bump up heap memory for testing**
 
 when running tests with hadoop-2 profile,  hitting OOM.
-currently setting is <argLine>-Xmx1024m -da -XX:MaxPermSize=512m</argLine>.
+currently setting is \<argLine\>-Xmx1024m -da -XX:MaxPermSize=512m\</argLine\>.
 -DargLine=" " doesn't overwrite when i tried.
 
 
@@ -1660,10 +1660,10 @@ We need new condition to verify current time.
 {code}
  if (coordJob.getNextMaterializedTimestamp() != null
                 && coordJob.getNextMaterializedTimestamp().after(
-                        new Timestamp(System.currentTimeMillis() + lookAheadWindow * 1000))) {
+                        new Timestamp(System.currentTimeMillis() + lookAheadWindow \* 1000))) {
             throw new PreconditionException(ErrorCode.E1100, "CoordMaterializeTransitionXCommand for jobId=" + jobId
                     + " Request is for future time. Lookup time is  "
-                    + new Timestamp(System.currentTimeMillis() + lookAheadWindow * 1000) + " mat time is "
+                    + new Timestamp(System.currentTimeMillis() + lookAheadWindow \* 1000) + " mat time is "
                     + coordJob.getNextMaterializedTimestamp());
         }
 {code}
@@ -1677,7 +1677,7 @@ People leave their test coordinator and bundle jobs without ever killing them
 and they just eat up resources heavily. We should have a service which periodically check for abandoned coords and report/kill them.
 We can add multiple logic to this like ( number of consecutive failed/timedout action, total number of failed/timedout action). 
 
-To start with if number of coord action with failed/timedout status > defined value, then coord is considered to be rogue.
+To start with if number of coord action with failed/timedout status \> defined value, then coord is considered to be rogue.
 
 
 ---
@@ -1758,7 +1758,7 @@ The yarn tags won't be available until Hadoop 2.4.0, but is in the nightly (i.e.
 
 * [OOZIE-1696](https://issues.apache.org/jira/browse/OOZIE-1696) | *Major* | **Document how to get the action conf in the Java action**
 
-The Java action doesn't get a lot of the "magic" that we do in the other actions, so things don't always behave right for users using the Java action to launch MapReduce jobs.  We've seen some confusion where these jobs were picking up the mapred-default properties and not working because of it.  It would be great if we could document how to use the job conf prepared by Oozie, which includes the proper mapred-site.xml (and other site files), plus anything in the {{<configuration>}} section of the Java action.  
+The Java action doesn't get a lot of the "magic" that we do in the other actions, so things don't always behave right for users using the Java action to launch MapReduce jobs.  We've seen some confusion where these jobs were picking up the mapred-default properties and not working because of it.  It would be great if we could document how to use the job conf prepared by Oozie, which includes the proper mapred-site.xml (and other site files), plus anything in the {{\<configuration\>}} section of the Java action.  
 
 Basically, they just need to create their job conf with something like this (taken from MapReduceMain.java):
 {code:java}
@@ -1795,8 +1795,8 @@ Action retry for all the errors if ALL is configured.
 
 oozie-site.xml
 {code:xml}
-<name>oozie.service.LiteWorkflowStoreService.user.retry.error.code.ext</name>
-<value>ALL</value>
+\<name\>oozie.service.LiteWorkflowStoreService.user.retry.error.code.ext\</name\>
+\<value\>ALL\</value\>
 {code}
 
 This feature make convenient to set error handle policy.
@@ -1806,7 +1806,7 @@ This feature make convenient to set error handle policy.
 
 * [OOZIE-1567](https://issues.apache.org/jira/browse/OOZIE-1567) | *Trivial* | **Provide a wait tool in Oozie**
 
-Currently, in situations where a program has to wait to check wether an oozie workflow is successful or not, it is done by constantly pinging the oozie workflow status (that is, manual scripts need to be written). It would be good if Oozie provided a {{oozie wait -jobID <JOBID>}} or similar.
+Currently, in situations where a program has to wait to check wether an oozie workflow is successful or not, it is done by constantly pinging the oozie workflow status (that is, manual scripts need to be written). It would be good if Oozie provided a {{oozie wait -jobID \<JOBID\>}} or similar.
 
 
 ---

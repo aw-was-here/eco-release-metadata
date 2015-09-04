@@ -74,6 +74,7 @@ Python is now required to build the documentation.
 
 * [HADOOP-11460](https://issues.apache.org/jira/browse/HADOOP-11460) | *Major* | **Deprecate shell vars**
 
+<!-- markdown -->
 The following shell environment variables have been deprecated:
 
 | Old | New |
@@ -133,6 +134,7 @@ This changes the output of the 'hadoop version' command to generically say 'Sour
 
 * [HADOOP-10950](https://issues.apache.org/jira/browse/HADOOP-10950) | *Major* | **rework  heap management  vars**
 
+<!-- markdown -->
 * HADOOP\_HEAPSIZE variable has been deprecated  (It will still be honored if set, but expect it to go away in the future).    In its place, HADOOP\_HEAPSIZE\_MAX and HADOOP\_HEAPSIZE\_MIN have been introduced to set Xmx and Xms, respectively. 
 
 * The internal variable JAVA\_HEAP\_MAX has been removed.
@@ -167,6 +169,7 @@ Zookeeper jar removed from hadoop-client dependency tree.
 
 * [HADOOP-9902](https://issues.apache.org/jira/browse/HADOOP-9902) | *Major* | **Shell script rewrite**
 
+<!-- markdown -->
 The Hadoop shell scripts have been rewritten to fix many long standing bugs and include some new features.  While an eye has been kept towards compatibility, some changes may break existing installations.
 
 INCOMPATIBLE CHANGES:
@@ -274,6 +277,13 @@ The output format of hadoop fs -du has been changed. It shows not only the file 
 
 ---
 
+* [HDFS-8981](https://issues.apache.org/jira/browse/HDFS-8981) | *Minor* | **Adding revision to data node jmx getVersion() method**
+
+**WARNING: No release note provided for this incompatible change.**
+
+
+---
+
 * [HDFS-8895](https://issues.apache.org/jira/browse/HDFS-8895) | *Major* | **Remove deprecated BlockStorageLocation APIs**
 
 This removes the deprecated DistributedFileSystem#getFileBlockStorageLocations API used for getting VolumeIds of block replicas. Applications interested in the volume of a replica can instead consult BlockLocation#getStorageIds to obtain equivalent information.
@@ -325,6 +335,7 @@ WebHDFS is mandatory and cannot be disabled.
 
 * [HDFS-7460](https://issues.apache.org/jira/browse/HDFS-7460) | *Major* | **Rewrite httpfs to use new shell framework**
 
+<!-- markdown -->
 This deprecates the following environment variables:
 
 | Old | New |

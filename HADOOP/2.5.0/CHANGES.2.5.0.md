@@ -467,7 +467,7 @@
 | [HADOOP-10426](https://issues.apache.org/jira/browse/HADOOP-10426) | CreateOpts.getOpt(..) should declare with generic type argument |  Minor | fs | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HADOOP-10279](https://issues.apache.org/jira/browse/HADOOP-10279) | Create multiplexer, a requirement for the fair queue |  Major | . | Chris Li | Chris Li |
 | [HADOOP-10104](https://issues.apache.org/jira/browse/HADOOP-10104) | Update jackson to 1.9.13 |  Minor | build | Steve Loughran | Akira AJISAKA |
-| [HADOOP-9712](https://issues.apache.org/jira/browse/HADOOP-9712) | Write contract tests for FTP filesystem, fix places where it breaks |  Minor | fs/s3 | Steve Loughran |  |
+| [HADOOP-9712](https://issues.apache.org/jira/browse/HADOOP-9712) | Write contract tests for FTP filesystem, fix places where it breaks |  Minor | fs/s3 | Steve Loughran | Steve Loughran |
 | [HADOOP-9711](https://issues.apache.org/jira/browse/HADOOP-9711) | Write contract tests for S3Native; fix places where it breaks |  Minor | fs/s3 | Steve Loughran | Steve Loughran |
 | [HADOOP-9371](https://issues.apache.org/jira/browse/HADOOP-9371) | Define Semantics of FileSystem more rigorously |  Major | fs | Steve Loughran | Steve Loughran |
 | [HDFS-6562](https://issues.apache.org/jira/browse/HDFS-6562) | Refactor rename() in FSDirectory |  Minor | namenode | Haohui Mai | Haohui Mai |

@@ -30,44 +30,44 @@ Couple of TestContainerReuse tests are failing due to minor race condition in De
 Wanted but not invoked:
 taskSchedulerEventHandlerForTest.taskAllocated(
     Mock for TaskAttempt, hashCode: 290467934,
-    <any>,
-    Container: [ContainerId: container\_1\_0001\_01\_000001, NodeId: host1:0, NodeHttpAddress: host1:0, Resource: <memory:1024, vCores:1>, Priority: 1, Token: null, ]
+    \<any\>,
+    Container: [ContainerId: container\_1\_0001\_01\_000001, NodeId: host1:0, NodeHttpAddress: host1:0, Resource: \<memory:1024, vCores:1\>, Priority: 1, Token: null, ]
 );
--> at org.apache.tez.dag.app.rm.TestContainerReuse.testReuseWithTaskSpecificLaunchCmdOption(TestContainerReuse.java:580)
+-\> at org.apache.tez.dag.app.rm.TestContainerReuse.testReuseWithTaskSpecificLaunchCmdOption(TestContainerReuse.java:580)
 
 However, there were other interactions with this mock:
--> at org.apache.tez.dag.app.rm.TestContainerReuse.testReuseWithTaskSpecificLaunchCmdOption(TestContainerReuse.java:531)
--> at org.apache.tez.dag.app.rm.TestContainerReuse.testReuseWithTaskSpecificLaunchCmdOption(TestContainerReuse.java:531)
--> at org.apache.tez.dag.app.rm.TestContainerReuse.testReuseWithTaskSpecificLaunchCmdOption(TestContainerReuse.java:531)
--> at org.apache.tez.dag.app.rm.TestContainerReuse.testReuseWithTaskSpecificLaunchCmdOption(TestContainerReuse.java:532)
--> at org.apache.tez.dag.app.rm.TestContainerReuse.testReuseWithTaskSpecificLaunchCmdOption(TestContainerReuse.java:532)
--> at org.apache.tez.dag.app.rm.TestContainerReuse.testReuseWithTaskSpecificLaunchCmdOption(TestContainerReuse.java:532)
--> at org.apache.tez.dag.app.rm.TestContainerReuse.testReuseWithTaskSpecificLaunchCmdOption(TestContainerReuse.java:532)
--> at org.apache.tez.dag.app.rm.TestContainerReuse.testReuseWithTaskSpecificLaunchCmdOption(TestContainerReuse.java:534)
--> at org.apache.tez.dag.app.rm.TaskSchedulerAppCallbackWrapper$SetApplicationRegistrationDataCallable.call(TaskSchedulerAppCallbackWrapper.java:244)
--> at org.apache.tez.dag.app.rm.TestContainerReuse.testReuseWithTaskSpecificLaunchCmdOption(TestContainerReuse.java:570)
--> at org.apache.tez.dag.app.rm.TestContainerReuse.testReuseWithTaskSpecificLaunchCmdOption(TestContainerReuse.java:571)
+-\> at org.apache.tez.dag.app.rm.TestContainerReuse.testReuseWithTaskSpecificLaunchCmdOption(TestContainerReuse.java:531)
+-\> at org.apache.tez.dag.app.rm.TestContainerReuse.testReuseWithTaskSpecificLaunchCmdOption(TestContainerReuse.java:531)
+-\> at org.apache.tez.dag.app.rm.TestContainerReuse.testReuseWithTaskSpecificLaunchCmdOption(TestContainerReuse.java:531)
+-\> at org.apache.tez.dag.app.rm.TestContainerReuse.testReuseWithTaskSpecificLaunchCmdOption(TestContainerReuse.java:532)
+-\> at org.apache.tez.dag.app.rm.TestContainerReuse.testReuseWithTaskSpecificLaunchCmdOption(TestContainerReuse.java:532)
+-\> at org.apache.tez.dag.app.rm.TestContainerReuse.testReuseWithTaskSpecificLaunchCmdOption(TestContainerReuse.java:532)
+-\> at org.apache.tez.dag.app.rm.TestContainerReuse.testReuseWithTaskSpecificLaunchCmdOption(TestContainerReuse.java:532)
+-\> at org.apache.tez.dag.app.rm.TestContainerReuse.testReuseWithTaskSpecificLaunchCmdOption(TestContainerReuse.java:534)
+-\> at org.apache.tez.dag.app.rm.TaskSchedulerAppCallbackWrapper$SetApplicationRegistrationDataCallable.call(TaskSchedulerAppCallbackWrapper.java:244)
+-\> at org.apache.tez.dag.app.rm.TestContainerReuse.testReuseWithTaskSpecificLaunchCmdOption(TestContainerReuse.java:570)
+-\> at org.apache.tez.dag.app.rm.TestContainerReuse.testReuseWithTaskSpecificLaunchCmdOption(TestContainerReuse.java:571)
 
 Wanted but not invoked:
 taskSchedulerEventHandlerForTest.taskAllocated(
     Mock for TaskAttempt, hashCode: 392638651,
-    <any>,
-    Container: [ContainerId: container\_1\_0001\_01\_000001, NodeId: host1:0, NodeHttpAddress: host1:0, Resource: <memory:1024, vCores:1>, Priority: 5, Token: null, ]
+    \<any\>,
+    Container: [ContainerId: container\_1\_0001\_01\_000001, NodeId: host1:0, NodeHttpAddress: host1:0, Resource: \<memory:1024, vCores:1\>, Priority: 5, Token: null, ]
 );
--> at org.apache.tez.dag.app.rm.TestContainerReuse.testDelayedReuseContainerNotAvailable(TestContainerReuse.java:333)
+-\> at org.apache.tez.dag.app.rm.TestContainerReuse.testDelayedReuseContainerNotAvailable(TestContainerReuse.java:333)
 
 However, there were other interactions with this mock:
--> at org.apache.tez.dag.app.rm.TestContainerReuse.testDelayedReuseContainerNotAvailable(TestContainerReuse.java:289)
--> at org.apache.tez.dag.app.rm.TestContainerReuse.testDelayedReuseContainerNotAvailable(TestContainerReuse.java:289)
--> at org.apache.tez.dag.app.rm.TestContainerReuse.testDelayedReuseContainerNotAvailable(TestContainerReuse.java:289)
--> at org.apache.tez.dag.app.rm.TestContainerReuse.testDelayedReuseContainerNotAvailable(TestContainerReuse.java:290)
--> at org.apache.tez.dag.app.rm.TestContainerReuse.testDelayedReuseContainerNotAvailable(TestContainerReuse.java:290)
--> at org.apache.tez.dag.app.rm.TestContainerReuse.testDelayedReuseContainerNotAvailable(TestContainerReuse.java:290)
--> at org.apache.tez.dag.app.rm.TestContainerReuse.testDelayedReuseContainerNotAvailable(TestContainerReuse.java:290)
--> at org.apache.tez.dag.app.rm.TestContainerReuse.testDelayedReuseContainerNotAvailable(TestContainerReuse.java:292)
--> at org.apache.tez.dag.app.rm.TaskSchedulerAppCallbackWrapper$SetApplicationRegistrationDataCallable.call(TaskSchedulerAppCallbackWrapper.java:244)
--> at org.apache.tez.dag.app.rm.TestContainerReuse.testDelayedReuseContainerNotAvailable(TestContainerReuse.java:323)
--> at org.apache.tez.dag.app.rm.TestContainerReuse.testDelayedReuseContainerNotAvailable(TestContainerReuse.java:324)
+-\> at org.apache.tez.dag.app.rm.TestContainerReuse.testDelayedReuseContainerNotAvailable(TestContainerReuse.java:289)
+-\> at org.apache.tez.dag.app.rm.TestContainerReuse.testDelayedReuseContainerNotAvailable(TestContainerReuse.java:289)
+-\> at org.apache.tez.dag.app.rm.TestContainerReuse.testDelayedReuseContainerNotAvailable(TestContainerReuse.java:289)
+-\> at org.apache.tez.dag.app.rm.TestContainerReuse.testDelayedReuseContainerNotAvailable(TestContainerReuse.java:290)
+-\> at org.apache.tez.dag.app.rm.TestContainerReuse.testDelayedReuseContainerNotAvailable(TestContainerReuse.java:290)
+-\> at org.apache.tez.dag.app.rm.TestContainerReuse.testDelayedReuseContainerNotAvailable(TestContainerReuse.java:290)
+-\> at org.apache.tez.dag.app.rm.TestContainerReuse.testDelayedReuseContainerNotAvailable(TestContainerReuse.java:290)
+-\> at org.apache.tez.dag.app.rm.TestContainerReuse.testDelayedReuseContainerNotAvailable(TestContainerReuse.java:292)
+-\> at org.apache.tez.dag.app.rm.TaskSchedulerAppCallbackWrapper$SetApplicationRegistrationDataCallable.call(TaskSchedulerAppCallbackWrapper.java:244)
+-\> at org.apache.tez.dag.app.rm.TestContainerReuse.testDelayedReuseContainerNotAvailable(TestContainerReuse.java:323)
+-\> at org.apache.tez.dag.app.rm.TestContainerReuse.testDelayedReuseContainerNotAvailable(TestContainerReuse.java:324)
 
         at org.apache.tez.dag.app.rm.TestContainerReuse.testDelayedReuseContainerNotAvailable(TestContainerReuse.java:333)
 
@@ -76,47 +76,47 @@ org.mockito.exceptions.verification.WantedButNotInvoked:
 Wanted but not invoked:
 taskSchedulerEventHandlerForTest.taskAllocated(
     Mock for TaskAttempt, hashCode: 1830222901,
-    <any>,
-    Container: [ContainerId: container\_1\_0001\_01\_000001, NodeId: host1:0, NodeHttpAddress: host1:0, Resource: <memory:1024, vCores:1>, Priority: 3, Token: null, ]
+    \<any\>,
+    Container: [ContainerId: container\_1\_0001\_01\_000001, NodeId: host1:0, NodeHttpAddress: host1:0, Resource: \<memory:1024, vCores:1\>, Priority: 3, Token: null, ]
 );
--> at org.apache.tez.dag.app.rm.TestContainerReuse.testReuseAcrossVertices(TestContainerReuse.java:909)
+-\> at org.apache.tez.dag.app.rm.TestContainerReuse.testReuseAcrossVertices(TestContainerReuse.java:909)
 
 However, there were other interactions with this mock:
--> at org.apache.tez.dag.app.rm.TestContainerReuse.testReuseAcrossVertices(TestContainerReuse.java:861)
--> at org.apache.tez.dag.app.rm.TestContainerReuse.testReuseAcrossVertices(TestContainerReuse.java:861)
--> at org.apache.tez.dag.app.rm.TestContainerReuse.testReuseAcrossVertices(TestContainerReuse.java:861)
--> at org.apache.tez.dag.app.rm.TestContainerReuse.testReuseAcrossVertices(TestContainerReuse.java:862)
--> at org.apache.tez.dag.app.rm.TestContainerReuse.testReuseAcrossVertices(TestContainerReuse.java:862)
--> at org.apache.tez.dag.app.rm.TestContainerReuse.testReuseAcrossVertices(TestContainerReuse.java:862)
--> at org.apache.tez.dag.app.rm.TestContainerReuse.testReuseAcrossVertices(TestContainerReuse.java:862)
--> at org.apache.tez.dag.app.rm.TestContainerReuse.testReuseAcrossVertices(TestContainerReuse.java:864)
--> at org.apache.tez.dag.app.rm.TestContainerReuse.testReuseAcrossVertices(TestContainerReuse.java:900)
--> at org.apache.tez.dag.app.rm.TaskSchedulerAppCallbackWrapper$SetApplicationRegistrationDataCallable.call(TaskSchedulerAppCallbackWrapper.java:244)
+-\> at org.apache.tez.dag.app.rm.TestContainerReuse.testReuseAcrossVertices(TestContainerReuse.java:861)
+-\> at org.apache.tez.dag.app.rm.TestContainerReuse.testReuseAcrossVertices(TestContainerReuse.java:861)
+-\> at org.apache.tez.dag.app.rm.TestContainerReuse.testReuseAcrossVertices(TestContainerReuse.java:861)
+-\> at org.apache.tez.dag.app.rm.TestContainerReuse.testReuseAcrossVertices(TestContainerReuse.java:862)
+-\> at org.apache.tez.dag.app.rm.TestContainerReuse.testReuseAcrossVertices(TestContainerReuse.java:862)
+-\> at org.apache.tez.dag.app.rm.TestContainerReuse.testReuseAcrossVertices(TestContainerReuse.java:862)
+-\> at org.apache.tez.dag.app.rm.TestContainerReuse.testReuseAcrossVertices(TestContainerReuse.java:862)
+-\> at org.apache.tez.dag.app.rm.TestContainerReuse.testReuseAcrossVertices(TestContainerReuse.java:864)
+-\> at org.apache.tez.dag.app.rm.TestContainerReuse.testReuseAcrossVertices(TestContainerReuse.java:900)
+-\> at org.apache.tez.dag.app.rm.TaskSchedulerAppCallbackWrapper$SetApplicationRegistrationDataCallable.call(TaskSchedulerAppCallbackWrapper.java:244)
 
         at org.apache.tez.dag.app.rm.TestContainerReuse.testReuseAcrossVertices(TestContainerReuse.java:909)
 
-testDelayedReuseContainerBecomesAvailable(org.apache.tez.dag.app.rm.TestContainerReuse)  Time elapsed: 0.053 sec  <<< FAILURE!
+testDelayedReuseContainerBecomesAvailable(org.apache.tez.dag.app.rm.TestContainerReuse)  Time elapsed: 0.053 sec  \<\<\< FAILURE!
 org.mockito.exceptions.verification.WantedButNotInvoked:
 Wanted but not invoked:
 taskSchedulerEventHandlerForTest.taskAllocated(
     Mock for TaskAttempt, hashCode: 1829491577,
-    <any>,
-    Container: [ContainerId: container\_1\_0001\_01\_000001, NodeId: host1:0, NodeHttpAddress: host1:0, Resource: <memory:1024, vCores:1>, Priority: 5, Token: null, ]
+    \<any\>,
+    Container: [ContainerId: container\_1\_0001\_01\_000001, NodeId: host1:0, NodeHttpAddress: host1:0, Resource: \<memory:1024, vCores:1\>, Priority: 5, Token: null, ]
 );
--> at org.apache.tez.dag.app.rm.TestContainerReuse.testDelayedReuseContainerBecomesAvailable(TestContainerReuse.java:202)
+-\> at org.apache.tez.dag.app.rm.TestContainerReuse.testDelayedReuseContainerBecomesAvailable(TestContainerReuse.java:202)
 
 However, there were other interactions with this mock:
--> at org.apache.tez.dag.app.rm.TestContainerReuse.testDelayedReuseContainerBecomesAvailable(TestContainerReuse.java:151)
--> at org.apache.tez.dag.app.rm.TestContainerReuse.testDelayedReuseContainerBecomesAvailable(TestContainerReuse.java:151)
--> at org.apache.tez.dag.app.rm.TestContainerReuse.testDelayedReuseContainerBecomesAvailable(TestContainerReuse.java:151)
--> at org.apache.tez.dag.app.rm.TestContainerReuse.testDelayedReuseContainerBecomesAvailable(TestContainerReuse.java:152)
--> at org.apache.tez.dag.app.rm.TestContainerReuse.testDelayedReuseContainerBecomesAvailable(TestContainerReuse.java:152)
--> at org.apache.tez.dag.app.rm.TestContainerReuse.testDelayedReuseContainerBecomesAvailable(TestContainerReuse.java:152)
--> at org.apache.tez.dag.app.rm.TestContainerReuse.testDelayedReuseContainerBecomesAvailable(TestContainerReuse.java:152)
--> at org.apache.tez.dag.app.rm.TestContainerReuse.testDelayedReuseContainerBecomesAvailable(TestContainerReuse.java:154)
--> at org.apache.tez.dag.app.rm.TestContainerReuse.testDelayedReuseContainerBecomesAvailable(TestContainerReuse.java:191)
--> at org.apache.tez.dag.app.rm.TestContainerReuse.testDelayedReuseContainerBecomesAvailable(TestContainerReuse.java:192)
--> at org.apache.tez.dag.app.rm.TaskSchedulerAppCallbackWrapper$SetApplicationRegistrationDataCallable.call(TaskSchedulerAppCallbackWrapper.java:244)
+-\> at org.apache.tez.dag.app.rm.TestContainerReuse.testDelayedReuseContainerBecomesAvailable(TestContainerReuse.java:151)
+-\> at org.apache.tez.dag.app.rm.TestContainerReuse.testDelayedReuseContainerBecomesAvailable(TestContainerReuse.java:151)
+-\> at org.apache.tez.dag.app.rm.TestContainerReuse.testDelayedReuseContainerBecomesAvailable(TestContainerReuse.java:151)
+-\> at org.apache.tez.dag.app.rm.TestContainerReuse.testDelayedReuseContainerBecomesAvailable(TestContainerReuse.java:152)
+-\> at org.apache.tez.dag.app.rm.TestContainerReuse.testDelayedReuseContainerBecomesAvailable(TestContainerReuse.java:152)
+-\> at org.apache.tez.dag.app.rm.TestContainerReuse.testDelayedReuseContainerBecomesAvailable(TestContainerReuse.java:152)
+-\> at org.apache.tez.dag.app.rm.TestContainerReuse.testDelayedReuseContainerBecomesAvailable(TestContainerReuse.java:152)
+-\> at org.apache.tez.dag.app.rm.TestContainerReuse.testDelayedReuseContainerBecomesAvailable(TestContainerReuse.java:154)
+-\> at org.apache.tez.dag.app.rm.TestContainerReuse.testDelayedReuseContainerBecomesAvailable(TestContainerReuse.java:191)
+-\> at org.apache.tez.dag.app.rm.TestContainerReuse.testDelayedReuseContainerBecomesAvailable(TestContainerReuse.java:192)
+-\> at org.apache.tez.dag.app.rm.TaskSchedulerAppCallbackWrapper$SetApplicationRegistrationDataCallable.call(TaskSchedulerAppCallbackWrapper.java:244)
 
 
 ---
@@ -129,7 +129,7 @@ org.apache.tez.dag.app.dag.impl.VertexImpl - Creating 2 for vertex:
 vertex\_1411054289802\_0001\_1\_01 [intermediate\_reducer]
 56389 [InputInitializer [initialmap] #0] INFO 
 org.apache.tez.mapreduce.common.MRInputAMSplitGenerator - Input MRInput asking
-for -2 tasks. *strong* Headroom: -1365 *strong* Task Resource: 1024 waves: 1.7
+for -2 tasks. \*strong\* Headroom: -1365 \*strong\* Task Resource: 1024 waves: 1.7
 56391 [InputInitializer [initialmap] #0] INFO 
 org.apache.tez.mapreduce.common.MRInputAMSplitGenerator - Grouping input splits
 56391 [InputInitializer [initialmap] #0] INFO 
@@ -146,7 +146,7 @@ vertex\_1411054289802\_0001\_1\_01 [intermediate\_reducer]
 
 Several Pig unit tests hang intermittently. For example, TestNewPlanImplicitSplit.testImplicitSplitInCoGroup, which is a DAG of 4 nodes:
 !DAG1.png!
-It uses auto-parallelism, vertex 106 change parallelism from 2->1, and vertex 107 from 21->1.
+It uses auto-parallelism, vertex 106 change parallelism from 2-\>1, and vertex 107 from 21-\>1.
 
 Log attached.
 
@@ -218,7 +218,7 @@ org.apache.hadoop.yarn.state.InvalidStateTransitonException: Invalid event: V\_R
 
 * [TEZ-1587](https://issues.apache.org/jira/browse/TEZ-1587) | *Major* | **Some tez-examples fail in local mode**
 
-*JoinExample run indefinitely, don't finish*
+\*JoinExample run indefinitely, don't finish\*
 {code}
 19:13:58,703 - Thread(Fetcher [hashSide] #1) - (HttpConnection.java:273) - Closing connection on fetcher [hashSide] 114
 19:13:58,703 - Thread(ShuffleRunner [hashSide]) - (ShuffleManager.java:270) - Scheduling fetch for inputHost: jzhangMBPr.local:0
@@ -234,7 +234,7 @@ org.apache.hadoop.yarn.state.InvalidStateTransitonException: Invalid event: V\_R
 19:14:13,658 - Thread( main) - (DAGClientRPCImpl.java:444) - DAG: State: RUNNING Progress: 0% TotalTasks: 6 Succeeded: 0 Running: 1 Failed: 0 Killed: 0
 {code} 
 
-*WordCount and OrderedWordCount fail due to the following exception*
+\*WordCount and OrderedWordCount fail due to the following exception\*
 {code}
 19:16:47,499 - Thread( main) - (DAGClientRPCImpl.java:444) - DAG completed. FinalState=FAILED
 WordCount failed with diagnostics: [Vertex re-running, vertexName=Tokenizer, vertexId=vertex\_1410779802886\_0001\_1\_00, Vertex failed, vertexName=Summation, vertexId=vertex\_1410779802886\_0001\_1\_01, diagnostics=[Task failed, taskId=task\_1410779802886\_0001\_1\_01\_000000, diagnostics=[TaskAttempt 0 failed, info=[Error: Failure while running task:org.apache.tez.runtime.library.common.shuffle.impl.Shuffle$ShuffleError: error in shuffle in fetcher [Tokenizer] #1
@@ -330,9 +330,9 @@ Additionally, {{DAG}} is missing a getTaskLocalFiles method as compared to {{Ver
 
 * [TEZ-1559](https://issues.apache.org/jira/browse/TEZ-1559) | *Major* | **Add system tests for AM recovery**
 
-* [Fine-grained recovery task-level] In a vertex, task 0 is done task 1 is running. History flush happens. AM dies. Once AM is recovered, task 0 is not re-run. Task 1 is re-run.
-* [Data movement types] Test AM recovery with all data movement types including 1-1, broadcast, scatter-gather with/without shuffle. AM should die in 2 scenarios: first-vertex task finishes completely and partially.
-* [Kill AM many times] Set AM max attempt to high number. Kill many attempts. Last AM can still be recovered with latest AM history data.
+\* [Fine-grained recovery task-level] In a vertex, task 0 is done task 1 is running. History flush happens. AM dies. Once AM is recovered, task 0 is not re-run. Task 1 is re-run.
+\* [Data movement types] Test AM recovery with all data movement types including 1-1, broadcast, scatter-gather with/without shuffle. AM should die in 2 scenarios: first-vertex task finishes completely and partially.
+\* [Kill AM many times] Set AM max attempt to high number. Kill many attempts. Last AM can still be recovered with latest AM history data.
 
 
 ---
@@ -366,7 +366,7 @@ TestMRHelpers.testMREnvSetupForReduce and  Map related tests failing.
 
 Invalid path checks for Windows causing failures such as :
 
-expected:<....1:51947/tmp/mystage[/.tez/testAppId/]recovery> but was:<....1:51947/tmp/mystage[\.tez\testAppId\]recovery>
+expected:\<....1:51947/tmp/mystage[/.tez/testAppId/]recovery\> but was:\<....1:51947/tmp/mystage[\.tez\testAppId\]recovery\>
 
 
 ---
@@ -375,10 +375,10 @@ expected:<....1:51947/tmp/mystage[/.tez/testAppId/]recovery> but was:<....1:5194
 
 Error Message
 
-Environment was not set propertly expected:<test.value1> but was:<null>
+Environment was not set propertly expected:\<test.value1\> but was:\<null\>
 Stacktrace
 
-java.lang.AssertionError: Environment was not set propertly expected:<test.value1> but was:<null>
+java.lang.AssertionError: Environment was not set propertly expected:\<test.value1\> but was:\<null\>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:743)
 	at org.junit.Assert.assertEquals(Assert.java:118)
@@ -442,9 +442,9 @@ For larger jobs, a large chunk of time can otherwise be spent just fetching even
 
 * [TEZ-1527](https://issues.apache.org/jira/browse/TEZ-1527) | *Major* | **Improvement on waitForCompletion API**
 
-After [TEZ-1476|https://issues.apache.org/jira/browse/TEZ-1476], the waitForCompletion API has serveral changes may need to reconsider.
+After [TEZ-1476\|https://issues.apache.org/jira/browse/TEZ-1476], the waitForCompletion API has serveral changes may need to reconsider.
 
-1.  waitForCompletionWithStatusUpdates(Set<Vertex> vertices, Set<StatusGetOpts> statusGetOpts) is replace with waitForCompletionWithStatusUpdates(Set<StatusGetOpts> statusGetOpts), this lead to backward compatibility issue. User can not specify what vertices to print now. 
+1.  waitForCompletionWithStatusUpdates(Set\<Vertex\> vertices, Set\<StatusGetOpts\> statusGetOpts) is replace with waitForCompletionWithStatusUpdates(Set\<StatusGetOpts\> statusGetOpts), this lead to backward compatibility issue. User can not specify what vertices to print now. 
 2.  should add indention in front of VertexStatus when printing VertexStatus.
 
 
@@ -486,7 +486,7 @@ Need confirmation on tez-conf.pb being localized for all containers.
 
 * [TEZ-1515](https://issues.apache.org/jira/browse/TEZ-1515) | *Major* | **DAGAppMaster : Thread contentions due to org.apache.tez.common.counters.ResourceBundles**
 
-Thread profiling DagAppMaster for a synthetic tez test revealed lots of contentions in RecoveryService / HistoryEventHandlingThread / AsyncDispatcher threads.  All of these try to access tez counters and are blocked on "public static synchronized <T> T getValue(String bundleName, String key,String suffix, T defaultValue)".
+Thread profiling DagAppMaster for a synthetic tez test revealed lots of contentions in RecoveryService / HistoryEventHandlingThread / AsyncDispatcher threads.  All of these try to access tez counters and are blocked on "public static synchronized \<T\> T getValue(String bundleName, String key,String suffix, T defaultValue)".
 
 I will attach the thread profiler snapshots soon.
 
@@ -540,7 +540,7 @@ I'm trying to do dynamic partition pruning through input initializer events in H
 
 The problem with the current API I ran into:
 
-getNumTasks: I'm currently using a busy loop to wait for the num tasks for a vertex to be decided (-1 -> x). There's no way around it, because it's the only way to find out what number of events to expect (0 is a valid number of tasks - so I can't wait for the first to complete).
+getNumTasks: I'm currently using a busy loop to wait for the num tasks for a vertex to be decided (-1 -\> x). There's no way around it, because it's the only way to find out what number of events to expect (0 is a valid number of tasks - so I can't wait for the first to complete).
 
 With auto-reducer parallelism I have to employ another busy loop. Because I might be initially expecting 10 events, which later get's knocked down to 5. Since there's no event associated with this, I have to periodically check whether I have enough events.
 
@@ -609,7 +609,7 @@ Map 1: 2/181    Map 5: 35/179   Map 7: 1/1      Map 8: 1/1      Reducer 2: 0/109
 Map 1: 2/181    Map 5: 36/179   Map 7: 1/1      Map 8: 1/1      Reducer 2: 0/109        Reducer 3: 0/137        Reducer 4: 0/1  Reducer 6: 0/166
 Map 1: 2/181    Map 5: 39/179   Map 7: 1/1      Map 8: 1/1      Reducer 2: 0/109        Reducer 3: 0/137        Reducer 4: 0/1  Reducer 6: 0/166
 Map 1: 3/181    Map 5: 43/179   Map 7: 1/1      Map 8: 1/1      Reducer 2: 0/109        Reducer 3: 0/137        Reducer 4: 0/1  Reducer 6: 0/166
-Map 1: 5/181    Map 5: 46/179   Map 7: 1/1      Map 8: 1/1      Reducer 2: 0/109        Reducer 3: 0/137        Reducer 4: 0/1  Reducer 6: 0/1   <=== ShuffleVertexManager changing parallelism 
+Map 1: 5/181    Map 5: 46/179   Map 7: 1/1      Map 8: 1/1      Reducer 2: 0/109        Reducer 3: 0/137        Reducer 4: 0/1  Reducer 6: 0/1   \<=== ShuffleVertexManager changing parallelism 
 Map 1: 5/181    Map 5: 63/179   Map 7: 1/1      Map 8: 1/1      Reducer 2: 0/109        Reducer 3: 0/137        Reducer 4: 0/1  Reducer 6: 0/1
 Map 1: 7/181    Map 5: 72/179   Map 7: 1/1      Map 8: 1/1      Reducer 2: 0/109        Reducer 3: 0/137        Reducer 4: 0/1  Reducer 6: 0/1
 Map 1: 7/181    Map 5: 83/179   Map 7: 1/1      Map 8: 1/1      Reducer 2: 0/109        Reducer 3: 0/137        Reducer 4: 0/1  Reducer 6: 0/1
@@ -624,7 +624,7 @@ Map 1: 18/181   Map 5: 131/179  Map 7: 1/1      Map 8: 1/1      Reducer 2: 0/109
 Map 1: 19/181   Map 5: 131/179  Map 7: 1/1      Map 8: 1/1      Reducer 2: 0/109        Reducer 3: 0/137        Reducer 4: 0/1  Reducer 6: 0/1
 Map 1: 25/181   Map 5: 132/179  Map 7: 1/1      Map 8: 1/1      Reducer 2: 0/109        Reducer 3: 0/137        Reducer 4: 0/1  Reducer 6: 0/1
 Map 1: 33/181   Map 5: 132/179  Map 7: 1/1      Map 8: 1/1      Reducer 2: 0/109        Reducer 3: 0/137        Reducer 4: 0/1  Reducer 6: 0/1
-Map 1: 42/181   Map 5: 134/179  Map 7: 1/1      Map 8: 1/1      Reducer 2: 0/109        Reducer 3: 0/137        Reducer 4: 0/1  Reducer 6: 0/1	 <=== ShuffleVertexManager changing parallelism 
+Map 1: 42/181   Map 5: 134/179  Map 7: 1/1      Map 8: 1/1      Reducer 2: 0/109        Reducer 3: 0/137        Reducer 4: 0/1  Reducer 6: 0/1	 \<=== ShuffleVertexManager changing parallelism 
 Map 1: 51/181   Map 5: 135/179  Map 7: 1/1      Map 8: 1/1      Reducer 2: 0/1  Reducer 3: 0/137        Reducer 4: 0/1  Reducer 6: 0/1
 Map 1: 58/181   Map 5: 136/179  Map 7: 1/1      Map 8: 1/1      Reducer 2: 0/1  Reducer 3: 0/137        Reducer 4: 0/1  Reducer 6: 0/1
 Map 1: 63/181   Map 5: 136/179  Map 7: 1/1      Map 8: 1/1      Reducer 2: 0/1  Reducer 3: 0/137        Reducer 4: 0/1  Reducer 6: 0/1

@@ -213,23 +213,23 @@ Introduces a new config hbase.fs.tmp.dir which is a directory in HDFS (or defaul
 To use the coprocessor-based JMX implementation provided by HBase for Master.
 Add below property in hbase-site.xml file: 
 
-<property>
-  <name>hbase.coprocessor.master.classes</name>
-  <value>org.apache.hadoop.hbase.JMXListener</value>
-</property>
+\<property\>
+  \<name\>hbase.coprocessor.master.classes\</name\>
+  \<value\>org.apache.hadoop.hbase.JMXListener\</value\>
+\</property\>
 
 NOTE: DO NOT set `com.sun.management.jmxremote.port` for Java VM at the same time.
 
 By default, the JMX listens on TCP port 10101 for Master, we can further configure the port using below properties:
 
-<property>
-  <name>master.rmi.registry.port</name>
-  <value>61110</value>
-</property>
-<property>
-  <name>master.rmi.connector.port</name>
-  <value>61120</value>
-</property>
+\<property\>
+  \<name\>master.rmi.registry.port\</name\>
+  \<value\>61110\</value\>
+\</property\>
+\<property\>
+  \<name\>master.rmi.connector.port\</name\>
+  \<value\>61120\</value\>
+\</property\>
 ----
 
 The registry port can be shared with connector port in most cases, so you only need to configure master.rmi.registry.port.
@@ -265,9 +265,9 @@ This patch adds optional ability for HMaster to normalize regions in size (disab
 
 Checksumming is cpu intensive. HBase computes additional checksums for HFiles (hdfs does checksums too) and stores them inline with file data. During reading, these checksums are verified to ensure data is not corrupted. This patch tries to use Hadoop Native Library for checksum computation, if it’s available, otherwise falls back to standard Java libraries. Instructions to load NHL in HBase can be found here (http://hbase.apache.org/book.html#hadoop.native.lib).
 
-Default checksum algorithm has been changed from CRC32 to CRC32C primarily because of two reasons: 1) CRC32C has better error detection properties, and 2) New Intel processors have a dedicated instruction for crc32c computation (SSE4.2 instruction set)*. This change is fully backward compatible. Also, users should not see any differences except decrease in cpu usage. To keep old settings, set configuration ‘hbase.hstore.checksum.algorithm’ to ‘CRC32’.
+Default checksum algorithm has been changed from CRC32 to CRC32C primarily because of two reasons: 1) CRC32C has better error detection properties, and 2) New Intel processors have a dedicated instruction for crc32c computation (SSE4.2 instruction set)\*. This change is fully backward compatible. Also, users should not see any differences except decrease in cpu usage. To keep old settings, set configuration ‘hbase.hstore.checksum.algorithm’ to ‘CRC32’.
 
-* On linux, run 'cat /proc/cpuinfo’ and look for sse4\_2 in list of flags to see if your processor supports SSE4.2.
+\* On linux, run 'cat /proc/cpuinfo’ and look for sse4\_2 in list of flags to see if your processor supports SSE4.2.
 
 
 ---

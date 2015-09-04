@@ -66,7 +66,7 @@ Code uses:
 where ReflectionUtils has :
 
 {code}
-<T> Class<T> getClass(T o)
+\<T\> Class\<T\> getClass(T o)
 {code}
 
 
@@ -164,7 +164,7 @@ The dagid as reported in logs is dag\_1408740248751\_0003\_1
 
 I'm working on using the AM event mechanism to dynamically prune partitions at DAG runtime for certain queries. The query is:
 
-select count(*) from srcpart join srcpart\_double\_hour on (srcpart.hr*2 = srcpart\_double\_hour.hr) where srcpart\_double\_hour.hour = 11;
+select count(\*) from srcpart join srcpart\_double\_hour on (srcpart.hr\*2 = srcpart\_double\_hour.hr) where srcpart\_double\_hour.hour = 11;
 
 This will result in two vertices connected through a broadcast edge. The vertex prepares two things: The list of partition keys (hr) that are being sent to the AM for dynamic pruning and the records to be used in the hash join.
 
@@ -203,8 +203,8 @@ ent type=DATA\_MOVEMENT\_EVENT
 
 * [TEZ-1481](https://issues.apache.org/jira/browse/TEZ-1481) | *Major* | **Flaky test : org.apache.tez.dag.api.client.TestDAGClientHandler.testDAGClientHandler**
 
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.146 sec <<< FAILURE!
-testDAGClientHandler(org.apache.tez.dag.api.client.TestDAGClientHandler)  Time elapsed: 1.022 sec  <<< ERROR!
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.146 sec \<\<\< FAILURE!
+testDAGClientHandler(org.apache.tez.dag.api.client.TestDAGClientHandler)  Time elapsed: 1.022 sec  \<\<\< ERROR!
 java.lang.Exception: test timed out after 1000 milliseconds
 	at java.lang.ClassLoader.findBootstrapClass(Native Method)
 	at java.lang.ClassLoader.findBootstrapClassOrNull(ClassLoader.java:1070)
@@ -213,13 +213,13 @@ java.lang.Exception: test timed out after 1000 milliseconds
 	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:308)
 	at java.lang.ClassLoader.loadClass(ClassLoader.java:358)
 	at org.mockito.internal.invocation.ArgumentsProcessor.argumentsToMatchers(ArgumentsProcessor.java:47)
-	at org.mockito.internal.invocation.InvocationMatcher.<init>(InvocationMatcher.java:31)
+	at org.mockito.internal.invocation.InvocationMatcher.\<init\>(InvocationMatcher.java:31)
 	at org.mockito.internal.invocation.MatchersBinder.bindMatchers(MatchersBinder.java:26)
 	at org.mockito.internal.handler.MockHandlerImpl.handle(MockHandlerImpl.java:58)
 	at org.mockito.internal.handler.NullResultGuardian.handle(NullResultGuardian.java:29)
 	at org.mockito.internal.handler.InvocationNotifierHandler.handle(InvocationNotifierHandler.java:38)
 	at org.mockito.internal.creation.MethodInterceptorFilter.intercept(MethodInterceptorFilter.java:51)
-	at org.apache.tez.dag.app.dag.DAG$$EnhancerByMockitoWithCGLIB$$f69fe3f9.getDAGStatus(<generated>)
+	at org.apache.tez.dag.app.dag.DAG$$EnhancerByMockitoWithCGLIB$$f69fe3f9.getDAGStatus(\<generated\>)
 	at org.apache.tez.dag.api.client.DAGClientHandler.getDAGStatus(DAGClientHandler.java:57)
 	at org.apache.tez.dag.api.client.TestDAGClientHandler.testDAGClientHandler(TestDAGClientHandler.java:78)
 
@@ -455,7 +455,7 @@ Client sits outside of the YARN subnet. YARN/TEZ passes out internal host addres
 
 h6. Solution
 Use NetUtils.createSocketAddrForHost() instead of new InetSocketAddress() in TezClientUtils#getAMProxy().
-This would allow to use NetUtils.addStaticResolution() which can be used to have a static private -> public mapping!
+This would allow to use NetUtils.addStaticResolution() which can be used to have a static private -\> public mapping!
 
 
 ---
@@ -524,8 +524,8 @@ The test passes locally but for some reason is fails on Jenkins. Disabling tempo
 
 Build failed in Jenkins: Tez-Build #565
 org.apache.tez.client.TestTezClientUtils
-Tests run: 9, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 1.131 sec <<< FAILURE!
-testLocalResourceVisibility(org.apache.tez.client.TestTezClientUtils)  Time elapsed: 0.093 sec  <<< FAILURE!
+Tests run: 9, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 1.131 sec \<\<\< FAILURE!
+testLocalResourceVisibility(org.apache.tez.client.TestTezClientUtils)  Time elapsed: 0.093 sec  \<\<\< FAILURE!
 java.lang.AssertionError: null
 	at org.junit.Assert.fail(Assert.java:86)
 	at org.junit.Assert.assertTrue(Assert.java:41)
@@ -609,20 +609,20 @@ Typically users will have a common jar for all their code that is going to be us
 
 * [TEZ-1400](https://issues.apache.org/jira/browse/TEZ-1400) | *Major* | **Reducers stuck when enabling auto-reduce parallelism (MRR case)**
 
-In M -> R1 -> R2 case, if R1 is optimized by auto-parallelism R2 gets stuck waiting for events.
+In M -\> R1 -\> R2 case, if R1 is optimized by auto-parallelism R2 gets stuck waiting for events.
 
 e.g
 
 Map 1: 0/1      Map 2: -/-      Map 5: 0/1      Map 6: 0/1      Map 7: 0/1      Reducer 3: 0/23 Reducer 4: 0/1
 ...
 ...
-Map 1: 1/1      Map 2: 148(+13)/161     Map 5: 1/1      Map 6: 1/1      Map 7: 1/1      Reducer 3: 0(+3)/3      Reducer 4: 0(+1)/1  <== Auto reduce parallelism kicks in
+Map 1: 1/1      Map 2: 148(+13)/161     Map 5: 1/1      Map 6: 1/1      Map 7: 1/1      Reducer 3: 0(+3)/3      Reducer 4: 0(+1)/1  \<== Auto reduce parallelism kicks in
 ..
 Map 1: 1/1      Map 2: 161/161  Map 5: 1/1      Map 6: 1/1      Map 7: 1/1      Reducer 3: 3/3  Reducer 4: 0(+1)/1
 
 Job is stuck waiting for events in Reducer 4.
 
- [fetcher [Reducer\_3] #23] org.apache.tez.runtime.library.common.shuffle.impl.ShuffleScheduler: copy(3 of 23 at 0.02 MB/s) <=== *Waiting for 20 more partitions, even though Reducer3 has been optimized to use 3 reducers
+ [fetcher [Reducer\_3] #23] org.apache.tez.runtime.library.common.shuffle.impl.ShuffleScheduler: copy(3 of 23 at 0.02 MB/s) \<=== \*Waiting for 20 more partitions, even though Reducer3 has been optimized to use 3 reducers
 
 
 ---
@@ -631,9 +631,9 @@ Job is stuck waiting for events in Reducer 4.
 
 {quote}
 Running org.apache.tez.test.TestSecureShuffle
-Tests run: 4, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 262.405 sec <<< FAILURE!
-testSecureShuffle[test[sslInCluster:true, sslInTez:true, expectedResult:0]](org.apache.tez.test.TestSecureShuffle)  Time elapsed: 75.061 sec  <<< FAILURE!
-java.lang.AssertionError: expected:<0> but was:<1>
+Tests run: 4, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 262.405 sec \<\<\< FAILURE!
+testSecureShuffle[test[sslInCluster:true, sslInTez:true, expectedResult:0]](org.apache.tez.test.TestSecureShuffle)  Time elapsed: 75.061 sec  \<\<\< FAILURE!
+java.lang.AssertionError: expected:\<0\> but was:\<1\>
         at org.junit.Assert.fail(Assert.java:88)
         at org.junit.Assert.failNotEquals(Assert.java:743)
         at org.junit.Assert.assertEquals(Assert.java:118)
@@ -866,19 +866,19 @@ Running org.apache.tez.runtime.library.output.TestOnFileSortedOutput
 java.lang.OutOfMemoryError: Java heap space
 Dumping heap to java\_pid31888.hprof ...
 Heap dump file created [740277112 bytes in 0.802 secs]
-Tests run: 24, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 4.776 sec <<< FAILURE!
-testAllEmptyPartition[test[true, 1, -1]](org.apache.tez.runtime.library.output.TestOnFileSortedOutput)  Time elapsed: 1.07 sec  <<< ERROR!
+Tests run: 24, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 4.776 sec \<\<\< FAILURE!
+testAllEmptyPartition[test[true, 1, -1]](org.apache.tez.runtime.library.output.TestOnFileSortedOutput)  Time elapsed: 1.07 sec  \<\<\< ERROR!
 java.lang.OutOfMemoryError: Java heap space
-	at org.apache.tez.runtime.library.common.sort.impl.dflt.DefaultSorter.<init>(DefaultSorter.java:137)
+	at org.apache.tez.runtime.library.common.sort.impl.dflt.DefaultSorter.\<init\>(DefaultSorter.java:137)
 	at org.apache.tez.runtime.library.output.OnFileSortedOutput.start(OnFileSortedOutput.java:105)
 	at org.apache.tez.runtime.library.output.TestOnFileSortedOutput.startSortedOutput(TestOnFileSortedOutput.java:153)
 	at org.apache.tez.runtime.library.output.TestOnFileSortedOutput.testAllEmptyPartition(TestOnFileSortedOutput.java:213)
 
-baseTest[test[false, 2, 0]](org.apache.tez.runtime.library.output.TestOnFileSortedOutput)  Time elapsed: 0.385 sec  <<< ERROR!
+baseTest[test[false, 2, 0]](org.apache.tez.runtime.library.output.TestOnFileSortedOutput)  Time elapsed: 0.385 sec  \<\<\< ERROR!
 java.lang.OutOfMemoryError: Java heap space
-	at java.nio.HeapByteBuffer.<init>(HeapByteBuffer.java:39)
+	at java.nio.HeapByteBuffer.\<init\>(HeapByteBuffer.java:39)
 	at java.nio.ByteBuffer.allocate(ByteBuffer.java:312)
-	at org.apache.tez.runtime.library.common.sort.impl.PipelinedSorter.<init>(PipelinedSorter.java:122)
+	at org.apache.tez.runtime.library.common.sort.impl.PipelinedSorter.\<init\>(PipelinedSorter.java:122)
 	at org.apache.tez.runtime.library.output.OnFileSortedOutput.start(OnFileSortedOutput.java:102)
 	at org.apache.tez.runtime.library.output.TestOnFileSortedOutput.startSortedOutput(TestOnFileSortedOutput.java:153)
 	at org.apache.tez.runtime.library.output.TestOnFileSortedOutput.baseTest(TestOnFileSortedOutput.java:159)
@@ -1069,7 +1069,7 @@ Current code is:
 {code}
 That way you never can stop the wait call since all interrupts are caught and the wait logic just happily proceeds.
 
-*Suggestion*: InterruptedException could be part of the method signature so the caller can handle this in a way which is adequate to the context.
+\*Suggestion\*: InterruptedException could be part of the method signature so the caller can handle this in a way which is adequate to the context.
 
 Nice read on handling interrupts: http://www.ibm.com/developerworks/library/j-jtp05236/
 
@@ -1115,15 +1115,15 @@ A plain 3 vertex join hang forever when turn on auto-parallelism. AM log attache
 
 * [TEZ-1260](https://issues.apache.org/jira/browse/TEZ-1260) | *Major* | **Allow KeyValueWriter to support writing list of values also**
 
-TEZ-1228 adds support to IFile for storing K,L<V>.  Currently KeyValueWriter allows write of K,V
+TEZ-1228 adds support to IFile for storing K,L\<V\>.  Currently KeyValueWriter allows write of K,V
 
 public void write(Object key, Object value) throws IOException;
 
 We should add support for 
 
-public void write(Object key, Iterable<Object> values) throws IOException;
+public void write(Object key, Iterable\<Object\> values) throws IOException;
 
-taking advantage of TEZ-1228. In few cases, pig unwraps key, list<values> and writes them as separate K,V pairs. This can avoid that overhead. That may enable us to even add something similar to hash based partial aggregation for join like what we do for groupby.
+taking advantage of TEZ-1228. In few cases, pig unwraps key, list\<values\> and writes them as separate K,V pairs. This can avoid that overhead. That may enable us to even add something similar to hash based partial aggregation for join like what we do for groupby.
 
 
 ---
@@ -1141,8 +1141,8 @@ Encountering exception
 
 {code}
 org.apache.tez.dag.api.TezUncheckedException: Path component must start with: attempt InputAttemptIdentifier [inputIdentifier=InputIdentifier [inputIndex=0], attemptNumber=0, pathComponent=]
-        at org.apache.tez.runtime.library.common.InputAttemptIdentifier.<init>(InputAttemptIdentifier.java:45)
-        at org.apache.tez.runtime.library.common.InputAttemptIdentifier.<init>(InputAttemptIdentifier.java:51)
+        at org.apache.tez.runtime.library.common.InputAttemptIdentifier.\<init\>(InputAttemptIdentifier.java:45)
+        at org.apache.tez.runtime.library.common.InputAttemptIdentifier.\<init\>(InputAttemptIdentifier.java:51)
         at org.apache.tez.runtime.library.common.shuffle.impl.ShuffleInputEventHandler.processDataMovementEvent(ShuffleInputEventHandler.java:81)
         at org.apache.tez.runtime.library.common.shuffle.impl.ShuffleInputEventHandler.handleEvent(ShuffleInputEventHandler.java:66)
         at org.apache.tez.runtime.library.common.shuffle.impl.ShuffleInputEventHandler.handleEvents(ShuffleInputEventHandler.java:59)
@@ -1185,7 +1185,7 @@ I have a tez job which is failed due to that I didn't put my jar to the local re
 I also have another case that has exception in the my Processor, the message on the client side is still not clear to me. I think that should we pass the real exception to the diagnostics and display it in client side, this should help user to find out what's wrong with their program.
 
 
-*Exception on client side*
+\*Exception on client side\*
 {code}
 14/06/26 14:57:15 INFO rpc.DAGClientRPCImpl: VertexStatus: VertexName:
 summer Progress: 0% TotalTasks: 1 Succeeded: 0 Running: 0 Failed: 0 Killed:
@@ -1230,7 +1230,7 @@ at java.lang.Thread.run(Thread.java:745)
 Container exited with a non-zero exit code 1
 {code}
 
-*The real exception in container log:*
+\*The real exception in container log:\*
 
 {code}
 2014-06-26 14:57:02,146 ERROR [main]
@@ -1244,9 +1244,9 @@ org.apache.tez.common.RuntimeUtils.createClazzInstance(RuntimeUtils.java:66)
     at
 org.apache.tez.runtime.LogicalIOProcessorRuntimeTask.createProcessor(LogicalIOProcessorRuntimeTask.java:533)
     at
-org.apache.tez.runtime.LogicalIOProcessorRuntimeTask.<init>(LogicalIOProcessorRuntimeTask.java:146)
+org.apache.tez.runtime.LogicalIOProcessorRuntimeTask.\<init\>(LogicalIOProcessorRuntimeTask.java:146)
     at
-org.apache.tez.runtime.task.TezTaskRunner.<init>(TezTaskRunner.java:78)
+org.apache.tez.runtime.task.TezTaskRunner.\<init\>(TezTaskRunner.java:78)
     at org.apache.tez.runtime.task.TezChild.run(TezChild.java:208)
     at org.apache.tez.runtime.task.TezChild.main(TezChild.java:363)
 {code}
@@ -1514,7 +1514,7 @@ It is possible to perform the entire shuffle operations without ever triggering 
 Container exited with a non-zero exit code 143
 ], AttemptID:attempt\_1399351577718\_2330\_1\_05\_000020\_3 Info:Container container\_1399351577718\_2330\_01\_000310 COMPLETED with diagnostics set to [Container [pid=1734,containerID=container\_1399351577718\_2330\_01\_000310] is running beyond physical memory limits. Current usage: 4.1 GB of 4 GB physical memory used; 5.4 GB of 40 GB virtual memory used. Killing container.
 
-container\_1399351577718\_2330\_01\_000365/ $ grep -ri "CodecPool.*brand-new" syslog* | wc -l
+container\_1399351577718\_2330\_01\_000365/ $ grep -ri "CodecPool.\*brand-new" syslog\* \| wc -l
 
 6988
 {code}
@@ -1653,7 +1653,7 @@ Some places we should Sorted Partitioned. In others we should Shuffled. We shoul
 
 2 pieces of feedback from [~daijy] 
 1) Its not clear the event.sourceIndex needs to be accessed. Solution - Make it part of the method parameters
-2) the Map<InputIndex, List<TaskIndex>> is convoluted. Solution - Replace with Map<TaskIndex, InputIndex>. Amazing why we did not do this in the first place.
+2) the Map\<InputIndex, List\<TaskIndex\>\> is convoluted. Solution - Replace with Map\<TaskIndex, InputIndex\>. Amazing why we did not do this in the first place.
 
 
 ---
@@ -1761,8 +1761,8 @@ $ echo $HADOOP\_COMMON\_HOME
 $ mvn clean package -Dtest=TestMRHelpers
 …
 ….
-testMREnvSetupForMap(org.apache.tez.mapreduce.hadoop.TestMRHelpers)  Time elapsed: 0.016 sec  <<< FAILURE!
-org.junit.ComparisonFailure: expected:<$PWD:[$HADOOP\_COMMON\_HOME]/lib/native> but was:<$PWD:[/Users/mislam/softwares/hadoop/current]/lib/native>
+testMREnvSetupForMap(org.apache.tez.mapreduce.hadoop.TestMRHelpers)  Time elapsed: 0.016 sec  \<\<\< FAILURE!
+org.junit.ComparisonFailure: expected:\<$PWD:[$HADOOP\_COMMON\_HOME]/lib/native\> but was:\<$PWD:[/Users/mislam/softwares/hadoop/current]/lib/native\>
 	at org.junit.Assert.assertEquals(Assert.java:115)
 	at org.junit.Assert.assertEquals(Assert.java:144)
 	at org.apache.tez.mapreduce.hadoop.TestMRHelpers.testCommonEnvSettingsForMRTasks(TestMRHelpers.java:339)
@@ -1779,13 +1779,13 @@ org.junit.ComparisonFailure: expected:<$PWD:[$HADOOP\_COMMON\_HOME]/lib/native> 
 
 Currently the files are created in different sub-directories. It is hard to manage and cleanup at the end.
 
-The proposal is to create a new subdir  : $STAGE\_DIR/<APP\_ID>/
+The proposal is to create a new subdir  : $STAGE\_DIR/\<APP\_ID\>/
 
-All recovery files will go under  : $STAGE\_DIR/<APP\_ID>/recovery/<attemp\_num>/
+All recovery files will go under  : $STAGE\_DIR/\<APP\_ID\>/recovery/\<attemp\_num\>/
 
-All confs will go under:  $STAGE\_DIR/<APP\_ID>/conf/
+All confs will go under:  $STAGE\_DIR/\<APP\_ID\>/conf/
 
-All dagplans will go:  $STAGE\_DIR/<APP\_ID>/dag\_id/plan/
+All dagplans will go:  $STAGE\_DIR/\<APP\_ID\>/dag\_id/plan/
 
 
 ---
@@ -1802,8 +1802,8 @@ Purpose of this JIRA is abstract out the connection management in unordered/orde
 * [TEZ-1099](https://issues.apache.org/jira/browse/TEZ-1099) | *Minor* | **Minor documentation improvement and Eclipse friendlyness**
 
 This patch:
-* makes the build pre-requisites for Tez explicit, and
-* makes the Maven project importable into Eclipse IDE.
+\* makes the build pre-requisites for Tez explicit, and
+\* makes the Maven project importable into Eclipse IDE.
 
 
 ---
@@ -1827,7 +1827,7 @@ java.lang.IllegalArgumentException: Wrong FS: hdfs://headnodehost:9000/hive/scra
 	at org.apache.hadoop.fs.FileSystem.checkPath(FileSystem.java:643)
 	at org.apache.hadoop.fs.azurenative.NativeAzureFileSystem.checkPath(NativeAzureFileSystem.java:436)
 	at org.apache.hadoop.fs.FileSystem.resolvePath(FileSystem.java:747)
-	at org.apache.tez.client.AMConfiguration.<init>(AMConfiguration.java:81)
+	at org.apache.tez.client.AMConfiguration.\<init\>(AMConfiguration.java:81)
 	at org.apache.hadoop.hive.ql.exec.tez.TezSessionState.open(TezSessionState.java:174)
 	at org.apache.hadoop.hive.ql.exec.tez.TezTask.execute(TezTask.java:154)
 	at org.apache.hadoop.hive.ql.exec.Task.executeTask(Task.java:153)
@@ -1973,13 +1973,13 @@ Even when mapreduce.admin.user.env property is set to LD\_LIBRARY\_PATH=$HADOOP\
 * [TEZ-1082](https://issues.apache.org/jira/browse/TEZ-1082) | *Major* | **reading errorstream in Fetcher throws NPE (when fetcher timesout to establish a connection)**
 
 In case of connection timeout, fetcher throws NPE in reading the error stream.  
->>
+\>\>
 Caused by: java.lang.NullPointerException
 	at org.apache.hadoop.io.IOUtils.copyBytes(IOUtils.java:78)
 	at org.apache.tez.runtime.library.common.shuffle.impl.Fetcher.readErrorStream(Fetcher.java:436)
 	at org.apache.tez.runtime.library.common.shuffle.impl.Fetcher.copyFromHost(Fetcher.java:364)
 	at org.apache.tez.runtime.library.common.shuffle.impl.Fetcher.run(Fetcher.java:203)
->>
+\>\>
 
 It should be checking for "connectSucceeded" flag instead of "connection != null"
 
@@ -2011,7 +2011,7 @@ Events from tasks / vertices to InputInitializers.
 
 - Ran a job which used 200 containers.
 - DAGAppMaster was running at 70% CPU most of the time during the job.
-- Profiling revealed that lots of time was spent on TezEvent.readFields --> ... --> TaskStatusUpdateEvent.readFields().
+- Profiling revealed that lots of time was spent on TezEvent.readFields --\> ... --\> TaskStatusUpdateEvent.readFields().
 - Default "tez.task.am.heartbeat.interval-ms.max=100" ms.  With 200 containers, potentially 2000 events (these events have TezCounters) per second would be processed by DAGAppMaster.
 
 With large job, cpu usage of DAGAppMaster can bloat up significantly.  
@@ -2067,7 +2067,7 @@ And also the internal classes where applicable to remove MR references.
 
 * [TEZ-1053](https://issues.apache.org/jira/browse/TEZ-1053) | *Major* | **Refactor: Pass TaskLocationHint directly to the Scheduling logic**
 
-Currently, the location hint is resolved and translated to hosts and relaxed to racks directly in the TaskAttemptImpl code. The AMRMClient already does that and so we are duplicating the name resolution and relaxation of host->rack. Also, as the information in TaskLocationHint evolves further, eg. support for container locality, then its better to leave the bindings as late as possible.
+Currently, the location hint is resolved and translated to hosts and relaxed to racks directly in the TaskAttemptImpl code. The AMRMClient already does that and so we are duplicating the name resolution and relaxation of host-\>rack. Also, as the information in TaskLocationHint evolves further, eg. support for container locality, then its better to leave the bindings as late as possible.
 
 
 ---
@@ -2114,7 +2114,7 @@ at java.lang.Long.valueOf(Long.java:557)
         at org.apache.tez.runtime.library.common.sort.impl.dflt.DefaultSorter.mergeParts(DefaultSorter.java:1078)
         at org.apache.tez.runtime.library.common.sort.impl.dflt.DefaultSorter.flush(DefaultSorter.java:633)
         at org.apache.tez.runtime.library.output.OnFileSortedOutput.close(OnFileSortedOutput.java:134)
-        - locked <7f03a5b90> (a org.apache.tez.runtime.library.output.OnFileSortedOutput)
+        - locked \<7f03a5b90\> (a org.apache.tez.runtime.library.output.OnFileSortedOutput)
         at org.apache.tez.runtime.LogicalIOProcessorRuntimeTask.close(LogicalIOProcessorRuntimeTask.java:331)
         at org.apache.hadoop.mapred.YarnTezDagChild$5.run(YarnTezDagChild.java:567)
         at java.security.AccessController.doPrivileged(Native Method)
@@ -2159,7 +2159,7 @@ When there is a connection error then the fetcher fails all the maps but does no
 
 * [TEZ-1027](https://issues.apache.org/jira/browse/TEZ-1027) | *Trivial* | **orderedwordcount needs to respect tez.staging-dir property**
 
-Currently orderedwordcount job is not respecting tez.staging-dir property. When AM recovery is enabled, the job recover data is being stored at /user/<username>/.staging/<app id> location instead the path defined by tez.staging-dir .
+Currently orderedwordcount job is not respecting tez.staging-dir property. When AM recovery is enabled, the job recover data is being stored at /user/\<username\>/.staging/\<app id\> location instead the path defined by tez.staging-dir .
 
 
 ---
@@ -2396,9 +2396,9 @@ There are other meta-data in Inputsplit that could be used by existing MR user.
 This JIRA is to add APIs to expose the InputSplit by adding these   TezGroupedSplit.getWrapperSplit() and MRInput.getInputSplit().
 
 Although MRInputLegacy provide an API to get the InputSplit, it has few issues:
- * Without TezGroupedSplit.getWrapperSplit() it is unusable.
- * Since it is used in various use cases, I propose to move it from MRInputLegacy to MRInput.
-* Currently the APIs are named as getNewInputSplit() and getOldInputSplit().  These should be merged into one : getInputSplit(). The new/old API should be handled internally.
+ \* Without TezGroupedSplit.getWrapperSplit() it is unusable.
+ \* Since it is used in various use cases, I propose to move it from MRInputLegacy to MRInput.
+\* Currently the APIs are named as getNewInputSplit() and getOldInputSplit().  These should be merged into one : getInputSplit(). The new/old API should be handled internally.
 
 Please give your feedback.
 
@@ -2421,7 +2421,7 @@ LocalContainerLauncher  should just be responsible for queuing up requests, and 
 
 * [TEZ-857](https://issues.apache.org/jira/browse/TEZ-857) | *Major* | **Split Input/Output interfaces into Framework / User components**
 
-Inputs / Outputs have several methods which are not meant for user interaction - initialize(Tez*Context), close(), TEZ-844 is adding another.
+Inputs / Outputs have several methods which are not meant for user interaction - initialize(Tez\*Context), close(), TEZ-844 is adding another.
 
 There has been confusion in the past on whether the framework will call close, or whether it's the user's responsibility.
 
@@ -2458,7 +2458,7 @@ Currently, task placement is determined by TaskLocationHints that are specified 
 // no input initializers. At this moment, only other case is 1-1 edge
           // with uninitialized sources
           boolean hasOneToOneUninitedSource = false;
-          for (Map.Entry<Vertex, Edge> entry : vertex.sourceVertices.entrySet()) {
+          for (Map.Entry\<Vertex, Edge\> entry : vertex.sourceVertices.entrySet()) {
             if (entry.getValue().getEdgeProperty().getDataMovementType() == 
                 DataMovementType.ONE\_TO\_ONE) {
               if (entry.getKey().getTotalTasks() == -1) {

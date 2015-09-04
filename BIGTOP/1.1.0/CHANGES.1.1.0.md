@@ -18,7 +18,7 @@
 -->
 # Apache BigTop Changelog
 
-## Release 1.1.0 - Unreleased (as of 2015-09-03)
+## Release 1.1.0 - Unreleased (as of 2015-09-04)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -60,8 +60,10 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [BIGTOP-2008](https://issues.apache.org/jira/browse/BIGTOP-2008) | build.gradle has out-of-date version |  Minor | build | RJ Nowling | RJ Nowling |
 | [BIGTOP-2007](https://issues.apache.org/jira/browse/BIGTOP-2007) | bigtop.mk version of the stack needs to be bumped to 1.1.0-SNAPSHOT |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2004](https://issues.apache.org/jira/browse/BIGTOP-2004) | Download task fails with Gradle 2.6 |  Major | build | RJ Nowling | RJ Nowling |
+| [BIGTOP-2003](https://issues.apache.org/jira/browse/BIGTOP-2003) | Bigtop puppet fails to deploy on Ubuntu due to a hiera 1.3.0 bug |  Major | vm | Evans Ye | Evans Ye |
 | [BIGTOP-1999](https://issues.apache.org/jira/browse/BIGTOP-1999) | website link to the release bits is broken and points to the top-level mirror's directory |  Major | website | Konstantin Boudnik | Olaf Flebbe |
 | [BIGTOP-1967](https://issues.apache.org/jira/browse/BIGTOP-1967) | Update the front-page of the website with new CI hostname |  Major | website | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-1966](https://issues.apache.org/jira/browse/BIGTOP-1966) | site's index.xml is malformatted |  Blocker | website | Konstantin Boudnik | Konstantin Boudnik |

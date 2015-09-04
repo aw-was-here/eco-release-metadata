@@ -26,8 +26,8 @@ These release notes cover new developer and user-facing incompatibilities, featu
 * [SPARK-9803](https://issues.apache.org/jira/browse/SPARK-9803) | *Major* | **Add transform and subset  to DataFrame**
 
 These three base functions are heavily used with R dataframes. It would be great to have them work with Spark DataFrames:
-* transform
-* subset
+\* transform
+\* subset
 
 
 

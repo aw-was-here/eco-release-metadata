@@ -35,7 +35,7 @@ These release notes cover new developer and user-facing incompatibilities, featu
 [ERROR] /Users/pramachandran/src/tez/tez-dag/src/test/java/org/apache/tez/dag/app/dag/impl/TestTaskRecovery.java:[307,42] cannot find symbol
 [ERROR] symbol:   variable TaskAttemptTerminationCause
 [ERROR] location: class org.apache.tez.dag.app.dag.impl.TestTaskRecovery
-[ERROR] /Users/pramachandran/src/tez/tez-dag/src/test/java/org/apache/tez/dag/app/dag/impl/TestTaskRecovery.java:[328,29] no suitable constructor found for TaskAttemptFinishedEvent(org.apache.tez.dag.records.TezTaskAttemptID,java.lang.String,long,long,org.apache.tez.dag.api.oldrecords.TaskAttemptState,<nulltype>,java.lang.String,org.apache.tez.common.counters.TezCounters)
+[ERROR] /Users/pramachandran/src/tez/tez-dag/src/test/java/org/apache/tez/dag/app/dag/impl/TestTaskRecovery.java:[328,29] no suitable constructor found for TaskAttemptFinishedEvent(org.apache.tez.dag.records.TezTaskAttemptID,java.lang.String,long,long,org.apache.tez.dag.api.oldrecords.TaskAttemptState,\<nulltype\>,java.lang.String,org.apache.tez.common.counters.TezCounters)
 [ERROR] constructor org.apache.tez.dag.history.events.TaskAttemptFinishedEvent.TaskAttemptFinishedEvent() is not applicable
 [ERROR] (actual and formal argument lists differ in length)
 [ERROR] constructor org.apache.tez.dag.history.events.TaskAttemptFinishedEvent.TaskAttemptFinishedEvent(org.apache.tez.dag.records.TezTaskAttemptID,java.lang.String,long,long,org.apache.tez.dag.api.oldrecords.TaskAttemptState,java.lang.String,org.apache.tez.common.counters.TezCounters) is not applicable
@@ -449,7 +449,7 @@ VertexGroupCommitStartedEvent & VertexGroupCommitFinishedEvent use vertex group 
 [ERROR] ./tez/tez-tests/src/test/java/org/apache/tez/test/TestTezJobs.java:[543,11] cannot find symbol
 [ERROR] symbol:   variable StringUtils
 [ERROR] location: class org.apache.tez.test.TestTezJobs
-[ERROR] ./tez/tez-tests/src/test/java/org/apache/tez/test/TestTezJobs.java:[542,23] no suitable method found for run(org.apache.tez.dag.api.TezConfiguration,java.lang.String[],<nulltype>)
+[ERROR] ./tez/tez-tests/src/test/java/org/apache/tez/test/TestTezJobs.java:[542,23] no suitable method found for run(org.apache.tez.dag.api.TezConfiguration,java.lang.String[],\<nulltype\>)
 [ERROR] method org.apache.tez.examples.SimpleSessionExample.run(java.lang.String[]) is not applicable
 [ERROR] (actual and formal argument lists differ in length)
 [ERROR] method org.apache.tez.examples.SimpleSessionExample.run(java.lang.String[],java.lang.String[],org.apache.hadoop.conf.Configuration,int) is not applicable
@@ -460,12 +460,12 @@ VertexGroupCommitStartedEvent & VertexGroupCommitFinishedEvent use vertex group 
 [ERROR] ./tez/tez-tests/src/test/java/org/apache/tez/test/TestTezJobs.java:[577,11] cannot find symbol
 [ERROR] symbol:   variable StringUtils
 [ERROR] location: class org.apache.tez.test.TestTezJobs
-[ERROR] ./tez/tez-tests/src/test/java/org/apache/tez/test/TestTezJobs.java:[576,10] no suitable method found for run(org.apache.tez.dag.api.TezConfiguration,java.lang.String[],<nulltype>)
+[ERROR] ./tez/tez-tests/src/test/java/org/apache/tez/test/TestTezJobs.java:[576,10] no suitable method found for run(org.apache.tez.dag.api.TezConfiguration,java.lang.String[],\<nulltype\>)
 [ERROR] method org.apache.tez.examples.SimpleSessionExample.run(java.lang.String[]) is not applicable
 [ERROR] (actual and formal argument lists differ in length)
 [ERROR] method org.apache.tez.examples.SimpleSessionExample.run(java.lang.String[],java.lang.String[],org.apache.hadoop.conf.Configuration,int) is not applicable
 [ERROR] (actual and formal argument lists differ in length)
-[ERROR] -> [Help 1]
+[ERROR] -\> [Help 1]
 {noformat}
 
 
@@ -507,7 +507,7 @@ Scenario:
 - commitMemory & usedMemory are beyond their allowed threshold.
 - InMemoryMerge kicks off and is in the process of flushing memory contents to disk
 - As it progresses, it releases memory segments as well (but not yet over).
-- Fetchers who need memory < maxSingleShuffleLimit, get scheduled.
+- Fetchers who need memory \< maxSingleShuffleLimit, get scheduled.
 - If fetchers are fast, this quickly adds up to commitMemory & usedMemory. Since InMemoryMerge is already in progress, this wouldn't trigger another merge().
 - Pretty soon all fetchers would be stalled and get into the following state.
 
@@ -842,7 +842,7 @@ Caused by: java.net.UnknownHostException: Invalid host name: local host is: (unk
 	at java.lang.reflect.Constructor.newInstance(Constructor.java:526)
 	at org.apache.hadoop.net.NetUtils.wrapWithMessage(NetUtils.java:783)
 	at org.apache.hadoop.net.NetUtils.wrapException(NetUtils.java:742)
-	at org.apache.hadoop.ipc.Client$Connection.<init>(Client.java:400)
+	at org.apache.hadoop.ipc.Client$Connection.\<init\>(Client.java:400)
 	at org.apache.hadoop.ipc.Client.getConnection(Client.java:1452)
 	at org.apache.hadoop.ipc.Client.call(Client.java:1381)
 	at org.apache.hadoop.ipc.Client.call(Client.java:1363)
@@ -860,7 +860,7 @@ Caused by: java.net.UnknownHostException: Invalid host name: local host is: (unk
 	at java.lang.reflect.Constructor.newInstance(Constructor.java:526)
 	at org.apache.hadoop.net.NetUtils.wrapWithMessage(NetUtils.java:783)
 	at org.apache.hadoop.net.NetUtils.wrapException(NetUtils.java:742)
-	at org.apache.hadoop.ipc.Client$Connection.<init>(Client.java:400)
+	at org.apache.hadoop.ipc.Client$Connection.\<init\>(Client.java:400)
 	at org.apache.hadoop.ipc.Client.getConnection(Client.java:1452)
 	at org.apache.hadoop.ipc.Client.call(Client.java:1381)
 	at org.apache.hadoop.ipc.Client.call(Client.java:1363)
@@ -974,16 +974,16 @@ Additional debug/patch statements revealed that InMemoryMerge is not invoked app
 
 {code}
 
-syslog\_attempt\_1420000126204\_0201\_1\_01\_000034\_0:2015-01-07 02:05:48,332 INFO [fetcher [Map\_1] #2] orderedgrouped.MergeManager: Patch..usedMemory=1551867234, memoryLimit=1073741824, commitMemory=883028388, mergeThreshold=708669632  <<=== InMemoryMerge would be started in this case as commitMemory >= mergeThreshold
+syslog\_attempt\_1420000126204\_0201\_1\_01\_000034\_0:2015-01-07 02:05:48,332 INFO [fetcher [Map\_1] #2] orderedgrouped.MergeManager: Patch..usedMemory=1551867234, memoryLimit=1073741824, commitMemory=883028388, mergeThreshold=708669632  \<\<=== InMemoryMerge would be started in this case as commitMemory \>= mergeThreshold
 
-syslog\_attempt\_1420000126204\_0201\_1\_01\_000034\_0:2015-01-07 02:05:52,900 INFO [fetcher [Map\_1] #2] orderedgrouped.MergeManager: Patch..usedMemory=1273349784, memoryLimit=1073741824, commitMemory=347296632, mergeThreshold=708669632 <<=== InMemoryMerge would *NOT* be started in this case as commitMemory < mergeThreshold.  But the usedMemory is higher than memoryLimit.  Fetchers would keep waiting indefinitely until memory is released. InMemoryMerge will not kick in and not release memory.
+syslog\_attempt\_1420000126204\_0201\_1\_01\_000034\_0:2015-01-07 02:05:52,900 INFO [fetcher [Map\_1] #2] orderedgrouped.MergeManager: Patch..usedMemory=1273349784, memoryLimit=1073741824, commitMemory=347296632, mergeThreshold=708669632 \<\<=== InMemoryMerge would \*NOT\* be started in this case as commitMemory \< mergeThreshold.  But the usedMemory is higher than memoryLimit.  Fetchers would keep waiting indefinitely until memory is released. InMemoryMerge will not kick in and not release memory.
 
-syslog\_attempt\_1420000126204\_0201\_1\_01\_000034\_0:2015-01-07 02:05:53,163 INFO [fetcher [Map\_1] #1] orderedgrouped.MergeManager: Patch..usedMemory=1191994052, memoryLimit=1073741824, commitMemory=523155206, mergeThreshold=708669632 <<=== InMemoryMerge would *NOT* be started in this case as commitMemory < mergeThreshold.  But the usedMemory is higher than memoryLimit.  Fetchers would keep waiting indefinitely until memory is released.  InMemoryMerge will not kick in and not release memory.
+syslog\_attempt\_1420000126204\_0201\_1\_01\_000034\_0:2015-01-07 02:05:53,163 INFO [fetcher [Map\_1] #1] orderedgrouped.MergeManager: Patch..usedMemory=1191994052, memoryLimit=1073741824, commitMemory=523155206, mergeThreshold=708669632 \<\<=== InMemoryMerge would \*NOT\* be started in this case as commitMemory \< mergeThreshold.  But the usedMemory is higher than memoryLimit.  Fetchers would keep waiting indefinitely until memory is released.  InMemoryMerge will not kick in and not release memory.
 {code}
 
 In MergeManager, in memory merging is invoked under the following condition
 {code}
-if (!inMemoryMerger.isInProgress() && commitMemory >= mergeThreshold)
+if (!inMemoryMerger.isInProgress() && commitMemory \>= mergeThreshold)
 {code}
 
 
@@ -1090,11 +1090,11 @@ here's the log in when I run wordcount
 2014-12-15 12:19:33,875 INFO  [TezChild] runtime.LogicalIOProcessorRuntimeTask (LogicalIOProcessorRuntimeTask.java:initialize(279)) - Num IOs determined for AutoStart: 1
 2014-12-15 12:19:33,875 INFO  [TezChild] runtime.LogicalIOProcessorRuntimeTask (LogicalIOProcessorRuntimeTask.java:initialize(281)) - Waiting for 1 IOs to start
 2014-12-15 12:19:33,882 INFO  [Initializer 0] common.TezRuntimeUtils (TezRuntimeUtils.java:instantiateCombiner(65)) - No combiner specified via tez.runtime.combiner.class. Combiner will not be used
-2014-12-15 12:19:33,883 INFO  [Initializer 0] orderedgrouped.Shuffle (Shuffle.java:<init>(179)) - Shuffle assigned with 1 inputs, codec: NoneifileReadAhead: true
-2014-12-15 12:19:33,886 INFO  [Initializer 0] orderedgrouped.ShuffleScheduler (ShuffleScheduler.java:<init>(150)) - ShuffleScheduler running for sourceVertex: Tokenizer with configuration: maxFetchFailuresBeforeReporting=5, reportReadErrorImmediately=true, maxFailedUniqueFetches=1, abortFailureLimit=30, maxMapRuntime=0
-2014-12-15 12:19:33,887 INFO  [Initializer 0] orderedgrouped.MergeManager (MergeManager.java:<init>(221)) - InitialRequest: ShuffleMem=859255552, postMergeMem=0, RuntimeTotalAvailable=639668060. Updated to: ShuffleMem=639668060, postMergeMem: 0
-2014-12-15 12:19:33,887 INFO  [Initializer 0] orderedgrouped.MergeManager (MergeManager.java:<init>(252)) - MergerManager: memoryLimit=639668060, maxSingleShuffleLimit=159917008, mergeThreshold=575701184, ioSortFactor=100, memToMemMergeOutputsThreshold=100
-2014-12-15 12:19:33,890 INFO  [Initializer 0] orderedgrouped.Shuffle (Shuffle.java:<init>(226)) - Num fetchers being started: 1
+2014-12-15 12:19:33,883 INFO  [Initializer 0] orderedgrouped.Shuffle (Shuffle.java:\<init\>(179)) - Shuffle assigned with 1 inputs, codec: NoneifileReadAhead: true
+2014-12-15 12:19:33,886 INFO  [Initializer 0] orderedgrouped.ShuffleScheduler (ShuffleScheduler.java:\<init\>(150)) - ShuffleScheduler running for sourceVertex: Tokenizer with configuration: maxFetchFailuresBeforeReporting=5, reportReadErrorImmediately=true, maxFailedUniqueFetches=1, abortFailureLimit=30, maxMapRuntime=0
+2014-12-15 12:19:33,887 INFO  [Initializer 0] orderedgrouped.MergeManager (MergeManager.java:\<init\>(221)) - InitialRequest: ShuffleMem=859255552, postMergeMem=0, RuntimeTotalAvailable=639668060. Updated to: ShuffleMem=639668060, postMergeMem: 0
+2014-12-15 12:19:33,887 INFO  [Initializer 0] orderedgrouped.MergeManager (MergeManager.java:\<init\>(252)) - MergerManager: memoryLimit=639668060, maxSingleShuffleLimit=159917008, mergeThreshold=575701184, ioSortFactor=100, memToMemMergeOutputsThreshold=100
+2014-12-15 12:19:33,890 INFO  [Initializer 0] orderedgrouped.Shuffle (Shuffle.java:\<init\>(226)) - Num fetchers being started: 1
 2014-12-15 12:19:33,891 INFO  [Initializer 0] runtime.LogicalIOProcessorRuntimeTask (LogicalIOProcessorRuntimeTask.java:call(404)) - Started Input with src edge: Tokenizer
 2014-12-15 12:19:33,891 INFO  [TezChild] runtime.LogicalIOProcessorRuntimeTask (LogicalIOProcessorRuntimeTask.java:initialize(294)) - AutoStartComplete
 2014-12-15 12:19:33,891 INFO  [TezChild] task.TezTaskRunner (TezTaskRunner.java:run(175)) - Running task, taskAttemptId=attempt\_1418617172198\_0001\_1\_01\_000000\_0
@@ -1142,19 +1142,19 @@ I checked hadoop counters after running a hive query on tez. The logs show two c
 * [TEZ-1836](https://issues.apache.org/jira/browse/TEZ-1836) | *Major* | **Provide better error messages when tez.runtime.io.sort.mb is wrongly configured**
 
 For tez.runtime.io.sort.mb=3000, following error message is thrown
->>>
+\>\>\>
 info=[Error: Failure while running task:java.lang.RuntimeException: java.io.IOException: Invalid "tez.runtime.io.sort.mb": 3000
->>>
+\>\>\>
 
 This should mention the range of valid configuration for "tez.runtime.io.sort.mb" (1 to 2047)
 
 
 For tez.runtime.io.sort.mb=0, following error message is thrown
->>>>
+\>\>\>\>
 info=[Error: Failure while running task:java.lang.IllegalArgumentException: io.sort.mb should be larger than 0
         at com.google.common.base.Preconditions.checkArgument(Preconditions.java:88)
         at org.apache.tez.runtime.library.common.sort.impl.ExternalSorter.getInitialMemoryRequirement(ExternalSorter.java:289)
->>>>
+\>\>\>\>
 
 This should mention "tez.runtime.io.sort.mb" and not "io.sort.mb".
 
@@ -1163,7 +1163,7 @@ This should mention "tez.runtime.io.sort.mb" and not "io.sort.mb".
 
 * [TEZ-1800](https://issues.apache.org/jira/browse/TEZ-1800) | *Major* | **Integer overflow in ExternalSorter.getInitialMemoryRequirement()**
 
-When trying to implement support for tez.runtime.io.sort.mb > 2 GB in pipelinedsorter, I encountered integer overflow exception in ExternalSorter.
+When trying to implement support for tez.runtime.io.sort.mb \> 2 GB in pipelinedsorter, I encountered integer overflow exception in ExternalSorter.
 
 Exception thrown is given below.
 
@@ -1191,7 +1191,7 @@ int initialMemRequestMb =
         conf.getInt(
             TezRuntimeConfiguration.TEZ\_RUNTIME\_IO\_SORT\_MB, 
             TezRuntimeConfiguration.TEZ\_RUNTIME\_IO\_SORT\_MB\_DEFAULT);
-long reqBytes = initialMemRequestMb << 20;
+long reqBytes = initialMemRequestMb \<\< 20;
 {code}
 
 
@@ -1209,7 +1209,7 @@ Currently, it's fairly difficult to configure logging beyond a generic log level
 TestAMRecovery fails sometimes on testVertexPartiallyFinished\_XXX.  
 The scenario is that we'd like kill AM when vertex is partially finished ( with 2 tasks, task\_0 is finished and task\_1 is running). When in recovery, task\_0 should not rerun and task\_1 should rerun. ( We use the recovery log(TaskAttemptFinishedEvent) to judge whether task is rerun)
 Currently, using VertexManager.onSourceTaskCompleted to control when to kill AM, but it is not perfect.  VertexManager.onSourceTaskCompleted is not invoked at the moment task attempt is finished ( TaskAttempt send event to Task to tell TaskAttempt is finsihed, and then Task send event to Vertex to trigger VM.onSourceTaskCompleted) 
-The following case is possible: task\_0 finished -> task\_1 finished -> VM.onSourceTaskCompleted -> VM.onSourceTaskCompleted
+The following case is possible: task\_0 finished -\> task\_1 finished -\> VM.onSourceTaskCompleted -\> VM.onSourceTaskCompleted
 In this case, we will take it as partially completed in the first VM.onSourceTaskCompleted, but actually the vertex is fully completed.
 
 

@@ -23,6 +23,13 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [BIGTOP-2008](https://issues.apache.org/jira/browse/BIGTOP-2008) | *Minor* | **build.gradle has out-of-date version**
+
+Version in build.gradle should be 1.1.0-SNAPSHOT, not 0.9.0-SNAPSHOT.
+
+
+---
+
 * [BIGTOP-2007](https://issues.apache.org/jira/browse/BIGTOP-2007) | *Major* | **bigtop.mk version of the stack needs to be bumped to 1.1.0-SNAPSHOT**
 
 The version of the stack hasn't been moved to the latest one.
@@ -39,9 +46,39 @@ The version of the stack hasn't been moved to the latest one.
 
 * [BIGTOP-2004](https://issues.apache.org/jira/browse/BIGTOP-2004) | *Major* | **Download task fails with Gradle 2.6**
 
-Older versions of the [download task fail|https://github.com/michel-kraemer/gradle-download-task/issues/29] with Gradle 2.6. 
+Older versions of the [download task fail\|https://github.com/michel-kraemer/gradle-download-task/issues/29] with Gradle 2.6. 
 
 Upgrading to version 2.0.0 fixes the problem.
+
+
+---
+
+* [BIGTOP-2003](https://issues.apache.org/jira/browse/BIGTOP-2003) | *Major* | **Bigtop puppet fails to deploy on Ubuntu due to a hiera 1.3.0 bug**
+
+hiera 1.3.0 fails with empty yaml file, hence we get the following error when running deployment on Ubuntu:
+{code}
+vagrant-puppet-vm $ cat vagrantconfig.yaml
+memory\_size: 4096
+number\_cpus: 1
+box: "puppetlabs/ubuntu-14.04-64-puppet"
+repo: "http://bigtop01.cloudera.org:8080/view/Releases/job/Bigtop-1.0.0-deb/BUILD\_ENVIRONMENTS=debian-8%2clabel=docker-slave-07/lastSuccessfulBuild/artifact/output/apt/"
+num\_instances: 1
+distro: debian
+components: [hadoop, yarn]
+enable\_local\_repo: false
+run\_smoke\_tests: false
+smoke\_test\_components: [mapreduce, pig]
+jdk: "openjdk-7-jdk"
+
+vagrant-puppet-vm $ vagrant up
+...
+==\> bigtop1: Error: Error from DataBinding 'hiera' while looking up 'hadoop\_cluster\_node::hadoop\_security\_authentication': Data                    retrieved from /etc/puppet/hieradata/bigtop/noha.yaml is String not Hash on node bigtop1
+==\> bigtop1: Wrapped exception:
+==\> bigtop1: Data retrieved from /etc/puppet/hieradata/bigtop/noha.yaml is String not Hash
+==\> bigtop1: Wrapped exception:
+==\> bigtop1: Data retrieved from /etc/puppet/hieradata/bigtop/noha.yaml is String not Hash
+==\> bigtop1: Error: Error from DataBinding 'hiera' while looking up 'hadoop\_cluster\_node::hadoop\_security\_authentication': Data                    retrieved from /etc/puppet/hieradata/bigtop/noha.yaml is String not Hash on node bigtop1
+{code}
 
 
 ---
@@ -182,7 +219,7 @@ We have a correct CNAME for the ci.bigtop.apache.org - let's use on the front pa
 Trying to compile new version of website on the master I am hitting this error:
 
 {code}
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-site-plugin:3.3:site (default-cli) on project bigtop: Error during page generation: Error parsing '/biggy/workspaces/bigtop/src/site/xdoc/index.xml': line [81] Error parsing the model: end tag name </ul> must match start tag name <p> from line 78 (position: TEXT seen ...ackage tests and a job to build package\n\t\t\t\trepositories.\n\t\t\t</ul>... @81:9) -> [Help 1]
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-site-plugin:3.3:site (default-cli) on project bigtop: Error during page generation: Error parsing '/biggy/workspaces/bigtop/src/site/xdoc/index.xml': line [81] Error parsing the model: end tag name \</ul\> must match start tag name \<p\> from line 78 (position: TEXT seen ...ackage tests and a job to build package\n\t\t\t\trepositories.\n\t\t\t\</ul\>... @81:9) -\> [Help 1]
 {code}
 This seems to be the result of BIGTOP-1916
 
@@ -300,9 +337,9 @@ The upgrade to 2.5.5 seems to solve the issue.
 test-artifacts can not be deployed nor verified. the following message is getting thrown from the maven run:
 
 {verbatim}
-[ERROR] Failed to execute goal on project sqoop-smoke: Could not resolve dependencies for project org.apache.bigtop.itest:sqoop-smoke:jar:1.0.0: The following artifacts could not be resolved: org.apache.sqoop:sqoop-core:jar:1.4.5, org.apache.sqoop:sqoop-client:jar:1.4.5: Could not find artifact org.apache.sqoop:sqoop-core:jar:1.4.5 in central (http://repo.maven.apache.org/maven2) -> [Help 1]
+[ERROR] Failed to execute goal on project sqoop-smoke: Could not resolve dependencies for project org.apache.bigtop.itest:sqoop-smoke:jar:1.0.0: The following artifacts could not be resolved: org.apache.sqoop:sqoop-core:jar:1.4.5, org.apache.sqoop:sqoop-client:jar:1.4.5: Could not find artifact org.apache.sqoop:sqoop-core:jar:1.4.5 in central (http://repo.maven.apache.org/maven2) -\> [Help 1]
 {verbatim}
-Indeed https://repo1.maven.org/maven2/org/apache/sqoop/ does have nothing of the sort. Does Sqoop community still publish 1.4.* artifacts at all?
+Indeed https://repo1.maven.org/maven2/org/apache/sqoop/ does have nothing of the sort. Does Sqoop community still publish 1.4.\* artifacts at all?
 
 
 ---
@@ -341,7 +378,7 @@ one cannot install kafka at least on centos7 since it packages /usr/bin which co
 
 * [BIGTOP-1937](https://issues.apache.org/jira/browse/BIGTOP-1937) | *Major* | **redhat-lsb is required by kafka daemon**
 
-The Kafka daemon require "redhat-lsb* to be installed first so that it can successfully bring the daemon up.
+The Kafka daemon require "redhat-lsb\* to be installed first so that it can successfully bring the daemon up.
 {code}
 root@fcf41830c410 /]# service kafka-server status
 /etc/init.d/kafka-server: line 34: /lib/lsb/init-functions: No such file or directory
@@ -391,7 +428,7 @@ So all the target-yum / target-apt tagets have been removed and a simple reposit
 
 In the CI the only thing to be done is to schedule a "gradle yum/apt" .
 
-Maybe we have to discuss to remove the dependencies at all in order to generate *anything* if something failed before.
+Maybe we have to discuss to remove the dependencies at all in order to generate \*anything\* if something failed before.
 
 
 ---
@@ -430,7 +467,7 @@ so `mapreduce` is typed as `mapredcue` which is not that big of a deal, because 
 
 Since we're upgrading supported OS in 1.0 release(see BIGTOP-1480), all the provided bigtop docker images must be upgraded to proper version as well.
 This is also the building block of CI overhaul because all the CI jobs are now running in containers.
-The draft version of dockerfiles can be found [here|https://github.com/evans-ye/bigtop-dockerfiles]. I'll upload a patch once all the image has been tested.
+The draft version of dockerfiles can be found [here\|https://github.com/evans-ye/bigtop-dockerfiles]. I'll upload a patch once all the image has been tested.
 
 
 ---
@@ -466,7 +503,7 @@ Compilation of component hadoop-yarn-project fails:
 [ERROR] /opt/bigtop/build/hadoop/rpm/BUILD/hadoop-2.6.0-src/hadoop-yarn-project/hadoop-yarn/hadoop-yarn-client/src/test/java/org/apache/hadoop/yarn/client/cli/TestYarnCLI.java:[70,30] error: package org.jboss.netty.logging does not exist
 {noformat}
 
-{code:java|title=referenced line in TestYarnCLI.java}
+{code:java\|title=referenced line in TestYarnCLI.java}
 import org.jboss.netty.logging.CommonsLoggerFactory;
 {code}
 
@@ -499,8 +536,8 @@ $ cat /var/log/kafka/kafka-server.out
 log4j:ERROR setFile(null,true) call failed.
 java.io.FileNotFoundException: log-cleaner.log (Permission denied)
 	at java.io.FileOutputStream.open(Native Method)
-	at java.io.FileOutputStream.<init>(FileOutputStream.java:221)
-	at java.io.FileOutputStream.<init>(FileOutputStream.java:142)
+	at java.io.FileOutputStream.\<init\>(FileOutputStream.java:221)
+	at java.io.FileOutputStream.\<init\>(FileOutputStream.java:142)
 	at org.apache.log4j.FileAppender.setFile(FileAppender.java:294)
 	at org.apache.log4j.FileAppender.activateOptions(FileAppender.java:165)
 	at org.apache.log4j.DailyRollingFileAppender.activateOptions(DailyRollingFileAppender.java:223)
@@ -513,7 +550,7 @@ java.io.FileNotFoundException: log-cleaner.log (Permission denied)
 	at org.apache.log4j.PropertyConfigurator.doConfigure(PropertyConfigurator.java:504)
 	at org.apache.log4j.PropertyConfigurator.doConfigure(PropertyConfigurator.java:547)
 	at org.apache.log4j.helpers.OptionConverter.selectAndConfigure(OptionConverter.java:483)
-	at org.apache.log4j.LogManager.<clinit>(LogManager.java:127)
+	at org.apache.log4j.LogManager.\<clinit\>(LogManager.java:127)
 	at org.apache.log4j.Logger.getLogger(Logger.java:104)
 	at kafka.utils.Logging$class.logger(Logging.scala:24)
 	at kafka.utils.VerifiableProperties.logger$lzycompute(VerifiableProperties.scala:24)
@@ -521,7 +558,7 @@ java.io.FileNotFoundException: log-cleaner.log (Permission denied)
 	at kafka.utils.Logging$class.info(Logging.scala:67)
 	at kafka.utils.VerifiableProperties.info(VerifiableProperties.scala:24)
 	at kafka.utils.VerifiableProperties.verify(VerifiableProperties.scala:197)
-	at kafka.server.KafkaConfig.<init>(KafkaConfig.scala:32)
+	at kafka.server.KafkaConfig.\<init\>(KafkaConfig.scala:32)
 	at kafka.Kafka$.main(Kafka.scala:35)
 	at kafka.Kafka.main(Kafka.scala)
 ...

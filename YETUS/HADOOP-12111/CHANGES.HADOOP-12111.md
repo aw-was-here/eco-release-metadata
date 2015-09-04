@@ -18,7 +18,7 @@
 -->
 # Apache Hadoop Yetus Changelog
 
-## Release HADOOP-12111 - Unreleased (as of 2015-09-03)
+## Release HADOOP-12111 - Unreleased (as of 2015-09-04)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -62,6 +62,7 @@
 | [HADOOP-12316](https://issues.apache.org/jira/browse/HADOOP-12316) | Potential false-positive and false-negative in parsing TAP output |  Major | yetus | Kengo Seki | Kengo Seki |
 | [HADOOP-12315](https://issues.apache.org/jira/browse/HADOOP-12315) | hbaseprotoc\_postapply in the test-patch hbase personality can return a wrong status |  Major | yetus | Kengo Seki | Kengo Seki |
 | [HADOOP-12314](https://issues.apache.org/jira/browse/HADOOP-12314) | check\_unittests in test-patch.sh can return a wrong status |  Major | yetus | Kengo Seki | Kengo Seki |
+| [HADOOP-12312](https://issues.apache.org/jira/browse/HADOOP-12312) | Findbugs HTML report link shows 0 warnings despite errors |  Major | yetus | Varun Saxena | Kengo Seki |
 | [HADOOP-12310](https://issues.apache.org/jira/browse/HADOOP-12310) | final memory report sometimes generates spurious errors |  Major | yetus | Allen Wittenauer | Kengo Seki |
 | [HADOOP-12303](https://issues.apache.org/jira/browse/HADOOP-12303) | test-patch pylint plugin fails silently and votes +1 incorrectly |  Major | yetus | Kengo Seki | Kengo Seki |
 | [HADOOP-12297](https://issues.apache.org/jira/browse/HADOOP-12297) | test-patch's basedir and patch-dir must be directories under the user's home in docker mode if using boot2docker |  Major | yetus | Kengo Seki | Kengo Seki |

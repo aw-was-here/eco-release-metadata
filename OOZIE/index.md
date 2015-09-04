@@ -17,17 +17,17 @@
 # limitations under the License.
 -->
 * Apache Oozie v4.3.0
-    * Changes (4.3.0/CHANGES.4.3.0.html)
-    * Release Notes (4.3.0/RELEASENOTES.4.3.0.html)
+    * [Changes](4.3.0/CHANGES.4.3.0.html)
+    * [Release Notes](4.3.0/RELEASENOTES.4.3.0.html)
 * Apache Oozie v4.2.0
-    * Changes (4.2.0/CHANGES.4.2.0.html)
-    * Release Notes (4.2.0/RELEASENOTES.4.2.0.html)
+    * [Changes](4.2.0/CHANGES.4.2.0.html)
+    * [Release Notes](4.2.0/RELEASENOTES.4.2.0.html)
 * Apache Oozie v4.1.0
-    * Changes (4.1.0/CHANGES.4.1.0.html)
-    * Release Notes (4.1.0/RELEASENOTES.4.1.0.html)
+    * [Changes](4.1.0/CHANGES.4.1.0.html)
+    * [Release Notes](4.1.0/RELEASENOTES.4.1.0.html)
 * Apache Oozie v4.0.1
-    * Changes (4.0.1/CHANGES.4.0.1.html)
-    * Release Notes (4.0.1/RELEASENOTES.4.0.1.html)
+    * [Changes](4.0.1/CHANGES.4.0.1.html)
+    * [Release Notes](4.0.1/RELEASENOTES.4.0.1.html)
 * Apache Oozie v4.0.0
-    * Changes (4.0.0/CHANGES.4.0.0.html)
-    * Release Notes (4.0.0/RELEASENOTES.4.0.0.html)
+    * [Changes](4.0.0/CHANGES.4.0.0.html)
+    * [Release Notes](4.0.0/RELEASENOTES.4.0.0.html)

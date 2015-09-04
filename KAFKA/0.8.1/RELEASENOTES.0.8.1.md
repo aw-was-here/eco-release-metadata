@@ -441,7 +441,7 @@ When I kill kafka with -9, broker cannot start itself because of corrupted index
 
 While moving partitions, the controller moves the old replicas through the following state changes -
 
-ONLINE -> OFFLINE -> NON\_EXISTENT
+ONLINE -\> OFFLINE -\> NON\_EXISTENT
 
 During the offline state change, the controller removes the old replica and writes the updated ISR to zookeeper and notifies the leader. Note that it doesn't notify the old replicas to stop fetching from the leader (to be fixed in KAFKA-1032). During the non-existent state change, the controller does not write the updated ISR or replica list to zookeeper. Right after the non-existent state change, the controller writes the new replica list to zookeeper, but does not update the ISR. So an old replica can send a fetch request after the offline state change, essentially letting the leader add it back to the ISR. The problem is that if there is no new data coming in for the partition and the old replica is fully caught up, the leader cannot remove it from the ISR. That lets a non existent replica live in the ISR at least until new data comes in to the partition
 
@@ -459,9 +459,9 @@ Here's what I want.  I want the broker to bind to the VM's private network IP bu
 I propose a new optional parameter, "listen", which would allow you to specify the socket address to listen on.  If not set, the parameter would default to host.name, which is the current behavior.
 
 #Publish the externally routable IP in ZK
-host.name = <floating ip>
+host.name = \<floating ip\>
 #Accept connections from any interface the VM knows about
-listen = *
+listen = \*
 
 
 ---
@@ -573,7 +573,7 @@ We think this will, over all, be a good thing. The reason is that the fetching t
 
 * [KAFKA-995](https://issues.apache.org/jira/browse/KAFKA-995) | *Minor* | **Enforce that the value for replica.fetch.max.bytes is always \>= the value for message.max.bytes**
 
-replica.fetch.max.bytes must always be >=  message.max.bytes for replication to work correctly. This ticket adds enforcement of the constraint.
+replica.fetch.max.bytes must always be \>=  message.max.bytes for replication to work correctly. This ticket adds enforcement of the constraint.
 
 
 ---
@@ -582,7 +582,7 @@ replica.fetch.max.bytes must always be >=  message.max.bytes for replication to 
 
 After increasing log.retention.hours from the default of 168 to 744 (31 days) I noticed that logs were being deleted at every cleanup interval.
 
-scala> val retentionMs: Long = 60 * 60 * 1000 * 31 * 24
+scala\> val retentionMs: Long = 60 \* 60 \* 1000 \* 31 \* 24
 retentionMs: Long = -1616567296
 
 This only appears to affect trunk.  I'll attach the minor patch I'm using locally.  Thanks.
@@ -684,7 +684,7 @@ java.lang.NullPointerException
 Files that have conflicts:
 
 # Unmerged paths:
-#   (use "git add/rm <file>..." as appropriate to mark resolution)
+#   (use "git add/rm \<file\>..." as appropriate to mark resolution)
 #
 #	both modified:      core/src/main/scala/kafka/admin/PreferredReplicaLeaderElectionCommand.scala
 #	both modified:      core/src/main/scala/kafka/cluster/Partition.scala
@@ -704,8 +704,8 @@ Files that have conflicts:
 Files have to be changed manually due to merge.
 
 # Changed but not updated:
-#   (use "git add <file>..." to update what will be committed)
-#   (use "git checkout -- <file>..." to discard changes in working directory)
+#   (use "git add \<file\>..." to update what will be committed)
+#   (use "git checkout -- \<file\>..." to discard changes in working directory)
 #
 #	modified:   core/src/main/scala/kafka/log/LogSegment.scala
 #	modified:   core/src/test/scala/unit/kafka/producer/ProducerTest.scala
@@ -726,7 +726,7 @@ These are not needed and conflict with the API documentation. Should be removed 
 merge 0.8 up to the following commit to trunk
 
 commit 51421fcc0111031bb77f779a6f6c00520d526a34
-Author: Neha Narkhede <neha.narkhede@gmail.com>
+Author: Neha Narkhede \<neha.narkhede@gmail.com\>
 Date:   Fri Mar 22 09:32:27 2013 -0700
 
     KAFKA-816 Reduce noise in Kafka server logs due to NotLeaderForPartitionException; reviewed by Jun Rao
@@ -770,7 +770,7 @@ It would be good to do a wiki design on how this would work and consensus on tha
 
 * [KAFKA-648](https://issues.apache.org/jira/browse/KAFKA-648) | *Blocker* | **Use uniform convention for naming properties keys**
 
-Currently, the convention that we seem to use to get a property value in *Config is as follows:
+Currently, the convention that we seem to use to get a property value in \*Config is as follows:
 
 val configVal = property.getType("config.val", ...) // dot is used to separate two words in the key and the first letter of second word is capitalized in configVal.
 

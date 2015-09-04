@@ -38,7 +38,7 @@ spark.port.maxRetries	16	Default maximum number of retries when binding to a por
 
 But what really happens when the port for that service is not 0 is:
 
-   * Each subsequent attempt uses 1 + the port used in the previous attempt (unless the port is 0).
+   \* Each subsequent attempt uses 1 + the port used in the previous attempt (unless the port is 0).
 
 
 ---
@@ -47,7 +47,7 @@ But what really happens when the port for that service is not 0 is:
 
 I sometimes get test failures such as:
 
-- input metrics with cache and coalesce *** FAILED ***
+- input metrics with cache and coalesce \*\*\* FAILED \*\*\*
   5994472 did not equal 6044472 (InputOutputMetricsSuite.scala:101)
 
 Tracking this down by adding some debug it seems this is a timing issue in the test.
@@ -55,9 +55,9 @@ Tracking this down by adding some debug it seems this is a timing issue in the t
 test("input metrics with cache and coalesce") {
     // prime the cache manager
     val rdd = sc.textFile(tmpFilePath, 4).cache()
-    rdd.collect()     // <== #1
+    rdd.collect()     // \<== #1
 
-    val bytesRead = runAndReturnBytesRead {      // <== #2
+    val bytesRead = runAndReturnBytesRead {      // \<== #2
       rdd.count()
     }
     val bytesRead2 = runAndReturnBytesRead {
@@ -89,6 +89,13 @@ hashCode implementation is missing in classes AccumulableInfo and RDDOperationSc
 
 ---
 
+* [SPARK-10421](https://issues.apache.org/jira/browse/SPARK-10421) | *Minor* | **tachyon dependency can leak different curator artifact versions**
+
+tachyon-client depends on an older version of curator; core/pom.xml excludes certain dependencies, but misses at least one (org.apache.curator:curator-framework), which, depending on the maven version being used, might leak into the classpath and override the version of curator-framework pulled transitively from other dependencies. Sadness ensues.
+
+
+---
+
 * [SPARK-10417](https://issues.apache.org/jira/browse/SPARK-10417) | *Minor* | **Iterating through Column results in infinite loop**
 
 Iterating through a \_Column\_ object results in an infinite loop.
@@ -100,10 +107,10 @@ for i in df["name"]: print i
 
 Result:
 {code}
-Column<name[0]>
-Column<name[1]>
-Column<name[2]>
-Column<name[3]>
+Column\<name[0]\>
+Column\<name[1]\>
+Column\<name[2]\>
+Column\<name[3]\>
 ...
 {code}
 
@@ -162,40 +169,40 @@ df = sqlCtx.createDataFrame(df.rdd, df.schema)
 [Row(id=1, date=0)]
 ---------------------------------------------------------------------------
 TypeError                                 Traceback (most recent call last)
-<ipython-input-36-ebc1d94e0d8c> in <module>()
+\<ipython-input-36-ebc1d94e0d8c\> in \<module\>()
       1 df = sqlCtx.read.jdbc("jdbc:mysql://a2.adpilot.co/sandbox?user=mbrynski&password=CebO3ax4", 'spark\_test')
       2 print(df.collect())
-----> 3 df = sqlCtx.createDataFrame(df.rdd, df.schema)
+----\> 3 df = sqlCtx.createDataFrame(df.rdd, df.schema)
 
 /mnt/spark/spark/python/pyspark/sql/context.py in createDataFrame(self, data, schema, samplingRatio)
     402 
     403         if isinstance(data, RDD):
---> 404             rdd, schema = self.\_createFromRDD(data, schema, samplingRatio)
+--\> 404             rdd, schema = self.\_createFromRDD(data, schema, samplingRatio)
     405         else:
     406             rdd, schema = self.\_createFromLocal(data, schema)
 
 /mnt/spark/spark/python/pyspark/sql/context.py in \_createFromRDD(self, rdd, schema, samplingRatio)
     296             rows = rdd.take(10)
     297             for row in rows:
---> 298                 \_verify\_type(row, schema)
+--\> 298                 \_verify\_type(row, schema)
     299 
     300         else:
 
 /mnt/spark/spark/python/pyspark/sql/types.py in \_verify\_type(obj, dataType)
    1152                              "length of fields (%d)" % (len(obj), len(dataType.fields)))
    1153         for v, f in zip(obj, dataType.fields):
--> 1154             \_verify\_type(v, f.dataType)
+-\> 1154             \_verify\_type(v, f.dataType)
    1155 
    1156 
 
 /mnt/spark/spark/python/pyspark/sql/types.py in \_verify\_type(obj, dataType)
    1136         # subclass of them can not be fromInternald in JVM
    1137         if type(obj) not in \_acceptable\_types[\_type]:
--> 1138             raise TypeError("%s can not accept object in type %s" % (dataType, type(obj)))
+-\> 1138             raise TypeError("%s can not accept object in type %s" % (dataType, type(obj)))
    1139 
    1140     if isinstance(dataType, ArrayType):
 
-TypeError: DateType can not accept object in type <class 'int'>
+TypeError: DateType can not accept object in type \<class 'int'\>
 
 {code}
 
@@ -340,14 +347,14 @@ read.schema(tailoredSchema).parquet(path).show()
 Expected output should be:
 {noformat}
 +--------+
-|      f0|
+\|      f0\|
 +--------+
-|[0,null]|
-|[1,null]|
-|[2,null]|
-|   [0,0]|
-|   [1,1]|
-|   [2,2]|
+\|[0,null]\|
+\|[1,null]\|
+\|[2,null]\|
+\|   [0,0]\|
+\|   [1,1]\|
+\|   [2,2]\|
 +--------+
 {noformat}
 However, current 1.5-SNAPSHOT version throws the following exception:
@@ -381,7 +388,7 @@ org.apache.parquet.io.ParquetDecodingException: Can not read value at 0 in block
         at java.lang.Thread.run(Thread.java:745)
 Caused by: java.lang.ArrayIndexOutOfBoundsException: 2
         at org.apache.spark.sql.execution.datasources.parquet.CatalystRowConverter.getConverter(CatalystRowConverter.scala:206)
-        at org.apache.parquet.io.RecordReaderImplementation.<init>(RecordReaderImplementation.java:269)
+        at org.apache.parquet.io.RecordReaderImplementation.\<init\>(RecordReaderImplementation.java:269)
         at org.apache.parquet.io.MessageColumnIO$1.visit(MessageColumnIO.java:134)
         at org.apache.parquet.io.MessageColumnIO$1.visit(MessageColumnIO.java:99)
         at org.apache.parquet.filter2.compat.FilterCompat$NoOpFilter.accept(FilterCompat.java:154)
@@ -419,7 +426,7 @@ org.apache.spark.SparkException: Job aborted due to stage failure: Task 0 in sta
         at java.lang.Thread.run(Thread.java:745)
 Caused by: java.lang.ArrayIndexOutOfBoundsException: 2
         at org.apache.spark.sql.execution.datasources.parquet.CatalystRowConverter.getConverter(CatalystRowConverter.scala:206)
-        at org.apache.parquet.io.RecordReaderImplementation.<init>(RecordReaderImplementation.java:269)
+        at org.apache.parquet.io.RecordReaderImplementation.\<init\>(RecordReaderImplementation.java:269)
         at org.apache.parquet.io.MessageColumnIO$1.visit(MessageColumnIO.java:134)
         at org.apache.parquet.io.MessageColumnIO$1.visit(MessageColumnIO.java:99)
         at org.apache.parquet.filter2.compat.FilterCompat$NoOpFilter.accept(FilterCompat.java:154)
@@ -460,20 +467,20 @@ Driver stacktrace:
         at org.apache.spark.sql.DataFrame.show(DataFrame.scala:402)
         at org.apache.spark.sql.DataFrame.show(DataFrame.scala:363)
         at org.apache.spark.sql.DataFrame.show(DataFrame.scala:371)
-        at $iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC.<init>(<console>:41)
-        at $iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC.<init>(<console>:53)
-        at $iwC$$iwC$$iwC$$iwC$$iwC$$iwC.<init>(<console>:55)
-        at $iwC$$iwC$$iwC$$iwC$$iwC.<init>(<console>:57)
-        at $iwC$$iwC$$iwC$$iwC.<init>(<console>:59)
-        at $iwC$$iwC$$iwC.<init>(<console>:61)
-        at $iwC$$iwC.<init>(<console>:63)
-        at $iwC.<init>(<console>:65)
-        at <init>(<console>:67)
-        at .<init>(<console>:71)
-        at .<clinit>(<console>)
-        at .<init>(<console>:7)
-        at .<clinit>(<console>)
-        at $print(<console>)
+        at $iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC.\<init\>(\<console\>:41)
+        at $iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC.\<init\>(\<console\>:53)
+        at $iwC$$iwC$$iwC$$iwC$$iwC$$iwC.\<init\>(\<console\>:55)
+        at $iwC$$iwC$$iwC$$iwC$$iwC.\<init\>(\<console\>:57)
+        at $iwC$$iwC$$iwC$$iwC.\<init\>(\<console\>:59)
+        at $iwC$$iwC$$iwC.\<init\>(\<console\>:61)
+        at $iwC$$iwC.\<init\>(\<console\>:63)
+        at $iwC.\<init\>(\<console\>:65)
+        at \<init\>(\<console\>:67)
+        at .\<init\>(\<console\>:71)
+        at .\<clinit\>(\<console\>)
+        at .\<init\>(\<console\>:7)
+        at .\<clinit\>(\<console\>)
+        at $print(\<console\>)
         at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
         at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
         at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -539,7 +546,7 @@ Caused by: org.apache.parquet.io.ParquetDecodingException: Can not read value at
         at java.lang.Thread.run(Thread.java:745)
 Caused by: java.lang.ArrayIndexOutOfBoundsException: 2
         at org.apache.spark.sql.execution.datasources.parquet.CatalystRowConverter.getConverter(CatalystRowConverter.scala:206)
-        at org.apache.parquet.io.RecordReaderImplementation.<init>(RecordReaderImplementation.java:269)
+        at org.apache.parquet.io.RecordReaderImplementation.\<init\>(RecordReaderImplementation.java:269)
         at org.apache.parquet.io.MessageColumnIO$1.visit(MessageColumnIO.java:134)
         at org.apache.parquet.io.MessageColumnIO$1.visit(MessageColumnIO.java:99)
         at org.apache.parquet.filter2.compat.FilterCompat$NoOpFilter.accept(FilterCompat.java:154)
@@ -565,7 +572,7 @@ Due to a set of unfortunate historical issues, it's relatively hard to achieve f
 ##- Often requires code generation (Avro/Thrift/ProtoBuf/...), either complicates build system by using build time code generation, or bloats the code base by checking in generated Java files.  The former one is especially annoying because Spark has two build systems, and require two sets of plugins to do code generation (e.g., for Avro, we need both sbt-avro and avro-maven-plugin).
 ##- Can only test a single version of a given target library
 
-Inspired by the [{{writeDirect}}|https://github.com/apache/parquet-mr/blob/apache-parquet-1.8.1/parquet-avro/src/test/java/org/apache/parquet/avro/TestArrayCompatibility.java#L945-L972] method in parquet-avro testing code, a direct write API can be a good complement for testing Parquet compatibilities.  Ideally, this API should
+Inspired by the [{{writeDirect}}\|https://github.com/apache/parquet-mr/blob/apache-parquet-1.8.1/parquet-avro/src/test/java/org/apache/parquet/avro/TestArrayCompatibility.java#L945-L972] method in parquet-avro testing code, a direct write API can be a good complement for testing Parquet compatibilities.  Ideally, this API should
 
 # be easy to construct arbitrary complex Parquet records
 # have a DSL that reflects the nested nature of Parquet records
@@ -612,7 +619,7 @@ the "ignore late map task completion" test in {{DAGSchedulerSuite}} is a bit con
 
 * [SPARK-10184](https://issues.apache.org/jira/browse/SPARK-10184) | *Minor* | **Optimization for bounds determination in RangePartitioner**
 
-Change {{cumWeight > target}} to {{cumWeight >= target}} in {{RangePartitioner.determineBounds}} method to make the output partitions more balanced.
+Change {{cumWeight \> target}} to {{cumWeight \>= target}} in {{RangePartitioner.determineBounds}} method to make the output partitions more balanced.
 
 
 ---
@@ -636,7 +643,7 @@ val samples = Seq[LabeledPoint](
 
 val rdd = sc.parallelize(samples)
 
-for (i <- 0 until 10) {
+for (i \<- 0 until 10) {
   val model = {
     new LogisticRegressionWithLBFGS()
       .setNumClasses(2)
@@ -681,7 +688,7 @@ com.ibm.db2.jcc.am.SqlSyntaxErrorException: TEXT
 // create data frame with String , and Boolean types 
 val empdf = sc.parallelize( Array((1,"true".toBoolean ), (2, "false".toBoolean ))).toDF("id", "isManager")
 // write the data frame.  this will fail with error.  
-empdf.write.jdbc("jdbc:db2://<server>:<port> /SAMPLE:retrieveMessagesFromServerOnGetMessage=true;", "emp\_data", properties)
+empdf.write.jdbc("jdbc:db2://\<server\>:\<port\> /SAMPLE:retrieveMessagesFromServerOnGetMessage=true;", "emp\_data", properties)
 
 Error :
 com.ibm.db2.jcc.am.SqlSyntaxErrorException: TEXT
@@ -702,8 +709,8 @@ Please see the example below. The generated filter in the query plan is 5 hours 
 {code}
 In [1]: df = sc.sql.createDataFrame([], StructType([StructField("dt", TimestampType())]))
 
-In [2]: df.filter(df.dt > datetime(2000, 01, 01, tzinfo=UTC)).explain()
-Filter (dt#9 > 946702800000000)
+In [2]: df.filter(df.dt \> datetime(2000, 01, 01, tzinfo=UTC)).explain()
+Filter (dt#9 \> 946702800000000)
  Scan PhysicalRDD[dt#9]
 {code}
 
@@ -742,6 +749,13 @@ However, after #8371 got merged, the `SortOrder`s are guaranteed to be resolved 
 The shuffle service currently performs authentication of clients; but once a client is authenticated, it blindly trusts the client to send proper requests.
 
 A malicious client could send a {{OpenBlocks}} message to open another application's shuffle data, and the shuffle service will just do it. This can be used to work around the fact that the app cannot go directly to the other app's files in the local filesystem (due to permissions), while the shuffle service can.
+
+
+---
+
+* [SPARK-10003](https://issues.apache.org/jira/browse/SPARK-10003) | *Major* | **Improve readability of DAGScheduler**
+
+There are many opportunities for improving DAGScheduler's readability. This issue will represent more of an incremental process than one specific patch.
 
 
 ---
@@ -882,7 +896,7 @@ Since the ApplicationSubmissionContext.setApplicationTags method was only added 
 
 * [SPARK-9748](https://issues.apache.org/jira/browse/SPARK-9748) | *Trivial* | **Centriod typo in KMeansModel**
 
-A minor typo (centriod -> centroid). Readable variable names help every users.
+A minor typo (centriod -\> centroid). Readable variable names help every users.
 
 
 ---
@@ -900,9 +914,9 @@ This issue definitely affects Mesos mode, but may effect complex standalone topo
 
 When running spark-submit with {noformat}--deploy-mode cluster{noformat} environment variables set in {{spark-env.sh}} that are not prefixed with {{SPARK\_}} are not available in the driver process. The behavior I expect is that any variables set in {{spark-env.sh}} are available on the driver and all executors.
 
-{{spark-env.sh}} is executed by {{load-spark-env.sh}} which uses an environment variable {{SPARK\_ENV\_LOADED}} [[code|https://github.com/apache/spark/blob/master/bin/load-spark-env.sh#L25]] to ensure that it is only run once. When using the {{RestSubmissionClient}}, spark submit propagates all environment variables that are prefixed with {{SPARK\_}} [[code|https://github.com/apache/spark/blob/3c0156899dc1ec1f7dfe6d7c8af47fa6dc7d00bf/core/src/main/scala/org/apache/spark/deploy/rest/RestSubmissionClient.scala#L400]] to the {{MesosRestServer}} where they are used to initialize the driver [[code|https://github.com/apache/spark/blob/3c0156899dc1ec1f7dfe6d7c8af47fa6dc7d00bf/core/src/main/scala/org/apache/spark/deploy/rest/StandaloneRestServer.scala#L155]]. During this process, {{SPARK\_ENV\_LOADED}} is propagated to the new driver process (since running spark submit has caused {{load-spark-env.sh}} to be run on the submitter's machine) [[code|https://github.com/apache/spark/blob/d86bbb4e286f16f77ba125452b07827684eafeed/core/src/main/scala/org/apache/spark/scheduler/cluster/mesos/MesosClusterScheduler.scala#L371]]. Now when {{load-spark-env.sh}} is called by {{MesosClusterScheduler}} {{SPARK\_ENV\_LOADED}} is set and {{spark-env.sh}} is never sourced.
+{{spark-env.sh}} is executed by {{load-spark-env.sh}} which uses an environment variable {{SPARK\_ENV\_LOADED}} [[code\|https://github.com/apache/spark/blob/master/bin/load-spark-env.sh#L25]] to ensure that it is only run once. When using the {{RestSubmissionClient}}, spark submit propagates all environment variables that are prefixed with {{SPARK\_}} [[code\|https://github.com/apache/spark/blob/3c0156899dc1ec1f7dfe6d7c8af47fa6dc7d00bf/core/src/main/scala/org/apache/spark/deploy/rest/RestSubmissionClient.scala#L400]] to the {{MesosRestServer}} where they are used to initialize the driver [[code\|https://github.com/apache/spark/blob/3c0156899dc1ec1f7dfe6d7c8af47fa6dc7d00bf/core/src/main/scala/org/apache/spark/deploy/rest/StandaloneRestServer.scala#L155]]. During this process, {{SPARK\_ENV\_LOADED}} is propagated to the new driver process (since running spark submit has caused {{load-spark-env.sh}} to be run on the submitter's machine) [[code\|https://github.com/apache/spark/blob/d86bbb4e286f16f77ba125452b07827684eafeed/core/src/main/scala/org/apache/spark/scheduler/cluster/mesos/MesosClusterScheduler.scala#L371]]. Now when {{load-spark-env.sh}} is called by {{MesosClusterScheduler}} {{SPARK\_ENV\_LOADED}} is set and {{spark-env.sh}} is never sourced.
 
-[This gist|https://gist.github.com/pashields/9fe662d6ec5c079bdf70] shows the testing setup I used while investigating this issue. An example invocation looked like {noformat}spark-1.5.0-SNAPSHOT-bin-custom-spark/bin/spark-submit --deploy-mode cluster --master mesos://172.31.34.154:7077 --class Test spark-env-var-test\_2.10-0.1-SNAPSHOT.jar{noformat}
+[This gist\|https://gist.github.com/pashields/9fe662d6ec5c079bdf70] shows the testing setup I used while investigating this issue. An example invocation looked like {noformat}spark-1.5.0-SNAPSHOT-bin-custom-spark/bin/spark-submit --deploy-mode cluster --master mesos://172.31.34.154:7077 --class Test spark-env-var-test\_2.10-0.1-SNAPSHOT.jar{noformat}
 
 
 ---
@@ -1014,7 +1028,7 @@ java.io.IOException: Failed to connect to xxx
         at org.apache.spark.broadcast.TorrentBroadcast.getValue(TorrentBroadcast.scala:88)
         at org.apache.spark.broadcast.Broadcast.value(Broadcast.scala:70)
         at org.apache.spark.rdd.HadoopRDD.getJobConf(HadoopRDD.scala:132)
-        at org.apache.spark.rdd.HadoopRDD$$anon$1.<init>(HadoopRDD.scala:216)
+        at org.apache.spark.rdd.HadoopRDD$$anon$1.\<init\>(HadoopRDD.scala:216)
         at org.apache.spark.rdd.HadoopRDD.compute(HadoopRDD.scala:212)
         at org.apache.spark.rdd.HadoopRDD.compute(HadoopRDD.scala:93)
         at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:277)
@@ -1042,7 +1056,7 @@ java.io.IOException: Failed to connect to xxx
         at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
         at java.lang.Thread.run(Thread.java:662)
 {noformat}
-When we getting the broadcast variable, we can fetch the block form several location,but now when connecting the *lost blockmanager*(idle for enough time removed by driver when using dynamic resource allocate and so on)  will cause task fail,and the worse case will caused the job fail.
+When we getting the broadcast variable, we can fetch the block form several location,but now when connecting the \*lost blockmanager\*(idle for enough time removed by driver when using dynamic resource allocate and so on)  will cause task fail,and the worse case will caused the job fail.
 
 
 ---
@@ -1097,7 +1111,7 @@ people.json
 {"name":"테스트123", "age":30}
 {"name":"Justin", "age":19}
 
-df <- read.df(sqlContext, "./people.json", "json")
+df \<- read.df(sqlContext, "./people.json", "json")
 head(df)
 
 Error in rawtochar(string) : embedded nul in string : '\0 \x98'
@@ -1258,7 +1272,7 @@ Some simple feature transformations can take leverage on SQL operators. Users do
 
 {code}
 val sql = new SQL()
-  .setStatement("SELECT *, length(text) AS text\_length FROM \_\_THIS\_\_")
+  .setStatement("SELECT \*, length(text) AS text\_length FROM \_\_THIS\_\_")
 {code}
 
 where "\_\_THIS\_\_" will be replaced by a temp table that represents the DataFrame.
@@ -1290,14 +1304,14 @@ In general it just seems there is some flakiness in the retry logic.  This is th
 Copied from SPARK-5928, here's the example program that can regularly produce a loop of stage failures.  Note that it will only fail from a remote fetch, so it can't be run locally -- I ran with {{MASTER=yarn-client spark-shell --num-executors 2 --executor-memory 4000m}}
 
 {code}
-    val rdd = sc.parallelize(1 to 1e6.toInt, 1).map{ ignore =>
+    val rdd = sc.parallelize(1 to 1e6.toInt, 1).map{ ignore =\>
       val n = 3e3.toInt
       val arr = new Array[Byte](n)
       //need to make sure the array doesn't compress to something small
       scala.util.Random.nextBytes(arr)
       arr
     }
-    rdd.map { x => (1, x)}.groupByKey().count()
+    rdd.map { x =\> (1, x)}.groupByKey().count()
 {code}
 
 
@@ -1324,7 +1338,7 @@ I checked a little and there seems to be people that is able to run Spark on YAR
 
 * [SPARK-4223](https://issues.apache.org/jira/browse/SPARK-4223) | *Major* | **Support \* (meaning all users) as part of the acls**
 
-Currently we support setting view and modify acls but you have to specify a list of users.  It would be nice to support * meaning all users have access.
+Currently we support setting view and modify acls but you have to specify a list of users.  It would be nice to support \* meaning all users have access.
 
 
 

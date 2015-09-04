@@ -35,9 +35,9 @@ In our environment we load the tez code as a plugin. Our context classloader doe
 {code}
  WARN [2014-12-03 17:30:30.971] (VersionInfo.java:60) - Could not read 'tez-api-version-info.properties', java.io.IOException: Resource not found
 java.io.IOException: Resource not found
-	at org.apache.tez.common.VersionInfo.<init>(VersionInfo.java:56)
-	at org.apache.tez.client.TezApiVersionInfo.<init>(TezApiVersionInfo.java:26)
-	at org.apache.tez.client.TezClient.<init>(TezClient.java:137)
+	at org.apache.tez.common.VersionInfo.\<init\>(VersionInfo.java:56)
+	at org.apache.tez.client.TezApiVersionInfo.\<init\>(TezApiVersionInfo.java:26)
+	at org.apache.tez.client.TezClient.\<init\>(TezClient.java:137)
 	at org.apache.tez.client.TezClient.create(TezClient.java:213)
         ....
 {code}
@@ -73,7 +73,7 @@ As a result, an exception is thrown:
 Map 1 .........       KILLED    115        110        0        5       0       5
 Reducer 2             FAILED      3          0        0        3       1       2
 --------------------------------------------------------------------------------
-VERTICES: 00/02  [========================>>--] 93%   ELAPSED TIME: 110.95 s   
+VERTICES: 00/02  [========================\>\>--] 93%   ELAPSED TIME: 110.95 s   
 --------------------------------------------------------------------------------
 Status: Failed
 Vertex failed, vertexName=Reducer 2, vertexId=vertex\_1417036912823\_0073\_1\_01, diagnostics=[Task failed, taskId=task\_1417036912823\_0073\_1\_01\_000000, diagnostics=[TaskAttempt 0 failed, info=[Error: exceptionThrown=org.apache.tez.runtime.library.common.shuffle.orderedgrouped.Shuffle$ShuffleError: error in shuffle in DiskToDiskMerger [Map\_1]
@@ -85,15 +85,15 @@ Vertex failed, vertexName=Reducer 2, vertexId=vertex\_1417036912823\_0073\_1\_01
         at java.lang.Thread.run(Thread.java:745)
 Caused by: java.io.FileNotFoundException: /hadoop1/tmp/nm-local-dir/usercache/ozawa/appcache/application\_1417036912823\_0073/attempt\_1417036912823\_0073\_1\_01\_000000\_0\_10026\_spill\_215.out.merged.merged.merged.merged.merged.merged.merged.merged.merged.merged.merged.merged.merged.merged.merged.merged.merged.merged.merged.merged.merged.merged.merged.merged.merged.merged.merged.merged (File name too long)
         at java.io.FileOutputStream.open(Native Method)
-        at java.io.FileOutputStream.<init>(FileOutputStream.java:221)
-        at org.apache.hadoop.fs.RawLocalFileSystem$LocalFSFileOutputStream.<init>(RawLocalFileSystem.java:211)
-        at org.apache.hadoop.fs.RawLocalFileSystem$LocalFSFileOutputStream.<init>(RawLocalFileSystem.java:207)
+        at java.io.FileOutputStream.\<init\>(FileOutputStream.java:221)
+        at org.apache.hadoop.fs.RawLocalFileSystem$LocalFSFileOutputStream.\<init\>(RawLocalFileSystem.java:211)
+        at org.apache.hadoop.fs.RawLocalFileSystem$LocalFSFileOutputStream.\<init\>(RawLocalFileSystem.java:207)
         at org.apache.hadoop.fs.RawLocalFileSystem.create(RawLocalFileSystem.java:270)
         at org.apache.hadoop.fs.RawLocalFileSystem.create(RawLocalFileSystem.java:257)
         at org.apache.hadoop.fs.FileSystem.create(FileSystem.java:887)
         at org.apache.hadoop.fs.FileSystem.create(FileSystem.java:784)
         at org.apache.hadoop.fs.FileSystem.create(FileSystem.java:773)
-        at org.apache.tez.runtime.library.common.sort.impl.IFile$Writer.<init>(IFile.java:129)
+        at org.apache.tez.runtime.library.common.sort.impl.IFile$Writer.\<init\>(IFile.java:129)
         at org.apache.tez.runtime.library.common.shuffle.orderedgrouped.MergeManager$OnDiskMerger.merge(MergeManager.java:702)
         at org.apache.tez.runtime.library.common.shuffle.orderedgrouped.MergeThread.run(MergeThread.java:89)
 , errorMessage=Shuffle Runner Failed:org.apache.tez.runtime.library.common.shuffle.orderedgrouped.Shuffle$ShuffleError: error in shuffle in DiskToDiskMerger [Map\_1]
@@ -105,15 +105,15 @@ Caused by: java.io.FileNotFoundException: /hadoop1/tmp/nm-local-dir/usercache/oz
         at java.lang.Thread.run(Thread.java:745)
 Caused by: java.io.FileNotFoundException: /hadoop1/tmp/nm-local-dir/usercache/ozawa/appcache/application\_1417036912823\_0073/attempt\_1417036912823\_0073\_1\_01\_000000\_0\_10026\_spill\_215.out.merged.merged.merged.merged.merged.merged.merged.merged.merged.merged.merged.merged.merged.merged.merged.merged.merged.merged.merged.merged.merged.merged.merged.merged.merged.merged.merged.merged (File name too long)
         at java.io.FileOutputStream.open(Native Method)
-        at java.io.FileOutputStream.<init>(FileOutputStream.java:221)
-        at org.apache.hadoop.fs.RawLocalFileSystem$LocalFSFileOutputStream.<init>(RawLocalFileSystem.java:211)
-        at org.apache.hadoop.fs.RawLocalFileSystem$LocalFSFileOutputStream.<init>(RawLocalFileSystem.java:207)
+        at java.io.FileOutputStream.\<init\>(FileOutputStream.java:221)
+        at org.apache.hadoop.fs.RawLocalFileSystem$LocalFSFileOutputStream.\<init\>(RawLocalFileSystem.java:211)
+        at org.apache.hadoop.fs.RawLocalFileSystem$LocalFSFileOutputStream.\<init\>(RawLocalFileSystem.java:207)
         at org.apache.hadoop.fs.RawLocalFileSystem.create(RawLocalFileSystem.java:270)
         at org.apache.hadoop.fs.RawLocalFileSystem.create(RawLocalFileSystem.java:257)
         at org.apache.hadoop.fs.FileSystem.create(FileSystem.java:887)
         at org.apache.hadoop.fs.FileSystem.create(FileSystem.java:784)
         at org.apache.hadoop.fs.FileSystem.create(FileSystem.java:773)
-        at org.apache.tez.runtime.library.common.sort.impl.IFile$Writer.<init>(IFile.java:129)
+        at org.apache.tez.runtime.library.common.sort.impl.IFile$Writer.\<init\>(IFile.java:129)
         at org.apache.tez.runtime.library.common.shuffle.orderedgrouped.MergeManager$OnDiskMerger.merge(MergeManager.java:702)
         at org.apache.tez.runtime.library.common.shuffle.orderedgrouped.MergeThread.run(MergeThread.java:89)
 ]], Vertex failed as one or more tasks failed. failedTasks:1, Vertex vertex\_1417036912823\_0073\_1\_01 [Reducer 2] killed/failed due to:null]
@@ -146,9 +146,9 @@ Thanks [~sidharta-s] for reporting this.
 
 * [TEZ-1761](https://issues.apache.org/jira/browse/TEZ-1761) | *Major* | **TestRecoveryParser::testGetLastInProgressDAG fails in similar manner to TEZ-1686**
 
-Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.713 sec <<< FAILURE!
-testGetLastInProgressDAG(org.apache.tez.dag.app.TestRecoveryParser)  Time elapsed: 0.053 sec  <<< FAILURE!
-java.lang.AssertionError: expected:<0> but was:<100>
+Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.713 sec \<\<\< FAILURE!
+testGetLastInProgressDAG(org.apache.tez.dag.app.TestRecoveryParser)  Time elapsed: 0.053 sec  \<\<\< FAILURE!
+java.lang.AssertionError: expected:\<0\> but was:\<100\>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:743)
 	at org.junit.Assert.assertEquals(Assert.java:118)
@@ -187,14 +187,14 @@ Fails intermittently on some other platforms (windows).
 
 * [TEZ-1746](https://issues.apache.org/jira/browse/TEZ-1746) | *Major* | **Flaky test in TestVertexImpl and TestExceptionPropagation**
 
-*TestVertexImpl*
+\*TestVertexImpl\*
 {code}
 Error Message
 
-expected:<FAILED> but was:<INITIALIZING>
+expected:\<FAILED\> but was:\<INITIALIZING\>
 Stacktrace
 
-java.lang.AssertionError: expected:<FAILED> but was:<INITIALIZING>
+java.lang.AssertionError: expected:\<FAILED\> but was:\<INITIALIZING\>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:743)
 	at org.junit.Assert.assertEquals(Assert.java:118)
@@ -202,7 +202,7 @@ java.lang.AssertionError: expected:<FAILED> but was:<INITIALIZING>
 	at org.apache.tez.dag.app.dag.impl.TestVertexImpl.testExceptionFromII\_OnVertexStateUpdated(TestVertexImpl.java:5212)
 {code}
 
-*TestExceptionProgagation*
+\*TestExceptionProgagation\*
 {code}
 Error Message
 

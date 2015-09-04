@@ -18,7 +18,7 @@
 -->
 # Apache Hive Changelog
 
-## Release 2.0.0 - Unreleased (as of 2015-09-03)
+## Release 2.0.0 - Unreleased (as of 2015-09-04)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -109,6 +109,7 @@
 | [HIVE-11669](https://issues.apache.org/jira/browse/HIVE-11669) | OrcFileDump service should support directories |  Major | . | Prasanth Jayachandran | Prasanth Jayachandran |
 | [HIVE-11668](https://issues.apache.org/jira/browse/HIVE-11668) | make sure directsql calls pre-query init when needed |  Major | Metastore | Sergey Shelukhin | Sergey Shelukhin |
 | [HIVE-11658](https://issues.apache.org/jira/browse/HIVE-11658) | Load data file format validation does not work with directories |  Major | . | Prasanth Jayachandran | Prasanth Jayachandran |
+| [HIVE-11657](https://issues.apache.org/jira/browse/HIVE-11657) | HIVE-2573 introduces some issues during metastore init (and CLI init) |  Critical | . | Sergey Shelukhin | Sergey Shelukhin |
 | [HIVE-11652](https://issues.apache.org/jira/browse/HIVE-11652) | Avoid expensive call to removeAll in DefaultGraphWalker |  Major | Logical Optimizer, Physical Optimizer | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
 | [HIVE-11607](https://issues.apache.org/jira/browse/HIVE-11607) | Export tables broken for data \> 32 MB |  Major | Import/Export | Ashutosh Chauhan | Ashutosh Chauhan |
 | [HIVE-11604](https://issues.apache.org/jira/browse/HIVE-11604) | HIVE return wrong results in some queries with PTF function |  Major | Logical Optimizer | Yongzhi Chen | Yongzhi Chen |

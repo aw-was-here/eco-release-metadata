@@ -28,8 +28,8 @@ These release notes cover new developer and user-facing incompatibilities, featu
 If zkclient does not get replaced with curator (via KAFKA-873) sooner please consider upgrading zkclient dependency to recently released 0.6.
 
 zkclient 0.6 has few important changes included like:
-- [fix|https://github.com/sgroschupf/zkclient/commit/0630c9c6e67ab49a51e80bfd939e4a0d01a69dfe] to fail retryUntilConnected actions with clear exception in case client gets closed
-- [upgraded zookeeper dependency from 3.4.6 to 3.4.3|https://github.com/sgroschupf/zkclient/commit/8975c1790f7f36cc5d4feea077df337fb1ddabdb]
+- [fix\|https://github.com/sgroschupf/zkclient/commit/0630c9c6e67ab49a51e80bfd939e4a0d01a69dfe] to fail retryUntilConnected actions with clear exception in case client gets closed
+- [upgraded zookeeper dependency from 3.4.6 to 3.4.3\|https://github.com/sgroschupf/zkclient/commit/8975c1790f7f36cc5d4feea077df337fb1ddabdb]
 
 
 ---
@@ -40,7 +40,7 @@ The new consumer was previously reaching getting good performance. However, a re
 
 Some details about where the regression occurred from the mailing list http://mail-archives.apache.org/mod\_mbox/kafka-dev/201508.mbox/%3CCAAdKFaE8bPSeWZf%2BF9RuA-xZazRpBrZG6vo454QLVHBAk\_VOJg%40mail.gmail.com%3E :
 
-bq. At 49026f11781181c38e9d5edb634be9d27245c961 (May 14th), we went from good performance -> an error due to broker apparently not accepting the partition assignment strategy. Since this commit seems to add heartbeats and the server side code for partition assignment strategies, I assume we were missing something on the client side and by filling in the server side, things stopped working.
+bq. At 49026f11781181c38e9d5edb634be9d27245c961 (May 14th), we went from good performance -\> an error due to broker apparently not accepting the partition assignment strategy. Since this commit seems to add heartbeats and the server side code for partition assignment strategies, I assume we were missing something on the client side and by filling in the server side, things stopped working.
 bq. On either 84636272422b6379d57d4c5ef68b156edc1c67f8 or a5b11886df8c7aad0548efd2c7c3dbc579232f03 (July 17th), I am able to run the perf test again, but it's slow -- ~10MB/s for me vs the 2MB/s Jay was seeing, but that's still far less than the 600MB/s I saw on the earlier commits.
 
 Ideally we would also at least have a system test in place for the new consumer, even if regressions weren't automatically detected. It would at least allow for manually checking for regressions. This should not be difficult since there are already old consumer performance tests.
@@ -69,7 +69,7 @@ It seems option 2) is better, because it requires less code, allows new options 
 
 * [KAFKA-2475](https://issues.apache.org/jira/browse/KAFKA-2475) | *Major* | **Reduce copycat configs to only specify a converter or serializer, not both**
 
-Ultimately, all we care about is getting from byte[] -> Copycat data API. The current split of the interfaces makes it easy to reuse existing serializers, but you still have to implement a new class.
+Ultimately, all we care about is getting from byte[] -\> Copycat data API. The current split of the interfaces makes it easy to reuse existing serializers, but you still have to implement a new class.
 
 It will be simpler, both conceptually and by requiring fewer configs, to combine both these steps into a single API. This also allows certain formats to preserve more information across these (e.g. for primitive types in schema, which otherwise could lose certain schema information).
 
@@ -102,7 +102,7 @@ Full thread dump Java HotSpot(TM) 64-Bit Server VM (24.55-b03 mixed mode):
 "Thread-2" prio=5 tid=0x00007fc08b9de000 nid=0x6b03 waiting for monitor entry [0x000000011ad3a000]
    java.lang.Thread.State: BLOCKED (on object monitor)
 	at java.lang.Shutdown.exit(Shutdown.java:212)
-	- waiting to lock <0x00000007bae86ac0> (a java.lang.Class for java.lang.Shutdown)
+	- waiting to lock \<0x00000007bae86ac0\> (a java.lang.Class for java.lang.Shutdown)
 	at java.lang.Runtime.exit(Runtime.java:109)
 	at java.lang.System.exit(System.java:962)
 	at kafka.server.KafkaServerStartable.shutdown(KafkaServerStartable.scala:46)
@@ -111,16 +111,16 @@ Full thread dump Java HotSpot(TM) 64-Bit Server VM (24.55-b03 mixed mode):
 "SIGINT handler" daemon prio=5 tid=0x00007fc08ca51800 nid=0x6503 in Object.wait() [0x000000011aa31000]
    java.lang.Thread.State: WAITING (on object monitor)
 	at java.lang.Object.wait(Native Method)
-	- waiting on <0x00000007bcb40610> (a kafka.Kafka$$anon$1)
+	- waiting on \<0x00000007bcb40610\> (a kafka.Kafka$$anon$1)
 	at java.lang.Thread.join(Thread.java:1281)
-	- locked <0x00000007bcb40610> (a kafka.Kafka$$anon$1)
+	- locked \<0x00000007bcb40610\> (a kafka.Kafka$$anon$1)
 	at java.lang.Thread.join(Thread.java:1355)
 	at java.lang.ApplicationShutdownHooks.runHooks(ApplicationShutdownHooks.java:106)
 	at java.lang.ApplicationShutdownHooks$1.run(ApplicationShutdownHooks.java:46)
 	at java.lang.Shutdown.runHooks(Shutdown.java:123)
 	at java.lang.Shutdown.sequence(Shutdown.java:167)
 	at java.lang.Shutdown.exit(Shutdown.java:212)
-	- locked <0x00000007bae86ac0> (a java.lang.Class for java.lang.Shutdown)
+	- locked \<0x00000007bae86ac0\> (a java.lang.Class for java.lang.Shutdown)
 	at java.lang.Terminator$1.handle(Terminator.java:52)
 	at sun.misc.Signal$1.run(Signal.java:212)
 	at java.lang.Thread.run(Thread.java:745)
@@ -154,24 +154,24 @@ Full thread dump Java HotSpot(TM) 64-Bit Server VM (24.55-b03 mixed mode):
 "Finalizer" daemon prio=5 tid=0x00007fc08d012800 nid=0x3b03 in Object.wait() [0x0000000117ee6000]
    java.lang.Thread.State: WAITING (on object monitor)
 	at java.lang.Object.wait(Native Method)
-	- waiting on <0x00000007bae05568> (a java.lang.ref.ReferenceQueue$Lock)
+	- waiting on \<0x00000007bae05568\> (a java.lang.ref.ReferenceQueue$Lock)
 	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:135)
-	- locked <0x00000007bae05568> (a java.lang.ref.ReferenceQueue$Lock)
+	- locked \<0x00000007bae05568\> (a java.lang.ref.ReferenceQueue$Lock)
 	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:151)
 	at java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:189)
 
 "Reference Handler" daemon prio=5 tid=0x00007fc08c803000 nid=0x3903 in Object.wait() [0x0000000117de3000]
    java.lang.Thread.State: WAITING (on object monitor)
 	at java.lang.Object.wait(Native Method)
-	- waiting on <0x00000007bae050f0> (a java.lang.ref.Reference$Lock)
+	- waiting on \<0x00000007bae050f0\> (a java.lang.ref.Reference$Lock)
 	at java.lang.Object.wait(Object.java:503)
 	at java.lang.ref.Reference$ReferenceHandler.run(Reference.java:133)
-	- locked <0x00000007bae050f0> (a java.lang.ref.Reference$Lock)
+	- locked \<0x00000007bae050f0\> (a java.lang.ref.Reference$Lock)
 
 "main" prio=5 tid=0x00007fc08d000800 nid=0x1303 waiting for monitor entry [0x000000010f353000]
    java.lang.Thread.State: BLOCKED (on object monitor)
 	at java.lang.Shutdown.exit(Shutdown.java:212)
-	- waiting to lock <0x00000007bae86ac0> (a java.lang.Class for java.lang.Shutdown)
+	- waiting to lock \<0x00000007bae86ac0\> (a java.lang.Class for java.lang.Shutdown)
 	at java.lang.Runtime.exit(Runtime.java:109)
 	at java.lang.System.exit(System.java:962)
 	at kafka.server.KafkaServerStartable.startup(KafkaServerStartable.scala:35)
@@ -215,7 +215,7 @@ It seems that the patch for KAFKA-2015 caused a few changes in the behavior of t
 
 I've tracked down a couple of changes so far:
 
-1. The --consumer.config option handling was changed entirely. I think the new approach was trying to parse it as key=value parameters, but it's supposed to be a properties file *containing* key=value pairs.
+1. The --consumer.config option handling was changed entirely. I think the new approach was trying to parse it as key=value parameters, but it's supposed to be a properties file \*containing\* key=value pairs.
 2. A few different exceptions during message processing are not handled the same way. The skipMessageOnErrorOpt is not longer being used at all (it's parsed, but that option is never checked anymore). Also, exceptions during iteration are not caught. After fixing the consumer.config issue, which was keeping the consumer.timeout.ms setting from making it into the consumer config, this also caused the process to hang. It killed the main thread, but there must be another non-daemon thread still running (presumably the consumer threads?)
 3. The "consumed X messages" message changed from stderr to stdout.
 
@@ -243,9 +243,9 @@ Other thread which constantly tries to consume is
 	at sun.nio.ch.EPollArrayWrapper.poll(EPollArrayWrapper.java:269)
 	at sun.nio.ch.EPollSelectorImpl.doSelect(EPollSelectorImpl.java:79)
 	at sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:87)
-	- locked <0x00000000dd1df130> (a sun.nio.ch.Util$2)
-	- locked <0x00000000dd1df120> (a java.util.Collections$UnmodifiableSet)
-	- locked <0x00000000dd0af720> (a sun.nio.ch.EPollSelectorImpl)
+	- locked \<0x00000000dd1df130\> (a sun.nio.ch.Util$2)
+	- locked \<0x00000000dd1df120\> (a java.util.Collections$UnmodifiableSet)
+	- locked \<0x00000000dd0af720\> (a sun.nio.ch.EPollSelectorImpl)
 	at sun.nio.ch.SelectorImpl.select(SelectorImpl.java:98)
 	at org.apache.kafka.common.network.Selector.select(Selector.java:440)
 	at org.apache.kafka.common.network.Selector.poll(Selector.java:263)
@@ -347,7 +347,7 @@ We should have some annotations so that we can mark classes as public and stable
 * [KAFKA-2415](https://issues.apache.org/jira/browse/KAFKA-2415) | *Major* | **Transient failure in LogRecoveryTest.testHWCheckpointWithFailuresMultipleLogSegments**
 
 See transient failure in the test with the following error message.
-kafka.server.LogRecoveryTest > testHWCheckpointWithFailuresMultipleLogSegments FAILED
+kafka.server.LogRecoveryTest \> testHWCheckpointWithFailuresMultipleLogSegments FAILED
     java.util.NoSuchElementException: None.get
         at scala.None$.get(Option.scala:313)
         at scala.None$.get(Option.scala:311)
@@ -546,14 +546,14 @@ According to the mailing list discussion on the consumer interface, we'll replac
 {code}
 public void subscribe(String... topics);
 public void subscribe(TopicPartition... partitions);
-public Set<TopicPartition> subscriptions();
+public Set\<TopicPartition\> subscriptions();
 {code}
 with:
 {code}
-void subscribe(List<String> topics, RebalanceCallback callback);
-void assign(List<TopicPartition> partitions);
-List<String> subscriptions();
-List<TopicPartition> assignments();
+void subscribe(List\<String\> topics, RebalanceCallback callback);
+void assign(List\<TopicPartition\> partitions);
+List\<String\> subscriptions();
+List\<TopicPartition\> assignments();
 {code}
 
 We don't need the unsubscribe APIs anymore.
@@ -561,8 +561,8 @@ We don't need the unsubscribe APIs anymore.
 The RebalanceCallback would look like:
 {code}
 interface RebalanceCallback {
-  void onAssignment(List<TopicPartition> partitions);
-  void onRevocation(List<TopicPartition> partitions);
+  void onAssignment(List\<TopicPartition\> partitions);
+  void onRevocation(List\<TopicPartition\> partitions);
 
   // handle non-existing topics, etc.
   void onError(Exception e);
@@ -577,7 +577,7 @@ interface RebalanceCallback {
 Seen this in some builds. Might be caused by gc pause (or similar) which delays group join in the test.
 
 {code}
-kafka.coordinator.ConsumerCoordinatorResponseTest > testGenerationIdIncrementsOnRebalance FAILED
+kafka.coordinator.ConsumerCoordinatorResponseTest \> testGenerationIdIncrementsOnRebalance FAILED
     java.util.concurrent.TimeoutException: Futures timed out after [40 milliseconds]
         at scala.concurrent.impl.Promise$DefaultPromise.ready(Promise.scala:219)
         at scala.concurrent.impl.Promise$DefaultPromise.result(Promise.scala:223)
@@ -609,7 +609,7 @@ Possible ConcurrentModificationException while unsubscribing from a topic in new
 
 Add baseline system tests for Copycat, covering both standalone and distributed mode.
 
-This should cover basic failure modes and verify at-least-one delivery of data, both from source system -> Kafka and Kafka -> sink system. This, of course, requires testing the core, built-in connectors provided with Copycat.
+This should cover basic failure modes and verify at-least-one delivery of data, both from source system -\> Kafka and Kafka -\> sink system. This, of course, requires testing the core, built-in connectors provided with Copycat.
 
 
 ---
@@ -676,10 +676,10 @@ void resume(TopicPartition... partitions);
 
 Here is the expected behavior of pause/resume:
 
-* When a partition is paused, calls to KafkaConsumer.poll will not initiate any new fetches for that partition.
-* After the partition is resumed, fetches will begin again. 
-* While a partition is paused, seek() and position() can still be used to advance or query the current position.
-* Rebalance does not preserve pause/resume state.
+\* When a partition is paused, calls to KafkaConsumer.poll will not initiate any new fetches for that partition.
+\* After the partition is resumed, fetches will begin again. 
+\* While a partition is paused, seek() and position() can still be used to advance or query the current position.
+\* Rebalance does not preserve pause/resume state.
 
 
 ---
@@ -695,12 +695,12 @@ This should be merged at the same time as https://issues.apache.org/jira/browse/
 
 Summary of why we should drop Scala 2.9:
 
-* Doubles the number of builds required from 2 to 4 (2.9.1 and 2.9.2 are not binary compatible).
-* Code has been committed to trunk that doesn't build with Scala 2.9 weeks ago and no-one seems to have noticed or cared (well, I filed https://issues.apache.org/jira/browse/KAFKA-2325). Can we really support a version if we don't test it?
-* New clients library is written in Java and won't be affected. It also has received a lot of work and it's much improved since the last release.
-* It was released 4 years ago, it has been unsupported for a long time and most projects have dropped support for it (for example, we use a different version of ScalaTest for Scala 2.9)
-* Scala 2.10 introduced Futures and a few useful features like String interpolation and value classes.
-* Doesn't work with Java 8 (https://issues.apache.org/jira/browse/KAFKA-2203).
+\* Doubles the number of builds required from 2 to 4 (2.9.1 and 2.9.2 are not binary compatible).
+\* Code has been committed to trunk that doesn't build with Scala 2.9 weeks ago and no-one seems to have noticed or cared (well, I filed https://issues.apache.org/jira/browse/KAFKA-2325). Can we really support a version if we don't test it?
+\* New clients library is written in Java and won't be affected. It also has received a lot of work and it's much improved since the last release.
+\* It was released 4 years ago, it has been unsupported for a long time and most projects have dropped support for it (for example, we use a different version of ScalaTest for Scala 2.9)
+\* Scala 2.10 introduced Futures and a few useful features like String interpolation and value classes.
+\* Doesn't work with Java 8 (https://issues.apache.org/jira/browse/KAFKA-2203).
 
 Vote thread: http://search-hadoop.com/m/uyzND1DIE422mz94I1
 
@@ -725,9 +725,9 @@ Throwing a TopicAlreadyMarkedForDeletionException will make much more sense. A u
 
 Two suggestions for the new pr-merge tool:
 
-* The tool doesn't allow to credit reviewers while committing. I thought the review credits were a nice habit of the Kafka community and I hate losing it. OTOH, I don't want to force-push to trunk just to add credits. Perhaps the tool can ask about committers?
+\* The tool doesn't allow to credit reviewers while committing. I thought the review credits were a nice habit of the Kafka community and I hate losing it. OTOH, I don't want to force-push to trunk just to add credits. Perhaps the tool can ask about committers?
 
-* Looks like the tool doesn't automatically resolve the JIRA. Would be nice if it did.
+\* Looks like the tool doesn't automatically resolve the JIRA. Would be nice if it did.
 
 
 ---
@@ -738,7 +738,7 @@ If a rebalance occurs with an in-flight fetch, the new KafkaConsumer can end up 
 
 Additionally, this bug causes transient test failures in ConsumerBounceTest.testConsumptionWithBrokerFailures with the following exception:
 
-kafka.api.ConsumerBounceTest > testConsumptionWithBrokerFailures FAILED
+kafka.api.ConsumerBounceTest \> testConsumptionWithBrokerFailures FAILED
     java.lang.NullPointerException
         at org.apache.kafka.clients.consumer.KafkaConsumer.position(KafkaConsumer.java:949)
         at kafka.api.ConsumerBounceTest.consumeWithBrokerFailures(ConsumerBounceTest.scala:86)
@@ -787,7 +787,7 @@ This is because \_kafka.server.OffsetManager.partitionFor(group: String)\_ uses 
 This looks like it was left there by mistake:
 
 {quote}
- * The consumer is thread safe but generally will be used only from within a single thread. The consumer client has no threads of it's own, all work is done in the caller's thread when calls are made on the various methods exposed.
+ \* The consumer is thread safe but generally will be used only from within a single thread. The consumer client has no threads of it's own, all work is done in the caller's thread when calls are made on the various methods exposed.
 {quote}
 
 A few paragraphs below it says:
@@ -847,7 +847,7 @@ kafka.common.KafkaException: Unable to parse PLAINTEXT://localhost:null to a bro
 	at scala.collection.AbstractTraversable.map(Traversable.scala:105)
 	at kafka.utils.CoreUtils$.listenerListToEndPoints(CoreUtils.scala:309)
 	at kafka.server.KafkaConfig.getAdvertisedListeners(KafkaConfig.scala:728)
-	at kafka.server.KafkaConfig.<init>(KafkaConfig.scala:668)
+	at kafka.server.KafkaConfig.\<init\>(KafkaConfig.scala:668)
 	at kafka.server.KafkaConfig$.fromProps(KafkaConfig.scala:541)
 	at kafka.Kafka$.main(Kafka.scala:58)
 	at kafka.Kafka.main(Kafka.scala)
@@ -859,16 +859,16 @@ the cause seems to be in KafkaConfig.scala in the getAdvertisedListeners method,
 
 {code}
 ...
-    } else if (getString(KafkaConfig.AdvertisedHostNameProp) != null || getInt(KafkaConfig.AdvertisedPortProp) != null) {
+    } else if (getString(KafkaConfig.AdvertisedHostNameProp) != null \|\| getInt(KafkaConfig.AdvertisedPortProp) != null) {
       CoreUtils.listenerListToEndPoints("PLAINTEXT://" +
             getString(KafkaConfig.AdvertisedHostNameProp) + ":" + getInt(KafkaConfig.AdvertisedPortProp))
 ...
 {code}
 
-->
+-\>
 
 {code}
-    } else if (getString(KafkaConfig.AdvertisedHostNameProp) != null || getInt(KafkaConfig.AdvertisedPortProp) != null) {
+    } else if (getString(KafkaConfig.AdvertisedHostNameProp) != null \|\| getInt(KafkaConfig.AdvertisedPortProp) != null) {
       CoreUtils.listenerListToEndPoints("PLAINTEXT://" +
             advertisedHostName + ":" + advertisedPort
 {code}
@@ -888,13 +888,13 @@ http://www.scala-lang.org/news/2.11.7
 * [KAFKA-2323](https://issues.apache.org/jira/browse/KAFKA-2323) | *Minor* | **Simplify ScalaTest dependency versions**
 
 We currently use the following ScalaTest versions:
-* 1.8 for Scala 2.9.x
-* 1.9.1 for Scala 2.10.x
-* 2.2.0 for Scala 2.11.x
+\* 1.8 for Scala 2.9.x
+\* 1.9.1 for Scala 2.10.x
+\* 2.2.0 for Scala 2.11.x
 
 I propose we simplify it to:
-* 1.9.1 for Scala 2.9.x
-* 2.2.5 for every other Scala version (currently 2.10.x and 2.11.x)
+\* 1.9.1 for Scala 2.9.x
+\* 2.2.5 for every other Scala version (currently 2.10.x and 2.11.x)
 
 And since we will drop support for Scala 2.9.x soon, then the conditional check for ScalaTest can be removed altogether.
 
@@ -1015,7 +1015,7 @@ Caused by: java.io.IOException: PARSING\_ERROR(2)
 The client has the following messages:
 {code}
 [2015-07-02 13:46:00,478] ERROR Error when sending message to topic t3 with key: 4 bytes, value: 100 bytes with error: The server experienced an unexpected error when processing the request (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
-java: target/snappy-1.1.1/snappy.cc:423: char* snappy::internal::CompressFragment(const char*, size\_t, char*, snappy::uint16*, int): Assertion `0 == memcmp(base, candidate, matched)' failed.
+java: target/snappy-1.1.1/snappy.cc:423: char\* snappy::internal::CompressFragment(const char\*, size\_t, char\*, snappy::uint16\*, int): Assertion `0 == memcmp(base, candidate, matched)' failed.
 {code}
 
 
@@ -1040,7 +1040,7 @@ When broker 1 starts, we see the following message in broker 2's controller.log.
 
 {{
 [2015-06-23 13:57:16,535] ERROR [BrokerChangeListener on Controller 2]: Error while handling broker changes (kafka.controller.ReplicaStateMachine$BrokerChangeListener)
-java.lang.IllegalStateException: Controller to broker state change requests batch is not empty while creating a new one. Some UpdateMetadata state changes Map(2 -> Map([prod-sver-end,1] -> (LeaderAndIsrInfo:(Leader:-2,ISR:1,LeaderEpoch:0,ControllerEpoch:165),ReplicationFactor:1),AllReplicas:1)), 1 -> Map([prod-sver-end,1] -> (LeaderAndIsrInfo:(Leader:-2,ISR:1,LeaderEpoch:0,ControllerEpoch:165),ReplicationFactor:1),AllReplicas:1)), 3 -> Map([prod-sver-end,1] -> (LeaderAndIsrInfo:(Leader:-2,ISR:1,LeaderEpoch:0,ControllerEpoch:165),ReplicationFactor:1),AllReplicas:1))) might be lost 
+java.lang.IllegalStateException: Controller to broker state change requests batch is not empty while creating a new one. Some UpdateMetadata state changes Map(2 -\> Map([prod-sver-end,1] -\> (LeaderAndIsrInfo:(Leader:-2,ISR:1,LeaderEpoch:0,ControllerEpoch:165),ReplicationFactor:1),AllReplicas:1)), 1 -\> Map([prod-sver-end,1] -\> (LeaderAndIsrInfo:(Leader:-2,ISR:1,LeaderEpoch:0,ControllerEpoch:165),ReplicationFactor:1),AllReplicas:1)), 3 -\> Map([prod-sver-end,1] -\> (LeaderAndIsrInfo:(Leader:-2,ISR:1,LeaderEpoch:0,ControllerEpoch:165),ReplicationFactor:1),AllReplicas:1))) might be lost 
   at kafka.controller.ControllerBrokerRequestBatch.newBatch(ControllerChannelManager.scala:202)
   at kafka.controller.KafkaController.sendUpdateMetadataRequest(KafkaController.scala:974)
   at kafka.controller.KafkaController.onBrokerStartup(KafkaController.scala:399)
@@ -1115,7 +1115,7 @@ This patch should contain a few Service classes and a few tests which can serve 
 With regex subscription like
 
 {code}
-consumer.subscribe("topic*")
+consumer.subscribe("topic\*")
 {code}
 
 The partition assignment is automatically done at the Kafka side, while there are some use cases where consumers want regex subscriptions but not Kafka-side partition assignment, rather with their own specific partition assignment. With ListTopics() they can periodically check for topic list changes and specifically subscribe to the partitions of the new topics.
@@ -1129,7 +1129,7 @@ For implementation, it involves sending a TopicMetadataRequest to a random broke
 
 Saw the following transient failure in jenkins.
 
-    java.lang.AssertionError: expected:<{num.io.threads=2051678117, log.dir=/tmp/log, num.network.threads=442579598, offsets.topic.num.partitions=1996793767, log.cleaner.enable=true, inter.broker.protocol.version=0.8.3.X, host.name=????????? , log.cleaner.backoff.ms=2080497098, log.segment.delete.delay.ms=516834257, controller.socket.timeout.ms=444411414, queued.max.requests=673019914, controlled.shutdown.max.retries=1810738435, num.replica.fetchers=1160759331, socket.request.max.bytes=1453815395, log.flush.interval.ms=762170329, offsets.topic.replication.factor=1011, log.flush.offset.checkpoint.interval.ms=923125288, security.inter.broker.protocol=PLAINTEXT, zookeeper.session.timeout.ms=413974606, metrics.sample.window.ms=1000, offsets.topic.compression.codec=1, zookeeper.connection.timeout.ms=2068179601, fetch.purgatory.purge.interval.requests=1242197204, log.retention.bytes=692466534, log.dirs=/tmp/logs,/tmp/logs2, replica.fetch.min.bytes=1791426389, compression.type=lz4, log.roll.jitter.ms=356707666, log.cleaner.threads=2, replica.lag.time.max.ms=1073834162, advertised.port=4321, max.connections.per.ip.overrides=127.0.0.1:2, 127.0.0.2:3, socket.send.buffer.bytes=1319605180, metrics.num.samples=2, port=1234, replica.fetch.wait.max.ms=321, log.segment.bytes=468671022, log.retention.minutes=772707425, auto.create.topics.enable=true, replica.socket.receive.buffer.bytes=1923367476, log.cleaner.io.max.bytes.per.second=0.2, zookeeper.sync.time.ms=2072589946, log.roll.jitter.hours=2106718330, log.retention.check.interval.ms=906922522, reserved.broker.max.id=100, unclean.leader.election.enable=true, advertised.listeners=PLAINTEXT://:2909, log.cleaner.io.buffer.load.factor=1.0, consumer.min.session.timeout.ms=422104288, log.retention.ms=1496447411, replica.high.watermark.checkpoint.interval.ms=118464842, log.cleanup.policy=delete, log.cleaner.dedupe.buffer.size=3145729, offsets.commit.timeout.ms=2084609508, min.insync.replicas=963487957, zookeeper.connect=127.0.0.1:2181, leader.imbalance.per.broker.percentage=148038876, log.index.interval.bytes=242075900, leader.imbalance.check.interval.seconds=1376263302, offsets.retention.minutes=1781435041, socket.receive.buffer.bytes=369224522, log.cleaner.delete.retention.ms=898157008, replica.socket.timeout.ms=493318414, num.partitions=2, offsets.topic.segment.bytes=852590082, default.replication.factor=549663639, log.cleaner.io.buffer.size=905972186, offsets.commit.required.acks=-1, num.recovery.threads.per.data.dir=1012415473, log.retention.hours=1115262747, replica.fetch.max.bytes=2041540755, log.roll.hours=115708840, metric.reporters=, message.max.bytes=1234, log.cleaner.min.cleanable.ratio=0.6, offsets.load.buffer.size=1818565888, delete.topic.enable=true, listeners=PLAINTEXT://:9092, offset.metadata.max.bytes=1563320007, controlled.shutdown.retry.backoff.ms=1270013702, max.connections.per.ip=359602609, consumer.max.session.timeout.ms=2124317921, log.roll.ms=241126032, advertised.host.name=??????????, log.flush.scheduler.interval.ms=1548906710, auto.leader.rebalance.enable=false, producer.purgatory.purge.interval.requests=1640729755, controlled.shutdown.enable=false, log.index.size.max.bytes=1748380064, log.flush.interval.messages=982245822, broker.id=15, offsets.retention.check.interval.ms=593078788, replica.fetch.backoff.ms=394858256, background.threads=124969300, connections.max.idle.ms=554679959}> but was:<{num.io.threads=2051678117, log.dir=/tmp/log, num.network.threads=442579598, offsets.topic.num.partitions=1996793767, inter.broker.protocol.version=0.8.3.X, log.cleaner.enable=true, host.name=?????????, log.cleaner.backoff.ms=2080497098, log.segment.delete.delay.ms=516834257, controller.socket.timeout.ms=444411414, controlled.shutdown.max.retries=1810738435, queued.max.requests=673019914, num.replica.fetchers=1160759331, socket.request.max.bytes=1453815395, log.flush.interval.ms=762170329, offsets.topic.replication.factor=1011, log.flush.offset.checkpoint.interval.ms=923125288, security.inter.broker.protocol=PLAINTEXT, zookeeper.session.timeout.ms=413974606, metrics.sample.window.ms=1000, offsets.topic.compression.codec=1, zookeeper.connection.timeout.ms=2068179601, fetch.purgatory.purge.interval.requests=1242197204, log.retention.bytes=692466534, log.dirs=/tmp/logs,/tmp/logs2, compression.type=lz4, replica.fetch.min.bytes=1791426389, log.roll.jitter.ms=356707666, log.cleaner.threads=2, replica.lag.time.max.ms=1073834162, advertised.port=4321, max.connections.per.ip.overrides=127.0.0.1:2, 127.0.0.2:3, socket.send.buffer.bytes=1319605180, metrics.num.samples=2, port=1234, replica.fetch.wait.max.ms=321, log.segment.bytes=468671022, log.retention.minutes=772707425, auto.create.topics.enable=true, replica.socket.receive.buffer.bytes=1923367476, log.cleaner.io.max.bytes.per.second=0.2, zookeeper.sync.time.ms=2072589946, log.roll.jitter.hours=2106718330, log.retention.check.interval.ms=906922522, reserved.broker.max.id=100, unclean.leader.election.enable=true, advertised.listeners=PLAINTEXT://:2909, log.cleaner.io.buffer.load.factor=1.0, consumer.min.session.timeout.ms=422104288, log.retention.ms=1496447411, replica.high.watermark.checkpoint.interval.ms=118464842, log.cleanup.policy=delete, log.cleaner.dedupe.buffer.size=3145729, offsets.commit.timeout.ms=2084609508, min.insync.replicas=963487957, leader.imbalance.per.broker.percentage=148038876, zookeeper.connect=127.0.0.1:2181, offsets.retention.minutes=1781435041, leader.imbalance.check.interval.seconds=1376263302, log.index.interval.bytes=242075900, socket.receive.buffer.bytes=369224522, log.cleaner.delete.retention.ms=898157008, replica.socket.timeout.ms=493318414, num.partitions=2, offsets.topic.segment.bytes=852590082, default.replication.factor=549663639, offsets.commit.required.acks=-1, log.cleaner.io.buffer.size=905972186, num.recovery.threads.per.data.dir=1012415473, log.retention.hours=1115262747, replica.fetch.max.bytes=2041540755, log.roll.hours=115708840, metric.reporters=, message.max.bytes=1234, offsets.load.buffer.size=1818565888, log.cleaner.min.cleanable.ratio=0.6, delete.topic.enable=true, listeners=PLAINTEXT://:9092, offset.metadata.max.bytes=1563320007, controlled.shutdown.retry.backoff.ms=1270013702, max.connections.per.ip=359602609, consumer.max.session.timeout.ms=2124317921, log.roll.ms=241126032, advertised.host.name=??????????, log.flush.scheduler.interval.ms=1548906710, auto.leader.rebalance.enable=false, producer.purgatory.purge.interval.requests=1640729755, controlled.shutdown.enable=false, log.index.size.max.bytes=1748380064, log.flush.interval.messages=982245822, broker.id=15, offsets.retention.check.interval.ms=593078788, replica.fetch.backoff.ms=394858256, background.threads=124969300, connections.max.idle.ms=554679959}>
+    java.lang.AssertionError: expected:\<{num.io.threads=2051678117, log.dir=/tmp/log, num.network.threads=442579598, offsets.topic.num.partitions=1996793767, log.cleaner.enable=true, inter.broker.protocol.version=0.8.3.X, host.name=????????? , log.cleaner.backoff.ms=2080497098, log.segment.delete.delay.ms=516834257, controller.socket.timeout.ms=444411414, queued.max.requests=673019914, controlled.shutdown.max.retries=1810738435, num.replica.fetchers=1160759331, socket.request.max.bytes=1453815395, log.flush.interval.ms=762170329, offsets.topic.replication.factor=1011, log.flush.offset.checkpoint.interval.ms=923125288, security.inter.broker.protocol=PLAINTEXT, zookeeper.session.timeout.ms=413974606, metrics.sample.window.ms=1000, offsets.topic.compression.codec=1, zookeeper.connection.timeout.ms=2068179601, fetch.purgatory.purge.interval.requests=1242197204, log.retention.bytes=692466534, log.dirs=/tmp/logs,/tmp/logs2, replica.fetch.min.bytes=1791426389, compression.type=lz4, log.roll.jitter.ms=356707666, log.cleaner.threads=2, replica.lag.time.max.ms=1073834162, advertised.port=4321, max.connections.per.ip.overrides=127.0.0.1:2, 127.0.0.2:3, socket.send.buffer.bytes=1319605180, metrics.num.samples=2, port=1234, replica.fetch.wait.max.ms=321, log.segment.bytes=468671022, log.retention.minutes=772707425, auto.create.topics.enable=true, replica.socket.receive.buffer.bytes=1923367476, log.cleaner.io.max.bytes.per.second=0.2, zookeeper.sync.time.ms=2072589946, log.roll.jitter.hours=2106718330, log.retention.check.interval.ms=906922522, reserved.broker.max.id=100, unclean.leader.election.enable=true, advertised.listeners=PLAINTEXT://:2909, log.cleaner.io.buffer.load.factor=1.0, consumer.min.session.timeout.ms=422104288, log.retention.ms=1496447411, replica.high.watermark.checkpoint.interval.ms=118464842, log.cleanup.policy=delete, log.cleaner.dedupe.buffer.size=3145729, offsets.commit.timeout.ms=2084609508, min.insync.replicas=963487957, zookeeper.connect=127.0.0.1:2181, leader.imbalance.per.broker.percentage=148038876, log.index.interval.bytes=242075900, leader.imbalance.check.interval.seconds=1376263302, offsets.retention.minutes=1781435041, socket.receive.buffer.bytes=369224522, log.cleaner.delete.retention.ms=898157008, replica.socket.timeout.ms=493318414, num.partitions=2, offsets.topic.segment.bytes=852590082, default.replication.factor=549663639, log.cleaner.io.buffer.size=905972186, offsets.commit.required.acks=-1, num.recovery.threads.per.data.dir=1012415473, log.retention.hours=1115262747, replica.fetch.max.bytes=2041540755, log.roll.hours=115708840, metric.reporters=, message.max.bytes=1234, log.cleaner.min.cleanable.ratio=0.6, offsets.load.buffer.size=1818565888, delete.topic.enable=true, listeners=PLAINTEXT://:9092, offset.metadata.max.bytes=1563320007, controlled.shutdown.retry.backoff.ms=1270013702, max.connections.per.ip=359602609, consumer.max.session.timeout.ms=2124317921, log.roll.ms=241126032, advertised.host.name=??????????, log.flush.scheduler.interval.ms=1548906710, auto.leader.rebalance.enable=false, producer.purgatory.purge.interval.requests=1640729755, controlled.shutdown.enable=false, log.index.size.max.bytes=1748380064, log.flush.interval.messages=982245822, broker.id=15, offsets.retention.check.interval.ms=593078788, replica.fetch.backoff.ms=394858256, background.threads=124969300, connections.max.idle.ms=554679959}\> but was:\<{num.io.threads=2051678117, log.dir=/tmp/log, num.network.threads=442579598, offsets.topic.num.partitions=1996793767, inter.broker.protocol.version=0.8.3.X, log.cleaner.enable=true, host.name=?????????, log.cleaner.backoff.ms=2080497098, log.segment.delete.delay.ms=516834257, controller.socket.timeout.ms=444411414, controlled.shutdown.max.retries=1810738435, queued.max.requests=673019914, num.replica.fetchers=1160759331, socket.request.max.bytes=1453815395, log.flush.interval.ms=762170329, offsets.topic.replication.factor=1011, log.flush.offset.checkpoint.interval.ms=923125288, security.inter.broker.protocol=PLAINTEXT, zookeeper.session.timeout.ms=413974606, metrics.sample.window.ms=1000, offsets.topic.compression.codec=1, zookeeper.connection.timeout.ms=2068179601, fetch.purgatory.purge.interval.requests=1242197204, log.retention.bytes=692466534, log.dirs=/tmp/logs,/tmp/logs2, compression.type=lz4, replica.fetch.min.bytes=1791426389, log.roll.jitter.ms=356707666, log.cleaner.threads=2, replica.lag.time.max.ms=1073834162, advertised.port=4321, max.connections.per.ip.overrides=127.0.0.1:2, 127.0.0.2:3, socket.send.buffer.bytes=1319605180, metrics.num.samples=2, port=1234, replica.fetch.wait.max.ms=321, log.segment.bytes=468671022, log.retention.minutes=772707425, auto.create.topics.enable=true, replica.socket.receive.buffer.bytes=1923367476, log.cleaner.io.max.bytes.per.second=0.2, zookeeper.sync.time.ms=2072589946, log.roll.jitter.hours=2106718330, log.retention.check.interval.ms=906922522, reserved.broker.max.id=100, unclean.leader.election.enable=true, advertised.listeners=PLAINTEXT://:2909, log.cleaner.io.buffer.load.factor=1.0, consumer.min.session.timeout.ms=422104288, log.retention.ms=1496447411, replica.high.watermark.checkpoint.interval.ms=118464842, log.cleanup.policy=delete, log.cleaner.dedupe.buffer.size=3145729, offsets.commit.timeout.ms=2084609508, min.insync.replicas=963487957, leader.imbalance.per.broker.percentage=148038876, zookeeper.connect=127.0.0.1:2181, offsets.retention.minutes=1781435041, leader.imbalance.check.interval.seconds=1376263302, log.index.interval.bytes=242075900, socket.receive.buffer.bytes=369224522, log.cleaner.delete.retention.ms=898157008, replica.socket.timeout.ms=493318414, num.partitions=2, offsets.topic.segment.bytes=852590082, default.replication.factor=549663639, offsets.commit.required.acks=-1, log.cleaner.io.buffer.size=905972186, num.recovery.threads.per.data.dir=1012415473, log.retention.hours=1115262747, replica.fetch.max.bytes=2041540755, log.roll.hours=115708840, metric.reporters=, message.max.bytes=1234, offsets.load.buffer.size=1818565888, log.cleaner.min.cleanable.ratio=0.6, delete.topic.enable=true, listeners=PLAINTEXT://:9092, offset.metadata.max.bytes=1563320007, controlled.shutdown.retry.backoff.ms=1270013702, max.connections.per.ip=359602609, consumer.max.session.timeout.ms=2124317921, log.roll.ms=241126032, advertised.host.name=??????????, log.flush.scheduler.interval.ms=1548906710, auto.leader.rebalance.enable=false, producer.purgatory.purge.interval.requests=1640729755, controlled.shutdown.enable=false, log.index.size.max.bytes=1748380064, log.flush.interval.messages=982245822, broker.id=15, offsets.retention.check.interval.ms=593078788, replica.fetch.backoff.ms=394858256, background.threads=124969300, connections.max.idle.ms=554679959}\>
         at org.junit.Assert.fail(Assert.java:92)
         at org.junit.Assert.failNotEquals(Assert.java:689)
         at org.junit.Assert.assertEquals(Assert.java:127)
@@ -1210,7 +1210,7 @@ Found one Java-level deadlock:
 
 "kafka-request-handler-a":
         at sun.misc.Unsafe.park(Native Method)
-        - parking to wait for  <0x00000006da08f9e0> (a java.util.concurrent.locks.ReentrantReadWriteLock$NonfairSync)
+        - parking to wait for  \<0x00000006da08f9e0\> (a java.util.concurrent.locks.ReentrantReadWriteLock$NonfairSync)
         at java.util.concurrent.locks.LockSupport.park(LockSupport.java:175)
         at java.util.concurrent.locks.AbstractQueuedSynchronizer.parkAndCheckInterrupt(AbstractQueuedSynchronizer.java:836)
         at java.util.concurrent.locks.AbstractQueuedSynchronizer.doAcquireShared(AbstractQueuedSynchronizer.java:967)
@@ -1240,13 +1240,13 @@ Found one Java-level deadlock:
 
 "ExpirationReaper-xyz":
         at kafka.server.DelayedOperationPurgatory$Watchers.watched(DelayedOperation.scala:278)
-        - waiting to lock <0x00000006b0563fe8> (a java.util.LinkedList)
+        - waiting to lock \<0x00000006b0563fe8\> (a java.util.LinkedList)
         at kafka.server.DelayedOperationPurgatory$$anonfun$kafka$server$DelayedOperationPurgatory$$removeKeyIfEmpty$1.apply(DelayedOperation.scala:258)
         at kafka.utils.CoreUtils$.inLock(CoreUtils.scala:298)
         at kafka.utils.CoreUtils$.inWriteLock(CoreUtils.scala:306)
         at kafka.server.DelayedOperationPurgatory.kafka$server$DelayedOperationPurgatory$$removeKeyIfEmpty(DelayedOperation.scala:256)
         at kafka.server.DelayedOperationPurgatory$Watchers.purgeCompleted(DelayedOperation.scala:322)
-        - locked <0x000000071a86a478> (a java.util.LinkedList)
+        - locked \<0x000000071a86a478\> (a java.util.LinkedList)
         at kafka.server.DelayedOperationPurgatory$ExpiredOperationReaper$$anonfun$3.apply(DelayedOperation.scala:347)
         at kafka.server.DelayedOperationPurgatory$ExpiredOperationReaper$$anonfun$3.apply(DelayedOperation.scala:347)
         at scala.collection.TraversableLike$$anonfun$map$1.apply(TraversableLike.scala:244)
@@ -1262,7 +1262,7 @@ Found one Java-level deadlock:
 
 "kafka-request-handler-b":
         at sun.misc.Unsafe.park(Native Method)
-        - parking to wait for  <0x00000006da08f9e0> (a java.util.concurrent.locks.ReentrantReadWriteLock$NonfairSync)
+        - parking to wait for  \<0x00000006da08f9e0\> (a java.util.concurrent.locks.ReentrantReadWriteLock$NonfairSync)
         at java.util.concurrent.locks.LockSupport.park(LockSupport.java:175)
         at java.util.concurrent.locks.AbstractQueuedSynchronizer.parkAndCheckInterrupt(AbstractQueuedSynchronizer.java:836)
         at java.util.concurrent.locks.AbstractQueuedSynchronizer.acquireQueued(AbstractQueuedSynchronizer.java:870)
@@ -1272,7 +1272,7 @@ Found one Java-level deadlock:
         at kafka.utils.CoreUtils$.inWriteLock(CoreUtils.scala:306)
         at kafka.server.DelayedOperationPurgatory.kafka$server$DelayedOperationPurgatory$$removeKeyIfEmpty(DelayedOperation.scala:256)
         at kafka.server.DelayedOperationPurgatory$Watchers.tryCompleteWatched(DelayedOperation.scala:303)
-        - locked <0x00000006b0563fe8> (a java.util.LinkedList)
+        - locked \<0x00000006b0563fe8\> (a java.util.LinkedList)
         at kafka.server.DelayedOperationPurgatory.checkAndComplete(DelayedOperation.scala:228)
         at kafka.server.ReplicaManager.tryCompleteDelayedFetch(ReplicaManager.scala:166)
         at kafka.cluster.Partition$$anonfun$appendMessagesToLeader$1.apply(Partition.scala:426)
@@ -1529,7 +1529,7 @@ kafka.common.AdminCommandFailedException: Partition reassignment currently in pr
 
 * [KAFKA-2232](https://issues.apache.org/jira/browse/KAFKA-2232) | *Major* | **make MockProducer generic**
 
-Currently, MockProducer implements Producer<byte[], byte[]>. Instead, we should implement MockProducer<K, V>.
+Currently, MockProducer implements Producer\<byte[], byte[]\>. Instead, we should implement MockProducer\<K, V\>.
 
 
 ---
@@ -1538,7 +1538,7 @@ Currently, MockProducer implements Producer<byte[], byte[]>. Instead, we should 
 
 A NullPointerException sometimes shows up in TimerTaskList.remove while running TestPurgatoryPerformance. I’m on the HEAD of trunk.
 {code}
-> ./bin/kafka-run-class.sh kafka.TestPurgatoryPerformance --key-space-size 100000 --keys 3 --num 100000 --pct50 50 --pct75 75 --rate 1000 --size 50 --timeout 20
+\> ./bin/kafka-run-class.sh kafka.TestPurgatoryPerformance --key-space-size 100000 --keys 3 --num 100000 --pct50 50 --pct75 75 --rate 1000 --size 50 --timeout 20
 SLF4J: Class path contains multiple SLF4J bindings.
 SLF4J: Found binding in [jar:file:/Users/okaraman/code/kafka/core/build/dependant-libs-2.10.5/slf4j-log4j12-1.6.1.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/Users/okaraman/code/kafka/core/build/dependant-libs-2.10.5/slf4j-log4j12-1.7.6.jar!/org/slf4j/impl/StaticLoggerBinder.class]
@@ -1695,11 +1695,11 @@ The new consumer is currently using very coarse-grained synchronization. For mos
 
 Some example use cases where this can be a problem:
 
-* A shutdown hook is registered to trigger shutdown and invokes close(). It gets invoked from another thread and blocks indefinitely.
-* User wants to manage offset commit themselves in a background thread. If the commit policy is not purely time based, it's not currently possibly to make sure the call to commit() will be processed promptly.
+\* A shutdown hook is registered to trigger shutdown and invokes close(). It gets invoked from another thread and blocks indefinitely.
+\* User wants to manage offset commit themselves in a background thread. If the commit policy is not purely time based, it's not currently possibly to make sure the call to commit() will be processed promptly.
 
 Two possible solutions to this:
-1. Make sure a lock is not held during the actual select call. Since we have multiple layers (KafkaConsumer -> NetworkClient -> Selector -> nio Selector) this is probably hard to make work cleanly since locking is currently only performed at the KafkaConsumer level and we'd want it unlocked around a single line of code in Selector.
+1. Make sure a lock is not held during the actual select call. Since we have multiple layers (KafkaConsumer -\> NetworkClient -\> Selector -\> nio Selector) this is probably hard to make work cleanly since locking is currently only performed at the KafkaConsumer level and we'd want it unlocked around a single line of code in Selector.
 2. Wake up the selector before synchronizing for certain operations. This would require some additional coordination to make sure the caller of wakeup() is able to acquire the lock promptly (instead of, e.g., the poll() thread being woken up and then promptly reacquiring the lock with a subsequent long poll() call).
 
 
@@ -1707,7 +1707,7 @@ Two possible solutions to this:
 
 * [KAFKA-2164](https://issues.apache.org/jira/browse/KAFKA-2164) | *Major* | **ReplicaFetcherThread: suspicious log message on reset offset**
 
-If log.logEndOffset < leaderStartOffset the follower resets its offset and prints the following:
+If log.logEndOffset \< leaderStartOffset the follower resets its offset and prints the following:
 {code}
 [2015-03-25 11:11:08,975] WARN [ReplicaFetcherThread-0-21], Replica 30 for partition [topic,11] reset its fetch offset from 49322124 to current leader 21's start offset 49322124 (kafka.server.ReplicaFetcherThread)
 [2015-03-25 11:11:08,976] ERROR [ReplicaFetcherThread-0-21], Current offset 54369274 for partition [topic,11] out of range; reset offset to 49322124 (kafka.server.ReplicaFetcherThread)
@@ -1726,8 +1726,8 @@ index b31b432..181cbc1 100644
 --- a/core/src/main/scala/kafka/server/ReplicaFetcherThread.scala
 +++ b/core/src/main/scala/kafka/server/ReplicaFetcherThread.scala
 @@ -111,9 +111,9 @@ class ReplicaFetcherThread(name:String,
-        * Roll out a new log at the follower with the start offset equal to the
-        */
+        \* Roll out a new log at the follower with the start offset equal to the
+        \*/
        val leaderStartOffset = simpleConsumer.earliestOrLatestOffset(topicAndPar
 -      replicaMgr.logManager.truncateFullyAndStartAt(topicAndPartition, leaderSt
        warn("Replica %d for partition %s reset its fetch offset from %d to curre
@@ -1796,9 +1796,9 @@ void commit(offsets, commit type)
 
 where the commit type is either sync or async. This means you need to use sync if you ever want confirmation that the commit succeeded. Some applications will want to use asynchronous offset commit, but be able to tell when the commit completes.
 
-This is basically the same problem that had to be fixed going from old consumer -> new consumer and I'd suggest the same fix using a callback + future combination. The new API would be
+This is basically the same problem that had to be fixed going from old consumer -\> new consumer and I'd suggest the same fix using a callback + future combination. The new API would be
 
-Future<Void> commit(Map<TopicPartition, Long> offsets, ConsumerCommitCallback callback);
+Future\<Void\> commit(Map\<TopicPartition, Long\> offsets, ConsumerCommitCallback callback);
 
 where ConsumerCommitCallback contains a single method:
 
@@ -1820,112 +1820,112 @@ Given that KAFKA-1993 is enabling delete topic by default, it would be unsafe to
 
 * [KAFKA-2121](https://issues.apache.org/jira/browse/KAFKA-2121) | *Major* | **prevent potential resource leak in KafkaProducer and KafkaConsumer**
 
-On Mon, Apr 13, 2015 at 7:17 PM, Guozhang Wang <wangguoz@gmail.com> wrote:
+On Mon, Apr 13, 2015 at 7:17 PM, Guozhang Wang \<wangguoz@gmail.com\> wrote:
 It is a valid problem and we should correct it as soon as possible, I'm
 with Ewen regarding the solution.
 
-On Mon, Apr 13, 2015 at 5:05 PM, Ewen Cheslack-Postava <ewen@confluent.io>
+On Mon, Apr 13, 2015 at 5:05 PM, Ewen Cheslack-Postava \<ewen@confluent.io\>
 wrote:
 
-> Steven,
->
-> Looks like there is even more that could potentially be leaked -- since key
-> and value serializers are created and configured at the end, even the IO
-> thread allocated by the producer could leak. Given that, I think 1 isn't a
-> great option since, as you said, it doesn't really address the underlying
-> issue.
->
-> 3 strikes me as bad from a user experience perspective. It's true we might
-> want to introduce additional constructors to make testing easier, but the
-> more components I need to allocate myself and inject into the producer's
-> constructor, the worse the default experience is. And since you would have
-> to inject the dependencies to get correct, non-leaking behavior, it will
-> always be more code than previously (and a backwards incompatible change).
-> Additionally, the code creating a the producer would have be more
-> complicated since it would have to deal with the cleanup carefully whereas
-> it previously just had to deal with the exception. Besides, for testing
-> specifically, you can avoid exposing more constructors just for testing by
-> using something like PowerMock that let you mock private methods. That
-> requires a bit of code reorganization, but doesn't affect the public
-> interface at all.
->
-> So my take is that a variant of 2 is probably best. I'd probably do two
-> things. First, make close() safe to call even if some fields haven't been
-> initialized, which presumably just means checking for null fields. (You
-> might also want to figure out if all the methods close() calls are
-> idempotent and decide whether some fields should be marked non-final and
-> cleared to null when close() is called). Second, add the try/catch as you
-> suggested, but just use close().
->
-> -Ewen
->
->
-> On Mon, Apr 13, 2015 at 3:53 PM, Steven Wu <stevenz3wu@gmail.com> wrote:
->
-> > Here is the resource leak problem that we have encountered when 0.8.2
-> java
-> > KafkaProducer failed in constructor. here is the code snippet of
-> > KafkaProducer to illustrate the problem.
-> >
-> > -------------------------------
-> > public KafkaProducer(ProducerConfig config, Serializer<K> keySerializer,
-> > Serializer<V> valueSerializer) {
-> >
-> >     // create metrcis reporter via reflection
-> >     List<MetricsReporter> reporters =
-> >
-> >
-> config.getConfiguredInstances(ProducerConfig.METRIC\_REPORTER\_CLASSES\_CONFIG,
-> > MetricsReporter.class);
-> >
-> >     // validate bootstrap servers
-> >     List<InetSocketAddress> addresses =
-> >
-> >
-> ClientUtils.parseAndValidateAddresses(config.getList(ProducerConfig.BOOTSTRAP\_SERVERS\_CONFIG));
-> >
-> > }
-> > -------------------------------
-> >
-> > let's say MyMetricsReporter creates a thread in constructor. if hostname
-> > validation threw an exception, constructor won't call the close method of
-> > MyMetricsReporter to clean up the resource. as a result, we created
-> thread
-> > leak issue. this becomes worse when we try to auto recovery (i.e. keep
-> > creating KafkaProducer again -> failing again -> more thread leaks).
-> >
-> > there are multiple options of fixing this.
-> >
-> > 1) just move the hostname validation to the beginning. but this is only
-> fix
-> > one symtom. it didn't fix the fundamental problem. what if some other
-> lines
-> > throw an exception.
-> >
-> > 2) use try-catch. in the catch section, try to call close methods for any
-> > non-null objects constructed so far.
-> >
-> > 3) explicitly declare the dependency in the constructor. this way, when
-> > KafkaProducer threw an exception, I can call close method of metrics
-> > reporters for releasing resources.
-> >     KafkaProducer(..., List<MetricsReporter> reporters)
-> > we don't have to dependency injection framework. but generally hiding
-> > dependency is a bad coding practice. it is also hard to plug in mocks for
-> > dependencies. this is probably the most intrusive change.
-> >
-> > I am willing to submit a patch. but like to hear your opinions on how we
-> > should fix the issue.
-> >
-> > Thanks,
-> > Steven
-> >
->
->
->
-> --
-> Thanks,
-> Ewen
->
+\> Steven,
+\>
+\> Looks like there is even more that could potentially be leaked -- since key
+\> and value serializers are created and configured at the end, even the IO
+\> thread allocated by the producer could leak. Given that, I think 1 isn't a
+\> great option since, as you said, it doesn't really address the underlying
+\> issue.
+\>
+\> 3 strikes me as bad from a user experience perspective. It's true we might
+\> want to introduce additional constructors to make testing easier, but the
+\> more components I need to allocate myself and inject into the producer's
+\> constructor, the worse the default experience is. And since you would have
+\> to inject the dependencies to get correct, non-leaking behavior, it will
+\> always be more code than previously (and a backwards incompatible change).
+\> Additionally, the code creating a the producer would have be more
+\> complicated since it would have to deal with the cleanup carefully whereas
+\> it previously just had to deal with the exception. Besides, for testing
+\> specifically, you can avoid exposing more constructors just for testing by
+\> using something like PowerMock that let you mock private methods. That
+\> requires a bit of code reorganization, but doesn't affect the public
+\> interface at all.
+\>
+\> So my take is that a variant of 2 is probably best. I'd probably do two
+\> things. First, make close() safe to call even if some fields haven't been
+\> initialized, which presumably just means checking for null fields. (You
+\> might also want to figure out if all the methods close() calls are
+\> idempotent and decide whether some fields should be marked non-final and
+\> cleared to null when close() is called). Second, add the try/catch as you
+\> suggested, but just use close().
+\>
+\> -Ewen
+\>
+\>
+\> On Mon, Apr 13, 2015 at 3:53 PM, Steven Wu \<stevenz3wu@gmail.com\> wrote:
+\>
+\> \> Here is the resource leak problem that we have encountered when 0.8.2
+\> java
+\> \> KafkaProducer failed in constructor. here is the code snippet of
+\> \> KafkaProducer to illustrate the problem.
+\> \>
+\> \> -------------------------------
+\> \> public KafkaProducer(ProducerConfig config, Serializer\<K\> keySerializer,
+\> \> Serializer\<V\> valueSerializer) {
+\> \>
+\> \>     // create metrcis reporter via reflection
+\> \>     List\<MetricsReporter\> reporters =
+\> \>
+\> \>
+\> config.getConfiguredInstances(ProducerConfig.METRIC\_REPORTER\_CLASSES\_CONFIG,
+\> \> MetricsReporter.class);
+\> \>
+\> \>     // validate bootstrap servers
+\> \>     List\<InetSocketAddress\> addresses =
+\> \>
+\> \>
+\> ClientUtils.parseAndValidateAddresses(config.getList(ProducerConfig.BOOTSTRAP\_SERVERS\_CONFIG));
+\> \>
+\> \> }
+\> \> -------------------------------
+\> \>
+\> \> let's say MyMetricsReporter creates a thread in constructor. if hostname
+\> \> validation threw an exception, constructor won't call the close method of
+\> \> MyMetricsReporter to clean up the resource. as a result, we created
+\> thread
+\> \> leak issue. this becomes worse when we try to auto recovery (i.e. keep
+\> \> creating KafkaProducer again -\> failing again -\> more thread leaks).
+\> \>
+\> \> there are multiple options of fixing this.
+\> \>
+\> \> 1) just move the hostname validation to the beginning. but this is only
+\> fix
+\> \> one symtom. it didn't fix the fundamental problem. what if some other
+\> lines
+\> \> throw an exception.
+\> \>
+\> \> 2) use try-catch. in the catch section, try to call close methods for any
+\> \> non-null objects constructed so far.
+\> \>
+\> \> 3) explicitly declare the dependency in the constructor. this way, when
+\> \> KafkaProducer threw an exception, I can call close method of metrics
+\> \> reporters for releasing resources.
+\> \>     KafkaProducer(..., List\<MetricsReporter\> reporters)
+\> \> we don't have to dependency injection framework. but generally hiding
+\> \> dependency is a bad coding practice. it is also hard to plug in mocks for
+\> \> dependencies. this is probably the most intrusive change.
+\> \>
+\> \> I am willing to submit a patch. but like to hear your opinions on how we
+\> \> should fix the issue.
+\> \>
+\> \> Thanks,
+\> \> Steven
+\> \>
+\>
+\>
+\>
+\> --
+\> Thanks,
+\> Ewen
+\>
 
 
 
@@ -2137,16 +2137,16 @@ http://www.cs.umd.edu/~pugh/java/memoryModel/DoubleCheckedLocking.html
 
 * [KAFKA-2110](https://issues.apache.org/jira/browse/KAFKA-2110) | *Trivial* | **Doc: Clarify that max number of consumer instances is per consumer group**
 
-Suggest to modify in the Introduction, section "Consumers" to clarify that the maximum amount of consumer instances is *per consumer group*:
+Suggest to modify in the Introduction, section "Consumers" to clarify that the maximum amount of consumer instances is \*per consumer group\*:
 
 "Note however that there cannot be more consumer instances than partitions."
-=>
+=\>
 "Note however that there cannot be more consumer instances in a consumer group than partitions."
 
 and
 
 "... though this will mean only one consumer process." 
-=>
+=\>
 "... though this will mean only one consumer process per consumer group."
 
 
@@ -2179,7 +2179,7 @@ props.put("advertised.listeners", "PLAINTEXT://localhost:9091,TRACE://localhost:
 
 I saw this test consistently failing on trunk.
 The recent changes are KAFKA-2099, KAFKA-1926, KAFKA-1809.
-kafka.producer.AsyncProducerTest > testNoBroker FAILED
+kafka.producer.AsyncProducerTest \> testNoBroker FAILED
     org.scalatest.junit.JUnitTestFailedError: Should fail with FailedToSendMessageException
         at org.scalatest.junit.AssertionsForJUnit$class.newAssertionFailedException(AssertionsForJUnit.scala:101)
         at org.scalatest.junit.JUnit3Suite.newAssertionFailedException(JUnit3Suite.scala:149)
@@ -2187,11 +2187,11 @@ kafka.producer.AsyncProducerTest > testNoBroker FAILED
         at org.scalatest.junit.JUnit3Suite.fail(JUnit3Suite.scala:149)
         at kafka.producer.AsyncProducerTest.testNoBroker(AsyncProducerTest.scala:300)
 
-kafka.producer.AsyncProducerTest > testIncompatibleEncoder PASSED
+kafka.producer.AsyncProducerTest \> testIncompatibleEncoder PASSED
 
-kafka.producer.AsyncProducerTest > testRandomPartitioner PASSED
+kafka.producer.AsyncProducerTest \> testRandomPartitioner PASSED
 
-kafka.producer.AsyncProducerTest > testFailedSendRetryLogic FAILED
+kafka.producer.AsyncProducerTest \> testFailedSendRetryLogic FAILED
     kafka.common.FailedToSendMessageException: Failed to send messages after 3 tries.
         at kafka.producer.async.DefaultEventHandler.handle(DefaultEventHandler.scala:91)
         at kafka.producer.AsyncProducerTest.testFailedSendRetryLogic(AsyncProducerTest.scala:415)
@@ -2222,7 +2222,7 @@ We've BrokerEndPoint.scala but internally object called "object BrokerEndpoint" 
 
 * [KAFKA-2096](https://issues.apache.org/jira/browse/KAFKA-2096) | *Critical* | **Enable keepalive socket option for broker to prevent socket leak**
 
-We run a Kafka 0.8.2.1 cluster in AWS with large number of producers (> 10000). Also the number of producer instances scale up and down significantly on a daily basis.
+We run a Kafka 0.8.2.1 cluster in AWS with large number of producers (\> 10000). Also the number of producer instances scale up and down significantly on a daily basis.
 
 The issue we found is that after 10 days, the open file descriptor count will approach the limit of 32K. An investigation of these open file descriptors shows that a significant portion of these are from client instances that are terminated during scaling down. Somehow they still show as "ESTABLISHED" in netstat. We suspect that the AWS firewall between the client and broker causes this issue.
 
@@ -2246,7 +2246,7 @@ However, in the if block a second check is made to metadataFetchInProgress. This
 
 * [KAFKA-2089](https://issues.apache.org/jira/browse/KAFKA-2089) | *Major* | **MetadataTest transient failure**
 
-org.apache.kafka.clients.MetadataTest > testMetadata FAILED
+org.apache.kafka.clients.MetadataTest \> testMetadata FAILED
     java.lang.AssertionError:
         at org.junit.Assert.fail(Assert.java:91)
         at org.junit.Assert.assertTrue(Assert.java:43)
@@ -2303,7 +2303,7 @@ Add ControlledShutdown to  org.apache.kafka.common.requests
 * [KAFKA-2056](https://issues.apache.org/jira/browse/KAFKA-2056) | *Major* | **PartitionAssignorTest.testRangePartitionAssignor transient failure**
 
 {code}
-unit.kafka.consumer.PartitionAssignorTest > testRangePartitionAssignor FAILED
+unit.kafka.consumer.PartitionAssignorTest \> testRangePartitionAssignor FAILED
     java.lang.NullPointerException
         at unit.kafka.consumer.PartitionAssignorTest$$anonfun$unit$kafka$consumer$PartitionAssignorTest$$assignAndVerify$1.apply(PartitionAssignorTest.scala:173)
         at unit.kafka.consumer.PartitionAssignorTest$$anonfun$unit$kafka$consumer$PartitionAssignorTest$$assignAndVerify$1.apply(PartitionAssignorTest.scala:172)
@@ -2320,8 +2320,8 @@ unit.kafka.consumer.PartitionAssignorTest > testRangePartitionAssignor FAILED
 * [KAFKA-2055](https://issues.apache.org/jira/browse/KAFKA-2055) | *Major* | **ConsumerBounceTest.testSeekAndCommitWithBrokerFailures transient failure**
 
 {code}
-kafka.api.ConsumerBounceTest > testSeekAndCommitWithBrokerFailures FAILED
-    java.lang.AssertionError: expected:<1000> but was:<976>
+kafka.api.ConsumerBounceTest \> testSeekAndCommitWithBrokerFailures FAILED
+    java.lang.AssertionError: expected:\<1000\> but was:\<976\>
         at org.junit.Assert.fail(Assert.java:92)
         at org.junit.Assert.failNotEquals(Assert.java:689)
         at org.junit.Assert.assertEquals(Assert.java:127)
@@ -2330,8 +2330,8 @@ kafka.api.ConsumerBounceTest > testSeekAndCommitWithBrokerFailures FAILED
         at kafka.api.ConsumerBounceTest.seekAndCommitWithBrokerFailures(ConsumerBounceTest.scala:117)
         at kafka.api.ConsumerBounceTest.testSeekAndCommitWithBrokerFailures(ConsumerBounceTest.scala:98)
 
-kafka.api.ConsumerBounceTest > testSeekAndCommitWithBrokerFailures FAILED
-    java.lang.AssertionError: expected:<1000> but was:<913>
+kafka.api.ConsumerBounceTest \> testSeekAndCommitWithBrokerFailures FAILED
+    java.lang.AssertionError: expected:\<1000\> but was:\<913\>
         at org.junit.Assert.fail(Assert.java:92)
         at org.junit.Assert.failNotEquals(Assert.java:689)
         at org.junit.Assert.assertEquals(Assert.java:127)
@@ -2378,8 +2378,8 @@ We should add check for the metadata.topics, if it is empty, no TMR should be se
 
 Scala 2.10.5 (the last release of the 2.10.x series) is binary compatible with 2.10.4  and Scala 2.11.6 is binary compatible with 2.11.5. For details of the changes in each release, see:
 
-* http://www.scala-lang.org/news/2.10.5
-* http://www.scala-lang.org/news/2.11.6
+\* http://www.scala-lang.org/news/2.10.5
+\* http://www.scala-lang.org/news/2.11.6
 
 
 ---
@@ -2447,7 +2447,7 @@ java.lang.IllegalArgumentException: requirement failed: Corrupt index found, ind
 	at scala.collection.IterableLike$class.foreach(IterableLike.scala:72)
 	at scala.collection.AbstractIterable.foreach(Iterable.scala:54)
 	at kafka.log.Log.loadSegments(Log.scala:184)
-	at kafka.log.Log.<init>(Log.scala:82)
+	at kafka.log.Log.\<init\>(Log.scala:82)
 	at kafka.log.LogManager$$anonfun$loadLogs$2$$anonfun$3$$anonfun$apply$7$$anonfun$apply$1.apply$mcV$sp(LogManager.scala:141)
 	at kafka.utils.Utils$$anon$1.run(Utils.scala:54)
 	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
@@ -2581,7 +2581,7 @@ It seems there is a LogCleanerManager.scala.orig in the trunk now. Need to remov
 * [KAFKA-1969](https://issues.apache.org/jira/browse/KAFKA-1969) | *Major* | **NPE in unit test for new consumer**
 
 {code}
-kafka.api.ConsumerTest > testConsumptionWithBrokerFailures FAILED
+kafka.api.ConsumerTest \> testConsumptionWithBrokerFailures FAILED
     java.lang.NullPointerException
         at org.apache.kafka.clients.consumer.KafkaConsumer.ensureCoordinatorReady(KafkaConsumer.java:1238)
         at org.apache.kafka.clients.consumer.KafkaConsumer.initiateCoordinatorRequest(KafkaConsumer.java:1189)
@@ -2679,13 +2679,13 @@ If the message or message set is too large, then it is a client side error and s
 
 when performing `gradle wrapper` and `gradlew build` as a "new" developer, I get an exception: 
 {code}
-C:\development\git\kafka>gradlew build --stacktrace
-<...>
+C:\development\git\kafka\>gradlew build --stacktrace
+\<...\>
 FAILURE: Build failed with an exception.
 
-* What went wrong:
+\* What went wrong:
 Execution failed for task ':core:compileScala'.
-> com.typesafe.zinc.Setup.create(Lcom/typesafe/zinc/ScalaLocation;Lcom/typesafe/zinc/SbtJars;Ljava/io/File;)Lcom/typesaf
+\> com.typesafe.zinc.Setup.create(Lcom/typesafe/zinc/ScalaLocation;Lcom/typesafe/zinc/SbtJars;Ljava/io/File;)Lcom/typesaf
 e/zinc/Setup;
 {code}
 
@@ -2693,7 +2693,7 @@ Details: https://gist.github.com/mlem/ddff83cc8a25b040c157
 
 Current Commit:
 {code}
-C:\development\git\kafka>git rev-parse --verify HEAD
+C:\development\git\kafka\>git rev-parse --verify HEAD
 71602de0bbf7727f498a812033027f6cbfe34eb8
 {code}
 
@@ -2831,7 +2831,7 @@ Building project 'core' with Scala version 2.10.4
 :clients:testClasses UP-TO-DATE
 :clients:test
 
-org.apache.kafka.clients.producer.MetadataTest > testMetadataUpdateWaitTime PASSED
+org.apache.kafka.clients.producer.MetadataTest \> testMetadataUpdateWaitTime PASSED
 
 BUILD SUCCESSFUL
 
@@ -2913,12 +2913,12 @@ when the "receive" is null which can happen if the "isRunning" is false
 
 * [KAFKA-1881](https://issues.apache.org/jira/browse/KAFKA-1881) | *Major* | **transient unit test failure in testDeleteTopicWithCleaner due to OOME**
 
-kafka.admin.DeleteTopicTest > testDeleteTopicWithCleaner FAILED
+kafka.admin.DeleteTopicTest \> testDeleteTopicWithCleaner FAILED
     java.lang.OutOfMemoryError: Java heap space
-        at java.nio.HeapByteBuffer.<init>(HeapByteBuffer.java:39)
+        at java.nio.HeapByteBuffer.\<init\>(HeapByteBuffer.java:39)
         at java.nio.ByteBuffer.allocate(ByteBuffer.java:312)
-        at kafka.log.SkimpyOffsetMap.<init>(OffsetMap.scala:42)
-        at kafka.log.LogCleaner$CleanerThread.<init>(LogCleaner.scala:177)
+        at kafka.log.SkimpyOffsetMap.\<init\>(OffsetMap.scala:42)
+        at kafka.log.LogCleaner$CleanerThread.\<init\>(LogCleaner.scala:177)
         at kafka.log.LogCleaner$$anonfun$1.apply(LogCleaner.scala:86)
         at kafka.log.LogCleaner$$anonfun$1.apply(LogCleaner.scala:86)
         at scala.collection.TraversableLike$$anonfun$map$1.apply(TraversableLike.scala:244)
@@ -2926,8 +2926,8 @@ kafka.admin.DeleteTopicTest > testDeleteTopicWithCleaner FAILED
         at scala.collection.immutable.Range.foreach(Range.scala:141)
         at scala.collection.TraversableLike$class.map(TraversableLike.scala:244)
         at scala.collection.AbstractTraversable.map(Traversable.scala:105)
-        at kafka.log.LogCleaner.<init>(LogCleaner.scala:86)
-        at kafka.log.LogManager.<init>(LogManager.scala:64)
+        at kafka.log.LogCleaner.\<init\>(LogCleaner.scala:86)
+        at kafka.log.LogManager.\<init\>(LogManager.scala:64)
         at kafka.server.KafkaServer.createLogManager(KafkaServer.scala:337)
         at kafka.server.KafkaServer.startup(KafkaServer.scala:85)
         at kafka.utils.TestUtils$.createServer(TestUtils.scala:134)
@@ -3029,19 +3029,19 @@ We should only do this if it doesn't add inefficiencies for people who don't use
 
 * [KAFKA-1856](https://issues.apache.org/jira/browse/KAFKA-1856) | *Major* | **Add PreCommit Patch Testing**
 
-h1. Kafka PreCommit Patch Testing - *Don't wait for it to break*
+h1. Kafka PreCommit Patch Testing - \*Don't wait for it to break\*
 
 h2. Motivation
-*With great power comes great responsibility* - Uncle Ben. As Kafka user list is growing, mechanism to ensure quality of the product is required. Quality becomes hard to measure and maintain in an open source project, because of a wide community of contributors. Luckily, Kafka is not the first open source project and can benefit from learnings of prior projects.
+\*With great power comes great responsibility\* - Uncle Ben. As Kafka user list is growing, mechanism to ensure quality of the product is required. Quality becomes hard to measure and maintain in an open source project, because of a wide community of contributors. Luckily, Kafka is not the first open source project and can benefit from learnings of prior projects.
 
 PreCommit tests are the tests that are run for each patch that gets attached to an open JIRA. Based on tests results, test execution framework, test bot, +1 or -1 the patch. Having PreCommit tests take the load off committers to look at or test each patch.
 
 h2. Tests in Kafka
 h3. Unit and Integraiton Tests
-[Unit and Integration tests|https://cwiki.apache.org/confluence/display/KAFKA/Kafka+0.9+Unit+and+Integration+Tests] are cardinal to help contributors to avoid breaking existing functionalities while adding new functionalities or fixing older ones. These tests, atleast the ones relevant to the changes, must be run by contributors before attaching a patch to a JIRA.
+[Unit and Integration tests\|https://cwiki.apache.org/confluence/display/KAFKA/Kafka+0.9+Unit+and+Integration+Tests] are cardinal to help contributors to avoid breaking existing functionalities while adding new functionalities or fixing older ones. These tests, atleast the ones relevant to the changes, must be run by contributors before attaching a patch to a JIRA.
 
 h3. System Tests
-[System tests|https://cwiki.apache.org/confluence/display/KAFKA/Kafka+System+Tests] are much wider tests that, unlike unit tests, focus on end-to-end scenarios and not some specific method or class.
+[System tests\|https://cwiki.apache.org/confluence/display/KAFKA/Kafka+System+Tests] are much wider tests that, unlike unit tests, focus on end-to-end scenarios and not some specific method or class.
 
 h2. Apache PreCommit tests
 Apache provides a mechanism to automatically build a project and run a series of tests whenever a patch is uploaded to a JIRA. Based on test execution, the test framework will comment with a +1 or -1 on the JIRA.
@@ -3121,7 +3121,7 @@ Code in getLeaderIsrAndEpochForPartition() and parseLeaderAndIsr() was essential
 
 I ran into these failures consistently when trying to build Kafka locally:
 
-kafka.server.ServerShutdownTest > testCleanShutdown FAILED
+kafka.server.ServerShutdownTest \> testCleanShutdown FAILED
     java.lang.NullPointerException
         at kafka.server.ServerShutdownTest$$anonfun$verifyNonDaemonThreadsStatus$2.apply(ServerShutdownTest.scala:147)
         at kafka.server.ServerShutdownTest$$anonfun$verifyNonDaemonThreadsStatus$2.apply(ServerShutdownTest.scala:147)
@@ -3134,7 +3134,7 @@ kafka.server.ServerShutdownTest > testCleanShutdown FAILED
         at kafka.server.ServerShutdownTest.verifyNonDaemonThreadsStatus(ServerShutdownTest.scala:147)
         at kafka.server.ServerShutdownTest.testCleanShutdown(ServerShutdownTest.scala:101)
 
-kafka.server.ServerShutdownTest > testCleanShutdownWithDeleteTopicEnabled FAILED
+kafka.server.ServerShutdownTest \> testCleanShutdownWithDeleteTopicEnabled FAILED
     java.lang.NullPointerException
         at kafka.server.ServerShutdownTest$$anonfun$verifyNonDaemonThreadsStatus$2.apply(ServerShutdownTest.scala:147)
         at kafka.server.ServerShutdownTest$$anonfun$verifyNonDaemonThreadsStatus$2.apply(ServerShutdownTest.scala:147)
@@ -3147,7 +3147,7 @@ kafka.server.ServerShutdownTest > testCleanShutdownWithDeleteTopicEnabled FAILED
         at kafka.server.ServerShutdownTest.verifyNonDaemonThreadsStatus(ServerShutdownTest.scala:147)
         at kafka.server.ServerShutdownTest.testCleanShutdownWithDeleteTopicEnabled(ServerShutdownTest.scala:114)
 
-kafka.server.ServerShutdownTest > testCleanShutdownAfterFailedStartup FAILED
+kafka.server.ServerShutdownTest \> testCleanShutdownAfterFailedStartup FAILED
     java.lang.NullPointerException
         at kafka.server.ServerShutdownTest$$anonfun$verifyNonDaemonThreadsStatus$2.apply(ServerShutdownTest.scala:147)
         at kafka.server.ServerShutdownTest$$anonfun$verifyNonDaemonThreadsStatus$2.apply(ServerShutdownTest.scala:147)
@@ -3174,9 +3174,9 @@ I would like to provide a patch that fixes this.
 Currently, in trunk, the 2.9.2 build fails with the following error:
 
 MirrorMaker.scala:507 overloaded method value commitOffsets with alternatives:
-  (isAutoCommit: Boolean,topicPartitionOffsets: scala.collection.immutable.Map[kafka.common.TopicAndPartition,kafka.common.OffsetAndMetadata])Unit <and>
-  (isAutoCommit: Boolean)Unit <and>
-  => Unit
+  (isAutoCommit: Boolean,topicPartitionOffsets: scala.collection.immutable.Map[kafka.common.TopicAndPartition,kafka.common.OffsetAndMetadata])Unit \<and\>
+  (isAutoCommit: Boolean)Unit \<and\>
+  =\> Unit
  cannot be applied to (isAutoCommit: Boolean, scala.collection.immutable.Map[kafka.common.TopicAndPartition,kafka.common.OffsetAndMetadata])
         connector.commitOffsets(isAutoCommit = false, offsetsToCommit)
 
@@ -3325,9 +3325,9 @@ will fail with a clearer stacktrace.
 
 * [KAFKA-1762](https://issues.apache.org/jira/browse/KAFKA-1762) | *Major* | **Update max-inflight-request doc string**
 
-The new Producer client introduces a config for the max # of inFlight messages. When it is set > 1 on MirrorMaker, however, there is a risk for data loss even with KAFKA-1650 because the offsets recorded in the MM's offset map is no longer continuous.
+The new Producer client introduces a config for the max # of inFlight messages. When it is set \> 1 on MirrorMaker, however, there is a risk for data loss even with KAFKA-1650 because the offsets recorded in the MM's offset map is no longer continuous.
 
-Another issue is that when this value is set > 1, there is a risk of message re-ordering in the producer
+Another issue is that when this value is set \> 1, there is a risk of message re-ordering in the producer
 
 Changes:
     1. Set max # of inFlight messages = 1 in MM
@@ -3364,7 +3364,7 @@ java.lang.NumberFormatException: For input string: "^@^@^@^@^@^@^@^@^@^@^@^@^@^@
         at scala.collection.IndexedSeqOptimized$class.foreach(IndexedSeqOptimized.scala:33)
         at scala.collection.mutable.WrappedArray.foreach(WrappedArray.scala:34)
         at kafka.log.LogManager.loadLogs(LogManager.scala:105)
-        at kafka.log.LogManager.<init>(LogManager.scala:57)
+        at kafka.log.LogManager.\<init\>(LogManager.scala:57)
         at kafka.server.KafkaServer.createLogManager(KafkaServer.scala:275)
         at kafka.server.KafkaServer.startup(KafkaServer.scala:72)
 {code}
@@ -3439,9 +3439,9 @@ TestcaseEnv in system tests uses class variables instead of instance variables f
 
 The system test scripts don't handle errors well. A couple of key issues:
 
-* Unexpected exceptions during tests are just ignored and the tests appear to be successful in the reports.
-* The scripts exit code is always 0, even if tests fail.
-* Almost no subprocess calls are checked. In a lot of cases this is ok, and sometimes it's not possible (e.g. after starting a long-running remote process), but in some cases such as calls to DumpLogSegments, the tests can miss that the tools is exiting with an exception and the test appears to be successful even though no data was verified.
+\* Unexpected exceptions during tests are just ignored and the tests appear to be successful in the reports.
+\* The scripts exit code is always 0, even if tests fail.
+\* Almost no subprocess calls are checked. In a lot of cases this is ok, and sometimes it's not possible (e.g. after starting a long-running remote process), but in some cases such as calls to DumpLogSegments, the tests can miss that the tools is exiting with an exception and the test appears to be successful even though no data was verified.
 
 
 ---
@@ -3491,9 +3491,9 @@ The comment in Message.scala says the value of "magic" identifier is 2,
 but the actual current "magic" value is 0.
 
 {code}
-  /**
-   * The current "magic" value
-   */
+  /\*\*
+   \* The current "magic" value
+   \*/
   val CurrentMagicValue: Byte = 0
 {code}
 
@@ -3562,7 +3562,7 @@ we lost millions of messages because of this {{try/catch}} in  the producer {{De
 https://github.com/apache/kafka/blob/0.8.1/core/src/main/scala/kafka/producer/async/DefaultEventHandler.scala#L114-L116
 
 If a Throwable is caught by this {{try/catch}}, the retry policy will have no effect and all yet-to-be-sent messages are lost (the error will break the loop over the broker list).
-This issue is very hard to detect because: the producer (async or sync) cannot even catch the error, and *all* the metrics are updated as if everything was fine.
+This issue is very hard to detect because: the producer (async or sync) cannot even catch the error, and \*all\* the metrics are updated as if everything was fine.
 
 Only the abnormal drop in the producers network I/O, or the incoming message rate on the brokers; or the alerting on errors in producer logs could have revealed the issue. 
 
@@ -3575,9 +3575,9 @@ Alexis
 ps: you might wonder how could this {{try/catch}} ever caught something? {{DefaultEventHandler#groupMessagesToSet}} looks so harmless. 
 
 Here are the details:
-We use Snappy compression. When the native snappy library is not installed on the host, Snappy, during the initialization of class {{org.xerial.snappy.Snappy}}  will [write a C library|https://github.com/xerial/snappy-java/blob/1.1.0/src/main/java/org/xerial/snappy/SnappyLoader.java#L312] in the JVM temp directory {{java.io.tmpdir}}.
+We use Snappy compression. When the native snappy library is not installed on the host, Snappy, during the initialization of class {{org.xerial.snappy.Snappy}}  will [write a C library\|https://github.com/xerial/snappy-java/blob/1.1.0/src/main/java/org/xerial/snappy/SnappyLoader.java#L312] in the JVM temp directory {{java.io.tmpdir}}.
 
-In our scenario, {{java.io.tmpdir}} was a subdirectory of {{/tmp}}. After an instance reboot (thank you [AWS|https://twitter.com/hashtag/AWSReboot?src=hash]!), the JVM temp directory was removed. The JVM was then running with a non-existing temp dir. Snappy class would be impossible to initialize and the following message would be silently logged:
+In our scenario, {{java.io.tmpdir}} was a subdirectory of {{/tmp}}. After an instance reboot (thank you [AWS\|https://twitter.com/hashtag/AWSReboot?src=hash]!), the JVM temp directory was removed. The JVM was then running with a non-existing temp dir. Snappy class would be impossible to initialize and the following message would be silently logged:
 
 {code}
 ERROR [2014-10-07 22:23:56,530] kafka.producer.async.DefaultEventHandler: Failed to send messages
@@ -3605,7 +3605,7 @@ We should use it to validate the actual configured value.
 
 * [KAFKA-1697](https://issues.apache.org/jira/browse/KAFKA-1697) | *Major* | **remove code related to ack\>1 on the broker**
 
-We removed the ack>1 support from the producer client in kafka-1555. We can completely remove the code in the broker that supports ack>1.
+We removed the ack\>1 support from the producer client in kafka-1555. We can completely remove the code in the broker that supports ack\>1.
 
 Also, we probably want to make NotEnoughReplicasAfterAppend a non-retriable exception and let the client decide what to do.
 
@@ -3703,7 +3703,7 @@ If you use the roundrobin rebalance method with a wildcard consumer, and there a
 kafka.common.ConsumerRebalanceFailedException: kafka-audit\_lva1-app0007.corp-1411494404908-4e620544 can't rebalance after 10 retries
 	at kafka.consumer.ZookeeperConsumerConnector$ZKRebalancerListener.syncedRebalance(ZookeeperConsumerConnector.scala:630)
 	at kafka.consumer.ZookeeperConsumerConnector.kafka$consumer$ZookeeperConsumerConnector$$reinitializeConsumer(ZookeeperConsumerConnector.scala:897)
-	at kafka.consumer.ZookeeperConsumerConnector$WildcardStreamsHandler.<init>(ZookeeperConsumerConnector.scala:931)
+	at kafka.consumer.ZookeeperConsumerConnector$WildcardStreamsHandler.\<init\>(ZookeeperConsumerConnector.scala:931)
 	at kafka.consumer.ZookeeperConsumerConnector.createMessageStreamsByFilter(ZookeeperConsumerConnector.scala:159)
 	at kafka.javaapi.consumer.ZookeeperConsumerConnector.createMessageStreamsByFilter(ZookeeperConsumerConnector.scala:101)
 	at com.linkedin.tracker.consumer.TrackingConsumerImpl.initWildcardIterators(TrackingConsumerImpl.java:88)
@@ -3828,12 +3828,12 @@ Missing required argument "[messages]"
 Option                                  Description
 ------                                  -----------
 ......
---messages <Long: count>                The number of messages to send or
+--messages \<Long: count\>                The number of messages to send or
                                           consume (default:
                                           9223372036854775807)
 {noformat}
 
-However the [shell command documentation|https://github.com/apache/kafka/blob/c66e408b244de52f1c5c5bbd7627aa1f028f9a87/perf/src/main/scala/kafka/perf/PerfConfig.scala#L25] doesn't say that this is required and implies that [2^63-1|http://en.wikipedia.org/wiki/9223372036854775807] (Long.MaxValue) messages will be sent. It should probably look like the [ConsoleProducer|https://github.com/apache/kafka/blob/c66e408b244de52f1c5c5bbd7627aa1f028f9a87/core/src/main/scala/kafka/producer/ConsoleProducer.scala#L32] and prefix the documentation with REQUIRED. Or should we make this a non-required argument and set the default value to something sane like 100,000 messages.
+However the [shell command documentation\|https://github.com/apache/kafka/blob/c66e408b244de52f1c5c5bbd7627aa1f028f9a87/perf/src/main/scala/kafka/perf/PerfConfig.scala#L25] doesn't say that this is required and implies that [2^63-1\|http://en.wikipedia.org/wiki/9223372036854775807] (Long.MaxValue) messages will be sent. It should probably look like the [ConsoleProducer\|https://github.com/apache/kafka/blob/c66e408b244de52f1c5c5bbd7627aa1f028f9a87/core/src/main/scala/kafka/producer/ConsoleProducer.scala#L32] and prefix the documentation with REQUIRED. Or should we make this a non-required argument and set the default value to something sane like 100,000 messages.
 
 Which option is preferable for this?
 
@@ -3899,7 +3899,7 @@ kafka.common.KafkaException: Can't parse json string: null
 	at kafka.admin.ReassignPartitionsCommand$.main(ReassignPartitionsCommand.scala:112)
 	at kafka.admin.ReassignPartitionsCommand.main(ReassignPartitionsCommand.scala)
 Caused by: java.lang.NullPointerException
-	at scala.util.parsing.combinator.lexical.Scanners$Scanner.<init>(Scanners.scala:52)
+	at scala.util.parsing.combinator.lexical.Scanners$Scanner.\<init\>(Scanners.scala:52)
 	at scala.util.parsing.json.JSON$.parseRaw(JSON.scala:71)
 	at scala.util.parsing.json.JSON$.parseFull(JSON.scala:85)
 	at kafka.utils.Json$.liftedTree1$1(Json.scala:33)
@@ -3907,7 +3907,7 @@ Caused by: java.lang.NullPointerException
 
 {code}
 
-*rebalance-topic.json*
+\*rebalance-topic.json\*
 {code}
 {"topics":
      [{"topic": "metrics-logs"}],
@@ -4029,14 +4029,14 @@ In the main kafka folder
 4) vagrant up
 
 once this is done 
-* Zookeeper will be running 192.168.50.5
-* Broker 1 on 192.168.50.10
-* Broker 2 on 192.168.50.20
-* Broker 3 on 192.168.50.30
+\* Zookeeper will be running 192.168.50.5
+\* Broker 1 on 192.168.50.10
+\* Broker 2 on 192.168.50.20
+\* Broker 3 on 192.168.50.30
 
 When you are all up and running you will be back at a command brompt.  
 
-If you want you can login to the machines using vagrant shh <machineName> but you don't need to.
+If you want you can login to the machines using vagrant shh \<machineName\> but you don't need to.
 
 You can access the brokers and zookeeper by their IP
 
@@ -4354,7 +4354,7 @@ java.lang.StringIndexOutOfBoundsException: String index out of range: -1
         at scala.collection.IndexedSeqOptimized$class.foreach(IndexedSeqOptimized.scala:34)
         at scala.collection.mutable.WrappedArray.foreach(WrappedArray.scala:32)
         at kafka.log.LogManager.loadLogs(LogManager.scala:101)
-        at kafka.log.LogManager.<init>(LogManager.scala:62)
+        at kafka.log.LogManager.\<init\>(LogManager.scala:62)
         at kafka.server.KafkaServer.startup(KafkaServer.scala:59)
         at kafka.server.KafkaServerStartable.startup(KafkaServerStartable.scala:34)
         at kafka.Kafka$.main(Kafka.scala:46)

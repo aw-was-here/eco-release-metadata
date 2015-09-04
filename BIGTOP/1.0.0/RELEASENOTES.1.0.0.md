@@ -85,9 +85,9 @@ The upgrade to 2.5.5 seems to solve the issue.
 test-artifacts can not be deployed nor verified. the following message is getting thrown from the maven run:
 
 {verbatim}
-[ERROR] Failed to execute goal on project sqoop-smoke: Could not resolve dependencies for project org.apache.bigtop.itest:sqoop-smoke:jar:1.0.0: The following artifacts could not be resolved: org.apache.sqoop:sqoop-core:jar:1.4.5, org.apache.sqoop:sqoop-client:jar:1.4.5: Could not find artifact org.apache.sqoop:sqoop-core:jar:1.4.5 in central (http://repo.maven.apache.org/maven2) -> [Help 1]
+[ERROR] Failed to execute goal on project sqoop-smoke: Could not resolve dependencies for project org.apache.bigtop.itest:sqoop-smoke:jar:1.0.0: The following artifacts could not be resolved: org.apache.sqoop:sqoop-core:jar:1.4.5, org.apache.sqoop:sqoop-client:jar:1.4.5: Could not find artifact org.apache.sqoop:sqoop-core:jar:1.4.5 in central (http://repo.maven.apache.org/maven2) -\> [Help 1]
 {verbatim}
-Indeed https://repo1.maven.org/maven2/org/apache/sqoop/ does have nothing of the sort. Does Sqoop community still publish 1.4.* artifacts at all?
+Indeed https://repo1.maven.org/maven2/org/apache/sqoop/ does have nothing of the sort. Does Sqoop community still publish 1.4.\* artifacts at all?
 
 
 ---
@@ -137,7 +137,7 @@ one cannot install kafka at least on centos7 since it packages /usr/bin which co
 
 * [BIGTOP-1937](https://issues.apache.org/jira/browse/BIGTOP-1937) | *Major* | **redhat-lsb is required by kafka daemon**
 
-The Kafka daemon require "redhat-lsb* to be installed first so that it can successfully bring the daemon up.
+The Kafka daemon require "redhat-lsb\* to be installed first so that it can successfully bring the daemon up.
 {code}
 root@fcf41830c410 /]# service kafka-server status
 /etc/init.d/kafka-server: line 34: /lib/lsb/init-functions: No such file or directory
@@ -157,7 +157,7 @@ Using the new product generator feature from [BIGTOP-1918], we should add a prod
 
 * [BIGTOP-1931](https://issues.apache.org/jira/browse/BIGTOP-1931) | *Major* | **Add multinomial product purchasing model to BPS Data Generator**
 
-My recent analysis have found problems with our [Markov models|http://rnowling.github.io/math/2015/07/06/bps-product-markov-model.html].  I proposed a [multinomial model|http://rnowling.github.io/math/2015/07/07/bps-product-multinomial.html] and demonstrated that it could produce data amenable to [segmentation|http://rnowling.github.io/math/2015/07/11/customer-segmentation-bps-multinomial.html].  I'd like to add this multinomial model to the BPS data generator, make it the new default model, and evaluate it for a while.
+My recent analysis have found problems with our [Markov models\|http://rnowling.github.io/math/2015/07/06/bps-product-markov-model.html].  I proposed a [multinomial model\|http://rnowling.github.io/math/2015/07/07/bps-product-multinomial.html] and demonstrated that it could produce data amenable to [segmentation\|http://rnowling.github.io/math/2015/07/11/customer-segmentation-bps-multinomial.html].  I'd like to add this multinomial model to the BPS data generator, make it the new default model, and evaluate it for a while.
 
 
 ---
@@ -194,7 +194,7 @@ so `mapreduce` is typed as `mapredcue` which is not that big of a deal, because 
 
 * [BIGTOP-1900](https://issues.apache.org/jira/browse/BIGTOP-1900) | *Major* | **Upgrade bigtop/slaves images on bigtop's dockerhub**
 
-Same reason with BIGTOP-1898, we'll need to build new set of [bigtop/slaves|https://registry.hub.docker.com/u/bigtop/slaves/tags/manage/] images for those supported OSs. A simple way to do this is to setup a [CI job|http://bigtop01.cloudera.org:8080/view/Docker/job/Docker-Toolchain-Evans/] which spin up containers and runs bigtop\_toolchain in side containers to have packages installed. Then we can manually commit and push images up to dockerhub.
+Same reason with BIGTOP-1898, we'll need to build new set of [bigtop/slaves\|https://registry.hub.docker.com/u/bigtop/slaves/tags/manage/] images for those supported OSs. A simple way to do this is to setup a [CI job\|http://bigtop01.cloudera.org:8080/view/Docker/job/Docker-Toolchain-Evans/] which spin up containers and runs bigtop\_toolchain in side containers to have packages installed. Then we can manually commit and push images up to dockerhub.
 This is also blocking 1.0 release since the build process requires build/slaves images.
 
 
@@ -224,7 +224,7 @@ Compilation of component hadoop-yarn-project fails:
 [ERROR] /opt/bigtop/build/hadoop/rpm/BUILD/hadoop-2.6.0-src/hadoop-yarn-project/hadoop-yarn/hadoop-yarn-client/src/test/java/org/apache/hadoop/yarn/client/cli/TestYarnCLI.java:[70,30] error: package org.jboss.netty.logging does not exist
 {noformat}
 
-{code:java|title=referenced line in TestYarnCLI.java}
+{code:java\|title=referenced line in TestYarnCLI.java}
 import org.jboss.netty.logging.CommonsLoggerFactory;
 {code}
 
@@ -239,8 +239,8 @@ $ cat /var/log/kafka/kafka-server.out
 log4j:ERROR setFile(null,true) call failed.
 java.io.FileNotFoundException: log-cleaner.log (Permission denied)
 	at java.io.FileOutputStream.open(Native Method)
-	at java.io.FileOutputStream.<init>(FileOutputStream.java:221)
-	at java.io.FileOutputStream.<init>(FileOutputStream.java:142)
+	at java.io.FileOutputStream.\<init\>(FileOutputStream.java:221)
+	at java.io.FileOutputStream.\<init\>(FileOutputStream.java:142)
 	at org.apache.log4j.FileAppender.setFile(FileAppender.java:294)
 	at org.apache.log4j.FileAppender.activateOptions(FileAppender.java:165)
 	at org.apache.log4j.DailyRollingFileAppender.activateOptions(DailyRollingFileAppender.java:223)
@@ -253,7 +253,7 @@ java.io.FileNotFoundException: log-cleaner.log (Permission denied)
 	at org.apache.log4j.PropertyConfigurator.doConfigure(PropertyConfigurator.java:504)
 	at org.apache.log4j.PropertyConfigurator.doConfigure(PropertyConfigurator.java:547)
 	at org.apache.log4j.helpers.OptionConverter.selectAndConfigure(OptionConverter.java:483)
-	at org.apache.log4j.LogManager.<clinit>(LogManager.java:127)
+	at org.apache.log4j.LogManager.\<clinit\>(LogManager.java:127)
 	at org.apache.log4j.Logger.getLogger(Logger.java:104)
 	at kafka.utils.Logging$class.logger(Logging.scala:24)
 	at kafka.utils.VerifiableProperties.logger$lzycompute(VerifiableProperties.scala:24)
@@ -261,7 +261,7 @@ java.io.FileNotFoundException: log-cleaner.log (Permission denied)
 	at kafka.utils.Logging$class.info(Logging.scala:67)
 	at kafka.utils.VerifiableProperties.info(VerifiableProperties.scala:24)
 	at kafka.utils.VerifiableProperties.verify(VerifiableProperties.scala:197)
-	at kafka.server.KafkaConfig.<init>(KafkaConfig.scala:32)
+	at kafka.server.KafkaConfig.\<init\>(KafkaConfig.scala:32)
 	at kafka.Kafka$.main(Kafka.scala:35)
 	at kafka.Kafka.main(Kafka.scala)
 ...
@@ -285,8 +285,8 @@ $ vagrant up
 
 ...
 
-==> bigtop1: Error: Unknown function is\_array at /tmp/vagrant-puppet/manifests-f76206f1841b10444f0cea13160540f3/cluster.pp:24 on node bigtop1.vagrant
-==> bigtop1: Error: Unknown function is\_array at /tmp/vagrant-puppet/manifests-f76206f1841b10444f0cea13160540f3/cluster.pp:24 on node bigtop1.vagrant
+==\> bigtop1: Error: Unknown function is\_array at /tmp/vagrant-puppet/manifests-f76206f1841b10444f0cea13160540f3/cluster.pp:24 on node bigtop1.vagrant
+==\> bigtop1: Error: Unknown function is\_array at /tmp/vagrant-puppet/manifests-f76206f1841b10444f0cea13160540f3/cluster.pp:24 on node bigtop1.vagrant
 
 {noformat}
 
@@ -303,14 +303,14 @@ We included Sqoop 1.4.x and renamed sqoop 1.99.x to sqoop2. So, appropriate upda
 * [BIGTOP-1875](https://issues.apache.org/jira/browse/BIGTOP-1875) | *Major* | **Oozie build failed due to Codehaus repository is out of service**
 
 Some problem here to Oozie as BIGTOP-1874. The failure log is can be found here:
-[Oozie nightly build|http://bigtop01.cloudera.org:8080/view/Bigtop-trunk/job/Docker-Bigtop-trunk-Oozie/BUILD\_ENVIRONMENTS=centos-6,label=docker-slave-03/29/console].
+[Oozie nightly build\|http://bigtop01.cloudera.org:8080/view/Bigtop-trunk/job/Docker-Bigtop-trunk-Oozie/BUILD\_ENVIRONMENTS=centos-6,label=docker-slave-03/29/console].
 
 
 ---
 
 * [BIGTOP-1874](https://issues.apache.org/jira/browse/BIGTOP-1874) | *Major* | **HBase build failed due to Codehaus repository is out of service**
 
-It seems that the codehaus repo is out of service and causing the hbase build not being able to download its dependencies . I encounter this first on the [HBase nightly build|http://bigtop01.cloudera.org:8080/view/Bigtop-trunk/job/Docker-Bigtop-trunk-HBase/BUILD\_ENVIRONMENTS=centos-6,label=docker-slave-03/34/console], then manually tested on 4 docker build slaves separately. The results are consistent.
+It seems that the codehaus repo is out of service and causing the hbase build not being able to download its dependencies . I encounter this first on the [HBase nightly build\|http://bigtop01.cloudera.org:8080/view/Bigtop-trunk/job/Docker-Bigtop-trunk-HBase/BUILD\_ENVIRONMENTS=centos-6,label=docker-slave-03/34/console], then manually tested on 4 docker build slaves separately. The results are consistent.
 
 
 ---
@@ -350,13 +350,13 @@ We have an option to pin version 1.8.0 of the Apt module, or fix our deployment 
 
 * [BIGTOP-1869](https://issues.apache.org/jira/browse/BIGTOP-1869) | *Blocker* | **Hue 3.8.1 refinements**
 
-* bigtop.bom was missing from Sources (rpm)
-* centos7 did not pack properly since lib64 is a symlink
-* libyaml development headers now needed (all)
-* Increase compat level to fix lintian errors (deb)
-* useradmin app was missing (all)
-* fix python depedencies of hue-common (deb)
-* fix shlib dependencies on architecture independent packages (deb)
+\* bigtop.bom was missing from Sources (rpm)
+\* centos7 did not pack properly since lib64 is a symlink
+\* libyaml development headers now needed (all)
+\* Increase compat level to fix lintian errors (deb)
+\* useradmin app was missing (all)
+\* fix python depedencies of hue-common (deb)
+\* fix shlib dependencies on architecture independent packages (deb)
 
 
 ---
@@ -391,14 +391,14 @@ The hue package doesn't build on centos 7 and fedora 20 container:
 18:35:00  
 18:35:00  FAILURE: Build failed with an exception.
 18:35:00  
-18:35:00  * Where:
+18:35:00  \* Where:
 18:35:00  Script '/ws/packages.gradle' line: 420
 18:35:00  
-18:35:00  * What went wrong:
+18:35:00  \* What went wrong:
 18:35:00  Execution failed for task ':hue-rpm'.
-18:35:00  > Process 'command 'rpmbuild'' finished with non-zero exit value 1
+18:35:00  \> Process 'command 'rpmbuild'' finished with non-zero exit value 1
 18:35:00  
-18:35:00  * Try:
+18:35:00  \* Try:
 18:35:00  Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output.
 18:35:00  
 18:35:00  BUILD FAILED
@@ -434,7 +434,7 @@ later on we will probably switch to the use of ASF affinity locator so the close
 The Hue install script has a minor issue that prevents build of Hue RPMs on Amazon Linux.
 
 {noformat}
-rm: cannot remove 'build/env/lib/python*/site-packages/*.dist-info/RECORD': No such file or directory
+rm: cannot remove 'build/env/lib/python\*/site-packages/\*.dist-info/RECORD': No such file or directory
 error: Bad exit status from /var/tmp/rpm-tmp.JLXZ2a (%install)
     Bad exit status from /var/tmp/rpm-tmp.JLXZ2a (%install)
 
@@ -503,7 +503,7 @@ This JIRA is to fix the the problem that the JAVA\_HOME directory does not conti
 
 * [BIGTOP-1848](https://issues.apache.org/jira/browse/BIGTOP-1848) | *Blocker* | **spark deb packages broken**
 
-At least {{/usr/lib/spark/lib/*}} is missing from spark-core
+At least {{/usr/lib/spark/lib/\*}} is missing from spark-core
 
 
 ---
@@ -514,7 +514,7 @@ Guys I apologize for a stupid bug introduced by myself in BIGTOP-1841.
 {code}
 Error: Syntax error at ':'; expected '}' at /etc/puppet/modules/bigtop\_toolchain/manifests/env.pp:35
 {code}
-There's a missing *}* in my patch.
+There's a missing \*}\* in my patch.
 This was fixed ONLY in my local environment, but I forgot to regenerate the patch. :(
 
 
@@ -562,7 +562,7 @@ FAILURE: Build failed with an exception.
 
 * [BIGTOP-1836](https://issues.apache.org/jira/browse/BIGTOP-1836) | *Major* | **Better UX for Docker provisioner by integrating it into gradle**
 
-The way to use bigtop docker provisioner is to *cd* into its directory and then use docker-hadoop.sh to bring the cluster up. Integrate this into gradle can provide better UX for bigtop users. 
+The way to use bigtop docker provisioner is to \*cd\* into its directory and then use docker-hadoop.sh to bring the cluster up. Integrate this into gradle can provide better UX for bigtop users. 
 Designed tasks are:
 {code}
 Deployment tasks
@@ -584,7 +584,7 @@ docker-provisioner-status - Show status of Bigtop Docker cluster
 * [BIGTOP-1835](https://issues.apache.org/jira/browse/BIGTOP-1835) | *Major* | **Update project RDF file**
 
 I have noticed
- {{<programming-language>Java</programming-language>}}
+ {{\<programming-language\>Java\</programming-language\>}}
 in {{src/site/resources/bigtop.rdf}} which isn't strictly correct. If anything we use a way more Groovy than any java. Shall we update the file?
 
 
@@ -637,7 +637,7 @@ This specific report is from debian:
 [INFO] Finished at: Thu Apr 16 12:05:16 CEST 2015
 [INFO] Final Memory: 33M/79M
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal on project ignite-schema-import: Could not resolve dependencies for project org.apache.ignite:ignite-schema-import:jar:1.0.0: Could not find artifact javafx                   :jfxrt:jar:1.7.0\_75 at specified path /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/jfxrt.jar -> [Help 1]
+[ERROR] Failed to execute goal on project ignite-schema-import: Could not resolve dependencies for project org.apache.ignite:ignite-schema-import:jar:1.0.0: Could not find artifact javafx                   :jfxrt:jar:1.7.0\_75 at specified path /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/jfxrt.jar -\> [Help 1]
 [ERROR]
 {code}
 
@@ -883,14 +883,14 @@ There's a typo on the top-level menu of the website
 
 The hue.ini template in the hue puppet module is quite outdated with many options no longer used by Hue 3.7.1 and many missing sections that were added in later Hue releases. 
 
-The hue.ini template should be remodeled to resemble the [default Hue 3.7.1 template | https://github.com/cloudera/hue/blob/release-3.7.1/desktop/conf.dist/hue.ini].
+The hue.ini template should be remodeled to resemble the [default Hue 3.7.1 template \| https://github.com/cloudera/hue/blob/release-3.7.1/desktop/conf.dist/hue.ini].
 
 
 ---
 
 * [BIGTOP-1783](https://issues.apache.org/jira/browse/BIGTOP-1783) | *Major* | **Import BigPetStore Data Generator into BigTop**
 
-It's time to move the BigPetStore data generator from [GitHub rnowling/bigpetstore-data-generator|https://github.com/rnowling/bigpetstore-data-generator] into BigTop.
+It's time to move the BigPetStore data generator from [GitHub rnowling/bigpetstore-data-generator\|https://github.com/rnowling/bigpetstore-data-generator] into BigTop.
 
 
 ---
@@ -926,7 +926,7 @@ It's time to move the BigPetStore data generator from [GitHub rnowling/bigpetsto
 ++ TACHYON\_VERSION=0.6.0
 ++ KAFKA\_VERSION=0.8.1.1
 + mvn -q clean install -DskipTests -Dhadoop.version=2.6.0 -Dmaven.repo.local=/home/olaf/.m2/repository
-[ERROR] Failed to execute goal com.mycila:license-maven-plugin:2.9:check (default) on project tachyon-parent: Some files do not have the expected license header -> [Help 1]
+[ERROR] Failed to execute goal com.mycila:license-maven-plugin:2.9:check (default) on project tachyon-parent: Some files do not have the expected license header -\> [Help 1]
 [ERROR] 
 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
 [ERROR] Re-run Maven using the -X switch to enable full debug logging.
@@ -1038,7 +1038,7 @@ The  bigtop.sh file is incorrect with respect to JAVA\_HOME on centos
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.1:compile (default-compile) on project spark-client: Compilation failure
 [ERROR] /home/olaf/bigtop/output/hive/hive-1.1.0/spark-client/src/main/java/org/apache/hive/spark/client/RemoteDriver.java:[423,11] org.apache.hive.spark.client.RemoteDriver.ClientListener is not abstract and does not override abstract method onExecutorRemoved(org.apache.spark.scheduler.SparkListenerExecutorRemoved) in org.apache.spark.scheduler.SparkListener
-[ERROR] -> [Help 1]
+[ERROR] -\> [Help 1]
 [ERROR] 
 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
 [ERROR] Re-run Maven using the -X switch to enable full debug logging.
@@ -1047,7 +1047,7 @@ The  bigtop.sh file is incorrect with respect to JAVA\_HOME on centos
 [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
 [ERROR] 
 [ERROR] After correcting the problems, you can resume the build with the command
-[ERROR]   mvn <goals> -rf :spark-client
+[ERROR]   mvn \<goals\> -rf :spark-client
 {code}
 
 
@@ -1116,7 +1116,7 @@ Need the change the versions to 1.0
 
 * [BIGTOP-1764](https://issues.apache.org/jira/browse/BIGTOP-1764) | *Minor* | **Fix copying mapreduce jars to HDFS for Oozie**
 
-On HDFS after puppet apply, */user/oozie/share/lib/distcp* does not exist and */user/oozie/share/lib/mapreduce-streaming* is empty. This looks to be a bug in copying jars in [init-hcfs.groovy#L283|https://github.com/apache/bigtop/blob/master/bigtop-packages/src/common/bigtop-utils/init-hcfs.groovy#L283]
+On HDFS after puppet apply, \*/user/oozie/share/lib/distcp\* does not exist and \*/user/oozie/share/lib/mapreduce-streaming\* is empty. This looks to be a bug in copying jars in [init-hcfs.groovy#L283\|https://github.com/apache/bigtop/blob/master/bigtop-packages/src/common/bigtop-utils/init-hcfs.groovy#L283]
 
 {code}
 $ hadoop fs -ls /user/oozie/share/lib/
@@ -1136,9 +1136,9 @@ $ hadoop fs -ls /user/oozie/share/lib/mapreduce-streaming
 
 * [BIGTOP-1763](https://issues.apache.org/jira/browse/BIGTOP-1763) | *Critical* | **Handle broken symlinks when copying jars**
 
-When Hive is installed on a cluster and HBase isn't, init-hcfs.groovy will fail copying jars to HDFS for Oozie during puppet apply. This is because of a broken simlink in */usr/lib/hive/lib*, namely *hbase.jar* which links to */usr/lib/hbase/hbase.jar*.
+When Hive is installed on a cluster and HBase isn't, init-hcfs.groovy will fail copying jars to HDFS for Oozie during puppet apply. This is because of a broken simlink in \*/usr/lib/hive/lib\*, namely \*hbase.jar\* which links to \*/usr/lib/hbase/hbase.jar\*.
 
-This is introduced by [BIGTOP-1235| https://issues.apache.org/jira/browse/BIGTOP-1235].
+This is introduced by [BIGTOP-1235\| https://issues.apache.org/jira/browse/BIGTOP-1235].
 
 The exception thrown in init-hcfs.groovy:
 {code}
@@ -1163,7 +1163,7 @@ java.io.FileNotFoundException: File /usr/lib/hive/lib/hbase.jar does not exist
 
 * [BIGTOP-1761](https://issues.apache.org/jira/browse/BIGTOP-1761) | *Major* | **Delete testConf.xml from hadoop-smoke resources**
 
-We are no longer using testConf.xml -- all the CLI tests are using the other configuration files. As per [BIGTOP-1750 comment|https://issues.apache.org/jira/browse/BIGTOP-1750?focusedCommentId=14356867&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-14356867], looks like we can delete it:
+We are no longer using testConf.xml -- all the CLI tests are using the other configuration files. As per [BIGTOP-1750 comment\|https://issues.apache.org/jira/browse/BIGTOP-1750?focusedCommentId=14356867&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-14356867], looks like we can delete it:
 
 
 ---
@@ -1220,7 +1220,7 @@ I want to add myself to the list of committers on the BigTop website.
 
 * [BIGTOP-1742](https://issues.apache.org/jira/browse/BIGTOP-1742) | *Trivial* | **Add ywkim as a maintainer for Apache Hive, Spark, Sqoop\* and Phoenix**
 
-Add ywkim as a maintainer for Apache Hive, Spark, Sqoop* and Phoenix
+Add ywkim as a maintainer for Apache Hive, Spark, Sqoop\* and Phoenix
 
 
 ---
@@ -1338,7 +1338,7 @@ hbase does not compile any more
 [ERROR] codehaus (http://repository.codehaus.org/, releases=true, snapshots=false),
 [ERROR] ghelmling.testing (http://people.apache.org/~garyh/mvn/, releases=true, snapshots=true),
 [ERROR] apache.snapshots (http://repository.apache.org/snapshots, releases=false, snapshots=true)
-[ERROR] -> [Help 1]
+[ERROR] -\> [Help 1]
 [ERROR] 
 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
 [ERROR] Re-run Maven using the -X switch to enable full debug logging.
@@ -1346,10 +1346,10 @@ hbase does not compile any more
 [ERROR] For more information about the errors and possible solutions, please read the following articles:
 [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
 debian/rules:34: recipe for target 'override\_dh\_auto\_build' failed
-make[1]: *** [override\_dh\_auto\_build] Error 1
+make[1]: \*\*\* [override\_dh\_auto\_build] Error 1
 make[1]: Leaving directory '/home/olaf/bigtop/output/hbase/hbase-0.98.5'
 debian/rules:31: recipe for target 'build' failed
-make: *** [build] Error 2
+make: \*\*\* [build] Error 2
 dpkg-buildpackage: Fehler: Fehler-Exitstatus von debian/rules build war 2
 debuild: fatal error at line 1376:
 {code}
@@ -1368,7 +1368,7 @@ looks like local\_yum\_repo implementation is broke for vagrant provisioners. lo
 
 Set {{has\_ssh = true}} in Vagrantfile can cause following error if running on non-Linux hosts:
 {code}
-==> bigtop1: Waiting for machine to boot. This may take a few minutes...
+==\> bigtop1: Waiting for machine to boot. This may take a few minutes...
 Vagrant::Errors::VMBootTimeout: Timed out while waiting for the machine to boot. This means that
 Vagrant was unable to communicate with the guest machine within
 the configured ("config.vm.boot\_timeout" value) time period.
@@ -1451,7 +1451,7 @@ Latest Tachyon is 0.6.0, bigtop releases 0.5.0.
 
 * [BIGTOP-1721](https://issues.apache.org/jira/browse/BIGTOP-1721) | *Minor* | **Remove unnecessary files from Sqoop package**
 
-Unnecessary files like *.cmd and .gitignore should be removed from package.
+Unnecessary files like \*.cmd and .gitignore should be removed from package.
 
 
 ---
@@ -1512,7 +1512,7 @@ make[1]: Leaving directory '/home/olaf/bigtop/output/spark/spark-core-1.1.0'
 cp: der Aufruf von stat für „debian/tmp//usr/lib/spark/ui-resources“ ist nicht möglich: Datei oder Verzeichnis nicht gefunden
 dh\_install: cp -a debian/tmp//usr/lib/spark/ui-resources debian/spark-core///usr/lib/spark/ returned exit code 1
 debian/rules:26: recipe for target 'binary' failed
-make: *** [binary] Error 2
+make: \*\*\* [binary] Error 2
 dpkg-buildpackage: Fehler: Fehler-Exitstatus von fakeroot debian/rules binary war 2
 debuild: fatal error at line 1376:
 {code}
@@ -1584,7 +1584,7 @@ so that we minimize changes to JAVA\_OPTS
 
 * [BIGTOP-1700](https://issues.apache.org/jira/browse/BIGTOP-1700) | *Trivial* | **Package YARN Timeline Server service for Apache Hadoop**
 
-Apache Hadoop (>= 2.4.0) includes an YARN timeline server service.  http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html
+Apache Hadoop (\>= 2.4.0) includes an YARN timeline server service.  http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html
 
 
 ---
@@ -1660,7 +1660,7 @@ hadoop-zookeeper::server::ensemble:
 - ["%{hiera('bigtop::hadoop\_head\_node')}:2888:3888"]
 {code}
 
-This will result in the deployed *zoo.cfg* has wrong configuration:
+This will result in the deployed \*zoo.cfg\* has wrong configuration:
 {code}
 server.0:["bigtop1.docker:2888:3888"]
 {code}
@@ -1717,10 +1717,10 @@ set environment variables required for tez.
 Clean up and add new queries to the SparkSQL analytics module in the BPS Spark demo application.
 
 Improvements to be  done include:
-* Removing unnecessary semicolons
-* Clean up and reorganize imports
-* General refactoring of code for clarity
-* Fix total transaction count (currently counts number of months)
+\* Removing unnecessary semicolons
+\* Clean up and reorganize imports
+\* General refactoring of code for clarity
+\* Fix total transaction count (currently counts number of months)
 
 
 ---
@@ -1736,7 +1736,7 @@ Based on [BIGTOP-1609]
 
 The tez rpm can not be built. After some self hacks I finally figured out the root cause:
 
-BIGTOP-1179 commit is weird. The commit message shows that it was [authored on 27 Nov 2014|https://github.com/apache/bigtop/commit/f506701c8e8cd1b9e596c3f728996c988705e7d0], which should be an old patch targeted on 0.5.2 instead of the new one authored by [~oflebbe]. The wired thing is that the tez version of that commit is 0.6.0, which is new, but the code in that commit looked the same as the old patch submitted on 27 Nov 2014.
+BIGTOP-1179 commit is weird. The commit message shows that it was [authored on 27 Nov 2014\|https://github.com/apache/bigtop/commit/f506701c8e8cd1b9e596c3f728996c988705e7d0], which should be an old patch targeted on 0.5.2 instead of the new one authored by [~oflebbe]. The wired thing is that the tez version of that commit is 0.6.0, which is new, but the code in that commit looked the same as the old patch submitted on 27 Nov 2014.
 
 Anyhow, we need to sync up the code to the final reviewed version in BIGTOP-1179.
 
@@ -1916,7 +1916,7 @@ Compile fails with
         If on Ubuntu 14.04 Trusty, you might be hitting https://bugs.launchpad.net/ubuntu/+source/python2.7/+bug/1115466.
 
         Recommended workaround:
-        sudo ln -s /usr/lib/python2.7/plat-*/\_sysconfigdata\_nd.py /usr/lib/python2.7/
+        sudo ln -s /usr/lib/python2.7/plat-\*/\_sysconfigdata\_nd.py /usr/lib/python2.7/
 
         More information:
         http://gethue.com/how-to-build-hue-on-ubuntu-14-04-trusty/
@@ -1971,7 +1971,7 @@ This is an HDFS-only test, so let's move it out of HCFS.
 
 * [BIGTOP-1627](https://issues.apache.org/jira/browse/BIGTOP-1627) | *Minor* | **Move enable\_local\_yum implementation to bigtop-deploy/utils/setup-env.sh to share with Docker provisioner**
 
-Currently, we have *enable\_local\_yum* feature implemented in *vagrant-puppet-vm*'s Vagrantfile(see BIGTOP-1562's patch). This jira is proposing to move the implementation to {{bigtop-deploy/utils/setup-env.sh}} so that the we can share the general implementation between BigTop's VM provisoner and Docker provisioner.
+Currently, we have \*enable\_local\_yum\* feature implemented in \*vagrant-puppet-vm\*'s Vagrantfile(see BIGTOP-1562's patch). This jira is proposing to move the implementation to {{bigtop-deploy/utils/setup-env.sh}} so that the we can share the general implementation between BigTop's VM provisoner and Docker provisioner.
 
 
 ---
@@ -1989,10 +1989,10 @@ This is the first step, the minimal work necessary to allo gradle based smoke te
 
 For instance package hadoop: /usr/lib/hadoop/lib/native/libhadoop.so
 
->apt-cache show hadoop
+\>apt-cache show hadoop
 Package: hadoop
 Version: 2.4.1-2
-Architecture: *all*
+Architecture: \*all\*
 
 RPM packages are for architecture "x86\_64" 
 
@@ -2021,9 +2021,9 @@ I suggest we only bind these tests to {{verify}} goal, which will let us to avoi
 
 Currently, some of the tests in TestCLI clean up by deleting the entire user directory:
 
-{noformat}<cleanup-commands>
-<command>-fs NAMENODE -rm -r /user/USER\_NAME</command>
-</cleanup-commands>{noformat}
+{noformat}\<cleanup-commands\>
+\<command\>-fs NAMENODE -rm -r /user/USER\_NAME\</command\>
+\</cleanup-commands\>{noformat}
 
 If this directory exists prior to running the test and contains something other than subdirectories created during the test, stuff that shouldn't be deleted by TestCLI might get thrown out. The clean-up commands should specify which subdirectories and/or files to delete.
 
@@ -2044,7 +2044,7 @@ There are files we do not need to track at bigtop-deploy/vm/docker-puppet/. Let'
 Files to add:
 {noformat}
 Untracked files:
-  (use "git add <file>..." to include in what will be committed)
+  (use "git add \<file\>..." to include in what will be committed)
 
 	bigtop-deploy/vm/docker-puppet/config.rb
 	bigtop-deploy/vm/docker-puppet/config/
@@ -2120,7 +2120,7 @@ Since Oracle will stop free support of Oracle JDK 7 in near future it is better 
 Here is where the RPM places the webapp
 
 {code}
-bash-4.1# rpm -ql tachyon | grep webapp
+bash-4.1# rpm -ql tachyon \| grep webapp
 /usr/share/tachyon/web/webapp
 /usr/share/tachyon/web/webapp/browse-pagination-header.jsp
 /usr/share/tachyon/web/webapp/browse.jsp
@@ -2180,11 +2180,11 @@ Starting Tachyon master (tachyon-master):                  [  OK  ]
 
 Start with 0.9, lets maintain a MAINTAINERS.txt file which has component, maintainer names.  
 
-Everybody *please* add entries here for components in bigtop that you will maintain. 
+Everybody \*please\* add entries here for components in bigtop that you will maintain. 
 
 I think we Are we in agreement that, 
-- Components that *ARE NOT* in this file, can be dropped without much debate.  No point in releasing something that is maintained by pure chance of randomly someone deciding to add a patch.
-- Components that *ARE* added in this file will, for obvious reasons, be central to the architecture of the bigtop distribution. 
+- Components that \*ARE NOT\* in this file, can be dropped without much debate.  No point in releasing something that is maintained by pure chance of randomly someone deciding to add a patch.
+- Components that \*ARE\* added in this file will, for obvious reasons, be central to the architecture of the bigtop distribution. 
 
 Componets are : YARN, HBASE, SPARK, HIVE, PIG, MAHOUT, FLUME, (many others ...)  folks please chime in on what you can maintain in the comments below, and I'll craft the file. 
 
@@ -2221,8 +2221,8 @@ sentry: Mark Grover
 
 Since we're close to the official release which brings the docker provisioner up to the surface. It'd be better to have component names reflect its function naively. (Sorry for the bad naming at the very beginning...). This is also a recall of [~jayunit100]'s comment in BIGTOP-1578, and I'm with him. The proposed change:
 {noformat}
-docker-puppet --> vagrant-puppet-docker 
-vagrant-puppet --> vagrant-puppet-vm
+docker-puppet --\> vagrant-puppet-docker 
+vagrant-puppet --\> vagrant-puppet-vm
 {noformat}
 
 
@@ -2283,12 +2283,12 @@ RPM build errors:
 
 FAILURE: Build failed with an exception.
 
-* Where:
+\* Where:
 Script '/home/olaf/bigtop/packages.gradle' line: 316
 
-* What went wrong:
+\* What went wrong:
 Execution failed for task ':pig-rpm'.
-> Process 'command 'rpmbuild'' finished with non-zero exit value 1
+\> Process 'command 'rpmbuild'' finished with non-zero exit value 1
 {code}
 
 
@@ -2326,9 +2326,9 @@ Instead of converting Strings to the necessary types, initialize with the correc
 {noformat}Caused by: Assertion failed: 
 
 assert e.getMessage().startsWith('Could not open')
-       | |            |
-       | |            false
-       | /usr/java/latest/lib/nofilelikethat.jar (No such file or directory)
+       \| \|            \|
+       \| \|            false
+       \| /usr/java/latest/lib/nofilelikethat.jar (No such file or directory)
        java.io.FileNotFoundException: /usr/java/latest/lib/nofilelikethat.jar (No such file or directory){noformat}
 
 
@@ -2349,7 +2349,7 @@ ByteStream.Output  getCount() does not exist any more.
 
 {code}
 compile:
-     [echo]  *** Compiling Pig UDFs ***
+     [echo]  \*\*\* Compiling Pig UDFs \*\*\*
     [javac] /net/os2-debian80/fs1/olaf/bigtop/output/pig/pig-0.12.1/contrib/piggybank/java/build.xml:94: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
     [javac] Compiling 164 source files to /net/os2-debian80/fs1/olaf/bigtop/output/pig/pig-0.12.1/contrib/piggybank/java/build/classes
     [javac] warning: [options] bootstrap class path not set in conjunction with -source 1.6
@@ -2393,7 +2393,7 @@ compile:
 
 Yup, its true.  i think :)
 
-When visiting my parents in *oklahoma* I found that the way bigpetstore-spark is set up, only people on the *right* coast can run the unit tests...  something with the default time zone setup in java and the unit tests which test for set equivalence.  
+When visiting my parents in \*oklahoma\* I found that the way bigpetstore-spark is set up, only people on the \*right\* coast can run the unit tests...  something with the default time zone setup in java and the unit tests which test for set equivalence.  
 
 {noformat}
 s
@@ -2440,7 +2440,7 @@ Let's set the default repo to official release build, or at least make it functi
 
 * [BIGTOP-1581](https://issues.apache.org/jira/browse/BIGTOP-1581) | *Major* | **Allow multiple Flume agents to be executed as a service using Bigtop init.d script**
 
-Using the current init.d script only one Flume agent can be managed as a service. In practice there will be more than one Flume agent on a node which need be managed. If the init.d script can be improved to accept a agent name for the service requests (start|stop|restart|...) and manage them it will help many installations.
+Using the current init.d script only one Flume agent can be managed as a service. In practice there will be more than one Flume agent on a node which need be managed. If the init.d script can be improved to accept a agent name for the service requests (start\|stop\|restart\|...) and manage them it will help many installations.
 
 
 ---
@@ -2462,7 +2462,7 @@ I vote to move BIGTOP\_BUILD\_STAMP to the "right" place in the package-version:
 
 * [BIGTOP-1579](https://issues.apache.org/jira/browse/BIGTOP-1579) | *Major* | **Implement patching for Bigtop**
 
-Right now, we apply changes/patches in the do-build-component script in the bigtop-packages/common/<package> part of the build process .
+Right now, we apply changes/patches in the do-build-component script in the bigtop-packages/common/\<package\> part of the build process .
 
 Would be cleaner and easier to use the RPM / Deb functionality of RPMbuild / debuild to apply patches. But right now the gradle script is not flexible enough. Since make is now obsolete we can improve this situation.
 
@@ -2633,7 +2633,7 @@ I noticed a couple files nobody (i think) is using
 2) bigtop-deploy/vm/boxgrinder recipes. Are we planning to continue w/ boxgrinder, and are we supporting it ?
 3) {{bigtop-deploy/vm/vagrant/}} (non puppet recipe)
 
-*shall we delete these ?*
+\*shall we delete these ?\*
 or are people using them?
 
 
@@ -2681,14 +2681,14 @@ Finished running lintian.
 
 FAILURE: Build failed with an exception.
 
-* Where:
+\* Where:
 Script '/net/os2-debian80/fs1/olaf/bigtop/packages.gradle' line: 201
 
-* What went wrong:
+\* What went wrong:
 Execution failed for task ':hue-deb'.
-> Unable to delete file: xxxxxxx/bigtop/output/hue/hue-3.6.0/debian/tmp/usr/lib/hue/build/env/include/python2.7/boolobject.h
+\> Unable to delete file: xxxxxxx/bigtop/output/hue/hue-3.6.0/debian/tmp/usr/lib/hue/build/env/include/python2.7/boolobject.h
 
-* Try:
+\* Try:
 Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output.
 
 BUILD FAILED
@@ -2718,12 +2718,12 @@ https://repo.eclipse.org/content/repositories/paho-releases/org/eclipse/paho/mqt
 I did not find a different repository providing it. Since I accidentially removed my maven cache I connot compile bigtop any more.
 
 IMHO The options are:
-  * Removing spark
-  * Removing mqtt-client-dependency
-  * -Looking into whether upgrading spark solves this issue-
-  * Providing the needed jar by bigtop itself
-  * Uploading the jar to some other repository and adding a new repo to the spark build
-  * Asking eclipse to reestablish this artifact
+  \* Removing spark
+  \* Removing mqtt-client-dependency
+  \* -Looking into whether upgrading spark solves this issue-
+  \* Providing the needed jar by bigtop itself
+  \* Uploading the jar to some other repository and adding a new repo to the spark build
+  \* Asking eclipse to reestablish this artifact
 
 
 ---
@@ -2753,15 +2753,15 @@ Since non-POSIX DFSs (S3, HDFS, etc.) will not have paths of the appropriate for
 
 * [BIGTOP-1543](https://issues.apache.org/jira/browse/BIGTOP-1543) | *Major* | **hive-0.14 in bigtop**
 
-* Needed for proper tez support.
-* Seems to solve GetLog() impedenace mismatch with hue
+\* Needed for proper tez support.
+\* Seems to solve GetLog() impedenace mismatch with hue
 
 
 ---
 
 * [BIGTOP-1542](https://issues.apache.org/jira/browse/BIGTOP-1542) | *Major* | **Debian Packages will not build**
 
-Debian will not build because *.tar.xz files are not copied from build/ to output/
+Debian will not build because \*.tar.xz files are not copied from build/ to output/
 
 
 ---
@@ -2864,11 +2864,11 @@ YARN is totally "not a MapReduce". Yeah, right!
 
 * [BIGTOP-1521](https://issues.apache.org/jira/browse/BIGTOP-1521) | *Major* | **Bigtop smoke-tests hierarchy and fast failure**
 
-*Problem* Sometimes YARN jobs can hang indefinetly, and in the case of the {{smoke-tests}} , we also can get an infinite hang it appears.  
+\*Problem\* Sometimes YARN jobs can hang indefinetly, and in the case of the {{smoke-tests}} , we also can get an infinite hang it appears.  
 
 This can be reproduced by simply messing up/deleting the core hadoop components from {{bigtop-deploy/vm/vagrant-puppet}}'s provision script puppet conf file {{provision.sh}}  and running {{vagrant up}}. 
 
-*Solution* Let add some smarts to the smoke tester - such that the basic yarn services (i.  think hadoop-smoke in test-artifcacts does this maybe ) are confirmed before any yarn based tests are ran.
+\*Solution\* Let add some smarts to the smoke tester - such that the basic yarn services (i.  think hadoop-smoke in test-artifcacts does this maybe ) are confirmed before any yarn based tests are ran.
 
 
 ---
@@ -2914,7 +2914,7 @@ BIGTOP-1047 is committed. Let's remove the reference to Puppet 2.7
 
 * [BIGTOP-1508](https://issues.apache.org/jira/browse/BIGTOP-1508) | *Major* | **fix Puppet warnings under Puppet 3**
 
-Once BIGTOP-1047 is committed, let's fix the [leftover warnings|https://issues.apache.org/jira/browse/BIGTOP-1047?focusedCommentId=14190686&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-14190686]
+Once BIGTOP-1047 is committed, let's fix the [leftover warnings\|https://issues.apache.org/jira/browse/BIGTOP-1047?focusedCommentId=14190686&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-14190686]
 
 
 ---
@@ -3023,7 +3023,7 @@ This seems like a powerful feature, lets make sure its clear to users how and wh
 
 * [BIGTOP-1486](https://issues.apache.org/jira/browse/BIGTOP-1486) | *Major* | **Upgrade Hue to 3.7**
 
-{panel:title=Important|borderStyle=dashed|borderColor=#ccc|titleBGColor=#F7D6C1|bgColor=#FFFFCE}
+{panel:title=Important\|borderStyle=dashed\|borderColor=#ccc\|titleBGColor=#F7D6C1\|bgColor=#FFFFCE}
 The following text is outdated. It refers to Hue 3.6. It was consensus to fix it by updating hue to 3.7.
 
 While Updating to 3.7. unfortunatelty a patch is needed which didn't get into the 3.7 release in time
@@ -3129,11 +3129,11 @@ project = ZOOKEEPER AND issuetype = Bug AND status in (Resolved, Closed) AND pri
 
 * [BIGTOP-1467](https://issues.apache.org/jira/browse/BIGTOP-1467) | *Major* | **version of hadoop-auth in oozie is wrong**
 
-$ rpm -lpq hadoop-2.4.1.726-1.el6.x86\_64.rpm | grep hadoop-auth
+$ rpm -lpq hadoop-2.4.1.726-1.el6.x86\_64.rpm \| grep hadoop-auth
 /usr/lib/hadoop/hadoop-auth-2.4.1.jar
 /usr/lib/hadoop/hadoop-auth.jar
 
-$ rpm -lpq oozie-4.0.1.691-1.el6.noarch.rpm | grep hadoop-auth
+$ rpm -lpq oozie-4.0.1.691-1.el6.noarch.rpm \| grep hadoop-auth
 /usr/lib/oozie/libtools/hadoop-auth-2.0.2-alpha.jar
 
 
@@ -3240,12 +3240,12 @@ align do-component-build with conventions of other components
 
 * [BIGTOP-1450](https://issues.apache.org/jira/browse/BIGTOP-1450) | *Major* | **Eliminate broken hive test artifacts in favor of smoke-tests.**
 
-*Overall: The hive tests in {{test-artifacts}} are prone to failures from missing data sets and generally need a thorough review*
+\*Overall: The hive tests in {{test-artifacts}} are prone to failures from missing data sets and generally need a thorough review\*
 
 When testing bigtop 0.8.0 release candidate, I found that I got some errors 
 {noformat}
 
-[--- /dev/fd/63  2014-09-16 10:12:54.579647323 +0000, +++ /dev/fd/62     2014-09-16 10:12:54.579647323 +0000, @@ -14,4 +14,4 @@,  INSERT OVERWRITE DIRECTORY '/tmp/count',  SELECT COUNT(1) FROM u\_data,  dfs -cat /tmp/count/*, -0, +100000] err=[14/09/16 10:12:17 WARN mapred.JobConf: The variable mapred.child.ulimit is no longer used., , Logging initialized using configuration in file:/etc/hive/conf.dist/hive-log4j.properties, OK, Time taken: 2.609 seconds, OK, Time taken: 0.284 seconds, Total jobs = 1, Launching Job 1 out of 1, Number of reduce tasks determined at compile time: 1, In order to change the average load for a reducer (in bytes):,   set hive.exec.reducers.bytes.per.reducer=&lt;number&gt;, In order to limit the maximum number of reducers:,   set hive.exec.reducers.max=&lt;number&gt;, In order to set a constant number of reducers:,   set mapreduce.job.reduces=&lt;number&gt;, Starting Job = job\_1410830363557\_0019, Tracking URL = http://bigtop1.vagrant:20888/proxy/application\_1410830363557\_0019/, Kill Command = /usr/lib/hadoop/bin/hadoop job  -kill job\_1410830363557\_0019, Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1, 2014-09-16 10:12:38,870 Stage-1 map = 0%,  reduce = 0%, 2014-09-16 10:12:45,516 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 0.81 sec, 2014-09-16 10:12:53,036 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 1.73 sec, MapReduce Total cumulative CPU time: 1 seconds 730 msec, Ended Job = job\_1410830363557\_0019, Moving data to: /tmp/count, MapReduce Jobs Launched: , Job 0: Map: 1  Reduce: 1   Cumulative CPU: 1.73 sec   HDFS Read: 272 HDFS Write: 2 SUCCESS, Total MapReduce CPU Time Spent: 1 seconds 730 msec, OK, Time taken: 24.594 seconds
+[--- /dev/fd/63  2014-09-16 10:12:54.579647323 +0000, +++ /dev/fd/62     2014-09-16 10:12:54.579647323 +0000, @@ -14,4 +14,4 @@,  INSERT OVERWRITE DIRECTORY '/tmp/count',  SELECT COUNT(1) FROM u\_data,  dfs -cat /tmp/count/\*, -0, +100000] err=[14/09/16 10:12:17 WARN mapred.JobConf: The variable mapred.child.ulimit is no longer used., , Logging initialized using configuration in file:/etc/hive/conf.dist/hive-log4j.properties, OK, Time taken: 2.609 seconds, OK, Time taken: 0.284 seconds, Total jobs = 1, Launching Job 1 out of 1, Number of reduce tasks determined at compile time: 1, In order to change the average load for a reducer (in bytes):,   set hive.exec.reducers.bytes.per.reducer=&lt;number&gt;, In order to limit the maximum number of reducers:,   set hive.exec.reducers.max=&lt;number&gt;, In order to set a constant number of reducers:,   set mapreduce.job.reduces=&lt;number&gt;, Starting Job = job\_1410830363557\_0019, Tracking URL = http://bigtop1.vagrant:20888/proxy/application\_1410830363557\_0019/, Kill Command = /usr/lib/hadoop/bin/hadoop job  -kill job\_1410830363557\_0019, Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1, 2014-09-16 10:12:38,870 Stage-1 map = 0%,  reduce = 0%, 2014-09-16 10:12:45,516 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 0.81 sec, 2014-09-16 10:12:53,036 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 1.73 sec, MapReduce Total cumulative CPU time: 1 seconds 730 msec, Ended Job = job\_1410830363557\_0019, Moving data to: /tmp/count, MapReduce Jobs Launched: , Job 0: Map: 1  Reduce: 1   Cumulative CPU: 1.73 sec   HDFS Read: 272 HDFS Write: 2 SUCCESS, Total MapReduce CPU Time Spent: 1 seconds 730 msec, OK, Time taken: 24.594 seconds
 
 {noformat}
 
@@ -3294,7 +3294,7 @@ test {
 
 So all in all there are basically two tasks:  Add a "test.sh" script to the vagrant provisioner which installs toolchain and runs bigtop smoke tests, and a few complimentary,  minor updates to the smoke-tests .
 
-*Then, next time an RC comes out, to test, we just update number of nodes and run "vagrant up".*  :)
+\*Then, next time an RC comes out, to test, we just update number of nodes and run "vagrant up".\*  :)
 
 
 ---
@@ -3343,7 +3343,7 @@ Spark build fails on clean .m2
 [INFO] Finished at: Sat Sep 13 22:23:20 EDT 2014
 [INFO] Final Memory: 50M/1057M
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-assembly-plugin:2.4:single (dist) on project spark-assembly\_2.10: Execution dist of goal org.apache.maven.plugins:maven-assembly-plugin:2.4:single failed: Plugin org.apache.maven.plugins:maven-assembly-plugin:2.4 or one of its dependencies could not be resolved: Could not find artifact commons-cli:commons-cli:jar:1.2 -> [Help 1]
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-assembly-plugin:2.4:single (dist) on project spark-assembly\_2.10: Execution dist of goal org.apache.maven.plugins:maven-assembly-plugin:2.4:single failed: Plugin org.apache.maven.plugins:maven-assembly-plugin:2.4 or one of its dependencies could not be resolved: Could not find artifact commons-cli:commons-cli:jar:1.2 -\> [Help 1]
 [ERROR] 
 {noformat}
 
@@ -3375,7 +3375,7 @@ Having standalone groovy in the development environment seems to be helpful. Hen
 
 * [BIGTOP-1417](https://issues.apache.org/jira/browse/BIGTOP-1417) | *Minor* | **Dockerize the puppetized vagrant deployer**
 
-This is one of the bigtop's dockerize task which mainly focus on deploying bigtop hadoop cluster using [bigtop-puppet|https://github.com/apache/bigtop/tree/master/bigtop-deploy/puppet] on top of docker containers.
+This is one of the bigtop's dockerize task which mainly focus on deploying bigtop hadoop cluster using [bigtop-puppet\|https://github.com/apache/bigtop/tree/master/bigtop-deploy/puppet] on top of docker containers.
 
 
 ---
@@ -3384,13 +3384,13 @@ This is one of the bigtop's dockerize task which mainly focus on deploying bigto
 
 Currently we only process data with hadoop.  Now its time to add spark to the bigpetstore application.  This will basically demonstrate the difference between a mapreduce based hadoop implementation of a big data app, versus a Spark one.   
 
-*We will need to*
+\*We will need to\*
 
 - update graphviz arch.dot to diagram spark as a new path.
 - Adding a spark job to the existing code, in a new package., which uses existing scala based generator, however, we will use it inside  a spark job, rather than in a hadoop inputsplit.
 - The job should output to an RDD, which can then be serialized to disk, or else, fed into the next spark job... 
 
-*So, the next spark job should*
+\*So, the next spark job should\*
 
 - group the data and write product summaries to a local file
 - run a product recommender against the input data set.
@@ -3427,7 +3427,7 @@ User can run a series of cluster failures such as killing/restarting a service a
 
 * [BIGTOP-1384](https://issues.apache.org/jira/browse/BIGTOP-1384) | *Major* | **Implement Gradle Wrapper for smoke tests and cleanup.**
 
-By adding a the infamous *gradle wrapper script* (this is the idiom in gradle - to use the wrapper instead of a local gradle install) into our VCS, we gaurantee that the gradle tricks we implement will be running the exact same on all systems, no matter what.
+By adding a the infamous \*gradle wrapper script\* (this is the idiom in gradle - to use the wrapper instead of a local gradle install) into our VCS, we gaurantee that the gradle tricks we implement will be running the exact same on all systems, no matter what.
 
 - Also, it opens the tests up to be runnable by anyone, even those who don't have gradle installed.
 
@@ -3444,17 +3444,17 @@ So, this task consists of :
 
 * [BIGTOP-1366](https://issues.apache.org/jira/browse/BIGTOP-1366) | *Minor* | **Updated, Richer Model for Generating Data for BigPetStore**
 
-BigPetStore uses synthetic data as the basis for its workflow.  BPS's current model for generating customer data is sufficient for basic testing of the Hadoop ecosystem, **but the model is very basic and lacks sufficient complexity for embedding interesting patterns into the data**.  
+BigPetStore uses synthetic data as the basis for its workflow.  BPS's current model for generating customer data is sufficient for basic testing of the Hadoop ecosystem, \*\*but the model is very basic and lacks sufficient complexity for embedding interesting patterns into the data\*\*.  
 
-As a result, **more complex, scalable testing such as testing clustering algorithms in Mahout on non-trivial data or multidimensional data with factors influencing it** is not currently possible.
+As a result, \*\*more complex, scalable testing such as testing clustering algorithms in Mahout on non-trivial data or multidimensional data with factors influencing it\*\* is not currently possible.
 
 Efforts are currently underway to incrementally improve the current model (see BIGTOP-1271 and BIGTOP-1272).  
 
-To create a model that can that incorporate **realistic, non-hierarchichal patterns** and input data to generate rich customer/transaction data with interesting correlations will require a re-imagining of the current model and its framework.
+To create a model that can that incorporate \*\*realistic, non-hierarchichal patterns\*\* and input data to generate rich customer/transaction data with interesting correlations will require a re-imagining of the current model and its framework.
 
-To support the improvements to the model in BigPetStore, I have been working on an **alternative ab initio model, developed from scratch**. Since the development of a new model involves substantial R&D work with more specialized tools (mathematical and plotting libraries), I'm doing the current work outside of BPS using the iPython Notebook environment.  Due to the long time frame, the model will be developed on a separate timeline to prevent slowing the development of BPS.  
+To support the improvements to the model in BigPetStore, I have been working on an \*\*alternative ab initio model, developed from scratch\*\*. Since the development of a new model involves substantial R&D work with more specialized tools (mathematical and plotting libraries), I'm doing the current work outside of BPS using the iPython Notebook environment.  Due to the long time frame, the model will be developed on a separate timeline to prevent slowing the development of BPS.  
 
-Once the model has stabilized, I will begin incorporating the model into BPS itself.  One option is to implement the model in using Scala for clean integration with **spark** which is likely to play an increasingly important role in the hadoop ecosystem, and thus will be an important part of bigpetstore as a test/blueprint app.
+Once the model has stabilized, I will begin incorporating the model into BPS itself.  One option is to implement the model in using Scala for clean integration with \*\*spark\*\* which is likely to play an increasingly important role in the hadoop ecosystem, and thus will be an important part of bigpetstore as a test/blueprint app.
 
 
 ---
@@ -3646,11 +3646,11 @@ When building packages on/for Ubuntu and Debian, the 'lintian' tool is run as th
 
 The permissions we set for the YARN container executor are not exactly correct and are different from what we used to set for the MRv1 task containers. The requirements for the permissions are as follows:
 
-* Readable/executable by the group
-* Not executable by others
-* Not writable by others
-* Set UID
-* Owned by root
+\* Readable/executable by the group
+\* Not executable by others
+\* Not writable by others
+\* Set UID
+\* Owned by root
 
 I've tested this in YARN and have tested that I can still submit and run jobs successfully with these new permissions. This is somewhat second-hand information, so I'll CC [~atm] in case I've missed any important details or context...
 
@@ -3679,17 +3679,17 @@ BIGTOP-870 bumped up version of Pig from 0.10 to 0.11 for Bigtop 0.6 release. Ho
 
 {code}
 04:27:41  compile:
-04:27:41       [echo]  *** Compiling Pig UDFs ***
+04:27:41       [echo]  \*\*\* Compiling Pig UDFs \*\*\*
 04:27:41      [javac] /mnt/jenkins/workspace/Bigtop-trunk-Pig/label/centos6/build/pig/rpm/BUILD/pig-0.11.0/contrib/piggybank/java/build.xml:93: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
 04:27:41      [javac] Compiling 158 source files to /mnt/jenkins/workspace/Bigtop-trunk-Pig/label/centos6/build/pig/rpm/BUILD/pig-0.11.0/contrib/piggybank/java/build/classes
 04:27:41      [javac] /mnt/jenkins/workspace/Bigtop-trunk-Pig/label/centos6/build/pig/rpm/BUILD/pig-0.11.0/contrib/piggybank/java/src/main/java/org/apache/pig/piggybank/evaluation/IsInt.java:31: unmappable character for encoding ASCII
-04:27:41      [javac]  * Note this function checks for Integer range ???2,147,483,648 to 2,147,483,647.
+04:27:41      [javac]  \* Note this function checks for Integer range ???2,147,483,648 to 2,147,483,647.
 04:27:41      [javac]                                                ^
 04:27:41      [javac] /mnt/jenkins/workspace/Bigtop-trunk-Pig/label/centos6/build/pig/rpm/BUILD/pig-0.11.0/contrib/piggybank/java/src/main/java/org/apache/pig/piggybank/evaluation/IsInt.java:31: unmappable character for encoding ASCII
-04:27:41      [javac]  * Note this function checks for Integer range ???2,147,483,648 to 2,147,483,647.
+04:27:41      [javac]  \* Note this function checks for Integer range ???2,147,483,648 to 2,147,483,647.
 04:27:41      [javac]                                                 ^
 04:27:41      [javac] /mnt/jenkins/workspace/Bigtop-trunk-Pig/label/centos6/build/pig/rpm/BUILD/pig-0.11.0/contrib/piggybank/java/src/main/java/org/apache/pig/piggybank/evaluation/IsInt.java:31: unmappable character for encoding ASCII
-04:27:41      [javac]  * Note this function checks for Integer range ???2,147,483,648 to 2,147,483,647.
+04:27:41      [javac]  \* Note this function checks for Integer range ???2,147,483,648 to 2,147,483,647.
 04:27:41      [javac]                                                  ^
 04:27:42      [javac] 3 errors
 {code}

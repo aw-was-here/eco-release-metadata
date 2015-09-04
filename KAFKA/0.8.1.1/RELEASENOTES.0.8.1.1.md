@@ -127,7 +127,7 @@ Saw the following deadlock during shutting down the delete topic manager.
 "delete-topics-thread" prio=10 tid=0x00007fd50c003800 nid=0x7d9 waiting on condition [0x00007fd53d160000]
    java.lang.Thread.State: WAITING (parking)
         at sun.misc.Unsafe.park(Native Method)
-        - parking to wait for  <0x00000006b41d6318> (a java.util.concurrent.locks.ReentrantLock$NonfairSync)
+        - parking to wait for  \<0x00000006b41d6318\> (a java.util.concurrent.locks.ReentrantLock$NonfairSync)
         at java.util.concurrent.locks.LockSupport.park(LockSupport.java:156)
         at java.util.concurrent.locks.AbstractQueuedSynchronizer.parkAndCheckInterrupt(AbstractQueuedSynchronizer.java:811)
         at java.util.concurrent.locks.AbstractQueuedSynchronizer.acquireQueued(AbstractQueuedSynchronizer.java:842)
@@ -141,7 +141,7 @@ Saw the following deadlock during shutting down the delete topic manager.
 "Test worker" prio=10 tid=0x00007fd578928800 nid=0x763d waiting on condition [0x00007fd570a87000]
    java.lang.Thread.State: WAITING (parking)
         at sun.misc.Unsafe.park(Native Method)
-        - parking to wait for  <0x00000006b5b6f580> (a java.util.concurrent.CountDownLatch$Sync)
+        - parking to wait for  \<0x00000006b5b6f580\> (a java.util.concurrent.CountDownLatch$Sync)
         at java.util.concurrent.locks.LockSupport.park(LockSupport.java:156)
         at java.util.concurrent.locks.AbstractQueuedSynchronizer.parkAndCheckInterrupt(AbstractQueuedSynchronizer.java:811)
         at java.util.concurrent.locks.AbstractQueuedSynchronizer.doAcquireSharedInterruptibly(AbstractQueuedSynchronizer.java:969)
@@ -239,8 +239,8 @@ slow-down was how we ran into KAFKA-1342.
 This seems to have been caused by KAFKA-1315 - we now don't support relative directories.
 
 Steps to reproduce:
-* Set a relative directory for log.dirs. E.g., {{log.dirs=data/kafka-logs}}
-* Bring up the broker and produce some messages: {{./bin/kafka-producer-perf-test.sh --broker-list localhost:9092 --messages 1000 --topic test}}
+\* Set a relative directory for log.dirs. E.g., {{log.dirs=data/kafka-logs}}
+\* Bring up the broker and produce some messages: {{./bin/kafka-producer-perf-test.sh --broker-list localhost:9092 --messages 1000 --topic test}}
 
 
 ---
@@ -256,7 +256,7 @@ I suspect either the metrics-meter-tick-thread-1 & 2 or delete-topics-thread
 "delete-topics-thread" prio=5 tid=0x00007fb3e31d2800 nid=0x6b03 waiting on condition [0x000000013c3b3000]
    java.lang.Thread.State: WAITING (parking)
 	at sun.misc.Unsafe.park(Native Method)
-	- parking to wait for  <0x000000012e6e6920> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	- parking to wait for  \<0x000000012e6e6920\> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
 	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:186)
 	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2043)
 	at kafka.controller.TopicDeletionManager.kafka$controller$TopicDeletionManager$$awaitTopicDeletionNotification(TopicDeletionManager.scala:178)
@@ -273,7 +273,7 @@ I suspect either the metrics-meter-tick-thread-1 & 2 or delete-topics-thread
 "metrics-meter-tick-thread-2" daemon prio=5 tid=0x00007fb3e31c1000 nid=0x5f03 runnable [0x000000013ab8f000]
    java.lang.Thread.State: TIMED\_WAITING (parking)
 	at sun.misc.Unsafe.park(Native Method)
-	- parking to wait for  <0x000000012e7d05d8> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	- parking to wait for  \<0x000000012e7d05d8\> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
 	at java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:226)
 	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2082)
 	at java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1090)
@@ -289,7 +289,7 @@ I suspect either the metrics-meter-tick-thread-1 & 2 or delete-topics-thread
 "metrics-meter-tick-thread-1" daemon prio=5 tid=0x00007fb3e31ef800 nid=0x5e03 waiting on condition [0x000000013a98c000]
    java.lang.Thread.State: WAITING (parking)
 	at sun.misc.Unsafe.park(Native Method)
-	- parking to wait for  <0x000000012e7d05d8> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	- parking to wait for  \<0x000000012e7d05d8\> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
 	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:186)
 	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2043)
 	at java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1085)
@@ -351,7 +351,7 @@ git clone git@github.com:apache/kafka.git && cd kafka && git checkout origin/0.8
 5. And kafka hasn't been re-registered in zookeeper.
 ./bin/zookeeper-shell.sh
 ls /brokers/ids
->> []
+\>\> []
 
 Root cause of the problem seems to be the deadlock between DeleteTopicsThread and SessionExpirationListener in KafkaController.
 

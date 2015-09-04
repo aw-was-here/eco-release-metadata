@@ -43,33 +43,33 @@ The following changes have occurred vs. the release currently shipping with Hado
 
 
 MAJOR: 
-* Documentation
+\* Documentation
 
 A first pass at some documentation in markdown format covering beginner, advanced, some architecture/design thoughts, and a glossary covering terms.
 
-* De-Hadoop-ification / Personalities / Modules
+\* De-Hadoop-ification / Personalities / Modules
 
 By far, the largest change was a significant rewrite to create a core engine to enable pulling out most/all of the Hadoop-specific settings into a separate file.  This was done in order to support many projects with different source layouts to use effectively the test-patch code base.  As a result, the internals now use a concept of modules to dictate what to do where rather than assuming that the root of the source repo is a valid location.
 
 Project specific logic has been pushed into plugins we call 'personalities'.  Personalities allow projects to dictate flags and ordering as well as perform other actions as needed before tests execute.  As a result, there are several early personalities for various projects included.
 
-* Docker support
+\* Docker support
 
 Initial support for test-patch to switch to a dedicated docker container during execution, including the ability to provide a custom Dockerfile. 
 
-* Multiple build systems
+\* Multiple build systems
 
 Support for ant with the groundwork laid to support more.  An early version of a pig personality is included to use this functionality.
 
-* Multiple JDKs
+\* Multiple JDKs
 
 It is possible to specify multiple JDKs to run supported tests. Built-in tests that support multiple JDKs are javac, javadoc, and unit.  
 
-* Multiple bug system support
+\* Multiple bug system support
 
 Preliminary work to enable supporting bug tracking systems beyond Apache's JIRA system has been introduced. A prototype github PR support plugin is bundled. Additionally, large parts of the JIRA support have been pulled out into a separate plugin.
 
-* API and variable renames/cleanups
+\* API and variable renames/cleanups
 
 Many, many changes to the names of variables and functions to be less Hadoop-specific and just overall better.  As a result, this is a breaking change for any plugins written against the old bits. 
 
@@ -77,43 +77,43 @@ Additionally, many interface stabilities have changed as a result.
 
 MINOR:
 
-* A compile+install has been added as the first test step to populate the maven repo with the current code base, skipping over any failed compiles. This will help stabilize build predictability in between runs with different patches.
+\* A compile+install has been added as the first test step to populate the maven repo with the current code base, skipping over any failed compiles. This will help stabilize build predictability in between runs with different patches.
 
-* findbugs and ASF license checks have been moved to plug-ins
+\* findbugs and ASF license checks have been moved to plug-ins
 
-* smart-apply-patch has a stray rm fixed.
+\* smart-apply-patch has a stray rm fixed.
 
-* File names of generated test logs, etc, that use the core engine are now consistent across tests.
+\* File names of generated test logs, etc, that use the core engine are now consistent across tests.
 
-* JIRA output is now colored across the entire line, making it easier to spot failing tests.
+\* JIRA output is now colored across the entire line, making it easier to spot failing tests.
 
-* Warn about old versions of shellcheck, because there are some false positives with it.
+\* Warn about old versions of shellcheck, because there are some false positives with it.
 
-* New files are now handled properly.
+\* New files are now handled properly.
 
-* Deleted modules and files should be handled better.
+\* Deleted modules and files should be handled better.
 
-* Off-by-one errors in the git diff line listing should fix false positives in a few reports.
+\* Off-by-one errors in the git diff line listing should fix false positives in a few reports.
 
-* whitespace now errors on tabs in files not named Makefile.
+\* whitespace now errors on tabs in files not named Makefile.
 
-* xml files are now validated.
+\* xml files are now validated.
 
-* bash version check has been added to prevent running on older versions.
+\* bash version check has been added to prevent running on older versions.
 
-* Some tests now default to a summary report rather than listing all results.
+\* Some tests now default to a summary report rather than listing all results.
 
-* In order to prepare for eventual split, many defaults have been changed to be yetus-specific rather than Hadoop specific.
+\* In order to prepare for eventual split, many defaults have been changed to be yetus-specific rather than Hadoop specific.
 
-* Eliminated egrep usage in favor of grep -E
+\* Eliminated egrep usage in favor of grep -E
 
-* Many additions/cleanups to report output.
+\* Many additions/cleanups to report output.
 
-* Plugins can now add output to the usage message.
+\* Plugins can now add output to the usage message.
 
-* test-patch temp directory has been renamed.
+\* test-patch temp directory has been renamed.
 
-* wget errors are more specific now.
+\* wget errors are more specific now.
 
 
 

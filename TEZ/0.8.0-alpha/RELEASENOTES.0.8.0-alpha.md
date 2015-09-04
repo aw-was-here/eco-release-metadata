@@ -144,7 +144,7 @@ When I run hive qfile test (attached) using TestMiniTezCliDriver. My WIP patch i
 
 Here's the explain and backtrace I got from qfile output:
 {code}
-EXPLAIN select count(*) from srcpart join srcpart\_date on (srcpart.ds = srcpart\_date.ds) where srcpart\_date.`date` = '2008-04-08'
+EXPLAIN select count(\*) from srcpart join srcpart\_date on (srcpart.ds = srcpart\_date.ds) where srcpart\_date.`date` = '2008-04-08'
 POSTHOOK: type: QUERY
 STAGE DEPENDENCIES:
   Stage-1 is a root stage
@@ -154,8 +154,8 @@ STAGE PLANS:
   Stage: Stage-1
     Tez
       Edges:
-        Reducer 2 <- Map 1 (SIMPLE\_EDGE), Map 4 (SIMPLE\_EDGE)
-        Reducer 3 <- Reducer 2 (SIMPLE\_EDGE)
+        Reducer 2 \<- Map 1 (SIMPLE\_EDGE), Map 4 (SIMPLE\_EDGE)
+        Reducer 3 \<- Reducer 2 (SIMPLE\_EDGE)
       DagName: wzheng\_20150803161620\_55c139de-c26c-467f-b592-7d4333053ac6:38
       Vertices:
         Map 1
@@ -237,7 +237,7 @@ STAGE PLANS:
       Processor Tree:
         ListSink
 
-PREHOOK: query: select count(*) from srcpart join srcpart\_date on (srcpart.ds = srcpart\_date.ds) where srcpart\_date.`date` = '2008-04-08'
+PREHOOK: query: select count(\*) from srcpart join srcpart\_date on (srcpart.ds = srcpart\_date.ds) where srcpart\_date.`date` = '2008-04-08'
 PREHOOK: type: QUERY
 PREHOOK: Input: default@srcpart
 PREHOOK: Input: default@srcpart@ds=2008-04-08/hr=11
@@ -300,8 +300,8 @@ java.net.ConnectException: Permission denied to http://10.255.255.255:10221/
         at com.ning.http.client.providers.netty.NettyAsyncHttpProvider.execute(NettyAsyncHttpProvider.java:940)
         at com.ning.http.client.AsyncHttpClient.executeRequest(AsyncHttpClient.java:499)
         at org.apache.tez.http.async.netty.AsyncHttpConnection.connect(AsyncHttpConnection.java:154)
-        at org.apache.tez.http.async.netty.AsyncHttpConnection$$EnhancerByMockitoWithCGLIB$$1efd06aa.CGLIB$connect$3(<generated>)
-        at org.apache.tez.http.async.netty.AsyncHttpConnection$$EnhancerByMockitoWithCGLIB$$1efd06aa$$FastClassByMockitoWithCGLIB$$d440a4cd.invoke(<generated>)
+        at org.apache.tez.http.async.netty.AsyncHttpConnection$$EnhancerByMockitoWithCGLIB$$1efd06aa.CGLIB$connect$3(\<generated\>)
+        at org.apache.tez.http.async.netty.AsyncHttpConnection$$EnhancerByMockitoWithCGLIB$$1efd06aa$$FastClassByMockitoWithCGLIB$$d440a4cd.invoke(\<generated\>)
         at org.mockito.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:216)
         at org.mockito.internal.creation.AbstractMockitoMethodProxy.invokeSuper(AbstractMockitoMethodProxy.java:10)
         at org.mockito.internal.invocation.realmethod.CGLIBProxyRealMethod.invoke(CGLIBProxyRealMethod.java:22)
@@ -312,7 +312,7 @@ java.net.ConnectException: Permission denied to http://10.255.255.255:10221/
         at org.mockito.internal.handler.NullResultGuardian.handle(NullResultGuardian.java:29)
         at org.mockito.internal.handler.InvocationNotifierHandler.handle(InvocationNotifierHandler.java:38)
         at org.mockito.internal.creation.MethodInterceptorFilter.intercept(MethodInterceptorFilter.java:61)
-        at org.apache.tez.http.async.netty.AsyncHttpConnection$$EnhancerByMockitoWithCGLIB$$1efd06aa.connect(<generated>)
+        at org.apache.tez.http.async.netty.AsyncHttpConnection$$EnhancerByMockitoWithCGLIB$$1efd06aa.connect(\<generated\>)
         at org.apache.tez.http.TestHttpConnection$Worker.call(TestHttpConnection.java:186)
         at org.apache.tez.http.TestHttpConnection$Worker.call(TestHttpConnection.java:171)
         at java.util.concurrent.FutureTask.run(FutureTask.java:262)
@@ -468,7 +468,7 @@ That compatibility issue can be bypassed with a trivial build profile switch (sa
 
 I am running a yarn cluster on AWS. The slave nodes (NMs) are all configured to listen on private DNS. For example, a sample node manager listens on ip-10-16-141-168.ec2.internal:8042.
 
-When I'm trying to run a Tez job (even simple ones like select count(*) from nation) - they fail because child tasks are unable to connect to the AM. The issue is they are trying to connect to the IP instead of the private DNS. Here's a sample log line (couple of them added by me for debugging):
+When I'm trying to run a Tez job (even simple ones like select count(\*) from nation) - they fail because child tasks are unable to connect to the AM. The issue is they are trying to connect to the IP instead of the private DNS. Here's a sample log line (couple of them added by me for debugging):
 
 {code}
 2015-07-21 17:08:21,919 INFO [main] task.TezChild: TezChild starting
@@ -869,7 +869,7 @@ currently tez-ui build fails if mvn version is 3.3 due to the frontend-maven-plu
 [INFO] Finished at: Wed Jun 17 12:17:04 IST 2015
 [INFO] Final Memory: 56M/356M
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal com.github.eirslett:frontend-maven-plugin:0.0.23:install-node-and-npm (install node and npm) on project tez-ui: The plugin com.github.eirslett:frontend-maven-plugin:0.0.23 requires Maven version 3.1.0 -> [Help 1]
+[ERROR] Failed to execute goal com.github.eirslett:frontend-maven-plugin:0.0.23:install-node-and-npm (install node and npm) on project tez-ui: The plugin com.github.eirslett:frontend-maven-plugin:0.0.23 requires Maven version 3.1.0 -\> [Help 1]
 [ERROR]
 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
 [ERROR] Re-run Maven using the -X switch to enable full debug logging.
@@ -896,7 +896,7 @@ Additional powered by images provided by Sally Khudairi.
 
 * [TEZ-2554](https://issues.apache.org/jira/browse/TEZ-2554) | *Major* | **Tez UI: View log link does not correctly propagate login crendential to read log from yarn web.**
 
-Append "user.name=<am user>" to the view/download logs url as a query param.
+Append "user.name=\<am user\>" to the view/download logs url as a query param.
 
 Sample url:
 http://address:19888/jobhistory/logs/address:45454/container\_e18\_1434089649193\_0001\_01\_000002/container\_e18\_1434089649193\_0001\_01\_000002/hrt\_qa?user.name=hrt\_qa
@@ -1262,10 +1262,10 @@ java.lang.InterruptedException: sleep interrupted
 
 When invalid DAG Id passed
 
->java -cp tez-history-parser-0.8.0-SNAPSHOT-jar-with-dependencies.jar org.apache.tez.history.ATSImportTool --dagId dag\_1433663662240\_0001 --downloadDir /tmp/history/
+\>java -cp tez-history-parser-0.8.0-SNAPSHOT-jar-with-dependencies.jar org.apache.tez.history.ATSImportTool --dagId dag\_1433663662240\_0001 --downloadDir /tmp/history/
 java.lang.ArrayIndexOutOfBoundsException: 3
 	at org.apache.tez.dag.records.TezDAGID.fromString(TezDAGID.java:185)
-	at org.apache.tez.history.ATSImportTool.<init>(ATSImportTool.java:133)
+	at org.apache.tez.history.ATSImportTool.\<init\>(ATSImportTool.java:133)
 	at org.apache.tez.history.ATSImportTool.process(ATSImportTool.java:452)
 	at org.apache.tez.history.ATSImportTool.main(ATSImportTool.java:476)
 
@@ -1353,9 +1353,9 @@ And at the same time AM shutdown hook is invoked and hang there, wait for lock o
 * [TEZ-2523](https://issues.apache.org/jira/browse/TEZ-2523) | *Major* | **Tez UI: derive applicationId from dag/vertex id instead of relying on json data**
 
 currently the applicationId for the models dag/vertex is picked up from primary filter data for the dag/vertex json. deriving this from the dagid/vertexid on the models has the below benefits.
-* ensures applicationId is not null (in some corner cases this causes exception in store.find)
-* makes the ui backward compatible (0.5).
-* allows to remove the appid from primary filter (TEZ-2485)
+\* ensures applicationId is not null (in some corner cases this causes exception in store.find)
+\* makes the ui backward compatible (0.5).
+\* allows to remove the appid from primary filter (TEZ-2485)
 
 
 ---
@@ -1420,7 +1420,7 @@ First attempt marked as failed as container was killed.
 
 Subsequent attempt scheduled, assigned and eventually fails. 
 {code}
-2015-06-01 07:38:26,919 INFO [DelayedContainerManager] rm.YarnTaskSchedulerService: Assigning container to task, container=Container: [ContainerId: container\_e02\_1433141118424\_0012\_01\_000011, NodeId: ip-172-31-18-41.ec2.internal:45454, NodeHttpAddress: ip-172-31-18-41.ec2.internal:8042, Resource: <memory:1536, vCores:1>, Priority: 2, Token: Token { kind: ContainerToken, service: 172.31.18.41:45454 }, ], task=attempt\_1433141118424\_0012\_2\_00\_000003\_1, containerHost=ip-172-31, localityMatchType=NodeLocal, matchedLocation=ip-172-31-18-41.ec2.internal, honorLocalityFlags=true, reusedContainer=true, delayedContainers=4, containerResourceMemory=1536, containerResourceVCores=1
+2015-06-01 07:38:26,919 INFO [DelayedContainerManager] rm.YarnTaskSchedulerService: Assigning container to task, container=Container: [ContainerId: container\_e02\_1433141118424\_0012\_01\_000011, NodeId: ip-172-31-18-41.ec2.internal:45454, NodeHttpAddress: ip-172-31-18-41.ec2.internal:8042, Resource: \<memory:1536, vCores:1\>, Priority: 2, Token: Token { kind: ContainerToken, service: 172.31.18.41:45454 }, ], task=attempt\_1433141118424\_0012\_2\_00\_000003\_1, containerHost=ip-172-31, localityMatchType=NodeLocal, matchedLocation=ip-172-31-18-41.ec2.internal, honorLocalityFlags=true, reusedContainer=true, delayedContainers=4, containerResourceMemory=1536, containerResourceVCores=1
 {code}
 
 Scheduler stops too late.
@@ -1456,8 +1456,8 @@ java.net.ConnectException: http://10.255.255.255:10221/
 	at com.ning.http.client.providers.netty.NettyAsyncHttpProvider.execute(NettyAsyncHttpProvider.java:940)
 	at com.ning.http.client.AsyncHttpClient.executeRequest(AsyncHttpClient.java:499)
 	at org.apache.tez.http.async.netty.AsyncHttpConnection.connect(AsyncHttpConnection.java:154)
-	at org.apache.tez.http.async.netty.AsyncHttpConnection$$EnhancerByMockitoWithCGLIB$$93c3f8e5.CGLIB$connect$3(<generated>)
-	at org.apache.tez.http.async.netty.AsyncHttpConnection$$EnhancerByMockitoWithCGLIB$$93c3f8e5$$FastClassByMockitoWithCGLIB$$b69a0361.invoke(<generated>)
+	at org.apache.tez.http.async.netty.AsyncHttpConnection$$EnhancerByMockitoWithCGLIB$$93c3f8e5.CGLIB$connect$3(\<generated\>)
+	at org.apache.tez.http.async.netty.AsyncHttpConnection$$EnhancerByMockitoWithCGLIB$$93c3f8e5$$FastClassByMockitoWithCGLIB$$b69a0361.invoke(\<generated\>)
 	at org.mockito.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:216)
 	at org.mockito.internal.creation.AbstractMockitoMethodProxy.invokeSuper(AbstractMockitoMethodProxy.java:10)
 	at org.mockito.internal.invocation.realmethod.CGLIBProxyRealMethod.invoke(CGLIBProxyRealMethod.java:22)
@@ -1468,7 +1468,7 @@ java.net.ConnectException: http://10.255.255.255:10221/
 	at org.mockito.internal.handler.NullResultGuardian.handle(NullResultGuardian.java:29)
 	at org.mockito.internal.handler.InvocationNotifierHandler.handle(InvocationNotifierHandler.java:38)
 	at org.mockito.internal.creation.MethodInterceptorFilter.intercept(MethodInterceptorFilter.java:61)
-	at org.apache.tez.http.async.netty.AsyncHttpConnection$$EnhancerByMockitoWithCGLIB$$93c3f8e5.connect(<generated>)
+	at org.apache.tez.http.async.netty.AsyncHttpConnection$$EnhancerByMockitoWithCGLIB$$93c3f8e5.connect(\<generated\>)
 	at org.apache.tez.http.TestHttpConnection$Worker.call(TestHttpConnection.java:185)
 	at org.apache.tez.http.TestHttpConnection$Worker.call(TestHttpConnection.java:170)
 	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
@@ -1692,17 +1692,17 @@ The Fetcher threads for Ordered Input currently run and block till merge complet
 hive/pig etc can set additional info on the dag using 
 
 {code}
-/**
-   * Set description info for this DAG that can be used for visualization purposes.
-   * @param dagInfo JSON blob as a serialized string.
-   *                Recognized keys by the UI are:
-   *                    "context" - The application context in which this DAG is being used.
-   *                                For example, this could be set to "Hive" or "Pig" if
-   *                                this is being run as part of a Hive or Pig script.
-   *                    "description" - General description on what this DAG is going to do.
-   *                                In the case of Hive, this could be the SQL query text.
-   * @return {@link DAG}
-   */
+/\*\*
+   \* Set description info for this DAG that can be used for visualization purposes.
+   \* @param dagInfo JSON blob as a serialized string.
+   \*                Recognized keys by the UI are:
+   \*                    "context" - The application context in which this DAG is being used.
+   \*                                For example, this could be set to "Hive" or "Pig" if
+   \*                                this is being run as part of a Hive or Pig script.
+   \*                    "description" - General description on what this DAG is going to do.
+   \*                                In the case of Hive, this could be the SQL query text.
+   \* @return {@link DAG}
+   \*/
 {code}
 It would be useful to show this information.
 
@@ -1895,13 +1895,13 @@ It would be good to have the following
 For e.g, Assume sorter generated 5 spills in an attempt
 Without pipelining:
 ==============
-ADDITIONAL\_SPILL\_COUNT = 5 <-- Additional spills involved in sorting
-TOTAL\_SPILLS = 1 <-- Final merged output
+ADDITIONAL\_SPILL\_COUNT = 5 \<-- Additional spills involved in sorting
+TOTAL\_SPILLS = 1 \<-- Final merged output
 
 With pipelining:
 ============
-ADDITIONAL\_SPILL\_COUNT = 0 <-- Additional spills involved in sorting
-TOTAL\_SPILLS = 5 <--- all spills are final output
+ADDITIONAL\_SPILL\_COUNT = 0 \<-- Additional spills involved in sorting
+TOTAL\_SPILLS = 5 \<--- all spills are final output
 
 
 ---

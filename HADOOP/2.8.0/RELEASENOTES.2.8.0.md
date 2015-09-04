@@ -32,6 +32,7 @@ Fixes an Trash related issue wherein a delay in the periodic checkpointing of on
 
 * [HADOOP-11861](https://issues.apache.org/jira/browse/HADOOP-11861) | *Major* | **test-patch.sh rewrite addendum patch**
 
+<!-- markdown -->
 * --build-native=false should work now
 * --branch option lets one specify a branch to test against on the command line
 * On certain Jenkins machines, the artifact directory sometimes gets deleted from outside the test-patch script.  There is now some code to try to detect, alert, and quick exit if that happens.
@@ -70,6 +71,7 @@ The Client#call() methods that are deprecated since 0.23 have been removed.
 
 * [HADOOP-11746](https://issues.apache.org/jira/browse/HADOOP-11746) | *Major* | **rewrite test-patch.sh**
 
+<!-- markdown -->
 * test-patch.sh now has new output that is different than the previous versions
 * test-patch.sh is now pluggable via the test-patch.d directory, with checkstyle and shellcheck tests included
 * JIRA comments now use much more markup to improve readability
@@ -98,6 +100,7 @@ The Client#call() methods that are deprecated since 0.23 have been removed.
 
 * [HADOOP-11731](https://issues.apache.org/jira/browse/HADOOP-11731) | *Major* | **Rework the changelog and releasenotes**
 
+<!-- markdown -->
 * The release notes now only contains JIRA issues with incompatible changes and actual release notes.  The generated format has been changed from HTML to markdown.
 
 * The changelog is now automatically generated from data stored in JIRA rather than manually maintained. The format has been changed from pure text to markdown as well as containing more of the information that was previously stored in the release notes.
@@ -169,7 +172,7 @@ The config key "dfs.namenode.fs-limits.max-xattr-size" can no longer be set to a
 
 Adds a new blockpools flag to the balancer. This allows admins to specify which blockpools the balancer will run on.
 Usage:
--blockpools <comma-separated list of blockpool ids>
+-blockpools \<comma-separated list of blockpool ids\>
 The balancer will only run on blockpools included in this list.
 
 
@@ -311,7 +314,7 @@ Documented missing properties and added the regression test to verify that there
 
 * [YARN-3021](https://issues.apache.org/jira/browse/YARN-3021) | *Major* | **YARN's delegation-token handling disallows certain trust setups to operate properly over DistCp**
 
-ResourceManager renews delegation tokens for applications. This behavior has been changed to renew tokens only if the token's renewer is a non-empty string. MapReduce jobs can instruct ResourceManager to skip renewal of tokens obtained from certain hosts by specifying the hosts with configuration mapreduce.job.hdfs-servers.token-renewal.exclude=<host1>,<host2>,..,<hostN>.
+ResourceManager renews delegation tokens for applications. This behavior has been changed to renew tokens only if the token's renewer is a non-empty string. MapReduce jobs can instruct ResourceManager to skip renewal of tokens obtained from certain hosts by specifying the hosts with configuration mapreduce.job.hdfs-servers.token-renewal.exclude=\<host1\>,\<host2\>,..,\<hostN\>.
 
 
 ---

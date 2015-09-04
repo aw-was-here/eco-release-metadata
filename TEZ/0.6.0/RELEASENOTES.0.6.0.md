@@ -47,7 +47,7 @@ DAG view and vertices view can be a little misleading at times.  I can see that 
 * [TEZ-1938](https://issues.apache.org/jira/browse/TEZ-1938) | *Major* | **Build warning duplicate jersey-json definitions**
 
 {code}
-[WARNING] 'dependencyManagement.dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: com.sun.jersey:jersey-json:jar -> duplicate declaration of version 1.9 @ org.apache.tez:tez:0.7.0-SNAPSHOT
+[WARNING] 'dependencyManagement.dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: com.sun.jersey:jersey-json:jar -\> duplicate declaration of version 1.9 @ org.apache.tez:tez:0.7.0-SNAPSHOT
 {code}
 
 
@@ -82,7 +82,7 @@ Not sure if we should be uploading the web tar.gz as part of maven deploy.
 after the update to bower.json ember-i18n has the following warnings
 - CLDR.js has been deprecated; use Ember-I18n's i18n-plurals.js instead.
 - Ember.I18n t helper called with unquoted key: common.applicationId. In the future, this will be treated as a bound property, not a string literal
-- DEPRECATION: The {{t}} helper will no longer use a <span> tag in future versions of Ember.I18n. Set Ember.FEATURES.I18N\_TRANSLATE\_HELPER\_SPAN to false to quiet these warnings and maintain older behavior.
+- DEPRECATION: The {{t}} helper will no longer use a \<span\> tag in future versions of Ember.I18n. Set Ember.FEATURES.I18N\_TRANSLATE\_HELPER\_SPAN to false to quiet these warnings and maintain older behavior.
 
 This pollutes the debug/info messages on the console.
 
@@ -249,7 +249,7 @@ Post TEZ-1696, build is failing
 
 * [TEZ-1841](https://issues.apache.org/jira/browse/TEZ-1841) | *Blocker* | **Remove range versions for dependencies in tez-ui**
 
-There are a few dependencies such as moment >= 2.7.0 , jquery-ui >= 1.11, etc. 
+There are a few dependencies such as moment \>= 2.7.0 , jquery-ui \>= 1.11, etc. 
 
 From a licensing point of view, this becomes tricky if a higher version changes its license. Stricter versions would help. 
 
@@ -275,7 +275,7 @@ When building the UI locally on a mac laptop, the following edit is done by the 
 @@ -24,7 +24,6 @@
    "resolutions": {
      "handlebars": "~1.3.0",
-     "jquery-ui": ">=1.11",
+     "jquery-ui": "\>=1.11",
 -    "jquery-mousewheel": "~3.1.12",
      "antiscroll": "fa3f81d3c0",
      "ember": "1.7.0"
@@ -289,7 +289,7 @@ When building the UI locally on a mac laptop, the following edit is done by the 
 
 Surefire logs shows this test hovers dangerously close to the 60 second timeout.
 
-<testcase name="testRandomFailingTasks" classname="org.apache.tez.test.TestFaultTolerance" time="69.538"/>
+\<testcase name="testRandomFailingTasks" classname="org.apache.tez.test.TestFaultTolerance" time="69.538"/\>
 
 
 ---
@@ -307,8 +307,8 @@ mvn clean test -Dtest=TestSecureShuffle -Dhadoop.version=2.6.1-SNAPSHOT
 -------------------------------------------------------------------------------
 Test set: org.apache.tez.test.TestSecureShuffle
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 63.35 sec <<< FAILURE!
-testSecureShuffle[test[sslInCluster:true, resultWithTezSSL:0, resultWithoutTezSSL:1]](org.apache.tez.test.TestSecureShuffle)  Time elapsed: 0.106 sec  <<< ERROR!
+Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 63.35 sec \<\<\< FAILURE!
+testSecureShuffle[test[sslInCluster:true, resultWithTezSSL:0, resultWithoutTezSSL:1]](org.apache.tez.test.TestSecureShuffle)  Time elapsed: 0.106 sec  \<\<\< ERROR!
 java.lang.NoClassDefFoundError: org/bouncycastle/x509/X509V1CertificateGenerator
         at java.net.URLClassLoader$1.run(URLClassLoader.java:202)
         at java.security.AccessController.doPrivileged(Native Method)
@@ -570,7 +570,7 @@ Without this is misses unregistering from the task heartbeat handler and any oth
 * [TEZ-1768](https://issues.apache.org/jira/browse/TEZ-1768) | *Major* | **follow up jira to address minor issues in Tez-ui**
 
 adding a jira to track some minor comments in TEZ-8 subtasks. 
-* address minor comments(related to unused variables, remove unnecessary logging) TEZ-1741
+\* address minor comments(related to unused variables, remove unnecessary logging) TEZ-1741
 
 
 ---
@@ -587,7 +587,7 @@ we are left with many untracked files
 
 {quote}
 Untracked files:
-  (use "git add <file>..." to include in what will be committed)
+  (use "git add \<file\>..." to include in what will be committed)
 
 	docs/pom.xml.versionsBackup
 	pom.xml.versionsBackup
@@ -610,7 +610,7 @@ Untracked files:
 
 * [TEZ-1738](https://issues.apache.org/jira/browse/TEZ-1738) | *Major* | **tez tfile parser for log parsing**
 
-It can be time consuming to download logs via "yarn logs -applicationId <appId> | grep something".  Also mining large volumes of logs can be time consuming on single node.
+It can be time consuming to download logs via "yarn logs -applicationId \<appId\> \| grep something".  Also mining large volumes of logs can be time consuming on single node.
 A simple pigloader would be useful to have in tez-tools which can parse TFiles and provide line by line format (tuple of (machine, key, line)) for distributed processing of logs.
 
 
@@ -673,18 +673,18 @@ With the introduction of YARN-2102 Timeline Server entries can have ACLs which w
 If two users run "mvn test" on a machine, the paths in TestMultiMRInput collide & tests fail.
 
 {code}
-testSingleSplit(org.apache.tez.mapreduce.input.TestMultiMRInput)  Time elapsed: 0.037 sec  <<< ERROR!
+testSingleSplit(org.apache.tez.mapreduce.input.TestMultiMRInput)  Time elapsed: 0.037 sec  \<\<\< ERROR!
 java.io.FileNotFoundException: /tmp/TestMultiMRInput/testSingleSplit/file1 (Permission denied)
         at java.io.FileOutputStream.open(Native Method)
-        at java.io.FileOutputStream.<init>(FileOutputStream.java:212)
-        at org.apache.hadoop.fs.RawLocalFileSystem$LocalFSFileOutputStream.<init>(RawLocalFileSystem.java:206)
-        at org.apache.hadoop.fs.RawLocalFileSystem$LocalFSFileOutputStream.<init>(RawLocalFileSystem.java:202)
+        at java.io.FileOutputStream.\<init\>(FileOutputStream.java:212)
+        at org.apache.hadoop.fs.RawLocalFileSystem$LocalFSFileOutputStream.\<init\>(RawLocalFileSystem.java:206)
+        at org.apache.hadoop.fs.RawLocalFileSystem$LocalFSFileOutputStream.\<init\>(RawLocalFileSystem.java:202)
         at org.apache.hadoop.fs.RawLocalFileSystem.create(RawLocalFileSystem.java:265)        at org.apache.hadoop.fs.RawLocalFileSystem.create(RawLocalFileSystem.java:252)
-        at org.apache.hadoop.fs.ChecksumFileSystem$ChecksumFSOutputSummer.<init>(ChecksumFileSystem.java:384)        at org.apache.hadoop.fs.ChecksumFileSystem.create(ChecksumFileSystem.java:443)
+        at org.apache.hadoop.fs.ChecksumFileSystem$ChecksumFSOutputSummer.\<init\>(ChecksumFileSystem.java:384)        at org.apache.hadoop.fs.ChecksumFileSystem.create(ChecksumFileSystem.java:443)
         at org.apache.hadoop.fs.ChecksumFileSystem.create(ChecksumFileSystem.java:424)
         at org.apache.hadoop.fs.FileSystem.create(FileSystem.java:906)
-        at org.apache.hadoop.io.SequenceFile$Writer.<init>(SequenceFile.java:1071)
-        at org.apache.hadoop.io.SequenceFile$RecordCompressWriter.<init>(SequenceFile.java:1371)
+        at org.apache.hadoop.io.SequenceFile$Writer.\<init\>(SequenceFile.java:1071)
+        at org.apache.hadoop.io.SequenceFile$RecordCompressWriter.\<init\>(SequenceFile.java:1371)
         at org.apache.hadoop.io.SequenceFile.createWriter(SequenceFile.java:272)
         at org.apache.hadoop.io.SequenceFile.createWriter(SequenceFile.java:294)
         at org.apache.tez.mapreduce.input.TestMultiMRInput.createInputData(TestMultiMRInput.java:277)
@@ -727,13 +727,13 @@ This error happens only when we try to fetch multiple attempt outputs using the 
 
 Example error in shuffle phase is attached below.
 
->>>>
+\>\>\>\>
 2014-09-15 09:54:22,950 WARN [fetcher [scope\_41] #31] org.apache.tez.runtime.library.common.shuffle.impl.Fetcher: Invalid map id 
 java.lang.IllegalArgumentException: Invalid header received:  partition: 0
 	at org.apache.tez.runtime.library.common.shuffle.impl.Fetcher.copyMapOutput(Fetcher.java:352)
 	at org.apache.tez.runtime.library.common.shuffle.impl.Fetcher.copyFromHost(Fetcher.java:294)
 	at org.apache.tez.runtime.library.common.shuffle.impl.Fetcher.run(Fetcher.java:160)
->>>>
+\>\>\>\>
 
 I will attach the debug version of BlockCompressionStream with threaddump (which validates that finish() is called twice in IFile.close()).  This bug was present in earlier versions of Tez as well, and was able to consistently reproduce it now on local-vm itself.
 
@@ -769,11 +769,11 @@ Move TestLocalMode to tez-tests. It enable TestLocalMode to use more examples fr
 The class level comment in {{MiniTezCluster}} ends abruptly:
 
 {code}
-/**
- * Configures and starts the Tez-specific components in the YARN cluster.
- *
- * When using this mini cluster, the user is expected to
- */
+/\*\*
+ \* Configures and starts the Tez-specific components in the YARN cluster.
+ \*
+ \* When using this mini cluster, the user is expected to
+ \*/
 {code}
 
 

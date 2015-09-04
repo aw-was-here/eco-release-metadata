@@ -26,7 +26,7 @@ These release notes cover new developer and user-facing incompatibilities, featu
 * [HIVE-10564](https://issues.apache.org/jira/browse/HIVE-10564) | *Major* | **webhcat should use webhcat-site.xml properties for controller job submission**
 
 This change enables various hadoop properties to be passed to the LauncherTask via webhcat-site.xml.
-Earlier hadoop properties in webhcat-site.xml would get used in most other places, except for the launch of the LauncherTask. Only a few parameters could be set, and they had to be set using templeton.* parameters. For example templeton.mapper.memory.mb was used to set mapreduce.map.memory.mb.
+Earlier hadoop properties in webhcat-site.xml would get used in most other places, except for the launch of the LauncherTask. Only a few parameters could be set, and they had to be set using templeton.\* parameters. For example templeton.mapper.memory.mb was used to set mapreduce.map.memory.mb.
 
 
 ---
@@ -98,8 +98,8 @@ Connected to: Apache Hive (version 1.2.0-SNAPSHOT)
 Driver: Hive JDBC (version 1.2.0-SNAPSHOT)
 Transaction isolation: TRANSACTION\_REPEATABLE\_READ
 Beeline version 1.2.0-SNAPSHOT by Apache Hive
-0: jdbc:hive2://localhost:10000> !outputformat csv2
-0: jdbc:hive2://localhost:10000> select * from test;
+0: jdbc:hive2://localhost:10000\> !outputformat csv2
+0: jdbc:hive2://localhost:10000\> select \* from test;
 Getting log thread is interrupted, since query is done!
 test.a,test.b
 28,"aa"
@@ -144,15 +144,15 @@ Add one new command for beeline: addlocaljar. With this command, users are able 
 There are two kinds of use cases. One is to add an existing known driver like mysql driver or postgres driver. Current supported driver are postgres and mysql.
 {noformat}
 # beeline
-beeline> !addlocaldriverjar /path/to/mysql-connector-java-5.1.27-bin.jar
-beeline> !connect mysql://host:3306/testdb
+beeline\> !addlocaldriverjar /path/to/mysql-connector-java-5.1.27-bin.jar
+beeline\> !connect mysql://host:3306/testdb
 {noformat}
 And another is to add a customized driver.
 {noformat}
 # beeline
-beeline>!addlocaldriverjar /path/to/DummyDriver-1.0-SNAPSHOT.jar
-beeline>!addlocaldrivername org.apache.dummy.DummyDrive
-beeline> !connect mysql://host:3306/testdb
+beeline\>!addlocaldriverjar /path/to/DummyDriver-1.0-SNAPSHOT.jar
+beeline\>!addlocaldrivername org.apache.dummy.DummyDrive
+beeline\> !connect mysql://host:3306/testdb
 {noformat}
 
 

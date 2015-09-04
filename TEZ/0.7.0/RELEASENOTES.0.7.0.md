@@ -57,20 +57,20 @@ at org.apache.tez.client.LocalClient.getApplicationReport(LocalClient.java:145)
 
 DOAP files can contain details of multiple release Versions, however each must be listed in a separate release section, for example:
 
-<release>
-      <Version>
-        <name>Apache XYZ</name>
-        <created>2015-02-16</created>
-        <revision>1.6.2</revision>
-      </Version>
-</release>
-<release>
-      <Version>
-        <name>Apache XYZ</name>
-        <created>2014-09-24</created>
-        <revision>1.6.1</revision>
-      </Version>
-</release>
+\<release\>
+      \<Version\>
+        \<name\>Apache XYZ\</name\>
+        \<created\>2015-02-16\</created\>
+        \<revision\>1.6.2\</revision\>
+      \</Version\>
+\</release\>
+\<release\>
+      \<Version\>
+        \<name\>Apache XYZ\</name\>
+        \<created\>2014-09-24\</created\>
+        \<revision\>1.6.1\</revision\>
+      \</Version\>
+\</release\>
 
 Please can the project DOAP be corrected accordingly?
 
@@ -139,7 +139,7 @@ Thanks.
 * [TEZ-2412](https://issues.apache.org/jira/browse/TEZ-2412) | *Blocker* | **Should kill vertex in DAGImpl#VertexRerunWhileCommitting**
 
 
-* When vertex rerun, it move to RUNNING state, so should kill it in DAGImpl#VertexRerunWhileCommitting
+\* When vertex rerun, it move to RUNNING state, so should kill it in DAGImpl#VertexRerunWhileCommitting
 
 
 ---
@@ -373,7 +373,7 @@ Here, AM tries to access "/tmp/yarn/staging" dir instead "/tmp/hrt\_qa/staging".
 
 * [TEZ-2363](https://issues.apache.org/jira/browse/TEZ-2363) | *Minor* | **Counters: off by 1 error for REDUCE\_INPUT\_GROUPS counter**
 
-The reduce input key groups are not incremented for the first key in operation, only for the second key does it increment in moveToNext() -> nextKey() -> inputKeyCounter.increment(1);
+The reduce input key groups are not incremented for the first key in operation, only for the second key does it increment in moveToNext() -\> nextKey() -\> inputKeyCounter.increment(1);
 
 
 ---
@@ -388,7 +388,7 @@ JStack trace for multiple threads of State Change Notifier
 "State Change Notifier DAG: dag\_1429844178238\_0001\_3" daemon prio=5 tid=0x00007fa525596800 nid=0x102503 waiting on condition [0x000000019e362000]
    java.lang.Thread.State: WAITING (parking)
     at sun.misc.Unsafe.park(Native Method)
-    - parking to wait for  <0x0000000706f2b3e8> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+    - parking to wait for  \<0x0000000706f2b3e8\> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
     at java.util.concurrent.locks.LockSupport.park(LockSupport.java:186)
     at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2043)
     at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:442)
@@ -400,7 +400,7 @@ JStack trace for multiple threads of State Change Notifier
 "State Change Notifier DAG: dag\_1429844178238\_0001\_2" daemon prio=5 tid=0x00007fa529025000 nid=0x101f03 waiting on condition [0x000000019e059000]
    java.lang.Thread.State: WAITING (parking)
     at sun.misc.Unsafe.park(Native Method)
-    - parking to wait for  <0x0000000706f2f3e8> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+    - parking to wait for  \<0x0000000706f2f3e8\> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
     at java.util.concurrent.locks.LockSupport.park(LockSupport.java:186)
     at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2043)
     at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:442)
@@ -412,7 +412,7 @@ JStack trace for multiple threads of State Change Notifier
 "State Change Notifier DAG: dag\_1429844178238\_0001\_1" daemon prio=5 tid=0x00007fa52539a800 nid=0xd1133 waiting on condition [0x00000001859d3000]
    java.lang.Thread.State: WAITING (parking)
     at sun.misc.Unsafe.park(Native Method)
-    - parking to wait for  <0x0000000706f2d500> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+    - parking to wait for  \<0x0000000706f2d500\> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
     at java.util.concurrent.locks.LockSupport.park(LockSupport.java:186)
     at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2043)
     at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:442)
@@ -424,7 +424,7 @@ JStack trace for multiple threads of State Change Notifier
 "State Change Notifier DAG: dag\_1429844178013\_0001\_1" daemon prio=5 tid=0x00007fa526396800 nid=0xd191b waiting on condition [0x0000000192a3d000]
    java.lang.Thread.State: WAITING (parking)
     at sun.misc.Unsafe.park(Native Method)
-    - parking to wait for  <0x0000000706f18c98> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+    - parking to wait for  \<0x0000000706f18c98\> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
     at java.util.concurrent.locks.LockSupport.park(LockSupport.java:186)
     at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2043)
     at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:442)
@@ -450,10 +450,10 @@ The Tez MergeManager code assumes that the src-task-id is unique between merge o
 
 {code}
 private TezRawKeyValueIterator finalMerge(Configuration job, FileSystem fs,
-                                       List<MapOutput> inMemoryMapOutputs,
-                                       List<FileChunk> onDiskMapOutputs
+                                       List\<MapOutput\> inMemoryMapOutputs,
+                                       List\<FileChunk\> onDiskMapOutputs
 ...
- if (inMemoryMapOutputs.size() > 0) {
+ if (inMemoryMapOutputs.size() \> 0) {
       int srcTaskId = inMemoryMapOutputs.get(0).getAttemptIdentifier().getInputIdentifier().getInputIndex();
 ...
        // must spill to disk, but can't retain in-mem for intermediate merge
@@ -530,13 +530,13 @@ java.lang.Exception: test timed out after 120000 milliseconds
 Standard Output
 
 2015-04-17 07:46:10,952 INFO  [main] test.TestFaultTolerance (TestFaultTolerance.java:setup(65)) - Starting mini clusters
-2015-04-17 07:46:11,508 INFO  [main] hdfs.MiniDFSCluster (MiniDFSCluster.java:<init>(446)) - starting cluster: numNameNodes=1, numDataNodes=1
+2015-04-17 07:46:11,508 INFO  [main] hdfs.MiniDFSCluster (MiniDFSCluster.java:\<init\>(446)) - starting cluster: numNameNodes=1, numDataNodes=1
 Formatting using clusterid: testClusterID
-2015-04-17 07:46:12,919 INFO  [main] namenode.FSNamesystem (FSNamesystem.java:<init>(716)) - No KeyProvider found.
-2015-04-17 07:46:12,920 INFO  [main] namenode.FSNamesystem (FSNamesystem.java:<init>(726)) - fsLock is fair:true
+2015-04-17 07:46:12,919 INFO  [main] namenode.FSNamesystem (FSNamesystem.java:\<init\>(716)) - No KeyProvider found.
+2015-04-17 07:46:12,920 INFO  [main] namenode.FSNamesystem (FSNamesystem.java:\<init\>(726)) - fsLock is fair:true
 2015-04-17 07:46:13,021 INFO  [main] Configuration.deprecation (Configuration.java:warnOnceIfDeprecated(1173)) - hadoop.configured.node.mapping is deprecated. Instead, use net.topology.configured.node.mapping
-2015-04-17 07:46:13,021 INFO  [main] blockmanagement.DatanodeManager (DatanodeManager.java:<init>(239)) - dfs.block.invalidate.limit=1000
-2015-04-17 07:46:13,022 INFO  [main] blockmanagement.DatanodeManager (DatanodeManager.java:<init>(245)) - dfs.namenode.datanode.registration.ip-hostname-check=true
+2015-04-17 07:46:13,021 INFO  [main] blockmanagement.DatanodeManager (DatanodeManager.java:\<init\>(239)) - dfs.block.invalidate.limit=1000
+2015-04-17 07:46:13,022 INFO  [main] blockmanagement.DatanodeManager (DatanodeManager.java:\<init\>(245)) - dfs.namenode.datanode.registration.ip-hostname-check=true
 2015-04-17 07:46:13,022 INFO  [main] blockmanagement.BlockManager (InvalidateBlocks.java:printBlockDeletionTime(71)) - dfs.namenode.startup.delay.block.deletion.sec is set to 000:00:00:00.000
 2015-04-17 07:46:13,025 INFO  [main] blockmanagement.BlockManager (InvalidateBlocks.java:printBlockDeletionTime(76)) - The block deletion will start around 2015 Apr 17 07:46:13
 2015-04-17 07:46:13,029 INFO  [main] util.GSet (LightWeightGSet.java:computeCapacity(354)) - Computing capacity for map BlocksMap
@@ -544,34 +544,34 @@ Formatting using clusterid: testClusterID
 2015-04-17 07:46:13,032 INFO  [main] util.GSet (LightWeightGSet.java:computeCapacity(356)) - 2.0% max memory 910.3 MB = 18.2 MB
 2015-04-17 07:46:13,033 INFO  [main] util.GSet (LightWeightGSet.java:computeCapacity(361)) - capacity      = 2^21 = 2097152 entries
 2015-04-17 07:46:13,079 INFO  [main] blockmanagement.BlockManager (BlockManager.java:createBlockTokenSecretManager(365)) - dfs.block.access.token.enable=false
-2015-04-17 07:46:13,080 INFO  [main] blockmanagement.BlockManager (BlockManager.java:<init>(350)) - defaultReplication         = 1
-2015-04-17 07:46:13,080 INFO  [main] blockmanagement.BlockManager (BlockManager.java:<init>(351)) - maxReplication             = 512
-2015-04-17 07:46:13,083 INFO  [main] blockmanagement.BlockManager (BlockManager.java:<init>(352)) - minReplication             = 1
-2015-04-17 07:46:13,083 INFO  [main] blockmanagement.BlockManager (BlockManager.java:<init>(353)) - maxReplicationStreams      = 2
-2015-04-17 07:46:13,083 INFO  [main] blockmanagement.BlockManager (BlockManager.java:<init>(354)) - shouldCheckForEnoughRacks  = false
-2015-04-17 07:46:13,084 INFO  [main] blockmanagement.BlockManager (BlockManager.java:<init>(355)) - replicationRecheckInterval = 3000
-2015-04-17 07:46:13,084 INFO  [main] blockmanagement.BlockManager (BlockManager.java:<init>(356)) - encryptDataTransfer        = false
-2015-04-17 07:46:13,084 INFO  [main] blockmanagement.BlockManager (BlockManager.java:<init>(357)) - maxNumBlocksToLog          = 1000
-2015-04-17 07:46:13,115 INFO  [main] namenode.FSNamesystem (FSNamesystem.java:<init>(746)) - fsOwner             = jenkins (auth:SIMPLE)
-2015-04-17 07:46:13,116 INFO  [main] namenode.FSNamesystem (FSNamesystem.java:<init>(747)) - supergroup          = supergroup
-2015-04-17 07:46:13,116 INFO  [main] namenode.FSNamesystem (FSNamesystem.java:<init>(748)) - isPermissionEnabled = true
-2015-04-17 07:46:13,116 INFO  [main] namenode.FSNamesystem (FSNamesystem.java:<init>(759)) - HA Enabled: false
-2015-04-17 07:46:13,120 INFO  [main] namenode.FSNamesystem (FSNamesystem.java:<init>(796)) - Append Enabled: true
+2015-04-17 07:46:13,080 INFO  [main] blockmanagement.BlockManager (BlockManager.java:\<init\>(350)) - defaultReplication         = 1
+2015-04-17 07:46:13,080 INFO  [main] blockmanagement.BlockManager (BlockManager.java:\<init\>(351)) - maxReplication             = 512
+2015-04-17 07:46:13,083 INFO  [main] blockmanagement.BlockManager (BlockManager.java:\<init\>(352)) - minReplication             = 1
+2015-04-17 07:46:13,083 INFO  [main] blockmanagement.BlockManager (BlockManager.java:\<init\>(353)) - maxReplicationStreams      = 2
+2015-04-17 07:46:13,083 INFO  [main] blockmanagement.BlockManager (BlockManager.java:\<init\>(354)) - shouldCheckForEnoughRacks  = false
+2015-04-17 07:46:13,084 INFO  [main] blockmanagement.BlockManager (BlockManager.java:\<init\>(355)) - replicationRecheckInterval = 3000
+2015-04-17 07:46:13,084 INFO  [main] blockmanagement.BlockManager (BlockManager.java:\<init\>(356)) - encryptDataTransfer        = false
+2015-04-17 07:46:13,084 INFO  [main] blockmanagement.BlockManager (BlockManager.java:\<init\>(357)) - maxNumBlocksToLog          = 1000
+2015-04-17 07:46:13,115 INFO  [main] namenode.FSNamesystem (FSNamesystem.java:\<init\>(746)) - fsOwner             = jenkins (auth:SIMPLE)
+2015-04-17 07:46:13,116 INFO  [main] namenode.FSNamesystem (FSNamesystem.java:\<init\>(747)) - supergroup          = supergroup
+2015-04-17 07:46:13,116 INFO  [main] namenode.FSNamesystem (FSNamesystem.java:\<init\>(748)) - isPermissionEnabled = true
+2015-04-17 07:46:13,116 INFO  [main] namenode.FSNamesystem (FSNamesystem.java:\<init\>(759)) - HA Enabled: false
+2015-04-17 07:46:13,120 INFO  [main] namenode.FSNamesystem (FSNamesystem.java:\<init\>(796)) - Append Enabled: true
 2015-04-17 07:46:13,475 INFO  [main] util.GSet (LightWeightGSet.java:computeCapacity(354)) - Computing capacity for map INodeMap
 2015-04-17 07:46:13,475 INFO  [main] util.GSet (LightWeightGSet.java:computeCapacity(355)) - VM type       = 64-bit
 2015-04-17 07:46:13,475 INFO  [main] util.GSet (LightWeightGSet.java:computeCapacity(356)) - 1.0% max memory 910.3 MB = 9.1 MB
 2015-04-17 07:46:13,476 INFO  [main] util.GSet (LightWeightGSet.java:computeCapacity(361)) - capacity      = 2^20 = 1048576 entries
-2015-04-17 07:46:13,477 INFO  [main] namenode.FSDirectory (FSDirectory.java:<init>(234)) - ACLs enabled? false
-2015-04-17 07:46:13,477 INFO  [main] namenode.FSDirectory (FSDirectory.java:<init>(238)) - XAttrs enabled? true
-2015-04-17 07:46:13,477 INFO  [main] namenode.FSDirectory (FSDirectory.java:<init>(246)) - Maximum size of an xattr: 16384
-2015-04-17 07:46:13,478 INFO  [main] namenode.NameNode (FSDirectory.java:<init>(294)) - Caching file names occuring more than 10 times
+2015-04-17 07:46:13,477 INFO  [main] namenode.FSDirectory (FSDirectory.java:\<init\>(234)) - ACLs enabled? false
+2015-04-17 07:46:13,477 INFO  [main] namenode.FSDirectory (FSDirectory.java:\<init\>(238)) - XAttrs enabled? true
+2015-04-17 07:46:13,477 INFO  [main] namenode.FSDirectory (FSDirectory.java:\<init\>(246)) - Maximum size of an xattr: 16384
+2015-04-17 07:46:13,478 INFO  [main] namenode.NameNode (FSDirectory.java:\<init\>(294)) - Caching file names occuring more than 10 times
 2015-04-17 07:46:13,489 INFO  [main] util.GSet (LightWeightGSet.java:computeCapacity(354)) - Computing capacity for map cachedBlocks
 2015-04-17 07:46:13,489 INFO  [main] util.GSet (LightWeightGSet.java:computeCapacity(355)) - VM type       = 64-bit
 2015-04-17 07:46:13,490 INFO  [main] util.GSet (LightWeightGSet.java:computeCapacity(356)) - 0.25% max memory 910.3 MB = 2.3 MB
 2015-04-17 07:46:13,490 INFO  [main] util.GSet (LightWeightGSet.java:computeCapacity(361)) - capacity      = 2^18 = 262144 entries
-2015-04-17 07:46:13,493 INFO  [main] namenode.FSNamesystem (FSNamesystem.java:<init>(5160)) - dfs.namenode.safemode.threshold-pct = 0.9990000128746033
-2015-04-17 07:46:13,493 INFO  [main] namenode.FSNamesystem (FSNamesystem.java:<init>(5161)) - dfs.namenode.safemode.min.datanodes = 0
-2015-04-17 07:46:13,493 INFO  [main] namenode.FSNamesystem (FSNamesystem.java:<init>(5162)) - dfs.namenode.safemode.extension     = 0
+2015-04-17 07:46:13,493 INFO  [main] namenode.FSNamesystem (FSNamesystem.java:\<init\>(5160)) - dfs.namenode.safemode.threshold-pct = 0.9990000128746033
+2015-04-17 07:46:13,493 INFO  [main] namenode.FSNamesystem (FSNamesystem.java:\<init\>(5161)) - dfs.namenode.safemode.min.datanodes = 0
+2015-04-17 07:46:13,493 INFO  [main] namenode.FSNamesystem (FSNamesystem.java:\<init\>(5162)) - dfs.namenode.safemode.extension     = 0
 2015-04-17 07:46:13,499 INFO  [main] metrics.TopMetrics (TopMetrics.java:logConf(65)) - NNTop conf: dfs.namenode.top.window.num.buckets = 10
 2015-04-17 07:46:13,499 INFO  [main] metrics.TopMetrics (TopMetrics.java:logConf(67)) - NNTop conf: dfs.namenode.top.num.users = 10
 2015-04-17 07:46:13,499 INFO  [main] metrics.TopMetrics (TopMetrics.java:logConf(69)) - NNTop conf: dfs.namenode.top.windows.minutes = 1,5,25
@@ -584,7 +584,7 @@ Formatting using clusterid: testClusterID
 2015-04-17 07:46:13,704 INFO  [main] namenode.FSImage (FSImage.java:format(158)) - Allocated new BlockPoolId: BP-725016459-10.79.60.8-1429281973548
 2015-04-17 07:46:13,732 INFO  [main] common.Storage (NNStorage.java:format(552)) - Storage directory D:\w\tez\tez-tests\target\org.apache.tez.test.TestFaultTolerance-tmpDir\name1 has been successfully formatted.
 2015-04-17 07:46:13,761 INFO  [main] common.Storage (NNStorage.java:format(552)) - Storage directory D:\w\tez\tez-tests\target\org.apache.tez.test.TestFaultTolerance-tmpDir\name2 has been successfully formatted.
-2015-04-17 07:46:14,163 INFO  [main] namenode.NNStorageRetentionManager (NNStorageRetentionManager.java:getImageTxIdToRetain(203)) - Going to retain 1 images with txid >= 0
+2015-04-17 07:46:14,163 INFO  [main] namenode.NNStorageRetentionManager (NNStorageRetentionManager.java:getImageTxIdToRetain(203)) - Going to retain 1 images with txid \>= 0
 2015-04-17 07:46:14,210 INFO  [main] namenode.NameNode (NameNode.java:createNameNode(1416)) - createNameNode []
 2015-04-17 07:46:14,278 WARN  [main] impl.MetricsConfig (MetricsConfig.java:loadFirst(125)) - Cannot locate configuration: tried hadoop-metrics2-namenode.properties,hadoop-metrics2.properties
 2015-04-17 07:46:14,363 INFO  [main] impl.MetricsSystemImpl (MetricsSystemImpl.java:startTimer(377)) - Scheduled snapshot period at 10 second(s).
@@ -598,15 +598,15 @@ Formatting using clusterid: testClusterID
 2015-04-17 07:46:14,619 INFO  [main] http.HttpServer2 (HttpServer2.java:addFilter(685)) - Added filter static\_user\_filter (class=org.apache.hadoop.http.lib.StaticUserWebFilter$StaticUserFilter) to context hdfs
 2015-04-17 07:46:14,619 INFO  [main] http.HttpServer2 (HttpServer2.java:addFilter(693)) - Added filter static\_user\_filter (class=org.apache.hadoop.http.lib.StaticUserWebFilter$StaticUserFilter) to context static
 2015-04-17 07:46:14,664 INFO  [main] http.HttpServer2 (NameNodeHttpServer.java:initWebHdfs(86)) - Added filter 'org.apache.hadoop.hdfs.web.AuthFilter' (class=org.apache.hadoop.hdfs.web.AuthFilter)
-2015-04-17 07:46:14,665 INFO  [main] http.HttpServer2 (HttpServer2.java:addJerseyResourcePackage(609)) - addJerseyResourcePackage: packageName=org.apache.hadoop.hdfs.server.namenode.web.resources;org.apache.hadoop.hdfs.web.resources, pathSpec=/webhdfs/v1/*
+2015-04-17 07:46:14,665 INFO  [main] http.HttpServer2 (HttpServer2.java:addJerseyResourcePackage(609)) - addJerseyResourcePackage: packageName=org.apache.hadoop.hdfs.server.namenode.web.resources;org.apache.hadoop.hdfs.web.resources, pathSpec=/webhdfs/v1/\*
 2015-04-17 07:46:14,708 INFO  [main] http.HttpServer2 (HttpServer2.java:openListeners(915)) - Jetty bound to port 60602
 2015-04-17 07:46:14,708 INFO  [main] mortbay.log (Slf4jLog.java:info(67)) - jetty-6.1.26
 2015-04-17 07:46:14,760 INFO  [main] mortbay.log (Slf4jLog.java:info(67)) - Extract jar:file:/D:/dal-UT/.m2/repository/org/apache/hadoop/hadoop-hdfs/2.5.0.2858/hadoop-hdfs-2.5.0.2858-tests.jar!/webapps/hdfs to D:\tmp\tez-dal\Jetty\_127\_0\_0\_1\_60602\_hdfs\_\_\_\_.6o51sx\webapp
 2015-04-17 07:46:15,019 INFO  [main] mortbay.log (Slf4jLog.java:info(67)) - Started HttpServer2$SelectChannelConnectorWithSafeStartup@127.0.0.1:60602
-2015-04-17 07:46:15,029 INFO  [main] namenode.FSNamesystem (FSNamesystem.java:<init>(716)) - No KeyProvider found.
-2015-04-17 07:46:15,029 INFO  [main] namenode.FSNamesystem (FSNamesystem.java:<init>(726)) - fsLock is fair:true
-2015-04-17 07:46:15,030 INFO  [main] blockmanagement.DatanodeManager (DatanodeManager.java:<init>(239)) - dfs.block.invalidate.limit=1000
-2015-04-17 07:46:15,030 INFO  [main] blockmanagement.DatanodeManager (DatanodeManager.java:<init>(245)) - dfs.namenode.datanode.registration.ip-hostname-check=true
+2015-04-17 07:46:15,029 INFO  [main] namenode.FSNamesystem (FSNamesystem.java:\<init\>(716)) - No KeyProvider found.
+2015-04-17 07:46:15,029 INFO  [main] namenode.FSNamesystem (FSNamesystem.java:\<init\>(726)) - fsLock is fair:true
+2015-04-17 07:46:15,030 INFO  [main] blockmanagement.DatanodeManager (DatanodeManager.java:\<init\>(239)) - dfs.block.invalidate.limit=1000
+2015-04-17 07:46:15,030 INFO  [main] blockmanagement.DatanodeManager (DatanodeManager.java:\<init\>(245)) - dfs.namenode.datanode.registration.ip-hostname-check=true
 2015-04-17 07:46:15,030 INFO  [main] blockmanagement.BlockManager (InvalidateBlocks.java:printBlockDeletionTime(71)) - dfs.namenode.startup.delay.block.deletion.sec is set to 000:00:00:00.000
 2015-04-17 07:46:15,031 INFO  [main] blockmanagement.BlockManager (InvalidateBlocks.java:printBlockDeletionTime(76)) - The block deletion will start around 2015 Apr 17 07:46:15
 2015-04-17 07:46:15,031 INFO  [main] util.GSet (LightWeightGSet.java:computeCapacity(354)) - Computing capacity for map BlocksMap
@@ -614,34 +614,34 @@ Formatting using clusterid: testClusterID
 2015-04-17 07:46:15,032 INFO  [main] util.GSet (LightWeightGSet.java:computeCapacity(356)) - 2.0% max memory 910.3 MB = 18.2 MB
 2015-04-17 07:46:15,032 INFO  [main] util.GSet (LightWeightGSet.java:computeCapacity(361)) - capacity      = 2^21 = 2097152 entries
 2015-04-17 07:46:15,059 INFO  [main] blockmanagement.BlockManager (BlockManager.java:createBlockTokenSecretManager(365)) - dfs.block.access.token.enable=false
-2015-04-17 07:46:15,060 INFO  [main] blockmanagement.BlockManager (BlockManager.java:<init>(350)) - defaultReplication         = 1
-2015-04-17 07:46:15,062 INFO  [main] blockmanagement.BlockManager (BlockManager.java:<init>(351)) - maxReplication             = 512
-2015-04-17 07:46:15,062 INFO  [main] blockmanagement.BlockManager (BlockManager.java:<init>(352)) - minReplication             = 1
-2015-04-17 07:46:15,063 INFO  [main] blockmanagement.BlockManager (BlockManager.java:<init>(353)) - maxReplicationStreams      = 2
-2015-04-17 07:46:15,064 INFO  [main] blockmanagement.BlockManager (BlockManager.java:<init>(354)) - shouldCheckForEnoughRacks  = false
-2015-04-17 07:46:15,064 INFO  [main] blockmanagement.BlockManager (BlockManager.java:<init>(355)) - replicationRecheckInterval = 3000
-2015-04-17 07:46:15,064 INFO  [main] blockmanagement.BlockManager (BlockManager.java:<init>(356)) - encryptDataTransfer        = false
-2015-04-17 07:46:15,065 INFO  [main] blockmanagement.BlockManager (BlockManager.java:<init>(357)) - maxNumBlocksToLog          = 1000
-2015-04-17 07:46:15,066 INFO  [main] namenode.FSNamesystem (FSNamesystem.java:<init>(746)) - fsOwner             = jenkins (auth:SIMPLE)
-2015-04-17 07:46:15,066 INFO  [main] namenode.FSNamesystem (FSNamesystem.java:<init>(747)) - supergroup          = supergroup
-2015-04-17 07:46:15,066 INFO  [main] namenode.FSNamesystem (FSNamesystem.java:<init>(748)) - isPermissionEnabled = true
-2015-04-17 07:46:15,067 INFO  [main] namenode.FSNamesystem (FSNamesystem.java:<init>(759)) - HA Enabled: false
-2015-04-17 07:46:15,067 INFO  [main] namenode.FSNamesystem (FSNamesystem.java:<init>(796)) - Append Enabled: true
+2015-04-17 07:46:15,060 INFO  [main] blockmanagement.BlockManager (BlockManager.java:\<init\>(350)) - defaultReplication         = 1
+2015-04-17 07:46:15,062 INFO  [main] blockmanagement.BlockManager (BlockManager.java:\<init\>(351)) - maxReplication             = 512
+2015-04-17 07:46:15,062 INFO  [main] blockmanagement.BlockManager (BlockManager.java:\<init\>(352)) - minReplication             = 1
+2015-04-17 07:46:15,063 INFO  [main] blockmanagement.BlockManager (BlockManager.java:\<init\>(353)) - maxReplicationStreams      = 2
+2015-04-17 07:46:15,064 INFO  [main] blockmanagement.BlockManager (BlockManager.java:\<init\>(354)) - shouldCheckForEnoughRacks  = false
+2015-04-17 07:46:15,064 INFO  [main] blockmanagement.BlockManager (BlockManager.java:\<init\>(355)) - replicationRecheckInterval = 3000
+2015-04-17 07:46:15,064 INFO  [main] blockmanagement.BlockManager (BlockManager.java:\<init\>(356)) - encryptDataTransfer        = false
+2015-04-17 07:46:15,065 INFO  [main] blockmanagement.BlockManager (BlockManager.java:\<init\>(357)) - maxNumBlocksToLog          = 1000
+2015-04-17 07:46:15,066 INFO  [main] namenode.FSNamesystem (FSNamesystem.java:\<init\>(746)) - fsOwner             = jenkins (auth:SIMPLE)
+2015-04-17 07:46:15,066 INFO  [main] namenode.FSNamesystem (FSNamesystem.java:\<init\>(747)) - supergroup          = supergroup
+2015-04-17 07:46:15,066 INFO  [main] namenode.FSNamesystem (FSNamesystem.java:\<init\>(748)) - isPermissionEnabled = true
+2015-04-17 07:46:15,067 INFO  [main] namenode.FSNamesystem (FSNamesystem.java:\<init\>(759)) - HA Enabled: false
+2015-04-17 07:46:15,067 INFO  [main] namenode.FSNamesystem (FSNamesystem.java:\<init\>(796)) - Append Enabled: true
 2015-04-17 07:46:15,067 INFO  [main] util.GSet (LightWeightGSet.java:computeCapacity(354)) - Computing capacity for map INodeMap
 2015-04-17 07:46:15,068 INFO  [main] util.GSet (LightWeightGSet.java:computeCapacity(355)) - VM type       = 64-bit
 2015-04-17 07:46:15,068 INFO  [main] util.GSet (LightWeightGSet.java:computeCapacity(356)) - 1.0% max memory 910.3 MB = 9.1 MB
 2015-04-17 07:46:15,068 INFO  [main] util.GSet (LightWeightGSet.java:computeCapacity(361)) - capacity      = 2^20 = 1048576 entries
-2015-04-17 07:46:15,068 INFO  [main] namenode.FSDirectory (FSDirectory.java:<init>(234)) - ACLs enabled? false
-2015-04-17 07:46:15,069 INFO  [main] namenode.FSDirectory (FSDirectory.java:<init>(238)) - XAttrs enabled? true
-2015-04-17 07:46:15,069 INFO  [main] namenode.FSDirectory (FSDirectory.java:<init>(246)) - Maximum size of an xattr: 16384
-2015-04-17 07:46:15,069 INFO  [main] namenode.NameNode (FSDirectory.java:<init>(294)) - Caching file names occuring more than 10 times
+2015-04-17 07:46:15,068 INFO  [main] namenode.FSDirectory (FSDirectory.java:\<init\>(234)) - ACLs enabled? false
+2015-04-17 07:46:15,069 INFO  [main] namenode.FSDirectory (FSDirectory.java:\<init\>(238)) - XAttrs enabled? true
+2015-04-17 07:46:15,069 INFO  [main] namenode.FSDirectory (FSDirectory.java:\<init\>(246)) - Maximum size of an xattr: 16384
+2015-04-17 07:46:15,069 INFO  [main] namenode.NameNode (FSDirectory.java:\<init\>(294)) - Caching file names occuring more than 10 times
 2015-04-17 07:46:15,069 INFO  [main] util.GSet (LightWeightGSet.java:computeCapacity(354)) - Computing capacity for map cachedBlocks
 2015-04-17 07:46:15,070 INFO  [main] util.GSet (LightWeightGSet.java:computeCapacity(355)) - VM type       = 64-bit
 2015-04-17 07:46:15,070 INFO  [main] util.GSet (LightWeightGSet.java:computeCapacity(356)) - 0.25% max memory 910.3 MB = 2.3 MB
 2015-04-17 07:46:15,070 INFO  [main] util.GSet (LightWeightGSet.java:computeCapacity(361)) - capacity      = 2^18 = 262144 entries
-2015-04-17 07:46:15,071 INFO  [main] namenode.FSNamesystem (FSNamesystem.java:<init>(5160)) - dfs.namenode.safemode.threshold-pct = 0.9990000128746033
-2015-04-17 07:46:15,071 INFO  [main] namenode.FSNamesystem (FSNamesystem.java:<init>(5161)) - dfs.namenode.safemode.min.datanodes = 0
-2015-04-17 07:46:15,071 INFO  [main] namenode.FSNamesystem (FSNamesystem.java:<init>(5162)) - dfs.namenode.safemode.extension     = 0
+2015-04-17 07:46:15,071 INFO  [main] namenode.FSNamesystem (FSNamesystem.java:\<init\>(5160)) - dfs.namenode.safemode.threshold-pct = 0.9990000128746033
+2015-04-17 07:46:15,071 INFO  [main] namenode.FSNamesystem (FSNamesystem.java:\<init\>(5161)) - dfs.namenode.safemode.min.datanodes = 0
+2015-04-17 07:46:15,071 INFO  [main] namenode.FSNamesystem (FSNamesystem.java:\<init\>(5162)) - dfs.namenode.safemode.extension     = 0
 2015-04-17 07:46:15,072 INFO  [main] metrics.TopMetrics (TopMetrics.java:logConf(65)) - NNTop conf: dfs.namenode.top.window.num.buckets = 10
 2015-04-17 07:46:15,074 INFO  [main] metrics.TopMetrics (TopMetrics.java:logConf(67)) - NNTop conf: dfs.namenode.top.num.users = 10
 2015-04-17 07:46:15,075 INFO  [main] metrics.TopMetrics (TopMetrics.java:logConf(69)) - NNTop conf: dfs.namenode.top.windows.minutes = 1,5,25
@@ -663,24 +663,24 @@ Formatting using clusterid: testClusterID
 2015-04-17 07:46:15,143 INFO  [main] namenode.FSEditLog (FSEditLog.java:startLogSegment(1214)) - Starting log segment at 1
 2015-04-17 07:46:15,187 INFO  [main] namenode.NameCache (NameCache.java:initialized(143)) - initialized with 0 entries 0 lookups
 2015-04-17 07:46:15,187 INFO  [main] namenode.FSNamesystem (FSNamesystem.java:loadFromDisk(688)) - Finished loading FSImage in 145 msecs
-2015-04-17 07:46:15,506 INFO  [main] namenode.NameNode (NameNodeRpcServer.java:<init>(341)) - RPC server is binding to 127.0.0.1:0
-2015-04-17 07:46:15,522 INFO  [main] ipc.CallQueueManager (CallQueueManager.java:<init>(53)) - Using callQueue class java.util.concurrent.LinkedBlockingQueue
+2015-04-17 07:46:15,506 INFO  [main] namenode.NameNode (NameNodeRpcServer.java:\<init\>(341)) - RPC server is binding to 127.0.0.1:0
+2015-04-17 07:46:15,522 INFO  [main] ipc.CallQueueManager (CallQueueManager.java:\<init\>(53)) - Using callQueue class java.util.concurrent.LinkedBlockingQueue
 2015-04-17 07:46:15,543 INFO  [Socket Reader #1 for port 60605] ipc.Server (Server.java:run(606)) - Starting Socket Reader #1 for port 60605
 2015-04-17 07:46:15,599 INFO  [main] namenode.NameNode (NameNode.java:initialize(651)) - Clients are to use 127.0.0.1:60605 to access this namenode/service.
 2015-04-17 07:46:15,602 INFO  [main] namenode.FSNamesystem (FSNamesystem.java:registerMBean(6025)) - Registered FSNamesystemState MBean
 2015-04-17 07:46:15,613 INFO  [main] namenode.LeaseManager (LeaseManager.java:getNumUnderConstructionBlocks(132)) - Number of blocks under construction: 0
 2015-04-17 07:46:15,614 INFO  [main] namenode.LeaseManager (LeaseManager.java:getNumUnderConstructionBlocks(132)) - Number of blocks under construction: 0
 2015-04-17 07:46:15,614 INFO  [main] namenode.FSNamesystem (FSNamesystem.java:initializeReplQueues(1182)) - initializing replication queues
-2015-04-17 07:46:15,614 INFO  [main] hdfs.StateChange (FSNamesystem.java:leave(5235)) - STATE* Leaving safe mode after 0 secs
-2015-04-17 07:46:15,614 INFO  [main] hdfs.StateChange (FSNamesystem.java:leave(5247)) - STATE* Network topology has 0 racks and 0 datanodes
-2015-04-17 07:46:15,615 INFO  [main] hdfs.StateChange (FSNamesystem.java:leave(5250)) - STATE* UnderReplicatedBlocks has 0 blocks
+2015-04-17 07:46:15,614 INFO  [main] hdfs.StateChange (FSNamesystem.java:leave(5235)) - STATE\* Leaving safe mode after 0 secs
+2015-04-17 07:46:15,614 INFO  [main] hdfs.StateChange (FSNamesystem.java:leave(5247)) - STATE\* Network topology has 0 racks and 0 datanodes
+2015-04-17 07:46:15,615 INFO  [main] hdfs.StateChange (FSNamesystem.java:leave(5250)) - STATE\* UnderReplicatedBlocks has 0 blocks
 2015-04-17 07:46:15,629 INFO  [main] blockmanagement.DatanodeDescriptor (DatanodeDescriptor.java:updateHeartbeatState(450)) - Number of failed storage changes from 0 to 0
 2015-04-17 07:46:15,630 INFO  [Replication Queue Initializer] blockmanagement.BlockManager (BlockManager.java:processMisReplicatesAsync(2754)) - Total number of blocks            = 0
 2015-04-17 07:46:15,630 INFO  [Replication Queue Initializer] blockmanagement.BlockManager (BlockManager.java:processMisReplicatesAsync(2755)) - Number of invalid blocks          = 0
 2015-04-17 07:46:15,630 INFO  [Replication Queue Initializer] blockmanagement.BlockManager (BlockManager.java:processMisReplicatesAsync(2756)) - Number of under-replicated blocks = 0
 2015-04-17 07:46:15,631 INFO  [Replication Queue Initializer] blockmanagement.BlockManager (BlockManager.java:processMisReplicatesAsync(2757)) - Number of  over-replicated blocks = 0
 2015-04-17 07:46:15,632 INFO  [Replication Queue Initializer] blockmanagement.BlockManager (BlockManager.java:processMisReplicatesAsync(2759)) - Number of blocks being written    = 0
-2015-04-17 07:46:15,632 INFO  [Replication Queue Initializer] hdfs.StateChange (BlockManager.java:processMisReplicatesAsync(2760)) - STATE* Replication Queue initialization scan for invalid, over- and under-replicated blocks completed in 17 msec
+2015-04-17 07:46:15,632 INFO  [Replication Queue Initializer] hdfs.StateChange (BlockManager.java:processMisReplicatesAsync(2760)) - STATE\* Replication Queue initialization scan for invalid, over- and under-replicated blocks completed in 17 msec
 2015-04-17 07:46:15,694 INFO  [IPC Server listener on 60605] ipc.Server (Server.java:run(676)) - IPC Server listener on 60605: starting
 2015-04-17 07:46:15,693 INFO  [IPC Server Responder] ipc.Server (Server.java:run(836)) - IPC Server Responder: starting
 2015-04-17 07:46:15,877 INFO  [main] namenode.NameNode (NameNode.java:startCommonServices(694)) - NameNode RPC up at: 127.0.0.1/127.0.0.1:60605
@@ -688,12 +688,12 @@ Formatting using clusterid: testClusterID
 2015-04-17 07:46:15,883 INFO  [CacheReplicationMonitor(481446731)] blockmanagement.CacheReplicationMonitor (CacheReplicationMonitor.java:run(160)) - Starting CacheReplicationMonitor with interval 30000 milliseconds
 2015-04-17 07:46:15,896 INFO  [main] hdfs.MiniDFSCluster (MiniDFSCluster.java:startDataNodes(1413)) - Starting DataNode 0 with dfs.datanode.data.dir: [DISK]file:/D:/w/tez/tez-tests/target/org.apache.tez.test.TestFaultTolerance-tmpDir/data/data1,[DISK]file:/D:/w/tez/tez-tests/target/org.apache.tez.test.TestFaultTolerance-tmpDir/data/data2
 2015-04-17 07:46:16,011 INFO  [main] impl.MetricsSystemImpl (MetricsSystemImpl.java:init(159)) - DataNode metrics system started (again)
-2015-04-17 07:46:16,016 INFO  [main] datanode.BlockScanner (BlockScanner.java:<init>(151)) - Disabled block scanner.
-2015-04-17 07:46:16,017 INFO  [main] datanode.DataNode (DataNode.java:<init>(436)) - Configured hostname is 127.0.0.1
+2015-04-17 07:46:16,016 INFO  [main] datanode.BlockScanner (BlockScanner.java:\<init\>(151)) - Disabled block scanner.
+2015-04-17 07:46:16,017 INFO  [main] datanode.DataNode (DataNode.java:\<init\>(436)) - Configured hostname is 127.0.0.1
 2015-04-17 07:46:16,023 INFO  [main] datanode.DataNode (DataNode.java:startDataNode(1134)) - Starting DataNode with maxLockedMemory = 0
 2015-04-17 07:46:16,056 INFO  [main] datanode.DataNode (DataNode.java:initDataXceiver(933)) - Opened streaming server at /127.0.0.1:60612
-2015-04-17 07:46:16,059 INFO  [main] datanode.DataNode (DataXceiverServer.java:<init>(76)) - Balancing bandwith is 1048576 bytes/s
-2015-04-17 07:46:16,060 INFO  [main] datanode.DataNode (DataXceiverServer.java:<init>(77)) - Number threads for balancing is 5
+2015-04-17 07:46:16,059 INFO  [main] datanode.DataNode (DataXceiverServer.java:\<init\>(76)) - Balancing bandwith is 1048576 bytes/s
+2015-04-17 07:46:16,060 INFO  [main] datanode.DataNode (DataXceiverServer.java:\<init\>(77)) - Number threads for balancing is 5
 2015-04-17 07:46:16,070 INFO  [main] server.AuthenticationFilter (AuthenticationFilter.java:constructSecretProvider(282)) - Unable to initialize FileSignerSecretProvider, falling back to use random secrets.
 2015-04-17 07:46:16,078 INFO  [main] http.HttpRequestLog (HttpRequestLog.java:getRequestLog(80)) - Http request log for http.requests.datanode is not defined
 2015-04-17 07:46:16,079 INFO  [main] http.HttpServer2 (HttpServer2.java:addGlobalFilter(710)) - Added global filter 'safety' (class=org.apache.hadoop.http.HttpServer2$QuotingInputFilter)
@@ -706,12 +706,12 @@ Formatting using clusterid: testClusterID
 2015-04-17 07:46:16,539 INFO  [main] web.DatanodeHttpServer (DatanodeHttpServer.java:start(150)) - Listening HTTP traffic on /127.0.0.1:60632
 2015-04-17 07:46:16,541 INFO  [main] datanode.DataNode (DataNode.java:startDataNode(1151)) - dnUserName = jenkins
 2015-04-17 07:46:16,541 INFO  [main] datanode.DataNode (DataNode.java:startDataNode(1152)) - supergroup = supergroup
-2015-04-17 07:46:16,564 INFO  [main] ipc.CallQueueManager (CallQueueManager.java:<init>(53)) - Using callQueue class java.util.concurrent.LinkedBlockingQueue
+2015-04-17 07:46:16,564 INFO  [main] ipc.CallQueueManager (CallQueueManager.java:\<init\>(53)) - Using callQueue class java.util.concurrent.LinkedBlockingQueue
 2015-04-17 07:46:16,566 INFO  [Socket Reader #1 for port 60633] ipc.Server (Server.java:run(606)) - Starting Socket Reader #1 for port 60633
 2015-04-17 07:46:16,575 INFO  [main] datanode.DataNode (DataNode.java:initIpcServer(852)) - Opened IPC server at /127.0.0.1:60633
 2015-04-17 07:46:16,589 INFO  [main] datanode.DataNode (BlockPoolManager.java:refreshNamenodes(152)) - Refresh request received for nameservices: null
-2015-04-17 07:46:16,596 INFO  [main] datanode.DataNode (BlockPoolManager.java:doRefreshNamenodes(197)) - Starting BPOfferServices for nameservices: <default>
-2015-04-17 07:46:16,607 INFO  [DataNode: [[[DISK]file:/D:/w/tez/tez-tests/target/org.apache.tez.test.TestFaultTolerance-tmpDir/data/data1/, [DISK]file:/D:/w/tez/tez-tests/target/org.apache.tez.test.TestFaultTolerance-tmpDir/data/data2/]]  heartbeating to /127.0.0.1:60605] datanode.DataNode (BPServiceActor.java:run(845)) - Block pool <registering> (Datanode Uuid unassigned) service to /127.0.0.1:60605 starting to offer service
+2015-04-17 07:46:16,596 INFO  [main] datanode.DataNode (BlockPoolManager.java:doRefreshNamenodes(197)) - Starting BPOfferServices for nameservices: \<default\>
+2015-04-17 07:46:16,607 INFO  [DataNode: [[[DISK]file:/D:/w/tez/tez-tests/target/org.apache.tez.test.TestFaultTolerance-tmpDir/data/data1/, [DISK]file:/D:/w/tez/tez-tests/target/org.apache.tez.test.TestFaultTolerance-tmpDir/data/data2/]]  heartbeating to /127.0.0.1:60605] datanode.DataNode (BPServiceActor.java:run(845)) - Block pool \<registering\> (Datanode Uuid unassigned) service to /127.0.0.1:60605 starting to offer service
 2015-04-17 07:46:16,616 INFO  [IPC Server Responder] ipc.Server (Server.java:run(836)) - IPC Server Responder: starting
 2015-04-17 07:46:16,617 INFO  [IPC Server listener on 60633] ipc.Server (Server.java:run(676)) - IPC Server listener on 60633: starting
 2015-04-17 07:46:17,034 INFO  [DataNode: [[[DISK]file:/D:/w/tez/tez-tests/target/org.apache.tez.test.TestFaultTolerance-tmpDir/data/data1/, [DISK]file:/D:/w/tez/tez-tests/target/org.apache.tez.test.TestFaultTolerance-tmpDir/data/data2/]]  heartbeating to /127.0.0.1:60605] common.Storage (Storage.java:tryLock(715)) - Lock on D:\w\tez\tez-tests\target\org.apache.tez.test.TestFaultTolerance-tmpDir\data\data1\in\_use.lock acquired by nodename 2544@sijenkins-win-3
@@ -758,7 +758,7 @@ Formatting using clusterid: testClusterID
 2015-04-17 07:46:17,622 INFO  [Thread-61] impl.FsDatasetImpl (FsVolumeList.java:run(194)) - Time to add replicas to map for block pool BP-725016459-10.79.60.8-1429281973548 on volume D:\w\tez\tez-tests\target\org.apache.tez.test.TestFaultTolerance-tmpDir\data\data2\current: 0ms
 2015-04-17 07:46:17,622 INFO  [DataNode: [[[DISK]file:/D:/w/tez/tez-tests/target/org.apache.tez.test.TestFaultTolerance-tmpDir/data/data1/, [DISK]file:/D:/w/tez/tez-tests/target/org.apache.tez.test.TestFaultTolerance-tmpDir/data/data2/]]  heartbeating to /127.0.0.1:60605] impl.FsDatasetImpl (FsVolumeList.java:getAllVolumesMap(220)) - Total time to add all replicas to map: 2ms
 2015-04-17 07:46:17,625 INFO  [DataNode: [[[DISK]file:/D:/w/tez/tez-tests/target/org.apache.tez.test.TestFaultTolerance-tmpDir/data/data1/, [DISK]file:/D:/w/tez/tez-tests/target/org.apache.tez.test.TestFaultTolerance-tmpDir/data/data2/]]  heartbeating to /127.0.0.1:60605] datanode.DataNode (BPServiceActor.java:register(800)) - Block pool BP-725016459-10.79.60.8-1429281973548 (Datanode Uuid null) service to /127.0.0.1:60605 beginning handshake with NN
-2015-04-17 07:46:17,639 INFO  [IPC Server handler 3 on 60605] hdfs.StateChange (DatanodeManager.java:registerDatanode(879)) - BLOCK* registerDatanode: from DatanodeRegistration(127.0.0.1:60612, datanodeUuid=3139557f-6bc1-4529-937f-81657d6baf32, infoPort=60632, infoSecurePort=0, ipcPort=60633, storageInfo=lv=-56;cid=testClusterID;nsid=95952740;c=0) storage 3139557f-6bc1-4529-937f-81657d6baf32
+2015-04-17 07:46:17,639 INFO  [IPC Server handler 3 on 60605] hdfs.StateChange (DatanodeManager.java:registerDatanode(879)) - BLOCK\* registerDatanode: from DatanodeRegistration(127.0.0.1:60612, datanodeUuid=3139557f-6bc1-4529-937f-81657d6baf32, infoPort=60632, infoSecurePort=0, ipcPort=60633, storageInfo=lv=-56;cid=testClusterID;nsid=95952740;c=0) storage 3139557f-6bc1-4529-937f-81657d6baf32
 2015-04-17 07:46:17,639 INFO  [IPC Server handler 3 on 60605] blockmanagement.DatanodeDescriptor (DatanodeDescriptor.java:updateHeartbeatState(450)) - Number of failed storage changes from 0 to 0
 2015-04-17 07:46:17,640 INFO  [IPC Server handler 3 on 60605] net.NetworkTopology (NetworkTopology.java:add(419)) - Adding a new node: /default-rack/127.0.0.1:60612
 2015-04-17 07:46:17,649 INFO  [DataNode: [[[DISK]file:/D:/w/tez/tez-tests/target/org.apache.tez.test.TestFaultTolerance-tmpDir/data/data1/, [DISK]file:/D:/w/tez/tez-tests/target/org.apache.tez.test.TestFaultTolerance-tmpDir/data/data2/]]  heartbeating to /127.0.0.1:60605] datanode.DataNode (BPServiceActor.java:register(818)) - Block pool Block pool BP-725016459-10.79.60.8-1429281973548 (Datanode Uuid null) service to /127.0.0.1:60605 successfully registered with NN
@@ -768,8 +768,8 @@ Formatting using clusterid: testClusterID
 2015-04-17 07:46:17,668 INFO  [IPC Server handler 6 on 60605] blockmanagement.DatanodeDescriptor (DatanodeDescriptor.java:updateStorage(856)) - Adding new storage ID DS-ef534adf-3270-4cb7-b038-16dc61f3f409 for DN 127.0.0.1:60612
 2015-04-17 07:46:17,682 INFO  [DataNode: [[[DISK]file:/D:/w/tez/tez-tests/target/org.apache.tez.test.TestFaultTolerance-tmpDir/data/data1/, [DISK]file:/D:/w/tez/tez-tests/target/org.apache.tez.test.TestFaultTolerance-tmpDir/data/data2/]]  heartbeating to /127.0.0.1:60605] datanode.DataNode (BPOfferService.java:updateActorStatesFromHeartbeat(507)) - Namenode Block pool BP-725016459-10.79.60.8-1429281973548 (Datanode Uuid 3139557f-6bc1-4529-937f-81657d6baf32) service to /127.0.0.1:60605 trying to claim ACTIVE state with txid=1
 2015-04-17 07:46:17,682 INFO  [DataNode: [[[DISK]file:/D:/w/tez/tez-tests/target/org.apache.tez.test.TestFaultTolerance-tmpDir/data/data1/, [DISK]file:/D:/w/tez/tez-tests/target/org.apache.tez.test.TestFaultTolerance-tmpDir/data/data2/]]  heartbeating to /127.0.0.1:60605] datanode.DataNode (BPOfferService.java:updateActorStatesFromHeartbeat(519)) - Acknowledging ACTIVE Namenode Block pool BP-725016459-10.79.60.8-1429281973548 (Datanode Uuid 3139557f-6bc1-4529-937f-81657d6baf32) service to /127.0.0.1:60605
-2015-04-17 07:46:17,700 INFO  [IPC Server handler 2 on 60605] BlockStateChange (BlockManager.java:processReport(1857)) - BLOCK* processReport: from storage DS-da6bd8c8-924e-43d2-9f85-75c88cb0c4fe node DatanodeRegistration(127.0.0.1:60612, datanodeUuid=3139557f-6bc1-4529-937f-81657d6baf32, infoPort=60632, infoSecurePort=0, ipcPort=60633, storageInfo=lv=-56;cid=testClusterID;nsid=95952740;c=0), blocks: 0, hasStaleStorage: true, processing time: 1 msecs
-2015-04-17 07:46:17,700 INFO  [IPC Server handler 2 on 60605] BlockStateChange (BlockManager.java:processReport(1857)) - BLOCK* processReport: from storage DS-ef534adf-3270-4cb7-b038-16dc61f3f409 node DatanodeRegistration(127.0.0.1:60612, datanodeUuid=3139557f-6bc1-4529-937f-81657d6baf32, infoPort=60632, infoSecurePort=0, ipcPort=60633, storageInfo=lv=-56;cid=testClusterID;nsid=95952740;c=0), blocks: 0, hasStaleStorage: false, processing time: 0 msecs
+2015-04-17 07:46:17,700 INFO  [IPC Server handler 2 on 60605] BlockStateChange (BlockManager.java:processReport(1857)) - BLOCK\* processReport: from storage DS-da6bd8c8-924e-43d2-9f85-75c88cb0c4fe node DatanodeRegistration(127.0.0.1:60612, datanodeUuid=3139557f-6bc1-4529-937f-81657d6baf32, infoPort=60632, infoSecurePort=0, ipcPort=60633, storageInfo=lv=-56;cid=testClusterID;nsid=95952740;c=0), blocks: 0, hasStaleStorage: true, processing time: 1 msecs
+2015-04-17 07:46:17,700 INFO  [IPC Server handler 2 on 60605] BlockStateChange (BlockManager.java:processReport(1857)) - BLOCK\* processReport: from storage DS-ef534adf-3270-4cb7-b038-16dc61f3f409 node DatanodeRegistration(127.0.0.1:60612, datanodeUuid=3139557f-6bc1-4529-937f-81657d6baf32, infoPort=60632, infoSecurePort=0, ipcPort=60633, storageInfo=lv=-56;cid=testClusterID;nsid=95952740;c=0), blocks: 0, hasStaleStorage: false, processing time: 0 msecs
 2015-04-17 07:46:17,724 INFO  [main] hdfs.MiniDFSCluster (MiniDFSCluster.java:waitActive(2286)) - Cluster is active
 2015-04-17 07:46:17,728 INFO  [DataNode: [[[DISK]file:/D:/w/tez/tez-tests/target/org.apache.tez.test.TestFaultTolerance-tmpDir/data/data1/, [DISK]file:/D:/w/tez/tez-tests/target/org.apache.tez.test.TestFaultTolerance-tmpDir/data/data2/]]  heartbeating to /127.0.0.1:60605] datanode.DataNode (BPServiceActor.java:blockReport(524)) - Successfully sent block report 0x90ef08c8e154,  containing 2 storage report(s), of which we sent 2. The reports had 0 total blocks and used 1 RPC(s). This took 4 msec to generate and 42 msecs for RPC and NN processing. Got back one command: FinalizeCommand/5.
 2015-04-17 07:46:17,728 INFO  [DataNode: [[[DISK]file:/D:/w/tez/tez-tests/target/org.apache.tez.test.TestFaultTolerance-tmpDir/data/data1/, [DISK]file:/D:/w/tez/tez-tests/target/org.apache.tez.test.TestFaultTolerance-tmpDir/data/data2/]]  heartbeating to /127.0.0.1:60605] datanode.DataNode (BPOfferService.java:processCommandFromActive(690)) - Got finalize command for block pool BP-725016459-10.79.60.8-1429281973548
@@ -778,8 +778,8 @@ Formatting using clusterid: testClusterID
 2015-04-17 07:46:18,351 INFO  [IPC Server handler 1 on 60605] FSNamesystem.audit (FSNamesystem.java:logAuditMessage(8234)) - allowed=true	ugi=jenkins (auth:SIMPLE)	ip=/127.0.0.1	cmd=create	src=/user/jenkins/target/org.apache.tez.test.TestFaultTolerance-tmpDir/TezAppJar.jar	dst=null	perm=jenkins:supergroup:rw-r--r--	proto=rpc
 2015-04
 ...[truncated 654785 chars]...
-entQueue (ParentQueue.java:assignContainersToChildQueues(591)) - Re-sorting assigned queue: root.default stats: default: capacity=1.0, absoluteCapacity=1.0, usedResources=<memory:9216, vCores:9>, usedCapacity=0.5625, absoluteUsedCapacity=0.5625, numApps=1, numContainers=9
-2015-04-17 07:48:16,517 INFO  [ResourceManager Event Processor] capacity.ParentQueue (ParentQueue.java:assignContainers(428)) - assignedContainer queue=root usedCapacity=0.5625 absoluteUsedCapacity=0.5625 used=<memory:9216, vCores:9> cluster=<memory:16384, vCores:32>
+entQueue (ParentQueue.java:assignContainersToChildQueues(591)) - Re-sorting assigned queue: root.default stats: default: capacity=1.0, absoluteCapacity=1.0, usedResources=\<memory:9216, vCores:9\>, usedCapacity=0.5625, absoluteUsedCapacity=0.5625, numApps=1, numContainers=9
+2015-04-17 07:48:16,517 INFO  [ResourceManager Event Processor] capacity.ParentQueue (ParentQueue.java:assignContainers(428)) - assignedContainer queue=root usedCapacity=0.5625 absoluteUsedCapacity=0.5625 used=\<memory:9216, vCores:9\> cluster=\<memory:16384, vCores:32\>
 2015-04-17 07:48:16,517 INFO  [AsyncDispatcher event handler] application.ApplicationImpl (ApplicationImpl.java:transition(304)) - Adding container\_1429281980667\_0001\_01\_000041 to application application\_1429281980667\_0001
 2015-04-17 07:48:16,518 INFO  [AsyncDispatcher event handler] container.ContainerImpl (ContainerImpl.java:handle(1123)) - Container container\_1429281980667\_0001\_01\_000041 transitioned from NEW to LOCALIZING
 2015-04-17 07:48:16,518 INFO  [AsyncDispatcher event handler] containermanager.AuxServices (AuxServices.java:handle(196)) - Got event CONTAINER\_INIT for appId application\_1429281980667\_0001
@@ -856,14 +856,14 @@ entQueue (ParentQueue.java:assignContainersToChildQueues(591)) - Re-sorting assi
 2015-04-17 07:48:17,718 INFO  [ResourceManager Event Processor] rmcontainer.RMContainerImpl (RMContainerImpl.java:handle(384)) - container\_1429281980667\_0001\_01\_000037 Container Transitioned from RUNNING to COMPLETED
 2015-04-17 07:48:17,719 INFO  [ResourceManager Event Processor] fica.FiCaSchedulerApp (FiCaSchedulerApp.java:containerCompleted(113)) - Completed container: container\_1429281980667\_0001\_01\_000037 in state: COMPLETED event:FINISHED
 2015-04-17 07:48:17,720 INFO  [ResourceManager Event Processor] resourcemanager.RMAuditLogger (RMAuditLogger.java:logSuccess(106)) - USER=jenkins	OPERATION=AM Released Container	TARGET=SchedulerApp	RESULT=SUCCESS	APPID=application\_1429281980667\_0001	CONTAINERID=container\_1429281980667\_0001\_01\_000037
-2015-04-17 07:48:17,720 INFO  [ResourceManager Event Processor] scheduler.SchedulerNode (SchedulerNode.java:releaseContainer(216)) - Released container container\_1429281980667\_0001\_01\_000037 of capacity <memory:1024, vCores:1> on host sijenkins-win-3.sijenkinsservice.d3.internal.cloudapp.net:60774, which currently has 1 containers, <memory:1024, vCores:1> used and <memory:3072, vCores:7> available, release resources=true
-2015-04-17 07:48:17,720 INFO  [ResourceManager Event Processor] capacity.LeafQueue (LeafQueue.java:releaseResource(1780)) - default used=<memory:8192, vCores:8> numContainers=8 user=jenkins user-resources=<memory:8192, vCores:8>
+2015-04-17 07:48:17,720 INFO  [ResourceManager Event Processor] scheduler.SchedulerNode (SchedulerNode.java:releaseContainer(216)) - Released container container\_1429281980667\_0001\_01\_000037 of capacity \<memory:1024, vCores:1\> on host sijenkins-win-3.sijenkinsservice.d3.internal.cloudapp.net:60774, which currently has 1 containers, \<memory:1024, vCores:1\> used and \<memory:3072, vCores:7\> available, release resources=true
+2015-04-17 07:48:17,720 INFO  [ResourceManager Event Processor] capacity.LeafQueue (LeafQueue.java:releaseResource(1780)) - default used=\<memory:8192, vCores:8\> numContainers=8 user=jenkins user-resources=\<memory:8192, vCores:8\>
 2015-04-17 07:48:17,738 INFO  [AsyncDispatcher event handler] container.ContainerImpl (ContainerImpl.java:handle(1123)) - Container container\_1429281980667\_0001\_01\_000029 transitioned from KILLING to EXITED\_WITH\_SUCCESS
 2015-04-17 07:48:17,739 INFO  [DeletionService #2] nodemanager.DefaultContainerExecutor (DefaultContainerExecutor.java:deleteAsUser(457)) - Deleting absolute path : D:/tmp/tez-dal/1429281978218/org.apache.tez.test.TestFaultTolerance-localDir-nm-2\_0/usercache/jenkins/appcache/application\_1429281980667\_0001/container\_1429281980667\_0001\_01\_000029
-2015-04-17 07:48:17,981 INFO  [ResourceManager Event Processor] capacity.LeafQueue (LeafQueue.java:completedContainer(1731)) - completedContainer container=Container: [ContainerId: container\_1429281980667\_0001\_01\_000037, NodeId: sijenkins-win-3.sijenkinsservice.d3.internal.cloudapp.net:60774, NodeHttpAddress: sijenkins-win-3.sijenkinsservice.d3.internal.cloudapp.net:60789, Resource: <memory:1024, vCores:1>, Priority: 4, Token: Token { kind: ContainerToken, service: 10.79.60.8:60774 }, ] queue=default: capacity=1.0, absoluteCapacity=1.0, usedResources=<memory:8192, vCores:8>, usedCapacity=0.5, absoluteUsedCapacity=0.5, numApps=1, numContainers=8 cluster=<memory:16384, vCores:32>
-2015-04-17 07:48:17,983 INFO  [ResourceManager Event Processor] capacity.ParentQueue (ParentQueue.java:completedContainer(636)) - completedContainer queue=root usedCapacity=0.5 absoluteUsedCapacity=0.5 used=<memory:8192, vCores:8> cluster=<memory:16384, vCores:32>
-2015-04-17 07:48:17,983 INFO  [ResourceManager Event Processor] capacity.ParentQueue (ParentQueue.java:completedContainer(653)) - Re-sorting completed queue: root.default stats: default: capacity=1.0, absoluteCapacity=1.0, usedResources=<memory:8192, vCores:8>, usedCapacity=0.5, absoluteUsedCapacity=0.5, numApps=1, numContainers=8
-2015-04-17 07:48:17,983 INFO  [ResourceManager Event Processor] capacity.CapacityScheduler (CapacityScheduler.java:completedContainer(1307)) - Application attempt appattempt\_1429281980667\_0001\_000001 released container container\_1429281980667\_0001\_01\_000037 on node: host: sijenkins-win-3.sijenkinsservice.d3.internal.cloudapp.net:60774 #containers=1 available=<memory:3072, vCores:7> used=<memory:1024, vCores:1> with event: FINISHED
+2015-04-17 07:48:17,981 INFO  [ResourceManager Event Processor] capacity.LeafQueue (LeafQueue.java:completedContainer(1731)) - completedContainer container=Container: [ContainerId: container\_1429281980667\_0001\_01\_000037, NodeId: sijenkins-win-3.sijenkinsservice.d3.internal.cloudapp.net:60774, NodeHttpAddress: sijenkins-win-3.sijenkinsservice.d3.internal.cloudapp.net:60789, Resource: \<memory:1024, vCores:1\>, Priority: 4, Token: Token { kind: ContainerToken, service: 10.79.60.8:60774 }, ] queue=default: capacity=1.0, absoluteCapacity=1.0, usedResources=\<memory:8192, vCores:8\>, usedCapacity=0.5, absoluteUsedCapacity=0.5, numApps=1, numContainers=8 cluster=\<memory:16384, vCores:32\>
+2015-04-17 07:48:17,983 INFO  [ResourceManager Event Processor] capacity.ParentQueue (ParentQueue.java:completedContainer(636)) - completedContainer queue=root usedCapacity=0.5 absoluteUsedCapacity=0.5 used=\<memory:8192, vCores:8\> cluster=\<memory:16384, vCores:32\>
+2015-04-17 07:48:17,983 INFO  [ResourceManager Event Processor] capacity.ParentQueue (ParentQueue.java:completedContainer(653)) - Re-sorting completed queue: root.default stats: default: capacity=1.0, absoluteCapacity=1.0, usedResources=\<memory:8192, vCores:8\>, usedCapacity=0.5, absoluteUsedCapacity=0.5, numApps=1, numContainers=8
+2015-04-17 07:48:17,983 INFO  [ResourceManager Event Processor] capacity.CapacityScheduler (CapacityScheduler.java:completedContainer(1307)) - Application attempt appattempt\_1429281980667\_0001\_000001 released container container\_1429281980667\_0001\_01\_000037 on node: host: sijenkins-win-3.sijenkinsservice.d3.internal.cloudapp.net:60774 #containers=1 available=\<memory:3072, vCores:7\> used=\<memory:1024, vCores:1\> with event: FINISHED
 2015-04-17 07:48:17,983 INFO  [ResourceManager Event Processor] rmcontainer.RMContainerImpl (RMContainerImpl.java:handle(384)) - container\_1429281980667\_0001\_01\_000041 Container Transitioned from ACQUIRED to RUNNING
 2015-04-17 07:48:17,982 INFO  [AsyncDispatcher event handler] nodemanager.NMAuditLogger (NMAuditLogger.java:logSuccess(89)) - USER=jenkins	OPERATION=Container Finished - Succeeded	TARGET=ContainerImpl	RESULT=SUCCESS	APPID=application\_1429281980667\_0001	CONTAINERID=container\_1429281980667\_0001\_01\_000029
 2015-04-17 07:48:17,986 INFO  [Thread-440] test.TestFaultTolerance (TestFaultTolerance.java:runDAGAndVerify(122)) - Waiting for dag to complete. Sleeping for 500ms. DAG name: testRandomFailingTasks DAG appContext: Executing on YARN cluster with App id application\_1429281980667\_0001 Current state: RUNNING
@@ -873,12 +873,12 @@ entQueue (ParentQueue.java:assignContainersToChildQueues(591)) - Re-sorting assi
 2015-04-17 07:48:17,986 INFO  [AsyncDispatcher event handler] container.ContainerImpl (ContainerImpl.java:handle(1123)) - Container container\_1429281980667\_0001\_01\_000029 transitioned from EXITED\_WITH\_SUCCESS to DONE
 2015-04-17 07:48:17,988 INFO  [AsyncDispatcher event handler] application.ApplicationImpl (ApplicationImpl.java:transition(347)) - Removing container\_1429281980667\_0001\_01\_000029 from application application\_1429281980667\_0001
 2015-04-17 07:48:17,988 INFO  [AsyncDispatcher event handler] util.ProcfsBasedProcessTree (ProcfsBasedProcessTree.java:isAvailable(192)) - ProcfsBasedProcessTree currently is supported only on Linux.
-2015-04-17 07:48:17,987 INFO  [IPC Server handler 14 on 60696] scheduler.SchedulerNode (SchedulerNode.java:releaseContainer(216)) - Released container container\_1429281980667\_0001\_01\_000029 of capacity <memory:1024, vCores:1> on host sijenkins-win-3.sijenkinsservice.d3.internal.cloudapp.net:60752, which currently has 2 containers, <memory:2048, vCores:2> used and <memory:2048, vCores:6> available, release resources=true
-2015-04-17 07:48:17,992 INFO  [IPC Server handler 14 on 60696] capacity.LeafQueue (LeafQueue.java:releaseResource(1780)) - default used=<memory:7168, vCores:7> numContainers=7 user=jenkins user-resources=<memory:7168, vCores:7>
-2015-04-17 07:48:18,054 INFO  [IPC Server handler 14 on 60696] capacity.LeafQueue (LeafQueue.java:completedContainer(1731)) - completedContainer container=Container: [ContainerId: container\_1429281980667\_0001\_01\_000029, NodeId: sijenkins-win-3.sijenkinsservice.d3.internal.cloudapp.net:60752, NodeHttpAddress: sijenkins-win-3.sijenkinsservice.d3.internal.cloudapp.net:60767, Resource: <memory:1024, vCores:1>, Priority: 1, Token: Token { kind: ContainerToken, service: 10.79.60.8:60752 }, ] queue=default: capacity=1.0, absoluteCapacity=1.0, usedResources=<memory:7168, vCores:7>, usedCapacity=0.4375, absoluteUsedCapacity=0.4375, numApps=1, numContainers=7 cluster=<memory:16384, vCores:32>
-2015-04-17 07:48:18,055 INFO  [IPC Server handler 14 on 60696] capacity.ParentQueue (ParentQueue.java:completedContainer(636)) - completedContainer queue=root usedCapacity=0.4375 absoluteUsedCapacity=0.4375 used=<memory:7168, vCores:7> cluster=<memory:16384, vCores:32>
-2015-04-17 07:48:18,055 INFO  [IPC Server handler 14 on 60696] capacity.ParentQueue (ParentQueue.java:completedContainer(653)) - Re-sorting completed queue: root.default stats: default: capacity=1.0, absoluteCapacity=1.0, usedResources=<memory:7168, vCores:7>, usedCapacity=0.4375, absoluteUsedCapacity=0.4375, numApps=1, numContainers=7
-2015-04-17 07:48:18,055 INFO  [IPC Server handler 14 on 60696] capacity.CapacityScheduler (CapacityScheduler.java:completedContainer(1307)) - Application attempt appattempt\_1429281980667\_0001\_000001 released container container\_1429281980667\_0001\_01\_000029 on node: host: sijenkins-win-3.sijenkinsservice.d3.internal.cloudapp.net:60752 #containers=2 available=<memory:2048, vCores:6> used=<memory:2048, vCores:2> with event: RELEASED
+2015-04-17 07:48:17,987 INFO  [IPC Server handler 14 on 60696] scheduler.SchedulerNode (SchedulerNode.java:releaseContainer(216)) - Released container container\_1429281980667\_0001\_01\_000029 of capacity \<memory:1024, vCores:1\> on host sijenkins-win-3.sijenkinsservice.d3.internal.cloudapp.net:60752, which currently has 2 containers, \<memory:2048, vCores:2\> used and \<memory:2048, vCores:6\> available, release resources=true
+2015-04-17 07:48:17,992 INFO  [IPC Server handler 14 on 60696] capacity.LeafQueue (LeafQueue.java:releaseResource(1780)) - default used=\<memory:7168, vCores:7\> numContainers=7 user=jenkins user-resources=\<memory:7168, vCores:7\>
+2015-04-17 07:48:18,054 INFO  [IPC Server handler 14 on 60696] capacity.LeafQueue (LeafQueue.java:completedContainer(1731)) - completedContainer container=Container: [ContainerId: container\_1429281980667\_0001\_01\_000029, NodeId: sijenkins-win-3.sijenkinsservice.d3.internal.cloudapp.net:60752, NodeHttpAddress: sijenkins-win-3.sijenkinsservice.d3.internal.cloudapp.net:60767, Resource: \<memory:1024, vCores:1\>, Priority: 1, Token: Token { kind: ContainerToken, service: 10.79.60.8:60752 }, ] queue=default: capacity=1.0, absoluteCapacity=1.0, usedResources=\<memory:7168, vCores:7\>, usedCapacity=0.4375, absoluteUsedCapacity=0.4375, numApps=1, numContainers=7 cluster=\<memory:16384, vCores:32\>
+2015-04-17 07:48:18,055 INFO  [IPC Server handler 14 on 60696] capacity.ParentQueue (ParentQueue.java:completedContainer(636)) - completedContainer queue=root usedCapacity=0.4375 absoluteUsedCapacity=0.4375 used=\<memory:7168, vCores:7\> cluster=\<memory:16384, vCores:32\>
+2015-04-17 07:48:18,055 INFO  [IPC Server handler 14 on 60696] capacity.ParentQueue (ParentQueue.java:completedContainer(653)) - Re-sorting completed queue: root.default stats: default: capacity=1.0, absoluteCapacity=1.0, usedResources=\<memory:7168, vCores:7\>, usedCapacity=0.4375, absoluteUsedCapacity=0.4375, numApps=1, numContainers=7
+2015-04-17 07:48:18,055 INFO  [IPC Server handler 14 on 60696] capacity.CapacityScheduler (CapacityScheduler.java:completedContainer(1307)) - Application attempt appattempt\_1429281980667\_0001\_000001 released container container\_1429281980667\_0001\_01\_000029 on node: host: sijenkins-win-3.sijenkinsservice.d3.internal.cloudapp.net:60752 #containers=2 available=\<memory:2048, vCores:6\> used=\<memory:2048, vCores:2\> with event: RELEASED
 2015-04-17 07:48:18,056 INFO  [IPC Server handler 14 on 60696] scheduler.AbstractYarnScheduler (AbstractYarnScheduler.java:releaseContainers(472)) - container\_1429281980667\_0001\_01\_000037 doesn't exist. Add the container to the release request cache as it maybe on recovery.
 2015-04-17 07:48:18,056 INFO  [IPC Server handler 14 on 60696] capacity.CapacityScheduler (CapacityScheduler.java:completedContainer(1282)) - Null container completed...
 2015-04-17 07:48:18,056 INFO  [IPC Server handler 14 on 60696] scheduler.AppSchedulingInfo (AppSchedulingInfo.java:updateResourceRequests(181)) - checking for deactivate of application :application\_1429281980667\_0001
@@ -892,10 +892,10 @@ entQueue (ParentQueue.java:assignContainersToChildQueues(591)) - Re-sorting assi
 2015-04-17 07:48:18,444 INFO  [AsyncDispatcher event handler] containermanager.AuxServices (AuxServices.java:handle(196)) - Got event CONTAINER\_STOP for appId application\_1429281980667\_0001
 2015-04-17 07:48:18,450 INFO  [ResourceManager Event Processor] rmcontainer.RMContainerImpl (RMContainerImpl.java:handle(384)) - container\_1429281980667\_0001\_01\_000045 Container Transitioned from NEW to ALLOCATED
 2015-04-17 07:48:18,451 INFO  [ResourceManager Event Processor] resourcemanager.RMAuditLogger (RMAuditLogger.java:logSuccess(106)) - USER=jenkins	OPERATION=AM Allocated Container	TARGET=SchedulerApp	RESULT=SUCCESS	APPID=application\_1429281980667\_0001	CONTAINERID=container\_1429281980667\_0001\_01\_000045
-2015-04-17 07:48:18,451 INFO  [ResourceManager Event Processor] scheduler.SchedulerNode (SchedulerNode.java:allocateContainer(153)) - Assigned container container\_1429281980667\_0001\_01\_000045 of capacity <memory:1024, vCores:1> on host sijenkins-win-3.sijenkinsservice.d3.internal.cloudapp.net:60752, which has 3 containers, <memory:3072, vCores:3> used and <memory:1024, vCores:5> available after allocation
-2015-04-17 07:48:18,451 INFO  [ResourceManager Event Processor] capacity.LeafQueue (LeafQueue.java:assignContainer(1628)) - assignedContainer application attempt=appattempt\_1429281980667\_0001\_000001 container=Container: [ContainerId: container\_1429281980667\_0001\_01\_000045, NodeId: sijenkins-win-3.sijenkinsservice.d3.internal.cloudapp.net:60752, NodeHttpAddress: sijenkins-win-3.sijenkinsservice.d3.internal.cloudapp.net:60767, Resource: <memory:1024, vCores:1>, Priority: 16, Token: null, ] queue=default: capacity=1.0, absoluteCapacity=1.0, usedResources=<memory:7168, vCores:7>, usedCapacity=0.4375, absoluteUsedCapacity=0.4375, numApps=1, numContainers=7 clusterResource=<memory:16384, vCores:32>
-2015-04-17 07:48:18,453 INFO  [ResourceManager Event Processor] capacity.ParentQueue (ParentQueue.java:assignContainersToChildQueues(591)) - Re-sorting assigned queue: root.default stats: default: capacity=1.0, absoluteCapacity=1.0, usedResources=<memory:8192, vCores:8>, usedCapacity=0.5, absoluteUsedCapacity=0.5, numApps=1, numContainers=8
-2015-04-17 07:48:18,455 INFO  [ResourceManager Event Processor] capacity.ParentQueue (ParentQueue.java:assignContainers(428)) - assignedContainer queue=root usedCapacity=0.5 absoluteUsedCapacity=0.5 used=<memory:8192, vCores:8> cluster=<memory:16384, vCores:32>
+2015-04-17 07:48:18,451 INFO  [ResourceManager Event Processor] scheduler.SchedulerNode (SchedulerNode.java:allocateContainer(153)) - Assigned container container\_1429281980667\_0001\_01\_000045 of capacity \<memory:1024, vCores:1\> on host sijenkins-win-3.sijenkinsservice.d3.internal.cloudapp.net:60752, which has 3 containers, \<memory:3072, vCores:3\> used and \<memory:1024, vCores:5\> available after allocation
+2015-04-17 07:48:18,451 INFO  [ResourceManager Event Processor] capacity.LeafQueue (LeafQueue.java:assignContainer(1628)) - assignedContainer application attempt=appattempt\_1429281980667\_0001\_000001 container=Container: [ContainerId: container\_1429281980667\_0001\_01\_000045, NodeId: sijenkins-win-3.sijenkinsservice.d3.internal.cloudapp.net:60752, NodeHttpAddress: sijenkins-win-3.sijenkinsservice.d3.internal.cloudapp.net:60767, Resource: \<memory:1024, vCores:1\>, Priority: 16, Token: null, ] queue=default: capacity=1.0, absoluteCapacity=1.0, usedResources=\<memory:7168, vCores:7\>, usedCapacity=0.4375, absoluteUsedCapacity=0.4375, numApps=1, numContainers=7 clusterResource=\<memory:16384, vCores:32\>
+2015-04-17 07:48:18,453 INFO  [ResourceManager Event Processor] capacity.ParentQueue (ParentQueue.java:assignContainersToChildQueues(591)) - Re-sorting assigned queue: root.default stats: default: capacity=1.0, absoluteCapacity=1.0, usedResources=\<memory:8192, vCores:8\>, usedCapacity=0.5, absoluteUsedCapacity=0.5, numApps=1, numContainers=8
+2015-04-17 07:48:18,455 INFO  [ResourceManager Event Processor] capacity.ParentQueue (ParentQueue.java:assignContainers(428)) - assignedContainer queue=root usedCapacity=0.5 absoluteUsedCapacity=0.5 used=\<memory:8192, vCores:8\> cluster=\<memory:16384, vCores:32\>
 2015-04-17 07:48:18,463 INFO  [Socket Reader #1 for port 60736] ipc.Server (Server.java:saslProcess(1316)) - Auth successful for appattempt\_1429281980667\_0001\_000001 (auth:SIMPLE)
 2015-04-17 07:48:18,465 INFO  [Node Status Updater] nodemanager.NodeStatusUpdaterImpl (NodeStatusUpdaterImpl.java:removeOrTrackCompletedContainersFromContext(482)) - Removed completed containers from NM context: [container\_1429281980667\_0001\_01\_000035, container\_1429281980667\_0001\_01\_000021]
 2015-04-17 07:48:18,490 INFO  [IPC Server handler 0 on 60736] containermanager.ContainerManagerImpl (ContainerManagerImpl.java:startContainerInternal(816)) - Start request for container\_1429281980667\_0001\_01\_000043 by user jenkins
@@ -918,12 +918,12 @@ entQueue (ParentQueue.java:assignContainersToChildQueues(591)) - Re-sorting assi
 2015-04-17 07:48:19,146 INFO  [IPC Server handler 35 on 60696] rmcontainer.RMContainerImpl (RMContainerImpl.java:handle(384)) - container\_1429281980667\_0001\_01\_000044 Container Transitioned from ACQUIRED to RELEASED
 2015-04-17 07:48:19,147 INFO  [IPC Server handler 35 on 60696] fica.FiCaSchedulerApp (FiCaSchedulerApp.java:containerCompleted(113)) - Completed container: container\_1429281980667\_0001\_01\_000044 in state: RELEASED event:RELEASED
 2015-04-17 07:48:19,147 INFO  [IPC Server handler 35 on 60696] resourcemanager.RMAuditLogger (RMAuditLogger.java:logSuccess(106)) - USER=jenkins	IP=10.79.60.8	OPERATION=AM Released Container	TARGET=SchedulerApp	RESULT=SUCCESS	APPID=application\_1429281980667\_0001	CONTAINERID=container\_1429281980667\_0001\_01\_000044
-2015-04-17 07:48:19,147 INFO  [IPC Server handler 35 on 60696] scheduler.SchedulerNode (SchedulerNode.java:releaseContainer(216)) - Released container container\_1429281980667\_0001\_01\_000044 of capacity <memory:1024, vCores:1> on host sijenkins-win-3.sijenkinsservice.d3.internal.cloudapp.net:60774, which currently has 0 containers, <memory:0, vCores:0> used and <memory:4096, vCores:8> available, release resources=true
-2015-04-17 07:48:19,148 INFO  [IPC Server handler 35 on 60696] capacity.LeafQueue (LeafQueue.java:releaseResource(1780)) - default used=<memory:7168, vCores:7> numContainers=7 user=jenkins user-resources=<memory:7168, vCores:7>
-2015-04-17 07:48:19,148 INFO  [IPC Server handler 35 on 60696] capacity.LeafQueue (LeafQueue.java:completedContainer(1731)) - completedContainer container=Container: [ContainerId: container\_1429281980667\_0001\_01\_000044, NodeId: sijenkins-win-3.sijenkinsservice.d3.internal.cloudapp.net:60774, NodeHttpAddress: sijenkins-win-3.sijenkinsservice.d3.internal.cloudapp.net:60789, Resource: <memory:1024, vCores:1>, Priority: 17, Token: Token { kind: ContainerToken, service: 10.79.60.8:60774 }, ] queue=default: capacity=1.0, absoluteCapacity=1.0, usedResources=<memory:7168, vCores:7>, usedCapacity=0.4375, absoluteUsedCapacity=0.4375, numApps=1, numContainers=7 cluster=<memory:16384, vCores:32>
-2015-04-17 07:48:19,148 INFO  [IPC Server handler 35 on 60696] capacity.ParentQueue (ParentQueue.java:completedContainer(636)) - completedContainer queue=root usedCapacity=0.4375 absoluteUsedCapacity=0.4375 used=<memory:7168, vCores:7> cluster=<memory:16384, vCores:32>
-2015-04-17 07:48:19,148 INFO  [IPC Server handler 35 on 60696] capacity.ParentQueue (ParentQueue.java:completedContainer(653)) - Re-sorting completed queue: root.default stats: default: capacity=1.0, absoluteCapacity=1.0, usedResources=<memory:7168, vCores:7>, usedCapacity=0.4375, absoluteUsedCapacity=0.4375, numApps=1, numContainers=7
-2015-04-17 07:48:19,149 INFO  [IPC Server handler 35 on 60696] capacity.CapacityScheduler (CapacityScheduler.java:completedContainer(1307)) - Application attempt appattempt\_1429281980667\_0001\_000001 released container container\_1429281980667\_0001\_01\_000044 on node: host: sijenkins-win-3.sijenkinsservice.d3.internal.cloudapp.net:60774 #containers=0 available=<memory:4096, vCores:8> used=<memory:0, vCores:0> with event: RELEASED
+2015-04-17 07:48:19,147 INFO  [IPC Server handler 35 on 60696] scheduler.SchedulerNode (SchedulerNode.java:releaseContainer(216)) - Released container container\_1429281980667\_0001\_01\_000044 of capacity \<memory:1024, vCores:1\> on host sijenkins-win-3.sijenkinsservice.d3.internal.cloudapp.net:60774, which currently has 0 containers, \<memory:0, vCores:0\> used and \<memory:4096, vCores:8\> available, release resources=true
+2015-04-17 07:48:19,148 INFO  [IPC Server handler 35 on 60696] capacity.LeafQueue (LeafQueue.java:releaseResource(1780)) - default used=\<memory:7168, vCores:7\> numContainers=7 user=jenkins user-resources=\<memory:7168, vCores:7\>
+2015-04-17 07:48:19,148 INFO  [IPC Server handler 35 on 60696] capacity.LeafQueue (LeafQueue.java:completedContainer(1731)) - completedContainer container=Container: [ContainerId: container\_1429281980667\_0001\_01\_000044, NodeId: sijenkins-win-3.sijenkinsservice.d3.internal.cloudapp.net:60774, NodeHttpAddress: sijenkins-win-3.sijenkinsservice.d3.internal.cloudapp.net:60789, Resource: \<memory:1024, vCores:1\>, Priority: 17, Token: Token { kind: ContainerToken, service: 10.79.60.8:60774 }, ] queue=default: capacity=1.0, absoluteCapacity=1.0, usedResources=\<memory:7168, vCores:7\>, usedCapacity=0.4375, absoluteUsedCapacity=0.4375, numApps=1, numContainers=7 cluster=\<memory:16384, vCores:32\>
+2015-04-17 07:48:19,148 INFO  [IPC Server handler 35 on 60696] capacity.ParentQueue (ParentQueue.java:completedContainer(636)) - completedContainer queue=root usedCapacity=0.4375 absoluteUsedCapacity=0.4375 used=\<memory:7168, vCores:7\> cluster=\<memory:16384, vCores:32\>
+2015-04-17 07:48:19,148 INFO  [IPC Server handler 35 on 60696] capacity.ParentQueue (ParentQueue.java:completedContainer(653)) - Re-sorting completed queue: root.default stats: default: capacity=1.0, absoluteCapacity=1.0, usedResources=\<memory:7168, vCores:7\>, usedCapacity=0.4375, absoluteUsedCapacity=0.4375, numApps=1, numContainers=7
+2015-04-17 07:48:19,149 INFO  [IPC Server handler 35 on 60696] capacity.CapacityScheduler (CapacityScheduler.java:completedContainer(1307)) - Application attempt appattempt\_1429281980667\_0001\_000001 released container container\_1429281980667\_0001\_01\_000044 on node: host: sijenkins-win-3.sijenkinsservice.d3.internal.cloudapp.net:60774 #containers=0 available=\<memory:4096, vCores:8\> used=\<memory:0, vCores:0\> with event: RELEASED
 2015-04-17 07:48:19,150 INFO  [IPC Server handler 35 on 60696] scheduler.AppSchedulingInfo (AppSchedulingInfo.java:updateResourceRequests(181)) - checking for deactivate of application :application\_1429281980667\_0001
 2015-04-17 07:48:19,161 INFO  [IPC Server handler 35 on 60696] rmcontainer.RMContainerImpl (RMContainerImpl.java:handle(384)) - container\_1429281980667\_0001\_01\_000045 Container Transitioned from ALLOCATED to ACQUIRED
 2015-04-17 07:48:19,299 INFO  [Thread-440] test.TestFaultTolerance (TestFaultTolerance.java:runDAGAndVerify(122)) - Waiting for dag to complete. Sleeping for 500ms. DAG name: testRandomFailingTasks DAG appContext: Executing on YARN cluster with App id application\_1429281980667\_0001 Current state: RUNNING
@@ -937,12 +937,12 @@ entQueue (ParentQueue.java:assignContainersToChildQueues(591)) - Re-sorting assi
 2015-04-17 07:48:20,652 INFO  [IPC Server handler 35 on 60696] rmcontainer.RMContainerImpl (RMContainerImpl.java:handle(384)) - container\_1429281980667\_0001\_01\_000045 Container Transitioned from ACQUIRED to RELEASED
 2015-04-17 07:48:20,652 INFO  [IPC Server handler 35 on 60696] fica.FiCaSchedulerApp (FiCaSchedulerApp.java:containerCompleted(113)) - Completed container: container\_1429281980667\_0001\_01\_000045 in state: RELEASED event:RELEASED
 2015-04-17 07:48:20,653 INFO  [IPC Server handler 35 on 60696] resourcemanager.RMAuditLogger (RMAuditLogger.java:logSuccess(106)) - USER=jenkins	IP=10.79.60.8	OPERATION=AM Released Container	TARGET=SchedulerApp	RESULT=SUCCESS	APPID=application\_1429281980667\_0001	CONTAINERID=container\_1429281980667\_0001\_01\_000045
-2015-04-17 07:48:20,653 INFO  [IPC Server handler 35 on 60696] scheduler.SchedulerNode (SchedulerNode.java:releaseContainer(216)) - Released container container\_1429281980667\_0001\_01\_000045 of capacity <memory:1024, vCores:1> on host sijenkins-win-3.sijenkinsservice.d3.internal.cloudapp.net:60752, which currently has 2 containers, <memory:2048, vCores:2> used and <memory:2048, vCores:6> available, release resources=true
-2015-04-17 07:48:20,653 INFO  [IPC Server handler 35 on 60696] capacity.LeafQueue (LeafQueue.java:releaseResource(1780)) - default used=<memory:6144, vCores:6> numContainers=6 user=jenkins user-resources=<memory:6144, vCores:6>
-2015-04-17 07:48:20,654 INFO  [IPC Server handler 35 on 60696] capacity.LeafQueue (LeafQueue.java:completedContainer(1731)) - completedContainer container=Container: [ContainerId: container\_1429281980667\_0001\_01\_000045, NodeId: sijenkins-win-3.sijenkinsservice.d3.internal.cloudapp.net:60752, NodeHttpAddress: sijenkins-win-3.sijenkinsservice.d3.internal.cloudapp.net:60767, Resource: <memory:1024, vCores:1>, Priority: 16, Token: Token { kind: ContainerToken, service: 10.79.60.8:60752 }, ] queue=default: capacity=1.0, absoluteCapacity=1.0, usedResources=<memory:6144, vCores:6>, usedCapacity=0.375, absoluteUsedCapacity=0.375, numApps=1, numContainers=6 cluster=<memory:16384, vCores:32>
-2015-04-17 07:48:20,711 INFO  [IPC Server handler 35 on 60696] capacity.ParentQueue (ParentQueue.java:completedContainer(636)) - completedContainer queue=root usedCapacity=0.375 absoluteUsedCapacity=0.375 used=<memory:6144, vCores:6> cluster=<memory:16384, vCores:32>
-2015-04-17 07:48:20,711 INFO  [IPC Server handler 35 on 60696] capacity.ParentQueue (ParentQueue.java:completedContainer(653)) - Re-sorting completed queue: root.default stats: default: capacity=1.0, absoluteCapacity=1.0, usedResources=<memory:6144, vCores:6>, usedCapacity=0.375, absoluteUsedCapacity=0.375, numApps=1, numContainers=6
-2015-04-17 07:48:20,711 INFO  [IPC Server handler 35 on 60696] capacity.CapacityScheduler (CapacityScheduler.java:completedContainer(1307)) - Application attempt appattempt\_1429281980667\_0001\_000001 released container container\_1429281980667\_0001\_01\_000045 on node: host: sijenkins-win-3.sijenkinsservice.d3.internal.cloudapp.net:60752 #containers=2 available=<memory:2048, vCores:6> used=<memory:2048, vCores:2> with event: RELEASED
+2015-04-17 07:48:20,653 INFO  [IPC Server handler 35 on 60696] scheduler.SchedulerNode (SchedulerNode.java:releaseContainer(216)) - Released container container\_1429281980667\_0001\_01\_000045 of capacity \<memory:1024, vCores:1\> on host sijenkins-win-3.sijenkinsservice.d3.internal.cloudapp.net:60752, which currently has 2 containers, \<memory:2048, vCores:2\> used and \<memory:2048, vCores:6\> available, release resources=true
+2015-04-17 07:48:20,653 INFO  [IPC Server handler 35 on 60696] capacity.LeafQueue (LeafQueue.java:releaseResource(1780)) - default used=\<memory:6144, vCores:6\> numContainers=6 user=jenkins user-resources=\<memory:6144, vCores:6\>
+2015-04-17 07:48:20,654 INFO  [IPC Server handler 35 on 60696] capacity.LeafQueue (LeafQueue.java:completedContainer(1731)) - completedContainer container=Container: [ContainerId: container\_1429281980667\_0001\_01\_000045, NodeId: sijenkins-win-3.sijenkinsservice.d3.internal.cloudapp.net:60752, NodeHttpAddress: sijenkins-win-3.sijenkinsservice.d3.internal.cloudapp.net:60767, Resource: \<memory:1024, vCores:1\>, Priority: 16, Token: Token { kind: ContainerToken, service: 10.79.60.8:60752 }, ] queue=default: capacity=1.0, absoluteCapacity=1.0, usedResources=\<memory:6144, vCores:6\>, usedCapacity=0.375, absoluteUsedCapacity=0.375, numApps=1, numContainers=6 cluster=\<memory:16384, vCores:32\>
+2015-04-17 07:48:20,711 INFO  [IPC Server handler 35 on 60696] capacity.ParentQueue (ParentQueue.java:completedContainer(636)) - completedContainer queue=root usedCapacity=0.375 absoluteUsedCapacity=0.375 used=\<memory:6144, vCores:6\> cluster=\<memory:16384, vCores:32\>
+2015-04-17 07:48:20,711 INFO  [IPC Server handler 35 on 60696] capacity.ParentQueue (ParentQueue.java:completedContainer(653)) - Re-sorting completed queue: root.default stats: default: capacity=1.0, absoluteCapacity=1.0, usedResources=\<memory:6144, vCores:6\>, usedCapacity=0.375, absoluteUsedCapacity=0.375, numApps=1, numContainers=6
+2015-04-17 07:48:20,711 INFO  [IPC Server handler 35 on 60696] capacity.CapacityScheduler (CapacityScheduler.java:completedContainer(1307)) - Application attempt appattempt\_1429281980667\_0001\_000001 released container container\_1429281980667\_0001\_01\_000045 on node: host: sijenkins-win-3.sijenkinsservice.d3.internal.cloudapp.net:60752 #containers=2 available=\<memory:2048, vCores:6\> used=\<memory:2048, vCores:2\> with event: RELEASED
 2015-04-17 07:48:20,898 WARN  [AsyncDispatcher event handler] containermanager.ContainerManagerImpl (ContainerManagerImpl.java:handle(1080)) - Event EventType: KILL\_CONTAINER sent to absent container container\_1429281980667\_0001\_01\_000045
 2015-04-17 07:48:21,297 INFO  [Thread-440] test.TestFaultTolerance (TestFaultTolerance.java:runDAGAndVerify(122)) - Waiting for dag to complete. Sleeping for 500ms. DAG name: testRandomFailingTasks DAG appContext: Executing on YARN cluster with App id application\_1429281980667\_0001 Current state: RUNNING
 2015-04-17 07:48:21,479 INFO  [Thread-440] test.TestFaultTolerance (TestFaultTolerance.java:runDAGAndVerify(122)) - Waiting for dag to complete. Sleeping for 500ms. DAG name: testRandomFailingTasks DAG appContext: Executing on YARN cluster with App id application\_1429281980667\_0001 Current state: RUNNING
@@ -1202,12 +1202,12 @@ Daemon Thread [App Shared Pool - #3] (Suspended)
 	VertexManager$VertexManagerEventOnVertexStateUpdate.invoke() line: 527	
 	VertexManager$VertexManagerEvent$1.run() line: 612	
 	VertexManager$VertexManagerEvent$1.run() line: 607	
-	AccessController.doPrivileged(PrivilegedExceptionAction<T>, AccessControlContext) line: not available [native method]	
-	Subject.doAs(Subject, PrivilegedExceptionAction<T>) line: 415	
-	UserGroupInformation.doAs(PrivilegedExceptionAction<T>) line: 1548	
+	AccessController.doPrivileged(PrivilegedExceptionAction\<T\>, AccessControlContext) line: not available [native method]	
+	Subject.doAs(Subject, PrivilegedExceptionAction\<T\>) line: 415	
+	UserGroupInformation.doAs(PrivilegedExceptionAction\<T\>) line: 1548	
 	VertexManager$VertexManagerEventOnVertexStateUpdate(VertexManager$VertexManagerEvent).call() line: 607	
 	VertexManager$VertexManagerEventOnVertexStateUpdate(VertexManager$VertexManagerEvent).call() line: 596	
-	ListenableFutureTask<V>(FutureTask<V>).run() line: 262	
+	ListenableFutureTask\<V\>(FutureTask\<V\>).run() line: 262	
 	ThreadPoolExecutor.runWorker(ThreadPoolExecutor$Worker) line: 1145	
 	ThreadPoolExecutor$Worker.run() line: 615	
 	Thread.run() line: 745	
@@ -1227,16 +1227,16 @@ Daemon Thread [App Shared Pool - #2] (Suspended)
 	VertexImpl.getTotalTasks() line: 952	
 	VertexManager$VertexManagerPluginContextImpl.getVertexNumTasks(String) line: 162	
 	PigGraceShuffleVertexManager(ShuffleVertexManager).updateSourceTaskCount() line: 435	
-	PigGraceShuffleVertexManager(ShuffleVertexManager).onVertexStarted(Map<String,List<Integer>>) line: 353	
+	PigGraceShuffleVertexManager(ShuffleVertexManager).onVertexStarted(Map\<String,List\<Integer\>\>) line: 353	
 	VertexManager$VertexManagerEventOnVertexStarted.invoke() line: 541	
 	VertexManager$VertexManagerEvent$1.run() line: 612	
 	VertexManager$VertexManagerEvent$1.run() line: 607	
-	AccessController.doPrivileged(PrivilegedExceptionAction<T>, AccessControlContext) line: not available [native method]	
-	Subject.doAs(Subject, PrivilegedExceptionAction<T>) line: 415	
-	UserGroupInformation.doAs(PrivilegedExceptionAction<T>) line: 1548	
+	AccessController.doPrivileged(PrivilegedExceptionAction\<T\>, AccessControlContext) line: not available [native method]	
+	Subject.doAs(Subject, PrivilegedExceptionAction\<T\>) line: 415	
+	UserGroupInformation.doAs(PrivilegedExceptionAction\<T\>) line: 1548	
 	VertexManager$VertexManagerEventOnVertexStarted(VertexManager$VertexManagerEvent).call() line: 607	
 	VertexManager$VertexManagerEventOnVertexStarted(VertexManager$VertexManagerEvent).call() line: 596	
-	ListenableFutureTask<V>(FutureTask<V>).run() line: 262	
+	ListenableFutureTask\<V\>(FutureTask\<V\>).run() line: 262	
 	ThreadPoolExecutor.runWorker(ThreadPoolExecutor$Worker) line: 1145	
 	ThreadPoolExecutor$Worker.run() line: 615	
 	Thread.run() line: 745	
@@ -1398,7 +1398,7 @@ Loading:
 # Ensure display of counter data in entity tables.
 
 Caching:
-# Separate cache for each table: Refreshing vertex->tasks shouldn't partially update values displayed in All Tasks table.
+# Separate cache for each table: Refreshing vertex-\>tasks shouldn't partially update values displayed in All Tasks table.
 # Refreshing an entity, shouldn't change the respective record in any tables.
 # Ensure all data displayed in a table are from a single time frame. (No part of the table should be partially updated by actions elsewhere)
 # Data cached would be limited to one DAG at a time. (To limit the values stores in the browser side)
@@ -1491,7 +1491,7 @@ Install guide doc at
 http://tez.apache.org/install.html 
 says:
 
-> ... Protocol Buffers (protoc compiler) 2.5 or later
+\> ... Protocol Buffers (protoc compiler) 2.5 or later
 
 In fact, protobuf 2.5.0 is required. 
 
@@ -1512,10 +1512,10 @@ http://rpm.pbone.net/index.php3/stat/4/idpl/23552166/dir/centos\_6/com/protobuf-
 http://rpm.pbone.net/index.php3/stat/4/idpl/23552097/dir/centos\_6/com/protobuf-compiler-2.5.0-16.1.i686.rpm.html
 
 Hitesh Shah wrote:
-> Pretty much all of the Hadoop ecosystem components have standardized on protobuf-2.5.0. 
+\> Pretty much all of the Hadoop ecosystem components have standardized on protobuf-2.5.0. 
 
 Hitesh Shah wrote:
-> Could you file a jira and submit a patch for this issue 
+\> Could you file a jira and submit a patch for this issue 
 
 Sorry, I don't know how to submit a patch.
 
@@ -1638,7 +1638,7 @@ Getting per IO counters is possible today. This jira tracks work needed to enabl
 
 LocalTasks do not appear in YARN swimlanes due to the thread-ids containing the same characters as the logging boundaries of [].
 
-Fix the thread-id to have the #<n> numbering scheme instead.
+Fix the thread-id to have the #\<n\> numbering scheme instead.
 
 
 ---
@@ -1679,9 +1679,9 @@ With a no-op scatter gather job, 20K x 2K, on a 20 node cluster with 20 2GB cont
 
 * [TEZ-2178](https://issues.apache.org/jira/browse/TEZ-2178) | *Major* | **YARN-3122 breaks tez compilation with hadoop 2.7.0**
 
->>>
+\>\>\>
 /tez/tez-plugins/tez-mbeans-resource-calculator/src/main/java/org/apache/tez/util/TezMxBeanResourceCalculator.java:[30,8] org.apache.tez.util.TezMxBeanResourceCalculator is not abstract and does not override abstract method getCpuUsagePercent() in org.apache.hadoop.yarn.util.ResourceCalculatorProcessTree
->>>
+\>\>\>
 
 
 ---
@@ -1904,7 +1904,7 @@ currently in the LocalClient the config used is yarnconf. this should be tezconf
 
 * [TEZ-2075](https://issues.apache.org/jira/browse/TEZ-2075) | *Critical* | **Incompatible issue caused by TEZ-1233 that TezConfiguration.TEZ\_SITE\_XML is made private**
 
-* TezConfiguration.TEZ\_SITE\_XML is used in pig, but it is made private in TEZ-1233 which is an incompatible change.
+\* TezConfiguration.TEZ\_SITE\_XML is used in pig, but it is made private in TEZ-1233 which is an incompatible change.
 
 
 ---
@@ -2049,7 +2049,7 @@ Thread 19983: (state = BLOCKED)
 
 "Thread 21822" invokes "private synchronized boolean isRLENeeded()" and keeps waiting for the lock.
 
-Note: This can easily be reproduced with hive on tez (with tpch dataset) "set tez.runtime.sort.threads=1; create testData as select * from lineitem distribute by l\_shipdate".
+Note: This can easily be reproduced with hive on tez (with tpch dataset) "set tez.runtime.sort.threads=1; create testData as select \* from lineitem distribute by l\_shipdate".
 
 
 ---
@@ -2125,7 +2125,7 @@ Removing the 2 GB resitrction on MergeManager.memlimit would help in such situat
 
 * [TEZ-1941](https://issues.apache.org/jira/browse/TEZ-1941) | *Major* | **Memory provided by \*Context.getAvailableMemory needs to be setup explicitly**
 
-*Contexts.getAvailableMemory rely on Runtime..getMaxMemory(). This doesn't work for memory scaling if multiple tasks are running within a JVM.
+\*Contexts.getAvailableMemory rely on Runtime..getMaxMemory(). This doesn't work for memory scaling if multiple tasks are running within a JVM.
 
 Container sizes (sent over RPC) can be used for setting up this value.
 
@@ -2155,7 +2155,7 @@ To get rid of a lot of boiler plate code from each example.
 
 * [TEZ-1913](https://issues.apache.org/jira/browse/TEZ-1913) | *Major* | **Reduce deserialize cost in ValuesIterator**
 
-When TezRawKeyValueIterator->isSameKey() is added, it should be possible to reduce the number of deserializations in ValuesIterator->readNextKey().
+When TezRawKeyValueIterator-\>isSameKey() is added, it should be possible to reduce the number of deserializations in ValuesIterator-\>readNextKey().
 
 Creating this ticket to track the issue.
 
@@ -2347,10 +2347,10 @@ Below is jstack output observed when running in Tez local mode:
    java.lang.Thread.State: RUNNABLE
         at java.lang.Throwable.fillInStackTrace(Native Method)
         at java.lang.Throwable.fillInStackTrace(Throwable.java:783)
-        - locked <0x00000007b6ce60a0> (a java.lang.InterruptedException)
-        at java.lang.Throwable.<init>(Throwable.java:250)
-        at java.lang.Exception.<init>(Exception.java:54)
-        at java.lang.InterruptedException.<init>(InterruptedException.java:57)
+        - locked \<0x00000007b6ce60a0\> (a java.lang.InterruptedException)
+        at java.lang.Throwable.\<init\>(Throwable.java:250)
+        at java.lang.Exception.\<init\>(Exception.java:54)
+        at java.lang.InterruptedException.\<init\>(InterruptedException.java:57)
         at java.util.concurrent.locks.AbstractQueuedSynchronizer.acquireInterruptibly(AbstractQueuedSynchronizer.java:1219)
         at java.util.concurrent.locks.ReentrantLock.lockInterruptibly(ReentrantLock.java:340)
         at java.util.concurrent.PriorityBlockingQueue.take(PriorityBlockingQueue.java:535)

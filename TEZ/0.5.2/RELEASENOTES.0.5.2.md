@@ -111,7 +111,7 @@ There is a return value of false when setParallelism is not successful. However 
 
 ResourceCalculatorProcessTree scraps all of /proc/ for PIDs which are part of the current task's process group.
 
-This is mostly wasted in Tez, since unlike YARN which has to do this since it has the PID for the container-executor process (bash) and has to trace the bash -> java spawn inheritance.
+This is mostly wasted in Tez, since unlike YARN which has to do this since it has the PID for the container-executor process (bash) and has to trace the bash -\> java spawn inheritance.
 
 !ProcfsBasedProcessTree.png!
 
@@ -120,7 +120,7 @@ The latency effect of this is less clearly visible with the profiler turned on a
 !ProcfsFiles.png!
 
 {code}
- private List<String> getProcessList() {
+ private List\<String\> getProcessList() {
     String[] processDirs = (new File(procfsDir)).list();
 ...
     for (String dir : processDirs) {
@@ -133,7 +133,7 @@ The latency effect of this is less clearly visible with the profiler turned on a
   public void updateProcessTree() {
     if (!pid.equals(deadPid)) {
       // Get the list of processes
-      List<String> processList = getProcessList();
+      List\<String\> processList = getProcessList();
 ...
       for (String proc : processList) {
         // Get information for each process
@@ -170,7 +170,7 @@ The test would fail if the random number generated is 0.
 Randomly (once in 1000 runs in my VM), I get the following exception.
 
 Exception in thread "DelayedContainerManager" java.lang.ClassCastException: java.util.LinkedList cannot be cast to org.apache.hadoop.yarn.api.records.Priority
-	at org.apache.tez.dag.app.rm.TezAMRMClientAsync$$EnhancerByMockitoWithCGLIB$$9c9a5aeb.getTopPriority(<generated>)
+	at org.apache.tez.dag.app.rm.TezAMRMClientAsync$$EnhancerByMockitoWithCGLIB$$9c9a5aeb.getTopPriority(\<generated\>)
 	at org.apache.tez.dag.app.rm.YarnTaskSchedulerService.assignReUsedContainerWithLocation(YarnTaskSchedulerService.java:1459)
 	at org.apache.tez.dag.app.rm.YarnTaskSchedulerService.assignDelayedContainer(YarnTaskSchedulerService.java:660)
 	at org.apache.tez.dag.app.rm.YarnTaskSchedulerService.access$700(YarnTaskSchedulerService.java:82)
@@ -193,8 +193,8 @@ Happens when there's multiple attempts for the task - caused by Node failure for
 
 * [TEZ-1676](https://issues.apache.org/jira/browse/TEZ-1676) | *Major* | **Fix failing test in TestHistoryEventTimelineConversion**
 
-Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.379 sec <<< FAILURE!
-testHandlerExists(org.apache.tez.dag.history.logging.ats.TestHistoryEventTimelineConversion)  Time elapsed: 0.016 sec  <<< ERROR!
+Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.379 sec \<\<\< FAILURE!
+testHandlerExists(org.apache.tez.dag.history.logging.ats.TestHistoryEventTimelineConversion)  Time elapsed: 0.016 sec  \<\<\< ERROR!
 java.lang.NullPointerException: null
 	at org.apache.tez.dag.history.logging.ats.HistoryEventTimelineConversion.convertVertexParallelismUpdatedEvent(HistoryEventTimelineConversion.java:503)
 	at org.apache.tez.dag.history.logging.ats.HistoryEventTimelineConversion.convertToTimelineEntity(HistoryEventTimelineConversion.java:107)
@@ -240,7 +240,7 @@ Since Tez is affected more by a node being marked as bad - where retries could b
 * [TEZ-1669](https://issues.apache.org/jira/browse/TEZ-1669) | *Critical* | **yarn-swimlanes.sh throws error post TEZ-1556**
 
 Traceback (most recent call last):
-  File "swimlane.py", line 201, in <module>
+  File "swimlane.py", line 201, in \<module\>
     sys.exit(main(sys.argv[1:]))
   File "swimlane.py", line 121, in main
     log = AMLog(args[0]).structure()
@@ -311,9 +311,9 @@ The node level grouping maintains ordering. When collecting leftover groups for 
 * [TEZ-1649](https://issues.apache.org/jira/browse/TEZ-1649) | *Major* | **ShuffleVertexManager auto reduce parallelism can cause jobs to hang indefinitely (with ScatterGather edges)**
 
 Consider the following DAG
- M1, M2 --> R1
- M2, M3 --> R2
- R1 --> R2
+ M1, M2 --\> R1
+ M2, M3 --\> R2
+ R1 --\> R2
 
 All edges are Scatter-Gather.
  1. Set R1's (1000 parallelism) min/max setting to 0.25 - 0.5f
@@ -420,7 +420,7 @@ Caused by: java.io.EOFException
 
 * [TEZ-1638](https://issues.apache.org/jira/browse/TEZ-1638) | *Critical* | **Missing type parametrization in runtime Input/Output configs**
 
-In UnorderedInputConfig (https://github.com/apache/tez/blob/master/tez-runtime-library/src/main/java/org/apache/tez/runtime/library/conf/UnorderedKVInputConfig.java) some methods of SpecificBuilder have a parameterized return type (SpecificBuilder<E>) and some a non-parameterized return type (SpecificBuilder).
+In UnorderedInputConfig (https://github.com/apache/tez/blob/master/tez-runtime-library/src/main/java/org/apache/tez/runtime/library/conf/UnorderedKVInputConfig.java) some methods of SpecificBuilder have a parameterized return type (SpecificBuilder\<E\>) and some a non-parameterized return type (SpecificBuilder).
 
 Shouldn't all methods return the parameterized version?
 
@@ -442,13 +442,13 @@ This error happens only when we try to fetch multiple attempt outputs using the 
 
 Example error in shuffle phase is attached below.
 
->>>>
+\>\>\>\>
 2014-09-15 09:54:22,950 WARN [fetcher [scope\_41] #31] org.apache.tez.runtime.library.common.shuffle.impl.Fetcher: Invalid map id 
 java.lang.IllegalArgumentException: Invalid header received:  partition: 0
 	at org.apache.tez.runtime.library.common.shuffle.impl.Fetcher.copyMapOutput(Fetcher.java:352)
 	at org.apache.tez.runtime.library.common.shuffle.impl.Fetcher.copyFromHost(Fetcher.java:294)
 	at org.apache.tez.runtime.library.common.shuffle.impl.Fetcher.run(Fetcher.java:160)
->>>>
+\>\>\>\>
 
 I will attach the debug version of BlockCompressionStream with threaddump (which validates that finish() is called twice in IFile.close()).  This bug was present in earlier versions of Tez as well, and was able to consistently reproduce it now on local-vm itself.
 
@@ -459,9 +459,9 @@ I will attach the debug version of BlockCompressionStream with threaddump (which
 
 $ mvn clean package
 {code}
-Tests run: 17, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 1.747 sec <<< FAILURE!
-testRecovery\_OneTAStarted(org.apache.tez.dag.app.dag.impl.TestTaskRecovery)  Time elapsed: 0.051 sec  <<< FAILURE!
-java.lang.AssertionError: expected:<1> but was:<2>
+Tests run: 17, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 1.747 sec \<\<\< FAILURE!
+testRecovery\_OneTAStarted(org.apache.tez.dag.app.dag.impl.TestTaskRecovery)  Time elapsed: 0.051 sec  \<\<\< FAILURE!
+java.lang.AssertionError: expected:\<1\> but was:\<2\>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:743)
 	at org.junit.Assert.assertEquals(Assert.java:118)
@@ -483,8 +483,8 @@ mockApp.getContext().getCurrentDAG() returns non-null value after 200-300ms.
 {code}
 $ mvn clean package
 ...
-Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 9.566 sec <<< FAILURE!
-testPreemptionWithoutSession(org.apache.tez.dag.app.TestPreemption)  Time elapsed: 0.182 sec  <<< ERROR!
+Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 9.566 sec \<\<\< FAILURE!
+testPreemptionWithoutSession(org.apache.tez.dag.app.TestPreemption)  Time elapsed: 0.182 sec  \<\<\< ERROR!
 java.lang.NullPointerException: null
 	at org.apache.tez.dag.app.TestPreemption.testPreemptionWithoutSession(TestPreemption.java:105)
 
@@ -651,11 +651,11 @@ java.util.Collections$UnmodifiableMap$UnmodifiableEntrySet$1.next(Collections.ja
         at
 java.util.Collections$UnmodifiableMap$UnmodifiableEntrySet$1.next(Collections.java:1396)
         at java.util.HashMap.putAllForCreate(HashMap.java:533)
-        at java.util.HashMap.<init>(HashMap.java:320)
+        at java.util.HashMap.\<init\>(HashMap.java:320)
         at
 org.apache.tez.dag.utils.EnvironmentUpdateUtils.put(EnvironmentUpdateUtils.java:42)
         at
-org.apache.tez.dag.app.launcher.LocalContainerLauncher.<init>(LocalContainerLauncher.java:112)
+org.apache.tez.dag.app.launcher.LocalContainerLauncher.\<init\>(LocalContainerLauncher.java:112)
         at
 org.apache.tez.dag.app.DAGAppMaster.createContainerLauncher(DAGAppMaster.java:819)
         at

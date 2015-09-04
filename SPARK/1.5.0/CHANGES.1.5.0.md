@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 1.5.0 - Unreleased (as of 2015-09-03)
+## Release 1.5.0 - Unreleased (as of 2015-09-04)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -503,7 +503,7 @@
 | [SPARK-10315](https://issues.apache.org/jira/browse/SPARK-10315) | remove document on spark.akka.failure-detector.threshold |  Minor | Documentation | Nan Zhu | Nan Zhu |
 | [SPARK-10308](https://issues.apache.org/jira/browse/SPARK-10308) | %in% is not exported in SparkR |  Major | SparkR | Shivaram Venkataraman | Shivaram Venkataraman |
 | [SPARK-10305](https://issues.apache.org/jira/browse/SPARK-10305) | PySpark createDataFrame on list of LabeledPoints fails (regression) |  Critical | ML, PySpark, SQL | Joseph K. Bradley | Davies Liu |
-| [SPARK-10298](https://issues.apache.org/jira/browse/SPARK-10298) | PySpark can't JSON serialize a DataFrame with DecimalType columns. |  Major | SQL | Kevin Cox |  |
+| [SPARK-10298](https://issues.apache.org/jira/browse/SPARK-10298) | PySpark can't JSON serialize a DataFrame with DecimalType columns. |  Major | SQL | Kevin Cox | Michael Armbrust |
 | [SPARK-10287](https://issues.apache.org/jira/browse/SPARK-10287) | After processing a query using JSON data, Spark SQL continuously refreshes metadata of the table |  Critical | SQL | Yin Huai | Yin Huai |
 | [SPARK-10245](https://issues.apache.org/jira/browse/SPARK-10245) | SQLContext can't parse literal less than 0.1 (e.g. 0.01) |  Blocker | SQL | Davies Liu | Davies Liu |
 | [SPARK-10226](https://issues.apache.org/jira/browse/SPARK-10226) | Error occured in SparkSQL when using  != |  Major | SQL | wangwei | wangwei |
@@ -522,7 +522,7 @@
 | [SPARK-10166](https://issues.apache.org/jira/browse/SPARK-10166) | Python Streaming checkpoint recovery fails if an active Python SparkContext already exists |  Critical | PySpark, Streaming | Tathagata Das | Tathagata Das |
 | [SPARK-10165](https://issues.apache.org/jira/browse/SPARK-10165) | Nested Hive UDF resolution fails in Analyzer |  Blocker | SQL | Michael Armbrust | Michael Armbrust |
 | [SPARK-10164](https://issues.apache.org/jira/browse/SPARK-10164) | GMM bug: match error |  Critical | MLlib | Joseph K. Bradley | Joseph K. Bradley |
-| [SPARK-10159](https://issues.apache.org/jira/browse/SPARK-10159) | Hive 1.3.x GenericUDFDate NPE issue |  Major | SQL | Alex Liu |  |
+| [SPARK-10159](https://issues.apache.org/jira/browse/SPARK-10159) | Hive 1.3.x GenericUDFDate NPE issue |  Major | SQL | Alex Liu | Michael Armbrust |
 | [SPARK-10144](https://issues.apache.org/jira/browse/SPARK-10144) | Actually show peak execution memory on UI by default |  Major | Web UI | Andrew Or | Andrew Or |
 | [SPARK-10143](https://issues.apache.org/jira/browse/SPARK-10143) | Parquet changed the behavior of calculating splits |  Critical | SQL | Yin Huai | Yin Huai |
 | [SPARK-10142](https://issues.apache.org/jira/browse/SPARK-10142) | Python Streaming checkpoint recovery does not work with non-local file path |  Critical | PySpark, Streaming | Tathagata Das | Tathagata Das |
@@ -993,6 +993,7 @@
 | [SPARK-9966](https://issues.apache.org/jira/browse/SPARK-9966) | Handle a couple of corner cases in the PID rate estimator |  Blocker | Streaming | Tathagata Das | Tathagata Das |
 | [SPARK-9950](https://issues.apache.org/jira/browse/SPARK-9950) | Wrong Analysis Error for grouping/aggregating on struct fields |  Blocker | SQL | Michael Armbrust | Wenchen Fan |
 | [SPARK-9949](https://issues.apache.org/jira/browse/SPARK-9949) | TakeOrderedAndProject returns wrong output attributes when project is pushed in to it |  Blocker | SQL | Yin Huai | Yin Huai |
+| [SPARK-9933](https://issues.apache.org/jira/browse/SPARK-9933) | Test the new receiver scheduling |  Major | Streaming | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-9927](https://issues.apache.org/jira/browse/SPARK-9927) | Revert fix of 9182 since it's pushing the wrong filter down |  Blocker | SQL | Yijie Shen | Yijie Shen |
 | [SPARK-9920](https://issues.apache.org/jira/browse/SPARK-9920) | The simpleString of TungstenAggregate does not show its output |  Minor | SQL | Yin Huai | Yin Huai |
 | [SPARK-9908](https://issues.apache.org/jira/browse/SPARK-9908) | TPCDS Q98 failed when tungsten is off |  Blocker | SQL | Davies Liu | Yin Huai |

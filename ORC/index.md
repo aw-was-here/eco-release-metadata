@@ -17,5 +17,5 @@
 # limitations under the License.
 -->
 * Apache Orc v1.0.0
-    * Changes (1.0.0/CHANGES.1.0.0.html)
-    * Release Notes (1.0.0/RELEASENOTES.1.0.0.html)
+    * [Changes](1.0.0/CHANGES.1.0.0.html)
+    * [Release Notes](1.0.0/RELEASENOTES.1.0.0.html)

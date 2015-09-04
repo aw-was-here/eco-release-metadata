@@ -236,7 +236,7 @@ Changed fetchOutputs() so that LocalFSMerger and InMemFSMergeThread threads are 
 
 * [HADOOP-3317](https://issues.apache.org/jira/browse/HADOOP-3317) | *Minor* | **add default port for hdfs namenode**
 
-Changed the default port for  "hdfs:" URIs to be 8020, so that one may simply use URIs of the form "hdfs\://example.com/dir/file".
+Changed the default port for  "hdfs:" URIs to be 8020, so that one may simply use URIs of the form "hdfs://example.com/dir/file".
 
 
 ---

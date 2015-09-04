@@ -35,10 +35,10 @@ I've scanned the ORC C++ code base and it identified some potential issues. Look
 The ORC C++ direct string column reader can occasionally skip bytes in the blob stream.
 
 The necessary conditions are:
-* The column is a string column and is directly encoded.
-* The blob stream for the row batch crosses a compression block boundary.
-* There is a null value toward the end of the block boundary.
-* The value in the length value of the null value crosses the block boundary, but the length value of the following value does not.
+\* The column is a string column and is directly encoded.
+\* The blob stream for the row batch crosses a compression block boundary.
+\* There is a null value toward the end of the block boundary.
+\* The value in the length value of the null value crosses the block boundary, but the length value of the following value does not.
 
 
 ---
@@ -46,9 +46,9 @@ The necessary conditions are:
 * [ORC-23](https://issues.apache.org/jira/browse/ORC-23) | *Major* | **Simplify the C++ directory structure a bit**
 
 I want to simplify the directory structure a bit:
-* c++/src/orc -> c++/src
-* c++/test/orc -> c++/test
-* tools-c++ -> tools
+\* c++/src/orc -\> c++/src
+\* c++/test/orc -\> c++/test
+\* tools-c++ -\> tools
 
 
 ---

@@ -187,7 +187,7 @@ You can do the following to mitigate the problem:
 
 Adds buffer reuse sending Cell results. It is on by default and should not need configuration. Improves GC profile and ups throughput. The benefit gets better the larger the row size returned.
 
-The buffer reservoir is bounded at a maximum count after which we will start logging at WARN level that the reservoir is running at capacity (returned buffers will be discarded and not added back to the reservoir pool). Default maximum is twice the handler count: i.e. 2 * hbase.regionserver.handler.count. This should be more than enough. Set the maximum with the new configuration: hbase.ipc.server.reservoir.max
+The buffer reservoir is bounded at a maximum count after which we will start logging at WARN level that the reservoir is running at capacity (returned buffers will be discarded and not added back to the reservoir pool). Default maximum is twice the handler count: i.e. 2 \* hbase.regionserver.handler.count. This should be more than enough. Set the maximum with the new configuration: hbase.ipc.server.reservoir.max
 
 The reservoir will not cache buffers in excess of hbase.ipc.server.reservoir.max.buffer.size  The default is 10MB. This means that if a row is very large, then we will allocate a buffer of the average size that is currently in the pool and we will then resize it till we can accommodate the return. These resizes are expensive. The resultant buffer will be used and then discarded.
 
@@ -320,7 +320,7 @@ User can specify ONE\_SSD or ALL\_SSD as the value:
 ONE\_SSD: place only one replica of WAL files in SSD and the remaining in default storage
 ALL\_SSD: all replica for WAL files are placed on SSD
 
-See [the HDFS docs on storage policy|http://hadoop.apache.org/docs/r2.6.0/hadoop-project-dist/hadoop-hdfs/ArchivalStorage.html]
+See [the HDFS docs on storage policy\|http://hadoop.apache.org/docs/r2.6.0/hadoop-project-dist/hadoop-hdfs/ArchivalStorage.html]
 
 
 ---
@@ -338,11 +338,11 @@ Administrative actions on visibility labels, such as creation of a label or chan
 
 TableInputFormatBase#initialize() has been added:
 
-  /**
-   * This method will be called when any of the following are referenced, but not yet initialized:
-   * admin, regionLocator, table. Subclasses will have the opportunity to call
-   * {@link #initializeTable(Connection, TableName)}
-   */
+  /\*\*
+   \* This method will be called when any of the following are referenced, but not yet initialized:
+   \* admin, regionLocator, table. Subclasses will have the opportunity to call
+   \* {@link #initializeTable(Connection, TableName)}
+   \*/
   protected void initialize() {
 
 
@@ -392,7 +392,7 @@ This feature incorporates reported regionserver heap occupancy in the (optional)
 
 * [HBASE-12728](https://issues.apache.org/jira/browse/HBASE-12728) | *Blocker* | **buffered writes substantially less useful after removal of HTablePool**
 
-In our pre-1.0 API, HTable is considered a light-weight object that consumed by a single thread at a time. The HTablePool class provided a means of sharing multiple HTable instances across a number of threads. As an optimization, HTable managed a "write buffer", accumulating edits and sending a "batch" all at once. By default the batch was sent as the last step in invocations of put(Put) and put(List<Put>). The user could disable the automatic flushing of the write buffer, retaining edits locally and only sending the whole "batch" once the write buffer has filled or when the flushCommits() method in invoked explicitly. Explicit or implicit batch writing was controlled by the setAutoFlushTo(boolean) method. A value of true (the default) had the write buffer flushed at the completion of a call to put(Put) or put(List<Put>). A value of false allowed for explicit buffer management. HTable also exposed the buffer to consumers via getWriteBuffer().
+In our pre-1.0 API, HTable is considered a light-weight object that consumed by a single thread at a time. The HTablePool class provided a means of sharing multiple HTable instances across a number of threads. As an optimization, HTable managed a "write buffer", accumulating edits and sending a "batch" all at once. By default the batch was sent as the last step in invocations of put(Put) and put(List\<Put\>). The user could disable the automatic flushing of the write buffer, retaining edits locally and only sending the whole "batch" once the write buffer has filled or when the flushCommits() method in invoked explicitly. Explicit or implicit batch writing was controlled by the setAutoFlushTo(boolean) method. A value of true (the default) had the write buffer flushed at the completion of a call to put(Put) or put(List\<Put\>). A value of false allowed for explicit buffer management. HTable also exposed the buffer to consumers via getWriteBuffer().
 
 The combination of HTable with setAutoFlushTo(false) and the HTablePool provided a convenient mechanism by which multiple "Put-producing" threads could share a common write buffer. Both HTablePool and HTable are deprecated, and they are officially replaced in The new 1.0 API by Table and BufferedMutator. Table, which replaces HTable, no longer exposes explicit write-buffer management. Instead, explicit buffer management is exposed via BufferedMutator. BufferedMutator is made safe for concurrent use. Where code would previously retrieve and return HTables from an HTablePool, now that code creates and shares a single BufferedMutator instance across all threads.
 
@@ -457,10 +457,10 @@ Adds a new option to HBCK tool -fixOrphanedTableZnodes, which fixes orphaned tab
 
 Adds a configuration property "hbase.regionserver.handler.abort.on.error.percent" for aborting the region server when some of it's handler threads die. The default value is 0.5 causing an abort in the RS when half of it's handler threads die. A handler thread only dies in case of a serious software bug, or a non-recoverable Error (StackOverflow, OOM, etc) is thrown. 
 These are possible values for the configuration:
-   * -1  => Disable aborting
-   * 0   => Abort if even a single handler has died
-   * 0.x => Abort only when this percent of handlers have died
-   * 1   => Abort only all of the handers have died
+   \* -1  =\> Disable aborting
+   \* 0   =\> Abort if even a single handler has died
+   \* 0.x =\> Abort only when this percent of handlers have died
+   \* 1   =\> Abort only all of the handers have died
 
 
 ---
@@ -512,28 +512,28 @@ MultiRowRangeFilter is a filter to support scanning multiple row key ranges. If 
 
 for 0.98 and 1.0 changes are compatible (due to mitigation by HBASE-13433):
 
-* The "get\_counter" command no longer requires a dummy 4th argument. Downstream users are encouraged to migrate code to not pass this argument because it will result in an error for HBase 1.1+.
-* The "incr" command now outputs the current value of the counter to stdout.
+\* The "get\_counter" command no longer requires a dummy 4th argument. Downstream users are encouraged to migrate code to not pass this argument because it will result in an error for HBase 1.1+.
+\* The "incr" command now outputs the current value of the counter to stdout.
 ex:
 {code}
-jruby-1.6.8 :005 > incr 'counter\_example', 'r1', 'cf1:foo', 10
+jruby-1.6.8 :005 \> incr 'counter\_example', 'r1', 'cf1:foo', 10
 COUNTER VALUE = 1772
 0 row(s) in 0.1180 seconds
 {code}
 
 for 1.1+ changes are incompatible:
 
-* The "get\_counter" command no longer accepts a dummy 4th argument. Downstream users will need to update their code to not pass this argument.
+\* The "get\_counter" command no longer accepts a dummy 4th argument. Downstream users will need to update their code to not pass this argument.
 ex:
 {code}
-jruby-1.6.8 :006 > get\_counter 'counter\_example', 'r1', 'cf1:foo'
+jruby-1.6.8 :006 \> get\_counter 'counter\_example', 'r1', 'cf1:foo'
 COUNTER VALUE = 1772
 
 {code}
-* The "incr" command now outputs the current value of the counter to stdout.
+\* The "incr" command now outputs the current value of the counter to stdout.
 ex:
 {code}
-jruby-1.6.8 :005 > incr 'counter\_example', 'r1', 'cf1:foo', 10
+jruby-1.6.8 :005 \> incr 'counter\_example', 'r1', 'cf1:foo', 10
 COUNTER VALUE = 1772
 0 row(s) in 0.1180 seconds
 {code}
@@ -543,7 +543,7 @@ COUNTER VALUE = 1772
 
 * [HBASE-10201](https://issues.apache.org/jira/browse/HBASE-10201) | *Major* | **Port 'Make flush decisions per column family' to trunk**
 
-Adds new flushing policy mechanism. Default, org.apache.hadoop.hbase.regionserver.FlushLargeStoresPolicy, will try to avoid flushing out the small column families in a region, those whose memstores are < hbase.hregion.percolumnfamilyflush.size.lower.bound. To restore the old behavior of flushes writing out all column families, set hbase.regionserver.flush.policy to org.apache.hadoop.hbase.regionserver.FlushAllStoresPolicy either in hbase-default.xml or on a per-table basis by setting the policy to use with HTableDescriptor.getFlushPolicyClassName().
+Adds new flushing policy mechanism. Default, org.apache.hadoop.hbase.regionserver.FlushLargeStoresPolicy, will try to avoid flushing out the small column families in a region, those whose memstores are \< hbase.hregion.percolumnfamilyflush.size.lower.bound. To restore the old behavior of flushes writing out all column families, set hbase.regionserver.flush.policy to org.apache.hadoop.hbase.regionserver.FlushAllStoresPolicy either in hbase-default.xml or on a per-table basis by setting the policy to use with HTableDescriptor.getFlushPolicyClassName().
 
 
 ---
@@ -559,8 +559,8 @@ Add support for codec and cipher in HFilePerformanceEvaluation
 
 Adds compaction throughput limit mechanism(the word "throttle" is already used when choosing compaction thread pool, so use a different word here to avoid ambiguity). Default is org.apache.hadoop.hbase.regionserver.compactions.PressureAwareCompactionThroughputController, will limit throughput as follow:
 1. In off peak hours, use a fixed limitation "hbase.hstore.compaction.throughput.offpeak" (default is Long.MAX\_VALUE which means no limitation).
-2. In normal hours, the limitation is tuned between "hbase.hstore.compaction.throughput.lower.bound"(default 10MB/sec) and "hbase.hstore.compaction.throughput.higher.bound"(default 20MB/sec), using the formula "lower + (higer - lower) * param" where param is in range [0.0, 1.0] and calculate based on store files count on this regionserver.
-3. If some stores have too many store files(storefilesCount > blockingFileCount), then there is no limitation no matter peak or off peak.
+2. In normal hours, the limitation is tuned between "hbase.hstore.compaction.throughput.lower.bound"(default 10MB/sec) and "hbase.hstore.compaction.throughput.higher.bound"(default 20MB/sec), using the formula "lower + (higer - lower) \* param" where param is in range [0.0, 1.0] and calculate based on store files count on this regionserver.
+3. If some stores have too many store files(storefilesCount \> blockingFileCount), then there is no limitation no matter peak or off peak.
 You can set "hbase.regionserver.throughput.controller" to org.apache.hadoop.hbase.regionserver.compactions.NoLimitCompactionThroughputController to disable throughput controlling.
 And we have implemented ConfigurationObserver which means you can change all configurations above and do not need to restart cluster.
 
@@ -577,10 +577,10 @@ Adds counts for various regions states to the table listing on main page. See at
 * [HBASE-6778](https://issues.apache.org/jira/browse/HBASE-6778) | *Major* | **Deprecate Chore; its a thread per task when we should have one thread to do all tasks**
 
 Corresponding usages for new ScheduledChore vs. Deprecated Chore:
-Chore.interrupt() -> ScheduledChore.cancel(mayInterruptWhileRunning = true)
-Threads.setDaemonThreadRunning(Chore) -> ChoreService.scheduleChore(ScheduledChore)
-Chore.isAlive -> ScheduledChore.isScheduled()
-Chore.getSleeper().skipSleepCycle() -> ScheduledChore.triggerNow()
+Chore.interrupt() -\> ScheduledChore.cancel(mayInterruptWhileRunning = true)
+Threads.setDaemonThreadRunning(Chore) -\> ChoreService.scheduleChore(ScheduledChore)
+Chore.isAlive -\> ScheduledChore.isScheduled()
+Chore.getSleeper().skipSleepCycle() -\> ScheduledChore.triggerNow()
 
 
 ---

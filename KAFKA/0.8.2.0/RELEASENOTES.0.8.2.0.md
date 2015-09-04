@@ -40,7 +40,7 @@ However, Yammer metric reporter seems to only use the first four fields group, t
 
 * [KAFKA-1879](https://issues.apache.org/jira/browse/KAFKA-1879) | *Major* | **Log warning when receiving produce requests with acks \> 1**
 
-0.8.2 deprecates support for acks > 1.
+0.8.2 deprecates support for acks \> 1.
 We want to start logging warnings when client use this deprecated behavior, so we can safely drop it in the next release (see KAFKA-1697 for more details).
 
 
@@ -49,12 +49,12 @@ We want to start logging warnings when client use this deprecated behavior, so w
 * [KAFKA-1876](https://issues.apache.org/jira/browse/KAFKA-1876) | *Blocker* | **pom file for scala 2.11 should reference a specific version**
 
 Currently, the pom file specifies the following scala dependency for 2.11.
-    <dependency>
-      <groupId>org.scala-lang</groupId>
-      <artifactId>scala-library</artifactId>
-      <version>2.11</version>
-      <scope>compile</scope>
-    </dependency>
+    \<dependency\>
+      \<groupId\>org.scala-lang\</groupId\>
+      \<artifactId\>scala-library\</artifactId\>
+      \<version\>2.11\</version\>
+      \<scope\>compile\</scope\>
+    \</dependency\>
 However, there is no 2.11 in maven central (there are only 2.11.1, 2.11.2, etc).
 
 
@@ -217,8 +217,8 @@ org.apache.kafka.common.config.ConfigException: Unknown configuration 'org.apach
 	at org.apache.kafka.common.config.AbstractConfig.get(AbstractConfig.java:60)
 	at org.apache.kafka.common.config.AbstractConfig.getClass(AbstractConfig.java:91)
 	at org.apache.kafka.common.config.AbstractConfig.getConfiguredInstances(AbstractConfig.java:147)
-	at org.apache.kafka.clients.producer.KafkaProducer.<init>(KafkaProducer.java:105)
-	at org.apache.kafka.clients.producer.KafkaProducer.<init>(KafkaProducer.java:94)
+	at org.apache.kafka.clients.producer.KafkaProducer.\<init\>(KafkaProducer.java:105)
+	at org.apache.kafka.clients.producer.KafkaProducer.\<init\>(KafkaProducer.java:94)
 
 
 ---
@@ -241,11 +241,11 @@ See Gwen's code snippet in http://search-hadoop.com/m/4TaT4xtk36/Programmatic+Ka
 
 the following portion of html at http://kafka.apache.org/documentation.html seems to be wrong:
 
-<h3><a id="upgrade">1.4 Ecosystem</a></h3>
+\<h3\>\<a id="upgrade"\>1.4 Ecosystem\</a\>\</h3\>
 
 it should be
 
-<h3><a id="ecosystem">1.4 Ecosystem</a></h3>
+\<h3\>\<a id="ecosystem"\>1.4 Ecosystem\</a\>\</h3\>
 
 Why don't you have Kafka docs in github also? If you had it would be trivial to create a PR to fix this issue
 
@@ -280,7 +280,7 @@ The thread stack trace is as below:
 on condition [0x00007ff4f0124000]
    java.lang.Thread.State: WAITING (parking)
         at sun.misc.Unsafe.park(Native Method)
-        - parking to wait for  <0x0000000680b96bf0> (a
+        - parking to wait for  \<0x0000000680b96bf0\> (a
 java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
         at java.util.concurrent.locks.LockSupport.park(LockSupport.java:175)
         at
@@ -302,7 +302,7 @@ kafka.consumer.ZookeeperConsumerConnector.sendShutdownToAllQueues(ZookeeperConsu
 kafka.consumer.ZookeeperConsumerConnector.liftedTree1$1(ZookeeperConsumerConnector.scala:199)
         at
 kafka.consumer.ZookeeperConsumerConnector.shutdown(ZookeeperConsumerConnector.scala:192)
-        - locked <0x0000000680dd5848> (a java.lang.Object)
+        - locked \<0x0000000680dd5848\> (a java.lang.Object)
         at
 kafka.tools.MirrorMaker$$anonfun$cleanShutdown$1.apply(MirrorMaker.scala:185)
         at
@@ -348,14 +348,14 @@ This is because it removes the topic from some underlying maps through dropWhile
 
 We are using Kafka Topic APIs to create the topic. But in some cases, the topic gets created but we don't see the partition specific files and when producer/consumer tries to get the topic metadata and it fails with exception. Same happens if one tries to create using the command line.
 
-k.p.BrokerPartitionInfo - Error while fetching metadata [{TopicMetadata for topic tloader1 -> No partition metadata for topic tloader1 due to kafka.common.UnknownTopicOrPartitionException}] for topic [tloader1]: class kafka.common.UnknownTopicOrPartitionException
+k.p.BrokerPartitionInfo - Error while fetching metadata [{TopicMetadata for topic tloader1 -\> No partition metadata for topic tloader1 due to kafka.common.UnknownTopicOrPartitionException}] for topic [tloader1]: class kafka.common.UnknownTopicOrPartitionException
 
 Steps to reproduce - 
 
-1.      Stop kafka using kill  -9 <PID of Kafka>
+1.      Stop kafka using kill  -9 \<PID of Kafka\>
 2.      Start Kafka
 3.      Create Topic with partition and replication factor of 1.
-4.      Check the response “Created topic <topic\_name>”
+4.      Check the response “Created topic \<topic\_name\>”
 5.      Run the list command to verify if its created.
 6.      Now check the data directory of kakfa. There would not be any for the newly created topic.
 
@@ -379,7 +379,7 @@ java.io.EOFException: Received -1 when reading from channel, socket has likely b
 	at kafka.network.BlockingChannel.receive(BlockingChannel.scala:108)
 	at kafka.controller.RequestSendThread.doWork(ControllerChannelManager.scala:146)
 	at kafka.utils.ShutdownableThread.run(ShutdownableThread.scala:60)
-[2014-11-03 13:12:50,965] ERROR [Controller-0-to-broker-0-send-thread], Controller 0 epoch 2 failed to send request Name:UpdateMetadataRequest;Version:0;Controller:0;ControllerEpoch:2;CorrelationId:43;ClientId:id\_0-host\_null-port\_9092;AliveBrokers:id:0,host:DMIPVM,port:9092;PartitionState:[JobJTopic,0] -> (LeaderAndIsrInfo:(Leader:0,ISR:0,LeaderEpoch:0,ControllerEpoch:2),ReplicationFactor:1),AllReplicas:0) to broker id:0,host:DMIPVM,port:9092. Reconnecting to broker. (kafka.controller.RequestSendThread)
+[2014-11-03 13:12:50,965] ERROR [Controller-0-to-broker-0-send-thread], Controller 0 epoch 2 failed to send request Name:UpdateMetadataRequest;Version:0;Controller:0;ControllerEpoch:2;CorrelationId:43;ClientId:id\_0-host\_null-port\_9092;AliveBrokers:id:0,host:DMIPVM,port:9092;PartitionState:[JobJTopic,0] -\> (LeaderAndIsrInfo:(Leader:0,ISR:0,LeaderEpoch:0,ControllerEpoch:2),ReplicationFactor:1),AllReplicas:0) to broker id:0,host:DMIPVM,port:9092. Reconnecting to broker. (kafka.controller.RequestSendThread)
 java.nio.channels.ClosedChannelException
 	at kafka.network.BlockingChannel.send(BlockingChannel.scala:97)
 	at kafka.controller.RequestSendThread.liftedTree1$1(ControllerChannelManager.scala:132)
@@ -398,9 +398,9 @@ Using DumpLogSegments in a directory that has a '.' that isn't part of the file 
 Dumping /Users/ewencp/kafka.git/system\_test/replication\_testsuite/testcase\_1/logs/broker-3/kafka\_server\_3\_logs/test\_1-1/00000000000000016895.index
 Exception in thread "main" java.io.FileNotFoundException: /Users/ewencp/kafka.log (No such file or directory)
 	at java.io.FileInputStream.open(Native Method)
-	at java.io.FileInputStream.<init>(FileInputStream.java:146)
+	at java.io.FileInputStream.\<init\>(FileInputStream.java:146)
 	at kafka.utils.Utils$.openChannel(Utils.scala:162)
-	at kafka.log.FileMessageSet.<init>(FileMessageSet.scala:74)
+	at kafka.log.FileMessageSet.\<init\>(FileMessageSet.scala:74)
 	at kafka.tools.DumpLogSegments$.kafka$tools$DumpLogSegments$$dumpIndex(DumpLogSegments.scala:109)
 	at kafka.tools.DumpLogSegments$$anonfun$main$1.apply(DumpLogSegments.scala:80)
 	at kafka.tools.DumpLogSegments$$anonfun$main$1.apply(DumpLogSegments.scala:73)
@@ -441,7 +441,7 @@ From the mailing list, it can generate this exception:
 2014-10-20 18:55:21.841 [kafka-producer-network-thread] ERROR
 org.apache.kafka.clients.producer.internals.Sender - Uncaught error in
 kafka producer I/O thread:
-*java.lang.NullPointerException*
+\*java.lang.NullPointerException\*
 at
 org.xerial.snappy.BufferRecycler.releaseInputBuffer(BufferRecycler.java:153)
 at org.xerial.snappy.SnappyOutputStream.close(SnappyOutputStream.java:317)
@@ -522,7 +522,7 @@ org.apache.kafka.clients.producer.KafkaProducer
 {code}
 String ioThreadName = "kafka-producer-network-thread";
  if(clientId != null){
-        	ioThreadName = ioThreadName  + " | "+clientId; 
+        	ioThreadName = ioThreadName  + " \| "+clientId; 
         }        
         this.ioThread = new KafkaThread(ioThreadName, this.sender, true);
 {code}
@@ -546,18 +546,18 @@ https://repository.apache.org/content/groups/staging/org/apache/kafka/
 
 * [KAFKA-1670](https://issues.apache.org/jira/browse/KAFKA-1670) | *Blocker* | **Corrupt log files for segment.bytes values close to Int.MaxInt**
 
-The maximum value for the topic-level config {{segment.bytes}} is {{Int.MaxInt}} (2147483647). *Using this value causes brokers to corrupt their log files, leaving them unreadable.*
+The maximum value for the topic-level config {{segment.bytes}} is {{Int.MaxInt}} (2147483647). \*Using this value causes brokers to corrupt their log files, leaving them unreadable.\*
 
-We set {{segment.bytes}} to {{2122317824}} which is well below the maximum. One by one, the ISR of all partitions shrunk to 1. Brokers would crash when restarted, attempting to read from a negative offset in a log file. After discovering that many segment files had grown to 4GB or more, we were forced to shut down our *entire production Kafka cluster* for several hours while we split all segment files into 1GB chunks.
+We set {{segment.bytes}} to {{2122317824}} which is well below the maximum. One by one, the ISR of all partitions shrunk to 1. Brokers would crash when restarted, attempting to read from a negative offset in a log file. After discovering that many segment files had grown to 4GB or more, we were forced to shut down our \*entire production Kafka cluster\* for several hours while we split all segment files into 1GB chunks.
 
-Looking into the {{kafka.log}} code, the {{segment.bytes}} parameter is used inconsistently. It is treated as a *soft* maximum for the size of the segment file (https://github.com/apache/kafka/blob/0.8.1.1/core/src/main/scala/kafka/log/LogConfig.scala#L26) with logs rolled only after (https://github.com/apache/kafka/blob/0.8.1.1/core/src/main/scala/kafka/log/Log.scala#L246) they exceed this value. However, much of the code that deals with log files uses *ints* to store the size of the file and the position in the file. Overflow of these ints leads the broker to append to the segments indefinitely, and to fail to read these segments for consuming or recovery.
+Looking into the {{kafka.log}} code, the {{segment.bytes}} parameter is used inconsistently. It is treated as a \*soft\* maximum for the size of the segment file (https://github.com/apache/kafka/blob/0.8.1.1/core/src/main/scala/kafka/log/LogConfig.scala#L26) with logs rolled only after (https://github.com/apache/kafka/blob/0.8.1.1/core/src/main/scala/kafka/log/Log.scala#L246) they exceed this value. However, much of the code that deals with log files uses \*ints\* to store the size of the file and the position in the file. Overflow of these ints leads the broker to append to the segments indefinitely, and to fail to read these segments for consuming or recovery.
 
 This is trivial to reproduce:
 
 {code}
 $ bin/kafka-topics.sh --topic segment-bytes-test --create --replication-factor 2 --partitions 1 --zookeeper zkhost:2181
 $ bin/kafka-topics.sh --topic segment-bytes-test --alter --config segment.bytes=2147483647 --zookeeper zkhost:2181
-$ yes "Int.MaxValue is a ridiculous bound on file size in 2014" | bin/kafka-console-producer.sh --broker-list localhost:6667 zkhost:2181 --topic segment-bytes-test
+$ yes "Int.MaxValue is a ridiculous bound on file size in 2014" \| bin/kafka-console-producer.sh --broker-list localhost:6667 zkhost:2181 --topic segment-bytes-test
 {code}
 
 After running for a few minutes, the log file is corrupt:
@@ -607,11 +607,11 @@ ant:scaladoc] java.lang.OutOfMemoryError: PermGen space
 
 FAILURE: Build failed with an exception.
 
-* What went wrong:
+\* What went wrong:
 Execution failed for task ':core:scaladoc'.
-> PermGen space
+\> PermGen space
 
-* Try:
+\* Try:
 Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output.
 
 BUILD FAILED
@@ -620,7 +620,7 @@ Total time: 5 mins 55.53 secs
 
 FAILURE: Build failed with an exception.
 
-* What went wrong:
+\* What went wrong:
 PermGen space
 
 
@@ -641,18 +641,18 @@ We ran into this scenario recently in a production environment. This can happen 
 
 Here is a sample scenario:
 
-* Cluster of three brokers: b0, b1, b2
-* Two partitions (of some topic) with replication factor two: p0, p1
-* Initial state:
+\* Cluster of three brokers: b0, b1, b2
+\* Two partitions (of some topic) with replication factor two: p0, p1
+\* Initial state:
 p0: leader = b0, ISR = {b0, b1}
 p1: leader = b1, ISR = {b0, b1}
-* Do a parallel hard-kill of all brokers
-* Bring up b2, so it is the new controller
-* b2 initializes its controller context and populates its leader/ISR cache (i.e., controllerContext.partitionLeadershipInfo) from zookeeper. The last known leaders are b0 (for p0) and b1 (for p2)
-* Bring up b1
-* The controller's onBrokerStartup procedure initiates a replica state change for all replicas on b1 to become online. As part of this replica state change it gets the last known leader and ISR and sends a LeaderAndIsrRequest to b1 (for p1 and p2). This LeaderAndIsr request contains: {{p0: leader=b0; p1: leader=b1;} leaders=b1}. b0 is indicated as the leader of p0 but it is not included in the leaders field because b0 is down.
-* On receiving the LeaderAndIsrRequest, b1's replica manager will successfully make itself (b1) the leader for p1 (and create the local replica object corresponding to p1). It will however abort the become follower transition for p0 because the designated leader b0 is offline. So it will not create the local replica object for p0.
-* It will then start the high water mark checkpoint thread. Since only p1 has a local replica object, only p1's high water mark will be checkpointed to disk. p0's previously written checkpoint  if any will be lost.
+\* Do a parallel hard-kill of all brokers
+\* Bring up b2, so it is the new controller
+\* b2 initializes its controller context and populates its leader/ISR cache (i.e., controllerContext.partitionLeadershipInfo) from zookeeper. The last known leaders are b0 (for p0) and b1 (for p2)
+\* Bring up b1
+\* The controller's onBrokerStartup procedure initiates a replica state change for all replicas on b1 to become online. As part of this replica state change it gets the last known leader and ISR and sends a LeaderAndIsrRequest to b1 (for p1 and p2). This LeaderAndIsr request contains: {{p0: leader=b0; p1: leader=b1;} leaders=b1}. b0 is indicated as the leader of p0 but it is not included in the leaders field because b0 is down.
+\* On receiving the LeaderAndIsrRequest, b1's replica manager will successfully make itself (b1) the leader for p1 (and create the local replica object corresponding to p1). It will however abort the become follower transition for p0 because the designated leader b0 is offline. So it will not create the local replica object for p0.
+\* It will then start the high water mark checkpoint thread. Since only p1 has a local replica object, only p1's high water mark will be checkpointed to disk. p0's previously written checkpoint  if any will be lost.
 
 So in summary it seems we should always create the local replica object even if the online transition does not happen.
 
@@ -672,7 +672,7 @@ the rest... can we just delete them? Do we need/want them anymore?
 
 {code}
 
-root@precise64:~/kafka-0.8.1.1-src# find ./ -name *jar
+root@precise64:~/kafka-0.8.1.1-src# find ./ -name \*jar
 ./gradle/wrapper/gradle-wrapper.jar
 ./lib/apache-rat-0.8.jar
 ./system\_test/migration\_tool\_testsuite/0.7/lib/kafka-0.7.0.jar
@@ -770,11 +770,11 @@ error: error while loading Arrays, class file '/usr/lib/jvm/java-8-oracle/jre/li
 
 FAILURE: Build failed with an exception.
 
-* What went wrong:
+\* What went wrong:
 Execution failed for task ':core:compileScala'.
-> org.gradle.messaging.remote.internal.PlaceholderException (no error message)
+\> org.gradle.messaging.remote.internal.PlaceholderException (no error message)
 
-* Try:
+\* Try:
 Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output.
 
 BUILD FAILED
@@ -825,9 +825,9 @@ java.lang.ArrayIndexOutOfBoundsException: 1
 	at scala.collection.TraversableLike$class.map(TraversableLike.scala:244)
 	at scala.collection.AbstractTraversable.map(Traversable.scala:105)
 	at kafka.client.ClientUtils$.parseBrokerList(ClientUtils.scala:97)
-	at kafka.producer.BrokerPartitionInfo.<init>(BrokerPartitionInfo.scala:32)
-	at kafka.producer.async.DefaultEventHandler.<init>(DefaultEventHandler.scala:41)
-	at kafka.producer.Producer.<init>(Producer.scala:59)
+	at kafka.producer.BrokerPartitionInfo.\<init\>(BrokerPartitionInfo.scala:32)
+	at kafka.producer.async.DefaultEventHandler.\<init\>(DefaultEventHandler.scala:41)
+	at kafka.producer.Producer.\<init\>(Producer.scala:59)
 	at kafka.producer.ConsoleProducer$.main(ConsoleProducer.scala:158)
 	at kafka.producer.ConsoleProducer.main(ConsoleProducer.scala)
 
@@ -897,15 +897,15 @@ I guess that this one is super-nit, but I've noticed that the name {{kafkaServer
 This patch adds two metrics:
 
 h3. ResponseQueueSize
-As of 0.8.1, the sizes of the response queues are [reported as different metrics|https://github.com/apache/kafka/blob/0.8.1/core/src/main/scala/kafka/network/RequestChannel.scala#L127-L134] - one per processor thread. This is not very ideal for different reasons:
-* charts have to sum the different metrics
-* the metrics collection system might not support 'wild card queries' like {{sum:kafka.network.RequestChannel.Processor\_*\_ResponseQueueSize}} in which case monitoring now depends on the number of configured network threads
-* monitoring the response by thread is not very valuable. However the global number of responses is useful.
+As of 0.8.1, the sizes of the response queues are [reported as different metrics\|https://github.com/apache/kafka/blob/0.8.1/core/src/main/scala/kafka/network/RequestChannel.scala#L127-L134] - one per processor thread. This is not very ideal for different reasons:
+\* charts have to sum the different metrics
+\* the metrics collection system might not support 'wild card queries' like {{sum:kafka.network.RequestChannel.Processor\_\*\_ResponseQueueSize}} in which case monitoring now depends on the number of configured network threads
+\* monitoring the response by thread is not very valuable. However the global number of responses is useful.
 
-* proposal*
+\* proposal\*
 So this patch exposes the total number of queued responses as a metric {{ResponseQueueSize}}
 
-*implementation*
+\*implementation\*
 In {{RequestChannel}}, create a Gauge that adds up the size of the response queues.
 
 
@@ -913,11 +913,11 @@ h3. BeingSentResponses
 As of 0.8.1, the processor threads will poll responses from the queues and attach them to the SelectionKey as fast as possible. The consequence of that is that the response queues are not a good indicator of the number of "in-flight" responses. The {{ServerSocketChannel}} acting as another queue of response to be sent.
 The current metrics don't reflect the size of this "buffer", which is an issue.
 
-*proposal*
+\*proposal\*
 This patch adds a gauge that keeps track of the number of responses being handled by the {{ServerSocketChannel}}.
 That new metric is named "BeingSentResponses" (who said naming was hard?)
 
-*implementation*
+\*implementation\*
 To calculate that metric, the patch adds up the number of SelectionKeys interested in writing, across processor threads.
 
 Another approach could be to keep all in-flight responses in a data structure (let's say a map) shared by the processor threads. A response will be added to that map when dequeued from the response queue, and removed when the write is complete. The gauge will simply report the size of that map. I decided against that second approach as it is more intrusive and requires some additional bookkeeping to gather information already available through the {{SelectionKey}}'s
@@ -993,9 +993,9 @@ Saw the following stacktrace.
         at sun.nio.ch.KQueueArrayWrapper.poll(KQueueArrayWrapper.java:136)
         at sun.nio.ch.KQueueSelectorImpl.doSelect(KQueueSelectorImpl.java:69)
         at sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:69)
-        - locked <7f4a80328> (a sun.nio.ch.Util$2)
-        - locked <7f4a80310> (a java.util.Collections$UnmodifiableSet)
-        - locked <7f4a71968> (a sun.nio.ch.KQueueSelectorImpl)
+        - locked \<7f4a80328\> (a sun.nio.ch.Util$2)
+        - locked \<7f4a80310\> (a java.util.Collections$UnmodifiableSet)
+        - locked \<7f4a71968\> (a sun.nio.ch.KQueueSelectorImpl)
         at sun.nio.ch.SelectorImpl.select(SelectorImpl.java:80)
         at kafka.network.Processor.run(SocketServer.scala:296)
         at java.lang.Thread.run(Thread.java:695)
@@ -1003,7 +1003,7 @@ Saw the following stacktrace.
 "Test worker" prio=5 tid=7fc7e50d4800 nid=0x11534c000 waiting on condition [115349000]
    java.lang.Thread.State: WAITING (parking)
         at sun.misc.Unsafe.park(Native Method)
-        - parking to wait for  <7f4a69d50> (a java.util.concurrent.CountDownLatch$Sync)
+        - parking to wait for  \<7f4a69d50\> (a java.util.concurrent.CountDownLatch$Sync)
         at java.util.concurrent.locks.LockSupport.park(LockSupport.java:156)
         at java.util.concurrent.locks.AbstractQueuedSynchronizer.parkAndCheckInterrupt(AbstractQueuedSynchronizer.java:811)
         at java.util.concurrent.locks.AbstractQueuedSynchronizer.doAcquireSharedInterruptibly(AbstractQueuedSynchronizer.java:969)
@@ -1035,25 +1035,25 @@ Saw the following stacktrace.
 "Thread-47" prio=10 tid=0x00007fb5b00a5000 nid=0x25de in Object.wait() [0x00007fb5af9f8000]
    java.lang.Thread.State: TIMED\_WAITING (on object monitor)
         at java.lang.Object.wait(Native Method)
-        - waiting on <0x00000006b0925e40> (a org.apache.kafka.clients.producer.internals.Metadata)
+        - waiting on \<0x00000006b0925e40\> (a org.apache.kafka.clients.producer.internals.Metadata)
         at org.apache.kafka.clients.producer.internals.Metadata.awaitUpdate(Metadata.java:107)
-        - locked <0x00000006b0925e40> (a org.apache.kafka.clients.producer.internals.Metadata)
+        - locked \<0x00000006b0925e40\> (a org.apache.kafka.clients.producer.internals.Metadata)
         at org.apache.kafka.clients.producer.MetadataTest$1.run(MetadataTest.java:57)
 
 "Thread-46" prio=10 tid=0x00007fb5b00a3800 nid=0x25dd in Object.wait() [0x00007fb5afbfa000]
    java.lang.Thread.State: TIMED\_WAITING (on object monitor)
         at java.lang.Object.wait(Native Method)
-        - waiting on <0x00000006b0925e40> (a org.apache.kafka.clients.producer.internals.Metadata)
+        - waiting on \<0x00000006b0925e40\> (a org.apache.kafka.clients.producer.internals.Metadata)
         at org.apache.kafka.clients.producer.internals.Metadata.awaitUpdate(Metadata.java:107)
-        - locked <0x00000006b0925e40> (a org.apache.kafka.clients.producer.internals.Metadata)
+        - locked \<0x00000006b0925e40\> (a org.apache.kafka.clients.producer.internals.Metadata)
         at org.apache.kafka.clients.producer.MetadataTest$1.run(MetadataTest.java:57)
 
 "Test worker" prio=10 tid=0x00007fb610891000 nid=0x25b1 in Object.wait() [0x00007fb5d4a5f000]
    java.lang.Thread.State: WAITING (on object monitor)
         at java.lang.Object.wait(Native Method)
-        - waiting on <0x00000006b0926700> (a org.apache.kafka.clients.producer.MetadataTest$1)
+        - waiting on \<0x00000006b0926700\> (a org.apache.kafka.clients.producer.MetadataTest$1)
         at java.lang.Thread.join(Thread.java:1186)
-        - locked <0x00000006b0926700> (a org.apache.kafka.clients.producer.MetadataTest$1)
+        - locked \<0x00000006b0926700\> (a org.apache.kafka.clients.producer.MetadataTest$1)
         at java.lang.Thread.join(Thread.java:1239)
         at org.apache.kafka.clients.producer.MetadataTest.testMetadata(MetadataTest.java:46)
 
@@ -1155,7 +1155,7 @@ We have the following code in LogCleaner. Since the cleaner thread is shutdown w
 
     private def cleanOrSleep() {
       cleanerManager.grabFilthiestLog() match {
-        case None =>
+        case None =\>
           // there are no cleanable logs, sleep a while
           time.sleep(config.backOffMs)
 
@@ -1206,10 +1206,10 @@ Occasionally, saw the test hang on tear down. The following is the stack trace.
 "Test worker" prio=5 tid=7f9246956000 nid=0x10e078000 in Object.wait() [10e075000]
    java.lang.Thread.State: WAITING (on object monitor)
         at java.lang.Object.wait(Native Method)
-        - waiting on <7f4e69578> (a org.apache.zookeeper.ClientCnxn$Packet)
+        - waiting on \<7f4e69578\> (a org.apache.zookeeper.ClientCnxn$Packet)
         at java.lang.Object.wait(Object.java:485)
         at org.apache.zookeeper.ClientCnxn.submitRequest(ClientCnxn.java:1344)
-        - locked <7f4e69578> (a org.apache.zookeeper.ClientCnxn$Packet)
+        - locked \<7f4e69578\> (a org.apache.zookeeper.ClientCnxn$Packet)
         at org.apache.zookeeper.ZooKeeper.delete(ZooKeeper.java:732)
         at org.I0Itec.zkclient.ZkConnection.delete(ZkConnection.java:91)
         at org.I0Itec.zkclient.ZkClient$8.call(ZkClient.java:720)
@@ -1241,7 +1241,7 @@ I've noticed that Kafka tarball comes with zookeeper.connection.timeout.ms=10000
 
 Saw the following transient failure.
 
-kafka.admin.DeleteTopicTest > testAutoCreateAfterDeleteTopic FAILED
+kafka.admin.DeleteTopicTest \> testAutoCreateAfterDeleteTopic FAILED
     org.scalatest.junit.JUnitTestFailedError: Topic should have been auto created
         at org.scalatest.junit.AssertionsForJUnit$class.newAssertionFailedException(AssertionsForJUnit.scala:101)
         at org.scalatest.junit.JUnit3Suite.newAssertionFailedException(JUnit3Suite.scala:149)
@@ -1260,7 +1260,7 @@ Unfortunately, the current implementation does not allow the user to completely 
 
 
 
-*No workaround*
+\*No workaround\*
 
 A potential workaround would be to pass an empty string as the property value of "line.separator", but this doesn't work in the current implementation.
 
@@ -1276,13 +1276,13 @@ Escape tricks via a backslash don't work either.
 
 If there actually is a workaround please let me know.
 
-*How to fix*
+\*How to fix\*
 
 We can introduce a "print.line" option to enable/disable writing "line.separator" similar to how the code already uses "print.key" to enable/disable writing "key.separator".
 
 This change is trivial.  To preserve backwards compatibility, the "print.line" option would be set to true by default (unlike the "print.key" option, which defaults to false).
 
-*Alternatives*
+\*Alternatives\*
 
 Apart from modifying the built-in {{DefaultMessageFormatter}}, users could of course implement their own custom {{MessageFormatter}}.  But given that it's a) a trivial change to the {{DefaultMessageFormatter}} and b) a nice user feature I'd say changing the built-in {{DefaultMessageFormatter}} would be the better approach.  This way, Kafka would support writing data as-is to a file out of the box.
 
@@ -1298,7 +1298,7 @@ Currently the new KafkaProducer will not wake up the sender thread upon forcing 
 
 * [KAFKA-1513](https://issues.apache.org/jira/browse/KAFKA-1513) | *Minor* | **Cleanup KafkaServerStartable code**
 
-[init method|https://github.com/apache/kafka/blob/0.8.1/core/src/main/scala/kafka/server/KafkaServerStartable.scala#L26] too hard to understand.
+[init method\|https://github.com/apache/kafka/blob/0.8.1/core/src/main/scala/kafka/server/KafkaServerStartable.scala#L26] too hard to understand.
 Var initialization would be simpler for readers.
 Patch will be soon. It's my first time:)
 
@@ -1354,11 +1354,11 @@ kafka-0.8.1.1-src/core/src/main/scala/kafka/controller/PartitionLeaderSelector.s
 
 
 71	71
-           case false =>
+           case false =\>
 72	 
 -            val newLeader = liveBrokersInIsr.head
  	72
-+            val liveReplicasInIsr = liveAssignedReplicas.filter(r => liveBrokersInIsr.contains(r))
++            val liveReplicasInIsr = liveAssignedReplicas.filter(r =\> liveBrokersInIsr.contains(r))
  	73
 +            val newLeader = liveReplicasInIsr.head
 
@@ -1418,7 +1418,7 @@ See: http://search-hadoop.com/m/4TaT4lonIW
 
 * [KAFKA-1473](https://issues.apache.org/jira/browse/KAFKA-1473) | *Major* | **transient unit test failure in testRequestHandlingDuringDeleteTopic**
 
-kafka.admin.DeleteTopicTest > testRequestHandlingDuringDeleteTopic FAILED
+kafka.admin.DeleteTopicTest \> testRequestHandlingDuringDeleteTopic FAILED
     org.scalatest.junit.JUnitTestFailedError: fails with exception
         at org.scalatest.junit.AssertionsForJUnit$class.newAssertionFailedException(AssertionsForJUnit.scala:102)
         at org.scalatest.junit.JUnit3Suite.newAssertionFailedException(JUnit3Suite.scala:149)
@@ -1454,12 +1454,12 @@ values across the fix. e.g., the offset manager is determined based on
 abs(hash(consumer group)). So after an upgrade that can change]
 
 {code}
-     /**
-      * Get the absolute value of the given number. If the number is
+     /\*\*
+      \* Get the absolute value of the given number. If the number is
    Int.MinValue return 0.
-      * This is different from java.lang.Math.abs or scala.math.abs in that
+      \* This is different from java.lang.Math.abs or scala.math.abs in that
    they return Int.MinValue (!).
-      */
+      \*/
      def abs(n: Int) = n & 0x7fffffff
 {code}
 
@@ -1467,16 +1467,16 @@ For negative integers, it does not return the absolute value.  It does
 appear to do what the comment says for Int.MinValue though.  For example,
 
 {code}
-   scala> -1 & 0x7fffffff
+   scala\> -1 & 0x7fffffff
    res8: Int = 2147483647
 
-   scala> -2 & 0x7fffffff
+   scala\> -2 & 0x7fffffff
    res9: Int = 2147483646
 
-   scala> -2147483647 & 0x7fffffff
+   scala\> -2147483647 & 0x7fffffff
    res11: Int = 1
 
-   scala> -2147483648 & 0x7fffffff
+   scala\> -2147483648 & 0x7fffffff
    res12: Int = 0
 {code}
 
@@ -1540,15 +1540,15 @@ h3. Likely Cause
 
 {{ZookeeperLeaderElector}} subscribes to data changes on startup, and then triggers an election. if the deletion of ephemeral {{/controller}} node associated with previous zookeeper session of the broker happens after subscription to changes in new session, election will be invoked twice, once from {{startup}} and once from {{handleDataDeleted}}:
 
-* {{startup}}: acquire {{controllerLock}}
-* {{startup}}: subscribe to data changes
-* zookeeper: delete {{/controller}} since the session that created it timed out
-* {{handleDataDeleted}}: {{/controller}} was deleted
-* {{handleDataDeleted}}: wait on {{controllerLock}}
-* {{startup}}: elect -- writes {{/controller}}
-* {{startup}}: release {{controllerLock}}
-* {{handleDataDeleted}}: acquire {{controllerLock}}
-* {{handleDataDeleted}}: elect -- attempts to write {{/controller}} and then gets into infinite loop as a result of conflict
+\* {{startup}}: acquire {{controllerLock}}
+\* {{startup}}: subscribe to data changes
+\* zookeeper: delete {{/controller}} since the session that created it timed out
+\* {{handleDataDeleted}}: {{/controller}} was deleted
+\* {{handleDataDeleted}}: wait on {{controllerLock}}
+\* {{startup}}: elect -- writes {{/controller}}
+\* {{startup}}: release {{controllerLock}}
+\* {{handleDataDeleted}}: acquire {{controllerLock}}
+\* {{handleDataDeleted}}: elect -- attempts to write {{/controller}} and then gets into infinite loop as a result of conflict
 
 {{createEphemeralPathExpectConflictHandleZKBug}} assumes that the existing znode was written from different session, which is not true in this case; it was written from the same session. That adds to the confusion.
 
@@ -1618,28 +1618,28 @@ Command must include exactly one action: --list, --describe, --create or --alter
 Option                                  Description
 ------                                  -----------
 --alter                                 Alter the configuration for the topic.
---config <name=value>                   A topic configuration override for the
+--config \<name=value\>                   A topic configuration override for the
                                           topic being created or altered.
 --create                                Create a new topic.
---deleteConfig <name>                   A topic configuration override to be
+--deleteConfig \<name\>                   A topic configuration override to be
                                           removed for an existing topic
 --describe                              List details for the given topics.
 --help                                  Print usage information.
 --list                                  List all available topics.
---partitions <Integer: # of partitions> The number of partitions for the topic
+--partitions \<Integer: # of partitions\> The number of partitions for the topic
                                           being created or altered (WARNING:
                                           If partitions are increased for a
                                           topic that has a key, the partition
                                           logic or ordering of the messages
                                           will be affected
 --replica-assignment                    A list of manual partition-to-broker
-  <broker\_id\_for\_part1\_replica1 :         assignments for the topic being
+  \<broker\_id\_for\_part1\_replica1 :         assignments for the topic being
   broker\_id\_for\_part1\_replica2 ,          created or altered.
   broker\_id\_for\_part2\_replica1 :
-  broker\_id\_for\_part2\_replica2 , ...>
---replication-factor <Integer:          The replication factor for each
-  replication factor>                     partition in the topic being created.
---topic <topic>                         The topic to be create, alter or
+  broker\_id\_for\_part2\_replica2 , ...\>
+--replication-factor \<Integer:          The replication factor for each
+  replication factor\>                     partition in the topic being created.
+--topic \<topic\>                         The topic to be create, alter or
                                           describe. Can also accept a regular
                                           expression except for --create option
 --topics-with-overrides                 if set when describing topics, only
@@ -1650,7 +1650,7 @@ Option                                  Description
                                           available
 --under-replicated-partitions           if set when describing topics, only
                                           show under replicated partitions
---zookeeper <urls>                      REQUIRED: The connection string for
+--zookeeper \<urls\>                      REQUIRED: The connection string for
                                           the zookeeper connection in the form
                                           host:port. Multiple URLS can be
                                           given to allow fail-over.
@@ -1662,7 +1662,7 @@ Option                                  Description
 
 Saw the following transient unit test failure.
 
-kafka.consumer.ZookeeperConsumerConnectorTest > testBasic FAILED
+kafka.consumer.ZookeeperConsumerConnectorTest \> testBasic FAILED
     kafka.common.FailedToSendMessageException: Failed to send messages after 3 tries.
         at kafka.producer.async.DefaultEventHandler.handle(DefaultEventHandler.scala:90)
         at kafka.producer.Producer.send(Producer.scala:76)
@@ -1719,7 +1719,7 @@ Alex
 
 Saw the following transient unit test failure.
 
-kafka.producer.ProducerTest > testSendWithDeadBroker FAILED
+kafka.producer.ProducerTest \> testSendWithDeadBroker FAILED
     java.lang.AssertionError: Message set should have 1 message
         at org.junit.Assert.fail(Assert.java:69)
         at org.junit.Assert.assertTrue(Assert.java:32)
@@ -1746,12 +1746,12 @@ Please publish builds for scala 2.11, hopefully just needs a small tweak to the 
 
 Saw the following transient failure.
 
-kafka.api.ProducerFailureHandlingTest > testWrongBrokerList PASSED
+kafka.api.ProducerFailureHandlingTest \> testWrongBrokerList PASSED
 
-kafka.api.ProducerFailureHandlingTest > testNoResponse FAILED
+kafka.api.ProducerFailureHandlingTest \> testNoResponse FAILED
     kafka.common.KafkaException: Socket server failed to bind to localhost:49013: Address already in use.
         at kafka.network.Acceptor.openServerSocket(SocketServer.scala:195)
-        at kafka.network.Acceptor.<init>(SocketServer.scala:141)
+        at kafka.network.Acceptor.\<init\>(SocketServer.scala:141)
         at kafka.network.SocketServer.startup(SocketServer.scala:68)
         at kafka.server.KafkaServer.startup(KafkaServer.scala:84)
         at kafka.utils.TestUtils$.createServer(TestUtils.scala:120)
@@ -1774,26 +1774,26 @@ kafka.api.ProducerFailureHandlingTest > testNoResponse FAILED
 After hard reset due to power failure broker takes way too much time recovering unflushed segments in a single thread. This could be easiliy improved launching multiple threads (one per data dirrectory, assuming that typically each data directory is on a dedicated drive). Localy we trie this simple patch to LogManager.loadLogs and it seems to work, however I'm too new to scala, so do not take it literally:
 
 {code}
-  /**
-   * Recover and load all logs in the given data directories
-   */
+  /\*\*
+   \* Recover and load all logs in the given data directories
+   \*/
   private def loadLogs(dirs: Seq[File]) {
     val threads : Array[Thread] = new Array[Thread](dirs.size)
     var i: Int = 0
     val me = this
 
-    for(dir <- dirs) {
+    for(dir \<- dirs) {
       val thread = new Thread( new Runnable {
         def run()
         {
           val recoveryPoints = me.recoveryPointCheckpoints(dir).read
-          /* load the logs */
+          /\* load the logs \*/
           val subDirs = dir.listFiles()
           if(subDirs != null) {
             val cleanShutDownFile = new File(dir, Log.CleanShutdownFile)
             if(cleanShutDownFile.exists())
               info("Found clean shutdown file. Skipping recovery for all logs in data directory '%s'".format(dir.getAbsolutePath))
-            for(dir <- subDirs) {
+            for(dir \<- subDirs) {
               if(dir.isDirectory) {
                 info("Loading log '" + dir.getName + "'")
                 val topicPartition = Log.parseTopicPartitionName(dir.getName)
@@ -1818,7 +1818,7 @@ After hard reset due to power failure broker takes way too much time recovering 
       i = i + 1
     }
 
-    for(thread <- threads) {
+    for(thread \<- threads) {
       thread.join()
     }
   }
@@ -1837,7 +1837,7 @@ After hard reset due to power failure broker takes way too much time recovering 
 
 Saw the following transient failure. 
 
-kafka.api.test.ProducerSendTest > testAutoCreateTopic FAILED
+kafka.api.test.ProducerSendTest \> testAutoCreateTopic FAILED
     java.util.concurrent.ExecutionException: org.apache.kafka.common.errors.UnknownTopicOrPartitionException: This server does not host this topic-partition.
         at org.apache.kafka.clients.producer.internals.FutureRecordMetadata.valueOrError(FutureRecordMetadata.java:56)
         at org.apache.kafka.clients.producer.internals.FutureRecordMetadata.get(FutureRecordMetadata.java:43)
@@ -1894,16 +1894,16 @@ You will see a bunch of warnings mainly due to typos/incorrect use of javadoc/sc
 * [KAFKA-1400](https://issues.apache.org/jira/browse/KAFKA-1400) | *Major* | **transient unit test failure in SocketServerTest**
 
 Saw the following transient failure.
-kafka.network.SocketServerTest > testSocketsCloseOnShutdown FAILED java.lang.AssertionError: Expected exception: java.net.SocketException
+kafka.network.SocketServerTest \> testSocketsCloseOnShutdown FAILED java.lang.AssertionError: Expected exception: java.net.SocketException
 
 
 ---
 
 * [KAFKA-1399](https://issues.apache.org/jira/browse/KAFKA-1399) | *Major* | **Drop Scala 2.8.x support**
 
-It's been almost 4 years since [Scala 2.8 has been released|http://www.scala-lang.org/old/node/7009] and 3 years since [Scala 2.9 has been released|http://www.scala-lang.org/old/node/9483], so there was more than plenty of time to migrate.
+It's been almost 4 years since [Scala 2.8 has been released\|http://www.scala-lang.org/old/node/7009] and 3 years since [Scala 2.9 has been released\|http://www.scala-lang.org/old/node/9483], so there was more than plenty of time to migrate.
 
-Continued support of old Scala 2.8 is causing issues like [this|https://issues.apache.org/jira/browse/KAFKA-1362?focusedCommentId=13970390&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-13970390].
+Continued support of old Scala 2.8 is causing issues like [this\|https://issues.apache.org/jira/browse/KAFKA-1362?focusedCommentId=13970390&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-13970390].
 
 
 ---
@@ -1943,7 +1943,7 @@ The test hang due to the following deadlock.
 "Test worker" prio=5 tid=7fd40c0b2800 nid=0x114ebd000 waiting on condition [114eb9000]
    java.lang.Thread.State: WAITING (parking)
         at sun.misc.Unsafe.park(Native Method)
-        - parking to wait for  <7f40b2aa0> (a java.util.concurrent.CountDownLatch$Sync)
+        - parking to wait for  \<7f40b2aa0\> (a java.util.concurrent.CountDownLatch$Sync)
         at java.util.concurrent.locks.LockSupport.park(LockSupport.java:156)
         at java.util.concurrent.locks.AbstractQueuedSynchronizer.parkAndCheckInterrupt(AbstractQueuedSynchronizer.java:811)
         at java.util.concurrent.locks.AbstractQueuedSynchronizer.doAcquireSharedInterruptibly(AbstractQueuedSynchronizer.java:969)
@@ -1973,7 +1973,7 @@ The test hang due to the following deadlock.
 "delete-topics-thread" prio=5 tid=7fd409ad2000 nid=0x11b0c2000 waiting on condition [11b0c1000]
    java.lang.Thread.State: WAITING (parking)
         at sun.misc.Unsafe.park(Native Method)
-        - parking to wait for  <7f40a7048> (a java.util.concurrent.locks.ReentrantLock$NonfairSync)
+        - parking to wait for  \<7f40a7048\> (a java.util.concurrent.locks.ReentrantLock$NonfairSync)
         at java.util.concurrent.locks.LockSupport.park(LockSupport.java:156)
         at java.util.concurrent.locks.AbstractQueuedSynchronizer.parkAndCheckInterrupt(AbstractQueuedSynchronizer.java:811)
         at java.util.concurrent.locks.AbstractQueuedSynchronizer.acquireQueued(AbstractQueuedSynchronizer.java:842)
@@ -1998,7 +1998,7 @@ The way that waitUntilLeaderIsElectedOrChanged() works is to wait for a ZK callb
 
 Saw the following transient unit test failure.
 
-kafka.api.ProducerFailureHandlingTest > testTooLargeRecordWithAckZero FAILED
+kafka.api.ProducerFailureHandlingTest \> testTooLargeRecordWithAckZero FAILED
     junit.framework.AssertionFailedError: Partition [topic-1,0] metadata not propagated after timeout
         at junit.framework.Assert.fail(Assert.java:47)
         at junit.framework.Assert.assertTrue(Assert.java:20)
@@ -2018,7 +2018,7 @@ kafka.api.ProducerFailureHandlingTest > testTooLargeRecordWithAckZero FAILED
 
 * [KAFKA-1384](https://issues.apache.org/jira/browse/KAFKA-1384) | *Major* | **Log Broker state**
 
-Currently we don't have visibility into what state the broker is currently in, ie: Startup -> Running -> Waiting Controlled shutdown -> Shutting down
+Currently we don't have visibility into what state the broker is currently in, ie: Startup -\> Running -\> Waiting Controlled shutdown -\> Shutting down
 
 So without knowing what state the broker it is it's hard to figure out what the current broker is performing.
 
@@ -2031,7 +2031,7 @@ This ticket is to add a new metric to expose the current broker state.
 
 Saw the following transient unit test failure.
 
-kafka.network.SocketServerTest > testNullResponse FAILED
+kafka.network.SocketServerTest \> testNullResponse FAILED
     java.lang.AssertionError: null
         at org.junit.Assert.fail(Assert.java:69)
         at org.junit.Assert.assertTrue(Assert.java:32)
@@ -2048,7 +2048,7 @@ Our updateIsr code is currently:
 
   private def updateIsr(newIsr: Set[Replica]) {
     debug("Updated ISR for partition [%s,%d] to %s".format(topic, partitionId, newIsr.mkString(",")))
-    val newLeaderAndIsr = new LeaderAndIsr(localBrokerId, leaderEpoch, newIsr.map(r => r.brokerId).toList, zkVersion)
+    val newLeaderAndIsr = new LeaderAndIsr(localBrokerId, leaderEpoch, newIsr.map(r =\> r.brokerId).toList, zkVersion)
     // use the epoch of the controller that made the leadership decision, instead of the current controller epoch
     val (updateSucceeded, newVersion) = ZkUtils.conditionalUpdatePersistentPath(zkClient,
       ZkUtils.getTopicPartitionLeaderAndIsrPath(topic, partitionId),
@@ -2087,7 +2087,7 @@ the cached version and even retry the expansion until it succeeds.
 
 Saw the following transient unit test failure.
 
-kafka.admin.AddPartitionsTest > testReplicaPlacement FAILED
+kafka.admin.AddPartitionsTest \> testReplicaPlacement FAILED
     java.util.NoSuchElementException: None.get
         at scala.None$.get(Option.scala:313)
         at scala.None$.get(Option.scala:311)
@@ -2100,7 +2100,7 @@ kafka.admin.AddPartitionsTest > testReplicaPlacement FAILED
 
 Saw the following transient unit test failure.
 
-kafka.server.LogRecoveryTest > testHWCheckpointNoFailuresMultipleLogSegments FAILED
+kafka.server.LogRecoveryTest \> testHWCheckpointNoFailuresMultipleLogSegments FAILED
     java.lang.AssertionError: Failed to update highwatermark for follower after 1000 ms
         at org.junit.Assert.fail(Assert.java:69)
         at org.junit.Assert.assertTrue(Assert.java:32)
@@ -2113,31 +2113,31 @@ kafka.server.LogRecoveryTest > testHWCheckpointNoFailuresMultipleLogSegments FAI
 
 We have the following transient unit test failure in trunk.
 
-kafka.integration.UncleanLeaderElectionTest > testUncleanLeaderElectionEnabled FAILED
+kafka.integration.UncleanLeaderElectionTest \> testUncleanLeaderElectionEnabled FAILED
     org.I0Itec.zkclient.exception.ZkTimeoutException: Unable to connect to zookeeper server within timeout: 400
         at org.I0Itec.zkclient.ZkClient.connect(ZkClient.java:880)
-        at org.I0Itec.zkclient.ZkClient.<init>(ZkClient.java:98)
-        at org.I0Itec.zkclient.ZkClient.<init>(ZkClient.java:84)
+        at org.I0Itec.zkclient.ZkClient.\<init\>(ZkClient.java:98)
+        at org.I0Itec.zkclient.ZkClient.\<init\>(ZkClient.java:84)
         at kafka.consumer.ZookeeperConsumerConnector.connectZk(ZookeeperConsumerConnector.scala:169)
-        at kafka.consumer.ZookeeperConsumerConnector.<init>(ZookeeperConsumerConnector.scala:125)
-        at kafka.consumer.ZookeeperConsumerConnector.<init>(ZookeeperConsumerConnector.scala:141)
+        at kafka.consumer.ZookeeperConsumerConnector.\<init\>(ZookeeperConsumerConnector.scala:125)
+        at kafka.consumer.ZookeeperConsumerConnector.\<init\>(ZookeeperConsumerConnector.scala:141)
         at kafka.consumer.Consumer$.create(ConsumerConnector.scala:89)
         at kafka.integration.UncleanLeaderElectionTest.consumeAllMessages(UncleanLeaderElectionTest.scala:273)
         at kafka.integration.UncleanLeaderElectionTest.verifyUncleanLeaderElectionEnabled(UncleanLeaderElectionTest.scala:197)
         at kafka.integration.UncleanLeaderElectionTest.testUncleanLeaderElectionEnabled(UncleanLeaderElectionTest.scala:106)
 
-kafka.integration.UncleanLeaderElectionTest > testUncleanLeaderElectionDisabled PASSED
+kafka.integration.UncleanLeaderElectionTest \> testUncleanLeaderElectionDisabled PASSED
 
-kafka.integration.UncleanLeaderElectionTest > testUncleanLeaderElectionEnabledByTopicOverride PASSED
+kafka.integration.UncleanLeaderElectionTest \> testUncleanLeaderElectionEnabledByTopicOverride PASSED
 
-kafka.integration.UncleanLeaderElectionTest > testCleanLeaderElectionDisabledByTopicOverride FAILED
+kafka.integration.UncleanLeaderElectionTest \> testCleanLeaderElectionDisabledByTopicOverride FAILED
     org.I0Itec.zkclient.exception.ZkTimeoutException: Unable to connect to zookeeper server within timeout: 400
         at org.I0Itec.zkclient.ZkClient.connect(ZkClient.java:880)
-        at org.I0Itec.zkclient.ZkClient.<init>(ZkClient.java:98)
-        at org.I0Itec.zkclient.ZkClient.<init>(ZkClient.java:84)
+        at org.I0Itec.zkclient.ZkClient.\<init\>(ZkClient.java:98)
+        at org.I0Itec.zkclient.ZkClient.\<init\>(ZkClient.java:84)
         at kafka.consumer.ZookeeperConsumerConnector.connectZk(ZookeeperConsumerConnector.scala:169)
-        at kafka.consumer.ZookeeperConsumerConnector.<init>(ZookeeperConsumerConnector.scala:125)
-        at kafka.consumer.ZookeeperConsumerConnector.<init>(ZookeeperConsumerConnector.scala:141)
+        at kafka.consumer.ZookeeperConsumerConnector.\<init\>(ZookeeperConsumerConnector.scala:125)
+        at kafka.consumer.ZookeeperConsumerConnector.\<init\>(ZookeeperConsumerConnector.scala:141)
         at kafka.consumer.Consumer$.create(ConsumerConnector.scala:89)
         at kafka.integration.UncleanLeaderElectionTest.consumeAllMessages(UncleanLeaderElectionTest.scala:273)
         at kafka.integration.UncleanLeaderElectionTest.verifyUncleanLeaderElectionDisabled(UncleanLeaderElectionTest.scala:214)
@@ -2176,7 +2176,7 @@ snappy version 1.1.x
 {code}
 org.xerial.snappy.SnappyError: [FAILED\_TO\_LOAD\_NATIVE\_LIBRARY] null
     at org.xerial.snappy.SnappyLoader.load(SnappyLoader.java:239)
-    at org.xerial.snappy.Snappy.<clinit>(Snappy.java:48)
+    at org.xerial.snappy.Snappy.\<clinit\>(Snappy.java:48)
     at org.xerial.snappy.SnappyInputStream.hasNextChunk(SnappyInputStream.java:351)
     at org.xerial.snappy.SnappyInputStream.rawRead(SnappyInputStream.java:159)
     at org.xerial.snappy.SnappyInputStream.read(SnappyInputStream.java:142)
@@ -2197,22 +2197,22 @@ org.xerial.snappy.SnappyError: [FAILED\_TO\_LOAD\_NATIVE\_LIBRARY] null
 /tmp] ldd snappy-1.0.5-libsnappyjava.so
 ./snappy-1.0.5-libsnappyjava.so: /usr/lib64/libstdc++.so.6: version `GLIBCXX\_3.4.9' not found (required by ./snappy-1.0.5-libsnappyjava.so)
 ./snappy-1.0.5-libsnappyjava.so: /usr/lib64/libstdc++.so.6: version `GLIBCXX\_3.4.11' not found (required by ./snappy-1.0.5-libsnappyjava.so)
-	linux-vdso.so.1 =>  (0x00007fff81dfc000)
-	libstdc++.so.6 => /usr/lib64/libstdc++.so.6 (0x00002b554b430000)
-	libm.so.6 => /lib64/libm.so.6 (0x00002b554b731000)
-	libc.so.6 => /lib64/libc.so.6 (0x00002b554b9b4000)
-	libgcc\_s.so.1 => /lib64/libgcc\_s.so.1 (0x00002b554bd0c000)
+	linux-vdso.so.1 =\>  (0x00007fff81dfc000)
+	libstdc++.so.6 =\> /usr/lib64/libstdc++.so.6 (0x00002b554b430000)
+	libm.so.6 =\> /lib64/libm.so.6 (0x00002b554b731000)
+	libc.so.6 =\> /lib64/libc.so.6 (0x00002b554b9b4000)
+	libgcc\_s.so.1 =\> /lib64/libgcc\_s.so.1 (0x00002b554bd0c000)
 	/lib64/ld-linux-x86-64.so.2 (0x00000033e2a00000)
 {code}
 
 {code}
 /tmp] ldd snappy-1.1.1M1-be6ba593-9ac7-488e-953e-ba5fd9530ee1-libsnappyjava.so
 ldd: warning: you do not have execution permission for `./snappy-1.1.1M1-be6ba593-9ac7-488e-953e-ba5fd9530ee1-libsnappyjava.so'
-	linux-vdso.so.1 =>  (0x00007fff1c132000)
-	libstdc++.so.6 => /usr/lib64/libstdc++.so.6 (0x00002b9548319000)
-	libm.so.6 => /lib64/libm.so.6 (0x00002b954861a000)
-	libc.so.6 => /lib64/libc.so.6 (0x00002b954889d000)
-	libgcc\_s.so.1 => /lib64/libgcc\_s.so.1 (0x00002b9548bf5000)
+	linux-vdso.so.1 =\>  (0x00007fff1c132000)
+	libstdc++.so.6 =\> /usr/lib64/libstdc++.so.6 (0x00002b9548319000)
+	libm.so.6 =\> /lib64/libm.so.6 (0x00002b954861a000)
+	libc.so.6 =\> /lib64/libc.so.6 (0x00002b954889d000)
+	libgcc\_s.so.1 =\> /lib64/libgcc\_s.so.1 (0x00002b9548bf5000)
 	/lib64/ld-linux-x86-64.so.2 (0x00000033e2a00000)
 {code}
 
@@ -2223,7 +2223,7 @@ ldd: warning: you do not have execution permission for `./snappy-1.1.1M1-be6ba59
 
 Saw the following unit test failure. This is probably due to that the hard-coded log.dir conflicts with the default config when running a standalone sack.
 
-kafka.server.ReplicaManagerTest > testHighwaterMarkDirectoryMapping FAILED
+kafka.server.ReplicaManagerTest \> testHighwaterMarkDirectoryMapping FAILED
     java.lang.IllegalArgumentException: requirement failed: Corrupt index found, index file (/tmp/kafka-logs/test-topic-1/00000000000000000000.index) has non-zero size but the last offset is 0 and the base offset is 0
         at scala.Predef$.require(Predef.scala:145)
         at kafka.log.OffsetIndex.sanityCheck(OffsetIndex.scala:352)
@@ -2234,7 +2234,7 @@ kafka.server.ReplicaManagerTest > testHighwaterMarkDirectoryMapping FAILED
         at scala.collection.IterableLike$class.foreach(IterableLike.scala:79)
         at scala.collection.JavaConversions$JCollectionWrapper.foreach(JavaConversions.scala:495)
         at kafka.log.Log.loadSegments(Log.scala:158)
-        at kafka.log.Log.<init>(Log.scala:64)
+        at kafka.log.Log.\<init\>(Log.scala:64)
         at kafka.server.ReplicaManagerTest.testHighwaterMarkDirectoryMapping(ReplicaManagerTest.scala:43)
 
 
@@ -2306,7 +2306,7 @@ Provided patch adds these into gitignore.
 
 For projects that use Kafka, and want to write tests that exercise Kafka (in our case, Samza), it's useful to have access to Kafka's test utility classes such as kafka.zk.EmbeddedZookeeper and kafka.utils.TestUtils. We can use {{./gradlew testJar}} to build jar files that contain those classes, but as far as I know, these are currently not made available in a binary release.
 
-At the moment, we have to check those kafka*-test.jar files into the Samza repository. To avoid that, would it be possible to publish those jars of tests to Maven, so that they fit into the normal dependency management?
+At the moment, we have to check those kafka\*-test.jar files into the Samza repository. To avoid that, would it be possible to publish those jars of tests to Maven, so that they fit into the normal dependency management?
 
 Or perhaps, if publishing the tests themselves is not appropriate, we could move the test utilities into a separate module that is published, and make the tests depend on that module?
 
@@ -2513,7 +2513,7 @@ The problem is that the producer doesn't drain the unsent data properly on close
             } catch (Exception e) {
                 log.error("Uncaught error in kafka producer I/O thread: ", e);
             }
-        } while (unsent > 0 || this.inFlightRequests.totalInFlightRequests() > 0);
+        } while (unsent \> 0 \|\| this.inFlightRequests.totalInFlightRequests() \> 0);
 
 Suppose that all produce requests are being sent, but the sender is waiting for responses. Then the broker failed. In handling disconnects, we cleared all inflight requests. When we check the condition in the while clause, there is no unsent data and no in flight requests. However, failed records have been added to RecordAccumulator and are ready to be sent in the next iteration.
 
@@ -2559,8 +2559,8 @@ Caused by: java.net.ConnectException: Connection refused
 	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:431)
 	at java.net.Socket.connect(Socket.java:527)
 	at java.net.Socket.connect(Socket.java:476)
-	at java.net.Socket.<init>(Socket.java:373)
-	at java.net.Socket.<init>(Socket.java:187)
+	at java.net.Socket.\<init\>(Socket.java:373)
+	at java.net.Socket.\<init\>(Socket.java:187)
 	at sun.rmi.transport.proxy.RMIDirectSocketFactory.createSocket(RMIDirectSocketFactory.java:22)
 	at sun.rmi.transport.proxy.RMIMasterSocketFactory.createSocket(RMIMasterSocketFactory.java:128)
 	at sun.rmi.transport.tcp.TCPEndpoint.newSocket(TCPEndpoint.java:595)
@@ -2585,9 +2585,9 @@ three warnings found
 
 FAILURE: Build failed with an exception.
 
-* What went wrong:
+\* What went wrong:
 Execution failed for task ':core:signArchives'.
-> Cannot perform signing task ':core:signArchives' because it has no configured signatory
+\> Cannot perform signing task ':core:signArchives' because it has no configured signatory
 
 
 ---
@@ -2760,7 +2760,7 @@ We have tried below things to avoid data loss:
 
 4. Tested with Kafka-0.8.1 after applying patch KAFKA-1188.patch available on https://issues.apache.org/jira/browse/KAFKA-1188 
 
-Nothing work out from above things in case of leader node is killed using "kill -9 <pid>".
+Nothing work out from above things in case of leader node is killed using "kill -9 \<pid\>".
 
 Expected Behaviour:
 ----------------------------
@@ -2897,7 +2897,7 @@ Alternatively, there could be an IOException, with this code executed:
 
 {code}
             catch {
-              case ioe: java.io.IOException =>
+              case ioe: java.io.IOException =\>
                 channel.disconnect()
                 channel = null
                 // ignore and try again
@@ -3242,7 +3242,7 @@ When starting Kafka 0.7.0 using zkclient-0.1.jar, I get this error:
 
 INFO 2012-03-06 02:39:04,072  main kafka.server.KafkaZooKeeper Registering broker /brokers/ids/1
 FATAL 2012-03-06 02:39:04,111  main kafka.server.KafkaServer Fatal error during startup.
-java.lang.IllegalArgumentException: Path length must be > 0
+java.lang.IllegalArgumentException: Path length must be \> 0
         at org.apache.zookeeper.common.PathUtils.validatePath(PathUtils.java:48)
         at org.apache.zookeeper.common.PathUtils.validatePath(PathUtils.java:35)
         at org.apache.zookeeper.ZooKeeper.create(ZooKeeper.java:620)

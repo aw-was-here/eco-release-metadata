@@ -71,11 +71,11 @@ PR forthcoming.
 
 * [SPARK-5401](https://issues.apache.org/jira/browse/SPARK-5401) | *Major* | **Executor ID should be set before MetricsSystem is created**
 
-MetricsSystem construction [attempts to namespace metrics from each executor using that executor's ID|https://github.com/apache/spark/blob/0d1e67ee9b29b51bccfc8a319afe9f9b4581afc8/core/src/main/scala/org/apache/spark/metrics/MetricsSystem.scala#L131].
+MetricsSystem construction [attempts to namespace metrics from each executor using that executor's ID\|https://github.com/apache/spark/blob/0d1e67ee9b29b51bccfc8a319afe9f9b4581afc8/core/src/main/scala/org/apache/spark/metrics/MetricsSystem.scala#L131].
 
-The ID is [currently set at Executor construction time|https://github.com/apache/spark/blob/0d1e67ee9b29b51bccfc8a319afe9f9b4581afc8/core/src/main/scala/org/apache/spark/executor/Executor.scala#L76-L79] (uncoincidentally, just before the {{ExecutorSource}} is registered), but this is after the {{MetricsSystem}} has been initialized (which [happens during {{SparkEnv}} construction|https://github.com/apache/spark/blob/0d1e67ee9b29b51bccfc8a319afe9f9b4581afc8/core/src/main/scala/org/apache/spark/SparkEnv.scala#L323-L332], which itself happens during {{ExecutorBackend}} construction, *before* {{Executor}} construction).
+The ID is [currently set at Executor construction time\|https://github.com/apache/spark/blob/0d1e67ee9b29b51bccfc8a319afe9f9b4581afc8/core/src/main/scala/org/apache/spark/executor/Executor.scala#L76-L79] (uncoincidentally, just before the {{ExecutorSource}} is registered), but this is after the {{MetricsSystem}} has been initialized (which [happens during {{SparkEnv}} construction\|https://github.com/apache/spark/blob/0d1e67ee9b29b51bccfc8a319afe9f9b4581afc8/core/src/main/scala/org/apache/spark/SparkEnv.scala#L323-L332], which itself happens during {{ExecutorBackend}} construction, \*before\* {{Executor}} construction).
 
-I noticed this problem because I wasn't seeing any JVM metrics from my executors in a Graphite dashboard I've set up; turns out all the executors (and the driver) were namespacing their metrics under "<driver>", and Graphite responds to such a situation by only taking the last value it receives for each "metric" within a configurable time window (e.g. 10s). I was seeing per-executor metrics, properly namespaced with each executor's ID, from {{ExecutorSource}}, which as I mentioned above is registered after the executor ID is set.
+I noticed this problem because I wasn't seeing any JVM metrics from my executors in a Graphite dashboard I've set up; turns out all the executors (and the driver) were namespacing their metrics under "\<driver\>", and Graphite responds to such a situation by only taking the last value it receives for each "metric" within a configurable time window (e.g. 10s). I was seeing per-executor metrics, properly namespaced with each executor's ID, from {{ExecutorSource}}, which as I mentioned above is registered after the executor ID is set.
 
 I have a one-line fix for this that I will submit shortly.
 
@@ -115,7 +115,7 @@ the following error occurs in ReplicatedVertexView.scala:72;
 object GraphTest extends Logging {
 def run[VD: ClassTag, ED: ClassTag](graph: Graph[VD, ED]): VertexRDD[Int] = {
 graph.aggregateMessages[Int](
-ctx => {
+ctx =\> {
 ctx.sendToSrc(1)
 ctx.sendToDst(2)
 },
@@ -137,7 +137,7 @@ java.lang.IllegalArgumentException: Can't zip RDDs with unequal numbers of parti
 	at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:204)
 	at scala.Option.getOrElse(Option.scala:120)
 	at org.apache.spark.rdd.RDD.partitions(RDD.scala:204)
-	at org.apache.spark.ShuffleDependency.<init>(Dependency.scala:82)
+	at org.apache.spark.ShuffleDependency.\<init\>(Dependency.scala:82)
 	at org.apache.spark.rdd.ShuffledRDD.getDependencies(ShuffledRDD.scala:80)
 	at org.apache.spark.rdd.RDD$$anonfun$dependencies$2.apply(RDD.scala:193)
 	at org.apache.spark.rdd.RDD$$anonfun$dependencies$2.apply(RDD.scala:191)
@@ -209,26 +209,26 @@ Spark Streaming will write all the event into WAL for driver recovery, the seque
 
 {code}
 
-BlockAdditionEvent ---> BlockAdditionEvent ---> BlockAdditionEvent ---> BatchAllocationEvent ---> BatchCleanupEvent ---> BlockAdditionEvent ---> BlockAdditionEvent ---> 'Driver Down Time' ---> BlockAdditionEvent ---> BlockAdditionEvent ---> BatchAllocationEvent
+BlockAdditionEvent ---\> BlockAdditionEvent ---\> BlockAdditionEvent ---\> BatchAllocationEvent ---\> BatchCleanupEvent ---\> BlockAdditionEvent ---\> BlockAdditionEvent ---\> 'Driver Down Time' ---\> BlockAdditionEvent ---\> BlockAdditionEvent ---\> BatchAllocationEvent
 
 {code}
 
 When driver recovered from failure, it will replay all the existed metadata WAL to get the right status, in this situation, two BatchAdditionEvent before down will put into received block queue. After driver started, new incoming blocking will also put into this queue and a follow-up BlockAllocationEvent will allocate an allocatedBlocks with queue draining out. So old, not this batch's data will also mix into this batch, here is the partial log:
 
 {code}
-15/01/13 17:19:10 INFO KafkaInputDStream: >>>>>>>>>block store result for batch 1421140750000 ms
+15/01/13 17:19:10 INFO KafkaInputDStream: \>\>\>\>\>\>\>\>\>block store result for batch 1421140750000 ms
 ....
-15/01/13 17:19:10 INFO KafkaInputDStream: >>>>>>>>>>>>>log segment: WriteAheadLogFileSegment(file:       /home/jerryshao/project/apache-spark/checkpoint-wal-test/receivedData/0/log-1421140593201-14211406       53201,46704,480)
-197757 15/01/13 17:19:10 INFO KafkaInputDStream: >>>>>>>>>>>>>log segment: WriteAheadLogFileSegment(file:       /home/jerryshao/project/apache-spark/checkpoint-wal-test/receivedData/0/log-1421140593201-14211406       53201,47188,480)
-197758 15/01/13 17:19:10 INFO KafkaInputDStream: >>>>>>>>>>>>>log segment: WriteAheadLogFileSegment(file:       /home/jerryshao/project/apache-spark/checkpoint-wal-test/receivedData/0/log-1421140593201-14211406       53201,47672,480)
-197759 15/01/13 17:19:10 INFO KafkaInputDStream: >>>>>>>>>>>>>log segment: WriteAheadLogFileSegment(file:       /home/jerryshao/project/apache-spark/checkpoint-wal-test/receivedData/0/log-1421140593201-14211406       53201,48156,480)                                                                                  
-197760 15/01/13 17:19:10 INFO KafkaInputDStream: >>>>>>>>>>>>>log segment: WriteAheadLogFileSegment(file:       /home/jerryshao/project/apache-spark/checkpoint-wal-test/receivedData/0/log-1421140593201-14211406       53201,48640,480)
-197761 15/01/13 17:19:10 INFO KafkaInputDStream: >>>>>>>>>>>>>log segment: WriteAheadLogFileSegment(file:       /home/jerryshao/project/apache-spark/checkpoint-wal-test/receivedData/0/log-1421140593201-14211406       53201,49124,480)
-197762 15/01/13 17:19:10 INFO KafkaInputDStream: >>>>>>>>>>>>>log segment: WriteAheadLogFileSegment(file:       /home/jerryshao/project/apache-spark/checkpoint-wal-test/receivedData/0/log-1421140747074-14211408       07074,0,44184)
-197763 15/01/13 17:19:10 INFO KafkaInputDStream: >>>>>>>>>>>>>log segment: WriteAheadLogFileSegment(file:       /home/jerryshao/project/apache-spark/checkpoint-wal-test/receivedData/0/log-1421140747074-14211408       07074,44188,58536)
-197764 15/01/13 17:19:10 INFO KafkaInputDStream: >>>>>>>>>>>>>log segment: WriteAheadLogFileSegment(file:       /home/jerryshao/project/apache-spark/checkpoint-wal-test/receivedData/0/log-1421140747074-14211408       07074,102728,60168)
-197765 15/01/13 17:19:10 INFO KafkaInputDStream: >>>>>>>>>>>>>log segment: WriteAheadLogFileSegment(file:       /home/jerryshao/project/apache-spark/checkpoint-wal-test/receivedData/0/log-1421140747074-14211408       07074,162900,64584)
-197766 15/01/13 17:19:10 INFO KafkaInputDStream: >>>>>>>>>>>>>log segment: WriteAheadLogFileSegment(file:       /home/jerryshao/project/apache-spark/checkpoint-wal-test/receivedData/0/log-1421140747074-14211408       07074,227488,51240)
+15/01/13 17:19:10 INFO KafkaInputDStream: \>\>\>\>\>\>\>\>\>\>\>\>\>log segment: WriteAheadLogFileSegment(file:       /home/jerryshao/project/apache-spark/checkpoint-wal-test/receivedData/0/log-1421140593201-14211406       53201,46704,480)
+197757 15/01/13 17:19:10 INFO KafkaInputDStream: \>\>\>\>\>\>\>\>\>\>\>\>\>log segment: WriteAheadLogFileSegment(file:       /home/jerryshao/project/apache-spark/checkpoint-wal-test/receivedData/0/log-1421140593201-14211406       53201,47188,480)
+197758 15/01/13 17:19:10 INFO KafkaInputDStream: \>\>\>\>\>\>\>\>\>\>\>\>\>log segment: WriteAheadLogFileSegment(file:       /home/jerryshao/project/apache-spark/checkpoint-wal-test/receivedData/0/log-1421140593201-14211406       53201,47672,480)
+197759 15/01/13 17:19:10 INFO KafkaInputDStream: \>\>\>\>\>\>\>\>\>\>\>\>\>log segment: WriteAheadLogFileSegment(file:       /home/jerryshao/project/apache-spark/checkpoint-wal-test/receivedData/0/log-1421140593201-14211406       53201,48156,480)                                                                                  
+197760 15/01/13 17:19:10 INFO KafkaInputDStream: \>\>\>\>\>\>\>\>\>\>\>\>\>log segment: WriteAheadLogFileSegment(file:       /home/jerryshao/project/apache-spark/checkpoint-wal-test/receivedData/0/log-1421140593201-14211406       53201,48640,480)
+197761 15/01/13 17:19:10 INFO KafkaInputDStream: \>\>\>\>\>\>\>\>\>\>\>\>\>log segment: WriteAheadLogFileSegment(file:       /home/jerryshao/project/apache-spark/checkpoint-wal-test/receivedData/0/log-1421140593201-14211406       53201,49124,480)
+197762 15/01/13 17:19:10 INFO KafkaInputDStream: \>\>\>\>\>\>\>\>\>\>\>\>\>log segment: WriteAheadLogFileSegment(file:       /home/jerryshao/project/apache-spark/checkpoint-wal-test/receivedData/0/log-1421140747074-14211408       07074,0,44184)
+197763 15/01/13 17:19:10 INFO KafkaInputDStream: \>\>\>\>\>\>\>\>\>\>\>\>\>log segment: WriteAheadLogFileSegment(file:       /home/jerryshao/project/apache-spark/checkpoint-wal-test/receivedData/0/log-1421140747074-14211408       07074,44188,58536)
+197764 15/01/13 17:19:10 INFO KafkaInputDStream: \>\>\>\>\>\>\>\>\>\>\>\>\>log segment: WriteAheadLogFileSegment(file:       /home/jerryshao/project/apache-spark/checkpoint-wal-test/receivedData/0/log-1421140747074-14211408       07074,102728,60168)
+197765 15/01/13 17:19:10 INFO KafkaInputDStream: \>\>\>\>\>\>\>\>\>\>\>\>\>log segment: WriteAheadLogFileSegment(file:       /home/jerryshao/project/apache-spark/checkpoint-wal-test/receivedData/0/log-1421140747074-14211408       07074,162900,64584)
+197766 15/01/13 17:19:10 INFO KafkaInputDStream: \>\>\>\>\>\>\>\>\>\>\>\>\>log segment: WriteAheadLogFileSegment(file:       /home/jerryshao/project/apache-spark/checkpoint-wal-test/receivedData/0/log-1421140747074-14211408       07074,227488,51240)
 {code}
 
 The old log "/home/jerryshao/project/apache-spark/checkpoint-wal-test/receivedData/0/log-1421140593201-14211406" is obviously far older than current batch interval, and will fetch again to add to process.
@@ -285,7 +285,7 @@ In our unit tests, we should disable the Spark Web UI when starting the Hive Thr
 
 {code}
   test("CACHE TABLE with Hive UDF") {
-    sql("CACHE TABLE udfTest AS SELECT * FROM src WHERE floor(key) = 1")
+    sql("CACHE TABLE udfTest AS SELECT \* FROM src WHERE floor(key) = 1")
     assertCached(table("udfTest"))
     uncacheTable("udfTest")
   }
@@ -302,11 +302,11 @@ s"Writing to log $record"
 
 because of the following lines
 
-{code:title=ReceivedBlockTracker.scala|borderStyle=solid}
-/** Write an update to the tracker to the write ahead log */
+{code:title=ReceivedBlockTracker.scala\|borderStyle=solid}
+/\*\* Write an update to the tracker to the write ahead log \*/
   private def writeToLog(record: ReceivedBlockTrackerLogEvent) {
     logDebug(s"Writing to log $record")
-    logManagerOption.foreach { logManager =>
+    logManagerOption.foreach { logManager =\>
         logManager.writeToLog(ByteBuffer.wrap(Utils.serialize(record)))
     }
   }
@@ -333,7 +333,7 @@ Max
 
 * [SPARK-5136](https://issues.apache.org/jira/browse/SPARK-5136) | *Minor* | **Improve documentation around setting up Spark IntelliJ project**
 
-[The documentation about setting up a Spark project in Intellij|http://spark.apache.org/docs/latest/building-spark.html#using-with-intellij-idea] is somewhat short/cryptic and targets [an IntelliJ version released in 2012|https://www.jetbrains.com/company/history.jsp]. A refresh / upgrade is probably warranted.
+[The documentation about setting up a Spark project in Intellij\|http://spark.apache.org/docs/latest/building-spark.html#using-with-intellij-idea] is somewhat short/cryptic and targets [an IntelliJ version released in 2012\|https://www.jetbrains.com/company/history.jsp]. A refresh / upgrade is probably warranted.
 
 
 ---
@@ -394,7 +394,7 @@ from pyspark.mllib.clustering import KMeans
 data = sc.parallelize(random.randn(100,10).astype('float32'))
 model = KMeans.train(data, k=3)
 len(model.centers[0])
->> 5 # should be 10!
+\>\> 5 # should be 10!
 {code}
 
 But this works fine:
@@ -403,7 +403,7 @@ But this works fine:
 data = sc.parallelize(random.randn(100,10).astype('float64'))
 model = KMeans.train(data, k=3)
 len(model.centers[0])
->> 10 # this is correct
+\>\> 10 # this is correct
 {code}
 
 The fix is trivial, I'll submit a PR shortly.
@@ -489,13 +489,13 @@ This happens when ParquetTableScan is being used by turning on spark.sql.hive.co
 
 For example:
 
-spark-sql> set spark.sql.hive.convertMetastoreParquet=true;
+spark-sql\> set spark.sql.hive.convertMetastoreParquet=true;
 
-spark-sql> create table table1(a int , b int) partitioned by (p1 string, p2 int) ROW FORMAT SERDE 'parquet.hive.serde.ParquetHiveSerDe' STORED AS  INPUTFORMAT 'parquet.hive.DeprecatedParquetInputFormat' OUTPUTFORMAT 'parquet.hive.DeprecatedParquetOutputFormat';
+spark-sql\> create table table1(a int , b int) partitioned by (p1 string, p2 int) ROW FORMAT SERDE 'parquet.hive.serde.ParquetHiveSerDe' STORED AS  INPUTFORMAT 'parquet.hive.DeprecatedParquetInputFormat' OUTPUTFORMAT 'parquet.hive.DeprecatedParquetOutputFormat';
 
-spark-sql> insert into table table1 partition(p1='January',p2=1) select key, 10  from src;    
+spark-sql\> insert into table table1 partition(p1='January',p2=1) select key, 10  from src;    
 
-spark-sql> select a, b, p1, p2 from table1 limit 10;
+spark-sql\> select a, b, p1, p2 from table1 limit 10;
 
 January	1	484	10
 January	1	484	10
@@ -525,14 +525,14 @@ The correct output should be
 This also leads to schema mismatch if the query is run using HiveContext and the result is a SchemaRDD.
 For example :
 
-scala> import org.apache.spark.sql.hive.\_
-scala> val hc = new HiveContext(sc)
-scala> hc.setConf("spark.sql.hive.convertMetastoreParquet", "true")
-scala> val res = hc.sql("select a, b, p1, p2 from table1 limit 10")
-scala> res.collect
+scala\> import org.apache.spark.sql.hive.\_
+scala\> val hc = new HiveContext(sc)
+scala\> hc.setConf("spark.sql.hive.convertMetastoreParquet", "true")
+scala\> val res = hc.sql("select a, b, p1, p2 from table1 limit 10")
+scala\> res.collect
 res2: Array[org.apache.spark.sql.Row] = Array([January,1,238,10], [January,1,86,10], [January,1,311,10], [January,1,27,10], [January,1,165,10], [January,1,409,10], [January,1,255,10], [January,1,278,10], [January,1,98,10], [January,1,484,10])
 
-scala> res.schema
+scala\> res.schema
 res5: org.apache.spark.sql.StructType = StructType(ArrayBuffer(StructField(a,IntegerType,true), StructField(b,IntegerType,true), StructField(p1,StringType,true), StructField(p2,IntegerType,true)))
 
 
@@ -547,7 +547,7 @@ If you attempt to send a fire-and-forget message to a remote Akka actor and that
 Here's the current code for ReceiverMessage:
 
 {code}
-/** Messages sent to the NetworkReceiver. */
+/\*\* Messages sent to the NetworkReceiver. \*/
 private[streaming] sealed trait ReceiverMessage
 private[streaming] object StopReceiver extends ReceiverMessage
 {code}
@@ -565,7 +565,7 @@ val lines = ssc.socketTextStream("localhost", 9999)
 val words = lines.flatMap(\_.split(" "))
 import org.apache.spark.streaming.StreamingContext.\_
 // Count each word in each batch
-val pairs = words.map(word => (word, 1))
+val pairs = words.map(word =\> (word, 1))
 val wordCounts = pairs.reduceByKey(\_ + \_)
 
 // Print the first ten elements of each RDD generated in this DStream to the console
@@ -586,7 +586,7 @@ In the current latest version of Spark (1.2.0) If you go to the Python API, in t
 
 Nevertheless, it is used as an example in the 1.2.0 documentation for mllib: http://spark.apache.org/docs/latest/mllib-ensembles.html#regression
 
-(It's in the Python code tab, you can *Ctrl+F* and search for "randomSplit").
+(It's in the Python code tab, you can \*Ctrl+F\* and search for "randomSplit").
 
 But looking in the code, it seems implemented: https://github.com/apache/spark/blob/branch-1.2/python/pyspark/rdd.py#L322
 
@@ -611,7 +611,7 @@ Currently WAL-backed block is read out from HDFS and put into BlockManger with s
 
 when enabling eventlog in standalone mode, if give the wrong configuration, the standalone cluster will down (cause master restart, lose connection with workers). 
 
-How to reproduce: just give an invalid value to "spark.eventLog.dir", for example: *spark.eventLog.dir=hdfs://tmp/logdir1, hdfs://tmp/logdir2*. This will throw illegalArgumentException, which will cause the *Master* restart. And the whole cluster is not available.
+How to reproduce: just give an invalid value to "spark.eventLog.dir", for example: \*spark.eventLog.dir=hdfs://tmp/logdir1, hdfs://tmp/logdir2\*. This will throw illegalArgumentException, which will cause the \*Master\* restart. And the whole cluster is not available.
 
 This is not acceptable that cluster is crashed by one application's wrong setting.
 
@@ -656,7 +656,7 @@ LOAD DATA LOCAL INPATH '/tmp/input.txt' OVERWRITE INTO TABLE testTable PARTITION
 
 4. run query
 {code}
-SELECT * FROM testTable WHERE market = 'market2' ORDER BY End\_Time DESC LIMIT 100;
+SELECT \* FROM testTable WHERE market = 'market2' ORDER BY End\_Time DESC LIMIT 100;
 
 
 Error trace
@@ -693,7 +693,7 @@ sql("drop table if exists test")
 sql("create table test (col1 string)")
 sql("""insert into table test select "hi" from prejoined limit 1""")
 val projection = "col1".attr.as(Symbol("CaseSensitiveColName")) :: "col1".attr.as(Symbol("CaseSensitiveColName2")) :: Nil
-sqlContext.table("test").select(projection:\_*).registerTempTable("test2")
+sqlContext.table("test").select(projection:\_\*).registerTempTable("test2")
 
 # This succeeds.
 sql("select CaseSensitiveColName from test2").first()
@@ -715,7 +715,7 @@ java.util.NoSuchElementException: key not found: casesensitivecolname#23046
 	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:47)
 	at scala.collection.TraversableLike$class.map(TraversableLike.scala:244)
 	at scala.collection.AbstractTraversable.map(Traversable.scala:105)
-	at org.apache.spark.sql.hive.execution.HiveTableScan.<init>(HiveTableScan.scala:57)
+	at org.apache.spark.sql.hive.execution.HiveTableScan.\<init\>(HiveTableScan.scala:57)
 	at org.apache.spark.sql.hive.HiveStrategies$HiveTableScans$$anonfun$14.apply(HiveStrategies.scala:221)
 	at org.apache.spark.sql.hive.HiveStrategies$HiveTableScans$$anonfun$14.apply(HiveStrategies.scala:221)
 	at org.apache.spark.sql.SQLContext$SparkPlanner.pruneFilterProject(SQLContext.scala:378)
@@ -747,7 +747,7 @@ java.util.NoSuchElementException: key not found: casesensitivecolname#23046
 
 the log:
 {noformat}
-Exception in thread "main" 14/12/24 12:00:25 INFO cluster.YarnClientSchedulerBackend: Add WebUI Filter. org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter, Map(PROXY\_HOSTS -> tuan200, PROXY\_URI\_BASES -> http://host:9082/proxy/application\_1414231702825\_488625), /proxy/application\_1414231702825\_488625
+Exception in thread "main" 14/12/24 12:00:25 INFO cluster.YarnClientSchedulerBackend: Add WebUI Filter. org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter, Map(PROXY\_HOSTS -\> tuan200, PROXY\_URI\_BASES -\> http://host:9082/proxy/application\_1414231702825\_488625), /proxy/application\_1414231702825\_488625
 java.util.ConcurrentModificationException
         at java.util.Hashtable$Enumerator.next(Hashtable.java:1167)
         at scala.collection.convert.Wrappers$JPropertiesWrapper$$anon$3.next(Wrappers.scala:458)
@@ -767,7 +767,7 @@ java.util.ConcurrentModificationException
         at scala.collection.AbstractSeq.sorted(Seq.scala:40)
         at org.apache.spark.SparkEnv$.environmentDetails(SparkEnv.scala:324)
         at org.apache.spark.SparkContext.postEnvironmentUpdate(SparkContext.scala:1319)
-        at org.apache.spark.SparkContext.<init>(SparkContext.scala:344)
+        at org.apache.spark.SparkContext.\<init\>(SparkContext.scala:344)
         at com.zhe800.toona.als.computation.DealCF$.main(DealCF.scala:497)
         at com.zhe800.toona.als.computation.DealCF.main(DealCF.scala)
         at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -804,7 +804,7 @@ The following steps (yarn-client mode) can reproduce this bug:
 2. Wait more than 30 seconds until there is only one executor.
 3. Run the following code (a task needs at least 50 seconds to finish)
 {code}
-val r = sc.parallelize(1 to 1000, 20).map{t => Thread.sleep(1000); t}.groupBy(\_ % 2).collect()
+val r = sc.parallelize(1 to 1000, 20).map{t =\> Thread.sleep(1000); t}.groupBy(\_ % 2).collect()
 {code}
 4. Executors will be killed and allocated all the time, which makes the Job fail.
 
@@ -892,7 +892,7 @@ When integrating Spark 1.2.0 with Cassandra SQL, the following query is broken. 
 [info]   at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
 [info]   at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
 [info]   at java.lang.Thread.run(Thread.java:745)
-[info] - should allow to select rows with union distinct clause *** FAILED *** (46 milliseconds)
+[info] - should allow to select rows with union distinct clause \*\*\* FAILED \*\*\* (46 milliseconds)
 [info]   java.lang.RuntimeException: [1.29] failure: ``UNION'' expected but `.' found
 {code}
 
@@ -943,7 +943,7 @@ The class name org.apache.spark.yarn.network.YarnShuffleService is wrong. org.ap
 
 * [SPARK-4914](https://issues.apache.org/jira/browse/SPARK-4914) | *Minor* | **Two sets of datanucleus versions left in lib\_managed after running dev/run-tests**
 
-The {{dev/run-tests}} script first does a clean compile with Hive 0.12.0, and then builds assembly jar for unit testing with Hive 0.13.1 *without* cleaning. This left two sets of datanucleus jars under the {{lib\_managed}} folder, one set depended by Hive 0.12.0, another by Hive 0.13.1.
+The {{dev/run-tests}} script first does a clean compile with Hive 0.12.0, and then builds assembly jar for unit testing with Hive 0.13.1 \*without\* cleaning. This left two sets of datanucleus jars under the {{lib\_managed}} folder, one set depended by Hive 0.12.0, another by Hive 0.13.1.
 
 This behavior sometimes messes up class paths and makes {{CliSuite}} and {{HiveThriftServer2Suite}} fail, because these two suites spawn external processes that depends on those datanucleus jars.
 
@@ -962,7 +962,7 @@ In single-threaded mode, normal operations look fine. However, under concurrency
 
 For example, {{USE some\_db}}, {{SHOW TABLES}}, and the implicit {{USE}} statement when you pass a default schema in the JDBC URL, all fail.
 
-{{SELECT}} queries like {{SELECT * FROM some\_table}} do not have this issue.
+{{SELECT}} queries like {{SELECT \* FROM some\_table}} do not have this issue.
 
 Here is some example code:
 
@@ -978,13 +978,13 @@ object main extends App {
   val host = "localhost" // update this
   val url = s"jdbc:hive2://${host}:10511/some\_db" // update this
 
-  val future = Future.traverse(1 to 3) { i =>
+  val future = Future.traverse(1 to 3) { i =\>
     Future {
       println("Starting: " + i)
       try {
         val conn = DriverManager.getConnection(url)
       } catch {
-        case e: Throwable => e.printStackTrace()
+        case e: Throwable =\> e.printStackTrace()
         println("Failed: " + i)
       }
       println("Finishing: " + i)
@@ -1008,7 +1008,7 @@ java.sql.SQLException: org.apache.spark.sql.execution.QueryExecutionException: F
 	at org.apache.hive.jdbc.Utils.verifySuccessWithInfo(Utils.java:109)
 	at org.apache.hive.jdbc.HiveStatement.execute(HiveStatement.java:231)
 	at org.apache.hive.jdbc.HiveConnection.configureConnection(HiveConnection.java:451)
-	at org.apache.hive.jdbc.HiveConnection.<init>(HiveConnection.java:195)
+	at org.apache.hive.jdbc.HiveConnection.\<init\>(HiveConnection.java:195)
 	at org.apache.hive.jdbc.HiveDriver.connect(HiveDriver.java:105)
 	at java.sql.DriverManager.getConnection(DriverManager.java:664)
 	at java.sql.DriverManager.getConnection(DriverManager.java:270)
@@ -1029,7 +1029,7 @@ java.sql.SQLException: org.apache.spark.sql.execution.QueryExecutionException: F
 	at org.apache.hive.jdbc.Utils.verifySuccessWithInfo(Utils.java:109)
 	at org.apache.hive.jdbc.HiveStatement.execute(HiveStatement.java:231)
 	at org.apache.hive.jdbc.HiveConnection.configureConnection(HiveConnection.java:451)
-	at org.apache.hive.jdbc.HiveConnection.<init>(HiveConnection.java:195)
+	at org.apache.hive.jdbc.HiveConnection.\<init\>(HiveConnection.java:195)
 	at org.apache.hive.jdbc.HiveDriver.connect(HiveDriver.java:105)
 	at java.sql.DriverManager.getConnection(DriverManager.java:664)
 	at java.sql.DriverManager.getConnection(DriverManager.java:270)
@@ -1058,30 +1058,30 @@ Here are the errors from Spark Logs:
 14/12/19 21:44:55 INFO parse.ParseDriver: Parsing command: use as\_adventure
 14/12/19 21:44:55 INFO parse.ParseDriver: Parse Completed
 14/12/19 21:44:55 INFO session.SessionState: No Tez session required at this point. hive.execution.engine=mr.
-14/12/19 21:44:55 INFO log.PerfLogger: <PERFLOG method=Driver.run from=org.apache.hadoop.hive.ql.Driver>
-14/12/19 21:44:55 INFO log.PerfLogger: <PERFLOG method=TimeToSubmit from=org.apache.hadoop.hive.ql.Driver>
+14/12/19 21:44:55 INFO log.PerfLogger: \<PERFLOG method=Driver.run from=org.apache.hadoop.hive.ql.Driver\>
+14/12/19 21:44:55 INFO log.PerfLogger: \<PERFLOG method=TimeToSubmit from=org.apache.hadoop.hive.ql.Driver\>
 14/12/19 21:44:55 INFO ql.Driver: Concurrency mode is disabled, not creating a lock manager
-14/12/19 21:44:55 INFO log.PerfLogger: <PERFLOG method=compile from=org.apache.hadoop.hive.ql.Driver>
-14/12/19 21:44:55 INFO log.PerfLogger: <PERFLOG method=parse from=org.apache.hadoop.hive.ql.Driver>
+14/12/19 21:44:55 INFO log.PerfLogger: \<PERFLOG method=compile from=org.apache.hadoop.hive.ql.Driver\>
+14/12/19 21:44:55 INFO log.PerfLogger: \<PERFLOG method=parse from=org.apache.hadoop.hive.ql.Driver\>
 14/12/19 21:44:55 INFO parse.ParseDriver: Parsing command: use as\_adventure
 14/12/19 21:44:55 INFO parse.ParseDriver: Parse Completed
-14/12/19 21:44:55 INFO log.PerfLogger: </PERFLOG method=parse start=1419025495084 end=1419025495084 duration=0 from=org.apache.hadoop.hive.ql.Driver>
-14/12/19 21:44:55 INFO log.PerfLogger: <PERFLOG method=semanticAnalyze from=org.apache.hadoop.hive.ql.Driver>
+14/12/19 21:44:55 INFO log.PerfLogger: \</PERFLOG method=parse start=1419025495084 end=1419025495084 duration=0 from=org.apache.hadoop.hive.ql.Driver\>
+14/12/19 21:44:55 INFO log.PerfLogger: \<PERFLOG method=semanticAnalyze from=org.apache.hadoop.hive.ql.Driver\>
 14/12/19 21:44:55 INFO ql.Driver: Semantic Analysis Completed
-14/12/19 21:44:55 INFO log.PerfLogger: </PERFLOG method=semanticAnalyze start=1419025495084 end=1419025495084 duration=0 from=org.apache.hadoop.hive.ql.Driver>
+14/12/19 21:44:55 INFO log.PerfLogger: \</PERFLOG method=semanticAnalyze start=1419025495084 end=1419025495084 duration=0 from=org.apache.hadoop.hive.ql.Driver\>
 14/12/19 21:44:55 INFO ql.Driver: Returning Hive schema: Schema(fieldSchemas:null, properties:null)
-14/12/19 21:44:55 INFO log.PerfLogger: </PERFLOG method=compile start=1419025495084 end=1419025495085 duration=1 from=org.apache.hadoop.hive.ql.Driver>
-14/12/19 21:44:55 INFO log.PerfLogger: <PERFLOG method=Driver.execute from=org.apache.hadoop.hive.ql.Driver>
+14/12/19 21:44:55 INFO log.PerfLogger: \</PERFLOG method=compile start=1419025495084 end=1419025495085 duration=1 from=org.apache.hadoop.hive.ql.Driver\>
+14/12/19 21:44:55 INFO log.PerfLogger: \<PERFLOG method=Driver.execute from=org.apache.hadoop.hive.ql.Driver\>
 14/12/19 21:44:55 INFO ql.Driver: Starting command: use as\_adventure
-14/12/19 21:44:55 INFO log.PerfLogger: </PERFLOG method=TimeToSubmit start=1419025495084 end=1419025495085 duration=1 from=org.apache.hadoop.hive.ql.Driver>
-14/12/19 21:44:55 INFO log.PerfLogger: <PERFLOG method=runTasks from=org.apache.hadoop.hive.ql.Driver>
-14/12/19 21:44:55 INFO log.PerfLogger: <PERFLOG method=task.DDL.Stage-0 from=org.apache.hadoop.hive.ql.Driver>
-14/12/19 21:44:55 INFO log.PerfLogger: </PERFLOG method=runTasks start=1419025495085 end=1419025495098 duration=13 from=org.apache.hadoop.hive.ql.Driver>
-14/12/19 21:44:55 INFO log.PerfLogger: </PERFLOG method=Driver.execute start=1419025495085 end=1419025495098 duration=13 from=org.apache.hadoop.hive.ql.Driver>
+14/12/19 21:44:55 INFO log.PerfLogger: \</PERFLOG method=TimeToSubmit start=1419025495084 end=1419025495085 duration=1 from=org.apache.hadoop.hive.ql.Driver\>
+14/12/19 21:44:55 INFO log.PerfLogger: \<PERFLOG method=runTasks from=org.apache.hadoop.hive.ql.Driver\>
+14/12/19 21:44:55 INFO log.PerfLogger: \<PERFLOG method=task.DDL.Stage-0 from=org.apache.hadoop.hive.ql.Driver\>
+14/12/19 21:44:55 INFO log.PerfLogger: \</PERFLOG method=runTasks start=1419025495085 end=1419025495098 duration=13 from=org.apache.hadoop.hive.ql.Driver\>
+14/12/19 21:44:55 INFO log.PerfLogger: \</PERFLOG method=Driver.execute start=1419025495085 end=1419025495098 duration=13 from=org.apache.hadoop.hive.ql.Driver\>
 14/12/19 21:44:55 INFO ql.Driver: OK
-14/12/19 21:44:55 INFO log.PerfLogger: <PERFLOG method=releaseLocks from=org.apache.hadoop.hive.ql.Driver>
-14/12/19 21:44:55 INFO log.PerfLogger: </PERFLOG method=releaseLocks start=1419025495098 end=1419025495098 duration=0 from=org.apache.hadoop.hive.ql.Driver>
-14/12/19 21:44:55 INFO log.PerfLogger: </PERFLOG method=Driver.run start=1419025495084 end=1419025495098 duration=14 from=org.apache.hadoop.hive.ql.Driver>
+14/12/19 21:44:55 INFO log.PerfLogger: \<PERFLOG method=releaseLocks from=org.apache.hadoop.hive.ql.Driver\>
+14/12/19 21:44:55 INFO log.PerfLogger: \</PERFLOG method=releaseLocks start=1419025495098 end=1419025495098 duration=0 from=org.apache.hadoop.hive.ql.Driver\>
+14/12/19 21:44:55 INFO log.PerfLogger: \</PERFLOG method=Driver.run start=1419025495084 end=1419025495098 duration=14 from=org.apache.hadoop.hive.ql.Driver\>
 14/12/19 21:44:55 INFO thrift.ThriftCLIService: Client protocol version: HIVE\_CLI\_SERVICE\_PROTOCOL\_V6
 14/12/19 21:44:55 INFO thrift.ThriftCLIService: Client protocol version: HIVE\_CLI\_SERVICE\_PROTOCOL\_V6
 14/12/19 21:44:55 INFO session.SessionState: No Tez session required at this point. hive.execution.engine=mr.
@@ -1094,58 +1094,58 @@ Here are the errors from Spark Logs:
 14/12/19 21:44:55 INFO parse.ParseDriver: Parsing command: use as\_adventure
 14/12/19 21:44:55 INFO parse.ParseDriver: Parse Completed
 14/12/19 21:44:55 INFO session.SessionState: No Tez session required at this point. hive.execution.engine=mr.
-14/12/19 21:44:55 INFO log.PerfLogger: <PERFLOG method=Driver.run from=org.apache.hadoop.hive.ql.Driver>
-14/12/19 21:44:55 INFO log.PerfLogger: <PERFLOG method=TimeToSubmit from=org.apache.hadoop.hive.ql.Driver>
+14/12/19 21:44:55 INFO log.PerfLogger: \<PERFLOG method=Driver.run from=org.apache.hadoop.hive.ql.Driver\>
+14/12/19 21:44:55 INFO log.PerfLogger: \<PERFLOG method=TimeToSubmit from=org.apache.hadoop.hive.ql.Driver\>
 14/12/19 21:44:55 INFO ql.Driver: Concurrency mode is disabled, not creating a lock manager
-14/12/19 21:44:55 INFO log.PerfLogger: <PERFLOG method=compile from=org.apache.hadoop.hive.ql.Driver>
-14/12/19 21:44:55 INFO log.PerfLogger: <PERFLOG method=parse from=org.apache.hadoop.hive.ql.Driver>
+14/12/19 21:44:55 INFO log.PerfLogger: \<PERFLOG method=compile from=org.apache.hadoop.hive.ql.Driver\>
+14/12/19 21:44:55 INFO log.PerfLogger: \<PERFLOG method=parse from=org.apache.hadoop.hive.ql.Driver\>
 14/12/19 21:44:55 INFO parse.ParseDriver: Parsing command: use as\_adventure
 14/12/19 21:44:55 INFO parse.ParseDriver: Parse Completed
-14/12/19 21:44:55 INFO log.PerfLogger: </PERFLOG method=parse start=1419025495165 end=1419025495165 duration=0 from=org.apache.hadoop.hive.ql.Driver>
-14/12/19 21:44:55 INFO log.PerfLogger: <PERFLOG method=semanticAnalyze from=org.apache.hadoop.hive.ql.Driver>
+14/12/19 21:44:55 INFO log.PerfLogger: \</PERFLOG method=parse start=1419025495165 end=1419025495165 duration=0 from=org.apache.hadoop.hive.ql.Driver\>
+14/12/19 21:44:55 INFO log.PerfLogger: \<PERFLOG method=semanticAnalyze from=org.apache.hadoop.hive.ql.Driver\>
 14/12/19 21:44:55 INFO ql.Driver: Semantic Analysis Completed
-14/12/19 21:44:55 INFO log.PerfLogger: </PERFLOG method=semanticAnalyze start=1419025495165 end=1419025495166 duration=1 from=org.apache.hadoop.hive.ql.Driver>
+14/12/19 21:44:55 INFO log.PerfLogger: \</PERFLOG method=semanticAnalyze start=1419025495165 end=1419025495166 duration=1 from=org.apache.hadoop.hive.ql.Driver\>
 14/12/19 21:44:55 INFO ql.Driver: Returning Hive schema: Schema(fieldSchemas:null, properties:null)
-14/12/19 21:44:55 INFO log.PerfLogger: </PERFLOG method=compile start=1419025495165 end=1419025495166 duration=1 from=org.apache.hadoop.hive.ql.Driver>
-14/12/19 21:44:55 INFO log.PerfLogger: <PERFLOG method=Driver.execute from=org.apache.hadoop.hive.ql.Driver>
+14/12/19 21:44:55 INFO log.PerfLogger: \</PERFLOG method=compile start=1419025495165 end=1419025495166 duration=1 from=org.apache.hadoop.hive.ql.Driver\>
+14/12/19 21:44:55 INFO log.PerfLogger: \<PERFLOG method=Driver.execute from=org.apache.hadoop.hive.ql.Driver\>
 14/12/19 21:44:55 INFO ql.Driver: Starting command: use as\_adventure
-14/12/19 21:44:55 INFO log.PerfLogger: </PERFLOG method=TimeToSubmit start=1419025495165 end=1419025495166 duration=1 from=org.apache.hadoop.hive.ql.Driver>
-14/12/19 21:44:55 INFO log.PerfLogger: <PERFLOG method=runTasks from=org.apache.hadoop.hive.ql.Driver>
-14/12/19 21:44:55 INFO log.PerfLogger: <PERFLOG method=task.DDL.Stage-0 from=org.apache.hadoop.hive.ql.Driver>
+14/12/19 21:44:55 INFO log.PerfLogger: \</PERFLOG method=TimeToSubmit start=1419025495165 end=1419025495166 duration=1 from=org.apache.hadoop.hive.ql.Driver\>
+14/12/19 21:44:55 INFO log.PerfLogger: \<PERFLOG method=runTasks from=org.apache.hadoop.hive.ql.Driver\>
+14/12/19 21:44:55 INFO log.PerfLogger: \<PERFLOG method=task.DDL.Stage-0 from=org.apache.hadoop.hive.ql.Driver\>
 14/12/19 21:44:55 INFO parse.ParseDriver: Parsing command: use as\_adventure
 14/12/19 21:44:55 INFO parse.ParseDriver: Parse Completed
 14/12/19 21:44:55 INFO session.SessionState: No Tez session required at this point. hive.execution.engine=mr.
-14/12/19 21:44:55 INFO log.PerfLogger: <PERFLOG method=Driver.run from=org.apache.hadoop.hive.ql.Driver>
-14/12/19 21:44:55 INFO log.PerfLogger: <PERFLOG method=TimeToSubmit from=org.apache.hadoop.hive.ql.Driver>
+14/12/19 21:44:55 INFO log.PerfLogger: \<PERFLOG method=Driver.run from=org.apache.hadoop.hive.ql.Driver\>
+14/12/19 21:44:55 INFO log.PerfLogger: \<PERFLOG method=TimeToSubmit from=org.apache.hadoop.hive.ql.Driver\>
 14/12/19 21:44:55 INFO ql.Driver: Concurrency mode is disabled, not creating a lock manager
-14/12/19 21:44:55 INFO log.PerfLogger: <PERFLOG method=compile from=org.apache.hadoop.hive.ql.Driver>
+14/12/19 21:44:55 INFO log.PerfLogger: \<PERFLOG method=compile from=org.apache.hadoop.hive.ql.Driver\>
 14/12/19 21:44:55 WARN ql.Driver: Shutting down task : Stage-0:DDL
-14/12/19 21:44:55 INFO log.PerfLogger: <PERFLOG method=parse from=org.apache.hadoop.hive.ql.Driver>
+14/12/19 21:44:55 INFO log.PerfLogger: \<PERFLOG method=parse from=org.apache.hadoop.hive.ql.Driver\>
 14/12/19 21:44:55 INFO parse.ParseDriver: Parsing command: use as\_adventure
 14/12/19 21:44:55 INFO parse.ParseDriver: Parse Completed
-14/12/19 21:44:55 INFO log.PerfLogger: </PERFLOG method=parse start=1419025495173 end=1419025495174 duration=1 from=org.apache.hadoop.hive.ql.Driver>
-14/12/19 21:44:55 INFO log.PerfLogger: <PERFLOG method=semanticAnalyze from=org.apache.hadoop.hive.ql.Driver>
+14/12/19 21:44:55 INFO log.PerfLogger: \</PERFLOG method=parse start=1419025495173 end=1419025495174 duration=1 from=org.apache.hadoop.hive.ql.Driver\>
+14/12/19 21:44:55 INFO log.PerfLogger: \<PERFLOG method=semanticAnalyze from=org.apache.hadoop.hive.ql.Driver\>
 14/12/19 21:44:55 INFO ql.Driver: Semantic Analysis Completed
-14/12/19 21:44:55 INFO log.PerfLogger: </PERFLOG method=semanticAnalyze start=1419025495174 end=1419025495174 duration=0 from=org.apache.hadoop.hive.ql.Driver>
+14/12/19 21:44:55 INFO log.PerfLogger: \</PERFLOG method=semanticAnalyze start=1419025495174 end=1419025495174 duration=0 from=org.apache.hadoop.hive.ql.Driver\>
 14/12/19 21:44:55 INFO ql.Driver: Returning Hive schema: Schema(fieldSchemas:null, properties:null)
-14/12/19 21:44:55 INFO log.PerfLogger: </PERFLOG method=compile start=1419025495172 end=1419025495177 duration=5 from=org.apache.hadoop.hive.ql.Driver>
-14/12/19 21:44:55 INFO log.PerfLogger: <PERFLOG method=Driver.execute from=org.apache.hadoop.hive.ql.Driver>
+14/12/19 21:44:55 INFO log.PerfLogger: \</PERFLOG method=compile start=1419025495172 end=1419025495177 duration=5 from=org.apache.hadoop.hive.ql.Driver\>
+14/12/19 21:44:55 INFO log.PerfLogger: \<PERFLOG method=Driver.execute from=org.apache.hadoop.hive.ql.Driver\>
 14/12/19 21:44:55 INFO ql.Driver: Starting command: use as\_adventure
-14/12/19 21:44:55 INFO log.PerfLogger: </PERFLOG method=TimeToSubmit start=1419025495172 end=1419025495177 duration=5 from=org.apache.hadoop.hive.ql.Driver>
-14/12/19 21:44:55 INFO log.PerfLogger: <PERFLOG method=runTasks from=org.apache.hadoop.hive.ql.Driver>
-14/12/19 21:44:55 INFO log.PerfLogger: <PERFLOG method=task.DDL.Stage-0 from=org.apache.hadoop.hive.ql.Driver>
-14/12/19 21:44:55 INFO log.PerfLogger: </PERFLOG method=runTasks start=1419025495167 end=1419025495188 duration=21 from=org.apache.hadoop.hive.ql.Driver>
+14/12/19 21:44:55 INFO log.PerfLogger: \</PERFLOG method=TimeToSubmit start=1419025495172 end=1419025495177 duration=5 from=org.apache.hadoop.hive.ql.Driver\>
+14/12/19 21:44:55 INFO log.PerfLogger: \<PERFLOG method=runTasks from=org.apache.hadoop.hive.ql.Driver\>
+14/12/19 21:44:55 INFO log.PerfLogger: \<PERFLOG method=task.DDL.Stage-0 from=org.apache.hadoop.hive.ql.Driver\>
+14/12/19 21:44:55 INFO log.PerfLogger: \</PERFLOG method=runTasks start=1419025495167 end=1419025495188 duration=21 from=org.apache.hadoop.hive.ql.Driver\>
 14/12/19 21:44:55 ERROR ql.Driver: FAILED: Operation cancelled
-14/12/19 21:44:55 INFO log.PerfLogger: </PERFLOG method=Driver.execute start=1419025495166 end=1419025495189 duration=23 from=org.apache.hadoop.hive.ql.Driver>
-14/12/19 21:44:55 INFO log.PerfLogger: <PERFLOG method=releaseLocks from=org.apache.hadoop.hive.ql.Driver>
-14/12/19 21:44:55 INFO log.PerfLogger: </PERFLOG method=releaseLocks start=1419025495189 end=1419025495189 duration=0 from=org.apache.hadoop.hive.ql.Driver>
+14/12/19 21:44:55 INFO log.PerfLogger: \</PERFLOG method=Driver.execute start=1419025495166 end=1419025495189 duration=23 from=org.apache.hadoop.hive.ql.Driver\>
+14/12/19 21:44:55 INFO log.PerfLogger: \<PERFLOG method=releaseLocks from=org.apache.hadoop.hive.ql.Driver\>
+14/12/19 21:44:55 INFO log.PerfLogger: \</PERFLOG method=releaseLocks start=1419025495189 end=1419025495189 duration=0 from=org.apache.hadoop.hive.ql.Driver\>
 14/12/19 21:44:55 WARN ql.Driver: Shutting down task : Stage-0:DDL
 14/12/19 21:44:55 ERROR hive.HiveContext:
 ======================
 HIVE FAILURE OUTPUT
 ======================
 RDDLike.scala:58)
-	at org.apache.spark.sql.SchemaRDD.<init>(SchemaRDD.scala:108)
+	at org.apache.spark.sql.SchemaRDD.\<init\>(SchemaRDD.scala:108)
 	at org.apache.spark.sql.hive.HiveContext.sql(HiveContext.scala:94)
 	at org.apache.spark.sql.hive.thriftserver.SparkExecuteStatementOperation.run(Shim13.scala:161)
 	at org.apache.hive.service.cli.session.HiveSessionImpl.executeStatementInternal(HiveSessionImpl.java:231)
@@ -1193,7 +1193,7 @@ org.apache.hadoop.hive.ql.metadata.HiveException: FAILED: Operation cancelled
 	at org.apache.spark.sql.SQLContext$QueryExecution.toRdd$lzycompute(SQLContext.scala:425)
 	at org.apache.spark.sql.SQLContext$QueryExecution.toRdd(SQLContext.scala:425)
 	at org.apache.spark.sql.SchemaRDDLike$class.$init$(SchemaRDDLike.scala:58)
-	at org.apache.spark.sql.SchemaRDD.<init>(SchemaRDD.scala:108)
+	at org.apache.spark.sql.SchemaRDD.\<init\>(SchemaRDD.scala:108)
 	at org.apache.spark.sql.hive.HiveContext.sql(HiveContext.scala:94)
 	at org.apache.spark.sql.hive.thriftserver.SparkExecuteStatementOperation.run(Shim13.scala:161)
 	at org.apache.hive.service.cli.session.HiveSessionImpl.executeStatementInternal(HiveSessionImpl.java:231)
@@ -1247,7 +1247,7 @@ java.lang.NullPointerException
 	at org.apache.spark.sql.SQLContext$QueryExecution.toRdd$lzycompute(SQLContext.scala:425)
 	at org.apache.spark.sql.SQLContext$QueryExecution.toRdd(SQLContext.scala:425)
 	at org.apache.spark.sql.SchemaRDDLike$class.$init$(SchemaRDDLike.scala:58)
-	at org.apache.spark.sql.SchemaRDD.<init>(SchemaRDD.scala:108)
+	at org.apache.spark.sql.SchemaRDD.\<init\>(SchemaRDD.scala:108)
 	at org.apache.spark.sql.hive.HiveContext.sql(HiveContext.scala:94)
 	at org.apache.spark.sql.hive.thriftserver.SparkExecuteStatementOperation.run(Shim13.scala:161)
 	at org.apache.hive.service.cli.session.HiveSessionImpl.executeStatementInternal(HiveSessionImpl.java:231)
@@ -1318,7 +1318,7 @@ org.apache.spark.sql.execution.QueryExecutionException: FAILED: Operation cancel
 	at org.apache.spark.sql.SQLContext$QueryExecution.toRdd$lzycompute(SQLContext.scala:425)
 	at org.apache.spark.sql.SQLContext$QueryExecution.toRdd(SQLContext.scala:425)
 	at org.apache.spark.sql.SchemaRDDLike$class.$init$(SchemaRDDLike.scala:58)
-	at org.apache.spark.sql.SchemaRDD.<init>(SchemaRDD.scala:108)
+	at org.apache.spark.sql.SchemaRDD.\<init\>(SchemaRDD.scala:108)
 	at org.apache.spark.sql.hive.HiveContext.sql(HiveContext.scala:94)
 	at org.apache.spark.sql.hive.thriftserver.SparkExecuteStatementOperation.run(Shim13.scala:161)
 	at org.apache.hive.service.cli.session.HiveSessionImpl.executeStatementInternal(HiveSessionImpl.java:231)
@@ -1374,16 +1374,16 @@ org.apache.hive.service.cli.HiveSQLException: org.apache.spark.sql.execution.Que
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
 	at java.lang.Thread.run(Thread.java:745)
-14/12/19 21:44:55 INFO log.PerfLogger: </PERFLOG method=runTasks start=1419025495177 end=1419025495197 duration=20 from=org.apache.hadoop.hive.ql.Driver>
+14/12/19 21:44:55 INFO log.PerfLogger: \</PERFLOG method=runTasks start=1419025495177 end=1419025495197 duration=20 from=org.apache.hadoop.hive.ql.Driver\>
 14/12/19 21:44:55 ERROR ql.Driver: FAILED: Operation cancelled
-14/12/19 21:44:55 INFO log.PerfLogger: </PERFLOG method=Driver.execute start=1419025495177 end=1419025495200 duration=23 from=org.apache.hadoop.hive.ql.Driver>
-14/12/19 21:44:55 INFO log.PerfLogger: <PERFLOG method=releaseLocks from=org.apache.hadoop.hive.ql.Driver>
-14/12/19 21:44:55 INFO log.PerfLogger: </PERFLOG method=releaseLocks start=1419025495200 end=1419025495200 duration=0 from=org.apache.hadoop.hive.ql.Driver>
+14/12/19 21:44:55 INFO log.PerfLogger: \</PERFLOG method=Driver.execute start=1419025495177 end=1419025495200 duration=23 from=org.apache.hadoop.hive.ql.Driver\>
+14/12/19 21:44:55 INFO log.PerfLogger: \<PERFLOG method=releaseLocks from=org.apache.hadoop.hive.ql.Driver\>
+14/12/19 21:44:55 INFO log.PerfLogger: \</PERFLOG method=releaseLocks start=1419025495200 end=1419025495200 duration=0 from=org.apache.hadoop.hive.ql.Driver\>
 14/12/19 21:44:55 ERROR hive.HiveContext:
 ======================
 HIVE FAILURE OUTPUT
 ======================
-ache.spark.sql.SchemaRDD.<init>(SchemaRDD.scala:108)
+ache.spark.sql.SchemaRDD.\<init\>(SchemaRDD.scala:108)
 	at org.apache.spark.sql.hive.HiveContext.sql(HiveContext.scala:94)
 	at org.apache.spark.sql.hive.thriftserver.SparkExecuteStatementOperation.run(Shim13.scala:161)
 	at org.apache.hive.service.cli.session.HiveSessionImpl.executeStatementInternal(HiveSessionImpl.java:231)
@@ -1431,7 +1431,7 @@ org.apache.hadoop.hive.ql.metadata.HiveException: FAILED: Operation cancelled
 	at org.apache.spark.sql.SQLContext$QueryExecution.toRdd$lzycompute(SQLContext.scala:425)
 	at org.apache.spark.sql.SQLContext$QueryExecution.toRdd(SQLContext.scala:425)
 	at org.apache.spark.sql.SchemaRDDLike$class.$init$(SchemaRDDLike.scala:58)
-	at org.apache.spark.sql.SchemaRDD.<init>(SchemaRDD.scala:108)
+	at org.apache.spark.sql.SchemaRDD.\<init\>(SchemaRDD.scala:108)
 	at org.apache.spark.sql.hive.HiveContext.sql(HiveContext.scala:94)
 	at org.apache.spark.sql.hive.thriftserver.SparkExecuteStatementOperation.run(Shim13.scala:161)
 	at org.apache.hive.service.cli.session.HiveSessionImpl.executeStatementInternal(HiveSessionImpl.java:231)
@@ -1485,7 +1485,7 @@ java.lang.NullPointerException
 	at org.apache.spark.sql.SQLContext$QueryExecution.toRdd$lzycompute(SQLContext.scala:425)
 	at org.apache.spark.sql.SQLContext$QueryExecution.toRdd(SQLContext.scala:425)
 	at org.apache.spark.sql.SchemaRDDLike$class.$init$(SchemaRDDLike.scala:58)
-	at org.apache.spark.sql.SchemaRDD.<init>(SchemaRDD.scala:108)
+	at org.apache.spark.sql.SchemaRDD.\<init\>(SchemaRDD.scala:108)
 	at org.apache.spark.sql.hive.HiveContext.sql(HiveContext.scala:94)
 	at org.apache.spark.sql.hive.thriftserver.SparkExecuteStatementOperation.run(Shim13.scala:161)
 	at org.apache.hive.service.cli.session.HiveSessionImpl.executeStatementInternal(HiveSessionImpl.java:231)
@@ -1557,7 +1557,7 @@ org.apache.spark.sql.execution.QueryExecutionException: FAILED: Operation cancel
 	at org.apache.spark.sql.SQLContext$QueryExecution.toRdd$lzycompute(SQLContext.scala:425)
 	at org.apache.spark.sql.SQLContext$QueryExecution.toRdd(SQLContext.scala:425)
 	at org.apache.spark.sql.SchemaRDDLike$class.$init$(SchemaRDDLike.scala:58)
-	at org.apache.spark.sql.SchemaRDD.<init>(SchemaRDD.scala:108)
+	at org.apache.spark.sql.SchemaRDD.\<init\>(SchemaRDD.scala:108)
 	at org.apache.spark.sql.hive.HiveContext.sql(HiveContext.scala:94)
 	at org.apache.spark.sql.hive.thriftserver.SparkExecuteStatementOperation.run(Shim13.scala:161)
 	at org.apache.hive.service.cli.session.HiveSessionImpl.executeStatementInternal(HiveSessionImpl.java:231)
@@ -1625,9 +1625,9 @@ This JIRA is spun off from a comment by [~rdub] on SPARK-3967, quoted here:
 {quote}
 I've been debugging this issue as well and I think I've found an issue in {{org.apache.spark.util.Utils}} that is contributing to / causing the problem:
 
-{{Files.move}} on [line 390|https://github.com/apache/spark/blob/v1.1.0/core/src/main/scala/org/apache/spark/util/Utils.scala#L390] is called even if {{targetFile}} exists and {{tempFile}} and {{targetFile}} are equal.
+{{Files.move}} on [line 390\|https://github.com/apache/spark/blob/v1.1.0/core/src/main/scala/org/apache/spark/util/Utils.scala#L390] is called even if {{targetFile}} exists and {{tempFile}} and {{targetFile}} are equal.
 
-The check on [line 379|https://github.com/apache/spark/blob/v1.1.0/core/src/main/scala/org/apache/spark/util/Utils.scala#L379] seems to imply the desire to skip a redundant overwrite if the file is already there and has the contents that it should have.
+The check on [line 379\|https://github.com/apache/spark/blob/v1.1.0/core/src/main/scala/org/apache/spark/util/Utils.scala#L379] seems to imply the desire to skip a redundant overwrite if the file is already there and has the contents that it should have.
 
 Gating the {{Files.move}} call on a further {{if (!targetFile.exists)}} fixes the issue for me; attached is a patch of the change.
 
@@ -1641,7 +1641,7 @@ I'm spinning this off into its own JIRA so that we can track the merging of http
 
 * [SPARK-4889](https://issues.apache.org/jira/browse/SPARK-4889) | *Minor* | **HistoryServer documentation refers to non-existent spark-history-server.sh script**
 
-The [examples for how to start a history server|https://github.com/apache/spark/blob/253b72b56fe908bbab5d621eae8a5f359c639dfd/core/src/main/scala/org/apache/spark/deploy/history/HistoryServer.scala#L164] refer to a {{spark-history-server.sh}} script that doesn't exist; afaict it never did.
+The [examples for how to start a history server\|https://github.com/apache/spark/blob/253b72b56fe908bbab5d621eae8a5f359c639dfd/core/src/main/scala/org/apache/spark/deploy/history/HistoryServer.scala#L164] refer to a {{spark-history-server.sh}} script that doesn't exist; afaict it never did.
 
 I believe the examples mean to refer to {{./sbin/start-history-server.sh}}, and should be updated to reflect that the log directory should be specified via {{-Dspark.history.fs.logDirectory}} in {{$SPARK\_HISTORY\_OPTS}}, not via a command-line argument.
 
@@ -1659,7 +1659,7 @@ ScalaDoc for org/apache/spark/Partition.scala is a bit vague. This discussion ex
 
 When KryoSerializer is used, PySpark will throw NullPointerException when trying to send broadcast variables to workers.  This issue does not occur when the master is {{local}}, or when using the default JavaSerializer.
 
-*Reproduction*:
+\*Reproduction\*:
 
 Run
 
@@ -1694,7 +1694,7 @@ This job fails because all tasks throw the following exception:
 
 KryoSerializer may be enabled in the {{spark-defaults.conf}} file, so users may hit this error and be confused.
 
-*Workaround*:
+\*Workaround\*:
 
 Override the {{spark.serializer}} setting to use the default Java serializer.
 
@@ -1739,48 +1739,48 @@ t.zip(t).count()
 
 {code}
 Py4JJavaError                             Traceback (most recent call last)
-<ipython-input-6-60fdeb8339fd> in <module>()
-----> 1 readme.zip(readme).count()
+\<ipython-input-6-60fdeb8339fd\> in \<module\>()
+----\> 1 readme.zip(readme).count()
 
 /Users/meng/src/spark/python/pyspark/rdd.pyc in count(self)
     817         3
     818         """
---> 819         return self.mapPartitions(lambda i: [sum(1 for \_ in i)]).sum()
+--\> 819         return self.mapPartitions(lambda i: [sum(1 for \_ in i)]).sum()
     820
     821     def stats(self):
 
 /Users/meng/src/spark/python/pyspark/rdd.pyc in sum(self)
     808         6.0
     809         """
---> 810         return self.mapPartitions(lambda x: [sum(x)]).reduce(operator.add)
+--\> 810         return self.mapPartitions(lambda x: [sum(x)]).reduce(operator.add)
     811
     812     def count(self):
 
 /Users/meng/src/spark/python/pyspark/rdd.pyc in reduce(self, f)
     713             yield reduce(f, iterator, initial)
     714
---> 715         vals = self.mapPartitions(func).collect()
+--\> 715         vals = self.mapPartitions(func).collect()
     716         if vals:
     717             return reduce(f, vals)
 
 /Users/meng/src/spark/python/pyspark/rdd.pyc in collect(self)
     674         """
     675         with SCCallSiteSync(self.context) as css:
---> 676             bytesInJava = self.\_jrdd.collect().iterator()
+--\> 676             bytesInJava = self.\_jrdd.collect().iterator()
     677         return list(self.\_collect\_iterator\_through\_file(bytesInJava))
     678
 
-/Users/meng/src/spark/python/lib/py4j-0.8.2.1-src.zip/py4j/java\_gateway.py in \_\_call\_\_(self, *args)
+/Users/meng/src/spark/python/lib/py4j-0.8.2.1-src.zip/py4j/java\_gateway.py in \_\_call\_\_(self, \*args)
     536         answer = self.gateway\_client.send\_command(command)
     537         return\_value = get\_return\_value(answer, self.gateway\_client,
---> 538                 self.target\_id, self.name)
+--\> 538                 self.target\_id, self.name)
     539
     540         for temp\_arg in temp\_args:
 
 /Users/meng/src/spark/python/lib/py4j-0.8.2.1-src.zip/py4j/protocol.py in get\_return\_value(answer, gateway\_client, target\_id, name)
     298                 raise Py4JJavaError(
     299                     'An error occurred while calling {0}{1}{2}.\n'.
---> 300                     format(target\_id, '.', name), value)
+--\> 300                     format(target\_id, '.', name), value)
     301             else:
     302                 raise Py4JError(
 
@@ -1797,7 +1797,7 @@ Py4JJavaError: An error occurred while calling o69.collect.
 NotImplementedError
 
 	at org.apache.spark.api.python.PythonRDD$$anon$1.read(PythonRDD.scala:137)
-	at org.apache.spark.api.python.PythonRDD$$anon$1.<init>(PythonRDD.scala:174)
+	at org.apache.spark.api.python.PythonRDD$$anon$1.\<init\>(PythonRDD.scala:174)
 	at org.apache.spark.api.python.PythonRDD.compute(PythonRDD.scala:96)
 	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:263)
 	at org.apache.spark.rdd.RDD.iterator(RDD.scala:230)
@@ -1911,7 +1911,7 @@ We should add a way to clean up these files. It's not as simple as "hey, just ca
 
 I saw a recent master Maven build failure in WriteHeadLogBackedBlockRDDSuite where four tests failed with the same exception.
 
-[Link to test result (this will eventually break)|https://amplab.cs.berkeley.edu/jenkins/job/Spark-Master-Maven-pre-YARN/1156/].  In case that link breaks:
+[Link to test result (this will eventually break)\|https://amplab.cs.berkeley.edu/jenkins/job/Spark-Master-Maven-pre-YARN/1156/].  In case that link breaks:
 
 The failed tests:
 
@@ -1929,7 +1929,7 @@ The error messages are all (essentially) the same:
       at org.apache.spark.streaming.util.HdfsUtils$.getOutputStream(HdfsUtils.scala:33)
       at org.apache.spark.streaming.util.WriteAheadLogWriter.org$apache$spark$streaming$util$WriteAheadLogWriter$$stream$lzycompute(WriteAheadLogWriter.scala:34)
       at org.apache.spark.streaming.util.WriteAheadLogWriter.org$apache$spark$streaming$util$WriteAheadLogWriter$$stream(WriteAheadLogWriter.scala:34)
-      at org.apache.spark.streaming.util.WriteAheadLogWriter.<init>(WriteAheadLogWriter.scala:42)
+      at org.apache.spark.streaming.util.WriteAheadLogWriter.\<init\>(WriteAheadLogWriter.scala:42)
       at org.apache.spark.streaming.rdd.WriteAheadLogBackedBlockRDDSuite.writeLogSegments(WriteAheadLogBackedBlockRDDSuite.scala:140)
       at org.apache.spark.streaming.rdd.WriteAheadLogBackedBlockRDDSuite.org$apache$spark$streaming$rdd$WriteAheadLogBackedBlockRDDSuite$$testRDD(WriteAheadLogBackedBlockRDDSuite.scala:95)
       at org.apache.spark.streaming.rdd.WriteAheadLogBackedBlockRDDSuite$$anonfun$4.apply$mcV$sp(WriteAheadLogBackedBlockRDDSuite.scala:67)
@@ -2000,7 +2000,7 @@ While writing a test for a different issue, I found that saveAsTable seems to be
 
 {code}
   test("save join to table") {
-    val testData = sparkContext.parallelize(1 to 10).map(i => TestData(i, i.toString))
+    val testData = sparkContext.parallelize(1 to 10).map(i =\> TestData(i, i.toString))
     sql("CREATE TABLE test1 (key INT, value STRING)")
     testData.insertInto("test1")
     sql("CREATE TABLE test2 (key INT, value STRING)")
@@ -2035,30 +2035,30 @@ Otherwise, the Python API docs are empty.
 
 * [SPARK-4818](https://issues.apache.org/jira/browse/SPARK-4818) | *Major* | **Join operation should use iterator/lazy evaluation**
 
-The current implementation of the join operation does not use an iterator (i.e. lazy evaluation), causing it to explicitly evaluate the co-grouped values. In big data applications, these value collections can be very large. This causes the *cartesian product of all co-grouped values* for a specific key of both RDDs to be kept in memory during the flatMapValues operation, resulting in an *O(size(pair.\_1)*size(pair.\_2))* memory consumption instead of *O(1)*. Very large value collections will therefore cause "GC overhead limit exceeded" exceptions and fail the task, or at least slow down execution dramatically.
+The current implementation of the join operation does not use an iterator (i.e. lazy evaluation), causing it to explicitly evaluate the co-grouped values. In big data applications, these value collections can be very large. This causes the \*cartesian product of all co-grouped values\* for a specific key of both RDDs to be kept in memory during the flatMapValues operation, resulting in an \*O(size(pair.\_1)\*size(pair.\_2))\* memory consumption instead of \*O(1)\*. Very large value collections will therefore cause "GC overhead limit exceeded" exceptions and fail the task, or at least slow down execution dramatically.
 
-{code:title=PairRDDFunctions.scala|borderStyle=solid}
+{code:title=PairRDDFunctions.scala\|borderStyle=solid}
 //...
 def join[W](other: RDD[(K, W)], partitioner: Partitioner): RDD[(K, (V, W))] = {
-  this.cogroup(other, partitioner).flatMapValues( pair =>
-    for (v <- pair.\_1; w <- pair.\_2) yield (v, w)
+  this.cogroup(other, partitioner).flatMapValues( pair =\>
+    for (v \<- pair.\_1; w \<- pair.\_2) yield (v, w)
   )
 }
 //...
 {code}
 
 Since cogroup returns an Iterable instance of an Array, the join implementation could be changed to the following, which uses lazy evaluation instead, and has almost no memory overhead:
-{code:title=PairRDDFunctions.scala|borderStyle=solid}
+{code:title=PairRDDFunctions.scala\|borderStyle=solid}
 //...
 def join[W](other: RDD[(K, W)], partitioner: Partitioner): RDD[(K, (V, W))] = {
-  this.cogroup(other, partitioner).flatMapValues( pair =>
-    for (v <- pair.\_1.iterator; w <- pair.\_2.iterator) yield (v, w)
+  this.cogroup(other, partitioner).flatMapValues( pair =\>
+    for (v \<- pair.\_1.iterator; w \<- pair.\_2.iterator) yield (v, w)
   )
 }
 //...
 {code}
 
-Alternatively, if the current implementation is intentionally not using lazy evaluation for some reason, there could be a *lazyJoin()* method next to the original join implementation that utilizes lazy evaluation. This of course applies to other join operations as well.
+Alternatively, if the current implementation is intentionally not using lazy evaluation for some reason, there could be a \*lazyJoin()\* method next to the original join implementation that utilizes lazy evaluation. This of course applies to other join operations as well.
 
 Thanks! :)
 
@@ -2067,12 +2067,12 @@ Thanks! :)
 
 * [SPARK-4813](https://issues.apache.org/jira/browse/SPARK-4813) | *Major* | **ContextWaiter didn't handle 'spurious wakeup'**
 
-According to [javadocs|https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html#wait(long)],
+According to [javadocs\|https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html#wait(long)],
 {quote}
 A thread can also wake up without being notified, interrupted, or timing out, a so-called spurious wakeup. While this will rarely occur in practice, applications must guard against it by testing for the condition that should have caused the thread to be awakened, and continuing to wait if the condition is not satisfied. In other words, waits should always occur in loops, like this one:
 
      synchronized (obj) {
-         while (<condition does not hold>)
+         while (\<condition does not hold\>)
              obj.wait(timeout);
          ... // Perform action appropriate to condition
      }
@@ -2089,7 +2089,7 @@ But now ContextWaiter.waitForStopOrError doesn't.
 
     // If not already stopped, then wait
     if (!stopped) {
-      if (timeout < 0) wait() else wait(timeout)
+      if (timeout \< 0) wait() else wait(timeout)
       if (error != null) throw error
     }
   }
@@ -2121,7 +2121,7 @@ When the receiver is stopped at the executor and the ReceiverTrackerActor that p
 Not sure if there is any specific reason for not removing it.
 Currently, I see this warning if we don't remove it:
 
-WARN main-EventThread scheduler.ReceiverTracker - All of the receivers have not deregistered, Map(0 -> ReceiverInfo(0,MyReceiver-0,null,false,localhost,Stopped by driver,))
+WARN main-EventThread scheduler.ReceiverTracker - All of the receivers have not deregistered, Map(0 -\> ReceiverInfo(0,MyReceiver-0,null,false,localhost,Stopped by driver,))
 
 
 ---
@@ -2197,7 +2197,7 @@ sbt.ForkMain$ForkError: File /tmp/1418069118106-0/receivedBlockMetadata/log-0-10
 
 If an exception occurs when creating the DAGScheduler, then other resources in SparkContext may be leaked / not cleaned up.
 
-*Edit (joshrosen):* this issue originally was a duplicate of SPARK-4194, but I've converted it into a subtask and revised it to relfect the scope of the PR opened against it.  The original PR description is reproduced below:
+\*Edit (joshrosen):\* this issue originally was a duplicate of SPARK-4194, but I've converted it into a subtask and revised it to relfect the scope of the PR opened against it.  The original PR description is reproduced below:
 
 When client creates a SparkContext, currently there are many val to initialize during object initialization. But when there is failure initializing these val, like throwing an exception, the resources in this SparkContext is not released properly. 
 For example, SparkUI object is created and bind to the HTTP server during initialization using
@@ -2272,7 +2272,7 @@ Simple omission on my part.
 
 The spark-ec2 script has a flag that allows you to add additional security groups to clusters when you launch. However, the get\_existing\_cluster() function cycles through active instances and only returns instances whose group\_names == cluster\_name + "-master" (or + "-slaves"), which is the group created by default.  The get\_existing\_cluster() function is used to login to, stop, and destroy existing clusters, among other actions.
 
-This is a pretty simple fix for which I've already submitted a [pull request|https://github.com/apache/spark/pull/3596]. It checks if cluster\_name + "-master" is in the list of groups for each active instance. This means the cluster group can be one among many groups, rather than the sole group for an instance.
+This is a pretty simple fix for which I've already submitted a [pull request\|https://github.com/apache/spark/pull/3596]. It checks if cluster\_name + "-master" is in the list of groups for each active instance. This means the cluster group can be one among many groups, rather than the sole group for an instance.
 
 
 ---
@@ -2411,7 +2411,7 @@ And the description about this default parameter is not strictly accurate:
 Run this with "spark.driver.extraJavaOptions" set in your spark-defaults.conf:
 
 {code}
-  echo "" | spark-shell --master local -Xnojline
+  echo "" \| spark-shell --master local -Xnojline
 {code}
 
 You'll end up with a child process that cannot read from stdin (you can CTRL-C out of it though). That's because when the bootstrapper's stdin reaches EOF, that is not propagated to the child JVM that's actually doing the reading.
@@ -2499,16 +2499,16 @@ We need to add a description about this option in the docs.
 I believe this issue is essentially the same as SPARK-668.
 Original error: 
 {code}
-[ERROR] /Users/saldaal1/workspace/JavaSparkSimpleApp/src/main/java/SimpleApp.java:[29,105] no suitable method found for groupBy(org.apache.spark.api.java.function.Function<scala.Tuple2<java.lang.String,java.lang.Long>,java.lang.Long>)
-[ERROR] method org.apache.spark.api.java.JavaPairRDD.<K>groupBy(org.apache.spark.api.java.function.Function<scala.Tuple2<K,java.lang.Long>,K>) is not applicable
+[ERROR] /Users/saldaal1/workspace/JavaSparkSimpleApp/src/main/java/SimpleApp.java:[29,105] no suitable method found for groupBy(org.apache.spark.api.java.function.Function\<scala.Tuple2\<java.lang.String,java.lang.Long\>,java.lang.Long\>)
+[ERROR] method org.apache.spark.api.java.JavaPairRDD.\<K\>groupBy(org.apache.spark.api.java.function.Function\<scala.Tuple2\<K,java.lang.Long\>,K\>) is not applicable
 [ERROR] (inferred type does not conform to equality constraint(s)
 {code}
 from core/src/main/scala/org/apache/spark/api/java/JavaRDDLike.scala 
 {code}
-211  /**
-212    * Return an RDD of grouped elements. Each group consists of a key and a sequence of elements
-213    * mapping to that key.
-214    */
+211  /\*\*
+212    \* Return an RDD of grouped elements. Each group consists of a key and a sequence of elements
+213    \* mapping to that key.
+214    \*/
 215   def groupBy[K](f: JFunction[T, K]): JavaPairRDD[K, JIterable[T]] = {
 216     implicit val ctagK: ClassTag[K] = fakeClassTag
 217     implicit val ctagV: ClassTag[JList[T]] = fakeClassTag
@@ -2532,13 +2532,13 @@ which imposes an unfortunate correlation between the Tuple2 and the return type 
 If we compare the method signature to flatMap:
 
 {code}
-105   /**
-106    *  Return a new RDD by first applying a function to all elements of this
-107    *  RDD, and then flattening the results.
-108    */
+105   /\*\*
+106    \*  Return a new RDD by first applying a function to all elements of this
+107    \*  RDD, and then flattening the results.
+108    \*/
 109   def flatMap[U](f: FlatMapFunction[T, U]): JavaRDD[U] = {
 110     import scala.collection.JavaConverters.\_
-111     def fn = (x: T) => f.call(x).asScala
+111     def fn = (x: T) =\> f.call(x).asScala
 112     JavaRDD.fromRDD(rdd.flatMap(fn)(fakeClassTag[U]))(fakeClassTag[U])
 113   }
 {code}
@@ -2559,7 +2559,7 @@ That link is pointed at {{index.html#building}}, but it is only available until 
 * [SPARK-4298](https://issues.apache.org/jira/browse/SPARK-4298) | *Major* | **The spark-submit cannot read Main-Class from Manifest.**
 
 Consider trivial {{test.scala}}:
-{code:title=test.scala|borderStyle=solid}
+{code:title=test.scala\|borderStyle=solid}
 import org.apache.spark.SparkContext
 import org.apache.spark.SparkContext.\_
 
@@ -2581,7 +2581,7 @@ Run with --help for usage help or --verbose for debug output
 When executed using {{spark-submit --class Main target/scala-2.10/test\_2.10-1.0.jar}}, it works.
 
 The jar file has correct MANIFEST.MF:
-{code:title=MANIFEST.MF|borderStyle=solid}
+{code:title=MANIFEST.MF\|borderStyle=solid}
 Manifest-Version: 1.0
 Implementation-Vendor: test
 Implementation-Title: test
@@ -2617,7 +2617,7 @@ case class Birthday(date: String)
 case class Person(name: String, birthday: Birthday)
 val people = sc.parallelize(List(Person("John", Birthday("1990-01-22")), Person("Jim", Birthday("1980-02-28"))))
 people.registerTempTable("people")
-val year = sqlContext.sql("select count(*), upper(birthday.date) from people group by upper(birthday.date)")
+val year = sqlContext.sql("select count(\*), upper(birthday.date) from people group by upper(birthday.date)")
 year.collect
 {code}
 
@@ -2664,7 +2664,7 @@ Looks like when the driver class path is loaded from spark-default.conf, the REP
 
 spark-core has a hard dependency on log4j, which shouldn't be necessary since slf4j is used. I tried to exclude slf4j-log4j12 and log4j dependencies in my sbt file.
 
-Excluding org.slf4j.slf4j-log4j12 works fine if logback is on the classpath. However, removing the log4j dependency fails because in https://github.com/apache/spark/blob/v1.1.0/core/src/main/scala/org/apache/spark/Logging.scala#L121 a static method of org.apache.log4j.LogManager is accessed *even if* log4j is not in use.
+Excluding org.slf4j.slf4j-log4j12 works fine if logback is on the classpath. However, removing the log4j dependency fails because in https://github.com/apache/spark/blob/v1.1.0/core/src/main/scala/org/apache/spark/Logging.scala#L121 a static method of org.apache.log4j.LogManager is accessed \*even if\* log4j is not in use.
 
 I guess removing all dependencies on log4j may be a bigger task, but it would be a great help if the access to LogManager would be done only if log4j use was detected before. (This is a 2-line change.)
 
@@ -2680,8 +2680,8 @@ This blocks on SPARK-3795 and SPARK-3822.
 
 * [SPARK-3926](https://issues.apache.org/jira/browse/SPARK-3926) | *Major* | **result of JavaRDD collectAsMap() is not serializable**
 
-Using the Java API, I want to collect the result of a RDD<String, String> as a HashMap using collectAsMap function:
-Map<String, String> map = myJavaRDD.collectAsMap();
+Using the Java API, I want to collect the result of a RDD\<String, String\> as a HashMap using collectAsMap function:
+Map\<String, String\> map = myJavaRDD.collectAsMap();
 This works fine, but when passing this map to another function, such as...
 myOtherJavaRDD.mapToPair(new CustomFunction(map))
 ...this leads to the following error:
@@ -2747,15 +2747,15 @@ at org.apache.spark.util.ClosureCleaner$.ensureSerializable(ClosureCleaner.scala
 This seems to be due to WrapAsJava.scala being non serializable
 ../..
   implicit def mapAsJavaMap[A, B](m: Map[A, B]): ju.Map[A, B] = m match {
-    //case JConcurrentMapWrapper(wrapped) => wrapped
-    case JMapWrapper(wrapped) => wrapped.asInstanceOf[ju.Map[A, B]]
-    case \_ => new MapWrapper(m)
+    //case JConcurrentMapWrapper(wrapped) =\> wrapped
+    case JMapWrapper(wrapped) =\> wrapped.asInstanceOf[ju.Map[A, B]]
+    case \_ =\> new MapWrapper(m)
   }
 ../..
 
 The workaround is to manually wrapper this map into another one (serialized)
-Map<String, String> map = myJavaRDD.collectAsMap();
-Map<String, String> tmp = new HashMap<String, String>(map);
+Map\<String, String\> map = myJavaRDD.collectAsMap();
+Map\<String, String\> tmp = new HashMap\<String, String\>(map);
 myOtherJavaRDD.mapToPair(new CustomFunction(tmp))
 
 
@@ -2810,7 +2810,7 @@ gives the following error
 14/08/06 18:37:13 INFO TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool
 14/08/06 18:37:13 INFO SparkContext: Job finished: runJob at ReceiverTracker.scala:275, took 10.179263 s
 14/08/06 18:37:13 INFO ReceiverTracker: All of the receivers have been terminated
-14/08/06 18:37:13 WARN ReceiverTracker: All of the receivers have not deregistered, Map(0 -> ReceiverInfo(0,SocketReceiver-0,null,false,localhost,Stopped by driver,))
+14/08/06 18:37:13 WARN ReceiverTracker: All of the receivers have not deregistered, Map(0 -\> ReceiverInfo(0,SocketReceiver-0,null,false,localhost,Stopped by driver,))
 14/08/06 18:37:13 INFO ReceiverTracker: ReceiverTracker stopped
 14/08/06 18:37:13 INFO JobGenerator: Stopping JobGenerator immediately
 14/08/06 18:37:13 INFO RecurringTimer: Stopped timer for JobGenerator after time 1407375433000
@@ -2894,7 +2894,7 @@ org.apache.spark.rdd.RDD$$anonfun$saveAsTextFile$1
 Here's what's in the Maven dep as of 1.0.0:
 
 {code}
-jar tvf ~/.m2/repository/org/apache/spark/spark-core\_2.10/1.0.0/spark-core\_2.10-1.0.0.jar | grep 'rdd/RDD' | grep 'saveAs'
+jar tvf ~/.m2/repository/org/apache/spark/spark-core\_2.10/1.0.0/spark-core\_2.10-1.0.0.jar \| grep 'rdd/RDD' \| grep 'saveAs'
   1519 Mon May 26 13:57:58 PDT 2014 org/apache/spark/rdd/RDD$anonfun$saveAsTextFile$1.class
   1560 Mon May 26 13:57:58 PDT 2014 org/apache/spark/rdd/RDD$anonfun$saveAsTextFile$2.class
 {code}
@@ -2902,13 +2902,13 @@ jar tvf ~/.m2/repository/org/apache/spark/spark-core\_2.10/1.0.0/spark-core\_2.1
 And here's what's in the hadoop1 distribution:
 
 {code}
-jar tvf spark-assembly-1.0.0-hadoop1.0.4.jar| grep 'rdd/RDD' | grep 'saveAs'
+jar tvf spark-assembly-1.0.0-hadoop1.0.4.jar\| grep 'rdd/RDD' \| grep 'saveAs'
 {code}
 
 I.e., it's not there.  It is in the hadoop2 distribution:
 
 {code}
-jar tvf spark-assembly-1.0.0-hadoop2.2.0.jar| grep 'rdd/RDD' | grep 'saveAs'
+jar tvf spark-assembly-1.0.0-hadoop2.2.0.jar\| grep 'rdd/RDD' \| grep 'saveAs'
   1519 Mon May 26 07:29:54 PDT 2014 org/apache/spark/rdd/RDD$anonfun$saveAsTextFile$1.class
   1560 Mon May 26 07:29:54 PDT 2014 org/apache/spark/rdd/RDD$anonfun$saveAsTextFile$2.class
 {code}
@@ -2931,7 +2931,7 @@ This can lead to confusion when accumulators are used in lazy transformations li
 
 {code}
     val acc = sc.accumulator(0)
-    data.map(x => acc += x; f(x))
+    data.map(x =\> acc += x; f(x))
     // Here, acc is 0 because no actions have cause the `map` to be computed.
 {code}
 

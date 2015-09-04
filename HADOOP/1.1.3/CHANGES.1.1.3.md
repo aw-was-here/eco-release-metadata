@@ -18,7 +18,7 @@
 -->
 # Apache Hadoop Changelog
 
-## Release 1.1.3 - Unreleased
+## Release 1.1.3 - Unreleased (as of 2015-09-04)
 
 ### INCOMPATIBLE CHANGES:
 

@@ -32,7 +32,7 @@ Updated the help for the touchz command.
 
 * [HADOOP-7117](https://issues.apache.org/jira/browse/HADOOP-7117) | *Major* | **Move secondary namenode checkpoint configs from core-default.xml to hdfs-default.xml**
 
-Removed references to the older fs.checkpoint.* properties that resided in core-site.xml
+Removed references to the older fs.checkpoint.\* properties that resided in core-site.xml
 
 
 ---
@@ -53,7 +53,7 @@ I have just committed this to 0.21 and trunk. Thanks Vinay.
 
 * [HDFS-1596](https://issues.apache.org/jira/browse/HDFS-1596) | *Major* | **Move secondary namenode checkpoint configs from core-default.xml to hdfs-default.xml**
 
-Removed references to the older fs.checkpoint.* properties that resided in core-site.xml
+Removed references to the older fs.checkpoint.\* properties that resided in core-site.xml
 
 
 ---

@@ -125,8 +125,8 @@ Typically you would just mount local disks (in say ext4 format) and provide this
 * [SPARK-6294](https://issues.apache.org/jira/browse/SPARK-6294) | *Critical* | **PySpark task may hang while call take() on in Java/Scala**
 
 {code}
->>> rdd = sc.parallelize(range(1<<20)).map(lambda x: str(x))
->>> rdd.\_jrdd.first()
+\>\>\> rdd = sc.parallelize(range(1\<\<20)).map(lambda x: str(x))
+\>\>\> rdd.\_jrdd.first()
 {code}
 
 There is the stacktrace while hanging:
@@ -135,9 +135,9 @@ There is the stacktrace while hanging:
 "Executor task launch worker-5" daemon prio=10 tid=0x00007f8fd01a9800 nid=0x566 in Object.wait() [0x00007f90481d7000]
    java.lang.Thread.State: WAITING (on object monitor)
 	at java.lang.Object.wait(Native Method)
-	- waiting on <0x0000000630929340> (a org.apache.spark.api.python.PythonRDD$WriterThread)
+	- waiting on \<0x0000000630929340\> (a org.apache.spark.api.python.PythonRDD$WriterThread)
 	at java.lang.Thread.join(Thread.java:1281)
-	- locked <0x0000000630929340> (a org.apache.spark.api.python.PythonRDD$WriterThread)
+	- locked \<0x0000000630929340\> (a org.apache.spark.api.python.PythonRDD$WriterThread)
 	at java.lang.Thread.join(Thread.java:1355)
 	at org.apache.spark.api.python.PythonRDD$$anonfun$compute$1.apply(PythonRDD.scala:78)
 	at org.apache.spark.api.python.PythonRDD$$anonfun$compute$1.apply(PythonRDD.scala:76)
@@ -174,53 +174,53 @@ in Java, will send out a PR for this.
 
 Reported by Michael and commented by Josh：
 
-On Thu, Mar 5, 2015 at 2:39 PM, Josh Rosen <joshrosen@databricks.com> wrote:
-> Based on Py4J's Memory Model page
-> (http://py4j.sourceforge.net/advanced\_topics.html#py4j-memory-model):
->
->> Because Java objects on the Python side are involved in a circular
->> reference (JavaObject and JavaMember reference each other), these objects
->> are not immediately garbage collected once the last reference to the object
->> is removed (but they are guaranteed to be eventually collected if the Python
->> garbage collector runs before the Python program exits).
->
->
->>
->> In doubt, users can always call the detach function on the Python gateway
->> to explicitly delete a reference on the Java side. A call to gc.collect()
->> also usually works.
->
->
-> Maybe we should be manually calling detach() when the Python-side has
-> finished consuming temporary objects from the JVM.  Do you have a small
-> workload / configuration that reproduces the OOM which we can use to test a
-> fix?  I don't think that I've seen this issue in the past, but this might be
-> because we mistook Java OOMs as being caused by collecting too much data
-> rather than due to memory leaks.
->
-> On Thu, Mar 5, 2015 at 10:41 AM, Michael Nazario <mnazario@palantir.com>
-> wrote:
->>
->> Hi Josh,
->>
->> I have a question about how PySpark does memory management in the Py4J
->> bridge between the Java driver and the Python driver. I was wondering if
->> there have been any memory problems in this system because the Python
->> garbage collector does not collect circular references immediately and Py4J
->> has circular references in each object it receives from Java.
->>
->> When I dug through the PySpark code, I seemed to find that most RDD
->> actions return by calling collect. In collect, you end up calling the Java
->> RDD collect and getting an iterator from that. Would this be a possible
->> cause for a Java driver OutOfMemoryException because there are resources in
->> Java which do not get freed up immediately?
->>
->> I have also seen that trying to take a lot of values from a dataset twice
->> in a row can cause the Java driver to OOM (while just once works). Are there
->> some other memory considerations that are relevant in the driver?
->>
->> Thanks,
->> Michael
+On Thu, Mar 5, 2015 at 2:39 PM, Josh Rosen \<joshrosen@databricks.com\> wrote:
+\> Based on Py4J's Memory Model page
+\> (http://py4j.sourceforge.net/advanced\_topics.html#py4j-memory-model):
+\>
+\>\> Because Java objects on the Python side are involved in a circular
+\>\> reference (JavaObject and JavaMember reference each other), these objects
+\>\> are not immediately garbage collected once the last reference to the object
+\>\> is removed (but they are guaranteed to be eventually collected if the Python
+\>\> garbage collector runs before the Python program exits).
+\>
+\>
+\>\>
+\>\> In doubt, users can always call the detach function on the Python gateway
+\>\> to explicitly delete a reference on the Java side. A call to gc.collect()
+\>\> also usually works.
+\>
+\>
+\> Maybe we should be manually calling detach() when the Python-side has
+\> finished consuming temporary objects from the JVM.  Do you have a small
+\> workload / configuration that reproduces the OOM which we can use to test a
+\> fix?  I don't think that I've seen this issue in the past, but this might be
+\> because we mistook Java OOMs as being caused by collecting too much data
+\> rather than due to memory leaks.
+\>
+\> On Thu, Mar 5, 2015 at 10:41 AM, Michael Nazario \<mnazario@palantir.com\>
+\> wrote:
+\>\>
+\>\> Hi Josh,
+\>\>
+\>\> I have a question about how PySpark does memory management in the Py4J
+\>\> bridge between the Java driver and the Python driver. I was wondering if
+\>\> there have been any memory problems in this system because the Python
+\>\> garbage collector does not collect circular references immediately and Py4J
+\>\> has circular references in each object it receives from Java.
+\>\>
+\>\> When I dug through the PySpark code, I seemed to find that most RDD
+\>\> actions return by calling collect. In collect, you end up calling the Java
+\>\> RDD collect and getting an iterator from that. Would this be a possible
+\>\> cause for a Java driver OutOfMemoryException because there are resources in
+\>\> Java which do not get freed up immediately?
+\>\>
+\>\> I have also seen that trying to take a lot of values from a dataset twice
+\>\> in a row can cause the Java driver to OOM (while just once works). Are there
+\>\> some other memory considerations that are relevant in the driver?
+\>\>
+\>\> Thanks,
+\>\> Michael
 
 
 ---
@@ -275,34 +275,34 @@ Also, all same DataType have same hash code, there will be many object in a dict
 
 Some error about the section \_Cluster Launch Scripts\_ in the http://spark.apache.org/docs/latest/spark-standalone.html
 
-In the description about the property spark.worker.cleanup.enabled, it states that *all the directory* under the work dir will be removed whether the application is running or not.
+In the description about the property spark.worker.cleanup.enabled, it states that \*all the directory\* under the work dir will be removed whether the application is running or not.
 
 After checking the implementation in the code level, I found that +only the stopped application+ dirs would be removed. So the description in the document is incorrect.
 
 the code implementation in worker.scala
 {code: title=WorkDirCleanup}
-case WorkDirCleanup =>
+case WorkDirCleanup =\>
       // Spin up a separate thread (in a future) to do the dir cleanup; don't tie up worker actor
       val cleanupFuture = concurrent.future {
         val appDirs = workDir.listFiles()
         if (appDirs == null) {
           throw new IOException("ERROR: Failed to list files in " + appDirs)
         }
-        appDirs.filter { dir =>
+        appDirs.filter { dir =\>
           // the directory is used by an application - check that the application is not running
           // when cleaning up
           val appIdFromDir = dir.getName
           val isAppStillRunning = executors.values.map(\_.appId).contains(appIdFromDir)
           dir.isDirectory && !isAppStillRunning &&
           !Utils.doesDirectoryContainAnyNewFiles(dir, APP\_DATA\_RETENTION\_SECS)
-        }.foreach { dir => 
+        }.foreach { dir =\> 
           logInfo(s"Removing directory: ${dir.getPath}")
           Utils.deleteRecursively(dir)
         }
       }
 
       cleanupFuture onFailure {
-        case e: Throwable =>
+        case e: Throwable =\>
           logError("App dir cleanup failed: " + e.getMessage, e)
       }
 {code}
@@ -338,7 +338,7 @@ The PR for [SPARK-5994] included a fix of this for 1.3 which should be backporte
 zip two rdd with AutoBatchedSerializer will fail, this bug was introduced by SPARK-4841
 
 {code}
->> a.zip(b).count()
+\>\> a.zip(b).count()
 15/02/24 12:11:56 ERROR PythonRDD: Python worker exited unexpectedly (crashed)
 org.apache.spark.api.python.PythonException: Traceback (most recent call last):
   File "/Users/davies/work/spark/python/pyspark/worker.py", line 101, in main
@@ -351,9 +351,9 @@ org.apache.spark.api.python.PythonException: Traceback (most recent call last):
     return func(split, prev\_func(split, iterator))
   File "/Users/davies/work/spark/python/pyspark/rdd.py", line 270, in func
     return f(iterator)
-  File "/Users/davies/work/spark/python/pyspark/rdd.py", line 933, in <lambda>
+  File "/Users/davies/work/spark/python/pyspark/rdd.py", line 933, in \<lambda\>
     return self.mapPartitions(lambda i: [sum(1 for \_ in i)]).sum()
-  File "/Users/davies/work/spark/python/pyspark/rdd.py", line 933, in <genexpr>
+  File "/Users/davies/work/spark/python/pyspark/rdd.py", line 933, in \<genexpr\>
     return self.mapPartitions(lambda i: [sum(1 for \_ in i)]).sum()
   File "/Users/davies/work/spark/python/pyspark/serializers.py", line 306, in load\_stream
     " in pair: (%d, %d)" % (len(keys), len(vals)))
@@ -393,7 +393,7 @@ Stopping service in `spark-daemon.sh` will confirm the process id by fuzzy match
 
 * [SPARK-5805](https://issues.apache.org/jira/browse/SPARK-5805) | *Minor* | **Fix the type error in the final example given in MLlib - Clustering documentation**
 
-The final example in [MLlib - Clustering|http://spark.apache.org/docs/1.2.0/mllib-clustering.html] documentation has a code line that leads to a type error. 
+The final example in [MLlib - Clustering\|http://spark.apache.org/docs/1.2.0/mllib-clustering.html] documentation has a code line that leads to a type error. 
 
 The problematic line reads as:
 
@@ -404,7 +404,7 @@ model.predictOnValues(testData).print()
 but it should be
 
 {code}
-model.predictOnValues(testData.map(lp => (lp.label, lp.features))).print()
+model.predictOnValues(testData.map(lp =\> (lp.label, lp.features))).print()
 {code}
 
 
@@ -429,13 +429,13 @@ This was introduced in defect fix SPARK-4504
 
 * [SPARK-5749](https://issues.apache.org/jira/browse/SPARK-5749) | *Major* | **Fix Bash word splitting bugs in compute-classpath.sh**
 
-For example [this line|https://github.com/apache/spark/blob/fa6bdc6e819f9338248b952ec578bcd791ddbf6d/bin/compute-classpath.sh#L79] has a word splitting bug.
+For example [this line\|https://github.com/apache/spark/blob/fa6bdc6e819f9338248b952ec578bcd791ddbf6d/bin/compute-classpath.sh#L79] has a word splitting bug.
 
 {code}
-for f in ${assembly\_folder}/spark-assembly*hadoop*.jar; do
+for f in ${assembly\_folder}/spark-assembly\*hadoop\*.jar; do
   if [[ ! -e "$f" ]]; then
-    echo "Failed to find Spark assembly in $assembly\_folder" 1>&2
-    echo "You need to build Spark before running this program." 1>&2
+    echo "Failed to find Spark assembly in $assembly\_folder" 1\>&2
+    echo "You need to build Spark before running this program." 1\>&2
     exit 1
   fi
   ASSEMBLY\_JAR="$f"
@@ -463,32 +463,32 @@ Since the range of valid Python integers is wider than Java Integers, this cause
 
 Here's an example:
 {code}
->>> sqlCtx = SQLContext(sc)
->>> from pyspark.sql import Row
->>> rdd = sc.parallelize([Row(f1='a', f2=100000000000000)])
->>> srdd = sqlCtx.inferSchema(rdd)
->>> srdd.schema()
+\>\>\> sqlCtx = SQLContext(sc)
+\>\>\> from pyspark.sql import Row
+\>\>\> rdd = sc.parallelize([Row(f1='a', f2=100000000000000)])
+\>\>\> srdd = sqlCtx.inferSchema(rdd)
+\>\>\> srdd.schema()
 StructType(List(StructField(f1,StringType,true),StructField(f2,IntegerType,true)))
 {code}
 That number is a LongType in Java, but an Integer in python.  We need to check the value to see if it should really by a LongType when a IntegerType is initially inferred.
 
 More tests:
 {code}
->>> from pyspark.sql import \_infer\_type
+\>\>\> from pyspark.sql import \_infer\_type
 # OK
->>> print \_infer\_type(1)
+\>\>\> print \_infer\_type(1)
 IntegerType
 # OK
->>> print \_infer\_type(2**31-1)
+\>\>\> print \_infer\_type(2\*\*31-1)
 IntegerType
 #WRONG
->>> print \_infer\_type(2**31)
+\>\>\> print \_infer\_type(2\*\*31)
 #WRONG
 IntegerType
->>> print \_infer\_type(2**61 )
+\>\>\> print \_infer\_type(2\*\*61 )
 #OK
 IntegerType
->>> print \_infer\_type(2**71 )
+\>\>\> print \_infer\_type(2\*\*71 )
 LongType
 {code}
 
@@ -519,7 +519,7 @@ sc.killExecutor(...)
 
 Then we might crash the ApplicationMaster. Why?
 
-Well, if we request a negative number of additional executors, then the YarnAllocator will lower the target number of executors it is trying to achieve by 5. This might shoot the target number past 0. Then, if so, when we try to kill an executor it will fail the assertion that the target number must be >=0.
+Well, if we request a negative number of additional executors, then the YarnAllocator will lower the target number of executors it is trying to achieve by 5. This might shoot the target number past 0. Then, if so, when we try to kill an executor it will fail the assertion that the target number must be \>=0.
 
 
 ---
@@ -821,9 +821,9 @@ sbt.ForkMain$ForkError: The code passed to eventually never returned normally. A
 This error is caused by check-then-act logic  when it find free-port .
 
 {code}
-  /** Find a free port */
+  /\*\* Find a free port \*/
   private def findFreePort(): Int = {
-    Utils.startServiceOnPort(23456, (trialPort: Int) => {
+    Utils.startServiceOnPort(23456, (trialPort: Int) =\> {
       val socket = new ServerSocket(trialPort)
       socket.close()
       (null, trialPort)
@@ -856,8 +856,8 @@ This fragment of code:
 
 {code}
   if (loadDefaults) {
-    // Load any spark.* system properties
-    for ((k, v) <- System.getProperties.asScala if k.startsWith("spark.")) {
+    // Load any spark.\* system properties
+    for ((k, v) \<- System.getProperties.asScala if k.startsWith("spark.")) {
       settings(k) = v
     }
   }
@@ -875,8 +875,8 @@ ERROR 09:43:15  SparkMaster service caused error in state STARTINGjava.util.Conc
 	at scala.collection.IterableLike$class.foreach(IterableLike.scala:72) ~[scala-library-2.10.4.jar:na]
 	at scala.collection.AbstractIterable.foreach(Iterable.scala:54) ~[scala-library-2.10.4.jar:na]
 	at scala.collection.TraversableLike$WithFilter.foreach(TraversableLike.scala:771) ~[scala-library-2.10.4.jar:na]
-	at org.apache.spark.SparkConf.<init>(SparkConf.scala:53) ~[spark-core\_2.10-1.2.1\_dse-20150121.075638-2.jar:1.2.1\_dse-SNAPSHOT]
-	at org.apache.spark.SparkConf.<init>(SparkConf.scala:47) ~[spark-core\_2.10-1.2.1\_dse-20150121.075638-2.jar:1.2.1\_dse-SNAPSHOT]
+	at org.apache.spark.SparkConf.\<init\>(SparkConf.scala:53) ~[spark-core\_2.10-1.2.1\_dse-20150121.075638-2.jar:1.2.1\_dse-SNAPSHOT]
+	at org.apache.spark.SparkConf.\<init\>(SparkConf.scala:47) ~[spark-core\_2.10-1.2.1\_dse-20150121.075638-2.jar:1.2.1\_dse-SNAPSHOT]
 {noformat}
 
 when there is another thread which modifies system properties at the same time. 
@@ -888,7 +888,7 @@ This bug https://issues.scala-lang.org/browse/SI-7775 is somehow related to the 
 
 * [SPARK-5417](https://issues.apache.org/jira/browse/SPARK-5417) | *Minor* | **Remove redundant executor-ID set() call**
 
-{{spark.executor.id}} no longer [needs to be set in Executor.scala|https://github.com/apache/spark/blob/0497ea51ac345f8057d222a18dbbf8eae78f5b92/core/src/main/scala/org/apache/spark/executor/Executor.scala#L79], as of [#4194|https://github.com/apache/spark/pull/4194]; it is set upstream in [SparkEnv|https://github.com/apache/spark/blob/0497ea51ac345f8057d222a18dbbf8eae78f5b92/core/src/main/scala/org/apache/spark/SparkEnv.scala#L332]. Might as well remove the redundant set() in Executor.scala.
+{{spark.executor.id}} no longer [needs to be set in Executor.scala\|https://github.com/apache/spark/blob/0497ea51ac345f8057d222a18dbbf8eae78f5b92/core/src/main/scala/org/apache/spark/executor/Executor.scala#L79], as of [#4194\|https://github.com/apache/spark/pull/4194]; it is set upstream in [SparkEnv\|https://github.com/apache/spark/blob/0497ea51ac345f8057d222a18dbbf8eae78f5b92/core/src/main/scala/org/apache/spark/SparkEnv.scala#L332]. Might as well remove the redundant set() in Executor.scala.
 
 
 ---
@@ -902,10 +902,10 @@ In this instance, at the time of killing the container 97 pyspark.daemon process
 {noformat}
 2015-01-23 15:36:53,654 INFO [Reporter] yarn.YarnAllocationHandler (Logging.scala:logInfo(59)) - Container marked as failed: container\_1421692415636\_0052\_01\_000030. Exit status: 143. Diagnostics: Container [pid=35211,containerID=container\_1421692415636\_0052\_01\_000030] is running beyond physical memory limits. Current usage: 14.9 GB of 14.5 GB physical memory used; 41.3 GB of 72.5 GB virtual memory used. Killing container.
 Dump of the process-tree for container\_1421692415636\_0052\_01\_000030 :
-|- PID PPID PGRPID SESSID CMD\_NAME USER\_MODE\_TIME(MILLIS) SYSTEM\_TIME(MILLIS) VMEM\_USAGE(BYTES) RSSMEM\_USAGE(PAGES) FULL\_CMD\_LINE
-|- 54101 36625 36625 35211 (python) 78 1 332730368 16834 python -m pyspark.daemon
-|- 52140 36625 36625 35211 (python) 58 1 332730368 16837 python -m pyspark.daemon
-|- 36625 35228 36625 35211 (python) 65 604 331685888 17694 python -m pyspark.daemon
+\|- PID PPID PGRPID SESSID CMD\_NAME USER\_MODE\_TIME(MILLIS) SYSTEM\_TIME(MILLIS) VMEM\_USAGE(BYTES) RSSMEM\_USAGE(PAGES) FULL\_CMD\_LINE
+\|- 54101 36625 36625 35211 (python) 78 1 332730368 16834 python -m pyspark.daemon
+\|- 52140 36625 36625 35211 (python) 58 1 332730368 16837 python -m pyspark.daemon
+\|- 36625 35228 36625 35211 (python) 65 604 331685888 17694 python -m pyspark.daemon
 	[...]
 {noformat}
 
@@ -988,12 +988,12 @@ Attempt 1
 Deleting rules in security group SparkByScript-slaves
 Deleting rules in security group SparkByScript-master
 ERROR:boto:400 Bad Request
-ERROR:boto:<?xml version="1.0" encoding="UTF-8"?>
-<Response><Errors><Error><Code>InvalidParameterValue</Code><Message>Invalid value 'SparkByScript-slaves' for groupName. You may not reference Amazon VPC security groups by name. Please use the corresponding id for this operation.</Message></Error></Errors><RequestID>60313fac-5d47-48dd-a8bf-e9832948c0a6</RequestID></Response>
+ERROR:boto:\<?xml version="1.0" encoding="UTF-8"?\>
+\<Response\>\<Errors\>\<Error\>\<Code\>InvalidParameterValue\</Code\>\<Message\>Invalid value 'SparkByScript-slaves' for groupName. You may not reference Amazon VPC security groups by name. Please use the corresponding id for this operation.\</Message\>\</Error\>\</Errors\>\<RequestID\>60313fac-5d47-48dd-a8bf-e9832948c0a6\</RequestID\>\</Response\>
 Failed to delete security group SparkByScript-slaves
 ERROR:boto:400 Bad Request
-ERROR:boto:<?xml version="1.0" encoding="UTF-8"?>
-<Response><Errors><Error><Code>InvalidParameterValue</Code><Message>Invalid value 'SparkByScript-master' for groupName. You may not reference Amazon VPC security groups by name. Please use the corresponding id for this operation.</Message></Error></Errors><RequestID>74ff8431-c0c1-4052-9ecb-c0adfa7eeeac</RequestID></Response>
+ERROR:boto:\<?xml version="1.0" encoding="UTF-8"?\>
+\<Response\>\<Errors\>\<Error\>\<Code\>InvalidParameterValue\</Code\>\<Message\>Invalid value 'SparkByScript-master' for groupName. You may not reference Amazon VPC security groups by name. Please use the corresponding id for this operation.\</Message\>\</Error\>\</Errors\>\<RequestID\>74ff8431-c0c1-4052-9ecb-c0adfa7eeeac\</RequestID\>\</Response\>
 Failed to delete security group SparkByScript-master
 Attempt 2
 ....
@@ -1068,7 +1068,7 @@ Launching instances...
 Launched 1 slaves in us-east-1b, regid = r-cf780321
 Launched master in us-east-1b, regid = r-da7e0534
 Traceback (most recent call last):
-  File "./ec2/spark\_ec2.py", line 1284, in <module>
+  File "./ec2/spark\_ec2.py", line 1284, in \<module\>
     main()
   File "./ec2/spark\_ec2.py", line 1276, in main
     real\_main()
@@ -1085,8 +1085,8 @@ Traceback (most recent call last):
   File ".../spark/ec2/lib/boto-2.34.0/boto/connection.py", line 1223, in get\_status
     raise self.ResponseError(response.status, response.reason, body)
 boto.exception.EC2ResponseError: EC2ResponseError: 400 Bad Request
-<?xml version="1.0" encoding="UTF-8"?>
-<Response><Errors><Error><Code>InvalidInstanceID.NotFound</Code><Message>The instance ID 'i-585219a6' does not exist</Message></Error></Errors><RequestID>b9f1ad6e-59b9-47fd-a693-527be1f779eb</RequestID></Response>
+\<?xml version="1.0" encoding="UTF-8"?\>
+\<Response\>\<Errors\>\<Error\>\<Code\>InvalidInstanceID.NotFound\</Code\>\<Message\>The instance ID 'i-585219a6' does not exist\</Message\>\</Error\>\</Errors\>\<RequestID\>b9f1ad6e-59b9-47fd-a693-527be1f779eb\</RequestID\>\</Response\>
 {code}
 
 The solution is to tag the instances in the same call that launches them, or less desirably, tag the instances after some short wait.
@@ -1096,7 +1096,7 @@ The solution is to tag the instances in the same call that launches them, or les
 
 * [SPARK-4905](https://issues.apache.org/jira/browse/SPARK-4905) | *Critical* | **Flaky test: o.a.s.streaming.flume.FlumeStreamSuite.flume input stream**
 
-It looks like the "org.apache.spark.streaming.flume.FlumeStreamSuite.flume input stream" test might be flaky ([link|https://amplab.cs.berkeley.edu/jenkins//job/SparkPullRequestBuilder/24647/testReport/junit/org.apache.spark.streaming.flume/FlumeStreamSuite/flume\_input\_stream/]):
+It looks like the "org.apache.spark.streaming.flume.FlumeStreamSuite.flume input stream" test might be flaky ([link\|https://amplab.cs.berkeley.edu/jenkins//job/SparkPullRequestBuilder/24647/testReport/junit/org.apache.spark.streaming.flume/FlumeStreamSuite/flume\_input\_stream/]):
 
 {code}
 Error Message
@@ -1195,7 +1195,7 @@ Turning on assertions in the SBT build is trivial, adding one line:
 This reveals a test failure in Scala test suites though:
 
 {code}
-[info] - alter\_merge\_2 *** FAILED *** (1 second, 305 milliseconds)
+[info] - alter\_merge\_2 \*\*\* FAILED \*\*\* (1 second, 305 milliseconds)
 [info]   Failed to execute query using catalyst:
 [info]   Error: Job aborted due to stage failure: Task 1 in stage 551.0 failed 1 times, most recent failure: Lost task 1.0 in stage 551.0 (TID 1532, localhost): java.lang.AssertionError
 [info]   	at org.apache.hadoop.hive.serde2.lazybinary.LazyBinaryInteger.init(LazyBinaryInteger.java:51)
@@ -1344,21 +1344,21 @@ Then Spark on YARN fails to launch jobs with NPE.
 
 {code}
 $ bin/spark-shell --master yarn-client
-scala>     sc.textFile("hdfs:///user/ozawa/wordcountInput20G").flatMap(line => line.split(" ")).map(word => (word, 1)).persist().reduceByKey((a, b) => a + b, 16).saveAsTextFile("hdfs:///user/ozawa/sparkWordcountOutNew2");
+scala\>     sc.textFile("hdfs:///user/ozawa/wordcountInput20G").flatMap(line =\> line.split(" ")).map(word =\> (word, 1)).persist().reduceByKey((a, b) =\> a + b, 16).saveAsTextFile("hdfs:///user/ozawa/sparkWordcountOutNew2");
 java.lang.NullPointerException                                                                                                                                                                                                                                
         at org.apache.spark.SparkContext.defaultParallelism(SparkContext.scala:1284)
         at org.apache.spark.SparkContext.defaultMinPartitions(SparkContext.scala:1291)                                                                                                                                                                        
         at org.apache.spark.SparkContext.textFile$default$2(SparkContext.scala:480)
-        at $iwC$$iwC$$iwC$$iwC.<init>(<console>:13)                                                                                                                                                                                                           
-        at $iwC$$iwC$$iwC.<init>(<console>:18)
-        at $iwC$$iwC.<init>(<console>:20)                                                                                                                                                                                                                     
-        at $iwC.<init>(<console>:22)
-        at <init>(<console>:24)                                                                                                                                                                                                                               
-        at .<init>(<console>:28)
-        at .<clinit>(<console>)                                                                                                                                                                                                                               
-        at .<init>(<console>:7)
-        at .<clinit>(<console>)                                                                                                                                                                                                                               
-        at $print(<console>)
+        at $iwC$$iwC$$iwC$$iwC.\<init\>(\<console\>:13)                                                                                                                                                                                                           
+        at $iwC$$iwC$$iwC.\<init\>(\<console\>:18)
+        at $iwC$$iwC.\<init\>(\<console\>:20)                                                                                                                                                                                                                     
+        at $iwC.\<init\>(\<console\>:22)
+        at \<init\>(\<console\>:24)                                                                                                                                                                                                                               
+        at .\<init\>(\<console\>:28)
+        at .\<clinit\>(\<console\>)                                                                                                                                                                                                                               
+        at .\<init\>(\<console\>:7)
+        at .\<clinit\>(\<console\>)                                                                                                                                                                                                                               
+        at $print(\<console\>)
         at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)                                                                                                                                                                                        
         at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
         at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)                                                                                                                                                              
@@ -1411,15 +1411,15 @@ although it is clearly listed in the documentation.
 Sample beeline session used to reproduce this issue:
 
 {code}
-0: jdbc:hive2://localhost:10000> drop table test;
+0: jdbc:hive2://localhost:10000\> drop table test;
 +---------+
-| result  |
+\| result  \|
 +---------+
 +---------+
 No rows selected (0.614 seconds)
-0: jdbc:hive2://localhost:10000> create table hive\_table\_copy as select * from hive\_table;
+0: jdbc:hive2://localhost:10000\> create table hive\_table\_copy as select \* from hive\_table;
 +------+--------+
-| key  | value  |
+\| key  \| value  \|
 +------+--------+
 +------+--------+
 No rows selected (0.493 seconds)
@@ -1449,7 +1449,7 @@ import org.apache.spark.graphx.\_
 val a = VertexRDD(sc.parallelize(List((0L, 1), (1L, 2)), 1))
 val b = VertexRDD(sc.parallelize(List((0L, 5)), 8))
 // Try to join them. Appears to work...
-val c = a.innerJoin(b) { (vid, x, y) => x + y }
+val c = a.innerJoin(b) { (vid, x, y) =\> x + y }
 // ... but then fails with java.lang.IllegalArgumentException: Can't zip RDDs with unequal numbers of partitions
 c.collect
 
@@ -1458,7 +1458,7 @@ val a = VertexRDD(sc.parallelize(List((0L, 1), (1L, 2))).partitionBy(new HashPar
 val bVerts = sc.parallelize(List((1L, 5)))
 val b = VertexRDD(bVerts.partitionBy(new RangePartitioner(2, bVerts)))
 // Try to join them. We expect (1L, 7).
-val c = a.innerJoin(b) { (vid, x, y) => x + y }
+val c = a.innerJoin(b) { (vid, x, y) =\> x + y }
 // Silent failure: we get an empty set!
 c.collect
 {code}

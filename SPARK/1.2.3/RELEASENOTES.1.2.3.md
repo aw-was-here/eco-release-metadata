@@ -45,7 +45,7 @@ The index 4 goes out of bounds (but this is not checked).
 
 * [SPARK-9175](https://issues.apache.org/jira/browse/SPARK-9175) | *Critical* | **BLAS.gemm fails to update matrix C when alpha==0 and beta!=1**
 
-In the BLAS wrapper, gemm is supposed to update matrix C to be alpha * A * B + beta * C. However, the current implementation will not update C as long as alpha == 0. This is incorrect when beta is not equal to 1. 
+In the BLAS wrapper, gemm is supposed to update matrix C to be alpha \* A \* B + beta \* C. However, the current implementation will not update C as long as alpha == 0. This is incorrect when beta is not equal to 1. 
 
 Example:
 val p = 3 
@@ -68,15 +68,15 @@ Will submit PR to fix this.
 
 * [SPARK-8563](https://issues.apache.org/jira/browse/SPARK-8563) | *Major* | **Bug that IndexedRowMatrix.computeSVD() yields the U with wrong numCols**
 
-IndexedRowMatrix.computeSVD() yields a wrong U which *U.numCols() = self.nCols*.
+IndexedRowMatrix.computeSVD() yields a wrong U which \*U.numCols() = self.nCols\*.
 
-It should have been *U.numCols() = k = svd.U.numCols()*
+It should have been \*U.numCols() = k = svd.U.numCols()\*
 
 {code}
-self = U * sigma * V.transpose
-(m x n) = (m x n) * (k x k) * (k x n)
--->
-(m x n) = (m x k) * (k x k) * (k x n)
+self = U \* sigma \* V.transpose
+(m x n) = (m x n) \* (k x k) \* (k x n)
+--\>
+(m x n) = (m x k) \* (k x k) \* (k x n)
 {code}
 
 
@@ -129,7 +129,7 @@ at scala.collection.TraversableLike$class.filter(TraversableLike.scala:263)
 at scala.collection.AbstractTraversable.filter(Traversable.scala:105) 
 at org.apache.spark.deploy.SparkHadoopUtil.getFileSystemThreadStatistics(SparkHadoopUtil.scala:178) 
 at org.apache.spark.deploy.SparkHadoopUtil.getFSBytesReadOnThreadCallback(SparkHadoopUtil.scala:139) 
-at org.apache.spark.rdd.NewHadoopRDD$$anon$1.<init>(NewHadoopRDD.scala:116) 
+at org.apache.spark.rdd.NewHadoopRDD$$anon$1.\<init\>(NewHadoopRDD.scala:116) 
 at org.apache.spark.rdd.NewHadoopRDD.compute(NewHadoopRDD.scala:107) 
 at org.apache.spark.rdd.NewHadoopRDD.compute(NewHadoopRDD.scala:69) 
 at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:280) 
@@ -173,7 +173,7 @@ Here's that block of code from 1.2.1 (it's the same in 1.2.2):
   private def getFileSystemThreadStatistics(path: Path, conf: Configuration): Seq[AnyRef] = {
     val qualifiedPath = path.getFileSystem(conf).makeQualified(path)
     val scheme = qualifiedPath.toUri().getScheme()
-    val stats = FileSystem.getAllStatistics().filter(\_.getScheme().equals(scheme))   // <--- exception occurs at this line
+    val stats = FileSystem.getAllStatistics().filter(\_.getScheme().equals(scheme))   // \<--- exception occurs at this line
     stats.map(Utils.invoke(classOf[Statistics], \_, "getThreadStatistics"))
   }
 {code}
@@ -189,7 +189,7 @@ I am unable to reproduce this issue myself, but I think that we can fix it for t
 
 * [SPARK-8032](https://issues.apache.org/jira/browse/SPARK-8032) | *Major* | **Make NumPy version checking in mllib/\_\_init\_\_.py**
 
-The current checking does version `1.x' is less than `1.4' this will fail if x has greater than 1 digit, since x > 4, however `1.x` < `1.4`
+The current checking does version `1.x' is less than `1.4' this will fail if x has greater than 1 digit, since x \> 4, however `1.x` \< `1.4`
 
 
 ---
@@ -222,7 +222,7 @@ I think that it's rare that this bug would lead to silent failures like this. In
 
 * [SPARK-7522](https://issues.apache.org/jira/browse/SPARK-7522) | *Minor* | **ML Examples option for dataFormat should not be enclosed in angle brackets**
 
-Some ML examples include an option for specifying the data format, such as DecisionTreeExample, but the option is enclosed in angle brackets like "opt[String]("<dataFormat>")."  This is probably just a typo but makes it awkward to use the option.
+Some ML examples include an option for specifying the data format, such as DecisionTreeExample, but the option is enclosed in angle brackets like "opt[String]("\<dataFormat\>")."  This is probably just a typo but makes it awkward to use the option.
 
 
 ---
@@ -233,11 +233,11 @@ A new HiveConf is created per query in getAst method in HiveQl.scala
 
   def getAst(sql: String): ASTNode = {
 
-    /*
-     * Context has to be passed in hive0.13.1.
-     * Otherwise, there will be Null pointer exception,
-     * when retrieving properties form HiveConf.
-     */
+    /\*
+     \* Context has to be passed in hive0.13.1.
+     \* Otherwise, there will be Null pointer exception,
+     \* when retrieving properties form HiveConf.
+     \*/
 
     val hContext = new Context(new HiveConf())
 
@@ -283,7 +283,7 @@ If `StreamingKMeans` is not `Serializable`, we cannot do checkpoint for applicat
 
 {{sbin/spark-daemon.sh}} uses {{ps -p "$TARGET\_PID" -o args=}} to figure out whether the process running with the expected PID is actually a Spark daemon. When running with a large classpath, the output of {{ps}} gets truncated and the check fails spuriously.
 
-I think we should weaken the check to see if it's a java command (which is something we do in other parts of the script) rather than looking for the specific main class name. This means that SPARK-4832 might happen under a slightly broader range of circumstances (a *java* program happened to reuse the same PID), but it seems worthwhile compared to failing consistently with a large classpath.
+I think we should weaken the check to see if it's a java command (which is something we do in other parts of the script) rather than looking for the specific main class name. This means that SPARK-4832 might happen under a slightly broader range of circumstances (a \*java\* program happened to reuse the same PID), but it seems worthwhile compared to failing consistently with a large classpath.
 
 
 ---
@@ -297,7 +297,7 @@ We should upgrade our {{snappy-java}} dependency to 1.1.1.7 in order to include 
 
 * [SPARK-6886](https://issues.apache.org/jira/browse/SPARK-6886) | *Blocker* | **Big closure in PySpark will fail during shuffle**
 
-Reported by  beifei.zhou <beifei.zhou at ximalaya.com>: 
+Reported by  beifei.zhou \<beifei.zhou at ximalaya.com\>: 
 
 I am using spark to process bid datasets. However, there is always problem when executing reduceByKey on a large dataset, whereas with a smaller dataset.  May I asked you how could I solve this issue?
 
@@ -310,7 +310,7 @@ org.apache.spark.api.python.PythonException: Traceback (most recent call last):
   File "/Users/nali/Softwares/spark/python/pyspark/broadcast.py", line 106, in value
     self.\_value = self.load(self.\_path)
   File "/Users/nali/Softwares/spark/python/pyspark/broadcast.py", line 87, in load
-    with open(path, 'rb', 1 << 20) as f:
+    with open(path, 'rb', 1 \<\< 20) as f:
 IOError: [Errno 2] No such file or directory: '/private/var/folders/\_x/n59vb1b54pl96lvldz2lr\_v40000gn/T/spark-37d8ecbc-9ac9-4aa2-be23-12823f4cd1ed/pyspark-1e3d5904-a5b6-4222-a146-91bfdb4a33a7/tmp8XMhgG'
 {code}
 
@@ -368,11 +368,11 @@ With
 run the following command:
 
 {code}
-sc.parallelize(1 to 1000, 1000).map { x =>
+sc.parallelize(1 to 1000, 1000).map { x =\>
   try {
       Class.forName("some.class.that.does.not.Exist")
   } catch {
-      case e: Exception => // do nothing
+      case e: Exception =\> // do nothing
   }
   x
 }.count()
@@ -383,7 +383,7 @@ This job will run 253 tasks, then will completely freeze without any errors or f
 It looks like the driver has 253 threads blocked in socketRead0() calls:
 
 {code}
-[joshrosen ~]$ jstack 16765 | grep socketRead0 | wc
+[joshrosen ~]$ jstack 16765 \| grep socketRead0 \| wc
      253     759   14674
 {code}
 
@@ -413,7 +413,7 @@ Jstack on the executors shows blocking in loadClass / findClass, where a single 
 Remotely triggering a GC on a hanging executor allows the job to progress and complete more tasks before hanging again.  If I repeatedly trigger GC on all of the executors, then the job runs to completion:
 
 {code}
-jps | grep CoarseGra | cut -d ' ' -f 1 | xargs -I {} -n 1 -P100 jcmd {} GC.run
+jps \| grep CoarseGra \| cut -d ' ' -f 1 \| xargs -I {} -n 1 -P100 jcmd {} GC.run
 {code}
 
 The culprit is a {{catch}} block that ignores all exceptions and performs no cleanup: https://github.com/apache/spark/blob/v1.2.0/repl/src/main/scala/org/apache/spark/repl/ExecutorClassLoader.scala#L94

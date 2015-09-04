@@ -98,7 +98,7 @@ Caused by: java.io.IOException: PARSING\_ERROR(2)
 The client has the following messages:
 {code}
 [2015-07-02 13:46:00,478] ERROR Error when sending message to topic t3 with key: 4 bytes, value: 100 bytes with error: The server experienced an unexpected error when processing the request (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
-java: target/snappy-1.1.1/snappy.cc:423: char* snappy::internal::CompressFragment(const char*, size\_t, char*, snappy::uint16*, int): Assertion `0 == memcmp(base, candidate, matched)' failed.
+java: target/snappy-1.1.1/snappy.cc:423: char\* snappy::internal::CompressFragment(const char\*, size\_t, char\*, snappy::uint16\*, int): Assertion `0 == memcmp(base, candidate, matched)' failed.
 {code}
 
 

@@ -109,11 +109,11 @@ HBase's convenience binary artifact no longer contains the netty 3.2.4 jar . Thi
 
 This release includes initial support for running Spark against HBase with a richer feature set than was previously possible with MapReduce bindings:
 
-* Support for Spark and Spark Streaming against Spark 1.3
-* RDD/DStream formation from scan operations
-* convenience methods for interacting with HBase from an HBase backed RDD / DStream instance
-* examples in both the Spark Java API and Spark Scala API
-* support for running against a secure HBase cluster
+\* Support for Spark and Spark Streaming against Spark 1.3
+\* RDD/DStream formation from scan operations
+\* convenience methods for interacting with HBase from an HBase backed RDD / DStream instance
+\* examples in both the Spark Java API and Spark Scala API
+\* support for running against a secure HBase cluster
 
 
 ---
@@ -302,23 +302,23 @@ Introduces a new config hbase.fs.tmp.dir which is a directory in HDFS (or defaul
 To use the coprocessor-based JMX implementation provided by HBase for Master.
 Add below property in hbase-site.xml file: 
 
-<property>
-  <name>hbase.coprocessor.master.classes</name>
-  <value>org.apache.hadoop.hbase.JMXListener</value>
-</property>
+\<property\>
+  \<name\>hbase.coprocessor.master.classes\</name\>
+  \<value\>org.apache.hadoop.hbase.JMXListener\</value\>
+\</property\>
 
 NOTE: DO NOT set `com.sun.management.jmxremote.port` for Java VM at the same time.
 
 By default, the JMX listens on TCP port 10101 for Master, we can further configure the port using below properties:
 
-<property>
-  <name>master.rmi.registry.port</name>
-  <value>61110</value>
-</property>
-<property>
-  <name>master.rmi.connector.port</name>
-  <value>61120</value>
-</property>
+\<property\>
+  \<name\>master.rmi.registry.port\</name\>
+  \<value\>61110\</value\>
+\</property\>
+\<property\>
+  \<name\>master.rmi.connector.port\</name\>
+  \<value\>61120\</value\>
+\</property\>
 ----
 
 The registry port can be shared with connector port in most cases, so you only need to configure master.rmi.registry.port.
@@ -385,7 +385,7 @@ This JIRA modifies the signature of PriorityFunction#getPriority() method to als
 
 * [HBASE-13373](https://issues.apache.org/jira/browse/HBASE-13373) | *Major* | **Squash HFileReaderV3 together with HFileReaderV2 and AbstractHFileReader; ditto for Scanners and BlockReader, etc.**
 
-Marking as incompatible change. Requires hfiles be major version >= 2 and >= minor version 3.  Version 3 files are enabled by default in 1.0.  0.98 writes version 2 minor version 3.  You cannot go to 1.0 from anything before 0.98.
+Marking as incompatible change. Requires hfiles be major version \>= 2 and \>= minor version 3.  Version 3 files are enabled by default in 1.0.  0.98 writes version 2 minor version 3.  You cannot go to 1.0 from anything before 0.98.
 
 
 ---
@@ -546,7 +546,7 @@ You can do the following to mitigate the problem:
 
 Adds buffer reuse sending Cell results. It is on by default and should not need configuration. Improves GC profile and ups throughput. The benefit gets better the larger the row size returned.
 
-The buffer reservoir is bounded at a maximum count after which we will start logging at WARN level that the reservoir is running at capacity (returned buffers will be discarded and not added back to the reservoir pool). Default maximum is twice the handler count: i.e. 2 * hbase.regionserver.handler.count. This should be more than enough. Set the maximum with the new configuration: hbase.ipc.server.reservoir.max
+The buffer reservoir is bounded at a maximum count after which we will start logging at WARN level that the reservoir is running at capacity (returned buffers will be discarded and not added back to the reservoir pool). Default maximum is twice the handler count: i.e. 2 \* hbase.regionserver.handler.count. This should be more than enough. Set the maximum with the new configuration: hbase.ipc.server.reservoir.max
 
 The reservoir will not cache buffers in excess of hbase.ipc.server.reservoir.max.buffer.size  The default is 10MB. This means that if a row is very large, then we will allocate a buffer of the average size that is currently in the pool and we will then resize it till we can accommodate the return. These resizes are expensive. The resultant buffer will be used and then discarded.
 
@@ -603,10 +603,10 @@ Asynchronous scanning can be configured either globally for all tables and scans
 
 Configuration in hbase-site.xml: hbase.client.scanner.async.prefetch, default false:
 
- <property>
-   <name>hbase.client.scanner.async.prefetch</name>
-   <value>true</value>
- </property>
+ \<property\>
+   \<name\>hbase.client.scanner.async.prefetch\</name\>
+   \<value\>true\</value\>
+ \</property\>
 
 API - Scan#setAsyncPrefetch(boolean)
 
@@ -744,7 +744,7 @@ User can specify ONE\_SSD or ALL\_SSD as the value:
 ONE\_SSD: place only one replica of WAL files in SSD and the remaining in default storage
 ALL\_SSD: all replica for WAL files are placed on SSD
 
-See [the HDFS docs on storage policy|http://hadoop.apache.org/docs/r2.6.0/hadoop-project-dist/hadoop-hdfs/ArchivalStorage.html]
+See [the HDFS docs on storage policy\|http://hadoop.apache.org/docs/r2.6.0/hadoop-project-dist/hadoop-hdfs/ArchivalStorage.html]
 
 
 ---
@@ -769,11 +769,11 @@ Adds a dev-support/check\_compatibility.sh script for comparing versions. Run th
 
 TableInputFormatBase#initialize() has been added:
 
-  /**
-   * This method will be called when any of the following are referenced, but not yet initialized:
-   * admin, regionLocator, table. Subclasses will have the opportunity to call
-   * {@link #initializeTable(Connection, TableName)}
-   */
+  /\*\*
+   \* This method will be called when any of the following are referenced, but not yet initialized:
+   \* admin, regionLocator, table. Subclasses will have the opportunity to call
+   \* {@link #initializeTable(Connection, TableName)}
+   \*/
   protected void initialize() {
 
 
@@ -830,7 +830,7 @@ This feature incorporates reported regionserver heap occupancy in the (optional)
 
 * [HBASE-12728](https://issues.apache.org/jira/browse/HBASE-12728) | *Blocker* | **buffered writes substantially less useful after removal of HTablePool**
 
-In our pre-1.0 API, HTable is considered a light-weight object that consumed by a single thread at a time. The HTablePool class provided a means of sharing multiple HTable instances across a number of threads. As an optimization, HTable managed a "write buffer", accumulating edits and sending a "batch" all at once. By default the batch was sent as the last step in invocations of put(Put) and put(List<Put>). The user could disable the automatic flushing of the write buffer, retaining edits locally and only sending the whole "batch" once the write buffer has filled or when the flushCommits() method in invoked explicitly. Explicit or implicit batch writing was controlled by the setAutoFlushTo(boolean) method. A value of true (the default) had the write buffer flushed at the completion of a call to put(Put) or put(List<Put>). A value of false allowed for explicit buffer management. HTable also exposed the buffer to consumers via getWriteBuffer().
+In our pre-1.0 API, HTable is considered a light-weight object that consumed by a single thread at a time. The HTablePool class provided a means of sharing multiple HTable instances across a number of threads. As an optimization, HTable managed a "write buffer", accumulating edits and sending a "batch" all at once. By default the batch was sent as the last step in invocations of put(Put) and put(List\<Put\>). The user could disable the automatic flushing of the write buffer, retaining edits locally and only sending the whole "batch" once the write buffer has filled or when the flushCommits() method in invoked explicitly. Explicit or implicit batch writing was controlled by the setAutoFlushTo(boolean) method. A value of true (the default) had the write buffer flushed at the completion of a call to put(Put) or put(List\<Put\>). A value of false allowed for explicit buffer management. HTable also exposed the buffer to consumers via getWriteBuffer().
 
 The combination of HTable with setAutoFlushTo(false) and the HTablePool provided a convenient mechanism by which multiple "Put-producing" threads could share a common write buffer. Both HTablePool and HTable are deprecated, and they are officially replaced in The new 1.0 API by Table and BufferedMutator. Table, which replaces HTable, no longer exposes explicit write-buffer management. Instead, explicit buffer management is exposed via BufferedMutator. BufferedMutator is made safe for concurrent use. Where code would previously retrieve and return HTables from an HTablePool, now that code creates and shares a single BufferedMutator instance across all threads.
 
@@ -952,7 +952,7 @@ This change reduces the number of versions kept in the ACL table from 10 to 1. T
 
 * [HBASE-12381](https://issues.apache.org/jira/browse/HBASE-12381) | *Minor* | **Add maven enforcer rules for build assumptions**
 
-Enforces maven >= 3.0.3 (based on the oldest version we have building on jenkins) and java >= the source compilation target variable, which is 1.7 on master and branch-1 (based on java compat doc) and 1.6 before this.
+Enforces maven \>= 3.0.3 (based on the oldest version we have building on jenkins) and java \>= the source compilation target variable, which is 1.7 on master and branch-1 (based on java compat doc) and 1.6 before this.
 
 
 ---
@@ -1119,7 +1119,7 @@ Adds Histogram and AtomicLong Utils
 * [HBASE-12121](https://issues.apache.org/jira/browse/HBASE-12121) | *Minor* | **maven release plugin does not allow for customized goals**
 
 Allows user to add goals to release procedure
-mvn release:perform -Dgoal=<goal-name>
+mvn release:perform -Dgoal=\<goal-name\>
 If no goal is specified default behavior is used
 
 Example use case:
@@ -1158,22 +1158,22 @@ Developers that use visibility labels via REST XML need to modify their applicat
 
 The below KeyValue based APIs are removed from Result
 KeyValue[] raw() 
-List<KeyValue> list()
-List<KeyValue> getColumn(byte [] family, byte [] qualifier)
+List\<KeyValue\> list()
+List\<KeyValue\> getColumn(byte [] family, byte [] qualifier)
 KeyValue getColumnLatest(byte [] family, byte [] qualifier)
 KeyValue getColumnLatest(byte [] family, int foffset, int flength, byte [] qualifier, int qoffset, int qlength)
 
 They are replaced with
 Cell[] rawCells()
-List<Cell> listCells()
-List<Cell> getColumnCells(byte [] family, byte [] qualifier)
+List\<Cell\> listCells()
+List\<Cell\> getColumnCells(byte [] family, byte [] qualifier)
 Cell getColumnLatestCell(byte [] family, byte [] qualifier)
 Cell getColumnLatestCell(byte [] family, int foffset, int flength, byte [] qualifier, int qoffset, int qlength)
 respectively
 
 Also the constructors which were taking KeyValues also removed
 Result(KeyValue [] cells) 
-Result(List<KeyValue> kvs)
+Result(List\<KeyValue\> kvs)
 
 
 ---
@@ -1189,7 +1189,7 @@ Interceptor.intercept() {
  server = getServer()
   // Throw if we already spent a lot of time on a server.
   timeSpentOnServer = getTimeSpentSinceLastReset(server)
-  if ( timeSpentOnServer > THRESHOLD) throw new Exception("We spend too long on this server")
+  if ( timeSpentOnServer \> THRESHOLD) throw new Exception("We spend too long on this server")
   setServerStartTime(server)
 }
 
@@ -1245,10 +1245,10 @@ If a custom Filter implementation have overridden any of these methods, we will 
 
 Adds a configuration property "hbase.regionserver.handler.abort.on.error.percent" for aborting the region server when some of it's handler threads die. The default value is 0.5 causing an abort in the RS when half of it's handler threads die. A handler thread only dies in case of a serious software bug, or a non-recoverable Error (StackOverflow, OOM, etc) is thrown. 
 These are possible values for the configuration:
-   * -1  => Disable aborting
-   * 0   => Abort if even a single handler has died
-   * 0.x => Abort only when this percent of handlers have died
-   * 1   => Abort only all of the handers have died
+   \* -1  =\> Disable aborting
+   \* 0   =\> Abort if even a single handler has died
+   \* 0.x =\> Abort only when this percent of handlers have died
+   \* 1   =\> Abort only all of the handers have died
 
 
 ---
@@ -1287,9 +1287,9 @@ Added new utility method, setRowPrefixFilter, to Scan to easily scan for a speci
 
 Checksumming is cpu intensive. HBase computes additional checksums for HFiles (hdfs does checksums too) and stores them inline with file data. During reading, these checksums are verified to ensure data is not corrupted. This patch tries to use Hadoop Native Library for checksum computation, if it’s available, otherwise falls back to standard Java libraries. Instructions to load NHL in HBase can be found here (http://hbase.apache.org/book.html#hadoop.native.lib).
 
-Default checksum algorithm has been changed from CRC32 to CRC32C primarily because of two reasons: 1) CRC32C has better error detection properties, and 2) New Intel processors have a dedicated instruction for crc32c computation (SSE4.2 instruction set)*. This change is fully backward compatible. Also, users should not see any differences except decrease in cpu usage. To keep old settings, set configuration ‘hbase.hstore.checksum.algorithm’ to ‘CRC32’.
+Default checksum algorithm has been changed from CRC32 to CRC32C primarily because of two reasons: 1) CRC32C has better error detection properties, and 2) New Intel processors have a dedicated instruction for crc32c computation (SSE4.2 instruction set)\*. This change is fully backward compatible. Also, users should not see any differences except decrease in cpu usage. To keep old settings, set configuration ‘hbase.hstore.checksum.algorithm’ to ‘CRC32’.
 
-* On linux, run 'cat /proc/cpuinfo’ and look for sse4\_2 in list of flags to see if your processor supports SSE4.2.
+\* On linux, run 'cat /proc/cpuinfo’ and look for sse4\_2 in list of flags to see if your processor supports SSE4.2.
 
 
 ---
@@ -1297,8 +1297,8 @@ Default checksum algorithm has been changed from CRC32 to CRC32C primarily becau
 * [HBASE-11919](https://issues.apache.org/jira/browse/HBASE-11919) | *Major* | **Remove the deprecated pre/postGet CP hook**
 
 Removed the below 2 hooks from RegionObserver CP. These were deprecated since 0.96 and having replacement
-1. preGet(final ObserverContext<RegionCoprocessorEnvironment> c, final Get get, final List<KeyValue> result)
-2. postGet(final ObserverContext<RegionCoprocessorEnvironment> c, final Get get, final List<KeyValue> result)
+1. preGet(final ObserverContext\<RegionCoprocessorEnvironment\> c, final Get get, final List\<KeyValue\> result)
+2. postGet(final ObserverContext\<RegionCoprocessorEnvironment\> c, final Get get, final List\<KeyValue\> result)
 These are replaced with pre/postGetOp hooks
 
 
@@ -1403,8 +1403,8 @@ Also we allow plugin an implementation of org.apache.hadoop.hbase.mapreduce.Visi
 * [HBASE-11805](https://issues.apache.org/jira/browse/HBASE-11805) | *Major* | **KeyValue to Cell Convert in WALEdit APIs**
 
 The KeyValue based APIs in WALEdit is been removed and replaced with Cell based APIs
-void add(KeyValue)    ->       void add(Cell)
-ArrayList<KeyValue> getKeyValues()    ->    ArrayList<Cell> getCells()
+void add(KeyValue)    -\>       void add(Cell)
+ArrayList\<KeyValue\> getKeyValues()    -\>    ArrayList\<Cell\> getCells()
 
 
 ---
@@ -1448,14 +1448,14 @@ This got committed, so I guess it is safe to resolve it?
 
 Allows the visibility tags to be replicated as Strings to the peer cluster. Useful in cases where the peer cluster and the source cluster does not have a common global LABELs table.
 In order to enable this feature configure the below property in hbase-site.xml
-<property>
-<name>
+\<property\>
+\<name\>
 hbase.coprocessor.regionserver.classes
-</name>
-<value>
+\</name\>
+\<value\>
 org.apache.hadoop.hbase.security.visibility.VisibilityController$VisibilityReplication
-</value>
-<property>
+\</value\>
+\<property\>
 
 
 ---
@@ -1568,23 +1568,23 @@ Remove "hbase.bucketcache.percentage.in.combinedcache".  Simplifies config of bl
 
 If the Hadoop configuration is read after the HBase configuration, Hadoop's settings can override HBase's settings if the names of the settings are the same. To avoid the risk of override, HBase has renamed the following settings (by prepending 'hbase.') so that you can set them independent of your setting for Hadoop. If you do not use the HBase-specific variants, the Hadoop settings will be used.
 
-Old Name   -->   New Name
+Old Name   --\>   New Name
 ======================================================
-ipc.server.listen.queue.size   -->   hbase.ipc.server.listen.queue.size
-ipc.server.max.callqueue.size   -->   hbase.ipc.server.max.callqueue.size
-ipc.server.callqueue.handler.factor --> hbase.ipc.server.callqueue.handler.factor
-ipc.server.callqueue.read.share --> hbase.ipc.server.callqueue.read.share
-ipc.server.callqueue.type --> hbase.ipc.server.callqueue.type
-ipc.server.queue.max.call.delay --> hbase.ipc.server.queue.max.call.delay
-ipc.server.max.callqueue.length --> hbase.ipc.server.max.callqueue.length
-ipc.server.read.threadpool.size   -->  hbase.ipc.server.read.threadpool.size
-ipc.server.tcpkeepalive   -->   hbase.ipc.server.tcpkeepalive
-ipc.server.tcpnodelay   -->   hbase.ipc.server.tcpnodelay
-ipc.client.call.purge.timeout   -->   hbase.ipc.client.call.purge.timeout
-ipc.client.connection.maxidletime   -->   hbase.ipc.client.connection.maxidletime
-ipc.client.idlethreshold   -->   hbase.ipc.client.idlethreshold
-ipc.client.kill.max   -->   hbase.ipc.client.kill.max
-ipc.server.scan.vtime.weight --> hbase.ipc.server.scan.vtime.weight
+ipc.server.listen.queue.size   --\>   hbase.ipc.server.listen.queue.size
+ipc.server.max.callqueue.size   --\>   hbase.ipc.server.max.callqueue.size
+ipc.server.callqueue.handler.factor --\> hbase.ipc.server.callqueue.handler.factor
+ipc.server.callqueue.read.share --\> hbase.ipc.server.callqueue.read.share
+ipc.server.callqueue.type --\> hbase.ipc.server.callqueue.type
+ipc.server.queue.max.call.delay --\> hbase.ipc.server.queue.max.call.delay
+ipc.server.max.callqueue.length --\> hbase.ipc.server.max.callqueue.length
+ipc.server.read.threadpool.size   --\>  hbase.ipc.server.read.threadpool.size
+ipc.server.tcpkeepalive   --\>   hbase.ipc.server.tcpkeepalive
+ipc.server.tcpnodelay   --\>   hbase.ipc.server.tcpnodelay
+ipc.client.call.purge.timeout   --\>   hbase.ipc.client.call.purge.timeout
+ipc.client.connection.maxidletime   --\>   hbase.ipc.client.connection.maxidletime
+ipc.client.idlethreshold   --\>   hbase.ipc.client.idlethreshold
+ipc.client.kill.max   --\>   hbase.ipc.client.kill.max
+ipc.server.scan.vtime.weight --\> hbase.ipc.server.scan.vtime.weight
 
 
 ---
@@ -1594,9 +1594,9 @@ ipc.server.scan.vtime.weight --> hbase.ipc.server.scan.vtime.weight
 By default in master branch the replication would use a new type of codec that would always replicate Cells with tags.
 {code}
 {code}
-<property>
-        <name>hbase.replication.rpc.codec</name>      <value>org.apache.hadoop.hbase.codec.KeyValueCodecWithTags</value>
-</property>
+\<property\>
+        \<name\>hbase.replication.rpc.codec\</name\>      \<value\>org.apache.hadoop.hbase.codec.KeyValueCodecWithTags\</value\>
+\</property\>
 {code}
 
 
@@ -1657,7 +1657,7 @@ After this patch, MVCC value of KVs will be kept for a configurable period "hbas
 
 * [HBASE-11240](https://issues.apache.org/jira/browse/HBASE-11240) | *Major* | **Print hdfs pipeline when hlog's sync is slow**
 
-Adds emission of a log message that lists datanodes in HDFS pipeline when sync is slow.  Set when to log with "hbase.regionserver.hlog.slowsync.ms". Defaults logging if sync takes > 100ms.
+Adds emission of a log message that lists datanodes in HDFS pipeline when sync is slow.  Set when to log with "hbase.regionserver.hlog.slowsync.ms". Defaults logging if sync takes \> 100ms.
 
 
 ---
@@ -1725,28 +1725,28 @@ CellComparator will always operate on cells and its components, abstracting the 
 
 for 0.98 and 1.0 changes are compatible (due to mitigation by HBASE-13433):
 
-* The "get\_counter" command no longer requires a dummy 4th argument. Downstream users are encouraged to migrate code to not pass this argument because it will result in an error for HBase 1.1+.
-* The "incr" command now outputs the current value of the counter to stdout.
+\* The "get\_counter" command no longer requires a dummy 4th argument. Downstream users are encouraged to migrate code to not pass this argument because it will result in an error for HBase 1.1+.
+\* The "incr" command now outputs the current value of the counter to stdout.
 ex:
 {code}
-jruby-1.6.8 :005 > incr 'counter\_example', 'r1', 'cf1:foo', 10
+jruby-1.6.8 :005 \> incr 'counter\_example', 'r1', 'cf1:foo', 10
 COUNTER VALUE = 1772
 0 row(s) in 0.1180 seconds
 {code}
 
 for 1.1+ changes are incompatible:
 
-* The "get\_counter" command no longer accepts a dummy 4th argument. Downstream users will need to update their code to not pass this argument.
+\* The "get\_counter" command no longer accepts a dummy 4th argument. Downstream users will need to update their code to not pass this argument.
 ex:
 {code}
-jruby-1.6.8 :006 > get\_counter 'counter\_example', 'r1', 'cf1:foo'
+jruby-1.6.8 :006 \> get\_counter 'counter\_example', 'r1', 'cf1:foo'
 COUNTER VALUE = 1772
 
 {code}
-* The "incr" command now outputs the current value of the counter to stdout.
+\* The "incr" command now outputs the current value of the counter to stdout.
 ex:
 {code}
-jruby-1.6.8 :005 > incr 'counter\_example', 'r1', 'cf1:foo', 10
+jruby-1.6.8 :005 \> incr 'counter\_example', 'r1', 'cf1:foo', 10
 COUNTER VALUE = 1772
 0 row(s) in 0.1180 seconds
 {code}
@@ -1768,11 +1768,11 @@ By default it checks whether column family matches the destination table. To dis
 Adds new method to Admin so clients can ask the master's info port. Also fixes info port display in UI to use what master is actually using rather than display what is Configuration
 
 {code}
-+  /**
-+   * Get the info port of the current master if one is available.
-+   * @return master info port
-+   * @throws IOException
-+   */
++  /\*\*
++   \* Get the info port of the current master if one is available.
++   \* @return master info port
++   \* @throws IOException
++   \*/
 +  public int getMasterInfoPort() throws IOException;
 {code}
 
@@ -1801,14 +1801,14 @@ LimitedPrivate(COPROC) Audience, LimitedPrivate(PHOENIX)
 LimitedPrivate(REPLICATION) Audience
  - The WALEntryFilter API has changed in a backwards incompatible way. Implementers will have to be updated.
  - The ReplicationEndpoint.ReplicateContext API has changed in a backwards incompatible way. Implementers who use this interface will have to be updated. These changes do not impact wire compatibility for replicating between clusters.
- - The HLogKey API is deprecated in favor of the WALKey API. Additionally, the HLogKey API has changed in a backwards incompatible way by changing from implementing WriteableComparable<HLogKey> to implementing Writeable and Comparable<WALKey>.
+ - The HLogKey API is deprecated in favor of the WALKey API. Additionally, the HLogKey API has changed in a backwards incompatible way by changing from implementing WriteableComparable\<HLogKey\> to implementing Writeable and Comparable\<WALKey\>.
 
 
 ---
 
 * [HBASE-10201](https://issues.apache.org/jira/browse/HBASE-10201) | *Major* | **Port 'Make flush decisions per column family' to trunk**
 
-Adds new flushing policy mechanism. Default, org.apache.hadoop.hbase.regionserver.FlushLargeStoresPolicy, will try to avoid flushing out the small column families in a region, those whose memstores are < hbase.hregion.percolumnfamilyflush.size.lower.bound. To restore the old behavior of flushes writing out all column families, set hbase.regionserver.flush.policy to org.apache.hadoop.hbase.regionserver.FlushAllStoresPolicy either in hbase-default.xml or on a per-table basis by setting the policy to use with HTableDescriptor.getFlushPolicyClassName().
+Adds new flushing policy mechanism. Default, org.apache.hadoop.hbase.regionserver.FlushLargeStoresPolicy, will try to avoid flushing out the small column families in a region, those whose memstores are \< hbase.hregion.percolumnfamilyflush.size.lower.bound. To restore the old behavior of flushes writing out all column families, set hbase.regionserver.flush.policy to org.apache.hadoop.hbase.regionserver.FlushAllStoresPolicy either in hbase-default.xml or on a per-table basis by setting the policy to use with HTableDescriptor.getFlushPolicyClassName().
 
 
 ---
@@ -1857,7 +1857,7 @@ Adds a LongComparator for use by Filters.
 
 Adds a new shell command that allows you delete snapshots that match a regex:
 
-hbase> delete\_all\_snapshot 's.*'
+hbase\> delete\_all\_snapshot 's.\*'
 
 
 ---
@@ -1870,14 +1870,14 @@ Namespace auditor provides basic quota support for namespaces in terms of number
 The users can add quota information to namespace, while creating new namespaces or by altering existing ones. 
 
 Examples:
-1. create\_namespace 'ns1', {'hbase.namespace.quota.maxregions'=>'10'}
-2. create\_namespace 'ns2', {'hbase.namespace.quota.maxtables'=>'2','hbase.namespace.quota.maxregions'=>'5'}
-3. alter\_namespace 'ns3', {METHOD => 'set', 'hbase.namespace.quota.maxtables'=>'5','hbase.namespace.quota.maxregions'=>'25'}
+1. create\_namespace 'ns1', {'hbase.namespace.quota.maxregions'=\>'10'}
+2. create\_namespace 'ns2', {'hbase.namespace.quota.maxtables'=\>'2','hbase.namespace.quota.maxregions'=\>'5'}
+3. alter\_namespace 'ns3', {METHOD =\> 'set', 'hbase.namespace.quota.maxtables'=\>'5','hbase.namespace.quota.maxregions'=\>'25'}
 
 The quotas can be modified/added to namespace at any point of time. To remove quotas, the following command can be used: 
 
-alter\_namespace 'ns3', {METHOD => 'unset', NAME => 'hbase.namespace.quota.maxtables'}
-alter\_namespace 'ns3', {METHOD => 'unset', NAME => 'hbase.namespace.quota.maxregions'}
+alter\_namespace 'ns3', {METHOD =\> 'unset', NAME =\> 'hbase.namespace.quota.maxtables'}
+alter\_namespace 'ns3', {METHOD =\> 'unset', NAME =\> 'hbase.namespace.quota.maxregions'}
 
 
 ---
@@ -1886,8 +1886,8 @@ alter\_namespace 'ns3', {METHOD => 'unset', NAME => 'hbase.namespace.quota.maxre
 
 Adds compaction throughput limit mechanism(the word "throttle" is already used when choosing compaction thread pool, so use a different word here to avoid ambiguity). Default is org.apache.hadoop.hbase.regionserver.compactions.PressureAwareCompactionThroughputController, will limit throughput as follow:
 1. In off peak hours, use a fixed limitation "hbase.hstore.compaction.throughput.offpeak" (default is Long.MAX\_VALUE which means no limitation).
-2. In normal hours, the limitation is tuned between "hbase.hstore.compaction.throughput.lower.bound"(default 10MB/sec) and "hbase.hstore.compaction.throughput.higher.bound"(default 20MB/sec), using the formula "lower + (higer - lower) * param" where param is in range [0.0, 1.0] and calculate based on store files count on this regionserver.
-3. If some stores have too many store files(storefilesCount > blockingFileCount), then there is no limitation no matter peak or off peak.
+2. In normal hours, the limitation is tuned between "hbase.hstore.compaction.throughput.lower.bound"(default 10MB/sec) and "hbase.hstore.compaction.throughput.higher.bound"(default 20MB/sec), using the formula "lower + (higer - lower) \* param" where param is in range [0.0, 1.0] and calculate based on store files count on this regionserver.
+3. If some stores have too many store files(storefilesCount \> blockingFileCount), then there is no limitation no matter peak or off peak.
 You can set "hbase.regionserver.throughput.controller" to org.apache.hadoop.hbase.regionserver.compactions.NoLimitCompactionThroughputController to disable throughput controlling.
 And we have implemented ConfigurationObserver which means you can change all configurations above and do not need to restart cluster.
 
@@ -1920,10 +1920,10 @@ Adds counts for various regions states to the table listing on main page. See at
 * [HBASE-6778](https://issues.apache.org/jira/browse/HBASE-6778) | *Major* | **Deprecate Chore; its a thread per task when we should have one thread to do all tasks**
 
 Corresponding usages for new ScheduledChore vs. Deprecated Chore:
-Chore.interrupt() -> ScheduledChore.cancel(mayInterruptWhileRunning = true)
-Threads.setDaemonThreadRunning(Chore) -> ChoreService.scheduleChore(ScheduledChore)
-Chore.isAlive -> ScheduledChore.isScheduled()
-Chore.getSleeper().skipSleepCycle() -> ScheduledChore.triggerNow()
+Chore.interrupt() -\> ScheduledChore.cancel(mayInterruptWhileRunning = true)
+Threads.setDaemonThreadRunning(Chore) -\> ChoreService.scheduleChore(ScheduledChore)
+Chore.isAlive -\> ScheduledChore.isScheduled()
+Chore.getSleeper().skipSleepCycle() -\> ScheduledChore.triggerNow()
 
 
 ---
@@ -1966,7 +1966,7 @@ All MR jobs implement Tool Interface, http://hadoop.apache.org/docs/current/api/
 
 * [HBASE-2609](https://issues.apache.org/jira/browse/HBASE-2609) | *Major* | **Harmonize the Get and Delete operations**
 
-Align Delete class with Get class. Change all delete* method names to add* instead.  For example, change deleteColumn to addColumn (as in add-this-column to the Delete specification). Deprecate the old.
+Align Delete class with Get class. Change all delete\* method names to add\* instead.  For example, change deleteColumn to addColumn (as in add-this-column to the Delete specification). Deprecate the old.
 
 
 ---

@@ -35,8 +35,8 @@ import org.apache.spark.sql.cassandra.CassandraSQLContext
 val cassandraSQLContext = new CassandraSQLContext(sc);
 
 java.lang.NoSuchMethodError: org.apache.spark.sql.cassandra.CassandraSQLContext$$anon$1.TakeOrdered()Lorg/apache/spark/sql/execution/SparkStrategies$TakeOrdered$;
-	at org.apache.spark.sql.cassandra.CassandraSQLContext$$anon$1.<init>(CassandraSQLContext.scala:90)
-	at org.apache.spark.sql.cassandra.CassandraSQLContext.<init>(CassandraSQLContext.scala:85)
+	at org.apache.spark.sql.cassandra.CassandraSQLContext$$anon$1.\<init\>(CassandraSQLContext.scala:90)
+	at org.apache.spark.sql.cassandra.CassandraSQLContext.\<init\>(CassandraSQLContext.scala:85)
 
 (Source code link: https://github.com/datastax/spark-cassandra-connector/blob/v1.4.0-M3/spark-cassandra-connector/src/main/scala/org/apache/spark/sql/cassandra/CassandraSQLContext.scala) 
 This is with version 1.4.0M3 of the Datastax Cassandra connector, but affects other 1.4 versions as well.
@@ -86,7 +86,7 @@ Before Spark 1.5, if an aggregate function use an grouping expression as input a
 To reproduce the problem, you can use
 {code}
 import org.apache.spark.sql.functions.\_
-sc.parallelize((1 to 1000), 50).map(i => Tuple1(i)).toDF("i").registerTempTable("t")
+sc.parallelize((1 to 1000), 50).map(i =\> Tuple1(i)).toDF("i").registerTempTable("t")
 sqlContext.sql(""" 
 select i % 10, sum(if(i % 10 = 5, 1, 0)), count(i)
 from t
@@ -125,11 +125,11 @@ df.registerTempTable("df")
 sqlContext.sql("SELECT x, row\_number() OVER (ORDER BY x) as rn FROM df").show()
 
 +----+--+
-|   x|rn|
+\|   x\|rn\|
 +----+--+
-|0.25| 1|
-| 0.5| 2|
-|0.75| 3|
+\|0.25\| 1\|
+\| 0.5\| 2\|
+\|0.75\| 3\|
 +----+--+
 {code}
 
@@ -143,11 +143,11 @@ df = sqlContext.createDataFrame([{"x": 0.25}, {"x": 0.5}, {"x": 0.75}])
 df.select(df["x"], rowNumber().over(Window.orderBy("x")).alias("rn")).show()
 
 +----+--+
-|   x|rn|
+\|   x\|rn\|
 +----+--+
-| 0.5| 1|
-|0.25| 1|
-|0.75| 1|
+\| 0.5\| 1\|
+\|0.25\| 1\|
+\|0.75\| 1\|
 +----+--+
 {code}
 
@@ -160,11 +160,11 @@ df.select(
 ).show()
 
 +----+--+
-|   x|rn|
+\|   x\|rn\|
 +----+--+
-|0.25| 1|
-| 0.5| 2|
-|0.75| 3|
+\|0.25\| 1\|
+\| 0.5\| 2\|
+\|0.75\| 3\|
 +----+--+
 {code}
 
@@ -179,11 +179,11 @@ val df = sqlContext.createDataFrame(Record(0.25) :: Record(0.5) :: Record(0.75))
 df.select($"x", rowNumber().over(Window.orderBy($"x")).alias("rn")).show
 
 +----+--+
-|   x|rn|
+\|   x\|rn\|
 +----+--+
-|0.25| 1|
-| 0.5| 2|
-|0.75| 3|
+\|0.25\| 1\|
+\| 0.5\| 2\|
+\|0.75\| 3\|
 +----+--+
 {code}
 
@@ -319,7 +319,7 @@ PS: we should download SBT over HTTPS too, not HTTP
 
 * [SPARK-9608](https://issues.apache.org/jira/browse/SPARK-9608) | *Minor* | **Incorrect zinc -status check in build/mvn**
 
-{{build/mvn}} [uses a {{-z `zinc -status`}} test|https://github.com/apache/spark/blob/5a23213c148bfe362514f9c71f5273ebda0a848a/build/mvn#L138] to determine whether a {{zinc}} process is running.
+{{build/mvn}} [uses a {{-z `zinc -status`}} test\|https://github.com/apache/spark/blob/5a23213c148bfe362514f9c71f5273ebda0a848a/build/mvn#L138] to determine whether a {{zinc}} process is running.
 
 However, {{zinc -status}} checks port {{3030}} by default.
 
@@ -334,9 +334,9 @@ The {{zinc -status}} call should get the flag {{-port "$ZINC\_PORT"}} added to i
 
 * [SPARK-9607](https://issues.apache.org/jira/browse/SPARK-9607) | *Minor* | **Incorrect zinc check in build/mvn**
 
-[This check|https://github.com/apache/spark/blob/5a23213c148bfe362514f9c71f5273ebda0a848a/build/mvn#L84-L85] in {{build/mvn}} attempts to determine whether {{zinc}} has been installed, but it fails to add the prefix {{build/}} to the path, so it always thinks that {{zinc}} is not installed, sets {{ZINC\_INSTALL\_FLAG}} to {{1}}, and attempts to install {{zinc}}.
+[This check\|https://github.com/apache/spark/blob/5a23213c148bfe362514f9c71f5273ebda0a848a/build/mvn#L84-L85] in {{build/mvn}} attempts to determine whether {{zinc}} has been installed, but it fails to add the prefix {{build/}} to the path, so it always thinks that {{zinc}} is not installed, sets {{ZINC\_INSTALL\_FLAG}} to {{1}}, and attempts to install {{zinc}}.
 
-This error manifests later because [the {{zinc -shutdown}} and {{zinc -start}} commands|https://github.com/apache/spark/blob/5a23213c148bfe362514f9c71f5273ebda0a848a/build/mvn#L140-L143] are always run, even if zinc was not installed and is running.
+This error manifests later because [the {{zinc -shutdown}} and {{zinc -start}} commands\|https://github.com/apache/spark/blob/5a23213c148bfe362514f9c71f5273ebda0a848a/build/mvn#L140-L143] are always run, even if zinc was not installed and is running.
 
 
 ---
@@ -393,7 +393,7 @@ The code shouldn't try to fetch HBase delegation tokens when HBase is not config
 
 In thread 'stopped SparkContext remaining active' on mailing list, Andres observed the following in driver log:
 {code}
-15/07/29 15:17:09 WARN YarnSchedulerBackend$YarnSchedulerEndpoint: ApplicationMaster has disassociated: <address removed>
+15/07/29 15:17:09 WARN YarnSchedulerBackend$YarnSchedulerEndpoint: ApplicationMaster has disassociated: \<address removed\>
 15/07/29 15:17:09 INFO YarnClientSchedulerBackend: Shutting down all executors
 Exception in thread "Yarn application state monitor" org.apache.spark.SparkException: Error asking standalone scheduler to shut down executors
         at org.apache.spark.scheduler.cluster.CoarseGrainedSchedulerBackend.stopExecutors(CoarseGrainedSchedulerBackend.scala:261)
@@ -471,7 +471,7 @@ Details can be found from https://en.wikipedia.org/wiki/UTF-8 in "Description" s
 
 * [SPARK-9236](https://issues.apache.org/jira/browse/SPARK-9236) | *Major* | **Left Outer Join with empty JavaPairRDD returns empty RDD**
 
-When the *left outer join* is performed on a non-empty {{JavaPairRDD}} with a {{JavaPairRDD}} which was created with the {{emptyRDD()}} method the resulting RDD is empty. In the following unit test the latest assert fails.
+When the \*left outer join\* is performed on a non-empty {{JavaPairRDD}} with a {{JavaPairRDD}} which was created with the {{emptyRDD()}} method the resulting RDD is empty. In the following unit test the latest assert fails.
 
 {code}
 import static org.assertj.core.api.Assertions.assertThat;
@@ -497,9 +497,9 @@ public class SparkTest {
       val twoRdd = sparkContext.parallelize(Collections.singletonList("two"));
       val threeRdd = sparkContext.emptyRDD();
 
-      val onePair = oneRdd.mapToPair(t -> new Tuple2<Integer, String>(1, t));
-      val twoPair = twoRdd.groupBy(t -> 1);
-      val threePair = threeRdd.groupBy(t -> 1);
+      val onePair = oneRdd.mapToPair(t -\> new Tuple2\<Integer, String\>(1, t));
+      val twoPair = twoRdd.groupBy(t -\> 1);
+      val threePair = threeRdd.groupBy(t -\> 1);
 
       assertThat(onePair.leftOuterJoin(twoPair).collect()).isNotEmpty();
       assertThat(onePair.leftOuterJoin(threePair).collect()).isNotEmpty();
@@ -534,7 +534,7 @@ The root cause is that killExecutors doesn't remove those executors under killin
 
 * [SPARK-9175](https://issues.apache.org/jira/browse/SPARK-9175) | *Critical* | **BLAS.gemm fails to update matrix C when alpha==0 and beta!=1**
 
-In the BLAS wrapper, gemm is supposed to update matrix C to be alpha * A * B + beta * C. However, the current implementation will not update C as long as alpha == 0. This is incorrect when beta is not equal to 1. 
+In the BLAS wrapper, gemm is supposed to update matrix C to be alpha \* A \* B + beta \* C. However, the current implementation will not update C as long as alpha == 0. This is incorrect when beta is not equal to 1. 
 
 Example:
 val p = 3 
@@ -568,7 +568,7 @@ import org.slf4j.LoggerFactory
 import org.apache.spark.graphx.util.GraphGenerators
 
 val graph: Graph[Long, Long] =
-  GraphGenerators.logNormalGraph(sc, numVertices = 100).mapVertices( (id, \_) => id.toLong ).mapEdges( e => e.attr.toLong)
+  GraphGenerators.logNormalGraph(sc, numVertices = 100).mapVertices( (id, \_) =\> id.toLong ).mapEdges( e =\> e.attr.toLong)
   
 graph.cache().numEdges
 graph.unpersist()
@@ -592,7 +592,7 @@ In 1.4.0 it fails with the following stacktrace:
 
 {code}
 Traceback (most recent call last):
-  File "<input>", line 1, in <module>
+  File "\<input\>", line 1, in \<module\>
   File "/opt/boxen/homebrew/opt/apache-spark/libexec/python/pyspark/sql/dataframe.py", line 316, in collect
     cls = \_create\_cls(self.schema)
   File "/opt/boxen/homebrew/opt/apache-spark/libexec/python/pyspark/sql/dataframe.py", line 229, in schema
@@ -640,8 +640,8 @@ Instead, RDD.aggregate() should do a reduction on the results of each mapPartiti
 
 If running the following codes, the task table will be broken because accumulators aren't escaped.
 {code}
-val a = sc.accumulator(1, "<table>")
-sc.parallelize(1 to 10).foreach(i => a += i)
+val a = sc.accumulator(1, "\<table\>")
+sc.parallelize(1 to 10).foreach(i =\> a += i)
 {code}
 
 
@@ -708,16 +708,16 @@ In yarn-client mode and config option "spark.dynamicAllocation.enabled " is true
 `spark.unsafe.exceptionOnMemoryLeak` is present in the config of surefire.
 
 {code}
-        <!-- Surefire runs all Java tests -->
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-surefire-plugin</artifactId>
-          <version>2.18.1</version>
-          <!-- Note config is repeated in scalatest config -->
+        \<!-- Surefire runs all Java tests --\>
+        \<plugin\>
+          \<groupId\>org.apache.maven.plugins\</groupId\>
+          \<artifactId\>maven-surefire-plugin\</artifactId\>
+          \<version\>2.18.1\</version\>
+          \<!-- Note config is repeated in scalatest config --\>
 ...
            
-<spark.unsafe.exceptionOnMemoryLeak>true</spark.unsafe.exceptionOnMemoryLeak>
-            </systemProperties>
+\<spark.unsafe.exceptionOnMemoryLeak\>true\</spark.unsafe.exceptionOnMemoryLeak\>
+            \</systemProperties\>
 ...
 {code}
 
@@ -728,7 +728,7 @@ In yarn-client mode and config option "spark.dynamicAllocation.enabled " is true
 
 * [SPARK-8927](https://issues.apache.org/jira/browse/SPARK-8927) | *Trivial* | **Doc format wrong for some config descriptions**
 
-In the docs, a couple descriptions of configuration (under Network) are not inside <td></td> and are being displayed immediately under the section title instead of in their row.
+In the docs, a couple descriptions of configuration (under Network) are not inside \<td\>\</td\> and are being displayed immediately under the section title instead of in their row.
 
 
 ---
@@ -753,7 +753,7 @@ https://amplab.cs.berkeley.edu/jenkins/job/SparkPullRequestBuilder/36826/console
 Current scheduling algorithm (in Master.scala) has two issues:
 
 1. cores are allocated one at a time instead of spark.executor.cores at a time
-2. when spark.cores.max/spark.executor.cores < num\_workers, executors are not launched and the app hangs (due to 1)
+2. when spark.cores.max/spark.executor.cores \< num\_workers, executors are not launched and the app hangs (due to 1)
 
 === Edit by Andrew ===
 
@@ -802,7 +802,7 @@ It should be smart enough to atleast show the second successful attempt.
 
 * [SPARK-8405](https://issues.apache.org/jira/browse/SPARK-8405) | *Major* | **Show executor logs on Web UI when Yarn log aggregation is enabled**
 
-When running Spark application in Yarn mode and Yarn log aggregation is enabled, customer is not able to view executor logs on the history server Web UI. The only way for customer to view the logs is through the Yarn command "yarn logs -applicationId <appId>".
+When running Spark application in Yarn mode and Yarn log aggregation is enabled, customer is not able to view executor logs on the history server Web UI. The only way for customer to view the logs is through the Yarn command "yarn logs -applicationId \<appId\>".
 
 An screenshot of the error is attached. When you click an executor’s log link on the Spark history server, you’ll see the error if Yarn log aggregation is enabled. The log URL redirects user to the node manager’s UI. This works if the logs are located on that node. But since log aggregation is enabled, the local logs are deleted once log aggregation is completed. 
 
@@ -833,8 +833,8 @@ Look at: last 2 digits.
 Copied from [SPARK-7443]:
 {quote}
 Now that we have algorithms in spark.ml which are not in spark.mllib, we should start making subsections for the spark.ml API as needed. We can follow the structure of the spark.mllib user guide.
-* The spark.ml user guide can provide: (a) code examples and (b) info on algorithms which do not exist in spark.mllib.
-* We should not duplicate info in the spark.ml guides. Since spark.mllib is still the primary API, we should provide links to the corresponding algorithms in the spark.mllib user guide for more info.
+\* The spark.ml user guide can provide: (a) code examples and (b) info on algorithms which do not exist in spark.mllib.
+\* We should not duplicate info in the spark.ml guides. Since spark.mllib is still the primary API, we should provide links to the corresponding algorithms in the spark.mllib user guide for more info.
 {quote}
 
 
@@ -858,7 +858,7 @@ https://amplab.cs.berkeley.edu/jenkins/job/Spark-Master-SBT/AMPLAB\_JENKINS\_BUI
 
 Optimize following sql
 
-select key from (select * from testData order by key) t limit 5
+select key from (select \* from testData order by key) t limit 5
 
 from 
 
@@ -867,7 +867,7 @@ from
  'Project ['key]
   'Subquery t
    'Sort ['key ASC], true
-    'Project [*]
+    'Project [\*]
      'UnresolvedRelation [testData], None
 
 == Analyzed Logical Plan ==
@@ -898,7 +898,7 @@ to
  'Project ['key]
   'Subquery t
    'Sort ['key ASC], true
-    'Project [*]
+    'Project [\*]
      'UnresolvedRelation [testData], None
 
 == Analyzed Logical Plan ==
@@ -955,7 +955,7 @@ cc [~yhuai]
 
 * [SPARK-3190](https://issues.apache.org/jira/browse/SPARK-3190) | *Critical* | **Creation of large graph(\> 2.15 B nodes) seems to be broken:possible overflow somewhere**
 
-While creating a graph with 6B nodes and 12B edges, I noticed that 'numVertices' api returns incorrect result; 'numEdges' reports correct number. For few times(with different dataset > 2.5B nodes) I have also notices that numVertices is returned as -ive number; so I suspect that there is some overflow (may be we are using Int for some field?).
+While creating a graph with 6B nodes and 12B edges, I noticed that 'numVertices' api returns incorrect result; 'numEdges' reports correct number. For few times(with different dataset \> 2.5B nodes) I have also notices that numVertices is returned as -ive number; so I suspect that there is some overflow (may be we are using Int for some field?).
 
 Here is some details of experiments  I have done so far: 
 1. Input: numNodes=6101995593 ; noEdges=12163784626

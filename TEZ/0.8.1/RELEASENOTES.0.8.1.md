@@ -23,6 +23,14 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [TEZ-2761](https://issues.apache.org/jira/browse/TEZ-2761) | *Major* | **Tez UI: update the progress on the dag and vertices pages with info from AM**
+
+The data displayed on the UI for running tasks should be updated with the latest status fetched from AM.
+This includes the status, progress, task count etc. The api should also allow querying the values for the tasks (running, failed, succeeded...).
+
+
+---
+
 * [TEZ-2755](https://issues.apache.org/jira/browse/TEZ-2755) | *Major* | **Fix findbugs warning in TezClient**
 
 {code}
@@ -85,6 +93,20 @@ It will hang after a while. You will have to have gradle 2.x installed on your m
 * [TEZ-2747](https://issues.apache.org/jira/browse/TEZ-2747) | *Major* | **Update master to reflect 0.8.0-alpha release**
 
 Update CHANGES.txt, version in pom.xml
+
+
+---
+
+* [TEZ-2745](https://issues.apache.org/jira/browse/TEZ-2745) | *Major* | **ClassNotFoundException of user code should fail dag**
+
+This ClassNotFoundException is not captured now. The current behavior is AM crashed and relaunched again until max app attempt is reached. 
+
+Here's user code used in AM:
+\* EdgeManager
+\* VertexManager
+\* InputInitializer
+\* OutputCommitter
+\* Other user pluggable components (like DAGScheduler, HistoryServiceLogging etc.)
 
 
 ---

@@ -32,7 +32,7 @@ Adding support for Kerberos HTTP SPNEGO authentication to the Hadoop web-console
 
 * [HADOOP-6995](https://issues.apache.org/jira/browse/HADOOP-6995) | *Minor* | **Allow wildcards to be used in ProxyUsers configurations**
 
-When configuring proxy users and hosts, the special wildcard value "*" may be specified to match any host or any user.
+When configuring proxy users and hosts, the special wildcard value "\*" may be specified to match any host or any user.
 
 
 ---

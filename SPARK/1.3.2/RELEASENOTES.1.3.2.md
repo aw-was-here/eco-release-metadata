@@ -55,7 +55,7 @@ Before Spark 1.5, if an aggregate function use an grouping expression as input a
 To reproduce the problem, you can use
 {code}
 import org.apache.spark.sql.functions.\_
-sc.parallelize((1 to 1000), 50).map(i => Tuple1(i)).toDF("i").registerTempTable("t")
+sc.parallelize((1 to 1000), 50).map(i =\> Tuple1(i)).toDF("i").registerTempTable("t")
 sqlContext.sql(""" 
 select i % 10, sum(if(i % 10 = 5, 1, 0)), count(i)
 from t
@@ -122,7 +122,7 @@ PS: we should download SBT over HTTPS too, not HTTP
 
 * [SPARK-9608](https://issues.apache.org/jira/browse/SPARK-9608) | *Minor* | **Incorrect zinc -status check in build/mvn**
 
-{{build/mvn}} [uses a {{-z `zinc -status`}} test|https://github.com/apache/spark/blob/5a23213c148bfe362514f9c71f5273ebda0a848a/build/mvn#L138] to determine whether a {{zinc}} process is running.
+{{build/mvn}} [uses a {{-z `zinc -status`}} test\|https://github.com/apache/spark/blob/5a23213c148bfe362514f9c71f5273ebda0a848a/build/mvn#L138] to determine whether a {{zinc}} process is running.
 
 However, {{zinc -status}} checks port {{3030}} by default.
 
@@ -137,9 +137,9 @@ The {{zinc -status}} call should get the flag {{-port "$ZINC\_PORT"}} added to i
 
 * [SPARK-9607](https://issues.apache.org/jira/browse/SPARK-9607) | *Minor* | **Incorrect zinc check in build/mvn**
 
-[This check|https://github.com/apache/spark/blob/5a23213c148bfe362514f9c71f5273ebda0a848a/build/mvn#L84-L85] in {{build/mvn}} attempts to determine whether {{zinc}} has been installed, but it fails to add the prefix {{build/}} to the path, so it always thinks that {{zinc}} is not installed, sets {{ZINC\_INSTALL\_FLAG}} to {{1}}, and attempts to install {{zinc}}.
+[This check\|https://github.com/apache/spark/blob/5a23213c148bfe362514f9c71f5273ebda0a848a/build/mvn#L84-L85] in {{build/mvn}} attempts to determine whether {{zinc}} has been installed, but it fails to add the prefix {{build/}} to the path, so it always thinks that {{zinc}} is not installed, sets {{ZINC\_INSTALL\_FLAG}} to {{1}}, and attempts to install {{zinc}}.
 
-This error manifests later because [the {{zinc -shutdown}} and {{zinc -start}} commands|https://github.com/apache/spark/blob/5a23213c148bfe362514f9c71f5273ebda0a848a/build/mvn#L140-L143] are always run, even if zinc was not installed and is running.
+This error manifests later because [the {{zinc -shutdown}} and {{zinc -start}} commands\|https://github.com/apache/spark/blob/5a23213c148bfe362514f9c71f5273ebda0a848a/build/mvn#L140-L143] are always run, even if zinc was not installed and is running.
 
 
 ---
@@ -160,7 +160,7 @@ The {{curl}} call in the script should use {{--location}} to support HTTP/HTTPS 
 
 * [SPARK-9236](https://issues.apache.org/jira/browse/SPARK-9236) | *Major* | **Left Outer Join with empty JavaPairRDD returns empty RDD**
 
-When the *left outer join* is performed on a non-empty {{JavaPairRDD}} with a {{JavaPairRDD}} which was created with the {{emptyRDD()}} method the resulting RDD is empty. In the following unit test the latest assert fails.
+When the \*left outer join\* is performed on a non-empty {{JavaPairRDD}} with a {{JavaPairRDD}} which was created with the {{emptyRDD()}} method the resulting RDD is empty. In the following unit test the latest assert fails.
 
 {code}
 import static org.assertj.core.api.Assertions.assertThat;
@@ -186,9 +186,9 @@ public class SparkTest {
       val twoRdd = sparkContext.parallelize(Collections.singletonList("two"));
       val threeRdd = sparkContext.emptyRDD();
 
-      val onePair = oneRdd.mapToPair(t -> new Tuple2<Integer, String>(1, t));
-      val twoPair = twoRdd.groupBy(t -> 1);
-      val threePair = threeRdd.groupBy(t -> 1);
+      val onePair = oneRdd.mapToPair(t -\> new Tuple2\<Integer, String\>(1, t));
+      val twoPair = twoRdd.groupBy(t -\> 1);
+      val threePair = threeRdd.groupBy(t -\> 1);
 
       assertThat(onePair.leftOuterJoin(twoPair).collect()).isNotEmpty();
       assertThat(onePair.leftOuterJoin(threePair).collect()).isNotEmpty();
@@ -214,7 +214,7 @@ The index 4 goes out of bounds (but this is not checked).
 
 * [SPARK-9175](https://issues.apache.org/jira/browse/SPARK-9175) | *Critical* | **BLAS.gemm fails to update matrix C when alpha==0 and beta!=1**
 
-In the BLAS wrapper, gemm is supposed to update matrix C to be alpha * A * B + beta * C. However, the current implementation will not update C as long as alpha == 0. This is incorrect when beta is not equal to 1. 
+In the BLAS wrapper, gemm is supposed to update matrix C to be alpha \* A \* B + beta \* C. However, the current implementation will not update C as long as alpha == 0. This is incorrect when beta is not equal to 1. 
 
 Example:
 val p = 3 
@@ -271,11 +271,11 @@ In https://repository.apache.org/content/repositories/snapshots/org/apache/spark
 
 {noformat}
 ...
-<dependency>
-<groupId>org.apache.spark</groupId>
-<artifactId>spark-launcher\_${scala.binary.version}</artifactId>
-<version>${project.version}</version>
-</dependency>
+\<dependency\>
+\<groupId\>org.apache.spark\</groupId\>
+\<artifactId\>spark-launcher\_${scala.binary.version}\</artifactId\>
+\<version\>${project.version}\</version\>
+\</dependency\>
 ...
 {noformat}
 
@@ -283,11 +283,11 @@ while it should be
 
 {noformat}
 ...
-<dependency>
-<groupId>org.apache.spark</groupId>
-<artifactId>spark-launcher\_2.11</artifactId>
-<version>${project.version}</version>
-</dependency>
+\<dependency\>
+\<groupId\>org.apache.spark\</groupId\>
+\<artifactId\>spark-launcher\_2.11\</artifactId\>
+\<version\>${project.version}\</version\>
+\</dependency\>
 ...
 {noformat}
 
@@ -315,15 +315,15 @@ We should fix this by adding more try blocks around these calls in DAGScheduler.
 
 * [SPARK-8563](https://issues.apache.org/jira/browse/SPARK-8563) | *Major* | **Bug that IndexedRowMatrix.computeSVD() yields the U with wrong numCols**
 
-IndexedRowMatrix.computeSVD() yields a wrong U which *U.numCols() = self.nCols*.
+IndexedRowMatrix.computeSVD() yields a wrong U which \*U.numCols() = self.nCols\*.
 
-It should have been *U.numCols() = k = svd.U.numCols()*
+It should have been \*U.numCols() = k = svd.U.numCols()\*
 
 {code}
-self = U * sigma * V.transpose
-(m x n) = (m x n) * (k x k) * (k x n)
--->
-(m x n) = (m x k) * (k x k) * (k x n)
+self = U \* sigma \* V.transpose
+(m x n) = (m x n) \* (k x k) \* (k x n)
+--\>
+(m x n) = (m x k) \* (k x k) \* (k x n)
 {code}
 
 
@@ -346,28 +346,28 @@ Trying to create a Spark DataFrame from a pandas dataframe with no explicit colu
 pandasDF = pd.DataFrame([[1, 2], [5, 6]])
 sparkDF = sqlContext.createDataFrame(pandasDF)
 
-***********
+\*\*\*\*\*\*\*\*\*\*\*
 
-----> 1 sparkDF = sqlContext.createDataFrame(pandasDF)
+----\> 1 sparkDF = sqlContext.createDataFrame(pandasDF)
 
 /usr/local/Cellar/apache-spark/1.4.0/libexec/python/pyspark/sql/context.pyc in createDataFrame(self, data, schema, samplingRatio)
     344 
     345         jrdd = self.\_jvm.SerDeUtil.toJavaArray(rdd.\_to\_java\_object\_rdd())
---> 346         df = self.\_ssql\_ctx.applySchemaToPythonRDD(jrdd.rdd(), schema.json())
+--\> 346         df = self.\_ssql\_ctx.applySchemaToPythonRDD(jrdd.rdd(), schema.json())
     347         return DataFrame(df, self)
     348 
 
-/usr/local/Cellar/apache-spark/1.4.0/libexec/python/lib/py4j-0.8.2.1-src.zip/py4j/java\_gateway.py in \_\_call\_\_(self, *args)
+/usr/local/Cellar/apache-spark/1.4.0/libexec/python/lib/py4j-0.8.2.1-src.zip/py4j/java\_gateway.py in \_\_call\_\_(self, \*args)
     536         answer = self.gateway\_client.send\_command(command)
     537         return\_value = get\_return\_value(answer, self.gateway\_client,
---> 538                 self.target\_id, self.name)
+--\> 538                 self.target\_id, self.name)
     539 
     540         for temp\_arg in temp\_args:
 
 /usr/local/Cellar/apache-spark/1.4.0/libexec/python/lib/py4j-0.8.2.1-src.zip/py4j/protocol.py in get\_return\_value(answer, gateway\_client, target\_id, name)
     298                 raise Py4JJavaError(
     299                     'An error occurred while calling {0}{1}{2}.\n'.
---> 300                     format(target\_id, '.', name), value)
+--\> 300                     format(target\_id, '.', name), value)
     301             else:
     302                 raise Py4JError(
 
@@ -422,7 +422,7 @@ The problem might be demonstrated with the following testcase:
   test("support for more than 12M items") {
     val cnt = 12000000 // 12M
     val map = new OpenHashMap[Int, Int](cnt)
-    for (i <- 0 until cnt) {
+    for (i \<- 0 until cnt) {
       map(i) = 1
     }
     val numInvalidValues = map.iterator.count(\_.\_2 == 0)
@@ -436,7 +436,7 @@ The problem might be demonstrated with the following testcase:
 
 * [SPARK-8126](https://issues.apache.org/jira/browse/SPARK-8126) | *Minor* | **Use temp directory under build dir for unit tests**
 
-Spark's unit tests leave a lot of garbage in /tmp after a run, making it hard to clean things up. Let's place those files under the build dir so that "mvn|sbt|git clean" can do their job.
+Spark's unit tests leave a lot of garbage in /tmp after a run, making it hard to clean things up. Let's place those files under the build dir so that "mvn\|sbt\|git clean" can do their job.
 
 
 ---
@@ -450,7 +450,7 @@ The log page should only show desired length of bytes. Currently it shows bytes 
 
 * [SPARK-8032](https://issues.apache.org/jira/browse/SPARK-8032) | *Major* | **Make NumPy version checking in mllib/\_\_init\_\_.py**
 
-The current checking does version `1.x' is less than `1.4' this will fail if x has greater than 1 digit, since x > 4, however `1.x` < `1.4`
+The current checking does version `1.x' is less than `1.4' this will fail if x has greater than 1 digit, since x \> 4, however `1.x` \< `1.4`
 
 
 ---
@@ -513,7 +513,7 @@ I am running a simple spark streaming program with spark 1.3.1 in local mode, it
  def reviveOffers() {
     val offers = Seq(new WorkerOffer(localExecutorId, localExecutorHostname, freeCores))
     val tasks = scheduler.resourceOffers(offers).flatten
-    for (task <- tasks) {
+    for (task \<- tasks) {
       freeCores -= scheduler.CPUS\_PER\_TASK
       executor.launchTask(executorBackend, taskId = task.taskId, attemptNumber = task.attemptNumber,
         task.name, task.serializedTask)
@@ -540,17 +540,17 @@ val input = ssc.socketTextStream(
       /// parse the json to Order
       Order(\_), preservePartitioning = true)
 val mresult = input.map(
-      v => (v.customer, UserSpending(v.customer, v.count * v.price, v.timestamp.toLong))).cache()
+      v =\> (v.customer, UserSpending(v.customer, v.count \* v.price, v.timestamp.toLong))).cache()
 val tempr  = mresult.window(
             Seconds(firstStageWindowSize), 
             Seconds(firstStageWindowSize)
           ).transform(
-            rdd => rdd.union(rdd).union(rdd).union(rdd)
+            rdd =\> rdd.union(rdd).union(rdd).union(rdd)
           )
 tempr.count.print
-tempr.cache().foreachRDD((rdd, t) => {
-            for (i <- 1 to 5) {
-              val c = rdd.filter(x=>scala.util.Random.nextInt(5) == i).count()
+tempr.cache().foreachRDD((rdd, t) =\> {
+            for (i \<- 1 to 5) {
+              val c = rdd.filter(x=\>scala.util.Random.nextInt(5) == i).count()
               println("""T: """ + t + """: """ + c)
             }
           })
@@ -558,7 +558,7 @@ tempr.cache().foreachRDD((rdd, t) => {
 
 ========================================================
 Updated at 2015-05-15
-I did print some detail schedule times of the suspect lines in {{LocalActor::reviveOffers}}: {color:red}*1685343501*{color} times after 18 hours running.
+I did print some detail schedule times of the suspect lines in {{LocalActor::reviveOffers}}: {color:red}\*1685343501\*{color} times after 18 hours running.
 
 
 ---
@@ -568,7 +568,7 @@ I did print some detail schedule times of the suspect lines in {{LocalActor::rev
 Currently, when a MessageHandler (for any of the Kafka Receiver implementations) encounters an error handling a message, the error is only logged with:
 
 {code:none}
-case e: Exception => logError("Error handling message", e)
+case e: Exception =\> logError("Error handling message", e)
 {code}
 
 It would be \_incredibly\_ useful to be able to notify any registered StreamingListener of this receiver error (especially since this {{try...catch}} block masks more fatal Kafka connection exceptions).
@@ -603,7 +603,7 @@ I think one way to do this might be to create a custom test fixture that logs th
 
 * [SPARK-7522](https://issues.apache.org/jira/browse/SPARK-7522) | *Minor* | **ML Examples option for dataFormat should not be enclosed in angle brackets**
 
-Some ML examples include an option for specifying the data format, such as DecisionTreeExample, but the option is enclosed in angle brackets like "opt[String]("<dataFormat>")."  This is probably just a typo but makes it awkward to use the option.
+Some ML examples include an option for specifying the data format, such as DecisionTreeExample, but the option is enclosed in angle brackets like "opt[String]("\<dataFormat\>")."  This is probably just a typo but makes it awkward to use the option.
 
 
 ---
@@ -613,7 +613,7 @@ Some ML examples include an option for specifying the data format, such as Decis
 At least, this code fragment is buggy ({{Master.scala}}):
 
 {code}
-      case "CUSTOM" =>
+      case "CUSTOM" =\>
         val clazz = Class.forName(conf.get("spark.deploy.recoveryMode.factory"))
         val factory = clazz.getConstructor(conf.getClass, Serialization.getClass)
           .newInstance(conf, SerializationExtension(context.system))
@@ -656,7 +656,7 @@ https://amplab.cs.berkeley.edu/jenkins/job/Spark-Master-Maven-pre-YARN/hadoop.ve
 
 * [SPARK-7345](https://issues.apache.org/jira/browse/SPARK-7345) | *Major* | **Spark cannot detect renamed columns using JDBC connector**
 
-sqlContext.load("jdbc", Map("url" -> "some url", "dbtable" -> "(select column as column1, column as column2 from table)")) creates DataFrame with wrong schema which fails on action.
+sqlContext.load("jdbc", Map("url" -\> "some url", "dbtable" -\> "(select column as column1, column as column2 from table)")) creates DataFrame with wrong schema which fails on action.
  
 Most likely JDBC SQL connector uses getColumnName instead of getColumnLabel to deduce DataFrame schema from ResultSetMetaData.
 
@@ -692,18 +692,18 @@ row = df.first()
 Accessing the {{date}} column via {{\\_\\_getitem\\_\\_}} returns a {{datetime.datetime}} instance
 
 {code:none}
->>>row[1]
+\>\>\>row[1]
 datetime.datetime(2014, 11, 11, 0, 0)
 {code}
 
 while access via {{getattr}} returns a {{datetime.date}} instance:
 
 {code:none}
->>>row.date
+\>\>\>row.date
 datetime.date(2014, 11, 11)
 {code}
 
-The problem seems to be that that Java deserializes the {{datetime.date}} objects to {{datetime.datetime}}. This is taken care of [here|https://github.com/apache/spark/blob/master/python/pyspark/sql/\_types.py#L1027] when using {{getattr}}, but is overlooked when directly accessing the tuple by index.
+The problem seems to be that that Java deserializes the {{datetime.date}} objects to {{datetime.datetime}}. This is taken care of [here\|https://github.com/apache/spark/blob/master/python/pyspark/sql/\_types.py#L1027] when using {{getattr}}, but is overlooked when directly accessing the tuple by index.
 
 Is there an easy way to fix this?
 
@@ -715,7 +715,7 @@ Is there an easy way to fix this?
 When codegen on, the defaultPrimitive of DateType is null. This will rise below error.
 
 select COUNT(a) from table
-a -> DateType
+a -\> DateType
 
 type mismatch;
  found   : Null(null)
@@ -730,7 +730,7 @@ type mismatch;
   test("test DATE types in cache") {
     val rows = TestSQLContext.jdbc(urlWithUserAndPass, "TEST.TIMETYPES").collect()
     TestSQLContext.jdbc(urlWithUserAndPass, "TEST.TIMETYPES").cache().registerTempTable("mycached\_date")
-    val cachedRows = sql("select * from mycached\_date").collect()
+    val cachedRows = sql("select \* from mycached\_date").collect()
     assert(rows(0).getAs[java.sql.Date](1) === java.sql.Date.valueOf("1996-01-01"))
     assert(cachedRows(0).getAs[java.sql.Date](1) === java.sql.Date.valueOf("1996-01-01"))
   }
@@ -854,8 +854,8 @@ java.util.NoSuchElementException: None.get
 Here's a minimal example that reproduces it on the Spark shell:
 
 {noformat}
-val x = sc.parallelize(Seq(1->true,2->true,3->false)).partitionBy(new HashPartitioner(1))
-val y = sc.parallelize(Seq(1->true))
+val x = sc.parallelize(Seq(1-\>true,2-\>true,3-\>false)).partitionBy(new HashPartitioner(1))
+val y = sc.parallelize(Seq(1-\>true))
 sc.union(y, x).count() // crashes
 sc.union(x, y).count() // This works since the first RDD has a partitioner
 {noformat}
@@ -887,7 +887,7 @@ If there is column type NVARCHAR, below exception will be thrown:
 Caused by: java.sql.SQLException: Unsupported type -9
 	at org.apache.spark.sql.jdbc.JDBCRDD$.getCatalystType(JDBCRDD.scala:78)
 	at org.apache.spark.sql.jdbc.JDBCRDD$.resolveTable(JDBCRDD.scala:112)
-	at org.apache.spark.sql.jdbc.JDBCRelation.<init>(JDBCRelation.scala:133)
+	at org.apache.spark.sql.jdbc.JDBCRelation.\<init\>(JDBCRelation.scala:133)
 	at org.apache.spark.sql.SQLContext.jdbc(SQLContext.scala:900)
 	at org.apache.spark.sql.SQLContext.jdbc(SQLContext.scala:852)
 {code}
@@ -953,7 +953,7 @@ java.lang.StackOverflowError
 
 * [SPARK-6975](https://issues.apache.org/jira/browse/SPARK-6975) | *Minor* | **Argument checking conflict in Yarn when dynamic allocation is enabled**
 
-When dynamic allocation is enabled in yarn with default parameter, {{numExecutors}} will be set to 0, but this will be failed in the following {{valideArgs()}}, here {{numExecutors}} must > 0, but for dynamic allocation, this executor number can be 0 (with default setting). The exception is shown as below:
+When dynamic allocation is enabled in yarn with default parameter, {{numExecutors}} will be set to 0, but this will be failed in the following {{valideArgs()}}, here {{numExecutors}} must \> 0, but for dynamic allocation, this executor number can be 0 (with default setting). The exception is shown as below:
 
 Exception in thread "main" java.lang.IllegalArgumentException: You must specify at least 1 executor!
 
@@ -1023,7 +1023,7 @@ java.lang.IllegalArgumentException: Attempted to request a negative number of ex
 {code}
 My test is as follows-
 # Start spark-shell with a single executor.
-# Run a {{select count(\*)}} query. The number of executors rises as input size is non-trivial.
+# Run a {{select count(\\*)}} query. The number of executors rises as input size is non-trivial.
 # After the job finishes, the number of  executors falls as most of them become idle.
 # Rerun the same query again, and the request to add executors fails with the above error. In fact, the job itself continues to run with whatever executors it already has, but it never gets more executors unless the shell is closed and restarted. 
 
@@ -1043,7 +1043,7 @@ The root cause seems that {{numExecutorsPending}} accidentally becomes negative 
 
 {{sbin/spark-daemon.sh}} uses {{ps -p "$TARGET\_PID" -o args=}} to figure out whether the process running with the expected PID is actually a Spark daemon. When running with a large classpath, the output of {{ps}} gets truncated and the check fails spuriously.
 
-I think we should weaken the check to see if it's a java command (which is something we do in other parts of the script) rather than looking for the specific main class name. This means that SPARK-4832 might happen under a slightly broader range of circumstances (a *java* program happened to reuse the same PID), but it seems worthwhile compared to failing consistently with a large classpath.
+I think we should weaken the check to see if it's a java command (which is something we do in other parts of the script) rather than looking for the specific main class name. This means that SPARK-4832 might happen under a slightly broader range of circumstances (a \*java\* program happened to reuse the same PID), but it seems worthwhile compared to failing consistently with a large classpath.
 
 
 ---
@@ -1057,7 +1057,7 @@ We should upgrade our {{snappy-java}} dependency to 1.1.1.7 in order to include 
 
 * [SPARK-6886](https://issues.apache.org/jira/browse/SPARK-6886) | *Blocker* | **Big closure in PySpark will fail during shuffle**
 
-Reported by  beifei.zhou <beifei.zhou at ximalaya.com>: 
+Reported by  beifei.zhou \<beifei.zhou at ximalaya.com\>: 
 
 I am using spark to process bid datasets. However, there is always problem when executing reduceByKey on a large dataset, whereas with a smaller dataset.  May I asked you how could I solve this issue?
 
@@ -1070,7 +1070,7 @@ org.apache.spark.api.python.PythonException: Traceback (most recent call last):
   File "/Users/nali/Softwares/spark/python/pyspark/broadcast.py", line 106, in value
     self.\_value = self.load(self.\_path)
   File "/Users/nali/Softwares/spark/python/pyspark/broadcast.py", line 87, in load
-    with open(path, 'rb', 1 << 20) as f:
+    with open(path, 'rb', 1 \<\< 20) as f:
 IOError: [Errno 2] No such file or directory: '/private/var/folders/\_x/n59vb1b54pl96lvldz2lr\_v40000gn/T/spark-37d8ecbc-9ac9-4aa2-be23-12823f4cd1ed/pyspark-1e3d5904-a5b6-4222-a146-91bfdb4a33a7/tmp8XMhgG'
 {code}
 
@@ -1158,9 +1158,9 @@ We should be consistent across languages in the default names of things we add t
 
 Error in Spark SQL Documentation file . The sample script for SQL DSL   throwing below error
 
-scala> query.where('key > 30).select(avg('key)).collect()
-<console>:43: error: value > is not a member of Symbol
-              query.where('key > 30).select(avg('key)).collect()
+scala\> query.where('key \> 30).select(avg('key)).collect()
+\<console\>:43: error: value \> is not a member of Symbol
+              query.where('key \> 30).select(avg('key)).collect()
 
 
 ---
@@ -1198,11 +1198,11 @@ We added support for python running in yarn cluster mode in https://issues.apach
 
 * [SPARK-6343](https://issues.apache.org/jira/browse/SPARK-6343) | *Minor* | **Make doc more explicit regarding network connectivity requirements**
 
-As a new user of Spark, I read through the official documentation before attempting to stand-up my own cluster and write my own driver application. But only after attempting to run my app remotely against my cluster did I realize that full network connectivity (layer 3) is necessary between my driver program and worker nodes (i.e., my driver was *listening* for connections from my workers).
+As a new user of Spark, I read through the official documentation before attempting to stand-up my own cluster and write my own driver application. But only after attempting to run my app remotely against my cluster did I realize that full network connectivity (layer 3) is necessary between my driver program and worker nodes (i.e., my driver was \*listening\* for connections from my workers).
 
-I returned to the documentation to see how I had missed this requirement. On a second read-through, I saw that the doc hints at it in a few places (e.g., [driver config|http://spark.apache.org/docs/1.2.0/configuration.html#networking], [submitting applications suggestion|http://spark.apache.org/docs/1.2.0/submitting-applications.html], [cluster overview|http://spark.apache.org/docs/1.2.0/cluster-overview.html])  but never outright says it.
+I returned to the documentation to see how I had missed this requirement. On a second read-through, I saw that the doc hints at it in a few places (e.g., [driver config\|http://spark.apache.org/docs/1.2.0/configuration.html#networking], [submitting applications suggestion\|http://spark.apache.org/docs/1.2.0/submitting-applications.html], [cluster overview\|http://spark.apache.org/docs/1.2.0/cluster-overview.html])  but never outright says it.
 
-I think it would help would-be users better understand how Spark works to state the network connectivity requirements right up-front in the overview section of the doc. I suggest revising the diagram and accompanying text found on the [overview page|http://spark.apache.org/docs/1.2.0/cluster-overview.html]:
+I think it would help would-be users better understand how Spark works to state the network connectivity requirements right up-front in the overview section of the doc. I suggest revising the diagram and accompanying text found on the [overview page\|http://spark.apache.org/docs/1.2.0/cluster-overview.html]:
 
 !http://spark.apache.org/docs/1.2.0/img/cluster-overview.png!
 
@@ -1228,7 +1228,7 @@ will produce:
 
 {code}
 UISeleniumSuite:
-*** RUN ABORTED ***
+\*\*\* RUN ABORTED \*\*\*
   java.lang.NoClassDefFoundError: org/w3c/dom/ElementTraversal
   ...
 {code}
@@ -1322,15 +1322,15 @@ Not quite able to figure this out but here is a junit test to reproduce this, in
 {code:title=DecimalBug.java}
   @Test
   public void decimalQueryTest() {
-    List<Row> decimalTable = new ArrayList<Row>();
+    List\<Row\> decimalTable = new ArrayList\<Row\>();
     decimalTable.add(RowFactory.create(new BigDecimal("1"), new BigDecimal("2")));
     decimalTable.add(RowFactory.create(new BigDecimal("3"), new BigDecimal("4")));
-    JavaRDD<Row> rows = sc.parallelize(decimalTable);
-    List<StructField> fields = new ArrayList<StructField>(7);
+    JavaRDD\<Row\> rows = sc.parallelize(decimalTable);
+    List\<StructField\> fields = new ArrayList\<StructField\>(7);
     fields.add(DataTypes.createStructField("a", DataTypes.createDecimalType(), true));
     fields.add(DataTypes.createStructField("b", DataTypes.createDecimalType(), true));
     sqlContext.applySchema(rows.rdd(), DataTypes.createStructType(fields)).registerTempTable("foo");
-    Assert.assertEquals(sqlContext.sql("select * from foo where a > 0").collectAsList(), decimalTable);
+    Assert.assertEquals(sqlContext.sql("select \* from foo where a \> 0").collectAsList(), decimalTable);
 
   }
 {code}
@@ -1395,7 +1395,7 @@ fix the following non-deterministic test in org.apache.spark.scheduler.DAGSchedu
 
 {noformat}
 [info] DAGSchedulerSuite:
-[info] - [SPARK-3353] parent stage should have lower stage id *** FAILED *** (27 milliseconds)
+[info] - [SPARK-3353] parent stage should have lower stage id \*\*\* FAILED \*\*\* (27 milliseconds)
 [info]   1 did not equal 2 (DAGSchedulerSuite.scala:242)
 [info]   org.scalatest.exceptions.TestFailedException:
 [info]   at org.scalatest.Assertions$class.newAssertionFailedException(Assertions.scala:500)
@@ -1444,7 +1444,7 @@ as the first line of \_restore\_object made my query run 5x faster. Implying tha
 
 * [SPARK-3190](https://issues.apache.org/jira/browse/SPARK-3190) | *Critical* | **Creation of large graph(\> 2.15 B nodes) seems to be broken:possible overflow somewhere**
 
-While creating a graph with 6B nodes and 12B edges, I noticed that 'numVertices' api returns incorrect result; 'numEdges' reports correct number. For few times(with different dataset > 2.5B nodes) I have also notices that numVertices is returned as -ive number; so I suspect that there is some overflow (may be we are using Int for some field?).
+While creating a graph with 6B nodes and 12B edges, I noticed that 'numVertices' api returns incorrect result; 'numEdges' reports correct number. For few times(with different dataset \> 2.5B nodes) I have also notices that numVertices is returned as -ive number; so I suspect that there is some overflow (may be we are using Int for some field?).
 
 Here is some details of experiments  I have done so far: 
 1. Input: numNodes=6101995593 ; noEdges=12163784626
@@ -1623,7 +1623,7 @@ at java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:1854)
         at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
         at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
         at java.lang.Thread.run(Thread.java:781)
-14/06/04 02:31:26 ERROR executor.CoarseGrainedExecutorBackend: Driver Disassociated [akka.tcp://sparkExecutor@p7hvs7br16:39658] -> [akka.tcp://spark@9.186.105.141:60253] disassociated! Shutting down.
+14/06/04 02:31:26 ERROR executor.CoarseGrainedExecutorBackend: Driver Disassociated [akka.tcp://sparkExecutor@p7hvs7br16:39658] -\> [akka.tcp://spark@9.186.105.141:60253] disassociated! Shutting down.
 
 
 

@@ -18,7 +18,7 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.8.1 - Unreleased (as of 2015-09-03)
+## Release 0.8.1 - Unreleased (as of 2015-09-04)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -50,6 +50,7 @@
 | [TEZ-2757](https://issues.apache.org/jira/browse/TEZ-2757) | Fix download links for Tez releases |  Trivial | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-2755](https://issues.apache.org/jira/browse/TEZ-2755) | Fix findbugs warning in TezClient |  Major | . | Jonathan Eagles | Jonathan Eagles |
 | [TEZ-2750](https://issues.apache.org/jira/browse/TEZ-2750) | Shuffle may not shutdown in case of a fetch failure, causing it to hang |  Major | . | André Kelpe | Siddharth Seth |
+| [TEZ-2745](https://issues.apache.org/jira/browse/TEZ-2745) | ClassNotFoundException of user code should fail dag |  Major | . | Jeff Zhang | Jeff Zhang |
 | [TEZ-2742](https://issues.apache.org/jira/browse/TEZ-2742) | VertexImpl.finished() terminationCause hides member var of the same name |  Major | . | Bikas Saha | Bikas Saha |
 
 
@@ -63,6 +64,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-2761](https://issues.apache.org/jira/browse/TEZ-2761) | Tez UI: update the progress on the dag and vertices pages with info from AM |  Major | UI | Prakash Ramachandran | Prakash Ramachandran |
 | [TEZ-2739](https://issues.apache.org/jira/browse/TEZ-2739) | Improve handling of read errors in critical path analyzer |  Major | . | Bikas Saha | Bikas Saha |
 
 

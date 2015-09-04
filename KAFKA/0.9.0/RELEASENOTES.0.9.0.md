@@ -28,11 +28,11 @@ These release notes cover new developer and user-facing incompatibilities, featu
 Quick one,
 
 kafka/clients/src/main/java/org/apache/kafka/clients/producer/KafkaProducer.java:525: error: self-closing element not allowed
-     * <p/>
+     \* \<p/\>
 
 This is causing build to fail under java 8 due to strict html checking.
 
-Replace that <p/> with <p>
+Replace that \<p/\> with \<p\>
 
 Regards,
 
@@ -44,29 +44,29 @@ Regards,
 In the new clients package we introduces a new set of exceptions, but its hierarchy is not very clear as of today:
 
 {code}
-RuntimeException -> KafkaException -> BufferExhastedException
-                                                           -> ConfigException
-                                                           -> SerializationException
-                                                           -> QuotaViolationException
-                                                           -> SchemaException
+RuntimeException -\> KafkaException -\> BufferExhastedException
+                                                           -\> ConfigException
+                                                           -\> SerializationException
+                                                           -\> QuotaViolationException
+                                                           -\> SchemaException
 
-                                                           -> ApiException
+                                                           -\> ApiException
 
-ApiException -> InvalidTopicException
-                     -> OffsetMetadataTooLarge (probabaly need to be renamed)
-                     -> RecordBatchTooLargeException
-                     -> RecordTooLargeException
-                     -> UnknownServerException
+ApiException -\> InvalidTopicException
+                     -\> OffsetMetadataTooLarge (probabaly need to be renamed)
+                     -\> RecordBatchTooLargeException
+                     -\> RecordTooLargeException
+                     -\> UnknownServerException
 
-                     -> RetriableException
+                     -\> RetriableException
 
-RetriableException -> CorruptRecordException
-                               -> InvalidMetadataException
-                               -> NotEnoughtReplicasAfterAppendException
-                               -> NotEnoughReplicasException
-                               -> OffsetOutOfRangeException
-                               -> TimeoutException
-                               -> UnknownTopicOrPartitionException
+RetriableException -\> CorruptRecordException
+                               -\> InvalidMetadataException
+                               -\> NotEnoughtReplicasAfterAppendException
+                               -\> NotEnoughReplicasException
+                               -\> OffsetOutOfRangeException
+                               -\> TimeoutException
+                               -\> UnknownTopicOrPartitionException
 {code}
 
 KafkaProducer.send() may throw KafkaExceptions that are not ApiExceptions; other exceptions will be set in the returned future metadata.
@@ -134,8 +134,8 @@ One solution of it would be to let senders select all partitions that have non-e
 
 Saw the following transient unit test failure.
 
-kafka.server.LogOffsetTest > testGetOffsetsBeforeEarliestTime FAILED
-    junit.framework.AssertionFailedError: expected:<List(0)> but was:<Vector()>
+kafka.server.LogOffsetTest \> testGetOffsetsBeforeEarliestTime FAILED
+    junit.framework.AssertionFailedError: expected:\<List(0)\> but was:\<Vector()\>
         at junit.framework.Assert.fail(Assert.java:47)
         at junit.framework.Assert.failNotEquals(Assert.java:277)
         at junit.framework.Assert.assertEquals(Assert.java:64)
@@ -288,11 +288,11 @@ Relevant portions from the thread-dump:
 
 Need to create a new version of a few existing tools using the new producer. Those tools include: 
 
-* ConsoleProducer
-* KafkaLog4jAppender
-* TestEndToEndLatency
-* TestLogCleaning
-* ReplayLogProducer
+\* ConsoleProducer
+\* KafkaLog4jAppender
+\* TestEndToEndLatency
+\* TestLogCleaning
+\* ReplayLogProducer
 
 Not sure about ReplayLogProducer since it seems to be just a specialized version of MirrorMaker.
 
@@ -391,7 +391,7 @@ Management of the Scala version is handled through Ivy. The way I have laid out 
 
 The one downside to this approach is lack of an incremental build. `scalac` is deprecating its incremental build capabilities in coming versions. The suggested solution to this is to use an IDE that supports incremental builds.
 
-The main motivation for this approach, to me at least, is that a developer can look at build.xml and immediately understand what is going on (with the exception maybe of the <ivy: .../> actions which would not be changing). This is largely not true for SBT unless someone is already familiar with SBT.
+The main motivation for this approach, to me at least, is that a developer can look at build.xml and immediately understand what is going on (with the exception maybe of the \<ivy: .../\> actions which would not be changing). This is largely not true for SBT unless someone is already familiar with SBT.
 
 
 ---
@@ -425,7 +425,7 @@ We might have a problem in the way we process outgoing responses. Basically, if 
 
 * [KAFKA-496](https://issues.apache.org/jira/browse/KAFKA-496) | *Blocker* | **high level producer send should return a response**
 
-Currently, Producer.send() doesn't return any value. In 0.8, since each produce request will be acked, we should pass the response back. What we can do is that if the producer is in sync mode, we can return a map of (topic,partitionId) -> (errorcode, offset). If the producer is in async mode, we can just return a null.
+Currently, Producer.send() doesn't return any value. In 0.8, since each produce request will be acked, we should pass the response back. What we can do is that if the producer is in sync mode, we can return a map of (topic,partitionId) -\> (errorcode, offset). If the producer is in async mode, we can just return a null.
 
 
 ---

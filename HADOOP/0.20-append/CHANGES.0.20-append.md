@@ -16,9 +16,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-# Apache hadoop Changelog
+# Apache Hadoop Changelog
 
-## Release 0.20-append - Unreleased
+## Release 0.20-append - Unreleased (as of 2015-09-04)
 
 ### INCOMPATIBLE CHANGES:
 

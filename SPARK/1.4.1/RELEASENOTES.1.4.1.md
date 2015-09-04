@@ -27,7 +27,7 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 Suppose mytable has a field called greenwich, which is in  timestamp type.  The table is registered through a java bean. The following code used to work in 1.3 and 1.3.1, now it is broken: there are records having time newer 01/14/2015 , but it now returns nothing. This is a block issue for us. Is there any workaround? 
 
-SELECT *  FROM mytable  WHERE    greenwich >  '2015-01-14'
+SELECT \*  FROM mytable  WHERE    greenwich \>  '2015-01-14'
 
 
 ---
@@ -62,7 +62,7 @@ which leads to a NullPointerException when col1Item == null.'
 This caused a test failure in DataFrameStatSuite:
 
 {code}
-- special crosstab elements (., '', null, ``) *** FAILED ***
+- special crosstab elements (., '', null, ``) \*\*\* FAILED \*\*\*
   java.lang.NullPointerException:
   at org.apache.spark.sql.execution.stat.StatFunctions$$anonfun$4.apply(StatFunctions.scala:131)
   at org.apache.spark.sql.execution.stat.StatFunctions$$anonfun$4.apply(StatFunctions.scala:121)
@@ -99,9 +99,9 @@ I have a pull request for this: https://github.com/apache/spark/pull/7288
 
 The SparkR documentation example in http://people.apache.org/~pwendell/spark-releases/latest/sparkr.html is incorrect.
 
-    sc <- sparkR.init(packages="com.databricks:spark-csv\_2.11:1.0.3")
+    sc \<- sparkR.init(packages="com.databricks:spark-csv\_2.11:1.0.3")
 should be
-    sc <- sparkR.init(sparkPackages="com.databricks:spark-csv\_2.11:1.0.3")
+    sc \<- sparkR.init(sparkPackages="com.databricks:spark-csv\_2.11:1.0.3")
 
 
 ---
@@ -115,16 +115,16 @@ results = sqlContext.sql("FROM src SELECT key, value").collect()
 {code}
 should be
 {code}
-results <- collect(sql(sqlContext, "FROM src SELECT key, value"))
+results \<- collect(sql(sqlContext, "FROM src SELECT key, value"))
 {code}
 
 2. in https://spark.apache.org/docs/latest/sparkr.html#from-hive-tables, 
 {code}
-results <- hiveContext.sql("FROM src SELECT key, value")
+results \<- hiveContext.sql("FROM src SELECT key, value")
 {code}
 should be
 {code}
-results <- sql(hiveContext, "FROM src SELECT key, value")
+results \<- sql(hiveContext, "FROM src SELECT key, value")
 {code}
 
 
@@ -152,7 +152,7 @@ Otherwise the script will crash with
 
  - Downloading boto...
 Traceback (most recent call last):
-  File "ec2/spark\_ec2.py", line 148, in <module>
+  File "ec2/spark\_ec2.py", line 148, in \<module\>
     setup\_external\_libs(external\_libs)
   File "ec2/spark\_ec2.py", line 128, in setup\_external\_libs
     if hashlib.md5(tar.read()).hexdigest() != lib["md5"]:
@@ -218,11 +218,11 @@ In https://repository.apache.org/content/repositories/snapshots/org/apache/spark
 
 {noformat}
 ...
-<dependency>
-<groupId>org.apache.spark</groupId>
-<artifactId>spark-launcher\_${scala.binary.version}</artifactId>
-<version>${project.version}</version>
-</dependency>
+\<dependency\>
+\<groupId\>org.apache.spark\</groupId\>
+\<artifactId\>spark-launcher\_${scala.binary.version}\</artifactId\>
+\<version\>${project.version}\</version\>
+\</dependency\>
 ...
 {noformat}
 
@@ -230,11 +230,11 @@ while it should be
 
 {noformat}
 ...
-<dependency>
-<groupId>org.apache.spark</groupId>
-<artifactId>spark-launcher\_2.11</artifactId>
-<version>${project.version}</version>
-</dependency>
+\<dependency\>
+\<groupId\>org.apache.spark\</groupId\>
+\<artifactId\>spark-launcher\_2.11\</artifactId\>
+\<version\>${project.version}\</version\>
+\</dependency\>
 ...
 {noformat}
 
@@ -273,7 +273,7 @@ java.lang.NullPointerException
         at org.apache.spark.scheduler.TaskSchedulerImpl.stop(TaskSchedulerImpl.scala:421)
         at org.apache.spark.scheduler.DAGScheduler.stop(DAGScheduler.scala:1447)
         at org.apache.spark.SparkContext.stop(SparkContext.scala:1651)
-        at org.apache.spark.SparkContext.<init>(SparkContext.scala:572)
+        at org.apache.spark.SparkContext.\<init\>(SparkContext.scala:572)
         at org.apache.spark.examples.SparkPi$.main(SparkPi.scala:28)
         at org.apache.spark.examples.SparkPi.main(SparkPi.scala)
         at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -310,7 +310,7 @@ It outputs 0/1 as though it is doing classification.  It should not.
 
 * [SPARK-8720](https://issues.apache.org/jira/browse/SPARK-8720) | *Critical* | **PR #7036 breaks branch-1.4 because of a malformed comment**
 
-There's an unfortunate {{/*}} in [this line|https://github.com/apache/spark/pull/7036/files#diff-364713d7776956cb8b0a771e9b62f82dR826] and thus started another unclosed comment block.
+There's an unfortunate {{/\*}} in [this line\|https://github.com/apache/spark/pull/7036/files#diff-364713d7776956cb8b0a771e9b62f82dR826] and thus started another unclosed comment block.
 
 
 ---
@@ -331,7 +331,7 @@ Right now, it is a val (https://github.com/apache/spark/blob/master/sql/catalyst
 
 * [SPARK-8687](https://issues.apache.org/jira/browse/SPARK-8687) | *Major* | **Spark on yarn-client mode can't send `spark.yarn.credentials.file` to executor.**
 
-Yarn will set +spark.yarn.credentials.file+ after *DriverEndpoint* initialized. So executor will fetch the old configuration and will cause the problem.
+Yarn will set +spark.yarn.credentials.file+ after \*DriverEndpoint\* initialized. So executor will fetch the old configuration and will cause the problem.
 
 
 ---
@@ -359,7 +359,7 @@ This should most likely not be a huge problem, we'll just have to rewrite some o
 When I run in spark-1.4 yarn-client mode, I throws the following Exception when trying to upload conf archive to viewfs:
 
 15/06/26 17:56:37 INFO yarn.Client: Uploading resource file:/tmp/spark-095ec3d2-5dad-468c-8d46-2c813457404d/\_\_hadoop\_conf\_\_8436284925771788661
-.zip -> viewfs://nsX/user/ultraman/.sparkStaging/application\_1434370929997\_191242/\_\_hadoop\_conf\_\_8436284925771788661.zip
+.zip -\> viewfs://nsX/user/ultraman/.sparkStaging/application\_1434370929997\_191242/\_\_hadoop\_conf\_\_8436284925771788661.zip
 15/06/26 17:56:38 INFO yarn.Client: Deleting staging directory .sparkStaging/application\_1434370929997\_191242
 15/06/26 17:56:38 ERROR spark.SparkContext: Error initializing SparkContext.
 java.lang.IllegalArgumentException: Wrong FS: hdfs://SunshineNameNode2:8020/user/ultraman/.sparkStaging/application\_1434370929997\_191242/\_\_had
@@ -376,16 +376,16 @@ oop\_conf\_\_8436284925771788661.zip, expected: viewfs://nsX/
         at org.apache.spark.deploy.yarn.Client.submitApplication(Client.scala:115)
         at org.apache.spark.scheduler.cluster.YarnClientSchedulerBackend.start(YarnClientSchedulerBackend.scala:58)
         at org.apache.spark.scheduler.TaskSchedulerImpl.start(TaskSchedulerImpl.scala:141)
-        at org.apache.spark.SparkContext.<init>(SparkContext.scala:497)
+        at org.apache.spark.SparkContext.\<init\>(SparkContext.scala:497)
         at org.apache.spark.repl.SparkILoop.createSparkContext(SparkILoop.scala:1017)
-        at $line3.$read$$iwC$$iwC.<init>(<console>:9)
-        at $line3.$read$$iwC.<init>(<console>:18)
-        at $line3.$read.<init>(<console>:20)
-        at $line3.$read$.<init>(<console>:24)
-        at $line3.$read$.<clinit>(<console>)
-        at $line3.$eval$.<init>(<console>:7)
-        at $line3.$eval$.<clinit>(<console>)
-        at $line3.$eval.$print(<console>)
+        at $line3.$read$$iwC$$iwC.\<init\>(\<console\>:9)
+        at $line3.$read$$iwC.\<init\>(\<console\>:18)
+        at $line3.$read.\<init\>(\<console\>:20)
+        at $line3.$read$.\<init\>(\<console\>:24)
+        at $line3.$read$.\<clinit\>(\<console\>)
+        at $line3.$eval$.\<init\>(\<console\>:7)
+        at $line3.$eval$.\<clinit\>(\<console\>)
+        at $line3.$eval.$print(\<console\>)
         at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
         at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
         at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -459,8 +459,8 @@ def parse(input: String): LogicalPlan = {
     // Initialize the Keywords.
     lexical.initialize(reservedWords)
     phrase(start)(new lexical.Scanner(input)) match {
-      case Success(plan, \_) => plan
-      case failureOrError => sys.error(failureOrError.toString)
+      case Success(plan, \_) =\> plan
+      case failureOrError =\> sys.error(failureOrError.toString)
     }
   }
 {code}
@@ -468,7 +468,7 @@ def parse(input: String): LogicalPlan = {
 The corresponding initialize method in SqlLexical is not thread-safe:
 
 {code}
-  /* This is a work around to support the lazy setting */
+  /\* This is a work around to support the lazy setting \*/
   def initialize(keywords: Seq[String]): Unit = {
     reserved.clear()
     reserved ++= keywords
@@ -485,7 +485,7 @@ I'm hitting this when parsing multiple SQL queries concurrently. When one query 
 I think this happened because some value is empty.
 
 {code}
-scala> df1.stat.crosstab("role", "lang")
+scala\> df1.stat.crosstab("role", "lang")
 org.apache.spark.sql.AnalysisException: syntax error in attribute name: ;
 	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.parseAttributeName(LogicalPlan.scala:145)
 	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.resolveQuoted(LogicalPlan.scala:135)
@@ -512,14 +512,14 @@ org.apache.spark.sql.AnalysisException: syntax error in attribute name: ;
 
 * [SPARK-8619](https://issues.apache.org/jira/browse/SPARK-8619) | *Major* | **Can't find the keytab file when recovering the streaming application.**
 
-In a streaming application, I use *--keytab /root/spark.keytab* to get the token.
+In a streaming application, I use \*--keytab /root/spark.keytab\* to get the token.
 But when the streaming application failed and I wanted to recover it from checkpoint file, there was an error:
 {quote}
 java.io.IOException: Login failure for spark/hadoop.hadoop.com@HADOOP.COM from keytab spark.keytab-1fd8f7bb-0d3c-4f65-990a-9ae09055cc8d: javax.security.auth.login.LoginException: Unable to obtain password from user
 {quote}
 
 Spark had changed the configuration, so the checkpoint can't find the file:
-{code:title=Client.java @ Function: setupCredentials |borderStyle=solid}
+{code:title=Client.java @ Function: setupCredentials \|borderStyle=solid}
       val keytabFileName = f.getName + "-" + UUID.randomUUID().toString
       UserGroupInformation.loginUserFromKeytab(args.principal, args.keytab)
       loginFromKeytab = true
@@ -594,9 +594,9 @@ Exception in thread "main" java.lang.UnsupportedClassVersionError: org/apache/sp
 
 * [SPARK-8568](https://issues.apache.org/jira/browse/SPARK-8568) | *Critical* | **Prevent accidental use of "and" and "or" to build invalid expressions in Python**
 
-In Spark DataFrames (and in Pandas as well), the correct way to construct a conjunctive expression is to use the bitwise and operator, i.e.: "(x > 5) & (y > 6)". 
+In Spark DataFrames (and in Pandas as well), the correct way to construct a conjunctive expression is to use the bitwise and operator, i.e.: "(x \> 5) & (y \> 6)". 
 
-However, a lot of users assume that they should be using the Python "and" keyword, i.e. doing "x > 5 and y > 6". Python's boolean evaluation logic converts "x > 5 and y > 6" into just "y > 6" (since "x > 5" is not None). This is super confusing & error prone.
+However, a lot of users assume that they should be using the Python "and" keyword, i.e. doing "x \> 5 and y \> 6". Python's boolean evaluation logic converts "x \> 5 and y \> 6" into just "y \> 6" (since "x \> 5" is not None). This is super confusing & error prone.
 
 We should override \_\_bool\_\_ and \_\_nonzero\_\_ for Column to throw an exception if users call "and" and "or" on Column expressions.
 
@@ -614,15 +614,15 @@ Seems tests in HiveSparkSubmitSuite fail with timeout pretty frequently.
 
 * [SPARK-8563](https://issues.apache.org/jira/browse/SPARK-8563) | *Major* | **Bug that IndexedRowMatrix.computeSVD() yields the U with wrong numCols**
 
-IndexedRowMatrix.computeSVD() yields a wrong U which *U.numCols() = self.nCols*.
+IndexedRowMatrix.computeSVD() yields a wrong U which \*U.numCols() = self.nCols\*.
 
-It should have been *U.numCols() = k = svd.U.numCols()*
+It should have been \*U.numCols() = k = svd.U.numCols()\*
 
 {code}
-self = U * sigma * V.transpose
-(m x n) = (m x n) * (k x k) * (k x n)
--->
-(m x n) = (m x k) * (k x k) * (k x n)
+self = U \* sigma \* V.transpose
+(m x n) = (m x n) \* (k x k) \* (k x n)
+--\>
+(m x n) = (m x k) \* (k x k) \* (k x n)
 {code}
 
 
@@ -652,28 +652,28 @@ Trying to create a Spark DataFrame from a pandas dataframe with no explicit colu
 pandasDF = pd.DataFrame([[1, 2], [5, 6]])
 sparkDF = sqlContext.createDataFrame(pandasDF)
 
-***********
+\*\*\*\*\*\*\*\*\*\*\*
 
-----> 1 sparkDF = sqlContext.createDataFrame(pandasDF)
+----\> 1 sparkDF = sqlContext.createDataFrame(pandasDF)
 
 /usr/local/Cellar/apache-spark/1.4.0/libexec/python/pyspark/sql/context.pyc in createDataFrame(self, data, schema, samplingRatio)
     344 
     345         jrdd = self.\_jvm.SerDeUtil.toJavaArray(rdd.\_to\_java\_object\_rdd())
---> 346         df = self.\_ssql\_ctx.applySchemaToPythonRDD(jrdd.rdd(), schema.json())
+--\> 346         df = self.\_ssql\_ctx.applySchemaToPythonRDD(jrdd.rdd(), schema.json())
     347         return DataFrame(df, self)
     348 
 
-/usr/local/Cellar/apache-spark/1.4.0/libexec/python/lib/py4j-0.8.2.1-src.zip/py4j/java\_gateway.py in \_\_call\_\_(self, *args)
+/usr/local/Cellar/apache-spark/1.4.0/libexec/python/lib/py4j-0.8.2.1-src.zip/py4j/java\_gateway.py in \_\_call\_\_(self, \*args)
     536         answer = self.gateway\_client.send\_command(command)
     537         return\_value = get\_return\_value(answer, self.gateway\_client,
---> 538                 self.target\_id, self.name)
+--\> 538                 self.target\_id, self.name)
     539 
     540         for temp\_arg in temp\_args:
 
 /usr/local/Cellar/apache-spark/1.4.0/libexec/python/lib/py4j-0.8.2.1-src.zip/py4j/protocol.py in get\_return\_value(answer, gateway\_client, target\_id, name)
     298                 raise Py4JJavaError(
     299                     'An error occurred while calling {0}{1}{2}.\n'.
---> 300                     format(target\_id, '.', name), value)
+--\> 300                     format(target\_id, '.', name), value)
     301             else:
     302                 raise Py4JError(
 
@@ -764,8 +764,8 @@ This is also a problem for users who maintain a proxy for maven/ivy repos with s
 
 I see two options for a fix;
 
-* Change the order repos are added to the ChainResolver, making the --repositories supplied repos come before anything else. https://github.com/apache/spark/blob/branch-1.4/core/src/main/scala/org/apache/spark/deploy/SparkSubmit.scala#L843 
-* Have a config option (like spark.jars.ivy.useDefaultRemoteRepos, default true) which when false wont add the maven central & bintry to the ChainResolver. 
+\* Change the order repos are added to the ChainResolver, making the --repositories supplied repos come before anything else. https://github.com/apache/spark/blob/branch-1.4/core/src/main/scala/org/apache/spark/deploy/SparkSubmit.scala#L843 
+\* Have a config option (like spark.jars.ivy.useDefaultRemoteRepos, default true) which when false wont add the maven central & bintry to the ChainResolver. 
 
 Happy to do a PR for this fix.
 
@@ -788,7 +788,7 @@ I do not get this error when reading from the same database.
 This simple script can repeat the problem.
 First one must create a database called test with a table called table1 and insert some rows in it. The user test:secret must have read/write permissions.
 
-*testJDBC.scala:*
+\*testJDBC.scala:\*
 import java.util.Properties
 import org.apache.spark.sql.Row
 import java.sql.Struct
@@ -860,7 +860,7 @@ SparkSQL has a nice {{QueryTest}} class for writing tests that run queries; I th
 
 When calling wholeTextFiles or binaryFiles with a directory path with 10,000s of files in it, Spark hangs for a few minutes before processing the files.
 
-If you add a * to the end of the path, there is no delay.
+If you add a \* to the end of the path, there is no delay.
 
 This happens for me on Spark 1.3.1 and 1.4 on the local filesystem, HDFS, and on S3.
 
@@ -870,49 +870,49 @@ To reproduce, create a directory with 50,000 files in it, then run:
 val a = sc.binaryFiles("file:/path/to/files/")
 a.count()
 
-val b = sc.binaryFiles("file:/path/to/files/*")
+val b = sc.binaryFiles("file:/path/to/files/\*")
 b.count()
 
 and monitor the different startup times.
 
 For example, in the spark-shell these commands are pasted in together, so the delay at f.count() is from 10:11:08 t- 10:13:29 to output "Total input paths to process : 49999", then until 10:15:42 to being processing files:
 
-scala> val f = sc.binaryFiles("file:/home/ewan/large/")
+scala\> val f = sc.binaryFiles("file:/home/ewan/large/")
 15/06/18 10:11:07 INFO MemoryStore: ensureFreeSpace(160616) called with curMem=0, maxMem=278019440
 15/06/18 10:11:07 INFO MemoryStore: Block broadcast\_0 stored as values in memory (estimated size 156.9 KB, free 265.0 MB)
 15/06/18 10:11:08 INFO MemoryStore: ensureFreeSpace(17282) called with curMem=160616, maxMem=278019440
 15/06/18 10:11:08 INFO MemoryStore: Block broadcast\_0\_piece0 stored as bytes in memory (estimated size 16.9 KB, free 265.0 MB)
 15/06/18 10:11:08 INFO BlockManagerInfo: Added broadcast\_0\_piece0 in memory on localhost:40430 (size: 16.9 KB, free: 265.1 MB)
-15/06/18 10:11:08 INFO SparkContext: Created broadcast 0 from binaryFiles at <console>:21
-f: org.apache.spark.rdd.RDD[(String, org.apache.spark.input.PortableDataStream)] = file:/home/ewan/large/ BinaryFileRDD[0] at binaryFiles at <console>:21
+15/06/18 10:11:08 INFO SparkContext: Created broadcast 0 from binaryFiles at \<console\>:21
+f: org.apache.spark.rdd.RDD[(String, org.apache.spark.input.PortableDataStream)] = file:/home/ewan/large/ BinaryFileRDD[0] at binaryFiles at \<console\>:21
 
-scala> f.count()
+scala\> f.count()
 15/06/18 10:13:29 INFO FileInputFormat: Total input paths to process : 49999
 15/06/18 10:15:42 INFO FileInputFormat: Total input paths to process : 49999
 15/06/18 10:15:42 INFO CombineFileInputFormat: DEBUG: Terminated node allocation with : CompletedNodes: 1, size left: 0
-15/06/18 10:15:42 INFO SparkContext: Starting job: count at <console>:24
-15/06/18 10:15:42 INFO DAGScheduler: Got job 0 (count at <console>:24) with 49999 output partitions (allowLocal=false)
-15/06/18 10:15:42 INFO DAGScheduler: Final stage: ResultStage 0(count at <console>:24)
+15/06/18 10:15:42 INFO SparkContext: Starting job: count at \<console\>:24
+15/06/18 10:15:42 INFO DAGScheduler: Got job 0 (count at \<console\>:24) with 49999 output partitions (allowLocal=false)
+15/06/18 10:15:42 INFO DAGScheduler: Final stage: ResultStage 0(count at \<console\>:24)
 15/06/18 10:15:42 INFO DAGScheduler: Parents of final stage: List()
 
-Adding a * to the end of the path removes the delay:
+Adding a \* to the end of the path removes the delay:
 
 
-scala> val f = sc.binaryFiles("file:/home/ewan/large/*")
+scala\> val f = sc.binaryFiles("file:/home/ewan/large/\*")
 15/06/18 10:08:29 INFO MemoryStore: ensureFreeSpace(160616) called with curMem=0, maxMem=278019440
 15/06/18 10:08:29 INFO MemoryStore: Block broadcast\_0 stored as values in memory (estimated size 156.9 KB, free 265.0 MB)
 15/06/18 10:08:29 INFO MemoryStore: ensureFreeSpace(17309) called with curMem=160616, maxMem=278019440
 15/06/18 10:08:29 INFO MemoryStore: Block broadcast\_0\_piece0 stored as bytes in memory (estimated size 16.9 KB, free 265.0 MB)
 15/06/18 10:08:29 INFO BlockManagerInfo: Added broadcast\_0\_piece0 in memory on localhost:42825 (size: 16.9 KB, free: 265.1 MB)
-15/06/18 10:08:29 INFO SparkContext: Created broadcast 0 from binaryFiles at <console>:21
-f: org.apache.spark.rdd.RDD[(String, org.apache.spark.input.PortableDataStream)] = file:/home/ewan/large/* BinaryFileRDD[0] at binaryFiles at <console>:21
+15/06/18 10:08:29 INFO SparkContext: Created broadcast 0 from binaryFiles at \<console\>:21
+f: org.apache.spark.rdd.RDD[(String, org.apache.spark.input.PortableDataStream)] = file:/home/ewan/large/\* BinaryFileRDD[0] at binaryFiles at \<console\>:21
 
-scala> f.count()
+scala\> f.count()
 15/06/18 10:08:32 INFO FileInputFormat: Total input paths to process : 49999
 15/06/18 10:08:33 INFO FileInputFormat: Total input paths to process : 49999
 15/06/18 10:08:35 INFO CombineFileInputFormat: DEBUG: Terminated node allocation with : CompletedNodes: 1, size left: 0
-15/06/18 10:08:35 INFO SparkContext: Starting job: count at <console>:24
-15/06/18 10:08:35 INFO DAGScheduler: Got job 0 (count at <console>:24) with 49999 output partitions
+15/06/18 10:08:35 INFO SparkContext: Starting job: count at \<console\>:24
+15/06/18 10:08:35 INFO DAGScheduler: Got job 0 (count at \<console\>:24) with 49999 output partitions
 
 
 ---
@@ -923,9 +923,9 @@ I am trying out 1.4.0 and notice there are some differences in behavior with Tim
 
 In 1.3.1, I can compare a Timestamp with string.
 {code}
-scala> val df = sqlContext.createDataFrame(Seq((1, Timestamp.valueOf("2015-01-01 00:00:00")), (2, Timestamp.valueOf("2014-01-01 00:00:00"))))
+scala\> val df = sqlContext.createDataFrame(Seq((1, Timestamp.valueOf("2015-01-01 00:00:00")), (2, Timestamp.valueOf("2014-01-01 00:00:00"))))
 ...
-scala> df.filter($"\_2" <= "2014-06-01").show
+scala\> df.filter($"\_2" \<= "2014-06-01").show
 ...
 \_1 \_2                  
 2  2014-01-01 00:00:...
@@ -933,12 +933,12 @@ scala> df.filter($"\_2" <= "2014-06-01").show
 
 However, in 1.4.0, the filter is always false:
 {code}
-scala> val df = sqlContext.createDataFrame(Seq((1, Timestamp.valueOf("2015-01-01 00:00:00")), (2, Timestamp.valueOf("2014-01-01 00:00:00"))))
+scala\> val df = sqlContext.createDataFrame(Seq((1, Timestamp.valueOf("2015-01-01 00:00:00")), (2, Timestamp.valueOf("2014-01-01 00:00:00"))))
 df: org.apache.spark.sql.DataFrame = [\_1: int, \_2: timestamp]
 
-scala> df.filter($"\_2" <= "2014-06-01").show
+scala\> df.filter($"\_2" \<= "2014-06-01").show
 +--+--+
-|\_1|\_2|
+\|\_1\|\_2\|
 +--+--+
 +--+--+
 {code}
@@ -954,7 +954,7 @@ Not sure if that is intended, but I cannot find any doc mentioning these inconsi
 While testing Spark Project Hive, there are RuntimeExceptions as follows,
 
 VersionsSuite:
-- success sanity check *** FAILED ***
+- success sanity check \*\*\* FAILED \*\*\*
   java.lang.RuntimeException: [download failed: org.jboss.netty#netty;3.2.2.Final!netty.jar(bundle), download failed: org.codehaus.groovy#groovy-all;2.1.6!groovy-all.jar, download failed: asm#asm;3.2!asm.jar]
   at org.apache.spark.deploy.SparkSubmitUtils$.resolveMavenCoordinates(SparkSubmit.scala:978)
   at org.apache.spark.sql.hive.client.IsolatedClientLoader$$anonfun$3.apply(IsolatedClientLoader.scala:62)
@@ -974,26 +974,26 @@ build/mvn --pl sql/hive --fail-never -Pyarn -Phadoop-2.4 -Dhadoop.version=2.6.0 
 
 Adding the following dependencies in the "spark/sql/hive/pom.xml"  file solves this issue,
 
-< 	<dependency>
-< 		<groupId>org.jboss.netty</groupId>
-< 		<artifactId>netty</artifactId>
-< 		<version>3.2.2.Final</version>
-< 	        <scope>test</scope>
-< 	</dependency>
-< 	<dependency>
-< 		<groupId>org.codehaus.groovy</groupId>
-< 		<artifactId>groovy-all</artifactId>
-< 		<version>2.1.6</version>
-< 		<scope>test</scope>
-< 	</dependency>
-< 
-< 	<dependency>
-< 		<groupId>asm</groupId>
-< 		<artifactId>asm</artifactId>
-< 		<version>3.2</version>
-< 	        <scope>test</scope>
-< 	</dependency>
-< 
+\< 	\<dependency\>
+\< 		\<groupId\>org.jboss.netty\</groupId\>
+\< 		\<artifactId\>netty\</artifactId\>
+\< 		\<version\>3.2.2.Final\</version\>
+\< 	        \<scope\>test\</scope\>
+\< 	\</dependency\>
+\< 	\<dependency\>
+\< 		\<groupId\>org.codehaus.groovy\</groupId\>
+\< 		\<artifactId\>groovy-all\</artifactId\>
+\< 		\<version\>2.1.6\</version\>
+\< 		\<scope\>test\</scope\>
+\< 	\</dependency\>
+\< 
+\< 	\<dependency\>
+\< 		\<groupId\>asm\</groupId\>
+\< 		\<artifactId\>asm\</artifactId\>
+\< 		\<version\>3.2\</version\>
+\< 	        \<scope\>test\</scope\>
+\< 	\</dependency\>
+\< 
 
 The question is, Is this the correct way to fix this runtimeException ?
 If yes, Can a pull request fix this issue permanently ?
@@ -1079,7 +1079,7 @@ yields the correct result:
 
 * [SPARK-8406](https://issues.apache.org/jira/browse/SPARK-8406) | *Blocker* | **Race condition when writing Parquet files**
 
-To support appending, the Parquet data source tries to find out the max part number of part-files in the destination directory (the <id> in output file name "part-r-<id>.gz.parquet") at the beginning of the write job. In 1.3.0, this step happens on driver side before any files are written. However, in 1.4.0, this is moved to task side. Thus, for tasks scheduled later, they may see wrong max part number generated by newly written files by other finished tasks within the same job. This actually causes a race condition. In most cases, this only causes nonconsecutive IDs in output file names. But when the DataFrame contains thousands of RDD partitions, it's likely that two tasks may choose the same part number, thus one of them gets overwritten by the other.
+To support appending, the Parquet data source tries to find out the max part number of part-files in the destination directory (the \<id\> in output file name "part-r-\<id\>.gz.parquet") at the beginning of the write job. In 1.3.0, this step happens on driver side before any files are written. However, in 1.4.0, this is moved to task side. Thus, for tasks scheduled later, they may see wrong max part number generated by newly written files by other finished tasks within the same job. This actually causes a race condition. In most cases, this only causes nonconsecutive IDs in output file names. But when the DataFrame contains thousands of RDD partitions, it's likely that two tasks may choose the same part number, thus one of them gets overwritten by the other.
 
 The following Spark shell snippet can reproduce nonconsecutive part numbers:
 {code}
@@ -1143,10 +1143,10 @@ it seems the worker number is not being accepted  as desccribed here:
 https://spark.apache.org/docs/latest/spark-standalone.html
 
 The documentation says:
-./sbin/start-slave.sh <worker#> <master-spark-URL>
+./sbin/start-slave.sh \<worker#\> \<master-spark-URL\>
 
 but the start.slave-sh script states:
-usage="Usage: start-slave.sh <spark-master-URL> where <spark-master-URL> is like spark://localhost:7077"
+usage="Usage: start-slave.sh \<spark-master-URL\> where \<spark-master-URL\> is like spark://localhost:7077"
 
 I have checked for similar issues using :
 https://issues.apache.org/jira/browse/SPARK-6552?jql=text%20~%20%22start-slave%22
@@ -1168,7 +1168,7 @@ when the \_childClusters has so many nodes, the process will hang on. I think we
 
 * [SPARK-8379](https://issues.apache.org/jira/browse/SPARK-8379) | *Major* | **LeaseExpiredException when using dynamic partition with speculative execution**
 
-when inserting to table using dynamic partitions with *spark.speculation=true*  and there is a skew data of some partitions trigger the speculative tasks ,it will throws the exception like
+when inserting to table using dynamic partitions with \*spark.speculation=true\*  and there is a skew data of some partitions trigger the speculative tasks ,it will throws the exception like
 {code}
 org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.hdfs.server.namenode.LeaseExpiredException): Lease mismatch on /tmp/hive-jeanlyn/hive\_2015-06-15\_15-20-44\_734\_8801220787219172413-1/-ext-10000/ds=2015-06-15/type=2/part-00301.lzo owned by DFSClient\_attempt\_201506031520\_0011\_m\_000189\_0\_-1513487243\_53 but is accessed by DFSClient\_attempt\_201506031520\_0011\_m\_000042\_0\_-1275047721\_57
 {code}
@@ -1192,7 +1192,7 @@ The issue is because "sum" uses "reduce". Replacing it with "fold" will fix it.
 
 * [SPARK-8372](https://issues.apache.org/jira/browse/SPARK-8372) | *Minor* | **History server shows incorrect information for application not started**
 
-The history server may show an incorrect App ID for an incomplete application like <App ID>.inprogress. This app info will never disappear even after the app is completed.
+The history server may show an incorrect App ID for an incomplete application like \<App ID\>.inprogress. This app info will never disappear even after the app is completed.
 
 
 ---
@@ -1252,11 +1252,11 @@ object Model extends Serializable{
     //get data by hive sql
     val rows = hive.sql(sql)
 
-    val data = rows.map(r => { 
+    val data = rows.map(r =\> { 
       val arr = r.toSeq.toArray
       val label = 1.0
-      def fmap = ( input: Any ) => 1.0
-      val feature = arr.map(\_=>1.0)
+      def fmap = ( input: Any ) =\> 1.0
+      val feature = arr.map(\_=\>1.0)
       LabeledPoint(label, Vectors.dense(feature))
     })
 
@@ -1272,13 +1272,13 @@ This code can run pretty well on spark-shell, but error when submit it to spark 
 
 * [SPARK-8367](https://issues.apache.org/jira/browse/SPARK-8367) | *Major* | **ReliableKafka will loss data when `spark.streaming.blockInterval` was 0**
 
-{code:title=BlockGenerator.scala|borderStyle=solid}
-  /** Change the buffer to which single records are added to. */
+{code:title=BlockGenerator.scala\|borderStyle=solid}
+  /\*\* Change the buffer to which single records are added to. \*/
   private def updateCurrentBuffer(time: Long): Unit = synchronized {
     try {
       val newBlockBuffer = currentBuffer
       currentBuffer = new ArrayBuffer[Any]
-      if (newBlockBuffer.size > 0) {
+      if (newBlockBuffer.size \> 0) {
 
        val blockId = StreamBlockId(receiverId, time - blockIntervalMs)
 
@@ -1288,17 +1288,17 @@ This code can run pretty well on spark-shell, but error when submit it to spark 
         logDebug("Last element in " + blockId + " is " + newBlockBuffer.last)
       }
     } catch {
-      case ie: InterruptedException =>
+      case ie: InterruptedException =\>
         logInfo("Block updating timer thread was interrupted")
-      case e: Exception =>
+      case e: Exception =\>
         reportError("Error in block updating thread", e)
     }
   }
 {code}
 
-If *spark.streaming.blockInterval* was 0, the *blockId* in the code will always be the same because of  *time* was 0 and *blockIntervalMs* was 0 too.
+If \*spark.streaming.blockInterval\* was 0, the \*blockId\* in the code will always be the same because of  \*time\* was 0 and \*blockIntervalMs\* was 0 too.
 
-{code:title=ReliableKafkaReceiver.scala|borderStyle=solid}
+{code:title=ReliableKafkaReceiver.scala\|borderStyle=solid}
    private def rememberBlockOffsets(blockId: StreamBlockId): Unit = {
     // Get a snapshot of current offset map and store with related block id.
     val offsetSnapshot = topicPartitionOffsetMap.toMap
@@ -1306,8 +1306,8 @@ If *spark.streaming.blockInterval* was 0, the *blockId* in the code will always 
     topicPartitionOffsetMap.clear()
   }
 {code}
-If the *blockId* was the same,  Streaming will commit the  *offset*  before the really data comsumed(data was waitting to be commit but the offset had updated and commit by previous commit)
-So when exception occures, the *offset* had commit but the data will loss since the data was in memory and not comsumed yet.
+If the \*blockId\* was the same,  Streaming will commit the  \*offset\*  before the really data comsumed(data was waitting to be commit but the offset had updated and commit by previous commit)
+So when exception occures, the \*offset\* had commit but the data will loss since the data was in memory and not comsumed yet.
 
 
 ---
@@ -1315,7 +1315,7 @@ So when exception occures, the *offset* had commit but the data will loss since 
 * [SPARK-8358](https://issues.apache.org/jira/browse/SPARK-8358) | *Blocker* | **DataFrame explode with alias and \* fails**
 
 {code}
-scala> Seq((Array("a"), 1)).toDF("a", "b").select(explode($"a").as("a"), $"*")
+scala\> Seq((Array("a"), 1)).toDF("a", "b").select(explode($"a").as("a"), $"\*")
 org.apache.spark.sql.catalyst.analysis.UnresolvedException: Invalid call to dataType on unresolved object, tree: 'a
         at org.apache.spark.sql.catalyst.analysis.UnresolvedAttribute.dataType(unresolved.scala:60)
         at org.apache.spark.sql.catalyst.expressions.Explode.elementTypes(generators.scala:107)
@@ -1415,7 +1415,7 @@ The problem might be demonstrated with the following testcase:
   test("support for more than 12M items") {
     val cnt = 12000000 // 12M
     val map = new OpenHashMap[Int, Int](cnt)
-    for (i <- 0 until cnt) {
+    for (i \<- 0 until cnt) {
       map(i) = 1
     }
     val numInvalidValues = map.iterator.count(\_.\_2 == 0)
@@ -1444,12 +1444,12 @@ Default stack sizes differ per Java implementation - so tests can pass for those
 * [SPARK-8285](https://issues.apache.org/jira/browse/SPARK-8285) | *Trivial* | **CombineSum should be calculated as unlimited decimal first**
 
 {code:title=GeneratedAggregate.scala}
-case cs @ CombineSum(expr) =>
+case cs @ CombineSum(expr) =\>
         val calcType = expr.dataType
           expr.dataType match {
-            case DecimalType.Fixed(\_, \_) =>
+            case DecimalType.Fixed(\_, \_) =\>
               DecimalType.Unlimited
-            case \_ =>
+            case \_ =\>
               expr.dataType
           }
 {code}
@@ -1522,21 +1522,21 @@ in package com.google.common which is not available.
 It may be completely missing from the current classpath, or the version on
 the classpath might be incompatible with the version used when compiling JobProgressListener.class.', required by /opt/apache/spark/lib/spark-assembly-1.5.0-SNAPSHOT-hadoop2.7.0.jar(org/apache/spark/ui/jobs/JobProgressListener.class)
 java.lang.NullPointerException
-	at org.apache.spark.sql.SQLContext.<init>(SQLContext.scala:193)
-	at org.apache.spark.sql.hive.HiveContext.<init>(HiveContext.scala:68)
+	at org.apache.spark.sql.SQLContext.\<init\>(SQLContext.scala:193)
+	at org.apache.spark.sql.hive.HiveContext.\<init\>(HiveContext.scala:68)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
 	at org.apache.spark.repl.SparkILoop.createSQLContext(SparkILoop.scala:1028)
-	at $iwC$$iwC.<init>(<console>:9)
-	at $iwC.<init>(<console>:18)
-	at <init>(<console>:20)
-	at .<init>(<console>:24)
-	at .<clinit>(<console>)
-	at .<init>(<console>:7)
-	at .<clinit>(<console>)
-	at $print(<console>)
+	at $iwC$$iwC.\<init\>(\<console\>:9)
+	at $iwC.\<init\>(\<console\>:18)
+	at \<init\>(\<console\>:20)
+	at .\<init\>(\<console\>:24)
+	at .\<clinit\>(\<console\>)
+	at .\<init\>(\<console\>:7)
+	at .\<clinit\>(\<console\>)
+	at $print(\<console\>)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -1577,10 +1577,10 @@ java.lang.NullPointerException
 	at org.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:111)
 	at org.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)
 
-<console>:10: error: not found: value sqlContext
+\<console\>:10: error: not found: value sqlContext
        import sqlContext.implicits.\_
               ^
-<console>:10: error: not found: value sqlContext
+\<console\>:10: error: not found: value sqlContext
        import sqlContext.sql
               ^
 {noformat}
@@ -1621,7 +1621,7 @@ spec.partitionColumns.map(\_.dataType) re-runs for each Partition in HadoopFsRel
 
 * [SPARK-8126](https://issues.apache.org/jira/browse/SPARK-8126) | *Minor* | **Use temp directory under build dir for unit tests**
 
-Spark's unit tests leave a lot of garbage in /tmp after a run, making it hard to clean things up. Let's place those files under the build dir so that "mvn|sbt|git clean" can do their job.
+Spark's unit tests leave a lot of garbage in /tmp after a run, making it hard to clean things up. Let's place those files under the build dir so that "mvn\|sbt\|git clean" can do their job.
 
 
 ---
@@ -1634,7 +1634,7 @@ For example, if {{spark.sql.parquet.output.committer.class}} is set to {{FileOut
 
 The reason is that, {{InsertIntoHadoopFsRelation}} initializes the {{TaskAttemptContext}} before calling {{ParquetRelation2.prepareForWriteJob()}}, which sets up Parquet output committer class. In the meanwhile, in Hadoop 1.x, {{TaskAttempContext}} constructor clones the job configuration, thus doesn't share the job configuration passed to {{ParquetRelation2.prepareForWriteJob()}}.
 
-This issue can be fixed by simply [switching these two lines|https://github.com/apache/spark/blob/master/sql/core/src/main/scala/org/apache/spark/sql/sources/commands.scala#L285-L286].
+This issue can be fixed by simply [switching these two lines\|https://github.com/apache/spark/blob/master/sql/core/src/main/scala/org/apache/spark/sql/sources/commands.scala#L285-L286].
 
 Here is a Spark shell snippet for reproducing this issue:
 {code}
@@ -1896,7 +1896,7 @@ I found some issues during testing the save/load examples in markdown Documents,
 
 * [SPARK-8032](https://issues.apache.org/jira/browse/SPARK-8032) | *Major* | **Make NumPy version checking in mllib/\_\_init\_\_.py**
 
-The current checking does version `1.x' is less than `1.4' this will fail if x has greater than 1 digit, since x > 4, however `1.x` < `1.4`
+The current checking does version `1.x' is less than `1.4' this will fail if x has greater than 1 digit, since x \> 4, however `1.x` \< `1.4`
 
 
 ---
@@ -1980,11 +1980,11 @@ Check then make the MLlib Python classification and regression doc to be as comp
 
 To reproduce 
 {code}
-JAVA\_HOME=/home/hcheng/Java/jdk1.8.0\_45 | build/sbt -Phadoop-2.3 -Phive  'test-only org.apache.spark.sql.hive.execution.HiveWindowFunctionQueryWithoutCodeGenSuite'
+JAVA\_HOME=/home/hcheng/Java/jdk1.8.0\_45 \| build/sbt -Phadoop-2.3 -Phive  'test-only org.apache.spark.sql.hive.execution.HiveWindowFunctionQueryWithoutCodeGenSuite'
 {code}
 
 {panel}
-- windowing.q -- 20. testSTATs *** FAILED ***
+- windowing.q -- 20. testSTATs \*\*\* FAILED \*\*\*
   Results do not match for windowing.q -- 20. testSTATs:
 ...
 
@@ -2007,12 +2007,12 @@ Lots of compilation error is shown when java 8 test suite is enabled in SBT:
 [error]                                    ^
 [error]   symbol: class LocalJavaStreamingContext
 [error] /mnt/data/project/apache-spark/extras/java8-tests/src/test/java/org/apache/spark/streaming/Java8APISuite.java:55: error: cannot find symbol
-[error]     JavaDStream<String> stream = JavaTestUtils.attachTestInputStream(ssc, inputData, 1);
+[error]     JavaDStream\<String\> stream = JavaTestUtils.attachTestInputStream(ssc, inputData, 1);
 [error]                                                                      ^
 [error]   symbol:   variable ssc
 [error]   location: class Java8APISuite
 [error] /mnt/data/project/apache-spark/extras/java8-tests/src/test/java/org/apache/spark/streaming/Java8APISuite.java:55: error: cannot find symbol
-[error]     JavaDStream<String> stream = JavaTestUtils.attachTestInputStream(ssc, inputData, 1);
+[error]     JavaDStream\<String\> stream = JavaTestUtils.attachTestInputStream(ssc, inputData, 1);
 [error]                                  ^
 [error]   symbol:   variable JavaTestUtils
 [error]   location: class Java8APISuite
@@ -2022,17 +2022,17 @@ Lots of compilation error is shown when java 8 test suite is enabled in SBT:
 [error]   symbol:   variable JavaTestUtils
 [error]   location: class Java8APISuite
 [error] /mnt/data/project/apache-spark/extras/java8-tests/src/test/java/org/apache/spark/streaming/Java8APISuite.java:58: error: cannot find symbol
-[error]     List<List<Integer>> result = JavaTestUtils.runStreams(ssc, 2, 2);
+[error]     List\<List\<Integer\>\> result = JavaTestUtils.runStreams(ssc, 2, 2);
 [error]                                                           ^
 [error]   symbol:   variable ssc
 [error]   location: class Java8APISuite
 [error] /mnt/data/project/apache-spark/extras/java8-tests/src/test/java/org/apache/spark/streaming/Java8APISuite.java:58: error: cannot find symbol
-[error]     List<List<Integer>> result = JavaTestUtils.runStreams(ssc, 2, 2);
+[error]     List\<List\<Integer\>\> result = JavaTestUtils.runStreams(ssc, 2, 2);
 [error]                                  ^
 [error]   symbol:   variable JavaTestUtils
 [error]   location: class Java8APISuite
 [error] /mnt/data/project/apache-spark/extras/java8-tests/src/test/java/org/apache/spark/streaming/Java8APISuite.java:73: error: cannot find symbol
-[error]     JavaDStream<String> stream = JavaTestUtils.attachTestInputStream(ssc, inputData, 1);
+[error]     JavaDStream\<String\> stream = JavaTestUtils.attachTestInputStream(ssc, inputData, 1);
 [error]                                                                      ^
 [error]   symbol:   variable ssc
 [error]   location: class Java8APISuite
@@ -2059,21 +2059,21 @@ model = GradientBoostedTrees.trainRegressor(trainingData, categoricalFeaturesInf
 
 The job will fail with the following message:
 Traceback (most recent call last):
-  File "/Users/drake/fd/spark/mltest.py", line 73, in <module>
+  File "/Users/drake/fd/spark/mltest.py", line 73, in \<module\>
     model = GradientBoostedTrees.trainRegressor(trainingData, categoricalFeaturesInfo=catFeatures, maxDepth=6, numIterations=3)
   File "/Users/drake/spark/spark-1.3.1-bin-hadoop2.6/python/pyspark/mllib/tree.py", line 553, in trainRegressor
     loss, numIterations, learningRate, maxDepth)
   File "/Users/drake/spark/spark-1.3.1-bin-hadoop2.6/python/pyspark/mllib/tree.py", line 438, in \_train
     loss, numIterations, learningRate, maxDepth)
   File "/Users/drake/spark/spark-1.3.1-bin-hadoop2.6/python/pyspark/mllib/common.py", line 120, in callMLlibFunc
-    return callJavaFunc(sc, api, *args)
+    return callJavaFunc(sc, api, \*args)
   File "/Users/drake/spark/spark-1.3.1-bin-hadoop2.6/python/pyspark/mllib/common.py", line 113, in callJavaFunc
-    return \_java2py(sc, func(*args))
+    return \_java2py(sc, func(\*args))
   File "/Users/drake/spark/spark-1.3.1-bin-hadoop2.6/python/lib/py4j-0.8.2.1-src.zip/py4j/java\_gateway.py", line 538, in \_\_call\_\_
   File "/Users/drake/spark/spark-1.3.1-bin-hadoop2.6/python/lib/py4j-0.8.2.1-src.zip/py4j/protocol.py", line 300, in get\_return\_value
 15/05/20 16:40:12 INFO BlockManager: Removing block rdd\_32\_95
 py4j.protocol.Py4JJavaError: An error occurred while calling o69.trainGradientBoostedTreesModel.
-: java.lang.IllegalArgumentException: requirement failed: DecisionTree requires maxBins (= 32) >= max categories in categorical features (= 1895)
+: java.lang.IllegalArgumentException: requirement failed: DecisionTree requires maxBins (= 32) \>= max categories in categorical features (= 1895)
 	at scala.Predef$.require(Predef.scala:233)
 	at org.apache.spark.mllib.tree.impl.DecisionTreeMetadata$.buildMetadata(DecisionTreeMetadata.scala:128)
 	at org.apache.spark.mllib.tree.RandomForest.run(RandomForest.scala:138)
@@ -2090,7 +2090,7 @@ So, it's complaining about the maxBins, if I provide maxBins=1900 and re-run it:
 model = GradientBoostedTrees.trainRegressor(trainingData, categoricalFeaturesInfo=catFeatures, maxDepth=6, numIterations=3, maxBins=1900)
 
 Traceback (most recent call last):
-  File "/Users/drake/fd/spark/mltest.py", line 73, in <module>
+  File "/Users/drake/fd/spark/mltest.py", line 73, in \<module\>
     model = GradientBoostedTrees.trainRegressor(trainingData, categoricalFeaturesInfo=catF
 eatures, maxDepth=6, numIterations=3, maxBins=1900)
 TypeError: trainRegressor() got an unexpected keyword argument 'maxBins'
@@ -2108,9 +2108,9 @@ Seems like a bug in GradientBoostedTrees.
 * [SPARK-7715](https://issues.apache.org/jira/browse/SPARK-7715) | *Major* | **Update MLlib Programming Guide for 1.4**
 
 Before the release, we need to update the MLlib Programming Guide.  Updates will include:
-* Add migration guide subsection.
-** Use the results of the QA audit JIRAs.
-* Check phrasing, especially in main sections (for outdated items such as "In this release, ..."
+\* Add migration guide subsection.
+\*\* Use the results of the QA audit JIRAs.
+\* Check phrasing, especially in main sections (for outdated items such as "In this release, ..."
 
 
 ---
@@ -2203,7 +2203,7 @@ SparkEnv.get.closureSerializer.newInstance().serialize(new Child)
 
 I dug into this a little and found that we are trying to fill the fields of `Parent` with the values of `Child`. See the following output I generated by adding println's everywhere:
 {code}
-* Visiting object org.apache.spark.serializer.Child@2c3299f6 of type org.apache.spark.serializer.Child
+\* Visiting object org.apache.spark.serializer.Child@2c3299f6 of type org.apache.spark.serializer.Child
   - Found 2 class data slot descriptions
   - Looking at desc #1: org.apache.spark.serializer.Parent: static final long serialVersionUID = 3254964199136071914L;
     - Found 2 fields

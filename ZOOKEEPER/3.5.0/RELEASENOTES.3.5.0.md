@@ -277,7 +277,7 @@ Upgrading from 3.3 to 3.4 is supported as is downgrading from 3.4 to 3.3. Howeve
 As a result:
 1) upgrading from 3.3 to 3.4 is fine - the files don't exist, the server creates them
 2) downgrading from 3.4 to 3.3 - this is also fine as version 3.3 ignores these files
-3) however, 3.4->3.3->3.4 fails because 3.4 will see invalid *Epoch files in the datadir (as 3.3 would have ignored them, applying changes to snap/log w/o updating them)
+3) however, 3.4-\>3.3-\>3.4 fails because 3.4 will see invalid \*Epoch files in the datadir (as 3.3 would have ignored them, applying changes to snap/log w/o updating them)
 
 A workaround for this problem is to delete the epoch files if this situation occurrs - the version 3.4 server will create them similar to case 1) above.
 

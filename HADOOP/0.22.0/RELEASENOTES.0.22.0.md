@@ -74,7 +74,7 @@ I have just committed this to trunk and branch-0.22. Thanks Roman!
 
 * [HADOOP-7117](https://issues.apache.org/jira/browse/HADOOP-7117) | *Major* | **Move secondary namenode checkpoint configs from core-default.xml to hdfs-default.xml**
 
-Removed references to the older fs.checkpoint.* properties that resided in core-site.xml
+Removed references to the older fs.checkpoint.\* properties that resided in core-site.xml
 
 
 ---
@@ -208,7 +208,7 @@ Removed thriftfs contrib component.
 
 * [HDFS-1596](https://issues.apache.org/jira/browse/HDFS-1596) | *Major* | **Move secondary namenode checkpoint configs from core-default.xml to hdfs-default.xml**
 
-Removed references to the older fs.checkpoint.* properties that resided in core-site.xml
+Removed references to the older fs.checkpoint.\* properties that resided in core-site.xml
 
 
 ---
@@ -510,15 +510,15 @@ Added a metric to track number of heartbeats processed by the JobTracker.
 
 * [MAPREDUCE-1664](https://issues.apache.org/jira/browse/MAPREDUCE-1664) | *Major* | **Job Acls affect Queue Acls**
 
-* Removed aclsEnabled flag from queues configuration files.
-* Removed the configuration property mapreduce.cluster.job-authorization-enabled.
-* Added mapreduce.cluster.acls.enabled as the single configuration property in mapred-default.xml that enables the authorization checks for all job level and queue level operations.
-* To enable authorization of users to do job level and queue level operations, mapreduce.cluster.acls.enabled is to be set to true in JobTracker's configuration and in all TaskTrackers' configurations.
-* To get access to a job, it is enough for a user to be part of one of the access lists i.e. either job-acl or queue-admins-acl(unlike before, when, one has to be part of both the lists).
-* Queue administrators(configured via acl-administer-jobs) of a queue can do all view-job and modify-job operations on all jobs submitted to that queue. 
-* ClusterOwner(who started the mapreduce cluster) and cluster administrators(configured via mapreduce.cluster.permissions.supergroup) can do all job level operations and queue level operations on all jobs on all queues in that cluster irrespective of job-acls and queue-acls configured.
-* JobOwner(who submitted job to a queue) can do all view-job and modify-job operations on his/her job irrespective of job-acls and queue-acls.
-* Since aclsEnabled flag is removed from queues configuration files, "refresh of queues configuration" will not change mapreduce.cluster.acls.enabled on the fly. mapreduce.cluster.acls.enabled can be modified only when restarting the mapreduce cluster.
+\* Removed aclsEnabled flag from queues configuration files.
+\* Removed the configuration property mapreduce.cluster.job-authorization-enabled.
+\* Added mapreduce.cluster.acls.enabled as the single configuration property in mapred-default.xml that enables the authorization checks for all job level and queue level operations.
+\* To enable authorization of users to do job level and queue level operations, mapreduce.cluster.acls.enabled is to be set to true in JobTracker's configuration and in all TaskTrackers' configurations.
+\* To get access to a job, it is enough for a user to be part of one of the access lists i.e. either job-acl or queue-admins-acl(unlike before, when, one has to be part of both the lists).
+\* Queue administrators(configured via acl-administer-jobs) of a queue can do all view-job and modify-job operations on all jobs submitted to that queue. 
+\* ClusterOwner(who started the mapreduce cluster) and cluster administrators(configured via mapreduce.cluster.permissions.supergroup) can do all job level operations and queue level operations on all jobs on all queues in that cluster irrespective of job-acls and queue-acls configured.
+\* JobOwner(who submitted job to a queue) can do all view-job and modify-job operations on his/her job irrespective of job-acls and queue-acls.
+\* Since aclsEnabled flag is removed from queues configuration files, "refresh of queues configuration" will not change mapreduce.cluster.acls.enabled on the fly. mapreduce.cluster.acls.enabled can be modified only when restarting the mapreduce cluster.
 
 
 ---

@@ -17,53 +17,53 @@
 # limitations under the License.
 -->
 * Apache Tez v0.8.1
-    * Changes (0.8.1/CHANGES.0.8.1.html)
-    * Release Notes (0.8.1/RELEASENOTES.0.8.1.html)
+    * [Changes](0.8.1/CHANGES.0.8.1.html)
+    * [Release Notes](0.8.1/RELEASENOTES.0.8.1.html)
 * Apache Tez v0.8.0-alpha
-    * Changes (0.8.0-alpha/CHANGES.0.8.0-alpha.html)
-    * Release Notes (0.8.0-alpha/RELEASENOTES.0.8.0-alpha.html)
+    * [Changes](0.8.0-alpha/CHANGES.0.8.0-alpha.html)
+    * [Release Notes](0.8.0-alpha/RELEASENOTES.0.8.0-alpha.html)
 * Apache Tez v0.8.0
-    * Changes (0.8.0/CHANGES.0.8.0.html)
-    * Release Notes (0.8.0/RELEASENOTES.0.8.0.html)
+    * [Changes](0.8.0/CHANGES.0.8.0.html)
+    * [Release Notes](0.8.0/RELEASENOTES.0.8.0.html)
 * Apache Tez v0.7.1
-    * Changes (0.7.1/CHANGES.0.7.1.html)
-    * Release Notes (0.7.1/RELEASENOTES.0.7.1.html)
+    * [Changes](0.7.1/CHANGES.0.7.1.html)
+    * [Release Notes](0.7.1/RELEASENOTES.0.7.1.html)
 * Apache Tez v0.7.0
-    * Changes (0.7.0/CHANGES.0.7.0.html)
-    * Release Notes (0.7.0/RELEASENOTES.0.7.0.html)
+    * [Changes](0.7.0/CHANGES.0.7.0.html)
+    * [Release Notes](0.7.0/RELEASENOTES.0.7.0.html)
 * Apache Tez v0.6.3
-    * Changes (0.6.3/CHANGES.0.6.3.html)
-    * Release Notes (0.6.3/RELEASENOTES.0.6.3.html)
+    * [Changes](0.6.3/CHANGES.0.6.3.html)
+    * [Release Notes](0.6.3/RELEASENOTES.0.6.3.html)
 * Apache Tez v0.6.2
-    * Changes (0.6.2/CHANGES.0.6.2.html)
-    * Release Notes (0.6.2/RELEASENOTES.0.6.2.html)
+    * [Changes](0.6.2/CHANGES.0.6.2.html)
+    * [Release Notes](0.6.2/RELEASENOTES.0.6.2.html)
 * Apache Tez v0.6.1
-    * Changes (0.6.1/CHANGES.0.6.1.html)
-    * Release Notes (0.6.1/RELEASENOTES.0.6.1.html)
+    * [Changes](0.6.1/CHANGES.0.6.1.html)
+    * [Release Notes](0.6.1/RELEASENOTES.0.6.1.html)
 * Apache Tez v0.6.0
-    * Changes (0.6.0/CHANGES.0.6.0.html)
-    * Release Notes (0.6.0/RELEASENOTES.0.6.0.html)
+    * [Changes](0.6.0/CHANGES.0.6.0.html)
+    * [Release Notes](0.6.0/RELEASENOTES.0.6.0.html)
 * Apache Tez v0.5.5
-    * Changes (0.5.5/CHANGES.0.5.5.html)
-    * Release Notes (0.5.5/RELEASENOTES.0.5.5.html)
+    * [Changes](0.5.5/CHANGES.0.5.5.html)
+    * [Release Notes](0.5.5/RELEASENOTES.0.5.5.html)
 * Apache Tez v0.5.4
-    * Changes (0.5.4/CHANGES.0.5.4.html)
-    * Release Notes (0.5.4/RELEASENOTES.0.5.4.html)
+    * [Changes](0.5.4/CHANGES.0.5.4.html)
+    * [Release Notes](0.5.4/RELEASENOTES.0.5.4.html)
 * Apache Tez v0.5.3
-    * Changes (0.5.3/CHANGES.0.5.3.html)
-    * Release Notes (0.5.3/RELEASENOTES.0.5.3.html)
+    * [Changes](0.5.3/CHANGES.0.5.3.html)
+    * [Release Notes](0.5.3/RELEASENOTES.0.5.3.html)
 * Apache Tez v0.5.2
-    * Changes (0.5.2/CHANGES.0.5.2.html)
-    * Release Notes (0.5.2/RELEASENOTES.0.5.2.html)
+    * [Changes](0.5.2/CHANGES.0.5.2.html)
+    * [Release Notes](0.5.2/RELEASENOTES.0.5.2.html)
 * Apache Tez v0.5.1
-    * Changes (0.5.1/CHANGES.0.5.1.html)
-    * Release Notes (0.5.1/RELEASENOTES.0.5.1.html)
+    * [Changes](0.5.1/CHANGES.0.5.1.html)
+    * [Release Notes](0.5.1/RELEASENOTES.0.5.1.html)
 * Apache Tez v0.5.0
-    * Changes (0.5.0/CHANGES.0.5.0.html)
-    * Release Notes (0.5.0/RELEASENOTES.0.5.0.html)
+    * [Changes](0.5.0/CHANGES.0.5.0.html)
+    * [Release Notes](0.5.0/RELEASENOTES.0.5.0.html)
 * Apache Tez v0.4.1
-    * Changes (0.4.1/CHANGES.0.4.1.html)
-    * Release Notes (0.4.1/RELEASENOTES.0.4.1.html)
+    * [Changes](0.4.1/CHANGES.0.4.1.html)
+    * [Release Notes](0.4.1/RELEASENOTES.0.4.1.html)
 * Apache Tez v0.4.0
-    * Changes (0.4.0/CHANGES.0.4.0.html)
-    * Release Notes (0.4.0/RELEASENOTES.0.4.0.html)
+    * [Changes](0.4.0/CHANGES.0.4.0.html)
+    * [Release Notes](0.4.0/RELEASENOTES.0.4.0.html)

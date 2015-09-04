@@ -49,7 +49,7 @@ Our updateIsr code is currently:
 
   private def updateIsr(newIsr: Set[Replica]) {
     debug("Updated ISR for partition [%s,%d] to %s".format(topic, partitionId, newIsr.mkString(",")))
-    val newLeaderAndIsr = new LeaderAndIsr(localBrokerId, leaderEpoch, newIsr.map(r => r.brokerId).toList, zkVersion)
+    val newLeaderAndIsr = new LeaderAndIsr(localBrokerId, leaderEpoch, newIsr.map(r =\> r.brokerId).toList, zkVersion)
     // use the epoch of the controller that made the leadership decision, instead of the current controller epoch
     val (updateSucceeded, newVersion) = ZkUtils.conditionalUpdatePersistentPath(zkClient,
       ZkUtils.getTopicPartitionLeaderAndIsrPath(topic, partitionId),
