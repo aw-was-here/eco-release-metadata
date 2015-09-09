@@ -23,6 +23,52 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-10467](https://issues.apache.org/jira/browse/SPARK-10467) | *Minor* | **Vector is converted to tuple when extracted from Row using \_\_getitem\_\_**
+
+If we take a row from a data frame and try to extract vector element by index it is converted to tuple:
+
+{code}
+from pyspark.ml.feature import HashingTF
+
+df = sqlContext.createDataFrame([(["foo", "bar"], )], ("keys", ))
+transformer = HashingTF(inputCol="keys", outputCol="vec", numFeatures=5)
+transformed = transformer.transform(df)
+row = transformed.first()
+
+row.vec # As expected
+## SparseVector(5, {4: 2.0})
+
+row[1]  # Returns tuple
+## (0, 5, [4], [2.0]) 
+{code}
+
+Problem cannot be reproduced if we create and access Row directly:
+
+{code}
+from pyspark.mllib.linalg import Vectors
+from pyspark.sql.types import Row
+
+row = Row(vec=Vectors.sparse(3, [(0, 1)]))
+
+row.vec
+## SparseVector(3, {0: 1.0})
+
+row[0]
+## SparseVector(3, {0: 1.0})
+{code}
+
+but if we use above to create a data frame and extract:
+
+{code}
+df = sqlContext.createDataFrame([row], ("vec", ))
+
+df.first()[0]
+## (0, 3, [0], [1.0])  
+{code}
+
+
+---
+
 * [SPARK-10391](https://issues.apache.org/jira/browse/SPARK-10391) | *Minor* | **Spark 1.4.1 released news under news/spark-1-3-1-released.html**
 
 The link to the news "Spark 1.4.1 released" is under http://spark.apache.org/news/spark-1-3-1-released.html. It's certainly inconsistent with the other news.
@@ -1238,6 +1284,13 @@ Driver stacktrace:
 https://github.com/apache/hive/blob/branch-0.13/ql/src/java/org/apache/hadoop/hive/ql/udf/generic/GenericUDFDate.java#L61 needs to be transient. 
 
 Should a custom Hive build for Spark? or open a ticket on OSS Hive on it?
+
+
+---
+
+* [SPARK-10148](https://issues.apache.org/jira/browse/SPARK-10148) | *Minor* | **Display active and inactive receiver numbers in Streaming page**
+
+Displaying active and inactive receiver numbers in Streaming page is helpful to  understand whether receivers have started or not.
 
 
 ---
@@ -4852,6 +4905,15 @@ Before the release, we need to update the MLlib Programming Guide.  Updates will
 * [SPARK-9667](https://issues.apache.org/jira/browse/SPARK-9667) | *Major* | **Remove SparkSqlSerializer2 in favor of Unsafe exchange**
 
 GenerateUnsafeProjection can be used directly as a code generated serializer. We no longer need SparkSqlSerializer2.
+
+
+---
+
+* [SPARK-9666](https://issues.apache.org/jira/browse/SPARK-9666) | *Major* | **ML 1.5 QA: model save/load audit**
+
+We should check to make sure no changes broke model import/export in spark.mllib.
+\* If a model's name, data members, or constructors have changed \_at all\_, then we likely need to support a new save/load format version.  Different versions must be tested in unit tests to ensure backwards compatibility (i.e., verify we can load old model formats).
+\* Examples in the programming guide should include save/load when available.  It's important to try running each example in the guide whenever it is modified (since there are no automated tests).
 
 
 ---
@@ -20500,6 +20562,17 @@ For this JIRA I propose we do the following:
  - Rewrite all the UDFs that are currently hacked into the various parsers using this new functionality.
 
 Depending on how big this refactoring becomes we could split parts 1&2 from part 3 above.
+
+
+---
+
+* [SPARK-4752](https://issues.apache.org/jira/browse/SPARK-4752) | *Major* | **Classifier based on artificial neural network**
+
+Implement classifier based on artificial neural network (ANN). Requirements:
+1) Use the existing artificial neural network implementation https://issues.apache.org/jira/browse/SPARK-2352, https://github.com/apache/spark/pull/1290
+2) Extend MLlib ClassificationModel trait, 
+3) Like other classifiers in MLlib, accept RDD[LabeledPoint] for training,
+4) Be able to return the ANN model
 
 
 ---

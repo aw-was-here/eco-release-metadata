@@ -23,6 +23,13 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [BIGTOP-2019](https://issues.apache.org/jira/browse/BIGTOP-2019) | *Major* | **BigPetStore Spark isn't compiling due to changes in SQL API**
+
+Spark no longer supports registering RDDs as temp tables -- they need to be converted to DataFrames first.
+
+
+---
+
 * [BIGTOP-2008](https://issues.apache.org/jira/browse/BIGTOP-2008) | *Minor* | **build.gradle has out-of-date version**
 
 Version in build.gradle should be 1.1.0-SNAPSHOT, not 0.9.0-SNAPSHOT.
@@ -100,6 +107,13 @@ As discussed in BIGTOP-1998 a similar thing needs to be done for the website, be
 * [BIGTOP-1997](https://issues.apache.org/jira/browse/BIGTOP-1997) | *Major* | **Bump bigtop-groovy runtime to 2.4.4**
 
 As discussed in BIGTOP-1993 Groovy runtime provided by bigtop-groovy packages needs to be moved forward to the latest version of the SDK.
+
+
+---
+
+* [BIGTOP-1996](https://issues.apache.org/jira/browse/BIGTOP-1996) | *Major* | **Dockerfiles for bigtop-slaves**
+
+Automate creation of bigtop/slaves docker images.
 
 
 ---
@@ -452,6 +466,13 @@ I'm propose to improve readability of README file for puppet deployment.
 * [BIGTOP-1910](https://issues.apache.org/jira/browse/BIGTOP-1910) | *Major* | **Adjust the dependency for hue-beeswax**
 
 Recent HUE beeswax does not use beeswax daemon. It just connect hiveserver2 through Thrift. So hue-beeswax does not need 'hive' as a dependency anymore.
+
+
+---
+
+* [BIGTOP-1909](https://issues.apache.org/jira/browse/BIGTOP-1909) | *Trivial* | **Include compiled .mo files for HUE i18n**
+
+Compiled .mo files are missing. It would be good to have the files for HUE i18n.
 
 
 ---

@@ -23,6 +23,79 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-10480](https://issues.apache.org/jira/browse/SPARK-10480) | *Minor* | **ML.LinearRegressionModel.copy() can not use argument "extra"**
+
+ML.LinearRegressionModel.copy() ignored argument extra, it will not take effect when users setting this parameter.
+
+
+---
+
+* [SPARK-10479](https://issues.apache.org/jira/browse/SPARK-10479) | *Minor* | **LogisticRegression copy should copy model summary if available**
+
+SPARK-9112 adds LogisticRegressionSummary but [does not copy the model summary if available\|https://github.com/apache/spark/blob/master/mllib/src/main/scala/org/apache/spark/ml/classification/LogisticRegression.scala#L471]
+
+We should add behavior similar to that in [LinearRegression.copy\|https://github.com/apache/spark/blob/master/mllib/src/main/scala/org/apache/spark/ml/regression/LinearRegression.scala#L314]
+
+
+---
+
+* [SPARK-10470](https://issues.apache.org/jira/browse/SPARK-10470) | *Major* | **ml.IsotonicRegressionModel.copy did not set parent**
+
+ml.IsotonicRegressionModel.copy did not set parent
+
+
+---
+
+* [SPARK-10454](https://issues.apache.org/jira/browse/SPARK-10454) | *Critical* | **Flaky test: o.a.s.scheduler.DAGSchedulerSuite.late fetch failures don't cause multiple concurrent attempts for the same map stage**
+
+test case fails intermittently in Jenkins.
+
+For eg, see the following builds-
+https://amplab.cs.berkeley.edu/jenkins/job/SparkPullRequestBuilder/41991/
+https://amplab.cs.berkeley.edu/jenkins/job/SparkPullRequestBuilder/41999/
+
+
+---
+
+* [SPARK-10434](https://issues.apache.org/jira/browse/SPARK-10434) | *Minor* | **Parquet compatibility with 1.4 is broken when writing arrays that may contain nulls**
+
+When writing arrays that may contain nulls, for example:
+{noformat}
+StructType(
+  StructField(
+    "f",
+    ArrayType(IntegerType, containsNull = true),
+    nullable = false))
+{noformat}
+Spark 1.4 uses the following schema:
+{noformat}
+message m {
+  required group f (LIST) {
+    repeated group bag {
+      optional int32 array;
+    }
+  }
+}
+{noformat}
+This behavior is a hybrid of parquet-avro and parquet-hive: the 3-level structure and repeated group name "bag" are borrowed from parquet-hive, while the innermost element field name "array" is borrowed from parquet-avro.
+
+However, in Spark 1.5, I failed to notice the latter fact and used a schema in purely parquet-hive flavor, namely:
+{noformat}
+message m {
+  required group f (LIST) {
+    repeated group bag {
+      optional int32 array\_element;
+    }
+  }
+}
+{noformat}
+One of the direct consequence is that, Parquet files containing such array fields written by Spark 1.5 can't be read by Spark 1.4 (all array elements become null).
+
+To fix this issue, the name of the innermost field should be changed back to "array".  Notice that this fix doesn't affect interoperability with Hive (saving Parquet files using {{saveAsTable()}} and then read them using Hive).
+
+
+---
+
 * [SPARK-10431](https://issues.apache.org/jira/browse/SPARK-10431) | *Critical* | **Flaky test: o.a.s.metrics.InputOutputMetricsSuite - input metrics with cache and coalesce**
 
 I sometimes get test failures such as:
@@ -109,6 +182,13 @@ These are just minor UX optimizations.
 
 ---
 
+* [SPARK-10402](https://issues.apache.org/jira/browse/SPARK-10402) | *Minor* | **Add scaladoc for default values of params in ML**
+
+We should make sure the scaladoc for params includes their default values through the models in ml/
+
+
+---
+
 * [SPARK-10398](https://issues.apache.org/jira/browse/SPARK-10398) | *Minor* | **Migrate Spark download page to use new lua mirroring scripts**
 
 From infra team :
@@ -149,7 +229,7 @@ df = sqlCtx.createDataFrame(df.rdd, df.schema)
 ---------------------------------------------------------------------------
 TypeError                                 Traceback (most recent call last)
 \<ipython-input-36-ebc1d94e0d8c\> in \<module\>()
-      1 df = sqlCtx.read.jdbc("jdbc:mysql://a2.adpilot.co/sandbox?user=mbrynski&password=CebO3ax4", 'spark\_test')
+      1 df = sqlCtx.read.jdbc("jdbc:mysql://host/sandbox?user=user&password=password", 'spark\_test')
       2 print(df.collect())
 ----\> 3 df = sqlCtx.createDataFrame(df.rdd, df.schema)
 
@@ -229,6 +309,305 @@ Number of executors was 0, but must be at least 1
 
 ---
 
+* [SPARK-10311](https://issues.apache.org/jira/browse/SPARK-10311) | *Major* | **In cluster mode, AppId and AttemptId should be update when ApplicationMaster is new**
+
+When I start a streaming app with checkpoint data in yarn-cluster mode, the appId and attempId are old(which app first create the checkpoint data), and the event log writes into the old file name.
+
+
+---
+
+* [SPARK-10301](https://issues.apache.org/jira/browse/SPARK-10301) | *Critical* | **For struct type, if parquet's global schema has less fields than a file's schema, data reading will fail**
+
+We hit this issue when reading a complex Parquet dateset without turning on schema merging.  The data set consists of Parquet files with different but compatible schemas.  In this way, the schema of the dataset is defined by either a summary file or a random physical Parquet file if no summary files are available.  Apparently, this schema may not containing all fields appeared in all physicla files.
+
+Parquet was designed with schema evolution and column pruning in mind, so it should be legal for a user to use a tailored schema to read the dataset to save disk IO.  For example, say we have a Parquet dataset consisting of two physical Parquet files with the following two schemas:
+{noformat}
+message m0 {
+  optional group f0 {
+    optional int64 f00;
+    optional int64 f01;
+  }
+}
+
+message m1 {
+  optional group f0 {
+    optional int64 f01;
+    optional int64 f01;
+    optional int64 f02;
+  }
+
+  optional double f1;
+}
+{noformat}
+Users should be allowed to read the dataset with the following schema:
+{noformat}
+message m1 {
+  optional group f0 {
+    optional int64 f01;
+    optional int64 f02;
+  }
+}
+{noformat}
+so that {{f0.f00}} and {{f1}} are never touched.  The above case can be expressed by the following {{spark-shell}} snippet:
+{noformat}
+import sqlContext.\_
+import sqlContext.implicits.\_
+import org.apache.spark.sql.types.{LongType, StructType}
+
+val path = "/tmp/spark/parquet"
+range(3).selectExpr("NAMED\_STRUCT('f00', id, 'f01', id) AS f0").coalesce(1)
+        .write.mode("overwrite").parquet(path)
+
+range(3).selectExpr("NAMED\_STRUCT('f00', id, 'f01', id, 'f02', id) AS f0", "CAST(id AS DOUBLE) AS f1").coalesce(1)
+        .write.mode("append").parquet(path)
+
+val tailoredSchema =
+  new StructType()
+    .add(
+      "f0",
+      new StructType()
+        .add("f01", LongType, nullable = true)
+        .add("f02", LongType, nullable = true),
+      nullable = true)
+
+read.schema(tailoredSchema).parquet(path).show()
+{noformat}
+Expected output should be:
+{noformat}
++--------+
+\|      f0\|
++--------+
+\|[0,null]\|
+\|[1,null]\|
+\|[2,null]\|
+\|   [0,0]\|
+\|   [1,1]\|
+\|   [2,2]\|
++--------+
+{noformat}
+However, current 1.5-SNAPSHOT version throws the following exception:
+{noformat}
+org.apache.parquet.io.ParquetDecodingException: Can not read value at 0 in block -1 in file hdfs://localhost:9000/tmp/spark/parquet/part-r-00000-56c4604e-c546-4f97-a316-05da8ab1a0bf.gz.parquet
+        at org.apache.parquet.hadoop.InternalParquetRecordReader.nextKeyValue(InternalParquetRecordReader.java:228)
+        at org.apache.parquet.hadoop.ParquetRecordReader.nextKeyValue(ParquetRecordReader.java:201)
+        at org.apache.spark.rdd.SqlNewHadoopRDD$$anon$1.hasNext(SqlNewHadoopRDD.scala:168)
+        at scala.collection.Iterator$$anon$11.hasNext(Iterator.scala:327)
+        at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:308)
+        at scala.collection.Iterator$class.foreach(Iterator.scala:727)
+        at scala.collection.AbstractIterator.foreach(Iterator.scala:1157)
+        at scala.collection.generic.Growable$class.$plus$plus$eq(Growable.scala:48)
+        at scala.collection.mutable.ArrayBuffer.$plus$plus$eq(ArrayBuffer.scala:103)
+        at scala.collection.mutable.ArrayBuffer.$plus$plus$eq(ArrayBuffer.scala:47)
+        at scala.collection.TraversableOnce$class.to(TraversableOnce.scala:273)
+        at scala.collection.AbstractIterator.to(Iterator.scala:1157)
+        at scala.collection.TraversableOnce$class.toBuffer(TraversableOnce.scala:265)
+        at scala.collection.AbstractIterator.toBuffer(Iterator.scala:1157)
+        at scala.collection.TraversableOnce$class.toArray(TraversableOnce.scala:252)
+        at scala.collection.AbstractIterator.toArray(Iterator.scala:1157)
+        at org.apache.spark.sql.execution.SparkPlan$$anonfun$5.apply(SparkPlan.scala:215)
+        at org.apache.spark.sql.execution.SparkPlan$$anonfun$5.apply(SparkPlan.scala:215)
+        at org.apache.spark.SparkContext$$anonfun$runJob$5.apply(SparkContext.scala:1844)
+        at org.apache.spark.SparkContext$$anonfun$runJob$5.apply(SparkContext.scala:1844)
+        at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:66)
+        at org.apache.spark.scheduler.Task.run(Task.scala:88)
+        at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:214)
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+        at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.ArrayIndexOutOfBoundsException: 2
+        at org.apache.spark.sql.execution.datasources.parquet.CatalystRowConverter.getConverter(CatalystRowConverter.scala:206)
+        at org.apache.parquet.io.RecordReaderImplementation.\<init\>(RecordReaderImplementation.java:269)
+        at org.apache.parquet.io.MessageColumnIO$1.visit(MessageColumnIO.java:134)
+        at org.apache.parquet.io.MessageColumnIO$1.visit(MessageColumnIO.java:99)
+        at org.apache.parquet.filter2.compat.FilterCompat$NoOpFilter.accept(FilterCompat.java:154)
+        at org.apache.parquet.io.MessageColumnIO.getRecordReader(MessageColumnIO.java:99)
+        at org.apache.parquet.hadoop.InternalParquetRecordReader.checkRead(InternalParquetRecordReader.java:137)
+        at org.apache.parquet.hadoop.InternalParquetRecordReader.nextKeyValue(InternalParquetRecordReader.java:208)
+        ... 25 more
+15/08/30 16:42:59 ERROR TaskSetManager: Task 0 in stage 2.0 failed 1 times; aborting job
+org.apache.spark.SparkException: Job aborted due to stage failure: Task 0 in stage 2.0 failed 1 times, most recent failure: Lost task 0.0 in stage 2.0 (TID 2, localhost): org.apache.parquet.io.ParquetDecodingException: Can not read value at 0 in block -1 in file hdfs://localhost:9000/tmp/spark/parquet/part-r-00000-56c4604e-c546-4f97-a316-05da8ab1a0bf.gz.parquet
+        at org.apache.parquet.hadoop.InternalParquetRecordReader.nextKeyValue(InternalParquetRecordReader.java:228)
+        at org.apache.parquet.hadoop.ParquetRecordReader.nextKeyValue(ParquetRecordReader.java:201)
+        at org.apache.spark.rdd.SqlNewHadoopRDD$$anon$1.hasNext(SqlNewHadoopRDD.scala:168)
+        at scala.collection.Iterator$$anon$11.hasNext(Iterator.scala:327)
+        at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:308)
+        at scala.collection.Iterator$class.foreach(Iterator.scala:727)
+        at scala.collection.AbstractIterator.foreach(Iterator.scala:1157)
+        at scala.collection.generic.Growable$class.$plus$plus$eq(Growable.scala:48)
+        at scala.collection.mutable.ArrayBuffer.$plus$plus$eq(ArrayBuffer.scala:103)
+        at scala.collection.mutable.ArrayBuffer.$plus$plus$eq(ArrayBuffer.scala:47)
+        at scala.collection.TraversableOnce$class.to(TraversableOnce.scala:273)
+        at scala.collection.AbstractIterator.to(Iterator.scala:1157)
+        at scala.collection.TraversableOnce$class.toBuffer(TraversableOnce.scala:265)
+        at scala.collection.AbstractIterator.toBuffer(Iterator.scala:1157)
+        at scala.collection.TraversableOnce$class.toArray(TraversableOnce.scala:252)
+        at scala.collection.AbstractIterator.toArray(Iterator.scala:1157)
+        at org.apache.spark.sql.execution.SparkPlan$$anonfun$5.apply(SparkPlan.scala:215)
+        at org.apache.spark.sql.execution.SparkPlan$$anonfun$5.apply(SparkPlan.scala:215)
+        at org.apache.spark.SparkContext$$anonfun$runJob$5.apply(SparkContext.scala:1844)
+        at org.apache.spark.SparkContext$$anonfun$runJob$5.apply(SparkContext.scala:1844)
+        at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:66)
+        at org.apache.spark.scheduler.Task.run(Task.scala:88)
+        at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:214)
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+        at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.ArrayIndexOutOfBoundsException: 2
+        at org.apache.spark.sql.execution.datasources.parquet.CatalystRowConverter.getConverter(CatalystRowConverter.scala:206)
+        at org.apache.parquet.io.RecordReaderImplementation.\<init\>(RecordReaderImplementation.java:269)
+        at org.apache.parquet.io.MessageColumnIO$1.visit(MessageColumnIO.java:134)
+        at org.apache.parquet.io.MessageColumnIO$1.visit(MessageColumnIO.java:99)
+        at org.apache.parquet.filter2.compat.FilterCompat$NoOpFilter.accept(FilterCompat.java:154)
+        at org.apache.parquet.io.MessageColumnIO.getRecordReader(MessageColumnIO.java:99)
+        at org.apache.parquet.hadoop.InternalParquetRecordReader.checkRead(InternalParquetRecordReader.java:137)
+        at org.apache.parquet.hadoop.InternalParquetRecordReader.nextKeyValue(InternalParquetRecordReader.java:208)
+        ... 25 more
+
+Driver stacktrace:
+        at org.apache.spark.scheduler.DAGScheduler.org$apache$spark$scheduler$DAGScheduler$$failJobAndIndependentStages(DAGScheduler.scala:1280)
+        at org.apache.spark.scheduler.DAGScheduler$$anonfun$abortStage$1.apply(DAGScheduler.scala:1268)
+        at org.apache.spark.scheduler.DAGScheduler$$anonfun$abortStage$1.apply(DAGScheduler.scala:1267)
+        at scala.collection.mutable.ResizableArray$class.foreach(ResizableArray.scala:59)
+        at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:47)
+        at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:1267)
+        at org.apache.spark.scheduler.DAGScheduler$$anonfun$handleTaskSetFailed$1.apply(DAGScheduler.scala:697)
+        at org.apache.spark.scheduler.DAGScheduler$$anonfun$handleTaskSetFailed$1.apply(DAGScheduler.scala:697)
+        at scala.Option.foreach(Option.scala:236)
+        at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:697)
+        at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:1493)
+        at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:1455)
+        at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:1444)
+        at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:48)
+        at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:567)
+        at org.apache.spark.SparkContext.runJob(SparkContext.scala:1818)
+        at org.apache.spark.SparkContext.runJob(SparkContext.scala:1831)
+        at org.apache.spark.SparkContext.runJob(SparkContext.scala:1844)
+        at org.apache.spark.sql.execution.SparkPlan.executeTake(SparkPlan.scala:215)
+        at org.apache.spark.sql.execution.Limit.executeCollect(basicOperators.scala:207)
+        at org.apache.spark.sql.DataFrame$$anonfun$collect$1.apply(DataFrame.scala:1403)
+        at org.apache.spark.sql.DataFrame$$anonfun$collect$1.apply(DataFrame.scala:1403)
+        at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:56)
+        at org.apache.spark.sql.DataFrame.withNewExecutionId(DataFrame.scala:1921)
+        at org.apache.spark.sql.DataFrame.collect(DataFrame.scala:1402)
+        at org.apache.spark.sql.DataFrame.head(DataFrame.scala:1332)
+        at org.apache.spark.sql.DataFrame.take(DataFrame.scala:1395)
+        at org.apache.spark.sql.DataFrame.showString(DataFrame.scala:178)
+        at org.apache.spark.sql.DataFrame.show(DataFrame.scala:402)
+        at org.apache.spark.sql.DataFrame.show(DataFrame.scala:363)
+        at org.apache.spark.sql.DataFrame.show(DataFrame.scala:371)
+        at $iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC.\<init\>(\<console\>:41)
+        at $iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC.\<init\>(\<console\>:53)
+        at $iwC$$iwC$$iwC$$iwC$$iwC$$iwC.\<init\>(\<console\>:55)
+        at $iwC$$iwC$$iwC$$iwC$$iwC.\<init\>(\<console\>:57)
+        at $iwC$$iwC$$iwC$$iwC.\<init\>(\<console\>:59)
+        at $iwC$$iwC$$iwC.\<init\>(\<console\>:61)
+        at $iwC$$iwC.\<init\>(\<console\>:63)
+        at $iwC.\<init\>(\<console\>:65)
+        at \<init\>(\<console\>:67)
+        at .\<init\>(\<console\>:71)
+        at .\<clinit\>(\<console\>)
+        at .\<init\>(\<console\>:7)
+        at .\<clinit\>(\<console\>)
+        at $print(\<console\>)
+        at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+        at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+        at java.lang.reflect.Method.invoke(Method.java:606)
+        at org.apache.spark.repl.SparkIMain$ReadEvalPrint.call(SparkIMain.scala:1065)
+        at org.apache.spark.repl.SparkIMain$Request.loadAndRun(SparkIMain.scala:1340)
+        at org.apache.spark.repl.SparkIMain.loadAndRunReq$1(SparkIMain.scala:840)
+        at org.apache.spark.repl.SparkIMain.interpret(SparkIMain.scala:871)
+        at org.apache.spark.repl.SparkIMain.interpret(SparkIMain.scala:819)
+        at org.apache.spark.repl.SparkILoop.org$apache$spark$repl$SparkILoop$$pasteCommand(SparkILoop.scala:825)
+        at org.apache.spark.repl.SparkILoop$$anonfun$standardCommands$8.apply(SparkILoop.scala:345)
+        at org.apache.spark.repl.SparkILoop$$anonfun$standardCommands$8.apply(SparkILoop.scala:345)
+        at scala.tools.nsc.interpreter.LoopCommands$LoopCommand$$anonfun$nullary$1.apply(LoopCommands.scala:65)
+        at scala.tools.nsc.interpreter.LoopCommands$LoopCommand$$anonfun$nullary$1.apply(LoopCommands.scala:65)
+        at scala.tools.nsc.interpreter.LoopCommands$NullaryCmd.apply(LoopCommands.scala:76)
+        at org.apache.spark.repl.SparkILoop.command(SparkILoop.scala:809)
+        at org.apache.spark.repl.SparkILoop.processLine$1(SparkILoop.scala:657)
+        at org.apache.spark.repl.SparkILoop.innerLoop$1(SparkILoop.scala:665)
+        at org.apache.spark.repl.SparkILoop.org$apache$spark$repl$SparkILoop$$loop(SparkILoop.scala:670)
+        at org.apache.spark.repl.SparkILoop$$anonfun$org$apache$spark$repl$SparkILoop$$process$1.apply$mcZ$sp(SparkILoop.scala:997)
+        at org.apache.spark.repl.SparkILoop$$anonfun$org$apache$spark$repl$SparkILoop$$process$1.apply(SparkILoop.scala:945)
+        at org.apache.spark.repl.SparkILoop$$anonfun$org$apache$spark$repl$SparkILoop$$process$1.apply(SparkILoop.scala:945)
+        at scala.tools.nsc.util.ScalaClassLoader$.savingContextLoader(ScalaClassLoader.scala:135)
+        at org.apache.spark.repl.SparkILoop.org$apache$spark$repl$SparkILoop$$process(SparkILoop.scala:945)
+        at org.apache.spark.repl.SparkILoop.process(SparkILoop.scala:1059)
+        at org.apache.spark.repl.Main$.main(Main.scala:31)
+        at org.apache.spark.repl.Main.main(Main.scala)
+        at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+        at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+        at java.lang.reflect.Method.invoke(Method.java:606)
+        at org.apache.spark.deploy.SparkSubmit$.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:672)
+        at org.apache.spark.deploy.SparkSubmit$.doRunMain$1(SparkSubmit.scala:180)
+        at org.apache.spark.deploy.SparkSubmit$.submit(SparkSubmit.scala:205)
+        at org.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:120)
+        at org.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)
+Caused by: org.apache.parquet.io.ParquetDecodingException: Can not read value at 0 in block -1 in file hdfs://localhost:9000/tmp/spark/parquet/part-r-00000-56c4604e-c546-4f97-a316-05da8ab1a0bf.gz.parquet
+        at org.apache.parquet.hadoop.InternalParquetRecordReader.nextKeyValue(InternalParquetRecordReader.java:228)
+        at org.apache.parquet.hadoop.ParquetRecordReader.nextKeyValue(ParquetRecordReader.java:201)
+        at org.apache.spark.rdd.SqlNewHadoopRDD$$anon$1.hasNext(SqlNewHadoopRDD.scala:168)
+        at scala.collection.Iterator$$anon$11.hasNext(Iterator.scala:327)
+        at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:308)
+        at scala.collection.Iterator$class.foreach(Iterator.scala:727)
+        at scala.collection.AbstractIterator.foreach(Iterator.scala:1157)
+        at scala.collection.generic.Growable$class.$plus$plus$eq(Growable.scala:48)
+        at scala.collection.mutable.ArrayBuffer.$plus$plus$eq(ArrayBuffer.scala:103)
+        at scala.collection.mutable.ArrayBuffer.$plus$plus$eq(ArrayBuffer.scala:47)
+        at scala.collection.TraversableOnce$class.to(TraversableOnce.scala:273)
+        at scala.collection.AbstractIterator.to(Iterator.scala:1157)
+        at scala.collection.TraversableOnce$class.toBuffer(TraversableOnce.scala:265)
+        at scala.collection.AbstractIterator.toBuffer(Iterator.scala:1157)
+        at scala.collection.TraversableOnce$class.toArray(TraversableOnce.scala:252)
+        at scala.collection.AbstractIterator.toArray(Iterator.scala:1157)
+        at org.apache.spark.sql.execution.SparkPlan$$anonfun$5.apply(SparkPlan.scala:215)
+        at org.apache.spark.sql.execution.SparkPlan$$anonfun$5.apply(SparkPlan.scala:215)
+        at org.apache.spark.SparkContext$$anonfun$runJob$5.apply(SparkContext.scala:1844)
+        at org.apache.spark.SparkContext$$anonfun$runJob$5.apply(SparkContext.scala:1844)
+        at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:66)
+        at org.apache.spark.scheduler.Task.run(Task.scala:88)
+        at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:214)
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+        at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.ArrayIndexOutOfBoundsException: 2
+        at org.apache.spark.sql.execution.datasources.parquet.CatalystRowConverter.getConverter(CatalystRowConverter.scala:206)
+        at org.apache.parquet.io.RecordReaderImplementation.\<init\>(RecordReaderImplementation.java:269)
+        at org.apache.parquet.io.MessageColumnIO$1.visit(MessageColumnIO.java:134)
+        at org.apache.parquet.io.MessageColumnIO$1.visit(MessageColumnIO.java:99)
+        at org.apache.parquet.filter2.compat.FilterCompat$NoOpFilter.accept(FilterCompat.java:154)
+        at org.apache.parquet.io.MessageColumnIO.getRecordReader(MessageColumnIO.java:99)
+        at org.apache.parquet.hadoop.InternalParquetRecordReader.checkRead(InternalParquetRecordReader.java:137)
+        at org.apache.parquet.hadoop.InternalParquetRecordReader.nextKeyValue(InternalParquetRecordReader.java:208)
+        ... 25 more
+{noformat}
+This issue can be generalized a step further.  Taking interoperability into consideration, we may have a Parquet dataset consisting of physical Parquet files sharing compatible logical schema, but created by different Parquet libraries.  Because of the historical nested type compatibility issue, physical Parquet schemas generated by those libraries may be different.  It would be nice to be able to operate on such datasets.
+
+
+---
+
+* [SPARK-10071](https://issues.apache.org/jira/browse/SPARK-10071) | *Major* | **QueueInputDStream Should Allow Checkpointing**
+
+I would like for https://issues.apache.org/jira/browse/SPARK-8630 to be reverted and that issue resolved as won’t fix, and for QueueInputDStream to revert to its old behavior of not throwing an exception if checkpointing is
+enabled.
+
+Why? The reason is that this fix which throws an exception if the DStream is being checkpointed breaks the primary use case for QueueInputDStream, which is testing. For example, the Spark Streaming documentation recommends using QueueInputDStream for testing.
+
+Why does throwing an exception if checkpointing is used break this class? The reason is that if I use windowing operations or updateStateByKey then the StreamingContext requires that I enable checkpointing. It throws an exception if I don’t enable checkpointing. But then if I enable checkpointing this class throws an exception saying that I cannot use checkpointing with the queue stream. The end result of this is that I cannot use QueueInputDStream to test windowing operations and updateStateByKey. It can only be used for trivial stateless DStreams.
+
+But would removing the exception-throwing logic make this code fragile? It should not. In the testing scenario the RDD that is passed into the QueueInputDStream is created through parallelize and it is checkpointable.
+
+But what about people who are using QueueInputDStream in non-testing scenarios with non-recoverable RDDs? Perhaps a warning suffices here that checkpointing will not be able to recover state if their RDDs are non-recoverable. Then it is up to them how they resolve this situation.
+
+Since right now we have no good way of determining if a QueueInputDStream contains RDDs that are recoverable or not, why not err on the side of leaving it to the user of the class to not expect recoverability, rather than forcing checkpointing.
+
+In conclusion: my recommendation would be to revert to the old behavior and to resolve this bug as won’t fix.
+
+
+---
+
 * [SPARK-9869](https://issues.apache.org/jira/browse/SPARK-9869) | *Critical* | **Flaky test: o.a.s.streaming.InputStreamSuite - socket input stream**
 
 https://amplab.cs.berkeley.edu/jenkins/view/Spark-QA-Test/job/Spark-1.5-SBT/68/AMPLAB\_JENKINS\_BUILD\_PROFILE=hadoop2.3,label=centos/testReport/junit/org.apache.spark.streaming/InputStreamsSuite/socket\_input\_stream/
@@ -254,6 +633,15 @@ sbt.ForkMain$ForkError: 4 did not equal 5
 	at org.apache.spark.streaming.InputStreamsSuite$$anonfun$1.apply(InputStreamsSuite.scala:48)
 
 {code}
+
+
+---
+
+* [SPARK-9803](https://issues.apache.org/jira/browse/SPARK-9803) | *Major* | **Add transform and subset  to DataFrame**
+
+These three base functions are heavily used with R dataframes. It would be great to have them work with Spark DataFrames:
+\* transform
+\* subset
 
 
 

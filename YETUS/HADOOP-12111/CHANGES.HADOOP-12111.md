@@ -18,7 +18,7 @@
 -->
 # Apache Hadoop Yetus Changelog
 
-## Release HADOOP-12111 - Unreleased (as of 2015-09-04)
+## Release HADOOP-12111 - Unreleased (as of 2015-09-09)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -56,6 +56,10 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HADOOP-12380](https://issues.apache.org/jira/browse/HADOOP-12380) | Wrong grep command invocation in github\_find\_jira\_title |  Major | yetus | Kengo Seki | Brahma Reddy Battula |
+| [HADOOP-12375](https://issues.apache.org/jira/browse/HADOOP-12375) | Incomplete checking for findbugs executable |  Major | yetus | Kengo Seki | Jagadesh Kiran N |
+| [HADOOP-12355](https://issues.apache.org/jira/browse/HADOOP-12355) | test-patch TAP plugin should use ${SED} instead of sed |  Trivial | yetus | Kengo Seki | Jagadesh Kiran N |
+| [HADOOP-12349](https://issues.apache.org/jira/browse/HADOOP-12349) | Misleading debug message in generic\_locate\_patch |  Minor | yetus | Kengo Seki | Jagadesh Kiran N |
 | [HADOOP-12340](https://issues.apache.org/jira/browse/HADOOP-12340) | test-patch docker mode fails in downloading findbugs with curl |  Major | yetus | Kengo Seki | Kengo Seki |
 | [HADOOP-12339](https://issues.apache.org/jira/browse/HADOOP-12339) | Wrong help message about --curl-cmd option |  Minor | yetus | Kengo Seki | Gabor Liptak |
 | [HADOOP-12336](https://issues.apache.org/jira/browse/HADOOP-12336) | github\_jira\_bridge doesn't work |  Blocker | yetus | Allen Wittenauer | Kengo Seki |
@@ -65,14 +69,17 @@
 | [HADOOP-12312](https://issues.apache.org/jira/browse/HADOOP-12312) | Findbugs HTML report link shows 0 warnings despite errors |  Major | yetus | Varun Saxena | Kengo Seki |
 | [HADOOP-12310](https://issues.apache.org/jira/browse/HADOOP-12310) | final memory report sometimes generates spurious errors |  Major | yetus | Allen Wittenauer | Kengo Seki |
 | [HADOOP-12303](https://issues.apache.org/jira/browse/HADOOP-12303) | test-patch pylint plugin fails silently and votes +1 incorrectly |  Major | yetus | Kengo Seki | Kengo Seki |
+| [HADOOP-12298](https://issues.apache.org/jira/browse/HADOOP-12298) | releasedocmaker isn't translating greater than/less than signs in releasenotes |  Blocker | yetus | Allen Wittenauer | Allen Wittenauer |
 | [HADOOP-12297](https://issues.apache.org/jira/browse/HADOOP-12297) | test-patch's basedir and patch-dir must be directories under the user's home in docker mode if using boot2docker |  Major | yetus | Kengo Seki | Kengo Seki |
 | [HADOOP-12289](https://issues.apache.org/jira/browse/HADOOP-12289) | Move recent yetus docker changes to the yetus dockerfile |  Major | yetus | Allen Wittenauer | Allen Wittenauer |
 | [HADOOP-12287](https://issues.apache.org/jira/browse/HADOOP-12287) | add support for perlcritic |  Major | yetus | Allen Wittenauer | Kengo Seki |
 | [HADOOP-12286](https://issues.apache.org/jira/browse/HADOOP-12286) | test-patch pylint plugin should support indent-string option |  Major | yetus | Kengo Seki | Kengo Seki |
+| [HADOOP-12277](https://issues.apache.org/jira/browse/HADOOP-12277) | releasedocmaker index mode should create a readme.md in addition to a index.md |  Minor | yetus | Allen Wittenauer | Allen Wittenauer |
 | [HADOOP-12275](https://issues.apache.org/jira/browse/HADOOP-12275) | releasedocmaker: unreleased should still be dated |  Trivial | yetus | Allen Wittenauer | Kengo Seki |
 | [HADOOP-12273](https://issues.apache.org/jira/browse/HADOOP-12273) | releasedocmaker.py fails with stacktrace if --project option is not specified |  Trivial | yetus | Kengo Seki | Kengo Seki |
 | [HADOOP-12266](https://issues.apache.org/jira/browse/HADOOP-12266) | make test-patch plugins more consistent |  Major | yetus | Kengo Seki | Kengo Seki |
 | [HADOOP-12265](https://issues.apache.org/jira/browse/HADOOP-12265) | Pylint should be installed in test-patch docker environment |  Major | yetus | Kengo Seki | Kengo Seki |
+| [HADOOP-12257](https://issues.apache.org/jira/browse/HADOOP-12257) | rework build tool support; add gradle; add scala |  Major | yetus | Allen Wittenauer | Allen Wittenauer |
 | [HADOOP-12256](https://issues.apache.org/jira/browse/HADOOP-12256) | add support for ruby-lint |  Major | yetus | Allen Wittenauer | Kengo Seki |
 | [HADOOP-12255](https://issues.apache.org/jira/browse/HADOOP-12255) | Add support for rubocop |  Major | yetus | Allen Wittenauer | Kengo Seki |
 | [HADOOP-12254](https://issues.apache.org/jira/browse/HADOOP-12254) | test-patch.sh should run findbugs if only findbugs-exclude.xml has changed |  Major | yetus | Varun Saxena | Kengo Seki |

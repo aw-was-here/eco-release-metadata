@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 1.5.0 - Unreleased (as of 2015-09-04)
+## Release 1.5.0 - 2015-09-09
 
 ### INCOMPATIBLE CHANGES:
 
@@ -113,6 +113,7 @@
 | [SPARK-5962](https://issues.apache.org/jira/browse/SPARK-5962) | [MLLIB] Python support for Power Iteration Clustering |  Major | MLlib | Stephen Boesch | Yanbo Liang |
 | [SPARK-5155](https://issues.apache.org/jira/browse/SPARK-5155) | Python API for MQTT streaming |  Major | PySpark, Streaming | Davies Liu | Prabeesh K |
 | [SPARK-5133](https://issues.apache.org/jira/browse/SPARK-5133) | Feature Importance for Random Forests |  Major | ML, MLlib | Peter Prettenhofer | Joseph K. Bradley |
+| [SPARK-4752](https://issues.apache.org/jira/browse/SPARK-4752) | Classifier based on artificial neural network |  Major | MLlib | Alexander Ulanov | Alexander Ulanov |
 | [SPARK-4751](https://issues.apache.org/jira/browse/SPARK-4751) | Support dynamic allocation for standalone mode |  Critical | Spark Core | Andrew Or | Andrew Or |
 | [SPARK-4176](https://issues.apache.org/jira/browse/SPARK-4176) | Support decimals with precision \> 18 in Parquet |  Major | SQL | Matei Zaharia | Rene Treffer |
 | [SPARK-1855](https://issues.apache.org/jira/browse/SPARK-1855) | Provide memory-and-local-disk RDD checkpointing |  Major | MLlib, Spark Core | Xiangrui Meng | Andrew Or |
@@ -130,6 +131,7 @@
 | [SPARK-10230](https://issues.apache.org/jira/browse/SPARK-10230) | LDA public API should use docConcentration |  Minor | MLlib | Feynman Liang | Feynman Liang |
 | [SPARK-10178](https://issues.apache.org/jira/browse/SPARK-10178) | HiveComparision test should print out dependent tables |  Major | SQL | Michael Armbrust | Michael Armbrust |
 | [SPARK-10163](https://issues.apache.org/jira/browse/SPARK-10163) | Allow single-category features for GBT models |  Major | ML | Joseph K. Bradley | Joseph K. Bradley |
+| [SPARK-10148](https://issues.apache.org/jira/browse/SPARK-10148) | Display active and inactive receiver numbers in Streaming page |  Minor | Streaming | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-10140](https://issues.apache.org/jira/browse/SPARK-10140) | Add target fields to @Since annotation |  Major | Documentation | Xiangrui Meng | Xiangrui Meng |
 | [SPARK-10137](https://issues.apache.org/jira/browse/SPARK-10137) | Avoid to restart receivers if scheduleReceivers returns balanced results |  Blocker | Streaming | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-10099](https://issues.apache.org/jira/browse/SPARK-10099) | Use @deprecated instead of @Deprecated in Scala code |  Trivial | Spark Core, Streaming | Xiangrui Meng | Tathagata Das |
@@ -487,6 +489,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-10467](https://issues.apache.org/jira/browse/SPARK-10467) | Vector is converted to tuple when extracted from Row using \_\_getitem\_\_ |  Minor | ML, PySpark, SQL | Maciej Szymkiewicz | Davies Liu |
 | [SPARK-10391](https://issues.apache.org/jira/browse/SPARK-10391) | Spark 1.4.1 released news under news/spark-1-3-1-released.html |  Minor | Documentation | Jacek Laskowski | Sean Owen |
 | [SPARK-10369](https://issues.apache.org/jira/browse/SPARK-10369) | Fix a bug that Receiver could not be started after deregistering |  Critical | Streaming | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-10353](https://issues.apache.org/jira/browse/SPARK-10353) | MLlib BLAS gemm outputs wrong result when beta = 0.0 for transpose transpose matrix multiplication |  Major | MLlib | Burak Yavuz | Burak Yavuz |
@@ -965,6 +968,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-10440](https://issues.apache.org/jira/browse/SPARK-10440) | Update Spark Streaming Documentation for 1.5 |  Major | Documentation, Streaming | Tathagata Das | Tathagata Das |
 | [SPARK-10252](https://issues.apache.org/jira/browse/SPARK-10252) | Update Spark SQL Programming Guide for Spark 1.5 |  Critical | SQL | Michael Armbrust | Michael Armbrust |
 | [SPARK-10244](https://issues.apache.org/jira/browse/SPARK-10244) | Update @Since annotation for mllib.util |  Minor | Documentation, MLlib | Xiangrui Meng | Xiangrui Meng |
 | [SPARK-10243](https://issues.apache.org/jira/browse/SPARK-10243) | Update @Since annotation for mllib.tree |  Minor | Documentation, MLlib | Xiangrui Meng | Xiangrui Meng |
@@ -1018,6 +1022,7 @@
 | [SPARK-9728](https://issues.apache.org/jira/browse/SPARK-9728) | Support CalendarIntervalType in HiveQL |  Critical | SQL | Reynold Xin | Yijie Shen |
 | [SPARK-9709](https://issues.apache.org/jira/browse/SPARK-9709) | Avoid starving an unsafe operator in a sort |  Blocker | SQL | Andrew Or | Andrew Or |
 | [SPARK-9671](https://issues.apache.org/jira/browse/SPARK-9671) | ML 1.5 QA: Programming guide update and migration guide |  Critical | MLlib | Joseph K. Bradley | Xiangrui Meng |
+| [SPARK-9666](https://issues.apache.org/jira/browse/SPARK-9666) | ML 1.5 QA: model save/load audit |  Major | MLlib | Joseph K. Bradley | yuhao yang |
 | [SPARK-9665](https://issues.apache.org/jira/browse/SPARK-9665) | ML 1.5 QA: API: Experimental, DeveloperApi, final, sealed audit |  Critical | ML, MLlib | Joseph K. Bradley | Xiangrui Meng |
 | [SPARK-9664](https://issues.apache.org/jira/browse/SPARK-9664) | Use sqlContext.udf to register UDAFs. |  Blocker | SQL | Yin Huai | Yin Huai |
 | [SPARK-9661](https://issues.apache.org/jira/browse/SPARK-9661) | ML 1.5 QA: API: Java compatibility, docs |  Major | Documentation, Java API, ML, MLlib | Joseph K. Bradley | Manoj Kumar |
@@ -1402,6 +1407,7 @@
 | [SPARK-7514](https://issues.apache.org/jira/browse/SPARK-7514) | Add MinMaxScaler to feature transformation |  Major | MLlib | yuhao yang | yuhao yang |
 | [SPARK-7456](https://issues.apache.org/jira/browse/SPARK-7456) | Perf test for linear regression and logistic regression with elastic-net |  Major | ML | Xiangrui Meng | DB Tsai |
 | [SPARK-7455](https://issues.apache.org/jira/browse/SPARK-7455) | Perf test for LDA (EM/online) |  Major | MLlib | Xiangrui Meng | yuhao yang |
+| [SPARK-7454](https://issues.apache.org/jira/browse/SPARK-7454) | Perf test for power iteration clustering (PIC) |  Major | MLlib | Xiangrui Meng | Feynman Liang |
 | [SPARK-7401](https://issues.apache.org/jira/browse/SPARK-7401) | Dot product and squared\_distances should be vectorized in Vectors |  Major | MLlib, PySpark | Manoj Kumar | Manoj Kumar |
 | [SPARK-7199](https://issues.apache.org/jira/browse/SPARK-7199) | Add date and timestamp support to UnsafeRow |  Major | SQL | Josh Rosen | Liang-Chi Hsieh |
 | [SPARK-7186](https://issues.apache.org/jira/browse/SPARK-7186) | Decouple internal Row from external Row |  Blocker | SQL | Reynold Xin | Davies Liu |
@@ -1446,6 +1452,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-10492](https://issues.apache.org/jira/browse/SPARK-10492) | Update Streaming documentation about rate limiting and backpressure |  Major | Documentation, Streaming | Tathagata Das | Tathagata Das |
 | [SPARK-10214](https://issues.apache.org/jira/browse/SPARK-10214) | Improve SparkR Column, DataFrame API docs |  Major | SparkR | Shivaram Venkataraman | Yu Ishikawa |
 | [SPARK-10118](https://issues.apache.org/jira/browse/SPARK-10118) | Improve SparkR API docs for 1.5 release |  Major | Documentation, SparkR | Shivaram Venkataraman | Yu Ishikawa |
 | [SPARK-9911](https://issues.apache.org/jira/browse/SPARK-9911) | User guide for MulticlassClassificationEvaluator |  Major | ML | Feynman Liang | Manoj Kumar |

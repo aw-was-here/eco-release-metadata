@@ -23,6 +23,89 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [TEZ-2768](https://issues.apache.org/jira/browse/TEZ-2768) | *Major* | **Log a useful error message when the summary stream cannot be closed when shutting down an AM**
+
+Hive might delete the staging directory before recovery summary stream is closed. The exceptions in the logs could be suppressed though with a more useful WARN message rather than a trace which is confusing.
+{code}
+015-08-25 03:09:02,075 INFO [AMShutdownThread] recovery.RecoveryService: Closing Summary Stream
+2015-08-25 03:09:02,086 WARN [AMShutdownThread] recovery.RecoveryService: Error when closing summary stream
+org.apache.hadoop.ipc.RemoteException(java.io.FileNotFoundException): No lease on /user/jzhang/tez/staging/.tez/application\_1439860407967\_0134/recovery/1/summary (inode 510613): File does not exist. Holder DFSClient\_NONMAPREDUCE\_-40719795\_1 does not have any open files.
+	at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.checkLease(FSNamesystem.java:2535)
+	at org.apache.hadoop.hdfs.server.namenode.FSDirWriteFileOp.completeFileInternal(FSDirWriteFileOp.java:722)
+	at org.apache.hadoop.hdfs.server.namenode.FSDirWriteFileOp.completeFile(FSDirWriteFileOp.java:691)
+	at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.completeFile(FSNamesystem.java:2584)
+	at org.apache.hadoop.hdfs.server.namenode.NameNodeRpcServer.complete(NameNodeRpcServer.java:773)
+	at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolServerSideTranslatorPB.complete(ClientNamenodeProtocolServerSideTranslatorPB.java:540)
+	at org.apache.hadoop.hdfs.protocol.proto.ClientNamenodeProtocolProtos$ClientNamenodeProtocol$2.callBlockingMethod(ClientNamenodeProtocolProtos.java)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine.java:616)
+	at org.apache.hadoop.ipc.RPC$Server.call(RPC.java:972)
+	at org.apache.hadoop.ipc.Server$Handler$1.run(Server.java:2088)
+	at org.apache.hadoop.ipc.Server$Handler$1.run(Server.java:2084)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:422)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1655)
+	at org.apache.hadoop.ipc.Server$Handler.run(Server.java:2084)
+
+	at org.apache.hadoop.ipc.Client.call(Client.java:1468)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1399)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine$Invoker.invoke(ProtobufRpcEngine.java:232)
+	at com.sun.proxy.$Proxy11.complete(Unknown Source)
+	at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolTranslatorPB.complete(ClientNamenodeProtocolTranslatorPB.java:443)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler.invokeMethod(RetryInvocationHandler.java:187)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler.invoke(RetryInvocationHandler.java:102)
+	at com.sun.proxy.$Proxy12.complete(Unknown Source)
+	at org.apache.hadoop.hdfs.DFSOutputStream.completeFile(DFSOutputStream.java:2250)
+	at org.apache.hadoop.hdfs.DFSOutputStream.close(DFSOutputStream.java:2234)
+	at org.apache.hadoop.fs.FSDataOutputStream$PositionCache.close(FSDataOutputStream.java:72)
+	at org.apache.hadoop.fs.FSDataOutputStream.close(FSDataOutputStream.java:106)
+	at org.apache.tez.dag.history.recovery.RecoveryService.serviceStop(RecoveryService.java:216)
+	at org.apache.hadoop.service.AbstractService.stop(AbstractService.java:221)
+	at org.apache.hadoop.service.ServiceOperations.stop(ServiceOperations.java:52)
+	at org.apache.hadoop.service.ServiceOperations.stopQuietly(ServiceOperations.java:80)
+	at org.apache.hadoop.service.CompositeService.stop(CompositeService.java:157)
+	at org.apache.hadoop.service.CompositeService.serviceStop(CompositeService.java:131)
+	at org.apache.tez.dag.history.HistoryEventHandler.serviceStop(HistoryEventHandler.java:80)
+	at org.apache.hadoop.service.AbstractService.stop(AbstractService.java:221)
+	at org.apache.hadoop.service.ServiceOperations.stop(ServiceOperations.java:52)
+	at org.apache.hadoop.service.ServiceOperations.stopQuietly(ServiceOperations.java:80)
+	at org.apache.hadoop.service.ServiceOperations.stopQuietly(ServiceOperations.java:65)
+	at org.apache.tez.dag.app.DAGAppMaster.stopServices(DAGAppMaster.java:1772)
+	at org.apache.tez.dag.app.DAGAppMaster.serviceStop(DAGAppMaster.java:1946)
+	at org.apache.hadoop.service.AbstractService.stop(AbstractService.java:221)
+	at org.apache.tez.dag.app.DAGAppMaster$DAGAppMasterShutdownHandler$AMShutdownRunnable.run(DAGAppMaster.java:878)
+	at java.lang.Thread.run(Thread.java:745)
+2015-08-25 03:09:02,090 INFO [AMShutdownThread] recovery.RecoveryService: Closing Output Stream for DAG dag\_1439860407967\_0134\_1
+2015-08-25 03:09:02,090 WARN [AMShutdownThread] recovery.RecoveryService: Error when closing output stream
+java.nio.channels.ClosedChannelException
+	at org.apache.hadoop.hdfs.DFSOutputStream.checkClosed(DFSOutputStream.java:1622)
+	at org.apache.hadoop.hdfs.DFSOutputStream.flushOrSync(DFSOutputStream.java:1986)
+	at org.apache.hadoop.hdfs.DFSOutputStream.hflush(DFSOutputStream.java:1946)
+	at org.apache.hadoop.fs.FSDataOutputStream.hflush(FSDataOutputStream.java:130)
+	at org.apache.tez.dag.history.recovery.RecoveryService.serviceStop(RecoveryService.java:224)
+	at org.apache.hadoop.service.AbstractService.stop(AbstractService.java:221)
+	at org.apache.hadoop.service.ServiceOperations.stop(ServiceOperations.java:52)
+	at org.apache.hadoop.service.ServiceOperations.stopQuietly(ServiceOperations.java:80)
+	at org.apache.hadoop.service.CompositeService.stop(CompositeService.java:157)
+	at org.apache.hadoop.service.CompositeService.serviceStop(CompositeService.java:131)
+	at org.apache.tez.dag.history.HistoryEventHandler.serviceStop(HistoryEventHandler.java:80)
+	at org.apache.hadoop.service.AbstractService.stop(AbstractService.java:221)
+	at org.apache.hadoop.service.ServiceOperations.stop(ServiceOperations.java:52)
+	at org.apache.hadoop.service.ServiceOperations.stopQuietly(ServiceOperations.java:80)
+	at org.apache.hadoop.service.ServiceOperations.stopQuietly(ServiceOperations.java:65)
+	at org.apache.tez.dag.app.DAGAppMaster.stopServices(DAGAppMaster.java:1772)
+	at org.apache.tez.dag.app.DAGAppMaster.serviceStop(DAGAppMaster.java:1946)
+	at org.apache.hadoop.service.AbstractService.stop(AbstractService.java:221)
+	at org.apache.tez.dag.app.DAGAppMaster$DAGAppMasterShutdownHandler$AMShutdownRunnable.run(DAGAppMaster.java:878)
+	at java.lang.Thread.run(Thread.java:745)
+{code}
+
+
+---
+
 * [TEZ-2761](https://issues.apache.org/jira/browse/TEZ-2761) | *Major* | **Tez UI: update the progress on the dag and vertices pages with info from AM**
 
 The data displayed on the UI for running tasks should be updated with the latest status fetched from AM.

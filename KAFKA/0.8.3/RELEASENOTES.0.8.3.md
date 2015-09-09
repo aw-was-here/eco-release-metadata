@@ -34,6 +34,42 @@ zkclient 0.6 has few important changes included like:
 
 ---
 
+* [KAFKA-2489](https://issues.apache.org/jira/browse/KAFKA-2489) | *Blocker* | **System tests: update benchmark tests to run with new and old consumer**
+
+Update benchmark tests to run w/new consumer to help catch performance regressions
+
+For context:
+
+https://www.mail-archive.com/dev@kafka.apache.org/msg33633.html
+The new consumer was previously reaching getting good performance. However, a 
+recent report on the mailing list indicates it's dropped significantly. After 
+evaluation, even with a local broker it seems to only be reaching a 2-10MB/s, 
+compared to 600+MB/s previously. Before release, we should get the performance 
+back on par.
+
+Some details about where the regression occurred from the mailing list 
+http://mail-archives.apache.org/mod\_mbox/kafka-dev/201508.mbox/%3CCAAdKFaE8bPSeWZf%2BF9RuA-xZazRpBrZG6vo454QLVHBAk\_VOJg%40mail.gmail.com%3E
+ :
+
+bq. At 49026f11781181c38e9d5edb634be9d27245c961 (May 14th), we went from good 
+performance -\> an error due to broker apparently not accepting the partition 
+assignment strategy. Since this commit seems to add heartbeats and the server 
+side code for partition assignment strategies, I assume we were missing 
+something on the client side and by filling in the server side, things stopped 
+working.
+bq. On either 84636272422b6379d57d4c5ef68b156edc1c67f8 or 
+a5b11886df8c7aad0548efd2c7c3dbc579232f03 (July 17th), I am able to run the perf 
+test again, but it's slow -- ~10MB/s for me vs the 2MB/s Jay was seeing, but 
+that's still far less than the 600MB/s I saw on the earlier commits.
+
+Ideally we would also at least have a system test in place for the new 
+consumer, even if regressions weren't automatically detected. It would at least 
+allow for manually checking for regressions. This should not be difficult since 
+there are already old consumer performance tests.
+
+
+---
+
 * [KAFKA-2486](https://issues.apache.org/jira/browse/KAFKA-2486) | *Major* | **New consumer performance**
 
 The new consumer was previously reaching getting good performance. However, a recent report on the mailing list indicates it's dropped significantly. After evaluation, even with a local broker it seems to only be reaching a 2-10MB/s, compared to 600+MB/s previously. Before release, we should get the performance back on par.
@@ -286,6 +322,13 @@ I think in the past (3 refactoring steps ago), we used to print more information
 * [KAFKA-2457](https://issues.apache.org/jira/browse/KAFKA-2457) | *Critical* | **StackOverflowError during builds**
 
 We need to set -Xss to avoid this problem. Will submit PR.
+
+
+---
+
+* [KAFKA-2453](https://issues.apache.org/jira/browse/KAFKA-2453) | *Blocker* | **enable new consumer in EndToEndLatency**
+
+We need to add an option to enable the new consumer in EndToEndLatency.
 
 
 ---

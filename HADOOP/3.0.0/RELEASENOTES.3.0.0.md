@@ -279,7 +279,9 @@ The output format of hadoop fs -du has been changed. It shows not only the file 
 
 * [HDFS-8981](https://issues.apache.org/jira/browse/HDFS-8981) | *Minor* | **Adding revision to data node jmx getVersion() method**
 
-**WARNING: No release note provided for this incompatible change.**
+getSoftwareVersion method would replace original getVersion method, which returns the version string.
+
+The new getVersion method would return both version string and revision string.
 
 
 ---

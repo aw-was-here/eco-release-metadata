@@ -23,9 +23,139 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-10481](https://issues.apache.org/jira/browse/SPARK-10481) | *Minor* | **SPARK\_PREPEND\_CLASSES make spark-yarn related jar could not be found**
+
+It happens when SPARK\_PREPEND\_CLASSES is set and run spark on yarn.
+If SPARK\_PREPEND\_CLASSES, spark-yarn related jar won't be found. Because the org.apache.spark.deploy.Client is detected as individual class rather class in jar. 
+
+{code}
+15/09/08 08:57:10 ERROR SparkContext: Error initializing SparkContext.
+java.util.NoSuchElementException: head of empty list
+	at scala.collection.immutable.Nil$.head(List.scala:337)
+	at scala.collection.immutable.Nil$.head(List.scala:334)
+	at org.apache.spark.deploy.yarn.Client$.org$apache$spark$deploy$yarn$Client$$sparkJar(Client.scala:1048)
+	at org.apache.spark.deploy.yarn.Client$.populateClasspath(Client.scala:1159)
+	at org.apache.spark.deploy.yarn.Client.setupLaunchEnv(Client.scala:534)
+	at org.apache.spark.deploy.yarn.Client.createContainerLaunchContext(Client.scala:645)
+	at org.apache.spark.deploy.yarn.Client.submitApplication(Client.scala:119)
+	at org.apache.spark.scheduler.cluster.YarnClientSchedulerBackend.start(YarnClientSchedulerBackend.scala:56)
+	at org.apache.spark.scheduler.TaskSchedulerImpl.start(TaskSchedulerImpl.scala:144)
+	at org.apache.spark.SparkContext.\<init\>(SparkContext.scala:514)
+	at com.zjffdu.tutorial.spark.WordCount$.main(WordCount.scala:24)
+	at com.zjffdu.tutorial.spark.WordCount.main(WordCount.scala)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.apache.spark.deploy.SparkSubmit$.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:680)
+	at org.apache.spark.deploy.SparkSubmit$.doRunMain$1(SparkSubmit.scala:180)
+	at org.apache.spark.deploy.SparkSubmit$.submit(SparkSubmit.scala:205)
+	at org.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:120)
+	at org.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)
+
+{code}
+
+
+---
+
+* [SPARK-10480](https://issues.apache.org/jira/browse/SPARK-10480) | *Minor* | **ML.LinearRegressionModel.copy() can not use argument "extra"**
+
+ML.LinearRegressionModel.copy() ignored argument extra, it will not take effect when users setting this parameter.
+
+
+---
+
+* [SPARK-10479](https://issues.apache.org/jira/browse/SPARK-10479) | *Minor* | **LogisticRegression copy should copy model summary if available**
+
+SPARK-9112 adds LogisticRegressionSummary but [does not copy the model summary if available\|https://github.com/apache/spark/blob/master/mllib/src/main/scala/org/apache/spark/ml/classification/LogisticRegression.scala#L471]
+
+We should add behavior similar to that in [LinearRegression.copy\|https://github.com/apache/spark/blob/master/mllib/src/main/scala/org/apache/spark/ml/regression/LinearRegression.scala#L314]
+
+
+---
+
+* [SPARK-10470](https://issues.apache.org/jira/browse/SPARK-10470) | *Major* | **ml.IsotonicRegressionModel.copy did not set parent**
+
+ml.IsotonicRegressionModel.copy did not set parent
+
+
+---
+
+* [SPARK-10468](https://issues.apache.org/jira/browse/SPARK-10468) | *Minor* | **Verify schema before Dataframe select API call**
+
+load method of GaussianMixtureModel and Word2VecModel  should verify the  schema before  dataframe.select(...) method.
+Currently , after dataframe.select(...) call, schema is verified. Need to change order of method calls
+
+
+---
+
+* [SPARK-10464](https://issues.apache.org/jira/browse/SPARK-10464) | *Major* | **Add WeibullGenerator for RandomDataGenerator**
+
+SPARK-8518 need to generate random data which follow Weibull distribution.
+
+
+---
+
+* [SPARK-10454](https://issues.apache.org/jira/browse/SPARK-10454) | *Critical* | **Flaky test: o.a.s.scheduler.DAGSchedulerSuite.late fetch failures don't cause multiple concurrent attempts for the same map stage**
+
+test case fails intermittently in Jenkins.
+
+For eg, see the following builds-
+https://amplab.cs.berkeley.edu/jenkins/job/SparkPullRequestBuilder/41991/
+https://amplab.cs.berkeley.edu/jenkins/job/SparkPullRequestBuilder/41999/
+
+
+---
+
+* [SPARK-10450](https://issues.apache.org/jira/browse/SPARK-10450) | *Minor* | **Minor SQL style, format, typo, readability fixes**
+
+This JIRA isn't exactly tied to one particular patch. Like SPARK-10003 it's more of a continuous process.
+
+
+---
+
 * [SPARK-10435](https://issues.apache.org/jira/browse/SPARK-10435) | *Major* | **SparkSubmit should fail fast for Mesos cluster mode with R**
 
 Pretty sure Mesos cluster mode with R is not supported yet. The current behavior is undefined. Instead we should just fail fast with a clear error message.
+
+
+---
+
+* [SPARK-10434](https://issues.apache.org/jira/browse/SPARK-10434) | *Minor* | **Parquet compatibility with 1.4 is broken when writing arrays that may contain nulls**
+
+When writing arrays that may contain nulls, for example:
+{noformat}
+StructType(
+  StructField(
+    "f",
+    ArrayType(IntegerType, containsNull = true),
+    nullable = false))
+{noformat}
+Spark 1.4 uses the following schema:
+{noformat}
+message m {
+  required group f (LIST) {
+    repeated group bag {
+      optional int32 array;
+    }
+  }
+}
+{noformat}
+This behavior is a hybrid of parquet-avro and parquet-hive: the 3-level structure and repeated group name "bag" are borrowed from parquet-hive, while the innermost element field name "array" is borrowed from parquet-avro.
+
+However, in Spark 1.5, I failed to notice the latter fact and used a schema in purely parquet-hive flavor, namely:
+{noformat}
+message m {
+  required group f (LIST) {
+    repeated group bag {
+      optional int32 array\_element;
+    }
+  }
+}
+{noformat}
+One of the direct consequence is that, Parquet files containing such array fields written by Spark 1.5 can't be read by Spark 1.4 (all array elements become null).
+
+To fix this issue, the name of the innermost field should be changed back to "array".  Notice that this fix doesn't affect interoperability with Hive (saving Parquet files using {{saveAsTable()}} and then read them using Hive).
 
 
 ---
@@ -130,6 +260,13 @@ These are just minor UX optimizations.
 
 ---
 
+* [SPARK-10402](https://issues.apache.org/jira/browse/SPARK-10402) | *Minor* | **Add scaladoc for default values of params in ML**
+
+We should make sure the scaladoc for params includes their default values through the models in ml/
+
+
+---
+
 * [SPARK-10398](https://issues.apache.org/jira/browse/SPARK-10398) | *Minor* | **Migrate Spark download page to use new lua mirroring scripts**
 
 From infra team :
@@ -170,7 +307,7 @@ df = sqlCtx.createDataFrame(df.rdd, df.schema)
 ---------------------------------------------------------------------------
 TypeError                                 Traceback (most recent call last)
 \<ipython-input-36-ebc1d94e0d8c\> in \<module\>()
-      1 df = sqlCtx.read.jdbc("jdbc:mysql://a2.adpilot.co/sandbox?user=mbrynski&password=CebO3ax4", 'spark\_test')
+      1 df = sqlCtx.read.jdbc("jdbc:mysql://host/sandbox?user=user&password=password", 'spark\_test')
       2 print(df.collect())
 ----\> 3 df = sqlCtx.createDataFrame(df.rdd, df.schema)
 
@@ -246,6 +383,13 @@ They don't bring much value since we now have better unit test coverage for hash
 
 ---
 
+* [SPARK-10373](https://issues.apache.org/jira/browse/SPARK-10373) | *Major* | **Move @since annotator to pyspark to be shared by all components**
+
+Python's `@since` is defined under `pyspark.sql`. It would be nice to move it under `pyspark` to be shared by all components.
+
+
+---
+
 * [SPARK-10355](https://issues.apache.org/jira/browse/SPARK-10355) | *Minor* | **Add Python API for SQLTransformer**
 
 Add Python API for SQLTransformer
@@ -284,6 +428,93 @@ spark 1.4.1 errors with:
 java.lang.IllegalArgumentException:
 Number of executors was 0, but must be at least 1
 (or 0 if dynamic executor allocation is enabled).
+
+
+---
+
+* [SPARK-10327](https://issues.apache.org/jira/browse/SPARK-10327) | *Major* | **Cache Table is not working while subquery has alias in its project list**
+
+Code to reproduce that:
+{code}
+    import org.apache.spark.sql.hive.execution.HiveTableScan
+    sql("select key, value, key + 1 from src").registerTempTable("abc")
+    cacheTable("abc")
+
+    val sparkPlan = sql(
+      """select a.key, b.key, c.key from
+        \|abc a join abc b on a.key=b.key
+        \|join abc c on a.key=c.key""".stripMargin).queryExecution.sparkPlan
+
+    assert(sparkPlan.collect { case e: InMemoryColumnarTableScan =\> e }.size === 3) // failed
+    assert(sparkPlan.collect { case e: HiveTableScan =\> e }.size === 0) // failed
+{code}
+
+The query plan like:
+{code}
+== Parsed Logical Plan ==
+'Project [unresolvedalias('a.key),unresolvedalias('b.key),unresolvedalias('c.key)]
+ 'Join Inner, Some(('a.key = 'c.key))
+  'Join Inner, Some(('a.key = 'b.key))
+   'UnresolvedRelation [abc], Some(a)
+   'UnresolvedRelation [abc], Some(b)
+  'UnresolvedRelation [abc], Some(c)
+
+== Analyzed Logical Plan ==
+key: int, key: int, key: int
+Project [key#14,key#61,key#66]
+ Join Inner, Some((key#14 = key#66))
+  Join Inner, Some((key#14 = key#61))
+   Subquery a
+    Subquery abc
+     Project [key#14,value#15,(key#14 + 1) AS \_c2#16]
+      MetastoreRelation default, src, None
+   Subquery b
+    Subquery abc
+     Project [key#61,value#62,(key#61 + 1) AS \_c2#58]
+      MetastoreRelation default, src, None
+  Subquery c
+   Subquery abc
+    Project [key#66,value#67,(key#66 + 1) AS \_c2#63]
+     MetastoreRelation default, src, None
+
+== Optimized Logical Plan ==
+Project [key#14,key#61,key#66]
+ Join Inner, Some((key#14 = key#66))
+  Project [key#14,key#61]
+   Join Inner, Some((key#14 = key#61))
+    Project [key#14]
+     InMemoryRelation [key#14,value#15,\_c2#16], true, 10000, StorageLevel(true, true, false, true, 1), (Project [key#14,value#15,(key#14 + 1) AS \_c2#16]), Some(abc)
+    Project [key#61]
+     MetastoreRelation default, src, None
+  Project [key#66]
+   MetastoreRelation default, src, None
+
+== Physical Plan ==
+TungstenProject [key#14,key#61,key#66]
+ BroadcastHashJoin [key#14], [key#66], BuildRight
+  TungstenProject [key#14,key#61]
+   BroadcastHashJoin [key#14], [key#61], BuildRight
+    ConvertToUnsafe
+     InMemoryColumnarTableScan [key#14], (InMemoryRelation [key#14,value#15,\_c2#16], true, 10000, StorageLevel(true, true, false, true, 1), (Project [key#14,value#15,(key#14 + 1) AS \_c2#16]), Some(abc))
+    ConvertToUnsafe
+     HiveTableScan [key#61], (MetastoreRelation default, src, None)
+  ConvertToUnsafe
+   HiveTableScan [key#66], (MetastoreRelation default, src, None)
+{code}
+
+
+---
+
+* [SPARK-10316](https://issues.apache.org/jira/browse/SPARK-10316) | *Major* | **respect non-deterministic expressions in PhysicalOperation**
+
+We did a lot of special handling for non-deterministic expressions in Optimizer. However, PhysicalOperation just collects all Projects and Filters and messed it up. We should respect the operators order caused by non-deterministic expressions in PhysicalOperation.
+
+
+---
+
+* [SPARK-10311](https://issues.apache.org/jira/browse/SPARK-10311) | *Major* | **In cluster mode, AppId and AttemptId should be update when ApplicationMaster is new**
+
+When I start a streaming app with checkpoint data in yarn-cluster mode, the appId and attempId are old(which app first create the checkpoint data), and the event log writes into the old file name.
 
 
 ---
@@ -617,6 +848,15 @@ the "ignore late map task completion" test in {{DAGSchedulerSuite}} is a bit con
 
 ---
 
+* [SPARK-10227](https://issues.apache.org/jira/browse/SPARK-10227) | *Major* | **sbt build on Scala 2.11 fails**
+
+Scala 2.11 has additional warnings compare to Scala 2.10, and the addition of 'fatal warnings' in the sbt build, the current {{trunk}} (and {{branch-1.5}}) fails to  build with sbt on Scala 2.11.
+
+Most of the warning are about the {{@transient}} annotation not being set on relevant elements, and a few pointing to some potential bugs.
+
+
+---
+
 * [SPARK-10184](https://issues.apache.org/jira/browse/SPARK-10184) | *Minor* | **Optimization for bounds determination in RangePartitioner**
 
 Change {{cumWeight \> target}} to {{cumWeight \>= target}} in {{RangePartitioner.determineBounds}} method to make the output partitions more balanced.
@@ -654,6 +894,13 @@ for (i \<- 0 until 10) {
 {code}
 
 After code execution there are 10 {{MapPartitionsRDD}} objects on "Storage" tab in Spark application UI.
+
+
+---
+
+* [SPARK-10176](https://issues.apache.org/jira/browse/SPARK-10176) | *Major* | **Show partially analyzed plan when checkAnswer df fails to resolve**
+
+It would be much easier to debug test failures if we could see the failed plan instead of just the user friendly error message.
 
 
 ---
@@ -719,6 +966,57 @@ Note that 946702800000000 == Sat  1 Jan 2000 05:00:00 UTC
 
 ---
 
+* [SPARK-10117](https://issues.apache.org/jira/browse/SPARK-10117) | *Major* | **Implement SQL data source API for reading LIBSVM data**
+
+It is convenient to implement data source API for LIBSVM format to have a better integration with DataFrames and ML pipeline API.
+
+{code}
+import org.apache.spark.ml.source.libsvm.\_
+
+val training = sqlContext.read
+  .format("libsvm")
+  .option("numFeatures", "10000")
+  .load("path")
+{code}
+
+This JIRA covers the following:
+
+1. Read LIBSVM data as a DataFrame with two columns: label: Double and features: Vector.
+2. Accept `numFeatures` as an option.
+3. The implementation should live under `org.apache.spark.ml.source.libsvm`.
+
+
+---
+
+* [SPARK-10094](https://issues.apache.org/jira/browse/SPARK-10094) | *Major* | **Mark ML PySpark feature transformers as Experimental to match Scala**
+
+The PySpark and Scala APIs should match Experimental tags for ml.feature.
+
+This should be done after [SPARK-9665]
+
+
+---
+
+* [SPARK-10071](https://issues.apache.org/jira/browse/SPARK-10071) | *Major* | **QueueInputDStream Should Allow Checkpointing**
+
+I would like for https://issues.apache.org/jira/browse/SPARK-8630 to be reverted and that issue resolved as won’t fix, and for QueueInputDStream to revert to its old behavior of not throwing an exception if checkpointing is
+enabled.
+
+Why? The reason is that this fix which throws an exception if the DStream is being checkpointed breaks the primary use case for QueueInputDStream, which is testing. For example, the Spark Streaming documentation recommends using QueueInputDStream for testing.
+
+Why does throwing an exception if checkpointing is used break this class? The reason is that if I use windowing operations or updateStateByKey then the StreamingContext requires that I enable checkpointing. It throws an exception if I don’t enable checkpointing. But then if I enable checkpointing this class throws an exception saying that I cannot use checkpointing with the queue stream. The end result of this is that I cannot use QueueInputDStream to test windowing operations and updateStateByKey. It can only be used for trivial stateless DStreams.
+
+But would removing the exception-throwing logic make this code fragile? It should not. In the testing scenario the RDD that is passed into the QueueInputDStream is created through parallelize and it is checkpointable.
+
+But what about people who are using QueueInputDStream in non-testing scenarios with non-recoverable RDDs? Perhaps a warning suffices here that checkpointing will not be able to recover state if their RDDs are non-recoverable. Then it is up to them how they resolve this situation.
+
+Since right now we have no good way of determining if a QueueInputDStream contains RDDs that are recoverable or not, why not err on the side of leaving it to the user of the class to not expect recoverability, rather than forcing checkpointing.
+
+In conclusion: my recommendation would be to revert to the old behavior and to resolve this bug as won’t fix.
+
+
+---
+
 * [SPARK-10040](https://issues.apache.org/jira/browse/SPARK-10040) | *Major* | **JDBC writer change to use batch insert for performance**
 
 Currently JDBC write is using single row insert using executeUpdate() command instead change to executeBatch() which will handle multiple inserts by most databases in more efficient manner.
@@ -740,6 +1038,13 @@ Datasources (after {{selectFilters()}} in {{org.apache.spark.sql.execution.datas
 Before #8371, there was a bug for `Sort` on `Aggregate` that we can't use aggregate expressions named `\_aggOrdering` and can't use more than one ordering expressions which contains aggregate functions. The reason of this bug is that: The aggregate expression in `SortOrder` never get resolved, we alias it with `\_aggOrdering` and call `toAttribute` which gives us an `UnresolvedAttribute`. So actually we are referencing aggregate expression by name, not by exprId like we thought. And if there is already an aggregate expression named `\_aggOrdering` or there are more than one ordering expressions having aggregate functions, we will have conflict names and can't search by name.
 
 However, after #8371 got merged, the `SortOrder`s are guaranteed to be resolved and we are always referencing aggregate expression by exprId. The Bug doesn't exist anymore and this PR add regression tests for it.
+
+
+---
+
+* [SPARK-10013](https://issues.apache.org/jira/browse/SPARK-10013) | *Major* | **Remove Java assert from Java unit tests**
+
+We should use assertTrue, etc. instead to make sure the asserts are not ignored in tests.
 
 
 ---
@@ -808,6 +1113,13 @@ Now datasources (after {{selectFilters()}} in {{org.apache.spark.sql.execution.d
 
 ---
 
+* [SPARK-9925](https://issues.apache.org/jira/browse/SPARK-9925) | *Major* | **Set SQLConf.SHUFFLE\_PARTITIONS.key correctly for tests**
+
+Right now, in our TestSQLContext/TestHiveContext, we use {{override def numShufflePartitions: Int = this.getConf(SQLConf.SHUFFLE\_PARTITIONS, 5)}} to set {{SHUFFLE\_PARTITIONS}}. However, we never put it to SQLConf. So, after we use {{withSQLConf(SQLConf.SHUFFLE\_PARTITIONS.key -\> "number")}}, the number of shuffle partitions will be set back to 200.
+
+
+---
+
 * [SPARK-9924](https://issues.apache.org/jira/browse/SPARK-9924) | *Major* | **checkForLogs and cleanLogs are scheduled at fixed rate and can get piled up**
 
 {{checkForLogs}} and {{cleanLogs}} are scheduled using {{ScheduledThreadPoolExecutor.scheduleAtFixedRate}}. When their execution takes more time than the interval at which they are scheduled, they get piled up.
@@ -853,6 +1165,15 @@ sbt.ForkMain$ForkError: 4 did not equal 5
 
 ---
 
+* [SPARK-9834](https://issues.apache.org/jira/browse/SPARK-9834) | *Major* | **Normal equation solver for ordinary least squares**
+
+Add normal equation solver for ordinary least squares with not many features. The approach requires one pass to collect AtA and Atb, then solve the problem on driver. It works well when the problem is not very ill-conditioned and not having many columns. It also provides R-like summary statistics.
+
+We can hide this implementation under LinearRegression. It is triggered when there are no more than, e.g., 4096 features.
+
+
+---
+
 * [SPARK-9833](https://issues.apache.org/jira/browse/SPARK-9833) | *Minor* | **Add options to explicitly disable delegation token retrieval for non-HDFS**
 
 In 1.4, code was added to fetch delegation tokens for Hive metastores and HBase masters. That code is run regardless of whether the user app actually needs those tokens, since there's no way for Spark to know otherwise.
@@ -894,6 +1215,13 @@ Since the ApplicationSubmissionContext.setApplicationTags method was only added 
 
 ---
 
+* [SPARK-9767](https://issues.apache.org/jira/browse/SPARK-9767) | *Major* | **Remove ConnectionManager**
+
+We introduced the Netty network module for shuffle in Spark 1.2, and has turned it on by default for 3 releases. The old ConnectionManager is difficult to maintain. It's time to remove it.
+
+
+---
+
 * [SPARK-9748](https://issues.apache.org/jira/browse/SPARK-9748) | *Trivial* | **Centriod typo in KMeansModel**
 
 A minor typo (centriod -\> centroid). Readable variable names help every users.
@@ -917,6 +1245,14 @@ When running spark-submit with {noformat}--deploy-mode cluster{noformat} environ
 {{spark-env.sh}} is executed by {{load-spark-env.sh}} which uses an environment variable {{SPARK\_ENV\_LOADED}} [[code\|https://github.com/apache/spark/blob/master/bin/load-spark-env.sh#L25]] to ensure that it is only run once. When using the {{RestSubmissionClient}}, spark submit propagates all environment variables that are prefixed with {{SPARK\_}} [[code\|https://github.com/apache/spark/blob/3c0156899dc1ec1f7dfe6d7c8af47fa6dc7d00bf/core/src/main/scala/org/apache/spark/deploy/rest/RestSubmissionClient.scala#L400]] to the {{MesosRestServer}} where they are used to initialize the driver [[code\|https://github.com/apache/spark/blob/3c0156899dc1ec1f7dfe6d7c8af47fa6dc7d00bf/core/src/main/scala/org/apache/spark/deploy/rest/StandaloneRestServer.scala#L155]]. During this process, {{SPARK\_ENV\_LOADED}} is propagated to the new driver process (since running spark submit has caused {{load-spark-env.sh}} to be run on the submitter's machine) [[code\|https://github.com/apache/spark/blob/d86bbb4e286f16f77ba125452b07827684eafeed/core/src/main/scala/org/apache/spark/scheduler/cluster/mesos/MesosClusterScheduler.scala#L371]]. Now when {{load-spark-env.sh}} is called by {{MesosClusterScheduler}} {{SPARK\_ENV\_LOADED}} is set and {{spark-env.sh}} is never sourced.
 
 [This gist\|https://gist.github.com/pashields/9fe662d6ec5c079bdf70] shows the testing setup I used while investigating this issue. An example invocation looked like {noformat}spark-1.5.0-SNAPSHOT-bin-custom-spark/bin/spark-submit --deploy-mode cluster --master mesos://172.31.34.154:7077 --class Test spark-env-var-test\_2.10-0.1-SNAPSHOT.jar{noformat}
+
+
+---
+
+* [SPARK-9669](https://issues.apache.org/jira/browse/SPARK-9669) | *Major* | **Support PySpark with Mesos Cluster mode**
+
+PySpark with cluster mode with Mesos is not yet supported.
+We need to enable it and make sure it's able to launch Pyspark jobs.
 
 
 ---
@@ -1094,6 +1430,39 @@ This is because when the NM restarts (and restarts the ExternalShuffleService), 
 * [SPARK-9401](https://issues.apache.org/jira/browse/SPARK-9401) | *Major* | **Fully implement code generation for ConcatWs**
 
 In ConcatWs, we fall back to interpreted mode if the input is a mix of string and array of strings. We should have code gen for those as well.
+
+
+---
+
+* [SPARK-9170](https://issues.apache.org/jira/browse/SPARK-9170) | *Major* | **ORC data source creates a schema with lowercase table names**
+
+Steps to reproduce:
+
+{code}
+sqlContext.range(0, 10).select('id as "Acol").write.format("orc").save("/tmp/foo")
+
+sqlContext.read.format("orc").load("/tmp/foo").schema("Acol")
+//java.lang.IllegalArgumentException: Field "Acol" does not exist.
+
+sqlContext.read.format("orc").load("/tmp/foo").schema("acol")
+//org.apache.spark.sql.types.StructField = StructField(acol,LongType,true)
+
+sqlContext.read.format("orc").load("/tmp/foo").select("Acol").show()
+//+----+
+\|Acol\|
++----+
+\|   1\|
+\|   5\|
+\|   3\|
+\|   4\|
+\|   7\|
+\|   2\|
+\|   6\|
+\|   8\|
+\|   9\|
+\|   0\|
++----+
+{code}
 
 
 ---
