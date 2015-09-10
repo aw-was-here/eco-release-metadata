@@ -23,6 +23,13 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [TEZ-2789](https://issues.apache.org/jira/browse/TEZ-2789) | *Major* | **Backport events added in TEZ-2612 to branch-0.7**
+
+Having the events in the 0.7 line will allow them to be persisted to ATS or SimpleHistory logging. After that, the latest analyzers from master or 0.8 could be used to analyze them. At some point when the analzyers are stable, they could move into the UI directly or be back-ported in bulk to the 0.7.
+
+
+---
+
 * [TEZ-2768](https://issues.apache.org/jira/browse/TEZ-2768) | *Major* | **Log a useful error message when the summary stream cannot be closed when shutting down an AM**
 
 Hive might delete the staging directory before recovery summary stream is closed. The exceptions in the logs could be suppressed though with a more useful WARN message rather than a trace which is confusing.

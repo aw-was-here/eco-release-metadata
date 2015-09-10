@@ -30,6 +30,15 @@ Spark no longer supports registering RDDs as temp tables -- they need to be conv
 
 ---
 
+* [BIGTOP-2018](https://issues.apache.org/jira/browse/BIGTOP-2018) | *Major* | **Create a puppetizing script**
+
+As of BIGTOP-1908 , lets create a shell script which installs dependencies for bare-bone docker images and minimal OS installations.
+
+This will be reused for Dockerfiles (bigtop/puppet) and VM provisioning.
+
+
+---
+
 * [BIGTOP-2008](https://issues.apache.org/jira/browse/BIGTOP-2008) | *Minor* | **build.gradle has out-of-date version**
 
 Version in build.gradle should be 1.1.0-SNAPSHOT, not 0.9.0-SNAPSHOT.
@@ -628,9 +637,23 @@ See https://issues.apache.org/jira/browse/BIGTOP-1806
 
 ---
 
+* [BIGTOP-1805](https://issues.apache.org/jira/browse/BIGTOP-1805) | *Major* | **Upgrade Hadoop to 2.7 if released**
+
+YARN-2815 (included in hadoop-2.7) blocks BIGTOP-1701 (upgrade to hive-1.1.0)  since incompatible jline Libraries in hadoop-2.6 and hive-1.1.0 are being used.
+
+
+---
+
 * [BIGTOP-1795](https://issues.apache.org/jira/browse/BIGTOP-1795) | *Major* | **Upgrade bigtop\_toolchain to Maven 3.2.5**
 
 Zeppelin (see BIGTOP-1769 for main Zeppelin Integration JIRA) requires Maven 3.1+ as of https://github.com/apache/incubator-zeppelin/commit/2498e5d
+
+
+---
+
+* [BIGTOP-1344](https://issues.apache.org/jira/browse/BIGTOP-1344) | *Major* | **spec files assume RPMs being built on Red Hat**
+
+It would appear the spec files have the locations of brp-compress, etc in the \_\_os\_install\_post stanza are hard-coded with Red Hat paths.  If you try to build RPMs on, for example, an Amazon AMI (and probably OEL as well), those programs are not located there.
 
 
 ---

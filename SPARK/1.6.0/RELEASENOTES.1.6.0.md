@@ -23,6 +23,13 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-10497](https://issues.apache.org/jira/browse/SPARK-10497) | *Minor* | **Release utils does not work with new version of jira-python library**
+
+Location of JIRAError has moved between old and new versions of python-jira package.
+
+
+---
+
 * [SPARK-10481](https://issues.apache.org/jira/browse/SPARK-10481) | *Minor* | **SPARK\_PREPEND\_CLASSES make spark-yarn related jar could not be found**
 
 It happens when SPARK\_PREPEND\_CLASSES is set and run spark on yarn.
@@ -1017,6 +1024,15 @@ In conclusion: my recommendation would be to revert to the old behavior and to r
 
 ---
 
+* [SPARK-10065](https://issues.apache.org/jira/browse/SPARK-10065) | *Major* | **Avoid triple copy of var-length objects in Array in tungsten projection**
+
+The first copy happens when we calculate the size of each element, after that, we copy the elements into array buffer, finally we copy the array buffer into row buffer. 
+
+We could calculate the total size first, then convert the elements into row buffer directly.
+
+
+---
+
 * [SPARK-10040](https://issues.apache.org/jira/browse/SPARK-10040) | *Major* | **JDBC writer change to use batch insert for performance**
 
 Currently JDBC write is using single row insert using executeUpdate() command instead change to executeBatch() which will handle multiple inserts by most databases in more efficient manner.
@@ -1211,6 +1227,13 @@ See mailing list discussions: http://apache-spark-developers-list.1001551.n3.nab
 https://issues.apache.org/jira/browse/YARN-1390 originally added the new “Application Tags” feature to YARN to help track the sources of applications among many possible YARN clients. https://issues.apache.org/jira/browse/YARN-1399 improved on this to allow a set of tags to be applied, and for comparison, https://issues.apache.org/jira/browse/MAPREDUCE-5699 added support for MapReduce to easily propagate tags through to YARN via Configuration settings.
 
 Since the ApplicationSubmissionContext.setApplicationTags method was only added in Hadoop 2.4+, Spark support will invoke the method via reflection the same way other such version-specific methods are called in elsewhere in the YARN client. Since the usage of tags is generally not critical to the functionality of older YARN setups, it should be safe to handle NoSuchMethodException with just a logWarning.
+
+
+---
+
+* [SPARK-9772](https://issues.apache.org/jira/browse/SPARK-9772) | *Minor* | **Add Python API for ml.feature.VectorSlicer**
+
+Add Python API, user guide and example for ml.feature.VectorSlicer
 
 
 ---
@@ -1649,10 +1672,32 @@ where "\_\_THIS\_\_" will be replaced by a temp table that represents the DataFr
 
 ---
 
+* [SPARK-7736](https://issues.apache.org/jira/browse/SPARK-7736) | *Major* | **Exception not failing Python applications (in yarn cluster mode)**
+
+It seems that exceptions thrown in Python spark apps after the SparkContext is instantiated don't cause the application to fail, at least in Yarn: the application is marked as SUCCEEDED.
+
+Note that any exception right before the SparkContext correctly places the application in FAILED state.
+
+
+---
+
 * [SPARK-7336](https://issues.apache.org/jira/browse/SPARK-7336) | *Minor* | **Sometimes the status of finished job show on JobHistory UI will be active, and never update.**
 
 When I run a SparkPi job, the status of the job on JobHistory UI was 'active'. After the job finished for a long time, the status on JobHistory UI never update again, and the job keep in the 'Incomplete applications' list. 
 This problem appears occasionally. And the configuration of JobHistory is default value.
+
+
+---
+
+* [SPARK-7142](https://issues.apache.org/jira/browse/SPARK-7142) | *Minor* | **Minor enhancement to BooleanSimplification Optimizer rule**
+
+Add simplification using these rules :
+
+A and (not(A) or B) =\> A and B
+
+not(A and B) =\> not(A) or not(B)
+
+not(A or B) =\> not(A) and not(B)
 
 
 ---

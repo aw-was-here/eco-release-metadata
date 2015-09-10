@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 1.5.1 - Unreleased (as of 2015-09-09)
+## Release 1.5.1 - Unreleased (as of 2015-09-10)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -58,6 +58,7 @@
 | [SPARK-10311](https://issues.apache.org/jira/browse/SPARK-10311) | In cluster mode, AppId and AttemptId should be update when ApplicationMaster is new |  Major | Streaming | meiyoula | meiyoula |
 | [SPARK-10301](https://issues.apache.org/jira/browse/SPARK-10301) | For struct type, if parquet's global schema has less fields than a file's schema, data reading will fail |  Critical | SQL | Yin Huai | Cheng Lian |
 | [SPARK-9869](https://issues.apache.org/jira/browse/SPARK-9869) | Flaky test: o.a.s.streaming.InputStreamSuite - socket input stream |  Critical | Streaming | Josh Rosen | Pete Robbins |
+| [SPARK-7736](https://issues.apache.org/jira/browse/SPARK-7736) | Exception not failing Python applications (in yarn cluster mode) |  Major | YARN | Shay Rojansky | Marcelo Vanzin |
 
 
 ### TESTS:

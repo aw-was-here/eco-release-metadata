@@ -18,7 +18,7 @@
 -->
 # Apache Hive Changelog
 
-## Release 2.0.0 - Unreleased (as of 2015-09-09)
+## Release 2.0.0 - Unreleased (as of 2015-09-10)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -60,11 +60,13 @@
 | [HIVE-11513](https://issues.apache.org/jira/browse/HIVE-11513) | AvroLazyObjectInspector could handle empty data better |  Major | . | Swarnim Kulkarni | Swarnim Kulkarni |
 | [HIVE-11506](https://issues.apache.org/jira/browse/HIVE-11506) | Casting varchar/char type to string cannot be vectorized |  Trivial | Vectorization | Navis | Navis |
 | [HIVE-11496](https://issues.apache.org/jira/browse/HIVE-11496) | Better tests for evaluating ORC predicate pushdown |  Major | . | Prasanth Jayachandran | Prasanth Jayachandran |
+| [HIVE-11482](https://issues.apache.org/jira/browse/HIVE-11482) | Add retrying thrift client for HiveServer2 |  Major | HiveServer2 | Amareshwari Sriramadasu | Akshay Goyal |
 | [HIVE-11457](https://issues.apache.org/jira/browse/HIVE-11457) | Vectorization: Improve SIMD JIT in GenVectorCode StringExpr instrinsics |  Major | Vectorization | Gopal V | Gopal V |
 | [HIVE-11442](https://issues.apache.org/jira/browse/HIVE-11442) | Remove commons-configuration.jar from Hive distribution |  Major | Build Infrastructure | Daniel Dai | Daniel Dai |
 | [HIVE-11383](https://issues.apache.org/jira/browse/HIVE-11383) | Upgrade Hive to Calcite 1.4 |  Major | CBO, Logical Optimizer | Julian Hyde | Jesus Camacho Rodriguez |
 | [HIVE-11366](https://issues.apache.org/jira/browse/HIVE-11366) | Avoid right leaning tree hashCode depth during ExprNodeDescEqualityWrapper HashMaps |  Major | Logical Optimizer | Gopal V | Gopal V |
 | [HIVE-11354](https://issues.apache.org/jira/browse/HIVE-11354) | HPL/SQL extending compatibility with Transact-SQL |  Major | hpl/sql | Dmitry Tolpeko | Dmitry Tolpeko |
+| [HIVE-11329](https://issues.apache.org/jira/browse/HIVE-11329) | Column prefix in key of hbase column prefix map |  Minor | HBase Handler | Wojciech Indyk | Wojciech Indyk |
 | [HIVE-11304](https://issues.apache.org/jira/browse/HIVE-11304) | Migrate to Log4j2 from Log4j 1.x |  Major | Logging | Prasanth Jayachandran | Prasanth Jayachandran |
 | [HIVE-11291](https://issues.apache.org/jira/browse/HIVE-11291) | Avoid allocation storm while doing rule matching on operator/expression trees |  Major | . | Ashutosh Chauhan | Ashutosh Chauhan |
 | [HIVE-11290](https://issues.apache.org/jira/browse/HIVE-11290) | Cursor attributes %ISOPEN, %FOUND, %NOTFOUND and SYS\_REFCURSOR variable |  Major | hpl/sql | Dmitry Tolpeko | Dmitry Tolpeko |
@@ -109,6 +111,7 @@
 | [HIVE-11712](https://issues.apache.org/jira/browse/HIVE-11712) | Duplicate groupby keys cause ClassCastException |  Major | . | Jimmy Xiang | Jimmy Xiang |
 | [HIVE-11704](https://issues.apache.org/jira/browse/HIVE-11704) | Create errata.txt file |  Major | Documentation | Owen O'Malley | Owen O'Malley |
 | [HIVE-11698](https://issues.apache.org/jira/browse/HIVE-11698) | Add additional test for PointLookupOptimizer |  Major | . | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
+| [HIVE-11696](https://issues.apache.org/jira/browse/HIVE-11696) | Exception when table-level serde is Parquet while partition-level serde is JSON |  Major | Serializers/Deserializers | Aihua Xu | Aihua Xu |
 | [HIVE-11689](https://issues.apache.org/jira/browse/HIVE-11689) | minor flow changes to ORC split generation |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
 | [HIVE-11670](https://issues.apache.org/jira/browse/HIVE-11670) | Strip out password information from TezSessionState configuration |  Major | . | Hari Sankar Sivarama Subramaniyan | Hari Sankar Sivarama Subramaniyan |
 | [HIVE-11669](https://issues.apache.org/jira/browse/HIVE-11669) | OrcFileDump service should support directories |  Major | . | Prasanth Jayachandran | Prasanth Jayachandran |
@@ -486,6 +489,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HIVE-10427](https://issues.apache.org/jira/browse/HIVE-10427) | collect\_list() and collect\_set() should accept struct types as argument |  Major | UDF | Alexander Behm | Chao Sun |
+| [HIVE-11754](https://issues.apache.org/jira/browse/HIVE-11754) | Not reachable code parts in StatsUtils |  Trivial | . | Navis | Navis |
 | [HIVE-11158](https://issues.apache.org/jira/browse/HIVE-11158) | Add tests for HPL/SQL |  Major | hpl/sql | Alan Gates | Dmitry Tolpeko |
 | [HIVE-11096](https://issues.apache.org/jira/browse/HIVE-11096) | Bump the parquet version to 1.7.0 |  Minor | . | Sergio Peña | Ferdinand Xu |
 | [HIVE-11018](https://issues.apache.org/jira/browse/HIVE-11018) | Turn on cbo in more q files |  Major | Tests | Ashutosh Chauhan | Ashutosh Chauhan |

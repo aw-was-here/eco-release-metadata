@@ -644,4 +644,13 @@ These three base functions are heavily used with R dataframes. It would be great
 \* subset
 
 
+---
+
+* [SPARK-7736](https://issues.apache.org/jira/browse/SPARK-7736) | *Major* | **Exception not failing Python applications (in yarn cluster mode)**
+
+It seems that exceptions thrown in Python spark apps after the SparkContext is instantiated don't cause the application to fail, at least in Yarn: the application is marked as SUCCEEDED.
+
+Note that any exception right before the SparkContext correctly places the application in FAILED state.
+
+
 

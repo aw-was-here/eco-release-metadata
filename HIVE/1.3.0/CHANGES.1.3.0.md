@@ -18,7 +18,7 @@
 -->
 # Apache Hive Changelog
 
-## Release 1.3.0 - Unreleased (as of 2015-09-09)
+## Release 1.3.0 - Unreleased (as of 2015-09-10)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -85,6 +85,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HIVE-11737](https://issues.apache.org/jira/browse/HIVE-11737) | IndexOutOfBounds compiling query with duplicated groupby keys |  Major | . | Jimmy Xiang | Jimmy Xiang |
 | [HIVE-11712](https://issues.apache.org/jira/browse/HIVE-11712) | Duplicate groupby keys cause ClassCastException |  Major | . | Jimmy Xiang | Jimmy Xiang |
+| [HIVE-11696](https://issues.apache.org/jira/browse/HIVE-11696) | Exception when table-level serde is Parquet while partition-level serde is JSON |  Major | Serializers/Deserializers | Aihua Xu | Aihua Xu |
 | [HIVE-11670](https://issues.apache.org/jira/browse/HIVE-11670) | Strip out password information from TezSessionState configuration |  Major | . | Hari Sankar Sivarama Subramaniyan | Hari Sankar Sivarama Subramaniyan |
 | [HIVE-11669](https://issues.apache.org/jira/browse/HIVE-11669) | OrcFileDump service should support directories |  Major | . | Prasanth Jayachandran | Prasanth Jayachandran |
 | [HIVE-11658](https://issues.apache.org/jira/browse/HIVE-11658) | Load data file format validation does not work with directories |  Major | . | Prasanth Jayachandran | Prasanth Jayachandran |

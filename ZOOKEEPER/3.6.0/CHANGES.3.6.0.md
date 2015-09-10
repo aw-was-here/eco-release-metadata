@@ -18,7 +18,7 @@
 -->
 # Apache Zookeeper Changelog
 
-## Release 3.6.0 - Unreleased (as of 2015-09-09)
+## Release 3.6.0 - Unreleased (as of 2015-09-10)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -67,6 +67,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [ZOOKEEPER-2269](https://issues.apache.org/jira/browse/ZOOKEEPER-2269) | NullPointerException  in RemotePeerBean |  Major | jmx | Arshad Mohammad | Arshad Mohammad |
 | [ZOOKEEPER-2264](https://issues.apache.org/jira/browse/ZOOKEEPER-2264) | Wrong error message when secureClientPortAddress is configured but secureClientPort is not configured |  Minor | server | Arshad Mohammad | Arshad Mohammad |
 | [ZOOKEEPER-2256](https://issues.apache.org/jira/browse/ZOOKEEPER-2256) | Zookeeper is not using specified JMX port in zkEnv.sh |  Minor | scripts | Arshad Mohammad | Arshad Mohammad |
 | [ZOOKEEPER-2235](https://issues.apache.org/jira/browse/ZOOKEEPER-2235) | License update |  Blocker | . | Flavio Junqueira | Flavio Junqueira |

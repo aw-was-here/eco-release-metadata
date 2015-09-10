@@ -17614,6 +17614,16 @@ The BlockStoreShuffleFetcher.fetch method relies on the ShuffleBlockFetcherItera
 
 ---
 
+* [SPARK-7880](https://issues.apache.org/jira/browse/SPARK-7880) | *Minor* | **Silent failure if assembly jar is corrupted**
+
+If you try to run `bin/spark-submit` with a corrupted jar, you get no output and your application does not run. We should have an informative message that indicates the failure to open the jar instead of silently swallowing it.
+
+This is caused by this line:
+https://github.com/apache/spark/blob/61664732b25b35f94be35a42cde651cbfd0e02b7/bin/spark-class#L75
+
+
+---
+
 * [SPARK-7879](https://issues.apache.org/jira/browse/SPARK-7879) | *Critical* | **KMeans API for spark.ml Pipelines**
 
 Create a K-Means API for the spark.ml Pipelines API.  This should wrap the existing KMeans implementation in spark.mllib.

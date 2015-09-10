@@ -18,7 +18,7 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.8.1 - Unreleased (as of 2015-09-09)
+## Release 0.8.1 - Unreleased (as of 2015-09-10)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -49,6 +49,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-2799](https://issues.apache.org/jira/browse/TEZ-2799) | SimpleHistoryParser NPE |  Major | . | Bikas Saha | Rajesh Balamohan |
 | [TEZ-2788](https://issues.apache.org/jira/browse/TEZ-2788) | Allow TezAnalyzerBase to parse SimpleHistory logs |  Major | . | Bikas Saha | Bikas Saha |
 | [TEZ-2783](https://issues.apache.org/jira/browse/TEZ-2783) | Refactor analyzers to extend TezAnalyzerBase |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-2765](https://issues.apache.org/jira/browse/TEZ-2765) | Change Xmlwriter to use defaultValue instead of value tag |  Major | . | Hitesh Shah | Hitesh Shah |

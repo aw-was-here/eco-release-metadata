@@ -18,7 +18,7 @@
 -->
 # Apache BigTop Changelog
 
-## Release 1.1.0 - Unreleased (as of 2015-09-09)
+## Release 1.1.0 - Unreleased (as of 2015-09-10)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -38,6 +38,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [BIGTOP-2018](https://issues.apache.org/jira/browse/BIGTOP-2018) | Create a puppetizing script |  Major | deployment | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-2005](https://issues.apache.org/jira/browse/BIGTOP-2005) | Remove SCALA\_HOME requirement |  Minor | build, spark | RJ Nowling | RJ Nowling |
 | [BIGTOP-1997](https://issues.apache.org/jira/browse/BIGTOP-1997) | Bump bigtop-groovy runtime to 2.4.4 |  Major | debian, rpm | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-1993](https://issues.apache.org/jira/browse/BIGTOP-1993) | Bump groovy to 2.4.4 in the development toolchain |  Major | toolchain | Konstantin Boudnik | Konstantin Boudnik |
@@ -90,6 +91,8 @@
 | [BIGTOP-1886](https://issues.apache.org/jira/browse/BIGTOP-1886) | Kafka server can not create a log-cleaner.log file |  Minor | . | YoungWoo Kim | YoungWoo Kim |
 | [BIGTOP-1877](https://issues.apache.org/jira/browse/BIGTOP-1877) | Upgrade Crunch to 0.12.0 |  Major | debian, rpm | YoungWoo Kim | YoungWoo Kim |
 | [BIGTOP-1838](https://issues.apache.org/jira/browse/BIGTOP-1838) | Pig build does not publish artifacts of build |  Minor | . | Rob Leidle | Konstantin Boudnik |
+| [BIGTOP-1805](https://issues.apache.org/jira/browse/BIGTOP-1805) | Upgrade Hadoop to 2.7 if released |  Major | hadoop | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-1344](https://issues.apache.org/jira/browse/BIGTOP-1344) | spec files assume RPMs being built on Red Hat |  Major | rpm | Allen Wittenauer | Olaf Flebbe |
 
 
 ### TESTS:

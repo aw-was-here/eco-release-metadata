@@ -41,9 +41,27 @@ TODO: A successful append followed by a failed sync probably only needs us repla
 
 ---
 
+* [HBASE-14314](https://issues.apache.org/jira/browse/HBASE-14314) | *Major* | **Metrics for block cache should take region replicas into account**
+
+The following metrics for primary region replica are added:
+
+blockCacheHitCountPrimary
+blockCacheMissCountPrimary
+blockCacheEvictionCountPrimary
+
+
+---
+
 * [HBASE-14313](https://issues.apache.org/jira/browse/HBASE-14313) | *Critical* | **After a Connection sees ConnectionClosingException it never recovers**
 
 HConnection could get stuck when talking to a host that went down and then returned. This has been fixed by closing the connection in all paths.
+
+
+---
+
+* [HBASE-14230](https://issues.apache.org/jira/browse/HBASE-14230) | *Minor* | **replace reflection in FSHlog with HdfsDataOutputStream#getCurrentBlockReplication()**
+
+Remove calling getNumCurrentReplicas on HdfsDataOutputStream via reflection. getNumCurrentReplicas showed up in hadoop 1+ and hadoop 0.2x. In hadoop-2 it was deprecated.
 
 
 ---

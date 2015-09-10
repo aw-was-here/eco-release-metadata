@@ -111,7 +111,6 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [HIVE-11301](https://issues.apache.org/jira/browse/HIVE-11301) | thrift metastore issue when getting stats results in disconnect |  Major | Metastore | Sergey Shelukhin | Pengcheng Xiong |
 | [HIVE-10715](https://issues.apache.org/jira/browse/HIVE-10715) | RAT failures - many files do not have ASF licenses |  Major | . | Sushanth Sowmyan | Sushanth Sowmyan |
 | [HIVE-10614](https://issues.apache.org/jira/browse/HIVE-10614) | schemaTool upgrade from 0.14.0 to 1.3.0 causes failure |  Critical | Metastore | Hari Sankar Sivarama Subramaniyan | Hari Sankar Sivarama Subramaniyan |
 | [HIVE-10612](https://issues.apache.org/jira/browse/HIVE-10612) | HIVE-10578 broke TestSQLStdHiveAccessControllerHS2 tests |  Major | Authorization | Thejas M Nair | Thejas M Nair |

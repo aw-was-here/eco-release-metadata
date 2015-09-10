@@ -880,6 +880,7 @@
 | [SPARK-7915](https://issues.apache.org/jira/browse/SPARK-7915) | Support specifying the column list for target table in CTAS |  Major | SQL | Cheng Hao | Cheng Hao |
 | [SPARK-7902](https://issues.apache.org/jira/browse/SPARK-7902) | SQL UDF doesn't support UDT in PySpark |  Critical | PySpark, SQL | Xiangrui Meng | Davies Liu |
 | [SPARK-7897](https://issues.apache.org/jira/browse/SPARK-7897) | Column with an unsigned bigint should be treated as DecimalType in JDBCRDD |  Major | SQL | Liang-Chi Hsieh | Liang-Chi Hsieh |
+| [SPARK-7880](https://issues.apache.org/jira/browse/SPARK-7880) | Silent failure if assembly jar is corrupted |  Minor | Spark Submit | Andrew Or | Sean Owen |
 | [SPARK-7863](https://issues.apache.org/jira/browse/SPARK-7863) | SimpleDateParam should not use SimpleDateFormat in multiple threads because SimpleDateFormat is not thread-safe |  Minor | Spark Core | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-7862](https://issues.apache.org/jira/browse/SPARK-7862) | Query would hang when the using script has error output in SparkSQL |  Major | SQL | zhichao-li | Cheng Hao |
 | [SPARK-7859](https://issues.apache.org/jira/browse/SPARK-7859) | Collect\_SET behaves different under different version of JDK |  Major | SQL | Cheng Hao | Cheng Hao |

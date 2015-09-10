@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 1.6.0 - Unreleased (as of 2015-09-09)
+## Release 1.6.0 - Unreleased (as of 2015-09-10)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -33,6 +33,7 @@
 | [SPARK-10117](https://issues.apache.org/jira/browse/SPARK-10117) | Implement SQL data source API for reading LIBSVM data |  Major | ML | Xiangrui Meng | Kai Sasaki |
 | [SPARK-9964](https://issues.apache.org/jira/browse/SPARK-9964) | PySpark DataFrameReader accept RDD of String for JSON |  Minor | PySpark, SQL | Joseph K. Bradley | Yanbo Liang |
 | [SPARK-9834](https://issues.apache.org/jira/browse/SPARK-9834) | Normal equation solver for ordinary least squares |  Major | ML | Xiangrui Meng | Xiangrui Meng |
+| [SPARK-9730](https://issues.apache.org/jira/browse/SPARK-9730) | Sort Merge Join for Full Outer Join |  Major | SQL | Josh Rosen | Davies Liu |
 | [SPARK-9679](https://issues.apache.org/jira/browse/SPARK-9679) | Add python interface for ml.feature.StopWordsRemover |  Minor | ML | yuhao yang | holdenk |
 | [SPARK-9669](https://issues.apache.org/jira/browse/SPARK-9669) | Support PySpark with Mesos Cluster mode |  Major | Mesos, PySpark | Timothy Chen | Timothy Chen |
 | [SPARK-9654](https://issues.apache.org/jira/browse/SPARK-9654) | Add IndexToString in Pyspark |  Minor | ML, PySpark | holdenk | holdenk |
@@ -46,7 +47,7 @@
 | [SPARK-10481](https://issues.apache.org/jira/browse/SPARK-10481) | SPARK\_PREPEND\_CLASSES make spark-yarn related jar could not be found |  Minor | YARN | Jeff Zhang | Jeff Zhang |
 | [SPARK-10468](https://issues.apache.org/jira/browse/SPARK-10468) | Verify schema before Dataframe select API call |  Minor | MLlib | Vinod KC | Vinod KC |
 | [SPARK-10464](https://issues.apache.org/jira/browse/SPARK-10464) | Add WeibullGenerator for RandomDataGenerator |  Major | MLlib | Yanbo Liang | Yanbo Liang |
-| [SPARK-10461](https://issues.apache.org/jira/browse/SPARK-10461) | make sure `input.primitive` is always variable name not code at GenerateUnsafeProjection |  Minor | SQL | Wenchen Fan |  |
+| [SPARK-10461](https://issues.apache.org/jira/browse/SPARK-10461) | make sure `input.primitive` is always variable name not code at GenerateUnsafeProjection |  Minor | SQL | Wenchen Fan | Wenchen Fan |
 | [SPARK-10450](https://issues.apache.org/jira/browse/SPARK-10450) | Minor SQL style, format, typo, readability fixes |  Minor | SQL | Andrew Or | Andrew Or |
 | [SPARK-10411](https://issues.apache.org/jira/browse/SPARK-10411) | In SQL tab move visualization above explain output |  Minor | SQL, Web UI | Andrew Or | Shixiong Zhu |
 | [SPARK-10389](https://issues.apache.org/jira/browse/SPARK-10389) | support order by non-attribute grouping expression on Aggregate |  Major | SQL | Wenchen Fan | Wenchen Fan |
@@ -62,6 +63,7 @@
 | [SPARK-10249](https://issues.apache.org/jira/browse/SPARK-10249) | Add Python Code Example to StopWordsRemover User Guide |  Minor | ML, PySpark | Feynman Liang | yuhao yang |
 | [SPARK-10184](https://issues.apache.org/jira/browse/SPARK-10184) | Optimization for bounds determination in RangePartitioner |  Minor | Spark Core | Jigao Fu | Jigao Fu |
 | [SPARK-10071](https://issues.apache.org/jira/browse/SPARK-10071) | QueueInputDStream Should Allow Checkpointing |  Major | Streaming | Asim Jalis | Shixiong Zhu |
+| [SPARK-10065](https://issues.apache.org/jira/browse/SPARK-10065) | Avoid triple copy of var-length objects in Array in tungsten projection |  Major | SQL | Davies Liu |  |
 | [SPARK-10040](https://issues.apache.org/jira/browse/SPARK-10040) | JDBC writer change to use batch insert for performance |  Major | SQL | Rama Mullapudi | Liang-Chi Hsieh |
 | [SPARK-10035](https://issues.apache.org/jira/browse/SPARK-10035) | Parquet filters does not process EqualNullSafe filter. |  Minor | SQL | Hyukjin Kwon | Hyukjin Kwon |
 | [SPARK-9935](https://issues.apache.org/jira/browse/SPARK-9935) | EqualNullSafe not processed in OrcRelation |  Minor | SQL | Hyukjin Kwon | Hyukjin Kwon |
@@ -69,12 +71,14 @@
 | [SPARK-9923](https://issues.apache.org/jira/browse/SPARK-9923) | ShuffleMapStage.numAvailableOutputs should be an Int instead of Long |  Trivial | Spark Core | Matei Zaharia | Neelesh Srinivas Salian |
 | [SPARK-9833](https://issues.apache.org/jira/browse/SPARK-9833) | Add options to explicitly disable delegation token retrieval for non-HDFS |  Minor | YARN | Marcelo Vanzin | Marcelo Vanzin |
 | [SPARK-9782](https://issues.apache.org/jira/browse/SPARK-9782) | Add support for YARN application tags running Spark on YARN |  Major | YARN | Dennis Huo | Dennis Huo |
+| [SPARK-9772](https://issues.apache.org/jira/browse/SPARK-9772) | Add Python API for ml.feature.VectorSlicer |  Minor | ML, PySpark | Yanbo Liang | Yanbo Liang |
 | [SPARK-9737](https://issues.apache.org/jira/browse/SPARK-9737) | Add the suggested configuration when required executor memory is above the max threshold of this cluster on YARN mode |  Trivial | YARN | Yadong Qi | Yadong Qi |
 | [SPARK-9723](https://issues.apache.org/jira/browse/SPARK-9723) | Params.getOrDefault should throw more meaningful exception |  Minor | ML | Joseph K. Bradley | holdenk |
 | [SPARK-9613](https://issues.apache.org/jira/browse/SPARK-9613) | Ban use of JavaConversions and migrate all existing uses to JavaConverters |  Major | Spark Core | Josh Rosen | Sean Owen |
 | [SPARK-9547](https://issues.apache.org/jira/browse/SPARK-9547) | Allow testing pull requests with different Hadoop versions |  Major | Build | Patrick Wendell | Patrick Wendell |
 | [SPARK-9545](https://issues.apache.org/jira/browse/SPARK-9545) | Run Maven tests in pull request builder if title has "[test-maven]" in it |  Major | Build | Patrick Wendell | Patrick Wendell |
 | [SPARK-8764](https://issues.apache.org/jira/browse/SPARK-8764) | StringIndexer should take option to handle unseen values |  Minor | ML | Joseph K. Bradley | holdenk |
+| [SPARK-7142](https://issues.apache.org/jira/browse/SPARK-7142) | Minor enhancement to BooleanSimplification Optimizer rule |  Minor | SQL | Yash Datta | Yash Datta |
 | [SPARK-4223](https://issues.apache.org/jira/browse/SPARK-4223) | Support \* (meaning all users) as part of the acls |  Major | Spark Core | Thomas Graves | Zhuo Liu |
 
 
@@ -82,6 +86,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-10497](https://issues.apache.org/jira/browse/SPARK-10497) | Release utils does not work with new version of jira-python library |  Minor | Build | holdenk | holdenk |
 | [SPARK-10480](https://issues.apache.org/jira/browse/SPARK-10480) | ML.LinearRegressionModel.copy() can not use argument "extra" |  Minor | ML | Yanbo Liang | Yanbo Liang |
 | [SPARK-10479](https://issues.apache.org/jira/browse/SPARK-10479) | LogisticRegression copy should copy model summary if available |  Minor | ML | Feynman Liang | Yanbo Liang |
 | [SPARK-10470](https://issues.apache.org/jira/browse/SPARK-10470) | ml.IsotonicRegressionModel.copy did not set parent |  Major | ML | Yanbo Liang | Yanbo Liang |
@@ -123,6 +128,7 @@
 | [SPARK-8889](https://issues.apache.org/jira/browse/SPARK-8889) | showDagViz will cause java.lang.OutOfMemoryError: Java heap space |  Minor | Web UI | cen yuhai | Rekha Joshi |
 | [SPARK-8730](https://issues.apache.org/jira/browse/SPARK-8730) | Deser primitive class with Java serialization |  Critical | Spark Core | Eugen Cepoi | Eugen Cepoi |
 | [SPARK-8707](https://issues.apache.org/jira/browse/SPARK-8707) | RDD#toDebugString fails if any cached RDD has invalid partitions |  Major | Spark Core | Aaron Davidson | Navis |
+| [SPARK-7736](https://issues.apache.org/jira/browse/SPARK-7736) | Exception not failing Python applications (in yarn cluster mode) |  Major | YARN | Shay Rojansky | Marcelo Vanzin |
 | [SPARK-7336](https://issues.apache.org/jira/browse/SPARK-7336) | Sometimes the status of finished job show on JobHistory UI will be active, and never update. |  Minor | Web UI | ShaoChuan | ShaoChuan |
 | [SPARK-5945](https://issues.apache.org/jira/browse/SPARK-5945) | Spark should not retry a stage infinitely on a FetchFailedException |  Critical | Spark Core | Imran Rashid | Ilya Ganelin |
 | [SPARK-5754](https://issues.apache.org/jira/browse/SPARK-5754) | Spark AM not launching on Windows |  Major | Windows, YARN | Inigo | Carsten Blank |
