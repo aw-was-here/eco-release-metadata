@@ -1048,6 +1048,42 @@ I think we should weaken the check to see if it's a java command (which is somet
 
 ---
 
+* [SPARK-6931](https://issues.apache.org/jira/browse/SPARK-6931) | *Critical* | **python: struct.pack('!q', value) in write\_long(value, stream) in serializers.py require int(but doesn't raise exceptions in common cases)**
+
+when I map my own feature calculation module's function, sparks raises:
+Traceback (most recent call last):
+  File "/usr/local/Cellar/apache-spark/1.3.0/libexec/python/pyspark/daemon.py", line 162, in manager
+    code = worker(sock)
+  File "/usr/local/Cellar/apache-spark/1.3.0/libexec/python/pyspark/daemon.py", line 60, in worker
+    worker\_main(infile, outfile)
+  File "/usr/local/Cellar/apache-spark/1.3.0/libexec/python/pyspark/worker.py", line 115, in main
+    report\_times(outfile, boot\_time, init\_time, finish\_time)
+  File "/usr/local/Cellar/apache-spark/1.3.0/libexec/python/pyspark/worker.py", line 40, in report\_times
+    write\_long(1000 \* boot, outfile)
+  File "/usr/local/Cellar/apache-spark/1.3.0/libexec/python/pyspark/serializers.py", line 518, in write\_long
+    stream.write(struct.pack("!q", value))
+DeprecationWarning: integer argument expected, got float
+
+so I turn on the serializers.py, and tried to print the value out, which is a float, came from 1000 \* time.time()
+
+when I removed my lib, or add a rdd.count() before mapping my lib, this bug won’t appear.
+
+so I edited the function to :
+
+def write\_long(value, stream):
+    stream.write(struct.pack("!q", int(value))) # added a int(value)
+
+everything seem fine…
+
+According to python’s doc for struct(https://docs.python.org/2/library/struct.html)’s Note(3), the value should be a int(for q), and if it’s a float, it’ll try use \_\_index\_\_(), else, try \_\_int\_\_, but since \_\_int\_\_ is deprecated, it’ll raise DeprecationWarning. And float doesn’t have \_\_index\_\_, but has \_\_int\_\_, so it should raise the exception every time.
+
+But, as you can see, in normal cases, it won’t raise the exception, and the code works perfectly, and exec struct.pack('!q', 111.1) in console or a clean file won't raise any exception…I can hardly tell how my lib might effect a time.time()'s value passed to struct.pack()... it might a python's original bug or what.
+
+Anyway, this value should be a int, so add a int() to it.
+
+
+---
+
 * [SPARK-6905](https://issues.apache.org/jira/browse/SPARK-6905) | *Major* | **Upgrade Snappy Java to 1.1.1.7 to fix bug that resulted in worse compression**
 
 We should upgrade our {{snappy-java}} dependency to 1.1.1.7 in order to include a fix for a bug that resulted in worse compression (see https://github.com/xerial/snappy-java/issues/100).  I believe that this may partially fix SPARK-5081, an issue where the size of shuffle data increased from Spark 1.1.x to 1.2.0.
