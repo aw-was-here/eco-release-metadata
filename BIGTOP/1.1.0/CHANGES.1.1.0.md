@@ -18,7 +18,7 @@
 -->
 # Apache BigTop Changelog
 
-## Release 1.1.0 - Unreleased (as of 2015-09-10)
+## Release 1.1.0 - Unreleased (as of 2015-09-12)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -31,6 +31,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [BIGTOP-1976](https://issues.apache.org/jira/browse/BIGTOP-1976) | Replace Pair type with Apache Commons Lang Pair type |  Minor | blueprints | RJ Nowling | RJ Nowling |
+| [BIGTOP-1746](https://issues.apache.org/jira/browse/BIGTOP-1746) | Introduce the concept of roles in bigtop cluster deployment |  Major | deployment | vishnu gajendran | vishnu gajendran |
 | [BIGTOP-1149](https://issues.apache.org/jira/browse/BIGTOP-1149) | Package Kite |  Major | . | Bruno Mahé | YoungWoo Kim |
 
 
@@ -61,6 +62,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [BIGTOP-2026](https://issues.apache.org/jira/browse/BIGTOP-2026) | Phoenix build defines HBASE\_VERSION in two different places. |  Major | debian, rpm | Konstantin Boudnik | Andrew Purtell |
 | [BIGTOP-2019](https://issues.apache.org/jira/browse/BIGTOP-2019) | BigPetStore Spark isn't compiling due to changes in SQL API |  Major | blueprints | RJ Nowling | RJ Nowling |
 | [BIGTOP-2008](https://issues.apache.org/jira/browse/BIGTOP-2008) | build.gradle has out-of-date version |  Minor | build | RJ Nowling | RJ Nowling |
 | [BIGTOP-2007](https://issues.apache.org/jira/browse/BIGTOP-2007) | bigtop.mk version of the stack needs to be bumped to 1.1.0-SNAPSHOT |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
@@ -105,6 +107,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [BIGTOP-2033](https://issues.apache.org/jira/browse/BIGTOP-2033) | Build order of the stack is broken |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2009](https://issues.apache.org/jira/browse/BIGTOP-2009) | Add new tests for chgrp, cp, ls, mv, du, put, get, mkdir, stat and touchz |  Minor | general | Venkata Srinivasa Rao Kolla | Venkata Srinivasa Rao Kolla |
 | [BIGTOP-2000](https://issues.apache.org/jira/browse/BIGTOP-2000) | Add BigTop Data Generators to maintainers file |  Minor | blueprints | RJ Nowling | RJ Nowling |
 | [BIGTOP-1995](https://issues.apache.org/jira/browse/BIGTOP-1995) | Update BigPetStore to use external locations  data |  Major | blueprints | RJ Nowling | RJ Nowling |
@@ -120,6 +123,7 @@
 | [BIGTOP-1965](https://issues.apache.org/jira/browse/BIGTOP-1965) | Remove the link to 0.8.0 from the website |  Major | website | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-1947](https://issues.apache.org/jira/browse/BIGTOP-1947) | Fix RAT plugin configuration to be able to RAT-validate all published artifacts |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-1898](https://issues.apache.org/jira/browse/BIGTOP-1898) | Dockerfiles to build bigtop/puppet docker images for 1.0 release |  Major | . | Evans Ye | Evans Ye |
+| [BIGTOP-1494](https://issues.apache.org/jira/browse/BIGTOP-1494) | Introduce Groovy DSL to replace bigtop.mk |  Major | build | jay vyas | Konstantin Boudnik |
 
 
 ### OTHER:

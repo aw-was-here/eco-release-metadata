@@ -18,7 +18,7 @@
 -->
 # Apache Hadoop Changelog
 
-## Release 3.0.0 - Unreleased (as of 2015-09-10)
+## Release 3.0.0 - Unreleased (as of 2015-09-12)
 
 ### INCOMPATIBLE CHANGES:
 

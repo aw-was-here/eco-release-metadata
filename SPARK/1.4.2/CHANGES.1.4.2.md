@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 1.4.2 - Unreleased (as of 2015-09-10)
+## Release 1.4.2 - Unreleased (as of 2015-09-12)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -53,6 +53,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-10556](https://issues.apache.org/jira/browse/SPARK-10556) | SBT build explicitly sets Scala version, which can conflict with SBT's own scala version |  Minor | Build | Ahir Reddy | Ahir Reddy |
 | [SPARK-10377](https://issues.apache.org/jira/browse/SPARK-10377) | Cassandra connector affected by backport change |  Major | SQL | Frode Sormo | Yin Huai |
 | [SPARK-10353](https://issues.apache.org/jira/browse/SPARK-10353) | MLlib BLAS gemm outputs wrong result when beta = 0.0 for transpose transpose matrix multiplication |  Major | MLlib | Burak Yavuz | Burak Yavuz |
 | [SPARK-10321](https://issues.apache.org/jira/browse/SPARK-10321) | OrcRelation doesn't override sizeInBytes |  Critical | SQL | Cheng Lian | Davies Liu |

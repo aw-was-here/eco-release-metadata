@@ -23,6 +23,100 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-10566](https://issues.apache.org/jira/browse/SPARK-10566) | *Minor* | **SnappyCompressionCodec init exception handling masks important error information**
+
+
+
+The change to always throw an IllegalArgumentException when failing to load in SnappyCompressionCodec (CompressionCodec.scala:151) throws away the description from the exception thrown, which makes it really difficult to actually figure out what the problem is:
+
+: java.lang.IllegalArgumentException
+	at org.apache.spark.io.SnappyCompressionCodec.\<init\>(CompressionCodec.scala:151)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+
+Removing this try...catch I get the following error, which actually gives some information about how to fix the problem:
+
+: java.lang.UnsatisfiedLinkError: no snappyjava in java.library.path
+	at java.lang.ClassLoader.loadLibrary(ClassLoader.java:1864)
+	at java.lang.Runtime.loadLibrary0(Runtime.java:870)
+	at java.lang.System.loadLibrary(System.java:1122)
+	at org.xerial.snappy.SnappyLoader.loadNativeLibrary(SnappyLoader.java:178)
+	at org.xerial.snappy.SnappyLoader.load(SnappyLoader.java:152)
+
+
+A change to initialize the IllegalArgumentException with the value of e.getMessage() would be great, as the current error without any description just leads to a lot of frustrating guesswork.
+
+
+---
+
+* [SPARK-10564](https://issues.apache.org/jira/browse/SPARK-10564) | *Critical* | **ThreadingSuite: assertions in threads don't fail the test**
+
+In ThreadingSuite we have things like:
+{code}
+  test(...) {
+    ...
+    val threads = (1 to 5).map { i =\>
+      new Thread() {
+        override def run() {
+          assert(sc.getLocalProperty("test") === "parent")
+          sc.setLocalProperty("test", i.toString)
+          assert(sc.getLocalProperty("test") === i.toString)
+          sem.release()
+        }
+      }
+    }
+    ...
+  }
+{code}
+
+If the asserts in the run block fail, they don't actually fail the test! This could mask real bugs.
+
+
+---
+
+* [SPARK-10556](https://issues.apache.org/jira/browse/SPARK-10556) | *Minor* | **SBT build explicitly sets Scala version, which can conflict with SBT's own scala version**
+
+project/plugins.sbt explicitly sets scalaVersion to 2.10.4. This can cause issues when using a version of sbt that is compiled against a different version of Scala (for example sbt 0.13.9 uses 2.10.5). Removing this explicit setting will cause build files to be compiled and run against the same version of Scala that sbt is compiled against.
+
+Note that this only applies to the project build files (items in project/), it is distinct from the version of Scala we target for the actual spark compilation.
+
+
+---
+
+* [SPARK-10554](https://issues.apache.org/jira/browse/SPARK-10554) | *Minor* | **Potential NPE with ShutdownHook**
+
+Originally posted in user mailing list [here\|http://apache-spark-user-list.1001560.n3.nabble.com/Potential-NPE-while-exiting-spark-shell-tt24523.html]
+
+I'm currently using Spark 1.3.0 on yarn cluster deployed through CDH5.4. My cluster does not have a 'default' queue, and launching 'spark-shell' submits an yarn application that gets killed immediately because queue does not exist. However, the spark-shell session is still in progress after throwing a bunch of errors while creating sql context. Upon submitting an 'exit' command, there appears to be a NPE from DiskBlockManager with the following stack trace 
+
+{code}
+ERROR Utils: Uncaught exception in thread delete Spark local dirs 
+java.lang.NullPointerException 
+        at org.apache.spark.storage.DiskBlockManager.org$apache$spark$storage$DiskBlockManager$$doStop(DiskBlockManager.scala:161) 
+        at org.apache.spark.storage.DiskBlockManager$$anon$1$$anonfun$run$1.apply$mcV$sp(DiskBlockManager.scala:141) 
+        at org.apache.spark.storage.DiskBlockManager$$anon$1$$anonfun$run$1.apply(DiskBlockManager.scala:139) 
+        at org.apache.spark.storage.DiskBlockManager$$anon$1$$anonfun$run$1.apply(DiskBlockManager.scala:139) 
+        at org.apache.spark.util.Utils$.logUncaughtExceptions(Utils.scala:1617) 
+        at org.apache.spark.storage.DiskBlockManager$$anon$1.run(DiskBlockManager.scala:139) 
+Exception in thread "delete Spark local dirs" java.lang.NullPointerException 
+        at org.apache.spark.storage.DiskBlockManager.org$apache$spark$storage$DiskBlockManager$$doStop(DiskBlockManager.scala:161) 
+        at org.apache.spark.storage.DiskBlockManager$$anon$1$$anonfun$run$1.apply$mcV$sp(DiskBlockManager.scala:141) 
+        at org.apache.spark.storage.DiskBlockManager$$anon$1$$anonfun$run$1.apply(DiskBlockManager.scala:139) 
+        at org.apache.spark.storage.DiskBlockManager$$anon$1$$anonfun$run$1.apply(DiskBlockManager.scala:139) 
+        at org.apache.spark.util.Utils$.logUncaughtExceptions(Utils.scala:1617) 
+        at org.apache.spark.storage.DiskBlockManager$$anon$1.run(DiskBlockManager.scala:139) 
+{code}
+
+I believe the problem appears to be surfacing from a shutdown hook that's tries to cleanup local directories. In this specific case because the yarn application was not submitted successfully, the block manager was not registered; as a result it does not have a valid blockManagerId as seen here 
+
+https://github.com/apache/spark/blob/v1.3.0/core/src/main/scala/org/apache/spark/storage/DiskBlockManager.scala#L161
+
+Has anyone faced this issue before? Could this be a problem with the way shutdown hook behaves currently? 
+
+Note: I referenced source from apache spark repo than cloudera.
+
+
+---
+
 * [SPARK-10480](https://issues.apache.org/jira/browse/SPARK-10480) | *Minor* | **ML.LinearRegressionModel.copy() can not use argument "extra"**
 
 ML.LinearRegressionModel.copy() ignored argument extra, it will not take effect when users setting this parameter.
@@ -42,6 +136,83 @@ We should add behavior similar to that in [LinearRegression.copy\|https://github
 * [SPARK-10470](https://issues.apache.org/jira/browse/SPARK-10470) | *Major* | **ml.IsotonicRegressionModel.copy did not set parent**
 
 ml.IsotonicRegressionModel.copy did not set parent
+
+
+---
+
+* [SPARK-10469](https://issues.apache.org/jira/browse/SPARK-10469) | *Minor* | **Document tungsten-sort**
+
+Add documentation for tungsten-sort.
+From the mailing list "I saw a new "spark.shuffle.manager=tungsten-sort" implemented in
+https://issues.apache.org/jira/browse/SPARK-7081, but it can't be found its
+corresponding description in
+http://people.apache.org/~pwendell/spark-releases/spark-1.5.0-rc3-docs/configuration.html(Currenlty
+there are only 'sort' and 'hash' two options)."
+
+
+---
+
+* [SPARK-10466](https://issues.apache.org/jira/browse/SPARK-10466) | *Blocker* | **UnsafeRow exception in Sort-Based Shuffle with data spill**
+
+In sort-based shuffle, if we have data spill, it will cause assert exception, the follow code can reproduce that
+{code}
+withSparkConf(("spark.shuffle.sort.bypassMergeThreshold", "2")) {
+      withSQLConf(("spark.sql.autoBroadcastJoinThreshold", "0")) {
+        withTempTable("mytemp") {
+          sparkContext.parallelize(1 to 10000000, 3).map(i =\> (i, i)).toDF("key", "value").registerTempTable("mytemp")
+          sql("select key, value as v1 from mytemp where key \> 1").registerTempTable("l")
+          sql("select key, value as v2 from mytemp where key \> 3").registerTempTable("r")
+
+          val df3 = sql("select v1, v2 from l left join r on l.key=r.key")
+          df3.count()
+        }
+      }
+    }
+{code}
+{code}
+java.lang.AssertionError: assertion failed
+	at scala.Predef$.assert(Predef.scala:165)
+	at org.apache.spark.sql.execution.UnsafeRowSerializerInstance$$anon$2.writeKey(UnsafeRowSerializer.scala:75)
+	at org.apache.spark.storage.DiskBlockObjectWriter.write(DiskBlockObjectWriter.scala:180)
+	at org.apache.spark.util.collection.ExternalSorter$$anonfun$writePartitionedFile$2$$anonfun$apply$1.apply(ExternalSorter.scala:688)
+	at org.apache.spark.util.collection.ExternalSorter$$anonfun$writePartitionedFile$2$$anonfun$apply$1.apply(ExternalSorter.scala:687)
+	at scala.collection.Iterator$class.foreach(Iterator.scala:727)
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1157)
+	at org.apache.spark.util.collection.ExternalSorter$$anonfun$writePartitionedFile$2.apply(ExternalSorter.scala:687)
+	at org.apache.spark.util.collection.ExternalSorter$$anonfun$writePartitionedFile$2.apply(ExternalSorter.scala:683)
+	at scala.collection.Iterator$class.foreach(Iterator.scala:727)
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1157)
+	at org.apache.spark.util.collection.ExternalSorter.writePartitionedFile(ExternalSorter.scala:683)
+	at org.apache.spark.shuffle.sort.SortShuffleWriter.write(SortShuffleWriter.scala:80)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:73)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:41)
+	at org.apache.spark.scheduler.Task.run(Task.scala:88)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:214)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+17:32:06.172 WARN org.apache.spark.scheduler.TaskSetManager: Lost task 1.0 in stage 1.0 (TID 4, localhost): java.lang.AssertionError: assertion failed
+	at scala.Predef$.assert(Predef.scala:165)
+	at org.apache.spark.sql.execution.UnsafeRowSerializerInstance$$anon$2.writeKey(UnsafeRowSerializer.scala:75)
+	at org.apache.spark.storage.DiskBlockObjectWriter.write(DiskBlockObjectWriter.scala:180)
+	at org.apache.spark.util.collection.ExternalSorter$$anonfun$writePartitionedFile$2$$anonfun$apply$1.apply(ExternalSorter.scala:688)
+	at org.apache.spark.util.collection.ExternalSorter$$anonfun$writePartitionedFile$2$$anonfun$apply$1.apply(ExternalSorter.scala:687)
+	at scala.collection.Iterator$class.foreach(Iterator.scala:727)
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1157)
+	at org.apache.spark.util.collection.ExternalSorter$$anonfun$writePartitionedFile$2.apply(ExternalSorter.scala:687)
+	at org.apache.spark.util.collection.ExternalSorter$$anonfun$writePartitionedFile$2.apply(ExternalSorter.scala:683)
+	at scala.collection.Iterator$class.foreach(Iterator.scala:727)
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1157)
+	at org.apache.spark.util.collection.ExternalSorter.writePartitionedFile(ExternalSorter.scala:683)
+	at org.apache.spark.shuffle.sort.SortShuffleWriter.write(SortShuffleWriter.scala:80)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:73)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:41)
+	at org.apache.spark.scheduler.Task.run(Task.scala:88)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:214)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+{code}
 
 
 ---
@@ -331,7 +502,7 @@ message m0 {
 
 message m1 {
   optional group f0 {
-    optional int64 f01;
+    optional int64 f00;
     optional int64 f01;
     optional int64 f02;
   }
@@ -341,7 +512,7 @@ message m1 {
 {noformat}
 Users should be allowed to read the dataset with the following schema:
 {noformat}
-message m1 {
+message m2 {
   optional group f0 {
     optional int64 f01;
     optional int64 f02;
@@ -604,6 +775,15 @@ But what about people who are using QueueInputDStream in non-testing scenarios w
 Since right now we have no good way of determining if a QueueInputDStream contains RDDs that are recoverable or not, why not err on the side of leaving it to the user of the class to not expect recoverability, rather than forcing checkpointing.
 
 In conclusion: my recommendation would be to revert to the old behavior and to resolve this bug as won’t fix.
+
+
+---
+
+* [SPARK-9924](https://issues.apache.org/jira/browse/SPARK-9924) | *Major* | **checkForLogs and cleanLogs are scheduled at fixed rate and can get piled up**
+
+{{checkForLogs}} and {{cleanLogs}} are scheduled using {{ScheduledThreadPoolExecutor.scheduleAtFixedRate}}. When their execution takes more time than the interval at which they are scheduled, they get piled up.
+
+This is a problem on its own but the existence of SPARK-7189 makes it even worse. Let's say there is an eventLog which takes 15s to parse and which happens to be the last modified file (that gets reloaded again and again due to SPARK-7189.) If this file stays the last modified file for, let's say, an hour, then a lot of executions of that file would have piled up as the default {{spark.history.fs.update.interval}} is 10s. If there is a new eventLog file now, it won't show up in the history server ui for a long time.
 
 
 ---

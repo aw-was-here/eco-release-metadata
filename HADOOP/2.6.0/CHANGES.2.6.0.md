@@ -132,7 +132,7 @@
 | [HADOOP-10373](https://issues.apache.org/jira/browse/HADOOP-10373) | create tools/hadoop-amazon for aws/EMR support |  Major | fs/s3 | Steve Loughran | Steve Loughran |
 | [HADOOP-10335](https://issues.apache.org/jira/browse/HADOOP-10335) | An ip whilelist based implementation to resolve Sasl properties per connection |  Major | . | Benoy Antony | Benoy Antony |
 | [HADOOP-10231](https://issues.apache.org/jira/browse/HADOOP-10231) | Add some components in Native Libraries document |  Minor | documentation | Akira AJISAKA | Akira AJISAKA |
-| [HADOOP-9540](https://issues.apache.org/jira/browse/HADOOP-9540) | Expose the InMemoryS3 and S3N FilesystemStores implementations for Unit testing. |  Minor | fs/s3, test | Hari |  |
+| [HADOOP-9540](https://issues.apache.org/jira/browse/HADOOP-9540) | Expose the InMemoryS3 and S3N FilesystemStores implementations for Unit testing. |  Minor | fs/s3, test | Hari | Hari |
 | [HADOOP-9457](https://issues.apache.org/jira/browse/HADOOP-9457) | add an SCM-ignored XML filename to keep secrets in (auth-keys.xml?) |  Minor | build | Steve Loughran |  |
 | [HADOOP-8896](https://issues.apache.org/jira/browse/HADOOP-8896) | Javadoc points to Wrong Reader and Writer classes in SequenceFile |  Trivial | documentation, io | Timothy Mann | Ray Chiang |
 | [HADOOP-8815](https://issues.apache.org/jira/browse/HADOOP-8815) | RandomDatum overrides equals(Object) but no hashCode() |  Minor | test | Brandon Li | Brandon Li |

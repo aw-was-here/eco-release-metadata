@@ -69,6 +69,40 @@ WARNING: For experts only. Forcing a balance may do more damage than repair when
 
 ---
 
+* [HBASE-14261](https://issues.apache.org/jira/browse/HBASE-14261) | *Major* | **Enhance Chaos Monkey framework by adding zookeeper and datanode fault injections.**
+
+This change augments existing chaos monkey framework with actions for restarting underlying zookeeper quorum and hdfs nodes of distributed hbase cluster. One assumption made while creating zk actions are that zookeper ensemble is an independent external service and won't be managed by hbase cluster.  For these actions to work as expected, the following parameters need to be configured appropriately.
+
+{code}
+\<property\>
+  \<name\>hbase.it.clustermanager.hadoop.home\</name\>
+  \<value\>$HADOOP\_HOME\</value\>
+\</property\>
+\<property\>
+  \<name\>hbase.it.clustermanager.zookeeper.home\</name\>
+  \<value\>$ZOOKEEPER\_HOME\</value\>
+\</property\>
+\<property\>
+  \<name\>hbase.it.clustermanager.hbase.user\</name\>
+  \<value\>hbase\</value\>
+\</property\>
+\<property\>
+  \<name\>hbase.it.clustermanager.hadoop.hdfs.user\</name\>
+  \<value\>hdfs\</value\>
+\</property\>
+\<property\>
+  \<name\>hbase.it.clustermanager.zookeeper.user\</name\>
+  \<value\>zookeeper\</value\>
+\</property\>
+{code}
+
+The service user related configurations are newly introduced since in prod/test environments each service is managed by different user. Once the above parameters are configured properly, you can start using them as needed. An example usage for invoking these new actions is:
+
+{{./hbase org.apache.hadoop.hbase.IntegrationTestAcidGuarantees -m serverAndDependenciesKilling}}
+
+
+---
+
 * [HBASE-14230](https://issues.apache.org/jira/browse/HBASE-14230) | *Minor* | **replace reflection in FSHlog with HdfsDataOutputStream#getCurrentBlockReplication()**
 
 Remove calling getNumCurrentReplicas on HdfsDataOutputStream via reflection. getNumCurrentReplicas showed up in hadoop 1+ and hadoop 0.2x. In hadoop-2 it was deprecated.
@@ -183,6 +217,16 @@ This patch adds optional ability for HMaster to normalize regions in size (disab
 * [HBASE-10844](https://issues.apache.org/jira/browse/HBASE-10844) | *Major* | **Coprocessor failure during batchmutation leaves the memstore datastructs in an inconsistent state**
 
 Promotes an -ea assert to logged FATAL and RS abort when memstore is found to be in an inconsistent state.
+
+
+---
+
+* [HBASE-6617](https://issues.apache.org/jira/browse/HBASE-6617) | *Major* | **ReplicationSourceManager should be able to track multiple WAL paths**
+
+ReplicationSourceManager now could track multiple wal paths. Notice that although most changes are internal and all metrics names remain the same, signature of below methods in MetricsSource are changed:
+
+1. refreshAgeOfLastShippedOp now requires a String parameter which indicates the wal group id of the reporter
+2. setAgeOfLastShippedOp also adds a String parameter for wal group id
 
 
 

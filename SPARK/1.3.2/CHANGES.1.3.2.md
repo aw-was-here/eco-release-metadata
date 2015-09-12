@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 1.3.2 - Unreleased (as of 2015-09-10)
+## Release 1.3.2 - Unreleased (as of 2015-09-12)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -52,6 +52,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-10556](https://issues.apache.org/jira/browse/SPARK-10556) | SBT build explicitly sets Scala version, which can conflict with SBT's own scala version |  Minor | Build | Ahir Reddy | Ahir Reddy |
 | [SPARK-10353](https://issues.apache.org/jira/browse/SPARK-10353) | MLlib BLAS gemm outputs wrong result when beta = 0.0 for transpose transpose matrix multiplication |  Major | MLlib | Burak Yavuz | Burak Yavuz |
 | [SPARK-10169](https://issues.apache.org/jira/browse/SPARK-10169) | Evaluating AggregateFunction1 (old code path) may return wrong answers when grouping expressions are used as arguments of aggregate functions |  Critical | SQL | Yin Huai | Yin Huai |
 | [SPARK-9801](https://issues.apache.org/jira/browse/SPARK-9801) | Spark streaming deletes the temp file and backup files without checking if they exist or not |  Minor | Streaming | Hao Zhu | Hao Zhu |
@@ -105,7 +106,7 @@
 | [SPARK-6967](https://issues.apache.org/jira/browse/SPARK-6967) | Internal DateType not handled correctly in caching |  Blocker | SQL | Michael Armbrust | Adrian Wang |
 | [SPARK-6954](https://issues.apache.org/jira/browse/SPARK-6954) | ExecutorAllocationManager can end up requesting a negative number of executors |  Major | YARN | Cheolsoo Park | Sandy Ryza |
 | [SPARK-6952](https://issues.apache.org/jira/browse/SPARK-6952) | spark-daemon.sh PID reuse check fails on long classpath |  Minor | Deploy | Punya Biswal | Punya Biswal |
-| [SPARK-6931](https://issues.apache.org/jira/browse/SPARK-6931) | python: struct.pack('!q', value) in write\_long(value, stream) in serializers.py require int(but doesn't raise exceptions in common cases) |  Critical | PySpark | Chunxi Zhang |  |
+| [SPARK-6931](https://issues.apache.org/jira/browse/SPARK-6931) | python: struct.pack('!q', value) in write\_long(value, stream) in serializers.py require int(but doesn't raise exceptions in common cases) |  Critical | PySpark | Chunxi Zhang | Bryan Cutler |
 | [SPARK-6905](https://issues.apache.org/jira/browse/SPARK-6905) | Upgrade Snappy Java to 1.1.1.7 to fix bug that resulted in worse compression |  Major | Spark Core | Josh Rosen | Josh Rosen |
 | [SPARK-6886](https://issues.apache.org/jira/browse/SPARK-6886) | Big closure in PySpark will fail during shuffle |  Blocker | PySpark | Davies Liu | Davies Liu |
 | [SPARK-6878](https://issues.apache.org/jira/browse/SPARK-6878) | Sum on empty RDD fails with exception |  Minor | Spark Core | Erik van Oosten | Erik van Oosten |

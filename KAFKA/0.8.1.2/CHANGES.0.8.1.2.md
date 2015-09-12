@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.8.1.2 - Unreleased (as of 2015-09-10)
+## Release 0.8.1.2 - Unreleased (as of 2015-09-12)
 
 ### INCOMPATIBLE CHANGES:
 

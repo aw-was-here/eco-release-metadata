@@ -23,9 +23,51 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [TEZ-2807](https://issues.apache.org/jira/browse/TEZ-2807) | *Major* | **Log data in the finish event instead of the start event**
+
+The start event may not be logged if the attempt failed before launching. So that data is lost.
+
+
+---
+
+* [TEZ-2792](https://issues.apache.org/jira/browse/TEZ-2792) | *Major* | **Add AM web service API for tasks.**
+
+Add AM API for fetching realtime tasks info:
+- API endpoint : /ws/v2/tez/tasksInfo
+- Query Params:
+-- dagID: Just need to pass the dagIndex, (mandatory).
+-- vertexID: Just need to pass the vertexIndex. Can be a comma separated list
+-- taskID: Must be of the format \<vertexIndex\>\_\<taskIndex\>. For instance task with index 5 in vertex 3 can be referenced using the id 3\_5. Can be a comma separated list.
+-- limit: Maximum number of items to be returned (Defaults to 100).
+- If taskID is passed: All (capped by limit) the specified tasks will be returned. vertexID if present wont be considered.
+- IF vertexID is passed: All (capped by limit) tasks under the vertices will be returned.
+- If just dagID is passed: All (capped by limit) tasks under the DAG will be returned.
+- Data returned: complete task id, progress, status
+
+
+---
+
 * [TEZ-2789](https://issues.apache.org/jira/browse/TEZ-2789) | *Major* | **Backport events added in TEZ-2612 to branch-0.7**
 
 Having the events in the 0.7 line will allow them to be persisted to ATS or SimpleHistory logging. After that, the latest analyzers from master or 0.8 could be used to analyze them. At some point when the analzyers are stable, they could move into the UI directly or be back-ported in bulk to the 0.7.
+
+
+---
+
+* [TEZ-2787](https://issues.apache.org/jira/browse/TEZ-2787) | *Major* | **Tez AM should have java.io.tmpdir=./tmp to be consistent with tasks**
+
+TezRuntimeChildJVM ensures that tasks are launched with -Djava.io.tmpdir=./tmp, but there's no corresponding code to ensure the Tez AM also has a similar tmpdir setting.  The client should setup the AM launch context to have -Djava.io.tmpdir=./tmp to be consistent with the tasks and to prevent accidental leaking of files in /tmp by the Tez AM if it crashes.
+
+
+---
+
+* [TEZ-2780](https://issues.apache.org/jira/browse/TEZ-2780) | *Major* | **Tez UI: Update All Tasks page while in progress.**
+
+Modify table component to automatically update cell based on in-progress data.
+#. Upgrade polling logic to manage a specific entity.
+#. Added progress column to All Tasks table.
+#. Updated table to automatically reflect model change - Just need to set observePath to true in defaultColumnConfigs.
+#. Updated table logic to send action on row change - so that polling logic can query for fresh records.
 
 
 ---
@@ -240,6 +282,17 @@ When ATS goes into a GC pause under heavy loads and while it recovers, each Tez 
 Current impl appends cmd-opts specified in config to programmatic opts provided. This creates potential conflicts when using UseParallelGC v/s UseG1GC 
 
 Tez should support a way to do checks for invalid java opts and error out as needed.
+
+
+---
+
+* [TEZ-2660](https://issues.apache.org/jira/browse/TEZ-2660) | *Major* | **Tez UI: need to show application page even if system metrics publish is disabled.**
+
+if system metrics publish is disabled the application page is not shown currently. This means the following does not work. 
+\* history url from yarn ui will redirect to a page which will error
+\* we do not show the url from tez-ui to yarn app page.
+This can be enhanced and fixed by using the data if its available through the yarn rest api. https://hadoop.apache.org/docs/r2.4.1/hadoop-yarn/hadoop-yarn-site/ResourceManagerRest.html#Cluster\_Applications\_API
+cc [~hitesh]
 
 
 ---

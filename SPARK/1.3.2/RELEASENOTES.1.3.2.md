@@ -23,6 +23,15 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-10556](https://issues.apache.org/jira/browse/SPARK-10556) | *Minor* | **SBT build explicitly sets Scala version, which can conflict with SBT's own scala version**
+
+project/plugins.sbt explicitly sets scalaVersion to 2.10.4. This can cause issues when using a version of sbt that is compiled against a different version of Scala (for example sbt 0.13.9 uses 2.10.5). Removing this explicit setting will cause build files to be compiled and run against the same version of Scala that sbt is compiled against.
+
+Note that this only applies to the project build files (items in project/), it is distinct from the version of Scala we target for the actual spark compilation.
+
+
+---
+
 * [SPARK-10354](https://issues.apache.org/jira/browse/SPARK-10354) | *Minor* | **First cost RDD shouldn't be cached in k-means\|\| and the following cost RDD should use MEMORY\_AND\_DISK**
 
 The first RDD doesn't need to be cached, other cost RDDs should use MEMORY\_AND\_DISK to avoid recomputing.

@@ -23,6 +23,15 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-10556](https://issues.apache.org/jira/browse/SPARK-10556) | *Minor* | **SBT build explicitly sets Scala version, which can conflict with SBT's own scala version**
+
+project/plugins.sbt explicitly sets scalaVersion to 2.10.4. This can cause issues when using a version of sbt that is compiled against a different version of Scala (for example sbt 0.13.9 uses 2.10.5). Removing this explicit setting will cause build files to be compiled and run against the same version of Scala that sbt is compiled against.
+
+Note that this only applies to the project build files (items in project/), it is distinct from the version of Scala we target for the actual spark compilation.
+
+
+---
+
 * [SPARK-10377](https://issues.apache.org/jira/browse/SPARK-10377) | *Major* | **Cassandra connector affected by backport change**
 
 The backport in SPARK-7289 and SPARK-9949 includes the refactor of TakeOrdered to TakeOrderedAndProject, which breaks code that refers to TakeOrdered. In a minor version update that is perhaps not expected - specifically, the Cassandra connector refers to this by name and no longer works.

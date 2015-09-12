@@ -18,7 +18,7 @@
 -->
 # Apache Hive Changelog
 
-## Release 2.0.0 - Unreleased (as of 2015-09-10)
+## Release 2.0.0 - Unreleased (as of 2015-09-12)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -50,6 +50,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HIVE-11659](https://issues.apache.org/jira/browse/HIVE-11659) | Make Vectorization use the fast StringExpr everywhere |  Major | Vectorization | Gopal V | Gopal V |
+| [HIVE-11645](https://issues.apache.org/jira/browse/HIVE-11645) | Add in-place updates for dynamic partitions loading |  Major | CLI | Ashutosh Chauhan | Ashutosh Chauhan |
 | [HIVE-11638](https://issues.apache.org/jira/browse/HIVE-11638) | ExprNodeDesc hashMap accidentally degrades into O(N) instead of O(1) |  Major | Logical Optimizer | Gopal V | Gopal V |
 | [HIVE-11627](https://issues.apache.org/jira/browse/HIVE-11627) | Reduce the number of accesses to hashmaps in PPD |  Major | Logical Optimizer | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
 | [HIVE-11617](https://issues.apache.org/jira/browse/HIVE-11617) | Explain plan for multiple lateral views is very slow |  Major | Logical Optimizer | Aihua Xu | Aihua Xu |
@@ -106,6 +107,9 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HIVE-11781](https://issues.apache.org/jira/browse/HIVE-11781) | Remove HiveLimit operator and rename HiveSort operator |  Major | CBO | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
+| [HIVE-11761](https://issues.apache.org/jira/browse/HIVE-11761) | DoubleWritable hashcode for GroupBy is not properly generated |  Major | Hive | Aihua Xu | Aihua Xu |
+| [HIVE-11751](https://issues.apache.org/jira/browse/HIVE-11751) | hive-exec-log4j2.xml settings causes DEBUG messages to be generated and ignored |  Major | . | Rajesh Balamohan | Prasanth Jayachandran |
 | [HIVE-11747](https://issues.apache.org/jira/browse/HIVE-11747) | Unnecessary error log is shown when executing a "INSERT OVERWRITE LOCAL DIRECTORY" cmd in the embedded mode |  Minor | . | Ferdinand Xu | Ferdinand Xu |
 | [HIVE-11737](https://issues.apache.org/jira/browse/HIVE-11737) | IndexOutOfBounds compiling query with duplicated groupby keys |  Major | . | Jimmy Xiang | Jimmy Xiang |
 | [HIVE-11712](https://issues.apache.org/jira/browse/HIVE-11712) | Duplicate groupby keys cause ClassCastException |  Major | . | Jimmy Xiang | Jimmy Xiang |
@@ -120,12 +124,15 @@
 | [HIVE-11657](https://issues.apache.org/jira/browse/HIVE-11657) | HIVE-2573 introduces some issues during metastore init (and CLI init) |  Critical | . | Sergey Shelukhin | Sergey Shelukhin |
 | [HIVE-11652](https://issues.apache.org/jira/browse/HIVE-11652) | Avoid expensive call to removeAll in DefaultGraphWalker |  Major | Logical Optimizer, Physical Optimizer | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
 | [HIVE-11607](https://issues.apache.org/jira/browse/HIVE-11607) | Export tables broken for data \> 32 MB |  Major | Import/Export | Ashutosh Chauhan | Ashutosh Chauhan |
+| [HIVE-11606](https://issues.apache.org/jira/browse/HIVE-11606) | Bucket map joins fail at hash table construction time |  Major | Tez | Vikram Dixit K | Vikram Dixit K |
+| [HIVE-11605](https://issues.apache.org/jira/browse/HIVE-11605) | Incorrect results with bucket map join in tez. |  Critical | Tez | Vikram Dixit K | Vikram Dixit K |
 | [HIVE-11604](https://issues.apache.org/jira/browse/HIVE-11604) | HIVE return wrong results in some queries with PTF function |  Major | Logical Optimizer | Yongzhi Chen | Yongzhi Chen |
 | [HIVE-11602](https://issues.apache.org/jira/browse/HIVE-11602) | Support Struct with different field types in query |  Major | . | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
 | [HIVE-11596](https://issues.apache.org/jira/browse/HIVE-11596) | nvl(x, y) throws NPE if type x and type y doesn't match, rather than throwing the meaningful error |  Minor | Hive | Aihua Xu | Aihua Xu |
 | [HIVE-11595](https://issues.apache.org/jira/browse/HIVE-11595) | refactor ORC footer reading to make it usable from outside |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
 | [HIVE-11594](https://issues.apache.org/jira/browse/HIVE-11594) | Analyze Table For Columns cannot handle columns with embedded spaces |  Major | Statistics | Gopal V | Gopal V |
 | [HIVE-11592](https://issues.apache.org/jira/browse/HIVE-11592) | ORC metadata section can sometimes exceed protobuf message size limit |  Major | . | Prasanth Jayachandran | Prasanth Jayachandran |
+| [HIVE-11587](https://issues.apache.org/jira/browse/HIVE-11587) | Fix memory estimates for mapjoin hashtable |  Major | Hive | Sergey Shelukhin | Wei Zheng |
 | [HIVE-11586](https://issues.apache.org/jira/browse/HIVE-11586) | ObjectInspectorFactory.getReflectionObjectInspector is not thread-safe |  Major | . | Jimmy Xiang | Jimmy Xiang |
 | [HIVE-11581](https://issues.apache.org/jira/browse/HIVE-11581) | HiveServer2 should store connection params in ZK when using dynamic service discovery for simpler client connection string. |  Major | HiveServer2, JDBC | Vaibhav Gumashta | Vaibhav Gumashta |
 | [HIVE-11580](https://issues.apache.org/jira/browse/HIVE-11580) | ThriftUnionObjectInspector#toString throws NPE |  Minor | . | Jimmy Xiang | Jimmy Xiang |
@@ -136,6 +143,7 @@
 | [HIVE-11542](https://issues.apache.org/jira/browse/HIVE-11542) | port fileId support on shims and splits from llap branch |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
 | [HIVE-11541](https://issues.apache.org/jira/browse/HIVE-11541) | ORC: Split Strategy should depend on global file count, not per-partition |  Major | File Formats | Gopal V | Gopal V |
 | [HIVE-11511](https://issues.apache.org/jira/browse/HIVE-11511) | Output the message of orcfiledump when ORC files are not specified |  Major | . | Shinichi Yamashita | Shinichi Yamashita |
+| [HIVE-11510](https://issues.apache.org/jira/browse/HIVE-11510) | Metatool updateLocation warning on views |  Major | Database/Schema | Eric Czech | Wei Zheng |
 | [HIVE-11502](https://issues.apache.org/jira/browse/HIVE-11502) | Map side aggregation is extremely slow |  Major | Logical Optimizer, Physical Optimizer | Yongzhi Chen | Yongzhi Chen |
 | [HIVE-11501](https://issues.apache.org/jira/browse/HIVE-11501) | HiveConnection.readOnly always throws a "Method not supported" exception |  Major | . | Michał Węgrzyn | Michał Węgrzyn |
 | [HIVE-11498](https://issues.apache.org/jira/browse/HIVE-11498) | HIVE Authorization v2 should not check permission for dummy entity |  Major | Authorization | Dapeng Sun | Dapeng Sun |

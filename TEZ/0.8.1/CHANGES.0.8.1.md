@@ -18,7 +18,7 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.8.1 - Unreleased (as of 2015-09-10)
+## Release 0.8.1 - Unreleased (as of 2015-09-12)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -49,8 +49,11 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-2809](https://issues.apache.org/jira/browse/TEZ-2809) | Minimal distribution compiled on 2.6 fails to run on 2.7 |  Blocker | . | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-2808](https://issues.apache.org/jira/browse/TEZ-2808) | Race condition between preemption and container assignment |  Major | . | Bikas Saha | Bikas Saha |
 | [TEZ-2799](https://issues.apache.org/jira/browse/TEZ-2799) | SimpleHistoryParser NPE |  Major | . | Bikas Saha | Rajesh Balamohan |
 | [TEZ-2788](https://issues.apache.org/jira/browse/TEZ-2788) | Allow TezAnalyzerBase to parse SimpleHistory logs |  Major | . | Bikas Saha | Bikas Saha |
+| [TEZ-2787](https://issues.apache.org/jira/browse/TEZ-2787) | Tez AM should have java.io.tmpdir=./tmp to be consistent with tasks |  Major | . | Jason Lowe | Jonathan Eagles |
 | [TEZ-2783](https://issues.apache.org/jira/browse/TEZ-2783) | Refactor analyzers to extend TezAnalyzerBase |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-2765](https://issues.apache.org/jira/browse/TEZ-2765) | Change Xmlwriter to use defaultValue instead of value tag |  Major | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-2757](https://issues.apache.org/jira/browse/TEZ-2757) | Fix download links for Tez releases |  Trivial | . | Hitesh Shah | Hitesh Shah |
@@ -58,6 +61,7 @@
 | [TEZ-2750](https://issues.apache.org/jira/browse/TEZ-2750) | Shuffle may not shutdown in case of a fetch failure, causing it to hang |  Major | . | André Kelpe | Siddharth Seth |
 | [TEZ-2745](https://issues.apache.org/jira/browse/TEZ-2745) | ClassNotFoundException of user code should fail dag |  Major | . | Jeff Zhang | Jeff Zhang |
 | [TEZ-2742](https://issues.apache.org/jira/browse/TEZ-2742) | VertexImpl.finished() terminationCause hides member var of the same name |  Major | . | Bikas Saha | Bikas Saha |
+| [TEZ-2660](https://issues.apache.org/jira/browse/TEZ-2660) | Tez UI: need to show application page even if system metrics publish is disabled. |  Major | UI | Prakash Ramachandran | Prakash Ramachandran |
 
 
 ### TESTS:
@@ -70,7 +74,11 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-2810](https://issues.apache.org/jira/browse/TEZ-2810) | Support for showing allocation delays due to internal preemption |  Major | . | Bikas Saha | Bikas Saha |
+| [TEZ-2807](https://issues.apache.org/jira/browse/TEZ-2807) | Log data in the finish event instead of the start event |  Major | . | Bikas Saha | Bikas Saha |
+| [TEZ-2792](https://issues.apache.org/jira/browse/TEZ-2792) | Add AM web service API for tasks. |  Major | UI | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2782](https://issues.apache.org/jira/browse/TEZ-2782) | VertexInfo.getAvgExecutionTimeInterval throws NPE when task does not have any valid attempts info |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
+| [TEZ-2780](https://issues.apache.org/jira/browse/TEZ-2780) | Tez UI: Update All Tasks page while in progress. |  Major | UI | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2778](https://issues.apache.org/jira/browse/TEZ-2778) | Improvements to handle multiple read errors with complex DAGs |  Major | . | Bikas Saha | Bikas Saha |
 | [TEZ-2766](https://issues.apache.org/jira/browse/TEZ-2766) | Tez UI: Add vertex in-progress info in DAG details. |  Major | UI | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2761](https://issues.apache.org/jira/browse/TEZ-2761) | Tez UI: update the progress on the dag and vertices pages with info from AM |  Major | UI | Prakash Ramachandran | Prakash Ramachandran |

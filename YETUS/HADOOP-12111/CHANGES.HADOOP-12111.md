@@ -18,7 +18,7 @@
 -->
 # Apache Hadoop Yetus Changelog
 
-## Release HADOOP-12111 - Unreleased (as of 2015-09-10)
+## Release HADOOP-12111 - Unreleased (as of 2015-09-12)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -56,6 +56,9 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HADOOP-12400](https://issues.apache.org/jira/browse/HADOOP-12400) | Wrong comment for scaladoc\_rebuild function in test-patch scala plugin |  Trivial | yetus | Kengo Seki | Jagadesh Kiran N |
+| [HADOOP-12398](https://issues.apache.org/jira/browse/HADOOP-12398) | filefilter function in test-patch flink personality is never called |  Major | yetus | Kengo Seki | Jagadesh Kiran N |
+| [HADOOP-12397](https://issues.apache.org/jira/browse/HADOOP-12397) | Incomplete comment for test-patch compile\_cycle function |  Trivial | yetus | Kengo Seki | Jagadesh Kiran N |
 | [HADOOP-12380](https://issues.apache.org/jira/browse/HADOOP-12380) | Wrong grep command invocation in github\_find\_jira\_title |  Major | yetus | Kengo Seki | Brahma Reddy Battula |
 | [HADOOP-12375](https://issues.apache.org/jira/browse/HADOOP-12375) | Incomplete checking for findbugs executable |  Major | yetus | Kengo Seki | Jagadesh Kiran N |
 | [HADOOP-12355](https://issues.apache.org/jira/browse/HADOOP-12355) | test-patch TAP plugin should use ${SED} instead of sed |  Trivial | yetus | Kengo Seki | Jagadesh Kiran N |

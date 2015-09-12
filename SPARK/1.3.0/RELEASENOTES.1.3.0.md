@@ -12683,6 +12683,17 @@ cala:269)
 
 ---
 
+* [SPARK-2803](https://issues.apache.org/jira/browse/SPARK-2803) | *Major* | **add Kafka stream feature for fetch messages from specified starting offset position**
+
+There are some use cases that we want to fetch message from specified offset position, as below:
+\* replay messages
+\* deal with transaction
+\* skip bulk incorrect messages
+\* random fetch message according to index
+
+
+---
+
 * [SPARK-2757](https://issues.apache.org/jira/browse/SPARK-2757) | *Major* | **Add Mima test for Spark Sink after 1.1.0 is released**
 
 We are adding it in 1.1.0, so it is excluded from Mima right now. Once we release 1.1.0, we should add it to Mima so we do binary compat checks.

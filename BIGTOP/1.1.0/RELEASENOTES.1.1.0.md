@@ -23,6 +23,32 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [BIGTOP-2033](https://issues.apache.org/jira/browse/BIGTOP-2033) | *Major* | **Build order of the stack is broken**
+
+As a part of moving to new stack DSL I have inadvertently broke the logic to preserve the order of stack creation as laid-out by the sequence of the BOM file.
+
+
+---
+
+* [BIGTOP-2026](https://issues.apache.org/jira/browse/BIGTOP-2026) | *Major* | **Phoenix build defines HBASE\_VERSION in two different places.**
+
+{noformat}
+% ack-grep PHOENIX\_HBASE\_VERSION \*
+bigtop.mk
+282:PHOENIX\_HBASE\_VERSION=HBase-0.98
+283:PHOENIX\_TARBALL\_DST=phoenix-$(PHOENIX\_BASE\_VERSION)-$(PHOENIX\_HBASE\_VERSION)-src.tar.gz
+285:PHOENIX\_DOWNLOAD\_PATH=/phoenix/phoenix-$(PHOENIX\_BASE\_VERSION)-$(PHOENIX\_HBASE\_VERSION)/src/
+
+bigtop-packages/src/common/phoenix/do-component-build
+21:PHOENIX\_HBASE\_VERSION=HBase-0.98
+32:tar -C build --strip-components=1 -xzf phoenix-assembly/target/phoenix-$PHOENIX\_VERSION-${PHOENIX\_HBASE\_VERSION}.tar.gz
+{noformat}
+
+The variable is defined twice and can lead to integration problems if it gets changed independently. {{do-component-build}} should use the one from the BOM
+
+
+---
+
 * [BIGTOP-2019](https://issues.apache.org/jira/browse/BIGTOP-2019) | *Major* | **BigPetStore Spark isn't compiling due to changes in SQL API**
 
 Spark no longer supports registering RDDs as temp tables -- they need to be converted to DataFrames first.
@@ -647,6 +673,24 @@ YARN-2815 (included in hadoop-2.7) blocks BIGTOP-1701 (upgrade to hive-1.1.0)  s
 * [BIGTOP-1795](https://issues.apache.org/jira/browse/BIGTOP-1795) | *Major* | **Upgrade bigtop\_toolchain to Maven 3.2.5**
 
 Zeppelin (see BIGTOP-1769 for main Zeppelin Integration JIRA) requires Maven 3.1+ as of https://github.com/apache/incubator-zeppelin/commit/2498e5d
+
+
+---
+
+* [BIGTOP-1746](https://issues.apache.org/jira/browse/BIGTOP-1746) | *Major* | **Introduce the concept of roles in bigtop cluster deployment**
+
+Currently, during cluster deployment, puppet categorizes nodes as head\_node, worker\_nodes, gateway\_nodes, standy\_node based on user specified info. This functionality gives user control over picking up a particular node as head\_node, standy\_node, gateway\_node and rest others as worker\_nodes. But, I woulld like to have more fine-grained control on which deamons should run on which node. For example, I do not want to run namenode, datanode on the same node. This functionality can be introduced with the concept of roles. Each node can be assigned a set of role. For example, Node A can be assigned ["namenode", "resourcemanager"] roles. Node B can be assigned ["datanode", "nodemanager"] and Node C can be assigned ["nodemanager", "hadoop-client"]. Now, each node will only run the specified daemons. Prerequisite for this kind of deployment is that each node should be given the necessary configurations that it needs to know. For example, each datanode should know which is the namenode etc... This functionality will allow users to customize the cluster deployment according to their needs.
+
+
+---
+
+* [BIGTOP-1494](https://issues.apache.org/jira/browse/BIGTOP-1494) | *Major* | **Introduce Groovy DSL to replace bigtop.mk**
+
+ Seems confusing to have a {{.mk}} file which is mostly just a bunch of variable declarations, which is then parsed as a CSV, simply for the sake of guiding the {{packages.gradle}} file .  
+
+Can we be more idiomatic to gradle and either eliminate {{bigtop.mk}} by making it into a native gradle data structure (its really just an array,  and we can  declare in gradle.settings) , so that the {{readBOM}} function is easier to follow ?
+
+I think it is an entry point to understanding bigtop's build system so we should try to simplify it as much as possible to make it maximally easy for people to understand how bigtop's gradle packaging system works.
 
 
 ---

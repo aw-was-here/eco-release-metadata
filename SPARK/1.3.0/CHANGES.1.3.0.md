@@ -66,6 +66,7 @@
 | [SPARK-3660](https://issues.apache.org/jira/browse/SPARK-3660) | Initial RDD for updateStateByKey transformation |  Major | Streaming | Soumitra Kumar |  |
 | [SPARK-3405](https://issues.apache.org/jira/browse/SPARK-3405) | EC2 cluster creation on VPC |  Minor | EC2 | Dawson Reid |  |
 | [SPARK-3278](https://issues.apache.org/jira/browse/SPARK-3278) | Isotonic regression |  Major | MLlib | Xiangrui Meng | Martin Zapletal |
+| [SPARK-2803](https://issues.apache.org/jira/browse/SPARK-2803) | add Kafka stream feature for fetch messages from specified starting offset position |  Major | Streaming | pengyanhong |  |
 | [SPARK-2663](https://issues.apache.org/jira/browse/SPARK-2663) | Support the GroupingSet/ROLLUP/CUBE |  Major | SQL | Cheng Hao | Cheng Hao |
 | [SPARK-2309](https://issues.apache.org/jira/browse/SPARK-2309) | Generalize the binary logistic regression into multinomial logistic regression |  Critical | MLlib | DB Tsai | DB Tsai |
 | [SPARK-1830](https://issues.apache.org/jira/browse/SPARK-1830) | Deploy failover, Make Persistence engine and LeaderAgent Pluggable. |  Major | Deploy | Prashant Sharma | Prashant Sharma |

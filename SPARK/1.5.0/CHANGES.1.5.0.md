@@ -875,6 +875,7 @@
 | [SPARK-7956](https://issues.apache.org/jira/browse/SPARK-7956) | Use Janino to compile SQL expression |  Major | SQL | Davies Liu | Davies Liu |
 | [SPARK-7955](https://issues.apache.org/jira/browse/SPARK-7955) | Dynamic allocation: longer timeout for executors with cached blocks |  Major | Spark Core | Hari Shreedharan | Hari Shreedharan |
 | [SPARK-7944](https://issues.apache.org/jira/browse/SPARK-7944) | Spark-Shell 2.11 1.4.0-RC-03 does not add jars to class path |  Critical | Spark Shell | Alexander Nakos | Iulian Dragos |
+| [SPARK-7942](https://issues.apache.org/jira/browse/SPARK-7942) | Receiver's life cycle is inconsistent with streaming job. |  Major | Streaming | SaintBacchus | Tathagata Das |
 | [SPARK-7939](https://issues.apache.org/jira/browse/SPARK-7939) | Make URL partition recognition return String by default for all partition column types and values |  Major | SQL | Jianshi Huang | Liang-Chi Hsieh |
 | [SPARK-7937](https://issues.apache.org/jira/browse/SPARK-7937) | Cannot compare Hive named\_struct. (when using argmax, argmin) |  Major | SQL | Jianshi Huang | Liang-Chi Hsieh |
 | [SPARK-7915](https://issues.apache.org/jira/browse/SPARK-7915) | Support specifying the column list for target table in CTAS |  Major | SQL | Cheng Hao | Cheng Hao |
@@ -931,6 +932,7 @@
 | [SPARK-5479](https://issues.apache.org/jira/browse/SPARK-5479) | PySpark on yarn mode need to support non-local python files |  Major | PySpark, YARN | Lianhui Wang | Marcelo Vanzin |
 | [SPARK-4988](https://issues.apache.org/jira/browse/SPARK-4988) | "Create table ..as select ..from..order by .. limit 10" report error when one col is a Decimal |  Major | SQL | guowei | Davies Liu |
 | [SPARK-4072](https://issues.apache.org/jira/browse/SPARK-4072) | Storage UI does not reflect memory usage by streaming blocks |  Critical | Streaming, Web UI | Tathagata Das | Shixiong Zhu |
+| [SPARK-3283](https://issues.apache.org/jira/browse/SPARK-3283) | Receivers sometimes do not get spread out to multiple nodes |  Major | Streaming | Tathagata Das | Tathagata Das |
 | [SPARK-3190](https://issues.apache.org/jira/browse/SPARK-3190) | Creation of large graph(\> 2.15 B nodes) seems to be broken:possible overflow somewhere |  Critical | GraphX | npanj | Ankur Dave |
 | [SPARK-2645](https://issues.apache.org/jira/browse/SPARK-2645) | Spark driver calls System.exit(50) after calling SparkContext.stop() the second time |  Major | Spark Core | Vlad Komarov | Rekha Joshi |
 | [SPARK-2205](https://issues.apache.org/jira/browse/SPARK-2205) | Unnecessary exchange operators in a join on multiple tables with the same join key. |  Critical | SQL | Yin Huai | Yin Huai |
@@ -1023,6 +1025,7 @@
 | [SPARK-9728](https://issues.apache.org/jira/browse/SPARK-9728) | Support CalendarIntervalType in HiveQL |  Critical | SQL | Reynold Xin | Yijie Shen |
 | [SPARK-9709](https://issues.apache.org/jira/browse/SPARK-9709) | Avoid starving an unsafe operator in a sort |  Blocker | SQL | Andrew Or | Andrew Or |
 | [SPARK-9671](https://issues.apache.org/jira/browse/SPARK-9671) | ML 1.5 QA: Programming guide update and migration guide |  Critical | MLlib | Joseph K. Bradley | Xiangrui Meng |
+| [SPARK-9668](https://issues.apache.org/jira/browse/SPARK-9668) | ML 1.5 QA: Docs: Check for new APIs |  Major | Documentation, ML, MLlib | Joseph K. Bradley | Feynman Liang |
 | [SPARK-9666](https://issues.apache.org/jira/browse/SPARK-9666) | ML 1.5 QA: model save/load audit |  Major | MLlib | Joseph K. Bradley | yuhao yang |
 | [SPARK-9665](https://issues.apache.org/jira/browse/SPARK-9665) | ML 1.5 QA: API: Experimental, DeveloperApi, final, sealed audit |  Critical | ML, MLlib | Joseph K. Bradley | Xiangrui Meng |
 | [SPARK-9664](https://issues.apache.org/jira/browse/SPARK-9664) | Use sqlContext.udf to register UDAFs. |  Blocker | SQL | Yin Huai | Yin Huai |
@@ -1479,9 +1482,15 @@
 | [SPARK-9705](https://issues.apache.org/jira/browse/SPARK-9705) | outdated Python 3 and IPython information |  Blocker | Documentation, PySpark | Piotr Migdał | Davies Liu |
 | [SPARK-9680](https://issues.apache.org/jira/browse/SPARK-9680) | Update programming guide section for ml.feature.StopWordsRemover |  Minor | ML | yuhao yang | Feynman Liang |
 | [SPARK-9575](https://issues.apache.org/jira/browse/SPARK-9575) | Add documentation around Mesos shuffle service and dynamic allocation |  Major | Documentation, Mesos | Timothy Chen | Timothy Chen |
+| [SPARK-9569](https://issues.apache.org/jira/browse/SPARK-9569) | Spark streaming 1.5.0 testing umbrella |  Critical | Streaming | Reynold Xin | Tathagata Das |
+| [SPARK-9568](https://issues.apache.org/jira/browse/SPARK-9568) | Spark MLlib 1.5.0 testing umbrella |  Major | MLlib | Reynold Xin | Xiangrui Meng |
+| [SPARK-9566](https://issues.apache.org/jira/browse/SPARK-9566) | Spark 1.5.0 YARN testing umbrella |  Major | YARN | Reynold Xin | Reynold Xin |
+| [SPARK-9565](https://issues.apache.org/jira/browse/SPARK-9565) | Spark SQL 1.5.0 QA/testing umbrella |  Critical | SQL | Reynold Xin | Michael Armbrust |
+| [SPARK-9564](https://issues.apache.org/jira/browse/SPARK-9564) | Spark 1.5.0 Testing Plan |  Critical | Build, Tests | Reynold Xin | Reynold Xin |
 | [SPARK-9530](https://issues.apache.org/jira/browse/SPARK-9530) | ScalaDoc should not indicate LDAModel.describeTopics and DistributedLDAModel.topDocumentsPerTopic as approximate. |  Minor | MLlib | Meihua Wu | Meihua Wu |
 | [SPARK-9490](https://issues.apache.org/jira/browse/SPARK-9490) | MLlib evaluation metrics guide example python code uses deprecated print statement |  Trivial | Documentation, MLlib | Seth Hendrickson | Sean Owen |
 | [SPARK-9457](https://issues.apache.org/jira/browse/SPARK-9457) | Sorting improvements |  Major | SQL | Reynold Xin | Reynold Xin |
+| [SPARK-9424](https://issues.apache.org/jira/browse/SPARK-9424) | Document recent Parquet changes in Spark 1.5 |  Major | SQL | Cheng Lian | Cheng Lian |
 | [SPARK-9413](https://issues.apache.org/jira/browse/SPARK-9413) | Support MapType in Tungsten |  Major | SQL | Reynold Xin | Wenchen Fan |
 | [SPARK-9389](https://issues.apache.org/jira/browse/SPARK-9389) | Support ArrayType in Tungsten |  Major | SQL | Reynold Xin | Wenchen Fan |
 | [SPARK-9329](https://issues.apache.org/jira/browse/SPARK-9329) | Bring UnsafeRow up to feature parity with other InternalRow implementations |  Major | SQL | Reynold Xin | Reynold Xin |
@@ -1517,6 +1526,7 @@
 | [SPARK-7075](https://issues.apache.org/jira/browse/SPARK-7075) | Project Tungsten (Spark 1.5 Phase 1) |  Major | Block Manager, Shuffle, Spark Core, SQL | Reynold Xin | Reynold Xin |
 | [SPARK-6906](https://issues.apache.org/jira/browse/SPARK-6906) | Improve Hive integration support |  Blocker | SQL | Michael Armbrust | Michael Armbrust |
 | [SPARK-6805](https://issues.apache.org/jira/browse/SPARK-6805) | MLlib + SparkR integration for 1.5 |  Critical | ML, SparkR | Xiangrui Meng | Eric Liang |
+| [SPARK-6116](https://issues.apache.org/jira/browse/SPARK-6116) | DataFrame API improvement umbrella ticket (Spark 1.5) |  Critical | SQL | Reynold Xin | Reynold Xin |
 | [SPARK-5180](https://issues.apache.org/jira/browse/SPARK-5180) | Data source API improvement (Spark 1.5) |  Blocker | SQL | Yin Huai | Cheng Lian |
 | [SPARK-3629](https://issues.apache.org/jira/browse/SPARK-3629) | Improvements to YARN doc |  Minor | Documentation, YARN | Matei Zaharia | Neelesh Srinivas Salian |
 | [SPARK-3258](https://issues.apache.org/jira/browse/SPARK-3258) | Python API for streaming MLlib algorithms |  Major | MLlib, PySpark, Streaming | Xiangrui Meng | Manoj Kumar |
@@ -1524,6 +1534,7 @@
 | [SPARK-9712](https://issues.apache.org/jira/browse/SPARK-9712) | List source compatibility issues in Scala API from scaladocs |  Major | ML, MLlib | Feynman Liang | Feynman Liang |
 | [SPARK-9706](https://issues.apache.org/jira/browse/SPARK-9706) | List Binary and Source Compatibility Issues with japi-compliance checker |  Major | ML, MLlib | Feynman Liang | Feynman Liang |
 | [SPARK-9574](https://issues.apache.org/jira/browse/SPARK-9574) | Review the contents of uber JARs spark-streaming-XXX-assembly |  Major | Streaming | Tathagata Das | Shixiong Zhu |
+| [SPARK-9550](https://issues.apache.org/jira/browse/SPARK-9550) | Configuration renaming, defaults changes, and deprecation for 1.5.0 (master ticket) |  Major | Spark Core, SQL | Josh Rosen | Reynold Xin |
 | [SPARK-9408](https://issues.apache.org/jira/browse/SPARK-9408) | Refactor mllib/linalg.py to mllib/linalg |  Major | MLlib, PySpark | Manoj Kumar | Manoj Kumar |
 | [SPARK-9095](https://issues.apache.org/jira/browse/SPARK-9095) | Removes old Parquet support code |  Major | SQL | Cheng Lian | Cheng Lian |
 | [SPARK-8850](https://issues.apache.org/jira/browse/SPARK-8850) | Turn unsafe mode on by default |  Major | SQL | Reynold Xin | Josh Rosen |

@@ -4902,6 +4902,21 @@ Before the release, we need to update the MLlib Programming Guide.  Updates will
 
 ---
 
+* [SPARK-9668](https://issues.apache.org/jira/browse/SPARK-9668) | *Major* | **ML 1.5 QA: Docs: Check for new APIs**
+
+Check the user guide vs. a list of new APIs (classes, methods, data members) to see what items require updates to the user guide.
+
+For each feature missing user guide doc:
+\* Create a JIRA for that feature, and assign it to the author of the feature
+\* Link it to (a) the original JIRA which introduced that feature ("related to") and (b) to this JIRA ("requires").
+
+Note: Now that we have algorithms in spark.ml which are not in spark.mllib, we should make subsections for the spark.ml API as needed. We can follow the structure of the spark.mllib user guide.
+\* The spark.ml user guide can provide: (a) code examples and (b) info on algorithms which do not exist in spark.mllib.
+\* We should not duplicate info in the spark.ml guides. Since spark.mllib is still the primary API, we should provide links to the corresponding algorithms in the spark.mllib user guide for more info.
+
+
+---
+
 * [SPARK-9667](https://issues.apache.org/jira/browse/SPARK-9667) | *Major* | **Remove SparkSqlSerializer2 in favor of Unsafe exchange**
 
 GenerateUnsafeProjection can be used directly as a code generated serializer. We no longer need SparkSqlSerializer2.
@@ -5449,6 +5464,47 @@ It should not contain Spark core and its dependencies, especially the following.
 
 ---
 
+* [SPARK-9568](https://issues.apache.org/jira/browse/SPARK-9568) | *Major* | **Spark MLlib 1.5.0 testing umbrella**
+
+h2. API
+
+\* Check binary API compatibility (SPARK-9658)
+\* Audit new public APIs (from the generated html doc)
+\*\* Scala (SPARK-9660)
+\*\* Java compatibility (SPARK-9661)
+\*\* Python coverage (SPARK-9662)
+\* Check Experimental, DeveloperApi tags (SPARK-9665)
+
+h2. Algorithms and performance
+
+\*Performance\*
+\* \_List any other missing performance tests from spark-perf here\_
+\* LDA online/EM (SPARK-7455)
+\* ElasticNet for linear regression and logistic regression (SPARK-7456)
+\* PIC (SPARK-7454)
+\* ALS.recommendAll (SPARK-7457)
+\* perf-tests in Python (SPARK-7539)
+
+\*Correctness\*
+\* model save/load (SPARK-9666)
+
+h2. Documentation and example code
+
+\* For new algorithms, create JIRAs for updating the user guide (SPARK-9668)
+\* For major components, create JIRAs for example code (SPARK-9670)
+\* Update Programming Guide for 1.5 (towards end of QA) (SPARK-9671)
+\* Update website (SPARK-10120)
+
+
+---
+
+* [SPARK-9564](https://issues.apache.org/jira/browse/SPARK-9564) | *Critical* | **Spark 1.5.0 Testing Plan**
+
+This is an epic for Spark 1.5.0 release QA plans for tracking various components.
+
+
+---
+
 * [SPARK-9562](https://issues.apache.org/jira/browse/SPARK-9562) | *Major* | **Move spark-ec2 from mesos to amplab**
 
 See http://apache-spark-developers-list.1001551.n3.nabble.com/Re-Should-spark-ec2-get-its-own-repo-td13151.html for more details
@@ -5468,6 +5524,34 @@ For more detail, see the discussion: https://github.com/apache/spark/pull/7770
 * [SPARK-9558](https://issues.apache.org/jira/browse/SPARK-9558) | *Minor* | **Update docs to follow the increase of memory defaults.**
 
 Now the memory defaults of master and slave in Standalone mode and History Server is 1g, not 512m. So let's update docs.
+
+
+---
+
+* [SPARK-9550](https://issues.apache.org/jira/browse/SPARK-9550) | *Major* | **Configuration renaming, defaults changes, and deprecation for 1.5.0 (master ticket)**
+
+This ticket tracks configurations which need to be renamed, deprecated, or have their defaults changed for Spark 1.5.0.
+
+Note that subtasks / comments here do not necessarily need to reflect changes that must be performed.  Rather, tasks should be added here to make sure that the relevant configurations are at least checked before we cut releases.  This ticket will also help us to track configuration changes which must make it into the release notes.
+
+\*Configuration renaming\*
+
+- Consider renaming {{spark.shuffle.memoryFraction}} to {{spark.execution.memoryFraction}} ([discussion\|https://github.com/apache/spark/pull/7770#discussion-diff-36019144]).
+- Rename all public-facing uses of {{unsafe}} to something less scary, such as {{tungsten}}
+
+\*Defaults changes\*
+- Codegen is now enabled by default.
+- Tungsten is now enabled by default.
+- Parquet schema merging is now disabled by default.
+- In-memory relation partition pruning should be enabled by default (SPARK-9554).
+
+\*Deprecation\*
+- Local execution has been removed.
+
+\*Behavior Changes\*
+- Canonical name of SQL/DataFrame functions are now lower case (e.g. sum vs SUM)
+
+- DirectOutputCommitter is not safe to use with speculation
 
 
 ---
@@ -6410,6 +6494,15 @@ If you go to the job page you see the visualization for the first stage of the j
 The DecimalType has a precision up to 38 digits, so it's possible to serialize a Decimal as bounded byte array.
 
 We could have a fast path for DecimalType with precision under 18 digits, which could fit in a single long.
+
+
+---
+
+* [SPARK-9424](https://issues.apache.org/jira/browse/SPARK-9424) | *Major* | **Document recent Parquet changes in Spark 1.5**
+
+Specifically, the following changes need to be documented/explained:
+- Metadata discovery related SQL option(s) and data source option(s)
+- Large decimal precision support
 
 
 ---
@@ -17467,6 +17560,14 @@ I have encountered this same behaviour in both 1.3.1 and 1.4.0\_RC-03 builds for
 
 ---
 
+* [SPARK-7942](https://issues.apache.org/jira/browse/SPARK-7942) | *Major* | **Receiver's life cycle is inconsistent with streaming job.**
+
+Streaming consider the receiver as a common spark job, thus if an error occurs in the receiver's  logical(after 4 times(default) retries ), streaming will no longer get any data but the streaming job is still running. 
+A general scenario is that: we config the `spark.streaming.receiver.writeAheadLog.enable` as true to use the `ReliableKafkaReceiver` but do not set the checkpoint dir. Then the receiver will soon be shut down but the streaming is alive.
+
+
+---
+
 * [SPARK-7939](https://issues.apache.org/jira/browse/SPARK-7939) | *Major* | **Make URL partition recognition return String by default for all partition column types and values**
 
 Imagine the following HDFS paths:
@@ -20141,6 +20242,15 @@ For two parquet files for the same table having an array column, if values of th
 
 ---
 
+* [SPARK-6116](https://issues.apache.org/jira/browse/SPARK-6116) | *Critical* | **DataFrame API improvement umbrella ticket (Spark 1.5)**
+
+An umbrella ticket for DataFrame API improvements for Spark 1.5.
+
+SPARK-9576 is the ticket for Spark 1.6.
+
+
+---
+
 * [SPARK-5989](https://issues.apache.org/jira/browse/SPARK-5989) | *Major* | **Model import/export for LDAModel**
 
 Add save/load for LDAModel and its local and distributed variants.
@@ -20808,6 +20918,15 @@ In addition, the doc mentions yarn-cluster vs yarn-client as separate masters, w
 * [SPARK-3382](https://issues.apache.org/jira/browse/SPARK-3382) | *Minor* | **GradientDescent convergence tolerance**
 
 GradientDescent should support a convergence tolerance setting.  In general, for optimization, convergence tolerance should be preferred over a limit on the number of iterations since it is a somewhat data-adaptive or data-specific convergence criterion.
+
+
+---
+
+* [SPARK-3283](https://issues.apache.org/jira/browse/SPARK-3283) | *Major* | **Receivers sometimes do not get spread out to multiple nodes**
+
+The probable reason this happens is because the JobGenerator and JobScheduler start generating jobs with tasks. When the ReceiverTracker submits the task containing receivers, the tasks get assigned according to empty slots, which may be instantaneously available on one node, instead of all the nodes. 
+
+The original behavior was that the jobs started only after the receivers are started, thus ensuring that all the slots are free and the receivers are spread evenly across all the nodes.
 
 
 ---

@@ -18,7 +18,7 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.7.1 - Unreleased (as of 2015-09-10)
+## Release 0.7.1 - Unreleased (as of 2015-09-12)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -54,12 +54,15 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-2809](https://issues.apache.org/jira/browse/TEZ-2809) | Minimal distribution compiled on 2.6 fails to run on 2.7 |  Blocker | . | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-2787](https://issues.apache.org/jira/browse/TEZ-2787) | Tez AM should have java.io.tmpdir=./tmp to be consistent with tasks |  Major | . | Jason Lowe | Jonathan Eagles |
 | [TEZ-2755](https://issues.apache.org/jira/browse/TEZ-2755) | Fix findbugs warning in TezClient |  Major | . | Jonathan Eagles | Jonathan Eagles |
 | [TEZ-2752](https://issues.apache.org/jira/browse/TEZ-2752) | logUnsuccessful completion in Attempt should write original finish time to ATS |  Major | . | Bikas Saha | Bikas Saha |
 | [TEZ-2745](https://issues.apache.org/jira/browse/TEZ-2745) | ClassNotFoundException of user code should fail dag |  Major | . | Jeff Zhang | Jeff Zhang |
 | [TEZ-2742](https://issues.apache.org/jira/browse/TEZ-2742) | VertexImpl.finished() terminationCause hides member var of the same name |  Major | . | Bikas Saha | Bikas Saha |
 | [TEZ-2732](https://issues.apache.org/jira/browse/TEZ-2732) | DefaultSorter throws ArrayIndex exceptions on 2047 Mb size sort buffers |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-2687](https://issues.apache.org/jira/browse/TEZ-2687) | ATS History shutdown happens before the min-held containers are released |  Major | . | Gopal V | Jeff Zhang |
+| [TEZ-2660](https://issues.apache.org/jira/browse/TEZ-2660) | Tez UI: need to show application page even if system metrics publish is disabled. |  Major | UI | Prakash Ramachandran | Prakash Ramachandran |
 | [TEZ-2636](https://issues.apache.org/jira/browse/TEZ-2636) | MRInput and MultiMRInput should work for cases when there are 0 physical inputs |  Major | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-2635](https://issues.apache.org/jira/browse/TEZ-2635) | Limit number of attempts being downloaded in unordered fetch |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-2630](https://issues.apache.org/jira/browse/TEZ-2630) | TezChild receives IP address instead of FQDN |  Critical | . | Rajat Jain | Hitesh Shah |
@@ -115,6 +118,9 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-2807](https://issues.apache.org/jira/browse/TEZ-2807) | Log data in the finish event instead of the start event |  Major | . | Bikas Saha | Bikas Saha |
+| [TEZ-2792](https://issues.apache.org/jira/browse/TEZ-2792) | Add AM web service API for tasks. |  Major | UI | Sreenath Somarajapuram | Sreenath Somarajapuram |
+| [TEZ-2780](https://issues.apache.org/jira/browse/TEZ-2780) | Tez UI: Update All Tasks page while in progress. |  Major | UI | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2766](https://issues.apache.org/jira/browse/TEZ-2766) | Tez UI: Add vertex in-progress info in DAG details. |  Major | UI | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2761](https://issues.apache.org/jira/browse/TEZ-2761) | Tez UI: update the progress on the dag and vertices pages with info from AM |  Major | UI | Prakash Ramachandran | Prakash Ramachandran |
 | [TEZ-2731](https://issues.apache.org/jira/browse/TEZ-2731) | Fix Tez GenericCounter performance bottleneck |  Major | . | Gopal V | Gopal V |
