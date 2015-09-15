@@ -18,7 +18,7 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.8.1 - Unreleased (as of 2015-09-12)
+## Release 0.8.1 - Unreleased (as of 2015-09-15)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -74,9 +74,13 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-2817](https://issues.apache.org/jira/browse/TEZ-2817) | Tez UI: update in progress counter data for the dag vertices and tasks table |  Major | UI | Sreenath Somarajapuram | Sreenath Somarajapuram |
+| [TEZ-2813](https://issues.apache.org/jira/browse/TEZ-2813) | Tez UI: add counter data for rest api calls to AM Web Services v2 |  Major | UI | Sreenath Somarajapuram | Sreenath Somarajapuram |
+| [TEZ-2812](https://issues.apache.org/jira/browse/TEZ-2812) | Tez UI: Update task & attempt tables while in progress. |  Major | UI | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2810](https://issues.apache.org/jira/browse/TEZ-2810) | Support for showing allocation delays due to internal preemption |  Major | . | Bikas Saha | Bikas Saha |
 | [TEZ-2807](https://issues.apache.org/jira/browse/TEZ-2807) | Log data in the finish event instead of the start event |  Major | . | Bikas Saha | Bikas Saha |
 | [TEZ-2792](https://issues.apache.org/jira/browse/TEZ-2792) | Add AM web service API for tasks. |  Major | UI | Sreenath Somarajapuram | Sreenath Somarajapuram |
+| [TEZ-2786](https://issues.apache.org/jira/browse/TEZ-2786) | Tez UI: Update vertex, task & attempt details page while in progress. |  Major | UI | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2782](https://issues.apache.org/jira/browse/TEZ-2782) | VertexInfo.getAvgExecutionTimeInterval throws NPE when task does not have any valid attempts info |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-2780](https://issues.apache.org/jira/browse/TEZ-2780) | Tez UI: Update All Tasks page while in progress. |  Major | UI | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2778](https://issues.apache.org/jira/browse/TEZ-2778) | Improvements to handle multiple read errors with complex DAGs |  Major | . | Bikas Saha | Bikas Saha |

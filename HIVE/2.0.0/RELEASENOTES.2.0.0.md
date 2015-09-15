@@ -44,6 +44,13 @@ Provide configurable limits to the PointLookupOptimizer
 
 ---
 
+* [HIVE-11544](https://issues.apache.org/jira/browse/HIVE-11544) | *Minor* | **LazyInteger should avoid throwing NumberFormatException**
+
+Improve LazySimpleSerDe null data handling for Byte, Short, Integer, Float, Long and Double.
+
+
+---
+
 * [HIVE-11476](https://issues.apache.org/jira/browse/HIVE-11476) | *Minor* | **TypeInfoParser cannot handle column names with spaces in them**
 
 HIVE-11476: TypeInfoParser cannot handle column names with spaces in them (Gopal V, reviewed by Hari Sankar Sivarama Subramaniyan)

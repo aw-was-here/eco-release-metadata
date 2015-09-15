@@ -18,7 +18,7 @@
 -->
 # Apache HBase Changelog
 
-## Release 1.0.3 - Unreleased (as of 2015-09-12)
+## Release 1.0.3 - Unreleased (as of 2015-09-15)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -65,6 +65,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HBASE-14428](https://issues.apache.org/jira/browse/HBASE-14428) | Upgrade our surefire-plugin from 2.18 to 2.18.1 |  Major | test | stack | stack |
 
 
 ### OTHER:

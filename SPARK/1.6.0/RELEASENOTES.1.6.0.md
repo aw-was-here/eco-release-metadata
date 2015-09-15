@@ -23,6 +23,88 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-10594](https://issues.apache.org/jira/browse/SPARK-10594) | *Trivial* | **ApplicationMaster "--help" references the removed "--num-executors" option**
+
+The issue SPARK-9092 and commit [738f35\|https://github.com/apache/spark/commit/738f353988dbf02704bd63f5e35d94402c59ed79] removed the {{ApplicationMaster}} commandline argument {{--num-executors}}, but it's help message still references the [argument\|https://github.com/apache/spark/blob/738f353988dbf02704bd63f5e35d94402c59ed79/yarn/src/main/scala/org/apache/spark/deploy/yarn/ApplicationMasterArguments.scala#L108].
+
+
+---
+
+* [SPARK-10584](https://issues.apache.org/jira/browse/SPARK-10584) | *Minor* | **Documentation about spark.sql.hive.metastore.version is wrong.**
+
+The default value of hive metastore version is 1.2.1 but the documentation says `spark.sql.hive.metastore.version` is 0.13.1.
+
+Also, we cannot get the default value by `sqlContext.getConf("spark.sql.hive.metastore.version")`.
+
+
+---
+
+* [SPARK-10576](https://issues.apache.org/jira/browse/SPARK-10576) | *Minor* | **Move .java files out of src/main/scala**
+
+(I suppose I'm really asking for an opinion on this, rather than asserting it must be done, but seems worthwhile. CC [~rxin] and [~pwendell])
+
+As pointed out on the mailing list, there are some Java files in the Scala source tree:
+
+{code}
+./bagel/src/main/scala/org/apache/spark/bagel/package-info.java
+./core/src/main/scala/org/apache/spark/annotation/AlphaComponent.java
+./core/src/main/scala/org/apache/spark/annotation/DeveloperApi.java
+./core/src/main/scala/org/apache/spark/annotation/Experimental.java
+./core/src/main/scala/org/apache/spark/annotation/package-info.java
+./core/src/main/scala/org/apache/spark/annotation/Private.java
+./core/src/main/scala/org/apache/spark/api/java/package-info.java
+./core/src/main/scala/org/apache/spark/broadcast/package-info.java
+./core/src/main/scala/org/apache/spark/executor/package-info.java
+./core/src/main/scala/org/apache/spark/io/package-info.java
+./core/src/main/scala/org/apache/spark/rdd/package-info.java
+./core/src/main/scala/org/apache/spark/scheduler/package-info.java
+./core/src/main/scala/org/apache/spark/serializer/package-info.java
+./core/src/main/scala/org/apache/spark/util/package-info.java
+./core/src/main/scala/org/apache/spark/util/random/package-info.java
+./external/flume/src/main/scala/org/apache/spark/streaming/flume/package-info.java
+./external/kafka/src/main/scala/org/apache/spark/streaming/kafka/package-info.java
+./external/mqtt/src/main/scala/org/apache/spark/streaming/mqtt/package-info.java
+./external/twitter/src/main/scala/org/apache/spark/streaming/twitter/package-info.java
+./external/zeromq/src/main/scala/org/apache/spark/streaming/zeromq/package-info.java
+./graphx/src/main/scala/org/apache/spark/graphx/impl/EdgeActiveness.java
+./graphx/src/main/scala/org/apache/spark/graphx/lib/package-info.java
+./graphx/src/main/scala/org/apache/spark/graphx/package-info.java
+./graphx/src/main/scala/org/apache/spark/graphx/TripletFields.java
+./graphx/src/main/scala/org/apache/spark/graphx/util/package-info.java
+./mllib/src/main/scala/org/apache/spark/ml/attribute/package-info.java
+./mllib/src/main/scala/org/apache/spark/ml/package-info.java
+./mllib/src/main/scala/org/apache/spark/mllib/package-info.java
+./sql/catalyst/src/main/scala/org/apache/spark/sql/types/SQLUserDefinedType.java
+./sql/hive/src/main/scala/org/apache/spark/sql/hive/package-info.java
+./streaming/src/main/scala/org/apache/spark/streaming/api/java/package-info.java
+./streaming/src/main/scala/org/apache/spark/streaming/dstream/package-info.java
+./streaming/src/main/scala/org/apache/spark/streaming/StreamingContextState.java
+{code}
+
+It happens to work since the Scala compiler plugin is handling both.
+
+On its face, they should be in the Java source tree. I'm trying to figure out if there are good reasons they have to be in this less intuitive location.
+
+I might try moving them just to see.
+
+
+---
+
+* [SPARK-10573](https://issues.apache.org/jira/browse/SPARK-10573) | *Major* | **IndexToString transformSchema adds output field as DoubleType**
+
+Reproducible example:
+{code}
+val stage = new IndexToString().setInputCol("input").setOutputCol("output")
+val inSchema = StructType(Seq(StructField("input", DoubleType)))
+val outSchema = stage.transformSchema(inSchema)
+assert(outSchema("output").dataType == StringType)
+{code}
+
+The root cause seems to be that it uses {{NominalAttribute.toStructField}} which assumes {{DoubleType}}. It would probably be better to just use {{SchemaUtils.appendColumn}} and explicitly set the data type.
+
+
+---
+
 * [SPARK-10566](https://issues.apache.org/jira/browse/SPARK-10566) | *Minor* | **SnappyCompressionCodec init exception handling masks important error information**
 
 
@@ -117,6 +199,35 @@ Note: I referenced source from apache spark repo than cloudera.
 
 ---
 
+* [SPARK-10549](https://issues.apache.org/jira/browse/SPARK-10549) | *Major* | **scala 2.11 spark on yarn with security - Repl doesn't work**
+
+Trying to run spark on secure yarn built with scala 2.11 results in failure when trying to launch the spark shell.
+
+ ./bin/spark-shell --master yarn-client 
+
+Exception in thread "main" java.lang.ExceptionInInitializerError
+        at org.apache.spark.repl.Main.main(Main.scala)
+        at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+        at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+        at java.lang.reflect.Method.invoke(Method.java:483)
+        at org.apache.spark.deploy.SparkSubmit$.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:672)
+        at org.apache.spark.deploy.SparkSubmit$.doRunMain$1(SparkSubmit.scala:180)
+        at org.apache.spark.deploy.SparkSubmit$.submit(SparkSubmit.scala:205)
+        at org.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:120)
+        at org.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)
+Caused by: java.lang.Exception: Error: a secret key must be specified via the spark.authenticate.secret config
+        at org.apache.spark.SecurityManager.generateSecretKey(SecurityManager.scala:395)
+        at org.apache.spark.SecurityManager.\<init\>(SecurityManager.scala:218)
+        at org.apache.spark.repl.Main$.\<init\>(Main.scala:38)
+        at org.apache.spark.repl.Main$.\<clinit\>(Main.scala)
+
+
+The reason is because it create the SecurityManager before is sets the SPARK\_YARN\_MODE to true.
+
+
+---
+
 * [SPARK-10547](https://issues.apache.org/jira/browse/SPARK-10547) | *Minor* | **Streamline / improve style of Java API tests**
 
 I've wanted to touch up the style of the Java API tests. We've fixed some issues recently but there are still some common issues in the code:
@@ -143,9 +254,245 @@ Alternatively, we can use abs() and modulo to force the partition Id into legiti
 
 ---
 
+* [SPARK-10543](https://issues.apache.org/jira/browse/SPARK-10543) | *Minor* | **Peak Execution Memory Quantile should be Per-task Basis**
+
+Currently the Peak Execution Memory quantiles seem to be cumulative rather than per task basis. For example, I have seen a value of 2TB in one of my jobs on the quantile metric but each individual task shows less than 1GB on the bottom table.
+
+[~andrewor14] In your PR https://github.com/apache/spark/pull/7770, the screenshot shows the Max Peak Execution Memory of 792.5KB while in the bottom it's about 50KB per task (unless your workload is skewed)
+
+The fix seems straightforward that we use the `update` rather than `value` from the accumulable. I'm happy to provide a PR if people agree this is the right behavior.
+
+
+---
+
+* [SPARK-10542](https://issues.apache.org/jira/browse/SPARK-10542) | *Critical* | **The  PySpark 1.5 closure serializer can't serialize a namedtuple instance.**
+
+Code to Reproduce Bug:
+{code}
+from collections import namedtuple
+PowerPlantRow=namedtuple("PowerPlantRow", ["AT", "V", "AP", "RH", "PE"])
+rdd=sc.parallelize([1]).map(lambda x: PowerPlantRow(1.0, 2.0, 3.0, 4.0, 5.0))
+rdd.count()
+{code}
+
+Error message on Spark 1.5:
+{code}
+AttributeError: 'builtin\_function\_or\_method' object has no attribute '\_\_code\_\_'
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+\<ipython-input-5-59448e31019f\> in \<module\>()
+      2 PowerPlantRow=namedtuple("PowerPlantRow", ["AT", "V", "AP", "RH", "PE"])
+      3 rdd=sc.parallelize([1]).map(lambda x: PowerPlantRow(1.0, 2.0, 3.0, 4.0, 5.0))
+----\> 4 rdd.count()
+
+/home/ubuntu/databricks/spark/python/pyspark/rdd.pyc in count(self)
+   1004         3
+   1005         """
+-\> 1006         return self.mapPartitions(lambda i: [sum(1 for \_ in i)]).sum()
+   1007 
+   1008     def stats(self):
+
+/home/ubuntu/databricks/spark/python/pyspark/rdd.pyc in sum(self)
+    995         6.0
+    996         """
+--\> 997         return self.mapPartitions(lambda x: [sum(x)]).fold(0, operator.add)
+    998 
+    999     def count(self):
+
+/home/ubuntu/databricks/spark/python/pyspark/rdd.pyc in fold(self, zeroValue, op)
+    869         # zeroValue provided to each partition is unique from the one provided
+    870         # to the final reduce call
+--\> 871         vals = self.mapPartitions(func).collect()
+    872         return reduce(op, vals, zeroValue)
+    873 
+
+/home/ubuntu/databricks/spark/python/pyspark/rdd.pyc in collect(self)
+    771         """
+    772         with SCCallSiteSync(self.context) as css:
+--\> 773             port = self.ctx.\_jvm.PythonRDD.collectAndServe(self.\_jrdd.rdd())
+    774         return list(\_load\_from\_socket(port, self.\_jrdd\_deserializer))
+    775 
+
+/home/ubuntu/databricks/spark/python/pyspark/rdd.pyc in \_jrdd(self)
+   2383         command = (self.func, profiler, self.\_prev\_jrdd\_deserializer,
+   2384                    self.\_jrdd\_deserializer)
+-\> 2385         pickled\_cmd, bvars, env, includes = \_prepare\_for\_python\_RDD(self.ctx, command, self)
+   2386         python\_rdd = self.ctx.\_jvm.PythonRDD(self.\_prev\_jrdd.rdd(),
+   2387                                              bytearray(pickled\_cmd),
+
+/home/ubuntu/databricks/spark/python/pyspark/rdd.pyc in \_prepare\_for\_python\_RDD(sc, command, obj)
+   2303     # the serialized command will be compressed by broadcast
+   2304     ser = CloudPickleSerializer()
+-\> 2305     pickled\_command = ser.dumps(command)
+   2306     if len(pickled\_command) \> (1 \<\< 20):  # 1M
+   2307         # The broadcast will have same life cycle as created PythonRDD
+
+/home/ubuntu/databricks/spark/python/pyspark/serializers.pyc in dumps(self, obj)
+    425 
+    426     def dumps(self, obj):
+--\> 427         return cloudpickle.dumps(obj, 2)
+    428 
+    429 
+
+/home/ubuntu/databricks/spark/python/pyspark/cloudpickle.pyc in dumps(obj, protocol)
+    639 
+    640     cp = CloudPickler(file,protocol)
+--\> 641     cp.dump(obj)
+    642 
+    643     return file.getvalue()
+
+/home/ubuntu/databricks/spark/python/pyspark/cloudpickle.pyc in dump(self, obj)
+    105         self.inject\_addons()
+    106         try:
+--\> 107             return Pickler.dump(self, obj)
+    108         except RuntimeError as e:
+    109             if 'recursion' in e.args[0]:
+
+/usr/lib/python2.7/pickle.pyc in dump(self, obj)
+    222         if self.proto \>= 2:
+    223             self.write(PROTO + chr(self.proto))
+--\> 224         self.save(obj)
+    225         self.write(STOP)
+    226 
+
+/usr/lib/python2.7/pickle.pyc in save(self, obj)
+    284         f = self.dispatch.get(t)
+    285         if f:
+--\> 286             f(self, obj) # Call unbound method with explicit self
+    287             return
+    288 
+
+/usr/lib/python2.7/pickle.pyc in save\_tuple(self, obj)
+    560         write(MARK)
+    561         for element in obj:
+--\> 562             save(element)
+    563 
+    564         if id(obj) in memo:
+
+/usr/lib/python2.7/pickle.pyc in save(self, obj)
+    284         f = self.dispatch.get(t)
+    285         if f:
+--\> 286             f(self, obj) # Call unbound method with explicit self
+    287             return
+    288 
+... skipped 23125 bytes ...
+    650 
+    651     dispatch[DictionaryType] = save\_dict
+
+/usr/lib/python2.7/pickle.pyc in \_batch\_setitems(self, items)
+    684                 k, v = tmp[0]
+    685                 save(k)
+--\> 686                 save(v)
+    687                 write(SETITEM)
+    688             # else tmp is empty, and we're done
+
+/usr/lib/python2.7/pickle.pyc in save(self, obj)
+    284         f = self.dispatch.get(t)
+    285         if f:
+--\> 286             f(self, obj) # Call unbound method with explicit self
+    287             return
+    288 
+
+/home/ubuntu/databricks/spark/python/pyspark/cloudpickle.pyc in save\_global(self, obj, name, pack)
+    367                     v = v.\_\_func\_\_
+    368                 dd[k] = v
+--\> 369             self.save(dd)
+    370             self.write(pickle.TUPLE2)
+    371             self.write(pickle.REDUCE)
+
+/usr/lib/python2.7/pickle.pyc in save(self, obj)
+    284         f = self.dispatch.get(t)
+    285         if f:
+--\> 286             f(self, obj) # Call unbound method with explicit self
+    287             return
+    288 
+
+/usr/lib/python2.7/pickle.pyc in save\_dict(self, obj)
+    647 
+    648         self.memoize(obj)
+--\> 649         self.\_batch\_setitems(obj.iteritems())
+    650 
+    651     dispatch[DictionaryType] = save\_dict
+
+/usr/lib/python2.7/pickle.pyc in \_batch\_setitems(self, items)
+    679                 for k, v in tmp:
+    680                     save(k)
+--\> 681                     save(v)
+    682                 write(SETITEMS)
+    683             elif n:
+
+/usr/lib/python2.7/pickle.pyc in save(self, obj)
+    284         f = self.dispatch.get(t)
+    285         if f:
+--\> 286             f(self, obj) # Call unbound method with explicit self
+    287             return
+    288 
+
+/home/ubuntu/databricks/spark/python/pyspark/cloudpickle.pyc in save\_function(self, obj, name)
+    191         if islambda(obj) or obj.\_\_code\_\_.co\_filename == '\<stdin\>' or themodule is None:
+    192             #print("save global", islambda(obj), obj.\_\_code\_\_.co\_filename, modname, themodule)
+--\> 193             self.save\_function\_tuple(obj)
+    194             return
+    195         else:
+
+/home/ubuntu/databricks/spark/python/pyspark/cloudpickle.pyc in save\_function\_tuple(self, func)
+    240         # save the rest of the func data needed by \_fill\_function
+    241         save(f\_globals)
+--\> 242         save(defaults)
+    243         save(dct)
+    244         write(pickle.TUPLE)
+
+/usr/lib/python2.7/pickle.pyc in save(self, obj)
+    284         f = self.dispatch.get(t)
+    285         if f:
+--\> 286             f(self, obj) # Call unbound method with explicit self
+    287             return
+    288 
+
+/usr/lib/python2.7/pickle.pyc in save\_tuple(self, obj)
+    546         if n \<= 3 and proto \>= 2:
+    547             for element in obj:
+--\> 548                 save(element)
+    549             # Subtle.  Same as in the big comment below.
+    550             if id(obj) in memo:
+
+/usr/lib/python2.7/pickle.pyc in save(self, obj)
+    284         f = self.dispatch.get(t)
+    285         if f:
+--\> 286             f(self, obj) # Call unbound method with explicit self
+    287             return
+    288 
+
+/home/ubuntu/databricks/spark/python/pyspark/cloudpickle.pyc in save\_builtin\_function(self, obj)
+    313         if obj.\_\_module\_\_ is "\_\_builtin\_\_":
+    314             return self.save\_global(obj)
+--\> 315         return self.save\_function(obj)
+    316     dispatch[types.BuiltinFunctionType] = save\_builtin\_function
+    317 
+
+/home/ubuntu/databricks/spark/python/pyspark/cloudpickle.pyc in save\_function(self, obj, name)
+    189         # we'll pickle the actual function object rather than simply saving a
+    190         # reference (as is done in default pickler), via save\_function\_tuple.
+--\> 191         if islambda(obj) or obj.\_\_code\_\_.co\_filename == '\<stdin\>' or themodule is None:
+    192             #print("save global", islambda(obj), obj.\_\_code\_\_.co\_filename, modname, themodule)
+    193             self.save\_function\_tuple(obj)
+
+AttributeError: 'builtin\_function\_or\_method' object has no attribute '\_\_code\_\_'
+{code}
+
+
+---
+
 * [SPARK-10537](https://issues.apache.org/jira/browse/SPARK-10537) | *Major* | **Document LIBSVM data source options in public doc and minor improvements**
 
 We should document options in public API doc. Otherwise, it is hard to find out the options without looking at the code.
+
+
+---
+
+* [SPARK-10522](https://issues.apache.org/jira/browse/SPARK-10522) | *Major* | **Nanoseconds part of Timestamp should be positive in parquet**
+
+If Timestamp is before unix epoch, the nanosecond part will be negative, Hive can't read that back correctly.
 
 
 ---
@@ -705,6 +1052,13 @@ Number of executors was 0, but must be at least 1
 
 ---
 
+* [SPARK-10330](https://issues.apache.org/jira/browse/SPARK-10330) | *Major* | **Use SparkHadoopUtil TaskAttemptContext reflection methods in more places**
+
+SparkHadoopUtil contains methods that use reflection to work around TaskAttemptContext binary incompatibilities between Hadoop 1.x and 2.x. We should use these methods in more places.
+
+
+---
+
 * [SPARK-10327](https://issues.apache.org/jira/browse/SPARK-10327) | *Major* | **Cache Table is not working while subquery has alias in its project list**
 
 Code to reproduce that:
@@ -1126,6 +1480,22 @@ the "ignore late map task completion" test in {{DAGSchedulerSuite}} is a bit con
 Scala 2.11 has additional warnings compare to Scala 2.10, and the addition of 'fatal warnings' in the sbt build, the current {{trunk}} (and {{branch-1.5}}) fails to  build with sbt on Scala 2.11.
 
 Most of the warning are about the {{@transient}} annotation not being set on relevant elements, and a few pointing to some potential bugs.
+
+
+---
+
+* [SPARK-10222](https://issues.apache.org/jira/browse/SPARK-10222) | *Trivial* | **More thoroughly deprecate Bagel in favor of GraphX**
+
+It seems like Bagel has had little or no activity since before even Spark 1.0 (?) and is supposed to be superseded by GraphX. 
+
+Would it be reasonable to deprecate it for 1.6? and remove it in Spark 2.x? I think it's reasonable enough that I'll assert this as a JIRA, but obviously open to discussion.
+
+
+---
+
+* [SPARK-10194](https://issues.apache.org/jira/browse/SPARK-10194) | *Major* | **SGD algorithms need convergenceTol parameter in Python**
+
+[SPARK-3382] added a convergenceTol parameter for GradientDescent-based methods in Scala.  We need that parameter in Python; otherwise, Python users will not be able to adjust that behavior (or even reproduce behavior from previous releases since the default changed).
 
 
 ---
@@ -1587,6 +1957,13 @@ A minor typo (centriod -\> centroid). Readable variable names help every users.
 * [SPARK-9723](https://issues.apache.org/jira/browse/SPARK-9723) | *Minor* | **Params.getOrDefault should throw more meaningful exception**
 
 Params.getOrDefault should throw a more meaningful exception than what you get from a bad key lookup.
+
+
+---
+
+* [SPARK-9720](https://issues.apache.org/jira/browse/SPARK-9720) | *Minor* | **spark.ml Identifiable types should have UID in toString methods**
+
+It would be nice to include the UID (instance name) in toString methods.  That's the default behavior for Identifiable, but some types override the default toString and do not include the UID.
 
 
 ---
@@ -2085,6 +2462,13 @@ not(A or B) =\> not(A) and not(B)
 
 ---
 
+* [SPARK-6981](https://issues.apache.org/jira/browse/SPARK-6981) | *Minor* | **[SQL] SparkPlanner and QueryExecution should be factored out from SQLContext**
+
+In order to simplify extensibility with new strategies from third-parties, it should be better to factor SparkPlanner and QueryExecution in their own classes. Dependent types add additional, unnecessary complexity; besides, HiveContext would benefit from this change as well.
+
+
+---
+
 * [SPARK-6548](https://issues.apache.org/jira/browse/SPARK-6548) | *Major* | **stddev\_pop and stddev\_samp aggregate functions**
 
 Add it to the list of aggregate functions:
@@ -2096,6 +2480,13 @@ Also add it to
 https://github.com/apache/spark/blob/master/sql/core/src/main/scala/org/apache/spark/sql/GroupedData.scala
 
 We can either add a Stddev Catalyst expression, or just compute it using existing functions like here: https://github.com/apache/spark/commit/5bbcd1304cfebba31ec6857a80d3825a40d02e83#diff-c3d0394b2fc08fb2842ff0362a5ac6c9R776
+
+
+---
+
+* [SPARK-6350](https://issues.apache.org/jira/browse/SPARK-6350) | *Minor* | **Make mesosExecutorCores configurable in mesos "fine-grained" mode**
+
+When spark runs in mesos fine-grained mode, mesos slave launches executor with # of cpus and memories. By the way, # of executor's cores is always CPU\_PER\_TASKS as same as spark.task.cpus. If I set that values as 5 for running intensive task, mesos executor always consume 5 cores without any running task. This waste resources. We should set executor core as a configuration variable.
 
 
 ---

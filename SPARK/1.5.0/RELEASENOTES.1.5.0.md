@@ -23,6 +23,22 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-10578](https://issues.apache.org/jira/browse/SPARK-10578) | *Major* | **pyspark.ml.classification.RandomForestClassifer does not return `rawPrediction` column**
+
+To use `pyspark.ml.classification.RandomForestClassifer` with `BinaryClassificationEvaluator`, a column called `rawPrediction` needs to be returned by the `RandomForestClassifer`. 
+The PySpark documentation example of `logisticsRegression`outputs the `rawPrediction` column but not `RandomForestClassifier`.
+
+Therefore, one is unable to use `RandomForestClassifier` with the evaluator nor put it in a pipeline with cross validation.
+
+A relevant piece of code showing how to reproduce the bug can be found at:
+https://gist.github.com/karenyyng/cf61ae655b032f754bfb
+
+A relevant post due to this possible bug can also be found at:
+http://apache-spark-user-list.1001560.n3.nabble.com/Issue-with-running-CrossValidator-with-RandomForestClassifier-on-dataset-td23791.html
+
+
+---
+
 * [SPARK-10467](https://issues.apache.org/jira/browse/SPARK-10467) | *Minor* | **Vector is converted to tuple when extracted from Row using \_\_getitem\_\_**
 
 If we take a row from a data frame and try to extract vector element by index it is converted to tuple:

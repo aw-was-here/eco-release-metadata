@@ -23,6 +23,29 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [TEZ-2817](https://issues.apache.org/jira/browse/TEZ-2817) | *Major* | **Tez UI: update in progress counter data for the dag vertices and tasks table**
+
+Update dag\>vertex & dag\>tasks tables with the counter values.
+
+
+---
+
+* [TEZ-2813](https://issues.apache.org/jira/browse/TEZ-2813) | *Major* | **Tez UI: add counter data for rest api calls to AM Web Services v2**
+
+- Add attempts API
+- Add counters to the returned data for vertices, tasks & attempts.
+
+
+---
+
+* [TEZ-2812](https://issues.apache.org/jira/browse/TEZ-2812) | *Major* | **Tez UI: Update task & attempt tables while in progress.**
+
+- Update Vertex \> All Tasks
+- Update DAG \> All Attempts, Vertex \> Attempts & Task \> Attempts pages while in progress.
+
+
+---
+
 * [TEZ-2810](https://issues.apache.org/jira/browse/TEZ-2810) | *Major* | **Support for showing allocation delays due to internal preemption**
 
 Also adds support for drawing critical path for attempts that did not get allocated or launched.
@@ -65,6 +88,16 @@ Add AM API for fetching realtime tasks info:
 * [TEZ-2787](https://issues.apache.org/jira/browse/TEZ-2787) | *Major* | **Tez AM should have java.io.tmpdir=./tmp to be consistent with tasks**
 
 TezRuntimeChildJVM ensures that tasks are launched with -Djava.io.tmpdir=./tmp, but there's no corresponding code to ensure the Tez AM also has a similar tmpdir setting.  The client should setup the AM launch context to have -Djava.io.tmpdir=./tmp to be consistent with the tasks and to prevent accidental leaking of files in /tmp by the Tez AM if it crashes.
+
+
+---
+
+* [TEZ-2786](https://issues.apache.org/jira/browse/TEZ-2786) | *Major* | **Tez UI: Update vertex, task & attempt details page while in progress.**
+
+- Add realtime update into Vertex, Task & Attempt details page.
+- Add progress bar to the details page.
+- Give proper icon for scheduled status.
+- Add reset calls to routs to reset controllers when unloaded.
 
 
 ---

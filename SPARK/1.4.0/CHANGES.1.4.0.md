@@ -297,6 +297,7 @@
 | [SPARK-6368](https://issues.apache.org/jira/browse/SPARK-6368) | Build a specialized serializer for Exchange operator. |  Critical | SQL | Yin Huai | Yin Huai |
 | [SPARK-6361](https://issues.apache.org/jira/browse/SPARK-6361) | Support adding a column with metadata in DataFrames |  Major | SQL | Xiangrui Meng | Xiangrui Meng |
 | [SPARK-6352](https://issues.apache.org/jira/browse/SPARK-6352) | Supporting non-default OutputCommitter when using saveAsParquetFile |  Major | SQL | Pei-Lun Lee | Pei-Lun Lee |
+| [SPARK-6350](https://issues.apache.org/jira/browse/SPARK-6350) | Make mesosExecutorCores configurable in mesos "fine-grained" mode |  Minor | Mesos | Jongyoul Lee | Jongyoul Lee |
 | [SPARK-6343](https://issues.apache.org/jira/browse/SPARK-6343) | Make doc more explicit regarding network connectivity requirements |  Minor | Documentation | Peter Parente | Peter Parente |
 | [SPARK-6341](https://issues.apache.org/jira/browse/SPARK-6341) | Upgrade breeze from 0.11.1 to 0.11.2 or later |  Minor | ML, MLlib | Yu Ishikawa | Yu Ishikawa |
 | [SPARK-6338](https://issues.apache.org/jira/browse/SPARK-6338) | Use standard temp dir mechanisms in tests to avoid orphaned temp files |  Minor | Tests | Sean Owen | Sean Owen |

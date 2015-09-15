@@ -18,7 +18,7 @@
 -->
 # Apache BigTop Changelog
 
-## Release 1.1.0 - Unreleased (as of 2015-09-12)
+## Release 1.1.0 - Unreleased (as of 2015-09-15)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -39,6 +39,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [BIGTOP-2020](https://issues.apache.org/jira/browse/BIGTOP-2020) | Add Gradle RAT plugin to the top-level project |  Major | build | RJ Nowling | RJ Nowling |
 | [BIGTOP-2018](https://issues.apache.org/jira/browse/BIGTOP-2018) | Create a puppetizing script |  Major | deployment | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-2005](https://issues.apache.org/jira/browse/BIGTOP-2005) | Remove SCALA\_HOME requirement |  Minor | build, spark | RJ Nowling | RJ Nowling |
 | [BIGTOP-1997](https://issues.apache.org/jira/browse/BIGTOP-1997) | Bump bigtop-groovy runtime to 2.4.4 |  Major | debian, rpm | Konstantin Boudnik | Konstantin Boudnik |
@@ -62,8 +63,16 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [BIGTOP-2046](https://issues.apache.org/jira/browse/BIGTOP-2046) | puppet module search path |  Major | build, deployment, toolchain | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2044](https://issues.apache.org/jira/browse/BIGTOP-2044) | Unnecessary printout has been introduced by BIGTOP-1494 |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
+| [BIGTOP-2043](https://issues.apache.org/jira/browse/BIGTOP-2043) | Kafka source incorrect |  Major | build | Tom Zeng | Tom Zeng |
+| [BIGTOP-2042](https://issues.apache.org/jira/browse/BIGTOP-2042) | Tachyon name is incorrect |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
+| [BIGTOP-2041](https://issues.apache.org/jira/browse/BIGTOP-2041) | Spark pkg name is incorrect |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
+| [BIGTOP-2039](https://issues.apache.org/jira/browse/BIGTOP-2039) | Solr download URL is incorrect |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
+| [BIGTOP-2038](https://issues.apache.org/jira/browse/BIGTOP-2038) | Pig destination name incorrect |  Major | pig | Tom Zeng | Tom Zeng |
 | [BIGTOP-2026](https://issues.apache.org/jira/browse/BIGTOP-2026) | Phoenix build defines HBASE\_VERSION in two different places. |  Major | debian, rpm | Konstantin Boudnik | Andrew Purtell |
 | [BIGTOP-2019](https://issues.apache.org/jira/browse/BIGTOP-2019) | BigPetStore Spark isn't compiling due to changes in SQL API |  Major | blueprints | RJ Nowling | RJ Nowling |
+| [BIGTOP-2017](https://issues.apache.org/jira/browse/BIGTOP-2017) | Rebase bigtop-slaves on bigtop-puppet |  Major | . | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-2008](https://issues.apache.org/jira/browse/BIGTOP-2008) | build.gradle has out-of-date version |  Minor | build | RJ Nowling | RJ Nowling |
 | [BIGTOP-2007](https://issues.apache.org/jira/browse/BIGTOP-2007) | bigtop.mk version of the stack needs to be bumped to 1.1.0-SNAPSHOT |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2004](https://issues.apache.org/jira/browse/BIGTOP-2004) | Download task fails with Gradle 2.6 |  Major | build | RJ Nowling | RJ Nowling |
@@ -82,6 +91,7 @@
 | [BIGTOP-1946](https://issues.apache.org/jira/browse/BIGTOP-1946) | Missing ASL header in some of iTest files |  Blocker | tests | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-1938](https://issues.apache.org/jira/browse/BIGTOP-1938) | kafka packages /usr/bin on RPM |  Major | . | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-1937](https://issues.apache.org/jira/browse/BIGTOP-1937) | redhat-lsb is required by kafka daemon |  Major | build | Evans Ye | Evans Ye |
+| [BIGTOP-1936](https://issues.apache.org/jira/browse/BIGTOP-1936) | Provide JDK8 for Bigtop |  Major | toolchain | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-1917](https://issues.apache.org/jira/browse/BIGTOP-1917) | Simplify gradle creating apt/yum repositories for better CI |  Major | build | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-1916](https://issues.apache.org/jira/browse/BIGTOP-1916) | Update Website for 1.0 |  Major | website | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-1909](https://issues.apache.org/jira/browse/BIGTOP-1909) | Include compiled .mo files for HUE i18n |  Trivial | hue | YoungWoo Kim | YoungWoo Kim |

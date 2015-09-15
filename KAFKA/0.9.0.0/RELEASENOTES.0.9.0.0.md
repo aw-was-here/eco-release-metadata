@@ -23,6 +23,42 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [KAFKA-2538](https://issues.apache.org/jira/browse/KAFKA-2538) | *Blocker* | **Compilation in trunk is failing due to https://github.com/apache/kafka/commit/845514d62329be8382e6d02b8041fc858718d534**
+
+Getting /Users/pbrahmbhatt/repo/kafka/core/src/main/scala/kafka/tools/EndToEndLatency.scala:82: value commit is not a member of org.apache.kafka.clients.consumer.KafkaConsumer[Array[Byte],Array[Byte]]
+      consumer.commit(CommitType.SYNC)
+               ^
+
+Which I believe was missed when committing KAFKA-2389 which replaces all occurrences of commit(mode) with commit(Sync/Async). This is resulting in other PRS reporting as bad by jenkins like https://github.com/apache/kafka/pull/195 where 2 failures were reported by jenkins https://builds.apache.org/job/kafka-trunk-git-pr/410/ and https://builds.apache.org/job/kafka-trunk-git-pr/411/
+
+
+---
+
+* [KAFKA-2504](https://issues.apache.org/jira/browse/KAFKA-2504) | *Major* | **Stop logging WARN when client disconnects**
+
+I thought we fixed this one, but it came back. This can be fill logs and is fairly useless. Should be logged at DEBUG level:
+
+{code}
+[2015-09-02 12:05:59,743] WARN Error in I/O with connection to /10.191.0.36 (org.apache.kafka.common.network.Selector)
+java.io.IOException: Connection reset by peer
+	at sun.nio.ch.FileDispatcherImpl.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:39)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:197)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:380)
+	at org.apache.kafka.common.network.PlaintextTransportLayer.read(PlaintextTransportLayer.java:111)
+	at org.apache.kafka.common.network.NetworkReceive.readFromReadableChannel(NetworkReceive.java:81)
+	at org.apache.kafka.common.network.NetworkReceive.readFrom(NetworkReceive.java:71)
+	at org.apache.kafka.common.network.KafkaChannel.receive(KafkaChannel.java:154)
+	at org.apache.kafka.common.network.KafkaChannel.read(KafkaChannel.java:135)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:296)
+	at kafka.network.Processor.run(SocketServer.scala:405)
+	at java.lang.Thread.run(Thread.java:745)
+{code}
+
+
+---
+
 * [KAFKA-2492](https://issues.apache.org/jira/browse/KAFKA-2492) | *Trivial* | **Upgrade zkclient dependency to 0.6**
 
 If zkclient does not get replaced with curator (via KAFKA-873) sooner please consider upgrading zkclient dependency to recently released 0.6.

@@ -18,7 +18,7 @@
 -->
 # Apache Hive Changelog
 
-## Release 2.0.0 - Unreleased (as of 2015-09-12)
+## Release 2.0.0 - Unreleased (as of 2015-09-15)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -49,12 +49,14 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HIVE-11780](https://issues.apache.org/jira/browse/HIVE-11780) | Add "set role none" support |  Major | Authorization | Dapeng Sun | Dapeng Sun |
 | [HIVE-11659](https://issues.apache.org/jira/browse/HIVE-11659) | Make Vectorization use the fast StringExpr everywhere |  Major | Vectorization | Gopal V | Gopal V |
 | [HIVE-11645](https://issues.apache.org/jira/browse/HIVE-11645) | Add in-place updates for dynamic partitions loading |  Major | CLI | Ashutosh Chauhan | Ashutosh Chauhan |
 | [HIVE-11638](https://issues.apache.org/jira/browse/HIVE-11638) | ExprNodeDesc hashMap accidentally degrades into O(N) instead of O(1) |  Major | Logical Optimizer | Gopal V | Gopal V |
 | [HIVE-11627](https://issues.apache.org/jira/browse/HIVE-11627) | Reduce the number of accesses to hashmaps in PPD |  Major | Logical Optimizer | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
 | [HIVE-11617](https://issues.apache.org/jira/browse/HIVE-11617) | Explain plan for multiple lateral views is very slow |  Major | Logical Optimizer | Aihua Xu | Aihua Xu |
 | [HIVE-11569](https://issues.apache.org/jira/browse/HIVE-11569) | Use PreOrderOnceWalker where feasible |  Major | Logical Optimizer | Ashutosh Chauhan | Ashutosh Chauhan |
+| [HIVE-11544](https://issues.apache.org/jira/browse/HIVE-11544) | LazyInteger should avoid throwing NumberFormatException |  Minor | Serializers/Deserializers | William Slacum | Gopal V |
 | [HIVE-11538](https://issues.apache.org/jira/browse/HIVE-11538) | Add an option to skip init script while running tests |  Major | Testing Infrastructure | Ashutosh Chauhan | Ashutosh Chauhan |
 | [HIVE-11536](https://issues.apache.org/jira/browse/HIVE-11536) | %TYPE and %ROWTYPE attributes in data type declaration |  Major | hpl/sql | Dmitry Tolpeko | Dmitry Tolpeko |
 | [HIVE-11534](https://issues.apache.org/jira/browse/HIVE-11534) | Improve validateTableCols error message |  Minor | Hive | Mohit Sabharwal | Mohit Sabharwal |
@@ -107,7 +109,9 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HIVE-11792](https://issues.apache.org/jira/browse/HIVE-11792) | User explain in tez does not preserve ordering |  Major | Diagnosability | Prasanth Jayachandran | Prasanth Jayachandran |
 | [HIVE-11781](https://issues.apache.org/jira/browse/HIVE-11781) | Remove HiveLimit operator and rename HiveSort operator |  Major | CBO | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
+| [HIVE-11771](https://issues.apache.org/jira/browse/HIVE-11771) | Parquet timestamp conversion errors |  Minor | . | Jimmy Xiang | Jimmy Xiang |
 | [HIVE-11761](https://issues.apache.org/jira/browse/HIVE-11761) | DoubleWritable hashcode for GroupBy is not properly generated |  Major | Hive | Aihua Xu | Aihua Xu |
 | [HIVE-11751](https://issues.apache.org/jira/browse/HIVE-11751) | hive-exec-log4j2.xml settings causes DEBUG messages to be generated and ignored |  Major | . | Rajesh Balamohan | Prasanth Jayachandran |
 | [HIVE-11747](https://issues.apache.org/jira/browse/HIVE-11747) | Unnecessary error log is shown when executing a "INSERT OVERWRITE LOCAL DIRECTORY" cmd in the embedded mode |  Minor | . | Ferdinand Xu | Ferdinand Xu |
@@ -259,6 +263,7 @@
 | [HIVE-11006](https://issues.apache.org/jira/browse/HIVE-11006) | improve logging wrt ACID module |  Major | Transactions | Eugene Koifman | Eugene Koifman |
 | [HIVE-10996](https://issues.apache.org/jira/browse/HIVE-10996) | Aggregation / Projection over Multi-Join Inner Query producing incorrect results |  Critical | Query Planning | Gautam Kowshik | Jesus Camacho Rodriguez |
 | [HIVE-10994](https://issues.apache.org/jira/browse/HIVE-10994) | Hive.moveFile should not fail on a no-op move |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
+| [HIVE-10980](https://issues.apache.org/jira/browse/HIVE-10980) | Merge of dynamic partitions loads all data to default partition |  Major | Hive | Illya Yalovyy | Illya Yalovyy |
 | [HIVE-10979](https://issues.apache.org/jira/browse/HIVE-10979) | Fix failed tests in TestSchemaTool after the version number change in HIVE-10921 |  Major | . | Ferdinand Xu | Ferdinand Xu |
 | [HIVE-10977](https://issues.apache.org/jira/browse/HIVE-10977) | No need to instantiate MetaStoreDirectSql when HMS DirectSql is disabled |  Minor | . | Chaoyu Tang | Chaoyu Tang |
 | [HIVE-10976](https://issues.apache.org/jira/browse/HIVE-10976) | Redundant HiveMetaStore connect check in HS2 CLIService start |  Trivial | HiveServer2 | Chaoyu Tang | Chaoyu Tang |
@@ -368,6 +373,7 @@
 | [HIVE-6991](https://issues.apache.org/jira/browse/HIVE-6991) | History not able to disable/enable after session started |  Major | . | Chinna Rao Lalam | Chinna Rao Lalam |
 | [HIVE-6727](https://issues.apache.org/jira/browse/HIVE-6727) | Table level stats for external tables are set incorrectly |  Major | Statistics | Harish Butani | Bing Li |
 | [HIVE-6026](https://issues.apache.org/jira/browse/HIVE-6026) | Ldap Authenticator should be more generic with BindDN |  Minor | Authentication | Johndee Burks | Naveen Gangam |
+| [HIVE-5623](https://issues.apache.org/jira/browse/HIVE-5623) | ORC accessing array column that's empty will fail with java out of bound exception |  Critical | File Formats | Eric Chu | Prasanth Jayachandran |
 | [HIVE-5277](https://issues.apache.org/jira/browse/HIVE-5277) | HBase handler skips rows with null valued first cells when only row key is selected |  Critical | HBase Handler | Teddy Choi | Swarnim Kulkarni |
 | [HIVE-4239](https://issues.apache.org/jira/browse/HIVE-4239) | Remove lock on compilation stage |  Major | HiveServer2, Query Processor | Carl Steinbach | Sergey Shelukhin |
 
@@ -390,6 +396,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HIVE-11763](https://issues.apache.org/jira/browse/HIVE-11763) | Use \* instead of sum(hash(\*)) on Parquet predicate (PPD) integration tests |  Major | . | Sergio Peña | Sergio Peña |
 | [HIVE-11703](https://issues.apache.org/jira/browse/HIVE-11703) | Make RegExp and RLike reserved keywords |  Major | . | Pengcheng Xiong | Pengcheng Xiong |
 | [HIVE-11701](https://issues.apache.org/jira/browse/HIVE-11701) | Make tez tests AM logs work with new log4j2 changes |  Major | Logging, Tests | Sergey Shelukhin | Sergey Shelukhin |
 | [HIVE-11671](https://issues.apache.org/jira/browse/HIVE-11671) | Optimize RuleRegExp in DPP codepath |  Major | . | Rajesh Balamohan | Rajesh Balamohan |

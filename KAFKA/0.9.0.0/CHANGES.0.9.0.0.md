@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.9.0.0 - Unreleased (as of 2015-09-12)
+## Release 0.9.0.0 - Unreleased (as of 2015-09-15)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -95,7 +95,9 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-2538](https://issues.apache.org/jira/browse/KAFKA-2538) | Compilation in trunk is failing due to https://github.com/apache/kafka/commit/845514d62329be8382e6d02b8041fc858718d534 |  Blocker | . | Parth Brahmbhatt | Parth Brahmbhatt |
 | [KAFKA-2519](https://issues.apache.org/jira/browse/KAFKA-2519) | NetworkClient.close should remove node from inFlightRequests |  Critical | . | Ismael Juma | Ismael Juma |
+| [KAFKA-2504](https://issues.apache.org/jira/browse/KAFKA-2504) | Stop logging WARN when client disconnects |  Major | . | Gwen Shapira | Jeff Holoman |
 | [KAFKA-2489](https://issues.apache.org/jira/browse/KAFKA-2489) | System tests: update benchmark tests to run with new and old consumer |  Blocker | . | Geoff Anderson | Geoff Anderson |
 | [KAFKA-2469](https://issues.apache.org/jira/browse/KAFKA-2469) | System test console consumer logs should write all messages to debug logger |  Minor | system tests | Ewen Cheslack-Postava | Geoff Anderson |
 | [KAFKA-2468](https://issues.apache.org/jira/browse/KAFKA-2468) | SIGINT during Kafka server startup can leave server deadlocked |  Major | . | Ashish K Singh | Ashish K Singh |

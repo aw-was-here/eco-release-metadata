@@ -489,6 +489,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-10578](https://issues.apache.org/jira/browse/SPARK-10578) | pyspark.ml.classification.RandomForestClassifer does not return `rawPrediction` column |  Major | ML | Karen Yin-Yee Ng | Joseph K. Bradley |
 | [SPARK-10467](https://issues.apache.org/jira/browse/SPARK-10467) | Vector is converted to tuple when extracted from Row using \_\_getitem\_\_ |  Minor | ML, PySpark, SQL | Maciej Szymkiewicz | Davies Liu |
 | [SPARK-10391](https://issues.apache.org/jira/browse/SPARK-10391) | Spark 1.4.1 released news under news/spark-1-3-1-released.html |  Minor | Documentation | Jacek Laskowski | Sean Owen |
 | [SPARK-10369](https://issues.apache.org/jira/browse/SPARK-10369) | Fix a bug that Receiver could not be started after deregistering |  Critical | Streaming | Shixiong Zhu | Shixiong Zhu |

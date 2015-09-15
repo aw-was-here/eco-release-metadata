@@ -23,6 +23,57 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [BIGTOP-2046](https://issues.apache.org/jira/browse/BIGTOP-2046) | *Major* | **puppet module search path**
+
+When puppet apt modules are installed with puppet-modules, they are available from /etc/puppet/modules 
+
+BIGTOP-1936 seems to break because puppet does not resolve dependencies correctly when invoked via {{gradle toolchain}}
+
+
+---
+
+* [BIGTOP-2044](https://issues.apache.org/jira/browse/BIGTOP-2044) | *Major* | **Unnecessary printout has been introduced by BIGTOP-1494**
+
+BIGTOP-1494 introduced a piece of debug printing - needs to be removed
+
+
+---
+
+* [BIGTOP-2043](https://issues.apache.org/jira/browse/BIGTOP-2043) | *Major* | **Kafka source incorrect**
+
+Should be "$name-${version.base}-src.tgz" rather than  "$name-${version.base}-src.tar.gz"
+
+
+---
+
+* [BIGTOP-2042](https://issues.apache.org/jira/browse/BIGTOP-2042) | *Major* | **Tachyon name is incorrect**
+
+tachyon has a typo in the definition. Should say {{pkg = 'tachyon-tfs'}}
+
+
+---
+
+* [BIGTOP-2041](https://issues.apache.org/jira/browse/BIGTOP-2041) | *Major* | **Spark pkg name is incorrect**
+
+spark package name should be {{spark-core}}
+
+
+---
+
+* [BIGTOP-2039](https://issues.apache.org/jira/browse/BIGTOP-2039) | *Major* | **Solr download URL is incorrect**
+
+solr archive should have {{tgz}} suffix instead of {{tar.gz}}
+
+
+---
+
+* [BIGTOP-2038](https://issues.apache.org/jira/browse/BIGTOP-2038) | *Major* | **Pig destination name incorrect**
+
+destination should be {code}"${name}-${version.base}-src.tar.gz"{code} rather than {code}"${name}-${version.base}.tar.gz"{code}, pig build currently breaks.
+
+
+---
+
 * [BIGTOP-2033](https://issues.apache.org/jira/browse/BIGTOP-2033) | *Major* | **Build order of the stack is broken**
 
 As a part of moving to new stack DSL I have inadvertently broke the logic to preserve the order of stack creation as laid-out by the sequence of the BOM file.
@@ -49,6 +100,13 @@ The variable is defined twice and can lead to integration problems if it gets ch
 
 ---
 
+* [BIGTOP-2020](https://issues.apache.org/jira/browse/BIGTOP-2020) | *Major* | **Add Gradle RAT plugin to the top-level project**
+
+Apache Rat is used by Bigtop to find license violations.  To avoid the mistake of failing to run rat from Maven, we should incorporate the upcoming Gradle plugin for Rat into the data generators build.
+
+
+---
+
 * [BIGTOP-2019](https://issues.apache.org/jira/browse/BIGTOP-2019) | *Major* | **BigPetStore Spark isn't compiling due to changes in SQL API**
 
 Spark no longer supports registering RDDs as temp tables -- they need to be converted to DataFrames first.
@@ -61,6 +119,13 @@ Spark no longer supports registering RDDs as temp tables -- they need to be conv
 As of BIGTOP-1908 , lets create a shell script which installs dependencies for bare-bone docker images and minimal OS installations.
 
 This will be reused for Dockerfiles (bigtop/puppet) and VM provisioning.
+
+
+---
+
+* [BIGTOP-2017](https://issues.apache.org/jira/browse/BIGTOP-2017) | *Major* | **Rebase bigtop-slaves on bigtop-puppet**
+
+Rebase the docker images on top of each other: See comments in BIGTOP-2015
 
 
 ---
@@ -434,6 +499,15 @@ root@fcf41830c410 /]# service kafka-server status
 /etc/init.d/kafka-server: line 134: pidofproc: command not found
 /etc/init.d/kafka-server: line 155: log\_failure\_msg: command not found
 {code}
+
+
+---
+
+* [BIGTOP-1936](https://issues.apache.org/jira/browse/BIGTOP-1936) | *Major* | **Provide JDK8 for Bigtop**
+
+This issue aims at providing an JDK8 to bigtop\_toolchain.
+
+Is a prerequiste for some components, for instance presto
 
 
 ---

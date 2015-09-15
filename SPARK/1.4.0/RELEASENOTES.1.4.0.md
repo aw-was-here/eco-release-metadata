@@ -10125,6 +10125,13 @@ SPARK-3595 only handles custom OutputCommitter for saveAsHadoopFile, it can be n
 
 ---
 
+* [SPARK-6350](https://issues.apache.org/jira/browse/SPARK-6350) | *Minor* | **Make mesosExecutorCores configurable in mesos "fine-grained" mode**
+
+When spark runs in mesos fine-grained mode, mesos slave launches executor with # of cpus and memories. By the way, # of executor's cores is always CPU\_PER\_TASKS as same as spark.task.cpus. If I set that values as 5 for running intensive task, mesos executor always consume 5 cores without any running task. This waste resources. We should set executor core as a configuration variable.
+
+
+---
+
 * [SPARK-6345](https://issues.apache.org/jira/browse/SPARK-6345) | *Major* | **Model update propagation during prediction in Streaming Regression**
 
 During streaming regression analyses (Streaming Linear Regression and Streaming Logistic Regression), model updates based on training data are not being reflected in subsequent calls to predictOn or predictOnValues, despite updates themselves occurring successfully. It may be due to recent changes to model declaration, and I have a working fix prepared to be submitted ASAP (alongside expanded test coverage).
