@@ -82,6 +82,7 @@
 | [SPARK-5495](https://issues.apache.org/jira/browse/SPARK-5495) | Offer user the ability to kill application in master web UI for standalone mode |  Major | Web UI | Saisai Shao | Saisai Shao |
 | [SPARK-5443](https://issues.apache.org/jira/browse/SPARK-5443) | jsonRDD with schema should ignore sub-objects that are omitted in schema |  Major | SQL | Derrick Burns | Nathan Howell |
 | [SPARK-5342](https://issues.apache.org/jira/browse/SPARK-5342) | Allow long running Spark apps to run on secure YARN/HDFS |  Major | YARN | Hari Shreedharan | Hari Shreedharan |
+| [SPARK-5302](https://issues.apache.org/jira/browse/SPARK-5302) | Add support for SQLContext "partition" columns |  Major | SQL | Bob Tiernay | Cheng Lian |
 | [SPARK-5253](https://issues.apache.org/jira/browse/SPARK-5253) | LinearRegression with L1/L2 (elastic net) using OWLQN in new ML package |  Major | ML | DB Tsai | DB Tsai |
 | [SPARK-5213](https://issues.apache.org/jira/browse/SPARK-5213) | Pluggable SQL Parser Support |  Major | SQL | Cheng Hao | Cheng Hao |
 | [SPARK-5162](https://issues.apache.org/jira/browse/SPARK-5162) | Python yarn-cluster mode |  Major | PySpark, YARN | Dana Klassen | Lianhui Wang |
@@ -296,6 +297,7 @@
 | [SPARK-6374](https://issues.apache.org/jira/browse/SPARK-6374) | Add getter for GeneralizedLinearAlgorithm |  Minor | MLlib | yuhao yang | yuhao yang |
 | [SPARK-6368](https://issues.apache.org/jira/browse/SPARK-6368) | Build a specialized serializer for Exchange operator. |  Critical | SQL | Yin Huai | Yin Huai |
 | [SPARK-6361](https://issues.apache.org/jira/browse/SPARK-6361) | Support adding a column with metadata in DataFrames |  Major | SQL | Xiangrui Meng | Xiangrui Meng |
+| [SPARK-6357](https://issues.apache.org/jira/browse/SPARK-6357) | Add unapply in EdgeContext |  Major | GraphX | Takeshi Yamamuro | Takeshi Yamamuro |
 | [SPARK-6352](https://issues.apache.org/jira/browse/SPARK-6352) | Supporting non-default OutputCommitter when using saveAsParquetFile |  Major | SQL | Pei-Lun Lee | Pei-Lun Lee |
 | [SPARK-6350](https://issues.apache.org/jira/browse/SPARK-6350) | Make mesosExecutorCores configurable in mesos "fine-grained" mode |  Minor | Mesos | Jongyoul Lee | Jongyoul Lee |
 | [SPARK-6343](https://issues.apache.org/jira/browse/SPARK-6343) | Make doc more explicit regarding network connectivity requirements |  Minor | Documentation | Peter Parente | Peter Parente |
@@ -407,6 +409,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [SPARK-9380](https://issues.apache.org/jira/browse/SPARK-9380) | Pregel example fix in graphx-programming-guide |  Major | Documentation | Alexander Ulanov | Alexander Ulanov |
+| [SPARK-9033](https://issues.apache.org/jira/browse/SPARK-9033) | scala.MatchError: interface java.util.Map (of class java.lang.Class) with Spark SQL |  Major | SQL | Pavel | Josh Rosen |
 | [SPARK-8726](https://issues.apache.org/jira/browse/SPARK-8726) | Wrong spark.executor.memory when using different EC2 master and worker machine types |  Major | EC2 | Stefano Parmesan | Stefano Parmesan |
 | [SPARK-8394](https://issues.apache.org/jira/browse/SPARK-8394) | HistoryServer doesn't read kerberos opts from config |  Minor | Spark Core | Steve Loughran | Marcelo Vanzin |
 | [SPARK-8038](https://issues.apache.org/jira/browse/SPARK-8038) | PySpark SQL when functions is broken on Column |  Blocker | PySpark, SQL | Olivier Girardot | Olivier Girardot |
@@ -835,7 +838,6 @@
 | [SPARK-7777](https://issues.apache.org/jira/browse/SPARK-7777) | Fix a flaky test: org.apache.spark.streaming.BasicOperationsSuite.rdd cleanup - input blocks and persisted RDDs |  Minor | Streaming, Tests | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-7430](https://issues.apache.org/jira/browse/SPARK-7430) | General improvements to streaming tests to increase debuggability |  Critical | Streaming, Tests | Tathagata Das | Tathagata Das |
 | [SPARK-7356](https://issues.apache.org/jira/browse/SPARK-7356) | Flaky test: o.a.s.streaming.flume.FlumePollingStreamSuite |  Blocker | Streaming, Tests | Tathagata Das | Hari Shreedharan |
-| [SPARK-7341](https://issues.apache.org/jira/browse/SPARK-7341) | Fix the flaky test: org.apache.spark.streaming.InputStreamsSuite.socket input stream |  Minor | Streaming, Tests | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-7315](https://issues.apache.org/jira/browse/SPARK-7315) | Flaky Test: WriteAheadLogBackedBlockRDDSuite |  Major | Tests | Tathagata Das | Tathagata Das |
 | [SPARK-7291](https://issues.apache.org/jira/browse/SPARK-7291) | Fix a flaky test in AkkaRpcEnvSuite |  Minor | Spark Core, Tests | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-7224](https://issues.apache.org/jira/browse/SPARK-7224) | Mock repositories for testing with --packages |  Critical | Spark Submit | Burak Yavuz | Burak Yavuz |
@@ -1074,6 +1076,7 @@
 | [SPARK-5884](https://issues.apache.org/jira/browse/SPARK-5884) | Implement feature transformers to ML pipelines for Spark 1.4 |  Critical | ML | Xiangrui Meng | Xiangrui Meng |
 | [SPARK-5814](https://issues.apache.org/jira/browse/SPARK-5814) | Remove JBLAS from runtime dependencies |  Major | GraphX, MLlib | Xiangrui Meng | Xiangrui Meng |
 | [SPARK-5610](https://issues.apache.org/jira/browse/SPARK-5610) | Generate Java docs without package private classes and methods |  Major | Documentation | Xiangrui Meng | Xiangrui Meng |
+| [SPARK-3833](https://issues.apache.org/jira/browse/SPARK-3833) | Allow Spark SQL SchemaRDDs to be merged |  Major | SQL | Chris Wood | Michael Armbrust |
 | [SPARK-7973](https://issues.apache.org/jira/browse/SPARK-7973) | Increase the timeout of CliSuite's "Commands using SerDe provided in --jars" and "Single command with -e" |  Major | SQL, Tests | Yin Huai | Yin Huai |
 | [SPARK-7929](https://issues.apache.org/jira/browse/SPARK-7929) | Remove Bagel examples |  Major | Examples, GraphX | Reynold Xin | Reynold Xin |
 | [SPARK-7832](https://issues.apache.org/jira/browse/SPARK-7832) | Always run SQL tests in master build. |  Critical | Build, SQL | Yin Huai | Yin Huai |

@@ -23,9 +23,119 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [TEZ-2847](https://issues.apache.org/jira/browse/TEZ-2847) | *Major* | **Tez UI: Task details doesn't gets updated on manual refresh after job complete**
+
+When the AM gets stopped in between an in-progress poll, the UI display details from the last poll and doesn't gets updated.
+The update doesn't happen even on manual refresh.
+
+
+---
+
+* [TEZ-2843](https://issues.apache.org/jira/browse/TEZ-2843) | *Major* | **Tez UI: Show error if in progress fails due to AM not reachable**
+
+currently the in progress update can fail when the AM finishes, but no feedback is given to the user regarding the same.
+
+
+---
+
+* [TEZ-2834](https://issues.apache.org/jira/browse/TEZ-2834) | *Major* | **Make Tez preemption resilient to incorrect free resource reported by YARN**
+
+Will attach the DAG.
+
+Repro for reference: TPC-DS q\_70 @ 30 TB scale.
+
+"Map 7" completes in 2 waves. Output is very tiny, so reducer 8 gets launched slightly late.  But before "Reducer 9" can get scheduled, slots are taken up by "Map 1", which is not preempted for running "Reducer 9".
+
+This is with 0.7.1 codebase.
+
+
+---
+
+* [TEZ-2833](https://issues.apache.org/jira/browse/TEZ-2833) | *Major* | **Dont create extra directory during ATS file download**
+
+The file name already has the dag id as a unique identifier. Placing it inside another directory with the dag id seems unnecessary and can throw off a user expecting the zip file in the user specified download dir.
+/cc [~rajesh.balamohan]
+
+
+---
+
+* [TEZ-2832](https://issues.apache.org/jira/browse/TEZ-2832) | *Major* | **Support tests for both SimpleHistory logging and ATS logging**
+
+This will ensure that both kinds of logging continue to be valid for using with the cp analyzer
+
+
+---
+
+* [TEZ-2827](https://issues.apache.org/jira/browse/TEZ-2827) | *Minor* | **Increase timeout for TestFetcher testInputAttemptIdentifierMap**
+
+{noformat}
+java.lang.Exception: test timed out after 1000 milliseconds
+	at java.util.ArrayList.\<init\>(ArrayList.java:144)
+	at org.mockito.cglib.proxy.Enhancer.emitMethods(Enhancer.java:895)
+	at org.mockito.cglib.proxy.Enhancer.generateClass(Enhancer.java:499)
+	at org.mockito.cglib.core.DefaultGeneratorStrategy.generate(DefaultGeneratorStrategy.java:25)
+	at org.mockito.cglib.core.AbstractClassGenerator.create(AbstractClassGenerator.java:217)
+	at org.mockito.cglib.proxy.Enhancer.createHelper(Enhancer.java:378)
+	at org.mockito.cglib.proxy.Enhancer.createClass(Enhancer.java:318)
+	at org.mockito.internal.creation.jmock.ClassImposterizer.createProxyClass(ClassImposterizer.java:124)
+	at org.mockito.internal.creation.jmock.ClassImposterizer.imposterise(ClassImposterizer.java:60)
+	at org.mockito.internal.creation.jmock.ClassImposterizer.imposterise(ClassImposterizer.java:52)
+	at org.mockito.internal.creation.CglibMockMaker.createMock(CglibMockMaker.java:24)
+	at org.mockito.internal.util.MockUtil.createMock(MockUtil.java:32)
+	at org.mockito.internal.MockitoCore.mock(MockitoCore.java:59)
+	at org.mockito.Mockito.spy(Mockito.java:1341)
+	at org.apache.tez.runtime.library.common.shuffle.TestFetcher.testInputAttemptIdentifierMap(TestFetcher.java:278)
+{noformat}
+
+Works fine in local environment. But times out in precommit env at times.
+
+
+---
+
+* [TEZ-2825](https://issues.apache.org/jira/browse/TEZ-2825) | *Major* | **Report progress in terms of completed tasks to reduce load on AM for Tez UI**
+
+Scanning all tasks and doing an average progress is very heavyweight for calculating vertex progress.
+
+
+---
+
 * [TEZ-2817](https://issues.apache.org/jira/browse/TEZ-2817) | *Major* | **Tez UI: update in progress counter data for the dag vertices and tasks table**
 
 Update dag\>vertex & dag\>tasks tables with the counter values.
+
+
+---
+
+* [TEZ-2816](https://issues.apache.org/jira/browse/TEZ-2816) | *Major* | **Preemption sometimes does not respect heartbeats between preemptions**
+
+https://builds.apache.org/job/Tez-Build-Hadoop-2.4/170/console
+
+{noformat}
+Running org.apache.tez.analyzer.TestAnalyzer
+Tests run: 13, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 99.595 sec \<\<\< FAILURE!
+testBasicInputFailureWithoutExit(org.apache.tez.analyzer.TestAnalyzer)  Time elapsed: 6.276 sec  \<\<\< FAILURE!
+java.lang.AssertionError: v2 : 000000\_0
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.assertTrue(Assert.java:41)
+	at org.apache.tez.analyzer.TestAnalyzer.verifyCriticalPath(TestAnalyzer.java:273)
+	at org.apache.tez.analyzer.TestAnalyzer.runDAGAndVerify(TestAnalyzer.java:220)
+	at org.apache.tez.analyzer.TestAnalyzer.testBasicInputFailureWithoutExit(TestAnalyzer.java:399)
+
+testCascadingInputFailureWithExitSuccess(org.apache.tez.analyzer.TestAnalyzer)  Time elapsed: 5.986 sec  \<\<\< FAILURE!
+java.lang.AssertionError: v3 : 000000\_1
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.assertTrue(Assert.java:41)
+	at org.apache.tez.analyzer.TestAnalyzer.verifyCriticalPath(TestAnalyzer.java:273)
+	at org.apache.tez.analyzer.TestAnalyzer.runDAGAndVerify(TestAnalyzer.java:220)
+	at org.apache.tez.analyzer.TestAnalyzer.testCascadingInputFailureWithExitSuccess(TestAnalyzer.java:561)
+
+
+Results :
+
+Failed tests: 
+  TestAnalyzer.testBasicInputFailureWithoutExit:399-\>runDAGAndVerify:220-\>verifyCriticalPath:273 v2 : 000000\_0
+  TestAnalyzer.testCascadingInputFailureWithExitSuccess:561-\>runDAGAndVerify:220-\>verifyCriticalPath:273 v3 : 000000\_1
+{noformat}
 
 
 ---
@@ -151,6 +261,14 @@ Modify table component to automatically update cell based on in-progress data.
 #. Added progress column to All Tasks table.
 #. Updated table to automatically reflect model change - Just need to set observePath to true in defaultColumnConfigs.
 #. Updated table logic to send action on row change - so that polling logic can query for fresh records.
+
+
+---
+
+* [TEZ-2775](https://issues.apache.org/jira/browse/TEZ-2775) | *Major* | **Improve and consolidate logging in Runtime components.**
+
+Specifically Shuffle, which logs a lot for each event being processed and data being fetched.
+Also PipelinedShuffle is fairly noisy - some of the information from here could be consolidated.
 
 
 ---
@@ -326,6 +444,14 @@ Here's user code used in AM:
 
 ---
 
+* [TEZ-2716](https://issues.apache.org/jira/browse/TEZ-2716) | *Major* | **DefaultSorter.isRleNeeded not thread safe**
+
+TEZ-1997.
+Should be targeted at the same set of versions that TEZ-1997 goes into.
+
+
+---
+
 * [TEZ-2662](https://issues.apache.org/jira/browse/TEZ-2662) | *Major* | **Provide a way to check whether AM or task opts are valid and error if not**
 
 Current impl appends cmd-opts specified in config to programmatic opts provided. This creates potential conflicts when using UseParallelGC v/s UseG1GC 
@@ -350,6 +476,13 @@ cc [~hitesh]
 
 Document all tez configs with descriptions and default values. 
 Also, document MR configs that can be easily translated to Tez configs via Tez helpers.
+
+
+---
+
+* [TEZ-2097](https://issues.apache.org/jira/browse/TEZ-2097) | *Critical* | **TEZ-UI Add dag logs backend support**
+
+If dag fails due to AM error, there's no way to check the dag logs on tez-ui. Users have to grab the app logs.
 
 
 

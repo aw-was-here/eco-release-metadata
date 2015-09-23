@@ -23,6 +23,34 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [HBASE-14433](https://issues.apache.org/jira/browse/HBASE-14433) | *Major* | **Set down the client executor core thread count from 256 in tests**
+
+Tests run with client executors that have core thread count of 4 and a keepalive of 3 seconds. They used to default to 256 core threads and 60 seconds  for keepalive.
+
+
+---
+
+* [HBASE-14400](https://issues.apache.org/jira/browse/HBASE-14400) | *Critical* | **Fix HBase RPC protection documentation**
+
+To use rpc protection in HBase, set the value of 'hbase.rpc.protection' to:
+'authentication' : simple authentication using kerberos
+'integrity' : authentication and integrity
+'privacy' : authentication and confidentiality
+
+Earlier, HBase reference guide erroneously mentioned in some places to set the value to 'auth-conf'. This patch fixes the guide and adds temporary support for erroneously recommended values.
+
+
+---
+
+* [HBASE-14334](https://issues.apache.org/jira/browse/HBASE-14334) | *Major* | **Move Memcached block cache in to it's own optional module.**
+
+Move external block cache to it's own module. This  will reduce dependencies for people who use hbase-server.
+Currently Memcached is the reference implementation for external block cache. External block caches allow HBase to take advantage of other more complex caches that can live longer than the HBase regionserver process and are not necessarily tied to a single computer
+    life time. However external block caches add in extra operational overhead.
+
+
+---
+
 * [HBASE-14317](https://issues.apache.org/jira/browse/HBASE-14317) | *Blocker* | **Stuck FSHLog: bad disk (HDFS-8960) and can't roll WAL**
 
 Tighten up WAL-use semantic.
@@ -55,6 +83,14 @@ blockCacheEvictionCountPrimary
 * [HBASE-14313](https://issues.apache.org/jira/browse/HBASE-14313) | *Critical* | **After a Connection sees ConnectionClosingException it never recovers**
 
 HConnection could get stuck when talking to a host that went down and then returned. This has been fixed by closing the connection in all paths.
+
+
+---
+
+* [HBASE-14280](https://issues.apache.org/jira/browse/HBASE-14280) | *Minor* | **Bulk Upload from HA cluster to remote HA hbase cluster fails**
+
+Patch will effectively work with Hadoop version 2.6 or greater with a launch of "internal.nameservices".
+There will be no change in versions older than 2.6.
 
 
 ---
@@ -93,13 +129,6 @@ The service user related configurations are newly introduced since in prod/test 
 
 ---
 
-* [HBASE-14230](https://issues.apache.org/jira/browse/HBASE-14230) | *Minor* | **replace reflection in FSHlog with HdfsDataOutputStream#getCurrentBlockReplication()**
-
-Remove calling getNumCurrentReplicas on HdfsDataOutputStream via reflection. getNumCurrentReplicas showed up in hadoop 1+ and hadoop 0.2x. In hadoop-2 it was deprecated.
-
-
----
-
 * [HBASE-14224](https://issues.apache.org/jira/browse/HBASE-14224) | *Critical* | **Fix coprocessor handling of duplicate classes**
 
 Prevent Coprocessors being doubly-loaded; a particular coprocessor can only be loaded once.
@@ -120,6 +149,13 @@ The old behavior can be achieved by passing the -exclusive flag.
 
 Security fix: Adds protection from clickjacking using X-Frame-Options header.
 This will prevent use of HBase UI in frames. To disable this feature, set the configuration 'hbase.http.filter.xframeoptions.mode' to 'ALLOW' (default is 'DENY').
+
+
+---
+
+* [HBASE-14054](https://issues.apache.org/jira/browse/HBASE-14054) | *Major* | **Acknowledged writes may get lost if regionserver clock is set backwards**
+
+In {{checkAndPut}} write path use max(max timestamp for the row, System.currentTimeMillis()) in the, instead of blindly taking System.currentTimeMillis() to ensure that checkAndPut() cannot do writes which is already eclipsed. This is similar to what has been done in HBASE-12449 for increment and append.
 
 
 ---

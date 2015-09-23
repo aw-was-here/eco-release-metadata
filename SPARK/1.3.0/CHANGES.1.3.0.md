@@ -159,6 +159,7 @@
 | [SPARK-5353](https://issues.apache.org/jira/browse/SPARK-5353) | Log failures in ExceutorClassLoader |  Minor | Spark Shell | Tobias Schlatter | Tobias Schlatter |
 | [SPARK-5326](https://issues.apache.org/jira/browse/SPARK-5326) | Show fetch wait time as optional metric in the UI |  Minor | Web UI | Kay Ousterhout | Kay Ousterhout |
 | [SPARK-5309](https://issues.apache.org/jira/browse/SPARK-5309) | Reduce Binary/String conversion overhead when reading/writing Parquet files |  Minor | SQL | Mick Davies |  |
+| [SPARK-5306](https://issues.apache.org/jira/browse/SPARK-5306) | Support for a NotEqualsFilter in the filter PrunedFilteredScan pushdown |  Major | SQL | Corey J. Nolet |  |
 | [SPARK-5301](https://issues.apache.org/jira/browse/SPARK-5301) | Add missing linear algebra utilities to IndexedRowMatrix and CoordinateMatrix |  Major | MLlib | Reza Zadeh | Reza Zadeh |
 | [SPARK-5296](https://issues.apache.org/jira/browse/SPARK-5296) | Predicate Pushdown (BaseRelation) to have an interface that will accept more filters |  Critical | SQL | Corey J. Nolet | Cheng Lian |
 | [SPARK-5294](https://issues.apache.org/jira/browse/SPARK-5294) | Hide tables in AllStagePages for "Active Stages, Completed Stages and Failed Stages" when they are empty |  Major | Web UI | Kousuke Saruta | Kousuke Saruta |

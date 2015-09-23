@@ -23,9 +23,23 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [HADOOP-12416](https://issues.apache.org/jira/browse/HADOOP-12416) | *Major* | **Trash messages should be handled by Logger instead of being delivered on System.out**
+
+Now trash message is not printed to System.out. It is handled by Logger instead.
+
+
+---
+
 * [HADOOP-12384](https://issues.apache.org/jira/browse/HADOOP-12384) | *Major* | **Add "-direct" flag option for fs copy so that user can choose not to create ".\_COPYING\_" file**
 
 An option '-d' added for all command-line copy commands to skip intermediate '.COPYING' file creation.
+
+
+---
+
+* [HADOOP-12360](https://issues.apache.org/jira/browse/HADOOP-12360) | *Minor* | **Create StatsD metrics2 sink**
+
+Added StatsD metrics2 sink
 
 
 ---
@@ -343,6 +357,16 @@ ResourceManager renews delegation tokens for applications. This behavior has bee
 * [YARN-2336](https://issues.apache.org/jira/browse/YARN-2336) | *Major* | **Fair scheduler REST api returns a missing '[' bracket JSON for deep queue tree**
 
 This incompatible change should be fixed on branch-2 because the API is broken in branch-2.
+
+
+---
+
+* [YARN-313](https://issues.apache.org/jira/browse/YARN-313) | *Critical* | **Add Admin API for supporting node resource configuration in command line**
+
+Since this patch, we are providing CLI to support NM resource dynamically configuration that user can configure NM with new resource without bring NM down or decommissioned.
+Two CLIs are provided to support update resources on individual node or a batch of nodes:
+1. Update resource on single node: yarn rmadmin -updateNodeResource [NodeID] [MemSize] [vCores] 
+2. Update resource on a batch of nodes: yarn rmadmin -refreshNodesResources, that reflect nodes' resource configuration defined in dynamic-resources.xml, the format of configuration is get optimized in YARN-4160.
 
 
 ---

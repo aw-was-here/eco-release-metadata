@@ -23,6 +23,32 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [KAFKA-2558](https://issues.apache.org/jira/browse/KAFKA-2558) | *Major* | **ServerShutdownTest is failing intermittently**
+
+The test cases there fail because tests are leaking resources into others. For this particular case I noticed that the test cases are checking if all threads are being shut down and they are finding threads created by other tests in the same jvm instance.
+
+To verify this, I added a couple of log messages to print the thread id when the thread starts and when the thread is interrupted. I also interrupt the offending thread in the test case to force it to print its id. Here is one such output:
+
+{noformat}
+$ grep 1572 build/test-results/\*.xml
+build/test-results/TEST-kafka.controller.ControllerFailoverTest.xml:[2015-09-16 15:03:42,398] INFO [Controller-0-to-broker-1-send-thread], Starting Controller-0-to-broker-1-send-thread 1572 (kafka.controller.RequestSendThread:68)
+build/test-results/TEST-kafka.server.ServerShutdownTest.xml:[2015-09-16 15:06:33,334] INFO [Controller-0-to-broker-1-send-thread], Got interrupted: Controller-0-to-broker-1-send-thread 1572 (kafka.controller.RequestSendThread:68)
+{noformat}
+
+The number 1572 is the thread id.
+
+
+---
+
+* [KAFKA-2557](https://issues.apache.org/jira/browse/KAFKA-2557) | *Major* | **Separate RebalanceInProgress from IllegalGeneration Error Code**
+
+The ILLEGAL\_GENERATION error is a bit confusing today. When a consumer receives an ILLEGAL\_GENERATION from hearbeat response, it should still use that generation id to commit offset. i.e. the generation id was not really illegal.
+
+The current code was written earlier when we still bump up the generation id when the coordinator enters PrepareRebalance state. Since now the generation id is bumped up after PreareRebalance state ends, we should not overload ILLEGAL\_GENERATION to notify a rebalance but create a new error code such as REBALANCE\_IN\_PROGRESS.
+
+
+---
+
 * [KAFKA-2538](https://issues.apache.org/jira/browse/KAFKA-2538) | *Blocker* | **Compilation in trunk is failing due to https://github.com/apache/kafka/commit/845514d62329be8382e6d02b8041fc858718d534**
 
 Getting /Users/pbrahmbhatt/repo/kafka/core/src/main/scala/kafka/tools/EndToEndLatency.scala:82: value commit is not a member of org.apache.kafka.clients.consumer.KafkaConsumer[Array[Byte],Array[Byte]]
@@ -30,6 +56,20 @@ Getting /Users/pbrahmbhatt/repo/kafka/core/src/main/scala/kafka/tools/EndToEndLa
                ^
 
 Which I believe was missed when committing KAFKA-2389 which replaces all occurrences of commit(mode) with commit(Sync/Async). This is resulting in other PRS reporting as bad by jenkins like https://github.com/apache/kafka/pull/195 where 2 failures were reported by jenkins https://builds.apache.org/job/kafka-trunk-git-pr/410/ and https://builds.apache.org/job/kafka-trunk-git-pr/411/
+
+
+---
+
+* [KAFKA-2533](https://issues.apache.org/jira/browse/KAFKA-2533) | *Major* | **Create a member Metadata.Listener inside KafkaConsumer**
+
+Create a member Metadata.Listener inside KafkaConsumer instead of letting KafkaConsumer to implement this interface along with Consumer, since it is only used in subscribe(Pattern).
+
+
+---
+
+* [KAFKA-2532](https://issues.apache.org/jira/browse/KAFKA-2532) | *Major* | **Remove Consumer from rebalance callback arguments**
+
+After KAFKA-2388, the rebalance callback is no longer constructed in configuration, so we should no longer need to pass a reference to the consumer instance in the callback arguments. This allows us to remove the callback wrapper in SubscriptionState.
 
 
 ---
@@ -1127,6 +1167,43 @@ The "errors" sensor in new-producers measures per-record error that is not limit
 
 ---
 
+* [KAFKA-2300](https://issues.apache.org/jira/browse/KAFKA-2300) | *Major* | **Error in controller log when broker tries to rejoin cluster**
+
+Hello Kafka folks,
+
+We are having an issue where a broker attempts to join the cluster after being restarted, but is never added to the ISR for its assigned partitions. This is a three-node cluster, and the controller is broker 2.
+
+When broker 1 starts, we see the following message in broker 2's controller.log.
+
+{{
+[2015-06-23 13:57:16,535] ERROR [BrokerChangeListener on Controller 2]: Error while handling broker changes (kafka.controller.ReplicaStateMachine$BrokerChangeListener)
+java.lang.IllegalStateException: Controller to broker state change requests batch is not empty while creating a new one. Some UpdateMetadata state changes Map(2 -\> Map([prod-sver-end,1] -\> (LeaderAndIsrInfo:(Leader:-2,ISR:1,LeaderEpoch:0,ControllerEpoch:165),ReplicationFactor:1),AllReplicas:1)), 1 -\> Map([prod-sver-end,1] -\> (LeaderAndIsrInfo:(Leader:-2,ISR:1,LeaderEpoch:0,ControllerEpoch:165),ReplicationFactor:1),AllReplicas:1)), 3 -\> Map([prod-sver-end,1] -\> (LeaderAndIsrInfo:(Leader:-2,ISR:1,LeaderEpoch:0,ControllerEpoch:165),ReplicationFactor:1),AllReplicas:1))) might be lost 
+  at kafka.controller.ControllerBrokerRequestBatch.newBatch(ControllerChannelManager.scala:202)
+  at kafka.controller.KafkaController.sendUpdateMetadataRequest(KafkaController.scala:974)
+  at kafka.controller.KafkaController.onBrokerStartup(KafkaController.scala:399)
+  at kafka.controller.ReplicaStateMachine$BrokerChangeListener$$anonfun$handleChildChange$1$$anonfun$apply$mcV$sp$1.apply$mcV$sp(ReplicaStateMachine.scala:371)
+  at kafka.controller.ReplicaStateMachine$BrokerChangeListener$$anonfun$handleChildChange$1$$anonfun$apply$mcV$sp$1.apply(ReplicaStateMachine.scala:359)
+  at kafka.controller.ReplicaStateMachine$BrokerChangeListener$$anonfun$handleChildChange$1$$anonfun$apply$mcV$sp$1.apply(ReplicaStateMachine.scala:359)
+  at kafka.metrics.KafkaTimer.time(KafkaTimer.scala:33)
+  at kafka.controller.ReplicaStateMachine$BrokerChangeListener$$anonfun$handleChildChange$1.apply$mcV$sp(ReplicaStateMachine.scala:358)
+  at kafka.controller.ReplicaStateMachine$BrokerChangeListener$$anonfun$handleChildChange$1.apply(ReplicaStateMachine.scala:357)
+  at kafka.controller.ReplicaStateMachine$BrokerChangeListener$$anonfun$handleChildChange$1.apply(ReplicaStateMachine.scala:357)
+  at kafka.utils.Utils$.inLock(Utils.scala:535)
+  at kafka.controller.ReplicaStateMachine$BrokerChangeListener.handleChildChange(ReplicaStateMachine.scala:356)
+  at org.I0Itec.zkclient.ZkClient$7.run(ZkClient.java:568)
+  at org.I0Itec.zkclient.ZkEventThread.run(ZkEventThread.java:71)
+}}
+
+{{prod-sver-end}} is a topic we previously deleted. It seems some remnant of it persists in the controller's memory, causing an exception which interrupts the state change triggered by the broker startup.
+
+Has anyone seen something like this? Any idea what's happening here? Any information would be greatly appreciated.
+
+Thanks,
+Johnny
+
+
+---
+
 * [KAFKA-2291](https://issues.apache.org/jira/browse/KAFKA-2291) | *Trivial* | **Documentation Error**
 
 http://kafka.apache.org/documentation.html#design
@@ -1625,6 +1702,15 @@ java.lang.NullPointerException
   at kafka.TestPurgatoryPerformance$CompletionQueue$$anon$1.doWork(TestPurgatoryPerformance.scala:263)
   at kafka.utils.ShutdownableThread.run(ShutdownableThread.scala:60)
 {code}
+
+
+---
+
+* [KAFKA-2211](https://issues.apache.org/jira/browse/KAFKA-2211) | *Blocker* | **KafkaAuthorizer: Add simpleACLAuthorizer implementation.**
+
+Subtask-2 for Kafka-1688. 
+
+Please see KIP-11 to get details on out of box SimpleACLAuthorizer implementation https://cwiki.apache.org/confluence/display/KAFKA/KIP-11+-+Authorization+Interface.
 
 
 ---

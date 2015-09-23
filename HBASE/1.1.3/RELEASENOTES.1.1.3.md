@@ -23,9 +23,29 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [HBASE-14400](https://issues.apache.org/jira/browse/HBASE-14400) | *Critical* | **Fix HBase RPC protection documentation**
+
+To use rpc protection in HBase, set the value of 'hbase.rpc.protection' to:
+'authentication' : simple authentication using kerberos
+'integrity' : authentication and integrity
+'privacy' : authentication and confidentiality
+
+Earlier, HBase reference guide erroneously mentioned in some places to set the value to 'auth-conf'. This patch fixes the guide and adds temporary support for erroneously recommended values.
+
+
+---
+
 * [HBASE-14313](https://issues.apache.org/jira/browse/HBASE-14313) | *Critical* | **After a Connection sees ConnectionClosingException it never recovers**
 
 HConnection could get stuck when talking to a host that went down and then returned. This has been fixed by closing the connection in all paths.
+
+
+---
+
+* [HBASE-14280](https://issues.apache.org/jira/browse/HBASE-14280) | *Minor* | **Bulk Upload from HA cluster to remote HA hbase cluster fails**
+
+Patch will effectively work with Hadoop version 2.6 or greater with a launch of "internal.nameservices".
+There will be no change in versions older than 2.6.
 
 
 ---

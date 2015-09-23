@@ -5502,6 +5502,13 @@ Scala closures can easily capture objects unintentionally, especially with impli
 
 ---
 
+* [SPARK-5306](https://issues.apache.org/jira/browse/SPARK-5306) | *Major* | **Support for a NotEqualsFilter in the filter PrunedFilteredScan pushdown**
+
+This would be a pretty significant addition to the Filters that get pushed down.
+
+
+---
+
 * [SPARK-5301](https://issues.apache.org/jira/browse/SPARK-5301) | *Major* | **Add missing linear algebra utilities to IndexedRowMatrix and CoordinateMatrix**
 
 1) Transpose is missing from CoordinateMatrix (this is cheap to compute, so it should be there)

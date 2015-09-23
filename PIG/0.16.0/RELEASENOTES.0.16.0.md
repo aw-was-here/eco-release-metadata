@@ -23,6 +23,13 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [PIG-4673](https://issues.apache.org/jira/browse/PIG-4673) | *Minor* | **Built In UDF - REPLACE\_MULTI : For a given string, search and replace all occurrences of search keys with replacement values.**
+
+Built In UDF - REPLACE\_MULTI : Method which take a tuple having source string as first parameter and a map having search key and replacement values. Method will replace all occurrences of search key in source string with the replacement values.
+
+
+---
+
 * [PIG-4639](https://issues.apache.org/jira/browse/PIG-4639) | *Major* | **Add better parser for Apache HTTPD access log.**
 
 In piggybank there is now a generic Apache httpd access log loader that supports (almost) all custom LogFormats.

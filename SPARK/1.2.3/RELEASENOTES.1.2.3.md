@@ -23,6 +23,66 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-10657](https://issues.apache.org/jira/browse/SPARK-10657) | *Major* | **Remove legacy SCP-based Jenkins log archiving code**
+
+As of https://issues.apache.org/jira/browse/SPARK-7561, we no longer need to use our custom SCP-based mechanism for archiving Jenkins logs on the master machine; this has been superseded by the use of a Jenkins plugin which archives the logs and provides public viewing of them.
+
+We should remove the legacy log syncing code, since this is a blocker to disabling Worker -\> Master SSH on Jenkins.
+
+
+---
+
+* [SPARK-10642](https://issues.apache.org/jira/browse/SPARK-10642) | *Major* | **Crash in rdd.lookup() with "java.lang.Long cannot be cast to java.lang.Integer"**
+
+Running this command:
+
+{code}
+sc.parallelize([(('a', 'b'), 'c')]).groupByKey().partitionBy(20).cache().lookup(('a', 'b'))
+{code}
+
+gives the following error:
+{noformat}
+15/09/16 14:22:23 INFO SparkContext: Starting job: runJob at PythonRDD.scala:361
+Traceback (most recent call last):
+  File "\<stdin\>", line 1, in \<module\>
+  File "/usr/local/Cellar/apache-spark/1.5.0/libexec/python/pyspark/rdd.py", line 2199, in lookup
+    return self.ctx.runJob(values, lambda x: x, [self.partitioner(key)])
+  File "/usr/local/Cellar/apache-spark/1.5.0/libexec/python/pyspark/context.py", line 916, in runJob
+    port = self.\_jvm.PythonRDD.runJob(self.\_jsc.sc(), mappedRDD.\_jrdd, partitions)
+  File "/usr/local/Cellar/apache-spark/1.5.0/libexec/python/lib/py4j-0.8.2.1-src.zip/py4j/java\_gateway.py", line 538, in \_\_call\_\_
+  File "/usr/local/Cellar/apache-spark/1.5.0/libexec/python/pyspark/sql/utils.py", line 36, in deco
+    return f(\*a, \*\*kw)
+  File "/usr/local/Cellar/apache-spark/1.5.0/libexec/python/lib/py4j-0.8.2.1-src.zip/py4j/protocol.py", line 300, in get\_return\_value
+py4j.protocol.Py4JJavaError: An error occurred while calling z:org.apache.spark.api.python.PythonRDD.runJob.
+: java.lang.ClassCastException: java.lang.Long cannot be cast to java.lang.Integer
+	at scala.runtime.BoxesRunTime.unboxToInt(BoxesRunTime.java:106)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$submitJob$1.apply(DAGScheduler.scala:530)
+	at scala.collection.Iterator$class.find(Iterator.scala:780)
+	at scala.collection.AbstractIterator.find(Iterator.scala:1157)
+	at scala.collection.IterableLike$class.find(IterableLike.scala:79)
+	at scala.collection.AbstractIterable.find(Iterable.scala:54)
+	at org.apache.spark.scheduler.DAGScheduler.submitJob(DAGScheduler.scala:530)
+	at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:558)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:1813)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:1826)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:1839)
+	at org.apache.spark.api.python.PythonRDD$.runJob(PythonRDD.scala:361)
+	at org.apache.spark.api.python.PythonRDD.runJob(PythonRDD.scala)
+	at sun.reflect.GeneratedMethodAccessor49.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:231)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:379)
+	at py4j.Gateway.invoke(Gateway.java:259)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:133)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.GatewayConnection.run(GatewayConnection.java:207)
+	at java.lang.Thread.run(Thread.java:745)
+{noformat}
+
+
+---
+
 * [SPARK-9633](https://issues.apache.org/jira/browse/SPARK-9633) | *Minor* | **SBT download locations outdated; need an update**
 
 The SBT download script tries to download from two locations, typesafe.artifactoryonline.com and repo.typesafe.com. The former is offline; the latter redirects to dl.bintray.com now. In fact, bintray seems like the only place to download SBT at this point. We should update to reference bintray directly.

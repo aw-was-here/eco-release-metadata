@@ -31,6 +31,90 @@ shortest path does not work due to incorrect type of the graph: Graph[Int, Doubl
 
 ---
 
+* [SPARK-9033](https://issues.apache.org/jira/browse/SPARK-9033) | *Major* | **scala.MatchError: interface java.util.Map (of class java.lang.Class) with Spark SQL**
+
+I've a java.util.Map\<String, String\> field in a POJO class and I'm trying to use it to createDataFrame (1.3.1) / applySchema(1.2.2) with the SQLContext and getting following error in both 1.2.2 & 1.3.1 versions of the Spark SQL:
+
+\*sample code:
+
+{code}
+SQLContext sqlCtx = new SQLContext(sc.sc());
+JavaRDD\<Event\> rdd = sc.textFile("/path").map(line-\> Event.fromString(line)); //text line is splitted and assigned to respective field of the event class here
+DataFrame schemaRDD  = sqlCtx.createDataFrame(rdd, Event.class); \<-- error thrown here
+schemaRDD.registerTempTable("events");
+{code}
+
+
+Event class is a Serializable containing a field of type  java.util.Map\<String, String\>. This issue occurs also with Spark streaming when used with SQL.
+
+{code}
+JavaDStream\<String\> receiverStream = jssc.receiverStream(new StreamingReceiver());
+JavaDStream\<String\> windowDStream = receiverStream.window(WINDOW\_LENGTH, SLIDE\_INTERVAL);
+jssc.checkpoint("event-streaming");
+
+windowDStream.foreachRDD(evRDD -\> {
+   if(evRDD.count() == 0) return null;
+
+    DataFrame schemaRDD = sqlCtx.createDataFrame(evRDD, Event.class);
+schemaRDD.registerTempTable("events");
+	...
+}
+{code}
+
+
+\*error:
+{code}
+scala.MatchError: interface java.util.Map (of class java.lang.Class)
+	at org.apache.spark.sql.SQLContext$$anonfun$getSchema$1.apply(SQLContext.scala:1193) ~[spark-sql\_2.10-1.3.1.jar:1.3.1]
+	at org.apache.spark.sql.SQLContext$$anonfun$getSchema$1.apply(SQLContext.scala:1192) ~[spark-sql\_2.10-1.3.1.jar:1.3.1]
+	at scala.collection.TraversableLike$$anonfun$map$1.apply(TraversableLike.scala:244) ~[scala-library-2.10.5.jar:na]
+	at scala.collection.TraversableLike$$anonfun$map$1.apply(TraversableLike.scala:244) ~[scala-library-2.10.5.jar:na]
+	at scala.collection.IndexedSeqOptimized$class.foreach(IndexedSeqOptimized.scala:33) ~[scala-library-2.10.5.jar:na]
+	at scala.collection.mutable.ArrayOps$ofRef.foreach(ArrayOps.scala:108) ~[scala-library-2.10.5.jar:na]
+	at scala.collection.TraversableLike$class.map(TraversableLike.scala:244) ~[scala-library-2.10.5.jar:na]
+	at scala.collection.mutable.ArrayOps$ofRef.map(ArrayOps.scala:108) ~[scala-library-2.10.5.jar:na]
+	at org.apache.spark.sql.SQLContext.getSchema(SQLContext.scala:1192) ~[spark-sql\_2.10-1.3.1.jar:1.3.1]
+	at org.apache.spark.sql.SQLContext.createDataFrame(SQLContext.scala:437) ~[spark-sql\_2.10-1.3.1.jar:1.3.1]
+	at org.apache.spark.sql.SQLContext.createDataFrame(SQLContext.scala:465) ~[spark-sql\_2.10-1.3.1.jar:1.3.1]
+{code}
+
+
+\*\*also this occurs for fields of custom POJO classes:
+{code}
+scala.MatchError: class com.test.MyClass (of class java.lang.Class)
+	at org.apache.spark.sql.SQLContext$$anonfun$getSchema$1.apply(SQLContext.scala:1193) ~[spark-sql\_2.10-1.3.1.jar:1.3.1]
+	at org.apache.spark.sql.SQLContext$$anonfun$getSchema$1.apply(SQLContext.scala:1192) ~[spark-sql\_2.10-1.3.1.jar:1.3.1]
+	at scala.collection.TraversableLike$$anonfun$map$1.apply(TraversableLike.scala:244) ~[scala-library-2.10.5.jar:na]
+	at scala.collection.TraversableLike$$anonfun$map$1.apply(TraversableLike.scala:244) ~[scala-library-2.10.5.jar:na]
+	at scala.collection.IndexedSeqOptimized$class.foreach(IndexedSeqOptimized.scala:33) ~[scala-library-2.10.5.jar:na]
+	at scala.collection.mutable.ArrayOps$ofRef.foreach(ArrayOps.scala:108) ~[scala-library-2.10.5.jar:na]
+	at scala.collection.TraversableLike$class.map(TraversableLike.scala:244) ~[scala-library-2.10.5.jar:na]
+	at scala.collection.mutable.ArrayOps$ofRef.map(ArrayOps.scala:108) ~[scala-library-2.10.5.jar:na]
+	at org.apache.spark.sql.SQLContext.getSchema(SQLContext.scala:1192) ~[spark-sql\_2.10-1.3.1.jar:1.3.1]
+	at org.apache.spark.sql.SQLContext.createDataFrame(SQLContext.scala:437) ~[spark-sql\_2.10-1.3.1.jar:1.3.1]
+	at org.apache.spark.sql.SQLContext.createDataFrame(SQLContext.scala:465) ~[spark-sql\_2.10-1.3.1.jar:1.3.1]
+{code}
+
+\*\*also occurs for Calendar  type:
+
+{code}
+scala.MatchError: class java.util.Calendar (of class java.lang.Class)
+	at org.apache.spark.sql.SQLContext$$anonfun$getSchema$1.apply(SQLContext.scala:1193) ~[spark-sql\_2.10-1.3.1.jar:1.3.1]
+	at org.apache.spark.sql.SQLContext$$anonfun$getSchema$1.apply(SQLContext.scala:1192) ~[spark-sql\_2.10-1.3.1.jar:1.3.1]
+	at scala.collection.TraversableLike$$anonfun$map$1.apply(TraversableLike.scala:244) ~[scala-library-2.10.5.jar:na]
+	at scala.collection.TraversableLike$$anonfun$map$1.apply(TraversableLike.scala:244) ~[scala-library-2.10.5.jar:na]
+	at scala.collection.IndexedSeqOptimized$class.foreach(IndexedSeqOptimized.scala:33) ~[scala-library-2.10.5.jar:na]
+	at scala.collection.mutable.ArrayOps$ofRef.foreach(ArrayOps.scala:108) ~[scala-library-2.10.5.jar:na]
+	at scala.collection.TraversableLike$class.map(TraversableLike.scala:244) ~[scala-library-2.10.5.jar:na]
+	at scala.collection.mutable.ArrayOps$ofRef.map(ArrayOps.scala:108) ~[scala-library-2.10.5.jar:na]
+	at org.apache.spark.sql.SQLContext.getSchema(SQLContext.scala:1192) ~[spark-sql\_2.10-1.3.1.jar:1.3.1]
+	at org.apache.spark.sql.SQLContext.createDataFrame(SQLContext.scala:437) ~[spark-sql\_2.10-1.3.1.jar:1.3.1]
+	at org.apache.spark.sql.SQLContext.createDataFrame(SQLContext.scala:465) ~[spark-sql\_2.10-1.3.1.jar:1.3.1] 
+{code}
+
+
+---
+
 * [SPARK-8726](https://issues.apache.org/jira/browse/SPARK-8726) | *Major* | **Wrong spark.executor.memory when using different EC2 master and worker machine types**
 
 \_(this is a mirror of [MESOS-2985\|https://issues.apache.org/jira/browse/MESOS-2985])\_
@@ -3323,13 +3407,6 @@ Most likely JDBC SQL connector uses getColumnName instead of getColumnLabel to d
 * [SPARK-7343](https://issues.apache.org/jira/browse/SPARK-7343) | *Minor* | **C4 instance types need to be added to spark\_ec2.py**
 
 The C4 instance types have not been added to the spark\_ec2.py script, so launching a cluster containing "c4.4xlarge" nodes will result in an error that the "Virtualization type 'hvm' is required for instances of type 'c4.4xlarge'."
-
-
----
-
-* [SPARK-7341](https://issues.apache.org/jira/browse/SPARK-7341) | *Minor* | **Fix the flaky test: org.apache.spark.streaming.InputStreamsSuite.socket input stream**
-
-Remove non-deterministic "Thread.sleep" and use deterministic strategies to fix the flaky failure: https://amplab.cs.berkeley.edu/jenkins/job/Spark-Master-Maven-pre-YARN/hadoop.version=1.0.4,label=centos/2127/testReport/junit/org.apache.spark.streaming/InputStreamsSuite/socket\_input\_stream/
 
 
 ---
@@ -10118,6 +10195,13 @@ There is no easy way to add a column with metadata in DataFrames. This is requir
 
 ---
 
+* [SPARK-6357](https://issues.apache.org/jira/browse/SPARK-6357) | *Major* | **Add unapply in EdgeContext**
+
+This extractor is mainly used for Graph#aggregateMessages\*.
+
+
+---
+
 * [SPARK-6352](https://issues.apache.org/jira/browse/SPARK-6352) | *Major* | **Supporting non-default OutputCommitter when using saveAsParquetFile**
 
 SPARK-3595 only handles custom OutputCommitter for saveAsHadoopFile, it can be nice to have similar behavior in saveAsParquetFile. It maybe difficult to have a fully customizable OutputCommitter solution, at least adding something like a DirectParquetOutputCommitter and letting users choose between this and the default should be enough.
@@ -13777,6 +13861,17 @@ It might be helpful to write a simple function that takes any check -- itself re
 
 ---
 
+* [SPARK-5302](https://issues.apache.org/jira/browse/SPARK-5302) | *Major* | **Add support for SQLContext "partition" columns**
+
+For {{SQLContext}} (not {{HiveContext}}) it would be very convenient to support a virtual column that maps to part of the the file path, similar to what is done in Hive for partitions (e.g. {{/data/clicks/dt=2015-01-01/}} where {{dt}} is a column of type {{TEXT}}). 
+
+The API could allow the user to type the column using an appropriate {{DataType}} instance. This new field could be addressed in SQL statements much the same as is done in Hive. 
+
+As a consequence, pruning of partitions could be possible when executing a query and also remove the need to materialize a column in each logical partition that is already encoded in the path name. Furthermore, this would provide an nice interop and migration strategy for Hive users who may one day use {{SQLContext}} directly.
+
+
+---
+
 * [SPARK-5283](https://issues.apache.org/jira/browse/SPARK-5283) | *Major* | **ML sharedParams should be private**
 
 The many shared Params implemented in sharedParams.scala should be made public.
@@ -14671,6 +14766,18 @@ In the meantime, here's a workaround that users can try:
 Accumulators have a public setValue() method that can be called (only by the driver) to change an accumulator’s value.  You might be able to use this to reset accumulators’ values to smaller objects (e.g. the “zero” object of whatever your accumulator type is, or ‘null’ if you’re sure that the accumulator will never be accessed again).
 
 This issue was originally reported by [~nkronenfeld] on the dev mailing list: http://apache-spark-developers-list.1001551.n3.nabble.com/Fwd-Accumulator-question-td8709.html
+
+
+---
+
+* [SPARK-3833](https://issues.apache.org/jira/browse/SPARK-3833) | *Major* | **Allow Spark SQL SchemaRDDs to be merged**
+
+We have JSON flowing into Spark SQL.
+I can successfully store them as parquet and read them with sqlContext.jsonRDD, but the inferred schemas cannot be merged into a single table to do queries.
+
+I'd like a way to allow for parquet file schemas to be merged, whether they match or not, since we know the schema should be a union of the schemas from the files.
+
+This will allow us to have the data define the schema and new columns will just appear.
 
 
 ---

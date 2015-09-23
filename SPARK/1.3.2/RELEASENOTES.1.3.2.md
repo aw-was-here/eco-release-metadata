@@ -23,11 +23,80 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-10657](https://issues.apache.org/jira/browse/SPARK-10657) | *Major* | **Remove legacy SCP-based Jenkins log archiving code**
+
+As of https://issues.apache.org/jira/browse/SPARK-7561, we no longer need to use our custom SCP-based mechanism for archiving Jenkins logs on the master machine; this has been superseded by the use of a Jenkins plugin which archives the logs and provides public viewing of them.
+
+We should remove the legacy log syncing code, since this is a blocker to disabling Worker -\> Master SSH on Jenkins.
+
+
+---
+
+* [SPARK-10642](https://issues.apache.org/jira/browse/SPARK-10642) | *Major* | **Crash in rdd.lookup() with "java.lang.Long cannot be cast to java.lang.Integer"**
+
+Running this command:
+
+{code}
+sc.parallelize([(('a', 'b'), 'c')]).groupByKey().partitionBy(20).cache().lookup(('a', 'b'))
+{code}
+
+gives the following error:
+{noformat}
+15/09/16 14:22:23 INFO SparkContext: Starting job: runJob at PythonRDD.scala:361
+Traceback (most recent call last):
+  File "\<stdin\>", line 1, in \<module\>
+  File "/usr/local/Cellar/apache-spark/1.5.0/libexec/python/pyspark/rdd.py", line 2199, in lookup
+    return self.ctx.runJob(values, lambda x: x, [self.partitioner(key)])
+  File "/usr/local/Cellar/apache-spark/1.5.0/libexec/python/pyspark/context.py", line 916, in runJob
+    port = self.\_jvm.PythonRDD.runJob(self.\_jsc.sc(), mappedRDD.\_jrdd, partitions)
+  File "/usr/local/Cellar/apache-spark/1.5.0/libexec/python/lib/py4j-0.8.2.1-src.zip/py4j/java\_gateway.py", line 538, in \_\_call\_\_
+  File "/usr/local/Cellar/apache-spark/1.5.0/libexec/python/pyspark/sql/utils.py", line 36, in deco
+    return f(\*a, \*\*kw)
+  File "/usr/local/Cellar/apache-spark/1.5.0/libexec/python/lib/py4j-0.8.2.1-src.zip/py4j/protocol.py", line 300, in get\_return\_value
+py4j.protocol.Py4JJavaError: An error occurred while calling z:org.apache.spark.api.python.PythonRDD.runJob.
+: java.lang.ClassCastException: java.lang.Long cannot be cast to java.lang.Integer
+	at scala.runtime.BoxesRunTime.unboxToInt(BoxesRunTime.java:106)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$submitJob$1.apply(DAGScheduler.scala:530)
+	at scala.collection.Iterator$class.find(Iterator.scala:780)
+	at scala.collection.AbstractIterator.find(Iterator.scala:1157)
+	at scala.collection.IterableLike$class.find(IterableLike.scala:79)
+	at scala.collection.AbstractIterable.find(Iterable.scala:54)
+	at org.apache.spark.scheduler.DAGScheduler.submitJob(DAGScheduler.scala:530)
+	at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:558)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:1813)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:1826)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:1839)
+	at org.apache.spark.api.python.PythonRDD$.runJob(PythonRDD.scala:361)
+	at org.apache.spark.api.python.PythonRDD.runJob(PythonRDD.scala)
+	at sun.reflect.GeneratedMethodAccessor49.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:231)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:379)
+	at py4j.Gateway.invoke(Gateway.java:259)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:133)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.GatewayConnection.run(GatewayConnection.java:207)
+	at java.lang.Thread.run(Thread.java:745)
+{noformat}
+
+
+---
+
 * [SPARK-10556](https://issues.apache.org/jira/browse/SPARK-10556) | *Minor* | **SBT build explicitly sets Scala version, which can conflict with SBT's own scala version**
 
 project/plugins.sbt explicitly sets scalaVersion to 2.10.4. This can cause issues when using a version of sbt that is compiled against a different version of Scala (for example sbt 0.13.9 uses 2.10.5). Removing this explicit setting will cause build files to be compiled and run against the same version of Scala that sbt is compiled against.
 
 Note that this only applies to the project build files (items in project/), it is distinct from the version of Scala we target for the actual spark compilation.
+
+
+---
+
+* [SPARK-10381](https://issues.apache.org/jira/browse/SPARK-10381) | *Critical* | **Infinite loop when OutputCommitCoordination is enabled and OutputCommitter.commitTask throws exception**
+
+When speculative execution is enabled, consider a scenario where the authorized committer of a particular output partition fails during the OutputCommitter.commitTask() call. In this case, the OutputCommitCoordinator is supposed to release that committer's exclusive lock on committing once that task fails. However, due to a unit mismatch the lock will not be released, causing Spark to go into an infinite retry loop.
+
+This bug was masked by the fact that the OutputCommitCoordinator does not have enough end-to-end tests (the current tests use many mocks). Other factors contributing to this bug are the fact that we have many similarly-named identifiers that have different semantics but the same data types (e.g. attemptNumber and taskAttemptId, with inconsistent variable naming which makes them difficult to distinguish).
 
 
 ---

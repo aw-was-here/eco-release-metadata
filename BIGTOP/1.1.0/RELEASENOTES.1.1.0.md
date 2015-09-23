@@ -23,6 +23,94 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [BIGTOP-2066](https://issues.apache.org/jira/browse/BIGTOP-2066) | *Major* | **init-hdfs.sh is broken by recent hadoop update**
+
+With hadoop-2.7 and groovy-2.4 It needs additionally this jars: 
+
+commons-io and servlet-api, complains loudly with Class not found Exceptions.
+
+
+---
+
+* [BIGTOP-2065](https://issues.apache.org/jira/browse/BIGTOP-2065) | *Major* | **Update deployment README.md to reflect on better deployment experience**
+
+Current puppet deployment readme file directs a user to manually create Hiera's site.yaml file. We already provide a site.yaml under {{bigtop-deploy/puppet/hieradata}}. I suggest we change that to copy the template and edit it accordingly instead.
+
+
+---
+
+* [BIGTOP-2057](https://issues.apache.org/jira/browse/BIGTOP-2057) | *Blocker* | **null check doesn't safeguard against non-existing values in the BOM config**
+
+BIGTOP-2051 has switched the build to use configuration properties instead of java properties. One of the unfortunate side effects of such dynamism is that null checks don't work as expected anymore, as empty elements of the config would be assigned with a ConfigObject instance even after simply null check. That leads to failures for component builds where some elements are omitted all-together, e.g bigtop-utils. 
+
+Instead of null checks I propose to user {{.isEmpty()}}
+
+
+---
+
+* [BIGTOP-2056](https://issues.apache.org/jira/browse/BIGTOP-2056) | *Major* | **Remove top-level check-env.sh**
+
+It doesn't look like {{check-env.sh}} servers any real purpose. Shall we get rid of it?
+
+
+---
+
+* [BIGTOP-2055](https://issues.apache.org/jira/browse/BIGTOP-2055) | *Major* | **Refactor packages.gradle to get rid of excessive data containers; make code cleaner**
+
+With all-gradle build for packages, it is time to clean it a little bit. There are some spots of code dups, less then optimal use of intermediate data containers, etc.
+
+
+---
+
+* [BIGTOP-2054](https://issues.apache.org/jira/browse/BIGTOP-2054) | *Major* | **Update Pig**
+
+
+    Update Pig to 0.15
+    Incorporate PIG-4676
+    fix other small issues
+
+Needed since hive update will break PIG as it is now
+
+
+---
+
+* [BIGTOP-2053](https://issues.apache.org/jira/browse/BIGTOP-2053) | *Major* | **After rebasing on Hadoop 2.7.1 yarn module should be returned to ignite-hadoop build**
+
+We removed yarn module from ignite-hadoop as a workaround of some code incompatibility coming from ignite 1.3 release. Now, bring on top of 2.7.1 we don't need it anymore.
+
+
+---
+
+* [BIGTOP-2052](https://issues.apache.org/jira/browse/BIGTOP-2052) | *Major* | **Remove obsolete environment variables**
+
+These variables are obsolete in packages.gradle
+{code}
+--preserve-envvar JAVA32\_HOME \
+--preserve-envvar JAVA64\_HOME \
+--preserve-envvar FORREST\_HOME \
+{code}
+
+
+---
+
+* [BIGTOP-2051](https://issues.apache.org/jira/browse/BIGTOP-2051) | *Major* | **Get rid of hair-brain environment vars left after make-based build**
+
+The last piece of the old make based build is the massive map of environment variables we had to keep around to avoid breaking everything in the builds. Let's get rid of it and start using the configuration object, build from the new DSL
+
+
+---
+
+* [BIGTOP-2050](https://issues.apache.org/jira/browse/BIGTOP-2050) | *Major* | **Description of clean tasks have null entries**
+
+{{-clean}} entries from {{./gradlew tasks}} have nulls:
+
+{noformat}
+hadoop-clean - Removing hadoop component null and null
+{noformat}
+
+
+---
+
 * [BIGTOP-2046](https://issues.apache.org/jira/browse/BIGTOP-2046) | *Major* | **puppet module search path**
 
 When puppet apt modules are installed with puppet-modules, they are available from /etc/puppet/modules 
@@ -74,9 +162,27 @@ destination should be {code}"${name}-${version.base}-src.tar.gz"{code} rather th
 
 ---
 
+* [BIGTOP-2037](https://issues.apache.org/jira/browse/BIGTOP-2037) | *Major* | **BIGTOP-1746 Added Files Without Apache License Headers**
+
+BIGTOP-1746 added files under {{bigtop-deploy/puppet/modules/bigtop-util/}} that don't have Apache license headers and break the Apache RAT check.
+
+[~vishnu], [~evans\_ye] could you take a look?
+
+
+---
+
 * [BIGTOP-2033](https://issues.apache.org/jira/browse/BIGTOP-2033) | *Major* | **Build order of the stack is broken**
 
 As a part of moving to new stack DSL I have inadvertently broke the logic to preserve the order of stack creation as laid-out by the sequence of the BOM file.
+
+
+---
+
+* [BIGTOP-2027](https://issues.apache.org/jira/browse/BIGTOP-2027) | *Major* | **Bump gradle version, the wrapper to 2.7**
+
+It's like only yesterday we got BIGTOP-1867 in, delivering Gradle 2.4. Now I am looking into 2.6 and see a number of significant improvements (https://docs.gradle.org/current/release-notes) that warrant an upgrade. But perhaps it is worthy to wait a couple of weeks for 2.7, which already has an RC2.
+
+Another point: our Docker images are still on Gradle 2.0 - we just have to bump them up to at least 2.4 and benefit from the performance improvements.
 
 
 ---
@@ -96,6 +202,29 @@ bigtop-packages/src/common/phoenix/do-component-build
 {noformat}
 
 The variable is defined twice and can lead to integration problems if it gets changed independently. {{do-component-build}} should use the one from the BOM
+
+
+---
+
+* [BIGTOP-2025](https://issues.apache.org/jira/browse/BIGTOP-2025) | *Major* | **Make BOM to be a directional graph**
+
+It might be a good idea to be able to set up a dependencies between the components, so the build system is aware which parts should be build first, and the sequentially or in parallel.
+
+With new configuration DSL introduced in BIGTOP-1494 we can have a directional graph like this
+{code}
+    'hadoop' {
+      name    = 'hadoop'
+      relNotes = 'Apache Hadoop'
+      version { base = '2.6.0'; pkg = base; release =1 }
+      tarball { destination = "${name}-${version.base}.tar.gz"
+                source      = "${name}-${version.base}-src.tar.gz" }
+      url     { site = "{apache.APACHE\_MIRROR}/${download\_path}"
+                archive = "{apache.APACHE\_ARCHIVE}/${download\_path}"
+                download\_path = "/hadoop/common/$name-${version.base}" }
+      dependencies { 'zookeeper'}
+    }
+{code}
+which will allow to collect all {{dependencies}} information cross components, build the graph and test it for loops. This information can be used by the build system to order the build process: if {{hadoop-deb}} is invoked it will automatically tries to build {{zookeeper}}; for {{hbase}} it will invoke {{hadoop}} build first, etc.
 
 
 ---
@@ -126,6 +255,13 @@ This will be reused for Dockerfiles (bigtop/puppet) and VM provisioning.
 * [BIGTOP-2017](https://issues.apache.org/jira/browse/BIGTOP-2017) | *Major* | **Rebase bigtop-slaves on bigtop-puppet**
 
 Rebase the docker images on top of each other: See comments in BIGTOP-2015
+
+
+---
+
+* [BIGTOP-2014](https://issues.apache.org/jira/browse/BIGTOP-2014) | *Major* | **[VM provisioner] Missing FQDN on Ubuntu causes puppet deployment malfunction**
+
+We implemented and tested Bigtop VM provisioner mainly on CentOS 6 and Debian. However, noticed by [~tomzeng]'s user list question, I found that the puppet deployment on Ubuntu fail to identify \*head\_node\* due to the missing FQDN setting. This is because different Linux distribution has different mechanism for FQDN setting.
 
 
 ---
@@ -248,9 +384,27 @@ The following files are failing:
 
 ---
 
+* [BIGTOP-1991](https://issues.apache.org/jira/browse/BIGTOP-1991) | *Minor* | **Add BigTop Weatherman**
+
+Weatherman is a stochastic model for weather simulation.  I had built it using components from BigPetStore's data generator.  
+
+https://github.com/bigpetstore/bigpetstore-weather-generator
+
+Should be imported into BigTop Data Generators
+
+
+---
+
 * [BIGTOP-1990](https://issues.apache.org/jira/browse/BIGTOP-1990) | *Minor* | **Add gradle multi-project build files for bigtop-data-generators**
 
 To make it easier to build the BigTop Data Generators, we should add a Gradle multi-project build.
+
+
+---
+
+* [BIGTOP-1987](https://issues.apache.org/jira/browse/BIGTOP-1987) | *Major* | **Recover resources/kmeans\_data.txt for Spark smokes**
+
+While I did upgrade Spark version, I deleted a resource file for Spark smokes accidentally. This file should be recovered.
 
 
 ---
@@ -317,6 +471,13 @@ Add below tests related to HDFS admin module to the existing test class file Tes
 * [BIGTOP-1971](https://issues.apache.org/jira/browse/BIGTOP-1971) | *Major* | **Support Spark SQL CLI with Apache Hive out of the box**
 
 Spark SQL supports reading and writing Apache Hive tables. To run the spark-sql CLI with Hive support, It's required $\{SPARK\_HOME\}/conf/hive-site.xml file, so, Bigtop should package the hive-site.xml for Spark SQL (with Hive support)
+
+
+---
+
+* [BIGTOP-1970](https://issues.apache.org/jira/browse/BIGTOP-1970) | *Major* | **Ignite IGFS now fully supports mutiltenancy: deployment should configure it with HDFS backing**
+
+IGFS can work with HCFS as a secondary storage. Let's improve the puppet recipes to configure Ignite node in that way.
 
 
 ---
@@ -568,6 +729,15 @@ Is it consensus we will use the wiki for documentation?
 * [BIGTOP-1914](https://issues.apache.org/jira/browse/BIGTOP-1914) | *Trivial* | **improve puppet README.md file**
 
 I'm propose to improve readability of README file for puppet deployment.
+
+
+---
+
+* [BIGTOP-1913](https://issues.apache.org/jira/browse/BIGTOP-1913) | *Major* | **Update hive to 1.2.1**
+
+I had issues with complex data structures in 1.0.0. 
+
+Building hive-1.2.1 was surprisingly easy and the issues I had before (jline jar incompatibilites) seems to be fixed by a recent zookeeper update.
 
 
 ---

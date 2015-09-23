@@ -23,9 +23,801 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
-* [SPARK-10584](https://issues.apache.org/jira/browse/SPARK-10584) | *Minor* | **Documentation about spark.sql.hive.metastore.version is wrong.**
+* [SPARK-10740](https://issues.apache.org/jira/browse/SPARK-10740) | *Blocker* | **handle nondeterministic expressions correctly for set operations**
 
-The default value of hive metastore version is 1.2.1 but the documentation says `spark.sql.hive.metastore.version` is 0.13.1.
+We should only push down deterministic filter condition to set operator.
+For Union, let's say we do a non-deterministic filter on 1...5 union 1...5, and we may get 1,3 for the left side and 2,4 for the right side, then the result should be 1,3,2,4. If we push down this filter, we get 1,3 for both side(we create a new random object with same seed in each side) and the result would be 1,3,1,3.
+For Intersect, let's say there is a non-deterministic condition with a 0.5 possibility to accept a row and we have a row that presents in both sides of an Intersect. Once we push down this condition, the possibility to accept this row will be 0.25.
+For Except, let's say there is a row that presents in both sides of an Except. This row should not be in the final output. However, if we pushdown a non-deterministic condition, it is possible that this row is rejected from one side and then we output a row that should not be a part of the result.
+
+ We should only push down deterministic projection to Union.
+
+
+---
+
+* [SPARK-10737](https://issues.apache.org/jira/browse/SPARK-10737) | *Blocker* | **When using UnsafeRows, SortMergeJoin may return wrong results**
+
+{code}
+val df1 = (1 to 10).map(i =\> (s"str\_$i", i)).toDF("i", "j")
+val df2 =
+  df1
+  .join(df1.select(df1("i")), "i")
+  .select(df1("i"), df1("j"))
+
+val df3 = df2.withColumnRenamed("i", "i1").withColumnRenamed("j", "j1")
+val df4 =
+  df2
+  .join(df3, df2("i") === df3("i1"))
+  .withColumn("diff", $"j" - $"j1")
+
+df4.show(100, false)
+
++------+---+------+---+----+
+\|i     \|j  \|i1    \|j1 \|diff\|
++------+---+------+---+----+
+\|str\_2 \|2  \|str\_2 \|2  \|0   \|
+\|str\_7 \|7  \|str\_2 \|2  \|5   \|
+\|str\_10\|10 \|str\_10\|10 \|0   \|
+\|str\_3 \|3  \|str\_3 \|3  \|0   \|
+\|str\_8 \|8  \|str\_3 \|3  \|5   \|
+\|str\_4 \|4  \|str\_4 \|4  \|0   \|
+\|str\_9 \|9  \|str\_4 \|4  \|5   \|
+\|str\_5 \|5  \|str\_5 \|5  \|0   \|
+\|str\_1 \|1  \|str\_1 \|1  \|0   \|
+\|str\_6 \|6  \|str\_1 \|1  \|5   \|
++------+---+------+---+----+
+
+{code}
+
+
+---
+
+* [SPARK-10716](https://issues.apache.org/jira/browse/SPARK-10716) | *Minor* | **spark-1.5.0-bin-hadoop2.6.tgz file doesn't uncompress on OS X due to hidden file**
+
+Directly downloaded prebuilt binaries of http://d3kbcqa49mib13.cloudfront.net/spark-1.5.0-bin-hadoop2.6.tgz 
+got error when tar xvzf it.  Tried download twice and extract twice.
+
+error log:
+......
+x spark-1.5.0-bin-hadoop2.6/lib/
+x spark-1.5.0-bin-hadoop2.6/lib/datanucleus-core-3.2.10.jar
+x spark-1.5.0-bin-hadoop2.6/lib/datanucleus-api-jdo-3.2.6.jar
+x spark-1.5.0-bin-hadoop2.6/lib/datanucleus-rdbms-3.2.9.jar
+x spark-1.5.0-bin-hadoop2.6/lib/spark-examples-1.5.0-hadoop2.6.0.jar
+x spark-1.5.0-bin-hadoop2.6/lib/spark-assembly-1.5.0-hadoop2.6.0.jar
+x spark-1.5.0-bin-hadoop2.6/lib/spark-1.5.0-yarn-shuffle.jar
+x spark-1.5.0-bin-hadoop2.6/README.md
+tar: copyfile unpack (spark-1.5.0-bin-hadoop2.6/python/test\_support/sql/orc\_partitioned/SUCCESS.crc) failed: No such file or directory
+~ :\>
+
+
+---
+
+* [SPARK-10714](https://issues.apache.org/jira/browse/SPARK-10714) | *Major* | **Refactor PythonRDD to decouple iterator computation from PythonRDD**
+
+The idea is that most of the logic of calling Python actually has nothing to do with RDD (it is really just communicating with a socket -- there is nothing distributed about it), and it is only currently depending on RDD because it was written this way.
+
+If we extract that functionality out, we can apply it to area of the code that doesn't depend on RDDs, and also make it easier to test.
+
+
+---
+
+* [SPARK-10711](https://issues.apache.org/jira/browse/SPARK-10711) | *Critical* | **Do not assume spark.submit.deployMode is always set**
+
+in RRDD.createRProcess() we call RUtils.sparkRPackagePath(), which assumes "... that Spark properties `spark.master` and `spark.submit.deployMode` are set."
+
+It is better to assume safe defaults if they are not set.
+
+
+---
+
+* [SPARK-10695](https://issues.apache.org/jira/browse/SPARK-10695) | *Critical* | **spark.mesos.constraints documentation uses "=" to separate value instead ":" as parser and mesos expects.**
+
+Incorrect documentation which leads to exception when using constraints value as specified in documentation.
+
+
+---
+
+* [SPARK-10685](https://issues.apache.org/jira/browse/SPARK-10685) | *Blocker* | **Misaligned data with RDD.zip and DataFrame.withColumn after repartition**
+
+Here's a weird behavior where {{RDD.zip}} or {{DataFrame.withColumn}} after a {{repartition}} produces "misaligned" data, meaning different column values in the same row aren't matched, as if a zip shuffled the collections before zipping them. It's difficult to reproduce because it's nondeterministic, doesn't occur in local mode, and requires ≥2 workers (≥3 in one case). I was able to repro it using pyspark 1.3.0 (cdh5.4.5), 1.4.1 (bin-without-hadoop), and 1.5.0 (bin-without-hadoop).
+
+Here's the most similar issue I was able to find. It appears to not have been repro'd and then closed optimistically, and it smells like it could have been the same underlying cause that was never fixed:
+
+- https://issues.apache.org/jira/browse/SPARK-9131
+
+Also, this {{DataFrame.zip}} issue is related in spirit, since we were trying to build it ourselves when we ran into this problem. Let me put in my vote for reopening the issue and supporting {{DataFrame.zip}} in the standard lib.
+
+- https://issues.apache.org/jira/browse/SPARK-7460
+
+h3. Brief repro
+
+Fail: withColumn(udf) after DataFrame.repartition
+{code}
+df = sqlCtx.createDataFrame(Row(a=a) for a in xrange(10000))
+df = df.repartition(100)
+df = df.withColumn('b', udf(lambda r: r, IntegerType())(df.a))
+[r for r in df.collect() if r.a != r.b][:3] # Should be []
+{code}
+
+Sample outputs (nondeterministic):
+{code}
+[Row(a=39, b=639), Row(a=139, b=739), Row(a=239, b=839)]
+[Row(a=639, b=39), Row(a=739, b=139), Row(a=839, b=239)]
+[]
+[Row(a=641, b=41), Row(a=741, b=141), Row(a=841, b=241)]
+[Row(a=641, b=1343), Row(a=741, b=1443), Row(a=841, b=1543)]
+[Row(a=639, b=39), Row(a=739, b=139), Row(a=839, b=239)]
+{code}
+
+Fail: RDD.zip after DataFrame.repartition
+{code}
+df  = sqlCtx.createDataFrame(Row(a=a) for a in xrange(10000))
+df  = df.repartition(100)
+rdd = df.rdd.zip(df.map(lambda r: Row(b=r.a))).map(lambda (x,y): Row(a=x.a, b=y.b))
+[r for r in rdd.collect() if r.a != r.b][:3] # Should be []
+{code}
+
+Sample outputs (nondeterministic):
+{code}
+[]
+[Row(a=50, b=6947), Row(a=150, b=7047), Row(a=250, b=7147)]
+[]
+[]
+[Row(a=44, b=644), Row(a=144, b=744), Row(a=244, b=844)]
+[]
+{code}
+
+Test setup:
+
+- local\[8]: {{MASTER=local\[8]}}
+- dist\[N]: 1 driver + 1 master + N workers
+
+{code}
+"Fail" tests pass?  cluster mode  spark version
+----------------------------------------------------
+yes                 local[8]      1.3.0-cdh5.4.5
+no                  dist[4]       1.3.0-cdh5.4.5
+yes                 local[8]      1.4.1
+yes                 dist[1]       1.4.1
+no                  dist[2]       1.4.1
+no                  dist[4]       1.4.1
+yes                 local[8]      1.5.0
+yes                 dist[1]       1.5.0
+no                  dist[2]       1.5.0
+no                  dist[4]       1.5.0
+{code}
+
+h3. Detailed repro
+
+Start `pyspark` and run these imports:
+{code}
+from pyspark.sql import Row
+from pyspark.sql.functions import udf
+from pyspark.sql.types import IntegerType, StructType, StructField
+{code}
+
+Fail: withColumn(udf) after DataFrame.repartition
+{code}
+df = sqlCtx.createDataFrame(Row(a=a) for a in xrange(10000))
+df = df.repartition(100)
+df = df.withColumn('b', udf(lambda r: r, IntegerType())(df.a))
+len([r for r in df.collect() if r.a != r.b]) # Should be 0
+{code}
+
+Ok: withColumn(udf) after DataFrame.repartition(100) after 1 starting partition
+{code}
+df = sqlCtx.createDataFrame(sc.parallelize((Row(a=a) for a in xrange(10000)), numSlices=1))
+df = df.repartition(100)
+df = df.withColumn('b', udf(lambda r: r, IntegerType())(df.a))
+len([r for r in df.collect() if r.a != r.b]) # Should be 0
+{code}
+
+Fail: withColumn(udf) after DataFrame.repartition(100) after 100 starting partitions
+{code}
+df = sqlCtx.createDataFrame(sc.parallelize((Row(a=a) for a in xrange(10000)), numSlices=100))
+df = df.repartition(100)
+df = df.withColumn('b', udf(lambda r: r, IntegerType())(df.a))
+len([r for r in df.collect() if r.a != r.b]) # Should be 0
+{code}
+
+Fail: withColumn(udf) after DataFrame.repartition(1) after 100 starting partitions
+{code}
+df = sqlCtx.createDataFrame(sc.parallelize((Row(a=a) for a in xrange(10000)), numSlices=100))
+df = df.repartition(1)
+df = df.withColumn('b', udf(lambda r: r, IntegerType())(df.a))
+len([r for r in df.collect() if r.a != r.b]) # Should be 0
+{code}
+
+Ok: withColumn(udf) after DataFrame.coalesce(10) after 100 starting partitions
+{code}
+df = sqlCtx.createDataFrame(sc.parallelize((Row(a=a) for a in xrange(10000)), numSlices=100))
+df = df.coalesce(10)
+df = df.withColumn('b', udf(lambda r: r, IntegerType())(df.a))
+len([r for r in df.collect() if r.a != r.b]) # Should be 0
+{code}
+
+Ok: withColumn without udf
+{code}
+df = sqlCtx.createDataFrame(Row(a=a) for a in xrange(10000))
+df = df.repartition(100)
+df = df.withColumn('b', df.a)
+len([r for r in df.collect() if r.a != r.b]) # Should be 0
+{code}
+
+Ok: createDataFrame(RDD.map) instead of withColumn(udf)
+{code}
+df  = sqlCtx.createDataFrame(Row(a=a) for a in xrange(10000))
+df  = df.repartition(100)
+rdd = df.map(lambda r: Row(a=r.a, b=r.a))
+df  = sqlCtx.createDataFrame(rdd, StructType(df.schema.fields + [StructField('b', IntegerType())]))
+len([r for r in df.collect() if r.a != r.b]) # Should be 0
+{code}
+
+Fail: createDataFrame(RDD.zip) instead of withColumn(udf)
+{code}
+df  = sqlCtx.createDataFrame(Row(a=a) for a in xrange(10000))
+df  = df.repartition(100)
+rdd = df.rdd.zip(df.map(lambda r: Row(b=r.a))).map(lambda (x,y): Row(a=x.a, b=y.b))
+df  = sqlCtx.createDataFrame(rdd, StructType(df.schema.fields + [StructField('b', IntegerType())]))
+len([r for r in df.collect() if r.a != r.b]) # Should be 0
+{code}
+
+Fail: RDD.zip after DataFrame.repartition
+{code}
+df  = sqlCtx.createDataFrame(Row(a=a) for a in xrange(10000))
+df  = df.repartition(100)
+rdd = df.rdd.zip(df.map(lambda r: Row(b=r.a))).map(lambda (x,y): Row(a=x.a, b=y.b))
+len([d for d in rdd.collect() if d.a != d.b]) # Should be 0
+{code}
+
+Fail: RDD.zip after RDD.repartition after 100 starting partitions
+
+- Failure requires ≥3 workers (whether dist or pseudo-dist)
+
+{code}
+rdd = sc.parallelize((Row(a=a) for a in xrange(10000)), numSlices=100)
+rdd = rdd.repartition(100)
+rdd = rdd.zip(rdd.map(lambda a: a)).map(lambda (a,b): Row(a=a,b=b))
+len([d for d in rdd.collect() if d.a != d.b]) # Should be 0
+{code}
+
+Ok: RDD.zip after RDD.repartition after 1 starting partition
+{code}
+rdd = sc.parallelize((Row(a=a) for a in xrange(10000)), numSlices=1)
+rdd = rdd.repartition(100)
+rdd = rdd.zip(rdd.map(lambda a: a)).map(lambda (a,b): Row(a=a,b=b))
+len([d for d in rdd.collect() if d.a != d.b]) # Should be 0
+{code}
+
+Test setup:
+
+- local\[8]: {{MASTER=local\[8]}}
+- pseudo-dist\[N]: 1 driver + 1 master + N workers; master and workers all on same OS
+- dist\[N]: 1 driver + 1 master + N workers; master and workers all on separate OS's
+- Spark 1.3.0-cdh5.4.5 with dist\[4] didn't trip any of the {{withColumn}} failures, but did trip the {{zip}} failures
+- {{-}} indicates a configuration I didn't try
+
+{code}
+"Ok" tests pass?  "Fail" tests pass?        platform  cluster mode    spark version
+----------------------------------------------------------------
+yes               yes                       ubuntu    local[8]        1.3.0-cdh5.4.5
+-                 -                         ubuntu    pseudo-dist[1]  1.3.0-cdh5.4.5
+-                 -                         ubuntu    pseudo-dist[2]  1.3.0-cdh5.4.5
+yes               no[zip], yes[withColumn]  ubuntu    dist[4]         1.3.0-cdh5.4.5
+yes               yes                       osx       local[8]        1.4.1
+yes               yes                       ubuntu    local[8]        1.4.1
+yes               yes                       osx       pseudo-dist[1]  1.4.1
+-                 -                         ubuntu    pseudo-dist[1]  1.4.1
+yes               no                        osx       pseudo-dist[2]  1.4.1
+-                 -                         ubuntu    pseudo-dist[2]  1.4.1
+-                 -                         osx       dist[4]         1.4.1
+yes               no                        ubuntu    dist[4]         1.4.1
+yes               yes                       osx       local[8]        1.5.0
+yes               yes                       ubuntu    local[8]        1.5.0
+yes               yes                       osx       pseudo-dist[1]  1.5.0
+yes               yes                       ubuntu    pseudo-dist[1]  1.5.0
+yes               no                        osx       pseudo-dist[2]  1.5.0
+yes               no                        ubuntu    pseudo-dist[2]  1.5.0
+-                 -                         osx       dist[4]         1.5.0
+yes               no                        ubuntu    dist[4]         1.5.0
+{code}
+
+
+---
+
+* [SPARK-10684](https://issues.apache.org/jira/browse/SPARK-10684) | *Minor* | **StructType.interpretedOrdering need not to be serialized**
+
+Kryo fails with buffer overflow even with max value (2G).
+
+{noformat}
+org.apache.spark.SparkException: Kryo serialization failed: Buffer overflow. Available: 0, required: 1
+Serialization trace:
+containsChild (org.apache.spark.sql.catalyst.expressions.BoundReference)
+child (org.apache.spark.sql.catalyst.expressions.SortOrder)
+array (scala.collection.mutable.ArraySeq)
+ordering (org.apache.spark.sql.catalyst.expressions.InterpretedOrdering)
+interpretedOrdering (org.apache.spark.sql.types.StructType)
+schema (org.apache.spark.sql.catalyst.expressions.GenericRowWithSchema). To avoid this, increase spark.kryoserializer.buffer.max value.
+        at org.apache.spark.serializer.KryoSerializerInstance.serialize(KryoSerializer.scala:263)
+        at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:240)
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+        at java.lang.Thread.run(Thread.java:745)
+{noformat}
+
+
+---
+
+* [SPARK-10676](https://issues.apache.org/jira/browse/SPARK-10676) | *Major* | **Update documentation with instructions to enable block manager wire encryption**
+
+See SPARK-6229. The code was added but the docs were never updated.
+
+
+---
+
+* [SPARK-10672](https://issues.apache.org/jira/browse/SPARK-10672) | *Blocker* | **We should not fail to create a table If we cannot persist metadata of a data source table to metastore in a Hive compatible way**
+
+It is possible that Hive has some internal restrictions on what kinds of metadata of a table it accepts (e.g. Hive 0.13 does not support decimal stored in parquet). If it is the case, we should not fail when we try to store the metadata in a Hive compatible way. We should just save it in the Spark SQL specific format.
+
+
+---
+
+* [SPARK-10660](https://issues.apache.org/jira/browse/SPARK-10660) | *Trivial* | **Doc describe error in the "Running Spark on YARN" page**
+
+In the \*Configuration\* section, the \*spark.yarn.driver.memoryOverhead\* and \*spark.yarn.am.memoryOverhead\*‘s  default value should be "driverMemory \* 0.10, with minimum of 384" and "AM memory \* 0.10, with minimum of 384" respectively. Because from Spark 1.4.0, the \*MEMORY\_OVERHEAD\_FACTOR\* is set to 0.1.0, not 0.07.
+
+
+---
+
+* [SPARK-10657](https://issues.apache.org/jira/browse/SPARK-10657) | *Major* | **Remove legacy SCP-based Jenkins log archiving code**
+
+As of https://issues.apache.org/jira/browse/SPARK-7561, we no longer need to use our custom SCP-based mechanism for archiving Jenkins logs on the master machine; this has been superseded by the use of a Jenkins plugin which archives the logs and provides public viewing of them.
+
+We should remove the legacy log syncing code, since this is a blocker to disabling Worker -\> Master SSH on Jenkins.
+
+
+---
+
+* [SPARK-10650](https://issues.apache.org/jira/browse/SPARK-10650) | *Critical* | **Spark docs include test and other extra classes**
+
+In 1.5.0 there are some extra classes in the Spark docs - including a bunch of test classes. We need to figure out what commit introduced those and fix it. The obvious things like genJavadoc version have not changed.
+
+http://spark.apache.org/docs/1.4.1/api/java/org/apache/spark/streaming/ [before]
+http://spark.apache.org/docs/1.5.0/api/java/org/apache/spark/streaming/ [after]
+
+
+---
+
+* [SPARK-10649](https://issues.apache.org/jira/browse/SPARK-10649) | *Major* | **Streaming jobs unexpectedly inherits job group, job descriptions from context starting thread**
+
+The job group, and job descriptions information is passed through thread local properties, and get inherited by child threads. In case of spark streaming, the streaming jobs inherit these properties from the thread that called streamingContext.start(). This may not make sense. 
+
+1. Job group: This is mainly used for cancelling a group of jobs together. It does not make sense to cancel streaming jobs like this, as the effect will be unpredictable. And its not a valid usecase any way, to cancel a streaming context, call streamingContext.stop()
+
+2. Job description: This is used to pass on nice text descriptions for jobs to show up in the UI. The job description of the thread that calls streamingContext.start() is not useful for all the streaming jobs, as it does not make sense for all of the streaming jobs to have the same description, and the description may or may not be related to streaming.
+
+
+---
+
+* [SPARK-10642](https://issues.apache.org/jira/browse/SPARK-10642) | *Major* | **Crash in rdd.lookup() with "java.lang.Long cannot be cast to java.lang.Integer"**
+
+Running this command:
+
+{code}
+sc.parallelize([(('a', 'b'), 'c')]).groupByKey().partitionBy(20).cache().lookup(('a', 'b'))
+{code}
+
+gives the following error:
+{noformat}
+15/09/16 14:22:23 INFO SparkContext: Starting job: runJob at PythonRDD.scala:361
+Traceback (most recent call last):
+  File "\<stdin\>", line 1, in \<module\>
+  File "/usr/local/Cellar/apache-spark/1.5.0/libexec/python/pyspark/rdd.py", line 2199, in lookup
+    return self.ctx.runJob(values, lambda x: x, [self.partitioner(key)])
+  File "/usr/local/Cellar/apache-spark/1.5.0/libexec/python/pyspark/context.py", line 916, in runJob
+    port = self.\_jvm.PythonRDD.runJob(self.\_jsc.sc(), mappedRDD.\_jrdd, partitions)
+  File "/usr/local/Cellar/apache-spark/1.5.0/libexec/python/lib/py4j-0.8.2.1-src.zip/py4j/java\_gateway.py", line 538, in \_\_call\_\_
+  File "/usr/local/Cellar/apache-spark/1.5.0/libexec/python/pyspark/sql/utils.py", line 36, in deco
+    return f(\*a, \*\*kw)
+  File "/usr/local/Cellar/apache-spark/1.5.0/libexec/python/lib/py4j-0.8.2.1-src.zip/py4j/protocol.py", line 300, in get\_return\_value
+py4j.protocol.Py4JJavaError: An error occurred while calling z:org.apache.spark.api.python.PythonRDD.runJob.
+: java.lang.ClassCastException: java.lang.Long cannot be cast to java.lang.Integer
+	at scala.runtime.BoxesRunTime.unboxToInt(BoxesRunTime.java:106)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$submitJob$1.apply(DAGScheduler.scala:530)
+	at scala.collection.Iterator$class.find(Iterator.scala:780)
+	at scala.collection.AbstractIterator.find(Iterator.scala:1157)
+	at scala.collection.IterableLike$class.find(IterableLike.scala:79)
+	at scala.collection.AbstractIterable.find(Iterable.scala:54)
+	at org.apache.spark.scheduler.DAGScheduler.submitJob(DAGScheduler.scala:530)
+	at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:558)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:1813)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:1826)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:1839)
+	at org.apache.spark.api.python.PythonRDD$.runJob(PythonRDD.scala:361)
+	at org.apache.spark.api.python.PythonRDD.runJob(PythonRDD.scala)
+	at sun.reflect.GeneratedMethodAccessor49.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:231)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:379)
+	at py4j.Gateway.invoke(Gateway.java:259)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:133)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.GatewayConnection.run(GatewayConnection.java:207)
+	at java.lang.Thread.run(Thread.java:745)
+{noformat}
+
+
+---
+
+* [SPARK-10640](https://issues.apache.org/jira/browse/SPARK-10640) | *Blocker* | **Spark history server fails to parse taskEndReasonFromJson TaskCommitDenied**
+
+I'm seeing an exception from the spark history server trying to read a history file:
+
+{code}
+scala.MatchError: TaskCommitDenied (of class java.lang.String)
+        at org.apache.spark.util.JsonProtocol$.taskEndReasonFromJson(JsonProtocol.scala:775)
+        at org.apache.spark.util.JsonProtocol$.taskEndFromJson(JsonProtocol.scala:531)
+        at org.apache.spark.util.JsonProtocol$.sparkEventFromJson(JsonProtocol.scala:488)
+        at org.apache.spark.scheduler.ReplayListenerBus.replay(ReplayListenerBus.scala:58)
+        at org.apache.spark.deploy.history.FsHistoryProvider.org$apache$spark$deploy$history$FsHistoryProvider$$replay(FsHistoryProvider.scala:457)
+        at org.apache.spark.deploy.history.FsHistoryProvider$$anonfun$10.apply(FsHistoryProvider.scala:292)
+        at org.apache.spark.deploy.history.FsHistoryProvider$$anonfun$10.apply(FsHistoryProvider.scala:289)
+        at scala.collection.TraversableLike$$anonfun$flatMap$1.apply(TraversableLike.scala:251)
+        at scala.collection.TraversableLike$$anonfun$flatMap$1.apply(TraversableLike.scala:251)
+        at scala.collection.mutable.ResizableArray$class.foreach(ResizableArray.scala:59)
+        at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:47)
+        at scala.collection.TraversableLike$class.flatMap(TraversableLike.scala:251)
+        at scala.collection.AbstractTraversable.flatMap(Traversable.scala:105)
+        at org.apache.spark.deploy.history.FsHistoryProvider.org$apache$spark$deploy$history$FsHistoryProvider$$mergeApplicationListing(FsHistoryProvider.scala:289)
+        at org.apache.spark.deploy.history.FsHistoryProvider$$anonfun$checkForLogs$1$$anon$2.run(FsHistoryProvider.scala:210)
+        at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)
+        at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+        at java.lang.Thread.run(Thread.java:745)
+{code}
+
+
+---
+
+* [SPARK-10639](https://issues.apache.org/jira/browse/SPARK-10639) | *Blocker* | **Need to convert UDAF's result from scala to sql type**
+
+We are missing a conversion at https://github.com/apache/spark/blob/branch-1.5/sql/core/src/main/scala/org/apache/spark/sql/execution/aggregate/udaf.scala#L427.
+
+
+---
+
+* [SPARK-10632](https://issues.apache.org/jira/browse/SPARK-10632) | *Major* | **Cannot save DataFrame with User Defined Types**
+
+Cannot save DataFrames that contain user-defined types.
+I tried to save a dataframe with instances of the Vector class from mlib and got the error.
+
+The code below should reproduce the error.
+{noformat}
+val df = sc.parallelize(Seq((1,Vectors.dense(1,1,1)), (2,Vectors.dense(2,2,2)))).toDF()
+df.write.format("json").mode(SaveMode.Overwrite).save(path)
+{noformat}
+
+The error log is below
+
+{noformat}
+15/09/16 09:58:27 ERROR DefaultWriterContainer: Aborting task.
+scala.MatchError: [1,null,null,[1.0,1.0,1.0]] (of class org.apache.spark.sql.catalyst.expressions.GenericMutableRow)
+	at org.apache.spark.mllib.linalg.VectorUDT.serialize(Vectors.scala:194)
+	at org.apache.spark.mllib.linalg.VectorUDT.serialize(Vectors.scala:179)
+	at org.apache.spark.sql.execution.datasources.json.JacksonGenerator$$anonfun$org$apache$spark$sql$execution$datasources$json$JacksonGenerator$$valWriter$2$1.apply(JacksonGenerator.scala:103)
+	at org.apache.spark.sql.execution.datasources.json.JacksonGenerator$$anonfun$org$apache$spark$sql$execution$datasources$json$JacksonGenerator$$valWriter$2$1.apply(JacksonGenerator.scala:89)
+	at org.apache.spark.sql.execution.datasources.json.JacksonGenerator$$anonfun$org$apache$spark$sql$execution$datasources$json$JacksonGenerator$$valWriter$2$1.apply(JacksonGenerator.scala:126)
+	at org.apache.spark.sql.execution.datasources.json.JacksonGenerator$$anonfun$org$apache$spark$sql$execution$datasources$json$JacksonGenerator$$valWriter$2$1.apply(JacksonGenerator.scala:89)
+	at org.apache.spark.sql.execution.datasources.json.JacksonGenerator$.apply(JacksonGenerator.scala:133)
+	at org.apache.spark.sql.execution.datasources.json.JsonOutputWriter.writeInternal(JSONRelation.scala:185)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer.writeRows(WriterContainer.scala:243)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelation$$anonfun$run$1$$anonfun$apply$mcV$sp$3.apply(InsertIntoHadoopFsRelation.scala:150)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelation$$anonfun$run$1$$anonfun$apply$mcV$sp$3.apply(InsertIntoHadoopFsRelation.scala:150)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:66)
+	at org.apache.spark.scheduler.Task.run(Task.scala:88)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:214)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+15/09/16 09:58:27 INFO NativeS3FileSystem: OutputStream for key 'adad/\_temporary/0/\_temporary/attempt\_201509160958\_0000\_m\_000000\_0/part-r-00000-2a262ed4-be5a-4190-92a1-a5326cc76ed6' closed. Now beginning upload
+15/09/16 09:58:27 INFO NativeS3FileSystem: OutputStream for key 'adad/\_temporary/0/\_temporary/attempt\_201509160958\_0000\_m\_000000\_0/part-r-00000-2a262ed4-be5a-4190-92a1-a5326cc76ed6' upload complete
+15/09/16 09:58:28 ERROR DefaultWriterContainer: Task attempt attempt\_201509160958\_0000\_m\_000000\_0 aborted.
+15/09/16 09:58:28 ERROR Executor: Exception in task 0.0 in stage 0.0 (TID 0)
+org.apache.spark.SparkException: Task failed while writing rows.
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer.writeRows(WriterContainer.scala:251)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelation$$anonfun$run$1$$anonfun$apply$mcV$sp$3.apply(InsertIntoHadoopFsRelation.scala:150)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelation$$anonfun$run$1$$anonfun$apply$mcV$sp$3.apply(InsertIntoHadoopFsRelation.scala:150)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:66)
+	at org.apache.spark.scheduler.Task.run(Task.scala:88)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:214)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: scala.MatchError: [1,null,null,[1.0,1.0,1.0]] (of class org.apache.spark.sql.catalyst.expressions.GenericMutableRow)
+	at org.apache.spark.mllib.linalg.VectorUDT.serialize(Vectors.scala:194)
+	at org.apache.spark.mllib.linalg.VectorUDT.serialize(Vectors.scala:179)
+	at org.apache.spark.sql.execution.datasources.json.JacksonGenerator$$anonfun$org$apache$spark$sql$execution$datasources$json$JacksonGenerator$$valWriter$2$1.apply(JacksonGenerator.scala:103)
+	at org.apache.spark.sql.execution.datasources.json.JacksonGenerator$$anonfun$org$apache$spark$sql$execution$datasources$json$JacksonGenerator$$valWriter$2$1.apply(JacksonGenerator.scala:89)
+	at org.apache.spark.sql.execution.datasources.json.JacksonGenerator$$anonfun$org$apache$spark$sql$execution$datasources$json$JacksonGenerator$$valWriter$2$1.apply(JacksonGenerator.scala:126)
+	at org.apache.spark.sql.execution.datasources.json.JacksonGenerator$$anonfun$org$apache$spark$sql$execution$datasources$json$JacksonGenerator$$valWriter$2$1.apply(JacksonGenerator.scala:89)
+	at org.apache.spark.sql.execution.datasources.json.JacksonGenerator$.apply(JacksonGenerator.scala:133)
+	at org.apache.spark.sql.execution.datasources.json.JsonOutputWriter.writeInternal(JSONRelation.scala:185)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer.writeRows(WriterContainer.scala:243)
+	... 8 more
+15/09/16 09:58:28 WARN TaskSetManager: Lost task 0.0 in stage 0.0 (TID 0, localhost): org.apache.spark.SparkException: Task failed while writing rows.
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer.writeRows(WriterContainer.scala:251)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelation$$anonfun$run$1$$anonfun$apply$mcV$sp$3.apply(InsertIntoHadoopFsRelation.scala:150)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelation$$anonfun$run$1$$anonfun$apply$mcV$sp$3.apply(InsertIntoHadoopFsRelation.scala:150)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:66)
+	at org.apache.spark.scheduler.Task.run(Task.scala:88)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:214)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: scala.MatchError: [1,null,null,[1.0,1.0,1.0]] (of class org.apache.spark.sql.catalyst.expressions.GenericMutableRow)
+	at org.apache.spark.mllib.linalg.VectorUDT.serialize(Vectors.scala:194)
+	at org.apache.spark.mllib.linalg.VectorUDT.serialize(Vectors.scala:179)
+	at org.apache.spark.sql.execution.datasources.json.JacksonGenerator$$anonfun$org$apache$spark$sql$execution$datasources$json$JacksonGenerator$$valWriter$2$1.apply(JacksonGenerator.scala:103)
+	at org.apache.spark.sql.execution.datasources.json.JacksonGenerator$$anonfun$org$apache$spark$sql$execution$datasources$json$JacksonGenerator$$valWriter$2$1.apply(JacksonGenerator.scala:89)
+	at org.apache.spark.sql.execution.datasources.json.JacksonGenerator$$anonfun$org$apache$spark$sql$execution$datasources$json$JacksonGenerator$$valWriter$2$1.apply(JacksonGenerator.scala:126)
+	at org.apache.spark.sql.execution.datasources.json.JacksonGenerator$$anonfun$org$apache$spark$sql$execution$datasources$json$JacksonGenerator$$valWriter$2$1.apply(JacksonGenerator.scala:89)
+	at org.apache.spark.sql.execution.datasources.json.JacksonGenerator$.apply(JacksonGenerator.scala:133)
+	at org.apache.spark.sql.execution.datasources.json.JsonOutputWriter.writeInternal(JSONRelation.scala:185)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer.writeRows(WriterContainer.scala:243)
+	... 8 more
+
+15/09/16 09:58:28 ERROR TaskSetManager: Task 0 in stage 0.0 failed 1 times; aborting job
+15/09/16 09:58:28 INFO TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool 
+15/09/16 09:58:28 INFO TaskSchedulerImpl: Cancelling stage 0
+15/09/16 09:58:28 INFO DAGScheduler: ResultStage 0 (save at DataFrameSave.scala:32) failed in 1.409 s
+15/09/16 09:58:28 INFO DAGScheduler: Job 0 failed: save at DataFrameSave.scala:32, took 1.618305 s
+15/09/16 09:58:28 ERROR InsertIntoHadoopFsRelation: Aborting job.
+org.apache.spark.SparkException: Job aborted due to stage failure: Task 0 in stage 0.0 failed 1 times, most recent failure: Lost task 0.0 in stage 0.0 (TID 0, localhost): org.apache.spark.SparkException: Task failed while writing rows.
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer.writeRows(WriterContainer.scala:251)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelation$$anonfun$run$1$$anonfun$apply$mcV$sp$3.apply(InsertIntoHadoopFsRelation.scala:150)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelation$$anonfun$run$1$$anonfun$apply$mcV$sp$3.apply(InsertIntoHadoopFsRelation.scala:150)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:66)
+	at org.apache.spark.scheduler.Task.run(Task.scala:88)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:214)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: scala.MatchError: [1,null,null,[1.0,1.0,1.0]] (of class org.apache.spark.sql.catalyst.expressions.GenericMutableRow)
+	at org.apache.spark.mllib.linalg.VectorUDT.serialize(Vectors.scala:194)
+	at org.apache.spark.mllib.linalg.VectorUDT.serialize(Vectors.scala:179)
+	at org.apache.spark.sql.execution.datasources.json.JacksonGenerator$$anonfun$org$apache$spark$sql$execution$datasources$json$JacksonGenerator$$valWriter$2$1.apply(JacksonGenerator.scala:103)
+	at org.apache.spark.sql.execution.datasources.json.JacksonGenerator$$anonfun$org$apache$spark$sql$execution$datasources$json$JacksonGenerator$$valWriter$2$1.apply(JacksonGenerator.scala:89)
+	at org.apache.spark.sql.execution.datasources.json.JacksonGenerator$$anonfun$org$apache$spark$sql$execution$datasources$json$JacksonGenerator$$valWriter$2$1.apply(JacksonGenerator.scala:126)
+	at org.apache.spark.sql.execution.datasources.json.JacksonGenerator$$anonfun$org$apache$spark$sql$execution$datasources$json$JacksonGenerator$$valWriter$2$1.apply(JacksonGenerator.scala:89)
+	at org.apache.spark.sql.execution.datasources.json.JacksonGenerator$.apply(JacksonGenerator.scala:133)
+	at org.apache.spark.sql.execution.datasources.json.JsonOutputWriter.writeInternal(JSONRelation.scala:185)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer.writeRows(WriterContainer.scala:243)
+	... 8 more
+
+Driver stacktrace:
+	at org.apache.spark.scheduler.DAGScheduler.org$apache$spark$scheduler$DAGScheduler$$failJobAndIndependentStages(DAGScheduler.scala:1280)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$abortStage$1.apply(DAGScheduler.scala:1268)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$abortStage$1.apply(DAGScheduler.scala:1267)
+	at scala.collection.mutable.ResizableArray$class.foreach(ResizableArray.scala:59)
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:47)
+	at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:1267)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$handleTaskSetFailed$1.apply(DAGScheduler.scala:697)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$handleTaskSetFailed$1.apply(DAGScheduler.scala:697)
+	at scala.Option.foreach(Option.scala:236)
+	at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:697)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:1493)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:1455)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:1444)
+	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:48)
+	at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:567)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:1813)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:1826)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:1903)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelation$$anonfun$run$1.apply$mcV$sp(InsertIntoHadoopFsRelation.scala:150)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelation$$anonfun$run$1.apply(InsertIntoHadoopFsRelation.scala:108)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelation$$anonfun$run$1.apply(InsertIntoHadoopFsRelation.scala:108)
+	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:56)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelation.run(InsertIntoHadoopFsRelation.scala:108)
+	at org.apache.spark.sql.execution.ExecutedCommand.sideEffectResult$lzycompute(commands.scala:57)
+	at org.apache.spark.sql.execution.ExecutedCommand.sideEffectResult(commands.scala:57)
+	at org.apache.spark.sql.execution.ExecutedCommand.doExecute(commands.scala:69)
+	at org.apache.spark.sql.execution.SparkPlan$$anonfun$execute$5.apply(SparkPlan.scala:140)
+	at org.apache.spark.sql.execution.SparkPlan$$anonfun$execute$5.apply(SparkPlan.scala:138)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:147)
+	at org.apache.spark.sql.execution.SparkPlan.execute(SparkPlan.scala:138)
+	at org.apache.spark.sql.SQLContext$QueryExecution.toRdd$lzycompute(SQLContext.scala:927)
+	at org.apache.spark.sql.SQLContext$QueryExecution.toRdd(SQLContext.scala:927)
+	at org.apache.spark.sql.execution.datasources.ResolvedDataSource$.apply(ResolvedDataSource.scala:197)
+	at org.apache.spark.sql.DataFrameWriter.save(DataFrameWriter.scala:146)
+	at org.apache.spark.sql.DataFrameWriter.save(DataFrameWriter.scala:137)
+	at app.DataFrameSave$.main(DataFrameSave.scala:32)
+	at app.DataFrameSave.main(DataFrameSave.scala)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:140)
+Caused by: org.apache.spark.SparkException: Task failed while writing rows.
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer.writeRows(WriterContainer.scala:251)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelation$$anonfun$run$1$$anonfun$apply$mcV$sp$3.apply(InsertIntoHadoopFsRelation.scala:150)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelation$$anonfun$run$1$$anonfun$apply$mcV$sp$3.apply(InsertIntoHadoopFsRelation.scala:150)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:66)
+	at org.apache.spark.scheduler.Task.run(Task.scala:88)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:214)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: scala.MatchError: [1,null,null,[1.0,1.0,1.0]] (of class org.apache.spark.sql.catalyst.expressions.GenericMutableRow)
+	at org.apache.spark.mllib.linalg.VectorUDT.serialize(Vectors.scala:194)
+	at org.apache.spark.mllib.linalg.VectorUDT.serialize(Vectors.scala:179)
+	at org.apache.spark.sql.execution.datasources.json.JacksonGenerator$$anonfun$org$apache$spark$sql$execution$datasources$json$JacksonGenerator$$valWriter$2$1.apply(JacksonGenerator.scala:103)
+	at org.apache.spark.sql.execution.datasources.json.JacksonGenerator$$anonfun$org$apache$spark$sql$execution$datasources$json$JacksonGenerator$$valWriter$2$1.apply(JacksonGenerator.scala:89)
+	at org.apache.spark.sql.execution.datasources.json.JacksonGenerator$$anonfun$org$apache$spark$sql$execution$datasources$json$JacksonGenerator$$valWriter$2$1.apply(JacksonGenerator.scala:126)
+	at org.apache.spark.sql.execution.datasources.json.JacksonGenerator$$anonfun$org$apache$spark$sql$execution$datasources$json$JacksonGenerator$$valWriter$2$1.apply(JacksonGenerator.scala:89)
+	at org.apache.spark.sql.execution.datasources.json.JacksonGenerator$.apply(JacksonGenerator.scala:133)
+	at org.apache.spark.sql.execution.datasources.json.JsonOutputWriter.writeInternal(JSONRelation.scala:185)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer.writeRows(WriterContainer.scala:243)
+	... 8 more
+15/09/16 09:58:29 ERROR DefaultWriterContainer: Job job\_201509160958\_0000 aborted.
+Exception in thread "main" org.apache.spark.SparkException: Job aborted.
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelation$$anonfun$run$1.apply$mcV$sp(InsertIntoHadoopFsRelation.scala:156)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelation$$anonfun$run$1.apply(InsertIntoHadoopFsRelation.scala:108)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelation$$anonfun$run$1.apply(InsertIntoHadoopFsRelation.scala:108)
+	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:56)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelation.run(InsertIntoHadoopFsRelation.scala:108)
+	at org.apache.spark.sql.execution.ExecutedCommand.sideEffectResult$lzycompute(commands.scala:57)
+	at org.apache.spark.sql.execution.ExecutedCommand.sideEffectResult(commands.scala:57)
+	at org.apache.spark.sql.execution.ExecutedCommand.doExecute(commands.scala:69)
+	at org.apache.spark.sql.execution.SparkPlan$$anonfun$execute$5.apply(SparkPlan.scala:140)
+	at org.apache.spark.sql.execution.SparkPlan$$anonfun$execute$5.apply(SparkPlan.scala:138)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:147)
+	at org.apache.spark.sql.execution.SparkPlan.execute(SparkPlan.scala:138)
+	at org.apache.spark.sql.SQLContext$QueryExecution.toRdd$lzycompute(SQLContext.scala:927)
+	at org.apache.spark.sql.SQLContext$QueryExecution.toRdd(SQLContext.scala:927)
+	at org.apache.spark.sql.execution.datasources.ResolvedDataSource$.apply(ResolvedDataSource.scala:197)
+	at org.apache.spark.sql.DataFrameWriter.save(DataFrameWriter.scala:146)
+	at org.apache.spark.sql.DataFrameWriter.save(DataFrameWriter.scala:137)
+	at app.DataFrameSave$.main(DataFrameSave.scala:32)
+	at app.DataFrameSave.main(DataFrameSave.scala)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:140)
+Caused by: org.apache.spark.SparkException: Job aborted due to stage failure: Task 0 in stage 0.0 failed 1 times, most recent failure: Lost task 0.0 in stage 0.0 (TID 0, localhost): org.apache.spark.SparkException: Task failed while writing rows.
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer.writeRows(WriterContainer.scala:251)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelation$$anonfun$run$1$$anonfun$apply$mcV$sp$3.apply(InsertIntoHadoopFsRelation.scala:150)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelation$$anonfun$run$1$$anonfun$apply$mcV$sp$3.apply(InsertIntoHadoopFsRelation.scala:150)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:66)
+	at org.apache.spark.scheduler.Task.run(Task.scala:88)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:214)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: scala.MatchError: [1,null,null,[1.0,1.0,1.0]] (of class org.apache.spark.sql.catalyst.expressions.GenericMutableRow)
+	at org.apache.spark.mllib.linalg.VectorUDT.serialize(Vectors.scala:194)
+	at org.apache.spark.mllib.linalg.VectorUDT.serialize(Vectors.scala:179)
+	at org.apache.spark.sql.execution.datasources.json.JacksonGenerator$$anonfun$org$apache$spark$sql$execution$datasources$json$JacksonGenerator$$valWriter$2$1.apply(JacksonGenerator.scala:103)
+	at org.apache.spark.sql.execution.datasources.json.JacksonGenerator$$anonfun$org$apache$spark$sql$execution$datasources$json$JacksonGenerator$$valWriter$2$1.apply(JacksonGenerator.scala:89)
+	at org.apache.spark.sql.execution.datasources.json.JacksonGenerator$$anonfun$org$apache$spark$sql$execution$datasources$json$JacksonGenerator$$valWriter$2$1.apply(JacksonGenerator.scala:126)
+	at org.apache.spark.sql.execution.datasources.json.JacksonGenerator$$anonfun$org$apache$spark$sql$execution$datasources$json$JacksonGenerator$$valWriter$2$1.apply(JacksonGenerator.scala:89)
+	at org.apache.spark.sql.execution.datasources.json.JacksonGenerator$.apply(JacksonGenerator.scala:133)
+	at org.apache.spark.sql.execution.datasources.json.JsonOutputWriter.writeInternal(JSONRelation.scala:185)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer.writeRows(WriterContainer.scala:243)
+	... 8 more
+
+Driver stacktrace:
+	at org.apache.spark.scheduler.DAGScheduler.org$apache$spark$scheduler$DAGScheduler$$failJobAndIndependentStages(DAGScheduler.scala:1280)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$abortStage$1.apply(DAGScheduler.scala:1268)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$abortStage$1.apply(DAGScheduler.scala:1267)
+	at scala.collection.mutable.ResizableArray$class.foreach(ResizableArray.scala:59)
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:47)
+	at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:1267)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$handleTaskSetFailed$1.apply(DAGScheduler.scala:697)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$handleTaskSetFailed$1.apply(DAGScheduler.scala:697)
+	at scala.Option.foreach(Option.scala:236)
+	at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:697)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:1493)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:1455)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:1444)
+	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:48)
+	at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:567)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:1813)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:1826)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:1903)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelation$$anonfun$run$1.apply$mcV$sp(InsertIntoHadoopFsRelation.scala:150)
+	... 23 more
+Caused by: org.apache.spark.SparkException: Task failed while writing rows.
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer.writeRows(WriterContainer.scala:251)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelation$$anonfun$run$1$$anonfun$apply$mcV$sp$3.apply(InsertIntoHadoopFsRelation.scala:150)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelation$$anonfun$run$1$$anonfun$apply$mcV$sp$3.apply(InsertIntoHadoopFsRelation.scala:150)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:66)
+	at org.apache.spark.scheduler.Task.run(Task.scala:88)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:214)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: scala.MatchError: [1,null,null,[1.0,1.0,1.0]] (of class org.apache.spark.sql.catalyst.expressions.GenericMutableRow)
+	at org.apache.spark.mllib.linalg.VectorUDT.serialize(Vectors.scala:194)
+	at org.apache.spark.mllib.linalg.VectorUDT.serialize(Vectors.scala:179)
+	at org.apache.spark.sql.execution.datasources.json.JacksonGenerator$$anonfun$org$apache$spark$sql$execution$datasources$json$JacksonGenerator$$valWriter$2$1.apply(JacksonGenerator.scala:103)
+	at org.apache.spark.sql.execution.datasources.json.JacksonGenerator$$anonfun$org$apache$spark$sql$execution$datasources$json$JacksonGenerator$$valWriter$2$1.apply(JacksonGenerator.scala:89)
+	at org.apache.spark.sql.execution.datasources.json.JacksonGenerator$$anonfun$org$apache$spark$sql$execution$datasources$json$JacksonGenerator$$valWriter$2$1.apply(JacksonGenerator.scala:126)
+	at org.apache.spark.sql.execution.datasources.json.JacksonGenerator$$anonfun$org$apache$spark$sql$execution$datasources$json$JacksonGenerator$$valWriter$2$1.apply(JacksonGenerator.scala:89)
+	at org.apache.spark.sql.execution.datasources.json.JacksonGenerator$.apply(JacksonGenerator.scala:133)
+	at org.apache.spark.sql.execution.datasources.json.JsonOutputWriter.writeInternal(JSONRelation.scala:185)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer.writeRows(WriterContainer.scala:243)
+	... 8 more
+{noformat}
+
+
+---
+
+* [SPARK-10623](https://issues.apache.org/jira/browse/SPARK-10623) | *Blocker* | **NoSuchElementException thrown when ORC predicate push-down is turned on**
+
+Turning on predicate pushdown for ORC datasources results in a {{NoSuchElementException}}:
+{noformat}
+scala\> val df = sqlContext.sql("SELECT name FROM people WHERE age \< 15")
+df: org.apache.spark.sql.DataFrame = [name: string]
+
+scala\> sqlContext.setConf("spark.sql.orc.filterPushdown", "true")
+
+scala\> df.explain
+== Physical Plan ==
+java.util.NoSuchElementException
+{noformat}
+Disabling the pushdown makes things work again:
+{noformat}
+scala\> sqlContext.setConf("spark.sql.orc.filterPushdown", "false")
+
+scala\> df.explain
+== Physical Plan ==
+Project [name#6]
+ Filter (age#7 \< 15)
+  Scan OrcRelation[file:/home/mydir/spark-1.5.0-SNAPSHOT/test/people][name#6,age#7]
+{noformat}
+
+
+---
+
+* [SPARK-10611](https://issues.apache.org/jira/browse/SPARK-10611) | *Critical* | **Configuration object thread safety issue in NewHadoopRDD**
+
+SPARK-2546 fixed the issue for HadoopRDD, but the fix is not ported over to NewHadoopRDD. The screenshot of the stacktrace is attached, and it's very similar to what's reported in SPARK-2546.
+
+
+---
+
+* [SPARK-10593](https://issues.apache.org/jira/browse/SPARK-10593) | *Blocker* | **sql lateral view same name gives wrong value**
+
+This query will return wrong result:
+{code}
+select 
+insideLayer1.json as json\_insideLayer1, 
+insideLayer2.json as json\_insideLayer2 
+from (select '1' id) creatives 
+lateral view json\_tuple('{"layer1": {"layer2": "text inside layer 2"}}', 'layer1') insideLayer1 as json 
+lateral view json\_tuple(insideLayer1.json, 'layer2') insideLayer2 as json 
+{code}
+
+It got 
+{code}
+( {"layer2": "text inside layer 2"},  {"layer2": "text inside layer 2"})
+{code}
+
+instead of
+{code}
+( {"layer2": "text inside layer 2"},  text inside layer 2)
+{code}
+
+
+---
+
+* [SPARK-10584](https://issues.apache.org/jira/browse/SPARK-10584) | *Minor* | **Documentation about the compatible Hive version is wrong.**
+
+In Spark 1.5.0, Spark SQL is compatible with Hive 0.12.0 through 1.2.1 but the documentation is wrong.
 
 Also, we cannot get the default value by `sqlContext.getConf("spark.sql.hive.metastore.version")`.
 
@@ -93,6 +885,24 @@ In ThreadingSuite we have things like:
 {code}
 
 If the asserts in the run block fail, they don't actually fail the test! This could mask real bugs.
+
+
+---
+
+* [SPARK-10563](https://issues.apache.org/jira/browse/SPARK-10563) | *Major* | **SparkContext's local properties should be cloned when inherited**
+
+Currently, when a child thread inherits local properties from the parent thread, it gets a reference of the parent's local properties and uses them as default values.
+
+The problem, however, is that when the parent changes the value of an existing property, the changes are reflected in the child thread! This has very confusing semantics, especially in streaming.
+
+{code}
+private val localProperties = new InheritableThreadLocal[Properties] {
+  override protected def childValue(parent: Properties): Properties = new Properties(parent)
+  override protected def initialValue(): Properties = new Properties()
+}
+{code}
+
+Instead, we should make a clone of the parent properties rather than passing in a mutable reference.
 
 
 ---
@@ -166,6 +976,31 @@ Caused by: java.lang.Exception: Error: a secret key must be specified via the sp
 
 
 The reason is because it create the SecurityManager before is sets the SPARK\_YARN\_MODE to true.
+
+
+---
+
+* [SPARK-10548](https://issues.apache.org/jira/browse/SPARK-10548) | *Blocker* | **Concurrent execution in SQL does not work**
+
+From the mailing list:
+{code}
+future { df1.count() } 
+future { df2.count() } 
+
+java.lang.IllegalArgumentException: spark.sql.execution.id is already set 
+        at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:87) 
+        at org.apache.spark.sql.DataFrame.withNewExecutionId(DataFrame.scala:1904) 
+        at org.apache.spark.sql.DataFrame.collect(DataFrame.scala:1385) 
+{code}
+
+=== edit ===
+
+Simple reproduction:
+{code}
+(1 to 100).par.foreach { \_ =\>
+  sc.parallelize(1 to 5).map { i =\> (i, i) }.toDF("a", "b").count()
+}
+{code}
 
 
 ---
@@ -399,9 +1234,48 @@ AttributeError: 'builtin\_function\_or\_method' object has no attribute '\_\_cod
 
 ---
 
+* [SPARK-10540](https://issues.apache.org/jira/browse/SPARK-10540) | *Major* | **HadoopFsRelationTest's "test all data types" is flaky**
+
+https://amplab.cs.berkeley.edu/jenkins/job/Spark-1.5-SBT/297/AMPLAB\_JENKINS\_BUILD\_PROFILE=hadoop1.0,label=spark-test/testReport/junit/org.apache.spark.sql.sources/ParquetHadoopFsRelationSuite/test\_all\_data\_types/
+
+Probably it is caused by we sort results based on the strings of rows (https://github.com/apache/spark/blob/master/sql/core/src/test/scala/org/apache/spark/sql/QueryTest.scala#L118-L131) and the toString function of the user class used by the UDT is not overridden.
+
+
+---
+
+* [SPARK-10539](https://issues.apache.org/jira/browse/SPARK-10539) | *Blocker* | **Intersection Optimization is Wrong**
+
+https://gist.github.com/nitay/d08cb294ccf00b80c49a
+
+
+---
+
 * [SPARK-10522](https://issues.apache.org/jira/browse/SPARK-10522) | *Major* | **Nanoseconds part of Timestamp should be positive in parquet**
 
 If Timestamp is before unix epoch, the nanosecond part will be negative, Hive can't read that back correctly.
+
+
+---
+
+* [SPARK-10511](https://issues.apache.org/jira/browse/SPARK-10511) | *Blocker* | **Source releases should not include maven jars**
+
+I noticed our source jars seemed really big for 1.5.0. At least one contributing factor is that, likely due to some change in the release script, the maven jars are being bundled in with the source code in our build directory. This runs afoul of the ASF policy on binaries in source releases - we should fix it in 1.5.1.
+
+The issue (I think) is that we might invoke maven to compute the version between when we checkout Spark from github and when we package the source file. I think it could be fixed by simply clearing out the build/ directory after that statement runs.
+
+
+---
+
+* [SPARK-10495](https://issues.apache.org/jira/browse/SPARK-10495) | *Blocker* | **For json data source, date values are saved as int strings**
+
+{code}
+val df = Seq((1, java.sql.Date.valueOf("1900-01-01"))).toDF("i", "j")
+df.write.format("json").save("/tmp/testJson")
+
+sc.textFile("/tmp/testJson").collect.foreach(println)
+
+{"i":1,"j":"-25567"}
+{code}
 
 
 ---
@@ -418,6 +1292,71 @@ ML.LinearRegressionModel.copy() ignored argument extra, it will not take effect 
 SPARK-9112 adds LogisticRegressionSummary but [does not copy the model summary if available\|https://github.com/apache/spark/blob/master/mllib/src/main/scala/org/apache/spark/ml/classification/LogisticRegression.scala#L471]
 
 We should add behavior similar to that in [LinearRegression.copy\|https://github.com/apache/spark/blob/master/mllib/src/main/scala/org/apache/spark/ml/regression/LinearRegression.scala#L314]
+
+
+---
+
+* [SPARK-10474](https://issues.apache.org/jira/browse/SPARK-10474) | *Blocker* | **TungstenAggregation cannot acquire memory for pointer array after switching to sort-based**
+
+In aggregation case, a  Lost task happened with below error.
+
+{code}
+ java.io.IOException: Could not acquire 65536 bytes of memory
+        at org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter.initializeForWriting(UnsafeExternalSorter.java:169)
+        at org.apache.spark.util.collection.unsafe.sort.UnsafeExternalSorter.spill(UnsafeExternalSorter.java:220)
+        at org.apache.spark.sql.execution.UnsafeKVExternalSorter.\<init\>(UnsafeKVExternalSorter.java:126)
+        at org.apache.spark.sql.execution.UnsafeFixedWidthAggregationMap.destructAndCreateExternalSorter(UnsafeFixedWidthAggregationMap.java:257)
+        at org.apache.spark.sql.execution.aggregate.TungstenAggregationIterator.switchToSortBasedAggregation(TungstenAggregationIterator.scala:435)
+        at org.apache.spark.sql.execution.aggregate.TungstenAggregationIterator.processInputs(TungstenAggregationIterator.scala:379)
+        at org.apache.spark.sql.execution.aggregate.TungstenAggregationIterator.start(TungstenAggregationIterator.scala:622)
+        at org.apache.spark.sql.execution.aggregate.TungstenAggregate$$anonfun$doExecute$1.org$apache$spark$sql$execution$aggregate$TungstenAggregate$$anonfun$$executePartition$1(TungstenAggregate.scala:110)
+        at org.apache.spark.sql.execution.aggregate.TungstenAggregate$$anonfun$doExecute$1$$anonfun$2.apply(TungstenAggregate.scala:119)
+        at org.apache.spark.sql.execution.aggregate.TungstenAggregate$$anonfun$doExecute$1$$anonfun$2.apply(TungstenAggregate.scala:119)
+        at org.apache.spark.rdd.MapPartitionsWithPreparationRDD.compute(MapPartitionsWithPreparationRDD.scala:64)
+        at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:297)
+        at org.apache.spark.rdd.RDD.iterator(RDD.scala:264)
+        at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:38)
+        at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:297)
+        at org.apache.spark.rdd.RDD.iterator(RDD.scala:264)
+        at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:73)
+        at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:41)
+        at org.apache.spark.scheduler.Task.run(Task.scala:88)
+        at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:214)
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+        at java.lang.Thread.run(Thread.java:745)
+{code}
+
+Key SQL Query
+{code:sql}
+INSERT INTO TABLE test\_table
+SELECT
+  ss.ss\_customer\_sk AS cid,
+  count(CASE WHEN i.i\_class\_id=1  THEN 1 ELSE NULL END) AS id1,
+  count(CASE WHEN i.i\_class\_id=3  THEN 1 ELSE NULL END) AS id3,
+  count(CASE WHEN i.i\_class\_id=5  THEN 1 ELSE NULL END) AS id5,
+  count(CASE WHEN i.i\_class\_id=7  THEN 1 ELSE NULL END) AS id7,
+  count(CASE WHEN i.i\_class\_id=9  THEN 1 ELSE NULL END) AS id9,
+  count(CASE WHEN i.i\_class\_id=11 THEN 1 ELSE NULL END) AS id11,
+  count(CASE WHEN i.i\_class\_id=13 THEN 1 ELSE NULL END) AS id13,
+  count(CASE WHEN i.i\_class\_id=15 THEN 1 ELSE NULL END) AS id15,
+  count(CASE WHEN i.i\_class\_id=2  THEN 1 ELSE NULL END) AS id2,
+  count(CASE WHEN i.i\_class\_id=4  THEN 1 ELSE NULL END) AS id4,
+  count(CASE WHEN i.i\_class\_id=6  THEN 1 ELSE NULL END) AS id6,
+  count(CASE WHEN i.i\_class\_id=8  THEN 1 ELSE NULL END) AS id8,
+  count(CASE WHEN i.i\_class\_id=10 THEN 1 ELSE NULL END) AS id10,
+  count(CASE WHEN i.i\_class\_id=14 THEN 1 ELSE NULL END) AS id14,
+  count(CASE WHEN i.i\_class\_id=16 THEN 1 ELSE NULL END) AS id16
+FROM store\_sales ss
+INNER JOIN item i ON ss.ss\_item\_sk = i.i\_item\_sk
+WHERE i.i\_category IN ('Books')
+AND ss.ss\_customer\_sk IS NOT NULL
+GROUP BY ss.ss\_customer\_sk
+HAVING count(ss.ss\_item\_sk) \> 5
+{code}
+
+Note:
+the store\_sales is a big fact table and item is a small dimension table.
 
 
 ---
@@ -513,6 +1452,13 @@ test case fails intermittently in Jenkins.
 For eg, see the following builds-
 https://amplab.cs.berkeley.edu/jenkins/job/SparkPullRequestBuilder/41991/
 https://amplab.cs.berkeley.edu/jenkins/job/SparkPullRequestBuilder/41999/
+
+
+---
+
+* [SPARK-10449](https://issues.apache.org/jira/browse/SPARK-10449) | *Major* | **StructType.merge shouldn't merge DecimalTypes with different precisions and/or scales**
+
+Schema merging should only handle struct fields. But currently we also reconcile decimal precision and scale information.
 
 
 ---
@@ -724,6 +1670,15 @@ TypeError                                 Traceback (most recent call last)
 TypeError: DateType can not accept object in type \<class 'int'\>
 
 {code}
+
+
+---
+
+* [SPARK-10381](https://issues.apache.org/jira/browse/SPARK-10381) | *Critical* | **Infinite loop when OutputCommitCoordination is enabled and OutputCommitter.commitTask throws exception**
+
+When speculative execution is enabled, consider a scenario where the authorized committer of a particular output partition fails during the OutputCommitter.commitTask() call. In this case, the OutputCommitCoordinator is supposed to release that committer's exclusive lock on committing once that task fails. However, due to a unit mismatch the lock will not be released, causing Spark to go into an infinite retry loop.
+
+This bug was masked by the fact that the OutputCommitCoordinator does not have enough end-to-end tests (the current tests use many mocks). Other factors contributing to this bug are the fact that we have many similarly-named identifiers that have different semantics but the same data types (e.g. attemptNumber and taskAttemptId, with inconsistent variable naming which makes them difficult to distinguish).
 
 
 ---
@@ -1048,6 +2003,49 @@ This issue can be generalized a step further.  Taking interoperability into cons
 
 ---
 
+* [SPARK-10172](https://issues.apache.org/jira/browse/SPARK-10172) | *Minor* | **History Server web UI gets messed up when sorting on any column**
+
+If the history web UI displays the "Attempt ID" column, when clicking the table header to sort on any column, the entire page gets messed up.
+
+This seems to be a problem with the sorttable.js not able to correctly handle tables with rowspan.
+
+
+---
+
+* [SPARK-10155](https://issues.apache.org/jira/browse/SPARK-10155) | *Critical* | **Memory leak in SQL parsers**
+
+I saw a lot of `ThreadLocal` objects in the following app:
+{code}
+import org.apache.spark.\_
+import org.apache.spark.sql.\_
+
+object SparkApp {
+
+  def foo(sqlContext: SQLContext): Unit = {
+    import sqlContext.implicits.\_
+    sqlContext.sparkContext.parallelize(Seq("aaa", "bbb", "ccc")).toDF().filter("length(\_1) \> 0").count()
+  }
+
+  def main(args: Array[String]): Unit = {
+    val conf = new SparkConf().setAppName("sql-memory-leak")
+    val sc = new SparkContext(conf)
+    val sqlContext = new SQLContext(sc)
+    while (true) {
+      foo(sqlContext)
+    }
+  }
+}
+{code}
+Running the above codes in a long time and finally it will OOM.
+
+These "ThreadLocal"s are from "scala.util.parsing.combinator.Parsers.lastNoSuccessVar", which stores `Failure("end of input", ...)`.
+
+There is an issue in Scala here: https://issues.scala-lang.org/browse/SI-9010
+and some discussions here: https://issues.scala-lang.org/browse/SI-4929
+
+
+---
+
 * [SPARK-10071](https://issues.apache.org/jira/browse/SPARK-10071) | *Major* | **QueueInputDStream Should Allow Checkpointing**
 
 I would like for https://issues.apache.org/jira/browse/SPARK-8630 to be reverted and that issue resolved as won’t fix, and for QueueInputDStream to revert to its old behavior of not throwing an exception if checkpointing is
@@ -1064,6 +2062,17 @@ But what about people who are using QueueInputDStream in non-testing scenarios w
 Since right now we have no good way of determining if a QueueInputDStream contains RDDs that are recoverable or not, why not err on the side of leaving it to the user of the class to not expect recoverability, rather than forcing checkpointing.
 
 In conclusion: my recommendation would be to revert to the old behavior and to resolve this bug as won’t fix.
+
+
+---
+
+* [SPARK-9935](https://issues.apache.org/jira/browse/SPARK-9935) | *Minor* | **EqualNullSafe not processed in OrcRelation**
+
+it is an issue followed by SPARK-9814.
+
+Now datasources (after {{selectFilters()}} in {{org.apache.spark.sql.execution.datasources.DataSourceStrategy}}) can pass {{EqualNotNull}} to relations but {{OrcRelation}} does not take and process this.
+
+(ParquetRelation has also the same issue but it seems Parquet does not support the null-safe equal filter. It is confusing whether Parquet should support this or treat this as EqualFilter with additional codes in Spark code. Therefore, I made a separate issue only for ORC)
 
 
 ---
@@ -1111,6 +2120,35 @@ sbt.ForkMain$ForkError: 4 did not equal 5
 These three base functions are heavily used with R dataframes. It would be great to have them work with Spark DataFrames:
 \* transform
 \* subset
+
+
+---
+
+* [SPARK-9522](https://issues.apache.org/jira/browse/SPARK-9522) | *Minor* | **SparkSubmit process can not exit if kill application when HiveThriftServer was starting**
+
+When we start HiveThriftServer, we will start SparkContext first, then start HiveServer2, if we kill application while HiveServer2 is starting then SparkContext will stop successfully, but SparkSubmit process can not exit.
+
+
+---
+
+* [SPARK-8632](https://issues.apache.org/jira/browse/SPARK-8632) | *Blocker* | **Poor Python UDF performance because of RDD caching**
+
+{quote}
+We have been running into performance problems using Python UDFs with DataFrames at large scale.
+
+From the implementation of BatchPythonEvaluation, it looks like the goal was to reuse the PythonRDD code. It caches the entire child RDD so that it can do two passes over the data. One to give to the PythonRDD, then one to join the python lambda results with the original row (which may have java objects that should be passed through).
+
+In addition, it caches all the columns, even the ones that don't need to be processed by the Python UDF. In the cases I was working with, I had a 500 column table, and i wanted to use a python UDF for one column, and it ended up caching all 500 columns. 
+{quote}
+
+http://apache-spark-developers-list.1001551.n3.nabble.com/Python-UDF-performance-at-large-scale-td12843.html
+
+
+---
+
+* [SPARK-8567](https://issues.apache.org/jira/browse/SPARK-8567) | *Blocker* | **Flaky test: o.a.s.sql.hive.HiveSparkSubmitSuite --jars**
+
+Seems tests in HiveSparkSubmitSuite fail with timeout pretty frequently.
 
 
 ---

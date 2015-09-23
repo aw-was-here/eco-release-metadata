@@ -23,11 +23,130 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-10508](https://issues.apache.org/jira/browse/SPARK-10508) | *Major* | **incorrect evaluation of searched case expression**
+
+The following case expression never evaluates to 'test1' when cdec is -1 or 10 as it will for Hive 0.13. Instead is returns 'other' for all rows.
+
+{code}
+select rnum, cdec, case when cdec in ( -1,10,0.1 )  then 'test1' else 'other' end from tdec 
+
+create table  if not exists TDEC ( RNUM int , CDEC decimal(7, 2 )    )
+TERMINATED BY '\n' 
+ STORED AS orc  ;
+
+
+0\|\N
+1\|-1.00
+2\|0.00
+3\|1.00
+4\|0.10
+5\|10.00
+{code}
+
+
+---
+
 * [SPARK-9087](https://issues.apache.org/jira/browse/SPARK-9087) | *Critical* | **Broken SQL on where condition involving timestamp and time string.**
 
 Suppose mytable has a field called greenwich, which is in  timestamp type.  The table is registered through a java bean. The following code used to work in 1.3 and 1.3.1, now it is broken: there are records having time newer 01/14/2015 , but it now returns nothing. This is a block issue for us. Is there any workaround? 
 
 SELECT \*  FROM mytable  WHERE    greenwich \>  '2015-01-14'
+
+
+---
+
+* [SPARK-9032](https://issues.apache.org/jira/browse/SPARK-9032) | *Major* | **scala.MatchError in DataFrameReader.json(String path)**
+
+Executing read().json() of SQLContext e.g. DataFrameReader raises a MatchError with a stacktrace as follows while trying to read JSON data:
+
+{code}
+15/07/14 11:25:26 INFO TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool 
+15/07/14 11:25:26 INFO DAGScheduler: Job 0 finished: json at Example.java:23, took 6.981330 s
+Exception in thread "main" scala.MatchError: StringType (of class org.apache.spark.sql.types.StringType$)
+	at org.apache.spark.sql.json.InferSchema$.apply(InferSchema.scala:58)
+	at org.apache.spark.sql.json.JSONRelation$$anonfun$schema$1.apply(JSONRelation.scala:139)
+	at org.apache.spark.sql.json.JSONRelation$$anonfun$schema$1.apply(JSONRelation.scala:138)
+	at scala.Option.getOrElse(Option.scala:120)
+	at org.apache.spark.sql.json.JSONRelation.schema$lzycompute(JSONRelation.scala:137)
+	at org.apache.spark.sql.json.JSONRelation.schema(JSONRelation.scala:137)
+	at org.apache.spark.sql.sources.LogicalRelation.\<init\>(LogicalRelation.scala:30)
+	at org.apache.spark.sql.DataFrameReader.load(DataFrameReader.scala:120)
+	at org.apache.spark.sql.DataFrameReader.load(DataFrameReader.scala:104)
+	at org.apache.spark.sql.DataFrameReader.json(DataFrameReader.scala:213)
+	at com.hp.sparkdemo.Example.main(Example.java:23)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.apache.spark.deploy.SparkSubmit$.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:664)
+	at org.apache.spark.deploy.SparkSubmit$.doRunMain$1(SparkSubmit.scala:169)
+	at org.apache.spark.deploy.SparkSubmit$.submit(SparkSubmit.scala:192)
+	at org.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:111)
+	at org.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)
+15/07/14 11:25:26 INFO SparkContext: Invoking stop() from shutdown hook
+15/07/14 11:25:26 INFO SparkUI: Stopped Spark web UI at http://10.0.2.15:4040
+15/07/14 11:25:26 INFO DAGScheduler: Stopping DAGScheduler
+15/07/14 11:25:26 INFO SparkDeploySchedulerBackend: Shutting down all executors
+15/07/14 11:25:26 INFO SparkDeploySchedulerBackend: Asking each executor to shut down
+15/07/14 11:25:26 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+{code}
+
+Offending code snippet (around line 23):
+
+{code}
+       JavaSparkContext sctx = new JavaSparkContext(sparkConf);
+        SQLContext ctx = new SQLContext(sctx);
+        DataFrame frame = ctx.read().json(facebookJSON);
+        frame.printSchema();
+{code}
+
+The exception is reproducable using the following JSON:
+{code}
+{
+   "data": [
+      {
+         "id": "X999\_Y999",
+         "from": {
+            "name": "Tom Brady", "id": "X12"
+         },
+         "message": "Looking forward to 2010!",
+         "actions": [
+            {
+               "name": "Comment",
+               "link": "http://www.facebook.com/X999/posts/Y999"
+            },
+            {
+               "name": "Like",
+               "link": "http://www.facebook.com/X999/posts/Y999"
+            }
+         ],
+         "type": "status",
+         "created\_time": "2010-08-02T21:27:44+0000",
+         "updated\_time": "2010-08-02T21:27:44+0000"
+      },
+      {
+         "id": "X998\_Y998",
+         "from": {
+            "name": "Peyton Manning", "id": "X18"
+         },
+         "message": "Where's my contract?",
+         "actions": [
+            {
+               "name": "Comment",
+               "link": "http://www.facebook.com/X998/posts/Y998"
+            },
+            {
+               "name": "Like",
+               "link": "http://www.facebook.com/X998/posts/Y998"
+            }
+         ],
+         "type": "status",
+         "created\_time": "2010-08-02T21:27:44+0000",
+         "updated\_time": "2010-08-02T21:27:44+0000"
+      }
+   ]
+}
+{code}
 
 
 ---
@@ -605,7 +724,7 @@ Background: see this blog post http://www.nodalpoint.com/unexpected-behavior-of-
 
 ---
 
-* [SPARK-8567](https://issues.apache.org/jira/browse/SPARK-8567) | *Critical* | **Flaky test: o.a.s.sql.hive.HiveSparkSubmitSuite --jars**
+* [SPARK-8567](https://issues.apache.org/jira/browse/SPARK-8567) | *Blocker* | **Flaky test: o.a.s.sql.hive.HiveSparkSubmitSuite --jars**
 
 Seems tests in HiveSparkSubmitSuite fail with timeout pretty frequently.
 
@@ -1941,7 +2060,7 @@ df.describe(['col1', 'col2', 'col3'])
 
 ---
 
-* [SPARK-7989](https://issues.apache.org/jira/browse/SPARK-7989) | *Major* | **Fix flaky tests in ExternalShuffleServiceSuite and SparkListenerWithClusterSuite**
+* [SPARK-7989](https://issues.apache.org/jira/browse/SPARK-7989) | *Critical* | **Fix flaky tests in ExternalShuffleServiceSuite and SparkListenerWithClusterSuite**
 
 The flaky tests in ExternalShuffleServiceSuite and SparkListenerWithClusterSuite will fail if there are not enough executors up before running the jobs.
 

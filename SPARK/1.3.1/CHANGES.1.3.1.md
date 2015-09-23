@@ -93,6 +93,7 @@
 | [SPARK-6550](https://issues.apache.org/jira/browse/SPARK-6550) | Add PreAnalyzer to keep logical plan consistent across DataFrame |  Major | SQL | Liang-Chi Hsieh | Michael Armbrust |
 | [SPARK-6544](https://issues.apache.org/jira/browse/SPARK-6544) | Problem with Avro and Kryo Serialization |  Major | Spark Core | Dean Chen | Dean Chen |
 | [SPARK-6538](https://issues.apache.org/jira/browse/SPARK-6538) | Add missing nullable Metastore fields when merging a Parquet schema |  Major | SQL | Adam Budde | Adam Budde |
+| [SPARK-6504](https://issues.apache.org/jira/browse/SPARK-6504) | Cannot read Parquet files generated from different versions at once |  Major | SQL | Marius Soutier |  |
 | [SPARK-6496](https://issues.apache.org/jira/browse/SPARK-6496) | Multinomial Logistic Regression failed when initialWeights is not null |  Major | MLlib | Yanbo Liang | Yanbo Liang |
 | [SPARK-6491](https://issues.apache.org/jira/browse/SPARK-6491) | Spark will put the current working dir to the CLASSPATH |  Major | Spark Submit | Liangliang Gu | Liangliang Gu |
 | [SPARK-6480](https://issues.apache.org/jira/browse/SPARK-6480) | histogram() bucket function is wrong in some simple edge cases |  Major | Spark Core | Sean Owen | Sean Owen |

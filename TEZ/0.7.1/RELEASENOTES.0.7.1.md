@@ -23,9 +23,78 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [TEZ-2847](https://issues.apache.org/jira/browse/TEZ-2847) | *Major* | **Tez UI: Task details doesn't gets updated on manual refresh after job complete**
+
+When the AM gets stopped in between an in-progress poll, the UI display details from the last poll and doesn't gets updated.
+The update doesn't happen even on manual refresh.
+
+
+---
+
+* [TEZ-2843](https://issues.apache.org/jira/browse/TEZ-2843) | *Major* | **Tez UI: Show error if in progress fails due to AM not reachable**
+
+currently the in progress update can fail when the AM finishes, but no feedback is given to the user regarding the same.
+
+
+---
+
+* [TEZ-2834](https://issues.apache.org/jira/browse/TEZ-2834) | *Major* | **Make Tez preemption resilient to incorrect free resource reported by YARN**
+
+Will attach the DAG.
+
+Repro for reference: TPC-DS q\_70 @ 30 TB scale.
+
+"Map 7" completes in 2 waves. Output is very tiny, so reducer 8 gets launched slightly late.  But before "Reducer 9" can get scheduled, slots are taken up by "Map 1", which is not preempted for running "Reducer 9".
+
+This is with 0.7.1 codebase.
+
+
+---
+
+* [TEZ-2825](https://issues.apache.org/jira/browse/TEZ-2825) | *Major* | **Report progress in terms of completed tasks to reduce load on AM for Tez UI**
+
+Scanning all tasks and doing an average progress is very heavyweight for calculating vertex progress.
+
+
+---
+
 * [TEZ-2817](https://issues.apache.org/jira/browse/TEZ-2817) | *Major* | **Tez UI: update in progress counter data for the dag vertices and tasks table**
 
 Update dag\>vertex & dag\>tasks tables with the counter values.
+
+
+---
+
+* [TEZ-2816](https://issues.apache.org/jira/browse/TEZ-2816) | *Major* | **Preemption sometimes does not respect heartbeats between preemptions**
+
+https://builds.apache.org/job/Tez-Build-Hadoop-2.4/170/console
+
+{noformat}
+Running org.apache.tez.analyzer.TestAnalyzer
+Tests run: 13, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 99.595 sec \<\<\< FAILURE!
+testBasicInputFailureWithoutExit(org.apache.tez.analyzer.TestAnalyzer)  Time elapsed: 6.276 sec  \<\<\< FAILURE!
+java.lang.AssertionError: v2 : 000000\_0
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.assertTrue(Assert.java:41)
+	at org.apache.tez.analyzer.TestAnalyzer.verifyCriticalPath(TestAnalyzer.java:273)
+	at org.apache.tez.analyzer.TestAnalyzer.runDAGAndVerify(TestAnalyzer.java:220)
+	at org.apache.tez.analyzer.TestAnalyzer.testBasicInputFailureWithoutExit(TestAnalyzer.java:399)
+
+testCascadingInputFailureWithExitSuccess(org.apache.tez.analyzer.TestAnalyzer)  Time elapsed: 5.986 sec  \<\<\< FAILURE!
+java.lang.AssertionError: v3 : 000000\_1
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.assertTrue(Assert.java:41)
+	at org.apache.tez.analyzer.TestAnalyzer.verifyCriticalPath(TestAnalyzer.java:273)
+	at org.apache.tez.analyzer.TestAnalyzer.runDAGAndVerify(TestAnalyzer.java:220)
+	at org.apache.tez.analyzer.TestAnalyzer.testCascadingInputFailureWithExitSuccess(TestAnalyzer.java:561)
+
+
+Results :
+
+Failed tests: 
+  TestAnalyzer.testBasicInputFailureWithoutExit:399-\>runDAGAndVerify:220-\>verifyCriticalPath:273 v2 : 000000\_0
+  TestAnalyzer.testCascadingInputFailureWithExitSuccess:561-\>runDAGAndVerify:220-\>verifyCriticalPath:273 v3 : 000000\_1
+{noformat}
 
 
 ---
@@ -303,9 +372,41 @@ Looks like 260-290 MB task log files are created in this case per attempt.  That
 
 ---
 
+* [TEZ-2716](https://issues.apache.org/jira/browse/TEZ-2716) | *Major* | **DefaultSorter.isRleNeeded not thread safe**
+
+TEZ-1997.
+Should be targeted at the same set of versions that TEZ-1997 goes into.
+
+
+---
+
 * [TEZ-2687](https://issues.apache.org/jira/browse/TEZ-2687) | *Major* | **ATS History shutdown happens before the min-held containers are released**
 
 When ATS goes into a GC pause under heavy loads and while it recovers, each Tez AM holds onto a few containers even though it is shutting down and will never accept any more DAGs.
+
+
+---
+
+* [TEZ-2663](https://issues.apache.org/jira/browse/TEZ-2663) | *Major* | **SessionNotRunning exceptions are wrapped in a ServiceException from a dying AM**
+
+The scenario in TEZ-2548 throws a SessionNotRunning from the AM right now, which gets wrapped in a ServiceException by the protobuf layer, so that the exception thrown by TezClient cannot be caught and handled cleanly.
+
+{code}
+2015-07-30 01:32:50,997 ERROR [HiveServer2-Background-Pool: Thread-494()]: exec.Task (TezTask.java:execute(191)) - Failed to execute tez graph.
+org.apache.tez.dag.api.TezException: com.google.protobuf.ServiceException: org.apache.hadoop.ipc.RemoteException(org.apache.tez.dag.api.SessionNotRunning): AM unable to accept new DAG submissions. In the process of shutting down
+        at org.apache.tez.dag.app.DAGAppMaster.submitDAGToAppMaster(DAGAppMaster.java:1265)
+        at org.apache.tez.dag.api.client.DAGClientHandler.submitDAG(DAGClientHandler.java:120)
+        at org.apache.tez.dag.api.client.rpc.DAGClientAMProtocolBlockingPBServerImpl.submitDAG(DAGClientAMProtocolBlockingPBServerImpl.java:161)
+        at org.apache.tez.dag.api.client.rpc.DAGClientAMProtocolRPC$DAGClientAMProtocol$2.callBlockingMethod(DAGClientAMProtocolRPC.java:7471)
+        at org.apache.hadoop.ipc.ProtobufRpcEngine$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine.java:616)
+        at org.apache.hadoop.ipc.RPC$Server.call(RPC.java:969)
+        at org.apache.hadoop.ipc.Server$Handler$1.run(Server.java:2049)
+        at org.apache.hadoop.ipc.Server$Handler$1.run(Server.java:2045)
+        at java.security.AccessController.doPrivileged(Native Method)
+        at javax.security.auth.Subject.doAs(Subject.java:422)
+        at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1657)
+        at org.apache.hadoop.ipc.Server$Handler.run(Server.java:2045)
+{code}
 
 
 ---
@@ -1663,6 +1764,13 @@ TOTAL\_SPILLS = 5 \<--- all spills are final output
 
 ---
 
+* [TEZ-2097](https://issues.apache.org/jira/browse/TEZ-2097) | *Critical* | **TEZ-UI Add dag logs backend support**
+
+If dag fails due to AM error, there's no way to check the dag logs on tez-ui. Users have to grab the app logs.
+
+
+---
+
 * [TEZ-1961](https://issues.apache.org/jira/browse/TEZ-1961) | *Critical* | **Remove misleading exception "No running dag" from AM logs**
 
 {code}
@@ -1692,6 +1800,13 @@ This is very misleading, especially for folks new to Tez, and should be removed.
 * [TEZ-1529](https://issues.apache.org/jira/browse/TEZ-1529) | *Blocker* | **ATS and TezClient integration  in secure kerberos enabled cluster**
 
 This is a follow up for TEZ-1495 which address ATS - TezClient integration. however it does not enable it  in secure kerberos enabled cluster.
+
+
+---
+
+* [TEZ-814](https://issues.apache.org/jira/browse/TEZ-814) | *Major* | **Improve heuristic for determining a task has failed outputs**
+
+Currently 25% of consumers need to report failure. However we may not always have those many error reports. Eg. this is the last consumer and it the source is lost. Or some consumers are cut off from the source. The job may hang on those consumers waiting for a re-run.
 
 
 
