@@ -83,6 +83,7 @@
 | [ZOOKEEPER-1564](https://issues.apache.org/jira/browse/ZOOKEEPER-1564) | Allow JUnit test build with IBM Java |  Major | tests | Paulo Ricardo Paz Vital | Paulo Ricardo Paz Vital |
 | [ZOOKEEPER-1552](https://issues.apache.org/jira/browse/ZOOKEEPER-1552) | Enable sync request processor in Observer |  Major | quorum, server | Thawan Kooburat | Flavio Junqueira |
 | [ZOOKEEPER-1510](https://issues.apache.org/jira/browse/ZOOKEEPER-1510) | Should not log SASL errors for non-secure usage |  Minor | java client | Todd Lipcon | Todd Lipcon |
+| [ZOOKEEPER-1506](https://issues.apache.org/jira/browse/ZOOKEEPER-1506) | Re-try DNS hostname -\> IP resolution if node connection fails |  Blocker | server | Mike Heffner | Robert P. Thille |
 | [ZOOKEEPER-1505](https://issues.apache.org/jira/browse/ZOOKEEPER-1505) | Multi-thread CommitProcessor |  Major | server | Jay Shrauner | Jay Shrauner |
 | [ZOOKEEPER-1503](https://issues.apache.org/jira/browse/ZOOKEEPER-1503) | remove redundant JAAS configuration code in SaslAuthTest and SaslAuthFailTest |  Major | . | Eugene Koontz | Eugene Koontz |
 | [ZOOKEEPER-1497](https://issues.apache.org/jira/browse/ZOOKEEPER-1497) | Allow server-side SASL login with JAAS configuration to be programmatically set (rather than only by reading JAAS configuration file) |  Major | server | Matteo Bertozzi | Matteo Bertozzi |

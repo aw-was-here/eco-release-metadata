@@ -109,6 +109,14 @@ Update documentation to reflect full FreeBSD support.
 
 ---
 
+* [ZOOKEEPER-1506](https://issues.apache.org/jira/browse/ZOOKEEPER-1506) | *Blocker* | **Re-try DNS hostname -\> IP resolution if node connection fails**
+
+Tests pass with this patch.
+This patch is for the branch-3.4 branch ONLY.
+
+
+---
+
 * [ZOOKEEPER-1459](https://issues.apache.org/jira/browse/ZOOKEEPER-1459) | *Major* | **Standalone ZooKeeperServer is not closing the transaction log files on shutdown**
 
 **WARNING: No release note provided for this incompatible change.**

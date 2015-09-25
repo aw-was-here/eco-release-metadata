@@ -52,6 +52,14 @@ Changes in zkServer.sh to support JMX remote monitoring of Zookeeper processes. 
 
 ---
 
+* [ZOOKEEPER-1506](https://issues.apache.org/jira/browse/ZOOKEEPER-1506) | *Blocker* | **Re-try DNS hostname -\> IP resolution if node connection fails**
+
+Tests pass with this patch.
+This patch is for the branch-3.4 branch ONLY.
+
+
+---
+
 * [ZOOKEEPER-1077](https://issues.apache.org/jira/browse/ZOOKEEPER-1077) | *Critical* | **C client lib doesn't build on Solaris**
 
 Support for building C client lib on Illumos (and presumably OpenSolaris).  Configure with "CPPFLAGS=-D\_POSIX\_PTHREAD\_SEMANTICS LDFLAGS="-lnsl -lsocket" ./configure"
