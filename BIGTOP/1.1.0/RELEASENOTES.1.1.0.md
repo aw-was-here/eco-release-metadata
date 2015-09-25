@@ -30,6 +30,13 @@ Running {{./gradlew pig-rpm}} fails on the {{hadoop-tar}} task because {{GString
 
 ---
 
+* [BIGTOP-2069](https://issues.apache.org/jira/browse/BIGTOP-2069) | *Major* | **Update README.md to reflect CTR trial**
+
+As discussed in http://bit.ly/1gLe, let's patch the README
+
+
+---
+
 * [BIGTOP-2068](https://issues.apache.org/jira/browse/BIGTOP-2068) | *Critical* | **Cannot Build Bigtop-Utils packages**
 
 Reproducible Steps:

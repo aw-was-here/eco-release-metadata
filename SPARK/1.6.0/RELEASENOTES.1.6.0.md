@@ -3380,6 +3380,15 @@ Add feature interaction as a transformer, which takes a list of vector/double co
 
 ---
 
+* [SPARK-9681](https://issues.apache.org/jira/browse/SPARK-9681) | *Major* | **Support R feature interactions in RFormula**
+
+Support the interaction (":") operator RFormula feature transformer, so that it is available for use in SparkR's glm.
+
+Umbrella design doc for RFormula integration: https://docs.google.com/document/d/10NZNSEurN2EdWM31uFYsgayIPfCFHiuIu3pCWrUmP\_c/edit?pli=1
+
+
+---
+
 * [SPARK-9672](https://issues.apache.org/jira/browse/SPARK-9672) | *Minor* | **Drivers run in cluster mode on mesos may not have spark-env variables available**
 
 This issue definitely affects Mesos mode, but may effect complex standalone topologies as well.
