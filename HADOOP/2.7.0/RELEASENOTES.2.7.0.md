@@ -206,6 +206,13 @@ file:///tmp/hadoop-site/hadoop-project/hadoop-project-dist/hadoop-hdfs/HDFSComma
 
 ---
 
+* [HDFS-7270](https://issues.apache.org/jira/browse/HDFS-7270) | *Major* | **Add congestion signaling capability to DataNode write protocol**
+
+Introduced a new configuration dfs.pipeline.ecn. When the configuration is turned on, DataNodes will signal in the writing pipelines when they are overloaded. The client can back off based on this congestion signal to avoid overloading the system.
+
+
+---
+
 * [HDFS-6651](https://issues.apache.org/jira/browse/HDFS-6651) | *Critical* | **Deletion failure can leak inodes permanently**
 
 **WARNING: No release note provided for this incompatible change.**

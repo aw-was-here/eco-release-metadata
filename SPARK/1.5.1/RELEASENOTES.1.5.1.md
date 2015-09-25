@@ -23,6 +23,36 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-10769](https://issues.apache.org/jira/browse/SPARK-10769) | *Major* | **Fix o.a.s.streaming.CheckpointSuite.maintains rate controller**
+
+Fixed the following failure in https://amplab.cs.berkeley.edu/jenkins/job/NewSparkPullRequestBuilder/1787/testReport/junit/org.apache.spark.streaming/CheckpointSuite/recovery\_maintains\_rate\_controller/
+
+{code}
+sbt.ForkMain$ForkError: The code passed to eventually never returned normally. Attempted 660 times over 10.000044392000001 seconds. Last failure message: 9223372036854775807 did not equal 200.
+	at org.scalatest.concurrent.Eventually$class.tryTryAgain$1(Eventually.scala:420)
+	at org.scalatest.concurrent.Eventually$class.eventually(Eventually.scala:438)
+	at org.scalatest.concurrent.Eventually$.eventually(Eventually.scala:478)
+	at org.scalatest.concurrent.Eventually$class.eventually(Eventually.scala:336)
+	at org.scalatest.concurrent.Eventually$.eventually(Eventually.scala:478)
+	at org.apache.spark.streaming.CheckpointSuite$$anonfun$15.apply$mcV$sp(CheckpointSuite.scala:413)
+	at org.apache.spark.streaming.CheckpointSuite$$anonfun$15.apply(CheckpointSuite.scala:396)
+	at org.apache.spark.streaming.CheckpointSuite$$anonfun$15.apply(CheckpointSuite.scala:396)
+	at org.scalatest.Transformer$$anonfun$apply$1.apply$mcV$sp(Transformer.scala:22)
+	at org.scalatest.OutcomeOf$class.outcomeOf(OutcomeOf.scala:85)
+	at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)
+	at org.scalatest.Transformer.apply(Transformer.scala:22)
+{code}
+
+
+---
+
+* [SPARK-10742](https://issues.apache.org/jira/browse/SPARK-10742) | *Minor* | **Add the ability to embed HTML relative links in job descriptions**
+
+This is to allow embedding links to other Spark UI tabs within the job description. For example, streaming jobs could set descriptions with links pointing to the corresponding details page of the batch that the job belongs to.
+
+
+---
+
 * [SPARK-10740](https://issues.apache.org/jira/browse/SPARK-10740) | *Blocker* | **handle nondeterministic expressions correctly for set operations**
 
 We should only push down deterministic filter condition to set operator.
@@ -72,6 +102,18 @@ df4.show(100, false)
 
 ---
 
+* [SPARK-10731](https://issues.apache.org/jira/browse/SPARK-10731) | *Major* | **The head() implementation of dataframe is very slow**
+
+{code}
+df=sqlContext.read.parquet("someparquetfiles")
+df.head()
+{code}
+
+The above lines take over 15 minutes. It seems the dataframe requires 3 stages to return the first row. It reads all data (which is about 1 billion rows) and run Limit twice. The take(1) implementation in the RDD performs much better.
+
+
+---
+
 * [SPARK-10716](https://issues.apache.org/jira/browse/SPARK-10716) | *Minor* | **spark-1.5.0-bin-hadoop2.6.tgz file doesn't uncompress on OS X due to hidden file**
 
 Directly downloaded prebuilt binaries of http://d3kbcqa49mib13.cloudfront.net/spark-1.5.0-bin-hadoop2.6.tgz 
@@ -114,6 +156,15 @@ It is better to assume safe defaults if they are not set.
 * [SPARK-10695](https://issues.apache.org/jira/browse/SPARK-10695) | *Critical* | **spark.mesos.constraints documentation uses "=" to separate value instead ":" as parser and mesos expects.**
 
 Incorrect documentation which leads to exception when using constraints value as specified in documentation.
+
+
+---
+
+* [SPARK-10692](https://issues.apache.org/jira/browse/SPARK-10692) | *Critical* | **Failed batches are never reported through the StreamingListener interface**
+
+If an output operation fails, then corresponding batch is never marked as completed, as the data structure are not updated properly.
+
+https://github.com/apache/spark/blob/master/streaming/src/main/scala/org/apache/spark/streaming/scheduler/JobScheduler.scala#L183
 
 
 ---
@@ -363,6 +414,17 @@ It is possible that Hive has some internal restrictions on what kinds of metadat
 
 ---
 
+* [SPARK-10663](https://issues.apache.org/jira/browse/SPARK-10663) | *Trivial* | **Change test.toDF to test in Spark ML Programming Guide**
+
+Spark 1.5.0 \> Spark ML Programming Guide \> Example: Pipeline
+
+I believe model.transform(test.toDF) should be model.transform(test).
+
+Note that "test" is already a DataFrame.
+
+
+---
+
 * [SPARK-10660](https://issues.apache.org/jira/browse/SPARK-10660) | *Trivial* | **Doc describe error in the "Running Spark on YARN" page**
 
 In the \*Configuration\* section, the \*spark.yarn.driver.memoryOverhead\* and \*spark.yarn.am.memoryOverhead\*‘s  default value should be "driverMemory \* 0.10, with minimum of 384" and "AM memory \* 0.10, with minimum of 384" respectively. Because from Spark 1.4.0, the \*MEMORY\_OVERHEAD\_FACTOR\* is set to 0.1.0, not 0.07.
@@ -375,6 +437,13 @@ In the \*Configuration\* section, the \*spark.yarn.driver.memoryOverhead\* and \
 As of https://issues.apache.org/jira/browse/SPARK-7561, we no longer need to use our custom SCP-based mechanism for archiving Jenkins logs on the master machine; this has been superseded by the use of a Jenkins plugin which archives the logs and provides public viewing of them.
 
 We should remove the legacy log syncing code, since this is a blocker to disabling Worker -\> Master SSH on Jenkins.
+
+
+---
+
+* [SPARK-10652](https://issues.apache.org/jira/browse/SPARK-10652) | *Major* | **Set meaningful job descriptions for streaming related jobs**
+
+Job descriptions will help distinguish jobs of one batch from the other in the Jobs and Stages pages in the Spark UI
 
 
 ---
@@ -1280,6 +1349,15 @@ sc.textFile("/tmp/testJson").collect.foreach(println)
 
 ---
 
+* [SPARK-10494](https://issues.apache.org/jira/browse/SPARK-10494) | *Critical* | **Multiple Python UDFs together with aggregation or sort merge join may cause OOM (failed to acquire memory)**
+
+The RDD cache for Python UDF is removed in 1.4, then N Python UDFs in one query stage could end up evaluate upstream (SparkPlan) 2^N times.
+
+In 1.5, If there is aggregation or sort merge join in upstream SparkPlan, they will cause OOM (failed to acquire memory).
+
+
+---
+
 * [SPARK-10480](https://issues.apache.org/jira/browse/SPARK-10480) | *Minor* | **ML.LinearRegressionModel.copy() can not use argument "extra"**
 
 ML.LinearRegressionModel.copy() ignored argument extra, it will not take effect when users setting this parameter.
@@ -1588,6 +1666,50 @@ These are just minor UX optimizations.
 
 ---
 
+* [SPARK-10403](https://issues.apache.org/jira/browse/SPARK-10403) | *Major* | **UnsafeRowSerializer can't work with UnsafeShuffleManager (tungsten-sort)**
+
+UnsafeRowSerializer reply on EOF in the stream, but UnsafeRowWriter will not write EOF between partitions.
+
+{code}
+java.io.EOFException
+	at java.io.DataInputStream.readInt(DataInputStream.java:392)
+	at org.apache.spark.sql.execution.UnsafeRowSerializerInstance$$anon$3$$anon$1.next(UnsafeRowSerializer.scala:122)
+	at org.apache.spark.sql.execution.UnsafeRowSerializerInstance$$anon$3$$anon$1.next(UnsafeRowSerializer.scala:110)
+	at scala.collection.Iterator$$anon$13.next(Iterator.scala:372)
+	at scala.collection.Iterator$$anon$11.next(Iterator.scala:328)
+	at org.apache.spark.util.CompletionIterator.next(CompletionIterator.scala:30)
+	at org.apache.spark.InterruptibleIterator.next(InterruptibleIterator.scala:43)
+	at scala.collection.Iterator$$anon$11.next(Iterator.scala:328)
+	at org.apache.spark.sql.execution.UnsafeExternalRowSorter.sort(UnsafeExternalRowSorter.java:174)
+	at org.apache.spark.sql.execution.TungstenSort.org$apache$spark$sql$execution$TungstenSort$$executePartition$1(sort.scala:160)
+	at org.apache.spark.sql.execution.TungstenSort$$anonfun$doExecute$4.apply(sort.scala:169)
+	at org.apache.spark.sql.execution.TungstenSort$$anonfun$doExecute$4.apply(sort.scala:169)
+	at org.apache.spark.rdd.MapPartitionsWithPreparationRDD.compute(MapPartitionsWithPreparationRDD.scala:64)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:297)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:264)
+	at org.apache.spark.rdd.ZippedPartitionsRDD2.compute(ZippedPartitionsRDD.scala:99)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:297)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:264)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:38)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:297)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:264)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:38)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:297)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:264)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:38)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:297)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:264)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:73)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:41)
+	at org.apache.spark.scheduler.Task.run(Task.scala:88)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:214)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+{code}
+
+
+---
+
 * [SPARK-10402](https://issues.apache.org/jira/browse/SPARK-10402) | *Minor* | **Add scaladoc for default values of params in ML**
 
 We should make sure the scaladoc for params includes their default values through the models in ml/
@@ -1727,6 +1849,59 @@ Number of executors was 0, but must be at least 1
 * [SPARK-10311](https://issues.apache.org/jira/browse/SPARK-10311) | *Major* | **In cluster mode, AppId and AttemptId should be update when ApplicationMaster is new**
 
 When I start a streaming app with checkpoint data in yarn-cluster mode, the appId and attempId are old(which app first create the checkpoint data), and the event log writes into the old file name.
+
+
+---
+
+* [SPARK-10310](https://issues.apache.org/jira/browse/SPARK-10310) | *Critical* | **[Spark SQL] All result records will be popluated into ONE line during the script transform due to missing the correct line/filed delimiter**
+
+There is real case using python stream script in Spark SQL query. We found that all result records were wroten in ONE line as input from "select" pipeline for python script and so it caused script will not identify each record.Other, filed separator in spark sql will be '^A' or '\001' which is inconsistent/incompatible the '\t' in Hive implementation.
+
+Key query:
+{code:sql}
+CREATE VIEW temp1 AS
+SELECT \*
+FROM
+(
+  FROM
+  (
+    SELECT
+      c.wcs\_user\_sk,
+      w.wp\_type,
+      (wcs\_click\_date\_sk \* 24 \* 60 \* 60 + wcs\_click\_time\_sk) AS tstamp\_inSec
+    FROM web\_clickstreams c, web\_page w
+    WHERE c.wcs\_web\_page\_sk = w.wp\_web\_page\_sk
+    AND   c.wcs\_web\_page\_sk IS NOT NULL
+    AND   c.wcs\_user\_sk     IS NOT NULL
+    AND   c.wcs\_sales\_sk    IS NULL --abandoned implies: no sale
+    DISTRIBUTE BY wcs\_user\_sk SORT BY wcs\_user\_sk, tstamp\_inSec
+  ) clicksAnWebPageType
+  REDUCE
+    wcs\_user\_sk,
+    tstamp\_inSec,
+    wp\_type
+  USING 'python sessionize.py 3600'
+  AS (
+    wp\_type STRING,
+    tstamp BIGINT, 
+    sessionid STRING)
+) sessionized
+{code}
+Key Python script:
+{noformat}
+for line in sys.stdin:
+     user\_sk,  tstamp\_str, value  = line.strip().split("\t")
+{noformat}
+Sample SELECT result:
+{noformat}
+^V31^A3237764860^Afeedback^U31^A3237769106^Adynamic^T31^A3237779027^Areview
+{noformat}
+Expected result:
+{noformat}
+31   3237764860   feedback
+31   3237769106   dynamic
+31   3237779027   review
+{noformat}
 
 
 ---
@@ -2003,6 +2178,13 @@ This issue can be generalized a step further.  Taking interoperability into cons
 
 ---
 
+* [SPARK-10224](https://issues.apache.org/jira/browse/SPARK-10224) | *Critical* | **BlockGenerator may lost data in the last block**
+
+There is a race condition in BlockGenerator that will lost data in the last block. See my PR for details.
+
+
+---
+
 * [SPARK-10172](https://issues.apache.org/jira/browse/SPARK-10172) | *Minor* | **History Server web UI gets messed up when sorting on any column**
 
 If the history web UI displays the "Attempt ID" column, when clicking the table header to sort on any column, the entire page gets messed up.
@@ -2120,6 +2302,13 @@ sbt.ForkMain$ForkError: 4 did not equal 5
 These three base functions are heavily used with R dataframes. It would be great to have them work with Spark DataFrames:
 \* transform
 \* subset
+
+
+---
+
+* [SPARK-9710](https://issues.apache.org/jira/browse/SPARK-9710) | *Major* | **RPackageUtilsSuite fails if R is not installed**
+
+That's because there's a bug in RUtils.scala. PR soon.
 
 
 ---

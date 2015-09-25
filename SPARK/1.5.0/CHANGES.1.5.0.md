@@ -55,7 +55,7 @@
 | [SPARK-8996](https://issues.apache.org/jira/browse/SPARK-8996) | Add Python API for Kolmogorov-Smirnov Test |  Major | MLlib, PySpark | Xiangrui Meng | Manoj Kumar |
 | [SPARK-8967](https://issues.apache.org/jira/browse/SPARK-8967) | Implement @since as an annotation |  Major | Documentation, Spark Core | Xiangrui Meng | Xiangrui Meng |
 | [SPARK-8936](https://issues.apache.org/jira/browse/SPARK-8936) | Hyperparameter estimation in LDA |  Major | ML | Feynman Liang | Feynman Liang |
-| [SPARK-8882](https://issues.apache.org/jira/browse/SPARK-8882) | A New Receiver Scheduling Mechanism |  Major | Streaming | Shixiong Zhu | Shixiong Zhu |
+| [SPARK-8882](https://issues.apache.org/jira/browse/SPARK-8882) | A New Receiver Scheduling Mechanism to solve unbalanced receivers |  Major | Streaming | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-8874](https://issues.apache.org/jira/browse/SPARK-8874) | Add missing methods in Word2Vec ML |  Major | ML | Manoj Kumar | Manoj Kumar |
 | [SPARK-8867](https://issues.apache.org/jira/browse/SPARK-8867) | Show the UDF usage for user. |  Major | SQL | Cheng Hao | Cheng Hao |
 | [SPARK-8807](https://issues.apache.org/jira/browse/SPARK-8807) | Add between operator in SparkR |  Major | SparkR | Yu Ishikawa | Liang-Chi Hsieh |
@@ -608,7 +608,6 @@
 | [SPARK-9731](https://issues.apache.org/jira/browse/SPARK-9731) | Standalone scheduling incorrect cores if spark.executor.cores is not set |  Blocker | Deploy | Carson Wang | Carson Wang |
 | [SPARK-9726](https://issues.apache.org/jira/browse/SPARK-9726) | PySpark Regression: DataFrame join no longer accepts None as join expression |  Major | PySpark | Brennan Ashton | Brennan Ashton |
 | [SPARK-9725](https://issues.apache.org/jira/browse/SPARK-9725) | spark sql query string field return empty/garbled string |  Blocker | SQL | Fei Wang | Davies Liu |
-| [SPARK-9710](https://issues.apache.org/jira/browse/SPARK-9710) | RPackageUtilsSuite fails if R is not installed |  Major | Tests | Marcelo Vanzin | Marcelo Vanzin |
 | [SPARK-9691](https://issues.apache.org/jira/browse/SPARK-9691) | PySpark SQL rand function treats seed 0 as no seed |  Major | PySpark, SQL | Joseph K. Bradley | Yin Huai |
 | [SPARK-9683](https://issues.apache.org/jira/browse/SPARK-9683) | copy UTF8String when convert unsafe array/map to safe |  Critical | SQL | Wenchen Fan | Wenchen Fan |
 | [SPARK-9651](https://issues.apache.org/jira/browse/SPARK-9651) | UnsafeExternalSorterSuite is broken |  Major | Spark Core | Marcelo Vanzin | Marcelo Vanzin |
@@ -1472,6 +1471,7 @@
 | [SPARK-3947](https://issues.apache.org/jira/browse/SPARK-3947) | Support Scala/Java UDAF |  Major | SQL | Pei-Lun Lee | Yin Huai |
 | [SPARK-3865](https://issues.apache.org/jira/browse/SPARK-3865) | Dimension table broadcast shouldn't be eager |  Major | SQL | Reynold Xin | Shixiong Zhu |
 | [SPARK-3850](https://issues.apache.org/jira/browse/SPARK-3850) | Scala style: disallow trailing spaces |  Minor | Project Infra | Nicholas Chammas | Reynold Xin |
+| [SPARK-3702](https://issues.apache.org/jira/browse/SPARK-3702) | Standardize MLlib classes for learners, models |  Critical | MLlib | Joseph K. Bradley | Joseph K. Bradley |
 | [SPARK-3056](https://issues.apache.org/jira/browse/SPARK-3056) | Sort-based Aggregation |  Major | SQL | Cheng Hao | Yin Huai |
 | [SPARK-2017](https://issues.apache.org/jira/browse/SPARK-2017) | web ui stage page becomes unresponsive when the number of tasks is large |  Major | Web UI | Reynold Xin | Andrew Or |
 | [SPARK-2016](https://issues.apache.org/jira/browse/SPARK-2016) | rdd in-memory storage UI becomes unresponsive when the number of RDD partitions is large |  Major | Web UI | Reynold Xin | Carson Wang |
@@ -1556,6 +1556,7 @@
 | [SPARK-5180](https://issues.apache.org/jira/browse/SPARK-5180) | Data source API improvement (Spark 1.5) |  Blocker | SQL | Yin Huai | Cheng Lian |
 | [SPARK-3629](https://issues.apache.org/jira/browse/SPARK-3629) | Improvements to YARN doc |  Minor | Documentation, YARN | Matei Zaharia | Neelesh Srinivas Salian |
 | [SPARK-3258](https://issues.apache.org/jira/browse/SPARK-3258) | Python API for streaming MLlib algorithms |  Major | MLlib, PySpark, Streaming | Xiangrui Meng | Manoj Kumar |
+| [SPARK-1856](https://issues.apache.org/jira/browse/SPARK-1856) | Standardize MLlib interfaces |  Critical | MLlib | Xiangrui Meng | Xiangrui Meng |
 | [SPARK-9754](https://issues.apache.org/jira/browse/SPARK-9754) | Remove TypeCheck in debug package |  Major | SQL | Reynold Xin | Reynold Xin |
 | [SPARK-9712](https://issues.apache.org/jira/browse/SPARK-9712) | List source compatibility issues in Scala API from scaladocs |  Major | ML, MLlib | Feynman Liang | Feynman Liang |
 | [SPARK-9706](https://issues.apache.org/jira/browse/SPARK-9706) | List Binary and Source Compatibility Issues with japi-compliance checker |  Major | ML, MLlib | Feynman Liang | Feynman Liang |

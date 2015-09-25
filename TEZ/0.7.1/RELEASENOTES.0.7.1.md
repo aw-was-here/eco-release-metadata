@@ -23,6 +23,13 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [TEZ-2853](https://issues.apache.org/jira/browse/TEZ-2853) | *Blocker* | **Tez UI: task attempt page is coming empty**
+
+Creeped in from TEZ-2843 changes.
+
+
+---
+
 * [TEZ-2847](https://issues.apache.org/jira/browse/TEZ-2847) | *Major* | **Tez UI: Task details doesn't gets updated on manual refresh after job complete**
 
 When the AM gets stopped in between an in-progress poll, the UI display details from the last poll and doesn't gets updated.
@@ -111,6 +118,14 @@ Failed tests:
 
 - Update Vertex \> All Tasks
 - Update DAG \> All Attempts, Vertex \> Attempts & Task \> Attempts pages while in progress.
+
+
+---
+
+* [TEZ-2808](https://issues.apache.org/jira/browse/TEZ-2808) | *Major* | **Race condition between preemption and container assignment**
+
+New container allocated. Put in delayed container manager queue. Triggers assignment run on delayed container manager thread. 
+On AMRMClient thread callback, preemption is called. This is to ensure preemption logic is guaranteed to be invoked at regular intervals even though nothing else may be happening because there are no containers allocated/to-match. Preemption logic checks if containers are available to assign by looking at delayed container manager queue. If by this time, the assignment thread has polled the queue to remove the container for assignment checking, then the preemption code will see no containers available to assign. So it proceeds to preempt containers.
 
 
 ---

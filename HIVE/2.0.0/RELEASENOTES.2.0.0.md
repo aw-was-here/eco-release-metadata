@@ -23,6 +23,19 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [HIVE-11831](https://issues.apache.org/jira/browse/HIVE-11831) | *Major* | **TXN tables in Oracle should be created with ROWDEPENDENCIES**
+
+ROWDEPENDENCIES cannot be added to the table after it has already been created. If you hit this issue on an existing database, you might want to (this requires stopping all Hive workloads for the duration), for each table (see the patch for what tables need to be updated; locks and txns table are the ones most affected):
+
+1) create temp table
+2) move contents of existing table to temp table
+3) drop existing table
+4) create new table with ROWDEPENDENCIES, as per the attached patch
+5) move data back from temp table
+
+
+---
+
 * [HIVE-11825](https://issues.apache.org/jira/browse/HIVE-11825) | *Critical* | **get\_json\_object(col,'$.a') is null in where clause didn`t work**
 
 Enabled to accept quoting of all character backslash qooting mechanism
@@ -75,6 +88,13 @@ HIVE-11476: TypeInfoParser cannot handle column names with spaces in them (Gopal
 * [HIVE-11472](https://issues.apache.org/jira/browse/HIVE-11472) | *Minor* | **ORC StringDirectTreeReader is thrashing the GC due to byte[] allocation per row**
 
 HIVE-11472: ORC StringDirectTreeReader is thrashing the GC due to byte[] allocation per row (Gopal V, reviewed by Ashutosh Chauhan)
+
+
+---
+
+* [HIVE-11468](https://issues.apache.org/jira/browse/HIVE-11468) | *Critical* | **Vectorize: Struct IN() clauses**
+
+HIVE-11468: Vectorize Struct IN() clauses (Matt McCline, via Gopal V)
 
 
 ---

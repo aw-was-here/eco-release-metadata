@@ -18,7 +18,7 @@
 -->
 # Apache Pig Changelog
 
-## Release 0.15.1 - Unreleased (as of 2015-09-23)
+## Release 0.15.1 - Unreleased (as of 2015-09-25)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -42,6 +42,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [PIG-4683](https://issues.apache.org/jira/browse/PIG-4683) | Nested order is broken after PIG-3591 in some cases |  Major | impl | Daniel Dai | Daniel Dai |
 | [PIG-4650](https://issues.apache.org/jira/browse/PIG-4650) | ant mvn-deploy target is broken |  Major | build | Daniel Dai | Daniel Dai |
 | [PIG-4649](https://issues.apache.org/jira/browse/PIG-4649) | [Pig on Tez] Union followed by HCatStorer misses some data |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-4628](https://issues.apache.org/jira/browse/PIG-4628) | Pig 0.14 job with order by fails in mapreduce mode with Oozie |  Major | impl | Koji Noguchi | Koji Noguchi |

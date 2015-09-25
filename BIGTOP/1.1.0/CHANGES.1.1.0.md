@@ -18,7 +18,7 @@
 -->
 # Apache BigTop Changelog
 
-## Release 1.1.0 - Unreleased (as of 2015-09-23)
+## Release 1.1.0 - Unreleased (as of 2015-09-25)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -65,6 +65,8 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [BIGTOP-2071](https://issues.apache.org/jira/browse/BIGTOP-2071) | Gstring.empty doesn't exist |  Blocker | build | RJ Nowling | RJ Nowling |
+| [BIGTOP-2068](https://issues.apache.org/jira/browse/BIGTOP-2068) | Cannot Build Bigtop-Utils packages |  Critical | build | Alex Elent | Konstantin Boudnik |
 | [BIGTOP-2066](https://issues.apache.org/jira/browse/BIGTOP-2066) | init-hdfs.sh is broken by recent hadoop update |  Major | hadoop | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-2057](https://issues.apache.org/jira/browse/BIGTOP-2057) | null check doesn't safeguard against non-existing values in the BOM config |  Blocker | build | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2056](https://issues.apache.org/jira/browse/BIGTOP-2056) | Remove top-level check-env.sh |  Major | build | Konstantin Boudnik | Olaf Flebbe |

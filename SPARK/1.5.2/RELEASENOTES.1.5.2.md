@@ -16,6 +16,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-* Apache Yetus v0.1.0
-    * [Changes](0.1.0/CHANGES.0.1.0.html)
-    * [Release Notes](0.1.0/RELEASENOTES.0.1.0.html)
+# Apache Spark  1.5.2 Release Notes
+
+These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
+
+
+

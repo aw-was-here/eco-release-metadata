@@ -23,6 +23,43 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-10769](https://issues.apache.org/jira/browse/SPARK-10769) | *Major* | **Fix o.a.s.streaming.CheckpointSuite.maintains rate controller**
+
+Fixed the following failure in https://amplab.cs.berkeley.edu/jenkins/job/NewSparkPullRequestBuilder/1787/testReport/junit/org.apache.spark.streaming/CheckpointSuite/recovery\_maintains\_rate\_controller/
+
+{code}
+sbt.ForkMain$ForkError: The code passed to eventually never returned normally. Attempted 660 times over 10.000044392000001 seconds. Last failure message: 9223372036854775807 did not equal 200.
+	at org.scalatest.concurrent.Eventually$class.tryTryAgain$1(Eventually.scala:420)
+	at org.scalatest.concurrent.Eventually$class.eventually(Eventually.scala:438)
+	at org.scalatest.concurrent.Eventually$.eventually(Eventually.scala:478)
+	at org.scalatest.concurrent.Eventually$class.eventually(Eventually.scala:336)
+	at org.scalatest.concurrent.Eventually$.eventually(Eventually.scala:478)
+	at org.apache.spark.streaming.CheckpointSuite$$anonfun$15.apply$mcV$sp(CheckpointSuite.scala:413)
+	at org.apache.spark.streaming.CheckpointSuite$$anonfun$15.apply(CheckpointSuite.scala:396)
+	at org.apache.spark.streaming.CheckpointSuite$$anonfun$15.apply(CheckpointSuite.scala:396)
+	at org.scalatest.Transformer$$anonfun$apply$1.apply$mcV$sp(Transformer.scala:22)
+	at org.scalatest.OutcomeOf$class.outcomeOf(OutcomeOf.scala:85)
+	at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)
+	at org.scalatest.Transformer.apply(Transformer.scala:22)
+{code}
+
+
+---
+
+* [SPARK-10763](https://issues.apache.org/jira/browse/SPARK-10763) | *Minor* | **Update Java MLLIB/ML tests to use simplified dataframe construction**
+
+As introduced in https://issues.apache.org/jira/browse/SPARK-10630 we now have an easier way to create dataframes from local Java lists. Lets update the tests to use those.
+
+
+---
+
+* [SPARK-10761](https://issues.apache.org/jira/browse/SPARK-10761) | *Minor* | **Refactor DiskBlockObjectWriter to not require BlockId**
+
+The DiskBlockObjectWriter constructor takes a BlockId parameter but never uses it internally. We should try to clean this up.
+
+
+---
+
 * [SPARK-10750](https://issues.apache.org/jira/browse/SPARK-10750) | *Minor* | **ML Param validate should print better error information**
 
 Currently when you set illegal value for params of array type (such as IntArrayParam, DoubleArrayParam, StringArrayParam), it will throw IllegalArgumentException but with incomprehensible error information.
@@ -36,6 +73,13 @@ vectorSlicer\_b3b4d1a10f43 parameter names given invalid value [Ljava.lang.Strin
 java.lang.IllegalArgumentException: vectorSlicer\_b3b4d1a10f43 parameter names given invalid value [Ljava.lang.String;@798256c5.
 
 Users can not understand which params were set incorrectly.
+
+
+---
+
+* [SPARK-10742](https://issues.apache.org/jira/browse/SPARK-10742) | *Minor* | **Add the ability to embed HTML relative links in job descriptions**
+
+This is to allow embedding links to other Spark UI tabs within the job description. For example, streaming jobs could set descriptions with links pointing to the corresponding details page of the batch that the job belongs to.
 
 
 ---
@@ -85,6 +129,27 @@ df4.show(100, false)
 +------+---+------+---+----+
 
 {code}
+
+
+---
+
+* [SPARK-10731](https://issues.apache.org/jira/browse/SPARK-10731) | *Major* | **The head() implementation of dataframe is very slow**
+
+{code}
+df=sqlContext.read.parquet("someparquetfiles")
+df.head()
+{code}
+
+The above lines take over 15 minutes. It seems the dataframe requires 3 stages to return the first row. It reads all data (which is about 1 billion rows) and run Limit twice. The take(1) implementation in the RDD performs much better.
+
+
+---
+
+* [SPARK-10721](https://issues.apache.org/jira/browse/SPARK-10721) | *Minor* | **Log warning when file deletion fails**
+
+There're several places in the code base where return value from File.delete() is ignored.
+
+This issue adds checking for the boolean return value and logs warning when deletion fails.
 
 
 ---
@@ -164,6 +229,15 @@ Similar to SPARK-3136 also wrap the random vector API to make it callable easily
 
 ---
 
+* [SPARK-10705](https://issues.apache.org/jira/browse/SPARK-10705) | *Major* | **Stop converting internal rows to external rows in DataFrame.toJSON**
+
+{{DataFrame.toJSON}} uses {{DataFrame.mapPartitions}}, which converts internal rows to external rows. We can use {{queryExecution.toRdd.mapPartitions}} instead for better performance.
+
+Another issue is that, for UDT values, {{serialize}} produces internal types. So currently we must deal with both internal and external types within {{toJSON}} (see [here\|https://github.com/apache/spark/pull/8806/files#diff-0f04c36e499d4dcf6931fbd62b3aa012R77]), which is pretty weird.
+
+
+---
+
 * [SPARK-10704](https://issues.apache.org/jira/browse/SPARK-10704) | *Major* | **Rename HashShufflereader to BlockStoreShuffleReader**
 
 The current shuffle code has an interface named ShuffleReader with only one implementation, HashShuffleReader. This naming is confusing, since the same read path code is used for both sort- and hash-based shuffle. -We should consolidate these classes.- We should rename HashShuffleReader.
@@ -173,9 +247,32 @@ The current shuffle code has an interface named ShuffleReader with only one impl
 
 ---
 
+* [SPARK-10699](https://issues.apache.org/jira/browse/SPARK-10699) | *Minor* | **Support checkpointInterval can be disabled**
+
+Currently use can set checkpointInterval to specify how often should the cache be checkpointed. But we also need the function that users can disable it.
+
+
+---
+
 * [SPARK-10695](https://issues.apache.org/jira/browse/SPARK-10695) | *Critical* | **spark.mesos.constraints documentation uses "=" to separate value instead ":" as parser and mesos expects.**
 
 Incorrect documentation which leads to exception when using constraints value as specified in documentation.
+
+
+---
+
+* [SPARK-10692](https://issues.apache.org/jira/browse/SPARK-10692) | *Critical* | **Failed batches are never reported through the StreamingListener interface**
+
+If an output operation fails, then corresponding batch is never marked as completed, as the data structure are not updated properly.
+
+https://github.com/apache/spark/blob/master/streaming/src/main/scala/org/apache/spark/streaming/scheduler/JobScheduler.scala#L183
+
+
+---
+
+* [SPARK-10686](https://issues.apache.org/jira/browse/SPARK-10686) | *Major* | **Add quantileCol to AFTSurvivalRegression**
+
+By default `quantileCol` should be empty. If both `quantileProbabilities` and `quantileCol` are set, we should append quantiles as a new column (of type Vector).
 
 
 ---
@@ -489,6 +586,17 @@ It is possible that Hive has some internal restrictions on what kinds of metadat
 
 ---
 
+* [SPARK-10663](https://issues.apache.org/jira/browse/SPARK-10663) | *Trivial* | **Change test.toDF to test in Spark ML Programming Guide**
+
+Spark 1.5.0 \> Spark ML Programming Guide \> Example: Pipeline
+
+I believe model.transform(test.toDF) should be model.transform(test).
+
+Note that "test" is already a DataFrame.
+
+
+---
+
 * [SPARK-10662](https://issues.apache.org/jira/browse/SPARK-10662) | *Trivial* | **Code snippets are not properly formatted in tables**
 
 Backticks (markdown) in tables are not processed and hence not formatted properly. See http://people.apache.org/~pwendell/spark-nightly/spark-master-docs/latest/running-on-yarn.html and search for {{`yarn-client`}}.
@@ -519,14 +627,9 @@ We should remove the legacy log syncing code, since this is a blocker to disabli
 
 ---
 
-* [SPARK-10651](https://issues.apache.org/jira/browse/SPARK-10651) | *Blocker* | **Flaky test: BroadcastSuite**
+* [SPARK-10652](https://issues.apache.org/jira/browse/SPARK-10652) | *Major* | **Set meaningful job descriptions for streaming related jobs**
 
-Saw many failures recently in master build. See attached CSV for a full list. Most of the error messages are:
-
-{code}
-Can't find 2 executors before 10000 milliseconds elapsed
-{code}
-.
+Job descriptions will help distinguish jobs of one batch from the other in the Jobs and Stages pages in the Spark UI
 
 
 ---
@@ -1434,6 +1537,15 @@ sc.textFile("/tmp/testJson").collect.foreach(println)
 
 ---
 
+* [SPARK-10494](https://issues.apache.org/jira/browse/SPARK-10494) | *Critical* | **Multiple Python UDFs together with aggregation or sort merge join may cause OOM (failed to acquire memory)**
+
+The RDD cache for Python UDF is removed in 1.4, then N Python UDFs in one query stage could end up evaluate upstream (SparkPlan) 2^N times.
+
+In 1.5, If there is aggregation or sort merge join in upstream SparkPlan, they will cause OOM (failed to acquire memory).
+
+
+---
+
 * [SPARK-10491](https://issues.apache.org/jira/browse/SPARK-10491) | *Major* | **move RowMatrix.dspr to BLAS**
 
 We implemented dspr with sparse vector support in `RowMatrix`. This method is also used in WeightedLeastSquares and other places. It would be useful to move it to `linalg.BLAS`.
@@ -1929,6 +2041,50 @@ These are just minor UX optimizations.
 
 ---
 
+* [SPARK-10403](https://issues.apache.org/jira/browse/SPARK-10403) | *Major* | **UnsafeRowSerializer can't work with UnsafeShuffleManager (tungsten-sort)**
+
+UnsafeRowSerializer reply on EOF in the stream, but UnsafeRowWriter will not write EOF between partitions.
+
+{code}
+java.io.EOFException
+	at java.io.DataInputStream.readInt(DataInputStream.java:392)
+	at org.apache.spark.sql.execution.UnsafeRowSerializerInstance$$anon$3$$anon$1.next(UnsafeRowSerializer.scala:122)
+	at org.apache.spark.sql.execution.UnsafeRowSerializerInstance$$anon$3$$anon$1.next(UnsafeRowSerializer.scala:110)
+	at scala.collection.Iterator$$anon$13.next(Iterator.scala:372)
+	at scala.collection.Iterator$$anon$11.next(Iterator.scala:328)
+	at org.apache.spark.util.CompletionIterator.next(CompletionIterator.scala:30)
+	at org.apache.spark.InterruptibleIterator.next(InterruptibleIterator.scala:43)
+	at scala.collection.Iterator$$anon$11.next(Iterator.scala:328)
+	at org.apache.spark.sql.execution.UnsafeExternalRowSorter.sort(UnsafeExternalRowSorter.java:174)
+	at org.apache.spark.sql.execution.TungstenSort.org$apache$spark$sql$execution$TungstenSort$$executePartition$1(sort.scala:160)
+	at org.apache.spark.sql.execution.TungstenSort$$anonfun$doExecute$4.apply(sort.scala:169)
+	at org.apache.spark.sql.execution.TungstenSort$$anonfun$doExecute$4.apply(sort.scala:169)
+	at org.apache.spark.rdd.MapPartitionsWithPreparationRDD.compute(MapPartitionsWithPreparationRDD.scala:64)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:297)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:264)
+	at org.apache.spark.rdd.ZippedPartitionsRDD2.compute(ZippedPartitionsRDD.scala:99)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:297)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:264)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:38)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:297)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:264)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:38)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:297)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:264)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:38)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:297)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:264)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:73)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:41)
+	at org.apache.spark.scheduler.Task.run(Task.scala:88)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:214)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+{code}
+
+
+---
+
 * [SPARK-10402](https://issues.apache.org/jira/browse/SPARK-10402) | *Minor* | **Add scaladoc for default values of params in ML**
 
 We should make sure the scaladoc for params includes their default values through the models in ml/
@@ -2208,6 +2364,59 @@ We did a lot of special handling for non-deterministic expressions in Optimizer.
 * [SPARK-10311](https://issues.apache.org/jira/browse/SPARK-10311) | *Major* | **In cluster mode, AppId and AttemptId should be update when ApplicationMaster is new**
 
 When I start a streaming app with checkpoint data in yarn-cluster mode, the appId and attempId are old(which app first create the checkpoint data), and the event log writes into the old file name.
+
+
+---
+
+* [SPARK-10310](https://issues.apache.org/jira/browse/SPARK-10310) | *Critical* | **[Spark SQL] All result records will be popluated into ONE line during the script transform due to missing the correct line/filed delimiter**
+
+There is real case using python stream script in Spark SQL query. We found that all result records were wroten in ONE line as input from "select" pipeline for python script and so it caused script will not identify each record.Other, filed separator in spark sql will be '^A' or '\001' which is inconsistent/incompatible the '\t' in Hive implementation.
+
+Key query:
+{code:sql}
+CREATE VIEW temp1 AS
+SELECT \*
+FROM
+(
+  FROM
+  (
+    SELECT
+      c.wcs\_user\_sk,
+      w.wp\_type,
+      (wcs\_click\_date\_sk \* 24 \* 60 \* 60 + wcs\_click\_time\_sk) AS tstamp\_inSec
+    FROM web\_clickstreams c, web\_page w
+    WHERE c.wcs\_web\_page\_sk = w.wp\_web\_page\_sk
+    AND   c.wcs\_web\_page\_sk IS NOT NULL
+    AND   c.wcs\_user\_sk     IS NOT NULL
+    AND   c.wcs\_sales\_sk    IS NULL --abandoned implies: no sale
+    DISTRIBUTE BY wcs\_user\_sk SORT BY wcs\_user\_sk, tstamp\_inSec
+  ) clicksAnWebPageType
+  REDUCE
+    wcs\_user\_sk,
+    tstamp\_inSec,
+    wp\_type
+  USING 'python sessionize.py 3600'
+  AS (
+    wp\_type STRING,
+    tstamp BIGINT, 
+    sessionid STRING)
+) sessionized
+{code}
+Key Python script:
+{noformat}
+for line in sys.stdin:
+     user\_sk,  tstamp\_str, value  = line.strip().split("\t")
+{noformat}
+Sample SELECT result:
+{noformat}
+^V31^A3237764860^Afeedback^U31^A3237769106^Adynamic^T31^A3237779027^Areview
+{noformat}
+Expected result:
+{noformat}
+31   3237764860   feedback
+31   3237769106   dynamic
+31   3237779027   review
+{noformat}
 
 
 ---
@@ -2546,6 +2755,13 @@ the "ignore late map task completion" test in {{DAGSchedulerSuite}} is a bit con
 Scala 2.11 has additional warnings compare to Scala 2.10, and the addition of 'fatal warnings' in the sbt build, the current {{trunk}} (and {{branch-1.5}}) fails to  build with sbt on Scala 2.11.
 
 Most of the warning are about the {{@transient}} annotation not being set on relevant elements, and a few pointing to some potential bugs.
+
+
+---
+
+* [SPARK-10224](https://issues.apache.org/jira/browse/SPARK-10224) | *Critical* | **BlockGenerator may lost data in the last block**
+
+There is a race condition in BlockGenerator that will lost data in the last block. See my PR for details.
 
 
 ---
@@ -3146,6 +3362,13 @@ Params.getOrDefault should throw a more meaningful exception than what you get f
 * [SPARK-9720](https://issues.apache.org/jira/browse/SPARK-9720) | *Minor* | **spark.ml Identifiable types should have UID in toString methods**
 
 It would be nice to include the UID (instance name) in toString methods.  That's the default behavior for Identifiable, but some types override the default toString and do not include the UID.
+
+
+---
+
+* [SPARK-9715](https://issues.apache.org/jira/browse/SPARK-9715) | *Minor* | **Store numFeatures in all ML PredictionModel types**
+
+The PredictionModel abstraction should store numFeatures.  Currently, only RandomForest\* types do this.
 
 
 ---
@@ -3765,6 +3988,15 @@ We can either add a Stddev Catalyst expression, or just compute it using existin
 * [SPARK-6350](https://issues.apache.org/jira/browse/SPARK-6350) | *Minor* | **Make mesosExecutorCores configurable in mesos "fine-grained" mode**
 
 When spark runs in mesos fine-grained mode, mesos slave launches executor with # of cpus and memories. By the way, # of executor's cores is always CPU\_PER\_TASKS as same as spark.task.cpus. If I set that values as 5 for running intensive task, mesos executor always consume 5 cores without any running task. This waste resources. We should set executor core as a configuration variable.
+
+
+---
+
+* [SPARK-6028](https://issues.apache.org/jira/browse/SPARK-6028) | *Critical* | **Provide an alternative RPC implementation based on the network transport module**
+
+Network transport module implements a low level RPC interface. We can build a new RPC implementation on top of that to replace Akka's.
+
+Design document: https://docs.google.com/document/d/1CF5G6rGVQMKSyV\_QKo4D2M-x6rxz5x1Ew7aK3Uq6u8c/edit?usp=sharing
 
 
 ---

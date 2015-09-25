@@ -23,6 +23,35 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [BIGTOP-2071](https://issues.apache.org/jira/browse/BIGTOP-2071) | *Blocker* | **Gstring.empty doesn't exist**
+
+Running {{./gradlew pig-rpm}} fails on the {{hadoop-tar}} task because {{GStringImpl}} doesn't have an {{empty}} method.
+
+
+---
+
+* [BIGTOP-2068](https://issues.apache.org/jira/browse/BIGTOP-2068) | *Critical* | **Cannot Build Bigtop-Utils packages**
+
+Reproducible Steps:
+1. git clone https://github.com/apache/bigtop.git
+2. cd bigtop
+3. ./gradlew bigtop-utils-rpm
+
+RESULT:
+Copy to /opt/bigtop/build/bigtop-utils/tar/bigtop-utils-1.1.0-SNAPSHOT.tar.gz
+:bigtop-utils-tar FAILED
+FAILURE: Build failed with an exception.
+Where: Script '/opt/bigtop/packages.gradle' line: 250
+
+EXPETED:
+RPM created
+
+Pull Request:
+https://github.com/apache/bigtop/pull/40
+
+
+---
+
 * [BIGTOP-2066](https://issues.apache.org/jira/browse/BIGTOP-2066) | *Major* | **init-hdfs.sh is broken by recent hadoop update**
 
 With hadoop-2.7 and groovy-2.4 It needs additionally this jars: 

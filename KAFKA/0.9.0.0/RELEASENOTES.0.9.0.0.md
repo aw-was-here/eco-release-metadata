@@ -23,6 +23,66 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [KAFKA-2579](https://issues.apache.org/jira/browse/KAFKA-2579) | *Major* | **Unauthorized clients should not be able to join groups**
+
+The JoinGroup authorization is only checked in the response callback which is invoked after the request has been forwarded to the ConsumerCoordinator and the client has joined the group. This allows unauthorized members to impact the rest of the group since the coordinator will assign partitions to them. It would be better to check permission and return immediately if the client is unauthorized.
+
+
+---
+
+* [KAFKA-2576](https://issues.apache.org/jira/browse/KAFKA-2576) | *Blocker* | **ConsumerPerformance hangs when SSL enabled for Multi-Partition Topic**
+
+Running the ConsumerPerformance using a multi partition topic causes it to hang (or execute with no results).
+
+bin/kafka-topics.sh --create --zookeeper server:2181 --replication-factor 1 --partitions 50  --topic 50p
+
+
+bin/kafka-producer-perf-test.sh --broker-list server:9092 --topic 50p  --new-producer --messages 1000000 --message-size 1000
+
+#Works ok
+bin/kafka-consumer-perf-test.sh  --broker-list server:9092  --messages 1000000  --new-consumer --topic 50p 
+
+#Hangs
+bin/kafka-consumer-perf-test.sh  --broker-list server:9093  --messages 1000000  --new-consumer --topic 50p --consumer.config ssl.properties
+
+Running the same without SSL enabled works as expected.  
+Running the same using a single partition topic works as expected.  
+Tested locally and on EC2
+
+
+---
+
+* [KAFKA-2571](https://issues.apache.org/jira/browse/KAFKA-2571) | *Major* | **KafkaLog4jAppender dies while specifying "acks" config**
+
+KafkaLog4jAppender specifies "acks" config's value as int, however KafkaProducer expects it as a String.
+
+Below is the exception that gets thrown.
+{code}
+Exception in thread "main" org.apache.kafka.common.config.ConfigException: Invalid value -1 for configuration acks: Expected value to be a string, but it was a java.lang.Integer
+	at org.apache.kafka.common.config.ConfigDef.parseType(ConfigDef.java:219)
+	at org.apache.kafka.common.config.ConfigDef.parse(ConfigDef.java:172)
+	at org.apache.kafka.common.config.AbstractConfig.\<init\>(AbstractConfig.java:48)
+	at org.apache.kafka.common.config.AbstractConfig.\<init\>(AbstractConfig.java:55)
+	at org.apache.kafka.clients.producer.ProducerConfig.\<init\>(ProducerConfig.java:274)
+	at org.apache.kafka.clients.producer.KafkaProducer.\<init\>(KafkaProducer.java:179)
+	at org.apache.kafka.log4jappender.KafkaLog4jAppender.getKafkaProducer(KafkaLog4jAppender.java:132)
+	at org.apache.kafka.log4jappender.KafkaLog4jAppender.activateOptions(KafkaLog4jAppender.java:126)
+	at org.apache.log4j.config.PropertySetter.activate(PropertySetter.java:307)
+	at org.apache.log4j.config.PropertySetter.setProperties(PropertySetter.java:172)
+	at org.apache.log4j.config.PropertySetter.setProperties(PropertySetter.java:104)
+	at org.apache.log4j.PropertyConfigurator.parseAppender(PropertyConfigurator.java:842)
+	at org.apache.log4j.PropertyConfigurator.parseCategory(PropertyConfigurator.java:768)
+	at org.apache.log4j.PropertyConfigurator.configureRootCategory(PropertyConfigurator.java:648)
+	at org.apache.log4j.PropertyConfigurator.doConfigure(PropertyConfigurator.java:514)
+	at org.apache.log4j.PropertyConfigurator.configure(PropertyConfigurator.java:440)
+	at org.apache.kafka.clients.tools.VerifiableLog4jAppender.\<init\>(VerifiableLog4jAppender.java:141)
+	at org.apache.kafka.clients.tools.VerifiableLog4jAppender.createFromArgs(VerifiableLog4jAppender.java:124)
+	at org.apache.kafka.clients.tools.VerifiableLog4jAppender.main(VerifiableLog4jAppender.java:158)
+{code}
+
+
+---
+
 * [KAFKA-2558](https://issues.apache.org/jira/browse/KAFKA-2558) | *Major* | **ServerShutdownTest is failing intermittently**
 
 The test cases there fail because tests are leaking resources into others. For this particular case I noticed that the test cases are checking if all threads are being shut down and they are finding threads created by other tests in the same jvm instance.
@@ -45,6 +105,35 @@ The number 1572 is the thread id.
 The ILLEGAL\_GENERATION error is a bit confusing today. When a consumer receives an ILLEGAL\_GENERATION from hearbeat response, it should still use that generation id to commit offset. i.e. the generation id was not really illegal.
 
 The current code was written earlier when we still bump up the generation id when the coordinator enters PrepareRebalance state. Since now the generation id is bumped up after PreareRebalance state ends, we should not overload ILLEGAL\_GENERATION to notify a rebalance but create a new error code such as REBALANCE\_IN\_PROGRESS.
+
+
+---
+
+* [KAFKA-2554](https://issues.apache.org/jira/browse/KAFKA-2554) | *Blocker* | **change 0.8.3 to 0.9.0 in ApiVersion**
+
+Since we are renaming 0.8.3 to 0.9.0, we need to change the version in ApiVersion accordingly.
+
+
+---
+
+* [KAFKA-2548](https://issues.apache.org/jira/browse/KAFKA-2548) | *Major* | **kafka-merge-pr tool fails to update JIRA with fix version 0.9.0.0**
+
+Trying to update JIRA where the fix version is set to '0.9.0.0', I get the following error:
+
+{code}
+Traceback (most recent call last):
+  File "kafka-merge-pr.py", line 474, in \<module\>
+    main()
+  File "kafka-merge-pr.py", line 460, in main
+    resolve\_jira\_issues(commit\_title, merged\_refs, jira\_comment)
+  File "kafka-merge-pr.py", line 317, in resolve\_jira\_issues
+    resolve\_jira\_issue(merge\_branches, comment, jira\_id)
+  File "kafka-merge-pr.py", line 285, in resolve\_jira\_issue
+    (major, minor, patch) = v.split(".")
+ValueError: too many values to unpack
+{code}
+
+We need to handle 3 and 4 part versions (x.y.z and x.y.z.w)
 
 
 ---
@@ -647,6 +736,25 @@ thus terminating the JVM. A session establishment error shouldn't cause the JVM 
 
 ---
 
+* [KAFKA-2403](https://issues.apache.org/jira/browse/KAFKA-2403) | *Minor* | **Expose offset commit metadata in new consumer**
+
+The offset commit protocol supports the ability to add user metadata to commits, but this is not yet exposed in the new consumer API. The straightforward way to add it is to create a container for the offset and metadata and adjust the KafkaConsumer API accordingly.
+
+{code}
+OffsetMetadata {
+  long offset;
+  String metadata;
+}
+
+KafkaConsumer {
+  commit(Map\<TopicPartition, OffsetMetadata\>)
+  OffsetMetadata committed(TopicPartition)
+}
+{code}
+
+
+---
+
 * [KAFKA-2401](https://issues.apache.org/jira/browse/KAFKA-2401) | *Major* | **Fix transient failure of ProducerSendTest.testCloseWithZeroTimeoutFromSenderThread()**
 
 The transient failure can happen because of a race condition of the callback firing order for messages produced to broker 0 and broker 1.
@@ -747,6 +855,13 @@ Possible ConcurrentModificationException while unsubscribing from a topic in new
 Add baseline system tests for Copycat, covering both standalone and distributed mode.
 
 This should cover basic failure modes and verify at-least-one delivery of data, both from source system -\> Kafka and Kafka -\> sink system. This, of course, requires testing the core, built-in connectors provided with Copycat.
+
+
+---
+
+* [KAFKA-2373](https://issues.apache.org/jira/browse/KAFKA-2373) | *Major* | **Copycat distributed offset storage**
+
+Add offset storage for Copycat that works in distributed mode, which likely means storing the data in a Kafka topic. Copycat workers will use this by default.
 
 
 ---
@@ -4104,6 +4219,41 @@ Caused by: java.lang.NullPointerException
 The current replica fetcher thread will retry in a tight loop if any error occurs during the fetch call. For example, we've seen cases where the fetch continuously throws a connection refused exception leading to several replica fetcher threads that spin in a pretty tight loop.
 
 To a much lesser degree this is also an issue in the consumer fetcher thread, although the fact that erroring partitions are removed so a leader can be re-discovered helps some.
+
+
+---
+
+* [KAFKA-1387](https://issues.apache.org/jira/browse/KAFKA-1387) | *Critical* | **Kafka getting stuck creating ephemeral node it has already created when two zookeeper sessions are established in a very short period of time**
+
+Kafka broker re-registers itself in zookeeper every time handleNewSession() callback is invoked.
+
+https://github.com/apache/kafka/blob/0.8.1/core/src/main/scala/kafka/server/KafkaHealthcheck.scala 
+
+Now imagine the following sequence of events.
+1) Zookeeper session reestablishes. handleNewSession() callback is queued by the zkClient, but not invoked yet.
+2) Zookeeper session reestablishes again, queueing callback second time.
+3) First callback is invoked, creating /broker/[id] ephemeral path.
+4) Second callback is invoked and it tries to create /broker/[id] path using createEphemeralPathExpectConflictHandleZKBug() function. But the path is already exists, so createEphemeralPathExpectConflictHandleZKBug() is getting stuck in the infinite loop.
+
+Seems like controller election code have the same issue.
+
+I'am able to reproduce this issue on the 0.8.1 branch from github using the following configs.
+
+# zookeeper
+tickTime=10
+dataDir=/tmp/zk/
+clientPort=2101
+maxClientCnxns=0
+
+# kafka
+broker.id=1
+log.dir=/tmp/kafka
+zookeeper.connect=localhost:2101
+
+zookeeper.connection.timeout.ms=100
+zookeeper.sessiontimeout.ms=100
+
+Just start kafka and zookeeper and then pause zookeeper several times using Ctrl-Z.
 
 
 ---

@@ -73,6 +73,13 @@ HIVE-11472: ORC StringDirectTreeReader is thrashing the GC due to byte[] allocat
 
 ---
 
+* [HIVE-11468](https://issues.apache.org/jira/browse/HIVE-11468) | *Critical* | **Vectorize: Struct IN() clauses**
+
+HIVE-11468: Vectorize Struct IN() clauses (Matt McCline, via Gopal V)
+
+
+---
+
 * [HIVE-11462](https://issues.apache.org/jira/browse/HIVE-11462) | *Major* | **GenericUDFStruct should constant fold at compile time**
 
 Constant fold struct() UDF

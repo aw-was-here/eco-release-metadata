@@ -7,13 +7,17 @@ bin=$(cd -P -- "$(dirname -- "${this}")" >/dev/null && pwd -P)
 # This is a good test for Yetus...
 #
 #RDM=${HOME}/Src/drd-github/test/dev-support/releasedocmaker.py
-RDM=${HOME}/Src/apache-git/hadoop-yetus/dev-support/releasedocmaker.py
+RDM=${HOME}/Src/apache-git/yetus/dev-support/releasedocmaker.py
 
 
 cd ${HOME}/Src/aw-github/eco-release-metadata/YETUS
 ${RDM} --project HADOOP \
-        --projecttitle "Apache Hadoop Yetus" \
+        --projecttitle "Apache Yetus" \
         --version HADOOP-12111
+${RDM} --project YETUS \
+        --projecttitle "Apache Yetus" \
+        --version 0.0.0 --version 1.0.0 i\
+        --range --index
 
 cd ${HOME}/Src/aw-github/eco-release-metadata/BIGTOP
 ${RDM} --project BIGTOP --projecttitle "Apache BigTop" \

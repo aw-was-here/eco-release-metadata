@@ -18,7 +18,7 @@
 -->
 # Apache Pig Changelog
 
-## Release 0.16.0 - Unreleased (as of 2015-09-23)
+## Release 0.16.0 - Unreleased (as of 2015-09-25)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -52,6 +52,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [PIG-4683](https://issues.apache.org/jira/browse/PIG-4683) | Nested order is broken after PIG-3591 in some cases |  Major | impl | Daniel Dai | Daniel Dai |
 | [PIG-4679](https://issues.apache.org/jira/browse/PIG-4679) | Performance degradation due to InputSizeReducerEstimator since PIG-3754 |  Major | impl | Daniel Dai | Daniel Dai |
 | [PIG-4674](https://issues.apache.org/jira/browse/PIG-4674) | TOMAP should infer schema |  Major | impl | Daniel Dai | Daniel Dai |
 | [PIG-4650](https://issues.apache.org/jira/browse/PIG-4650) | ant mvn-deploy target is broken |  Major | build | Daniel Dai | Daniel Dai |

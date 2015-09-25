@@ -18,7 +18,7 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.7.1 - Unreleased (as of 2015-09-23)
+## Release 0.7.1 - Unreleased (as of 2015-09-25)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -54,11 +54,13 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-2853](https://issues.apache.org/jira/browse/TEZ-2853) | Tez UI: task attempt page is coming empty |  Blocker | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2847](https://issues.apache.org/jira/browse/TEZ-2847) | Tez UI: Task details doesn't gets updated on manual refresh after job complete |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2834](https://issues.apache.org/jira/browse/TEZ-2834) | Make Tez preemption resilient to incorrect free resource reported by YARN |  Major | . | Rajesh Balamohan | Bikas Saha |
 | [TEZ-2825](https://issues.apache.org/jira/browse/TEZ-2825) | Report progress in terms of completed tasks to reduce load on AM for Tez UI |  Major | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-2816](https://issues.apache.org/jira/browse/TEZ-2816) | Preemption sometimes does not respect heartbeats between preemptions |  Major | . | Jeff Zhang | Bikas Saha |
 | [TEZ-2809](https://issues.apache.org/jira/browse/TEZ-2809) | Minimal distribution compiled on 2.6 fails to run on 2.7 |  Blocker | . | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-2808](https://issues.apache.org/jira/browse/TEZ-2808) | Race condition between preemption and container assignment |  Major | . | Bikas Saha | Bikas Saha |
 | [TEZ-2787](https://issues.apache.org/jira/browse/TEZ-2787) | Tez AM should have java.io.tmpdir=./tmp to be consistent with tasks |  Major | . | Jason Lowe | Jonathan Eagles |
 | [TEZ-2755](https://issues.apache.org/jira/browse/TEZ-2755) | Fix findbugs warning in TezClient |  Major | . | Jonathan Eagles | Jonathan Eagles |
 | [TEZ-2752](https://issues.apache.org/jira/browse/TEZ-2752) | logUnsuccessful completion in Attempt should write original finish time to ATS |  Major | . | Bikas Saha | Bikas Saha |
@@ -126,6 +128,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [TEZ-2843](https://issues.apache.org/jira/browse/TEZ-2843) | Tez UI: Show error if in progress fails due to AM not reachable |  Major | UI | Prakash Ramachandran | Prakash Ramachandran |
+| [TEZ-2842](https://issues.apache.org/jira/browse/TEZ-2842) | Tez UI: Update Tez App details page while in-progress |  Major | UI | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2817](https://issues.apache.org/jira/browse/TEZ-2817) | Tez UI: update in progress counter data for the dag vertices and tasks table |  Major | UI | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2813](https://issues.apache.org/jira/browse/TEZ-2813) | Tez UI: add counter data for rest api calls to AM Web Services v2 |  Major | UI | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2812](https://issues.apache.org/jira/browse/TEZ-2812) | Tez UI: Update task & attempt tables while in progress. |  Major | UI | Sreenath Somarajapuram | Sreenath Somarajapuram |

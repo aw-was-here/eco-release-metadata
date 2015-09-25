@@ -18,7 +18,7 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.8.1 - Unreleased (as of 2015-09-23)
+## Release 0.8.1 - Unreleased (as of 2015-09-25)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -49,6 +49,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-2853](https://issues.apache.org/jira/browse/TEZ-2853) | Tez UI: task attempt page is coming empty |  Blocker | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2847](https://issues.apache.org/jira/browse/TEZ-2847) | Tez UI: Task details doesn't gets updated on manual refresh after job complete |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2834](https://issues.apache.org/jira/browse/TEZ-2834) | Make Tez preemption resilient to incorrect free resource reported by YARN |  Major | . | Rajesh Balamohan | Bikas Saha |
 | [TEZ-2833](https://issues.apache.org/jira/browse/TEZ-2833) | Dont create extra directory during ATS file download |  Major | . | Bikas Saha | Rajesh Balamohan |
@@ -83,6 +84,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [TEZ-2843](https://issues.apache.org/jira/browse/TEZ-2843) | Tez UI: Show error if in progress fails due to AM not reachable |  Major | UI | Prakash Ramachandran | Prakash Ramachandran |
+| [TEZ-2842](https://issues.apache.org/jira/browse/TEZ-2842) | Tez UI: Update Tez App details page while in-progress |  Major | UI | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2832](https://issues.apache.org/jira/browse/TEZ-2832) | Support tests for both SimpleHistory logging and ATS logging |  Major | . | Bikas Saha | Bikas Saha |
 | [TEZ-2817](https://issues.apache.org/jira/browse/TEZ-2817) | Tez UI: update in progress counter data for the dag vertices and tasks table |  Major | UI | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2813](https://issues.apache.org/jira/browse/TEZ-2813) | Tez UI: add counter data for rest api calls to AM Web Services v2 |  Major | UI | Sreenath Somarajapuram | Sreenath Somarajapuram |

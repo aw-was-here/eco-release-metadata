@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.9.0.0 - Unreleased (as of 2015-09-23)
+## Release 0.9.0.0 - Unreleased (as of 2015-09-25)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -95,7 +95,11 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-2576](https://issues.apache.org/jira/browse/KAFKA-2576) | ConsumerPerformance hangs when SSL enabled for Multi-Partition Topic |  Blocker | . | Ben Stopford | Ismael Juma |
+| [KAFKA-2571](https://issues.apache.org/jira/browse/KAFKA-2571) | KafkaLog4jAppender dies while specifying "acks" config |  Major | . | Ashish K Singh | Ashish K Singh |
 | [KAFKA-2557](https://issues.apache.org/jira/browse/KAFKA-2557) | Separate RebalanceInProgress from IllegalGeneration Error Code |  Major | clients, consumer | Jiangjie Qin | Onur Karaman |
+| [KAFKA-2554](https://issues.apache.org/jira/browse/KAFKA-2554) | change 0.8.3 to 0.9.0 in ApiVersion |  Blocker | core | Jun Rao | Manikumar Reddy |
+| [KAFKA-2548](https://issues.apache.org/jira/browse/KAFKA-2548) | kafka-merge-pr tool fails to update JIRA with fix version 0.9.0.0 |  Major | . | Gwen Shapira | Ismael Juma |
 | [KAFKA-2538](https://issues.apache.org/jira/browse/KAFKA-2538) | Compilation in trunk is failing due to https://github.com/apache/kafka/commit/845514d62329be8382e6d02b8041fc858718d534 |  Blocker | . | Parth Brahmbhatt | Parth Brahmbhatt |
 | [KAFKA-2533](https://issues.apache.org/jira/browse/KAFKA-2533) | Create a member Metadata.Listener inside KafkaConsumer |  Major | . | Ashish K Singh | Ashish K Singh |
 | [KAFKA-2519](https://issues.apache.org/jira/browse/KAFKA-2519) | NetworkClient.close should remove node from inFlightRequests |  Critical | . | Ismael Juma | Ismael Juma |
@@ -239,6 +243,7 @@
 | [KAFKA-1517](https://issues.apache.org/jira/browse/KAFKA-1517) | Messages is a required argument to Producer Performance Test |  Trivial | . | Daniel Compton | Daniel Compton |
 | [KAFKA-1481](https://issues.apache.org/jira/browse/KAFKA-1481) | Stop using dashes AND underscores as separators in MBean names |  Critical | core | Otis Gospodnetic | Vladimir Tretyakov |
 | [KAFKA-1465](https://issues.apache.org/jira/browse/KAFKA-1465) | kafka-reassign-partitions.sh fails when topic name contains dash/hyphen |  Major | tools | Adrian Muraru |  |
+| [KAFKA-1387](https://issues.apache.org/jira/browse/KAFKA-1387) | Kafka getting stuck creating ephemeral node it has already created when two zookeeper sessions are established in a very short period of time |  Critical | . | Fedor Korotkiy | Flavio Junqueira |
 | [KAFKA-1374](https://issues.apache.org/jira/browse/KAFKA-1374) | LogCleaner (compaction) does not support compressed topics |  Major | . | Joel Koshy | Manikumar Reddy |
 | [KAFKA-1367](https://issues.apache.org/jira/browse/KAFKA-1367) | Broker topic metadata not kept in sync with ZooKeeper |  Major | . | Ryan Berdeen | Ashish K Singh |
 | [KAFKA-1109](https://issues.apache.org/jira/browse/KAFKA-1109) | Need to fix GC log configuration code, not able to override KAFKA\_GC\_LOG\_OPTS |  Major | . | Viktor Kolodrevskiy | Manikumar Reddy |
@@ -264,6 +269,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-2579](https://issues.apache.org/jira/browse/KAFKA-2579) | Unauthorized clients should not be able to join groups |  Major | security | Jason Gustafson | Jason Gustafson |
 | [KAFKA-2558](https://issues.apache.org/jira/browse/KAFKA-2558) | ServerShutdownTest is failing intermittently |  Major | unit tests | Flavio Junqueira | Flavio Junqueira |
 | [KAFKA-2532](https://issues.apache.org/jira/browse/KAFKA-2532) | Remove Consumer from rebalance callback arguments |  Major | . | Jason Gustafson | Jason Gustafson |
 | [KAFKA-2486](https://issues.apache.org/jira/browse/KAFKA-2486) | New consumer performance |  Major | consumer | Ewen Cheslack-Postava | Jason Gustafson |
@@ -273,12 +279,14 @@
 | [KAFKA-2439](https://issues.apache.org/jira/browse/KAFKA-2439) | Add MirrorMakerService to ducktape system tests |  Major | system tests | Geoff Anderson | Geoff Anderson |
 | [KAFKA-2415](https://issues.apache.org/jira/browse/KAFKA-2415) | Transient failure in LogRecoveryTest.testHWCheckpointWithFailuresMultipleLogSegments |  Major | . | Jiangjie Qin | Jiangjie Qin |
 | [KAFKA-2411](https://issues.apache.org/jira/browse/KAFKA-2411) | remove usage of BlockingChannel in the broker |  Blocker | security | Jun Rao | Ismael Juma |
+| [KAFKA-2403](https://issues.apache.org/jira/browse/KAFKA-2403) | Expose offset commit metadata in new consumer |  Minor | . | Jason Gustafson | Jason Gustafson |
 | [KAFKA-2401](https://issues.apache.org/jira/browse/KAFKA-2401) | Fix transient failure of ProducerSendTest.testCloseWithZeroTimeoutFromSenderThread() |  Major | . | Jiangjie Qin | Jiangjie Qin |
 | [KAFKA-2400](https://issues.apache.org/jira/browse/KAFKA-2400) | Expose heartbeat frequency in new consumer configuration |  Minor | . | Jason Gustafson | Jason Gustafson |
 | [KAFKA-2389](https://issues.apache.org/jira/browse/KAFKA-2389) | CommitType seems not necessary in commit(). |  Major | . | Jiangjie Qin | Jiangjie Qin |
 | [KAFKA-2388](https://issues.apache.org/jira/browse/KAFKA-2388) | subscribe(topic)/unsubscribe(topic) should either take a callback to allow user to handle exceptions or it should be synchronous. |  Major | . | Jiangjie Qin | Jason Gustafson |
 | [KAFKA-2386](https://issues.apache.org/jira/browse/KAFKA-2386) | Transient test failure: testGenerationIdIncrementsOnRebalance |  Major | . | Jason Gustafson | Jason Gustafson |
 | [KAFKA-2377](https://issues.apache.org/jira/browse/KAFKA-2377) | Add copycat system tests |  Major | copycat | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
+| [KAFKA-2373](https://issues.apache.org/jira/browse/KAFKA-2373) | Copycat distributed offset storage |  Major | copycat | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-2367](https://issues.apache.org/jira/browse/KAFKA-2367) | Add Copycat runtime data API |  Major | copycat | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-2366](https://issues.apache.org/jira/browse/KAFKA-2366) | Initial patch for Copycat |  Major | copycat | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-2342](https://issues.apache.org/jira/browse/KAFKA-2342) | KafkaConsumer rebalance with in-flight fetch can cause invalid position |  Major | core | Jun Rao | Jason Gustafson |

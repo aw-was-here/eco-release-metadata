@@ -4841,13 +4841,6 @@ Results attached.
 
 ---
 
-* [SPARK-9710](https://issues.apache.org/jira/browse/SPARK-9710) | *Major* | **RPackageUtilsSuite fails if R is not installed**
-
-That's because there's a bug in RUtils.scala. PR soon.
-
-
----
-
 * [SPARK-9709](https://issues.apache.org/jira/browse/SPARK-9709) | *Blocker* | **Avoid starving an unsafe operator in a sort**
 
 This concerns mainly TungstenSort.
@@ -10519,9 +10512,13 @@ The class `OverrideFunctionRegistry` is redundant since the `HiveFunctionRegistr
 
 ---
 
-* [SPARK-8882](https://issues.apache.org/jira/browse/SPARK-8882) | *Major* | **A New Receiver Scheduling Mechanism**
+* [SPARK-8882](https://issues.apache.org/jira/browse/SPARK-8882) | *Major* | **A New Receiver Scheduling Mechanism to solve unbalanced receivers**
 
-The design doc: https://docs.google.com/document/d/1ZsoRvHjpISPrDmSjsGzuSu8UjwgbtmoCTzmhgTurHJw/edit?usp=sharing
+There are some problems in the current mechanism:
+ - If a task fails more than “spark.task.maxFailures” (default: 4) times, the job will fail. For a long-running Streaming applications, it’s possible that a Receiver task fails more than 4 times because of Executor lost.
+- When an executor is lost, the Receiver tasks on it will be rescheduled. However, because there may be many Spark jobs at the same time, it’s possible that TaskScheduler cannot schedule them to make Receivers be distributed evenly.
+
+To solve such limitations, we need to change the receiver scheduling mechanism. Here is the design doc: https://docs.google.com/document/d/1ZsoRvHjpISPrDmSjsGzuSu8UjwgbtmoCTzmhgTurHJw/edit?usp=sharing
 
 
 ---
@@ -21313,6 +21310,23 @@ The output of a generator expression (such as explode) can change after serializ
 
 ---
 
+* [SPARK-3702](https://issues.apache.org/jira/browse/SPARK-3702) | *Critical* | **Standardize MLlib classes for learners, models**
+
+Summary: Create a class hierarchy for learning algorithms and the models those algorithms produce.
+
+This is a super-task of several sub-tasks (but JIRA does not allow subtasks of subtasks).  See the "requires" links below for subtasks.
+
+Goals:
+\* give intuitive structure to API, both for developers and for generated documentation
+\* support meta-algorithms (e.g., boosting)
+\* support generic functionality (e.g., evaluation)
+\* reduce code duplication across classes
+
+[Design doc for class hierarchy \| https://docs.google.com/document/d/1BH9el33kBX8JiDdgUJXdLW14CA2qhTCWIG46eXZVoJs]
+
+
+---
+
 * [SPARK-3629](https://issues.apache.org/jira/browse/SPARK-3629) | *Minor* | **Improvements to YARN doc**
 
 Right now this doc starts off with a big list of config options, and only then tells you how to submit an app. It would be better to put that part and the packaging part first, and the config options only at the end.
@@ -21710,6 +21724,13 @@ When the number of partitions is very large, I think there are a few alternative
 0. Only show the top 1000.
 1. Pagination
 2. Instead of grouping by RDD blocks, group by executors
+
+
+---
+
+* [SPARK-1856](https://issues.apache.org/jira/browse/SPARK-1856) | *Critical* | **Standardize MLlib interfaces**
+
+Instead of expanding MLlib based on the current class naming scheme (ProblemWithAlgorithm),  we should standardize MLlib's interfaces that clearly separate datasets, formulations, algorithms, parameter sets, and models.
 
 
 ---

@@ -17,5 +17,5 @@
 # limitations under the License.
 -->
 * Apache Yetus v0.1.0
-    * [Changes](0.1.0/CHANGES.0.1.0.html)
-    * [Release Notes](0.1.0/RELEASENOTES.0.1.0.html)
+    * [Changes](0.1.0/CHANGES.0.1.0.md)
+    * [Release Notes](0.1.0/RELEASENOTES.0.1.0.md)

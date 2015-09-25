@@ -23,6 +23,13 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [TEZ-2853](https://issues.apache.org/jira/browse/TEZ-2853) | *Blocker* | **Tez UI: task attempt page is coming empty**
+
+Creeped in from TEZ-2843 changes.
+
+
+---
+
 * [TEZ-2847](https://issues.apache.org/jira/browse/TEZ-2847) | *Major* | **Tez UI: Task details doesn't gets updated on manual refresh after job complete**
 
 When the AM gets stopped in between an in-progress poll, the UI display details from the last poll and doesn't gets updated.

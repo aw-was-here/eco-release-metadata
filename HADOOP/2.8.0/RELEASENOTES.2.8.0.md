@@ -182,6 +182,13 @@ Added SFTP filesystem by using the JSch library.
 
 ---
 
+* [HDFS-9013](https://issues.apache.org/jira/browse/HDFS-9013) | *Major* | **Deprecate NameNodeMXBean#getNNStarted in branch2 and remove from trunk**
+
+NameNodeMXBean#getNNStarted()  metric is deprecated in branch-2 and removed from trunk.
+
+
+---
+
 * [HDFS-8929](https://issues.apache.org/jira/browse/HDFS-8929) | *Major* | **Add a metric to expose the timestamp of the last journal**
 
 Exposed a metric 'LastJournalTimestamp' for JournalNode
