@@ -18,7 +18,7 @@
 -->
 # Apache BigTop Changelog
 
-## Release 1.1.0 - Unreleased (as of 2015-09-25)
+## Release 1.1.0 - Unreleased (as of 2015-09-26)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -97,6 +97,7 @@
 | [BIGTOP-1967](https://issues.apache.org/jira/browse/BIGTOP-1967) | Update the front-page of the website with new CI hostname |  Major | website | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-1966](https://issues.apache.org/jira/browse/BIGTOP-1966) | site's index.xml is malformatted |  Blocker | website | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-1963](https://issues.apache.org/jira/browse/BIGTOP-1963) | Upgrade Mahout to 0.11.0 |  Major | general | YoungWoo Kim | YoungWoo Kim |
+| [BIGTOP-1960](https://issues.apache.org/jira/browse/BIGTOP-1960) | The smoke-test wrapper in bigtop-deploy can only be used in redhat series of Linux |  Minor | deployment, tests | Evans Ye | Evans Ye |
 | [BIGTOP-1958](https://issues.apache.org/jira/browse/BIGTOP-1958) | Upgrade default repositories and docker images to 1.0 |  Blocker | deployment | Evans Ye | Evans Ye |
 | [BIGTOP-1956](https://issues.apache.org/jira/browse/BIGTOP-1956) | Multi RS HBase requires unique hbase.tmp.dir to be set for each RS on a node |  Major | hbase | Biju Nair | Biju Nair |
 | [BIGTOP-1954](https://issues.apache.org/jira/browse/BIGTOP-1954) | Change the component name in the MAINTAINERS.txt |  Major | general | Konstantin Boudnik | Konstantin Boudnik |

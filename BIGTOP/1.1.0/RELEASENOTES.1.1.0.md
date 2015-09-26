@@ -558,6 +558,13 @@ Bump up Mahout version to 0.11.0, Expecting enhancement on Spark support
 
 ---
 
+* [BIGTOP-1960](https://issues.apache.org/jira/browse/BIGTOP-1960) | *Minor* | **The smoke-test wrapper in bigtop-deploy can only be used in redhat series of Linux**
+
+In {{bigtop-deploy/vm/utils/smoke-tests.sh}}, the JAVA\_HOME is hard coded to  {{/usr/lib/jvm/java-openjdk}} which cause the smoke test failed to run on debian, ubuntu, etc. We should auto detect the JAVA\_HOME by leveraging bigtop-utils so that it supports all the OS bigtop supported.
+
+
+---
+
 * [BIGTOP-1958](https://issues.apache.org/jira/browse/BIGTOP-1958) | *Blocker* | **Upgrade default repositories and docker images to 1.0**
 
 The default repositories in puppet recipes and bigtop provisioner configurations are still 0.8.0. We should upgrade them to 1.0.0 repo and switch the docker image to 1.0 version as well.

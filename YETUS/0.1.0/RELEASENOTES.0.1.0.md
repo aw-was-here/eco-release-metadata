@@ -23,9 +23,23 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [YETUS-55](https://issues.apache.org/jira/browse/YETUS-55) | *Major* | **fix recovery of broken rebase code**
+
+The fix for HADOOP-12244 is incorrect.
+
+
+---
+
 * [YETUS-28](https://issues.apache.org/jira/browse/YETUS-28) | *Major* | **if CHANGED\_FILES is corrupt, find\_changed\_modules never returns**
 
 In building some unit tests, did a negative tests and hit this condition.  We should put a limit on how many times we loop in the find\_x\_dirs code.
+
+
+---
+
+* [YETUS-9](https://issues.apache.org/jira/browse/YETUS-9) | *Major* | **Update .gitignore to reflect Yetus instead of Hadoop**
+
+.gitignore has a lot of extraneous stuff in it.
 
 
 ---

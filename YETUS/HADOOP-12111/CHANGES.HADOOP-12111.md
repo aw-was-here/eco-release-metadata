@@ -18,7 +18,7 @@
 -->
 # Apache Yetus Changelog
 
-## Release HADOOP-12111 - Unreleased (as of 2015-09-25)
+## Release HADOOP-12111 - Unreleased (as of 2015-09-26)
 
 ### INCOMPATIBLE CHANGES:
 

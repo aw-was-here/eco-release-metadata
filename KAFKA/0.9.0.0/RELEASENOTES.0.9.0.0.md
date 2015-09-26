@@ -23,6 +23,13 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [KAFKA-2582](https://issues.apache.org/jira/browse/KAFKA-2582) | *Major* | **ConsumerMetdata authorization error not returned to user**
+
+The current authorization implementation for the ConsumerMetadata request throws AuthorizationException, but the exception handler does not convert this to an authorization error. Instead, the handler in ConsumerMetdataRequest converts all exceptions to ConsumerCoordinatoryNotAvailable, which would cause the client to continue retrying indefinitely.
+
+
+---
+
 * [KAFKA-2579](https://issues.apache.org/jira/browse/KAFKA-2579) | *Major* | **Unauthorized clients should not be able to join groups**
 
 The JoinGroup authorization is only checked in the response callback which is invoked after the request has been forwarded to the ConsumerCoordinator and the client has joined the group. This allows unauthorized members to impact the rest of the group since the coordinator will assign partitions to them. It would be better to check permission and return immediately if the client is unauthorized.
@@ -105,6 +112,13 @@ The number 1572 is the thread id.
 The ILLEGAL\_GENERATION error is a bit confusing today. When a consumer receives an ILLEGAL\_GENERATION from hearbeat response, it should still use that generation id to commit offset. i.e. the generation id was not really illegal.
 
 The current code was written earlier when we still bump up the generation id when the coordinator enters PrepareRebalance state. Since now the generation id is bumped up after PreareRebalance state ends, we should not overload ILLEGAL\_GENERATION to notify a rebalance but create a new error code such as REBALANCE\_IN\_PROGRESS.
+
+
+---
+
+* [KAFKA-2555](https://issues.apache.org/jira/browse/KAFKA-2555) | *Major* | **Infinite recursive function call occurs when ConsumerRebalanceCallback.onPartitionRevoked() calls commitSync()**
+
+In new consumer's ConsumerRebalanceCallback.onPartitionRevoked() when user call commitSync(), it causes infinite recursive call of onPartitionRevoked().
 
 
 ---
@@ -684,6 +698,13 @@ In KAFKA-1690, we are adding the SSL support at Selector. However, there are sti
 
 ---
 
+* [KAFKA-2409](https://issues.apache.org/jira/browse/KAFKA-2409) | *Minor* | **Have KafkaConsumer.committed() return null when there is no committed offset**
+
+Currently checking whether an offset has been committed requires catching NoOffsetForPartitionException. Since this is likely a fairly common case, it is more convenient for users just to return null.
+
+
+---
+
 * [KAFKA-2408](https://issues.apache.org/jira/browse/KAFKA-2408) | *Major* | **(new) system tests: ConsoleConsumerService occasionally fails to register consumed message**
 
 There have been a few spurious failures in ReplicationTest.test\_hard\_bounce, where it was reported that a few of the acked messages were not consumed.
@@ -855,6 +876,15 @@ Possible ConcurrentModificationException while unsubscribing from a topic in new
 Add baseline system tests for Copycat, covering both standalone and distributed mode.
 
 This should cover basic failure modes and verify at-least-one delivery of data, both from source system -\> Kafka and Kafka -\> sink system. This, of course, requires testing the core, built-in connectors provided with Copycat.
+
+
+---
+
+* [KAFKA-2374](https://issues.apache.org/jira/browse/KAFKA-2374) | *Major* | **Implement Copycat log/file connector**
+
+This is a good baseline connector that has zero dependencies and works well as both a demonstration and a practical use case for standalone mode.
+
+Two key features it should ideally support: support multiple files and rolling log files.
 
 
 ---

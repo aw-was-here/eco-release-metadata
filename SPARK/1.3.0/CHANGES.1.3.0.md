@@ -576,6 +576,7 @@
 | [SPARK-4900](https://issues.apache.org/jira/browse/SPARK-4900) | MLlib SingularValueDecomposition ARPACK IllegalStateException |  Minor | MLlib | Mike Beyer | Sean Owen |
 | [SPARK-4887](https://issues.apache.org/jira/browse/SPARK-4887) | Fix a bad unittest in LogisticRegressionSuite |  Major | MLlib | DB Tsai | DB Tsai |
 | [SPARK-4882](https://issues.apache.org/jira/browse/SPARK-4882) | PySpark broadcast breaks when using KryoSerializer |  Major | PySpark | Fi | Josh Rosen |
+| [SPARK-4879](https://issues.apache.org/jira/browse/SPARK-4879) | Missing output partitions after job completes with speculative execution |  Critical | Input/Output, Spark Core | Josh Rosen | Josh Rosen |
 | [SPARK-4877](https://issues.apache.org/jira/browse/SPARK-4877) | userClassPathFirst doesn't handle user classes inheriting from parent |  Major | Spark Core | Stephen Haberman | Stephen Haberman |
 | [SPARK-4871](https://issues.apache.org/jira/browse/SPARK-4871) | show sql statement in spark ui when run sql use spark-sql |  Major | SQL | Fei Wang |  |
 | [SPARK-4866](https://issues.apache.org/jira/browse/SPARK-4866) | Support StructType as key in MapType |  Major | PySpark, SQL | Davies Liu |  |

@@ -60,6 +60,24 @@ The DiskBlockObjectWriter constructor takes a BlockId parameter but never uses i
 
 ---
 
+* [SPARK-10760](https://issues.apache.org/jira/browse/SPARK-10760) | *Minor* | **SparkR glm: the documentation in examples - family argument is missing**
+
+Hi everyone,
+
+Since the family argument is required for the glm function, the execution of:
+
+model \<- glm(Sepal\_Length ~ Sepal\_Width, df) 
+
+is failing.
+
+I've fixed the documentation by adding the family argument and also added the summay(model) which will show the coefficients for the model. 
+
+Thanks,
+Narine
+
+
+---
+
 * [SPARK-10750](https://issues.apache.org/jira/browse/SPARK-10750) | *Minor* | **ML Param validate should print better error information**
 
 Currently when you set illegal value for params of array type (such as IntArrayParam, DoubleArrayParam, StringArrayParam), it will throw IllegalArgumentException but with incomprehensible error information.
