@@ -23,6 +23,96 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [TEZ-2860](https://issues.apache.org/jira/browse/TEZ-2860) | *Major* | **NPE in DAGClientImpl**
+
+{code}
+-------------------------------------------------------------------------------
+Test set: org.apache.tez.client.TestLocalMode
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 12.312 sec \<\<\< FAILURE!
+testNoSysExitOnSuccessfulDAG(org.apache.tez.client.TestLocalMode)  Time elapsed: 0.178 sec  \<\<\< ERROR!
+java.lang.NullPointerException: null
+	at com.google.protobuf.AbstractMessageLite$Builder.checkForNullValues(AbstractMessageLite.java:338)
+	at com.google.protobuf.AbstractMessageLite$Builder.addAll(AbstractMessageLite.java:323)
+	at org.apache.tez.dag.api.records.DAGProtos$DAGStatusProto$Builder.addAllDiagnostics(DAGProtos.java:21033)
+	at org.apache.tez.dag.api.client.DAGClientImpl.getDAGStatusViaRM(DAGClientImpl.java:358)
+	at org.apache.tez.dag.api.client.DAGClientImpl.getDAGStatus(DAGClientImpl.java:168)
+	at org.apache.tez.dag.api.client.DAGClientImpl.\_waitForCompletionWithStatusUpdates(DAGClientImpl.java:370)
+	at org.apache.tez.dag.api.client.DAGClientImpl.waitForCompletion(DAGClientImpl.java:227)
+	at org.apache.tez.client.TestLocalMode.testNoSysExitOnSuccessfulDAG(TestLocalMode.java:131)
+
+{code}
+
+
+---
+
+* [TEZ-2858](https://issues.apache.org/jira/browse/TEZ-2858) | *Major* | **Stop using System.currentTimeMillis in TestInputReadyTracker**
+
+Looks like the test can end up being flakey on some platforms where the resolution may be higher than 1ms.
+
+
+---
+
+* [TEZ-2857](https://issues.apache.org/jira/browse/TEZ-2857) | *Major* | **Flakey tests in TestDAGImpl**
+
+testDAGKill
+{code}
+java.lang.AssertionError: expected:\<6\> but was:\<5\>
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failNotEquals(Assert.java:743)
+	at org.junit.Assert.assertEquals(Assert.java:118)
+	at org.junit.Assert.assertEquals(Assert.java:555)
+	at org.junit.Assert.assertEquals(Assert.java:542)
+	at org.apache.tez.dag.app.dag.impl.TestDAGImpl.testDAGKill(TestDAGImpl.java:1880)
+{code}
+
+testDAGKillPending
+{code}
+java.lang.AssertionError: expected:\<5\> but was:\<3\>
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failNotEquals(Assert.java:743)
+	at org.junit.Assert.assertEquals(Assert.java:118)
+	at org.junit.Assert.assertEquals(Assert.java:555)
+	at org.junit.Assert.assertEquals(Assert.java:542)
+	at org.apache.tez.dag.app.dag.impl.TestDAGImpl.testDAGKillPending(TestDAGImpl.java:1916)
+{code}
+
+There's a race between vertex success and vertex terminate reaching the vertices, which cause the tests to be flakey.
+
+
+---
+
+* [TEZ-2855](https://issues.apache.org/jira/browse/TEZ-2855) | *Critical* | **Potential NPE while routing VertexManager events**
+
+Observed while running against 0.8.0-alpha. This will likely affect 0.7 as well - that'll be known after debugging.
+
+{code}
+2015-09-24T12:13:42,675 ERROR [Dispatcher thread: Central] common.AsyncDispatcher: Error in dispatcher thread
+java.lang.NullPointerException
+  at org.apache.tez.dag.app.dag.impl.VertexImpl.handleRoutedTezEvents(VertexImpl.java:4429) ~[TezAppJar.jar:0.8.0-alpha]
+  at org.apache.tez.dag.app.dag.impl.VertexImpl.access$4000(VertexImpl.java:203) ~[TezAppJar.jar:0.8.0-alpha]
+  at org.apache.tez.dag.app.dag.impl.VertexImpl$RouteEventTransition.transition(VertexImpl.java:4175) ~[TezAppJar.jar:0.8.0-alpha]
+  at org.apache.tez.dag.app.dag.impl.VertexImpl$RouteEventTransition.transition(VertexImpl.java:4167) ~[TezAppJar.jar:0.8.0-alpha]
+  at org.apache.hadoop.yarn.state.StateMachineFactory$MultipleInternalArc.doTransition(StateMachineFactory.java:385) ~[hadoop-yarn-common-2.6.0.jar:?]
+  at org.apache.hadoop.yarn.state.StateMachineFactory.doTransition(StateMachineFactory.java:302) ~[hadoop-yarn-common-2.6.0.jar:?]
+  at org.apache.hadoop.yarn.state.StateMachineFactory.access$300(StateMachineFactory.java:46) ~[hadoop-yarn-common-2.6.0.jar:?]
+  at org.apache.hadoop.yarn.state.StateMachineFactory$InternalStateMachine.doTransition(StateMachineFactory.java:448) ~[hadoop-yarn-common-2.6.0.jar:?]
+  at org.apache.tez.state.StateMachineTez.doTransition(StateMachineTez.java:57) ~[TezAppJar.jar:0.8.0-alpha]
+  at org.apache.tez.dag.app.dag.impl.VertexImpl.handle(VertexImpl.java:1906) ~[TezAppJar.jar:0.8.0-alpha]
+  at org.apache.tez.dag.app.dag.impl.VertexImpl.handle(VertexImpl.java:202) ~[TezAppJar.jar:0.8.0-alpha]
+  at org.apache.tez.dag.app.DAGAppMaster$VertexEventDispatcher.handle(DAGAppMaster.java:2069) ~[TezAppJar.jar:0.8.0-alpha]
+  at org.apache.tez.dag.app.DAGAppMaster$VertexEventDispatcher.handle(DAGAppMaster.java:2055) ~[TezAppJar.jar:0.8.0-alpha]
+  at org.apache.tez.common.AsyncDispatcher.dispatch(AsyncDispatcher.java:183) [tez-common-0.8.0-alpha.jar:0.8.0-alpha]
+  at org.apache.tez.common.AsyncDispatcher$1.run(AsyncDispatcher.java:114) [tez-common-0.8.0-alpha.jar:0.8.0-alpha]
+  at java.lang.Thread.run(Thread.java:745) [?:1.8.0\_40]
+2015-09-24T12:13:42,681 INFO [HistoryEventHandlingThread] impl.SimpleHistoryLoggingService: Writing event TASK\_ATTEMPT\_FINISHED to history file
+{code}
+
+Looks like the VertexManager was null.
+
+
+---
+
 * [TEZ-2853](https://issues.apache.org/jira/browse/TEZ-2853) | *Blocker* | **Tez UI: task attempt page is coming empty**
 
 Creeped in from TEZ-2843 changes.
@@ -54,6 +144,17 @@ Repro for reference: TPC-DS q\_70 @ 30 TB scale.
 "Map 7" completes in 2 waves. Output is very tiny, so reducer 8 gets launched slightly late.  But before "Reducer 9" can get scheduled, slots are taken up by "Map 1", which is not preempted for running "Reducer 9".
 
 This is with 0.7.1 codebase.
+
+
+---
+
+* [TEZ-2829](https://issues.apache.org/jira/browse/TEZ-2829) | *Major* | **Tez UI: minor fixes to in-progress update of UI from AM**
+
+fix issues related to the in progess updates as part of TEZ-2760.
+
+\* fix incorrect version check for amwebservice.
+\* add extra checks before setting the status
+\* update the time shown when status/progress is updated. (set using didLoad function)
 
 
 ---
@@ -276,6 +377,13 @@ java.nio.channels.ClosedChannelException
 
 The data displayed on the UI for running tasks should be updated with the latest status fetched from AM.
 This includes the status, progress, task count etc. The api should also allow querying the values for the tasks (running, failed, succeeded...).
+
+
+---
+
+* [TEZ-2758](https://issues.apache.org/jira/browse/TEZ-2758) | *Major* | **Remove append API in RecoveryService after TEZ-1909**
+
+After TEZ-1909, there would be no case for append recovery file.
 
 
 ---

@@ -18,7 +18,7 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.7.1 - Unreleased (as of 2015-09-26)
+## Release 0.7.1 - Unreleased (as of 2015-10-07)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -38,6 +38,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [TEZ-2768](https://issues.apache.org/jira/browse/TEZ-2768) | Log a useful error message when the summary stream cannot be closed when shutting down an AM |  Major | . | Jeff Zhang | Jeff Zhang |
 | [TEZ-2767](https://issues.apache.org/jira/browse/TEZ-2767) | Make TezMxBeanResourceCalculator the default resource calculator |  Major | . | Siddharth Seth | Siddharth Seth |
+| [TEZ-2758](https://issues.apache.org/jira/browse/TEZ-2758) | Remove append API in RecoveryService after TEZ-1909 |  Major | . | Jeff Zhang | Jeff Zhang |
 | [TEZ-2754](https://issues.apache.org/jira/browse/TEZ-2754) | Tez UI: StartTime & EndTime is not displayed with right format in Graphical View |  Major | . | Jeff Zhang | Sreenath Somarajapuram |
 | [TEZ-2719](https://issues.apache.org/jira/browse/TEZ-2719) | Consider reducing logs in unordered fetcher with shared-fetch option |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-2662](https://issues.apache.org/jira/browse/TEZ-2662) | Provide a way to check whether AM or task opts are valid and error if not |  Major | . | Hitesh Shah | Hitesh Shah |
@@ -54,9 +55,13 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-2860](https://issues.apache.org/jira/browse/TEZ-2860) | NPE in DAGClientImpl |  Major | . | Jeff Zhang | Jeff Zhang |
+| [TEZ-2855](https://issues.apache.org/jira/browse/TEZ-2855) | Potential NPE while routing VertexManager events |  Critical | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-2853](https://issues.apache.org/jira/browse/TEZ-2853) | Tez UI: task attempt page is coming empty |  Blocker | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
+| [TEZ-2851](https://issues.apache.org/jira/browse/TEZ-2851) | Support a way for upstream applications to pass in a caller context to Tez |  Major | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-2847](https://issues.apache.org/jira/browse/TEZ-2847) | Tez UI: Task details doesn't gets updated on manual refresh after job complete |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2834](https://issues.apache.org/jira/browse/TEZ-2834) | Make Tez preemption resilient to incorrect free resource reported by YARN |  Major | . | Rajesh Balamohan | Bikas Saha |
+| [TEZ-2829](https://issues.apache.org/jira/browse/TEZ-2829) | Tez UI: minor fixes to in-progress update of UI from AM |  Major | UI | Prakash Ramachandran | Prakash Ramachandran |
 | [TEZ-2825](https://issues.apache.org/jira/browse/TEZ-2825) | Report progress in terms of completed tasks to reduce load on AM for Tez UI |  Major | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-2816](https://issues.apache.org/jira/browse/TEZ-2816) | Preemption sometimes does not respect heartbeats between preemptions |  Major | . | Jeff Zhang | Bikas Saha |
 | [TEZ-2809](https://issues.apache.org/jira/browse/TEZ-2809) | Minimal distribution compiled on 2.6 fails to run on 2.7 |  Blocker | . | Jonathan Eagles | Jonathan Eagles |
@@ -149,6 +154,8 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-2858](https://issues.apache.org/jira/browse/TEZ-2858) | Stop using System.currentTimeMillis in TestInputReadyTracker |  Major | . | Siddharth Seth | Siddharth Seth |
+| [TEZ-2857](https://issues.apache.org/jira/browse/TEZ-2857) | Flakey tests in TestDAGImpl |  Major | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-2844](https://issues.apache.org/jira/browse/TEZ-2844) | Backport TEZ-2775 to branch-0.7 |  Major | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-2830](https://issues.apache.org/jira/browse/TEZ-2830) | Backport TEZ-2774 to branch-0.7 |  Major | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-2789](https://issues.apache.org/jira/browse/TEZ-2789) | Backport events added in TEZ-2612 to branch-0.7 |  Major | . | Bikas Saha | Bikas Saha |

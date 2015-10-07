@@ -23,9 +23,30 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [YETUS-63](https://issues.apache.org/jira/browse/YETUS-63) | *Minor* | **The menu button on Yetus website is invisible when viewed from mobile devices**
+
+It works, but is not visible.
+
+
+---
+
 * [YETUS-55](https://issues.apache.org/jira/browse/YETUS-55) | *Major* | **fix recovery of broken rebase code**
 
 The fix for HADOOP-12244 is incorrect.
+
+
+---
+
+* [YETUS-50](https://issues.apache.org/jira/browse/YETUS-50) | *Major* | **asflicense is easily tricked**
+
+asflicense needs to make sure that it gets at least one report file instead of assuming nothing is wrong.
+
+
+---
+
+* [YETUS-40](https://issues.apache.org/jira/browse/YETUS-40) | *Blocker* | **patch file confuses test-patch (date format problems)**
+
+This was attached to HADOOP-12326 .
 
 
 ---
@@ -49,6 +70,20 @@ In building some unit tests, did a negative tests and hit this condition.  We sh
 \* Name them LICENSE and NOTICE, per current policy preference
 \* Update LICENSE to reflect any bundled 3rd party works
 \* Update NOTICE with our project and any bundled 3rd party works
+
+
+---
+
+* [YETUS-5](https://issues.apache.org/jira/browse/YETUS-5) | *Major* | **Support per-instance maven repos**
+
+On busy jenkins servers, it only takes one bad apple doing a dependency:purge-local-repository to wreak havoc on other projects. In order to protect against this, test-patch should have some way to overlay the .m2 directory with something that is (minimally) per-project and maximally per run.
+
+
+---
+
+* [YETUS-2](https://issues.apache.org/jira/browse/YETUS-2) | *Critical* | **Build website**
+
+the gitpubsub set up only serves static content directly to browsers. We need some means to build our markdown (or whatever) source into html, and a workflow to push it into hte gitpubsub branch.
 
 
 

@@ -23,6 +23,13 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [HADOOP-12446](https://issues.apache.org/jira/browse/HADOOP-12446) | *Major* | **Undeprecate createNonRecursive()**
+
+FileSystem#createNonRecursive() is undeprecated.
+
+
+---
+
 * [HADOOP-12416](https://issues.apache.org/jira/browse/HADOOP-12416) | *Major* | **Trash messages should be handled by Logger instead of being delivered on System.out**
 
 Now trash message is not printed to System.out. It is handled by Logger instead.
@@ -223,6 +230,13 @@ HDFS-8866 Correct typo in WebHDFS.md
 * [HDFS-8818](https://issues.apache.org/jira/browse/HDFS-8818) | *Major* | **Allow Balancer to run faster**
 
 Add a new conf "dfs.balancer.max-size-to-move" so that Balancer.MAX\_SIZE\_TO\_MOVE becomes configurable.
+
+
+---
+
+* [HDFS-8696](https://issues.apache.org/jira/browse/HDFS-8696) | *Major* | **Make the lower and higher watermark in the DN Netty server configurable**
+
+Introduced two new configuration dfs.webhdfs.netty.low.watermark and dfs.webhdfs.netty.high.watermark to enable tuning the size of the buffers of the Netty server inside Datanodes.
 
 
 ---

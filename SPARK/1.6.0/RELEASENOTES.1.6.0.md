@@ -23,6 +23,284 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-10966](https://issues.apache.org/jira/browse/SPARK-10966) | *Major* | **Code-generation framework cleanup**
+
+ - Add lines numbers to error
+ - Use a variable for input row
+ - primitive -\> value (since its often actually an object)
+
+
+---
+
+* [SPARK-10957](https://issues.apache.org/jira/browse/SPARK-10957) | *Major* | **setParams changes quantileProbabilities unexpectly in PySpark's AFTSurvivalRegression**
+
+This happens when user doesn't specify quantileProbabilities.
+
+
+---
+
+* [SPARK-10938](https://issues.apache.org/jira/browse/SPARK-10938) | *Major* | **Remove typeId in columnar cache**
+
+typeId is not needed in columnar cache, it's confusing to having them.
+
+
+---
+
+* [SPARK-10916](https://issues.apache.org/jira/browse/SPARK-10916) | *Major* | **YARN executors are launched with the default perm gen size**
+
+Unlike other backends, the YARN one does not explicitly set the perm gen size for the executor process. That means that, unless the user has explicitly changed it by adding extra java options, executors on YARN are running with 64m of perm gen (I believe) instead of 256m like the other backends.
+
+
+---
+
+* [SPARK-10904](https://issues.apache.org/jira/browse/SPARK-10904) | *Major* | **  select(df, c("col1", "col2")) fails**
+
+The help page for 'select' gives an example of 
+  select(df, c("col1", "col2"))
+
+However, this fails with assertion:
+
+java.lang.AssertionError: assertion failed
+	at scala.Predef$.assert(Predef.scala:165)
+	at org.apache.spark.api.r.SerDe$.readStringBytes(SerDe.scala:92)
+	at org.apache.spark.api.r.SerDe$.readString(SerDe.scala:99)
+	at org.apache.spark.api.r.SerDe$.readTypedObject(SerDe.scala:63)
+	at org.apache.spark.api.r.SerDe$.readObject(SerDe.scala:52)
+	at org.apache.spark.api.r.RBackendHandler$$anonfun$readArgs$1.apply(RBackendHandler.scala:182)
+	at org.apache.spark.api.r.RBackendHandler$$anonfun$readArgs$1.apply(RBackendHandler.scala:181)
+
+And then none of the functions will work with following error:
+\> head(df)
+ Error in if (returnStatus != 0) { : argument is of length zero
+
+
+---
+
+* [SPARK-10901](https://issues.apache.org/jira/browse/SPARK-10901) | *Critical* | **spark.yarn.user.classpath.first doesn't work**
+
+spark.yarn.user.classpath.first doesn't properly add the app jar to the system class path first.  It has some logic there that i believe works for local files but running on yarn using distributed cache to distribute the app jar doesn't put \_\_app\_\_.jar into the classpath at all.
+
+This is a break in backwards compatibility.
+
+Note that in this case the user is trying to use different version of kryo (which used to work in spark 1.2) and the new configs for this: spark.{driver, executor}.userClassPathFirst don't allow this as it errors out with:
+
+User class threw exception: java.lang.LinkageError: loader constraint violation: loader (instance of org/apache/spark/util/ChildFirstURLClassLoader) previously initiated loading for a different type with name "com/esotericsoftware/kryo/Kryo"
+
+
+---
+
+* [SPARK-10889](https://issues.apache.org/jira/browse/SPARK-10889) | *Minor* | **Upgrade Kinesis Client Library**
+
+Kinesis Client Library added a custom cloudwatch metric in 1.3.0 called MillisBehindLatest. This is very important for capacity planning and alerting.
+
+
+---
+
+* [SPARK-10885](https://issues.apache.org/jira/browse/SPARK-10885) | *Major* | **Display the failed output op in Streaming UI**
+
+Now if an output operation failed because of an error in the closure of `foreachRDD`, such as, 
+{code}
+    wordCounts.foreachRDD { rdd =\>
+      if (Random.nextInt(2) == 0) {
+        throw new RuntimeException("xxx")
+      }
+    }
+{code}
+
+we cannot display the error information.
+
+
+---
+
+* [SPARK-10871](https://issues.apache.org/jira/browse/SPARK-10871) | *Minor* | **Specify number of failed executors in ApplicationMaster error message**
+
+I ran in to [this\|https://github.com/apache/spark/blob/9b9fe5f7bf55257269d8febcd64e95677075dfb6/yarn/src/main/scala/org/apache/spark/deploy/yarn/ApplicationMaster.scala#L346-L348] error message today while debugging a failed app:
+
+{code}
+15/09/29 00:33:20 INFO yarn.ApplicationMaster: Final app status: FAILED, exitCode: 11, (reason: Max number of executor failures reached)
+15/09/29 00:33:23 INFO util.ShutdownHookManager: Shutdown hook called
+{code}
+
+This app ran with dynamic allocation and I'm not sure what limit was used as the "maximum allowable number of failed executors"; in any case, the error message may as well specify this.
+
+
+---
+
+* [SPARK-10866](https://issues.apache.org/jira/browse/SPARK-10866) | *Major* | **[Spark SQL] [UDF] the floor function got wrong return value type**
+
+
+
+As per floor definition,it should get BIGINT return value
+-floor(DOUBLE a)
+-Returns the maximum BIGINT value that is equal to or less than a.
+
+But in current Spark implementation, it got wrong value type.
+e.g.,
+select floor(2642.12) from udf\_test\_web\_sales limit 1;
+2642.0
+
+In hive implementation, it got return value type like below:
+hive\> select ceil(2642.12) from udf\_test\_web\_sales limit 1;
+OK
+2642
+
+
+---
+
+* [SPARK-10865](https://issues.apache.org/jira/browse/SPARK-10865) | *Major* | **[Spark SQL] [UDF] the ceil/ceiling function got wrong return value type**
+
+As per ceil/ceiling definition,it should get BIGINT return value
+-ceil(DOUBLE a), ceiling(DOUBLE a)
+-Returns the minimum BIGINT value that is equal to or greater than a.
+
+But in current Spark implementation, it got wrong value type.
+e.g., 
+select ceil(2642.12) from udf\_test\_web\_sales limit 1;
+2643.0
+
+In hive implementation, it got return value type like below:
+hive\> select ceil(2642.12) from udf\_test\_web\_sales limit 1;
+OK
+2643
+
+
+---
+
+* [SPARK-10859](https://issues.apache.org/jira/browse/SPARK-10859) | *Blocker* | **Predicates pushed to InmemoryColumnarTableScan are not evaluated correctly**
+
+{code}
+var data01 = sqlContext.sql("select 1 as id, \"{\\\"animal\\\":{\\\"type\\\": \\\"cat\\\"}},{\\\"animal\\\":{\\\"type\\\": \\\"dog\\\"}},{\\\"animal\\\":{\\\"type\\\": \\\"donkey\\\"}},{\\\"animal\\\":{\\\"type\\\": \\\"turkey\\\"}},{\\\"animal\\\":{\\\"type\\\": \\\"cat\\\"}},{\\\"animal\\\":{\\\"NOTANIMAL\\\": \\\"measuring tape\\\"}}\" as field")
+case class SubField(fieldling: String)
+var data02 = data01.explode(data01("field")){ case Row(field: String) =\> field.split(",").map(SubField(\_))}
+  .selectExpr("id","fieldling","get\_json\_object(fieldling,\"$.animal.type\") as animal") 
+var data03 = data01.explode(data01("field")){ case Row(field: String) =\> field.split(",").map(SubField(\_))}
+  .selectExpr("id","fieldling","get\_json\_object(fieldling,\"$.animal.type\") as animal")
+data02.cache()
+
+data02.select($"animal" === "cat").explain
+== Physical Plan ==
+Project [(animal#25 = cat) AS (animal = cat)#263]
+ InMemoryColumnarTableScan [animal#25], (InMemoryRelation [id#20,fieldling#24,animal#25], true, 10000, StorageLevel(true, true, false, true, 1), (TungstenProject [id#20,fieldling#24,get\_json\_object(fieldling#24,$.animal.type) AS animal#25]), None)
+
+data02.select($"animal" === "cat").show
++--------------+
+\|(animal = cat)\|
++--------------+
+\|          true\|
+\|         false\|
+\|         false\|
+\|         false\|
+\|          true\|
+\|          null\|
++--------------+
+
+data02.filter($"animal" === "cat").explain
+== Physical Plan ==
+Filter (animal#25 = cat)
+ InMemoryColumnarTableScan [id#20,fieldling#24,animal#25], [(animal#25 = cat)], (InMemoryRelation [id#20,fieldling#24,animal#25], true, 10000, StorageLevel(true, true, false, true, 1), (TungstenProject [id#20,fieldling#24,get\_json\_object(fieldling#24,$.animal.type) AS animal#25]), None)
+
+data02.filter($"animal" === "cat").show
++---+---------+------+
+\| id\|fieldling\|animal\|
++---+---------+------+
++---+---------+------+
+{code}
+
+
+---
+
+* [SPARK-10851](https://issues.apache.org/jira/browse/SPARK-10851) | *Major* | **Exception not failing R applications (in yarn cluster mode)**
+
+The bug is the R version of SPARK-7736. The R script fails with an exception but the Yarn application status is SUCCEEDED.
+
+
+---
+
+* [SPARK-10833](https://issues.apache.org/jira/browse/SPARK-10833) | *Major* | **Inline, organize BSD/MIT licenses in LICENSE**
+
+In the course of https://issues.apache.org/jira/browse/LEGAL-226 it came to light that the guidance at http://www.apache.org/dev/licensing-howto.html#permissive-deps means that permissively-licensed dependencies has a different interpretation than we (er, I) had been operating under. "pointer ... to the license within the source tree" specifically means a copy of the license within Spark's distribution, whereas at the moment, Spark's LICENSE has a pointer to the project's license in the \*other project's\* source tree.
+
+The remedy is simply to inline all such license references (i.e. BSD/MIT licenses) or include their text in "licenses" subdirectory and point to that.
+
+Along the way, we can also treat other BSD/MIT licenses, whose text has been inlined into LICENSE, in the same way.
+
+The LICENSE file can continue to provide a helpful list of BSD/MIT licensed projects and a pointer to their sites. This would be over and above including license text in the distro, which is the essential thing.
+
+I do not think this blocks a current release, since there's a good-faith argument that the current practice satisfies the terms of the third-party licenses as well. (If it didn't, this would be a blocker for any further release.) However, of course it's better to follow the best practice going forward.
+
+
+---
+
+* [SPARK-10825](https://issues.apache.org/jira/browse/SPARK-10825) | *Critical* | **Flaky test: StandaloneDynamicAllocationSuite**
+
+There are some race conditions in StandaloneDynamicAllocationSuite.
+1. It should not assume master and workers start in order.
+2. It should not assume master and workers get ready at once
+3. It should not assume the application is already registered with master after creating SparkContext.
+4. It should not access Master.app which is not thread safe.
+
+
+---
+
+* [SPARK-10812](https://issues.apache.org/jira/browse/SPARK-10812) | *Minor* | **Spark Hadoop Util does not support stopping a non-yarn Spark Context & starting a Yarn spark context.**
+
+While this is likely not a huge issue for real production systems, for test systems which may setup a Spark Context and tear it down and stand up a Spark Context with a different master (e.g. some local mode & some yarn mode) tests this cane be an issue. Discovered during work on spark-testing-base on Spark 1.4.1, but seems like the logic that triggers it is present in master (see SparkHadoopUtil object). A valid work around for users encountering this issue is to fork a different JVM, however this can be heavy weight.
+
+{quote}
+[info] SampleMiniClusterTest:
+[info] Exception encountered when attempting to run a suite with class name: com.holdenkarau.spark.testing.SampleMiniClusterTest \*\*\* ABORTED \*\*\*
+[info]   java.lang.ClassCastException: org.apache.spark.deploy.SparkHadoopUtil cannot be cast to org.apache.spark.deploy.yarn.YarnSparkHadoopUtil
+[info]   at org.apache.spark.deploy.yarn.YarnSparkHadoopUtil$.get(YarnSparkHadoopUtil.scala:163)
+[info]   at org.apache.spark.deploy.yarn.Client.prepareLocalResources(Client.scala:257)
+[info]   at org.apache.spark.deploy.yarn.Client.createContainerLaunchContext(Client.scala:561)
+[info]   at org.apache.spark.deploy.yarn.Client.submitApplication(Client.scala:115)
+[info]   at org.apache.spark.scheduler.cluster.YarnClientSchedulerBackend.start(YarnClientSchedulerBackend.scala:57)
+[info]   at org.apache.spark.scheduler.TaskSchedulerImpl.start(TaskSchedulerImpl.scala:141)
+[info]   at org.apache.spark.SparkContext.\<init\>(SparkContext.scala:497)
+[info]   at com.holdenkarau.spark.testing.SharedMiniCluster$class.setup(SharedMiniCluster.scala:186)
+[info]   at com.holdenkarau.spark.testing.SampleMiniClusterTest.setup(SampleMiniClusterTest.scala:26)
+[info]   at com.holdenkarau.spark.testing.SharedMiniCluster$class.beforeAll(SharedMiniCluster.scala:103)
+{quote}
+
+
+---
+
+* [SPARK-10811](https://issues.apache.org/jira/browse/SPARK-10811) | *Major* | **Minimize array copying cost in Parquet converters**
+
+When converting Parquet {{Binary}} values to {{UTF8String}} and {{Decimal}} values, there exists unnecessary array copying costs ({{Binary.getBytes()}}), which can be eliminated for better performance.
+
+
+---
+
+* [SPARK-10790](https://issues.apache.org/jira/browse/SPARK-10790) | *Major* | **Dynamic Allocation does not request any executors if first stage needs less than or equal to spark.dynamicAllocation.initialExecutors**
+
+If you set spark.dynamicAllocation.initialExecutors \> 0 (or spark.dynamicAllocation.minExecutors, since spark.dynamicAllocation.initialExecutors defaults to spark.dynamicAllocation.minExecutors), and the number of tasks in the first stage of your job is less than or equal to this min/init number of executors, dynamic allocation won't actually request any executors and will just hang indefinitely with the warning "Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources".
+
+The cause appears to be that ExecutorAllocationManager does not request any executors while the application is still initializing, but it still sets the initial value of numExecutorsTarget to spark.dynamicAllocation.initialExecutors. Once the job is running and has submitted its first task, if the first task does not need more than spark.dynamicAllocation.initialExecutors, ExecutorAllocationManager.updateAndSyncNumExecutorsTarget() does not think that it needs to request any executors, so it doesn't.
+
+
+---
+
+* [SPARK-10782](https://issues.apache.org/jira/browse/SPARK-10782) | *Trivial* | **Duplicate examples for drop\_duplicates and DropDuplicates**
+
+In documentation for pyspark.sql, the source code examples for DropDuplicates and drop\_duplicates are identical with each other.  It appears that the example for DropDuplicates was copy/pasted for drop\_duplicates and not edited.
+
+https://spark.apache.org/docs/latest/api/python/pyspark.sql.html#pyspark.sql.DataFrame.dropDuplicates
+
+
+---
+
+* [SPARK-10778](https://issues.apache.org/jira/browse/SPARK-10778) | *Trivial* | **Implement toString for AssociationRules.Rule**
+
+pretty print for association rules, e.g.
+
+{code}
+{a, b, c} =\> {d}: 0.8
+{code}
+
+
+---
+
 * [SPARK-10769](https://issues.apache.org/jira/browse/SPARK-10769) | *Major* | **Fix o.a.s.streaming.CheckpointSuite.maintains rate controller**
 
 Fixed the following failure in https://amplab.cs.berkeley.edu/jenkins/job/NewSparkPullRequestBuilder/1787/testReport/junit/org.apache.spark.streaming/CheckpointSuite/recovery\_maintains\_rate\_controller/
@@ -102,6 +380,52 @@ This is to allow embedding links to other Spark UI tabs within the job descripti
 
 ---
 
+* [SPARK-10741](https://issues.apache.org/jira/browse/SPARK-10741) | *Major* | **Hive Query Having/OrderBy against Parquet table is not working**
+
+Failed Query with Having Clause
+{code}
+  def testParquetHaving() {
+    val ddl =
+      """CREATE TABLE IF NOT EXISTS test ( c1 string, c2 int ) STORED AS PARQUET"""
+    val failedHaving =
+      """ SELECT c1, avg ( c2 ) as c\_avg
+        \| FROM test
+        \| GROUP BY c1
+        \| HAVING ( avg ( c2 ) \> 5)  ORDER BY c1""".stripMargin
+    TestHive.sql(ddl)
+    TestHive.sql(failedHaving).collect
+  }
+
+org.apache.spark.sql.AnalysisException: resolved attribute(s) c2#16 missing from c1#17,c2#18 in operator !Aggregate [c1#17], [cast((avg(cast(c2#16 as bigint)) \> cast(5 as double)) as boolean) AS havingCondition#12,c1#17,avg(cast(c2#18 as bigint)) AS c\_avg#9];
+	at org.apache.spark.sql.catalyst.analysis.CheckAnalysis$class.failAnalysis(CheckAnalysis.scala:37)
+	at org.apache.spark.sql.catalyst.analysis.Analyzer.failAnalysis(Analyzer.scala:44)
+	at org.apache.spark.sql.catalyst.analysis.CheckAnalysis$$anonfun$checkAnalysis$1.apply(CheckAnalysis.scala:154)
+	at org.apache.spark.sql.catalyst.analysis.CheckAnalysis$$anonfun$checkAnalysis$1.apply(CheckAnalysis.scala:49)
+
+{code}
+
+Failed Query with OrderBy
+{code}
+  def testParquetOrderBy() {
+    val ddl =
+      """CREATE TABLE IF NOT EXISTS test ( c1 string, c2 int ) STORED AS PARQUET"""
+    val failedOrderBy =
+      """ SELECT c1, avg ( c2 ) c\_avg
+        \| FROM test
+        \| GROUP BY c1
+        \| ORDER BY avg ( c2 )""".stripMargin
+    TestHive.sql(ddl)
+    TestHive.sql(failedOrderBy).collect
+  }
+
+org.apache.spark.sql.AnalysisException: resolved attribute(s) c2#33 missing from c1#34,c2#35 in operator !Aggregate [c1#34], [avg(cast(c2#33 as bigint)) AS aggOrder#31,c1#34,avg(cast(c2#35 as bigint)) AS c\_avg#28];
+	at org.apache.spark.sql.catalyst.analysis.CheckAnalysis$class.failAnalysis(CheckAnalysis.scala:37)
+	at org.apache.spark.sql.catalyst.analysis.Analyzer.failAnalysis(Analyzer.scala:44)
+{code}
+
+
+---
+
 * [SPARK-10740](https://issues.apache.org/jira/browse/SPARK-10740) | *Blocker* | **handle nondeterministic expressions correctly for set operations**
 
 We should only push down deterministic filter condition to set operator.
@@ -151,6 +475,13 @@ df4.show(100, false)
 
 ---
 
+* [SPARK-10736](https://issues.apache.org/jira/browse/SPARK-10736) | *Minor* | **Use 1 for all ratings if $(ratingCol) = ""**
+
+For some implicit dataset, ratings may not exist in the training data. In this case, we can assume all observed pairs to be positive and treat their ratings as 1. This should happen when users set ratingCol to an empty string.
+
+
+---
+
 * [SPARK-10731](https://issues.apache.org/jira/browse/SPARK-10731) | *Major* | **The head() implementation of dataframe is very slow**
 
 {code}
@@ -168,6 +499,13 @@ The above lines take over 15 minutes. It seems the dataframe requires 3 stages t
 There're several places in the code base where return value from File.delete() is ignored.
 
 This issue adds checking for the boolean return value and logs warning when deletion fails.
+
+
+---
+
+* [SPARK-10720](https://issues.apache.org/jira/browse/SPARK-10720) | *Minor* | **Add a java wrapper to create dataframe from a local list of Java Beans.**
+
+Similar to SPARK-10630 it would be nice if Java users didn't have to parallelize there data explicitly (as Scala users already can skip). Issue came up in http://stackoverflow.com/questions/32613413/apache-spark-machine-learning-cant-get-estimator-example-to-work?answertab=active#tab-top
 
 
 ---
@@ -284,6 +622,13 @@ Incorrect documentation which leads to exception when using constraints value as
 If an output operation fails, then corresponding batch is never marked as completed, as the data structure are not updated properly.
 
 https://github.com/apache/spark/blob/master/streaming/src/main/scala/org/apache/spark/streaming/scheduler/JobScheduler.scala#L183
+
+
+---
+
+* [SPARK-10688](https://issues.apache.org/jira/browse/SPARK-10688) | *Major* | **Python API for AFTSurvivalRegression**
+
+After SPARK-10686, we should add Python API for AFTSurvivalRegression.
 
 
 ---
@@ -604,6 +949,36 @@ It is possible that Hive has some internal restrictions on what kinds of metadat
 
 ---
 
+* [SPARK-10671](https://issues.apache.org/jira/browse/SPARK-10671) | *Major* | **Calling a UDF with insufficient number of input arguments should throw an analysis error**
+
+{code}
+import org.apache.spark.sql.functions.\_
+Seq((1,2)).toDF("a", "b").select(callUDF("percentile", $"a"))
+{code}
+
+This should throws an Analysis Exception.
+
+
+---
+
+* [SPARK-10670](https://issues.apache.org/jira/browse/SPARK-10670) | *Major* | **Link to each language's API in codetabs in ML docs: spark.ml**
+
+In the Markdown docs for the spark.ml Programming Guide, we have code examples with codetabs for each language. We should link to each language's API docs within the corresponding codetab, but we are inconsistent about this. For an example of what we want to do, see the "Word2Vec" section in https://github.com/apache/spark/blob/64743870f23bffb8d96dcc8a0181c1452782a151/docs/ml-features.md
+
+This JIRA is just for spark.ml, not spark.mllib
+
+
+---
+
+* [SPARK-10669](https://issues.apache.org/jira/browse/SPARK-10669) | *Major* | **Link to each language's API in codetabs in ML docs: spark.mllib**
+
+In the Markdown docs for the spark.mllib Programming Guide, we have code examples with codetabs for each language.  We should link to each language's API docs within the corresponding codetab, but we are inconsistent about this.  For an example of what we want to do, see the "ChiSqSelector" section in [https://github.com/apache/spark/blob/64743870f23bffb8d96dcc8a0181c1452782a151/docs/mllib-feature-extraction.md]
+
+This JIRA is just for spark.mllib, not spark.ml
+
+
+---
+
 * [SPARK-10663](https://issues.apache.org/jira/browse/SPARK-10663) | *Trivial* | **Change test.toDF to test in Spark ML Programming Guide**
 
 Spark 1.5.0 \> Spark ML Programming Guide \> Example: Pipeline
@@ -902,6 +1277,13 @@ instead of
 This came up as a minor point during a security audit using a common scanning tool: It's best if Spark UIs try to actively defend against certain types of frame-related vulnerabilities by setting X-Frame-Options. See https://www.owasp.org/index.php/Clickjacking\_Defense\_Cheat\_Sheet
 
 Easy PR coming ...
+
+
+---
+
+* [SPARK-10585](https://issues.apache.org/jira/browse/SPARK-10585) | *Major* | **only copy data once when generate unsafe projection**
+
+When we have nested struct, array or map, we will create a byte buffer for each of them, and copy data to the buffer first, then copy them to the final row buffer. We can save the first copy and directly copy data to final row buffer.
 
 
 ---
@@ -2046,6 +2428,21 @@ Column\<name[3]\>
 
 ---
 
+* [SPARK-10415](https://issues.apache.org/jira/browse/SPARK-10415) | *Minor* | **Enhance Navigation Sidebar in PySpark API**
+
+To make it easier to browse packages in the PySpark API documentation it would be useful to expand the navigation sidebar to include more details:
+
+\* Classes
+\* Functions
+\* Tags to highlight experimental features
+
+Currently the sidebar only displays modules / submodules which makes it hard to get a feel for the overall structure + functionality of the PySpark API. Adding the extra entries makes it simpler to understand what each module does and also makes navigation to individual classes / functions easier.
+
+Online example here (suggestions / thoughts welcome!): https://dl.dropboxusercontent.com/u/20821334/pyspark-api-nav-enhance/pyspark.mllib.html
+
+
+---
+
 * [SPARK-10411](https://issues.apache.org/jira/browse/SPARK-10411) | *Minor* | **In SQL tab move visualization above explain output**
 
 Request from [~pwendell]:
@@ -2110,6 +2507,15 @@ We should make sure the scaladoc for params includes their default values throug
 
 ---
 
+* [SPARK-10400](https://issues.apache.org/jira/browse/SPARK-10400) | *Minor* | **Rename or deprecate SQL option "spark.sql.parquet.followParquetFormatSpec"**
+
+We introduced SQL option "spark.sql.parquet.followParquetFormatSpec" while working on implementing Parquet backwards-compatibility rules in SPARK-6777. It indicates whether we should use legacy Parquet format adopted by Spark 1.4 and prior versions or the standard format defined in parquet-format spec. However, the name of this option is somewhat confusing, because it's not super intuitive why we shouldn't follow the spec. Would be nice to rename it to "spark.sql.parquet.writeLegacyFormat" and invert its default value (they have opposite meanings). Note that this option is not "public" ({{isPublic}} is false).
+
+At the moment of writing, 1.5 RC3 has already been cut. If we can't make this one into 1.5, we can deprecate the old option with the new one.
+
+
+---
+
 * [SPARK-10398](https://issues.apache.org/jira/browse/SPARK-10398) | *Minor* | **Migrate Spark download page to use new lua mirroring scripts**
 
 From infra team :
@@ -2119,6 +2525,17 @@ www.apache.org/dyn/closer.lua instead from now on.
 
 Any non-conforming CGI scripts are no longer enabled, and are all
 rewritten to go to our new mirror system.
+
+
+---
+
+* [SPARK-10395](https://issues.apache.org/jira/browse/SPARK-10395) | *Minor* | **Simplify CatalystReadSupport**
+
+The API interface of Parquet {{ReadSupport}} is a little bit over complicated because of historical reasons.  In older versions of parquet-mr (say 1.6.0rc3 and prior), {{ReadSupport}} need to be instantiated and initialized twice on both driver side and executor side.  The {{init()}} method is for driver side initialization, while {{prepareForRead()}} is for executor side.  However, starting from parquet-mr 1.6.0, it's no longer the case, and {{ReadSupport}} is only instantiated and initialized on executor side.  So, theoretically, now it's totally fine to combine these two methods into a single initialization method.  The only reason (I could think of) to still have them here is for parquet-mr API backwards-compatibility.
+
+Due to this reason, we no longer need to rely on {{ReadContext}} to pass requested schema from {{init()}} to {{prepareForRead()}}, using a private `var` for requested schema in {{CatalystReadSupport}} would be enough.
+
+Another thing is that, after removing the old Parquet support code, now we always set Catalyst requested schema properly when reading Parquet files.  So all those "fallback" logic in {{CatalystReadSupport}} is now redundant.
 
 
 ---
@@ -2368,6 +2785,15 @@ TungstenProject [key#14,key#61,key#66]
   ConvertToUnsafe
    HiveTableScan [key#66], (MetastoreRelation default, src, None)
 {code}
+
+
+---
+
+* [SPARK-10317](https://issues.apache.org/jira/browse/SPARK-10317) | *Trivial* | **start-history-server.sh CLI parsing incompatible with HistoryServer's arg parsing**
+
+The history server has its argument parsing class in {{HistoryServerArguments}}. However, this doesn't get involved in the {{start-history-server.sh}} codepath where the $0 arg is assigned to  {{spark.history.fs.logDirectory}} and all other arguments discarded (e.g {{--property-file}}.
+
+This stops the other options being usable from this script
 
 
 ---
@@ -3019,6 +3445,74 @@ We could calculate the total size first, then convert the elements into row buff
 
 ---
 
+* [SPARK-10058](https://issues.apache.org/jira/browse/SPARK-10058) | *Critical* | **Flaky test: HeartbeatReceiverSuite: normal heartbeat**
+
+https://amplab.cs.berkeley.edu/jenkins/view/Spark-QA-Test/job/Spark-1.5-SBT/116/AMPLAB\_JENKINS\_BUILD\_PROFILE=hadoop2.2,label=spark-test/testReport/junit/org.apache.spark/HeartbeatReceiverSuite/normal\_heartbeat/
+
+{code}
+Error Message
+
+3 did not equal 2
+Stacktrace
+
+sbt.ForkMain$ForkError: 3 did not equal 2
+	at org.scalatest.Assertions$class.newAssertionFailedException(Assertions.scala:500)
+	at org.scalatest.FunSuite.newAssertionFailedException(FunSuite.scala:1555)
+	at org.scalatest.Assertions$AssertionsHelper.macroAssert(Assertions.scala:466)
+	at org.apache.spark.HeartbeatReceiverSuite$$anonfun$2.apply$mcV$sp(HeartbeatReceiverSuite.scala:104)
+	at org.apache.spark.HeartbeatReceiverSuite$$anonfun$2.apply(HeartbeatReceiverSuite.scala:97)
+	at org.apache.spark.HeartbeatReceiverSuite$$anonfun$2.apply(HeartbeatReceiverSuite.scala:97)
+	at org.scalatest.Transformer$$anonfun$apply$1.apply$mcV$sp(Transformer.scala:22)
+	at org.scalatest.OutcomeOf$class.outcomeOf(OutcomeOf.scala:85)
+	at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)
+	at org.scalatest.Transformer.apply(Transformer.scala:22)
+	at org.scalatest.Transformer.apply(Transformer.scala:20)
+	at org.scalatest.FunSuiteLike$$anon$1.apply(FunSuiteLike.scala:166)
+	at org.apache.spark.SparkFunSuite.withFixture(SparkFunSuite.scala:42)
+	at org.scalatest.FunSuiteLike$class.invokeWithFixture$1(FunSuiteLike.scala:163)
+	at org.scalatest.FunSuiteLike$$anonfun$runTest$1.apply(FunSuiteLike.scala:175)
+	at org.scalatest.FunSuiteLike$$anonfun$runTest$1.apply(FunSuiteLike.scala:175)
+	at org.scalatest.SuperEngine.runTestImpl(Engine.scala:306)
+	at org.scalatest.FunSuiteLike$class.runTest(FunSuiteLike.scala:175)
+	at org.apache.spark.HeartbeatReceiverSuite.org$scalatest$BeforeAndAfterEach$$super$runTest(HeartbeatReceiverSuite.scala:41)
+	at org.scalatest.BeforeAndAfterEach$class.runTest(BeforeAndAfterEach.scala:255)
+	at org.apache.spark.HeartbeatReceiverSuite.runTest(HeartbeatReceiverSuite.scala:41)
+	at org.scalatest.FunSuiteLike$$anonfun$runTests$1.apply(FunSuiteLike.scala:208)
+	at org.scalatest.FunSuiteLike$$anonfun$runTests$1.apply(FunSuiteLike.scala:208)
+	at org.scalatest.SuperEngine$$anonfun$traverseSubNodes$1$1.apply(Engine.scala:413)
+	at org.scalatest.SuperEngine$$anonfun$traverseSubNodes$1$1.apply(Engine.scala:401)
+	at scala.collection.immutable.List.foreach(List.scala:318)
+	at org.scalatest.SuperEngine.traverseSubNodes$1(Engine.scala:401)
+	at org.scalatest.SuperEngine.org$scalatest$SuperEngine$$runTestsInBranch(Engine.scala:396)
+	at org.scalatest.SuperEngine.runTestsImpl(Engine.scala:483)
+	at org.scalatest.FunSuiteLike$class.runTests(FunSuiteLike.scala:208)
+	at org.scalatest.FunSuite.runTests(FunSuite.scala:1555)
+	at org.scalatest.Suite$class.run(Suite.scala:1424)
+	at org.scalatest.FunSuite.org$scalatest$FunSuiteLike$$super$run(FunSuite.scala:1555)
+	at org.scalatest.FunSuiteLike$$anonfun$run$1.apply(FunSuiteLike.scala:212)
+	at org.scalatest.FunSuiteLike$$anonfun$run$1.apply(FunSuiteLike.scala:212)
+	at org.scalatest.SuperEngine.runImpl(Engine.scala:545)
+	at org.scalatest.FunSuiteLike$class.run(FunSuiteLike.scala:212)
+	at org.apache.spark.HeartbeatReceiverSuite.org$scalatest$BeforeAndAfterAll$$super$run(HeartbeatReceiverSuite.scala:41)
+	at org.scalatest.BeforeAndAfterAll$class.liftedTree1$1(BeforeAndAfterAll.scala:257)
+	at org.scalatest.BeforeAndAfterAll$class.run(BeforeAndAfterAll.scala:256)
+	at org.apache.spark.HeartbeatReceiverSuite.run(HeartbeatReceiverSuite.scala:41)
+	at org.scalatest.tools.Framework.org$scalatest$tools$Framework$$runSuite(Framework.scala:462)
+	at org.scalatest.tools.Framework$ScalaTestTask.execute(Framework.scala:671)
+	at sbt.ForkMain$Run$2.call(ForkMain.java:294)
+	at sbt.ForkMain$Run$2.call(ForkMain.java:284)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+{code}
+
+This is really flaky (fail 30%)
+https://amplab.cs.berkeley.edu/jenkins/view/Spark-QA-Test/job/Spark-1.5-SBT/116/AMPLAB\_JENKINS\_BUILD\_PROFILE=hadoop2.2,label=spark-test/testReport/junit/org.apache.spark/HeartbeatReceiverSuite/normal\_heartbeat/history/
+
+
+---
+
 * [SPARK-10056](https://issues.apache.org/jira/browse/SPARK-10056) | *Minor* | **PySpark Row - Support for row["columnName"] syntax**
 
 Right now you can get Row element:
@@ -3235,6 +3729,13 @@ sbt.ForkMain$ForkError: 4 did not equal 5
 
 ---
 
+* [SPARK-9867](https://issues.apache.org/jira/browse/SPARK-9867) | *Major* | **Move utilities for binary data into ByteArray**
+
+The utilities such as Substring#substringBinarySQL and BinaryPrefixComparator#computePrefix for binary data are put together in ByteArray for easy-to-read.
+
+
+---
+
 * [SPARK-9834](https://issues.apache.org/jira/browse/SPARK-9834) | *Major* | **Normal equation solver for ordinary least squares**
 
 Add normal equation solver for ordinary least squares with not many features. The approach requires one pass to collect AtA and Atb, then solve the problem on driver. It works well when the problem is not very ill-conditioned and not having many columns. It also provides R-like summary statistics.
@@ -3295,6 +3796,13 @@ See mailing list discussions: http://apache-spark-developers-list.1001551.n3.nab
 * [SPARK-9808](https://issues.apache.org/jira/browse/SPARK-9808) | *Major* | **Remove hash shuffle file consolidation**
 
 I think that we should remove {{spark.shuffle.consolidateFiles}} and its associated implementation for Spark 1.5.0. This feature isn't properly tested and does not work with the external shuffle service. Since it's likely to be buggy and since its motivation has been subsumed by sort-based shuffle, I think it's a prime candidate for removal now.
+
+
+---
+
+* [SPARK-9798](https://issues.apache.org/jira/browse/SPARK-9798) | *Minor* | **CrossValidatorModel Documentation Improvements**
+
+CrossValidatorModel's avgMetrics and bestModel need documentation.
 
 
 ---
@@ -3370,6 +3878,47 @@ A minor typo (centriod -\> centroid). Readable variable names help every users.
 
 ---
 
+* [SPARK-9741](https://issues.apache.org/jira/browse/SPARK-9741) | *Major* | **approx count distinct function**
+
+Add the approximate count distinct function to the new interface.
+
+
+---
+
+* [SPARK-9724](https://issues.apache.org/jira/browse/SPARK-9724) | *Minor* | **Avoid unnecessary redirects in the Spark Web UI**
+
+When opening Spark's Web UI for an application, there are a number of redirects which makes it feel slow. We can avoid one of them.
+
+{code}
+vagrant@localhost:~ $ curl -i http://localhost:18080/history/application\_1438648766072\_0005/
+HTTP/1.1 302 Found
+Location: http://localhost:18080/history/application\_1438648766072\_0005/
+Content-Length: 0
+Server: Jetty(8.y.z-SNAPSHOT)
+
+vagrant@localhost:~ $ curl -i http://localhost:18080/history/application\_1438648766072\_0005/
+HTTP/1.1 302 Found
+Location: http://localhost:18080/history/application\_1438648766072\_0005/jobs
+Content-Length: 0
+Server: Jetty(8.y.z-SNAPSHOT)
+
+vagrant@localhost:~ $ curl -i http://localhost:18080/history/application\_1438648766072\_0005/jobs
+HTTP/1.1 302 Found
+Location: http://localhost:18080/history/application\_1438648766072\_0005/jobs/
+Content-Length: 0
+Server: Jetty(8.y.z-SNAPSHOT)
+
+vagrant@localhost:~ $ curl -i http://localhost:18080/history/application\_1438648766072\_0005/jobs/
+HTTP/1.1 200 OK
+Content-Type: text/html;charset=UTF-8
+Cache-Control: no-cache, no-store, must-revalidate
+Content-Length: 5267
+Server: Jetty(8.y.z-SNAPSHOT)
+{code}
+
+
+---
+
 * [SPARK-9723](https://issues.apache.org/jira/browse/SPARK-9723) | *Minor* | **Params.getOrDefault should throw more meaningful exception**
 
 Params.getOrDefault should throw a more meaningful exception than what you get from a bad key lookup.
@@ -3431,6 +3980,13 @@ We need to enable it and make sure it's able to launch Pyspark jobs.
 * [SPARK-9642](https://issues.apache.org/jira/browse/SPARK-9642) | *Major* | **LinearRegression should supported weighted data**
 
 In many modeling application, data points are not necessarily sampled with equal probabilities. Linear regression should support weighting which account the over or under sampling.
+
+
+---
+
+* [SPARK-9617](https://issues.apache.org/jira/browse/SPARK-9617) | *Minor* | **Implement json\_tuple**
+
+Provide a native Spark implementation for {{json\_tuple}}
 
 
 ---
@@ -3584,6 +4140,20 @@ java.lang.RuntimeException: java.util.concurrent.RejectedExecutionException: Tas
 
 When an executor has many cores, the tasks belongs to same RDD will using the same InputFormat. But the HiveHBaseTableInputFormat is not thread safety.
 So I think we should add a config to enable cache InputFormat or not.
+
+
+---
+
+* [SPARK-9570](https://issues.apache.org/jira/browse/SPARK-9570) | *Minor* | **Consistent recommendation for submitting spark apps to YARN, -master yarn --deploy-mode x vs -master yarn-x'.**
+
+There are still some inconsistencies in the documentation regarding submission of the applications for yarn.
+SPARK-3629 was done to correct the same but 
+http://spark.apache.org/docs/latest/submitting-applications.html#master-urls
+still has yarn-client and yarn-client as opposed to the nor of having 
+--master yarn and --deploy-mode cluster / client
+
+Need to change this appropriately (if needed) to avoid confusion:
+https://spark.apache.org/docs/latest/running-on-yarn.html
 
 
 ---
@@ -3977,6 +4547,13 @@ This problem appears occasionally. And the configuration of JobHistory is defaul
 
 ---
 
+* [SPARK-7275](https://issues.apache.org/jira/browse/SPARK-7275) | *Minor* | **Make LogicalRelation public**
+
+It seems LogicalRelation is the only part of the LogicalPlan that is not public. This makes it harder to work with full logical plans from third party packages.
+
+
+---
+
 * [SPARK-7142](https://issues.apache.org/jira/browse/SPARK-7142) | *Minor* | **Minor enhancement to BooleanSimplification Optimizer rule**
 
 Add simplification using these rules :
@@ -3993,6 +4570,15 @@ not(A or B) =\> not(A) and not(B)
 * [SPARK-6981](https://issues.apache.org/jira/browse/SPARK-6981) | *Minor* | **[SQL] SparkPlanner and QueryExecution should be factored out from SQLContext**
 
 In order to simplify extensibility with new strategies from third-parties, it should be better to factor SparkPlanner and QueryExecution in their own classes. Dependent types add additional, unnecessary complexity; besides, HiveContext would benefit from this change as well.
+
+
+---
+
+* [SPARK-6919](https://issues.apache.org/jira/browse/SPARK-6919) | *Minor* | **Add .asDict method to StatCounter**
+
+Adds an `.asDict` method to the StatCounter object instance in PySpark. This will make it easier to parse a call to `.stats()`.
+
+For now this affects only PySpark, but if desired I can add an `.asMap` method to the Scala version as well.
 
 
 ---
@@ -4081,6 +4667,22 @@ at org.apache.spark.mllib.linalg.distributed.RowMatrix.computeCovariance(RowMatr
 at org.apache.spark.mllib.linalg.distributed.RowMatrix.computePrincipalComponents(RowMatrix.scala:373)
 This 65535 cols restriction would be nice to be written in the doc (if this still applies in 1.3).
 {code}
+
+
+---
+
+* [SPARK-5890](https://issues.apache.org/jira/browse/SPARK-5890) | *Major* | **Add QuantileDiscretizer**
+
+A `QuantileDiscretizer` takes a column with continuous features and outputs a column with binned categorical features.
+
+{code}
+val fd = new QuantileDiscretizer()
+  .setInputCol("age")
+  .setNumBins(32)
+  .setOutputCol("ageBins")
+{code}
+
+This should an automatic feature discretizer, which uses a simple algorithm like approximate quantiles to discretize features. It should set the ML attribute correctly in the output column.
 
 
 ---

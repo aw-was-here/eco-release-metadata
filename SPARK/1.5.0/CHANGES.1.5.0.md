@@ -481,7 +481,7 @@
 | [SPARK-4302](https://issues.apache.org/jira/browse/SPARK-4302) | Support fixed precision decimal type in JsonParser |  Minor | SQL | Yin Huai | Davies Liu |
 | [SPARK-4273](https://issues.apache.org/jira/browse/SPARK-4273) | Providing ExternalSet to avoid OOM when count(distinct) |  Minor | Spark Core, SQL | YanTang Zhai | Michael Armbrust |
 | [SPARK-4234](https://issues.apache.org/jira/browse/SPARK-4234) | Always do paritial aggregation |  Major | SQL | Cheng Hao | Cheng Hao |
-| [SPARK-3700](https://issues.apache.org/jira/browse/SPARK-3700) | Improve the performance of scanning JSON datasets |  Major | SQL | Yin Huai | Yanbo Liang |
+| [SPARK-3700](https://issues.apache.org/jira/browse/SPARK-3700) | Improve the performance of scanning JSON datasets |  Major | SQL | Yin Huai | YBL |
 | [SPARK-3382](https://issues.apache.org/jira/browse/SPARK-3382) | GradientDescent convergence tolerance |  Minor | MLlib | Joseph K. Bradley | Kai Sasaki |
 | [SPARK-3071](https://issues.apache.org/jira/browse/SPARK-3071) | Increase default driver memory |  Major | Spark Core | Xiangrui Meng | Ilya Ganelin |
 | [SPARK-2774](https://issues.apache.org/jira/browse/SPARK-2774) | Set preferred locations for reduce tasks |  Major | Spark Core | Shivaram Venkataraman | Shivaram Venkataraman |
@@ -718,6 +718,7 @@
 | [SPARK-8952](https://issues.apache.org/jira/browse/SPARK-8952) | JsonFile() of SQLContext display improper warning message for a S3 path |  Major | SparkR | Sun Rui | Luciano Resende |
 | [SPARK-8950](https://issues.apache.org/jira/browse/SPARK-8950) | Correct the calculation of SchedulerDelayTime in StagePage |  Minor | Web UI | Carson Wang | Carson Wang |
 | [SPARK-8940](https://issues.apache.org/jira/browse/SPARK-8940) | Don't overwrite given schema if it is not null for createDataFrame in SparkR |  Major | SparkR | Liang-Chi Hsieh | Liang-Chi Hsieh |
+| [SPARK-8939](https://issues.apache.org/jira/browse/SPARK-8939) | YARN EC2 default setting fails with IllegalArgumentException |  Major | EC2 | Andrew Or | Shivaram Venkataraman |
 | [SPARK-8937](https://issues.apache.org/jira/browse/SPARK-8937) | A setting `spark.unsafe.exceptionOnMemoryLeak ` is missing in ScalaTest config. |  Minor | Tests | Kousuke Saruta | Kousuke Saruta |
 | [SPARK-8930](https://issues.apache.org/jira/browse/SPARK-8930) | Throw a AnalysisException with meaningful messages if DataFrame#explode takes a star in expressions |  Major | SQL | Takeshi Yamamuro | Yijie Shen |
 | [SPARK-8928](https://issues.apache.org/jira/browse/SPARK-8928) | CatalystSchemaConverter doesn't stick to behavior of old versions of Spark SQL when dealing with LISTs |  Major | SQL | Cheng Lian | Cheng Lian |

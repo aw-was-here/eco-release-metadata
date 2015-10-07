@@ -31,6 +31,46 @@ shortest path does not work due to incorrect type of the graph: Graph[Int, Doubl
 
 ---
 
+* [SPARK-9040](https://issues.apache.org/jira/browse/SPARK-9040) | *Major* | **StructField datatype Conversion Error**
+
+The following issue occurs if I specify the StructFields in specific order in StructType as follow:
+fields = [StructField("d", IntegerType(), True),StructField("b", IntegerType(), True),StructField("a", StringType(), True),StructField("c", IntegerType(), True)]
+
+But the following code words fine:
+fields = [StructField("d", IntegerType(), True),StructField("b", IntegerType(), True),StructField("c", IntegerType(), True),StructField("a", StringType(), True)]
+
+\<ipython-input-27-9d675dd6a2c9\> in \<module\>()
+     18 
+     19 schema = StructType(fields)
+---\> 20 schemasimid\_simple = sqlContext.createDataFrame(simid\_simplereqfields, schema)
+     21 schemasimid\_simple.registerTempTable("simid\_simple")
+
+/usr/local/bin/spark-1.3.1-bin-hadoop2.6/python/pyspark/sql/context.py in createDataFrame(self, data, schema, samplingRatio)
+    302 
+    303         for row in rows:
+--\> 304             \_verify\_type(row, schema)
+    305 
+    306         # convert python objects to sql data
+
+/usr/local/bin/spark-1.3.1-bin-hadoop2.6/python/pyspark/sql/types.py in \_verify\_type(obj, dataType)
+    986                              "length of fields (%d)" % (len(obj), len(dataType.fields)))
+    987         for v, f in zip(obj, dataType.fields):
+--\> 988             \_verify\_type(v, f.dataType)
+    989 
+    990 \_cached\_cls = weakref.WeakValueDictionary()
+
+/usr/local/bin/spark-1.3.1-bin-hadoop2.6/python/pyspark/sql/types.py in \_verify\_type(obj, dataType)
+    970     if type(obj) not in \_acceptable\_types[\_type]:
+    971         raise TypeError("%s can not accept object in type %s"
+--\> 972                         % (dataType, type(obj)))
+    973 
+    974     if isinstance(dataType, ArrayType):
+
+TypeError: StringType can not accept object in type \<type 'int'\>
+
+
+---
+
 * [SPARK-9033](https://issues.apache.org/jira/browse/SPARK-9033) | *Major* | **scala.MatchError: interface java.util.Map (of class java.lang.Class) with Spark SQL**
 
 I've a java.util.Map\<String, String\> field in a POJO class and I'm trying to use it to createDataFrame (1.3.1) / applySchema(1.2.2) with the SQLContext and getting following error in both 1.2.2 & 1.3.1 versions of the Spark SQL:
@@ -2430,6 +2470,107 @@ Py4JJavaError: An error occurred while calling o78.save.
 {code}
 
 This worked well in spark 1.3
+
+
+---
+
+* [SPARK-7563](https://issues.apache.org/jira/browse/SPARK-7563) | *Critical* | **OutputCommitCoordinator.stop() should only be executed in driver**
+
+I am from IBM Platform Symphony team and we are integrating Spark 1.3.1 with EGO (a resource management product).
+
+In EGO we uses fine-grained dynamic allocation policy, and each Executor will exit after its tasks are all done. When testing \*spark-shell\*, we find that when executor of first job exit, it will stop OutputCommitCoordinator, which result in all future jobs failing. Details are as follows:
+
+We got the following error in executor when submitting job in \*spark-shell\* the second time (the first job submission is successful):
+{noformat}
+15/05/11 04:02:31 INFO spark.util.AkkaUtils: Connecting to OutputCommitCoordinator: akka.tcp://sparkDriver@whlspark01:50452/user/OutputCommitCoordinator
+Exception in thread "main" akka.actor.ActorNotFound: Actor not found for: ActorSelection[Anchor(akka.tcp://sparkDriver@whlspark01:50452/), Path(/user/OutputCommitCoordinator)]
+        at akka.actor.ActorSelection$$anonfun$resolveOne$1.apply(ActorSelection.scala:65)
+        at akka.actor.ActorSelection$$anonfun$resolveOne$1.apply(ActorSelection.scala:63)
+        at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32)
+        at akka.dispatch.BatchingExecutor$Batch$$anonfun$run$1.processBatch$1(BatchingExecutor.scala:67)
+        at akka.dispatch.BatchingExecutor$Batch$$anonfun$run$1.apply$mcV$sp(BatchingExecutor.scala:82)
+        at akka.dispatch.BatchingExecutor$Batch$$anonfun$run$1.apply(BatchingExecutor.scala:59)
+        at akka.dispatch.BatchingExecutor$Batch$$anonfun$run$1.apply(BatchingExecutor.scala:59)
+        at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:72)
+        at akka.dispatch.BatchingExecutor$Batch.run(BatchingExecutor.scala:58)
+        at akka.dispatch.ExecutionContexts$sameThreadExecutionContext$.unbatchedExecute(Future.scala:74)
+        at akka.dispatch.BatchingExecutor$class.execute(BatchingExecutor.scala:110)
+        at akka.dispatch.ExecutionContexts$sameThreadExecutionContext$.execute(Future.scala:73)
+        at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40)
+        at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:248)
+        at akka.pattern.PromiseActorRef.$bang(AskSupport.scala:267)
+        at akka.remote.DefaultMessageDispatcher.dispatch(Endpoint.scala:89)
+        at akka.remote.EndpointReader$$anonfun$receive$2.applyOrElse(Endpoint.scala:937)
+        at akka.actor.Actor$class.aroundReceive(Actor.scala:465)
+        at akka.remote.EndpointActor.aroundReceive(Endpoint.scala:415)
+        at akka.actor.ActorCell.receiveMessage(ActorCell.scala:516)
+        at akka.actor.ActorCell.invoke(ActorCell.scala:487)
+        at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:238)
+        at akka.dispatch.Mailbox.run(Mailbox.scala:220)
+        at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:393)
+        at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
+        at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
+        at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
+        at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
+{noformat}
+
+And in driver side, we see a log message telling that the OutputCommitCoordinator is stopped after the first submission:
+{noformat}
+15/05/11 04:01:23 INFO spark.scheduler.OutputCommitCoordinator$OutputCommitCoordinatorActor: OutputCommitCoordinator stopped!
+{noformat}
+
+We examine the code of OutputCommitCoordinator, and find that executor will reuse the ref of driver's OutputCommitCoordinatorActor. So when an executor exits, it will eventually call SparkEnv.stop():
+{noformat}
+  private[spark] def stop() {
+    isStopped = true
+    pythonWorkers.foreach { case(key, worker) =\> worker.stop() }
+    Option(httpFileServer).foreach(\_.stop())
+    mapOutputTracker.stop()
+    shuffleManager.stop()
+    broadcastManager.stop()
+    blockManager.stop()
+    blockManager.master.stop()
+    metricsSystem.stop()
+    outputCommitCoordinator.stop()      \<--------------- 
+    actorSystem.shutdown()
+    ......
+{noformat} 
+
+and in OutputCommitCoordinator.stop():
+{noformat}
+  def stop(): Unit = synchronized {
+    coordinatorActor.foreach(\_ ! StopCoordinator)
+    coordinatorActor = None
+    authorizedCommittersByStage.clear()
+  }
+{noformat}
+
+We now work this problem around by adding an attribute "isDriver" in OutputCommitCoordinator and judge whether the "stop" command comes from driver or executor:
+{noformat}
+diff SparkEnv.scala
+360c360
+\<       new OutputCommitCoordinator(conf, isDriver)
+---
+\>       new OutputCommitCoordinator(conf)
+
+
+diff OutputCommitCoordinator.scala
+43c43
+\< private[spark] class OutputCommitCoordinator(conf: SparkConf, isDriver: Boolean = false) extends Logging {
+---
+\> private[spark] class OutputCommitCoordinator(conf: SparkConf) extends Logging {
+137,141c137,139
+\<     if (isDriver) {
+\<       coordinatorActor.foreach(\_ ! StopCoordinator)
+\<       coordinatorActor = None
+\<       authorizedCommittersByStage.clear()
+\<     }
+---
+\>     coordinatorActor.foreach(\_ ! StopCoordinator)
+\>     coordinatorActor = None
+\>     authorizedCommittersByStage.clear()
+{noformat}
+We propose to apply this fix in future release since it may affects all \*spark-shell\* function of dynamic allocation model.
 
 
 ---
@@ -12683,6 +12824,27 @@ val setC: VertexRDD[Int] = VertexRDD(sc.parallelize(2L until 4L).map(id =\> (id,
 setA.diff(setC).collect
 // java.lang.IllegalArgumentException: Can't zip RDDs with unequal numbers of partitions
 {code}
+
+
+---
+
+* [SPARK-5783](https://issues.apache.org/jira/browse/SPARK-5783) | *Minor* | **Include filename, line number in eventlog-parsing error message**
+
+While investigating why some recent applications were not showing up in my History Server UI, I found error message blocks like this in the history server logs:
+
+{code}
+15/02/12 18:51:55 ERROR scheduler.ReplayListenerBus: Exception in parsing Spark event log.
+java.lang.ClassCastException: org.json4s.JsonAST$JNothing$ cannot be cast to org.json4s.JsonAST$JObject
+	at org.apache.spark.util.JsonProtocol$.mapFromJson(JsonProtocol.scala:814)
+	at org.apache.spark.util.JsonProtocol$.executorInfoFromJson(JsonProtocol.scala:805)
+...
+	at org.apache.spark.deploy.history.FsHistoryProvider$$anon$1.run(FsHistoryProvider.scala:84)
+15/02/12 18:51:55 ERROR scheduler.ReplayListenerBus: Malformed line: {"Event":"SparkListenerExecutorAdded","Timestamp":1422897479154,"Executor ID":"12","Executor Info":{"Host":"demeter-csmaz11-1.demeter.hpc.mssm.edu","Total Cores":4}}
+{code}
+
+Turns out certain files had some malformed lines due to having been generated by a forked Spark with some WIP event-log functionality.
+
+It would be nice if the first line specified the file the error was found in, and the last line specified the line number.
 
 
 ---

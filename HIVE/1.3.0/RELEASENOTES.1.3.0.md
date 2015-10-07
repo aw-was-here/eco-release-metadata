@@ -108,6 +108,13 @@ HIVE-11366: Avoid right leaning tree hashCode depth in ExprNodeDescEqualityWrapp
 
 ---
 
+* [HIVE-11073](https://issues.apache.org/jira/browse/HIVE-11073) | *Minor* | **ORC FileDump utility ignores errors when writing output**
+
+orcfiledump exits if errors are detected when writing to stdout.
+
+
+---
+
 * [HIVE-11054](https://issues.apache.org/jira/browse/HIVE-11054) | *Major* | **Read error : Partition Varchar column cannot be cast to string**
 
 HIVE-11054: Handle varchar/char partition columns in vectorization

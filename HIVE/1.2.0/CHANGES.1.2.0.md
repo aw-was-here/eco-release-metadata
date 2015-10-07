@@ -118,7 +118,7 @@
 | [HIVE-10607](https://issues.apache.org/jira/browse/HIVE-10607) | Combination of ReducesinkDedup + TopN optimization yields incorrect result if there are multiple GBY in reducer |  Major | Logical Optimizer, Tez | Ashutosh Chauhan | Ashutosh Chauhan |
 | [HIVE-10604](https://issues.apache.org/jira/browse/HIVE-10604) | update webhcat-default.xml with 1.2 version numbers |  Minor | WebHCat | Eugene Koifman | Eugene Koifman |
 | [HIVE-10603](https://issues.apache.org/jira/browse/HIVE-10603) | increase default permgen space for HS2 on windows |  Major | HiveServer2 | Thejas M Nair | Ivan Malamen |
-| [HIVE-10595](https://issues.apache.org/jira/browse/HIVE-10595) | Dropping a table can cause NPEs in the compactor |  Major | Metastore | Alan Gates | Alan Gates |
+| [HIVE-10595](https://issues.apache.org/jira/browse/HIVE-10595) | Dropping a table can cause NPEs in the compactor |  Major | Metastore, Transactions | Alan Gates | Alan Gates |
 | [HIVE-10579](https://issues.apache.org/jira/browse/HIVE-10579) | Fix -Phadoop-1 build |  Major | . | Xuefu Zhang | Xuefu Zhang |
 | [HIVE-10578](https://issues.apache.org/jira/browse/HIVE-10578) | update sql standard authorization configuration whitelist |  Major | . | Thejas M Nair | Thejas M Nair |
 | [HIVE-10576](https://issues.apache.org/jira/browse/HIVE-10576) | add jar command does not work with Windows OS |  Major | . | Hari Sankar Sivarama Subramaniyan | Hari Sankar Sivarama Subramaniyan |

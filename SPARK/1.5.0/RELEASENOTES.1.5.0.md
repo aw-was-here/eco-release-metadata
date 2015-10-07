@@ -10070,6 +10070,22 @@ The given schema parameter will be overwritten in createDataFrame now. If it is 
 
 ---
 
+* [SPARK-8939](https://issues.apache.org/jira/browse/SPARK-8939) | *Major* | **YARN EC2 default setting fails with IllegalArgumentException**
+
+I just set it up from scratch using the spark-ec2 script. Then I ran
+{code}
+bin/spark-shell --master yarn
+{code}
+which failed with
+{code}
+15/07/09 03:44:29 ERROR SparkContext: Error initializing SparkContext.
+java.lang.IllegalArgumentException: Unknown/unsupported param List(--num-executors, , --executor-memory, 6154m, --executor-memory, 6154m, --executor-cores, 2, --name, Spark shell)
+{code}
+This goes away if I provide `--num-executors`, but we should fix the default.
+
+
+---
+
 * [SPARK-8937](https://issues.apache.org/jira/browse/SPARK-8937) | *Minor* | **A setting `spark.unsafe.exceptionOnMemoryLeak ` is missing in ScalaTest config.**
 
 `spark.unsafe.exceptionOnMemoryLeak` is present in the config of surefire.

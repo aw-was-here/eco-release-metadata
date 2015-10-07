@@ -2351,6 +2351,175 @@ Note that any exception right before the SparkContext correctly places the appli
 
 ---
 
+* [SPARK-6882](https://issues.apache.org/jira/browse/SPARK-6882) | *Major* | **Spark ThriftServer2 Kerberos failed encountering java.lang.IllegalArgumentException: Unknown auth type: null Allowed values are: [auth-int, auth-conf, auth]**
+
+When Kerberos is enabled, I get the following exceptions. 
+{code}
+2015-03-13 18:26:05,363 ERROR org.apache.hive.service.cli.thrift.ThriftCLIService (ThriftBinaryCLIService.java:run(93)) - Error: 
+java.lang.IllegalArgumentException: Unknown auth type: null Allowed values are: [auth-int, auth-conf, auth]
+{code}
+
+I tried it in
+\* Spark 1.2.1 git commit b6eaf77d4332bfb0a698849b1f5f917d20d70e97
+\* Spark 1.3.0 rc1 commit label 0dcb5d9f31b713ed90bcec63ebc4e530cbb69851
+
+with
+\* Apache Hive 0.13.1
+\* Apache Hadoop 2.4.1
+
+Build command
+{code}
+mvn -U -X -Phadoop-2.4 -Pyarn -Phive -Phive-0.13.1 -Phive-thriftserver -Dhadoop.version=2.4.1 -Dyarn.version=2.4.1 -Dhive.version=0.13.1 -DskipTests install
+{code}
+
+When starting Spark ThriftServer in {{yarn-client}} mode, the command to start thriftserver looks like this
+
+{code}
+./start-thriftserver.sh --hiveconf hive.server2.thrift.port=20000 --hiveconf hive.server2.thrift.bind.host=$(hostname) --master yarn-client
+{code}
+
+{{hostname}} points to the current hostname of the machine I'm using.
+
+Error message in {{spark.log}} from Spark 1.2.1 (1.2 rc1)
+{code}
+2015-03-13 18:26:05,363 ERROR org.apache.hive.service.cli.thrift.ThriftCLIService (ThriftBinaryCLIService.java:run(93)) - Error: 
+java.lang.IllegalArgumentException: Unknown auth type: null Allowed values are: [auth-int, auth-conf, auth]
+        at org.apache.hive.service.auth.SaslQOP.fromString(SaslQOP.java:56)
+        at org.apache.hive.service.auth.HiveAuthFactory.getSaslProperties(HiveAuthFactory.java:118)
+        at org.apache.hive.service.auth.HiveAuthFactory.getAuthTransFactory(HiveAuthFactory.java:133)
+        at org.apache.hive.service.cli.thrift.ThriftBinaryCLIService.run(ThriftBinaryCLIService.java:43)
+        at java.lang.Thread.run(Thread.java:744)
+{code}
+
+I'm wondering if this is due to the same problem described in HIVE-8154 HIVE-7620 due to an older code based for the Spark ThriftServer?
+
+Any insights are appreciated. Currently, I can't get Spark ThriftServer2 to run against a Kerberos cluster (Apache 2.4.1).
+
+My hive-site.xml looks like the following for spark/conf.
+The kerberos keytab and tgt are configured correctly, I'm able to connect to metastore, but the subsequent steps failed due to the exception.
+{code}
+\<property\>
+  \<name\>hive.semantic.analyzer.factory.impl\</name\>
+  \<value\>org.apache.hcatalog.cli.HCatSemanticAnalyzerFactory\</value\>
+\</property\>
+\<property\>
+  \<name\>hive.metastore.execute.setugi\</name\>
+  \<value\>true\</value\>
+\</property\>
+\<property\>
+  \<name\>hive.stats.autogather\</name\>
+  \<value\>false\</value\>
+\</property\>
+\<property\>
+  \<name\>hive.session.history.enabled\</name\>
+  \<value\>true\</value\>
+\</property\>
+\<property\>
+  \<name\>hive.querylog.location\</name\>
+  \<value\>/tmp/home/hive/log/${user.name}\</value\>
+\</property\>
+\<property\>
+  \<name\>hive.exec.local.scratchdir\</name\>
+  \<value\>/tmp/hive/scratch/${user.name}\</value\>
+\</property\>
+\<property\>
+  \<name\>hive.metastore.uris\</name\>
+  \<value\>thrift://somehostname:9083\</value\>
+\</property\>
+\<!-- HIVE SERVER 2 --\>
+\<property\>
+  \<name\>hive.server2.authentication\</name\>
+  \<value\>KERBEROS\</value\>
+\</property\>
+\<property\>
+  \<name\>hive.server2.authentication.kerberos.principal\</name\>
+  \<value\>\*\*\*\</value\>
+\</property\>
+\<property\>
+  \<name\>hive.server2.authentication.kerberos.keytab\</name\>
+  \<value\>\*\*\*\</value\>
+\</property\>
+\<property\>
+  \<name\>hive.server2.thrift.sasl.qop\</name\>
+  \<value\>auth\</value\>
+  \<description\>Sasl QOP value; one of 'auth', 'auth-int' and 'auth-conf'\</description\>
+\</property\>
+\<property\>
+  \<name\>hive.server2.enable.impersonation\</name\>
+  \<description\>Enable user impersonation for HiveServer2\</description\>
+  \<value\>true\</value\>
+\</property\>
+\<!-- HIVE METASTORE --\>
+\<property\>
+  \<name\>hive.metastore.sasl.enabled\</name\>
+  \<value\>true\</value\>
+\</property\>
+\<property\>
+  \<name\>hive.metastore.kerberos.keytab.file\</name\>
+  \<value\>\*\*\*\</value\>
+\</property\>
+\<property\>
+  \<name\>hive.metastore.kerberos.principal\</name\>
+  \<value\>\*\*\*\</value\>
+\</property\>
+\<property\>
+  \<name\>hive.metastore.cache.pinobjtypes\</name\>
+  \<value\>Table,Database,Type,FieldSchema,Order\</value\>
+\</property\>
+\<property\>
+  \<name\>hdfs\_sentinel\_file\</name\>
+  \<value\>\*\*\*\</value\>
+\</property\>
+\<property\>
+  \<name\>hive.metastore.warehouse.dir\</name\>
+  \<value\>/hive\</value\>
+\</property\>
+\<property\>
+  \<name\>hive.metastore.client.socket.timeout\</name\>
+  \<value\>600\</value\>
+\</property\>
+\<property\>
+  \<name\>hive.warehouse.subdir.inherit.perms\</name\>
+  \<value\>true\</value\>
+\</property\>
+{code}
+
+Here, I'm attaching a more detail logs from Spark 1.3 rc1.
+{code}
+2015-04-13 16:37:20,688 INFO  org.apache.hadoop.security.UserGroupInformation (UserGroupInformation.java:loginUserFromKeytab(893)) - Login successful for user hiveserver/alee-vpc2-dt.test.testhost.com@TEST.TESTHOST.COM using keytab file /etc/testhost/secrets/hiveserver.keytab
+2015-04-13 16:37:20,689 INFO  org.apache.hive.service.AbstractService (SparkSQLSessionManager.scala:init(43)) - HiveServer2: Async execution pool size 100
+2015-04-13 16:37:20,691 INFO  org.apache.hive.service.AbstractService (AbstractService.java:init(89)) - Service:OperationManager is inited.
+2015-04-13 16:37:20,691 INFO  org.apache.hive.service.AbstractService (SparkSQLCLIService.scala:initCompositeService(85)) - Service: SessionManager is inited.
+2015-04-13 16:37:20,692 INFO  org.apache.hive.service.AbstractService (SparkSQLCLIService.scala:initCompositeService(85)) - Service: CLIService is inited.
+2015-04-13 16:37:20,692 INFO  org.apache.hive.service.AbstractService (AbstractService.java:init(89)) - Service:ThriftBinaryCLIService is inited.
+2015-04-13 16:37:20,692 INFO  org.apache.hive.service.AbstractService (SparkSQLCLIService.scala:initCompositeService(85)) - Service: HiveServer2 is inited.
+2015-04-13 16:37:20,692 INFO  org.apache.hive.service.AbstractService (AbstractService.java:start(104)) - Service:OperationManager is started.
+2015-04-13 16:37:20,693 INFO  org.apache.hive.service.AbstractService (AbstractService.java:start(104)) - Service:SessionManager is started.
+2015-04-13 16:37:20,693 INFO  org.apache.hive.service.AbstractService (AbstractService.java:start(104)) - Service:CLIService is started.
+2015-04-13 16:37:20,758 INFO  hive.metastore (HiveMetaStoreClient.java:open(297)) - Trying to connect to metastore with URI thrift://alee-vpc2-gw.test.testhost.com:9083
+2015-04-13 16:37:20,784 INFO  hive.metastore (HiveMetaStoreClient.java:open(385)) - Connected to metastore.
+2015-04-13 16:37:20,801 INFO  org.apache.hive.service.AbstractService (AbstractService.java:start(104)) - Service:ThriftBinaryCLIService is started.
+2015-04-13 16:37:20,801 INFO  org.apache.hive.service.AbstractService (AbstractService.java:start(104)) - Service:HiveServer2 is started.
+2015-04-13 16:37:20,802 INFO  org.apache.spark.sql.hive.thriftserver.HiveThriftServer2 (Logging.scala:logInfo(59)) - HiveThriftServer2 started
+2015-04-13 16:37:20,923 INFO  org.apache.hadoop.security.UserGroupInformation (UserGroupInformation.java:loginUserFromKeytab(893)) - Login successful for user hiveserver/alee-vpc2-dt.test.testhost.com@TEST.TESTHOST.COM using keytab file /etc/testhost/secrets/hiveserver.keytab
+2015-04-13 16:37:20,930 INFO  org.apache.hadoop.security.token.delegation.AbstractDelegationTokenSecretManager (AbstractDelegationTokenSecretManager.java:updateCurrentKey(222)) - Updating the current master key for generating delegation tokens
+2015-04-13 16:37:20,936 INFO  org.apache.hadoop.hive.thrift.TokenStoreDelegationTokenSecretManager (TokenStoreDelegationTokenSecretManager.java:logUpdateMasterKey(209)) - New master key with key id=0
+2015-04-13 16:37:20,944 ERROR org.apache.hive.service.cli.thrift.ThriftCLIService (ThriftBinaryCLIService.java:run(93)) - Error: 
+java.lang.IllegalArgumentException: Unknown auth type: null Allowed values are: [auth-int, auth-conf, auth]
+  at org.apache.hive.service.auth.SaslQOP.fromString(SaslQOP.java:56)
+  at org.apache.hive.service.auth.HiveAuthFactory.getSaslProperties(HiveAuthFactory.java:118)
+  at org.apache.hive.service.auth.HiveAuthFactory.getAuthTransFactory(HiveAuthFactory.java:133)
+  at org.apache.hive.service.cli.thrift.ThriftBinaryCLIService.run(ThriftBinaryCLIService.java:43)
+  at java.lang.Thread.run(Thread.java:744)
+2015-04-13 16:37:20,947 INFO  org.apache.hadoop.hive.thrift.TokenStoreDelegationTokenSecretManager (TokenStoreDelegationTokenSecretManager.java:run(299)) - Starting expired delegation token remover thread, tokenRemoverScanInterval=60 min(s)
+2015-04-13 16:37:20,964 INFO  org.apache.hadoop.security.token.delegation.AbstractDelegationTokenSecretManager (AbstractDelegationTokenSecretManager.java:updateCurrentKey(222)) - Updating the current master key for generating delegation tokens
+2015-04-13 16:37:20,965 INFO  org.apache.hive.service.AbstractService (AbstractService.java:stop(125)) - Service:ThriftBinaryCLIService is stopped.
+2015-04-13 16:37:20,966 INFO  org.apache.hadoop.hive.thrift.TokenStoreDelegationTokenSecretManager (TokenStoreDelegationTokenSecretManager.java:logUpdateMasterKey(209)) - New master key with key id=1
+{code}
+
+
+---
+
 * [SPARK-6350](https://issues.apache.org/jira/browse/SPARK-6350) | *Minor* | **Make mesosExecutorCores configurable in mesos "fine-grained" mode**
 
 When spark runs in mesos fine-grained mode, mesos slave launches executor with # of cpus and memories. By the way, # of executor's cores is always CPU\_PER\_TASKS as same as spark.task.cpus. If I set that values as 5 for running intensive task, mesos executor always consume 5 cores without any running task. This waste resources. We should set executor core as a configuration variable.

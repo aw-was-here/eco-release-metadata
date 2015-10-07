@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 1.3.2 - Unreleased (as of 2015-09-26)
+## Release 1.3.2 - Unreleased (as of 2015-10-07)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -47,6 +47,7 @@
 | [SPARK-7140](https://issues.apache.org/jira/browse/SPARK-7140) | Do not scan all values in Vector.hashCode |  Major | MLlib | Xiangrui Meng | Xiangrui Meng |
 | [SPARK-6988](https://issues.apache.org/jira/browse/SPARK-6988) | Fix Spark SQL documentation for 1.3.x |  Minor | SQL | Olivier Girardot | Olivier Girardot |
 | [SPARK-6343](https://issues.apache.org/jira/browse/SPARK-6343) | Make doc more explicit regarding network connectivity requirements |  Minor | Documentation | Peter Parente | Peter Parente |
+| [SPARK-5783](https://issues.apache.org/jira/browse/SPARK-5783) | Include filename, line number in eventlog-parsing error message |  Minor | Spark Core | Ryan Williams | Ryan Williams |
 
 
 ### BUG FIXES:
@@ -83,6 +84,7 @@
 | [SPARK-7651](https://issues.apache.org/jira/browse/SPARK-7651) | PySpark GMM predict, predictSoft should fail on bad input |  Minor | MLlib, PySpark | Joseph K. Bradley | Meethu Mathew |
 | [SPARK-7624](https://issues.apache.org/jira/browse/SPARK-7624) | Task scheduler delay is increasing time over time in spark local mode |  Major | Spark Core | Jack Hu | Davies Liu |
 | [SPARK-7566](https://issues.apache.org/jira/browse/SPARK-7566) | HiveContext.analyzer cannot be overriden |  Major | SQL | Santiago M. Mola | Santiago M. Mola |
+| [SPARK-7563](https://issues.apache.org/jira/browse/SPARK-7563) | OutputCommitCoordinator.stop() should only be executed in driver |  Critical | Spark Core | Hailong Wen | Josh Rosen |
 | [SPARK-7552](https://issues.apache.org/jira/browse/SPARK-7552) | Close files correctly when iteration is finished in WAL recovery |  Major | Streaming | Saisai Shao | Saisai Shao |
 | [SPARK-7522](https://issues.apache.org/jira/browse/SPARK-7522) | ML Examples option for dataFormat should not be enclosed in angle brackets |  Minor | Examples | Bryan Cutler | Bryan Cutler |
 | [SPARK-7436](https://issues.apache.org/jira/browse/SPARK-7436) | Cannot implement nor use custom StandaloneRecoveryModeFactory implementations |  Major | Deploy | Jacek Lewandowski | Jacek Lewandowski |

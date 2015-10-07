@@ -353,6 +353,7 @@
 | [SPARK-5911](https://issues.apache.org/jira/browse/SPARK-5911) | Make Column.cast(to: String) support fixed precision and scale decimal type |  Major | SQL | Yin Huai | Yin Huai |
 | [SPARK-5831](https://issues.apache.org/jira/browse/SPARK-5831) | When checkpoint file size is bigger than 10, then delete them |  Trivial | Streaming | meiyoula | meiyoula |
 | [SPARK-5790](https://issues.apache.org/jira/browse/SPARK-5790) | Add tests for: VertexRDD's won't zip properly for `diff` capability |  Minor | GraphX, Tests | Brennon York | Brennon York |
+| [SPARK-5783](https://issues.apache.org/jira/browse/SPARK-5783) | Include filename, line number in eventlog-parsing error message |  Minor | Spark Core | Ryan Williams | Ryan Williams |
 | [SPARK-5750](https://issues.apache.org/jira/browse/SPARK-5750) | Document that ordering of elements in shuffled partitions is not deterministic across runs |  Minor | Documentation | Josh Rosen | Ilya Ganelin |
 | [SPARK-5726](https://issues.apache.org/jira/browse/SPARK-5726) | Hadamard Vector Product Transformer |  Major | ML, MLlib | Octavian Geagla | Octavian Geagla |
 | [SPARK-5708](https://issues.apache.org/jira/browse/SPARK-5708) | Add Slf4jSink to Spark Metrics Sink |  Minor | Spark Core | Judy Nash | Judy Nash |
@@ -409,6 +410,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [SPARK-9380](https://issues.apache.org/jira/browse/SPARK-9380) | Pregel example fix in graphx-programming-guide |  Major | Documentation | Alexander Ulanov | Alexander Ulanov |
+| [SPARK-9040](https://issues.apache.org/jira/browse/SPARK-9040) | StructField datatype Conversion Error |  Major | PySpark, Spark Core, SQL | Sandeep Pal |  |
 | [SPARK-9033](https://issues.apache.org/jira/browse/SPARK-9033) | scala.MatchError: interface java.util.Map (of class java.lang.Class) with Spark SQL |  Major | SQL | Pavel | Josh Rosen |
 | [SPARK-8726](https://issues.apache.org/jira/browse/SPARK-8726) | Wrong spark.executor.memory when using different EC2 master and worker machine types |  Major | EC2 | Stefano Parmesan | Stefano Parmesan |
 | [SPARK-8394](https://issues.apache.org/jira/browse/SPARK-8394) | HistoryServer doesn't read kerberos opts from config |  Minor | Spark Core | Steve Loughran | Marcelo Vanzin |
@@ -503,6 +505,7 @@
 | [SPARK-7567](https://issues.apache.org/jira/browse/SPARK-7567) | Migrating Parquet data source to FSBasedRelation |  Blocker | SQL | Cheng Lian | Cheng Lian |
 | [SPARK-7566](https://issues.apache.org/jira/browse/SPARK-7566) | HiveContext.analyzer cannot be overriden |  Major | SQL | Santiago M. Mola | Santiago M. Mola |
 | [SPARK-7565](https://issues.apache.org/jira/browse/SPARK-7565) | Broken maps in jsonRDD |  Blocker | SQL | Paul Colomiets | Davies Liu |
+| [SPARK-7563](https://issues.apache.org/jira/browse/SPARK-7563) | OutputCommitCoordinator.stop() should only be executed in driver |  Critical | Spark Core | Hailong Wen | Josh Rosen |
 | [SPARK-7552](https://issues.apache.org/jira/browse/SPARK-7552) | Close files correctly when iteration is finished in WAL recovery |  Major | Streaming | Saisai Shao | Saisai Shao |
 | [SPARK-7532](https://issues.apache.org/jira/browse/SPARK-7532) | Make StreamingContext.start() idempotent |  Blocker | Streaming | Tathagata Das | Tathagata Das |
 | [SPARK-7530](https://issues.apache.org/jira/browse/SPARK-7530) | Add API to get the current state of a StreamingContext |  Blocker | Streaming | Tathagata Das | Tathagata Das |
@@ -982,7 +985,7 @@
 | [SPARK-6526](https://issues.apache.org/jira/browse/SPARK-6526) | Add Normalizer transformer |  Major | ML | Xusen Yin | Xusen Yin |
 | [SPARK-6490](https://issues.apache.org/jira/browse/SPARK-6490) | Deprecate configurations for "askWithReply" and use new configuration names |  Major | Spark Core | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-6418](https://issues.apache.org/jira/browse/SPARK-6418) | Add simple per-stage visualization to the UI |  Major | Web UI | Kay Ousterhout | Kousuke Saruta |
-| [SPARK-6265](https://issues.apache.org/jira/browse/SPARK-6265) | PySpark GLMs missing doc for intercept, weights |  Minor | Documentation, MLlib, PySpark | Joseph K. Bradley | Yanbo Liang |
+| [SPARK-6265](https://issues.apache.org/jira/browse/SPARK-6265) | PySpark GLMs missing doc for intercept, weights |  Minor | Documentation, MLlib, PySpark | Joseph K. Bradley | YBL |
 | [SPARK-6262](https://issues.apache.org/jira/browse/SPARK-6262) | Python MLlib API missing items: Statistics |  Major | MLlib, PySpark | Joseph K. Bradley | Kai Sasaki |
 | [SPARK-6258](https://issues.apache.org/jira/browse/SPARK-6258) | Python MLlib API missing items: Clustering |  Major | MLlib, PySpark | Joseph K. Bradley | Yanbo Liang |
 | [SPARK-6257](https://issues.apache.org/jira/browse/SPARK-6257) | Python MLlib API missing items: Recommendation |  Major | MLlib, PySpark | Joseph K. Bradley | Manoj Kumar |

@@ -23,6 +23,27 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [HBASE-14544](https://issues.apache.org/jira/browse/HBASE-14544) | *Major* | **Allow HConnectionImpl to not refresh the dns on errors**
+
+By setting hbase.resolve.hostnames.on.failure to false you can reduce the number of dns name resolutions that a client will do. However if machines leave and come back with different ip's the changes will not be noticed by the clients. So only set hbase.resolve.hostnames.on.failure to false if your cluster dns is not changing while clients are connected.
+
+
+---
+
+* [HBASE-14502](https://issues.apache.org/jira/browse/HBASE-14502) | *Major* | **Purge use of jmock and remove as dependency**
+
+HBASE-14502 Purge use of jmock and remove as dependency
+
+
+---
+
+* [HBASE-14495](https://issues.apache.org/jira/browse/HBASE-14495) | *Major* | **TestHRegion#testFlushCacheWhileScanning goes zombie**
+
+The WAL append was changed by HBASE-12751. Every append now sets a latch on an edit. The latch needs to be cleared or else the WAL will hang. The original failures in TestHRegion turned up 'holes' where we were failing to throw the latch if we skipped out early because we were interrupted. Other 'holes' were found where we had mocked up a WAL so the latch would just stay in place.  Futher holes were found appending WAL markers... here we were skipping the mvcc completely for a few edits.  A clean up of WALUtils made all markers take the same code paths.
+
+
+---
+
 * [HBASE-14433](https://issues.apache.org/jira/browse/HBASE-14433) | *Major* | **Set down the client executor core thread count from 256 in tests**
 
 Tests run with client executors that have core thread count of 4 and a keepalive of 3 seconds. They used to default to 256 core threads and 60 seconds  for keepalive.
@@ -38,6 +59,23 @@ To use rpc protection in HBase, set the value of 'hbase.rpc.protection' to:
 'privacy' : authentication and confidentiality
 
 Earlier, HBase reference guide erroneously mentioned in some places to set the value to 'auth-conf'. This patch fixes the guide and adds temporary support for erroneously recommended values.
+
+
+---
+
+* [HBASE-14367](https://issues.apache.org/jira/browse/HBASE-14367) | *Major* | **Add normalization support to shell**
+
+This patch adds shell support for region normalizer.
+
+3 commands have been added to hbase shell 'tools' command group:
+
+ - 'normalizer\_enabled' checks whether region normalizer is turned on
+ - 'normalizer\_switch' allows user to turn normalizer on and off
+ - 'normalize' runs region normalizer if it's turned on.
+
+Also 'ater' command has been extended to allow user to enable/disable region normalization per table (disabled by default). Use it as 
+
+alter 'testtable', {NORMALIZATION\_ENABLED =\> 'true'}
 
 
 ---
@@ -135,6 +173,13 @@ This change augments existing chaos monkey framework with actions for restarting
 The service user related configurations are newly introduced since in prod/test environments each service is managed by different user. Once the above parameters are configured properly, you can start using them as needed. An example usage for invoking these new actions is:
 
 {{./hbase org.apache.hadoop.hbase.IntegrationTestAcidGuarantees -m serverAndDependenciesKilling}}
+
+
+---
+
+* [HBASE-14230](https://issues.apache.org/jira/browse/HBASE-14230) | *Minor* | **replace reflection in FSHlog with HdfsDataOutputStream#getCurrentBlockReplication()**
+
+Remove calling getNumCurrentReplicas on HdfsDataOutputStream via reflection. getNumCurrentReplicas showed up in hadoop 1+ and hadoop 0.2x. In hadoop-2 it was deprecated.
 
 
 ---

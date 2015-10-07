@@ -18,7 +18,7 @@
 -->
 # Apache Yetus Changelog
 
-## Release HADOOP-12111 - Unreleased (as of 2015-09-26)
+## Release HADOOP-12111 - Unreleased (as of 2015-10-07)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -32,6 +32,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HADOOP-12111](https://issues.apache.org/jira/browse/HADOOP-12111) | [Umbrella] Split test-patch off into its own TLP |  Major | yetus | Allen Wittenauer | Sean Busbey |
 
 
 ### IMPROVEMENTS:
@@ -56,6 +57,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HADOOP-12434](https://issues.apache.org/jira/browse/HADOOP-12434) | tombstone yetus branch |  Blocker | yetus | Sean Busbey | Sean Busbey |
 | [HADOOP-12400](https://issues.apache.org/jira/browse/HADOOP-12400) | Wrong comment for scaladoc\_rebuild function in test-patch scala plugin |  Trivial | yetus | Kengo Seki | Jagadesh Kiran N |
 | [HADOOP-12399](https://issues.apache.org/jira/browse/HADOOP-12399) | Wrong help messages in some test-patch plugins |  Minor | yetus | Kengo Seki | Jagadesh Kiran N |
 | [HADOOP-12398](https://issues.apache.org/jira/browse/HADOOP-12398) | filefilter function in test-patch flink personality is never called |  Major | yetus | Kengo Seki | Jagadesh Kiran N |

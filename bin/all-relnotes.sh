@@ -11,9 +11,6 @@ RDM=${HOME}/Src/apache-git/yetus/dev-support/releasedocmaker.py
 
 
 cd ${HOME}/Src/aw-github/eco-release-metadata/YETUS
-${RDM} --project HADOOP \
-        --projecttitle "Apache Yetus" \
-        --version HADOOP-12111
 ${RDM} --project YETUS \
         --projecttitle "Apache Yetus" \
         --version 0.0.0 --version 1.0.0 i\
@@ -24,10 +21,12 @@ ${RDM} --project BIGTOP --projecttitle "Apache BigTop" \
         --range --version 1.0.0 --version 2.0.0 \
         --index
 
+# Hadoop is a mess.  There are now effectively 4 branches
+# in active development, so this range is huge. :(
 cd ${HOME}/Src/aw-github/eco-release-metadata/HADOOP
 ${RDM} --project HADOOP --project HDFS --project YARN --project MAPREDUCE \
         --projecttitle "Apache Hadoop" \
-        --range --version 2.6.0 --version 3.0.0 --index
+        --range --version 2.6.1 --version 3.0.0 --index
 
 cd ${HOME}/Src/aw-github/eco-release-metadata/HBASE
 ${RDM} --project HBASE --projecttitle "Apache HBase" \
@@ -53,9 +52,13 @@ cd ${HOME}/Src/aw-github/eco-release-metadata/PIG
 ${RDM} --project PIG --projecttitle "Apache Pig" \
         --range --version 0.15.0 --version 0.17.0 --index
 
+# Spark is a mess. It effectively has like 5 branches in
+# active development at a time. "Released" versions
+# still get updates at random points in time.  As a
+# result, this range is HUGE. :(
 cd ${HOME}/Src/aw-github/eco-release-metadata/SPARK
 ${RDM} --project SPARK --projecttitle "Apache Spark" \
-        --range --version 1.2.0 --version 2+ --index
+        --range --version 1.2.3 --version 2+ --index
 
 cd ${HOME}/Src/aw-github/eco-release-metadata/TEZ
 ${RDM} --project TEZ --projecttitle "Apache Tez" \

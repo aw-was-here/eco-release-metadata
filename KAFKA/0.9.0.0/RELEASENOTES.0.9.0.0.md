@@ -23,6 +23,97 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [KAFKA-2604](https://issues.apache.org/jira/browse/KAFKA-2604) | *Major* | **Remove `completeAll` and improve timeout passed to `Selector.poll` from `NetworkClient.poll`**
+
+Now that KAFKA-2120 has been merged, we can improve a few things:
+
+1. Remove `NetworkClient.completeAll`
+2. Call `Selector.poll` with a timeout that is the minimum of timeout, metadata timeout and request timeout
+3. Disallow `Selector.poll(-1)` as it's not used and not something that we want generally (and one can always use `Selector.poll(Integer.MAX\_VALUE)` if one really wants it
+
+
+---
+
+* [KAFKA-2599](https://issues.apache.org/jira/browse/KAFKA-2599) | *Minor* | **Metadata#getClusterForCurrentTopics can throw NPE even with null checking**
+
+While working on another issue I have just seen the following:
+
+{code}
+    private Cluster getClusterForCurrentTopics(Cluster cluster) {
+        Collection\<PartitionInfo\> partitionInfos = new ArrayList\<\>();
+        if (cluster != null) {
+            for (String topic : this.topics) {
+                partitionInfos.addAll(cluster.partitionsForTopic(topic));
+            }
+        }
+        return new Cluster(cluster.nodes(), partitionInfos);
+    }
+{code}
+
+Well, there's a null check for cluster, but if cluster is null it will throw NPE at the return line by calling {{cluster.nodes()}}! So, I put together a quick fix and changed {{MetadataTest}} to reproduce this error.
+
+
+---
+
+* [KAFKA-2597](https://issues.apache.org/jira/browse/KAFKA-2597) | *Trivial* | **Add Eclipse directories to .gitignore**
+
+Add to {{.gitignore}} the Eclipse IDE directories {{.metadata}} and {{.recommenders}}. These store state of the IDE's workspace, and should not be checked in.
+
+
+---
+
+* [KAFKA-2591](https://issues.apache.org/jira/browse/KAFKA-2591) | *Major* | **Remove Persistent Data before Restoringafter a Fault**
+
+When the checkpoint is missing upon starting up, it should be indicating that the previous run is stopped uncleanly (or it is the first time running this process job), hence any persisted data is not reliable any more and we need to restore from the beginning.
+
+
+---
+
+* [KAFKA-2586](https://issues.apache.org/jira/browse/KAFKA-2586) | *Major* | **Enable SSL for inter-broker communication in SSL tests**
+
+This is important to ensure that we catch regressions.
+
+
+---
+
+* [KAFKA-2585](https://issues.apache.org/jira/browse/KAFKA-2585) | *Major* | **ConsoleConsumer should not hang infinitely upon exception**
+
+Due to imcompatibility beween Java 1.7 and Java 1.8, if Kafka ConsoleConsumer was compiled by Java 1.8 but run by Java 1.7, and if ConsoleConsumer has consumer.timeout.ms in the consumer.properties, then when it timesout, it will throw the following exception and hang infinitely.
+
+This will cause problem for e.g. Ducktape system test, which currently runs consumer with Java 1.7 and waits for consumer to timeout. This bug causes the Ducktape to hang for a long time.
+
+To prevent ConsoleConsumer to hang in case of such exception, we can wrap try/catch around run() and do System.exit(0) at the end of main() in ConsoleConsumer.
+
+
+
+[2015-09-28 05:41:31,499] ERROR Error processing message, stopping consumer:  (kafka.tools.ConsoleConsumer$)
+kafka.consumer.ConsumerTimeoutException
+	at kafka.consumer.ConsumerIterator.makeNext(ConsumerIterator.scala:69)
+	at kafka.consumer.ConsumerIterator.makeNext(ConsumerIterator.scala:33)
+	at kafka.utils.IteratorTemplate.maybeComputeNext(IteratorTemplate.scala:66)
+	at kafka.utils.IteratorTemplate.hasNext(IteratorTemplate.scala:58)
+	at kafka.utils.IteratorTemplate.next(IteratorTemplate.scala:38)
+	at kafka.consumer.ConsumerIterator.next(ConsumerIterator.scala:46)
+	at kafka.consumer.OldConsumer.receive(BaseConsumer.scala:70)
+	at kafka.tools.ConsoleConsumer$.process(ConsoleConsumer.scala:94)
+	at kafka.tools.ConsoleConsumer$.run(ConsoleConsumer.scala:57)
+	at kafka.tools.ConsoleConsumer$.main(ConsoleConsumer.scala:41)
+	at kafka.tools.ConsoleConsumer.main(ConsoleConsumer.scala)
+Processed a total of 78 messages
+Exception in thread "main" java.lang.NoSuchMethodError: java.util.concurrent.ConcurrentHashMap.keySet()Ljava/util/concurrent/ConcurrentHashMap$KeySetView;
+	at kafka.utils.Pool.keys(Pool.scala:77)
+	at kafka.consumer.FetchRequestAndResponseStatsRegistry$.removeConsumerFetchRequestAndResponseStats(FetchRequestAndResponseStats.scala:69)
+	at kafka.metrics.KafkaMetricsGroup$.removeAllConsumerMetrics(KafkaMetricsGroup.scala:189)
+	at kafka.consumer.ZookeeperConsumerConnector.shutdown(ZookeeperConsumerConnector.scala:202)
+	at kafka.consumer.OldConsumer.stop(BaseConsumer.scala:75)
+	at kafka.tools.ConsoleConsumer$.process(ConsoleConsumer.scala:98)
+	at kafka.tools.ConsoleConsumer$.run(ConsoleConsumer.scala:57)
+	at kafka.tools.ConsoleConsumer$.main(ConsoleConsumer.scala:41)
+	at kafka.tools.ConsoleConsumer.main(ConsoleConsumer.scala)
+
+
+---
+
 * [KAFKA-2582](https://issues.apache.org/jira/browse/KAFKA-2582) | *Major* | **ConsumerMetdata authorization error not returned to user**
 
 The current authorization implementation for the ConsumerMetadata request throws AuthorizationException, but the exception handler does not convert this to an authorization error. Instead, the handler in ConsumerMetdataRequest converts all exceptions to ConsumerCoordinatoryNotAvailable, which would cause the client to continue retrying indefinitely.
@@ -59,6 +150,26 @@ Tested locally and on EC2
 
 ---
 
+* [KAFKA-2573](https://issues.apache.org/jira/browse/KAFKA-2573) | *Major* | **Mirror maker system test hangs and eventually fails**
+
+Due to changes made in KAFKA-2015, handling of {{--consumer.config}} has changed, more details is specified on KAFKA-2467. This leads to the exception.
+
+{code}
+Exception in thread "main" java.lang.NoSuchMethodError: java.util.concurrent.ConcurrentHashMap.keySet()Ljava/util/concurrent/ConcurrentHashMap$KeySetView;
+	at kafka.utils.Pool.keys(Pool.scala:77)
+	at kafka.consumer.FetchRequestAndResponseStatsRegistry$.removeConsumerFetchRequestAndResponseStats(FetchRequestAndResponseStats.scala:69)
+	at kafka.metrics.KafkaMetricsGroup$.removeAllConsumerMetrics(KafkaMetricsGroup.scala:189)
+	at kafka.consumer.ZookeeperConsumerConnector.shutdown(ZookeeperConsumerConnector.scala:200)
+	at kafka.consumer.OldConsumer.stop(BaseConsumer.scala:75)
+	at kafka.tools.ConsoleConsumer$.process(ConsoleConsumer.scala:98)
+	at kafka.tools.ConsoleConsumer$.run(ConsoleConsumer.scala:57)
+	at kafka.tools.ConsoleConsumer$.main(ConsoleConsumer.scala:41)
+	at kafka.tools.ConsoleConsumer.main(ConsoleConsumer.scala)
+{code}
+
+
+---
+
 * [KAFKA-2571](https://issues.apache.org/jira/browse/KAFKA-2571) | *Major* | **KafkaLog4jAppender dies while specifying "acks" config**
 
 KafkaLog4jAppender specifies "acks" config's value as int, however KafkaProducer expects it as a String.
@@ -86,6 +197,13 @@ Exception in thread "main" org.apache.kafka.common.config.ConfigException: Inval
 	at org.apache.kafka.clients.tools.VerifiableLog4jAppender.createFromArgs(VerifiableLog4jAppender.java:124)
 	at org.apache.kafka.clients.tools.VerifiableLog4jAppender.main(VerifiableLog4jAppender.java:158)
 {code}
+
+
+---
+
+* [KAFKA-2570](https://issues.apache.org/jira/browse/KAFKA-2570) | *Major* | **New consumer should commit before every rebalance when auto-commit is enabled**
+
+If not, then the consumer may see duplicates even on normal rebalances, since we will always reset to the previous commit after rebalancing.
 
 
 ---
@@ -163,6 +281,17 @@ Which I believe was missed when committing KAFKA-2389 which replaces all occurre
 
 ---
 
+* [KAFKA-2534](https://issues.apache.org/jira/browse/KAFKA-2534) | *Major* | **SSLTransportLayer does not handle buffer overflow correctly**
+
+There are a couple of issues with the handling of buffer overflow in {{SSLTransportLayer}}.
+# {{netWriteBuffer}} is flipped immediately after {{wrap()}}, leaving the data ready for writing onto the socket channel. If {{netWriteBuffer}} is expanded because {{wrap()}} returns BUFFER\_OVERFLOW, the expanded buffer needs to be un-flipped before expansion and flipped afterwards to leave the resulting buffer in the same state. The current implementation does not do this and hence the expanded buffer is not as expected.
+# If {{handshakeUnwrap()}} returns a BUFFER\_OVERFLOW because application buffer needs to be expanded, the current implementation expands the buffer and returns from the {{handshake()}} call. Since handshake data was already read from the network, this can result in the handshake never completing if no more data is received on the channel. {{handshakeUnwrap()}} should be invoked after application buffer expansion to process data that has already arrived.
+
+I will submit a PR with fixes for these along with unit tests which demonstrate these issues. I am not sure it is easy to trigger buffer overflow/underflow in a system test. Since these code paths are currently untested, unit tests which mock these scenarios may be useful.
+
+
+---
+
 * [KAFKA-2533](https://issues.apache.org/jira/browse/KAFKA-2533) | *Major* | **Create a member Metadata.Listener inside KafkaConsumer**
 
 Create a member Metadata.Listener inside KafkaConsumer instead of letting KafkaConsumer to implement this interface along with Consumer, since it is only used in subscribe(Pattern).
@@ -173,6 +302,51 @@ Create a member Metadata.Listener inside KafkaConsumer instead of letting KafkaC
 * [KAFKA-2532](https://issues.apache.org/jira/browse/KAFKA-2532) | *Major* | **Remove Consumer from rebalance callback arguments**
 
 After KAFKA-2388, the rebalance callback is no longer constructed in configuration, so we should no longer need to pass a reference to the consumer instance in the callback arguments. This allows us to remove the callback wrapper in SubscriptionState.
+
+
+---
+
+* [KAFKA-2531](https://issues.apache.org/jira/browse/KAFKA-2531) | *Major* | **Add Ducktape based tests for KafkaLog4jAppender**
+
+Add ducktape based tests for KafkaLog4jAppender.
+
+
+---
+
+* [KAFKA-2517](https://issues.apache.org/jira/browse/KAFKA-2517) | *Major* | **Performance Regression post SSL implementation**
+
+It would appear that we incurred a performance regression on submission of the SSL work affecting the performance of the new Kafka Consumer. 
+
+Running with 1KB messages. Macbook 2.3 GHz Intel Core i7, 8GB, APPLE SSD SM256E. Single server instance. All local. 
+
+kafka-consumer-perf-test.sh ... --messages 3000000  --new-consumer
+
+Pre-SSL changes (commit 503bd36647695e8cc91893ffb80346dd03eb0bc5)
+Steady state throughputs = 234.8 MB/s
+(2861.5913, 234.8261, 3000596, 246233.0543)
+
+Post-SSL changes (commit 13c432f7952de27e9bf8cb4adb33a91ae3a4b738) 
+Steady state throughput =  178.1 MB/s  
+(2861.5913, 178.1480, 3000596, 186801.7182)
+
+Implication is a 25% reduction in consumer throughput for these test conditions. 
+
+This appears to be caused by the use of PlaintextTransportLayer rather than SocketChannel in FileMessageSet.writeTo() meaning a zero copy transfer is not invoked.
+
+Switching to the use of a SocketChannel directly in FileMessageSet.writeTo()  yields the following result:
+Steady state throughput =  281.8 MB/s
+(2861.5913, 281.8191, 3000596, 295508.7650)
+
+
+---
+
+* [KAFKA-2514](https://issues.apache.org/jira/browse/KAFKA-2514) | *Blocker* | **change default JVM options in kafka-run-class.sh**
+
+Since we have stopped supporting java 6, we should improve the default jvm options. For example, we should probably change the following to G1 collectors.
+
+if [ -z "$KAFKA\_JVM\_PERFORMANCE\_OPTS" ]; then
+  KAFKA\_JVM\_PERFORMANCE\_OPTS="-server -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:+CMSScavengeBeforeRemark -XX:+DisableExplicitGC -Djava.awt.headless=true"
+fi
 
 
 ---
@@ -282,11 +456,36 @@ It seems option 2) is better, because it requires less code, allows new options 
 
 ---
 
+* [KAFKA-2482](https://issues.apache.org/jira/browse/KAFKA-2482) | *Major* | **Allow copycat sink tasks to pause/resume consumption of specific topic partitions**
+
+Consider a situation where a sink is assigned 2 topic partitions. One of them runs into a transient issue and no more data from it can be processed. However, the other topic partition is proceeding fine. We don't want to block the second partition by constantly throwing exceptions due to data from the first topic partition.
+
+The new consumer now supports pause/resume, so we should expose these to the task. We could expose the functionality directly, although that would also make the task responsible for scheduling some task in the future to check whether it can resume. Another approach might be to make the API include the backoff time. Then the framework would automatically resume consumption of the topic partition after that time, which would presumably prompt the task to reevaluate the situation for the topic partition when it receives another message for it.
+
+
+---
+
+* [KAFKA-2476](https://issues.apache.org/jira/browse/KAFKA-2476) | *Major* | **Define logical types for Copycat data API**
+
+We need some common types like datetime and decimal. This boils down to defining the schemas for these types, along with documenting their semantics.
+
+
+---
+
 * [KAFKA-2475](https://issues.apache.org/jira/browse/KAFKA-2475) | *Major* | **Reduce copycat configs to only specify a converter or serializer, not both**
 
 Ultimately, all we care about is getting from byte[] -\> Copycat data API. The current split of the interfaces makes it easy to reuse existing serializers, but you still have to implement a new class.
 
 It will be simpler, both conceptually and by requiring fewer configs, to combine both these steps into a single API. This also allows certain formats to preserve more information across these (e.g. for primitive types in schema, which otherwise could lose certain schema information).
+
+
+---
+
+* [KAFKA-2474](https://issues.apache.org/jira/browse/KAFKA-2474) | *Major* | **Add caching for converted Copycat schemas in JSONConverter**
+
+From discussion of KAFKA-2367:
+
+bq. Caching of conversion of schemas. In the JSON implementation we're including, we're probably being pretty wasteful right now since every record has to translate both the schema and data to JSON. We should definitely be doing some caching here. I think an LRU using an IdentityHashMap should be fine. However, this does assume that connectors are good about reusing schemas (defining them up front, or if they are dynamic they should have their own cache of schemas and be able to detect when they can be reused).
 
 
 ---
@@ -573,6 +772,19 @@ This change in the PR script will not list the commit if there is a single one a
 * [KAFKA-2429](https://issues.apache.org/jira/browse/KAFKA-2429) | *Major* | **Add annotations to mark classes as stable/unstable**
 
 We should have some annotations so that we can mark classes as public and stable vs. in development and unstable. This will help address two issues. First, we already get fairly regular emails on the mailing list about non-functioning code because we sometimes check in stubbed out code to get started on some new code. Sometimes that also makes it into a release (e.g. the stubbed out interface for the new consumer). We don't expect that code to work, but it's not obvious to users that it shouldn't. Second, we sometimes want to be able to check in imperfect draft code because it's new, expected to be unstable, and it helps with reviewing to be able to get something smaller checked in and then iterate on it.
+
+
+---
+
+* [KAFKA-2425](https://issues.apache.org/jira/browse/KAFKA-2425) | *Major* | **Migrate website from SVN to Git**
+
+The preference is to share the same Git repo for the code and website as per discussion in the mailing list:
+
+http://search-hadoop.com/m/uyzND1Dux842dm7vg2
+
+Useful reference:
+
+https://blogs.apache.org/infra/entry/git\_based\_websites\_available
 
 
 ---
@@ -892,6 +1104,15 @@ Two key features it should ideally support: support multiple files and rolling l
 * [KAFKA-2373](https://issues.apache.org/jira/browse/KAFKA-2373) | *Major* | **Copycat distributed offset storage**
 
 Add offset storage for Copycat that works in distributed mode, which likely means storing the data in a Kafka topic. Copycat workers will use this by default.
+
+
+---
+
+* [KAFKA-2368](https://issues.apache.org/jira/browse/KAFKA-2368) | *Major* | **Add Copycat standalone CLI**
+
+Define and add the CLI for running Copycat in standalone mode. KAFKA-2366 may add a simple version, but this JIRA should address agreeing on the final interface for the functionality defined in KIP-26, which proposed a basic API but may need further extension.
+
+Since the standalone mode is not meant to be persistent, this may end up being a pretty straightforward API. However, it should cleanly handle both worker-level configs and multiple connector configs.
 
 
 ---
@@ -1851,6 +2072,15 @@ java.lang.NullPointerException
 
 ---
 
+* [KAFKA-2212](https://issues.apache.org/jira/browse/KAFKA-2212) | *Blocker* | **KafkaAuthorizer: Add CLI for Acl management.**
+
+This is subtask-3 for Kafka-1688.
+
+Please see KIP-11 for details on CLI for Authorizer. https://cwiki.apache.org/confluence/display/KAFKA/KIP-11+-+Authorization+Interface
+
+
+---
+
 * [KAFKA-2211](https://issues.apache.org/jira/browse/KAFKA-2211) | *Blocker* | **KafkaAuthorizer: Add simpleACLAuthorizer implementation.**
 
 Subtask-2 for Kafka-1688. 
@@ -2237,6 +2467,16 @@ wrote:
 
 ---
 
+* [KAFKA-2120](https://issues.apache.org/jira/browse/KAFKA-2120) | *Blocker* | **Add a request timeout to NetworkClient**
+
+Currently NetworkClient does not have a timeout setting for requests. So if no response is received for a request due to reasons such as broker is down, the request will never be completed.
+Request timeout will also be used as implicit timeout for some methods such as KafkaProducer.flush() and kafkaProducer.close().
+KIP-19 is created for this public interface change.
+https://cwiki.apache.org/confluence/display/KAFKA/KIP-19+-+Add+a+request+timeout+to+NetworkClient
+
+
+---
+
 * [KAFKA-2119](https://issues.apache.org/jira/browse/KAFKA-2119) | *Trivial* | **ConsumerRecord key() and value() methods should not have throws Exception**
 
 There were some leftover throws clauses in ConsumerRecord. It looks like the initial implementation removed errors from the ConsumerRecord but didn't clean up these clauses.
@@ -2473,30 +2713,6 @@ should be:
 {code}
 props.put("advertised.listeners", "PLAINTEXT://localhost:9091,TRACE://localhost:9091")
 {code}
-
-
----
-
-* [KAFKA-2103](https://issues.apache.org/jira/browse/KAFKA-2103) | *Major* | **kafka.producer.AsyncProducerTest failure.**
-
-I saw this test consistently failing on trunk.
-The recent changes are KAFKA-2099, KAFKA-1926, KAFKA-1809.
-kafka.producer.AsyncProducerTest \> testNoBroker FAILED
-    org.scalatest.junit.JUnitTestFailedError: Should fail with FailedToSendMessageException
-        at org.scalatest.junit.AssertionsForJUnit$class.newAssertionFailedException(AssertionsForJUnit.scala:101)
-        at org.scalatest.junit.JUnit3Suite.newAssertionFailedException(JUnit3Suite.scala:149)
-        at org.scalatest.Assertions$class.fail(Assertions.scala:711)
-        at org.scalatest.junit.JUnit3Suite.fail(JUnit3Suite.scala:149)
-        at kafka.producer.AsyncProducerTest.testNoBroker(AsyncProducerTest.scala:300)
-
-kafka.producer.AsyncProducerTest \> testIncompatibleEncoder PASSED
-
-kafka.producer.AsyncProducerTest \> testRandomPartitioner PASSED
-
-kafka.producer.AsyncProducerTest \> testFailedSendRetryLogic FAILED
-    kafka.common.FailedToSendMessageException: Failed to send messages after 3 tries.
-        at kafka.producer.async.DefaultEventHandler.handle(DefaultEventHandler.scala:91)
-        at kafka.producer.AsyncProducerTest.testFailedSendRetryLogic(AsyncProducerTest.scala:415)
 
 
 ---

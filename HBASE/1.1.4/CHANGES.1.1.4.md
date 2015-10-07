@@ -16,9 +16,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-# Apache Oozie Changelog
+# Apache HBase Changelog
 
-## Release 4.3.0 - Unreleased (as of 2015-10-07)
+## Release 1.1.4 - Unreleased (as of 2015-10-07)
 
 ### INCOMPATIBLE CHANGES:
 

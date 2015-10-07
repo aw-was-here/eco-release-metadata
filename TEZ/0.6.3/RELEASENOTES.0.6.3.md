@@ -23,6 +23,37 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [TEZ-2855](https://issues.apache.org/jira/browse/TEZ-2855) | *Critical* | **Potential NPE while routing VertexManager events**
+
+Observed while running against 0.8.0-alpha. This will likely affect 0.7 as well - that'll be known after debugging.
+
+{code}
+2015-09-24T12:13:42,675 ERROR [Dispatcher thread: Central] common.AsyncDispatcher: Error in dispatcher thread
+java.lang.NullPointerException
+  at org.apache.tez.dag.app.dag.impl.VertexImpl.handleRoutedTezEvents(VertexImpl.java:4429) ~[TezAppJar.jar:0.8.0-alpha]
+  at org.apache.tez.dag.app.dag.impl.VertexImpl.access$4000(VertexImpl.java:203) ~[TezAppJar.jar:0.8.0-alpha]
+  at org.apache.tez.dag.app.dag.impl.VertexImpl$RouteEventTransition.transition(VertexImpl.java:4175) ~[TezAppJar.jar:0.8.0-alpha]
+  at org.apache.tez.dag.app.dag.impl.VertexImpl$RouteEventTransition.transition(VertexImpl.java:4167) ~[TezAppJar.jar:0.8.0-alpha]
+  at org.apache.hadoop.yarn.state.StateMachineFactory$MultipleInternalArc.doTransition(StateMachineFactory.java:385) ~[hadoop-yarn-common-2.6.0.jar:?]
+  at org.apache.hadoop.yarn.state.StateMachineFactory.doTransition(StateMachineFactory.java:302) ~[hadoop-yarn-common-2.6.0.jar:?]
+  at org.apache.hadoop.yarn.state.StateMachineFactory.access$300(StateMachineFactory.java:46) ~[hadoop-yarn-common-2.6.0.jar:?]
+  at org.apache.hadoop.yarn.state.StateMachineFactory$InternalStateMachine.doTransition(StateMachineFactory.java:448) ~[hadoop-yarn-common-2.6.0.jar:?]
+  at org.apache.tez.state.StateMachineTez.doTransition(StateMachineTez.java:57) ~[TezAppJar.jar:0.8.0-alpha]
+  at org.apache.tez.dag.app.dag.impl.VertexImpl.handle(VertexImpl.java:1906) ~[TezAppJar.jar:0.8.0-alpha]
+  at org.apache.tez.dag.app.dag.impl.VertexImpl.handle(VertexImpl.java:202) ~[TezAppJar.jar:0.8.0-alpha]
+  at org.apache.tez.dag.app.DAGAppMaster$VertexEventDispatcher.handle(DAGAppMaster.java:2069) ~[TezAppJar.jar:0.8.0-alpha]
+  at org.apache.tez.dag.app.DAGAppMaster$VertexEventDispatcher.handle(DAGAppMaster.java:2055) ~[TezAppJar.jar:0.8.0-alpha]
+  at org.apache.tez.common.AsyncDispatcher.dispatch(AsyncDispatcher.java:183) [tez-common-0.8.0-alpha.jar:0.8.0-alpha]
+  at org.apache.tez.common.AsyncDispatcher$1.run(AsyncDispatcher.java:114) [tez-common-0.8.0-alpha.jar:0.8.0-alpha]
+  at java.lang.Thread.run(Thread.java:745) [?:1.8.0\_40]
+2015-09-24T12:13:42,681 INFO [HistoryEventHandlingThread] impl.SimpleHistoryLoggingService: Writing event TASK\_ATTEMPT\_FINISHED to history file
+{code}
+
+Looks like the VertexManager was null.
+
+
+---
+
 * [TEZ-2834](https://issues.apache.org/jira/browse/TEZ-2834) | *Major* | **Make Tez preemption resilient to incorrect free resource reported by YARN**
 
 Will attach the DAG.
@@ -161,6 +192,13 @@ java.nio.channels.ClosedChannelException
 
 ---
 
+* [TEZ-2758](https://issues.apache.org/jira/browse/TEZ-2758) | *Major* | **Remove append API in RecoveryService after TEZ-1909**
+
+After TEZ-1909, there would be no case for append recovery file.
+
+
+---
+
 * [TEZ-2752](https://issues.apache.org/jira/browse/TEZ-2752) | *Major* | **logUnsuccessful completion in Attempt should write original finish time to ATS**
 
 Currently it overwrites with the current time and that results in wrong information since in reality the attempt might have finished earlier if the failure was output failure. Other failures also set the finish time in the terminate transition and thus even in non output failed cases the value of finishtime can be used instead of using current time.
@@ -207,6 +245,14 @@ Map 1 uses all slots in cluster (~ 224 per wave). Until data is downloaded, shar
 Based on disk / network, it  might take time for fetcher to finish downloading and release the lock.  Since there was only one task in Map-1, it ended up in a sort of tight loop generating relatively larger logs.
 
 Looks like 260-290 MB task log files are created in this case per attempt.  That would be around 2.3 GB to 3 GB (depending on number of slots waiting) in machine with 8-10 slots.
+
+
+---
+
+* [TEZ-2716](https://issues.apache.org/jira/browse/TEZ-2716) | *Major* | **DefaultSorter.isRleNeeded not thread safe**
+
+TEZ-1997.
+Should be targeted at the same set of versions that TEZ-1997 goes into.
 
 
 ---

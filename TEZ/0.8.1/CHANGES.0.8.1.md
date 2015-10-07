@@ -18,7 +18,7 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.8.1 - Unreleased (as of 2015-09-26)
+## Release 0.8.1 - Unreleased (as of 2015-10-07)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -36,9 +36,11 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-2836](https://issues.apache.org/jira/browse/TEZ-2836) | Avoid setting framework/system counters for tasks running in threads |  Major | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-2784](https://issues.apache.org/jira/browse/TEZ-2784) | optimize TaskImpl.isFinished() |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-2768](https://issues.apache.org/jira/browse/TEZ-2768) | Log a useful error message when the summary stream cannot be closed when shutting down an AM |  Major | . | Jeff Zhang | Jeff Zhang |
 | [TEZ-2767](https://issues.apache.org/jira/browse/TEZ-2767) | Make TezMxBeanResourceCalculator the default resource calculator |  Major | . | Siddharth Seth | Siddharth Seth |
+| [TEZ-2758](https://issues.apache.org/jira/browse/TEZ-2758) | Remove append API in RecoveryService after TEZ-1909 |  Major | . | Jeff Zhang | Jeff Zhang |
 | [TEZ-2754](https://issues.apache.org/jira/browse/TEZ-2754) | Tez UI: StartTime & EndTime is not displayed with right format in Graphical View |  Major | . | Jeff Zhang | Sreenath Somarajapuram |
 | [TEZ-2662](https://issues.apache.org/jira/browse/TEZ-2662) | Provide a way to check whether AM or task opts are valid and error if not |  Major | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-2643](https://issues.apache.org/jira/browse/TEZ-2643) | Minimize number of empty spills in Pipelined Sorter |  Major | . | Saikat | Saikat |
@@ -49,7 +51,11 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-2860](https://issues.apache.org/jira/browse/TEZ-2860) | NPE in DAGClientImpl |  Major | . | Jeff Zhang | Jeff Zhang |
+| [TEZ-2859](https://issues.apache.org/jira/browse/TEZ-2859) | TestMergeManager.testLocalDiskMergeMultipleTasks failing |  Blocker | . | Hitesh Shah |  |
+| [TEZ-2855](https://issues.apache.org/jira/browse/TEZ-2855) | Potential NPE while routing VertexManager events |  Critical | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-2853](https://issues.apache.org/jira/browse/TEZ-2853) | Tez UI: task attempt page is coming empty |  Blocker | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
+| [TEZ-2851](https://issues.apache.org/jira/browse/TEZ-2851) | Support a way for upstream applications to pass in a caller context to Tez |  Major | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-2847](https://issues.apache.org/jira/browse/TEZ-2847) | Tez UI: Task details doesn't gets updated on manual refresh after job complete |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2834](https://issues.apache.org/jira/browse/TEZ-2834) | Make Tez preemption resilient to incorrect free resource reported by YARN |  Major | . | Rajesh Balamohan | Bikas Saha |
 | [TEZ-2833](https://issues.apache.org/jira/browse/TEZ-2833) | Dont create extra directory during ATS file download |  Major | . | Bikas Saha | Rajesh Balamohan |
@@ -108,6 +114,8 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-2858](https://issues.apache.org/jira/browse/TEZ-2858) | Stop using System.currentTimeMillis in TestInputReadyTracker |  Major | . | Siddharth Seth | Siddharth Seth |
+| [TEZ-2857](https://issues.apache.org/jira/browse/TEZ-2857) | Flakey tests in TestDAGImpl |  Major | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-2762](https://issues.apache.org/jira/browse/TEZ-2762) | 0.8.0-alpha post release vote changes |  Major | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-2747](https://issues.apache.org/jira/browse/TEZ-2747) | Update master to reflect 0.8.0-alpha release |  Major | . | Siddharth Seth | Siddharth Seth |
 

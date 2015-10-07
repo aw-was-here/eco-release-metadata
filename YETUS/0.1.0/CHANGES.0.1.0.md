@@ -18,7 +18,7 @@
 -->
 # Apache Yetus Changelog
 
-## Release 0.1.0 - Unreleased (as of 2015-09-26)
+## Release 0.1.0 - Unreleased (as of 2015-10-07)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -30,19 +30,24 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [YETUS-5](https://issues.apache.org/jira/browse/YETUS-5) | Support per-instance maven repos |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
 
 
 ### IMPROVEMENTS:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [YETUS-2](https://issues.apache.org/jira/browse/YETUS-2) | Build website |  Critical | . | Sean Busbey | Allen Wittenauer |
 
 
 ### BUG FIXES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [YETUS-63](https://issues.apache.org/jira/browse/YETUS-63) | The menu button on Yetus website is invisible when viewed from mobile devices |  Minor | website and documentation | Kengo Seki | Allen Wittenauer |
 | [YETUS-55](https://issues.apache.org/jira/browse/YETUS-55) | fix recovery of broken rebase code |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
+| [YETUS-50](https://issues.apache.org/jira/browse/YETUS-50) | asflicense is easily tricked |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
+| [YETUS-40](https://issues.apache.org/jira/browse/YETUS-40) | patch file confuses test-patch (date format problems) |  Blocker | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-28](https://issues.apache.org/jira/browse/YETUS-28) | if CHANGED\_FILES is corrupt, find\_changed\_modules never returns |  Major | Test Patch | Allen Wittenauer | Kengo Seki |
 | [YETUS-9](https://issues.apache.org/jira/browse/YETUS-9) | Update .gitignore to reflect Yetus instead of Hadoop |  Major | build | Allen Wittenauer | Allen Wittenauer |
 

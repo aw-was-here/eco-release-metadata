@@ -23,6 +23,20 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [HBASE-14502](https://issues.apache.org/jira/browse/HBASE-14502) | *Major* | **Purge use of jmock and remove as dependency**
+
+HBASE-14502 Purge use of jmock and remove as dependency
+
+
+---
+
+* [HBASE-14465](https://issues.apache.org/jira/browse/HBASE-14465) | *Major* | **Backport 'Allow rowlock to be reader/write' to branch-1**
+
+See parent issue.
+
+
+---
+
 * [HBASE-14433](https://issues.apache.org/jira/browse/HBASE-14433) | *Major* | **Set down the client executor core thread count from 256 in tests**
 
 Tests run with client executors that have core thread count of 4 and a keepalive of 3 seconds. They used to default to 256 core threads and 60 seconds  for keepalive.
@@ -38,6 +52,23 @@ To use rpc protection in HBase, set the value of 'hbase.rpc.protection' to:
 'privacy' : authentication and confidentiality
 
 Earlier, HBase reference guide erroneously mentioned in some places to set the value to 'auth-conf'. This patch fixes the guide and adds temporary support for erroneously recommended values.
+
+
+---
+
+* [HBASE-14367](https://issues.apache.org/jira/browse/HBASE-14367) | *Major* | **Add normalization support to shell**
+
+This patch adds shell support for region normalizer.
+
+3 commands have been added to hbase shell 'tools' command group:
+
+ - 'normalizer\_enabled' checks whether region normalizer is turned on
+ - 'normalizer\_switch' allows user to turn normalizer on and off
+ - 'normalize' runs region normalizer if it's turned on.
+
+Also 'ater' command has been extended to allow user to enable/disable region normalization per table (disabled by default). Use it as 
+
+alter 'testtable', {NORMALIZATION\_ENABLED =\> 'true'}
 
 
 ---
@@ -125,6 +156,13 @@ This change augments existing chaos monkey framework with actions for restarting
 The service user related configurations are newly introduced since in prod/test environments each service is managed by different user. Once the above parameters are configured properly, you can start using them as needed. An example usage for invoking these new actions is:
 
 {{./hbase org.apache.hadoop.hbase.IntegrationTestAcidGuarantees -m serverAndDependenciesKilling}}
+
+
+---
+
+* [HBASE-14230](https://issues.apache.org/jira/browse/HBASE-14230) | *Minor* | **replace reflection in FSHlog with HdfsDataOutputStream#getCurrentBlockReplication()**
+
+Remove calling getNumCurrentReplicas on HdfsDataOutputStream via reflection. getNumCurrentReplicas showed up in hadoop 1+ and hadoop 0.2x. In hadoop-2 it was deprecated.
 
 
 ---

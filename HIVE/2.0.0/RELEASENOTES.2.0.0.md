@@ -23,6 +23,13 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [HIVE-12005](https://issues.apache.org/jira/browse/HIVE-12005) | *Major* | **Remove hbase based stats collection mechanism**
+
+Removed hbase based stats collection mechanism.
+
+
+---
+
 * [HIVE-11831](https://issues.apache.org/jira/browse/HIVE-11831) | *Major* | **TXN tables in Oracle should be created with ROWDEPENDENCIES**
 
 ROWDEPENDENCIES cannot be added to the table after it has already been created. If you hit this issue on an existing database, you might want to (this requires stopping all Hive workloads for the duration), for each table (see the patch for what tables need to be updated; locks and txns table are the ones most affected):

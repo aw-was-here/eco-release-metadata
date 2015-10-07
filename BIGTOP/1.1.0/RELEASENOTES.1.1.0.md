@@ -23,6 +23,15 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [BIGTOP-2080](https://issues.apache.org/jira/browse/BIGTOP-2080) | *Minor* | **Investigate removing Scala from the toolchain**
+
+Older versions of Spark needed Scala to be installed separately but not anymore.  For a while, Spark and Kafka have pulled down a copy of the Scala compiler and libraries through Maven -- BigPetStore does the same through the Groovy Scala plugin.
+
+We may be able to drop the Scala installation in the Bigtop toolchain.  We should investigate this.
+
+
+---
+
 * [BIGTOP-2071](https://issues.apache.org/jira/browse/BIGTOP-2071) | *Blocker* | **Gstring.empty doesn't exist**
 
 Running {{./gradlew pig-rpm}} fails on the {{hadoop-tar}} task because {{GStringImpl}} doesn't have an {{empty}} method.
@@ -676,6 +685,15 @@ The following files are missing the ASL headers
 bigtop-test-framework/src/main/groovy/org/apache/bigtop/itest/failures/FailureExecutor.groovy
 bigtop-test-framework/src/main/groovy/org/apache/bigtop/itest/failures/FailureVars.groovy
 {code}
+
+
+---
+
+* [BIGTOP-1943](https://issues.apache.org/jira/browse/BIGTOP-1943) | *Major* | **Upgrade SCALA version to 2.10.4**
+
+Bump up Scala version 2.10.4
+
+Apache Phoenix 4.5+ depends on 2.10.4 at least.
 
 
 ---

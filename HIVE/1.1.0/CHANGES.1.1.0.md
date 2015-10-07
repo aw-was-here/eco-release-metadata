@@ -262,6 +262,7 @@
 | [HIVE-8556](https://issues.apache.org/jira/browse/HIVE-8556) | introduce overflow control and sanity check to BytesBytesMapJoin |  Minor | . | Sergey Shelukhin | Sergey Shelukhin |
 | [HIVE-8545](https://issues.apache.org/jira/browse/HIVE-8545) | Exception when casting Text to BytesWritable [Spark Branch] |  Major | Spark | Chao Sun | Chao Sun |
 | [HIVE-8542](https://issues.apache.org/jira/browse/HIVE-8542) | Enable groupby\_map\_ppr.q and groupby\_map\_ppr\_multi\_distinct.q [Spark Branch] |  Major | Spark | Chao Sun | Rui Li |
+| [HIVE-8527](https://issues.apache.org/jira/browse/HIVE-8527) | Incorrect TIMESTAMP result on JDBC direct read when next row has no (null) value for the TIMESTAMP |  Major | JDBC | Doug Sedlak |  |
 | [HIVE-8523](https://issues.apache.org/jira/browse/HIVE-8523) | Potential null dereference in DDLSemanticAnalyzer#addInputsOutputsAlterTable() |  Minor | . | Ted Yu | Navis |
 | [HIVE-8518](https://issues.apache.org/jira/browse/HIVE-8518) | Compile time skew join optimization returns duplicated results |  Major | Logical Optimizer | Rui Li | Rui Li |
 | [HIVE-8512](https://issues.apache.org/jira/browse/HIVE-8512) | queries with star and gby produce incorrect results |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
