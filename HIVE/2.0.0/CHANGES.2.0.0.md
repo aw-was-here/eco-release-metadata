@@ -18,7 +18,7 @@
 -->
 # Apache Hive Changelog
 
-## Release 2.0.0 - Unreleased (as of 2015-10-07)
+## Release 2.0.0 - Unreleased (as of 2015-10-10)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -34,6 +34,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HIVE-11976](https://issues.apache.org/jira/browse/HIVE-11976) | Extend CBO rules to being able to apply rules only once on a given operator |  Major | CBO | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
 | [HIVE-11706](https://issues.apache.org/jira/browse/HIVE-11706) | Implement "show create database" |  Trivial | Metastore | Navis | Navis |
 | [HIVE-11699](https://issues.apache.org/jira/browse/HIVE-11699) | Support special characters in quoted table names |  Major | . | Pengcheng Xiong | Pengcheng Xiong |
 | [HIVE-11600](https://issues.apache.org/jira/browse/HIVE-11600) | Hive Parser to Support multi col in clause (x,y..) in ((..),..., ()) |  Major | . | Pengcheng Xiong | Pengcheng Xiong |
@@ -53,6 +54,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HIVE-12038](https://issues.apache.org/jira/browse/HIVE-12038) | Fix the 'overall' section in the HiveQA report |  Minor | Testing Infrastructure | Szehon Ho | Szehon Ho |
 | [HIVE-12002](https://issues.apache.org/jira/browse/HIVE-12002) | correct implementation typo |  Trivial | Beeline, HCatalog, Metastore | Alex Moundalexis | Alex Moundalexis |
 | [HIVE-11984](https://issues.apache.org/jira/browse/HIVE-11984) | Add HS2 open operation metrics |  Minor | . | Jimmy Xiang | Jimmy Xiang |
 | [HIVE-11972](https://issues.apache.org/jira/browse/HIVE-11972) | [Refactor] Improve determination of dynamic partitioning columns in FileSink Operator |  Major | Query Processor | Ashutosh Chauhan | Ashutosh Chauhan |
@@ -117,6 +119,7 @@
 | [HIVE-10239](https://issues.apache.org/jira/browse/HIVE-10239) | Create scripts to do metastore upgrade tests on jenkins for Derby and PostgreSQL |  Major | . | Naveen Gangam | Naveen Gangam |
 | [HIVE-10165](https://issues.apache.org/jira/browse/HIVE-10165) | Improve hive-hcatalog-streaming extensibility and support updates and deletes. |  Major | HCatalog | Elliot West | Elliot West |
 | [HIVE-10048](https://issues.apache.org/jira/browse/HIVE-10048) | JDBC - Support SSL encryption regardless of Authentication mechanism |  Major | JDBC | Mubashir Kazia | Mubashir Kazia |
+| [HIVE-9695](https://issues.apache.org/jira/browse/HIVE-9695) | Redundant filter operator in reducer Vertex when CBO is disabled |  Major | Logical Optimizer | Mostafa Mokhtar | Jesus Camacho Rodriguez |
 | [HIVE-8583](https://issues.apache.org/jira/browse/HIVE-8583) | HIVE-8341 Cleanup & Test for hive.script.operator.env.blacklist |  Minor | . | Lars Francke | Lars Francke |
 | [HIVE-8190](https://issues.apache.org/jira/browse/HIVE-8190) | LDAP user match for authentication on hiveserver2 |  Major | Authorization, Clients | LINTE | Naveen Gangam |
 | [HIVE-6758](https://issues.apache.org/jira/browse/HIVE-6758) | Beeline doesn't work with -e option when started in background |  Major | CLI | Johndee Burks | Mohit Sabharwal |
@@ -127,8 +130,11 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HIVE-12032](https://issues.apache.org/jira/browse/HIVE-12032) | Add unit test for HIVE-9855 |  Major | Hive | Wei Zheng | Wei Zheng |
 | [HIVE-12027](https://issues.apache.org/jira/browse/HIVE-12027) | simplify file metadata cache ppd api |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
+| [HIVE-12021](https://issues.apache.org/jira/browse/HIVE-12021) | HivePreFilteringRule may introduce wrong common operands |  Major | CBO | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
 | [HIVE-12018](https://issues.apache.org/jira/browse/HIVE-12018) | beeline --help doesn't return to original prompt |  Minor | Beeline | Mohammad Kamrul Islam | Mohammad Kamrul Islam |
+| [HIVE-12012](https://issues.apache.org/jira/browse/HIVE-12012) | select query on json table with map containing numeric values fails |  Major | Serializers/Deserializers | Jagruti Varia | Jason Dere |
 | [HIVE-12011](https://issues.apache.org/jira/browse/HIVE-12011) | unable to create temporary table using CTAS if regular table with that name already exists |  Major | . | Pengcheng Xiong | Pengcheng Xiong |
 | [HIVE-12004](https://issues.apache.org/jira/browse/HIVE-12004) | SDPO doesnt set colExprMap correctly on new RS |  Major | Logical Optimizer | Ashutosh Chauhan | Ashutosh Chauhan |
 | [HIVE-11995](https://issues.apache.org/jira/browse/HIVE-11995) | Remove repetitively setting permissions in insert/load overwrite partition |  Major | Security | Chaoyu Tang | Chaoyu Tang |
@@ -138,6 +144,7 @@
 | [HIVE-11980](https://issues.apache.org/jira/browse/HIVE-11980) | Follow up on HIVE-11696, exception is thrown from CTAS from the table with table-level serde is Parquet while partition-level serde is JSON |  Major | Serializers/Deserializers | Aihua Xu | Aihua Xu |
 | [HIVE-11977](https://issues.apache.org/jira/browse/HIVE-11977) | Hive should handle an external avro table with zero length files present |  Major | Serializers/Deserializers | Aaron Dossett | Aaron Dossett |
 | [HIVE-11970](https://issues.apache.org/jira/browse/HIVE-11970) | COLUMNS\_V2 table in metastore should have a longer name field |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
+| [HIVE-11969](https://issues.apache.org/jira/browse/HIVE-11969) | start Tez session in background when starting CLI |  Major | Tez | Sergey Shelukhin | Sergey Shelukhin |
 | [HIVE-11964](https://issues.apache.org/jira/browse/HIVE-11964) | RelOptHiveTable.hiveColStatsMap might contain mismatched column stats |  Major | Query Planning, Statistics | Chaoyu Tang | Chaoyu Tang |
 | [HIVE-11960](https://issues.apache.org/jira/browse/HIVE-11960) | braces in join conditions are not supported |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
 | [HIVE-11952](https://issues.apache.org/jira/browse/HIVE-11952) | disable q tests that are both slow and less relevant |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
@@ -154,6 +161,7 @@
 | [HIVE-11915](https://issues.apache.org/jira/browse/HIVE-11915) | BoneCP returns closed connections from the pool |  Major | . | Takahiko Saito | Sergey Shelukhin |
 | [HIVE-11911](https://issues.apache.org/jira/browse/HIVE-11911) | The stats table limits are too large for innodb |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
 | [HIVE-11910](https://issues.apache.org/jira/browse/HIVE-11910) | TestHCatLoaderEncryption should shutdown created MiniDFS instance |  Major | Tests | Jason Dere | Jason Dere |
+| [HIVE-11902](https://issues.apache.org/jira/browse/HIVE-11902) | Abort txn cleanup thread throws SyntaxErrorException |  Major | Transactions | Deepesh Khandelwal | Deepesh Khandelwal |
 | [HIVE-11898](https://issues.apache.org/jira/browse/HIVE-11898) | support default partition in metastoredirectsql |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
 | [HIVE-11897](https://issues.apache.org/jira/browse/HIVE-11897) | JDO rollback can throw pointless exceptions |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
 | [HIVE-11889](https://issues.apache.org/jira/browse/HIVE-11889) | Add unit test for HIVE-11449 |  Major | Hive | Wei Zheng | Wei Zheng |
@@ -319,6 +327,7 @@
 | [HIVE-11157](https://issues.apache.org/jira/browse/HIVE-11157) | Hive.get(HiveConf) returns same Hive object to different user sessions |  Major | Hive | Chaoyu Tang | Chaoyu Tang |
 | [HIVE-11152](https://issues.apache.org/jira/browse/HIVE-11152) | Swapping join inputs in ASTConverter |  Major | CBO | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
 | [HIVE-11151](https://issues.apache.org/jira/browse/HIVE-11151) | Calcite transitive predicate inference rule should not transitively add not null filter on non-nullable input |  Major | CBO, Logical Optimizer | Ashutosh Chauhan | Ashutosh Chauhan |
+| [HIVE-11149](https://issues.apache.org/jira/browse/HIVE-11149) | Fix issue with sometimes HashMap in PerfLogger.java hangs |  Major | Logging | WangMeng | WangMeng |
 | [HIVE-11147](https://issues.apache.org/jira/browse/HIVE-11147) | MetaTool doesn't update FS root location for partitions with space in name |  Major | Metastore | Wei Zheng | Wei Zheng |
 | [HIVE-11143](https://issues.apache.org/jira/browse/HIVE-11143) | Tests udf\_from\_utc\_timestamp.q/udf\_to\_utc\_timestamp.q do not work with updated Java timezone information |  Major | Tests | Jason Dere | Jason Dere |
 | [HIVE-11141](https://issues.apache.org/jira/browse/HIVE-11141) | Improve RuleRegExp when the Expression node stack gets huge |  Major | . | Hari Sankar Sivarama Subramaniyan | Hari Sankar Sivarama Subramaniyan |

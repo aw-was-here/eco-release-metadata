@@ -23,6 +23,69 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-10980](https://issues.apache.org/jira/browse/SPARK-10980) | *Major* | **Create wrong decimal if unscaled \> 1e18 and scale \> 0**
+
+Decimal(1000000000000000000L, 20, 2) will become 1000000000000000000 instead of 10000000000000000.00
+
+
+---
+
+* [SPARK-10959](https://issues.apache.org/jira/browse/SPARK-10959) | *Critical* | **PySpark StreamingLogisticRegressionWithSGD does not train with given regParam and convergenceTol parameters**
+
+These parameters are passed into the StreamingLogisticRegressionWithSGD constructor, but do not get transferred to the model to use when training.  Same problem with StreamingLinearRegressionWithSGD and the intercept param is in the wrong  argument place where it is being used as regularization value.
+
+
+---
+
+* [SPARK-10955](https://issues.apache.org/jira/browse/SPARK-10955) | *Major* | **Disable dynamic allocation for Streaming jobs**
+
+Spark streaming can be tricky with dynamic allocation and can lose dataWe should disable dynamic allocation or at least log that it is dangerous.
+
+
+---
+
+* [SPARK-10914](https://issues.apache.org/jira/browse/SPARK-10914) | *Major* | **UnsafeRow serialization breaks when two machines have different Oops size**
+
+\*Updated description (by rxin on Oct 8, 2015)\*
+
+To reproduce, launch Spark using
+{code}
+MASTER=local-cluster[2,1,1024] bin/spark-shell --conf "spark.executor.extraJavaOptions=-XX:-UseCompressedOops"
+{code}
+
+And then run the following
+{code}
+scala\> sql("select 1 xx").collect()
+{code}
+
+The problem is that UnsafeRow contains 3 pieces of information when pointing to some data in memory (an object, a base offset, and length). When the row is serialized with Java/Kryo serialization, the object layout in memory can change if two machines have different pointer width (Oops in JVM).
+
+
+
+\*Original bug report description\*:
+
+Using an inner join, to match together two integer columns, I generally get no results when there should be matches.  But the results vary and depend on whether the dataframes are coming from SQL, JSON, or cached, as well as the order in which I cache things and query them.
+
+This minimal example reproduces it consistently for me in the spark-shell, on new installs of both 1.5.0 and 1.5.1 (pre-built against Hadoop 2.6 from http://spark.apache.org/downloads.html.)
+
+{code}
+/\* x is {"xx":1}{"xx":2} and y is just {"yy":1}{"yy:2} \*/
+val x = sql("select 1 xx union all select 2") 
+val y = sql("select 1 yy union all select 2")
+
+x.join(y, $"xx" === $"yy").count() /\* expect 2, get 0 \*/
+/\* If I cache both tables it works: \*/
+x.cache()
+y.cache()
+x.join(y, $"xx" === $"yy").count() /\* expect 2, get 2 \*/
+
+/\* but this still doesn't work: \*/
+x.join(y, $"xx" === $"yy").filter("yy=1").count() /\* expect 1, get 0 \*/
+{code}
+
+
+---
+
 * [SPARK-10904](https://issues.apache.org/jira/browse/SPARK-10904) | *Major* | **  select(df, c("col1", "col2")) fails**
 
 The help page for 'select' gives an example of 
@@ -135,6 +198,33 @@ data02.filter($"animal" === "cat").show
 +---+---------+------+
 +---+---------+------+
 {code}
+
+
+---
+
+* [SPARK-10858](https://issues.apache.org/jira/browse/SPARK-10858) | *Minor* | **YARN: archives/jar/files rename with # doesn't work unless scheme given**
+
+The YARN distributed cache feature with --jars, --archives, --files where you can rename the file/archive using a # symbol only works if you explicitly include the scheme in the path:
+
+works:
+--jars file:///home/foo/my.jar#renamed.jar
+
+doesn't work:
+--jars /home/foo/my.jar#renamed.jar
+
+Exception in thread "main" java.io.FileNotFoundException: File file:/home/foo/my.jar#renamed.jar does not exist
+        at org.apache.hadoop.fs.RawLocalFileSystem.deprecatedGetFileStatus(RawLocalFileSystem.java:534)
+        at org.apache.hadoop.fs.RawLocalFileSystem.getFileLinkStatusInternal(RawLocalFileSystem.java:747)
+        at org.apache.hadoop.fs.RawLocalFileSystem.getFileStatus(RawLocalFileSystem.java:524)
+        at org.apache.hadoop.fs.FilterFileSystem.getFileStatus(FilterFileSystem.java:416)
+        at org.apache.hadoop.fs.FileUtil.copy(FileUtil.java:337)
+        at org.apache.hadoop.fs.FileUtil.copy(FileUtil.java:289)
+        at org.apache.spark.deploy.yarn.Client.copyFileToRemote(Client.scala:240)
+        at org.apache.spark.deploy.yarn.Client.org$apache$spark$deploy$yarn$Client$$distribute$1(Client.scala:329)
+        at org.apache.spark.deploy.yarn.Client$$anonfun$prepareLocalResources$6$$anonfun$apply$2.apply(Client.scala:393)
+        at org.apache.spark.deploy.yarn.Client$$anonfun$prepareLocalResources$6$$anonfun$apply$2.apply(Client.scala:392)
+        at scala.collection.IndexedSeqOptimized$class.foreach(IndexedSeqOptimized.scala:33)
+        at scala.collection.mutable.ArrayOps$ofRef.foreach(ArrayOps.scala:108)
 
 
 ---

@@ -410,7 +410,6 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [SPARK-9380](https://issues.apache.org/jira/browse/SPARK-9380) | Pregel example fix in graphx-programming-guide |  Major | Documentation | Alexander Ulanov | Alexander Ulanov |
-| [SPARK-9040](https://issues.apache.org/jira/browse/SPARK-9040) | StructField datatype Conversion Error |  Major | PySpark, Spark Core, SQL | Sandeep Pal |  |
 | [SPARK-9033](https://issues.apache.org/jira/browse/SPARK-9033) | scala.MatchError: interface java.util.Map (of class java.lang.Class) with Spark SQL |  Major | SQL | Pavel | Josh Rosen |
 | [SPARK-8726](https://issues.apache.org/jira/browse/SPARK-8726) | Wrong spark.executor.memory when using different EC2 master and worker machine types |  Major | EC2 | Stefano Parmesan | Stefano Parmesan |
 | [SPARK-8394](https://issues.apache.org/jira/browse/SPARK-8394) | HistoryServer doesn't read kerberos opts from config |  Minor | Spark Core | Steve Loughran | Marcelo Vanzin |

@@ -51,6 +51,16 @@ This was attached to HADOOP-12326 .
 
 ---
 
+* [YETUS-33](https://issues.apache.org/jira/browse/YETUS-33) | *Major* | **committer mode for smart-apply-patch**
+
+It'd be nice if smart-apply-patch had a committer mode that:
+
+a) always stripped whitespace
+b) always added new files
+
+
+---
+
 * [YETUS-28](https://issues.apache.org/jira/browse/YETUS-28) | *Major* | **if CHANGED\_FILES is corrupt, find\_changed\_modules never returns**
 
 In building some unit tests, did a negative tests and hit this condition.  We should put a limit on how many times we loop in the find\_x\_dirs code.

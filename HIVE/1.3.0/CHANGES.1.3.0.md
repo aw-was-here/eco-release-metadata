@@ -18,7 +18,7 @@
 -->
 # Apache Hive Changelog
 
-## Release 1.3.0 - Unreleased (as of 2015-10-07)
+## Release 1.3.0 - Unreleased (as of 2015-10-10)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -92,10 +92,14 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HIVE-12035](https://issues.apache.org/jira/browse/HIVE-12035) | branch-1 build broken |  Major | . | Eugene Koifman | Eugene Koifman |
+| [HIVE-12032](https://issues.apache.org/jira/browse/HIVE-12032) | Add unit test for HIVE-9855 |  Major | Hive | Wei Zheng | Wei Zheng |
+| [HIVE-12021](https://issues.apache.org/jira/browse/HIVE-12021) | HivePreFilteringRule may introduce wrong common operands |  Major | CBO | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
+| [HIVE-12012](https://issues.apache.org/jira/browse/HIVE-12012) | select query on json table with map containing numeric values fails |  Major | Serializers/Deserializers | Jagruti Varia | Jason Dere |
 | [HIVE-11998](https://issues.apache.org/jira/browse/HIVE-11998) | Improve Compaction process logging |  Major | Transactions | Eugene Koifman | Eugene Koifman |
 | [HIVE-11997](https://issues.apache.org/jira/browse/HIVE-11997) | Add ability to send Compaction Jobs to specific queue |  Major | Transactions | Eugene Koifman | Eugene Koifman |
 | [HIVE-11990](https://issues.apache.org/jira/browse/HIVE-11990) | Loading data inpath from a temporary table dir fails on Windows |  Major | . | Takahiko Saito | Hari Sankar Sivarama Subramaniyan |
 | [HIVE-11983](https://issues.apache.org/jira/browse/HIVE-11983) | Hive streaming API uses incorrect logic to assign buckets to incoming records |  Major | HCatalog, Transactions | Roshan Naik | Roshan Naik |
+| [HIVE-11969](https://issues.apache.org/jira/browse/HIVE-11969) | start Tez session in background when starting CLI |  Major | Tez | Sergey Shelukhin | Sergey Shelukhin |
 | [HIVE-11964](https://issues.apache.org/jira/browse/HIVE-11964) | RelOptHiveTable.hiveColStatsMap might contain mismatched column stats |  Major | Query Planning, Statistics | Chaoyu Tang | Chaoyu Tang |
 | [HIVE-11950](https://issues.apache.org/jira/browse/HIVE-11950) | WebHCat status file doesn't show UTF8 character |  Major | WebHCat | Daniel Dai | Daniel Dai |
 | [HIVE-11945](https://issues.apache.org/jira/browse/HIVE-11945) | ORC with non-local reads may not be reusing connection to DN |  Major | . | Rajesh Balamohan | Rajesh Balamohan |

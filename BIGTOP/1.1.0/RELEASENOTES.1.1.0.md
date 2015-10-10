@@ -23,6 +23,15 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [BIGTOP-2082](https://issues.apache.org/jira/browse/BIGTOP-2082) | *Major* | **Remove x86 Assembler Code from zookeeper**
+
+Compilation on OpenPower fails for zookeeper, since upstream contains x86 Assembler in mt\_processor.c . 
+
+Incorporate an fix from zookeeper 3.5 branch to remove assembler from this particular file
+
+
+---
+
 * [BIGTOP-2080](https://issues.apache.org/jira/browse/BIGTOP-2080) | *Minor* | **Investigate removing Scala from the toolchain**
 
 Older versions of Spark needed Scala to be installed separately but not anymore.  For a while, Spark and Kafka have pulled down a copy of the Scala compiler and libraries through Maven -- BigPetStore does the same through the Groovy Scala plugin.
@@ -80,6 +89,20 @@ commons-io and servlet-api, complains loudly with Class not found Exceptions.
 * [BIGTOP-2065](https://issues.apache.org/jira/browse/BIGTOP-2065) | *Major* | **Update deployment README.md to reflect on better deployment experience**
 
 Current puppet deployment readme file directs a user to manually create Hiera's site.yaml file. We already provide a site.yaml under {{bigtop-deploy/puppet/hieradata}}. I suggest we change that to copy the template and edit it accordingly instead.
+
+
+---
+
+* [BIGTOP-2063](https://issues.apache.org/jira/browse/BIGTOP-2063) | *Major* | **Provide default config to deploy hive on top of Ignite**
+
+Let's have a default {{hive-site.xml}} to allow hive deployment on top of Ignite.
+
+
+---
+
+* [BIGTOP-2059](https://issues.apache.org/jira/browse/BIGTOP-2059) | *Major* | **Bump Ignite to 1.4**
+
+Let's upgrade to 1.4 once it is out in a few days.
 
 
 ---

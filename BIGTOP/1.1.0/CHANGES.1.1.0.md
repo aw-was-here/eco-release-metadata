@@ -18,7 +18,7 @@
 -->
 # Apache BigTop Changelog
 
-## Release 1.1.0 - Unreleased (as of 2015-10-07)
+## Release 1.1.0 - Unreleased (as of 2015-10-10)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -41,6 +41,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [BIGTOP-2080](https://issues.apache.org/jira/browse/BIGTOP-2080) | Investigate removing Scala from the toolchain |  Minor | toolchain | RJ Nowling | RJ Nowling |
 | [BIGTOP-2065](https://issues.apache.org/jira/browse/BIGTOP-2065) | Update deployment README.md to reflect on better deployment experience |  Major | documentation | Konstantin Boudnik | Konstantin Boudnik |
+| [BIGTOP-2063](https://issues.apache.org/jira/browse/BIGTOP-2063) | Provide default config to deploy hive on top of Ignite |  Major | deployment | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2020](https://issues.apache.org/jira/browse/BIGTOP-2020) | Add Gradle RAT plugin to the top-level project |  Major | build | RJ Nowling | RJ Nowling |
 | [BIGTOP-2018](https://issues.apache.org/jira/browse/BIGTOP-2018) | Create a puppetizing script |  Major | deployment | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-2005](https://issues.apache.org/jira/browse/BIGTOP-2005) | Remove SCALA\_HOME requirement |  Minor | build, spark | RJ Nowling | RJ Nowling |
@@ -67,9 +68,11 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [BIGTOP-2082](https://issues.apache.org/jira/browse/BIGTOP-2082) | Remove x86 Assembler Code from zookeeper |  Major | build | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-2071](https://issues.apache.org/jira/browse/BIGTOP-2071) | Gstring.empty doesn't exist |  Blocker | build | RJ Nowling | RJ Nowling |
 | [BIGTOP-2068](https://issues.apache.org/jira/browse/BIGTOP-2068) | Cannot Build Bigtop-Utils packages |  Critical | build | Alex Elent | Konstantin Boudnik |
 | [BIGTOP-2066](https://issues.apache.org/jira/browse/BIGTOP-2066) | init-hdfs.sh is broken by recent hadoop update |  Major | hadoop | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2059](https://issues.apache.org/jira/browse/BIGTOP-2059) | Bump Ignite to 1.4 |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2057](https://issues.apache.org/jira/browse/BIGTOP-2057) | null check doesn't safeguard against non-existing values in the BOM config |  Blocker | build | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2056](https://issues.apache.org/jira/browse/BIGTOP-2056) | Remove top-level check-env.sh |  Major | build | Konstantin Boudnik | Olaf Flebbe |
 | [BIGTOP-2054](https://issues.apache.org/jira/browse/BIGTOP-2054) | Update Pig |  Major | build, pig | Olaf Flebbe | Olaf Flebbe |

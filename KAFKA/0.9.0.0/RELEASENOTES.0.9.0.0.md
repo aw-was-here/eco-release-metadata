@@ -23,6 +23,20 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [KAFKA-2622](https://issues.apache.org/jira/browse/KAFKA-2622) | *Major* | **Add Time logical type for Copycat**
+
+KAFKA-2476 defined Decimal, Date, and Timestamp types. Initially I didn't include a separate Time (time of day) type because I was trying to keep the number of types small. However, I realized that the JDBC connector needs this to round out its support for SQL types.
+
+
+---
+
+* [KAFKA-2621](https://issues.apache.org/jira/browse/KAFKA-2621) | *Major* | **nextOffsetMetadata should be changed after rolling a new log segment**
+
+When we roll a new log segment (Log.roll()), even though the next offset doesn't change, the associated metadata (segment base offset and relative position) will change. So, we need to update nextOffsetMetadata when rolling a new log segment.
+
+
+---
+
 * [KAFKA-2604](https://issues.apache.org/jira/browse/KAFKA-2604) | *Major* | **Remove `completeAll` and improve timeout passed to `Selector.poll` from `NetworkClient.poll`**
 
 Now that KAFKA-2120 has been merged, we can improve a few things:
@@ -30,6 +44,17 @@ Now that KAFKA-2120 has been merged, we can improve a few things:
 1. Remove `NetworkClient.completeAll`
 2. Call `Selector.poll` with a timeout that is the minimum of timeout, metadata timeout and request timeout
 3. Disallow `Selector.poll(-1)` as it's not used and not something that we want generally (and one can always use `Selector.poll(Integer.MAX\_VALUE)` if one really wants it
+
+
+---
+
+* [KAFKA-2600](https://issues.apache.org/jira/browse/KAFKA-2600) | *Major* | **Make KStream interfaces compatible with Java 8 java.util.function**
+
+As suggested by [~rhauch], if we make the interface method names as the same to java.util.function.[Functions]:
+
+https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html
+
+Our goal is to simply align names and concepts with those in the Java 8 API for ease of learning and use.
 
 
 ---
@@ -62,9 +87,27 @@ Add to {{.gitignore}} the Eclipse IDE directories {{.metadata}} and {{.recommend
 
 ---
 
+* [KAFKA-2596](https://issues.apache.org/jira/browse/KAFKA-2596) | *Major* | **Coordinator should return illegal generation for commits from unknown groups with non-negative generation**
+
+Currently the consumer coordinator accepts offset commits blindly if it has no state stored for the associated groupId. This means that upon coordinator failover, offset commits from any member of a group will be accepted, even if that member is from an older generation. A better way of handling this case would be to return an ILLEGAL\_GENERATION error when the generation in the commit request is greater than or equal to 0. Consumers that are not using group management will always send a generation of -1, so their commits will still be accepted as valid.
+
+
+---
+
 * [KAFKA-2591](https://issues.apache.org/jira/browse/KAFKA-2591) | *Major* | **Remove Persistent Data before Restoringafter a Fault**
 
 When the checkpoint is missing upon starting up, it should be indicating that the previous run is stopped uncleanly (or it is the first time running this process job), hence any persisted data is not reliable any more and we need to restore from the beginning.
+
+
+---
+
+* [KAFKA-2587](https://issues.apache.org/jira/browse/KAFKA-2587) | *Major* | **Transient test failure: `SimpleAclAuthorizerTest`**
+
+I've seen `SimpleAclAuthorizerTest ` fail a couple of times since its recent introduction. Here's one such build:
+
+https://builds.apache.org/job/kafka-trunk-git-pr/576/console
+
+[~parth.brahmbhatt], can you please take a look and see if it's an easy fix?
 
 
 ---
@@ -465,6 +508,17 @@ The new consumer now supports pause/resume, so we should expose these to the tas
 
 ---
 
+* [KAFKA-2477](https://issues.apache.org/jira/browse/KAFKA-2477) | *Major* | **Replicas spuriously deleting all segments in partition**
+
+We're seeing some strange behaviour in brokers: a replica will sometimes schedule all segments in a partition for deletion, and then immediately start replicating them back, triggering our check for under-replicating topics.
+
+This happens on average a couple of times a week, for different brokers and topics.
+
+We have per-topic retention.ms and retention.bytes configuration, the topics where we've seen this happen are hitting the size limit.
+
+
+---
+
 * [KAFKA-2476](https://issues.apache.org/jira/browse/KAFKA-2476) | *Major* | **Define logical types for Copycat data API**
 
 We need some common types like datetime and decimal. This boils down to defining the schemas for these types, along with documenting their semantics.
@@ -776,6 +830,16 @@ We should have some annotations so that we can mark classes as public and stable
 
 ---
 
+* [KAFKA-2428](https://issues.apache.org/jira/browse/KAFKA-2428) | *Major* | **Add sanity test in kafkaConsumer for the timeouts. This is a followup ticket for Kafka-2120**
+
+The request timeout should be the highest timeout across all the timeout. The rules should be:
+Request timeout \> session timeout.
+Request timeout \> fetch.max.wait.timeout
+request timeout won't kick in before the other timeout reached.
+
+
+---
+
 * [KAFKA-2425](https://issues.apache.org/jira/browse/KAFKA-2425) | *Major* | **Migrate website from SVN to Git**
 
 The preference is to share the same Git repo for the code and website as per discussion in the mailing list:
@@ -785,6 +849,14 @@ http://search-hadoop.com/m/uyzND1Dux842dm7vg2
 Useful reference:
 
 https://blogs.apache.org/infra/entry/git\_based\_websites\_available
+
+
+---
+
+* [KAFKA-2419](https://issues.apache.org/jira/browse/KAFKA-2419) | *Blocker* | **Allow certain Sensors to be garbage collected after inactivity**
+
+Currently, metrics cannot be removed once registered. 
+Implement a feature to remove certain sensors after a certain period of inactivity (perhaps configurable).
 
 
 ---
@@ -1133,6 +1205,15 @@ This covers the initial patch for Copycat. The goal here is to get some baseline
 The key thing we'll want here is the connector/task API, which defines how third parties write connectors.
 
 Beyond that the goal is to have a basically functional standalone Copycat implementation -- enough that we can run and test any connector code with reasonable coverage of functionality; specifically, it's important that core concepts like offset commit and resuming connector tasks function properly. These two things obviously interact, so development of the standalone worker may affect the design of connector APIs.
+
+
+---
+
+* [KAFKA-2364](https://issues.apache.org/jira/browse/KAFKA-2364) | *Minor* | **Improve documentation for contributing to docs**
+
+While reading the documentation for kafka 8 I saw some improvements that can be made. But the docs for contributing are not very good at https://github.com/apache/kafka. It just gives me a URL for svn. But I am not sure what to do. Can the README.MD file be improved for contributing to docs?
+
+I have submitted patches to groovy and grails by sending PRs via github but  looking at the comments on PRs submitted to kafak it seems PRs via github are not working for kafka. It would be good to make that work also.
 
 
 ---

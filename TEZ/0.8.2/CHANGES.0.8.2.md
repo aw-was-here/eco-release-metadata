@@ -16,9 +16,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-# Apache Hive Changelog
+# Apache Tez Changelog
 
-## Release 1.1.2 - Unreleased (as of 2015-10-10)
+## Release 0.8.2 - Unreleased (as of 2015-10-10)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -42,7 +42,9 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [HIVE-11841](https://issues.apache.org/jira/browse/HIVE-11841) | KeyValuesInputMerger creates huge logs |  Major | Logging | Rajesh Balamohan | Rajesh Balamohan |
+| [TEZ-2875](https://issues.apache.org/jira/browse/TEZ-2875) | Enable missing tests in TestAnalyzer |  Major | . | Bikas Saha | Bikas Saha |
+| [TEZ-2874](https://issues.apache.org/jira/browse/TEZ-2874) | Improved logging for caller context |  Major | . | Hitesh Shah | Hitesh Shah |
+| [TEZ-2781](https://issues.apache.org/jira/browse/TEZ-2781) | Fallback to send only TaskAttemptFailedEvent if taskFailed heartbeat fails |  Major | . | Jeff Zhang | Jeff Zhang |
 
 
 ### TESTS:
@@ -55,6 +57,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-1788](https://issues.apache.org/jira/browse/TEZ-1788) | Test allowing vertex level disabling of speculation |  Major | . | Bikas Saha | Bikas Saha |
 
 
 ### OTHER:

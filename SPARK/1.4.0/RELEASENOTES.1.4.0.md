@@ -31,46 +31,6 @@ shortest path does not work due to incorrect type of the graph: Graph[Int, Doubl
 
 ---
 
-* [SPARK-9040](https://issues.apache.org/jira/browse/SPARK-9040) | *Major* | **StructField datatype Conversion Error**
-
-The following issue occurs if I specify the StructFields in specific order in StructType as follow:
-fields = [StructField("d", IntegerType(), True),StructField("b", IntegerType(), True),StructField("a", StringType(), True),StructField("c", IntegerType(), True)]
-
-But the following code words fine:
-fields = [StructField("d", IntegerType(), True),StructField("b", IntegerType(), True),StructField("c", IntegerType(), True),StructField("a", StringType(), True)]
-
-\<ipython-input-27-9d675dd6a2c9\> in \<module\>()
-     18 
-     19 schema = StructType(fields)
----\> 20 schemasimid\_simple = sqlContext.createDataFrame(simid\_simplereqfields, schema)
-     21 schemasimid\_simple.registerTempTable("simid\_simple")
-
-/usr/local/bin/spark-1.3.1-bin-hadoop2.6/python/pyspark/sql/context.py in createDataFrame(self, data, schema, samplingRatio)
-    302 
-    303         for row in rows:
---\> 304             \_verify\_type(row, schema)
-    305 
-    306         # convert python objects to sql data
-
-/usr/local/bin/spark-1.3.1-bin-hadoop2.6/python/pyspark/sql/types.py in \_verify\_type(obj, dataType)
-    986                              "length of fields (%d)" % (len(obj), len(dataType.fields)))
-    987         for v, f in zip(obj, dataType.fields):
---\> 988             \_verify\_type(v, f.dataType)
-    989 
-    990 \_cached\_cls = weakref.WeakValueDictionary()
-
-/usr/local/bin/spark-1.3.1-bin-hadoop2.6/python/pyspark/sql/types.py in \_verify\_type(obj, dataType)
-    970     if type(obj) not in \_acceptable\_types[\_type]:
-    971         raise TypeError("%s can not accept object in type %s"
---\> 972                         % (dataType, type(obj)))
-    973 
-    974     if isinstance(dataType, ArrayType):
-
-TypeError: StringType can not accept object in type \<type 'int'\>
-
-
----
-
 * [SPARK-9033](https://issues.apache.org/jira/browse/SPARK-9033) | *Major* | **scala.MatchError: interface java.util.Map (of class java.lang.Class) with Spark SQL**
 
 I've a java.util.Map\<String, String\> field in a POJO class and I'm trying to use it to createDataFrame (1.3.1) / applySchema(1.2.2) with the SQLContext and getting following error in both 1.2.2 & 1.3.1 versions of the Spark SQL:

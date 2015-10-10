@@ -277,6 +277,13 @@ The output format of hadoop fs -du has been changed. It shows not only the file 
 
 ---
 
+* [HDFS-9085](https://issues.apache.org/jira/browse/HDFS-9085) | *Trivial* | **Show renewer information in DelegationTokenIdentifier#toString**
+
+The output of the "hdfs fetchdt --print" command now includes the token renewer appended to the end of the existing token information.  This change may be incompatible with tools that parse the output of the command.
+
+
+---
+
 * [HDFS-8981](https://issues.apache.org/jira/browse/HDFS-8981) | *Minor* | **Adding revision to data node jmx getVersion() method**
 
 getSoftwareVersion method would replace original getVersion method, which returns the version string.

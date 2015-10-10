@@ -18,7 +18,7 @@
 -->
 # Apache Yetus Changelog
 
-## Release 0.1.0 - Unreleased (as of 2015-10-07)
+## Release 0.1.0 - Unreleased (as of 2015-10-10)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -30,6 +30,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [YETUS-33](https://issues.apache.org/jira/browse/YETUS-33) | committer mode for smart-apply-patch |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-5](https://issues.apache.org/jira/browse/YETUS-5) | Support per-instance maven repos |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
 
 

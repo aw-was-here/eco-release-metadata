@@ -18,7 +18,7 @@
 -->
 # Apache Orc Changelog
 
-## Release 1.0.0 - Unreleased (as of 2015-10-07)
+## Release 1.0.0 - Unreleased (as of 2015-10-10)
 
 ### INCOMPATIBLE CHANGES:
 

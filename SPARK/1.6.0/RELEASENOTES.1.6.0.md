@@ -23,11 +23,90 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 ---
 
+* [SPARK-11019](https://issues.apache.org/jira/browse/SPARK-11019) | *Major* | **[streaming] [flume] Gracefully shutdown Flume receiver threads**
+
+Currently, we kill the executor fetching data from Flume by interrupting the threads. We should wait for a bit before interrupting the threads. This is more graceful and we avoid some nasty exceptions in the logs
+
+
+---
+
+* [SPARK-11006](https://issues.apache.org/jira/browse/SPARK-11006) | *Trivial* | **Rename NullColumnAccess as NullColumnAccessor**
+
+In sql/core/src/main/scala/org/apache/spark/sql/columnar/ColumnAccessor.scala , NullColumnAccess should be renmaed as NullColumnAccessor so that same convention is adhered to for the accessors.
+
+
+---
+
+* [SPARK-10999](https://issues.apache.org/jira/browse/SPARK-10999) | *Minor* | **Physical plan node Coalesce should be able to handle UnsafeRow**
+
+The following PySpark snippet shows the problem:
+{noformat}
+\>\>\> sqlContext.range(10).selectExpr('id AS a').coalesce(1).explain(True)
+...
+== Physical Plan ==
+Coalesce 1
+ ConvertToSafe
+  TungstenProject [id#3L AS a#4L]
+   Scan PhysicalRDD[id#3L]
+{noformat}
+The {{ConvertToSafe}} is unnecessary.
+
+
+---
+
+* [SPARK-10988](https://issues.apache.org/jira/browse/SPARK-10988) | *Major* | **Reduce duplication in Aggregate2's expression rewriting logic**
+
+In `aggregate/utils.scala`, there is a substantial amount of duplication in the expression-rewriting logic. As a prerequisite to supporting imperative aggregate functions in `TungstenAggregate`, we should refactor this file so that the same expression-rewriting logic is used for both `SortAggregate` and `TungstenAggregate`.
+
+
+---
+
+* [SPARK-10987](https://issues.apache.org/jira/browse/SPARK-10987) | *Blocker* | **yarn-client mode misbehaving with netty-based RPC backend**
+
+YARN running in cluster deploy mode seems to be having issues with the new RPC backend; if you look at unit test runs, tests that run in cluster mode are taking several minutes to run, instead of the more usual 20-30 seconds.
+
+For example, https://amplab.cs.berkeley.edu/jenkins/job/SparkPullRequestBuilder/43349/consoleFull:
+
+{noformat}
+[info] YarnClusterSuite:
+[info] - run Spark in yarn-client mode (13 seconds, 953 milliseconds)
+[info] - run Spark in yarn-cluster mode (6 minutes, 50 seconds)
+[info] - run Spark in yarn-cluster mode unsuccessfully (1 minute, 53 seconds)
+[info] - run Python application in yarn-client mode (21 seconds, 842 milliseconds)
+[info] - run Python application in yarn-cluster mode (7 minutes, 0 seconds)
+[info] - user class path first in client mode (1 minute, 58 seconds)
+[info] - user class path first in cluster mode (4 minutes, 49 seconds)
+{noformat}
+
+
+---
+
+* [SPARK-10982](https://issues.apache.org/jira/browse/SPARK-10982) | *Major* | **Rename ExpressionAggregate -\> DeclarativeAggregate**
+
+Matches more closely with ImperativeAggregate.
+
+
+---
+
+* [SPARK-10980](https://issues.apache.org/jira/browse/SPARK-10980) | *Major* | **Create wrong decimal if unscaled \> 1e18 and scale \> 0**
+
+Decimal(1000000000000000000L, 20, 2) will become 1000000000000000000 instead of 10000000000000000.00
+
+
+---
+
 * [SPARK-10966](https://issues.apache.org/jira/browse/SPARK-10966) | *Major* | **Code-generation framework cleanup**
 
  - Add lines numbers to error
  - Use a variable for input row
  - primitive -\> value (since its often actually an object)
+
+
+---
+
+* [SPARK-10959](https://issues.apache.org/jira/browse/SPARK-10959) | *Critical* | **PySpark StreamingLogisticRegressionWithSGD does not train with given regParam and convergenceTol parameters**
+
+These parameters are passed into the StreamingLogisticRegressionWithSGD constructor, but do not get transferred to the model to use when training.  Same problem with StreamingLinearRegressionWithSGD and the intercept param is in the wrong  argument place where it is being used as regularization value.
 
 
 ---
@@ -39,6 +118,33 @@ This happens when user doesn't specify quantileProbabilities.
 
 ---
 
+* [SPARK-10956](https://issues.apache.org/jira/browse/SPARK-10956) | *Major* | **Introduce common memory management interface for execution and storage**
+
+The first step towards implementing a solution for SPARK-10000 is to refactor the existing code to go through a common MemoryManager interface. \*This issue is concerned only with the introduction of this interface, preserving the existing behavior as much as possible.\* In the near future, we will implement an alternate MemoryManager that shares memory between storage and execution more efficiently.
+
+For a high level design doc, see SPARK-10000.
+
+
+---
+
+* [SPARK-10955](https://issues.apache.org/jira/browse/SPARK-10955) | *Major* | **Disable dynamic allocation for Streaming jobs**
+
+Spark streaming can be tricky with dynamic allocation and can lose dataWe should disable dynamic allocation or at least log that it is dangerous.
+
+
+---
+
+* [SPARK-10941](https://issues.apache.org/jira/browse/SPARK-10941) | *Major* | **.Refactor AggregateFunction2 and AlgebraicAggregate interfaces to improve code clarity**
+
+Spark SQL's new AlgebraicAggregate interface is confusingly named.
+
+AlgebraicAggregate inherits from AggregateFunction2, adds a new set of methods, then effectively bans the use of the inherited methods. This is really confusing. I think that it's an anti-pattern / bad code smell if you end up inheriting and wanting to remove methods inherited from the superclass.
+
+I think that we should re-name this class and should refactor the class hierarchy so that there's a clear distinction between which parts of the code work with imperative aggregate functions vs. expression-based aggregates.
+
+
+---
+
 * [SPARK-10938](https://issues.apache.org/jira/browse/SPARK-10938) | *Major* | **Remove typeId in columnar cache**
 
 typeId is not needed in columnar cache, it's confusing to having them.
@@ -46,9 +152,65 @@ typeId is not needed in columnar cache, it's confusing to having them.
 
 ---
 
+* [SPARK-10917](https://issues.apache.org/jira/browse/SPARK-10917) | *Major* | **Improve performance of complex types in columnar cache**
+
+Complex types are really really slow in columnar cache, because of kryo serializer.
+
+
+---
+
 * [SPARK-10916](https://issues.apache.org/jira/browse/SPARK-10916) | *Major* | **YARN executors are launched with the default perm gen size**
 
 Unlike other backends, the YARN one does not explicitly set the perm gen size for the executor process. That means that, unless the user has explicitly changed it by adding extra java options, executors on YARN are running with 64m of perm gen (I believe) instead of 256m like the other backends.
+
+
+---
+
+* [SPARK-10914](https://issues.apache.org/jira/browse/SPARK-10914) | *Major* | **UnsafeRow serialization breaks when two machines have different Oops size**
+
+\*Updated description (by rxin on Oct 8, 2015)\*
+
+To reproduce, launch Spark using
+{code}
+MASTER=local-cluster[2,1,1024] bin/spark-shell --conf "spark.executor.extraJavaOptions=-XX:-UseCompressedOops"
+{code}
+
+And then run the following
+{code}
+scala\> sql("select 1 xx").collect()
+{code}
+
+The problem is that UnsafeRow contains 3 pieces of information when pointing to some data in memory (an object, a base offset, and length). When the row is serialized with Java/Kryo serialization, the object layout in memory can change if two machines have different pointer width (Oops in JVM).
+
+
+
+\*Original bug report description\*:
+
+Using an inner join, to match together two integer columns, I generally get no results when there should be matches.  But the results vary and depend on whether the dataframes are coming from SQL, JSON, or cached, as well as the order in which I cache things and query them.
+
+This minimal example reproduces it consistently for me in the spark-shell, on new installs of both 1.5.0 and 1.5.1 (pre-built against Hadoop 2.6 from http://spark.apache.org/downloads.html.)
+
+{code}
+/\* x is {"xx":1}{"xx":2} and y is just {"yy":1}{"yy:2} \*/
+val x = sql("select 1 xx union all select 2") 
+val y = sql("select 1 yy union all select 2")
+
+x.join(y, $"xx" === $"yy").count() /\* expect 2, get 0 \*/
+/\* If I cache both tables it works: \*/
+x.cache()
+y.cache()
+x.join(y, $"xx" === $"yy").count() /\* expect 2, get 2 \*/
+
+/\* but this still doesn't work: \*/
+x.join(y, $"xx" === $"yy").filter("yy=1").count() /\* expect 1, get 0 \*/
+{code}
+
+
+---
+
+* [SPARK-10905](https://issues.apache.org/jira/browse/SPARK-10905) | *Minor* | **Export freqItems() for DataFrameStatFunctions in SparkR**
+
+Currently only crosstab is implemented. This subtask is about adding freqItems() API to sparkR
 
 
 ---
@@ -76,6 +238,13 @@ And then none of the functions will work with following error:
 
 ---
 
+* [SPARK-10902](https://issues.apache.org/jira/browse/SPARK-10902) | *Critical* | **Hive UDF current\_database() does not work**
+
+Hive UDF current\_database() is foldable, it need to access the SessionState in metadataHive to evaluate it, but this not accessible while optimizing the query plan.
+
+
+---
+
 * [SPARK-10901](https://issues.apache.org/jira/browse/SPARK-10901) | *Critical* | **spark.yarn.user.classpath.first doesn't work**
 
 spark.yarn.user.classpath.first doesn't properly add the app jar to the system class path first.  It has some logic there that i believe works for local files but running on yarn using distributed cache to distribute the app jar doesn't put \_\_app\_\_.jar into the classpath at all.
@@ -96,6 +265,13 @@ Kinesis Client Library added a custom cloudwatch metric in 1.3.0 called MillisBe
 
 ---
 
+* [SPARK-10887](https://issues.apache.org/jira/browse/SPARK-10887) | *Major* | **Build HashedRelation outside of HashJoinNode**
+
+Right now, HashJoinNode builds a HashRelation for the build side. We can take this process out. So, we can use HashJoinNode for both Broadcast join and shuffled join.
+
+
+---
+
 * [SPARK-10885](https://issues.apache.org/jira/browse/SPARK-10885) | *Major* | **Display the failed output op in Streaming UI**
 
 Now if an output operation failed because of an error in the closure of `foreachRDD`, such as, 
@@ -108,6 +284,30 @@ Now if an output operation failed because of an error in the closure of `foreach
 {code}
 
 we cannot display the error information.
+
+
+---
+
+* [SPARK-10883](https://issues.apache.org/jira/browse/SPARK-10883) | *Trivial* | **Document building each module individually**
+
+Right now, due to the location of the scalastyle-config.xml location, it's not possible to build an individual module.
+
+
+---
+
+* [SPARK-10875](https://issues.apache.org/jira/browse/SPARK-10875) | *Minor* | **RowMatrix.computeCovariance() result is not exactly symmetric**
+
+For some matrices, I have seen that the computed covariance matrix is not exactly symmetric, most likely due to some numerical rounding errors. This is problematic when trying to construct an instance of {{MultivariateGaussian}}, because it requires an exactly symmetric covariance matrix. See reproducible example below.
+
+I would suggest modifying the implementation so that {{G(i, j)}} and {{G(j, i)}} are set at the same time, with the same value.
+
+{code}
+val rdd = RandomRDDs.normalVectorRDD(sc, 100, 10, 0, 0)
+val matrix = new RowMatrix(rdd)
+val mean = matrix.computeColumnSummaryStatistics().mean
+val cov = matrix.computeCovariance()
+val dist = new MultivariateGaussian(mean, cov) //throws breeze.linalg.MatrixNotSymmetricException
+{code}
 
 
 ---
@@ -209,9 +409,159 @@ data02.filter($"animal" === "cat").show
 
 ---
 
+* [SPARK-10858](https://issues.apache.org/jira/browse/SPARK-10858) | *Minor* | **YARN: archives/jar/files rename with # doesn't work unless scheme given**
+
+The YARN distributed cache feature with --jars, --archives, --files where you can rename the file/archive using a # symbol only works if you explicitly include the scheme in the path:
+
+works:
+--jars file:///home/foo/my.jar#renamed.jar
+
+doesn't work:
+--jars /home/foo/my.jar#renamed.jar
+
+Exception in thread "main" java.io.FileNotFoundException: File file:/home/foo/my.jar#renamed.jar does not exist
+        at org.apache.hadoop.fs.RawLocalFileSystem.deprecatedGetFileStatus(RawLocalFileSystem.java:534)
+        at org.apache.hadoop.fs.RawLocalFileSystem.getFileLinkStatusInternal(RawLocalFileSystem.java:747)
+        at org.apache.hadoop.fs.RawLocalFileSystem.getFileStatus(RawLocalFileSystem.java:524)
+        at org.apache.hadoop.fs.FilterFileSystem.getFileStatus(FilterFileSystem.java:416)
+        at org.apache.hadoop.fs.FileUtil.copy(FileUtil.java:337)
+        at org.apache.hadoop.fs.FileUtil.copy(FileUtil.java:289)
+        at org.apache.spark.deploy.yarn.Client.copyFileToRemote(Client.scala:240)
+        at org.apache.spark.deploy.yarn.Client.org$apache$spark$deploy$yarn$Client$$distribute$1(Client.scala:329)
+        at org.apache.spark.deploy.yarn.Client$$anonfun$prepareLocalResources$6$$anonfun$apply$2.apply(Client.scala:393)
+        at org.apache.spark.deploy.yarn.Client$$anonfun$prepareLocalResources$6$$anonfun$apply$2.apply(Client.scala:392)
+        at scala.collection.IndexedSeqOptimized$class.foreach(IndexedSeqOptimized.scala:33)
+        at scala.collection.mutable.ArrayOps$ofRef.foreach(ArrayOps.scala:108)
+
+
+---
+
+* [SPARK-10856](https://issues.apache.org/jira/browse/SPARK-10856) | *Major* | **SQL Server dialect needs to map java.sql.Timestamp to DATETIME instead of TIMESTAMP**
+
+When saving a DataFrame to MS SQL Server, en error is thrown if there is more than one TIMESTAMP column:
+
+df.printSchema
+
+root
+ \|-- Id: string (nullable = false)
+ \|-- TypeInformation\_CreatedBy: string (nullable = false)
+ \|-- TypeInformation\_ModifiedBy: string (nullable = true)
+ \|-- TypeInformation\_TypeStatus: integer (nullable = false)
+ \|-- TypeInformation\_CreatedAtDatabase: timestamp (nullable = false)
+ \|-- TypeInformation\_ModifiedAtDatabase: timestamp (nullable = true)
+
+df.write.mode("overwrite").jdbc(url, tablename, props)
+
+com.microsoft.sqlserver.jdbc.SQLServerException: A table can only have one timestamp column. Because table 'DebtorTypeSet1' already has one, the column 'TypeInformation\_ModifiedAtDatabase' cannot be added.
+        at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDatabaseError
+(SQLServerException.java:217)
+        at com.microsoft.sqlserver.jdbc.SQLServerStatement.getNextResult(SQLServ
+erStatement.java:1635)
+        at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.doExecutePrep
+aredStatement(SQLServerPreparedStatement.java:426)
+        at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement$PrepStmtExecC
+md.doExecute(SQLServerPreparedStatement.java:372)
+        at com.microsoft.sqlserver.jdbc.TDSCommand.execute(IOBuffer.java:6276)
+        at com.microsoft.sqlserver.jdbc.SQLServerConnection.executeCommand(SQLSe
+rverConnection.java:1793)
+        at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeCommand(SQLSer
+verStatement.java:184)
+        at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeStatement(SQLS
+erverStatement.java:159)
+        at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.executeUpdate
+(SQLServerPreparedStatement.java:315)
+
+I tested this on Windows and SQL Server 12 using Spark 1.4.1.
+
+I think this can be fixed in a similar way to Spark-10419.
+
+As a refererence, here is the type mapping according to the SQL Server JDBC driver (basicDT.java, extracted from sqljdbc\_4.2.6420.100\_enu.exe):
+
+   private static void displayRow(String title, ResultSet rs) {
+      try {
+         System.out.println(title);
+         System.out.println(rs.getInt(1) + " , " +  		// SQL integer type.
+               rs.getString(2) + " , " +            		// SQL char type.
+               rs.getString(3) + " , " +            		// SQL varchar type.
+               rs.getBoolean(4) + " , " +           		// SQL bit type.
+               rs.getDouble(5) + " , " +            		// SQL decimal type.
+               rs.getDouble(6) + " , " +            		// SQL money type.
+               rs.getTimestamp(7) + " , " +        		// SQL datetime type.
+               rs.getDate(8) + " , " +              		// SQL date type.
+               rs.getTime(9) + " , " +              		// SQL time type.
+               rs.getTimestamp(10) + " , " +            	// SQL datetime2 type.
+               ((SQLServerResultSet)rs).getDateTimeOffset(11)); // SQL datetimeoffset type.
+
+
+---
+
+* [SPARK-10855](https://issues.apache.org/jira/browse/SPARK-10855) | *Minor* | **Add a JDBC dialect for Apache  Derby**
+
+In particular, it would be good if the dialect could handle Derby's user-defined types. The following script fails:
+
+{noformat}
+import org.apache.spark.sql.\_
+import org.apache.spark.sql.types.\_
+
+// the following script was used to create a Derby table
+// which has a column of user-defined type:
+// 
+// create type properties external name 'java.util.Properties' language java;
+// 
+// create function systemProperties() returns properties
+// language java parameter style java no sql
+// external name 'java.lang.System.getProperties';
+// 
+// create table propertiesTable( props properties );
+// 
+// insert into propertiesTable values ( null ), ( systemProperties() );
+// 
+// select \* from propertiesTable;
+
+// cannot handle a table which has a column of type java.sql.Types.JAVA\_OBJECT:
+//
+// java.sql.SQLException: Unsupported type 2000
+//
+val df = sqlContext.read.format("jdbc").options( 
+  Map("url" -\> "jdbc:derby:/Users/rhillegas/derby/databases/derby1",
+  "dbtable" -\> "app.propertiesTable")).load()
+
+// shutdown the Derby engine
+val shutdown = sqlContext.read.format("jdbc").options( 
+  Map("url" -\> "jdbc:derby:;shutdown=true",
+  "dbtable" -\> "")).load()
+
+exit()
+{noformat}
+
+The inability to handle user-defined types probably affects other databases besides Derby.
+
+
+---
+
 * [SPARK-10851](https://issues.apache.org/jira/browse/SPARK-10851) | *Major* | **Exception not failing R applications (in yarn cluster mode)**
 
 The bug is the R version of SPARK-7736. The R script fails with an exception but the Yarn application status is SUCCEEDED.
+
+
+---
+
+* [SPARK-10836](https://issues.apache.org/jira/browse/SPARK-10836) | *Minor* | **SparkR: Add sort function to dataframe**
+
+Hi everyone,
+
+the sort function can be used as an alternative to arrange(... ).
+As arguments it accepts x - dataframe, decreasing - TRUE/FALSE, a list of orderings for columns and the list of columns, represented as string names
+
+for example: 
+ sort(df, TRUE, "col1","col2","col3","col5") # for example, if we want to sort some of the columns in the same order
+
+ sort(df, decreasing=TRUE, "col1")
+ sort(df, decreasing=c(TRUE,FALSE), "col1","col2")
+
+
+Thanks,
+Narine
 
 
 ---
@@ -272,6 +622,22 @@ When converting Parquet {{Binary}} values to {{UTF8String}} and {{Decimal}} valu
 
 ---
 
+* [SPARK-10810](https://issues.apache.org/jira/browse/SPARK-10810) | *Blocker* | **Improve session management for SQL**
+
+Currently, we try to support multiple sessions in SQL within a Spark Context, but it's broken and not complete.
+
+We should isolate these for each session :
+
+1) current database of Hive
+2) SQLConf
+3) UDF/UDAF/UDTF
+4) temporary table
+
+For added jar and cached tables, they should be accessible for all sessions.
+
+
+---
+
 * [SPARK-10790](https://issues.apache.org/jira/browse/SPARK-10790) | *Major* | **Dynamic Allocation does not request any executors if first stage needs less than or equal to spark.dynamicAllocation.initialExecutors**
 
 If you set spark.dynamicAllocation.initialExecutors \> 0 (or spark.dynamicAllocation.minExecutors, since spark.dynamicAllocation.initialExecutors defaults to spark.dynamicAllocation.minExecutors), and the number of tasks in the first stage of your job is less than or equal to this min/init number of executors, dynamic allocation won't actually request any executors and will just hang indefinitely with the warning "Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources".
@@ -290,12 +656,68 @@ https://spark.apache.org/docs/latest/api/python/pyspark.sql.html#pyspark.sql.Dat
 
 ---
 
+* [SPARK-10779](https://issues.apache.org/jira/browse/SPARK-10779) | *Major* | **Set initialModel for KMeans model in PySpark (spark.mllib)**
+
+Provide initialModel param for pyspark.mllib.clustering.KMeans
+
+
+---
+
 * [SPARK-10778](https://issues.apache.org/jira/browse/SPARK-10778) | *Trivial* | **Implement toString for AssociationRules.Rule**
 
 pretty print for association rules, e.g.
 
 {code}
 {a, b, c} =\> {d}: 0.8
+{code}
+
+
+---
+
+* [SPARK-10772](https://issues.apache.org/jira/browse/SPARK-10772) | *Minor* | **NullPointerException when transform function in DStream returns NULL**
+
+NullPointerException raises when transform function returns NULL:
+
+{quote}
+java.lang.NullPointerException
+	at org.apache.spark.streaming.dstream.DStream$$anonfun$clearMetadata$3.apply(DStream.scala:442)
+	at org.apache.spark.streaming.dstream.DStream$$anonfun$clearMetadata$3.apply(DStream.scala:441)
+	at scala.collection.mutable.HashMap$$anon$2$$anonfun$foreach$3.apply(HashMap.scala:107)
+	at scala.collection.mutable.HashMap$$anon$2$$anonfun$foreach$3.apply(HashMap.scala:107)
+	at scala.collection.mutable.HashTable$class.foreachEntry(HashTable.scala:226)
+	at scala.collection.mutable.HashMap.foreachEntry(HashMap.scala:39)
+	at scala.collection.mutable.HashMap$$anon$2.foreach(HashMap.scala:107)
+	at org.apache.spark.streaming.dstream.DStream.clearMetadata(DStream.scala:441)
+	at org.apache.spark.streaming.dstream.DStream$$anonfun$clearMetadata$5.apply(DStream.scala:454)
+	at org.apache.spark.streaming.dstream.DStream$$anonfun$clearMetadata$5.apply(DStream.scala:454)
+	at scala.collection.immutable.List.foreach(List.scala:318)
+	at org.apache.spark.streaming.dstream.DStream.clearMetadata(DStream.scala:454)
+	at org.apache.spark.streaming.DStreamGraph$$anonfun$clearMetadata$2.apply(DStreamGraph.scala:129)
+	at org.apache.spark.streaming.DStreamGraph$$anonfun$clearMetadata$2.apply(DStreamGraph.scala:129)
+	at scala.collection.mutable.ResizableArray$class.foreach(ResizableArray.scala:59)
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:47)
+	at org.apache.spark.streaming.DStreamGraph.clearMetadata(DStreamGraph.scala:129)
+	at org.apache.spark.streaming.scheduler.JobGenerator.clearMetadata(JobGenerator.scala:257)
+	at org.apache.spark.streaming.scheduler.JobGenerator.org$apache$spark$streaming$scheduler$JobGenerator$$processEvent(JobGenerator.scala:178)
+	at org.apache.spark.streaming.scheduler.JobGenerator$$anon$1.onReceive(JobGenerator.scala:83)
+	at org.apache.spark.streaming.scheduler.JobGenerator$$anon$1.onReceive(JobGenerator.scala:82)
+	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:48)
+{quote}
+
+The code is very simple: 
+{code}
+        val sc = new SparkContext(conf)
+        val sqlContext = new HiveContext(sc)
+        import sqlContext.implicits.\_
+        println("\>\>\> create streamingContext.")
+        val ssc = new StreamingContext(sc, Seconds(1))
+        ssc.queueStream(
+            Queue(
+                sc.makeRDD(Seq(1)), 
+                sc.makeRDD(Seq[Int]()), 
+                sc.makeRDD(Seq(2))
+                ), true).transform(rdd =\> if (rdd.isEmpty()) rdd else null).print
+        ssc.start()
 {code}
 
 
@@ -434,6 +856,13 @@ For Intersect, let's say there is a non-deterministic condition with a 0.5 possi
 For Except, let's say there is a row that presents in both sides of an Except. This row should not be in the final output. However, if we pushdown a non-deterministic condition, it is possible that this row is rejected from one side and then we output a row that should not be a part of the result.
 
  We should only push down deterministic projection to Union.
+
+
+---
+
+* [SPARK-10738](https://issues.apache.org/jira/browse/SPARK-10738) | *Major* | **Refactoring `Instance` out from LOR and LIR, and also cleaning up some code**
+
+Refactoring `Instance` case class out from LOR and LIR, and also cleaning up some code.
 
 
 ---
@@ -866,6 +1295,87 @@ schema (org.apache.spark.sql.catalyst.expressions.GenericRowWithSchema). To avoi
         at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
         at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
         at java.lang.Thread.run(Thread.java:745)
+{noformat}
+
+
+---
+
+* [SPARK-10679](https://issues.apache.org/jira/browse/SPARK-10679) | *Minor* | **javax.jdo.JDOFatalUserException in executor**
+
+HadoopRDD throws exception in executor, something like below.
+{noformat}
+5/09/17 18:51:21 INFO metastore.HiveMetaStore: 0: Opening raw store with implemenation class:org.apache.hadoop.hive.metastore.ObjectStore
+15/09/17 18:51:21 INFO metastore.ObjectStore: ObjectStore, initialize called
+15/09/17 18:51:21 WARN metastore.HiveMetaStore: Retrying creating default database after error: Class org.datanucleus.api.jdo.JDOPersistenceManagerFactory was not found.
+javax.jdo.JDOFatalUserException: Class org.datanucleus.api.jdo.JDOPersistenceManagerFactory was not found.
+	at javax.jdo.JDOHelper.invokeGetPersistenceManagerFactoryOnImplementation(JDOHelper.java:1175)
+	at javax.jdo.JDOHelper.getPersistenceManagerFactory(JDOHelper.java:808)
+	at javax.jdo.JDOHelper.getPersistenceManagerFactory(JDOHelper.java:701)
+	at org.apache.hadoop.hive.metastore.ObjectStore.getPMF(ObjectStore.java:365)
+	at org.apache.hadoop.hive.metastore.ObjectStore.getPersistenceManager(ObjectStore.java:394)
+	at org.apache.hadoop.hive.metastore.ObjectStore.initialize(ObjectStore.java:291)
+	at org.apache.hadoop.hive.metastore.ObjectStore.setConf(ObjectStore.java:258)
+	at org.apache.hadoop.util.ReflectionUtils.setConf(ReflectionUtils.java:73)
+	at org.apache.hadoop.util.ReflectionUtils.newInstance(ReflectionUtils.java:133)
+	at org.apache.hadoop.hive.metastore.RawStoreProxy.\<init\>(RawStoreProxy.java:57)
+	at org.apache.hadoop.hive.metastore.RawStoreProxy.getProxy(RawStoreProxy.java:66)
+	at org.apache.hadoop.hive.metastore.HiveMetaStore$HMSHandler.newRawStore(HiveMetaStore.java:593)
+	at org.apache.hadoop.hive.metastore.HiveMetaStore$HMSHandler.getMS(HiveMetaStore.java:571)
+	at org.apache.hadoop.hive.metastore.HiveMetaStore$HMSHandler.createDefaultDB(HiveMetaStore.java:620)
+	at org.apache.hadoop.hive.metastore.HiveMetaStore$HMSHandler.init(HiveMetaStore.java:461)
+	at org.apache.hadoop.hive.metastore.RetryingHMSHandler.\<init\>(RetryingHMSHandler.java:66)
+	at org.apache.hadoop.hive.metastore.RetryingHMSHandler.getProxy(RetryingHMSHandler.java:72)
+	at org.apache.hadoop.hive.metastore.HiveMetaStore.newRetryingHMSHandler(HiveMetaStore.java:5762)
+	at org.apache.hadoop.hive.metastore.HiveMetaStoreClient.\<init\>(HiveMetaStoreClient.java:199)
+	at org.apache.hadoop.hive.ql.metadata.SessionHiveMetaStoreClient.\<init\>(SessionHiveMetaStoreClient.java:74)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:526)
+	at org.apache.hadoop.hive.metastore.MetaStoreUtils.newInstance(MetaStoreUtils.java:1521)
+	at org.apache.hadoop.hive.metastore.RetryingMetaStoreClient.\<init\>(RetryingMetaStoreClient.java:86)
+	at org.apache.hadoop.hive.metastore.RetryingMetaStoreClient.getProxy(RetryingMetaStoreClient.java:132)
+	at org.apache.hadoop.hive.metastore.RetryingMetaStoreClient.getProxy(RetryingMetaStoreClient.java:104)
+	at org.apache.hadoop.hive.ql.metadata.Hive.createMetaStoreClient(Hive.java:3005)
+	at org.apache.hadoop.hive.ql.metadata.Hive.getMSC(Hive.java:3024)
+	at org.apache.hadoop.hive.ql.metadata.Hive.getAllDatabases(Hive.java:1234)
+	at org.apache.hadoop.hive.ql.metadata.Hive.reloadFunctions(Hive.java:174)
+	at org.apache.hadoop.hive.ql.metadata.Hive.\<clinit\>(Hive.java:166)
+	at org.apache.hadoop.hive.ql.plan.PlanUtils.configureJobPropertiesForStorageHandler(PlanUtils.java:803)
+	at org.apache.hadoop.hive.ql.plan.PlanUtils.configureInputJobPropertiesForStorageHandler(PlanUtils.java:782)
+	at org.apache.spark.sql.hive.HadoopTableReader$.initializeLocalJobConfFunc(TableReader.scala:298)
+	at org.apache.spark.sql.hive.HadoopTableReader$$anonfun$12.apply(TableReader.scala:274)
+	at org.apache.spark.sql.hive.HadoopTableReader$$anonfun$12.apply(TableReader.scala:274)
+	at org.apache.spark.rdd.HadoopRDD$$anonfun$getJobConf$6.apply(HadoopRDD.scala:176)
+	at org.apache.spark.rdd.HadoopRDD$$anonfun$getJobConf$6.apply(HadoopRDD.scala:176)
+	at scala.Option.map(Option.scala:145)
+	at org.apache.spark.rdd.HadoopRDD.getJobConf(HadoopRDD.scala:176)
+	at org.apache.spark.rdd.HadoopRDD$$anon$1.\<init\>(HadoopRDD.scala:220)
+	at org.apache.spark.rdd.HadoopRDD.compute(HadoopRDD.scala:216)
+	at org.apache.spark.rdd.HadoopRDD.compute(HadoopRDD.scala:101)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:297)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:264)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:38)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:297)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:264)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:38)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:297)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:264)
+	at org.apache.spark.rdd.UnionRDD.compute(UnionRDD.scala:87)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:297)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:264)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:38)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:297)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:264)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:38)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:297)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:264)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:66)
+	at org.apache.spark.scheduler.Task.run(Task.scala:88)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:214)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
 {noformat}
 
 
@@ -1823,6 +2333,13 @@ We should document options in public API doc. Otherwise, it is hard to find out 
 
 ---
 
+* [SPARK-10535](https://issues.apache.org/jira/browse/SPARK-10535) | *Major* | **Support for recommendUsersForProducts and recommendProductsForUsers  in matrix factorization model for PySpark**
+
+Scala and Java API provides recommendUsersForProducts recommendProductsForUsers methods, but PySpark MLlib API doesn't have them.
+
+
+---
+
 * [SPARK-10531](https://issues.apache.org/jira/browse/SPARK-10531) | *Minor* | **AppId is set as AppName in status rest api**
 
 This is the result from http://localhost:4040/api/v1/applications/
@@ -1949,6 +2466,13 @@ In 1.5, If there is aggregation or sort merge join in upstream SparkPlan, they w
 * [SPARK-10491](https://issues.apache.org/jira/browse/SPARK-10491) | *Major* | **move RowMatrix.dspr to BLAS**
 
 We implemented dspr with sparse vector support in `RowMatrix`. This method is also used in WeightedLeastSquares and other places. It would be useful to move it to `linalg.BLAS`.
+
+
+---
+
+* [SPARK-10490](https://issues.apache.org/jira/browse/SPARK-10490) | *Major* | **Consolidate the Cholesky solvers in WeightedLeastSquares and ALS**
+
+There are two Cholesky solvers in WeightedLeastSquares and ALS, we should merge them into one.
 
 
 ---
@@ -2691,6 +3215,95 @@ Considering that SPARK-7321 has been merged, we can use "when ... otherwise" whi
 
 ---
 
+* [SPARK-10337](https://issues.apache.org/jira/browse/SPARK-10337) | *Critical* | **Views are broken**
+
+I haven't dug into this yet... but it seems like this should work:
+
+This works:
+{code}
+SELECT \* FROM 100milints
+{code}
+
+This seems to work:
+{code}
+CREATE VIEW testView AS SELECT \* FROM 100milints
+{code}
+
+This fails:
+{code}
+SELECT \* FROM testView
+
+org.apache.spark.sql.AnalysisException: cannot resolve '100milints.col' given input columns id; line 1 pos 7
+	at org.apache.spark.sql.catalyst.analysis.package$AnalysisErrorAt.failAnalysis(package.scala:42)
+	at org.apache.spark.sql.catalyst.analysis.CheckAnalysis$$anonfun$checkAnalysis$1$$anonfun$apply$2.applyOrElse(CheckAnalysis.scala:56)
+	at org.apache.spark.sql.catalyst.analysis.CheckAnalysis$$anonfun$checkAnalysis$1$$anonfun$apply$2.applyOrElse(CheckAnalysis.scala:53)
+	at org.apache.spark.sql.catalyst.trees.TreeNode$$anonfun$transformUp$1.apply(TreeNode.scala:293)
+	at org.apache.spark.sql.catalyst.trees.TreeNode$$anonfun$transformUp$1.apply(TreeNode.scala:293)
+	at org.apache.spark.sql.catalyst.trees.CurrentOrigin$.withOrigin(TreeNode.scala:51)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformUp(TreeNode.scala:292)
+	at org.apache.spark.sql.catalyst.trees.TreeNode$$anonfun$5.apply(TreeNode.scala:290)
+	at org.apache.spark.sql.catalyst.trees.TreeNode$$anonfun$5.apply(TreeNode.scala:290)
+	at org.apache.spark.sql.catalyst.trees.TreeNode$$anonfun$4.apply(TreeNode.scala:249)
+	at scala.collection.Iterator$$anon$11.next(Iterator.scala:328)
+	at scala.collection.Iterator$class.foreach(Iterator.scala:727)
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1157)
+	at scala.collection.generic.Growable$class.$plus$plus$eq(Growable.scala:48)
+	at scala.collection.mutable.ArrayBuffer.$plus$plus$eq(ArrayBuffer.scala:103)
+	at scala.collection.mutable.ArrayBuffer.$plus$plus$eq(ArrayBuffer.scala:47)
+	at scala.collection.TraversableOnce$class.to(TraversableOnce.scala:273)
+	at scala.collection.AbstractIterator.to(Iterator.scala:1157)
+	at scala.collection.TraversableOnce$class.toBuffer(TraversableOnce.scala:265)
+	at scala.collection.AbstractIterator.toBuffer(Iterator.scala:1157)
+	at scala.collection.TraversableOnce$class.toArray(TraversableOnce.scala:252)
+	at scala.collection.AbstractIterator.toArray(Iterator.scala:1157)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformChildren(TreeNode.scala:279)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformUp(TreeNode.scala:290)
+	at org.apache.spark.sql.catalyst.plans.QueryPlan.transformExpressionUp$1(QueryPlan.scala:108)
+	at org.apache.spark.sql.catalyst.plans.QueryPlan.org$apache$spark$sql$catalyst$plans$QueryPlan$$recursiveTransform$2(QueryPlan.scala:118)
+	at org.apache.spark.sql.catalyst.plans.QueryPlan$$anonfun$org$apache$spark$sql$catalyst$plans$QueryPlan$$recursiveTransform$2$1.apply(QueryPlan.scala:122)
+	at scala.collection.TraversableLike$$anonfun$map$1.apply(TraversableLike.scala:244)
+	at scala.collection.TraversableLike$$anonfun$map$1.apply(TraversableLike.scala:244)
+	at scala.collection.mutable.ResizableArray$class.foreach(ResizableArray.scala:59)
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:47)
+	at scala.collection.TraversableLike$class.map(TraversableLike.scala:244)
+	at scala.collection.AbstractTraversable.map(Traversable.scala:105)
+	at org.apache.spark.sql.catalyst.plans.QueryPlan.org$apache$spark$sql$catalyst$plans$QueryPlan$$recursiveTransform$2(QueryPlan.scala:122)
+	at org.apache.spark.sql.catalyst.plans.QueryPlan$$anonfun$2.apply(QueryPlan.scala:126)
+	at scala.collection.Iterator$$anon$11.next(Iterator.scala:328)
+	at scala.collection.Iterator$class.foreach(Iterator.scala:727)
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1157)
+	at scala.collection.generic.Growable$class.$plus$plus$eq(Growable.scala:48)
+	at scala.collection.mutable.ArrayBuffer.$plus$plus$eq(ArrayBuffer.scala:103)
+	at scala.collection.mutable.ArrayBuffer.$plus$plus$eq(ArrayBuffer.scala:47)
+	at scala.collection.TraversableOnce$class.to(TraversableOnce.scala:273)
+	at scala.collection.AbstractIterator.to(Iterator.scala:1157)
+	at scala.collection.TraversableOnce$class.toBuffer(TraversableOnce.scala:265)
+	at scala.collection.AbstractIterator.toBuffer(Iterator.scala:1157)
+	at scala.collection.TraversableOnce$class.toArray(TraversableOnce.scala:252)
+	at scala.collection.AbstractIterator.toArray(Iterator.scala:1157)
+	at org.apache.spark.sql.catalyst.plans.QueryPlan.transformExpressionsUp(QueryPlan.scala:126)
+	at org.apache.spark.sql.catalyst.analysis.CheckAnalysis$$anonfun$checkAnalysis$1.apply(CheckAnalysis.scala:53)
+	at org.apache.spark.sql.catalyst.analysis.CheckAnalysis$$anonfun$checkAnalysis$1.apply(CheckAnalysis.scala:49)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.foreachUp(TreeNode.scala:103)
+	at org.apache.spark.sql.catalyst.trees.TreeNode$$anonfun$foreachUp$1.apply(TreeNode.scala:102)
+	at org.apache.spark.sql.catalyst.trees.TreeNode$$anonfun$foreachUp$1.apply(TreeNode.scala:102)
+	at scala.collection.immutable.List.foreach(List.scala:318)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.foreachUp(TreeNode.scala:102)
+	at org.apache.spark.sql.catalyst.trees.TreeNode$$anonfun$foreachUp$1.apply(TreeNode.scala:102)
+	at org.apache.spark.sql.catalyst.trees.TreeNode$$anonfun$foreachUp$1.apply(TreeNode.scala:102)
+	at scala.collection.immutable.List.foreach(List.scala:318)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.foreachUp(TreeNode.scala:102)
+	at org.apache.spark.sql.catalyst.analysis.CheckAnalysis$class.checkAnalysis(CheckAnalysis.scala:49)
+	at org.apache.spark.sql.catalyst.analysis.Analyzer.checkAnalysis(Analyzer.scala:44)
+	at org.apache.spark.sql.SQLContext$QueryExecution.assertAnalyzed(SQLContext.scala:908)
+	at org.apache.spark.sql.DataFrame.\<init\>(DataFrame.scala:132)
+	at org.apache.spark.sql.DataFrame$.apply(DataFrame.scala:51)
+	at org.apache.spark.sql.SQLContext.sql(SQLContext.scala:719)
+{code}
+
+
+---
+
 * [SPARK-10332](https://issues.apache.org/jira/browse/SPARK-10332) | *Minor* | **spark-submit to yarn doesn't fail if executors is 0**
 
 Running spark-submit with yarn with number-executors equal to 0 when not using dynamic allocation should error out.  
@@ -3325,6 +3938,15 @@ Write is failing because by default JDBC data source implementation generating t
 
 ---
 
+* [SPARK-10167](https://issues.apache.org/jira/browse/SPARK-10167) | *Minor* | **We need to explicitly use transformDown when rewrite aggregation results**
+
+Right now, we use transformDown explicitly at https://github.com/apache/spark/blob/master/sql/core/src/main/scala/org/apache/spark/sql/execution/aggregate/utils.scala#L105 and https://github.com/apache/spark/blob/master/sql/core/src/main/scala/org/apache/spark/sql/execution/aggregate/utils.scala#L130. We also need to be very clear on using transformDown at https://github.com/apache/spark/blob/master/sql/core/src/main/scala/org/apache/spark/sql/execution/aggregate/utils.scala#L300 and https://github.com/apache/spark/blob/master/sql/core/src/main/scala/org/apache/spark/sql/execution/aggregate/utils.scala#L334 (right now transform means transformDown). The reason we need to use transformDown is when we rewrite final aggregate results, we should always match aggregate functions first. If we use transformUp, it is possible that we match grouping expression first if we use grouping expressions as children of aggregate functions.
+
+There is nothing wrong with our master. We just want to make sure we will not have bugs if we change the behavior of transform (change it from transformDown to Up.), which I think is very unlikely (but just incase).
+
+
+---
+
 * [SPARK-10162](https://issues.apache.org/jira/browse/SPARK-10162) | *Major* | **PySpark filters with datetimes mess up when datetimes have timezones.**
 
 PySpark appears to ignore timezone information when filtering on (and working in general with) datetimes.
@@ -3409,6 +4031,13 @@ This should be done after [SPARK-9665]
 
 ---
 
+* [SPARK-10079](https://issues.apache.org/jira/browse/SPARK-10079) | *Major* | **Make `column` and `col` functions be S4 functions**
+
+{{column}} and {{col}} function at {{R/pkg/R/Column.R}} are currently defined as S3 functions. I think it would be better to define them as S4 functions.
+
+
+---
+
 * [SPARK-10077](https://issues.apache.org/jira/browse/SPARK-10077) | *Minor* | **Java package doc for spark.ml.feature**
 
 Should be the same as SPARK-7808 but use Java for the code example.
@@ -3441,6 +4070,15 @@ In conclusion: my recommendation would be to revert to the old behavior and to r
 The first copy happens when we calculate the size of each element, after that, we copy the elements into array buffer, finally we copy the array buffer into row buffer. 
 
 We could calculate the total size first, then convert the elements into row buffer directly.
+
+
+---
+
+* [SPARK-10064](https://issues.apache.org/jira/browse/SPARK-10064) | *Minor* | **Decision tree continuous feature binning is slow in large feature spaces**
+
+When working with large feature spaces and high bin counts (\>500) the binning process can take many hours. This is particularly painful because it ties up executors for the duration, which is not shared-cluster friendly.
+
+The binning process can and should be performed on the executors instead of the driver.
 
 
 ---
@@ -3736,6 +4374,13 @@ The utilities such as Substring#substringBinarySQL and BinaryPrefixComparator#co
 
 ---
 
+* [SPARK-9841](https://issues.apache.org/jira/browse/SPARK-9841) | *Major* | **Params.clear needs to be public**
+
+It is currently impossible to clear Param values once set.  It would be helpful to be able to.
+
+
+---
+
 * [SPARK-9834](https://issues.apache.org/jira/browse/SPARK-9834) | *Major* | **Normal equation solver for ordinary least squares**
 
 Add normal equation solver for ordinary least squares with not many features. The approach requires one pass to collect AtA and Atb, then solve the problem on driver. It works well when the problem is not very ill-conditioned and not having many columns. It also provides R-like summary statistics.
@@ -3843,6 +4488,13 @@ Since the ApplicationSubmissionContext.setApplicationTags method was only added 
 
 ---
 
+* [SPARK-9774](https://issues.apache.org/jira/browse/SPARK-9774) | *Major* | **Add Python API for ml.regression.IsotonicRegression**
+
+Add Python API, user guide and example for ml.regression.IsotonicRegression
+
+
+---
+
 * [SPARK-9773](https://issues.apache.org/jira/browse/SPARK-9773) | *Major* | **Add Python API for MultilayerPerceptronClassifier**
 
 Add Python API for MultilayerPerceptronClassifier
@@ -3933,9 +4585,23 @@ It would be nice to include the UID (instance name) in toString methods.  That's
 
 ---
 
+* [SPARK-9718](https://issues.apache.org/jira/browse/SPARK-9718) | *Minor* | **LinearRegressionTrainingSummary should hold all columns in transformed data**
+
+LinearRegression training summary: The transformed dataset should hold all columns, not just selected ones like prediction and label.  There is no real need to remove some, and the user may find them useful.
+
+
+---
+
 * [SPARK-9715](https://issues.apache.org/jira/browse/SPARK-9715) | *Minor* | **Store numFeatures in all ML PredictionModel types**
 
 The PredictionModel abstraction should store numFeatures.  Currently, only RandomForest\* types do this.
+
+
+---
+
+* [SPARK-9702](https://issues.apache.org/jira/browse/SPARK-9702) | *Major* | **Repartition operator should use Exchange to perform its shuffle**
+
+Spark SQL's {{Repartition}} operator is implemented in terms of Spark Core's repartition operator, which means that it has to perform lots of unnecessary row copying and inefficient row serialization. Instead, it would be better if this was implemented using some of Exchange's internals so that it can avoid row format conversions and generic getters / hashcodes.
 
 
 ---
@@ -4362,6 +5028,15 @@ There are several things we can improve:
 
 ---
 
+* [SPARK-8848](https://issues.apache.org/jira/browse/SPARK-8848) | *Major* | **Write Parquet LISTs and MAPs conforming to Parquet format spec**
+
+[Parquet format PR #17\|https://github.com/apache/parquet-format/pull/17] standardized structures of Parquet complex types (LIST & MAP). Spark SQL should follow this spec and write Parquet data conforming to the standard.
+
+Note that although currently Parquet files written by Spark SQL is non-standard (because Parquet format spec wasn't clear about this part when Spark SQL Parquet support was authored), it's still compatible with the most recent Parquet format spec, because the format we use is covered by the backwards-compatibility rules.
+
+
+---
+
 * [SPARK-8764](https://issues.apache.org/jira/browse/SPARK-8764) | *Minor* | **StringIndexer should take option to handle unseen values**
 
 The option should be a Param, probably set to false by default (throwing exception when encountering unseen values).
@@ -4427,6 +5102,15 @@ This is because toDebugString gets all the partitions from all RDDs, which fails
 
 ---
 
+* [SPARK-8673](https://issues.apache.org/jira/browse/SPARK-8673) | *Major* | **Launcher: add support for monitoring launched applications**
+
+See parent bug for details.
+
+This task covers adding the groundwork for being able to communicate with the launched Spark application and provide ways for the code using the launcher library to interact with it.
+
+
+---
+
 * [SPARK-8632](https://issues.apache.org/jira/browse/SPARK-8632) | *Blocker* | **Poor Python UDF performance because of RDD caching**
 
 {quote}
@@ -4445,6 +5129,30 @@ http://apache-spark-developers-list.1001551.n3.nabble.com/Python-UDF-performance
 * [SPARK-8567](https://issues.apache.org/jira/browse/SPARK-8567) | *Blocker* | **Flaky test: o.a.s.sql.hive.HiveSparkSubmitSuite --jars**
 
 Seems tests in HiveSparkSubmitSuite fail with timeout pretty frequently.
+
+
+---
+
+* [SPARK-8552](https://issues.apache.org/jira/browse/SPARK-8552) | *Critical* | **Using incorrect database in multiple sessions**
+
+To reproduce this problem:
+
+\* 1. start thrift server
+{quote}
+sbin/start-thriftserver.sh
+{quote}
+
+\* 2. first connection execute "use test"
+{quote}
+bin/beeline -u jdbc:hive2://localhost:10000/default -n any -p any -e "use test"
+{quote}
+
+\* 3. second connection execute "show tables"
+{quote}
+bin/beeline -u jdbc:hive2://localhost:10000/default -n any -p any -e "show tables"
+{quote}
+
+\* 4. you can find the result is the tables in {{test}} database
 
 
 ---
@@ -4498,6 +5206,48 @@ The current workaround is to increase spark.task.maxFailures very high, but that
 * [SPARK-7989](https://issues.apache.org/jira/browse/SPARK-7989) | *Critical* | **Fix flaky tests in ExternalShuffleServiceSuite and SparkListenerWithClusterSuite**
 
 The flaky tests in ExternalShuffleServiceSuite and SparkListenerWithClusterSuite will fail if there are not enough executors up before running the jobs.
+
+
+---
+
+* [SPARK-7869](https://issues.apache.org/jira/browse/SPARK-7869) | *Minor* | **Spark Data Frame Fails to Load Postgres Tables with JSONB DataType Columns**
+
+Most of our tables load into dataframes just fine with postgres. However we have a number of tables leveraging the JSONB datatype. Spark will error and refuse to load this table. While asking for Spark to support JSONB might be a tall order in the short term, it would be great if Spark would at least load the table ignoring the columns it can't load or have it be an option.
+{code}
+pdf = sql\_context.load(source="jdbc", url=url, dbtable="table\_of\_json")
+
+Py4JJavaError: An error occurred while calling o41.load.
+: java.sql.SQLException: Unsupported type 1111
+    at org.apache.spark.sql.jdbc.JDBCRDD$.getCatalystType(JDBCRDD.scala:78)
+    at org.apache.spark.sql.jdbc.JDBCRDD$.resolveTable(JDBCRDD.scala:112)
+    at org.apache.spark.sql.jdbc.JDBCRelation.\<init\>(JDBCRelation.scala:133)
+    at org.apache.spark.sql.jdbc.DefaultSource.createRelation(JDBCRelation.scala:121)
+    at org.apache.spark.sql.sources.ResolvedDataSource$.apply(ddl.scala:219)
+    at org.apache.spark.sql.SQLContext.load(SQLContext.scala:697)
+    at org.apache.spark.sql.SQLContext.load(SQLContext.scala:685)
+    at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+    at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+    at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+    at java.lang.reflect.Method.invoke(Method.java:606)
+    at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:231)
+    at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:379)
+    at py4j.Gateway.invoke(Gateway.java:259)
+    at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:133)
+    at py4j.commands.CallCommand.execute(CallCommand.java:79)
+    at py4j.GatewayConnection.run(GatewayConnection.java:207)
+    at java.lang.Thread.run(Thread.java:745)
+{code}
+
+
+---
+
+* [SPARK-7770](https://issues.apache.org/jira/browse/SPARK-7770) | *Minor* | **Change GBT validationTol to be relative tolerance**
+
+In spark.mllib, GBT validationTol uses absolute tolerance.  Relative tolerance is arguably easier to set in a meaningful way.  Questions:
+\* Should we change spark.mllib's validationTol meaning?
+\* Should we use relative tolerance in spark.ml's GBT (once we add validation support)?
+
+I would vote for changing both to relative tolerance, where the tolerance is relative to the current loss on the training set.
 
 
 ---
