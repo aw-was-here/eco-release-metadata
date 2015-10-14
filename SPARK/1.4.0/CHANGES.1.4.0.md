@@ -26,11 +26,18 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 
 
-### NEW FEATURES:
+### IMPORTANT ISSUES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [SPARK-7746](https://issues.apache.org/jira/browse/SPARK-7746) | SetFetchSize for JDBCRDD's prepareStatement |  Major | SQL | Paul Wu | Liang-Chi Hsieh |
+| [SPARK-6994](https://issues.apache.org/jira/browse/SPARK-6994) | Allow to fetch field values by name in sql.Row |  Minor | SQL | vidmantas zemleris | vidmantas zemleris |
+
+
+### NEW FEATURES:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
 | [SPARK-7698](https://issues.apache.org/jira/browse/SPARK-7698) | Implement buffer pooling / re-use in ExecutorMemoryManager when using HeapAllocator |  Major | Spark Core | Josh Rosen | Josh Rosen |
 | [SPARK-7648](https://issues.apache.org/jira/browse/SPARK-7648) | Additional methods in ALS JavaModel wrappers |  Major | ML, PySpark | Xiangrui Meng | Xiangrui Meng |
 | [SPARK-7647](https://issues.apache.org/jira/browse/SPARK-7647) | Additional methods in GLM JavaModel wrappers |  Major | ML, PySpark | Xiangrui Meng | Xiangrui Meng |
@@ -217,7 +224,6 @@
 | [SPARK-7031](https://issues.apache.org/jira/browse/SPARK-7031) | let thrift server take SPARK\_DAEMON\_MEMORY and SPARK\_DAEMON\_JAVA\_OPTS |  Minor | SQL | Tao Wang | Tao Wang |
 | [SPARK-7015](https://issues.apache.org/jira/browse/SPARK-7015) | Multiclass to Binary Reduction |  Major | ML | Ram Sriharsha | Ram Sriharsha |
 | [SPARK-6996](https://issues.apache.org/jira/browse/SPARK-6996) | DataFrame should support map types when creating DFs from JavaBeans. |  Major | SQL | Punya Biswal | Punya Biswal |
-| [SPARK-6994](https://issues.apache.org/jira/browse/SPARK-6994) | Allow to fetch field values by name in sql.Row |  Minor | SQL | vidmantas zemleris | vidmantas zemleris |
 | [SPARK-6993](https://issues.apache.org/jira/browse/SPARK-6993) | Adding default max and min methods for JavaDoubleRDD |  Minor | Java API | Olivier Girardot | Olivier Girardot |
 | [SPARK-6988](https://issues.apache.org/jira/browse/SPARK-6988) | Fix Spark SQL documentation for 1.3.x |  Minor | SQL | Olivier Girardot | Olivier Girardot |
 | [SPARK-6986](https://issues.apache.org/jira/browse/SPARK-6986) | Makes SparkSqlSerializer2 support sort-based shuffle with sort merge |  Major | SQL | Yin Huai | Yin Huai |

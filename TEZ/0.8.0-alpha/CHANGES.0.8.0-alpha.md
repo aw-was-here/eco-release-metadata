@@ -29,6 +29,12 @@
 | [TEZ-2048](https://issues.apache.org/jira/browse/TEZ-2048) | Remove VertexManagerPluginContext.getTaskContainer() |  Blocker | . | Bikas Saha | Bikas Saha |
 
 
+### IMPORTANT ISSUES:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+
+
 ### NEW FEATURES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |

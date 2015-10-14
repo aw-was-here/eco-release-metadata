@@ -26,6 +26,13 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 
 
+### IMPORTANT ISSUES:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-10578](https://issues.apache.org/jira/browse/SPARK-10578) | pyspark.ml.classification.RandomForestClassifer does not return `rawPrediction` column |  Major | ML | Karen Yin-Yee Ng | Joseph K. Bradley |
+
+
 ### NEW FEATURES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
@@ -495,7 +502,6 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [SPARK-10578](https://issues.apache.org/jira/browse/SPARK-10578) | pyspark.ml.classification.RandomForestClassifer does not return `rawPrediction` column |  Major | ML | Karen Yin-Yee Ng | Joseph K. Bradley |
 | [SPARK-10508](https://issues.apache.org/jira/browse/SPARK-10508) | incorrect evaluation of searched case expression |  Major | SQL | N Campbell | Josh Rosen |
 | [SPARK-10504](https://issues.apache.org/jira/browse/SPARK-10504) | aggregate where NULL is defined as the value expression aborts when SUM used |  Minor | SQL | N Campbell | Yin Huai |
 | [SPARK-10467](https://issues.apache.org/jira/browse/SPARK-10467) | Vector is converted to tuple when extracted from Row using \_\_getitem\_\_ |  Minor | ML, PySpark, SQL | Maciej Szymkiewicz | Davies Liu |

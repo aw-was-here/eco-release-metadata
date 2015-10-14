@@ -18,7 +18,7 @@
 -->
 # Apache Spark  1.4.2 Release Notes
 
-These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
+These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
 
 
 ---
@@ -26,6 +26,81 @@ These release notes cover new developer and user-facing incompatibilities, featu
 * [SPARK-10980](https://issues.apache.org/jira/browse/SPARK-10980) | *Major* | **Create wrong decimal if unscaled \> 1e18 and scale \> 0**
 
 Decimal(1000000000000000000L, 20, 2) will become 1000000000000000000 instead of 10000000000000000.00
+
+
+---
+
+* [SPARK-10960](https://issues.apache.org/jira/browse/SPARK-10960) | *Major* | **SQL with windowing function cannot reference column in inner select block**
+
+There seems to be a bug in the Spark SQL parser when I use windowing functions. Specifically, when the SELECT refers to a column from an inner select block, the parser throws an error.
+
+Here is an example:
+--------------------------
+When I use a windowing function and add a '1' constant to the result, 
+{code}
+   select Rank() OVER ( ORDER BY D1.c3 ) + 1 as c1
+{code}
+
+The Spark SQL parser works. The whole SQL is:
+{code}
+select Rank() OVER ( ORDER BY D1.c3 ) + 1 as c1,
+                         D1.c3 as c3,
+                         D1.c4 as c4,
+                         D1.c5 as c5
+                    from 
+                         (select T3671.ROW\_WID as c3,
+                                   T3671.CAL\_MONTH as c4,
+                                   T3671.CAL\_YEAR as c5,
+                                   1 as c6
+                              from 
+                                   W\_DAY\_D T3671
+                         ) D1
+{code}
+
+However, if I change the projection so that it refers to a column in an inner select block, D1.C6, whose value is itself a '1' literal, so it is functionally equivalent to the SQL above, Spark SQL will throw an error:
+{code}
+select Rank() OVER ( ORDER BY D1.c3 ) + D1.C6 as c1,
+                         D1.c3 as c3,
+                         D1.c4 as c4,
+                         D1.c5 as c5
+                    from 
+                         (select T3671.ROW\_WID as c3,
+                                   T3671.CAL\_MONTH as c4,
+                                   T3671.CAL\_YEAR as c5,
+                                   1 as c6
+                              from 
+                                   W\_DAY\_D T3671
+                         ) D1
+{code}
+
+The error message is:
+{code}
+. . . . . . . . . . . . . . . .\> java.lang.NullPointerException
+Error: org.apache.spark.sql.AnalysisException: resolved attribute(s) c6#3386 missing from c5#3390
+,c3#3383,c4#3389,\_we0#3461,c3#3388 in operator !Project [c3#3388,c4#3389,c5#3390,c3#3383,\_we0#346
+1,(\_we0#3461 + c6#3386) AS c1#3387]; (state=,code=0)
+{code}
+
+The above example is a simplified version of the SQL I was testing. The full SQL I was using, which fails with a similar error, is as follows:
+
+{code}
+select Case when case D1.c6 when 1 then D1.c3 else NULL end  is not null then Rank() OVER ( ORDER BY case when ( case D1.c6 when 1 then D1.c3 else NULL end  ) is null then 1 else 0 end, case D1.c6 when 1 then D1.c3 else NULL end ) end as c1,
+                         Case when case D1.c7 when 1 then D1.c3 else NULL end  is not null then Rank() OVER ( PARTITION BY D1.c4, D1.c5 ORDER BY case when ( case D1.c7 when 1 then D1.c3 else NULL end  ) is null then 1 else 0 end, case D1.c7 when 1 then D1.c3 else NULL end ) end as c2,
+                         D1.c3 as c3,
+                         D1.c4 as c4,
+                         D1.c5 as c5
+                    from 
+                         (select T3671.ROW\_WID as c3,
+                                   T3671.CAL\_MONTH as c4,
+                                   T3671.CAL\_YEAR as c5,
+                                   ROW\_NUMBER() OVER (PARTITION BY T3671.CAL\_MONTH, T3671.CAL\_YEAR ORDER BY T3671.CAL\_MONTH DESC, T3671.CAL\_YEAR DESC) as c6,
+                                   ROW\_NUMBER() OVER (PARTITION BY T3671.CAL\_MONTH, T3671.CAL\_YEAR, T3671.ROW\_WID ORDER BY T3671.CAL\_MONTH DESC, T3671.CAL\_YEAR DESC, T3671.ROW\_WID DESC) as c7
+                              from 
+                                   W\_DAY\_D T3671
+                         ) D1
+{code}
+
+Hopefully when fixed, both these sample SQLs should work!
 
 
 ---

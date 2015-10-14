@@ -18,9 +18,15 @@
 -->
 # Apache Hadoop Changelog
 
-## Release 2.6.2 - Unreleased (as of 2015-10-10)
+## Release 2.6.2 - Unreleased (as of 2015-10-14)
 
 ### INCOMPATIBLE CHANGES:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+
+
+### IMPORTANT ISSUES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |

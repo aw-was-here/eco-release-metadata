@@ -18,7 +18,7 @@
 -->
 # Apache HBase  1.3.0 Release Notes
 
-These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
+These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
 
 
 ---
@@ -138,6 +138,7 @@ This issue adds boolean parameter, force, to 'balancer' command so that admin ca
 If hbase:meta is in transition, balancer command returns false.
 
 WARNING: For experts only. Forcing a balance may do more damage than repair when assignment is confused
+Note: enclose the force parameter in double quotes
 
 
 ---
@@ -194,6 +195,13 @@ Remove calling getNumCurrentReplicas on HdfsDataOutputStream via reflection. get
 * [HBASE-14224](https://issues.apache.org/jira/browse/HBASE-14224) | *Critical* | **Fix coprocessor handling of duplicate classes**
 
 Prevent Coprocessors being doubly-loaded; a particular coprocessor can only be loaded once.
+
+
+---
+
+* [HBASE-14206](https://issues.apache.org/jira/browse/HBASE-14206) | *Critical* | **MultiRowRangeFilter returns records whose rowKeys are out of allowed ranges**
+
+**WARNING: No release note provided for this important issue.**
 
 
 ---
@@ -268,6 +276,14 @@ HBASE-13881 Correct HTable incrementColumnValue implementation
 * [HBASE-13865](https://issues.apache.org/jira/browse/HBASE-13865) | *Trivial* | **Increase the default value for hbase.hregion.memstore.block.multipler from 2 to 4 (part 2)**
 
 Increase default hbase.hregion.memstore.block.multiplier from 2 to 4 in the code to match the default value in the config files.
+
+
+---
+
+* [HBASE-13819](https://issues.apache.org/jira/browse/HBASE-13819) | *Major* | **Make RPC layer CellBlock buffer a DirectByteBuffer**
+
+For master branch(2.0 version), the BoundedByteBufferPool always create Direct (off heap) ByteBuffers and return that.
+For branch-1(1.3 version), byte default the buffers returned will be off heap. This can be changed to return on heap ByteBuffers by configuring 'hbase.ipc.server.reservoir.direct.buffer' to false.
 
 
 ---

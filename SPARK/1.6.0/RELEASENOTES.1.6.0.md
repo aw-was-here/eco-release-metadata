@@ -18,7 +18,304 @@
 -->
 # Apache Spark  1.6.0 Release Notes
 
-These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
+These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
+
+
+---
+
+* [SPARK-11091](https://issues.apache.org/jira/browse/SPARK-11091) | *Major* | **Change the flag of spark.sql.canonicalizeView to spark.sql.nativeView**
+
+The meaning of this flag is exactly the opposite. Let's change it.
+
+
+---
+
+* [SPARK-11080](https://issues.apache.org/jira/browse/SPARK-11080) | *Major* | **Incorporate per-JVM id into ExprId to prevent unsafe cross-JVM comparisions**
+
+In the current implementation of named expressions' ExprIds, we rely on a per-JVM AtomicLong to ensure that expression ids are unique within a JVM. However, these expression ids will not be globally unique. This opens the potential for id collisions if new expression ids happen to be created inside of tasks rather than on the driver.
+
+There are currently a few cases where tasks allocate expression ids, which happen to be safe because those expressions are never compared to expressions created on the driver. In order to guard against the introduction of invalid comparisons between driver-created and executor-created expression ids, this patch extends ExprId to incorporate a UUID to identify the JVM that created the id, which prevents collisions.
+
+
+---
+
+* [SPARK-11079](https://issues.apache.org/jira/browse/SPARK-11079) | *Major* | **Post-hoc review Netty based RPC implementation - round 1**
+
+This is a task for Reynold to review the existing implementation done by 
+[~shixiong@databricks.com].
+
+
+---
+
+* [SPARK-11059](https://issues.apache.org/jira/browse/SPARK-11059) | *Minor* | **ML: change range of quantile probabilities in AFTSurvivalRegression**
+
+Values of the quantile probabilities array should be in the range (0, 1) instead of \[0,1\]
+[AFTSurvivalRegression.scala#L62\|https://github.com/apache/spark/blob/master/mllib/src/main/scala/org/apache/spark/ml/regression/AFTSurvivalRegression.scala#L62] according to [Discussion \| https://github.com/apache/spark/pull/8926#discussion-diff-40698242]
+
+
+---
+
+* [SPARK-11056](https://issues.apache.org/jira/browse/SPARK-11056) | *Minor* | **Improve documentation on how to build Spark efficiently**
+
+Slow build times are a common pain point for new Spark developers.  We should improve the main documentation on building Spark to describe how to make building Spark less painful.
+
+
+---
+
+* [SPARK-11053](https://issues.apache.org/jira/browse/SPARK-11053) | *Major* | **Remove use of KVIterator in SortBasedAggregationIterator**
+
+SortBasedAggregationIterator uses a KVIterator interface in order to process input rows as key-value pairs, but this use of KVIterator is unnecessary, slightly complicates the code, and might harm performance. We should refactor this code to remove this use of KVIterator. I'll submit a PR to do this.
+
+
+---
+
+* [SPARK-11052](https://issues.apache.org/jira/browse/SPARK-11052) | *Minor* | **Spaces in the build dir causes failures in the build/mvn script**
+
+If you are running make-distribution in a path that contains a space in it the build/mvn script will fail:
+
+{code}
+mkdir /tmp/test\ spaces
+cd /tmp/test\ spaces
+git clone https://github.com/apache/spark.git
+cd spark
+./make-distribution.sh --name spark-1.5-test4 --tgz -Pyarn -Phive-thriftserver -Phive
+{code}
+
+You will get the following errors
+{code}
+/tmp/test spaces/spark/build/mvn: line 107: cd: /../lib: No such file or directory
+usage: dirname path
+/tmp/test spaces/spark/build/mvn: line 108: cd: /../lib: No such file or directory
+/tmp/test spaces/spark/build/mvn: line 138: /tmp/test: No such file or directory
+/tmp/test spaces/spark/build/mvn: line 140: /tmp/test: No such file or directory
+{code}
+
+
+---
+
+* [SPARK-11042](https://issues.apache.org/jira/browse/SPARK-11042) | *Major* | **Introduce a mechanism to ban creating new root SQLContexts in a JVM**
+
+For some use cases, it will be useful to explicitly ban creating multiple root SQLContexts/HiveContexts. At here root SQLContext means the first SQLContext that gets created.
+
+
+---
+
+* [SPARK-11032](https://issues.apache.org/jira/browse/SPARK-11032) | *Blocker* | **Failure to resolve having correctly**
+
+This is a regression from Spark 1.4
+
+{code}
+Seq(("michael", 30)).toDF("name", "age").registerTempTable("people")
+sql("SELECT MIN(t0.age) FROM (SELECT \* FROM PEOPLE WHERE age \> 0) t0 HAVING(COUNT(1) \> 0)").explain(true)
+== Parsed Logical Plan ==
+'Filter cast(('COUNT(1) \> 0) as boolean)
+ 'Project [unresolvedalias('MIN('t0.age))]
+  'Subquery t0
+   'Project [unresolvedalias(\*)]
+    'Filter ('age \> 0)
+     'UnresolvedRelation [PEOPLE], None
+
+== Analyzed Logical Plan ==
+\_c0: int
+Filter cast((count(1) \> cast(0 as bigint)) as boolean)
+ Aggregate [min(age#6) AS \_c0#9]
+  Subquery t0
+   Project [name#5,age#6]
+    Filter (age#6 \> 0)
+     Subquery people
+      Project [\_1#3 AS name#5,\_2#4 AS age#6]
+       LocalRelation [\_1#3,\_2#4], [[michael,30]]
+
+== Optimized Logical Plan ==
+Filter (count(1) \> 0)
+ Aggregate [min(age#6) AS \_c0#9]
+  Project [\_2#4 AS age#6]
+   Filter (\_2#4 \> 0)
+    LocalRelation [\_1#3,\_2#4], [[michael,30]]
+
+== Physical Plan ==
+Filter (count(1) \> 0)
+ TungstenAggregate(key=[], functions=[(min(age#6),mode=Final,isDistinct=false)], output=[\_c0#9])
+  TungstenExchange SinglePartition
+   TungstenAggregate(key=[], functions=[(min(age#6),mode=Partial,isDistinct=false)], output=[min#12])
+    TungstenProject [\_2#4 AS age#6]
+     Filter (\_2#4 \> 0)
+      LocalTableScan [\_1#3,\_2#4], [[michael,30]]
+
+Code Generation: true
+{code}
+
+{code}
+Caused by: java.lang.UnsupportedOperationException: Cannot evaluate expression: count(1)
+	at org.apache.spark.sql.catalyst.expressions.Unevaluable$class.eval(Expression.scala:188)
+	at org.apache.spark.sql.catalyst.expressions.Count.eval(aggregates.scala:156)
+	at org.apache.spark.sql.catalyst.expressions.BinaryExpression.eval(Expression.scala:327)
+	at org.apache.spark.sql.catalyst.expressions.InterpretedPredicate$$anonfun$create$2.apply(predicates.scala:38)
+	at org.apache.spark.sql.catalyst.expressions.InterpretedPredicate$$anonfun$create$2.apply(predicates.scala:38)
+	at org.apache.spark.sql.execution.Filter$$anonfun$4$$anonfun$apply$4.apply(basicOperators.scala:117)
+	at org.apache.spark.sql.execution.Filter$$anonfun$4$$anonfun$apply$4.apply(basicOperators.scala:115)
+	at scala.collection.Iterator$$anon$14.hasNext(Iterator.scala:390)
+	at scala.collection.Iterator$$anon$11.hasNext(Iterator.scala:327)
+{code}
+
+
+---
+
+* [SPARK-11030](https://issues.apache.org/jira/browse/SPARK-11030) | *Major* | **SQLTab should be shared by across sessions**
+
+We should share the SQLTab across sessions.
+
+
+---
+
+* [SPARK-11026](https://issues.apache.org/jira/browse/SPARK-11026) | *Major* | **spark.yarn.user.classpath.first does work for 'spark-submit --jars hdfs://user/foo.jar'**
+
+when spark.yarn.user.classpath.first=true and addJars is on hdfs path, need to add the yarn's linkName of addJars to the system classpath.
+
+
+---
+
+* [SPARK-11023](https://issues.apache.org/jira/browse/SPARK-11023) | *Major* | **Error initializing SparkContext. java.net.URISyntaxException**
+
+Simliar to SPARK-10326. [https://issues.apache.org/jira/browse/SPARK-10326?page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel&focusedCommentId=14949470#comment-14949470]
+
+
+C:\WINDOWS\system32\>pyspark --master yarn-client
+Python 2.7.10 \|Anaconda 2.3.0 (64-bit)\| (default, Sep 15 2015, 14:26:14) [MSC v.1500 64 bit (AMD64)]
+Type "copyright", "credits" or "license" for more information.
+IPython 4.0.0 – An enhanced Interactive Python.
+? -\> Introduction and overview of IPython's features.
+%quickref -\> Quick reference.
+help -\> Python's own help system.
+object? -\> Details about 'object', use 'object??' for extra details.
+15/10/08 09:28:05 WARN MetricsSystem: Using default name DAGScheduler for source because spark.app.id is not set.
+15/10/08 09:28:06 WARN : Your hostname, PC-509512 resolves to a loopback/non-reachable address: fe80:0:0:0:0:5efe:a5f:c318%net3, but we couldn't find any external IP address!
+15/10/08 09:28:08 WARN BlockReaderLocal: The short-circuit local reads feature cannot be used because UNIX Domain sockets are not available on Windows.
+15/10/08 09:28:08 ERROR SparkContext: Error initializing SparkContext.
+java.net.URISyntaxException: Illegal character in opaque part at index 2: C:\spark\bin\..\python\lib\pyspark.zip
+at java.net.URI$Parser.fail(Unknown Source)
+at java.net.URI$Parser.checkChars(Unknown Source)
+at java.net.URI$Parser.parse(Unknown Source)
+at java.net.URI.\<init\>(Unknown Source)
+at org.apache.spark.deploy.yarn.Client$$anonfun$setupLaunchEnv$7.apply(Client.scala:558)
+at org.apache.spark.deploy.yarn.Client$$anonfun$setupLaunchEnv$7.apply(Client.scala:557)
+at scala.collection.immutable.List.foreach(List.scala:318)
+at org.apache.spark.deploy.yarn.Client.setupLaunchEnv(Client.scala:557)
+at org.apache.spark.deploy.yarn.Client.createContainerLaunchContext(Client.scala:628)
+at org.apache.spark.deploy.yarn.Client.submitApplication(Client.scala:119)
+at org.apache.spark.scheduler.cluster.YarnClientSchedulerBackend.start(YarnClientSchedulerBackend.scala:56)
+at org.apache.spark.scheduler.TaskSchedulerImpl.start(TaskSchedulerImpl.scala:144)
+at org.apache.spark.SparkContext.\<init\>(SparkContext.scala:523)
+at org.apache.spark.api.java.JavaSparkContext.\<init\>(JavaSparkContext.scala:61)
+at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+at java.lang.reflect.Constructor.newInstance(Unknown Source)
+at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:234)
+at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:379)
+at py4j.Gateway.invoke(Gateway.java:214)
+at py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:79)
+at py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:68)
+at py4j.GatewayConnection.run(GatewayConnection.java:207)
+at java.lang.Thread.run(Unknown Source)
+15/10/08 09:28:08 ERROR Utils: Uncaught exception in thread Thread-2
+java.lang.NullPointerException
+at org.apache.spark.network.netty.NettyBlockTransferService.close(NettyBlockTransferService.scala:152)
+at org.apache.spark.storage.BlockManager.stop(BlockManager.scala:1228)
+at org.apache.spark.SparkEnv.stop(SparkEnv.scala:100)
+at org.apache.spark.SparkContext$$anonfun$stop$12.apply$mcV$sp(SparkContext.scala:1749)
+at org.apache.spark.util.Utils$.tryLogNonFatalError(Utils.scala:1185)
+at org.apache.spark.SparkContext.stop(SparkContext.scala:1748)
+at org.apache.spark.SparkContext.\<init\>(SparkContext.scala:593)
+at org.apache.spark.api.java.JavaSparkContext.\<init\>(JavaSparkContext.scala:61)
+at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+at java.lang.reflect.Constructor.newInstance(Unknown Source)
+at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:234)
+at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:379)
+at py4j.Gateway.invoke(Gateway.java:214)
+at py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:79)
+at py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:68)
+at py4j.GatewayConnection.run(GatewayConnection.java:207)
+at java.lang.Thread.run(Unknown Source)
+---------------------------------------------------------------------------
+Py4JJavaError Traceback (most recent call last)
+C:\spark\bin\..\python\pyspark\shell.py in \<module\>()
+41 SparkContext.setSystemProperty("spark.executor.uri", os.environ["SPARK\_EXECUTOR\_URI"])
+42
+---\> 43 sc = SparkContext(pyFiles=add\_files)
+44 atexit.register(lambda: sc.stop())
+45
+C:\spark\python\pyspark\context.pyc in \_init\_(self, master, appName, sparkHome, pyFiles, environment, batchSize, serializer, conf, gateway, jsc, profiler\_cls)
+111 try:
+112 self.\_do\_init(master, appName, sparkHome, pyFiles, environment, batchSize, serializer,
+--\> 113 conf, jsc, profiler\_cls)
+114 except:
+115 # If an error occurs, clean up in order to allow future SparkContext creation:
+C:\spark\python\pyspark\context.pyc in \_do\_init(self, master, appName, sparkHome, pyFiles, environment, batchSize, serializer, conf, jsc, profiler\_cls)
+168
+169 # Create the Java SparkContext through Py4J
+--\> 170 self.\_jsc = jsc or self.\_initialize\_context(self.\_conf.\_jconf)
+171
+172 # Create a single Accumulator in Java that we'll send all our updates through;
+C:\spark\python\pyspark\context.pyc in \_initialize\_context(self, jconf)
+222 Initialize SparkContext in function to allow subclass specific initialization
+223 """
+--\> 224 return self.\_jvm.JavaSparkContext(jconf)
+225
+226 @classmethod
+C:\spark\python\lib\py4j-0.8.2.1-src.zip\py4j\java\_gateway.py in \_call\_(self, \*args)
+699 answer = self.\_gateway\_client.send\_command(command)
+700 return\_value = get\_return\_value(answer, self.\_gateway\_client, None,
+--\> 701 self.\_fqn)
+702
+703 for temp\_arg in temp\_args:
+C:\spark\python\lib\py4j-0.8.2.1-src.zip\py4j\protocol.py in get\_return\_value(answer, gateway\_client, target\_id, name)
+298 raise Py4JJavaError(
+299 'An error occurred while calling
+{0} {1} {2}
+.\n'.
+--\> 300 format(target\_id, '.', name), value)
+301 else:
+302 raise Py4JError(
+Py4JJavaError: An error occurred while calling None.org.apache.spark.api.java.JavaSparkContext.
+: java.net.URISyntaxException: Illegal character in opaque part at index 2: C:\spark\bin\..\python\lib\pyspark.zip
+at java.net.URI$Parser.fail(Unknown Source)
+at java.net.URI$Parser.checkChars(Unknown Source)
+at java.net.URI$Parser.parse(Unknown Source)
+at java.net.URI.\<init\>(Unknown Source)
+at org.apache.spark.deploy.yarn.Client$$anonfun$setupLaunchEnv$7.apply(Client.scala:558)
+at org.apache.spark.deploy.yarn.Client$$anonfun$setupLaunchEnv$7.apply(Client.scala:557)
+at scala.collection.immutable.List.foreach(List.scala:318)
+at org.apache.spark.deploy.yarn.Client.setupLaunchEnv(Client.scala:557)
+at org.apache.spark.deploy.yarn.Client.createContainerLaunchContext(Client.scala:628)
+at org.apache.spark.deploy.yarn.Client.submitApplication(Client.scala:119)
+at org.apache.spark.scheduler.cluster.YarnClientSchedulerBackend.start(YarnClientSchedulerBackend.scala:56)
+at org.apache.spark.scheduler.TaskSchedulerImpl.start(TaskSchedulerImpl.scala:144)
+at org.apache.spark.SparkContext.\<init\>(SparkContext.scala:523)
+at org.apache.spark.api.java.JavaSparkContext.\<init\>(JavaSparkContext.scala:61)
+at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+at java.lang.reflect.Constructor.newInstance(Unknown Source)
+at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:234)
+at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:379)
+at py4j.Gateway.invoke(Gateway.java:214)
+at py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:79)
+at py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:68)
+at py4j.GatewayConnection.run(GatewayConnection.java:207)
+at java.lang.Thread.run(Unknown Source)
+In [1]:
+Reply
+  
+Marcelo Vanzin added a comment - 10 hours ago
+Ah, that's similar but not the same bug; it's a different part of the code that only affects pyspark. Could you file a separate bug for that? This is the 
+
+{code}
+    (pySparkArchives ++ pyArchives).foreach { path =\>
+      val uri = new URI(path)
+{code}
 
 
 ---
@@ -26,6 +323,62 @@ These release notes cover new developer and user-facing incompatibilities, featu
 * [SPARK-11019](https://issues.apache.org/jira/browse/SPARK-11019) | *Major* | **[streaming] [flume] Gracefully shutdown Flume receiver threads**
 
 Currently, we kill the executor fetching data from Flume by interrupting the threads. We should wait for a bit before interrupting the threads. This is more graceful and we avoid some nasty exceptions in the logs
+
+
+---
+
+* [SPARK-11018](https://issues.apache.org/jira/browse/SPARK-11018) | *Blocker* | **Support UDT in codegen and unsafe projection**
+
+UDT is not handled correctly in codegen:
+
+{code}
+failed to compile: org.codehaus.commons.compiler.CompileException: File 'generated.java', Line 41, Column 30: No applicable constructor/method found for actual parameters "int, java.lang.Object"; candidates are: "public void org.apache.spark.sql.catalyst.expressions.codegen.UnsafeRowWriter.write(int, org.apache.spark.unsafe.types.CalendarInterval)", "public void org.apache.spark.sql.catalyst.expressions.codegen.UnsafeRowWriter.write(int, org.apache.spark.sql.types.Decimal, int, int)", "public void org.apache.spark.sql.catalyst.expressions.codegen.UnsafeRowWriter.write(int, org.apache.spark.unsafe.types.UTF8String)", "public void org.apache.spark.sql.catalyst.expressions.codegen.UnsafeRowWriter.write(int, byte[])"
+{code}
+
+
+---
+
+* [SPARK-11009](https://issues.apache.org/jira/browse/SPARK-11009) | *Blocker* | **RowNumber in HiveContext returns negative values in cluster mode**
+
+This issue happens when submitting the job into a standalone cluster. Have not tried YARN or MESOS. Repartition df into 1 piece or default parallelism=1 does not fix the issue. Also tried having only one node in the cluster, with same result. Other shuffle configuration changes do not alter the results either.
+
+The issue does NOT happen in --master local[\*].
+
+        val ws = Window.
+            partitionBy("client\_id").
+            orderBy("date")
+ 
+        val nm = "repeatMe"
+        df.select(df.col("\*"), rowNumber().over(ws).as(nm))
+ 
+        df.filter(df("repeatMe").isNotNull).orderBy("repeatMe").take(50).foreach(println(\_))
+ 
+---\>
+ 
+Long, DateType, Int
+[219483904822,2006-06-01,-1863462909]
+[219483904822,2006-09-01,-1863462909]
+[219483904822,2007-01-01,-1863462909]
+[219483904822,2007-08-01,-1863462909]
+[219483904822,2007-07-01,-1863462909]
+[192489238423,2007-07-01,-1863462774]
+[192489238423,2007-02-01,-1863462774]
+[192489238423,2006-11-01,-1863462774]
+[192489238423,2006-08-01,-1863462774]
+[192489238423,2007-08-01,-1863462774]
+[192489238423,2006-09-01,-1863462774]
+[192489238423,2007-03-01,-1863462774]
+[192489238423,2006-10-01,-1863462774]
+[192489238423,2007-05-01,-1863462774]
+[192489238423,2006-06-01,-1863462774]
+[192489238423,2006-12-01,-1863462774]
+
+
+---
+
+* [SPARK-11007](https://issues.apache.org/jira/browse/SPARK-11007) | *Major* | **Add dictionary support for CatalystDecimalConverter**
+
+Currently {{CatalystDecimalConverter}} doesn't explicitly support dictionary encoding. The consequence is that, the underlying Parquet {{ColumnReader}} always sends raw {{Int}}/{{Long}}/{{Binary}} values decoded from the dictionary to {{CatalystDecimalConverter}} even if the column is encoded using a dictionary. By adding explicit dictionary support (similar to what {{CatalystStringConverter}} does), we can avoid constructing decimals repeatedly. This should be especially effective for binary backed decimals.
 
 
 ---
@@ -50,6 +403,13 @@ Coalesce 1
    Scan PhysicalRDD[id#3L]
 {noformat}
 The {{ConvertToSafe}} is unnecessary.
+
+
+---
+
+* [SPARK-10990](https://issues.apache.org/jira/browse/SPARK-10990) | *Major* | **Avoid the serialization multiple times during unrolling of complex types**
+
+The serialize() will be called by actualSize() and append(), we should use UnsafeProjection before unrolling,
 
 
 ---
@@ -81,9 +441,92 @@ For example, https://amplab.cs.berkeley.edu/jenkins/job/SparkPullRequestBuilder/
 
 ---
 
+* [SPARK-10983](https://issues.apache.org/jira/browse/SPARK-10983) | *Critical* | **Implement unified memory manager**
+
+This builds on top of the MemoryManager interface introduced in SPARK-10956. That issue implemented a StaticMemoryManager which implemented legacy behavior. This issue is concerned with implementing a UnifiedMemoryManager (or whatever we call it) according to the design doc posted in SPARK-10000.
+
+Note: the scope of this issue is limited to implementing this new mode without significant refactoring. If necessary, any such refactoring should come later (or earlier) in a separate issue.
+
+
+---
+
 * [SPARK-10982](https://issues.apache.org/jira/browse/SPARK-10982) | *Major* | **Rename ExpressionAggregate -\> DeclarativeAggregate**
 
 Matches more closely with ImperativeAggregate.
+
+
+---
+
+* [SPARK-10981](https://issues.apache.org/jira/browse/SPARK-10981) | *Minor* | **R semijoin leads to Java errors, R leftsemi leads to Spark errors**
+
+I am using SparkR from RStudio, and I ran into an error with the join function that I recreated with a smaller example:
+
+{code:title=joinTest.R\|borderStyle=solid}
+Sys.setenv(SPARK\_HOME="/Users/liumo1/Applications/spark/")
+.libPaths(c(file.path(Sys.getenv("SPARK\_HOME"), "R", "lib"), .libPaths()))
+library(SparkR)
+sc \<- sparkR.init("local[4]")
+sqlContext \<- sparkRSQL.init(sc) 
+
+n = c(2, 3, 5)
+s = c("aa", "bb", "cc")
+b = c(TRUE, FALSE, TRUE)
+df = data.frame(n, s, b)
+df1= createDataFrame(sqlContext, df)
+showDF(df1)
+
+x = c(2, 3, 10)
+t = c("dd", "ee", "ff")
+c = c(FALSE, FALSE, TRUE)
+dff = data.frame(x, t, c)
+df2 = createDataFrame(sqlContext, dff)
+showDF(df2)
+res = join(df1, df2, df1$n == df2$x, "semijoin")
+showDF(res)
+{code}
+
+Running this code, I encountered the error:
+{panel}
+Error in invokeJava(isStatic = FALSE, objId$id, methodName, ...) : 
+  java.lang.IllegalArgumentException: Unsupported join type 'semijoin'. Supported join types include: 'inner', 'outer', 'full', 'fullouter', 'leftouter', 'left', 'rightouter', 'right', 'leftsemi'.
+{panel}
+
+However, if I changed the joinType to "leftsemi", 
+{code}
+res = join(df1, df2, df1$n == df2$x, "leftsemi")
+{code}
+
+I would get the error:
+{panel}
+Error in .local(x, y, ...) : 
+  joinType must be one of the following types: 'inner', 'outer', 'left\_outer', 'right\_outer', 'semijoin'
+{panel}
+
+Since the join function in R appears to invoke a Java method, I went into DataFrame.R and changed the code on line 1374 and line 1378 to change the "semijoin" to "leftsemi" to match the Java function's parameters. These also make the R joinType accepted values match those of Scala's. 
+
+semijoin:
+{code:title=DataFrame.R: join(x, y, joinExpr, joinType)\|borderStyle=solid}
+if (joinType %in% c("inner", "outer", "left\_outer", "right\_outer", "semijoin")) {
+    sdf \<- callJMethod(x@sdf, "join", y@sdf, joinExpr@jc, joinType)
+} 
+else {
+     stop("joinType must be one of the following types: ",
+             "'inner', 'outer', 'left\_outer', 'right\_outer', 'semijoin'")
+}
+{code}
+
+leftsemi:
+{code:title=DataFrame.R: join(x, y, joinExpr, joinType)\|borderStyle=solid}
+if (joinType %in% c("inner", "outer", "left\_outer", "right\_outer", "leftsemi")) {
+    sdf \<- callJMethod(x@sdf, "join", y@sdf, joinExpr@jc, joinType)
+} 
+else {
+     stop("joinType must be one of the following types: ",
+             "'inner', 'outer', 'left\_outer', 'right\_outer', 'leftsemi'")
+}
+{code}
+
+This fixed the issue, but I'm not sure if this solution breaks hive compatibility or causes other issues, but I can submit a pull request to change this
 
 
 ---
@@ -100,6 +543,81 @@ Decimal(1000000000000000000L, 20, 2) will become 1000000000000000000 instead of 
  - Add lines numbers to error
  - Use a variable for input row
  - primitive -\> value (since its often actually an object)
+
+
+---
+
+* [SPARK-10960](https://issues.apache.org/jira/browse/SPARK-10960) | *Major* | **SQL with windowing function cannot reference column in inner select block**
+
+There seems to be a bug in the Spark SQL parser when I use windowing functions. Specifically, when the SELECT refers to a column from an inner select block, the parser throws an error.
+
+Here is an example:
+--------------------------
+When I use a windowing function and add a '1' constant to the result, 
+{code}
+   select Rank() OVER ( ORDER BY D1.c3 ) + 1 as c1
+{code}
+
+The Spark SQL parser works. The whole SQL is:
+{code}
+select Rank() OVER ( ORDER BY D1.c3 ) + 1 as c1,
+                         D1.c3 as c3,
+                         D1.c4 as c4,
+                         D1.c5 as c5
+                    from 
+                         (select T3671.ROW\_WID as c3,
+                                   T3671.CAL\_MONTH as c4,
+                                   T3671.CAL\_YEAR as c5,
+                                   1 as c6
+                              from 
+                                   W\_DAY\_D T3671
+                         ) D1
+{code}
+
+However, if I change the projection so that it refers to a column in an inner select block, D1.C6, whose value is itself a '1' literal, so it is functionally equivalent to the SQL above, Spark SQL will throw an error:
+{code}
+select Rank() OVER ( ORDER BY D1.c3 ) + D1.C6 as c1,
+                         D1.c3 as c3,
+                         D1.c4 as c4,
+                         D1.c5 as c5
+                    from 
+                         (select T3671.ROW\_WID as c3,
+                                   T3671.CAL\_MONTH as c4,
+                                   T3671.CAL\_YEAR as c5,
+                                   1 as c6
+                              from 
+                                   W\_DAY\_D T3671
+                         ) D1
+{code}
+
+The error message is:
+{code}
+. . . . . . . . . . . . . . . .\> java.lang.NullPointerException
+Error: org.apache.spark.sql.AnalysisException: resolved attribute(s) c6#3386 missing from c5#3390
+,c3#3383,c4#3389,\_we0#3461,c3#3388 in operator !Project [c3#3388,c4#3389,c5#3390,c3#3383,\_we0#346
+1,(\_we0#3461 + c6#3386) AS c1#3387]; (state=,code=0)
+{code}
+
+The above example is a simplified version of the SQL I was testing. The full SQL I was using, which fails with a similar error, is as follows:
+
+{code}
+select Case when case D1.c6 when 1 then D1.c3 else NULL end  is not null then Rank() OVER ( ORDER BY case when ( case D1.c6 when 1 then D1.c3 else NULL end  ) is null then 1 else 0 end, case D1.c6 when 1 then D1.c3 else NULL end ) end as c1,
+                         Case when case D1.c7 when 1 then D1.c3 else NULL end  is not null then Rank() OVER ( PARTITION BY D1.c4, D1.c5 ORDER BY case when ( case D1.c7 when 1 then D1.c3 else NULL end  ) is null then 1 else 0 end, case D1.c7 when 1 then D1.c3 else NULL end ) end as c2,
+                         D1.c3 as c3,
+                         D1.c4 as c4,
+                         D1.c5 as c5
+                    from 
+                         (select T3671.ROW\_WID as c3,
+                                   T3671.CAL\_MONTH as c4,
+                                   T3671.CAL\_YEAR as c5,
+                                   ROW\_NUMBER() OVER (PARTITION BY T3671.CAL\_MONTH, T3671.CAL\_YEAR ORDER BY T3671.CAL\_MONTH DESC, T3671.CAL\_YEAR DESC) as c6,
+                                   ROW\_NUMBER() OVER (PARTITION BY T3671.CAL\_MONTH, T3671.CAL\_YEAR, T3671.ROW\_WID ORDER BY T3671.CAL\_MONTH DESC, T3671.CAL\_YEAR DESC, T3671.ROW\_WID DESC) as c7
+                              from 
+                                   W\_DAY\_D T3671
+                         ) D1
+{code}
+
+Hopefully when fixed, both these sample SQLs should work!
 
 
 ---
@@ -148,6 +666,13 @@ I think that we should re-name this class and should refactor the class hierarch
 * [SPARK-10938](https://issues.apache.org/jira/browse/SPARK-10938) | *Major* | **Remove typeId in columnar cache**
 
 typeId is not needed in columnar cache, it's confusing to having them.
+
+
+---
+
+* [SPARK-10932](https://issues.apache.org/jira/browse/SPARK-10932) | *Major* | **Port two minor changes to release packaging scripts back into Spark repo**
+
+Spark's release packaging scripts used to live in separate repositories. Although these scripts are now part of the Spark repo, there are some patches against the old repos that are missing in Spark's copy of the script. As part of the deprecation of those other repos, we should port those changes into Spark's copy of the script. I'll open a PR to do this.
 
 
 ---
@@ -208,6 +733,13 @@ x.join(y, $"xx" === $"yy").filter("yy=1").count() /\* expect 1, get 0 \*/
 
 ---
 
+* [SPARK-10913](https://issues.apache.org/jira/browse/SPARK-10913) | *Minor* | **Add attach() function for DataFrame**
+
+Need a R-like attach() API: "Attach Set of R Objects to Search Path"
+
+
+---
+
 * [SPARK-10905](https://issues.apache.org/jira/browse/SPARK-10905) | *Minor* | **Export freqItems() for DataFrameStatFunctions in SparkR**
 
 Currently only crosstab is implemented. This subtask is about adding freqItems() API to sparkR
@@ -261,6 +793,14 @@ User class threw exception: java.lang.LinkageError: loader constraint violation:
 * [SPARK-10889](https://issues.apache.org/jira/browse/SPARK-10889) | *Minor* | **Upgrade Kinesis Client Library**
 
 Kinesis Client Library added a custom cloudwatch metric in 1.3.0 called MillisBehindLatest. This is very important for capacity planning and alerting.
+
+
+---
+
+* [SPARK-10888](https://issues.apache.org/jira/browse/SPARK-10888) | *Minor* | **Add as.DataFrame as a synonym for createDataFrame**
+
+as.DataFrame is more a R-style like signature. 
+Also, I'd like to know if we could make the context, e.g. sqlContext global, so that we do not have to specify it as an argument, when we each time create a dataframe.
 
 
 ---
@@ -856,6 +1396,15 @@ For Intersect, let's say there is a non-deterministic condition with a 0.5 possi
 For Except, let's say there is a row that presents in both sides of an Except. This row should not be in the final output. However, if we pushdown a non-deterministic condition, it is possible that this row is rejected from one side and then we output a row that should not be a part of the result.
 
  We should only push down deterministic projection to Union.
+
+
+---
+
+* [SPARK-10739](https://issues.apache.org/jira/browse/SPARK-10739) | *Minor* | **Add attempt window for long running Spark application on Yarn**
+
+Currently Spark on Yarn uses max attempts to control the failure number, if application's failure number reaches to the max attempts, application will not be recovered by RM, it is not very effective for long running applications, since it will easily exceed the max number at a long time period, also setting a very large max attempts will hide the real problem.
+
+So here introduce an attempt window to control the application attempt times, this will ignore the out of window attempts, it is introduced in Hadoop 2.6+ to support long running application, it is quite useful for Spark Streaming, Spark shell like applications.
 
 
 ---
@@ -4868,6 +5417,32 @@ In ConcatWs, we fall back to interpreted mode if the input is a mix of string an
 
 ---
 
+* [SPARK-9280](https://issues.apache.org/jira/browse/SPARK-9280) | *Major* | **New HiveContext object unexpectedly loads configuration settings from history**
+
+In a spark session, stopping a spark context and create a new spark context and hive context does not clean the spark sql configuration. More precisely, the new hive context still keeps the previous configuration settings. It would be great if someone can let us know how to avoid this situation.
+
+{code:title=New hive context should not load the configurations from history}
+
+sqlContext.setConf( "spark.sql.shuffle.partitions", "10")
+sc.stop
+
+val sparkConf2 = new org.apache.spark.SparkConf()
+val sc2 = new org.apache.spark.SparkContext( sparkConf2 ) 
+val sqlContext2 = new org.apache.spark.sql.hive.HiveContext( sc2 )
+
+sqlContext2.getConf( "spark.sql.shuffle.partitions", "20") 
+// got 20 as expected
+
+sqlContext2.setConf( "foo", "foo") 
+
+sqlContext2.getConf( "spark.sql.shuffle.partitions", "30")
+// expected 30 but got 10
+
+{code}
+
+
+---
+
 * [SPARK-9170](https://issues.apache.org/jira/browse/SPARK-9170) | *Major* | **ORC data source creates a schema with lowercase table names**
 
 Steps to reproduce:
@@ -5194,6 +5769,13 @@ where "\_\_THIS\_\_" will be replaced by a temp table that represents the DataFr
 
 ---
 
+* [SPARK-8170](https://issues.apache.org/jira/browse/SPARK-8170) | *Major* | **Ctrl-C in pyspark shell doesn't kill running job**
+
+Hitting Ctrl-C in spark-sql(and other tools like presto) cancels any running job and starts a new input line on the prompt. It would be nice if pyspark shell also can do that. Otherwise, in case a user submits a job, say he made a mistake, and wants to cancel it, he needs to exit the shell and re-login to continue his work. Re-login can be a pain especially in Spark on yarn, since it takes a while to allocate AM container and initial executors.
+
+
+---
+
 * [SPARK-8167](https://issues.apache.org/jira/browse/SPARK-8167) | *Blocker* | **Tasks that fail due to YARN preemption can cause job failure**
 
 Tasks that are running on preempted executors will count as FAILED with an ExecutorLostFailure. Unfortunately, this can quickly spiral out of control if a large resource shift is occurring, and the tasks get scheduled to executors that immediately get preempted as well.
@@ -5285,6 +5867,13 @@ instead of this:
 {code}
 row.field
 {code}
+
+
+---
+
+* [SPARK-7402](https://issues.apache.org/jira/browse/SPARK-7402) | *Critical* | **JSON serialization of standard params**
+
+Add JSON support to Param in order to persist parameters with transformer, estimator, and models.
 
 
 ---
@@ -5452,6 +6041,357 @@ Everything seems to start.
 How should I deal with this? Creating a separate function like escapeForShell for Windows and call it whenever I detect this is for Windows? Or should I add some sanity check on YARN?
 
 I checked a little and there seems to be people that is able to run Spark on YARN on Windows, so it might be something else. I didn't find anything related on Jira either.
+
+
+---
+
+* [SPARK-5391](https://issues.apache.org/jira/browse/SPARK-5391) | *Major* | **SparkSQL fails to create tables with custom JSON SerDe**
+
+- Using Spark built from trunk on this commit: https://github.com/apache/spark/commit/bc20a52b34e826895d0dcc1d783c021ebd456ebd
+- Build for Hive13
+- Using this JSON serde: https://github.com/rcongiu/Hive-JSON-Serde
+
+First download jar locally:
+{code}
+$ curl http://www.congiu.net/hive-json-serde/1.3/cdh5/json-serde-1.3-jar-with-dependencies.jar \> /tmp/json-serde-1.3-jar-with-dependencies.jar
+{code}
+
+Then add it in SparkSQL session:
+{code}
+add jar /tmp/json-serde-1.3-jar-with-dependencies.jar
+{code}
+
+Finally create table:
+{code}
+create table test\_json (c1 boolean) ROW FORMAT SERDE 'org.openx.data.jsonserde.JsonSerDe';
+{code}
+
+Logs for add jar:
+{code}
+15/01/23 23:48:33 INFO thriftserver.SparkExecuteStatementOperation: Running query 'add jar /tmp/json-serde-1.3-jar-with-dependencies.jar'
+15/01/23 23:48:34 INFO session.SessionState: No Tez session required at this point. hive.execution.engine=mr.
+15/01/23 23:48:34 INFO SessionState: Added /tmp/json-serde-1.3-jar-with-dependencies.jar to class path
+15/01/23 23:48:34 INFO SessionState: Added resource: /tmp/json-serde-1.3-jar-with-dependencies.jar
+15/01/23 23:48:34 INFO spark.SparkContext: Added JAR /tmp/json-serde-1.3-jar-with-dependencies.jar at http://192.168.99.9:51312/jars/json-serde-1.3-jar-with-dependencies.jar with timestamp 1422056914776
+15/01/23 23:48:34 INFO thriftserver.SparkExecuteStatementOperation: Result Schema: List()
+15/01/23 23:48:34 INFO thriftserver.SparkExecuteStatementOperation: Result Schema: List()
+{code}
+
+Logs (with error) for create table:
+{code}
+15/01/23 23:49:00 INFO thriftserver.SparkExecuteStatementOperation: Running query 'create table test\_json (c1 boolean) ROW FORMAT SERDE 'org.openx.data.jsonserde.JsonSerDe''
+15/01/23 23:49:00 INFO parse.ParseDriver: Parsing command: create table test\_json (c1 boolean) ROW FORMAT SERDE 'org.openx.data.jsonserde.JsonSerDe'
+15/01/23 23:49:01 INFO parse.ParseDriver: Parse Completed
+15/01/23 23:49:01 INFO session.SessionState: No Tez session required at this point. hive.execution.engine=mr.
+15/01/23 23:49:01 INFO log.PerfLogger: \<PERFLOG method=Driver.run from=org.apache.hadoop.hive.ql.Driver\>
+15/01/23 23:49:01 INFO log.PerfLogger: \<PERFLOG method=TimeToSubmit from=org.apache.hadoop.hive.ql.Driver\>
+15/01/23 23:49:01 INFO ql.Driver: Concurrency mode is disabled, not creating a lock manager
+15/01/23 23:49:01 INFO log.PerfLogger: \<PERFLOG method=compile from=org.apache.hadoop.hive.ql.Driver\>
+15/01/23 23:49:01 INFO log.PerfLogger: \<PERFLOG method=parse from=org.apache.hadoop.hive.ql.Driver\>
+15/01/23 23:49:01 INFO parse.ParseDriver: Parsing command: create table test\_json (c1 boolean) ROW FORMAT SERDE 'org.openx.data.jsonserde.JsonSerDe'
+15/01/23 23:49:01 INFO parse.ParseDriver: Parse Completed
+15/01/23 23:49:01 INFO log.PerfLogger: \</PERFLOG method=parse start=1422056941103 end=1422056941104 duration=1 from=org.apache.hadoop.hive.ql.Driver\>
+15/01/23 23:49:01 INFO log.PerfLogger: \<PERFLOG method=semanticAnalyze from=org.apache.hadoop.hive.ql.Driver\>
+15/01/23 23:49:01 INFO parse.SemanticAnalyzer: Starting Semantic Analysis
+15/01/23 23:49:01 INFO parse.SemanticAnalyzer: Creating table test\_json position=13
+15/01/23 23:49:01 INFO ql.Driver: Semantic Analysis Completed
+15/01/23 23:49:01 INFO log.PerfLogger: \</PERFLOG method=semanticAnalyze start=1422056941104 end=1422056941240 duration=136 from=org.apache.hadoop.hive.ql.Driver\>
+15/01/23 23:49:01 INFO ql.Driver: Returning Hive schema: Schema(fieldSchemas:null, properties:null)
+15/01/23 23:49:01 INFO log.PerfLogger: \</PERFLOG method=compile start=1422056941071 end=1422056941252 duration=181 from=org.apache.hadoop.hive.ql.Driver\>
+15/01/23 23:49:01 INFO log.PerfLogger: \<PERFLOG method=Driver.execute from=org.apache.hadoop.hive.ql.Driver\>
+15/01/23 23:49:01 INFO ql.Driver: Starting command: create table test\_json (c1 boolean) ROW FORMAT SERDE 'org.openx.data.jsonserde.JsonSerDe'
+15/01/23 23:49:01 INFO log.PerfLogger: \</PERFLOG method=TimeToSubmit start=1422056941067 end=1422056941258 duration=191 from=org.apache.hadoop.hive.ql.Driver\>
+15/01/23 23:49:01 INFO log.PerfLogger: \<PERFLOG method=runTasks from=org.apache.hadoop.hive.ql.Driver\>
+15/01/23 23:49:01 INFO log.PerfLogger: \<PERFLOG method=task.DDL.Stage-0 from=org.apache.hadoop.hive.ql.Driver\>
+15/01/23 23:49:01 WARN security.ShellBasedUnixGroupsMapping: got exception trying to get groups for user anonymous
+org.apache.hadoop.util.Shell$ExitCodeException: id: anonymous: No such user
+
+  at org.apache.hadoop.util.Shell.runCommand(Shell.java:505)
+  at org.apache.hadoop.util.Shell.run(Shell.java:418)
+  at org.apache.hadoop.util.Shell$ShellCommandExecutor.execute(Shell.java:650)
+  at org.apache.hadoop.util.Shell.execCommand(Shell.java:739)
+  at org.apache.hadoop.util.Shell.execCommand(Shell.java:722)
+  at org.apache.hadoop.security.ShellBasedUnixGroupsMapping.getUnixGroups(ShellBasedUnixGroupsMapping.java:83)
+  at org.apache.hadoop.security.ShellBasedUnixGroupsMapping.getGroups(ShellBasedUnixGroupsMapping.java:52)
+  at org.apache.hadoop.security.JniBasedUnixGroupsMappingWithFallback.getGroups(JniBasedUnixGroupsMappingWithFallback.java:50)
+  at org.apache.hadoop.security.Groups.getGroups(Groups.java:139)
+  at org.apache.hadoop.security.UserGroupInformation.getGroupNames(UserGroupInformation.java:1409)
+  at org.apache.hadoop.hive.ql.security.HadoopDefaultAuthenticator.setConf(HadoopDefaultAuthenticator.java:63)
+  at org.apache.hadoop.util.ReflectionUtils.setConf(ReflectionUtils.java:73)
+  at org.apache.hadoop.util.ReflectionUtils.newInstance(ReflectionUtils.java:133)
+  at org.apache.hadoop.hive.ql.metadata.HiveUtils.getAuthenticator(HiveUtils.java:424)
+  at org.apache.hadoop.hive.ql.session.SessionState.setupAuth(SessionState.java:377)
+  at org.apache.hadoop.hive.ql.session.SessionState.getAuthenticator(SessionState.java:867)
+  at org.apache.hadoop.hive.ql.session.SessionState.getUserFromAuthenticator(SessionState.java:589)
+  at org.apache.hadoop.hive.ql.metadata.Table.getEmptyTable(Table.java:174)
+  at org.apache.hadoop.hive.ql.metadata.Table.\<init\>(Table.java:116)
+  at org.apache.hadoop.hive.ql.metadata.Hive.newTable(Hive.java:2566)
+  at org.apache.hadoop.hive.ql.exec.DDLTask.createTable(DDLTask.java:4046)
+  at org.apache.hadoop.hive.ql.exec.DDLTask.execute(DDLTask.java:281)
+  at org.apache.hadoop.hive.ql.exec.Task.executeTask(Task.java:153)
+  at org.apache.hadoop.hive.ql.exec.TaskRunner.runSequential(TaskRunner.java:85)
+  at org.apache.hadoop.hive.ql.Driver.launchTask(Driver.java:1503)
+  at org.apache.hadoop.hive.ql.Driver.execute(Driver.java:1270)
+  at org.apache.hadoop.hive.ql.Driver.runInternal(Driver.java:1088)
+  at org.apache.hadoop.hive.ql.Driver.run(Driver.java:911)
+  at org.apache.hadoop.hive.ql.Driver.run(Driver.java:901)
+  at org.apache.spark.sql.hive.HiveContext.runHive(HiveContext.scala:292)
+  at org.apache.spark.sql.hive.HiveContext.runSqlHive(HiveContext.scala:264)
+  at org.apache.spark.sql.hive.execution.HiveNativeCommand.run(HiveNativeCommand.scala:37)
+  at org.apache.spark.sql.execution.ExecutedCommand.sideEffectResult$lzycompute(commands.scala:53)
+  at org.apache.spark.sql.execution.ExecutedCommand.sideEffectResult(commands.scala:53)
+  at org.apache.spark.sql.execution.ExecutedCommand.execute(commands.scala:61)
+  at org.apache.spark.sql.SQLContext$QueryExecution.toRdd$lzycompute(SQLContext.scala:474)
+  at org.apache.spark.sql.SQLContext$QueryExecution.toRdd(SQLContext.scala:474)
+  at org.apache.spark.sql.SchemaRDDLike$class.$init$(SchemaRDDLike.scala:58)
+  at org.apache.spark.sql.SchemaRDD.\<init\>(SchemaRDD.scala:107)
+  at org.apache.spark.sql.hive.HiveContext.sql(HiveContext.scala:73)
+  at org.apache.spark.sql.hive.thriftserver.SparkExecuteStatementOperation.run(Shim13.scala:160)
+  at org.apache.hive.service.cli.session.HiveSessionImpl.executeStatementInternal(HiveSessionImpl.java:231)
+  at org.apache.hive.service.cli.session.HiveSessionImpl.executeStatement(HiveSessionImpl.java:212)
+  at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+  at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+  at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+  at java.lang.reflect.Method.invoke(Method.java:483)
+  at org.apache.hive.service.cli.session.HiveSessionProxy.invoke(HiveSessionProxy.java:79)
+  at org.apache.hive.service.cli.session.HiveSessionProxy.access$000(HiveSessionProxy.java:37)
+  at org.apache.hive.service.cli.session.HiveSessionProxy$1.run(HiveSessionProxy.java:64)
+  at java.security.AccessController.doPrivileged(Native Method)
+  at javax.security.auth.Subject.doAs(Subject.java:422)
+  at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1548)
+  at org.apache.hadoop.hive.shims.HadoopShimsSecure.doAs(HadoopShimsSecure.java:493)
+  at org.apache.hive.service.cli.session.HiveSessionProxy.invoke(HiveSessionProxy.java:60)
+  at com.sun.proxy.$Proxy18.executeStatement(Unknown Source)
+  at org.apache.hive.service.cli.CLIService.executeStatement(CLIService.java:220)
+  at org.apache.hive.service.cli.thrift.ThriftCLIService.ExecuteStatement(ThriftCLIService.java:344)
+  at org.apache.hive.service.cli.thrift.TCLIService$Processor$ExecuteStatement.getResult(TCLIService.java:1313)
+  at org.apache.hive.service.cli.thrift.TCLIService$Processor$ExecuteStatement.getResult(TCLIService.java:1298)
+  at org.apache.thrift.ProcessFunction.process(ProcessFunction.java:39)
+  at org.apache.thrift.TBaseProcessor.process(TBaseProcessor.java:39)
+  at org.apache.hive.service.auth.TSetIpAddressProcessor.process(TSetIpAddressProcessor.java:55)
+  at org.apache.thrift.server.TThreadPoolServer$WorkerProcess.run(TThreadPoolServer.java:206)
+  at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+  at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+  at java.lang.Thread.run(Thread.java:745)
+15/01/23 23:49:01 WARN security.UserGroupInformation: No groups available for user anonymous
+15/01/23 23:49:01 WARN security.ShellBasedUnixGroupsMapping: got exception trying to get groups for user anonymous
+org.apache.hadoop.util.Shell$ExitCodeException: id: anonymous: No such user
+
+  at org.apache.hadoop.util.Shell.runCommand(Shell.java:505)
+  at org.apache.hadoop.util.Shell.run(Shell.java:418)
+  at org.apache.hadoop.util.Shell$ShellCommandExecutor.execute(Shell.java:650)
+  at org.apache.hadoop.util.Shell.execCommand(Shell.java:739)
+  at org.apache.hadoop.util.Shell.execCommand(Shell.java:722)
+  at org.apache.hadoop.security.ShellBasedUnixGroupsMapping.getUnixGroups(ShellBasedUnixGroupsMapping.java:83)
+  at org.apache.hadoop.security.ShellBasedUnixGroupsMapping.getGroups(ShellBasedUnixGroupsMapping.java:52)
+  at org.apache.hadoop.security.JniBasedUnixGroupsMappingWithFallback.getGroups(JniBasedUnixGroupsMappingWithFallback.java:50)
+  at org.apache.hadoop.security.Groups.getGroups(Groups.java:139)
+  at org.apache.hadoop.security.UserGroupInformation.getGroupNames(UserGroupInformation.java:1409)
+  at org.apache.hadoop.hive.ql.security.HadoopDefaultAuthenticator.setConf(HadoopDefaultAuthenticator.java:64)
+  at org.apache.hadoop.util.ReflectionUtils.setConf(ReflectionUtils.java:73)
+  at org.apache.hadoop.util.ReflectionUtils.newInstance(ReflectionUtils.java:133)
+  at org.apache.hadoop.hive.ql.metadata.HiveUtils.getAuthenticator(HiveUtils.java:424)
+  at org.apache.hadoop.hive.ql.session.SessionState.setupAuth(SessionState.java:377)
+  at org.apache.hadoop.hive.ql.session.SessionState.getAuthenticator(SessionState.java:867)
+  at org.apache.hadoop.hive.ql.session.SessionState.getUserFromAuthenticator(SessionState.java:589)
+  at org.apache.hadoop.hive.ql.metadata.Table.getEmptyTable(Table.java:174)
+  at org.apache.hadoop.hive.ql.metadata.Table.\<init\>(Table.java:116)
+  at org.apache.hadoop.hive.ql.metadata.Hive.newTable(Hive.java:2566)
+  at org.apache.hadoop.hive.ql.exec.DDLTask.createTable(DDLTask.java:4046)
+  at org.apache.hadoop.hive.ql.exec.DDLTask.execute(DDLTask.java:281)
+  at org.apache.hadoop.hive.ql.exec.Task.executeTask(Task.java:153)
+  at org.apache.hadoop.hive.ql.exec.TaskRunner.runSequential(TaskRunner.java:85)
+  at org.apache.hadoop.hive.ql.Driver.launchTask(Driver.java:1503)
+  at org.apache.hadoop.hive.ql.Driver.execute(Driver.java:1270)
+  at org.apache.hadoop.hive.ql.Driver.runInternal(Driver.java:1088)
+  at org.apache.hadoop.hive.ql.Driver.run(Driver.java:911)
+  at org.apache.hadoop.hive.ql.Driver.run(Driver.java:901)
+  at org.apache.spark.sql.hive.HiveContext.runHive(HiveContext.scala:292)
+  at org.apache.spark.sql.hive.HiveContext.runSqlHive(HiveContext.scala:264)
+  at org.apache.spark.sql.hive.execution.HiveNativeCommand.run(HiveNativeCommand.scala:37)
+  at org.apache.spark.sql.execution.ExecutedCommand.sideEffectResult$lzycompute(commands.scala:53)
+  at org.apache.spark.sql.execution.ExecutedCommand.sideEffectResult(commands.scala:53)
+  at org.apache.spark.sql.execution.ExecutedCommand.execute(commands.scala:61)
+  at org.apache.spark.sql.SQLContext$QueryExecution.toRdd$lzycompute(SQLContext.scala:474)
+  at org.apache.spark.sql.SQLContext$QueryExecution.toRdd(SQLContext.scala:474)
+  at org.apache.spark.sql.SchemaRDDLike$class.$init$(SchemaRDDLike.scala:58)
+  at org.apache.spark.sql.SchemaRDD.\<init\>(SchemaRDD.scala:107)
+  at org.apache.spark.sql.hive.HiveContext.sql(HiveContext.scala:73)
+  at org.apache.spark.sql.hive.thriftserver.SparkExecuteStatementOperation.run(Shim13.scala:160)
+  at org.apache.hive.service.cli.session.HiveSessionImpl.executeStatementInternal(HiveSessionImpl.java:231)
+  at org.apache.hive.service.cli.session.HiveSessionImpl.executeStatement(HiveSessionImpl.java:212)
+  at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+  at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+  at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+  at java.lang.reflect.Method.invoke(Method.java:483)
+  at org.apache.hive.service.cli.session.HiveSessionProxy.invoke(HiveSessionProxy.java:79)
+  at org.apache.hive.service.cli.session.HiveSessionProxy.access$000(HiveSessionProxy.java:37)
+  at org.apache.hive.service.cli.session.HiveSessionProxy$1.run(HiveSessionProxy.java:64)
+  at java.security.AccessController.doPrivileged(Native Method)
+  at javax.security.auth.Subject.doAs(Subject.java:422)
+  at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1548)
+  at org.apache.hadoop.hive.shims.HadoopShimsSecure.doAs(HadoopShimsSecure.java:493)
+  at org.apache.hive.service.cli.session.HiveSessionProxy.invoke(HiveSessionProxy.java:60)
+  at com.sun.proxy.$Proxy18.executeStatement(Unknown Source)
+  at org.apache.hive.service.cli.CLIService.executeStatement(CLIService.java:220)
+  at org.apache.hive.service.cli.thrift.ThriftCLIService.ExecuteStatement(ThriftCLIService.java:344)
+  at org.apache.hive.service.cli.thrift.TCLIService$Processor$ExecuteStatement.getResult(TCLIService.java:1313)
+  at org.apache.hive.service.cli.thrift.TCLIService$Processor$ExecuteStatement.getResult(TCLIService.java:1298)
+  at org.apache.thrift.ProcessFunction.process(ProcessFunction.java:39)
+  at org.apache.thrift.TBaseProcessor.process(TBaseProcessor.java:39)
+  at org.apache.hive.service.auth.TSetIpAddressProcessor.process(TSetIpAddressProcessor.java:55)
+  at org.apache.thrift.server.TThreadPoolServer$WorkerProcess.run(TThreadPoolServer.java:206)
+  at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+  at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+  at java.lang.Thread.run(Thread.java:745)
+15/01/23 23:49:01 WARN security.UserGroupInformation: No groups available for user anonymous
+15/01/23 23:49:01 ERROR exec.DDLTask: org.apache.hadoop.hive.ql.metadata.HiveException: Cannot validate serde: org.openx.data.jsonserde.JsonSerDe
+  at org.apache.hadoop.hive.ql.exec.DDLTask.validateSerDe(DDLTask.java:3952)
+  at org.apache.hadoop.hive.ql.exec.DDLTask.createTable(DDLTask.java:4084)
+  at org.apache.hadoop.hive.ql.exec.DDLTask.execute(DDLTask.java:281)
+  at org.apache.hadoop.hive.ql.exec.Task.executeTask(Task.java:153)
+  at org.apache.hadoop.hive.ql.exec.TaskRunner.runSequential(TaskRunner.java:85)
+  at org.apache.hadoop.hive.ql.Driver.launchTask(Driver.java:1503)
+  at org.apache.hadoop.hive.ql.Driver.execute(Driver.java:1270)
+  at org.apache.hadoop.hive.ql.Driver.runInternal(Driver.java:1088)
+  at org.apache.hadoop.hive.ql.Driver.run(Driver.java:911)
+  at org.apache.hadoop.hive.ql.Driver.run(Driver.java:901)
+  at org.apache.spark.sql.hive.HiveContext.runHive(HiveContext.scala:292)
+  at org.apache.spark.sql.hive.HiveContext.runSqlHive(HiveContext.scala:264)
+  at org.apache.spark.sql.hive.execution.HiveNativeCommand.run(HiveNativeCommand.scala:37)
+  at org.apache.spark.sql.execution.ExecutedCommand.sideEffectResult$lzycompute(commands.scala:53)
+  at org.apache.spark.sql.execution.ExecutedCommand.sideEffectResult(commands.scala:53)
+  at org.apache.spark.sql.execution.ExecutedCommand.execute(commands.scala:61)
+  at org.apache.spark.sql.SQLContext$QueryExecution.toRdd$lzycompute(SQLContext.scala:474)
+  at org.apache.spark.sql.SQLContext$QueryExecution.toRdd(SQLContext.scala:474)
+  at org.apache.spark.sql.SchemaRDDLike$class.$init$(SchemaRDDLike.scala:58)
+  at org.apache.spark.sql.SchemaRDD.\<init\>(SchemaRDD.scala:107)
+  at org.apache.spark.sql.hive.HiveContext.sql(HiveContext.scala:73)
+  at org.apache.spark.sql.hive.thriftserver.SparkExecuteStatementOperation.run(Shim13.scala:160)
+  at org.apache.hive.service.cli.session.HiveSessionImpl.executeStatementInternal(HiveSessionImpl.java:231)
+  at org.apache.hive.service.cli.session.HiveSessionImpl.executeStatement(HiveSessionImpl.java:212)
+  at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+  at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+  at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+  at java.lang.reflect.Method.invoke(Method.java:483)
+  at org.apache.hive.service.cli.session.HiveSessionProxy.invoke(HiveSessionProxy.java:79)
+  at org.apache.hive.service.cli.session.HiveSessionProxy.access$000(HiveSessionProxy.java:37)
+  at org.apache.hive.service.cli.session.HiveSessionProxy$1.run(HiveSessionProxy.java:64)
+  at java.security.AccessController.doPrivileged(Native Method)
+  at javax.security.auth.Subject.doAs(Subject.java:422)
+  at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1548)
+  at org.apache.hadoop.hive.shims.HadoopShimsSecure.doAs(HadoopShimsSecure.java:493)
+  at org.apache.hive.service.cli.session.HiveSessionProxy.invoke(HiveSessionProxy.java:60)
+  at com.sun.proxy.$Proxy18.executeStatement(Unknown Source)
+  at org.apache.hive.service.cli.CLIService.executeStatement(CLIService.java:220)
+  at org.apache.hive.service.cli.thrift.ThriftCLIService.ExecuteStatement(ThriftCLIService.java:344)
+  at org.apache.hive.service.cli.thrift.TCLIService$Processor$ExecuteStatement.getResult(TCLIService.java:1313)
+  at org.apache.hive.service.cli.thrift.TCLIService$Processor$ExecuteStatement.getResult(TCLIService.java:1298)
+  at org.apache.thrift.ProcessFunction.process(ProcessFunction.java:39)
+  at org.apache.thrift.TBaseProcessor.process(TBaseProcessor.java:39)
+  at org.apache.hive.service.auth.TSetIpAddressProcessor.process(TSetIpAddressProcessor.java:55)
+  at org.apache.thrift.server.TThreadPoolServer$WorkerProcess.run(TThreadPoolServer.java:206)
+  at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+  at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+  at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.ClassNotFoundException: Class org.openx.data.jsonserde.JsonSerDe not found
+  at org.apache.hadoop.conf.Configuration.getClassByName(Configuration.java:1801)
+  at org.apache.hadoop.hive.ql.exec.DDLTask.validateSerDe(DDLTask.java:3946)
+  ... 47 more
+
+15/01/23 23:49:01 ERROR ql.Driver: FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Cannot validate serde: org.openx.data.jsonserde.JsonSerDe
+15/01/23 23:49:01 INFO log.PerfLogger: \</PERFLOG method=Driver.execute start=1422056941252 end=1422056941379 duration=127 from=org.apache.hadoop.hive.ql.Driver\>
+15/01/23 23:49:01 INFO log.PerfLogger: \<PERFLOG method=releaseLocks from=org.apache.hadoop.hive.ql.Driver\>
+15/01/23 23:49:01 INFO log.PerfLogger: \</PERFLOG method=releaseLocks start=1422056941379 end=1422056941379 duration=0 from=org.apache.hadoop.hive.ql.Driver\>
+15/01/23 23:49:01 ERROR hive.HiveContext:
+======================
+HIVE FAILURE OUTPUT
+======================
+SET spark.sql.codegen=false
+SET spark.sql.parquet.binaryAsString=true
+SET spark.sql.parquet.cacheMetadata=true
+SET spark.sql.hive.version=0.13.1
+SET spark.sql.autoBroadcastJoinThreshold=500000
+SET spark.sql.shuffle.partitions=10
+ADD JAR /tmp/json-serde-1.3-jar-with-dependencies.jar
+Added /tmp/json-serde-1.3-jar-with-dependencies.jar to class path
+Added resource: /tmp/json-serde-1.3-jar-with-dependencies.jar
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Cannot validate serde: org.openx.data.jsonserde.JsonSerDe
+
+======================
+END HIVE FAILURE OUTPUT
+======================
+
+15/01/23 23:49:01 ERROR thriftserver.SparkExecuteStatementOperation: Error executing query:
+org.apache.spark.sql.execution.QueryExecutionException: FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Cannot validate serde: org.openx.data.jsonserde.JsonSerDe
+  at org.apache.spark.sql.hive.HiveContext.runHive(HiveContext.scala:296)
+  at org.apache.spark.sql.hive.HiveContext.runSqlHive(HiveContext.scala:264)
+  at org.apache.spark.sql.hive.execution.HiveNativeCommand.run(HiveNativeCommand.scala:37)
+  at org.apache.spark.sql.execution.ExecutedCommand.sideEffectResult$lzycompute(commands.scala:53)
+  at org.apache.spark.sql.execution.ExecutedCommand.sideEffectResult(commands.scala:53)
+  at org.apache.spark.sql.execution.ExecutedCommand.execute(commands.scala:61)
+  at org.apache.spark.sql.SQLContext$QueryExecution.toRdd$lzycompute(SQLContext.scala:474)
+  at org.apache.spark.sql.SQLContext$QueryExecution.toRdd(SQLContext.scala:474)
+  at org.apache.spark.sql.SchemaRDDLike$class.$init$(SchemaRDDLike.scala:58)
+  at org.apache.spark.sql.SchemaRDD.\<init\>(SchemaRDD.scala:107)
+  at org.apache.spark.sql.hive.HiveContext.sql(HiveContext.scala:73)
+  at org.apache.spark.sql.hive.thriftserver.SparkExecuteStatementOperation.run(Shim13.scala:160)
+  at org.apache.hive.service.cli.session.HiveSessionImpl.executeStatementInternal(HiveSessionImpl.java:231)
+  at org.apache.hive.service.cli.session.HiveSessionImpl.executeStatement(HiveSessionImpl.java:212)
+  at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+  at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+  at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+  at java.lang.reflect.Method.invoke(Method.java:483)
+  at org.apache.hive.service.cli.session.HiveSessionProxy.invoke(HiveSessionProxy.java:79)
+  at org.apache.hive.service.cli.session.HiveSessionProxy.access$000(HiveSessionProxy.java:37)
+  at org.apache.hive.service.cli.session.HiveSessionProxy$1.run(HiveSessionProxy.java:64)
+  at java.security.AccessController.doPrivileged(Native Method)
+  at javax.security.auth.Subject.doAs(Subject.java:422)
+  at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1548)
+  at org.apache.hadoop.hive.shims.HadoopShimsSecure.doAs(HadoopShimsSecure.java:493)
+  at org.apache.hive.service.cli.session.HiveSessionProxy.invoke(HiveSessionProxy.java:60)
+  at com.sun.proxy.$Proxy18.executeStatement(Unknown Source)
+  at org.apache.hive.service.cli.CLIService.executeStatement(CLIService.java:220)
+  at org.apache.hive.service.cli.thrift.ThriftCLIService.ExecuteStatement(ThriftCLIService.java:344)
+  at org.apache.hive.service.cli.thrift.TCLIService$Processor$ExecuteStatement.getResult(TCLIService.java:1313)
+  at org.apache.hive.service.cli.thrift.TCLIService$Processor$ExecuteStatement.getResult(TCLIService.java:1298)
+  at org.apache.thrift.ProcessFunction.process(ProcessFunction.java:39)
+  at org.apache.thrift.TBaseProcessor.process(TBaseProcessor.java:39)
+  at org.apache.hive.service.auth.TSetIpAddressProcessor.process(TSetIpAddressProcessor.java:55)
+  at org.apache.thrift.server.TThreadPoolServer$WorkerProcess.run(TThreadPoolServer.java:206)
+  at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+  at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+  at java.lang.Thread.run(Thread.java:745)
+15/01/23 23:49:01 WARN thrift.ThriftCLIService: Error executing statement:
+org.apache.hive.service.cli.HiveSQLException: org.apache.spark.sql.execution.QueryExecutionException: FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Cannot validate serde: org.openx.data.jsonserde.JsonSerDe
+  at org.apache.spark.sql.hive.thriftserver.SparkExecuteStatementOperation.run(Shim13.scala:189)
+  at org.apache.hive.service.cli.session.HiveSessionImpl.executeStatementInternal(HiveSessionImpl.java:231)
+  at org.apache.hive.service.cli.session.HiveSessionImpl.executeStatement(HiveSessionImpl.java:212)
+  at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+  at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+  at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+  at java.lang.reflect.Method.invoke(Method.java:483)
+  at org.apache.hive.service.cli.session.HiveSessionProxy.invoke(HiveSessionProxy.java:79)
+  at org.apache.hive.service.cli.session.HiveSessionProxy.access$000(HiveSessionProxy.java:37)
+  at org.apache.hive.service.cli.session.HiveSessionProxy$1.run(HiveSessionProxy.java:64)
+  at java.security.AccessController.doPrivileged(Native Method)
+  at javax.security.auth.Subject.doAs(Subject.java:422)
+  at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1548)
+  at org.apache.hadoop.hive.shims.HadoopShimsSecure.doAs(HadoopShimsSecure.java:493)
+  at org.apache.hive.service.cli.session.HiveSessionProxy.invoke(HiveSessionProxy.java:60)
+  at com.sun.proxy.$Proxy18.executeStatement(Unknown Source)
+  at org.apache.hive.service.cli.CLIService.executeStatement(CLIService.java:220)
+  at org.apache.hive.service.cli.thrift.ThriftCLIService.ExecuteStatement(ThriftCLIService.java:344)
+  at org.apache.hive.service.cli.thrift.TCLIService$Processor$ExecuteStatement.getResult(TCLIService.java:1313)
+  at org.apache.hive.service.cli.thrift.TCLIService$Processor$ExecuteStatement.getResult(TCLIService.java:1298)
+  at org.apache.thrift.ProcessFunction.process(ProcessFunction.java:39)
+  at org.apache.thrift.TBaseProcessor.process(TBaseProcessor.java:39)
+  at org.apache.hive.service.auth.TSetIpAddressProcessor.process(TSetIpAddressProcessor.java:55)
+  at org.apache.thrift.server.TThreadPoolServer$WorkerProcess.run(TThreadPoolServer.java:206)
+  at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+  at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+  at java.lang.Thread.run(Thread.java:745)
+{code}
 
 
 ---

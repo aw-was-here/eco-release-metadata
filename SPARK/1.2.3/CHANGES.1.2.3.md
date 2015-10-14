@@ -18,9 +18,15 @@
 -->
 # Apache Spark Changelog
 
-## Release 1.2.3 - Unreleased (as of 2015-10-10)
+## Release 1.2.3 - Unreleased (as of 2015-10-14)
 
 ### INCOMPATIBLE CHANGES:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+
+
+### IMPORTANT ISSUES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |

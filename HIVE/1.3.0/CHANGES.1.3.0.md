@@ -18,13 +18,19 @@
 -->
 # Apache Hive Changelog
 
-## Release 1.3.0 - Unreleased (as of 2015-10-10)
+## Release 1.3.0 - Unreleased (as of 2015-10-14)
 
 ### INCOMPATIBLE CHANGES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HIVE-9365](https://issues.apache.org/jira/browse/HIVE-9365) | The Metastore should take port configuration from hive-site.xml |  Minor | . | Nicolas Thiébaud | Reuben Kuhnert |
+
+
+### IMPORTANT ISSUES:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### NEW FEATURES:
@@ -46,6 +52,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HIVE-11984](https://issues.apache.org/jira/browse/HIVE-11984) | Add HS2 open operation metrics |  Minor | . | Jimmy Xiang | Jimmy Xiang |
+| [HIVE-11882](https://issues.apache.org/jira/browse/HIVE-11882) | Fetch optimizer should stop source files traversal once it exceeds the hive.fetch.task.conversion.threshold |  Major | Physical Optimizer | Illya Yalovyy | Illya Yalovyy |
 | [HIVE-11814](https://issues.apache.org/jira/browse/HIVE-11814) | Emit query time in lineage info |  Minor | . | Jimmy Xiang | Jimmy Xiang |
 | [HIVE-11780](https://issues.apache.org/jira/browse/HIVE-11780) | Add "set role none" support |  Major | Authorization | Dapeng Sun | Dapeng Sun |
 | [HIVE-11724](https://issues.apache.org/jira/browse/HIVE-11724) | WebHcat get jobs to order jobs on time order with latest at top |  Major | WebHCat | Kiran Kumar Kolli | Kiran Kumar Kolli |
@@ -91,10 +98,16 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HIVE-12090](https://issues.apache.org/jira/browse/HIVE-12090) | Dead-code: Vectorized map-join murmur hash is run twice |  Major | Vectorization | Gopal V | Gopal V |
+| [HIVE-12076](https://issues.apache.org/jira/browse/HIVE-12076) | WebHCat listing jobs after the given JobId even when templeton.jobs.listorder is set to lexicographicaldesc |  Major | . | Kiran Kumar Kolli | Kiran Kumar Kolli |
+| [HIVE-12058](https://issues.apache.org/jira/browse/HIVE-12058) | Change hive script to record errors when calling hbase fails |  Major | Hive, HiveServer2 | Yongzhi Chen | Yongzhi Chen |
+| [HIVE-12046](https://issues.apache.org/jira/browse/HIVE-12046) | Re-create spark client if connection is dropped |  Minor | Spark | Jimmy Xiang | Jimmy Xiang |
 | [HIVE-12035](https://issues.apache.org/jira/browse/HIVE-12035) | branch-1 build broken |  Major | . | Eugene Koifman | Eugene Koifman |
 | [HIVE-12032](https://issues.apache.org/jira/browse/HIVE-12032) | Add unit test for HIVE-9855 |  Major | Hive | Wei Zheng | Wei Zheng |
+| [HIVE-12025](https://issues.apache.org/jira/browse/HIVE-12025) | refactor bucketId generating code |  Major | Query Processor | Eugene Koifman | Eugene Koifman |
 | [HIVE-12021](https://issues.apache.org/jira/browse/HIVE-12021) | HivePreFilteringRule may introduce wrong common operands |  Major | CBO | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
 | [HIVE-12012](https://issues.apache.org/jira/browse/HIVE-12012) | select query on json table with map containing numeric values fails |  Major | Serializers/Deserializers | Jagruti Varia | Jason Dere |
+| [HIVE-12003](https://issues.apache.org/jira/browse/HIVE-12003) | Hive Streaming API : Add check to ensure table is transactional |  Major | HCatalog, Hive, Transactions | Roshan Naik | Roshan Naik |
 | [HIVE-11998](https://issues.apache.org/jira/browse/HIVE-11998) | Improve Compaction process logging |  Major | Transactions | Eugene Koifman | Eugene Koifman |
 | [HIVE-11997](https://issues.apache.org/jira/browse/HIVE-11997) | Add ability to send Compaction Jobs to specific queue |  Major | Transactions | Eugene Koifman | Eugene Koifman |
 | [HIVE-11990](https://issues.apache.org/jira/browse/HIVE-11990) | Loading data inpath from a temporary table dir fails on Windows |  Major | . | Takahiko Saito | Hari Sankar Sivarama Subramaniyan |
@@ -114,6 +127,7 @@
 | [HIVE-11920](https://issues.apache.org/jira/browse/HIVE-11920) | ADD JAR failing with URL schemes other than file/ivy/hdfs |  Major | . | Jason Dere | Jason Dere |
 | [HIVE-11916](https://issues.apache.org/jira/browse/HIVE-11916) | TxnHandler.getOpenTxnsInfo() and getOpenTxns() may produce inconsistent result |  Major | Transactions | Eugene Koifman | Eugene Koifman |
 | [HIVE-11915](https://issues.apache.org/jira/browse/HIVE-11915) | BoneCP returns closed connections from the pool |  Major | . | Takahiko Saito | Sergey Shelukhin |
+| [HIVE-11914](https://issues.apache.org/jira/browse/HIVE-11914) | When transactions gets a heartbeat, it doesn't update the lock heartbeat. |  Major | HCatalog, Transactions | Eugene Koifman | Eugene Koifman |
 | [HIVE-11910](https://issues.apache.org/jira/browse/HIVE-11910) | TestHCatLoaderEncryption should shutdown created MiniDFS instance |  Major | Tests | Jason Dere | Jason Dere |
 | [HIVE-11902](https://issues.apache.org/jira/browse/HIVE-11902) | Abort txn cleanup thread throws SyntaxErrorException |  Major | Transactions | Deepesh Khandelwal | Deepesh Khandelwal |
 | [HIVE-11889](https://issues.apache.org/jira/browse/HIVE-11889) | Add unit test for HIVE-11449 |  Major | Hive | Wei Zheng | Wei Zheng |
@@ -156,6 +170,7 @@
 | [HIVE-11586](https://issues.apache.org/jira/browse/HIVE-11586) | ObjectInspectorFactory.getReflectionObjectInspector is not thread-safe |  Major | . | Jimmy Xiang | Jimmy Xiang |
 | [HIVE-11581](https://issues.apache.org/jira/browse/HIVE-11581) | HiveServer2 should store connection params in ZK when using dynamic service discovery for simpler client connection string. |  Major | HiveServer2, JDBC | Vaibhav Gumashta | Vaibhav Gumashta |
 | [HIVE-11580](https://issues.apache.org/jira/browse/HIVE-11580) | ThriftUnionObjectInspector#toString throws NPE |  Minor | . | Jimmy Xiang | Jimmy Xiang |
+| [HIVE-11578](https://issues.apache.org/jira/browse/HIVE-11578) | ATS hook fails for ExplainWork |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [HIVE-11556](https://issues.apache.org/jira/browse/HIVE-11556) | HiveFilter.copy should take the condition given as a parameter |  Major | . | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
 | [HIVE-11549](https://issues.apache.org/jira/browse/HIVE-11549) | Hide Hive configuration from spark driver launching process |  Major | Spark | Xuefu Zhang | Xuefu Zhang |
 | [HIVE-11546](https://issues.apache.org/jira/browse/HIVE-11546) | Projected columns read size should be scaled to split size for ORC Splits |  Major | . | Prasanth Jayachandran | Prasanth Jayachandran |
@@ -164,6 +179,7 @@
 | [HIVE-11511](https://issues.apache.org/jira/browse/HIVE-11511) | Output the message of orcfiledump when ORC files are not specified |  Major | . | Shinichi Yamashita | Shinichi Yamashita |
 | [HIVE-11510](https://issues.apache.org/jira/browse/HIVE-11510) | Metatool updateLocation warning on views |  Major | Database/Schema | Eric Czech | Wei Zheng |
 | [HIVE-11502](https://issues.apache.org/jira/browse/HIVE-11502) | Map side aggregation is extremely slow |  Major | Logical Optimizer, Physical Optimizer | Yongzhi Chen | Yongzhi Chen |
+| [HIVE-11499](https://issues.apache.org/jira/browse/HIVE-11499) | Datanucleus leaks classloaders when used using embedded metastore with HiveServer2 with UDFs |  Major | HiveServer2, Metastore | Vaibhav Gumashta | Vaibhav Gumashta |
 | [HIVE-11498](https://issues.apache.org/jira/browse/HIVE-11498) | HIVE Authorization v2 should not check permission for dummy entity |  Major | Authorization | Dapeng Sun | Dapeng Sun |
 | [HIVE-11490](https://issues.apache.org/jira/browse/HIVE-11490) | Lazily call ASTNode::toStringTree() after tree modification |  Major | . | Hari Sankar Sivarama Subramaniyan | Hari Sankar Sivarama Subramaniyan |
 | [HIVE-11476](https://issues.apache.org/jira/browse/HIVE-11476) | TypeInfoParser cannot handle column names with spaces in them |  Minor | Types | Gopal V | Gopal V |

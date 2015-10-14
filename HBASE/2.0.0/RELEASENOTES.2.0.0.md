@@ -18,7 +18,7 @@
 -->
 # Apache HBase  2.0.0 Release Notes
 
-These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
+These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
 
 
 ---
@@ -147,6 +147,7 @@ This issue adds boolean parameter, force, to 'balancer' command so that admin ca
 If hbase:meta is in transition, balancer command returns false.
 
 WARNING: For experts only. Forcing a balance may do more damage than repair when assignment is confused
+Note: enclose the force parameter in double quotes
 
 
 ---
@@ -203,6 +204,13 @@ Remove calling getNumCurrentReplicas on HdfsDataOutputStream via reflection. get
 * [HBASE-14224](https://issues.apache.org/jira/browse/HBASE-14224) | *Critical* | **Fix coprocessor handling of duplicate classes**
 
 Prevent Coprocessors being doubly-loaded; a particular coprocessor can only be loaded once.
+
+
+---
+
+* [HBASE-14206](https://issues.apache.org/jira/browse/HBASE-14206) | *Critical* | **MultiRowRangeFilter returns records whose rowKeys are out of allowed ranges**
+
+**WARNING: No release note provided for this important issue.**
 
 
 ---
@@ -389,6 +397,14 @@ The HBase master status web page no longer allows operators to clone snapshots n
 In previous versions of HBase, the ReplicationAdmin utility erroneously used the string key "columnFamlyName" when listing replicated column families. It now uses the corrected spelling of "columnFamilyName" (note the added "i").
 
 Downstream code that parsed the replication entries returned from listReplicated will need to be updated to use the new key. Previously compiled code that relied on the static CFNAME member of ReplicationAdmin will need to be recompiled in order to see the updated value.
+
+
+---
+
+* [HBASE-13819](https://issues.apache.org/jira/browse/HBASE-13819) | *Major* | **Make RPC layer CellBlock buffer a DirectByteBuffer**
+
+For master branch(2.0 version), the BoundedByteBufferPool always create Direct (off heap) ByteBuffers and return that.
+For branch-1(1.3 version), byte default the buffers returned will be off heap. This can be changed to return on heap ByteBuffers by configuring 'hbase.ipc.server.reservoir.direct.buffer' to false.
 
 
 ---

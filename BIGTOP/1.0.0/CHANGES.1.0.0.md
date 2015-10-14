@@ -26,6 +26,13 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 
 
+### IMPORTANT ISSUES:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [BIGTOP-1831](https://issues.apache.org/jira/browse/BIGTOP-1831) | Upgrade Mahout to 0.10 |  Blocker | general | David Starina | YoungWoo Kim |
+
+
 ### NEW FEATURES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
@@ -360,7 +367,6 @@
 | [BIGTOP-1873](https://issues.apache.org/jira/browse/BIGTOP-1873) | Puppet apt module version must be 2.0.1 or above after BIGTOP-1870 |  Minor | debian, deployment, documentation | Evans Ye | Evans Ye |
 | [BIGTOP-1854](https://issues.apache.org/jira/browse/BIGTOP-1854) | Trim Tachyon maintainers' list |  Major | general | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-1834](https://issues.apache.org/jira/browse/BIGTOP-1834) | Upgrade to Spark 1.3.1 |  Critical | spark | Jonathan Kelly | Jonathan Kelly |
-| [BIGTOP-1831](https://issues.apache.org/jira/browse/BIGTOP-1831) | Upgrade Mahout to 0.10 |  Blocker | general | David Starina | YoungWoo Kim |
 | [BIGTOP-1822](https://issues.apache.org/jira/browse/BIGTOP-1822) | Puppet apt module should be automatically installed by toolchain |  Major | deployment | Evans Ye | Evans Ye |
 | [BIGTOP-1755](https://issues.apache.org/jira/browse/BIGTOP-1755) | Upgrade to Spark 1.3.0 |  Critical | spark | Jonathan Kelly | Jonathan Kelly |
 | [BIGTOP-1726](https://issues.apache.org/jira/browse/BIGTOP-1726) | Confirm that Spark 1.2.1 runs properly in BigTop, and run the BPS integration test. |  Major | . | jay vyas |  |

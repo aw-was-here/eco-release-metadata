@@ -18,7 +18,14 @@
 -->
 # Apache HBase  1.2.0 Release Notes
 
-These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
+These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
+
+
+---
+
+* [HBASE-14544](https://issues.apache.org/jira/browse/HBASE-14544) | *Major* | **Allow HConnectionImpl to not refresh the dns on errors**
+
+By setting hbase.resolve.hostnames.on.failure to false you can reduce the number of dns name resolutions that a client will do. However if machines leave and come back with different ip's the changes will not be noticed by the clients. So only set hbase.resolve.hostnames.on.failure to false if your cluster dns is not changing while clients are connected.
 
 
 ---
@@ -186,6 +193,13 @@ Remove calling getNumCurrentReplicas on HdfsDataOutputStream via reflection. get
 * [HBASE-14224](https://issues.apache.org/jira/browse/HBASE-14224) | *Critical* | **Fix coprocessor handling of duplicate classes**
 
 Prevent Coprocessors being doubly-loaded; a particular coprocessor can only be loaded once.
+
+
+---
+
+* [HBASE-14206](https://issues.apache.org/jira/browse/HBASE-14206) | *Critical* | **MultiRowRangeFilter returns records whose rowKeys are out of allowed ranges**
+
+**WARNING: No release note provided for this important issue.**
 
 
 ---

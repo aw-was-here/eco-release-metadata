@@ -18,7 +18,27 @@
 -->
 # Apache Kafka  0.9.0.0 Release Notes
 
-These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
+These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
+
+
+---
+
+* [KAFKA-2633](https://issues.apache.org/jira/browse/KAFKA-2633) | *Major* | **Default logging from tools to Stderr**
+
+Currently the default logging for tool is stdout, this can make parsing the output  difficult in cases where exceptions are thrown, or even when expected logging messages are output. The most affected tool is the console-consumer but others will have this issue as well. 
+
+Changing the output to stderr by default allows the user to redirect the output to a log file without effecting the tools output.
+
+Note: Users can change the logging settings by setting $KAFKA\_LOG4J\_OPTS to use the configuration of their choice. This Jira is to change the default to be more user friendly
+
+
+---
+
+* [KAFKA-2632](https://issues.apache.org/jira/browse/KAFKA-2632) | *Major* | **Move fetchable check from fetchedRecords to fetch response handler**
+
+Since we check if the partition is fetchable or not in fetchedRecords(), there is a bug when the partition is paused during there is in-flight fetch request, it will not be ignored in fetch response handler but after that, in fetchedRecords(), causing the fetcher to update the fetched position already; later no fetch requests will ever be sent to the broker for this partition since consumed != fetched.
+
+The proposed fix is to move this check from fetchedRecords to handleFetchResponse in Fetcher.
 
 
 ---
@@ -33,6 +53,51 @@ KAFKA-2476 defined Decimal, Date, and Timestamp types. Initially I didn't includ
 * [KAFKA-2621](https://issues.apache.org/jira/browse/KAFKA-2621) | *Major* | **nextOffsetMetadata should be changed after rolling a new log segment**
 
 When we roll a new log segment (Log.roll()), even though the next offset doesn't change, the associated metadata (segment base offset and relative position) will change. So, we need to update nextOffsetMetadata when rolling a new log segment.
+
+
+---
+
+* [KAFKA-2614](https://issues.apache.org/jira/browse/KAFKA-2614) | *Critical* | **No more clients can connect after `TooManyConnectionsException` threshold (max.connections.per.ip) is reached**
+
+It seems no more clients can connect to Kafka after `max.connections.per.ip` is reached, even if previous clients were already disconnected.
+
+Using 0.8.3 (9c936b18), upon starting a fresh Kafka server that is configured with (max.connections.per.ip = 24), I noticed that I can cause the server to hit the error case of {{INFO Rejected connection from /0:0:0:0:0:0:0:1, address already has the configured maximum of 24 connections.}} very quickly, by simply looping through a bunch of simple clients against the server:
+{noformat}
+#! /bin/bash
+
+for i in {1..30}; do
+    # either:
+    nc -vz 127.0.0.1 9092;
+    # or:
+    ( telnet 127.0.0.1 9092; ) &
+done
+
+# if using telnet, kill all connected jobs now via:
+kill %{2..31}
+{noformat}
+
+The problem seems to be that the counter for such short-lived client connections aren't properly decrementing when using the `max.connections.per.ip` feature.
+
+Turning on DEBUG logs, I cannot see the log lines "Closing connection from xxx" on [this line\|https://github.com/apache/kafka/blob/0.8.2/core/src/main/scala/kafka/network/SocketServer.scala#L164] from the first few still-under-threshold short-lived connections, but starts showing \*after\* I hit the limit per that config.
+
+
+---
+
+* [KAFKA-2613](https://issues.apache.org/jira/browse/KAFKA-2613) | *Major* | **Consider capping `maxParallelForks` for Jenkins builds**
+
+We currently set `maxParallelForks` to the number returned by `Runtime.availableProcessors`.
+
+{code}
+  tasks.withType(Test) {
+    maxParallelForks = Runtime.runtime.availableProcessors()
+  }
+{code}
+
+This returns the number of logical cores (including hyperthreaded cores) in the machine.
+
+This is usually OK when running the tests locally, but the Apache Jenkins slaves run 2 to 3 jobs simultaneously causing a higher number of timing related failures.
+
+A potential solution is to allow `maxParallelForks` to be set via a Gradle property and use that property to set it to an appropriate value when the build is run from Jenkins.
 
 
 ---
@@ -164,6 +229,13 @@ The current authorization implementation for the ConsumerMetadata request throws
 
 ---
 
+* [KAFKA-2581](https://issues.apache.org/jira/browse/KAFKA-2581) | *Major* | **Run some existing ducktape tests with SSL-enabled clients and brokers**
+
+New ducktape tests for testing SSL are being added under KAFKA-2417. This task will enable existing ducktape tests to be run with SSL-enabled brokers and clients.
+
+
+---
+
 * [KAFKA-2579](https://issues.apache.org/jira/browse/KAFKA-2579) | *Major* | **Unauthorized clients should not be able to join groups**
 
 The JoinGroup authorization is only checked in the response callback which is invoked after the request has been forwarded to the ConsumerCoordinator and the client has joined the group. This allows unauthorized members to impact the rest of the group since the coordinator will assign partitions to them. It would be better to check permission and return immediately if the client is unauthorized.
@@ -247,6 +319,15 @@ Exception in thread "main" org.apache.kafka.common.config.ConfigException: Inval
 * [KAFKA-2570](https://issues.apache.org/jira/browse/KAFKA-2570) | *Major* | **New consumer should commit before every rebalance when auto-commit is enabled**
 
 If not, then the consumer may see duplicates even on normal rebalances, since we will always reset to the previous commit after rebalancing.
+
+
+---
+
+* [KAFKA-2567](https://issues.apache.org/jira/browse/KAFKA-2567) | *Minor* | **throttle-time shouldn't be NaN**
+
+Currently, if throttling never happens, we get the NaN for throttle-time. It seems it's better to default to 0.
+
+"kafka.server:client-id=eventsimgroup200343,type=Fetch" : { "byte-rate": 0.0, "throttle-time": NaN }
 
 
 ---
@@ -765,6 +846,15 @@ We need to add an option to enable the new consumer in EndToEndLatency.
 
 ---
 
+* [KAFKA-2443](https://issues.apache.org/jira/browse/KAFKA-2443) | *Major* | **Expose windowSize on Rate**
+
+Currently, we dont have a means to measure the size of the metric window since the final sample can be incomplete.
+
+Expose windowSize(now) on Rate
+
+
+---
+
 * [KAFKA-2440](https://issues.apache.org/jira/browse/KAFKA-2440) | *Blocker* | **Use `NetworkClient` instead of `SimpleConsumer` to fetch data from replica**
 
 This is necessary for SSL/TLS support for inter-broker communication as `SimpleConsumer` will not be updated to support SSL/TLS.
@@ -1176,6 +1266,13 @@ Two key features it should ideally support: support multiple files and rolling l
 * [KAFKA-2373](https://issues.apache.org/jira/browse/KAFKA-2373) | *Major* | **Copycat distributed offset storage**
 
 Add offset storage for Copycat that works in distributed mode, which likely means storing the data in a Kafka topic. Copycat workers will use this by default.
+
+
+---
+
+* [KAFKA-2372](https://issues.apache.org/jira/browse/KAFKA-2372) | *Major* | **Copycat distributed config storage**
+
+Add a config storage mechanism to Copycat that works in distributed mode. Copycat workers that start in distributed mode should use this implementation by default.
 
 
 ---
@@ -2185,6 +2282,15 @@ Please see KIP-11 https://cwiki.apache.org/confluence/display/KAFKA/KIP-11+-+Aut
 Acceptance Criteria:
 - TopicConfigManager should be generalized to handle Topic and Client configs (and any type of config in the future). As described in KIP-21
 - Add a ConfigCommand tool to change topic and client configuration
+
+
+---
+
+* [KAFKA-2203](https://issues.apache.org/jira/browse/KAFKA-2203) | *Minor* | **Get gradle build to work with Java 8**
+
+The gradle build halts because javadoc in java 8 is a lot stricter about valid html.
+
+It might be worthwhile to special case java 8 as described [here\|http://blog.joda.org/2014/02/turning-off-doclint-in-jdk-8-javadoc.html].
 
 
 ---
@@ -3823,6 +3929,19 @@ The detailed design is here: https://cwiki.apache.org/confluence/display/KAFKA/M
 * [KAFKA-1807](https://issues.apache.org/jira/browse/KAFKA-1807) | *Minor* | **Improve accuracy of ProducerPerformance target throughput**
 
 The code in ProducerPerformance that tries to match a target throughput is very inaccurate because it doesn't account for time spent sending messages. Since we have to get the current time to timestamp the messages, we can be much more accurate by computing the current rate over the entire run and only add to the sleep deficit if we're above the target rate.
+
+
+---
+
+* [KAFKA-1804](https://issues.apache.org/jira/browse/KAFKA-1804) | *Critical* | **Kafka network thread lacks top exception handler**
+
+We have faced the problem that some kafka network threads may fail, so that jstack attached to Kafka process showed fewer threads than we had defined in our Kafka configuration. This leads to API requests processed by this thread getting stuck unresponed.
+
+There were no error messages in the log regarding thread failure.
+
+We have examined Kafka code to find out there is no top try-catch block in the network thread code, which could at least log possible errors.
+
+Could you add top-level try-catch block for the network thread, which should recover network thread in case of exception?
 
 
 ---

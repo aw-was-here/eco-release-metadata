@@ -28,6 +28,12 @@
 | [TEZ-2424](https://issues.apache.org/jira/browse/TEZ-2424) | Bump up max counter group name length limit to account for per\_io counters |  Minor | . | Hitesh Shah | Hitesh Shah |
 
 
+### IMPORTANT ISSUES:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+
+
 ### NEW FEATURES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |

@@ -28,6 +28,12 @@
 | [TEZ-1499](https://issues.apache.org/jira/browse/TEZ-1499) | Add SortMergeJoinExample to tez-examples |  Major | . | Jeff Zhang | Jeff Zhang |
 
 
+### IMPORTANT ISSUES:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+
+
 ### NEW FEATURES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |

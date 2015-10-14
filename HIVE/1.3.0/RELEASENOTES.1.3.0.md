@@ -18,7 +18,21 @@
 -->
 # Apache Hive  1.3.0 Release Notes
 
-These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
+These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
+
+
+---
+
+* [HIVE-12090](https://issues.apache.org/jira/browse/HIVE-12090) | *Major* | **Dead-code: Vectorized map-join murmur hash is run twice**
+
+Dead-code: Vectorized map-join runs Murmurhash twice
+
+
+---
+
+* [HIVE-11882](https://issues.apache.org/jira/browse/HIVE-11882) | *Major* | **Fetch optimizer should stop source files traversal once it exceeds the hive.fetch.task.conversion.threshold**
+
+ HIVE-11882: Fetch optimizer should stop source files traversal once it exceeds the hive.fetch.task.conversion.threshold (Illya Yalovyy, via Gopal V)
 
 
 ---
@@ -48,6 +62,13 @@ I committed this to master.
 * [HIVE-11594](https://issues.apache.org/jira/browse/HIVE-11594) | *Major* | **Analyze Table For Columns cannot handle columns with embedded spaces**
 
 Analyze Table for column names with embedded spaces
+
+
+---
+
+* [HIVE-11578](https://issues.apache.org/jira/browse/HIVE-11578) | *Major* | **ATS hook fails for ExplainWork**
+
+HIVE-11578: Fix NPE in ExplainWork (Rajesh Balamohan, via Gopal V)
 
 
 ---

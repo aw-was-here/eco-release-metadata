@@ -18,7 +18,27 @@
 -->
 # Apache Tez  0.8.2 Release Notes
 
-These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
+These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
+
+
+---
+
+* [TEZ-2887](https://issues.apache.org/jira/browse/TEZ-2887) | *Major* | **Tez build failure due to missing dependency in pom files**
+
+Missing \*hadoop-yarn-common\* dependency in tez-common and \*hadoop-hdfs\* in tez-tests resulted in compilation error.
+
+
+---
+
+* [TEZ-2885](https://issues.apache.org/jira/browse/TEZ-2885) | *Major* | **Remove counter logs from AMWebController**
+
+{noformat}
+-rw-r--r-- 1 yarn hadoop 3568047011 Oct 13 09:18 syslog\_dag\_1443665985063\_8907\_1
+{noformat}
+
+While performing some tests with in-progress URL, it ended up generating huge log in AM.  Might need to remove the unwanted counter logs or move it to debug.
+
+//cc [~Sreenath]
 
 
 ---
@@ -115,6 +135,13 @@ org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.ipc.RpcServerException):
 2015-08-31 22:00:27,540 INFO [main] impl.MetricsSystemImpl: TezTask metrics system stopped.
 2015-08-31 22:00:27,540 INFO [main] impl.MetricsSystemImpl: TezTask metrics system shutdown complete.
 {code}
+
+
+---
+
+* [TEZ-2096](https://issues.apache.org/jira/browse/TEZ-2096) | *Major* | **TEZ-UI : Add link to view AM log of finished & running apps**
+
+Currently, user can view the logs of task attempts via tez-ui.  It would be good to provide similar feature for viewing AM logs as well (e.g user wants to view the AM log of a failed DAG for any exceptions).
 
 
 ---

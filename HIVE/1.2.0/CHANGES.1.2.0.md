@@ -28,6 +28,14 @@
 | [HIVE-3454](https://issues.apache.org/jira/browse/HIVE-3454) | Problem with CAST(BIGINT as TIMESTAMP) |  Major | Types, UDF | Ryan Harris | Aihua Xu |
 
 
+### IMPORTANT ISSUES:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [HIVE-10715](https://issues.apache.org/jira/browse/HIVE-10715) | RAT failures - many files do not have ASF licenses |  Major | . | Sushanth Sowmyan | Sushanth Sowmyan |
+| [HIVE-10312](https://issues.apache.org/jira/browse/HIVE-10312) | SASL.QOP in JDBC URL is ignored for Delegation token Authentication |  Major | JDBC | Mubashir Kazia | Mubashir Kazia |
+
+
 ### NEW FEATURES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
@@ -111,7 +119,6 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [HIVE-10715](https://issues.apache.org/jira/browse/HIVE-10715) | RAT failures - many files do not have ASF licenses |  Major | . | Sushanth Sowmyan | Sushanth Sowmyan |
 | [HIVE-10614](https://issues.apache.org/jira/browse/HIVE-10614) | schemaTool upgrade from 0.14.0 to 1.3.0 causes failure |  Critical | Metastore | Hari Sankar Sivarama Subramaniyan | Hari Sankar Sivarama Subramaniyan |
 | [HIVE-10612](https://issues.apache.org/jira/browse/HIVE-10612) | HIVE-10578 broke TestSQLStdHiveAccessControllerHS2 tests |  Major | Authorization | Thejas M Nair | Thejas M Nair |
 | [HIVE-10610](https://issues.apache.org/jira/browse/HIVE-10610) | hive command fails to get hadoop version |  Major | . | Shwetha G S | Shwetha G S |
@@ -160,7 +167,6 @@
 | [HIVE-10323](https://issues.apache.org/jira/browse/HIVE-10323) | Tez merge join operator does not honor hive.join.emit.interval |  Major | Query Processor | Vikram Dixit K | Vikram Dixit K |
 | [HIVE-10318](https://issues.apache.org/jira/browse/HIVE-10318) | The HMS upgrade test does not test patches that affect the upgrade test scripts |  Major | Testing Infrastructure | Sergio Peña | Sergio Peña |
 | [HIVE-10313](https://issues.apache.org/jira/browse/HIVE-10313) | Literal Decimal ExprNodeConstantDesc should contain value of HiveDecimal instead of String |  Major | Query Processor | Chaoyu Tang | Chaoyu Tang |
-| [HIVE-10312](https://issues.apache.org/jira/browse/HIVE-10312) | SASL.QOP in JDBC URL is ignored for Delegation token Authentication |  Major | JDBC | Mubashir Kazia | Mubashir Kazia |
 | [HIVE-10309](https://issues.apache.org/jira/browse/HIVE-10309) | TestJdbcWithMiniHS2.java broken because of the removal of hive.server2.thrift.http.max.worker.threads |  Major | HiveServer2, JDBC | Hari Sankar Sivarama Subramaniyan | Hari Sankar Sivarama Subramaniyan |
 | [HIVE-10306](https://issues.apache.org/jira/browse/HIVE-10306) | We need to print tez summary when hive.server2.logging.level \>= PERFORMANCE. |  Major | . | Hari Sankar Sivarama Subramaniyan | Hari Sankar Sivarama Subramaniyan |
 | [HIVE-10305](https://issues.apache.org/jira/browse/HIVE-10305) | TestOrcFile has a mistake that makes metadata test ineffective |  Major | . | Owen O'Malley | Owen O'Malley |

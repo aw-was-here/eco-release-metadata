@@ -18,7 +18,18 @@
 -->
 # Apache BigTop  1.1.0 Release Notes
 
-These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
+These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
+
+
+---
+
+* [BIGTOP-2086](https://issues.apache.org/jira/browse/BIGTOP-2086) | *Major* | **Install essential puppet modules along with puppet itself**
+
+It is clumsy that one has to install puppet , than puppet modules and than either toolchain or run the deploy.
+
+Lets install the essential puppet modules when installing puppet itself.
+
+And BTW: The gradle and puppet module is left as-is for upgrading previous installations.
 
 
 ---

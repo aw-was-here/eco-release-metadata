@@ -88,6 +88,12 @@
 | [TEZ-692](https://issues.apache.org/jira/browse/TEZ-692) | Unify job submission in either TezClient or TezSession |  Major | . | Bikas Saha | Bikas Saha |
 
 
+### IMPORTANT ISSUES:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+
+
 ### NEW FEATURES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |

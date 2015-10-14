@@ -18,7 +18,7 @@
 -->
 # Apache Hadoop  2.7.2 Release Notes
 
-These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
+These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
 
 
 ---
@@ -33,6 +33,13 @@ Existing sequence files can be appended.
 * [HDFS-8727](https://issues.apache.org/jira/browse/HDFS-8727) | *Major* | **Allow using path style addressing for accessing the s3 endpoint**
 
 Add new flag to allow supporting path style addressing for s3a
+
+
+---
+
+* [HDFS-7645](https://issues.apache.org/jira/browse/HDFS-7645) | *Major* | **Rolling upgrade is restoring blocks from trash multiple times**
+
+**WARNING: No release note provided for this incompatible change.**
 
 
 

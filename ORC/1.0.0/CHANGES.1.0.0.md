@@ -18,12 +18,19 @@
 -->
 # Apache Orc Changelog
 
-## Release 1.0.0 - Unreleased (as of 2015-10-10)
+## Release 1.0.0 - Unreleased (as of 2015-10-14)
 
 ### INCOMPATIBLE CHANGES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+
+
+### IMPORTANT ISSUES:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [ORC-18](https://issues.apache.org/jira/browse/ORC-18) | Replace Buffer with DataBuffer\<char\> and implement a posix-style read() for InputStreams |  Major | C++ | Aliaksei Sandryhaila | Aliaksei Sandryhaila |
 
 
 ### NEW FEATURES:
@@ -58,7 +65,6 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [ORC-18](https://issues.apache.org/jira/browse/ORC-18) | Replace Buffer with DataBuffer\<char\> and implement a posix-style read() for InputStreams |  Major | C++ | Aliaksei Sandryhaila | Aliaksei Sandryhaila |
 
 
 ### OTHER:

@@ -35,6 +35,12 @@
 | [ZOOKEEPER-271](https://issues.apache.org/jira/browse/ZOOKEEPER-271) | Better command line parsing in ZookeeperMain. |  Minor | java client | Mahadev konar | Hartmut Lang |
 
 
+### IMPORTANT ISSUES:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+
+
 ### NEW FEATURES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |

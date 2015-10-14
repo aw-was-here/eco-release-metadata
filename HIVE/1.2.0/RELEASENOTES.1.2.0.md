@@ -18,7 +18,14 @@
 -->
 # Apache Hive  1.2.0 Release Notes
 
-These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
+These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
+
+
+---
+
+* [HIVE-10715](https://issues.apache.org/jira/browse/HIVE-10715) | *Major* | **RAT failures - many files do not have ASF licenses**
+
+**WARNING: No release note provided for this important issue.**
 
 
 ---
@@ -27,6 +34,13 @@ These release notes cover new developer and user-facing incompatibilities, featu
 
 This change enables various hadoop properties to be passed to the LauncherTask via webhcat-site.xml.
 Earlier hadoop properties in webhcat-site.xml would get used in most other places, except for the launch of the LauncherTask. Only a few parameters could be set, and they had to be set using templeton.\* parameters. For example templeton.mapper.memory.mb was used to set mapreduce.map.memory.mb.
+
+
+---
+
+* [HIVE-10312](https://issues.apache.org/jira/browse/HIVE-10312) | *Major* | **SASL.QOP in JDBC URL is ignored for Delegation token Authentication**
+
+**WARNING: No release note provided for this important issue.**
 
 
 ---

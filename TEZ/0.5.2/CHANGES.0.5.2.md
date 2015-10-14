@@ -29,6 +29,12 @@
 | [TEZ-1666](https://issues.apache.org/jira/browse/TEZ-1666) | UserPayload should be null if the payload is not specified |  Critical | . | Siddharth Seth | Siddharth Seth |
 
 
+### IMPORTANT ISSUES:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+
+
 ### NEW FEATURES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |

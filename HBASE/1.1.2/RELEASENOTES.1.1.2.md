@@ -18,7 +18,14 @@
 -->
 # Apache HBase  1.1.2 Release Notes
 
-These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
+These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
+
+
+---
+
+* [HBASE-14206](https://issues.apache.org/jira/browse/HBASE-14206) | *Critical* | **MultiRowRangeFilter returns records whose rowKeys are out of allowed ranges**
+
+**WARNING: No release note provided for this important issue.**
 
 
 ---

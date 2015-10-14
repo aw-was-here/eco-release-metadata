@@ -18,7 +18,116 @@
 -->
 # Apache Yetus  0.1.0 Release Notes
 
-These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
+These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
+
+
+---
+
+* [YETUS-72](https://issues.apache.org/jira/browse/YETUS-72) | *Major* | **Unassigned variable ${STARTDIR}?**
+
+It seems a typo for $\{STARTINGDIR}, but I'm not certain it can be simply rewritten.
+
+{code}
+[sekikn@mobile yetus]$ grep -r STARTDIR dev-support
+dev-support/test-patch.sh:  if [[ ${STARTDIR} == ${PATCH\_DIR}/precommit ]]; then
+[sekikn@mobile yetus]$ grep -r STARTINGDIR dev-support
+dev-support/test-patch.sh:STARTINGDIR=$(pwd)
+dev-support/test-patch.sh:  cd "${STARTINGDIR}"
+dev-support/test-patch.sh:  cd "${STARTINGDIR}"
+dev-support/test-patch.sh:  pushd "${STARTINGDIR}" \>/dev/null
+{code}
+
+
+---
+
+* [YETUS-68](https://issues.apache.org/jira/browse/YETUS-68) | *Major* | **Shellcheck plugin shows a warning against a removed file**
+
+Same as YETUS-67. It checks file existence in shellcheck\_preapply, but not in shellcheck\_postapply.
+
+{code}
+[sekikn@mobile yetus]$ dev-support/test-patch.sh --basedir=/Users/sekikn/bigtop --project=bigtop BIGTOP-2084
+
+(snip)
+
+============================================================================
+============================================================================
+                       shellcheck plugin: postpatch
+============================================================================
+============================================================================
+
+
+Running shellcheck against all identifiable shell scripts
+./bigtop-deploy/puppet/modules/hadoop-hbase/templates/hbase-env.sh: ./bigtop-deploy/puppet/modules/hadoop-hbase/templates/hbase-env.sh: openFile: does not exist (No such file or directory)
+
+(snip)
+{code}
+
+
+---
+
+* [YETUS-67](https://issues.apache.org/jira/browse/YETUS-67) | *Major* | **XML plugin raises a false alarm against a removed file**
+
+Because it doesn't check if the file exists. Example:
+
+{code}
+[sekikn@mobile yetus]$ dev-support/test-patch.sh --basedir=/Users/sekikn/bigtop --project=bigtop BIGTOP-2084
+
+(snip)
+
+\| Vote \|      Subsystem \|  Runtime   \| Comment
+============================================================================
+\|  +1  \|       @author  \|  0m 00s    \| The patch does not contain any @author 
+\|      \|                \|            \| tags.
+\|  +1  \|    gradleboot  \|  1m 08s    \| master passed 
+\|  +1  \|    gradleboot  \|  0m 57s    \| the patch passed 
+\|  +1  \|    shellcheck  \|  0m 02s    \| There were no new shellcheck issues. 
+\|  -1  \|    whitespace  \|  0m 00s    \| The patch has 45 line(s) that end in 
+\|      \|                \|            \| whitespace. Use git apply
+\|      \|                \|            \| --whitespace=fix.
+\|  -1  \|    whitespace  \|  0m 04s    \| The patch has 5 line(s) with tabs. 
+\|  -1  \|           xml  \|  3m 04s    \| The patch has 11 ill-formed XML file(s). 
+\|  +1  \|    asflicense  \|  0m 46s    \| Patch does not generate ASF License 
+\|      \|                \|            \| warnings.
+\|      \|                \|  8m 23s    \| 
+
+
+\|\| Subsystem \|\| Report/Notes \|\|
+============================================================================
+\| JIRA Patch URL \| https://issues.apache.org/jira/secure/attachment/12765770/BIGTOP-2084.2.patch \|
+\| JIRA Issue \| BIGTOP-2084 \|
+\| Optional Tests \| asflicense shellcheck  xml  \|
+\| uname \| Darwin mobile.local 14.5.0 Darwin Kernel Version 14.5.0: Wed Jul 29 02:26:53 PDT 2015; root:xnu-2782.40.9~1/RELEASE\_X86\_64 x86\_64 \|
+\| Build tool \| gradle \|
+\| Personality \| /Users/sekikn/dev/yetus/dev-support/personality/bigtop.sh \|
+\| git revision \| master / 2a6fa3a \|
+\| Default Java \| 1.7.0\_80 \|
+\| shellcheck \| v0.4.1 \|
+\| whitespace \| /private/tmp/yetus-22660.15373/whitespace-eol.txt \|
+\| whitespace \| /private/tmp/yetus-22660.15373/whitespace-tabs.txt \|
+\| xml \| /private/tmp/yetus-22660.15373/xml.txt \|
+
+
+============================================================================
+============================================================================
+                              Finished build.
+============================================================================
+============================================================================
+
+
+[sekikn@mobile yetus]$ cat /private/tmp/yetus-22660.15373/xml.txt
+script error: sun.org.mozilla.javascript.internal.WrappedException: Wrapped java.io.FileNotFoundException: /Users/sekikn/bigtop/bigtop-deploy/puppet/modules/hadoop-hbase/templates/hbase-site.xml (No such file or directory) (\<system-init\>#714) in \<system-init\> at line number 714
+script error: sun.org.mozilla.javascript.internal.WrappedException: Wrapped java.io.FileNotFoundException: /Users/sekikn/bigtop/bigtop-deploy/puppet/modules/hadoop-hive/templates/hive-site.xml (No such file or directory) (\<system-init\>#714) in \<system-init\> at line number 714
+script error: sun.org.mozilla.javascript.internal.WrappedException: Wrapped java.io.FileNotFoundException: /Users/sekikn/bigtop/bigtop-deploy/puppet/modules/hadoop-oozie/templates/oozie-site.xml (No such file or directory) (\<system-init\>#714) in \<system-init\> at line number 714
+
+(snip)
+{code}
+
+
+---
+
+* [YETUS-66](https://issues.apache.org/jira/browse/YETUS-66) | *Blocker* | **Update apache license on all files**
+
+Almost all of the files have the old license header.  We need to update this to the new one.
 
 
 ---
@@ -44,6 +153,13 @@ asflicense needs to make sure that it gets at least one report file instead of a
 
 ---
 
+* [YETUS-41](https://issues.apache.org/jira/browse/YETUS-41) | *Major* | **github\_find\_jira\_title in test-patch github plugin returns 0 even if jira\_determine\_issue failed**
+
+So the following check for $\{GITHUB\_ISSUE} seems to be skipped and github\_determine\_issue seems to succeed almost always.
+
+
+---
+
 * [YETUS-40](https://issues.apache.org/jira/browse/YETUS-40) | *Blocker* | **patch file confuses test-patch (date format problems)**
 
 This was attached to HADOOP-12326 .
@@ -57,6 +173,13 @@ It'd be nice if smart-apply-patch had a committer mode that:
 
 a) always stripped whitespace
 b) always added new files
+
+
+---
+
+* [YETUS-31](https://issues.apache.org/jira/browse/YETUS-31) | *Major* | **releasedocmaker should use the Important flag in jira**
+
+Apache JIRA has an Important flag in certain projects.  We should pick it up and treat it similarly to incompatible changes (special section in changes, always in release notes, etc)
 
 
 ---
@@ -94,6 +217,13 @@ On busy jenkins servers, it only takes one bad apple doing a dependency:purge-lo
 * [YETUS-2](https://issues.apache.org/jira/browse/YETUS-2) | *Critical* | **Build website**
 
 the gitpubsub set up only serves static content directly to browsers. We need some means to build our markdown (or whatever) source into html, and a workflow to push it into hte gitpubsub branch.
+
+
+---
+
+* [YETUS-1](https://issues.apache.org/jira/browse/YETUS-1) | *Blocker* | **Migration of repo history from Hadoop**
+
+filter out the unrelated parts of the code base from the hadoop HADOOP-12111 branch and import into our repo maintaining history.
 
 
 

@@ -18,7 +18,14 @@
 -->
 # Apache Hive  2.0.0 Release Notes
 
-These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
+These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
+
+
+---
+
+* [HIVE-12090](https://issues.apache.org/jira/browse/HIVE-12090) | *Major* | **Dead-code: Vectorized map-join murmur hash is run twice**
+
+Dead-code: Vectorized map-join runs Murmurhash twice
 
 
 ---
@@ -26,6 +33,20 @@ These release notes cover new developer and user-facing incompatibilities, featu
 * [HIVE-12005](https://issues.apache.org/jira/browse/HIVE-12005) | *Major* | **Remove hbase based stats collection mechanism**
 
 Removed hbase based stats collection mechanism.
+
+
+---
+
+* [HIVE-11908](https://issues.apache.org/jira/browse/HIVE-11908) | *Critical* | **LLAP: Merge branch to hive-2.0**
+
+**WARNING: No release note provided for this important issue.**
+
+
+---
+
+* [HIVE-11882](https://issues.apache.org/jira/browse/HIVE-11882) | *Major* | **Fetch optimizer should stop source files traversal once it exceeds the hive.fetch.task.conversion.threshold**
+
+ HIVE-11882: Fetch optimizer should stop source files traversal once it exceeds the hive.fetch.task.conversion.threshold (Illya Yalovyy, via Gopal V)
 
 
 ---
@@ -67,6 +88,13 @@ Use fastest hashmap implementation of ExprNodeDesc lookups
 * [HIVE-11594](https://issues.apache.org/jira/browse/HIVE-11594) | *Major* | **Analyze Table For Columns cannot handle columns with embedded spaces**
 
 Analyze Table for column names with embedded spaces
+
+
+---
+
+* [HIVE-11578](https://issues.apache.org/jira/browse/HIVE-11578) | *Major* | **ATS hook fails for ExplainWork**
+
+HIVE-11578: Fix NPE in ExplainWork (Rajesh Balamohan, via Gopal V)
 
 
 ---
@@ -200,6 +228,13 @@ Use ETLStrategy for a small number of ORC files.
 * [HIVE-10974](https://issues.apache.org/jira/browse/HIVE-10974) | *Major* | **Use Configuration::getRaw() for the Base64 data**
 
 Use Configuration::getRaw() to read Base64 data out of Configuration objects
+
+
+---
+
+* [HIVE-10790](https://issues.apache.org/jira/browse/HIVE-10790) | *Major* | **orc write on viewFS throws exception**
+
+**WARNING: No release note provided for this important issue.**
 
 
 ---

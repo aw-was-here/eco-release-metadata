@@ -18,9 +18,15 @@
 -->
 # Apache BigTop Changelog
 
-## Release 1.1.0 - Unreleased (as of 2015-10-10)
+## Release 1.1.0 - Unreleased (as of 2015-10-14)
 
 ### INCOMPATIBLE CHANGES:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+
+
+### IMPORTANT ISSUES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
@@ -68,6 +74,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [BIGTOP-2086](https://issues.apache.org/jira/browse/BIGTOP-2086) | Install essential puppet modules along with puppet itself |  Major | toolchain | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-2082](https://issues.apache.org/jira/browse/BIGTOP-2082) | Remove x86 Assembler Code from zookeeper |  Major | build | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-2071](https://issues.apache.org/jira/browse/BIGTOP-2071) | Gstring.empty doesn't exist |  Blocker | build | RJ Nowling | RJ Nowling |
 | [BIGTOP-2068](https://issues.apache.org/jira/browse/BIGTOP-2068) | Cannot Build Bigtop-Utils packages |  Critical | build | Alex Elent | Konstantin Boudnik |

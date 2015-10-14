@@ -27,6 +27,12 @@
 | [TEZ-2437](https://issues.apache.org/jira/browse/TEZ-2437) | FilterLinesByWord NPEs when run in Localmode |  Major | . | Amit Tiwari |  |
 
 
+### IMPORTANT ISSUES:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+
+
 ### NEW FEATURES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |

@@ -18,7 +18,7 @@
 -->
 # Apache Hadoop  3.0.0 Release Notes
 
-These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
+These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
 
 
 ---
@@ -338,6 +338,13 @@ The FSConstants class has been deprecated since 0.23 and it is removed in the re
 * [HDFS-7985](https://issues.apache.org/jira/browse/HDFS-7985) | *Major* | **WebHDFS should be always enabled**
 
 WebHDFS is mandatory and cannot be disabled.
+
+
+---
+
+* [HDFS-7645](https://issues.apache.org/jira/browse/HDFS-7645) | *Major* | **Rolling upgrade is restoring blocks from trash multiple times**
+
+**WARNING: No release note provided for this incompatible change.**
 
 
 ---

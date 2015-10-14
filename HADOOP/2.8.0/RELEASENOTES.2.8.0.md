@@ -18,7 +18,7 @@
 -->
 # Apache Hadoop  2.8.0 Release Notes
 
-These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
+These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
 
 
 ---
@@ -54,6 +54,13 @@ Added StatsD metrics2 sink
 * [HADOOP-12352](https://issues.apache.org/jira/browse/HADOOP-12352) | *Trivial* | **Delay in checkpointing Trash can leave trash for 2 intervals before deleting**
 
 Fixes an Trash related issue wherein a delay in the periodic checkpointing of one user's directory causes the subsequent user directory checkpoints to carry a newer timestamp, thereby delaying their eventual deletion.
+
+
+---
+
+* [HADOOP-12081](https://issues.apache.org/jira/browse/HADOOP-12081) | *Major* | **Fix UserGroupInformation.java to support 64-bit zLinux**
+
+**WARNING: No release note provided for this important issue.**
 
 
 ---
@@ -249,13 +256,6 @@ This change requires setting the dfs.datanode.max.locked.memory configuration ke
 ---
 
 * [HDFS-7933](https://issues.apache.org/jira/browse/HDFS-7933) | *Major* | **fsck should also report decommissioning replicas.**
-
-**WARNING: No release note provided for this incompatible change.**
-
-
----
-
-* [HDFS-7645](https://issues.apache.org/jira/browse/HDFS-7645) | *Major* | **Rolling upgrade is restoring blocks from trash multiple times**
 
 **WARNING: No release note provided for this incompatible change.**
 

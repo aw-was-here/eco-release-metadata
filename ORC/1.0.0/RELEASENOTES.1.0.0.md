@@ -18,7 +18,7 @@
 -->
 # Apache Orc  1.0.0 Release Notes
 
-These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
+These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
 
 
 ---
@@ -56,6 +56,13 @@ I want to simplify the directory structure a bit:
 * [ORC-22](https://issues.apache.org/jira/browse/ORC-22) | *Major* | **Make buffer block size configurable**
 
 The current implementation of seekable file input stream reads files, by default, in 256K chunks. This parameter should be configurable via ReaderOptions.
+
+
+---
+
+* [ORC-18](https://issues.apache.org/jira/browse/ORC-18) | *Major* | **Replace Buffer with DataBuffer\<char\> and implement a posix-style read() for InputStreams**
+
+**WARNING: No release note provided for this important issue.**
 
 
 ---

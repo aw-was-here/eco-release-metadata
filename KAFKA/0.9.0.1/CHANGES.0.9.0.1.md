@@ -18,9 +18,15 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.9.0.1 - Unreleased (as of 2015-10-10)
+## Release 0.9.0.1 - Unreleased (as of 2015-10-14)
 
 ### INCOMPATIBLE CHANGES:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+
+
+### IMPORTANT ISSUES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
