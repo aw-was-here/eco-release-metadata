@@ -23,62 +23,9 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
-* [ORC-25](https://issues.apache.org/jira/browse/ORC-25) | *Major* | **Clean up Coverity scans**
-
-I've scanned the ORC C++ code base and it identified some potential issues. Looking through them, so far they have all been harmless, but they should be cleaned up so that the analysis can come back clean.
-
-
----
-
-* [ORC-24](https://issues.apache.org/jira/browse/ORC-24) | *Major* | **C++ reader for direct string encodings occasionally skips bytes**
-
-The ORC C++ direct string column reader can occasionally skip bytes in the blob stream.
-
-The necessary conditions are:
-\* The column is a string column and is directly encoded.
-\* The blob stream for the row batch crosses a compression block boundary.
-\* There is a null value toward the end of the block boundary.
-\* The value in the length value of the null value crosses the block boundary, but the length value of the following value does not.
-
-
----
-
-* [ORC-23](https://issues.apache.org/jira/browse/ORC-23) | *Major* | **Simplify the C++ directory structure a bit**
-
-I want to simplify the directory structure a bit:
-\* c++/src/orc -\> c++/src
-\* c++/test/orc -\> c++/test
-\* tools-c++ -\> tools
-
-
----
-
-* [ORC-22](https://issues.apache.org/jira/browse/ORC-22) | *Major* | **Make buffer block size configurable**
-
-The current implementation of seekable file input stream reads files, by default, in 256K chunks. This parameter should be configurable via ReaderOptions.
-
-
----
-
 * [ORC-18](https://issues.apache.org/jira/browse/ORC-18) | *Major* | **Replace Buffer with DataBuffer\<char\> and implement a posix-style read() for InputStreams**
 
 **WARNING: No release note provided for this important issue.**
-
-
----
-
-* [ORC-9](https://issues.apache.org/jira/browse/ORC-9) | *Major* | **Create a ColumnVectorBatch for Timestamps**
-
-Create a TimestampVectorBatch that uses time\_t and the number of nanoseconds.
-
-
----
-
-* [ORC-3](https://issues.apache.org/jira/browse/ORC-3) | *Major* | **Import native code from github**
-
-Import C++ implementation from
-
-https://github.com/hortonworks/orc/releases/tag/apache-import-4
 
 
 
