@@ -30,6 +30,13 @@ Missing \*hadoop-yarn-common\* dependency in tez-common and \*hadoop-hdfs\* in t
 
 ---
 
+* [TEZ-2886](https://issues.apache.org/jira/browse/TEZ-2886) | *Major* | **Ability to merge AM credentials with DAG credentials**
+
+Currently AM credentials are explicitly kept separate from DAG credentials, but this can cause problems when credentials are automatically added to the application as part of the submission process but outside of the client's knowledge.  We need the ability for the AM's credentials to be merged with the DAG credentials so DAGs can pick up important credentials that were not submitted by the client.
+
+
+---
+
 * [TEZ-2885](https://issues.apache.org/jira/browse/TEZ-2885) | *Major* | **Remove counter logs from AMWebController**
 
 {noformat}
@@ -53,6 +60,17 @@ Tests were inadvertently missed in the verification step. Adding them back.
 * [TEZ-2874](https://issues.apache.org/jira/browse/TEZ-2874) | *Major* | **Improved logging for caller context**
 
 Primary filters will add load onto Timeline so it might be better to not set a primary filter until we have better understanding on usage patterns.
+
+
+---
+
+* [TEZ-2866](https://issues.apache.org/jira/browse/TEZ-2866) | *Major* | **Tez UI: Newly added columns wont be displayed by default in tables**
+
+New columns would be disabled by default in the column selector, and the user would have to make them visible manually.
+
+Also, counters with name 
+{code}\_input\_ or \_output\_{code}
+is not getting save across browser refresh.
 
 
 ---
@@ -149,6 +167,13 @@ Currently, user can view the logs of task attempts via tez-ui.  It would be good
 * [TEZ-1788](https://issues.apache.org/jira/browse/TEZ-1788) | *Major* | **Test allowing vertex level disabling of speculation**
 
 TEZ-1233 allows programmatic ability to set configs on a per vertex basis. Verify that this works for enabling/disabling speculation per vertex.
+
+
+---
+
+* [TEZ-1692](https://issues.apache.org/jira/browse/TEZ-1692) | *Major* | **Reduce code duplication between TezMapredSplitsGrouper and TezMapreduceSplitsGrouper**
+
+The two are almost identical - with lots of repeated logic. The main difference being the mapred / mapreduce InputSplit being grouped.
 
 
 

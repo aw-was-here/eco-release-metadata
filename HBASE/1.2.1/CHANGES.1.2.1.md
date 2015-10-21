@@ -18,7 +18,7 @@
 -->
 # Apache HBase Changelog
 
-## Release 1.2.1 - Unreleased (as of 2015-10-14)
+## Release 1.2.1 - Unreleased (as of 2015-10-21)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -55,6 +55,7 @@
 | [HBASE-14089](https://issues.apache.org/jira/browse/HBASE-14089) | Remove unnecessary draw of system entropy from RecoverableZooKeeper |  Minor | . | Andrew Purtell | Andrew Purtell |
 | [HBASE-14021](https://issues.apache.org/jira/browse/HBASE-14021) | Quota table has a wrong description on the UI |  Minor | UI | Ashish Singhi | Ashish Singhi |
 | [HBASE-13865](https://issues.apache.org/jira/browse/HBASE-13865) | Increase the default value for hbase.hregion.memstore.block.multipler from 2 to 4 (part 2) |  Trivial | regionserver | Vladimir Rodionov | Gabor Liptak |
+| [HBASE-13330](https://issues.apache.org/jira/browse/HBASE-13330) | Region left unassigned due to AM & SSH each thinking the assignment would be done by the other |  Major | master, Region Assignment | Devaraj Das | Devaraj Das |
 
 
 ### TESTS:

@@ -18,7 +18,7 @@
 -->
 # Apache BigTop Changelog
 
-## Release 1.1.0 - Unreleased (as of 2015-10-14)
+## Release 1.1.0 - Unreleased (as of 2015-10-21)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -45,6 +45,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [BIGTOP-2091](https://issues.apache.org/jira/browse/BIGTOP-2091) | Build ignite-hadoop assembly with specific version of Spark |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2080](https://issues.apache.org/jira/browse/BIGTOP-2080) | Investigate removing Scala from the toolchain |  Minor | toolchain | RJ Nowling | RJ Nowling |
 | [BIGTOP-2065](https://issues.apache.org/jira/browse/BIGTOP-2065) | Update deployment README.md to reflect on better deployment experience |  Major | documentation | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2063](https://issues.apache.org/jira/browse/BIGTOP-2063) | Provide default config to deploy hive on top of Ignite |  Major | deployment | Konstantin Boudnik | Konstantin Boudnik |
@@ -74,11 +75,14 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [BIGTOP-2090](https://issues.apache.org/jira/browse/BIGTOP-2090) | Remove left-over junk after BIGTOP-2053 |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2086](https://issues.apache.org/jira/browse/BIGTOP-2086) | Install essential puppet modules along with puppet itself |  Major | toolchain | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2084](https://issues.apache.org/jira/browse/BIGTOP-2084) | rename all puppet modules to have an underscore rather a dash |  Major | deployment | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-2082](https://issues.apache.org/jira/browse/BIGTOP-2082) | Remove x86 Assembler Code from zookeeper |  Major | build | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-2071](https://issues.apache.org/jira/browse/BIGTOP-2071) | Gstring.empty doesn't exist |  Blocker | build | RJ Nowling | RJ Nowling |
 | [BIGTOP-2068](https://issues.apache.org/jira/browse/BIGTOP-2068) | Cannot Build Bigtop-Utils packages |  Critical | build | Alex Elent | Konstantin Boudnik |
 | [BIGTOP-2066](https://issues.apache.org/jira/browse/BIGTOP-2066) | init-hdfs.sh is broken by recent hadoop update |  Major | hadoop | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2061](https://issues.apache.org/jira/browse/BIGTOP-2061) | toolchain is failing because add-apt-repository command isn't available off-hand |  Major | toolchain | Konstantin Boudnik |  |
 | [BIGTOP-2059](https://issues.apache.org/jira/browse/BIGTOP-2059) | Bump Ignite to 1.4 |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2057](https://issues.apache.org/jira/browse/BIGTOP-2057) | null check doesn't safeguard against non-existing values in the BOM config |  Blocker | build | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2056](https://issues.apache.org/jira/browse/BIGTOP-2056) | Remove top-level check-env.sh |  Major | build | Konstantin Boudnik | Olaf Flebbe |
@@ -166,6 +170,7 @@
 | [BIGTOP-1965](https://issues.apache.org/jira/browse/BIGTOP-1965) | Remove the link to 0.8.0 from the website |  Major | website | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-1947](https://issues.apache.org/jira/browse/BIGTOP-1947) | Fix RAT plugin configuration to be able to RAT-validate all published artifacts |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-1898](https://issues.apache.org/jira/browse/BIGTOP-1898) | Dockerfiles to build bigtop/puppet docker images for 1.0 release |  Major | . | Evans Ye | Evans Ye |
+| [BIGTOP-1499](https://issues.apache.org/jira/browse/BIGTOP-1499) | released source code  is not same with source code in branch |  Blocker | build | Guo Ruijing | Konstantin Boudnik |
 | [BIGTOP-1494](https://issues.apache.org/jira/browse/BIGTOP-1494) | Introduce Groovy DSL to replace bigtop.mk |  Major | build | jay vyas | Konstantin Boudnik |
 
 

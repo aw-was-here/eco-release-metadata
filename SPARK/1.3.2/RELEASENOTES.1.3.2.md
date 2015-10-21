@@ -30,6 +30,28 @@ Decimal(1000000000000000000L, 20, 2) will become 1000000000000000000 instead of 
 
 ---
 
+* [SPARK-10973](https://issues.apache.org/jira/browse/SPARK-10973) | *Major* | **\_\_gettitem\_\_ method throws IndexError exception when we try to access index after the last non-zero entry.**
+
+\\_\\_gettitem\\_\\_ method throws IndexError exception when we try to access  index  after the last non-zero entry.
+
+{code}
+from pyspark.mllib.linalg import Vectors
+sv = Vectors.sparse(5, {1: 3})
+sv[0]
+## 0.0
+sv[1]
+## 3.0
+sv[2]
+## Traceback (most recent call last):
+##   File "\<stdin\>", line 1, in \<module\>
+##   File "/python/pyspark/mllib/linalg/\_\_init\_\_.py", line 734, in \_\_getitem\_\_
+##     row\_ind = inds[insert\_index]
+## IndexError: index out of bounds
+{code}
+
+
+---
+
 * [SPARK-10657](https://issues.apache.org/jira/browse/SPARK-10657) | *Major* | **Remove legacy SCP-based Jenkins log archiving code**
 
 As of https://issues.apache.org/jira/browse/SPARK-7561, we no longer need to use our custom SCP-based mechanism for archiving Jenkins logs on the master machine; this has been superseded by the use of a Jenkins plugin which archives the logs and provides public viewing of them.

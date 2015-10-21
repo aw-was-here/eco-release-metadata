@@ -23,6 +23,73 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
+* [YETUS-110](https://issues.apache.org/jira/browse/YETUS-110) | *Trivial* | **typo fixes on test-patch basic documentation**
+
+some typos on the page
+
+
+---
+
+* [YETUS-98](https://issues.apache.org/jira/browse/YETUS-98) | *Major* | **enable parallel tests on hadoop**
+
+Looks like Hadoop enabled parallel tests as part of another patch. We should do the same.
+
+
+---
+
+* [YETUS-97](https://issues.apache.org/jira/browse/YETUS-97) | *Major* | **branch detection cut bug**
+
+This looks like a bug in branch detection:
+
+{code}
+https://issues.apache.org/jira/secure/attachment/12767213/HADOOP-7266-remove.001.patch
+...
+HEAD is now at 58590fe YARN-2556. Tool to measure the performance of the timeline server (Chang Li via sjlee)
+Switched to branch 'trunk'
+Your branch is up-to-date with 'origin/trunk'.
+cut: invalid decreasing range
+Try 'cut --help' for more information.
+Current branch trunk is up to date.
+{code}
+
+
+---
+
+* [YETUS-96](https://issues.apache.org/jira/browse/YETUS-96) | *Major* | **multijdkdirs shouldn't show errors on bad input**
+
+if multi jdk is given directories that don't exist, the cd errors go to the screen:
+
+{code}
+/home/jenkins/jenkins-slave/workspace/PreCommit-HADOOP-Build/patchprocess/apache-yetus-ef9723d/dev-support/test-patch.d/java.sh: line 50: cd: /usr/lib/jvm/java-7-oracle: No such file or directory
+/home/jenkins/jenkins-slave/workspace/PreCommit-HADOOP-Build/patchprocess/apache-yetus-ef9723d/dev-support/test-patch.d/java.sh: line 50: cd: /usr/lib/jvm/java-8-oracle: No such file or directory
+{code}
+
+
+---
+
+* [YETUS-95](https://issues.apache.org/jira/browse/YETUS-95) | *Major* | **docker not working on jenkins w/hadoop**
+
+See https://builds.apache.org/job/PreCommit-HADOOP-Build/7845/console
+
+It looks as though the project's plugin settings aren't getting activated in time.
+
+
+---
+
+* [YETUS-82](https://issues.apache.org/jira/browse/YETUS-82) | *Major* | **personality\_plugins with multiple entries doesn't work**
+
+I forgot to strip out the commas.  \*hangs head in shame\*
+
+
+---
+
+* [YETUS-74](https://issues.apache.org/jira/browse/YETUS-74) | *Major* | **document test formats**
+
+There doesn't appear to be any documentation about the test format plug-in system.
+
+
+---
+
 * [YETUS-72](https://issues.apache.org/jira/browse/YETUS-72) | *Major* | **Unassigned variable ${STARTDIR}?**
 
 It seems a typo for $\{STARTINGDIR}, but I'm not certain it can be simply rewritten.
@@ -139,9 +206,34 @@ It works, but is not visible.
 
 ---
 
+* [YETUS-59](https://issues.apache.org/jira/browse/YETUS-59) | *Blocker* | **Verify any Cat X runtime dependencies are optional**
+
+we need to make sure anything with a category X license is optional if possible.
+
+ref:
+
+http://apache.org/legal/resolved.html#category-x
+
+http://apache.org/legal/resolved.html#prohibited
+
+http://apache.org/legal/resolved.html#optional
+
+
+So relying on bash as a platform is fine, but we should make sure e.g. findbugs is optional.
+
+
+---
+
 * [YETUS-55](https://issues.apache.org/jira/browse/YETUS-55) | *Major* | **fix recovery of broken rebase code**
 
 The fix for HADOOP-12244 is incorrect.
+
+
+---
+
+* [YETUS-54](https://issues.apache.org/jira/browse/YETUS-54) | *Major* | **Add Yetus parent POM and top-level POM**
+
+So at least for as long as we're using Maven, I'd strongly advise that we not have audience-annotations inherit from hadoop-common's parent POM and instead inherit from a Yetus parent POM. I'd also advise that we follow the same kind of split that Hadoop has, with a yetus-parent POM in a subdirectory, separate from a top-level POM in the root directory. Parent POMs are great for defining things to inherit (versions, dependencies, properties, SCM info, etc) but are crap for aggregation once you try to do things like site generation, javadoc, etc.
 
 
 ---
@@ -210,6 +302,13 @@ In building some unit tests, did a negative tests and hit this condition.  We sh
 * [YETUS-5](https://issues.apache.org/jira/browse/YETUS-5) | *Major* | **Support per-instance maven repos**
 
 On busy jenkins servers, it only takes one bad apple doing a dependency:purge-local-repository to wreak havoc on other projects. In order to protect against this, test-patch should have some way to overlay the .m2 directory with something that is (minimally) per-project and maximally per run.
+
+
+---
+
+* [YETUS-3](https://issues.apache.org/jira/browse/YETUS-3) | *Blocker* | **update audience annotations for move to yetus tlp**
+
+update packages, pom, etc to not rely on being in the hadoop repo.
 
 
 ---

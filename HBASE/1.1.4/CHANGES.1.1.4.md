@@ -18,7 +18,7 @@
 -->
 # Apache HBase Changelog
 
-## Release 1.1.4 - Unreleased (as of 2015-10-14)
+## Release 1.1.4 - Unreleased (as of 2015-10-21)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -48,6 +48,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HBASE-13330](https://issues.apache.org/jira/browse/HBASE-13330) | Region left unassigned due to AM & SSH each thinking the assignment would be done by the other |  Major | master, Region Assignment | Devaraj Das | Devaraj Das |
 
 
 ### TESTS:

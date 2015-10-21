@@ -39,6 +39,15 @@ In order for this new feature to work the hbase-daemon.sh script was changed to 
 
 ---
 
+* [HBASE-14521](https://issues.apache.org/jira/browse/HBASE-14521) | *Major* | **Unify the semantic of hbase.client.retries.number**
+
+After this change, hbase.client.reties.number universally means the number of retry which is one less than total tries number,  for both non-batch operations like get/scan/increment etc. which uses RpcRetryingCallerImpl#callWithRetries to submit the call or batch operations like put through AsyncProcess#submit.
+
+Note that previously this property means total tries number for puts, so please adjust the setting of its value if necessary. Please also be cautious when setting it to zero since retry is necessary for client cache update when region move happens.
+
+
+---
+
 * [HBASE-14517](https://issues.apache.org/jira/browse/HBASE-14517) | *Minor* | **Show regionserver's version in master status page**
 
 Adds server version to the listing of regionservers on the master home page

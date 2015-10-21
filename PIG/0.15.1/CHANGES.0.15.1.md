@@ -18,7 +18,7 @@
 -->
 # Apache Pig Changelog
 
-## Release 0.15.1 - Unreleased (as of 2015-10-14)
+## Release 0.15.1 - Unreleased (as of 2015-10-21)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -48,6 +48,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [PIG-4703](https://issues.apache.org/jira/browse/PIG-4703) | TezOperator.stores shall not ship to backend |  Major | tez | Daniel Dai | Daniel Dai |
 | [PIG-4688](https://issues.apache.org/jira/browse/PIG-4688) | Limit followed by POPartialAgg can give empty or partial results in Tez |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-4683](https://issues.apache.org/jira/browse/PIG-4683) | Nested order is broken after PIG-3591 in some cases |  Major | impl | Daniel Dai | Daniel Dai |
 | [PIG-4650](https://issues.apache.org/jira/browse/PIG-4650) | ant mvn-deploy target is broken |  Major | build | Daniel Dai | Daniel Dai |

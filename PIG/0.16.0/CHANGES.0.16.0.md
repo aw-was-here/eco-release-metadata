@@ -18,7 +18,7 @@
 -->
 # Apache Pig Changelog
 
-## Release 0.16.0 - Unreleased (as of 2015-10-14)
+## Release 0.16.0 - Unreleased (as of 2015-10-21)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -45,6 +45,9 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [PIG-4702](https://issues.apache.org/jira/browse/PIG-4702) | Load once for sampling and partitioning in order by for certain LoadFuncs |  Major | tez | Rohini Palaniswamy | Rohini Palaniswamy |
+| [PIG-4699](https://issues.apache.org/jira/browse/PIG-4699) | Print Job stats information in Tez like mapreduce |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
+| [PIG-4697](https://issues.apache.org/jira/browse/PIG-4697) | Serialize relevant part of the udfcontext per vertex to reduce payload size |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-4676](https://issues.apache.org/jira/browse/PIG-4676) | Upgrade Hive to 1.2.1 |  Major | impl | Daniel Dai | Daniel Dai |
 | [PIG-4663](https://issues.apache.org/jira/browse/PIG-4663) | HBaseStorage should allow the MaxResultsPerColumnFamily limit to avoid memory or scan timeout issues |  Major | . | Paul Mazak | Paul Mazak |
 | [PIG-4651](https://issues.apache.org/jira/browse/PIG-4651) | Optimize NullablePartitionWritable serialization for skewed join |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
@@ -60,6 +63,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [PIG-4703](https://issues.apache.org/jira/browse/PIG-4703) | TezOperator.stores shall not ship to backend |  Major | tez | Daniel Dai | Daniel Dai |
 | [PIG-4696](https://issues.apache.org/jira/browse/PIG-4696) | Empty map returned by a streaming\_python udf wrongly contains a null key |  Minor | impl | Cheolsoo Park | Cheolsoo Park |
 | [PIG-4691](https://issues.apache.org/jira/browse/PIG-4691) | [Pig on Tez] Support for whitelisting storefuncs for union optimization |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-4688](https://issues.apache.org/jira/browse/PIG-4688) | Limit followed by POPartialAgg can give empty or partial results in Tez |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |

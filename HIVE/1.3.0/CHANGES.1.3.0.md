@@ -18,7 +18,7 @@
 -->
 # Apache Hive Changelog
 
-## Release 1.3.0 - Unreleased (as of 2015-10-14)
+## Release 1.3.0 - Unreleased (as of 2015-10-21)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -98,9 +98,13 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HIVE-12200](https://issues.apache.org/jira/browse/HIVE-12200) | INSERT INTO table using a select statement w/o a FROM clause fails |  Minor | . | Jimmy Xiang | Jimmy Xiang |
+| [HIVE-12188](https://issues.apache.org/jira/browse/HIVE-12188) | DoAs does not work properly in non-kerberos secured HS2 |  Major | . | Chaoyu Tang | Chaoyu Tang |
 | [HIVE-12090](https://issues.apache.org/jira/browse/HIVE-12090) | Dead-code: Vectorized map-join murmur hash is run twice |  Major | Vectorization | Gopal V | Gopal V |
+| [HIVE-12083](https://issues.apache.org/jira/browse/HIVE-12083) | HIVE-10965 introduces thrift error if partNames or colNames are empty |  Major | Metastore | Sushanth Sowmyan | Sushanth Sowmyan |
 | [HIVE-12076](https://issues.apache.org/jira/browse/HIVE-12076) | WebHCat listing jobs after the given JobId even when templeton.jobs.listorder is set to lexicographicaldesc |  Major | . | Kiran Kumar Kolli | Kiran Kumar Kolli |
 | [HIVE-12058](https://issues.apache.org/jira/browse/HIVE-12058) | Change hive script to record errors when calling hbase fails |  Major | Hive, HiveServer2 | Yongzhi Chen | Yongzhi Chen |
+| [HIVE-12053](https://issues.apache.org/jira/browse/HIVE-12053) | Stats performance regression caused by HIVE-11786 |  Major | Metastore | Chaoyu Tang | Chaoyu Tang |
 | [HIVE-12046](https://issues.apache.org/jira/browse/HIVE-12046) | Re-create spark client if connection is dropped |  Minor | Spark | Jimmy Xiang | Jimmy Xiang |
 | [HIVE-12035](https://issues.apache.org/jira/browse/HIVE-12035) | branch-1 build broken |  Major | . | Eugene Koifman | Eugene Koifman |
 | [HIVE-12032](https://issues.apache.org/jira/browse/HIVE-12032) | Add unit test for HIVE-9855 |  Major | Hive | Wei Zheng | Wei Zheng |
@@ -130,6 +134,7 @@
 | [HIVE-11914](https://issues.apache.org/jira/browse/HIVE-11914) | When transactions gets a heartbeat, it doesn't update the lock heartbeat. |  Major | HCatalog, Transactions | Eugene Koifman | Eugene Koifman |
 | [HIVE-11910](https://issues.apache.org/jira/browse/HIVE-11910) | TestHCatLoaderEncryption should shutdown created MiniDFS instance |  Major | Tests | Jason Dere | Jason Dere |
 | [HIVE-11902](https://issues.apache.org/jira/browse/HIVE-11902) | Abort txn cleanup thread throws SyntaxErrorException |  Major | Transactions | Deepesh Khandelwal | Deepesh Khandelwal |
+| [HIVE-11892](https://issues.apache.org/jira/browse/HIVE-11892) | UDTF run in local fetch task does not return rows forwarded during GenericUDTF.close() |  Major | UDF | Jason Dere | Jason Dere |
 | [HIVE-11889](https://issues.apache.org/jira/browse/HIVE-11889) | Add unit test for HIVE-11449 |  Major | Hive | Wei Zheng | Wei Zheng |
 | [HIVE-11883](https://issues.apache.org/jira/browse/HIVE-11883) | 'transactional' table property for ACID should be case insensitive |  Major | Transactions | Eugene Koifman | Eugene Koifman |
 | [HIVE-11875](https://issues.apache.org/jira/browse/HIVE-11875) | JDBC Driver does not honor delegation token mechanism when readings params from ZooKeeper |  Major | JDBC | Vaibhav Gumashta | Vaibhav Gumashta |

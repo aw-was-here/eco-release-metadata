@@ -23,6 +23,13 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
+* [HADOOP-12493](https://issues.apache.org/jira/browse/HADOOP-12493) | *Major* | **bash unit tests are failing**
+
+In the extremely rare event that HADOOP\_USER\_IDENT and USER environment variables are not defined, we now fall back to use 'hadoop' as the identification string.
+
+
+---
+
 * [HADOOP-11781](https://issues.apache.org/jira/browse/HADOOP-11781) | *Major* | **fix race conditions and add URL support to smart-apply-patch.sh**
 
 Now auto-downloads patch from issue-id; fixed race conditions; fixed bug affecting some patches.

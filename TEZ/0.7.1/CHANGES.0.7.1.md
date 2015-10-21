@@ -18,7 +18,7 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.7.1 - Unreleased (as of 2015-10-14)
+## Release 0.7.1 - Unreleased (as of 2015-10-21)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -42,6 +42,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-2886](https://issues.apache.org/jira/browse/TEZ-2886) | Ability to merge AM credentials with DAG credentials |  Major | . | Jason Lowe | Jason Lowe |
 | [TEZ-2768](https://issues.apache.org/jira/browse/TEZ-2768) | Log a useful error message when the summary stream cannot be closed when shutting down an AM |  Major | . | Jeff Zhang | Jeff Zhang |
 | [TEZ-2767](https://issues.apache.org/jira/browse/TEZ-2767) | Make TezMxBeanResourceCalculator the default resource calculator |  Major | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-2758](https://issues.apache.org/jira/browse/TEZ-2758) | Remove append API in RecoveryService after TEZ-1909 |  Major | . | Jeff Zhang | Jeff Zhang |
@@ -62,10 +63,12 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-2896](https://issues.apache.org/jira/browse/TEZ-2896) | Fix thread names used during Input/Output initialization |  Major | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-2887](https://issues.apache.org/jira/browse/TEZ-2887) | Tez build failure due to missing dependency in pom files |  Major | . | Ashish Singh | Ashish Singh |
 | [TEZ-2885](https://issues.apache.org/jira/browse/TEZ-2885) | Remove counter logs from AMWebController |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-2874](https://issues.apache.org/jira/browse/TEZ-2874) | Improved logging for caller context |  Major | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-2868](https://issues.apache.org/jira/browse/TEZ-2868) | Fix setting Caller Context in Tez Examples |  Major | . | Hitesh Shah | Hitesh Shah |
+| [TEZ-2866](https://issues.apache.org/jira/browse/TEZ-2866) | Tez UI: Newly added columns wont be displayed by default in tables |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2860](https://issues.apache.org/jira/browse/TEZ-2860) | NPE in DAGClientImpl |  Major | . | Jeff Zhang | Jeff Zhang |
 | [TEZ-2855](https://issues.apache.org/jira/browse/TEZ-2855) | Potential NPE while routing VertexManager events |  Critical | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-2853](https://issues.apache.org/jira/browse/TEZ-2853) | Tez UI: task attempt page is coming empty |  Blocker | . | Sreenath Somarajapuram | Sreenath Somarajapuram |

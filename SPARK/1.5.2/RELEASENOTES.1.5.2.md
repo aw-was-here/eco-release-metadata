@@ -23,9 +23,204 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
+* [SPARK-11153](https://issues.apache.org/jira/browse/SPARK-11153) | *Blocker* | **Turns off Parquet filter push-down for string and binary columns**
+
+Due to PARQUET-251, {{BINARY}} columns in existing Parquet files may be written with corrupted statistics information. This information is used by filter push-down optimization. Since Spark 1.5 turns on Parquet filter push-down by default, we may end up with wrong query results. PARQUET-251 has been fixed in parquet-mr 1.8.1, but Spark 1.5 is still using 1.7.0.
+
+Note that this kind of corrupted Parquet files could be produced by any Parquet data models.
+
+This affects all Spark SQL data types that can be mapped to Parquet {{BINARY}}, namely:
+
+- {{StringType}}
+- {{BinaryType}}
+- {{DecimalType}} (but Spark SQL doesn't support pushing down {{DecimalType}} columns for now.)
+
+To avoid wrong query results, we should disable filter push-down for columns of {{StringType}} and {{BinaryType}} until we upgrade to parquet-mr 1.8.
+
+
+---
+
+* [SPARK-11135](https://issues.apache.org/jira/browse/SPARK-11135) | *Blocker* | **Exchange sort-planning logic incorrectly avoid sorts when existing ordering is non-empty subset of required ordering**
+
+In Spark SQL, the Exchange planner tries to avoid unnecessary sorts in cases where the data has already been sorted by a superset of the requested sorting columns. For instance, let's say that a query calls for an operator's input to be sorted by `a.asc` and the input happens to already be sorted by `[a.asc, b.asc]`. In this case, we do not need to re-sort the input. The converse, however, is not true: if the query calls for `[a.asc, b.asc]`, then `a.asc` alone will not satisfy the ordering requirements, requiring an additional sort to be planned by Exchange.
+
+However, the current Exchange code gets this wrong and incorrectly skips sorting when the existing output ordering is a subset of the required ordering. This is simple to fix, however.
+
+This bug was introduced in https://github.com/apache/spark/pull/7458, so it affects 1.5.0+.
+
+
+---
+
+* [SPARK-11126](https://issues.apache.org/jira/browse/SPARK-11126) | *Blocker* | **A memory leak in SQLListener.\_stageIdToStageMetrics**
+
+SQLListener adds all stage infos to \_stageIdToStageMetrics, but only removes  stage infos belonging to SQL executions.
+
+Reported by Terry Hoo in https://www.mail-archive.com/user@spark.apache.org/msg38810.html
+
+
+---
+
+* [SPARK-11104](https://issues.apache.org/jira/browse/SPARK-11104) | *Major* | **A potential deadlock in StreamingContext.stop and stopOnShutdown**
+
+When the shutdown hook of StreamingContext and StreamingContext.stop are running at the same time (e.g., press CTRL-C when StreamingContext.stop is running), the following deadlock may happen:
+
+{code}
+Java stack information for the threads listed above:
+===================================================
+"Thread-2":
+	at org.apache.spark.streaming.StreamingContext.stop(StreamingContext.scala:699)
+	- waiting to lock \<0x00000005405a1680\> (a org.apache.spark.streaming.StreamingContext)
+	at org.apache.spark.streaming.StreamingContext.org$apache$spark$streaming$StreamingContext$$stopOnShutdown(StreamingContext.scala:729)
+	at org.apache.spark.streaming.StreamingContext$$anonfun$start$1.apply$mcV$sp(StreamingContext.scala:625)
+	at org.apache.spark.util.SparkShutdownHook.run(ShutdownHookManager.scala:266)
+	at org.apache.spark.util.SparkShutdownHookManager$$anonfun$runAll$1$$anonfun$apply$mcV$sp$1.apply$mcV$sp(ShutdownHookManager.scala:236)
+	at org.apache.spark.util.SparkShutdownHookManager$$anonfun$runAll$1$$anonfun$apply$mcV$sp$1.apply(ShutdownHookManager.scala:236)
+	at org.apache.spark.util.SparkShutdownHookManager$$anonfun$runAll$1$$anonfun$apply$mcV$sp$1.apply(ShutdownHookManager.scala:236)
+	at org.apache.spark.util.Utils$.logUncaughtExceptions(Utils.scala:1697)
+	at org.apache.spark.util.SparkShutdownHookManager$$anonfun$runAll$1.apply$mcV$sp(ShutdownHookManager.scala:236)
+	at org.apache.spark.util.SparkShutdownHookManager$$anonfun$runAll$1.apply(ShutdownHookManager.scala:236)
+	at org.apache.spark.util.SparkShutdownHookManager$$anonfun$runAll$1.apply(ShutdownHookManager.scala:236)
+	at scala.util.Try$.apply(Try.scala:161)
+	at org.apache.spark.util.SparkShutdownHookManager.runAll(ShutdownHookManager.scala:236)
+	- locked \<0x00000005405b6a00\> (a org.apache.spark.util.SparkShutdownHookManager)
+	at org.apache.spark.util.SparkShutdownHookManager$$anon$2.run(ShutdownHookManager.scala:216)
+	at org.apache.hadoop.util.ShutdownHookManager$1.run(ShutdownHookManager.java:54)
+"main":
+	at org.apache.spark.util.SparkShutdownHookManager.remove(ShutdownHookManager.scala:248)
+	- waiting to lock \<0x00000005405b6a00\> (a org.apache.spark.util.SparkShutdownHookManager)
+	at org.apache.spark.util.ShutdownHookManager$.removeShutdownHook(ShutdownHookManager.scala:199)
+	at org.apache.spark.streaming.StreamingContext.stop(StreamingContext.scala:712)
+	- locked \<0x00000005405a1680\> (a org.apache.spark.streaming.StreamingContext)
+	at org.apache.spark.streaming.StreamingContext.stop(StreamingContext.scala:684)
+	- locked \<0x00000005405a1680\> (a org.apache.spark.streaming.StreamingContext)
+	at org.apache.spark.streaming.SessionByKeyBenchmark$.main(SessionByKeyBenchmark.scala:108)
+	at org.apache.spark.streaming.SessionByKeyBenchmark.main(SessionByKeyBenchmark.scala)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.apache.spark.deploy.SparkSubmit$.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:680)
+	at org.apache.spark.deploy.SparkSubmit$.doRunMain$1(SparkSubmit.scala:180)
+	at org.apache.spark.deploy.SparkSubmit$.submit(SparkSubmit.scala:205)
+	at org.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:120)
+	at org.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)
+{code}
+
+
+---
+
+* [SPARK-11094](https://issues.apache.org/jira/browse/SPARK-11094) | *Minor* | **Test runner script fails to parse Java version.**
+
+Running {{dev/run-tests}} fails when the local Java version has an extra string appended to the version.
+For example, in Debian Stretch (currently testing distribution), {{java -version}} yields "1.8.0\_66-internal" where the extra part "-internal" causes the script to fail.
+
+
+---
+
+* [SPARK-11066](https://issues.apache.org/jira/browse/SPARK-11066) | *Minor* | **Flaky test o.a.scheduler.DAGSchedulerSuite.misbehavedResultHandler occasionally fails due to j.l.UnsupportedOperationException concerning a finished JobWaiter**
+
+The DAGSchedulerSuite test for the "misbehaved ResultHandler" has an inherent problem: it creates a job for the DAGScheduler comprising multiple (2) tasks, but whilst the job will fail and a SparkDriverExecutionException will be returned, a race condition exists as to whether the first task's (deliberately) thrown exception causes the job to fail - and having its causing exception set to the DAGSchedulerSuiteDummyException that was thrown as the setup of the misbehaving test - or second (and subsequent) tasks who equally end, but have instead the DAGScheduler's legitimate UnsupportedOperationException (a subclass of RuntimeException) returned instead as their causing exception.  This race condition is likely associated with the vagaries of processing quanta, and expense of throwing two exceptions (under interpreter execution) per thread of control; this race is usually 'won' by the first task throwing the DAGSchedulerDummyException, as desired (and expected)... but not always.
+
+The problem for the testcase is that the first assertion is largely concerning the test setup, and doesn't (can't? Sorry, still not a ScalaTest expert) capture all the causes of SparkDriverExecutionException that can legitimately arise from a correctly working (not crashed) DAGScheduler.  Arguably, this assertion might test something of the DAGScheduler... but not all the possible outcomes for a working DAGScheduler.  Nevertheless, this test - when comprising a multiple task job - will report as a failure when in fact the DAGScheduler is working-as-designed (and not crashed ;-).  Furthermore, the test is already failed before it actually tries to use the SparkContext a second time (for an arbitrary processing task), which I think is the real subject of the test?
+
+The solution, I submit, is to ensure that the job is composed of just one task, and that single task will result in the call to the compromised ResultHandler causing the test's deliberate exception to be thrown and exercising the relevant (DAGScheduler) code paths.  Given tasks are scoped by the number of partitions of an RDD, this could be achieved with a single partitioned RDD (indeed, doing so seems to exercise/would test some default parallelism support of the TaskScheduler?); the pull request offered, however, is based on the minimal change of just using a single partition of the 2 (or more) partition parallelized RDD.  This will result in scheduling a job of just one task, one successful task calling the user-supplied compromised ResultHandler function, which results in failing the job and unambiguously wrapping our DAGSchedulerSuiteException inside a SparkDriverExecutionException; there are no other tasks that on running successfully will find the job failed causing the 'undesired' UnsupportedOperationException to be thrown instead.  This, then, satisfies the test's setup assertion.
+
+I have tested this hypothesis having parametised the number of partitions, N, used by the "misbehaved ResultHandler" job and have observed the 1 x DAGSchedulerSuiteException first, followed by the legitimate N-1 x UnsupportedOperationExceptions ... what propagates back from the job seems to simply become the result of the race between task threads and the intermittent failures observed.
+
+
+---
+
+* [SPARK-11063](https://issues.apache.org/jira/browse/SPARK-11063) | *Critical* | **Spark TaskSetManager doesn't use Receiver's scheduling executors**
+
+The format of RDD's preferredLocations must be hostname but the format of Streaming Receiver's scheduling executors is hostport. So it doesn't work.
+
+
+---
+
 * [SPARK-11056](https://issues.apache.org/jira/browse/SPARK-11056) | *Minor* | **Improve documentation on how to build Spark efficiently**
 
 Slow build times are a common pain point for new Spark developers.  We should improve the main documentation on building Spark to describe how to make building Spark less painful.
+
+
+---
+
+* [SPARK-11051](https://issues.apache.org/jira/browse/SPARK-11051) | *Critical* | **NullPointerException when action called on localCheckpointed RDD (that was checkpointed before)**
+
+While toying with {{RDD.checkpoint}} and {{RDD.localCheckpoint}} methods, the following NullPointerException was thrown:
+
+{code}
+scala\> lines.count
+java.lang.NullPointerException
+  at org.apache.spark.rdd.RDD.firstParent(RDD.scala:1587)
+  at org.apache.spark.rdd.MapPartitionsRDD.getPartitions(MapPartitionsRDD.scala:35)
+  at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:239)
+  at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:237)
+  at scala.Option.getOrElse(Option.scala:121)
+  at org.apache.spark.rdd.RDD.partitions(RDD.scala:237)
+  at org.apache.spark.SparkContext.runJob(SparkContext.scala:1927)
+  at org.apache.spark.rdd.RDD.count(RDD.scala:1115)
+  ... 48 elided
+{code}
+
+To reproduce the issue do the following:
+
+{code}
+$ ./bin/spark-shell
+Welcome to
+      \_\_\_\_              \_\_
+     / \_\_/\_\_  \_\_\_ \_\_\_\_\_/ /\_\_
+    \_\ \/ \_ \/ \_ `/ \_\_/  '\_/
+   /\_\_\_/ .\_\_/\\_,\_/\_/ /\_/\\_\   version 1.6.0-SNAPSHOT
+      /\_/
+
+Using Scala version 2.11.7 (Java HotSpot(TM) 64-Bit Server VM, Java 1.8.0\_60)
+Type in expressions to have them evaluated.
+Type :help for more information.
+
+scala\> val lines = sc.textFile("README.md")
+lines: org.apache.spark.rdd.RDD[String] = MapPartitionsRDD[1] at textFile at \<console\>:24
+
+scala\> sc.setCheckpointDir("checkpoints")
+
+scala\> lines.checkpoint
+
+scala\> lines.count
+res2: Long = 98
+
+scala\> lines.localCheckpoint
+15/10/10 22:59:20 WARN MapPartitionsRDD: RDD was already marked for reliable checkpointing: overriding with local checkpoint.
+res4: lines.type = MapPartitionsRDD[1] at textFile at \<console\>:24
+
+scala\> lines.count
+java.lang.NullPointerException
+  at org.apache.spark.rdd.RDD.firstParent(RDD.scala:1587)
+  at org.apache.spark.rdd.MapPartitionsRDD.getPartitions(MapPartitionsRDD.scala:35)
+  at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:239)
+  at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:237)
+  at scala.Option.getOrElse(Option.scala:121)
+  at org.apache.spark.rdd.RDD.partitions(RDD.scala:237)
+  at org.apache.spark.SparkContext.runJob(SparkContext.scala:1927)
+  at org.apache.spark.rdd.RDD.count(RDD.scala:1115)
+  ... 48 elided
+{code}
+
+
+---
+
+* [SPARK-11047](https://issues.apache.org/jira/browse/SPARK-11047) | *Critical* | **Internal accumulators miss the internal flag when replaying events in the history server**
+
+Internal accumulators don't write the internal flag to event log. So on the history server Web UI, all accumulators are not internal. This causes incorrect peak execution memory and unwanted accumulator table displayed on the stage page.
+
+
+---
+
+* [SPARK-11039](https://issues.apache.org/jira/browse/SPARK-11039) | *Trivial* | **Document all UI "retained\*" configurations**
+
+Most are documented except these:
+- spark.sql.ui.retainedExecutions
+- spark.streaming.ui.retainedBatches
+
+They are really helpful for managing the memory usage of the driver application.
 
 
 ---
@@ -301,6 +496,28 @@ Decimal(1000000000000000000L, 20, 2) will become 1000000000000000000 instead of 
 
 ---
 
+* [SPARK-10973](https://issues.apache.org/jira/browse/SPARK-10973) | *Major* | **\_\_gettitem\_\_ method throws IndexError exception when we try to access index after the last non-zero entry.**
+
+\\_\\_gettitem\\_\\_ method throws IndexError exception when we try to access  index  after the last non-zero entry.
+
+{code}
+from pyspark.mllib.linalg import Vectors
+sv = Vectors.sparse(5, {1: 3})
+sv[0]
+## 0.0
+sv[1]
+## 3.0
+sv[2]
+## Traceback (most recent call last):
+##   File "\<stdin\>", line 1, in \<module\>
+##   File "/python/pyspark/mllib/linalg/\_\_init\_\_.py", line 734, in \_\_getitem\_\_
+##     row\_ind = inds[insert\_index]
+## IndexError: index out of bounds
+{code}
+
+
+---
+
 * [SPARK-10960](https://issues.apache.org/jira/browse/SPARK-10960) | *Major* | **SQL with windowing function cannot reference column in inner select block**
 
 There seems to be a bug in the Spark SQL parser when I use windowing functions. Specifically, when the SELECT refers to a column from an inner select block, the parser throws an error.
@@ -383,9 +600,9 @@ These parameters are passed into the StreamingLogisticRegressionWithSGD construc
 
 ---
 
-* [SPARK-10955](https://issues.apache.org/jira/browse/SPARK-10955) | *Major* | **Disable dynamic allocation for Streaming jobs**
+* [SPARK-10955](https://issues.apache.org/jira/browse/SPARK-10955) | *Major* | **Warn if dynamic allocation is enabled for Streaming jobs**
 
-Spark streaming can be tricky with dynamic allocation and can lose dataWe should disable dynamic allocation or at least log that it is dangerous.
+Spark streaming can be tricky with dynamic allocation and can lose data if not used properly (with WAL, or with WAL-free solutions like Direct Kafka and Kinesis since 1.5). If dynamic allocation is enabled, we should issue a log4j warning.
 
 
 ---
@@ -582,6 +799,15 @@ Exception in thread "main" java.io.FileNotFoundException: File file:/home/foo/my
 
 ---
 
+* [SPARK-10845](https://issues.apache.org/jira/browse/SPARK-10845) | *Major* | **SQL option "spark.sql.hive.version" doesn't show up in the result of "SET -v"**
+
+When refactoring SQL options from plain strings to the strongly typed {{SQLConfEntry}}, {{spark.sql.hive.version}} wasn't migrated, and doesn't show up in the result of {{SET -v}}, as {{SET -v}} only shows public {{SQLConfEntry}} instances.
+
+This affects compatibility with Simba ODBC driver.
+
+
+---
+
 * [SPARK-10833](https://issues.apache.org/jira/browse/SPARK-10833) | *Major* | **Inline, organize BSD/MIT licenses in LICENSE**
 
 In the course of https://issues.apache.org/jira/browse/LEGAL-226 it came to light that the guidance at http://www.apache.org/dev/licensing-howto.html#permissive-deps means that permissively-licensed dependencies has a different interpretation than we (er, I) had been operating under. "pointer ... to the license within the source tree" specifically means a copy of the license within Spark's distribution, whereas at the moment, Spark's LICENSE has a pointer to the project's license in the \*other project's\* source tree.
@@ -663,6 +889,31 @@ org.apache.spark.sql.AnalysisException: resolved attribute(s) c2#33 missing from
 
 ---
 
+* [SPARK-10619](https://issues.apache.org/jira/browse/SPARK-10619) | *Major* | **Can't sort columns on Executor Page**
+
+I am using spark 1.5 running on yarn and go to the executors page.  It won't allow sorting of the columns. This used to work in Spark 1.4.
+
+
+---
+
+* [SPARK-10581](https://issues.apache.org/jira/browse/SPARK-10581) | *Minor* | **Groups are not resolved in scaladoc for org.apache.spark.sql.Column**
+
+The Scala API documentation (scaladoc) for [org.apache.spark.sql.Column\|http://people.apache.org/~pwendell/spark-nightly/spark-master-docs/latest/api/scala/index.html#org.apache.spark.sql.Column] does not resolve groups, and they appear unresolved like {{df\_ops}}, {{expr\_ops}}, et al. instead of \_DataFrame functions.\_, \_Expression operators.\_, et al.  
+
+BTW, [DataFrame\|http://people.apache.org/~pwendell/spark-nightly/spark-master-docs/latest/api/scala/index.html#org.apache.spark.sql.DataFrame] and other classes in the [org.apache.spark.sql\|http://people.apache.org/~pwendell/spark-nightly/spark-master-docs/latest/api/scala/index.html#org.apache.spark.sql.package] package seem fine.
+
+
+---
+
+* [SPARK-10577](https://issues.apache.org/jira/browse/SPARK-10577) | *Major* | **[PySpark] DataFrame hint for broadcast join**
+
+As in https://issues.apache.org/jira/browse/SPARK-8300
+there should by possibility to add hint for broadcast join in:
+- Pyspark
+
+
+---
+
 * [SPARK-10389](https://issues.apache.org/jira/browse/SPARK-10389) | *Major* | **support order by non-attribute grouping expression on Aggregate**
 
 For example, we should support "SELECT MAX(value) FROM src GROUP BY key + 1 ORDER BY key + 1".
@@ -734,6 +985,21 @@ sbt.ForkMain$ForkError: 3 did not equal 2
 
 This is really flaky (fail 30%)
 https://amplab.cs.berkeley.edu/jenkins/view/Spark-QA-Test/job/Spark-1.5-SBT/116/AMPLAB\_JENKINS\_BUILD\_PROFILE=hadoop2.2,label=spark-test/testReport/junit/org.apache.spark/HeartbeatReceiverSuite/normal\_heartbeat/history/
+
+
+---
+
+* [SPARK-8386](https://issues.apache.org/jira/browse/SPARK-8386) | *Critical* | **DataFrame and JDBC regression**
+
+I have an ETL app that appends to a JDBC table new results found at each run.  In 1.3.1 I did this:
+
+testResultsDF.insertIntoJDBC(CONNECTION\_URL, TABLE\_NAME, false);
+
+When I do this now in 1.4 it complains that the "object" 'TABLE\_NAME' already exists. I get this even if I switch the overwrite to true.  I also tried this now:
+
+testResultsDF.write().mode(SaveMode.Append).jdbc(CONNECTION\_URL, TABLE\_NAME, connectionProperties);
+
+getting the same error. It works running the first time creating the new table and adding data successfully. But, running it a second time it (the jdbc driver) will tell me that the table already exists. Even SaveMode.Overwrite will give me the same error.
 
 
 

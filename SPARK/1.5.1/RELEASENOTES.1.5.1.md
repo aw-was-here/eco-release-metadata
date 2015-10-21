@@ -23,6 +23,20 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
+* [SPARK-11214](https://issues.apache.org/jira/browse/SPARK-11214) | *Critical* | **Join with Unicode-String results wrong empty**
+
+I created a join that should clearly result in a single row but return: empty. Could someone validate this bug?
+
+hiveContext.sql('SELECT \* FROM (SELECT "c" AS a) AS a JOIN (SELECT "c" AS b) AS b ON a.a = b.b').take(10)
+
+result: []
+
+kind regards
+Hans
+
+
+---
+
 * [SPARK-10769](https://issues.apache.org/jira/browse/SPARK-10769) | *Major* | **Fix o.a.s.streaming.CheckpointSuite.maintains rate controller**
 
 Fixed the following failure in https://amplab.cs.berkeley.edu/jenkins/job/NewSparkPullRequestBuilder/1787/testReport/junit/org.apache.spark.streaming/CheckpointSuite/recovery\_maintains\_rate\_controller/

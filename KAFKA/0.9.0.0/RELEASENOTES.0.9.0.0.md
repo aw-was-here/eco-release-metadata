@@ -23,6 +23,61 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
+* [KAFKA-2669](https://issues.apache.org/jira/browse/KAFKA-2669) | *Major* | **Fix LogCleanerIntegrationTest**
+
+LogCleanerIntegrationTest calls LogCleaner.awaitCleaned() to wait until cleaner has processed up to given offset. However, existing awaitCleaned() implementation doesn't wait for this.
+
+
+---
+
+* [KAFKA-2665](https://issues.apache.org/jira/browse/KAFKA-2665) | *Major* | **Docs: Images that are part of the documentation are not part of the code github**
+
+This means that:
+1. We don't include them in the docs release
+2. Its awkward to modify them or add new documentation with images
+
+I suggest we store the images under docs/images.
+This also means that every version of the docs in the site (starting at 0.9.0.0) will have its own images directory (otherwise we can't safely modify them if the architecture changes)
+
+
+---
+
+* [KAFKA-2656](https://issues.apache.org/jira/browse/KAFKA-2656) | *Critical* | **Default SSL keystore and truststore config are unusable**
+
+Default truststore for clients and default key and truststore for Kafka server are set to files in /tmp along with simplistic passwords. Since no sample stores are packaged with Kafka anyway, there is no value in hardcoded paths and passwords as defaults. 
+
+Moreover these defaults prevent the use of standard javax.net.ssl properties. And they force truststores to be set in Kafka configuration even when certificates are signed by a trusted authority included in the Java cacerts.
+
+Default keystores and truststores should be replaced with JVM defaults.
+
+
+---
+
+* [KAFKA-2654](https://issues.apache.org/jira/browse/KAFKA-2654) | *Major* | **Avoid calling Consumer.poll(0) in each iteration**
+
+Currently we are calling consumer.poll() in each iteration though most time it is poll(0).
+
+poll(0) itself is not completely free since it involves a bunch of system calls, hence we'd better avoid calling it in each iteration.
+
+
+---
+
+* [KAFKA-2650](https://issues.apache.org/jira/browse/KAFKA-2650) | *Major* | **Change ConfigCommand --deleted-config option to align with TopicCommand**
+
+In order to avoid confusion, change ConfigCommand's --deleted-config parameter to --delete-config. 
+
+At the same time change --added-config to --add-config, to make all options present/future tense instead of past tense.
+
+
+---
+
+* [KAFKA-2639](https://issues.apache.org/jira/browse/KAFKA-2639) | *Major* | **Refactoring of ZkUtils**
+
+Refactoring of ZkUtils to make the changes of KAFKA-1695 testable.
+
+
+---
+
 * [KAFKA-2633](https://issues.apache.org/jira/browse/KAFKA-2633) | *Major* | **Default logging from tools to Stderr**
 
 Currently the default logging for tool is stdout, this can make parsing the output  difficult in cases where exceptions are thrown, or even when expected logging messages are output. The most affected tool is the console-consumer but others will have this issue as well. 
@@ -39,6 +94,22 @@ Note: Users can change the logging settings by setting $KAFKA\_LOG4J\_OPTS to us
 Since we check if the partition is fetchable or not in fetchedRecords(), there is a bug when the partition is paused during there is in-flight fetch request, it will not be ignored in fetch response handler but after that, in fetchedRecords(), causing the fetcher to update the fetched position already; later no fetch requests will ever be sent to the broker for this partition since consumed != fetched.
 
 The proposed fix is to move this check from fetchedRecords to handleFetchResponse in Fetcher.
+
+
+---
+
+* [KAFKA-2628](https://issues.apache.org/jira/browse/KAFKA-2628) | *Major* | **KafkaOffsetBackingStoreTest.testGetSet transient test failure**
+
+{quote}
+org.apache.kafka.copycat.storage.KafkaOffsetBackingStoreTest \> testGetSet FAILED
+    java.lang.AssertionError
+        at org.junit.Assert.fail(Assert.java:86)
+        at org.junit.Assert.assertTrue(Assert.java:41)
+        at org.junit.Assert.assertTrue(Assert.java:52)
+        at org.apache.kafka.copycat.storage.KafkaOffsetBackingStoreTest.testGetSet(KafkaOffsetBackingStoreTest.java:308)
+{quote}
+
+Haven't noticed this on Apache's Jenkins yet, but have seen it on Confluent's. May be due to limited resources under some conditions, although the timeout is already quite generous at 10s.
 
 
 ---
@@ -113,6 +184,15 @@ Now that KAFKA-2120 has been merged, we can improve a few things:
 
 ---
 
+* [KAFKA-2603](https://issues.apache.org/jira/browse/KAFKA-2603) | *Major* | **Add timeout to ConsoleConsumer running with new consumer**
+
+ConsoleConsumer exits when no messages are received for a timeout period when run with the old consumer since the old consumer had a timeout parameter. This behaviour is not available with the new consumer and hence ducktape tests which rely on the timeout cannot be run with the new consumer. 
+
+[~granders] has suggested a solution in KAFKA-2581.
+
+
+---
+
 * [KAFKA-2600](https://issues.apache.org/jira/browse/KAFKA-2600) | *Major* | **Make KStream interfaces compatible with Java 8 java.util.function**
 
 As suggested by [~rhauch], if we make the interface method names as the same to java.util.function.[Functions]:
@@ -155,6 +235,24 @@ Add to {{.gitignore}} the Eclipse IDE directories {{.metadata}} and {{.recommend
 * [KAFKA-2596](https://issues.apache.org/jira/browse/KAFKA-2596) | *Major* | **Coordinator should return illegal generation for commits from unknown groups with non-negative generation**
 
 Currently the consumer coordinator accepts offset commits blindly if it has no state stored for the associated groupId. This means that upon coordinator failover, offset commits from any member of a group will be accepted, even if that member is from an older generation. A better way of handling this case would be to return an ILLEGAL\_GENERATION error when the generation in the commit request is greater than or equal to 0. Consumers that are not using group management will always send a generation of -1, so their commits will still be accepted as valid.
+
+
+---
+
+* [KAFKA-2594](https://issues.apache.org/jira/browse/KAFKA-2594) | *Major* | **Add a key-value store that is a fixed-capacity in-memory LRU cache**
+
+The current {{KeyValueStore}} implementations are not limited in size, and thus are less useful for some use cases. This subtask will add a simple key-value store that maintains in memory at most a maximum number of entries that were recently read or written. When the cache size reaches the capacity and a new entry is to be added, the least recently used entry will be automatically purged from the cache. This key-value store will extend {{MeteredKeyValueStore}} for monitoring and recording of changes to a backing topic, enabling recovery of the cache contents from the replicated state.
+
+
+---
+
+* [KAFKA-2593](https://issues.apache.org/jira/browse/KAFKA-2593) | *Major* | **KeyValueStores should not require use of the context's default serializers and deserializers**
+
+Currently the {{InMemoryKeyValueStore}} is only able to use the key and value serializers and deserializers (aka, "serdes") from the {{ProcessingContext}}. This means that a {{Processor}} implementation that wants to use the {{InMemoryKeyValueStore}} can only do this if the key and value types match those set up as the default serdes in the topology's configuration.
+
+Additionally, the {{RocksDBKeyValueStore}} is only capable of {{byte[]}} keys and values.
+
+Both of these key-value stores should allow the component using them to specify the serdes for both the keys and values. As a convenience, the current behavior should still be supported, as should a way to infer the serdes for the "built-in" serializers and deserializers (e.g., strings, integers, longs, and byte arrays).
 
 
 ---
@@ -405,6 +503,19 @@ Which I believe was missed when committing KAFKA-2389 which replaces all occurre
 
 ---
 
+* [KAFKA-2536](https://issues.apache.org/jira/browse/KAFKA-2536) | *Major* | **topics tool should allow users to alter topic configuration**
+
+When we added dynamic config, we added a kafka-config tool (which can be used to maintain configs for non-topic entities), and remove the capability from kafka-topic tool.
+
+Removing the capability from kafka-topic is:
+1. Breaks backward compatibility in our most essential tools. This has significant impact on usability.
+2. Kinda confusing that --create --config works but --alter --config does not. 
+
+I suggest fixing this.
+
+
+---
+
 * [KAFKA-2534](https://issues.apache.org/jira/browse/KAFKA-2534) | *Major* | **SSLTransportLayer does not handle buffer overflow correctly**
 
 There are a couple of issues with the handling of buffer overflow in {{SSLTransportLayer}}.
@@ -460,6 +571,13 @@ This appears to be caused by the use of PlaintextTransportLayer rather than Sock
 Switching to the use of a SocketChannel directly in FileMessageSet.writeTo()  yields the following result:
 Steady state throughput =  281.8 MB/s
 (2861.5913, 281.8191, 3000596, 295508.7650)
+
+
+---
+
+* [KAFKA-2515](https://issues.apache.org/jira/browse/KAFKA-2515) | *Blocker* | **handle oversized messages properly in new consumer**
+
+When there is an oversized message in the broker, it seems that the new consumer just silently gets stuck. We should at least log an error when this happens.
 
 
 ---
@@ -576,6 +694,15 @@ ssl.trustmanager.algorithm=SunX509
 There are two ways to achieve it: 1) extend ProducerPerformance to explicitly accept all 7 ssl-related parameters; 2) allow ProducerPerformance to take properties from a file via --consumer.config command line parameter.
 
 It seems option 2) is better, because it requires less code, allows new options to be easily added in the future, and doesn't require user to specify password in the command line.
+
+
+---
+
+* [KAFKA-2484](https://issues.apache.org/jira/browse/KAFKA-2484) | *Minor* | **Add schema projection utilities**
+
+Since Copycat has support for versioned schemas and connectors may encounter different versions of the same schema, it will be useful for some connectors to be able to project between different versions of a schema, or have an automatic way to try to project to a target schema (e.g. an existing database table the connector is trying to write data to).
+
+These utilities should be pretty small because the complex types we support are fairly limited. The primary code required will be for Structs. However, we should take care in designing these utilities since there may be performance implications. For example, when projecting between two schemas, it would be better to come up with a plan object that can efficiently perform the project and be able to reuse that plan many times.
 
 
 ---
@@ -1062,6 +1189,21 @@ org.apache.kafka.common.KafkaException: Unexpected error in join group response:
 
 ---
 
+* [KAFKA-2412](https://issues.apache.org/jira/browse/KAFKA-2412) | *Blocker* | **Documentation bug: Add information for key.serializer and value.serializer to New Producer Config sections**
+
+As key.serializer and value.serializer are required options when using the new producer, they should be mentioned in the documentation ( here and svn http://kafka.apache.org/documentation.html#newproducerconfigs )
+
+Appropriate values for these options exist in javadoc and producer.java examples; however, not everyone is reading those, as is the case for anyone setting up a producer.config file for mirrormaker.
+
+A sensible default should be suggested, such as
+org.apache.kafka.common.serialization.StringSerializer
+Or at least a mention of the key.serializer and value.serializer options along with a link to javadoc
+
+Thanks
+
+
+---
+
 * [KAFKA-2411](https://issues.apache.org/jira/browse/KAFKA-2411) | *Blocker* | **remove usage of BlockingChannel in the broker**
 
 In KAFKA-1690, we are adding the SSL support at Selector. However, there are still a few places where we use BlockingChannel for inter-broker communication. We need to replace those usage with Selector/NetworkClient to enable inter-broker communication over SSL. Specially, BlockingChannel is currently used in the following places.
@@ -1162,6 +1304,15 @@ The transient failure can happen because of a race condition of the callback fir
 The consumer coordinator communicates the need to rebalance through responses to heartbeat requests sent from each member of the consumer group. The heartbeat frequency therefore controls how long normal rebalances will take. Currently, the frequency is hard-coded to 3 heartbeats per the configured session timeout, but it would be nice to expose this setting so that the user can control the impact from rebalancing.
 
 Since the consumer is currently single-threaded and heartbeats are sent in poll(), we cannot guarantee that the heartbeats will actually be sent at the configured frequency. In practice, the user may have to adjust their fetch size to ensure that poll() is called often enough to get the desired heartbeat frequency. For most users, the consumption rate is probably fast enough for this not to matter, but we should make the documentation clear on this point. In any case, we expect that most users will accept the default value.
+
+
+---
+
+* [KAFKA-2397](https://issues.apache.org/jira/browse/KAFKA-2397) | *Minor* | **leave group request**
+
+Let's say every consumer in a group has session timeout s. Currently, if a consumer leaves the group, the worst case time to stabilize the group is 2s (s to detect the consumer failure + s for the rebalance window). If a consumer instead can declare they are leaving the group, the worst case time to stabilize the group would just be the s associated with the rebalance window.
+
+This is a low priority optimization!
 
 
 ---
@@ -1437,6 +1588,18 @@ There are a number of cases in Fetcher which have no corresponding unit tests. T
 - fetch disconnect
 
 Additionally, updateFetchPosition (which was moved from KafkaConsumer) has no tests.
+
+
+---
+
+* [KAFKA-2338](https://issues.apache.org/jira/browse/KAFKA-2338) | *Critical* | **Warn users if they change max.message.bytes that they also need to update broker and consumer settings**
+
+We already have KAFKA-1756 filed to more completely address this issue, but it is waiting for some other major changes to configs to completely protect users from this problem.
+
+This JIRA should address the low hanging fruit to at least warn users of the potential problems. Currently the only warning is in our documentation.
+
+1. Generate a warning in the kafka-topics.sh tool when they change this setting on a topic to be larger than the default. This needs to be very obvious in the output.
+2. Currently, the broker's replica fetcher isn't logging any useful error messages when replication can't succeed because a message size is too large. Logging an error here would allow users that get into a bad state to find out why it is happening more easily. (Consumers should already be logging a useful error message.)
 
 
 ---
@@ -1744,6 +1907,22 @@ Has anyone seen something like this? Any idea what's happening here? Any informa
 
 Thanks,
 Johnny
+
+
+---
+
+* [KAFKA-2295](https://issues.apache.org/jira/browse/KAFKA-2295) | *Blocker* | **Dynamically loaded classes (encoders, etc.) may not be found by Kafka Producer**
+
+Kafka Producer (via CoreUtils.createObject) effectively uses Class.forName to load encoder classes. Class.forName is by design finds classes only in the defining classloader of the enclosing class (which is often the bootstrap class loader). It does not use the current thread context class loader. This can lead to problems in environments where classes are dynamically loaded and therefore may not be present in the bootstrap classloader.
+
+This leads to ClassNotFound Exceptions in environments like Spark where classes are loaded dynamically using custom classloaders. Issues like this have reported. E.g. - 
+https://www.mail-archive.com/user@spark.apache.org/msg30951.html
+
+Other references regarding this issue with Class.forName 
+http://stackoverflow.com/questions/21749741/though-my-class-was-loaded-class-forname-throws-classnotfoundexception
+
+This is a problem we have faced repeatedly in Apache Spark and we solved it by explicitly specifying the class loader to use. See 
+https://github.com/apache/spark/blob/master/core/src/main/scala/org/apache/spark/util/Utils.scala#L178
 
 
 ---
@@ -4345,6 +4524,17 @@ Also, we probably want to make NotEnoughReplicasAfterAppend a non-retriable exce
 
 ---
 
+* [KAFKA-1686](https://issues.apache.org/jira/browse/KAFKA-1686) | *Blocker* | **Implement SASL/Kerberos**
+
+Implement SASL/Kerberos authentication.
+
+To do this we will need to introduce a new SASLRequest and SASLResponse pair to the client protocol. This request and response will each have only a single byte[] field and will be used to handle the SASL challenge/response cycle. Doing this will initialize the SaslServer instance and associate it with the session in a manner similar to KAFKA-1684.
+
+When using integrity or encryption mechanisms with SASL we will need to wrap and unwrap bytes as in KAFKA-1684 so the same interface that covers the SSLEngine will need to also cover the SaslServer instance.
+
+
+---
+
 * [KAFKA-1685](https://issues.apache.org/jira/browse/KAFKA-1685) | *Major* | **Implement TLS/SSL tests**
 
 We need to write a suite of unit tests for TLS authentication. This should be doable with a junit integration test. We can use the simple authorization plugin with only a single user whitelisted. The test can start the server and then connects with and without TLS and validates that access is only possible when authenticated.
@@ -4783,6 +4973,13 @@ However we will need to do a fair number of similar things in the new consumer. 
  - Manage connection lifecycle
 
 It may be possible to refactor some of this into a helper class that can be shared with the consumer. This will require some detailed thought.
+
+
+---
+
+* [KAFKA-1282](https://issues.apache.org/jira/browse/KAFKA-1282) | *Major* | **Disconnect idle socket connection in Selector**
+
+To reduce # socket connections, it would be useful for the new producer to close socket connections that are idle. We can introduce a new producer config for the idle time.
 
 
 ---

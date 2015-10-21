@@ -30,6 +30,13 @@ Missing \*hadoop-yarn-common\* dependency in tez-common and \*hadoop-hdfs\* in t
 
 ---
 
+* [TEZ-2886](https://issues.apache.org/jira/browse/TEZ-2886) | *Major* | **Ability to merge AM credentials with DAG credentials**
+
+Currently AM credentials are explicitly kept separate from DAG credentials, but this can cause problems when credentials are automatically added to the application as part of the submission process but outside of the client's knowledge.  We need the ability for the AM's credentials to be merged with the DAG credentials so DAGs can pick up important credentials that were not submitted by the client.
+
+
+---
+
 * [TEZ-2885](https://issues.apache.org/jira/browse/TEZ-2885) | *Major* | **Remove counter logs from AMWebController**
 
 {noformat}
@@ -53,6 +60,17 @@ Primary filters will add load onto Timeline so it might be better to not set a p
 * [TEZ-2868](https://issues.apache.org/jira/browse/TEZ-2868) | *Major* | **Fix setting Caller Context in Tez Examples**
 
 Caller context not setup properly for tez examples
+
+
+---
+
+* [TEZ-2866](https://issues.apache.org/jira/browse/TEZ-2866) | *Major* | **Tez UI: Newly added columns wont be displayed by default in tables**
+
+New columns would be disabled by default in the column selector, and the user would have to make them visible manually.
+
+Also, counters with name 
+{code}\_input\_ or \_output\_{code}
+is not getting save across browser refresh.
 
 
 ---

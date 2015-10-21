@@ -23,6 +23,20 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
+* [BIGTOP-2091](https://issues.apache.org/jira/browse/BIGTOP-2091) | *Major* | **Build ignite-hadoop assembly with specific version of Spark**
+
+In preparation for IGNITE-1701 to be committed soon, let's set the version of the spark for ignite-hadoop to be built with, so that the accelerator is created for the stack's component.
+
+
+---
+
+* [BIGTOP-2090](https://issues.apache.org/jira/browse/BIGTOP-2090) | *Major* | **Remove left-over junk after BIGTOP-2053**
+
+Looks like the patch for BIGTOP-2053 has left behind a comment line. Need to yank it
+
+
+---
+
 * [BIGTOP-2086](https://issues.apache.org/jira/browse/BIGTOP-2086) | *Major* | **Install essential puppet modules along with puppet itself**
 
 It is clumsy that one has to install puppet , than puppet modules and than either toolchain or run the deploy.
@@ -30,6 +44,17 @@ It is clumsy that one has to install puppet , than puppet modules and than eithe
 Lets install the essential puppet modules when installing puppet itself.
 
 And BTW: The gradle and puppet module is left as-is for upgrading previous installations.
+
+
+---
+
+* [BIGTOP-2084](https://issues.apache.org/jira/browse/BIGTOP-2084) | *Major* | **rename all puppet modules to have an underscore rather a dash**
+
+It is handy to have a puppet module to be instantiated as a class too.
+
+Some modules are called "hadoop-foo" which is invalid as a class name.
+
+Lets rename all modules to "hadoop\_foo" to have a valid puppet class name signature. A couple of patches waiting from me does depend on it since the module get's its parameters from hiera.
 
 
 ---
@@ -107,6 +132,18 @@ Current puppet deployment readme file directs a user to manually create Hiera's 
 * [BIGTOP-2063](https://issues.apache.org/jira/browse/BIGTOP-2063) | *Major* | **Provide default config to deploy hive on top of Ignite**
 
 Let's have a default {{hive-site.xml}} to allow hive deployment on top of Ignite.
+
+
+---
+
+* [BIGTOP-2061](https://issues.apache.org/jira/browse/BIGTOP-2061) | *Major* | **toolchain is failing because add-apt-repository command isn't available off-hand**
+
+Running {{gradle toolchain}} on our stock ubuntu-14.04 container gives 
+{noformat}
+Debug: Executing '/usr/bin/test -s /etc/apt/sources.list.d/http:--ppa\_launchpad\_net-openjdk-r-ppa-ubuntu-trusty.list'
+Error: Could not find command '/usr/bin/add-apt-repository'
+Error: /Stage[main]/Bigtop\_toolchain::Jdk/Apt::Ppa[http://ppa.launchpad.net/openjdk-r/ppa/ubuntu]/Exec[add-apt-repository-http://ppa.launchpad.net/openjdk-r/ppa/ubuntu]/returns: change from notrun to 0 failed: Could not find command '/usr/bin/add-apt-repository'
+{noformat}
 
 
 ---
@@ -1019,6 +1056,45 @@ Zeppelin (see BIGTOP-1769 for main Zeppelin Integration JIRA) requires Maven 3.1
 * [BIGTOP-1746](https://issues.apache.org/jira/browse/BIGTOP-1746) | *Major* | **Introduce the concept of roles in bigtop cluster deployment**
 
 Currently, during cluster deployment, puppet categorizes nodes as head\_node, worker\_nodes, gateway\_nodes, standy\_node based on user specified info. This functionality gives user control over picking up a particular node as head\_node, standy\_node, gateway\_node and rest others as worker\_nodes. But, I woulld like to have more fine-grained control on which deamons should run on which node. For example, I do not want to run namenode, datanode on the same node. This functionality can be introduced with the concept of roles. Each node can be assigned a set of role. For example, Node A can be assigned ["namenode", "resourcemanager"] roles. Node B can be assigned ["datanode", "nodemanager"] and Node C can be assigned ["nodemanager", "hadoop-client"]. Now, each node will only run the specified daemons. Prerequisite for this kind of deployment is that each node should be given the necessary configurations that it needs to know. For example, each datanode should know which is the namenode etc... This functionality will allow users to customize the cluster deployment according to their needs.
+
+
+---
+
+* [BIGTOP-1499](https://issues.apache.org/jira/browse/BIGTOP-1499) | *Blocker* | **released source code  is not same with source code in branch**
+
+Release process shouldn't bundle non-essential bits into the release artifact.
+
+
+released source code  is expected to be same with source code in branch:
+
+1. released source code:
+
+wget http://www.apache.org/dist/bigtop/bigtop-0.8.0/bigtop-0.8.0-project.tar.gz
+
+2. source code in branch:
+
+wget https://github.com/apache/bigtop/archive/release-0.8.0.zip
+
+3. diff code:
+
+[hadoop@localhost ~]$ diff -rNu bigtop-release-0.8.0 bigtop-0.8.0 \| diffstat 
+ .idea/.name                                                                             \|    1 
+ .idea/compiler.xml                                                                      \|   28 
+ .idea/copyright/profiles\_settings.xml                                                   \|    5 
+ .idea/encodings.xml                                                                     \|    7 
+ .idea/misc.xml                                                                          \|   72 
+ .idea/modules.xml                                                                       \|    9 
+ .idea/scopes/scope\_settings.xml                                                         \|    5 
+ .idea/uiDesigner.xml                                                                    \|  125 +
+ .idea/vcs.xml                                                                           \|    7 
+ .idea/workspace.xml                                                                     \|  809 ++++++++++
+ bigtop-tests/test-artifacts/hive/src/main/resources/seed\_data\_files/apache.access.2.log \|    1 
+ bigtop-tests/test-artifacts/hive/src/main/resources/seed\_data\_files/apache.access.log   \|    1 
+ bigtop.iml                                                                              \|   14 
+ dl/apache-tomcat-6.0.35.tar.gz                                                          \|binary
+ dl/hadoop-2.0.2-alpha.tar.gz                                                            \|binary
+ dl/spark-0.7.0.tar.gz                                                                   \|binary
+ 16 files changed, 1082 insertions(+), 2 deletions(-)
 
 
 ---

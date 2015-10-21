@@ -30,6 +30,28 @@ Decimal(1000000000000000000L, 20, 2) will become 1000000000000000000 instead of 
 
 ---
 
+* [SPARK-10973](https://issues.apache.org/jira/browse/SPARK-10973) | *Major* | **\_\_gettitem\_\_ method throws IndexError exception when we try to access index after the last non-zero entry.**
+
+\\_\\_gettitem\\_\\_ method throws IndexError exception when we try to access  index  after the last non-zero entry.
+
+{code}
+from pyspark.mllib.linalg import Vectors
+sv = Vectors.sparse(5, {1: 3})
+sv[0]
+## 0.0
+sv[1]
+## 3.0
+sv[2]
+## Traceback (most recent call last):
+##   File "\<stdin\>", line 1, in \<module\>
+##   File "/python/pyspark/mllib/linalg/\_\_init\_\_.py", line 734, in \_\_getitem\_\_
+##     row\_ind = inds[insert\_index]
+## IndexError: index out of bounds
+{code}
+
+
+---
+
 * [SPARK-10960](https://issues.apache.org/jira/browse/SPARK-10960) | *Major* | **SQL with windowing function cannot reference column in inner select block**
 
 There seems to be a bug in the Spark SQL parser when I use windowing functions. Specifically, when the SELECT refers to a column from an inner select block, the parser throws an error.
@@ -994,6 +1016,21 @@ When running Spark application in Yarn mode and Yarn log aggregation is enabled,
 An screenshot of the error is attached. When you click an executor’s log link on the Spark history server, you’ll see the error if Yarn log aggregation is enabled. The log URL redirects user to the node manager’s UI. This works if the logs are located on that node. But since log aggregation is enabled, the local logs are deleted once log aggregation is completed. 
 
 The logs should be available through the web UIs just like other Hadoop components like MapReduce. For security reasons, end users may not be able to log into the nodes and run the yarn logs -applicationId command. The web UIs can be viewable and exposed through the firewall if necessary.
+
+
+---
+
+* [SPARK-8386](https://issues.apache.org/jira/browse/SPARK-8386) | *Critical* | **DataFrame and JDBC regression**
+
+I have an ETL app that appends to a JDBC table new results found at each run.  In 1.3.1 I did this:
+
+testResultsDF.insertIntoJDBC(CONNECTION\_URL, TABLE\_NAME, false);
+
+When I do this now in 1.4 it complains that the "object" 'TABLE\_NAME' already exists. I get this even if I switch the overwrite to true.  I also tried this now:
+
+testResultsDF.write().mode(SaveMode.Append).jdbc(CONNECTION\_URL, TABLE\_NAME, connectionProperties);
+
+getting the same error. It works running the first time creating the new table and adding data successfully. But, running it a second time it (the jdbc driver) will tell me that the table already exists. Even SaveMode.Overwrite will give me the same error.
 
 
 ---

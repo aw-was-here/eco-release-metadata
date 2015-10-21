@@ -16,6 +16,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
+* Apache Kafka v0.9.1
+    * [Changes](0.9.1/CHANGES.0.9.1.html)
+    * [Release Notes](0.9.1/RELEASENOTES.0.9.1.html)
 * Apache Kafka v0.9.0.1
     * [Changes](0.9.0.1/CHANGES.0.9.0.1.html)
     * [Release Notes](0.9.0.1/RELEASENOTES.0.9.0.1.html)
