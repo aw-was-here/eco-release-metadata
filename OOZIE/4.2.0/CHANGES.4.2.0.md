@@ -72,6 +72,7 @@
 | [OOZIE-1726](https://issues.apache.org/jira/browse/OOZIE-1726) | Oozie does not support \_HOST when configuring kerberos security |  Major | core | Mingjiang Shi | Venkat Ranganathan |
 | [OOZIE-1722](https://issues.apache.org/jira/browse/OOZIE-1722) | When an ApplicationMaster restarts, it restarts the launcher job |  Major | . | Robert Kanter | Robert Kanter |
 | [OOZIE-1677](https://issues.apache.org/jira/browse/OOZIE-1677) | Add Oozie servers to instrumentation info |  Minor | HA | Robert Kanter | Robert Kanter |
+| [OOZIE-1534](https://issues.apache.org/jira/browse/OOZIE-1534) | Launcher job might run do hadoop attempt relaunch - possibly causing correctness issues |  Major | . | Srikanth Sundarrajan | Jaydeep Vishwakarma |
 | [OOZIE-1428](https://issues.apache.org/jira/browse/OOZIE-1428) | The delay time for requeue should be configurable |  Minor | core | Robert Kanter | Sreepathi Prasanna |
 
 

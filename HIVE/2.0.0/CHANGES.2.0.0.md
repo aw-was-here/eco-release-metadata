@@ -145,6 +145,7 @@
 | [HIVE-12200](https://issues.apache.org/jira/browse/HIVE-12200) | INSERT INTO table using a select statement w/o a FROM clause fails |  Minor | . | Jimmy Xiang | Jimmy Xiang |
 | [HIVE-12198](https://issues.apache.org/jira/browse/HIVE-12198) | LLAP: reader failures when querying uncompressed data |  Major | . | Gopal V | Sergey Shelukhin |
 | [HIVE-12188](https://issues.apache.org/jira/browse/HIVE-12188) | DoAs does not work properly in non-kerberos secured HS2 |  Major | . | Chaoyu Tang | Chaoyu Tang |
+| [HIVE-12179](https://issues.apache.org/jira/browse/HIVE-12179) | Add option to not add spark-assembly.jar to Hive classpath |  Major | Spark | Jason Dere | Jason Dere |
 | [HIVE-12166](https://issues.apache.org/jira/browse/HIVE-12166) | LLAP: Cache read error at 1000 Gb scale tests |  Major | Query Processor | Gopal V | Sergey Shelukhin |
 | [HIVE-12090](https://issues.apache.org/jira/browse/HIVE-12090) | Dead-code: Vectorized map-join murmur hash is run twice |  Major | Vectorization | Gopal V | Gopal V |
 | [HIVE-12083](https://issues.apache.org/jira/browse/HIVE-12083) | HIVE-10965 introduces thrift error if partNames or colNames are empty |  Major | Metastore | Sushanth Sowmyan | Sushanth Sowmyan |
@@ -556,6 +557,7 @@
 | [HIVE-11571](https://issues.apache.org/jira/browse/HIVE-11571) | Fix Hive PTest2 logging configuration |  Trivial | Testing Infrastructure | Gopal V | Gopal V |
 | [HIVE-11570](https://issues.apache.org/jira/browse/HIVE-11570) | Fix PTest2 log4j2.version |  Major | Testing Infrastructure | Gopal V | Gopal V |
 | [HIVE-11567](https://issues.apache.org/jira/browse/HIVE-11567) | Some trace logs seeped through with new log4j2 changes |  Major | Logging | Prasanth Jayachandran | Prasanth Jayachandran |
+| [HIVE-11565](https://issues.apache.org/jira/browse/HIVE-11565) | LLAP: Some counters are incorrect |  Major | . | Sergey Shelukhin | Siddharth Seth |
 | [HIVE-11563](https://issues.apache.org/jira/browse/HIVE-11563) | Perflogger loglines are repeated |  Major | Logging | Prasanth Jayachandran | Prasanth Jayachandran |
 | [HIVE-11562](https://issues.apache.org/jira/browse/HIVE-11562) | Typo in hive-log4j2.xml throws unknown level exception |  Major | Logging | Prasanth Jayachandran | Prasanth Jayachandran |
 | [HIVE-11557](https://issues.apache.org/jira/browse/HIVE-11557) | CBO (Calcite Return Path): Convert to flat AND/OR |  Major | CBO | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |

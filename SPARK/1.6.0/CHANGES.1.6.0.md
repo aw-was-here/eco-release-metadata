@@ -77,7 +77,9 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-11205](https://issues.apache.org/jira/browse/SPARK-11205) | Match the output of DataFrame#explain() in both scala api and python |  Minor | PySpark | Jeff Zhang | Jeff Zhang |
 | [SPARK-11180](https://issues.apache.org/jira/browse/SPARK-11180) | Support BooleanType in DataFrame.na.fill |  Minor | SQL | Satya Narayan | Rishabh Bhardwaj |
+| [SPARK-11179](https://issues.apache.org/jira/browse/SPARK-11179) | Push filters through aggregate if filters are subset of 'group by' expressions |  Minor | SQL | Nitin Goyal |  |
 | [SPARK-11169](https://issues.apache.org/jira/browse/SPARK-11169) | Remove the extra spaces in merge script |  Trivial | Build | Reynold Xin | Reynold Xin |
 | [SPARK-11158](https://issues.apache.org/jira/browse/SPARK-11158) | Add more information in Error statment for sql/types \_verify\_type() |  Minor | SQL | Mahmoud Lababidi | Mahmoud Lababidi |
 | [SPARK-11149](https://issues.apache.org/jira/browse/SPARK-11149) | Improve performance of primitive types in columnar cache |  Major | SQL | Davies Liu | Davies Liu |
@@ -213,6 +215,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-11221](https://issues.apache.org/jira/browse/SPARK-11221) | Fix R doc for DataFrame function `lit` |  Minor | SparkR | Felix Cheung | Felix Cheung |
 | [SPARK-11174](https://issues.apache.org/jira/browse/SPARK-11174) | Typo in the GraphX programming guide |  Trivial | Documentation, GraphX | Łukasz Piepiora | Łukasz Piepiora |
 | [SPARK-11165](https://issues.apache.org/jira/browse/SPARK-11165) | Logging trait should be private - not DeveloperApi |  Major | Spark Core | Reynold Xin | Reynold Xin |
 | [SPARK-11153](https://issues.apache.org/jira/browse/SPARK-11153) | Turns off Parquet filter push-down for string and binary columns |  Blocker | SQL | Cheng Lian | Cheng Lian |
@@ -322,6 +325,7 @@
 | [SPARK-10542](https://issues.apache.org/jira/browse/SPARK-10542) | The  PySpark 1.5 closure serializer can't serialize a namedtuple instance. |  Critical | PySpark | Davies Liu | Davies Liu |
 | [SPARK-10540](https://issues.apache.org/jira/browse/SPARK-10540) | HadoopFsRelationTest's "test all data types" is flaky |  Major | SQL | Yin Huai | Cheng Lian |
 | [SPARK-10539](https://issues.apache.org/jira/browse/SPARK-10539) | Intersection Optimization is Wrong |  Blocker | SQL | Michael Armbrust | Yijie Shen |
+| [SPARK-10534](https://issues.apache.org/jira/browse/SPARK-10534) | ORDER BY clause allows only columns that are present in SELECT statement |  Major | SQL | Michal Cwienczek | Dilip Biswal |
 | [SPARK-10522](https://issues.apache.org/jira/browse/SPARK-10522) | Nanoseconds part of Timestamp should be positive in parquet |  Major | SQL | Davies Liu | Davies Liu |
 | [SPARK-10515](https://issues.apache.org/jira/browse/SPARK-10515) | When killing executor, the pending replacement executors will be lost |  Major | Spark Core | KaiXinXIaoLei | KaiXinXIaoLei |
 | [SPARK-10514](https://issues.apache.org/jira/browse/SPARK-10514) | Minimum ratio of registered resources [ spark.scheduler.minRegisteredResourcesRatio] is not enabled for Mesos Coarse Grained mode |  Major | Mesos | Akash Mishra | Akash Mishra |
@@ -425,6 +429,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-11216](https://issues.apache.org/jira/browse/SPARK-11216) | add encoder/decoder for external row |  Major | SQL | Wenchen Fan |  |
 | [SPARK-11096](https://issues.apache.org/jira/browse/SPARK-11096) | Post-hoc review Netty based RPC implementation - round 2 |  Major | Spark Core | Reynold Xin | Reynold Xin |
 | [SPARK-11090](https://issues.apache.org/jira/browse/SPARK-11090) | Initial code generated construction of Product classes from InternalRow |  Major | SQL | Michael Armbrust | Michael Armbrust |
 | [SPARK-11079](https://issues.apache.org/jira/browse/SPARK-11079) | Post-hoc review Netty based RPC implementation - round 1 |  Major | Spark Core | Reynold Xin | Reynold Xin |
@@ -530,6 +535,7 @@
 | [SPARK-9014](https://issues.apache.org/jira/browse/SPARK-9014) | Allow Python spark API to use built-in exponential operator |  Minor | PySpark | Jon Speiser | Alexey Grishchenko |
 | [SPARK-5905](https://issues.apache.org/jira/browse/SPARK-5905) | Note requirements for certain RowMatrix methods in docs |  Trivial | Documentation, MLlib | Xiangrui Meng | Sean Owen |
 | [SPARK-11172](https://issues.apache.org/jira/browse/SPARK-11172) | Close JsonParser/Generator in test |  Trivial | . | Ted Yu | Ted Yu |
+| [SPARK-11037](https://issues.apache.org/jira/browse/SPARK-11037) | Cleanup Option usage in JdbcUtils |  Trivial | SQL | Rick Hillegas | Pravin Gadakh |
 | [SPARK-11006](https://issues.apache.org/jira/browse/SPARK-11006) | Rename NullColumnAccess as NullColumnAccessor |  Trivial | SQL | Ted Yu | Ted Yu |
 | [SPARK-10938](https://issues.apache.org/jira/browse/SPARK-10938) | Remove typeId in columnar cache |  Major | . | Davies Liu | Davies Liu |
 | [SPARK-10398](https://issues.apache.org/jira/browse/SPARK-10398) | Migrate Spark download page to use new lua mirroring scripts |  Minor | Project Infra | Luciano Resende | Luciano Resende |

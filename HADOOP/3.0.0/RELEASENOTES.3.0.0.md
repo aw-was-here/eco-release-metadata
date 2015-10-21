@@ -23,6 +23,13 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
+* [HADOOP-12495](https://issues.apache.org/jira/browse/HADOOP-12495) | *Major* | **Fix posix\_spawn error on OS X**
+
+When Hadoop JVMs create other processes on OS X, it will always use posix\_spawn.
+
+
+---
+
 * [HADOOP-12493](https://issues.apache.org/jira/browse/HADOOP-12493) | *Major* | **bash unit tests are failing**
 
 In the extremely rare event that HADOOP\_USER\_IDENT and USER environment variables are not defined, we now fall back to use 'hadoop' as the identification string.

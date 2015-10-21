@@ -76,6 +76,8 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [BIGTOP-2090](https://issues.apache.org/jira/browse/BIGTOP-2090) | Remove left-over junk after BIGTOP-2053 |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
+| [BIGTOP-2089](https://issues.apache.org/jira/browse/BIGTOP-2089) | Fix bigtop.sh generation |  Major | . | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2088](https://issues.apache.org/jira/browse/BIGTOP-2088) | Support protobuf installation for OPENPOWER |  Major | toolchain | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-2086](https://issues.apache.org/jira/browse/BIGTOP-2086) | Install essential puppet modules along with puppet itself |  Major | toolchain | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-2084](https://issues.apache.org/jira/browse/BIGTOP-2084) | rename all puppet modules to have an underscore rather a dash |  Major | deployment | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-2082](https://issues.apache.org/jira/browse/BIGTOP-2082) | Remove x86 Assembler Code from zookeeper |  Major | build | Olaf Flebbe | Olaf Flebbe |

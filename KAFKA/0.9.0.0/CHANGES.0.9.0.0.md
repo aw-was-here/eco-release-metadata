@@ -141,6 +141,7 @@
 | [KAFKA-2467](https://issues.apache.org/jira/browse/KAFKA-2467) | ConsoleConsumer regressions |  Major | tools | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-2466](https://issues.apache.org/jira/browse/KAFKA-2466) | ConsoleConsumer throws ConcurrentModificationException on termination |  Major | tools | Ashish K Singh | Ashish K Singh |
 | [KAFKA-2461](https://issues.apache.org/jira/browse/KAFKA-2461) | request logger no longer logs extra information in debug mode |  Blocker | . | Gwen Shapira | Ashish K Singh |
+| [KAFKA-2459](https://issues.apache.org/jira/browse/KAFKA-2459) | Connection backoff/blackout period should start when a connection is disconnected, not when the connection attempt was initiated |  Major | clients, consumer, producer | Ewen Cheslack-Postava | Eno Thereska |
 | [KAFKA-2457](https://issues.apache.org/jira/browse/KAFKA-2457) | StackOverflowError during builds |  Critical | . | Ismael Juma | Ismael Juma |
 | [KAFKA-2438](https://issues.apache.org/jira/browse/KAFKA-2438) | add maxParallelForks to build.gradle to speedup tests |  Major | . | Sriharsha Chintalapani | Sriharsha Chintalapani |
 | [KAFKA-2437](https://issues.apache.org/jira/browse/KAFKA-2437) | Controller does not handle zk node deletion correctly. |  Major | . | Jiangjie Qin | Jiangjie Qin |
