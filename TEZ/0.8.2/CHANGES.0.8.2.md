@@ -18,7 +18,7 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.8.2 - Unreleased (as of 2015-10-21)
+## Release 0.8.2 - Unreleased (as of 2015-10-22)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -57,6 +57,7 @@
 | [TEZ-2875](https://issues.apache.org/jira/browse/TEZ-2875) | Enable missing tests in TestAnalyzer |  Major | . | Bikas Saha | Bikas Saha |
 | [TEZ-2874](https://issues.apache.org/jira/browse/TEZ-2874) | Improved logging for caller context |  Major | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-2866](https://issues.apache.org/jira/browse/TEZ-2866) | Tez UI: Newly added columns wont be displayed by default in tables |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
+| [TEZ-2850](https://issues.apache.org/jira/browse/TEZ-2850) | Tez MergeManager OOM for small Map Outputs |  Major | . | Saikat | Jonathan Eagles |
 | [TEZ-2781](https://issues.apache.org/jira/browse/TEZ-2781) | Fallback to send only TaskAttemptFailedEvent if taskFailed heartbeat fails |  Major | . | Jeff Zhang | Jeff Zhang |
 | [TEZ-1888](https://issues.apache.org/jira/browse/TEZ-1888) | Fix javac warnings all over codebase |  Critical | . | Hitesh Shah | Chetna Chaudhari |
 
@@ -71,6 +72,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-2882](https://issues.apache.org/jira/browse/TEZ-2882) | Consider improving fetch failure handling |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-1788](https://issues.apache.org/jira/browse/TEZ-1788) | Test allowing vertex level disabling of speculation |  Major | . | Bikas Saha | Bikas Saha |
 
 
@@ -78,6 +80,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-2903](https://issues.apache.org/jira/browse/TEZ-2903) | Avoid using proprietary APIs where possible |  Major | . | Siddharth Seth | Chetna Chaudhari |
 | [TEZ-2883](https://issues.apache.org/jira/browse/TEZ-2883) | changes for 0.8.1-alpha release |  Major | . | Siddharth Seth | Siddharth Seth |
 
 

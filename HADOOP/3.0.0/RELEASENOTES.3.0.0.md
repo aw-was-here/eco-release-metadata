@@ -291,9 +291,23 @@ The output format of hadoop fs -du has been changed. It shows not only the file 
 
 ---
 
+* [HDFS-9278](https://issues.apache.org/jira/browse/HDFS-9278) | *Trivial* | **Fix preferredBlockSize typo in OIV XML output**
+
+The preferred block size XML element has been corrected from "\<perferredBlockSize\>" to "\<preferredBlockSize\>".
+
+
+---
+
 * [HDFS-9085](https://issues.apache.org/jira/browse/HDFS-9085) | *Trivial* | **Show renewer information in DelegationTokenIdentifier#toString**
 
 The output of the "hdfs fetchdt --print" command now includes the token renewer appended to the end of the existing token information.  This change may be incompatible with tools that parse the output of the command.
+
+
+---
+
+* [HDFS-9070](https://issues.apache.org/jira/browse/HDFS-9070) | *Major* | **Allow fsck display pending replica location information for being-written blocks**
+
+**WARNING: No release note provided for this incompatible change.**
 
 
 ---

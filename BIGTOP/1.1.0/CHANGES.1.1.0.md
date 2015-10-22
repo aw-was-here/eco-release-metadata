@@ -18,7 +18,7 @@
 -->
 # Apache BigTop Changelog
 
-## Release 1.1.0 - Unreleased (as of 2015-10-21)
+## Release 1.1.0 - Unreleased (as of 2015-10-22)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -81,6 +81,7 @@
 | [BIGTOP-2086](https://issues.apache.org/jira/browse/BIGTOP-2086) | Install essential puppet modules along with puppet itself |  Major | toolchain | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-2084](https://issues.apache.org/jira/browse/BIGTOP-2084) | rename all puppet modules to have an underscore rather a dash |  Major | deployment | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-2082](https://issues.apache.org/jira/browse/BIGTOP-2082) | Remove x86 Assembler Code from zookeeper |  Major | build | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2074](https://issues.apache.org/jira/browse/BIGTOP-2074) | spark-worker doesn't start during deploy from master |  Major | deployment | Konstantin Boudnik | Evans Ye |
 | [BIGTOP-2071](https://issues.apache.org/jira/browse/BIGTOP-2071) | Gstring.empty doesn't exist |  Blocker | build | RJ Nowling | RJ Nowling |
 | [BIGTOP-2068](https://issues.apache.org/jira/browse/BIGTOP-2068) | Cannot Build Bigtop-Utils packages |  Critical | build | Alex Elent | Konstantin Boudnik |
 | [BIGTOP-2066](https://issues.apache.org/jira/browse/BIGTOP-2066) | init-hdfs.sh is broken by recent hadoop update |  Major | hadoop | Olaf Flebbe | Olaf Flebbe |

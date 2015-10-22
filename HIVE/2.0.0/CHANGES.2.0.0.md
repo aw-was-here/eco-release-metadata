@@ -18,7 +18,7 @@
 -->
 # Apache Hive Changelog
 
-## Release 2.0.0 - Unreleased (as of 2015-10-21)
+## Release 2.0.0 - Unreleased (as of 2015-10-22)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -141,11 +141,14 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HIVE-12225](https://issues.apache.org/jira/browse/HIVE-12225) | LineageCtx should release all resources at clear |  Major | . | Jimmy Xiang | Jimmy Xiang |
+| [HIVE-12218](https://issues.apache.org/jira/browse/HIVE-12218) | Unable to create a like table for an hbase backed table |  Major | Query Processor | Chaoyu Tang | Chaoyu Tang |
 | [HIVE-12210](https://issues.apache.org/jira/browse/HIVE-12210) | Fix a few failing tests: testCliDriver\_udf\_explode and testCliDriver\_udtf\_explode |  Major | . | Aleksei Statkevich | Aleksei Statkevich |
 | [HIVE-12200](https://issues.apache.org/jira/browse/HIVE-12200) | INSERT INTO table using a select statement w/o a FROM clause fails |  Minor | . | Jimmy Xiang | Jimmy Xiang |
 | [HIVE-12198](https://issues.apache.org/jira/browse/HIVE-12198) | LLAP: reader failures when querying uncompressed data |  Major | . | Gopal V | Sergey Shelukhin |
 | [HIVE-12188](https://issues.apache.org/jira/browse/HIVE-12188) | DoAs does not work properly in non-kerberos secured HS2 |  Major | . | Chaoyu Tang | Chaoyu Tang |
 | [HIVE-12179](https://issues.apache.org/jira/browse/HIVE-12179) | Add option to not add spark-assembly.jar to Hive classpath |  Major | Spark | Jason Dere | Jason Dere |
+| [HIVE-12170](https://issues.apache.org/jira/browse/HIVE-12170) | normalize HBase metastore connection configuration |  Blocker | . | Sergey Shelukhin | Alan Gates |
 | [HIVE-12166](https://issues.apache.org/jira/browse/HIVE-12166) | LLAP: Cache read error at 1000 Gb scale tests |  Major | Query Processor | Gopal V | Sergey Shelukhin |
 | [HIVE-12090](https://issues.apache.org/jira/browse/HIVE-12090) | Dead-code: Vectorized map-join murmur hash is run twice |  Major | Vectorization | Gopal V | Gopal V |
 | [HIVE-12083](https://issues.apache.org/jira/browse/HIVE-12083) | HIVE-10965 introduces thrift error if partNames or colNames are empty |  Major | Metastore | Sushanth Sowmyan | Sushanth Sowmyan |
@@ -212,6 +215,7 @@
 | [HIVE-11833](https://issues.apache.org/jira/browse/HIVE-11833) | TxnHandler heartbeat txn doesn't need serializable DB txn level |  Major | Transactions | Sergey Shelukhin | Sergey Shelukhin |
 | [HIVE-11832](https://issues.apache.org/jira/browse/HIVE-11832) | HIVE-11802 breaks compilation in JDK 8 |  Major | . | Prasanth Jayachandran | Sergio Peña |
 | [HIVE-11831](https://issues.apache.org/jira/browse/HIVE-11831) | TXN tables in Oracle should be created with ROWDEPENDENCIES |  Major | Transactions | Sergey Shelukhin | Sergey Shelukhin |
+| [HIVE-11829](https://issues.apache.org/jira/browse/HIVE-11829) | Create test for HIVE-11216 |  Major | Tests | Vikram Dixit K | Vikram Dixit K |
 | [HIVE-11827](https://issues.apache.org/jira/browse/HIVE-11827) | STORED AS AVRO fails SELECT COUNT(\*) when empty |  Minor | Serializers/Deserializers | Johndee Burks | Yongzhi Chen |
 | [HIVE-11826](https://issues.apache.org/jira/browse/HIVE-11826) | 'hadoop.proxyuser.hive.groups' configuration doesn't prevent unauthorized user to access metastore |  Major | Metastore | Aihua Xu | Aihua Xu |
 | [HIVE-11825](https://issues.apache.org/jira/browse/HIVE-11825) | get\_json\_object(col,'$.a') is null in where clause didn`t work |  Critical | Hive | Feng Yuan | Cazen Lee |

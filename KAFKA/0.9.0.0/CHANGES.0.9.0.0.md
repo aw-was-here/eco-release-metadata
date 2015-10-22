@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.9.0.0 - Unreleased (as of 2015-10-21)
+## Release 0.9.0.0 - Unreleased (as of 2015-10-22)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -108,6 +108,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-2678](https://issues.apache.org/jira/browse/KAFKA-2678) | partition level lag metrics can be negative |  Major | core | Jun Rao | Dong Lin |
 | [KAFKA-2669](https://issues.apache.org/jira/browse/KAFKA-2669) | Fix LogCleanerIntegrationTest |  Major | . | Dong Lin | Dong Lin |
 | [KAFKA-2665](https://issues.apache.org/jira/browse/KAFKA-2665) | Docs: Images that are part of the documentation are not part of the code github |  Major | . | Gwen Shapira | Gwen Shapira |
 | [KAFKA-2656](https://issues.apache.org/jira/browse/KAFKA-2656) | Default SSL keystore and truststore config are unusable |  Critical | . | Rajini Sivaram | Rajini Sivaram |
@@ -115,6 +116,7 @@
 | [KAFKA-2633](https://issues.apache.org/jira/browse/KAFKA-2633) | Default logging from tools to Stderr |  Major | . | Grant Henke | Grant Henke |
 | [KAFKA-2628](https://issues.apache.org/jira/browse/KAFKA-2628) | KafkaOffsetBackingStoreTest.testGetSet transient test failure |  Major | copycat | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-2621](https://issues.apache.org/jira/browse/KAFKA-2621) | nextOffsetMetadata should be changed after rolling a new log segment |  Major | core | Jun Rao | Jiangjie Qin |
+| [KAFKA-2618](https://issues.apache.org/jira/browse/KAFKA-2618) | Disable SSL renegotiation for 0.9.0.0 |  Major | security | Ismael Juma | Ismael Juma |
 | [KAFKA-2614](https://issues.apache.org/jira/browse/KAFKA-2614) | No more clients can connect after `TooManyConnectionsException` threshold (max.connections.per.ip) is reached |  Critical | core | Stephen Chu | Ismael Juma |
 | [KAFKA-2599](https://issues.apache.org/jira/browse/KAFKA-2599) | Metadata#getClusterForCurrentTopics can throw NPE even with null checking |  Minor | clients | Edward Ribeiro | Edward Ribeiro |
 | [KAFKA-2596](https://issues.apache.org/jira/browse/KAFKA-2596) | Coordinator should return illegal generation for commits from unknown groups with non-negative generation |  Major | . | Jason Gustafson | Jason Gustafson |
@@ -136,6 +138,7 @@
 | [KAFKA-2504](https://issues.apache.org/jira/browse/KAFKA-2504) | Stop logging WARN when client disconnects |  Major | . | Gwen Shapira | Jeff Holoman |
 | [KAFKA-2489](https://issues.apache.org/jira/browse/KAFKA-2489) | System tests: update benchmark tests to run with new and old consumer |  Blocker | . | Geoff Anderson | Geoff Anderson |
 | [KAFKA-2477](https://issues.apache.org/jira/browse/KAFKA-2477) | Replicas spuriously deleting all segments in partition |  Major | . | Håkon Hitland | Jiangjie Qin |
+| [KAFKA-2472](https://issues.apache.org/jira/browse/KAFKA-2472) | Fix kafka ssl configs to not throw warnings |  Major | . | Sriharsha Chintalapani | Ismael Juma |
 | [KAFKA-2469](https://issues.apache.org/jira/browse/KAFKA-2469) | System test console consumer logs should write all messages to debug logger |  Minor | system tests | Ewen Cheslack-Postava | Geoff Anderson |
 | [KAFKA-2468](https://issues.apache.org/jira/browse/KAFKA-2468) | SIGINT during Kafka server startup can leave server deadlocked |  Major | . | Ashish K Singh | Ashish K Singh |
 | [KAFKA-2467](https://issues.apache.org/jira/browse/KAFKA-2467) | ConsoleConsumer regressions |  Major | tools | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
@@ -143,6 +146,7 @@
 | [KAFKA-2461](https://issues.apache.org/jira/browse/KAFKA-2461) | request logger no longer logs extra information in debug mode |  Blocker | . | Gwen Shapira | Ashish K Singh |
 | [KAFKA-2459](https://issues.apache.org/jira/browse/KAFKA-2459) | Connection backoff/blackout period should start when a connection is disconnected, not when the connection attempt was initiated |  Major | clients, consumer, producer | Ewen Cheslack-Postava | Eno Thereska |
 | [KAFKA-2457](https://issues.apache.org/jira/browse/KAFKA-2457) | StackOverflowError during builds |  Critical | . | Ismael Juma | Ismael Juma |
+| [KAFKA-2454](https://issues.apache.org/jira/browse/KAFKA-2454) | Dead lock between delete log segment and shutting down. |  Major | . | Jiangjie Qin | Jiangjie Qin |
 | [KAFKA-2438](https://issues.apache.org/jira/browse/KAFKA-2438) | add maxParallelForks to build.gradle to speedup tests |  Major | . | Sriharsha Chintalapani | Sriharsha Chintalapani |
 | [KAFKA-2437](https://issues.apache.org/jira/browse/KAFKA-2437) | Controller does not handle zk node deletion correctly. |  Major | . | Jiangjie Qin | Jiangjie Qin |
 | [KAFKA-2436](https://issues.apache.org/jira/browse/KAFKA-2436) | log.retention.hours should be honored by LogManager |  Critical | . | Dong Lin | Dong Lin |
@@ -310,6 +314,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-2667](https://issues.apache.org/jira/browse/KAFKA-2667) | Copycat KafkaBasedLogTest.testSendAndReadToEnd transient failure |  Major | copycat | Jason Gustafson | Ewen Cheslack-Postava |
 | [KAFKA-2654](https://issues.apache.org/jira/browse/KAFKA-2654) | Avoid calling Consumer.poll(0) in each iteration |  Major | . | Guozhang Wang | Yasuhiro Matsuda |
 | [KAFKA-2639](https://issues.apache.org/jira/browse/KAFKA-2639) | Refactoring of ZkUtils |  Major | security | Flavio Junqueira | Flavio Junqueira |
 | [KAFKA-2632](https://issues.apache.org/jira/browse/KAFKA-2632) | Move fetchable check from fetchedRecords to fetch response handler |  Major | consumer | Guozhang Wang | Guozhang Wang |
@@ -335,6 +340,8 @@
 | [KAFKA-2476](https://issues.apache.org/jira/browse/KAFKA-2476) | Define logical types for Copycat data API |  Major | copycat | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-2475](https://issues.apache.org/jira/browse/KAFKA-2475) | Reduce copycat configs to only specify a converter or serializer, not both |  Major | copycat | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-2474](https://issues.apache.org/jira/browse/KAFKA-2474) | Add caching for converted Copycat schemas in JSONConverter |  Major | copycat | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
+| [KAFKA-2464](https://issues.apache.org/jira/browse/KAFKA-2464) | Client-side assignment and group generalization |  Blocker | consumer | Jason Gustafson | Jason Gustafson |
+| [KAFKA-2456](https://issues.apache.org/jira/browse/KAFKA-2456) | Disable SSLv3 for ssl.enabledprotocols config on client & broker side |  Major | . | Sriharsha Chintalapani | Ismael Juma |
 | [KAFKA-2453](https://issues.apache.org/jira/browse/KAFKA-2453) | enable new consumer in EndToEndLatency |  Blocker | consumer | Jun Rao | Ben Stopford |
 | [KAFKA-2440](https://issues.apache.org/jira/browse/KAFKA-2440) | Use `NetworkClient` instead of `SimpleConsumer` to fetch data from replica |  Blocker | security | Ismael Juma | Ismael Juma |
 | [KAFKA-2439](https://issues.apache.org/jira/browse/KAFKA-2439) | Add MirrorMakerService to ducktape system tests |  Major | system tests | Geoff Anderson | Geoff Anderson |
@@ -364,6 +371,7 @@
 | [KAFKA-2212](https://issues.apache.org/jira/browse/KAFKA-2212) | KafkaAuthorizer: Add CLI for Acl management. |  Blocker | security | Parth Brahmbhatt | Parth Brahmbhatt |
 | [KAFKA-2211](https://issues.apache.org/jira/browse/KAFKA-2211) | KafkaAuthorizer: Add simpleACLAuthorizer implementation. |  Blocker | security | Parth Brahmbhatt | Parth Brahmbhatt |
 | [KAFKA-2210](https://issues.apache.org/jira/browse/KAFKA-2210) | KafkaAuthorizer: Add all public entities, config changes and changes to KafkaAPI and kafkaServer to allow pluggable authorizer implementation. |  Blocker | security | Parth Brahmbhatt | Parth Brahmbhatt |
+| [KAFKA-2209](https://issues.apache.org/jira/browse/KAFKA-2209) | Change client quotas dynamically using DynamicConfigManager |  Major | . | Aditya Auradkar | Aditya Auradkar |
 | [KAFKA-2205](https://issues.apache.org/jira/browse/KAFKA-2205) | Generalize TopicConfigManager to handle multiple entity configs |  Major | . | Aditya Auradkar | Aditya Auradkar |
 | [KAFKA-2195](https://issues.apache.org/jira/browse/KAFKA-2195) | Add versionId to AbstractRequest.getErrorResponse and AbstractRequest.getRequest |  Major | . | Andrii Biletskyi | Andrii Biletskyi |
 | [KAFKA-2168](https://issues.apache.org/jira/browse/KAFKA-2168) | New consumer poll() can block other calls like position(), commit(), and close() indefinitely |  Critical | clients, consumer | Ewen Cheslack-Postava | Jason Gustafson |

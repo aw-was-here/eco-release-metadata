@@ -18,7 +18,7 @@
 -->
 # Apache Yetus Changelog
 
-## Release 0.1.0 - Unreleased (as of 2015-10-21)
+## Release 0.1.0 - Unreleased (as of 2015-10-22)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -58,6 +58,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YETUS-117](https://issues.apache.org/jira/browse/YETUS-117) | Nonexistent function invocation in the nobuild plugin |  Minor | Test Patch | Kengo Seki | Kengo Seki |
+| [YETUS-113](https://issues.apache.org/jira/browse/YETUS-113) | On non-docker reexec, test patch mistakenly uses 'plugins' arg instead of 'user-plugins' |  Critical | Test Patch | Sean Busbey | Sean Busbey |
 | [YETUS-97](https://issues.apache.org/jira/browse/YETUS-97) | branch detection cut bug |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-96](https://issues.apache.org/jira/browse/YETUS-96) | multijdkdirs shouldn't show errors on bad input |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-95](https://issues.apache.org/jira/browse/YETUS-95) | docker not working on jenkins w/hadoop |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
@@ -95,7 +96,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [YETUS-59](https://issues.apache.org/jira/browse/YETUS-59) | Verify any Cat X runtime dependencies are optional |  Blocker | . | Sean Busbey | Allen Wittenauer |
+| [YETUS-59](https://issues.apache.org/jira/browse/YETUS-59) | Verify any Cat X runtime dependencies are optional |  Blocker | Test Patch | Sean Busbey | Allen Wittenauer |
 | [YETUS-54](https://issues.apache.org/jira/browse/YETUS-54) | Add Yetus parent POM and top-level POM |  Major | Audience Annotations, build | Andrew Bayer | Sean Busbey |
 | [YETUS-7](https://issues.apache.org/jira/browse/YETUS-7) | update top level LICENSE and NOTICE |  Blocker | website and documentation | Sean Busbey | Allen Wittenauer |
 | [YETUS-3](https://issues.apache.org/jira/browse/YETUS-3) | update audience annotations for move to yetus tlp |  Blocker | Audience Annotations | Sean Busbey | Sean Busbey |
