@@ -23,6 +23,13 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
+* [HIVE-12224](https://issues.apache.org/jira/browse/HIVE-12224) | *Major* | **Remove HOLD\_DDLTIME**
+
+**WARNING: No release note provided for this incompatible change.**
+
+
+---
+
 * [HIVE-12090](https://issues.apache.org/jira/browse/HIVE-12090) | *Major* | **Dead-code: Vectorized map-join murmur hash is run twice**
 
 Dead-code: Vectorized map-join runs Murmurhash twice
@@ -144,6 +151,13 @@ Constant fold struct() UDF
 * [HIVE-11457](https://issues.apache.org/jira/browse/HIVE-11457) | *Major* | **Vectorization: Improve SIMD JIT in GenVectorCode StringExpr instrinsics**
 
 Vectorization: Improve GenVectorCode string equals intrinsic
+
+
+---
+
+* [HIVE-11378](https://issues.apache.org/jira/browse/HIVE-11378) | *Major* | **Remove hadoop-1 support from master branch**
+
+Support for Hadoop 1.x has been removed from Hive 2.0
 
 
 ---

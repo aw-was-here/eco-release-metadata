@@ -18,7 +18,7 @@
 -->
 # Apache BigTop Changelog
 
-## Release 1.1.0 - Unreleased (as of 2015-10-22)
+## Release 1.1.0 - Unreleased (as of 2015-10-27)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -66,6 +66,7 @@
 | [BIGTOP-1920](https://issues.apache.org/jira/browse/BIGTOP-1920) | Include YCSB in Bigtop |  Minor | . | YoungWoo Kim | YoungWoo Kim |
 | [BIGTOP-1914](https://issues.apache.org/jira/browse/BIGTOP-1914) | improve puppet README.md file |  Trivial | documentation | Martin Bukatovic | Martin Bukatovic |
 | [BIGTOP-1910](https://issues.apache.org/jira/browse/BIGTOP-1910) | Adjust the dependency for hue-beeswax |  Major | hue | YoungWoo Kim | YoungWoo Kim |
+| [BIGTOP-1908](https://issues.apache.org/jira/browse/BIGTOP-1908) | Move bigtop-deploy's dockerfiles into a centralized docker place |  Major | build, docker | Evans Ye | Evans Ye |
 | [BIGTOP-1888](https://issues.apache.org/jira/browse/BIGTOP-1888) | Upgrade Flume to 1.6.0 |  Minor | . | YoungWoo Kim | YoungWoo Kim |
 | [BIGTOP-1809](https://issues.apache.org/jira/browse/BIGTOP-1809) | Remove gridgain-hadoop component once ignite-hadoop gets added |  Critical | build | Ivan Veselovsky | Ivan Veselovsky |
 | [BIGTOP-1126](https://issues.apache.org/jira/browse/BIGTOP-1126) | Add Hama to Bigtop |  Major | . | Edward J. Yoon | Minho Kim |
@@ -75,6 +76,8 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [BIGTOP-2098](https://issues.apache.org/jira/browse/BIGTOP-2098) | Update bigtop\_deploy to current state of puppetize.sh |  Major | deployment | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2094](https://issues.apache.org/jira/browse/BIGTOP-2094) | ignite-hadoop fails to deploy after BIGTOP-2084 |  Major | deployment | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2090](https://issues.apache.org/jira/browse/BIGTOP-2090) | Remove left-over junk after BIGTOP-2053 |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2089](https://issues.apache.org/jira/browse/BIGTOP-2089) | Fix bigtop.sh generation |  Major | . | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-2088](https://issues.apache.org/jira/browse/BIGTOP-2088) | Support protobuf installation for OPENPOWER |  Major | toolchain | Olaf Flebbe | Olaf Flebbe |
@@ -153,6 +156,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [BIGTOP-2096](https://issues.apache.org/jira/browse/BIGTOP-2096) | ignite-hadoop service should restart upon changes in the package or configs |  Major | deployment, ignite | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2055](https://issues.apache.org/jira/browse/BIGTOP-2055) | Refactor packages.gradle to get rid of excessive data containers; make code cleaner |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2051](https://issues.apache.org/jira/browse/BIGTOP-2051) | Get rid of hair-brain environment vars left after make-based build |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2033](https://issues.apache.org/jira/browse/BIGTOP-2033) | Build order of the stack is broken |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
@@ -172,6 +176,7 @@
 | [BIGTOP-1973](https://issues.apache.org/jira/browse/BIGTOP-1973) | Add new tests for HDFS Balancer functionality |  Minor | tests | Venkata Srinivasa Rao Kolla | Venkata Srinivasa Rao Kolla |
 | [BIGTOP-1965](https://issues.apache.org/jira/browse/BIGTOP-1965) | Remove the link to 0.8.0 from the website |  Major | website | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-1947](https://issues.apache.org/jira/browse/BIGTOP-1947) | Fix RAT plugin configuration to be able to RAT-validate all published artifacts |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
+| [BIGTOP-1899](https://issues.apache.org/jira/browse/BIGTOP-1899) | Migrate CI master to EC2 instance donated by Amazon EMR team |  Major | ci, general | Evans Ye | Evans Ye |
 | [BIGTOP-1898](https://issues.apache.org/jira/browse/BIGTOP-1898) | Dockerfiles to build bigtop/puppet docker images for 1.0 release |  Major | . | Evans Ye | Evans Ye |
 | [BIGTOP-1499](https://issues.apache.org/jira/browse/BIGTOP-1499) | released source code  is not same with source code in branch |  Blocker | build | Guo Ruijing | Konstantin Boudnik |
 | [BIGTOP-1494](https://issues.apache.org/jira/browse/BIGTOP-1494) | Introduce Groovy DSL to replace bigtop.mk |  Major | build | jay vyas | Konstantin Boudnik |

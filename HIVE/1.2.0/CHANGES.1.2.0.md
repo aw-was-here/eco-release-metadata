@@ -453,7 +453,7 @@
 | [HIVE-9906](https://issues.apache.org/jira/browse/HIVE-9906) | Add timeout mechanism in RawStoreProxy |  Major | Metastore | Dong Chen | Dong Chen |
 | [HIVE-9894](https://issues.apache.org/jira/browse/HIVE-9894) | Use new parquet Types API builder to construct DATE data type |  Major | . | Dong Chen | Dong Chen |
 | [HIVE-9889](https://issues.apache.org/jira/browse/HIVE-9889) | Merge trunk to Spark branch 3/6/2015 [Spark Branch] |  Major | Spark | Xuefu Zhang | Xuefu Zhang |
-| [HIVE-9882](https://issues.apache.org/jira/browse/HIVE-9882) | Add jar/file doesn't work with yarn-cluster mode [Spark Branch] |  Major | Hive, spark-branch | Xiaomin Zhang | Rui Li |
+| [HIVE-9882](https://issues.apache.org/jira/browse/HIVE-9882) | Add jar/file doesn't work with yarn-cluster mode [Spark Branch] |  Major | Hive, Spark | Xiaomin Zhang | Rui Li |
 | [HIVE-9871](https://issues.apache.org/jira/browse/HIVE-9871) | Print spark job id in history file [spark branch] |  Major | Spark | Chinna Rao Lalam | Chinna Rao Lalam |
 | [HIVE-9824](https://issues.apache.org/jira/browse/HIVE-9824) | LLAP: Native Vectorization of Map Join |  Critical | . | Matt McCline | Matt McCline |
 | [HIVE-9823](https://issues.apache.org/jira/browse/HIVE-9823) | Load spark-defaults.conf from classpath [Spark Branch] |  Major | Spark | Brock Noland | Brock Noland |

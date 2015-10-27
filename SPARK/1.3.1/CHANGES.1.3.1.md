@@ -64,6 +64,7 @@
 | [SPARK-5559](https://issues.apache.org/jira/browse/SPARK-5559) | Flaky test: o.a.s.streaming.flume.FlumeStreamSuite |  Major | Streaming, Tests | Kousuke Saruta | Kousuke Saruta |
 | [SPARK-4925](https://issues.apache.org/jira/browse/SPARK-4925) | Publish Spark SQL hive-thriftserver maven artifact |  Critical | Build, SQL | Alex Liu | Patrick Wendell |
 | [SPARK-3619](https://issues.apache.org/jira/browse/SPARK-3619) | Upgrade to Mesos 0.21 to work around MESOS-1688 |  Major | Mesos | Matei Zaharia | Jongyoul Lee |
+| [SPARK-3441](https://issues.apache.org/jira/browse/SPARK-3441) | Explain in docs that repartitionAndSortWithinPartitions enacts Hadoop style shuffle |  Major | Documentation, Spark Core | Patrick Wendell | Ilya Ganelin |
 | [SPARK-677](https://issues.apache.org/jira/browse/SPARK-677) | PySpark should not collect results through local filesystem |  Major | PySpark | Josh Rosen | Davies Liu |
 
 

@@ -196,6 +196,13 @@ Added SFTP filesystem by using the JSch library.
 
 ---
 
+* [HDFS-9184](https://issues.apache.org/jira/browse/HDFS-9184) | *Major* | **Logging HDFS operation's caller context into audit logs**
+
+The feature needs to enabled by setting "hadoop.caller.context.enabled" to true. When the feature is used, additional fields are written into namenode audit log records.
+
+
+---
+
 * [HDFS-9013](https://issues.apache.org/jira/browse/HDFS-9013) | *Major* | **Deprecate NameNodeMXBean#getNNStarted in branch2 and remove from trunk**
 
 NameNodeMXBean#getNNStarted()  metric is deprecated in branch-2 and removed from trunk.

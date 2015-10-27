@@ -213,6 +213,13 @@ Introduced a new configuration dfs.pipeline.ecn. When the configuration is turne
 
 ---
 
+* [HDFS-7210](https://issues.apache.org/jira/browse/HDFS-7210) | *Major* | **Avoid two separate RPC's namenode.append() and namenode.getFileInfo() for an append call from DFSClient**
+
+**WARNING: No release note provided for this incompatible change.**
+
+
+---
+
 * [HDFS-6651](https://issues.apache.org/jira/browse/HDFS-6651) | *Critical* | **Deletion failure can leak inodes permanently**
 
 **WARNING: No release note provided for this incompatible change.**

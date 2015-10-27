@@ -398,6 +398,7 @@
 | [SPARK-3591](https://issues.apache.org/jira/browse/SPARK-3591) | Provide "fire and forget" option for YARN cluster mode |  Major | YARN | Andrew Or | Tao Wang |
 | [SPARK-3524](https://issues.apache.org/jira/browse/SPARK-3524) | remove workaround to pickle array of float for Pyrolite |  Major | PySpark | Davies Liu | Xiangrui Meng |
 | [SPARK-3454](https://issues.apache.org/jira/browse/SPARK-3454) | Expose JSON representation of data shown in WebUI |  Major | Web UI | Kousuke Saruta | Imran Rashid |
+| [SPARK-3441](https://issues.apache.org/jira/browse/SPARK-3441) | Explain in docs that repartitionAndSortWithinPartitions enacts Hadoop style shuffle |  Major | Documentation, Spark Core | Patrick Wendell | Ilya Ganelin |
 | [SPARK-3381](https://issues.apache.org/jira/browse/SPARK-3381) | DecisionTree: eliminate bins for unordered features |  Trivial | MLlib | Joseph K. Bradley | Manoj Kumar |
 | [SPARK-3357](https://issues.apache.org/jira/browse/SPARK-3357) | Internal log messages should be set at DEBUG level instead of INFO |  Minor | Spark Core | Xiangrui Meng | Sean Owen |
 | [SPARK-3355](https://issues.apache.org/jira/browse/SPARK-3355) | Allow running maven tests in run-tests |  Major | Project Infra | Patrick Wendell | Brennon York |

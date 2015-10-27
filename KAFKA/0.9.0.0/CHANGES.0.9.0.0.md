@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.9.0.0 - Unreleased (as of 2015-10-22)
+## Release 0.9.0.0 - Unreleased (as of 2015-10-27)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -46,11 +46,15 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-2671](https://issues.apache.org/jira/browse/KAFKA-2671) | Enable starting Kafka server with a Properties object |  Major | core | Ashish K Singh | Ashish K Singh |
+| [KAFKA-2645](https://issues.apache.org/jira/browse/KAFKA-2645) | Document potentially breaking changes in the release notes for 0.9.0 |  Blocker | . | Grant Henke | Grant Henke |
 | [KAFKA-2597](https://issues.apache.org/jira/browse/KAFKA-2597) | Add Eclipse directories to .gitignore |  Trivial | . | Randall Hauch | Randall Hauch |
 | [KAFKA-2586](https://issues.apache.org/jira/browse/KAFKA-2586) | Enable SSL for inter-broker communication in SSL tests |  Major | . | Ismael Juma | Ismael Juma |
 | [KAFKA-2570](https://issues.apache.org/jira/browse/KAFKA-2570) | New consumer should commit before every rebalance when auto-commit is enabled |  Major | . | Jason Gustafson | Jason Gustafson |
 | [KAFKA-2514](https://issues.apache.org/jira/browse/KAFKA-2514) | change default JVM options in kafka-run-class.sh |  Blocker | config | Jun Rao | Manikumar Reddy |
 | [KAFKA-2485](https://issues.apache.org/jira/browse/KAFKA-2485) | Allow producer performance to take properties from a file via --producer.config command line parameter |  Major | . | Dong Lin | Dong Lin |
+| [KAFKA-2460](https://issues.apache.org/jira/browse/KAFKA-2460) | Fix capitalization in SSL classes |  Minor | . | Jay Kreps | Ismael Juma |
+| [KAFKA-2447](https://issues.apache.org/jira/browse/KAFKA-2447) | Add capability to KafkaLog4jAppender to be able to use SSL |  Major | . | Ashish K Singh | Ashish K Singh |
 | [KAFKA-2433](https://issues.apache.org/jira/browse/KAFKA-2433) | Remove documentation on dead configuration item: replica.lag.max.messages |  Trivial | website | Stephen Powis |  |
 | [KAFKA-2430](https://issues.apache.org/jira/browse/KAFKA-2430) | Listing of PR commits in commit message should be optional |  Major | . | Ismael Juma | Ismael Juma |
 | [KAFKA-2429](https://issues.apache.org/jira/browse/KAFKA-2429) | Add annotations to mark classes as stable/unstable |  Major | . | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
@@ -108,6 +112,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-2686](https://issues.apache.org/jira/browse/KAFKA-2686) | unsubscribe() call leaves KafkaConsumer in invalid state for manual topic-partition assignment |  Major | consumer | The Data Lorax | Guozhang Wang |
 | [KAFKA-2678](https://issues.apache.org/jira/browse/KAFKA-2678) | partition level lag metrics can be negative |  Major | core | Jun Rao | Dong Lin |
 | [KAFKA-2669](https://issues.apache.org/jira/browse/KAFKA-2669) | Fix LogCleanerIntegrationTest |  Major | . | Dong Lin | Dong Lin |
 | [KAFKA-2665](https://issues.apache.org/jira/browse/KAFKA-2665) | Docs: Images that are part of the documentation are not part of the code github |  Major | . | Gwen Shapira | Gwen Shapira |
@@ -135,6 +140,7 @@
 | [KAFKA-2533](https://issues.apache.org/jira/browse/KAFKA-2533) | Create a member Metadata.Listener inside KafkaConsumer |  Major | . | Ashish K Singh | Ashish K Singh |
 | [KAFKA-2519](https://issues.apache.org/jira/browse/KAFKA-2519) | NetworkClient.close should remove node from inFlightRequests |  Critical | . | Ismael Juma | Ismael Juma |
 | [KAFKA-2517](https://issues.apache.org/jira/browse/KAFKA-2517) | Performance Regression post SSL implementation |  Major | . | Ben Stopford | Ismael Juma |
+| [KAFKA-2516](https://issues.apache.org/jira/browse/KAFKA-2516) | Rename o.a.k.client.tools to o.a.k.tools |  Blocker | . | Gwen Shapira | Grant Henke |
 | [KAFKA-2504](https://issues.apache.org/jira/browse/KAFKA-2504) | Stop logging WARN when client disconnects |  Major | . | Gwen Shapira | Jeff Holoman |
 | [KAFKA-2489](https://issues.apache.org/jira/browse/KAFKA-2489) | System tests: update benchmark tests to run with new and old consumer |  Blocker | . | Geoff Anderson | Geoff Anderson |
 | [KAFKA-2477](https://issues.apache.org/jira/browse/KAFKA-2477) | Replicas spuriously deleting all segments in partition |  Major | . | Håkon Hitland | Jiangjie Qin |
@@ -147,6 +153,7 @@
 | [KAFKA-2459](https://issues.apache.org/jira/browse/KAFKA-2459) | Connection backoff/blackout period should start when a connection is disconnected, not when the connection attempt was initiated |  Major | clients, consumer, producer | Ewen Cheslack-Postava | Eno Thereska |
 | [KAFKA-2457](https://issues.apache.org/jira/browse/KAFKA-2457) | StackOverflowError during builds |  Critical | . | Ismael Juma | Ismael Juma |
 | [KAFKA-2454](https://issues.apache.org/jira/browse/KAFKA-2454) | Dead lock between delete log segment and shutting down. |  Major | . | Jiangjie Qin | Jiangjie Qin |
+| [KAFKA-2449](https://issues.apache.org/jira/browse/KAFKA-2449) | Update mirror maker (MirrorMaker) docs |  Blocker | . | Geoff Anderson | Gwen Shapira |
 | [KAFKA-2438](https://issues.apache.org/jira/browse/KAFKA-2438) | add maxParallelForks to build.gradle to speedup tests |  Major | . | Sriharsha Chintalapani | Sriharsha Chintalapani |
 | [KAFKA-2437](https://issues.apache.org/jira/browse/KAFKA-2437) | Controller does not handle zk node deletion correctly. |  Major | . | Jiangjie Qin | Jiangjie Qin |
 | [KAFKA-2436](https://issues.apache.org/jira/browse/KAFKA-2436) | log.retention.hours should be honored by LogManager |  Critical | . | Dong Lin | Dong Lin |
@@ -314,10 +321,14 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-2694](https://issues.apache.org/jira/browse/KAFKA-2694) | Make a task id be a composite id of a topic group id and a partition id |  Major | kafka streams | Yasuhiro Matsuda | Yasuhiro Matsuda |
 | [KAFKA-2667](https://issues.apache.org/jira/browse/KAFKA-2667) | Copycat KafkaBasedLogTest.testSendAndReadToEnd transient failure |  Major | copycat | Jason Gustafson | Ewen Cheslack-Postava |
 | [KAFKA-2654](https://issues.apache.org/jira/browse/KAFKA-2654) | Avoid calling Consumer.poll(0) in each iteration |  Major | . | Guozhang Wang | Yasuhiro Matsuda |
+| [KAFKA-2652](https://issues.apache.org/jira/browse/KAFKA-2652) | Incorporate the new consumer protocol with partition-group interface |  Major | . | Guozhang Wang | Yasuhiro Matsuda |
+| [KAFKA-2641](https://issues.apache.org/jira/browse/KAFKA-2641) | Upgrade path for ZK authentication |  Major | security | Flavio Junqueira | Flavio Junqueira |
 | [KAFKA-2639](https://issues.apache.org/jira/browse/KAFKA-2639) | Refactoring of ZkUtils |  Major | security | Flavio Junqueira | Flavio Junqueira |
 | [KAFKA-2632](https://issues.apache.org/jira/browse/KAFKA-2632) | Move fetchable check from fetchedRecords to fetch response handler |  Major | consumer | Guozhang Wang | Guozhang Wang |
+| [KAFKA-2626](https://issues.apache.org/jira/browse/KAFKA-2626) | Null offsets in copycat causes exception in OffsetStorageWriter |  Major | copycat | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-2622](https://issues.apache.org/jira/browse/KAFKA-2622) | Add Time logical type for Copycat |  Major | copycat | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-2613](https://issues.apache.org/jira/browse/KAFKA-2613) | Consider capping `maxParallelForks` for Jenkins builds |  Major | build | Ismael Juma | Ewen Cheslack-Postava |
 | [KAFKA-2604](https://issues.apache.org/jira/browse/KAFKA-2604) | Remove `completeAll` and improve timeout passed to `Selector.poll` from `NetworkClient.poll` |  Major | consumer | Ismael Juma | Ismael Juma |
@@ -343,6 +354,7 @@
 | [KAFKA-2464](https://issues.apache.org/jira/browse/KAFKA-2464) | Client-side assignment and group generalization |  Blocker | consumer | Jason Gustafson | Jason Gustafson |
 | [KAFKA-2456](https://issues.apache.org/jira/browse/KAFKA-2456) | Disable SSLv3 for ssl.enabledprotocols config on client & broker side |  Major | . | Sriharsha Chintalapani | Ismael Juma |
 | [KAFKA-2453](https://issues.apache.org/jira/browse/KAFKA-2453) | enable new consumer in EndToEndLatency |  Blocker | consumer | Jun Rao | Ben Stopford |
+| [KAFKA-2452](https://issues.apache.org/jira/browse/KAFKA-2452) | enable new consumer in mirror maker |  Blocker | core | Jun Rao | Jiangjie Qin |
 | [KAFKA-2440](https://issues.apache.org/jira/browse/KAFKA-2440) | Use `NetworkClient` instead of `SimpleConsumer` to fetch data from replica |  Blocker | security | Ismael Juma | Ismael Juma |
 | [KAFKA-2439](https://issues.apache.org/jira/browse/KAFKA-2439) | Add MirrorMakerService to ducktape system tests |  Major | system tests | Geoff Anderson | Geoff Anderson |
 | [KAFKA-2415](https://issues.apache.org/jira/browse/KAFKA-2415) | Transient failure in LogRecoveryTest.testHWCheckpointWithFailuresMultipleLogSegments |  Major | . | Jiangjie Qin | Jiangjie Qin |
@@ -359,6 +371,7 @@
 | [KAFKA-2374](https://issues.apache.org/jira/browse/KAFKA-2374) | Implement Copycat log/file connector |  Major | copycat | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-2373](https://issues.apache.org/jira/browse/KAFKA-2373) | Copycat distributed offset storage |  Major | copycat | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-2372](https://issues.apache.org/jira/browse/KAFKA-2372) | Copycat distributed config storage |  Major | copycat | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
+| [KAFKA-2371](https://issues.apache.org/jira/browse/KAFKA-2371) | Add distributed coordinator implementation for Copycat |  Major | copycat | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-2368](https://issues.apache.org/jira/browse/KAFKA-2368) | Add Copycat standalone CLI |  Major | copycat | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-2367](https://issues.apache.org/jira/browse/KAFKA-2367) | Add Copycat runtime data API |  Major | copycat | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-2366](https://issues.apache.org/jira/browse/KAFKA-2366) | Initial patch for Copycat |  Major | copycat | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
