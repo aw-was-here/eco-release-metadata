@@ -18,7 +18,7 @@
 -->
 # Apache Pig Changelog
 
-## Release 0.16.0 - Unreleased (as of 2015-10-27)
+## Release 0.16.0 - Unreleased (as of 2015-10-30)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -47,6 +47,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [PIG-4717](https://issues.apache.org/jira/browse/PIG-4717) | Update Apache HTTPD LogParser to latest version |  Major | . | Niels Basjes | Niels Basjes |
 | [PIG-4708](https://issues.apache.org/jira/browse/PIG-4708) | Upgrade joda-time to 2.8 |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
+| [PIG-4704](https://issues.apache.org/jira/browse/PIG-4704) | Customizable Error Handling for Storers in Pig |  Major | . | Siddhi Mehta | Siddhi Mehta |
 | [PIG-4702](https://issues.apache.org/jira/browse/PIG-4702) | Load once for sampling and partitioning in order by for certain LoadFuncs |  Major | tez | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-4699](https://issues.apache.org/jira/browse/PIG-4699) | Print Job stats information in Tez like mapreduce |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-4697](https://issues.apache.org/jira/browse/PIG-4697) | Serialize relevant part of the udfcontext per vertex to reduce payload size |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
@@ -59,6 +60,7 @@
 | [PIG-4405](https://issues.apache.org/jira/browse/PIG-4405) | Adding 'map[]' support to mock/Storage |  Major | . | Niels Basjes | Niels Basjes |
 | [PIG-3957](https://issues.apache.org/jira/browse/PIG-3957) | Refactor out resetting input key in TezDagBuilder |  Major | tez | Daniel Dai | Rohini Palaniswamy |
 | [PIG-3622](https://issues.apache.org/jira/browse/PIG-3622) | Allow casting bytearray fields to bytearray type |  Minor | . | Redis Liu | Redis Liu |
+| [PIG-3251](https://issues.apache.org/jira/browse/PIG-3251) | Bzip2TextInputFormat requires double the memory of maximum record size |  Minor | . | Koji Noguchi | Koji Noguchi |
 
 
 ### BUG FIXES:

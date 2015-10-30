@@ -474,6 +474,16 @@ Promotes an -ea assert to logged FATAL and RS abort when memstore is found to be
 
 ---
 
+* [HBASE-6617](https://issues.apache.org/jira/browse/HBASE-6617) | *Major* | **ReplicationSourceManager should be able to track multiple WAL paths**
+
+ReplicationSourceManager now could track multiple wal paths. Notice that although most changes are internal and all metrics names remain the same, signature of below methods in MetricsSource are changed:
+
+1. refreshAgeOfLastShippedOp now requires a String parameter which indicates the wal group id of the reporter
+2. setAgeOfLastShippedOp also adds a String parameter for wal group id
+
+
+---
+
 * [HBASE-5980](https://issues.apache.org/jira/browse/HBASE-5980) | *Minor* | **Scanner responses from RS should include metrics on rows/KVs filtered**
 
 Adds scan metrics to the result. In the shell, set the ALL\_METRICS attribute to true on your scan to see dump of metrics after results (see the scan help for examples).

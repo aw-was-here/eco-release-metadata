@@ -25,16 +25,14 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 * [TEZ-1578](https://issues.apache.org/jira/browse/TEZ-1578) | *Major* | **Remove TeraSort from Tez codebase**
 
-Terasort is just a copy of the MR codebase. The better approach would be to ask users to run terasort using yarn-tez mode instead of duplicating it in Tez. 
-
-It can be brought back in if and when we decide to write a tez-native impl of terasort.
+**WARNING: No release note provided for this incompatible change.**
 
 
 ---
 
 * [TEZ-1499](https://issues.apache.org/jira/browse/TEZ-1499) | *Major* | **Add SortMergeJoinExample to tez-examples**
 
-In the current join example, the inputs of JoinProcessor is unordered so that it will always need to load one input into memory, and stream another input. This only fit for the case when one dataset is small enough to fit into memory ( even use no-broadcast, memory may not be enough ).  So I'd like to add another join example that make the inputs of JoinProcessor is ordered. ( using OrderedPartitionedKVEdgeConfig ). This kind of join could been used when both of the 2 datasets are large.
+**WARNING: No release note provided for this incompatible change.**
 
 
 

@@ -18,7 +18,7 @@
 -->
 # Apache Hadoop Changelog
 
-## Release 2.7.2 - Unreleased (as of 2015-10-27)
+## Release 2.7.2 - Unreleased (as of 2015-10-30)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -77,14 +77,17 @@
 | [HADOOP-11491](https://issues.apache.org/jira/browse/HADOOP-11491) | HarFs incorrectly declared as requiring an authority |  Critical | fs | Gera Shegalov | Brahma Reddy Battula |
 | [HADOOP-10365](https://issues.apache.org/jira/browse/HADOOP-10365) | BufferedOutputStream in FileUtil#unpackEntries() should be closed in finally block |  Minor | util | Ted Yu | Kiran Kumar M R |
 | [HADOOP-8151](https://issues.apache.org/jira/browse/HADOOP-8151) | Error handling in snappy decompressor throws invalid exceptions |  Major | io, native | Todd Lipcon | Matt Foley |
+| [HDFS-9317](https://issues.apache.org/jira/browse/HDFS-9317) | Document fsck -blockId and -storagepolicy options in branch-2.7 |  Major | documentation | Akira AJISAKA | Akira AJISAKA |
 | [HDFS-9290](https://issues.apache.org/jira/browse/HDFS-9290) | DFSClient#callAppend() is not backward compatible for slightly older NameNodes |  Blocker | . | Tony Wu | Tony Wu |
 | [HDFS-9220](https://issues.apache.org/jira/browse/HDFS-9220) | Reading small file (\< 512 bytes) that is open for append fails due to incorrect checksum |  Blocker | . | Bogdan Raducanu | Jing Zhao |
 | [HDFS-9178](https://issues.apache.org/jira/browse/HDFS-9178) | Slow datanode I/O can cause a wrong node to be marked bad |  Critical | . | Kihwal Lee | Kihwal Lee |
 | [HDFS-9106](https://issues.apache.org/jira/browse/HDFS-9106) | Transfer failure during pipeline recovery causes permanent write failures |  Critical | . | Kihwal Lee | Kihwal Lee |
+| [HDFS-9083](https://issues.apache.org/jira/browse/HDFS-9083) | Replication violates block placement policy. |  Blocker | HDFS, namenode | Rushabh S Shah | Rushabh S Shah |
 | [HDFS-9043](https://issues.apache.org/jira/browse/HDFS-9043) | Doc updation for commands in HDFS Federation |  Minor | documentation | J.Andreina | J.Andreina |
 | [HDFS-9042](https://issues.apache.org/jira/browse/HDFS-9042) | Update document for the Storage policy name |  Minor | documentation | J.Andreina | J.Andreina |
 | [HDFS-9033](https://issues.apache.org/jira/browse/HDFS-9033) | dfsadmin -metasave prints "NaN" for cache used% |  Major | . | Archana T | Brahma Reddy Battula |
 | [HDFS-8995](https://issues.apache.org/jira/browse/HDFS-8995) | Flaw in registration bookeeping can make DN die on reconnect |  Critical | . | Kihwal Lee | Kihwal Lee |
+| [HDFS-8950](https://issues.apache.org/jira/browse/HDFS-8950) | NameNode refresh doesn't remove DataNodes that are no longer in the allowed list |  Major | datanode, namenode | Daniel Templeton | Daniel Templeton |
 | [HDFS-8891](https://issues.apache.org/jira/browse/HDFS-8891) | HDFS concat should keep srcs order |  Blocker | . | Yong Zhang | Yong Zhang |
 | [HDFS-8879](https://issues.apache.org/jira/browse/HDFS-8879) | Quota by storage type usage incorrectly initialized upon namenode restart |  Major | namenode | Kihwal Lee | Xiaoyu Yao |
 | [HDFS-8867](https://issues.apache.org/jira/browse/HDFS-8867) | Enable optimized block reports |  Major | . | Rushabh S Shah | Daryn Sharp |
@@ -103,6 +106,8 @@
 | [HDFS-7725](https://issues.apache.org/jira/browse/HDFS-7725) | Incorrect "nodes in service" metrics caused all writes to fail |  Major | . | Ming Ma | Ming Ma |
 | [HDFS-7609](https://issues.apache.org/jira/browse/HDFS-7609) | Avoid retry cache collision when Standby NameNode loading edits |  Critical | namenode | Carrey Zhan | Ming Ma |
 | [HDFS-6945](https://issues.apache.org/jira/browse/HDFS-6945) | BlockManager should remove a block from excessReplicateMap and decrement ExcessBlocks metric when the block is removed |  Critical | namenode | Akira AJISAKA | Akira AJISAKA |
+| [HDFS-4937](https://issues.apache.org/jira/browse/HDFS-4937) | ReplicationMonitor can infinite-loop in BlockPlacementPolicyDefault#chooseRandom() |  Major | namenode | Kihwal Lee | Kihwal Lee |
+| [MAPREDUCE-6528](https://issues.apache.org/jira/browse/MAPREDUCE-6528) | Memory leak for HistoryFileManager.getJobSummary() |  Critical | jobhistoryserver | Junping Du | Junping Du |
 | [MAPREDUCE-6518](https://issues.apache.org/jira/browse/MAPREDUCE-6518) | Set SO\_KEEPALIVE on shuffle connections |  Major | mrv2, nodemanager | Nathan Roberts | Chang Li |
 | [MAPREDUCE-6497](https://issues.apache.org/jira/browse/MAPREDUCE-6497) | Fix wrong value of JOB\_FINISHED event in JobHistoryEventHandler |  Major | . | Shinichi Yamashita | Shinichi Yamashita |
 | [MAPREDUCE-6492](https://issues.apache.org/jira/browse/MAPREDUCE-6492) | AsyncDispatcher exit with NPE on TaskAttemptImpl#sendJHStartEventForAssignedFailTask |  Critical | . | Bibin A Chundatt | Bibin A Chundatt |
@@ -114,11 +119,16 @@
 | [MAPREDUCE-6439](https://issues.apache.org/jira/browse/MAPREDUCE-6439) | AM may fail instead of retrying if RM shuts down during the allocate call |  Critical | . | Anubhav Dhoot | Anubhav Dhoot |
 | [MAPREDUCE-6426](https://issues.apache.org/jira/browse/MAPREDUCE-6426) | TestShuffleHandler#testGetMapOutputInfo is failing |  Major | test | Devaraj K | zhihai xu |
 | [MAPREDUCE-6425](https://issues.apache.org/jira/browse/MAPREDUCE-6425) | ShuffleHandler passes wrong "base" parameter to getMapOutputInfo if mapId is not in the cache. |  Major | mrv2, nodemanager | zhihai xu | zhihai xu |
+| [MAPREDUCE-6273](https://issues.apache.org/jira/browse/MAPREDUCE-6273) | HistoryFileManager should check whether summaryFile exists to avoid FileNotFoundException causing HistoryFileInfo into MOVE\_FAILED state |  Minor | jobhistoryserver | zhihai xu | zhihai xu |
 | [MAPREDUCE-5982](https://issues.apache.org/jira/browse/MAPREDUCE-5982) | Task attempts that fail from the ASSIGNED state can disappear |  Major | mr-am | Jason Lowe | Chang Li |
 | [MAPREDUCE-5948](https://issues.apache.org/jira/browse/MAPREDUCE-5948) | org.apache.hadoop.mapred.LineRecordReader does not handle multibyte record delimiters well |  Critical | . | Kris Geusebroek | Akira AJISAKA |
 | [MAPREDUCE-5649](https://issues.apache.org/jira/browse/MAPREDUCE-5649) | Reduce cannot use more than 2G memory  for the final merge |  Major | mrv2 | stanley shi | Gera Shegalov |
+| [YARN-4320](https://issues.apache.org/jira/browse/YARN-4320) | TestJobHistoryEventHandler fails as AHS in MiniYarnCluster no longer binds to default port 8188 |  Major | . | Varun Saxena | Varun Saxena |
+| [YARN-4313](https://issues.apache.org/jira/browse/YARN-4313) | Race condition in MiniMRYarnCluster when getting history server address |  Major | . | Jian He | Jian He |
+| [YARN-4312](https://issues.apache.org/jira/browse/YARN-4312) | TestSubmitApplicationWithRMHA fails on branch-2.7 and branch-2.6 as some of the test cases time out |  Major | . | Varun Saxena | Varun Saxena |
 | [YARN-4281](https://issues.apache.org/jira/browse/YARN-4281) | 2.7 RM app page is broken |  Blocker | . | Chang Li | Chang Li |
 | [YARN-4209](https://issues.apache.org/jira/browse/YARN-4209) | RMStateStore FENCED state doesn’t work due to updateFencedState called by stateMachine.doTransition |  Critical | resourcemanager | zhihai xu | zhihai xu |
+| [YARN-4183](https://issues.apache.org/jira/browse/YARN-4183) | Enabling generic application history forces every job to get a timeline service delegation token |  Major | . | Mit Desai | Mit Desai |
 | [YARN-4180](https://issues.apache.org/jira/browse/YARN-4180) | AMLauncher does not retry on failures when talking to NM |  Critical | resourcemanager | Anubhav Dhoot | Anubhav Dhoot |
 | [YARN-4105](https://issues.apache.org/jira/browse/YARN-4105) | Capacity Scheduler headroom for DRF is wrong |  Major | capacityscheduler | Chang Li | Chang Li |
 | [YARN-4103](https://issues.apache.org/jira/browse/YARN-4103) | RM WebServices missing scheme for appattempts logLinks |  Major | . | Jonathan Eagles | Jonathan Eagles |
@@ -149,6 +159,7 @@
 | [YARN-3535](https://issues.apache.org/jira/browse/YARN-3535) | Scheduler must re-request container resources when RMContainer transitions from ALLOCATED to KILLED |  Critical | capacityscheduler, fairscheduler, resourcemanager | Peng Zhang | Peng Zhang |
 | [YARN-3508](https://issues.apache.org/jira/browse/YARN-3508) | Prevent processing preemption events on the main RM dispatcher |  Major | resourcemanager, scheduler | Jason Lowe | Varun Saxena |
 | [YARN-2890](https://issues.apache.org/jira/browse/YARN-2890) | MiniYarnCluster should turn on timeline service if configured to do so |  Major | . | Mit Desai | Mit Desai |
+| [YARN-2859](https://issues.apache.org/jira/browse/YARN-2859) | ApplicationHistoryServer binds to default port 8188 in MiniYARNCluster |  Critical | timelineserver | Hitesh Shah | Vinod Kumar Vavilapalli |
 | [YARN-2019](https://issues.apache.org/jira/browse/YARN-2019) | Retrospect on decision of making RM crashed if any exception throw in ZKRMStateStore |  Critical | . | Junping Du | Jian He |
 
 
@@ -156,6 +167,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [YARN-3580](https://issues.apache.org/jira/browse/YARN-3580) | [JDK 8] TestClientRMService.testGetLabelsToNodes fails |  Major | test | Robert Kanter | Robert Kanter |
 
 
 ### SUB-TASKS:
@@ -168,6 +180,7 @@
 | [YARN-3893](https://issues.apache.org/jira/browse/YARN-3893) | Both RM in active state when Admin#transitionToActive failure from refeshAll() |  Critical | resourcemanager | Bibin A Chundatt | Bibin A Chundatt |
 | [YARN-3740](https://issues.apache.org/jira/browse/YARN-3740) | Fixed the typo with the configuration name: APPLICATION\_HISTORY\_PREFIX\_MAX\_APPS |  Major | resourcemanager, webapp, yarn | Xuan Gong | Xuan Gong |
 | [YARN-3700](https://issues.apache.org/jira/browse/YARN-3700) | ATS Web Performance issue at load time when large number of jobs |  Major | resourcemanager, webapp, yarn | Xuan Gong | Xuan Gong |
+| [YARN-2902](https://issues.apache.org/jira/browse/YARN-2902) | Killing a container that is localizing can orphan resources in the DOWNLOADING state |  Major | nodemanager | Jason Lowe | Varun Saxena |
 | [YARN-2801](https://issues.apache.org/jira/browse/YARN-2801) | Add documentation for node labels feature |  Major | documentation | Gururaj Shetty | Wangda Tan |
 | [YARN-2513](https://issues.apache.org/jira/browse/YARN-2513) | Host framework UIs in YARN for use with the ATS |  Major | timelineserver | Jonathan Eagles | Jonathan Eagles |
 

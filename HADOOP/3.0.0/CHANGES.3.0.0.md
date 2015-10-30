@@ -18,7 +18,7 @@
 -->
 # Apache Hadoop Changelog
 
-## Release 3.0.0 - Unreleased (as of 2015-10-27)
+## Release 3.0.0 - Unreleased (as of 2015-10-30)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -98,8 +98,10 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-12436](https://issues.apache.org/jira/browse/HADOOP-12436) | GlobPattern regex library has performance issues with wildcard characters |  Major | fs | Matthew Paduano | Matthew Paduano |
+| [HADOOP-12385](https://issues.apache.org/jira/browse/HADOOP-12385) | include nested stack trace in SaslRpcClient.getServerToken() |  Minor | security | Steve Loughran | Steve Loughran |
 | [HADOOP-12249](https://issues.apache.org/jira/browse/HADOOP-12249) | pull argument parsing into a function |  Major | scripts | Allen Wittenauer | Allen Wittenauer |
 | [HADOOP-12149](https://issues.apache.org/jira/browse/HADOOP-12149) | copy all of test-patch BINDIR prior to re-exec |  Blocker | yetus | Allen Wittenauer | Allen Wittenauer |
+| [HADOOP-12133](https://issues.apache.org/jira/browse/HADOOP-12133) | Add schemas to Maven Assembly XMLs |  Minor | . | Gabor Liptak | Gabor Liptak |
 | [HADOOP-12050](https://issues.apache.org/jira/browse/HADOOP-12050) | Enable MaxInactiveInterval for hadoop http auth token |  Major | security | Benoy Antony | hzlu |
 | [HADOOP-12049](https://issues.apache.org/jira/browse/HADOOP-12049) | Control http authentication cookie persistence via configuration |  Major | security | Benoy Antony | hzlu |
 | [HADOOP-12009](https://issues.apache.org/jira/browse/HADOOP-12009) | Clarify FileSystem.listStatus() sorting order & fix FileSystemContractBaseTest:testListStatus |  Minor | test | Jakob Homan | J.Andreina |
@@ -153,6 +155,7 @@
 | [HADOOP-6964](https://issues.apache.org/jira/browse/HADOOP-6964) | Allow compact property description in xml |  Major | conf | Owen O'Malley | Kengo Seki |
 | [HADOOP-6616](https://issues.apache.org/jira/browse/HADOOP-6616) | Improve documentation for rack awareness |  Major | documentation | Jeff Hammerbacher | Adam Faris |
 | [HADOOP-5323](https://issues.apache.org/jira/browse/HADOOP-5323) | Trash documentation should describe its directory structure and configurations |  Minor | documentation | Suman Sehgal | Weiwei Yang |
+| [HDFS-9323](https://issues.apache.org/jira/browse/HDFS-9323) | Randomize the DFSStripedOutputStreamWithFailure tests |  Minor | test | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HDFS-9297](https://issues.apache.org/jira/browse/HDFS-9297) | Update TestBlockMissingException to use corruptBlockOnDataNodesByDeletingBlockFile() |  Trivial | HDFS, test | Tony Wu | Tony Wu |
 | [HDFS-9292](https://issues.apache.org/jira/browse/HDFS-9292) | Make TestFileConcorruption independent to underlying FsDataset Implementation. |  Minor | . | Lei (Eddy) Xu | Lei (Eddy) Xu |
 | [HDFS-9291](https://issues.apache.org/jira/browse/HDFS-9291) | Fix TestInterDatanodeProtocol to be FsDataset-agnostic. |  Minor | HDFS, test | Lei (Eddy) Xu | Lei (Eddy) Xu |
@@ -210,6 +213,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-12515](https://issues.apache.org/jira/browse/HADOOP-12515) | Mockito dependency is missing in hadoop-kafka module |  Major | test | Kai Zheng | Kai Zheng |
+| [HADOOP-12494](https://issues.apache.org/jira/browse/HADOOP-12494) | fetchdt stores the token based on token kind instead of token service |  Major | . | HeeSoo Kim | HeeSoo Kim |
 | [HADOOP-12493](https://issues.apache.org/jira/browse/HADOOP-12493) | bash unit tests are failing |  Major | . | Allen Wittenauer | Allen Wittenauer |
 | [HADOOP-12464](https://issues.apache.org/jira/browse/HADOOP-12464) | Interrupted client may try to fail-over and retry |  Major | ipc | Kihwal Lee | Kihwal Lee |
 | [HADOOP-12418](https://issues.apache.org/jira/browse/HADOOP-12418) | TestRPC.testRPCInterruptedSimple fails intermittently |  Major | test | Steve Loughran | Kihwal Lee |
@@ -289,6 +293,7 @@
 | [HADOOP-6871](https://issues.apache.org/jira/browse/HADOOP-6871) | When the value of a configuration key is set to its unresolved form, it causes the IllegalStateException in Configuration.get() stating that substitution depth is too large. |  Major | conf | Arvind Prabhakar | Arvind Prabhakar |
 | [HADOOP-6220](https://issues.apache.org/jira/browse/HADOOP-6220) | HttpServer wraps InterruptedExceptions by IOExceptions if interrupted in startup |  Minor | util | Steve Loughran | Steve Loughran |
 | [HDFS-9290](https://issues.apache.org/jira/browse/HDFS-9290) | DFSClient#callAppend() is not backward compatible for slightly older NameNodes |  Blocker | . | Tony Wu | Tony Wu |
+| [HDFS-9279](https://issues.apache.org/jira/browse/HDFS-9279) | Decomissioned capacity should not be considered for configured/used capacity |  Major | . | Kuhu Shukla | Kuhu Shukla |
 | [HDFS-9237](https://issues.apache.org/jira/browse/HDFS-9237) | NPE at TestDataNodeVolumeFailureToleration#tearDown |  Major | test | Brahma Reddy Battula | Brahma Reddy Battula |
 | [HDFS-9220](https://issues.apache.org/jira/browse/HDFS-9220) | Reading small file (\< 512 bytes) that is open for append fails due to incorrect checksum |  Blocker | . | Bogdan Raducanu | Jing Zhao |
 | [HDFS-9217](https://issues.apache.org/jira/browse/HDFS-9217) | Fix broken findbugsExcludeFile.xml for hadoop-hdfs-client module |  Critical | build | Mingliang Liu | Mingliang Liu |
@@ -300,6 +305,7 @@
 | [HDFS-9176](https://issues.apache.org/jira/browse/HDFS-9176) | TestDirectoryScanner#testThrottling often fails. |  Minor | test | Yi Liu | Daniel Templeton |
 | [HDFS-9147](https://issues.apache.org/jira/browse/HDFS-9147) | Fix the setting of visibleLength in ExternalBlockReader |  Major | hdfs-client | Colin Patrick McCabe | Colin Patrick McCabe |
 | [HDFS-9133](https://issues.apache.org/jira/browse/HDFS-9133) | ExternalBlockReader and ReplicaAccessor need to return -1 on read when at EOF |  Major | hdfs-client | Colin Patrick McCabe | Colin Patrick McCabe |
+| [HDFS-8950](https://issues.apache.org/jira/browse/HDFS-8950) | NameNode refresh doesn't remove DataNodes that are no longer in the allowed list |  Major | datanode, namenode | Daniel Templeton | Daniel Templeton |
 | [HDFS-8879](https://issues.apache.org/jira/browse/HDFS-8879) | Quota by storage type usage incorrectly initialized upon namenode restart |  Major | namenode | Kihwal Lee | Xiaoyu Yao |
 | [HDFS-8850](https://issues.apache.org/jira/browse/HDFS-8850) | VolumeScanner thread exits with exception if there is no block pool to be scanned but there are suspicious blocks |  Major | datanode | Colin Patrick McCabe | Colin Patrick McCabe |
 | [HDFS-8800](https://issues.apache.org/jira/browse/HDFS-8800) | hdfs --daemon stop namenode corrupts logs |  Major | scripts | John Smith | John Smith |
@@ -328,6 +334,7 @@
 | [HDFS-6893](https://issues.apache.org/jira/browse/HDFS-6893) | crypto subcommand is not sorted properly in hdfs's hadoop\_usage |  Trivial | scripts | Allen Wittenauer | David Luo |
 | [HDFS-6763](https://issues.apache.org/jira/browse/HDFS-6763) | Initialize file system-wide quota once on transitioning to active |  Major | ha, namenode | Daryn Sharp | Kihwal Lee |
 | [HDFS-5794](https://issues.apache.org/jira/browse/HDFS-5794) | Fix the inconsistency of layout version number of ADD\_DATANODE\_AND\_STORAGE\_UUIDS between trunk and branch-2 |  Minor | namenode | Jing Zhao | Jing Zhao |
+| [HDFS-4937](https://issues.apache.org/jira/browse/HDFS-4937) | ReplicationMonitor can infinite-loop in BlockPlacementPolicyDefault#chooseRandom() |  Major | namenode | Kihwal Lee | Kihwal Lee |
 | [HDFS-4904](https://issues.apache.org/jira/browse/HDFS-4904) | Remove JournalService |  Major | namenode | Suresh Srinivas | Arpit Agarwal |
 | [HDFS-4761](https://issues.apache.org/jira/browse/HDFS-4761) | Refresh INodeMap in FSDirectory#reset() |  Minor | namenode | Jing Zhao | Jing Zhao |
 | [HDFS-4757](https://issues.apache.org/jira/browse/HDFS-4757) | Update FSDirectory#inodeMap when replacing an INodeDirectory while setting quota |  Minor | namenode | Jing Zhao | Jing Zhao |
@@ -372,6 +379,8 @@
 | [MAPREDUCE-3223](https://issues.apache.org/jira/browse/MAPREDUCE-3223) | Remove MR1 configs from mapred-default.xml |  Major | documentation, mrv2 | Todd Lipcon | Todd Lipcon |
 | [MAPREDUCE-3149](https://issues.apache.org/jira/browse/MAPREDUCE-3149) | add a test to verify that buildDTAuthority works for cases with no authority. |  Major | . | John George | John George |
 | [MAPREDUCE-2978](https://issues.apache.org/jira/browse/MAPREDUCE-2978) | hudson findbugs not reporting properly |  Major | mrv2 | Thomas Graves | Tom White |
+| [YARN-4320](https://issues.apache.org/jira/browse/YARN-4320) | TestJobHistoryEventHandler fails as AHS in MiniYarnCluster no longer binds to default port 8188 |  Major | . | Varun Saxena | Varun Saxena |
+| [YARN-4183](https://issues.apache.org/jira/browse/YARN-4183) | Enabling generic application history forces every job to get a timeline service delegation token |  Major | . | Mit Desai | Mit Desai |
 | [YARN-4009](https://issues.apache.org/jira/browse/YARN-4009) | CORS support for ResourceManager REST API |  Major | . | Prakash Ramachandran | Varun Vasudev |
 | [YARN-3915](https://issues.apache.org/jira/browse/YARN-3915) | scmadmin help message correction |  Minor | yarn | Bibin A Chundatt | Bibin A Chundatt |
 | [YARN-3905](https://issues.apache.org/jira/browse/YARN-3905) | Application History Server UI NPEs when accessing apps run after RM restart |  Major | timelineserver | Eric Payne | Eric Payne |
@@ -402,10 +411,12 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HADOOP-12327](https://issues.apache.org/jira/browse/HADOOP-12327) | Initialize output buffers with ZERO bytes in erasure coder |  Major | . | Kai Zheng | Kai Zheng |
 | [HADOOP-12269](https://issues.apache.org/jira/browse/HADOOP-12269) | Update aws-sdk dependency to 1.10.6 |  Major | fs/s3 | Thomas Demoor | Thomas Demoor |
 | [HADOOP-12244](https://issues.apache.org/jira/browse/HADOOP-12244) | recover broken rebase during precommit |  Critical | yetus | Allen Wittenauer | Allen Wittenauer |
 | [HADOOP-11852](https://issues.apache.org/jira/browse/HADOOP-11852) | Disable symlinks in trunk |  Major | . | Andrew Wang | Andrew Wang |
 | [HADOOP-11850](https://issues.apache.org/jira/browse/HADOOP-11850) | Typos in hadoop-common java docs |  Minor | . | Surendra Singh Lilhore | Surendra Singh Lilhore |
+| [HDFS-9261](https://issues.apache.org/jira/browse/HDFS-9261) | Erasure Coding: Skip encoding the data cells if all the parity data streamers are failed for the current block group |  Minor | . | Rakesh R | Rakesh R |
 | [HDFS-9209](https://issues.apache.org/jira/browse/HDFS-9209) | Erasure coding: Add apache license header in TestFileStatusWithECPolicy.java |  Major | . | Surendra Singh Lilhore | Surendra Singh Lilhore |
 | [HDFS-9206](https://issues.apache.org/jira/browse/HDFS-9206) | Inconsistent default value of dfs.datanode.stripedread.buffer.size |  Minor | erasure-coding | Walter Su | Walter Su |
 | [HDFS-9180](https://issues.apache.org/jira/browse/HDFS-9180) | Update excluded DataNodes in DFSStripedOutputStream based on failures in data streamers |  Major | erasure-coding | Jing Zhao | Jing Zhao |
@@ -421,7 +432,11 @@
 | [HDFS-3292](https://issues.apache.org/jira/browse/HDFS-3292) | Remove the deprecated DistributedFileSystem.DiskStatus and the related methods |  Major | hdfs-client | Tsz Wo Nicholas Sze | Arpit Gupta |
 | [HDFS-3273](https://issues.apache.org/jira/browse/HDFS-3273) | Refactor BackupImage and FSEditLog |  Major | ha, namenode | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HDFS-3178](https://issues.apache.org/jira/browse/HDFS-3178) | Add states for journal synchronization in journal daemon |  Major | ha, namenode | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
+| [MAPREDUCE-6435](https://issues.apache.org/jira/browse/MAPREDUCE-6435) | MapReduce client assumes the world is x86 |  Major | client | Alan Burlison | Alan Burlison |
+| [MAPREDUCE-6416](https://issues.apache.org/jira/browse/MAPREDUCE-6416) | Not all platforms have d\_type in struct dirent |  Major | build | Alan Burlison | Alan Burlison |
+| [MAPREDUCE-6412](https://issues.apache.org/jira/browse/MAPREDUCE-6412) | Make hadoop-mapreduce-client Native code -Wall-clean |  Major | build | Alan Burlison | Alan Burlison |
 | [MAPREDUCE-6407](https://issues.apache.org/jira/browse/MAPREDUCE-6407) | Migrate MAPREDUCE nativetask build to new CMake framework |  Major | build | Alan Burlison | Alan Burlison |
+| [MAPREDUCE-6391](https://issues.apache.org/jira/browse/MAPREDUCE-6391) | util/Timer.cc completely misunderstands \_POSIX\_CPUTIME |  Major | build | Alan Burlison | Alan Burlison |
 | [MAPREDUCE-6078](https://issues.apache.org/jira/browse/MAPREDUCE-6078) | native-task: fix gtest build on macosx |  Trivial | task | Binglin Chang | Binglin Chang |
 | [MAPREDUCE-5867](https://issues.apache.org/jira/browse/MAPREDUCE-5867) | Possible NPE in KillAMPreemptionPolicy related to ProportionalCapacityPreemptionPolicy |  Major | resourcemanager | Sunil G | Sunil G |
 | [MAPREDUCE-5189](https://issues.apache.org/jira/browse/MAPREDUCE-5189) | Basic AM changes to support preemption requests (per YARN-45) |  Major | mr-am, mrv2 | Carlo Curino | Carlo Curino |

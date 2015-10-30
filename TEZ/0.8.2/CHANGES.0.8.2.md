@@ -18,12 +18,13 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.8.2 - Unreleased (as of 2015-10-27)
+## Release 0.8.2 - Unreleased (as of 2015-10-30)
 
 ### INCOMPATIBLE CHANGES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-2679](https://issues.apache.org/jira/browse/TEZ-2679) | Admin forms of launch env settings |  Major | . | Jason Lowe | Jonathan Eagles |
 
 
 ### IMPORTANT ISSUES:
@@ -43,6 +44,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [TEZ-2886](https://issues.apache.org/jira/browse/TEZ-2886) | Ability to merge AM credentials with DAG credentials |  Major | . | Jason Lowe | Jason Lowe |
+| [TEZ-2244](https://issues.apache.org/jira/browse/TEZ-2244) | PipelinedSorter: Progressive allocation for sort-buffers |  Major | . | Gopal V | Rajesh Balamohan |
 | [TEZ-2096](https://issues.apache.org/jira/browse/TEZ-2096) | TEZ-UI : Add link to view AM log of finished & running apps |  Major | UI | Rajesh Balamohan | Jonathan Eagles |
 | [TEZ-1692](https://issues.apache.org/jira/browse/TEZ-1692) | Reduce code duplication between TezMapredSplitsGrouper and TezMapreduceSplitsGrouper |  Major | . | Siddharth Seth | Siddharth Seth |
 
@@ -52,6 +54,9 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [TEZ-2907](https://issues.apache.org/jira/browse/TEZ-2907) | NPE in IFile.Reader.getLength during final merge operation |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
+| [TEZ-2906](https://issues.apache.org/jira/browse/TEZ-2906) | Compilation fails with hadoop 2.2.0 |  Major | . | Jeff Zhang | Jeff Zhang |
+| [TEZ-2904](https://issues.apache.org/jira/browse/TEZ-2904) | Pig can't specify task specific command opts |  Major | . | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-2900](https://issues.apache.org/jira/browse/TEZ-2900) | Ignore V\_INPUT\_DATA\_INFORMATION when vertex is in Failed/Killed/Error |  Major | . | Jeff Zhang | Jeff Zhang |
 | [TEZ-2899](https://issues.apache.org/jira/browse/TEZ-2899) | Tez UI: DAG getting created with huge horizontal gap in between vertices |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2896](https://issues.apache.org/jira/browse/TEZ-2896) | Fix thread names used during Input/Output initialization |  Major | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-2887](https://issues.apache.org/jira/browse/TEZ-2887) | Tez build failure due to missing dependency in pom files |  Major | . | Ashish Singh | Ashish Singh |
@@ -60,7 +65,9 @@
 | [TEZ-2874](https://issues.apache.org/jira/browse/TEZ-2874) | Improved logging for caller context |  Major | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-2866](https://issues.apache.org/jira/browse/TEZ-2866) | Tez UI: Newly added columns wont be displayed by default in tables |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2850](https://issues.apache.org/jira/browse/TEZ-2850) | Tez MergeManager OOM for small Map Outputs |  Major | . | Saikat | Jonathan Eagles |
+| [TEZ-2814](https://issues.apache.org/jira/browse/TEZ-2814) | ATSImportTool has a return statement in a finally block |  Major | . | Hitesh Shah | Rajesh Balamohan |
 | [TEZ-2781](https://issues.apache.org/jira/browse/TEZ-2781) | Fallback to send only TaskAttemptFailedEvent if taskFailed heartbeat fails |  Major | . | Jeff Zhang | Jeff Zhang |
+| [TEZ-2553](https://issues.apache.org/jira/browse/TEZ-2553) | Tez UI: Tez UI Nits |  Minor | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-1888](https://issues.apache.org/jira/browse/TEZ-1888) | Fix javac warnings all over codebase |  Critical | . | Hitesh Shah | Chetna Chaudhari |
 
 
@@ -77,6 +84,7 @@
 | [TEZ-2888](https://issues.apache.org/jira/browse/TEZ-2888) | Make critical path calculation resilient to AM crash |  Major | . | Bikas Saha | Bikas Saha |
 | [TEZ-2882](https://issues.apache.org/jira/browse/TEZ-2882) | Consider improving fetch failure handling |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-1788](https://issues.apache.org/jira/browse/TEZ-1788) | Test allowing vertex level disabling of speculation |  Major | . | Bikas Saha | Bikas Saha |
+| [TEZ-808](https://issues.apache.org/jira/browse/TEZ-808) | Handle task attempts that are not making progress |  Major | . | Bikas Saha | Bikas Saha |
 
 
 ### OTHER:

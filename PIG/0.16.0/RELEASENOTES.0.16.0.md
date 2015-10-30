@@ -73,4 +73,11 @@ The Storage mocking feature supports input and output of "map" types.
 TOP udf implements Accumulator interface
 
 
+---
+
+* [PIG-3251](https://issues.apache.org/jira/browse/PIG-3251) | *Minor* | **Bzip2TextInputFormat requires double the memory of maximum record size**
+
+With hadoop 2.X or later, pig will use hadoop's bzip codec to handle bzip inputs.  (To turn it off, set pig.bzip.use.hadoop.inputformat=false)
+
+
 

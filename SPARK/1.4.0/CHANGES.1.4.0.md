@@ -486,7 +486,7 @@
 | [SPARK-7687](https://issues.apache.org/jira/browse/SPARK-7687) | DataFrame.describe() should cast all aggregates to String |  Critical | SQL | Josh Rosen | Josh Rosen |
 | [SPARK-7686](https://issues.apache.org/jira/browse/SPARK-7686) | Runnable DescribeCommand is assigned wrong physical plan output attributes in SparkStrategies |  Critical | SQL | Josh Rosen | Josh Rosen |
 | [SPARK-7684](https://issues.apache.org/jira/browse/SPARK-7684) | TestHive.reset complains Database does not exist: default |  Major | SQL | Yin Huai | Cheng Lian |
-| [SPARK-7673](https://issues.apache.org/jira/browse/SPARK-7673) | DataSourceStrategy's buildPartitionedTableScan always list list file status for all data files |  Blocker | SQL | Yin Huai | Cheng Lian |
+| [SPARK-7673](https://issues.apache.org/jira/browse/SPARK-7673) | DataSourceStrategy's buildPartitionedTableScan always list file status for all data files |  Blocker | SQL | Yin Huai | Cheng Lian |
 | [SPARK-7672](https://issues.apache.org/jira/browse/SPARK-7672) | Number format exception with spark.kryoserializer.buffer.mb |  Critical | Spark Core | Nishkam Ravi | Nishkam Ravi |
 | [SPARK-7669](https://issues.apache.org/jira/browse/SPARK-7669) | Builds against Hadoop 2.6+ get inconsistent curator dependencies |  Minor | Build | Steve Loughran | Steve Loughran |
 | [SPARK-7668](https://issues.apache.org/jira/browse/SPARK-7668) | Matrix.map should preserve transpose property |  Major | MLlib | Liang-Chi Hsieh | Liang-Chi Hsieh |

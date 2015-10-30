@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 1.5.2 - Unreleased (as of 2015-10-27)
+## Release 1.5.2 - Unreleased (as of 2015-10-30)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -56,19 +56,24 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-11417](https://issues.apache.org/jira/browse/SPARK-11417) | @Override is not supported by older version of Janino |  Major | . | Davies Liu | Davies Liu |
+| [SPARK-11302](https://issues.apache.org/jira/browse/SPARK-11302) |  Multivariate Gaussian Model with Covariance  matrix returns incorrect answer in some cases |  Critical | MLlib | eyal sharon | Sean Owen |
 | [SPARK-11264](https://issues.apache.org/jira/browse/SPARK-11264) | ./bin/spark-class can't find assembly jars with certain GREP\_OPTIONS set |  Minor | Spark Shell | Jeffrey Naisbitt | Jeffrey Naisbitt |
 | [SPARK-11251](https://issues.apache.org/jira/browse/SPARK-11251) | Page size calculation is wrong in local mode |  Blocker | Shuffle | Andrew Or | Andrew Or |
+| [SPARK-11246](https://issues.apache.org/jira/browse/SPARK-11246) | [1.5] Table cache for Parquet broken in 1.5 |  Major | SQL | David Ross | Xin Wu |
 | [SPARK-11244](https://issues.apache.org/jira/browse/SPARK-11244) | sparkR.stop doesn't clean up .sparkRSQLsc in environment |  Major | SparkR | Sen Fang | Sen Fang |
 | [SPARK-11233](https://issues.apache.org/jira/browse/SPARK-11233) | cosh is not registered in function registry |  Major | SQL | Reynold Xin | Shagun Sodhani |
 | [SPARK-11153](https://issues.apache.org/jira/browse/SPARK-11153) | Turns off Parquet filter push-down for string and binary columns |  Blocker | SQL | Cheng Lian | Cheng Lian |
 | [SPARK-11135](https://issues.apache.org/jira/browse/SPARK-11135) | Exchange sort-planning logic incorrectly avoid sorts when existing ordering is non-empty subset of required ordering |  Blocker | SQL | Josh Rosen | Josh Rosen |
 | [SPARK-11126](https://issues.apache.org/jira/browse/SPARK-11126) | A memory leak in SQLListener.\_stageIdToStageMetrics |  Blocker | SQL | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-11104](https://issues.apache.org/jira/browse/SPARK-11104) | A potential deadlock in StreamingContext.stop and stopOnShutdown |  Major | Streaming | Shixiong Zhu | Shixiong Zhu |
+| [SPARK-11103](https://issues.apache.org/jira/browse/SPARK-11103) | Parquet filters push-down may cause exception when schema merging is turned on |  Blocker | SQL | Dominic Ricard | Hyukjin Kwon |
 | [SPARK-11094](https://issues.apache.org/jira/browse/SPARK-11094) | Test runner script fails to parse Java version. |  Minor | Tests | Jakob Odersky | Jakob Odersky |
 | [SPARK-11066](https://issues.apache.org/jira/browse/SPARK-11066) | Flaky test o.a.scheduler.DAGSchedulerSuite.misbehavedResultHandler occasionally fails due to j.l.UnsupportedOperationException concerning a finished JobWaiter |  Minor | Scheduler, Spark Core, Tests | Dr Stephen A Hellberg | Dr Stephen A Hellberg |
 | [SPARK-11063](https://issues.apache.org/jira/browse/SPARK-11063) | Spark TaskSetManager doesn't use Receiver's scheduling executors |  Critical | Streaming | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-11051](https://issues.apache.org/jira/browse/SPARK-11051) | NullPointerException when action called on localCheckpointed RDD (that was checkpointed before) |  Critical | Spark Core | Jacek Laskowski | Liang-Chi Hsieh |
 | [SPARK-11047](https://issues.apache.org/jira/browse/SPARK-11047) | Internal accumulators miss the internal flag when replaying events in the history server |  Critical | Spark Core | Carson Wang | Carson Wang |
+| [SPARK-11032](https://issues.apache.org/jira/browse/SPARK-11032) | Failure to resolve having correctly |  Blocker | SQL | Michael Armbrust | Wenchen Fan |
 | [SPARK-11026](https://issues.apache.org/jira/browse/SPARK-11026) | spark.yarn.user.classpath.first does work for 'spark-submit --jars hdfs://user/foo.jar' |  Major | YARN | Lianhui Wang | Lianhui Wang |
 | [SPARK-11009](https://issues.apache.org/jira/browse/SPARK-11009) | RowNumber in HiveContext returns negative values in cluster mode |  Blocker | Spark Core | Saif Addin Ellafi | Davies Liu |
 | [SPARK-10981](https://issues.apache.org/jira/browse/SPARK-10981) | R semijoin leads to Java errors, R leftsemi leads to Spark errors |  Minor | R | Monica Liu | Monica Liu |

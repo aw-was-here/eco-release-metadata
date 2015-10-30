@@ -25,15 +25,7 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 * [TEZ-2437](https://issues.apache.org/jira/browse/TEZ-2437) | *Major* | **FilterLinesByWord NPEs when run in Localmode**
 
-Subsequent to Tez-1969 [https://issues.apache.org/jira/browse/TEZ-1969] I've noticed that org.apache.tez.mapreduce.examples.FilterLinesByWord.java NPEs with this stack trace, when run on Localmode:
-
-at org.apache.tez.client.LocalClient.getApplicationReport(LocalClient.java:145)
-	at org.apache.tez.dag.api.client.rpc.DAGClientRPCImpl.getAppReport(DAGClientRPCImpl.java:213)
-	at org.apache.tez.dag.api.client.rpc.DAGClientRPCImpl.createAMProxyIfNeeded(DAGClientRPCImpl.java:230)
-	at org.apache.tez.dag.api.client.rpc.DAGClientRPCImpl.getVertexStatus(DAGClientRPCImpl.java:102)
-	at org.apache.tez.dag.api.client.DAGClientImpl.getVertexStatusViaAM(DAGClientImpl.java:257)
-	at org.apache.tez.dag.api.client.DAGClientImpl.getVertexStatus(DAGClientImpl.java:166)
-	at org.apache.tez.mapreduce.examples.ExampleDriver.printDAGStatus(ExampleDriver.java:122)
+**WARNING: No release note provided for this incompatible change.**
 
 
 ---

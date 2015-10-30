@@ -25,7 +25,7 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 * [TEZ-2565](https://issues.apache.org/jira/browse/TEZ-2565) | *Major* | **Consider scanning unfinished tasks in VertexImpl::constructStatistics to reduce merge overhead**
 
-constructStatistics() can be an overhead (scanning all tasks and merging stats) depending on the number of invocations to Vertex::getStatistics().  Consider scanning only unfinished tasks.
+**WARNING: No release note provided for this incompatible change.**
 
 
 ---
@@ -39,7 +39,7 @@ constructStatistics() can be an overhead (scanning all tasks and merging stats) 
 
 * [TEZ-2048](https://issues.apache.org/jira/browse/TEZ-2048) | *Blocker* | **Remove VertexManagerPluginContext.getTaskContainer()**
 
-This should have been removed earlier. It exposes internal execution details that may not be safe to provide to user code.
+**WARNING: No release note provided for this incompatible change.**
 
 
 

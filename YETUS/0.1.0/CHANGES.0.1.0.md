@@ -18,7 +18,7 @@
 -->
 # Apache Yetus Changelog
 
-## Release 0.1.0 - Unreleased (as of 2015-10-27)
+## Release 0.1.0 - Unreleased (as of 2015-10-30)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -48,6 +48,8 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [YETUS-143](https://issues.apache.org/jira/browse/YETUS-143) | add support for JMeter |  Minor | Test Patch | Kengo Seki | Kengo Seki |
+| [YETUS-141](https://issues.apache.org/jira/browse/YETUS-141) | make module for jdiff doclet optional |  Major | Audience Annotations | Sean Busbey | Sean Busbey |
 | [YETUS-128](https://issues.apache.org/jira/browse/YETUS-128) | Jira plugin should be configurable to accept issue status other than 'Patch Available' |  Major | Test Patch | Kengo Seki | Kengo Seki |
 | [YETUS-110](https://issues.apache.org/jira/browse/YETUS-110) | typo fixes on test-patch basic documentation |  Trivial | website and documentation | Tony Kurc | Tony Kurc |
 | [YETUS-98](https://issues.apache.org/jira/browse/YETUS-98) | enable parallel tests on hadoop |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
@@ -59,6 +61,9 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [YETUS-147](https://issues.apache.org/jira/browse/YETUS-147) | Failed test table mixes result from different JDKs |  Major | Test Patch | Marco Zühlke | Marco Zühlke |
+| [YETUS-137](https://issues.apache.org/jira/browse/YETUS-137) | hadoop triggers java tests for pure-bash patch |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
+| [YETUS-132](https://issues.apache.org/jira/browse/YETUS-132) | javadoc test does not run if javac test is disabled |  Major | Test Patch | Kengo Seki | Kengo Seki |
 | [YETUS-129](https://issues.apache.org/jira/browse/YETUS-129) | Add Geode personality |  Minor | Test Patch | jun aoki | jun aoki |
 | [YETUS-127](https://issues.apache.org/jira/browse/YETUS-127) | small additional note for test-patch.sh --plugins parameter. |  Trivial | Test Patch | jun aoki | jun aoki |
 | [YETUS-120](https://issues.apache.org/jira/browse/YETUS-120) | Add missing @params to patchfiles.sh |  Trivial | Test Patch, website and documentation | jun aoki | jun aoki |
@@ -68,10 +73,13 @@
 | [YETUS-97](https://issues.apache.org/jira/browse/YETUS-97) | branch detection cut bug |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-96](https://issues.apache.org/jira/browse/YETUS-96) | multijdkdirs shouldn't show errors on bad input |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-95](https://issues.apache.org/jira/browse/YETUS-95) | docker not working on jenkins w/hadoop |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
+| [YETUS-94](https://issues.apache.org/jira/browse/YETUS-94) | docker cleanup invalid date |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
+| [YETUS-93](https://issues.apache.org/jira/browse/YETUS-93) | tap needs to verify directories |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-92](https://issues.apache.org/jira/browse/YETUS-92) | checkstyle bogus screen output |  Major | Test Patch | Allen Wittenauer | Kengo Seki |
 | [YETUS-88](https://issues.apache.org/jira/browse/YETUS-88) | Dockerfile is missing bats |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-85](https://issues.apache.org/jira/browse/YETUS-85) | test types aren't getting initialized |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-82](https://issues.apache.org/jira/browse/YETUS-82) | personality\_plugins with multiple entries doesn't work |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
+| [YETUS-77](https://issues.apache.org/jira/browse/YETUS-77) | add bugzilla support |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-74](https://issues.apache.org/jira/browse/YETUS-74) | document test formats |  Major | Test Patch, website and documentation | Allen Wittenauer | Kengo Seki |
 | [YETUS-72](https://issues.apache.org/jira/browse/YETUS-72) | Unassigned variable ${STARTDIR}? |  Major | Test Patch | Kengo Seki | Kengo Seki |
 | [YETUS-71](https://issues.apache.org/jira/browse/YETUS-71) | releasedocmaker shouldn't use all desc when no release notes field |  Major | Release Doc Maker | Allen Wittenauer | Kengo Seki |
@@ -104,9 +112,11 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YETUS-126](https://issues.apache.org/jira/browse/YETUS-126) | break jdiff doclet into independent artifact |  Major | Audience Annotations | Sean Busbey | Sean Busbey |
+| [YETUS-64](https://issues.apache.org/jira/browse/YETUS-64) | file our DOAP |  Blocker | website and documentation | Sean Busbey | Allen Wittenauer |
 | [YETUS-59](https://issues.apache.org/jira/browse/YETUS-59) | Verify any Cat X runtime dependencies are optional |  Blocker | Test Patch | Sean Busbey | Allen Wittenauer |
 | [YETUS-54](https://issues.apache.org/jira/browse/YETUS-54) | Add Yetus parent POM and top-level POM |  Major | Audience Annotations, build | Andrew Bayer | Sean Busbey |
 | [YETUS-7](https://issues.apache.org/jira/browse/YETUS-7) | update top level LICENSE and NOTICE |  Blocker | website and documentation | Sean Busbey | Allen Wittenauer |
+| [YETUS-6](https://issues.apache.org/jira/browse/YETUS-6) | reorganize repo layout for break from Hadoop code base |  Blocker | build | Sean Busbey | Sean Busbey |
 | [YETUS-3](https://issues.apache.org/jira/browse/YETUS-3) | update audience annotations for move to yetus tlp |  Blocker | Audience Annotations | Sean Busbey | Sean Busbey |
 | [YETUS-1](https://issues.apache.org/jira/browse/YETUS-1) | Migration of repo history from Hadoop |  Blocker | build | Sean Busbey | Sean Busbey |
 

@@ -307,7 +307,7 @@ The output of the "hdfs fetchdt --print" command now includes the token renewer 
 
 * [HDFS-9070](https://issues.apache.org/jira/browse/HDFS-9070) | *Major* | **Allow fsck display pending replica location information for being-written blocks**
 
-**WARNING: No release note provided for this incompatible change.**
+The output of fsck command for being written hdfs files had been changed. When using fsck against being written hdfs files with {{-openforwrite}} and {{-files -blocks -locations}}, the fsck output will include the being written block for replication files or being written block group for erasure code files.
 
 
 ---

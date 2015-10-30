@@ -16,16 +16,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-# Apache Tez  0.6.1 Release Notes
+# Apache Hadoop  2.7.3 Release Notes
 
 These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
-
-
----
-
-* [TEZ-2437](https://issues.apache.org/jira/browse/TEZ-2437) | *Major* | **FilterLinesByWord NPEs when run in Localmode**
-
-**WARNING: No release note provided for this incompatible change.**
 
 
 

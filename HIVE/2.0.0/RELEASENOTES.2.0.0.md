@@ -169,6 +169,13 @@ HIVE-11366: Avoid right leaning tree hashCode depth in ExprNodeDescEqualityWrapp
 
 ---
 
+* [HIVE-11306](https://issues.apache.org/jira/browse/HIVE-11306) | *Major* | **Add a bloom-1 filter for Hybrid MapJoin spills**
+
+Add a bloom-1 filter to reduce Hybrid MapJoin spills
+
+
+---
+
 * [HIVE-11304](https://issues.apache.org/jira/browse/HIVE-11304) | *Major* | **Migrate to Log4j2 from Log4j 1.x**
 
 Migration from Log4j1.x to Log4j2

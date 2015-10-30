@@ -18,7 +18,7 @@
 -->
 # Apache Hive Changelog
 
-## Release 1.2.2 - Unreleased (as of 2015-10-27)
+## Release 1.2.2 - Unreleased (as of 2015-10-30)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -53,6 +53,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HIVE-12083](https://issues.apache.org/jira/browse/HIVE-12083) | HIVE-10965 introduces thrift error if partNames or colNames are empty |  Major | Metastore | Sushanth Sowmyan | Sushanth Sowmyan |
 | [HIVE-12021](https://issues.apache.org/jira/browse/HIVE-12021) | HivePreFilteringRule may introduce wrong common operands |  Major | CBO | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
+| [HIVE-11988](https://issues.apache.org/jira/browse/HIVE-11988) | [hive] security issue with hive & ranger for import table command |  Critical | Hive | Deepak Sharma | Sushanth Sowmyan |
 | [HIVE-11841](https://issues.apache.org/jira/browse/HIVE-11841) | KeyValuesInputMerger creates huge logs |  Major | Logging | Rajesh Balamohan | Rajesh Balamohan |
 | [HIVE-11829](https://issues.apache.org/jira/browse/HIVE-11829) | Create test for HIVE-11216 |  Major | Tests | Vikram Dixit K | Vikram Dixit K |
 | [HIVE-11606](https://issues.apache.org/jira/browse/HIVE-11606) | Bucket map joins fail at hash table construction time |  Major | Tez | Vikram Dixit K | Vikram Dixit K |

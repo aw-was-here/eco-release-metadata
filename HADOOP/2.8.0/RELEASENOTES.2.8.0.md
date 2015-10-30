@@ -311,6 +311,13 @@ Users may need special attention for this change while upgrading to this version
 
 ---
 
+* [HDFS-6200](https://issues.apache.org/jira/browse/HDFS-6200) | *Major* | **Create a separate jar for hdfs-client**
+
+Projects that access HDFS can depend on the hadoop-hdfs-client module instead of the hadoop-hdfs module to avoid pulling in unnecessary dependency.
+
+
+---
+
 * [MAPREDUCE-6427](https://issues.apache.org/jira/browse/MAPREDUCE-6427) | *Minor* | **Fix typo in JobHistoryEventHandler**
 
 There is a typo in the event string "WORKFLOW\_ID" (as "WORKLFOW\_ID").  The branch-2 change will publish both event strings for compatibility with consumers, but the misspelled metric will be removed in trunk.

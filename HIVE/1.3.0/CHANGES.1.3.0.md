@@ -18,7 +18,7 @@
 -->
 # Apache Hive Changelog
 
-## Release 1.3.0 - Unreleased (as of 2015-10-27)
+## Release 1.3.0 - Unreleased (as of 2015-10-30)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -99,9 +99,13 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HIVE-12280](https://issues.apache.org/jira/browse/HIVE-12280) | HiveConnection does not try other HS2 after failure for service discovery |  Major | Hive | Szehon Ho | Szehon Ho |
+| [HIVE-12278](https://issues.apache.org/jira/browse/HIVE-12278) | Skip logging lineage for explain queries |  Minor | . | Jimmy Xiang | Jimmy Xiang |
+| [HIVE-12276](https://issues.apache.org/jira/browse/HIVE-12276) | Fix messages in InvalidTable |  Major | HCatalog, Transactions | Eugene Koifman | Eugene Koifman |
 | [HIVE-12262](https://issues.apache.org/jira/browse/HIVE-12262) | Session log dir cannot be created in some cases |  Major | HiveServer2 | Daniel Dai | Daniel Dai |
 | [HIVE-12261](https://issues.apache.org/jira/browse/HIVE-12261) | schematool version info exit status should depend on compatibility, not equality |  Major | Metastore | Thejas M Nair | Thejas M Nair |
 | [HIVE-12225](https://issues.apache.org/jira/browse/HIVE-12225) | LineageCtx should release all resources at clear |  Major | . | Jimmy Xiang | Jimmy Xiang |
+| [HIVE-12218](https://issues.apache.org/jira/browse/HIVE-12218) | Unable to create a like table for an hbase backed table |  Major | Query Processor | Chaoyu Tang | Chaoyu Tang |
 | [HIVE-12204](https://issues.apache.org/jira/browse/HIVE-12204) | Tez queries stopped running with ApplicationNotRunningException |  Major | Tez | Vikram Dixit K | Vikram Dixit K |
 | [HIVE-12201](https://issues.apache.org/jira/browse/HIVE-12201) | Tez settings need to be shown in set -v output when execution engine is tez. |  Minor | Tez | Vikram Dixit K | Vikram Dixit K |
 | [HIVE-12200](https://issues.apache.org/jira/browse/HIVE-12200) | INSERT INTO table using a select statement w/o a FROM clause fails |  Minor | . | Jimmy Xiang | Jimmy Xiang |
@@ -124,6 +128,7 @@
 | [HIVE-11998](https://issues.apache.org/jira/browse/HIVE-11998) | Improve Compaction process logging |  Major | Transactions | Eugene Koifman | Eugene Koifman |
 | [HIVE-11997](https://issues.apache.org/jira/browse/HIVE-11997) | Add ability to send Compaction Jobs to specific queue |  Major | Transactions | Eugene Koifman | Eugene Koifman |
 | [HIVE-11990](https://issues.apache.org/jira/browse/HIVE-11990) | Loading data inpath from a temporary table dir fails on Windows |  Major | . | Takahiko Saito | Hari Sankar Sivarama Subramaniyan |
+| [HIVE-11988](https://issues.apache.org/jira/browse/HIVE-11988) | [hive] security issue with hive & ranger for import table command |  Critical | Hive | Deepak Sharma | Sushanth Sowmyan |
 | [HIVE-11983](https://issues.apache.org/jira/browse/HIVE-11983) | Hive streaming API uses incorrect logic to assign buckets to incoming records |  Major | HCatalog, Transactions | Roshan Naik | Roshan Naik |
 | [HIVE-11969](https://issues.apache.org/jira/browse/HIVE-11969) | start Tez session in background when starting CLI |  Major | Tez | Sergey Shelukhin | Sergey Shelukhin |
 | [HIVE-11964](https://issues.apache.org/jira/browse/HIVE-11964) | RelOptHiveTable.hiveColStatsMap might contain mismatched column stats |  Major | Query Planning, Statistics | Chaoyu Tang | Chaoyu Tang |
@@ -199,6 +204,7 @@
 | [HIVE-11502](https://issues.apache.org/jira/browse/HIVE-11502) | Map side aggregation is extremely slow |  Major | Logical Optimizer, Physical Optimizer | Yongzhi Chen | Yongzhi Chen |
 | [HIVE-11499](https://issues.apache.org/jira/browse/HIVE-11499) | Datanucleus leaks classloaders when used using embedded metastore with HiveServer2 with UDFs |  Major | HiveServer2, Metastore | Vaibhav Gumashta | Vaibhav Gumashta |
 | [HIVE-11498](https://issues.apache.org/jira/browse/HIVE-11498) | HIVE Authorization v2 should not check permission for dummy entity |  Major | Authorization | Dapeng Sun | Dapeng Sun |
+| [HIVE-11497](https://issues.apache.org/jira/browse/HIVE-11497) | Make sure --orcfiledump utility includes OrcRecordUpdate.AcidStats |  Major | Transactions | Eugene Koifman | Prasanth Jayachandran |
 | [HIVE-11490](https://issues.apache.org/jira/browse/HIVE-11490) | Lazily call ASTNode::toStringTree() after tree modification |  Major | . | Hari Sankar Sivarama Subramaniyan | Hari Sankar Sivarama Subramaniyan |
 | [HIVE-11476](https://issues.apache.org/jira/browse/HIVE-11476) | TypeInfoParser cannot handle column names with spaces in them |  Minor | Types | Gopal V | Gopal V |
 | [HIVE-11472](https://issues.apache.org/jira/browse/HIVE-11472) | ORC StringDirectTreeReader is thrashing the GC due to byte[] allocation per row |  Minor | . | Gopal V | Gopal V |

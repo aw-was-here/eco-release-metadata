@@ -6,8 +6,7 @@ bin=$(cd -P -- "$(dirname -- "${this}")" >/dev/null && pwd -P)
 #
 # This is a good test for Yetus...
 #
-#RDM=${HOME}/Src/drd-github/test/dev-support/releasedocmaker.py
-RDM=${HOME}/Src/apache-git/yetus/dev-support/releasedocmaker.py
+RDM=${HOME}/Src/apache-git/yetus/release-doc-maker/releasedocmaker.py
 
 
 cd ${HOME}/Src/aw-github/eco-release-metadata/YETUS
