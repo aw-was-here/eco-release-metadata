@@ -18,7 +18,7 @@
 -->
 # Apache Oozie Changelog
 
-## Release 4.3.0 - Unreleased (as of 2015-10-30)
+## Release 4.3.0 - Unreleased (as of 2015-11-02)
 
 ### INCOMPATIBLE CHANGES:
 

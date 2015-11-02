@@ -18,7 +18,7 @@
 -->
 # Apache BigTop Changelog
 
-## Release 1.1.0 - Unreleased (as of 2015-10-30)
+## Release 1.1.0 - Unreleased (as of 2015-11-02)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -45,6 +45,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [BIGTOP-2103](https://issues.apache.org/jira/browse/BIGTOP-2103) | [Docker] Move bigtop/slaves image build to gradle |  Major | build, docker | Evans Ye | Evans Ye |
 | [BIGTOP-2091](https://issues.apache.org/jira/browse/BIGTOP-2091) | Build ignite-hadoop assembly with specific version of Spark |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2080](https://issues.apache.org/jira/browse/BIGTOP-2080) | Investigate removing Scala from the toolchain |  Minor | toolchain | RJ Nowling | RJ Nowling |
 | [BIGTOP-2065](https://issues.apache.org/jira/browse/BIGTOP-2065) | Update deployment README.md to reflect on better deployment experience |  Major | documentation | Konstantin Boudnik | Konstantin Boudnik |
@@ -156,6 +157,10 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [BIGTOP-2107](https://issues.apache.org/jira/browse/BIGTOP-2107) | Ignite package still shows website at the incubator |  Major | ignite | Konstantin Boudnik | Olaf Flebbe |
+| [BIGTOP-2105](https://issues.apache.org/jira/browse/BIGTOP-2105) | Puppet recipes improvements after Spark is bumped to 1.5.1 |  Major | deployment | Konstantin Boudnik | Jonathan Kelly |
+| [BIGTOP-2104](https://issues.apache.org/jira/browse/BIGTOP-2104) | Packages upgrade to Spark 1.5.1 |  Major | debian, rpm | Konstantin Boudnik | Jonathan Kelly |
+| [BIGTOP-2097](https://issues.apache.org/jira/browse/BIGTOP-2097) | cleaning up the ignite-service |  Major | debian, ignite | Konstantin Boudnik | Olaf Flebbe |
 | [BIGTOP-2096](https://issues.apache.org/jira/browse/BIGTOP-2096) | ignite-hadoop service should restart upon changes in the package or configs |  Major | deployment, ignite | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2055](https://issues.apache.org/jira/browse/BIGTOP-2055) | Refactor packages.gradle to get rid of excessive data containers; make code cleaner |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2051](https://issues.apache.org/jira/browse/BIGTOP-2051) | Get rid of hair-brain environment vars left after make-based build |  Major | build | Konstantin Boudnik | Konstantin Boudnik |

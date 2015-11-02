@@ -16,6 +16,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
+* Apache Spark v1.6.1
+    * [Changes](1.6.1/CHANGES.1.6.1.html)
+    * [Release Notes](1.6.1/RELEASENOTES.1.6.1.html)
 * Apache Spark v1.6.0
     * [Changes](1.6.0/CHANGES.1.6.0.html)
     * [Release Notes](1.6.0/RELEASENOTES.1.6.0.html)

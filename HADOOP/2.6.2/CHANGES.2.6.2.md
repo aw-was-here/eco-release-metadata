@@ -18,7 +18,7 @@
 -->
 # Apache Hadoop Changelog
 
-## Release 2.6.2 - Unreleased (as of 2015-10-30)
+## Release 2.6.2 - Unreleased (as of 2015-11-02)
 
 ### INCOMPATIBLE CHANGES:
 

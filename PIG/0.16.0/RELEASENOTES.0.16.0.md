@@ -23,6 +23,13 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
+* [PIG-4713](https://issues.apache.org/jira/browse/PIG-4713) | *Major* | **Document Bloom UDF**
+
+PIG-4713 Document Bloom UDF
+
+
+---
+
 * [PIG-4691](https://issues.apache.org/jira/browse/PIG-4691) | *Major* | **[Pig on Tez] Support for whitelisting storefuncs for union optimization**
 
 Union optimization (pig.tez.opt.union=true) in tez uses vertex groups to store output from different vertices into one final output location. If a StoreFunc's OutputCommitter does not honor mapreduce.output.basename or has other issues with multiple vertices writing to the destination location at the same time, then you can disable union optimization just for that StoreFunc. Refer PIG-4649. You can also specify a whitelist of StoreFuncs that are known to work with multiple vertices writing to same location instead of a blacklist.

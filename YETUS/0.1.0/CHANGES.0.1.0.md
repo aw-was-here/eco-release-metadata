@@ -18,7 +18,7 @@
 -->
 # Apache Yetus Changelog
 
-## Release 0.1.0 - Unreleased (as of 2015-10-30)
+## Release 0.1.0 - Unreleased (as of 2015-11-02)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -61,14 +61,19 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [YETUS-153](https://issues.apache.org/jira/browse/YETUS-153) | asflicense plugin does not work if asflicense-rat-excludes option is specified |  Major | Test Patch | Kengo Seki | Kengo Seki |
 | [YETUS-147](https://issues.apache.org/jira/browse/YETUS-147) | Failed test table mixes result from different JDKs |  Major | Test Patch | Marco Zühlke | Marco Zühlke |
+| [YETUS-138](https://issues.apache.org/jira/browse/YETUS-138) | Skipping maven poms that don't package causes testing holes |  Blocker | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-137](https://issues.apache.org/jira/browse/YETUS-137) | hadoop triggers java tests for pure-bash patch |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
+| [YETUS-134](https://issues.apache.org/jira/browse/YETUS-134) | asflicense test should not be always added |  Major | Test Patch | Kengo Seki | Kengo Seki |
+| [YETUS-133](https://issues.apache.org/jira/browse/YETUS-133) | Geode personality does not contain ASF license |  Major | Test Patch | Kengo Seki | Kengo Seki |
 | [YETUS-132](https://issues.apache.org/jira/browse/YETUS-132) | javadoc test does not run if javac test is disabled |  Major | Test Patch | Kengo Seki | Kengo Seki |
 | [YETUS-129](https://issues.apache.org/jira/browse/YETUS-129) | Add Geode personality |  Minor | Test Patch | jun aoki | jun aoki |
 | [YETUS-127](https://issues.apache.org/jira/browse/YETUS-127) | small additional note for test-patch.sh --plugins parameter. |  Trivial | Test Patch | jun aoki | jun aoki |
 | [YETUS-120](https://issues.apache.org/jira/browse/YETUS-120) | Add missing @params to patchfiles.sh |  Trivial | Test Patch, website and documentation | jun aoki | jun aoki |
 | [YETUS-117](https://issues.apache.org/jira/browse/YETUS-117) | Nonexistent function invocation in the nobuild plugin |  Minor | Test Patch | Kengo Seki | Kengo Seki |
 | [YETUS-113](https://issues.apache.org/jira/browse/YETUS-113) | On non-docker reexec, test patch mistakenly uses 'plugins' arg instead of 'user-plugins' |  Critical | Test Patch | Sean Busbey | Sean Busbey |
+| [YETUS-103](https://issues.apache.org/jira/browse/YETUS-103) | Wrong hook name in the bug system support document |  Minor | website and documentation | Kengo Seki | Kengo Seki |
 | [YETUS-102](https://issues.apache.org/jira/browse/YETUS-102) | Some underscores in the documents are not correctly escaped |  Trivial | website and documentation | Kengo Seki | Kengo Seki |
 | [YETUS-97](https://issues.apache.org/jira/browse/YETUS-97) | branch detection cut bug |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-96](https://issues.apache.org/jira/browse/YETUS-96) | multijdkdirs shouldn't show errors on bad input |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
@@ -112,6 +117,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YETUS-126](https://issues.apache.org/jira/browse/YETUS-126) | break jdiff doclet into independent artifact |  Major | Audience Annotations | Sean Busbey | Sean Busbey |
+| [YETUS-124](https://issues.apache.org/jira/browse/YETUS-124) | add exemplar drill personality |  Major | Test Patch | Sean Busbey | Kengo Seki |
 | [YETUS-64](https://issues.apache.org/jira/browse/YETUS-64) | file our DOAP |  Blocker | website and documentation | Sean Busbey | Allen Wittenauer |
 | [YETUS-59](https://issues.apache.org/jira/browse/YETUS-59) | Verify any Cat X runtime dependencies are optional |  Blocker | Test Patch | Sean Busbey | Allen Wittenauer |
 | [YETUS-54](https://issues.apache.org/jira/browse/YETUS-54) | Add Yetus parent POM and top-level POM |  Major | Audience Annotations, build | Andrew Bayer | Sean Busbey |
