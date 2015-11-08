@@ -61,12 +61,19 @@ ${RDM} --project HADOOP --project HDFS --project YARN --project MAPREDUCE \
 big_console_header HBase
 cd ${HOME}/Src/aw-github/eco-release-metadata/HBASE
 ${RDM} --project HBASE --projecttitle "Apache HBase" \
-        --range --version 1.0.3 --version 2.0.0 --index
+        --range --version 1.0.3 --version 1.0.4
+${RDM} --project HBASE --projecttitle "Apache HBase" \
+        --range --version 1.1.1 --version 2.0.0 --index
+
 
 big_console_header Hive
 cd ${HOME}/Src/aw-github/eco-release-metadata/HIVE
 ${RDM} --project HIVE --projecttitle "Apache Hive" \
-        --range --version 1.1.0 --version 2.0.0 --index
+        --range --version 1.1.0 --version 1.1.2
+${RDM} --project HIVE --projecttitle "Apache Hive" \
+        --range --version 1.2.2 --version 1.2.5
+${RDM} --project HIVE --projecttitle "Apache Hive" \
+        --range --version 1.3.0 --version 2.0.0 --index
 
 big_console_header Kafka
 cd ${HOME}/Src/aw-github/eco-release-metadata/KAFKA
@@ -86,7 +93,7 @@ ${RDM} --project ORC --projecttitle "Apache Orc" \
 big_console_header Pig
 cd ${HOME}/Src/aw-github/eco-release-metadata/PIG
 ${RDM} --project PIG --projecttitle "Apache Pig" \
-        --range --version 0.15.0 --version 0.17.0 --index
+        --range --version 0.15.1 --version 0.17.0 --index
 
 # Spark is a mess. It effectively has like 5 branches in
 # active development at a time. "Released" versions
@@ -97,15 +104,22 @@ cd ${HOME}/Src/aw-github/eco-release-metadata/SPARK
 ${RDM} --project SPARK --projecttitle "Apache Spark" \
         --range --version 1.2.3 --version 2+ --index
 
+
 big_console_header Tez
 cd ${HOME}/Src/aw-github/eco-release-metadata/TEZ
 ${RDM} --project TEZ --projecttitle "Apache Tez" \
-        --range --version 0.5.0 --version 1.0.0 --index
+        --range --version 0.5.5 --version 0.5.9
+${RDM} --project TEZ --projecttitle "Apache Tez" \
+        --range --version 0.6.3 --version 0.6.9
+${RDM} --project TEZ --projecttitle "Apache Tez" \
+        --range --version 0.7.1 --version 0.7.9
+${RDM} --project TEZ --projecttitle "Apache Tez" \
+        --range --version 0.8.2 --version 1.0.0 --index
 
 big_console_header Zookeeper
 cd ${HOME}/Src/aw-github/eco-release-metadata/ZOOKEEPER
 ${RDM} --project ZOOKEEPER --projecttitle "Apache Zookeeper" \
-        --range --version 3.5.0 --version 4.0.0 --index
+        --range --version 3.5.2 --version 4.0.0 --index
 
 
 d=$(date -u "+%Y-%m-%d %H:%m")

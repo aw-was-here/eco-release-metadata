@@ -473,6 +473,7 @@
 | [SPARK-6164](https://issues.apache.org/jira/browse/SPARK-6164) | CrossValidatorModel should keep stats from fitting |  Minor | ML | Joseph K. Bradley | Leah McGuire |
 | [SPARK-6154](https://issues.apache.org/jira/browse/SPARK-6154) | Support Kafka, JDBC in Scala 2.11 |  Major | Build | Jianshi Huang | Iulian Dragos |
 | [SPARK-6126](https://issues.apache.org/jira/browse/SPARK-6126) | Support UDTs in JSON |  Major | SQL | Joseph K. Bradley | Nathan Howell |
+| [SPARK-6001](https://issues.apache.org/jira/browse/SPARK-6001) | K-Means clusterer should return the assignments of input points to clusters |  Minor | MLlib | Derrick Burns | Yu Ishikawa |
 | [SPARK-5768](https://issues.apache.org/jira/browse/SPARK-5768) | Spark UI Shows incorrect memory under Yarn |  Trivial | Web UI | Al M | Rekha Joshi |
 | [SPARK-5567](https://issues.apache.org/jira/browse/SPARK-5567) | Add prediction methods to LDA |  Major | MLlib | Joseph K. Bradley | Feynman Liang |
 | [SPARK-5561](https://issues.apache.org/jira/browse/SPARK-5561) | Generalize PeriodicGraphCheckpointer for RDDs |  Major | GraphX, MLlib, Spark Core | Joseph K. Bradley | Joseph K. Bradley |

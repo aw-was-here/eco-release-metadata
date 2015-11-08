@@ -49,6 +49,7 @@
 | [KAFKA-2767](https://issues.apache.org/jira/browse/KAFKA-2767) | Upgrade ZkClient version to 0.7 |  Blocker | zkclient | Flavio Junqueira | Flavio Junqueira |
 | [KAFKA-2753](https://issues.apache.org/jira/browse/KAFKA-2753) | Improve SyncGroup error handling in AbstractCoordinator |  Major | . | Jason Gustafson | Jason Gustafson |
 | [KAFKA-2740](https://issues.apache.org/jira/browse/KAFKA-2740) | Convert Windows bin scripts from CRLF to LF line encodings |  Minor | core | Michael Noll |  |
+| [KAFKA-2723](https://issues.apache.org/jira/browse/KAFKA-2723) | Standardize new consumer exceptions |  Blocker | . | Jason Gustafson | Jason Gustafson |
 | [KAFKA-2715](https://issues.apache.org/jira/browse/KAFKA-2715) | Remove the previous system test folder |  Major | . | Geoff Anderson | Geoff Anderson |
 | [KAFKA-2687](https://issues.apache.org/jira/browse/KAFKA-2687) | Add support for ListGroups and DescribeGroup APIs |  Blocker | . | Jason Gustafson | Jason Gustafson |
 | [KAFKA-2671](https://issues.apache.org/jira/browse/KAFKA-2671) | Enable starting Kafka server with a Properties object |  Major | core | Ashish K Singh | Ashish K Singh |
