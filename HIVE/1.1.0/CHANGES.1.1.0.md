@@ -382,7 +382,7 @@
 | [HIVE-9431](https://issues.apache.org/jira/browse/HIVE-9431) | CBO (Calcite Return Path): Removing AST from ParseContext |  Major | CBO | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
 | [HIVE-9428](https://issues.apache.org/jira/browse/HIVE-9428) | LocalSparkJobStatus may return failed job as successful [Spark Branch] |  Minor | Spark | Rui Li | Rui Li |
 | [HIVE-9426](https://issues.apache.org/jira/browse/HIVE-9426) | Merge trunk to spark 1/21/2015 |  Major | Spark | Szehon Ho | Szehon Ho |
-| [HIVE-9425](https://issues.apache.org/jira/browse/HIVE-9425) | Add jar/file doesn't work with yarn-cluster mode [Spark Branch] |  Major | spark-branch | Xiaomin Zhang | Rui Li |
+| [HIVE-9425](https://issues.apache.org/jira/browse/HIVE-9425) | Add jar/file doesn't work with yarn-cluster mode [Spark Branch] |  Major | Spark, spark-branch | Xiaomin Zhang | Rui Li |
 | [HIVE-9410](https://issues.apache.org/jira/browse/HIVE-9410) | ClassNotFoundException occurs during hive query case execution with UDF defined [Spark Branch] |  Major | Spark | Xin Hao | Chengxiang Li |
 | [HIVE-9409](https://issues.apache.org/jira/browse/HIVE-9409) | Avoid ser/de loggers as logging framework can be incompatible on driver and workers |  Major | Spark | Xin Hao | Rui Li |
 | [HIVE-9395](https://issues.apache.org/jira/browse/HIVE-9395) | Make WAIT\_SUBMISSION\_TIMEOUT configuable and check timeout in SparkJobMonitor level.[Spark Branch] |  Major | Spark | Chengxiang Li | Chengxiang Li |
@@ -617,7 +617,7 @@
 | [HIVE-7810](https://issues.apache.org/jira/browse/HIVE-7810) | Insert overwrite table query has strange behavior when set hive.optimize.union.remove=true [Spark Branch] |  Major | Spark | Na Yang | Na Yang |
 | [HIVE-7794](https://issues.apache.org/jira/browse/HIVE-7794) | Enable tests on Spark branch (4) [Sparch Branch] |  Major | . | Brock Noland | Chinna Rao Lalam |
 | [HIVE-7793](https://issues.apache.org/jira/browse/HIVE-7793) | Enable tests on Spark branch (3) [Sparch Branch] |  Major | . | Brock Noland | Chengxiang Li |
-| [HIVE-7792](https://issues.apache.org/jira/browse/HIVE-7792) | Enable tests on Spark branch (2) [Sparch Branch] |  Major | . | Brock Noland | Venki Korukanti |
+| [HIVE-7792](https://issues.apache.org/jira/browse/HIVE-7792) | Enable tests on Spark branch (2) [Sparch Branch] |  Major | Spark | Brock Noland | Venki Korukanti |
 | [HIVE-7791](https://issues.apache.org/jira/browse/HIVE-7791) | Enable tests on Spark branch (1) [Sparch Branch] |  Major | Spark | Brock Noland | Brock Noland |
 | [HIVE-7781](https://issues.apache.org/jira/browse/HIVE-7781) | Enable windowing and analytic function qtests [Spark Branch] |  Major | Spark | Chengxiang Li | Chengxiang Li |
 | [HIVE-7776](https://issues.apache.org/jira/browse/HIVE-7776) | enable sample10.q.[Spark Branch] |  Major | Spark | Chengxiang Li | Chengxiang Li |

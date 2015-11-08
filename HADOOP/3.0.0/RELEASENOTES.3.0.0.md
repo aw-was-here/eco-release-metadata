@@ -312,6 +312,13 @@ The output of fsck command for being written hdfs files had been changed. When u
 
 ---
 
+* [HDFS-9057](https://issues.apache.org/jira/browse/HDFS-9057) | *Major* | **allow/disallow snapshots via webhdfs**
+
+Snapshots can be allowed/disallowed on a directory via WebHdfs from users with superuser privilege.
+
+
+---
+
 * [HDFS-8981](https://issues.apache.org/jira/browse/HDFS-8981) | *Minor* | **Adding revision to data node jmx getVersion() method**
 
 getSoftwareVersion method would replace original getVersion method, which returns the version string.
@@ -532,7 +539,15 @@ Fix a typo. If a configuration is set through program, the source of the configu
 
 * [MAPREDUCE-5785](https://issues.apache.org/jira/browse/MAPREDUCE-5785) | *Major* | **Derive heap size or mapreduce.\*.memory.mb automatically**
 
-**WARNING: No release note provided for this incompatible change.**
+The memory values for mapreduce.map/reduce.memory.mb keys, if left to their default values of -1, will now be automatically inferred from the heap size value system property (-Xmx) specified for mapreduce.map/reduce.java.opts keys.
+
+The converse is also done, i.e. if mapreduce.map/reduce.memory.mb values are specified, but no -Xmx is supplied for mapreduce.map/reduce.java.opts keys, then the -Xmx value will be derived from the former's value.
+
+If neither is specified, then a default value of 1024 MB gets used.
+
+For both these conversions, a scaling factor specified by property mapreduce.job.heap.memory-mb.ratio is used, to account for overheads between heap usage vs. actual physical memory usage.
+
+Existing configs or job code that already specify both the set of properties explicitly would not be affected by this inferring change.
 
 
 ---

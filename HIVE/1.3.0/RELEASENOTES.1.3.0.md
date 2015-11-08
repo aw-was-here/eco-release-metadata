@@ -23,6 +23,20 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
+* [HIVE-12315](https://issues.apache.org/jira/browse/HIVE-12315) | *Critical* | **vectorization\_short\_regress.q has a wrong result issue for a double calculation**
+
+HIVE-12315: Fix Vectorized double divide by zero (Gopal V, reviewed by Matt McCline)
+
+
+---
+
+* [HIVE-12202](https://issues.apache.org/jira/browse/HIVE-12202) | *Major* | **NPE thrown when reading legacy ACID delta files**
+
+Reading legacy ACID formats (prior to 1.3.0) no longer results in an NPE.
+
+
+---
+
 * [HIVE-12090](https://issues.apache.org/jira/browse/HIVE-12090) | *Major* | **Dead-code: Vectorized map-join murmur hash is run twice**
 
 Dead-code: Vectorized map-join runs Murmurhash twice

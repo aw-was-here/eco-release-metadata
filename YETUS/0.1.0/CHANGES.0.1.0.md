@@ -18,7 +18,7 @@
 -->
 # Apache Yetus Changelog
 
-## Release 0.1.0 - Unreleased (as of 2015-11-02)
+## Release 0.1.0 - Unreleased (as of 2015-11-08)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -48,6 +48,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [YETUS-161](https://issues.apache.org/jira/browse/YETUS-161) | fix spelling error in maven plugin |  Trivial | Test Patch | Tony Kurc | Tony Kurc |
 | [YETUS-143](https://issues.apache.org/jira/browse/YETUS-143) | add support for JMeter |  Minor | Test Patch | Kengo Seki | Kengo Seki |
 | [YETUS-141](https://issues.apache.org/jira/browse/YETUS-141) | make module for jdiff doclet optional |  Major | Audience Annotations | Sean Busbey | Sean Busbey |
 | [YETUS-128](https://issues.apache.org/jira/browse/YETUS-128) | Jira plugin should be configurable to accept issue status other than 'Patch Available' |  Major | Test Patch | Kengo Seki | Kengo Seki |
@@ -63,6 +64,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YETUS-153](https://issues.apache.org/jira/browse/YETUS-153) | asflicense plugin does not work if asflicense-rat-excludes option is specified |  Major | Test Patch | Kengo Seki | Kengo Seki |
 | [YETUS-147](https://issues.apache.org/jira/browse/YETUS-147) | Failed test table mixes result from different JDKs |  Major | Test Patch | Marco Zühlke | Marco Zühlke |
+| [YETUS-142](https://issues.apache.org/jira/browse/YETUS-142) | compile gets limited to 'warning' in generic log handler |  Blocker | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-138](https://issues.apache.org/jira/browse/YETUS-138) | Skipping maven poms that don't package causes testing holes |  Blocker | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-137](https://issues.apache.org/jira/browse/YETUS-137) | hadoop triggers java tests for pure-bash patch |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-134](https://issues.apache.org/jira/browse/YETUS-134) | asflicense test should not be always added |  Major | Test Patch | Kengo Seki | Kengo Seki |
@@ -118,6 +120,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YETUS-126](https://issues.apache.org/jira/browse/YETUS-126) | break jdiff doclet into independent artifact |  Major | Audience Annotations | Sean Busbey | Sean Busbey |
 | [YETUS-124](https://issues.apache.org/jira/browse/YETUS-124) | add exemplar drill personality |  Major | Test Patch | Sean Busbey | Kengo Seki |
+| [YETUS-116](https://issues.apache.org/jira/browse/YETUS-116) | add checkstyle option for maven goal |  Minor | Test Patch | Tony Kurc | Tony Kurc |
 | [YETUS-64](https://issues.apache.org/jira/browse/YETUS-64) | file our DOAP |  Blocker | website and documentation | Sean Busbey | Allen Wittenauer |
 | [YETUS-59](https://issues.apache.org/jira/browse/YETUS-59) | Verify any Cat X runtime dependencies are optional |  Blocker | Test Patch | Sean Busbey | Allen Wittenauer |
 | [YETUS-54](https://issues.apache.org/jira/browse/YETUS-54) | Add Yetus parent POM and top-level POM |  Major | Audience Annotations, build | Andrew Bayer | Sean Busbey |

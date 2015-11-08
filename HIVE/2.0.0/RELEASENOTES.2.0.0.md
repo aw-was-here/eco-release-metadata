@@ -23,9 +23,44 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
+* [HIVE-12315](https://issues.apache.org/jira/browse/HIVE-12315) | *Critical* | **vectorization\_short\_regress.q has a wrong result issue for a double calculation**
+
+HIVE-12315: Fix Vectorized double divide by zero (Gopal V, reviewed by Matt McCline)
+
+
+---
+
+* [HIVE-12288](https://issues.apache.org/jira/browse/HIVE-12288) | *Major* | **Extend HIVE-11306 changes to apply to Native vectorized map-joins**
+
+Bloom-1 filters for Vectorized map-joins
+
+
+---
+
+* [HIVE-12281](https://issues.apache.org/jira/browse/HIVE-12281) | *Minor* | **Vectorized MapJoin - use Operator::isLogDebugEnabled**
+
+HIVE-12281: Vectorized MapJoin - use Operator::isLogDebugEnabled (Gopal V, reviewed by Matt McCline)
+
+
+---
+
+* [HIVE-12238](https://issues.apache.org/jira/browse/HIVE-12238) | *Major* | **Vectorization: Thread-safety errors in VectorUDFDate**
+
+HIVE-12238: Vectorization: Thread-safety errors in VectorUDFDate (Gopal V, reviewed by Gunther Hagleitner)
+
+
+---
+
 * [HIVE-12224](https://issues.apache.org/jira/browse/HIVE-12224) | *Major* | **Remove HOLD\_DDLTIME**
 
 **WARNING: No release note provided for this incompatible change.**
+
+
+---
+
+* [HIVE-12209](https://issues.apache.org/jira/browse/HIVE-12209) | *Major* | **Vectorized simple CASE expressions with nulls**
+
+Vectorize simple UDFs with null arguments
 
 
 ---

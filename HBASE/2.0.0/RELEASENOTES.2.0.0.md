@@ -23,6 +23,21 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
+* [HBASE-14700](https://issues.apache.org/jira/browse/HBASE-14700) | *Major* | **Support a "permissive" mode for secure clusters to allow "simple" auth clients**
+
+Secure HBase now supports a permissive mode to allow mixed secure and insecure clients.  This allows clients to be incrementally migrated over to a secure configuration.  To enable clients to continue to connect using SIMPLE authentication when the cluster is configured for security, set "hbase.ipc.server.fallback-to-simple-auth-allowed" equal to "true" in hbase-site.xml.  NOTE: This setting should ONLY be used as a temporary measure while converting clients over to secure authentication.  It MUST BE DISABLED for secure operation.
+
+
+---
+
+* [HBASE-14605](https://issues.apache.org/jira/browse/HBASE-14605) | *Major* | **Split fails due to 'No valid credentials' error when SecureBulkLoadEndpoint#start tries to access hdfs**
+
+When split is requested by non-super user, split related notifications for Coprocessor are executed using the login of the request user.
+Previously the notifications were carried out as super user.
+
+
+---
+
 * [HBASE-14544](https://issues.apache.org/jira/browse/HBASE-14544) | *Major* | **Allow HConnectionImpl to not refresh the dns on errors**
 
 By setting hbase.resolve.hostnames.on.failure to false you can reduce the number of dns name resolutions that a client will do. However if machines leave and come back with different ip's the changes will not be noticed by the clients. So only set hbase.resolve.hostnames.on.failure to false if your cluster dns is not changing while clients are connected.
@@ -960,6 +975,13 @@ See [the HDFS docs on storage policy\|http://hadoop.apache.org/docs/r2.6.0/hadoo
 Auditing of visibility label administration.
 
 Administrative actions on visibility labels, such as creation of a label or changing the set of labels a user or group may access, are now sent to the audit log. The audit messages should be similar to those already tracked by the access controller.
+
+
+---
+
+* [HBASE-12822](https://issues.apache.org/jira/browse/HBASE-12822) | *Minor* | **Option for Unloading regions through region\_mover.rb without Acknowledging**
+
+Incorporated in HBASE-13014.
 
 
 ---
@@ -2041,6 +2063,13 @@ Add support for codec and cipher in HFilePerformanceEvaluation
 
 - The additional JAR files specified with HBASE\_CLASSPATH are appended to the system JARs.
 - The additional JAR files specified with HBASE\_CLASSPATH\_PREFIX are prefixed to the system JARs.
+
+
+---
+
+* [HBASE-9049](https://issues.apache.org/jira/browse/HBASE-9049) | *Major* | **Generalize ServerCallable creation to support custom callables**
+
+Support custom RpcRetryingCaller via a configurable factory.
 
 
 ---

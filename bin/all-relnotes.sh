@@ -25,7 +25,7 @@ ${RDM} --project BIGTOP --projecttitle "Apache BigTop" \
 cd ${HOME}/Src/aw-github/eco-release-metadata/HADOOP
 ${RDM} --project HADOOP --project HDFS --project YARN --project MAPREDUCE \
         --projecttitle "Apache Hadoop" \
-        --range --version 2.6.1 --version 3.0.0 --index
+        --range --version 2.6.3 --version 3.0.0 --index
 
 cd ${HOME}/Src/aw-github/eco-release-metadata/HBASE
 ${RDM} --project HBASE --projecttitle "Apache HBase" \

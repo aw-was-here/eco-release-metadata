@@ -18,7 +18,7 @@
 -->
 # Apache BigTop Changelog
 
-## Release 1.1.0 - Unreleased (as of 2015-11-02)
+## Release 1.1.0 - Unreleased (as of 2015-11-08)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -61,6 +61,7 @@
 | [BIGTOP-1964](https://issues.apache.org/jira/browse/BIGTOP-1964) | Upgrade Tez version to 0.6.2 |  Major | . | YoungWoo Kim | YoungWoo Kim |
 | [BIGTOP-1955](https://issues.apache.org/jira/browse/BIGTOP-1955) | Upgrade Ignite Hadoop component version from 1.2.0 to 1.3.0 |  Major | build | Ivan Veselovsky | Ivan Veselovsky |
 | [BIGTOP-1943](https://issues.apache.org/jira/browse/BIGTOP-1943) | Upgrade SCALA version to 2.10.4 |  Major | toolchain | YoungWoo Kim | RJ Nowling |
+| [BIGTOP-1942](https://issues.apache.org/jira/browse/BIGTOP-1942) | Upgrade Phoenix to 4.6.0 |  Major | build | YoungWoo Kim | Jonathan Kelly |
 | [BIGTOP-1941](https://issues.apache.org/jira/browse/BIGTOP-1941) | Upgrade Phoenix to 4.4.0 |  Major | . | YoungWoo Kim | YoungWoo Kim |
 | [BIGTOP-1923](https://issues.apache.org/jira/browse/BIGTOP-1923) | Bump Ignite to 1.2 with major fixes |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-1921](https://issues.apache.org/jira/browse/BIGTOP-1921) | Puppet recipe for YCSB |  Minor | deployment | YoungWoo Kim | YoungWoo Kim |
@@ -70,6 +71,7 @@
 | [BIGTOP-1908](https://issues.apache.org/jira/browse/BIGTOP-1908) | Move bigtop-deploy's dockerfiles into a centralized docker place |  Major | build, docker | Evans Ye | Evans Ye |
 | [BIGTOP-1888](https://issues.apache.org/jira/browse/BIGTOP-1888) | Upgrade Flume to 1.6.0 |  Minor | . | YoungWoo Kim | YoungWoo Kim |
 | [BIGTOP-1809](https://issues.apache.org/jira/browse/BIGTOP-1809) | Remove gridgain-hadoop component once ignite-hadoop gets added |  Critical | build | Ivan Veselovsky | Ivan Veselovsky |
+| [BIGTOP-1309](https://issues.apache.org/jira/browse/BIGTOP-1309) | Gradle environment overhaul |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-1126](https://issues.apache.org/jira/browse/BIGTOP-1126) | Add Hama to Bigtop |  Major | . | Edward J. Yoon | Minho Kim |
 
 
@@ -77,6 +79,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [BIGTOP-2114](https://issues.apache.org/jira/browse/BIGTOP-2114) | hive is broken after BIGTOP-2104 |  Critical | build | Sergey Soldatov | Sergey Soldatov |
 | [BIGTOP-2098](https://issues.apache.org/jira/browse/BIGTOP-2098) | Update bigtop\_deploy to current state of puppetize.sh |  Major | deployment | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-2094](https://issues.apache.org/jira/browse/BIGTOP-2094) | ignite-hadoop fails to deploy after BIGTOP-2084 |  Major | deployment | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2090](https://issues.apache.org/jira/browse/BIGTOP-2090) | Remove left-over junk after BIGTOP-2053 |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
@@ -102,9 +105,11 @@
 | [BIGTOP-2043](https://issues.apache.org/jira/browse/BIGTOP-2043) | Kafka source incorrect |  Major | build | Tom Zeng | Tom Zeng |
 | [BIGTOP-2042](https://issues.apache.org/jira/browse/BIGTOP-2042) | Tachyon name is incorrect |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2041](https://issues.apache.org/jira/browse/BIGTOP-2041) | Spark pkg name is incorrect |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
+| [BIGTOP-2040](https://issues.apache.org/jira/browse/BIGTOP-2040) | Mahout can not be build with Maven 3.0.5 - build containers need to be upgraded |  Major | build | Konstantin Boudnik | Evans Ye |
 | [BIGTOP-2039](https://issues.apache.org/jira/browse/BIGTOP-2039) | Solr download URL is incorrect |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2038](https://issues.apache.org/jira/browse/BIGTOP-2038) | Pig destination name incorrect |  Major | pig | Tom Zeng | Tom Zeng |
 | [BIGTOP-2037](https://issues.apache.org/jira/browse/BIGTOP-2037) | BIGTOP-1746 Added Files Without Apache License Headers |  Major | deployment | RJ Nowling | Kengo Seki |
+| [BIGTOP-2028](https://issues.apache.org/jira/browse/BIGTOP-2028) | Enhance puppet config of zookeeper to support kerberized clients |  Major | deployment | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-2027](https://issues.apache.org/jira/browse/BIGTOP-2027) | Bump gradle version, the wrapper to 2.7 |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2026](https://issues.apache.org/jira/browse/BIGTOP-2026) | Phoenix build defines HBASE\_VERSION in two different places. |  Major | debian, rpm | Konstantin Boudnik | Andrew Purtell |
 | [BIGTOP-2019](https://issues.apache.org/jira/browse/BIGTOP-2019) | BigPetStore Spark isn't compiling due to changes in SQL API |  Major | blueprints | RJ Nowling | RJ Nowling |
@@ -135,6 +140,7 @@
 | [BIGTOP-1916](https://issues.apache.org/jira/browse/BIGTOP-1916) | Update Website for 1.0 |  Major | website | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-1913](https://issues.apache.org/jira/browse/BIGTOP-1913) | Update hive to 1.2.1 |  Major | hive | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-1909](https://issues.apache.org/jira/browse/BIGTOP-1909) | Include compiled .mo files for HUE i18n |  Trivial | hue | YoungWoo Kim | YoungWoo Kim |
+| [BIGTOP-1905](https://issues.apache.org/jira/browse/BIGTOP-1905) | Update Hue build for the upcoming 3.9 release |  Major | hue | Erick Tryzelaar | Erick Tryzelaar |
 | [BIGTOP-1902](https://issues.apache.org/jira/browse/BIGTOP-1902) | typo in bigtop-deploy/vm/vagrant-puppet-vm/vagrantconfig.yaml |  Trivial | deployment | Minying Lu | Olaf Flebbe |
 | [BIGTOP-1896](https://issues.apache.org/jira/browse/BIGTOP-1896) | bigtop\_toolchain broken bei ant update |  Major | build | Olaf Flebbe | Evans Ye |
 | [BIGTOP-1894](https://issues.apache.org/jira/browse/BIGTOP-1894) | Snappy development packages are missing from bigtop\_toolchain |  Major | build | Olaf Flebbe | Olaf Flebbe |
@@ -162,6 +168,7 @@
 | [BIGTOP-2104](https://issues.apache.org/jira/browse/BIGTOP-2104) | Packages upgrade to Spark 1.5.1 |  Major | debian, rpm | Konstantin Boudnik | Jonathan Kelly |
 | [BIGTOP-2097](https://issues.apache.org/jira/browse/BIGTOP-2097) | cleaning up the ignite-service |  Major | debian, ignite | Konstantin Boudnik | Olaf Flebbe |
 | [BIGTOP-2096](https://issues.apache.org/jira/browse/BIGTOP-2096) | ignite-hadoop service should restart upon changes in the package or configs |  Major | deployment, ignite | Konstantin Boudnik | Konstantin Boudnik |
+| [BIGTOP-2087](https://issues.apache.org/jira/browse/BIGTOP-2087) | The 1.0 release package artifacts on Bigtop jenkins is broken due to CI transition |  Critical | build | Evans Ye | Konstantin Boudnik |
 | [BIGTOP-2055](https://issues.apache.org/jira/browse/BIGTOP-2055) | Refactor packages.gradle to get rid of excessive data containers; make code cleaner |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2051](https://issues.apache.org/jira/browse/BIGTOP-2051) | Get rid of hair-brain environment vars left after make-based build |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2033](https://issues.apache.org/jira/browse/BIGTOP-2033) | Build order of the stack is broken |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
@@ -181,6 +188,7 @@
 | [BIGTOP-1973](https://issues.apache.org/jira/browse/BIGTOP-1973) | Add new tests for HDFS Balancer functionality |  Minor | tests | Venkata Srinivasa Rao Kolla | Venkata Srinivasa Rao Kolla |
 | [BIGTOP-1965](https://issues.apache.org/jira/browse/BIGTOP-1965) | Remove the link to 0.8.0 from the website |  Major | website | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-1947](https://issues.apache.org/jira/browse/BIGTOP-1947) | Fix RAT plugin configuration to be able to RAT-validate all published artifacts |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
+| [BIGTOP-1901](https://issues.apache.org/jira/browse/BIGTOP-1901) | Provide bigtop/deploy images on dockerhub for CI and users to consume docker provisioner |  Major | deployment | Evans Ye | Evans Ye |
 | [BIGTOP-1899](https://issues.apache.org/jira/browse/BIGTOP-1899) | Migrate CI master to EC2 instance donated by Amazon EMR team |  Major | ci, general | Evans Ye | Evans Ye |
 | [BIGTOP-1898](https://issues.apache.org/jira/browse/BIGTOP-1898) | Dockerfiles to build bigtop/puppet docker images for 1.0 release |  Major | . | Evans Ye | Evans Ye |
 | [BIGTOP-1499](https://issues.apache.org/jira/browse/BIGTOP-1499) | released source code  is not same with source code in branch |  Blocker | build | Guo Ruijing | Konstantin Boudnik |
