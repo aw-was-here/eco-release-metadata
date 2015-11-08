@@ -83,7 +83,7 @@ ${RDM} --project KAFKA --projecttitle "Apache Kafka" \
 big_console_header Oozie
 cd ${HOME}/Src/aw-github/eco-release-metadata/OOZIE
 ${RDM} --project OOZIE --projecttitle "Apache Oozie" \
-        --range --version 4.2.0 --version 5.0.0 --index
+        --range --version 4.3.0 --version 5.0.0 --index
 
 big_console_header Orc
 cd ${HOME}/Src/aw-github/eco-release-metadata/ORC
@@ -102,8 +102,15 @@ ${RDM} --project PIG --projecttitle "Apache Pig" \
 big_console_header Spark
 cd ${HOME}/Src/aw-github/eco-release-metadata/SPARK
 ${RDM} --project SPARK --projecttitle "Apache Spark" \
-        --range --version 1.2.3 --version 2+ --index
-
+        --range --version 1.2.3 --version 1.2.9
+${RDM} --project SPARK --projecttitle "Apache Spark" \
+        --range --version 1.3.2 --version 1.3.9
+${RDM} --project SPARK --projecttitle "Apache Spark" \
+        --range --version 1.4.2 --version 1.4.9
+${RDM} --project SPARK --projecttitle "Apache Spark" \
+        --range --version 1.5.2 --version 1.5.9
+${RDM} --project SPARK --projecttitle "Apache Spark" \
+        --range --version 1.6.0 --version 2+ --index
 
 big_console_header Tez
 cd ${HOME}/Src/aw-github/eco-release-metadata/TEZ

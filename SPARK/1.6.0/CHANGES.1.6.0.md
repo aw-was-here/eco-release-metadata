@@ -534,6 +534,7 @@
 | [SPARK-10116](https://issues.apache.org/jira/browse/SPARK-10116) | XORShiftRandom should generate uniform seeds |  Minor | Spark Core | Imran Rashid | Imran Rashid |
 | [SPARK-10082](https://issues.apache.org/jira/browse/SPARK-10082) | Validate i, j in apply (Dense and Sparse Matrices) |  Minor | MLlib | Manoj Kumar | Manoj Kumar |
 | [SPARK-10058](https://issues.apache.org/jira/browse/SPARK-10058) | Flaky test: HeartbeatReceiverSuite: normal heartbeat |  Critical | Spark Core, Tests | Davies Liu | Shixiong Zhu |
+| [SPARK-10046](https://issues.apache.org/jira/browse/SPARK-10046) | Hive warehouse dir not set in current directory when not providing hive-site.xml |  Major | Spark Core, SQL | Antonio Murgia | Xin Wu |
 | [SPARK-10034](https://issues.apache.org/jira/browse/SPARK-10034) | add regression test for Sort on Aggregate |  Major | SQL | Wenchen Fan | Wenchen Fan |
 | [SPARK-10004](https://issues.apache.org/jira/browse/SPARK-10004) | Shuffle service should make sure applications are allowed to read shuffle data |  Critical | Shuffle | Marcelo Vanzin | Marcelo Vanzin |
 | [SPARK-10003](https://issues.apache.org/jira/browse/SPARK-10003) | Improve readability of DAGScheduler |  Major | Scheduler | Andrew Or | Andrew Or |
