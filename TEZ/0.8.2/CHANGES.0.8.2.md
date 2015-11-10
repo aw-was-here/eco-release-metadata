@@ -18,7 +18,7 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.8.2 - Unreleased (as of 2015-11-08)
+## Release 0.8.2 - Unreleased (as of 2015-11-10)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -44,6 +44,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [TEZ-2886](https://issues.apache.org/jira/browse/TEZ-2886) | Ability to merge AM credentials with DAG credentials |  Major | . | Jason Lowe | Jason Lowe |
+| [TEZ-2879](https://issues.apache.org/jira/browse/TEZ-2879) | While grouping splits, allow an alternate list of preferred locations to be provided per split |  Major | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-2244](https://issues.apache.org/jira/browse/TEZ-2244) | PipelinedSorter: Progressive allocation for sort-buffers |  Major | . | Gopal V | Rajesh Balamohan |
 | [TEZ-2096](https://issues.apache.org/jira/browse/TEZ-2096) | TEZ-UI : Add link to view AM log of finished & running apps |  Major | UI | Rajesh Balamohan | Jonathan Eagles |
 | [TEZ-1692](https://issues.apache.org/jira/browse/TEZ-1692) | Reduce code duplication between TezMapredSplitsGrouper and TezMapreduceSplitsGrouper |  Major | . | Siddharth Seth | Siddharth Seth |

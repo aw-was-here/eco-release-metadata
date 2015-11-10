@@ -18,7 +18,7 @@
 -->
 # Apache Hive Changelog
 
-## Release 2.0.0 - Unreleased (as of 2015-11-08)
+## Release 2.0.0 - Unreleased (as of 2015-11-10)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -159,15 +159,19 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HIVE-12364](https://issues.apache.org/jira/browse/HIVE-12364) | Distcp job fails when run under Tez |  Critical | Tez | Prasanth Jayachandran | Prasanth Jayachandran |
 | [HIVE-12349](https://issues.apache.org/jira/browse/HIVE-12349) | NPE in ORC SARG for IS NULL queries on Timestamp and Date columns |  Major | . | Prasanth Jayachandran | Prasanth Jayachandran |
 | [HIVE-12346](https://issues.apache.org/jira/browse/HIVE-12346) | Internally used variables in HiveConf should not be settable via command |  Major | Configuration | Chaoyu Tang | Chaoyu Tang |
 | [HIVE-12345](https://issues.apache.org/jira/browse/HIVE-12345) | Followup for HIVE-9013 : Hidden conf vars still visible through beeline |  Major | . | Sushanth Sowmyan | Sushanth Sowmyan |
 | [HIVE-12344](https://issues.apache.org/jira/browse/HIVE-12344) | Wrong types inferred for SemiJoin generation in CBO |  Major | CBO | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
 | [HIVE-12340](https://issues.apache.org/jira/browse/HIVE-12340) | ExecDriver.execute() unnecessarily sets METASTOREPWD to HIVE |  Major | . | Hari Sankar Sivarama Subramaniyan | Hari Sankar Sivarama Subramaniyan |
 | [HIVE-12333](https://issues.apache.org/jira/browse/HIVE-12333) | tez\_union\_with\_udf.q added to wrong section in testconfiguration.properties |  Major | Tests | Jason Dere | Jason Dere |
+| [HIVE-12332](https://issues.apache.org/jira/browse/HIVE-12332) | BucketingSortingReduceSinkOptimizer throws IOB exception for duplicate columns |  Major | Logical Optimizer | Ashutosh Chauhan | Ashutosh Chauhan |
 | [HIVE-12327](https://issues.apache.org/jira/browse/HIVE-12327) | WebHCat e2e tests TestJob\_1 and TestJob\_2 fail |  Major | WebHCat | Daniel Dai | Daniel Dai |
 | [HIVE-12318](https://issues.apache.org/jira/browse/HIVE-12318) | qtest failing due to NPE in logStats |  Blocker | . | Jimmy Xiang | Jimmy Xiang |
 | [HIVE-12315](https://issues.apache.org/jira/browse/HIVE-12315) | vectorization\_short\_regress.q has a wrong result issue for a double calculation |  Critical | Vectorization | Matt McCline | Gopal V |
+| [HIVE-12312](https://issues.apache.org/jira/browse/HIVE-12312) | Excessive logging in PPD code |  Minor | Hive | Carter Shanklin | Carter Shanklin |
+| [HIVE-12311](https://issues.apache.org/jira/browse/HIVE-12311) | explain CTAS fails if the table already exists |  Minor | Hive | Carter Shanklin | Gunther Hagleitner |
 | [HIVE-12310](https://issues.apache.org/jira/browse/HIVE-12310) | Update memory estimation login in TopNHash |  Major | Query Processor | Thejas M Nair | Hari Sankar Sivarama Subramaniyan |
 | [HIVE-12306](https://issues.apache.org/jira/browse/HIVE-12306) | fix hbase\_queries.q failure |  Trivial | . | Chaoyu Tang | Chaoyu Tang |
 | [HIVE-12304](https://issues.apache.org/jira/browse/HIVE-12304) | "drop database cascade" needs to unregister functions |  Major | Query Processor | Aihua Xu | Aihua Xu |
@@ -433,6 +437,7 @@
 | [HIVE-11211](https://issues.apache.org/jira/browse/HIVE-11211) | Reset the fields in JoinStatsRule in StatsRulesProcFactory |  Major | . | Pengcheng Xiong | Pengcheng Xiong |
 | [HIVE-11203](https://issues.apache.org/jira/browse/HIVE-11203) | Beeline force option doesn't force execution when errors occurred in a script. |  Major | Beeline | Ferdinand Xu | Ferdinand Xu |
 | [HIVE-11202](https://issues.apache.org/jira/browse/HIVE-11202) | Update golden files on master |  Major | Tests | Ashutosh Chauhan | Ashutosh Chauhan |
+| [HIVE-11201](https://issues.apache.org/jira/browse/HIVE-11201) | HCatalog  is ignoring user specified avro schema in the table definition |  Critical | HCatalog | Bing Li | Bing Li |
 | [HIVE-11198](https://issues.apache.org/jira/browse/HIVE-11198) | Fix load data query file format check for partitioned tables |  Major | . | Prasanth Jayachandran | Prasanth Jayachandran |
 | [HIVE-11197](https://issues.apache.org/jira/browse/HIVE-11197) | While extracting join conditions follow Hive rules for type conversion instead of Calcite |  Major | CBO | Ashutosh Chauhan | Ashutosh Chauhan |
 | [HIVE-11196](https://issues.apache.org/jira/browse/HIVE-11196) | Utilities.getPartitionDesc() should try to reuse TableDesc object |  Major | . | Hari Sankar Sivarama Subramaniyan | Hari Sankar Sivarama Subramaniyan |
@@ -522,7 +527,7 @@
 | [HIVE-10736](https://issues.apache.org/jira/browse/HIVE-10736) | HiveServer2 shutdown of cached tez app-masters is not clean |  Major | HiveServer2 | Gopal V | Vikram Dixit K |
 | [HIVE-10734](https://issues.apache.org/jira/browse/HIVE-10734) | Remove COLUMNS\_OLD table from a schema definition file of PostgreSQL |  Major | Metastore | Shinichi Yamashita | Shinichi Yamashita |
 | [HIVE-10732](https://issues.apache.org/jira/browse/HIVE-10732) | Hive JDBC driver does not close operation for metadata queries |  Major | JDBC | Mala Chikka Kempanna | Chaoyu Tang |
-| [HIVE-10731](https://issues.apache.org/jira/browse/HIVE-10731) | NullPointerException in HiveParser.g |  Minor | Query Planning | Xiu Guo | Pengcheng Xiong |
+| [HIVE-10731](https://issues.apache.org/jira/browse/HIVE-10731) | NullPointerException in HiveParser.g |  Minor | Query Planning | Xiu(Joe) Guo | Pengcheng Xiong |
 | [HIVE-10728](https://issues.apache.org/jira/browse/HIVE-10728) | deprecate unix\_timestamp(void) and make it deterministic |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
 | [HIVE-10726](https://issues.apache.org/jira/browse/HIVE-10726) | Hive JDBC setQueryTimeout should not throw exception to make it work with JMeter |  Major | . | Prasanth Jayachandran | Prasanth Jayachandran |
 | [HIVE-10722](https://issues.apache.org/jira/browse/HIVE-10722) | external table creation with msck in Hive can create unusable partition |  Critical | . | Sergey Shelukhin | Sergey Shelukhin |
@@ -627,6 +632,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HIVE-12358](https://issues.apache.org/jira/browse/HIVE-12358) | Categorize vectorization benchmarks into arithmetic, comparison, logic |  Major | . | Teddy Choi | Teddy Choi |
 | [HIVE-12305](https://issues.apache.org/jira/browse/HIVE-12305) | CBO: Calcite Operator To Hive Operator (Calcite Return Path): UDAF can not pull up constant expressions |  Major | CBO | Pengcheng Xiong | Pengcheng Xiong |
 | [HIVE-12297](https://issues.apache.org/jira/browse/HIVE-12297) | CBO: Calcite Operator To Hive Operator (Calcite Return Path) : dealing with '$' in typeInfo |  Major | CBO | Pengcheng Xiong | Pengcheng Xiong |
 | [HIVE-12272](https://issues.apache.org/jira/browse/HIVE-12272) | CBO: Calcite Operator To Hive Operator (Calcite Return Path) : columnPruner prunes everything when union is the last operator before FS |  Major | CBO | Pengcheng Xiong | Pengcheng Xiong |

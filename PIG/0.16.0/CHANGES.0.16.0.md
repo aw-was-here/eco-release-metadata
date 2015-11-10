@@ -18,7 +18,7 @@
 -->
 # Apache Pig Changelog
 
-## Release 0.16.0 - Unreleased (as of 2015-11-08)
+## Release 0.16.0 - Unreleased (as of 2015-11-10)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -67,6 +67,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [PIG-4730](https://issues.apache.org/jira/browse/PIG-4730) | [Pig on Tez] Total parallelism estimation does not account load parallelism |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-4727](https://issues.apache.org/jira/browse/PIG-4727) | Incorrect types table for AVG in docs |  Trivial | documentation | Nathan Smith | Nathan Smith |
 | [PIG-4725](https://issues.apache.org/jira/browse/PIG-4725) | Typo in FrontendException messages "Incompatable" |  Trivial | . | Nathan Smith | Nathan Smith |
 | [PIG-4721](https://issues.apache.org/jira/browse/PIG-4721) | IsEmpty documentation error |  Trivial | documentation | Nathan Smith | Nathan Smith |

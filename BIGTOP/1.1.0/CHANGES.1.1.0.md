@@ -18,7 +18,7 @@
 -->
 # Apache BigTop Changelog
 
-## Release 1.1.0 - Unreleased (as of 2015-11-08)
+## Release 1.1.0 - Unreleased (as of 2015-11-10)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -46,6 +46,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [BIGTOP-2103](https://issues.apache.org/jira/browse/BIGTOP-2103) | [Docker] Move bigtop/slaves image build to gradle |  Major | build, docker | Evans Ye | Evans Ye |
+| [BIGTOP-2102](https://issues.apache.org/jira/browse/BIGTOP-2102) | Upgrade YCSB to 0.4.0 |  Major | build | YoungWoo Kim | YoungWoo Kim |
 | [BIGTOP-2091](https://issues.apache.org/jira/browse/BIGTOP-2091) | Build ignite-hadoop assembly with specific version of Spark |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2080](https://issues.apache.org/jira/browse/BIGTOP-2080) | Investigate removing Scala from the toolchain |  Minor | toolchain | RJ Nowling | RJ Nowling |
 | [BIGTOP-2065](https://issues.apache.org/jira/browse/BIGTOP-2065) | Update deployment README.md to reflect on better deployment experience |  Major | documentation | Konstantin Boudnik | Konstantin Boudnik |
@@ -79,6 +80,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [BIGTOP-2121](https://issues.apache.org/jira/browse/BIGTOP-2121) | Missing ':' in bigtop::roles description |  Major | deployment | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2114](https://issues.apache.org/jira/browse/BIGTOP-2114) | hive is broken after BIGTOP-2104 |  Critical | build | Sergey Soldatov | Sergey Soldatov |
 | [BIGTOP-2098](https://issues.apache.org/jira/browse/BIGTOP-2098) | Update bigtop\_deploy to current state of puppetize.sh |  Major | deployment | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-2094](https://issues.apache.org/jira/browse/BIGTOP-2094) | ignite-hadoop fails to deploy after BIGTOP-2084 |  Major | deployment | Konstantin Boudnik | Konstantin Boudnik |
@@ -163,6 +165,8 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [BIGTOP-2122](https://issues.apache.org/jira/browse/BIGTOP-2122) | Add zeppelin packages |  Major | debian, rpm | Konstantin Boudnik | Jonathan Kelly |
+| [BIGTOP-2113](https://issues.apache.org/jira/browse/BIGTOP-2113) | Spark master doesn't bind to the host: ignores SPARK\_MASTER\_IP |  Blocker | spark | Konstantin Boudnik | Sergey Soldatov |
 | [BIGTOP-2107](https://issues.apache.org/jira/browse/BIGTOP-2107) | Ignite package still shows website at the incubator |  Major | ignite | Konstantin Boudnik | Olaf Flebbe |
 | [BIGTOP-2105](https://issues.apache.org/jira/browse/BIGTOP-2105) | Puppet recipes improvements after Spark is bumped to 1.5.1 |  Major | deployment | Konstantin Boudnik | Jonathan Kelly |
 | [BIGTOP-2104](https://issues.apache.org/jira/browse/BIGTOP-2104) | Packages upgrade to Spark 1.5.1 |  Major | debian, rpm | Konstantin Boudnik | Jonathan Kelly |

@@ -52,6 +52,13 @@ Changes in zkServer.sh to support JMX remote monitoring of Zookeeper processes. 
 
 ---
 
+* [ZOOKEEPER-1853](https://issues.apache.org/jira/browse/ZOOKEEPER-1853) | *Minor* | **zkCli.sh can't issue a CREATE command containing spaces in the data**
+
+Allows spaces to be used for parameters in zkCli as long as they are in single or double quotes.  ie: create /node1 "This will now work"
+
+
+---
+
 * [ZOOKEEPER-1506](https://issues.apache.org/jira/browse/ZOOKEEPER-1506) | *Blocker* | **Re-try DNS hostname -\> IP resolution if node connection fails**
 
 Tests pass with this patch.
