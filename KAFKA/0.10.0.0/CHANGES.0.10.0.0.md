@@ -18,9 +18,15 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.9.0 - Unreleased (as of 2015-09-10)
+## Release 0.10.0.0 - Unreleased (as of 2015-11-10)
 
 ### INCOMPATIBLE CHANGES:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+
+
+### IMPORTANT ISSUES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
@@ -77,6 +83,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-2239](https://issues.apache.org/jira/browse/KAFKA-2239) | Allow coordinator to aggresively remove group when it is no longer owning the group |  Major | consumer | Guozhang Wang | Guozhang Wang |
 | [KAFKA-1281](https://issues.apache.org/jira/browse/KAFKA-1281) | add the new producer to existing tools |  Major | producer | Jun Rao | Neha Narkhede |
 | [KAFKA-1237](https://issues.apache.org/jira/browse/KAFKA-1237) | Add mirror maker using 08 consumer and 09 producer |  Major | tools | Neha Narkhede | Neha Narkhede |
 | [KAFKA-1236](https://issues.apache.org/jira/browse/KAFKA-1236) | Change producer performance tool to optionally use the new producer |  Critical | producer | Neha Narkhede | Jay Kreps |

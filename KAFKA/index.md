@@ -16,6 +16,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
+* Apache Kafka v0.10.0.0
+    * [Changes](0.10.0.0/CHANGES.0.10.0.0.html)
+    * [Release Notes](0.10.0.0/RELEASENOTES.0.10.0.0.html)
 * Apache Kafka v0.9.1
     * [Changes](0.9.1/CHANGES.0.9.1.html)
     * [Release Notes](0.9.1/RELEASENOTES.0.9.1.html)
@@ -25,12 +28,6 @@
 * Apache Kafka v0.9.0.0
     * [Changes](0.9.0.0/CHANGES.0.9.0.0.html)
     * [Release Notes](0.9.0.0/RELEASENOTES.0.9.0.0.html)
-* Apache Kafka v0.9.0
-    * [Changes](0.9.0/CHANGES.0.9.0.html)
-    * [Release Notes](0.9.0/RELEASENOTES.0.9.0.html)
-* Apache Kafka v0.8.3
-    * [Changes](0.8.3/CHANGES.0.8.3.html)
-    * [Release Notes](0.8.3/RELEASENOTES.0.8.3.html)
 * Apache Kafka v0.8.2.2
     * [Changes](0.8.2.2/CHANGES.0.8.2.2.html)
     * [Release Notes](0.8.2.2/RELEASENOTES.0.8.2.2.html)
@@ -49,6 +46,3 @@
 * Apache Kafka v0.8.1
     * [Changes](0.8.1/CHANGES.0.8.1.html)
     * [Release Notes](0.8.1/RELEASENOTES.0.8.1.html)
-* Apache Kafka v0.8.0
-    * [Changes](0.8.0/CHANGES.0.8.0.html)
-    * [Release Notes](0.8.0/RELEASENOTES.0.8.0.html)

@@ -79,6 +79,8 @@ big_console_header Kafka
 cd ${HOME}/Src/aw-github/eco-release-metadata/KAFKA
 ${RDM} --project KAFKA --projecttitle "Apache Kafka" \
         --range --version 0.8.1 --version 1.0.0.0 --index
+${RDM} --project KAFKA --projecttitle "Apache Kafka" \
+        --range --version 0.10.0.0 --version 0.11.0.0 --index
 
 big_console_header Oozie
 cd ${HOME}/Src/aw-github/eco-release-metadata/OOZIE
