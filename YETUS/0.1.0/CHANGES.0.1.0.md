@@ -83,6 +83,7 @@
 | [YETUS-94](https://issues.apache.org/jira/browse/YETUS-94) | docker cleanup invalid date |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-93](https://issues.apache.org/jira/browse/YETUS-93) | tap needs to verify directories |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-92](https://issues.apache.org/jira/browse/YETUS-92) | checkstyle bogus screen output |  Major | Test Patch | Allen Wittenauer | Kengo Seki |
+| [YETUS-90](https://issues.apache.org/jira/browse/YETUS-90) | Wrong function name for tap\_parse\_args |  Major | Test Patch | Kengo Seki |  |
 | [YETUS-88](https://issues.apache.org/jira/browse/YETUS-88) | Dockerfile is missing bats |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-85](https://issues.apache.org/jira/browse/YETUS-85) | test types aren't getting initialized |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-82](https://issues.apache.org/jira/browse/YETUS-82) | personality\_plugins with multiple entries doesn't work |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
