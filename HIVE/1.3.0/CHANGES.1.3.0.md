@@ -18,7 +18,7 @@
 -->
 # Apache Hive Changelog
 
-## Release 1.3.0 - Unreleased (as of 2015-11-10)
+## Release 1.3.0 - Unreleased (as of 2015-11-12)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -100,6 +100,8 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HIVE-12365](https://issues.apache.org/jira/browse/HIVE-12365) | Added resource path is sent to cluster as an empty string when externally removed |  Major | Hive | Chaoyu Tang | Chaoyu Tang |
+| [HIVE-12363](https://issues.apache.org/jira/browse/HIVE-12363) | Incorrect results with orc ppd across ORC versions |  Major | . | Ashutosh Chauhan | Gopal V |
 | [HIVE-12349](https://issues.apache.org/jira/browse/HIVE-12349) | NPE in ORC SARG for IS NULL queries on Timestamp and Date columns |  Major | . | Prasanth Jayachandran | Prasanth Jayachandran |
 | [HIVE-12346](https://issues.apache.org/jira/browse/HIVE-12346) | Internally used variables in HiveConf should not be settable via command |  Major | Configuration | Chaoyu Tang | Chaoyu Tang |
 | [HIVE-12345](https://issues.apache.org/jira/browse/HIVE-12345) | Followup for HIVE-9013 : Hidden conf vars still visible through beeline |  Major | . | Sushanth Sowmyan | Sushanth Sowmyan |
@@ -122,6 +124,7 @@
 | [HIVE-12225](https://issues.apache.org/jira/browse/HIVE-12225) | LineageCtx should release all resources at clear |  Major | . | Jimmy Xiang | Jimmy Xiang |
 | [HIVE-12223](https://issues.apache.org/jira/browse/HIVE-12223) | Filter on Grouping\_\_ID does not work properly |  Major | Logical Optimizer | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
 | [HIVE-12218](https://issues.apache.org/jira/browse/HIVE-12218) | Unable to create a like table for an hbase backed table |  Major | Query Processor | Chaoyu Tang | Chaoyu Tang |
+| [HIVE-12208](https://issues.apache.org/jira/browse/HIVE-12208) | Vectorized JOIN NPE on dynamically partitioned hash-join + map-join |  Major | Vectorization | Gopal V | Gunther Hagleitner |
 | [HIVE-12206](https://issues.apache.org/jira/browse/HIVE-12206) | ClassNotFound Exception during query compilation with Tez and Union query and GenericUDFs |  Major | Tez, UDF | Jason Dere | Jason Dere |
 | [HIVE-12204](https://issues.apache.org/jira/browse/HIVE-12204) | Tez queries stopped running with ApplicationNotRunningException |  Major | Tez | Vikram Dixit K | Vikram Dixit K |
 | [HIVE-12202](https://issues.apache.org/jira/browse/HIVE-12202) | NPE thrown when reading legacy ACID delta files |  Major | Transactions | Elliot West | Elliot West |
@@ -246,6 +249,7 @@
 | [HIVE-11405](https://issues.apache.org/jira/browse/HIVE-11405) | Add early termination for recursion in StatsRulesProcFactory$FilterStatsRule.evaluateExpression  for OR expression |  Major | . | Hari Sankar Sivarama Subramaniyan | Prasanth Jayachandran |
 | [HIVE-11404](https://issues.apache.org/jira/browse/HIVE-11404) | branch-1 does not compile |  Major | . | Jason Dere | Jason Dere |
 | [HIVE-11397](https://issues.apache.org/jira/browse/HIVE-11397) | Parse Hive OR clauses as they are written into the AST |  Major | Logical Optimizer | Gopal V | Jesus Camacho Rodriguez |
+| [HIVE-11380](https://issues.apache.org/jira/browse/HIVE-11380) | NPE when FileSinkOperator is not initialized |  Major | Query Processor | Yongzhi Chen | Yongzhi Chen |
 | [HIVE-11357](https://issues.apache.org/jira/browse/HIVE-11357) | ACID enable predicate pushdown for insert-only delta file 2 |  Major | Transactions | Eugene Koifman | Eugene Koifman |
 | [HIVE-11344](https://issues.apache.org/jira/browse/HIVE-11344) | HIVE-9845 makes HCatSplit.write modify the split so that PartInfo objects are unusable after it |  Major | . | Sushanth Sowmyan | Sushanth Sowmyan |
 | [HIVE-11330](https://issues.apache.org/jira/browse/HIVE-11330) | Add early termination for recursion in StatsRulesProcFactory$FilterStatsRule.evaluateExpression |  Major | Hive, Physical Optimizer | Mostafa Mokhtar | Mostafa Mokhtar |
@@ -298,6 +302,7 @@
 | [HIVE-11051](https://issues.apache.org/jira/browse/HIVE-11051) | Hive 1.2.0  MapJoin w/Tez - LazyBinaryArray cannot be cast to [Ljava.lang.Object; |  Critical | Serializers/Deserializers, Tez | Greg Senia | Matt McCline |
 | [HIVE-11042](https://issues.apache.org/jira/browse/HIVE-11042) | Need fix Utilities.replaceTaskId method |  Major | Query Processor | Yongzhi Chen | Yongzhi Chen |
 | [HIVE-11029](https://issues.apache.org/jira/browse/HIVE-11029) | hadoop.proxyuser.mapr.groups does not work to restrict the groups that can be impersonated |  Major | HiveServer2 | Na Yang | Na Yang |
+| [HIVE-11024](https://issues.apache.org/jira/browse/HIVE-11024) | Error inserting a date value via parameter marker (PreparedStatement.setDate) |  Major | Hive | Sergio Lob | Yongzhi Chen |
 | [HIVE-10977](https://issues.apache.org/jira/browse/HIVE-10977) | No need to instantiate MetaStoreDirectSql when HMS DirectSql is disabled |  Minor | . | Chaoyu Tang | Chaoyu Tang |
 | [HIVE-10976](https://issues.apache.org/jira/browse/HIVE-10976) | Redundant HiveMetaStore connect check in HS2 CLIService start |  Trivial | HiveServer2 | Chaoyu Tang | Chaoyu Tang |
 | [HIVE-10972](https://issues.apache.org/jira/browse/HIVE-10972) | DummyTxnManager always locks the current database in shared mode, which is incorrect. |  Major | Locking | Aihua Xu | Aihua Xu |

@@ -18,7 +18,7 @@
 -->
 # Apache Yetus Changelog
 
-## Release 0.1.0 - Unreleased (as of 2015-11-10)
+## Release 0.1.0 - Unreleased (as of 2015-11-12)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -48,7 +48,9 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [YETUS-177](https://issues.apache.org/jira/browse/YETUS-177) | add yetus\_abs to yetuslib |  Trivial | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-161](https://issues.apache.org/jira/browse/YETUS-161) | fix spelling error in maven plugin |  Trivial | Test Patch | Tony Kurc | Tony Kurc |
+| [YETUS-157](https://issues.apache.org/jira/browse/YETUS-157) | build tools should force compile if their control file is patched |  Blocker | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-143](https://issues.apache.org/jira/browse/YETUS-143) | add support for JMeter |  Minor | Test Patch | Kengo Seki | Kengo Seki |
 | [YETUS-141](https://issues.apache.org/jira/browse/YETUS-141) | make module for jdiff doclet optional |  Major | Audience Annotations | Sean Busbey | Sean Busbey |
 | [YETUS-128](https://issues.apache.org/jira/browse/YETUS-128) | Jira plugin should be configurable to accept issue status other than 'Patch Available' |  Major | Test Patch | Kengo Seki | Kengo Seki |
@@ -62,6 +64,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [YETUS-155](https://issues.apache.org/jira/browse/YETUS-155) | add usage for asflicense plugin |  Minor | Test Patch | Kengo Seki | Marco Zühlke |
 | [YETUS-153](https://issues.apache.org/jira/browse/YETUS-153) | asflicense plugin does not work if asflicense-rat-excludes option is specified |  Major | Test Patch | Kengo Seki | Kengo Seki |
 | [YETUS-147](https://issues.apache.org/jira/browse/YETUS-147) | Failed test table mixes result from different JDKs |  Major | Test Patch | Marco Zühlke | Marco Zühlke |
 | [YETUS-142](https://issues.apache.org/jira/browse/YETUS-142) | compile gets limited to 'warning' in generic log handler |  Blocker | Test Patch | Allen Wittenauer | Allen Wittenauer |
@@ -85,6 +88,7 @@
 | [YETUS-92](https://issues.apache.org/jira/browse/YETUS-92) | checkstyle bogus screen output |  Major | Test Patch | Allen Wittenauer | Kengo Seki |
 | [YETUS-90](https://issues.apache.org/jira/browse/YETUS-90) | Wrong function name for tap\_parse\_args |  Major | Test Patch | Kengo Seki |  |
 | [YETUS-88](https://issues.apache.org/jira/browse/YETUS-88) | Dockerfile is missing bats |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
+| [YETUS-87](https://issues.apache.org/jira/browse/YETUS-87) | whitespace console message is misleading |  Trivial | Test Patch | Allen Wittenauer | Marco Zühlke |
 | [YETUS-85](https://issues.apache.org/jira/browse/YETUS-85) | test types aren't getting initialized |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-82](https://issues.apache.org/jira/browse/YETUS-82) | personality\_plugins with multiple entries doesn't work |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-77](https://issues.apache.org/jira/browse/YETUS-77) | add bugzilla support |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
@@ -100,6 +104,7 @@
 | [YETUS-41](https://issues.apache.org/jira/browse/YETUS-41) | github\_find\_jira\_title in test-patch github plugin returns 0 even if jira\_determine\_issue failed |  Major | Test Patch | Kengo Seki | Kengo Seki |
 | [YETUS-40](https://issues.apache.org/jira/browse/YETUS-40) | patch file confuses test-patch (date format problems) |  Blocker | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-28](https://issues.apache.org/jira/browse/YETUS-28) | if CHANGED\_FILES is corrupt, find\_changed\_modules never returns |  Major | Test Patch | Allen Wittenauer | Kengo Seki |
+| [YETUS-23](https://issues.apache.org/jira/browse/YETUS-23) | findbugs pre-apply check failures gives error as if convertXmlToText invocation fails |  Blocker | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-9](https://issues.apache.org/jira/browse/YETUS-9) | Update .gitignore to reflect Yetus instead of Hadoop |  Major | build | Allen Wittenauer | Allen Wittenauer |
 
 

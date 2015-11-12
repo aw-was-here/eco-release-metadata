@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 1.7.0 - Unreleased (as of 2015-11-10)
+## Release 1.7.0 - Unreleased (as of 2015-11-12)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -49,6 +49,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [SPARK-11511](https://issues.apache.org/jira/browse/SPARK-11511) | Creating an InputDStream but not using it throws NPE |  Major | Streaming | Shixiong Zhu | Shixiong Zhu |
+| [SPARK-11500](https://issues.apache.org/jira/browse/SPARK-11500) | Not deterministic order of columns when using merging schemas. |  Major | SQL | Hyukjin Kwon | Hyukjin Kwon |
 | [SPARK-11218](https://issues.apache.org/jira/browse/SPARK-11218) | `./sbin/start-slave.sh --help` should print out the help message |  Minor | Deploy | Jacek Laskowski | Charles Yeh |
 | [SPARK-10116](https://issues.apache.org/jira/browse/SPARK-10116) | XORShiftRandom should generate uniform seeds |  Minor | Spark Core | Imran Rashid | Imran Rashid |
 
@@ -57,7 +58,6 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [SPARK-11598](https://issues.apache.org/jira/browse/SPARK-11598) | Add tests for ShuffledHashOuterJoin |  Major | . | Davies Liu | Davies Liu |
 
 
 ### SUB-TASKS:

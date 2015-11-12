@@ -23,6 +23,29 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
+* [SPARK-11481](https://issues.apache.org/jira/browse/SPARK-11481) | *Major* | **orderBy with multiple columns in WindowSpec does not work properly**
+
+When using multiple columns in the orderBy of a WindowSpec the order by seems to work only for the first column.
+
+A possible workaround is to sort previosly the DataFrame and then apply the window spec over the sorted DataFrame
+
+e.g. 
+THIS NOT WORKS:
+window\_sum = Window.partitionBy('user\_unique\_id').orderBy('creation\_date', 'mib\_id', 'day').rowsBetween(-sys.maxsize, 0)
+
+df = df.withColumn('user\_version', func.sum(df.group\_counter).over(window\_sum))
+
+THIS WORKS WELL:
+df = df.sort('user\_unique\_id', 'creation\_date', 'mib\_id', 'day')
+window\_sum = Window.partitionBy('user\_unique\_id').orderBy('creation\_date', 'mib\_id', 'day').rowsBetween(-sys.maxsize, 0)
+
+df = df.withColumn('user\_version', func.sum(df.group\_counter).over(window\_sum))
+
+Also, can anybody confirm that this is a true workaround?
+
+
+---
+
 * [SPARK-11023](https://issues.apache.org/jira/browse/SPARK-11023) | *Major* | **Error initializing SparkContext. java.net.URISyntaxException**
 
 Simliar to SPARK-10326. [https://issues.apache.org/jira/browse/SPARK-10326?page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel&focusedCommentId=14949470#comment-14949470]

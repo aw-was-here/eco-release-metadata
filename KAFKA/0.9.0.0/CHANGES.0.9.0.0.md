@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.9.0.0 - Unreleased (as of 2015-11-10)
+## Release 0.9.0.0 - Unreleased (as of 2015-11-12)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -36,7 +36,6 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [KAFKA-2419](https://issues.apache.org/jira/browse/KAFKA-2419) | Allow certain Sensors to be garbage collected after inactivity |  Blocker | . | Aditya Auradkar | Aditya Auradkar |
 | [KAFKA-2187](https://issues.apache.org/jira/browse/KAFKA-2187) | Introduce merge-kafka-pr.py script |  Minor | . | Ismael Juma | Ismael Juma |
 | [KAFKA-2120](https://issues.apache.org/jira/browse/KAFKA-2120) | Add a request timeout to NetworkClient |  Blocker | . | Jiangjie Qin | Mayuresh Gharat |
 | [KAFKA-1499](https://issues.apache.org/jira/browse/KAFKA-1499) | Broker-side compression configuration |  Major | . | Joel Koshy | Manikumar Reddy |
@@ -46,6 +45,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-2790](https://issues.apache.org/jira/browse/KAFKA-2790) | Kafka 0.9.0 doc improvement |  Blocker | . | Jun Rao | Gwen Shapira |
 | [KAFKA-2767](https://issues.apache.org/jira/browse/KAFKA-2767) | Upgrade ZkClient version to 0.7 |  Blocker | zkclient | Flavio Junqueira | Flavio Junqueira |
 | [KAFKA-2753](https://issues.apache.org/jira/browse/KAFKA-2753) | Improve SyncGroup error handling in AbstractCoordinator |  Major | . | Jason Gustafson | Jason Gustafson |
 | [KAFKA-2740](https://issues.apache.org/jira/browse/KAFKA-2740) | Convert Windows bin scripts from CRLF to LF line encodings |  Minor | core | Michael Noll |  |
@@ -66,6 +66,7 @@
 | [KAFKA-2430](https://issues.apache.org/jira/browse/KAFKA-2430) | Listing of PR commits in commit message should be optional |  Major | . | Ismael Juma | Ismael Juma |
 | [KAFKA-2429](https://issues.apache.org/jira/browse/KAFKA-2429) | Add annotations to mark classes as stable/unstable |  Major | . | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-2425](https://issues.apache.org/jira/browse/KAFKA-2425) | Migrate website from SVN to Git |  Major | . | Ismael Juma | Manikumar Reddy |
+| [KAFKA-2419](https://issues.apache.org/jira/browse/KAFKA-2419) | Allow certain Sensors to be garbage collected after inactivity |  Blocker | . | Aditya Auradkar | Aditya Auradkar |
 | [KAFKA-2384](https://issues.apache.org/jira/browse/KAFKA-2384) | Override commit message title in kafka-merge-pr.py |  Major | . | Guozhang Wang | Ismael Juma |
 | [KAFKA-2350](https://issues.apache.org/jira/browse/KAFKA-2350) | Add KafkaConsumer pause capability |  Major | consumer | Jason Gustafson | Jason Gustafson |
 | [KAFKA-2344](https://issues.apache.org/jira/browse/KAFKA-2344) | kafka-merge-pr improvements |  Minor | . | Gwen Shapira | Ismael Juma |
@@ -120,6 +121,16 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-2813](https://issues.apache.org/jira/browse/KAFKA-2813) | selector doesn't close socket connection on non-IOExceptions |  Blocker | core | Jun Rao | Jun Rao |
+| [KAFKA-2805](https://issues.apache.org/jira/browse/KAFKA-2805) | RecordAccumulator request timeout not enforced when all brokers are gone |  Blocker | . | Jason Gustafson | Mayuresh Gharat |
+| [KAFKA-2801](https://issues.apache.org/jira/browse/KAFKA-2801) | Data read from network not processed by SSL transport layer |  Blocker | network | Rajini Sivaram | Rajini Sivaram |
+| [KAFKA-2799](https://issues.apache.org/jira/browse/KAFKA-2799) | WakupException thrown in the followup poll() could lead to data loss |  Blocker | . | Guozhang Wang | Guozhang Wang |
+| [KAFKA-2798](https://issues.apache.org/jira/browse/KAFKA-2798) | Kafka Connect distributed configs can conflict with producer/consumer configs, making it impossible to control them independently |  Major | copycat | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
+| [KAFKA-2797](https://issues.apache.org/jira/browse/KAFKA-2797) | Release artifact expects a git repository for the release audit tool (RAT) |  Blocker | build | Flavio Junqueira | Ewen Cheslack-Postava |
+| [KAFKA-2795](https://issues.apache.org/jira/browse/KAFKA-2795) | potential NPE in GroupMetadataManager |  Major | . | Onur Karaman | Jason Gustafson |
+| [KAFKA-2793](https://issues.apache.org/jira/browse/KAFKA-2793) | ConsoleConsumer crashes with new consumer when using keys because of incorrect deserializer |  Major | tools | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
+| [KAFKA-2792](https://issues.apache.org/jira/browse/KAFKA-2792) | KafkaConsumer.close() can block unnecessarily due to leave group waiting for a reply |  Blocker | consumer | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
+| [KAFKA-2788](https://issues.apache.org/jira/browse/KAFKA-2788) | allow comma when specifying principals in AclCommand |  Blocker | core | Jun Rao | Parth Brahmbhatt |
 | [KAFKA-2786](https://issues.apache.org/jira/browse/KAFKA-2786) | Only invoke SinkTask onPartitionsRevoked and commitOffsets after task has fully started |  Minor | copycat | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-2785](https://issues.apache.org/jira/browse/KAFKA-2785) | Copycat jars not included in release tar gz |  Major | copycat | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-2782](https://issues.apache.org/jira/browse/KAFKA-2782) | Incorrect assertion in KafkaBasedLogTest.testSendAndReadToEnd |  Major | copycat | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
@@ -129,6 +140,7 @@
 | [KAFKA-2776](https://issues.apache.org/jira/browse/KAFKA-2776) | JsonConverter uses wrong key to look up schema conversion cache size configuration |  Major | copycat | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-2775](https://issues.apache.org/jira/browse/KAFKA-2775) | Copycat exceptions should be in api package so they can be caught by user code without any dependencies other than api |  Major | copycat | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-2773](https://issues.apache.org/jira/browse/KAFKA-2773) | Vagrant provision fails if num\_brokers or num\_zookeepers is nonzero |  Trivial | . | Geoff Anderson | Geoff Anderson |
+| [KAFKA-2770](https://issues.apache.org/jira/browse/KAFKA-2770) | Race condition causes Mirror Maker to hang during shutdown (new consumer) |  Blocker | . | Geoff Anderson | Guozhang Wang |
 | [KAFKA-2766](https://issues.apache.org/jira/browse/KAFKA-2766) | Make the Java Producer as the default producer in tooling. |  Blocker | . | Guozhang Wang | Guozhang Wang |
 | [KAFKA-2764](https://issues.apache.org/jira/browse/KAFKA-2764) | Copycat APIs should use Map\<String, String\> instead of Properties |  Major | copycat | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-2760](https://issues.apache.org/jira/browse/KAFKA-2760) | Clean up interface of AdminClient.describeConsumerGroup(groupId |  Major | . | Ashish K Singh | Ashish K Singh |
@@ -386,6 +398,7 @@
 | [KAFKA-2697](https://issues.apache.org/jira/browse/KAFKA-2697) | add leave group logic to the consumer |  Major | consumer | Onur Karaman | Jason Gustafson |
 | [KAFKA-2694](https://issues.apache.org/jira/browse/KAFKA-2694) | Make a task id be a composite id of a topic group id and a partition id |  Major | kafka streams | Yasuhiro Matsuda | Yasuhiro Matsuda |
 | [KAFKA-2691](https://issues.apache.org/jira/browse/KAFKA-2691) | Improve handling of authorization failure during metadata refresh |  Blocker | security | Ismael Juma | Jason Gustafson |
+| [KAFKA-2690](https://issues.apache.org/jira/browse/KAFKA-2690) | Protect passwords from logging |  Major | security | Ismael Juma | Jakub Nowak |
 | [KAFKA-2681](https://issues.apache.org/jira/browse/KAFKA-2681) | SASL authentication in official docs |  Blocker | security | Ismael Juma | Sriharsha Chintalapani |
 | [KAFKA-2675](https://issues.apache.org/jira/browse/KAFKA-2675) | SASL/Kerberos follow-up |  Major | security | Ismael Juma | Ismael Juma |
 | [KAFKA-2667](https://issues.apache.org/jira/browse/KAFKA-2667) | Copycat KafkaBasedLogTest.testSendAndReadToEnd transient failure |  Major | copycat | Jason Gustafson | Ewen Cheslack-Postava |

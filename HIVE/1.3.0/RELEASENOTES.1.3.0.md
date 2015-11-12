@@ -23,6 +23,13 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
+* [HIVE-12363](https://issues.apache.org/jira/browse/HIVE-12363) | *Major* | **Incorrect results with orc ppd across ORC versions**
+
+"HIVE-12363: Incorrect results with orc ppd across ORC versions (Gopal V, reviewed by Prasanth Jayachandran)"
+
+
+---
+
 * [HIVE-12315](https://issues.apache.org/jira/browse/HIVE-12315) | *Critical* | **vectorization\_short\_regress.q has a wrong result issue for a double calculation**
 
 HIVE-12315: Fix Vectorized double divide by zero (Gopal V, reviewed by Matt McCline)

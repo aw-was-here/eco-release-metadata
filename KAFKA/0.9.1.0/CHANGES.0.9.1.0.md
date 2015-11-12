@@ -16,9 +16,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-# Apache Spark Changelog
+# Apache Kafka Changelog
 
-## Release 2+ - Unreleased (as of 2015-11-12)
+## Release 0.9.1.0 - Unreleased (as of 2015-11-12)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -48,6 +48,8 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-2815](https://issues.apache.org/jira/browse/KAFKA-2815) | unit test failure in org.apache.kafka.streams.processor.internals.KafkaStreamingPartitionAssignorTest |  Major | . | Jun Rao | Grant Henke |
+| [KAFKA-2807](https://issues.apache.org/jira/browse/KAFKA-2807) | Movement of throughput throttler to common broke upgrade tests |  Blocker | . | Geoff Anderson | Ewen Cheslack-Postava |
 
 
 ### TESTS:
@@ -60,6 +62,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-2763](https://issues.apache.org/jira/browse/KAFKA-2763) | Reduce stream task migrations and initialization costs |  Major | kafka streams | Yasuhiro Matsuda | Yasuhiro Matsuda |
 
 
 ### OTHER:

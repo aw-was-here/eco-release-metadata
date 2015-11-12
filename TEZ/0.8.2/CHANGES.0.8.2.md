@@ -18,7 +18,7 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.8.2 - Unreleased (as of 2015-11-10)
+## Release 0.8.2 - Unreleased (as of 2015-11-12)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -54,6 +54,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-2930](https://issues.apache.org/jira/browse/TEZ-2930) | Tez UI: Parent controller is not polling at times |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2929](https://issues.apache.org/jira/browse/TEZ-2929) | Tez UI: Dag details page displays vertices to be running even when dag have completed. |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2922](https://issues.apache.org/jira/browse/TEZ-2922) | Tez Live UI gives access denied for admins |  Major | . | Jonathan Eagles | Jonathan Eagles |
 | [TEZ-2909](https://issues.apache.org/jira/browse/TEZ-2909) | Tez UI: Application link in All DAGs table is disable when applicationhistory is unavailable. |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
@@ -74,6 +75,7 @@
 | [TEZ-2553](https://issues.apache.org/jira/browse/TEZ-2553) | Tez UI: Tez UI Nits |  Minor | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-1976](https://issues.apache.org/jira/browse/TEZ-1976) | Findbug warning: Unread field: org.apache.hadoop.mapreduce.split.TezGroupedSplitsInputFormat$SplitHolder.split |  Major | . | Hitesh Shah | Chetna Chaudhari |
 | [TEZ-1888](https://issues.apache.org/jira/browse/TEZ-1888) | Fix javac warnings all over codebase |  Critical | . | Hitesh Shah | Chetna Chaudhari |
+| [TEZ-1670](https://issues.apache.org/jira/browse/TEZ-1670) | Add tests for all converter functions in HistoryEventTimelineConversion |  Minor | . | Hitesh Shah | Tatsuya Nishiyama |
 
 
 ### TESTS:

@@ -18,7 +18,7 @@
 -->
 # Apache BigTop Changelog
 
-## Release 1.1.0 - Unreleased (as of 2015-11-10)
+## Release 1.1.0 - Unreleased (as of 2015-11-12)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -80,7 +80,11 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [BIGTOP-2128](https://issues.apache.org/jira/browse/BIGTOP-2128) | ignite-hadoop man page still refers to the Incubator |  Major | debian, rpm | Konstantin Boudnik | Konstantin Boudnik |
+| [BIGTOP-2127](https://issues.apache.org/jira/browse/BIGTOP-2127) | opensuse: fix kerberos python module |  Major | hue | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2126](https://issues.apache.org/jira/browse/BIGTOP-2126) | Fix default repo locations in the deployment site.pp |  Minor | deployment | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2121](https://issues.apache.org/jira/browse/BIGTOP-2121) | Missing ':' in bigtop::roles description |  Major | deployment | Konstantin Boudnik | Konstantin Boudnik |
+| [BIGTOP-2120](https://issues.apache.org/jira/browse/BIGTOP-2120) | opensuse: Hue packages are broken after BIGTOP-1905 |  Major | . | Evans Ye | Olaf Flebbe |
 | [BIGTOP-2114](https://issues.apache.org/jira/browse/BIGTOP-2114) | hive is broken after BIGTOP-2104 |  Critical | build | Sergey Soldatov | Sergey Soldatov |
 | [BIGTOP-2098](https://issues.apache.org/jira/browse/BIGTOP-2098) | Update bigtop\_deploy to current state of puppetize.sh |  Major | deployment | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-2094](https://issues.apache.org/jira/browse/BIGTOP-2094) | ignite-hadoop fails to deploy after BIGTOP-2084 |  Major | deployment | Konstantin Boudnik | Konstantin Boudnik |

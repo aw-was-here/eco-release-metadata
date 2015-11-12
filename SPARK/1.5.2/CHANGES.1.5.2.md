@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 1.5.2 - Unreleased (as of 2015-11-10)
+## Release 1.5.2 - Unreleased (as of 2015-11-12)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -30,6 +30,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-11481](https://issues.apache.org/jira/browse/SPARK-11481) | orderBy with multiple columns in WindowSpec does not work properly |  Major | PySpark, SQL | Jose Antonio | Davies Liu |
 | [SPARK-11023](https://issues.apache.org/jira/browse/SPARK-11023) | Error initializing SparkContext. java.net.URISyntaxException |  Major | PySpark | Jose Antonio | Marcelo Vanzin |
 
 
