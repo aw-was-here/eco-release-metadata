@@ -58,6 +58,13 @@ Dead-code: Vectorized map-join runs Murmurhash twice
 
 ---
 
+* [HIVE-11825](https://issues.apache.org/jira/browse/HIVE-11825) | *Critical* | **get\_json\_object(col,'$.a') is null in where clause didn`t work**
+
+Enabled to accept quoting of all character backslash qooting mechanism
+
+
+---
+
 * [HIVE-11821](https://issues.apache.org/jira/browse/HIVE-11821) | *Major* | **JDK8 strict build broken for master**
 
 JDK8 strict build broken for master

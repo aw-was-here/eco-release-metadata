@@ -18,7 +18,7 @@
 -->
 # Apache Yetus Changelog
 
-## Release 0.1.0 - Unreleased (as of 2015-11-12)
+## Release 0.1.0 - Unreleased (as of 2015-11-17)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -64,6 +64,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [YETUS-179](https://issues.apache.org/jira/browse/YETUS-179) | Clean up asflicense errors |  Blocker | build | Sean Busbey | Kengo Seki |
 | [YETUS-155](https://issues.apache.org/jira/browse/YETUS-155) | add usage for asflicense plugin |  Minor | Test Patch | Kengo Seki | Marco Zühlke |
 | [YETUS-153](https://issues.apache.org/jira/browse/YETUS-153) | asflicense plugin does not work if asflicense-rat-excludes option is specified |  Major | Test Patch | Kengo Seki | Kengo Seki |
 | [YETUS-147](https://issues.apache.org/jira/browse/YETUS-147) | Failed test table mixes result from different JDKs |  Major | Test Patch | Marco Zühlke | Marco Zühlke |

@@ -18,7 +18,7 @@
 -->
 # Apache HBase Changelog
 
-## Release 2.0.0 - Unreleased (as of 2015-11-12)
+## Release 2.0.0 - Unreleased (as of 2015-11-17)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -494,6 +494,9 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HBASE-14809](https://issues.apache.org/jira/browse/HBASE-14809) | Grant / revoke Namespace admin permission to group |  Major | security | Steven Hancz | Ted Yu |
+| [HBASE-14806](https://issues.apache.org/jira/browse/HBASE-14806) | Missing sources.jar for several modules when building HBase |  Major | . | Duo Zhang | Duo Zhang |
+| [HBASE-14802](https://issues.apache.org/jira/browse/HBASE-14802) | Replaying server crash recovery procedure after a failover causes incorrect handling of deadservers |  Major | master | Ashu Pachauri | Ashu Pachauri |
 | [HBASE-14797](https://issues.apache.org/jira/browse/HBASE-14797) | Last round of CSS fix-ups |  Major | website | Misty Stanley-Jones | Misty Stanley-Jones |
 | [HBASE-14788](https://issues.apache.org/jira/browse/HBASE-14788) | Splitting a region does not support the hbase.rs.evictblocksonclose config when closing source region |  Major | regionserver | Randy Fox | Ted Yu |
 | [HBASE-14787](https://issues.apache.org/jira/browse/HBASE-14787) | Remove obsolete ConnectionImplementation.refCount |  Trivial | . | Appy | Appy |
@@ -563,7 +566,6 @@
 | [HBASE-14501](https://issues.apache.org/jira/browse/HBASE-14501) | NPE in replication with TDE |  Critical | . | Enis Soztutar | Enis Soztutar |
 | [HBASE-14500](https://issues.apache.org/jira/browse/HBASE-14500) | Remove load of deprecated MOB ruby scripts after HBASE-14227 |  Major | shell | Esteban Gutierrez | Esteban Gutierrez |
 | [HBASE-14499](https://issues.apache.org/jira/browse/HBASE-14499) | Master coprocessors shutdown will not happen on master abort |  Major | master | Pankaj Kumar | Pankaj Kumar |
-| [HBASE-14498](https://issues.apache.org/jira/browse/HBASE-14498) | Master stuck in infinite loop when all Zookeeper servers are unreachable |  Blocker | master | Y. SREENIVASULU REDDY | Pankaj Kumar |
 | [HBASE-14497](https://issues.apache.org/jira/browse/HBASE-14497) | Reverse Scan threw StackOverflow caused by readPt checking |  Major | . | Yerui Sun | Yerui Sun |
 | [HBASE-14494](https://issues.apache.org/jira/browse/HBASE-14494) | Wrong usage messages on shell commands |  Minor | shell | Josh Elser | Josh Elser |
 | [HBASE-14492](https://issues.apache.org/jira/browse/HBASE-14492) | Increase REST server header buffer size from 8k to 64k |  Major | REST | huaxiang sun | huaxiang sun |
@@ -1575,6 +1577,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HBASE-14798](https://issues.apache.org/jira/browse/HBASE-14798) | NPE reporting server load causes regionserver abort; causes TestAcidGuarantee to fail |  Major | test | stack | stack |
 | [HBASE-14794](https://issues.apache.org/jira/browse/HBASE-14794) | Cleanup TestAtomicOperation, TestImportExport, and TestMetaWithReplicas |  Major | flakey, test | stack | stack |
 | [HBASE-14786](https://issues.apache.org/jira/browse/HBASE-14786) | TestProcedureAdmin hangs |  Major | hangingTests, test | stack | Matteo Bertozzi |
 | [HBASE-14785](https://issues.apache.org/jira/browse/HBASE-14785) | Hamburger menu for mobile site |  Major | website | Misty Stanley-Jones | Misty Stanley-Jones |

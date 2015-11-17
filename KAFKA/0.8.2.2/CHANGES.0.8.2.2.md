@@ -48,6 +48,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-2346](https://issues.apache.org/jira/browse/KAFKA-2346) | modified typo api.html in 0.8.2 and 0.8.3 |  Minor | website | Asano Ryohei |  |
 | [KAFKA-2308](https://issues.apache.org/jira/browse/KAFKA-2308) | New producer + Snappy face un-compression errors after broker restart |  Major | . | Gwen Shapira | Gwen Shapira |
 | [KAFKA-2189](https://issues.apache.org/jira/browse/KAFKA-2189) | Snappy compression of message batches less efficient in 0.8.2.1 |  Blocker | build, compression, log | Olson,Andrew | Ismael Juma |
 

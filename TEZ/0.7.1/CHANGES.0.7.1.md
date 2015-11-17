@@ -18,7 +18,7 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.7.1 - Unreleased (as of 2015-11-12)
+## Release 0.7.1 - Unreleased (as of 2015-11-17)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -43,6 +43,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-2935](https://issues.apache.org/jira/browse/TEZ-2935) | Add MR slow start translation for ShuffleVertexManager |  Major | . | Jonathan Eagles | Jonathan Eagles |
 | [TEZ-2886](https://issues.apache.org/jira/browse/TEZ-2886) | Ability to merge AM credentials with DAG credentials |  Major | . | Jason Lowe | Jason Lowe |
 | [TEZ-2768](https://issues.apache.org/jira/browse/TEZ-2768) | Log a useful error message when the summary stream cannot be closed when shutting down an AM |  Major | . | Jeff Zhang | Jeff Zhang |
 | [TEZ-2767](https://issues.apache.org/jira/browse/TEZ-2767) | Make TezMxBeanResourceCalculator the default resource calculator |  Major | . | Siddharth Seth | Siddharth Seth |
@@ -64,8 +65,10 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-2940](https://issues.apache.org/jira/browse/TEZ-2940) | Invalid shuffle max slow start setting causes vertex to hang indefinitely |  Major | . | Jonathan Eagles | Jonathan Eagles |
 | [TEZ-2930](https://issues.apache.org/jira/browse/TEZ-2930) | Tez UI: Parent controller is not polling at times |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2929](https://issues.apache.org/jira/browse/TEZ-2929) | Tez UI: Dag details page displays vertices to be running even when dag have completed. |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
+| [TEZ-2923](https://issues.apache.org/jira/browse/TEZ-2923) | Tez Live UI counters view empty for vertices, tasks, attempts |  Major | UI | Jonathan Eagles | Jonathan Eagles |
 | [TEZ-2922](https://issues.apache.org/jira/browse/TEZ-2922) | Tez Live UI gives access denied for admins |  Major | . | Jonathan Eagles | Jonathan Eagles |
 | [TEZ-2909](https://issues.apache.org/jira/browse/TEZ-2909) | Tez UI: Application link in All DAGs table is disable when applicationhistory is unavailable. |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2907](https://issues.apache.org/jira/browse/TEZ-2907) | NPE in IFile.Reader.getLength during final merge operation |  Major | . | Rajesh Balamohan | Rajesh Balamohan |

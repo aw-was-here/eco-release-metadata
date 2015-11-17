@@ -18,7 +18,7 @@
 -->
 # Apache Hadoop Changelog
 
-## Release 2.6.3 - Unreleased (as of 2015-11-12)
+## Release 2.6.3 - Unreleased (as of 2015-11-17)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -61,7 +61,6 @@
 | [YARN-4320](https://issues.apache.org/jira/browse/YARN-4320) | TestJobHistoryEventHandler fails as AHS in MiniYarnCluster no longer binds to default port 8188 |  Major | . | Varun Saxena | Varun Saxena |
 | [YARN-4312](https://issues.apache.org/jira/browse/YARN-4312) | TestSubmitApplicationWithRMHA fails on branch-2.7 and branch-2.6 as some of the test cases time out |  Major | . | Varun Saxena | Varun Saxena |
 | [YARN-4241](https://issues.apache.org/jira/browse/YARN-4241) | Fix typo of property name in yarn-default.xml |  Major | documentation | Anthony Rojas | Anthony Rojas |
-| [YARN-2859](https://issues.apache.org/jira/browse/YARN-2859) | ApplicationHistoryServer binds to default port 8188 in MiniYARNCluster |  Critical | timelineserver | Hitesh Shah | Vinod Kumar Vavilapalli |
 
 
 ### TESTS:

@@ -18,7 +18,7 @@
 -->
 # Apache BigTop Changelog
 
-## Release 1.1.0 - Unreleased (as of 2015-11-12)
+## Release 1.1.0 - Unreleased (as of 2015-11-17)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -45,6 +45,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [BIGTOP-2143](https://issues.apache.org/jira/browse/BIGTOP-2143) | [Puppet] Automatically generate default repo |  Major | deployment | Evans Ye | Evans Ye |
 | [BIGTOP-2103](https://issues.apache.org/jira/browse/BIGTOP-2103) | [Docker] Move bigtop/slaves image build to gradle |  Major | build, docker | Evans Ye | Evans Ye |
 | [BIGTOP-2102](https://issues.apache.org/jira/browse/BIGTOP-2102) | Upgrade YCSB to 0.4.0 |  Major | build | YoungWoo Kim | YoungWoo Kim |
 | [BIGTOP-2091](https://issues.apache.org/jira/browse/BIGTOP-2091) | Build ignite-hadoop assembly with specific version of Spark |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
@@ -80,6 +81,10 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [BIGTOP-2144](https://issues.apache.org/jira/browse/BIGTOP-2144) | Update default repos in Bigtop Provisioner |  Major | deployment | Evans Ye | Evans Ye |
+| [BIGTOP-2140](https://issues.apache.org/jira/browse/BIGTOP-2140) | hbase compile fails with Insufficient memory on POWER |  Major | build | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2139](https://issues.apache.org/jira/browse/BIGTOP-2139) | crunch compile fails with Insufficient memory on POWER |  Major | build | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2131](https://issues.apache.org/jira/browse/BIGTOP-2131) | [Docker] bigtop slaves images should be built without cache |  Major | docker | Evans Ye | Evans Ye |
 | [BIGTOP-2128](https://issues.apache.org/jira/browse/BIGTOP-2128) | ignite-hadoop man page still refers to the Incubator |  Major | debian, rpm | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2127](https://issues.apache.org/jira/browse/BIGTOP-2127) | opensuse: fix kerberos python module |  Major | hue | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-2126](https://issues.apache.org/jira/browse/BIGTOP-2126) | Fix default repo locations in the deployment site.pp |  Minor | deployment | Konstantin Boudnik | Konstantin Boudnik |
@@ -156,6 +161,7 @@
 | [BIGTOP-1877](https://issues.apache.org/jira/browse/BIGTOP-1877) | Upgrade Crunch to 0.12.0 |  Major | debian, rpm | YoungWoo Kim | YoungWoo Kim |
 | [BIGTOP-1838](https://issues.apache.org/jira/browse/BIGTOP-1838) | Pig build does not publish artifacts of build |  Minor | . | Rob Leidle | Konstantin Boudnik |
 | [BIGTOP-1805](https://issues.apache.org/jira/browse/BIGTOP-1805) | Upgrade Hadoop to 2.7 if released |  Major | hadoop | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-1690](https://issues.apache.org/jira/browse/BIGTOP-1690) | Puppet should automatically create data directories |  Critical | deployment | Konstantin Boudnik | Sergey Soldatov |
 | [BIGTOP-1344](https://issues.apache.org/jira/browse/BIGTOP-1344) | spec files assume RPMs being built on Red Hat |  Major | rpm | Allen Wittenauer | Olaf Flebbe |
 
 
@@ -207,6 +213,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [BIGTOP-2146](https://issues.apache.org/jira/browse/BIGTOP-2146) | Upgrade bigtop toolchain ant version to 1.9.6 |  Major | toolchain | Evans Ye | Olaf Flebbe |
 | [BIGTOP-2069](https://issues.apache.org/jira/browse/BIGTOP-2069) | Update README.md to reflect CTR trial |  Major | documentation | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-1953](https://issues.apache.org/jira/browse/BIGTOP-1953) | Upgrade bigtop\_toolchain to Maven 3.3.3 |  Major | toolchain | Jonathan Kelly | Olaf Flebbe |
 | [BIGTOP-1925](https://issues.apache.org/jira/browse/BIGTOP-1925) | Add ywkim as a maintainer for YCSB |  Trivial | . | YoungWoo Kim | YoungWoo Kim |

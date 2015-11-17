@@ -65,13 +65,6 @@ io.native.lib.available was removed. Always use native libraries if they exist.
 
 ---
 
-* [HADOOP-11625](https://issues.apache.org/jira/browse/HADOOP-11625) | *Major* | **Minor fixes to command manual & SLA doc**
-
-Just some minor printography fixes.
-
-
----
-
 * [HADOOP-11554](https://issues.apache.org/jira/browse/HADOOP-11554) | *Major* | **Expose HadoopKerberosName as a hadoop subcommand**
 
 The hadoop kerbname subcommand has been added to ease operational pain in determining the output of auth\_to\_local rules.
@@ -156,6 +149,24 @@ This changes the output of the 'hadoop version' command to generically say 'Sour
 * Default heap sizes have been removed. This will allow for the JVM to use auto-tuning based upon the memory size of the host. To re-enable the old default, configure HADOOP\_HEAPSIZE\_MAX="1g" in hadoop-env.sh. 
 
 * All global and daemon-specific heap size variables now support units.  If the variable is only a number, the size is assumed to be in megabytes.
+
+
+---
+
+* [HADOOP-10787](https://issues.apache.org/jira/browse/HADOOP-10787) | *Blocker* | **Rename/remove non-HADOOP\_\*, etc from the shell scripts**
+
+<!-- markdown -->
+The following shell environment variables have been deprecated:
+
+| Old | New |
+|:---- |:---- |
+| DEFAULT\_LIBEXEC\_DIR | HADOOP\_DEFAULT\_LIBEXEC\_DIR |
+| SLAVE\_NAMES | HADOOP\_SLAVE\_NAMES |
+| TOOL\_PATH | HADOOP\_TOOLS\_PATH |
+
+In addition:
+* DEFAULT\_LIBEXEC\_DIR will NOT be automatically transitioned to HADOOP\_DEFAULT\_LIBEXEC\_DIR and will require changes to any scripts setting that value.  A warning will be printed to the screen if DEFAULT\_LIBEXEC\_DIR has been configured.
+* HADOOP\_TOOLS\_PATH is now properly handled as a multi-valued, Java classpath-style variable.  Prior, multiple values assigned to TOOL\_PATH would not work a predictable manner.
 
 
 ---
@@ -247,20 +258,6 @@ IMPROVEMENTS:
 
 ---
 
-* [HADOOP-9265](https://issues.apache.org/jira/browse/HADOOP-9265) | *Major* | **S3 blockstore filesystem breaks part of the Filesystem contract**
-
-fixed in HADOOP-9258
-
-
----
-
-* [HADOOP-9261](https://issues.apache.org/jira/browse/HADOOP-9261) | *Major* | **S3n filesystem can move a directory under itself -and so lose data**
-
-fixed in HADOOP-9258
-
-
----
-
 * [HADOOP-8776](https://issues.apache.org/jira/browse/HADOOP-8776) | *Minor* | **Provide an option in test-patch that can enable / disable compiling native code**
 
 test-patch.sh adds a new option "--build-native". When set to false native
@@ -293,7 +290,7 @@ The output format of hadoop fs -du has been changed. It shows not only the file 
 
 * [HDFS-9278](https://issues.apache.org/jira/browse/HDFS-9278) | *Trivial* | **Fix preferredBlockSize typo in OIV XML output**
 
-The preferred block size XML element has been corrected from "\<perferredBlockSize\>" to "\<preferredBlockSize\>".
+The preferred block size XML element has been corrected from "\\<perferredBlockSize\>" to "\\<preferredBlockSize\>".
 
 
 ---

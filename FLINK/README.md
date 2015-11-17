@@ -16,9 +16,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
+* Apache Flink v1.0.0
+    * [Changes](1.0.0/CHANGES.1.0.0.md)
+    * [Release Notes](1.0.0/RELEASENOTES.1.0.0.md)
 * Apache Flink v0.10.1
     * [Changes](0.10.1/CHANGES.0.10.1.md)
     * [Release Notes](0.10.1/RELEASENOTES.0.10.1.md)
+* Apache Flink v0.10.0
+    * [Changes](0.10.0/CHANGES.0.10.0.md)
+    * [Release Notes](0.10.0/RELEASENOTES.0.10.0.md)
 * Apache Flink v0.9.2
     * [Changes](0.9.2/CHANGES.0.9.2.md)
     * [Release Notes](0.9.2/RELEASENOTES.0.9.2.md)

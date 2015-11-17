@@ -18,7 +18,7 @@
 -->
 # Apache HBase Changelog
 
-## Release 1.0.4 - Unreleased (as of 2015-11-12)
+## Release 1.0.4 - Unreleased (as of 2015-11-17)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -48,6 +48,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HBASE-14806](https://issues.apache.org/jira/browse/HBASE-14806) | Missing sources.jar for several modules when building HBase |  Major | . | Duo Zhang | Duo Zhang |
 
 
 ### TESTS:

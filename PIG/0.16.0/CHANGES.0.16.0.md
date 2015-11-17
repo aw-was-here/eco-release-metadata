@@ -18,7 +18,7 @@
 -->
 # Apache Pig Changelog
 
-## Release 0.16.0 - Unreleased (as of 2015-11-12)
+## Release 0.16.0 - Unreleased (as of 2015-11-17)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -67,9 +67,12 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [PIG-4736](https://issues.apache.org/jira/browse/PIG-4736) | Removing empty keys in UDFContext broke one LoadFunc |  Major | tez | Rohini Palaniswamy | Rohini Palaniswamy |
+| [PIG-4733](https://issues.apache.org/jira/browse/PIG-4733) | Avoid NullPointerException in JVMReuseImpl for builtin classes |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-4730](https://issues.apache.org/jira/browse/PIG-4730) | [Pig on Tez] Total parallelism estimation does not account load parallelism |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-4727](https://issues.apache.org/jira/browse/PIG-4727) | Incorrect types table for AVG in docs |  Trivial | documentation | Nathan Smith | Nathan Smith |
 | [PIG-4725](https://issues.apache.org/jira/browse/PIG-4725) | Typo in FrontendException messages "Incompatable" |  Trivial | . | Nathan Smith | Nathan Smith |
+| [PIG-4722](https://issues.apache.org/jira/browse/PIG-4722) | [Pig on Tez] NPE while running Combiner |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-4721](https://issues.apache.org/jira/browse/PIG-4721) | IsEmpty documentation error |  Trivial | documentation | Nathan Smith | Nathan Smith |
 | [PIG-4712](https://issues.apache.org/jira/browse/PIG-4712) | [Pig on Tez] NPE in Bloom UDF after Union |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-4707](https://issues.apache.org/jira/browse/PIG-4707) | [Pig on Tez] Streaming job hangs with pig.exec.mapPartAgg=true |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |

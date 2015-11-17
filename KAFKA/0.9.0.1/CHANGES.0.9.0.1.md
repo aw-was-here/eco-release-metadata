@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.9.0.1 - Unreleased (as of 2015-11-12)
+## Release 0.9.0.1 - Unreleased (as of 2015-11-17)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -50,6 +50,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [KAFKA-2752](https://issues.apache.org/jira/browse/KAFKA-2752) | Add clean bounce system test for distributed Copycat |  Major | copycat | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
+| [KAFKA-1862](https://issues.apache.org/jira/browse/KAFKA-1862) | Pass in the Time object into OffsetManager |  Major | . | Guozhang Wang | Aditya Auradkar |
 
 
 ### TESTS:

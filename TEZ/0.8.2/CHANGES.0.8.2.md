@@ -18,7 +18,7 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.8.2 - Unreleased (as of 2015-11-12)
+## Release 0.8.2 - Unreleased (as of 2015-11-17)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -43,6 +43,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-2935](https://issues.apache.org/jira/browse/TEZ-2935) | Add MR slow start translation for ShuffleVertexManager |  Major | . | Jonathan Eagles | Jonathan Eagles |
 | [TEZ-2886](https://issues.apache.org/jira/browse/TEZ-2886) | Ability to merge AM credentials with DAG credentials |  Major | . | Jason Lowe | Jason Lowe |
 | [TEZ-2879](https://issues.apache.org/jira/browse/TEZ-2879) | While grouping splits, allow an alternate list of preferred locations to be provided per split |  Major | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-2244](https://issues.apache.org/jira/browse/TEZ-2244) | PipelinedSorter: Progressive allocation for sort-buffers |  Major | . | Gopal V | Rajesh Balamohan |
@@ -54,8 +55,11 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-2940](https://issues.apache.org/jira/browse/TEZ-2940) | Invalid shuffle max slow start setting causes vertex to hang indefinitely |  Major | . | Jonathan Eagles | Jonathan Eagles |
 | [TEZ-2930](https://issues.apache.org/jira/browse/TEZ-2930) | Tez UI: Parent controller is not polling at times |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2929](https://issues.apache.org/jira/browse/TEZ-2929) | Tez UI: Dag details page displays vertices to be running even when dag have completed. |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
+| [TEZ-2924](https://issues.apache.org/jira/browse/TEZ-2924) | Framework for Hadoop shims |  Major | . | Hitesh Shah | Hitesh Shah |
+| [TEZ-2923](https://issues.apache.org/jira/browse/TEZ-2923) | Tez Live UI counters view empty for vertices, tasks, attempts |  Major | UI | Jonathan Eagles | Jonathan Eagles |
 | [TEZ-2922](https://issues.apache.org/jira/browse/TEZ-2922) | Tez Live UI gives access denied for admins |  Major | . | Jonathan Eagles | Jonathan Eagles |
 | [TEZ-2909](https://issues.apache.org/jira/browse/TEZ-2909) | Tez UI: Application link in All DAGs table is disable when applicationhistory is unavailable. |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2907](https://issues.apache.org/jira/browse/TEZ-2907) | NPE in IFile.Reader.getLength during final merge operation |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
@@ -88,6 +92,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-2918](https://issues.apache.org/jira/browse/TEZ-2918) | Make progress notifications in IOs |  Major | . | Bikas Saha | Bikas Saha |
 | [TEZ-2888](https://issues.apache.org/jira/browse/TEZ-2888) | Make critical path calculation resilient to AM crash |  Major | . | Bikas Saha | Bikas Saha |
 | [TEZ-2882](https://issues.apache.org/jira/browse/TEZ-2882) | Consider improving fetch failure handling |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-2849](https://issues.apache.org/jira/browse/TEZ-2849) | Implement Specific Workaround for JDK-8026049 & JDK-8073093 |  Major | . | Gopal V | Gopal V |
