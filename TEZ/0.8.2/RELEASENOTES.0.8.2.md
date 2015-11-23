@@ -23,6 +23,20 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
+* [TEZ-2949](https://issues.apache.org/jira/browse/TEZ-2949) | *Major* | **Allow duplicate dag names within session for Tez**
+
+In earlier versions of Tez, DAG submissions to a Tez AM were rejected if the dagName was not unique for that Tez session/application. After this change, the uniqueness constraint for the dagName is no longer enforced.
+
+
+---
+
+* [TEZ-2948](https://issues.apache.org/jira/browse/TEZ-2948) | *Major* | **Stop using dagName in the dagComplete notification to TaskCommunicators**
+
+**WARNING: No release note provided for this incompatible change.**
+
+
+---
+
 * [TEZ-2909](https://issues.apache.org/jira/browse/TEZ-2909) | *Major* | **Tez UI: Application link in All DAGs table is disable when applicationhistory is unavailable.**
 
 Thanks you [~hitesh]

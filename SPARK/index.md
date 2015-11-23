@@ -16,6 +16,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
+* Apache Spark v2.0.0
+    * [Changes](2.0.0/CHANGES.2.0.0.html)
+    * [Release Notes](2.0.0/RELEASENOTES.2.0.0.html)
 * Apache Spark v1.7.0
     * [Changes](1.7.0/CHANGES.1.7.0.html)
     * [Release Notes](1.7.0/RELEASENOTES.1.7.0.html)

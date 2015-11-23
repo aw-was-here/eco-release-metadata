@@ -18,12 +18,14 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.8.2 - Unreleased (as of 2015-11-17)
+## Release 0.8.2 - Unreleased (as of 2015-11-23)
 
 ### INCOMPATIBLE CHANGES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-2949](https://issues.apache.org/jira/browse/TEZ-2949) | Allow duplicate dag names within session for Tez |  Major | . | Hitesh Shah | Hitesh Shah |
+| [TEZ-2948](https://issues.apache.org/jira/browse/TEZ-2948) | Stop using dagName in the dagComplete notification to TaskCommunicators |  Major | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-2679](https://issues.apache.org/jira/browse/TEZ-2679) | Admin forms of launch env settings |  Major | . | Jason Lowe | Jonathan Eagles |
 
 
@@ -55,13 +57,20 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-2952](https://issues.apache.org/jira/browse/TEZ-2952) | NPE in TestOnFileUnorderedKVOutput |  Major | . | Jeff Zhang | Bikas Saha |
+| [TEZ-2947](https://issues.apache.org/jira/browse/TEZ-2947) | Tez UI: Timeline, RM & AM requests gets into a consecutive loop in counters page without any delay |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
+| [TEZ-2946](https://issues.apache.org/jira/browse/TEZ-2946) | Tez UI: At times RM return a huge error message making the yellow error bar to fill the whole screen. |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
+| [TEZ-2945](https://issues.apache.org/jira/browse/TEZ-2945) | TEZ-2740 addendum to update API with currently supported parameters |  Major | . | Bikas Saha | Bikas Saha |
+| [TEZ-2944](https://issues.apache.org/jira/browse/TEZ-2944) | NPE in TestProcessorContext |  Major | . | Jeff Zhang | Bikas Saha |
 | [TEZ-2940](https://issues.apache.org/jira/browse/TEZ-2940) | Invalid shuffle max slow start setting causes vertex to hang indefinitely |  Major | . | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-2933](https://issues.apache.org/jira/browse/TEZ-2933) | Tez UI: Load application details from RM when available |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2930](https://issues.apache.org/jira/browse/TEZ-2930) | Tez UI: Parent controller is not polling at times |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2929](https://issues.apache.org/jira/browse/TEZ-2929) | Tez UI: Dag details page displays vertices to be running even when dag have completed. |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2924](https://issues.apache.org/jira/browse/TEZ-2924) | Framework for Hadoop shims |  Major | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-2923](https://issues.apache.org/jira/browse/TEZ-2923) | Tez Live UI counters view empty for vertices, tasks, attempts |  Major | UI | Jonathan Eagles | Jonathan Eagles |
 | [TEZ-2922](https://issues.apache.org/jira/browse/TEZ-2922) | Tez Live UI gives access denied for admins |  Major | . | Jonathan Eagles | Jonathan Eagles |
 | [TEZ-2909](https://issues.apache.org/jira/browse/TEZ-2909) | Tez UI: Application link in All DAGs table is disable when applicationhistory is unavailable. |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
+| [TEZ-2908](https://issues.apache.org/jira/browse/TEZ-2908) | Tez UI: Errors are logged, but not displayed in the UI when AM fetch fails. |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2907](https://issues.apache.org/jira/browse/TEZ-2907) | NPE in IFile.Reader.getLength during final merge operation |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-2906](https://issues.apache.org/jira/browse/TEZ-2906) | Compilation fails with hadoop 2.2.0 |  Major | . | Jeff Zhang | Jeff Zhang |
 | [TEZ-2904](https://issues.apache.org/jira/browse/TEZ-2904) | Pig can't specify task specific command opts |  Major | . | Jonathan Eagles | Jonathan Eagles |
@@ -77,6 +86,7 @@
 | [TEZ-2814](https://issues.apache.org/jira/browse/TEZ-2814) | ATSImportTool has a return statement in a finally block |  Major | . | Hitesh Shah | Rajesh Balamohan |
 | [TEZ-2781](https://issues.apache.org/jira/browse/TEZ-2781) | Fallback to send only TaskAttemptFailedEvent if taskFailed heartbeat fails |  Major | . | Jeff Zhang | Jeff Zhang |
 | [TEZ-2553](https://issues.apache.org/jira/browse/TEZ-2553) | Tez UI: Tez UI Nits |  Minor | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
+| [TEZ-2480](https://issues.apache.org/jira/browse/TEZ-2480) | Exception when closing output is ignored |  Major | . | Sergey Shelukhin | Siddharth Seth |
 | [TEZ-1976](https://issues.apache.org/jira/browse/TEZ-1976) | Findbug warning: Unread field: org.apache.hadoop.mapreduce.split.TezGroupedSplitsInputFormat$SplitHolder.split |  Major | . | Hitesh Shah | Chetna Chaudhari |
 | [TEZ-1888](https://issues.apache.org/jira/browse/TEZ-1888) | Fix javac warnings all over codebase |  Critical | . | Hitesh Shah | Chetna Chaudhari |
 | [TEZ-1670](https://issues.apache.org/jira/browse/TEZ-1670) | Add tests for all converter functions in HistoryEventTimelineConversion |  Minor | . | Hitesh Shah | Tatsuya Nishiyama |

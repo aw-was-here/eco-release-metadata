@@ -18,7 +18,7 @@
 -->
 # Apache Yetus Changelog
 
-## Release 0.1.0 - Unreleased (as of 2015-11-17)
+## Release 0.1.0 - Unreleased (as of 2015-11-23)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -36,11 +36,12 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [YETUS-143](https://issues.apache.org/jira/browse/YETUS-143) | add support for JMeter |  Minor | Test Patch | Kengo Seki | Kengo Seki |
 | [YETUS-121](https://issues.apache.org/jira/browse/YETUS-121) | support non-java-build-tool asflicense |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-114](https://issues.apache.org/jira/browse/YETUS-114) | Add no-op build tool for projects that don't have one. |  Major | Test Patch | Sean Busbey | Sean Busbey |
 | [YETUS-86](https://issues.apache.org/jira/browse/YETUS-86) | add C/C++ compile support |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
+| [YETUS-77](https://issues.apache.org/jira/browse/YETUS-77) | add bugzilla support |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-33](https://issues.apache.org/jira/browse/YETUS-33) | committer mode for smart-apply-patch |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
-| [YETUS-26](https://issues.apache.org/jira/browse/YETUS-26) | rebrand for yetus |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-5](https://issues.apache.org/jira/browse/YETUS-5) | Support per-instance maven repos |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
 
 
@@ -49,14 +50,16 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YETUS-177](https://issues.apache.org/jira/browse/YETUS-177) | add yetus\_abs to yetuslib |  Trivial | Test Patch | Allen Wittenauer | Allen Wittenauer |
+| [YETUS-163](https://issues.apache.org/jira/browse/YETUS-163) | parameterize site for releases |  Blocker | website and documentation | Sean Busbey | Sean Busbey |
 | [YETUS-161](https://issues.apache.org/jira/browse/YETUS-161) | fix spelling error in maven plugin |  Trivial | Test Patch | Tony Kurc | Tony Kurc |
 | [YETUS-157](https://issues.apache.org/jira/browse/YETUS-157) | build tools should force compile if their control file is patched |  Blocker | Test Patch | Allen Wittenauer | Allen Wittenauer |
-| [YETUS-143](https://issues.apache.org/jira/browse/YETUS-143) | add support for JMeter |  Minor | Test Patch | Kengo Seki | Kengo Seki |
 | [YETUS-141](https://issues.apache.org/jira/browse/YETUS-141) | make module for jdiff doclet optional |  Major | Audience Annotations | Sean Busbey | Sean Busbey |
 | [YETUS-128](https://issues.apache.org/jira/browse/YETUS-128) | Jira plugin should be configurable to accept issue status other than 'Patch Available' |  Major | Test Patch | Kengo Seki | Kengo Seki |
 | [YETUS-110](https://issues.apache.org/jira/browse/YETUS-110) | typo fixes on test-patch basic documentation |  Trivial | website and documentation | Tony Kurc | Tony Kurc |
 | [YETUS-98](https://issues.apache.org/jira/browse/YETUS-98) | enable parallel tests on hadoop |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
+| [YETUS-81](https://issues.apache.org/jira/browse/YETUS-81) | Publish generated apidocs on website |  Critical | Audience Annotations, Test Patch, website and documentation | Sean Busbey | Sean Busbey |
 | [YETUS-31](https://issues.apache.org/jira/browse/YETUS-31) | releasedocmaker should use the Important flag in jira |  Major | Release Doc Maker | Allen Wittenauer | Kengo Seki |
+| [YETUS-26](https://issues.apache.org/jira/browse/YETUS-26) | rebrand for yetus |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-2](https://issues.apache.org/jira/browse/YETUS-2) | Build website |  Critical | website and documentation | Sean Busbey | Allen Wittenauer |
 
 
@@ -64,8 +67,15 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [YETUS-196](https://issues.apache.org/jira/browse/YETUS-196) | default dockerfile isn't being used |  Blocker | Test Patch | Allen Wittenauer | Allen Wittenauer |
+| [YETUS-193](https://issues.apache.org/jira/browse/YETUS-193) | Wrong format for return values in shelldoc generated docs |  Minor | website and documentation | Kengo Seki | Kengo Seki |
+| [YETUS-186](https://issues.apache.org/jira/browse/YETUS-186) | non-existent dockerfile should fail or fallback |  Blocker | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-179](https://issues.apache.org/jira/browse/YETUS-179) | Clean up asflicense errors |  Blocker | build | Sean Busbey | Kengo Seki |
+| [YETUS-176](https://issues.apache.org/jira/browse/YETUS-176) | hadoop: mvn site tests aren't getting run |  Blocker | Test Patch | Allen Wittenauer | Allen Wittenauer |
+| [YETUS-174](https://issues.apache.org/jira/browse/YETUS-174) | releasedocmaker bug with ranges |  Major | Release Doc Maker | Allen Wittenauer | Kengo Seki |
+| [YETUS-171](https://issues.apache.org/jira/browse/YETUS-171) | patches that don't apply are not getting reported back to JIRA |  Blocker | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-155](https://issues.apache.org/jira/browse/YETUS-155) | add usage for asflicense plugin |  Minor | Test Patch | Kengo Seki | Marco Zühlke |
+| [YETUS-154](https://issues.apache.org/jira/browse/YETUS-154) | Specifying help option before plugins option hides plugin-specific help messages |  Trivial | Test Patch | Kengo Seki | Marco Zühlke |
 | [YETUS-153](https://issues.apache.org/jira/browse/YETUS-153) | asflicense plugin does not work if asflicense-rat-excludes option is specified |  Major | Test Patch | Kengo Seki | Kengo Seki |
 | [YETUS-147](https://issues.apache.org/jira/browse/YETUS-147) | Failed test table mixes result from different JDKs |  Major | Test Patch | Marco Zühlke | Marco Zühlke |
 | [YETUS-142](https://issues.apache.org/jira/browse/YETUS-142) | compile gets limited to 'warning' in generic log handler |  Blocker | Test Patch | Allen Wittenauer | Allen Wittenauer |
@@ -76,6 +86,7 @@
 | [YETUS-132](https://issues.apache.org/jira/browse/YETUS-132) | javadoc test does not run if javac test is disabled |  Major | Test Patch | Kengo Seki | Kengo Seki |
 | [YETUS-129](https://issues.apache.org/jira/browse/YETUS-129) | Add Geode personality |  Minor | Test Patch | jun aoki | jun aoki |
 | [YETUS-127](https://issues.apache.org/jira/browse/YETUS-127) | small additional note for test-patch.sh --plugins parameter. |  Trivial | Test Patch | jun aoki | jun aoki |
+| [YETUS-123](https://issues.apache.org/jira/browse/YETUS-123) | Various Docker mode fixes: plug-in issues, local patch file problems, availability, & Dockerfile re-usability |  Critical | Test Patch | Sean Busbey | Allen Wittenauer |
 | [YETUS-120](https://issues.apache.org/jira/browse/YETUS-120) | Add missing @params to patchfiles.sh |  Trivial | Test Patch, website and documentation | jun aoki | jun aoki |
 | [YETUS-117](https://issues.apache.org/jira/browse/YETUS-117) | Nonexistent function invocation in the nobuild plugin |  Minor | Test Patch | Kengo Seki | Kengo Seki |
 | [YETUS-113](https://issues.apache.org/jira/browse/YETUS-113) | On non-docker reexec, test patch mistakenly uses 'plugins' arg instead of 'user-plugins' |  Critical | Test Patch | Sean Busbey | Sean Busbey |
@@ -87,12 +98,11 @@
 | [YETUS-94](https://issues.apache.org/jira/browse/YETUS-94) | docker cleanup invalid date |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-93](https://issues.apache.org/jira/browse/YETUS-93) | tap needs to verify directories |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-92](https://issues.apache.org/jira/browse/YETUS-92) | checkstyle bogus screen output |  Major | Test Patch | Allen Wittenauer | Kengo Seki |
-| [YETUS-90](https://issues.apache.org/jira/browse/YETUS-90) | Wrong function name for tap\_parse\_args |  Major | Test Patch | Kengo Seki |  |
+| [YETUS-89](https://issues.apache.org/jira/browse/YETUS-89) | Variable name "HOW\_TO\_CONTRIBUTE" is misleading |  Trivial | Test Patch | Kengo Seki | Kengo Seki |
 | [YETUS-88](https://issues.apache.org/jira/browse/YETUS-88) | Dockerfile is missing bats |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-87](https://issues.apache.org/jira/browse/YETUS-87) | whitespace console message is misleading |  Trivial | Test Patch | Allen Wittenauer | Marco Zühlke |
 | [YETUS-85](https://issues.apache.org/jira/browse/YETUS-85) | test types aren't getting initialized |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-82](https://issues.apache.org/jira/browse/YETUS-82) | personality\_plugins with multiple entries doesn't work |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
-| [YETUS-77](https://issues.apache.org/jira/browse/YETUS-77) | add bugzilla support |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-74](https://issues.apache.org/jira/browse/YETUS-74) | document test formats |  Major | Test Patch, website and documentation | Allen Wittenauer | Kengo Seki |
 | [YETUS-72](https://issues.apache.org/jira/browse/YETUS-72) | Unassigned variable ${STARTDIR}? |  Major | Test Patch | Kengo Seki | Kengo Seki |
 | [YETUS-71](https://issues.apache.org/jira/browse/YETUS-71) | releasedocmaker shouldn't use all desc when no release notes field |  Major | Release Doc Maker | Allen Wittenauer | Kengo Seki |
@@ -125,6 +135,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [YETUS-162](https://issues.apache.org/jira/browse/YETUS-162) | rename 'latest' documentation to 'in-progress' to denote non-release status. |  Major | website and documentation | Sean Busbey | Sean Busbey |
 | [YETUS-126](https://issues.apache.org/jira/browse/YETUS-126) | break jdiff doclet into independent artifact |  Major | Audience Annotations | Sean Busbey | Sean Busbey |
 | [YETUS-124](https://issues.apache.org/jira/browse/YETUS-124) | add exemplar drill personality |  Major | Test Patch | Sean Busbey | Kengo Seki |
 | [YETUS-116](https://issues.apache.org/jira/browse/YETUS-116) | add checkstyle option for maven goal |  Minor | Test Patch | Tony Kurc | Tony Kurc |

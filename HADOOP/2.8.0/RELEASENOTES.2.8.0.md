@@ -58,6 +58,13 @@ Fixes an Trash related issue wherein a delay in the periodic checkpointing of on
 
 ---
 
+* [HADOOP-12313](https://issues.apache.org/jira/browse/HADOOP-12313) | *Critical* | **NPE in JvmPauseMonitor when calling stop() before start()**
+
+HADOOP-12313 Allow stop() before start() completed in JvmPauseMonitor
+
+
+---
+
 * [HADOOP-12081](https://issues.apache.org/jira/browse/HADOOP-12081) | *Major* | **Fix UserGroupInformation.java to support 64-bit zLinux**
 
 **WARNING: No release note provided for this important issue.**

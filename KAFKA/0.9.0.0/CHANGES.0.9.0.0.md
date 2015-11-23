@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.9.0.0 - Unreleased (as of 2015-11-17)
+## Release 0.9.0.0 - Unreleased (as of 2015-11-23)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -45,6 +45,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-2863](https://issues.apache.org/jira/browse/KAFKA-2863) | Authorizer should provide lifecycle (shutdown) methods |  Major | security | Joel Koshy | Ismael Juma |
 | [KAFKA-2831](https://issues.apache.org/jira/browse/KAFKA-2831) | kafka-consumer-groups requires zookeeper url when using the new-consumer option |  Major | . | Jun Rao | Ismael Juma |
 | [KAFKA-2809](https://issues.apache.org/jira/browse/KAFKA-2809) | Improve documentation linking |  Major | website | Grant Henke | Grant Henke |
 | [KAFKA-2791](https://issues.apache.org/jira/browse/KAFKA-2791) | remove deprecated producer properties from console-producer |  Major | . | Jun Rao | Ben Stopford |
@@ -100,14 +101,14 @@
 | [KAFKA-1989](https://issues.apache.org/jira/browse/KAFKA-1989) | New purgatory design |  Critical | purgatory | Yasuhiro Matsuda | Yasuhiro Matsuda |
 | [KAFKA-1982](https://issues.apache.org/jira/browse/KAFKA-1982) | change kafka.examples.Producer to use the new java producer |  Major | . | Jun Rao | Ashish K Singh |
 | [KAFKA-1965](https://issues.apache.org/jira/browse/KAFKA-1965) | Leaner DelayedItem |  Trivial | purgatory | Yasuhiro Matsuda | Yasuhiro Matsuda |
-| [KAFKA-1957](https://issues.apache.org/jira/browse/KAFKA-1957) | code doc typo |  Trivial | config | Yaguo Zhou |  |
+| [KAFKA-1957](https://issues.apache.org/jira/browse/KAFKA-1957) | code doc typo |  Trivial | config | Yaguo Zhou | Yaguo Zhou |
 | [KAFKA-1938](https://issues.apache.org/jira/browse/KAFKA-1938) | [doc] Quick start example should reference appropriate Kafka version |  Trivial | website | Stevo Slavic | Manikumar Reddy |
 | [KAFKA-1926](https://issues.apache.org/jira/browse/KAFKA-1926) | Replace kafka.utils.Utils with o.a.k.common.utils.Utils |  Major | . | Jay Kreps | Tong Li |
 | [KAFKA-1915](https://issues.apache.org/jira/browse/KAFKA-1915) | Integrate checkstyle for java code |  Minor | . | Jay Kreps | Jay Kreps |
 | [KAFKA-1888](https://issues.apache.org/jira/browse/KAFKA-1888) | Add a "rolling upgrade" system test |  Major | system tests | Gwen Shapira | Geoff Anderson |
 | [KAFKA-1885](https://issues.apache.org/jira/browse/KAFKA-1885) | Allow test methods in "core" to be individually run from outside of the IDE |  Major | system tests | jaikiran pai | jaikiran pai |
 | [KAFKA-1854](https://issues.apache.org/jira/browse/KAFKA-1854) | Allow the JIRA username and password to be prompted during patch submission |  Major | . | jaikiran pai | jaikiran pai |
-| [KAFKA-1818](https://issues.apache.org/jira/browse/KAFKA-1818) | Code cleanup in ReplicationUtils including unit test |  Trivial | replication | Eric Olander | Neha Narkhede |
+| [KAFKA-1818](https://issues.apache.org/jira/browse/KAFKA-1818) | Code cleanup in ReplicationUtils including unit test |  Trivial | replication | Eric Olander | Eric Olander |
 | [KAFKA-1807](https://issues.apache.org/jira/browse/KAFKA-1807) | Improve accuracy of ProducerPerformance target throughput |  Minor | clients, tools | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-1801](https://issues.apache.org/jira/browse/KAFKA-1801) | Remove non-functional variable definition in log4j.properties |  Trivial | log | Raman Gupta | Raman Gupta |
 | [KAFKA-1654](https://issues.apache.org/jira/browse/KAFKA-1654) | Provide a way to override server configuration from command line |  Major | core | Jarek Jarcec Cecho | Jarek Jarcec Cecho |
@@ -124,6 +125,13 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-2869](https://issues.apache.org/jira/browse/KAFKA-2869) | host used by Authorizer should be IP address not hostname/IP |  Critical | security | Ismael Juma | Ismael Juma |
+| [KAFKA-2867](https://issues.apache.org/jira/browse/KAFKA-2867) | Missing synchronization and improperly handled InterruptException in WorkerSourceTask |  Blocker | copycat | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
+| [KAFKA-2859](https://issues.apache.org/jira/browse/KAFKA-2859) | Deadlock in WorkerSourceTask |  Blocker | copycat | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
+| [KAFKA-2852](https://issues.apache.org/jira/browse/KAFKA-2852) | Kafka Authroizer CLI should use consistent way to specify multiple values for all config options. |  Major | . | Parth Brahmbhatt |  |
+| [KAFKA-2848](https://issues.apache.org/jira/browse/KAFKA-2848) | Use withClientSslSupport/withClientSaslSupport in Kafka Connect |  Major | copycat | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
+| [KAFKA-2847](https://issues.apache.org/jira/browse/KAFKA-2847) | remove principal.builder.class from client configs |  Major | clients | Jun Rao | Ismael Juma |
+| [KAFKA-2841](https://issues.apache.org/jira/browse/KAFKA-2841) | Group metadata cache loading is not safe when reloading a partition |  Blocker | . | Jason Gustafson | Jason Gustafson |
 | [KAFKA-2838](https://issues.apache.org/jira/browse/KAFKA-2838) | allow comma when specifying superusers |  Major | . | Jun Rao |  |
 | [KAFKA-2833](https://issues.apache.org/jira/browse/KAFKA-2833) | OffsetsMessageFormatter hits unexpected exception |  Major | . | Jun Rao | Guozhang Wang |
 | [KAFKA-2822](https://issues.apache.org/jira/browse/KAFKA-2822) | DescribeConsumerGroup now returns empty list for non-existent group, it used to throw IllegalArgumentException |  Major | . | Ashish K Singh | Ashish K Singh |
@@ -193,7 +201,7 @@
 | [KAFKA-2648](https://issues.apache.org/jira/browse/KAFKA-2648) | Coordinator should not allow empty groupIds |  Major | . | Jason Gustafson | Jason Gustafson |
 | [KAFKA-2633](https://issues.apache.org/jira/browse/KAFKA-2633) | Default logging from tools to Stderr |  Major | . | Grant Henke | Grant Henke |
 | [KAFKA-2628](https://issues.apache.org/jira/browse/KAFKA-2628) | KafkaOffsetBackingStoreTest.testGetSet transient test failure |  Major | copycat | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
-| [KAFKA-2624](https://issues.apache.org/jira/browse/KAFKA-2624) | Truncate warn message logged after truncating partitions |  Trivial | replication | Francois Visconte | Neha Narkhede |
+| [KAFKA-2624](https://issues.apache.org/jira/browse/KAFKA-2624) | Truncate warn message logged after truncating partitions |  Trivial | replication | Francois Visconte | Francois Visconte |
 | [KAFKA-2621](https://issues.apache.org/jira/browse/KAFKA-2621) | nextOffsetMetadata should be changed after rolling a new log segment |  Major | core | Jun Rao | Jiangjie Qin |
 | [KAFKA-2618](https://issues.apache.org/jira/browse/KAFKA-2618) | Disable SSL renegotiation for 0.9.0.0 |  Major | security | Ismael Juma | Ismael Juma |
 | [KAFKA-2614](https://issues.apache.org/jira/browse/KAFKA-2614) | No more clients can connect after `TooManyConnectionsException` threshold (max.connections.per.ip) is reached |  Critical | core | Stephen Chu | Ismael Juma |
@@ -320,7 +328,7 @@
 | [KAFKA-1960](https://issues.apache.org/jira/browse/KAFKA-1960) | .gitignore does not exclude test generated files and folders. |  Minor | build | Tong Li | Tong Li |
 | [KAFKA-1959](https://issues.apache.org/jira/browse/KAFKA-1959) | Class CommitThread overwrite group of Thread class causing compile errors |  Major | core | Tong Li | Tong Li |
 | [KAFKA-1948](https://issues.apache.org/jira/browse/KAFKA-1948) | kafka.api.consumerTests are hanging |  Major | . | Gwen Shapira | Guozhang Wang |
-| [KAFKA-1947](https://issues.apache.org/jira/browse/KAFKA-1947) | can't explicitly set replica-assignment when add partitions |  Major | core | Honghai Chen |  |
+| [KAFKA-1947](https://issues.apache.org/jira/browse/KAFKA-1947) | can't explicitly set replica-assignment when add partitions |  Major | core | Honghai Chen | Honghai Chen |
 | [KAFKA-1940](https://issues.apache.org/jira/browse/KAFKA-1940) | Initial checkout and build failing |  Major | build | Martin Lemanski | Martin Lemanski |
 | [KAFKA-1901](https://issues.apache.org/jira/browse/KAFKA-1901) | Move Kafka version to be generated in code by build (instead of in manifest) |  Major | . | Jason Rosenberg | Manikumar Reddy |
 | [KAFKA-1896](https://issues.apache.org/jira/browse/KAFKA-1896) | Record size funcition of record in mirror maker hit NPE when the message value is null. |  Major | . | Jiangjie Qin | Jiangjie Qin |
@@ -336,7 +344,7 @@
 | [KAFKA-1865](https://issues.apache.org/jira/browse/KAFKA-1865) | Add a flush() call to the new producer API |  Major | . | Jay Kreps | Jay Kreps |
 | [KAFKA-1852](https://issues.apache.org/jira/browse/KAFKA-1852) | OffsetCommitRequest can commit offset on unknown topic |  Major | . | Jun Rao | Sriharsha Chintalapani |
 | [KAFKA-1848](https://issues.apache.org/jira/browse/KAFKA-1848) | Checking shutdown during each iteration of ZookeeperConsumerConnector |  Major | . | Aditya Auradkar | Aditya Auradkar |
-| [KAFKA-1836](https://issues.apache.org/jira/browse/KAFKA-1836) | metadata.fetch.timeout.ms set to zero blocks forever |  Minor | clients | Paul Pearcy |  |
+| [KAFKA-1836](https://issues.apache.org/jira/browse/KAFKA-1836) | metadata.fetch.timeout.ms set to zero blocks forever |  Minor | clients | Paul Pearcy | jaikiran pai |
 | [KAFKA-1824](https://issues.apache.org/jira/browse/KAFKA-1824) | in ConsoleProducer - properties key.separator and parse.key no longer work |  Major | tools | Gwen Shapira | Gwen Shapira |
 | [KAFKA-1815](https://issues.apache.org/jira/browse/KAFKA-1815) | ServerShutdownTest fails in trunk. |  Minor | . | Anatoly Fayngelerin | Anatoly Fayngelerin |
 | [KAFKA-1813](https://issues.apache.org/jira/browse/KAFKA-1813) | Build fails for scala 2.9.2 |  Minor | build | Anatoly Fayngelerin | Anatoly Fayngelerin |
@@ -405,21 +413,16 @@
 | [KAFKA-2774](https://issues.apache.org/jira/browse/KAFKA-2774) | Rename Copycat -\> Kafka Connect |  Major | copycat | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-2765](https://issues.apache.org/jira/browse/KAFKA-2765) | Connectors and tasks should have versions that can be reported when they are instantiated |  Major | copycat | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-2745](https://issues.apache.org/jira/browse/KAFKA-2745) | Update JavaDoc for the new / updated APIs |  Major | consumer | Guozhang Wang | Guozhang Wang |
-| [KAFKA-2727](https://issues.apache.org/jira/browse/KAFKA-2727) | initialize only the part of the topology relevant to the task |  Major | kafka streams | Yasuhiro Matsuda | Yasuhiro Matsuda |
 | [KAFKA-2724](https://issues.apache.org/jira/browse/KAFKA-2724) | Document ZooKeeper authentication |  Blocker | security | Flavio Junqueira | Flavio Junqueira |
+| [KAFKA-2718](https://issues.apache.org/jira/browse/KAFKA-2718) | Reuse of temporary directories leading to transient unit test failures |  Major | core | Rajini Sivaram | Rajini Sivaram |
 | [KAFKA-2713](https://issues.apache.org/jira/browse/KAFKA-2713) | Copycat worker should not call connector's/task's start methods in the control thread |  Major | copycat | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-2711](https://issues.apache.org/jira/browse/KAFKA-2711) | SaslClientAuthenticator no longer needs KerberosNameParser in constructor |  Minor | clients | Jun Rao | Ismael Juma |
-| [KAFKA-2707](https://issues.apache.org/jira/browse/KAFKA-2707) | Make KStream processor names deterministic |  Major | . | Yasuhiro Matsuda | Yasuhiro Matsuda |
-| [KAFKA-2706](https://issues.apache.org/jira/browse/KAFKA-2706) | Make state stores first class citizens in the processor DAG |  Major | kafka streams | Yasuhiro Matsuda | Yasuhiro Matsuda |
 | [KAFKA-2697](https://issues.apache.org/jira/browse/KAFKA-2697) | add leave group logic to the consumer |  Major | consumer | Onur Karaman | Jason Gustafson |
-| [KAFKA-2694](https://issues.apache.org/jira/browse/KAFKA-2694) | Make a task id be a composite id of a topic group id and a partition id |  Major | kafka streams | Yasuhiro Matsuda | Yasuhiro Matsuda |
 | [KAFKA-2691](https://issues.apache.org/jira/browse/KAFKA-2691) | Improve handling of authorization failure during metadata refresh |  Blocker | security | Ismael Juma | Jason Gustafson |
 | [KAFKA-2690](https://issues.apache.org/jira/browse/KAFKA-2690) | Protect passwords from logging |  Major | security | Ismael Juma | Jakub Nowak |
 | [KAFKA-2682](https://issues.apache.org/jira/browse/KAFKA-2682) | Authorization section in official docs |  Major | security | Ismael Juma | Parth Brahmbhatt |
 | [KAFKA-2681](https://issues.apache.org/jira/browse/KAFKA-2681) | SASL authentication in official docs |  Blocker | security | Ismael Juma | Sriharsha Chintalapani |
 | [KAFKA-2675](https://issues.apache.org/jira/browse/KAFKA-2675) | SASL/Kerberos follow-up |  Major | security | Ismael Juma | Ismael Juma |
-| [KAFKA-2654](https://issues.apache.org/jira/browse/KAFKA-2654) | Avoid calling Consumer.poll(0) in each iteration |  Major | . | Guozhang Wang | Yasuhiro Matsuda |
-| [KAFKA-2652](https://issues.apache.org/jira/browse/KAFKA-2652) | Incorporate the new consumer protocol with partition-group interface |  Major | . | Guozhang Wang | Yasuhiro Matsuda |
 | [KAFKA-2644](https://issues.apache.org/jira/browse/KAFKA-2644) | Run relevant ducktape tests with SASL\_PLAINTEXT and SASL\_SSL |  Blocker | security | Ismael Juma | Rajini Sivaram |
 | [KAFKA-2641](https://issues.apache.org/jira/browse/KAFKA-2641) | Upgrade path for ZK authentication |  Major | security | Flavio Junqueira | Flavio Junqueira |
 | [KAFKA-2640](https://issues.apache.org/jira/browse/KAFKA-2640) | Add tests for ZK authentication |  Major | security | Flavio Junqueira | Flavio Junqueira |
@@ -429,11 +432,7 @@
 | [KAFKA-2622](https://issues.apache.org/jira/browse/KAFKA-2622) | Add Time logical type for Copycat |  Major | copycat | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-2613](https://issues.apache.org/jira/browse/KAFKA-2613) | Consider capping `maxParallelForks` for Jenkins builds |  Major | build | Ismael Juma | Ewen Cheslack-Postava |
 | [KAFKA-2604](https://issues.apache.org/jira/browse/KAFKA-2604) | Remove `completeAll` and improve timeout passed to `Selector.poll` from `NetworkClient.poll` |  Major | consumer | Ismael Juma | Ismael Juma |
-| [KAFKA-2600](https://issues.apache.org/jira/browse/KAFKA-2600) | Make KStream interfaces compatible with Java 8 java.util.function |  Major | . | Guozhang Wang | Randall Hauch |
 | [KAFKA-2598](https://issues.apache.org/jira/browse/KAFKA-2598) | Add Test with authorizer for producer and consumer |  Blocker | security, unit tests | Parth Brahmbhatt | Parth Brahmbhatt |
-| [KAFKA-2594](https://issues.apache.org/jira/browse/KAFKA-2594) | Add a key-value store that is a fixed-capacity in-memory LRU cache |  Major | kafka streams | Randall Hauch | Randall Hauch |
-| [KAFKA-2593](https://issues.apache.org/jira/browse/KAFKA-2593) | KeyValueStores should not require use of the context's default serializers and deserializers |  Major | kafka streams | Randall Hauch | Randall Hauch |
-| [KAFKA-2591](https://issues.apache.org/jira/browse/KAFKA-2591) | Remove Persistent Data before Restoringafter a Fault |  Major | . | Guozhang Wang | Guozhang Wang |
 | [KAFKA-2587](https://issues.apache.org/jira/browse/KAFKA-2587) | Transient test failure: `SimpleAclAuthorizerTest` |  Major | . | Ismael Juma | Parth Brahmbhatt |
 | [KAFKA-2582](https://issues.apache.org/jira/browse/KAFKA-2582) | ConsumerMetdata authorization error not returned to user |  Major | security | Jason Gustafson | Jason Gustafson |
 | [KAFKA-2581](https://issues.apache.org/jira/browse/KAFKA-2581) | Run some existing ducktape tests with SSL-enabled clients and brokers |  Major | security | Rajini Sivaram | Rajini Sivaram |
@@ -540,6 +539,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [KAFKA-1476](https://issues.apache.org/jira/browse/KAFKA-1476) | Get a list of consumer groups |  Major | tools | Ryan Williams | Onur Karaman |
 | [KAFKA-2783](https://issues.apache.org/jira/browse/KAFKA-2783) | Drop outdated hadoop contrib modules |  Blocker | . | Grant Henke | Grant Henke |
+| [KAFKA-2746](https://issues.apache.org/jira/browse/KAFKA-2746) | Add support for using ConsumerGroupCommand on secure install |  Major | tools | Ashish K Singh | Ashish K Singh |
 | [KAFKA-2502](https://issues.apache.org/jira/browse/KAFKA-2502) | Quotas documentation for 0.8.3 |  Blocker | . | Aditya Auradkar | Aditya Auradkar |
 | [KAFKA-2492](https://issues.apache.org/jira/browse/KAFKA-2492) | Upgrade zkclient dependency to 0.6 |  Trivial | . | Stevo Slavic | Stevo Slavic |
 | [KAFKA-2443](https://issues.apache.org/jira/browse/KAFKA-2443) | Expose windowSize on Rate |  Major | . | Aditya Auradkar | Aditya Auradkar |

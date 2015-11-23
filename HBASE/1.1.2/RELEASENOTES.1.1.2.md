@@ -23,13 +23,6 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
-* [HBASE-14206](https://issues.apache.org/jira/browse/HBASE-14206) | *Critical* | **MultiRowRangeFilter returns records whose rowKeys are out of allowed ranges**
-
-**WARNING: No release note provided for this important issue.**
-
-
----
-
 * [HBASE-14054](https://issues.apache.org/jira/browse/HBASE-14054) | *Major* | **Acknowledged writes may get lost if regionserver clock is set backwards**
 
 In {{checkAndPut}} write path use max(max timestamp for the row, System.currentTimeMillis()) in the, instead of blindly taking System.currentTimeMillis() to ensure that checkAndPut() cannot do writes which is already eclipsed. This is similar to what has been done in HBASE-12449 for increment and append.

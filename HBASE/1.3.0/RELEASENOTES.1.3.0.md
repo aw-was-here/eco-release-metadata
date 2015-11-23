@@ -23,6 +23,13 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
+* [HBASE-14793](https://issues.apache.org/jira/browse/HBASE-14793) | *Major* | **Allow limiting size of block into L1 block cache.**
+
+Very large blocks can fragment the heap and cause bad issues for the garbage collector, especially the G1GC. Now there is a maximum size that a block can be and still stick in the LruBlockCache. That size defaults to 16mb but can be controlled by changing "hbase.lru.max.block.size"
+
+
+---
+
 * [HBASE-14605](https://issues.apache.org/jira/browse/HBASE-14605) | *Major* | **Split fails due to 'No valid credentials' error when SecureBulkLoadEndpoint#start tries to access hdfs**
 
 When split is requested by non-super user, split related notifications for Coprocessor are executed using the login of the request user.
@@ -57,6 +64,17 @@ Adds server version to the listing of regionservers on the master home page
 * [HBASE-14502](https://issues.apache.org/jira/browse/HBASE-14502) | *Major* | **Purge use of jmock and remove as dependency**
 
 HBASE-14502 Purge use of jmock and remove as dependency
+
+
+---
+
+* [HBASE-14468](https://issues.apache.org/jira/browse/HBASE-14468) | *Major* | **Compaction improvements: FIFO compaction policy**
+
+FIFO compaction policy selects only files which have all cells expired. The column family MUST have non-default TTL. 
+Essentially, FIFO compactor does only one job: collects expired store files. 
+
+Because we do not do any real compaction, we do not use CPU and IO (disk and network), we do not evict hot data from a block cache. The result: improved throughput and latency both write and read.
+See: https://github.com/facebook/rocksdb/wiki/FIFO-compaction-style
 
 
 ---
@@ -222,13 +240,6 @@ Prevent Coprocessors being doubly-loaded; a particular coprocessor can only be l
 
 ---
 
-* [HBASE-14206](https://issues.apache.org/jira/browse/HBASE-14206) | *Critical* | **MultiRowRangeFilter returns records whose rowKeys are out of allowed ranges**
-
-**WARNING: No release note provided for this important issue.**
-
-
----
-
 * [HBASE-14148](https://issues.apache.org/jira/browse/HBASE-14148) | *Major* | **Web UI Framable Page**
 
 Security fix: Adds protection from clickjacking using X-Frame-Options header.
@@ -314,13 +325,6 @@ For branch-1(1.3 version), byte default the buffers returned will be off heap. T
 * [HBASE-13706](https://issues.apache.org/jira/browse/HBASE-13706) | *Minor* | **CoprocessorClassLoader should not exempt Hive classes**
 
 Starting from HBase 2.0, CoprocessorClassLoader will not exempt hadoop classes or zookeeper classes.  This means that if the custom coprocessor jar contains hadoop or zookeeper packages and classes, they will be loaded by the CoprocessorClassLoader.  Only hbase packages and classes  are exempted from the CoprocessorClassLoader. They (and their dependencies) are loaded by the parent server class loader.
-
-
----
-
-* [HBASE-13666](https://issues.apache.org/jira/browse/HBASE-13666) | *Major* | **book.pdf is not renamed during site build**
-
-Correct PDF renaming and bump version of maven-antrun-plugin
 
 
 ---

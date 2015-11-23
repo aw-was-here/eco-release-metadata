@@ -37,6 +37,13 @@ In the extremely rare event that HADOOP\_USER\_IDENT and USER environment variab
 
 ---
 
+* [HADOOP-12294](https://issues.apache.org/jira/browse/HADOOP-12294) | *Major* | **Remove the support of the deprecated dfs.umask**
+
+The support of the deprecated dfs.umask key is removed in Hadoop 3.0.
+
+
+---
+
 * [HADOOP-11781](https://issues.apache.org/jira/browse/HADOOP-11781) | *Major* | **fix race conditions and add URL support to smart-apply-patch.sh**
 
 Now auto-downloads patch from issue-id; fixed race conditions; fixed bug affecting some patches.

@@ -23,6 +23,13 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
+* [HBASE-14793](https://issues.apache.org/jira/browse/HBASE-14793) | *Major* | **Allow limiting size of block into L1 block cache.**
+
+Very large blocks can fragment the heap and cause bad issues for the garbage collector, especially the G1GC. Now there is a maximum size that a block can be and still stick in the LruBlockCache. That size defaults to 16mb but can be controlled by changing "hbase.lru.max.block.size"
+
+
+---
+
 * [HBASE-14700](https://issues.apache.org/jira/browse/HBASE-14700) | *Major* | **Support a "permissive" mode for secure clusters to allow "simple" auth clients**
 
 Secure HBase now supports a permissive mode to allow mixed secure and insecure clients.  This allows clients to be incrementally migrated over to a secure configuration.  To enable clients to continue to connect using SIMPLE authentication when the cluster is configured for security, set "hbase.ipc.server.fallback-to-simple-auth-allowed" equal to "true" in hbase-site.xml.  NOTE: This setting should ONLY be used as a temporary measure while converting clients over to secure authentication.  It MUST BE DISABLED for secure operation.
@@ -64,6 +71,17 @@ Adds server version to the listing of regionservers on the master home page
 * [HBASE-14502](https://issues.apache.org/jira/browse/HBASE-14502) | *Major* | **Purge use of jmock and remove as dependency**
 
 HBASE-14502 Purge use of jmock and remove as dependency
+
+
+---
+
+* [HBASE-14468](https://issues.apache.org/jira/browse/HBASE-14468) | *Major* | **Compaction improvements: FIFO compaction policy**
+
+FIFO compaction policy selects only files which have all cells expired. The column family MUST have non-default TTL. 
+Essentially, FIFO compactor does only one job: collects expired store files. 
+
+Because we do not do any real compaction, we do not use CPU and IO (disk and network), we do not evict hot data from a block cache. The result: improved throughput and latency both write and read.
+See: https://github.com/facebook/rocksdb/wiki/FIFO-compaction-style
 
 
 ---
@@ -227,13 +245,6 @@ Prevent Coprocessors being doubly-loaded; a particular coprocessor can only be l
 
 ---
 
-* [HBASE-14206](https://issues.apache.org/jira/browse/HBASE-14206) | *Critical* | **MultiRowRangeFilter returns records whose rowKeys are out of allowed ranges**
-
-**WARNING: No release note provided for this important issue.**
-
-
----
-
 * [HBASE-14201](https://issues.apache.org/jira/browse/HBASE-14201) | *Major* | **hbck should not take a lock unless fixing errors**
 
 HBCK no longer takes a lock until there are changes to the cluster being made.
@@ -380,13 +391,6 @@ Example: For a limiter configured with 10resources/second, then 1resource will b
 
 Client can configure anyone of this rate limiter for the cluster by setting the value for the property "hbase.quota.rate.limiter" in the hbase-site.xml. org.apache.hadoop.hbase.quotas.AverageIntervalRateLimiter is the default value.
 Note: Client needs to restart the cluster for the configuration to take into effect.
-
-
----
-
-* [HBASE-13666](https://issues.apache.org/jira/browse/HBASE-13666) | *Major* | **book.pdf is not renamed during site build**
-
-Correct PDF renaming and bump version of maven-antrun-plugin
 
 
 ---

@@ -208,6 +208,7 @@
 | [FLINK-2756](https://issues.apache.org/jira/browse/FLINK-2756) | start/stop scripts fail in directories with spaces |  Critical | Start-Stop Scripts | Fabian Hueske | Fabian Hueske |
 | [FLINK-2754](https://issues.apache.org/jira/browse/FLINK-2754) | FixedLengthRecordSorter can not write to output cross MemorySegments. |  Major | Distributed Runtime | Chengxiang Li | Chengxiang Li |
 | [FLINK-2751](https://issues.apache.org/jira/browse/FLINK-2751) | Quickstart is in documentation but only linked through the Flink homepage |  Major | Documentation | Maximilian Michels |  |
+| [FLINK-2750](https://issues.apache.org/jira/browse/FLINK-2750) | FileStateHandleTest fails when building for Hadoop 2.6.0 |  Major | Tests | Fabian Hueske | Stephan Ewen |
 | [FLINK-2748](https://issues.apache.org/jira/browse/FLINK-2748) | Accumulator fetch failure leads to duplicate job result response |  Major | JobManager | Ufuk Celebi | Maximilian Michels |
 | [FLINK-2738](https://issues.apache.org/jira/browse/FLINK-2738) | StackOverflow in case of unbounded restarts |  Major | JobManager | Ufuk Celebi |  |
 | [FLINK-2734](https://issues.apache.org/jira/browse/FLINK-2734) | ArrayKeySelector returns wrong positions (or fails) |  Critical | Streaming | Stephan Ewen | Stephan Ewen |
@@ -219,6 +220,7 @@
 | [FLINK-2697](https://issues.apache.org/jira/browse/FLINK-2697) | Deadlock in StreamDiscretizer |  Major | Streaming | Till Rohrmann | Aljoscha Krettek |
 | [FLINK-2691](https://issues.apache.org/jira/browse/FLINK-2691) | Broken links to Python script on QuickStart doc |  Minor | Documentation | Felix Cheung |  |
 | [FLINK-2689](https://issues.apache.org/jira/browse/FLINK-2689) | Reusing null object for joins with SolutionSet |  Major | Local Runtime | Fabian Hueske | Fabian Hueske |
+| [FLINK-2670](https://issues.apache.org/jira/browse/FLINK-2670) | Unstable CombineTaskTest |  Critical | Tests | Matthias J. Sax | Stephan Ewen |
 | [FLINK-2665](https://issues.apache.org/jira/browse/FLINK-2665) | ExecutionConfig is not serializable |  Major | . | Till Rohrmann | Till Rohrmann |
 | [FLINK-2659](https://issues.apache.org/jira/browse/FLINK-2659) | Object reuse in UnionWithTempOperator |  Major | Distributed Runtime | Greg Hogan | Greg Hogan |
 | [FLINK-2656](https://issues.apache.org/jira/browse/FLINK-2656) | FlinkKafkaConsumer is failing with OutOfRangeException |  Critical | Kafka Connector | Robert Metzger | Robert Metzger |
@@ -266,6 +268,7 @@
 | [FLINK-2514](https://issues.apache.org/jira/browse/FLINK-2514) | Local and Remote environment behave differently when re-triggering execution. |  Critical | Streaming | Stephan Ewen | Aljoscha Krettek |
 | [FLINK-2512](https://issues.apache.org/jira/browse/FLINK-2512) | Add client.close() before throw RuntimeException |  Minor | flink-contrib | fangfengbin | fangfengbin |
 | [FLINK-2511](https://issues.apache.org/jira/browse/FLINK-2511) | Potential resource leak due to unclosed InputStream in FlinkZooKeeperQuorumPeer.java |  Major | . | Ted Yu | Ufuk Celebi |
+| [FLINK-2508](https://issues.apache.org/jira/browse/FLINK-2508) | Confusing sharing of StreamExecutionEnvironment |  Major | Streaming | Stephan Ewen |  |
 | [FLINK-2507](https://issues.apache.org/jira/browse/FLINK-2507) | Rename the function tansformAndEmit in org.apache.flink.stormcompatibility.wrappers.AbstractStormCollector |  Minor | flink-contrib | fangfengbin | fangfengbin |
 | [FLINK-2502](https://issues.apache.org/jira/browse/FLINK-2502) | FiniteStormSpout documenation does not render correclty |  Trivial | Documentation | Matthias J. Sax | Matthias J. Sax |
 | [FLINK-2499](https://issues.apache.org/jira/browse/FLINK-2499) | start-cluster.sh can start multiple TaskManager on the same node |  Major | Start-Stop Scripts | Chen He | Márton Balassi |

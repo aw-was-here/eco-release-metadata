@@ -23,6 +23,20 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
+* [HIVE-12443](https://issues.apache.org/jira/browse/HIVE-12443) | *Major* | **Hive Streaming should expose encoding and serdes for testing**
+
+Any extensions of org.apache.hive.hcatalog.streaming.AbstractRecordWriter will need to implement two new public methods, SerDe and encode.
+
+
+---
+
+* [HIVE-12434](https://issues.apache.org/jira/browse/HIVE-12434) | *Major* | **Merge spark into master 11/17/1015**
+
+Merge introduced some configurations.
+
+
+---
+
 * [HIVE-12363](https://issues.apache.org/jira/browse/HIVE-12363) | *Major* | **Incorrect results with orc ppd across ORC versions**
 
 "HIVE-12363: Incorrect results with orc ppd across ORC versions (Gopal V, reviewed by Prasanth Jayachandran)"
@@ -33,6 +47,13 @@ These release notes cover new developer and user-facing incompatibilities, impor
 * [HIVE-12315](https://issues.apache.org/jira/browse/HIVE-12315) | *Critical* | **vectorization\_short\_regress.q has a wrong result issue for a double calculation**
 
 HIVE-12315: Fix Vectorized double divide by zero (Gopal V, reviewed by Matt McCline)
+
+
+---
+
+* [HIVE-12300](https://issues.apache.org/jira/browse/HIVE-12300) | *Major* | **deprecate MR in Hive 2.0**
+
+Hive-on-MR has been deprecated in Hive 2 releases as the other, more modern and actively developed execution engines have been production-ready for some time. The support may be removed in future 2.X versions. Consider using a different execution engine (i.e. spark, tez) or using Hive 1.X releases if you want to keep using MR.
 
 
 ---
@@ -354,6 +375,25 @@ Expanded streaming API to include update and delete operations and support merge
 * [HIVE-9365](https://issues.apache.org/jira/browse/HIVE-9365) | *Minor* | **The Metastore should take port configuration from hive-site.xml**
 
 **WARNING: No release note provided for this incompatible change.**
+
+
+---
+
+* [HIVE-7926](https://issues.apache.org/jira/browse/HIVE-7926) | *Major* | **long-lived daemons for query fragment execution, I/O and caching**
+
+LLAP is the new hybrid execution model that enables efficiencies across queries, such as caching of columnar data, JIT-friendly operator pipelines, and reduced overhead for multiple queries (including concurrent queries), as well as new performance features like asynchronous I/O, pre-fetching and multi-threaded processing. The hybrid model consists of a long-lived service interacting with on-demand elastic containers serving as a tightly integrated DAG-based framework for query execution. 
+
+The first version of LLAP is being shipped in Hive 2.0 release. The component has been extensively exercised on test and live clusters, and tested, but is expected to have rough edges in this initial release.
+The current limitations are: supported with Tez only; does not support ACID tables; the I/O elevator and cache only support ORC format and vectorized execution.
+
+
+---
+
+* [HIVE-7575](https://issues.apache.org/jira/browse/HIVE-7575) | *Major* | **GetTables thrift call is very slow**
+
+This adds 5 additional columns to the ResultSet of GetTables.  This is for compliance with the official JDBC API:
+
+See:  http://docs.oracle.com/javase/7/docs/api/java/sql/DatabaseMetaData.html#getTables(java.lang.String,%20java.lang.String,%20java.lang.String,%20java.lang.String[])
 
 
 ---

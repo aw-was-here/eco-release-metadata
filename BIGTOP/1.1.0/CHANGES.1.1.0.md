@@ -18,7 +18,7 @@
 -->
 # Apache BigTop Changelog
 
-## Release 1.1.0 - Unreleased (as of 2015-11-17)
+## Release 1.1.0 - Unreleased (as of 2015-11-23)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -45,6 +45,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [BIGTOP-2153](https://issues.apache.org/jira/browse/BIGTOP-2153) | Simplify and complete storage dir creation |  Trivial | deployment | Michael Weiser | Michael Weiser |
 | [BIGTOP-2143](https://issues.apache.org/jira/browse/BIGTOP-2143) | [Puppet] Automatically generate default repo |  Major | deployment | Evans Ye | Evans Ye |
 | [BIGTOP-2103](https://issues.apache.org/jira/browse/BIGTOP-2103) | [Docker] Move bigtop/slaves image build to gradle |  Major | build, docker | Evans Ye | Evans Ye |
 | [BIGTOP-2102](https://issues.apache.org/jira/browse/BIGTOP-2102) | Upgrade YCSB to 0.4.0 |  Major | build | YoungWoo Kim | YoungWoo Kim |
@@ -81,6 +82,10 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [BIGTOP-2156](https://issues.apache.org/jira/browse/BIGTOP-2156) | Fix Sqoop 1.4.5 build failed on OpenSuSE |  Major | toolchain | Evans Ye | Evans Ye |
+| [BIGTOP-2155](https://issues.apache.org/jira/browse/BIGTOP-2155) | Fix Hue 3.9.0 build failed on Fedora |  Major | build, hue, rpm | Evans Ye | Evans Ye |
+| [BIGTOP-2152](https://issues.apache.org/jira/browse/BIGTOP-2152) | Fix conflict with libressl-devel from mysql-devel |  Major | build | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2150](https://issues.apache.org/jira/browse/BIGTOP-2150) | Reversing directional build behavior |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2144](https://issues.apache.org/jira/browse/BIGTOP-2144) | Update default repos in Bigtop Provisioner |  Major | deployment | Evans Ye | Evans Ye |
 | [BIGTOP-2140](https://issues.apache.org/jira/browse/BIGTOP-2140) | hbase compile fails with Insufficient memory on POWER |  Major | build | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-2139](https://issues.apache.org/jira/browse/BIGTOP-2139) | crunch compile fails with Insufficient memory on POWER |  Major | build | Olaf Flebbe | Olaf Flebbe |
@@ -175,6 +180,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [BIGTOP-2149](https://issues.apache.org/jira/browse/BIGTOP-2149) | Zeppeling 0.5.5 has been officially released. Change the source ref |  Major | build | Konstantin Boudnik | Sergey Soldatov |
 | [BIGTOP-2122](https://issues.apache.org/jira/browse/BIGTOP-2122) | Add zeppelin packages |  Major | debian, rpm | Konstantin Boudnik | Jonathan Kelly |
 | [BIGTOP-2113](https://issues.apache.org/jira/browse/BIGTOP-2113) | Spark master doesn't bind to the host: ignores SPARK\_MASTER\_IP |  Blocker | spark | Konstantin Boudnik | Sergey Soldatov |
 | [BIGTOP-2107](https://issues.apache.org/jira/browse/BIGTOP-2107) | Ignite package still shows website at the incubator |  Major | ignite | Konstantin Boudnik | Olaf Flebbe |

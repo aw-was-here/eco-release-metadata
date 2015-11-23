@@ -58,6 +58,19 @@ Dead-code: Vectorized map-join runs Murmurhash twice
 
 ---
 
+* [HIVE-11831](https://issues.apache.org/jira/browse/HIVE-11831) | *Major* | **TXN tables in Oracle should be created with ROWDEPENDENCIES**
+
+ROWDEPENDENCIES cannot be added to the table after it has already been created. If you hit this issue on an existing database, you might want to (this requires stopping all Hive workloads for the duration), for each table (see the patch for what tables need to be updated; locks and txns table are the ones most affected):
+
+1) create temp table
+2) move contents of existing table to temp table
+3) drop existing table
+4) create new table with ROWDEPENDENCIES, as per the attached patch
+5) move data back from temp table
+
+
+---
+
 * [HIVE-11825](https://issues.apache.org/jira/browse/HIVE-11825) | *Critical* | **get\_json\_object(col,'$.a') is null in where clause didn`t work**
 
 Enabled to accept quoting of all character backslash qooting mechanism
