@@ -18,7 +18,7 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.8.2 - Unreleased (as of 2015-11-23)
+## Release 0.8.2 - Unreleased (as of 2015-11-26)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -48,6 +48,7 @@
 | [TEZ-2935](https://issues.apache.org/jira/browse/TEZ-2935) | Add MR slow start translation for ShuffleVertexManager |  Major | . | Jonathan Eagles | Jonathan Eagles |
 | [TEZ-2886](https://issues.apache.org/jira/browse/TEZ-2886) | Ability to merge AM credentials with DAG credentials |  Major | . | Jason Lowe | Jason Lowe |
 | [TEZ-2879](https://issues.apache.org/jira/browse/TEZ-2879) | While grouping splits, allow an alternate list of preferred locations to be provided per split |  Major | . | Siddharth Seth | Siddharth Seth |
+| [TEZ-2581](https://issues.apache.org/jira/browse/TEZ-2581) | Umbrella for Tez Recovery Redesign |  Major | . | Jeff Zhang | Jeff Zhang |
 | [TEZ-2244](https://issues.apache.org/jira/browse/TEZ-2244) | PipelinedSorter: Progressive allocation for sort-buffers |  Major | . | Gopal V | Rajesh Balamohan |
 | [TEZ-2096](https://issues.apache.org/jira/browse/TEZ-2096) | TEZ-UI : Add link to view AM log of finished & running apps |  Major | UI | Rajesh Balamohan | Jonathan Eagles |
 | [TEZ-1692](https://issues.apache.org/jira/browse/TEZ-1692) | Reduce code duplication between TezMapredSplitsGrouper and TezMapreduceSplitsGrouper |  Major | . | Siddharth Seth | Siddharth Seth |
@@ -57,6 +58,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-2956](https://issues.apache.org/jira/browse/TEZ-2956) | Handle auto-reduce parallelism when the totalNumBipartiteSourceTasks is 0 |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-2952](https://issues.apache.org/jira/browse/TEZ-2952) | NPE in TestOnFileUnorderedKVOutput |  Major | . | Jeff Zhang | Bikas Saha |
 | [TEZ-2947](https://issues.apache.org/jira/browse/TEZ-2947) | Tez UI: Timeline, RM & AM requests gets into a consecutive loop in counters page without any delay |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2946](https://issues.apache.org/jira/browse/TEZ-2946) | Tez UI: At times RM return a huge error message making the yellow error bar to fill the whole screen. |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |

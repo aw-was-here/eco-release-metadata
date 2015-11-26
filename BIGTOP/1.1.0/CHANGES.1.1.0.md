@@ -18,7 +18,7 @@
 -->
 # Apache BigTop Changelog
 
-## Release 1.1.0 - Unreleased (as of 2015-11-23)
+## Release 1.1.0 - Unreleased (as of 2015-11-26)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -47,6 +47,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [BIGTOP-2153](https://issues.apache.org/jira/browse/BIGTOP-2153) | Simplify and complete storage dir creation |  Trivial | deployment | Michael Weiser | Michael Weiser |
 | [BIGTOP-2143](https://issues.apache.org/jira/browse/BIGTOP-2143) | [Puppet] Automatically generate default repo |  Major | deployment | Evans Ye | Evans Ye |
+| [BIGTOP-2142](https://issues.apache.org/jira/browse/BIGTOP-2142) | Source cleanup: bigtop-repos shouldn't be top-level. |  Major | build | Konstantin Boudnik | Sergey Soldatov |
 | [BIGTOP-2103](https://issues.apache.org/jira/browse/BIGTOP-2103) | [Docker] Move bigtop/slaves image build to gradle |  Major | build, docker | Evans Ye | Evans Ye |
 | [BIGTOP-2102](https://issues.apache.org/jira/browse/BIGTOP-2102) | Upgrade YCSB to 0.4.0 |  Major | build | YoungWoo Kim | YoungWoo Kim |
 | [BIGTOP-2091](https://issues.apache.org/jira/browse/BIGTOP-2091) | Build ignite-hadoop assembly with specific version of Spark |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
@@ -82,6 +83,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [BIGTOP-2159](https://issues.apache.org/jira/browse/BIGTOP-2159) | unable to build RPM for zeppelin |  Blocker | build, rpm | Sergey Soldatov | Sergey Soldatov |
 | [BIGTOP-2156](https://issues.apache.org/jira/browse/BIGTOP-2156) | Fix Sqoop 1.4.5 build failed on OpenSuSE |  Major | toolchain | Evans Ye | Evans Ye |
 | [BIGTOP-2155](https://issues.apache.org/jira/browse/BIGTOP-2155) | Fix Hue 3.9.0 build failed on Fedora |  Major | build, hue, rpm | Evans Ye | Evans Ye |
 | [BIGTOP-2152](https://issues.apache.org/jira/browse/BIGTOP-2152) | Fix conflict with libressl-devel from mysql-devel |  Major | build | Olaf Flebbe | Olaf Flebbe |
@@ -174,6 +176,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [BIGTOP-2158](https://issues.apache.org/jira/browse/BIGTOP-2158) | Update README.md to reflect the acceptance of CTR model |  Major | documentation | Konstantin Boudnik | Konstantin Boudnik |
 
 
 ### SUB-TASKS:

@@ -18,7 +18,7 @@
 -->
 # Apache Hive Changelog
 
-## Release 1.3.0 - Unreleased (as of 2015-11-23)
+## Release 1.3.0 - Unreleased (as of 2015-11-26)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -101,12 +101,17 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HIVE-12498](https://issues.apache.org/jira/browse/HIVE-12498) | ACID: Setting OrcRecordUpdater.OrcOptions.tableProperties() has no effect |  Major | . | Prasanth Jayachandran | Prasanth Jayachandran |
 | [HIVE-12493](https://issues.apache.org/jira/browse/HIVE-12493) | HIVE-11180 didn't merge cleanly to branch-1 |  Major | . | Rui Li |  |
+| [HIVE-12476](https://issues.apache.org/jira/browse/HIVE-12476) | Metastore NPE on Oracle with Direct SQL |  Major | Metastore | Jason Dere | Jason Dere |
+| [HIVE-12473](https://issues.apache.org/jira/browse/HIVE-12473) | DPP: UDFs on the partition column side does not evaluate correctly |  Major | Tez | Gopal V | Sergey Shelukhin |
+| [HIVE-12463](https://issues.apache.org/jira/browse/HIVE-12463) | VectorMapJoinFastKeyStore has Array OOB errors |  Major | Vectorization | Gopal V | Gopal V |
 | [HIVE-12461](https://issues.apache.org/jira/browse/HIVE-12461) | Branch-1 -Phadoop-1 build is broken |  Major | . | Xuefu Zhang | Aleksei Statkevich |
 | [HIVE-12450](https://issues.apache.org/jira/browse/HIVE-12450) | OrcFileMergeOperator does not use correct compression buffer size |  Critical | ORC | Prasanth Jayachandran | Prasanth Jayachandran |
 | [HIVE-12437](https://issues.apache.org/jira/browse/HIVE-12437) | SMB join in tez fails when one of the tables is empty |  Critical | Tez | Vikram Dixit K | Vikram Dixit K |
 | [HIVE-12417](https://issues.apache.org/jira/browse/HIVE-12417) | Support for exclamation mark missing in regexp |  Major | . | Olaf Flebbe | Olaf Flebbe |
 | [HIVE-12409](https://issues.apache.org/jira/browse/HIVE-12409) | make sure SessionState.initTxnMgr() is thread safe |  Major | HiveServer2, Transactions | Eugene Koifman | Eugene Koifman |
+| [HIVE-12406](https://issues.apache.org/jira/browse/HIVE-12406) | HIVE-9500 introduced incompatible change to LazySimpleSerDe public interface |  Blocker | Serializers/Deserializers | Lenni Kuff | Aihua Xu |
 | [HIVE-12391](https://issues.apache.org/jira/browse/HIVE-12391) | SkewJoinOptimizer might not kick in if columns are renamed after TableScanOperator |  Major | Logical Optimizer | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
 | [HIVE-12389](https://issues.apache.org/jira/browse/HIVE-12389) | CompactionTxnHandler.cleanEmptyAbortedTxns() should safeguard against huge IN clauses |  Major | Metastore, Transactions | Eugene Koifman | Eugene Koifman |
 | [HIVE-12378](https://issues.apache.org/jira/browse/HIVE-12378) | Exception on HBaseSerDe.serialize binary field |  Major | HBase Handler, Serializers/Deserializers | Yongzhi Chen | Yongzhi Chen |
@@ -419,6 +424,7 @@
 | [HIVE-9069](https://issues.apache.org/jira/browse/HIVE-9069) | Simplify filter predicates for CBO |  Major | CBO | Mostafa Mokhtar | Jesus Camacho Rodriguez |
 | [HIVE-9013](https://issues.apache.org/jira/browse/HIVE-9013) | Hive set command exposes metastore db password |  Major | . | Binglin Chang | Binglin Chang |
 | [HIVE-8529](https://issues.apache.org/jira/browse/HIVE-8529) | HiveSessionImpl#fetchResults should not try to fetch operation log when hive.server2.logging.operation.enabled is false. |  Major | HiveServer2, JDBC | Vaibhav Gumashta | Yongzhi Chen |
+| [HIVE-8396](https://issues.apache.org/jira/browse/HIVE-8396) | Hive CliDriver command splitting can be broken when comments are present |  Major | Parser, Query Processor | Sergey Shelukhin | Elliot West |
 | [HIVE-7723](https://issues.apache.org/jira/browse/HIVE-7723) | Explain plan for complex query with lots of partitions is slow due to in-efficient collection used to find a matching ReadEntity |  Major | CLI, Physical Optimizer | Mostafa Mokhtar | Hari Sankar Sivarama Subramaniyan |
 | [HIVE-7476](https://issues.apache.org/jira/browse/HIVE-7476) | CTAS does not work properly for s3 |  Major | . | Jian Fang | Szehon Ho |
 | [HIVE-7193](https://issues.apache.org/jira/browse/HIVE-7193) | Hive should support additional LDAP authentication parameters |  Major | . | Mala Chikka Kempanna | Naveen Gangam |

@@ -18,7 +18,7 @@
 -->
 # Apache Flink Changelog
 
-## Release 1.0.0 - Unreleased (as of 2015-11-23)
+## Release 1.0.0 - Unreleased (as of 2015-11-26)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -36,6 +36,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [FLINK-2996](https://issues.apache.org/jira/browse/FLINK-2996) | Add config entry to define BlobServer port |  Major | JobManager | Stephan Ewen | Robert Metzger |
 | [FLINK-2955](https://issues.apache.org/jira/browse/FLINK-2955) | Add operations introduction in Table API page. |  Minor | Documentation | Chengxiang Li | Chengxiang Li |
 | [FLINK-2951](https://issues.apache.org/jira/browse/FLINK-2951) | Add Union operator to Table API. |  Minor | Documentation, Table API | Chengxiang Li | Chengxiang Li |
 
@@ -44,6 +45,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [FLINK-3045](https://issues.apache.org/jira/browse/FLINK-3045) | Properly expose the key of a kafka message |  Critical | Kafka Connector | Robert Metzger | Robert Metzger |
 | [FLINK-3040](https://issues.apache.org/jira/browse/FLINK-3040) | Add docs describing how to configure State Backends |  Major | Documentation | Stephan Ewen | Stephan Ewen |
 | [FLINK-3028](https://issues.apache.org/jira/browse/FLINK-3028) | Cannot cancel restarting job via web frontend |  Major | Webfrontend | Ufuk Celebi |  |
 | [FLINK-3017](https://issues.apache.org/jira/browse/FLINK-3017) | Broken 'Slots' link on Streaming Programming Guide |  Minor | Documentation | Suneel Marthi | Suneel Marthi |
@@ -63,11 +65,12 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [FLINK-3067](https://issues.apache.org/jira/browse/FLINK-3067) | Kafka source fails during checkpoint notifications with NPE |  Major | Kafka Connector | Gyula Fora | Robert Metzger |
+| [FLINK-3059](https://issues.apache.org/jira/browse/FLINK-3059) | Javadoc fix for DataSet.writeAsText() |  Trivial | . | jun aoki | jun aoki |
 | [FLINK-3052](https://issues.apache.org/jira/browse/FLINK-3052) | Optimizer does not push properties out of bulk iterations |  Major | Optimizer | Till Rohrmann | Till Rohrmann |
 | [FLINK-3048](https://issues.apache.org/jira/browse/FLINK-3048) | DataSinkTaskTest.testCancelDataSinkTask |  Critical | Tests | Matthias J. Sax | Stephan Ewen |
 | [FLINK-3043](https://issues.apache.org/jira/browse/FLINK-3043) | Kafka Connector description in Streaming API guide is wrong/outdated |  Major | Documentation | Stephan Ewen | Stephan Ewen |
 | [FLINK-3032](https://issues.apache.org/jira/browse/FLINK-3032) | Flink does not start on Hadoop 2.7.1 (HDP), due to class conflict |  Critical | Build System | Robert Metzger | Robert Metzger |
-| [FLINK-3025](https://issues.apache.org/jira/browse/FLINK-3025) | Flink Kafka consumer may get stuck due to Kafka/Zookeeper client bug |  Critical | Streaming Connectors | Gyula Fora | Stephan Ewen |
 | [FLINK-3024](https://issues.apache.org/jira/browse/FLINK-3024) | TimestampExtractor Does not Work When returning Long.MIN\_VALUE |  Major | Streaming | Aljoscha Krettek | Aljoscha Krettek |
 | [FLINK-3022](https://issues.apache.org/jira/browse/FLINK-3022) | Broken link 'Working With State' in Fault Tolerance Section of Stream Programming Guide |  Major | Documentation | Suneel Marthi | Suneel Marthi |
 | [FLINK-3020](https://issues.apache.org/jira/browse/FLINK-3020) | Local streaming execution: set number of task manager slots to the maximum parallelism |  Minor | Local Runtime | Maximilian Michels | Maximilian Michels |
@@ -75,6 +78,7 @@
 | [FLINK-3013](https://issues.apache.org/jira/browse/FLINK-3013) | Incorrect package declaration in GellyScalaAPICompletenessTest.scala |  Major | Gelly, Scala API | Suneel Marthi | Suneel Marthi |
 | [FLINK-3011](https://issues.apache.org/jira/browse/FLINK-3011) | Cannot cancel failing/restarting streaming job from the command line |  Critical | Command-line client | Gyula Fora | Ufuk Celebi |
 | [FLINK-3005](https://issues.apache.org/jira/browse/FLINK-3005) | Commons-collections object deserialization remote command execution vulnerability |  Major | . | Ted Yu | Ted Yu |
+| [FLINK-3000](https://issues.apache.org/jira/browse/FLINK-3000) | Add ShutdownHook to YARN CLI to prevent lingering sessions |  Major | YARN Client | Ufuk Celebi | Sachin Goel |
 | [FLINK-2992](https://issues.apache.org/jira/browse/FLINK-2992) | New Windowing code is using SerializationUtils with wrong classloader |  Critical | Streaming | Robert Metzger | Robert Metzger |
 | [FLINK-2990](https://issues.apache.org/jira/browse/FLINK-2990) | Scala 2.11 build fails to start on YARN |  Major | Build System, YARN Client | Robert Metzger | Robert Metzger |
 | [FLINK-2989](https://issues.apache.org/jira/browse/FLINK-2989) | Job Cancel button doesn't work on Yarn |  Major | Webfrontend | Sachin Goel | Maximilian Michels |
@@ -107,6 +111,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [FLINK-3070](https://issues.apache.org/jira/browse/FLINK-3070) | Create an asynchronous state handle interface |  Major | Streaming | Stephan Ewen | Aljoscha Krettek |
 | [FLINK-2919](https://issues.apache.org/jira/browse/FLINK-2919) | Apply JMH on FieldAccessMinibenchmark class. |  Minor | Tests | GaoLun | GaoLun |
 | [FLINK-2890](https://issues.apache.org/jira/browse/FLINK-2890) | Apply JMH on StringSerializationSpeedBenchmark class. |  Minor | Tests | GaoLun | GaoLun |
 | [FLINK-2889](https://issues.apache.org/jira/browse/FLINK-2889) | Apply JMH on LongSerializationSpeedBenchmark class |  Minor | Tests | GaoLun | GaoLun |

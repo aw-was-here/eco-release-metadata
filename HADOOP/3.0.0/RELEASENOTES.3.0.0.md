@@ -37,7 +37,7 @@ In the extremely rare event that HADOOP\_USER\_IDENT and USER environment variab
 
 ---
 
-* [HADOOP-12294](https://issues.apache.org/jira/browse/HADOOP-12294) | *Major* | **Remove the support of the deprecated dfs.umask**
+* [HADOOP-12294](https://issues.apache.org/jira/browse/HADOOP-12294) | *Major* | **Throw an Exception when fs.permissions.umask-mode is misconfigured**
 
 The support of the deprecated dfs.umask key is removed in Hadoop 3.0.
 
@@ -437,6 +437,13 @@ Appends in HDFS can no longer be disabled.
 * [HDFS-5570](https://issues.apache.org/jira/browse/HDFS-5570) | *Major* | **Deprecate hftp / hsftp and replace them with webhdfs / swebhdfs**
 
 Support for hftp and hsftp has been removed.  They have superseded by webhdfs  and swebhdfs.
+
+
+---
+
+* [HDFS-5165](https://issues.apache.org/jira/browse/HDFS-5165) | *Minor* | **Remove the TotalFiles metrics**
+
+Now TotalFiles metric is removed from FSNameSystem. Use FilesTotal instead.
 
 
 ---

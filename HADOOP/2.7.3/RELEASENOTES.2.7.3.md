@@ -21,4 +21,11 @@
 These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
 
 
+---
+
+* [YARN-4380](https://issues.apache.org/jira/browse/YARN-4380) | *Major* | **TestResourceLocalizationService.testDownloadingResourcesOnContainerKill fails intermittently**
+
+Committed this to trunk, branch-2, and branch-2.7. Thanks Varun Saxena for your contribution.
+
+
 

@@ -19,6 +19,9 @@
 * Apache Hadoop v3.0.0
     * [Changes](3.0.0/CHANGES.3.0.0.html)
     * [Release Notes](3.0.0/RELEASENOTES.3.0.0.html)
+* Apache Hadoop v2.9.0
+    * [Changes](2.9.0/CHANGES.2.9.0.html)
+    * [Release Notes](2.9.0/RELEASENOTES.2.9.0.html)
 * Apache Hadoop v2.8.0
     * [Changes](2.8.0/CHANGES.2.8.0.html)
     * [Release Notes](2.8.0/RELEASENOTES.2.8.0.html)

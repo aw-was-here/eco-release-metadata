@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.9.0.0 - Unreleased (as of 2015-11-23)
+## Release 0.9.0.0 - 2015-11-24
 
 ### INCOMPATIBLE CHANGES:
 
@@ -45,6 +45,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-2881](https://issues.apache.org/jira/browse/KAFKA-2881) | Documentation improvement |  Major | . | Gwen Shapira | Guozhang Wang |
 | [KAFKA-2863](https://issues.apache.org/jira/browse/KAFKA-2863) | Authorizer should provide lifecycle (shutdown) methods |  Major | security | Joel Koshy | Ismael Juma |
 | [KAFKA-2831](https://issues.apache.org/jira/browse/KAFKA-2831) | kafka-consumer-groups requires zookeeper url when using the new-consumer option |  Major | . | Jun Rao | Ismael Juma |
 | [KAFKA-2809](https://issues.apache.org/jira/browse/KAFKA-2809) | Improve documentation linking |  Major | website | Grant Henke | Grant Henke |
@@ -125,6 +126,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-2892](https://issues.apache.org/jira/browse/KAFKA-2892) | Consumer Docs Use Wrong Method |  Major | clients | Jesse Anderson |  |
 | [KAFKA-2869](https://issues.apache.org/jira/browse/KAFKA-2869) | host used by Authorizer should be IP address not hostname/IP |  Critical | security | Ismael Juma | Ismael Juma |
 | [KAFKA-2867](https://issues.apache.org/jira/browse/KAFKA-2867) | Missing synchronization and improperly handled InterruptException in WorkerSourceTask |  Blocker | copycat | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-2859](https://issues.apache.org/jira/browse/KAFKA-2859) | Deadlock in WorkerSourceTask |  Blocker | copycat | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
@@ -143,7 +145,6 @@
 | [KAFKA-2807](https://issues.apache.org/jira/browse/KAFKA-2807) | Movement of throughput throttler to common broke upgrade tests |  Blocker | . | Geoff Anderson | Ewen Cheslack-Postava |
 | [KAFKA-2805](https://issues.apache.org/jira/browse/KAFKA-2805) | RecordAccumulator request timeout not enforced when all brokers are gone |  Blocker | . | Jason Gustafson | Mayuresh Gharat |
 | [KAFKA-2801](https://issues.apache.org/jira/browse/KAFKA-2801) | Data read from network not processed by SSL transport layer |  Blocker | network | Rajini Sivaram | Rajini Sivaram |
-| [KAFKA-2799](https://issues.apache.org/jira/browse/KAFKA-2799) | WakupException thrown in the followup poll() could lead to data loss |  Blocker | . | Guozhang Wang | Guozhang Wang |
 | [KAFKA-2798](https://issues.apache.org/jira/browse/KAFKA-2798) | Kafka Connect distributed configs can conflict with producer/consumer configs, making it impossible to control them independently |  Major | copycat | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-2797](https://issues.apache.org/jira/browse/KAFKA-2797) | Release artifact expects a git repository for the release audit tool (RAT) |  Blocker | build | Flavio Junqueira | Ewen Cheslack-Postava |
 | [KAFKA-2795](https://issues.apache.org/jira/browse/KAFKA-2795) | potential NPE in GroupMetadataManager |  Major | . | Onur Karaman | Jason Gustafson |
@@ -414,7 +415,6 @@
 | [KAFKA-2765](https://issues.apache.org/jira/browse/KAFKA-2765) | Connectors and tasks should have versions that can be reported when they are instantiated |  Major | copycat | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-2745](https://issues.apache.org/jira/browse/KAFKA-2745) | Update JavaDoc for the new / updated APIs |  Major | consumer | Guozhang Wang | Guozhang Wang |
 | [KAFKA-2724](https://issues.apache.org/jira/browse/KAFKA-2724) | Document ZooKeeper authentication |  Blocker | security | Flavio Junqueira | Flavio Junqueira |
-| [KAFKA-2718](https://issues.apache.org/jira/browse/KAFKA-2718) | Reuse of temporary directories leading to transient unit test failures |  Major | core | Rajini Sivaram | Rajini Sivaram |
 | [KAFKA-2713](https://issues.apache.org/jira/browse/KAFKA-2713) | Copycat worker should not call connector's/task's start methods in the control thread |  Major | copycat | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-2711](https://issues.apache.org/jira/browse/KAFKA-2711) | SaslClientAuthenticator no longer needs KerberosNameParser in constructor |  Minor | clients | Jun Rao | Ismael Juma |
 | [KAFKA-2697](https://issues.apache.org/jira/browse/KAFKA-2697) | add leave group logic to the consumer |  Major | consumer | Onur Karaman | Jason Gustafson |
@@ -540,6 +540,7 @@
 | [KAFKA-1476](https://issues.apache.org/jira/browse/KAFKA-1476) | Get a list of consumer groups |  Major | tools | Ryan Williams | Onur Karaman |
 | [KAFKA-2783](https://issues.apache.org/jira/browse/KAFKA-2783) | Drop outdated hadoop contrib modules |  Blocker | . | Grant Henke | Grant Henke |
 | [KAFKA-2746](https://issues.apache.org/jira/browse/KAFKA-2746) | Add support for using ConsumerGroupCommand on secure install |  Major | tools | Ashish K Singh | Ashish K Singh |
+| [KAFKA-2608](https://issues.apache.org/jira/browse/KAFKA-2608) | Recommend kafka\_2.11 for 0.9.0.0 on the website |  Major | website | Ismael Juma | Ismael Juma |
 | [KAFKA-2502](https://issues.apache.org/jira/browse/KAFKA-2502) | Quotas documentation for 0.8.3 |  Blocker | . | Aditya Auradkar | Aditya Auradkar |
 | [KAFKA-2492](https://issues.apache.org/jira/browse/KAFKA-2492) | Upgrade zkclient dependency to 0.6 |  Trivial | . | Stevo Slavic | Stevo Slavic |
 | [KAFKA-2443](https://issues.apache.org/jira/browse/KAFKA-2443) | Expose windowSize on Rate |  Major | . | Aditya Auradkar | Aditya Auradkar |

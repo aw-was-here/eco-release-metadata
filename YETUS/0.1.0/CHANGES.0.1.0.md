@@ -18,7 +18,7 @@
 -->
 # Apache Yetus Changelog
 
-## Release 0.1.0 - Unreleased (as of 2015-11-23)
+## Release 0.1.0 - Unreleased (as of 2015-11-26)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -74,6 +74,7 @@
 | [YETUS-176](https://issues.apache.org/jira/browse/YETUS-176) | hadoop: mvn site tests aren't getting run |  Blocker | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-174](https://issues.apache.org/jira/browse/YETUS-174) | releasedocmaker bug with ranges |  Major | Release Doc Maker | Allen Wittenauer | Kengo Seki |
 | [YETUS-171](https://issues.apache.org/jira/browse/YETUS-171) | patches that don't apply are not getting reported back to JIRA |  Blocker | Test Patch | Allen Wittenauer | Allen Wittenauer |
+| [YETUS-170](https://issues.apache.org/jira/browse/YETUS-170) | hadoop mvninstall should run changed modules in dependency order |  Major | Test Patch | Vinayakumar B | Vinayakumar B |
 | [YETUS-155](https://issues.apache.org/jira/browse/YETUS-155) | add usage for asflicense plugin |  Minor | Test Patch | Kengo Seki | Marco Zühlke |
 | [YETUS-154](https://issues.apache.org/jira/browse/YETUS-154) | Specifying help option before plugins option hides plugin-specific help messages |  Trivial | Test Patch | Kengo Seki | Marco Zühlke |
 | [YETUS-153](https://issues.apache.org/jira/browse/YETUS-153) | asflicense plugin does not work if asflicense-rat-excludes option is specified |  Major | Test Patch | Kengo Seki | Kengo Seki |
@@ -138,6 +139,7 @@
 | [YETUS-162](https://issues.apache.org/jira/browse/YETUS-162) | rename 'latest' documentation to 'in-progress' to denote non-release status. |  Major | website and documentation | Sean Busbey | Sean Busbey |
 | [YETUS-126](https://issues.apache.org/jira/browse/YETUS-126) | break jdiff doclet into independent artifact |  Major | Audience Annotations | Sean Busbey | Sean Busbey |
 | [YETUS-124](https://issues.apache.org/jira/browse/YETUS-124) | add exemplar drill personality |  Major | Test Patch | Sean Busbey | Kengo Seki |
+| [YETUS-118](https://issues.apache.org/jira/browse/YETUS-118) | set up yetus precommit job |  Critical | build | Sean Busbey | Sean Busbey |
 | [YETUS-116](https://issues.apache.org/jira/browse/YETUS-116) | add checkstyle option for maven goal |  Minor | Test Patch | Tony Kurc | Tony Kurc |
 | [YETUS-64](https://issues.apache.org/jira/browse/YETUS-64) | file our DOAP |  Blocker | website and documentation | Sean Busbey | Allen Wittenauer |
 | [YETUS-59](https://issues.apache.org/jira/browse/YETUS-59) | Verify any Cat X runtime dependencies are optional |  Blocker | Test Patch | Sean Busbey | Allen Wittenauer |

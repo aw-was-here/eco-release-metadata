@@ -23,6 +23,13 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
+* [HIVE-12463](https://issues.apache.org/jira/browse/HIVE-12463) | *Major* | **VectorMapJoinFastKeyStore has Array OOB errors**
+
+HIVE-12463: VectorMapJoinFastKeyStore has Array OOB errors
+
+
+---
+
 * [HIVE-12363](https://issues.apache.org/jira/browse/HIVE-12363) | *Major* | **Incorrect results with orc ppd across ORC versions**
 
 "HIVE-12363: Incorrect results with orc ppd across ORC versions (Gopal V, reviewed by Prasanth Jayachandran)"
@@ -222,6 +229,13 @@ Remove per-row synchronization from ORC WriterImpl
 * [HIVE-9365](https://issues.apache.org/jira/browse/HIVE-9365) | *Minor* | **The Metastore should take port configuration from hive-site.xml**
 
 **WARNING: No release note provided for this incompatible change.**
+
+
+---
+
+* [HIVE-8396](https://issues.apache.org/jira/browse/HIVE-8396) | *Major* | **Hive CliDriver command splitting can be broken when comments are present**
+
+Hive interactive shell now strips full line comments from the input, matching the behaviour of hive -f, beeline (interactive), and beeline -f.
 
 
 ---

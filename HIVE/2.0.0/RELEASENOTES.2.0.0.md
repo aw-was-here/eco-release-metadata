@@ -23,6 +23,13 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
+* [HIVE-12463](https://issues.apache.org/jira/browse/HIVE-12463) | *Major* | **VectorMapJoinFastKeyStore has Array OOB errors**
+
+HIVE-12463: VectorMapJoinFastKeyStore has Array OOB errors
+
+
+---
+
 * [HIVE-12443](https://issues.apache.org/jira/browse/HIVE-12443) | *Major* | **Hive Streaming should expose encoding and serdes for testing**
 
 Any extensions of org.apache.hive.hcatalog.streaming.AbstractRecordWriter will need to implement two new public methods, SerDe and encode.
@@ -33,6 +40,13 @@ Any extensions of org.apache.hive.hcatalog.streaming.AbstractRecordWriter will n
 * [HIVE-12434](https://issues.apache.org/jira/browse/HIVE-12434) | *Major* | **Merge spark into master 11/17/1015**
 
 Merge introduced some configurations.
+
+
+---
+
+* [HIVE-12399](https://issues.apache.org/jira/browse/HIVE-12399) | *Critical* | **Native Vector MapJoin can encounter  "Null key not expected in MapJoin" and "Unexpected NULL in map join small table" exceptions**
+
+HIVE-12399:  Filter out NULLs in the Native Vector MapJoin operators.
 
 
 ---
@@ -375,6 +389,13 @@ Expanded streaming API to include update and delete operations and support merge
 * [HIVE-9365](https://issues.apache.org/jira/browse/HIVE-9365) | *Minor* | **The Metastore should take port configuration from hive-site.xml**
 
 **WARNING: No release note provided for this incompatible change.**
+
+
+---
+
+* [HIVE-8396](https://issues.apache.org/jira/browse/HIVE-8396) | *Major* | **Hive CliDriver command splitting can be broken when comments are present**
+
+Hive interactive shell now strips full line comments from the input, matching the behaviour of hive -f, beeline (interactive), and beeline -f.
 
 
 ---

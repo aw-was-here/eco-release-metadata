@@ -64,6 +64,7 @@
 | [SPARK-11434](https://issues.apache.org/jira/browse/SPARK-11434) | flaky test ParquetFilterSuite.SPARK-11103: Filter applied on merged Parquet schema with new column fails |  Major | SQL | Yin Huai | Yin Huai |
 | [SPARK-11424](https://issues.apache.org/jira/browse/SPARK-11424) | Guard against MAPREDUCE-5918 by ensuring RecordReader is only closed once in \*HadoopRDD |  Critical | Spark Core | Josh Rosen | Josh Rosen |
 | [SPARK-11417](https://issues.apache.org/jira/browse/SPARK-11417) | @Override is not supported by older version of Janino |  Major | . | Davies Liu | Davies Liu |
+| [SPARK-11405](https://issues.apache.org/jira/browse/SPARK-11405) | ROW\_NUMBER function does not adhere to window ORDER BY, when joining |  Critical | SQL | Jarno Seppanen | Josh Rosen |
 | [SPARK-11303](https://issues.apache.org/jira/browse/SPARK-11303) | sample (without replacement) + filter returns wrong results in DataFrame |  Major | SQL | Yuval Tanny | Yanbo Liang |
 | [SPARK-11302](https://issues.apache.org/jira/browse/SPARK-11302) |  Multivariate Gaussian Model with Covariance  matrix returns incorrect answer in some cases |  Critical | MLlib | eyal sharon | Sean Owen |
 | [SPARK-11301](https://issues.apache.org/jira/browse/SPARK-11301) | filter on partitioned column is case sensitive even the context is case insensitive |  Major | SQL | Wenchen Fan | Wenchen Fan |

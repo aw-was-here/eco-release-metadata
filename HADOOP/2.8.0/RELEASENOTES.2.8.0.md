@@ -262,6 +262,20 @@ Introduced two new configuration dfs.webhdfs.netty.low.watermark and dfs.webhdfs
 
 ---
 
+* [HDFS-8582](https://issues.apache.org/jira/browse/HDFS-8582) | *Minor* | **Support getting a list of reconfigurable config properties and do not generate spurious reconfig warnings**
+
+Add a new option "properties" to the "dfsadmin -reconfig" command to get a list of reconfigurable properties.
+
+
+---
+
+* [HDFS-8335](https://issues.apache.org/jira/browse/HDFS-8335) | *Major* | **FSNamesystem should construct FSPermissionChecker only if permission is enabled**
+
+Only check permissions when permissions enabled in FSDirStatAndListingOp.getFileInfo() and getListingInt()
+
+
+---
+
 * [HDFS-8157](https://issues.apache.org/jira/browse/HDFS-8157) | *Major* | **Writes to RAM DISK reserve locked memory for block files**
 
 This change requires setting the dfs.datanode.max.locked.memory configuration key to use the HDFS Lazy Persist feature. Its value limits the combined off-heap memory for blocks in RAM via caching and lazy persist writes.

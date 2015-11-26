@@ -18,7 +18,7 @@
 -->
 # Apache HBase Changelog
 
-## Release 1.0.4 - Unreleased (as of 2015-11-23)
+## Release 1.0.4 - Unreleased (as of 2015-11-26)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -50,6 +50,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HBASE-14840](https://issues.apache.org/jira/browse/HBASE-14840) | Sink cluster reports data replication request as success though the data is not replicated |  Major | . | Y. SREENIVASULU REDDY | Ashish Singhi |
 | [HBASE-14806](https://issues.apache.org/jira/browse/HBASE-14806) | Missing sources.jar for several modules when building HBase |  Major | . | Duo Zhang | Duo Zhang |
+| [HBASE-14799](https://issues.apache.org/jira/browse/HBASE-14799) | Commons-collections object deserialization remote command execution vulnerability |  Critical | . | Andrew Purtell | Andrew Purtell |
 
 
 ### TESTS:
