@@ -23,6 +23,34 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
+* [SPARK-11700](https://issues.apache.org/jira/browse/SPARK-11700) | *Critical* | **Memory leak at SparkContext jobProgressListener stageIdToData map**
+
+it seems that there is  A SparkContext jobProgressListener memory leak.\*. Bellow i describe the  steps i do to reproduce that. 
+
+I have created a java webapp trying to abstractly Run some Spark Sql jobs that read data from HDFS (join them) and Write them To ElasticSearch using ES hadoop connector. After a Lot of consecutive runs  i noticed that my heap space was full so i got an out of heap space error.
+
+At the attached file {code} AbstractSparkJobRunner {code} the {code}  public final void run(T jobConfiguration, ExecutionLog executionLog) throws Exception  {code} runs each time an Spark Sql Job is triggered.  So tried to reuse the same SparkContext for a number of consecutive runs. If some rules apply i try to clean up the SparkContext by first calling {code} killSparkAndSqlContext {code}. This code eventually runs {code}  synchronized (sparkContextThreadLock) {
+            if (javaSparkContext != null) {
+                LOGGER.info("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! CLEARING SPARK CONTEXT!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                javaSparkContext.stop();
+                javaSparkContext = null;
+                sqlContext = null;
+
+                System.gc();
+            }
+            numberOfRunningJobsForSparkContext.getAndSet(0);
+        }
+{code}.
+
+So at some point in time i suppose that if no other SparkSql job should run i should kill the sparkContext  (The AbstractSparkJobRunner.killSparkAndSqlContext  runs) and this should be garbage collected from garbage collector. However this is not the case, Even if in my debugger shows that my JavaSparkContext object is null see attached picture {code} SparkContextPossibleMemoryLeakIDEA\_DEBUG.png {code}.
+
+The jvisual vm shows an incremental heap space even when the garbage collector is called. See attached picture {code} SparkHeapSpaceProgress.png {code}.
+
+The memory analyser Tool shows that a big part of the retained heap to be assigned to \_jobProgressListener see attached picture {code} SparkMemoryAfterLotsOfConsecutiveRuns.png {code}  and summary picture {code} SparkMemoryLeakAfterLotsOfRunsWithinTheSameContext.png {code}. Although at the same time in Singleton Service the JavaSparkContext is null.
+
+
+---
+
 * [SPARK-11481](https://issues.apache.org/jira/browse/SPARK-11481) | *Major* | **orderBy with multiple columns in WindowSpec does not work properly**
 
 When using multiple columns in the orderBy of a WindowSpec the order by seems to work only for the first column.

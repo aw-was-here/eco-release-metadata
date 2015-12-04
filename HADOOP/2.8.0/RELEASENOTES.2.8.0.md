@@ -248,6 +248,13 @@ HDFS-8866 Correct typo in WebHDFS.md
 
 ---
 
+* [HDFS-8831](https://issues.apache.org/jira/browse/HDFS-8831) | *Major* | **Trash Support for deletion in HDFS encryption zone**
+
+Trash is now supported for deletion of files within encryption zone after HDFS-8831. The deleted encrypted files will remain encrypted and be moved to .Trash subdirectory under the root of the encryption zone prefixed by $USER/current with checkpoint and expunge working similar to existing Trash.
+
+
+---
+
 * [HDFS-8818](https://issues.apache.org/jira/browse/HDFS-8818) | *Major* | **Allow Balancer to run faster**
 
 Add a new conf "dfs.balancer.max-size-to-move" so that Balancer.MAX\_SIZE\_TO\_MOVE becomes configurable.

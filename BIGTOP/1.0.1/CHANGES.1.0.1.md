@@ -18,7 +18,7 @@
 -->
 # Apache BigTop Changelog
 
-## Release 1.0.1 - Unreleased (as of 2015-11-26)
+## Release 1.0.1 - Unreleased (as of 2015-12-04)
 
 ### INCOMPATIBLE CHANGES:
 

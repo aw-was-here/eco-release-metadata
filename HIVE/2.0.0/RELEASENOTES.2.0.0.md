@@ -107,6 +107,13 @@ Vectorize simple UDFs with null arguments
 
 ---
 
+* [HIVE-12184](https://issues.apache.org/jira/browse/HIVE-12184) | *Major* | **DESCRIBE of fully qualified table fails when db and table name match and non-default database is in use**
+
+Document the incompatible change.
+
+
+---
+
 * [HIVE-12090](https://issues.apache.org/jira/browse/HIVE-12090) | *Major* | **Dead-code: Vectorized map-join murmur hash is run twice**
 
 Dead-code: Vectorized map-join runs Murmurhash twice
@@ -246,6 +253,13 @@ Support for Hadoop 1.x has been removed from Hive 2.0
 
 ---
 
+* [HIVE-11372](https://issues.apache.org/jira/browse/HIVE-11372) | *Major* | **join with between predicate comparing integer types returns no rows when ORC format used**
+
+Re-submit
+
+
+---
+
 * [HIVE-11366](https://issues.apache.org/jira/browse/HIVE-11366) | *Major* | **Avoid right leaning tree hashCode depth during ExprNodeDescEqualityWrapper HashMaps**
 
 HIVE-11366: Avoid right leaning tree hashCode depth in ExprNodeDescEqualityWrapper hashmaps (Gopal V, reviewed by Ashutosh Chauhan)
@@ -263,6 +277,13 @@ Add a bloom-1 filter to reduce Hybrid MapJoin spills
 * [HIVE-11304](https://issues.apache.org/jira/browse/HIVE-11304) | *Major* | **Migrate to Log4j2 from Log4j 1.x**
 
 Migration from Log4j1.x to Log4j2
+
+
+---
+
+* [HIVE-11261](https://issues.apache.org/jira/browse/HIVE-11261) | *Minor* | **DESCRIBE database qualifier does not work when calling DESCRIBE on column or nested columns.**
+
+**WARNING: No release note provided for this incompatible change.**
 
 
 ---

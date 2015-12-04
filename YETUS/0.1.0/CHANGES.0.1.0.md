@@ -18,7 +18,7 @@
 -->
 # Apache Yetus Changelog
 
-## Release 0.1.0 - Unreleased (as of 2015-11-26)
+## Release 0.1.0 - Unreleased (as of 2015-12-04)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -67,8 +67,11 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [YETUS-210](https://issues.apache.org/jira/browse/YETUS-210) | Link to pylint stderr file is invalid on Jenkins |  Major | Test Patch | Kengo Seki | Kengo Seki |
+| [YETUS-202](https://issues.apache.org/jira/browse/YETUS-202) | 171 incomplete |  Critical | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-196](https://issues.apache.org/jira/browse/YETUS-196) | default dockerfile isn't being used |  Blocker | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-193](https://issues.apache.org/jira/browse/YETUS-193) | Wrong format for return values in shelldoc generated docs |  Minor | website and documentation | Kengo Seki | Kengo Seki |
+| [YETUS-189](https://issues.apache.org/jira/browse/YETUS-189) | shelldocs ignoring --skipprnorep |  Critical | ShellDocs | Sean Busbey | Kengo Seki |
 | [YETUS-186](https://issues.apache.org/jira/browse/YETUS-186) | non-existent dockerfile should fail or fallback |  Blocker | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-179](https://issues.apache.org/jira/browse/YETUS-179) | Clean up asflicense errors |  Blocker | build | Sean Busbey | Kengo Seki |
 | [YETUS-176](https://issues.apache.org/jira/browse/YETUS-176) | hadoop: mvn site tests aren't getting run |  Blocker | Test Patch | Allen Wittenauer | Allen Wittenauer |
@@ -136,6 +139,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [YETUS-192](https://issues.apache.org/jira/browse/YETUS-192) | don't store intermediate markdown files for precommit's shelldocs. |  Major | build, website and documentation | Sean Busbey | Sean Busbey |
 | [YETUS-162](https://issues.apache.org/jira/browse/YETUS-162) | rename 'latest' documentation to 'in-progress' to denote non-release status. |  Major | website and documentation | Sean Busbey | Sean Busbey |
 | [YETUS-126](https://issues.apache.org/jira/browse/YETUS-126) | break jdiff doclet into independent artifact |  Major | Audience Annotations | Sean Busbey | Sean Busbey |
 | [YETUS-124](https://issues.apache.org/jira/browse/YETUS-124) | add exemplar drill personality |  Major | Test Patch | Sean Busbey | Kengo Seki |

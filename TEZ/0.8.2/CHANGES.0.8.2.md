@@ -18,7 +18,7 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.8.2 - Unreleased (as of 2015-11-26)
+## Release 0.8.2 - Unreleased (as of 2015-12-04)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -58,6 +58,9 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-2970](https://issues.apache.org/jira/browse/TEZ-2970) | Re-localization in TezChild does not use correct UGI |  Major | . | Hitesh Shah | Hitesh Shah |
+| [TEZ-2968](https://issues.apache.org/jira/browse/TEZ-2968) | Counter limits exception causes AM to crash |  Critical | . | Hitesh Shah | Hitesh Shah |
+| [TEZ-2960](https://issues.apache.org/jira/browse/TEZ-2960) | Tez UI: Move hardcoded url namespace to the configuration file. |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2956](https://issues.apache.org/jira/browse/TEZ-2956) | Handle auto-reduce parallelism when the totalNumBipartiteSourceTasks is 0 |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-2952](https://issues.apache.org/jira/browse/TEZ-2952) | NPE in TestOnFileUnorderedKVOutput |  Major | . | Jeff Zhang | Bikas Saha |
 | [TEZ-2947](https://issues.apache.org/jira/browse/TEZ-2947) | Tez UI: Timeline, RM & AM requests gets into a consecutive loop in counters page without any delay |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |

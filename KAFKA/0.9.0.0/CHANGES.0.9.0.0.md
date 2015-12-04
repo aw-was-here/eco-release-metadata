@@ -47,6 +47,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [KAFKA-2881](https://issues.apache.org/jira/browse/KAFKA-2881) | Documentation improvement |  Major | . | Gwen Shapira | Guozhang Wang |
 | [KAFKA-2863](https://issues.apache.org/jira/browse/KAFKA-2863) | Authorizer should provide lifecycle (shutdown) methods |  Major | security | Joel Koshy | Ismael Juma |
+| [KAFKA-2860](https://issues.apache.org/jira/browse/KAFKA-2860) | New consumer should handle auto-commit errors more gracefully |  Major | . | Jason Gustafson | Jason Gustafson |
 | [KAFKA-2831](https://issues.apache.org/jira/browse/KAFKA-2831) | kafka-consumer-groups requires zookeeper url when using the new-consumer option |  Major | . | Jun Rao | Ismael Juma |
 | [KAFKA-2809](https://issues.apache.org/jira/browse/KAFKA-2809) | Improve documentation linking |  Major | website | Grant Henke | Grant Henke |
 | [KAFKA-2791](https://issues.apache.org/jira/browse/KAFKA-2791) | remove deprecated producer properties from console-producer |  Major | . | Jun Rao | Ben Stopford |
@@ -126,6 +127,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-2906](https://issues.apache.org/jira/browse/KAFKA-2906) | Kafka Connect javadocs not built properly |  Major | copycat | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-2892](https://issues.apache.org/jira/browse/KAFKA-2892) | Consumer Docs Use Wrong Method |  Major | clients | Jesse Anderson |  |
 | [KAFKA-2869](https://issues.apache.org/jira/browse/KAFKA-2869) | host used by Authorizer should be IP address not hostname/IP |  Critical | security | Ismael Juma | Ismael Juma |
 | [KAFKA-2867](https://issues.apache.org/jira/browse/KAFKA-2867) | Missing synchronization and improperly handled InterruptException in WorkerSourceTask |  Blocker | copycat | Ewen Cheslack-Postava | Ewen Cheslack-Postava |

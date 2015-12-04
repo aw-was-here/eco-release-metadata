@@ -18,7 +18,7 @@
 -->
 # Apache Pig Changelog
 
-## Release 0.16.0 - Unreleased (as of 2015-11-26)
+## Release 0.16.0 - Unreleased (as of 2015-12-04)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -45,6 +45,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [PIG-4744](https://issues.apache.org/jira/browse/PIG-4744) | Honor tez.staging-dir setting in tez-site.xml |  Major | tez | Daniel Dai | Rohini Palaniswamy |
 | [PIG-4717](https://issues.apache.org/jira/browse/PIG-4717) | Update Apache HTTPD LogParser to latest version |  Major | . | Niels Basjes | Niels Basjes |
 | [PIG-4708](https://issues.apache.org/jira/browse/PIG-4708) | Upgrade joda-time to 2.8 |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-4704](https://issues.apache.org/jira/browse/PIG-4704) | Customizable Error Handling for Storers in Pig |  Major | . | Siddhi Mehta | Siddhi Mehta |
@@ -118,6 +119,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [PIG-4742](https://issues.apache.org/jira/browse/PIG-4742) | Document Pig's Register Artifact Command added in PIG-4417 |  Major | . | Akshay Rai | Akshay Rai |
 | [PIG-4713](https://issues.apache.org/jira/browse/PIG-4713) | Document Bloom UDF |  Major | . | Rohini Palaniswamy | Gabor Liptak |
 | [PIG-4365](https://issues.apache.org/jira/browse/PIG-4365) | TOP udf should implement Accumulator interface |  Major | . | Rohini Palaniswamy | Eyal Allweil |
 
