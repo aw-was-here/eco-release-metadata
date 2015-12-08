@@ -18,7 +18,7 @@
 -->
 # Apache BigTop Changelog
 
-## Release 1.1.0 - Unreleased (as of 2015-12-04)
+## Release 1.1.0 - Unreleased (as of 2015-12-08)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -45,9 +45,12 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [BIGTOP-2164](https://issues.apache.org/jira/browse/BIGTOP-2164) | Phoenix Queryserver should write it's logs into /var/log/phoenix/ |  Trivial | . | YoungWoo Kim | YoungWoo Kim |
+| [BIGTOP-2163](https://issues.apache.org/jira/browse/BIGTOP-2163) | Add a phoenix-pherf sub-package for Phoenix |  Major | debian, rpm | YoungWoo Kim | YoungWoo Kim |
 | [BIGTOP-2153](https://issues.apache.org/jira/browse/BIGTOP-2153) | Simplify and complete storage dir creation |  Trivial | deployment | Michael Weiser | Michael Weiser |
 | [BIGTOP-2143](https://issues.apache.org/jira/browse/BIGTOP-2143) | [Puppet] Automatically generate default repo |  Major | deployment | Evans Ye | Evans Ye |
 | [BIGTOP-2142](https://issues.apache.org/jira/browse/BIGTOP-2142) | Source cleanup: bigtop-repos shouldn't be top-level. |  Major | build | Konstantin Boudnik | Sergey Soldatov |
+| [BIGTOP-2141](https://issues.apache.org/jira/browse/BIGTOP-2141) | Have a way to specify alternative BOM file in the build time |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2110](https://issues.apache.org/jira/browse/BIGTOP-2110) | [Docker] Cache packages required by gradle to execute into bigtop/slaves images |  Major | build, docker | Evans Ye | Evans Ye |
 | [BIGTOP-2103](https://issues.apache.org/jira/browse/BIGTOP-2103) | [Docker] Move bigtop/slaves image build to gradle |  Major | build, docker | Evans Ye | Evans Ye |
 | [BIGTOP-2102](https://issues.apache.org/jira/browse/BIGTOP-2102) | Upgrade YCSB to 0.4.0 |  Major | build | YoungWoo Kim | YoungWoo Kim |
@@ -85,6 +88,8 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [BIGTOP-2168](https://issues.apache.org/jira/browse/BIGTOP-2168) | A erroneous typo in FailureVars#loadProps method |  Major | tests | Konstantin Boudnik | Dasha Boudnik |
+| [BIGTOP-2162](https://issues.apache.org/jira/browse/BIGTOP-2162) | phoenix-core-\*-tests.jar should be located at $PHOENIX\_HOME |  Major | . | YoungWoo Kim | YoungWoo Kim |
 | [BIGTOP-2159](https://issues.apache.org/jira/browse/BIGTOP-2159) | unable to build RPM for zeppelin |  Blocker | build, rpm | Sergey Soldatov | Sergey Soldatov |
 | [BIGTOP-2156](https://issues.apache.org/jira/browse/BIGTOP-2156) | Fix Sqoop 1.4.5 build failed on OpenSuSE |  Major | toolchain | Evans Ye | Evans Ye |
 | [BIGTOP-2155](https://issues.apache.org/jira/browse/BIGTOP-2155) | Fix Hue 3.9.0 build failed on Fedora |  Major | build, hue, rpm | Evans Ye | Evans Ye |
@@ -134,6 +139,7 @@
 | [BIGTOP-2026](https://issues.apache.org/jira/browse/BIGTOP-2026) | Phoenix build defines HBASE\_VERSION in two different places. |  Major | debian, rpm | Konstantin Boudnik | Andrew Purtell |
 | [BIGTOP-2019](https://issues.apache.org/jira/browse/BIGTOP-2019) | BigPetStore Spark isn't compiling due to changes in SQL API |  Major | blueprints | RJ Nowling | RJ Nowling |
 | [BIGTOP-2017](https://issues.apache.org/jira/browse/BIGTOP-2017) | Rebase bigtop-slaves on bigtop-puppet |  Major | . | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2016](https://issues.apache.org/jira/browse/BIGTOP-2016) | tez does not build on opensuse |  Blocker | build | Olaf Flebbe | Evans Ye |
 | [BIGTOP-2014](https://issues.apache.org/jira/browse/BIGTOP-2014) | [VM provisioner] Missing FQDN on Ubuntu causes puppet deployment malfunction |  Major | vm | Evans Ye | Evans Ye |
 | [BIGTOP-2008](https://issues.apache.org/jira/browse/BIGTOP-2008) | build.gradle has out-of-date version |  Minor | build | RJ Nowling | RJ Nowling |
 | [BIGTOP-2007](https://issues.apache.org/jira/browse/BIGTOP-2007) | bigtop.mk version of the stack needs to be bumped to 1.1.0-SNAPSHOT |  Major | build | Konstantin Boudnik | Konstantin Boudnik |

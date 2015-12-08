@@ -18,7 +18,7 @@
 -->
 # Apache Yetus Changelog
 
-## Release 0.1.0 - Unreleased (as of 2015-12-04)
+## Release 0.1.0 - Unreleased (as of 2015-12-08)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -49,6 +49,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [YETUS-218](https://issues.apache.org/jira/browse/YETUS-218) | define project pylintrc file |  Major | build | Sean Busbey | Sean Busbey |
 | [YETUS-177](https://issues.apache.org/jira/browse/YETUS-177) | add yetus\_abs to yetuslib |  Trivial | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-163](https://issues.apache.org/jira/browse/YETUS-163) | parameterize site for releases |  Blocker | website and documentation | Sean Busbey | Sean Busbey |
 | [YETUS-161](https://issues.apache.org/jira/browse/YETUS-161) | fix spelling error in maven plugin |  Trivial | Test Patch | Tony Kurc | Tony Kurc |
@@ -67,6 +68,8 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [YETUS-219](https://issues.apache.org/jira/browse/YETUS-219) | pylint plugin displays grep error message if patch contains modification to python and other files |  Minor | Test Patch | Kengo Seki | Marco Zühlke |
+| [YETUS-211](https://issues.apache.org/jira/browse/YETUS-211) | shelldocs, release-doc-maker, and precommit all missing version info |  Blocker | Release Doc Maker, ShellDocs, Test Patch | Sean Busbey | Sean Busbey |
 | [YETUS-210](https://issues.apache.org/jira/browse/YETUS-210) | Link to pylint stderr file is invalid on Jenkins |  Major | Test Patch | Kengo Seki | Kengo Seki |
 | [YETUS-202](https://issues.apache.org/jira/browse/YETUS-202) | 171 incomplete |  Critical | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-196](https://issues.apache.org/jira/browse/YETUS-196) | default dockerfile isn't being used |  Blocker | Test Patch | Allen Wittenauer | Allen Wittenauer |

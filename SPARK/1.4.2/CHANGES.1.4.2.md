@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 1.4.2 - Unreleased (as of 2015-12-04)
+## Release 1.4.2 - Unreleased (as of 2015-12-08)
 
 ### INCOMPATIBLE CHANGES:
 

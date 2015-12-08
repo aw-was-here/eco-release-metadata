@@ -31,6 +31,9 @@
 * Apache Tez v0.8.0
     * [Changes](0.8.0/CHANGES.0.8.0.md)
     * [Release Notes](0.8.0/RELEASENOTES.0.8.0.md)
+* Apache Tez v0.7.2
+    * [Changes](0.7.2/CHANGES.0.7.2.md)
+    * [Release Notes](0.7.2/RELEASENOTES.0.7.2.md)
 * Apache Tez v0.7.1
     * [Changes](0.7.1/CHANGES.0.7.1.md)
     * [Release Notes](0.7.1/RELEASENOTES.0.7.1.md)

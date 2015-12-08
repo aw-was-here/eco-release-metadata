@@ -163,6 +163,13 @@ Vectorization: Improve GenVectorCode string equals intrinsic
 
 ---
 
+* [HIVE-11372](https://issues.apache.org/jira/browse/HIVE-11372) | *Major* | **join with between predicate comparing integer types returns no rows when ORC format used**
+
+Re-submit
+
+
+---
+
 * [HIVE-11366](https://issues.apache.org/jira/browse/HIVE-11366) | *Major* | **Avoid right leaning tree hashCode depth during ExprNodeDescEqualityWrapper HashMaps**
 
 HIVE-11366: Avoid right leaning tree hashCode depth in ExprNodeDescEqualityWrapper hashmaps (Gopal V, reviewed by Ashutosh Chauhan)

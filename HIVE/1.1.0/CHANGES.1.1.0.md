@@ -318,7 +318,7 @@
 | [HIVE-7523](https://issues.apache.org/jira/browse/HIVE-7523) | Fix spark build after merge merging trunk |  Major | Spark | Brock Noland | Brock Noland |
 | [HIVE-7489](https://issues.apache.org/jira/browse/HIVE-7489) | Change ql/pom.xml to fix mvn project setup [Spark Branch] |  Major | Spark | Xuefu Zhang | Xuefu Zhang |
 | [HIVE-7431](https://issues.apache.org/jira/browse/HIVE-7431) | When run on spark cluster, some spark tasks may fail |  Major | . | Rui Li | Rui Li |
-| [HIVE-7069](https://issues.apache.org/jira/browse/HIVE-7069) | Zookeeper connection leak |  Major | HiveServer2 | Zilvinas Saltys |  |
+| [HIVE-7069](https://issues.apache.org/jira/browse/HIVE-7069) | Zookeeper connection leak |  Major | HiveServer2 | Z. S. |  |
 | [HIVE-7024](https://issues.apache.org/jira/browse/HIVE-7024) | Escape control characters for explain result |  Trivial | . | Navis | Navis |
 | [HIVE-6914](https://issues.apache.org/jira/browse/HIVE-6914) | parquet-hive cannot write nested map (map value is map) |  Major | File Formats | Tongjie Chen | Ryan Blue |
 | [HIVE-6683](https://issues.apache.org/jira/browse/HIVE-6683) | Beeline does not accept comments at end of line |  Major | CLI | Jeremy Beard | Sergio Peña |

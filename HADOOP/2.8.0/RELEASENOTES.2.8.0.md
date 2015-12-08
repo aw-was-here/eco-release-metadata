@@ -30,6 +30,13 @@ FileSystem#createNonRecursive() is undeprecated.
 
 ---
 
+* [HADOOP-12437](https://issues.apache.org/jira/browse/HADOOP-12437) | *Major* | **Allow SecurityUtil to lookup alternate hostnames**
+
+HADOOP-12437 introduces two new configuration settings: hadoop.security.dns.interface and hadoop.security.dns.nameserver. These settings can be used to control how Hadoop service instances look up their own hostname and may be required in some multi-homed environments where hosts are configured with multiple hostnames in DNS or hosts files. They supersede the existing settings dfs.datanode.dns.interface and dfs.datanode.dns.nameserver.
+
+
+---
+
 * [HADOOP-12416](https://issues.apache.org/jira/browse/HADOOP-12416) | *Major* | **Trash messages should be handled by Logger instead of being delivered on System.out**
 
 Now trash message is not printed to System.out. It is handled by Logger instead.
@@ -251,6 +258,13 @@ HDFS-8866 Correct typo in WebHDFS.md
 * [HDFS-8831](https://issues.apache.org/jira/browse/HDFS-8831) | *Major* | **Trash Support for deletion in HDFS encryption zone**
 
 Trash is now supported for deletion of files within encryption zone after HDFS-8831. The deleted encrypted files will remain encrypted and be moved to .Trash subdirectory under the root of the encryption zone prefixed by $USER/current with checkpoint and expunge working similar to existing Trash.
+
+
+---
+
+* [HDFS-8829](https://issues.apache.org/jira/browse/HDFS-8829) | *Major* | **Make SO\_RCVBUF and SO\_SNDBUF size configurable for DataTransferProtocol sockets and allow configuring auto-tuning**
+
+HDFS-8829 introduces two new configuration settings: dfs.datanode.transfer.socket.send.buffer.size and dfs.datanode.transfer.socket.recv.buffer.size. These settings can be used to control the socket send buffer and receive buffer sizes respectively on the DataNode for client-DataNode and DataNode-DataNode connections. The default values of both settings are 128KB for backwards compatibility. For optimum performance it is recommended to set these values to zero to enable the OS networking stack to auto-tune buffer sizes.
 
 
 ---

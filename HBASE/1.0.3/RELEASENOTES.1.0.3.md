@@ -23,7 +23,7 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
-* [HBASE-14605](https://issues.apache.org/jira/browse/HBASE-14605) | *Major* | **Split fails due to 'No valid credentials' error when SecureBulkLoadEndpoint#start tries to access hdfs**
+* [HBASE-14605](https://issues.apache.org/jira/browse/HBASE-14605) | *Blocker* | **Split fails due to 'No valid credentials' error when SecureBulkLoadEndpoint#start tries to access hdfs**
 
 When split is requested by non-super user, split related notifications for Coprocessor are executed using the login of the request user.
 Previously the notifications were carried out as super user.

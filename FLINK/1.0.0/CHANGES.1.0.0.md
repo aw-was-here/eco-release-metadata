@@ -18,7 +18,7 @@
 -->
 # Apache Flink Changelog
 
-## Release 1.0.0 - Unreleased (as of 2015-12-04)
+## Release 1.0.0 - Unreleased (as of 2015-12-08)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -36,6 +36,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [FLINK-3102](https://issues.apache.org/jira/browse/FLINK-3102) | Allow reading from multiple topics with one FlinkKafkaConsumer |  Major | Kafka Connector | Robert Metzger | Robert Metzger |
 | [FLINK-2996](https://issues.apache.org/jira/browse/FLINK-2996) | Add config entry to define BlobServer port |  Major | JobManager | Stephan Ewen | Robert Metzger |
 | [FLINK-2955](https://issues.apache.org/jira/browse/FLINK-2955) | Add operations introduction in Table API page. |  Minor | Documentation | Chengxiang Li | Chengxiang Li |
 | [FLINK-2951](https://issues.apache.org/jira/browse/FLINK-2951) | Add Union operator to Table API. |  Minor | Documentation, Table API | Chengxiang Li | Chengxiang Li |
@@ -45,9 +46,11 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [FLINK-3124](https://issues.apache.org/jira/browse/FLINK-3124) | Introduce a TaskInfo object to better represent task name, index, attempt number etc. |  Major | . | Sachin Goel | Sachin Goel |
 | [FLINK-3084](https://issues.apache.org/jira/browse/FLINK-3084) | File State Backend should not write very small state into files |  Major | Streaming | Stephan Ewen | Stephan Ewen |
 | [FLINK-3069](https://issues.apache.org/jira/browse/FLINK-3069) | Make state materialization asynchronous |  Major | Streaming | Stephan Ewen | Aljoscha Krettek |
 | [FLINK-3056](https://issues.apache.org/jira/browse/FLINK-3056) | Show bytes sent/received as MBs/GB and so on in web interface |  Major | Webfrontend | Robert Metzger | Sachin Goel |
+| [FLINK-3055](https://issues.apache.org/jira/browse/FLINK-3055) | ExecutionVertex has duplicate method getParallelSubtaskIndex and getSubTaskIndex |  Trivial | Distributed Runtime | Ufuk Celebi | jun aoki |
 | [FLINK-3051](https://issues.apache.org/jira/browse/FLINK-3051) | Define a maximum number of concurrent inflight checkpoints |  Major | Streaming | Stephan Ewen | Stephan Ewen |
 | [FLINK-3046](https://issues.apache.org/jira/browse/FLINK-3046) | Integrate the Either Java type with the TypeExtractor |  Major | Type Serialization System | Vasia Kalavri | Timo Walther |
 | [FLINK-3045](https://issues.apache.org/jira/browse/FLINK-3045) | Properly expose the key of a kafka message |  Critical | Kafka Connector | Robert Metzger | Robert Metzger |
@@ -63,8 +66,11 @@
 | [FLINK-2904](https://issues.apache.org/jira/browse/FLINK-2904) | Web interface truncated task counts |  Minor | Webfrontend | Greg Hogan | Sachin Goel |
 | [FLINK-2902](https://issues.apache.org/jira/browse/FLINK-2902) | Web interface sort tasks newest first |  Minor | Webfrontend | Greg Hogan | Sachin Goel |
 | [FLINK-2898](https://issues.apache.org/jira/browse/FLINK-2898) | Invert Travis CI build order |  Trivial | Build System | Greg Hogan | Robert Metzger |
+| [FLINK-2897](https://issues.apache.org/jira/browse/FLINK-2897) | Use distinct initial indices for OutputEmitter round-robin |  Major | Distributed Runtime | Greg Hogan | Greg Hogan |
 | [FLINK-2895](https://issues.apache.org/jira/browse/FLINK-2895) | Duplicate immutable object creation |  Minor | Distributed Runtime | Greg Hogan | Greg Hogan |
 | [FLINK-2893](https://issues.apache.org/jira/browse/FLINK-2893) | Rename recovery configuration keys |  Major | . | Ufuk Celebi | Ufuk Celebi |
+| [FLINK-2524](https://issues.apache.org/jira/browse/FLINK-2524) | Add "getTaskNameWithSubtasks()" to RuntimeContext |  Major | Local Runtime | Stephan Ewen | Sachin Goel |
+| [FLINK-2488](https://issues.apache.org/jira/browse/FLINK-2488) | Expose attemptNumber in RuntimeContext |  Minor | JobManager, TaskManager | Robert Metzger | Sachin Goel |
 | [FLINK-2017](https://issues.apache.org/jira/browse/FLINK-2017) | Add predefined required parameters to ParameterTool |  Major | . | Robert Metzger | Martin Liesenberg |
 
 
@@ -72,6 +78,9 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [FLINK-3125](https://issues.apache.org/jira/browse/FLINK-3125) | Web dashboard does not start when log files are not found |  Major | Webfrontend | Stephan Ewen | Stephan Ewen |
+| [FLINK-3108](https://issues.apache.org/jira/browse/FLINK-3108) | JoinOperator's with() calls the wrong TypeExtractor method |  Major | . | Vasia Kalavri | Timo Walther |
+| [FLINK-3101](https://issues.apache.org/jira/browse/FLINK-3101) | Flink Kafka consumer crashes with NPE when it sees deleted record |  Major | Kafka Connector | Sanjar Akhmedov | Robert Metzger |
 | [FLINK-3100](https://issues.apache.org/jira/browse/FLINK-3100) | Signal handler prints error on normal shutdown of cluster |  Major | JobManager, TaskManager | Maximilian Michels | Maximilian Michels |
 | [FLINK-3098](https://issues.apache.org/jira/browse/FLINK-3098) | Cast from Date to Long throw compile error. |  Major | Table API | Chengxiang Li | Chengxiang Li |
 | [FLINK-3087](https://issues.apache.org/jira/browse/FLINK-3087) | Table API do not support multi count in aggregation. |  Major | Table API | Chengxiang Li | Chengxiang Li |
@@ -101,7 +110,9 @@
 | [FLINK-2979](https://issues.apache.org/jira/browse/FLINK-2979) | RollingSink does not work with Hadoop 2.7.1 |  Major | Streaming Connectors | Till Rohrmann | Aljoscha Krettek |
 | [FLINK-2977](https://issues.apache.org/jira/browse/FLINK-2977) | Cannot access HBase in a Kerberos secured Yarn cluster |  Major | YARN Client | Niels Basjes | Niels Basjes |
 | [FLINK-2967](https://issues.apache.org/jira/browse/FLINK-2967) | TM address detection might not always detect the right interface on slow networks / overloaded JMs |  Major | . | Robert Metzger | Robert Metzger |
+| [FLINK-2963](https://issues.apache.org/jira/browse/FLINK-2963) | Dependence on SerializationUtils#deserialize() should be avoided |  Minor | . | Ted Yu | Robert Metzger |
 | [FLINK-2958](https://issues.apache.org/jira/browse/FLINK-2958) | StreamingJobGraphGenerator sets hard coded number execution retry |  Major | Distributed Runtime | Ufuk Celebi | Ufuk Celebi |
+| [FLINK-2954](https://issues.apache.org/jira/browse/FLINK-2954) | Not able to pass custom environment variables in cluster to processes that spawning TaskManager |  Critical | Command-line client, Distributed Runtime | Jian Jiang | Robert Metzger |
 | [FLINK-2950](https://issues.apache.org/jira/browse/FLINK-2950) | Markdown presentation problem in SVM documentation |  Minor | Documentation, Machine Learning Library | Chiwan Park | Chiwan Park |
 | [FLINK-2942](https://issues.apache.org/jira/browse/FLINK-2942) | Dangling operators in web UI's program visualization (non-deterministic) |  Critical | Webfrontend | Fabian Hueske | Piotr Godek |
 | [FLINK-2938](https://issues.apache.org/jira/browse/FLINK-2938) | Streaming docs not in sync with latest state changes |  Minor | Documentation | Maximilian Michels | Stephan Ewen |
@@ -116,6 +127,7 @@
 | [FLINK-2800](https://issues.apache.org/jira/browse/FLINK-2800) | kryo serialization problem |  Major | Type Serialization System | Stefano Bortoli | Till Rohrmann |
 | [FLINK-2797](https://issues.apache.org/jira/browse/FLINK-2797) | CLI: Missing option to submit jobs in detached mode |  Major | Command-line client | Maximilian Michels | Sachin Goel |
 | [FLINK-2115](https://issues.apache.org/jira/browse/FLINK-2115) | TableAPI throws ExpressionException for "Dangling GroupBy operation" |  Major | Table API | Fabian Hueske | Chengxiang Li |
+| [FLINK-1278](https://issues.apache.org/jira/browse/FLINK-1278) | Remove the Record special code paths |  Minor | Local Runtime | Stephan Ewen | Stephan Ewen |
 
 
 ### TESTS:
@@ -144,5 +156,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [FLINK-2429](https://issues.apache.org/jira/browse/FLINK-2429) | Remove the "enableCheckpointing()" without interval variant |  Minor | Streaming | Stephan Ewen | Stephan Ewen |
+| [FLINK-3113](https://issues.apache.org/jira/browse/FLINK-3113) | Remove unused global order methods from GenericDataSinkBase |  Minor | Core | Fabian Hueske | Fabian Hueske |
+| [FLINK-3112](https://issues.apache.org/jira/browse/FLINK-3112) | Remove unused RecordModelPostPass class |  Trivial | Optimizer | Fabian Hueske | Fabian Hueske |
 
 
