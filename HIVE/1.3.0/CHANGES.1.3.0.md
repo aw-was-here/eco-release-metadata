@@ -18,7 +18,7 @@
 -->
 # Apache Hive Changelog
 
-## Release 1.3.0 - Unreleased (as of 2015-12-08)
+## Release 1.3.0 - Unreleased (as of 2015-12-11)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -101,6 +101,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HIVE-12585](https://issues.apache.org/jira/browse/HIVE-12585) | fix TxnHandler connection leak |  Blocker | Transactions | Eugene Koifman | Eugene Koifman |
 | [HIVE-12584](https://issues.apache.org/jira/browse/HIVE-12584) | Vectorized join with partition column of type char does not trim spaces |  Critical | Vectorization | Jagruti Varia | Prasanth Jayachandran |
 | [HIVE-12583](https://issues.apache.org/jira/browse/HIVE-12583) | HS2 ShutdownHookManager holds extra of Driver instance |  Major | Locking | Daniel Dai | Daniel Dai |
 | [HIVE-12567](https://issues.apache.org/jira/browse/HIVE-12567) | Enhance TxnHandler retry logic to handle ORA-08176 |  Major | Metastore, Transactions | Eugene Koifman | Eugene Koifman |
@@ -131,10 +132,12 @@
 | [HIVE-12417](https://issues.apache.org/jira/browse/HIVE-12417) | Support for exclamation mark missing in regexp |  Major | . | Olaf Flebbe | Olaf Flebbe |
 | [HIVE-12409](https://issues.apache.org/jira/browse/HIVE-12409) | make sure SessionState.initTxnMgr() is thread safe |  Major | HiveServer2, Transactions | Eugene Koifman | Eugene Koifman |
 | [HIVE-12406](https://issues.apache.org/jira/browse/HIVE-12406) | HIVE-9500 introduced incompatible change to LazySimpleSerDe public interface |  Blocker | Serializers/Deserializers | Lenni Kuff | Aihua Xu |
+| [HIVE-12399](https://issues.apache.org/jira/browse/HIVE-12399) | Native Vector MapJoin can encounter  "Null key not expected in MapJoin" and "Unexpected NULL in map join small table" exceptions |  Critical | Hive | Matt McCline | Matt McCline |
 | [HIVE-12391](https://issues.apache.org/jira/browse/HIVE-12391) | SkewJoinOptimizer might not kick in if columns are renamed after TableScanOperator |  Major | Logical Optimizer | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
 | [HIVE-12389](https://issues.apache.org/jira/browse/HIVE-12389) | CompactionTxnHandler.cleanEmptyAbortedTxns() should safeguard against huge IN clauses |  Major | Metastore, Transactions | Eugene Koifman | Eugene Koifman |
 | [HIVE-12378](https://issues.apache.org/jira/browse/HIVE-12378) | Exception on HBaseSerDe.serialize binary field |  Major | HBase Handler, Serializers/Deserializers | Yongzhi Chen | Yongzhi Chen |
 | [HIVE-12365](https://issues.apache.org/jira/browse/HIVE-12365) | Added resource path is sent to cluster as an empty string when externally removed |  Major | Hive | Chaoyu Tang | Chaoyu Tang |
+| [HIVE-12364](https://issues.apache.org/jira/browse/HIVE-12364) | Distcp job fails when run under Tez |  Critical | Tez | Prasanth Jayachandran | Prasanth Jayachandran |
 | [HIVE-12363](https://issues.apache.org/jira/browse/HIVE-12363) | Incorrect results with orc ppd across ORC versions |  Major | . | Ashutosh Chauhan | Gopal V |
 | [HIVE-12354](https://issues.apache.org/jira/browse/HIVE-12354) | MapJoin with double keys is slow on MR |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
 | [HIVE-12349](https://issues.apache.org/jira/browse/HIVE-12349) | NPE in ORC SARG for IS NULL queries on Timestamp and Date columns |  Major | . | Prasanth Jayachandran | Prasanth Jayachandran |
@@ -303,6 +306,7 @@
 | [HIVE-11397](https://issues.apache.org/jira/browse/HIVE-11397) | Parse Hive OR clauses as they are written into the AST |  Major | Logical Optimizer | Gopal V | Jesus Camacho Rodriguez |
 | [HIVE-11380](https://issues.apache.org/jira/browse/HIVE-11380) | NPE when FileSinkOperator is not initialized |  Major | Query Processor | Yongzhi Chen | Yongzhi Chen |
 | [HIVE-11372](https://issues.apache.org/jira/browse/HIVE-11372) | join with between predicate comparing integer types returns no rows when ORC format used |  Major | . | N Campbell | Matt McCline |
+| [HIVE-11371](https://issues.apache.org/jira/browse/HIVE-11371) | Null pointer exception for nested table query when using ORC versus text |  Major | Vectorization | N Campbell | Matt McCline |
 | [HIVE-11357](https://issues.apache.org/jira/browse/HIVE-11357) | ACID enable predicate pushdown for insert-only delta file 2 |  Major | Transactions | Eugene Koifman | Eugene Koifman |
 | [HIVE-11356](https://issues.apache.org/jira/browse/HIVE-11356) | SMB join on tez fails when one of the tables is empty |  Major | . | Vikram Dixit K | Vikram Dixit K |
 | [HIVE-11344](https://issues.apache.org/jira/browse/HIVE-11344) | HIVE-9845 makes HCatSplit.write modify the split so that PartInfo objects are unusable after it |  Major | . | Sushanth Sowmyan | Sushanth Sowmyan |

@@ -381,6 +381,13 @@ Modifying key methods in ContainerExecutor to use context objects instead of an 
 
 ---
 
+* [YARN-3623](https://issues.apache.org/jira/browse/YARN-3623) | *Major* | **We should have a config to indicate the Timeline Service version**
+
+Add a new configuration "yarn.timeline-service.version" to indicate what is the current version of the running timeline service. For example, if "yarn.timeline-service.version" is 1.5, and "yarn.timeline-service.enabled" is true, it means the cluster will and should bring up the timeline service v.1.5. On the client side, if the client uses the same version of timeline service, it should succeed. If the client chooses to use a smaller version in spite of this, then depending on how robust the compatibility story is between versions, the results may vary.
+
+
+---
+
 * [YARN-3587](https://issues.apache.org/jira/browse/YARN-3587) | *Minor* | **Fix the javadoc of DelegationTokenSecretManager in projects of yarn, etc.**
 
 Update DelegationTokenSecretManager Javadoc (milliseconds)

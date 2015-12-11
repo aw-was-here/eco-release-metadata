@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.9.0.1 - Unreleased (as of 2015-12-08)
+## Release 0.9.0.1 - Unreleased (as of 2015-12-11)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -42,6 +42,8 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-2957](https://issues.apache.org/jira/browse/KAFKA-2957) | Fix typos in Kafka documentation |  Trivial | . | Vahid Hashemian | Vahid Hashemian |
+| [KAFKA-2924](https://issues.apache.org/jira/browse/KAFKA-2924) | Add offsets/group metadata decoder so that DumpLogSegments can be used with the offsets topic |  Major | . | Jason Gustafson | Jason Gustafson |
 | [KAFKA-2882](https://issues.apache.org/jira/browse/KAFKA-2882) | Add constructor cache for Snappy and LZ4 Output/Input stream in Compressor.java |  Major | consumer, producer | Maksim Logvinenko | Maksim Logvinenko |
 | [KAFKA-2761](https://issues.apache.org/jira/browse/KAFKA-2761) | Enable passing regex via whitelist for new-consumer in ConsoleConsumer |  Major | tools | Ashish K Singh | Ashish K Singh |
 
@@ -50,14 +52,21 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-2981](https://issues.apache.org/jira/browse/KAFKA-2981) | Fix javadoc in KafkaConsumer |  Minor | clients | Xin Wang |  |
+| [KAFKA-2974](https://issues.apache.org/jira/browse/KAFKA-2974) | `==` is used incorrectly in a few places in Java code |  Major | . | Ismael Juma | Ismael Juma |
+| [KAFKA-2973](https://issues.apache.org/jira/browse/KAFKA-2973) | Fix leak of child sensors on remove |  Major | clients | Ismael Juma | Ismael Juma |
+| [KAFKA-2972](https://issues.apache.org/jira/browse/KAFKA-2972) | ControlledShutdownResponse always serialises `partitionsRemaining` as empty |  Major | network | Ismael Juma | Ismael Juma |
 | [KAFKA-2950](https://issues.apache.org/jira/browse/KAFKA-2950) | Performance regression in producer |  Major | . | Jay Kreps |  |
 | [KAFKA-2942](https://issues.apache.org/jira/browse/KAFKA-2942) | Inadvertent auto-commit when pre-fetching can cause message loss |  Major | . | Jason Gustafson | Jason Gustafson |
+| [KAFKA-2926](https://issues.apache.org/jira/browse/KAFKA-2926) | [MirrorMaker] InternalRebalancer calls wrong method of external rebalancer |  Major | tools | Gwen Shapira | Gwen Shapira |
 | [KAFKA-2913](https://issues.apache.org/jira/browse/KAFKA-2913) | GroupMetadataManager unloads all groups in removeGroupsForPartitions |  Major | . | Jason Gustafson | Jason Gustafson |
 | [KAFKA-2899](https://issues.apache.org/jira/browse/KAFKA-2899) | Should log unexpected exceptions thrown when reading from local log |  Major | . | Ben Stopford | Ben Stopford |
+| [KAFKA-2893](https://issues.apache.org/jira/browse/KAFKA-2893) | Add Negative Partition Seek Check |  Major | clients | Jesse Anderson | jin xing |
 | [KAFKA-2880](https://issues.apache.org/jira/browse/KAFKA-2880) | Fetcher.getTopicMetadata NullPointerException when broker cannot be reached |  Major | clients | Ewen Cheslack-Postava | Jason Gustafson |
 | [KAFKA-2877](https://issues.apache.org/jira/browse/KAFKA-2877) | Messages sometimes not delivered by new consumer after Kafka restart |  Critical | consumer | Rajini Sivaram | Jason Gustafson |
 | [KAFKA-2799](https://issues.apache.org/jira/browse/KAFKA-2799) | WakupException thrown in the followup poll() could lead to data loss |  Blocker | . | Guozhang Wang | Guozhang Wang |
 | [KAFKA-2752](https://issues.apache.org/jira/browse/KAFKA-2752) | Add clean bounce system test for distributed Copycat |  Major | copycat | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
+| [KAFKA-2578](https://issues.apache.org/jira/browse/KAFKA-2578) | Client Metadata internal state should be synchronized |  Trivial | . | Jason Gustafson | Edward Ribeiro |
 | [KAFKA-1862](https://issues.apache.org/jira/browse/KAFKA-1862) | Pass in the Time object into OffsetManager |  Major | . | Guozhang Wang | Aditya Auradkar |
 
 

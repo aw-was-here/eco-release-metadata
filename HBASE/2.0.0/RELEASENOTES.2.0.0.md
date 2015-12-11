@@ -23,9 +23,36 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
+* [HBASE-14960](https://issues.apache.org/jira/browse/HBASE-14960) | *Major* | **Fallback to using default RPCControllerFactory if class cannot be loaded**
+
+If the configured RPC controller factory (via hbase.rpc.controllerfactory.class) cannot be found in the classpath or loaded, we fall back to using the default RPC controller factory in HBase.
+
+
+---
+
+* [HBASE-14946](https://issues.apache.org/jira/browse/HBASE-14946) | *Critical* | **Don't allow multi's to over run the max result size.**
+
+The HBase region server will now send a chunk of get responses to a client if the total response size is too large. This will only be done for clients 1.2.0 and beyond. Older clients by default will have the old behavior.
+
+This patch is for the case where the basic flow is like this:
+
+I want to get a single column from lots of rows. So I create a list of gets. Then I send them to table.get(List\<Get\>). If the regions for that table are spread out then those requests get chunked out to all the region servers. No one regionserver gets too many. However if one region server contains lots of regions for that table then a multi action can contain lots of gets. No single get is too onerous. However the regionserver won't return until every get is complete. So if there are thousands of gets that are sent in one multi then the regionserver can retain lots of data in one thread.
+
+
+---
+
 * [HBASE-14926](https://issues.apache.org/jira/browse/HBASE-14926) | *Major* | **Hung ThriftServer; no timeout on read from client; if client crashes, worker thread gets stuck reading**
 
 Adds a timeout to server read from clients. Adds new configs hbase.thrift.server.socket.read.timeout for setting read timeout on server socket in milliseconds. Default is 60000;
+
+
+---
+
+* [HBASE-14906](https://issues.apache.org/jira/browse/HBASE-14906) | *Major* | **Improvements on FlushLargeStoresPolicy**
+
+In HBASE-14906 we use "hbase.hregion.memstore.flush.size/column\_family\_number" as the default threshold for memstore flush instead of the fixed value through "hbase.hregion.percolumnfamilyflush.size.lower.bound" property, which makes  the default threshold more flexible to various use case. We also introduce a new property in name of "hbase.hregion.percolumnfamilyflush.size.lower.bound.min" with 16M as the default value to avoid small flush in cases like hundreds of column families.
+
+After this change setting "hbase.hregion.percolumnfamilyflush.size.lower.bound" in hbase-site.xml won't take effect anymore, but expert users could still set this property in table descriptor to override the default value just as before
 
 
 ---
@@ -56,6 +83,15 @@ This issue resolves a potential security vulnerability. For all versions we upda
 * [HBASE-14793](https://issues.apache.org/jira/browse/HBASE-14793) | *Major* | **Allow limiting size of block into L1 block cache.**
 
 Very large blocks can fragment the heap and cause bad issues for the garbage collector, especially the G1GC. Now there is a maximum size that a block can be and still stick in the LruBlockCache. That size defaults to 16mb but can be controlled by changing "hbase.lru.max.block.size"
+
+
+---
+
+* [HBASE-14769](https://issues.apache.org/jira/browse/HBASE-14769) | *Major* | **Remove unused functions and duplicate javadocs from HBaseAdmin**
+
+- Removes functions from HBaseAdmin which require table name parameter as either byte[] or String. Use their counterparts which take TableName instead.
+- Removes redundant javadocs from HBaseAdmin as they will be automatically inherited from Admin interface.
+- HBaseAdmin is marked Audience.private so it should have been straight forward okay to remove the functions. But HBaseTestingUtility, which is marked Audience.public had a public function returning its instance, which moved this decision into gray area. Discussing in the community, it was decided that it would be okay to do so in this particular case.
 
 
 ---
@@ -769,6 +805,28 @@ Pass the -D flag generator.multiple.columnfamilies on the command-line if you wa
 * [HBASE-13170](https://issues.apache.org/jira/browse/HBASE-13170) | *Major* | **Allow block cache to be external**
 
 HBase can use memcached as an external block cache. To use this change your config to set hbase.blockcache.use.external to true and hbase.cache.memcached.servers to contain the list of memcached servers to use.
+
+
+---
+
+* [HBASE-13153](https://issues.apache.org/jira/browse/HBASE-13153) | *Major* | **Bulk Loaded HFile Replication**
+
+This enhances the HBase replication to support replication of bulk loaded data. This is configurable, by default it is set to false which means it will not replicate the bulk loaded data to its peer(s). To enable it set "hbase.replication.bulkload.enabled" to true.
+
+Following are the additional configurations added for this enhancement,
+ a. hbase.replication.cluster.id - This is manadatory to configure in cluster where replication for bulk loaded data is enabled. A source cluster is uniquely identified by sink cluster using this id. This should be configured in the source cluster configuration file for all the RS.
+ b. hbase.replication.conf.dir - This represents the directory where all the active cluster's file system client configurations are defined in subfolders corresponding to their respective replication cluster id in peer cluster. This should be configured in the peer cluster configuration file for all the RS. Default is HBASE\_CONF\_DIR.
+ c. hbase.replication.source.fs.conf.provider - This represents the class which provides the source cluster file system client configuration to peer cluster. This should be configured in the peer cluster configuration file for all the RS. Default is org.apache.hadoop.hbase.replication.regionserver.DefaultSourceFSConfigurationProvider
+
+ For example: If source cluster FS client configurations are copied in peer cluster under directory /home/user/dc1/ then  hbase.replication.cluster.id should be configured as dc1 and hbase.replication.conf.dir as /home/user
+
+Note: 
+ a. Any modification to source cluster FS client configuration files in peer cluster side replication configuration directory then it needs to restart all its peer(s) cluster RS with default hbase.replication.source.fs.conf.provider.
+ b. Only 'xml' type files will be loaded by the default hbase.replication.source.fs.conf.provider.
+
+As part of this we have made following changes to LoadIncrementalHFiles class which is marked as Public and Stable class,
+ a. Raised the visibility scope of LoadQueueItem class from package private to public.
+ b. Added a new method loadHFileQueue, which loads the queue of LoadQueueItem into the table as per the region keys provided.
 
 
 ---

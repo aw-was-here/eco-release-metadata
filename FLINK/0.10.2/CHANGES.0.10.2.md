@@ -18,7 +18,7 @@
 -->
 # Apache Flink Changelog
 
-## Release 0.10.2 - Unreleased (as of 2015-12-08)
+## Release 0.10.2 - Unreleased (as of 2015-12-11)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -48,6 +48,9 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [FLINK-3145](https://issues.apache.org/jira/browse/FLINK-3145) | Storm examples can't be run without flink-java as dependency |  Major | Build System, Java API, Storm Compatibility | Maximilian Michels | Maximilian Michels |
+| [FLINK-3143](https://issues.apache.org/jira/browse/FLINK-3143) | Update Clojure Cleaner's ASM references to ASM5 |  Major | Local Runtime | Maximilian Michels | Maximilian Michels |
+| [FLINK-3136](https://issues.apache.org/jira/browse/FLINK-3136) | Scala Closure Cleaner uses wrong ASM import |  Critical | Scala API | Stephan Ewen | Aljoscha Krettek |
 | [FLINK-3125](https://issues.apache.org/jira/browse/FLINK-3125) | Web dashboard does not start when log files are not found |  Major | Webfrontend | Stephan Ewen | Stephan Ewen |
 | [FLINK-3108](https://issues.apache.org/jira/browse/FLINK-3108) | JoinOperator's with() calls the wrong TypeExtractor method |  Major | . | Vasia Kalavri | Timo Walther |
 | [FLINK-3082](https://issues.apache.org/jira/browse/FLINK-3082) | Confusing error about ManualTimestampSourceFunction |  Major | . | Niels Basjes | Niels Basjes |

@@ -18,7 +18,7 @@
 -->
 # Apache Flink Changelog
 
-## Release 1.0.0 - Unreleased (as of 2015-12-08)
+## Release 1.0.0 - Unreleased (as of 2015-12-11)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -48,6 +48,8 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [FLINK-3124](https://issues.apache.org/jira/browse/FLINK-3124) | Introduce a TaskInfo object to better represent task name, index, attempt number etc. |  Major | . | Sachin Goel | Sachin Goel |
 | [FLINK-3084](https://issues.apache.org/jira/browse/FLINK-3084) | File State Backend should not write very small state into files |  Major | Streaming | Stephan Ewen | Stephan Ewen |
+| [FLINK-3074](https://issues.apache.org/jira/browse/FLINK-3074) | Make ApplicationMaster/JobManager akka port configurable |  Major | YARN Client | Robert Metzger | Robert Metzger |
+| [FLINK-3073](https://issues.apache.org/jira/browse/FLINK-3073) | Activate streaming mode by default |  Major | TaskManager | Robert Metzger | Aljoscha Krettek |
 | [FLINK-3069](https://issues.apache.org/jira/browse/FLINK-3069) | Make state materialization asynchronous |  Major | Streaming | Stephan Ewen | Aljoscha Krettek |
 | [FLINK-3056](https://issues.apache.org/jira/browse/FLINK-3056) | Show bytes sent/received as MBs/GB and so on in web interface |  Major | Webfrontend | Robert Metzger | Sachin Goel |
 | [FLINK-3055](https://issues.apache.org/jira/browse/FLINK-3055) | ExecutionVertex has duplicate method getParallelSubtaskIndex and getSubTaskIndex |  Trivial | Distributed Runtime | Ufuk Celebi | jun aoki |
@@ -62,6 +64,7 @@
 | [FLINK-2974](https://issues.apache.org/jira/browse/FLINK-2974) | Add periodic offset commit to Kafka Consumer if checkpointing is disabled |  Major | Kafka Connector | Robert Metzger | Robert Metzger |
 | [FLINK-2966](https://issues.apache.org/jira/browse/FLINK-2966) | Improve the way job duration is reported on web frontend. |  Minor | Webfrontend | Sachin Goel | Sachin Goel |
 | [FLINK-2961](https://issues.apache.org/jira/browse/FLINK-2961) | Add support for basic type Date in Table API |  Minor | Table API | Timo Walther | Timo Walther |
+| [FLINK-2936](https://issues.apache.org/jira/browse/FLINK-2936) | ClassCastException when using EventTimeSourceFunction in non-EventTime program |  Major | Streaming | Fabian Hueske | Aljoscha Krettek |
 | [FLINK-2932](https://issues.apache.org/jira/browse/FLINK-2932) | Flink quickstart docs should ask users to download from https, not http |  Minor | Documentation | Frederick F. Kautz IV |  |
 | [FLINK-2904](https://issues.apache.org/jira/browse/FLINK-2904) | Web interface truncated task counts |  Minor | Webfrontend | Greg Hogan | Sachin Goel |
 | [FLINK-2902](https://issues.apache.org/jira/browse/FLINK-2902) | Web interface sort tasks newest first |  Minor | Webfrontend | Greg Hogan | Sachin Goel |
@@ -78,7 +81,12 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [FLINK-3156](https://issues.apache.org/jira/browse/FLINK-3156) | FlinkKafkaConsumer fails with NPE on notifyCheckpointComplete |  Major | Kafka Connector | Till Rohrmann | Robert Metzger |
+| [FLINK-3145](https://issues.apache.org/jira/browse/FLINK-3145) | Storm examples can't be run without flink-java as dependency |  Major | Build System, Java API, Storm Compatibility | Maximilian Michels | Maximilian Michels |
+| [FLINK-3143](https://issues.apache.org/jira/browse/FLINK-3143) | Update Clojure Cleaner's ASM references to ASM5 |  Major | Local Runtime | Maximilian Michels | Maximilian Michels |
+| [FLINK-3136](https://issues.apache.org/jira/browse/FLINK-3136) | Scala Closure Cleaner uses wrong ASM import |  Critical | Scala API | Stephan Ewen | Aljoscha Krettek |
 | [FLINK-3125](https://issues.apache.org/jira/browse/FLINK-3125) | Web dashboard does not start when log files are not found |  Major | Webfrontend | Stephan Ewen | Stephan Ewen |
+| [FLINK-3121](https://issues.apache.org/jira/browse/FLINK-3121) | Watermark forwarding does not work for sources not producing any data |  Blocker | . | Robert Metzger | Aljoscha Krettek |
 | [FLINK-3108](https://issues.apache.org/jira/browse/FLINK-3108) | JoinOperator's with() calls the wrong TypeExtractor method |  Major | . | Vasia Kalavri | Timo Walther |
 | [FLINK-3101](https://issues.apache.org/jira/browse/FLINK-3101) | Flink Kafka consumer crashes with NPE when it sees deleted record |  Major | Kafka Connector | Sanjar Akhmedov | Robert Metzger |
 | [FLINK-3100](https://issues.apache.org/jira/browse/FLINK-3100) | Signal handler prints error on normal shutdown of cluster |  Major | JobManager, TaskManager | Maximilian Michels | Maximilian Michels |

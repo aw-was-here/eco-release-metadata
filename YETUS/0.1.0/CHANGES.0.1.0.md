@@ -18,7 +18,7 @@
 -->
 # Apache Yetus Changelog
 
-## Release 0.1.0 - Unreleased (as of 2015-12-08)
+## Release 0.1.0 - Unreleased (as of 2015-12-11)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -68,7 +68,12 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [YETUS-231](https://issues.apache.org/jira/browse/YETUS-231) | Fix dead links in README |  Trivial | website and documentation | Akihiro Suda | Akihiro Suda |
+| [YETUS-223](https://issues.apache.org/jira/browse/YETUS-223) | hadoop: not compiling libwebhdfs in docker mode under jenkins |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
+| [YETUS-220](https://issues.apache.org/jira/browse/YETUS-220) | can't cat the version file in re-exec or dockermode |  Blocker | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-219](https://issues.apache.org/jira/browse/YETUS-219) | pylint plugin displays grep error message if patch contains modification to python and other files |  Minor | Test Patch | Kengo Seki | Marco Zühlke |
+| [YETUS-217](https://issues.apache.org/jira/browse/YETUS-217) | docker fallback mode isn't reliable |  Blocker | Test Patch | Tsuyoshi Ozawa | Allen Wittenauer |
+| [YETUS-212](https://issues.apache.org/jira/browse/YETUS-212) | "bundle exec middleman" fails due to the lack of js runtime |  Major | website and documentation | Kengo Seki | Kengo Seki |
 | [YETUS-211](https://issues.apache.org/jira/browse/YETUS-211) | shelldocs, release-doc-maker, and precommit all missing version info |  Blocker | Release Doc Maker, ShellDocs, Test Patch | Sean Busbey | Sean Busbey |
 | [YETUS-210](https://issues.apache.org/jira/browse/YETUS-210) | Link to pylint stderr file is invalid on Jenkins |  Major | Test Patch | Kengo Seki | Kengo Seki |
 | [YETUS-202](https://issues.apache.org/jira/browse/YETUS-202) | 171 incomplete |  Critical | Test Patch | Allen Wittenauer | Allen Wittenauer |
@@ -142,6 +147,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [YETUS-216](https://issues.apache.org/jira/browse/YETUS-216) | create script to make release artifacts |  Major | build | Sean Busbey | Sean Busbey |
 | [YETUS-192](https://issues.apache.org/jira/browse/YETUS-192) | don't store intermediate markdown files for precommit's shelldocs. |  Major | build, website and documentation | Sean Busbey | Sean Busbey |
 | [YETUS-162](https://issues.apache.org/jira/browse/YETUS-162) | rename 'latest' documentation to 'in-progress' to denote non-release status. |  Major | website and documentation | Sean Busbey | Sean Busbey |
 | [YETUS-126](https://issues.apache.org/jira/browse/YETUS-126) | break jdiff doclet into independent artifact |  Major | Audience Annotations | Sean Busbey | Sean Busbey |

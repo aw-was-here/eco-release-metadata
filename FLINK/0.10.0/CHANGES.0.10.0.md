@@ -200,7 +200,6 @@
 | [FLINK-2787](https://issues.apache.org/jira/browse/FLINK-2787) | Prevent explicit use of RemoteEnvironment when running a job through the command line |  Major | Core | Stephan Ewen | Stephan Ewen |
 | [FLINK-2777](https://issues.apache.org/jira/browse/FLINK-2777) | The description of programming\_guide.html has some issues |  Minor | Documentation | chenliang613 | chenliang613 |
 | [FLINK-2773](https://issues.apache.org/jira/browse/FLINK-2773) | OutOfMemoryError on YARN Session |  Blocker | YARN Client | Fabian Hueske | Maximilian Michels |
-| [FLINK-2769](https://issues.apache.org/jira/browse/FLINK-2769) | Web dashboard port not configurable on client side |  Critical | Webfrontend | Ufuk Celebi | Ufuk Celebi |
 | [FLINK-2768](https://issues.apache.org/jira/browse/FLINK-2768) | Wrong Java version requirements in "Quickstart: Scala API" page |  Major | . | Chiwan Park | rerngvit yanggratoke |
 | [FLINK-2766](https://issues.apache.org/jira/browse/FLINK-2766) | Bad ipv6 urls |  Blocker | . | Arsenii Krasikov | Stephan Ewen |
 | [FLINK-2763](https://issues.apache.org/jira/browse/FLINK-2763) | Bug in Hybrid Hash Join: Request to spill a partition with less than two buffers. |  Major | Distributed Runtime | Greg Hogan | Stephan Ewen |

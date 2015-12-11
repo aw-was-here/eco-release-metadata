@@ -18,7 +18,7 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.8.2 - Unreleased (as of 2015-12-08)
+## Release 0.8.2 - Unreleased (as of 2015-12-11)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -61,6 +61,8 @@
 | [TEZ-2975](https://issues.apache.org/jira/browse/TEZ-2975) | Bump up apache commons dependency |  Trivial | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-2970](https://issues.apache.org/jira/browse/TEZ-2970) | Re-localization in TezChild does not use correct UGI |  Major | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-2968](https://issues.apache.org/jira/browse/TEZ-2968) | Counter limits exception causes AM to crash |  Critical | . | Hitesh Shah | Hitesh Shah |
+| [TEZ-2966](https://issues.apache.org/jira/browse/TEZ-2966) | Tez does not honor mapreduce.task.timeout |  Major | . | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-2963](https://issues.apache.org/jira/browse/TEZ-2963) | RecoveryService#handleSummaryEvent exception with HDFS transparent encryption + kerberos authentication |  Major | . | Karel Kolman | Hitesh Shah |
 | [TEZ-2960](https://issues.apache.org/jira/browse/TEZ-2960) | Tez UI: Move hardcoded url namespace to the configuration file. |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2956](https://issues.apache.org/jira/browse/TEZ-2956) | Handle auto-reduce parallelism when the totalNumBipartiteSourceTasks is 0 |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-2952](https://issues.apache.org/jira/browse/TEZ-2952) | NPE in TestOnFileUnorderedKVOutput |  Major | . | Jeff Zhang | Bikas Saha |
@@ -68,6 +70,7 @@
 | [TEZ-2946](https://issues.apache.org/jira/browse/TEZ-2946) | Tez UI: At times RM return a huge error message making the yellow error bar to fill the whole screen. |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2945](https://issues.apache.org/jira/browse/TEZ-2945) | TEZ-2740 addendum to update API with currently supported parameters |  Major | . | Bikas Saha | Bikas Saha |
 | [TEZ-2944](https://issues.apache.org/jira/browse/TEZ-2944) | NPE in TestProcessorContext |  Major | . | Jeff Zhang | Bikas Saha |
+| [TEZ-2943](https://issues.apache.org/jira/browse/TEZ-2943) | Change shuffle vertex manager to use per vertex data for auto reduce and slow start |  Major | . | Jonathan Eagles | Bikas Saha |
 | [TEZ-2940](https://issues.apache.org/jira/browse/TEZ-2940) | Invalid shuffle max slow start setting causes vertex to hang indefinitely |  Major | . | Jonathan Eagles | Jonathan Eagles |
 | [TEZ-2933](https://issues.apache.org/jira/browse/TEZ-2933) | Tez UI: Load application details from RM when available |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2930](https://issues.apache.org/jira/browse/TEZ-2930) | Tez UI: Parent controller is not polling at times |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
@@ -90,7 +93,9 @@
 | [TEZ-2866](https://issues.apache.org/jira/browse/TEZ-2866) | Tez UI: Newly added columns wont be displayed by default in tables |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2850](https://issues.apache.org/jira/browse/TEZ-2850) | Tez MergeManager OOM for small Map Outputs |  Major | . | Saikat | Jonathan Eagles |
 | [TEZ-2814](https://issues.apache.org/jira/browse/TEZ-2814) | ATSImportTool has a return statement in a finally block |  Major | . | Hitesh Shah | Rajesh Balamohan |
+| [TEZ-2798](https://issues.apache.org/jira/browse/TEZ-2798) | NPE when executing TestMemoryWithEvents::testMemoryScatterGather |  Blocker | . | Rajesh Balamohan | Siddharth Seth |
 | [TEZ-2781](https://issues.apache.org/jira/browse/TEZ-2781) | Fallback to send only TaskAttemptFailedEvent if taskFailed heartbeat fails |  Major | . | Jeff Zhang | Jeff Zhang |
+| [TEZ-2592](https://issues.apache.org/jira/browse/TEZ-2592) | [Umbrella] Make it easier to generate binary artifacts for user convenience |  Major | . | Hitesh Shah |  |
 | [TEZ-2553](https://issues.apache.org/jira/browse/TEZ-2553) | Tez UI: Tez UI Nits |  Minor | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2480](https://issues.apache.org/jira/browse/TEZ-2480) | Exception when closing output is ignored |  Major | . | Sergey Shelukhin | Siddharth Seth |
 | [TEZ-1976](https://issues.apache.org/jira/browse/TEZ-1976) | Findbug warning: Unread field: org.apache.hadoop.mapreduce.split.TezGroupedSplitsInputFormat$SplitHolder.split |  Major | . | Hitesh Shah | Chetna Chaudhari |
@@ -108,6 +113,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-2979](https://issues.apache.org/jira/browse/TEZ-2979) | FlakyTest: org.apache.tez.history.TestHistoryParser |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-2918](https://issues.apache.org/jira/browse/TEZ-2918) | Make progress notifications in IOs |  Major | . | Bikas Saha | Bikas Saha |
 | [TEZ-2888](https://issues.apache.org/jira/browse/TEZ-2888) | Make critical path calculation resilient to AM crash |  Major | . | Bikas Saha | Bikas Saha |
 | [TEZ-2882](https://issues.apache.org/jira/browse/TEZ-2882) | Consider improving fetch failure handling |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
@@ -123,5 +129,7 @@
 | [TEZ-2903](https://issues.apache.org/jira/browse/TEZ-2903) | Avoid using proprietary APIs where possible |  Major | . | Siddharth Seth | Chetna Chaudhari |
 | [TEZ-2883](https://issues.apache.org/jira/browse/TEZ-2883) | changes for 0.8.1-alpha release |  Major | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-2828](https://issues.apache.org/jira/browse/TEZ-2828) | Fix typo in "Shuffle assigned " log statement in shuffle.orderedgrouped.Shuffle |  Trivial | . | Johannes Zillmann |  |
+| [TEZ-2595](https://issues.apache.org/jira/browse/TEZ-2595) | Add license and notice files into assembled full and minimal tarballs |  Major | . | Hitesh Shah | Hitesh Shah |
+| [TEZ-604](https://issues.apache.org/jira/browse/TEZ-604) | Revert temporary changes made in TEZ-603 |  Blocker | . | Siddharth Seth | Hitesh Shah |
 
 

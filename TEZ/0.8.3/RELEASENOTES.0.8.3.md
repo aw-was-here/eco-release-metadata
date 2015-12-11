@@ -16,9 +16,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-* Apache Yetus v0.2.0
-    * [Changes](0.2.0/CHANGES.0.2.0.md)
-    * [Release Notes](0.2.0/RELEASENOTES.0.2.0.md)
-* Apache Yetus v0.1.0
-    * [Changes](0.1.0/CHANGES.0.1.0.md)
-    * [Release Notes](0.1.0/RELEASENOTES.0.1.0.md)
+# Apache Tez  0.8.3 Release Notes
+
+These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
+
+
+

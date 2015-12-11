@@ -30,6 +30,13 @@ HIVE-12463: VectorMapJoinFastKeyStore has Array OOB errors
 
 ---
 
+* [HIVE-12399](https://issues.apache.org/jira/browse/HIVE-12399) | *Critical* | **Native Vector MapJoin can encounter  "Null key not expected in MapJoin" and "Unexpected NULL in map join small table" exceptions**
+
+HIVE-12399:  Filter out NULLs in the Native Vector MapJoin operators.
+
+
+---
+
 * [HIVE-12363](https://issues.apache.org/jira/browse/HIVE-12363) | *Major* | **Incorrect results with orc ppd across ORC versions**
 
 "HIVE-12363: Incorrect results with orc ppd across ORC versions (Gopal V, reviewed by Prasanth Jayachandran)"

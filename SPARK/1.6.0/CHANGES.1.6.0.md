@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 1.6.0 - Unreleased (as of 2015-12-08)
+## Release 1.6.0 - Unreleased (as of 2015-12-11)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -41,6 +41,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-12242](https://issues.apache.org/jira/browse/SPARK-12242) | DataFrame.transform function |  Major | SQL | Reynold Xin | Reynold Xin |
 | [SPARK-11773](https://issues.apache.org/jira/browse/SPARK-11773) | Implement collection functions in SparkR |  Major | SparkR | Sun Rui | Sun Rui |
 | [SPARK-11768](https://issues.apache.org/jira/browse/SPARK-11768) | Support now function in SQL (alias for current\_timestamp) |  Major | SQL | Reynold Xin | Reynold Xin |
 | [SPARK-11766](https://issues.apache.org/jira/browse/SPARK-11766) | JSON serialization of Vectors |  Major | MLlib | Xiangrui Meng | Xiangrui Meng |
@@ -102,8 +103,9 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [SPARK-12195](https://issues.apache.org/jira/browse/SPARK-12195) | Adding BigDecimal, Date and Timestamp into Encoder |  Major | SQL | Xiao Li |  |
-| [SPARK-12188](https://issues.apache.org/jira/browse/SPARK-12188) | [SQL] Code refactoring and comment correction in Dataset APIs |  Major | SQL | Xiao Li |  |
+| [SPARK-12251](https://issues.apache.org/jira/browse/SPARK-12251) | Document Spark 1.6's off-heap memory configurations and add config validation |  Major | Spark Core | Josh Rosen | Josh Rosen |
+| [SPARK-12195](https://issues.apache.org/jira/browse/SPARK-12195) | Adding BigDecimal, Date and Timestamp into Encoder |  Major | SQL | Xiao Li | Xiao Li |
+| [SPARK-12188](https://issues.apache.org/jira/browse/SPARK-12188) | [SQL] Code refactoring and comment correction in Dataset APIs |  Major | SQL | Xiao Li | Xiao Li |
 | [SPARK-12094](https://issues.apache.org/jira/browse/SPARK-12094) | Better format for query plan tree string |  Minor | SQL | Cheng Lian | Cheng Lian |
 | [SPARK-12077](https://issues.apache.org/jira/browse/SPARK-12077) | Use more robust plan for single distinct aggregation |  Major | SQL | Davies Liu | Davies Liu |
 | [SPARK-12065](https://issues.apache.org/jira/browse/SPARK-12065) | Upgrade Tachyon dependency to 0.8.2 |  Major | Spark Core | Josh Rosen | Josh Rosen |
@@ -398,8 +400,19 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-12258](https://issues.apache.org/jira/browse/SPARK-12258) | Hive Timestamp UDF is binded with '1969-12-31 15:59:59.999999' for null value |  Major | SQL | Ian | Davies Liu |
+| [SPARK-12253](https://issues.apache.org/jira/browse/SPARK-12253) | UnifiedMemoryManager race condition: storage can starve new tasks |  Blocker | Spark Core | Andrew Or | Andrew Or |
+| [SPARK-12250](https://issues.apache.org/jira/browse/SPARK-12250) | Allow users to define a UDAF without providing details of its inputSchema |  Major | SQL | Yin Huai | Yin Huai |
+| [SPARK-12245](https://issues.apache.org/jira/browse/SPARK-12245) | Change the simple tracking function signature to include key in the params |  Blocker | . | Tathagata Das | Tathagata Das |
+| [SPARK-12244](https://issues.apache.org/jira/browse/SPARK-12244) | Rename trackStateByKey to mapWithState |  Blocker | Streaming | Tathagata Das | Tathagata Das |
+| [SPARK-12234](https://issues.apache.org/jira/browse/SPARK-12234) | SparkR subset throw error when only set "select" argument |  Major | SparkR | Yanbo Liang | Yanbo Liang |
+| [SPARK-12222](https://issues.apache.org/jira/browse/SPARK-12222) | deserialize RoaringBitmap using Kryo serializer throw Buffer underflow exception |  Major | Spark Core | Fei Wang | Fei Wang |
 | [SPARK-12205](https://issues.apache.org/jira/browse/SPARK-12205) | Pivot fails Analysis when aggregate is UnresolvedFunction |  Major | SQL | Andrew Ray | Andrew Ray |
-| [SPARK-12201](https://issues.apache.org/jira/browse/SPARK-12201) | add type coercion rule for greatest/least |  Major | SQL | Wenchen Fan |  |
+| [SPARK-12201](https://issues.apache.org/jira/browse/SPARK-12201) | add type coercion rule for greatest/least |  Major | SQL | Wenchen Fan | Wenchen Fan |
+| [SPARK-12189](https://issues.apache.org/jira/browse/SPARK-12189) | UnifiedMemoryManager double counts storage memory freed |  Blocker | Spark Core | Andrew Or | Josh Rosen |
+| [SPARK-12187](https://issues.apache.org/jira/browse/SPARK-12187) | \*MemoryPool classes should not be public |  Critical | Spark Core | Andrew Or | Andrew Or |
+| [SPARK-12165](https://issues.apache.org/jira/browse/SPARK-12165) | Execution memory requests may fail to evict storage blocks if storage memory usage is below max memory |  Blocker | Spark Core | Josh Rosen | Josh Rosen |
+| [SPARK-12155](https://issues.apache.org/jira/browse/SPARK-12155) | Execution OOM after a relative large dataset cached in the cluster. |  Blocker | Spark Core, SQL | Yin Huai | Andrew Or |
 | [SPARK-12138](https://issues.apache.org/jira/browse/SPARK-12138) | Escape \u in the generated comments. |  Major | SQL | Yin Huai | Xiao Li |
 | [SPARK-12132](https://issues.apache.org/jira/browse/SPARK-12132) | Cltr-C should clear current line in pyspark shell |  Major | PySpark | Davies Liu | Davies Liu |
 | [SPARK-12122](https://issues.apache.org/jira/browse/SPARK-12122) | Recovered streaming context can sometimes run a batch twice |  Blocker | Streaming | Tathagata Das | Tathagata Das |
@@ -409,6 +422,7 @@
 | [SPARK-12089](https://issues.apache.org/jira/browse/SPARK-12089) | java.lang.NegativeArraySizeException when growing BufferHolder |  Blocker | SQL | Erik Selin | Nong Li |
 | [SPARK-12087](https://issues.apache.org/jira/browse/SPARK-12087) | DStream.saveAsHadoopFiles can throw ConcurrentModificationException |  Major | Streaming | Tathagata Das | Tathagata Das |
 | [SPARK-12081](https://issues.apache.org/jira/browse/SPARK-12081) | Make unified memory management work with small heaps |  Critical | Spark Core | Andrew Or | Andrew Or |
+| [SPARK-12069](https://issues.apache.org/jira/browse/SPARK-12069) | Documentation update for Datasets |  Major | Documentation, SQL | Michael Armbrust | Michael Armbrust |
 | [SPARK-12068](https://issues.apache.org/jira/browse/SPARK-12068) | use a single column in Dataset.groupBy and count will fail |  Major | SQL | Wenchen Fan | Wenchen Fan |
 | [SPARK-12059](https://issues.apache.org/jira/browse/SPARK-12059) | Standalone Master assertion error |  Critical | Deploy | Andrew Or | Saisai Shao |
 | [SPARK-12053](https://issues.apache.org/jira/browse/SPARK-12053) | EventLog for completed applications always not found if spark.eventLog.compress is true |  Major | Spark Core, Web UI | Teng Qiu | Teng Qiu |
@@ -421,6 +435,7 @@
 | [SPARK-12021](https://issues.apache.org/jira/browse/SPARK-12021) | Fishy test of  "don't call ssc.stop in listener" |  Major | Streaming, Tests | Nan Zhu | Shixiong Zhu |
 | [SPARK-12020](https://issues.apache.org/jira/browse/SPARK-12020) | PR builder cannot trigger hadoop 2.0 test |  Major | Tests | Yin Huai | Yin Huai |
 | [SPARK-12017](https://issues.apache.org/jira/browse/SPARK-12017) | Java Doc Publishing Broken |  Blocker | Build | Michael Armbrust | Josh Rosen |
+| [SPARK-12012](https://issues.apache.org/jira/browse/SPARK-12012) | Show more comprehensive PhysicalRDD metadata when visualizing SQL query plan |  Major | SQL | Cheng Lian | Cheng Lian |
 | [SPARK-12005](https://issues.apache.org/jira/browse/SPARK-12005) | VerifyError in HyperLogLogPlusPlus with newer JDKs |  Critical | SQL | Marcelo Vanzin | Marcelo Vanzin |
 | [SPARK-12003](https://issues.apache.org/jira/browse/SPARK-12003) | Expanded star  should use field name as column name |  Major | . | Davies Liu | Davies Liu |
 | [SPARK-11999](https://issues.apache.org/jira/browse/SPARK-11999) | ThreadUtils.newDaemonCachedThreadPool(prefix, maxThreadNumber)  has unexpected behavior |  Major | Spark Core | Shixiong Zhu | Shixiong Zhu |
@@ -463,6 +478,7 @@
 | [SPARK-11812](https://issues.apache.org/jira/browse/SPARK-11812) | pyspark reduceByKeyAndWindow does not handle unspecified invFunc (invFunc=None) |  Major | PySpark | David Tolpin | David Tolpin |
 | [SPARK-11805](https://issues.apache.org/jira/browse/SPARK-11805) | SpillableIterator should free the in-memory sorter while spilling |  Major | Spark Core | Davies Liu | Davies Liu |
 | [SPARK-11804](https://issues.apache.org/jira/browse/SPARK-11804) | Exception raise when using Jdbc predicates option in PySpark |  Major | PySpark | Jeff Zhang | Jeff Zhang |
+| [SPARK-11796](https://issues.apache.org/jira/browse/SPARK-11796) | Docker JDBC integration tests fail in Maven build due to dependency issue |  Major | SQL, Tests | Josh Rosen | Mark Grover |
 | [SPARK-11792](https://issues.apache.org/jira/browse/SPARK-11792) | SizeEstimator cannot provide a good size estimation of UnsafeHashedRelations |  Blocker | SQL | Yin Huai | Yin Huai |
 | [SPARK-11791](https://issues.apache.org/jira/browse/SPARK-11791) | Flaky test: org.apache.spark.streaming.util.BatchedWriteAheadLogSuite.BatchedWriteAheadLog |  Major | Streaming, Tests | Shixiong Zhu | Burak Yavuz |
 | [SPARK-11790](https://issues.apache.org/jira/browse/SPARK-11790) | Flaky test:  KafkaStreamTests.test\_kafka\_direct\_stream\_foreach\_get\_offsetRanges |  Major | PySpark, Streaming, Tests | Shixiong Zhu | Shixiong Zhu |
@@ -863,6 +879,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-12198](https://issues.apache.org/jira/browse/SPARK-12198) | SparkR support read.parquet and deprecate parquetFile |  Major | SparkR | Yanbo Liang | Yanbo Liang |
 | [SPARK-12075](https://issues.apache.org/jira/browse/SPARK-12075) | Speed up HiveComparisionTest suites by speeding up / avoiding reset() |  Major | SQL, Tests | Josh Rosen | Josh Rosen |
 | [SPARK-12024](https://issues.apache.org/jira/browse/SPARK-12024) | Improved multi-column counting |  Minor | SQL | Herman van Hovell | Herman van Hovell |
 | [SPARK-11981](https://issues.apache.org/jira/browse/SPARK-11981) | Move implementations of methods back to DataFrame from Queryable |  Major | SQL | Reynold Xin | Reynold Xin |

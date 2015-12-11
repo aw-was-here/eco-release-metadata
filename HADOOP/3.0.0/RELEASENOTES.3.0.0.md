@@ -295,13 +295,6 @@ The output format of hadoop fs -du has been changed. It shows not only the file 
 
 ---
 
-* [HDFS-9525](https://issues.apache.org/jira/browse/HDFS-9525) | *Blocker* | **hadoop utilities need to support provided delegation tokens**
-
-If hadoop.token.files property is defined and configured to one or more comma-delimited delegation token files, Hadoop will use those token files to connect to the services as named in the token.
-
-
----
-
 * [HDFS-9278](https://issues.apache.org/jira/browse/HDFS-9278) | *Trivial* | **Fix preferredBlockSize typo in OIV XML output**
 
 The preferred block size XML element has been corrected from "\\<perferredBlockSize\>" to "\\<preferredBlockSize\>".

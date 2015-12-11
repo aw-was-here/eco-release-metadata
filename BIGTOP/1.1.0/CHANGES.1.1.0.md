@@ -18,7 +18,7 @@
 -->
 # Apache BigTop Changelog
 
-## Release 1.1.0 - Unreleased (as of 2015-12-08)
+## Release 1.1.0 - Unreleased (as of 2015-12-11)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -55,6 +55,7 @@
 | [BIGTOP-2103](https://issues.apache.org/jira/browse/BIGTOP-2103) | [Docker] Move bigtop/slaves image build to gradle |  Major | build, docker | Evans Ye | Evans Ye |
 | [BIGTOP-2102](https://issues.apache.org/jira/browse/BIGTOP-2102) | Upgrade YCSB to 0.4.0 |  Major | build | YoungWoo Kim | YoungWoo Kim |
 | [BIGTOP-2091](https://issues.apache.org/jira/browse/BIGTOP-2091) | Build ignite-hadoop assembly with specific version of Spark |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
+| [BIGTOP-2081](https://issues.apache.org/jira/browse/BIGTOP-2081) | implement a nexus docker container for CI |  Major | build | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-2080](https://issues.apache.org/jira/browse/BIGTOP-2080) | Investigate removing Scala from the toolchain |  Minor | toolchain | RJ Nowling | RJ Nowling |
 | [BIGTOP-2065](https://issues.apache.org/jira/browse/BIGTOP-2065) | Update deployment README.md to reflect on better deployment experience |  Major | documentation | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2063](https://issues.apache.org/jira/browse/BIGTOP-2063) | Provide default config to deploy hive on top of Ignite |  Major | deployment | Konstantin Boudnik | Konstantin Boudnik |
@@ -88,6 +89,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [BIGTOP-2173](https://issues.apache.org/jira/browse/BIGTOP-2173) | smoke-tests need to pass-through system properties |  Major | tests | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2168](https://issues.apache.org/jira/browse/BIGTOP-2168) | A erroneous typo in FailureVars#loadProps method |  Major | tests | Konstantin Boudnik | Dasha Boudnik |
 | [BIGTOP-2162](https://issues.apache.org/jira/browse/BIGTOP-2162) | phoenix-core-\*-tests.jar should be located at $PHOENIX\_HOME |  Major | . | YoungWoo Kim | YoungWoo Kim |
 | [BIGTOP-2159](https://issues.apache.org/jira/browse/BIGTOP-2159) | unable to build RPM for zeppelin |  Blocker | build, rpm | Sergey Soldatov | Sergey Soldatov |
@@ -191,6 +193,8 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [BIGTOP-2174](https://issues.apache.org/jira/browse/BIGTOP-2174) | Bump up ignite-hadoop version to the latest 1.5.0-b1 |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
+| [BIGTOP-2166](https://issues.apache.org/jira/browse/BIGTOP-2166) | Zeppelin shouldn't be build against constant version of Ignite |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2149](https://issues.apache.org/jira/browse/BIGTOP-2149) | Zeppeling 0.5.5 has been officially released. Change the source ref |  Major | build | Konstantin Boudnik | Sergey Soldatov |
 | [BIGTOP-2122](https://issues.apache.org/jira/browse/BIGTOP-2122) | Add zeppelin packages |  Major | debian, rpm | Konstantin Boudnik | Jonathan Kelly |
 | [BIGTOP-2113](https://issues.apache.org/jira/browse/BIGTOP-2113) | Spark master doesn't bind to the host: ignores SPARK\_MASTER\_IP |  Blocker | spark | Konstantin Boudnik | Sergey Soldatov |

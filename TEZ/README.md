@@ -16,6 +16,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
+* Apache Tez v0.8.3
+    * [Changes](0.8.3/CHANGES.0.8.3.md)
+    * [Release Notes](0.8.3/RELEASENOTES.0.8.3.md)
 * Apache Tez v0.8.2
     * [Changes](0.8.2/CHANGES.0.8.2.md)
     * [Release Notes](0.8.2/RELEASENOTES.0.8.2.md)

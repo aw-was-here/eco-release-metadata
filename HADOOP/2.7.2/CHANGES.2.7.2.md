@@ -18,7 +18,7 @@
 -->
 # Apache Hadoop Changelog
 
-## Release 2.7.2 - Unreleased (as of 2015-12-08)
+## Release 2.7.2 - Unreleased (as of 2015-12-11)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -82,6 +82,7 @@
 | [HADOOP-9242](https://issues.apache.org/jira/browse/HADOOP-9242) | Duplicate surefire plugin config in hadoop-common |  Major | test | Andrey Klochkov | Andrey Klochkov |
 | [HADOOP-8151](https://issues.apache.org/jira/browse/HADOOP-8151) | Error handling in snappy decompressor throws invalid exceptions |  Major | io, native | Todd Lipcon | Matt Foley |
 | [HDFS-9470](https://issues.apache.org/jira/browse/HDFS-9470) | Encryption zone on root not loaded from fsimage after NN restart |  Critical | . | Xiao Chen | Xiao Chen |
+| [HDFS-9445](https://issues.apache.org/jira/browse/HDFS-9445) | Datanode may deadlock while handling a bad volume |  Blocker | . | Kihwal Lee | Walter Su |
 | [HDFS-9426](https://issues.apache.org/jira/browse/HDFS-9426) | Rollingupgrade finalization is not backward compatible |  Blocker | . | Kihwal Lee | Kihwal Lee |
 | [HDFS-9413](https://issues.apache.org/jira/browse/HDFS-9413) | getContentSummary() on standby should throw StandbyException |  Critical | . | Brahma Reddy Battula | Brahma Reddy Battula |
 | [HDFS-9317](https://issues.apache.org/jira/browse/HDFS-9317) | Document fsck -blockId and -storagepolicy options in branch-2.7 |  Major | documentation | Akira AJISAKA | Akira AJISAKA |
@@ -133,6 +134,7 @@
 | [MAPREDUCE-5982](https://issues.apache.org/jira/browse/MAPREDUCE-5982) | Task attempts that fail from the ASSIGNED state can disappear |  Major | mr-am | Jason Lowe | Chang Li |
 | [MAPREDUCE-5948](https://issues.apache.org/jira/browse/MAPREDUCE-5948) | org.apache.hadoop.mapred.LineRecordReader does not handle multibyte record delimiters well |  Critical | . | Kris Geusebroek | Akira AJISAKA |
 | [MAPREDUCE-5649](https://issues.apache.org/jira/browse/MAPREDUCE-5649) | Reduce cannot use more than 2G memory  for the final merge |  Major | mrv2 | stanley shi | Gera Shegalov |
+| [YARN-4424](https://issues.apache.org/jira/browse/YARN-4424) | Fix deadlock in RMAppImpl |  Blocker | . | Yesha Vora | Jian He |
 | [YARN-4354](https://issues.apache.org/jira/browse/YARN-4354) | Public resource localization fails with NPE |  Blocker | nodemanager | Jason Lowe | Jason Lowe |
 | [YARN-4321](https://issues.apache.org/jira/browse/YARN-4321) | Incessant retries if NoAuthException is thrown by Zookeeper in non HA mode |  Major | resourcemanager | Varun Saxena | Varun Saxena |
 | [YARN-4320](https://issues.apache.org/jira/browse/YARN-4320) | TestJobHistoryEventHandler fails as AHS in MiniYarnCluster no longer binds to default port 8188 |  Major | . | Varun Saxena | Varun Saxena |
