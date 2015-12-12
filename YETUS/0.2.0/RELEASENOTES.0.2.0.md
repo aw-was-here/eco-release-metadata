@@ -26,7 +26,7 @@ These release notes cover new developer and user-facing incompatibilities, impor
 * [YETUS-62](https://issues.apache.org/jira/browse/YETUS-62) | *Major* | **add auto-formatting of usage options**
 
 <!-- markdown -->
-test-patch and smart-apply-patch now have variable size output to match the screen dimensions when printing the usage information.  As a result, the `plugin\_usage` functions now use the `yetus\_add\_option` to add options to output.
+test-patch and smart-apply-patch now have variable size output to match the screen dimensions when printing the usage information.  As a result, the `plugin\_usage` functions now use the `yetus\_add\_option` to add options to output. Plug-ins written to use raw echos will still work, but the output will be strange looking.
 
 
 

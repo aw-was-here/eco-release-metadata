@@ -30,6 +30,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [YETUS-62](https://issues.apache.org/jira/browse/YETUS-62) | add auto-formatting of usage options |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
 
 
 ### NEW FEATURES:
@@ -42,7 +43,6 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [YETUS-62](https://issues.apache.org/jira/browse/YETUS-62) | add auto-formatting of usage options |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
 
 
 ### BUG FIXES:
