@@ -23,6 +23,13 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
+* [HIVE-12609](https://issues.apache.org/jira/browse/HIVE-12609) | *Major* | **Remove javaXML serialization**
+
+**WARNING: No release note provided for this incompatible change.**
+
+
+---
+
 * [HIVE-12463](https://issues.apache.org/jira/browse/HIVE-12463) | *Major* | **VectorMapJoinFastKeyStore has Array OOB errors**
 
 HIVE-12463: VectorMapJoinFastKeyStore has Array OOB errors

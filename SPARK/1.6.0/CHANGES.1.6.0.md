@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 1.6.0 - Unreleased (as of 2015-12-11)
+## Release 1.6.0 - Unreleased (as of 2015-12-12)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -417,6 +417,7 @@
 | [SPARK-12132](https://issues.apache.org/jira/browse/SPARK-12132) | Cltr-C should clear current line in pyspark shell |  Major | PySpark | Davies Liu | Davies Liu |
 | [SPARK-12122](https://issues.apache.org/jira/browse/SPARK-12122) | Recovered streaming context can sometimes run a batch twice |  Blocker | Streaming | Tathagata Das | Tathagata Das |
 | [SPARK-12116](https://issues.apache.org/jira/browse/SPARK-12116) | Document workaround when method conflicts with another R package, like dplyr |  Major | SparkR | Felix Cheung | Felix Cheung |
+| [SPARK-12108](https://issues.apache.org/jira/browse/SPARK-12108) | Event logs are much bigger in 1.6 than in 1.5 |  Major | Spark Core | Andrew Or | Andrew Or |
 | [SPARK-12101](https://issues.apache.org/jira/browse/SPARK-12101) | Fix thread pools that cannot cache tasks in Worker and AppClient |  Minor | Spark Core | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-12090](https://issues.apache.org/jira/browse/SPARK-12090) | Coalesce does not consider shuffle in PySpark |  Major | . | Davies Liu | Davies Liu |
 | [SPARK-12089](https://issues.apache.org/jira/browse/SPARK-12089) | java.lang.NegativeArraySizeException when growing BufferHolder |  Blocker | SQL | Erik Selin | Nong Li |
@@ -940,6 +941,7 @@
 | [SPARK-11616](https://issues.apache.org/jira/browse/SPARK-11616) | Improve toString Function |  Major | SQL | Michael Armbrust | Michael Armbrust |
 | [SPARK-11612](https://issues.apache.org/jira/browse/SPARK-11612) | Model export/import for spark.ml: Pipeline and PipelineModel |  Critical | ML | Xiangrui Meng | Joseph K. Bradley |
 | [SPARK-11610](https://issues.apache.org/jira/browse/SPARK-11610) | Make the docs of LDAModel.describeTopics in Python more specific |  Trivial | MLlib, PySpark | Yu Ishikawa | Yu Ishikawa |
+| [SPARK-11606](https://issues.apache.org/jira/browse/SPARK-11606) | ML 1.6 QA: Update user guide for new APIs |  Major | Documentation, ML, MLlib | Joseph K. Bradley | Joseph K. Bradley |
 | [SPARK-11604](https://issues.apache.org/jira/browse/SPARK-11604) | ML 1.6 QA: API: Python API coverage |  Major | Documentation, ML, MLlib, PySpark | Joseph K. Bradley | Yanbo Liang |
 | [SPARK-11578](https://issues.apache.org/jira/browse/SPARK-11578) | User facing api for typed aggregation |  Critical | SQL | Michael Armbrust | Michael Armbrust |
 | [SPARK-11564](https://issues.apache.org/jira/browse/SPARK-11564) | Dataset Java API |  Major | SQL | Reynold Xin | Reynold Xin |

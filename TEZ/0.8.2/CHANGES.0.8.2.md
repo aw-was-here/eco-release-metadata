@@ -18,7 +18,7 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.8.2 - Unreleased (as of 2015-12-11)
+## Release 0.8.2 - Unreleased (as of 2015-12-12)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -58,6 +58,9 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-2995](https://issues.apache.org/jira/browse/TEZ-2995) | Timeline primary filter should only be on callerId and not type |  Major | . | Hitesh Shah | Hitesh Shah |
+| [TEZ-2990](https://issues.apache.org/jira/browse/TEZ-2990) | Change test-patch.sh to run through all tests, despite failures in upstream modules |  Major | . | Siddharth Seth | Siddharth Seth |
+| [TEZ-2977](https://issues.apache.org/jira/browse/TEZ-2977) | Make HadoopShim selection be overridable for distro-specific implementations |  Major | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-2975](https://issues.apache.org/jira/browse/TEZ-2975) | Bump up apache commons dependency |  Trivial | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-2970](https://issues.apache.org/jira/browse/TEZ-2970) | Re-localization in TezChild does not use correct UGI |  Major | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-2968](https://issues.apache.org/jira/browse/TEZ-2968) | Counter limits exception causes AM to crash |  Critical | . | Hitesh Shah | Hitesh Shah |
@@ -78,6 +81,7 @@
 | [TEZ-2924](https://issues.apache.org/jira/browse/TEZ-2924) | Framework for Hadoop shims |  Major | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-2923](https://issues.apache.org/jira/browse/TEZ-2923) | Tez Live UI counters view empty for vertices, tasks, attempts |  Major | UI | Jonathan Eagles | Jonathan Eagles |
 | [TEZ-2922](https://issues.apache.org/jira/browse/TEZ-2922) | Tez Live UI gives access denied for admins |  Major | . | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-2911](https://issues.apache.org/jira/browse/TEZ-2911) | Null location Strings can cause problems with GroupedSplit serialization |  Minor | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-2909](https://issues.apache.org/jira/browse/TEZ-2909) | Tez UI: Application link in All DAGs table is disable when applicationhistory is unavailable. |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2908](https://issues.apache.org/jira/browse/TEZ-2908) | Tez UI: Errors are logged, but not displayed in the UI when AM fetch fails. |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2907](https://issues.apache.org/jira/browse/TEZ-2907) | NPE in IFile.Reader.getLength during final merge operation |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
@@ -114,6 +118,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [TEZ-2979](https://issues.apache.org/jira/browse/TEZ-2979) | FlakyTest: org.apache.tez.history.TestHistoryParser |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
+| [TEZ-2920](https://issues.apache.org/jira/browse/TEZ-2920) | org.apache.tez.client.TestTezClient.testStopRetriesUntilTimeout is flaky |  Critical | . | Hitesh Shah | Siddharth Seth |
 | [TEZ-2918](https://issues.apache.org/jira/browse/TEZ-2918) | Make progress notifications in IOs |  Major | . | Bikas Saha | Bikas Saha |
 | [TEZ-2888](https://issues.apache.org/jira/browse/TEZ-2888) | Make critical path calculation resilient to AM crash |  Major | . | Bikas Saha | Bikas Saha |
 | [TEZ-2882](https://issues.apache.org/jira/browse/TEZ-2882) | Consider improving fetch failure handling |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
@@ -126,10 +131,13 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-2994](https://issues.apache.org/jira/browse/TEZ-2994) | LocalProgress in tez-runtime-library missing Apache header, rat check warnings from the new licenses after TEZ-2592 merge |  Major | . | Siddharth Seth | Hitesh Shah |
 | [TEZ-2903](https://issues.apache.org/jira/browse/TEZ-2903) | Avoid using proprietary APIs where possible |  Major | . | Siddharth Seth | Chetna Chaudhari |
 | [TEZ-2883](https://issues.apache.org/jira/browse/TEZ-2883) | changes for 0.8.1-alpha release |  Major | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-2828](https://issues.apache.org/jira/browse/TEZ-2828) | Fix typo in "Shuffle assigned " log statement in shuffle.orderedgrouped.Shuffle |  Trivial | . | Johannes Zillmann |  |
+| [TEZ-2824](https://issues.apache.org/jira/browse/TEZ-2824) | Add javadocs for Vertex.setConf and DAG.setConf |  Major | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-2595](https://issues.apache.org/jira/browse/TEZ-2595) | Add license and notice files into assembled full and minimal tarballs |  Major | . | Hitesh Shah | Hitesh Shah |
+| [TEZ-2472](https://issues.apache.org/jira/browse/TEZ-2472) | Change slf4j version to 1.7.10 |  Major | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-604](https://issues.apache.org/jira/browse/TEZ-604) | Revert temporary changes made in TEZ-603 |  Blocker | . | Siddharth Seth | Hitesh Shah |
 
 

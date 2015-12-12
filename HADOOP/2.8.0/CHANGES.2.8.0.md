@@ -18,7 +18,7 @@
 -->
 # Apache Hadoop Changelog
 
-## Release 2.8.0 - Unreleased (as of 2015-12-11)
+## Release 2.8.0 - Unreleased (as of 2015-12-12)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -175,6 +175,8 @@
 | [HADOOP-6842](https://issues.apache.org/jira/browse/HADOOP-6842) | "hadoop fs -text" does not give a useful text representation of MapWritable objects |  Major | io | Steven Wong | Akira AJISAKA |
 | [HADOOP-5323](https://issues.apache.org/jira/browse/HADOOP-5323) | Trash documentation should describe its directory structure and configurations |  Minor | documentation | Suman Sehgal | Weiwei Yang |
 | [HADOOP-1540](https://issues.apache.org/jira/browse/HADOOP-1540) | Support file exclusion list in distcp |  Minor | util | Senthil Subramanian | Rich Haase |
+| [HDFS-9532](https://issues.apache.org/jira/browse/HDFS-9532) | Detailed exception info is lost in reportTo method of ErrorReportAction and ReportBadBlockAction |  Trivial | datanode | Yongjun Zhang | Yongjun Zhang |
+| [HDFS-9528](https://issues.apache.org/jira/browse/HDFS-9528) | Cleanup namenode audit/log/exception messages |  Minor | namenode | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HDFS-9527](https://issues.apache.org/jira/browse/HDFS-9527) | The return type of FSNamesystem.getBlockCollection should be changed to INodeFile |  Minor | namenode | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HDFS-9490](https://issues.apache.org/jira/browse/HDFS-9490) | MiniDFSCluster should change block generation stamp via FsDatasetTestUtils |  Minor | test | Tony Wu | Tony Wu |
 | [HDFS-9485](https://issues.apache.org/jira/browse/HDFS-9485) | Make BlockManager#removeFromExcessReplicateMap accept BlockInfo instead of Block |  Minor | namenode | Mingliang Liu | Mingliang Liu |
@@ -645,6 +647,8 @@
 | [HADOOP-8151](https://issues.apache.org/jira/browse/HADOOP-8151) | Error handling in snappy decompressor throws invalid exceptions |  Major | io, native | Todd Lipcon | Matt Foley |
 | [HADOOP-7817](https://issues.apache.org/jira/browse/HADOOP-7817) | RawLocalFileSystem.append() should give FSDataOutputStream with accurate .getPos() |  Minor | fs | Kristofer Tomasette | Kanaka Kumar Avvaru |
 | [HADOOP-7165](https://issues.apache.org/jira/browse/HADOOP-7165) | listLocatedStatus(path, filter) is not redefined in FilterFs |  Major | fs | Hairong Kuang | Hairong Kuang |
+| [HDFS-9519](https://issues.apache.org/jira/browse/HDFS-9519) | Some coding improvement in SecondaryNameNode#main |  Major | namenode | Yongjun Zhang | Xiao Chen |
+| [HDFS-9514](https://issues.apache.org/jira/browse/HDFS-9514) | TestDistributedFileSystem.testDFSClientPeerWriteTimeout failing; exception being swallowed |  Major | hdfs-client, test | Steve Loughran | Wei-Chiu Chuang |
 | [HDFS-9484](https://issues.apache.org/jira/browse/HDFS-9484) | NNThroughputBenchmark$BlockReportStats should not send empty block reports |  Major | test | Mingliang Liu | Mingliang Liu |
 | [HDFS-9467](https://issues.apache.org/jira/browse/HDFS-9467) | Fix data race accessing writeLockHeldTimeStamp in FSNamesystem |  Major | namenode | Mingliang Liu | Mingliang Liu |
 | [HDFS-9459](https://issues.apache.org/jira/browse/HDFS-9459) | hadoop-hdfs-native-client fails test build on Windows after transition to ctest. |  Blocker | build, test | Chris Nauroth | Chris Nauroth |

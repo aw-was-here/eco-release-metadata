@@ -18,7 +18,7 @@
 -->
 # Apache Yetus Changelog
 
-## Release 0.2.0 - Unreleased (as of 2015-12-11)
+## Release 0.2.0 - Unreleased (as of 2015-12-12)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -42,6 +42,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [YETUS-62](https://issues.apache.org/jira/browse/YETUS-62) | add auto-formatting of usage options |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
 
 
 ### BUG FIXES:

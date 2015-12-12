@@ -18,7 +18,7 @@
 -->
 # Apache Hive Changelog
 
-## Release 1.3.0 - Unreleased (as of 2015-12-11)
+## Release 1.3.0 - Unreleased (as of 2015-12-12)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -121,7 +121,6 @@
 | [HIVE-12490](https://issues.apache.org/jira/browse/HIVE-12490) | Metastore: Mysql ANSI\_QUOTES is not there for some cases |  Major | . | Gopal V | Sergey Shelukhin |
 | [HIVE-12477](https://issues.apache.org/jira/browse/HIVE-12477) | Left Semijoins are incompatible with a cross-product |  Major | CBO | Gopal V | Jesus Camacho Rodriguez |
 | [HIVE-12476](https://issues.apache.org/jira/browse/HIVE-12476) | Metastore NPE on Oracle with Direct SQL |  Major | Metastore | Jason Dere | Jason Dere |
-| [HIVE-12473](https://issues.apache.org/jira/browse/HIVE-12473) | DPP: UDFs on the partition column side does not evaluate correctly |  Major | Tez | Gopal V | Sergey Shelukhin |
 | [HIVE-12469](https://issues.apache.org/jira/browse/HIVE-12469) | Bump Commons-Collections dependency from 3.2.1 to 3.2.2. to address vulnerability |  Blocker | Build Infrastructure | Reuben Kuhnert | Ashutosh Chauhan |
 | [HIVE-12465](https://issues.apache.org/jira/browse/HIVE-12465) | Hive might produce wrong results when (outer) joins are merged |  Blocker | . | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
 | [HIVE-12463](https://issues.apache.org/jira/browse/HIVE-12463) | VectorMapJoinFastKeyStore has Array OOB errors |  Major | Vectorization | Gopal V | Gopal V |

@@ -18,7 +18,7 @@
 -->
 # Apache Flink Changelog
 
-## Release 1.0.0 - Unreleased (as of 2015-12-11)
+## Release 1.0.0 - Unreleased (as of 2015-12-12)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -95,7 +95,6 @@
 | [FLINK-3082](https://issues.apache.org/jira/browse/FLINK-3082) | Confusing error about ManualTimestampSourceFunction |  Major | . | Niels Basjes | Niels Basjes |
 | [FLINK-3081](https://issues.apache.org/jira/browse/FLINK-3081) | Kafka Periodic Offset Committer does not properly terminate on canceling |  Blocker | Kafka Connector | Stephan Ewen | Robert Metzger |
 | [FLINK-3080](https://issues.apache.org/jira/browse/FLINK-3080) | Cannot union a data stream with a product of itself |  Major | Streaming | Vasia Kalavri | Aljoscha Krettek |
-| [FLINK-3067](https://issues.apache.org/jira/browse/FLINK-3067) | Kafka source fails during checkpoint notifications with NPE |  Major | Kafka Connector | Gyula Fora | Robert Metzger |
 | [FLINK-3061](https://issues.apache.org/jira/browse/FLINK-3061) | Kafka Consumer is not failing if broker is not available |  Major | Kafka Connector | Robert Metzger | Robert Metzger |
 | [FLINK-3059](https://issues.apache.org/jira/browse/FLINK-3059) | Javadoc fix for DataSet.writeAsText() |  Trivial | . | jun aoki | jun aoki |
 | [FLINK-3054](https://issues.apache.org/jira/browse/FLINK-3054) | Remove R (return) type variable from SerializationSchema |  Major | Streaming | Robert Metzger | Robert Metzger |

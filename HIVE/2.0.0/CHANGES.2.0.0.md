@@ -18,12 +18,13 @@
 -->
 # Apache Hive Changelog
 
-## Release 2.0.0 - Unreleased (as of 2015-12-11)
+## Release 2.0.0 - Unreleased (as of 2015-12-12)
 
 ### INCOMPATIBLE CHANGES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HIVE-12609](https://issues.apache.org/jira/browse/HIVE-12609) | Remove javaXML serialization |  Major | Serializers/Deserializers | Prasanth Jayachandran | Prasanth Jayachandran |
 | [HIVE-12443](https://issues.apache.org/jira/browse/HIVE-12443) | Hive Streaming should expose encoding and serdes for testing |  Major | Testing Infrastructure, Transactions | Alan Gates | Alan Gates |
 | [HIVE-12224](https://issues.apache.org/jira/browse/HIVE-12224) | Remove HOLD\_DDLTIME |  Major | Metastore | Ashutosh Chauhan | Ashutosh Chauhan |
 | [HIVE-12184](https://issues.apache.org/jira/browse/HIVE-12184) | DESCRIBE of fully qualified table fails when db and table name match and non-default database is in use |  Major | SQL | Lenni Kuff | Naveen Gangam |
@@ -182,6 +183,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HIVE-12648](https://issues.apache.org/jira/browse/HIVE-12648) | LLAP IO was disabled in CliDriver by accident (and tests are broken) |  Blocker | . | Sergey Shelukhin | Sergey Shelukhin |
 | [HIVE-12608](https://issues.apache.org/jira/browse/HIVE-12608) | Parquet Schema Evolution doesn't work when a column is dropped from array\<struct\<\>\> |  Major | File Formats | Mohammad Kamrul Islam | Mohammad Kamrul Islam |
 | [HIVE-12601](https://issues.apache.org/jira/browse/HIVE-12601) | HIVE-11985 change does not use partition deserializer |  Major | Metastore, Query Planning | Thejas M Nair | Sergey Shelukhin |
 | [HIVE-12599](https://issues.apache.org/jira/browse/HIVE-12599) | Add logging to debug rare unexpected refCount error from the LLAP IO layer |  Major | . | Siddharth Seth | Sergey Shelukhin |
@@ -219,15 +221,15 @@
 | [HIVE-12477](https://issues.apache.org/jira/browse/HIVE-12477) | Left Semijoins are incompatible with a cross-product |  Major | CBO | Gopal V | Jesus Camacho Rodriguez |
 | [HIVE-12476](https://issues.apache.org/jira/browse/HIVE-12476) | Metastore NPE on Oracle with Direct SQL |  Major | Metastore | Jason Dere | Jason Dere |
 | [HIVE-12475](https://issues.apache.org/jira/browse/HIVE-12475) | Parquet schema evolution within array\<struct\<\>\> doesn't work |  Major | File Formats | Mohammad Kamrul Islam | Mohammad Kamrul Islam |
-| [HIVE-12473](https://issues.apache.org/jira/browse/HIVE-12473) | DPP: UDFs on the partition column side does not evaluate correctly |  Major | Tez | Gopal V | Sergey Shelukhin |
 | [HIVE-12469](https://issues.apache.org/jira/browse/HIVE-12469) | Bump Commons-Collections dependency from 3.2.1 to 3.2.2. to address vulnerability |  Blocker | Build Infrastructure | Reuben Kuhnert | Ashutosh Chauhan |
 | [HIVE-12465](https://issues.apache.org/jira/browse/HIVE-12465) | Hive might produce wrong results when (outer) joins are merged |  Blocker | . | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
 | [HIVE-12463](https://issues.apache.org/jira/browse/HIVE-12463) | VectorMapJoinFastKeyStore has Array OOB errors |  Major | Vectorization | Gopal V | Gopal V |
-| [HIVE-12462](https://issues.apache.org/jira/browse/HIVE-12462) | DPP: DPP optimizers need to run on the TS predicate not FIL |  Critical | Tez | Gopal V | Gopal V |
 | [HIVE-12456](https://issues.apache.org/jira/browse/HIVE-12456) | QueryId can't be stored in the configuration of the SessionState since multiple queries can run in a single session |  Major | Logging | Aihua Xu | Aihua Xu |
 | [HIVE-12450](https://issues.apache.org/jira/browse/HIVE-12450) | OrcFileMergeOperator does not use correct compression buffer size |  Critical | ORC | Prasanth Jayachandran | Prasanth Jayachandran |
+| [HIVE-12445](https://issues.apache.org/jira/browse/HIVE-12445) | Tracking of completed dags is a slow memory leak |  Major | llap | Siddharth Seth | Sergey Shelukhin |
 | [HIVE-12444](https://issues.apache.org/jira/browse/HIVE-12444) | Global Limit optimization on ACID table without base directory may throw exception |  Major | Hive, Transactions | Wei Zheng | Wei Zheng |
 | [HIVE-12437](https://issues.apache.org/jira/browse/HIVE-12437) | SMB join in tez fails when one of the tables is empty |  Critical | Tez | Vikram Dixit K | Vikram Dixit K |
+| [HIVE-12422](https://issues.apache.org/jira/browse/HIVE-12422) | LLAP: add security to Web UI endpoint |  Major | llap | Sergey Shelukhin | Sergey Shelukhin |
 | [HIVE-12418](https://issues.apache.org/jira/browse/HIVE-12418) | HiveHBaseTableInputFormat.getRecordReader() causes Zookeeper connection leak. |  Major | HiveServer2 | Naveen Gangam | Naveen Gangam |
 | [HIVE-12417](https://issues.apache.org/jira/browse/HIVE-12417) | Support for exclamation mark missing in regexp |  Major | . | Olaf Flebbe | Olaf Flebbe |
 | [HIVE-12407](https://issues.apache.org/jira/browse/HIVE-12407) | Check fetch property to determine if a SortLimit contains a limit operation |  Major | CBO | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
@@ -760,6 +762,7 @@
 | [HIVE-11903](https://issues.apache.org/jira/browse/HIVE-11903) | Add lock metrics to HS2 |  Major | Diagnosability | Szehon Ho | Yongzhi Chen |
 | [HIVE-11896](https://issues.apache.org/jira/browse/HIVE-11896) | CBO: Calcite Operator To Hive Operator (Calcite Return Path): deal with hive default partition when inserting data |  Major | CBO | Pengcheng Xiong | Ashutosh Chauhan |
 | [HIVE-11895](https://issues.apache.org/jira/browse/HIVE-11895) | CBO: Calcite Operator To Hive Operator (Calcite Return Path): fix udaf\_percentile\_approx\_23.q |  Major | CBO | Pengcheng Xiong | Pengcheng Xiong |
+| [HIVE-11890](https://issues.apache.org/jira/browse/HIVE-11890) | Create ORC module |  Major | ORC | Owen O'Malley | Owen O'Malley |
 | [HIVE-11815](https://issues.apache.org/jira/browse/HIVE-11815) | Correct the column/table names in subquery expression when creating a view |  Major | . | Pengcheng Xiong | Pengcheng Xiong |
 | [HIVE-11778](https://issues.apache.org/jira/browse/HIVE-11778) | Merge beeline-cli branch to trunk |  Major | CLI | Ferdinand Xu | Ferdinand Xu |
 | [HIVE-11763](https://issues.apache.org/jira/browse/HIVE-11763) | Use \* instead of sum(hash(\*)) on Parquet predicate (PPD) integration tests |  Major | . | Sergio Peña | Sergio Peña |
