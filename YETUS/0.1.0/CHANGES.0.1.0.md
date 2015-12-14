@@ -18,7 +18,7 @@
 -->
 # Apache Yetus Changelog
 
-## Release 0.1.0 - Unreleased (as of 2015-12-12)
+## Release 0.1.0 - 2015-12-14
 
 ### INCOMPATIBLE CHANGES:
 

@@ -18,7 +18,7 @@
 -->
 # Apache Hive Changelog
 
-## Release 2.0.0 - Unreleased (as of 2015-12-12)
+## Release 2.0.0 - Unreleased (as of 2015-12-14)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -183,6 +183,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HIVE-12662](https://issues.apache.org/jira/browse/HIVE-12662) | StackOverflowError in HiveSortJoinReduceRule when limit=0 |  Major | . | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
 | [HIVE-12648](https://issues.apache.org/jira/browse/HIVE-12648) | LLAP IO was disabled in CliDriver by accident (and tests are broken) |  Blocker | . | Sergey Shelukhin | Sergey Shelukhin |
 | [HIVE-12608](https://issues.apache.org/jira/browse/HIVE-12608) | Parquet Schema Evolution doesn't work when a column is dropped from array\<struct\<\>\> |  Major | File Formats | Mohammad Kamrul Islam | Mohammad Kamrul Islam |
 | [HIVE-12601](https://issues.apache.org/jira/browse/HIVE-12601) | HIVE-11985 change does not use partition deserializer |  Major | Metastore, Query Planning | Thejas M Nair | Sergey Shelukhin |
@@ -221,6 +222,7 @@
 | [HIVE-12477](https://issues.apache.org/jira/browse/HIVE-12477) | Left Semijoins are incompatible with a cross-product |  Major | CBO | Gopal V | Jesus Camacho Rodriguez |
 | [HIVE-12476](https://issues.apache.org/jira/browse/HIVE-12476) | Metastore NPE on Oracle with Direct SQL |  Major | Metastore | Jason Dere | Jason Dere |
 | [HIVE-12475](https://issues.apache.org/jira/browse/HIVE-12475) | Parquet schema evolution within array\<struct\<\>\> doesn't work |  Major | File Formats | Mohammad Kamrul Islam | Mohammad Kamrul Islam |
+| [HIVE-12473](https://issues.apache.org/jira/browse/HIVE-12473) | DPP: UDFs on the partition column side does not evaluate correctly |  Blocker | Tez | Gopal V | Sergey Shelukhin |
 | [HIVE-12469](https://issues.apache.org/jira/browse/HIVE-12469) | Bump Commons-Collections dependency from 3.2.1 to 3.2.2. to address vulnerability |  Blocker | Build Infrastructure | Reuben Kuhnert | Ashutosh Chauhan |
 | [HIVE-12465](https://issues.apache.org/jira/browse/HIVE-12465) | Hive might produce wrong results when (outer) joins are merged |  Blocker | . | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
 | [HIVE-12463](https://issues.apache.org/jira/browse/HIVE-12463) | VectorMapJoinFastKeyStore has Array OOB errors |  Major | Vectorization | Gopal V | Gopal V |
@@ -756,6 +758,7 @@
 | [HIVE-12271](https://issues.apache.org/jira/browse/HIVE-12271) | Add metrics around HS2 query execution and job submission for Hive |  Major | HiveServer2 | Lenni Kuff | Szehon Ho |
 | [HIVE-12196](https://issues.apache.org/jira/browse/HIVE-12196) | NPE when converting bad timestamp value |  Major | Hive | Ryan Blue | Aihua Xu |
 | [HIVE-12091](https://issues.apache.org/jira/browse/HIVE-12091) | Merge file doesn't work for ORC table when running on Spark. [Spark Branch] |  Major | Spark | Xin Hao | Rui Li |
+| [HIVE-12055](https://issues.apache.org/jira/browse/HIVE-12055) | Create row-by-row shims for the write path |  Major | ORC, Shims | Owen O'Malley | Owen O'Malley |
 | [HIVE-12054](https://issues.apache.org/jira/browse/HIVE-12054) | Create vectorized write method |  Major | File Formats | Owen O'Malley | Owen O'Malley |
 | [HIVE-12020](https://issues.apache.org/jira/browse/HIVE-12020) | Revert log4j2 xml configuration to properties based configuration |  Major | Logging | Prasanth Jayachandran | Prasanth Jayachandran |
 | [HIVE-12016](https://issues.apache.org/jira/browse/HIVE-12016) | Update log4j2 version to 2.4 |  Major | Logging | Prasanth Jayachandran | Prasanth Jayachandran |

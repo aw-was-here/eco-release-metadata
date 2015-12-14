@@ -18,7 +18,7 @@
 -->
 # Apache Yetus Changelog
 
-## Release 0.2.0 - Unreleased (as of 2015-12-12)
+## Release 0.2.0 - Unreleased (as of 2015-12-14)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -37,6 +37,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [YETUS-204](https://issues.apache.org/jira/browse/YETUS-204) | shelldocs lint mode |  Major | ShellDocs | Allen Wittenauer | Kengo Seki |
 
 
 ### IMPROVEMENTS:
@@ -49,6 +50,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [YETUS-209](https://issues.apache.org/jira/browse/YETUS-209) | releasedocmaker's error message is unintelligible if a non-existent project is specified |  Minor | Release Doc Maker | Kengo Seki | Kengo Seki |
 
 
 ### TESTS:

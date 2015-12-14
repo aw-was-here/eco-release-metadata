@@ -396,6 +396,15 @@ Use junit facility to impose timeout on test. Use test category to chose which t
 
 Updated junit version from 4.11 to 4.12. 4.12 has support for feature used here.
 
+Add this at the head of your junit4 class to add a category-based timeout:
+
+{code}
+@Rule public final TestRule timeout =   CategoryBasedTimeout.builder().withTimeout(this.getClass()).
+      withLookingForStuckThread(true).build();
+{code}
+
+For example:
+
 
 ---
 

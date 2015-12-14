@@ -18,7 +18,7 @@
 -->
 # Apache BigTop Changelog
 
-## Release 1.1.0 - Unreleased (as of 2015-12-12)
+## Release 1.1.0 - Unreleased (as of 2015-12-14)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -89,6 +89,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [BIGTOP-2176](https://issues.apache.org/jira/browse/BIGTOP-2176) | Package version of ignite-hadoop has illegal "-" character |  Major | build, rpm | Konstantin Boudnik |  |
 | [BIGTOP-2173](https://issues.apache.org/jira/browse/BIGTOP-2173) | smoke-tests need to pass-through system properties |  Major | tests | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2168](https://issues.apache.org/jira/browse/BIGTOP-2168) | A erroneous typo in FailureVars#loadProps method |  Major | tests | Konstantin Boudnik | Dasha Boudnik |
 | [BIGTOP-2162](https://issues.apache.org/jira/browse/BIGTOP-2162) | phoenix-core-\*-tests.jar should be located at $PHOENIX\_HOME |  Major | . | YoungWoo Kim | YoungWoo Kim |

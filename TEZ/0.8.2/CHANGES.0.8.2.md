@@ -18,7 +18,7 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.8.2 - Unreleased (as of 2015-12-12)
+## Release 0.8.2 - Unreleased (as of 2015-12-14)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -60,6 +60,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [TEZ-2995](https://issues.apache.org/jira/browse/TEZ-2995) | Timeline primary filter should only be on callerId and not type |  Major | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-2990](https://issues.apache.org/jira/browse/TEZ-2990) | Change test-patch.sh to run through all tests, despite failures in upstream modules |  Major | . | Siddharth Seth | Siddharth Seth |
+| [TEZ-2987](https://issues.apache.org/jira/browse/TEZ-2987) | TestVertexImpl.testTez2684 fails |  Major | . | Jeff Zhang | Bikas Saha |
 | [TEZ-2977](https://issues.apache.org/jira/browse/TEZ-2977) | Make HadoopShim selection be overridable for distro-specific implementations |  Major | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-2975](https://issues.apache.org/jira/browse/TEZ-2975) | Bump up apache commons dependency |  Trivial | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-2970](https://issues.apache.org/jira/browse/TEZ-2970) | Re-localization in TezChild does not use correct UGI |  Major | . | Hitesh Shah | Hitesh Shah |
