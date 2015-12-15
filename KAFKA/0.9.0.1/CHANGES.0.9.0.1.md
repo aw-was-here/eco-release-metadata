@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.9.0.1 - Unreleased (as of 2015-12-14)
+## Release 0.9.0.1 - Unreleased (as of 2015-12-15)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -30,6 +30,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-2978](https://issues.apache.org/jira/browse/KAFKA-2978) | Topic partition is not sometimes consumed after rebalancing of consumer group |  Critical | consumer, core | Michal Turek | Jason Gustafson |
 
 
 ### NEW FEATURES:
@@ -52,6 +53,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-2990](https://issues.apache.org/jira/browse/KAFKA-2990) | NoSuchMethodError when Kafka is compiled with 1.8 and run on 1.7 |  Major | . | Jason Gustafson | Jason Gustafson |
 | [KAFKA-2981](https://issues.apache.org/jira/browse/KAFKA-2981) | Fix javadoc in KafkaConsumer |  Minor | clients | Xin Wang |  |
 | [KAFKA-2974](https://issues.apache.org/jira/browse/KAFKA-2974) | `==` is used incorrectly in a few places in Java code |  Major | . | Ismael Juma | Ismael Juma |
 | [KAFKA-2973](https://issues.apache.org/jira/browse/KAFKA-2973) | Fix leak of child sensors on remove |  Major | clients | Ismael Juma | Ismael Juma |

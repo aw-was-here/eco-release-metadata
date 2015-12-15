@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.9.1.0 - Unreleased (as of 2015-12-14)
+## Release 0.9.1.0 - Unreleased (as of 2015-12-15)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -53,6 +53,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-2990](https://issues.apache.org/jira/browse/KAFKA-2990) | NoSuchMethodError when Kafka is compiled with 1.8 and run on 1.7 |  Major | . | Jason Gustafson | Jason Gustafson |
 | [KAFKA-2973](https://issues.apache.org/jira/browse/KAFKA-2973) | Fix leak of child sensors on remove |  Major | clients | Ismael Juma | Ismael Juma |
 | [KAFKA-2965](https://issues.apache.org/jira/browse/KAFKA-2965) | Two variables should be exchanged. |  Minor | controller | Bo Wang |  |
 | [KAFKA-2928](https://issues.apache.org/jira/browse/KAFKA-2928) | system tests: failures in version-related sanity checks |  Major | . | Geoff Anderson | Geoff Anderson |

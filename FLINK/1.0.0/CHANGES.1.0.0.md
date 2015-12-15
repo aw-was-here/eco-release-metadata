@@ -18,7 +18,7 @@
 -->
 # Apache Flink Changelog
 
-## Release 1.0.0 - Unreleased (as of 2015-12-14)
+## Release 1.0.0 - Unreleased (as of 2015-12-15)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -83,6 +83,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [FLINK-3171](https://issues.apache.org/jira/browse/FLINK-3171) | Consolidate zoo of wrapper classes for input/output-stream to data-input/output-view |  Major | . | Stephan Ewen | Stephan Ewen |
 | [FLINK-3156](https://issues.apache.org/jira/browse/FLINK-3156) | FlinkKafkaConsumer fails with NPE on notifyCheckpointComplete |  Major | Kafka Connector | Till Rohrmann | Robert Metzger |
 | [FLINK-3145](https://issues.apache.org/jira/browse/FLINK-3145) | Storm examples can't be run without flink-java as dependency |  Major | Build System, Java API, Storm Compatibility | Maximilian Michels | Maximilian Michels |
 | [FLINK-3143](https://issues.apache.org/jira/browse/FLINK-3143) | Update Clojure Cleaner's ASM references to ASM5 |  Major | Local Runtime | Maximilian Michels | Maximilian Michels |

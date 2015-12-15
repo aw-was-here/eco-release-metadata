@@ -114,6 +114,13 @@ Vectorize simple UDFs with null arguments
 
 ---
 
+* [HIVE-12202](https://issues.apache.org/jira/browse/HIVE-12202) | *Major* | **NPE thrown when reading legacy ACID delta files**
+
+Reading legacy ACID formats (prior to 1.3.0) no longer results in an NPE.
+
+
+---
+
 * [HIVE-12184](https://issues.apache.org/jira/browse/HIVE-12184) | *Major* | **DESCRIBE of fully qualified table fails when db and table name match and non-default database is in use**
 
 Document the incompatible change.

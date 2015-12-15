@@ -18,7 +18,7 @@
 -->
 # Apache Hive Changelog
 
-## Release 2.0.0 - Unreleased (as of 2015-12-14)
+## Release 2.0.0 - Unreleased (as of 2015-12-15)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -183,6 +183,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HIVE-12668](https://issues.apache.org/jira/browse/HIVE-12668) | package script for LLAP was broken by recent config changes |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
 | [HIVE-12662](https://issues.apache.org/jira/browse/HIVE-12662) | StackOverflowError in HiveSortJoinReduceRule when limit=0 |  Major | . | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
 | [HIVE-12648](https://issues.apache.org/jira/browse/HIVE-12648) | LLAP IO was disabled in CliDriver by accident (and tests are broken) |  Blocker | . | Sergey Shelukhin | Sergey Shelukhin |
 | [HIVE-12608](https://issues.apache.org/jira/browse/HIVE-12608) | Parquet Schema Evolution doesn't work when a column is dropped from array\<struct\<\>\> |  Major | File Formats | Mohammad Kamrul Islam | Mohammad Kamrul Islam |
@@ -301,6 +302,7 @@
 | [HIVE-12207](https://issues.apache.org/jira/browse/HIVE-12207) | Query fails when non-ascii characters are used in string literals |  Major | . | Aleksei Statkevich | Aleksei Statkevich |
 | [HIVE-12206](https://issues.apache.org/jira/browse/HIVE-12206) | ClassNotFound Exception during query compilation with Tez and Union query and GenericUDFs |  Major | Tez, UDF | Jason Dere | Jason Dere |
 | [HIVE-12204](https://issues.apache.org/jira/browse/HIVE-12204) | Tez queries stopped running with ApplicationNotRunningException |  Major | Tez | Vikram Dixit K | Vikram Dixit K |
+| [HIVE-12202](https://issues.apache.org/jira/browse/HIVE-12202) | NPE thrown when reading legacy ACID delta files |  Major | Transactions | Elliot West | Elliot West |
 | [HIVE-12201](https://issues.apache.org/jira/browse/HIVE-12201) | Tez settings need to be shown in set -v output when execution engine is tez. |  Minor | Tez | Vikram Dixit K | Vikram Dixit K |
 | [HIVE-12200](https://issues.apache.org/jira/browse/HIVE-12200) | INSERT INTO table using a select statement w/o a FROM clause fails |  Minor | . | Jimmy Xiang | Jimmy Xiang |
 | [HIVE-12198](https://issues.apache.org/jira/browse/HIVE-12198) | LLAP: reader failures when querying uncompressed data |  Major | . | Gopal V | Sergey Shelukhin |

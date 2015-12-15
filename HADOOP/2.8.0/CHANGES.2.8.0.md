@@ -18,7 +18,7 @@
 -->
 # Apache Hadoop Changelog
 
-## Release 2.8.0 - Unreleased (as of 2015-12-14)
+## Release 2.8.0 - Unreleased (as of 2015-12-15)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -247,6 +247,7 @@
 | [HDFS-8880](https://issues.apache.org/jira/browse/HDFS-8880) | NameNode metrics logging |  Major | namenode | Arpit Agarwal | Arpit Agarwal |
 | [HDFS-8873](https://issues.apache.org/jira/browse/HDFS-8873) | Allow the directoryScanner to be rate-limited |  Major | datanode | Nathan Roberts | Daniel Templeton |
 | [HDFS-8865](https://issues.apache.org/jira/browse/HDFS-8865) | Improve quota initialization performance |  Major | . | Kihwal Lee | Kihwal Lee |
+| [HDFS-8860](https://issues.apache.org/jira/browse/HDFS-8860) | Remove unused Replica copyOnWrite code |  Major | . | Lei (Eddy) Xu | Lei (Eddy) Xu |
 | [HDFS-8859](https://issues.apache.org/jira/browse/HDFS-8859) | Improve DataNode ReplicaMap memory footprint to save about 45% |  Major | datanode | Yi Liu | Yi Liu |
 | [HDFS-8831](https://issues.apache.org/jira/browse/HDFS-8831) | Trash Support for deletion in HDFS encryption zone |  Major | encryption | Xiaoyu Yao | Xiaoyu Yao |
 | [HDFS-8829](https://issues.apache.org/jira/browse/HDFS-8829) | Make SO\_RCVBUF and SO\_SNDBUF size configurable for DataTransferProtocol sockets and allow configuring auto-tuning |  Major | datanode | He Tianyi | He Tianyi |
@@ -360,6 +361,7 @@
 | [MAPREDUCE-6478](https://issues.apache.org/jira/browse/MAPREDUCE-6478) | Add an option to skip cleanupJob stage or ignore cleanup failure during commitJob(). |  Major | . | Junping Du | Junping Du |
 | [MAPREDUCE-6471](https://issues.apache.org/jira/browse/MAPREDUCE-6471) | Document distcp incremental copy |  Major | distcp | Arpit Agarwal | Neelesh Srinivas Salian |
 | [MAPREDUCE-6443](https://issues.apache.org/jira/browse/MAPREDUCE-6443) | Add JvmPauseMonitor to Job History Server |  Major | jobhistoryserver | Robert Kanter | Robert Kanter |
+| [MAPREDUCE-6436](https://issues.apache.org/jira/browse/MAPREDUCE-6436) | JobHistory cache issue |  Blocker | . | Ryu Kobayashi | Kai Sasaki |
 | [MAPREDUCE-6408](https://issues.apache.org/jira/browse/MAPREDUCE-6408) | Queue name and user name should be printed on the job page |  Major | applicationmaster | Siqi Li | Siqi Li |
 | [MAPREDUCE-6395](https://issues.apache.org/jira/browse/MAPREDUCE-6395) | Improve the commit failure messages in MRAppMaster recovery |  Major | applicationmaster | Gera Shegalov | Brahma Reddy Battula |
 | [MAPREDUCE-6392](https://issues.apache.org/jira/browse/MAPREDUCE-6392) | Document mapred class path options |  Major | documentation | Brahma Reddy Battula | Brahma Reddy Battula |
@@ -966,6 +968,7 @@
 | [MAPREDUCE-4844](https://issues.apache.org/jira/browse/MAPREDUCE-4844) | Counters / AbstractCounters have constant references not declared final |  Major | . | Gera Shegalov | Brahma Reddy Battula |
 | [MAPREDUCE-3383](https://issues.apache.org/jira/browse/MAPREDUCE-3383) | Duplicate job.getOutputValueGroupingComparator() in ReduceTask |  Major | . | Binglin Chang | Binglin Chang |
 | [MAPREDUCE-2094](https://issues.apache.org/jira/browse/MAPREDUCE-2094) | LineRecordReader should not seek into non-splittable, compressed streams. |  Major | task | Niels Basjes | Niels Basjes |
+| [YARN-4440](https://issues.apache.org/jira/browse/YARN-4440) | FSAppAttempt#getAllowedLocalityLevelByTime should init the lastScheduler time |  Major | fairscheduler | Lin Yiqun | Lin Yiqun |
 | [YARN-4434](https://issues.apache.org/jira/browse/YARN-4434) | NodeManager Disk Checker parameter documentation is not correct |  Minor | documentation, nodemanager | Takashi Ohnishi | Weiwei Yang |
 | [YARN-4431](https://issues.apache.org/jira/browse/YARN-4431) | Not necessary to do unRegisterNM() if NM get stop due to failed to connect to RM |  Major | nodemanager | Junping Du | Junping Du |
 | [YARN-4422](https://issues.apache.org/jira/browse/YARN-4422) | Generic AHS sometimes doesn't show started, node, or logs on App page |  Major | . | Eric Payne | Eric Payne |
@@ -973,6 +976,7 @@
 | [YARN-4418](https://issues.apache.org/jira/browse/YARN-4418) | AM Resource Limit per partition can be updated to ResourceUsage as well |  Major | resourcemanager | Sunil G | Sunil G |
 | [YARN-4408](https://issues.apache.org/jira/browse/YARN-4408) | NodeManager still reports negative running containers |  Major | nodemanager | Robert Kanter | Robert Kanter |
 | [YARN-4403](https://issues.apache.org/jira/browse/YARN-4403) | (AM/NM/Container)LivelinessMonitor should use monotonic time when calculating period |  Critical | . | Junping Du | Junping Du |
+| [YARN-4402](https://issues.apache.org/jira/browse/YARN-4402) | TestNodeManagerShutdown And TestNodeManagerResync fails with bind exception |  Major | test | Brahma Reddy Battula | Brahma Reddy Battula |
 | [YARN-4392](https://issues.apache.org/jira/browse/YARN-4392) | ApplicationCreatedEvent event time resets after RM restart/failover |  Critical | . | Xuan Gong | Naganarasimha G R |
 | [YARN-4387](https://issues.apache.org/jira/browse/YARN-4387) | Fix typo in FairScheduler log message |  Minor | fairscheduler | Xin Wang | Xin Wang |
 | [YARN-4367](https://issues.apache.org/jira/browse/YARN-4367) | SLS webapp doesn't load |  Major | scheduler-load-simulator | Karthik Kambatla | Karthik Kambatla |
