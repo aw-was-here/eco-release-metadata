@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 1.6.0 - Unreleased (as of 2015-12-15)
+## Release 1.6.0 - Unreleased (as of 2015-12-16)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -400,6 +400,8 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-12281](https://issues.apache.org/jira/browse/SPARK-12281) | Fixed potential exceptions when exiting a local cluster. |  Major | Spark Core | Shixiong Zhu | Shixiong Zhu |
+| [SPARK-12267](https://issues.apache.org/jira/browse/SPARK-12267) | Standalone master keeps references to disassociated workers until they sent no heartbeats |  Major | Spark Core | Jacek Laskowski | Shixiong Zhu |
 | [SPARK-12258](https://issues.apache.org/jira/browse/SPARK-12258) | Hive Timestamp UDF is binded with '1969-12-31 15:59:59.999999' for null value |  Major | SQL | Ian | Davies Liu |
 | [SPARK-12253](https://issues.apache.org/jira/browse/SPARK-12253) | UnifiedMemoryManager race condition: storage can starve new tasks |  Blocker | Spark Core | Andrew Or | Andrew Or |
 | [SPARK-12250](https://issues.apache.org/jira/browse/SPARK-12250) | Allow users to define a UDAF without providing details of its inputSchema |  Major | SQL | Yin Huai | Yin Huai |
@@ -583,6 +585,7 @@
 | [SPARK-11302](https://issues.apache.org/jira/browse/SPARK-11302) |  Multivariate Gaussian Model with Covariance  matrix returns incorrect answer in some cases |  Critical | MLlib | eyal sharon | Sean Owen |
 | [SPARK-11301](https://issues.apache.org/jira/browse/SPARK-11301) | filter on partitioned column is case sensitive even the context is case insensitive |  Major | SQL | Wenchen Fan | Wenchen Fan |
 | [SPARK-11294](https://issues.apache.org/jira/browse/SPARK-11294) | Improve R doc for read.df, write.df, saveAsTable |  Minor | SparkR | Felix Cheung | Felix Cheung |
+| [SPARK-11293](https://issues.apache.org/jira/browse/SPARK-11293) | Spillable collections leak shuffle memory |  Critical | Spark Core | Josh Rosen | Josh Rosen |
 | [SPARK-11287](https://issues.apache.org/jira/browse/SPARK-11287) | Executing deploy.client TestClient fails with bad class name |  Trivial | Spark Core | Bryan Cutler | Bryan Cutler |
 | [SPARK-11283](https://issues.apache.org/jira/browse/SPARK-11283) | List column gets additional level of nesting when converted to Spark DataFrame |  Major | SparkR | Maciej Szymkiewicz | Maciej Szymkiewicz |
 | [SPARK-11281](https://issues.apache.org/jira/browse/SPARK-11281) | Issue with creating and collecting DataFrame using environments |  Major | SparkR | Maciej Szymkiewicz | Maciej Szymkiewicz |

@@ -18,7 +18,7 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.8.2 - Unreleased (as of 2015-12-15)
+## Release 0.8.2 - Unreleased (as of 2015-12-16)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -120,6 +120,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [TEZ-2996](https://issues.apache.org/jira/browse/TEZ-2996) | TestAnalyzer fails in trunk after recovery redesign |  Major | . | Bikas Saha | Bikas Saha |
 | [TEZ-2979](https://issues.apache.org/jira/browse/TEZ-2979) | FlakyTest: org.apache.tez.history.TestHistoryParser |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
+| [TEZ-2976](https://issues.apache.org/jira/browse/TEZ-2976) | Recovery fails when InputDescriptor is changed during input initialization |  Major | . | Jeff Zhang | Jeff Zhang |
 | [TEZ-2920](https://issues.apache.org/jira/browse/TEZ-2920) | org.apache.tez.client.TestTezClient.testStopRetriesUntilTimeout is flaky |  Critical | . | Hitesh Shah | Siddharth Seth |
 | [TEZ-2918](https://issues.apache.org/jira/browse/TEZ-2918) | Make progress notifications in IOs |  Major | . | Bikas Saha | Bikas Saha |
 | [TEZ-2888](https://issues.apache.org/jira/browse/TEZ-2888) | Make critical path calculation resilient to AM crash |  Major | . | Bikas Saha | Bikas Saha |

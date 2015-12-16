@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.9.1.0 - Unreleased (as of 2015-12-15)
+## Release 0.9.1.0 - Unreleased (as of 2015-12-16)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -42,6 +42,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-2992](https://issues.apache.org/jira/browse/KAFKA-2992) | Trace log statements in the replica fetcher inner loop create large amounts of garbage |  Minor | core | Cory Kolbeck |  |
 | [KAFKA-2958](https://issues.apache.org/jira/browse/KAFKA-2958) | Remove duplicate API key mapping functionality |  Major | . | Grant Henke | Grant Henke |
 | [KAFKA-2957](https://issues.apache.org/jira/browse/KAFKA-2957) | Fix typos in Kafka documentation |  Trivial | . | Vahid Hashemian | Vahid Hashemian |
 | [KAFKA-2881](https://issues.apache.org/jira/browse/KAFKA-2881) | Documentation improvement |  Major | . | Gwen Shapira | Guozhang Wang |
@@ -112,6 +113,7 @@
 | [KAFKA-2594](https://issues.apache.org/jira/browse/KAFKA-2594) | Add a key-value store that is a fixed-capacity in-memory LRU cache |  Major | kafka streams | Randall Hauch | Randall Hauch |
 | [KAFKA-2593](https://issues.apache.org/jira/browse/KAFKA-2593) | KeyValueStores should not require use of the context's default serializers and deserializers |  Major | kafka streams | Randall Hauch | Randall Hauch |
 | [KAFKA-2591](https://issues.apache.org/jira/browse/KAFKA-2591) | Remove Persistent Data before Restoringafter a Fault |  Major | . | Guozhang Wang | Guozhang Wang |
+| [KAFKA-2509](https://issues.apache.org/jira/browse/KAFKA-2509) | Replace LeaderAndIsr{Request,Response} with org.apache.kafka.common.network.requests equivalent |  Major | . | Ismael Juma | Grant Henke |
 | [KAFKA-2070](https://issues.apache.org/jira/browse/KAFKA-2070) | Replace OffsetRequest/response with ListOffsetRequest/response from org.apache.kafka.common.requests |  Major | . | Gwen Shapira | Grant Henke |
 
 

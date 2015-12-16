@@ -118,6 +118,15 @@ By setting hbase.resolve.hostnames.on.failure to false you can reduce the number
 
 ---
 
+* [HBASE-14534](https://issues.apache.org/jira/browse/HBASE-14534) | *Minor* | **Bump yammer/coda/dropwizard metrics dependency version**
+
+Updated yammer metrics to version 3.1.2 (now it's been renamed to dropwizard). API has changed quite a bit, consult https://dropwizard.github.io/metrics/3.1.0/manual/core/ for additional information. 
+
+Note that among other things, in yammer 2.2.0 histograms were by default created in non-biased mode (uniform sampling), while in 3.1.0 histograms created via MetricsRegistry.histogram(...) are by default exponentially decayed. This shouldn't affect end users, though.
+
+
+---
+
 * [HBASE-14529](https://issues.apache.org/jira/browse/HBASE-14529) | *Major* | **Respond to SIGHUP to reload config**
 
 HBase daemons can now be signaled to reload their config by sending SIGHUP to the java process. Not all config parameters can be reloaded.
