@@ -23,6 +23,20 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
+* [YETUS-241](https://issues.apache.org/jira/browse/YETUS-241) | *Major* | **revamp parameterized site**
+
+**WARNING: No release note provided for this important issue.**
+
+
+---
+
+* [YETUS-187](https://issues.apache.org/jira/browse/YETUS-187) | *Blocker* | **maven javac/javadoc can't use calcdiffs**
+
+The calcdiff function has been changed to be pluggable to allow for a variety of difference calculators to allow for greater accuracy when more information is available.  As a result, this fixes some (but not all!) instances where pre-existing errors were reported as new in some reports.
+
+
+---
+
 * [YETUS-62](https://issues.apache.org/jira/browse/YETUS-62) | *Major* | **add auto-formatting of usage options**
 
 <!-- markdown -->

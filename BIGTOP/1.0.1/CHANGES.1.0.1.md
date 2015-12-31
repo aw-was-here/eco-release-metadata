@@ -16,9 +16,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-# Apache Kafka Changelog
+# Apache BigTop Changelog
 
-## Release 0.8.2.1 - Unreleased (as of 2015-12-31)
+## Release 1.0.1 - Unreleased (as of 2015-12-31)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -48,11 +48,12 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [KAFKA-1984](https://issues.apache.org/jira/browse/KAFKA-1984) | java producer may miss an available partition |  Blocker | producer | Jun Rao | Jun Rao |
-| [KAFKA-1971](https://issues.apache.org/jira/browse/KAFKA-1971) | starting a broker with a conflicting id will delete the previous broker registration |  Blocker | . | Jun Rao | Jun Rao |
-| [KAFKA-1952](https://issues.apache.org/jira/browse/KAFKA-1952) | High CPU Usage in 0.8.2 release |  Critical | . | Jay Kreps | Jun Rao |
-| [KAFKA-1919](https://issues.apache.org/jira/browse/KAFKA-1919) | Metadata request issued with no backoff in new producer if there are no topics |  Blocker | . | Jay Kreps | Jay Kreps |
-| [KAFKA-1100](https://issues.apache.org/jira/browse/KAFKA-1100) | metrics shouldn't have generation/timestamp specific names |  Major | . | Jason Rosenberg |  |
+| [BIGTOP-2201](https://issues.apache.org/jira/browse/BIGTOP-2201) | Fix BIGTOP-2200 again |  Major | toolchain | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2200](https://issues.apache.org/jira/browse/BIGTOP-2200) | Fix download path for protobuf ubuntu-15.04 on ppc64le |  Major | toolchain | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2198](https://issues.apache.org/jira/browse/BIGTOP-2198) | adding bigtop/slaves:ubuntu-15.04 support for ppc64le |  Major | docker | Amir Sanjar | Amir Sanjar |
+| [BIGTOP-2191](https://issues.apache.org/jira/browse/BIGTOP-2191) | openjdk-7 is missing in bigtop/slave:ubuntu-14.04-ppc64le docker image |  Critical | build, docker, toolchain | Amir Sanjar | Amir Sanjar |
+| [BIGTOP-2190](https://issues.apache.org/jira/browse/BIGTOP-2190) | libprotobuf8 2.5.0 installation fails on ubuntu 14.04 for ppc64le |  Major | build, docker, toolchain | Amir Sanjar | Amir Sanjar |
+| [BIGTOP-2188](https://issues.apache.org/jira/browse/BIGTOP-2188) | bigtop/puppet:ubuntu-14.04 image does not support ppc64le |  Major | docker | Amir Sanjar | Amir Sanjar |
 
 
 ### TESTS:

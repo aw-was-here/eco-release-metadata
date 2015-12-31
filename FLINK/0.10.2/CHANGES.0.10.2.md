@@ -18,7 +18,7 @@
 -->
 # Apache Flink Changelog
 
-## Release 0.10.2 - Unreleased (as of 2015-12-16)
+## Release 0.10.2 - Unreleased (as of 2015-12-31)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -49,6 +49,8 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [FLINK-3185](https://issues.apache.org/jira/browse/FLINK-3185) | Silent failure during job graph recovery |  Major | Distributed Runtime | Ufuk Celebi | Ufuk Celebi |
+| [FLINK-3180](https://issues.apache.org/jira/browse/FLINK-3180) | MemoryLogger does not log direct memory |  Major | Distributed Runtime | Ufuk Celebi | Ufuk Celebi |
 | [FLINK-3145](https://issues.apache.org/jira/browse/FLINK-3145) | Storm examples can't be run without flink-java as dependency |  Major | Build System, Java API, Storm Compatibility | Maximilian Michels | Maximilian Michels |
 | [FLINK-3143](https://issues.apache.org/jira/browse/FLINK-3143) | Update Clojure Cleaner's ASM references to ASM5 |  Major | Local Runtime | Maximilian Michels | Maximilian Michels |
 | [FLINK-3136](https://issues.apache.org/jira/browse/FLINK-3136) | Scala Closure Cleaner uses wrong ASM import |  Critical | Scala API | Stephan Ewen | Aljoscha Krettek |

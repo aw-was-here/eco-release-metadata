@@ -18,7 +18,7 @@
 -->
 # Apache Flink Changelog
 
-## Release 1.0.0 - Unreleased (as of 2015-12-16)
+## Release 1.0.0 - Unreleased (as of 2015-12-31)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -38,6 +38,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [FLINK-3102](https://issues.apache.org/jira/browse/FLINK-3102) | Allow reading from multiple topics with one FlinkKafkaConsumer |  Major | Kafka Connector | Robert Metzger | Robert Metzger |
 | [FLINK-2996](https://issues.apache.org/jira/browse/FLINK-2996) | Add config entry to define BlobServer port |  Major | JobManager | Stephan Ewen | Robert Metzger |
+| [FLINK-2978](https://issues.apache.org/jira/browse/FLINK-2978) | Integrate web submission interface into the new dashboard |  Major | Web Client, Webfrontend | Sachin Goel | Sachin Goel |
 | [FLINK-2955](https://issues.apache.org/jira/browse/FLINK-2955) | Add operations introduction in Table API page. |  Minor | Documentation | Chengxiang Li | Chengxiang Li |
 | [FLINK-2951](https://issues.apache.org/jira/browse/FLINK-2951) | Add Union operator to Table API. |  Minor | Documentation, Table API | Chengxiang Li | Chengxiang Li |
 
@@ -46,8 +47,11 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [FLINK-3181](https://issues.apache.org/jira/browse/FLINK-3181) | The vertex-centric SSSP example and library method send unnecessary messages during the first superstep |  Major | Gelly | Vasia Kalavri | Vasia Kalavri |
 | [FLINK-3147](https://issues.apache.org/jira/browse/FLINK-3147) | HadoopOutputFormatBase should expose fields as protected |  Minor | . | Nick Dimiduk |  |
+| [FLINK-3131](https://issues.apache.org/jira/browse/FLINK-3131) | Expose checkpoint metrics |  Major | Webfrontend | Ufuk Celebi | Ufuk Celebi |
 | [FLINK-3124](https://issues.apache.org/jira/browse/FLINK-3124) | Introduce a TaskInfo object to better represent task name, index, attempt number etc. |  Major | . | Sachin Goel | Sachin Goel |
+| [FLINK-3116](https://issues.apache.org/jira/browse/FLINK-3116) | Remove RecordOperator |  Trivial | Core | Chesnay Schepler | jun aoki |
 | [FLINK-3084](https://issues.apache.org/jira/browse/FLINK-3084) | File State Backend should not write very small state into files |  Major | Streaming | Stephan Ewen | Stephan Ewen |
 | [FLINK-3077](https://issues.apache.org/jira/browse/FLINK-3077) | Add "version" command to CliFrontend for showing the version of the installation |  Major | Command-line client | Robert Metzger | Sachin Goel |
 | [FLINK-3074](https://issues.apache.org/jira/browse/FLINK-3074) | Make ApplicationMaster/JobManager akka port configurable |  Major | YARN Client | Robert Metzger | Robert Metzger |
@@ -79,13 +83,19 @@
 | [FLINK-2524](https://issues.apache.org/jira/browse/FLINK-2524) | Add "getTaskNameWithSubtasks()" to RuntimeContext |  Major | Local Runtime | Stephan Ewen | Sachin Goel |
 | [FLINK-2488](https://issues.apache.org/jira/browse/FLINK-2488) | Expose attemptNumber in RuntimeContext |  Minor | JobManager, TaskManager | Robert Metzger | Sachin Goel |
 | [FLINK-2017](https://issues.apache.org/jira/browse/FLINK-2017) | Add predefined required parameters to ParameterTool |  Major | . | Robert Metzger | Martin Liesenberg |
+| [FLINK-1228](https://issues.apache.org/jira/browse/FLINK-1228) | Add REST Interface to JobManager |  Major | . | Arvid Heise |  |
+| [FLINK-734](https://issues.apache.org/jira/browse/FLINK-734) | Integrate web job client into JobManager web interface |  Major | . | GitHub Import |  |
+| [FLINK-8](https://issues.apache.org/jira/browse/FLINK-8) | [GitHub] Implement automatic sample histogram building for Range Partitioning |  Major | . | GitHub Import | Chengxiang Li |
 
 
 ### BUG FIXES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [FLINK-3185](https://issues.apache.org/jira/browse/FLINK-3185) | Silent failure during job graph recovery |  Major | Distributed Runtime | Ufuk Celebi | Ufuk Celebi |
+| [FLINK-3173](https://issues.apache.org/jira/browse/FLINK-3173) | Bump org.apache.httpcomponents.httpclient version to 4.2.6 |  Minor | . | Till Rohrmann | Till Rohrmann |
 | [FLINK-3171](https://issues.apache.org/jira/browse/FLINK-3171) | Consolidate zoo of wrapper classes for input/output-stream to data-input/output-view |  Major | . | Stephan Ewen | Stephan Ewen |
+| [FLINK-3166](https://issues.apache.org/jira/browse/FLINK-3166) | The first program in ObjectReuseITCase has the wrong expected result, and it succeeds |  Critical | Distributed Runtime, Documentation, Tests | Gabor Gevay | Greg Hogan |
 | [FLINK-3156](https://issues.apache.org/jira/browse/FLINK-3156) | FlinkKafkaConsumer fails with NPE on notifyCheckpointComplete |  Major | Kafka Connector | Till Rohrmann | Robert Metzger |
 | [FLINK-3145](https://issues.apache.org/jira/browse/FLINK-3145) | Storm examples can't be run without flink-java as dependency |  Major | Build System, Java API, Storm Compatibility | Maximilian Michels | Maximilian Michels |
 | [FLINK-3143](https://issues.apache.org/jira/browse/FLINK-3143) | Update Clojure Cleaner's ASM references to ASM5 |  Major | Local Runtime | Maximilian Michels | Maximilian Michels |
@@ -93,6 +103,7 @@
 | [FLINK-3125](https://issues.apache.org/jira/browse/FLINK-3125) | Web dashboard does not start when log files are not found |  Major | Webfrontend | Stephan Ewen | Stephan Ewen |
 | [FLINK-3121](https://issues.apache.org/jira/browse/FLINK-3121) | Watermark forwarding does not work for sources not producing any data |  Blocker | . | Robert Metzger | Aljoscha Krettek |
 | [FLINK-3108](https://issues.apache.org/jira/browse/FLINK-3108) | JoinOperator's with() calls the wrong TypeExtractor method |  Major | . | Vasia Kalavri | Timo Walther |
+| [FLINK-3103](https://issues.apache.org/jira/browse/FLINK-3103) | Remove synchronization in FsStateBackend#FsCheckpointStateOutputStream#close() |  Major | . | Ted Yu | Ted Yu |
 | [FLINK-3101](https://issues.apache.org/jira/browse/FLINK-3101) | Flink Kafka consumer crashes with NPE when it sees deleted record |  Major | Kafka Connector | Sanjar Akhmedov | Robert Metzger |
 | [FLINK-3100](https://issues.apache.org/jira/browse/FLINK-3100) | Signal handler prints error on normal shutdown of cluster |  Major | JobManager, TaskManager | Maximilian Michels | Maximilian Michels |
 | [FLINK-3098](https://issues.apache.org/jira/browse/FLINK-3098) | Cast from Date to Long throw compile error. |  Major | Table API | Chengxiang Li | Chengxiang Li |
@@ -113,6 +124,7 @@
 | [FLINK-3019](https://issues.apache.org/jira/browse/FLINK-3019) | CLI does not list running/restarting jobs |  Minor | Command-line client | Ufuk Celebi |  |
 | [FLINK-3013](https://issues.apache.org/jira/browse/FLINK-3013) | Incorrect package declaration in GellyScalaAPICompletenessTest.scala |  Major | Gelly, Scala API | Suneel Marthi | Suneel Marthi |
 | [FLINK-3011](https://issues.apache.org/jira/browse/FLINK-3011) | Cannot cancel failing/restarting streaming job from the command line |  Critical | Command-line client | Gyula Fora | Ufuk Celebi |
+| [FLINK-3009](https://issues.apache.org/jira/browse/FLINK-3009) | Cannot build docs with Jekyll 3.0.0 |  Minor | Build System | Ufuk Celebi | jun aoki |
 | [FLINK-3005](https://issues.apache.org/jira/browse/FLINK-3005) | Commons-collections object deserialization remote command execution vulnerability |  Major | . | Ted Yu | Ted Yu |
 | [FLINK-3000](https://issues.apache.org/jira/browse/FLINK-3000) | Add ShutdownHook to YARN CLI to prevent lingering sessions |  Major | YARN Client | Ufuk Celebi | Sachin Goel |
 | [FLINK-2992](https://issues.apache.org/jira/browse/FLINK-2992) | New Windowing code is using SerializationUtils with wrong classloader |  Critical | Streaming | Robert Metzger | Robert Metzger |
@@ -138,6 +150,7 @@
 | [FLINK-2826](https://issues.apache.org/jira/browse/FLINK-2826) | transformed is modified in BroadcastVariableMaterialization#decrementReferenceInternal without proper locking |  Major | . | Ted Yu | Ted Yu |
 | [FLINK-2800](https://issues.apache.org/jira/browse/FLINK-2800) | kryo serialization problem |  Major | Type Serialization System | Stefano Bortoli | Till Rohrmann |
 | [FLINK-2797](https://issues.apache.org/jira/browse/FLINK-2797) | CLI: Missing option to submit jobs in detached mode |  Major | Command-line client | Maximilian Michels | Sachin Goel |
+| [FLINK-2622](https://issues.apache.org/jira/browse/FLINK-2622) | Scala DataStream API does not have writeAsText method which supports WriteMode |  Major | Scala API, Streaming | Till Rohrmann | Till Rohrmann |
 | [FLINK-2115](https://issues.apache.org/jira/browse/FLINK-2115) | TableAPI throws ExpressionException for "Dangling GroupBy operation" |  Major | Table API | Fabian Hueske | Chengxiang Li |
 | [FLINK-1278](https://issues.apache.org/jira/browse/FLINK-1278) | Remove the Record special code paths |  Minor | Local Runtime | Stephan Ewen | Stephan Ewen |
 
@@ -161,6 +174,7 @@
 | [FLINK-2853](https://issues.apache.org/jira/browse/FLINK-2853) | Apply JMH on MutableHashTablePerformanceBenchmark class. |  Minor | Tests | GaoLun | GaoLun |
 | [FLINK-2850](https://issues.apache.org/jira/browse/FLINK-2850) | Limit the types of jobs which can run in detached mode |  Major | . | Sachin Goel | Sachin Goel |
 | [FLINK-1982](https://issues.apache.org/jira/browse/FLINK-1982) | Remove dependencies on Record for Flink runtime and core |  Major | Core | Henry Saputra | Fabian Hueske |
+| [FLINK-146](https://issues.apache.org/jira/browse/FLINK-146) | Sorted output not working |  Major | Distributed Runtime, Java API, Scala API | Fabian Hueske |  |
 
 
 ### OTHER:

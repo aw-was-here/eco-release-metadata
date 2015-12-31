@@ -23,6 +23,13 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
+* [HADOOP-12657](https://issues.apache.org/jira/browse/HADOOP-12657) | *Minor* | **Add a option to skip newline on empty files with getMerge -nl**
+
+Added -skip-empty-file option to hadoop fs -getmerge command. With the option, delimiter (LF) is not printed for empty files even if -nl option is used.
+
+
+---
+
 * [HADOOP-12446](https://issues.apache.org/jira/browse/HADOOP-12446) | *Major* | **Undeprecate createNonRecursive()**
 
 FileSystem#createNonRecursive() is undeprecated.
@@ -363,6 +370,13 @@ Projects that access HDFS can depend on the hadoop-hdfs-client module instead of
 * [MAPREDUCE-6427](https://issues.apache.org/jira/browse/MAPREDUCE-6427) | *Minor* | **Fix typo in JobHistoryEventHandler**
 
 There is a typo in the event string "WORKFLOW\_ID" (as "WORKLFOW\_ID").  The branch-2 change will publish both event strings for compatibility with consumers, but the misspelled metric will be removed in trunk.
+
+
+---
+
+* [YARN-4207](https://issues.apache.org/jira/browse/YARN-4207) | *Major* | **Add a non-judgemental YARN app completion status**
+
+Adds the ENDED attribute to o.a.h.yarn.api.records.FinalApplicationStatus
 
 
 ---

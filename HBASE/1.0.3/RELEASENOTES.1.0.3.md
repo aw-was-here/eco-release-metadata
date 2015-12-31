@@ -23,10 +23,31 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
+* [HBASE-14655](https://issues.apache.org/jira/browse/HBASE-14655) | *Blocker* | **Narrow the scope of doAs() calls to region observer notifications for compaction**
+
+Region observer notifications w.r.t. compaction request are now audited with request user through proper scope of doAs() calls.
+
+
+---
+
+* [HBASE-14631](https://issues.apache.org/jira/browse/HBASE-14631) | *Blocker* | **Region merge request should be audited with request user through proper scope of doAs() calls to region observer notifications**
+
+Region observer notifications w.r.t. merge request are now audited with request user through proper scope of doAs() calls.
+
+
+---
+
 * [HBASE-14605](https://issues.apache.org/jira/browse/HBASE-14605) | *Blocker* | **Split fails due to 'No valid credentials' error when SecureBulkLoadEndpoint#start tries to access hdfs**
 
 When split is requested by non-super user, split related notifications for Coprocessor are executed using the login of the request user.
 Previously the notifications were carried out as super user.
+
+
+---
+
+* [HBASE-14475](https://issues.apache.org/jira/browse/HBASE-14475) | *Major* | **Region split requests are always audited with "hbase" user rather than request user**
+
+Region observer notifications w.r.t. split request are now audited with request user through proper scope of doAs() calls.
 
 
 ---

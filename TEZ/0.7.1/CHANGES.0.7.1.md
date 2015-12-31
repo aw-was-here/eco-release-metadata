@@ -18,7 +18,7 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.7.1 - Unreleased (as of 2015-12-16)
+## Release 0.7.1 - Unreleased (as of 2015-12-31)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -44,6 +44,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-3011](https://issues.apache.org/jira/browse/TEZ-3011) | Link Vertex Name in Dag Tasks/Task Attempts to Vertex |  Major | UI | Jonathan Eagles | Jonathan Eagles |
 | [TEZ-2973](https://issues.apache.org/jira/browse/TEZ-2973) | Backport Analyzers to branch-0.7 |  Major | . | Jonathan Eagles | Jonathan Eagles |
 | [TEZ-2935](https://issues.apache.org/jira/browse/TEZ-2935) | Add MR slow start translation for ShuffleVertexManager |  Major | . | Jonathan Eagles | Jonathan Eagles |
 | [TEZ-2886](https://issues.apache.org/jira/browse/TEZ-2886) | Ability to merge AM credentials with DAG credentials |  Major | . | Jason Lowe | Jason Lowe |
@@ -68,6 +69,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-3017](https://issues.apache.org/jira/browse/TEZ-3017) | HistoryACLManager does not have a close method for cleanup |  Major | . | Bikas Saha | Bikas Saha |
 | [TEZ-3006](https://issues.apache.org/jira/browse/TEZ-3006) | Remove unused import in TestHistoryParser |  Major | . | Sreenath Somarajapuram | Rajesh Balamohan |
 | [TEZ-2995](https://issues.apache.org/jira/browse/TEZ-2995) | Timeline primary filter should only be on callerId and not type |  Major | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-2975](https://issues.apache.org/jira/browse/TEZ-2975) | Bump up apache commons dependency |  Trivial | . | Hitesh Shah | Hitesh Shah |
@@ -87,6 +89,7 @@
 | [TEZ-2929](https://issues.apache.org/jira/browse/TEZ-2929) | Tez UI: Dag details page displays vertices to be running even when dag have completed. |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2923](https://issues.apache.org/jira/browse/TEZ-2923) | Tez Live UI counters view empty for vertices, tasks, attempts |  Major | UI | Jonathan Eagles | Jonathan Eagles |
 | [TEZ-2922](https://issues.apache.org/jira/browse/TEZ-2922) | Tez Live UI gives access denied for admins |  Major | . | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-2914](https://issues.apache.org/jira/browse/TEZ-2914) | Ability to limit vertex concurrency |  Major | . | Jonathan Eagles | Bikas Saha |
 | [TEZ-2909](https://issues.apache.org/jira/browse/TEZ-2909) | Tez UI: Application link in All DAGs table is disable when applicationhistory is unavailable. |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2908](https://issues.apache.org/jira/browse/TEZ-2908) | Tez UI: Errors are logged, but not displayed in the UI when AM fetch fails. |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2907](https://issues.apache.org/jira/browse/TEZ-2907) | NPE in IFile.Reader.getLength during final merge operation |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
@@ -143,6 +146,7 @@
 | [TEZ-2545](https://issues.apache.org/jira/browse/TEZ-2545) | It is not necessary to start the vertex group commit when DAG is in TERMINATING |  Major | . | Jeff Zhang | Jeff Zhang |
 | [TEZ-2541](https://issues.apache.org/jira/browse/TEZ-2541) | DAGClientImpl enable TimelineClient check is wrong. |  Major | . | Prakash Ramachandran | Prakash Ramachandran |
 | [TEZ-2540](https://issues.apache.org/jira/browse/TEZ-2540) | Create both tez-dist minimal and minimal.tar.gz formats as part of build |  Major | . | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-2538](https://issues.apache.org/jira/browse/TEZ-2538) | ADDITIONAL\_SPILL\_COUNT wrongly populated for DefaultSorter with multiple partitions |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-2537](https://issues.apache.org/jira/browse/TEZ-2537) | mapreduce.map.env and mapreduce.reduce.env need to fall back to mapred.child.env for compatibility |  Major | . | Jonathan Eagles | Rohini Palaniswamy |
 | [TEZ-2534](https://issues.apache.org/jira/browse/TEZ-2534) | Error handling summary event when shutting down AM |  Major | . | Jeff Zhang | Jeff Zhang |
 | [TEZ-2533](https://issues.apache.org/jira/browse/TEZ-2533) | AM deadlock when shutdown |  Major | . | Jeff Zhang | Jeff Zhang |

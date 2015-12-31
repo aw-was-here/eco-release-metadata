@@ -30,6 +30,13 @@ In earlier versions of Tez, DAG submissions to a Tez AM were rejected if the dag
 
 ---
 
+* [TEZ-2914](https://issues.apache.org/jira/browse/TEZ-2914) | *Major* | **Ability to limit vertex concurrency**
+
+Added new vertex level config "tez.am.vertex.max-task-concurrency" that can be set using the per vertex conf API to limit the task concurrency of a given vertex.
+
+
+---
+
 * [TEZ-2909](https://issues.apache.org/jira/browse/TEZ-2909) | *Major* | **Tez UI: Application link in All DAGs table is disable when applicationhistory is unavailable.**
 
 Thanks you [~hitesh]

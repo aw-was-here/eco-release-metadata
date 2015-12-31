@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.9.1.0 - Unreleased (as of 2015-12-16)
+## Release 0.9.1.0 - Unreleased (as of 2015-12-31)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -42,7 +42,11 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-3043](https://issues.apache.org/jira/browse/KAFKA-3043) | Replace request.required.acks with acks in docs |  Major | website | Sasaki Toru |  |
+| [KAFKA-3024](https://issues.apache.org/jira/browse/KAFKA-3024) | Remove old patch review tools |  Major | . | Grant Henke | Grant Henke |
+| [KAFKA-3002](https://issues.apache.org/jira/browse/KAFKA-3002) | Make available to specify hostname with Uppercase at broker list |  Minor | clients | Sasaki Toru |  |
 | [KAFKA-2992](https://issues.apache.org/jira/browse/KAFKA-2992) | Trace log statements in the replica fetcher inner loop create large amounts of garbage |  Minor | core | Cory Kolbeck |  |
+| [KAFKA-2964](https://issues.apache.org/jira/browse/KAFKA-2964) | Split Security Rolling Upgrade Test By Client and Broker Protocols |  Minor | . | Ben Stopford | Ben Stopford |
 | [KAFKA-2958](https://issues.apache.org/jira/browse/KAFKA-2958) | Remove duplicate API key mapping functionality |  Major | . | Grant Henke | Grant Henke |
 | [KAFKA-2957](https://issues.apache.org/jira/browse/KAFKA-2957) | Fix typos in Kafka documentation |  Trivial | . | Vahid Hashemian | Vahid Hashemian |
 | [KAFKA-2881](https://issues.apache.org/jira/browse/KAFKA-2881) | Documentation improvement |  Major | . | Gwen Shapira | Guozhang Wang |
@@ -54,6 +58,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-3009](https://issues.apache.org/jira/browse/KAFKA-3009) | Disallow star imports |  Major | . | Gwen Shapira | Manasvi Gupta |
 | [KAFKA-2990](https://issues.apache.org/jira/browse/KAFKA-2990) | NoSuchMethodError when Kafka is compiled with 1.8 and run on 1.7 |  Major | . | Jason Gustafson | Jason Gustafson |
 | [KAFKA-2973](https://issues.apache.org/jira/browse/KAFKA-2973) | Fix leak of child sensors on remove |  Major | clients | Ismael Juma | Ismael Juma |
 | [KAFKA-2965](https://issues.apache.org/jira/browse/KAFKA-2965) | Two variables should be exchanged. |  Minor | controller | Bo Wang |  |
@@ -84,6 +89,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-2989](https://issues.apache.org/jira/browse/KAFKA-2989) | Verify all partitions consumed after rebalancing in system tests |  Major | . | Jason Gustafson | Jason Gustafson |
 | [KAFKA-2905](https://issues.apache.org/jira/browse/KAFKA-2905) | System test for rolling upgrade to enable ZooKeeper ACLs with SASL |  Major | . | Flavio Junqueira | Flavio Junqueira |
 | [KAFKA-2825](https://issues.apache.org/jira/browse/KAFKA-2825) | Add controller failover to existing replication tests |  Major | . | Anna Povzner | Anna Povzner |
 | [KAFKA-2732](https://issues.apache.org/jira/browse/KAFKA-2732) | Add test cases with ZK Auth, SASL and SSL |  Major | security | Flavio Junqueira | Flavio Junqueira |
@@ -93,6 +99,9 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-3030](https://issues.apache.org/jira/browse/KAFKA-3030) | Remove unused scala dependencies |  Major | build | Grant Henke | Grant Henke |
+| [KAFKA-3020](https://issues.apache.org/jira/browse/KAFKA-3020) | Ensure Checkstyle runs on all Java code |  Major | build | Grant Henke | Grant Henke |
+| [KAFKA-2984](https://issues.apache.org/jira/browse/KAFKA-2984) | KTable should send old values along with new values to downstreams |  Major | kafka streams | Yasuhiro Matsuda | Yasuhiro Matsuda |
 | [KAFKA-2962](https://issues.apache.org/jira/browse/KAFKA-2962) | Add Simple Join API |  Major | kafka streams | Yasuhiro Matsuda | Yasuhiro Matsuda |
 | [KAFKA-2856](https://issues.apache.org/jira/browse/KAFKA-2856) | add KTable |  Major | kafka streams | Yasuhiro Matsuda |  |
 | [KAFKA-2837](https://issues.apache.org/jira/browse/KAFKA-2837) | FAILING TEST: kafka.api.ProducerBounceTest \> testBrokerFailure |  Major | . | Gwen Shapira | jin xing |

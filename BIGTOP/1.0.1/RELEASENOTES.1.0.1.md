@@ -16,16 +16,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-# Apache HBase  1.2.1 Release Notes
+# Apache BigTop  1.0.1 Release Notes
 
 These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
-
-
----
-
-* [HBASE-14822](https://issues.apache.org/jira/browse/HBASE-14822) | *Major* | **Renewing leases of scanners doesn't work**
-
-And 1.1, 1.0, and 0.98.
 
 
 

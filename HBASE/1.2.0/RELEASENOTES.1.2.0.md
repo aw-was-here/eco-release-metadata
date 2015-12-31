@@ -23,9 +23,72 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
+* [HBASE-15018](https://issues.apache.org/jira/browse/HBASE-15018) | *Major* | **Inconsistent way of handling TimeoutException in the rpc client implementations**
+
+When using the new AsyncRpcClient introduced in HBase 1.1.0 (HBASE-12684), time outs now result in an IOException wrapped around a CallTimeoutException instead of a bare CallTimeoutException. This change makes the AsyncRpcClient behave the same as the default HBase 1.y RPC client implementation.
+
+
+---
+
+* [HBASE-14984](https://issues.apache.org/jira/browse/HBASE-14984) | *Major* | **Allow memcached block cache to set optimze to false**
+
+Setting hbase.cache.memcached.spy.optimze to true will allow the spy memcached client to try and optimize for the number of requests outstanding. This can increase throughput but can also increase variance for request times.
+
+Setting it to true will help when round trip times are longer.
+Setting it to false ( the default ) will help ensure a more even distribution of response times.
+
+
+---
+
+* [HBASE-14978](https://issues.apache.org/jira/browse/HBASE-14978) | *Blocker* | **Don't allow Multi to retain too many blocks**
+
+Limiting the amount of memory resident for any one request allows the server to handle concurrent requests smoothly. To this end we added the ability to limit the size of responses to a multi request. That worked well however it correctly represent the amount of memory resident. So this issue adds on a an approximation of the number of blocks held for a request.
+
+All clients before 1.2.0 will not get this multi request chunking based upon blocks kept. All clients 1.2.0 and after will.
+
+
+---
+
+* [HBASE-14976](https://issues.apache.org/jira/browse/HBASE-14976) | *Minor* | **Add RPC call queues to the web ui**
+
+Adds column displaying current aggregated call queues size in region server queues tab UI.
+
+
+---
+
 * [HBASE-14960](https://issues.apache.org/jira/browse/HBASE-14960) | *Major* | **Fallback to using default RPCControllerFactory if class cannot be loaded**
 
 If the configured RPC controller factory (via hbase.rpc.controllerfactory.class) cannot be found in the classpath or loaded, we fall back to using the default RPC controller factory in HBase.
+
+
+---
+
+* [HBASE-14951](https://issues.apache.org/jira/browse/HBASE-14951) | *Minor* | **Make hbase.regionserver.maxlogs obsolete**
+
+Rolling WAL events across a cluster can be highly correlated, hence flushing memstores, hence triggering minor compactions, that can be promoted to major ones. These events are highly correlated in time if there is a balanced write-load on the regions in a table. Default value for maximum WAL files (\* hbase.regionserver.maxlogs\*), which controls WAL rolling events - 32 is too small for many modern deployments. 
+Now we calculate this value dynamically (if not defined by user), using the following formula:
+
+maxLogs = Math.max( 32, HBASE\_HEAP\_SIZE \* memstoreRatio \* 2/ LogRollSize), where
+
+memstoreRatio is \*hbase.regionserver.global.memstore.size\*
+LogRollSize is maximum WAL file size (default 0.95 \* HDFS block size)
+
+We need to make sure that we avoid fully or minimize events when RS has to flush memstores prematurely only because it reached artificial limit of hbase.regionserver.maxlogs, this is why we put this 2 x multiplier in equation, this gives us maximum WAL capacity of 2 x RS memstore-size. 
+
+Runaway WAL files.
+
+The default log rolling period (1h) allows to accumulate up to 2 X Memstore Size data in a WAL. For heap size - 32G and all other default setting, this gives ~ 26GB of data. Under heavy write load, the number of WAL files can increase dramatically. RegionServer LogRoller will be archiving old WALs periodically. User has three options, either override default hbase.regionserver.maxlogs or override default hbase.regionserver.logroll.period (decrease), or both to control runaway WALs.
+
+For system with bursty write load,  the hbase.regionserver.logroll.period can be decreased to lower value. In this case the maximum number of wal files will be defined by the total size of memstore (unflushed data), not by the hbase.regionserver.maxlogs. But for majority of applications there will be no issues with defaults. Data will be flushed periodically from memstore, the LogRoller will archive old wal files and the system will never reach the new defaults for hbase.regionserver.maxlogs, unless the system is under extreme load for prolonged period of time, but in this case, decreasing hbase.regionserver.logroll.period allows us to control runaway wal files.
+
+The following table gives the new default maximum log files values for several different Region Server heap sizes:
+
+heap	memstore perc	maxLogs
+1G	        40%	                        32
+2G	        40%	                        32
+10G	        40%	                        80
+20G	        40%	                        160
+32G	        40%	                        256
 
 
 ---
@@ -69,9 +132,32 @@ Very large blocks can fragment the heap and cause bad issues for the garbage col
 
 ---
 
+* [HBASE-14745](https://issues.apache.org/jira/browse/HBASE-14745) | *Blocker* | **Shade the last few dependencies in hbase-shaded-client**
+
+Previously some dependencies in hbase-shaded-client were still leaking into the un-shaded namespace. This should now be fixed.
+
+Additionally the rat checking on generated intermediate files from shading should be skipped.
+
+
+---
+
 * [HBASE-14700](https://issues.apache.org/jira/browse/HBASE-14700) | *Major* | **Support a "permissive" mode for secure clusters to allow "simple" auth clients**
 
 Secure HBase now supports a permissive mode to allow mixed secure and insecure clients.  This allows clients to be incrementally migrated over to a secure configuration.  To enable clients to continue to connect using SIMPLE authentication when the cluster is configured for security, set "hbase.ipc.server.fallback-to-simple-auth-allowed" equal to "true" in hbase-site.xml.  NOTE: This setting should ONLY be used as a temporary measure while converting clients over to secure authentication.  It MUST BE DISABLED for secure operation.
+
+
+---
+
+* [HBASE-14655](https://issues.apache.org/jira/browse/HBASE-14655) | *Blocker* | **Narrow the scope of doAs() calls to region observer notifications for compaction**
+
+Region observer notifications w.r.t. compaction request are now audited with request user through proper scope of doAs() calls.
+
+
+---
+
+* [HBASE-14631](https://issues.apache.org/jira/browse/HBASE-14631) | *Blocker* | **Region merge request should be audited with request user through proper scope of doAs() calls to region observer notifications**
+
+Region observer notifications w.r.t. merge request are now audited with request user through proper scope of doAs() calls.
 
 
 ---
@@ -110,6 +196,13 @@ Adds server version to the listing of regionservers on the master home page
 * [HBASE-14502](https://issues.apache.org/jira/browse/HBASE-14502) | *Major* | **Purge use of jmock and remove as dependency**
 
 HBASE-14502 Purge use of jmock and remove as dependency
+
+
+---
+
+* [HBASE-14475](https://issues.apache.org/jira/browse/HBASE-14475) | *Major* | **Region split requests are always audited with "hbase" user rather than request user**
+
+Region observer notifications w.r.t. split request are now audited with request user through proper scope of doAs() calls.
 
 
 ---
@@ -172,6 +265,13 @@ This patch adds shell support for region normalizer.
 Also 'ater' command has been extended to allow user to enable/disable region normalization per table (disabled by default). Use it as 
 
 alter 'testtable', {NORMALIZATION\_ENABLED =\> 'true'}
+
+
+---
+
+* [HBASE-14355](https://issues.apache.org/jira/browse/HBASE-14355) | *Major* | **Scan different TimeRange for each column family**
+
+Adds being able to Scan each column family with a different time range. Adds new methods setColumnFamilyTimeRange and getColumnFamilyTimeRange to Scan.
 
 
 ---
@@ -284,6 +384,13 @@ Prevent Coprocessors being doubly-loaded; a particular coprocessor can only be l
 
 ---
 
+* [HBASE-14205](https://issues.apache.org/jira/browse/HBASE-14205) | *Critical* | **RegionCoprocessorHost System.nanoTime() performance bottleneck**
+
+**WARNING: No release note provided for this incompatible change.**
+
+
+---
+
 * [HBASE-14201](https://issues.apache.org/jira/browse/HBASE-14201) | *Major* | **hbck should not take a lock unless fixing errors**
 
 HBCK no longer takes a lock until there are changes to the cluster being made.
@@ -383,6 +490,13 @@ HBASE-13881 Correct HTable incrementColumnValue implementation
 
 ---
 
+* [HBASE-13865](https://issues.apache.org/jira/browse/HBASE-13865) | *Trivial* | **Increase the default value for hbase.hregion.memstore.block.multipler from 2 to 4 (part 2)**
+
+Increase default hbase.hregion.memstore.block.multiplier from 2 to 4 in the code to match the default value in the config files.
+
+
+---
+
 * [HBASE-13849](https://issues.apache.org/jira/browse/HBASE-13849) | *Major* | **Remove restore and clone snapshot from the WebUI**
 
 The HBase master status web page no longer allows operators to clone snapshots nor restore snapshots.
@@ -420,6 +534,13 @@ Starting from HBase 2.0, CoprocessorClassLoader will not exempt hadoop classes o
 
 ---
 
+* [HBASE-13698](https://issues.apache.org/jira/browse/HBASE-13698) | *Major* | **Add RegionLocator methods to Thrift2 proxy.**
+
+Added getRegionLocation and getAllRegionLocations to the thrift2 interface.
+
+
+---
+
 * [HBASE-13686](https://issues.apache.org/jira/browse/HBASE-13686) | *Major* | **Fail to limit rate in RateLimiter**
 
 As per this jira contribution. We now support two kinds of RateLimiter.
@@ -437,6 +558,17 @@ Note: Client needs to restart the cluster for the configuration to take into eff
 * [HBASE-13646](https://issues.apache.org/jira/browse/HBASE-13646) | *Major* | **HRegion#execService should not try to build incomplete messages**
 
 When RegionServerCoprocessors throw an exception we will no longer attempt to build an incomplete RPC response message. Instead, the response message will be null.
+
+
+---
+
+* [HBASE-13639](https://issues.apache.org/jira/browse/HBASE-13639) | *Major* | **SyncTable - rsync for HBase tables**
+
+Tool to sync two tables that tries to send the differences only like rsync.
+
+Adds two new MapReduce jobs, SyncTable and HashTable. See usage for these jobs on how to use. See design doc for generally overview: https://docs.google.com/document/d/1-2c9kJEWNrXf5V4q\_wBcoIXfdchN7Pxvxv1IO6PW0-U/edit
+
+From comments below, "It can be challenging to run against a table getting live writes, if those writes are updates/overwrites. In general, you can run it against a time range to ignore new writes, but if those writes update existing cells, then the time range scan may or may not see older versions of those cells depending on whether major compaction has happened, which may be different in remote clusters."
 
 
 ---

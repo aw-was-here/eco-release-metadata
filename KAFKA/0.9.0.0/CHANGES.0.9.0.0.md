@@ -121,6 +121,8 @@
 | [KAFKA-1546](https://issues.apache.org/jira/browse/KAFKA-1546) | Automate replica lag tuning |  Major | replication | Neha Narkhede | Aditya Auradkar |
 | [KAFKA-1461](https://issues.apache.org/jira/browse/KAFKA-1461) | Replica fetcher thread does not implement any back-off behavior |  Major | replication | Sam Meder | Sriharsha Chintalapani |
 | [KAFKA-1173](https://issues.apache.org/jira/browse/KAFKA-1173) | Using Vagrant to get up and running with Apache Kafka |  Major | . | Joe Stein | Ewen Cheslack-Postava |
+| [KAFKA-587](https://issues.apache.org/jira/browse/KAFKA-587) | Refactor end-to-end latency test to work in system test framework |  Major | . | Jay Kreps | Ewen Cheslack-Postava |
+| [KAFKA-95](https://issues.apache.org/jira/browse/KAFKA-95) | Create Jenkins readable test output |  Major | packaging | Chris Burroughs |  |
 
 
 ### BUG FIXES:
@@ -359,6 +361,7 @@
 | [KAFKA-1762](https://issues.apache.org/jira/browse/KAFKA-1762) | Update max-inflight-request doc string |  Major | . | Guozhang Wang | Guozhang Wang |
 | [KAFKA-1758](https://issues.apache.org/jira/browse/KAFKA-1758) | corrupt recovery file prevents startup |  Major | log | Jason Rosenberg | Manikumar Reddy |
 | [KAFKA-1757](https://issues.apache.org/jira/browse/KAFKA-1757) | Can not delete Topic index on Windows |  Minor | log | Lukáš Vyhlídka | Sriharsha Chintalapani |
+| [KAFKA-1755](https://issues.apache.org/jira/browse/KAFKA-1755) | Improve error handling in log cleaner |  Major | . | Joel Koshy | Joel Koshy |
 | [KAFKA-1747](https://issues.apache.org/jira/browse/KAFKA-1747) | TestcaseEnv improperly shares state between instances |  Major | system tests | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-1746](https://issues.apache.org/jira/browse/KAFKA-1746) | System tests don't handle errors well |  Major | system tests | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-1739](https://issues.apache.org/jira/browse/KAFKA-1739) | Remove testComplexCompressDecompress in MessageCompressionTest |  Major | . | Guozhang Wang | Manikumar Reddy |
@@ -552,5 +555,6 @@
 | [KAFKA-1949](https://issues.apache.org/jira/browse/KAFKA-1949) | Update 0.8.3.0 docs with upgrade process |  Major | . | Gwen Shapira |  |
 | [KAFKA-1856](https://issues.apache.org/jira/browse/KAFKA-1856) | Add PreCommit Patch Testing |  Major | . | Ashish K Singh | Ashish K Singh |
 | [KAFKA-1661](https://issues.apache.org/jira/browse/KAFKA-1661) | Move MockConsumer and MockProducer from src/main to src/test |  Trivial | clients, consumer, producer | Andras Hatvani |  |
+| [KAFKA-868](https://issues.apache.org/jira/browse/KAFKA-868) | System Test - add test case for rolling controlled shutdown |  Major | . | John Fung |  |
 
 

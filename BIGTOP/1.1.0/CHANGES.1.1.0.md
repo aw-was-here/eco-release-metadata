@@ -18,7 +18,7 @@
 -->
 # Apache BigTop Changelog
 
-## Release 1.1.0 - Unreleased (as of 2015-12-16)
+## Release 1.1.0 - Unreleased (as of 2015-12-31)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -45,6 +45,8 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [BIGTOP-2194](https://issues.apache.org/jira/browse/BIGTOP-2194) | Add Ubuntu configuration to the docker provisioner |  Major | deployment | Konstantin Boudnik | Konstantin Boudnik |
+| [BIGTOP-2192](https://issues.apache.org/jira/browse/BIGTOP-2192) | Start generating ubuntu-14.04 deployment image |  Major | deployment | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2164](https://issues.apache.org/jira/browse/BIGTOP-2164) | Phoenix Queryserver should write it's logs into /var/log/phoenix/ |  Trivial | . | YoungWoo Kim | YoungWoo Kim |
 | [BIGTOP-2163](https://issues.apache.org/jira/browse/BIGTOP-2163) | Add a phoenix-pherf sub-package for Phoenix |  Major | debian, rpm | YoungWoo Kim | YoungWoo Kim |
 | [BIGTOP-2153](https://issues.apache.org/jira/browse/BIGTOP-2153) | Simplify and complete storage dir creation |  Trivial | deployment | Michael Weiser | Michael Weiser |
@@ -89,8 +91,21 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [BIGTOP-2201](https://issues.apache.org/jira/browse/BIGTOP-2201) | Fix BIGTOP-2200 again |  Major | toolchain | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2200](https://issues.apache.org/jira/browse/BIGTOP-2200) | Fix download path for protobuf ubuntu-15.04 on ppc64le |  Major | toolchain | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2198](https://issues.apache.org/jira/browse/BIGTOP-2198) | adding bigtop/slaves:ubuntu-15.04 support for ppc64le |  Major | docker | Amir Sanjar | Amir Sanjar |
+| [BIGTOP-2196](https://issues.apache.org/jira/browse/BIGTOP-2196) | Docker configuration for ubuntu-15.04-ppc64le |  Major | docker | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2191](https://issues.apache.org/jira/browse/BIGTOP-2191) | openjdk-7 is missing in bigtop/slave:ubuntu-14.04-ppc64le docker image |  Critical | build, docker, toolchain | Amir Sanjar | Amir Sanjar |
+| [BIGTOP-2190](https://issues.apache.org/jira/browse/BIGTOP-2190) | libprotobuf8 2.5.0 installation fails on ubuntu 14.04 for ppc64le |  Major | build, docker, toolchain | Amir Sanjar | Amir Sanjar |
+| [BIGTOP-2188](https://issues.apache.org/jira/browse/BIGTOP-2188) | bigtop/puppet:ubuntu-14.04 image does not support ppc64le |  Major | docker | Amir Sanjar | Amir Sanjar |
+| [BIGTOP-2187](https://issues.apache.org/jira/browse/BIGTOP-2187) | toolchain creates user with different ids on different systems |  Major | toolchain | Konstantin Boudnik | Konstantin Boudnik |
+| [BIGTOP-2181](https://issues.apache.org/jira/browse/BIGTOP-2181) | Setting Ignite version to use '.' broke Zeppelin build. |  Critical | build | Konstantin Boudnik | Sergey Soldatov |
+| [BIGTOP-2177](https://issues.apache.org/jira/browse/BIGTOP-2177) | Build dependecies list has wrong component name for ignite |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2176](https://issues.apache.org/jira/browse/BIGTOP-2176) | Package version of ignite-hadoop has illegal "-" character |  Major | build, rpm | Konstantin Boudnik |  |
+| [BIGTOP-2175](https://issues.apache.org/jira/browse/BIGTOP-2175) | BIGTOP\_HOME should be either asserter or replaced with setup logic |  Major | tests | Konstantin Boudnik | David Capwell |
 | [BIGTOP-2173](https://issues.apache.org/jira/browse/BIGTOP-2173) | smoke-tests need to pass-through system properties |  Major | tests | Konstantin Boudnik | Konstantin Boudnik |
+| [BIGTOP-2172](https://issues.apache.org/jira/browse/BIGTOP-2172) | get rid of gradlew inside of subprojects |  Major | tests | Konstantin Boudnik | Konstantin Boudnik |
+| [BIGTOP-2171](https://issues.apache.org/jira/browse/BIGTOP-2171) | shared gradle directory on slave containers should be writable for non-root users |  Major | docker | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2168](https://issues.apache.org/jira/browse/BIGTOP-2168) | A erroneous typo in FailureVars#loadProps method |  Major | tests | Konstantin Boudnik | Dasha Boudnik |
 | [BIGTOP-2162](https://issues.apache.org/jira/browse/BIGTOP-2162) | phoenix-core-\*-tests.jar should be located at $PHOENIX\_HOME |  Major | . | YoungWoo Kim | YoungWoo Kim |
 | [BIGTOP-2159](https://issues.apache.org/jira/browse/BIGTOP-2159) | unable to build RPM for zeppelin |  Blocker | build, rpm | Sergey Soldatov | Sergey Soldatov |
@@ -194,9 +209,13 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [BIGTOP-2185](https://issues.apache.org/jira/browse/BIGTOP-2185) | Exclude Zeppelin interpreter.json from RAT check |  Major | deployment | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2174](https://issues.apache.org/jira/browse/BIGTOP-2174) | Bump up ignite-hadoop version to the latest 1.5.0-b1 |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
+| [BIGTOP-2169](https://issues.apache.org/jira/browse/BIGTOP-2169) | Zeppeling has more upstream dependencies |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
+| [BIGTOP-2167](https://issues.apache.org/jira/browse/BIGTOP-2167) | Zeppelin interpreter list doesn't include Ignite |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2166](https://issues.apache.org/jira/browse/BIGTOP-2166) | Zeppelin shouldn't be build against constant version of Ignite |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2149](https://issues.apache.org/jira/browse/BIGTOP-2149) | Zeppeling 0.5.5 has been officially released. Change the source ref |  Major | build | Konstantin Boudnik | Sergey Soldatov |
+| [BIGTOP-2123](https://issues.apache.org/jira/browse/BIGTOP-2123) | Add zeppelin Puppet recipes |  Major | deployment | Konstantin Boudnik | Jonathan Kelly |
 | [BIGTOP-2122](https://issues.apache.org/jira/browse/BIGTOP-2122) | Add zeppelin packages |  Major | debian, rpm | Konstantin Boudnik | Jonathan Kelly |
 | [BIGTOP-2113](https://issues.apache.org/jira/browse/BIGTOP-2113) | Spark master doesn't bind to the host: ignores SPARK\_MASTER\_IP |  Blocker | spark | Konstantin Boudnik | Sergey Soldatov |
 | [BIGTOP-2107](https://issues.apache.org/jira/browse/BIGTOP-2107) | Ignite package still shows website at the incubator |  Major | ignite | Konstantin Boudnik | Olaf Flebbe |

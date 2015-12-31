@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.9.0.1 - Unreleased (as of 2015-12-16)
+## Release 0.9.0.1 - Unreleased (as of 2015-12-31)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -43,6 +43,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-3002](https://issues.apache.org/jira/browse/KAFKA-3002) | Make available to specify hostname with Uppercase at broker list |  Minor | clients | Sasaki Toru |  |
 | [KAFKA-2957](https://issues.apache.org/jira/browse/KAFKA-2957) | Fix typos in Kafka documentation |  Trivial | . | Vahid Hashemian | Vahid Hashemian |
 | [KAFKA-2924](https://issues.apache.org/jira/browse/KAFKA-2924) | Add offsets/group metadata decoder so that DumpLogSegments can be used with the offsets topic |  Major | . | Jason Gustafson | Jason Gustafson |
 | [KAFKA-2882](https://issues.apache.org/jira/browse/KAFKA-2882) | Add constructor cache for Snappy and LZ4 Output/Input stream in Compressor.java |  Major | consumer, producer | Maksim Logvinenko | Maksim Logvinenko |
@@ -53,6 +54,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-3014](https://issues.apache.org/jira/browse/KAFKA-3014) | Integer overflow causes incorrect node iteration in leastLoadedNode() |  Major | . | Jason Gustafson | Jason Gustafson |
 | [KAFKA-2990](https://issues.apache.org/jira/browse/KAFKA-2990) | NoSuchMethodError when Kafka is compiled with 1.8 and run on 1.7 |  Major | . | Jason Gustafson | Jason Gustafson |
 | [KAFKA-2981](https://issues.apache.org/jira/browse/KAFKA-2981) | Fix javadoc in KafkaConsumer |  Minor | clients | Xin Wang |  |
 | [KAFKA-2974](https://issues.apache.org/jira/browse/KAFKA-2974) | `==` is used incorrectly in a few places in Java code |  Major | . | Ismael Juma | Ismael Juma |
@@ -82,6 +84,9 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-2977](https://issues.apache.org/jira/browse/KAFKA-2977) | Transient Failure in kafka.log.LogCleanerIntegrationTest.cleanerTest |  Major | . | Guozhang Wang | jin xing |
+| [KAFKA-2455](https://issues.apache.org/jira/browse/KAFKA-2455) | Test Failure: kafka.consumer.MetricsTest \> testMetricsLeak |  Major | . | Gwen Shapira | jin xing |
+| [KAFKA-2058](https://issues.apache.org/jira/browse/KAFKA-2058) | ProducerTest.testSendWithDeadBroker transient failure |  Major | . | Guozhang Wang | jin xing |
 
 
 ### OTHER:

@@ -23,9 +23,72 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
+* [HBASE-15018](https://issues.apache.org/jira/browse/HBASE-15018) | *Major* | **Inconsistent way of handling TimeoutException in the rpc client implementations**
+
+When using the new AsyncRpcClient introduced in HBase 1.1.0 (HBASE-12684), time outs now result in an IOException wrapped around a CallTimeoutException instead of a bare CallTimeoutException. This change makes the AsyncRpcClient behave the same as the default HBase 1.y RPC client implementation.
+
+
+---
+
+* [HBASE-14984](https://issues.apache.org/jira/browse/HBASE-14984) | *Major* | **Allow memcached block cache to set optimze to false**
+
+Setting hbase.cache.memcached.spy.optimze to true will allow the spy memcached client to try and optimize for the number of requests outstanding. This can increase throughput but can also increase variance for request times.
+
+Setting it to true will help when round trip times are longer.
+Setting it to false ( the default ) will help ensure a more even distribution of response times.
+
+
+---
+
+* [HBASE-14978](https://issues.apache.org/jira/browse/HBASE-14978) | *Blocker* | **Don't allow Multi to retain too many blocks**
+
+Limiting the amount of memory resident for any one request allows the server to handle concurrent requests smoothly. To this end we added the ability to limit the size of responses to a multi request. That worked well however it correctly represent the amount of memory resident. So this issue adds on a an approximation of the number of blocks held for a request.
+
+All clients before 1.2.0 will not get this multi request chunking based upon blocks kept. All clients 1.2.0 and after will.
+
+
+---
+
+* [HBASE-14976](https://issues.apache.org/jira/browse/HBASE-14976) | *Minor* | **Add RPC call queues to the web ui**
+
+Adds column displaying current aggregated call queues size in region server queues tab UI.
+
+
+---
+
 * [HBASE-14960](https://issues.apache.org/jira/browse/HBASE-14960) | *Major* | **Fallback to using default RPCControllerFactory if class cannot be loaded**
 
 If the configured RPC controller factory (via hbase.rpc.controllerfactory.class) cannot be found in the classpath or loaded, we fall back to using the default RPC controller factory in HBase.
+
+
+---
+
+* [HBASE-14951](https://issues.apache.org/jira/browse/HBASE-14951) | *Minor* | **Make hbase.regionserver.maxlogs obsolete**
+
+Rolling WAL events across a cluster can be highly correlated, hence flushing memstores, hence triggering minor compactions, that can be promoted to major ones. These events are highly correlated in time if there is a balanced write-load on the regions in a table. Default value for maximum WAL files (\* hbase.regionserver.maxlogs\*), which controls WAL rolling events - 32 is too small for many modern deployments. 
+Now we calculate this value dynamically (if not defined by user), using the following formula:
+
+maxLogs = Math.max( 32, HBASE\_HEAP\_SIZE \* memstoreRatio \* 2/ LogRollSize), where
+
+memstoreRatio is \*hbase.regionserver.global.memstore.size\*
+LogRollSize is maximum WAL file size (default 0.95 \* HDFS block size)
+
+We need to make sure that we avoid fully or minimize events when RS has to flush memstores prematurely only because it reached artificial limit of hbase.regionserver.maxlogs, this is why we put this 2 x multiplier in equation, this gives us maximum WAL capacity of 2 x RS memstore-size. 
+
+Runaway WAL files.
+
+The default log rolling period (1h) allows to accumulate up to 2 X Memstore Size data in a WAL. For heap size - 32G and all other default setting, this gives ~ 26GB of data. Under heavy write load, the number of WAL files can increase dramatically. RegionServer LogRoller will be archiving old WALs periodically. User has three options, either override default hbase.regionserver.maxlogs or override default hbase.regionserver.logroll.period (decrease), or both to control runaway WALs.
+
+For system with bursty write load,  the hbase.regionserver.logroll.period can be decreased to lower value. In this case the maximum number of wal files will be defined by the total size of memstore (unflushed data), not by the hbase.regionserver.maxlogs. But for majority of applications there will be no issues with defaults. Data will be flushed periodically from memstore, the LogRoller will archive old wal files and the system will never reach the new defaults for hbase.regionserver.maxlogs, unless the system is under extreme load for prolonged period of time, but in this case, decreasing hbase.regionserver.logroll.period allows us to control runaway wal files.
+
+The following table gives the new default maximum log files values for several different Region Server heap sizes:
+
+heap	memstore perc	maxLogs
+1G	        40%	                        32
+2G	        40%	                        32
+10G	        40%	                        80
+20G	        40%	                        160
+32G	        40%	                        256
 
 
 ---
@@ -48,6 +111,13 @@ Adds a timeout to server read from clients. Adds new configs hbase.thrift.server
 
 ---
 
+* [HBASE-14822](https://issues.apache.org/jira/browse/HBASE-14822) | *Major* | **Renewing leases of scanners doesn't work**
+
+And 1.1, 1.0, and 0.98.
+
+
+---
+
 * [HBASE-14821](https://issues.apache.org/jira/browse/HBASE-14821) | *Major* | **CopyTable should allow overriding more config properties for peer cluster**
 
 Configuration properties for org.apache.hadoop.hbase.mapreduce.TableOutputFormat can now be overridden by prefixing the property keys with "hbase.mapred.output.".  When the configuration is applied to TableOutputFormat, these entries will be rewritten with the prefix removed -- ie. "hbase.mapred.output.hbase.security.authentication" becomes "hbase.security.authentication".  This can be useful when directing output to a peer cluster with different security configuration, for example.
@@ -65,6 +135,29 @@ This issue resolves a potential security vulnerability. For all versions we upda
 * [HBASE-14793](https://issues.apache.org/jira/browse/HBASE-14793) | *Major* | **Allow limiting size of block into L1 block cache.**
 
 Very large blocks can fragment the heap and cause bad issues for the garbage collector, especially the G1GC. Now there is a maximum size that a block can be and still stick in the LruBlockCache. That size defaults to 16mb but can be controlled by changing "hbase.lru.max.block.size"
+
+
+---
+
+* [HBASE-14745](https://issues.apache.org/jira/browse/HBASE-14745) | *Blocker* | **Shade the last few dependencies in hbase-shaded-client**
+
+Previously some dependencies in hbase-shaded-client were still leaking into the un-shaded namespace. This should now be fixed.
+
+Additionally the rat checking on generated intermediate files from shading should be skipped.
+
+
+---
+
+* [HBASE-14655](https://issues.apache.org/jira/browse/HBASE-14655) | *Blocker* | **Narrow the scope of doAs() calls to region observer notifications for compaction**
+
+Region observer notifications w.r.t. compaction request are now audited with request user through proper scope of doAs() calls.
+
+
+---
+
+* [HBASE-14631](https://issues.apache.org/jira/browse/HBASE-14631) | *Blocker* | **Region merge request should be audited with request user through proper scope of doAs() calls to region observer notifications**
+
+Region observer notifications w.r.t. merge request are now audited with request user through proper scope of doAs() calls.
 
 
 ---
@@ -103,6 +196,13 @@ Adds server version to the listing of regionservers on the master home page
 * [HBASE-14502](https://issues.apache.org/jira/browse/HBASE-14502) | *Major* | **Purge use of jmock and remove as dependency**
 
 HBASE-14502 Purge use of jmock and remove as dependency
+
+
+---
+
+* [HBASE-14475](https://issues.apache.org/jira/browse/HBASE-14475) | *Major* | **Region split requests are always audited with "hbase" user rather than request user**
+
+Region observer notifications w.r.t. split request are now audited with request user through proper scope of doAs() calls.
 
 
 ---
@@ -169,6 +269,13 @@ alter 'testtable', {NORMALIZATION\_ENABLED =\> 'true'}
 
 ---
 
+* [HBASE-14355](https://issues.apache.org/jira/browse/HBASE-14355) | *Major* | **Scan different TimeRange for each column family**
+
+Adds being able to Scan each column family with a different time range. Adds new methods setColumnFamilyTimeRange and getColumnFamilyTimeRange to Scan.
+
+
+---
+
 * [HBASE-14317](https://issues.apache.org/jira/browse/HBASE-14317) | *Blocker* | **Stuck FSHLog: bad disk (HDFS-8960) and can't roll WAL**
 
 Tighten up WAL-use semantic.
@@ -212,6 +319,15 @@ If hbase:meta is in transition, balancer command returns false.
 
 WARNING: For experts only. Forcing a balance may do more damage than repair when assignment is confused
 Note: enclose the force parameter in double quotes
+
+
+---
+
+* [HBASE-14306](https://issues.apache.org/jira/browse/HBASE-14306) | *Major* | **Refine RegionGroupingProvider: fix issues and make it more scalable**
+
+In HBASE-14306 we've changed default strategy of RegionGroupingProvider from "identify" to "bounded", so it's required to explicitly set "hbase.wal.regiongrouping.strategy" to "identify" if user still wants to use one WAL per region
+
+Please also notice that in the new framework there will be one WAL per group, and the region-group mapping is decided by RegionGroupingStrategy. Accordingly, we've removed BoundedRegionGroupingProvider and added BoundedRegionGroupingStrategy as a replacement. If you already have a customized class for hbase.wal.regiongrouping.strategy, please check the new logic and make updates if necessary.
 
 
 ---
@@ -275,6 +391,13 @@ Remove calling getNumCurrentReplicas on HdfsDataOutputStream via reflection. get
 * [HBASE-14224](https://issues.apache.org/jira/browse/HBASE-14224) | *Critical* | **Fix coprocessor handling of duplicate classes**
 
 Prevent Coprocessors being doubly-loaded; a particular coprocessor can only be loaded once.
+
+
+---
+
+* [HBASE-14205](https://issues.apache.org/jira/browse/HBASE-14205) | *Critical* | **RegionCoprocessorHost System.nanoTime() performance bottleneck**
+
+**WARNING: No release note provided for this incompatible change.**
 
 
 ---

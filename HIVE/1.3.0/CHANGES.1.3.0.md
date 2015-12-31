@@ -18,7 +18,7 @@
 -->
 # Apache Hive Changelog
 
-## Release 1.3.0 - Unreleased (as of 2015-12-16)
+## Release 1.3.0 - Unreleased (as of 2015-12-31)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -51,6 +51,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HIVE-12713](https://issues.apache.org/jira/browse/HIVE-12713) | Miscellaneous improvements in driver compile and execute logging |  Minor | Logging | Chaoyu Tang | Chaoyu Tang |
 | [HIVE-12317](https://issues.apache.org/jira/browse/HIVE-12317) | Emit current database in lineage info |  Minor | . | Jimmy Xiang | Jimmy Xiang |
 | [HIVE-12265](https://issues.apache.org/jira/browse/HIVE-12265) | Generate lineage info only if requested |  Minor | . | Jimmy Xiang | Jimmy Xiang |
 | [HIVE-11984](https://issues.apache.org/jira/browse/HIVE-11984) | Add HS2 open operation metrics |  Minor | . | Jimmy Xiang | Jimmy Xiang |
@@ -101,7 +102,14 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HIVE-12735](https://issues.apache.org/jira/browse/HIVE-12735) | Constant folding for WHEN/CASE expression does not set return type correctly |  Major | Logical Optimizer | Prasanth Jayachandran | Prasanth Jayachandran |
+| [HIVE-12712](https://issues.apache.org/jira/browse/HIVE-12712) | HiveInputFormat may fail to column names to read in some cases |  Major | . | Takahiko Saito | Prasanth Jayachandran |
+| [HIVE-12698](https://issues.apache.org/jira/browse/HIVE-12698) | Remove exposure to internal privilege and principal classes in HiveAuthorizer |  Major | Authorization | Thejas M Nair | Thejas M Nair |
+| [HIVE-12688](https://issues.apache.org/jira/browse/HIVE-12688) | HIVE-11826 makes hive unusable in properly secured cluster |  Blocker | . | Thejas M Nair | Thejas M Nair |
+| [HIVE-12684](https://issues.apache.org/jira/browse/HIVE-12684) | NPE in stats annotation when all values in decimal column are NULLs |  Major | Statistics | Prasanth Jayachandran | Prasanth Jayachandran |
 | [HIVE-12620](https://issues.apache.org/jira/browse/HIVE-12620) | Misc improvement to Acid module |  Major | Transactions | Eugene Koifman | Eugene Koifman |
+| [HIVE-12610](https://issues.apache.org/jira/browse/HIVE-12610) | Hybrid Grace Hash Join should fail task faster if processing first batch fails, instead of continuing processing the rest |  Major | Hive | Wei Zheng | Wei Zheng |
+| [HIVE-12605](https://issues.apache.org/jira/browse/HIVE-12605) | Implement JDBC Connection.isValid |  Major | HiveServer2, JDBC | Thejas M Nair | Gabor Liptak |
 | [HIVE-12585](https://issues.apache.org/jira/browse/HIVE-12585) | fix TxnHandler connection leak |  Blocker | Transactions | Eugene Koifman | Eugene Koifman |
 | [HIVE-12584](https://issues.apache.org/jira/browse/HIVE-12584) | Vectorized join with partition column of type char does not trim spaces |  Critical | Vectorization | Jagruti Varia | Prasanth Jayachandran |
 | [HIVE-12583](https://issues.apache.org/jira/browse/HIVE-12583) | HS2 ShutdownHookManager holds extra of Driver instance |  Major | Locking | Daniel Dai | Daniel Dai |
@@ -130,6 +138,7 @@
 | [HIVE-12450](https://issues.apache.org/jira/browse/HIVE-12450) | OrcFileMergeOperator does not use correct compression buffer size |  Critical | ORC | Prasanth Jayachandran | Prasanth Jayachandran |
 | [HIVE-12444](https://issues.apache.org/jira/browse/HIVE-12444) | Global Limit optimization on ACID table without base directory may throw exception |  Major | Hive, Transactions | Wei Zheng | Wei Zheng |
 | [HIVE-12437](https://issues.apache.org/jira/browse/HIVE-12437) | SMB join in tez fails when one of the tables is empty |  Critical | Tez | Vikram Dixit K | Vikram Dixit K |
+| [HIVE-12435](https://issues.apache.org/jira/browse/HIVE-12435) | SELECT COUNT(CASE WHEN...) GROUPBY returns 1 for 'NULL' in a case of ORC and vectorization is enabled. |  Critical | Vectorization | Takahiko Saito | Matt McCline |
 | [HIVE-12417](https://issues.apache.org/jira/browse/HIVE-12417) | Support for exclamation mark missing in regexp |  Major | . | Olaf Flebbe | Olaf Flebbe |
 | [HIVE-12409](https://issues.apache.org/jira/browse/HIVE-12409) | make sure SessionState.initTxnMgr() is thread safe |  Major | HiveServer2, Transactions | Eugene Koifman | Eugene Koifman |
 | [HIVE-12406](https://issues.apache.org/jira/browse/HIVE-12406) | HIVE-9500 introduced incompatible change to LazySimpleSerDe public interface |  Blocker | Serializers/Deserializers | Lenni Kuff | Aihua Xu |
@@ -202,6 +211,7 @@
 | [HIVE-11948](https://issues.apache.org/jira/browse/HIVE-11948) | Investigate TxnHandler and CompactionTxnHandler to see where we improve concurrency |  Major | Transactions | Eugene Koifman | Eugene Koifman |
 | [HIVE-11945](https://issues.apache.org/jira/browse/HIVE-11945) | ORC with non-local reads may not be reusing connection to DN |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [HIVE-11939](https://issues.apache.org/jira/browse/HIVE-11939) | TxnDbUtil should turn off jdbc auto commit |  Minor | . | Jimmy Xiang | Jimmy Xiang |
+| [HIVE-11935](https://issues.apache.org/jira/browse/HIVE-11935) | Race condition in  HiveMetaStoreClient: isCompatibleWith and close |  Major | Metastore | Daniel Dai | Daniel Dai |
 | [HIVE-11934](https://issues.apache.org/jira/browse/HIVE-11934) | Transaction lock retry logic results in infinite loop |  Minor | HiveServer2, Transactions | Steve Howard | Eugene Koifman |
 | [HIVE-11932](https://issues.apache.org/jira/browse/HIVE-11932) | JDBC Driver appends an extra "/" when configuring connection by reading httpPath from ZooKeeper |  Major | JDBC | Vaibhav Gumashta | Vaibhav Gumashta |
 | [HIVE-11929](https://issues.apache.org/jira/browse/HIVE-11929) | Fix branch-1 build broke |  Major | . | Prasanth Jayachandran | Prasanth Jayachandran |
@@ -390,7 +400,7 @@
 | [HIVE-10736](https://issues.apache.org/jira/browse/HIVE-10736) | HiveServer2 shutdown of cached tez app-masters is not clean |  Major | HiveServer2 | Gopal V | Vikram Dixit K |
 | [HIVE-10734](https://issues.apache.org/jira/browse/HIVE-10734) | Remove COLUMNS\_OLD table from a schema definition file of PostgreSQL |  Major | Metastore | Shinichi Yamashita | Shinichi Yamashita |
 | [HIVE-10732](https://issues.apache.org/jira/browse/HIVE-10732) | Hive JDBC driver does not close operation for metadata queries |  Major | JDBC | Mala Chikka Kempanna | Chaoyu Tang |
-| [HIVE-10731](https://issues.apache.org/jira/browse/HIVE-10731) | NullPointerException in HiveParser.g |  Minor | Query Planning | Xiu(Joe) Guo | Pengcheng Xiong |
+| [HIVE-10731](https://issues.apache.org/jira/browse/HIVE-10731) | NullPointerException in HiveParser.g |  Minor | Query Planning | Xiu (Joe) Guo | Pengcheng Xiong |
 | [HIVE-10728](https://issues.apache.org/jira/browse/HIVE-10728) | deprecate unix\_timestamp(void) and make it deterministic |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
 | [HIVE-10726](https://issues.apache.org/jira/browse/HIVE-10726) | Hive JDBC setQueryTimeout should not throw exception to make it work with JMeter |  Major | . | Prasanth Jayachandran | Prasanth Jayachandran |
 | [HIVE-10722](https://issues.apache.org/jira/browse/HIVE-10722) | external table creation with msck in Hive can create unusable partition |  Critical | . | Sergey Shelukhin | Sergey Shelukhin |
@@ -472,6 +482,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HIVE-12697](https://issues.apache.org/jira/browse/HIVE-12697) | Remove deprecated post option from webhcat test files |  Major | WebHCat | Aswathy Chellammal Sreekumar | Aswathy Chellammal Sreekumar |
 | [HIVE-11946](https://issues.apache.org/jira/browse/HIVE-11946) | TestNotificationListener is flaky |  Minor | . | Jimmy Xiang | Jimmy Xiang |
 | [HIVE-11620](https://issues.apache.org/jira/browse/HIVE-11620) | Fix several qtest output order |  Minor | . | Jimmy Xiang | Jimmy Xiang |
 | [HIVE-10583](https://issues.apache.org/jira/browse/HIVE-10583) | Switch precommit from ASF to Github repo to avoid clone failures |  Critical | . | Szehon Ho | Szehon Ho |

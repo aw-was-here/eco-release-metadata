@@ -18,7 +18,7 @@
 -->
 # Apache Hive Changelog
 
-## Release 2.0.0 - Unreleased (as of 2015-12-16)
+## Release 2.0.0 - Unreleased (as of 2015-12-31)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -26,8 +26,14 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HIVE-12609](https://issues.apache.org/jira/browse/HIVE-12609) | Remove javaXML serialization |  Major | Serializers/Deserializers | Prasanth Jayachandran | Prasanth Jayachandran |
 | [HIVE-12443](https://issues.apache.org/jira/browse/HIVE-12443) | Hive Streaming should expose encoding and serdes for testing |  Major | Testing Infrastructure, Transactions | Alan Gates | Alan Gates |
+| [HIVE-12436](https://issues.apache.org/jira/browse/HIVE-12436) | Default hive.metastore.schema.verification to true |  Major | Metastore | Ashutosh Chauhan | Ashutosh Chauhan |
+| [HIVE-12413](https://issues.apache.org/jira/browse/HIVE-12413) | Default mode for hive.mapred.mode should be strict |  Major | Configuration | Ashutosh Chauhan | Ashutosh Chauhan |
+| [HIVE-12331](https://issues.apache.org/jira/browse/HIVE-12331) | Remove hive.enforce.bucketing & hive.enforce.sorting configs |  Major | Configuration | Ashutosh Chauhan | Ashutosh Chauhan |
+| [HIVE-12329](https://issues.apache.org/jira/browse/HIVE-12329) | Turn on limit pushdown optimization by default |  Major | Configuration | Ashutosh Chauhan | Ashutosh Chauhan |
+| [HIVE-12320](https://issues.apache.org/jira/browse/HIVE-12320) | hive.metastore.disallow.incompatible.col.type.changes should be true by default |  Major | Configuration, Types | Ashutosh Chauhan | Ashutosh Chauhan |
 | [HIVE-12224](https://issues.apache.org/jira/browse/HIVE-12224) | Remove HOLD\_DDLTIME |  Major | Metastore | Ashutosh Chauhan | Ashutosh Chauhan |
 | [HIVE-12184](https://issues.apache.org/jira/browse/HIVE-12184) | DESCRIBE of fully qualified table fails when db and table name match and non-default database is in use |  Major | SQL | Lenni Kuff | Naveen Gangam |
+| [HIVE-12164](https://issues.apache.org/jira/browse/HIVE-12164) | Remove jdbc stats collection mechanism |  Major | Statistics | Ashutosh Chauhan | Ashutosh Chauhan |
 | [HIVE-12005](https://issues.apache.org/jira/browse/HIVE-12005) | Remove hbase based stats collection mechanism |  Major | Statistics | Ashutosh Chauhan | Ashutosh Chauhan |
 | [HIVE-11378](https://issues.apache.org/jira/browse/HIVE-11378) | Remove hadoop-1 support from master branch |  Major | Build Infrastructure | Alan Gates | Alan Gates |
 | [HIVE-11261](https://issues.apache.org/jira/browse/HIVE-11261) | DESCRIBE database qualifier does not work when calling DESCRIBE on column or nested columns. |  Minor | Parser | Jenny Kim | Naveen Gangam |
@@ -35,6 +41,7 @@
 | [HIVE-11145](https://issues.apache.org/jira/browse/HIVE-11145) | Remove OFFLINE and NO\_DROP from tables and partitions |  Major | Metastore, SQL | Alan Gates | Alan Gates |
 | [HIVE-9365](https://issues.apache.org/jira/browse/HIVE-9365) | The Metastore should take port configuration from hive-site.xml |  Minor | . | Nicolas Thiébaud | Reuben Kuhnert |
 | [HIVE-7575](https://issues.apache.org/jira/browse/HIVE-7575) | GetTables thrift call is very slow |  Major | HiveServer2 | Ashu Pachauri | Navis |
+| [HIVE-1841](https://issues.apache.org/jira/browse/HIVE-1841) |  datanucleus.fixedDatastore should be true in hive-default.xml |  Minor | Configuration, Metastore | Edward Capriolo | Ashutosh Chauhan |
 
 
 ### IMPORTANT ISSUES:
@@ -52,6 +59,7 @@
 | [HIVE-12080](https://issues.apache.org/jira/browse/HIVE-12080) | Support auto type widening (int-\>bigint & float-\>double) for Parquet table |  Major | File Formats | Mohammad Kamrul Islam | Mohammad Kamrul Islam |
 | [HIVE-11976](https://issues.apache.org/jira/browse/HIVE-11976) | Extend CBO rules to being able to apply rules only once on a given operator |  Major | CBO | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
 | [HIVE-11785](https://issues.apache.org/jira/browse/HIVE-11785) | Support escaping carriage return and new line for LazySimpleSerDe |  Major | Query Processor | Aihua Xu | Aihua Xu |
+| [HIVE-11775](https://issues.apache.org/jira/browse/HIVE-11775) | Implement limit push down through union all in CBO |  Major | . | Pengcheng Xiong | Pengcheng Xiong |
 | [HIVE-11706](https://issues.apache.org/jira/browse/HIVE-11706) | Implement "show create database" |  Trivial | Metastore | Navis | Navis |
 | [HIVE-11699](https://issues.apache.org/jira/browse/HIVE-11699) | Support special characters in quoted table names |  Major | . | Pengcheng Xiong | Pengcheng Xiong |
 | [HIVE-11684](https://issues.apache.org/jira/browse/HIVE-11684) | Implement limit pushdown through outer join in CBO |  Major | CBO | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
@@ -74,11 +82,11 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HIVE-12751](https://issues.apache.org/jira/browse/HIVE-12751) | Fix NVL explain syntax |  Major | UDF | Gopal V | Gopal V |
+| [HIVE-12713](https://issues.apache.org/jira/browse/HIVE-12713) | Miscellaneous improvements in driver compile and execute logging |  Minor | Logging | Chaoyu Tang | Chaoyu Tang |
+| [HIVE-12623](https://issues.apache.org/jira/browse/HIVE-12623) | Add an option to force allocation of fragments on requested nodes |  Major | llap | Siddharth Seth | Siddharth Seth |
 | [HIVE-12496](https://issues.apache.org/jira/browse/HIVE-12496) | Open ServerTransport After MetaStore Initialization |  Minor | Metastore | Nemon Lou | Nemon Lou |
-| [HIVE-12331](https://issues.apache.org/jira/browse/HIVE-12331) | Remove hive.enforce.bucketing & hive.enforce.sorting configs |  Major | Configuration | Ashutosh Chauhan | Ashutosh Chauhan |
-| [HIVE-12329](https://issues.apache.org/jira/browse/HIVE-12329) | Turn on limit pushdown optimization by default |  Major | Configuration | Ashutosh Chauhan | Ashutosh Chauhan |
 | [HIVE-12325](https://issues.apache.org/jira/browse/HIVE-12325) | Turn hive.map.groupby.sorted on by default |  Major | Logical Optimizer | Ashutosh Chauhan | Chetna Chaudhari |
-| [HIVE-12320](https://issues.apache.org/jira/browse/HIVE-12320) | hive.metastore.disallow.incompatible.col.type.changes should be true by default |  Major | Configuration, Types | Ashutosh Chauhan | Ashutosh Chauhan |
 | [HIVE-12319](https://issues.apache.org/jira/browse/HIVE-12319) | Remove HadoopShims::getHadoopConfNames() |  Major | Shims | Ashutosh Chauhan | Aleksei Statkevich |
 | [HIVE-12317](https://issues.apache.org/jira/browse/HIVE-12317) | Emit current database in lineage info |  Minor | . | Jimmy Xiang | Jimmy Xiang |
 | [HIVE-12309](https://issues.apache.org/jira/browse/HIVE-12309) | TableScan should use column stats when available for better data size estimate |  Major | Statistics | Ashutosh Chauhan | Ashutosh Chauhan |
@@ -86,7 +94,6 @@
 | [HIVE-12290](https://issues.apache.org/jira/browse/HIVE-12290) | Native Vector ReduceSink |  Critical | Hive | Matt McCline | Matt McCline |
 | [HIVE-12289](https://issues.apache.org/jira/browse/HIVE-12289) | Make sure slf4j-log4j12 jar is not in classpath |  Major | Logging | Ashutosh Chauhan | Ashutosh Chauhan |
 | [HIVE-12288](https://issues.apache.org/jira/browse/HIVE-12288) | Extend HIVE-11306 changes to apply to Native vectorized map-joins |  Major | Vectorization | Gopal V | Gopal V |
-| [HIVE-12273](https://issues.apache.org/jira/browse/HIVE-12273) | Improve user level explain |  Major | . | Pengcheng Xiong | Pengcheng Xiong |
 | [HIVE-12265](https://issues.apache.org/jira/browse/HIVE-12265) | Generate lineage info only if requested |  Minor | . | Jimmy Xiang | Jimmy Xiang |
 | [HIVE-12236](https://issues.apache.org/jira/browse/HIVE-12236) | Enable SimpleFetchOptimizer for more query types |  Major | Logical Optimizer | Gopal V | Ashutosh Chauhan |
 | [HIVE-12235](https://issues.apache.org/jira/browse/HIVE-12235) | Improve beeline logging for dynamic service discovery |  Major | . | Szehon Ho | Szehon Ho |
@@ -126,6 +133,7 @@
 | [HIVE-11538](https://issues.apache.org/jira/browse/HIVE-11538) | Add an option to skip init script while running tests |  Major | Testing Infrastructure | Ashutosh Chauhan | Ashutosh Chauhan |
 | [HIVE-11536](https://issues.apache.org/jira/browse/HIVE-11536) | %TYPE and %ROWTYPE attributes in data type declaration |  Major | hpl/sql | Dmitry Tolpeko | Dmitry Tolpeko |
 | [HIVE-11534](https://issues.apache.org/jira/browse/HIVE-11534) | Improve validateTableCols error message |  Minor | Hive | Mohit Sabharwal | Mohit Sabharwal |
+| [HIVE-11531](https://issues.apache.org/jira/browse/HIVE-11531) | Add mysql-style LIMIT support to Hive, or improve ROW\_NUMBER performance-wise |  Major | CBO | Sergey Shelukhin | Hui Zheng |
 | [HIVE-11525](https://issues.apache.org/jira/browse/HIVE-11525) | Bucket pruning |  Major | Logical Optimizer | Maciek Kocon | Gopal V |
 | [HIVE-11513](https://issues.apache.org/jira/browse/HIVE-11513) | AvroLazyObjectInspector could handle empty data better |  Major | . | Swarnim Kulkarni | Swarnim Kulkarni |
 | [HIVE-11512](https://issues.apache.org/jira/browse/HIVE-11512) | Hive LDAP Authenticator should also support full DN in Authenticate() |  Minor | HiveServer2 | Naveen Gangam | Naveen Gangam |
@@ -176,17 +184,42 @@
 | [HIVE-8190](https://issues.apache.org/jira/browse/HIVE-8190) | LDAP user match for authentication on hiveserver2 |  Major | Authorization, Clients | LINTE | Naveen Gangam |
 | [HIVE-6758](https://issues.apache.org/jira/browse/HIVE-6758) | Beeline doesn't work with -e option when started in background |  Major | CLI | Johndee Burks | Mohit Sabharwal |
 | [HIVE-2327](https://issues.apache.org/jira/browse/HIVE-2327) | Optimize REGEX UDFs with constant parameter information |  Major | UDF | Adam Kramer | Alexander Pivovarov |
-| [HIVE-1841](https://issues.apache.org/jira/browse/HIVE-1841) |  datanucleus.fixedDatastore should be true in hive-default.xml |  Minor | Configuration, Metastore | Edward Capriolo | Ashutosh Chauhan |
 
 
 ### BUG FIXES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HIVE-12744](https://issues.apache.org/jira/browse/HIVE-12744) | GROUPING\_\_ID failed to be recognized in multiple insert |  Major | Parser | Jay Lee | Pengcheng Xiong |
+| [HIVE-12743](https://issues.apache.org/jira/browse/HIVE-12743) | RCFileInputFormat needs to be registered with kryo |  Major | . | Prasanth Jayachandran | Prasanth Jayachandran |
+| [HIVE-12742](https://issues.apache.org/jira/browse/HIVE-12742) | NULL table comparison within CASE does not work as previous hive versions |  Major | . | Pengcheng Xiong | Pengcheng Xiong |
+| [HIVE-12741](https://issues.apache.org/jira/browse/HIVE-12741) | HS2 ShutdownHookManager holds extra of Driver instance in master/branch-2.0 |  Major | HiveServer2 | Thejas M Nair | Thejas M Nair |
+| [HIVE-12740](https://issues.apache.org/jira/browse/HIVE-12740) | NPE with HS2 when using null input format |  Critical | HiveServer2, Tez | Vikram Dixit K | Vikram Dixit K |
+| [HIVE-12738](https://issues.apache.org/jira/browse/HIVE-12738) | subquery with NOT IN failing due to ClassCastException |  Critical | Hive | Matt McCline | Matt McCline |
+| [HIVE-12735](https://issues.apache.org/jira/browse/HIVE-12735) | Constant folding for WHEN/CASE expression does not set return type correctly |  Major | Logical Optimizer | Prasanth Jayachandran | Prasanth Jayachandran |
+| [HIVE-12728](https://issues.apache.org/jira/browse/HIVE-12728) | Apply DDL restrictions for ORC schema evolution |  Critical | . | Prasanth Jayachandran | Prasanth Jayachandran |
+| [HIVE-12726](https://issues.apache.org/jira/browse/HIVE-12726) | exclude hadoop jars from webhcat hcatalog/share/webhcat/svr/lib |  Major | WebHCat | Eugene Koifman | Eugene Koifman |
+| [HIVE-12722](https://issues.apache.org/jira/browse/HIVE-12722) | Create abstract subclass for HiveAuthorizer to shield implementations from interface changes |  Major | Authorization | Thejas M Nair | Thejas M Nair |
+| [HIVE-12712](https://issues.apache.org/jira/browse/HIVE-12712) | HiveInputFormat may fail to column names to read in some cases |  Major | . | Takahiko Saito | Prasanth Jayachandran |
+| [HIVE-12710](https://issues.apache.org/jira/browse/HIVE-12710) | add better logging for Tez session creation thread failures |  Minor | . | Sergey Shelukhin | Sergey Shelukhin |
+| [HIVE-12699](https://issues.apache.org/jira/browse/HIVE-12699) | LLAP: hive.llap.daemon.work.dirs setting backward compat name doesn't work |  Trivial | llap | Sergey Shelukhin | Sergey Shelukhin |
+| [HIVE-12698](https://issues.apache.org/jira/browse/HIVE-12698) | Remove exposure to internal privilege and principal classes in HiveAuthorizer |  Major | Authorization | Thejas M Nair | Thejas M Nair |
+| [HIVE-12694](https://issues.apache.org/jira/browse/HIVE-12694) | LLAP: Slider destroy semantics require force |  Major | llap | Gopal V | Gopal V |
+| [HIVE-12688](https://issues.apache.org/jira/browse/HIVE-12688) | HIVE-11826 makes hive unusable in properly secured cluster |  Blocker | . | Thejas M Nair | Thejas M Nair |
+| [HIVE-12684](https://issues.apache.org/jira/browse/HIVE-12684) | NPE in stats annotation when all values in decimal column are NULLs |  Major | Statistics | Prasanth Jayachandran | Prasanth Jayachandran |
+| [HIVE-12675](https://issues.apache.org/jira/browse/HIVE-12675) | PerfLogger should log performance metrics at debug level |  Major | . | Hari Sankar Sivarama Subramaniyan | Hari Sankar Sivarama Subramaniyan |
+| [HIVE-12674](https://issues.apache.org/jira/browse/HIVE-12674) | HS2 Tez sessions should have maximum age |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
 | [HIVE-12668](https://issues.apache.org/jira/browse/HIVE-12668) | package script for LLAP was broken by recent config changes |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
+| [HIVE-12667](https://issues.apache.org/jira/browse/HIVE-12667) | Proper fix for HIVE-12473 |  Major | . | Gunther Hagleitner | Gunther Hagleitner |
+| [HIVE-12666](https://issues.apache.org/jira/browse/HIVE-12666) | PCRExprProcFactory.GenericFuncExprProcessor.process() aggressively removes dynamic partition pruner generated synthetic join predicates. |  Blocker | . | Hari Sankar Sivarama Subramaniyan | Hari Sankar Sivarama Subramaniyan |
 | [HIVE-12662](https://issues.apache.org/jira/browse/HIVE-12662) | StackOverflowError in HiveSortJoinReduceRule when limit=0 |  Major | . | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
 | [HIVE-12648](https://issues.apache.org/jira/browse/HIVE-12648) | LLAP IO was disabled in CliDriver by accident (and tests are broken) |  Blocker | . | Sergey Shelukhin | Sergey Shelukhin |
+| [HIVE-12644](https://issues.apache.org/jira/browse/HIVE-12644) | Support for offset in HiveSortMergeRule |  Major | CBO | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
+| [HIVE-12633](https://issues.apache.org/jira/browse/HIVE-12633) | LLAP: package included serde jars |  Major | llap | Takahiko Saito | Sergey Shelukhin |
+| [HIVE-12632](https://issues.apache.org/jira/browse/HIVE-12632) | LLAP: don't use IO elevator for ACID tables |  Blocker | llap | Takahiko Saito | Sergey Shelukhin |
+| [HIVE-12610](https://issues.apache.org/jira/browse/HIVE-12610) | Hybrid Grace Hash Join should fail task faster if processing first batch fails, instead of continuing processing the rest |  Major | Hive | Wei Zheng | Wei Zheng |
 | [HIVE-12608](https://issues.apache.org/jira/browse/HIVE-12608) | Parquet Schema Evolution doesn't work when a column is dropped from array\<struct\<\>\> |  Major | File Formats | Mohammad Kamrul Islam | Mohammad Kamrul Islam |
+| [HIVE-12605](https://issues.apache.org/jira/browse/HIVE-12605) | Implement JDBC Connection.isValid |  Major | HiveServer2, JDBC | Thejas M Nair | Gabor Liptak |
 | [HIVE-12601](https://issues.apache.org/jira/browse/HIVE-12601) | HIVE-11985 change does not use partition deserializer |  Major | Metastore, Query Planning | Thejas M Nair | Sergey Shelukhin |
 | [HIVE-12599](https://issues.apache.org/jira/browse/HIVE-12599) | Add logging to debug rare unexpected refCount error from the LLAP IO layer |  Major | . | Siddharth Seth | Sergey Shelukhin |
 | [HIVE-12598](https://issues.apache.org/jira/browse/HIVE-12598) | LLAP: disable fileId when not supported |  Major | llap | Sergey Shelukhin | Sergey Shelukhin |
@@ -197,14 +230,17 @@
 | [HIVE-12584](https://issues.apache.org/jira/browse/HIVE-12584) | Vectorized join with partition column of type char does not trim spaces |  Critical | Vectorization | Jagruti Varia | Prasanth Jayachandran |
 | [HIVE-12583](https://issues.apache.org/jira/browse/HIVE-12583) | HS2 ShutdownHookManager holds extra of Driver instance |  Major | Locking | Daniel Dai | Daniel Dai |
 | [HIVE-12578](https://issues.apache.org/jira/browse/HIVE-12578) | Hive query failing with error ClassCastException org.apache.hadoop.hive.ql.plan.ExprNodeConstantDesc cannot be cast to org.apache.hadoop.hive.ql.plan.ExprNodeColumnDesc |  Major | Query Planning | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
+| [HIVE-12577](https://issues.apache.org/jira/browse/HIVE-12577) | NPE in LlapTaskCommunicator when unregistering containers |  Critical | llap | Siddharth Seth | Siddharth Seth |
 | [HIVE-12576](https://issues.apache.org/jira/browse/HIVE-12576) | Add missing license headers in preparation for the 2.0 release |  Blocker | . | Sergey Shelukhin | Sergey Shelukhin |
 | [HIVE-12566](https://issues.apache.org/jira/browse/HIVE-12566) | Incorrect result returns when using COALESCE in WHERE condition with LEFT JOIN |  Critical | Query Planning | Chaoyu Tang | Chaoyu Tang |
 | [HIVE-12565](https://issues.apache.org/jira/browse/HIVE-12565) | VectorUDAFCount.aggregateInputSelection does not handle isRepeated case |  Major | . | Matt McCline | Matt McCline |
 | [HIVE-12563](https://issues.apache.org/jira/browse/HIVE-12563) | NullPointerException with 3-way Tez merge join |  Major | Query Processor | Jason Dere | Jason Dere |
 | [HIVE-12557](https://issues.apache.org/jira/browse/HIVE-12557) | NPE while removing entry in LRFU cache |  Major | llap | Siddharth Seth | Sergey Shelukhin |
 | [HIVE-12556](https://issues.apache.org/jira/browse/HIVE-12556) | Ctrl-C in beeline doesn't kill Tez query on HS2 |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
+| [HIVE-12542](https://issues.apache.org/jira/browse/HIVE-12542) | Create HiveRelFactories |  Major | CBO | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
 | [HIVE-12537](https://issues.apache.org/jira/browse/HIVE-12537) | RLEv2 doesn't seem to work |  Critical | File Formats, ORC | Bogdan Raducanu | Prasanth Jayachandran |
 | [HIVE-12532](https://issues.apache.org/jira/browse/HIVE-12532) | LLAP Cache: Uncompressed data cache has NPE |  Critical | llap | Gopal V | Sergey Shelukhin |
+| [HIVE-12526](https://issues.apache.org/jira/browse/HIVE-12526) | PerfLogger for hive compiler and optimizer |  Major | . | Hari Sankar Sivarama Subramaniyan | Hari Sankar Sivarama Subramaniyan |
 | [HIVE-12522](https://issues.apache.org/jira/browse/HIVE-12522) | Wrong FS error during Tez merge files when warehouse and scratchdir are on different FS |  Major | Tez | Jason Dere | Jason Dere |
 | [HIVE-12517](https://issues.apache.org/jira/browse/HIVE-12517) | Beeline's use of failed connection(s) causes failures and leaks. |  Minor | Hive | Naveen Gangam | Naveen Gangam |
 | [HIVE-12512](https://issues.apache.org/jira/browse/HIVE-12512) | Include driver logs in execution-level Operation logs |  Minor | Logging | Mohit Sabharwal | Mohit Sabharwal |
@@ -232,6 +268,7 @@
 | [HIVE-12445](https://issues.apache.org/jira/browse/HIVE-12445) | Tracking of completed dags is a slow memory leak |  Major | llap | Siddharth Seth | Sergey Shelukhin |
 | [HIVE-12444](https://issues.apache.org/jira/browse/HIVE-12444) | Global Limit optimization on ACID table without base directory may throw exception |  Major | Hive, Transactions | Wei Zheng | Wei Zheng |
 | [HIVE-12437](https://issues.apache.org/jira/browse/HIVE-12437) | SMB join in tez fails when one of the tables is empty |  Critical | Tez | Vikram Dixit K | Vikram Dixit K |
+| [HIVE-12435](https://issues.apache.org/jira/browse/HIVE-12435) | SELECT COUNT(CASE WHEN...) GROUPBY returns 1 for 'NULL' in a case of ORC and vectorization is enabled. |  Critical | Vectorization | Takahiko Saito | Matt McCline |
 | [HIVE-12422](https://issues.apache.org/jira/browse/HIVE-12422) | LLAP: add security to Web UI endpoint |  Major | llap | Sergey Shelukhin | Sergey Shelukhin |
 | [HIVE-12418](https://issues.apache.org/jira/browse/HIVE-12418) | HiveHBaseTableInputFormat.getRecordReader() causes Zookeeper connection leak. |  Major | HiveServer2 | Naveen Gangam | Naveen Gangam |
 | [HIVE-12417](https://issues.apache.org/jira/browse/HIVE-12417) | Support for exclamation mark missing in regexp |  Major | . | Olaf Flebbe | Olaf Flebbe |
@@ -244,6 +281,7 @@
 | [HIVE-12385](https://issues.apache.org/jira/browse/HIVE-12385) | schematool failed on MySQL |  Major | . | Takahiko Saito | Sergey Shelukhin |
 | [HIVE-12384](https://issues.apache.org/jira/browse/HIVE-12384) | Union Operator may produce incorrect result on TEZ |  Major | Hive | Laljo John Pullokkaran | Laljo John Pullokkaran |
 | [HIVE-12378](https://issues.apache.org/jira/browse/HIVE-12378) | Exception on HBaseSerDe.serialize binary field |  Major | HBase Handler, Serializers/Deserializers | Yongzhi Chen | Yongzhi Chen |
+| [HIVE-12372](https://issues.apache.org/jira/browse/HIVE-12372) | Improve to support the multibyte character at lpad and rpad |  Major | UDF | Shinichi Yamashita | Shinichi Yamashita |
 | [HIVE-12365](https://issues.apache.org/jira/browse/HIVE-12365) | Added resource path is sent to cluster as an empty string when externally removed |  Major | Hive | Chaoyu Tang | Chaoyu Tang |
 | [HIVE-12364](https://issues.apache.org/jira/browse/HIVE-12364) | Distcp job fails when run under Tez |  Critical | Tez | Prasanth Jayachandran | Prasanth Jayachandran |
 | [HIVE-12363](https://issues.apache.org/jira/browse/HIVE-12363) | Incorrect results with orc ppd across ORC versions |  Major | . | Ashutosh Chauhan | Gopal V |
@@ -377,6 +415,7 @@
 | [HIVE-11889](https://issues.apache.org/jira/browse/HIVE-11889) | Add unit test for HIVE-11449 |  Major | Hive | Wei Zheng | Wei Zheng |
 | [HIVE-11878](https://issues.apache.org/jira/browse/HIVE-11878) | ClassNotFoundException can possibly  occur if multiple jars are registered one at a time in Hive |  Major | Hive | Ratandeep Ratti | Ratandeep Ratti |
 | [HIVE-11875](https://issues.apache.org/jira/browse/HIVE-11875) | JDBC Driver does not honor delegation token mechanism when readings params from ZooKeeper |  Major | JDBC | Vaibhav Gumashta | Vaibhav Gumashta |
+| [HIVE-11865](https://issues.apache.org/jira/browse/HIVE-11865) | Disable Hive PPD optimizer when CBO has optimized the plan |  Major | CBO, Logical Optimizer | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
 | [HIVE-11860](https://issues.apache.org/jira/browse/HIVE-11860) | StatsNoJobTask fails to collect fast stats when table have subdirectories |  Major | . | Prasanth Jayachandran | Prasanth Jayachandran |
 | [HIVE-11856](https://issues.apache.org/jira/browse/HIVE-11856) | allow split strategies to run on threadpool |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
 | [HIVE-11849](https://issues.apache.org/jira/browse/HIVE-11849) | NPE in HiveHBaseTableShapshotInputFormat in query with just count(\*) |  Major | HBase Handler | Jason Dere | Enis Soztutar |
@@ -422,6 +461,7 @@
 | [HIVE-11726](https://issues.apache.org/jira/browse/HIVE-11726) | Pushed IN predicates to the metastore |  Major | . | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
 | [HIVE-11723](https://issues.apache.org/jira/browse/HIVE-11723) | Incorrect string literal escaping |  Major | . | Uri Laserson | Yongzhi Chen |
 | [HIVE-11721](https://issues.apache.org/jira/browse/HIVE-11721) | non-ascii characters shows improper with "insert into" |  Major | Database/Schema | Jun Yin | Aleksei Statkevich |
+| [HIVE-11718](https://issues.apache.org/jira/browse/HIVE-11718) | JDBC ResultSet.setFetchSize(0) returns no results |  Major | JDBC | Son Nguyen | Aleksei Statkevich |
 | [HIVE-11714](https://issues.apache.org/jira/browse/HIVE-11714) | Turn off hybrid grace hash join for cross product join |  Major | Hive | Wei Zheng | Wei Zheng |
 | [HIVE-11712](https://issues.apache.org/jira/browse/HIVE-11712) | Duplicate groupby keys cause ClassCastException |  Major | . | Jimmy Xiang | Jimmy Xiang |
 | [HIVE-11710](https://issues.apache.org/jira/browse/HIVE-11710) | Beeline embedded mode doesn't output query progress after setting any session property |  Major | Beeline | Aihua Xu | Aihua Xu |
@@ -511,6 +551,7 @@
 | [HIVE-11375](https://issues.apache.org/jira/browse/HIVE-11375) | Broken processing of queries containing NOT (x IS NOT NULL and x \<\> 0) |  Major | Logical Optimizer | Mariusz Sakowski | Aihua Xu |
 | [HIVE-11372](https://issues.apache.org/jira/browse/HIVE-11372) | join with between predicate comparing integer types returns no rows when ORC format used |  Major | . | N Campbell | Matt McCline |
 | [HIVE-11371](https://issues.apache.org/jira/browse/HIVE-11371) | Null pointer exception for nested table query when using ORC versus text |  Major | Vectorization | N Campbell | Matt McCline |
+| [HIVE-11369](https://issues.apache.org/jira/browse/HIVE-11369) | Mapjoins in HiveServer2 fail when jmxremote is used |  Major | HiveServer2 | David Morel | Jimmy Xiang |
 | [HIVE-11356](https://issues.apache.org/jira/browse/HIVE-11356) | SMB join on tez fails when one of the tables is empty |  Major | . | Vikram Dixit K | Vikram Dixit K |
 | [HIVE-11344](https://issues.apache.org/jira/browse/HIVE-11344) | HIVE-9845 makes HCatSplit.write modify the split so that PartInfo objects are unusable after it |  Major | . | Sushanth Sowmyan | Sushanth Sowmyan |
 | [HIVE-11340](https://issues.apache.org/jira/browse/HIVE-11340) | Create ORC based table using like clause doesn't copy compression property |  Minor | File Formats | Gaurav Kohli | Yongzhi Chen |
@@ -637,7 +678,7 @@
 | [HIVE-10736](https://issues.apache.org/jira/browse/HIVE-10736) | HiveServer2 shutdown of cached tez app-masters is not clean |  Major | HiveServer2 | Gopal V | Vikram Dixit K |
 | [HIVE-10734](https://issues.apache.org/jira/browse/HIVE-10734) | Remove COLUMNS\_OLD table from a schema definition file of PostgreSQL |  Major | Metastore | Shinichi Yamashita | Shinichi Yamashita |
 | [HIVE-10732](https://issues.apache.org/jira/browse/HIVE-10732) | Hive JDBC driver does not close operation for metadata queries |  Major | JDBC | Mala Chikka Kempanna | Chaoyu Tang |
-| [HIVE-10731](https://issues.apache.org/jira/browse/HIVE-10731) | NullPointerException in HiveParser.g |  Minor | Query Planning | Xiu(Joe) Guo | Pengcheng Xiong |
+| [HIVE-10731](https://issues.apache.org/jira/browse/HIVE-10731) | NullPointerException in HiveParser.g |  Minor | Query Planning | Xiu (Joe) Guo | Pengcheng Xiong |
 | [HIVE-10728](https://issues.apache.org/jira/browse/HIVE-10728) | deprecate unix\_timestamp(void) and make it deterministic |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
 | [HIVE-10726](https://issues.apache.org/jira/browse/HIVE-10726) | Hive JDBC setQueryTimeout should not throw exception to make it work with JMeter |  Major | . | Prasanth Jayachandran | Prasanth Jayachandran |
 | [HIVE-10722](https://issues.apache.org/jira/browse/HIVE-10722) | external table creation with msck in Hive can create unusable partition |  Critical | . | Sergey Shelukhin | Sergey Shelukhin |
@@ -726,6 +767,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HIVE-12697](https://issues.apache.org/jira/browse/HIVE-12697) | Remove deprecated post option from webhcat test files |  Major | WebHCat | Aswathy Chellammal Sreekumar | Aswathy Chellammal Sreekumar |
 | [HIVE-12560](https://issues.apache.org/jira/browse/HIVE-12560) | Few tests hang forever |  Major | Tests | Ashutosh Chauhan | Ashutosh Chauhan |
 | [HIVE-12213](https://issues.apache.org/jira/browse/HIVE-12213) | Investigating the test failure TestHCatClient.testTableSchemaPropagation |  Minor | Test | Aihua Xu | Aleksei Statkevich |
 | [HIVE-11962](https://issues.apache.org/jira/browse/HIVE-11962) | Improve windowing\_windowspec2.q tests to return consistent results |  Trivial | Test | Aihua Xu | Aihua Xu |
@@ -745,6 +787,9 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HIVE-12739](https://issues.apache.org/jira/browse/HIVE-12739) | Log4j2.x needs HADOOP\_USER\_CLASSPATH\_FIRST to be set |  Major | Logging | Prasanth Jayachandran | Prasanth Jayachandran |
+| [HIVE-12711](https://issues.apache.org/jira/browse/HIVE-12711) | Document howto disable web ui in config of hive.server2.webui.port |  Major | HiveServer2 | Thejas M Nair | Thejas M Nair |
+| [HIVE-12663](https://issues.apache.org/jira/browse/HIVE-12663) | Support quoted table names/columns when ACID is on |  Major | Transactions | Pengcheng Xiong | Pengcheng Xiong |
 | [HIVE-12574](https://issues.apache.org/jira/browse/HIVE-12574) | windowing function returns incorrect result when the window size is larger than the partition size |  Major | PTF-Windowing | Aihua Xu | Aihua Xu |
 | [HIVE-12525](https://issues.apache.org/jira/browse/HIVE-12525) | Cleanup unused metrics in HMS |  Major | . | Szehon Ho | Szehon Ho |
 | [HIVE-12497](https://issues.apache.org/jira/browse/HIVE-12497) | Remove HADOOP\_CLIENT\_OPTS from hive script |  Major | Logging | Prasanth Jayachandran | Prasanth Jayachandran |
@@ -756,6 +801,7 @@
 | [HIVE-12297](https://issues.apache.org/jira/browse/HIVE-12297) | CBO: Calcite Operator To Hive Operator (Calcite Return Path) : dealing with '$' in typeInfo |  Major | CBO | Pengcheng Xiong | Pengcheng Xiong |
 | [HIVE-12284](https://issues.apache.org/jira/browse/HIVE-12284) | Merge master to Spark branch 10/28/2015 [Spark Branch] |  Major | Spark | Xuefu Zhang | Xuefu Zhang |
 | [HIVE-12283](https://issues.apache.org/jira/browse/HIVE-12283) | Fix test failures after HIVE-11844 [Spark Branch] |  Major | Spark | Rui Li | Rui Li |
+| [HIVE-12273](https://issues.apache.org/jira/browse/HIVE-12273) | Improve user level explain |  Major | . | Pengcheng Xiong | Pengcheng Xiong |
 | [HIVE-12272](https://issues.apache.org/jira/browse/HIVE-12272) | CBO: Calcite Operator To Hive Operator (Calcite Return Path) : columnPruner prunes everything when union is the last operator before FS |  Major | CBO | Pengcheng Xiong | Pengcheng Xiong |
 | [HIVE-12271](https://issues.apache.org/jira/browse/HIVE-12271) | Add metrics around HS2 query execution and job submission for Hive |  Major | HiveServer2 | Lenni Kuff | Szehon Ho |
 | [HIVE-12196](https://issues.apache.org/jira/browse/HIVE-12196) | NPE when converting bad timestamp value |  Major | Hive | Ryan Blue | Aihua Xu |
@@ -890,17 +936,15 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HIVE-10427](https://issues.apache.org/jira/browse/HIVE-10427) | collect\_list() and collect\_set() should accept struct types as argument |  Major | UDF | Alexander Behm | Chao Sun |
+| [HIVE-12658](https://issues.apache.org/jira/browse/HIVE-12658) | Task rejection by an llap daemon spams the log with RejectedExecutionExceptions |  Major | . | Siddharth Seth | Prasanth Jayachandran |
 | [HIVE-12520](https://issues.apache.org/jira/browse/HIVE-12520) | Fix schema\_evol\* tests on master |  Major | Tests | Ashutosh Chauhan | Ashutosh Chauhan |
-| [HIVE-12436](https://issues.apache.org/jira/browse/HIVE-12436) | Default hive.metastore.schema.verification to true |  Major | Metastore | Ashutosh Chauhan | Ashutosh Chauhan |
 | [HIVE-12434](https://issues.apache.org/jira/browse/HIVE-12434) | Merge spark into master 11/17/1015 |  Major | Spark | Xuefu Zhang | Xuefu Zhang |
 | [HIVE-12430](https://issues.apache.org/jira/browse/HIVE-12430) | Remove remaining reference to the hadoop-2 profile |  Major | . | Siddharth Seth | Siddharth Seth |
-| [HIVE-12413](https://issues.apache.org/jira/browse/HIVE-12413) | Default mode for hive.mapred.mode should be strict |  Major | Configuration | Ashutosh Chauhan | Ashutosh Chauhan |
 | [HIVE-12411](https://issues.apache.org/jira/browse/HIVE-12411) | Remove counter based stats collection mechanism |  Major | Statistics | Pengcheng Xiong | Pengcheng Xiong |
 | [HIVE-12383](https://issues.apache.org/jira/browse/HIVE-12383) | Update golden file for cbo\_rp\_annotate\_stats\_groupby test |  Major | Tests | Ashutosh Chauhan | Ashutosh Chauhan |
 | [HIVE-12256](https://issues.apache.org/jira/browse/HIVE-12256) | Move LLAP registry into llap-client module |  Major | . | Siddharth Seth | Siddharth Seth |
 | [HIVE-12239](https://issues.apache.org/jira/browse/HIVE-12239) | Constants in hive.common.metrics.common.MetricsConstant are not final |  Trivial | . | Aleksei Statkevich | Aleksei Statkevich |
 | [HIVE-12237](https://issues.apache.org/jira/browse/HIVE-12237) | Use slf4j as logging facade |  Major | Logging | Ashutosh Chauhan | Ashutosh Chauhan |
-| [HIVE-12164](https://issues.apache.org/jira/browse/HIVE-12164) | Remove jdbc stats collection mechanism |  Major | Statistics | Ashutosh Chauhan | Ashutosh Chauhan |
 | [HIVE-12010](https://issues.apache.org/jira/browse/HIVE-12010) | Tests should use FileSystem based stats collection mechanism |  Major | Statistics | Ashutosh Chauhan | Ashutosh Chauhan |
 | [HIVE-11754](https://issues.apache.org/jira/browse/HIVE-11754) | Not reachable code parts in StatsUtils |  Trivial | . | Navis | Navis |
 | [HIVE-11582](https://issues.apache.org/jira/browse/HIVE-11582) | Remove conf variable hive.mapred.supports.subdirectories |  Major | Configuration | Ashutosh Chauhan | Chetna Chaudhari |

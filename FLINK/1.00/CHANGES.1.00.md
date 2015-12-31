@@ -18,7 +18,7 @@
 -->
 # Apache Flink Changelog
 
-## Release 1.00 - Unreleased (as of 2015-12-16)
+## Release 1.00 - Unreleased (as of 2015-12-31)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -48,6 +48,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [FLINK-3180](https://issues.apache.org/jira/browse/FLINK-3180) | MemoryLogger does not log direct memory |  Major | Distributed Runtime | Ufuk Celebi | Ufuk Celebi |
 | [FLINK-2769](https://issues.apache.org/jira/browse/FLINK-2769) | Web dashboard port not configurable on client side |  Critical | Webfrontend | Ufuk Celebi | Ufuk Celebi |
 
 

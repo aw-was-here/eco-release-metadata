@@ -23,6 +23,20 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
+* [HIVE-12740](https://issues.apache.org/jira/browse/HIVE-12740) | *Critical* | **NPE with HS2 when using null input format**
+
+HIVE-12740: NPE with HS2 when using null input format (Vikram Dixit K via Gunther Hagleitner)
+
+
+---
+
+* [HIVE-12694](https://issues.apache.org/jira/browse/HIVE-12694) | *Major* | **LLAP: Slider destroy semantics require force**
+
+LLAP Slider registry cleanup requires destroy with --force
+
+
+---
+
 * [HIVE-12609](https://issues.apache.org/jira/browse/HIVE-12609) | *Major* | **Remove javaXML serialization**
 
 **WARNING: No release note provided for this incompatible change.**
@@ -44,9 +58,23 @@ Any extensions of org.apache.hive.hcatalog.streaming.AbstractRecordWriter will n
 
 ---
 
+* [HIVE-12436](https://issues.apache.org/jira/browse/HIVE-12436) | *Major* | **Default hive.metastore.schema.verification to true**
+
+**WARNING: No release note provided for this incompatible change.**
+
+
+---
+
 * [HIVE-12434](https://issues.apache.org/jira/browse/HIVE-12434) | *Major* | **Merge spark into master 11/17/1015**
 
 Merge introduced some configurations.
+
+
+---
+
+* [HIVE-12413](https://issues.apache.org/jira/browse/HIVE-12413) | *Major* | **Default mode for hive.mapred.mode should be strict**
+
+**WARNING: No release note provided for this incompatible change.**
 
 
 ---
@@ -61,6 +89,27 @@ HIVE-12399:  Filter out NULLs in the Native Vector MapJoin operators.
 * [HIVE-12363](https://issues.apache.org/jira/browse/HIVE-12363) | *Major* | **Incorrect results with orc ppd across ORC versions**
 
 "HIVE-12363: Incorrect results with orc ppd across ORC versions (Gopal V, reviewed by Prasanth Jayachandran)"
+
+
+---
+
+* [HIVE-12331](https://issues.apache.org/jira/browse/HIVE-12331) | *Major* | **Remove hive.enforce.bucketing & hive.enforce.sorting configs**
+
+**WARNING: No release note provided for this incompatible change.**
+
+
+---
+
+* [HIVE-12329](https://issues.apache.org/jira/browse/HIVE-12329) | *Major* | **Turn on limit pushdown optimization by default**
+
+**WARNING: No release note provided for this incompatible change.**
+
+
+---
+
+* [HIVE-12320](https://issues.apache.org/jira/browse/HIVE-12320) | *Major* | **hive.metastore.disallow.incompatible.col.type.changes should be true by default**
+
+**WARNING: No release note provided for this incompatible change.**
 
 
 ---
@@ -124,6 +173,13 @@ Reading legacy ACID formats (prior to 1.3.0) no longer results in an NPE.
 * [HIVE-12184](https://issues.apache.org/jira/browse/HIVE-12184) | *Major* | **DESCRIBE of fully qualified table fails when db and table name match and non-default database is in use**
 
 Document the incompatible change.
+
+
+---
+
+* [HIVE-12164](https://issues.apache.org/jira/browse/HIVE-12164) | *Major* | **Remove jdbc stats collection mechanism**
+
+**WARNING: No release note provided for this incompatible change.**
 
 
 ---
@@ -457,6 +513,13 @@ See:  http://docs.oracle.com/javase/7/docs/api/java/sql/DatabaseMetaData.html#ge
 * [HIVE-6026](https://issues.apache.org/jira/browse/HIVE-6026) | *Minor* | **Ldap Authenticator should be more generic with BindDN**
 
 Hive LDAP Authenticator now has filter support for LDAP users and groups.
+
+
+---
+
+* [HIVE-1841](https://issues.apache.org/jira/browse/HIVE-1841) | *Minor* | ** datanucleus.fixedDatastore should be true in hive-default.xml**
+
+**WARNING: No release note provided for this incompatible change.**
 
 
 

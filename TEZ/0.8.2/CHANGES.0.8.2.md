@@ -18,12 +18,13 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.8.2 - Unreleased (as of 2015-12-16)
+## Release 0.8.2 - Unreleased (as of 2015-12-31)
 
 ### INCOMPATIBLE CHANGES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-2972](https://issues.apache.org/jira/browse/TEZ-2972) | Avoid task rescheduling when a node turns unhealthy |  Major | . | Jason Lowe | Jason Lowe |
 | [TEZ-2949](https://issues.apache.org/jira/browse/TEZ-2949) | Allow duplicate dag names within session for Tez |  Major | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-2948](https://issues.apache.org/jira/browse/TEZ-2948) | Stop using dagName in the dagComplete notification to TaskCommunicators |  Major | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-2679](https://issues.apache.org/jira/browse/TEZ-2679) | Admin forms of launch env settings |  Major | . | Jason Lowe | Jonathan Eagles |
@@ -45,6 +46,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-3011](https://issues.apache.org/jira/browse/TEZ-3011) | Link Vertex Name in Dag Tasks/Task Attempts to Vertex |  Major | UI | Jonathan Eagles | Jonathan Eagles |
 | [TEZ-2935](https://issues.apache.org/jira/browse/TEZ-2935) | Add MR slow start translation for ShuffleVertexManager |  Major | . | Jonathan Eagles | Jonathan Eagles |
 | [TEZ-2886](https://issues.apache.org/jira/browse/TEZ-2886) | Ability to merge AM credentials with DAG credentials |  Major | . | Jason Lowe | Jason Lowe |
 | [TEZ-2879](https://issues.apache.org/jira/browse/TEZ-2879) | While grouping splits, allow an alternate list of preferred locations to be provided per split |  Major | . | Siddharth Seth | Siddharth Seth |
@@ -58,6 +60,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-3017](https://issues.apache.org/jira/browse/TEZ-3017) | HistoryACLManager does not have a close method for cleanup |  Major | . | Bikas Saha | Bikas Saha |
 | [TEZ-2995](https://issues.apache.org/jira/browse/TEZ-2995) | Timeline primary filter should only be on callerId and not type |  Major | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-2990](https://issues.apache.org/jira/browse/TEZ-2990) | Change test-patch.sh to run through all tests, despite failures in upstream modules |  Major | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-2987](https://issues.apache.org/jira/browse/TEZ-2987) | TestVertexImpl.testTez2684 fails |  Major | . | Jeff Zhang | Bikas Saha |
@@ -82,7 +85,9 @@
 | [TEZ-2924](https://issues.apache.org/jira/browse/TEZ-2924) | Framework for Hadoop shims |  Major | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-2923](https://issues.apache.org/jira/browse/TEZ-2923) | Tez Live UI counters view empty for vertices, tasks, attempts |  Major | UI | Jonathan Eagles | Jonathan Eagles |
 | [TEZ-2922](https://issues.apache.org/jira/browse/TEZ-2922) | Tez Live UI gives access denied for admins |  Major | . | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-2914](https://issues.apache.org/jira/browse/TEZ-2914) | Ability to limit vertex concurrency |  Major | . | Jonathan Eagles | Bikas Saha |
 | [TEZ-2911](https://issues.apache.org/jira/browse/TEZ-2911) | Null location Strings can cause problems with GroupedSplit serialization |  Minor | . | Siddharth Seth | Siddharth Seth |
+| [TEZ-2910](https://issues.apache.org/jira/browse/TEZ-2910) | Set caller context for tracing ( integrate with HDFS-9184 ) |  Major | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-2909](https://issues.apache.org/jira/browse/TEZ-2909) | Tez UI: Application link in All DAGs table is disable when applicationhistory is unavailable. |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2908](https://issues.apache.org/jira/browse/TEZ-2908) | Tez UI: Errors are logged, but not displayed in the UI when AM fetch fails. |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2907](https://issues.apache.org/jira/browse/TEZ-2907) | NPE in IFile.Reader.getLength during final merge operation |  Major | . | Rajesh Balamohan | Rajesh Balamohan |

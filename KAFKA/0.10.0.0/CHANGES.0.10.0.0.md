@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.10.0.0 - Unreleased (as of 2015-12-16)
+## Release 0.10.0.0 - Unreleased (as of 2015-12-31)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -58,7 +58,6 @@
 | [KAFKA-1720](https://issues.apache.org/jira/browse/KAFKA-1720) | [Renaming / Comments] Delayed Operations |  Major | . | Guozhang Wang | Guozhang Wang |
 | [KAFKA-1536](https://issues.apache.org/jira/browse/KAFKA-1536) | Change the status of the JIRA to "Patch Available" in the kafka-review-tool |  Major | . | Guozhang Wang | Manikumar Reddy |
 | [KAFKA-1445](https://issues.apache.org/jira/browse/KAFKA-1445) | New Producer should send all partitions that have non-empty batches when on of them is ready |  Major | . | Guozhang Wang |  |
-| [KAFKA-1377](https://issues.apache.org/jira/browse/KAFKA-1377) | transient unit test failure in LogOffsetTest |  Major | core | Jun Rao | Jun Rao |
 | [KAFKA-1320](https://issues.apache.org/jira/browse/KAFKA-1320) | Change compression.codec to compression.type in new producer configs of system tests |  Major | . | Guozhang Wang | Guozhang Wang |
 | [KAFKA-1305](https://issues.apache.org/jira/browse/KAFKA-1305) | Controller can hang on controlled shutdown with auto leader balance enabled |  Blocker | . | Joel Koshy | Sriharsha Chintalapani |
 | [KAFKA-1258](https://issues.apache.org/jira/browse/KAFKA-1258) | Delete temporary data directory after unit test finishes |  Major | . | Guozhang Wang | Manikumar Reddy |

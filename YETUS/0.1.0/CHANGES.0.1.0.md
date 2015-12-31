@@ -147,6 +147,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [YETUS-228](https://issues.apache.org/jira/browse/YETUS-228) | Release 0.1.0 |  Major | website and documentation | Sean Busbey | Sean Busbey |
 | [YETUS-216](https://issues.apache.org/jira/browse/YETUS-216) | create script to make release artifacts |  Major | build | Sean Busbey | Sean Busbey |
 | [YETUS-192](https://issues.apache.org/jira/browse/YETUS-192) | don't store intermediate markdown files for precommit's shelldocs. |  Major | build, website and documentation | Sean Busbey | Sean Busbey |
 | [YETUS-162](https://issues.apache.org/jira/browse/YETUS-162) | rename 'latest' documentation to 'in-progress' to denote non-release status. |  Major | website and documentation | Sean Busbey | Sean Busbey |

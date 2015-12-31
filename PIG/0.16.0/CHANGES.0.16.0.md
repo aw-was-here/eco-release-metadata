@@ -18,7 +18,7 @@
 -->
 # Apache Pig Changelog
 
-## Release 0.16.0 - Unreleased (as of 2015-12-16)
+## Release 0.16.0 - Unreleased (as of 2015-12-31)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -69,6 +69,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [PIG-4760](https://issues.apache.org/jira/browse/PIG-4760) | TezDAGStats.convertToHadoopCounters is not used, but impose MR counter limit |  Major | tez | Daniel Dai | Daniel Dai |
 | [PIG-4755](https://issues.apache.org/jira/browse/PIG-4755) | Typo in runpigmix script |  Major | . | Mit Desai | Mit Desai |
 | [PIG-4736](https://issues.apache.org/jira/browse/PIG-4736) | Removing empty keys in UDFContext broke one LoadFunc |  Major | tez | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-4733](https://issues.apache.org/jira/browse/PIG-4733) | Avoid NullPointerException in JVMReuseImpl for builtin classes |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
