@@ -18,7 +18,7 @@
 -->
 # Apache Flink Changelog
 
-## Release 1.0.0 - Unreleased (as of 2015-12-31)
+## Release 1.0.0 - Unreleased (as of 2016-01-04)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -47,6 +47,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [FLINK-3194](https://issues.apache.org/jira/browse/FLINK-3194) | Remove web client |  Major | Webfrontend | Stephan Ewen | Stephan Ewen |
 | [FLINK-3181](https://issues.apache.org/jira/browse/FLINK-3181) | The vertex-centric SSSP example and library method send unnecessary messages during the first superstep |  Major | Gelly | Vasia Kalavri | Vasia Kalavri |
 | [FLINK-3147](https://issues.apache.org/jira/browse/FLINK-3147) | HadoopOutputFormatBase should expose fields as protected |  Minor | . | Nick Dimiduk |  |
 | [FLINK-3131](https://issues.apache.org/jira/browse/FLINK-3131) | Expose checkpoint metrics |  Major | Webfrontend | Ufuk Celebi | Ufuk Celebi |
@@ -96,6 +97,7 @@
 | [FLINK-3173](https://issues.apache.org/jira/browse/FLINK-3173) | Bump org.apache.httpcomponents.httpclient version to 4.2.6 |  Minor | . | Till Rohrmann | Till Rohrmann |
 | [FLINK-3171](https://issues.apache.org/jira/browse/FLINK-3171) | Consolidate zoo of wrapper classes for input/output-stream to data-input/output-view |  Major | . | Stephan Ewen | Stephan Ewen |
 | [FLINK-3166](https://issues.apache.org/jira/browse/FLINK-3166) | The first program in ObjectReuseITCase has the wrong expected result, and it succeeds |  Critical | Distributed Runtime, Documentation, Tests | Gabor Gevay | Greg Hogan |
+| [FLINK-3157](https://issues.apache.org/jira/browse/FLINK-3157) | Web frontend json files contain author attribution |  Trivial | Webfrontend | Ufuk Celebi | Stephan Ewen |
 | [FLINK-3156](https://issues.apache.org/jira/browse/FLINK-3156) | FlinkKafkaConsumer fails with NPE on notifyCheckpointComplete |  Major | Kafka Connector | Till Rohrmann | Robert Metzger |
 | [FLINK-3145](https://issues.apache.org/jira/browse/FLINK-3145) | Storm examples can't be run without flink-java as dependency |  Major | Build System, Java API, Storm Compatibility | Maximilian Michels | Maximilian Michels |
 | [FLINK-3143](https://issues.apache.org/jira/browse/FLINK-3143) | Update Clojure Cleaner's ASM references to ASM5 |  Major | Local Runtime | Maximilian Michels | Maximilian Michels |
@@ -182,6 +184,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [FLINK-2429](https://issues.apache.org/jira/browse/FLINK-2429) | Remove the "enableCheckpointing()" without interval variant |  Minor | Streaming | Stephan Ewen | Stephan Ewen |
+| [FLINK-3186](https://issues.apache.org/jira/browse/FLINK-3186) | Deprecate DataSink.sortLocalOutput() methods |  Major | DataSet API | Fabian Hueske | Suneel Marthi |
 | [FLINK-3113](https://issues.apache.org/jira/browse/FLINK-3113) | Remove unused global order methods from GenericDataSinkBase |  Minor | Core | Fabian Hueske | Fabian Hueske |
 | [FLINK-3112](https://issues.apache.org/jira/browse/FLINK-3112) | Remove unused RecordModelPostPass class |  Trivial | Optimizer | Fabian Hueske | Fabian Hueske |
 
