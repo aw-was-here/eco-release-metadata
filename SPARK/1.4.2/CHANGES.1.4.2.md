@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 1.4.2 - Unreleased (as of 2016-01-04)
+## Release 1.4.2 - Unreleased (as of 2016-01-08)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -63,6 +63,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [SPARK-12410](https://issues.apache.org/jira/browse/SPARK-12410) | "." and "\|" used for String.split directly |  Minor | Streaming | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-12087](https://issues.apache.org/jira/browse/SPARK-12087) | DStream.saveAsHadoopFiles can throw ConcurrentModificationException |  Major | Streaming | Tathagata Das | Tathagata Das |
+| [SPARK-12006](https://issues.apache.org/jira/browse/SPARK-12006) | GaussianMixture.train crashes if an initial model is not None |  Major | MLlib, PySpark | Maciej Szymkiewicz | Maciej Szymkiewicz |
 | [SPARK-11999](https://issues.apache.org/jira/browse/SPARK-11999) | ThreadUtils.newDaemonCachedThreadPool(prefix, maxThreadNumber)  has unexpected behavior |  Major | Spark Core | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-11974](https://issues.apache.org/jira/browse/SPARK-11974) | Not all the  temp dirs had been deleted when the JVM exits |  Major | Spark Core | Zhongshuai Pei | Zhongshuai Pei |
 | [SPARK-11812](https://issues.apache.org/jira/browse/SPARK-11812) | pyspark reduceByKeyAndWindow does not handle unspecified invFunc (invFunc=None) |  Major | PySpark | David Tolpin | David Tolpin |
@@ -123,6 +124,7 @@
 | [SPARK-7419](https://issues.apache.org/jira/browse/SPARK-7419) | Flaky test: o.a.s.streaming.CheckpointSuite |  Critical | Tests | Andrew Or | Shixiong Zhu |
 | [SPARK-4816](https://issues.apache.org/jira/browse/SPARK-4816) | Maven profile netlib-lgpl does not work |  Minor | Build | Guillaume Pitel | Sean Owen |
 | [SPARK-3190](https://issues.apache.org/jira/browse/SPARK-3190) | Creation of large graph(\> 2.15 B nodes) seems to be broken:possible overflow somewhere |  Critical | GraphX | npanj | Ankur Dave |
+| [SPARK-2168](https://issues.apache.org/jira/browse/SPARK-2168) | History Server renered page not suitable for load balancing |  Minor | Spark Core | Lukasz Jastrzebski | Lukasz Jastrzebski |
 
 
 ### TESTS:
@@ -150,5 +152,6 @@
 | [SPARK-8927](https://issues.apache.org/jira/browse/SPARK-8927) | Doc format wrong for some config descriptions |  Trivial | Documentation | Jon Alter | Jon Alter |
 | [SPARK-7707](https://issues.apache.org/jira/browse/SPARK-7707) | User guide and example code for KernelDensity |  Major | Documentation, MLlib | Xiangrui Meng | Sandy Ryza |
 | [SPARK-7555](https://issues.apache.org/jira/browse/SPARK-7555) | User guide update for ElasticNet |  Major | ML | Joseph K. Bradley | Shuo Xiang |
+| [SPARK-7084](https://issues.apache.org/jira/browse/SPARK-7084) | Improve the saveAsTable documentation |  Minor | SQL | madhukara phatak | madhukara phatak |
 
 

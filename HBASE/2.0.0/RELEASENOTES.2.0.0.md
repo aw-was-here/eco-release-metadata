@@ -23,6 +23,24 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
+* [HBASE-15073](https://issues.apache.org/jira/browse/HBASE-15073) | *Major* | **Finer grained control over normalization actions for RegionNormalizer**
+
+The NORMALIZATION\_ENABLED\_KEY attribute for table has been renamed NORMALIZATION\_MODE whose value represents the types of action allowed for normalization.
+To enable normalization for the table, you can specify 'M' for merging, 'S' for splitting or "MS" for splitting / merging.
+Leave empty to disable normalization.
+
+
+---
+
+* [HBASE-15027](https://issues.apache.org/jira/browse/HBASE-15027) | *Major* | **Refactor the way the CompactedHFileDischarger threads are created**
+
+The property 'hbase.hfile.compactions.discharger.interval' has been renamed to 'hbase.hfile.compaction.discharger.interval' that describes the interval after which the compaction discharger chore service should run.
+The property 'hbase.hfile.compaction.discharger.thread.count' describes the thread count that does the compaction discharge work. 
+The CompactedHFilesDischarger is a chore service now started as part of the RegionServer and this chore service iterates over all the onlineRegions in that RS and uses the RegionServer's executor service to launch a set of threads that does this job of compaction files clean up.
+
+
+---
+
 * [HBASE-15018](https://issues.apache.org/jira/browse/HBASE-15018) | *Major* | **Inconsistent way of handling TimeoutException in the rpc client implementations**
 
 When using the new AsyncRpcClient introduced in HBase 1.1.0 (HBASE-12684), time outs now result in an IOException wrapped around a CallTimeoutException instead of a bare CallTimeoutException. This change makes the AsyncRpcClient behave the same as the default HBase 1.y RPC client implementation.
@@ -116,6 +134,15 @@ Adds a timeout to server read from clients. Adds new configs hbase.thrift.server
 In HBASE-14906 we use "hbase.hregion.memstore.flush.size/column\_family\_number" as the default threshold for memstore flush instead of the fixed value through "hbase.hregion.percolumnfamilyflush.size.lower.bound" property, which makes  the default threshold more flexible to various use case. We also introduce a new property in name of "hbase.hregion.percolumnfamilyflush.size.lower.bound.min" with 16M as the default value to avoid small flush in cases like hundreds of column families.
 
 After this change setting "hbase.hregion.percolumnfamilyflush.size.lower.bound" in hbase-site.xml won't take effect anymore, but expert users could still set this property in table descriptor to override the default value just as before
+
+
+---
+
+* [HBASE-14888](https://issues.apache.org/jira/browse/HBASE-14888) | *Major* | **ClusterSchema: Add Namespace Operations**
+
+This patch changes the semantic around namespace create/delete/modify when coprocessor asks that the invocation be by-passed. Previous the by-pass was done silently -- the method would just return with no indication as to whether by-pass route had been taken or not.  This patch adds throwing of a BypassCoprocessorException which is thrown if we have been asked to bypass a call.
+
+The bypass facility has been in place since hbase 1.0.0 when namespace creation/deletion, etc.., was originally added in HBASE-8408 (HBASE-15071 is about addressing bypass handling in a general way)
 
 
 ---

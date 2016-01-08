@@ -18,7 +18,7 @@
 -->
 # Apache Orc Changelog
 
-## Release 1.0.0 - Unreleased (as of 2016-01-04)
+## Release 1.0.0 - Unreleased (as of 2016-01-08)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -43,6 +43,8 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [ORC-36](https://issues.apache.org/jira/browse/ORC-36) | create a program that lets developers create ORC files from future versions |  Major | . | Owen O'Malley | Owen O'Malley |
+| [ORC-29](https://issues.apache.org/jira/browse/ORC-29) | ColumnPrinter should be able to print only specified columns |  Major | . | Aliaksei Sandryhaila | Aliaksei Sandryhaila |
 | [ORC-22](https://issues.apache.org/jira/browse/ORC-22) | Make buffer block size configurable |  Major | C++ | Aliaksei Sandryhaila | Aliaksei Sandryhaila |
 | [ORC-9](https://issues.apache.org/jira/browse/ORC-9) | Create a ColumnVectorBatch for Timestamps |  Major | C++, encoding | Owen O'Malley | Owen O'Malley |
 

@@ -18,7 +18,7 @@
 -->
 # Apache BigTop Changelog
 
-## Release 1.1.0 - Unreleased (as of 2016-01-04)
+## Release 1.1.0 - Unreleased (as of 2016-01-08)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -91,12 +91,16 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [BIGTOP-2223](https://issues.apache.org/jira/browse/BIGTOP-2223) | .dockerignore doesn't have ASL header |  Major | build, docker | Konstantin Boudnik | Konstantin Boudnik |
+| [BIGTOP-2222](https://issues.apache.org/jira/browse/BIGTOP-2222) | Hadoop do-component-build should pull in and use BOM |  Minor | build | Andrew Purtell | Andrew Purtell |
+| [BIGTOP-2221](https://issues.apache.org/jira/browse/BIGTOP-2221) | rpmbuild is missing in bigtop/slaves:trunk-opensuse-13.2 docker image |  Major | ci, toolchain | Evans Ye | Evans Ye |
 | [BIGTOP-2201](https://issues.apache.org/jira/browse/BIGTOP-2201) | Fix BIGTOP-2200 again |  Major | toolchain | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-2200](https://issues.apache.org/jira/browse/BIGTOP-2200) | Fix download path for protobuf ubuntu-15.04 on ppc64le |  Major | toolchain | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-2198](https://issues.apache.org/jira/browse/BIGTOP-2198) | adding bigtop/slaves:ubuntu-15.04 support for ppc64le |  Major | docker | Amir Sanjar | Amir Sanjar |
 | [BIGTOP-2196](https://issues.apache.org/jira/browse/BIGTOP-2196) | Docker configuration for ubuntu-15.04-ppc64le |  Major | docker | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-2191](https://issues.apache.org/jira/browse/BIGTOP-2191) | openjdk-7 is missing in bigtop/slave:ubuntu-14.04-ppc64le docker image |  Critical | build, docker, toolchain | Amir Sanjar | Amir Sanjar |
 | [BIGTOP-2190](https://issues.apache.org/jira/browse/BIGTOP-2190) | libprotobuf8 2.5.0 installation fails on ubuntu 14.04 for ppc64le |  Major | build, docker, toolchain | Amir Sanjar | Amir Sanjar |
+| [BIGTOP-2189](https://issues.apache.org/jira/browse/BIGTOP-2189) | bigtop/slave:ubuntu-14.04 image does not support ppc64le |  Major | docker | Amir Sanjar | Amir Sanjar |
 | [BIGTOP-2188](https://issues.apache.org/jira/browse/BIGTOP-2188) | bigtop/puppet:ubuntu-14.04 image does not support ppc64le |  Major | docker | Amir Sanjar | Amir Sanjar |
 | [BIGTOP-2187](https://issues.apache.org/jira/browse/BIGTOP-2187) | toolchain creates user with different ids on different systems |  Major | toolchain | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2181](https://issues.apache.org/jira/browse/BIGTOP-2181) | Setting Ignite version to use '.' broke Zeppelin build. |  Critical | build | Konstantin Boudnik | Sergey Soldatov |
@@ -254,6 +258,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [BIGTOP-2214](https://issues.apache.org/jira/browse/BIGTOP-2214) | Bump up ignite-hadoop version to the latest stable 1.5.0.final |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2146](https://issues.apache.org/jira/browse/BIGTOP-2146) | Upgrade bigtop toolchain ant version to 1.9.6 |  Major | toolchain | Evans Ye | Olaf Flebbe |
 | [BIGTOP-2069](https://issues.apache.org/jira/browse/BIGTOP-2069) | Update README.md to reflect CTR trial |  Major | documentation | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-1953](https://issues.apache.org/jira/browse/BIGTOP-1953) | Upgrade bigtop\_toolchain to Maven 3.3.3 |  Major | toolchain | Jonathan Kelly | Olaf Flebbe |

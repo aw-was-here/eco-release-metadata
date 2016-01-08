@@ -30,6 +30,13 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
+* [YETUS-214](https://issues.apache.org/jira/browse/YETUS-214) | *Major* | **release doc maker should have option to specify output directory**
+
+Allow specifying of output directory in releasedocmaker
+
+
+---
+
 * [YETUS-187](https://issues.apache.org/jira/browse/YETUS-187) | *Blocker* | **maven javac/javadoc can't use calcdiffs**
 
 The calcdiff function has been changed to be pluggable to allow for a variety of difference calculators to allow for greater accuracy when more information is available.  As a result, this fixes some (but not all!) instances where pre-existing errors were reported as new in some reports.

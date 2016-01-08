@@ -65,7 +65,6 @@
 | [FLINK-2902](https://issues.apache.org/jira/browse/FLINK-2902) | Web interface sort tasks newest first |  Minor | Webfrontend | Greg Hogan | Sachin Goel |
 | [FLINK-2895](https://issues.apache.org/jira/browse/FLINK-2895) | Duplicate immutable object creation |  Minor | Distributed Runtime | Greg Hogan | Greg Hogan |
 | [FLINK-2893](https://issues.apache.org/jira/browse/FLINK-2893) | Rename recovery configuration keys |  Major | . | Ufuk Celebi | Ufuk Celebi |
-| [FLINK-2877](https://issues.apache.org/jira/browse/FLINK-2877) | Move Streaming API out of Staging |  Major | Streaming | Aljoscha Krettek | Aljoscha Krettek |
 | [FLINK-2876](https://issues.apache.org/jira/browse/FLINK-2876) | Minutiae |  Trivial | Documentation | Greg Hogan | Greg Hogan |
 | [FLINK-2857](https://issues.apache.org/jira/browse/FLINK-2857) | Gelly API improvements |  Major | Gelly | Vasia Kalavri | Vasia Kalavri |
 | [FLINK-2856](https://issues.apache.org/jira/browse/FLINK-2856) | Introduce flink.version property into quickstart archetype |  Major | Quickstarts | Robert Metzger | Robert Metzger |
@@ -380,6 +379,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [FLINK-2891](https://issues.apache.org/jira/browse/FLINK-2891) | Key for Keyed State is not set upon Window Evaluation |  Blocker | Streaming | Aljoscha Krettek | Aljoscha Krettek |
+| [FLINK-2877](https://issues.apache.org/jira/browse/FLINK-2877) | Move Streaming API out of Staging |  Major | Streaming | Aljoscha Krettek | Aljoscha Krettek |
 | [FLINK-2864](https://issues.apache.org/jira/browse/FLINK-2864) | Make State of General-Purpose Window Operators Fault-Tolerant |  Major | Streaming | Aljoscha Krettek | Aljoscha Krettek |
 | [FLINK-2830](https://issues.apache.org/jira/browse/FLINK-2830) | Add Fold Window Operation for new Windowing API |  Major | Streaming | Aljoscha Krettek | Aljoscha Krettek |
 | [FLINK-2819](https://issues.apache.org/jira/browse/FLINK-2819) | Add Windowed Join/CoGroup Operator Based on Tagged Union |  Major | Streaming | Aljoscha Krettek | Aljoscha Krettek |

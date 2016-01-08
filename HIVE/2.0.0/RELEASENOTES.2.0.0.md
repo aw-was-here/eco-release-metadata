@@ -30,6 +30,13 @@ HIVE-12740: NPE with HS2 when using null input format (Vikram Dixit K via Gunthe
 
 ---
 
+* [HIVE-12717](https://issues.apache.org/jira/browse/HIVE-12717) | *Critical* | **Enabled to accept quoting of all character backslash qooting mechanism to json\_tuple UDTF**
+
+Enabled to accept quoting of all character backslash qooting mechanism to JSON UDTF
+
+
+---
+
 * [HIVE-12694](https://issues.apache.org/jira/browse/HIVE-12694) | *Major* | **LLAP: Slider destroy semantics require force**
 
 LLAP Slider registry cleanup requires destroy with --force

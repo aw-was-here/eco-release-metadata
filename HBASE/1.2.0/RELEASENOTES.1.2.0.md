@@ -23,6 +23,15 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
+* [HBASE-15073](https://issues.apache.org/jira/browse/HBASE-15073) | *Major* | **Finer grained control over normalization actions for RegionNormalizer**
+
+The NORMALIZATION\_ENABLED\_KEY attribute for table has been renamed NORMALIZATION\_MODE whose value represents the types of action allowed for normalization.
+To enable normalization for the table, you can specify 'M' for merging, 'S' for splitting or "MS" for splitting / merging.
+Leave empty to disable normalization.
+
+
+---
+
 * [HBASE-15018](https://issues.apache.org/jira/browse/HBASE-15018) | *Major* | **Inconsistent way of handling TimeoutException in the rpc client implementations**
 
 When using the new AsyncRpcClient introduced in HBase 1.1.0 (HBASE-12684), time outs now result in an IOException wrapped around a CallTimeoutException instead of a bare CallTimeoutException. This change makes the AsyncRpcClient behave the same as the default HBase 1.y RPC client implementation.

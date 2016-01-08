@@ -224,6 +224,13 @@ The feature needs to enabled by setting "hadoop.caller.context.enabled" to true.
 
 ---
 
+* [HDFS-9047](https://issues.apache.org/jira/browse/HDFS-9047) | *Major* | **Retire libwebhdfs**
+
+libwebhdfs has been retired in 2.8.0 due to the lack of maintenance.
+
+
+---
+
 * [HDFS-9013](https://issues.apache.org/jira/browse/HDFS-9013) | *Major* | **Deprecate NameNodeMXBean#getNNStarted in branch2 and remove from trunk**
 
 NameNodeMXBean#getNNStarted()  metric is deprecated in branch-2 and removed from trunk.

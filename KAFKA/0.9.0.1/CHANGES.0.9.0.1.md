@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.9.0.1 - Unreleased (as of 2016-01-04)
+## Release 0.9.0.1 - Unreleased (as of 2016-01-08)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -44,7 +44,12 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [KAFKA-3052](https://issues.apache.org/jira/browse/KAFKA-3052) | broker properties get logged twice if acl is enabled |  Major | core | Jun Rao | Ismael Juma |
+| [KAFKA-3051](https://issues.apache.org/jira/browse/KAFKA-3051) | security.protocol documentation is inaccurate |  Major | clients | Jun Rao | Ismael Juma |
+| [KAFKA-3048](https://issues.apache.org/jira/browse/KAFKA-3048) | incorrect property name ssl.want.client.auth |  Major | core | Jun Rao | Ismael Juma |
+| [KAFKA-3045](https://issues.apache.org/jira/browse/KAFKA-3045) | ZkNodeChangeNotificationListener shouldn't log interrupted exception as error |  Major | core | Jun Rao | Dong Lin |
+| [KAFKA-3010](https://issues.apache.org/jira/browse/KAFKA-3010) | include error code when logging an error when ack = 0 |  Major | core | Jun Rao | Ismael Juma |
 | [KAFKA-3002](https://issues.apache.org/jira/browse/KAFKA-3002) | Make available to specify hostname with Uppercase at broker list |  Minor | clients | Sasaki Toru |  |
+| [KAFKA-2988](https://issues.apache.org/jira/browse/KAFKA-2988) | Change default configuration of the log cleaner |  Major | . | Grant Henke | Grant Henke |
 | [KAFKA-2957](https://issues.apache.org/jira/browse/KAFKA-2957) | Fix typos in Kafka documentation |  Trivial | . | Vahid Hashemian | Vahid Hashemian |
 | [KAFKA-2924](https://issues.apache.org/jira/browse/KAFKA-2924) | Add offsets/group metadata decoder so that DumpLogSegments can be used with the offsets topic |  Major | . | Jason Gustafson | Jason Gustafson |
 | [KAFKA-2882](https://issues.apache.org/jira/browse/KAFKA-2882) | Add constructor cache for Snappy and LZ4 Output/Input stream in Compressor.java |  Major | consumer, producer | Maksim Logvinenko | Maksim Logvinenko |
@@ -64,6 +69,7 @@
 | [KAFKA-2972](https://issues.apache.org/jira/browse/KAFKA-2972) | ControlledShutdownResponse always serialises `partitionsRemaining` as empty |  Major | network | Ismael Juma | Ismael Juma |
 | [KAFKA-2950](https://issues.apache.org/jira/browse/KAFKA-2950) | Performance regression in producer |  Major | . | Jay Kreps |  |
 | [KAFKA-2942](https://issues.apache.org/jira/browse/KAFKA-2942) | Inadvertent auto-commit when pre-fetching can cause message loss |  Major | . | Jason Gustafson | Jason Gustafson |
+| [KAFKA-2937](https://issues.apache.org/jira/browse/KAFKA-2937) | Topics marked for delete in Zookeeper may become undeletable |  Major | core | Rajini Sivaram | Mayuresh Gharat |
 | [KAFKA-2926](https://issues.apache.org/jira/browse/KAFKA-2926) | [MirrorMaker] InternalRebalancer calls wrong method of external rebalancer |  Major | tools | Gwen Shapira | Gwen Shapira |
 | [KAFKA-2913](https://issues.apache.org/jira/browse/KAFKA-2913) | GroupMetadataManager unloads all groups in removeGroupsForPartitions |  Major | . | Jason Gustafson | Jason Gustafson |
 | [KAFKA-2899](https://issues.apache.org/jira/browse/KAFKA-2899) | Should log unexpected exceptions thrown when reading from local log |  Major | . | Ben Stopford | Ben Stopford |

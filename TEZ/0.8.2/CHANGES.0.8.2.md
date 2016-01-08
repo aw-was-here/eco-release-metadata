@@ -18,7 +18,7 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.8.2 - Unreleased (as of 2016-01-04)
+## Release 0.8.2 - Unreleased (as of 2016-01-08)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -60,6 +60,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-3025](https://issues.apache.org/jira/browse/TEZ-3025) | InputInitializer creation should use the dag ugi |  Major | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-3017](https://issues.apache.org/jira/browse/TEZ-3017) | HistoryACLManager does not have a close method for cleanup |  Major | . | Bikas Saha | Bikas Saha |
 | [TEZ-2995](https://issues.apache.org/jira/browse/TEZ-2995) | Timeline primary filter should only be on callerId and not type |  Major | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-2990](https://issues.apache.org/jira/browse/TEZ-2990) | Change test-patch.sh to run through all tests, despite failures in upstream modules |  Major | . | Siddharth Seth | Siddharth Seth |

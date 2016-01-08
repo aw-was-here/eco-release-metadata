@@ -18,12 +18,13 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.7.1 - Unreleased (as of 2016-01-04)
+## Release 0.7.1 - Unreleased (as of 2016-01-08)
 
 ### INCOMPATIBLE CHANGES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-2972](https://issues.apache.org/jira/browse/TEZ-2972) | Avoid task rescheduling when a node turns unhealthy |  Major | . | Jason Lowe | Jason Lowe |
 | [TEZ-2949](https://issues.apache.org/jira/browse/TEZ-2949) | Allow duplicate dag names within session for Tez |  Major | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-2679](https://issues.apache.org/jira/browse/TEZ-2679) | Admin forms of launch env settings |  Major | . | Jason Lowe | Jonathan Eagles |
 
@@ -69,6 +70,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-3025](https://issues.apache.org/jira/browse/TEZ-3025) | InputInitializer creation should use the dag ugi |  Major | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-3017](https://issues.apache.org/jira/browse/TEZ-3017) | HistoryACLManager does not have a close method for cleanup |  Major | . | Bikas Saha | Bikas Saha |
 | [TEZ-3006](https://issues.apache.org/jira/browse/TEZ-3006) | Remove unused import in TestHistoryParser |  Major | . | Sreenath Somarajapuram | Rajesh Balamohan |
 | [TEZ-2995](https://issues.apache.org/jira/browse/TEZ-2995) | Timeline primary filter should only be on callerId and not type |  Major | . | Hitesh Shah | Hitesh Shah |
