@@ -510,6 +510,7 @@
 | [SPARK-11880](https://issues.apache.org/jira/browse/SPARK-11880) | On Windows spark-env.cmd is not loaded. |  Trivial | Windows | Gaurav Sehgal | tawan |
 | [SPARK-11877](https://issues.apache.org/jira/browse/SPARK-11877) | Clear spark.sql.TungstenAggregate.testFallbackStartsAt conf at end of TungstenAggregationQueryWithControlledFallbackSuite |  Major | . | Josh Rosen | Josh Rosen |
 | [SPARK-11872](https://issues.apache.org/jira/browse/SPARK-11872) | Prevent the call to SparkContext#stop() in the listener bus's thread |  Major | Spark Core | Ted Yu | Ted Yu |
+| [SPARK-11870](https://issues.apache.org/jira/browse/SPARK-11870) | Pyspark Streaming will swallow exceptions in TransformFunction and TransformFunctionSerializer |  Major | PySpark | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-11869](https://issues.apache.org/jira/browse/SPARK-11869) | ML test TempDirectory trait does not clean up properly |  Major | ML | Joseph K. Bradley | Joseph K. Bradley |
 | [SPARK-11866](https://issues.apache.org/jira/browse/SPARK-11866) | RpcEnv RPC timeouts can lead to errors, leak in transport library. |  Major | Spark Core | Marcelo Vanzin | Marcelo Vanzin |
 | [SPARK-11865](https://issues.apache.org/jira/browse/SPARK-11865) | Auto-connection close on idle channel can race with TransportClientFactory.createClient() |  Major | Spark Core | Marcelo Vanzin | Marcelo Vanzin |
@@ -634,7 +635,6 @@
 | [SPARK-11302](https://issues.apache.org/jira/browse/SPARK-11302) |  Multivariate Gaussian Model with Covariance  matrix returns incorrect answer in some cases |  Critical | MLlib | eyal sharon | Sean Owen |
 | [SPARK-11301](https://issues.apache.org/jira/browse/SPARK-11301) | filter on partitioned column is case sensitive even the context is case insensitive |  Major | SQL | Wenchen Fan | Wenchen Fan |
 | [SPARK-11294](https://issues.apache.org/jira/browse/SPARK-11294) | Improve R doc for read.df, write.df, saveAsTable |  Minor | SparkR | Felix Cheung | Felix Cheung |
-| [SPARK-11293](https://issues.apache.org/jira/browse/SPARK-11293) | Spillable collections leak shuffle memory |  Critical | Spark Core | Josh Rosen | Josh Rosen |
 | [SPARK-11287](https://issues.apache.org/jira/browse/SPARK-11287) | Executing deploy.client TestClient fails with bad class name |  Trivial | Spark Core | Bryan Cutler | Bryan Cutler |
 | [SPARK-11283](https://issues.apache.org/jira/browse/SPARK-11283) | List column gets additional level of nesting when converted to Spark DataFrame |  Major | SparkR | Maciej Szymkiewicz | Maciej Szymkiewicz |
 | [SPARK-11281](https://issues.apache.org/jira/browse/SPARK-11281) | Issue with creating and collecting DataFrame using environments |  Major | SparkR | Maciej Szymkiewicz | Maciej Szymkiewicz |

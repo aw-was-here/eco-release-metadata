@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.9.1.0 - Unreleased (as of 2016-01-08)
+## Release 0.9.1.0 - Unreleased (as of 2016-01-16)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -30,6 +30,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-3044](https://issues.apache.org/jira/browse/KAFKA-3044) | Consumer.poll doesnot return messages when poll interval is less |  Major | clients | Praveen Devarao | Jason Gustafson |
 
 
 ### NEW FEATURES:
@@ -42,9 +43,12 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-3084](https://issues.apache.org/jira/browse/KAFKA-3084) | Topic existence checks in topic commands (create, alter, delete) |  Major | . | Grant Henke | Grant Henke |
+| [KAFKA-3077](https://issues.apache.org/jira/browse/KAFKA-3077) | Enable KafkaLog4jAppender to work with SASL enabled brokers. |  Major | clients | Ashish K Singh | Ashish K Singh |
 | [KAFKA-3058](https://issues.apache.org/jira/browse/KAFKA-3058) | remove the usage of deprecated config properties |  Major | core | Jun Rao | Konrad Kalita |
 | [KAFKA-3043](https://issues.apache.org/jira/browse/KAFKA-3043) | Replace request.required.acks with acks in docs |  Major | website | Sasaki Toru |  |
 | [KAFKA-3024](https://issues.apache.org/jira/browse/KAFKA-3024) | Remove old patch review tools |  Major | . | Grant Henke | Grant Henke |
+| [KAFKA-3019](https://issues.apache.org/jira/browse/KAFKA-3019) | Add an exceptionName method to Errors |  Major | . | Grant Henke | Grant Henke |
 | [KAFKA-3002](https://issues.apache.org/jira/browse/KAFKA-3002) | Make available to specify hostname with Uppercase at broker list |  Minor | clients | Sasaki Toru |  |
 | [KAFKA-2992](https://issues.apache.org/jira/browse/KAFKA-2992) | Trace log statements in the replica fetcher inner loop create large amounts of garbage |  Minor | core | Cory Kolbeck |  |
 | [KAFKA-2964](https://issues.apache.org/jira/browse/KAFKA-2964) | Split Security Rolling Upgrade Test By Client and Broker Protocols |  Minor | . | Ben Stopford | Ben Stopford |
@@ -60,6 +64,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-3069](https://issues.apache.org/jira/browse/KAFKA-3069) | Fix recursion in ZkSecurityMigrator |  Major | security | Flavio Junqueira | Flavio Junqueira |
 | [KAFKA-3055](https://issues.apache.org/jira/browse/KAFKA-3055) | JsonConverter mangles schema during serialization (fromConnectData) |  Major | copycat | Kishore Senji | Ewen Cheslack-Postava |
 | [KAFKA-3009](https://issues.apache.org/jira/browse/KAFKA-3009) | Disallow star imports |  Major | . | Gwen Shapira | Manasvi Gupta |
 | [KAFKA-2990](https://issues.apache.org/jira/browse/KAFKA-2990) | NoSuchMethodError when Kafka is compiled with 1.8 and run on 1.7 |  Major | . | Jason Gustafson | Jason Gustafson |
@@ -73,6 +78,7 @@
 | [KAFKA-2906](https://issues.apache.org/jira/browse/KAFKA-2906) | Kafka Connect javadocs not built properly |  Major | copycat | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-2902](https://issues.apache.org/jira/browse/KAFKA-2902) | StreamingConfig getConsumerConfiigs uses getRestoreConsumerConfigs instead of  getBaseConsumerConfigs |  Major | kafka streams | Bill Bejeck | Bill Bejeck |
 | [KAFKA-2892](https://issues.apache.org/jira/browse/KAFKA-2892) | Consumer Docs Use Wrong Method |  Major | clients | Jesse Anderson |  |
+| [KAFKA-2886](https://issues.apache.org/jira/browse/KAFKA-2886) | WorkerSinkTask doesn't catch exceptions from rebalance callbacks |  Major | copycat | Ewen Cheslack-Postava | Jason Gustafson |
 | [KAFKA-2878](https://issues.apache.org/jira/browse/KAFKA-2878) | Kafka broker throws OutOfMemory exception with invalid join group request |  Critical | clients | Rajini Sivaram | Rajini Sivaram |
 | [KAFKA-2874](https://issues.apache.org/jira/browse/KAFKA-2874) | zookeeper-server-stop.sh may fail to shutdown ZK and/or may stop unrelated processes |  Major | . | Michael Noll |  |
 | [KAFKA-2872](https://issues.apache.org/jira/browse/KAFKA-2872) | Error starting KafkaStream caused by sink not being connected to parent source/processor nodes |  Major | kafka streams | Bill Bejeck | Bill Bejeck |
@@ -106,8 +112,13 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-3108](https://issues.apache.org/jira/browse/KAFKA-3108) | KStream custom StreamPartitioner for windowed key |  Minor | kafka streams | Yasuhiro Matsuda | Yasuhiro Matsuda |
+| [KAFKA-3081](https://issues.apache.org/jira/browse/KAFKA-3081) | KTable Aggregation Implementation |  Major | . | Guozhang Wang | Guozhang Wang |
+| [KAFKA-3078](https://issues.apache.org/jira/browse/KAFKA-3078) | Add ducktape tests for KafkaLog4jAppender producing to SASL enabled Kafka cluster |  Major | clients | Ashish K Singh | Ashish K Singh |
+| [KAFKA-3063](https://issues.apache.org/jira/browse/KAFKA-3063) | LogRecoveryTest exits with -1 occasionally |  Major | . | Guozhang Wang | Ismael Juma |
 | [KAFKA-3030](https://issues.apache.org/jira/browse/KAFKA-3030) | Remove unused scala dependencies |  Major | build | Grant Henke | Grant Henke |
 | [KAFKA-3022](https://issues.apache.org/jira/browse/KAFKA-3022) | Deduplicate common project configurations |  Major | build | Grant Henke | Grant Henke |
+| [KAFKA-3021](https://issues.apache.org/jira/browse/KAFKA-3021) | Centralize dependency version managment |  Major | build | Grant Henke | Grant Henke |
 | [KAFKA-3020](https://issues.apache.org/jira/browse/KAFKA-3020) | Ensure Checkstyle runs on all Java code |  Major | build | Grant Henke | Grant Henke |
 | [KAFKA-3016](https://issues.apache.org/jira/browse/KAFKA-3016) | Add KStream-KStream window joins |  Major | kafka streams | Yasuhiro Matsuda | Yasuhiro Matsuda |
 | [KAFKA-2984](https://issues.apache.org/jira/browse/KAFKA-2984) | KTable should send old values along with new values to downstreams |  Major | kafka streams | Yasuhiro Matsuda | Yasuhiro Matsuda |

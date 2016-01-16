@@ -18,7 +18,7 @@
 -->
 # Apache Pig Changelog
 
-## Release 0.16.0 - Unreleased (as of 2016-01-08)
+## Release 0.16.0 - Unreleased (as of 2016-01-16)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -59,21 +59,27 @@
 | [PIG-4578](https://issues.apache.org/jira/browse/PIG-4578) | ToDateISO should support optional ' ' space variant used by JDBC |  Minor | internal-udfs | Michael Howard | Michael Howard |
 | [PIG-4554](https://issues.apache.org/jira/browse/PIG-4554) | Compress pig.script before encoding |  Major | . | Rohini Palaniswamy | Sandeep Samdaria |
 | [PIG-4417](https://issues.apache.org/jira/browse/PIG-4417) | Pig's register command should support automatic fetching of jars from repo. |  Major | . | Akshay Rai | Akshay Rai |
+| [PIG-4411](https://issues.apache.org/jira/browse/PIG-4411) | Support for vertex level configuration like speculative execution |  Major | tez | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-4405](https://issues.apache.org/jira/browse/PIG-4405) | Adding 'map[]' support to mock/Storage |  Major | . | Niels Basjes | Niels Basjes |
 | [PIG-3957](https://issues.apache.org/jira/browse/PIG-3957) | Refactor out resetting input key in TezDagBuilder |  Major | tez | Daniel Dai | Rohini Palaniswamy |
 | [PIG-3622](https://issues.apache.org/jira/browse/PIG-3622) | Allow casting bytearray fields to bytearray type |  Minor | . | Redis Liu | Redis Liu |
-| [PIG-3251](https://issues.apache.org/jira/browse/PIG-3251) | Bzip2TextInputFormat requires double the memory of maximum record size |  Minor | . | Koji Noguchi | Koji Noguchi |
+| [PIG-3251](https://issues.apache.org/jira/browse/PIG-3251) | Bzip2TextInputFormat requires double the memory of maximum record size |  Major | . | Koji Noguchi | Koji Noguchi |
 
 
 ### BUG FIXES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [PIG-4775](https://issues.apache.org/jira/browse/PIG-4775) | Better default values for shuffle bytes per reducer |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
+| [PIG-4774](https://issues.apache.org/jira/browse/PIG-4774) | Fix NPE in SUM,AVG,MIN,MAX UDFs for null bag input |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
+| [PIG-4773](https://issues.apache.org/jira/browse/PIG-4773) | [Pig on Tez] Secondary key descending sort in nested foreach after union does ascending instead |  Major | tez | Rohini Palaniswamy | Rohini Palaniswamy |
+| [PIG-4770](https://issues.apache.org/jira/browse/PIG-4770) | OOM with POPartialAgg in some cases |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-4769](https://issues.apache.org/jira/browse/PIG-4769) | UnionOptimizer hits errors when merging vertex group into split |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-4768](https://issues.apache.org/jira/browse/PIG-4768) | EvalFunc reporter is null in Tez |  Major | tez | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-4760](https://issues.apache.org/jira/browse/PIG-4760) | TezDAGStats.convertToHadoopCounters is not used, but impose MR counter limit |  Major | tez | Daniel Dai | Daniel Dai |
 | [PIG-4757](https://issues.apache.org/jira/browse/PIG-4757) | Job stats on successfully read/output records wrong with multiple inputs/outputs |  Major | tez | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-4755](https://issues.apache.org/jira/browse/PIG-4755) | Typo in runpigmix script |  Major | . | Mit Desai | Mit Desai |
+| [PIG-4737](https://issues.apache.org/jira/browse/PIG-4737) | Check and fix clone implementation for all classes extending PhysicalOperator |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-4736](https://issues.apache.org/jira/browse/PIG-4736) | Removing empty keys in UDFContext broke one LoadFunc |  Major | tez | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-4733](https://issues.apache.org/jira/browse/PIG-4733) | Avoid NullPointerException in JVMReuseImpl for builtin classes |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-4730](https://issues.apache.org/jira/browse/PIG-4730) | [Pig on Tez] Total parallelism estimation does not account load parallelism |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |

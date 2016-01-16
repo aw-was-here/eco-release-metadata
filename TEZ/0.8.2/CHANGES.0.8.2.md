@@ -18,7 +18,7 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.8.2 - Unreleased (as of 2016-01-08)
+## Release 0.8.2 - Unreleased (as of 2016-01-16)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -47,11 +47,13 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [TEZ-3011](https://issues.apache.org/jira/browse/TEZ-3011) | Link Vertex Name in Dag Tasks/Task Attempts to Vertex |  Major | UI | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-2978](https://issues.apache.org/jira/browse/TEZ-2978) | Add an option to allow the SplitGrouper to generate node local only groups |  Major | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-2935](https://issues.apache.org/jira/browse/TEZ-2935) | Add MR slow start translation for ShuffleVertexManager |  Major | . | Jonathan Eagles | Jonathan Eagles |
 | [TEZ-2886](https://issues.apache.org/jira/browse/TEZ-2886) | Ability to merge AM credentials with DAG credentials |  Major | . | Jason Lowe | Jason Lowe |
 | [TEZ-2879](https://issues.apache.org/jira/browse/TEZ-2879) | While grouping splits, allow an alternate list of preferred locations to be provided per split |  Major | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-2581](https://issues.apache.org/jira/browse/TEZ-2581) | Umbrella for Tez Recovery Redesign |  Major | . | Jeff Zhang | Jeff Zhang |
 | [TEZ-2244](https://issues.apache.org/jira/browse/TEZ-2244) | PipelinedSorter: Progressive allocation for sort-buffers |  Major | . | Gopal V | Rajesh Balamohan |
+| [TEZ-2129](https://issues.apache.org/jira/browse/TEZ-2129) | Task and Attempt views should contain links to the logs |  Minor | UI | Kevin J. Price | Jonathan Eagles |
 | [TEZ-2096](https://issues.apache.org/jira/browse/TEZ-2096) | TEZ-UI : Add link to view AM log of finished & running apps |  Major | UI | Rajesh Balamohan | Jonathan Eagles |
 | [TEZ-1692](https://issues.apache.org/jira/browse/TEZ-1692) | Reduce code duplication between TezMapredSplitsGrouper and TezMapreduceSplitsGrouper |  Major | . | Siddharth Seth | Siddharth Seth |
 
@@ -132,6 +134,7 @@
 | [TEZ-2888](https://issues.apache.org/jira/browse/TEZ-2888) | Make critical path calculation resilient to AM crash |  Major | . | Bikas Saha | Bikas Saha |
 | [TEZ-2882](https://issues.apache.org/jira/browse/TEZ-2882) | Consider improving fetch failure handling |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-2849](https://issues.apache.org/jira/browse/TEZ-2849) | Implement Specific Workaround for JDK-8026049 & JDK-8073093 |  Major | . | Gopal V | Gopal V |
+| [TEZ-2669](https://issues.apache.org/jira/browse/TEZ-2669) | Propagation of errors from plugins to the AM for error reporting |  Blocker | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-1788](https://issues.apache.org/jira/browse/TEZ-1788) | Test allowing vertex level disabling of speculation |  Major | . | Bikas Saha | Bikas Saha |
 | [TEZ-808](https://issues.apache.org/jira/browse/TEZ-808) | Handle task attempts that are not making progress |  Major | . | Bikas Saha | Bikas Saha |
 
@@ -140,6 +143,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-3024](https://issues.apache.org/jira/browse/TEZ-3024) | Move TaskCommunicator to correct package |  Major | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-2994](https://issues.apache.org/jira/browse/TEZ-2994) | LocalProgress in tez-runtime-library missing Apache header, rat check warnings from the new licenses after TEZ-2592 merge |  Major | . | Siddharth Seth | Hitesh Shah |
 | [TEZ-2903](https://issues.apache.org/jira/browse/TEZ-2903) | Avoid using proprietary APIs where possible |  Major | . | Siddharth Seth | Chetna Chaudhari |
 | [TEZ-2883](https://issues.apache.org/jira/browse/TEZ-2883) | changes for 0.8.1-alpha release |  Major | . | Siddharth Seth | Siddharth Seth |

@@ -18,7 +18,7 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.7.1 - Unreleased (as of 2016-01-08)
+## Release 0.7.1 - Unreleased (as of 2016-01-16)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -61,6 +61,7 @@
 | [TEZ-2478](https://issues.apache.org/jira/browse/TEZ-2478) | Move OneToOne routing to store events in Tasks |  Major | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-2211](https://issues.apache.org/jira/browse/TEZ-2211) | Tez UI: Allow users to configure timezone |  Major | UI | Jonathan Eagles | Jonathan Eagles |
 | [TEZ-2198](https://issues.apache.org/jira/browse/TEZ-2198) | Fix sorter spill counts |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
+| [TEZ-2129](https://issues.apache.org/jira/browse/TEZ-2129) | Task and Attempt views should contain links to the logs |  Minor | UI | Kevin J. Price | Jonathan Eagles |
 | [TEZ-2096](https://issues.apache.org/jira/browse/TEZ-2096) | TEZ-UI : Add link to view AM log of finished & running apps |  Major | UI | Rajesh Balamohan | Jonathan Eagles |
 | [TEZ-1961](https://issues.apache.org/jira/browse/TEZ-1961) | Remove misleading exception "No running dag" from AM logs |  Critical | . | Siddharth Seth | Jeff Zhang |
 | [TEZ-1314](https://issues.apache.org/jira/browse/TEZ-1314) | Port MAPREDUCE-5821 to Tez |  Major | . | Siddharth Seth | Rajesh Balamohan |
@@ -70,6 +71,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-3037](https://issues.apache.org/jira/browse/TEZ-3037) | History URL should be set regardless of which history logging service is enabled |  Major | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-3025](https://issues.apache.org/jira/browse/TEZ-3025) | InputInitializer creation should use the dag ugi |  Major | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-3017](https://issues.apache.org/jira/browse/TEZ-3017) | HistoryACLManager does not have a close method for cleanup |  Major | . | Bikas Saha | Bikas Saha |
 | [TEZ-3006](https://issues.apache.org/jira/browse/TEZ-3006) | Remove unused import in TestHistoryParser |  Major | . | Sreenath Somarajapuram | Rajesh Balamohan |
@@ -86,6 +88,7 @@
 | [TEZ-2946](https://issues.apache.org/jira/browse/TEZ-2946) | Tez UI: At times RM return a huge error message making the yellow error bar to fill the whole screen. |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2943](https://issues.apache.org/jira/browse/TEZ-2943) | Change shuffle vertex manager to use per vertex data for auto reduce and slow start |  Major | . | Jonathan Eagles | Bikas Saha |
 | [TEZ-2940](https://issues.apache.org/jira/browse/TEZ-2940) | Invalid shuffle max slow start setting causes vertex to hang indefinitely |  Major | . | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-2937](https://issues.apache.org/jira/browse/TEZ-2937) | Can Processor.close() be called after closing inputs and outputs? |  Major | . | Rohini Palaniswamy | Jonathan Eagles |
 | [TEZ-2933](https://issues.apache.org/jira/browse/TEZ-2933) | Tez UI: Load application details from RM when available |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2930](https://issues.apache.org/jira/browse/TEZ-2930) | Tez UI: Parent controller is not polling at times |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2929](https://issues.apache.org/jira/browse/TEZ-2929) | Tez UI: Dag details page displays vertices to be running even when dag have completed. |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |

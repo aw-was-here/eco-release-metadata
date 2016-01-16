@@ -18,7 +18,7 @@
 -->
 # Apache BigTop Changelog
 
-## Release 1.1.0 - Unreleased (as of 2016-01-08)
+## Release 1.1.0 - Unreleased (as of 2016-01-16)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -45,6 +45,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [BIGTOP-2239](https://issues.apache.org/jira/browse/BIGTOP-2239) | Smoke tests should have a single location for logger configuration |  Major | tests | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2194](https://issues.apache.org/jira/browse/BIGTOP-2194) | Add Ubuntu configuration to the docker provisioner |  Major | deployment | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2192](https://issues.apache.org/jira/browse/BIGTOP-2192) | Start generating ubuntu-14.04 deployment image |  Major | deployment | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2164](https://issues.apache.org/jira/browse/BIGTOP-2164) | Phoenix Queryserver should write it's logs into /var/log/phoenix/ |  Trivial | . | YoungWoo Kim | YoungWoo Kim |
@@ -91,9 +92,16 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [BIGTOP-2247](https://issues.apache.org/jira/browse/BIGTOP-2247) | Expand HDFS smoke test suite |  Major | tests | Konstantin Boudnik | Konstantin Boudnik |
+| [BIGTOP-2246](https://issues.apache.org/jira/browse/BIGTOP-2246) | Add smoke tests for HCFS |  Major | . | Konstantin Boudnik | Konstantin Boudnik |
+| [BIGTOP-2244](https://issues.apache.org/jira/browse/BIGTOP-2244) | CI provisioner tests are failing after BIGTOP-2227 change |  Major | build, tests | Konstantin Boudnik | Konstantin Boudnik |
+| [BIGTOP-2243](https://issues.apache.org/jira/browse/BIGTOP-2243) | :itest-common:test is broken without JAVA\_HOME being set |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
+| [BIGTOP-2242](https://issues.apache.org/jira/browse/BIGTOP-2242) | Running ./gradlew should only require JAVA\_HOME for test task |  Critical | build, tests | Konstantin Boudnik | Konstantin Boudnik |
+| [BIGTOP-2236](https://issues.apache.org/jira/browse/BIGTOP-2236) | GRADLE\_USER\_HOME should be set for bigtop/slaves images only |  Major | docker, toolchain | Evans Ye | Evans Ye |
 | [BIGTOP-2223](https://issues.apache.org/jira/browse/BIGTOP-2223) | .dockerignore doesn't have ASL header |  Major | build, docker | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2222](https://issues.apache.org/jira/browse/BIGTOP-2222) | Hadoop do-component-build should pull in and use BOM |  Minor | build | Andrew Purtell | Andrew Purtell |
 | [BIGTOP-2221](https://issues.apache.org/jira/browse/BIGTOP-2221) | rpmbuild is missing in bigtop/slaves:trunk-opensuse-13.2 docker image |  Major | ci, toolchain | Evans Ye | Evans Ye |
+| [BIGTOP-2215](https://issues.apache.org/jira/browse/BIGTOP-2215) | Enable autopurge in zookeeper |  Major | . | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-2201](https://issues.apache.org/jira/browse/BIGTOP-2201) | Fix BIGTOP-2200 again |  Major | toolchain | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-2200](https://issues.apache.org/jira/browse/BIGTOP-2200) | Fix download path for protobuf ubuntu-15.04 on ppc64le |  Major | toolchain | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-2198](https://issues.apache.org/jira/browse/BIGTOP-2198) | adding bigtop/slaves:ubuntu-15.04 support for ppc64le |  Major | docker | Amir Sanjar | Amir Sanjar |
@@ -117,6 +125,8 @@
 | [BIGTOP-2155](https://issues.apache.org/jira/browse/BIGTOP-2155) | Fix Hue 3.9.0 build failed on Fedora |  Major | build, hue, rpm | Evans Ye | Evans Ye |
 | [BIGTOP-2152](https://issues.apache.org/jira/browse/BIGTOP-2152) | Fix conflict with libressl-devel from mysql-devel |  Major | build | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-2150](https://issues.apache.org/jira/browse/BIGTOP-2150) | Reversing directional build behavior |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
+| [BIGTOP-2148](https://issues.apache.org/jira/browse/BIGTOP-2148) | generator.SparkDriver outputs empty data in cluster mode |  Major | blueprints | Kengo Seki | Kengo Seki |
+| [BIGTOP-2147](https://issues.apache.org/jira/browse/BIGTOP-2147) | Minor nits in bigpetstore-spark/README.md |  Trivial | blueprints | Kengo Seki | Kengo Seki |
 | [BIGTOP-2144](https://issues.apache.org/jira/browse/BIGTOP-2144) | Update default repos in Bigtop Provisioner |  Major | deployment | Evans Ye | Evans Ye |
 | [BIGTOP-2140](https://issues.apache.org/jira/browse/BIGTOP-2140) | hbase compile fails with Insufficient memory on POWER |  Major | build | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-2139](https://issues.apache.org/jira/browse/BIGTOP-2139) | crunch compile fails with Insufficient memory on POWER |  Major | build | Olaf Flebbe | Olaf Flebbe |
@@ -200,12 +210,15 @@
 | [BIGTOP-1805](https://issues.apache.org/jira/browse/BIGTOP-1805) | Upgrade Hadoop to 2.7 if released |  Major | hadoop | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-1690](https://issues.apache.org/jira/browse/BIGTOP-1690) | Puppet should automatically create data directories |  Critical | deployment | Konstantin Boudnik | Sergey Soldatov |
 | [BIGTOP-1344](https://issues.apache.org/jira/browse/BIGTOP-1344) | spec files assume RPMs being built on Red Hat |  Major | rpm | Allen Wittenauer | Olaf Flebbe |
+| [BIGTOP-1022](https://issues.apache.org/jira/browse/BIGTOP-1022) | Giraph build script should also specify ZooKeeper, HBase, and Hive versions |  Major | . | Andrew Purtell | Andrew Purtell |
 
 
 ### TESTS:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [BIGTOP-2249](https://issues.apache.org/jira/browse/BIGTOP-2249) | Add YARN smoke tests |  Major | tests | Konstantin Boudnik | Konstantin Boudnik |
+| [BIGTOP-2232](https://issues.apache.org/jira/browse/BIGTOP-2232) | Add smoke tests for HDFS |  Major | tests | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2158](https://issues.apache.org/jira/browse/BIGTOP-2158) | Update README.md to reflect the acceptance of CTR model |  Major | documentation | Konstantin Boudnik | Konstantin Boudnik |
 
 
@@ -213,6 +226,11 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [BIGTOP-2245](https://issues.apache.org/jira/browse/BIGTOP-2245) | TestFuseHCFS might fall on '+' op. involving String and GString; class name is wrong |  Major | tests | Konstantin Boudnik | Konstantin Boudnik |
+| [BIGTOP-2235](https://issues.apache.org/jira/browse/BIGTOP-2235) | Allow smoke-tests to use filename regexps instead of explicite listings |  Major | tests | Konstantin Boudnik | Konstantin Boudnik |
+| [BIGTOP-2234](https://issues.apache.org/jira/browse/BIGTOP-2234) | TestBlockRecovery incorrectly fails on a single node cluster |  Major | tests | Konstantin Boudnik | Konstantin Boudnik |
+| [BIGTOP-2226](https://issues.apache.org/jira/browse/BIGTOP-2226) | Remove gradle wrapper folder in smoke-tests |  Major | tests | Konstantin Boudnik | Konstantin Boudnik |
+| [BIGTOP-2219](https://issues.apache.org/jira/browse/BIGTOP-2219) | Comb the smoke-tests to make code base easier for refactoring |  Major | tests | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2185](https://issues.apache.org/jira/browse/BIGTOP-2185) | Exclude Zeppelin interpreter.json from RAT check |  Major | deployment | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2174](https://issues.apache.org/jira/browse/BIGTOP-2174) | Bump up ignite-hadoop version to the latest 1.5.0-b1 |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2169](https://issues.apache.org/jira/browse/BIGTOP-2169) | Zeppeling has more upstream dependencies |  Major | build | Konstantin Boudnik | Konstantin Boudnik |

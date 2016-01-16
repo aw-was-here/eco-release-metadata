@@ -246,6 +246,13 @@ JDK8 strict build broken for master
 
 ---
 
+* [HIVE-11785](https://issues.apache.org/jira/browse/HIVE-11785) | *Major* | **Support escaping carriage return and new line for LazySimpleSerDe**
+
+This change disallows carriage return and new line characters to be used as field separators or escape character. While before this change, those were allowed while those cases could easily lead to incorrect results if the content also contain carriage return or new line. Since even carriage return or new line was escaped, line based input format in MapReduce used in Hive will break the lines by carriage return and new line only and lead to incorrect result.
+
+
+---
+
 * [HIVE-11638](https://issues.apache.org/jira/browse/HIVE-11638) | *Major* | **ExprNodeDesc hashMap accidentally degrades into O(N) instead of O(1)**
 
 Use fastest hashmap implementation of ExprNodeDesc lookups

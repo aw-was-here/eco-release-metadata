@@ -229,7 +229,15 @@ See: https://github.com/facebook/rocksdb/wiki/FIFO-compaction-style
 
 * [HBASE-14465](https://issues.apache.org/jira/browse/HBASE-14465) | *Major* | **Backport 'Allow rowlock to be reader/write' to branch-1**
 
-See parent issue.
+Locks on row are now reader/writer rather than exclusive. 
+
+Moves sequenceid out of HRegion and into MVCC class; MVCC is now in charge. A WAL append is still stamped in same way (we pass MVCC context in a few places where we previously we did not). 
+
+MVCC methods cleaned up. Make a bit more sense now. Less of them. 
+
+Simplifies our update of MemStore/WAL. Now we update memstore AFTER we add to WAL (but before we sync). This fixes possible dataloss when two edits came in with same coordinates; we could order the edits in memstore differently to how they arrived in the WAL. 
+
+Marked as an incompatible change because it breaks Distributed Log Replay, a feature we'd determined already was unreliable and to be removed (See http://search-hadoop.com/m/YGbbhTJpoal8GD1).
 
 
 ---

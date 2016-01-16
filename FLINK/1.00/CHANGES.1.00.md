@@ -18,7 +18,7 @@
 -->
 # Apache Flink Changelog
 
-## Release 1.00 - Unreleased (as of 2016-01-08)
+## Release 1.00 - Unreleased (as of 2016-01-16)
 
 ### INCOMPATIBLE CHANGES:
 

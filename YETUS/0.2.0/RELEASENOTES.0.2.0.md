@@ -23,6 +23,18 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
+* [YETUS-280](https://issues.apache.org/jira/browse/YETUS-280) | *Major* | **build systems should be able to predetermine module order**
+
+<!-- markdown -->
+Users:
+* Maven will now attempt to do a better job of determining the order with which modules should be handled.
+
+Developers:
+* There is now a hook to allow build tools to re-order the module listing.
+
+
+---
+
 * [YETUS-241](https://issues.apache.org/jira/browse/YETUS-241) | *Major* | **revamp parameterized site**
 
 **WARNING: No release note provided for this important issue.**

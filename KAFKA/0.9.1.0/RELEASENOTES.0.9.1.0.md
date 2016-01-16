@@ -21,4 +21,28 @@
 These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
 
 
+---
+
+* [KAFKA-3044](https://issues.apache.org/jira/browse/KAFKA-3044) | *Major* | **Consumer.poll doesnot return messages when poll interval is less**
+
+When seeking to particular position in consumer and starting poll with timeout param 0 the consumer does not come back with data though there is data published via a producer already. If the timeout is increased slowly in chunks of 100ms then at 700ms value the consumer returns back the record on first call to poll.
+
+Docs [http://kafka.apache.org/090/javadoc/org/apache/kafka/clients/consumer/KafkaConsumer.html#poll(long)] for poll reads if timeout is 0 then data will be returned immediately but the behaviour seen is that data is not returned.
+
+The test code I am using can be found here https://gist.github.com/praveend/013dcab01ebb8c7e2f2d
+
+I have created a topic with data published as below and then running the test program [ConsumerPollTest.java]
+
+$ bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic mytopic
+$ bin/kafka-console-producer.sh --broker-list localhost:9092 --topic mytopic
+Hello
+Hai
+bye
+$ java ConsumerPollTest
+
+I have published this 3 lines of data to kafka only once....later on I just use the above program with different poll interval
+
+Let me know if I am missing anything and interpreting it wrongly.
+
+
 
