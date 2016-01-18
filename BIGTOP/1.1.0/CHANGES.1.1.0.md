@@ -18,7 +18,7 @@
 -->
 # Apache BigTop Changelog
 
-## Release 1.1.0 - Unreleased (as of 2016-01-16)
+## Release 1.1.0 - Unreleased (as of 2016-01-18)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -92,6 +92,8 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [BIGTOP-2256](https://issues.apache.org/jira/browse/BIGTOP-2256) | Promote return codes from docker to the CI while building images |  Major | docker | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2255](https://issues.apache.org/jira/browse/BIGTOP-2255) | bigtop/deploy:ubuntu-15.04 image does not support ppc64le |  Critical | build, docker | Amir Sanjar | Amir Sanjar |
 | [BIGTOP-2247](https://issues.apache.org/jira/browse/BIGTOP-2247) | Expand HDFS smoke test suite |  Major | tests | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2246](https://issues.apache.org/jira/browse/BIGTOP-2246) | Add smoke tests for HCFS |  Major | . | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2244](https://issues.apache.org/jira/browse/BIGTOP-2244) | CI provisioner tests are failing after BIGTOP-2227 change |  Major | build, tests | Konstantin Boudnik | Konstantin Boudnik |

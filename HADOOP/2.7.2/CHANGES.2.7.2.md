@@ -18,7 +18,7 @@
 -->
 # Apache Hadoop Changelog
 
-## Release 2.7.2 - Unreleased (as of 2016-01-16)
+## Release 2.7.2 - Unreleased (as of 2016-01-18)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -92,6 +92,7 @@
 | [HDFS-9413](https://issues.apache.org/jira/browse/HDFS-9413) | getContentSummary() on standby should throw StandbyException |  Critical | . | Brahma Reddy Battula | Brahma Reddy Battula |
 | [HDFS-9317](https://issues.apache.org/jira/browse/HDFS-9317) | Document fsck -blockId and -storagepolicy options in branch-2.7 |  Major | documentation | Akira AJISAKA | Akira AJISAKA |
 | [HDFS-9305](https://issues.apache.org/jira/browse/HDFS-9305) | Delayed heartbeat processing causes storm of subsequent heartbeats |  Major | datanode | Chris Nauroth | Arpit Agarwal |
+| [HDFS-9294](https://issues.apache.org/jira/browse/HDFS-9294) | DFSClient  deadlock when close file and failed to renew lease |  Blocker | hdfs-client | DENG FEI | Brahma Reddy Battula |
 | [HDFS-9290](https://issues.apache.org/jira/browse/HDFS-9290) | DFSClient#callAppend() is not backward compatible for slightly older NameNodes |  Blocker | . | Tony Wu | Tony Wu |
 | [HDFS-9289](https://issues.apache.org/jira/browse/HDFS-9289) | Make DataStreamer#block thread safe and verify genStamp in commitBlock |  Critical | . | Chang Li | Chang Li |
 | [HDFS-9273](https://issues.apache.org/jira/browse/HDFS-9273) | ACLs on root directory may be lost after NN restart |  Critical | namenode | Xiao Chen | Xiao Chen |

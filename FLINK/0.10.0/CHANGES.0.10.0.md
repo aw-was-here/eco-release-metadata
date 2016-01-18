@@ -185,7 +185,6 @@
 | [FLINK-2843](https://issues.apache.org/jira/browse/FLINK-2843) | Add documentation for DataSet outer joins |  Major | Documentation | Fabian Hueske | Fabian Hueske |
 | [FLINK-2842](https://issues.apache.org/jira/browse/FLINK-2842) | S3FileSystem is broken |  Critical | . | Fabian Hueske | Fabian Hueske |
 | [FLINK-2841](https://issues.apache.org/jira/browse/FLINK-2841) | Broken roadmap link in FlinkML contribution guide |  Major | Documentation, Machine Learning Library | Chiwan Park | Saumitra Shahapure |
-| [FLINK-2831](https://issues.apache.org/jira/browse/FLINK-2831) | Failing Test: WrapperSetupHelperTest |  Critical | Storm Compatibility | Vasia Kalavri | Matthias J. Sax |
 | [FLINK-2820](https://issues.apache.org/jira/browse/FLINK-2820) | Configuration not passed to JobGraphGenerator |  Minor | Command-line client | Greg Hogan | Greg Hogan |
 | [FLINK-2817](https://issues.apache.org/jira/browse/FLINK-2817) | FileMonitoring function throws NPE when location is empty |  Minor | Streaming | Márton Balassi | Zoltán Zvara |
 | [FLINK-2813](https://issues.apache.org/jira/browse/FLINK-2813) | Document off-heap configuration |  Major | Documentation | Maximilian Michels | Maximilian Michels |

@@ -69,11 +69,4 @@ Comparing before and after I have without patch:
 And 1.1, 1.0, and 0.98.
 
 
----
-
-* [HBASE-14799](https://issues.apache.org/jira/browse/HBASE-14799) | *Critical* | **Commons-collections object deserialization remote command execution vulnerability**
-
-This issue resolves a potential security vulnerability. For all versions we update our commons-collections dependency to the release that fixes the reported vulnerability in that library. In 0.98 we additionally disable by default a feature of code carried from 0.94 for backwards compatibility that is not needed.
-
-
 

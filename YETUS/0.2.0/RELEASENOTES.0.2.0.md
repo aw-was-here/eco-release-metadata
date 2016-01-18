@@ -56,6 +56,15 @@ The calcdiff function has been changed to be pluggable to allow for a variety of
 
 ---
 
+* [YETUS-173](https://issues.apache.org/jira/browse/YETUS-173) | *Major* | **report fixed issues**
+
+There is now code in place to allow for plug-ins to report a much more nuanced report in the form of an equation.  This equation tells exactly how many new, unchanged, and fixed issues a patch causes/removes as well as the old and new totals for issues.  For patches where the totals are unchanged, the generic "passed" message is returned. Summarization is automatically as appropriate turned off as well. 
+
+With this change, most plug-ins have been updated to report these numbers.
+
+
+---
+
 * [YETUS-62](https://issues.apache.org/jira/browse/YETUS-62) | *Major* | **add auto-formatting of usage options**
 
 <!-- markdown -->

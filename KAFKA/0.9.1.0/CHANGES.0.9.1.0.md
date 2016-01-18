@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.9.1.0 - Unreleased (as of 2016-01-16)
+## Release 0.9.1.0 - Unreleased (as of 2016-01-18)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -43,6 +43,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-3105](https://issues.apache.org/jira/browse/KAFKA-3105) | Use `Utils.atomicMoveWithFallback` instead of `File.rename` |  Major | . | Ismael Juma | Ismael Juma |
 | [KAFKA-3084](https://issues.apache.org/jira/browse/KAFKA-3084) | Topic existence checks in topic commands (create, alter, delete) |  Major | . | Grant Henke | Grant Henke |
 | [KAFKA-3077](https://issues.apache.org/jira/browse/KAFKA-3077) | Enable KafkaLog4jAppender to work with SASL enabled brokers. |  Major | clients | Ashish K Singh | Ashish K Singh |
 | [KAFKA-3058](https://issues.apache.org/jira/browse/KAFKA-3058) | remove the usage of deprecated config properties |  Major | core | Jun Rao | Konrad Kalita |
@@ -64,9 +65,13 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-3098](https://issues.apache.org/jira/browse/KAFKA-3098) | "partition.assignment.strategy" appears twice in documentation |  Major | . | Gwen Shapira | David Jacot |
+| [KAFKA-3095](https://issues.apache.org/jira/browse/KAFKA-3095) | No documentation on format of sasl.kerberos.principal.to.local.rules |  Major | core | Thomas Graves | Thomas Graves |
+| [KAFKA-3085](https://issues.apache.org/jira/browse/KAFKA-3085) | BrokerChangeListener computes inconsistent live/dead broker list |  Major | core | Jun Rao | David Jacot |
 | [KAFKA-3069](https://issues.apache.org/jira/browse/KAFKA-3069) | Fix recursion in ZkSecurityMigrator |  Major | security | Flavio Junqueira | Flavio Junqueira |
 | [KAFKA-3055](https://issues.apache.org/jira/browse/KAFKA-3055) | JsonConverter mangles schema during serialization (fromConnectData) |  Major | copycat | Kishore Senji | Ewen Cheslack-Postava |
 | [KAFKA-3009](https://issues.apache.org/jira/browse/KAFKA-3009) | Disallow star imports |  Major | . | Gwen Shapira | Manasvi Gupta |
+| [KAFKA-2999](https://issues.apache.org/jira/browse/KAFKA-2999) | Errors enum should be a 1 to 1 mapping of error codes and exceptions |  Major | . | Grant Henke | Grant Henke |
 | [KAFKA-2990](https://issues.apache.org/jira/browse/KAFKA-2990) | NoSuchMethodError when Kafka is compiled with 1.8 and run on 1.7 |  Major | . | Jason Gustafson | Jason Gustafson |
 | [KAFKA-2973](https://issues.apache.org/jira/browse/KAFKA-2973) | Fix leak of child sensors on remove |  Major | clients | Ismael Juma | Ismael Juma |
 | [KAFKA-2965](https://issues.apache.org/jira/browse/KAFKA-2965) | Two variables should be exchanged. |  Minor | controller | Bo Wang |  |

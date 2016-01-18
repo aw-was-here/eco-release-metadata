@@ -18,7 +18,7 @@
 -->
 # Apache Flink Changelog
 
-## Release 1.0.0 - Unreleased (as of 2016-01-16)
+## Release 1.0.0 - Unreleased (as of 2016-01-18)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -47,6 +47,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [FLINK-3244](https://issues.apache.org/jira/browse/FLINK-3244) | Add log messages to savepoint coordinator restore |  Minor | Distributed Runtime | Ufuk Celebi | Ufuk Celebi |
 | [FLINK-3235](https://issues.apache.org/jira/browse/FLINK-3235) | Drop Flink-on-Tez code |  Major | Flink on Tez | Ufuk Celebi | Stephan Ewen |
 | [FLINK-3232](https://issues.apache.org/jira/browse/FLINK-3232) | Add option to eagerly deploy channels |  Minor | Distributed Runtime | Ufuk Celebi | Ufuk Celebi |
 | [FLINK-3219](https://issues.apache.org/jira/browse/FLINK-3219) | Implement DataSet.count using a single operator |  Minor | . | Greg Hogan | Greg Hogan |
@@ -99,6 +100,9 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [FLINK-3252](https://issues.apache.org/jira/browse/FLINK-3252) | Checkpoint stats only displayed after click on graph |  Major | Webfrontend | Ufuk Celebi | Ufuk Celebi |
+| [FLINK-3251](https://issues.apache.org/jira/browse/FLINK-3251) | Checkpoint stats show ghost numbers |  Major | Webfrontend | Ufuk Celebi | Ufuk Celebi |
+| [FLINK-3250](https://issues.apache.org/jira/browse/FLINK-3250) | Savepoint coordinator requires too strict parallelism match |  Major | Distributed Runtime | Ufuk Celebi | Ufuk Celebi |
 | [FLINK-3236](https://issues.apache.org/jira/browse/FLINK-3236) | Flink user code classloader should have Flink classloader as parent classloader |  Major | Local Runtime | Stephan Ewen | Stephan Ewen |
 | [FLINK-3218](https://issues.apache.org/jira/browse/FLINK-3218) | Merging Hadoop configurations overrides user parameters |  Major | Java API | Greg Hogan | Greg Hogan |
 | [FLINK-3197](https://issues.apache.org/jira/browse/FLINK-3197) | InputStream not closed in BinaryInputFormat#createStatistics |  Minor | . | Ted Yu |  |
@@ -126,6 +130,7 @@
 | [FLINK-3082](https://issues.apache.org/jira/browse/FLINK-3082) | Confusing error about ManualTimestampSourceFunction |  Major | . | Niels Basjes | Niels Basjes |
 | [FLINK-3081](https://issues.apache.org/jira/browse/FLINK-3081) | Kafka Periodic Offset Committer does not properly terminate on canceling |  Blocker | Kafka Connector | Stephan Ewen | Robert Metzger |
 | [FLINK-3080](https://issues.apache.org/jira/browse/FLINK-3080) | Cannot union a data stream with a product of itself |  Major | Streaming | Vasia Kalavri | Aljoscha Krettek |
+| [FLINK-3067](https://issues.apache.org/jira/browse/FLINK-3067) | Kafka source fails during checkpoint notifications with NPE |  Major | Kafka Connector | Gyula Fora | Robert Metzger |
 | [FLINK-3061](https://issues.apache.org/jira/browse/FLINK-3061) | Kafka Consumer is not failing if broker is not available |  Major | Kafka Connector | Robert Metzger | Robert Metzger |
 | [FLINK-3059](https://issues.apache.org/jira/browse/FLINK-3059) | Javadoc fix for DataSet.writeAsText() |  Trivial | . | jun aoki | jun aoki |
 | [FLINK-3054](https://issues.apache.org/jira/browse/FLINK-3054) | Remove R (return) type variable from SerializationSchema |  Major | Streaming | Robert Metzger | Robert Metzger |

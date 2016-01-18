@@ -18,7 +18,7 @@
 -->
 # Apache Yetus Changelog
 
-## Release 0.2.0 - Unreleased (as of 2016-01-16)
+## Release 0.2.0 - Unreleased (as of 2016-01-18)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -60,6 +60,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [YETUS-275](https://issues.apache.org/jira/browse/YETUS-275) | removing files(?) causes pylint file open failures |  Major | Test Patch | Allen Wittenauer | Marco Zühlke |
 | [YETUS-271](https://issues.apache.org/jira/browse/YETUS-271) | findbugs.sh will -1 if there are no java source code in the module. |  Major | Test Patch | Akira AJISAKA | Allen Wittenauer |
 | [YETUS-267](https://issues.apache.org/jira/browse/YETUS-267) | use curl -L when given a patch URL |  Minor | Test Patch | Josh Elser | Josh Elser |
 | [YETUS-265](https://issues.apache.org/jira/browse/YETUS-265) | maven javadocs aren't calcdiff'd correctly |  Blocker | Test Patch | Allen Wittenauer | Allen Wittenauer |
@@ -71,6 +72,7 @@
 | [YETUS-221](https://issues.apache.org/jira/browse/YETUS-221) | asflicense check exits multi-module Maven build early if there are pre-existing license problems. |  Major | Test Patch | Chris Nauroth | Allen Wittenauer |
 | [YETUS-209](https://issues.apache.org/jira/browse/YETUS-209) | releasedocmaker's error message is unintelligible if a non-existent project is specified |  Minor | Release Doc Maker | Kengo Seki | Kengo Seki |
 | [YETUS-182](https://issues.apache.org/jira/browse/YETUS-182) | document git hash in patchnames doc |  Major | Test Patch, website and documentation | Allen Wittenauer | Marco Zühlke |
+| [YETUS-104](https://issues.apache.org/jira/browse/YETUS-104) | Update document about plugin functions |  Major | website and documentation | Kengo Seki | Marco Zühlke |
 
 
 ### TESTS:

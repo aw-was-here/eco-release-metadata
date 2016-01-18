@@ -18,7 +18,7 @@
 -->
 # Apache Hive Changelog
 
-## Release 2.0.0 - Unreleased (as of 2016-01-16)
+## Release 2.0.0 - Unreleased (as of 2016-01-18)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -231,6 +231,7 @@
 | [HIVE-12666](https://issues.apache.org/jira/browse/HIVE-12666) | PCRExprProcFactory.GenericFuncExprProcessor.process() aggressively removes dynamic partition pruner generated synthetic join predicates. |  Blocker | . | Hari Sankar Sivarama Subramaniyan | Hari Sankar Sivarama Subramaniyan |
 | [HIVE-12664](https://issues.apache.org/jira/browse/HIVE-12664) | Bug in reduce deduplication optimization causing ArrayOutOfBoundException |  Major | Hive | Johan Gustavsson | Johan Gustavsson |
 | [HIVE-12662](https://issues.apache.org/jira/browse/HIVE-12662) | StackOverflowError in HiveSortJoinReduceRule when limit=0 |  Major | . | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
+| [HIVE-12661](https://issues.apache.org/jira/browse/HIVE-12661) | StatsSetupConst.COLUMN\_STATS\_ACCURATE is not used correctly |  Major | . | Pengcheng Xiong | Pengcheng Xiong |
 | [HIVE-12660](https://issues.apache.org/jira/browse/HIVE-12660) | HS2 memory leak with .hiverc file use |  Major | HiveServer2 | Thejas M Nair | Thejas M Nair |
 | [HIVE-12648](https://issues.apache.org/jira/browse/HIVE-12648) | LLAP IO was disabled in CliDriver by accident (and tests are broken) |  Blocker | . | Sergey Shelukhin | Sergey Shelukhin |
 | [HIVE-12645](https://issues.apache.org/jira/browse/HIVE-12645) | ConstantPropagateProcCtx.resolve() should verify internal names in addition to alias to match 2 columns from different row schemas |  Major | . | Hari Sankar Sivarama Subramaniyan | Hari Sankar Sivarama Subramaniyan |
@@ -481,6 +482,7 @@
 | [HIVE-11747](https://issues.apache.org/jira/browse/HIVE-11747) | Unnecessary error log is shown when executing a "INSERT OVERWRITE LOCAL DIRECTORY" cmd in the embedded mode |  Minor | . | Ferdinand Xu | Ferdinand Xu |
 | [HIVE-11745](https://issues.apache.org/jira/browse/HIVE-11745) | Alter table Exchange partition with multiple partition\_spec is not working |  Major | Metastore | Yongzhi Chen | Yongzhi Chen |
 | [HIVE-11737](https://issues.apache.org/jira/browse/HIVE-11737) | IndexOutOfBounds compiling query with duplicated groupby keys |  Major | . | Jimmy Xiang | Jimmy Xiang |
+| [HIVE-11735](https://issues.apache.org/jira/browse/HIVE-11735) | Different results when multiple if() functions are used |  Major | Query Planning | Chetna Chaudhari | Ashutosh Chauhan |
 | [HIVE-11726](https://issues.apache.org/jira/browse/HIVE-11726) | Pushed IN predicates to the metastore |  Major | . | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
 | [HIVE-11723](https://issues.apache.org/jira/browse/HIVE-11723) | Incorrect string literal escaping |  Major | . | Uri Laserson | Yongzhi Chen |
 | [HIVE-11721](https://issues.apache.org/jira/browse/HIVE-11721) | non-ascii characters shows improper with "insert into" |  Major | Database/Schema | Jun Yin | Aleksei Statkevich |

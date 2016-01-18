@@ -18,7 +18,7 @@
 -->
 # Apache BigTop Changelog
 
-## Release 1.0.1 - Unreleased (as of 2016-01-16)
+## Release 1.0.1 - Unreleased (as of 2016-01-18)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -48,6 +48,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [BIGTOP-2255](https://issues.apache.org/jira/browse/BIGTOP-2255) | bigtop/deploy:ubuntu-15.04 image does not support ppc64le |  Critical | build, docker | Amir Sanjar | Amir Sanjar |
 | [BIGTOP-2201](https://issues.apache.org/jira/browse/BIGTOP-2201) | Fix BIGTOP-2200 again |  Major | toolchain | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-2200](https://issues.apache.org/jira/browse/BIGTOP-2200) | Fix download path for protobuf ubuntu-15.04 on ppc64le |  Major | toolchain | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-2198](https://issues.apache.org/jira/browse/BIGTOP-2198) | adding bigtop/slaves:ubuntu-15.04 support for ppc64le |  Major | docker | Amir Sanjar | Amir Sanjar |

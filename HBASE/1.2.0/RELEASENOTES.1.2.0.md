@@ -271,17 +271,30 @@ hbase.hstore.compaction.max.size - this is default maximum if no off-peak hours 
 
 * [HBASE-14367](https://issues.apache.org/jira/browse/HBASE-14367) | *Major* | **Add normalization support to shell**
 
-This patch adds shell support for region normalizer.
+This patch adds shell support for region normalizer (see HBASE-13103).
 
-3 commands have been added to hbase shell 'tools' command group:
+3 commands have been added to hbase shell 'tools' command group (modeled on how the balancer works):
 
  - 'normalizer\_enabled' checks whether region normalizer is turned on
  - 'normalizer\_switch' allows user to turn normalizer on and off
  - 'normalize' runs region normalizer if it's turned on.
 
-Also 'ater' command has been extended to allow user to enable/disable region normalization per table (disabled by default). Use it as 
+Also 'alter' command has been extended to allow user to enable/disable region normalization per table (disabled by default). Use it as 
 
-alter 'testtable', {NORMALIZATION\_ENABLED =\> 'true'}
+alter 'testtable', {NORMALIZATION\_MODE =\> 'true'}
+
+Here is the help for the normalize command:
+
+{code}
+hbase(main):008:0\> help 'normalize'
+Trigger region normalizer for all tables which have NORMALIZATION\_MODE flag set. Returns true
+ if normalizer ran successfully, false otherwise. Note that this command has no effect
+ if region normalizer is disabled (make sure it's turned on using 'normalizer\_switch' command).
+
+ Examples:
+
+   hbase\> normalize
+{code}
 
 
 ---

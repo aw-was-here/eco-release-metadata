@@ -18,7 +18,7 @@
 -->
 # Apache Pig Changelog
 
-## Release 0.16.0 - Unreleased (as of 2016-01-16)
+## Release 0.16.0 - Unreleased (as of 2016-01-18)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -70,6 +70,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [PIG-4782](https://issues.apache.org/jira/browse/PIG-4782) | OutOfMemoryError: GC overhead limit exceeded with POPartialAgg |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-4775](https://issues.apache.org/jira/browse/PIG-4775) | Better default values for shuffle bytes per reducer |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-4774](https://issues.apache.org/jira/browse/PIG-4774) | Fix NPE in SUM,AVG,MIN,MAX UDFs for null bag input |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-4773](https://issues.apache.org/jira/browse/PIG-4773) | [Pig on Tez] Secondary key descending sort in nested foreach after union does ascending instead |  Major | tez | Rohini Palaniswamy | Rohini Palaniswamy |
@@ -106,6 +107,7 @@
 | [PIG-4627](https://issues.apache.org/jira/browse/PIG-4627) | [Pig on Tez] Self join does not handle null values correctly |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-4624](https://issues.apache.org/jira/browse/PIG-4624) | Error on ORC empty file without schema |  Major | . | Thejas M Nair | Daniel Dai |
 | [PIG-4618](https://issues.apache.org/jira/browse/PIG-4618) | When use tez as the engine , set pig.user.cache.enabled=true  do  not take effect |  Major | tez | Xiaowei Wang | Xiaowei Wang |
+| [PIG-4587](https://issues.apache.org/jira/browse/PIG-4587) | Applying isFirstReduceOfKey for Skewed left outer join skips records |  Critical | . | Rohini Palaniswamy | Daniel Dai |
 | [PIG-4533](https://issues.apache.org/jira/browse/PIG-4533) | Document error: Pig does support concatenated gz file |  Major | documentation, parser | Tomas Hudik | Daniel Dai |
 | [PIG-4468](https://issues.apache.org/jira/browse/PIG-4468) | Pig's jackson version conflicts with that of hadoop 2.6.0 or newer |  Major | . | Jeff Zhang | Jeff Zhang |
 | [PIG-4315](https://issues.apache.org/jira/browse/PIG-4315) | MergeJoin or Split followed by order by gives NPE in Tez |  Major | tez | Rohini Palaniswamy | Rohini Palaniswamy |

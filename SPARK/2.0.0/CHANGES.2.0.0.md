@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 2.0.0 - Unreleased (as of 2016-01-16)
+## Release 2.0.0 - Unreleased (as of 2016-01-18)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -58,6 +58,8 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-12873](https://issues.apache.org/jira/browse/SPARK-12873) | Add more comment in HiveTypeCoercion for type widening |  Major | SQL | Reynold Xin | Reynold Xin |
+| [SPARK-12860](https://issues.apache.org/jira/browse/SPARK-12860) | speed up safe projection for primitive types |  Major | SQL | Wenchen Fan | Wenchen Fan |
 | [SPARK-12856](https://issues.apache.org/jira/browse/SPARK-12856) | speed up hashCode of unsafe array |  Major | SQL | Wenchen Fan | Wenchen Fan |
 | [SPARK-12840](https://issues.apache.org/jira/browse/SPARK-12840) | Support passing arbitrary objects (not just expressions) into code generated classes |  Major | . | Davies Liu | Davies Liu |
 | [SPARK-12788](https://issues.apache.org/jira/browse/SPARK-12788) | Simplify BooleanEquality by using casts |  Major | SQL | Reynold Xin | Reynold Xin |
@@ -180,6 +182,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-12862](https://issues.apache.org/jira/browse/SPARK-12862) | Jenkins does not run R tests |  Major | SparkR | Felix Cheung | Felix Cheung |
 | [SPARK-12842](https://issues.apache.org/jira/browse/SPARK-12842) | Add Hadoop 2.7 build profile |  Major | Build | Josh Rosen | Josh Rosen |
 | [SPARK-12821](https://issues.apache.org/jira/browse/SPARK-12821) | Style checker should run when some configuration files for style are modified but any source files are not. |  Minor | Project Infra | Kousuke Saruta | Kousuke Saruta |
 | [SPARK-12805](https://issues.apache.org/jira/browse/SPARK-12805) | Outdated details in doc related to Mesos run modes |  Minor | Documentation | Luc Bourlier | Luc Bourlier |
@@ -405,6 +408,7 @@
 | [SPARK-11097](https://issues.apache.org/jira/browse/SPARK-11097) | Add connection established callback to lower level RPC layer so we don't need to check for new connections in NettyRpcHandler.receive |  Major | Spark Core | Reynold Xin | Shixiong Zhu |
 | [SPARK-11031](https://issues.apache.org/jira/browse/SPARK-11031) | SparkR str() method on DataFrame objects |  Major | SparkR | Oscar D. Lara Yejas | Oscar D. Lara Yejas |
 | [SPARK-10580](https://issues.apache.org/jira/browse/SPARK-10580) | Remove Bagel |  Major | GraphX | Sean Owen | Reynold Xin |
+| [SPARK-10264](https://issues.apache.org/jira/browse/SPARK-10264) | Add @Since annotation to ml.recoomendation |  Minor | Documentation, ML | Xiangrui Meng | Tijo Thomas |
 | [SPARK-9972](https://issues.apache.org/jira/browse/SPARK-9972) | Add `struct`, `encode` and `decode` function in SparkR |  Major | SparkR | Yu Ishikawa | Sun Rui |
 | [SPARK-9694](https://issues.apache.org/jira/browse/SPARK-9694) | Add random seed Param to Scala CrossValidator |  Minor | ML | Joseph K. Bradley | Yanbo Liang |
 | [SPARK-9690](https://issues.apache.org/jira/browse/SPARK-9690) | Add random seed Param to PySpark CrossValidator |  Minor | ML, PySpark | Martin Menestret | Martin Menestret |
