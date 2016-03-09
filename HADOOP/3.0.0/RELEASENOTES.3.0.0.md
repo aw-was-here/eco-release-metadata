@@ -23,6 +23,13 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
+* [HADOOP-12850](https://issues.apache.org/jira/browse/HADOOP-12850) | *Major* | **pull shell code out of hadoop-dist**
+
+This change contains the content of HADOOP-10115 which is an incompatible change.
+
+
+---
+
 * [HADOOP-12495](https://issues.apache.org/jira/browse/HADOOP-12495) | *Major* | **Fix posix\_spawn error on OS X**
 
 When Hadoop JVMs create other processes on OS X, it will always use posix\_spawn.
@@ -89,45 +96,44 @@ Python is now required to build the documentation.
 * [HADOOP-11460](https://issues.apache.org/jira/browse/HADOOP-11460) | *Major* | **Deprecate shell vars**
 
 <!-- markdown -->
-The following shell environment variables have been deprecated:
 
 | Old | New |
 |:---- |:---- |
-| HADOOP\_HDFS\_LOG\_DIR| HADOOP\_LOG\_DIR|
-| HADOOP\_HDFS\_LOGFILE| HADOOP\_LOGFILE|
-| HADOOP\_HDFS\_NICENESS| HADOOP\_NICENESS|
-| HADOOP\_HDFS\_STOP\_TIMEOUT| HADOOP\_STOP\_TIMEOUT |
-| HADOOP\_HDFS\_PID\_DIR| HADOOP\_PID\_DIR|
-| HADOOP\_HDFS\_ROOT\_LOGGER| HADOOP\_ROOT\_LOGGER|
-| HADOOP\_HDFS\_IDENT\_STRING| HADOOP\_IDENT\_STRING|
-| HADOOP\_MAPRED\_LOG\_DIR| HADOOP\_LOG\_DIR|
-| HADOOP\_MAPRED\_LOGFILE| HADOOP\_LOGFILE|
-| HADOOP\_MAPRED\_NICENESS| HADOOP\_NICENESS|
-| HADOOP\_MAPRED\_STOP\_TIMEOUT| HADOOP\_STOP\_TIMEOUT|
-| HADOOP\_MAPRED\_PID\_DIR| HADOOP\_PID\_DIR|
-| HADOOP\_MAPRED\_ROOT\_LOGGER| HADOOP\_ROOT\_LOGGER|
-| HADOOP\_MAPRED\_IDENT\_STRING| HADOOP\_IDENT\_STRING|
-| YARN\_CONF\_DIR| HADOOP\_CONF\_DIR|
-| YARN\_LOG\_DIR| HADOOP\_LOG\_DIR|
-| YARN\_LOGFILE| HADOOP\_LOGFILE|
-| YARN\_NICENESS| HADOOP\_NICENESS|
-| YARN\_STOP\_TIMEOUT| HADOOP\_STOP\_TIMEOUT|
-| YARN\_PID\_DIR| HADOOP\_PID\_DIR|
-| YARN\_ROOT\_LOGGER| HADOOP\_ROOT\_LOGGER|
-| YARN\_IDENT\_STRING| HADOOP\_IDENT\_STRING|
-| YARN\_OPTS| HADOOP\_OPTS|
-| YARN\_SLAVES| HADOOP\_SLAVES|
-| YARN\_USER\_CLASSPATH| HADOOP\_USER\_CLASSPATH|
-| YARN\_USER\_CLASSPATH\_FIRST| HADOOP\_USER\_CLASSPATH\_FIRST|
-| KMS\_CONFIG |HADOOP\_CONF\_DIR|
-| KMS\_LOG |HADOOP\_LOG\_DIR |
+| HADOOP\_HDFS\_LOG\_DIR | HADOOP\_LOG\_DIR |
+| HADOOP\_HDFS\_LOGFILE | HADOOP\_LOGFILE |
+| HADOOP\_HDFS\_NICENESS | HADOOP\_NICENESS |
+| HADOOP\_HDFS\_STOP\_TIMEOUT | HADOOP\_STOP\_TIMEOUT |
+| HADOOP\_HDFS\_PID\_DIR | HADOOP\_PID\_DIR |
+| HADOOP\_HDFS\_ROOT\_LOGGER | HADOOP\_ROOT\_LOGGER |
+| HADOOP\_HDFS\_IDENT\_STRING | HADOOP\_IDENT\_STRING |
+| HADOOP\_MAPRED\_LOG\_DIR | HADOOP\_LOG\_DIR |
+| HADOOP\_MAPRED\_LOGFILE | HADOOP\_LOGFILE |
+| HADOOP\_MAPRED\_NICENESS | HADOOP\_NICENESS |
+| HADOOP\_MAPRED\_STOP\_TIMEOUT | HADOOP\_STOP\_TIMEOUT |
+| HADOOP\_MAPRED\_PID\_DIR | HADOOP\_PID\_DIR |
+| HADOOP\_MAPRED\_ROOT\_LOGGER | HADOOP\_ROOT\_LOGGER |
+| HADOOP\_MAPRED\_IDENT\_STRING | HADOOP\_IDENT\_STRING |
+| YARN\_CONF\_DIR | HADOOP\_CONF\_DIR |
+| YARN\_LOG\_DIR | HADOOP\_LOG\_DIR |
+| YARN\_LOGFILE | HADOOP\_LOGFILE |
+| YARN\_NICENESS | HADOOP\_NICENESS |
+| YARN\_STOP\_TIMEOUT | HADOOP\_STOP\_TIMEOUT |
+| YARN\_PID\_DIR | HADOOP\_PID\_DIR |
+| YARN\_ROOT\_LOGGER | HADOOP\_ROOT\_LOGGER |
+| YARN\_IDENT\_STRING | HADOOP\_IDENT\_STRING |
+| YARN\_OPTS | HADOOP\_OPTS |
+| YARN\_SLAVES | HADOOP\_SLAVES |
+| YARN\_USER\_CLASSPATH | HADOOP\_USER\_CLASSPATH |
+| YARN\_USER\_CLASSPATH\_FIRST | HADOOP\_USER\_CLASSPATH\_FIRST |
+| KMS\_CONFIG | HADOOP\_CONF\_DIR |
+| KMS\_LOG | HADOOP\_LOG\_DIR |
 
 
 ---
 
 * [HADOOP-11356](https://issues.apache.org/jira/browse/HADOOP-11356) | *Major* | **Removed deprecated o.a.h.fs.permission.AccessControlException**
 
-**WARNING: No release note provided for this incompatible change.**
+org.apache.hadoop.fs.permission.AccessControlException was deprecated in the last major release, and has been removed in favor of org.apache.hadoop.security.AccessControlException
 
 
 ---
@@ -149,11 +155,12 @@ This changes the output of the 'hadoop version' command to generically say 'Sour
 * [HADOOP-10950](https://issues.apache.org/jira/browse/HADOOP-10950) | *Major* | **rework  heap management  vars**
 
 <!-- markdown -->
+
 * HADOOP\_HEAPSIZE variable has been deprecated  (It will still be honored if set, but expect it to go away in the future).    In its place, HADOOP\_HEAPSIZE\_MAX and HADOOP\_HEAPSIZE\_MIN have been introduced to set Xmx and Xms, respectively. 
 
 * The internal variable JAVA\_HEAP\_MAX has been removed.
 
-* Default heap sizes have been removed. This will allow for the JVM to use auto-tuning based upon the memory size of the host. To re-enable the old default, configure HADOOP\_HEAPSIZE\_MAX="1g" in hadoop-env.sh. 
+* Default heap sizes have been removed. This will allow for the JVM to use auto-tuning based upon the memory size of the host. To re-enable the old default, configure HADOOP\_HEAPSIZE_MAX="1g" in hadoop-env.sh. 
 
 * All global and daemon-specific heap size variables now support units.  If the variable is only a number, the size is assumed to be in megabytes.
 
@@ -172,6 +179,7 @@ The following shell environment variables have been deprecated:
 | TOOL\_PATH | HADOOP\_TOOLS\_PATH |
 
 In addition:
+
 * DEFAULT\_LIBEXEC\_DIR will NOT be automatically transitioned to HADOOP\_DEFAULT\_LIBEXEC\_DIR and will require changes to any scripts setting that value.  A warning will be printed to the screen if DEFAULT\_LIBEXEC\_DIR has been configured.
 * HADOOP\_TOOLS\_PATH is now properly handled as a multi-valued, Java classpath-style variable.  Prior, multiple values assigned to TOOL\_PATH would not work a predictable manner.
 
@@ -209,15 +217,15 @@ INCOMPATIBLE CHANGES:
 * The pid and out files for secure daemons have been renamed to include the appropriate ${HADOOP\_IDENT\_STR}.  This should allow, with proper configurations in place, for multiple versions of the same secure daemon to run on a host. Additionally, pid files are now created when daemons are run in interactive mode.  This will also prevent the accidental starting of two daemons with the same configuration prior to launching java (i.e., "fast fail" without having to wait for socket opening).
 * All Hadoop shell script subsystems now execute hadoop-env.sh, which allows for all of the environment variables to be in one location.  This was not the case previously.
 * The default content of *-env.sh has been significantly altered, with the majority of defaults moved into more protected areas inside the code. Additionally, these files do not auto-append anymore; setting a variable on the command line prior to calling a shell command must contain the entire content, not just any extra settings.  This brings Hadoop more in-line with the vast majority of other software packages.
-* All HDFS\_*, YARN\_*, and MAPRED\_* environment variables act as overrides to their equivalent HADOOP\_* environment variables when 'hdfs', 'yarn', 'mapred', and related commands are executed. Previously, these were separated out which meant a significant amount of duplication of common settings.  
+* All HDFS\_\*, YARN\_\*, and MAPRED\_\* environment variables act as overrides to their equivalent HADOOP\_\* environment variables when 'hdfs', 'yarn', 'mapred', and related commands are executed. Previously, these were separated out which meant a significant amount of duplication of common settings.  
 * hdfs-config.sh and hdfs-config.cmd were inadvertently duplicated into libexec and sbin.  The sbin versions have been removed.
-* The log4j settings forcibly set by some *-daemon.sh commands have been removed.  These settings are now configurable in the *-env.sh files via *\_OPT. 
+* The log4j settings forcibly set by some *-daemon.sh commands have been removed.  These settings are now configurable in the \*-env.sh files via \*\_OPT. 
 * Support for various undocumented YARN log4j.properties files has been removed.
 * Support for ${HADOOP\_MASTER} and the related rsync code have been removed.
 * The undocumented and unused yarn.id.str Java property has been removed.
 * The unused yarn.policy.file Java property has been removed.
 * We now require bash v3 (released July 27, 2004) or better in order to take advantage of better regex handling and ${BASH\_SOURCE}.  POSIX sh will not work.
-* Support for --script has been removed. We now use ${HADOOP\_*\_PATH} or ${HADOOP\_PREFIX} to find the necessary binaries.  (See other note regarding ${HADOOP\_PREFIX} auto discovery.)
+* Support for --script has been removed. We now use ${HADOOP\_\*\_PATH} or ${HADOOP\_PREFIX} to find the necessary binaries.  (See other note regarding ${HADOOP\_PREFIX} auto discovery.)
 * Non-existent classpaths, ld.so library paths, JNI library paths, etc, will be ignored and stripped from their respective environment settings.
 
 NEW FEATURES:
@@ -254,7 +262,7 @@ IMPROVEMENTS:
 * More of the shell code is now commented.
 * Significant amounts of redundant code have been moved into a new file called hadoop-functions.sh.
 * The various *-env.sh have been massively changed to include documentation and examples on what can be set, ramifications of setting, etc.  for all variables that are expected to be set by a user.  
-* There is now some trivial de-duplication and sanitization of the classpath and JVM options.  This allows, amongst other things, for custom settings in *\_OPTS for Hadoop daemons to override defaults and other generic settings (i.e., ${HADOOP\_OPTS}).  This is particularly relevant for Xmx settings, as one can now set them in \_OPTS and ignore the heap specific options for daemons which force the size in megabytes.
+* There is now some trivial de-duplication and sanitization of the classpath and JVM options.  This allows, amongst other things, for custom settings in \*\_OPTS for Hadoop daemons to override defaults and other generic settings (i.e., ${HADOOP\_OPTS}).  This is particularly relevant for Xmx settings, as one can now set them in _OPTS and ignore the heap specific options for daemons which force the size in megabytes.
 * Subcommands have been alphabetized in both usage and in the code.
 * All/most of the functionality provided by the sbin/* commands has been moved to either their bin/ equivalents or made into functions.  The rewritten versions of these commands are now wrappers to maintain backward compatibility.
 * Usage information is given with the following options/subcommands for all scripts using the common framework: --? -? ? --help -help -h help 
@@ -291,6 +299,13 @@ Documented that the "fs -getmerge" shell command may not work properly over non 
 * [HADOOP-6857](https://issues.apache.org/jira/browse/HADOOP-6857) | *Major* | **FsShell should report raw disk usage including replication factor**
 
 The output format of hadoop fs -du has been changed. It shows not only the file size but also the raw disk usage including the replication factor.
+
+
+---
+
+* [HDFS-9525](https://issues.apache.org/jira/browse/HDFS-9525) | *Blocker* | **hadoop utilities need to support provided delegation tokens**
+
+If hadoop.token.files property is defined and configured to one or more comma-delimited delegation token files, Hadoop will use those token files to connect to the services as named in the token.
 
 
 ---
@@ -341,14 +356,7 @@ This removes the deprecated DistributedFileSystem#getFileBlockStorageLocations A
 
 * [HDFS-8591](https://issues.apache.org/jira/browse/HDFS-8591) | *Minor* | **Remove support for deprecated configuration key dfs.namenode.decommission.nodes.per.interval**
 
-**WARNING: No release note provided for this incompatible change.**
-
-
----
-
-* [HDFS-8349](https://issues.apache.org/jira/browse/HDFS-8349) | *Minor* | **Remove .xml and documentation references to dfs.webhdfs.enabled**
-
-**WARNING: No release note provided for this incompatible change.**
+Related to the decommission enhancements in HDFS-7411, this change removes the deprecated configuration key "dfs.namenode.decommission.nodes.per.interval" which has been subsumed by the configuration key "dfs.namenode.decommission.blocks.per.interval".
 
 
 ---
@@ -381,13 +389,6 @@ WebHDFS is mandatory and cannot be disabled.
 
 ---
 
-* [HDFS-7645](https://issues.apache.org/jira/browse/HDFS-7645) | *Major* | **Rolling upgrade is restoring blocks from trash multiple times**
-
-**WARNING: No release note provided for this incompatible change.**
-
-
----
-
 * [HDFS-7460](https://issues.apache.org/jira/browse/HDFS-7460) | *Major* | **Rewrite httpfs to use new shell framework**
 
 <!-- markdown -->
@@ -395,8 +396,8 @@ This deprecates the following environment variables:
 
 | Old | New |
 |:---- |:---- |
-| HTTPFS\_LOG | HADOOP\_LOG\_DIR|
-| HTTPFS\_CONFG | HADOOP\_CONF\_DIR |
+| HTTPFS_LOG | HADOOP_LOG_DIR|
+| HTTPFS_CONFG | HADOOP_CONF_DIR |
 
 
 ---
@@ -404,6 +405,16 @@ This deprecates the following environment variables:
 * [HDFS-7302](https://issues.apache.org/jira/browse/HDFS-7302) | *Major* | **namenode -rollingUpgrade downgrade may finalize a rolling upgrade**
 
 Remove "downgrade" from "namenode -rollingUpgrade" startup option since it may incorrectly finalize an ongoing rolling upgrade.
+
+
+---
+
+* [HDFS-7285](https://issues.apache.org/jira/browse/HDFS-7285) | *Major* | **Erasure Coding Support inside HDFS**
+
+<!-- markdown -->
+HDFS now provides native support for erasure coding (EC) to store data more efficiently. Each individual directory can be configured with an EC policy with command `hdfs erasurecode -setPolicy`. When a file is created, it will inherit the EC policy from its nearest ancestor directory to determine how its blocks are stored. Compared to 3-way replication, the default EC policy saves 50% of storage space while also tolerating more storage failures.
+
+To support small files, the currently phase of HDFS-EC stores blocks in _striped_ layout, where a logical file block is divided into small units (64KB by default) and distributed to a set of DataNodes. This enables parallel I/O but also decreases data locality. Therefore, the cluster environment and I/O workloads should be considered before configuring EC policies.
 
 
 ---
@@ -416,6 +427,13 @@ The patch improves the reporting around missing blocks and corrupted blocks.
 2. A block is corrupted if and only if all its available replicas are corrupted. So if a block has 3 replicas; one of the DN is dead, the other two replicas are corrupted; it will be marked as corrupted.
 3. A new line is added to fsck output to display the corrupt block size per file.
 4. A new line is added to fsck output to display the number of missing blocks in the summary section.
+
+
+---
+
+* [HDFS-6440](https://issues.apache.org/jira/browse/HDFS-6440) | *Major* | **Support more than 2 NameNodes**
+
+This feature adds support for running additional standby NameNodes, which provides additional fault-tolerance. It is designed for a total of 3-5 NameNodes.
 
 
 ---
@@ -450,7 +468,7 @@ Now TotalFiles metric is removed from FSNameSystem. Use FilesTotal instead.
 
 * [HDFS-5079](https://issues.apache.org/jira/browse/HDFS-5079) | *Major* | **Cleaning up NNHAStatusHeartbeat.State DatanodeProtocolProtos.**
 
-**WARNING: No release note provided for this incompatible change.**
+This change affects wire-compatibility of the NameNode/DataNode heartbeat protocol.
 
 
 ---
@@ -479,6 +497,13 @@ fsck does not print out dots for progress reporting by default. To print out dot
 * [HDFS-46](https://issues.apache.org/jira/browse/HDFS-46) | *Major* | **The namespace quota of root directory should not be Integer.MAX\_VALUE**
 
 Change default namespace quota of root directory from Integer.MAX\_VALUE to Long.MAX\_VALUE.
+
+
+---
+
+* [MAPREDUCE-6613](https://issues.apache.org/jira/browse/MAPREDUCE-6613) | *Minor* | **Change mapreduce.jobhistory.jhist.format default from json to binary**
+
+Default of 'mapreduce.jobhistory.jhist.format' property changed from 'json' to 'binary'.  Creates smaller, binary Avro .jhist files for faster JHS performance.
 
 
 ---
@@ -523,13 +548,6 @@ Algorithm version 2 changes the behavior of commitTask, recoverTask, and commitJ
   $joboutput/\_SUCCESS
 
 Algorithm 2 takes advantage of task parallelism and makes commitJob itself O(1). However, the window of vulnerability for having incomplete output in $jobOutput directory is much larger. Therefore, pipeline logic for consuming job outputs should be built on checking for existence of \_SUCCESS marker.
-
-
----
-
-* [MAPREDUCE-6234](https://issues.apache.org/jira/browse/MAPREDUCE-6234) | *Major* | **TestHighRamJob fails due to the change in MAPREDUCE-5785**
-
-**WARNING: No release note provided for this incompatible change.**
 
 
 ---

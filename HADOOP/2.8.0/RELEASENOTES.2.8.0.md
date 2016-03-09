@@ -23,6 +23,30 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
+* [HADOOP-12805](https://issues.apache.org/jira/browse/HADOOP-12805) | *Major* | **Annotate CanUnbuffer with @InterfaceAudience.Public**
+
+Made CanBuffer interface public for use in client applications.
+
+
+---
+
+* [HADOOP-12794](https://issues.apache.org/jira/browse/HADOOP-12794) | *Major* | **Support additional compression levels for GzipCodec**
+
+Added New compression levels for GzipCodec that can be set in zlib.compress.level
+
+
+---
+
+* [HADOOP-12668](https://issues.apache.org/jira/browse/HADOOP-12668) | *Critical* | **Support excluding weak Ciphers in HttpServer2 through ssl-server.conf**
+
+The Code Changes include following:
+- Modified DFSUtil.java in Apache HDFS project for supplying new parameter ssl.server.exclude.cipher.list
+- Modified HttpServer2.java in Apache Hadoop-common project to work with new parameter and exclude ciphers using jetty setExcludeCihers method.
+- Modfied associated test classes to owrk with existing code and also cover the newfunctionality in junit
+
+
+---
+
 * [HADOOP-12657](https://issues.apache.org/jira/browse/HADOOP-12657) | *Minor* | **Add a option to skip newline on empty files with getMerge -nl**
 
 Added -skip-empty-file option to hadoop fs -getmerge command. With the option, delimiter (LF) is not printed for empty files even if -nl option is used.
@@ -30,9 +54,44 @@ Added -skip-empty-file option to hadoop fs -getmerge command. With the option, d
 
 ---
 
+* [HADOOP-12651](https://issues.apache.org/jira/browse/HADOOP-12651) | *Major* | **Replace dev-support with wrappers to Yetus**
+
+<!-- markdown -->
+
+* Major portions of dev-support have been replaced with wrappers to Apache Yetus:
+  * releasedocmaker.py is now dev-support/bin/releasedocmaker
+  * shelldocs.py is now dev-support/bin/shelldocs
+  * smart-apply-patch.sh is now dev-support/bin/smart-apply-patch
+  * test-patch.sh is now dev-support/bin/test-patch
+* See the dev-support/README.md file for more details on how to control the wrappers to various degrees.
+
+
+---
+
 * [HADOOP-12635](https://issues.apache.org/jira/browse/HADOOP-12635) | *Major* | **Adding Append API support for WASB**
 
 The Azure Blob Storage file system (WASB) now includes optional support for use of the append API by a single writer on a path.  Please note that the implementation differs from the semantics of HDFS append.  HDFS append internally guarantees that only a single writer may append to a path at a given time.  WASB does not enforce this guarantee internally.  Instead, the application must enforce access by a single writer, such as by running single-threaded or relying on some external locking mechanism to coordinate concurrent processes.  Refer to the Azure Blob Storage documentation page for more details on enabling append in configuration.
+
+
+---
+
+* [HADOOP-12555](https://issues.apache.org/jira/browse/HADOOP-12555) | *Minor* | **WASB to read credentials from a credential provider**
+
+The hadoop-azure file system now supports configuration of the Azure Storage account credentials using the standard Hadoop Credential Provider API.  For details, please refer to the documentation on hadoop-azure and the Credential Provider API.
+
+
+---
+
+* [HADOOP-12552](https://issues.apache.org/jira/browse/HADOOP-12552) | *Minor* | **Fix undeclared/unused dependency to httpclient**
+
+Dependency on commons-httpclient::commons-httpclient was removed from hadoop-common. Downstream projects using commons-httpclient transitively provided by hadoop-common need to add explicit dependency to their pom. Since commons-httpclient is EOL, it is recommended to migrate to org.apache.httpcomponents:httpclient which is the successor.
+
+
+---
+
+* [HADOOP-12548](https://issues.apache.org/jira/browse/HADOOP-12548) | *Major* | **Read s3a creds from a Credential Provider**
+
+The S3A Hadoop-compatible file system now support reading its S3 credentials from the Hadoop Credential Provider API in addition to XML configuration files.
 
 
 ---
@@ -47,6 +106,13 @@ FileSystem#createNonRecursive() is undeprecated.
 * [HADOOP-12437](https://issues.apache.org/jira/browse/HADOOP-12437) | *Major* | **Allow SecurityUtil to lookup alternate hostnames**
 
 HADOOP-12437 introduces two new configuration settings: hadoop.security.dns.interface and hadoop.security.dns.nameserver. These settings can be used to control how Hadoop service instances look up their own hostname and may be required in some multi-homed environments where hosts are configured with multiple hostnames in DNS or hosts files. They supersede the existing settings dfs.datanode.dns.interface and dfs.datanode.dns.nameserver.
+
+
+---
+
+* [HADOOP-12426](https://issues.apache.org/jira/browse/HADOOP-12426) | *Minor* | **Add Entry point for Kerberos health check**
+
+Hadoop now includes a shell command named KDiag that helps with diagnosis of Kerberos misconfiguration problems.  Please refer to the Secure Mode documentation for full details on usage of the command.
 
 
 ---
@@ -81,7 +147,7 @@ Fixes an Trash related issue wherein a delay in the periodic checkpointing of on
 
 * [HADOOP-12313](https://issues.apache.org/jira/browse/HADOOP-12313) | *Critical* | **NPE in JvmPauseMonitor when calling stop() before start()**
 
-HADOOP-12313 Allow stop() before start() completed in JvmPauseMonitor
+Allow stop() before start() completed in JvmPauseMonitor
 
 
 ---
@@ -104,13 +170,6 @@ HADOOP-12313 Allow stop() before start() completed in JvmPauseMonitor
 
 ---
 
-* [HADOOP-11848](https://issues.apache.org/jira/browse/HADOOP-11848) | *Major* | **Incorrect arguments to sizeof in DomainSocket.c**
-
-Small one-line bug fix
-
-
----
-
 * [HADOOP-11843](https://issues.apache.org/jira/browse/HADOOP-11843) | *Major* | **Make setting up the build environment easier**
 
 Includes a docker based solution for setting up a build environment with minimal effort.
@@ -121,6 +180,13 @@ Includes a docker based solution for setting up a build environment with minimal
 * [HADOOP-11813](https://issues.apache.org/jira/browse/HADOOP-11813) | *Minor* | **releasedocmaker.py should use today's date instead of unreleased**
 
 Use today instead of 'Unreleased' in releasedocmaker.py when --usetoday is given as an option.
+
+
+---
+
+* [HADOOP-11792](https://issues.apache.org/jira/browse/HADOOP-11792) | *Major* | **Remove all of the CHANGES.txt files**
+
+With the introduction of the markdown-formatted and automatically built changes file, the CHANGES.txt files have been eliminated.
 
 
 ---
@@ -224,6 +290,48 @@ Added SFTP filesystem by using the JSch library.
 
 ---
 
+* [HDFS-9887](https://issues.apache.org/jira/browse/HDFS-9887) | *Major* | **WebHdfs socket timeouts should be configurable**
+
+Added new configuration options: dfs.webhdfs.socket.connect-timeout and dfs.webhdfs.socket.read-timeout both defaulting to 60s.
+
+
+---
+
+* [HDFS-9711](https://issues.apache.org/jira/browse/HDFS-9711) | *Major* | **Integrate CSRF prevention filter in WebHDFS.**
+
+WebHDFS now supports options to enforce cross-site request forgery (CSRF) prevention for HTTP requests to both the NameNode and the DataNode.  Please refer to the updated WebHDFS documentation for a description of this feature and further details on how to configure it.
+
+
+---
+
+* [HDFS-9503](https://issues.apache.org/jira/browse/HDFS-9503) | *Major* | **Replace -namenode option with -fs for NNThroughputBenchmark**
+
+The patch replaces -namenode option with -fs for specifying the remote name node against which the benchmark is running. Before this patch, if '-namenode' was not given, the benchmark would run in standalone mode, ignoring the 'fs.defaultFS' in config file even if it's remote. With this patch, the benchmark, as other tools, will rely on the 'fs.defaultFS' config, which is overridable by -fs command option, to run standalone mode or remote mode.
+
+
+---
+
+* [HDFS-9425](https://issues.apache.org/jira/browse/HDFS-9425) | *Major* | **Expose number of blocks per volume as a metric**
+
+Number of blocks per volume is made available as a metric.
+
+
+---
+
+* [HDFS-9311](https://issues.apache.org/jira/browse/HDFS-9311) | *Major* | **Support optional offload of NameNode HA service health checks to a separate RPC server.**
+
+There is now support for offloading HA health check RPC activity to a separate RPC server endpoint running within the NameNode process.  This may improve reliability of HA health checks and prevent spurious failovers in highly overloaded conditions.  For more details, please refer to the hdfs-default.xml documentation for properties dfs.namenode.lifeline.rpc-address, dfs.namenode.lifeline.rpc-bind-host and dfs.namenode.lifeline.handler.count.
+
+
+---
+
+* [HDFS-9239](https://issues.apache.org/jira/browse/HDFS-9239) | *Major* | **DataNode Lifeline Protocol: an alternative protocol for reporting DataNode liveness**
+
+This release adds a new feature called the DataNode Lifeline Protocol.  If configured, then DataNodes can report that they are still alive to the NameNode via a fallback protocol, separate from the existing heartbeat messages.  This can prevent the NameNode from incorrectly marking DataNodes as stale or dead in highly overloaded clusters where heartbeat processing is suffering delays.  For more information, please refer to the hdfs-default.xml documentation for several new configuration properties: dfs.namenode.lifeline.rpc-address, dfs.namenode.lifeline.rpc-bind-host, dfs.datanode.lifeline.interval.seconds, dfs.namenode.lifeline.handler.ratio and dfs.namenode.lifeline.handler.count.
+
+
+---
+
 * [HDFS-9184](https://issues.apache.org/jira/browse/HDFS-9184) | *Major* | **Logging HDFS operation's caller context into audit logs**
 
 The feature needs to enabled by setting "hadoop.caller.context.enabled" to true. When the feature is used, additional fields are written into namenode audit log records.
@@ -265,13 +373,6 @@ Adds a new blockpools flag to the balancer. This allows admins to specify which 
 Usage:
 -blockpools \<comma-separated list of blockpool ids\>
 The balancer will only run on blockpools included in this list.
-
-
----
-
-* [HDFS-8866](https://issues.apache.org/jira/browse/HDFS-8866) | *Trivial* | **Typo in docs: Rumtime -\> Runtime**
-
-HDFS-8866 Correct typo in WebHDFS.md
 
 
 ---
@@ -381,6 +482,15 @@ Projects that access HDFS can depend on the hadoop-hdfs-client module instead of
 
 ---
 
+* [MAPREDUCE-6622](https://issues.apache.org/jira/browse/MAPREDUCE-6622) | *Critical* | **Add capability to set JHS job cache to a task-based limit**
+
+Two recommendations for the mapreduce.jobhistory.loadedtasks.cache.size property:
+1) For every 100k of cache size, set the heap size of the Job History Server to 1.2GB.  For example, mapreduce.jobhistory.loadedtasks.cache.size=500000, heap size=6GB.
+2) Make sure that the cache size is larger than the number of tasks required for the largest job run on the cluster.  It might be a good idea to set the value slightly higher (say, 20%) in order to allow for job size growth.
+
+
+---
+
 * [MAPREDUCE-6427](https://issues.apache.org/jira/browse/MAPREDUCE-6427) | *Minor* | **Fix typo in JobHistoryEventHandler**
 
 There is a typo in the event string "WORKFLOW\_ID" (as "WORKLFOW\_ID").  The branch-2 change will publish both event strings for compatibility with consumers, but the misspelled metric will be removed in trunk.
@@ -420,13 +530,6 @@ Modifying key methods in ContainerExecutor to use context objects instead of an 
 * [YARN-3623](https://issues.apache.org/jira/browse/YARN-3623) | *Major* | **We should have a config to indicate the Timeline Service version**
 
 Add a new configuration "yarn.timeline-service.version" to indicate what is the current version of the running timeline service. For example, if "yarn.timeline-service.version" is 1.5, and "yarn.timeline-service.enabled" is true, it means the cluster will and should bring up the timeline service v.1.5. On the client side, if the client uses the same version of timeline service, it should succeed. If the client chooses to use a smaller version in spite of this, then depending on how robust the compatibility story is between versions, the results may vary.
-
-
----
-
-* [YARN-3587](https://issues.apache.org/jira/browse/YARN-3587) | *Minor* | **Fix the javadoc of DelegationTokenSecretManager in projects of yarn, etc.**
-
-Update DelegationTokenSecretManager Javadoc (milliseconds)
 
 
 ---
@@ -476,7 +579,7 @@ ResourceManager renews delegation tokens for applications. This behavior has bee
 
 * [YARN-2336](https://issues.apache.org/jira/browse/YARN-2336) | *Major* | **Fair scheduler REST api returns a missing '[' bracket JSON for deep queue tree**
 
-This incompatible change should be fixed on branch-2 because the API is broken in branch-2.
+**WARNING: No release note provided for this incompatible change.**
 
 
 ---

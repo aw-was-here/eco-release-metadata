@@ -37,6 +37,12 @@
 * Apache Hadoop v2.7.0
     * [Changes](2.7.0/CHANGES.2.7.0.md)
     * [Release Notes](2.7.0/RELEASENOTES.2.7.0.md)
+* Apache Hadoop v2.6.5
+    * [Changes](2.6.5/CHANGES.2.6.5.md)
+    * [Release Notes](2.6.5/RELEASENOTES.2.6.5.md)
+* Apache Hadoop v2.6.4
+    * [Changes](2.6.4/CHANGES.2.6.4.md)
+    * [Release Notes](2.6.4/RELEASENOTES.2.6.4.md)
 * Apache Hadoop v2.6.3
     * [Changes](2.6.3/CHANGES.2.6.3.md)
     * [Release Notes](2.6.3/RELEASENOTES.2.6.3.md)
