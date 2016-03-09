@@ -47,7 +47,7 @@ bin=$(cd -P -- "$(dirname -- "${this}")" >/dev/null && pwd -P)
 #
 # This is a good test for Yetus...
 #
-RDM=${HOME}/shared-centos/yetus/release-doc-maker/releasedocmaker.py
+RDM=${HOME}/shared-vmware/yetus/release-doc-maker/releasedocmaker.py
 
 common_rdm yetus 0.1.0 1.0.0
 
