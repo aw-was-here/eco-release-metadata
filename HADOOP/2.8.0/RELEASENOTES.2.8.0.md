@@ -154,7 +154,7 @@ Allow stop() before start() completed in JvmPauseMonitor
 
 * [HADOOP-12081](https://issues.apache.org/jira/browse/HADOOP-12081) | *Major* | **Fix UserGroupInformation.java to support 64-bit zLinux**
 
-**WARNING: No release note provided for this important issue.**
+**WARNING: No release note provided for this change.**
 
 
 ---
@@ -428,7 +428,7 @@ This change requires setting the dfs.datanode.max.locked.memory configuration ke
 
 * [HDFS-7933](https://issues.apache.org/jira/browse/HDFS-7933) | *Major* | **fsck should also report decommissioning replicas.**
 
-**WARNING: No release note provided for this incompatible change.**
+**WARNING: No release note provided for this change.**
 
 
 ---
@@ -579,7 +579,7 @@ ResourceManager renews delegation tokens for applications. This behavior has bee
 
 * [YARN-2336](https://issues.apache.org/jira/browse/YARN-2336) | *Major* | **Fair scheduler REST api returns a missing '[' bracket JSON for deep queue tree**
 
-**WARNING: No release note provided for this incompatible change.**
+**WARNING: No release note provided for this change.**
 
 
 ---

@@ -18,7 +18,7 @@
 -->
 # Apache Hadoop Changelog
 
-## Release 2.9.0 - Unreleased (as of 2016-03-09)
+## Release 2.9.0 - Unreleased (as of 2016-03-10)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -38,7 +38,6 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-12702](https://issues.apache.org/jira/browse/HADOOP-12702) | Add an HDFS metrics sink |  Major | metrics | Daniel Templeton | Daniel Templeton |
 | [HADOOP-12321](https://issues.apache.org/jira/browse/HADOOP-12321) | Make JvmPauseMonitor an AbstractService |  Major | . | Steve Loughran | Sunil G |
-| [HDFS-9835](https://issues.apache.org/jira/browse/HDFS-9835) | OIV: add ReverseXML processor which reconstructs an fsimage from an XML file |  Major | tools | Colin Patrick McCabe | Colin Patrick McCabe |
 
 
 ### IMPROVEMENTS:

@@ -18,7 +18,7 @@
 -->
 # Apache Hadoop Changelog
 
-## Release 2.8.0 - Unreleased (as of 2016-03-09)
+## Release 2.8.0 - Unreleased (as of 2016-03-10)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -63,6 +63,7 @@
 | [HADOOP-9477](https://issues.apache.org/jira/browse/HADOOP-9477) | Add posixGroups support for LDAP groups mapping service |  Major | . | Kai Zheng | Dapeng Sun |
 | [HADOOP-8934](https://issues.apache.org/jira/browse/HADOOP-8934) | Shell command ls should include sort options |  Minor | fs | Jonathan Allen | Jonathan Allen |
 | [HADOOP-5732](https://issues.apache.org/jira/browse/HADOOP-5732) | Add SFTP FileSystem |  Minor | fs | Íñigo Goiri | ramtin |
+| [HDFS-9835](https://issues.apache.org/jira/browse/HDFS-9835) | OIV: add ReverseXML processor which reconstructs an fsimage from an XML file |  Major | tools | Colin Patrick McCabe | Colin Patrick McCabe |
 | [HDFS-9711](https://issues.apache.org/jira/browse/HDFS-9711) | Integrate CSRF prevention filter in WebHDFS. |  Major | datanode, namenode, webhdfs | Chris Nauroth | Chris Nauroth |
 | [HDFS-9244](https://issues.apache.org/jira/browse/HDFS-9244) | Support nested encryption zones |  Major | encryption | Xiaoyu Yao | Zhe Zhang |
 | [HDFS-9239](https://issues.apache.org/jira/browse/HDFS-9239) | DataNode Lifeline Protocol: an alternative protocol for reporting DataNode liveness |  Major | datanode, namenode | Chris Nauroth | Chris Nauroth |
@@ -96,6 +97,7 @@
 | [HADOOP-12828](https://issues.apache.org/jira/browse/HADOOP-12828) | Print user when services are started |  Trivial | . | Brandon Li | Wei-Chiu Chuang |
 | [HADOOP-12824](https://issues.apache.org/jira/browse/HADOOP-12824) | Collect network and disk usage on the node running Windows |  Major | . | Inigo Goiri | Inigo Goiri |
 | [HADOOP-12805](https://issues.apache.org/jira/browse/HADOOP-12805) | Annotate CanUnbuffer with @InterfaceAudience.Public |  Major | . | Ted Yu | Ted Yu |
+| [HADOOP-12798](https://issues.apache.org/jira/browse/HADOOP-12798) | Update changelog and release notes (2016-03-04) |  Major | documentation | Allen Wittenauer | Allen Wittenauer |
 | [HADOOP-12794](https://issues.apache.org/jira/browse/HADOOP-12794) | Support additional compression levels for GzipCodec |  Major | io | Ravi Mutyala | Ravi Mutyala |
 | [HADOOP-12793](https://issues.apache.org/jira/browse/HADOOP-12793) | Write a new group mapping service guide |  Major | documentation | Wei-Chiu Chuang | Wei-Chiu Chuang |
 | [HADOOP-12789](https://issues.apache.org/jira/browse/HADOOP-12789) | log classpath of ApplicationClassLoader at INFO level |  Minor | util | Sangjin Lee | Sangjin Lee |
@@ -1698,6 +1700,7 @@
 | [HADOOP-12514](https://issues.apache.org/jira/browse/HADOOP-12514) | Make static fields in GenericTestUtils for assertExceptionContains() package-private and final |  Minor | test | Mingliang Liu | Mingliang Liu |
 | [HADOOP-12446](https://issues.apache.org/jira/browse/HADOOP-12446) | Undeprecate createNonRecursive() |  Major | . | Ted Yu | Ted Yu |
 | [HADOOP-11814](https://issues.apache.org/jira/browse/HADOOP-11814) | Reformat hadoop-annotations, o.a.h.classification.tools |  Minor | . | Li Lu | Li Lu |
+| [HADOOP-11791](https://issues.apache.org/jira/browse/HADOOP-11791) | Update src/site/markdown/releases to include old versions of Hadoop |  Major | build, documentation | Allen Wittenauer | Allen Wittenauer |
 | [HDFS-9377](https://issues.apache.org/jira/browse/HDFS-9377) | Fix findbugs warnings in FSDirSnapshotOp |  Major | namenode | Mingliang Liu | Mingliang Liu |
 | [HDFS-9343](https://issues.apache.org/jira/browse/HDFS-9343) | Empty caller context considered invalid |  Major | . | Mingliang Liu | Mingliang Liu |
 | [HDFS-9184](https://issues.apache.org/jira/browse/HDFS-9184) | Logging HDFS operation's caller context into audit logs |  Major | . | Mingliang Liu | Mingliang Liu |

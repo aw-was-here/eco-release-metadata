@@ -39,7 +39,7 @@ Added New compression levels for GzipCodec that can be set in zlib.compress.leve
 
 * [HDFS-9395](https://issues.apache.org/jira/browse/HDFS-9395) | *Major* | **Make HDFS audit logging consistant**
 
-**WARNING: No release note provided for this incompatible change.**
+**WARNING: No release note provided for this change.**
 
 
 ---
