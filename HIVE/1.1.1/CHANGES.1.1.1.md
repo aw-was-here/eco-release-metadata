@@ -48,10 +48,10 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [HIVE-11408](https://issues.apache.org/jira/browse/HIVE-11408) | HiveServer2 is leaking ClassLoaders when add jar / temporary functions are used due to constructor caching in Hadoop ReflectionUtils |  Major | HiveServer2 | Vaibhav Gumashta | Vaibhav Gumashta |
-| [HIVE-10996](https://issues.apache.org/jira/browse/HIVE-10996) | Aggregation / Projection over Multi-Join Inner Query producing incorrect results |  Critical | Query Planning | Gautam Kowshik | Jesus Camacho Rodriguez |
-| [HIVE-10573](https://issues.apache.org/jira/browse/HIVE-10573) | Improve Hive service for connection |  Major | HiveServer2 | Chao Sun | Chao Sun |
 | [HIVE-9613](https://issues.apache.org/jira/browse/HIVE-9613) | Left join query plan outputs  wrong column when using subquery |  Major | Parser, Query Planning | Li Xin | Gunther Hagleitner |
+| [HIVE-10573](https://issues.apache.org/jira/browse/HIVE-10573) | Improve Hive service for connection |  Major | HiveServer2 | Chao Sun | Chao Sun |
+| [HIVE-10996](https://issues.apache.org/jira/browse/HIVE-10996) | Aggregation / Projection over Multi-Join Inner Query producing incorrect results |  Critical | Query Planning | Gautam Kowshik | Jesus Camacho Rodriguez |
+| [HIVE-11408](https://issues.apache.org/jira/browse/HIVE-11408) | HiveServer2 is leaking ClassLoaders when add jar / temporary functions are used due to constructor caching in Hadoop ReflectionUtils |  Major | HiveServer2 | Vaibhav Gumashta | Vaibhav Gumashta |
 
 
 ### TESTS:

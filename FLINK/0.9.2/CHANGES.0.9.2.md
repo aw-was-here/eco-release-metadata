@@ -18,7 +18,7 @@
 -->
 # Apache Flink Changelog
 
-## Release 0.9.2 - Unreleased (as of 2016-01-18)
+## Release 0.9.2 - Unreleased (as of 2016-04-14)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -49,15 +49,15 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [FLINK-2953](https://issues.apache.org/jira/browse/FLINK-2953) | Chained sortPartition() calls produce incorrect results in Scala DataSet API |  Blocker | DataSet API, Scala API | Fabian Hueske | Fabian Hueske |
+| [FLINK-2235](https://issues.apache.org/jira/browse/FLINK-2235) | Local Flink cluster allocates too much memory |  Minor | Local Runtime, TaskManager | Maximilian Michels | Maximilian Michels |
+| [FLINK-2639](https://issues.apache.org/jira/browse/FLINK-2639) | Building Flink for specific HDP versions fails |  Major | Build System | Robert Metzger | Robert Metzger |
+| [FLINK-2656](https://issues.apache.org/jira/browse/FLINK-2656) | FlinkKafkaConsumer is failing with OutOfRangeException |  Critical | Kafka Connector | Robert Metzger | Robert Metzger |
+| [FLINK-2722](https://issues.apache.org/jira/browse/FLINK-2722) | Use InetAddress.getLocalHost() first when detecting TaskManager IP address |  Major | Distributed Runtime, TaskManager | Robert Metzger | Robert Metzger |
+| [FLINK-1610](https://issues.apache.org/jira/browse/FLINK-1610) | Java docs do not build |  Major | Build System, Documentation | Maximilian Michels | Maximilian Michels |
+| [FLINK-2607](https://issues.apache.org/jira/browse/FLINK-2607) | Shade plugin copies signature files from original jar into fat jar |  Major | Quickstarts | Maximilian Michels | Maximilian Michels |
 | [FLINK-2885](https://issues.apache.org/jira/browse/FLINK-2885) | Path to Python resources is not constructed correctly |  Blocker | Python API | Maximilian Michels | Maximilian Michels |
 | [FLINK-2800](https://issues.apache.org/jira/browse/FLINK-2800) | kryo serialization problem |  Major | Type Serialization System | Stefano Bortoli | Till Rohrmann |
-| [FLINK-2722](https://issues.apache.org/jira/browse/FLINK-2722) | Use InetAddress.getLocalHost() first when detecting TaskManager IP address |  Major | Distributed Runtime, TaskManager | Robert Metzger | Robert Metzger |
-| [FLINK-2656](https://issues.apache.org/jira/browse/FLINK-2656) | FlinkKafkaConsumer is failing with OutOfRangeException |  Critical | Kafka Connector | Robert Metzger | Robert Metzger |
-| [FLINK-2639](https://issues.apache.org/jira/browse/FLINK-2639) | Building Flink for specific HDP versions fails |  Major | Build System | Robert Metzger | Robert Metzger |
-| [FLINK-2607](https://issues.apache.org/jira/browse/FLINK-2607) | Shade plugin copies signature files from original jar into fat jar |  Major | Quickstarts | Maximilian Michels | Maximilian Michels |
-| [FLINK-2235](https://issues.apache.org/jira/browse/FLINK-2235) | Local Flink cluster allocates too much memory |  Minor | Local Runtime, TaskManager | Maximilian Michels | Maximilian Michels |
-| [FLINK-1610](https://issues.apache.org/jira/browse/FLINK-1610) | Java docs do not build |  Major | Build System, Documentation | Maximilian Michels | Maximilian Michels |
+| [FLINK-2953](https://issues.apache.org/jira/browse/FLINK-2953) | Chained sortPartition() calls produce incorrect results in Scala DataSet API |  Blocker | DataSet API, Scala API | Fabian Hueske | Fabian Hueske |
 
 
 ### TESTS:

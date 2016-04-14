@@ -21,4 +21,11 @@
 These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
 
 
+---
+
+* [HIVE-12875](https://issues.apache.org/jira/browse/HIVE-12875) | *Major* | **Verify sem.getInputs() and sem.getOutputs()**
+
+No release notes needed here.
+
+
 

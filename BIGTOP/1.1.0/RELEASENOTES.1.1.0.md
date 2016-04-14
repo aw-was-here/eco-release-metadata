@@ -21,4 +21,20 @@
 These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
 
 
+---
+
+* [BIGTOP-2363](https://issues.apache.org/jira/browse/BIGTOP-2363) | *Major* | **User Guide for version 1.1.0 is blank**
+
+Hi Team,
+
+The user guide for Bigtop 1.1.0 is pathetic. On the site, it just shows blank pages for any topic on contents.
+
+http://bigtop.apache.org/book/apache-bigtop-user-guide/apache-bigtop-user-guide.html
+
+Please look into the same.
+
+Regards,
+Sijee
+
+
 

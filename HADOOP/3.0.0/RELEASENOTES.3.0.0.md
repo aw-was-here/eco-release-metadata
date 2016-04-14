@@ -23,165 +23,60 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
-* [HADOOP-12850](https://issues.apache.org/jira/browse/HADOOP-12850) | *Major* | **pull shell code out of hadoop-dist**
+* [HDFS-46](https://issues.apache.org/jira/browse/HDFS-46) | *Major* | **The namespace quota of root directory should not be Integer.MAX\_VALUE**
 
-This change contains the content of HADOOP-10115 which is an incompatible change.
-
-
----
-
-* [HADOOP-12495](https://issues.apache.org/jira/browse/HADOOP-12495) | *Major* | **Fix posix\_spawn error on OS X**
-
-When Hadoop JVMs create other processes on OS X, it will always use posix\_spawn.
+Change default namespace quota of root directory from Integer.MAX\_VALUE to Long.MAX\_VALUE.
 
 
 ---
 
-* [HADOOP-12493](https://issues.apache.org/jira/browse/HADOOP-12493) | *Major* | **bash unit tests are failing**
+* [HADOOP-8124](https://issues.apache.org/jira/browse/HADOOP-8124) | *Major* | **Remove the deprecated Syncable.sync() method**
 
-In the extremely rare event that HADOOP\_USER\_IDENT and USER environment variables are not defined, we now fall back to use 'hadoop' as the identification string.
-
-
----
-
-* [HADOOP-12294](https://issues.apache.org/jira/browse/HADOOP-12294) | *Major* | **Throw an Exception when fs.permissions.umask-mode is misconfigured**
-
-The support of the deprecated dfs.umask key is removed in Hadoop 3.0.
+Remove the deprecated FSDataOutputStream constructor, FSDataOutputStream.sync() and Syncable.sync().
 
 
 ---
 
-* [HADOOP-11781](https://issues.apache.org/jira/browse/HADOOP-11781) | *Major* | **fix race conditions and add URL support to smart-apply-patch.sh**
+* [HDFS-3034](https://issues.apache.org/jira/browse/HDFS-3034) | *Major* | **Remove the deprecated Syncable.sync() method**
 
-Now auto-downloads patch from issue-id; fixed race conditions; fixed bug affecting some patches.
-
-
----
-
-* [HADOOP-11698](https://issues.apache.org/jira/browse/HADOOP-11698) | *Major* | **Remove DistCpV1 and Logalyzer**
-
-Removed DistCpV1 and Logalyzer.
+Remove the deprecated DFSOutputStream.sync() method.
 
 
 ---
 
-* [HADOOP-11657](https://issues.apache.org/jira/browse/HADOOP-11657) | *Minor* | **Align the output of `hadoop fs -du` to be more Unix-like**
+* [HADOOP-7659](https://issues.apache.org/jira/browse/HADOOP-7659) | *Minor* | **fs -getmerge isn't guaranteed to work well over non-HDFS filesystems**
 
-The output of du has now been made more Unix-like, with aligned output.
-
-
----
-
-* [HADOOP-11627](https://issues.apache.org/jira/browse/HADOOP-11627) | *Major* | **Remove io.native.lib.available**
-
-io.native.lib.available was removed. Always use native libraries if they exist.
+Documented that the "fs -getmerge" shell command may not work properly over non HDFS-filesystem implementations due to platform-varying file list ordering.
 
 
 ---
 
-* [HADOOP-11554](https://issues.apache.org/jira/browse/HADOOP-11554) | *Major* | **Expose HadoopKerberosName as a hadoop subcommand**
+* [HADOOP-8776](https://issues.apache.org/jira/browse/HADOOP-8776) | *Minor* | **Provide an option in test-patch that can enable / disable compiling native code**
 
-The hadoop kerbname subcommand has been added to ease operational pain in determining the output of auth\_to\_local rules.
-
-
----
-
-* [HADOOP-11553](https://issues.apache.org/jira/browse/HADOOP-11553) | *Blocker* | **Formalize the shell API**
-
-Python is now required to build the documentation.
+test-patch.sh adds a new option "--build-native". When set to false native
+components are not built. When set to true native components are built. The
+default value is true.
 
 
 ---
 
-* [HADOOP-11460](https://issues.apache.org/jira/browse/HADOOP-11460) | *Major* | **Deprecate shell vars**
+* [HDFS-5079](https://issues.apache.org/jira/browse/HDFS-5079) | *Major* | **Cleaning up NNHAStatusHeartbeat.State DatanodeProtocolProtos.**
 
-<!-- markdown -->
-
-| Old | New |
-|:---- |:---- |
-| HADOOP\_HDFS\_LOG\_DIR | HADOOP\_LOG\_DIR |
-| HADOOP\_HDFS\_LOGFILE | HADOOP\_LOGFILE |
-| HADOOP\_HDFS\_NICENESS | HADOOP\_NICENESS |
-| HADOOP\_HDFS\_STOP\_TIMEOUT | HADOOP\_STOP\_TIMEOUT |
-| HADOOP\_HDFS\_PID\_DIR | HADOOP\_PID\_DIR |
-| HADOOP\_HDFS\_ROOT\_LOGGER | HADOOP\_ROOT\_LOGGER |
-| HADOOP\_HDFS\_IDENT\_STRING | HADOOP\_IDENT\_STRING |
-| HADOOP\_MAPRED\_LOG\_DIR | HADOOP\_LOG\_DIR |
-| HADOOP\_MAPRED\_LOGFILE | HADOOP\_LOGFILE |
-| HADOOP\_MAPRED\_NICENESS | HADOOP\_NICENESS |
-| HADOOP\_MAPRED\_STOP\_TIMEOUT | HADOOP\_STOP\_TIMEOUT |
-| HADOOP\_MAPRED\_PID\_DIR | HADOOP\_PID\_DIR |
-| HADOOP\_MAPRED\_ROOT\_LOGGER | HADOOP\_ROOT\_LOGGER |
-| HADOOP\_MAPRED\_IDENT\_STRING | HADOOP\_IDENT\_STRING |
-| YARN\_CONF\_DIR | HADOOP\_CONF\_DIR |
-| YARN\_LOG\_DIR | HADOOP\_LOG\_DIR |
-| YARN\_LOGFILE | HADOOP\_LOGFILE |
-| YARN\_NICENESS | HADOOP\_NICENESS |
-| YARN\_STOP\_TIMEOUT | HADOOP\_STOP\_TIMEOUT |
-| YARN\_PID\_DIR | HADOOP\_PID\_DIR |
-| YARN\_ROOT\_LOGGER | HADOOP\_ROOT\_LOGGER |
-| YARN\_IDENT\_STRING | HADOOP\_IDENT\_STRING |
-| YARN\_OPTS | HADOOP\_OPTS |
-| YARN\_SLAVES | HADOOP\_SLAVES |
-| YARN\_USER\_CLASSPATH | HADOOP\_USER\_CLASSPATH |
-| YARN\_USER\_CLASSPATH\_FIRST | HADOOP\_USER\_CLASSPATH\_FIRST |
-| KMS\_CONFIG | HADOOP\_CONF\_DIR |
-| KMS\_LOG | HADOOP\_LOG\_DIR |
+This change affects wire-compatibility of the NameNode/DataNode heartbeat protocol.
 
 
 ---
 
-* [HADOOP-11356](https://issues.apache.org/jira/browse/HADOOP-11356) | *Major* | **Removed deprecated o.a.h.fs.permission.AccessControlException**
+* [HDFS-5570](https://issues.apache.org/jira/browse/HDFS-5570) | *Major* | **Deprecate hftp / hsftp and replace them with webhdfs / swebhdfs**
 
-org.apache.hadoop.fs.permission.AccessControlException was deprecated in the last major release, and has been removed in favor of org.apache.hadoop.security.AccessControlException
-
-
----
-
-* [HADOOP-11353](https://issues.apache.org/jira/browse/HADOOP-11353) | *Major* | **Add support for .hadooprc**
-
-.hadooprc allows users a convenient way to set and/or override the shell level settings.
+Support for hftp and hsftp has been removed.  They have superseded by webhdfs  and swebhdfs.
 
 
 ---
 
-* [HADOOP-11041](https://issues.apache.org/jira/browse/HADOOP-11041) | *Minor* | **VersionInfo output specifies subversion**
+* [HDFS-6246](https://issues.apache.org/jira/browse/HDFS-6246) | *Minor* | **Remove 'dfs.support.append' flag from trunk code**
 
-This changes the output of the 'hadoop version' command to generically say 'Source code repository' rather than specify which type of repo.
-
-
----
-
-* [HADOOP-10950](https://issues.apache.org/jira/browse/HADOOP-10950) | *Major* | **rework  heap management  vars**
-
-<!-- markdown -->
-
-* HADOOP\_HEAPSIZE variable has been deprecated  (It will still be honored if set, but expect it to go away in the future).    In its place, HADOOP\_HEAPSIZE\_MAX and HADOOP\_HEAPSIZE\_MIN have been introduced to set Xmx and Xms, respectively. 
-
-* The internal variable JAVA\_HEAP\_MAX has been removed.
-
-* Default heap sizes have been removed. This will allow for the JVM to use auto-tuning based upon the memory size of the host. To re-enable the old default, configure HADOOP\_HEAPSIZE_MAX="1g" in hadoop-env.sh. 
-
-* All global and daemon-specific heap size variables now support units.  If the variable is only a number, the size is assumed to be in megabytes.
-
-
----
-
-* [HADOOP-10787](https://issues.apache.org/jira/browse/HADOOP-10787) | *Blocker* | **Rename/remove non-HADOOP\_\*, etc from the shell scripts**
-
-<!-- markdown -->
-The following shell environment variables have been deprecated:
-
-| Old | New |
-|:---- |:---- |
-| DEFAULT\_LIBEXEC\_DIR | HADOOP\_DEFAULT\_LIBEXEC\_DIR |
-| SLAVE\_NAMES | HADOOP\_SLAVE\_NAMES |
-| TOOL\_PATH | HADOOP\_TOOLS\_PATH |
-
-In addition:
-
-* DEFAULT\_LIBEXEC\_DIR will NOT be automatically transitioned to HADOOP\_DEFAULT\_LIBEXEC\_DIR and will require changes to any scripts setting that value.  A warning will be printed to the screen if DEFAULT\_LIBEXEC\_DIR has been configured.
-* HADOOP\_TOOLS\_PATH is now properly handled as a multi-valued, Java classpath-style variable.  Prior, multiple values assigned to TOOL\_PATH would not work a predictable manner.
+Appends in HDFS can no longer be disabled.
 
 
 ---
@@ -193,16 +88,9 @@ In addition:
 
 ---
 
-* [HADOOP-10115](https://issues.apache.org/jira/browse/HADOOP-10115) | *Major* | **Exclude duplicate jars in hadoop package under different component's lib**
+* [HDFS-2538](https://issues.apache.org/jira/browse/HDFS-2538) | *Minor* | **option to disable fsck dots**
 
-Jars in the various subproject lib directories are now de-duplicated against Hadoop common.  Users who interact directly with those directories must be sure to pull in common's dependencies as well.
-
-
----
-
-* [HADOOP-9905](https://issues.apache.org/jira/browse/HADOOP-9905) | *Major* | **remove dependency of zookeeper for hadoop-client**
-
-Zookeeper jar removed from hadoop-client dependency tree.
+fsck does not print out dots for progress reporting by default. To print out dots, you should specify '-showprogress' option.
 
 
 ---
@@ -273,118 +161,120 @@ IMPROVEMENTS:
 
 ---
 
-* [HADOOP-8776](https://issues.apache.org/jira/browse/HADOOP-8776) | *Minor* | **Provide an option in test-patch that can enable / disable compiling native code**
+* [HADOOP-11041](https://issues.apache.org/jira/browse/HADOOP-11041) | *Minor* | **VersionInfo output specifies subversion**
 
-test-patch.sh adds a new option "--build-native". When set to false native
-components are not built. When set to true native components are built. The
-default value is true.
+This changes the output of the 'hadoop version' command to generically say 'Source code repository' rather than specify which type of repo.
 
 
 ---
 
-* [HADOOP-8124](https://issues.apache.org/jira/browse/HADOOP-8124) | *Major* | **Remove the deprecated Syncable.sync() method**
+* [MAPREDUCE-5972](https://issues.apache.org/jira/browse/MAPREDUCE-5972) | *Trivial* | **Fix typo 'programatically' in job.xml (and a few other places)**
 
-Remove the deprecated FSDataOutputStream constructor, FSDataOutputStream.sync() and Syncable.sync().
-
-
----
-
-* [HADOOP-7659](https://issues.apache.org/jira/browse/HADOOP-7659) | *Minor* | **fs -getmerge isn't guaranteed to work well over non-HDFS filesystems**
-
-Documented that the "fs -getmerge" shell command may not work properly over non HDFS-filesystem implementations due to platform-varying file list ordering.
+Fix a typo. If a configuration is set through program, the source of the configuration is set to 'programmatically' instead of 'programatically' now.
 
 
 ---
 
-* [HADOOP-6857](https://issues.apache.org/jira/browse/HADOOP-6857) | *Major* | **FsShell should report raw disk usage including replication factor**
+* [MAPREDUCE-2841](https://issues.apache.org/jira/browse/MAPREDUCE-2841) | *Major* | **Task level native optimization**
 
-The output format of hadoop fs -du has been changed. It shows not only the file size but also the raw disk usage including the replication factor.
-
-
----
-
-* [HDFS-9525](https://issues.apache.org/jira/browse/HDFS-9525) | *Blocker* | **hadoop utilities need to support provided delegation tokens**
-
-If hadoop.token.files property is defined and configured to one or more comma-delimited delegation token files, Hadoop will use those token files to connect to the services as named in the token.
+Adds a native implementation of the map output collector. The native library will build automatically with -Pnative. Users may choose the new collector on a job-by-job basis by setting mapreduce.job.map.output.collector.class=org.apache.hadoop.mapred.
+nativetask.NativeMapOutputCollectorDelegator in their job configuration. For shuffle-intensive jobs this may provide speed-ups of 30% or more.
 
 
 ---
 
-* [HDFS-9278](https://issues.apache.org/jira/browse/HDFS-9278) | *Trivial* | **Fix preferredBlockSize typo in OIV XML output**
+* [HADOOP-11356](https://issues.apache.org/jira/browse/HADOOP-11356) | *Major* | **Removed deprecated o.a.h.fs.permission.AccessControlException**
 
-The preferred block size XML element has been corrected from "\\<perferredBlockSize\>" to "\\<preferredBlockSize\>".
-
-
----
-
-* [HDFS-9085](https://issues.apache.org/jira/browse/HDFS-9085) | *Trivial* | **Show renewer information in DelegationTokenIdentifier#toString**
-
-The output of the "hdfs fetchdt --print" command now includes the token renewer appended to the end of the existing token information.  This change may be incompatible with tools that parse the output of the command.
+org.apache.hadoop.fs.permission.AccessControlException was deprecated in the last major release, and has been removed in favor of org.apache.hadoop.security.AccessControlException
 
 
 ---
 
-* [HDFS-9070](https://issues.apache.org/jira/browse/HDFS-9070) | *Major* | **Allow fsck display pending replica location information for being-written blocks**
+* [HADOOP-10950](https://issues.apache.org/jira/browse/HADOOP-10950) | *Major* | **rework  heap management  vars**
 
-The output of fsck command for being written hdfs files had been changed. When using fsck against being written hdfs files with {{-openforwrite}} and {{-files -blocks -locations}}, the fsck output will include the being written block for replication files or being written block group for erasure code files.
+<!-- markdown -->
 
+* HADOOP\_HEAPSIZE variable has been deprecated  (It will still be honored if set, but expect it to go away in the future).    In its place, HADOOP\_HEAPSIZE\_MAX and HADOOP\_HEAPSIZE\_MIN have been introduced to set Xmx and Xms, respectively. 
 
----
+* The internal variable JAVA\_HEAP\_MAX has been removed.
 
-* [HDFS-9057](https://issues.apache.org/jira/browse/HDFS-9057) | *Major* | **allow/disallow snapshots via webhdfs**
+* Default heap sizes have been removed. This will allow for the JVM to use auto-tuning based upon the memory size of the host. To re-enable the old default, configure HADOOP\_HEAPSIZE_MAX="1g" in hadoop-env.sh. 
 
-Snapshots can be allowed/disallowed on a directory via WebHdfs from users with superuser privilege.
-
-
----
-
-* [HDFS-8981](https://issues.apache.org/jira/browse/HDFS-8981) | *Minor* | **Adding revision to data node jmx getVersion() method**
-
-getSoftwareVersion method would replace original getVersion method, which returns the version string.
-
-The new getVersion method would return both version string and revision string.
+* All global and daemon-specific heap size variables now support units.  If the variable is only a number, the size is assumed to be in megabytes.
 
 
 ---
 
-* [HDFS-8895](https://issues.apache.org/jira/browse/HDFS-8895) | *Major* | **Remove deprecated BlockStorageLocation APIs**
+* [HADOOP-11353](https://issues.apache.org/jira/browse/HADOOP-11353) | *Major* | **Add support for .hadooprc**
 
-This removes the deprecated DistributedFileSystem#getFileBlockStorageLocations API used for getting VolumeIds of block replicas. Applications interested in the volume of a replica can instead consult BlockLocation#getStorageIds to obtain equivalent information.
-
-
----
-
-* [HDFS-8591](https://issues.apache.org/jira/browse/HDFS-8591) | *Minor* | **Remove support for deprecated configuration key dfs.namenode.decommission.nodes.per.interval**
-
-Related to the decommission enhancements in HDFS-7411, this change removes the deprecated configuration key "dfs.namenode.decommission.nodes.per.interval" which has been subsumed by the configuration key "dfs.namenode.decommission.blocks.per.interval".
+.hadooprc allows users a convenient way to set and/or override the shell level settings.
 
 
 ---
 
-* [HDFS-8332](https://issues.apache.org/jira/browse/HDFS-8332) | *Major* | **DFS client API calls should check filesystem closed**
+* [MAPREDUCE-5785](https://issues.apache.org/jira/browse/MAPREDUCE-5785) | *Major* | **Derive heap size or mapreduce.\*.memory.mb automatically**
 
-Users may need special attention for this change while upgrading to this version. Previously user could call some APIs(example: setReplication) wrongly even after closing the fs object. With this change DFS client will not allow any operations to call on closed fs objects.  As calling fs operations on closed fs is not right thing to do, users need to correct the usage if any.
+The memory values for mapreduce.map/reduce.memory.mb keys, if left to their default values of -1, will now be automatically inferred from the heap size value system property (-Xmx) specified for mapreduce.map/reduce.java.opts keys.
 
+The converse is also done, i.e. if mapreduce.map/reduce.memory.mb values are specified, but no -Xmx is supplied for mapreduce.map/reduce.java.opts keys, then the -Xmx value will be derived from the former's value.
 
----
+If neither is specified, then a default value of 1024 MB gets used.
 
-* [HDFS-8241](https://issues.apache.org/jira/browse/HDFS-8241) | *Minor* | **Remove unused NameNode startup option -finalize**
+For both these conversions, a scaling factor specified by property mapreduce.job.heap.memory-mb.ratio is used, to account for overheads between heap usage vs. actual physical memory usage.
 
-Remove -finalize option from hdfs namenode command.
-
-
----
-
-* [HDFS-8135](https://issues.apache.org/jira/browse/HDFS-8135) | *Major* | **Remove the deprecated FSConstants class**
-
-The FSConstants class has been deprecated since 0.23 and it is removed in the release.
+Existing configs or job code that already specify both the set of properties explicitly would not be affected by this inferring change.
 
 
 ---
 
-* [HDFS-7985](https://issues.apache.org/jira/browse/HDFS-7985) | *Major* | **WebHDFS should be always enabled**
+* [YARN-2428](https://issues.apache.org/jira/browse/YARN-2428) | *Trivial* | **LCE default banned user list should have yarn**
 
-WebHDFS is mandatory and cannot be disabled.
+The user 'yarn' is no longer allowed to run tasks for security reasons.
+
+
+---
+
+* [HADOOP-11460](https://issues.apache.org/jira/browse/HADOOP-11460) | *Major* | **Deprecate shell vars**
+
+<!-- markdown -->
+
+| Old | New |
+|:---- |:---- |
+| HADOOP\_HDFS\_LOG\_DIR | HADOOP\_LOG\_DIR |
+| HADOOP\_HDFS\_LOGFILE | HADOOP\_LOGFILE |
+| HADOOP\_HDFS\_NICENESS | HADOOP\_NICENESS |
+| HADOOP\_HDFS\_STOP\_TIMEOUT | HADOOP\_STOP\_TIMEOUT |
+| HADOOP\_HDFS\_PID\_DIR | HADOOP\_PID\_DIR |
+| HADOOP\_HDFS\_ROOT\_LOGGER | HADOOP\_ROOT\_LOGGER |
+| HADOOP\_HDFS\_IDENT\_STRING | HADOOP\_IDENT\_STRING |
+| HADOOP\_MAPRED\_LOG\_DIR | HADOOP\_LOG\_DIR |
+| HADOOP\_MAPRED\_LOGFILE | HADOOP\_LOGFILE |
+| HADOOP\_MAPRED\_NICENESS | HADOOP\_NICENESS |
+| HADOOP\_MAPRED\_STOP\_TIMEOUT | HADOOP\_STOP\_TIMEOUT |
+| HADOOP\_MAPRED\_PID\_DIR | HADOOP\_PID\_DIR |
+| HADOOP\_MAPRED\_ROOT\_LOGGER | HADOOP\_ROOT\_LOGGER |
+| HADOOP\_MAPRED\_IDENT\_STRING | HADOOP\_IDENT\_STRING |
+| YARN\_CONF\_DIR | HADOOP\_CONF\_DIR |
+| YARN\_LOG\_DIR | HADOOP\_LOG\_DIR |
+| YARN\_LOGFILE | HADOOP\_LOGFILE |
+| YARN\_NICENESS | HADOOP\_NICENESS |
+| YARN\_STOP\_TIMEOUT | HADOOP\_STOP\_TIMEOUT |
+| YARN\_PID\_DIR | HADOOP\_PID\_DIR |
+| YARN\_ROOT\_LOGGER | HADOOP\_ROOT\_LOGGER |
+| YARN\_IDENT\_STRING | HADOOP\_IDENT\_STRING |
+| YARN\_OPTS | HADOOP\_OPTS |
+| YARN\_SLAVES | HADOOP\_SLAVES |
+| YARN\_USER\_CLASSPATH | HADOOP\_USER\_CLASSPATH |
+| YARN\_USER\_CLASSPATH\_FIRST | HADOOP\_USER\_CLASSPATH\_FIRST |
+| KMS\_CONFIG | HADOOP\_CONF\_DIR |
+| KMS\_LOG | HADOOP\_LOG\_DIR |
+
+
+---
+
+* [HADOOP-11554](https://issues.apache.org/jira/browse/HADOOP-11554) | *Major* | **Expose HadoopKerberosName as a hadoop subcommand**
+
+The hadoop kerbname subcommand has been added to ease operational pain in determining the output of auth\_to\_local rules.
 
 
 ---
@@ -402,6 +292,27 @@ This deprecates the following environment variables:
 
 ---
 
+* [MAPREDUCE-6223](https://issues.apache.org/jira/browse/MAPREDUCE-6223) | *Major* | **TestJobConf#testNegativeValueForTaskVmem failures**
+
+**WARNING: No release note provided for this change.**
+
+
+---
+
+* [MAPREDUCE-5653](https://issues.apache.org/jira/browse/MAPREDUCE-5653) | *Major* | **DistCp does not honour config-overrides for mapreduce.[map,reduce].memory.mb**
+
+Prior to this change, distcp had hard-coded values for memory usage.  Now distcp will honor memory settings in a way compatible with the rest of MapReduce.
+
+
+---
+
+* [HADOOP-11657](https://issues.apache.org/jira/browse/HADOOP-11657) | *Minor* | **Align the output of `hadoop fs -du` to be more Unix-like**
+
+The output of du has now been made more Unix-like, with aligned output.
+
+
+---
+
 * [HDFS-7302](https://issues.apache.org/jira/browse/HDFS-7302) | *Major* | **namenode -rollingUpgrade downgrade may finalize a rolling upgrade**
 
 Remove "downgrade" from "namenode -rollingUpgrade" startup option since it may incorrectly finalize an ongoing rolling upgrade.
@@ -409,12 +320,58 @@ Remove "downgrade" from "namenode -rollingUpgrade" startup option since it may i
 
 ---
 
-* [HDFS-7285](https://issues.apache.org/jira/browse/HDFS-7285) | *Major* | **Erasure Coding Support inside HDFS**
+* [HADOOP-6857](https://issues.apache.org/jira/browse/HADOOP-6857) | *Major* | **FsShell should report raw disk usage including replication factor**
 
-<!-- markdown -->
-HDFS now provides native support for erasure coding (EC) to store data more efficiently. Each individual directory can be configured with an EC policy with command `hdfs erasurecode -setPolicy`. When a file is created, it will inherit the EC policy from its nearest ancestor directory to determine how its blocks are stored. Compared to 3-way replication, the default EC policy saves 50% of storage space while also tolerating more storage failures.
+The output format of hadoop fs -du has been changed. It shows not only the file size but also the raw disk usage including the replication factor.
 
-To support small files, the currently phase of HDFS-EC stores blocks in _striped_ layout, where a logical file block is divided into small units (64KB by default) and distributed to a set of DataNodes. This enables parallel I/O but also decreases data locality. Therefore, the cluster environment and I/O workloads should be considered before configuring EC policies.
+
+---
+
+* [HADOOP-10115](https://issues.apache.org/jira/browse/HADOOP-10115) | *Major* | **Exclude duplicate jars in hadoop package under different component's lib**
+
+Jars in the various subproject lib directories are now de-duplicated against Hadoop common.  Users who interact directly with those directories must be sure to pull in common's dependencies as well.
+
+
+---
+
+* [MAPREDUCE-4424](https://issues.apache.org/jira/browse/MAPREDUCE-4424) | *Minor* | **'mapred job -list' command should show the job name as well**
+
+Now "mapred job -list" command displays the Job Name as well.
+
+
+---
+
+* [HDFS-7985](https://issues.apache.org/jira/browse/HDFS-7985) | *Major* | **WebHDFS should be always enabled**
+
+WebHDFS is mandatory and cannot be disabled.
+
+
+---
+
+* [HDFS-6353](https://issues.apache.org/jira/browse/HDFS-6353) | *Major* | **Check and make checkpoint before stopping the NameNode**
+
+Stopping the namenode on secure systems now requires the user be authenticated.
+
+
+---
+
+* [HADOOP-11553](https://issues.apache.org/jira/browse/HADOOP-11553) | *Blocker* | **Formalize the shell API**
+
+Python is now required to build the documentation.
+
+
+---
+
+* [HADOOP-11781](https://issues.apache.org/jira/browse/HADOOP-11781) | *Major* | **fix race conditions and add URL support to smart-apply-patch.sh**
+
+Now auto-downloads patch from issue-id; fixed race conditions; fixed bug affecting some patches.
+
+
+---
+
+* [HADOOP-11627](https://issues.apache.org/jira/browse/HADOOP-11627) | *Major* | **Remove io.native.lib.available**
+
+io.native.lib.available was removed. Always use native libraries if they exist.
 
 
 ---
@@ -431,79 +388,37 @@ The patch improves the reporting around missing blocks and corrupted blocks.
 
 ---
 
-* [HDFS-6440](https://issues.apache.org/jira/browse/HDFS-6440) | *Major* | **Support more than 2 NameNodes**
+* [MAPREDUCE-2632](https://issues.apache.org/jira/browse/MAPREDUCE-2632) | *Major* | **Avoid calling the partitioner when the numReduceTasks is 1.**
 
-This feature adds support for running additional standby NameNodes, which provides additional fault-tolerance. It is designed for a total of 3-5 NameNodes.
-
-
----
-
-* [HDFS-6353](https://issues.apache.org/jira/browse/HDFS-6353) | *Major* | **Check and make checkpoint before stopping the NameNode**
-
-Stopping the namenode on secure systems now requires the user be authenticated.
+**WARNING: No release note provided for this change.**
 
 
 ---
 
-* [HDFS-6246](https://issues.apache.org/jira/browse/HDFS-6246) | *Minor* | **Remove 'dfs.support.append' flag from trunk code**
+* [HDFS-8241](https://issues.apache.org/jira/browse/HDFS-8241) | *Minor* | **Remove unused NameNode startup option -finalize**
 
-Appends in HDFS can no longer be disabled.
-
-
----
-
-* [HDFS-5570](https://issues.apache.org/jira/browse/HDFS-5570) | *Major* | **Deprecate hftp / hsftp and replace them with webhdfs / swebhdfs**
-
-Support for hftp and hsftp has been removed.  They have superseded by webhdfs  and swebhdfs.
+Remove -finalize option from hdfs namenode command.
 
 
 ---
 
-* [HDFS-5165](https://issues.apache.org/jira/browse/HDFS-5165) | *Minor* | **Remove the TotalFiles metrics**
+* [HDFS-8332](https://issues.apache.org/jira/browse/HDFS-8332) | *Major* | **DFS client API calls should check filesystem closed**
 
-Now TotalFiles metric is removed from FSNameSystem. Use FilesTotal instead.
-
-
----
-
-* [HDFS-5079](https://issues.apache.org/jira/browse/HDFS-5079) | *Major* | **Cleaning up NNHAStatusHeartbeat.State DatanodeProtocolProtos.**
-
-This change affects wire-compatibility of the NameNode/DataNode heartbeat protocol.
+Users may need special attention for this change while upgrading to this version. Previously user could call some APIs(example: setReplication) wrongly even after closing the fs object. With this change DFS client will not allow any operations to call on closed fs objects.  As calling fs operations on closed fs is not right thing to do, users need to correct the usage if any.
 
 
 ---
 
-* [HDFS-5033](https://issues.apache.org/jira/browse/HDFS-5033) | *Minor* | **Bad error message for fs -put/copyFromLocal if user doesn't have permissions to read the source**
+* [HADOOP-11698](https://issues.apache.org/jira/browse/HADOOP-11698) | *Major* | **Remove DistCpV1 and Logalyzer**
 
-"Permission denied" error message when unable to read local file for -put/copyFromLocal
-
-
----
-
-* [HDFS-3034](https://issues.apache.org/jira/browse/HDFS-3034) | *Major* | **Remove the deprecated Syncable.sync() method**
-
-Remove the deprecated DFSOutputStream.sync() method.
+Removed DistCpV1 and Logalyzer.
 
 
 ---
 
-* [HDFS-2538](https://issues.apache.org/jira/browse/HDFS-2538) | *Minor* | **option to disable fsck dots**
+* [HDFS-8135](https://issues.apache.org/jira/browse/HDFS-8135) | *Major* | **Remove the deprecated FSConstants class**
 
-fsck does not print out dots for progress reporting by default. To print out dots, you should specify '-showprogress' option.
-
-
----
-
-* [HDFS-46](https://issues.apache.org/jira/browse/HDFS-46) | *Major* | **The namespace quota of root directory should not be Integer.MAX\_VALUE**
-
-Change default namespace quota of root directory from Integer.MAX\_VALUE to Long.MAX\_VALUE.
-
-
----
-
-* [MAPREDUCE-6613](https://issues.apache.org/jira/browse/MAPREDUCE-6613) | *Minor* | **Change mapreduce.jobhistory.jhist.format default from json to binary**
-
-Default of 'mapreduce.jobhistory.jhist.format' property changed from 'json' to 'binary'.  Creates smaller, binary Avro .jhist files for faster JHS performance.
+The FSConstants class has been deprecated since 0.23 and it is removed in the release.
 
 
 ---
@@ -552,74 +467,197 @@ Algorithm 2 takes advantage of task parallelism and makes commitJob itself O(1).
 
 ---
 
-* [MAPREDUCE-6223](https://issues.apache.org/jira/browse/MAPREDUCE-6223) | *Major* | **TestJobConf#testNegativeValueForTaskVmem failures**
-
-**WARNING: No release note provided for this change.**
-
-
----
-
-* [MAPREDUCE-5972](https://issues.apache.org/jira/browse/MAPREDUCE-5972) | *Trivial* | **Fix typo 'programatically' in job.xml (and a few other places)**
-
-Fix a typo. If a configuration is set through program, the source of the configuration is set to 'programmatically' instead of 'programatically' now.
-
-
----
-
-* [MAPREDUCE-5785](https://issues.apache.org/jira/browse/MAPREDUCE-5785) | *Major* | **Derive heap size or mapreduce.\*.memory.mb automatically**
-
-The memory values for mapreduce.map/reduce.memory.mb keys, if left to their default values of -1, will now be automatically inferred from the heap size value system property (-Xmx) specified for mapreduce.map/reduce.java.opts keys.
-
-The converse is also done, i.e. if mapreduce.map/reduce.memory.mb values are specified, but no -Xmx is supplied for mapreduce.map/reduce.java.opts keys, then the -Xmx value will be derived from the former's value.
-
-If neither is specified, then a default value of 1024 MB gets used.
-
-For both these conversions, a scaling factor specified by property mapreduce.job.heap.memory-mb.ratio is used, to account for overheads between heap usage vs. actual physical memory usage.
-
-Existing configs or job code that already specify both the set of properties explicitly would not be affected by this inferring change.
-
-
----
-
-* [MAPREDUCE-5653](https://issues.apache.org/jira/browse/MAPREDUCE-5653) | *Major* | **DistCp does not honour config-overrides for mapreduce.[map,reduce].memory.mb**
-
-Prior to this change, distcp had hard-coded values for memory usage.  Now distcp will honor memory settings in a way compatible with the rest of MapReduce.
-
-
----
-
-* [MAPREDUCE-4424](https://issues.apache.org/jira/browse/MAPREDUCE-4424) | *Minor* | **'mapred job -list' command should show the job name as well**
-
-Now "mapred job -list" command displays the Job Name as well.
-
-
----
-
-* [MAPREDUCE-2841](https://issues.apache.org/jira/browse/MAPREDUCE-2841) | *Major* | **Task level native optimization**
-
-Adds a native implementation of the map output collector. The native library will build automatically with -Pnative. Users may choose the new collector on a job-by-job basis by setting mapreduce.job.map.output.collector.class=org.apache.hadoop.mapred.
-nativetask.NativeMapOutputCollectorDelegator in their job configuration. For shuffle-intensive jobs this may provide speed-ups of 30% or more.
-
-
----
-
-* [MAPREDUCE-2632](https://issues.apache.org/jira/browse/MAPREDUCE-2632) | *Major* | **Avoid calling the partitioner when the numReduceTasks is 1.**
-
-**WARNING: No release note provided for this change.**
-
-
----
-
-* [YARN-2428](https://issues.apache.org/jira/browse/YARN-2428) | *Trivial* | **LCE default banned user list should have yarn**
-
-The user 'yarn' is no longer allowed to run tasks for security reasons.
-
-
----
-
 * [YARN-2355](https://issues.apache.org/jira/browse/YARN-2355) | *Major* | **MAX\_APP\_ATTEMPTS\_ENV may no longer be a useful env var for a container**
 
 Removed consumption of the MAX\_APP\_ATTEMPTS\_ENV environment variable
+
+
+---
+
+* [HDFS-5033](https://issues.apache.org/jira/browse/HDFS-5033) | *Minor* | **Bad error message for fs -put/copyFromLocal if user doesn't have permissions to read the source**
+
+"Permission denied" error message when unable to read local file for -put/copyFromLocal
+
+
+---
+
+* [HADOOP-9905](https://issues.apache.org/jira/browse/HADOOP-9905) | *Major* | **remove dependency of zookeeper for hadoop-client**
+
+Zookeeper jar removed from hadoop-client dependency tree.
+
+
+---
+
+* [HDFS-8591](https://issues.apache.org/jira/browse/HDFS-8591) | *Minor* | **Remove support for deprecated configuration key dfs.namenode.decommission.nodes.per.interval**
+
+Related to the decommission enhancements in HDFS-7411, this change removes the deprecated configuration key "dfs.namenode.decommission.nodes.per.interval" which has been subsumed by the configuration key "dfs.namenode.decommission.blocks.per.interval".
+
+
+---
+
+* [HDFS-6440](https://issues.apache.org/jira/browse/HDFS-6440) | *Major* | **Support more than 2 NameNodes**
+
+This feature adds support for running additional standby NameNodes, which provides additional fault-tolerance. It is designed for a total of 3-5 NameNodes.
+
+
+---
+
+* [HDFS-8895](https://issues.apache.org/jira/browse/HDFS-8895) | *Major* | **Remove deprecated BlockStorageLocation APIs**
+
+This removes the deprecated DistributedFileSystem#getFileBlockStorageLocations API used for getting VolumeIds of block replicas. Applications interested in the volume of a replica can instead consult BlockLocation#getStorageIds to obtain equivalent information.
+
+
+---
+
+* [HDFS-8981](https://issues.apache.org/jira/browse/HDFS-8981) | *Minor* | **Adding revision to data node jmx getVersion() method**
+
+getSoftwareVersion method would replace original getVersion method, which returns the version string.
+
+The new getVersion method would return both version string and revision string.
+
+
+---
+
+* [HDFS-7285](https://issues.apache.org/jira/browse/HDFS-7285) | *Major* | **Erasure Coding Support inside HDFS**
+
+<!-- markdown -->
+HDFS now provides native support for erasure coding (EC) to store data more efficiently. Each individual directory can be configured with an EC policy with command `hdfs erasurecode -setPolicy`. When a file is created, it will inherit the EC policy from its nearest ancestor directory to determine how its blocks are stored. Compared to 3-way replication, the default EC policy saves 50% of storage space while also tolerating more storage failures.
+
+To support small files, the currently phase of HDFS-EC stores blocks in _striped_ layout, where a logical file block is divided into small units (64KB by default) and distributed to a set of DataNodes. This enables parallel I/O but also decreases data locality. Therefore, the cluster environment and I/O workloads should be considered before configuring EC policies.
+
+
+---
+
+* [HDFS-9085](https://issues.apache.org/jira/browse/HDFS-9085) | *Trivial* | **Show renewer information in DelegationTokenIdentifier#toString**
+
+The output of the "hdfs fetchdt --print" command now includes the token renewer appended to the end of the existing token information.  This change may be incompatible with tools that parse the output of the command.
+
+
+---
+
+* [HADOOP-12493](https://issues.apache.org/jira/browse/HADOOP-12493) | *Major* | **bash unit tests are failing**
+
+In the extremely rare event that HADOOP\_USER\_IDENT and USER environment variables are not defined, we now fall back to use 'hadoop' as the identification string.
+
+
+---
+
+* [HADOOP-12495](https://issues.apache.org/jira/browse/HADOOP-12495) | *Major* | **Fix posix\_spawn error on OS X**
+
+When Hadoop JVMs create other processes on OS X, it will always use posix\_spawn.
+
+
+---
+
+* [HDFS-9070](https://issues.apache.org/jira/browse/HDFS-9070) | *Major* | **Allow fsck display pending replica location information for being-written blocks**
+
+The output of fsck command for being written hdfs files had been changed. When using fsck against being written hdfs files with {{-openforwrite}} and {{-files -blocks -locations}}, the fsck output will include the being written block for replication files or being written block group for erasure code files.
+
+
+---
+
+* [HDFS-9278](https://issues.apache.org/jira/browse/HDFS-9278) | *Trivial* | **Fix preferredBlockSize typo in OIV XML output**
+
+The preferred block size XML element has been corrected from "\\<perferredBlockSize\>" to "\\<preferredBlockSize\>".
+
+
+---
+
+* [HADOOP-10787](https://issues.apache.org/jira/browse/HADOOP-10787) | *Blocker* | **Rename/remove non-HADOOP\_\*, etc from the shell scripts**
+
+<!-- markdown -->
+The following shell environment variables have been deprecated:
+
+| Old | New |
+|:---- |:---- |
+| DEFAULT\_LIBEXEC\_DIR | HADOOP\_DEFAULT\_LIBEXEC\_DIR |
+| SLAVE\_NAMES | HADOOP\_SLAVE\_NAMES |
+| TOOL\_PATH | HADOOP\_TOOLS\_PATH |
+
+In addition:
+
+* DEFAULT\_LIBEXEC\_DIR will NOT be automatically transitioned to HADOOP\_DEFAULT\_LIBEXEC\_DIR and will require changes to any scripts setting that value.  A warning will be printed to the screen if DEFAULT\_LIBEXEC\_DIR has been configured.
+* HADOOP\_TOOLS\_PATH is now properly handled as a multi-valued, Java classpath-style variable.  Prior, multiple values assigned to TOOL\_PATH would not work a predictable manner.
+
+
+---
+
+* [HDFS-9057](https://issues.apache.org/jira/browse/HDFS-9057) | *Major* | **allow/disallow snapshots via webhdfs**
+
+Snapshots can be allowed/disallowed on a directory via WebHdfs from users with superuser privilege.
+
+
+---
+
+* [HADOOP-12294](https://issues.apache.org/jira/browse/HADOOP-12294) | *Major* | **Throw an Exception when fs.permissions.umask-mode is misconfigured**
+
+The support of the deprecated dfs.umask key is removed in Hadoop 3.0.
+
+
+---
+
+* [HDFS-5165](https://issues.apache.org/jira/browse/HDFS-5165) | *Minor* | **Remove the TotalFiles metrics**
+
+Now TotalFiles metric is removed from FSNameSystem. Use FilesTotal instead.
+
+
+---
+
+* [HDFS-9525](https://issues.apache.org/jira/browse/HDFS-9525) | *Blocker* | **hadoop utilities need to support provided delegation tokens**
+
+If hadoop.token.files property is defined and configured to one or more comma-delimited delegation token files, Hadoop will use those token files to connect to the services as named in the token.
+
+
+---
+
+* [MAPREDUCE-6613](https://issues.apache.org/jira/browse/MAPREDUCE-6613) | *Minor* | **Change mapreduce.jobhistory.jhist.format default from json to binary**
+
+Default of 'mapreduce.jobhistory.jhist.format' property changed from 'json' to 'binary'.  Creates smaller, binary Avro .jhist files for faster JHS performance.
+
+
+---
+
+* [HADOOP-12850](https://issues.apache.org/jira/browse/HADOOP-12850) | *Major* | **pull shell code out of hadoop-dist**
+
+This change contains the content of HADOOP-10115 which is an incompatible change.
+
+
+---
+
+* [HADOOP-12857](https://issues.apache.org/jira/browse/HADOOP-12857) | *Major* | **Rework hadoop-tools**
+
+<!-- markdown -->
+* Turning on optional things from the tools directory can now be done via hadoop-env.sh without impacting the various user-facing CLASSPATH.
+* The tools directory is no longer pulled in blindly for any utilities that pull it in.  
+* TOOL\_PATH / HADOOP\_TOOLS\_PATH has been broken apart and replaced with HADOOP\_TOOLS\_HOME, HADOOP\_TOOLS\_DIR and HADOOP\_TOOLS\_LIB\_JARS\_DIR to be consistent with the rest of Hadoop.
+
+
+---
+
+* [HDFS-9694](https://issues.apache.org/jira/browse/HDFS-9694) | *Major* | **Make existing DFSClient#getFileChecksum() work for striped blocks**
+
+Makes the getFileChecksum API works with striped layout EC files. Checksum computation done by block level in the distributed fashion. The current API does not support to compare the checksum generated with normal file and the checksum generated for the same file but in striped layout.
+
+
+---
+
+* [HDFS-9640](https://issues.apache.org/jira/browse/HDFS-9640) | *Major* | **Remove hsftp from DistCp in trunk**
+
+DistCp in Hadoop 3.0 no longer supports -mapredSSLConf option. Use global ssl-client.xml configuration file for swebhdfs file systems instead.
+
+
+---
+
+* [HADOOP-11393](https://issues.apache.org/jira/browse/HADOOP-11393) | *Major* | **Revert HADOOP\_PREFIX, go back to HADOOP\_HOME**
+
+On Unix platforms, HADOOP\_PREFIX has been deprecated in favor of returning to HADOOP\_HOME as in prior Apache Hadoop releases.
+
+
+---
+
+* [HADOOP-12967](https://issues.apache.org/jira/browse/HADOOP-12967) | *Major* | **Remove FileUtil#copyMerge**
+
+Removed FileUtil.copyMerge.
 
 
 

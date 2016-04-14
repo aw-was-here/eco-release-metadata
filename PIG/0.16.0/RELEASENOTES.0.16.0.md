@@ -23,9 +23,44 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
-* [PIG-4713](https://issues.apache.org/jira/browse/PIG-4713) | *Major* | **Document Bloom UDF**
+* [PIG-4578](https://issues.apache.org/jira/browse/PIG-4578) | *Minor* | **ToDateISO should support optional ' ' space variant used by JDBC**
 
-PIG-4713 Document Bloom UDF
+Built-in UDF ToDateISO(chararray) now allows a space character instead of requiring a 'T' between date and time in an ISO-8601 timestamp. Facilitates parsing of JDBC timestamp format.
+
+
+---
+
+* [PIG-4365](https://issues.apache.org/jira/browse/PIG-4365) | *Major* | **TOP udf should implement Accumulator interface**
+
+TOP udf implements Accumulator interface
+
+
+---
+
+* [PIG-4405](https://issues.apache.org/jira/browse/PIG-4405) | *Major* | **Adding 'map[]' support to mock/Storage**
+
+The Storage mocking feature supports input and output of "map" types.
+
+
+---
+
+* [PIG-4638](https://issues.apache.org/jira/browse/PIG-4638) | *Major* | **Allow TOMAP to accept dynamically sized input**
+
+The TOMAP function now also accepts a bag of key-value pairs as input.
+
+
+---
+
+* [PIG-4639](https://issues.apache.org/jira/browse/PIG-4639) | *Major* | **Add better parser for Apache HTTPD access log.**
+
+In piggybank there is now a generic Apache httpd access log loader that supports (almost) all custom LogFormats.
+
+
+---
+
+* [PIG-4673](https://issues.apache.org/jira/browse/PIG-4673) | *Minor* | **Built In UDF - REPLACE\_MULTI : For a given string, search and replace all occurrences of search keys with replacement values.**
+
+Built In UDF - REPLACE\_MULTI : Method which take a tuple having source string as first parameter and a map having search key and replacement values. Method will replace all occurrences of search key in source string with the replacement values.
 
 
 ---
@@ -40,51 +75,30 @@ Union optimization (pig.tez.opt.union=true) in tez uses vertex groups to store o
 
 ---
 
-* [PIG-4673](https://issues.apache.org/jira/browse/PIG-4673) | *Minor* | **Built In UDF - REPLACE\_MULTI : For a given string, search and replace all occurrences of search keys with replacement values.**
-
-Built In UDF - REPLACE\_MULTI : Method which take a tuple having source string as first parameter and a map having search key and replacement values. Method will replace all occurrences of search key in source string with the replacement values.
-
-
----
-
-* [PIG-4639](https://issues.apache.org/jira/browse/PIG-4639) | *Major* | **Add better parser for Apache HTTPD access log.**
-
-In piggybank there is now a generic Apache httpd access log loader that supports (almost) all custom LogFormats.
-
-
----
-
-* [PIG-4638](https://issues.apache.org/jira/browse/PIG-4638) | *Major* | **Allow TOMAP to accept dynamically sized input**
-
-The TOMAP function now also accepts a bag of key-value pairs as input.
-
-
----
-
-* [PIG-4578](https://issues.apache.org/jira/browse/PIG-4578) | *Minor* | **ToDateISO should support optional ' ' space variant used by JDBC**
-
-Built-in UDF ToDateISO(chararray) now allows a space character instead of requiring a 'T' between date and time in an ISO-8601 timestamp. Facilitates parsing of JDBC timestamp format.
-
-
----
-
-* [PIG-4405](https://issues.apache.org/jira/browse/PIG-4405) | *Major* | **Adding 'map[]' support to mock/Storage**
-
-The Storage mocking feature supports input and output of "map" types.
-
-
----
-
-* [PIG-4365](https://issues.apache.org/jira/browse/PIG-4365) | *Major* | **TOP udf should implement Accumulator interface**
-
-TOP udf implements Accumulator interface
-
-
----
-
 * [PIG-3251](https://issues.apache.org/jira/browse/PIG-3251) | *Major* | **Bzip2TextInputFormat requires double the memory of maximum record size**
 
 With hadoop 2.X or later, pig will use hadoop's bzip codec to handle bzip inputs.  (To turn it off, set pig.bzip.use.hadoop.inputformat=false)
+
+
+---
+
+* [PIG-4713](https://issues.apache.org/jira/browse/PIG-4713) | *Major* | **Document Bloom UDF**
+
+PIG-4713 Document Bloom UDF
+
+
+---
+
+* [PIG-4833](https://issues.apache.org/jira/browse/PIG-4833) | *Minor* | **TestBuiltin.testURIWithCurlyBrace in TEZ failing after PIG-4819**
+
+**WARNING: No release note provided for this change.**
+
+
+---
+
+* [PIG-4796](https://issues.apache.org/jira/browse/PIG-4796) | *Major* | **Authenticate with Kerberos using a keytab file**
+
+Support for logging in into a Kerberos secured Hadoop cluster using a keytab file to allow running jobs that last longer than the maximum Kerberos ticket lifetime.
 
 
 

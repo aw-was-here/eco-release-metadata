@@ -16,6 +16,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
+* Apache BigTop v1.2.0
+    * [Changes](1.2.0/CHANGES.1.2.0.md)
+    * [Release Notes](1.2.0/RELEASENOTES.1.2.0.md)
 * Apache BigTop v1.1.0
     * [Changes](1.1.0/CHANGES.1.1.0.md)
     * [Release Notes](1.1.0/RELEASENOTES.1.1.0.md)

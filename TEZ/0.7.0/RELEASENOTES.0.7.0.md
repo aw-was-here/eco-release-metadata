@@ -23,16 +23,16 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
-* [TEZ-2437](https://issues.apache.org/jira/browse/TEZ-2437) | *Major* | **FilterLinesByWord NPEs when run in Localmode**
+* [TEZ-2424](https://issues.apache.org/jira/browse/TEZ-2424) | *Minor* | **Bump up max counter group name length limit to account for per\_io counters**
 
-**WARNING: No release note provided for this incompatible change.**
+**WARNING: No release note provided for this change.**
 
 
 ---
 
-* [TEZ-2424](https://issues.apache.org/jira/browse/TEZ-2424) | *Minor* | **Bump up max counter group name length limit to account for per\_io counters**
+* [TEZ-2437](https://issues.apache.org/jira/browse/TEZ-2437) | *Major* | **FilterLinesByWord NPEs when run in Localmode**
 
-**WARNING: No release note provided for this incompatible change.**
+**WARNING: No release note provided for this change.**
 
 
 

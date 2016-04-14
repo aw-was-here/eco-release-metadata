@@ -19,6 +19,9 @@
 * Apache Flink v1.0.0
     * [Changes](1.0.0/CHANGES.1.0.0.md)
     * [Release Notes](1.0.0/RELEASENOTES.1.0.0.md)
+* Apache Flink v0.10.3
+    * [Changes](0.10.3/CHANGES.0.10.3.md)
+    * [Release Notes](0.10.3/RELEASENOTES.0.10.3.md)
 * Apache Flink v0.10.2
     * [Changes](0.10.2/CHANGES.0.10.2.md)
     * [Release Notes](0.10.2/RELEASENOTES.0.10.2.md)

@@ -37,4 +37,11 @@ Two recommendations for the mapreduce.jobhistory.loadedtasks.cache.size property
 2) Make sure that the cache size is larger than the number of tasks required for the largest job run on the cluster.  It might be a good idea to set the value slightly higher (say, 20%) in order to allow for job size growth.
 
 
+---
+
+* [YARN-4785](https://issues.apache.org/jira/browse/YARN-4785) | *Major* | **inconsistent value type of the "type" field for LeafQueueInfo in response of RM REST API - cluster/scheduler**
+
+**WARNING: No release note provided for this change.**
+
+
 

@@ -23,23 +23,11 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
-* [TEZ-2972](https://issues.apache.org/jira/browse/TEZ-2972) | *Major* | **Avoid task rescheduling when a node turns unhealthy**
+* [TEZ-2679](https://issues.apache.org/jira/browse/TEZ-2679) | *Major* | **Admin forms of launch env settings**
 
-**WARNING: No release note provided for this incompatible change.**
+TEZ-2679 introduced new admin configuration (tez.am.launch.cluster-default.env, tez.task.launch.cluster-default.env) settings. The settings will be merged per environment variable and environment variables specified in both admin setting and user override will merged in the following manner (assuming linux classpath here, but works for other OS's).
 
-
----
-
-* [TEZ-2949](https://issues.apache.org/jira/browse/TEZ-2949) | *Major* | **Allow duplicate dag names within session for Tez**
-
-In earlier versions of Tez, DAG submissions to a Tez AM were rejected if the dagName was not unique for that Tez session/application. After this change, the uniqueness constraint for the dagName is no longer enforced.
-
-
----
-
-* [TEZ-2914](https://issues.apache.org/jira/browse/TEZ-2914) | *Major* | **Ability to limit vertex concurrency**
-
-Added new vertex level config "tez.am.vertex.max-task-concurrency" that can be set using the per vertex conf API to limit the task concurrency of a given vertex.
+./:USER\_PATH:ADMIN\_PATH
 
 
 ---
@@ -52,11 +40,23 @@ Committed to both master and branch-0.7.
 
 ---
 
-* [TEZ-2679](https://issues.apache.org/jira/browse/TEZ-2679) | *Major* | **Admin forms of launch env settings**
+* [TEZ-2949](https://issues.apache.org/jira/browse/TEZ-2949) | *Major* | **Allow duplicate dag names within session for Tez**
 
-TEZ-2679 introduced new admin configuration (tez.am.launch.cluster-default.env, tez.task.launch.cluster-default.env) settings. The settings will be merged per environment variable and environment variables specified in both admin setting and user override will merged in the following manner (assuming linux classpath here, but works for other OS's).
+In earlier versions of Tez, DAG submissions to a Tez AM were rejected if the dagName was not unique for that Tez session/application. After this change, the uniqueness constraint for the dagName is no longer enforced.
 
-./:USER\_PATH:ADMIN\_PATH
+
+---
+
+* [TEZ-2972](https://issues.apache.org/jira/browse/TEZ-2972) | *Major* | **Avoid task rescheduling when a node turns unhealthy**
+
+**WARNING: No release note provided for this change.**
+
+
+---
+
+* [TEZ-2914](https://issues.apache.org/jira/browse/TEZ-2914) | *Major* | **Ability to limit vertex concurrency**
+
+Added new vertex level config "tez.am.vertex.max-task-concurrency" that can be set using the per vertex conf API to limit the task concurrency of a given vertex.
 
 
 

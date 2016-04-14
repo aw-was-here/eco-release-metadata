@@ -23,9 +23,16 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
-* [HBASE-14054](https://issues.apache.org/jira/browse/HBASE-14054) | *Major* | **Acknowledged writes may get lost if regionserver clock is set backwards**
+* [HBASE-13930](https://issues.apache.org/jira/browse/HBASE-13930) | *Major* | **Exclude Findbugs packages from shaded jars**
 
-In {{checkAndPut}} write path use max(max timestamp for the row, System.currentTimeMillis()) in the, instead of blindly taking System.currentTimeMillis() to ensure that checkAndPut() cannot do writes which is already eclipsed. This is similar to what has been done in HBASE-12449 for increment and append.
+Exclude Findbugs packages from shaded jars
+
+
+---
+
+* [HBASE-13959](https://issues.apache.org/jira/browse/HBASE-13959) | *Critical* | **Region splitting uses a single thread in most common cases**
+
+The performance of region splitting has been improved by using a thread pool to split the store files concurrently. Prior to this change, the store files were always split sequentially in a single thread, so a region with multiple store files ended up taking several seconds. The thread pool is sized dynamically with the aim of getting maximum concurrency, without exceeding the number of cores available for HBase Java process. A lower limit for the thread pool can be explicitly set using the property hbase.regionserver.region.split.threads.max.
 
 
 ---
@@ -39,23 +46,9 @@ In this issue, we actually also remove these methods in master/2.0.0 branch.
 
 ---
 
-* [HBASE-13966](https://issues.apache.org/jira/browse/HBASE-13966) | *Minor* | **Limit column width in table.jsp**
+* [HBASE-13895](https://issues.apache.org/jira/browse/HBASE-13895) | *Critical* | **DATALOSS: Region assigned before WAL replay when abort**
 
-Wraps region, start key, end key columns if too long.
-
-
----
-
-* [HBASE-13959](https://issues.apache.org/jira/browse/HBASE-13959) | *Critical* | **Region splitting uses a single thread in most common cases**
-
-The performance of region splitting has been improved by using a thread pool to split the store files concurrently. Prior to this change, the store files were always split sequentially in a single thread, so a region with multiple store files ended up taking several seconds. The thread pool is sized dynamically with the aim of getting maximum concurrency, without exceeding the number of cores available for HBase Java process. A lower limit for the thread pool can be explicitly set using the property hbase.regionserver.region.split.threads.max.
-
-
----
-
-* [HBASE-13930](https://issues.apache.org/jira/browse/HBASE-13930) | *Major* | **Exclude Findbugs packages from shaded jars**
-
-Exclude Findbugs packages from shaded jars
+If the master went to assign a region concurrent with a RegionServer abort, the returned RegionServerAbortedException was being handled as though the region had been cleanly offlined so assign was allowed proceed. If the region was opened in its new location before WAL replay completion, the replayed edits were ignored, worst case, or were later played over the top of edits that had come in since open and so susceptible to overwrite. In either case, DATALOSS.
 
 
 ---
@@ -74,20 +67,16 @@ Increase default hbase.hregion.memstore.block.multiplier from 2 to 4 in the code
 
 ---
 
-* [HBASE-13127](https://issues.apache.org/jira/browse/HBASE-13127) | *Major* | **Add timeouts on all tests so less zombie sightings**
+* [HBASE-14054](https://issues.apache.org/jira/browse/HBASE-14054) | *Major* | **Acknowledged writes may get lost if regionserver clock is set backwards**
 
-Use junit facility to impose timeout on test. Use test category to chose which timeout to apply: small tests timeout after 30 seconds, medium tests after 180 seconds, and large tests after ten minutes.
+In {{checkAndPut}} write path use max(max timestamp for the row, System.currentTimeMillis()) in the, instead of blindly taking System.currentTimeMillis() to ensure that checkAndPut() cannot do writes which is already eclipsed. This is similar to what has been done in HBASE-12449 for increment and append.
 
-Updated junit version from 4.11 to 4.12. 4.12 has support for feature used here.
 
-Add this at the head of your junit4 class to add a category-based timeout:
+---
 
-{code}
-@Rule public final TestRule timeout =   CategoryBasedTimeout.builder().withTimeout(this.getClass()).
-      withLookingForStuckThread(true).build();
-{code}
+* [HBASE-13966](https://issues.apache.org/jira/browse/HBASE-13966) | *Minor* | **Limit column width in table.jsp**
 
-For example:
+Wraps region, start key, end key columns if too long.
 
 
 ---

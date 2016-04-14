@@ -23,6 +23,14 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
+* [MAPREDUCE-5485](https://issues.apache.org/jira/browse/MAPREDUCE-5485) | *Critical* | **Allow repeating job commit by extending OutputCommitter API**
+
+Previously, the MR job will get failed if AM get restarted for some reason (like node failure, etc.) during its doing commit job no matter if AM attempts reach to the maximum attempts. 
+In this improvement, we add a new API isCommitJobRepeatable() to OutputCommitter interface which to indicate if job's committer can do commitJob again if previous commit work is interrupted by NM/AM failures, etc. The instance of OutputCommitter, which support repeatable job commit (like FileOutputCommitter in algorithm 2), can allow AM to continue the commitJob() after AM restart as a new attempt.
+
+
+---
+
 * [HADOOP-12805](https://issues.apache.org/jira/browse/HADOOP-12805) | *Major* | **Annotate CanUnbuffer with @InterfaceAudience.Public**
 
 Made CanBuffer interface public for use in client applications.
@@ -44,13 +52,6 @@ Added New compression levels for GzipCodec that can be set in zlib.compress.leve
 
 ---
 
-* [HDFS-8791](https://issues.apache.org/jira/browse/HDFS-8791) | *Blocker* | **block ID-based DN storage layout can be very slow for datanode on ext4**
-
-HDFS-8791 introduces a new datanode layout format. This layout is identical to the previous block id based layout except it has a smaller 32x32 sub-directory structure in each data storage. On startup, the datanode will automatically upgrade it's storages to this new layout.
-
-
----
-
 * [MAPREDUCE-6622](https://issues.apache.org/jira/browse/MAPREDUCE-6622) | *Critical* | **Add capability to set JHS job cache to a task-based limit**
 
 Two recommendations for the mapreduce.jobhistory.loadedtasks.cache.size property:
@@ -60,10 +61,23 @@ Two recommendations for the mapreduce.jobhistory.loadedtasks.cache.size property
 
 ---
 
-* [MAPREDUCE-5485](https://issues.apache.org/jira/browse/MAPREDUCE-5485) | *Critical* | **Allow repeating job commit by extending OutputCommitter API**
+* [YARN-4785](https://issues.apache.org/jira/browse/YARN-4785) | *Major* | **inconsistent value type of the "type" field for LeafQueueInfo in response of RM REST API - cluster/scheduler**
 
-Previously, the MR job will get failed if AM get restarted for some reason (like node failure, etc.) during its doing commit job no matter if AM attempts reach to the maximum attempts. 
-In this improvement, we add a new API isCommitJobRepeatable() to OutputCommitter interface which to indicate if job's committer can do commitJob again if previous commit work is interrupted by NM/AM failures, etc. The instance of OutputCommitter, which support repeatable job commit (like FileOutputCommitter in algorithm 2), can allow AM to continue the commitJob() after AM restart as a new attempt.
+**WARNING: No release note provided for this change.**
+
+
+---
+
+* [MAPREDUCE-6670](https://issues.apache.org/jira/browse/MAPREDUCE-6670) | *Minor* | **TestJobListCache#testEviction sometimes fails on Windows with timeout**
+
+Backport the fix to 2.7 and 2.8
+
+
+---
+
+* [HADOOP-12406](https://issues.apache.org/jira/browse/HADOOP-12406) | *Blocker* | **AbstractMapWritable.readFields throws ClassNotFoundException with custom writables**
+
+**WARNING: No release note provided for this change.**
 
 
 

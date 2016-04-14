@@ -23,9 +23,9 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
-* [ZOOKEEPER-1929](https://issues.apache.org/jira/browse/ZOOKEEPER-1929) | *Major* | **std::length\_error on update children**
+* [ZOOKEEPER-1077](https://issues.apache.org/jira/browse/ZOOKEEPER-1077) | *Critical* | **C client lib doesn't build on Solaris**
 
-Fix a bug in zkfuse that causes an abort upon reading a node's content
+Support for building C client lib on Illumos (and presumably OpenSolaris).  Configure with "CPPFLAGS=-D\_POSIX\_PTHREAD\_SEMANTICS LDFLAGS="-lnsl -lsocket" ./configure"
 
 
 ---
@@ -37,9 +37,9 @@ Allows spaces to be used for parameters in zkCli as long as they are in single o
 
 ---
 
-* [ZOOKEEPER-1077](https://issues.apache.org/jira/browse/ZOOKEEPER-1077) | *Critical* | **C client lib doesn't build on Solaris**
+* [ZOOKEEPER-1929](https://issues.apache.org/jira/browse/ZOOKEEPER-1929) | *Major* | **std::length\_error on update children**
 
-Support for building C client lib on Illumos (and presumably OpenSolaris).  Configure with "CPPFLAGS=-D\_POSIX\_PTHREAD\_SEMANTICS LDFLAGS="-lnsl -lsocket" ./configure"
+Fix a bug in zkfuse that causes an abort upon reading a node's content
 
 
 

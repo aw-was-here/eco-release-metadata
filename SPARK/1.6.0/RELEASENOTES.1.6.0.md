@@ -23,53 +23,82 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
-* [SPARK-11700](https://issues.apache.org/jira/browse/SPARK-11700) | *Critical* | **Memory leak at SparkContext jobProgressListener stageIdToData map**
+* [SPARK-10716](https://issues.apache.org/jira/browse/SPARK-10716) | *Minor* | **spark-1.5.0-bin-hadoop2.6.tgz file doesn't uncompress on OS X due to hidden file**
 
-it seems that there is  A SparkContext jobProgressListener memory leak.\*. Bellow i describe the  steps i do to reproduce that. 
+Directly downloaded prebuilt binaries of http://d3kbcqa49mib13.cloudfront.net/spark-1.5.0-bin-hadoop2.6.tgz 
+got error when tar xvzf it.  Tried download twice and extract twice.
 
-I have created a java webapp trying to abstractly Run some Spark Sql jobs that read data from HDFS (join them) and Write them To ElasticSearch using ES hadoop connector. After a Lot of consecutive runs  i noticed that my heap space was full so i got an out of heap space error.
-
-At the attached file {code} AbstractSparkJobRunner {code} the {code}  public final void run(T jobConfiguration, ExecutionLog executionLog) throws Exception  {code} runs each time an Spark Sql Job is triggered.  So tried to reuse the same SparkContext for a number of consecutive runs. If some rules apply i try to clean up the SparkContext by first calling {code} killSparkAndSqlContext {code}. This code eventually runs {code}  synchronized (sparkContextThreadLock) {
-            if (javaSparkContext != null) {
-                LOGGER.info("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! CLEARING SPARK CONTEXT!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-                javaSparkContext.stop();
-                javaSparkContext = null;
-                sqlContext = null;
-
-                System.gc();
-            }
-            numberOfRunningJobsForSparkContext.getAndSet(0);
-        }
-{code}.
-
-So at some point in time i suppose that if no other SparkSql job should run i should kill the sparkContext  (The AbstractSparkJobRunner.killSparkAndSqlContext  runs) and this should be garbage collected from garbage collector. However this is not the case, Even if in my debugger shows that my JavaSparkContext object is null see attached picture {code} SparkContextPossibleMemoryLeakIDEA\_DEBUG.png {code}.
-
-The jvisual vm shows an incremental heap space even when the garbage collector is called. See attached picture {code} SparkHeapSpaceProgress.png {code}.
-
-The memory analyser Tool shows that a big part of the retained heap to be assigned to \_jobProgressListener see attached picture {code} SparkMemoryAfterLotsOfConsecutiveRuns.png {code}  and summary picture {code} SparkMemoryLeakAfterLotsOfRunsWithinTheSameContext.png {code}. Although at the same time in Singleton Service the JavaSparkContext is null.
+error log:
+......
+x spark-1.5.0-bin-hadoop2.6/lib/
+x spark-1.5.0-bin-hadoop2.6/lib/datanucleus-core-3.2.10.jar
+x spark-1.5.0-bin-hadoop2.6/lib/datanucleus-api-jdo-3.2.6.jar
+x spark-1.5.0-bin-hadoop2.6/lib/datanucleus-rdbms-3.2.9.jar
+x spark-1.5.0-bin-hadoop2.6/lib/spark-examples-1.5.0-hadoop2.6.0.jar
+x spark-1.5.0-bin-hadoop2.6/lib/spark-assembly-1.5.0-hadoop2.6.0.jar
+x spark-1.5.0-bin-hadoop2.6/lib/spark-1.5.0-yarn-shuffle.jar
+x spark-1.5.0-bin-hadoop2.6/README.md
+tar: copyfile unpack (spark-1.5.0-bin-hadoop2.6/python/test\_support/sql/orc\_partitioned/SUCCESS.crc) failed: No such file or directory
+~ :\>
 
 
 ---
 
-* [SPARK-11481](https://issues.apache.org/jira/browse/SPARK-11481) | *Major* | **orderBy with multiple columns in WindowSpec does not work properly**
+* [SPARK-10856](https://issues.apache.org/jira/browse/SPARK-10856) | *Major* | **SQL Server dialect needs to map java.sql.Timestamp to DATETIME instead of TIMESTAMP**
 
-When using multiple columns in the orderBy of a WindowSpec the order by seems to work only for the first column.
+When saving a DataFrame to MS SQL Server, en error is thrown if there is more than one TIMESTAMP column:
 
-A possible workaround is to sort previosly the DataFrame and then apply the window spec over the sorted DataFrame
+df.printSchema
 
-e.g. 
-THIS NOT WORKS:
-window\_sum = Window.partitionBy('user\_unique\_id').orderBy('creation\_date', 'mib\_id', 'day').rowsBetween(-sys.maxsize, 0)
+root
+ \|-- Id: string (nullable = false)
+ \|-- TypeInformation\_CreatedBy: string (nullable = false)
+ \|-- TypeInformation\_ModifiedBy: string (nullable = true)
+ \|-- TypeInformation\_TypeStatus: integer (nullable = false)
+ \|-- TypeInformation\_CreatedAtDatabase: timestamp (nullable = false)
+ \|-- TypeInformation\_ModifiedAtDatabase: timestamp (nullable = true)
 
-df = df.withColumn('user\_version', func.sum(df.group\_counter).over(window\_sum))
+df.write.mode("overwrite").jdbc(url, tablename, props)
 
-THIS WORKS WELL:
-df = df.sort('user\_unique\_id', 'creation\_date', 'mib\_id', 'day')
-window\_sum = Window.partitionBy('user\_unique\_id').orderBy('creation\_date', 'mib\_id', 'day').rowsBetween(-sys.maxsize, 0)
+com.microsoft.sqlserver.jdbc.SQLServerException: A table can only have one timestamp column. Because table 'DebtorTypeSet1' already has one, the column 'TypeInformation\_ModifiedAtDatabase' cannot be added.
+        at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDatabaseError
+(SQLServerException.java:217)
+        at com.microsoft.sqlserver.jdbc.SQLServerStatement.getNextResult(SQLServ
+erStatement.java:1635)
+        at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.doExecutePrep
+aredStatement(SQLServerPreparedStatement.java:426)
+        at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement$PrepStmtExecC
+md.doExecute(SQLServerPreparedStatement.java:372)
+        at com.microsoft.sqlserver.jdbc.TDSCommand.execute(IOBuffer.java:6276)
+        at com.microsoft.sqlserver.jdbc.SQLServerConnection.executeCommand(SQLSe
+rverConnection.java:1793)
+        at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeCommand(SQLSer
+verStatement.java:184)
+        at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeStatement(SQLS
+erverStatement.java:159)
+        at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.executeUpdate
+(SQLServerPreparedStatement.java:315)
 
-df = df.withColumn('user\_version', func.sum(df.group\_counter).over(window\_sum))
+I tested this on Windows and SQL Server 12 using Spark 1.4.1.
 
-Also, can anybody confirm that this is a true workaround?
+I think this can be fixed in a similar way to Spark-10419.
+
+As a refererence, here is the type mapping according to the SQL Server JDBC driver (basicDT.java, extracted from sqljdbc\_4.2.6420.100\_enu.exe):
+
+   private static void displayRow(String title, ResultSet rs) {
+      try {
+         System.out.println(title);
+         System.out.println(rs.getInt(1) + " , " +  		// SQL integer type.
+               rs.getString(2) + " , " +            		// SQL char type.
+               rs.getString(3) + " , " +            		// SQL varchar type.
+               rs.getBoolean(4) + " , " +           		// SQL bit type.
+               rs.getDouble(5) + " , " +            		// SQL decimal type.
+               rs.getDouble(6) + " , " +            		// SQL money type.
+               rs.getTimestamp(7) + " , " +        		// SQL datetime type.
+               rs.getDate(8) + " , " +              		// SQL date type.
+               rs.getTime(9) + " , " +              		// SQL time type.
+               rs.getTimestamp(10) + " , " +            	// SQL datetime2 type.
+               ((SQLServerResultSet)rs).getDateTimeOffset(11)); // SQL datetimeoffset type.
 
 
 ---
@@ -219,82 +248,53 @@ Ah, that's similar but not the same bug; it's a different part of the code that 
 
 ---
 
-* [SPARK-10856](https://issues.apache.org/jira/browse/SPARK-10856) | *Major* | **SQL Server dialect needs to map java.sql.Timestamp to DATETIME instead of TIMESTAMP**
+* [SPARK-11481](https://issues.apache.org/jira/browse/SPARK-11481) | *Major* | **orderBy with multiple columns in WindowSpec does not work properly**
 
-When saving a DataFrame to MS SQL Server, en error is thrown if there is more than one TIMESTAMP column:
+When using multiple columns in the orderBy of a WindowSpec the order by seems to work only for the first column.
 
-df.printSchema
+A possible workaround is to sort previosly the DataFrame and then apply the window spec over the sorted DataFrame
 
-root
- \|-- Id: string (nullable = false)
- \|-- TypeInformation\_CreatedBy: string (nullable = false)
- \|-- TypeInformation\_ModifiedBy: string (nullable = true)
- \|-- TypeInformation\_TypeStatus: integer (nullable = false)
- \|-- TypeInformation\_CreatedAtDatabase: timestamp (nullable = false)
- \|-- TypeInformation\_ModifiedAtDatabase: timestamp (nullable = true)
+e.g. 
+THIS NOT WORKS:
+window\_sum = Window.partitionBy('user\_unique\_id').orderBy('creation\_date', 'mib\_id', 'day').rowsBetween(-sys.maxsize, 0)
 
-df.write.mode("overwrite").jdbc(url, tablename, props)
+df = df.withColumn('user\_version', func.sum(df.group\_counter).over(window\_sum))
 
-com.microsoft.sqlserver.jdbc.SQLServerException: A table can only have one timestamp column. Because table 'DebtorTypeSet1' already has one, the column 'TypeInformation\_ModifiedAtDatabase' cannot be added.
-        at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDatabaseError
-(SQLServerException.java:217)
-        at com.microsoft.sqlserver.jdbc.SQLServerStatement.getNextResult(SQLServ
-erStatement.java:1635)
-        at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.doExecutePrep
-aredStatement(SQLServerPreparedStatement.java:426)
-        at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement$PrepStmtExecC
-md.doExecute(SQLServerPreparedStatement.java:372)
-        at com.microsoft.sqlserver.jdbc.TDSCommand.execute(IOBuffer.java:6276)
-        at com.microsoft.sqlserver.jdbc.SQLServerConnection.executeCommand(SQLSe
-rverConnection.java:1793)
-        at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeCommand(SQLSer
-verStatement.java:184)
-        at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeStatement(SQLS
-erverStatement.java:159)
-        at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.executeUpdate
-(SQLServerPreparedStatement.java:315)
+THIS WORKS WELL:
+df = df.sort('user\_unique\_id', 'creation\_date', 'mib\_id', 'day')
+window\_sum = Window.partitionBy('user\_unique\_id').orderBy('creation\_date', 'mib\_id', 'day').rowsBetween(-sys.maxsize, 0)
 
-I tested this on Windows and SQL Server 12 using Spark 1.4.1.
+df = df.withColumn('user\_version', func.sum(df.group\_counter).over(window\_sum))
 
-I think this can be fixed in a similar way to Spark-10419.
-
-As a refererence, here is the type mapping according to the SQL Server JDBC driver (basicDT.java, extracted from sqljdbc\_4.2.6420.100\_enu.exe):
-
-   private static void displayRow(String title, ResultSet rs) {
-      try {
-         System.out.println(title);
-         System.out.println(rs.getInt(1) + " , " +  		// SQL integer type.
-               rs.getString(2) + " , " +            		// SQL char type.
-               rs.getString(3) + " , " +            		// SQL varchar type.
-               rs.getBoolean(4) + " , " +           		// SQL bit type.
-               rs.getDouble(5) + " , " +            		// SQL decimal type.
-               rs.getDouble(6) + " , " +            		// SQL money type.
-               rs.getTimestamp(7) + " , " +        		// SQL datetime type.
-               rs.getDate(8) + " , " +              		// SQL date type.
-               rs.getTime(9) + " , " +              		// SQL time type.
-               rs.getTimestamp(10) + " , " +            	// SQL datetime2 type.
-               ((SQLServerResultSet)rs).getDateTimeOffset(11)); // SQL datetimeoffset type.
+Also, can anybody confirm that this is a true workaround?
 
 
 ---
 
-* [SPARK-10716](https://issues.apache.org/jira/browse/SPARK-10716) | *Minor* | **spark-1.5.0-bin-hadoop2.6.tgz file doesn't uncompress on OS X due to hidden file**
+* [SPARK-11700](https://issues.apache.org/jira/browse/SPARK-11700) | *Critical* | **Memory leak at SparkContext jobProgressListener stageIdToData map**
 
-Directly downloaded prebuilt binaries of http://d3kbcqa49mib13.cloudfront.net/spark-1.5.0-bin-hadoop2.6.tgz 
-got error when tar xvzf it.  Tried download twice and extract twice.
+it seems that there is  A SparkContext jobProgressListener memory leak.\*. Bellow i describe the  steps i do to reproduce that. 
 
-error log:
-......
-x spark-1.5.0-bin-hadoop2.6/lib/
-x spark-1.5.0-bin-hadoop2.6/lib/datanucleus-core-3.2.10.jar
-x spark-1.5.0-bin-hadoop2.6/lib/datanucleus-api-jdo-3.2.6.jar
-x spark-1.5.0-bin-hadoop2.6/lib/datanucleus-rdbms-3.2.9.jar
-x spark-1.5.0-bin-hadoop2.6/lib/spark-examples-1.5.0-hadoop2.6.0.jar
-x spark-1.5.0-bin-hadoop2.6/lib/spark-assembly-1.5.0-hadoop2.6.0.jar
-x spark-1.5.0-bin-hadoop2.6/lib/spark-1.5.0-yarn-shuffle.jar
-x spark-1.5.0-bin-hadoop2.6/README.md
-tar: copyfile unpack (spark-1.5.0-bin-hadoop2.6/python/test\_support/sql/orc\_partitioned/SUCCESS.crc) failed: No such file or directory
-~ :\>
+I have created a java webapp trying to abstractly Run some Spark Sql jobs that read data from HDFS (join them) and Write them To ElasticSearch using ES hadoop connector. After a Lot of consecutive runs  i noticed that my heap space was full so i got an out of heap space error.
+
+At the attached file {code} AbstractSparkJobRunner {code} the {code}  public final void run(T jobConfiguration, ExecutionLog executionLog) throws Exception  {code} runs each time an Spark Sql Job is triggered.  So tried to reuse the same SparkContext for a number of consecutive runs. If some rules apply i try to clean up the SparkContext by first calling {code} killSparkAndSqlContext {code}. This code eventually runs {code}  synchronized (sparkContextThreadLock) {
+            if (javaSparkContext != null) {
+                LOGGER.info("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! CLEARING SPARK CONTEXT!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                javaSparkContext.stop();
+                javaSparkContext = null;
+                sqlContext = null;
+
+                System.gc();
+            }
+            numberOfRunningJobsForSparkContext.getAndSet(0);
+        }
+{code}.
+
+So at some point in time i suppose that if no other SparkSql job should run i should kill the sparkContext  (The AbstractSparkJobRunner.killSparkAndSqlContext  runs) and this should be garbage collected from garbage collector. However this is not the case, Even if in my debugger shows that my JavaSparkContext object is null see attached picture {code} SparkContextPossibleMemoryLeakIDEA\_DEBUG.png {code}.
+
+The jvisual vm shows an incremental heap space even when the garbage collector is called. See attached picture {code} SparkHeapSpaceProgress.png {code}.
+
+The memory analyser Tool shows that a big part of the retained heap to be assigned to \_jobProgressListener see attached picture {code} SparkMemoryAfterLotsOfConsecutiveRuns.png {code}  and summary picture {code} SparkMemoryLeakAfterLotsOfRunsWithinTheSameContext.png {code}. Although at the same time in Singleton Service the JavaSparkContext is null.
 
 
 

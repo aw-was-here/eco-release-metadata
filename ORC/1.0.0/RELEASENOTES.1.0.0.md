@@ -25,7 +25,7 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 * [ORC-18](https://issues.apache.org/jira/browse/ORC-18) | *Major* | **Replace Buffer with DataBuffer\<char\> and implement a posix-style read() for InputStreams**
 
-**WARNING: No release note provided for this important issue.**
+**WARNING: No release note provided for this change.**
 
 
 

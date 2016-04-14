@@ -37,4 +37,17 @@ A relevant post due to this possible bug can also be found at:
 http://apache-spark-user-list.1001560.n3.nabble.com/Issue-with-running-CrossValidator-with-RandomForestClassifier-on-dataset-td23791.html
 
 
+---
+
+* [SPARK-6936](https://issues.apache.org/jira/browse/SPARK-6936) | *Major* | **SQLContext.sql() caused deadlock in multi-thread env**
+
+Doing (the same query) in more than one threads with SQLConext.sql may lead to deadlock. Here is a way to reproduce it (since this is multi-thread issue, the reproduction may or may not be so easy).
+
+1. Register a relatively big table.
+
+2.  Create two different classes and in the classes, do the same query in a method and put the results in a set and print out the set size.
+
+3.  Create two threads to use an object from each class in the run method. Start the threads. For my tests,  it can have a deadlock just in a few runs.
+
+
 

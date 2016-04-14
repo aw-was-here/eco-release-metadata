@@ -23,17 +23,9 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
-* [ZOOKEEPER-2190](https://issues.apache.org/jira/browse/ZOOKEEPER-2190) | *Major* | **In StandaloneDisabledTest, testReconfig() shouldn't take leaving servers as joining servers**
+* [ZOOKEEPER-1948](https://issues.apache.org/jira/browse/ZOOKEEPER-1948) | *Major* | **Enable JMX remote monitoring**
 
-trunk: http://svn.apache.org/viewvc?view=revision&revision=1679444
-branch-3.5: http://svn.apache.org/viewvc?view=revision&revision=1679446
-
-
----
-
-* [ZOOKEEPER-2114](https://issues.apache.org/jira/browse/ZOOKEEPER-2114) | *Major* | **jute generated allocate\_\* functions are not externally visible**
-
-Expose jute-generated allocate\_XXX functions in libzookeeper.
+Changes in zkServer.sh to support JMX remote monitoring of Zookeeper processes. The change doesn't impact current installations and new installations requiring JMX remote monitoring need to set the jmx port to enable it.
 
 
 ---
@@ -45,16 +37,24 @@ Kill java process with `SIGTERM` rather than `SIGKILL`
 
 ---
 
-* [ZOOKEEPER-1948](https://issues.apache.org/jira/browse/ZOOKEEPER-1948) | *Major* | **Enable JMX remote monitoring**
+* [ZOOKEEPER-2114](https://issues.apache.org/jira/browse/ZOOKEEPER-2114) | *Major* | **jute generated allocate\_\* functions are not externally visible**
 
-Changes in zkServer.sh to support JMX remote monitoring of Zookeeper processes. The change doesn't impact current installations and new installations requiring JMX remote monitoring need to set the jmx port to enable it.
+Expose jute-generated allocate\_XXX functions in libzookeeper.
 
 
 ---
 
-* [ZOOKEEPER-1853](https://issues.apache.org/jira/browse/ZOOKEEPER-1853) | *Minor* | **zkCli.sh can't issue a CREATE command containing spaces in the data**
+* [ZOOKEEPER-2190](https://issues.apache.org/jira/browse/ZOOKEEPER-2190) | *Major* | **In StandaloneDisabledTest, testReconfig() shouldn't take leaving servers as joining servers**
 
-Allows spaces to be used for parameters in zkCli as long as they are in single or double quotes.  ie: create /node1 "This will now work"
+trunk: http://svn.apache.org/viewvc?view=revision&revision=1679444
+branch-3.5: http://svn.apache.org/viewvc?view=revision&revision=1679446
+
+
+---
+
+* [ZOOKEEPER-1077](https://issues.apache.org/jira/browse/ZOOKEEPER-1077) | *Critical* | **C client lib doesn't build on Solaris**
+
+Support for building C client lib on Illumos (and presumably OpenSolaris).  Configure with "CPPFLAGS=-D\_POSIX\_PTHREAD\_SEMANTICS LDFLAGS="-lnsl -lsocket" ./configure"
 
 
 ---
@@ -67,9 +67,9 @@ This patch is for the branch-3.4 branch ONLY.
 
 ---
 
-* [ZOOKEEPER-1077](https://issues.apache.org/jira/browse/ZOOKEEPER-1077) | *Critical* | **C client lib doesn't build on Solaris**
+* [ZOOKEEPER-1853](https://issues.apache.org/jira/browse/ZOOKEEPER-1853) | *Minor* | **zkCli.sh can't issue a CREATE command containing spaces in the data**
 
-Support for building C client lib on Illumos (and presumably OpenSolaris).  Configure with "CPPFLAGS=-D\_POSIX\_PTHREAD\_SEMANTICS LDFLAGS="-lnsl -lsocket" ./configure"
+Allows spaces to be used for parameters in zkCli as long as they are in single or double quotes.  ie: create /node1 "This will now work"
 
 
 

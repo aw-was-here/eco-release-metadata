@@ -37,4 +37,46 @@ Two recommendations for the mapreduce.jobhistory.loadedtasks.cache.size property
 Fixed CgroupHandler's creation and usage to avoid NodeManagers crashing when LinuxContainerExecutor is enabled.
 
 
+---
+
+* [HDFS-1477](https://issues.apache.org/jira/browse/HDFS-1477) | *Major* | **Support reconfiguring dfs.heartbeat.interval and dfs.namenode.heartbeat.recheck-interval without NN restart**
+
+Steps to reconfigure:
+1. change value of the parameter in corresponding xml configuration file
+2. to reconfigure, run
+    hdfs dfsadmin -reconfig namenode \<nn\_addr\>:\<ipc\_port\> start
+3. to check status of the most recent reconfigure operation, run
+    hdfs dfsadmin -reconfig namenode \<nn\_addr\>:\<ipc\_port\> status
+4. to query a list reconfigurable properties on NN, run
+    hdfs dfsadmin -reconfig namenode \<nn\_addr\>:\<ipc\_port\> properties
+
+
+---
+
+* [YARN-4732](https://issues.apache.org/jira/browse/YARN-4732) | *Trivial* | **\*ProcessTree classes have too many whitespace issues**
+
+
+
+
+---
+
+* [HDFS-9349](https://issues.apache.org/jira/browse/HDFS-9349) | *Major* | **Support reconfiguring fs.protected.directories without NN restart**
+
+Steps to reconfigure:
+1. change value of the parameter in corresponding xml configuration file
+2. to reconfigure, run
+    hdfs dfsadmin -reconfig namenode \<nn\_addr\>:\<ipc\_port\> start
+3. to check status of the most recent reconfigure operation, run
+    hdfs dfsadmin -reconfig namenode \<nn\_addr\>:\<ipc\_port\> status
+4. to query a list reconfigurable properties on NN, run
+    hdfs dfsadmin -reconfig namenode \<nn\_addr\>:\<ipc\_port\> properties
+
+
+---
+
+* [MAPREDUCE-6670](https://issues.apache.org/jira/browse/MAPREDUCE-6670) | *Minor* | **TestJobListCache#testEviction sometimes fails on Windows with timeout**
+
+Backport the fix to 2.7 and 2.8
+
+
 

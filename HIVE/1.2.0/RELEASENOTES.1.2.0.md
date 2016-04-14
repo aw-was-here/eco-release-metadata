@@ -23,68 +23,51 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
-* [HIVE-10715](https://issues.apache.org/jira/browse/HIVE-10715) | *Major* | **RAT failures - many files do not have ASF licenses**
+* [HIVE-7998](https://issues.apache.org/jira/browse/HIVE-7998) | *Trivial* | **Enhance JDBC Driver to not require class specification**
 
-**WARNING: No release note provided for this important issue.**
-
-
----
-
-* [HIVE-10564](https://issues.apache.org/jira/browse/HIVE-10564) | *Major* | **webhcat should use webhcat-site.xml properties for controller job submission**
-
-This change enables various hadoop properties to be passed to the LauncherTask via webhcat-site.xml.
-Earlier hadoop properties in webhcat-site.xml would get used in most other places, except for the launch of the LauncherTask. Only a few parameters could be set, and they had to be set using templeton.\* parameters. For example templeton.mapper.memory.mb was used to set mapreduce.map.memory.mb.
+Applications no longer need to explicitly load JDBC drivers using Class.forName()
 
 
 ---
 
-* [HIVE-10312](https://issues.apache.org/jira/browse/HIVE-10312) | *Major* | **SASL.QOP in JDBC URL is ignored for Delegation token Authentication**
+* [HIVE-7175](https://issues.apache.org/jira/browse/HIVE-7175) | *Major* | **Provide password file option to beeline**
 
-**WARNING: No release note provided for this important issue.**
-
-
----
-
-* [HIVE-10271](https://issues.apache.org/jira/browse/HIVE-10271) | *Major* | **remove hive.server2.thrift.http.min/max.worker.threads properties**
-
-Need to mark hive.server2.thrift.http.min/max.worker.threads parameters in  https://cwiki.apache.org/confluence/display/Hive/Setting+Up+HiveServer2 as unused since hive 0.14.0
+Added an --password-file (or, -w) option to BeeLine CLI, to read a password from a permission-protected file instead of supplying it in plaintext form as part of the command (-p).
 
 
 ---
 
-* [HIVE-10215](https://issues.apache.org/jira/browse/HIVE-10215) | *Minor* | **Large IN() clauses: deep hashCode performance during optimizer pass**
+* [HIVE-9143](https://issues.apache.org/jira/browse/HIVE-9143) | *Minor* | **select user(), current\_user()**
 
-Use object identity to prevent recursion instead of equality in the optimizer visitor pattern
-
-
----
-
-* [HIVE-10145](https://issues.apache.org/jira/browse/HIVE-10145) | *Major* | **set Tez ACLs appropriately in hive**
-
-Earlier if hive.server2.enable.doAs was set to false, and tez acls were enabled, the end user who is running this query would not have access to the DAG information for the query.
-With this change the end user has permissions to view it.
-
-
----
-
-* [HIVE-10128](https://issues.apache.org/jira/browse/HIVE-10128) | *Major* | **BytesBytesMultiHashMap does not allow concurrent read-only access**
-
-HIVE-10128: BytesBytesMultiHashMap does not allow concurrent read-only access (Sergey Shelukhin, reviewed by Gunther Hagleitner)
+Adds a UDF current\_user that returns current user name
+Example -
+{code}
+hive\> select current\_user();
+OK
+thejas
+Time taken: 1.786 seconds, Fetched: 1 row(s)
+{code}
 
 
 ---
 
-* [HIVE-10119](https://issues.apache.org/jira/browse/HIVE-10119) | *Major* | **Allow Log verbosity to be set in hiveserver2 session**
+* [HIVE-9188](https://issues.apache.org/jira/browse/HIVE-9188) | *Major* | **BloomFilter support in ORC**
 
-The description for the newly added parameter, hive.server2.logging.level should go into beeline wiki https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients under a new section describing beeline logging. It should also be described under https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties#ConfigurationProperties-hive.server2.logging.operation.verbose . Also, hive.server2.logging.operation.verbose will be no longer available, hence it should be marked as not used anymore in beeline wiki.
+Support for Bloom Filters in ORC internal index.
 
 
 ---
 
-* [HIVE-9917](https://issues.apache.org/jira/browse/HIVE-9917) | *Major* | **After HIVE-3454 is done, make int to timestamp conversion configurable**
+* [HIVE-9667](https://issues.apache.org/jira/browse/HIVE-9667) | *Minor* | **Disable ORC bloom filters for ORC v11 output-format**
+
+Disable ORC bloom filters for ORC v11 writer impl
 
 
-With the change of HIVE-9917, we support an additional configuration "hive.int.timestamp.conversion.in.seconds" to enable the interpretation the BOOLEAN/BYTE/TINYINT/SMALLINT/INT/BIGINT value in seconds during the timestamp conversion without breaking the existing customers. By default, the existing functionality is kept.
+---
+
+* [HIVE-9619](https://issues.apache.org/jira/browse/HIVE-9619) | *Minor* | **Uninitialized read of numBitVectors in NumDistinctValueEstimator**
+
+Uninitialized read of numBitVectors in NumDistinctValueEstimator
 
 
 ---
@@ -92,13 +75,6 @@ With the change of HIVE-9917, we support an additional configuration "hive.int.t
 * [HIVE-9848](https://issues.apache.org/jira/browse/HIVE-9848) | *Trivial* | **readlink -f is GNU coreutils only (used in bin/hive)**
 
 Prevent GNU style readlink -f from being invoked unnecessarily
-
-
----
-
-* [HIVE-9813](https://issues.apache.org/jira/browse/HIVE-9813) | *Major* | **Hive JDBC - DatabaseMetaData.getColumns method cannot find classes added with "add jar" command**
-
-We need to document the new API.
 
 
 ---
@@ -119,34 +95,6 @@ test.a,test.b
 28,"aa"
 37,a"b
 2 rows selected (1.421 seconds)
-
-
----
-
-* [HIVE-9711](https://issues.apache.org/jira/browse/HIVE-9711) | *Major* | **ORC Vectorization DoubleColumnVector.isRepeating=false if all entries are NaN**
-
-Fix isRepeating checks for NaN in Float and Double vectorized readers
-
-
----
-
-* [HIVE-9667](https://issues.apache.org/jira/browse/HIVE-9667) | *Minor* | **Disable ORC bloom filters for ORC v11 output-format**
-
-Disable ORC bloom filters for ORC v11 writer impl
-
-
----
-
-* [HIVE-9664](https://issues.apache.org/jira/browse/HIVE-9664) | *Major* | **Hive "add jar" command should be able to download and add jars from a repository**
-
-This patch makes it possible to dynamically resolve dependencies using the ADD command.
-
-
----
-
-* [HIVE-9619](https://issues.apache.org/jira/browse/HIVE-9619) | *Minor* | **Uninitialized read of numBitVectors in NumDistinctValueEstimator**
-
-Uninitialized read of numBitVectors in NumDistinctValueEstimator
 
 
 ---
@@ -172,16 +120,16 @@ beeline\> !connect mysql://host:3306/testdb
 
 ---
 
-* [HIVE-9188](https://issues.apache.org/jira/browse/HIVE-9188) | *Major* | **BloomFilter support in ORC**
+* [HIVE-6617](https://issues.apache.org/jira/browse/HIVE-6617) | *Major* | **Reduce ambiguity in grammar**
 
-Support for Bloom Filters in ORC internal index.
+SQL distinguishes between reserved and non-reserved keywords. We reserved 74 key words in this patch according to the SQL2011 standard. There are two ways if the user still would like to use the reserved keywords as identifiers, (1)	Use quoted identifiers (2) set hive.support.sql11.reserved.keywords=false;
 
 
 ---
 
-* [HIVE-9143](https://issues.apache.org/jira/browse/HIVE-9143) | *Minor* | **select user(), current\_user()**
+* [HIVE-9813](https://issues.apache.org/jira/browse/HIVE-9813) | *Major* | **Hive JDBC - DatabaseMetaData.getColumns method cannot find classes added with "add jar" command**
 
-Returns current user name
+We need to document the new API.
 
 
 ---
@@ -193,9 +141,31 @@ Fixed ORC timestamp columns for daylight savings changes.
 
 ---
 
-* [HIVE-7998](https://issues.apache.org/jira/browse/HIVE-7998) | *Trivial* | **Enhance JDBC Driver to not require class specification**
+* [HIVE-3454](https://issues.apache.org/jira/browse/HIVE-3454) | *Major* | **Problem with CAST(BIGINT as TIMESTAMP)**
 
-Applications no longer need to explicitly load JDBC drivers using Class.forName()
+The behaviors of converting from BOOLEAN/TINYINT/SMALLINT/INT/BIGINT and converting from FLOAT/DOUBLE to TIMESTAMP were inconsistent. The value of a BOOLEAN/TINYINT/SMALLINT/INT/BIGINT was treated as the time in milliseconds while  the value of a FLOAT/DOUBLE was treated as the time in seconds. After the change, all the types during the conversion are interpreted in seconds.
+
+
+---
+
+* [HIVE-9664](https://issues.apache.org/jira/browse/HIVE-9664) | *Major* | **Hive "add jar" command should be able to download and add jars from a repository**
+
+This patch makes it possible to dynamically resolve dependencies using the ADD command.
+
+
+---
+
+* [HIVE-10128](https://issues.apache.org/jira/browse/HIVE-10128) | *Major* | **BytesBytesMultiHashMap does not allow concurrent read-only access**
+
+HIVE-10128: BytesBytesMultiHashMap does not allow concurrent read-only access (Sergey Shelukhin, reviewed by Gunther Hagleitner)
+
+
+---
+
+* [HIVE-10145](https://issues.apache.org/jira/browse/HIVE-10145) | *Major* | **set Tez ACLs appropriately in hive**
+
+Earlier if hive.server2.enable.doAs was set to false, and tez acls were enabled, the end user who is running this query would not have access to the DAG information for the query.
+With this change the end user has permissions to view it.
 
 
 ---
@@ -207,9 +177,23 @@ Users who use Postgres as the RDBMS for their metastore and who wish to collect 
 
 ---
 
-* [HIVE-7175](https://issues.apache.org/jira/browse/HIVE-7175) | *Major* | **Provide password file option to beeline**
+* [HIVE-10119](https://issues.apache.org/jira/browse/HIVE-10119) | *Major* | **Allow Log verbosity to be set in hiveserver2 session**
 
-Added an --password-file (or, -w) option to BeeLine CLI, to read a password from a permission-protected file instead of supplying it in plaintext form as part of the command (-p).
+The description for the newly added parameter, hive.server2.logging.level should go into beeline wiki https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients under a new section describing beeline logging. It should also be described under https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties#ConfigurationProperties-hive.server2.logging.operation.verbose . Also, hive.server2.logging.operation.verbose will be no longer available, hence it should be marked as not used anymore in beeline wiki.
+
+
+---
+
+* [HIVE-10271](https://issues.apache.org/jira/browse/HIVE-10271) | *Major* | **remove hive.server2.thrift.http.min/max.worker.threads properties**
+
+Need to mark hive.server2.thrift.http.min/max.worker.threads parameters in  https://cwiki.apache.org/confluence/display/Hive/Setting+Up+HiveServer2 as unused since hive 0.14.0
+
+
+---
+
+* [HIVE-10215](https://issues.apache.org/jira/browse/HIVE-10215) | *Minor* | **Large IN() clauses: deep hashCode performance during optimizer pass**
+
+Use object identity to prevent recursion instead of equality in the optimizer visitor pattern
 
 
 ---
@@ -221,16 +205,46 @@ addressed in HIVE-6617
 
 ---
 
-* [HIVE-6617](https://issues.apache.org/jira/browse/HIVE-6617) | *Major* | **Reduce ambiguity in grammar**
+* [HIVE-9711](https://issues.apache.org/jira/browse/HIVE-9711) | *Major* | **ORC Vectorization DoubleColumnVector.isRepeating=false if all entries are NaN**
 
-SQL distinguishes between reserved and non-reserved keywords. We reserved 74 key words in this patch according to the SQL2011 standard. There are two ways if the user still would like to use the reserved keywords as identifiers, (1)	Use quoted identifiers (2) set hive.support.sql11.reserved.keywords=false;
+Fix isRepeating checks for NaN in Float and Double vectorized readers
 
 
 ---
 
-* [HIVE-3454](https://issues.apache.org/jira/browse/HIVE-3454) | *Major* | **Problem with CAST(BIGINT as TIMESTAMP)**
+* [HIVE-9917](https://issues.apache.org/jira/browse/HIVE-9917) | *Major* | **After HIVE-3454 is done, make int to timestamp conversion configurable**
 
-The behaviors of converting from BOOLEAN/TINYINT/SMALLINT/INT/BIGINT and converting from FLOAT/DOUBLE to TIMESTAMP were inconsistent. The value of a BOOLEAN/TINYINT/SMALLINT/INT/BIGINT was treated as the time in milliseconds while  the value of a FLOAT/DOUBLE was treated as the time in seconds. After the change, all the types during the conversion are interpreted in seconds.
+
+With the change of HIVE-9917, we support an additional configuration "hive.int.timestamp.conversion.in.seconds" to enable the interpretation the BOOLEAN/BYTE/TINYINT/SMALLINT/INT/BIGINT value in seconds during the timestamp conversion without breaking the existing customers. By default, the existing functionality is kept.
+
+
+---
+
+* [HIVE-10339](https://issues.apache.org/jira/browse/HIVE-10339) | *Major* | **Allow JDBC Driver to pass HTTP header Key/Value pairs**
+
+Doc - https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-PassingHTTPHeaderKey/ValuePairsviaJDBCDriver
+
+
+---
+
+* [HIVE-10312](https://issues.apache.org/jira/browse/HIVE-10312) | *Major* | **SASL.QOP in JDBC URL is ignored for Delegation token Authentication**
+
+**WARNING: No release note provided for this change.**
+
+
+---
+
+* [HIVE-10564](https://issues.apache.org/jira/browse/HIVE-10564) | *Major* | **webhcat should use webhcat-site.xml properties for controller job submission**
+
+This change enables various hadoop properties to be passed to the LauncherTask via webhcat-site.xml.
+Earlier hadoop properties in webhcat-site.xml would get used in most other places, except for the launch of the LauncherTask. Only a few parameters could be set, and they had to be set using templeton.\* parameters. For example templeton.mapper.memory.mb was used to set mapreduce.map.memory.mb.
+
+
+---
+
+* [HIVE-10715](https://issues.apache.org/jira/browse/HIVE-10715) | *Major* | **RAT failures - many files do not have ASF licenses**
+
+**WARNING: No release note provided for this change.**
 
 
 

@@ -21,4 +21,11 @@
 These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
 
 
+---
+
+* [TEZ-3059](https://issues.apache.org/jira/browse/TEZ-3059) | *Major* | **Tez UI 2: Make refresh functional**
+
+Committed to TEZ-2980 branch
+
+
 

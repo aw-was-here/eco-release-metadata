@@ -22,6 +22,9 @@
 * Apache Spark v1.7.0
     * [Changes](1.7.0/CHANGES.1.7.0.md)
     * [Release Notes](1.7.0/RELEASENOTES.1.7.0.md)
+* Apache Spark v1.6.2
+    * [Changes](1.6.2/CHANGES.1.6.2.md)
+    * [Release Notes](1.6.2/RELEASENOTES.1.6.2.md)
 * Apache Spark v1.6.1
     * [Changes](1.6.1/CHANGES.1.6.1.md)
     * [Release Notes](1.6.1/RELEASENOTES.1.6.1.md)

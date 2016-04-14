@@ -16,6 +16,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
+* Apache Orc v1.1.0
+    * [Changes](1.1.0/CHANGES.1.1.0.md)
+    * [Release Notes](1.1.0/RELEASENOTES.1.1.0.md)
 * Apache Orc v1.0.0
     * [Changes](1.0.0/CHANGES.1.0.0.md)
     * [Release Notes](1.0.0/RELEASENOTES.1.0.0.md)
