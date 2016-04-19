@@ -69,5 +69,6 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [YETUS-344](https://issues.apache.org/jira/browse/YETUS-344) | Release 0.2.1 |  Critical | website and documentation | Sean Busbey | Sean Busbey |
 
 

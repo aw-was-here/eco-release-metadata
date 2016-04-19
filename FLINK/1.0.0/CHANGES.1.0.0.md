@@ -162,6 +162,7 @@
 | [FLINK-3315](https://issues.apache.org/jira/browse/FLINK-3315) | Fix Slot Sharing in Streaming API |  Blocker | Streaming | Aljoscha Krettek | Aljoscha Krettek |
 | [FLINK-3376](https://issues.apache.org/jira/browse/FLINK-3376) | Add an illustration of Event Time and Watermarks to the docs |  Critical | Documentation | Stephan Ewen | Stephan Ewen |
 | [FLINK-3358](https://issues.apache.org/jira/browse/FLINK-3358) | Create constructors for FsStateBackend in RocksDBBackens |  Critical | state backends | Stephan Ewen | Stephan Ewen |
+| [FLINK-2344](https://issues.apache.org/jira/browse/FLINK-2344) | Deprecate/Remove the old Pact Pair type |  Major | Core | Stephan Ewen | Stephan Ewen |
 
 
 ### BUG FIXES:
@@ -376,6 +377,7 @@
 | [FLINK-3401](https://issues.apache.org/jira/browse/FLINK-3401) | AscendingTimestampExtractor should not fail on order violation |  Major | Streaming | Stephan Ewen | Stephan Ewen |
 | [FLINK-3224](https://issues.apache.org/jira/browse/FLINK-3224) | The Streaming API does not call setInputType if a format implements InputTypeConfigurable |  Major | DataStream API | Nick Dimiduk | Nick Dimiduk |
 | [FLINK-3437](https://issues.apache.org/jira/browse/FLINK-3437) | Fix UI router state for job plan |  Minor | Webfrontend | Greg Hogan | Greg Hogan |
+| [FLINK-2732](https://issues.apache.org/jira/browse/FLINK-2732) | Add access to the TaskManagers' log file and out file in the web dashboard. |  Major | Webfrontend | Stephan Ewen | Chesnay Schepler |
 
 
 ### OTHER:

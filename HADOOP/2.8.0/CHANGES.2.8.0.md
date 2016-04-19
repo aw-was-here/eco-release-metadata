@@ -18,7 +18,7 @@
 -->
 # Apache Hadoop Changelog
 
-## Release 2.8.0 - Unreleased (as of 2016-04-14)
+## Release 2.8.0 - Unreleased (as of 2016-04-19)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -573,6 +573,10 @@
 | [HDFS-10279](https://issues.apache.org/jira/browse/HDFS-10279) | Improve validation of the configured number of tolerated failed volumes |  Major | . | Lin Yiqun | Lin Yiqun |
 | [HADOOP-12822](https://issues.apache.org/jira/browse/HADOOP-12822) | Change "Metrics intern cache overflow" log level from WARN to INFO |  Minor | metrics | Akira AJISAKA | Andras Bokor |
 | [HADOOP-12969](https://issues.apache.org/jira/browse/HADOOP-12969) | Mark IPC.Client and IPC.Server as @Public, @Evolving |  Minor | ipc | Xiaobing Zhou | Xiaobing Zhou |
+| [HDFS-10280](https://issues.apache.org/jira/browse/HDFS-10280) | Document new dfsadmin command -evictWriters |  Minor | documentation | Wei-Chiu Chuang | Wei-Chiu Chuang |
+| [HDFS-10292](https://issues.apache.org/jira/browse/HDFS-10292) | Add block id when client got Unable to close file exception |  Minor | . | Brahma Reddy Battula | Brahma Reddy Battula |
+| [HDFS-9412](https://issues.apache.org/jira/browse/HDFS-9412) | getBlocks occupies FSLock and takes too long to complete |  Major | . | He Tianyi | He Tianyi |
+| [HDFS-10302](https://issues.apache.org/jira/browse/HDFS-10302) | BlockPlacementPolicyDefault should use default replication considerload value |  Trivial | . | Lin Yiqun | Lin Yiqun |
 
 
 ### BUG FIXES:
@@ -964,7 +968,6 @@
 | [YARN-3987](https://issues.apache.org/jira/browse/YARN-3987) | am container complete msg ack to NM once RM receive it |  Major | resourcemanager | sandflee | sandflee |
 | [HADOOP-12322](https://issues.apache.org/jira/browse/HADOOP-12322) | typos in rpcmetrics.java |  Trivial | ipc | Anu Engineer | Anu Engineer |
 | [HDFS-8565](https://issues.apache.org/jira/browse/HDFS-8565) | Typo in dfshealth.html - "Decomissioning" |  Trivial | . | nijel | nijel |
-| [MAPREDUCE-5817](https://issues.apache.org/jira/browse/MAPREDUCE-5817) | Mappers get rescheduled on node transition even after all reducers are completed |  Major | applicationmaster | Sangjin Lee | Sangjin Lee |
 | [YARN-4028](https://issues.apache.org/jira/browse/YARN-4028) | AppBlock page key update and diagnostics value null on recovery |  Minor | . | Bibin A Chundatt | Bibin A Chundatt |
 | [HDFS-8908](https://issues.apache.org/jira/browse/HDFS-8908) | TestAppendSnapshotTruncate may fail with IOException: Failed to replace a bad datanode |  Minor | test | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HADOOP-12317](https://issues.apache.org/jira/browse/HADOOP-12317) | Applications fail on NM restart on some linux distro because NM container recovery declares AM container as LOST |  Critical | . | Anubhav Dhoot | Anubhav Dhoot |
@@ -1257,6 +1260,7 @@
 | [HDFS-9600](https://issues.apache.org/jira/browse/HDFS-9600) | do not check replication if the block is under construction |  Critical | . | Phil Yang | Phil Yang |
 | [HDFS-9619](https://issues.apache.org/jira/browse/HDFS-9619) | SimulatedFSDataset sometimes can not find blockpool for the correct namenode |  Major | datanode, test | Wei-Chiu Chuang | Wei-Chiu Chuang |
 | [HADOOP-12675](https://issues.apache.org/jira/browse/HADOOP-12675) | Fix description about retention period in usage of expunge command |  Minor | documentation | Masatake Iwasaki | Masatake Iwasaki |
+| [HADOOP-12613](https://issues.apache.org/jira/browse/HADOOP-12613) | TestFind.processArguments occasionally fails |  Major | test | Wei-Chiu Chuang | Wei-Chiu Chuang |
 | [MAPREDUCE-6508](https://issues.apache.org/jira/browse/MAPREDUCE-6508) | TestNetworkedJob fails consistently due to delegation token changes on RM. |  Major | test | Rohith Sharma K S | Akira AJISAKA |
 | [HDFS-9493](https://issues.apache.org/jira/browse/HDFS-9493) | Test o.a.h.hdfs.server.namenode.TestMetaSave fails in trunk |  Major | test | Mingliang Liu | Tony Wu |
 | [HADOOP-12678](https://issues.apache.org/jira/browse/HADOOP-12678) | Handle empty rename pending metadata file during atomic rename in redo path |  Critical | fs/azure | madhumita chakraborty | madhumita chakraborty |
@@ -1422,7 +1426,6 @@
 | [HDFS-6520](https://issues.apache.org/jira/browse/HDFS-6520) | hdfs fsck -move passes invalid length value when creating BlockReader |  Major | . | Shengjun Xin | Xiao Chen |
 | [HDFS-10267](https://issues.apache.org/jira/browse/HDFS-10267) | Extra "synchronized" on FsDatasetImpl#recoverAppend and FsDatasetImpl#recoverClose |  Major | datanode | Colin Patrick McCabe | Colin Patrick McCabe |
 | [YARN-4740](https://issues.apache.org/jira/browse/YARN-4740) | AM may not receive the container complete msg when it restarts |  Major | . | sandflee | sandflee |
-| [MAPREDUCE-6633](https://issues.apache.org/jira/browse/MAPREDUCE-6633) | AM should retry map attempts if the reduce task encounters commpression related errors. |  Major | . | Rushabh S Shah | Rushabh S Shah |
 | [HDFS-10254](https://issues.apache.org/jira/browse/HDFS-10254) | DfsClient undervalidates args for PositionedReadable operations |  Major | hdfs-client | Steve Loughran |  |
 | [HDFS-10255](https://issues.apache.org/jira/browse/HDFS-10255) | ByteRangeInputStream.readFully leaks stream handles on failure |  Major | hdfs-client | Steve Loughran | Steve Loughran |
 | [YARN-4938](https://issues.apache.org/jira/browse/YARN-4938) | MiniYarnCluster should not request transitionToActive to RM on non-HA environment |  Major | test | Akira AJISAKA | Eric Badger |
@@ -1430,6 +1433,16 @@
 | [HDFS-10277](https://issues.apache.org/jira/browse/HDFS-10277) | PositionedReadable test testReadFullyZeroByteFile failing in HDFS |  Major | test | Steve Loughran | Steve Loughran |
 | [YARN-4794](https://issues.apache.org/jira/browse/YARN-4794) | Deadlock in NMClientImpl |  Critical | . | Sumana Sathish | Jian He |
 | [HDFS-10270](https://issues.apache.org/jira/browse/HDFS-10270) | TestJMXGet:testNameNode() fails |  Minor | test | Andras Bokor | Gergely Novák |
+| [YARN-4924](https://issues.apache.org/jira/browse/YARN-4924) | NM recovery race can lead to container not cleaned up |  Major | nodemanager | Nathan Roberts | sandflee |
+| [HDFS-10281](https://issues.apache.org/jira/browse/HDFS-10281) | o.a.h.hdfs.server.namenode.ha.TestPendingCorruptDnMessages fails intermittently |  Major | test | Mingliang Liu | Mingliang Liu |
+| [HADOOP-12989](https://issues.apache.org/jira/browse/HADOOP-12989) | Some tests in org.apache.hadoop.fs.shell.find occasionally time out |  Major | test | Akira AJISAKA | Takashi Ohnishi |
+| [HADOOP-13026](https://issues.apache.org/jira/browse/HADOOP-13026) | Should not wrap IOExceptions into a AuthenticationException in KerberosAuthenticator |  Critical | . | Xuan Gong | Xuan Gong |
+| [YARN-4940](https://issues.apache.org/jira/browse/YARN-4940) | yarn node -list -all failed if RM start with decommissioned node |  Major | . | sandflee | sandflee |
+| [YARN-4965](https://issues.apache.org/jira/browse/YARN-4965) | Distributed shell AM failed due to ClientHandlerException thrown by jersey |  Critical | . | Sumana Sathish | Junping Du |
+| [HDFS-10291](https://issues.apache.org/jira/browse/HDFS-10291) | TestShortCircuitLocalRead failing |  Major | test | Steve Loughran | Steve Loughran |
+| [MAPREDUCE-6649](https://issues.apache.org/jira/browse/MAPREDUCE-6649) | getFailureInfo not returning any failure info |  Major | . | Eric Badger | Eric Badger |
+| [HDFS-10265](https://issues.apache.org/jira/browse/HDFS-10265) | OEV tool fails to read edit xml file if OP\_UPDATE\_BLOCKS has no BLOCK tag |  Minor | tools | Wan Chang | Wan Chang |
+| [HDFS-9744](https://issues.apache.org/jira/browse/HDFS-9744) | TestDirectoryScanner#testThrottling occasionally time out after 300 seconds |  Minor | datanode | Wei-Chiu Chuang | Lin Yiqun |
 
 
 ### TESTS:
@@ -1771,7 +1784,7 @@
 | [YARN-4545](https://issues.apache.org/jira/browse/YARN-4545) | Allow YARN distributed shell to use ATS v1.5 APIs |  Major | timelineserver | Li Lu | Li Lu |
 | [YARN-4817](https://issues.apache.org/jira/browse/YARN-4817) | Change Log Level to DEBUG for putDomain call in ATS 1.5 |  Trivial | timelineserver | Xuan Gong | Xuan Gong |
 | [HADOOP-12819](https://issues.apache.org/jira/browse/HADOOP-12819) | Migrate TestSaslRPC and related codes to rebase on ProtobufRpcEngine |  Major | . | Kai Zheng | Kai Zheng |
-| [YARN-4815](https://issues.apache.org/jira/browse/YARN-4815) | ATS 1.5 timelineclinet impl try to create attempt directory for every event call |  Major | timelineserver | Xuan Gong | Xuan Gong |
+| [YARN-4815](https://issues.apache.org/jira/browse/YARN-4815) | ATS 1.5 timelineclient impl try to create attempt directory for every event call |  Major | timelineserver | Xuan Gong | Xuan Gong |
 | [YARN-4814](https://issues.apache.org/jira/browse/YARN-4814) | ATS 1.5 timelineclient impl call flush after every event write |  Major | timelineserver | Xuan Gong | Xuan Gong |
 | [HDFS-9005](https://issues.apache.org/jira/browse/HDFS-9005) | Provide configuration support for upgrade domain |  Major | . | Ming Ma | Ming Ma |
 | [YARN-998](https://issues.apache.org/jira/browse/YARN-998) | Keep NM resource updated through dynamic resource config for RM/NM restart |  Major | graceful, nodemanager, scheduler | Junping Du | Junping Du |
@@ -1787,6 +1800,8 @@
 | [YARN-4168](https://issues.apache.org/jira/browse/YARN-4168) | Test TestLogAggregationService.testLocalFileDeletionOnDiskFull failing |  Critical | test | Steve Loughran | Takashi Ohnishi |
 | [HADOOP-12973](https://issues.apache.org/jira/browse/HADOOP-12973) | make DU pluggable |  Major | . | Elliott Clark | Elliott Clark |
 | [YARN-4886](https://issues.apache.org/jira/browse/YARN-4886) | Add HDFS caller context for EntityGroupFSTimelineStore |  Major | timelineserver | Li Lu | Li Lu |
+| [YARN-4909](https://issues.apache.org/jira/browse/YARN-4909) | Fix intermittent failures of TestRMWebServices And TestRMWithCSRFFilter |  Blocker | . | Brahma Reddy Battula | Bibin A Chundatt |
+| [YARN-4468](https://issues.apache.org/jira/browse/YARN-4468) | Document the general ReservationSystem functionality, and the REST API |  Major | capacityscheduler, fairscheduler, resourcemanager | Carlo Curino | Carlo Curino |
 
 
 ### OTHER:

@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.10.1.0 - Unreleased (as of 2016-04-14)
+## Release 0.10.1.0 - Unreleased (as of 2016-04-19)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -54,6 +54,10 @@
 | [KAFKA-2930](https://issues.apache.org/jira/browse/KAFKA-2930) | Update references to ZooKeeper in the docs |  Major | . | Flavio Junqueira | Flavio Junqueira |
 | [KAFKA-3495](https://issues.apache.org/jira/browse/KAFKA-3495) | `NetworkClient.blockingSendAndReceive` should rely on requestTimeout |  Major | . | Ismael Juma | Ismael Juma |
 | [KAFKA-3483](https://issues.apache.org/jira/browse/KAFKA-3483) | Restructure ducktape tests to simplify running subsets of tests |  Major | . | Grant Henke | Grant Henke |
+| [KAFKA-3549](https://issues.apache.org/jira/browse/KAFKA-3549) | Close consumers instantiated in consumer tests |  Major | . | Grant Henke | Grant Henke |
+| [KAFKA-3506](https://issues.apache.org/jira/browse/KAFKA-3506) | Kafka Connect Task Restart API |  Major | KafkaConnect | Jason Gustafson | Jason Gustafson |
+| [KAFKA-3563](https://issues.apache.org/jira/browse/KAFKA-3563) | Maintain MessageAndMetadata constructor compatibility |  Major | . | Grant Henke | Grant Henke |
+| [KAFKA-3558](https://issues.apache.org/jira/browse/KAFKA-3558) | Add compression\_type parameter to benchmarks in benchmark\_test.py |  Major | system tests | Ismael Juma | Ismael Juma |
 
 
 ### BUG FIXES:
@@ -90,6 +94,9 @@
 | [KAFKA-2672](https://issues.apache.org/jira/browse/KAFKA-2672) | SendFailedException when new consumer is run with SSL |  Major | consumer | Rajini Sivaram | Rajini Sivaram |
 | [KAFKA-3528](https://issues.apache.org/jira/browse/KAFKA-3528) | AbstractCoordinator wakeup during rebalance can cause spurious rebalances |  Major | consumer, KafkaConnect | Jason Gustafson | Jason Gustafson |
 | [KAFKA-3461](https://issues.apache.org/jira/browse/KAFKA-3461) | Fix typos in Kafka web documentations |  Trivial | website | Dongjoon Hyun |  |
+| [KAFKA-3526](https://issues.apache.org/jira/browse/KAFKA-3526) | REST APIs return object representation instead of string for config values, default values and recommended values |  Major | KafkaConnect | Liquan Pei | Liquan Pei |
+| [KAFKA-3421](https://issues.apache.org/jira/browse/KAFKA-3421) | Update docs with new connector features |  Blocker | . | Gwen Shapira | Liquan Pei |
+| [KAFKA-3569](https://issues.apache.org/jira/browse/KAFKA-3569) | commitAsync() sometimes fails with errors |  Major | clients | Greg Zoller |  |
 
 
 ### TESTS:
@@ -113,6 +120,7 @@
 | [KAFKA-3508](https://issues.apache.org/jira/browse/KAFKA-3508) | Transient failure in kafka.security.auth.SimpleAclAuthorizerTest.testHighConcurrencyModificationOfResourceAcls |  Major | . | Guozhang Wang | Grant Henke |
 | [KAFKA-3505](https://issues.apache.org/jira/browse/KAFKA-3505) | Set curRecord in punctuate() functions |  Major | streams | Guozhang Wang | Guozhang Wang |
 | [KAFKA-3439](https://issues.apache.org/jira/browse/KAFKA-3439) | Document possible exception thrown in public APIs |  Major | streams | Guozhang Wang | Eno Thereska |
+| [KAFKA-3529](https://issues.apache.org/jira/browse/KAFKA-3529) | Transient kafka.api.PlaintextConsumerTest.testAsyncCommit failures |  Major | . | Ismael Juma | Jason Gustafson |
 
 
 ### OTHER:

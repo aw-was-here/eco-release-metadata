@@ -18,7 +18,7 @@
 -->
 # Apache Pig Changelog
 
-## Release 0.15.1 - Unreleased (as of 2016-04-14)
+## Release 0.15.1 - Unreleased (as of 2016-04-19)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -68,6 +68,7 @@
 | [PIG-4812](https://issues.apache.org/jira/browse/PIG-4812) | Register Groovy UDF with relative path does not work |  Major | . | Daniel Dai | Daniel Dai |
 | [PIG-4851](https://issues.apache.org/jira/browse/PIG-4851) | Null not padded when input has less fields than declared schema for some loader |  Major | . | Koji Noguchi | Rohini Palaniswamy |
 | [PIG-4867](https://issues.apache.org/jira/browse/PIG-4867) | -stop\_on\_failure does not work with Tez |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
+| [PIG-4860](https://issues.apache.org/jira/browse/PIG-4860) | Loading data using OrcStorage() accepts only default FileSystem path |  Major | . | Anirudh Beria | Anirudh Beria |
 
 
 ### TESTS:

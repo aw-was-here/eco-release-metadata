@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 1.6.2 - Unreleased (as of 2016-04-14)
+## Release 1.6.2 - Unreleased (as of 2016-04-19)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -91,7 +91,9 @@
 | [SPARK-13352](https://issues.apache.org/jira/browse/SPARK-13352) | BlockFetch does not scale well on large block |  Critical | Block Manager, Spark Core | Davies Liu | Zhang, Liye |
 | [SPARK-14298](https://issues.apache.org/jira/browse/SPARK-14298) | LDA should support disable checkpoint |  Minor | ML, MLlib | Yanbo Liang | Yanbo Liang |
 | [SPARK-14563](https://issues.apache.org/jira/browse/SPARK-14563) | SQLTransformer.transformSchema is not implemented correctly |  Major | ML | Xiangrui Meng | Xiangrui Meng |
-| [SPARK-14363](https://issues.apache.org/jira/browse/SPARK-14363) | Executor OOM due to a memory leak in Sorter |  Major | Shuffle | Sital Kedia |  |
+| [SPARK-14363](https://issues.apache.org/jira/browse/SPARK-14363) | Executor OOM due to a memory leak in Sorter |  Major | Shuffle | Sital Kedia | Sital Kedia |
+| [SPARK-14665](https://issues.apache.org/jira/browse/SPARK-14665) | PySpark StopWordsRemover default stopwords are Java object |  Minor | ML, PySpark | Joseph K. Bradley | Joseph K. Bradley |
+| [SPARK-13227](https://issues.apache.org/jira/browse/SPARK-13227) | Risky apply() in OpenHashMap |  Minor | Spark Core | Nan Zhu | Nan Zhu |
 
 
 ### TESTS:
@@ -110,5 +112,6 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-14618](https://issues.apache.org/jira/browse/SPARK-14618) | RegressionEvaluator doc out of date |  Minor | Documentation, ML | Joseph K. Bradley | Joseph K. Bradley |
 
 

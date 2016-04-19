@@ -660,4 +660,11 @@ On Unix platforms, HADOOP\_PREFIX has been deprecated in favor of returning to H
 Removed FileUtil.copyMerge.
 
 
+---
+
+* [HADOOP-12811](https://issues.apache.org/jira/browse/HADOOP-12811) | *Critical* | **Change kms server port number which conflicts with HMaster port number**
+
+The default port for KMS service is now 9600. This is to avoid conflicts on the previous port 16000, which is also used by HMaster as the default port.
+
+
 

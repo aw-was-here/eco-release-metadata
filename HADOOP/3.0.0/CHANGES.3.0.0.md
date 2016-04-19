@@ -18,7 +18,7 @@
 -->
 # Apache Hadoop Changelog
 
-## Release 3.0.0 - Unreleased (as of 2016-04-14)
+## Release 3.0.0 - Unreleased (as of 2016-04-19)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -70,6 +70,7 @@
 | [HADOOP-12850](https://issues.apache.org/jira/browse/HADOOP-12850) | pull shell code out of hadoop-dist |  Major | build | Allen Wittenauer | Allen Wittenauer |
 | [HADOOP-12857](https://issues.apache.org/jira/browse/HADOOP-12857) | Rework hadoop-tools |  Major | build | Allen Wittenauer | Allen Wittenauer |
 | [HADOOP-12967](https://issues.apache.org/jira/browse/HADOOP-12967) | Remove FileUtil#copyMerge |  Major | . | Brahma Reddy Battula | Brahma Reddy Battula |
+| [HADOOP-12811](https://issues.apache.org/jira/browse/HADOOP-12811) | Change kms server port number which conflicts with HMaster port number |  Critical | kms | Yufeng Jiang | Xiao Chen |
 
 
 ### IMPORTANT ISSUES:
@@ -537,6 +538,8 @@
 | [HADOOP-12959](https://issues.apache.org/jira/browse/HADOOP-12959) | Add additional github web site for ISA-L library |  Major | . | Li Bo | Li Bo |
 | [HDFS-9719](https://issues.apache.org/jira/browse/HDFS-9719) | Refactoring ErasureCodingWorker into smaller reusable constructs |  Major | . | Kai Zheng | Kai Zheng |
 | [HDFS-9918](https://issues.apache.org/jira/browse/HDFS-9918) | Erasure Coding: Sort located striped blocks based on decommissioned states |  Major | . | Rakesh R | Rakesh R |
+| [HDFS-10293](https://issues.apache.org/jira/browse/HDFS-10293) | StripedFileTestUtil#readAll flaky |  Major | erasure-coding, test | Mingliang Liu | Mingliang Liu |
+| [HADOOP-12924](https://issues.apache.org/jira/browse/HADOOP-12924) | Configure raw erasure coders for supported codecs |  Minor | . | Rui Li | Rui Li |
 
 
 ### OTHER:

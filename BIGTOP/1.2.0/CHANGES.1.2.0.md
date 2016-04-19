@@ -18,7 +18,7 @@
 -->
 # Apache BigTop Changelog
 
-## Release 1.2.0 - Unreleased (as of 2016-04-14)
+## Release 1.2.0 - Unreleased (as of 2016-04-19)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -53,6 +53,8 @@
 | [BIGTOP-2352](https://issues.apache.org/jira/browse/BIGTOP-2352) | Packaged Vagrant box has incorrect host info on restart |  Major | provisioner | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2327](https://issues.apache.org/jira/browse/BIGTOP-2327) | Bump up Phoenix to 4.7.0 |  Major | build | YoungWoo Kim | YoungWoo Kim |
 | [BIGTOP-2381](https://issues.apache.org/jira/browse/BIGTOP-2381) | Making Zookeeper hosts templatize in puppet module of hue |  Minor | hue | Amit Kabra | Amit Kabra |
+| [BIGTOP-2395](https://issues.apache.org/jira/browse/BIGTOP-2395) | Create separate page to point "Download now" link to |  Major | website | Konstantin Boudnik | Konstantin Boudnik |
+| [BIGTOP-2393](https://issues.apache.org/jira/browse/BIGTOP-2393) | Add ARM64 support for build environment |  Major | build | Roman Shaposhnik | Roman Shaposhnik |
 
 
 ### BUG FIXES:
@@ -86,6 +88,9 @@
 | [BIGTOP-2379](https://issues.apache.org/jira/browse/BIGTOP-2379) | update maven to 3.3.9 and refactor toolchain |  Major | toolchain | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-2380](https://issues.apache.org/jira/browse/BIGTOP-2380) | support opensuse-42.1 (leap) |  Major | toolchain | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-2382](https://issues.apache.org/jira/browse/BIGTOP-2382) | Parameterise and expose "default\_hdfs\_superuser" for hue.ini |  Major | deployment | Vishal Khandelwal | Vishal Khandelwal |
+| [BIGTOP-2342](https://issues.apache.org/jira/browse/BIGTOP-2342) | Set yarn.log.server.url to point to JH server |  Major | hadoop | Aaron Tokhy | Aaron Tokhy |
+| [BIGTOP-2399](https://issues.apache.org/jira/browse/BIGTOP-2399) | Maven artifacts are still on 2.6.0 version of Apache Hadoop |  Major | build, tests | Konstantin Boudnik | Konstantin Boudnik |
+| [BIGTOP-2402](https://issues.apache.org/jira/browse/BIGTOP-2402) | yet another commiter name is missing in the "Who we are" page |  Minor | website | Konstantin Boudnik | Konstantin Boudnik |
 
 
 ### TESTS:

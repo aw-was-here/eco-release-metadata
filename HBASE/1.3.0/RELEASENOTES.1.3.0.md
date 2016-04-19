@@ -970,4 +970,11 @@ WALObserver coprocessors now can receive notifications of WAL rolling via the ne
 This change is incompatible due to the addition of these methods to the `WALObserver` interface. Downstream users are encouraged to instead extend the `BaseWALObserver` class, which remains compatible through this change.
 
 
+---
+
+* [HBASE-13372](https://issues.apache.org/jira/browse/HBASE-13372) | *Major* | **Unit tests for SplitTransaction and RegionMergeTransaction listeners**
+
+HBASE-13372 Add unit tests for SplitTransaction and RegionMergeTransaction listeners
+
+
 

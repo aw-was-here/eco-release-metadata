@@ -16,9 +16,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-# Apache Orc Changelog
+# Apache Tez Changelog
 
-## Release 1.1.0 - Unreleased (as of 2016-04-19)
+## Release 0.8.4 - Unreleased (as of 2016-04-19)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -42,16 +42,16 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [ORC-46](https://issues.apache.org/jira/browse/ORC-46) | Reserve CompressionKind values for LZ4 and ZSTD |  Major | . | David Phillips | David Phillips |
+| [TEZ-3077](https://issues.apache.org/jira/browse/TEZ-3077) | TezClient.waitTillReady should support timeout |  Major | . | Sergey Shelukhin | Kuhu Shukla |
 
 
 ### BUG FIXES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [ORC-43](https://issues.apache.org/jira/browse/ORC-43) | FileMemory.cc throws uncaught exception |  Major | tools | Owen O'Malley | Owen O'Malley |
-| [ORC-47](https://issues.apache.org/jira/browse/ORC-47) | New version of Xcode complains about float-\>double conversion |  Major | . | Owen O'Malley | Owen O'Malley |
-| [ORC-48](https://issues.apache.org/jira/browse/ORC-48) | Generalize docker files for running against arbitrary repository and branches |  Major | build | Owen O'Malley | Owen O'Malley |
+| [TEZ-3202](https://issues.apache.org/jira/browse/TEZ-3202) | Reduce the memory need for jobs with high number of segments |  Major | . | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-3165](https://issues.apache.org/jira/browse/TEZ-3165) | Allow Inputs/Outputs to be initialized serially, control processor initialization relative to Inputs/Outputs |  Major | . | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-3210](https://issues.apache.org/jira/browse/TEZ-3210) | Tez UI 2: license should account for numeral, more-js, loader.js , etc |  Major | . | Hitesh Shah | Sreenath Somarajapuram |
 
 
 ### TESTS:
@@ -64,6 +64,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-3214](https://issues.apache.org/jira/browse/TEZ-3214) | Tez UI 2: Pagination in All DAGs |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 
 
 ### OTHER:

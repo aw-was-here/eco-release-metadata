@@ -3102,7 +3102,31 @@ In this patch, 4 parameters, "timestamp", "minTimestamp", "maxiTimestamp" and "m
 
 Refactor that breaks out StoreFile Reader and Writer inner classes as StoreFileReader and StoreFileWriter.
 
-NOTE! Changes RegionObserver Coprocessor Interface so incompatible change.
+NOTE! Changes RegionObserver Coprocessor Interface so incompatible change (Noted on dev list: http://osdir.com/ml/general/2016-04/msg17104.html)
+
+
+---
+
+* [HBASE-15187](https://issues.apache.org/jira/browse/HBASE-15187) | *Major* | **Integrate CSRF prevention filter to REST gateway**
+
+Protection against CSRF attack can be turned on with config parameter, hbase.rest.csrf.enabled - default value is false.
+
+The custom header to be sent can be changed via config parameter, hbase.rest.csrf.custom.header whose default value is "X-XSRF-HEADER".
+
+Config parameter, hbase.rest.csrf.methods.to.ignore , controls which HTTP methods are not associated with customer header check.
+
+Config parameter, hbase.rest-csrf.browser-useragents-regex , is a comma-separated list of regular expressions used to match against an HTTP request's User-Agent header when protection against cross-site request forgery (CSRF) is enabled for REST server by setting hbase.rest.csrf.enabled to true.
+
+The implementation came from hadoop/hadoop-common-project/hadoop-common/src/main/java/org/apache/hadoop/security/http/RestCsrfPreventionFilter.java
+
+We should periodically update the RestCsrfPreventionFilter.java in hbase codebase to include fixes to the hadoop implementation.
+
+
+---
+
+* [HBASE-13372](https://issues.apache.org/jira/browse/HBASE-13372) | *Major* | **Unit tests for SplitTransaction and RegionMergeTransaction listeners**
+
+HBASE-13372 Add unit tests for SplitTransaction and RegionMergeTransaction listeners
 
 
 

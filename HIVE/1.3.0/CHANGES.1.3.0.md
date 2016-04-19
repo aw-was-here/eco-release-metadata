@@ -18,7 +18,7 @@
 -->
 # Apache Hive Changelog
 
-## Release 1.3.0 - Unreleased (as of 2016-04-14)
+## Release 1.3.0 - Unreleased (as of 2016-04-19)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -519,6 +519,7 @@
 | [HIVE-11097](https://issues.apache.org/jira/browse/HIVE-11097) | HiveInputFormat uses String.startsWith to compare splitPath and PathToAliases |  Critical | File Formats | Wan Chang | Wan Chang |
 | [HIVE-13018](https://issues.apache.org/jira/browse/HIVE-13018) | On branch-1 "RuntimeException: Vectorization is not supported for datatype:LIST" |  Critical | Hive | Matt McCline | Matt McCline |
 | [HIVE-12999](https://issues.apache.org/jira/browse/HIVE-12999) | Tez: Vertex creation reduce NN IPCs |  Major | Tez | Gopal V | Gopal V |
+| [HIVE-9862](https://issues.apache.org/jira/browse/HIVE-9862) | Vectorized execution corrupts timestamp values |  Major | Vectorization | Nathan Howell | Matt McCline |
 | [HIVE-13016](https://issues.apache.org/jira/browse/HIVE-13016) | ORC FileDump recovery utility fails in Windows |  Major | . | Jason Dere | Prasanth Jayachandran |
 | [HIVE-12913](https://issues.apache.org/jira/browse/HIVE-12913) | Hive ptest is running tests on MR1 that must run only on MR2 |  Major | Testing Infrastructure | Sergio Peña | Sergio Peña |
 | [HIVE-11866](https://issues.apache.org/jira/browse/HIVE-11866) | Add framework to enable testing using LDAPServer using LDAP protocol |  Major | HiveServer2 | Naveen Gangam | Naveen Gangam |
@@ -562,6 +563,7 @@
 | [HIVE-11388](https://issues.apache.org/jira/browse/HIVE-11388) | Allow ACID Compactor components to run in multiple metastores |  Critical | Transactions | Eugene Koifman | Eugene Koifman |
 | [HIVE-13151](https://issues.apache.org/jira/browse/HIVE-13151) | Clean up UGI objects in FileSystem cache for transactions |  Major | Hive | Wei Zheng | Wei Zheng |
 | [HIVE-13115](https://issues.apache.org/jira/browse/HIVE-13115) | MetaStore Direct SQL getPartitions call fail when the columns schemas for a partition are null |  Major | Hive | Ratandeep Ratti | Ratandeep Ratti |
+| [HIVE-13111](https://issues.apache.org/jira/browse/HIVE-13111) | Fix timestamp / interval\_day\_time wrong results with HIVE-9862 |  Critical | . | Matt McCline | Matt McCline |
 | [HIVE-10729](https://issues.apache.org/jira/browse/HIVE-10729) | Query failed when select complex columns from joinned table (tez map join only) |  Major | Query Processor | Selina Zhang | Matt McCline |
 | [HIVE-12937](https://issues.apache.org/jira/browse/HIVE-12937) | DbNotificationListener unable to clean up old notification events |  Major | . | Sushanth Sowmyan | Sushanth Sowmyan |
 | [HIVE-13361](https://issues.apache.org/jira/browse/HIVE-13361) | Orc concatenation should enforce the compression buffer size |  Critical | . | Yi Zhang | Prasanth Jayachandran |
@@ -569,6 +571,10 @@
 | [HIVE-13405](https://issues.apache.org/jira/browse/HIVE-13405) | Fix Connection Leak in OrcRawRecordMerger |  Major | ORC | Thomas Poepping | Thomas Poepping |
 | [HIVE-11959](https://issues.apache.org/jira/browse/HIVE-11959) | add simple test case for TestTableIterable |  Major | . | Thejas M Nair | Thejas M Nair |
 | [HIVE-13491](https://issues.apache.org/jira/browse/HIVE-13491) | Testing  : log thread stacks when metastore fails to start |  Major | Test, Testing Infrastructure | Thejas M Nair | Thejas M Nair |
+| [HIVE-13514](https://issues.apache.org/jira/browse/HIVE-13514) | TestClearDanglingScratchDir fail on branch-1 |  Major | . | Daniel Dai | Daniel Dai |
+| [HIVE-13476](https://issues.apache.org/jira/browse/HIVE-13476) | HS2 ShutdownHookManager holds extra of Driver instance in nested compile |  Major | . | Daniel Dai | Daniel Dai |
+| [HIVE-13498](https://issues.apache.org/jira/browse/HIVE-13498) | cleardanglingscratchdir does not work if scratchdir is not on defaultFs |  Major | . | Daniel Dai | Daniel Dai |
+| [HIVE-11427](https://issues.apache.org/jira/browse/HIVE-11427) | Location of temporary table for CREATE TABLE  SELECT broken by HIVE-7079 |  Major | . | Grisha Trubetskoy | Yongzhi Chen |
 
 
 ### TESTS:

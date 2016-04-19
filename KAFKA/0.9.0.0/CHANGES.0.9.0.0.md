@@ -39,6 +39,7 @@
 | [KAFKA-1499](https://issues.apache.org/jira/browse/KAFKA-1499) | Broker-side compression configuration |  Major | . | Joel Koshy | Manikumar Reddy |
 | [KAFKA-2187](https://issues.apache.org/jira/browse/KAFKA-2187) | Introduce merge-kafka-pr.py script |  Minor | . | Ismael Juma | Ismael Juma |
 | [KAFKA-2120](https://issues.apache.org/jira/browse/KAFKA-2120) | Add a request timeout to NetworkClient |  Blocker | . | Jiangjie Qin | Mayuresh Gharat |
+| [KAFKA-1176](https://issues.apache.org/jira/browse/KAFKA-1176) | Secure Kafka |  Major | . | Pradeep Gollakota |  |
 
 
 ### IMPROVEMENTS:
@@ -398,6 +399,7 @@
 | [KAFKA-2906](https://issues.apache.org/jira/browse/KAFKA-2906) | Kafka Connect javadocs not built properly |  Major | KafkaConnect | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-1755](https://issues.apache.org/jira/browse/KAFKA-1755) | Improve error handling in log cleaner |  Major | . | Joel Koshy | Joel Koshy |
 | [KAFKA-3215](https://issues.apache.org/jira/browse/KAFKA-3215) | controller may not be started when there are multiple ZK session expirations |  Major | core | Jun Rao | Flavio Junqueira |
+| [KAFKA-3050](https://issues.apache.org/jira/browse/KAFKA-3050) | Space in the value for "host.name" causes "Unresolved address" |  Major | . | Navin Markandeya |  |
 
 
 ### TESTS:

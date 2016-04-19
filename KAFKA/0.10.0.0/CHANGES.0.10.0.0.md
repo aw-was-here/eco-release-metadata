@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.10.0.0 - Unreleased (as of 2016-04-14)
+## Release 0.10.0.0 - Unreleased (as of 2016-04-19)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -110,6 +110,8 @@
 | [KAFKA-3495](https://issues.apache.org/jira/browse/KAFKA-3495) | `NetworkClient.blockingSendAndReceive` should rely on requestTimeout |  Major | . | Ismael Juma | Ismael Juma |
 | [KAFKA-3483](https://issues.apache.org/jira/browse/KAFKA-3483) | Restructure ducktape tests to simplify running subsets of tests |  Major | . | Grant Henke | Grant Henke |
 | [KAFKA-3470](https://issues.apache.org/jira/browse/KAFKA-3470) | Consumer group coordinator should take commit requests as effective as heartbeats |  Major | . | Zaiming Shi | Jason Gustafson |
+| [KAFKA-3067](https://issues.apache.org/jira/browse/KAFKA-3067) | Fix producer API documentation for case when RequiredAcks \> 1 |  Trivial | producer | Sergiy Zuban | Manikumar Reddy |
+| [KAFKA-3582](https://issues.apache.org/jira/browse/KAFKA-3582) | remove references to Copcyat from connect property files |  Minor | KafkaConnect | Jun Rao | Liquan Pei |
 
 
 ### BUG FIXES:
@@ -243,6 +245,12 @@
 | [KAFKA-3521](https://issues.apache.org/jira/browse/KAFKA-3521) | Better handling NPEs in Streams DSL implementation |  Major | streams | Guozhang Wang | Guozhang Wang |
 | [KAFKA-3519](https://issues.apache.org/jira/browse/KAFKA-3519) | Refactor Transformer templates to return the same strong-typed value. |  Major | streams | Guozhang Wang | Guozhang Wang |
 | [KAFKA-3547](https://issues.apache.org/jira/browse/KAFKA-3547) | Broker does not disconnect client on unknown request |  Critical | core | Magnus Edenhill | Grant Henke |
+| [KAFKA-3557](https://issues.apache.org/jira/browse/KAFKA-3557) | Update rocksdb to 4.4.1 and patch updates to snappy and slf4j |  Major | build | Ismael Juma | Ismael Juma |
+| [KAFKA-2181](https://issues.apache.org/jira/browse/KAFKA-2181) | online doc issues |  Minor | . | Jason Rosenberg |  |
+| [KAFKA-3342](https://issues.apache.org/jira/browse/KAFKA-3342) | https://cwiki.apache.org/confluence/display/KAFKA/Log+Compaction has log.cleaner.min.cleanable.ratio listed twice in error |  Minor | . | Michael Graff | Manikumar Reddy |
+| [KAFKA-2157](https://issues.apache.org/jira/browse/KAFKA-2157) | kafka-console-consumer.sh: Mismatch in CLI "usage" docs vs. Scala Option parsing |  Minor | core | Thomas Vaughan | Manikumar Reddy |
+| [KAFKA-2912](https://issues.apache.org/jira/browse/KAFKA-2912) | Add error code 4 (InvalidFetchSize) to Errors.java |  Major | . | Grant Henke | Grant Henke |
+| [KAFKA-2524](https://issues.apache.org/jira/browse/KAFKA-2524) | Examples in class javadoc use unimplemented subscribe method |  Minor | consumer | Phil Steitz | Neha Narkhede |
 
 
 ### TESTS:
@@ -348,6 +356,7 @@
 | [KAFKA-3505](https://issues.apache.org/jira/browse/KAFKA-3505) | Set curRecord in punctuate() functions |  Major | streams | Guozhang Wang | Guozhang Wang |
 | [KAFKA-3338](https://issues.apache.org/jira/browse/KAFKA-3338) | Add print and writeAsText functions to the Streams DSL |  Major | streams | Guozhang Wang | Bill Bejeck |
 | [KAFKA-3504](https://issues.apache.org/jira/browse/KAFKA-3504) | Changelog partition configured to enable log compaction |  Major | streams | Guozhang Wang | Eno Thereska |
+| [KAFKA-3430](https://issues.apache.org/jira/browse/KAFKA-3430) | Allow users to set key in KTable.toStream() and KStream |  Major | streams | Guozhang Wang | Bill Bejeck |
 
 
 ### OTHER:

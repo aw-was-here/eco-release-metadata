@@ -18,7 +18,7 @@
 -->
 # Apache Pig Changelog
 
-## Release 0.16.0 - Unreleased (as of 2016-04-14)
+## Release 0.16.0 - Unreleased (as of 2016-04-19)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -78,6 +78,8 @@
 | [PIG-4853](https://issues.apache.org/jira/browse/PIG-4853) | Fetch inputs before starting outputs |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-4844](https://issues.apache.org/jira/browse/PIG-4844) | Tez AM runs out of memory when vertex has high number of outputs |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-4862](https://issues.apache.org/jira/browse/PIG-4862) | POProject slow by creating StackTrace repeatedly |  Minor | . | Koji Noguchi | Koji Noguchi |
+| [PIG-4547](https://issues.apache.org/jira/browse/PIG-4547) | Update Jython version to 2.7.0 |  Major | . | Neerja Khattar | Anthony Hsu |
+| [PIG-4866](https://issues.apache.org/jira/browse/PIG-4866) | Do not serialize PigContext in configuration to the backend |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 
 
 ### BUG FIXES:
@@ -151,6 +153,7 @@
 | [PIG-4867](https://issues.apache.org/jira/browse/PIG-4867) | -stop\_on\_failure does not work with Tez |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-4869](https://issues.apache.org/jira/browse/PIG-4869) | Removing unwanted configuration in Tez broke ConfiguredFailoverProxyProvider |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-4868](https://issues.apache.org/jira/browse/PIG-4868) | Low values for bytes.per.reducer configured by user not honored in Tez for inputs |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
+| [PIG-4860](https://issues.apache.org/jira/browse/PIG-4860) | Loading data using OrcStorage() accepts only default FileSystem path |  Major | . | Anirudh Beria | Anirudh Beria |
 
 
 ### TESTS:
