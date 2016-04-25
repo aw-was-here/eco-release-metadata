@@ -79,6 +79,7 @@ For backwards compatibility, the `releasedocmaker` wrapper script included in th
 
 * [YETUS-156](https://issues.apache.org/jira/browse/YETUS-156) | *Major* | **[Umbrella] build driver**
 
+<!-- markdown -->
 For users:
 
 This patch adds the qbt ("quality build tool") command in order to run test-patch as a regularly scheduled reporting tool against a source tree without the necessity of providing a patch file.
@@ -87,9 +88,9 @@ For Developers:
 
 This feature has changed several internal structures and control mechanisms to be incompatible with previous releases:
 
-\* Previously, a text file was used add extra parameters onto the `docker run` command.  Now this is done via the `DOCKER\_EXTRAARGS[@]` variable.
-\* `BINNAME` now strips off the .sh extension.
-\* `PATCH\_OR\_ISSUE` and related vars may be empty when running in the full build mode.
+* Previously, a text file was used add extra parameters onto the `docker run` command.  Now this is done via the `DOCKER_EXTRAARGS[@]` variable.
+* `BINNAME` now strips off the .sh extension.
+* `PATCH_OR_ISSUE` and related vars may be empty when running in the full build mode.
 
 
 
