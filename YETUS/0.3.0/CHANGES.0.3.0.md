@@ -32,13 +32,13 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YETUS-322](https://issues.apache.org/jira/browse/YETUS-322) | flip verify\_ result codes |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-300](https://issues.apache.org/jira/browse/YETUS-300) | CHANGED\_FILES, CHANGED\_MODULES, etc should really be arrays |  Blocker | Test Patch | Allen Wittenauer | Allen Wittenauer |
+| [YETUS-156](https://issues.apache.org/jira/browse/YETUS-156) | [Umbrella] build driver |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
 
 
 ### NEW FEATURES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [YETUS-156](https://issues.apache.org/jira/browse/YETUS-156) | [Umbrella] build driver |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
 
 
 ### IMPROVEMENTS:
