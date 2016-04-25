@@ -18,7 +18,7 @@
 -->
 # Apache Hadoop Changelog
 
-## Release 2.8.0 - Unreleased (as of 2016-04-19)
+## Release 2.8.0 - Unreleased (as of 2016-04-25)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -577,6 +577,10 @@
 | [HDFS-10292](https://issues.apache.org/jira/browse/HDFS-10292) | Add block id when client got Unable to close file exception |  Minor | . | Brahma Reddy Battula | Brahma Reddy Battula |
 | [HDFS-9412](https://issues.apache.org/jira/browse/HDFS-9412) | getBlocks occupies FSLock and takes too long to complete |  Major | . | He Tianyi | He Tianyi |
 | [HDFS-10302](https://issues.apache.org/jira/browse/HDFS-10302) | BlockPlacementPolicyDefault should use default replication considerload value |  Trivial | . | Lin Yiqun | Lin Yiqun |
+| [HADOOP-12985](https://issues.apache.org/jira/browse/HADOOP-12985) | Support MetricsSource interface for DecayRpcScheduler Metrics |  Major | . | Xiaoyu Yao | Xiaoyu Yao |
+| [HADOOP-12891](https://issues.apache.org/jira/browse/HADOOP-12891) | S3AFileSystem should configure Multipart Copy threshold and chunk size |  Major | fs/s3 | Andrew Olson | Andrew Olson |
+| [HADOOP-13033](https://issues.apache.org/jira/browse/HADOOP-13033) | Add missing Javadoc enries to Interns.java |  Minor | metrics | Andras Bokor | Andras Bokor |
+| [HDFS-10298](https://issues.apache.org/jira/browse/HDFS-10298) | Document the usage of distcp -diff option |  Major | distcp, documentation | Akira AJISAKA | Takashi Ohnishi |
 
 
 ### BUG FIXES:
@@ -753,7 +757,6 @@
 | [YARN-3604](https://issues.apache.org/jira/browse/YARN-3604) | removeApplication in ZKRMStateStore should also disable watch. |  Minor | resourcemanager | zhihai xu | zhihai xu |
 | [YARN-3473](https://issues.apache.org/jira/browse/YARN-3473) | Fix RM Web UI configuration for some properties |  Minor | resourcemanager | Ray Chiang | Ray Chiang |
 | [HDFS-8097](https://issues.apache.org/jira/browse/HDFS-8097) | TestFileTruncate is failing intermittently |  Major | test | Rakesh R | Rakesh R |
-| [YARN-3602](https://issues.apache.org/jira/browse/YARN-3602) | TestResourceLocalizationService.testPublicResourceInitializesLocalDir fails Intermittently due to IOException from cleanup |  Minor | test | zhihai xu | zhihai xu |
 | [YARN-1912](https://issues.apache.org/jira/browse/YARN-1912) | ResourceLocalizer started without any jvm memory control |  Major | nodemanager | stanley shi | Masatake Iwasaki |
 | [MAPREDUCE-6359](https://issues.apache.org/jira/browse/MAPREDUCE-6359) | RM HA setup, "Cluster" tab links populated with AM hostname instead of RM |  Minor | . | Aroop Maliakkal | yunjiong zhao |
 | [MAPREDUCE-6353](https://issues.apache.org/jira/browse/MAPREDUCE-6353) | Divide by zero error in MR AM when calculating available containers |  Major | mr-am | Anubhav Dhoot | Anubhav Dhoot |
@@ -1443,6 +1446,15 @@
 | [MAPREDUCE-6649](https://issues.apache.org/jira/browse/MAPREDUCE-6649) | getFailureInfo not returning any failure info |  Major | . | Eric Badger | Eric Badger |
 | [HDFS-10265](https://issues.apache.org/jira/browse/HDFS-10265) | OEV tool fails to read edit xml file if OP\_UPDATE\_BLOCKS has no BLOCK tag |  Minor | tools | Wan Chang | Wan Chang |
 | [HDFS-9744](https://issues.apache.org/jira/browse/HDFS-9744) | TestDirectoryScanner#testThrottling occasionally time out after 300 seconds |  Minor | datanode | Wei-Chiu Chuang | Lin Yiqun |
+| [HDFS-10308](https://issues.apache.org/jira/browse/HDFS-10308) | TestRetryCacheWithHA#testRetryCacheOnStandbyNN failing |  Major | test | Rakesh R | Rakesh R |
+| [HDFS-10312](https://issues.apache.org/jira/browse/HDFS-10312) | Large block reports may fail to decode at NameNode due to 64 MB protobuf maximum length restriction. |  Major | namenode | Chris Nauroth | Chris Nauroth |
+| [MAPREDUCE-6680](https://issues.apache.org/jira/browse/MAPREDUCE-6680) | JHS UserLogDir scan algorithm sometime could skip directory with update in CloudFS (Azure FileSystem, S3, etc.) |  Major | jobhistoryserver | Junping Du | Junping Du |
+| [HDFS-9670](https://issues.apache.org/jira/browse/HDFS-9670) | DistCp throws NPE when source is root |  Major | distcp | Yongjun Zhang | John Zhuge |
+| [HADOOP-13042](https://issues.apache.org/jira/browse/HADOOP-13042) | Restore lost leveldbjni LICENSE and NOTICE changes |  Major | . | Andrew Wang | Andrew Wang |
+| [HADOOP-13043](https://issues.apache.org/jira/browse/HADOOP-13043) | Add LICENSE.txt entries for bundled javascript dependencies |  Major | . | Andrew Wang | Andrew Wang |
+| [HDFS-10309](https://issues.apache.org/jira/browse/HDFS-10309) | Balancer doesn't honor dfs.blocksize value defined with suffix k(kilo), m(mega), g(giga) |  Minor | balancer & mover | Amit Anand | Amit Anand |
+| [HDFS-9905](https://issues.apache.org/jira/browse/HDFS-9905) | WebHdfsFileSystem#runWithRetry should display original stack trace on error |  Major | test | Kihwal Lee | Wei-Chiu Chuang |
+| [HADOOP-11418](https://issues.apache.org/jira/browse/HADOOP-11418) | Property "io.compression.codec.lzo.class" does not work with other value besides default |  Major | io | fang fang chen | Yuanbo Liu |
 
 
 ### TESTS:
@@ -1460,6 +1472,7 @@
 | [YARN-3343](https://issues.apache.org/jira/browse/YARN-3343) | TestCapacitySchedulerNodeLabelUpdate.testNodeUpdate sometime fails in trunk |  Minor | . | Xuan Gong | Rohith Sharma K S |
 | [HDFS-7559](https://issues.apache.org/jira/browse/HDFS-7559) | Create unit test to automatically compare HDFS related classes and hdfs-default.xml |  Minor | . | Ray Chiang | Ray Chiang |
 | [HADOOP-11906](https://issues.apache.org/jira/browse/HADOOP-11906) | test-patch.sh should use 'file' command for patch determinism |  Major | . | Allen Wittenauer | Sean Busbey |
+| [YARN-3602](https://issues.apache.org/jira/browse/YARN-3602) | TestResourceLocalizationService.testPublicResourceInitializesLocalDir fails Intermittently due to IOException from cleanup |  Minor | test | zhihai xu | zhihai xu |
 | [HDFS-8243](https://issues.apache.org/jira/browse/HDFS-8243) | Files written by TestHostsFiles and TestNameNodeMXBean are causing Release Audit Warnings. |  Minor | test | Ruth Wisniewski | Ruth Wisniewski |
 | [HADOOP-11884](https://issues.apache.org/jira/browse/HADOOP-11884) | test-patch.sh should pull the real findbugs version |  Minor | test | Allen Wittenauer | Kengo Seki |
 | [HADOOP-11944](https://issues.apache.org/jira/browse/HADOOP-11944) | add option to test-patch to avoid relocating patch process directory |  Minor | . | Sean Busbey | Sean Busbey |
@@ -1802,6 +1815,8 @@
 | [YARN-4886](https://issues.apache.org/jira/browse/YARN-4886) | Add HDFS caller context for EntityGroupFSTimelineStore |  Major | timelineserver | Li Lu | Li Lu |
 | [YARN-4909](https://issues.apache.org/jira/browse/YARN-4909) | Fix intermittent failures of TestRMWebServices And TestRMWithCSRFFilter |  Blocker | . | Brahma Reddy Battula | Bibin A Chundatt |
 | [YARN-4468](https://issues.apache.org/jira/browse/YARN-4468) | Document the general ReservationSystem functionality, and the REST API |  Major | capacityscheduler, fairscheduler, resourcemanager | Carlo Curino | Carlo Curino |
+| [HADOOP-13011](https://issues.apache.org/jira/browse/HADOOP-13011) | Clearly Document the Password Details for Keystore-based Credential Providers |  Major | documentation | Larry McCay | Larry McCay |
+| [YARN-3215](https://issues.apache.org/jira/browse/YARN-3215) | Respect labels in CapacityScheduler when computing headroom |  Major | capacityscheduler | Wangda Tan | Naganarasimha G R |
 
 
 ### OTHER:

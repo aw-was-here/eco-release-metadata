@@ -72,4 +72,14 @@ This patch is for the branch-3.4 branch ONLY.
 Allows spaces to be used for parameters in zkCli as long as they are in single or double quotes.  ie: create /node1 "This will now work"
 
 
+---
+
+* [ZOOKEEPER-2413](https://issues.apache.org/jira/browse/ZOOKEEPER-2413) | *Major* | **ContainerManager doesn't close the Timer it creates when stop() is called**
+
+Thanks, Jordan.
+
+Branch 3.5: Committed revision 1740737.
+Trunk: Committed revision 1740738.
+
+
 

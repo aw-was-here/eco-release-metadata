@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 1.6.2 - Unreleased (as of 2016-04-19)
+## Release 1.6.2 - Unreleased (as of 2016-04-25)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -50,6 +50,7 @@
 | [SPARK-14107](https://issues.apache.org/jira/browse/SPARK-14107) | PySpark spark.ml GBT algs need seed Param |  Minor | ML, PySpark | Joseph K. Bradley | Seth Hendrickson |
 | [SPARK-14149](https://issues.apache.org/jira/browse/SPARK-14149) | Log exceptions in tryOrIOException |  Major | Spark Core | Reynold Xin | Reynold Xin |
 | [SPARK-14242](https://issues.apache.org/jira/browse/SPARK-14242) | avoid too many copies in network when a network frame is large |  Major | Input/Output, Spark Core | Zhang, Liye | Zhang, Liye |
+| [SPARK-14787](https://issues.apache.org/jira/browse/SPARK-14787) | Upgrade Joda-Time library from 2.9 to 2.9.3 |  Trivial | SQL | Hyukjin Kwon | Hyukjin Kwon |
 
 
 ### BUG FIXES:
@@ -94,6 +95,8 @@
 | [SPARK-14363](https://issues.apache.org/jira/browse/SPARK-14363) | Executor OOM due to a memory leak in Sorter |  Major | Shuffle | Sital Kedia | Sital Kedia |
 | [SPARK-14665](https://issues.apache.org/jira/browse/SPARK-14665) | PySpark StopWordsRemover default stopwords are Java object |  Minor | ML, PySpark | Joseph K. Bradley | Joseph K. Bradley |
 | [SPARK-13227](https://issues.apache.org/jira/browse/SPARK-13227) | Risky apply() in OpenHashMap |  Minor | Spark Core | Nan Zhu | Nan Zhu |
+| [SPARK-14679](https://issues.apache.org/jira/browse/SPARK-14679) | UI DAG visualization causes OOM generating data |  Major | Web UI | Ryan Blue | Ryan Blue |
+| [SPARK-14739](https://issues.apache.org/jira/browse/SPARK-14739) | Vectors.parse doesn't handle dense vectors of size 0 and sparse vectors with no indices |  Major | MLlib, PySpark | Maciej Szymkiewicz | Arash Parsa |
 
 
 ### TESTS:

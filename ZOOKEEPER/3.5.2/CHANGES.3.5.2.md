@@ -18,7 +18,7 @@
 -->
 # Apache Zookeeper Changelog
 
-## Release 3.5.2 - Unreleased (as of 2016-04-19)
+## Release 3.5.2 - Unreleased (as of 2016-04-25)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -107,6 +107,7 @@
 | [ZOOKEEPER-2195](https://issues.apache.org/jira/browse/ZOOKEEPER-2195) | fsync.warningthresholdms in zoo.cfg not working |  Trivial | quorum | David Fan | Biju Nair |
 | [ZOOKEEPER-2364](https://issues.apache.org/jira/browse/ZOOKEEPER-2364) | "ant docs" fails on branch-3.5 due to missing releasenotes.xml. |  Blocker | build, documentation | Chris Nauroth | Patrick Hunt |
 | [ZOOKEEPER-2141](https://issues.apache.org/jira/browse/ZOOKEEPER-2141) | ACL cache in DataTree never removes entries |  Blocker | . | Karol Dudzinski | Adam Milne-Smith |
+| [ZOOKEEPER-2413](https://issues.apache.org/jira/browse/ZOOKEEPER-2413) | ContainerManager doesn't close the Timer it creates when stop() is called |  Major | server | Jordan Zimmerman | Jordan Zimmerman |
 
 
 ### TESTS:

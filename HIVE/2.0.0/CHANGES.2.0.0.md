@@ -884,6 +884,7 @@
 | [HIVE-9693](https://issues.apache.org/jira/browse/HIVE-9693) | Introduce a stats cache for aggregate stats in HBase metastore  [hbase-metastore branch] |  Major | HBase Metastore, Metastore | Vaibhav Gumashta | Vaibhav Gumashta |
 | [HIVE-10090](https://issues.apache.org/jira/browse/HIVE-10090) | Add connection manager for Tephra |  Major | HBase Metastore, Metastore | Alan Gates | Alan Gates |
 | [HIVE-10180](https://issues.apache.org/jira/browse/HIVE-10180) | Loop optimization for SIMD in ColumnArithmeticColumn.txt |  Minor | Vectorization | Chengxiang Li | Chengxiang Li |
+| [HIVE-10329](https://issues.apache.org/jira/browse/HIVE-10329) | Hadoop reflectionutils has issues |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
 | [HIVE-8858](https://issues.apache.org/jira/browse/HIVE-8858) | Visualize generated Spark plan [Spark Branch] |  Major | Spark | Xuefu Zhang | Chinna Rao Lalam |
 | [HIVE-10434](https://issues.apache.org/jira/browse/HIVE-10434) | Cancel connection when remote Spark driver process has failed [Spark Branch] |  Major | Spark | Chao Sun | Chao Sun |
 | [HIVE-10476](https://issues.apache.org/jira/browse/HIVE-10476) | Hive query should fail when it fails to initialize a session in SetSparkReducerParallelism [Spark Branch] |  Minor | Spark | Chao Sun | Chao Sun |

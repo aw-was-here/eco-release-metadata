@@ -18,7 +18,7 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.7.1 - Unreleased (as of 2016-04-19)
+## Release 0.7.1 - Unreleased (as of 2016-04-25)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -219,6 +219,7 @@
 | [TEZ-3196](https://issues.apache.org/jira/browse/TEZ-3196) | java.lang.InternalError from decompression codec is fatal to a task during shuffle |  Major | . | Jason Lowe | Jason Lowe |
 | [TEZ-3202](https://issues.apache.org/jira/browse/TEZ-3202) | Reduce the memory need for jobs with high number of segments |  Major | . | Jonathan Eagles | Jonathan Eagles |
 | [TEZ-3165](https://issues.apache.org/jira/browse/TEZ-3165) | Allow Inputs/Outputs to be initialized serially, control processor initialization relative to Inputs/Outputs |  Major | . | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-3224](https://issues.apache.org/jira/browse/TEZ-3224) | User payload is not initialized before creating vertex manager plugin |  Major | . | Zhiyuan Yang | Zhiyuan Yang |
 
 
 ### TESTS:

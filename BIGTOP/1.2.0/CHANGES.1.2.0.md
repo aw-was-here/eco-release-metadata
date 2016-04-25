@@ -18,7 +18,7 @@
 -->
 # Apache BigTop Changelog
 
-## Release 1.2.0 - Unreleased (as of 2016-04-19)
+## Release 1.2.0 - Unreleased (as of 2016-04-25)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -55,6 +55,7 @@
 | [BIGTOP-2381](https://issues.apache.org/jira/browse/BIGTOP-2381) | Making Zookeeper hosts templatize in puppet module of hue |  Minor | hue | Amit Kabra | Amit Kabra |
 | [BIGTOP-2395](https://issues.apache.org/jira/browse/BIGTOP-2395) | Create separate page to point "Download now" link to |  Major | website | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2393](https://issues.apache.org/jira/browse/BIGTOP-2393) | Add ARM64 support for build environment |  Major | build | Roman Shaposhnik | Roman Shaposhnik |
+| [BIGTOP-2403](https://issues.apache.org/jira/browse/BIGTOP-2403) | Remove affiliation column in the team list |  Major | website | Konstantin Boudnik | Konstantin Boudnik |
 
 
 ### BUG FIXES:
@@ -91,6 +92,7 @@
 | [BIGTOP-2342](https://issues.apache.org/jira/browse/BIGTOP-2342) | Set yarn.log.server.url to point to JH server |  Major | hadoop | Aaron Tokhy | Aaron Tokhy |
 | [BIGTOP-2399](https://issues.apache.org/jira/browse/BIGTOP-2399) | Maven artifacts are still on 2.6.0 version of Apache Hadoop |  Major | build, tests | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2402](https://issues.apache.org/jira/browse/BIGTOP-2402) | yet another commiter name is missing in the "Who we are" page |  Minor | website | Konstantin Boudnik | Konstantin Boudnik |
+| [BIGTOP-2404](https://issues.apache.org/jira/browse/BIGTOP-2404) | puppetize.sh fails on Ubuntu 14.04 because of the lack of apt-get update |  Major | build, docker | Roman Shaposhnik | Roman Shaposhnik |
 
 
 ### TESTS:

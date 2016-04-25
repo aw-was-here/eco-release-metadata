@@ -18,7 +18,7 @@
 -->
 # Apache Pig Changelog
 
-## Release 0.16.0 - Unreleased (as of 2016-04-19)
+## Release 0.16.0 - Unreleased (as of 2016-04-25)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -154,6 +154,8 @@
 | [PIG-4869](https://issues.apache.org/jira/browse/PIG-4869) | Removing unwanted configuration in Tez broke ConfiguredFailoverProxyProvider |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-4868](https://issues.apache.org/jira/browse/PIG-4868) | Low values for bytes.per.reducer configured by user not honored in Tez for inputs |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-4860](https://issues.apache.org/jira/browse/PIG-4860) | Loading data using OrcStorage() accepts only default FileSystem path |  Major | . | Anirudh Beria | Anirudh Beria |
+| [PIG-4877](https://issues.apache.org/jira/browse/PIG-4877) | LogFormat parser fails test |  Major | piggybank | Niels Basjes | Niels Basjes |
+| [PIG-4878](https://issues.apache.org/jira/browse/PIG-4878) | Fix issues from PIG-4847 |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 
 
 ### TESTS:

@@ -58,4 +58,28 @@ Releasedocmaker now supports sorting issues based either on resolution date or i
 See the docs for more information.
 
 
+---
+
+* [YETUS-326](https://issues.apache.org/jira/browse/YETUS-326) | *Major* | **Make releasedocmaker.py lint filters configurable**
+
+<!-- markdown -->
+Users of release doc maker can now specify which lint checks they would like used via the `--lint` command line arguement. Available options are:
+
+* "incompatible" - issues flagged incompatible should have release notes
+* "important" - issues marked important should have release notes
+* "version" - issues should have a version string of the form _major_._minor_._other_ or _description_-_revision
+* "component" - issues should specify a component
+* "assignee" - issues should have an assignee
+* "all" - all of the above
+
+For backwards compatibility, the `releasedocmaker` wrapper script included in the Yetus convenience binary will treat a bare `--lint` argument as `--lint=all`. Users that directly invoke the `releasedocmaker.py` python script will have to update their invocation.
+
+
+---
+
+* [YETUS-156](https://issues.apache.org/jira/browse/YETUS-156) | *Major* | **[Umbrella] build driver**
+
+This patch adds the qbt ("quality build tool") command in order to run test-patch as a regularly scheduled reporting tool against a source tree without the necessity of providing a patch file.
+
+
 

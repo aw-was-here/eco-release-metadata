@@ -18,7 +18,7 @@
 -->
 # Apache Hadoop Changelog
 
-## Release 3.0.0 - Unreleased (as of 2016-04-19)
+## Release 3.0.0 - Unreleased (as of 2016-04-25)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -71,6 +71,7 @@
 | [HADOOP-12857](https://issues.apache.org/jira/browse/HADOOP-12857) | Rework hadoop-tools |  Major | build | Allen Wittenauer | Allen Wittenauer |
 | [HADOOP-12967](https://issues.apache.org/jira/browse/HADOOP-12967) | Remove FileUtil#copyMerge |  Major | . | Brahma Reddy Battula | Brahma Reddy Battula |
 | [HADOOP-12811](https://issues.apache.org/jira/browse/HADOOP-12811) | Change kms server port number which conflicts with HMaster port number |  Critical | kms | Yufeng Jiang | Xiao Chen |
+| [HDFS-9427](https://issues.apache.org/jira/browse/HDFS-9427) | HDFS should not default to ephemeral ports |  Critical | datanode, hdfs-client, namenode | Arpit Agarwal | Xiaobing Zhou |
 
 
 ### IMPORTANT ISSUES:
@@ -507,6 +508,7 @@
 | [HDFS-9173](https://issues.apache.org/jira/browse/HDFS-9173) | Erasure Coding: Lease recovery for striped file |  Major | erasure-coding | Walter Su | Walter Su |
 | [HDFS-9575](https://issues.apache.org/jira/browse/HDFS-9575) | Use byte array for internal block indices in a striped block |  Major | erasure-coding | Jing Zhao | Jing Zhao |
 | [HADOOP-12685](https://issues.apache.org/jira/browse/HADOOP-12685) | Input buffer position after encode/decode not consistent between different kinds of buffers |  Minor | . | Rui Li | Rui Li |
+| [YARN-4335](https://issues.apache.org/jira/browse/YARN-4335) | Allow ResourceRequests to specify ExecutionType of a request ask |  Major | nodemanager, resourcemanager | Konstantinos Karanasos | Konstantinos Karanasos |
 | [HADOOP-11828](https://issues.apache.org/jira/browse/HADOOP-11828) | Implement the Hitchhiker erasure coding algorithm |  Major | . | Zhe Zhang | jack liuquan |
 | [HDFS-9646](https://issues.apache.org/jira/browse/HDFS-9646) | ErasureCodingWorker may fail when recovering data blocks with length less than the first internal block |  Critical | erasure-coding | Takuya Fukudome | Jing Zhao |
 | [HDFS-9494](https://issues.apache.org/jira/browse/HDFS-9494) | Parallel optimization of DFSStripedOutputStream#flushAllInternals( ) |  Minor | hdfs-client | GAO Rui | GAO Rui |
@@ -540,6 +542,8 @@
 | [HDFS-9918](https://issues.apache.org/jira/browse/HDFS-9918) | Erasure Coding: Sort located striped blocks based on decommissioned states |  Major | . | Rakesh R | Rakesh R |
 | [HDFS-10293](https://issues.apache.org/jira/browse/HDFS-10293) | StripedFileTestUtil#readAll flaky |  Major | erasure-coding, test | Mingliang Liu | Mingliang Liu |
 | [HADOOP-12924](https://issues.apache.org/jira/browse/HADOOP-12924) | Configure raw erasure coders for supported codecs |  Minor | . | Rui Li | Rui Li |
+| [YARN-2883](https://issues.apache.org/jira/browse/YARN-2883) | Queuing of container requests in the NM |  Major | nodemanager, resourcemanager | Konstantinos Karanasos | Konstantinos Karanasos |
+| [YARN-2885](https://issues.apache.org/jira/browse/YARN-2885) | Create AMRMProxy request interceptor for distributed scheduling decisions for queueable containers |  Major | nodemanager, resourcemanager | Konstantinos Karanasos | Arun Suresh |
 
 
 ### OTHER:

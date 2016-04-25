@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.10.1.0 - Unreleased (as of 2016-04-19)
+## Release 0.10.1.0 - Unreleased (as of 2016-04-25)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -97,6 +97,8 @@
 | [KAFKA-3526](https://issues.apache.org/jira/browse/KAFKA-3526) | REST APIs return object representation instead of string for config values, default values and recommended values |  Major | KafkaConnect | Liquan Pei | Liquan Pei |
 | [KAFKA-3421](https://issues.apache.org/jira/browse/KAFKA-3421) | Update docs with new connector features |  Blocker | . | Gwen Shapira | Liquan Pei |
 | [KAFKA-3569](https://issues.apache.org/jira/browse/KAFKA-3569) | commitAsync() sometimes fails with errors |  Major | clients | Greg Zoller |  |
+| [KAFKA-3548](https://issues.apache.org/jira/browse/KAFKA-3548) | Locale is not handled properly in kafka-consumer |  Major | consumer | Tanju Cataltepe | Rajini Sivaram |
+| [KAFKA-3605](https://issues.apache.org/jira/browse/KAFKA-3605) | Connector REST endpoint allows incorrectly overriding the connector name |  Blocker | KafkaConnect | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 
 
 ### TESTS:
@@ -121,6 +123,8 @@
 | [KAFKA-3505](https://issues.apache.org/jira/browse/KAFKA-3505) | Set curRecord in punctuate() functions |  Major | streams | Guozhang Wang | Guozhang Wang |
 | [KAFKA-3439](https://issues.apache.org/jira/browse/KAFKA-3439) | Document possible exception thrown in public APIs |  Major | streams | Guozhang Wang | Eno Thereska |
 | [KAFKA-3529](https://issues.apache.org/jira/browse/KAFKA-3529) | Transient kafka.api.PlaintextConsumerTest.testAsyncCommit failures |  Major | . | Ismael Juma | Jason Gustafson |
+| [KAFKA-2370](https://issues.apache.org/jira/browse/KAFKA-2370) | Add pause/unpause connector support |  Critical | KafkaConnect | Ewen Cheslack-Postava | Jason Gustafson |
+| [KAFKA-2479](https://issues.apache.org/jira/browse/KAFKA-2479) | Add CopycatExceptions to indicate transient and permanent errors in a connector/task |  Major | KafkaConnect | Ewen Cheslack-Postava | Liquan Pei |
 
 
 ### OTHER:

@@ -18,7 +18,7 @@
 -->
 # Apache Hive Changelog
 
-## Release 1.3.0 - Unreleased (as of 2016-04-19)
+## Release 1.3.0 - Unreleased (as of 2016-04-25)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -551,6 +551,7 @@
 | [HIVE-13175](https://issues.apache.org/jira/browse/HIVE-13175) | Disallow making external tables transactional |  Major | Transactions | Wei Zheng | Wei Zheng |
 | [HIVE-10632](https://issues.apache.org/jira/browse/HIVE-10632) | Make sure TXN\_COMPONENTS gets cleaned up if table is dropped before compaction. |  Critical | Metastore, Transactions | Eugene Koifman | Wei Zheng |
 | [HIVE-13263](https://issues.apache.org/jira/browse/HIVE-13263) | Vectorization: Unable to vectorize regexp\_extract/regexp\_replace " Udf: GenericUDFBridge, is not supported" |  Critical | . | Matt McCline | Matt McCline |
+| [HIVE-13232](https://issues.apache.org/jira/browse/HIVE-13232) | Aggressively drop compression buffers in ORC OutStreams |  Major | ORC | Owen O'Malley | Owen O'Malley |
 | [HIVE-13285](https://issues.apache.org/jira/browse/HIVE-13285) | Orc concatenation may drop old files from moving to final path |  Critical | ORC | Prasanth Jayachandran | Prasanth Jayachandran |
 | [HIVE-13291](https://issues.apache.org/jira/browse/HIVE-13291) | ORC BI Split strategy should consider block size instead of file size |  Major | ORC | Gopal V | Prasanth Jayachandran |
 | [HIVE-13298](https://issues.apache.org/jira/browse/HIVE-13298) | nested join support causes undecipherable errors in SemanticAnalyzer |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
@@ -575,6 +576,7 @@
 | [HIVE-13476](https://issues.apache.org/jira/browse/HIVE-13476) | HS2 ShutdownHookManager holds extra of Driver instance in nested compile |  Major | . | Daniel Dai | Daniel Dai |
 | [HIVE-13498](https://issues.apache.org/jira/browse/HIVE-13498) | cleardanglingscratchdir does not work if scratchdir is not on defaultFs |  Major | . | Daniel Dai | Daniel Dai |
 | [HIVE-11427](https://issues.apache.org/jira/browse/HIVE-11427) | Location of temporary table for CREATE TABLE  SELECT broken by HIVE-7079 |  Major | . | Grisha Trubetskoy | Yongzhi Chen |
+| [HIVE-13240](https://issues.apache.org/jira/browse/HIVE-13240) | GroupByOperator: Drop the hash aggregates when closing operator |  Major | Query Processor | Gopal V | Gopal V |
 
 
 ### TESTS:

@@ -18,7 +18,7 @@
 -->
 # Apache Yetus Changelog
 
-## Release 0.3.0 - Unreleased (as of 2016-04-19)
+## Release 0.3.0 - Unreleased (as of 2016-04-25)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -38,6 +38,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [YETUS-156](https://issues.apache.org/jira/browse/YETUS-156) | [Umbrella] build driver |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
 
 
 ### IMPROVEMENTS:
@@ -53,6 +54,7 @@
 | [YETUS-289](https://issues.apache.org/jira/browse/YETUS-289) | shelldocs should output error positions in lint mode |  Major | ShellDocs | Kengo Seki | Allen Wittenauer |
 | [YETUS-382](https://issues.apache.org/jira/browse/YETUS-382) | launch-test-patch.sh has shellcheck issues |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-381](https://issues.apache.org/jira/browse/YETUS-381) | fix config.rb rubocop issues |  Major | build | Allen Wittenauer | Allen Wittenauer |
+| [YETUS-321](https://issues.apache.org/jira/browse/YETUS-321) | releasedocmaker.py lint mode enhancements |  Major | Release Doc Maker | Andrew Wang | Andrew Wang |
 
 
 ### BUG FIXES:
@@ -86,6 +88,27 @@
 | [YETUS-324](https://issues.apache.org/jira/browse/YETUS-324) | Refactor releasedocmaker.py option parsing into separate function |  Major | Release Doc Maker | Andrew Wang | Andrew Wang |
 | [YETUS-325](https://issues.apache.org/jira/browse/YETUS-325) | Refactor releasedocmaker.py lint functionality into separate class |  Major | Release Doc Maker | Andrew Wang | Andrew Wang |
 | [YETUS-332](https://issues.apache.org/jira/browse/YETUS-332) | make use of outputdir option consistent with cleaning |  Major | Release Doc Maker | Sean Busbey | Sean Busbey |
+| [YETUS-347](https://issues.apache.org/jira/browse/YETUS-347) | change docker's extraargs to be an array |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
+| [YETUS-348](https://issues.apache.org/jira/browse/YETUS-348) | add ability to write console report to a file |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
+| [YETUS-349](https://issues.apache.org/jira/browse/YETUS-349) | core engine changes for build driver |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
+| [YETUS-350](https://issues.apache.org/jira/browse/YETUS-350) | plug-in changes for build driver |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
+| [YETUS-353](https://issues.apache.org/jira/browse/YETUS-353) | runtime wrapper for build driver |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
+| [YETUS-351](https://issues.apache.org/jira/browse/YETUS-351) | documentation changes for build driver |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
+| [YETUS-352](https://issues.apache.org/jira/browse/YETUS-352) | hadoop and hbase personality changes for build driver |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
+| [YETUS-354](https://issues.apache.org/jira/browse/YETUS-354) | findbugs in build driver has problems |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
+| [YETUS-371](https://issues.apache.org/jira/browse/YETUS-371) | build driver: speed up checkstyle |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
+| [YETUS-357](https://issues.apache.org/jira/browse/YETUS-357) | build driver for hadoop shouldn't union unit tests |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
+| [YETUS-372](https://issues.apache.org/jira/browse/YETUS-372) | build driver: unit tests still mentions patches |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
+| [YETUS-373](https://issues.apache.org/jira/browse/YETUS-373) | build driver: maven install should be smarter |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
+| [YETUS-356](https://issues.apache.org/jira/browse/YETUS-356) | build driver: author plug-in still mentions patches |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
+| [YETUS-374](https://issues.apache.org/jira/browse/YETUS-374) | need a way to ignore results from a list of tests |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
+| [YETUS-375](https://issues.apache.org/jira/browse/YETUS-375) | build driver: maven install actually needs to be dumber |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
+| [YETUS-376](https://issues.apache.org/jira/browse/YETUS-376) | add ability to write report to an HTML formatted file |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
+| [YETUS-384](https://issues.apache.org/jira/browse/YETUS-384) | In build driver mode, some plugins have misleading status text |  Minor | Test Patch | Sean Busbey | Allen Wittenauer |
+| [YETUS-385](https://issues.apache.org/jira/browse/YETUS-385) | test plugin for author tag detection should have a way to opt-out of specific instances |  Major | Test Patch | Sean Busbey | Allen Wittenauer |
+| [YETUS-378](https://issues.apache.org/jira/browse/YETUS-378) | flink, hbase, jmeter personalities custom tests need to be made qbt aware |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
+| [YETUS-326](https://issues.apache.org/jira/browse/YETUS-326) | Make releasedocmaker.py lint filters configurable |  Major | Release Doc Maker | Andrew Wang | Andrew Wang |
+| [YETUS-386](https://issues.apache.org/jira/browse/YETUS-386) | document --html-report-file and clean up htmlout's comments |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
 
 
 ### OTHER:

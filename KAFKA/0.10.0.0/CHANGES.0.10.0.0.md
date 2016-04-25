@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.10.0.0 - Unreleased (as of 2016-04-19)
+## Release 0.10.0.0 - Unreleased (as of 2016-04-25)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -251,6 +251,9 @@
 | [KAFKA-2157](https://issues.apache.org/jira/browse/KAFKA-2157) | kafka-console-consumer.sh: Mismatch in CLI "usage" docs vs. Scala Option parsing |  Minor | core | Thomas Vaughan | Manikumar Reddy |
 | [KAFKA-2912](https://issues.apache.org/jira/browse/KAFKA-2912) | Add error code 4 (InvalidFetchSize) to Errors.java |  Major | . | Grant Henke | Grant Henke |
 | [KAFKA-2524](https://issues.apache.org/jira/browse/KAFKA-2524) | Examples in class javadoc use unimplemented subscribe method |  Minor | consumer | Phil Steitz | Neha Narkhede |
+| [KAFKA-3589](https://issues.apache.org/jira/browse/KAFKA-3589) | KTable.count(final KeyValueMapper\<K, V, K1\> selector, String name) throw NPE |  Major | streams | Damian Guy | Guozhang Wang |
+| [KAFKA-3594](https://issues.apache.org/jira/browse/KAFKA-3594) | Kafka new producer retries doesn't work in 0.9.0.1 |  Critical | producer | Nicolas PHUNG | Manikumar Reddy |
+| [KAFKA-3606](https://issues.apache.org/jira/browse/KAFKA-3606) | Traverse CLASSPATH during herder start to list connectors |  Blocker | KafkaConnect | Liquan Pei | Liquan Pei |
 
 
 ### TESTS:
@@ -357,6 +360,7 @@
 | [KAFKA-3338](https://issues.apache.org/jira/browse/KAFKA-3338) | Add print and writeAsText functions to the Streams DSL |  Major | streams | Guozhang Wang | Bill Bejeck |
 | [KAFKA-3504](https://issues.apache.org/jira/browse/KAFKA-3504) | Changelog partition configured to enable log compaction |  Major | streams | Guozhang Wang | Eno Thereska |
 | [KAFKA-3430](https://issues.apache.org/jira/browse/KAFKA-3430) | Allow users to set key in KTable.toStream() and KStream |  Major | streams | Guozhang Wang | Bill Bejeck |
+| [KAFKA-3337](https://issues.apache.org/jira/browse/KAFKA-3337) | Extract selector as a separate groupBy operator for KTable aggregations |  Major | streams | Guozhang Wang | Matthias J. Sax |
 
 
 ### OTHER:
