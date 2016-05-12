@@ -1232,6 +1232,7 @@
 | [SPARK-11985](https://issues.apache.org/jira/browse/SPARK-11985) | Update Spark Streaming - Kinesis Library Documentation regarding data de-aggregation and message handler |  Major | Documentation, Streaming | Burak Yavuz | Burak Yavuz |
 | [SPARK-12487](https://issues.apache.org/jira/browse/SPARK-12487) | Add docs for Kafka message handler |  Major | Documentation | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-12429](https://issues.apache.org/jira/browse/SPARK-12429) | Update documentation to show how to use accumulators and broadcasts with Spark Streaming |  Major | Documentation, Streaming | Shixiong Zhu | Shixiong Zhu |
+| [SPARK-2629](https://issues.apache.org/jira/browse/SPARK-2629) | Improved state management for Spark Streaming |  Major | Streaming | Tathagata Das | Tathagata Das |
 | [SPARK-9748](https://issues.apache.org/jira/browse/SPARK-9748) | Centriod typo in KMeansModel |  Trivial | MLlib | Bertrand Dechoux | Bertrand Dechoux |
 | [SPARK-9810](https://issues.apache.org/jira/browse/SPARK-9810) | Remove individual commit messages from the squash commit message |  Major | Build | Reynold Xin | Reynold Xin |
 | [SPARK-10398](https://issues.apache.org/jira/browse/SPARK-10398) | Migrate Spark download page to use new lua mirroring scripts |  Minor | Project Infra | Luciano Resende | Luciano Resende |

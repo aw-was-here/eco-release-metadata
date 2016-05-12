@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.10.1.0 - Unreleased (as of 2016-04-25)
+## Release 0.10.1.0 - Unreleased (as of 2016-05-12)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -58,6 +58,13 @@
 | [KAFKA-3506](https://issues.apache.org/jira/browse/KAFKA-3506) | Kafka Connect Task Restart API |  Major | KafkaConnect | Jason Gustafson | Jason Gustafson |
 | [KAFKA-3563](https://issues.apache.org/jira/browse/KAFKA-3563) | Maintain MessageAndMetadata constructor compatibility |  Major | . | Grant Henke | Grant Henke |
 | [KAFKA-3558](https://issues.apache.org/jira/browse/KAFKA-3558) | Add compression\_type parameter to benchmarks in benchmark\_test.py |  Major | system tests | Ismael Juma | Ismael Juma |
+| [KAFKA-3611](https://issues.apache.org/jira/browse/KAFKA-3611) | Remove WARNs when using reflections |  Major | KafkaConnect | Liquan Pei | Liquan Pei |
+| [KAFKA-3418](https://issues.apache.org/jira/browse/KAFKA-3418) | Add section on detecting consumer failures in new consumer javadoc |  Major | consumer | Jason Gustafson | Jason Gustafson |
+| [KAFKA-3615](https://issues.apache.org/jira/browse/KAFKA-3615) | Exclude test jars in CLASSPATH of kafka-run-class.sh |  Major | admin, build | Liquan Pei | Liquan Pei |
+| [KAFKA-3578](https://issues.apache.org/jira/browse/KAFKA-3578) | Allow cross origin HTTP requests on all HTTP methods |  Blocker | KafkaConnect | Liquan Pei | Liquan Pei |
+| [KAFKA-3644](https://issues.apache.org/jira/browse/KAFKA-3644) | Use Boolean protocol type for StopReplicaRequest delete\_partitions |  Major | . | Grant Henke | Grant Henke |
+| [KAFKA-3592](https://issues.apache.org/jira/browse/KAFKA-3592) | System tests - don't hardcode paths to scripts |  Major | system tests | Geoff Anderson | Geoff Anderson |
+| [KAFKA-3583](https://issues.apache.org/jira/browse/KAFKA-3583) | Docs on pause/resume/restart APIs. |  Blocker | KafkaConnect | Liquan Pei | Jason Gustafson |
 
 
 ### BUG FIXES:
@@ -99,12 +106,31 @@
 | [KAFKA-3569](https://issues.apache.org/jira/browse/KAFKA-3569) | commitAsync() sometimes fails with errors |  Major | clients | Greg Zoller |  |
 | [KAFKA-3548](https://issues.apache.org/jira/browse/KAFKA-3548) | Locale is not handled properly in kafka-consumer |  Major | consumer | Tanju Cataltepe | Rajini Sivaram |
 | [KAFKA-3605](https://issues.apache.org/jira/browse/KAFKA-3605) | Connector REST endpoint allows incorrectly overriding the connector name |  Blocker | KafkaConnect | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
+| [KAFKA-3641](https://issues.apache.org/jira/browse/KAFKA-3641) | Fix RecordMetadata constructor backward compatibility |  Blocker | . | Grant Henke | Grant Henke |
+| [KAFKA-3459](https://issues.apache.org/jira/browse/KAFKA-3459) | Returning zero task configurations from a connector does not properly clean up existing tasks |  Major | KafkaConnect | Ewen Cheslack-Postava | Liquan Pei |
+| [KAFKA-3650](https://issues.apache.org/jira/browse/KAFKA-3650) | AWS test script fails to install vagrant |  Trivial | . | Roger Hoover | Roger Hoover |
+| [KAFKA-3654](https://issues.apache.org/jira/browse/KAFKA-3654) | Config validation should validate both common and connector specific configurations |  Major | KafkaConnect | Liquan Pei | Liquan Pei |
+| [KAFKA-2684](https://issues.apache.org/jira/browse/KAFKA-2684) | Add force option to TopicCommand & ConfigCommand to suppress console prompts |  Trivial | . | Ben Stopford | Ben Stopford |
+| [KAFKA-3656](https://issues.apache.org/jira/browse/KAFKA-3656) | Avoid stressing system more when already under stress |  Major | . | Alexey Raga | Liquan Pei |
+| [KAFKA-3527](https://issues.apache.org/jira/browse/KAFKA-3527) | Consumer commitAsync should not expose internal exceptions |  Major | consumer | Jason Gustafson | Liquan Pei |
+| [KAFKA-3659](https://issues.apache.org/jira/browse/KAFKA-3659) | Consumer does not handle coordinator connection blackout period gracefully |  Major | consumer | Jason Gustafson | Jason Gustafson |
+| [KAFKA-3581](https://issues.apache.org/jira/browse/KAFKA-3581) | Use timeout when joining threads in system test services |  Major | system tests | Jason Gustafson | Jason Gustafson |
+| [KAFKA-3627](https://issues.apache.org/jira/browse/KAFKA-3627) | New consumer doesn't run delayed tasks while under load |  Blocker | consumer | Rob Underwood | Jason Gustafson |
+| [KAFKA-3671](https://issues.apache.org/jira/browse/KAFKA-3671) | Topics should not be in common ConnectorConfig definitions |  Critical | KafkaConnect | Liquan Pei | Liquan Pei |
+| [KAFKA-3673](https://issues.apache.org/jira/browse/KAFKA-3673) | Connect tests dont handle concurrent config changes |  Major | KafkaConnect | Liquan Pei | Liquan Pei |
+| [KAFKA-3674](https://issues.apache.org/jira/browse/KAFKA-3674) | Connector target state changes not propagated to all workers |  Blocker | KafkaConnect | Jason Gustafson | Jason Gustafson |
+| [KAFKA-3684](https://issues.apache.org/jira/browse/KAFKA-3684) | Not all SinkConnectorConfig configs are returned |  Blocker | KafkaConnect | Liquan Pei | Liquan Pei |
+| [KAFKA-3525](https://issues.apache.org/jira/browse/KAFKA-3525) | max.reserved.broker.id off-by-one error |  Major | config | Alan Braithwaite | Manikumar Reddy |
+| [KAFKA-3690](https://issues.apache.org/jira/browse/KAFKA-3690) | Avoid passing null to UnmodifiableMap |  Major | KafkaConnect | Liquan Pei | Liquan Pei |
 
 
 ### TESTS:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-3597](https://issues.apache.org/jira/browse/KAFKA-3597) | Enable query ConsoleConsumer and VerifiableProducer if they shutdown cleanly |  Major | . | Anna Povzner | Anna Povzner |
+| [KAFKA-3675](https://issues.apache.org/jira/browse/KAFKA-3675) | Add lz4 to parametrized `test\_upgrade` system test |  Major | . | Ismael Juma | Ismael Juma |
+| [KAFKA-3676](https://issues.apache.org/jira/browse/KAFKA-3676) | Add system tests for connector pause/resume |  Major | KafkaConnect | Jason Gustafson | Jason Gustafson |
 
 
 ### SUB-TASKS:
@@ -125,6 +151,10 @@
 | [KAFKA-3529](https://issues.apache.org/jira/browse/KAFKA-3529) | Transient kafka.api.PlaintextConsumerTest.testAsyncCommit failures |  Major | . | Ismael Juma | Jason Gustafson |
 | [KAFKA-2370](https://issues.apache.org/jira/browse/KAFKA-2370) | Add pause/unpause connector support |  Critical | KafkaConnect | Ewen Cheslack-Postava | Jason Gustafson |
 | [KAFKA-2479](https://issues.apache.org/jira/browse/KAFKA-2479) | Add CopycatExceptions to indicate transient and permanent errors in a connector/task |  Major | KafkaConnect | Ewen Cheslack-Postava | Liquan Pei |
+| [KAFKA-3306](https://issues.apache.org/jira/browse/KAFKA-3306) | Change metadata response to include required additional fields |  Critical | . | Grant Henke | Grant Henke |
+| [KAFKA-3307](https://issues.apache.org/jira/browse/KAFKA-3307) | Add ApiVersion request/response and server side handling. |  Major | . | Ashish K Singh | Ashish K Singh |
+| [KAFKA-3382](https://issues.apache.org/jira/browse/KAFKA-3382) | Add system test for ReplicationVerificationTool |  Major | . | Ashish K Singh | Ashish K Singh |
+| [KAFKA-2693](https://issues.apache.org/jira/browse/KAFKA-2693) | Run relevant ducktape tests with SASL/PLAIN and multiple mechanisms |  Critical | security | Rajini Sivaram | Rajini Sivaram |
 
 
 ### OTHER:
@@ -132,5 +162,6 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [KAFKA-3435](https://issues.apache.org/jira/browse/KAFKA-3435) | Remove `Unstable` annotation from new Java Consumer |  Major | . | Ismael Juma | Grant Henke |
+| [KAFKA-3618](https://issues.apache.org/jira/browse/KAFKA-3618) | Handle ApiVersionRequest before SASL handshake |  Major | security | Rajini Sivaram | Rajini Sivaram |
 
 

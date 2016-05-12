@@ -91,4 +91,11 @@ Exception in thread "Thread-1003" kafka.common.InvalidConfigException: client.id
 2016-03-10 13:34:56.792:INFO:oejs.ServerConnector:main: Started ServerConnector@65269268{HTTP/1.1}{0.0.0.0:8080}
 
 
+---
+
+* [KAFKA-3448](https://issues.apache.org/jira/browse/KAFKA-3448) | *Major* | **Support zone index in IPv6 regex**
+
+When an address is written textually, the zone index is appended to the address, separated by a percent sign (%). The actual syntax of zone indices depends on the operating system.
+
+
 

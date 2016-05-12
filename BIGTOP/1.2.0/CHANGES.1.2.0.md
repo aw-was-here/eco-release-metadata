@@ -18,7 +18,7 @@
 -->
 # Apache BigTop Changelog
 
-## Release 1.2.0 - Unreleased (as of 2016-04-25)
+## Release 1.2.0 - Unreleased (as of 2016-05-12)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -56,6 +56,14 @@
 | [BIGTOP-2395](https://issues.apache.org/jira/browse/BIGTOP-2395) | Create separate page to point "Download now" link to |  Major | website | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2393](https://issues.apache.org/jira/browse/BIGTOP-2393) | Add ARM64 support for build environment |  Major | build | Roman Shaposhnik | Roman Shaposhnik |
 | [BIGTOP-2403](https://issues.apache.org/jira/browse/BIGTOP-2403) | Remove affiliation column in the team list |  Major | website | Konstantin Boudnik | Konstantin Boudnik |
+| [BIGTOP-2407](https://issues.apache.org/jira/browse/BIGTOP-2407) | Making "force\_username\_lowercase" variable templatize in puppet module of hue |  Minor | hue | Amit Kabra | Amit Kabra |
+| [BIGTOP-2410](https://issues.apache.org/jira/browse/BIGTOP-2410) | Making "ldap\_username\_pattern" variable templatize in puppet module of hue |  Major | hue | Amit Kabra | Amit Kabra |
+| [BIGTOP-2409](https://issues.apache.org/jira/browse/BIGTOP-2409) | nt\_domain configuration option for hue to connect to Active Directory |  Major | hue | Amit Kabra | Amit Kabra |
+| [BIGTOP-2408](https://issues.apache.org/jira/browse/BIGTOP-2408) | group\_filter variable value is not templatize in puppet module of hue |  Major | . | Amit Kabra | Amit Kabra |
+| [BIGTOP-2411](https://issues.apache.org/jira/browse/BIGTOP-2411) | Add OS-neutral wrappers to build all native packages and repositories |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
+| [BIGTOP-2077](https://issues.apache.org/jira/browse/BIGTOP-2077) | Bump HBase version to 1.1 |  Major | hbase | Konstantin Boudnik | YoungWoo Kim |
+| [BIGTOP-2333](https://issues.apache.org/jira/browse/BIGTOP-2333) | Make Apache Pig work with HBase 1.1 on Hadoop 2 |  Major | build, pig | YoungWoo Kim | YoungWoo Kim |
+| [BIGTOP-2416](https://issues.apache.org/jira/browse/BIGTOP-2416) | Upgrade Crunch to 0.13.0 |  Major | . | YoungWoo Kim | YoungWoo Kim |
 
 
 ### BUG FIXES:
@@ -93,6 +101,11 @@
 | [BIGTOP-2399](https://issues.apache.org/jira/browse/BIGTOP-2399) | Maven artifacts are still on 2.6.0 version of Apache Hadoop |  Major | build, tests | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2402](https://issues.apache.org/jira/browse/BIGTOP-2402) | yet another commiter name is missing in the "Who we are" page |  Minor | website | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2404](https://issues.apache.org/jira/browse/BIGTOP-2404) | puppetize.sh fails on Ubuntu 14.04 because of the lack of apt-get update |  Major | build, docker | Roman Shaposhnik | Roman Shaposhnik |
+| [BIGTOP-2413](https://issues.apache.org/jira/browse/BIGTOP-2413) | QFS README.md breaks RAT |  Critical | build | Konstantin Boudnik | Faraaz Sareshwala |
+| [BIGTOP-2406](https://issues.apache.org/jira/browse/BIGTOP-2406) | init scripts do not work reliable on systemd systems |  Major | debian, Init scripts | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2419](https://issues.apache.org/jira/browse/BIGTOP-2419) | Fix symlinks on packaging Crunch rpm and deb |  Major | debian, rpm | YoungWoo Kim | YoungWoo Kim |
+| [BIGTOP-2423](https://issues.apache.org/jira/browse/BIGTOP-2423) | Fix hard-coded port number in Sqoop smokes |  Major | tests | Dasha Boudnik | Dasha Boudnik |
+| [BIGTOP-2425](https://issues.apache.org/jira/browse/BIGTOP-2425) | crunch needs JDK8 javadoc |  Major | build | Olaf Flebbe | Olaf Flebbe |
 
 
 ### TESTS:
@@ -114,6 +127,8 @@
 | [BIGTOP-2316](https://issues.apache.org/jira/browse/BIGTOP-2316) | Add apex puppet receipes |  Major | deployment | Chinmay Kolhatkar | Chinmay Kolhatkar |
 | [BIGTOP-2293](https://issues.apache.org/jira/browse/BIGTOP-2293) | Add puppet recipes for qfs components |  Major | . | Faraaz Sareshwala | Faraaz Sareshwala |
 | [BIGTOP-2315](https://issues.apache.org/jira/browse/BIGTOP-2315) | Add smoke test for apex |  Major | tests | Chinmay Kolhatkar | Chinmay Kolhatkar |
+| [BIGTOP-2317](https://issues.apache.org/jira/browse/BIGTOP-2317) | Add smoke tests for QFS |  Major | tests | Faraaz Sareshwala | Faraaz Sareshwala |
+| [BIGTOP-2345](https://issues.apache.org/jira/browse/BIGTOP-2345) | Create Flink packaging |  Major | build, general | Bhupendra Singh | Bhupendra Singh |
 
 
 ### OTHER:
@@ -125,5 +140,6 @@
 | [BIGTOP-2334](https://issues.apache.org/jira/browse/BIGTOP-2334) | Update latest release link on the website |  Major | website | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2368](https://issues.apache.org/jira/browse/BIGTOP-2368) | OpenStack config bigtop repo-url changes. |  Minor | provisioner | Bhupendra Singh | Bhupendra Singh |
 | [BIGTOP-2371](https://issues.apache.org/jira/browse/BIGTOP-2371) | Add Oozie to gradle smoke tests |  Major | tests | Dasha Boudnik | Dasha Boudnik |
+| [BIGTOP-2415](https://issues.apache.org/jira/browse/BIGTOP-2415) | readme spelling error |  Trivial | documentation | Artem Ervits | Artem Ervits |
 
 

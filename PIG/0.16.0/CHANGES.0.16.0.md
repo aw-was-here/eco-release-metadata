@@ -18,13 +18,12 @@
 -->
 # Apache Pig Changelog
 
-## Release 0.16.0 - Unreleased (as of 2016-04-25)
+## Release 0.16.0 - Unreleased (as of 2016-05-12)
 
 ### INCOMPATIBLE CHANGES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [PIG-4833](https://issues.apache.org/jira/browse/PIG-4833) | TestBuiltin.testURIWithCurlyBrace in TEZ failing after PIG-4819 |  Minor | . | Koji Noguchi | Koji Noguchi |
 
 
 ### IMPORTANT ISSUES:
@@ -41,6 +40,7 @@
 | [PIG-4639](https://issues.apache.org/jira/browse/PIG-4639) | Add better parser for Apache HTTPD access log. |  Major | piggybank | Niels Basjes | Niels Basjes |
 | [PIG-4673](https://issues.apache.org/jira/browse/PIG-4673) | Built In UDF - REPLACE\_MULTI : For a given string, search and replace all occurrences of search keys with replacement values. |  Minor | piggybank | Murali Rao | Murali Rao |
 | [PIG-4796](https://issues.apache.org/jira/browse/PIG-4796) | Authenticate with Kerberos using a keytab file |  Major | . | Niels Basjes | Niels Basjes |
+| [PIG-4526](https://issues.apache.org/jira/browse/PIG-4526) | Make setting up the build environment easier |  Major | . | Niels Basjes | Niels Basjes |
 
 
 ### IMPROVEMENTS:
@@ -80,6 +80,10 @@
 | [PIG-4862](https://issues.apache.org/jira/browse/PIG-4862) | POProject slow by creating StackTrace repeatedly |  Minor | . | Koji Noguchi | Koji Noguchi |
 | [PIG-4547](https://issues.apache.org/jira/browse/PIG-4547) | Update Jython version to 2.7.0 |  Major | . | Neerja Khattar | Anthony Hsu |
 | [PIG-4866](https://issues.apache.org/jira/browse/PIG-4866) | Do not serialize PigContext in configuration to the backend |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
+| [PIG-4455](https://issues.apache.org/jira/browse/PIG-4455) | Should use DependencyOrderWalker instead of DepthFirstWalker in MRPrinter |  Major | . | Jeff Zhang | Jeff Zhang |
+| [PIG-4882](https://issues.apache.org/jira/browse/PIG-4882) | Remove hardcoded groovy.grape.report.downloads=true from DownloadResolver |  Major | . | Anthony Hsu | Anthony Hsu |
+| [PIG-4879](https://issues.apache.org/jira/browse/PIG-4879) | Pull latest version of joda-time |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
+| [PIG-4874](https://issues.apache.org/jira/browse/PIG-4874) | Remove schema tuple reference overhead for replicate join hashmap |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 
 
 ### BUG FIXES:
@@ -144,6 +148,7 @@
 | [PIG-4818](https://issues.apache.org/jira/browse/PIG-4818) | Single quote inside comment in GENERATE is not being ignored |  Minor | . | Koji Noguchi | Koji Noguchi |
 | [PIG-4816](https://issues.apache.org/jira/browse/PIG-4816) | Read a null scalar causing a Tez failure |  Major | . | Daniel Dai | Daniel Dai |
 | [PIG-4819](https://issues.apache.org/jira/browse/PIG-4819) | RANDOM() udf can lead to missing or redundant records |  Major | . | Koji Noguchi | Koji Noguchi |
+| [PIG-4833](https://issues.apache.org/jira/browse/PIG-4833) | TestBuiltin.testURIWithCurlyBrace in TEZ failing after PIG-4819 |  Minor | . | Koji Noguchi | Koji Noguchi |
 | [PIG-4832](https://issues.apache.org/jira/browse/PIG-4832) | Fix TestPrumeColumn NPE failure |  Major | . | liyunzhang\_intel | liyunzhang\_intel |
 | [PIG-4841](https://issues.apache.org/jira/browse/PIG-4841) | Inline-op with schema declaration fails with syntax error |  Minor | parser | Koji Noguchi | Koji Noguchi |
 | [PIG-4845](https://issues.apache.org/jira/browse/PIG-4845) | Parallel instantiation of classes in Tez cause tasks to fail |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
@@ -156,6 +161,14 @@
 | [PIG-4860](https://issues.apache.org/jira/browse/PIG-4860) | Loading data using OrcStorage() accepts only default FileSystem path |  Major | . | Anirudh Beria | Anirudh Beria |
 | [PIG-4877](https://issues.apache.org/jira/browse/PIG-4877) | LogFormat parser fails test |  Major | piggybank | Niels Basjes | Niels Basjes |
 | [PIG-4878](https://issues.apache.org/jira/browse/PIG-4878) | Fix issues from PIG-4847 |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
+| [PIG-4641](https://issues.apache.org/jira/browse/PIG-4641) | Print the instance of Object without using toString() |  Minor | . | songwanging | Sandeep Samdaria |
+| [PIG-4581](https://issues.apache.org/jira/browse/PIG-4581) | thread safe issue in NodeIdGenerator |  Trivial | impl | Remi Catherinot | Remi Catherinot |
+| [PIG-4892](https://issues.apache.org/jira/browse/PIG-4892) | removing /tmp/output before UT |  Major | build | Daniel Dai | Daniel Dai |
+| [PIG-3772](https://issues.apache.org/jira/browse/PIG-3772) | Syntax error when casting an inner schema of a bag and line break involved |  Major | . | Haishan Liu | Sergey Svinarchuk |
+| [PIG-4888](https://issues.apache.org/jira/browse/PIG-4888) | Line number off when reporting syntax error inside a macro |  Trivial | parser | Koji Noguchi | Koji Noguchi |
+| [PIG-4881](https://issues.apache.org/jira/browse/PIG-4881) | TestBuiltin.testUniqueID failing on hadoop-1.x |  Minor | . | Koji Noguchi | Koji Noguchi |
+| [PIG-4880](https://issues.apache.org/jira/browse/PIG-4880) | Overlapping of parameter substitution names inside&outside a macro fails with NPE |  Major | parser | Koji Noguchi | Koji Noguchi |
+| [PIG-4889](https://issues.apache.org/jira/browse/PIG-4889) | Replacing backslash fails as lexical error |  Minor | parser | Koji Noguchi | Koji Noguchi |
 
 
 ### TESTS:

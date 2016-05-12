@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 1.6.2 - Unreleased (as of 2016-04-25)
+## Release 1.6.2 - Unreleased (as of 2016-05-12)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -57,8 +57,10 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-13023](https://issues.apache.org/jira/browse/SPARK-13023) | Check for presence of 'root' module after computing test\_modules, not changed\_modules |  Major | Project Infra | Josh Rosen | Josh Rosen |
 | [SPARK-13444](https://issues.apache.org/jira/browse/SPARK-13444) | QuantileDiscretizer chooses bad splits on large DataFrames |  Major | MLlib | Oliver Pierson | Oliver Pierson |
 | [SPARK-12941](https://issues.apache.org/jira/browse/SPARK-12941) | Spark-SQL JDBC Oracle dialect fails to map string datatypes to Oracle VARCHAR datatype |  Major | Spark Core | Jose Martinez Poblete | Thomas Sebastian |
+| [SPARK-13522](https://issues.apache.org/jira/browse/SPARK-13522) | Executor should kill itself when it's unable to heartbeat to the driver more than N times |  Major | Spark Core | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-13652](https://issues.apache.org/jira/browse/SPARK-13652) | TransportClient.sendRpcSync returns wrong results |  Major | . | huangyu | Shixiong Zhu |
 | [SPARK-13705](https://issues.apache.org/jira/browse/SPARK-13705) | UpdateStateByKey Operation documentation incorrectly refers to StatefulNetworkWordCount |  Trivial | Documentation | Rishi | Rishi |
 | [SPARK-13648](https://issues.apache.org/jira/browse/SPARK-13648) | org.apache.spark.sql.hive.client.VersionsSuite fails NoClassDefFoundError on IBM JDK |  Minor | SQL | Tim Preece | Tim Preece |
@@ -97,6 +99,16 @@
 | [SPARK-13227](https://issues.apache.org/jira/browse/SPARK-13227) | Risky apply() in OpenHashMap |  Minor | Spark Core | Nan Zhu | Nan Zhu |
 | [SPARK-14679](https://issues.apache.org/jira/browse/SPARK-14679) | UI DAG visualization causes OOM generating data |  Major | Web UI | Ryan Blue | Ryan Blue |
 | [SPARK-14739](https://issues.apache.org/jira/browse/SPARK-14739) | Vectors.parse doesn't handle dense vectors of size 0 and sparse vectors with no indices |  Major | MLlib, PySpark | Maciej Szymkiewicz | Arash Parsa |
+| [SPARK-14159](https://issues.apache.org/jira/browse/SPARK-14159) | StringIndexerModel sets output column metadata incorrectly |  Minor | ML | Joseph K. Bradley | Joseph K. Bradley |
+| [SPARK-14671](https://issues.apache.org/jira/browse/SPARK-14671) | Pipeline.setStages needs to handle Array non-covariance |  Minor | ML | Joseph K. Bradley | Joseph K. Bradley |
+| [SPARK-14965](https://issues.apache.org/jira/browse/SPARK-14965) | StructType throws exception for missing field |  Minor | SQL | Gregory Hart | Gregory Hart |
+| [SPARK-14757](https://issues.apache.org/jira/browse/SPARK-14757) | Incorrect behavior of Join operation in Spqrk SQL JOIN : "false" in the left table is joined to "null" on the right table |  Major | SQL | HUANG Hong | Reynold Xin |
+| [SPARK-14915](https://issues.apache.org/jira/browse/SPARK-14915) | Tasks that fail due to CommitDeniedException (a side-effect of speculation) can cause job to never complete |  Critical | . | Jason Moore | Jason Moore |
+| [SPARK-13566](https://issues.apache.org/jira/browse/SPARK-13566) | Deadlock between MemoryStore and BlockManager |  Major | Block Manager, Spark Core | cen yuhai | cen yuhai |
+| [SPARK-15209](https://issues.apache.org/jira/browse/SPARK-15209) | Web UI's timeline visualizations fails to render if descriptions contain single quotes |  Major | Web UI | Josh Rosen | Josh Rosen |
+| [SPARK-14495](https://issues.apache.org/jira/browse/SPARK-14495) | Distinct aggregation cannot be used in the having clause |  Major | SQL | Yin Huai | Xin Wu |
+| [SPARK-15260](https://issues.apache.org/jira/browse/SPARK-15260) | UnifiedMemoryManager could be in bad state if any exception happen while evicting blocks |  Major | Spark Core | Davies Liu | Andrew Or |
+| [SPARK-15262](https://issues.apache.org/jira/browse/SPARK-15262) | race condition in killing an executor and reregistering an executor |  Major | Spark Core | Shixiong Zhu | Andrew Or |
 
 
 ### TESTS:
@@ -116,5 +128,6 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [SPARK-14618](https://issues.apache.org/jira/browse/SPARK-14618) | RegressionEvaluator doc out of date |  Minor | Documentation, ML | Joseph K. Bradley | Joseph K. Bradley |
+| [SPARK-15223](https://issues.apache.org/jira/browse/SPARK-15223) | spark.executor.logs.rolling.maxSize wrongly referred to as spark.executor.logs.rolling.size.maxBytes |  Minor | Documentation | Philipp Hoffmann | Philipp Hoffmann |
 
 

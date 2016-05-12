@@ -89,16 +89,30 @@ PIG-4713 Document Bloom UDF
 
 ---
 
-* [PIG-4833](https://issues.apache.org/jira/browse/PIG-4833) | *Minor* | **TestBuiltin.testURIWithCurlyBrace in TEZ failing after PIG-4819**
+* [PIG-4796](https://issues.apache.org/jira/browse/PIG-4796) | *Major* | **Authenticate with Kerberos using a keytab file**
 
-**WARNING: No release note provided for this change.**
+Support for logging in into a Kerberos secured Hadoop cluster using a keytab file to allow running jobs that last longer than the maximum Kerberos ticket lifetime.
 
 
 ---
 
-* [PIG-4796](https://issues.apache.org/jira/browse/PIG-4796) | *Major* | **Authenticate with Kerberos using a keytab file**
+* [PIG-4581](https://issues.apache.org/jira/browse/PIG-4581) | *Trivial* | **thread safe issue in NodeIdGenerator**
 
-Support for logging in into a Kerberos secured Hadoop cluster using a keytab file to allow running jobs that last longer than the maximum Kerberos ticket lifetime.
+ThreadSafe version of NodeIdGenerator
+
+
+---
+
+* [PIG-4526](https://issues.apache.org/jira/browse/PIG-4526) | *Major* | **Make setting up the build environment easier**
+
+A docker based build environment was added to allow for easier and more consistent builds.
+
+
+---
+
+* [PIG-4880](https://issues.apache.org/jira/browse/PIG-4880) | *Major* | **Overlapping of parameter substitution names inside&outside a macro fails with NPE**
+
+Now, macro argument/return names can overlap with parameter substitution names.  Former value is taken for these cases.
 
 
 

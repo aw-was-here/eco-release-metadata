@@ -18,7 +18,7 @@
 -->
 # Apache Yetus Changelog
 
-## Release 0.3.0 - Unreleased (as of 2016-04-25)
+## Release 0.3.0 - 2016-05-16
 
 ### INCOMPATIBLE CHANGES:
 
@@ -55,6 +55,10 @@
 | [YETUS-382](https://issues.apache.org/jira/browse/YETUS-382) | launch-test-patch.sh has shellcheck issues |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-381](https://issues.apache.org/jira/browse/YETUS-381) | fix config.rb rubocop issues |  Major | build | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-321](https://issues.apache.org/jira/browse/YETUS-321) | releasedocmaker.py lint mode enhancements |  Major | Release Doc Maker | Andrew Wang | Andrew Wang |
+| [YETUS-383](https://issues.apache.org/jira/browse/YETUS-383) | fix releasedocmaker pylint issues |  Major | build, Release Doc Maker | Allen Wittenauer | Allen Wittenauer |
+| [YETUS-387](https://issues.apache.org/jira/browse/YETUS-387) | fix some dockerfile issues |  Blocker | build, Test Patch | Allen Wittenauer | Allen Wittenauer |
+| [YETUS-331](https://issues.apache.org/jira/browse/YETUS-331) | post-r0.2.0 doc feedback |  Major | website and documentation | Allen Wittenauer | Allen Wittenauer |
+| [YETUS-364](https://issues.apache.org/jira/browse/YETUS-364) | make building source archive POSIX-compliant |  Major | build | Kengo Seki | Kengo Seki |
 
 
 ### BUG FIXES:
@@ -73,6 +77,10 @@
 | [YETUS-377](https://issues.apache.org/jira/browse/YETUS-377) | clean up whitespace |  Major | website and documentation | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-65](https://issues.apache.org/jira/browse/YETUS-65) | fix shellcheck 4.1 errors |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-359](https://issues.apache.org/jira/browse/YETUS-359) | shellcheck needs UTF-8 protection |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
+| [YETUS-388](https://issues.apache.org/jira/browse/YETUS-388) | test-patch fails when no maven found |  Blocker | Test Patch | Allen Wittenauer | Allen Wittenauer |
+| [YETUS-391](https://issues.apache.org/jira/browse/YETUS-391) | test-patch regards git 1.7.1x is lower than 1.7.3 |  Major | Test Patch | Kengo Seki | Kengo Seki |
+| [YETUS-394](https://issues.apache.org/jira/browse/YETUS-394) | Minor fixes to contributor guide and website |  Trivial | website and documentation | Aldrin Piri | Aldrin Piri |
+| [YETUS-393](https://issues.apache.org/jira/browse/YETUS-393) | docker check fails for 1.10+ |  Blocker | Test Patch | Allen Wittenauer | Allen Wittenauer |
 
 
 ### TESTS:

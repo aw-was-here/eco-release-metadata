@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.10.0.1 - Unreleased (as of 2016-04-25)
+## Release 0.10.0.1 - Unreleased (as of 2016-05-12)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -55,6 +55,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-3634](https://issues.apache.org/jira/browse/KAFKA-3634) | Add ducktape tests for upgrade with SASL |  Major | . | Rajini Sivaram | Rajini Sivaram |
 
 
 ### SUB-TASKS:

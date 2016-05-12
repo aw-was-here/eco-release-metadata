@@ -18,7 +18,7 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.8.3 - Unreleased (as of 2016-04-25)
+## Release 0.8.3 - 2016-04-15
 
 ### INCOMPATIBLE CHANGES:
 

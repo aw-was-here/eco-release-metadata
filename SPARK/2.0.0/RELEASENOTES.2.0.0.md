@@ -297,4 +297,13 @@ org.apache.spark.sql.DatasetAggregatorSuite
 {code}
 
 
+---
+
+* [SPARK-14897](https://issues.apache.org/jira/browse/SPARK-14897) | *Major* | **Upgrade Jetty to latest version of 8/9**
+
+It looks like the head/master branch of Spark uses quite an old version of Jetty: 8.1.14.v20131031
+
+There have been some announcement of security vulnerabilities, notably in 2015 and there are versions of both 8 and 9 that address those. We recently left a web-ui port open and had the server compromised within days. Albeit, this upgrade shouldn't be the only security improvement made, the current version is clearly vulnerable, as-is.
+
+
 

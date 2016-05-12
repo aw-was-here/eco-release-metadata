@@ -288,6 +288,13 @@ Limit on Maximum number of ACL entries(32) will be enforced separately on access
 
 ---
 
+* [HADOOP-12269](https://issues.apache.org/jira/browse/HADOOP-12269) | *Major* | **Update aws-sdk dependency to 1.10.6; move to aws-sdk-s3**
+
+**WARNING: No release note provided for this change.**
+
+
+---
+
 * [HDFS-8818](https://issues.apache.org/jira/browse/HDFS-8818) | *Major* | **Allow Balancer to run faster**
 
 Add a new conf "dfs.balancer.max-size-to-move" so that Balancer.MAX\_SIZE\_TO\_MOVE becomes configurable.
@@ -655,6 +662,20 @@ Backport the fix to 2.7 and 2.8
 * [HDFS-9945](https://issues.apache.org/jira/browse/HDFS-9945) | *Major* | **Datanode command for evicting writers**
 
 This new dfsadmin command, evictWriters, stops active block writing activities on a data node. The affected writes will continue without the node after a write pipeline recovery. This is useful when data node decommissioning is blocked by slow writers. If issued against a non-decommissioing data node, all current writers will be stopped, but new write requests will continue to be served.
+
+
+---
+
+* [HDFS-3702](https://issues.apache.org/jira/browse/HDFS-3702) | *Minor* | **Add an option for NOT writing the blocks locally if there is a datanode on the same box as the client**
+
+This patch will attempt to allocate all replicas to remote DataNodes, by adding local DataNode to the excluded DataNodes. If no sufficient replicas can be obtained, it will fall back to default block placement policy, which writes one replica to local DataNode.
+
+
+---
+
+* [HDFS-9902](https://issues.apache.org/jira/browse/HDFS-9902) | *Major* | **Support different values of dfs.datanode.du.reserved per storage type**
+
+Reserved space can be configured independently for different storage types for clusters with heterogeneous storage. The 'dfs.datanode.du.reserved' property name can be suffixed with a storage types (i.e. one of ssd, disk, archival or ram\_disk). e.g. reserved space for RAM\_DISK storage can be configured using the property 'dfs.datanode.du.reserved.ram\_disk'. If specific storage type reservation is not configured then the value specified by 'dfs.datanode.du.reserved' will be used for all volumes.
 
 
 
