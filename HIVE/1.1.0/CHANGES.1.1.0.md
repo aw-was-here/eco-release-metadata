@@ -280,7 +280,6 @@
 | [HIVE-9300](https://issues.apache.org/jira/browse/HIVE-9300) | Make TCompactProtocol configurable |  Major | Metastore | Prasanth Jayachandran | Prasanth Jayachandran |
 | [HIVE-9242](https://issues.apache.org/jira/browse/HIVE-9242) | Many places in CBO code eat exceptions |  Blocker | . | Brock Noland |  |
 | [HIVE-9316](https://issues.apache.org/jira/browse/HIVE-9316) | TestSqoop tests in WebHCat testsuite hardcode libdir path to hdfs |  Minor | Tests, WebHCat | Deepesh Khandelwal | Deepesh Khandelwal |
-| [HIVE-9296](https://issues.apache.org/jira/browse/HIVE-9296) | Need to add schema upgrade changes for queueing events in the database |  Major | Metastore | Alan Gates | Alan Gates |
 | [HIVE-9309](https://issues.apache.org/jira/browse/HIVE-9309) | schematool fails on Postgres 8.1 |  Major | Database/Schema | Mohit Sabharwal | Mohit Sabharwal |
 | [HIVE-9310](https://issues.apache.org/jira/browse/HIVE-9310) | CLI JLine does not flush history back to ~/.hivehistory |  Minor | CLI | Gopal V | Gopal V |
 | [HIVE-9351](https://issues.apache.org/jira/browse/HIVE-9351) | Running Hive Jobs with Tez cause templeton to never report percent complete |  Major | WebHCat | Eugene Koifman | Eugene Koifman |
@@ -617,6 +616,7 @@
 | [HIVE-9323](https://issues.apache.org/jira/browse/HIVE-9323) | Merge from trunk to spark 1/8/2015 |  Major | Spark | Szehon Ho | Szehon Ho |
 | [HIVE-9251](https://issues.apache.org/jira/browse/HIVE-9251) | SetSparkReducerParallelism is likely to set too small number of reducers [Spark Branch] |  Major | Spark | Rui Li | Rui Li |
 | [HIVE-9326](https://issues.apache.org/jira/browse/HIVE-9326) | BaseProtocol.Error failed to deserialization due to NPE.[Spark Branch] |  Major | Spark | Chengxiang Li | Chengxiang Li |
+| [HIVE-9296](https://issues.apache.org/jira/browse/HIVE-9296) | Need to add schema upgrade changes for queueing events in the database |  Major | Metastore | Alan Gates | Alan Gates |
 | [HIVE-7674](https://issues.apache.org/jira/browse/HIVE-7674) | Update to Spark 1.2 [Spark Branch] |  Blocker | Spark | Brock Noland | Brock Noland |
 | [HIVE-9104](https://issues.apache.org/jira/browse/HIVE-9104) | windowing.q failed when mapred.reduce.tasks is set to larger than one |  Major | PTF-Windowing | Chao Sun | Chao Sun |
 | [HIVE-9257](https://issues.apache.org/jira/browse/HIVE-9257) | Merge from spark to trunk January 2015 |  Major | Spark | Szehon Ho | Szehon Ho |

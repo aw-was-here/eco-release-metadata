@@ -38,4 +38,22 @@ e.g.
 hbase org.apache.hadoop.hbase.procedure2.store.wal.ProcedureWALPrettyPrinter -f /hbase/MasterProcWALs/state-00000000000000002571.log
 
 
+---
+
+* [HBASE-15645](https://issues.apache.org/jira/browse/HBASE-15645) | *Critical* | **hbase.rpc.timeout is not used in operations of HTable**
+
+Fixes regression where hbase.rpc.timeout configuration was ignored in branch-1.0+
+
+Adds new methods setOperationTimeout, getOperationTimeout, setRpcTimeout, and getRpcTimeout to Table. In branch-1.3+ they are public interfaces and in 1.0-1.2 they are labeled as @InterfaceAudience.Private.
+
+Adds hbase.client.operation.timeout to hbase-default.xml with default of 1200000
+
+
+---
+
+* [HBASE-15720](https://issues.apache.org/jira/browse/HBASE-15720) | *Major* | **Print row locks at the debug dump page**
+
+Adds a section to the debug dump page listing current row locks held.
+
+
 

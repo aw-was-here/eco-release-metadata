@@ -251,4 +251,67 @@ When an explicit Get with a one or more columns specified, we at a minimum, were
 There remains one case where we will still 'overread'. It is when the row end aligns with the end of the block. In this case we will load the next block just to find that there are no more cells in the current row. See HBASE-15457.
 
 
+---
+
+* [HBASE-15645](https://issues.apache.org/jira/browse/HBASE-15645) | *Critical* | **hbase.rpc.timeout is not used in operations of HTable**
+
+Fixes regression where hbase.rpc.timeout configuration was ignored in branch-1.0+
+
+Adds new methods setOperationTimeout, getOperationTimeout, setRpcTimeout, and getRpcTimeout to Table. In branch-1.3+ they are public interfaces and in 1.0-1.2 they are labeled as @InterfaceAudience.Private.
+
+Adds hbase.client.operation.timeout to hbase-default.xml with default of 1200000
+
+
+---
+
+* [HBASE-15713](https://issues.apache.org/jira/browse/HBASE-15713) | *Major* | **Backport "HBASE-15477 Do not save 'next block header' when we cache hfileblocks"**
+
+(Release note has been ported from the master issue -- with an addendum)
+
+Fix over-persisting in blockcache; no longer save the block PLUS the header of the next block (3 bytes) when writing the cache.
+
+Also removes support for hfileblock v1; hfile block v1 was used writing hfile v1. hfile v1 was the default in hbase before hbase-0.92. hbase.96 would not start unless all v1 hfiles had been compacted out of the cluster.
+
+This patch also removed the tests TestUpgradeTo96 and TestMetaMigrationConvertingToPB, tests deprecated since hbase-0.96 since they required support for hfile v1 (which this patch removes).  HBASE-11611 removed these tests from master.
+
+
+---
+
+* [HBASE-15686](https://issues.apache.org/jira/browse/HBASE-15686) | *Major* | **Add override mechanism for the exempt classes when dynamically loading table coprocessor**
+
+New coprocessor table descriptor attribute, hbase.coprocessor.classloader.included.classes, is added.
+User can specify class name prefixes (semicolon separated) which should be loaded by CoprocessorClassLoader through this attribute using the following syntax:
+{code}
+  hbase\> alter 't1',    'coprocessor'=\>'hdfs:///foo.jar\|com.foo.FooRegionObserver\|1001\|arg1=1,arg2=2'
+{code}
+
+
+---
+
+* [HBASE-15711](https://issues.apache.org/jira/browse/HBASE-15711) | *Major* | **Add client side property to allow logging details for batch errors**
+
+In HBASE-15711 a new client side property hbase.client.log.batcherrors.details is introduced to allow logging full stacktrace of exceptions for batch error. It's disabled by default and set the property to true will enable it.
+
+
+---
+
+* [HBASE-15720](https://issues.apache.org/jira/browse/HBASE-15720) | *Major* | **Print row locks at the debug dump page**
+
+Adds a section to the debug dump page listing current row locks held.
+
+
+---
+
+* [HBASE-15740](https://issues.apache.org/jira/browse/HBASE-15740) | *Major* | **Replication source.shippedKBs metric is undercounting because it is in KB**
+
+Deprecated Replication source.shippedKBs metric in favor of source.shippedBytes
+
+
+---
+
+* [HBASE-15801](https://issues.apache.org/jira/browse/HBASE-15801) | *Major* | **Upgrade checkstyle for all branches**
+
+All active branches now use maven-checkstyle-plugin 2.17 and checkstyle 6.18.
+
+
 

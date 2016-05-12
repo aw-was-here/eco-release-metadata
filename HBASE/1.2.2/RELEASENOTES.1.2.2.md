@@ -43,4 +43,36 @@ The blockcache UI tab would stop refreshing at 100k blocks (configurable, see "h
 Also, when beyond the limit give the user a noticeable WARNING in the UI.
 
 
+---
+
+* [HBASE-15645](https://issues.apache.org/jira/browse/HBASE-15645) | *Critical* | **hbase.rpc.timeout is not used in operations of HTable**
+
+Fixes regression where hbase.rpc.timeout configuration was ignored in branch-1.0+
+
+Adds new methods setOperationTimeout, getOperationTimeout, setRpcTimeout, and getRpcTimeout to Table. In branch-1.3+ they are public interfaces and in 1.0-1.2 they are labeled as @InterfaceAudience.Private.
+
+Adds hbase.client.operation.timeout to hbase-default.xml with default of 1200000
+
+
+---
+
+* [HBASE-15551](https://issues.apache.org/jira/browse/HBASE-15551) | *Minor* | **Make call queue too big exception use servername**
+
+Fixes issue when CallQueueTooBig exception returned to the client could print useless address info (like 0.0.0.0) if RPC server is listening on something other than the host name, making troubleshooting inconvenient.
+
+
+---
+
+* [HBASE-15720](https://issues.apache.org/jira/browse/HBASE-15720) | *Major* | **Print row locks at the debug dump page**
+
+Adds a section to the debug dump page listing current row locks held.
+
+
+---
+
+* [HBASE-15801](https://issues.apache.org/jira/browse/HBASE-15801) | *Major* | **Upgrade checkstyle for all branches**
+
+All active branches now use maven-checkstyle-plugin 2.17 and checkstyle 6.18.
+
+
 

@@ -89,7 +89,7 @@ ${RDM} --project HADOOP --project HDFS \
 
 ${RDM} --project HADOOP --project HDFS --project YARN --project MAPREDUCE \
         --projecttitle "Apache Hadoop" \
-        --range --version 2.7.3 --version 3.0.0 \
+        --range --version 2.7.3 --version 3.1.0 \
         --index --license \
         --outputdir HADOOP
 

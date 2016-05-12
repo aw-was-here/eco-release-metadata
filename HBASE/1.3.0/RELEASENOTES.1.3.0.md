@@ -801,7 +801,7 @@ Previously RPC request scheduler in HBase had 2 modes in could operate in:
 
 This patch adds new type of scheduler to HBase, based on the research around controlled delay (CoDel) algorithm [1], used in networking to combat bufferbloat, as well as some analysis on generalizing it to generic request queues [2]. The purpose of that work is to prevent long standing call queues caused by discrepancy between request rate and available throughput, caused by kernel/disk IO/networking stalls.
 
-New RPC scheduler could be enabled by setting hbase.ipc.server.callqueue.type=codel in configuration. Several additional params allows to configure algorithm behavior - 
+New RPC scheduler could be enabled by setting hbase.ipc.server.callqueue.type=codel in configuration. Several additional params allow to configure algorithm behavior - 
 
 hbase.ipc.server.callqueue.codel.target.delay
 hbase.ipc.server.callqueue.codel.interval
@@ -1042,6 +1042,95 @@ Adds storeFileSize, memstoreSize and tableSize to the per-table metrics.
 When an explicit Get with a one or more columns specified, we at a minimum, were overseeking, reading until we tripped over the next row, regardless, and only then returning. If the next row was in-block, we'd just do too much seeking but if the next row was in the next (or in the next block beyond that), we would keep seeking and loading blocks until we found the next row before we'd return.
 
 There remains one case where we will still 'overread'. It is when the row end aligns with the end of the block. In this case we will load the next block just to find that there are no more cells in the current row. See HBASE-15457.
+
+
+---
+
+* [HBASE-15645](https://issues.apache.org/jira/browse/HBASE-15645) | *Critical* | **hbase.rpc.timeout is not used in operations of HTable**
+
+Fixes regression where hbase.rpc.timeout configuration was ignored in branch-1.0+
+
+Adds new methods setOperationTimeout, getOperationTimeout, setRpcTimeout, and getRpcTimeout to Table. In branch-1.3+ they are public interfaces and in 1.0-1.2 they are labeled as @InterfaceAudience.Private.
+
+Adds hbase.client.operation.timeout to hbase-default.xml with default of 1200000
+
+
+---
+
+* [HBASE-15713](https://issues.apache.org/jira/browse/HBASE-15713) | *Major* | **Backport "HBASE-15477 Do not save 'next block header' when we cache hfileblocks"**
+
+(Release note has been ported from the master issue -- with an addendum)
+
+Fix over-persisting in blockcache; no longer save the block PLUS the header of the next block (3 bytes) when writing the cache.
+
+Also removes support for hfileblock v1; hfile block v1 was used writing hfile v1. hfile v1 was the default in hbase before hbase-0.92. hbase.96 would not start unless all v1 hfiles had been compacted out of the cluster.
+
+This patch also removed the tests TestUpgradeTo96 and TestMetaMigrationConvertingToPB, tests deprecated since hbase-0.96 since they required support for hfile v1 (which this patch removes).  HBASE-11611 removed these tests from master.
+
+
+---
+
+* [HBASE-14970](https://issues.apache.org/jira/browse/HBASE-14970) | *Major* | **Backport HBASE-13082 and its sub-jira to branch-1**
+
+After this JIRA we will not be doing any scanner reset after compaction during a course of a scan. The files that were compacted will still be continued to be used in the scan process. The compacted files will be archived by a background thread that runs every 2 mins by default only when there are no active scanners on those comapcted files.
+
+'hbase.hfile.compaction.discharger.interval' describes the interval after which the compaction discharger chore service should run. 
+The property 'hbase.hfile.compaction.discharger.thread.count' describes the thread count that does the compaction discharge work. 
+
+The CompactedHFilesDischarger is a chore service now started as part of the RegionServer and this chore service iterates over all the onlineRegions in that RS and uses the RegionServer's executor service to launch a set of threads that does this job of compaction files clean up.
+
+
+---
+
+* [HBASE-15551](https://issues.apache.org/jira/browse/HBASE-15551) | *Minor* | **Make call queue too big exception use servername**
+
+Fixes issue when CallQueueTooBig exception returned to the client could print useless address info (like 0.0.0.0) if RPC server is listening on something other than the host name, making troubleshooting inconvenient.
+
+
+---
+
+* [HBASE-15281](https://issues.apache.org/jira/browse/HBASE-15281) | *Major* | **Allow the FileSystem inside HFileSystem to be wrapped**
+
+This patch adds new configuration property - hbase.fs.wrapper. If provided, it should be fully qualified class name of the class used as a pluggable wrapper for HFileSystem. This may be useful for specific debugging/tracing needs.
+
+
+---
+
+* [HBASE-15703](https://issues.apache.org/jira/browse/HBASE-15703) | *Critical* | **Deadline scheduler needs to return to the client info about skipped calls, not just drop them**
+
+With previous deadline mode of RPC scheduling (the implementation in SimpleRpcScheduler, which is basically a FIFO except that long-running scans are de-prioritized) and FIFO-based RPC scheduler clients are getting CallQueueTooBigException when RPC call queue is full.
+
+With this patch and when hbase.ipc.server.callqueue.type property is set to "codel" mode, clients will also be getting CallDroppedException, which means that the request was discarded by the server as it considers itself to be overloaded and starts to drop requests to avoid going down under the load. The clients will retry upon receiving this exception. It doesn't clear MetaCache with region locations.
+
+
+---
+
+* [HBASE-15720](https://issues.apache.org/jira/browse/HBASE-15720) | *Major* | **Print row locks at the debug dump page**
+
+Adds a section to the debug dump page listing current row locks held.
+
+
+---
+
+* [HBASE-15773](https://issues.apache.org/jira/browse/HBASE-15773) | *Major* | **CellCounter improvements**
+
+The CellCounter map reduce job now supports additional configuration options on the Scan instance it creates, using the org.apache.hadoop.hbase.mapreduce.TableInputFormat defined property names.  For a full list of the options, run ./hbase org.apache.hadoop.hbase.mapreduce.CellCounter with no arguments.
+
+CellCounter also no longer creates job counters for per-rowkey and per-rowkey/qualifier cell counts.  For most tables, these counters would cause the job to fail due to mapreduce job counter limits.
+
+
+---
+
+* [HBASE-15740](https://issues.apache.org/jira/browse/HBASE-15740) | *Major* | **Replication source.shippedKBs metric is undercounting because it is in KB**
+
+Deprecated Replication source.shippedKBs metric in favor of source.shippedBytes
+
+
+---
+
+* [HBASE-15801](https://issues.apache.org/jira/browse/HBASE-15801) | *Major* | **Upgrade checkstyle for all branches**
+
+All active branches now use maven-checkstyle-plugin 2.17 and checkstyle 6.18.
 
 
 
