@@ -351,6 +351,13 @@ Reading legacy ACID formats (prior to 1.3.0) no longer results in an NPE.
 
 ---
 
+* [HIVE-12063](https://issues.apache.org/jira/browse/HIVE-12063) | *Major* | **Pad Decimal numbers with trailing zeros to the scale of the column**
+
+**WARNING: No release note provided for this change.**
+
+
+---
+
 * [HIVE-12320](https://issues.apache.org/jira/browse/HIVE-12320) | *Major* | **hive.metastore.disallow.incompatible.col.type.changes should be true by default**
 
 **WARNING: No release note provided for this change.**

@@ -40,6 +40,7 @@ This changes various verify\_ functions such that 0 is always yes/true and 1 is 
 * [YETUS-300](https://issues.apache.org/jira/browse/YETUS-300) | *Blocker* | **CHANGED\_FILES, CHANGED\_MODULES, etc should really be arrays**
 
 <!-- markdown -->
+
 Users:
 
 * precommit should now have much better support for source trees with files that have spaces in them.
@@ -63,6 +64,7 @@ See the docs for more information.
 * [YETUS-326](https://issues.apache.org/jira/browse/YETUS-326) | *Major* | **Make releasedocmaker.py lint filters configurable**
 
 <!-- markdown -->
+
 Users of release doc maker can now specify which lint checks they would like used via the `--lint` command line arguement. Available options are:
 
 * "incompatible" - issues flagged incompatible should have release notes
@@ -80,6 +82,7 @@ For backwards compatibility, the `releasedocmaker` wrapper script included in th
 * [YETUS-156](https://issues.apache.org/jira/browse/YETUS-156) | *Major* | **[Umbrella] build driver**
 
 <!-- markdown -->
+
 For users:
 
 This patch adds the qbt ("quality build tool") command in order to run test-patch as a regularly scheduled reporting tool against a source tree without the necessity of providing a patch file.

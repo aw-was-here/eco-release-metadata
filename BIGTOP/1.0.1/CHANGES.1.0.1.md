@@ -18,30 +18,8 @@
 -->
 # Apache BigTop Changelog
 
-## Release 1.0.1 - Unreleased (as of 2016-05-12)
+## Release 1.0.1 - Unreleased (as of 2016-07-14)
 
-### INCOMPATIBLE CHANGES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
-### IMPORTANT ISSUES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
-### NEW FEATURES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
-### IMPROVEMENTS:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### BUG FIXES:
@@ -55,23 +33,5 @@
 | [BIGTOP-2201](https://issues.apache.org/jira/browse/BIGTOP-2201) | Fix BIGTOP-2200 again |  Major | toolchain | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-2190](https://issues.apache.org/jira/browse/BIGTOP-2190) | libprotobuf8 2.5.0 installation fails on ubuntu 14.04 for ppc64le |  Major | build, docker, toolchain | Amir Sanjar | Amir Sanjar |
 | [BIGTOP-2255](https://issues.apache.org/jira/browse/BIGTOP-2255) | bigtop/deploy:ubuntu-15.04 image does not support ppc64le |  Critical | build, docker | Amir Sanjar | Amir Sanjar |
-
-
-### TESTS:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
-### SUB-TASKS:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
-### OTHER:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
 
 

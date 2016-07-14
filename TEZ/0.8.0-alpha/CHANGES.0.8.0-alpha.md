@@ -29,18 +29,6 @@
 | [TEZ-2565](https://issues.apache.org/jira/browse/TEZ-2565) | Consider scanning unfinished tasks in VertexImpl::constructStatistics to reduce merge overhead |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 
 
-### IMPORTANT ISSUES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
-### NEW FEATURES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
 ### IMPROVEMENTS:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
@@ -141,12 +129,6 @@
 | [TEZ-2687](https://issues.apache.org/jira/browse/TEZ-2687) | ATS History shutdown happens before the min-held containers are released |  Major | . | Gopal V | Jeff Zhang |
 | [TEZ-2740](https://issues.apache.org/jira/browse/TEZ-2740) | Create a reconfigureVertex alias for deprecated setVertexParallelism API |  Blocker | . | Bikas Saha | Bikas Saha |
 | [TEZ-2743](https://issues.apache.org/jira/browse/TEZ-2743) | TezContainerLauncher logging tokens |  Major | . | Siddharth Seth | Siddharth Seth |
-
-
-### TESTS:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### SUB-TASKS:

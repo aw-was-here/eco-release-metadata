@@ -20,22 +20,6 @@
 
 ## Release 1.0.3 - 2016-01-28
 
-### INCOMPATIBLE CHANGES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
-### IMPORTANT ISSUES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
-### NEW FEATURES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### IMPROVEMENTS:
@@ -156,6 +140,7 @@
 | [HBASE-15031](https://issues.apache.org/jira/browse/HBASE-15031) | Fix merge of MVCC and SequenceID performance regression in branch-1.0 for Increments |  Major | Performance | stack | stack |
 | [HBASE-15095](https://issues.apache.org/jira/browse/HBASE-15095) | isReturnResult=false  on fast path in branch-1.1 and branch-1.0 is not respected |  Major | Performance | stack | Heng Chen |
 | [HBASE-14221](https://issues.apache.org/jira/browse/HBASE-14221) | Reduce the number of time row comparison is done in a Scan |  Major | Scanners | ramkrishna.s.vasudevan | ramkrishna.s.vasudevan |
+| [HBASE-16180](https://issues.apache.org/jira/browse/HBASE-16180) | Fix ST\_WRITE\_TO\_STATIC\_FROM\_INSTANCE\_METHOD findbugs introduced by parent |  Major | regionserver | stack | stack |
 
 
 ### OTHER:

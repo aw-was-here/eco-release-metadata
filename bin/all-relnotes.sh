@@ -53,11 +53,11 @@ common_rdm yetus 0.1.0 1.0.0
 
 common_rdm bigtop 1.0.1 2.0.0 BigTop
 
-common_rdm flink 0.9.2 1.0.0
+common_rdm flink 1.0.0 2.0.0
 
 common_rdm hbase 1.0.3 2.0.0 HBase
 
-common_rdm hive 1.1.0 2.0.0
+common_rdm hive 1.1.0 3.0.0
 
 common_rdm oozie 4.3.0 5.0.0
 

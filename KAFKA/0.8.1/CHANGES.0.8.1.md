@@ -20,16 +20,6 @@
 
 ## Release 0.8.1 - 2014-03-12
 
-### INCOMPATIBLE CHANGES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
-### IMPORTANT ISSUES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### NEW FEATURES:
@@ -62,6 +52,7 @@
 | [KAFKA-1232](https://issues.apache.org/jira/browse/KAFKA-1232) | make TopicCommand more consistent |  Major | core | Jun Rao | Jun Rao |
 | [KAFKA-1158](https://issues.apache.org/jira/browse/KAFKA-1158) | remove bin/run-rat.sh |  Major | . | Joe Stein |  |
 | [KAFKA-1171](https://issues.apache.org/jira/browse/KAFKA-1171) | Gradle build for Kafka |  Blocker | packaging | David Arthur | David Arthur |
+| [KAFKA-855](https://issues.apache.org/jira/browse/KAFKA-855) | Ant+Ivy build for Kafka |  Major | . | David Arthur |  |
 
 
 ### BUG FIXES:
@@ -70,6 +61,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [KAFKA-648](https://issues.apache.org/jira/browse/KAFKA-648) | Use uniform convention for naming properties keys |  Blocker | . | Swapnil Ghike | Sriram Subramanian |
 | [KAFKA-515](https://issues.apache.org/jira/browse/KAFKA-515) | Log cleanup can close a file channel opnened by Log.read before the transfer completes |  Major | . | Swapnil Ghike | Jay Kreps |
+| [KAFKA-771](https://issues.apache.org/jira/browse/KAFKA-771) | NPE in handleOffsetCommitRequest |  Major | core | David Arthur | David Arthur |
 | [KAFKA-671](https://issues.apache.org/jira/browse/KAFKA-671) | DelayedProduce requests should not hold full producer request data |  Blocker | . | Joel Koshy | Sriram Subramanian |
 | [KAFKA-759](https://issues.apache.org/jira/browse/KAFKA-759) | Commit/FetchOffset APIs should not return versionId |  Minor | core | David Arthur | David Arthur |
 | [KAFKA-897](https://issues.apache.org/jira/browse/KAFKA-897) | NullPointerException in ConsoleConsumer |  Minor | consumer | Colin B. | Neha Narkhede |
@@ -122,13 +114,8 @@
 | [KAFKA-1275](https://issues.apache.org/jira/browse/KAFKA-1275) | fixes for quickstart documentation |  Minor | website | Evan Zacks | Jay Kreps |
 | [KAFKA-1319](https://issues.apache.org/jira/browse/KAFKA-1319) | kafka jar doesn't depend on metrics-annotation any more |  Major | . | Jun Rao | Jun Rao |
 | [KAFKA-1417](https://issues.apache.org/jira/browse/KAFKA-1417) | Very slow initial high-level consumer startup in low traffic/blocking fetch scenario |  Major | consumer | Sam Meder | Neha Narkhede |
+| [KAFKA-1032](https://issues.apache.org/jira/browse/KAFKA-1032) | Messages sent to the old leader will be lost on broker GC resulted failure |  Major | . | Guozhang Wang | Guozhang Wang |
 | [KAFKA-723](https://issues.apache.org/jira/browse/KAFKA-723) | Scala's default case class toString() is very inefficient |  Critical | core | Neha Narkhede |  |
-
-
-### TESTS:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### SUB-TASKS:

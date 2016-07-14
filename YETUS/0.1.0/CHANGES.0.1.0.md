@@ -20,16 +20,6 @@
 
 ## Release 0.1.0 - 2015-12-14
 
-### INCOMPATIBLE CHANGES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
-### IMPORTANT ISSUES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### NEW FEATURES:
@@ -129,18 +119,6 @@
 | [YETUS-223](https://issues.apache.org/jira/browse/YETUS-223) | hadoop: not compiling libwebhdfs in docker mode under jenkins |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-212](https://issues.apache.org/jira/browse/YETUS-212) | "bundle exec middleman" fails due to the lack of js runtime |  Major | website and documentation | Kengo Seki | Kengo Seki |
 | [YETUS-231](https://issues.apache.org/jira/browse/YETUS-231) | Fix dead links in README |  Trivial | website and documentation | Akihiro Suda | Akihiro Suda |
-
-
-### TESTS:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
-### SUB-TASKS:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### OTHER:

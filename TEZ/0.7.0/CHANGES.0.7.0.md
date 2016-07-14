@@ -28,18 +28,6 @@
 | [TEZ-2437](https://issues.apache.org/jira/browse/TEZ-2437) | FilterLinesByWord NPEs when run in Localmode |  Major | . | Amit Tiwari |  |
 
 
-### IMPORTANT ISSUES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
-### NEW FEATURES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
 ### IMPROVEMENTS:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
@@ -180,12 +168,6 @@
 | [TEZ-2752](https://issues.apache.org/jira/browse/TEZ-2752) | logUnsuccessful completion in Attempt should write original finish time to ATS |  Major | . | Bikas Saha | Bikas Saha |
 | [TEZ-3031](https://issues.apache.org/jira/browse/TEZ-3031) | java.lang.NoSuchMethodError |  Major | . | gewenhui |  |
 | [TEZ-3030](https://issues.apache.org/jira/browse/TEZ-3030) | java.lang.NoClassDefFoundError: org/apache/hadoop/mapred/MRVersion |  Major | . | gewenhui |  |
-
-
-### TESTS:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### SUB-TASKS:

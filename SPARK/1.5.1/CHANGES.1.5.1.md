@@ -20,10 +20,6 @@
 
 ## Release 1.5.1 - 2015-10-01
 
-### INCOMPATIBLE CHANGES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### IMPORTANT ISSUES:
@@ -31,12 +27,6 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [SPARK-10716](https://issues.apache.org/jira/browse/SPARK-10716) | spark-1.5.0-bin-hadoop2.6.tgz file doesn't uncompress on OS X due to hidden file |  Minor | Build, Deploy | Jack Jack | Sean Owen |
-
-
-### NEW FEATURES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### IMPROVEMENTS:
@@ -125,12 +115,6 @@
 | [SPARK-6882](https://issues.apache.org/jira/browse/SPARK-6882) | Spark ThriftServer2 Kerberos failed encountering java.lang.IllegalArgumentException: Unknown auth type: null Allowed values are: [auth-int, auth-conf, auth] |  Major | SQL | Andrew Lee | Steve Loughran |
 | [SPARK-11214](https://issues.apache.org/jira/browse/SPARK-11214) | Join with Unicode-String results wrong empty |  Critical | PySpark, SQL | Hans Fischer | Josh Rosen |
 | [SPARK-10548](https://issues.apache.org/jira/browse/SPARK-10548) | Concurrent execution in SQL does not work |  Blocker | SQL | Andrew Or | Andrew Or |
-
-
-### TESTS:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### SUB-TASKS:

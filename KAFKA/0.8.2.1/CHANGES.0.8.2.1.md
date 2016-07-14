@@ -18,30 +18,8 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.8.2.1 - Unreleased (as of 2016-05-12)
+## Release 0.8.2.1 - Unreleased (as of 2016-07-14)
 
-### INCOMPATIBLE CHANGES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
-### IMPORTANT ISSUES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
-### NEW FEATURES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
-### IMPROVEMENTS:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### BUG FIXES:
@@ -55,21 +33,10 @@
 | [KAFKA-1100](https://issues.apache.org/jira/browse/KAFKA-1100) | metrics shouldn't have generation/timestamp specific names |  Major | . | Jason Rosenberg |  |
 
 
-### TESTS:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
 ### SUB-TASKS:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-
-
-### OTHER:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-1281](https://issues.apache.org/jira/browse/KAFKA-1281) | add the new producer to existing tools |  Major | producer | Jun Rao | Neha Narkhede |
 
 

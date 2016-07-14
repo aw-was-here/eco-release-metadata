@@ -20,16 +20,6 @@
 
 ## Release 0.6.0 - 2015-01-23
 
-### INCOMPATIBLE CHANGES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
-### IMPORTANT ISSUES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### NEW FEATURES:
@@ -103,12 +93,6 @@
 | [TEZ-1938](https://issues.apache.org/jira/browse/TEZ-1938) | Build warning duplicate jersey-json definitions |  Major | . | Jonathan Eagles | Jonathan Eagles |
 | [TEZ-1890](https://issues.apache.org/jira/browse/TEZ-1890) | tez-ui web.tar.gz also being uploaded to maven repository |  Blocker | . | Hitesh Shah | Jonathan Eagles |
 | [TEZ-1968](https://issues.apache.org/jira/browse/TEZ-1968) | Tez UI - All vertices of DAG are not listed in vertices page |  Blocker | . | Rajesh Balamohan | Prakash Ramachandran |
-
-
-### TESTS:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### SUB-TASKS:

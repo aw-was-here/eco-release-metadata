@@ -20,10 +20,6 @@
 
 ## Release 1.5.0 - 2015-09-09
 
-### INCOMPATIBLE CHANGES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### IMPORTANT ISSUES:
@@ -296,7 +292,7 @@
 | [SPARK-8933](https://issues.apache.org/jira/browse/SPARK-8933) | Provide a --force flag to build/mvn that always uses downloaded maven |  Major | Build | Patrick Wendell | Brennon York |
 | [SPARK-8718](https://issues.apache.org/jira/browse/SPARK-8718) | Improve EdgePartition2D for non perfect square number of partitions |  Minor | GraphX | Andrew Ray | Andrew Ray |
 | [SPARK-4362](https://issues.apache.org/jira/browse/SPARK-4362) | Make prediction probability available in NaiveBayesModel |  Minor | MLlib | Jatinpreet Singh | Sean Owen |
-| [SPARK-8820](https://issues.apache.org/jira/browse/SPARK-8820) | Add a configuration to set the checkpoint directory for convenience. |  Minor | Streaming | SaintBacchus | SaintBacchus |
+| [SPARK-8820](https://issues.apache.org/jira/browse/SPARK-8820) | Add a configuration to set the checkpoint directory for convenience. |  Minor | Streaming | carlmartin | carlmartin |
 | [SPARK-6259](https://issues.apache.org/jira/browse/SPARK-6259) | Python API for LDA |  Major | MLlib, PySpark | Joseph K. Bradley | Yu Ishikawa |
 | [SPARK-8018](https://issues.apache.org/jira/browse/SPARK-8018) | KMeans should accept initial cluster centers as param |  Major | MLlib | Joseph K. Bradley | Meethu Mathew |
 | [SPARK-8997](https://issues.apache.org/jira/browse/SPARK-8997) | Improve LocalPrefixSpan performance |  Major | MLlib | Xiangrui Meng | Feynman Liang |
@@ -554,7 +550,7 @@
 | [SPARK-8358](https://issues.apache.org/jira/browse/SPARK-8358) | DataFrame explode with alias and \* fails |  Blocker | SQL | Michael Armbrust | Michael Armbrust |
 | [SPARK-8350](https://issues.apache.org/jira/browse/SPARK-8350) | R unit tests output should be logged to "unit-tests.log" |  Minor | SparkR | Andrew Or | Andrew Or |
 | [SPARK-8336](https://issues.apache.org/jira/browse/SPARK-8336) | Fix NullPointerException with functions.rand() |  Major | SQL | Ted Yu | Ted Yu |
-| [SPARK-8367](https://issues.apache.org/jira/browse/SPARK-8367) | ReliableKafka will loss data when `spark.streaming.blockInterval` was 0 |  Major | Streaming | SaintBacchus | SaintBacchus |
+| [SPARK-8367](https://issues.apache.org/jira/browse/SPARK-8367) | ReliableKafka will loss data when `spark.streaming.blockInterval` was 0 |  Major | Streaming | carlmartin | carlmartin |
 | [SPARK-8156](https://issues.apache.org/jira/browse/SPARK-8156) | Respect current database when creating datasource tables |  Major | SQL | baishuo | baishuo |
 | [SPARK-8309](https://issues.apache.org/jira/browse/SPARK-8309) | OpenHashMap doesn't work with more than 12M items |  Critical | Spark Core | Vyacheslav Baranov | Vyacheslav Baranov |
 | [SPARK-8010](https://issues.apache.org/jira/browse/SPARK-8010) | Implict promote Numeric type to String type in HiveTypeCoercion |  Major | SQL | Li Sheng | Li Sheng |
@@ -621,7 +617,7 @@
 | [SPARK-8592](https://issues.apache.org/jira/browse/SPARK-8592) | CoarseGrainedExecutorBackend: Cannot register with driver =\> NPE |  Minor | Scheduler, Spark Core | Sjoerd Mulder | Xu Chen |
 | [SPARK-8437](https://issues.apache.org/jira/browse/SPARK-8437) | Using directory path without wildcard for filename slow for large number of files with wholeTextFiles and binaryFiles |  Minor | Input/Output | Ewan Leith | Sean Owen |
 | [SPARK-8678](https://issues.apache.org/jira/browse/SPARK-8678) | Default values in Pipeline API should be immutable |  Major | ML, PySpark | Manoj Kumar | Manoj Kumar |
-| [SPARK-8619](https://issues.apache.org/jira/browse/SPARK-8619) | Can't find the keytab file when recovering the streaming application. |  Major | Streaming | SaintBacchus | SaintBacchus |
+| [SPARK-8619](https://issues.apache.org/jira/browse/SPARK-8619) | Can't find the keytab file when recovering the streaming application. |  Major | Streaming | carlmartin | carlmartin |
 | [SPARK-6785](https://issues.apache.org/jira/browse/SPARK-6785) | DateUtils can not handle date before 1970/01/01 correctly |  Major | SQL | Davies Liu | Christian Kadner |
 | [SPARK-8628](https://issues.apache.org/jira/browse/SPARK-8628) | Race condition in AbstractSparkSQLParser.parse |  Critical | SQL | Santiago M. Mola | Vinod KC |
 | [SPARK-8560](https://issues.apache.org/jira/browse/SPARK-8560) | Executors page displays negative active tasks |  Major | Spark Core, Web UI | meiyoula | meiyoula |
@@ -637,8 +633,8 @@
 | [SPARK-8308](https://issues.apache.org/jira/browse/SPARK-8308) | add missing save load for python doc example and tune down MatrixFactorization iterations |  Minor | MLlib | yuhao yang | yuhao yang |
 | [SPARK-7820](https://issues.apache.org/jira/browse/SPARK-7820) | Java8-tests suite compile error under SBT |  Critical | Build, Streaming | Saisai Shao | Saisai Shao |
 | [SPARK-8754](https://issues.apache.org/jira/browse/SPARK-8754) | YarnClientSchedulerBackend doesn't stop gracefully in failure conditions |  Minor | YARN | Devaraj K | Devaraj K |
-| [SPARK-8688](https://issues.apache.org/jira/browse/SPARK-8688) | Hadoop Configuration has to disable client cache when writing or reading delegation tokens. |  Major | YARN | SaintBacchus | SaintBacchus |
-| [SPARK-8687](https://issues.apache.org/jira/browse/SPARK-8687) | Spark on yarn-client mode can't send `spark.yarn.credentials.file` to executor. |  Major | YARN | SaintBacchus | SaintBacchus |
+| [SPARK-8688](https://issues.apache.org/jira/browse/SPARK-8688) | Hadoop Configuration has to disable client cache when writing or reading delegation tokens. |  Major | YARN | carlmartin | carlmartin |
+| [SPARK-8687](https://issues.apache.org/jira/browse/SPARK-8687) | Spark on yarn-client mode can't send `spark.yarn.credentials.file` to executor. |  Major | YARN | carlmartin | carlmartin |
 | [SPARK-8746](https://issues.apache.org/jira/browse/SPARK-8746) | Need to update download link for Hive 0.13.1 jars (HiveComparisonTest) |  Trivial | SQL | Christian Kadner | Christian Kadner |
 | [SPARK-8747](https://issues.apache.org/jira/browse/SPARK-8747) | fix EqualNullSafe for binary type |  Minor | SQL | Wenchen Fan | Wenchen Fan |
 | [SPARK-8581](https://issues.apache.org/jira/browse/SPARK-8581) | Simplify and clean up the checkpointing code |  Minor | Spark Core | Andrew Or | Andrew Or |
@@ -681,7 +677,7 @@
 | [SPARK-8865](https://issues.apache.org/jira/browse/SPARK-8865) | Fix bug:  init SimpleConsumerConfig with kafka params |  Minor | Streaming | guowei | guowei |
 | [SPARK-8959](https://issues.apache.org/jira/browse/SPARK-8959) | Parquet-thrift and libthrift introduced as test dependencies in PR #7231 break Maven builds |  Blocker | SQL | Cheng Lian | Cheng Lian |
 | [SPARK-8852](https://issues.apache.org/jira/browse/SPARK-8852) | spark-streaming-flume-assembly packages too many dependencies |  Major | Streaming | Marcelo Vanzin | Marcelo Vanzin |
-| [SPARK-8839](https://issues.apache.org/jira/browse/SPARK-8839) | Thrift Sever will throw `java.util.NoSuchElementException: key not found` exception when  many clients connect it |  Major | SQL | SaintBacchus | SaintBacchus |
+| [SPARK-8839](https://issues.apache.org/jira/browse/SPARK-8839) | Thrift Sever will throw `java.util.NoSuchElementException: key not found` exception when  many clients connect it |  Major | SQL | carlmartin | carlmartin |
 | [SPARK-7944](https://issues.apache.org/jira/browse/SPARK-7944) | Spark-Shell 2.11 1.4.0-RC-03 does not add jars to class path |  Critical | Spark Shell | Alexander Nakos | Iulian Dragos |
 | [SPARK-8958](https://issues.apache.org/jira/browse/SPARK-8958) | Dynamic allocation: change cached executor timeout to infinity |  Major | Spark Core | Andrew Or | Andrew Or |
 | [SPARK-8675](https://issues.apache.org/jira/browse/SPARK-8675) | Executors created by LocalBackend won't get the same classpath as other executor backends |  Major | Spark Core | Min Zhou | Min Zhou |
@@ -948,7 +944,7 @@
 | [SPARK-10159](https://issues.apache.org/jira/browse/SPARK-10159) | Hive 1.3.x GenericUDFDate NPE issue |  Major | SQL | Alex Liu | Michael Armbrust |
 | [SPARK-10467](https://issues.apache.org/jira/browse/SPARK-10467) | Vector is converted to tuple when extracted from Row using \_\_getitem\_\_ |  Minor | ML, PySpark, SQL | Maciej Szymkiewicz | Davies Liu |
 | [SPARK-7880](https://issues.apache.org/jira/browse/SPARK-7880) | Silent failure if assembly jar is corrupted |  Minor | Spark Submit | Andrew Or | Sean Owen |
-| [SPARK-7942](https://issues.apache.org/jira/browse/SPARK-7942) | Receiver's life cycle is inconsistent with streaming job. |  Major | Streaming | SaintBacchus | Tathagata Das |
+| [SPARK-7942](https://issues.apache.org/jira/browse/SPARK-7942) | Receiver's life cycle is inconsistent with streaming job. |  Major | Streaming | carlmartin | Tathagata Das |
 | [SPARK-3283](https://issues.apache.org/jira/browse/SPARK-3283) | Receivers sometimes do not get spread out to multiple nodes |  Major | Streaming | Tathagata Das | Tathagata Das |
 | [SPARK-9343](https://issues.apache.org/jira/browse/SPARK-9343) | DROP TABLE ignores IF EXISTS clause |  Major | SQL | Simeon Simeonov | Michael Armbrust |
 | [SPARK-2063](https://issues.apache.org/jira/browse/SPARK-2063) | Creating a SchemaRDD via sql() does not correctly resolve nested types |  Major | SQL | Aaron Davidson | Michael Armbrust |
@@ -969,7 +965,7 @@
 | [SPARK-8567](https://issues.apache.org/jira/browse/SPARK-8567) | Flaky test: o.a.s.sql.hive.HiveSparkSubmitSuite --jars |  Blocker | SQL, Tests | Yin Huai | Yin Huai |
 | [SPARK-8939](https://issues.apache.org/jira/browse/SPARK-8939) | YARN EC2 default setting fails with IllegalArgumentException |  Major | EC2 | Andrew Or | Shivaram Venkataraman |
 | [SPARK-8430](https://issues.apache.org/jira/browse/SPARK-8430) | ExternalShuffleBlockResolver should support UnsafeShuffleManager |  Critical | Shuffle | Lianhui Wang | Lianhui Wang |
-| [SPARK-8119](https://issues.apache.org/jira/browse/SPARK-8119) | HeartbeatReceiver should not adjust application executor resources |  Critical | Spark Core | SaintBacchus | Andrew Or |
+| [SPARK-8119](https://issues.apache.org/jira/browse/SPARK-8119) | HeartbeatReceiver should not adjust application executor resources |  Critical | Spark Core | carlmartin | Andrew Or |
 | [SPARK-6416](https://issues.apache.org/jira/browse/SPARK-6416) | Document that RDD.fold() requires the operator to be commutative |  Minor | Documentation, Spark Core | Josh Rosen | Sean Owen |
 
 
@@ -1443,7 +1439,6 @@
 | [SPARK-8920](https://issues.apache.org/jira/browse/SPARK-8920) | Add @since tags to mllib.linalg |  Minor | Documentation, MLlib | Xiangrui Meng | Sameer Abhyankar |
 | [SPARK-9787](https://issues.apache.org/jira/browse/SPARK-9787) | Test for memory leaks using the streaming tests in spark-perf |  Major | Streaming | Tathagata Das | Shixiong Zhu |
 | [SPARK-8916](https://issues.apache.org/jira/browse/SPARK-8916) | Add @since tags to mllib.regression |  Minor | Documentation, MLlib | Xiangrui Meng | Prayag Chandran Nirmala |
-| [SPARK-8118](https://issues.apache.org/jira/browse/SPARK-8118) | Turn off noisy log output produced by Parquet 1.7.0 |  Minor | SQL | Cheng Lian | Cheng Lian |
 | [SPARK-10007](https://issues.apache.org/jira/browse/SPARK-10007) | Update `NAMESPACE` file in SparkR for simple parameters functions |  Major | SparkR | Yu Ishikawa | Yu Ishikawa |
 | [SPARK-10029](https://issues.apache.org/jira/browse/SPARK-10029) | Add Python examples for mllib IsotonicRegression user guide |  Minor | Documentation, MLlib, PySpark | Yanbo Liang | Yanbo Liang |
 | [SPARK-10032](https://issues.apache.org/jira/browse/SPARK-10032) | Add Python example for mllib LDAModel user guide |  Minor | Documentation, MLlib, PySpark | Yanbo Liang | Yanbo Liang |

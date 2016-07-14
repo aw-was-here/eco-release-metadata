@@ -18,12 +18,8 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.10.0.0 - Unreleased (as of 2016-05-12)
+## Release 0.10.0.0 - 2016-05-22
 
-### INCOMPATIBLE CHANGES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### IMPORTANT ISSUES:
@@ -43,6 +39,7 @@
 | [KAFKA-3046](https://issues.apache.org/jira/browse/KAFKA-3046) | add ByteBuffer Serializer&Deserializer |  Major | clients | Xin Wang |  |
 | [KAFKA-2832](https://issues.apache.org/jira/browse/KAFKA-2832) | support exclude.internal.topics in new consumer |  Blocker | clients | Jun Rao | Vahid Hashemian |
 | [KAFKA-3490](https://issues.apache.org/jira/browse/KAFKA-3490) | Multiple version support for ducktape performance tests |  Major | . | Ismael Juma | Ismael Juma |
+| [KAFKA-2365](https://issues.apache.org/jira/browse/KAFKA-2365) | Copycat checklist |  Major | KafkaConnect | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 
 
 ### IMPROVEMENTS:
@@ -136,13 +133,16 @@
 | [KAFKA-3670](https://issues.apache.org/jira/browse/KAFKA-3670) | ControlledShutdownLeaderSelector should pick the preferred replica as the new leader, if possible |  Major | . | Jun Rao | Ismael Juma |
 | [KAFKA-3579](https://issues.apache.org/jira/browse/KAFKA-3579) | TopicCommand references outdated consumer property fetch.message.max.bytes |  Major | . | Jun Rao | Vahid Hashemian |
 | [KAFKA-3583](https://issues.apache.org/jira/browse/KAFKA-3583) | Docs on pause/resume/restart APIs. |  Blocker | KafkaConnect | Liquan Pei | Jason Gustafson |
+| [KAFKA-3698](https://issues.apache.org/jira/browse/KAFKA-3698) | Update website documentation when it comes to the message format |  Major | . | Ismael Juma | Jiangjie Qin |
+| [KAFKA-2800](https://issues.apache.org/jira/browse/KAFKA-2800) | Update outdated dependencies |  Major | . | Grant Henke | Grant Henke |
+| [KAFKA-2547](https://issues.apache.org/jira/browse/KAFKA-2547) | Make DynamicConfigManager to use the ZkNodeChangeNotificationListener introduced as part of KAFKA-2211 |  Major | . | Parth Brahmbhatt | Parth Brahmbhatt |
+| [KAFKA-3709](https://issues.apache.org/jira/browse/KAFKA-3709) | Create project security page |  Major | website | Flavio Junqueira | Flavio Junqueira |
 
 
 ### BUG FIXES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [KAFKA-665](https://issues.apache.org/jira/browse/KAFKA-665) | Outgoing responses delayed on a busy Kafka broker |  Critical | . | Neha Narkhede |  |
 | [KAFKA-2815](https://issues.apache.org/jira/browse/KAFKA-2815) | unit test failure in org.apache.kafka.streams.processor.internals.KafkaStreamingPartitionAssignorTest |  Major | . | Jun Rao | Grant Henke |
 | [KAFKA-2814](https://issues.apache.org/jira/browse/KAFKA-2814) | Kafka Connect system tests using REST interface fail on AWS |  Major | KafkaConnect, system tests | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-2826](https://issues.apache.org/jira/browse/KAFKA-2826) | Make Kafka Connect ducktape services easier to extend |  Minor | KafkaConnect | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
@@ -245,7 +245,6 @@
 | [KAFKA-3378](https://issues.apache.org/jira/browse/KAFKA-3378) | Client blocks forever if SocketChannel connects instantly |  Blocker | clients | Larkin Lowrey | Larkin Lowrey |
 | [KAFKA-3285](https://issues.apache.org/jira/browse/KAFKA-3285) | Mirror Maker whitelist behavior differs between old and new consumer |  Major | tools | Luke Steensen | Grant Henke |
 | [KAFKA-3412](https://issues.apache.org/jira/browse/KAFKA-3412) | Multiple commitAsync() calls causes SendFailedException in commit callback |  Blocker | consumer | Jason Gustafson | Jason Gustafson |
-| [KAFKA-3219](https://issues.apache.org/jira/browse/KAFKA-3219) | Long topic names mess up broker topic state |  Major | . | Magnus Edenhill | Vahid Hashemian |
 | [KAFKA-3442](https://issues.apache.org/jira/browse/KAFKA-3442) | FetchResponse size exceeds max.partition.fetch.bytes |  Blocker | . | Dana Powers | Jiangjie Qin |
 | [KAFKA-3409](https://issues.apache.org/jira/browse/KAFKA-3409) | Mirror maker hangs indefinitely due to commit |  Blocker | tools | TAO XIAO | Jason Gustafson |
 | [KAFKA-3441](https://issues.apache.org/jira/browse/KAFKA-3441) | 0.10.0 documentation still says "0.9.0" |  Blocker | . | Gwen Shapira | Grant Henke |
@@ -257,7 +256,7 @@
 | [KAFKA-2844](https://issues.apache.org/jira/browse/KAFKA-2844) | Use different keyTab for client and server in SASL tests |  Major | security | Ismael Juma | Ismael Juma |
 | [KAFKA-3486](https://issues.apache.org/jira/browse/KAFKA-3486) | Autocommit does not execute periodically when partitions are manually assigned |  Critical | . | Jason Gustafson | Jason Gustafson |
 | [KAFKA-3464](https://issues.apache.org/jira/browse/KAFKA-3464) | Connect security system tests |  Major | KafkaConnect | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
-| [KAFKA-2998](https://issues.apache.org/jira/browse/KAFKA-2998) | New Consumer should not retry indefinitely if no broker is available |  Minor | clients | Florian Hussonnois | Jason Gustafson |
+| [KAFKA-2998](https://issues.apache.org/jira/browse/KAFKA-2998) | Log warnings when client is disconnected from bootstrap brokers |  Minor | clients | Florian Hussonnois | Jason Gustafson |
 | [KAFKA-3384](https://issues.apache.org/jira/browse/KAFKA-3384) | bin scripts may not be portable/POSIX compliant |  Major | . | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-3510](https://issues.apache.org/jira/browse/KAFKA-3510) | OffsetIndex thread safety |  Major | . | Ismael Juma | Ismael Juma |
 | [KAFKA-3489](https://issues.apache.org/jira/browse/KAFKA-3489) | Update request metrics if client closes connection while broker response is in flight |  Major | . | Ismael Juma | Ismael Juma |
@@ -318,7 +317,17 @@
 | [KAFKA-3684](https://issues.apache.org/jira/browse/KAFKA-3684) | Not all SinkConnectorConfig configs are returned |  Blocker | KafkaConnect | Liquan Pei | Liquan Pei |
 | [KAFKA-3690](https://issues.apache.org/jira/browse/KAFKA-3690) | Avoid passing null to UnmodifiableMap |  Major | KafkaConnect | Liquan Pei | Liquan Pei |
 | [KAFKA-3694](https://issues.apache.org/jira/browse/KAFKA-3694) | Transient system test failure ReplicationTest.test\_replication\_with\_broker\_failure.security\_protocol |  Major | system tests | Jason Gustafson | Jason Gustafson |
-| [KAFKA-3704](https://issues.apache.org/jira/browse/KAFKA-3704) | Use default block size in KafkaProducer |  Major | . | Guozhang Wang | Guozhang Wang |
+| [KAFKA-3692](https://issues.apache.org/jira/browse/KAFKA-3692) | Wildcards in External CLASSPATH may cause it not be included in the CLASSPATH |  Blocker | core | Liquan Pei | Liquan Pei |
+| [KAFKA-3584](https://issues.apache.org/jira/browse/KAFKA-3584) | NullPointer Exception found when Delete Topic and Log delete concurrent |  Minor | core, log | Pengwei | Manikumar Reddy |
+| [KAFKA-3713](https://issues.apache.org/jira/browse/KAFKA-3713) | test\_producer\_throughput is failing with compression\_type=snappy |  Blocker | clients | Ismael Juma | Ismael Juma |
+| [KAFKA-3565](https://issues.apache.org/jira/browse/KAFKA-3565) | Producer's throughput lower with compressed data after KIP-31/32 |  Critical | . | Ismael Juma |  |
+| [KAFKA-3721](https://issues.apache.org/jira/browse/KAFKA-3721) | UpdateMetadataRequest V2 should be in API version 0.10.0-IV1 |  Blocker | . | Jiangjie Qin | Jiangjie Qin |
+| [KAFKA-3717](https://issues.apache.org/jira/browse/KAFKA-3717) | Support building aggregate javadoc for all project modules |  Major | . | Gwen Shapira | Ismael Juma |
+| [KAFKA-3219](https://issues.apache.org/jira/browse/KAFKA-3219) | Long topic names mess up broker topic state |  Major | . | Magnus Edenhill | Vahid Hashemian |
+| [KAFKA-3335](https://issues.apache.org/jira/browse/KAFKA-3335) | Kafka Connect hangs in shutdown hook |  Major | KafkaConnect | Ben Kirwin |  |
+| [KAFKA-3248](https://issues.apache.org/jira/browse/KAFKA-3248) | AdminClient Blocks Forever in send Method |  Critical | admin | John Tylwalk | Warren Green |
+| [KAFKA-2944](https://issues.apache.org/jira/browse/KAFKA-2944) | NullPointerException in KafkaConfigStorage when config storage starts right before shutdown request |  Major | KafkaConnect | Ewen Cheslack-Postava | Gwen Shapira |
+| [KAFKA-3862](https://issues.apache.org/jira/browse/KAFKA-3862) | Kafka streams documentation: partition\<-\>thread\<-\>task assignment unclear |  Minor | streams | Dmitry Minkovsky | Guozhang Wang |
 
 
 ### TESTS:
@@ -338,14 +347,15 @@
 | [KAFKA-3617](https://issues.apache.org/jira/browse/KAFKA-3617) | Add unit tests for SASL authentication |  Major | security | Rajini Sivaram | Rajini Sivaram |
 | [KAFKA-3597](https://issues.apache.org/jira/browse/KAFKA-3597) | Enable query ConsoleConsumer and VerifiableProducer if they shutdown cleanly |  Major | . | Anna Povzner | Anna Povzner |
 | [KAFKA-3675](https://issues.apache.org/jira/browse/KAFKA-3675) | Add lz4 to parametrized `test\_upgrade` system test |  Major | . | Ismael Juma | Ismael Juma |
+| [KAFKA-3634](https://issues.apache.org/jira/browse/KAFKA-3634) | Add ducktape tests for upgrade with SASL |  Major | . | Rajini Sivaram | Rajini Sivaram |
 | [KAFKA-3676](https://issues.apache.org/jira/browse/KAFKA-3676) | Add system tests for connector pause/resume |  Major | KafkaConnect | Jason Gustafson | Jason Gustafson |
+| [KAFKA-3520](https://issues.apache.org/jira/browse/KAFKA-3520) | System tests of config validate and list connectors REST APIs |  Major | KafkaConnect | Liquan Pei | Liquan Pei |
 
 
 ### SUB-TASKS:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [KAFKA-1236](https://issues.apache.org/jira/browse/KAFKA-1236) | Change producer performance tool to optionally use the new producer |  Critical | producer | Neha Narkhede | Jay Kreps |
 | [KAFKA-2591](https://issues.apache.org/jira/browse/KAFKA-2591) | Remove Persistent Data before Restoringafter a Fault |  Major | . | Guozhang Wang | Guozhang Wang |
 | [KAFKA-2600](https://issues.apache.org/jira/browse/KAFKA-2600) | Make KStream interfaces compatible with Java 8 java.util.function |  Major | . | Guozhang Wang | Randall Hauch |
 | [KAFKA-2593](https://issues.apache.org/jira/browse/KAFKA-2593) | KeyValueStores should not require use of the context's default serializers and deserializers |  Major | streams | Randall Hauch | Randall Hauch |

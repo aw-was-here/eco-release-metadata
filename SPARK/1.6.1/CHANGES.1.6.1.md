@@ -20,10 +20,6 @@
 
 ## Release 1.6.1 - 2016-03-09
 
-### INCOMPATIBLE CHANGES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### IMPORTANT ISSUES:
@@ -147,21 +143,14 @@
 | [SPARK-13355](https://issues.apache.org/jira/browse/SPARK-13355) | Replace GraphImpl.fromExistingRDDs by Graph |  Major | ML, MLlib | Xiangrui Meng | Xiangrui Meng |
 | [SPARK-13390](https://issues.apache.org/jira/browse/SPARK-13390) | Java Spark createDataFrame with List parameter bug |  Minor | Spark Core | mike niemaz | Shixiong Zhu |
 | [SPARK-13475](https://issues.apache.org/jira/browse/SPARK-13475) | HiveCompatibilitySuite should still run in PR builder even if a PR only changes sql/core |  Major | SQL, Tests | Yin Huai | Yin Huai |
-| [SPARK-13482](https://issues.apache.org/jira/browse/SPARK-13482) | `spark.storage.memoryMapThreshold` has two kind of the value. |  Major | Block Manager | SaintBacchus | SaintBacchus |
+| [SPARK-13482](https://issues.apache.org/jira/browse/SPARK-13482) | `spark.storage.memoryMapThreshold` has two kind of the value. |  Major | Block Manager | carlmartin | carlmartin |
 | [SPARK-13473](https://issues.apache.org/jira/browse/SPARK-13473) | Predicate can't be pushed through project with nondeterministic field |  Major | SQL | Cheng Lian | Cheng Lian |
 | [SPARK-13441](https://issues.apache.org/jira/browse/SPARK-13441) | NullPointerException when either HADOOP\_CONF\_DIR or YARN\_CONF\_DIR is not readable |  Minor | YARN | Terence Yim | Terence Yim |
-| [SPARK-12316](https://issues.apache.org/jira/browse/SPARK-12316) | Stack overflow with endless call of `Delegation token thread` when application end. |  Major | YARN | SaintBacchus | SaintBacchus |
+| [SPARK-12316](https://issues.apache.org/jira/browse/SPARK-12316) | Stack overflow with endless call of `Delegation token thread` when application end. |  Major | YARN | carlmartin | carlmartin |
 | [SPARK-12486](https://issues.apache.org/jira/browse/SPARK-12486) | Executors are not always terminated successfully by the worker. |  Major | Spark Core | Nong Li | Nong Li |
 | [SPARK-12874](https://issues.apache.org/jira/browse/SPARK-12874) | ML StringIndexer does not protect itself from column name duplication |  Major | ML | Wojciech Jurczyk | Yu Ishikawa |
 | [SPARK-13454](https://issues.apache.org/jira/browse/SPARK-13454) | Cannot drop table whose name starts with underscore |  Major | SQL | Cheng Lian | Yin Huai |
-| [SPARK-13697](https://issues.apache.org/jira/browse/SPARK-13697) | TransformFunctionSerializer.loads doesn't restore the function's module name if it's '\_\_main\_\_' |  Major | PySpark | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-13855](https://issues.apache.org/jira/browse/SPARK-13855) | Spark 1.6.1 artifacts not found in S3 bucket / direct download |  Major | EC2 | Sandesh Deshmane | Patrick Wendell |
-
-
-### TESTS:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### SUB-TASKS:

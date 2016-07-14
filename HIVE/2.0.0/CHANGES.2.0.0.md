@@ -32,6 +32,7 @@
 | [HIVE-12164](https://issues.apache.org/jira/browse/HIVE-12164) | Remove jdbc stats collection mechanism |  Major | Statistics | Ashutosh Chauhan | Ashutosh Chauhan |
 | [HIVE-12224](https://issues.apache.org/jira/browse/HIVE-12224) | Remove HOLD\_DDLTIME |  Major | Metastore | Ashutosh Chauhan | Ashutosh Chauhan |
 | [HIVE-11378](https://issues.apache.org/jira/browse/HIVE-11378) | Remove hadoop-1 support from master branch |  Major | Build Infrastructure | Alan Gates | Alan Gates |
+| [HIVE-12063](https://issues.apache.org/jira/browse/HIVE-12063) | Pad Decimal numbers with trailing zeros to the scale of the column |  Major | Types | Xuefu Zhang | Xuefu Zhang |
 | [HIVE-12320](https://issues.apache.org/jira/browse/HIVE-12320) | hive.metastore.disallow.incompatible.col.type.changes should be true by default |  Major | Configuration, Types | Ashutosh Chauhan | Ashutosh Chauhan |
 | [HIVE-7575](https://issues.apache.org/jira/browse/HIVE-7575) | GetTables thrift call is very slow |  Major | HiveServer2 | Ashu Pachauri | Navis |
 | [HIVE-1841](https://issues.apache.org/jira/browse/HIVE-1841) |  datanucleus.fixedDatastore should be true in hive-default.xml |  Minor | Configuration, Metastore | Edward Capriolo | Ashutosh Chauhan |
@@ -168,7 +169,6 @@
 | [HIVE-12290](https://issues.apache.org/jira/browse/HIVE-12290) | Native Vector ReduceSink |  Critical | Hive | Matt McCline | Matt McCline |
 | [HIVE-12235](https://issues.apache.org/jira/browse/HIVE-12235) | Improve beeline logging for dynamic service discovery |  Major | . | Szehon Ho | Szehon Ho |
 | [HIVE-12209](https://issues.apache.org/jira/browse/HIVE-12209) | Vectorized simple CASE expressions with nulls |  Major | Vectorization | Gopal V | Gopal V |
-| [HIVE-12063](https://issues.apache.org/jira/browse/HIVE-12063) | Pad Decimal numbers with trailing zeros to the scale of the column |  Major | Types | Xuefu Zhang | Xuefu Zhang |
 | [HIVE-12317](https://issues.apache.org/jira/browse/HIVE-12317) | Emit current database in lineage info |  Minor | . | Jimmy Xiang | Jimmy Xiang |
 | [HIVE-12288](https://issues.apache.org/jira/browse/HIVE-12288) | Extend HIVE-11306 changes to apply to Native vectorized map-joins |  Major | Vectorization | Gopal V | Gopal V |
 | [HIVE-12325](https://issues.apache.org/jira/browse/HIVE-12325) | Turn hive.map.groupby.sorted on by default |  Major | Logical Optimizer | Ashutosh Chauhan | Chetna Chaudhari |
@@ -844,6 +844,7 @@
 | [HIVE-13024](https://issues.apache.org/jira/browse/HIVE-13024) | schematool does not log anywhere |  Blocker | . | Prasanth Jayachandran | Prasanth Jayachandran |
 | [HIVE-13032](https://issues.apache.org/jira/browse/HIVE-13032) | Hive services need HADOOP\_CLIENT\_OPTS for proper log4j2 initialization |  Blocker | . | Prasanth Jayachandran | Prasanth Jayachandran |
 | [HIVE-11292](https://issues.apache.org/jira/browse/HIVE-11292) | MiniLlapCliDriver for running tests in llap |  Major | Test | Vikram Dixit K | Vikram Dixit K |
+| [HIVE-11090](https://issues.apache.org/jira/browse/HIVE-11090) | ordering issues with windows unit test runs |  Major | Hive | Matt McCline | Matt McCline |
 
 
 ### TESTS:

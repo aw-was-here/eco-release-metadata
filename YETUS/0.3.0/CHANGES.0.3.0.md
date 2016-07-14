@@ -18,12 +18,8 @@
 -->
 # Apache Yetus Changelog
 
-## Release 0.3.0 - 2016-05-16
+## Release 0.3.0 - 2016-05-23
 
-### INCOMPATIBLE CHANGES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### IMPORTANT ISSUES:
@@ -33,12 +29,6 @@
 | [YETUS-322](https://issues.apache.org/jira/browse/YETUS-322) | flip verify\_ result codes |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-300](https://issues.apache.org/jira/browse/YETUS-300) | CHANGED\_FILES, CHANGED\_MODULES, etc should really be arrays |  Blocker | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-156](https://issues.apache.org/jira/browse/YETUS-156) | [Umbrella] build driver |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
-
-
-### NEW FEATURES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### IMPROVEMENTS:
@@ -83,12 +73,6 @@
 | [YETUS-393](https://issues.apache.org/jira/browse/YETUS-393) | docker check fails for 1.10+ |  Blocker | Test Patch | Allen Wittenauer | Allen Wittenauer |
 
 
-### TESTS:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
 ### SUB-TASKS:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
@@ -124,5 +108,6 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YETUS-329](https://issues.apache.org/jira/browse/YETUS-329) | update docs generation to use rel/ tags |  Major | build, website and documentation | Sean Busbey | Sean Busbey |
+| [YETUS-379](https://issues.apache.org/jira/browse/YETUS-379) | Release 0.3.0 |  Major | website and documentation | Kengo Seki | Kengo Seki |
 
 

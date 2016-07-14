@@ -20,16 +20,6 @@
 
 ## Release 0.8.2.0 - 2015-02-02
 
-### INCOMPATIBLE CHANGES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
-### IMPORTANT ISSUES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### NEW FEATURES:
@@ -66,6 +56,7 @@
 | [KAFKA-1519](https://issues.apache.org/jira/browse/KAFKA-1519) | Console consumer: expose configuration option to enable/disable writing the line separator |  Minor | consumer | Michael Noll | Gwen Shapira |
 | [KAFKA-1325](https://issues.apache.org/jira/browse/KAFKA-1325) | Fix inconsistent per topic log configs |  Major | log | Neha Narkhede | Manikumar Reddy |
 | [KAFKA-1535](https://issues.apache.org/jira/browse/KAFKA-1535) | return all live brokers in TopicMetadataResponse |  Major | core | Jun Rao | nicu marasoiu |
+| [KAFKA-1483](https://issues.apache.org/jira/browse/KAFKA-1483) | Split Brain about Leader Partitions |  Major | . | Guozhang Wang | Sriharsha Chintalapani |
 | [KAFKA-1414](https://issues.apache.org/jira/browse/KAFKA-1414) | Speedup broker startup after hard reset |  Major | log | Dmitry Bugaychenko | Anton Karamanov |
 | [KAFKA-1576](https://issues.apache.org/jira/browse/KAFKA-1576) | Make "deleteTopic" a bit more user friendly |  Major | . | Gwen Shapira | Gwen Shapira |
 | [KAFKA-1419](https://issues.apache.org/jira/browse/KAFKA-1419) | cross build for scala 2.11 |  Blocker | clients | Scott Clasen | Ivan Lyutov |
@@ -94,6 +85,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [KAFKA-899](https://issues.apache.org/jira/browse/KAFKA-899) | LeaderNotAvailableException the first time a new message for a partition is processed. |  Major | core | Jason Rosenberg | Jun Rao |
+| [KAFKA-409](https://issues.apache.org/jira/browse/KAFKA-409) | Refactor DefaultEventHandler |  Major | . | Neha Narkhede | Jay Kreps |
 | [KAFKA-1238](https://issues.apache.org/jira/browse/KAFKA-1238) | New producer hangs in a loop detecting metadata for auto created topics |  Critical | producer | Neha Narkhede | Jay Kreps |
 | [KAFKA-1276](https://issues.apache.org/jira/browse/KAFKA-1276) | Provide a list of config overrides available when running kafka.topics |  Major | tools | Todd Palino | Jay Kreps |
 | [KAFKA-1280](https://issues.apache.org/jira/browse/KAFKA-1280) | exclude kafka-clients jar from dependant-libs dir |  Major | . | Jun Rao | Jun Rao |
@@ -105,6 +97,7 @@
 | [KAFKA-1307](https://issues.apache.org/jira/browse/KAFKA-1307) | potential socket leak in new producer and clean up |  Major | core | Jun Rao | Jun Rao |
 | [KAFKA-1297](https://issues.apache.org/jira/browse/KAFKA-1297) | releaseTarGz target needs signing task |  Major | . | Jun Rao | Jun Rao |
 | [KAFKA-1319](https://issues.apache.org/jira/browse/KAFKA-1319) | kafka jar doesn't depend on metrics-annotation any more |  Major | . | Jun Rao | Jun Rao |
+| [KAFKA-1320](https://issues.apache.org/jira/browse/KAFKA-1320) | Change compression.codec to compression.type in new producer configs of system tests |  Major | . | Guozhang Wang | Guozhang Wang |
 | [KAFKA-1318](https://issues.apache.org/jira/browse/KAFKA-1318) | waiting for producer to stop is not reliable in system tests |  Major | . | Jun Rao | Jun Rao |
 | [KAFKA-472](https://issues.apache.org/jira/browse/KAFKA-472) | update metadata in batches in Producer |  Major | core | Jun Rao |  |
 | [KAFKA-1375](https://issues.apache.org/jira/browse/KAFKA-1375) | Formatting for "Running a task on a particular version of Scala" paragraph in README.md is broken |  Trivial | website | Stevo Slavic | Stevo Slavic |
@@ -129,6 +122,7 @@
 | [KAFKA-1442](https://issues.apache.org/jira/browse/KAFKA-1442) | RBTools post-review is deprecated |  Minor | . | Sriharsha Chintalapani | Sriharsha Chintalapani |
 | [KAFKA-1396](https://issues.apache.org/jira/browse/KAFKA-1396) | fix transient unit test ProducerFailureHandlingTest.testBrokerFailure |  Major | core | Jun Rao | Guozhang Wang |
 | [KAFKA-1431](https://issues.apache.org/jira/browse/KAFKA-1431) | ConsoleConsumer - Option to clean zk consumer path |  Minor | consumer | Jeremy A Laycock | Sriharsha Chintalapani |
+| [KAFKA-1445](https://issues.apache.org/jira/browse/KAFKA-1445) | New Producer should send all partitions that have non-empty batches when on of them is ready |  Major | . | Guozhang Wang |  |
 | [KAFKA-1179](https://issues.apache.org/jira/browse/KAFKA-1179) | createMessageStreams() in javaapi.ZookeeperConsumerConnector does not throw |  Major | consumer | Vincent Rischmann | Sriharsha Chintalapani |
 | [KAFKA-1453](https://issues.apache.org/jira/browse/KAFKA-1453) | Add a channel queue jmx in Mirror Maker |  Major | . | Guozhang Wang | Guozhang Wang |
 | [KAFKA-1437](https://issues.apache.org/jira/browse/KAFKA-1437) | ConsumerMetadataResponse should always include coordinator information |  Major | . | Joel Koshy | Joel Koshy |
@@ -145,7 +139,9 @@
 | [KAFKA-1503](https://issues.apache.org/jira/browse/KAFKA-1503) | all partitions are using same broker as their leader after broker is down |  Major | controller | Jianwen Wang | Jianwen Wang |
 | [KAFKA-1515](https://issues.apache.org/jira/browse/KAFKA-1515) | Wake-up Sender upon blocked on fetching leader metadata |  Major | . | Guozhang Wang | Guozhang Wang |
 | [KAFKA-1406](https://issues.apache.org/jira/browse/KAFKA-1406) | Fix scaladoc/javadoc warnings |  Major | packaging | Joel Koshy | Alan Lee |
+| [KAFKA-1067](https://issues.apache.org/jira/browse/KAFKA-1067) | the default partitioner should be randomizing messages and a new partition for the meta refresh requirements created |  Major | . | Joe Stein |  |
 | [KAFKA-1026](https://issues.apache.org/jira/browse/KAFKA-1026) | Dynamically Adjust Batch Size Upon Receiving MessageSizeTooLargeException |  Major | . | Guozhang Wang | Guozhang Wang |
+| [KAFKA-1258](https://issues.apache.org/jira/browse/KAFKA-1258) | Delete temporary data directory after unit test finishes |  Major | . | Guozhang Wang | Manikumar Reddy |
 | [KAFKA-1529](https://issues.apache.org/jira/browse/KAFKA-1529) | transient unit test failure in testAutoCreateAfterDeleteTopic |  Major | core | Jun Rao | Jun Rao |
 | [KAFKA-1531](https://issues.apache.org/jira/browse/KAFKA-1531) | zookeeper.connection.timeout.ms is set to 10000000 in configuration file in Kafka tarball |  Major | config | Michał Michalski | Manikumar Reddy |
 | [KAFKA-1180](https://issues.apache.org/jira/browse/KAFKA-1180) | WhiteList topic filter gets a NullPointerException on complex Regex |  Major | consumer | Jason Rosenberg | Joe Stein |
@@ -228,6 +224,7 @@
 | [KAFKA-1902](https://issues.apache.org/jira/browse/KAFKA-1902) | fix MetricName so that Yammer reporter can work correctly |  Blocker | core | Jun Rao | Jun Rao |
 | [KAFKA-1861](https://issues.apache.org/jira/browse/KAFKA-1861) | Publishing kafka-client:test in order to utilize the helper utils in TestUtils |  Major | . | Navina Ramesh | Manikumar Reddy |
 | [KAFKA-1423](https://issues.apache.org/jira/browse/KAFKA-1423) | Updating partition count clears topic configuration and any further alters done to a topics config do not stick |  Major | . | Nathan Brown |  |
+| [KAFKA-1072](https://issues.apache.org/jira/browse/KAFKA-1072) | Allow mulitple topics selected with a TopicFilter to be balanced among consumers |  Major | . | Jason Rosenberg |  |
 | [KAFKA-1400](https://issues.apache.org/jira/browse/KAFKA-1400) | transient unit test failure in SocketServerTest |  Major | core | Jun Rao | Jun Rao |
 
 
@@ -244,6 +241,8 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-1237](https://issues.apache.org/jira/browse/KAFKA-1237) | Add mirror maker using 08 consumer and 09 producer |  Major | tools | Neha Narkhede | Neha Narkhede |
+| [KAFKA-1233](https://issues.apache.org/jira/browse/KAFKA-1233) | Integration test for the new producer |  Major | . | Guozhang Wang | Guozhang Wang |
 | [KAFKA-1240](https://issues.apache.org/jira/browse/KAFKA-1240) | Add ability to existing system tests to use the new producer client |  Major | producer | Neha Narkhede | Jun Rao |
 | [KAFKA-1304](https://issues.apache.org/jira/browse/KAFKA-1304) | unregistered mbean exception in new producer |  Major | core | Jun Rao | Jun Rao |
 | [KAFKA-1012](https://issues.apache.org/jira/browse/KAFKA-1012) | Implement an Offset Manager and hook offset requests to it |  Minor | consumer | Tejas Patil | Tejas Patil |

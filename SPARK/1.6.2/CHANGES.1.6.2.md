@@ -18,18 +18,8 @@
 -->
 # Apache Spark Changelog
 
-## Release 1.6.2 - Unreleased (as of 2016-05-12)
+## Release 1.6.2 - 2016-06-25
 
-### INCOMPATIBLE CHANGES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
-### IMPORTANT ISSUES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### NEW FEATURES:
@@ -37,12 +27,14 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [SPARK-11515](https://issues.apache.org/jira/browse/SPARK-11515) | QuantileDiscretizer should take random seed |  Minor | ML | Joseph K. Bradley | Yu Ishikawa |
+| [SPARK-13465](https://issues.apache.org/jira/browse/SPARK-13465) | Add a task failure listener to TaskContext |  Major | SQL | Reynold Xin | Reynold Xin |
 
 
 ### IMPROVEMENTS:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-13601](https://issues.apache.org/jira/browse/SPARK-13601) | Invoke task failure callbacks before calling outputstream.close() |  Major | Spark Core | Davies Liu | Davies Liu |
 | [SPARK-13599](https://issues.apache.org/jira/browse/SPARK-13599) | Groovy-all ends up in spark-assembly if hive profile set |  Minor | Build | Steve Loughran | Steve Loughran |
 | [SPARK-13663](https://issues.apache.org/jira/browse/SPARK-13663) | Upgrade Snappy Java to 1.1.2.1 |  Minor | Spark Core | Ted Yu | Y Y |
 | [SPARK-13810](https://issues.apache.org/jira/browse/SPARK-13810) | Add Port Configuration Suggestions on Bind Exceptions |  Minor | Spark Core | Bjorn Jonsson | Bjorn Jonsson |
@@ -51,17 +43,21 @@
 | [SPARK-14149](https://issues.apache.org/jira/browse/SPARK-14149) | Log exceptions in tryOrIOException |  Major | Spark Core | Reynold Xin | Reynold Xin |
 | [SPARK-14242](https://issues.apache.org/jira/browse/SPARK-14242) | avoid too many copies in network when a network frame is large |  Major | Input/Output, Spark Core | Zhang, Liye | Zhang, Liye |
 | [SPARK-14787](https://issues.apache.org/jira/browse/SPARK-14787) | Upgrade Joda-Time library from 2.9 to 2.9.3 |  Trivial | SQL | Hyukjin Kwon | Hyukjin Kwon |
+| [SPARK-15205](https://issues.apache.org/jira/browse/SPARK-15205) | Codegen can compile the same source code more than twice |  Major | SQL | Kousuke Saruta | Kousuke Saruta |
+| [SPARK-15827](https://issues.apache.org/jira/browse/SPARK-15827) | Publish Spark's forked sbt-pom-reader to Maven Central |  Major | Build, Project Infra | Josh Rosen | Josh Rosen |
 
 
 ### BUG FIXES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-12655](https://issues.apache.org/jira/browse/SPARK-12655) | GraphX does not unpersist RDDs |  Minor | GraphX | Alexander Pivovarov | Jason C Lee |
 | [SPARK-13023](https://issues.apache.org/jira/browse/SPARK-13023) | Check for presence of 'root' module after computing test\_modules, not changed\_modules |  Major | Project Infra | Josh Rosen | Josh Rosen |
 | [SPARK-13444](https://issues.apache.org/jira/browse/SPARK-13444) | QuantileDiscretizer chooses bad splits on large DataFrames |  Major | MLlib | Oliver Pierson | Oliver Pierson |
 | [SPARK-12941](https://issues.apache.org/jira/browse/SPARK-12941) | Spark-SQL JDBC Oracle dialect fails to map string datatypes to Oracle VARCHAR datatype |  Major | Spark Core | Jose Martinez Poblete | Thomas Sebastian |
 | [SPARK-13522](https://issues.apache.org/jira/browse/SPARK-13522) | Executor should kill itself when it's unable to heartbeat to the driver more than N times |  Major | Spark Core | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-13652](https://issues.apache.org/jira/browse/SPARK-13652) | TransportClient.sendRpcSync returns wrong results |  Major | . | huangyu | Shixiong Zhu |
+| [SPARK-13697](https://issues.apache.org/jira/browse/SPARK-13697) | TransformFunctionSerializer.loads doesn't restore the function's module name if it's '\_\_main\_\_' |  Major | PySpark | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-13705](https://issues.apache.org/jira/browse/SPARK-13705) | UpdateStateByKey Operation documentation incorrectly refers to StatefulNetworkWordCount |  Trivial | Documentation | Rishi | Rishi |
 | [SPARK-13648](https://issues.apache.org/jira/browse/SPARK-13648) | org.apache.spark.sql.hive.client.VersionsSuite fails NoClassDefFoundError on IBM JDK |  Minor | SQL | Tim Preece | Tim Preece |
 | [SPARK-13711](https://issues.apache.org/jira/browse/SPARK-13711) | Apache Spark driver stopping JVM when master not available |  Major | Spark Core | Era | Shixiong Zhu |
@@ -85,7 +81,8 @@
 | [SPARK-11507](https://issues.apache.org/jira/browse/SPARK-11507) | Error thrown when using BlockMatrix.add |  Minor | MLlib | Kareem Alhazred | yuhao yang |
 | [SPARK-11327](https://issues.apache.org/jira/browse/SPARK-11327) | spark-dispatcher doesn't pass along some spark properties |  Major | Mesos | Alan Braithwaite | Jo Voordeckers |
 | [SPARK-13845](https://issues.apache.org/jira/browse/SPARK-13845) | BlockStatus and StreamBlockId keep on growing result driver OOM |  Major | Spark Core | jeanlyn | jeanlyn |
-| [SPARK-14368](https://issues.apache.org/jira/browse/SPARK-14368) | Support python.spark.worker.memory with upper-case unit |  Trivial | PySpark | Masahiro TANAKA | Yong Tang |
+| [SPARK-14138](https://issues.apache.org/jira/browse/SPARK-14138) | Generated SpecificColumnarIterator code can exceed JVM size limit for cached DataFrames |  Major | SQL | Sven Krasser | Kazuaki Ishizaki |
+| [SPARK-14368](https://issues.apache.org/jira/browse/SPARK-14368) | Support python.spark.worker.memory with upper-case unit |  Trivial | PySpark | Masahiro Tanaka | Yong Tang |
 | [SPARK-14243](https://issues.apache.org/jira/browse/SPARK-14243) | updatedBlockStatuses does not update correctly when removing blocks |  Major | Spark Core | jeanlyn | jeanlyn |
 | [SPARK-14322](https://issues.apache.org/jira/browse/SPARK-14322) | Use treeAggregate instead of reduce in OnlineLDAOptimizer |  Major | ML, MLlib | Joseph K. Bradley | yuhao yang |
 | [SPARK-14468](https://issues.apache.org/jira/browse/SPARK-14468) | Always enable OutputCommitCoordinator |  Major | Spark Core | Andrew Or | Andrew Or |
@@ -109,18 +106,30 @@
 | [SPARK-14495](https://issues.apache.org/jira/browse/SPARK-14495) | Distinct aggregation cannot be used in the having clause |  Major | SQL | Yin Huai | Xin Wu |
 | [SPARK-15260](https://issues.apache.org/jira/browse/SPARK-15260) | UnifiedMemoryManager could be in bad state if any exception happen while evicting blocks |  Major | Spark Core | Davies Liu | Andrew Or |
 | [SPARK-15262](https://issues.apache.org/jira/browse/SPARK-15262) | race condition in killing an executor and reregistering an executor |  Major | Spark Core | Shixiong Zhu | Andrew Or |
-
-
-### TESTS:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-15165](https://issues.apache.org/jira/browse/SPARK-15165) | Codegen can break because toCommentSafeString is not actually safe |  Blocker | SQL | Kousuke Saruta | Kousuke Saruta |
+| [SPARK-14261](https://issues.apache.org/jira/browse/SPARK-14261) | Memory leak in Spark Thrift Server |  Major | Spark Core | Xiaochun Liang | Oleg Danilov |
+| [SPARK-10722](https://issues.apache.org/jira/browse/SPARK-10722) | Uncaught exception: RDDBlockId not found in driver-heartbeater |  Major | Block Manager | Simeon Simeonov | Simon Scott |
+| [SPARK-8428](https://issues.apache.org/jira/browse/SPARK-8428) | TimSort Comparison method violates its general contract with CLUSTER BY |  Major | SQL | Nathan McCarthy | Sameer Agarwal |
+| [SPARK-15528](https://issues.apache.org/jira/browse/SPARK-15528) | conv function returns inconsistent result for the same data |  Major | SQL | Lior Regev | Takeshi Yamamuro |
+| [SPARK-15601](https://issues.apache.org/jira/browse/SPARK-15601) | CircularBuffer's toString() to print only the contents written if buffer isn't full |  Minor | Spark Core | Tejas Patil | Tejas Patil |
+| [SPARK-14204](https://issues.apache.org/jira/browse/SPARK-14204) | [SQL] Failure to register URL-derived JDBC driver on executors in cluster mode |  Major | SQL | Kevin McHale | Kevin McHale |
+| [SPARK-15736](https://issues.apache.org/jira/browse/SPARK-15736) | Gracefully handle loss of DiskStore files |  Major | Block Manager | Josh Rosen | Josh Rosen |
+| [SPARK-15754](https://issues.apache.org/jira/browse/SPARK-15754) | org.apache.spark.deploy.yarn.Client changes the credential of current user |  Critical | . | Subroto Sanyal | Subroto Sanyal |
+| [SPARK-12712](https://issues.apache.org/jira/browse/SPARK-12712) | test-dependencies.sh script fails when run against empty .m2 cache |  Major | Project Infra | Stavros Kontopoulos | Josh Rosen |
+| [SPARK-13850](https://issues.apache.org/jira/browse/SPARK-13850) | TimSort Comparison method violates its general contract |  Major | Shuffle | Sital Kedia | Sameer Agarwal |
+| [SPARK-15975](https://issues.apache.org/jira/browse/SPARK-15975) | Improper Popen.wait() return code handling in dev/run-tests |  Major | Project Infra | Josh Rosen | Josh Rosen |
+| [SPARK-16017](https://issues.apache.org/jira/browse/SPARK-16017) | YarnClientSchedulerBackend now registers backends as IPs instead of Hostnames which causes all tasks to run with RACK\_LOCAL locality. |  Critical | Spark Core | Trystan Leftwich | Shixiong Zhu |
+| [SPARK-15892](https://issues.apache.org/jira/browse/SPARK-15892) | Incorrectly merged AFTAggregator with zero total count |  Major | Examples, ML, PySpark | Joseph K. Bradley | Hyukjin Kwon |
+| [SPARK-16035](https://issues.apache.org/jira/browse/SPARK-16035) | The SparseVector parser fails checking for valid end parenthesis |  Minor | MLlib, PySpark | Andrea Pasqua | Andrea Pasqua |
+| [SPARK-16086](https://issues.apache.org/jira/browse/SPARK-16086) | Python UDF failed when there is no arguments |  Major | PySpark, SQL | Davies Liu | Davies Liu |
 
 
 ### SUB-TASKS:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-15723](https://issues.apache.org/jira/browse/SPARK-15723) | SimpleDateParamSuite test is locale-fragile and relies on deprecated short TZ name |  Minor | Spark Core | Brett Randall | Brett Randall |
+| [SPARK-15613](https://issues.apache.org/jira/browse/SPARK-15613) | Incorrect days to millis conversion |  Critical | SQL | Dmitry Bushev | Apache Spark |
 
 
 ### OTHER:

@@ -20,10 +20,6 @@
 
 ## Release 0.2.0 - 2016-03-07
 
-### INCOMPATIBLE CHANGES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### IMPORTANT ISSUES:
@@ -81,7 +77,7 @@
 | [YETUS-251](https://issues.apache.org/jira/browse/YETUS-251) | default patch-naming-rule points to old yetus url |  Major | Test Patch | Sean Busbey | Marco Zühlke |
 | [YETUS-267](https://issues.apache.org/jira/browse/YETUS-267) | use curl -L when given a patch URL |  Minor | Test Patch | Josh Elser | Josh Elser |
 | [YETUS-265](https://issues.apache.org/jira/browse/YETUS-265) | maven javadocs aren't calcdiff'd correctly |  Blocker | Test Patch | Allen Wittenauer | Allen Wittenauer |
-| [YETUS-271](https://issues.apache.org/jira/browse/YETUS-271) | findbugs.sh will -1 if there are no java source code in the module. |  Major | Test Patch | Akira AJISAKA | Allen Wittenauer |
+| [YETUS-271](https://issues.apache.org/jira/browse/YETUS-271) | findbugs.sh will -1 if there are no java source code in the module. |  Major | Test Patch | Akira Ajisaka | Allen Wittenauer |
 | [YETUS-275](https://issues.apache.org/jira/browse/YETUS-275) | removing files(?) causes pylint file open failures |  Major | Test Patch | Allen Wittenauer | Marco Zühlke |
 | [YETUS-104](https://issues.apache.org/jira/browse/YETUS-104) | Update document about plugin functions |  Major | website and documentation | Kengo Seki | Marco Zühlke |
 | [YETUS-235](https://issues.apache.org/jira/browse/YETUS-235) | releasedocmaker does not give an error if a non-existent version is given |  Major | Release Doc Maker | Sean Busbey | Kengo Seki |
@@ -97,18 +93,6 @@
 | [YETUS-144](https://issues.apache.org/jira/browse/YETUS-144) | mvn install usually required on mvn builds |  Blocker | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-319](https://issues.apache.org/jira/browse/YETUS-319) | broken links on contrib page |  Blocker | website and documentation | Allen Wittenauer | Sean Busbey |
 | [YETUS-297](https://issues.apache.org/jira/browse/YETUS-297) | when verify\_multijdk\_test is no, use JAVA\_HOME, not JDK\_DIR\_LIST |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
-
-
-### TESTS:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
-### SUB-TASKS:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### OTHER:

@@ -20,10 +20,6 @@
 
 ## Release 1.5.2 - 2015-11-09
 
-### INCOMPATIBLE CHANGES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### IMPORTANT ISSUES:
@@ -32,12 +28,6 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [SPARK-11023](https://issues.apache.org/jira/browse/SPARK-11023) | Error initializing SparkContext. java.net.URISyntaxException |  Major | PySpark | Jose Antonio | Marcelo Vanzin |
 | [SPARK-11481](https://issues.apache.org/jira/browse/SPARK-11481) | orderBy with multiple columns in WindowSpec does not work properly |  Major | PySpark, SQL | Jose Antonio | Davies Liu |
-
-
-### NEW FEATURES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### IMPROVEMENTS:
@@ -113,18 +103,6 @@
 | [SPARK-11405](https://issues.apache.org/jira/browse/SPARK-11405) | ROW\_NUMBER function does not adhere to window ORDER BY, when joining |  Critical | SQL | Jarno Seppanen | Josh Rosen |
 | [SPARK-14468](https://issues.apache.org/jira/browse/SPARK-14468) | Always enable OutputCommitCoordinator |  Major | Spark Core | Andrew Or | Andrew Or |
 | [SPARK-14357](https://issues.apache.org/jira/browse/SPARK-14357) | Tasks that fail due to CommitDeniedException (a side-effect of speculation) can cause job failure |  Critical | Spark Core | Jason Moore | Jason Moore |
-
-
-### TESTS:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
-### SUB-TASKS:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### OTHER:

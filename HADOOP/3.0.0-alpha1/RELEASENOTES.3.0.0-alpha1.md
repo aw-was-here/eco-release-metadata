@@ -74,6 +74,13 @@ Support for hftp and hsftp has been removed.  They have superseded by webhdfs  a
 
 ---
 
+* [HADOOP-10485](https://issues.apache.org/jira/browse/HADOOP-10485) | *Major* | **Remove dead classes in hadoop-streaming**
+
+Deprecated and unused classes in the org.apache.hadoop.record package have been removed from hadoop-streaming.
+
+
+---
+
 * [HDFS-6246](https://issues.apache.org/jira/browse/HDFS-6246) | *Minor* | **Remove 'dfs.support.append' flag from trunk code**
 
 Appends in HDFS can no longer be disabled.
@@ -83,7 +90,7 @@ Appends in HDFS can no longer be disabled.
 
 * [HADOOP-10474](https://issues.apache.org/jira/browse/HADOOP-10474) | *Major* | **Move o.a.h.record to hadoop-streaming**
 
-**WARNING: No release note provided for this change.**
+The classes in org.apache.hadoop.record are moved from hadoop-common to a new hadoop-streaming artifact within the hadoop-tools module.
 
 
 ---
@@ -264,7 +271,7 @@ The user 'yarn' is no longer allowed to run tasks for security reasons.
 | YARN\_IDENT\_STRING | HADOOP\_IDENT\_STRING |
 | YARN\_OPTS | HADOOP\_OPTS |
 | YARN\_SLAVES | HADOOP\_SLAVES |
-| YARN\_USER\_CLASSPATH | HADOOP\_USER\_CLASSPATH |
+| YARN\_USER\_CLASSPATH | HADOOP\_CLASSPATH |
 | YARN\_USER\_CLASSPATH\_FIRST | HADOOP\_USER\_CLASSPATH\_FIRST |
 | KMS\_CONFIG | HADOOP\_CONF\_DIR |
 | KMS\_LOG | HADOOP\_LOG\_DIR |
@@ -288,13 +295,6 @@ This deprecates the following environment variables:
 |:---- |:---- |
 | HTTPFS_LOG | HADOOP_LOG_DIR|
 | HTTPFS_CONFG | HADOOP_CONF_DIR |
-
-
----
-
-* [MAPREDUCE-6223](https://issues.apache.org/jira/browse/MAPREDUCE-6223) | *Major* | **TestJobConf#testNegativeValueForTaskVmem failures**
-
-**WARNING: No release note provided for this change.**
 
 
 ---
@@ -390,7 +390,7 @@ The patch improves the reporting around missing blocks and corrupted blocks.
 
 * [MAPREDUCE-2632](https://issues.apache.org/jira/browse/MAPREDUCE-2632) | *Major* | **Avoid calling the partitioner when the numReduceTasks is 1.**
 
-**WARNING: No release note provided for this change.**
+A partitioner is now only created if there are multiple reducers.
 
 
 ---
@@ -603,6 +603,13 @@ The support of the deprecated dfs.umask key is removed in Hadoop 3.0.
 
 ---
 
+* [HADOOP-10465](https://issues.apache.org/jira/browse/HADOOP-10465) | *Minor* | **Fix use of generics within SortedMapWritable**
+
+SortedMapWritable has changed to SortedMapWritable\<K extends WritableComparable\<? super K\>\>. That way user can declare the class by such as SortedMapWritable\<Text\>.
+
+
+---
+
 * [HDFS-5165](https://issues.apache.org/jira/browse/HDFS-5165) | *Minor* | **Remove the TotalFiles metrics**
 
 Now TotalFiles metric is removed from FSNameSystem. Use FilesTotal instead.
@@ -634,7 +641,7 @@ This change contains the content of HADOOP-10115 which is an incompatible change
 * [HADOOP-12857](https://issues.apache.org/jira/browse/HADOOP-12857) | *Major* | **Rework hadoop-tools**
 
 <!-- markdown -->
-* Turning on optional things from the tools directory can now be done via hadoop-env.sh without impacting the various user-facing CLASSPATH.
+* Turning on optional things from the tools directory such as S3 support can now be done in hadoop-env.sh with the HADOOP\_OPTIONAL\_TOOLS environment variable without impacting the various user-facing CLASSPATH variables.
 * The tools directory is no longer pulled in blindly for any utilities that pull it in.  
 * TOOL\_PATH / HADOOP\_TOOLS\_PATH has been broken apart and replaced with HADOOP\_TOOLS\_HOME, HADOOP\_TOOLS\_DIR and HADOOP\_TOOLS\_LIB\_JARS\_DIR to be consistent with the rest of Hadoop.
 
@@ -726,7 +733,7 @@ LocalJobRunnerMetrics and ShuffleClientMetrics were updated to use Hadoop Metric
 
 * [HDFS-10337](https://issues.apache.org/jira/browse/HDFS-10337) | *Minor* | **OfflineEditsViewer stats option should print 0 instead of null for the count of operations**
 
-The output of "hdfs oev -p stats" has changed. The option prints 0 instead of null for the count of the operations that are never been executed.
+The output of "hdfs oev -p stats" has changed. The option prints 0 instead of null for the count of the operations that have never been executed.
 
 
 ---
@@ -734,6 +741,101 @@ The output of "hdfs oev -p stats" has changed. The option prints 0 instead of nu
 * [HADOOP-10694](https://issues.apache.org/jira/browse/HADOOP-10694) | *Major* | **Remove synchronized input streams from Writable deserialization**
 
 Remove invisible synchronization primitives from DataInputBuffer
+
+
+---
+
+* [HADOOP-12930](https://issues.apache.org/jira/browse/HADOOP-12930) | *Critical* | **[Umbrella] Dynamic subcommands for hadoop shell scripts**
+
+**WARNING: No release note provided for this change.**
+
+
+---
+
+* [HDFS-10220](https://issues.apache.org/jira/browse/HDFS-10220) | *Major* | **A large number of expired leases can make namenode unresponsive and cause failover**
+
+Two new configuration have been added "dfs.namenode.lease-recheck-interval-ms" and "dfs.namenode.max-lock-hold-to-release-lease-ms" to fine tune the duty cycle with which the Namenode recovers old leases.
+
+
+---
+
+* [HADOOP-13175](https://issues.apache.org/jira/browse/HADOOP-13175) | *Major* | **Remove hadoop-ant from hadoop-tools**
+
+The hadoop-ant module in hadoop-tools has been removed.
+
+
+---
+
+* [HADOOP-12666](https://issues.apache.org/jira/browse/HADOOP-12666) | *Major* | **Support Microsoft Azure Data Lake - as a file system in Hadoop**
+
+Hadoop now supports integration with Azure Data Lake as an alternative Hadoop-compatible file system.  Please refer to the Hadoop site documentation of Azure Data Lake for details on usage and configuration.
+
+
+---
+
+* [HADOOP-13242](https://issues.apache.org/jira/browse/HADOOP-13242) | *Major* | **Authenticate to Azure Data Lake using client ID and keys**
+
+Adds support for Azure ActiveDirectory tokens using client ID and keys
+
+
+---
+
+* [HADOOP-9613](https://issues.apache.org/jira/browse/HADOOP-9613) | *Major* | **[JDK8] Update jersey version to latest 1.x release**
+
+Upgrading Jersey and its related libraries: 
+
+1. Upgrading jersey from 1.9 to 1.19
+2. Adding jersey-servlet 1.19
+3. Upgrading grizzly-http-servlet from 2.1.2 to 2.2.21
+4. Adding grizzly-http 2.2.21
+5. Adding grizzly-http-server 2.2.21
+
+After upgrading Jersey from 1.12 to 1.13, the root element whose content is empty collection is changed from null to empty object({}).
+
+
+---
+
+* [HADOOP-13209](https://issues.apache.org/jira/browse/HADOOP-13209) | *Major* | **replace slaves with workers**
+
+The 'slaves' file has been deprecated in favor of the 'workers' file and, other than the deprecation warnings, all references to slavery have been removed from the source tree.
+
+
+---
+
+* [HDFS-6434](https://issues.apache.org/jira/browse/HDFS-6434) | *Minor* | **Default permission for creating file should be 644 for WebHdfs/HttpFS**
+
+The default permissions of files and directories created via WebHDFS and HttpFS are now 644 and 755 respectively. See HDFS-10488 for related discussion.
+
+
+---
+
+* [HADOOP-12864](https://issues.apache.org/jira/browse/HADOOP-12864) | *Blocker* | **Remove bin/rcc script**
+
+The rcc command has been removed. See HADOOP-12485 where unused Hadoop Streaming classes were removed.
+
+
+---
+
+* [HADOOP-12709](https://issues.apache.org/jira/browse/HADOOP-12709) | *Major* | **Cut s3:// from trunk**
+
+**WARNING: No release note provided for this change.**
+
+
+---
+
+* [HADOOP-12064](https://issues.apache.org/jira/browse/HADOOP-12064) | *Blocker* | **[JDK8] Update guice version to 4.0**
+
+Upgrading following dependences:
+\* Guice from 3.0 to 4.0
+\* cglib from 2.2 to 3.2.0
+\* asm from 3.2 to 5.0.4
+
+
+---
+
+* [HDFS-10548](https://issues.apache.org/jira/browse/HDFS-10548) | *Major* | **Remove the long deprecated BlockReaderRemote**
+
+This removes the configuration property {{dfs.client.use.legacy.blockreader}}, since the legacy remote block reader class has been removed from the codebase.
 
 
 

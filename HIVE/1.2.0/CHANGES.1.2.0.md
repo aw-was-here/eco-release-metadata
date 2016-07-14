@@ -24,6 +24,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HIVE-2573](https://issues.apache.org/jira/browse/HIVE-2573) | Create per-session function registry |  Minor | Server Infrastructure | Navis | Navis |
 | [HIVE-6617](https://issues.apache.org/jira/browse/HIVE-6617) | Reduce ambiguity in grammar |  Major | Parser | Ashutosh Chauhan | Pengcheng Xiong |
 | [HIVE-3454](https://issues.apache.org/jira/browse/HIVE-3454) | Problem with CAST(BIGINT as TIMESTAMP) |  Major | Types, UDF | Ryan Harris | Aihua Xu |
 
@@ -65,7 +66,6 @@
 | [HIVE-9594](https://issues.apache.org/jira/browse/HIVE-9594) | Add qtests for LAST\_DAY udf |  Minor | UDF | Alexander Pivovarov | Alexander Pivovarov |
 | [HIVE-9618](https://issues.apache.org/jira/browse/HIVE-9618) | Deduplicate RS keys for ptf/windowing |  Trivial | PTF-Windowing | Navis | Navis |
 | [HIVE-9500](https://issues.apache.org/jira/browse/HIVE-9500) | Support nested structs over 24 levels. |  Major | . | Aihua Xu | Aihua Xu |
-| [HIVE-2573](https://issues.apache.org/jira/browse/HIVE-2573) | Create per-session function registry |  Minor | Server Infrastructure | Navis | Navis |
 | [HIVE-9673](https://issues.apache.org/jira/browse/HIVE-9673) | Set operationhandle in ATS entities for lookups |  Major | . | Thejas M Nair | Thejas M Nair |
 | [HIVE-9596](https://issues.apache.org/jira/browse/HIVE-9596) | move standard getDisplayString impl to GenericUDF |  Minor | UDF | Alexander Pivovarov | Alexander Pivovarov |
 | [HIVE-9138](https://issues.apache.org/jira/browse/HIVE-9138) | Add some explain to PTF operator |  Trivial | Diagnosability, Query Processor | Navis | Navis |
@@ -87,7 +87,7 @@
 | [HIVE-10007](https://issues.apache.org/jira/browse/HIVE-10007) | Support qualified table name in analyze table compute statistics for columns |  Major | Query Processor, Statistics | Chaoyu Tang | Chaoyu Tang |
 | [HIVE-10072](https://issues.apache.org/jira/browse/HIVE-10072) | Add vectorization support for Hybrid Grace Hash Join |  Major | . | Wei Zheng | Wei Zheng |
 | [HIVE-9859](https://issues.apache.org/jira/browse/HIVE-9859) | Create bitwise left/right shift UDFs |  Major | UDF | Alexander Pivovarov | Alexander Pivovarov |
-| [HIVE-1575](https://issues.apache.org/jira/browse/HIVE-1575) | get\_json\_object does not support JSON array at the root level |  Major | UDF | Steven Wong | Alexander Pivovarov |
+| [HIVE-1575](https://issues.apache.org/jira/browse/HIVE-1575) | get\_json\_object does not support JSON array at the root level |  Major | UDF | Steven K. Wong | Alexander Pivovarov |
 | [HIVE-9766](https://issues.apache.org/jira/browse/HIVE-9766) | Add JavaConstantXXXObjectInspector |  Major | Serializers/Deserializers | Daniel Dai | Daniel Dai |
 | [HIVE-10027](https://issues.apache.org/jira/browse/HIVE-10027) | Use descriptions from Avro schema files in column comments |  Minor | Metastore | Jeremy Beard | Chaoyu Tang |
 | [HIVE-9664](https://issues.apache.org/jira/browse/HIVE-9664) | Hive "add jar" command should be able to download and add jars from a repository |  Major | . | Anant Nag | Anant Nag |

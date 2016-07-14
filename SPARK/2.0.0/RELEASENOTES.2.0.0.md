@@ -306,4 +306,215 @@ It looks like the head/master branch of Spark uses quite an old version of Jetty
 There have been some announcement of security vulnerabilities, notably in 2015 and there are versions of both 8 and 9 that address those. We recently left a web-ui port open and had the server compromised within days. Albeit, this upgrade shouldn't be the only security improvement made, the current version is clearly vulnerable, as-is.
 
 
+---
+
+* [SPARK-15652](https://issues.apache.org/jira/browse/SPARK-15652) | *Critical* | **Missing org.apache.spark.launcher.SparkAppHandle.Listener notification if SparkSubmit JVM shutsdown**
+
+h6. Problem
+In case SparkSubmit JVM goes down even before sending the job complete notification; the \_org.apache.spark.launcher.SparkAppHandle.Listener\_ will not receive any notification which may lead to the client using SparkLauncher hang indefinitely.
+h6. Root Cause
+No proper exception handling at org.apache.spark.launcher.LauncherConnection#run when an EOFException is encountered while reading over Socket Stream. Mostly EOFException will be thrown at the suggested point(\_org.apache.spark.launcher.LauncherConnection.run(LauncherConnection.java:58)\_) if the SparkSubmit JVM is shutdown. 
+Probably, it was assumed that SparkSubmit JVM can shut down only with normal healthy completion but, there could be scenarios where this is not the case:
+# OS kill the SparkSubmit process using OOM Killer.
+# Exception while SparkSubmit submits the job, even before it starts monitoring the application. This can happen if SparkLauncher is not configured properly. There might be no exception handling in org.apache.spark.deploy.yarn.Client#submitApplication(), which may lead to any exception/throwable at this point lead to shutting down of JVM without proper finalisation
+
+h6. Possible Solutions
+# In case of EOFException or any other exception notify the listeners that job has failed
+# Better exception handling on the SparkSubmit JVM side (though this may not resolve the problem completely)
+
+
+---
+
+* [SPARK-15851](https://issues.apache.org/jira/browse/SPARK-15851) | *Major* | **Spark 2.0 does not compile in Windows 7**
+
+Spark does not compile in Windows 7.
+"mvn compile" fails on spark-core due to trying to execute a bash script spark-build-info.
+
+Work around:
+1)Install win-bash and put in path
+2)Change line 350 of core/pom.xml
+                \<exec executable="bash"\>
+                  \<arg value="${project.basedir}/../build/spark-build-info"/\>
+                  \<arg value="${project.build.directory}/extra-resources"/\>
+                  \<arg value="${pom.version}"/\>
+                \</exec\>
+
+Error trace:
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-antrun-plugin:1.8:run (default) on project spark-core\_2.11: An Ant BuildException has occured: Execute failed: java.io.IOException: Cannot run program "C:\dev\spark\core\..\build\spark-build-info" (in directory "C:\dev\spark\core"): CreateProcess error=193, %1 is not a valid Win32 application
+[ERROR] around Ant part ...\<exec executable="C:\dev\spark\core/../build/spark-build-info"\>... @ 4:73 in C:\dev\spark\core\target\antrun\build-main.xml
+
+
+---
+
+* [SPARK-13709](https://issues.apache.org/jira/browse/SPARK-13709) | *Major* | **Spark unable to decode Avro when partitioned**
+
+There is a problem decoding Avro data with SparkSQL when partitioned. The schema and encoded data are valid -- I'm able to decode the data with the avro-tools CLI utility. I'm also able to decode the data with non-partitioned SparkSQL tables, Hive, other tools as well... except partitioned SparkSQL schemas.
+
+For a simple example, I took the example schema and data found in the Oracle documentation here:
+
+\*Schema\*
+{code:javascript}
+{
+  "type": "record",
+  "name": "MemberInfo",
+  "namespace": "avro",
+  "fields": [
+    {"name": "name", "type": {
+      "type": "record",
+      "name": "FullName",
+      "fields": [
+        {"name": "first", "type": "string"},
+        {"name": "last", "type": "string"}
+      ]
+    }},
+    {"name": "age", "type": "int"},
+    {"name": "address", "type": {
+      "type": "record",
+      "name": "Address",
+      "fields": [
+        {"name": "street", "type": "string"},
+        {"name": "city", "type": "string"},
+        {"name": "state", "type": "string"},
+        {"name": "zip", "type": "int"}
+      ]
+    }}
+  ]
+} 
+{code}
+
+\*Data\*
+{code:javascript}
+{
+  "name": {
+    "first": "Percival",
+    "last":  "Lowell"
+  },
+  "age": 156,
+  "address": {
+    "street": "Mars Hill Rd",
+    "city": "Flagstaff",
+    "state": "AZ",
+    "zip": 86001
+  }
+}
+{code}
+
+\*Create\* (no partitions - works)
+If I create with no partitions, I'm able to query the data just fine.
+
+{code:sql}
+CREATE EXTERNAL TABLE IF NOT EXISTS foo
+ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.avro.AvroSerDe'
+STORED AS INPUTFORMAT 'org.apache.hadoop.hive.ql.io.avro.AvroContainerInputFormat'
+OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.avro.AvroContainerOutputFormat'
+LOCATION '/path/to/data/dir'
+TBLPROPERTIES ('avro.schema.url'='/path/to/schema.avsc');
+{code}
+
+\*Create\* (partitions -- does NOT work)
+If I create with no partitions, and then manually add a partition, all of my queries return an error. (I need to manually add partitions because I cannot control the structure of the data directories, so dynamic partitioning is not an option.)
+
+{code:sql}
+CREATE EXTERNAL TABLE IF NOT EXISTS foo
+PARTITIONED BY (ds STRING)
+ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.avro.AvroSerDe'
+STORED AS INPUTFORMAT 'org.apache.hadoop.hive.ql.io.avro.AvroContainerInputFormat'
+OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.avro.AvroContainerOutputFormat'
+TBLPROPERTIES ('avro.schema.url'='/path/to/schema.avsc');
+
+ALTER TABLE foo ADD PARTITION (ds='1') LOCATION '/path/to/data/dir';
+{code}
+
+The error:
+
+{code}
+spark-sql\> SELECT \* FROM foo WHERE ds = '1';
+
+Driver stacktrace:
+    at org.apache.spark.scheduler.DAGScheduler.org$apache$spark$scheduler$DAGScheduler$$failJobAndIndependentStages(DAGScheduler.scala:1431)
+    at org.apache.spark.scheduler.DAGScheduler$$anonfun$abortStage$1.apply(DAGScheduler.scala:1419)
+    at org.apache.spark.scheduler.DAGScheduler$$anonfun$abortStage$1.apply(DAGScheduler.scala:1418)
+    at scala.collection.mutable.ResizableArray$class.foreach(ResizableArray.scala:59)
+    at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:47)
+    at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:1418)
+    at org.apache.spark.scheduler.DAGScheduler$$anonfun$handleTaskSetFailed$1.apply(DAGScheduler.scala:799)
+    at org.apache.spark.scheduler.DAGScheduler$$anonfun$handleTaskSetFailed$1.apply(DAGScheduler.scala:799)
+    at scala.Option.foreach(Option.scala:236)
+    at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:799)
+    at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:1640)
+    at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:1599)
+    at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:1588)
+    at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:48)
+    at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:620)
+    at org.apache.spark.SparkContext.runJob(SparkContext.scala:1832)
+    at org.apache.spark.SparkContext.runJob(SparkContext.scala:1845)
+    at org.apache.spark.SparkContext.runJob(SparkContext.scala:1858)
+    at org.apache.spark.SparkContext.runJob(SparkContext.scala:1929)
+    at org.apache.spark.rdd.RDD$$anonfun$collect$1.apply(RDD.scala:927)
+    at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:150)
+    at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:111)
+    at org.apache.spark.rdd.RDD.withScope(RDD.scala:316)
+    at org.apache.spark.rdd.RDD.collect(RDD.scala:926)
+    at org.apache.spark.sql.execution.SparkPlan.executeCollect(SparkPlan.scala:166)
+    at org.apache.spark.sql.execution.SparkPlan.executeCollectPublic(SparkPlan.scala:174)
+    at org.apache.spark.sql.hive.HiveContext$QueryExecution.stringResult(HiveContext.scala:635)
+    at org.apache.spark.sql.hive.thriftserver.SparkSQLDriver.run(SparkSQLDriver.scala:64)
+    at org.apache.spark.sql.hive.thriftserver.SparkSQLCLIDriver.processCmd(SparkSQLCLIDriver.scala:308)
+    at org.apache.hadoop.hive.cli.CliDriver.processLine(CliDriver.java:376)
+    at org.apache.spark.sql.hive.thriftserver.SparkSQLCLIDriver$.main(SparkSQLCLIDriver.scala:226)
+    at org.apache.spark.sql.hive.thriftserver.SparkSQLCLIDriver.main(SparkSQLCLIDriver.scala)
+    at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+    at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+    at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+    at java.lang.reflect.Method.invoke(Method.java:483)
+    at org.apache.spark.deploy.SparkSubmit$.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:731)
+    at org.apache.spark.deploy.SparkSubmit$.doRunMain$1(SparkSubmit.scala:181)
+    at org.apache.spark.deploy.SparkSubmit$.submit(SparkSubmit.scala:206)
+    at org.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:121)
+    at org.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)
+Caused by: org.apache.avro.AvroTypeException: Found avro.FullName, expecting union
+    at org.apache.avro.io.ResolvingDecoder.doAction(ResolvingDecoder.java:292)
+    at org.apache.avro.io.parsing.Parser.advance(Parser.java:88)
+    at org.apache.avro.io.ResolvingDecoder.readIndex(ResolvingDecoder.java:267)
+    at org.apache.avro.generic.GenericDatumReader.read(GenericDatumReader.java:155)
+    at org.apache.avro.generic.GenericDatumReader.readField(GenericDatumReader.java:193)
+    at org.apache.avro.generic.GenericDatumReader.readRecord(GenericDatumReader.java:183)
+    at org.apache.avro.generic.GenericDatumReader.read(GenericDatumReader.java:151)
+    at org.apache.avro.generic.GenericDatumReader.read(GenericDatumReader.java:142)
+    at org.apache.hadoop.hive.serde2.avro.AvroDeserializer$SchemaReEncoder.reencode(AvroDeserializer.java:111)
+    at org.apache.hadoop.hive.serde2.avro.AvroDeserializer.deserialize(AvroDeserializer.java:175)
+    at org.apache.hadoop.hive.serde2.avro.AvroSerDe.deserialize(AvroSerDe.java:201)
+    at org.apache.spark.sql.hive.HadoopTableReader$$anonfun$fillObject$2.apply(TableReader.scala:409)
+    at org.apache.spark.sql.hive.HadoopTableReader$$anonfun$fillObject$2.apply(TableReader.scala:408)
+    at scala.collection.Iterator$$anon$11.next(Iterator.scala:328)
+    at scala.collection.Iterator$$anon$11.next(Iterator.scala:328)
+    at scala.collection.Iterator$class.foreach(Iterator.scala:727)
+    at scala.collection.AbstractIterator.foreach(Iterator.scala:1157)
+    at scala.collection.generic.Growable$class.$plus$plus$eq(Growable.scala:48)
+    at scala.collection.mutable.ArrayBuffer.$plus$plus$eq(ArrayBuffer.scala:103)
+    at scala.collection.mutable.ArrayBuffer.$plus$plus$eq(ArrayBuffer.scala:47)
+    at scala.collection.TraversableOnce$class.to(TraversableOnce.scala:273)
+    at scala.collection.AbstractIterator.to(Iterator.scala:1157)
+    at scala.collection.TraversableOnce$class.toBuffer(TraversableOnce.scala:265)
+    at scala.collection.AbstractIterator.toBuffer(Iterator.scala:1157)
+    at scala.collection.TraversableOnce$class.toArray(TraversableOnce.scala:252)
+    at scala.collection.AbstractIterator.toArray(Iterator.scala:1157)
+    at org.apache.spark.rdd.RDD$$anonfun$collect$1$$anonfun$12.apply(RDD.scala:927)
+    at org.apache.spark.rdd.RDD$$anonfun$collect$1$$anonfun$12.apply(RDD.scala:927)
+    at org.apache.spark.SparkContext$$anonfun$runJob$5.apply(SparkContext.scala:1858)
+    at org.apache.spark.SparkContext$$anonfun$runJob$5.apply(SparkContext.scala:1858)
+    at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:66)
+    at org.apache.spark.scheduler.Task.run(Task.scala:89)
+    at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:213)
+    at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+    at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+    at java.lang.Thread.run(Thread.java:745)
+{code}
+
+\*Additional Info\*
+For what it's worth, I found an issue (DRILL-957) reported in Apache Drill and related fix that look very simliar to this. I'll look that to this issue.
+
+Originally [posted here\|http://stackoverflow.com/questions/35826850/spark-unable-to-decode-avro-when-partitioned] on StackOverflow as a question, but I felt strongly that this is indeed a bug so I created this issue.
+
+
 

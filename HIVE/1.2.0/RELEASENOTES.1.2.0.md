@@ -58,6 +58,19 @@ Support for Bloom Filters in ORC internal index.
 
 ---
 
+* [HIVE-2573](https://issues.apache.org/jira/browse/HIVE-2573) | *Minor* | **Create per-session function registry**
+
+Marked as incompatible because of a bug - 
+
+This patch broke automatic loading of externally added permanent functions in HiveServer2. This only affects multi-HS2 setup, where only one HS2 adds the function; or functions added from Hive CLI bypassing HS2. In such cases, HS2 will not be able to run a query with the new function.
+
+Additionally, RELOAD FUNCTION call has been broken by this patch.
+Workaround: 
+The HS2s that don't have the function need to be restarted.
+
+
+---
+
 * [HIVE-9667](https://issues.apache.org/jira/browse/HIVE-9667) | *Minor* | **Disable ORC bloom filters for ORC v11 output-format**
 
 Disable ORC bloom filters for ORC v11 writer impl

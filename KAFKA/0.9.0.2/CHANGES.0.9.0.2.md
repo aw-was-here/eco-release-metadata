@@ -18,24 +18,8 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.9.0.2 - Unreleased (as of 2016-05-12)
+## Release 0.9.0.2 - Unreleased (as of 2016-07-14)
 
-### INCOMPATIBLE CHANGES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
-### IMPORTANT ISSUES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
-### NEW FEATURES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### IMPROVEMENTS:
@@ -49,23 +33,9 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-
-
-### TESTS:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
-### SUB-TASKS:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
-### OTHER:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-3088](https://issues.apache.org/jira/browse/KAFKA-3088) | 0.9.0.0 broker crash on receipt of produce request with empty client ID |  Major | producer | Dave Peterson | Grant Henke |
+| [KAFKA-3594](https://issues.apache.org/jira/browse/KAFKA-3594) | Kafka new producer retries doesn't work in 0.9.0.1 |  Critical | producer | Nicolas PHUNG | Manikumar Reddy |
+| [KAFKA-3632](https://issues.apache.org/jira/browse/KAFKA-3632) | ConsumerLag metrics persist after partition migration |  Minor | core | Brian Lueck | Jason Gustafson |
+| [KAFKA-3773](https://issues.apache.org/jira/browse/KAFKA-3773) | SocketServer inflightResponses collection leaks memory on client disconnect |  Major | core | Jason Gustafson | Jason Gustafson |
 
 

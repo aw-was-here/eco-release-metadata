@@ -18,18 +18,8 @@
 -->
 # Apache BigTop Changelog
 
-## Release 1.2.0 - Unreleased (as of 2016-05-12)
+## Release 1.2.0 - Unreleased (as of 2016-07-14)
 
-### INCOMPATIBLE CHANGES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
-### IMPORTANT ISSUES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### NEW FEATURES:
@@ -39,6 +29,8 @@
 | [BIGTOP-1641](https://issues.apache.org/jira/browse/BIGTOP-1641) | Add packaging for Apache Tajo |  Major | debian, rpm, tests | YoungWoo Kim | Yeongeon KIM |
 | [BIGTOP-2296](https://issues.apache.org/jira/browse/BIGTOP-2296) | Provide a way to build Docker container with functional stack |  Major | docker, general | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2339](https://issues.apache.org/jira/browse/BIGTOP-2339) | add centos-7 to the provisioiner matrix |  Major | provisioner | Konstantin Boudnik | Konstantin Boudnik |
+| [BIGTOP-2435](https://issues.apache.org/jira/browse/BIGTOP-2435) | Add Juju charms for hadoop component |  Minor | deployment | Kevin W Monroe | Kevin W Monroe |
+| [BIGTOP-2452](https://issues.apache.org/jira/browse/BIGTOP-2452) | Adding Dockerfile to build deploy image for ubuntu-16.04-x86 |  Major | build, deployment, docker | Amir Sanjar | Amir Sanjar |
 
 
 ### IMPROVEMENTS:
@@ -64,6 +56,10 @@
 | [BIGTOP-2077](https://issues.apache.org/jira/browse/BIGTOP-2077) | Bump HBase version to 1.1 |  Major | hbase | Konstantin Boudnik | YoungWoo Kim |
 | [BIGTOP-2333](https://issues.apache.org/jira/browse/BIGTOP-2333) | Make Apache Pig work with HBase 1.1 on Hadoop 2 |  Major | build, pig | YoungWoo Kim | YoungWoo Kim |
 | [BIGTOP-2416](https://issues.apache.org/jira/browse/BIGTOP-2416) | Upgrade Crunch to 0.13.0 |  Major | . | YoungWoo Kim | YoungWoo Kim |
+| [BIGTOP-2455](https://issues.apache.org/jira/browse/BIGTOP-2455) | support pre-installed java environment |  Minor | deployment | Kevin W Monroe | Kevin W Monroe |
+| [BIGTOP-2479](https://issues.apache.org/jira/browse/BIGTOP-2479) | Update qfs maintainer to kstinson |  Major | . | Faraaz Sareshwala | Faraaz Sareshwala |
+| [BIGTOP-2478](https://issues.apache.org/jira/browse/BIGTOP-2478) | Zookeeper does not have any smoke tests |  Major | deployment | Pete Vander Giessen | Pete Vander Giessen |
+| [BIGTOP-2429](https://issues.apache.org/jira/browse/BIGTOP-2429) | Add Solr to gradle smokes |  Major | tests | Dasha Boudnik | Dasha Boudnik |
 
 
 ### BUG FIXES:
@@ -106,12 +102,24 @@
 | [BIGTOP-2419](https://issues.apache.org/jira/browse/BIGTOP-2419) | Fix symlinks on packaging Crunch rpm and deb |  Major | debian, rpm | YoungWoo Kim | YoungWoo Kim |
 | [BIGTOP-2423](https://issues.apache.org/jira/browse/BIGTOP-2423) | Fix hard-coded port number in Sqoop smokes |  Major | tests | Dasha Boudnik | Dasha Boudnik |
 | [BIGTOP-2425](https://issues.apache.org/jira/browse/BIGTOP-2425) | crunch needs JDK8 javadoc |  Major | build | Olaf Flebbe | Olaf Flebbe |
-
-
-### TESTS:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
+| [BIGTOP-1533](https://issues.apache.org/jira/browse/BIGTOP-1533) | failed to load/initialize native-bzip2 library system-native |  Major | build | Guo Ruijing | Olaf Flebbe |
+| [BIGTOP-2433](https://issues.apache.org/jira/browse/BIGTOP-2433) | mvn is missing in Bigtop Toolchain |  Major | toolchain | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2400](https://issues.apache.org/jira/browse/BIGTOP-2400) | Get groovy plugins used by Maven in sync with Bigtop groovy runtime |  Major | build, tests | Konstantin Boudnik | Konstantin Boudnik |
+| [BIGTOP-2434](https://issues.apache.org/jira/browse/BIGTOP-2434) | Change Spark test to unpack jar file and retrieve resources |  Major | tests | Dasha Boudnik | Dasha Boudnik |
+| [BIGTOP-2439](https://issues.apache.org/jira/browse/BIGTOP-2439) | flink: fix adduser and register init.d scripts on DEB systemes |  Major | build, flink | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2441](https://issues.apache.org/jira/browse/BIGTOP-2441) | spark smoke test doesn't work relying on yarn-client submittion |  Major | tests | Konstantin Boudnik | Konstantin Boudnik |
+| [BIGTOP-2412](https://issues.apache.org/jira/browse/BIGTOP-2412) | arm dockerfile breaks RAT |  Critical | build | Konstantin Boudnik | Konstantin Boudnik |
+| [BIGTOP-2427](https://issues.apache.org/jira/browse/BIGTOP-2427) | jsvc build not recognizing ARM as valid platform |  Critical | jsvc | Ganesh Raju | Ganesh Raju |
+| [BIGTOP-2463](https://issues.apache.org/jira/browse/BIGTOP-2463) | Regression: bigtop-jsvc build fails on ppc64le architecture |  Critical | build, jsvc, ppc64le | Amir Sanjar | Amir Sanjar |
+| [BIGTOP-2430](https://issues.apache.org/jira/browse/BIGTOP-2430) | Adding Dockerfile to build puppet image for ubuntu-16.04-ppc64le |  Major | build, docker, ppc64le | Amir Sanjar | Amir Sanjar |
+| [BIGTOP-2431](https://issues.apache.org/jira/browse/BIGTOP-2431) | Adding Dockerfile to build slaves image for ubuntu-16.04-ppc64le |  Major | build, docker, ppc64le | Amir Sanjar | Amir Sanjar |
+| [BIGTOP-2374](https://issues.apache.org/jira/browse/BIGTOP-2374) | Toolchain needs clear warning for Puppet \<3 |  Major | toolchain | Konstantin Boudnik | Kengo Seki |
+| [BIGTOP-2449](https://issues.apache.org/jira/browse/BIGTOP-2449) | Adding Dockerfile to build slaves image for ubuntu-16.04-x86 |  Major | build, docker | Amir Sanjar | Amir Sanjar |
+| [BIGTOP-2472](https://issues.apache.org/jira/browse/BIGTOP-2472) | zeppelin puppet module needs to expose ZEPPELIN\_WAR\_TEMPDIR |  Major | deployment | Kevin W Monroe | Kevin W Monroe |
+| [BIGTOP-2474](https://issues.apache.org/jira/browse/BIGTOP-2474) | Improve handling of gradle home |  Major | build | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2445](https://issues.apache.org/jira/browse/BIGTOP-2445) | Adding Dockerfile to build deploy image for ubuntu-16.04-ppc64le |  Major | build, docker, ppc64le | Amir Sanjar | Amir Sanjar |
+| [BIGTOP-2473](https://issues.apache.org/jira/browse/BIGTOP-2473) | Mahout puppet script fails to find Package[hadoop] |  Major | . | Konstantinos Tsakalozos |  |
+| [BIGTOP-2488](https://issues.apache.org/jira/browse/BIGTOP-2488) | Redundant zookeeper/lib directory |  Minor | debian, rpm | Ted Yu | Ted Yu |
 
 
 ### SUB-TASKS:
@@ -128,7 +136,10 @@
 | [BIGTOP-2293](https://issues.apache.org/jira/browse/BIGTOP-2293) | Add puppet recipes for qfs components |  Major | . | Faraaz Sareshwala | Faraaz Sareshwala |
 | [BIGTOP-2315](https://issues.apache.org/jira/browse/BIGTOP-2315) | Add smoke test for apex |  Major | tests | Chinmay Kolhatkar | Chinmay Kolhatkar |
 | [BIGTOP-2317](https://issues.apache.org/jira/browse/BIGTOP-2317) | Add smoke tests for QFS |  Major | tests | Faraaz Sareshwala | Faraaz Sareshwala |
-| [BIGTOP-2345](https://issues.apache.org/jira/browse/BIGTOP-2345) | Create Flink packaging |  Major | build, general | Bhupendra Singh | Bhupendra Singh |
+| [BIGTOP-2345](https://issues.apache.org/jira/browse/BIGTOP-2345) | Create Flink packaging |  Major | build, flink, general | Bhupendra Singh | Bhupendra Singh |
+| [BIGTOP-2468](https://issues.apache.org/jira/browse/BIGTOP-2468) | Add Juju hadoop-processing bundle |  Minor | deployment | Kevin W Monroe | Kevin W Monroe |
+| [BIGTOP-2469](https://issues.apache.org/jira/browse/BIGTOP-2469) | Add cloud-weather-report test plan |  Minor | tests | Cory Johns | Cory Johns |
+| [BIGTOP-2357](https://issues.apache.org/jira/browse/BIGTOP-2357) | Create puppet recipes |  Major | flink, general | Bhupendra Singh | Robert Metzger |
 
 
 ### OTHER:
@@ -141,5 +152,7 @@
 | [BIGTOP-2368](https://issues.apache.org/jira/browse/BIGTOP-2368) | OpenStack config bigtop repo-url changes. |  Minor | provisioner | Bhupendra Singh | Bhupendra Singh |
 | [BIGTOP-2371](https://issues.apache.org/jira/browse/BIGTOP-2371) | Add Oozie to gradle smoke tests |  Major | tests | Dasha Boudnik | Dasha Boudnik |
 | [BIGTOP-2415](https://issues.apache.org/jira/browse/BIGTOP-2415) | readme spelling error |  Trivial | documentation | Artem Ervits | Artem Ervits |
+| [BIGTOP-2414](https://issues.apache.org/jira/browse/BIGTOP-2414) | Rename Tachyon to Alluxio |  Major | . | Jonathan Kelly | Jonathan Kelly |
+| [BIGTOP-2456](https://issues.apache.org/jira/browse/BIGTOP-2456) | Update Apache Apex version to 3.4.0 |  Major | build | Chinmay Kolhatkar | Chinmay Kolhatkar |
 
 

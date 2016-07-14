@@ -20,16 +20,6 @@
 
 ## Release 0.8.3 - 2016-04-15
 
-### INCOMPATIBLE CHANGES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
-### IMPORTANT ISSUES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### NEW FEATURES:
@@ -110,12 +100,6 @@
 | [TEZ-3201](https://issues.apache.org/jira/browse/TEZ-3201) | Tez-UI build broken |  Blocker | . | Siddharth Seth | Sreenath Somarajapuram |
 | [TEZ-3196](https://issues.apache.org/jira/browse/TEZ-3196) | java.lang.InternalError from decompression codec is fatal to a task during shuffle |  Major | . | Jason Lowe | Jason Lowe |
 | [TEZ-3180](https://issues.apache.org/jira/browse/TEZ-3180) | Update master docs to declare hadoop-2.6.x as a minimum requirement |  Major | . | Hitesh Shah | Hitesh Shah |
-
-
-### TESTS:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### SUB-TASKS:

@@ -18,24 +18,8 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.8.1.2 - Unreleased (as of 2016-05-12)
+## Release 0.8.1.2 - Unreleased (as of 2016-07-14)
 
-### INCOMPATIBLE CHANGES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
-### IMPORTANT ISSUES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
-### NEW FEATURES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### IMPROVEMENTS:
@@ -51,23 +35,5 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [KAFKA-1382](https://issues.apache.org/jira/browse/KAFKA-1382) | Update zkVersion on partition state update failures |  Major | . | Joel Koshy | Sriharsha Chintalapani |
 | [KAFKA-2357](https://issues.apache.org/jira/browse/KAFKA-2357) | Update zookeeper.connect description in Kafka documentation |  Major | . | Yuto Sasaki | David Jacot |
-
-
-### TESTS:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
-### SUB-TASKS:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
-### OTHER:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
 
 

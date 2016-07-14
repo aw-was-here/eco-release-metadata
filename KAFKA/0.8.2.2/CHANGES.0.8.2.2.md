@@ -20,28 +20,6 @@
 
 ## Release 0.8.2.2 - 2015-10-02
 
-### INCOMPATIBLE CHANGES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
-### IMPORTANT ISSUES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
-### NEW FEATURES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
-### IMPROVEMENTS:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### BUG FIXES:
@@ -52,23 +30,5 @@
 | [KAFKA-2308](https://issues.apache.org/jira/browse/KAFKA-2308) | New producer + Snappy face un-compression errors after broker restart |  Major | . | Gwen Shapira | Gwen Shapira |
 | [KAFKA-2346](https://issues.apache.org/jira/browse/KAFKA-2346) | modified typo api.html in 0.8.2 and 0.8.3 |  Minor | website | Asano Ryohei |  |
 | [KAFKA-2889](https://issues.apache.org/jira/browse/KAFKA-2889) | Problem running Kafka using -daemon switch |  Major | core | David Ing |  |
-
-
-### TESTS:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
-### SUB-TASKS:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
-### OTHER:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
 
 

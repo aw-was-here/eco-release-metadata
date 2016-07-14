@@ -20,22 +20,6 @@
 
 ## Release 0.2.1 - 2016-04-07
 
-### INCOMPATIBLE CHANGES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
-### IMPORTANT ISSUES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
-### NEW FEATURES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### IMPROVEMENTS:
@@ -51,18 +35,6 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YETUS-345](https://issues.apache.org/jira/browse/YETUS-345) | mvn dependency dupe fix broke hadoop |  Blocker | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-334](https://issues.apache.org/jira/browse/YETUS-334) | mvn dependency ordering generates duplicates |  Critical | Test Patch | Phil Yang | Allen Wittenauer |
-
-
-### TESTS:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
-### SUB-TASKS:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### OTHER:

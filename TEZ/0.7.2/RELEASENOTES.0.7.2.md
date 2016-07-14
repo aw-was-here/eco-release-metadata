@@ -21,4 +21,11 @@
 These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
 
 
+---
+
+* [TEZ-3258](https://issues.apache.org/jira/browse/TEZ-3258) | *Major* | **Jvm Checker does not ignore DisableExplicitGC when checking JVM GC options**
+
+**WARNING: No release note provided for this change.**
+
+
 

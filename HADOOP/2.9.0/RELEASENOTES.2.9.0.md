@@ -107,4 +107,25 @@ This patch will attempt to allocate all replicas to remote DataNodes, by adding 
 Remove invisible synchronization primitives from DataInputBuffer
 
 
+---
+
+* [MAPREDUCE-6701](https://issues.apache.org/jira/browse/MAPREDUCE-6701) | *Critical* | **application master log can not be available when clicking jobhistory's am logs link**
+
+**WARNING: No release note provided for this change.**
+
+
+---
+
+* [HDFS-9016](https://issues.apache.org/jira/browse/HDFS-9016) | *Major* | **Display upgrade domain information in fsck**
+
+New fsck option "-upgradedomains" has been added to display upgrade domains of any block.
+
+
+---
+
+* [HDFS-10328](https://issues.apache.org/jira/browse/HDFS-10328) | *Minor* | **Add per-cache-pool default replication num configuration**
+
+Add per-cache-pool default replication num configuration
+
+
 

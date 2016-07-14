@@ -20,10 +20,6 @@
 
 ## Release 0.9.0.1 - 2016-02-19
 
-### INCOMPATIBLE CHANGES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### IMPORTANT ISSUES:
@@ -32,12 +28,6 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [KAFKA-2978](https://issues.apache.org/jira/browse/KAFKA-2978) | Topic partition is not sometimes consumed after rebalancing of consumer group |  Critical | consumer, core | Michal Turek | Jason Gustafson |
 | [KAFKA-3029](https://issues.apache.org/jira/browse/KAFKA-3029) | Make class org.apache.kafka.common.TopicPartition Serializable |  Major | clients | Praveen Devarao | Praveen Devarao |
-
-
-### NEW FEATURES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### IMPROVEMENTS:
@@ -114,12 +104,6 @@
 | [KAFKA-2315](https://issues.apache.org/jira/browse/KAFKA-2315) | Kafka binary distribution may contain incorrect dependencies |  Major | packaging | MÓZES Ádám István | Manikumar Reddy |
 
 
-### TESTS:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
 ### SUB-TASKS:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
@@ -127,12 +111,5 @@
 | [KAFKA-2058](https://issues.apache.org/jira/browse/KAFKA-2058) | ProducerTest.testSendWithDeadBroker transient failure |  Major | . | Guozhang Wang | jin xing |
 | [KAFKA-2977](https://issues.apache.org/jira/browse/KAFKA-2977) | Transient Failure in kafka.log.LogCleanerIntegrationTest.cleanerTest |  Major | . | Guozhang Wang | jin xing |
 | [KAFKA-2455](https://issues.apache.org/jira/browse/KAFKA-2455) | Test Failure: kafka.consumer.MetricsTest \> testMetricsLeak |  Major | . | Gwen Shapira | jin xing |
-| [KAFKA-3103](https://issues.apache.org/jira/browse/KAFKA-3103) | Transient Failure in kafka.integration.PlaintextTopicMetadataTest.testIsrAfterBrokerShutDownAndJoinsBack |  Major | . | Guozhang Wang | Denise Fernandez |
-
-
-### OTHER:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
 
 

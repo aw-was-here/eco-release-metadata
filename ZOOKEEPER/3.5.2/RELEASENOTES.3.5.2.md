@@ -52,4 +52,11 @@ Branch 3.5: Committed revision 1740737.
 Trunk: Committed revision 1740738.
 
 
+---
+
+* [ZOOKEEPER-1460](https://issues.apache.org/jira/browse/ZOOKEEPER-1460) | *Major* | **IPv6 literal address not supported for quorum members**
+
+IPv6 addresses are now properly parsed in the config
+
+
 

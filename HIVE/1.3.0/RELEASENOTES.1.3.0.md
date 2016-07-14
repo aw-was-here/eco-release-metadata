@@ -254,20 +254,6 @@ Hive interactive shell now strips full line comments from the input, matching th
 
 ---
 
-* [HIVE-11372](https://issues.apache.org/jira/browse/HIVE-11372) | *Major* | **join with between predicate comparing integer types returns no rows when ORC format used**
-
-Re-submit
-
-
----
-
-* [HIVE-12717](https://issues.apache.org/jira/browse/HIVE-12717) | *Critical* | **Enabled to accept quoting of all character backslash qooting mechanism to json\_tuple UDTF**
-
-Enabled to accept quoting of all character backslash qooting mechanism to JSON UDTF
-
-
----
-
 * [HIVE-12875](https://issues.apache.org/jira/browse/HIVE-12875) | *Major* | **Verify sem.getInputs() and sem.getOutputs()**
 
 No release notes needed here.
@@ -285,6 +271,13 @@ GenericUDAFEvaluator.isEstimable(agg) always returns false (Gopal V, reviewed by
 * [HIVE-13108](https://issues.apache.org/jira/browse/HIVE-13108) | *Major* | **Operators: SORT BY randomness is not safe with network partitions**
 
 Operators: SORT BY randomness is not safe with network partitions (Gopal V, reviewed by Sergey Shelukhin)
+
+
+---
+
+* [HIVE-13840](https://issues.apache.org/jira/browse/HIVE-13840) | *Critical* | **Orc split generation is reading file footers twice**
+
+Fix for ORC split generation reading file footers twice. Also reduces number of file system calls during ORC split generation.
 
 
 

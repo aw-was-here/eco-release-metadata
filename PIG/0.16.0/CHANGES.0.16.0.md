@@ -18,18 +18,8 @@
 -->
 # Apache Pig Changelog
 
-## Release 0.16.0 - Unreleased (as of 2016-05-12)
+## Release 0.16.0 - 2016-06-08
 
-### INCOMPATIBLE CHANGES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
-### IMPORTANT ISSUES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### NEW FEATURES:
@@ -84,6 +74,12 @@
 | [PIG-4882](https://issues.apache.org/jira/browse/PIG-4882) | Remove hardcoded groovy.grape.report.downloads=true from DownloadResolver |  Major | . | Anthony Hsu | Anthony Hsu |
 | [PIG-4879](https://issues.apache.org/jira/browse/PIG-4879) | Pull latest version of joda-time |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-4874](https://issues.apache.org/jira/browse/PIG-4874) | Remove schema tuple reference overhead for replicate join hashmap |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
+| [PIG-4884](https://issues.apache.org/jira/browse/PIG-4884) | Tez needs to use DistinctCombiner.Combine |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
+| [PIG-4894](https://issues.apache.org/jira/browse/PIG-4894) | Add API for StoreFunc to specify if they are write safe from two different vertices |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
+| [PIG-4885](https://issues.apache.org/jira/browse/PIG-4885) | Turn off union optimizer if there is PARALLEL clause in union in Tez |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
+| [PIG-4905](https://issues.apache.org/jira/browse/PIG-4905) | Input of empty dir does not produce empty output part file in Tez |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
+| [PIG-4714](https://issues.apache.org/jira/browse/PIG-4714) | Improve logging across multiple components with callerId |  Major | impl | Daniel Dai | Daniel Dai |
+| [PIG-4719](https://issues.apache.org/jira/browse/PIG-4719) | Documentation for PIG-4704: Customizable Error Handling for Storers in Pig |  Major | documentation | Daniel Dai | Daniel Dai |
 
 
 ### BUG FIXES:
@@ -169,12 +165,18 @@
 | [PIG-4881](https://issues.apache.org/jira/browse/PIG-4881) | TestBuiltin.testUniqueID failing on hadoop-1.x |  Minor | . | Koji Noguchi | Koji Noguchi |
 | [PIG-4880](https://issues.apache.org/jira/browse/PIG-4880) | Overlapping of parameter substitution names inside&outside a macro fails with NPE |  Major | parser | Koji Noguchi | Koji Noguchi |
 | [PIG-4889](https://issues.apache.org/jira/browse/PIG-4889) | Replacing backslash fails as lexical error |  Minor | parser | Koji Noguchi | Koji Noguchi |
-
-
-### TESTS:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
+| [PIG-4887](https://issues.apache.org/jira/browse/PIG-4887) | Parameter substitution skipped with glob on register |  Major | . | Koji Noguchi | Koji Noguchi |
+| [PIG-4895](https://issues.apache.org/jira/browse/PIG-4895) | User UDFs relying on mapreduce.job.maps broken in Tez |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
+| [PIG-4873](https://issues.apache.org/jira/browse/PIG-4873) | InputSplit.getLocations return null and result a NPE in Pig |  Major | . | Daniel Dai | Daniel Dai |
+| [PIG-4576](https://issues.apache.org/jira/browse/PIG-4576) | Nightly test HCat\_DDL\_2 fails with TDE ON |  Major | . | Namit Maheshwari | Namit Maheshwari |
+| [PIG-4908](https://issues.apache.org/jira/browse/PIG-4908) | JythonFunction refers to Oozie launcher script absolute path |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
+| [PIG-4909](https://issues.apache.org/jira/browse/PIG-4909) | PigStorage incompatible with commons-cli-1.3 |  Trivial | impl | Koji Noguchi | Koji Noguchi |
+| [PIG-4902](https://issues.apache.org/jira/browse/PIG-4902) | Fix UT failures on 0.16 branch: TestTezGraceParallelism, TestPigScriptParser |  Major | . | Daniel Dai | Daniel Dai |
+| [PIG-3227](https://issues.apache.org/jira/browse/PIG-3227) | SearchEngineExtractor does not work for bing |  Minor | piggybank | Danny Antonetti | Danny Antonetti |
+| [PIG-4786](https://issues.apache.org/jira/browse/PIG-4786) | CROSS will not work correctly with Grace Parallelism |  Major | tez | Rohini Palaniswamy | Daniel Dai |
+| [PIG-4734](https://issues.apache.org/jira/browse/PIG-4734) | TOMAP schema inferring breaks some scripts in type checking for bincond |  Major | . | Rohini Palaniswamy | Daniel Dai |
+| [PIG-4821](https://issues.apache.org/jira/browse/PIG-4821) | Pig chararray field with special UTF-8 chars as part of tuple join key produces wrong results in Tez |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
+| [PIG-4789](https://issues.apache.org/jira/browse/PIG-4789) | Pig on TEZ creates wrong result with replicated join |  Critical | tez | Michael Prim |  |
 
 
 ### SUB-TASKS:

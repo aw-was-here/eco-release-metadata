@@ -514,6 +514,13 @@ libwebhdfs has been retired in 2.8.0 due to the lack of maintenance.
 
 ---
 
+* [HADOOP-11262](https://issues.apache.org/jira/browse/HADOOP-11262) | *Major* | **Enable YARN to use S3A**
+
+S3A has been made accessible through the FileContext API.
+
+
+---
+
 * [HADOOP-12635](https://issues.apache.org/jira/browse/HADOOP-12635) | *Major* | **Adding Append API support for WASB**
 
 The Azure Blob Storage file system (WASB) now includes optional support for use of the append API by a single writer on a path.  Please note that the implementation differs from the semantics of HDFS append.  HDFS append internally guarantees that only a single writer may append to a path at a given time.  WASB does not enforce this guarantee internally.  Instead, the application must enforce access by a single writer, such as by running single-threaded or relying on some external locking mechanism to coordinate concurrent processes.  Refer to the Azure Blob Storage documentation page for more details on enabling append in configuration.
@@ -666,6 +673,13 @@ This new dfsadmin command, evictWriters, stops active block writing activities o
 
 ---
 
+* [HADOOP-12963](https://issues.apache.org/jira/browse/HADOOP-12963) | *Minor* | **Allow using path style addressing for accessing the s3 endpoint**
+
+Add new flag to allow supporting path style addressing for s3a
+
+
+---
+
 * [HDFS-3702](https://issues.apache.org/jira/browse/HDFS-3702) | *Minor* | **Add an option for NOT writing the blocks locally if there is a datanode on the same box as the client**
 
 This patch will attempt to allocate all replicas to remote DataNodes, by adding local DataNode to the excluded DataNodes. If no sufficient replicas can be obtained, it will fall back to default block placement policy, which writes one replica to local DataNode.
@@ -676,6 +690,118 @@ This patch will attempt to allocate all replicas to remote DataNodes, by adding 
 * [HDFS-9902](https://issues.apache.org/jira/browse/HDFS-9902) | *Major* | **Support different values of dfs.datanode.du.reserved per storage type**
 
 Reserved space can be configured independently for different storage types for clusters with heterogeneous storage. The 'dfs.datanode.du.reserved' property name can be suffixed with a storage types (i.e. one of ssd, disk, archival or ram\_disk). e.g. reserved space for RAM\_DISK storage can be configured using the property 'dfs.datanode.du.reserved.ram\_disk'. If specific storage type reservation is not configured then the value specified by 'dfs.datanode.du.reserved' will be used for all volumes.
+
+
+---
+
+* [HADOOP-13122](https://issues.apache.org/jira/browse/HADOOP-13122) | *Minor* | **Customize User-Agent header sent in HTTP requests by S3A.**
+
+S3A now includes the current Hadoop version in the User-Agent string passed through the AWS SDK to the S3 service.  Users also may include optional additional information to identify their application.  See the documentation of configuration property fs.s3a.user.agent.prefix for further details.
+
+
+---
+
+* [HADOOP-12782](https://issues.apache.org/jira/browse/HADOOP-12782) | *Major* | **Faster LDAP group name resolution with ActiveDirectory**
+
+If the user object returned by LDAP server has the user's group object DN (supported by Active Directory), Hadoop can reduce LDAP group mapping latency by setting hadoop.security.group.mapping.ldap.search.attr.memberof to memberOf.
+
+
+---
+
+* [HADOOP-12723](https://issues.apache.org/jira/browse/HADOOP-12723) | *Major* | **S3A: Add ability to plug in any AWSCredentialsProvider**
+
+Users can integrate a custom credential provider with S3A.  See documentation of configuration property fs.s3a.aws.credentials.provider for further details.
+
+
+---
+
+* [MAPREDUCE-6607](https://issues.apache.org/jira/browse/MAPREDUCE-6607) | *Minor* | **Enable regex pattern matching when mapreduce.task.files.preserve.filepattern is set**
+
+Before this fix, the files in .staging directory are always preserved when mapreduce.task.files.preserve.filepattern is set. After this fix, the files in .staging directory are preserved if the name of the directory matches the regex pattern specified by mapreduce.task.files.preserve.filepattern.
+
+
+---
+
+* [YARN-5035](https://issues.apache.org/jira/browse/YARN-5035) | *Major* | **FairScheduler: Adjust maxAssign dynamically when assignMultiple is turned on**
+
+Introducing a new configuration "yarn.scheduler.fair.dynamic.max.assign" to dynamically determine the resources to assign per heartbeat when assignmultiple is turned on. When turned on, the scheduler allocates roughly half of the remaining resources overriding any max.assign settings configured. This is turned ON by default.
+
+
+---
+
+* [YARN-5132](https://issues.apache.org/jira/browse/YARN-5132) | *Critical* | **Exclude generated protobuf sources from YARN Javadoc build**
+
+Exclude javadocs for proto-generated java classes.
+
+
+---
+
+* [HADOOP-13155](https://issues.apache.org/jira/browse/HADOOP-13155) | *Major* | **Implement TokenRenewer to renew and cancel delegation tokens in KMS**
+
+Enables renewal and cancellation of KMS delegation tokens. hadoop.security.key.provider.path needs to be configured to reach the key provider.
+
+
+---
+
+* [HADOOP-12807](https://issues.apache.org/jira/browse/HADOOP-12807) | *Minor* | **S3AFileSystem should read AWS credentials from environment variables**
+
+Adds support to S3AFileSystem for reading AWS credentials from environment variables.
+
+
+---
+
+* [HDFS-10375](https://issues.apache.org/jira/browse/HDFS-10375) | *Trivial* | **Remove redundant TestMiniDFSCluster.testDualClusters**
+
+Remove redundent TestMiniDFSCluster.testDualClusters to save time.
+
+
+---
+
+* [HDFS-10220](https://issues.apache.org/jira/browse/HDFS-10220) | *Major* | **A large number of expired leases can make namenode unresponsive and cause failover**
+
+Two new configuration have been added "dfs.namenode.lease-recheck-interval-ms" and "dfs.namenode.max-lock-hold-to-release-lease-ms" to fine tune the duty cycle with which the Namenode recovers old leases.
+
+
+---
+
+* [HADOOP-13237](https://issues.apache.org/jira/browse/HADOOP-13237) | *Minor* | **s3a initialization against public bucket fails if caller lacks any credentials**
+
+S3A now supports read access to a public S3 bucket even if the client does not configure any AWS credentials.  See the documentation of configuration property fs.s3a.aws.credentials.provider for further details.
+
+
+---
+
+* [HADOOP-12537](https://issues.apache.org/jira/browse/HADOOP-12537) | *Minor* | **S3A to support Amazon STS temporary credentials**
+
+S3A now supports use of AWS Security Token Service temporary credentials for authentication to S3.  Refer to the documentation of configuration property fs.s3a.session.token for further details.
+
+
+---
+
+* [HADOOP-12892](https://issues.apache.org/jira/browse/HADOOP-12892) | *Blocker* | **fix/rewrite create-release**
+
+This rewrites the release process with a new dev-support/bin/create-release script.  See http://wiki.apache.org/hadoop/HowToRelease for updated instructions on how to use it.
+
+
+---
+
+* [HADOOP-3733](https://issues.apache.org/jira/browse/HADOOP-3733) | *Minor* | **"s3:" URLs break when Secret Key contains a slash, even if encoded**
+
+Allows userinfo component of URI authority to contain a slash (escaped as %2F).  Especially useful for accessing AWS S3 with distcp or hadoop fs.
+
+
+---
+
+* [HADOOP-13203](https://issues.apache.org/jira/browse/HADOOP-13203) | *Major* | **S3A: Support fadvise "random" mode for high performance readPositioned() reads**
+
+S3A has added support for configurable input policies.  Similar to fadvise, this configuration provides applications with a way to specify their expected access pattern (sequential or random) while reading a file.  S3A then performs optimizations tailored to that access pattern.  See site documentation of the fs.s3a.experimental.input.fadvise configuration property for more details.  Please be advised that this feature is experimental and subject to backward-incompatible changes in future releases.
+
+
+---
+
+* [HDFS-10440](https://issues.apache.org/jira/browse/HDFS-10440) | *Major* | **Improve DataNode web UI**
+
+DataNode Web UI has been improved with new HTML5 page, showing useful information.
 
 
 

@@ -20,22 +20,6 @@
 
 ## Release 0.8.1.1 - 2014-04-29
 
-### INCOMPATIBLE CHANGES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
-### IMPORTANT ISSUES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
-### NEW FEATURES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### IMPROVEMENTS:
@@ -53,6 +37,7 @@
 | [KAFKA-1317](https://issues.apache.org/jira/browse/KAFKA-1317) | KafkaServer 0.8.1 not responding to .shutdown() cleanly, possibly related to TopicDeletionManager or MetricsMeter state |  Blocker | . | Brent Bradbury | Timothy Chen |
 | [KAFKA-1310](https://issues.apache.org/jira/browse/KAFKA-1310) | Zookeeper timeout causes deadlock in Controller |  Blocker | . | Fedor Korotkiy | Neha Narkhede |
 | [KAFKA-1350](https://issues.apache.org/jira/browse/KAFKA-1350) | Fix excessive state change logging |  Blocker | . | Joel Koshy | Neha Narkhede |
+| [KAFKA-803](https://issues.apache.org/jira/browse/KAFKA-803) | Offset returned to producer is not consistent |  Major | . | Jun Rao |  |
 | [KAFKA-1358](https://issues.apache.org/jira/browse/KAFKA-1358) | Broker throws exception when reconnecting to zookeeper |  Major | . | Timothy Chen | Timothy Chen |
 | [KAFKA-1373](https://issues.apache.org/jira/browse/KAFKA-1373) | LogCleaner assumes first dirty offset zero if there is no cleaner checkpoint |  Major | . | Joel Koshy | Joel Koshy |
 | [KAFKA-1363](https://issues.apache.org/jira/browse/KAFKA-1363) | testTopicConfigChangesDuringDeleteTopic hangs |  Major | core | Jun Rao | Timothy Chen |
@@ -62,18 +47,6 @@
 | [KAFKA-1362](https://issues.apache.org/jira/browse/KAFKA-1362) | Publish sources and javadoc jars |  Major | packaging | Stevo Slavic | Joel Koshy |
 | [KAFKA-1355](https://issues.apache.org/jira/browse/KAFKA-1355) | Reduce/optimize update metadata requests sent during leader election |  Critical | . | Joel Koshy |  |
 | [KAFKA-1398](https://issues.apache.org/jira/browse/KAFKA-1398) | Topic config changes can be lost and cause fatal exceptions on broker restarts |  Critical | . | Joel Koshy | Jay Kreps |
-
-
-### TESTS:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
-### SUB-TASKS:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### OTHER:

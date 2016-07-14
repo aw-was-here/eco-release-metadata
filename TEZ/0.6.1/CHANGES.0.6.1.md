@@ -27,12 +27,6 @@
 | [TEZ-2437](https://issues.apache.org/jira/browse/TEZ-2437) | FilterLinesByWord NPEs when run in Localmode |  Major | . | Amit Tiwari |  |
 
 
-### IMPORTANT ISSUES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
 ### NEW FEATURES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
@@ -134,12 +128,6 @@
 | [TEZ-2282](https://issues.apache.org/jira/browse/TEZ-2282) | Delimit reused yarn container logs (stderr, stdout, syslog) with task attempt start/stop events |  Major | . | Jonathan Eagles | Mit Desai |
 | [TEZ-2057](https://issues.apache.org/jira/browse/TEZ-2057) | tez-dag/pom.xml contains versions for dependencies |  Major | . | Hitesh Shah | Jonathan Eagles |
 | [TEZ-2451](https://issues.apache.org/jira/browse/TEZ-2451) | Tez 0.6.1 Release Changes |  Major | . | Jonathan Eagles | Jonathan Eagles |
-
-
-### TESTS:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### SUB-TASKS:

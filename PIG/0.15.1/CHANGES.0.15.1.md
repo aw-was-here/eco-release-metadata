@@ -18,30 +18,8 @@
 -->
 # Apache Pig Changelog
 
-## Release 0.15.1 - Unreleased (as of 2016-05-12)
+## Release 0.15.1 - Unreleased (as of 2016-07-14)
 
-### INCOMPATIBLE CHANGES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
-### IMPORTANT ISSUES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
-### NEW FEATURES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
-### IMPROVEMENTS:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### BUG FIXES:
@@ -69,23 +47,6 @@
 | [PIG-4851](https://issues.apache.org/jira/browse/PIG-4851) | Null not padded when input has less fields than declared schema for some loader |  Major | . | Koji Noguchi | Rohini Palaniswamy |
 | [PIG-4867](https://issues.apache.org/jira/browse/PIG-4867) | -stop\_on\_failure does not work with Tez |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-4860](https://issues.apache.org/jira/browse/PIG-4860) | Loading data using OrcStorage() accepts only default FileSystem path |  Major | . | Anirudh Beria | Anirudh Beria |
-
-
-### TESTS:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
-### SUB-TASKS:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
-### OTHER:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
+| [PIG-4821](https://issues.apache.org/jira/browse/PIG-4821) | Pig chararray field with special UTF-8 chars as part of tuple join key produces wrong results in Tez |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 
 

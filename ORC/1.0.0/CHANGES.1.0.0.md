@@ -20,10 +20,6 @@
 
 ## Release 1.0.0 - 2016-01-25
 
-### INCOMPATIBLE CHANGES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### IMPORTANT ISSUES:
@@ -31,12 +27,6 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [ORC-18](https://issues.apache.org/jira/browse/ORC-18) | Replace Buffer with DataBuffer\<char\> and implement a posix-style read() for InputStreams |  Major | C++ | Aliaksei Sandryhaila | Aliaksei Sandryhaila |
-
-
-### NEW FEATURES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### IMPROVEMENTS:
@@ -59,18 +49,6 @@
 | [ORC-32](https://issues.apache.org/jira/browse/ORC-32) | Warnings under new version of xcode on MacOS. |  Major | . | Owen O'Malley | Owen O'Malley |
 | [ORC-8](https://issues.apache.org/jira/browse/ORC-8) | Replace tool implementation to use Reader interface |  Major | . | Owen O'Malley | Owen O'Malley |
 | [ORC-38](https://issues.apache.org/jira/browse/ORC-38) | Fix compilation errors on RHEL 5 |  Major | C++ | Owen O'Malley | Owen O'Malley |
-
-
-### TESTS:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
-### SUB-TASKS:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### OTHER:

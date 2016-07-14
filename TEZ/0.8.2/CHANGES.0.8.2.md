@@ -30,18 +30,6 @@
 | [TEZ-2972](https://issues.apache.org/jira/browse/TEZ-2972) | Avoid task rescheduling when a node turns unhealthy |  Major | . | Jason Lowe | Jason Lowe |
 
 
-### IMPORTANT ISSUES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
-### NEW FEATURES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
 ### IMPROVEMENTS:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
@@ -115,12 +103,6 @@
 | [TEZ-3017](https://issues.apache.org/jira/browse/TEZ-3017) | HistoryACLManager does not have a close method for cleanup |  Major | . | Bikas Saha | Bikas Saha |
 | [TEZ-3025](https://issues.apache.org/jira/browse/TEZ-3025) | InputInitializer creation should use the dag ugi |  Major | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-2997](https://issues.apache.org/jira/browse/TEZ-2997) | Tez UI: Support searches by CallerContext ID for DAGs |  Major | . | Hitesh Shah | Hitesh Shah |
-
-
-### TESTS:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### SUB-TASKS:
