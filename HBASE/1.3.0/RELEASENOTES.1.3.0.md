@@ -23,6 +23,13 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
+* [HBASE-12133](https://issues.apache.org/jira/browse/HBASE-12133) | *Minor* | **Add FastLongHistogram for metric computation**
+
+Adds Histogram and AtomicLong Utils
+
+
+---
+
 * [HBASE-13103](https://issues.apache.org/jira/browse/HBASE-13103) | *Major* | **[ergonomics] add region size balancing as a feature of master**
 
 This patch adds optional ability for HMaster to normalize regions in size (disabled by default, change hbase.normalizer.enabled property to true to turn it on). If enabled, HMaster periodically (every 30 minutes by default) monitors tables for which normalization is enabled in table configuration and performs splits/merges as seems appropriate. Users may implement their own normalization strategies by implementing RegionNormalizer interface and configuring it in hbase-site.xml.
@@ -643,6 +650,13 @@ $ time ./bin/hbase --config ~/conf\_hbase org.apache.hadoop.hbase.IncrementPerfo
 
 ---
 
+* [HBASE-13082](https://issues.apache.org/jira/browse/HBASE-13082) | *Major* | **Coarsen StoreScanner locks to RegionScanner**
+
+After this JIRA we will not be doing any scanner reset after compaction during a course of a scan. The files that were compacted will still be continued to be used in the scan process. The compacted files will be archived by a background thread that runs every 2 mins by default only when there are no active scanners on those comapcted files. The above duration can be controlled using the knob 'hbase.hfile.compactions.cleaner.interval'.
+
+
+---
+
 * [HBASE-15125](https://issues.apache.org/jira/browse/HBASE-15125) | *Major* | **HBaseFsck's adoptHdfsOrphan function creates region with wrong end key boundary**
 
 **WARNING: No release note provided for this change.**
@@ -792,7 +806,7 @@ For more details, please refer to the design spec at https://docs.google.com/doc
 
 ---
 
-* [HBASE-15136](https://issues.apache.org/jira/browse/HBASE-15136) | *Major* | **Explore different queuing behaviors while busy**
+* [HBASE-15136](https://issues.apache.org/jira/browse/HBASE-15136) | *Critical* | **Explore different queuing behaviors while busy**
 
 Previously RPC request scheduler in HBase had 2 modes in could operate in:
 
@@ -979,19 +993,6 @@ HBASE-13372 Add unit tests for SplitTransaction and RegionMergeTransaction liste
 
 ---
 
-* [HBASE-15386](https://issues.apache.org/jira/browse/HBASE-15386) | *Major* | **PREFETCH\_BLOCKS\_ON\_OPEN in HColumnDescriptor is ignored**
-
-This was a non-issue. The PREFETCH\_... flag actually works. While here though made the following additions.
-
-Changes the prefetch TRACE-level loggings to include the word 'Prefetch' in them so you know what they are about.
-
-Changes the cryptic logging of the CacheConfig#toString to have some preamble saying why and what column family is responsible (helps figure what is going on)
-
-Add test that verifies setting flag on HColumnDescriptor actually works.
-
-
----
-
 * [HBASE-15640](https://issues.apache.org/jira/browse/HBASE-15640) | *Major* | **L1 cache doesn't give fair warning that it is showing partial stats only when it hits limit**
 
 The blockcache UI tab would stop refreshing at 100k blocks (configurable, see "hbase.ui.blockcache.by.file.max"), which isn't very many blocks when doing a big cache, giving a misleading picture of the content of L1 and/or L2 cache. Up the default limit to 1M blocks (UI takes a while but just a few seconds counting over 1M blocks).
@@ -1131,6 +1132,141 @@ Deprecated Replication source.shippedKBs metric in favor of source.shippedBytes
 * [HBASE-15801](https://issues.apache.org/jira/browse/HBASE-15801) | *Major* | **Upgrade checkstyle for all branches**
 
 All active branches now use maven-checkstyle-plugin 2.17 and checkstyle 6.18.
+
+
+---
+
+* [HBASE-15811](https://issues.apache.org/jira/browse/HBASE-15811) | *Blocker* | **Batch Get after batch Put does not fetch all Cells**
+
+We were not waiting on all executors in a batch to complete which meant a read-your-own-writes could sometimes fail -- especially if client is loaded; i.e. putting to multiple machines in a cluster. The test for no-more-executors was damaged by the 0.99/0.98.4 fix "HBASE-11403 Fix race conditions around Object#notify"
+
+
+---
+
+* [HBASE-15780](https://issues.apache.org/jira/browse/HBASE-15780) | *Critical* | **Expose AuthUtil as IA.Public**
+
+Downstream users with long lived applications that need to communicate with secure HBase instances can now rely on the AuthUtil class to handle authenticating via keytab.
+
+For more information, see the javadoc for the org.apache.hadoop.hbase.AuthUtil class.
+
+
+---
+
+* [HBASE-15593](https://issues.apache.org/jira/browse/HBASE-15593) | *Major* | **Time limit of scanning should be offered by client**
+
+Add a new configuration: hbase.ipc.min.client.request.timeout
+Minimum allowable timeout (in milliseconds) in rpc request's header. This configuration exists to prevent the rpc service regarding this request as timeout immediately.
+
+
+---
+
+* [HBASE-15856](https://issues.apache.org/jira/browse/HBASE-15856) | *Critical* | **Cached Connection instances can wind up with addresses never resolved**
+
+During periods where DNS resolution was not available or not working correctly, we could previously cache unresolved hostnames forever, in some cases preventing further connections to these hosts even when DNS service was restored.  With this change, unresolved hostnames will no longer be cached, and will instead throw an UnknownHostException during connection setup.
+
+
+---
+
+* [HBASE-15876](https://issues.apache.org/jira/browse/HBASE-15876) | *Blocker* | **Remove doBulkLoad(Path hfofDir, final HTable table) though it has not been through a full deprecation cycle**
+
+Removes a doBulkLoad method though it has not been through a full deprecation cycle (but it is 'damaged' because it has a parameter that has been properly deprecated). Use the alternative {code}public void doBulkLoad(Path hfofDir, final Admin admin, Table table, RegionLocator regionLocator){code}
+
+See http://mail-archives.apache.org/mod\_mbox/hbase-dev/201605.mbox/%3CCAMUu0w-ZiLoLBLO3D76=n3AjUr=VMtTUeYA28weLHYeq8+e3bQ@mail.gmail.com%3E for NOTICE on this 'premature' removal.
+
+
+---
+
+* [HBASE-15890](https://issues.apache.org/jira/browse/HBASE-15890) | *Major* | **Allow thrift to set/unset "cacheBlocks" for Scans**
+
+Adds cacheBlocks to Scan
+
+
+---
+
+* [HBASE-15920](https://issues.apache.org/jira/browse/HBASE-15920) | *Minor* | **Backport submit-patch.py to branch-1 and earlier branches.**
+
+See HBASE-1582 and HBASE-15909 release notes.
+
+
+---
+
+* [HBASE-15971](https://issues.apache.org/jira/browse/HBASE-15971) | *Critical* | **Regression: Random Read/WorkloadC slower in 1.x than 0.98**
+
+Change the default rpc scheduler from 'deadline' to 'fifo' instead so it is the same as in branch 0.98. 'deadline' was of questionable benefit but with a high cost scheduling. To re-enable 'deadline', set hbase.ipc.server.callqueue.type to 'deadline' in your hbase-site.xml.
+
+
+---
+
+* [HBASE-16023](https://issues.apache.org/jira/browse/HBASE-16023) | *Major* | **Fastpath for the FIFO rpcscheduler**
+
+Adds a 'fastpath' when using the default FIFO rpc scheduler ('fifo'). Does direct handoff from Reader thread to Handler if there is one ready and willing. Will shine best when high random read workload (YCSB workloadc for instance)
+
+
+---
+
+* [HBASE-15224](https://issues.apache.org/jira/browse/HBASE-15224) | *Major* | **Undo  "hbase.increment.fast.but.narrow.consistency" option; it is not necessary since HBASE-15213**
+
+HBASE-15031 “Fix merge of MVCC and SequenceID performance regression in branch-1.0 for Increments” and HBASE-15091 ‘Forward-port to 1.2+ HBASE-15031 "Fix merge of MVCC and SequenceID performance regression in branch-1.0 for Increments"’ added a workaround ‘fast-path’ to restore an increment performance regression that came into hbase 1.0 when we unified mvcc and sequence id in HBASE-8763. The workaround became available in hbase-1.0.3 and hbase-1.1.3. The workaround involved setting the flag  "hbase.increment.fast.but.narrow.consistency"  in your configuration and restarting.
+
+Subsequently, the regression was fixed in HBASE-15213. The fix will be available in hbase-1.0.4 and hbase-1.1.4 when they are released. hbase-1.2.0 has the flag but as it turns out, it is not needed; there is no regression in 1.2.0.
+
+This issue removes the fast-path flag. If set, it will just be ignored.
+
+
+---
+
+* [HBASE-14877](https://issues.apache.org/jira/browse/HBASE-14877) | *Major* | **maven archetype: client application**
+
+This patch introduces a new infrastructure for creation and maintenance of Maven archetypes in the context of the hbase project, and it also introduces the first archetype, which end-users may utilize to generate a simple hbase-client dependent project.
+
+NOTE that this patch should introduce two new WARNINGs ("Using platform encoding ... to copy filtered resources") into the hbase install process. These warnings are hard-wired into the maven-archetype-plugin:create-from-project goal. See hbase/hbase-archetypes/README.md, footnote [6] for details.
+
+After applying the patch, see hbase/hbase-archetypes/README.md for details regarding the new archetype infrastructure introduced by this patch. (The README text is also conveniently positioned at the top of the patch itself.) 
+
+Here is the opening paragraph of the README.md file: 
+================= 
+The hbase-archetypes subproject of hbase provides an infrastructure for creation and maintenance of Maven archetypes pertinent to HBase. Upon deployment to the archetype catalog of the central Maven repository, these archetypes may be used by end-user developers to autogenerate completely configured Maven projects (including fully-functioning sample code) through invocation of the archetype:generate goal of the maven-archetype-plugin. 
+======== 
+The README.md file also contains several paragraphs under the heading, "Notes for contributors and committers to the HBase project", which explains the layout of 'hbase-archetypes', and how archetypes are created and installed into the local Maven repository, ready for deployment to the central Maven repository. It also outlines how new archetypes may be developed and added to the collection in the future.
+
+
+---
+
+* [HBASE-14878](https://issues.apache.org/jira/browse/HBASE-14878) | *Major* | **maven archetype: client application with shaded jars**
+
+Adds new hbase-shaded-client archetype; also corrects an omission found in hbase-archetypes/README.md in the section headed "How to add a new archetype".
+
+
+---
+
+* [HBASE-16140](https://issues.apache.org/jira/browse/HBASE-16140) | *Major* | **bump owasp.esapi from 2.1.0 to 2.1.0.1**
+
+The dependency owasp.esapi had a compatible change from 2.1.0 to 2.1.0.1. As a result, the transitive dependency commons-fileupload had a change from 1.2 to 1.3.1, which has some minor class changes that impact binary compatibility. Interested users should check the release notes of commons-fileupload to see if any of the incompatible changes impact them.
+
+http://commons.apache.org/proper/commons-fileupload/changes-report.html
+
+
+---
+
+* [HBASE-15925](https://issues.apache.org/jira/browse/HBASE-15925) | *Blocker* | **compat-module maven variable not evaluated**
+
+Downstream users of HBase dependencies that do not properly activate Maven profiles should now see a correct transitive dependency on the default hadoop-compatibility-module.
+
+
+---
+
+* [HBASE-16087](https://issues.apache.org/jira/browse/HBASE-16087) | *Major* | **Replication shouldn't start on a master if if only hosts system tables**
+
+Masters will no longer start any replication threads if they are hosting only system tables. 
+
+In order to change this add something to the config for tables on master that doesn't start with "hbase:" ( Replicating system tables is something that's currently unsupported and can open up security holes, so do this at your own peril)
+
+
+---
+
+* [HBASE-16081](https://issues.apache.org/jira/browse/HBASE-16081) | *Blocker* | **Replication remove\_peer gets stuck and blocks WAL rolling**
+
+When a replication endpoint is sent a shutdown request by the replication source in situations like removing a peer, we now try to gracefully shut it down by draining the items already sent for replication to the peer cluster. If the drain does not complete in the specified time (hbase.rpc.timeout \* replication.source.maxterminationmultiplier), the regionserver is aborted to avoid blocking the WAL roll.
 
 
 

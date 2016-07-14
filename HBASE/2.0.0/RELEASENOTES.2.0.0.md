@@ -2808,7 +2808,7 @@ For more details, please refer to the design spec at https://docs.google.com/doc
 
 ---
 
-* [HBASE-15136](https://issues.apache.org/jira/browse/HBASE-15136) | *Major* | **Explore different queuing behaviors while busy**
+* [HBASE-15136](https://issues.apache.org/jira/browse/HBASE-15136) | *Critical* | **Explore different queuing behaviors while busy**
 
 Previously RPC request scheduler in HBase had 2 modes in could operate in:
 
@@ -2817,7 +2817,7 @@ Previously RPC request scheduler in HBase had 2 modes in could operate in:
 
 This patch adds new type of scheduler to HBase, based on the research around controlled delay (CoDel) algorithm [1], used in networking to combat bufferbloat, as well as some analysis on generalizing it to generic request queues [2]. The purpose of that work is to prevent long standing call queues caused by discrepancy between request rate and available throughput, caused by kernel/disk IO/networking stalls.
 
-New RPC scheduler could be enabled by setting hbase.ipc.server.callqueue.type=codel in configuration. Several additional params allows to configure algorithm behavior - 
+New RPC scheduler could be enabled by setting hbase.ipc.server.callqueue.type=codel in configuration. Several additional params allow to configure algorithm behavior - 
 
 hbase.ipc.server.callqueue.codel.target.delay
 hbase.ipc.server.callqueue.codel.interval
@@ -3089,15 +3089,6 @@ In this patch, 4 parameters, "timestamp", "minTimestamp", "maxiTimestamp" and "m
 
 ---
 
-* [HBASE-15296](https://issues.apache.org/jira/browse/HBASE-15296) | *Major* | **Break out writer and reader from StoreFile**
-
-Refactor that breaks out StoreFile Reader and Writer inner classes as StoreFileReader and StoreFileWriter.
-
-NOTE! Changes RegionObserver Coprocessor Interface so incompatible change (Noted on dev list: http://osdir.com/ml/general/2016-04/msg17104.html)
-
-
----
-
 * [HBASE-15187](https://issues.apache.org/jira/browse/HBASE-15187) | *Major* | **Integrate CSRF prevention filter to REST gateway**
 
 Protection against CSRF attack can be turned on with config parameter, hbase.rest.csrf.enabled - default value is false.
@@ -3192,6 +3183,488 @@ There remains one case where we will still 'overread'. It is when the row end al
 * [HBASE-15628](https://issues.apache.org/jira/browse/HBASE-15628) | *Major* | **Implement an AsyncOutputStream which can work with any FileSystem implementation**
 
 Introduce an AsyncFSOutput interface which is an abstraction of the original FanOutOneBlockAsyncDFSOutput. Now you can create AsyncFSOutput on any FileSystem using the method AsyncFSOutputHelper.createOutput. The returned AsyncFSOutput will be FanOutOneBlockAsyncDFSOutput if the given FileSystem is a DistributedFileSystem.
+
+
+---
+
+* [HBASE-15477](https://issues.apache.org/jira/browse/HBASE-15477) | *Major* | **Do not save 'next block header' when we cache hfileblocks**
+
+Fix over-persisting in blockcache; no longer save the block PLUS the header of the next block (3 bytes) when writing the cache.
+
+Also removes support for hfileblock v1; hfile block v1 was used writing hfile v1. hfile v1 was the default in hbase before hbase-0.92. hbase.96 would not start unless all v1 hfiles had been compacted out of the cluster.
+
+
+---
+
+* [HBASE-15645](https://issues.apache.org/jira/browse/HBASE-15645) | *Critical* | **hbase.rpc.timeout is not used in operations of HTable**
+
+Fixes regression where hbase.rpc.timeout configuration was ignored in branch-1.0+
+
+Adds new methods setOperationTimeout, getOperationTimeout, setRpcTimeout, and getRpcTimeout to Table. In branch-1.3+ they are public interfaces and in 1.0-1.2 they are labeled as @InterfaceAudience.Private.
+
+Adds hbase.client.operation.timeout to hbase-default.xml with default of 1200000
+
+
+---
+
+* [HBASE-15686](https://issues.apache.org/jira/browse/HBASE-15686) | *Major* | **Add override mechanism for the exempt classes when dynamically loading table coprocessor**
+
+New coprocessor table descriptor attribute, hbase.coprocessor.classloader.included.classes, is added.
+User can specify class name prefixes (semicolon separated) which should be loaded by CoprocessorClassLoader through this attribute using the following syntax:
+{code}
+  hbase\> alter 't1',    'coprocessor'=\>'hdfs:///foo.jar\|com.foo.FooRegionObserver\|1001\|arg1=1,arg2=2'
+{code}
+
+
+---
+
+* [HBASE-15711](https://issues.apache.org/jira/browse/HBASE-15711) | *Major* | **Add client side property to allow logging details for batch errors**
+
+In HBASE-15711 a new client side property hbase.client.log.batcherrors.details is introduced to allow logging full stacktrace of exceptions for batch error. It's disabled by default and set the property to true will enable it.
+
+
+---
+
+* [HBASE-15281](https://issues.apache.org/jira/browse/HBASE-15281) | *Major* | **Allow the FileSystem inside HFileSystem to be wrapped**
+
+This patch adds new configuration property - hbase.fs.wrapper. If provided, it should be fully qualified class name of the class used as a pluggable wrapper for HFileSystem. This may be useful for specific debugging/tracing needs.
+
+
+---
+
+* [HBASE-15720](https://issues.apache.org/jira/browse/HBASE-15720) | *Major* | **Print row locks at the debug dump page**
+
+Adds a section to the debug dump page listing current row locks held.
+
+
+---
+
+* [HBASE-15575](https://issues.apache.org/jira/browse/HBASE-15575) | *Minor* | **Rename table DDL \*Handler methods in MasterObserver to more meaningful names**
+
+**WARNING: No release note provided for this change.**
+
+
+---
+
+* [HBASE-15767](https://issues.apache.org/jira/browse/HBASE-15767) | *Major* | **Upgrade httpclient dependency**
+
+HBase now relies on version 4.3.6 of the Apache Commons HTTPClient library. Downstream users who are exposed to it via the HBase classpath will have to similarly update their dependency.
+
+
+---
+
+* [HBASE-15743](https://issues.apache.org/jira/browse/HBASE-15743) | *Major* | **Add Transparent Data Encryption support for FanOutOneBlockAsyncDFSOutput**
+
+Now the AsyncFSWAL can write data to a encryption zone on HDFS.
+
+
+---
+
+* [HBASE-15759](https://issues.apache.org/jira/browse/HBASE-15759) | *Minor* | **RegionObserver.preStoreScannerOpen() doesn't have acces to current readpoint**
+
+The following RegionObserver method is deprecated and would no longer be called in hbase 2.0:
+
+  public KeyValueScanner preStoreScannerOpen(final ObserverContext\<RegionCoprocessorEnvironment\> c,
+      final Store store, final Scan scan, final NavigableSet\<byte[]\> targetCols,
+      final KeyValueScanner s) throws IOException {
+
+Instead, override this method:
+
+  public KeyValueScanner preStoreScannerOpen(final ObserverContext\<RegionCoprocessorEnvironment\> c,
+      final Store store, final Scan scan, final NavigableSet\<byte[]\> targetCols,
+      final KeyValueScanner s, final long readPt) throws IOException {
+
+
+---
+
+* [HBASE-15740](https://issues.apache.org/jira/browse/HBASE-15740) | *Major* | **Replication source.shippedKBs metric is undercounting because it is in KB**
+
+Deprecated Replication source.shippedKBs metric in favor of source.shippedBytes
+
+
+---
+
+* [HBASE-15236](https://issues.apache.org/jira/browse/HBASE-15236) | *Major* | **Inconsistent cell reads over multiple bulk-loaded HFiles**
+
+This jira fixes that following bug:
+During bulkloading, if there are multiple hfiles corresponding to same region, and if they have same timestamps (which may have been set using importtsv.timestamp) and duplicate keys across them, then get and scan may return values coming from different hfiles.
+
+
+---
+
+* [HBASE-15801](https://issues.apache.org/jira/browse/HBASE-15801) | *Major* | **Upgrade checkstyle for all branches**
+
+All active branches now use maven-checkstyle-plugin 2.17 and checkstyle 6.18.
+
+
+---
+
+* [HBASE-15780](https://issues.apache.org/jira/browse/HBASE-15780) | *Critical* | **Expose AuthUtil as IA.Public**
+
+Downstream users with long lived applications that need to communicate with secure HBase instances can now rely on the AuthUtil class to handle authenticating via keytab.
+
+For more information, see the javadoc for the org.apache.hadoop.hbase.AuthUtil class.
+
+
+---
+
+* [HBASE-15651](https://issues.apache.org/jira/browse/HBASE-15651) | *Major* | **Add report-flakies.py to use jenkins api to get failing tests**
+
+To find recent set of flakies, run the script added by this patch. Run it to get usage information passing -h:
+
+{code}
+$ ./dev-support/report-flakies.py -h
+{code}
+
+If you get the below:
+
+{code}
+$ python ./dev-support/report-flakies.py
+Traceback (most recent call last):
+  File "./dev-support/report-flakies.py", line 25, in \<module\>
+    import requests
+ImportError: No module named requests
+{code}
+
+... install the requests module:
+
+{code}
+$ sudo pip install requests
+{code}
+
+
+---
+
+* [HBASE-15784](https://issues.apache.org/jira/browse/HBASE-15784) | *Major* | **Misuse core/maxPoolSize of LinkedBlockingQueue in ThreadPoolExecutor**
+
+The core pool size and max pool size of ThreadPoolExecutor should be the same when LinkedBlockingQueue is used. Thus the configurations hbase.hconnection.threads.max, hbase.hconnection.meta.lookup.threads.max, hbase.region.replica.replication.threads.max and hbase.multihconnection.threads.max are used as the number of the core threads, and the related configurations \*.thread.core are not used any more.
+
+
+---
+
+* [HBASE-15593](https://issues.apache.org/jira/browse/HBASE-15593) | *Major* | **Time limit of scanning should be offered by client**
+
+Add a new configuration: hbase.ipc.min.client.request.timeout
+Minimum allowable timeout (in milliseconds) in rpc request's header. This configuration exists to prevent the rpc service regarding this request as timeout immediately.
+
+
+---
+
+* [HBASE-15856](https://issues.apache.org/jira/browse/HBASE-15856) | *Critical* | **Cached Connection instances can wind up with addresses never resolved**
+
+During periods where DNS resolution was not available or not working correctly, we could previously cache unresolved hostnames forever, in some cases preventing further connections to these hosts even when DNS service was restored.  With this change, unresolved hostnames will no longer be cached, and will instead throw an UnknownHostException during connection setup.
+
+
+---
+
+* [HBASE-15228](https://issues.apache.org/jira/browse/HBASE-15228) | *Major* | **Add the methods to RegionObserver to trigger start/complete restoring WALs**
+
+Added two hooks around WAL restore. 
+preReplayWALs(final ObserverContext\<? extends RegionCoprocessorEnvironment\> ctx,  HRegionInfo info, Path edits)
+and
+postReplayWALs(final ObserverContext\<? extends RegionCoprocessorEnvironment\> ctx,  HRegionInfo info, Path edits) 
+
+Will be called at start and end of restore of a WAL file. 
+The other hook around WAL restore (preWALRestore ) will be called before restore of every entry within the WAL file.
+
+
+---
+
+* [HBASE-15876](https://issues.apache.org/jira/browse/HBASE-15876) | *Blocker* | **Remove doBulkLoad(Path hfofDir, final HTable table) though it has not been through a full deprecation cycle**
+
+Removes a doBulkLoad method though it has not been through a full deprecation cycle (but it is 'damaged' because it has a parameter that has been properly deprecated). Use the alternative {code}public void doBulkLoad(Path hfofDir, final Admin admin, Table table, RegionLocator regionLocator){code}
+
+See http://mail-archives.apache.org/mod\_mbox/hbase-dev/201605.mbox/%3CCAMUu0w-ZiLoLBLO3D76=n3AjUr=VMtTUeYA28weLHYeq8+e3bQ@mail.gmail.com%3E for NOTICE on this 'premature' removal.
+
+
+---
+
+* [HBASE-14030](https://issues.apache.org/jira/browse/HBASE-14030) | *Major* | **HBase Backup/Restore Phase 1**
+
+This experimental feature allows to perform backup/restore operations, including incremental ones, on a set of HBase tables. 
+
+Key features and Use Cases
+
+A common practice of backup and restore in database is to first take full baseline backup, and
+then periodically take incremental backup that capture the changes since the full baseline
+backup. HBase cluster can store massive amount data. Therefore we want use full backup in
+combination with incremental backups for HBase as well.
+The following is a typical use case scenario for full and incremental backup:
+
+● The user takes a full backup of a table or a set of tables in HBase.
+● The user schedules periodical incremental backups to capture the changes from the full
+backup, or from last incremental backup.
+● The user needs to restore table data to a past point in time.
+● The full backup is restored to the table(s) or to different table name(s). Then the
+incremental backups that are up to the desired point in time are applied on top of the full
+backup.
+We would support the following key features and capabilities.
+● Backup to DFS FileSystem across clusters and possibly to other storage media or
+servers.
+● Support single table or a set of tables backup and restore (full and incremental).
+● Restore to different table names and to different clusters. 
+● Support adding and removing tables to and from backup set without interruption of
+incremental backup schedule.
+● Support merge of incremental backups into longer period and bigger incremental
+backups for easy storage and restore.
+● Support scheduled backups.
+● Unified command line interface for all the above.
+
+To illustrate these key capabilities, the following are two more detailed use case examples.
+
+Use case example 1:
+
+1. User takes a full backup of a set of tables (i.e. table1 and table2) in HBase.
+2. User takes incremental backups. The incremental backup will only track table1 and
+table2.
+3. User adds other tables (i.e. table3 and table4) in HBase, and an implicit full backup is
+executed during the add process
+4. User continues to take incremental backups. The incremental backup data would cover
+table1, table2, table3 and table4.
+5. User wants to restore table3 and table4 to a past PIT (point-in-time).
+6. Full backup in 3. is restored onto HBase cluster. Then the incremental backups after that
+full backup are applied on top of the full restore until the PIT.
+
+Use case example 2:
+
+1. User takes a full backup of a set of tables in HBase.
+2. User takes daily incremental backups.
+3. User merges the daily incremental backups into weekly incremental backups.
+4. User combines/rolls up the weekly incremental backup into monthly incremental
+backups.
+5. User wants to restore the tables to a past PIT.
+6. Full backup is restored onto HBase cluster.
+7. Monthly incremental backups before the desired PIT are applied.
+8. Closest daily backups up to the PIT are applied.
+
+To create full backup:
+
+HBASE\_DIR/bin/hbase backup create full \<backup\_root\_path\> [tables]
+
+backup\_root\_path - path to backup root directory (file://, hdfs:// or any other Hadoop-compatible path)
+tables - list of tables, comma-separated. If no tables specified then all tables will be saved.
+
+To create full backup:
+
+HBASE\_DIR/bin/hbase backup create incremental \<backup\_root\_path\> [tables]
+
+backup\_root\_path - path to backup root directory (file://, hdfs:// or any other Hadoop-compatible path)
+tables - list of tables, comma-separated. If no tables specified then all tables will be saved.
+
+To restore table(s):
+
+HBASE\_DIR/bin/hbase backup restore \<backup\_root\_path\> \<backup\_id\> [tables]
+
+backup\_root\_path - path to backup root directory (file://, hdfs:// or any other Hadoop-compatible path)
+backup\_id  - The id identifying the backup image.
+tables - list of tables, comma-separated. 
+
+FOR EXPERIENCED USERS only:
+
+To get list of backup ids you will need to scan hbase:backup table using hbase shell or other means.
+
+
+---
+
+* [HBASE-15890](https://issues.apache.org/jira/browse/HBASE-15890) | *Major* | **Allow thrift to set/unset "cacheBlocks" for Scans**
+
+Adds cacheBlocks to Scan
+
+
+---
+
+* [HBASE-15610](https://issues.apache.org/jira/browse/HBASE-15610) | *Blocker* | **Remove deprecated HConnection for 2.0 thus removing all PB references for 2.0**
+
+**WARNING: No release note provided for this change.**
+
+
+---
+
+* [HBASE-15875](https://issues.apache.org/jira/browse/HBASE-15875) | *Major* | **Remove HTable references and HTableInterface**
+
+**WARNING: No release note provided for this change.**
+
+
+---
+
+* [HBASE-15915](https://issues.apache.org/jira/browse/HBASE-15915) | *Major* | **Set timeouts on hanging tests**
+
+Use @ClassRule to set timeout on test case level (instead of @Rule which sets timeout for the test methods). CategoryBasedTimeout.forClass(..) determines the timeout value based on category annotation (small/medium/large) on the test case.
+
+
+---
+
+* [HBASE-15907](https://issues.apache.org/jira/browse/HBASE-15907) | *Major* | **Missing documentation of create table split options**
+
+documentation changes only - added section to Shell tricks and cross reference from region splitting section
+
+
+---
+
+* [HBASE-15931](https://issues.apache.org/jira/browse/HBASE-15931) | *Major* | **Add log for long-running tasks in AsyncProcess**
+
+After HBASE-15931, we will log more details for long-running tasks in AsyncProcess#waitForMaximumCurrentTasks every 10 seconds, including:
+1. Table name will be included in the tasks status log
+2. On which regionserver(s) the tasks are runnning will be logged when less than hbase.client.threshold.log.details tasks left, by default 10.
+3. Against which regions the tasks are running will be logged when less than 2 tasks left.
+
+
+---
+
+* [HBASE-15981](https://issues.apache.org/jira/browse/HBASE-15981) | *Minor* | **Stripe and Date-tiered compactions inaccurately suggest disabling table in docs**
+
+Removes reference to disabling table in docs for stripe and date-tiered compactions
+
+
+---
+
+* [HBASE-15989](https://issues.apache.org/jira/browse/HBASE-15989) | *Major* | **Remove hbase.online.schema.update.enable**
+
+Removes the "hbase.online.schema.update.enable" property. 
+from now, every operation that alter the schema (e.g. modifyTable, addFamily, removeFamily, ...) will use the online schema update. there is no need to disable/enable the table.
+
+
+---
+
+* [HBASE-15994](https://issues.apache.org/jira/browse/HBASE-15994) | *Major* | **Allow selection of RpcSchedulers**
+
+Adds a FifoRpcSchedulerFactory so you can try the FifoRpcScheduler by setting  "hbase.region.server.rpc.scheduler.factory.class"
+
+
+---
+
+* [HBASE-15525](https://issues.apache.org/jira/browse/HBASE-15525) | *Critical* | **OutOfMemory could occur when using BoundedByteBufferPool during RPC bursts**
+
+Added a new ByteBufferPool which pools N ByteBuffers. By default it makes off heap ByteBuffers when getBuffer() is called. The size of each buffer defaults to 64KB. This can be configured using 'hbase.ipc.server.reservoir.initial.buffer.size'.   The max number of buffers which can be pooled defaults to twice the number of handler threads in RS. This can be configured with key 'hbase.ipc.server.reservoir.initial.max'.  While responding to read requests and client support Codec, we will create CellBlocks and directly return it as PB payload. For making this block, we will use N ByteBuffers from pool as per the total size of the response cells. The default size of 64 KB for the buffer is inline with the number of bytes written to RPC layer in one short.(That is also 64KB).  When at point of time, the calle not able to get a free buffer from the pool (it returns null then), it will make on heap Buffer of same size (as that of Buffers in pool) and use that to create cell block.
+
+
+---
+
+* [HBASE-15971](https://issues.apache.org/jira/browse/HBASE-15971) | *Critical* | **Regression: Random Read/WorkloadC slower in 1.x than 0.98**
+
+Change the default rpc scheduler from 'deadline' to 'fifo' instead so it is the same as in branch 0.98. 'deadline' was of questionable benefit but with a high cost scheduling. To re-enable 'deadline', set hbase.ipc.server.callqueue.type to 'deadline' in your hbase-site.xml.
+
+
+---
+
+* [HBASE-16023](https://issues.apache.org/jira/browse/HBASE-16023) | *Major* | **Fastpath for the FIFO rpcscheduler**
+
+Adds a 'fastpath' when using the default FIFO rpc scheduler ('fifo'). Does direct handoff from Reader thread to Handler if there is one ready and willing. Will shine best when high random read workload (YCSB workloadc for instance)
+
+
+---
+
+* [HBASE-15950](https://issues.apache.org/jira/browse/HBASE-15950) | *Major* | **Fix memstore size estimates to be more tighter**
+
+The estimates of heap usage by the memstore objects (KeyValue, object and array header sizes, etc) have been made more accurate for heap sizes up to 32G (using CompressedOops), resulting in them dropping by 10-50% in practice. This also results in less number of flushes and compactions due to "fatter" flushes. YMMV. As a result, the actual heap usage of the memstore before being flushed may increase by up to 100%. If configured memory limits for the region server had been tuned based on observed usage, this change could result in worse GC behavior or even OutOfMemory errors. Set the environment property (not hbase-site.xml) "hbase.memorylayout.use.unsafe" to false to disable.
+
+
+---
+
+* [HBASE-5291](https://issues.apache.org/jira/browse/HBASE-5291) | *Major* | **Add Kerberos HTTP SPNEGO authentication support to HBase web consoles**
+
+HBase Web UIs can be secured from general public access using SPNEGO to require a valid Kerberos ticket.
+
+Setting 'hbase.security.authentication.ui' to 'kerberos' in hbase-site.xml is a global switch to have all Web UIs allow only authenticated clients via Kerberos. 'hbase.security.authentication.spnego.kerberos.principal' and 'hbase.security.authentication.spnego.kerberos.keytab' are two other required properties in hbase-site.xml, the Kerberos principal and keytab to use for the server to use to log in. The primary in the Kerberos principal must be 'HTTP' as required by the SPNEGO mechanism, e.g. 'HTTP/host.domain.com@DOMAIN.COM'.
+
+
+---
+
+* [HBASE-15977](https://issues.apache.org/jira/browse/HBASE-15977) | *Major* | **Failed variable substitution on home page**
+
+Done. Thanks, Dima, Andrew!
+
+
+---
+
+* [HBASE-14877](https://issues.apache.org/jira/browse/HBASE-14877) | *Major* | **maven archetype: client application**
+
+This patch introduces a new infrastructure for creation and maintenance of Maven archetypes in the context of the hbase project, and it also introduces the first archetype, which end-users may utilize to generate a simple hbase-client dependent project.
+
+NOTE that this patch should introduce two new WARNINGs ("Using platform encoding ... to copy filtered resources") into the hbase install process. These warnings are hard-wired into the maven-archetype-plugin:create-from-project goal. See hbase/hbase-archetypes/README.md, footnote [6] for details.
+
+After applying the patch, see hbase/hbase-archetypes/README.md for details regarding the new archetype infrastructure introduced by this patch. (The README text is also conveniently positioned at the top of the patch itself.) 
+
+Here is the opening paragraph of the README.md file: 
+================= 
+The hbase-archetypes subproject of hbase provides an infrastructure for creation and maintenance of Maven archetypes pertinent to HBase. Upon deployment to the archetype catalog of the central Maven repository, these archetypes may be used by end-user developers to autogenerate completely configured Maven projects (including fully-functioning sample code) through invocation of the archetype:generate goal of the maven-archetype-plugin. 
+======== 
+The README.md file also contains several paragraphs under the heading, "Notes for contributors and committers to the HBase project", which explains the layout of 'hbase-archetypes', and how archetypes are created and installed into the local Maven repository, ready for deployment to the central Maven repository. It also outlines how new archetypes may be developed and added to the collection in the future.
+
+
+---
+
+* [HBASE-14878](https://issues.apache.org/jira/browse/HBASE-14878) | *Major* | **maven archetype: client application with shaded jars**
+
+Adds new hbase-shaded-client archetype; also corrects an omission found in hbase-archetypes/README.md in the section headed "How to add a new archetype".
+
+
+---
+
+* [HBASE-16052](https://issues.apache.org/jira/browse/HBASE-16052) | *Major* | **Improve HBaseFsck Scalability**
+
+HBASE-16052 improves the performance and scalability of HBaseFsck, especially for large clusters with a small number of large tables.  
+
+Searching for lingering reference files is now a multi-threaded operation.  Loading HDFS region directory information is now multi-threaded at the region-level instead of the table-level to maximize concurrency.  A performance bug in HBaseFsck that resulted in redundant I/O and RPCs was fixed by introducing a FileStatusFilter that filters FileStatus objects directly.
+
+
+---
+
+* [HBASE-16153](https://issues.apache.org/jira/browse/HBASE-16153) | *Trivial* | **Correct the config name 'hbase.memestore.inmemoryflush.threshold.factor'**
+
+**WARNING: No release note provided for this change.**
+
+
+---
+
+* [HBASE-16147](https://issues.apache.org/jira/browse/HBASE-16147) | *Major* | **Add ruby wrapper for getting compaction state**
+
+compaction\_state shell command would return compaction state in String form:
+NONE, MINOR, MAJOR, MAJOR\_AND\_MINOR
+
+
+---
+
+* [HBASE-16140](https://issues.apache.org/jira/browse/HBASE-16140) | *Major* | **bump owasp.esapi from 2.1.0 to 2.1.0.1**
+
+The dependency owasp.esapi had a compatible change from 2.1.0 to 2.1.0.1. As a result, the transitive dependency commons-fileupload had a change from 1.2 to 1.3.1, which has some minor class changes that impact binary compatibility. Interested users should check the release notes of commons-fileupload to see if any of the incompatible changes impact them.
+
+http://commons.apache.org/proper/commons-fileupload/changes-report.html
+
+
+---
+
+* [HBASE-15925](https://issues.apache.org/jira/browse/HBASE-15925) | *Blocker* | **compat-module maven variable not evaluated**
+
+Downstream users of HBase dependencies that do not properly activate Maven profiles should now see a correct transitive dependency on the default hadoop-compatibility-module.
+
+
+---
+
+* [HBASE-14548](https://issues.apache.org/jira/browse/HBASE-14548) | *Major* | **Expand how table coprocessor jar and dependency path can be specified**
+
+Allow a directory containing the jars or some wildcards to be specified, such as: hdfs://namenode:port/user/hadoop-user/ 
+or
+hdfs://namenode:port/user/hadoop-user/\*.jar
+
+Please note that if a directory is specified, all jar files(.jar) directly in the directory are added, but it does not search files in the subtree rooted in the directory.
+Do not contain any wildcard if you would like to specify a directory.
+
+
+---
+
+* [HBASE-16087](https://issues.apache.org/jira/browse/HBASE-16087) | *Major* | **Replication shouldn't start on a master if if only hosts system tables**
+
+Masters will no longer start any replication threads if they are hosting only system tables. 
+
+In order to change this add something to the config for tables on master that doesn't start with "hbase:" ( Replicating system tables is something that's currently unsupported and can open up security holes, so do this at your own peril)
+
+
+---
+
+* [HBASE-16081](https://issues.apache.org/jira/browse/HBASE-16081) | *Blocker* | **Replication remove\_peer gets stuck and blocks WAL rolling**
+
+When a replication endpoint is sent a shutdown request by the replication source in situations like removing a peer, we now try to gracefully shut it down by draining the items already sent for replication to the peer cluster. If the drain does not complete in the specified time (hbase.rpc.timeout \* replication.source.maxterminationmultiplier), the regionserver is aborted to avoid blocking the WAL roll.
 
 
 

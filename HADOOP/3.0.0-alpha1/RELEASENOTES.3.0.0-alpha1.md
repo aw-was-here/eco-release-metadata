@@ -747,7 +747,7 @@ Remove invisible synchronization primitives from DataInputBuffer
 
 * [HADOOP-12930](https://issues.apache.org/jira/browse/HADOOP-12930) | *Critical* | **[Umbrella] Dynamic subcommands for hadoop shell scripts**
 
-**WARNING: No release note provided for this change.**
+It is now possible to add or modify the behavior of existing subcommands in the hadoop, hdfs, mapred, and yarn scripts. See the Unix Shell Guide for more information.
 
 
 ---
@@ -782,7 +782,7 @@ Adds support for Azure ActiveDirectory tokens using client ID and keys
 
 * [HADOOP-9613](https://issues.apache.org/jira/browse/HADOOP-9613) | *Major* | **[JDK8] Update jersey version to latest 1.x release**
 
-Upgrading Jersey and its related libraries: 
+Upgrading Jersey and its related libraries:
 
 1. Upgrading jersey from 1.9 to 1.19
 2. Adding jersey-servlet 1.19
@@ -818,7 +818,7 @@ The rcc command has been removed. See HADOOP-12485 where unused Hadoop Streaming
 
 * [HADOOP-12709](https://issues.apache.org/jira/browse/HADOOP-12709) | *Major* | **Cut s3:// from trunk**
 
-**WARNING: No release note provided for this change.**
+The s3 file system has been removed. The s3a file system should be used instead.
 
 
 ---

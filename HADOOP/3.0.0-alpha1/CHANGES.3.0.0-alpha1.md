@@ -494,7 +494,6 @@
 | [HADOOP-9888](https://issues.apache.org/jira/browse/HADOOP-9888) | KerberosName static initialization gets default realm, which is unneeded in non-secure deployment. |  Major | security | Chris Nauroth | Dmytro Kabakchei |
 | [HDFS-9852](https://issues.apache.org/jira/browse/HDFS-9852) | hdfs dfs -setfacl error message is misleading |  Minor | . | Wei-Chiu Chuang | Wei-Chiu Chuang |
 | [HADOOP-13342](https://issues.apache.org/jira/browse/HADOOP-13342) | ISAL download is breaking the Dockerfile |  Blocker | build | Allen Wittenauer | Allen Wittenauer |
-| [HADOOP-13350](https://issues.apache.org/jira/browse/HADOOP-13350) | Additional fix to LICENSE and NOTICE |  Blocker | . | Xiao Chen | Xiao Chen |
 | [HADOOP-13349](https://issues.apache.org/jira/browse/HADOOP-13349) | HADOOP\_CLASSPATH vs HADOOP\_USER\_CLASSPATH |  Blocker | scripts | Allen Wittenauer | Allen Wittenauer |
 | [HDFS-10336](https://issues.apache.org/jira/browse/HDFS-10336) | TestBalancer failing intermittently because of not reseting UserGroupInformation completely |  Major | test | Yiqun Lin | Yiqun Lin |
 | [YARN-5354](https://issues.apache.org/jira/browse/YARN-5354) | TestDistributedShell.checkTimelineV2() may fail for concurrent tests |  Major | timelineserver | Sangjin Lee | Sangjin Lee |

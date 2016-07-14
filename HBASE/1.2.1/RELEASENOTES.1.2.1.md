@@ -82,14 +82,4 @@ This fix decreases client's memory allocation during writes by more than 50%.
 HBASE-14256 Correct confusing flush task message
 
 
----
-
-* [HBASE-15592](https://issues.apache.org/jira/browse/HBASE-15592) | *Major* | **Print Procedure WAL content**
-
-Use hbase org.apache.hadoop.hbase.procedure2.store.wal.ProcedureWALPrettyPrinter
-to print the content of a Procedure WAL.
-e.g.
-hbase org.apache.hadoop.hbase.procedure2.store.wal.ProcedureWALPrettyPrinter -f /hbase/MasterProcWALs/state-00000000000000002571.log
-
-
 

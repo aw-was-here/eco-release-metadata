@@ -1616,11 +1616,12 @@
 | [HDFS-10589](https://issues.apache.org/jira/browse/HDFS-10589) | Javadoc for HAState#HAState and HAState#setStateInternal contains non-existent params |  Minor | documentation, hdfs | Shen Yinjie | Shen Yinjie |
 | [YARN-5286](https://issues.apache.org/jira/browse/YARN-5286) | Add RPC port info in RM web service's response when getting app status |  Major | . | Jun Gong | Jun Gong |
 | [YARN-5214](https://issues.apache.org/jira/browse/YARN-5214) | Pending on synchronized method DirectoryCollection#checkDirs can hang NM's NodeStatusUpdater |  Critical | nodemanager | Junping Du | Junping Du |
-| [HADOOP-13350](https://issues.apache.org/jira/browse/HADOOP-13350) | Additional fix to LICENSE and NOTICE |  Blocker | . | Xiao Chen | Xiao Chen |
+| [HADOOP-13350](https://issues.apache.org/jira/browse/HADOOP-13350) | Additional fix to LICENSE and NOTICE |  Blocker | build | Xiao Chen | Xiao Chen |
 | [HDFS-10592](https://issues.apache.org/jira/browse/HDFS-10592) | Fix intermittent test failure of TestNameNodeResourceChecker#testCheckThatNameNodeResourceMonitorIsRunning |  Major | test | Rakesh R | Rakesh R |
 | [HADOOP-13320](https://issues.apache.org/jira/browse/HADOOP-13320) | Fix arguments check in documentation for WordCount v2.0 |  Minor | documentation | niccolo becchi | niccolo becchi |
 | [YARN-5314](https://issues.apache.org/jira/browse/YARN-5314) | ConcurrentModificationException in ATS v1.5 EntityGroupFSTimelineStore |  Major | timelineserver | Karam Singh | Li Lu |
 | [YARN-4939](https://issues.apache.org/jira/browse/YARN-4939) | the decommissioning Node should keep alive  if NM restart |  Major | . | sandflee | sandflee |
+| [HADOOP-12893](https://issues.apache.org/jira/browse/HADOOP-12893) | Verify LICENSE.txt and NOTICE.txt |  Blocker | build | Allen Wittenauer | Xiao Chen |
 | [HADOOP-13352](https://issues.apache.org/jira/browse/HADOOP-13352) | Make X-FRAME-OPTIONS configurable in HttpServer2 |  Major | net, security | Anu Engineer | Anu Engineer |
 | [HDFS-10512](https://issues.apache.org/jira/browse/HDFS-10512) | VolumeScanner may terminate due to NPE in DataNode.reportBadBlocks |  Major | datanode | Wei-Chiu Chuang | Yiqun Lin |
 | [YARN-5337](https://issues.apache.org/jira/browse/YARN-5337) | Dshell AM failed with "java.lang.OutOfMemoryError: GC overhead limit exceeded" |  Major | . | Sumana Sathish | Jian He |
@@ -1687,6 +1688,7 @@
 | [HADOOP-12738](https://issues.apache.org/jira/browse/HADOOP-12738) | Create unit test to automatically compare Common related classes and core-default.xml |  Minor | . | Ray Chiang | Ray Chiang |
 | [HADOOP-12101](https://issues.apache.org/jira/browse/HADOOP-12101) | Add automatic search of default Configuration variables to TestConfigurationFieldsBase |  Major | test | Ray Chiang | Ray Chiang |
 | [YARN-4947](https://issues.apache.org/jira/browse/YARN-4947) | Test timeout is happening for TestRMWebServicesNodes |  Major | test | Bibin A Chundatt | Bibin A Chundatt |
+| [YARN-5069](https://issues.apache.org/jira/browse/YARN-5069) | TestFifoScheduler.testResourceOverCommit race condition |  Major | test | Eric Badger | Eric Badger |
 | [YARN-5114](https://issues.apache.org/jira/browse/YARN-5114) | Add additional tests in TestRMWebServicesApps and rectify testInvalidAppAttempts failure in 2.8 |  Minor | . | Bibin A Chundatt | Bibin A Chundatt |
 | [HDFS-10375](https://issues.apache.org/jira/browse/HDFS-10375) | Remove redundant TestMiniDFSCluster.testDualClusters |  Trivial | test | John Zhuge | Jiayi Zhou |
 | [YARN-5023](https://issues.apache.org/jira/browse/YARN-5023) | TestAMRestart#testShouldNotCountFailureToMaxAttemptRetry random failure |  Major | . | Bibin A Chundatt | sandflee |

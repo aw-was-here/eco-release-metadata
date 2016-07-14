@@ -41,6 +41,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YETUS-424](https://issues.apache.org/jira/browse/YETUS-424) | Show more helpful error message in case of missing dependency |  Major | Release Doc Maker | Ajay Yadava | Ajay Yadava |
+| [YETUS-425](https://issues.apache.org/jira/browse/YETUS-425) | Remove empty tables while generating changelog |  Minor | Release Doc Maker | Ajay Yadava | Ajay Yadava |
 
 
 ### BUG FIXES:
