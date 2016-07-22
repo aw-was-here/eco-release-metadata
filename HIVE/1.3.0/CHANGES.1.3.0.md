@@ -18,7 +18,7 @@
 -->
 # Apache Hive Changelog
 
-## Release 1.3.0 - Unreleased (as of 2016-07-14)
+## Release 1.3.0 - Unreleased (as of 2016-07-22)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -92,6 +92,7 @@
 | [HIVE-12317](https://issues.apache.org/jira/browse/HIVE-12317) | Emit current database in lineage info |  Minor | . | Jimmy Xiang | Jimmy Xiang |
 | [HIVE-10115](https://issues.apache.org/jira/browse/HIVE-10115) | HS2 running on a Kerberized cluster should offer Kerberos(GSSAPI) and Delegation token(DIGEST) when alternate authentication is enabled |  Major | Authentication | Mubashir Kazia | Mubashir Kazia |
 | [HIVE-10468](https://issues.apache.org/jira/browse/HIVE-10468) | Create scripts to do metastore upgrade tests on jenkins for Oracle DB. |  Major | Metastore | Naveen Gangam | Naveen Gangam |
+| [HIVE-13040](https://issues.apache.org/jira/browse/HIVE-13040) | Handle empty bucket creations more efficiently |  Major | Query Processor, Transactions | Ashutosh Chauhan | Ashutosh Chauhan |
 | [HIVE-13063](https://issues.apache.org/jira/browse/HIVE-13063) | Create UDFs for CHR and REPLACE |  Major | HiveServer2 | Alejandro Fernandez | Alejandro Fernandez |
 | [HIVE-13222](https://issues.apache.org/jira/browse/HIVE-13222) | Move rc-file-v0.rc used on TestRCFile.java to src/test/resources |  Minor | . | Sergio Peña | Sergio Peña |
 | [HIVE-12439](https://issues.apache.org/jira/browse/HIVE-12439) | CompactionTxnHandler.markCleaned() and TxnHandler.openTxns() misc improvements |  Major | Metastore, Transactions | Eugene Koifman | Wei Zheng |
@@ -617,6 +618,15 @@
 | [HIVE-14192](https://issues.apache.org/jira/browse/HIVE-14192) | False positive error due to thrift |  Major | Metastore, Transactions | Eugene Koifman | Eugene Koifman |
 | [HIVE-14027](https://issues.apache.org/jira/browse/HIVE-14027) | NULL values produced by left outer join do not behave as NULL |  Major | Query Processor | Vaibhav Gumashta | Jesus Camacho Rodriguez |
 | [HIVE-14210](https://issues.apache.org/jira/browse/HIVE-14210) | ExecDriver should call jobclient.close() to trigger cleanup |  Major | Hive, HiveServer2 | Thomas Friedrich | Thomas Friedrich |
+| [HIVE-14222](https://issues.apache.org/jira/browse/HIVE-14222) | PTF: Operator initialization does not clean state |  Major | PTF-Windowing | Gopal V | Wei Zheng |
+| [HIVE-14004](https://issues.apache.org/jira/browse/HIVE-14004) | Minor compaction produces ArrayIndexOutOfBoundsException: 7 in SchemaEvolution.getFileType |  Major | Transactions | Eugene Koifman | Eugene Koifman |
+| [HIVE-14241](https://issues.apache.org/jira/browse/HIVE-14241) | Acid clashes with ConfVars.HIVEFETCHTASKCONVERSION \<\> "none" |  Critical | Transactions | Eugene Koifman | Eugene Koifman |
+| [HIVE-14255](https://issues.apache.org/jira/browse/HIVE-14255) | Backport part of HIVE-12950 to fix "Can not create Path from an emtpy string" exception |  Major | . | Prasanth Jayachandran | Prasanth Jayachandran |
+| [HIVE-13191](https://issues.apache.org/jira/browse/HIVE-13191) | DummyTable map joins mix up columns between tables |  Major | . | Gopal V | Jesus Camacho Rodriguez |
+| [HIVE-13369](https://issues.apache.org/jira/browse/HIVE-13369) | AcidUtils.getAcidState() is not paying attention toValidTxnList when choosing the "best" base file |  Blocker | Transactions | Eugene Koifman | Eugene Koifman |
+| [HIVE-14275](https://issues.apache.org/jira/browse/HIVE-14275) | LineageState#clear throws NullPointerException on branch-1 |  Major | . | Vaibhav Gumashta | Vaibhav Gumashta |
+| [HIVE-14282](https://issues.apache.org/jira/browse/HIVE-14282) | HCatLoader ToDate() exception with hive partition table ,partitioned by column of DATE datatype |  Major | HCatalog | Raghavender Rao Guruvannagari | Daniel Dai |
+| [HIVE-14292](https://issues.apache.org/jira/browse/HIVE-14292) | ACID table creation fails on mysql with MySQLIntegrityConstraintViolationException |  Major | Transactions | Deepesh Khandelwal | Eugene Koifman |
 
 
 ### TESTS:

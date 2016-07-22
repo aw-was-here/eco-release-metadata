@@ -49,4 +49,11 @@ VectorMapOperator: Missing update to AbstractMapOperator::numRows (Gopal V, revi
  Tez: disable auto-reducer parallelism when reducer-count \* min.partition.factor \< 1.0 (Gopal V, reviewed by Gunther Hagleitner)
 
 
+---
+
+* [HIVE-14267](https://issues.apache.org/jira/browse/HIVE-14267) | *Minor* | **HS2 open\_operations metrics not decremented when an operation gets timed out**
+
+Committed to 2.2.0 and 2.1.1. Thanks Naveen for the patch.
+
+
 

@@ -90,7 +90,7 @@
 | [HIVE-13122](https://issues.apache.org/jira/browse/HIVE-13122) | LLAP: simple Model/View separation for UI |  Major | llap | Gopal V | Gopal V |
 | [HIVE-13034](https://issues.apache.org/jira/browse/HIVE-13034) | Add jdeb plugin to build debian |  Major | Build Infrastructure | Arshad Matin | Arshad Matin |
 | [HIVE-12935](https://issues.apache.org/jira/browse/HIVE-12935) | LLAP: Replace Yarn registry with Zookeeper registry |  Major | . | Prasanth Jayachandran | Prasanth Jayachandran |
-| [HIVE-13040](https://issues.apache.org/jira/browse/HIVE-13040) | Handle empty bucket creations more efficiently |  Major | Query Processor | Ashutosh Chauhan | Ashutosh Chauhan |
+| [HIVE-13040](https://issues.apache.org/jira/browse/HIVE-13040) | Handle empty bucket creations more efficiently |  Major | Query Processor, Transactions | Ashutosh Chauhan | Ashutosh Chauhan |
 | [HIVE-13069](https://issues.apache.org/jira/browse/HIVE-13069) | Enable cartesian product merging |  Major | Parser | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
 | [HIVE-13106](https://issues.apache.org/jira/browse/HIVE-13106) | STARTUP\_MSG and SHUTDOWN\_MSG are added to HiveMetaStore |  Trivial | Metastore | Shinichi Yamashita | Shinichi Yamashita |
 | [HIVE-13179](https://issues.apache.org/jira/browse/HIVE-13179) | Allow custom HiveConf to be passed to Authentication Providers |  Major | . | Rajat Khandelwal | Rajat Khandelwal |
@@ -164,6 +164,7 @@
 | [HIVE-13902](https://issues.apache.org/jira/browse/HIVE-13902) | [Refactor] Minimize metastore jar dependencies on task nodes |  Major | Metastore, Query Processor | Ashutosh Chauhan | Ashutosh Chauhan |
 | [HIVE-13933](https://issues.apache.org/jira/browse/HIVE-13933) | Add an option to turn off parallel file moves |  Major | Query Processor | Ashutosh Chauhan | Ashutosh Chauhan |
 | [HIVE-10815](https://issues.apache.org/jira/browse/HIVE-10815) | Let HiveMetaStoreClient Choose MetaStore Randomly |  Major | HiveServer2, Metastore | Nemon Lou | Nemon Lou |
+| [HIVE-11918](https://issues.apache.org/jira/browse/HIVE-11918) | Implement/Enable constant related optimization rules in Calcite |  Major | . | Pengcheng Xiong | Pengcheng Xiong |
 
 
 ### BUG FIXES:
@@ -558,6 +559,7 @@
 | [HIVE-14020](https://issues.apache.org/jira/browse/HIVE-14020) | Hive MS restart failed during EU with ORA-00922 error as part of DB schema upgrade |  Major | . | Hari Sankar Sivarama Subramaniyan | Hari Sankar Sivarama Subramaniyan |
 | [HIVE-14006](https://issues.apache.org/jira/browse/HIVE-14006) | Hive query with UNION ALL fails with ArrayIndexOutOfBoundsException |  Major | Hive | Naveen Gangam | Naveen Gangam |
 | [HIVE-14015](https://issues.apache.org/jira/browse/HIVE-14015) | SMB MapJoin failed for Hive on Spark when kerberized |  Major | Logical Optimizer | Yongzhi Chen | Yongzhi Chen |
+| [HIVE-14258](https://issues.apache.org/jira/browse/HIVE-14258) | Reduce task timed out because CommonJoinOperator.genUniqueJoinObject took too long to finish without reporting progress |  Major | Query Processor | zhihai xu | zhihai xu |
 
 
 ### TESTS:
@@ -662,6 +664,8 @@
 | [HIVE-13942](https://issues.apache.org/jira/browse/HIVE-13942) | Correctness of CASE folding in the presence of NULL values |  Major | CBO | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
 | [HIVE-13838](https://issues.apache.org/jira/browse/HIVE-13838) | Set basic stats as inaccurate for all ACID tables |  Major | . | Pengcheng Xiong | Pengcheng Xiong |
 | [HIVE-13984](https://issues.apache.org/jira/browse/HIVE-13984) | Use multi-threaded approach to listing files for msck |  Major | . | Pengcheng Xiong | Pengcheng Xiong |
+| [HIVE-14158](https://issues.apache.org/jira/browse/HIVE-14158) | deal with derived column names |  Major | Security | Pengcheng Xiong | Pengcheng Xiong |
+| [HIVE-14221](https://issues.apache.org/jira/browse/HIVE-14221) | set SQLStdHiveAuthorizerFactoryForTest as default HIVE\_AUTHORIZATION\_MANAGER |  Major | Security | Pengcheng Xiong | Pengcheng Xiong |
 
 
 ### OTHER:

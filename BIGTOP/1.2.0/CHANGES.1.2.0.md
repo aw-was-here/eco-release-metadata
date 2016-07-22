@@ -18,7 +18,7 @@
 -->
 # Apache BigTop Changelog
 
-## Release 1.2.0 - Unreleased (as of 2016-07-14)
+## Release 1.2.0 - Unreleased (as of 2016-07-22)
 
 
 
@@ -60,6 +60,7 @@
 | [BIGTOP-2479](https://issues.apache.org/jira/browse/BIGTOP-2479) | Update qfs maintainer to kstinson |  Major | . | Faraaz Sareshwala | Faraaz Sareshwala |
 | [BIGTOP-2478](https://issues.apache.org/jira/browse/BIGTOP-2478) | Zookeeper does not have any smoke tests |  Major | deployment | Pete Vander Giessen | Pete Vander Giessen |
 | [BIGTOP-2429](https://issues.apache.org/jira/browse/BIGTOP-2429) | Add Solr to gradle smokes |  Major | tests | Dasha Boudnik | Dasha Boudnik |
+| [BIGTOP-2466](https://issues.apache.org/jira/browse/BIGTOP-2466) | HBase puppet scripts co-deploy ZK and Datanode along with HBase |  Minor | hbase | Konstantinos Tsakalozos | Konstantinos Tsakalozos |
 
 
 ### BUG FIXES:
@@ -120,6 +121,8 @@
 | [BIGTOP-2445](https://issues.apache.org/jira/browse/BIGTOP-2445) | Adding Dockerfile to build deploy image for ubuntu-16.04-ppc64le |  Major | build, docker, ppc64le | Amir Sanjar | Amir Sanjar |
 | [BIGTOP-2473](https://issues.apache.org/jira/browse/BIGTOP-2473) | Mahout puppet script fails to find Package[hadoop] |  Major | . | Konstantinos Tsakalozos |  |
 | [BIGTOP-2488](https://issues.apache.org/jira/browse/BIGTOP-2488) | Redundant zookeeper/lib directory |  Minor | debian, rpm | Ted Yu | Ted Yu |
+| [BIGTOP-2487](https://issues.apache.org/jira/browse/BIGTOP-2487) | Alluxio /var/log/alluxio is not created |  Major | . | Olaf Flebbe | Konstantinos Tsakalozos |
+| [BIGTOP-2495](https://issues.apache.org/jira/browse/BIGTOP-2495) | hive-hbase package is broken |  Major | hive | YoungWoo Kim | YoungWoo Kim |
 
 
 ### SUB-TASKS:
@@ -140,6 +143,7 @@
 | [BIGTOP-2468](https://issues.apache.org/jira/browse/BIGTOP-2468) | Add Juju hadoop-processing bundle |  Minor | deployment | Kevin W Monroe | Kevin W Monroe |
 | [BIGTOP-2469](https://issues.apache.org/jira/browse/BIGTOP-2469) | Add cloud-weather-report test plan |  Minor | tests | Cory Johns | Cory Johns |
 | [BIGTOP-2357](https://issues.apache.org/jira/browse/BIGTOP-2357) | Create puppet recipes |  Major | flink, general | Bhupendra Singh | Robert Metzger |
+| [BIGTOP-1624](https://issues.apache.org/jira/browse/BIGTOP-1624) | Add puppet recipes for deploying kafka |  Minor | deployment | Manikandan Narayanaswamy | Konstantinos Tsakalozos |
 
 
 ### OTHER:

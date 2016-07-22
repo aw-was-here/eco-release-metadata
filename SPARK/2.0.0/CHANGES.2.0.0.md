@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 2.0.0 - Unreleased (as of 2016-07-14)
+## Release 2.0.0 - Unreleased (as of 2016-07-22)
 
 
 
@@ -139,6 +139,7 @@
 | [SPARK-16074](https://issues.apache.org/jira/browse/SPARK-16074) | Expose VectorUDT/MatrixUDT in a public API |  Critical | MLlib | Xiangrui Meng | Xiangrui Meng |
 | [SPARK-16118](https://issues.apache.org/jira/browse/SPARK-16118) | getDropLast is missing in OneHotEncoder |  Major | MLlib | Xiangrui Meng | Xiangrui Meng |
 | [SPARK-16503](https://issues.apache.org/jira/browse/SPARK-16503) | SparkSession should provide Spark version |  Major | Spark Core | Joseph K. Bradley | Liwei Lin |
+| [SPARK-12420](https://issues.apache.org/jira/browse/SPARK-12420) | Have a built-in CSV data source implementation |  Major | SQL | Reynold Xin |  |
 
 
 ### IMPROVEMENTS:
@@ -879,10 +880,18 @@
 | [SPARK-15761](https://issues.apache.org/jira/browse/SPARK-15761) | pyspark shell should load if PYSPARK\_DRIVER\_PYTHON is ipython an Python3 |  Minor | PySpark | Manoj Kumar | Manoj Kumar |
 | [SPARK-16012](https://issues.apache.org/jira/browse/SPARK-16012) | add gapplyCollect() for SparkDataFrame |  Major | SparkR | Sun Rui | Narine Kokhlikyan |
 | [SPARK-16345](https://issues.apache.org/jira/browse/SPARK-16345) | Extract graphx programming guide example snippets from source files instead of hard code them |  Major | Documentation, Examples, GraphX | Weichen Xu | Weichen Xu |
+| [SPARK-16249](https://issues.apache.org/jira/browse/SPARK-16249) | Change visibility of Object ml.clustering.LDA to public for loading |  Minor | ML | yuhao yang | yuhao yang |
 | [SPARK-13569](https://issues.apache.org/jira/browse/SPARK-13569) | Kafka DStreams from wildcard topic filters |  Major | Streaming | Miguel Miranda | Cody Koeninger |
 | [SPARK-16476](https://issues.apache.org/jira/browse/SPARK-16476) | Restructure MimaExcludes for easier union excludes |  Major | Build | Reynold Xin | Reynold Xin |
 | [SPARK-16270](https://issues.apache.org/jira/browse/SPARK-16270) | Implement xpath user defined functions |  Major | SQL | Peter Lee | Peter Lee |
 | [SPARK-16458](https://issues.apache.org/jira/browse/SPARK-16458) | SessionCatalog should support `listColumns` for temporary tables |  Minor | SQL | Dongjoon Hyun | Dongjoon Hyun |
+| [SPARK-16470](https://issues.apache.org/jira/browse/SPARK-16470) | ml.regression.LinearRegression training data do not check whether the result actually reach convergence |  Trivial | ML, Optimizer | Weichen Xu | Weichen Xu |
+| [SPARK-16469](https://issues.apache.org/jira/browse/SPARK-16469) | Long running Driver task while multiplying big matrices |  Minor | MLlib | Ohad Raviv | Ohad Raviv |
+| [SPARK-16500](https://issues.apache.org/jira/browse/SPARK-16500) | Add LBFG training not convergence warning for all ML algorithm |  Trivial | ML, MLlib, Optimizer | Weichen Xu | Weichen Xu |
+| [SPARK-16582](https://issues.apache.org/jira/browse/SPARK-16582) | Explicitly define isNull = false for non-nullable expressions |  Major | SQL | Sameer Agarwal | Sameer Agarwal |
+| [SPARK-16584](https://issues.apache.org/jira/browse/SPARK-16584) | Move regexp unit tests to RegexpExpressionsSuite |  Major | SQL | Reynold Xin | Reynold Xin |
+| [SPARK-16588](https://issues.apache.org/jira/browse/SPARK-16588) | Deprecate monotonicallyIncreasingId in Scala |  Trivial | SQL | Hyukjin Kwon | Reynold Xin |
+| [SPARK-16615](https://issues.apache.org/jira/browse/SPARK-16615) | Expose sqlContext in SparkSession |  Major | . | Reynold Xin | Reynold Xin |
 
 
 ### BUG FIXES:
@@ -1728,24 +1737,50 @@
 | [SPARK-16233](https://issues.apache.org/jira/browse/SPARK-16233) | test\_sparkSQL.R is failing |  Minor | SparkR, Tests | Xin Ren | Dongjoon Hyun |
 | [SPARK-16095](https://issues.apache.org/jira/browse/SPARK-16095) | Yarn cluster mode should return consistent result for command line and SparkLauncher |  Major | YARN | Peng Zhang | Peng Zhang |
 | [SPARK-16353](https://issues.apache.org/jira/browse/SPARK-16353) | Intended javadoc options are not honored for Java unidoc |  Minor | Build, Documentation | Michael Allman | Michael Allman |
+| [SPARK-15968](https://issues.apache.org/jira/browse/SPARK-15968) | HiveMetastoreCatalog does not correctly validate partitioned metastore relation when searching the internal table cache |  Major | SQL | Michael Allman | Michael Allman |
 | [SPARK-16311](https://issues.apache.org/jira/browse/SPARK-16311) | Improve metadata refresh |  Major | SQL | Reynold Xin | Reynold Xin |
 | [SPARK-15730](https://issues.apache.org/jira/browse/SPARK-15730) | [Spark SQL] the value of 'hiveconf' parameter in Spark-sql CLI don't take effect in spark-sql session |  Critical | SQL | Yi Zhou | Cheng Hao |
 | [SPARK-16385](https://issues.apache.org/jira/browse/SPARK-16385) | NoSuchMethodException thrown by Utils.waitForProcess |  Major | Spark Core | Marcelo Vanzin | Marcelo Vanzin |
 | [SPARK-16348](https://issues.apache.org/jira/browse/SPARK-16348) | pyspark.ml MLSerDe should be called using full classpath |  Critical | ML, PySpark | Joseph K. Bradley | Joseph K. Bradley |
+| [SPARK-16339](https://issues.apache.org/jira/browse/SPARK-16339) | ScriptTransform does not print stderr when outstream is lost |  Trivial | Spark Core | Tejas Patil | Tejas Patil |
 | [SPARK-16229](https://issues.apache.org/jira/browse/SPARK-16229) | Empty Table Remains After CREATE TABLE AS SELECT fails |  Major | SQL | Xiao Li | Xiao Li |
 | [SPARK-16371](https://issues.apache.org/jira/browse/SPARK-16371) | IS NOT NULL clause gives false for nested not empty column |  Blocker | SQL | Maciej Bryński | Hyukjin Kwon |
+| [SPARK-15740](https://issues.apache.org/jira/browse/SPARK-15740) | Word2VecSuite "big model load / save" caused OOM in maven jenkins builds |  Critical | MLlib | Xiangrui Meng | Antonio Murgia |
 | [SPARK-16379](https://issues.apache.org/jira/browse/SPARK-16379) | Spark on mesos is broken due to race condition in Logging |  Blocker | Spark Core | Stavros Kontopoulos | Sean Owen |
 | [SPARK-16368](https://issues.apache.org/jira/browse/SPARK-16368) | Strange Errors When Creating View With Unmatched Column Num |  Major | SQL | Xiao Li | Xiao Li |
+| [SPARK-16372](https://issues.apache.org/jira/browse/SPARK-16372) | Retag RDD to tallSkinnyQR of RowMatrix |  Major | MLlib | Xusen Yin | Xusen Yin |
+| [SPARK-16350](https://issues.apache.org/jira/browse/SPARK-16350) | Complete output mode does not output updated aggregated value in Structured Streaming |  Major | SQL, Streaming | Arnaud Bailly | Liwei Lin |
 | [SPARK-16415](https://issues.apache.org/jira/browse/SPARK-16415) | [Spark][SQL] - Failed to create table due to catalog string error |  Critical | SQL | Yi Zhou | Adrian Wang |
+| [SPARK-16310](https://issues.apache.org/jira/browse/SPARK-16310) | SparkR csv source should have the same default na.string as R |  Minor | SparkR | Felix Cheung | Felix Cheung |
+| [SPARK-16425](https://issues.apache.org/jira/browse/SPARK-16425) | SparkR summary() fails on column of type logical |  Minor | SparkR, SQL | Neil Dewar | Dongjoon Hyun |
+| [SPARK-16369](https://issues.apache.org/jira/browse/SPARK-16369) | tallSkinnyQR of RowMatrix should aware of empty partition |  Minor | MLlib | Xusen Yin | Xusen Yin |
 | [SPARK-16420](https://issues.apache.org/jira/browse/SPARK-16420) | UnsafeShuffleWriter leaks compression streams with off-heap memory. |  Major | Spark Core | Ryan Blue | Ryan Blue |
+| [SPARK-16453](https://issues.apache.org/jira/browse/SPARK-16453) | release script does not publish spark-hive-thriftserver\_2.10 |  Critical | Build | Yin Huai | Yin Huai |
 | [SPARK-16387](https://issues.apache.org/jira/browse/SPARK-16387) | Reserved SQL words are not escaped by JDBC writer |  Major | SQL | Lev | Dongjoon Hyun |
 | [SPARK-16376](https://issues.apache.org/jira/browse/SPARK-16376) | [Spark web UI]:HTTP ERROR 500 when using rest api "/applications/[app-id]/jobs" if array "stageIds" is empty |  Minor | Web UI | marymwu | Sean Owen |
 | [SPARK-16432](https://issues.apache.org/jira/browse/SPARK-16432) | Empty blocks fail to serialize due to assert in ChunkedByteBuffer |  Major | Spark Core | Eric Liang | Eric Liang |
+| [SPARK-16401](https://issues.apache.org/jira/browse/SPARK-16401) | Data Source APIs: Extending RelationProvider and CreatableRelationProvider Without SchemaRelationProvider |  Critical | SQL | Xiao Li | Xiao Li |
 | [SPARK-16459](https://issues.apache.org/jira/browse/SPARK-16459) | Prevent dropping current database |  Minor | SQL | Dongjoon Hyun | Dongjoon Hyun |
 | [SPARK-16433](https://issues.apache.org/jira/browse/SPARK-16433) | Improve StreamingQuery.explain when no data arrives |  Major | SQL | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-16489](https://issues.apache.org/jira/browse/SPARK-16489) | Test harness to prevent expression code generation from reusing variable names |  Major | SQL | Reynold Xin | Reynold Xin |
 | [SPARK-16414](https://issues.apache.org/jira/browse/SPARK-16414) | Can not get user config when calling SparkHadoopUtil.get.conf in other places, such as DataSourceStrategy |  Major | YARN | sharkd tu | sharkd tu |
+| [SPARK-16375](https://issues.apache.org/jira/browse/SPARK-16375) | [Spark web UI]:The wrong value(numCompletedTasks) has been assigned to the variable numSkippedTasks |  Major | Web UI | marymwu | Alex Bozarth |
+| [SPARK-16439](https://issues.apache.org/jira/browse/SPARK-16439) | Incorrect information in SQL Query details |  Minor | SQL, Web UI | Maciej Bryński | Maciej Bryński |
+| [SPARK-16435](https://issues.apache.org/jira/browse/SPARK-16435) | Behavior changes if initialExecutor is less than minExecutor for dynamic allocation |  Minor | Scheduler, Spark Core | Saisai Shao | Saisai Shao |
 | [SPARK-16482](https://issues.apache.org/jira/browse/SPARK-16482) | If a table's schema is inferred at runtime, describe table command does not show the schema |  Critical | SQL | Yin Huai | Xiao Li |
+| [SPARK-16538](https://issues.apache.org/jira/browse/SPARK-16538) | Cannot use "SparkR::sql" |  Critical | SparkR | Weiluo Ren | Felix Cheung |
+| [SPARK-16528](https://issues.apache.org/jira/browse/SPARK-16528) | HiveClientImpl throws NPE when reading database from a custom metastore |  Major | SQL | Jacek Lewandowski | Jacek Lewandowski |
+| [SPARK-16540](https://issues.apache.org/jira/browse/SPARK-16540) | Jars specified with --jars will added twice when running on YARN |  Major | Deploy, YARN | Saisai Shao | Saisai Shao |
+| [SPARK-16553](https://issues.apache.org/jira/browse/SPARK-16553) | Typo in Spark SQL Programming guide that links to examples |  Major | Documentation | Shivaram Venkataraman | Shivaram Venkataraman |
+| [SPARK-16555](https://issues.apache.org/jira/browse/SPARK-16555) | Work around Jekyll error-handling bug which led to silent doc build failures |  Major | Documentation, Project Infra | Josh Rosen | Josh Rosen |
+| [SPARK-16230](https://issues.apache.org/jira/browse/SPARK-16230) | Executors self-killing after being assigned tasks while still in init |  Minor | Spark Core | Tejas Patil | Tejas Patil |
+| [SPARK-13071](https://issues.apache.org/jira/browse/SPARK-13071) | Coalescing HadoopRDD overwrites existing input metrics |  Major | Spark Core | Andrew Or | Andrew Or |
+| [SPARK-16301](https://issues.apache.org/jira/browse/SPARK-16301) | Analyzer rule for resolving using joins should respect case sensitivity setting |  Critical | SQL | Yin Huai | Yin Huai |
+| [SPARK-16515](https://issues.apache.org/jira/browse/SPARK-16515) | [SPARK][SQL] transformation script got failure for python script |  Critical | SQL | Yi Zhou | Adrian Wang |
+| [SPARK-16600](https://issues.apache.org/jira/browse/SPARK-16600) | fix latex formula syntax error in mllib |  Trivial | Documentation, MLlib | Weichen Xu | Weichen Xu |
+| [SPARK-16620](https://issues.apache.org/jira/browse/SPARK-16620) | RDD.pipe(command: String) in Spark 2.0 does not work when command is specified with some options |  Blocker | Spark Core | Liwei Lin | Liwei Lin |
+| [SPARK-16602](https://issues.apache.org/jira/browse/SPARK-16602) | Spark2.0-error occurs when execute the sql statement which includes "nvl" function while spark1.6 supports |  Major | SQL | marymwu | Dongjoon Hyun |
+| [SPARK-15705](https://issues.apache.org/jira/browse/SPARK-15705) | Spark won't read ORC schema from metastore for partitioned tables |  Critical | SQL | Nic Eggert | Yin Huai |
 
 
 ### TESTS:
@@ -1779,6 +1814,7 @@
 | [SPARK-15998](https://issues.apache.org/jira/browse/SPARK-15998) | Verification of SQLConf HIVE\_METASTORE\_PARTITION\_PRUNING |  Major | SQL | Xiao Li | Xiao Li |
 | [SPARK-16267](https://issues.apache.org/jira/browse/SPARK-16267) | Replace deprecated `CREATE TEMPORARY TABLE` from testsuites |  Trivial | Tests | Dongjoon Hyun | Dongjoon Hyun |
 | [SPARK-16531](https://issues.apache.org/jira/browse/SPARK-16531) | Remove TimeZone from DataFrameTimeWindowingSuite |  Major | . | Burak Yavuz | Burak Yavuz |
+| [SPARK-16529](https://issues.apache.org/jira/browse/SPARK-16529) | SQLTestUtils.withTempDatabase should set `default` database before dropping |  Trivial | Tests | Dongjoon Hyun | Dongjoon Hyun |
 
 
 ### SUB-TASKS:
@@ -2401,26 +2437,45 @@
 | [SPARK-16143](https://issues.apache.org/jira/browse/SPARK-16143) | Group survival analysis methods in generated doc |  Major | Documentation, MLlib, SparkR | Xiangrui Meng | Junyang Qian |
 | [SPARK-16242](https://issues.apache.org/jira/browse/SPARK-16242) | Wrap the Matrix conversion utils in Python |  Minor | ML, MLlib, PySpark | Yanbo Liang | Yanbo Liang |
 | [SPARK-16114](https://issues.apache.org/jira/browse/SPARK-16114) | Add network word count example |  Major | SQL, Streaming | James Thomas | James Thomas |
+| [SPARK-16271](https://issues.apache.org/jira/browse/SPARK-16271) | Implement Hive's UDFXPathUtil |  Major | SQL | Peter Lee | Peter Lee |
 | [SPARK-16266](https://issues.apache.org/jira/browse/SPARK-16266) | Move python DataStreamReader/Writer from pyspark.sql to pyspark.sql.streaming package |  Major | SQL, Streaming | Tathagata Das | Tathagata Das |
 | [SPARK-16261](https://issues.apache.org/jira/browse/SPARK-16261) | Fix Incorrect appNames in PySpark ML Examples |  Trivial | Examples, ML, PySpark | Bryan Cutler | Bryan Cutler |
 | [SPARK-16140](https://issues.apache.org/jira/browse/SPARK-16140) | Group k-means method in generated doc |  Minor | Documentation, MLlib, SparkR | Xiangrui Meng | Xin Ren |
+| [SPARK-16274](https://issues.apache.org/jira/browse/SPARK-16274) | Implement xpath\_boolean |  Major | SQL | Peter Lee | Peter Lee |
 | [SPARK-16294](https://issues.apache.org/jira/browse/SPARK-16294) | Labelling support for the include\_example Jekyll plugin |  Major | Documentation | Cheng Lian | Cheng Lian |
 | [SPARK-16256](https://issues.apache.org/jira/browse/SPARK-16256) | Add Structured Streaming Programming Guide |  Major | SQL, Streaming | Tathagata Das | Tathagata Das |
 | [SPARK-16289](https://issues.apache.org/jira/browse/SPARK-16289) | Implement posexplode table generating function |  Major | SQL | Reynold Xin | Dongjoon Hyun |
 | [SPARK-16336](https://issues.apache.org/jira/browse/SPARK-16336) | Suggest doing table refresh when encountering FileNotFoundException at runtime |  Major | SQL | Peter Lee | Peter Lee |
+| [SPARK-16276](https://issues.apache.org/jira/browse/SPARK-16276) | Implement elt SQL function |  Major | SQL | Reynold Xin | Peter Lee |
 | [SPARK-16328](https://issues.apache.org/jira/browse/SPARK-16328) | Implement conversion utility functions for single instances in Python |  Major | ML, MLlib, PySpark | Nick Pentreath | Nick Pentreath |
+| [SPARK-16278](https://issues.apache.org/jira/browse/SPARK-16278) | Implement map\_keys SQL function |  Major | SQL | Reynold Xin | Dongjoon Hyun |
+| [SPARK-16279](https://issues.apache.org/jira/browse/SPARK-16279) | Implement map\_values SQL function |  Major | SQL | Reynold Xin | Dongjoon Hyun |
+| [SPARK-16288](https://issues.apache.org/jira/browse/SPARK-16288) | Implement inline table generating function |  Major | SQL | Reynold Xin | Dongjoon Hyun |
 | [SPARK-14815](https://issues.apache.org/jira/browse/SPARK-14815) | ML, Graph, R 2.0 QA: Update user guide for new features & APIs |  Blocker | Documentation, GraphX, ML, MLlib, SparkR | Joseph K. Bradley | yuhao yang |
 | [SPARK-16337](https://issues.apache.org/jira/browse/SPARK-16337) | Metadata refresh should work on temporary views |  Major | SQL | Peter Lee | Reynold Xin |
 | [SPARK-14811](https://issues.apache.org/jira/browse/SPARK-14811) | ML, Graph 2.0 QA: API: New Scala APIs, docs |  Blocker | Documentation, GraphX, ML, MLlib | Joseph K. Bradley | Yanbo Liang |
 | [SPARK-16359](https://issues.apache.org/jira/browse/SPARK-16359) | unidoc workaround for multiple kafka versions |  Major | Streaming | Cody Koeninger | Cody Koeninger |
+| [SPARK-16286](https://issues.apache.org/jira/browse/SPARK-16286) | Implement stack table generating function |  Major | SQL | Reynold Xin | Dongjoon Hyun |
+| [SPARK-16285](https://issues.apache.org/jira/browse/SPARK-16285) | Implement sentences SQL function |  Major | SQL | Reynold Xin | Dongjoon Hyun |
+| [SPARK-13638](https://issues.apache.org/jira/browse/SPARK-13638) | Support for saving with a quote mode |  Minor | SQL | Hyukjin Kwon | Jurriaan Pruis |
+| [SPARK-16281](https://issues.apache.org/jira/browse/SPARK-16281) | Implement parse\_url SQL function |  Major | SQL | Reynold Xin | Jian Wu |
 | [SPARK-11857](https://issues.apache.org/jira/browse/SPARK-11857) | Remove Mesos fine-grained mode subject to discussions |  Major | Mesos | Reynold Xin | Michael Gummelt |
 | [SPARK-16318](https://issues.apache.org/jira/browse/SPARK-16318) | xpath\_int, xpath\_short, xpath\_long, xpath\_float, xpath\_double, xpath\_string, and xpath |  Major | SQL | Peter Lee | Peter Lee |
 | [SPARK-16381](https://issues.apache.org/jira/browse/SPARK-16381) | Update SQL examples and programming guide for R language binding |  Major | Documentation, Examples | Cheng Lian | Xin Ren |
 | [SPARK-16144](https://issues.apache.org/jira/browse/SPARK-16144) | Add a separate Rd for ML generic methods: read.ml, write.ml, summary, predict |  Major | Documentation, MLlib, SparkR | Xiangrui Meng | Yanbo Liang |
 | [SPARK-16488](https://issues.apache.org/jira/browse/SPARK-16488) | Codegen variable namespace collision for pmod and partitionBy |  Major | SQL | Sameer Agarwal | Sameer Agarwal |
 | [SPARK-16491](https://issues.apache.org/jira/browse/SPARK-16491) | Crc32 should use different variable names (not "checksum") |  Major | SQL | Reynold Xin | Reynold Xin |
+| [SPARK-16284](https://issues.apache.org/jira/browse/SPARK-16284) | Implement reflect and java\_method SQL function |  Major | SQL | Reynold Xin | Peter Lee |
 | [SPARK-16514](https://issues.apache.org/jira/browse/SPARK-16514) | RegexExtract and RegexReplace crash on non-nullable input |  Critical | SQL | Eric Liang | Eric Liang |
 | [SPARK-16303](https://issues.apache.org/jira/browse/SPARK-16303) | Update SQL examples and programming guide for Scala and Java language bindings |  Major | Documentation, Examples | Cheng Lian | Anton Okolnychyi |
+| [SPARK-14812](https://issues.apache.org/jira/browse/SPARK-14812) | ML, Graph 2.0 QA: API: Experimental, DeveloperApi, final, sealed audit |  Blocker | Documentation, GraphX, ML, MLlib | Joseph K. Bradley | Joseph K. Bradley |
+| [SPARK-16485](https://issues.apache.org/jira/browse/SPARK-16485) | Additional fixes to Mllib 2.0 documentation |  Major | Documentation, GraphX, ML, MLlib, SparkR | Timothy Hunter | Joseph K. Bradley |
+| [SPARK-16509](https://issues.apache.org/jira/browse/SPARK-16509) | Rename window.partitionBy and window.orderBy |  Major | SparkR | Shivaram Venkataraman | Sun Rui |
+| [SPARK-16507](https://issues.apache.org/jira/browse/SPARK-16507) | Add CRAN checks to SparkR |  Major | SparkR | Shivaram Venkataraman | Shivaram Venkataraman |
+| [SPARK-16590](https://issues.apache.org/jira/browse/SPARK-16590) | Improve LogicalPlanToSQLSuite to check generated SQL directly |  Major | SQL, Tests | Dongjoon Hyun | Dongjoon Hyun |
+| [SPARK-14816](https://issues.apache.org/jira/browse/SPARK-14816) | Update MLlib, GraphX, SparkR websites for 2.0 |  Critical | Documentation, GraphX, ML, MLlib, SparkR | Joseph K. Bradley | Joseph K. Bradley |
+| [SPARK-14817](https://issues.apache.org/jira/browse/SPARK-14817) | ML, Graph, R 2.0 QA: Programming guide update and migration guide |  Critical | Documentation, GraphX, ML, MLlib, SparkR | Joseph K. Bradley | Joseph K. Bradley |
+| [SPARK-16510](https://issues.apache.org/jira/browse/SPARK-16510) | Move SparkR test JAR into Spark, include its source code |  Major | SparkR | Shivaram Venkataraman | Shivaram Venkataraman |
 
 
 ### OTHER:
@@ -2508,6 +2563,10 @@
 | [SPARK-16111](https://issues.apache.org/jira/browse/SPARK-16111) | Hide SparkOrcNewRecordReader in API docs |  Minor | Documentation, SQL | Xiangrui Meng | Dongjoon Hyun |
 | [SPARK-14608](https://issues.apache.org/jira/browse/SPARK-14608) | transformSchema needs better documentation |  Minor | Documentation, ML | Joseph K. Bradley | yuhao yang |
 | [SPARK-13448](https://issues.apache.org/jira/browse/SPARK-13448) | Document MLlib behavior changes in Spark 2.0 |  Blocker | ML, MLlib | Xiangrui Meng | Xiangrui Meng |
+| [SPARK-16557](https://issues.apache.org/jira/browse/SPARK-16557) | Remove stale doc in sql/README.md |  Major | SQL | Reynold Xin | Reynold Xin |
+| [SPARK-16090](https://issues.apache.org/jira/browse/SPARK-16090) | Improve method grouping in SparkR generated docs |  Critical | Documentation, SparkR | Xiangrui Meng | Xiangrui Meng |
+| [SPARK-16112](https://issues.apache.org/jira/browse/SPARK-16112) | R programming guide update for gapply and gapplyCollect |  Major | SparkR | Kai Jiang | Narine Kokhlikyan |
+| [SPARK-16055](https://issues.apache.org/jira/browse/SPARK-16055) | sparkR.init() can not load sparkPackages when executing an R file |  Minor | SparkR | Sun Rui | Krishna Kalyan |
 | [SPARK-12640](https://issues.apache.org/jira/browse/SPARK-12640) | Add benchmarks to measure the speed ups of UnsafeRowParquetReaderReader. |  Minor | SQL | Nong Li | Nong Li |
 | [SPARK-10620](https://issues.apache.org/jira/browse/SPARK-10620) | Look into whether accumulator mechanism can replace TaskMetrics |  Major | Spark Core | Patrick Wendell | Andrew Or |
 | [SPARK-12463](https://issues.apache.org/jira/browse/SPARK-12463) | Remove spark.deploy.mesos.recoveryMode and use spark.deploy.recoveryMode |  Major | Mesos | Timothy Chen | Apache Spark |
@@ -2535,5 +2594,6 @@
 | [SPARK-15773](https://issues.apache.org/jira/browse/SPARK-15773) | Avoid creating local variable `sc` in examples if possible |  Minor | Examples | Dongjoon Hyun | Dongjoon Hyun |
 | [SPARK-15879](https://issues.apache.org/jira/browse/SPARK-15879) | Update logo in UI and docs to add "Apache" |  Minor | Documentation, Web UI | Matei Zaharia | Sean Owen |
 | [SPARK-15447](https://issues.apache.org/jira/browse/SPARK-15447) | Performance test for ALS in Spark 2.0 |  Critical | ML | Xiangrui Meng | Nick Pentreath |
+| [SPARK-13959](https://issues.apache.org/jira/browse/SPARK-13959) | Audit MiMa excludes added in SPARK-13948 to make sure none are unintended incompatibilities |  Critical | Build | Josh Rosen | Reynold Xin |
 
 

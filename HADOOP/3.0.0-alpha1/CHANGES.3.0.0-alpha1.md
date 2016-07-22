@@ -18,7 +18,7 @@
 -->
 # Apache Hadoop Changelog
 
-## Release 3.0.0-alpha1 - Unreleased (as of 2016-07-14)
+## Release 3.0.0-alpha1 - Unreleased (as of 2016-07-22)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -79,6 +79,7 @@
 | [MAPREDUCE-6526](https://issues.apache.org/jira/browse/MAPREDUCE-6526) | Remove usage of metrics v1 from hadoop-mapreduce |  Blocker | . | Akira Ajisaka | Akira Ajisaka |
 | [HADOOP-12504](https://issues.apache.org/jira/browse/HADOOP-12504) | Remove metrics v1 |  Blocker | metrics | Akira Ajisaka | Akira Ajisaka |
 | [HDFS-10337](https://issues.apache.org/jira/browse/HDFS-10337) | OfflineEditsViewer stats option should print 0 instead of null for the count of operations |  Minor | . | Akira Ajisaka | Yiqun Lin |
+| [HADOOP-11858](https://issues.apache.org/jira/browse/HADOOP-11858) | [JDK8] Set minimum version of Hadoop 3 to JDK 8 |  Blocker | build | Robert Kanter | Robert Kanter |
 | [HADOOP-13175](https://issues.apache.org/jira/browse/HADOOP-13175) | Remove hadoop-ant from hadoop-tools |  Major | . | Chris Douglas | Chris Douglas |
 | [HADOOP-9613](https://issues.apache.org/jira/browse/HADOOP-9613) | [JDK8] Update jersey version to latest 1.x release |  Major | build | Timothy St. Clair | Tsuyoshi Ozawa |
 | [HADOOP-13209](https://issues.apache.org/jira/browse/HADOOP-13209) | replace slaves with workers |  Major | scripts | John Smith | John Smith |
@@ -213,7 +214,7 @@
 | [HADOOP-12149](https://issues.apache.org/jira/browse/HADOOP-12149) | copy all of test-patch BINDIR prior to re-exec |  Blocker | yetus | Allen Wittenauer | Allen Wittenauer |
 | [HADOOP-10979](https://issues.apache.org/jira/browse/HADOOP-10979) | Auto-entries in hadoop\_usage |  Minor | scripts | Allen Wittenauer | Allen Wittenauer |
 | [YARN-3261](https://issues.apache.org/jira/browse/YARN-3261) | rewrite resourcemanager restart doc to remove roadmap bits |  Major | documentation | Allen Wittenauer | Gururaj Shetty |
-| [HADOOP-12009](https://issues.apache.org/jira/browse/HADOOP-12009) | Clarify FileSystem.listStatus() sorting order & fix FileSystemContractBaseTest:testListStatus |  Minor | test | Jakob Homan | J.Andreina |
+| [HADOOP-12009](https://issues.apache.org/jira/browse/HADOOP-12009) | Clarify FileSystem.listStatus() sorting order & fix FileSystemContractBaseTest:testListStatus |  Minor | documentation, fs, test | Jakob Homan | J.Andreina |
 | [HADOOP-12249](https://issues.apache.org/jira/browse/HADOOP-12249) | pull argument parsing into a function |  Major | scripts | Allen Wittenauer | Allen Wittenauer |
 | [HADOOP-12050](https://issues.apache.org/jira/browse/HADOOP-12050) | Enable MaxInactiveInterval for hadoop http auth token |  Major | security | Benoy Antony | Huizhi Lu |
 | [HDFS-8924](https://issues.apache.org/jira/browse/HDFS-8924) | Add pluggable interface for reading replicas in DFSClient |  Major | hdfs-client | Colin P. McCabe | Colin P. McCabe |
@@ -268,6 +269,10 @@
 | [HDFS-10488](https://issues.apache.org/jira/browse/HDFS-10488) | Update WebHDFS documentation regarding CREATE and MKDIR default permissions |  Minor | documentation, webhdfs | Wellington Chevreuil | Wellington Chevreuil |
 | [HDFS-10387](https://issues.apache.org/jira/browse/HDFS-10387) | DataTransferProtocol#writeBlock missing some javadocs |  Minor | datanode, hdfs | Yongjun Zhang | John Zhuge |
 | [HADOOP-13290](https://issues.apache.org/jira/browse/HADOOP-13290) | Appropriate use of generics in FairCallQueue |  Major | ipc | Konstantin Shvachko | Jonathan Hung |
+| [YARN-5380](https://issues.apache.org/jira/browse/YARN-5380) | NMTimelinePublisher should use getMemorySize instead of getMemory |  Major | timelineserver | Karthik Kambatla | Vrushali C |
+| [HADOOP-13298](https://issues.apache.org/jira/browse/HADOOP-13298) | Fix the leftover L&N files in hadoop-build-tools/src/main/resources/META-INF/ |  Minor | . | Xiao Chen | Tsuyoshi Ozawa |
+| [HDFS-10647](https://issues.apache.org/jira/browse/HDFS-10647) | Add a link to HDFS disk balancer document in site.xml |  Major | documentation | Akira Ajisaka | Yiqun Lin |
+| [HADOOP-13383](https://issues.apache.org/jira/browse/HADOOP-13383) | Update release notes for 3.0.0-alpha1 |  Blocker | documentation | Andrew Wang | Andrew Wang |
 
 
 ### BUG FIXES:
@@ -492,7 +497,6 @@
 | [MAPREDUCE-6641](https://issues.apache.org/jira/browse/MAPREDUCE-6641) | TestTaskAttempt fails in trunk |  Major | test | Tsuyoshi Ozawa | Haibo Chen |
 | [HDFS-10536](https://issues.apache.org/jira/browse/HDFS-10536) | Standby NN can not trigger log roll after EditLogTailer thread failed 3 times in EditLogTailer.triggerActiveLogRoll method. |  Critical | auto-failover | XingFeng Shen | XingFeng Shen |
 | [HADOOP-9888](https://issues.apache.org/jira/browse/HADOOP-9888) | KerberosName static initialization gets default realm, which is unneeded in non-secure deployment. |  Major | security | Chris Nauroth | Dmytro Kabakchei |
-| [HDFS-9852](https://issues.apache.org/jira/browse/HDFS-9852) | hdfs dfs -setfacl error message is misleading |  Minor | . | Wei-Chiu Chuang | Wei-Chiu Chuang |
 | [HADOOP-13342](https://issues.apache.org/jira/browse/HADOOP-13342) | ISAL download is breaking the Dockerfile |  Blocker | build | Allen Wittenauer | Allen Wittenauer |
 | [HADOOP-13349](https://issues.apache.org/jira/browse/HADOOP-13349) | HADOOP\_CLASSPATH vs HADOOP\_USER\_CLASSPATH |  Blocker | scripts | Allen Wittenauer | Allen Wittenauer |
 | [HDFS-10336](https://issues.apache.org/jira/browse/HDFS-10336) | TestBalancer failing intermittently because of not reseting UserGroupInformation completely |  Major | test | Yiqun Lin | Yiqun Lin |
@@ -504,6 +508,9 @@
 | [YARN-5359](https://issues.apache.org/jira/browse/YARN-5359) | FileSystemTimelineReader/Writer uses unix-specific default storage path |  Minor | . | Sangjin Lee | Sangjin Lee |
 | [YARN-5364](https://issues.apache.org/jira/browse/YARN-5364) | timelineservice modules have indirect dependencies on mapreduce artifacts |  Minor | timelineserver | Sangjin Lee | Sangjin Lee |
 | [HDFS-10544](https://issues.apache.org/jira/browse/HDFS-10544) | Balancer doesn't work with IPFailoverProxyProvider |  Major | balancer & mover, ha | Zhe Zhang | Zhe Zhang |
+| [YARN-5379](https://issues.apache.org/jira/browse/YARN-5379) | TestHBaseTimelineStorage. testWriteApplicationToHBase() fails intermittently |  Minor | test, timelineserver | Sangjin Lee | Vrushali C |
+| [HADOOP-13393](https://issues.apache.org/jira/browse/HADOOP-13393) | [Azure Data Lake] Correction needed in fs.defaultFS support in documentation |  Major | fs/azure | Vishwajeet Dusane | Vishwajeet Dusane |
+| [HADOOP-13392](https://issues.apache.org/jira/browse/HADOOP-13392) | [Azure Data Lake] OAuth2 configuration should be default set to true when AdlFileSystem is configured. |  Major | fs/azure | Vishwajeet Dusane | Vishwajeet Dusane |
 
 
 ### TESTS:
@@ -725,7 +732,6 @@
 | [HADOOP-13129](https://issues.apache.org/jira/browse/HADOOP-13129) | fix typo in dynamic subcommand docs |  Trivial | scripts | Sean Busbey | Allen Wittenauer |
 | [HADOOP-13151](https://issues.apache.org/jira/browse/HADOOP-13151) | Underscores should be escaped in dynamic subcommands document |  Minor | documentation | Akira Ajisaka | Allen Wittenauer |
 | [HADOOP-13153](https://issues.apache.org/jira/browse/HADOOP-13153) | fix typo in debug statement for dynamic subcommands |  Major | scripts | Allen Wittenauer | Allen Wittenauer |
-| [HADOOP-11858](https://issues.apache.org/jira/browse/HADOOP-11858) | [JDK8] Set minimum version of Hadoop 3 to JDK 8 |  Blocker | build | Robert Kanter | Robert Kanter |
 | [YARN-5102](https://issues.apache.org/jira/browse/YARN-5102) | timeline service build fails with java 8 |  Blocker | timelineserver | Sangjin Lee | Sangjin Lee |
 | [YARN-5096](https://issues.apache.org/jira/browse/YARN-5096) | timelinereader has a lot of logging that's not useful |  Minor | timelineserver | Sangjin Lee | Sangjin Lee |
 | [YARN-5050](https://issues.apache.org/jira/browse/YARN-5050) | Code cleanup for TestDistributedShell |  Major | timelineserver | Li Lu | Li Lu |
@@ -762,6 +768,8 @@
 | [YARN-5174](https://issues.apache.org/jira/browse/YARN-5174) | [documentation] several updates/corrections to timeline service documentation |  Major | timelineserver | Sangjin Lee | Sangjin Lee |
 | [YARN-5316](https://issues.apache.org/jira/browse/YARN-5316) | fix hadoop-aws pom not to do the exclusion |  Major | timelineserver | Sangjin Lee | Sangjin Lee |
 | [HADOOP-11993](https://issues.apache.org/jira/browse/HADOOP-11993) | maven enforcer plugin to ban java 8 incompatible dependencies |  Minor | . | Steve Loughran | Tsuyoshi Ozawa |
+| [HDFS-10600](https://issues.apache.org/jira/browse/HDFS-10600) | PlanCommand#getThrsholdPercentage should not use throughput value. |  Major | diskbalancer | Lei (Eddy) Xu | Yiqun Lin |
+| [HDFS-10565](https://issues.apache.org/jira/browse/HDFS-10565) | Erasure Coding: Document about the current allowed storage policies for EC Striped mode files |  Major | documentation | Uma Maheswara Rao G | Uma Maheswara Rao G |
 
 
 ### OTHER:

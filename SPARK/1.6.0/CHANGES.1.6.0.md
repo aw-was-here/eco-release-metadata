@@ -74,7 +74,7 @@
 | [SPARK-11292](https://issues.apache.org/jira/browse/SPARK-11292) | Python API for text data source |  Major | SQL | Reynold Xin | Reynold Xin |
 | [SPARK-10532](https://issues.apache.org/jira/browse/SPARK-10532) | Added new option to specify "user profile" of AWS credentials in spark/spark-ec2.py |  Major | EC2 | teramonagi | teramonagi |
 | [SPARK-6819](https://issues.apache.org/jira/browse/SPARK-6819) | Support nested types in SparkR DataFrame |  Major | SparkR, SQL | Shivaram Venkataraman | Sun Rui |
-| [SPARK-10978](https://issues.apache.org/jira/browse/SPARK-10978) | Allow PrunedFilterScan to eliminate predicates from further evaluation |  Critical | SQL | Russell Alexander Spitzer | Cheng Lian |
+| [SPARK-10978](https://issues.apache.org/jira/browse/SPARK-10978) | Allow PrunedFilterScan to eliminate predicates from further evaluation |  Critical | SQL | Russell Spitzer | Cheng Lian |
 | [SPARK-11467](https://issues.apache.org/jira/browse/SPARK-11467) | Add Python API stddev/variance |  Major | PySpark | Davies Liu | Davies Liu |
 | [SPARK-11235](https://issues.apache.org/jira/browse/SPARK-11235) | Support streaming data using network library |  Major | Spark Core | Marcelo Vanzin | Marcelo Vanzin |
 | [SPARK-11514](https://issues.apache.org/jira/browse/SPARK-11514) | Pass random seed to spark.ml DecisionTree\* |  Major | ML | Joseph K. Bradley | Yu Ishikawa |

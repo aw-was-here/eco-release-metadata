@@ -18,7 +18,7 @@
 -->
 # Apache Yetus Changelog
 
-## Release 0.4.0 - Unreleased (as of 2016-07-14)
+## Release 0.4.0 - Unreleased (as of 2016-07-22)
 
 
 
@@ -34,6 +34,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YETUS-293](https://issues.apache.org/jira/browse/YETUS-293) | archiving functionality |  Major | Test Patch | Colin P. McCabe | Allen Wittenauer |
+| [YETUS-428](https://issues.apache.org/jira/browse/YETUS-428) | Provide fallback option to mark issues as incompatible |  Major | Release Doc Maker | Ajay Yadava | Ajay Yadava |
 
 
 ### IMPROVEMENTS:
@@ -42,6 +43,10 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YETUS-424](https://issues.apache.org/jira/browse/YETUS-424) | Show more helpful error message in case of missing dependency |  Major | Release Doc Maker | Ajay Yadava | Ajay Yadava |
 | [YETUS-425](https://issues.apache.org/jira/browse/YETUS-425) | Remove empty tables while generating changelog |  Minor | Release Doc Maker | Ajay Yadava | Ajay Yadava |
+| [YETUS-423](https://issues.apache.org/jira/browse/YETUS-423) | Make sortorder and sorttype of type choices |  Minor | Release Doc Maker | Ajay Yadava | Ajay Yadava |
+| [YETUS-427](https://issues.apache.org/jira/browse/YETUS-427) | Document the -V option for releasedocmaker |  Major | website and documentation | Ajay Yadava | Ajay Yadava |
+| [YETUS-312](https://issues.apache.org/jira/browse/YETUS-312) | include more context on whitespace plugin feedback |  Minor | Test Patch | Sean Busbey | Ajay Yadava |
+| [YETUS-48](https://issues.apache.org/jira/browse/YETUS-48) | Document python version releasedocmaker supports |  Minor | Release Doc Maker | Kengo Seki | Ajay Yadava |
 
 
 ### BUG FIXES:
@@ -56,6 +61,9 @@
 | [YETUS-414](https://issues.apache.org/jira/browse/YETUS-414) | ctest logs are really broken |  Blocker | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-407](https://issues.apache.org/jira/browse/YETUS-407) | DOAP is broken |  Major | . | Sebb | Kengo Seki |
 | [YETUS-405](https://issues.apache.org/jira/browse/YETUS-405) | Minor typo for python-dateutil package |  Minor | Release Doc Maker, website and documentation | Kengo Seki | Karen Clark |
+| [YETUS-426](https://issues.apache.org/jira/browse/YETUS-426) | Parser error on specifying just -V |  Major | Release Doc Maker | Ajay Yadava | Ajay Yadava |
+| [YETUS-101](https://issues.apache.org/jira/browse/YETUS-101) | Nonexistent hook in the build tool support document |  Minor | website and documentation | Kengo Seki | Ajay Yadava |
+| [YETUS-91](https://issues.apache.org/jira/browse/YETUS-91) | Clean up comments in 01-common.sh |  Minor | Test Patch | Kengo Seki | Ajay Yadava |
 
 
 ### OTHER:

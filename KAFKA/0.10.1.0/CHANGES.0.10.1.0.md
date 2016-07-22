@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.10.1.0 - Unreleased (as of 2016-07-14)
+## Release 0.10.1.0 - Unreleased (as of 2016-07-22)
 
 
 
@@ -27,6 +27,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [KAFKA-3176](https://issues.apache.org/jira/browse/KAFKA-3176) | Allow console consumer to consume from particular partitions when new consumer is used. |  Major | tools | Jiangjie Qin | Vahid Hashemian |
+| [KAFKA-3858](https://issues.apache.org/jira/browse/KAFKA-3858) | Add functions to print stream topologies |  Major | streams | Roger Hoover | Eno Thereska |
 
 
 ### IMPROVEMENTS:
@@ -56,6 +57,7 @@
 | [KAFKA-3844](https://issues.apache.org/jira/browse/KAFKA-3844) | Sort configuration items in log |  Trivial | clients | Xing Huang | Rekha Joshi |
 | [KAFKA-3849](https://issues.apache.org/jira/browse/KAFKA-3849) | Add explanation on why polling every second in MirrorMaker is required |  Major | . | Ashish K Singh | Ashish K Singh |
 | [KAFKA-3942](https://issues.apache.org/jira/browse/KAFKA-3942) | Change IntegrationTestUtils.purgeLocalStreamsState to use java.io.tmpdir |  Trivial | streams | Damian Guy | Damian Guy |
+| [KAFKA-3922](https://issues.apache.org/jira/browse/KAFKA-3922) | Add a copy-constructor to AbstractStream |  Trivial | streams | Florian Hussonnois | Florian Hussonnois |
 
 
 ### BUG FIXES:
@@ -92,6 +94,11 @@
 | [KAFKA-3111](https://issues.apache.org/jira/browse/KAFKA-3111) | java.lang.ArithmeticException: / by zero in ConsumerPerformance |  Major | core | Jun Rao | Vahid Hashemian |
 | [KAFKA-2941](https://issues.apache.org/jira/browse/KAFKA-2941) | Docs for key/value converter in Kafka connect are unclear |  Blocker | KafkaConnect | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-3562](https://issues.apache.org/jira/browse/KAFKA-3562) | Null Pointer Exception Found when delete topic and Using New Producer |  Minor | . | Pengwei | Rajini Sivaram |
+| [KAFKA-3952](https://issues.apache.org/jira/browse/KAFKA-3952) | VerifyConsumerRebalance cannot succeed when checking partition owner |  Minor | core | Simon Wan Wenli | Simon Wan Wenli |
+| [KAFKA-3812](https://issues.apache.org/jira/browse/KAFKA-3812) | State store locking is incorrect |  Major | streams | Eno Thereska | Damian Guy |
+| [KAFKA-3915](https://issues.apache.org/jira/browse/KAFKA-3915) | LogCleaner IO buffers do not account for potential size difference due to message format change |  Blocker | log | Tommy Becker | Ismael Juma |
+| [KAFKA-3740](https://issues.apache.org/jira/browse/KAFKA-3740) | Enable configuration of RocksDBStores |  Major | streams | Guozhang Wang | Damian Guy |
+| [KAFKA-3782](https://issues.apache.org/jira/browse/KAFKA-3782) | Transient failure with kafkatest.tests.connect.connect\_distributed\_test.ConnectDistributedTest.test\_bounce.clean=True |  Minor | KafkaConnect | Liquan Pei | Jason Gustafson |
 
 
 ### TESTS:
@@ -114,6 +121,9 @@
 | [KAFKA-3872](https://issues.apache.org/jira/browse/KAFKA-3872) | OOM while running Kafka Streams integration tests |  Major | streams, unit tests | Ismael Juma | Eno Thereska |
 | [KAFKA-3926](https://issues.apache.org/jira/browse/KAFKA-3926) | Transient failures in org.apache.kafka.streams.integration.RegexSourceIntegrationTest |  Major | streams, unit tests | Guozhang Wang | Bill Bejeck |
 | [KAFKA-2945](https://issues.apache.org/jira/browse/KAFKA-2945) | CreateTopic - protocol and server side implementation |  Major | . | Grant Henke | Grant Henke |
+| [KAFKA-3870](https://issues.apache.org/jira/browse/KAFKA-3870) | Expose state store names to DSL |  Major | streams | Eno Thereska | Eno Thereska |
+| [KAFKA-3912](https://issues.apache.org/jira/browse/KAFKA-3912) | Query local state stores |  Major | streams | Damian Guy | Damian Guy |
+| [KAFKA-3911](https://issues.apache.org/jira/browse/KAFKA-3911) | Enforce KTable materialization |  Major | streams | Eno Thereska | Eno Thereska |
 
 
 ### OTHER:

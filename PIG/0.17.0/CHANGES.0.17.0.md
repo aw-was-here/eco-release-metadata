@@ -18,7 +18,7 @@
 -->
 # Apache Pig Changelog
 
-## Release 0.17.0 - Unreleased (as of 2016-07-14)
+## Release 0.17.0 - Unreleased (as of 2016-07-22)
 
 
 
@@ -52,5 +52,12 @@
 | [PIG-4921](https://issues.apache.org/jira/browse/PIG-4921) | Kill running jobs on InterruptedException |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-2315](https://issues.apache.org/jira/browse/PIG-2315) | Make as clause work in generate |  Major | . | Olga Natkovich | Daniel Dai |
 | [PIG-4896](https://issues.apache.org/jira/browse/PIG-4896) | Param substitution ignored when redefined |  Minor | parser | Koji Noguchi | Koji Noguchi |
+| [PIG-4949](https://issues.apache.org/jira/browse/PIG-4949) | Fix registering jar in S3 which was broken by PIG-4417 in Pig 0.16 |  Major | parser | Yishan Yang | Yishan Yang |
+| [PIG-4938](https://issues.apache.org/jira/browse/PIG-4938) | [PiggyBank] XPath returns empty values when using aggregation method |  Minor | piggybank | Ivo Lenting | Nandor Kollar |
+| [PIG-4945](https://issues.apache.org/jira/browse/PIG-4945) | Update document for conflicting macro params |  Trivial | documentation | Koji Noguchi | Koji Noguchi |
+| [PIG-4950](https://issues.apache.org/jira/browse/PIG-4950) | Fix minor issues with running scripts in non-local FileSystems |  Minor | . | Peter Slawski | Peter Slawski |
+| [PIG-4940](https://issues.apache.org/jira/browse/PIG-4940) | Predicate push-down filtering unary expressions can be pushed. |  Major | . | Ryan Blue | Ryan Blue |
+| [PIG-4948](https://issues.apache.org/jira/browse/PIG-4948) | Pig on Tez AM use too much memory on a small cluster |  Major | tez | Daniel Dai | Daniel Dai |
+| [PIG-4947](https://issues.apache.org/jira/browse/PIG-4947) | LOAD with HBaseStorage using a mix of pure wildcards and prefixed wildcards results in empty maps for the pure wildcarded column families. |  Major | grunt | Youngjin | Daniel Dai |
 
 

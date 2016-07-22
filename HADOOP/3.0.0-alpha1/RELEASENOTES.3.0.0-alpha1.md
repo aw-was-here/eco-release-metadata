@@ -279,6 +279,13 @@ The user 'yarn' is no longer allowed to run tasks for security reasons.
 
 ---
 
+* [HADOOP-11485](https://issues.apache.org/jira/browse/HADOOP-11485) | *Major* | **Pluggable shell integration**
+
+Support for shell profiles has been added.  They allow for easy integration of additional functionality, classpaths, and more from inside the bash scripts rather than relying upon modifying hadoop-env.sh, etc.  See the Unix Shell Guide for more information.
+
+
+---
+
 * [HADOOP-11554](https://issues.apache.org/jira/browse/HADOOP-11554) | *Major* | **Expose HadoopKerberosName as a hadoop subcommand**
 
 The hadoop kerbname subcommand has been added to ease operational pain in determining the output of auth\_to\_local rules.
@@ -745,6 +752,13 @@ Remove invisible synchronization primitives from DataInputBuffer
 
 ---
 
+* [HADOOP-11858](https://issues.apache.org/jira/browse/HADOOP-11858) | *Blocker* | **[JDK8] Set minimum version of Hadoop 3 to JDK 8**
+
+The minimum required JDK version for Hadoop has been increased from JDK7 to JDK8.
+
+
+---
+
 * [HADOOP-12930](https://issues.apache.org/jira/browse/HADOOP-12930) | *Critical* | **[Umbrella] Dynamic subcommands for hadoop shell scripts**
 
 It is now possible to add or modify the behavior of existing subcommands in the hadoop, hdfs, mapred, and yarn scripts. See the Unix Shell Guide for more information.
@@ -795,6 +809,13 @@ After upgrading Jersey from 1.12 to 1.13, the root element whose content is empt
 
 ---
 
+* [HDFS-1312](https://issues.apache.org/jira/browse/HDFS-1312) | *Major* | **Re-balance disks within a Datanode**
+
+The Disk Balancer lets administrators rebalance data across multiple disks of a DataNode. It is useful to correct skewed data distribution often seen after adding or replacing disks. Disk Balancer can be enabled by setting dfs.disk.balancer.enabled to true in hdfs-site.xml. It can be invoked by running "hdfs diskbalancer". See the "HDFS Diskbalancer"  section in the HDFS Commands guide for detailed usage.
+
+
+---
+
 * [HADOOP-13209](https://issues.apache.org/jira/browse/HADOOP-13209) | *Major* | **replace slaves with workers**
 
 The 'slaves' file has been deprecated in favor of the 'workers' file and, other than the deprecation warnings, all references to slavery have been removed from the source tree.
@@ -836,6 +857,17 @@ Upgrading following dependences:
 * [HDFS-10548](https://issues.apache.org/jira/browse/HDFS-10548) | *Major* | **Remove the long deprecated BlockReaderRemote**
 
 This removes the configuration property {{dfs.client.use.legacy.blockreader}}, since the legacy remote block reader class has been removed from the codebase.
+
+
+---
+
+* [YARN-2928](https://issues.apache.org/jira/browse/YARN-2928) | *Critical* | **YARN Timeline Service v.2: alpha 1**
+
+We are introducing an early preview (alpha 1) of a major revision of YARN Timeline Service: v.2. YARN Timeline Service v.2 addresses two major challenges: improving scalability and reliability of Timeline Service, and enhancing usability by introducing flows and aggregation.
+
+YARN Timeline Service v.2 alpha 1 is provided so that users and developers can test it and provide feedback and suggestions for making it a ready replacement for Timeline Service v.1.x. It should be used only in a test capacity. Most importantly, security is not enabled. Do not set up or use Timeline Service v.2 until security is implemented if security is a critical requirement.
+
+More details are available in the [YARN Timeline Service v.2](./hadoop-yarn/hadoop-yarn-site/TimelineServiceV2.html) documentation.
 
 
 

@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.10.0.1 - Unreleased (as of 2016-07-14)
+## Release 0.10.0.1 - Unreleased (as of 2016-07-22)
 
 
 
@@ -33,6 +33,7 @@
 | [KAFKA-3880](https://issues.apache.org/jira/browse/KAFKA-3880) | Disallow Join Windows with size zero |  Minor | streams | Matthias J. Sax | Matthias J. Sax |
 | [KAFKA-3836](https://issues.apache.org/jira/browse/KAFKA-3836) | RocksDBStore.get() should not pass nulls to Deserializers |  Trivial | streams | Avi Flax | Jeyhun Karimov |
 | [KAFKA-3725](https://issues.apache.org/jira/browse/KAFKA-3725) | Update documentation with regards to XFS |  Major | . | Ismael Juma | Todd Palino |
+| [KAFKA-3922](https://issues.apache.org/jira/browse/KAFKA-3922) | Add a copy-constructor to AbstractStream |  Trivial | streams | Florian Hussonnois | Florian Hussonnois |
 
 
 ### BUG FIXES:
@@ -57,8 +58,12 @@
 | [KAFKA-3902](https://issues.apache.org/jira/browse/KAFKA-3902) | Optimize KTable.filter() to reduce unnecessary traffic |  Major | streams | Guozhang Wang | Phil Derome |
 | [KAFKA-3854](https://issues.apache.org/jira/browse/KAFKA-3854) | Subsequent regex subscription calls fail |  Major | consumer | Vahid Hashemian | Vahid Hashemian |
 | [KAFKA-3802](https://issues.apache.org/jira/browse/KAFKA-3802) | log mtimes reset on broker restart |  Major | . | Andrew Otto | Moritz Siuts |
-| [KAFKA-3887](https://issues.apache.org/jira/browse/KAFKA-3887) | StreamBounceTest.test\_bounce and StreamSmokeTest.test\_streams failing |  Major | streams, system tests | Ismael Juma | Guozhang Wang |
 | [KAFKA-3941](https://issues.apache.org/jira/browse/KAFKA-3941) | Avoid applying eviction listener in InMemoryKeyValueLoggedStore |  Major | streams | Guozhang Wang | Guozhang Wang |
+| [KAFKA-3952](https://issues.apache.org/jira/browse/KAFKA-3952) | VerifyConsumerRebalance cannot succeed when checking partition owner |  Minor | core | Simon Wan Wenli | Simon Wan Wenli |
+| [KAFKA-3855](https://issues.apache.org/jira/browse/KAFKA-3855) | Guard race conditions in TopologyBuilder |  Major | streams | Guozhang Wang | Damian Guy |
+| [KAFKA-3915](https://issues.apache.org/jira/browse/KAFKA-3915) | LogCleaner IO buffers do not account for potential size difference due to message format change |  Blocker | log | Tommy Becker | Ismael Juma |
+| [KAFKA-3782](https://issues.apache.org/jira/browse/KAFKA-3782) | Transient failure with kafkatest.tests.connect.connect\_distributed\_test.ConnectDistributedTest.test\_bounce.clean=True |  Minor | KafkaConnect | Liquan Pei | Jason Gustafson |
+| [KAFKA-3983](https://issues.apache.org/jira/browse/KAFKA-3983) | It would be helpful if SocketServer's Acceptors logged both the SocketChannel port and the processor ID upon registra |  Minor | core | Ryan P | Ryan P |
 
 
 ### TESTS:

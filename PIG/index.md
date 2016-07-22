@@ -19,6 +19,9 @@
 * Apache Pig v0.17.0
     * [Changes](0.17.0/CHANGES.0.17.0.html)
     * [Release Notes](0.17.0/RELEASENOTES.0.17.0.html)
+* Apache Pig v0.16.1
+    * [Changes](0.16.1/CHANGES.0.16.1.html)
+    * [Release Notes](0.16.1/RELEASENOTES.0.16.1.html)
 * Apache Pig v0.16.0
     * [Changes](0.16.0/CHANGES.0.16.0.html)
     * [Release Notes](0.16.0/RELEASENOTES.0.16.0.html)

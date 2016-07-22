@@ -30,5 +30,6 @@
 | [KAFKA-2308](https://issues.apache.org/jira/browse/KAFKA-2308) | New producer + Snappy face un-compression errors after broker restart |  Major | . | Gwen Shapira | Gwen Shapira |
 | [KAFKA-2346](https://issues.apache.org/jira/browse/KAFKA-2346) | modified typo api.html in 0.8.2 and 0.8.3 |  Minor | website | Asano Ryohei |  |
 | [KAFKA-2889](https://issues.apache.org/jira/browse/KAFKA-2889) | Problem running Kafka using -daemon switch |  Major | core | David Ing |  |
+| [KAFKA-3952](https://issues.apache.org/jira/browse/KAFKA-3952) | VerifyConsumerRebalance cannot succeed when checking partition owner |  Minor | core | Simon Wan Wenli | Simon Wan Wenli |
 
 

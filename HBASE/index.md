@@ -40,6 +40,9 @@
 * Apache HBase v1.2.0
     * [Changes](1.2.0/CHANGES.1.2.0.html)
     * [Release Notes](1.2.0/RELEASENOTES.1.2.0.html)
+* Apache HBase v1.1.7
+    * [Changes](1.1.7/CHANGES.1.1.7.html)
+    * [Release Notes](1.1.7/RELEASENOTES.1.1.7.html)
 * Apache HBase v1.1.6
     * [Changes](1.1.6/CHANGES.1.1.6.html)
     * [Release Notes](1.1.6/RELEASENOTES.1.1.6.html)

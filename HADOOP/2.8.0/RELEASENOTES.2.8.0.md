@@ -804,4 +804,11 @@ S3A has added support for configurable input policies.  Similar to fadvise, this
 DataNode Web UI has been improved with new HTML5 page, showing useful information.
 
 
+---
+
+* [HADOOP-13139](https://issues.apache.org/jira/browse/HADOOP-13139) | *Major* | **Branch-2: S3a to use thread pool that blocks clients**
+
+The configuration option 'fs.s3a.threads.core' is no longer supported. The string is still defined in org.apache.hadoop.fs.s3a.Constants.CORE\_THREADS, however its value is ignored. If it is set, a warning message will be printed when initializing the S3A filesystem
+
+
 

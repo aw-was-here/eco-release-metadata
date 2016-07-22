@@ -3601,15 +3601,6 @@ Adds new hbase-shaded-client archetype; also corrects an omission found in hbase
 
 ---
 
-* [HBASE-16052](https://issues.apache.org/jira/browse/HBASE-16052) | *Major* | **Improve HBaseFsck Scalability**
-
-HBASE-16052 improves the performance and scalability of HBaseFsck, especially for large clusters with a small number of large tables.  
-
-Searching for lingering reference files is now a multi-threaded operation.  Loading HDFS region directory information is now multi-threaded at the region-level instead of the table-level to maximize concurrency.  A performance bug in HBaseFsck that resulted in redundant I/O and RPCs was fixed by introducing a FileStatusFilter that filters FileStatus objects directly.
-
-
----
-
 * [HBASE-16153](https://issues.apache.org/jira/browse/HBASE-16153) | *Trivial* | **Correct the config name 'hbase.memestore.inmemoryflush.threshold.factor'**
 
 **WARNING: No release note provided for this change.**
@@ -3665,6 +3656,68 @@ In order to change this add something to the config for tables on master that do
 * [HBASE-16081](https://issues.apache.org/jira/browse/HBASE-16081) | *Blocker* | **Replication remove\_peer gets stuck and blocks WAL rolling**
 
 When a replication endpoint is sent a shutdown request by the replication source in situations like removing a peer, we now try to gracefully shut it down by draining the items already sent for replication to the peer cluster. If the drain does not complete in the specified time (hbase.rpc.timeout \* replication.source.maxterminationmultiplier), the regionserver is aborted to avoid blocking the WAL roll.
+
+
+---
+
+* [HBASE-16095](https://issues.apache.org/jira/browse/HBASE-16095) | *Major* | **Add priority to TableDescriptor and priority region open thread pool**
+
+Adds a PRIORITY property to the HTableDescriptor. PRIORITY should be in the same range as the RpcScheduler defines it (HConstants.XXX\_QOS). 
+
+Table priorities are only used for region opening for now. There can be other uses later (like RpcScheduling). 
+
+Regions of high priority tables (priority \>= than HIGH\_QOS) are opened from a different thread pool than the regular region open thread pool. However, table priorities are not used as a global order for region assigning or opening.
+
+
+---
+
+* [HBASE-13823](https://issues.apache.org/jira/browse/HBASE-13823) | *Major* | **Procedure V2: unnecessaery operaions on AssignmentManager#recoverTableInDisablingState() and recoverTableInEnablingState()**
+
+For cluster upgraded from 1.0.x or older releases, master startup would not continue the in-progress enable/disable table process.  If orphaned znode with ENABLING/DISABLING state exists in the cluster, run hbck or manually fix the issue.  
+
+For new cluster or cluster upgraded from 1.1.x and newer release, there is no issue to worry about.
+
+
+---
+
+* [HBASE-3727](https://issues.apache.org/jira/browse/HBASE-3727) | *Minor* | **MultiHFileOutputFormat**
+
+MultiHFileOutputFormat support output of HFiles from multiple tables. It will output directories and hfiles as follow, 
+     --table1
+       --family1
+       --family2
+         --Hfiles
+     --table2
+       --family3
+         --hfiles
+       --family4
+
+family directory and its hfiles match the output of HFileOutputFormat2
+
+
+---
+
+* [HBASE-16144](https://issues.apache.org/jira/browse/HBASE-16144) | *Major* | **Replication queue's lock will live forever if RS acquiring the lock has died prematurely**
+
+If zk based replication queue is used and useMulti is false, we will schedule a chore to clean up the orphan replication queue lock on zk.
+
+
+---
+
+* [HBASE-16052](https://issues.apache.org/jira/browse/HBASE-16052) | *Major* | **Improve HBaseFsck Scalability**
+
+HBASE-16052 improves the performance and scalability of HBaseFsck, especially for large clusters with a small number of large tables.  
+
+Searching for lingering reference files is now a multi-threaded operation.  Loading HDFS region directory information is now multi-threaded at the region-level instead of the table-level to maximize concurrency.  A performance bug in HBaseFsck that resulted in redundant I/O and RPCs was fixed by introducing a FileStatusFilter that filters FileStatus objects directly.
+
+
+---
+
+* [HBASE-13701](https://issues.apache.org/jira/browse/HBASE-13701) | *Major* | **Consolidate SecureBulkLoadEndpoint into HBase core as default for bulk load**
+
+SecureBulkLoadEndpoint  has been integrated into HBase core as default bulk load mechanism. It is no longer needed to install it as a coprocessor endpoint.
+The new server is backward compatible, accommodating non-secure old client and secure old client requesting SecureBulkLoadEndpoint service.
+SecureBulkLoadEndpoint is deprecated. The backward compatibility support may be removed in future releases.
 
 
 
