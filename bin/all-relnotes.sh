@@ -34,8 +34,6 @@ function common_rdm
 
   big_console_header "Apache ${title}"
 
-  mkdir -p "${cap}"
-
   "${RDM}" --project "${cap}" --outputdir "${cap}" \
           --projecttitle "Apache ${title}" \
           --version "${v1}" --version "${v2}" \
@@ -55,7 +53,7 @@ common_rdm yetus 0.1.0 1.0.0
 
 common_rdm bigtop 1.0.1 2.0.0 BigTop
 
-common_rdm falcone 0.0 1.0
+common_rdm falcon 0.0 1.0
 
 common_rdm flink 1.0.0 2.0.0
 

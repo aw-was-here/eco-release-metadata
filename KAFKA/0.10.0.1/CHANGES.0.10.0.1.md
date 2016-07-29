@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.10.0.1 - Unreleased (as of 2016-07-22)
+## Release 0.10.0.1 - Unreleased (as of 2016-07-29)
 
 
 
@@ -64,6 +64,17 @@
 | [KAFKA-3915](https://issues.apache.org/jira/browse/KAFKA-3915) | LogCleaner IO buffers do not account for potential size difference due to message format change |  Blocker | log | Tommy Becker | Ismael Juma |
 | [KAFKA-3782](https://issues.apache.org/jira/browse/KAFKA-3782) | Transient failure with kafkatest.tests.connect.connect\_distributed\_test.ConnectDistributedTest.test\_bounce.clean=True |  Minor | KafkaConnect | Liquan Pei | Jason Gustafson |
 | [KAFKA-3983](https://issues.apache.org/jira/browse/KAFKA-3983) | It would be helpful if SocketServer's Acceptors logged both the SocketChannel port and the processor ID upon registra |  Minor | core | Ryan P | Ryan P |
+| [KAFKA-3960](https://issues.apache.org/jira/browse/KAFKA-3960) | Committed offset not set after first assign |  Blocker | clients | Alexey Romanchuk | Alexey Romanchuk |
+| [KAFKA-3887](https://issues.apache.org/jira/browse/KAFKA-3887) | StreamBounceTest.test\_bounce and StreamSmokeTest.test\_streams failing |  Major | streams, system tests | Ismael Juma | Guozhang Wang |
+| [KAFKA-3933](https://issues.apache.org/jira/browse/KAFKA-3933) | Kafka OOM During Log Recovery Due to Leaked Native Memory |  Critical | log | Tom Crayford | Tom Crayford |
+| [KAFKA-3935](https://issues.apache.org/jira/browse/KAFKA-3935) | ConnectDistributedTest.test\_restart\_failed\_task.connector\_type=sink system test failing |  Major | KafkaConnect | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
+| [KAFKA-3500](https://issues.apache.org/jira/browse/KAFKA-3500) | KafkaOffsetBackingStore set method needs to handle null |  Blocker | KafkaConnect | Liquan Pei | Ewen Cheslack-Postava |
+| [KAFKA-3996](https://issues.apache.org/jira/browse/KAFKA-3996) | ByteBufferMessageSet.writeTo() should be non-blocking |  Blocker | . | Jun Rao | Ismael Juma |
+| [KAFKA-3924](https://issues.apache.org/jira/browse/KAFKA-3924) | Data loss due to halting when LEO is larger than leader's LEO |  Major | core | Maysam Yabandeh |  |
+| [KAFKA-3185](https://issues.apache.org/jira/browse/KAFKA-3185) | Allow users to cleanup internal data |  Blocker | streams | Guozhang Wang | Matthias J. Sax |
+| [KAFKA-3851](https://issues.apache.org/jira/browse/KAFKA-3851) | Add references to important installation/upgrade notes to release notes |  Blocker | . | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
+| [KAFKA-3977](https://issues.apache.org/jira/browse/KAFKA-3977) | KafkaConsumer swallows exceptions raised from message deserializers |  Blocker | consumer | Jason Gustafson | Jason Gustafson |
+| [KAFKA-3852](https://issues.apache.org/jira/browse/KAFKA-3852) | Clarify how to handle message format upgrade without killing performance |  Blocker | . | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 
 
 ### TESTS:

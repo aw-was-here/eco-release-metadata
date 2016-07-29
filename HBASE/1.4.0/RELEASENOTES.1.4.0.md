@@ -332,7 +332,7 @@ Minimum allowable timeout (in milliseconds) in rpc request's header. This config
 
 ---
 
-* [HBASE-15931](https://issues.apache.org/jira/browse/HBASE-15931) | *Major* | **Add log for long-running tasks in AsyncProcess**
+* [HBASE-15931](https://issues.apache.org/jira/browse/HBASE-15931) | *Critical* | **Add log for long-running tasks in AsyncProcess**
 
 After HBASE-15931, we will log more details for long-running tasks in AsyncProcess#waitForMaximumCurrentTasks every 10 seconds, including:
 1. Table name will be included in the tasks status log

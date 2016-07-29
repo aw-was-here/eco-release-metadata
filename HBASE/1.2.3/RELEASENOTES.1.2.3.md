@@ -23,6 +23,16 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
+* [HBASE-15931](https://issues.apache.org/jira/browse/HBASE-15931) | *Critical* | **Add log for long-running tasks in AsyncProcess**
+
+After HBASE-15931, we will log more details for long-running tasks in AsyncProcess#waitForMaximumCurrentTasks every 10 seconds, including:
+1. Table name will be included in the tasks status log
+2. On which regionserver(s) the tasks are runnning will be logged when less than hbase.client.threshold.log.details tasks left, by default 10.
+3. Against which regions the tasks are running will be logged when less than 2 tasks left.
+
+
+---
+
 * [HBASE-16144](https://issues.apache.org/jira/browse/HBASE-16144) | *Major* | **Replication queue's lock will live forever if RS acquiring the lock has died prematurely**
 
 If zk based replication queue is used and useMulti is false, we will schedule a chore to clean up the orphan replication queue lock on zk.
