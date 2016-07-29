@@ -18,7 +18,7 @@
 -->
 # Apache Pig Changelog
 
-## Release 0.17.0 - Unreleased (as of 2016-07-22)
+## Release 0.17.0 - Unreleased (as of 2016-07-29)
 
 
 
@@ -38,6 +38,7 @@
 | [PIG-2768](https://issues.apache.org/jira/browse/PIG-2768) | Fix org.apache.hadoop.conf.Configuration deprecation warnings for Hadoop 23 |  Major | . | Fabian Alenius | Rohini Palaniswamy |
 | [PIG-4906](https://issues.apache.org/jira/browse/PIG-4906) | Add Bigdecimal functions in Over function |  Minor | piggybank | Cristian Galán | Cristian Galán |
 | [PIG-4911](https://issues.apache.org/jira/browse/PIG-4911) | Provide option to disable DAG recovery |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
+| [PIG-4852](https://issues.apache.org/jira/browse/PIG-4852) | Add accumulator implementation for MaxTupleBy1stField |  Minor | . | Eyal Allweil | Adam Szita |
 
 
 ### BUG FIXES:
@@ -59,5 +60,9 @@
 | [PIG-4940](https://issues.apache.org/jira/browse/PIG-4940) | Predicate push-down filtering unary expressions can be pushed. |  Major | . | Ryan Blue | Ryan Blue |
 | [PIG-4948](https://issues.apache.org/jira/browse/PIG-4948) | Pig on Tez AM use too much memory on a small cluster |  Major | tez | Daniel Dai | Daniel Dai |
 | [PIG-4947](https://issues.apache.org/jira/browse/PIG-4947) | LOAD with HBaseStorage using a mix of pure wildcards and prefixed wildcards results in empty maps for the pure wildcarded column families. |  Major | grunt | Youngjin | Daniel Dai |
+| [PIG-4957](https://issues.apache.org/jira/browse/PIG-4957) | See "Received kill signal" message for a normal run after PIG-4921 |  Major | . | Daniel Dai | Rohini Palaniswamy |
+| [PIG-4960](https://issues.apache.org/jira/browse/PIG-4960) | Split followed by order by/skewed join is skewed in Tez |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
+| [PIG-4961](https://issues.apache.org/jira/browse/PIG-4961) | CROSS followed by LIMIT inside nested foreach drop data from result |  Major | . | Sergey Svinarchuk | Rohini Palaniswamy |
+| [PIG-4935](https://issues.apache.org/jira/browse/PIG-4935) | TEZ\_USE\_CLUSTER\_HADOOP\_LIBS is always set to true |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 
 

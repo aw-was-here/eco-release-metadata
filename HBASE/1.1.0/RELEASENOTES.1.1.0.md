@@ -180,6 +180,14 @@ havingSystemAuth(User)
 
 ---
 
+* [HBASE-11574](https://issues.apache.org/jira/browse/HBASE-11574) | *Major* | **hbase:meta's regions can be replicated**
+
+On the server side, set hbase.meta.replica.count to the number of replicas of meta that you want to have in the cluster (defaults to 1). hbase.regionserver. meta.storefile.refresh.period should be set to a non-zero number in milliseconds - something like 30000 (defaults to 0).
+On the client/user side, set hbase.meta.replicas.use to true.
+
+
+---
+
 * [HBASE-12831](https://issues.apache.org/jira/browse/HBASE-12831) | *Major* | **Changing the set of vis labels a user has access to doesn't generate an audit log event**
 
 Auditing of visibility label administration.

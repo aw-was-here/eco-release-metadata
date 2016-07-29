@@ -18,7 +18,7 @@
 -->
 # Apache Hadoop Changelog
 
-## Release 2.7.3 - Unreleased (as of 2016-07-22)
+## Release 2.7.3 - Unreleased (as of 2016-07-29)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -232,7 +232,7 @@
 | [YARN-3840](https://issues.apache.org/jira/browse/YARN-3840) | Resource Manager web ui issue when sorting application by id (with application having id \> 9999) |  Major | resourcemanager | LINTE | Varun Saxena |
 | [YARN-5055](https://issues.apache.org/jira/browse/YARN-5055) | max apps per user can be larger than max per queue |  Minor | capacityscheduler, resourcemanager | Jason Lowe | Eric Badger |
 | [YARN-4751](https://issues.apache.org/jira/browse/YARN-4751) | In 2.7, Labeled queue usage not shown properly in capacity scheduler UI |  Major | capacity scheduler, yarn | Eric Payne | Eric Payne |
-| [HDFS-9365](https://issues.apache.org/jira/browse/HDFS-9365) | Balaner does not work with the HDFS-6376 HA setup |  Major | balancer & mover | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
+| [HDFS-9365](https://issues.apache.org/jira/browse/HDFS-9365) | Balancer does not work with the HDFS-6376 HA setup |  Major | balancer & mover | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [YARN-4459](https://issues.apache.org/jira/browse/YARN-4459) | container-executor should only kill process groups |  Major | nodemanager | Jun Gong | Jun Gong |
 | [HDFS-9476](https://issues.apache.org/jira/browse/HDFS-9476) | TestDFSUpgradeFromImage#testUpgradeFromRel1BBWImage occasionally fail |  Major | . | Wei-Chiu Chuang | Masatake Iwasaki |
 | [HDFS-10458](https://issues.apache.org/jira/browse/HDFS-10458) | getFileEncryptionInfo should return quickly for non-encrypted cluster |  Major | encryption, namenode | Zhe Zhang | Zhe Zhang |
@@ -277,6 +277,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HADOOP-11814](https://issues.apache.org/jira/browse/HADOOP-11814) | Reformat hadoop-annotations, o.a.h.classification.tools |  Minor | . | Li Lu | Li Lu |
 | [YARN-4653](https://issues.apache.org/jira/browse/YARN-4653) | Document YARN security model from the perspective of Application Developers |  Major | site | Steve Loughran | Steve Loughran |
 | [HADOOP-13312](https://issues.apache.org/jira/browse/HADOOP-13312) | Update CHANGES.txt to reflect all the changes in branch-2.7 |  Blocker | . | Akira Ajisaka | Akira Ajisaka |
 

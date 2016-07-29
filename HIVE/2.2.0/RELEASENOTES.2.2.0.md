@@ -56,4 +56,11 @@ VectorMapOperator: Missing update to AbstractMapOperator::numRows (Gopal V, revi
 Committed to 2.2.0 and 2.1.1. Thanks Naveen for the patch.
 
 
+---
+
+* [HIVE-14349](https://issues.apache.org/jira/browse/HIVE-14349) | *Major* | **Vectorization: LIKE should anchor the regexes**
+
+Vectorization: LIKE should anchor the regexes
+
+
 

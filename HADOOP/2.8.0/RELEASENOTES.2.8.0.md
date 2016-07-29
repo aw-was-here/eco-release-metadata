@@ -428,6 +428,13 @@ The feature needs to enabled by setting "hadoop.caller.context.enabled" to true.
 
 ---
 
+* [HDFS-9259](https://issues.apache.org/jira/browse/HDFS-9259) | *Major* | **Make SO\_SNDBUF size configurable at DFSClient side for hdfs write scenario**
+
+Introduces a new configuration setting dfs.client.socket.send.buffer.size to control the socket send buffer size for writes. Setting it to zero enables TCP auto-tuning on systems that support it.
+
+
+---
+
 * [HDFS-9311](https://issues.apache.org/jira/browse/HDFS-9311) | *Major* | **Support optional offload of NameNode HA service health checks to a separate RPC server.**
 
 There is now support for offloading HA health check RPC activity to a separate RPC server endpoint running within the NameNode process.  This may improve reliability of HA health checks and prevent spurious failovers in highly overloaded conditions.  For more details, please refer to the hdfs-default.xml documentation for properties dfs.namenode.lifeline.rpc-address, dfs.namenode.lifeline.rpc-bind-host and dfs.namenode.lifeline.handler.count.
@@ -466,7 +473,7 @@ Only check permissions when permissions enabled in FSDirStatAndListingOp.getFile
 
 * [HDFS-8831](https://issues.apache.org/jira/browse/HDFS-8831) | *Major* | **Trash Support for deletion in HDFS encryption zone**
 
-Trash is now supported for deletion of files within encryption zone after HDFS-8831. The deleted encrypted files will remain encrypted and be moved to .Trash subdirectory under the root of the encryption zone prefixed by $USER/current with checkpoint and expunge working similar to existing Trash.
+Add Trash support for deleting files within encryption zones. Deleted files will remain encrypted and they will be moved to a “.Trash” subdirectory under the root of the encryption zone, prefixed by $USER/current. Checkpoint and expunge continue to work like the existing Trash.
 
 
 ---
@@ -694,6 +701,13 @@ Reserved space can be configured independently for different storage types for c
 
 ---
 
+* [HDFS-10324](https://issues.apache.org/jira/browse/HDFS-10324) | *Major* | **Trash directory in an encryption zone should be pre-created with correct permissions**
+
+HDFS will create a ".Trash" subdirectory when creating a new encryption zone to support soft delete for files deleted within the encryption zone. A new "dfsadmin -provisionTrash" command has been introduced to provision trash directories for encryption zones created with Apache Hadoop minor releases prior to 2.8.0.
+
+
+---
+
 * [HADOOP-13122](https://issues.apache.org/jira/browse/HADOOP-13122) | *Minor* | **Customize User-Agent header sent in HTTP requests by S3A.**
 
 S3A now includes the current Hadoop version in the User-Agent string passed through the AWS SDK to the S3 service.  Users also may include optional additional information to identify their application.  See the documentation of configuration property fs.s3a.user.agent.prefix for further details.
@@ -795,6 +809,13 @@ Allows userinfo component of URI authority to contain a slash (escaped as %2F). 
 * [HADOOP-13203](https://issues.apache.org/jira/browse/HADOOP-13203) | *Major* | **S3A: Support fadvise "random" mode for high performance readPositioned() reads**
 
 S3A has added support for configurable input policies.  Similar to fadvise, this configuration provides applications with a way to specify their expected access pattern (sequential or random) while reading a file.  S3A then performs optimizations tailored to that access pattern.  See site documentation of the fs.s3a.experimental.input.fadvise configuration property for more details.  Please be advised that this feature is experimental and subject to backward-incompatible changes in future releases.
+
+
+---
+
+* [HADOOP-13263](https://issues.apache.org/jira/browse/HADOOP-13263) | *Major* | **Reload cached groups in background after expiry**
+
+hadoop.security.groups.cache.background.reload can be set to true to enable background reload of expired groups cache entries. This setting can improve the performance of services that use Groups.java (e.g. the NameNode) when group lookups are slow. The setting is disabled by default.
 
 
 ---

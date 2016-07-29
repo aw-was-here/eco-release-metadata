@@ -28,4 +28,11 @@ These release notes cover new developer and user-facing incompatibilities, impor
 The time format of console logger and MapReduce job summary logger is ISO8601 by default to print milliseconds.
 
 
+---
+
+* [HDFS-10650](https://issues.apache.org/jira/browse/HDFS-10650) | *Minor* | **DFSClient#mkdirs and DFSClient#primitiveMkdir should use default directory permission**
+
+**WARNING: No release note provided for this change.**
+
+
 

@@ -870,4 +870,18 @@ YARN Timeline Service v.2 alpha 1 is provided so that users and developers can t
 More details are available in the [YARN Timeline Service v.2](./hadoop-yarn/hadoop-yarn-site/TimelineServiceV2.html) documentation.
 
 
+---
+
+* [HDFS-10519](https://issues.apache.org/jira/browse/HDFS-10519) | *Minor* | **Add a configuration option to enable in-progress edit log tailing**
+
+Add a configuration option to enable in-progress edit tailing and a related unit test
+
+
+---
+
+* [HDFS-10689](https://issues.apache.org/jira/browse/HDFS-10689) | *Minor* | **Hdfs dfs chmod should reset sticky bit permission when the bit is omitted in the octal mode**
+
+Hdfs dfs chmod command will reset sticky bit permission on a file/directory when the leading sticky bit is omitted in the octal mode (like 644). So when a file/directory permission is applied using octal mode and sticky bit permission needs to be preserved, then it has to be explicitly mentioned in the permission bits (like 1644). This behavior is similar to many other filesystems on Linux/BSD.
+
+
 

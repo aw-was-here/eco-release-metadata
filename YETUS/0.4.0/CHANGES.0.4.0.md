@@ -18,7 +18,7 @@
 -->
 # Apache Yetus Changelog
 
-## Release 0.4.0 - Unreleased (as of 2016-07-22)
+## Release 0.4.0 - Unreleased (as of 2016-07-29)
 
 
 
@@ -47,6 +47,7 @@
 | [YETUS-427](https://issues.apache.org/jira/browse/YETUS-427) | Document the -V option for releasedocmaker |  Major | website and documentation | Ajay Yadava | Ajay Yadava |
 | [YETUS-312](https://issues.apache.org/jira/browse/YETUS-312) | include more context on whitespace plugin feedback |  Minor | Test Patch | Sean Busbey | Ajay Yadava |
 | [YETUS-48](https://issues.apache.org/jira/browse/YETUS-48) | Document python version releasedocmaker supports |  Minor | Release Doc Maker | Kengo Seki | Ajay Yadava |
+| [YETUS-434](https://issues.apache.org/jira/browse/YETUS-434) | Add .pyc files to .gitignore |  Major | build | Ajay Yadava | Ajay Yadava |
 
 
 ### BUG FIXES:
@@ -59,11 +60,15 @@
 | [YETUS-419](https://issues.apache.org/jira/browse/YETUS-419) | releasedocmaker should retry when the connection fails |  Major | Release Doc Maker | Akira Ajisaka | Akira Ajisaka |
 | [YETUS-380](https://issues.apache.org/jira/browse/YETUS-380) | "Release Notes" button doesn't appear immediately in some cases |  Trivial | website and documentation | Kengo Seki | Kengo Seki |
 | [YETUS-414](https://issues.apache.org/jira/browse/YETUS-414) | ctest logs are really broken |  Blocker | Test Patch | Allen Wittenauer | Allen Wittenauer |
-| [YETUS-407](https://issues.apache.org/jira/browse/YETUS-407) | DOAP is broken |  Major | . | Sebb | Kengo Seki |
+| [YETUS-407](https://issues.apache.org/jira/browse/YETUS-407) | DOAP is broken |  Major | website and documentation | Sebb | Kengo Seki |
 | [YETUS-405](https://issues.apache.org/jira/browse/YETUS-405) | Minor typo for python-dateutil package |  Minor | Release Doc Maker, website and documentation | Kengo Seki | Karen Clark |
 | [YETUS-426](https://issues.apache.org/jira/browse/YETUS-426) | Parser error on specifying just -V |  Major | Release Doc Maker | Ajay Yadava | Ajay Yadava |
 | [YETUS-101](https://issues.apache.org/jira/browse/YETUS-101) | Nonexistent hook in the build tool support document |  Minor | website and documentation | Kengo Seki | Ajay Yadava |
 | [YETUS-91](https://issues.apache.org/jira/browse/YETUS-91) | Clean up comments in 01-common.sh |  Minor | Test Patch | Kengo Seki | Ajay Yadava |
+| [YETUS-437](https://issues.apache.org/jira/browse/YETUS-437) | TOCs are broken in some documents |  Minor | website and documentation | Kengo Seki | Ajay Yadava |
+| [YETUS-438](https://issues.apache.org/jira/browse/YETUS-438) | Minor issues on newly added sections in releasedocmaker document |  Minor | website and documentation | Kengo Seki | Ajay Yadava |
+| [YETUS-184](https://issues.apache.org/jira/browse/YETUS-184) | link patch naming guide into regular website docs |  Major | Test Patch, website and documentation | Sean Busbey | Ajay Yadava |
+| [YETUS-112](https://issues.apache.org/jira/browse/YETUS-112) | test-patch build system documentation missing expected args for required |  Major | Test Patch, website and documentation | Sean Busbey | Karen Clark |
 
 
 ### OTHER:

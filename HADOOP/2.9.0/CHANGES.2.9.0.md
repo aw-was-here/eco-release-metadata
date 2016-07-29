@@ -18,7 +18,7 @@
 -->
 # Apache Hadoop Changelog
 
-## Release 2.9.0 - Unreleased (as of 2016-07-22)
+## Release 2.9.0 - Unreleased (as of 2016-07-29)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -97,7 +97,6 @@
 | [MAPREDUCE-6622](https://issues.apache.org/jira/browse/MAPREDUCE-6622) | Add capability to set JHS job cache to a task-based limit |  Critical | jobhistoryserver | Ray Chiang | Ray Chiang |
 | [YARN-4718](https://issues.apache.org/jira/browse/YARN-4718) | Rename variables in SchedulerNode to reduce ambiguity post YARN-1011 |  Major | scheduler | Karthik Kambatla | Inigo Goiri |
 | [HADOOP-12859](https://issues.apache.org/jira/browse/HADOOP-12859) | Disable hiding field style checks in class setters |  Major | . | Kai Zheng | Kai Zheng |
-| [HDFS-9534](https://issues.apache.org/jira/browse/HDFS-9534) | Add CLI command to clear storage policy from a path. |  Major | tools | Chris Nauroth | Xiaobing Zhou |
 | [HDFS-9521](https://issues.apache.org/jira/browse/HDFS-9521) | TransferFsImage.receiveFile should account and log separate times for image download and fsync to disk |  Minor | . | Wellington Chevreuil | Wellington Chevreuil |
 | [HADOOP-11404](https://issues.apache.org/jira/browse/HADOOP-11404) | Clarify the "expected client Kerberos principal is null" authorization message |  Minor | security | Stephen Chu | Stephen Chu |
 | [YARN-4719](https://issues.apache.org/jira/browse/YARN-4719) | Add a helper library to maintain node state and allows common queries |  Major | scheduler | Karthik Kambatla | Karthik Kambatla |
@@ -112,7 +111,6 @@
 | [YARN-4769](https://issues.apache.org/jira/browse/YARN-4769) | Add support for CSRF header in the dump capacity scheduler logs and kill app buttons in RM web UI |  Major | . | Varun Vasudev | Varun Vasudev |
 | [HADOOP-12984](https://issues.apache.org/jira/browse/HADOOP-12984) | Add GenericTestUtils.getTestDir method and use it for temporary directory in tests |  Major | build, test | Steve Loughran | Steve Loughran |
 | [YARN-4541](https://issues.apache.org/jira/browse/YARN-4541) | Change log message in LocalizedResource#handle() to DEBUG |  Minor | . | Ray Chiang | Ray Chiang |
-| [HDFS-9894](https://issues.apache.org/jira/browse/HDFS-9894) | Add unsetStoragePolicy API to FileContext/AbstractFileSystem and derivatives |  Major | . | Xiaobing Zhou | Xiaobing Zhou |
 | [YARN-1297](https://issues.apache.org/jira/browse/YARN-1297) | FairScheduler: Move some logs to debug and check if debug logging is enabled |  Major | fairscheduler | Sandy Ryza | Yufei Gu |
 | [HDFS-3702](https://issues.apache.org/jira/browse/HDFS-3702) | Add an option for NOT writing the blocks locally if there is a datanode on the same box as the client |  Minor | hdfs-client | Nicolas Liochon | Lei (Eddy) Xu |
 | [YARN-5003](https://issues.apache.org/jira/browse/YARN-5003) | Add container resource to RM audit log |  Major | resourcemanager, scheduler | Nathan Roberts | Nathan Roberts |
@@ -146,7 +144,7 @@
 | [YARN-5181](https://issues.apache.org/jira/browse/YARN-5181) | ClusterNodeTracker: add method to get list of nodes matching a specific resourceName |  Major | scheduler | Karthik Kambatla | Karthik Kambatla |
 | [YARN-4996](https://issues.apache.org/jira/browse/YARN-4996) | Make TestNMReconnect.testCompareRMNodeAfterReconnect() scheduler agnostic, or better yet parameterized |  Minor | resourcemanager, test | Daniel Templeton | Kai Sasaki |
 | [MAPREDUCE-6365](https://issues.apache.org/jira/browse/MAPREDUCE-6365) | Refactor JobResourceUploader#uploadFilesInternal |  Minor | . | Chris Trezzo | Chris Trezzo |
-| [HDFS-10660](https://issues.apache.org/jira/browse/HDFS-10660) | Expose storage policy apis via HDFSAdmin interface |  Major | . | Rakesh R | Rakesh R |
+| [HADOOP-13354](https://issues.apache.org/jira/browse/HADOOP-13354) | Update WASB driver to use the latest version (4.2.0) of SDK for Microsoft Azure Storage Clients |  Major | fs/azure | Sivaguru Sankaridurg | Sivaguru Sankaridurg |
 
 
 ### BUG FIXES:
@@ -293,6 +291,13 @@
 | [HADOOP-13254](https://issues.apache.org/jira/browse/HADOOP-13254) | Create framework for configurable disk checkers |  Major | util | Yufei Gu | Yufei Gu |
 | [YARN-5272](https://issues.apache.org/jira/browse/YARN-5272) | Handle queue names consistently in FairScheduler |  Major | fairscheduler | Wilfred Spiegelenburg | Wilfred Spiegelenburg |
 | [YARN-5213](https://issues.apache.org/jira/browse/YARN-5213) | Fix a bug in LogCLIHelpers which cause TestLogsCLI#testFetchApplictionLogs fails intermittently |  Major | test | Rohith Sharma K S | Xuan Gong |
+| [YARN-5195](https://issues.apache.org/jira/browse/YARN-5195) | RM intermittently crashed with NPE while handling APP\_ATTEMPT\_REMOVED event when async-scheduling enabled in CapacityScheduler |  Major | resourcemanager | Karam Singh | sandflee |
+| [YARN-5441](https://issues.apache.org/jira/browse/YARN-5441) | Fixing minor Scheduler test case failures |  Major | . | Subru Krishnan | Subru Krishnan |
+| [YARN-5440](https://issues.apache.org/jira/browse/YARN-5440) | Use AHSClient in YarnClient when TimelineServer is running |  Major | . | Xuan Gong | Xuan Gong |
+| [YARN-5203](https://issues.apache.org/jira/browse/YARN-5203) | Return ResourceRequest JAXB object in ResourceManager Cluster Applications REST API |  Major | . | Subru Krishnan | Ellen Hui |
+| [HDFS-9276](https://issues.apache.org/jira/browse/HDFS-9276) | Failed to Update HDFS Delegation Token for long running application in HA mode |  Major | fs, ha, security | Liangliang Gu | Liangliang Gu |
+| [YARN-5436](https://issues.apache.org/jira/browse/YARN-5436) | Race in AsyncDispatcher can cause random test failures in Tez (probably YARN also) |  Major | . | Zhiyuan Yang | Zhiyuan Yang |
+| [HADOOP-13381](https://issues.apache.org/jira/browse/HADOOP-13381) | KMS clients should use KMS Delegation Tokens from current UGI. |  Critical | kms | Xiao Chen | Xiao Chen |
 
 
 ### TESTS:
@@ -412,6 +417,8 @@
 | [YARN-5298](https://issues.apache.org/jira/browse/YARN-5298) | Mount usercache and NM filecache directories into Docker container |  Major | yarn | Varun Vasudev | Sidharta Seethana |
 | [YARN-5361](https://issues.apache.org/jira/browse/YARN-5361) | Obtaining logs for completed container says 'file belongs to a running container ' at the end |  Critical | . | Sumana Sathish | Xuan Gong |
 | [YARN-5350](https://issues.apache.org/jira/browse/YARN-5350) | Distributed Scheduling: Ensure sort order of allocatable nodes returned by the RM is not lost |  Major | . | Arun Suresh | Arun Suresh |
+| [YARN-5392](https://issues.apache.org/jira/browse/YARN-5392) | Replace use of Priority in the Scheduling infrastructure with an opaque ShedulerRequestKey |  Major | . | Arun Suresh | Arun Suresh |
+| [YARN-5351](https://issues.apache.org/jira/browse/YARN-5351) | ResourceRequest should take ExecutionType into account during comparison |  Major | . | Konstantinos Karanasos | Konstantinos Karanasos |
 
 
 ### OTHER:

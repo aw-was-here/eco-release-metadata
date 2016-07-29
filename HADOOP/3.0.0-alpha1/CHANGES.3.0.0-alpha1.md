@@ -18,7 +18,7 @@
 -->
 # Apache Hadoop Changelog
 
-## Release 3.0.0-alpha1 - Unreleased (as of 2016-07-22)
+## Release 3.0.0-alpha1 - Unreleased (as of 2016-07-29)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -88,6 +88,7 @@
 | [HADOOP-12709](https://issues.apache.org/jira/browse/HADOOP-12709) | Cut s3:// from trunk |  Major | fs/s3 | Steve Loughran | Mingliang Liu |
 | [HADOOP-12064](https://issues.apache.org/jira/browse/HADOOP-12064) | [JDK8] Update guice version to 4.0 |  Blocker | . | Tsuyoshi Ozawa | Tsuyoshi Ozawa |
 | [HDFS-10548](https://issues.apache.org/jira/browse/HDFS-10548) | Remove the long deprecated BlockReaderRemote |  Major | hdfs | Kai Zheng | Kai Zheng |
+| [HDFS-10689](https://issues.apache.org/jira/browse/HDFS-10689) | Hdfs dfs chmod should reset sticky bit permission when the bit is omitted in the octal mode |  Minor | fs | Manoj Govindassamy | Manoj Govindassamy |
 
 
 ### IMPORTANT ISSUES:
@@ -273,6 +274,9 @@
 | [HADOOP-13298](https://issues.apache.org/jira/browse/HADOOP-13298) | Fix the leftover L&N files in hadoop-build-tools/src/main/resources/META-INF/ |  Minor | . | Xiao Chen | Tsuyoshi Ozawa |
 | [HDFS-10647](https://issues.apache.org/jira/browse/HDFS-10647) | Add a link to HDFS disk balancer document in site.xml |  Major | documentation | Akira Ajisaka | Yiqun Lin |
 | [HADOOP-13383](https://issues.apache.org/jira/browse/HADOOP-13383) | Update release notes for 3.0.0-alpha1 |  Blocker | documentation | Andrew Wang | Andrew Wang |
+| [HADOOP-13272](https://issues.apache.org/jira/browse/HADOOP-13272) | ViewFileSystem should support storage policy related API |  Major | fs, viewfs | Peter Shi | Peter Shi |
+| [HDFS-10667](https://issues.apache.org/jira/browse/HDFS-10667) | Report more accurate info about data corruption location |  Major | datanode, hdfs | Yongjun Zhang | Yuanbo Liu |
+| [HDFS-10519](https://issues.apache.org/jira/browse/HDFS-10519) | Add a configuration option to enable in-progress edit log tailing |  Minor | ha | Jiayi Zhou | Jiayi Zhou |
 
 
 ### BUG FIXES:
@@ -770,6 +774,8 @@
 | [HADOOP-11993](https://issues.apache.org/jira/browse/HADOOP-11993) | maven enforcer plugin to ban java 8 incompatible dependencies |  Minor | . | Steve Loughran | Tsuyoshi Ozawa |
 | [HDFS-10600](https://issues.apache.org/jira/browse/HDFS-10600) | PlanCommand#getThrsholdPercentage should not use throughput value. |  Major | diskbalancer | Lei (Eddy) Xu | Yiqun Lin |
 | [HDFS-10565](https://issues.apache.org/jira/browse/HDFS-10565) | Erasure Coding: Document about the current allowed storage policies for EC Striped mode files |  Major | documentation | Uma Maheswara Rao G | Uma Maheswara Rao G |
+| [YARN-5164](https://issues.apache.org/jira/browse/YARN-5164) | Use plan RLE to improve CapacityOverTimePolicy efficiency |  Major | capacityscheduler, fairscheduler, resourcemanager | Carlo Curino | Carlo Curino |
+| [HADOOP-13041](https://issues.apache.org/jira/browse/HADOOP-13041) | Adding tests for coder utilities |  Major | . | Kai Sasaki | Kai Sasaki |
 
 
 ### OTHER:
@@ -778,5 +784,6 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-2776](https://issues.apache.org/jira/browse/HDFS-2776) | Missing interface annotation on JournalSet |  Trivial | namenode | Todd Lipcon | Brandon Li |
 | [HADOOP-8308](https://issues.apache.org/jira/browse/HADOOP-8308) | Support cross-project Jenkins builds |  Major | build | Tom White | Tom White |
+| [HDFS-10651](https://issues.apache.org/jira/browse/HDFS-10651) | Clean up some configuration related codes about legacy block reader |  Minor | . | Kai Zheng | Youwei Wang |
 
 

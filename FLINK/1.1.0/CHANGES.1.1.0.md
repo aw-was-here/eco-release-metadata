@@ -18,7 +18,7 @@
 -->
 # Apache Flink Changelog
 
-## Release 1.1.0 - Unreleased (as of 2016-07-22)
+## Release 1.1.0 - Unreleased (as of 2016-07-29)
 
 
 
@@ -163,6 +163,14 @@
 | [FLINK-4202](https://issues.apache.org/jira/browse/FLINK-4202) | Add JM metric which shows the restart duration |  Major | Distributed Coordination | Till Rohrmann | Till Rohrmann |
 | [FLINK-2227](https://issues.apache.org/jira/browse/FLINK-2227) | .yarn-properties file is not cleaned up |  Minor | YARN Client | Ufuk Celebi |  |
 | [FLINK-2929](https://issues.apache.org/jira/browse/FLINK-2929) | Recovery of jobs on cluster restarts |  Major | . | Ufuk Celebi |  |
+| [FLINK-3901](https://issues.apache.org/jira/browse/FLINK-3901) | Create a RowCsvInputFormat to use as default CSV IF in Table API |  Minor | . | Flavio Pompermaier | Flavio Pompermaier |
+| [FLINK-3891](https://issues.apache.org/jira/browse/FLINK-3891) | Add a class containing all supported Table API types |  Minor | Table API & SQL | Timo Walther | Timo Walther |
+| [FLINK-4244](https://issues.apache.org/jira/browse/FLINK-4244) | Field names for union operator do not have to be equal |  Trivial | Table API & SQL | Till Rohrmann | Jark Wu |
+| [FLINK-4103](https://issues.apache.org/jira/browse/FLINK-4103) | Modify CsvTableSource to implement StreamTableSource |  Minor | Table API & SQL | Suneel Marthi | Suneel Marthi |
+| [FLINK-4067](https://issues.apache.org/jira/browse/FLINK-4067) | Add version header to savepoints |  Major | . | Ufuk Celebi | Ufuk Celebi |
+| [FLINK-4210](https://issues.apache.org/jira/browse/FLINK-4210) | Move close()/isClosed() out of MetricGroup interface |  Minor | Metrics | Chesnay Schepler | Chesnay Schepler |
+| [FLINK-4192](https://issues.apache.org/jira/browse/FLINK-4192) | Move Metrics API to separate module |  Major | Metrics | Chesnay Schepler | Chesnay Schepler |
+| [FLINK-4269](https://issues.apache.org/jira/browse/FLINK-4269) | Decrease log level in RuntimeMonitorHandler |  Minor | Webfrontend | Ufuk Celebi |  |
 
 
 ### BUG FIXES:
@@ -365,6 +373,10 @@
 | [FLINK-4201](https://issues.apache.org/jira/browse/FLINK-4201) | Checkpoints for jobs in non-terminal state (e.g. suspended) get deleted |  Blocker | State Backends, Checkpointing | Stefan Richter | Ufuk Celebi |
 | [FLINK-3725](https://issues.apache.org/jira/browse/FLINK-3725) | Exception in thread "main" scala.MatchError: ... (of class scala.Tuple4) |  Major | JobManager | Maxim Dobryakov | Stephan Ewen |
 | [FLINK-3411](https://issues.apache.org/jira/browse/FLINK-3411) | Failed recovery can lead to removal of HA state |  Critical | Distributed Coordination | Ufuk Celebi |  |
+| [FLINK-4150](https://issues.apache.org/jira/browse/FLINK-4150) | Problem with Blobstore in Yarn HA setting on recovery after cluster shutdown |  Blocker | Job-Submission | Stefan Richter | Ufuk Celebi |
+| [FLINK-4152](https://issues.apache.org/jira/browse/FLINK-4152) | TaskManager registration exponential backoff doesn't work |  Major | Distributed Coordination, TaskManager, YARN Client | Robert Metzger | Till Rohrmann |
+| [FLINK-4156](https://issues.apache.org/jira/browse/FLINK-4156) | Job with -m yarn-cluster registers TaskManagers to another running Yarn session |  Major | Distributed Coordination, YARN Client | Stefan Richter |  |
+| [FLINK-4258](https://issues.apache.org/jira/browse/FLINK-4258) | Potential null pointer dereference in SavepointCoordinator#onFullyAcknowledgedCheckpoint |  Major | . | Ted Yu | Maximilian Michels |
 
 
 ### TESTS:
@@ -408,6 +420,8 @@
 | [FLINK-4019](https://issues.apache.org/jira/browse/FLINK-4019) | Expose approximateArrivalTimestamp through the KinesisDeserializationSchema interface |  Major | Streaming Connectors | Tzu-Li (Gordon) Tai | Tzu-Li (Gordon) Tai |
 | [FLINK-4191](https://issues.apache.org/jira/browse/FLINK-4191) | Expose shard information in KinesisDeserializationSchema |  Major | Kinesis Connector, Streaming Connectors | Robert Metzger | Robert Metzger |
 | [FLINK-4018](https://issues.apache.org/jira/browse/FLINK-4018) | Configurable idle time between getRecords requests to Kinesis shards |  Major | Kinesis Connector, Streaming Connectors | Tzu-Li (Gordon) Tai | Tzu-Li (Gordon) Tai |
+| [FLINK-4239](https://issues.apache.org/jira/browse/FLINK-4239) | Set Default Allowed Lateness to Zero and Make Triggers Non-Purging |  Major | Streaming | Aljoscha Krettek | Aljoscha Krettek |
+| [FLINK-3714](https://issues.apache.org/jira/browse/FLINK-3714) | Add Support for "Allowed Lateness" |  Major | Streaming | Aljoscha Krettek | Kostas Kloudas |
 
 
 ### OTHER:

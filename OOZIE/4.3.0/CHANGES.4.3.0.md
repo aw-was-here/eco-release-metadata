@@ -18,53 +18,15 @@
 -->
 # Apache Oozie Changelog
 
-## Release 4.3.0 - Unreleased (as of 2016-01-18)
+## Release 4.3.0 - Unreleased (as of 2016-07-29)
 
-### INCOMPATIBLE CHANGES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
-### IMPORTANT ISSUES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
-### NEW FEATURES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
-### IMPROVEMENTS:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
 
 
 ### BUG FIXES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-
-
-### TESTS:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
-### SUB-TASKS:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-
-
-### OTHER:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
+| [OOZIE-2515](https://issues.apache.org/jira/browse/OOZIE-2515) | Duplicate information for "Changing endtime/pausetime of a Bundle Job" in CommandLineTool wiki |  Major | docs | abhishek bafna | abhishek bafna |
+| [OOZIE-2506](https://issues.apache.org/jira/browse/OOZIE-2506) | Add logs into RecoverService for logging information about queued commnads |  Major | core | abhishek bafna | abhishek bafna |
 
 

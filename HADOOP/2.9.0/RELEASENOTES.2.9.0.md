@@ -128,4 +128,11 @@ New fsck option "-upgradedomains" has been added to display upgrade domains of a
 Add per-cache-pool default replication num configuration
 
 
+---
+
+* [HADOOP-13354](https://issues.apache.org/jira/browse/HADOOP-13354) | *Major* | **Update WASB driver to use the latest version (4.2.0) of SDK for Microsoft Azure Storage Clients**
+
+The WASB FileSystem now uses version 4.2.0 of the Azure Storage SDK.
+
+
 

@@ -18,7 +18,7 @@
 -->
 # Apache BigTop Changelog
 
-## Release 1.2.0 - Unreleased (as of 2016-07-22)
+## Release 1.2.0 - Unreleased (as of 2016-07-29)
 
 
 
@@ -123,6 +123,7 @@
 | [BIGTOP-2488](https://issues.apache.org/jira/browse/BIGTOP-2488) | Redundant zookeeper/lib directory |  Minor | debian, rpm | Ted Yu | Ted Yu |
 | [BIGTOP-2487](https://issues.apache.org/jira/browse/BIGTOP-2487) | Alluxio /var/log/alluxio is not created |  Major | . | Olaf Flebbe | Konstantinos Tsakalozos |
 | [BIGTOP-2495](https://issues.apache.org/jira/browse/BIGTOP-2495) | hive-hbase package is broken |  Major | hive | YoungWoo Kim | YoungWoo Kim |
+| [BIGTOP-2494](https://issues.apache.org/jira/browse/BIGTOP-2494) | Use systemd within bigtop/deploy docker image for debian-8, centos-7, fix centos-7 provisioner |  Major | deployment | Olaf Flebbe | Olaf Flebbe |
 
 
 ### SUB-TASKS:

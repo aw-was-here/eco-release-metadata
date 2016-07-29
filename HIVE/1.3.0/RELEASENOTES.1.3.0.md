@@ -280,4 +280,11 @@ Operators: SORT BY randomness is not safe with network partitions (Gopal V, revi
 Fix for ORC split generation reading file footers twice. Also reduces number of file system calls during ORC split generation.
 
 
+---
+
+* [HIVE-14349](https://issues.apache.org/jira/browse/HIVE-14349) | *Major* | **Vectorization: LIKE should anchor the regexes**
+
+Vectorization: LIKE should anchor the regexes
+
+
 

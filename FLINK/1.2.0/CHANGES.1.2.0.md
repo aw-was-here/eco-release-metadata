@@ -16,18 +16,24 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-# Apache Hive Changelog
+# Apache Flink Changelog
 
-## Release 1.1.2 - Unreleased (as of 2016-07-29)
+## Release 1.2.0 - Unreleased (as of 2016-07-29)
 
+
+
+### IMPROVEMENTS:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [FLINK-3904](https://issues.apache.org/jira/browse/FLINK-3904) | GlobalConfiguration doesn't ensure config has been loaded |  Minor | . | Maximilian Michels | Maximilian Michels |
+| [FLINK-4179](https://issues.apache.org/jira/browse/FLINK-4179) | Update TPCHQuery3Table example |  Major | Table API & SQL | Timo Walther |  |
 
 
 ### BUG FIXES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [HIVE-11841](https://issues.apache.org/jira/browse/HIVE-11841) | KeyValuesInputMerger creates huge logs |  Major | Logging | Rajesh Balamohan | Rajesh Balamohan |
-| [HIVE-12344](https://issues.apache.org/jira/browse/HIVE-12344) | Wrong types inferred for SemiJoin generation in CBO |  Major | CBO | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
-| [HIVE-12875](https://issues.apache.org/jira/browse/HIVE-12875) | Verify sem.getInputs() and sem.getOutputs() |  Major | . | Sushanth Sowmyan | Sushanth Sowmyan |
+| [FLINK-4259](https://issues.apache.org/jira/browse/FLINK-4259) | Unclosed FSDataOutputStream in FileCache#copy() |  Minor | . | Ted Yu | Neelesh Srinivas Salian |
 
 

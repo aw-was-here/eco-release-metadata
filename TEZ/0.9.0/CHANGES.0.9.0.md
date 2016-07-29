@@ -18,7 +18,7 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.9.0 - Unreleased (as of 2016-07-22)
+## Release 0.9.0 - Unreleased (as of 2016-07-29)
 
 
 
@@ -102,6 +102,9 @@
 | [TEZ-3356](https://issues.apache.org/jira/browse/TEZ-3356) | Fix initializing of stats when custom ShuffleVertexManager is used |  Major | . | Peter Slawski | Peter Slawski |
 | [TEZ-3348](https://issues.apache.org/jira/browse/TEZ-3348) | NullPointerException in Tez MROutput while trying to write using Parquet's DeprecatedParquetOutputFormat |  Major | . | Piyush Narang | Piyush Narang |
 | [TEZ-3333](https://issues.apache.org/jira/browse/TEZ-3333) | Tez UI: Handle cases where Vertex/Task/Task Attempt data is missing |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
+| [TEZ-3379](https://issues.apache.org/jira/browse/TEZ-3379) | Tez analyzer: Move sysout to log4j |  Trivial | . | Rajesh Balamohan | Rajesh Balamohan |
+| [TEZ-3382](https://issues.apache.org/jira/browse/TEZ-3382) | Tez analyzer: Should be resilient to new counters |  Minor | . | Rajesh Balamohan | Rajesh Balamohan |
+| [TEZ-3384](https://issues.apache.org/jira/browse/TEZ-3384) | Fix TestATSV15HistoryLoggingService::testDAGGroupingGroupingEnabled unit test |  Major | . | Sushmitha Sreenivasan | Sushmitha Sreenivasan |
 
 
 ### SUB-TASKS:
@@ -112,6 +115,9 @@
 | [TEZ-3063](https://issues.apache.org/jira/browse/TEZ-3063) | Tez UI : Display Input, Output, Processor, Source and Sink configurations under a vertex |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-3357](https://issues.apache.org/jira/browse/TEZ-3357) | Change TimelineCachePlugin to handle DAG grouping |  Major | . | Harish Jaiprakash | Harish Jaiprakash |
 | [TEZ-3358](https://issues.apache.org/jira/browse/TEZ-3358) | Support using the same TimelineGroupId for multiple DAGs |  Major | . | Harish Jaiprakash | Harish Jaiprakash |
+| [TEZ-3374](https://issues.apache.org/jira/browse/TEZ-3374) | Change TEZ\_HISTORY\_LOGGING\_TIMELINE\_NUM\_DAGS\_PER\_GROUP conf key name. |  Major | . | Harish Jaiprakash | Tsuyoshi Ozawa |
+| [TEZ-3359](https://issues.apache.org/jira/browse/TEZ-3359) | Add granular log levels for HistoryLoggingService. |  Major | . | Harish Jaiprakash | Harish Jaiprakash |
+| [TEZ-3376](https://issues.apache.org/jira/browse/TEZ-3376) | Fix groupId generation to account for dagId starting with 1. |  Major | . | Harish Jaiprakash | Harish Jaiprakash |
 
 
 ### OTHER:
