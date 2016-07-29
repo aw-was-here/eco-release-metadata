@@ -2097,6 +2097,7 @@
 | [HADOOP-13188](https://issues.apache.org/jira/browse/HADOOP-13188) | S3A file-create should throw error rather than overwrite directories |  Minor | fs/s3 | Raymie Stata | Steve Loughran |
 | [HDFS-10642](https://issues.apache.org/jira/browse/HDFS-10642) | TestLazyPersistReplicaRecovery#testDnRestartWithSavedReplicas fails intermittently |  Major | datanode, test | Mingliang Liu | Mingliang Liu |
 | [HDFS-10668](https://issues.apache.org/jira/browse/HDFS-10668) | TestDataNodeMXBean#testDataNodeMXBeanBlockCount fails intermittently |  Major | test | Mingliang Liu | Mingliang Liu |
+| [YARN-5434](https://issues.apache.org/jira/browse/YARN-5434) | Add -client\|server argument for graceful decom |  Blocker | graceful | Robert Kanter | Robert Kanter |
 
 
 ### OTHER:
