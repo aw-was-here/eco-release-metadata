@@ -49,6 +49,9 @@
 | [FLINK-4242](https://issues.apache.org/jira/browse/FLINK-4242) | Improve validation exception messages |  Minor | Table API & SQL | Till Rohrmann | GaoLun |
 | [FLINK-4310](https://issues.apache.org/jira/browse/FLINK-4310) | Move BinaryCompatibility Check plugin to relevant projects |  Major | Build System | Stephan Ewen | Stephan Ewen |
 | [FLINK-4366](https://issues.apache.org/jira/browse/FLINK-4366) | Enforce parallelism=1 For AllWindowedStream |  Major | . | Aljoscha Krettek | Jark Wu |
+| [FLINK-4104](https://issues.apache.org/jira/browse/FLINK-4104) | Restructure Gelly docs |  Minor | Documentation | Greg Hogan | Greg Hogan |
+| [FLINK-4302](https://issues.apache.org/jira/browse/FLINK-4302) | Add JavaDocs to MetricConfig |  Major | Metrics | Ufuk Celebi | Chesnay Schepler |
+| [FLINK-4281](https://issues.apache.org/jira/browse/FLINK-4281) | Wrap all Calcite Exceptions in Flink Exceptions |  Major | Table API & SQL | Timo Walther | Jark Wu |
 
 
 ### BUG FIXES:
@@ -83,6 +86,9 @@
 | [FLINK-4309](https://issues.apache.org/jira/browse/FLINK-4309) | Potential null pointer dereference in DelegatingConfiguration#keySet() |  Minor | . | Ted Yu | Sunny T |
 | [FLINK-4388](https://issues.apache.org/jira/browse/FLINK-4388) | Race condition during initialization of MemorySegmentFactory |  Major | Core | Stephan Ewen | Stephan Ewen |
 | [FLINK-4293](https://issues.apache.org/jira/browse/FLINK-4293) | Malformatted Apache Headers |  Minor | . | Stephan Ewen | Chesnay Schepler |
+| [FLINK-4411](https://issues.apache.org/jira/browse/FLINK-4411) | [py] Chained dual input children are not properly propagated |  Minor | Python API | Chesnay Schepler | Chesnay Schepler |
+| [FLINK-4412](https://issues.apache.org/jira/browse/FLINK-4412) | [py] Chaining does not properly handle broadcast variables |  Major | Python API | Chesnay Schepler | Chesnay Schepler |
+| [FLINK-4409](https://issues.apache.org/jira/browse/FLINK-4409) | class conflict between jsr305-1.3.9.jar and flink-shaded-hadoop2-1.1.1.jar |  Minor | Build System | Renkai Ge | Stephan Ewen |
 
 
 ### SUB-TASKS:

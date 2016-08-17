@@ -66,6 +66,7 @@
 | [KAFKA-3847](https://issues.apache.org/jira/browse/KAFKA-3847) | Connect tasks should not share a producer |  Critical | KafkaConnect | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-3997](https://issues.apache.org/jira/browse/KAFKA-3997) | Halting because log truncation is not allowed and suspicious logging |  Major | core | Alexey Ozeritskiy |  |
 | [KAFKA-4012](https://issues.apache.org/jira/browse/KAFKA-4012) | KerberosShortNamer should implement toString() |  Major | clients | Bryan Baugher |  |
+| [KAFKA-4044](https://issues.apache.org/jira/browse/KAFKA-4044) | log actual socket send/receive buffer size after connecting in Selector |  Major | . | Jun Rao | Manikumar Reddy |
 
 
 ### BUG FIXES:

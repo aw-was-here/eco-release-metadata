@@ -154,6 +154,7 @@
 | [HADOOP-13380](https://issues.apache.org/jira/browse/HADOOP-13380) | TestBasicDiskValidator should not write data to /tmp |  Minor | . | Lei (Eddy) Xu | Yufei Gu |
 | [MAPREDUCE-6741](https://issues.apache.org/jira/browse/MAPREDUCE-6741) | add MR support to redact job conf properties |  Major | mrv2 | Haibo Chen | Haibo Chen |
 | [MAPREDUCE-6751](https://issues.apache.org/jira/browse/MAPREDUCE-6751) | Add debug log message when splitting is not possible due to unsplittable compression |  Minor | client, mrv1, mrv2 | Peter Vary | Peter Vary |
+| [YARN-5455](https://issues.apache.org/jira/browse/YARN-5455) | Update Javadocs for LinuxContainerExecutor |  Major | nodemanager | Daniel Templeton | Daniel Templeton |
 
 
 ### BUG FIXES:

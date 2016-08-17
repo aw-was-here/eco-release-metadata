@@ -61,6 +61,8 @@ common_rdm hbase 1.0.3 2.0.0 HBase
 
 common_rdm hive 1.1.0 3.0.0
 
+common_rdm mahout 0.13.0 2.0.0
+
 common_rdm oozie 4.3.0 5.0.0
 
 common_rdm orc 1.0.0 2.0.0

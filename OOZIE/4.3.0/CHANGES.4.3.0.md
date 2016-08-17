@@ -79,6 +79,7 @@
 | [OOZIE-2602](https://issues.apache.org/jira/browse/OOZIE-2602) | Upgrade oozie to pig 0.16.0 |  Major | . | Narayan Periwal | Narayan Periwal |
 | [OOZIE-1402](https://issues.apache.org/jira/browse/OOZIE-1402) | Increase retry interval for non-progressing coordinator action with fix value |  Minor | core | Mona Chitnis | Satish Subhashrao Saley |
 | [OOZIE-2036](https://issues.apache.org/jira/browse/OOZIE-2036) | Drop support for Java 1.6 |  Major | . | Robert Kanter | Peter Cseh |
+| [OOZIE-2081](https://issues.apache.org/jira/browse/OOZIE-2081) | WorkflowJob notification to include coordinator action id |  Major | core | Venkatesan Ramachandran | Azrael Seoeun |
 
 
 ### BUG FIXES:
