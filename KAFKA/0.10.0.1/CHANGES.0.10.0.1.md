@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.10.0.1 - Unreleased (as of 2016-07-29)
+## Release 0.10.0.1 - 2016-08-10
 
 
 
@@ -34,6 +34,8 @@
 | [KAFKA-3836](https://issues.apache.org/jira/browse/KAFKA-3836) | RocksDBStore.get() should not pass nulls to Deserializers |  Trivial | streams | Avi Flax | Jeyhun Karimov |
 | [KAFKA-3725](https://issues.apache.org/jira/browse/KAFKA-3725) | Update documentation with regards to XFS |  Major | . | Ismael Juma | Todd Palino |
 | [KAFKA-3922](https://issues.apache.org/jira/browse/KAFKA-3922) | Add a copy-constructor to AbstractStream |  Trivial | streams | Florian Hussonnois | Florian Hussonnois |
+| [KAFKA-3667](https://issues.apache.org/jira/browse/KAFKA-3667) | Improve Section 7.2 Encryption and Authentication using SSL to include proper hostname verification configuration |  Major | security | Ryan P | Ryan P |
+| [KAFKA-3479](https://issues.apache.org/jira/browse/KAFKA-3479) | Add new consumer metrics documentation |  Major | . | Jason Gustafson | Kaufman Ng |
 
 
 ### BUG FIXES:
@@ -75,6 +77,9 @@
 | [KAFKA-3851](https://issues.apache.org/jira/browse/KAFKA-3851) | Add references to important installation/upgrade notes to release notes |  Blocker | . | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-3977](https://issues.apache.org/jira/browse/KAFKA-3977) | KafkaConsumer swallows exceptions raised from message deserializers |  Blocker | consumer | Jason Gustafson | Jason Gustafson |
 | [KAFKA-3852](https://issues.apache.org/jira/browse/KAFKA-3852) | Clarify how to handle message format upgrade without killing performance |  Blocker | . | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
+| [KAFKA-3950](https://issues.apache.org/jira/browse/KAFKA-3950) | kafka mirror maker tool is not respecting whitelist option |  Critical | . | Raghav Kumar Gautam | Manikumar Reddy |
+| [KAFKA-4008](https://issues.apache.org/jira/browse/KAFKA-4008) | Module "tools" should not be dependent on "core" |  Blocker | core, tools | Matthias J. Sax | Matthias J. Sax |
+| [KAFKA-4018](https://issues.apache.org/jira/browse/KAFKA-4018) | Streams causing older slf4j-log4j library to be packaged along with newer version |  Major | . | Ismael Juma | Ismael Juma |
 
 
 ### TESTS:

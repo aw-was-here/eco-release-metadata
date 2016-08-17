@@ -18,7 +18,7 @@
 -->
 # Apache Yetus Changelog
 
-## Release 0.4.0 - Unreleased (as of 2016-07-29)
+## Release 0.4.0 - Unreleased (as of 2016-08-17)
 
 
 
@@ -27,6 +27,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YETUS-390](https://issues.apache.org/jira/browse/YETUS-390) | qbt needs an "abbreviated email" mode |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
+| [YETUS-341](https://issues.apache.org/jira/browse/YETUS-341) | docker cleanup in sentinel mode doesn't know about Created |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
 
 
 ### NEW FEATURES:
@@ -35,6 +36,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YETUS-293](https://issues.apache.org/jira/browse/YETUS-293) | archiving functionality |  Major | Test Patch | Colin P. McCabe | Allen Wittenauer |
 | [YETUS-428](https://issues.apache.org/jira/browse/YETUS-428) | Provide fallback option to mark issues as incompatible |  Major | Release Doc Maker | Ajay Yadava | Ajay Yadava |
+| [YETUS-415](https://issues.apache.org/jira/browse/YETUS-415) | shelldocs ability to ignore a file |  Major | ShellDocs | Allen Wittenauer | Ajay Yadava |
 
 
 ### IMPROVEMENTS:
@@ -48,6 +50,7 @@
 | [YETUS-312](https://issues.apache.org/jira/browse/YETUS-312) | include more context on whitespace plugin feedback |  Minor | Test Patch | Sean Busbey | Ajay Yadava |
 | [YETUS-48](https://issues.apache.org/jira/browse/YETUS-48) | Document python version releasedocmaker supports |  Minor | Release Doc Maker | Kengo Seki | Ajay Yadava |
 | [YETUS-434](https://issues.apache.org/jira/browse/YETUS-434) | Add .pyc files to .gitignore |  Major | build | Ajay Yadava | Ajay Yadava |
+| [YETUS-430](https://issues.apache.org/jira/browse/YETUS-430) | Refactor releasedocmaker.py in separate modules |  Major | Release Doc Maker | Ajay Yadava | Ajay Yadava |
 
 
 ### BUG FIXES:

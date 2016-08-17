@@ -58,9 +58,30 @@ Committed to 2.2.0 and 2.1.1. Thanks Naveen for the patch.
 
 ---
 
+* [HIVE-14123](https://issues.apache.org/jira/browse/HIVE-14123) | *Minor* | **Add beeline configuration option to show database in the prompt**
+
+New BeeLine Command option --showDbInPrompt to display the current database name in prompt
+
+
+---
+
 * [HIVE-14349](https://issues.apache.org/jira/browse/HIVE-14349) | *Major* | **Vectorization: LIKE should anchor the regexes**
 
 Vectorization: LIKE should anchor the regexes
+
+
+---
+
+* [HIVE-14434](https://issues.apache.org/jira/browse/HIVE-14434) | *Major* | **Vectorization: BytesBytes lookup capped count can be =0, =1, \>=2**
+
+Vectorization: BytesBytes lookup capped count can be =0, =1, \>=2 (Gopal V, reviewed by Sergey Shelukhin)
+
+
+---
+
+* [HIVE-14436](https://issues.apache.org/jira/browse/HIVE-14436) | *Major* | **Hive 1.2.1/Hitting "ql.Driver: FAILED: IllegalArgumentException Error: , expected at the end of 'decimal(9'" after enabling hive.optimize.skewjoin and with MR engine**
+
+**WARNING: No release note provided for this change.**
 
 
 

@@ -35,4 +35,25 @@ The time format of console logger and MapReduce job summary logger is ISO8601 by
 **WARNING: No release note provided for this change.**
 
 
+---
+
+* [MAPREDUCE-6729](https://issues.apache.org/jira/browse/MAPREDUCE-6729) | *Minor* | **Accurately compute the test execute time in DFSIO**
+
+**WARNING: No release note provided for this change.**
+
+
+---
+
+* [HADOOP-12747](https://issues.apache.org/jira/browse/HADOOP-12747) | *Major* | **support wildcard in libjars argument**
+
+It is now possible to specify multiple jar files for the libjars argument using a wildcard. For example, you can specify "-libjars 'libs/\*'" as a shorthand for all jars in the libs directory.
+
+
+---
+
+* [HDFS-10725](https://issues.apache.org/jira/browse/HDFS-10725) | *Minor* | **Caller context should always be constructed by a builder**
+
+**WARNING: No release note provided for this change.**
+
+
 

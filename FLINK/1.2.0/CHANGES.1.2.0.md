@@ -18,8 +18,19 @@
 -->
 # Apache Flink Changelog
 
-## Release 1.2.0 - Unreleased (as of 2016-07-29)
+## Release 1.2.0 - Unreleased (as of 2016-08-17)
 
+
+
+### NEW FEATURES:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [FLINK-4180](https://issues.apache.org/jira/browse/FLINK-4180) | Create a batch SQL example |  Major | Table API & SQL | Timo Walther | Jark Wu |
+| [FLINK-4181](https://issues.apache.org/jira/browse/FLINK-4181) | Add a basic streaming Table API example |  Major | Table API & SQL | Timo Walther | Jark Wu |
+| [FLINK-3940](https://issues.apache.org/jira/browse/FLINK-3940) | Add support for ORDER BY OFFSET FETCH |  Minor | Table API & SQL | Fabian Hueske | GaoLun |
+| [FLINK-4359](https://issues.apache.org/jira/browse/FLINK-4359) | Add INTERVAL type |  Major | Table API & SQL | Timo Walther | Timo Walther |
+| [FLINK-3097](https://issues.apache.org/jira/browse/FLINK-3097) | Add support for custom functions in Table API |  Major | Table API & SQL | Timo Walther | Timo Walther |
 
 
 ### IMPROVEMENTS:
@@ -28,6 +39,16 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [FLINK-3904](https://issues.apache.org/jira/browse/FLINK-3904) | GlobalConfiguration doesn't ensure config has been loaded |  Minor | . | Maximilian Michels | Maximilian Michels |
 | [FLINK-4179](https://issues.apache.org/jira/browse/FLINK-4179) | Update TPCHQuery3Table example |  Major | Table API & SQL | Timo Walther |  |
+| [FLINK-4299](https://issues.apache.org/jira/browse/FLINK-4299) | Show loss of job manager in Client |  Major | Client | Ufuk Celebi | Maximilian Michels |
+| [FLINK-4251](https://issues.apache.org/jira/browse/FLINK-4251) | Add possiblity for the RMQ Streaming Sink to customize the queue |  Minor | Streaming Connectors | Philipp Grulich |  |
+| [FLINK-4203](https://issues.apache.org/jira/browse/FLINK-4203) | Improve Table API documentation |  Major | Table API & SQL | Timo Walther | Timo Walther |
+| [FLINK-4306](https://issues.apache.org/jira/browse/FLINK-4306) | Fix Flink and Storm dependencies in flink-storm and flink-storm-examples |  Major | Storm Compatibility | Stephan Ewen | Stephan Ewen |
+| [FLINK-4161](https://issues.apache.org/jira/browse/FLINK-4161) | Quickstarts can exclude more flink-dist dependencies |  Trivial | Quickstarts | Chesnay Schepler | Chesnay Schepler |
+| [FLINK-4308](https://issues.apache.org/jira/browse/FLINK-4308) | Allow uploaded jar directory to be configurable |  Minor | Webfrontend | Zhenzhong Xu |  |
+| [FLINK-2090](https://issues.apache.org/jira/browse/FLINK-2090) | toString of CollectionInputFormat takes long time when the collection is huge |  Minor | . | Till Rohrmann | Ivan Mushketyk |
+| [FLINK-4242](https://issues.apache.org/jira/browse/FLINK-4242) | Improve validation exception messages |  Minor | Table API & SQL | Till Rohrmann | GaoLun |
+| [FLINK-4310](https://issues.apache.org/jira/browse/FLINK-4310) | Move BinaryCompatibility Check plugin to relevant projects |  Major | Build System | Stephan Ewen | Stephan Ewen |
+| [FLINK-4366](https://issues.apache.org/jira/browse/FLINK-4366) | Enforce parallelism=1 For AllWindowedStream |  Major | . | Aljoscha Krettek | Jark Wu |
 
 
 ### BUG FIXES:
@@ -35,5 +56,41 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [FLINK-4259](https://issues.apache.org/jira/browse/FLINK-4259) | Unclosed FSDataOutputStream in FileCache#copy() |  Minor | . | Ted Yu | Neelesh Srinivas Salian |
+| [FLINK-4289](https://issues.apache.org/jira/browse/FLINK-4289) | Source files have executable flag set |  Minor | . | Ufuk Celebi | Ufuk Celebi |
+| [FLINK-4296](https://issues.apache.org/jira/browse/FLINK-4296) | Scheduler accepts more tasks than it has task slots available |  Critical | JobManager, TaskManager | Maximilian Michels | Till Rohrmann |
+| [FLINK-4290](https://issues.apache.org/jira/browse/FLINK-4290) | CassandraConnectorTest deadlocks |  Critical | Streaming Connectors | Stephan Ewen | Stephan Ewen |
+| [FLINK-4298](https://issues.apache.org/jira/browse/FLINK-4298) | Clean up Storm Compatibility Dependencies |  Major | Storm Compatibility | Stephan Ewen | Stephan Ewen |
+| [FLINK-4285](https://issues.apache.org/jira/browse/FLINK-4285) | Non-existing example in Flink quickstart setup documentation |  Minor | Documentation, Examples | Tzu-Li (Gordon) Tai | Stephan Ewen |
+| [FLINK-4292](https://issues.apache.org/jira/browse/FLINK-4292) | HCatalog project incorrectly set up |  Critical | Batch Connectors and Input/Output Formats | Stephan Ewen | Stephan Ewen |
+| [FLINK-4307](https://issues.apache.org/jira/browse/FLINK-4307) | Broken user-facing API for ListState |  Blocker | Streaming | Stephan Ewen | Stephan Ewen |
+| [FLINK-4219](https://issues.apache.org/jira/browse/FLINK-4219) | Quote PDSH opts in start-cluster.sh |  Major | Startup Shell Scripts | Greg Hogan | Greg Hogan |
+| [FLINK-4314](https://issues.apache.org/jira/browse/FLINK-4314) | Test instability in JobManagerHAJobGraphRecoveryITCase.testJobPersistencyWhenJobManagerShutdown |  Major | . | Ufuk Celebi |  |
+| [FLINK-4297](https://issues.apache.org/jira/browse/FLINK-4297) | Yarn client can't determine fat jar location if path contains spaces |  Major | YARN Client | Maximilian Michels | Maximilian Michels |
+| [FLINK-4304](https://issues.apache.org/jira/browse/FLINK-4304) | Jar names that contain whitespace cause problems in web client |  Major | Web Client | Timo Walther | Timo Walther |
+| [FLINK-3138](https://issues.apache.org/jira/browse/FLINK-3138) | Method References are not supported as lambda expressions |  Major | Core | Stephan Ewen | Timo Walther |
+| [FLINK-4226](https://issues.apache.org/jira/browse/FLINK-4226) | Typo: Define Keys using Field Expressions example should use window and not reduce |  Trivial | Documentation | Ahmad Ragab |  |
+| [FLINK-4276](https://issues.apache.org/jira/browse/FLINK-4276) | TextInputFormatTest.testNestedFileRead fails on Windows OS |  Trivial | Batch Connectors and Input/Output Formats, Tests | Chesnay Schepler | Chesnay Schepler |
+| [FLINK-4291](https://issues.apache.org/jira/browse/FLINK-4291) | No log entry for unscheduled reporters |  Trivial | Metrics | Chesnay Schepler | Chesnay Schepler |
+| [FLINK-4332](https://issues.apache.org/jira/browse/FLINK-4332) | Savepoint Serializer mixed read()/readFully() |  Critical | State Backends, Checkpointing | Stephan Ewen | Stephan Ewen |
+| [FLINK-4333](https://issues.apache.org/jira/browse/FLINK-4333) | Name mixup in Savepoint versions |  Trivial | State Backends, Checkpointing | Stephan Ewen | Stephan Ewen |
+| [FLINK-4337](https://issues.apache.org/jira/browse/FLINK-4337) | Remove unnecessary Scala suffix from Hadoop1 artifact |  Major | Build System | Stephan Ewen | Stephan Ewen |
+| [FLINK-4316](https://issues.apache.org/jira/browse/FLINK-4316) | Make flink-core independent of Hadoop |  Major | Core | Stephan Ewen | Stephan Ewen |
+| [FLINK-4342](https://issues.apache.org/jira/browse/FLINK-4342) | Fix dependencies of flink-connector-filesystem |  Major | Streaming Connectors | Stephan Ewen | Stephan Ewen |
+| [FLINK-4270](https://issues.apache.org/jira/browse/FLINK-4270) | 'as' in front of join does not work |  Major | Table API & SQL | Timo Walther | Jark Wu |
+| [FLINK-4236](https://issues.apache.org/jira/browse/FLINK-4236) | Flink Dashboard stops showing list of uploaded jars if main method cannot be looked up |  Major | Job-Submission | Gary Yao | Maximilian Michels |
+| [FLINK-4385](https://issues.apache.org/jira/browse/FLINK-4385) | Union on Timestamp fields does not work |  Major | Table API & SQL | Timo Walther | Jark Wu |
+| [FLINK-4394](https://issues.apache.org/jira/browse/FLINK-4394) | RMQSource: The QueueName is not accessible to subclasses |  Major | Streaming Connectors | Dominik Bruhn | Dominik Bruhn |
+| [FLINK-4309](https://issues.apache.org/jira/browse/FLINK-4309) | Potential null pointer dereference in DelegatingConfiguration#keySet() |  Minor | . | Ted Yu | Sunny T |
+| [FLINK-4388](https://issues.apache.org/jira/browse/FLINK-4388) | Race condition during initialization of MemorySegmentFactory |  Major | Core | Stephan Ewen | Stephan Ewen |
+| [FLINK-4293](https://issues.apache.org/jira/browse/FLINK-4293) | Malformatted Apache Headers |  Minor | . | Stephan Ewen | Chesnay Schepler |
+
+
+### SUB-TASKS:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [FLINK-4312](https://issues.apache.org/jira/browse/FLINK-4312) | Remove Serializabiliy of ExecutionGraph |  Minor | JobManager | Stephan Ewen | Stephan Ewen |
+| [FLINK-4320](https://issues.apache.org/jira/browse/FLINK-4320) | Fix misleading ScheduleMode names |  Minor | Distributed Coordination | Stephan Ewen | Stephan Ewen |
+| [FLINK-4392](https://issues.apache.org/jira/browse/FLINK-4392) | Make RPC Service Thread Safe |  Major | Distributed Coordination | Stephan Ewen | Stephan Ewen |
 
 

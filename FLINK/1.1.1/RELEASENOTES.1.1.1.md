@@ -16,16 +16,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-# Apache HBase Changelog
+# Apache Flink  1.1.1 Release Notes
 
-## Release 1.0.5 - Unreleased (as of 2016-08-17)
+These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
 
-
-
-### IMPROVEMENTS:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-| [HBASE-15720](https://issues.apache.org/jira/browse/HBASE-15720) | Print row locks at the debug dump page |  Major | . | Enis Soztutar | Heng Chen |
 
 

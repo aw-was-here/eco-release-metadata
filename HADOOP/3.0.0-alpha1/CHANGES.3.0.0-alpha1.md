@@ -18,7 +18,7 @@
 -->
 # Apache Hadoop Changelog
 
-## Release 3.0.0-alpha1 - Unreleased (as of 2016-07-29)
+## Release 3.0.0-alpha1 - Unreleased (as of 2016-08-17)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -62,7 +62,7 @@
 | [HDFS-8981](https://issues.apache.org/jira/browse/HDFS-8981) | Adding revision to data node jmx getVersion() method |  Minor | . | Siqi Li | Siqi Li |
 | [HDFS-9085](https://issues.apache.org/jira/browse/HDFS-9085) | Show renewer information in DelegationTokenIdentifier#toString |  Trivial | security | zhihai xu | zhihai xu |
 | [HADOOP-12495](https://issues.apache.org/jira/browse/HADOOP-12495) | Fix posix\_spawn error on OS X |  Major | util | Allen Wittenauer | Allen Wittenauer |
-| [HDFS-9070](https://issues.apache.org/jira/browse/HDFS-9070) | Allow fsck display pending replica location information for being-written blocks |  Major | . | GAO Rui | GAO Rui |
+| [HDFS-9070](https://issues.apache.org/jira/browse/HDFS-9070) | Allow fsck display pending replica location information for being-written blocks |  Major | . | Rui Gao | Rui Gao |
 | [HDFS-9278](https://issues.apache.org/jira/browse/HDFS-9278) | Fix preferredBlockSize typo in OIV XML output |  Trivial | tools | Nicole Pazmany | Nicole Pazmany |
 | [HADOOP-10787](https://issues.apache.org/jira/browse/HADOOP-10787) | Rename/remove non-HADOOP\_\*, etc from the shell scripts |  Blocker | scripts | Allen Wittenauer | Allen Wittenauer |
 | [HADOOP-12294](https://issues.apache.org/jira/browse/HADOOP-12294) | Throw an Exception when fs.permissions.umask-mode is misconfigured |  Major | conf | Chang Li | Chang Li |
@@ -119,11 +119,11 @@
 | [HDFS-9057](https://issues.apache.org/jira/browse/HDFS-9057) | allow/disallow snapshots via webhdfs |  Major | webhdfs | Allen Wittenauer | Brahma Reddy Battula |
 | [HADOOP-12366](https://issues.apache.org/jira/browse/HADOOP-12366) | expose calculated paths |  Major | . | Allen Wittenauer | Allen Wittenauer |
 | [HDFS-9525](https://issues.apache.org/jira/browse/HDFS-9525) | hadoop utilities need to support provided delegation tokens |  Blocker | security | Allen Wittenauer | HeeSoo Kim |
-| [HDFS-9804](https://issues.apache.org/jira/browse/HDFS-9804) | Allow long-running Balancer to login with keytab |  Major | balancer & mover, security | Xiao Chen | Xiao Chen |
 | [HADOOP-12666](https://issues.apache.org/jira/browse/HADOOP-12666) | Support Microsoft Azure Data Lake - as a file system in Hadoop |  Major | fs, fs/azure, tools | Vishwajeet Dusane | Vishwajeet Dusane |
 | [HDFS-1312](https://issues.apache.org/jira/browse/HDFS-1312) | Re-balance disks within a Datanode |  Major | datanode | Travis Crawford | Anu Engineer |
 | [YARN-2928](https://issues.apache.org/jira/browse/YARN-2928) | YARN Timeline Service v.2: alpha 1 |  Critical | timelineserver | Sangjin Lee | Sangjin Lee |
 | [MAPREDUCE-6331](https://issues.apache.org/jira/browse/MAPREDUCE-6331) | [Umbrella] Make MapReduce work with Timeline Service Nextgen (YARN-2928) |  Major | . | Vinod Kumar Vavilapalli | Sangjin Lee |
+| [HDFS-9804](https://issues.apache.org/jira/browse/HDFS-9804) | Allow long-running Balancer to login with keytab |  Major | balancer & mover, security | Xiao Chen | Xiao Chen |
 
 
 ### IMPROVEMENTS:
@@ -277,6 +277,7 @@
 | [HADOOP-13272](https://issues.apache.org/jira/browse/HADOOP-13272) | ViewFileSystem should support storage policy related API |  Major | fs, viewfs | Peter Shi | Peter Shi |
 | [HDFS-10667](https://issues.apache.org/jira/browse/HDFS-10667) | Report more accurate info about data corruption location |  Major | datanode, hdfs | Yongjun Zhang | Yuanbo Liu |
 | [HDFS-10519](https://issues.apache.org/jira/browse/HDFS-10519) | Add a configuration option to enable in-progress edit log tailing |  Minor | ha | Jiayi Zhou | Jiayi Zhou |
+| [HDFS-10703](https://issues.apache.org/jira/browse/HDFS-10703) | HA NameNode Web UI should show last checkpoint time |  Minor | ui | John Zhuge | John Zhuge |
 
 
 ### BUG FIXES:
@@ -515,6 +516,8 @@
 | [YARN-5379](https://issues.apache.org/jira/browse/YARN-5379) | TestHBaseTimelineStorage. testWriteApplicationToHBase() fails intermittently |  Minor | test, timelineserver | Sangjin Lee | Vrushali C |
 | [HADOOP-13393](https://issues.apache.org/jira/browse/HADOOP-13393) | [Azure Data Lake] Correction needed in fs.defaultFS support in documentation |  Major | fs/azure | Vishwajeet Dusane | Vishwajeet Dusane |
 | [HADOOP-13392](https://issues.apache.org/jira/browse/HADOOP-13392) | [Azure Data Lake] OAuth2 configuration should be default set to true when AdlFileSystem is configured. |  Major | fs/azure | Vishwajeet Dusane | Vishwajeet Dusane |
+| [YARN-5474](https://issues.apache.org/jira/browse/YARN-5474) | Typo mistake in AMRMClient#getRegisteredTimeineClient API |  Trivial | . | Rohith Sharma K S | Naganarasimha G R |
+| [HDFS-10720](https://issues.apache.org/jira/browse/HDFS-10720) | Fix intermittent test failure of TestDataNodeErasureCodingMetrics |  Major | . | Rakesh R | Rakesh R |
 
 
 ### TESTS:
@@ -536,6 +539,7 @@
 | [HADOOP-12875](https://issues.apache.org/jira/browse/HADOOP-12875) | [Azure Data Lake] Support for contract test and unit test cases |  Major | fs, fs/azure, tools | Vishwajeet Dusane | Vishwajeet Dusane |
 | [HADOOP-9321](https://issues.apache.org/jira/browse/HADOOP-9321) | fix coverage  org.apache.hadoop.net |  Major | . | Aleksey Gorshkov | Ivan A. Veselovsky |
 | [HADOOP-9330](https://issues.apache.org/jira/browse/HADOOP-9330) | Add custom JUnit4 test runner with configurable timeout |  Major | test | Steve Loughran | Steve Loughran |
+| [YARN-5492](https://issues.apache.org/jira/browse/YARN-5492) | TestSubmitApplicationWithRMHA is failing sporadically during precommit builds |  Major | test | Jason Lowe | Vrushali C |
 
 
 ### SUB-TASKS:
@@ -661,9 +665,9 @@
 | [YARN-4238](https://issues.apache.org/jira/browse/YARN-4238) | correctly set createdTime and remove modifiedTime when publishing entities |  Major | timelineserver | Varun Saxena | Varun Saxena |
 | [YARN-4224](https://issues.apache.org/jira/browse/YARN-4224) | Support fetching entities by UID and change the REST interface to conform to current REST APIs' in YARN |  Major | timelineserver | Varun Saxena | Varun Saxena |
 | [YARN-4644](https://issues.apache.org/jira/browse/YARN-4644) | TestRMRestart fails and findbugs issue in YARN-2928 branch |  Major | timelineserver | Varun Saxena | Varun Saxena |
-| [HDFS-9494](https://issues.apache.org/jira/browse/HDFS-9494) | Parallel optimization of DFSStripedOutputStream#flushAllInternals( ) |  Minor | hdfs-client | GAO Rui | GAO Rui |
+| [HDFS-9494](https://issues.apache.org/jira/browse/HDFS-9494) | Parallel optimization of DFSStripedOutputStream#flushAllInternals( ) |  Minor | hdfs-client | Rui Gao | Rui Gao |
 | [HDFS-9731](https://issues.apache.org/jira/browse/HDFS-9731) | Erasure Coding: Rename BlockECRecoveryCommand to BlockECReconstructionCommand |  Major | erasure-coding | Rakesh R | Rakesh R |
-| [HDFS-9403](https://issues.apache.org/jira/browse/HDFS-9403) | Erasure coding: some EC tests are missing timeout |  Minor | erasure-coding, test | Zhe Zhang | GAO Rui |
+| [HDFS-9403](https://issues.apache.org/jira/browse/HDFS-9403) | Erasure coding: some EC tests are missing timeout |  Minor | erasure-coding, test | Zhe Zhang | Rui Gao |
 | [HDFS-9658](https://issues.apache.org/jira/browse/HDFS-9658) | Erasure Coding: allow to use multiple EC policies in striping related tests |  Major | . | Rui Li | Rui Li |
 | [HADOOP-12041](https://issues.apache.org/jira/browse/HADOOP-12041) | Implement another Reed-Solomon coder in pure Java |  Major | . | Kai Zheng | Kai Zheng |
 | [YARN-4446](https://issues.apache.org/jira/browse/YARN-4446) | Refactor reader API for better extensibility |  Major | timelineserver | Varun Saxena | Varun Saxena |
@@ -776,6 +780,9 @@
 | [HDFS-10565](https://issues.apache.org/jira/browse/HDFS-10565) | Erasure Coding: Document about the current allowed storage policies for EC Striped mode files |  Major | documentation | Uma Maheswara Rao G | Uma Maheswara Rao G |
 | [YARN-5164](https://issues.apache.org/jira/browse/YARN-5164) | Use plan RLE to improve CapacityOverTimePolicy efficiency |  Major | capacityscheduler, fairscheduler, resourcemanager | Carlo Curino | Carlo Curino |
 | [HADOOP-13041](https://issues.apache.org/jira/browse/HADOOP-13041) | Adding tests for coder utilities |  Major | . | Kai Sasaki | Kai Sasaki |
+| [HADOOP-11540](https://issues.apache.org/jira/browse/HADOOP-11540) | Raw Reed-Solomon coder using Intel ISA-L library |  Major | . | Zhe Zhang | Kai Zheng |
+| [HADOOP-11588](https://issues.apache.org/jira/browse/HADOOP-11588) | Benchmark framework and test for erasure coders |  Major | io | Kai Zheng | Rui Li |
+| [HDFS-8668](https://issues.apache.org/jira/browse/HDFS-8668) | Erasure Coding: revisit buffer used for encoding and decoding. |  Major | . | Yi Liu | SammiChen |
 
 
 ### OTHER:
@@ -785,5 +792,6 @@
 | [HDFS-2776](https://issues.apache.org/jira/browse/HDFS-2776) | Missing interface annotation on JournalSet |  Trivial | namenode | Todd Lipcon | Brandon Li |
 | [HADOOP-8308](https://issues.apache.org/jira/browse/HADOOP-8308) | Support cross-project Jenkins builds |  Major | build | Tom White | Tom White |
 | [HDFS-10651](https://issues.apache.org/jira/browse/HDFS-10651) | Clean up some configuration related codes about legacy block reader |  Minor | . | Kai Zheng | Youwei Wang |
+| [HDFS-10718](https://issues.apache.org/jira/browse/HDFS-10718) | Prefer direct ByteBuffer in native RS encoder and decoder |  Major | . | SammiChen | SammiChen |
 
 

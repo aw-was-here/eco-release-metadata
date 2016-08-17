@@ -335,6 +335,7 @@
 | [FLINK-3676](https://issues.apache.org/jira/browse/FLINK-3676) | WebClient hasn't been removed from the docs |  Major | Documentation | Maximilian Michels | Maximilian Michels |
 | [FLINK-3638](https://issues.apache.org/jira/browse/FLINK-3638) | Invalid default ports in documentation |  Major | Documentation | Maxim Dobryakov | Maximilian Michels |
 | [FLINK-2674](https://issues.apache.org/jira/browse/FLINK-2674) | Rework windowing logic |  Critical | Streaming | Stephan Ewen |  |
+| [FLINK-3138](https://issues.apache.org/jira/browse/FLINK-3138) | Method References are not supported as lambda expressions |  Major | Core | Stephan Ewen | Timo Walther |
 
 
 ### TESTS:

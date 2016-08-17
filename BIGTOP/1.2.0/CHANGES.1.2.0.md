@@ -18,7 +18,7 @@
 -->
 # Apache BigTop Changelog
 
-## Release 1.2.0 - Unreleased (as of 2016-07-29)
+## Release 1.2.0 - Unreleased (as of 2016-08-17)
 
 
 
@@ -61,6 +61,8 @@
 | [BIGTOP-2478](https://issues.apache.org/jira/browse/BIGTOP-2478) | Zookeeper does not have any smoke tests |  Major | deployment | Pete Vander Giessen | Pete Vander Giessen |
 | [BIGTOP-2429](https://issues.apache.org/jira/browse/BIGTOP-2429) | Add Solr to gradle smokes |  Major | tests | Dasha Boudnik | Dasha Boudnik |
 | [BIGTOP-2466](https://issues.apache.org/jira/browse/BIGTOP-2466) | HBase puppet scripts co-deploy ZK and Datanode along with HBase |  Minor | hbase | Konstantinos Tsakalozos | Konstantinos Tsakalozos |
+| [BIGTOP-2507](https://issues.apache.org/jira/browse/BIGTOP-2507) | Make buildstamp configurable by a bom file |  Major | . | Teruyoshi Zenmyo | Teruyoshi Zenmyo |
+| [BIGTOP-2458](https://issues.apache.org/jira/browse/BIGTOP-2458) | Add option to disable IP hostname checking for DataNode registration |  Minor | deployment | Cory Johns | Cory Johns |
 
 
 ### BUG FIXES:
@@ -124,6 +126,8 @@
 | [BIGTOP-2487](https://issues.apache.org/jira/browse/BIGTOP-2487) | Alluxio /var/log/alluxio is not created |  Major | . | Olaf Flebbe | Konstantinos Tsakalozos |
 | [BIGTOP-2495](https://issues.apache.org/jira/browse/BIGTOP-2495) | hive-hbase package is broken |  Major | hive | YoungWoo Kim | YoungWoo Kim |
 | [BIGTOP-2494](https://issues.apache.org/jira/browse/BIGTOP-2494) | Use systemd within bigtop/deploy docker image for debian-8, centos-7, fix centos-7 provisioner |  Major | deployment | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2513](https://issues.apache.org/jira/browse/BIGTOP-2513) | Some RAT exclude rules defined in build.gradle are not defined in pom.xml |  Minor | build | Kengo Seki | Kengo Seki |
+| [BIGTOP-2512](https://issues.apache.org/jira/browse/BIGTOP-2512) | Wrong help message in docker-hadoop.sh |  Trivial | deployment, vm | Kengo Seki | Kengo Seki |
 
 
 ### SUB-TASKS:
@@ -145,6 +149,9 @@
 | [BIGTOP-2469](https://issues.apache.org/jira/browse/BIGTOP-2469) | Add cloud-weather-report test plan |  Minor | tests | Cory Johns | Cory Johns |
 | [BIGTOP-2357](https://issues.apache.org/jira/browse/BIGTOP-2357) | Create puppet recipes |  Major | flink, general | Bhupendra Singh | Robert Metzger |
 | [BIGTOP-1624](https://issues.apache.org/jira/browse/BIGTOP-1624) | Add puppet recipes for deploying kafka |  Minor | deployment | Manikandan Narayanaswamy | Konstantinos Tsakalozos |
+| [BIGTOP-2254](https://issues.apache.org/jira/browse/BIGTOP-2254) | Replace the Docker orchestration tool from Vagrant to Docker Compose |  Major | docker, provisioner | Evans Ye | Evans Ye |
+| [BIGTOP-2312](https://issues.apache.org/jira/browse/BIGTOP-2312) | Add environment check |  Minor | docker, provisioner | Evans Ye | Evans Ye |
+| [BIGTOP-2505](https://issues.apache.org/jira/browse/BIGTOP-2505) | Support systemd containers, clean up hiera.yaml handling, fix exec (-e) flag |  Major | provisioner | Olaf Flebbe | Olaf Flebbe |
 
 
 ### OTHER:

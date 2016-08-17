@@ -18,7 +18,7 @@
 -->
 # Apache Flink Changelog
 
-## Release 1.1.0 - Unreleased (as of 2016-07-29)
+## Release 1.1.0 - 2016-08-04
 
 
 
@@ -171,6 +171,9 @@
 | [FLINK-4210](https://issues.apache.org/jira/browse/FLINK-4210) | Move close()/isClosed() out of MetricGroup interface |  Minor | Metrics | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-4192](https://issues.apache.org/jira/browse/FLINK-4192) | Move Metrics API to separate module |  Major | Metrics | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-4269](https://issues.apache.org/jira/browse/FLINK-4269) | Decrease log level in RuntimeMonitorHandler |  Minor | Webfrontend | Ufuk Celebi |  |
+| [FLINK-4279](https://issues.apache.org/jira/browse/FLINK-4279) | [py] Set flink dependencies to provided |  Minor | Python API | Chesnay Schepler | Chesnay Schepler |
+| [FLINK-4299](https://issues.apache.org/jira/browse/FLINK-4299) | Show loss of job manager in Client |  Major | Client | Ufuk Celebi | Maximilian Michels |
+| [FLINK-4246](https://issues.apache.org/jira/browse/FLINK-4246) | Allow Specifying Multiple Metrics Reporters |  Major | Metrics | Aljoscha Krettek | Aljoscha Krettek |
 
 
 ### BUG FIXES:
@@ -377,6 +380,11 @@
 | [FLINK-4152](https://issues.apache.org/jira/browse/FLINK-4152) | TaskManager registration exponential backoff doesn't work |  Major | Distributed Coordination, TaskManager, YARN Client | Robert Metzger | Till Rohrmann |
 | [FLINK-4156](https://issues.apache.org/jira/browse/FLINK-4156) | Job with -m yarn-cluster registers TaskManagers to another running Yarn session |  Major | Distributed Coordination, YARN Client | Stefan Richter |  |
 | [FLINK-4258](https://issues.apache.org/jira/browse/FLINK-4258) | Potential null pointer dereference in SavepointCoordinator#onFullyAcknowledgedCheckpoint |  Major | . | Ted Yu | Maximilian Michels |
+| [FLINK-4277](https://issues.apache.org/jira/browse/FLINK-4277) | TaskManagerConfigurationTest fails |  Major | Tests | Chesnay Schepler | Chesnay Schepler |
+| [FLINK-4284](https://issues.apache.org/jira/browse/FLINK-4284) | DataSet/CEP link to non-existant "Linking with Flink" section |  Major | Documentation | Chesnay Schepler | Chesnay Schepler |
+| [FLINK-4296](https://issues.apache.org/jira/browse/FLINK-4296) | Scheduler accepts more tasks than it has task slots available |  Critical | JobManager, TaskManager | Maximilian Michels | Till Rohrmann |
+| [FLINK-4307](https://issues.apache.org/jira/browse/FLINK-4307) | Broken user-facing API for ListState |  Blocker | Streaming | Stephan Ewen | Stephan Ewen |
+| [FLINK-3796](https://issues.apache.org/jira/browse/FLINK-3796) | FileSourceFunction doesn't respect InputFormat's life cycle methods |  Major | Streaming | Maximilian Michels | Maximilian Michels |
 
 
 ### TESTS:

@@ -42,4 +42,11 @@ Committed to 2.2.0 and 2.1.1. Thanks Naveen for the patch.
 Vectorization: LIKE should anchor the regexes
 
 
+---
+
+* [HIVE-14402](https://issues.apache.org/jira/browse/HIVE-14402) | *Major* | **Vectorization: Fix Mapjoin overflow deserialization**
+
+Vectorization: Fix Mapjoin overflow deserialization (Gopal V, reviewed by Matt McCline)
+
+
 

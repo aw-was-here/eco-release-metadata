@@ -202,6 +202,9 @@
 * Apache Hadoop v0.21.0
     * [Changes](0.21.0/CHANGES.0.21.0.html)
     * [Release Notes](0.21.0/RELEASENOTES.0.21.0.html)
+* Apache Hadoop v0.20-append
+    * [Changes](0.20-append/CHANGES.0.20-append.html)
+    * [Release Notes](0.20-append/RELEASENOTES.0.20-append.html)
 * Apache Hadoop v0.20.205.0
     * [Changes](0.20.205.0/CHANGES.0.20.205.0.html)
     * [Release Notes](0.20.205.0/RELEASENOTES.0.20.205.0.html)

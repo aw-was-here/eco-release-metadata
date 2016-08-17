@@ -892,6 +892,7 @@
 | [SPARK-16584](https://issues.apache.org/jira/browse/SPARK-16584) | Move regexp unit tests to RegexpExpressionsSuite |  Major | SQL | Reynold Xin | Reynold Xin |
 | [SPARK-16588](https://issues.apache.org/jira/browse/SPARK-16588) | Deprecate monotonicallyIncreasingId in Scala |  Trivial | SQL | Hyukjin Kwon | Reynold Xin |
 | [SPARK-16615](https://issues.apache.org/jira/browse/SPARK-16615) | Expose sqlContext in SparkSession |  Major | . | Reynold Xin | Reynold Xin |
+| [SPARK-6744](https://issues.apache.org/jira/browse/SPARK-6744) | Add support for CROSS JOIN syntax |  Minor | SQL | Santiago M. Mola | Herman van Hovell |
 
 
 ### BUG FIXES:
@@ -925,7 +926,7 @@
 | [SPARK-12048](https://issues.apache.org/jira/browse/SPARK-12048) | JDBCRDD calls close() twice - SQLite then throws an exception |  Minor | SQL | R. H. | R. H. |
 | [SPARK-12132](https://issues.apache.org/jira/browse/SPARK-12132) | Cltr-C should clear current line in pyspark shell |  Major | PySpark | Davies Liu | Davies Liu |
 | [SPARK-12222](https://issues.apache.org/jira/browse/SPARK-12222) | deserialize RoaringBitmap using Kryo serializer throw Buffer underflow exception |  Major | Spark Core | Fei Wang | Fei Wang |
-| [SPARK-12031](https://issues.apache.org/jira/browse/SPARK-12031) | Integer overflow when do sampling. |  Major | Spark Core | uncleGen | uncleGen |
+| [SPARK-12031](https://issues.apache.org/jira/browse/SPARK-12031) | Integer overflow when do sampling. |  Major | Spark Core | Genmao Yu | Genmao Yu |
 | [SPARK-10582](https://issues.apache.org/jira/browse/SPARK-10582) | using dynamic-executor-allocation, if AM failed. the new AM will be started. But the new AM does not allocate executors to dirver |  Major | Spark Core | KaiXinXIaoLei | Saisai Shao |
 | [SPARK-12131](https://issues.apache.org/jira/browse/SPARK-12131) | Cannot create ExpressionEncoder for Array[T] where T is a nested class |  Major | SQL | Cheng Lian | Cheng Lian |
 | [SPARK-12136](https://issues.apache.org/jira/browse/SPARK-12136) | rddToFileName does not properly handle prefix and suffix parameters |  Minor | Streaming | Brian Webb | Bo Meng |
@@ -1542,7 +1543,6 @@
 | [SPARK-15488](https://issues.apache.org/jira/browse/SPARK-15488) | Possible Accumulator bug causing OneVsRestSuite to be flaky |  Major | ML, Spark Core | Joseph K. Bradley | Liang-Chi Hsieh |
 | [SPARK-15315](https://issues.apache.org/jira/browse/SPARK-15315) | CSV datasource writes garbage  for complex  types instead of rasing error. |  Minor | SQL | Suresh Thalamati | Suresh Thalamati |
 | [SPARK-15311](https://issues.apache.org/jira/browse/SPARK-15311) | Disallow DML on Non-temporary Tables when Using In-Memory Catalog |  Major | SQL | Xiao Li | Xiao Li |
-| [SPARK-15285](https://issues.apache.org/jira/browse/SPARK-15285) | Generated SpecificSafeProjection.apply method grows beyond 64 KB |  Major | SQL | Konstantin Shaposhnikov | Kazuaki Ishizaki |
 | [SPARK-15405](https://issues.apache.org/jira/browse/SPARK-15405) | YARN uploading the same \_\_spark\_conf\_\_.zip twice |  Major | YARN | Thomas Graves | Marcelo Vanzin |
 | [SPARK-15388](https://issues.apache.org/jira/browse/SPARK-15388) | spark sql "CREATE FUNCTION" throws exception with hive 1.2.1 |  Major | SQL | Yang Wang | Yang Wang |
 | [SPARK-15512](https://issues.apache.org/jira/browse/SPARK-15512) | repartition(0) should raise IllegalArgumentException. |  Major | Spark Core | Dongjoon Hyun | Dongjoon Hyun |
@@ -1781,6 +1781,9 @@
 | [SPARK-16620](https://issues.apache.org/jira/browse/SPARK-16620) | RDD.pipe(command: String) in Spark 2.0 does not work when command is specified with some options |  Blocker | Spark Core | Liwei Lin | Liwei Lin |
 | [SPARK-16602](https://issues.apache.org/jira/browse/SPARK-16602) | Spark2.0-error occurs when execute the sql statement which includes "nvl" function while spark1.6 supports |  Major | SQL | marymwu | Dongjoon Hyun |
 | [SPARK-15705](https://issues.apache.org/jira/browse/SPARK-15705) | Spark won't read ORC schema from metastore for partitioned tables |  Critical | SQL | Nic Eggert | Yin Huai |
+| [SPARK-14666](https://issues.apache.org/jira/browse/SPARK-14666) | Using DISTINCT on a UDF (like CONCAT) is not supported |  Minor | SQL | Dominic Ricard |  |
+| [SPARK-2578](https://issues.apache.org/jira/browse/SPARK-2578) | OUTER JOINs cause ClassCastException |  Major | SQL | Christian Wuertz |  |
+| [SPARK-8045](https://issues.apache.org/jira/browse/SPARK-8045) | Stack overflow in query parser when there is too many where |  Minor | SQL | Olivier Toupin |  |
 
 
 ### TESTS:
@@ -2377,7 +2380,6 @@
 | [SPARK-15658](https://issues.apache.org/jira/browse/SPARK-15658) | Analysis exception if Dataset.map returns UDT object |  Major | SQL | Wenchen Fan | Wenchen Fan |
 | [SPARK-15662](https://issues.apache.org/jira/browse/SPARK-15662) | Add since annotation for classes in sql.catalog |  Major | SQL | Reynold Xin | Reynold Xin |
 | [SPARK-15686](https://issues.apache.org/jira/browse/SPARK-15686) | Move user-facing structured streaming classes into sql.streaming |  Major | SQL | Reynold Xin | Reynold Xin |
-| [SPARK-15702](https://issues.apache.org/jira/browse/SPARK-15702) | Update document programming-guide accumulator section |  Major | Documentation, Spark Core | Weichen Xu | Weichen Xu |
 | [SPARK-15441](https://issues.apache.org/jira/browse/SPARK-15441) | dataset outer join seems to return incorrect result |  Critical | SQL | Reynold Xin | Wenchen Fan |
 | [SPARK-15208](https://issues.apache.org/jira/browse/SPARK-15208) | Update spark examples with AccumulatorV2 |  Minor | Documentation, Examples, Spark Core | Liwei Lin | Liwei Lin |
 | [SPARK-15728](https://issues.apache.org/jira/browse/SPARK-15728) | Rename aggregate operators: HashAggregate and SortAggregate |  Major | SQL | Reynold Xin | Reynold Xin |
@@ -2476,6 +2478,7 @@
 | [SPARK-14816](https://issues.apache.org/jira/browse/SPARK-14816) | Update MLlib, GraphX, SparkR websites for 2.0 |  Critical | Documentation, GraphX, ML, MLlib, SparkR | Joseph K. Bradley | Joseph K. Bradley |
 | [SPARK-14817](https://issues.apache.org/jira/browse/SPARK-14817) | ML, Graph, R 2.0 QA: Programming guide update and migration guide |  Critical | Documentation, GraphX, ML, MLlib, SparkR | Joseph K. Bradley | Joseph K. Bradley |
 | [SPARK-16510](https://issues.apache.org/jira/browse/SPARK-16510) | Move SparkR test JAR into Spark, include its source code |  Major | SparkR | Shivaram Venkataraman | Shivaram Venkataraman |
+| [SPARK-15702](https://issues.apache.org/jira/browse/SPARK-15702) | Update document programming-guide accumulator section |  Major | Documentation, Spark Core | Weichen Xu | Weichen Xu |
 
 
 ### OTHER:

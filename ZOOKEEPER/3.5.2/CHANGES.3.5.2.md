@@ -106,6 +106,7 @@
 | [ZOOKEEPER-2366](https://issues.apache.org/jira/browse/ZOOKEEPER-2366) | Reconfiguration of client port causes a socket leak |  Blocker | quorum | Timothy Ward | Flavio Junqueira |
 | [ZOOKEEPER-2458](https://issues.apache.org/jira/browse/ZOOKEEPER-2458) | Remove license file for servlet-api dependency |  Major | . | Flavio Junqueira | Flavio Junqueira |
 | [ZOOKEEPER-2459](https://issues.apache.org/jira/browse/ZOOKEEPER-2459) | Update NOTICE file with Netty notice |  Blocker | . | Flavio Junqueira | Flavio Junqueira |
+| [ZOOKEEPER-2323](https://issues.apache.org/jira/browse/ZOOKEEPER-2323) | ZooKeeper client enters into infinite AuthFailedException cycle if its unable to recreate Kerberos ticket |  Major | java client | Arshad Mohammad | Arshad Mohammad |
 
 
 ### SUB-TASKS:

@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 1.6.3 - Unreleased (as of 2016-07-29)
+## Release 1.6.3 - Unreleased (as of 2016-08-17)
 
 
 
@@ -26,7 +26,15 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-16664](https://issues.apache.org/jira/browse/SPARK-16664) | Spark 1.6.2 - Persist call on Data frames with more than 200 columns is wiping out the data. |  Blocker | Spark Core | Satish Kolli | Wesley Tang |
 | [SPARK-16751](https://issues.apache.org/jira/browse/SPARK-16751) | Upgrade derby to 10.12.1.1 from 10.11.1.1 |  Major | Build | Adam Roberts | Adam Roberts |
+
+
+### NEW FEATURES:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-16956](https://issues.apache.org/jira/browse/SPARK-16956) | Make ApplicationState.MAX\_NUM\_RETRY configurable |  Major | Deploy | Josh Rosen | Josh Rosen |
 
 
 ### IMPROVEMENTS:
@@ -34,6 +42,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [SPARK-15761](https://issues.apache.org/jira/browse/SPARK-15761) | pyspark shell should load if PYSPARK\_DRIVER\_PYTHON is ipython an Python3 |  Minor | PySpark | Manoj Kumar | Manoj Kumar |
+| [SPARK-16796](https://issues.apache.org/jira/browse/SPARK-16796) | Visible passwords on Spark environment page |  Trivial | Web UI | Artur Sukhenko | Artur Sukhenko |
 
 
 ### BUG FIXES:
@@ -52,6 +61,12 @@
 | [SPARK-16489](https://issues.apache.org/jira/browse/SPARK-16489) | Test harness to prevent expression code generation from reusing variable names |  Major | SQL | Reynold Xin | Reynold Xin |
 | [SPARK-16375](https://issues.apache.org/jira/browse/SPARK-16375) | [Spark web UI]:The wrong value(numCompletedTasks) has been assigned to the variable numSkippedTasks |  Major | Web UI | marymwu | Alex Bozarth |
 | [SPARK-16440](https://issues.apache.org/jira/browse/SPARK-16440) | Undeleted broadcast variables in Word2Vec causing OoM for long runs |  Major | MLlib | Anthony Truchet | Anthony Truchet |
+| [SPARK-16656](https://issues.apache.org/jira/browse/SPARK-16656) | CreateTableAsSelectSuite is flaky |  Major | SQL | Yin Huai | Yin Huai |
+| [SPARK-16873](https://issues.apache.org/jira/browse/SPARK-16873) | force spill NPE |  Major | Spark Core | sharkd tu | sharkd tu |
+| [SPARK-16925](https://issues.apache.org/jira/browse/SPARK-16925) | Spark tasks which cause JVM to exit with a zero exit code may cause app to hang in Standalone mode |  Critical | Deploy | Josh Rosen | Josh Rosen |
+| [SPARK-16409](https://issues.apache.org/jira/browse/SPARK-16409) | regexp\_extract with optional groups causes NPE |  Major | Spark Core | Max Moroz | Sean Owen |
+| [SPARK-16939](https://issues.apache.org/jira/browse/SPARK-16939) | Fix build error by using `Tuple1` explicitly in StringFunctionSuite |  Minor | SQL | Dongjoon Hyun | Dongjoon Hyun |
+| [SPARK-17003](https://issues.apache.org/jira/browse/SPARK-17003) | release-build.sh is missing hive-thriftserver for scala 2.11 |  Major | Build | Yin Huai | Yin Huai |
 
 
 ### SUB-TASKS:

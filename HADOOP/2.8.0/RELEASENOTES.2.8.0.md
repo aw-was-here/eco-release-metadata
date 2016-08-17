@@ -93,13 +93,6 @@ Adding support for using the 'tc' tool in batch mode via container-executor. Thi
 
 ---
 
-* [HDFS-7933](https://issues.apache.org/jira/browse/HDFS-7933) | *Major* | **fsck should also report decommissioning replicas.**
-
-**WARNING: No release note provided for this change.**
-
-
----
-
 * [YARN-3443](https://issues.apache.org/jira/browse/YARN-3443) | *Major* | **Create a 'ResourceHandler' subsystem to ease addition of support for new resource types on the NM**
 
 The current cgroups implementation is closely tied to supporting CPU as a resource . This patch separates out CGroups implementation into a reusable class as well as provides a simple ResourceHandler subsystem that will enable us to add support for new resource types on the NM - e.g Network, Disk etc.
@@ -703,7 +696,7 @@ Reserved space can be configured independently for different storage types for c
 
 * [HDFS-10324](https://issues.apache.org/jira/browse/HDFS-10324) | *Major* | **Trash directory in an encryption zone should be pre-created with correct permissions**
 
-HDFS will create a ".Trash" subdirectory when creating a new encryption zone to support soft delete for files deleted within the encryption zone. A new "dfsadmin -provisionTrash" command has been introduced to provision trash directories for encryption zones created with Apache Hadoop minor releases prior to 2.8.0.
+HDFS will create a ".Trash" subdirectory when creating a new encryption zone to support soft delete for files deleted within the encryption zone. A new "crypto -provisionTrash" command has been introduced to provision trash directories for encryption zones created with Apache Hadoop minor releases prior to 2.8.0.
 
 
 ---
@@ -830,6 +823,27 @@ DataNode Web UI has been improved with new HTML5 page, showing useful informatio
 * [HADOOP-13139](https://issues.apache.org/jira/browse/HADOOP-13139) | *Major* | **Branch-2: S3a to use thread pool that blocks clients**
 
 The configuration option 'fs.s3a.threads.core' is no longer supported. The string is still defined in org.apache.hadoop.fs.s3a.Constants.CORE\_THREADS, however its value is ignored. If it is set, a warning message will be printed when initializing the S3A filesystem
+
+
+---
+
+* [HADOOP-13382](https://issues.apache.org/jira/browse/HADOOP-13382) | *Major* | **remove unneeded commons-httpclient dependencies from POM files in Hadoop and sub-projects**
+
+**WARNING: No release note provided for this change.**
+
+
+---
+
+* [MAPREDUCE-6729](https://issues.apache.org/jira/browse/MAPREDUCE-6729) | *Minor* | **Accurately compute the test execute time in DFSIO**
+
+**WARNING: No release note provided for this change.**
+
+
+---
+
+* [HDFS-7933](https://issues.apache.org/jira/browse/HDFS-7933) | *Major* | **fsck should also report decommissioning replicas.**
+
+**WARNING: No release note provided for this change.**
 
 
 

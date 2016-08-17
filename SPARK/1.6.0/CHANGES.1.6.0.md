@@ -863,7 +863,7 @@
 | [SPARK-12187](https://issues.apache.org/jira/browse/SPARK-12187) | \*MemoryPool classes should not be public |  Critical | Spark Core | Andrew Or | Andrew Or |
 | [SPARK-12069](https://issues.apache.org/jira/browse/SPARK-12069) | Documentation update for Datasets |  Major | Documentation, SQL | Michael Armbrust | Michael Armbrust |
 | [SPARK-12222](https://issues.apache.org/jira/browse/SPARK-12222) | deserialize RoaringBitmap using Kryo serializer throw Buffer underflow exception |  Major | Spark Core | Fei Wang | Fei Wang |
-| [SPARK-12031](https://issues.apache.org/jira/browse/SPARK-12031) | Integer overflow when do sampling. |  Major | Spark Core | uncleGen | uncleGen |
+| [SPARK-12031](https://issues.apache.org/jira/browse/SPARK-12031) | Integer overflow when do sampling. |  Major | Spark Core | Genmao Yu | Genmao Yu |
 | [SPARK-12165](https://issues.apache.org/jira/browse/SPARK-12165) | Execution memory requests may fail to evict storage blocks if storage memory usage is below max memory |  Blocker | Spark Core | Josh Rosen | Josh Rosen |
 | [SPARK-12189](https://issues.apache.org/jira/browse/SPARK-12189) | UnifiedMemoryManager double counts storage memory freed |  Blocker | Spark Core | Andrew Or | Josh Rosen |
 | [SPARK-11796](https://issues.apache.org/jira/browse/SPARK-11796) | Docker JDBC integration tests fail in Maven build due to dependency issue |  Major | SQL, Tests | Josh Rosen | Mark Grover |

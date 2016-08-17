@@ -3713,11 +3713,131 @@ Searching for lingering reference files is now a multi-threaded operation.  Load
 
 ---
 
+* [HBASE-16244](https://issues.apache.org/jira/browse/HBASE-16244) | *Major* | **LocalHBaseCluster start timeout should be configurable**
+
+When LocalHBaseCluster is started from the command line the Master would give up after 30 seconds due to a hardcoded timeout meant for unit tests. This change allows the timeout to be configured via hbase-site as well as sets it to 5 minutes when LocalHBaseCluster is started from the command line.
+
+
+---
+
 * [HBASE-13701](https://issues.apache.org/jira/browse/HBASE-13701) | *Major* | **Consolidate SecureBulkLoadEndpoint into HBase core as default for bulk load**
 
 SecureBulkLoadEndpoint  has been integrated into HBase core as default bulk load mechanism. It is no longer needed to install it as a coprocessor endpoint.
 The new server is backward compatible, accommodating non-secure old client and secure old client requesting SecureBulkLoadEndpoint service.
 SecureBulkLoadEndpoint is deprecated. The backward compatibility support may be removed in future releases.
+
+
+---
+
+* [HBASE-14743](https://issues.apache.org/jira/browse/HBASE-14743) | *Minor* | **Add metrics around HeapMemoryManager**
+
+A memory metrics reveals situations happened in both MemStores and BlockCache in RegionServer. Through this metrics, users/operators can know 
+1). Current size of MemStores and BlockCache in bytes.
+2). Occurrence for Memstore minor and major flush. (named unblocked flush and blocked flush respectively, shown in histogram)
+3). Dynamic changes in size between MemStores and BlockCache. (with Increase/Decrease as prefix, shown in histogram). And a counter for no changes, named DoNothingCounter.
+4). Occurrence for memory usage alarm (used more than 95% by default) in RegionServer. (named AboveHeapOccupancyLowWatermarkCounter)
+
+
+---
+
+* [HBASE-16186](https://issues.apache.org/jira/browse/HBASE-16186) | *Major* | **Fix AssignmentManager MBean name**
+
+The AssignmentManager MBean was named AssignmentManger (note misspelling). This patch fixed the misspelling.
+
+
+---
+
+* [HBASE-16288](https://issues.apache.org/jira/browse/HBASE-16288) | *Critical* | **HFile intermediate block level indexes might recurse forever creating multi TB files**
+
+A new hfile configuration "hfile.index.block.min.entries" which defaults to 16 determines how many entries the hfile index block can have at least. The configuration which determines how large the index block can be at max (hfile.index.block.max.size) is ignored as long as we have fewer than hfile.index.block.min.entries entries. This ensures that multi-level index does not build up with too many levels.
+
+
+---
+
+* [HBASE-16317](https://issues.apache.org/jira/browse/HBASE-16317) | *Blocker* | **revert all ESAPI changes**
+
+This issue reverts fixes designed to prevent malicious content from rendering in HBase's UIs. Specifically, these changes shipped in 1.1.4+ and 1.2.0+. They were removed due to licensing issues discovered in the dependencies they introduced. Their implementation and those dependencies have been removed from HBase! Removal of these dependencies is against the strict definition of our version compatibility guidelines. However, inclusion of non-Apache approved licenses cannot be tolerated. Implementation of these fixes using an Apache-appropriate means is tracked in HBASE-16328.
+
+
+---
+
+* [HBASE-16355](https://issues.apache.org/jira/browse/HBASE-16355) | *Major* | **hbase-client dependency on hbase-common test-jar should be test scope**
+
+The HBase client artifact previously incorrectly included the hbase-common test jar as a runtime dependency. With this change, that dependency has been moved to test scope. Downstream users are not expected to be impacted, unless they relied on the transitive dependency for these HBase internal test classes.
+
+
+---
+
+* [HBASE-16287](https://issues.apache.org/jira/browse/HBASE-16287) | *Major* | **LruBlockCache size should not exceed acceptableSize too many**
+
+In order to avoid blockcache size exceed acceptable size too much, we add one configuration "hbase.lru.blockcache.hard.capacity.limit.factor" to decide whether the block could be put into LruBlockCache or not.  This factor defaults to 1.2
+If blockcache size \>= factor\*acceptableSize, we will reject the block into cache.
+
+
+---
+
+* [HBASE-8386](https://issues.apache.org/jira/browse/HBASE-8386) | *Major* | **deprecate TableMapReduce.addDependencyJars(Configuration, class\<?\> ...)**
+
+The MapReduce helper function `TableMapReduce.addDependencyJars(Configuration, class\<?\> ...)` has been deprecated since it is easy to use incorrectly. Most users should rely on addDependencyJars(Job) instead.
+
+
+---
+
+* [HBASE-16340](https://issues.apache.org/jira/browse/HBASE-16340) | *Critical* | **ensure no Xerces jars included**
+
+HBase no longer includes Xerces implementation jars that were previously included via transitive dependencies. Downstream users relying on HBase for these artifacts will need to update their dependencies.
+
+
+---
+
+* [HBASE-16321](https://issues.apache.org/jira/browse/HBASE-16321) | *Blocker* | **Ensure findbugs jsr305 jar isn't present**
+
+HBase now ensures the jsr305 implementation from the findbugs project is not included in its binary artifacts or the compile / runtime dependencies of its user facing modules. Downstream users that rely on this jar will need to update their dependencies.
+
+
+---
+
+* [HBASE-9899](https://issues.apache.org/jira/browse/HBASE-9899) | *Major* | **for idempotent operation dups, return the result instead of throwing conflict exception**
+
+Non-idempotent operations (increment/append/checkAndPut/...) may throw OperationConflictException even though the increment/append succeeded. For example (client rpc retries number set to 3):
+
+1. first increment rpc request success
+2. client timeout and send second rpc request, but nonce is same and save in server. The server found that it has already succeed, so return a OperationConflictException to make sure that increment operation only be applied once in server.
+
+This patch will solve this problem by read the previous result when receive a duplicate rpc request.
+1. Store the mvcc to OperationContext. When first rpc request succeed, store the mvcc for this operation nonce.
+2. When there are duplicate rpc request, convert to read result by the mvcc.
+
+
+---
+
+* [HBASE-9465](https://issues.apache.org/jira/browse/HBASE-9465) | *Major* | **Push entries to peer clusters serially**
+
+Now in replication we can make sure the order of pushing logs is same as the order of requests from client. Set REPLICATION\_SCOPE=2 at one cf's configuration to enable this feature.
+This feature relies on zk-less assignment, and conflicts with distributed log replay. So users must set hbase.assignment.usezk and hbase.master.distributed.log.replay to false to support this feature.
+
+
+---
+
+* [HBASE-16308](https://issues.apache.org/jira/browse/HBASE-16308) | *Major* | **Contain protobuf references**
+
+Undo protobuf references through the codebase so protobuf references are contained rather than spread about the codebase. For example, moved protobuff-ing up into the various Callables rather than repeat on each method invocation cleaning up boilerplate around rpc calls. Having a few protobuf reference locations only simplifies the parent issue shading project.
+
+
+---
+
+* [HBASE-16267](https://issues.apache.org/jira/browse/HBASE-16267) | *Critical* | **Remove commons-httpclient dependency from hbase-rest module**
+
+This issue upgrades httpclient to 4.5.2 and httpcore to 4.4.4 which are the versions used by hadoop-2.
+This is to handle the following CVE's.
+
+https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2015-5262 : http/conn/ssl/SSLConnectionSocketFactory.java in Apache HttpComponents HttpClient before 4.3.6 ignores the http.socket.timeout configuration setting during an SSL handshake, which allows remote attackers to cause a denial of service (HTTPS call hang) via unspecified vectors.
+
+https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2012-6153
+https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2012-5783
+Apache Commons HttpClient 3.x, as used in Amazon Flexible Payments Service (FPS) merchant Java SDK and other products, does not verify that the server hostname matches a domain name in the subject's Common Name (CN) or subjectAltName field of the X.509 certificate, which allows man-in-the-middle attackers to spoof SSL servers via an arbitrary valid certificate.
+
+Downstream users who are exposed to commons-httpclient via the HBase classpath will have to similarly update their dependency.
 
 
 

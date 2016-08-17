@@ -19,6 +19,12 @@
 * Apache Flink v1.2.0
     * [Changes](1.2.0/CHANGES.1.2.0.md)
     * [Release Notes](1.2.0/RELEASENOTES.1.2.0.md)
+* Apache Flink v1.1.2
+    * [Changes](1.1.2/CHANGES.1.1.2.md)
+    * [Release Notes](1.1.2/RELEASENOTES.1.1.2.md)
+* Apache Flink v1.1.1
+    * [Changes](1.1.1/CHANGES.1.1.1.md)
+    * [Release Notes](1.1.1/RELEASENOTES.1.1.1.md)
 * Apache Flink v1.1.0
     * [Changes](1.1.0/CHANGES.1.1.0.md)
     * [Release Notes](1.1.0/RELEASENOTES.1.1.0.md)
@@ -37,6 +43,9 @@
 * Apache Flink v1.0.0
     * [Changes](1.0.0/CHANGES.1.0.0.md)
     * [Release Notes](1.0.0/RELEASENOTES.1.0.0.md)
+* Apache Flink v1.00
+    * [Changes](1.00/CHANGES.1.00.md)
+    * [Release Notes](1.00/RELEASENOTES.1.00.md)
 * Apache Flink v0.10.3
     * [Changes](0.10.3/CHANGES.0.10.3.md)
     * [Release Notes](0.10.3/RELEASENOTES.0.10.3.md)
@@ -49,6 +58,9 @@
 * Apache Flink v0.10.0
     * [Changes](0.10.0/CHANGES.0.10.0.md)
     * [Release Notes](0.10.0/RELEASENOTES.0.10.0.md)
+* Apache Flink v0.10
+    * [Changes](0.10/CHANGES.0.10.md)
+    * [Release Notes](0.10/RELEASENOTES.0.10.md)
 * Apache Flink v0.9.2
     * [Changes](0.9.2/CHANGES.0.9.2.md)
     * [Release Notes](0.9.2/RELEASENOTES.0.9.2.md)
@@ -58,6 +70,9 @@
 * Apache Flink v0.9.0
     * [Changes](0.9.0/CHANGES.0.9.0.md)
     * [Release Notes](0.9.0/RELEASENOTES.0.9.0.md)
+* Apache Flink v0.9
+    * [Changes](0.9/CHANGES.0.9.md)
+    * [Release Notes](0.9/RELEASENOTES.0.9.md)
 * Apache Flink v0.8.2
     * [Changes](0.8.2/CHANGES.0.8.2.md)
     * [Release Notes](0.8.2/RELEASENOTES.0.8.2.md)
@@ -73,6 +88,9 @@
 * Apache Flink v0.7.0-incubating
     * [Changes](0.7.0-incubating/CHANGES.0.7.0-incubating.md)
     * [Release Notes](0.7.0-incubating/RELEASENOTES.0.7.0-incubating.md)
+* Apache Flink v0.6-incubating
+    * [Changes](0.6-incubating/CHANGES.0.6-incubating.md)
+    * [Release Notes](0.6-incubating/RELEASENOTES.0.6-incubating.md)
 * Apache Flink v0.6.1-incubating
     * [Changes](0.6.1-incubating/CHANGES.0.6.1-incubating.md)
     * [Release Notes](0.6.1-incubating/RELEASENOTES.0.6.1-incubating.md)

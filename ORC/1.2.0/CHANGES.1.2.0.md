@@ -18,7 +18,7 @@
 -->
 # Apache Orc Changelog
 
-## Release 1.2.0 - Unreleased (as of 2016-07-29)
+## Release 1.2.0 - Unreleased (as of 2016-08-17)
 
 
 
@@ -30,6 +30,8 @@
 | [ORC-71](https://issues.apache.org/jira/browse/ORC-71) | Apache ORC C++ ONLY build |  Trivial | C++ | Sudhir Babu Pothineni | Sudhir Babu Pothineni |
 | [ORC-69](https://issues.apache.org/jira/browse/ORC-69) | Add batch option support in orc-contents and orc-scan tools. |  Trivial | tools | hongwu | hongwu |
 | [ORC-75](https://issues.apache.org/jira/browse/ORC-75) | Don't create backup versions of the poms when version change |  Major | . | Owen O'Malley | Owen O'Malley |
+| [ORC-84](https://issues.apache.org/jira/browse/ORC-84) | Create a separate java tool module |  Major | . | Owen O'Malley | Owen O'Malley |
+| [ORC-85](https://issues.apache.org/jira/browse/ORC-85) | Update the C++ library with the newer WriterVersion values. |  Major | . | Owen O'Malley | Owen O'Malley |
 
 
 ### BUG FIXES:
@@ -41,5 +43,8 @@
 | [ORC-80](https://issues.apache.org/jira/browse/ORC-80) | C++ build breaks due to warnings with gcc-4.9 |  Major | . | Deepak Majeti | Deepak Majeti |
 | [ORC-82](https://issues.apache.org/jira/browse/ORC-82) | Fix compilation on ubuntu 12. |  Major | . | Owen O'Malley | Owen O'Malley |
 | [ORC-83](https://issues.apache.org/jira/browse/ORC-83) | Protected users from Reader.rows(Options) modifying the Options object |  Major | . | Owen O'Malley | Owen O'Malley |
+| [ORC-88](https://issues.apache.org/jira/browse/ORC-88) | Add a raw metadata switch to orc-metadata |  Major | . | Owen O'Malley | Owen O'Malley |
+| [ORC-81](https://issues.apache.org/jira/browse/ORC-81) | Add support for lzo and lz4 to c++ reader |  Major | . | Owen O'Malley | Owen O'Malley |
+| [ORC-77](https://issues.apache.org/jira/browse/ORC-77) | Support Snappy, LZO, and LZ4 from aircompressor. |  Major | . | Owen O'Malley | Owen O'Malley |
 
 

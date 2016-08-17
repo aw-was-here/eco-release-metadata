@@ -40,4 +40,13 @@ Developers:
 * `module_status` now allows to update a module's status without requiring providing the other parameters.
 
 
+---
+
+* [YETUS-341](https://issues.apache.org/jira/browse/YETUS-341) | *Major* | **docker cleanup in sentinel mode doesn't know about Created**
+
+Developers:
+
+This changes the ordering of the DOCKER\_CONTAINER\_PURGE array.
+
+
 

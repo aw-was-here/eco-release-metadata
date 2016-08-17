@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.10.1.0 - Unreleased (as of 2016-07-29)
+## Release 0.10.1.0 - Unreleased (as of 2016-08-17)
 
 
 
@@ -28,6 +28,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [KAFKA-3176](https://issues.apache.org/jira/browse/KAFKA-3176) | Allow console consumer to consume from particular partitions when new consumer is used. |  Major | tools | Jiangjie Qin | Vahid Hashemian |
 | [KAFKA-3858](https://issues.apache.org/jira/browse/KAFKA-3858) | Add functions to print stream topologies |  Major | streams | Roger Hoover | Eno Thereska |
+| [KAFKA-3909](https://issues.apache.org/jira/browse/KAFKA-3909) | Queryable state for Kafka Streams |  Major | streams | Eno Thereska |  |
 
 
 ### IMPROVEMENTS:
@@ -58,6 +59,13 @@
 | [KAFKA-3849](https://issues.apache.org/jira/browse/KAFKA-3849) | Add explanation on why polling every second in MirrorMaker is required |  Major | . | Ashish K Singh | Ashish K Singh |
 | [KAFKA-3942](https://issues.apache.org/jira/browse/KAFKA-3942) | Change IntegrationTestUtils.purgeLocalStreamsState to use java.io.tmpdir |  Trivial | streams | Damian Guy | Damian Guy |
 | [KAFKA-3922](https://issues.apache.org/jira/browse/KAFKA-3922) | Add a copy-constructor to AbstractStream |  Trivial | streams | Florian Hussonnois | Florian Hussonnois |
+| [KAFKA-3479](https://issues.apache.org/jira/browse/KAFKA-3479) | Add new consumer metrics documentation |  Major | . | Jason Gustafson | Kaufman Ng |
+| [KAFKA-4013](https://issues.apache.org/jira/browse/KAFKA-4013) | SaslServerCallbackHandler should include cause for exception |  Major | clients | Bryan Baugher |  |
+| [KAFKA-3954](https://issues.apache.org/jira/browse/KAFKA-3954) | Consumer should use internal topics information returned by the broker |  Major | . | Ismael Juma | Ismael Juma |
+| [KAFKA-3936](https://issues.apache.org/jira/browse/KAFKA-3936) | Validate user parameters as early as possible |  Minor | streams | Matthias J. Sax | Damian Guy |
+| [KAFKA-3847](https://issues.apache.org/jira/browse/KAFKA-3847) | Connect tasks should not share a producer |  Critical | KafkaConnect | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
+| [KAFKA-3997](https://issues.apache.org/jira/browse/KAFKA-3997) | Halting because log truncation is not allowed and suspicious logging |  Major | core | Alexey Ozeritskiy |  |
+| [KAFKA-4012](https://issues.apache.org/jira/browse/KAFKA-4012) | KerberosShortNamer should implement toString() |  Major | clients | Bryan Baugher |  |
 
 
 ### BUG FIXES:
@@ -101,6 +109,17 @@
 | [KAFKA-3782](https://issues.apache.org/jira/browse/KAFKA-3782) | Transient failure with kafkatest.tests.connect.connect\_distributed\_test.ConnectDistributedTest.test\_bounce.clean=True |  Minor | KafkaConnect | Liquan Pei | Jason Gustafson |
 | [KAFKA-3500](https://issues.apache.org/jira/browse/KAFKA-3500) | KafkaOffsetBackingStore set method needs to handle null |  Blocker | KafkaConnect | Liquan Pei | Ewen Cheslack-Postava |
 | [KAFKA-3852](https://issues.apache.org/jira/browse/KAFKA-3852) | Clarify how to handle message format upgrade without killing performance |  Blocker | . | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
+| [KAFKA-3946](https://issues.apache.org/jira/browse/KAFKA-3946) | Protocol guide should say that Produce request acks can only be 0, 1, or -1 |  Minor | . | James Cheng | Mickael Maison |
+| [KAFKA-4008](https://issues.apache.org/jira/browse/KAFKA-4008) | Module "tools" should not be dependent on "core" |  Blocker | core, tools | Matthias J. Sax | Matthias J. Sax |
+| [KAFKA-3929](https://issues.apache.org/jira/browse/KAFKA-3929) | Add prefix for underlying clients configs in StreamConfig |  Major | streams | Guozhang Wang | Damian Guy |
+| [KAFKA-3945](https://issues.apache.org/jira/browse/KAFKA-3945) | kafka-console-producer.sh does not accept request-required-acks=all |  Major | . | James Cheng | Vahid Hashemian |
+| [KAFKA-3809](https://issues.apache.org/jira/browse/KAFKA-3809) | Auto-generate documentation for topic-level configuration |  Major | . | James Cheng | James Cheng |
+| [KAFKA-4002](https://issues.apache.org/jira/browse/KAFKA-4002) | task.open() should be invoked in case that 0 partitions is assigned to task. |  Major | KafkaConnect | Liquan Pei | Liquan Pei |
+| [KAFKA-2932](https://issues.apache.org/jira/browse/KAFKA-2932) | Adjust importance level of Kafka Connect configs |  Major | KafkaConnect | Ewen Cheslack-Postava | Dustin Cote |
+| [KAFKA-3934](https://issues.apache.org/jira/browse/KAFKA-3934) | Start scripts enable GC by default with no way to disable |  Major | . | Grant Henke | Grant Henke |
+| [KAFKA-4031](https://issues.apache.org/jira/browse/KAFKA-4031) | Check DirectBuffer's cleaner to be not null before using |  Major | core | Soumyajit Sahu | Soumyajit Sahu |
+| [KAFKA-4035](https://issues.apache.org/jira/browse/KAFKA-4035) | AclCommand should allow Describe operation on groups |  Major | . | Jun Rao | Manikumar Reddy |
+| [KAFKA-3769](https://issues.apache.org/jira/browse/KAFKA-3769) | KStream job spending 60% of time writing metrics |  Critical | streams | Greg Fodor | Guozhang Wang |
 
 
 ### TESTS:
@@ -127,6 +146,9 @@
 | [KAFKA-3912](https://issues.apache.org/jira/browse/KAFKA-3912) | Query local state stores |  Major | streams | Damian Guy | Damian Guy |
 | [KAFKA-3911](https://issues.apache.org/jira/browse/KAFKA-3911) | Enforce KTable materialization |  Major | streams | Eno Thereska | Eno Thereska |
 | [KAFKA-3290](https://issues.apache.org/jira/browse/KAFKA-3290) | WorkerSourceTask testCommit transient failure |  Major | KafkaConnect | Jason Gustafson | Ewen Cheslack-Postava |
+| [KAFKA-3875](https://issues.apache.org/jira/browse/KAFKA-3875) | Transient test failure: kafka.api.SslProducerSendTest.testSendNonCompressedMessageWithCreateTime |  Major | unit tests | Ismael Juma | Jun Rao |
+| [KAFKA-3914](https://issues.apache.org/jira/browse/KAFKA-3914) | Global discovery of state stores |  Major | streams | Damian Guy | Damian Guy |
+| [KAFKA-2946](https://issues.apache.org/jira/browse/KAFKA-2946) | DeleteTopic - protocol and server side implementation |  Major | . | Grant Henke | Grant Henke |
 
 
 ### OTHER:
