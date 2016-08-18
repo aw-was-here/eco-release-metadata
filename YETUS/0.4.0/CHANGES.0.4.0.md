@@ -18,7 +18,7 @@
 -->
 # Apache Yetus Changelog
 
-## Release 0.4.0 - Unreleased (as of 2016-08-17)
+## Release 0.4.0 - Unreleased (as of 2016-08-18)
 
 
 
@@ -73,6 +73,7 @@
 | [YETUS-184](https://issues.apache.org/jira/browse/YETUS-184) | link patch naming guide into regular website docs |  Major | Test Patch, website and documentation | Sean Busbey | Ajay Yadava |
 | [YETUS-112](https://issues.apache.org/jira/browse/YETUS-112) | test-patch build system documentation missing expected args for required |  Major | Test Patch, website and documentation | Sean Busbey | Karen Clark |
 | [YETUS-433](https://issues.apache.org/jira/browse/YETUS-433) | releasedocmaker generates empty index and readme for non-semver versioning |  Major | Release Doc Maker | Ajay Yadava | Ajay Yadava |
+| [YETUS-309](https://issues.apache.org/jira/browse/YETUS-309) | pylint plugin false positives |  Major | Test Patch | Sean Busbey | Dima Spivak |
 
 
 ### OTHER:

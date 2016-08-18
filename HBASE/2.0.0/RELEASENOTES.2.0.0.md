@@ -3840,4 +3840,13 @@ Apache Commons HttpClient 3.x, as used in Amazon Flexible Payments Service (FPS)
 Downstream users who are exposed to commons-httpclient via the HBase classpath will have to similarly update their dependency.
 
 
+---
+
+* [HBASE-12721](https://issues.apache.org/jira/browse/HBASE-12721) | *Major* | **Create Docker container cluster infrastructure to enable better testing**
+
+Downstream users wishing to test HBase in a "distributed" fashion (multiple "nodes" running as separate containers on the same host) can now do so in an automated fashion while leveraging Docker for process isolation via the clusterdock project.
+
+For details see the README.md in the dev-support/apache\_hbase\_topology folder.
+
+
 

@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 1.6.3 - Unreleased (as of 2016-08-17)
+## Release 1.6.3 - Unreleased (as of 2016-08-18)
 
 
 
@@ -52,6 +52,7 @@
 | [SPARK-6005](https://issues.apache.org/jira/browse/SPARK-6005) | Flaky test: o.a.s.streaming.kafka.DirectKafkaStreamSuite.offset recovery |  Major | Streaming | Iulian Dragos | Shixiong Zhu |
 | [SPARK-15606](https://issues.apache.org/jira/browse/SPARK-15606) | Driver hang in o.a.s.DistributedSuite on 2 core machine |  Major | Spark Core | Pete Robbins | Pete Robbins |
 | [SPARK-16044](https://issues.apache.org/jira/browse/SPARK-16044) | input\_file\_name() returns empty strings in data sources based on NewHadoopRDD. |  Major | SQL | Hyukjin Kwon | Hyukjin Kwon |
+| [SPARK-16077](https://issues.apache.org/jira/browse/SPARK-16077) | Python UDF may fail because of six |  Major | PySpark | Davies Liu | Davies Liu |
 | [SPARK-16257](https://issues.apache.org/jira/browse/SPARK-16257) | spark-ec2 script not updated for 1.6.2 release |  Minor | EC2 | Brian Uri | Brian Uri |
 | [SPARK-16313](https://issues.apache.org/jira/browse/SPARK-16313) | Spark should not silently drop exceptions in file listing |  Critical | SQL | Reynold Xin | Reynold Xin |
 | [SPARK-16182](https://issues.apache.org/jira/browse/SPARK-16182) | Utils.scala -- terminateProcess() should call Process.destroyForcibly() if and only if Process.destroy() fails |  Critical | Spark Core | Christian Chua | Sean Owen |
@@ -67,6 +68,14 @@
 | [SPARK-16409](https://issues.apache.org/jira/browse/SPARK-16409) | regexp\_extract with optional groups causes NPE |  Major | Spark Core | Max Moroz | Sean Owen |
 | [SPARK-16939](https://issues.apache.org/jira/browse/SPARK-16939) | Fix build error by using `Tuple1` explicitly in StringFunctionSuite |  Minor | SQL | Dongjoon Hyun | Dongjoon Hyun |
 | [SPARK-17003](https://issues.apache.org/jira/browse/SPARK-17003) | release-build.sh is missing hive-thriftserver for scala 2.11 |  Major | Build | Yin Huai | Yin Huai |
+| [SPARK-17038](https://issues.apache.org/jira/browse/SPARK-17038) | StreamingSource reports metrics for lastCompletedBatch instead of lastReceivedBatch |  Minor | Streaming | Oz Ben-Ami | Xin Ren |
+
+
+### TESTS:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-17102](https://issues.apache.org/jira/browse/SPARK-17102) | bypass UserDefinedGenerator for json format check |  Major | SQL | Wenchen Fan | Wenchen Fan |
 
 
 ### SUB-TASKS:

@@ -18,13 +18,8 @@
 -->
 # Apache Hadoop Changelog
 
-## Release 2.7.3 - Unreleased (as of 2016-08-17)
+## Release 2.7.3 - Unreleased (as of 2016-08-18)
 
-### INCOMPATIBLE CHANGES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-| [HDFS-9395](https://issues.apache.org/jira/browse/HDFS-9395) | Make HDFS audit logging consistant |  Major | . | Kihwal Lee | Kuhu Shukla |
 
 
 ### IMPORTANT ISSUES:
@@ -249,6 +244,7 @@
 | [HDFS-8914](https://issues.apache.org/jira/browse/HDFS-8914) | Document HA support in the HDFS HdfsDesign.md |  Major | documentation | Ravindra Babu | Lars Francke |
 | [HADOOP-12588](https://issues.apache.org/jira/browse/HADOOP-12588) | Fix intermittent test failure of TestGangliaMetrics |  Major | . | Tsuyoshi Ozawa | Masatake Iwasaki |
 | [HADOOP-13434](https://issues.apache.org/jira/browse/HADOOP-13434) | Add quoting to Shell class |  Major | . | Owen O'Malley | Owen O'Malley |
+| [HDFS-9530](https://issues.apache.org/jira/browse/HDFS-9530) | ReservedSpace is not cleared for abandoned Blocks |  Critical | datanode | Fei Hui | Brahma Reddy Battula |
 
 
 ### TESTS:
@@ -271,6 +267,7 @@
 | [HDFS-10186](https://issues.apache.org/jira/browse/HDFS-10186) | DirectoryScanner: Improve logs by adding full path of both actual and expected block directories |  Minor | datanode | Rakesh R | Rakesh R |
 | [HADOOP-13154](https://issues.apache.org/jira/browse/HADOOP-13154) | S3AFileSystem printAmazonServiceException/printAmazonClientException appear copy & paste of AWS examples |  Blocker | fs/s3 | Steve Loughran | Steve Loughran |
 | [YARN-3362](https://issues.apache.org/jira/browse/YARN-3362) | Add node label usage in RM CapacityScheduler web UI |  Major | capacityscheduler, resourcemanager, webapp | Wangda Tan | Naganarasimha G R |
+| [YARN-3426](https://issues.apache.org/jira/browse/YARN-3426) | Add jdiff support to YARN |  Blocker | . | Li Lu | Li Lu |
 
 
 ### OTHER:

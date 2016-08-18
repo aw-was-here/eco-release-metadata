@@ -638,6 +638,13 @@ Default of 'mapreduce.jobhistory.jhist.format' property changed from 'json' to '
 
 ---
 
+* [HDFS-9395](https://issues.apache.org/jira/browse/HDFS-9395) | *Major* | **Make HDFS audit logging consistant**
+
+**WARNING: No release note provided for this change.**
+
+
+---
+
 * [HADOOP-12850](https://issues.apache.org/jira/browse/HADOOP-12850) | *Major* | **pull shell code out of hadoop-dist**
 
 This change contains the content of HADOOP-10115 which is an incompatible change.

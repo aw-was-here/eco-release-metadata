@@ -18,7 +18,7 @@
 -->
 # Apache BigTop Changelog
 
-## Release 1.2.0 - Unreleased (as of 2016-08-17)
+## Release 1.2.0 - Unreleased (as of 2016-08-18)
 
 
 

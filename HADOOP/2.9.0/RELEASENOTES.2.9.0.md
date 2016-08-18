@@ -109,6 +109,13 @@ Remove invisible synchronization primitives from DataInputBuffer
 
 ---
 
+* [YARN-5049](https://issues.apache.org/jira/browse/YARN-5049) | *Major* | **Extend NMStateStore to save queued container information**
+
+**WARNING: No release note provided for this change.**
+
+
+---
+
 * [MAPREDUCE-6701](https://issues.apache.org/jira/browse/MAPREDUCE-6701) | *Critical* | **application master log can not be available when clicking jobhistory's am logs link**
 
 **WARNING: No release note provided for this change.**
@@ -154,6 +161,13 @@ It is now possible to specify multiple jar files for the libjars argument using 
 * [YARN-5137](https://issues.apache.org/jira/browse/YARN-5137) | *Major* | **Make DiskChecker pluggable in NodeManager**
 
 Added new plugin property yarn.nodemanager.disk-validator to allow the NodeManager to use an alternate class for checking whether a disk is good or not.
+
+
+---
+
+* [HADOOP-13208](https://issues.apache.org/jira/browse/HADOOP-13208) | *Minor* | **S3A listFiles(recursive=true) to do a bulk listObjects instead of walking the pseudo-tree of directories**
+
+S3A has optimized the listFiles method by doing a bulk listing of all entries under a path in a single S3 operation instead of recursively walking the directory tree.  The listLocatedStatus method has been optimized by fetching results from S3 lazily as the caller traverses the returned iterator instead of doing an eager fetch of all possible results.
 
 
 

@@ -18,7 +18,7 @@
 -->
 # Apache Hive Changelog
 
-## Release 2.2.0 - Unreleased (as of 2016-08-17)
+## Release 2.2.0 - Unreleased (as of 2016-08-18)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -323,6 +323,9 @@
 | [HIVE-14480](https://issues.apache.org/jira/browse/HIVE-14480) | ORC ETLSplitStrategy should use thread pool when computing splits |  Minor | . | Rajesh Balamohan | Rajesh Balamohan |
 | [HIVE-14463](https://issues.apache.org/jira/browse/HIVE-14463) | hcatalog server extensions test cases getting stuck |  Major | . | Rajat Khandelwal | Hari Sankar Sivarama Subramaniyan |
 | [HIVE-12656](https://issues.apache.org/jira/browse/HIVE-12656) | Turn hive.compute.query.using.stats on by default |  Major | . | Pengcheng Xiong | Pengcheng Xiong |
+| [HIVE-11459](https://issues.apache.org/jira/browse/HIVE-11459) | LEFT SEMI JOIN with SELECT \* should not include right-side non-key columns |  Critical | Hive | Matt McCline | Jesus Camacho Rodriguez |
+| [HIVE-14556](https://issues.apache.org/jira/browse/HIVE-14556) | Load data into text table fail caused by IndexOutOfBoundsException |  Major | File Formats | Niklaus Xiao | Niklaus Xiao |
+| [HIVE-13936](https://issues.apache.org/jira/browse/HIVE-13936) | Add streaming support for row\_number |  Major | Query Processor | Johndee Burks | Yongzhi Chen |
 
 
 ### TESTS:
@@ -389,6 +392,7 @@
 | [HIVE-14527](https://issues.apache.org/jira/browse/HIVE-14527) | Schema evolution tests are not running in TestCliDriver |  Major | Test | Matt McCline | Prasanth Jayachandran |
 | [HIVE-12335](https://issues.apache.org/jira/browse/HIVE-12335) | CBO (Calcite Return Path): Support for unique join |  Major | CBO | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
 | [HIVE-10463](https://issues.apache.org/jira/browse/HIVE-10463) | CBO (Calcite Return Path): Insert overwrite... select \* from... queries failing for bucketed tables |  Major | CBO | Jesus Camacho Rodriguez | Laljo John Pullokkaran |
+| [HIVE-14552](https://issues.apache.org/jira/browse/HIVE-14552) | TestParseNegative fix |  Major | . | Hari Sankar Sivarama Subramaniyan | Hari Sankar Sivarama Subramaniyan |
 
 
 ### OTHER:

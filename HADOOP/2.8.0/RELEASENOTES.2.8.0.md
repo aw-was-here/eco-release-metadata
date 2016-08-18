@@ -743,6 +743,13 @@ Exclude javadocs for proto-generated java classes.
 
 ---
 
+* [HADOOP-13105](https://issues.apache.org/jira/browse/HADOOP-13105) | *Major* | **Support timeouts in LDAP queries in LdapGroupsMapping.**
+
+This patch adds two new config keys for supporting timeouts in LDAP query operations. The property "hadoop.security.group.mapping.ldap.connection.timeout.ms" is the connection timeout (in milliseconds), within which period if the LDAP provider doesn't establish a connection, it will abort the connect attempt. The property "hadoop.security.group.mapping.ldap.read.timeout.ms" is the read timeout (in milliseconds), within which period if the LDAP provider doesn't get a LDAP response, it will abort the read attempt.
+
+
+---
+
 * [HADOOP-13155](https://issues.apache.org/jira/browse/HADOOP-13155) | *Major* | **Implement TokenRenewer to renew and cancel delegation tokens in KMS**
 
 Enables renewal and cancellation of KMS delegation tokens. hadoop.security.key.provider.path needs to be configured to reach the key provider.

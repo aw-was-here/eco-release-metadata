@@ -49,4 +49,11 @@ Developers:
 This changes the ordering of the DOCKER\_CONTAINER\_PURGE array.
 
 
+---
+
+* [YETUS-309](https://issues.apache.org/jira/browse/YETUS-309) | *Major* | **pylint plugin false positives**
+
+The precommit plugin for pylint now ignores messages at the INFO level, which includes locally disabled warnings.
+
+
 

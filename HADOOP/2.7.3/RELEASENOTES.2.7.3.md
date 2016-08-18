@@ -45,13 +45,6 @@ Added New compression levels for GzipCodec that can be set in zlib.compress.leve
 
 ---
 
-* [HDFS-9395](https://issues.apache.org/jira/browse/HDFS-9395) | *Major* | **Make HDFS audit logging consistant**
-
-**WARNING: No release note provided for this change.**
-
-
----
-
 * [MAPREDUCE-6622](https://issues.apache.org/jira/browse/MAPREDUCE-6622) | *Critical* | **Add capability to set JHS job cache to a task-based limit**
 
 Two recommendations for the mapreduce.jobhistory.loadedtasks.cache.size property:

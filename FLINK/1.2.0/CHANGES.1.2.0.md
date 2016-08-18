@@ -18,7 +18,7 @@
 -->
 # Apache Flink Changelog
 
-## Release 1.2.0 - Unreleased (as of 2016-08-17)
+## Release 1.2.0 - Unreleased (as of 2016-08-18)
 
 
 
@@ -52,6 +52,8 @@
 | [FLINK-4104](https://issues.apache.org/jira/browse/FLINK-4104) | Restructure Gelly docs |  Minor | Documentation | Greg Hogan | Greg Hogan |
 | [FLINK-4302](https://issues.apache.org/jira/browse/FLINK-4302) | Add JavaDocs to MetricConfig |  Major | Metrics | Ufuk Celebi | Chesnay Schepler |
 | [FLINK-4281](https://issues.apache.org/jira/browse/FLINK-4281) | Wrap all Calcite Exceptions in Flink Exceptions |  Major | Table API & SQL | Timo Walther | Jark Wu |
+| [FLINK-4322](https://issues.apache.org/jira/browse/FLINK-4322) | Unify CheckpointCoordinator and SavepointCoordinator |  Major | State Backends, Checkpointing | Stephan Ewen | Stephan Ewen |
+| [FLINK-4189](https://issues.apache.org/jira/browse/FLINK-4189) | Introduce symbols for internal use |  Major | Table API & SQL | Timo Walther | Timo Walther |
 
 
 ### BUG FIXES:

@@ -18,7 +18,7 @@
 -->
 # Apache HBase Changelog
 
-## Release 2.0.0 - Unreleased (as of 2016-08-17)
+## Release 2.0.0 - Unreleased (as of 2016-08-18)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -164,6 +164,7 @@
 | [HBASE-3727](https://issues.apache.org/jira/browse/HBASE-3727) | MultiHFileOutputFormat |  Minor | . | Andrew Purtell | Yi Liang |
 | [HBASE-16198](https://issues.apache.org/jira/browse/HBASE-16198) | Enhance backup history command |  Major | . | Vladimir Rodionov | Vladimir Rodionov |
 | [HBASE-9465](https://issues.apache.org/jira/browse/HBASE-9465) | Push entries to peer clusters serially |  Major | regionserver, Replication | Honghua Feng | Phil Yang |
+| [HBASE-12721](https://issues.apache.org/jira/browse/HBASE-12721) | Create Docker container cluster infrastructure to enable better testing |  Major | build, community, documentation, test | Dima Spivak | Dima Spivak |
 
 
 ### IMPROVEMENTS:
@@ -715,6 +716,7 @@
 | [HBASE-14345](https://issues.apache.org/jira/browse/HBASE-14345) | Consolidate printUsage in IntegrationTestLoadAndVerify |  Trivial | integration tests | Nick Dimiduk | Reid Chan |
 | [HBASE-16379](https://issues.apache.org/jira/browse/HBASE-16379) | [replication] Minor improvement to replication/copy\_tables\_desc.rb |  Trivial | Replication, shell | Esteban Gutierrez | Esteban Gutierrez |
 | [HBASE-16385](https://issues.apache.org/jira/browse/HBASE-16385) | Have hbase-rest pull hbase.rest.port from Constants.java |  Minor | REST | Dima Spivak | Yi Liang |
+| [HBASE-16419](https://issues.apache.org/jira/browse/HBASE-16419) | check REPLICATION\_SCOPE's value more stringently |  Major | . | Guangxu Cheng | Guangxu Cheng |
 
 
 ### BUG FIXES:
@@ -2120,6 +2122,9 @@
 | [HBASE-16389](https://issues.apache.org/jira/browse/HBASE-16389) | Thread leak in CoprocessorHost#getTable(TableName) API |  Major | . | Ankit Singhal | Ankit Singhal |
 | [HBASE-16267](https://issues.apache.org/jira/browse/HBASE-16267) | Remove commons-httpclient dependency from hbase-rest module |  Critical | . | Ted Yu | Ted Yu |
 | [HBASE-16341](https://issues.apache.org/jira/browse/HBASE-16341) | Missing bit on "Regression: Random Read/WorkloadC slower in 1.x than 0.98" |  Major | rpc | stack | stack |
+| [HBASE-15635](https://issues.apache.org/jira/browse/HBASE-15635) | Mean age of Blocks in cache (seconds) on webUI should be greater than zero |  Major | . | Heng Chen | Heng Chen |
+| [HBASE-16384](https://issues.apache.org/jira/browse/HBASE-16384) | Update report-flakies.py script to allow specifying a list of build ids to be excluded |  Major | . | Appy | Appy |
+| [HBASE-16429](https://issues.apache.org/jira/browse/HBASE-16429) | FSHLog: deadlock if rollWriter called when ring buffer filled with appends |  Critical | . | Yu Li | Yu Li |
 
 
 ### TESTS:
@@ -2698,6 +2703,9 @@
 | [HBASE-16308](https://issues.apache.org/jira/browse/HBASE-16308) | Contain protobuf references |  Major | Protobufs | stack | stack |
 | [HBASE-15554](https://issues.apache.org/jira/browse/HBASE-15554) | StoreFile$Writer.appendGeneralBloomFilter generates extra KV |  Major | Performance | Vladimir Rodionov | ramkrishna.s.vasudevan |
 | [HBASE-16404](https://issues.apache.org/jira/browse/HBASE-16404) | Make DeleteBloomFilters work with BloomContext |  Minor | Compaction | ramkrishna.s.vasudevan | ramkrishna.s.vasudevan |
+| [HBASE-16378](https://issues.apache.org/jira/browse/HBASE-16378) | Procedure v2 - Make ProcedureException extend HBaseException |  Trivial | proc-v2 | Matteo Bertozzi | Matteo Bertozzi |
+| [HBASE-16318](https://issues.apache.org/jira/browse/HBASE-16318) | fail build if license isn't in whitelist |  Major | build, dependencies | Sean Busbey | Sean Busbey |
+| [HBASE-16094](https://issues.apache.org/jira/browse/HBASE-16094) | Procedure v2 - Improve cleaning up of proc wals |  Major | proc-v2 | Appy | Appy |
 
 
 ### OTHER:
@@ -2856,5 +2864,7 @@
 | [HBASE-15988](https://issues.apache.org/jira/browse/HBASE-15988) | User needs to initiate full backup for new table(s) being added for incremental backup |  Major | . | Vladimir Rodionov | Ted Yu |
 | [HBASE-15656](https://issues.apache.org/jira/browse/HBASE-15656) | Fix unused protobuf warning in Admin.proto |  Minor | . | Elliott Clark | Yi Liang |
 | [HBASE-16354](https://issues.apache.org/jira/browse/HBASE-16354) | Clean up defunct GitHub PRs |  Major | community | Dima Spivak | Sean Busbey |
+| [HBASE-16426](https://issues.apache.org/jira/browse/HBASE-16426) | Remove company affiliations from committer list |  Major | documentation, website | Misty Stanley-Jones | Misty Stanley-Jones |
+| [HBASE-16260](https://issues.apache.org/jira/browse/HBASE-16260) | Audit dependencies for Category-X |  Critical | community, dependencies | Sean Busbey | Sean Busbey |
 
 

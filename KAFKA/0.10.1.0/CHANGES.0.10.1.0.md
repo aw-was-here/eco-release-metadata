@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.10.1.0 - Unreleased (as of 2016-08-17)
+## Release 0.10.1.0 - Unreleased (as of 2016-08-18)
 
 
 
@@ -67,6 +67,7 @@
 | [KAFKA-3997](https://issues.apache.org/jira/browse/KAFKA-3997) | Halting because log truncation is not allowed and suspicious logging |  Major | core | Alexey Ozeritskiy |  |
 | [KAFKA-4012](https://issues.apache.org/jira/browse/KAFKA-4012) | KerberosShortNamer should implement toString() |  Major | clients | Bryan Baugher |  |
 | [KAFKA-4044](https://issues.apache.org/jira/browse/KAFKA-4044) | log actual socket send/receive buffer size after connecting in Selector |  Major | . | Jun Rao | Manikumar Reddy |
+| [KAFKA-3888](https://issues.apache.org/jira/browse/KAFKA-3888) | Allow consumer to send heartbeats in background thread (KIP-62) |  Major | consumer | Jason Gustafson | Jason Gustafson |
 
 
 ### BUG FIXES:
@@ -147,9 +148,10 @@
 | [KAFKA-3912](https://issues.apache.org/jira/browse/KAFKA-3912) | Query local state stores |  Major | streams | Damian Guy | Damian Guy |
 | [KAFKA-3911](https://issues.apache.org/jira/browse/KAFKA-3911) | Enforce KTable materialization |  Major | streams | Eno Thereska | Eno Thereska |
 | [KAFKA-3290](https://issues.apache.org/jira/browse/KAFKA-3290) | WorkerSourceTask testCommit transient failure |  Major | KafkaConnect | Jason Gustafson | Ewen Cheslack-Postava |
-| [KAFKA-3875](https://issues.apache.org/jira/browse/KAFKA-3875) | Transient test failure: kafka.api.SslProducerSendTest.testSendNonCompressedMessageWithCreateTime |  Major | unit tests | Ismael Juma | Jun Rao |
 | [KAFKA-3914](https://issues.apache.org/jira/browse/KAFKA-3914) | Global discovery of state stores |  Major | streams | Damian Guy | Damian Guy |
 | [KAFKA-2946](https://issues.apache.org/jira/browse/KAFKA-2946) | DeleteTopic - protocol and server side implementation |  Major | . | Grant Henke | Grant Henke |
+| [KAFKA-4045](https://issues.apache.org/jira/browse/KAFKA-4045) | Investigate feasibility of hooking into RocksDb's cache |  Major | streams | Eno Thereska | Damian Guy |
+| [KAFKA-4038](https://issues.apache.org/jira/browse/KAFKA-4038) | Transient failure in DeleteTopicsRequestTest.testErrorDeleteTopicRequests |  Major | . | Jason Gustafson | Grant Henke |
 
 
 ### OTHER:
