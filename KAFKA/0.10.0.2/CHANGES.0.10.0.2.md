@@ -16,18 +16,24 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-# Apache Hive Changelog
+# Apache Kafka Changelog
 
-## Release 1.1.2 - Unreleased (as of 2016-08-23)
+## Release 0.10.0.2 - Unreleased (as of 2016-08-23)
 
+
+
+### IMPROVEMENTS:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-4050](https://issues.apache.org/jira/browse/KAFKA-4050) | Allow configuration of the PRNG used for SSL |  Major | security | Todd Palino | Todd Palino |
 
 
 ### BUG FIXES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [HIVE-11841](https://issues.apache.org/jira/browse/HIVE-11841) | KeyValuesInputMerger creates huge logs |  Major | Logging | Rajesh Balamohan | Rajesh Balamohan |
-| [HIVE-12344](https://issues.apache.org/jira/browse/HIVE-12344) | Wrong types inferred for SemiJoin generation in CBO |  Major | CBO | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
-| [HIVE-12875](https://issues.apache.org/jira/browse/HIVE-12875) | Verify sem.getInputs() and sem.getOutputs() |  Major | . | Sushanth Sowmyan | Sushanth Sowmyan |
+| [KAFKA-4037](https://issues.apache.org/jira/browse/KAFKA-4037) | Transient failure in ConnectRestApiTest |  Minor | KafkaConnect | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
+| [KAFKA-4073](https://issues.apache.org/jira/browse/KAFKA-4073) | MirrorMaker should handle mirroring messages w/o timestamp better |  Major | . | Jun Rao | Ismael Juma |
 
 

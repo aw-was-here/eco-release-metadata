@@ -891,4 +891,11 @@ Add a configuration option to enable in-progress edit tailing and a related unit
 Hdfs dfs chmod command will reset sticky bit permission on a file/directory when the leading sticky bit is omitted in the octal mode (like 644). So when a file/directory permission is applied using octal mode and sticky bit permission needs to be preserved, then it has to be explicitly mentioned in the permission bits (like 1644). This behavior is similar to many other filesystems on Linux/BSD.
 
 
+---
+
+* [HADOOP-12726](https://issues.apache.org/jira/browse/HADOOP-12726) | *Major* | **Unsupported FS operations should throw UnsupportedOperationException**
+
+**WARNING: No release note provided for this change.**
+
+
 

@@ -18,7 +18,7 @@
 -->
 # Apache BigTop Changelog
 
-## Release 1.2.0 - Unreleased (as of 2016-08-18)
+## Release 1.2.0 - Unreleased (as of 2016-08-23)
 
 
 
@@ -166,5 +166,6 @@
 | [BIGTOP-2415](https://issues.apache.org/jira/browse/BIGTOP-2415) | readme spelling error |  Trivial | documentation | Artem Ervits | Artem Ervits |
 | [BIGTOP-2414](https://issues.apache.org/jira/browse/BIGTOP-2414) | Rename Tachyon to Alluxio |  Major | . | Jonathan Kelly | Jonathan Kelly |
 | [BIGTOP-2456](https://issues.apache.org/jira/browse/BIGTOP-2456) | Update Apache Apex version to 3.4.0 |  Major | build | Chinmay Kolhatkar | Chinmay Kolhatkar |
+| [BIGTOP-2500](https://issues.apache.org/jira/browse/BIGTOP-2500) | Remove hadoop jars from TEZ\_HOME/lib and create appropriate symlinks |  Major | . | YoungWoo Kim | YoungWoo Kim |
 
 

@@ -18,7 +18,7 @@
 -->
 # Apache Hadoop Changelog
 
-## Release 2.9.0 - Unreleased (as of 2016-08-18)
+## Release 2.9.0 - Unreleased (as of 2016-08-24)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -158,6 +158,8 @@
 | [MAPREDUCE-6751](https://issues.apache.org/jira/browse/MAPREDUCE-6751) | Add debug log message when splitting is not possible due to unsplittable compression |  Minor | client, mrv1, mrv2 | Peter Vary | Peter Vary |
 | [YARN-5455](https://issues.apache.org/jira/browse/YARN-5455) | Update Javadocs for LinuxContainerExecutor |  Major | nodemanager | Daniel Templeton | Daniel Templeton |
 | [YARN-4702](https://issues.apache.org/jira/browse/YARN-4702) | FairScheduler: Allow setting maxResources for ad hoc queues |  Major | fairscheduler | Karthik Kambatla | Daniel Templeton |
+| [HDFS-10645](https://issues.apache.org/jira/browse/HDFS-10645) | Make block report size as a metric and add this metric to datanode web ui |  Major | datanode, ui | Yuanbo Liu | Yuanbo Liu |
+| [YARN-4491](https://issues.apache.org/jira/browse/YARN-4491) | yarn list command to support filtering by tags |  Minor | client | Steve Loughran | Varun Saxena |
 
 
 ### BUG FIXES:
@@ -282,7 +284,6 @@
 | [YARN-5266](https://issues.apache.org/jira/browse/YARN-5266) | Wrong exit code while trying to get app logs using regex via CLI |  Critical | yarn | Sumana Sathish | Xuan Gong |
 | [HDFS-10561](https://issues.apache.org/jira/browse/HDFS-10561) | test\_native\_mini\_dfs fails by NoClassDefFoundError |  Major | native, test | Akira Ajisaka | Akira Ajisaka |
 | [HDFS-10555](https://issues.apache.org/jira/browse/HDFS-10555) | Unable to loadFSEdits due to a failure in readCachePoolInfo |  Critical | caching, namenode | Uma Maheswara Rao G | Uma Maheswara Rao G |
-| [HDFS-7959](https://issues.apache.org/jira/browse/HDFS-7959) | WebHdfs logging is missing on Datanode |  Critical | . | Kihwal Lee | Kihwal Lee |
 | [MAPREDUCE-5803](https://issues.apache.org/jira/browse/MAPREDUCE-5803) | Counters page display all task neverthless of task type( Map or Reduce) |  Minor | jobhistoryserver | Rohith Sharma K S | Kai Sasaki |
 | [YARN-5182](https://issues.apache.org/jira/browse/YARN-5182) | MockNodes.newNodes creates one more node per rack than requested |  Major | test | Karthik Kambatla | Karthik Kambatla |
 | [YARN-5282](https://issues.apache.org/jira/browse/YARN-5282) | Fix typos in CapacityScheduler documentation |  Trivial | documentation | Ray Chiang | Ray Chiang |
@@ -320,9 +321,7 @@
 | [HADOOP-13403](https://issues.apache.org/jira/browse/HADOOP-13403) | AzureNativeFileSystem rename/delete performance improvements |  Major | azure | Subramanyam Pattipaka | Subramanyam Pattipaka |
 | [HDFS-10457](https://issues.apache.org/jira/browse/HDFS-10457) | DataNode should not auto-format block pool directory if VERSION is missing |  Major | datanode | Wei-Chiu Chuang | Wei-Chiu Chuang |
 | [HDFS-4176](https://issues.apache.org/jira/browse/HDFS-4176) | EditLogTailer should call rollEdits with a timeout |  Major | ha, namenode | Todd Lipcon | Lei (Eddy) Xu |
-| [MAPREDUCE-6750](https://issues.apache.org/jira/browse/MAPREDUCE-6750) | TestHSAdminServer.testRefreshSuperUserGroups is failing |  Minor | test | Kihwal Lee | Kihwal Lee |
 | [HADOOP-13473](https://issues.apache.org/jira/browse/HADOOP-13473) | Tracing in IPC Server is broken |  Major | . | Wei-Chiu Chuang | Daryn Sharp |
-| [HDFS-10738](https://issues.apache.org/jira/browse/HDFS-10738) | Fix TestRefreshUserMappings.testRefreshSuperUserGroupsConfiguration test failure |  Major | test | Rakesh R | Rakesh R |
 | [HADOOP-13476](https://issues.apache.org/jira/browse/HADOOP-13476) | CredentialProviderFactory fails at class loading from libhdfs (JNI) |  Major | fs/s3 | Aaron Fabbri | Aaron Fabbri |
 | [HDFS-8224](https://issues.apache.org/jira/browse/HDFS-8224) | Schedule a block for scanning if its metadata file is corrupt |  Major | datanode | Rushabh S Shah | Rushabh S Shah |
 | [HADOOP-13461](https://issues.apache.org/jira/browse/HADOOP-13461) | NPE in KeyProvider.rollNewVersion |  Minor | . | Colm O hEigeartaigh | Colm O hEigeartaigh |
@@ -336,6 +335,10 @@
 | [YARN-5475](https://issues.apache.org/jira/browse/YARN-5475) | Test failed for TestAggregatedLogFormat on trunk |  Major | . | Junping Du | Jun Gong |
 | [YARN-5523](https://issues.apache.org/jira/browse/YARN-5523) | Yarn running container log fetching causes OutOfMemoryError |  Major | log-aggregation | Prasanth Jayachandran | Xuan Gong |
 | [YARN-5526](https://issues.apache.org/jira/browse/YARN-5526) | DrainDispacher#ServiceStop blocked if setDrainEventsOnStop invoked |  Major | . | sandflee | sandflee |
+| [YARN-5533](https://issues.apache.org/jira/browse/YARN-5533) | JMX AM Used metrics for queue wrong when app submited to nodelabel partition |  Major | . | Bibin A Chundatt | Bibin A Chundatt |
+| [MAPREDUCE-6762](https://issues.apache.org/jira/browse/MAPREDUCE-6762) | ControlledJob#toString failed with NPE when job status is not successfully updated |  Major | . | Weiwei Yang |  |
+| [HADOOP-13526](https://issues.apache.org/jira/browse/HADOOP-13526) | Add detailed logging in KMS for the authentication failure of proxy user |  Minor | kms | Suraj Acharya | Suraj Acharya |
+| [HDFS-8312](https://issues.apache.org/jira/browse/HDFS-8312) | Trash does not descent into child directories to check for permissions |  Critical | fs, security | Eric Yang | Weiwei Yang |
 
 
 ### TESTS:
@@ -477,6 +480,8 @@
 | [HADOOP-13208](https://issues.apache.org/jira/browse/HADOOP-13208) | S3A listFiles(recursive=true) to do a bulk listObjects instead of walking the pseudo-tree of directories |  Minor | fs/s3 | Steve Loughran | Steve Loughran |
 | [YARN-4676](https://issues.apache.org/jira/browse/YARN-4676) | Automatic and Asynchronous Decommissioning Nodes Status Tracking |  Major | resourcemanager | Daniel Zhi | Daniel Zhi |
 | [HDFS-10745](https://issues.apache.org/jira/browse/HDFS-10745) | Directly resolve paths into INodesInPath |  Major | hdfs | Daryn Sharp | Daryn Sharp |
+| [HDFS-10711](https://issues.apache.org/jira/browse/HDFS-10711) | Optimize FSPermissionChecker group membership check |  Major | hdfs | Daryn Sharp | Daryn Sharp |
+| [HADOOP-13446](https://issues.apache.org/jira/browse/HADOOP-13446) | Support running isolated unit tests separate from AWS integration tests. |  Major | fs/s3 | Chris Nauroth | Chris Nauroth |
 
 
 ### OTHER:

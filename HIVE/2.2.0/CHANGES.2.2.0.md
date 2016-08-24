@@ -18,7 +18,7 @@
 -->
 # Apache Hive Changelog
 
-## Release 2.2.0 - Unreleased (as of 2016-08-18)
+## Release 2.2.0 - Unreleased (as of 2016-08-23)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -97,6 +97,8 @@
 | [HIVE-14351](https://issues.apache.org/jira/browse/HIVE-14351) | Minor improvement in genUnionPlan method |  Major | . | Ratandeep Ratti | Ratandeep Ratti |
 | [HIVE-14299](https://issues.apache.org/jira/browse/HIVE-14299) | Log serialized plan size |  Minor | . | Prasanth Jayachandran | Prasanth Jayachandran |
 | [HIVE-14533](https://issues.apache.org/jira/browse/HIVE-14533) | improve performance of enforceMaxLength in HiveCharWritable/HiveVarcharWritable |  Minor | Serializers/Deserializers | Thomas Friedrich | Thomas Friedrich |
+| [HIVE-14199](https://issues.apache.org/jira/browse/HIVE-14199) | Enable Bucket Pruning for ACID tables |  Major | Transactions | Saket Saurabh | Saket Saurabh |
+| [HIVE-14534](https://issues.apache.org/jira/browse/HIVE-14534) | modify tables in tests in HIVE-14479 to use transactional\_properties=default |  Minor | Transactions | Eugene Koifman | Eugene Koifman |
 
 
 ### BUG FIXES:
@@ -326,6 +328,13 @@
 | [HIVE-11459](https://issues.apache.org/jira/browse/HIVE-11459) | LEFT SEMI JOIN with SELECT \* should not include right-side non-key columns |  Critical | Hive | Matt McCline | Jesus Camacho Rodriguez |
 | [HIVE-14556](https://issues.apache.org/jira/browse/HIVE-14556) | Load data into text table fail caused by IndexOutOfBoundsException |  Major | File Formats | Niklaus Xiao | Niklaus Xiao |
 | [HIVE-13936](https://issues.apache.org/jira/browse/HIVE-13936) | Add streaming support for row\_number |  Major | Query Processor | Johndee Burks | Yongzhi Chen |
+| [HIVE-14566](https://issues.apache.org/jira/browse/HIVE-14566) | LLAP IO reads timestamp wrongly |  Critical | llap | Prasanth Jayachandran | Prasanth Jayachandran |
+| [HIVE-14563](https://issues.apache.org/jira/browse/HIVE-14563) | StatsOptimizer treats NULL in a wrong way |  Major | . | Pengcheng Xiong | Pengcheng Xiong |
+| [HIVE-14435](https://issues.apache.org/jira/browse/HIVE-14435) | Vectorization: missed vectorization for const varchar() |  Major | Vectorization | Gopal V | Gopal V |
+| [HIVE-13874](https://issues.apache.org/jira/browse/HIVE-13874) | Tighten up EOF checking in Fast DeserializeRead classes; display better exception information; add new Unit Tests |  Critical | Hive | Matt McCline | Matt McCline |
+| [HIVE-14595](https://issues.apache.org/jira/browse/HIVE-14595) | TimestampWritable::setTimestamp gives wrong result when 2nd VInt exists |  Major | . | Rui Li | Rui Li |
+| [HIVE-14588](https://issues.apache.org/jira/browse/HIVE-14588) | Add S3 credentials to the hidden configuration variable supported on HIVE-14207 |  Major | Hive | Gabor Szadovszky | Gabor Szadovszky |
+| [HIVE-14600](https://issues.apache.org/jira/browse/HIVE-14600) | LLAP zookeeper registry failures do not fail the daemon |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
 
 
 ### TESTS:
@@ -393,6 +402,13 @@
 | [HIVE-12335](https://issues.apache.org/jira/browse/HIVE-12335) | CBO (Calcite Return Path): Support for unique join |  Major | CBO | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
 | [HIVE-10463](https://issues.apache.org/jira/browse/HIVE-10463) | CBO (Calcite Return Path): Insert overwrite... select \* from... queries failing for bucketed tables |  Major | CBO | Jesus Camacho Rodriguez | Laljo John Pullokkaran |
 | [HIVE-14552](https://issues.apache.org/jira/browse/HIVE-14552) | TestParseNegative fix |  Major | . | Hari Sankar Sivarama Subramaniyan | Hari Sankar Sivarama Subramaniyan |
+| [HIVE-14522](https://issues.apache.org/jira/browse/HIVE-14522) | CBO: Calcite Operator To Hive Operator(Calcite Return Path): Fix test failure for auto\_join\_filters |  Major | CBO | Vineet Garg | Vineet Garg |
+| [HIVE-14559](https://issues.apache.org/jira/browse/HIVE-14559) | Remove setting hive.execution.engine in qfiles |  Major | Test | Prasanth Jayachandran | Prasanth Jayachandran |
+| [HIVE-14562](https://issues.apache.org/jira/browse/HIVE-14562) | CBO (Calcite Return Path) Wrong results for limit + offset |  Major | Logical Optimizer | Ashutosh Chauhan | Ashutosh Chauhan |
+| [HIVE-14503](https://issues.apache.org/jira/browse/HIVE-14503) | Remove explicit order by in qfiles for union tests |  Major | Test | Prasanth Jayachandran | Prasanth Jayachandran |
+| [HIVE-14565](https://issues.apache.org/jira/browse/HIVE-14565) | CBO (Calcite Return Path) Handle field access for nested column |  Major | Logical Optimizer | Ashutosh Chauhan | Ashutosh Chauhan |
+| [HIVE-14502](https://issues.apache.org/jira/browse/HIVE-14502) | Convert MiniTez tests to MiniLlap tests |  Major | Test | Prasanth Jayachandran | Prasanth Jayachandran |
+| [HIVE-14511](https://issues.apache.org/jira/browse/HIVE-14511) | Improve MSCK for partitioned table to deal with special cases |  Major | . | Pengcheng Xiong | Pengcheng Xiong |
 
 
 ### OTHER:

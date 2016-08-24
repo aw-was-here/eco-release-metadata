@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.10.1.0 - Unreleased (as of 2016-08-18)
+## Release 0.10.1.0 - Unreleased (as of 2016-08-23)
 
 
 
@@ -68,6 +68,11 @@
 | [KAFKA-4012](https://issues.apache.org/jira/browse/KAFKA-4012) | KerberosShortNamer should implement toString() |  Major | clients | Bryan Baugher |  |
 | [KAFKA-4044](https://issues.apache.org/jira/browse/KAFKA-4044) | log actual socket send/receive buffer size after connecting in Selector |  Major | . | Jun Rao | Manikumar Reddy |
 | [KAFKA-3888](https://issues.apache.org/jira/browse/KAFKA-3888) | Allow consumer to send heartbeats in background thread (KIP-62) |  Major | consumer | Jason Gustafson | Jason Gustafson |
+| [KAFKA-3845](https://issues.apache.org/jira/browse/KAFKA-3845) | Support per-connector converters |  Critical | KafkaConnect | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
+| [KAFKA-4050](https://issues.apache.org/jira/browse/KAFKA-4050) | Allow configuration of the PRNG used for SSL |  Major | security | Todd Palino | Todd Palino |
+| [KAFKA-4053](https://issues.apache.org/jira/browse/KAFKA-4053) | Refactor TopicCommand to remove redundant if/else statements |  Minor | admin | Shuai Zhang |  |
+| [KAFKA-4016](https://issues.apache.org/jira/browse/KAFKA-4016) | Kafka Streams join benchmark |  Major | streams | Eno Thereska | Eno Thereska |
+| [KAFKA-3680](https://issues.apache.org/jira/browse/KAFKA-3680) | Make Java client classloading more flexible |  Major | clients | Rajini Sivaram | Rajini Sivaram |
 
 
 ### BUG FIXES:
@@ -122,6 +127,19 @@
 | [KAFKA-4031](https://issues.apache.org/jira/browse/KAFKA-4031) | Check DirectBuffer's cleaner to be not null before using |  Major | core | Soumyajit Sahu | Soumyajit Sahu |
 | [KAFKA-4035](https://issues.apache.org/jira/browse/KAFKA-4035) | AclCommand should allow Describe operation on groups |  Major | . | Jun Rao | Manikumar Reddy |
 | [KAFKA-3769](https://issues.apache.org/jira/browse/KAFKA-3769) | KStream job spending 60% of time writing metrics |  Critical | streams | Greg Fodor | Guozhang Wang |
+| [KAFKA-4037](https://issues.apache.org/jira/browse/KAFKA-4037) | Transient failure in ConnectRestApiTest |  Minor | KafkaConnect | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
+| [KAFKA-4056](https://issues.apache.org/jira/browse/KAFKA-4056) | Kafka logs values of sensitive configs like passwords |  Major | . | jaikiran pai | Mickael Maison |
+| [KAFKA-3949](https://issues.apache.org/jira/browse/KAFKA-3949) | Consumer topic subscription change may be ignored if a rebalance is in progress |  Major | consumer | Jason Gustafson | Jason Gustafson |
+| [KAFKA-3894](https://issues.apache.org/jira/browse/KAFKA-3894) | LogCleaner thread crashes if not even one segment can fit in the offset map |  Major | core | Tim Carey-Smith | Tom Crayford |
+| [KAFKA-4066](https://issues.apache.org/jira/browse/KAFKA-4066) | NullPointerException in Kafka consumer due to unsafe access to findCoordinatorFuture |  Major | consumer | Rajini Sivaram | Rajini Sivaram |
+| [KAFKA-4051](https://issues.apache.org/jira/browse/KAFKA-4051) | Strange behavior during rebalance when turning the OS clock back |  Major | consumer | Gabriel Ibarra | Rajini Sivaram |
+| [KAFKA-4032](https://issues.apache.org/jira/browse/KAFKA-4032) | Uncaught exceptions when autocreating topics |  Major | core | Jason Gustafson | Grant Henke |
+| [KAFKA-3916](https://issues.apache.org/jira/browse/KAFKA-3916) | Connection from controller to broker disconnects |  Major | controller | Dave Powell | Jason Gustafson |
+| [KAFKA-4073](https://issues.apache.org/jira/browse/KAFKA-4073) | MirrorMaker should handle mirroring messages w/o timestamp better |  Major | . | Jun Rao | Ismael Juma |
+| [KAFKA-3218](https://issues.apache.org/jira/browse/KAFKA-3218) | Kafka-0.9.0.0 does not work as OSGi module |  Major | clients | Joe O'Connor | Rajini Sivaram |
+| [KAFKA-2894](https://issues.apache.org/jira/browse/KAFKA-2894) | WorkerSinkTask doesn't handle rewinding offsets on rebalance |  Blocker | KafkaConnect | Ewen Cheslack-Postava | Liquan Pei |
+| [KAFKA-3937](https://issues.apache.org/jira/browse/KAFKA-3937) | Kafka Clients Leak Native Memory For Longer Than Needed With Compressed Messages |  Minor | clients | Tom Crayford | William Yu |
+| [KAFKA-4082](https://issues.apache.org/jira/browse/KAFKA-4082) | Support Gradle 3.0 |  Major | . | Ismael Juma | Ismael Juma |
 
 
 ### TESTS:
@@ -152,6 +170,7 @@
 | [KAFKA-2946](https://issues.apache.org/jira/browse/KAFKA-2946) | DeleteTopic - protocol and server side implementation |  Major | . | Grant Henke | Grant Henke |
 | [KAFKA-4045](https://issues.apache.org/jira/browse/KAFKA-4045) | Investigate feasibility of hooking into RocksDb's cache |  Major | streams | Eno Thereska | Damian Guy |
 | [KAFKA-4038](https://issues.apache.org/jira/browse/KAFKA-4038) | Transient failure in DeleteTopicsRequestTest.testErrorDeleteTopicRequests |  Major | . | Jason Gustafson | Grant Henke |
+| [KAFKA-4049](https://issues.apache.org/jira/browse/KAFKA-4049) | Transient failure in RegexSourceIntegrationTest.testRegexMatchesTopicsAWhenDeleted |  Major | streams | Guozhang Wang | Guozhang Wang |
 
 
 ### OTHER:
@@ -159,5 +178,6 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [KAFKA-3905](https://issues.apache.org/jira/browse/KAFKA-3905) | Check for null in KafkaConsumer#{subscribe, assign} |  Minor | clients | Xing Huang | Rekha Joshi |
+| [KAFKA-3163](https://issues.apache.org/jira/browse/KAFKA-3163) | KIP-33 - Add a time based log index to Kafka |  Major | core | Jiangjie Qin | Jiangjie Qin |
 
 

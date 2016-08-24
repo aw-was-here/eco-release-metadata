@@ -170,4 +170,11 @@ Added new plugin property yarn.nodemanager.disk-validator to allow the NodeManag
 S3A has optimized the listFiles method by doing a bulk listing of all entries under a path in a single S3 operation instead of recursively walking the directory tree.  The listLocatedStatus method has been optimized by fetching results from S3 lazily as the caller traverses the returned iterator instead of doing an eager fetch of all possible results.
 
 
+---
+
+* [HDFS-8312](https://issues.apache.org/jira/browse/HDFS-8312) | *Critical* | **Trash does not descent into child directories to check for permissions**
+
+HDFS-8312. Added permission check for moving file to Trash. (Weiwei Yang via Eric Yang)
+
+
 

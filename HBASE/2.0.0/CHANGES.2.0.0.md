@@ -18,7 +18,7 @@
 -->
 # Apache HBase Changelog
 
-## Release 2.0.0 - Unreleased (as of 2016-08-18)
+## Release 2.0.0 - Unreleased (as of 2016-08-23)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -717,6 +717,10 @@
 | [HBASE-16379](https://issues.apache.org/jira/browse/HBASE-16379) | [replication] Minor improvement to replication/copy\_tables\_desc.rb |  Trivial | Replication, shell | Esteban Gutierrez | Esteban Gutierrez |
 | [HBASE-16385](https://issues.apache.org/jira/browse/HBASE-16385) | Have hbase-rest pull hbase.rest.port from Constants.java |  Minor | REST | Dima Spivak | Yi Liang |
 | [HBASE-16419](https://issues.apache.org/jira/browse/HBASE-16419) | check REPLICATION\_SCOPE's value more stringently |  Major | . | Guangxu Cheng | Guangxu Cheng |
+| [HBASE-16434](https://issues.apache.org/jira/browse/HBASE-16434) | Improve flaky dashboard |  Minor | . | Appy | Appy |
+| [HBASE-16422](https://issues.apache.org/jira/browse/HBASE-16422) | Tighten our guarantees on compatibility across patch versions |  Major | documentation | stack | stack |
+| [HBASE-16455](https://issues.apache.org/jira/browse/HBASE-16455) | Provide API for obtaining all the WAL files |  Major | . | Ted Yu | Ted Yu |
+| [HBASE-16450](https://issues.apache.org/jira/browse/HBASE-16450) | Shell tool to dump replication queues |  Major | Operability, Replication | Esteban Gutierrez | Esteban Gutierrez |
 
 
 ### BUG FIXES:
@@ -2125,6 +2129,13 @@
 | [HBASE-15635](https://issues.apache.org/jira/browse/HBASE-15635) | Mean age of Blocks in cache (seconds) on webUI should be greater than zero |  Major | . | Heng Chen | Heng Chen |
 | [HBASE-16384](https://issues.apache.org/jira/browse/HBASE-16384) | Update report-flakies.py script to allow specifying a list of build ids to be excluded |  Major | . | Appy | Appy |
 | [HBASE-16429](https://issues.apache.org/jira/browse/HBASE-16429) | FSHLog: deadlock if rollWriter called when ring buffer filled with appends |  Critical | . | Yu Li | Yu Li |
+| [HBASE-16430](https://issues.apache.org/jira/browse/HBASE-16430) | Fix RegionServer Group's bug when moving multiple tables |  Major | master | Guangxu Cheng | Guangxu Cheng |
+| [HBASE-7621](https://issues.apache.org/jira/browse/HBASE-7621) | REST client (RemoteHTable) doesn't support binary row keys |  Major | REST | Craig Muchinsky | Keith David Winkler |
+| [HBASE-16409](https://issues.apache.org/jira/browse/HBASE-16409) | Row key for bad row should be properly delimited in VerifyReplication |  Minor | . | Ted Yu | Ted Yu |
+| [HBASE-16444](https://issues.apache.org/jira/browse/HBASE-16444) | CellUtil#estimatedSerializedSizeOfKey() should consider KEY\_INFRASTRUCTURE\_SIZE |  Minor | . | ramkrishna.s.vasudevan | ramkrishna.s.vasudevan |
+| [HBASE-16454](https://issues.apache.org/jira/browse/HBASE-16454) | Compactor's shipping logic decision should be based on the current store's block size |  Minor | . | ramkrishna.s.vasudevan | ramkrishna.s.vasudevan |
+| [HBASE-16446](https://issues.apache.org/jira/browse/HBASE-16446) | append\_peer\_tableCFs failed when there already have this table's partial cfs in the peer |  Minor | Replication | Guanghao Zhang | Guanghao Zhang |
+| [HBASE-16360](https://issues.apache.org/jira/browse/HBASE-16360) | TableMapReduceUtil addHBaseDependencyJars has the wrong class name for PrefixTreeCodec |  Minor | mapreduce | Matteo Bertozzi | Jing Pu Chen |
 
 
 ### TESTS:
@@ -2704,8 +2715,11 @@
 | [HBASE-15554](https://issues.apache.org/jira/browse/HBASE-15554) | StoreFile$Writer.appendGeneralBloomFilter generates extra KV |  Major | Performance | Vladimir Rodionov | ramkrishna.s.vasudevan |
 | [HBASE-16404](https://issues.apache.org/jira/browse/HBASE-16404) | Make DeleteBloomFilters work with BloomContext |  Minor | Compaction | ramkrishna.s.vasudevan | ramkrishna.s.vasudevan |
 | [HBASE-16378](https://issues.apache.org/jira/browse/HBASE-16378) | Procedure v2 - Make ProcedureException extend HBaseException |  Trivial | proc-v2 | Matteo Bertozzi | Matteo Bertozzi |
-| [HBASE-16318](https://issues.apache.org/jira/browse/HBASE-16318) | fail build if license isn't in whitelist |  Major | build, dependencies | Sean Busbey | Sean Busbey |
 | [HBASE-16094](https://issues.apache.org/jira/browse/HBASE-16094) | Procedure v2 - Improve cleaning up of proc wals |  Major | proc-v2 | Appy | Appy |
+| [HBASE-16405](https://issues.apache.org/jira/browse/HBASE-16405) | Change read path Bloom check to work with Cells with out any copy |  Major | Compaction | ramkrishna.s.vasudevan | Anoop Sam John |
+| [HBASE-16452](https://issues.apache.org/jira/browse/HBASE-16452) | Procedure v2 - Make ProcedureWALPrettyPrinter extend Tool |  Minor | proc-v2 | Matteo Bertozzi | Matteo Bertozzi |
+| [HBASE-16318](https://issues.apache.org/jira/browse/HBASE-16318) | fail build if license isn't in whitelist |  Major | build, dependencies | Sean Busbey | Sean Busbey |
+| [HBASE-16440](https://issues.apache.org/jira/browse/HBASE-16440) | MemstoreChunkPool might cross its maxCount of chunks to pool |  Major | . | Anoop Sam John | Anoop Sam John |
 
 
 ### OTHER:
@@ -2866,5 +2880,7 @@
 | [HBASE-16354](https://issues.apache.org/jira/browse/HBASE-16354) | Clean up defunct GitHub PRs |  Major | community | Dima Spivak | Sean Busbey |
 | [HBASE-16426](https://issues.apache.org/jira/browse/HBASE-16426) | Remove company affiliations from committer list |  Major | documentation, website | Misty Stanley-Jones | Misty Stanley-Jones |
 | [HBASE-16260](https://issues.apache.org/jira/browse/HBASE-16260) | Audit dependencies for Category-X |  Critical | community, dependencies | Sean Busbey | Sean Busbey |
+| [HBASE-14450](https://issues.apache.org/jira/browse/HBASE-14450) | HBase Backup/Restore Phase 3: Multiwal support |  Major | . | Vladimir Rodionov | Ted Yu |
+| [HBASE-16467](https://issues.apache.org/jira/browse/HBASE-16467) | Move AbstractHBaseTool to hbase-common |  Trivial | . | Appy | Appy |
 
 

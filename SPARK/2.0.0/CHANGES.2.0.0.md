@@ -140,6 +140,7 @@
 | [SPARK-16118](https://issues.apache.org/jira/browse/SPARK-16118) | getDropLast is missing in OneHotEncoder |  Major | MLlib | Xiangrui Meng | Xiangrui Meng |
 | [SPARK-16503](https://issues.apache.org/jira/browse/SPARK-16503) | SparkSession should provide Spark version |  Major | Spark Core | Joseph K. Bradley | Liwei Lin |
 | [SPARK-12420](https://issues.apache.org/jira/browse/SPARK-12420) | Have a built-in CSV data source implementation |  Major | SQL | Reynold Xin |  |
+| [SPARK-9041](https://issues.apache.org/jira/browse/SPARK-9041) | Support reading of delimited text files as DataFrames |  Major | SQL | Vishal Bagga |  |
 
 
 ### IMPROVEMENTS:

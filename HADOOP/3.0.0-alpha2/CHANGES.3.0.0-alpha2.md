@@ -18,7 +18,7 @@
 -->
 # Apache Hadoop Changelog
 
-## Release 3.0.0-alpha2 - Unreleased (as of 2016-08-18)
+## Release 3.0.0-alpha2 - Unreleased (as of 2016-08-24)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -61,6 +61,9 @@
 | [HADOOP-13442](https://issues.apache.org/jira/browse/HADOOP-13442) | Optimize UGI group lookups |  Major | . | Daryn Sharp | Daryn Sharp |
 | [HADOOP-13380](https://issues.apache.org/jira/browse/HADOOP-13380) | TestBasicDiskValidator should not write data to /tmp |  Minor | . | Lei (Eddy) Xu | Yufei Gu |
 | [HDFS-10342](https://issues.apache.org/jira/browse/HDFS-10342) | BlockManager#createLocatedBlocks should not check corrupt replicas if none are corrupt |  Major | hdfs | Daryn Sharp | Kuhu Shukla |
+| [HDFS-10645](https://issues.apache.org/jira/browse/HDFS-10645) | Make block report size as a metric and add this metric to datanode web ui |  Major | datanode, ui | Yuanbo Liu | Yuanbo Liu |
+| [MAPREDUCE-6587](https://issues.apache.org/jira/browse/MAPREDUCE-6587) | Remove unused params in connection-related methods of Fetcher |  Minor | . | Yiqun Lin | Yiqun Lin |
+| [YARN-4491](https://issues.apache.org/jira/browse/YARN-4491) | yarn list command to support filtering by tags |  Minor | client | Steve Loughran | Varun Saxena |
 
 
 ### BUG FIXES:
@@ -108,6 +111,9 @@
 | [HDFS-10549](https://issues.apache.org/jira/browse/HDFS-10549) | Correctly revoke file leases when closing files |  Major | hdfs-client | Yiqun Lin | Yiqun Lin |
 | [HDFS-10773](https://issues.apache.org/jira/browse/HDFS-10773) | BlockSender should not synchronize on the dataset object |  Major | datanode | Arpit Agarwal | Chen Liang |
 | [HDFS-10763](https://issues.apache.org/jira/browse/HDFS-10763) | Open files can leak permanently due to inconsistent lease update |  Critical | . | Kihwal Lee | Kihwal Lee |
+| [HADOOP-13487](https://issues.apache.org/jira/browse/HADOOP-13487) | Hadoop KMS should load old delegation tokens from Zookeeper on startup |  Major | kms | Alex Ivanov | Xiao Chen |
+| [HDFS-10783](https://issues.apache.org/jira/browse/HDFS-10783) | The option '-maxSize' and '-step' fail in OfflineImageViewer |  Major | tools | Yiqun Lin | Yiqun Lin |
+| [HADOOP-13497](https://issues.apache.org/jira/browse/HADOOP-13497) | fix wrong command in CredentialProviderAPI.md |  Trivial | documentation | Yuanbo Liu | Yuanbo Liu |
 
 
 ### TESTS:
@@ -136,6 +142,7 @@
 | [HDFS-10681](https://issues.apache.org/jira/browse/HDFS-10681) | DiskBalancer: query command should report Plan file path apart from PlanID |  Minor | diskbalancer | Manoj Govindassamy | Manoj Govindassamy |
 | [HDFS-10744](https://issues.apache.org/jira/browse/HDFS-10744) | Internally optimize path component resolution |  Major | hdfs | Daryn Sharp | Daryn Sharp |
 | [HDFS-10745](https://issues.apache.org/jira/browse/HDFS-10745) | Directly resolve paths into INodesInPath |  Major | hdfs | Daryn Sharp | Daryn Sharp |
+| [HDFS-10711](https://issues.apache.org/jira/browse/HDFS-10711) | Optimize FSPermissionChecker group membership check |  Major | hdfs | Daryn Sharp | Daryn Sharp |
 
 
 ### OTHER:

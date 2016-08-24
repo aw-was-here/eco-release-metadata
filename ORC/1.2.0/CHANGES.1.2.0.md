@@ -18,15 +18,8 @@
 -->
 # Apache Orc Changelog
 
-## Release 1.2.0 - Unreleased (as of 2016-08-18)
+## Release 1.2.0 - Unreleased (as of 2016-08-23)
 
-
-
-### NEW FEATURES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-| [ORC-92](https://issues.apache.org/jira/browse/ORC-92) | Support column id and column name selection in ReaderOptions |  Minor | C++ | Chunyang Wen | Chunyang Wen |
 
 
 ### IMPROVEMENTS:
@@ -40,6 +33,7 @@
 | [ORC-84](https://issues.apache.org/jira/browse/ORC-84) | Create a separate java tool module |  Major | . | Owen O'Malley | Owen O'Malley |
 | [ORC-85](https://issues.apache.org/jira/browse/ORC-85) | Update the C++ library with the newer WriterVersion values. |  Major | . | Owen O'Malley | Owen O'Malley |
 | [ORC-54](https://issues.apache.org/jira/browse/ORC-54) | Evolve schemas based on field name rather than index |  Major | . | Mark Wagner | Mark Wagner |
+| [ORC-96](https://issues.apache.org/jira/browse/ORC-96) | Pass Context to Orc tree readers |  Major | Reader | Prasanth Jayachandran | Prasanth Jayachandran |
 
 
 ### BUG FIXES:

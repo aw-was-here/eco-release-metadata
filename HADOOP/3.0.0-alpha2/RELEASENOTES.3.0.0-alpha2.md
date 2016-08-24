@@ -32,7 +32,7 @@ The time format of console logger and MapReduce job summary logger is ISO8601 by
 
 * [HDFS-10650](https://issues.apache.org/jira/browse/HDFS-10650) | *Minor* | **DFSClient#mkdirs and DFSClient#primitiveMkdir should use default directory permission**
 
-**WARNING: No release note provided for this change.**
+If the caller does not supply a permission, DFSClient#mkdirs and DFSClient#primitiveMkdir will create a new directory with the default directory permission 00777 instead of 00666.
 
 
 ---

@@ -49,4 +49,11 @@ Vectorization: LIKE should anchor the regexes
 Vectorization: Fix Mapjoin overflow deserialization (Gopal V, reviewed by Matt McCline)
 
 
+---
+
+* [HIVE-14435](https://issues.apache.org/jira/browse/HIVE-14435) | *Major* | **Vectorization: missed vectorization for const varchar()**
+
+Vectorization: missed vectorization for const varchar()
+
+
 

@@ -18,7 +18,7 @@
 -->
 # Apache Flink Changelog
 
-## Release 1.2.0 - Unreleased (as of 2016-08-18)
+## Release 1.2.0 - Unreleased (as of 2016-08-23)
 
 
 
@@ -54,6 +54,10 @@
 | [FLINK-4281](https://issues.apache.org/jira/browse/FLINK-4281) | Wrap all Calcite Exceptions in Flink Exceptions |  Major | Table API & SQL | Timo Walther | Jark Wu |
 | [FLINK-4322](https://issues.apache.org/jira/browse/FLINK-4322) | Unify CheckpointCoordinator and SavepointCoordinator |  Major | State Backends, Checkpointing | Stephan Ewen | Stephan Ewen |
 | [FLINK-4189](https://issues.apache.org/jira/browse/FLINK-4189) | Introduce symbols for internal use |  Major | Table API & SQL | Timo Walther | Timo Walther |
+| [FLINK-4282](https://issues.apache.org/jira/browse/FLINK-4282) | Add Offset Parameter to WindowAssigners |  Major | Streaming | Aljoscha Krettek |  |
+| [FLINK-4222](https://issues.apache.org/jira/browse/FLINK-4222) | Allow Kinesis configuration to get credentials from AWS Metadata |  Minor | Streaming Connectors | Nick Chadwick |  |
+| [FLINK-3866](https://issues.apache.org/jira/browse/FLINK-3866) | StringArraySerializer claims type is immutable; shouldn't |  Minor | Core | Tatu Saloranta | Ivan Mushketyk |
+| [FLINK-4435](https://issues.apache.org/jira/browse/FLINK-4435) | Replace Guava's VisibleForTesting annotation with Flink's annotation |  Major | . | Stephan Ewen | Jark Wu |
 
 
 ### BUG FIXES:
@@ -91,6 +95,8 @@
 | [FLINK-4411](https://issues.apache.org/jira/browse/FLINK-4411) | [py] Chained dual input children are not properly propagated |  Minor | Python API | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-4412](https://issues.apache.org/jira/browse/FLINK-4412) | [py] Chaining does not properly handle broadcast variables |  Major | Python API | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-4409](https://issues.apache.org/jira/browse/FLINK-4409) | class conflict between jsr305-1.3.9.jar and flink-shaded-hadoop2-1.1.1.jar |  Minor | Build System | Renkai Ge | Stephan Ewen |
+| [FLINK-4021](https://issues.apache.org/jira/browse/FLINK-4021) | Problem of setting autoread for netty channel when more tasks sharing the same Tcp connection |  Major | Network | Zhijiang Wang | Zhijiang Wang |
+| [FLINK-4425](https://issues.apache.org/jira/browse/FLINK-4425) | "Out Of Memory" during savepoint deserialization |  Major | State Backends, Checkpointing | Sergii Koshel |  |
 
 
 ### SUB-TASKS:
@@ -100,5 +106,7 @@
 | [FLINK-4312](https://issues.apache.org/jira/browse/FLINK-4312) | Remove Serializabiliy of ExecutionGraph |  Minor | JobManager | Stephan Ewen | Stephan Ewen |
 | [FLINK-4320](https://issues.apache.org/jira/browse/FLINK-4320) | Fix misleading ScheduleMode names |  Minor | Distributed Coordination | Stephan Ewen | Stephan Ewen |
 | [FLINK-4392](https://issues.apache.org/jira/browse/FLINK-4392) | Make RPC Service Thread Safe |  Major | Distributed Coordination | Stephan Ewen | Stephan Ewen |
+| [FLINK-4403](https://issues.apache.org/jira/browse/FLINK-4403) | RPC proxy classloading should use Flink class' classloader |  Major | Distributed Coordination | Stephan Ewen | Stephan Ewen |
+| [FLINK-4434](https://issues.apache.org/jira/browse/FLINK-4434) | Add a testing RPC service |  Major | Distributed Coordination | Stephan Ewen | Stephan Ewen |
 
 

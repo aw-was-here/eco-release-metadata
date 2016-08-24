@@ -18,7 +18,7 @@
 -->
 # Apache Oozie Changelog
 
-## Release 4.3.0 - Unreleased (as of 2016-08-18)
+## Release 4.3.0 - Unreleased (as of 2016-08-23)
 
 
 
@@ -222,6 +222,7 @@
 | [OOZIE-2512](https://issues.apache.org/jira/browse/OOZIE-2512) | ShareLibservice returns incorrect path for jar |  Major | . | Satish Subhashrao Saley | Satish Subhashrao Saley |
 | [OOZIE-2508](https://issues.apache.org/jira/browse/OOZIE-2508) | Documentation change for Coord action rerun [OOZIE-1735] |  Major | . | Satish Subhashrao Saley | Satish Subhashrao Saley |
 | [OOZIE-2589](https://issues.apache.org/jira/browse/OOZIE-2589) | CompletedActionXCommand is hardcoded to wrong priority |  Major | core | Linflytang | Linflytang |
+| [OOZIE-2517](https://issues.apache.org/jira/browse/OOZIE-2517) | Add support for startCreatedTime and endCreatedTime filters for coord and bundles |  Major | core | Abhishek Bafna | Abhishek Bafna |
 
 
 ### TESTS:

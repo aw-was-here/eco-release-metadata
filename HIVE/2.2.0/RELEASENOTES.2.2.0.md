@@ -84,4 +84,11 @@ Vectorization: BytesBytes lookup capped count can be =0, =1, \>=2 (Gopal V, revi
 **WARNING: No release note provided for this change.**
 
 
+---
+
+* [HIVE-14435](https://issues.apache.org/jira/browse/HIVE-14435) | *Major* | **Vectorization: missed vectorization for const varchar()**
+
+Vectorization: missed vectorization for const varchar()
+
+
 

@@ -18,7 +18,7 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.9.0 - Unreleased (as of 2016-08-17)
+## Release 0.9.0 - Unreleased (as of 2016-08-24)
 
 
 
@@ -121,6 +121,7 @@
 | [TEZ-3374](https://issues.apache.org/jira/browse/TEZ-3374) | Change TEZ\_HISTORY\_LOGGING\_TIMELINE\_NUM\_DAGS\_PER\_GROUP conf key name. |  Major | . | Harish Jaiprakash | Tsuyoshi Ozawa |
 | [TEZ-3359](https://issues.apache.org/jira/browse/TEZ-3359) | Add granular log levels for HistoryLoggingService. |  Major | . | Harish Jaiprakash | Harish Jaiprakash |
 | [TEZ-3376](https://issues.apache.org/jira/browse/TEZ-3376) | Fix groupId generation to account for dagId starting with 1. |  Major | . | Harish Jaiprakash | Harish Jaiprakash |
+| [TEZ-3395](https://issues.apache.org/jira/browse/TEZ-3395) | Refactor ShuffleVertexManager to make parts of it re-usable in other plugins |  Major | . | Ming Ma | Ming Ma |
 
 
 ### OTHER:

@@ -3849,4 +3849,34 @@ Downstream users wishing to test HBase in a "distributed" fashion (multiple "nod
 For details see the README.md in the dev-support/apache\_hbase\_topology folder.
 
 
+---
+
+* [HBASE-7621](https://issues.apache.org/jira/browse/HBASE-7621) | *Major* | **REST client (RemoteHTable) doesn't support binary row keys**
+
+RemoteHTable now supports binary row keys with any character or byte by properly encoding request URLs. This is a both a behavioral change from earlier versions and an important fix for protocol correctness.
+
+
+---
+
+* [HBASE-16422](https://issues.apache.org/jira/browse/HBASE-16422) | *Major* | **Tighten our guarantees on compatibility across patch versions**
+
+Adds below change to our compat guarantees:
+
+{code}
+-\* Example: A user using a newly deprecated api does not need to modify application code with hbase api calls until the next major version.
+ 10 +\* New APIs introduced in a patch version will only be added in a source compatible way footnote:[See 'Source Compatibility' https://blogs.oracle.com/darcy/entry/kinds\_of\_compatibility]: i.e.     code that implements public APIs will continue to compile.
+{code}
+
+
+---
+
+* [HBASE-16450](https://issues.apache.org/jira/browse/HBASE-16450) | *Major* | **Shell tool to dump replication queues**
+
+New tool to dump existing replication peers, configurations and queues when using HBase Replication. The tool provides two flags:
+
+ --distributed  This flag will poll each RS for information about the replication queues being processed on this RS.
+By default this is not enabled and the information about the replication queues and configuration will be obtained from ZooKeeper.
+ --hdfs   When --distributed is used, this flag will attempt to calculate the total size of the WAL files used by the replication queues. Since its possible that multiple peers can be configured this value can be overestimated.
+
+
 

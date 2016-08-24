@@ -18,7 +18,7 @@
 -->
 # Apache Hadoop Changelog
 
-## Release 3.0.0-alpha1 - Unreleased (as of 2016-08-18)
+## Release 3.0.0-alpha1 - Unreleased (as of 2016-08-24)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -90,6 +90,7 @@
 | [HADOOP-12064](https://issues.apache.org/jira/browse/HADOOP-12064) | [JDK8] Update guice version to 4.0 |  Blocker | . | Tsuyoshi Ozawa | Tsuyoshi Ozawa |
 | [HDFS-10548](https://issues.apache.org/jira/browse/HDFS-10548) | Remove the long deprecated BlockReaderRemote |  Major | hdfs | Kai Zheng | Kai Zheng |
 | [HDFS-10689](https://issues.apache.org/jira/browse/HDFS-10689) | Hdfs dfs chmod should reset sticky bit permission when the bit is omitted in the octal mode |  Minor | fs | Manoj Govindassamy | Manoj Govindassamy |
+| [HADOOP-12726](https://issues.apache.org/jira/browse/HADOOP-12726) | Unsupported FS operations should throw UnsupportedOperationException |  Major | fs | Daniel Templeton | Daniel Templeton |
 
 
 ### IMPORTANT ISSUES:
@@ -519,6 +520,9 @@
 | [HADOOP-13392](https://issues.apache.org/jira/browse/HADOOP-13392) | [Azure Data Lake] OAuth2 configuration should be default set to true when AdlFileSystem is configured. |  Major | fs/azure | Vishwajeet Dusane | Vishwajeet Dusane |
 | [YARN-5474](https://issues.apache.org/jira/browse/YARN-5474) | Typo mistake in AMRMClient#getRegisteredTimeineClient API |  Trivial | . | Rohith Sharma K S | Naganarasimha G R |
 | [HDFS-10720](https://issues.apache.org/jira/browse/HDFS-10720) | Fix intermittent test failure of TestDataNodeErasureCodingMetrics |  Major | . | Rakesh R | Rakesh R |
+| [HADOOP-13428](https://issues.apache.org/jira/browse/HADOOP-13428) | Fix hadoop-common to generate jdiff |  Blocker | . | Wangda Tan | Wangda Tan |
+| [HDFS-10692](https://issues.apache.org/jira/browse/HDFS-10692) | Point JDiff base version for HDFS from 2.6.0 to 2.7.2 |  Blocker | . | Wangda Tan | Wangda Tan |
+| [HADOOP-13526](https://issues.apache.org/jira/browse/HADOOP-13526) | Add detailed logging in KMS for the authentication failure of proxy user |  Minor | kms | Suraj Acharya | Suraj Acharya |
 
 
 ### TESTS:
@@ -785,6 +789,7 @@
 | [HADOOP-11540](https://issues.apache.org/jira/browse/HADOOP-11540) | Raw Reed-Solomon coder using Intel ISA-L library |  Major | . | Zhe Zhang | Kai Zheng |
 | [HADOOP-11588](https://issues.apache.org/jira/browse/HADOOP-11588) | Benchmark framework and test for erasure coders |  Major | io | Kai Zheng | Rui Li |
 | [HDFS-8668](https://issues.apache.org/jira/browse/HDFS-8668) | Erasure Coding: revisit buffer used for encoding and decoding. |  Major | . | Yi Liu | SammiChen |
+| [HADOOP-13504](https://issues.apache.org/jira/browse/HADOOP-13504) | Refactor jni\_common to conform to C89 restrictions imposed by Visual Studio 2010 |  Major | io | SammiChen | SammiChen |
 
 
 ### OTHER:

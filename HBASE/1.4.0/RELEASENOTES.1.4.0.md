@@ -512,4 +512,11 @@ Now in replication we can make sure the order of pushing logs is same as the ord
 This feature relies on zk-less assignment, and conflicts with distributed log replay. So users must set hbase.assignment.usezk and hbase.master.distributed.log.replay to false to support this feature.
 
 
+---
+
+* [HBASE-7621](https://issues.apache.org/jira/browse/HBASE-7621) | *Major* | **REST client (RemoteHTable) doesn't support binary row keys**
+
+RemoteHTable now supports binary row keys with any character or byte by properly encoding request URLs. This is a both a behavioral change from earlier versions and an important fix for protocol correctness.
+
+
 

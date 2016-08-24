@@ -1361,4 +1361,15 @@ This patch will solve this problem by read the previous result when receive a du
 2. When there are duplicate rpc request, convert to read result by the mvcc.
 
 
+---
+
+* [HBASE-16450](https://issues.apache.org/jira/browse/HBASE-16450) | *Major* | **Shell tool to dump replication queues**
+
+New tool to dump existing replication peers, configurations and queues when using HBase Replication. The tool provides two flags:
+
+ --distributed  This flag will poll each RS for information about the replication queues being processed on this RS.
+By default this is not enabled and the information about the replication queues and configuration will be obtained from ZooKeeper.
+ --hdfs   When --distributed is used, this flag will attempt to calculate the total size of the WAL files used by the replication queues. Since its possible that multiple peers can be configured this value can be overestimated.
+
+
 

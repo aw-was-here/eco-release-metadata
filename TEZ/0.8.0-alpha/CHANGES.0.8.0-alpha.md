@@ -56,6 +56,7 @@
 | [TEZ-2172](https://issues.apache.org/jira/browse/TEZ-2172) | FetcherOrderedGrouped using List to store InputAttemptIdentifier can lead to some inefficiency during remove() operation |  Major | . | Rajesh Balamohan | Saikat |
 | [TEZ-2211](https://issues.apache.org/jira/browse/TEZ-2211) | Tez UI: Allow users to configure timezone |  Major | UI | Jonathan Eagles | Jonathan Eagles |
 | [TEZ-2719](https://issues.apache.org/jira/browse/TEZ-2719) | Consider reducing logs in unordered fetcher with shared-fetch option |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
+| [TEZ-2003](https://issues.apache.org/jira/browse/TEZ-2003) | [Umbrella] Allow Tez to co-ordinate execution to external services |  Major | . | Siddharth Seth |  |
 
 
 ### BUG FIXES:
