@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.10.1.0 - Unreleased (as of 2016-08-23)
+## Release 0.10.1.0 - Unreleased (as of 2016-08-25)
 
 
 

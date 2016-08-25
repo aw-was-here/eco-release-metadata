@@ -18,7 +18,7 @@
 -->
 # Apache Hadoop Changelog
 
-## Release 3.0.0-alpha1 - Unreleased (as of 2016-08-24)
+## Release 3.0.0-alpha1 - Unreleased (as of 2016-08-25)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -126,6 +126,7 @@
 | [YARN-2928](https://issues.apache.org/jira/browse/YARN-2928) | YARN Timeline Service v.2: alpha 1 |  Critical | timelineserver | Sangjin Lee | Sangjin Lee |
 | [MAPREDUCE-6331](https://issues.apache.org/jira/browse/MAPREDUCE-6331) | [Umbrella] Make MapReduce work with Timeline Service Nextgen (YARN-2928) |  Major | . | Vinod Kumar Vavilapalli | Sangjin Lee |
 | [HDFS-9804](https://issues.apache.org/jira/browse/HDFS-9804) | Allow long-running Balancer to login with keytab |  Major | balancer & mover, security | Xiao Chen | Xiao Chen |
+| [MAPREDUCE-6578](https://issues.apache.org/jira/browse/MAPREDUCE-6578) | Add support for HDFS heterogeneous storage testing to TestDFSIO |  Major | . | Wei Zhou | Wei Zhou |
 
 
 ### IMPROVEMENTS:
@@ -790,6 +791,7 @@
 | [HADOOP-11588](https://issues.apache.org/jira/browse/HADOOP-11588) | Benchmark framework and test for erasure coders |  Major | io | Kai Zheng | Rui Li |
 | [HDFS-8668](https://issues.apache.org/jira/browse/HDFS-8668) | Erasure Coding: revisit buffer used for encoding and decoding. |  Major | . | Yi Liu | SammiChen |
 | [HADOOP-13504](https://issues.apache.org/jira/browse/HADOOP-13504) | Refactor jni\_common to conform to C89 restrictions imposed by Visual Studio 2010 |  Major | io | SammiChen | SammiChen |
+| [HDFS-8905](https://issues.apache.org/jira/browse/HDFS-8905) | Refactor DFSInputStream#ReaderStrategy |  Major | erasure-coding | Kai Zheng | SammiChen |
 
 
 ### OTHER:

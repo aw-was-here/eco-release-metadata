@@ -23,6 +23,13 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
+* [YARN-5049](https://issues.apache.org/jira/browse/YARN-5049) | *Major* | **Extend NMStateStore to save queued container information**
+
+**WARNING: No release note provided for this change.**
+
+
+---
+
 * [HADOOP-13301](https://issues.apache.org/jira/browse/HADOOP-13301) | *Minor* | **Millisecond timestamp for FsShell console log and MapReduce jobsummary log**
 
 The time format of console logger and MapReduce job summary logger is ISO8601 by default to print milliseconds.
@@ -54,6 +61,13 @@ It is now possible to specify multiple jar files for the libjars argument using 
 * [HDFS-10725](https://issues.apache.org/jira/browse/HDFS-10725) | *Minor* | **Caller context should always be constructed by a builder**
 
 **WARNING: No release note provided for this change.**
+
+
+---
+
+* [HDFS-8986](https://issues.apache.org/jira/browse/HDFS-8986) | *Major* | **Add option to -du to calculate directory space usage excluding snapshots**
+
+Add a -x option for "hdfs -du" and "hdfs -count" commands to exclude snapshots from being calculated.
 
 
 

@@ -18,7 +18,7 @@
 -->
 # Apache BigTop Changelog
 
-## Release 1.2.0 - Unreleased (as of 2016-08-23)
+## Release 1.2.0 - Unreleased (as of 2016-08-25)
 
 
 
@@ -152,6 +152,7 @@
 | [BIGTOP-2254](https://issues.apache.org/jira/browse/BIGTOP-2254) | Replace the Docker orchestration tool from Vagrant to Docker Compose |  Major | docker, provisioner | Evans Ye | Evans Ye |
 | [BIGTOP-2312](https://issues.apache.org/jira/browse/BIGTOP-2312) | Add environment check |  Minor | docker, provisioner | Evans Ye | Evans Ye |
 | [BIGTOP-2505](https://issues.apache.org/jira/browse/BIGTOP-2505) | Support systemd containers, clean up hiera.yaml handling, fix exec (-e) flag |  Major | provisioner | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2518](https://issues.apache.org/jira/browse/BIGTOP-2518) | Add node to the build slave configuration |  Major | build | Roman Shaposhnik | Roman Shaposhnik |
 
 
 ### OTHER:

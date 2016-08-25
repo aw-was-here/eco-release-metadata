@@ -18,7 +18,7 @@
 -->
 # Apache Yetus Changelog
 
-## Release 0.4.0 - Unreleased (as of 2016-08-23)
+## Release 0.4.0 - Unreleased (as of 2016-08-25)
 
 
 
@@ -51,6 +51,7 @@
 | [YETUS-48](https://issues.apache.org/jira/browse/YETUS-48) | Document python version releasedocmaker supports |  Minor | Release Doc Maker | Kengo Seki | Ajay Yadava |
 | [YETUS-434](https://issues.apache.org/jira/browse/YETUS-434) | Add .pyc files to .gitignore |  Major | build | Ajay Yadava | Ajay Yadava |
 | [YETUS-430](https://issues.apache.org/jira/browse/YETUS-430) | Refactor releasedocmaker.py in separate modules |  Major | Release Doc Maker | Ajay Yadava | Ajay Yadava |
+| [YETUS-444](https://issues.apache.org/jira/browse/YETUS-444) | Improve documentation for Test Format Support |  Trivial | website and documentation | Ajay Yadava | Ajay Yadava |
 
 
 ### BUG FIXES:
@@ -74,6 +75,7 @@
 | [YETUS-112](https://issues.apache.org/jira/browse/YETUS-112) | test-patch build system documentation missing expected args for required |  Major | Test Patch, website and documentation | Sean Busbey | Karen Clark |
 | [YETUS-433](https://issues.apache.org/jira/browse/YETUS-433) | releasedocmaker generates empty index and readme for non-semver versioning |  Major | Release Doc Maker | Ajay Yadava | Ajay Yadava |
 | [YETUS-309](https://issues.apache.org/jira/browse/YETUS-309) | pylint plugin false positives |  Major | Test Patch | Sean Busbey | Dima Spivak |
+| [YETUS-442](https://issues.apache.org/jira/browse/YETUS-442) | JIRA plugin will not fallback to normal patch if it fails to find a github pull |  Minor | Test Patch | Casey Brotherton | Casey Brotherton |
 
 
 ### OTHER:

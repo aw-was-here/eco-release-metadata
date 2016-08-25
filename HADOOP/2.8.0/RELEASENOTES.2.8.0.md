@@ -853,4 +853,11 @@ The configuration option 'fs.s3a.threads.core' is no longer supported. The strin
 **WARNING: No release note provided for this change.**
 
 
+---
+
+* [HDFS-8986](https://issues.apache.org/jira/browse/HDFS-8986) | *Major* | **Add option to -du to calculate directory space usage excluding snapshots**
+
+Add a -x option for "hdfs -du" and "hdfs -count" commands to exclude snapshots from being calculated.
+
+
 

@@ -18,7 +18,7 @@
 -->
 # Apache Flink Changelog
 
-## Release 1.2.0 - Unreleased (as of 2016-08-23)
+## Release 1.2.0 - Unreleased (as of 2016-08-25)
 
 
 
@@ -58,6 +58,9 @@
 | [FLINK-4222](https://issues.apache.org/jira/browse/FLINK-4222) | Allow Kinesis configuration to get credentials from AWS Metadata |  Minor | Streaming Connectors | Nick Chadwick |  |
 | [FLINK-3866](https://issues.apache.org/jira/browse/FLINK-3866) | StringArraySerializer claims type is immutable; shouldn't |  Minor | Core | Tatu Saloranta | Ivan Mushketyk |
 | [FLINK-4435](https://issues.apache.org/jira/browse/FLINK-4435) | Replace Guava's VisibleForTesting annotation with Flink's annotation |  Major | . | Stephan Ewen | Jark Wu |
+| [FLINK-4253](https://issues.apache.org/jira/browse/FLINK-4253) | Rename "recovery.mode" config key to "high-availability" |  Major | . | Ufuk Celebi | ramkrishna.s.vasudevan |
+| [FLINK-4457](https://issues.apache.org/jira/browse/FLINK-4457) | Make the ExecutionGraph independent of Akka |  Major | Distributed Coordination | Till Rohrmann | Stephan Ewen |
+| [FLINK-3899](https://issues.apache.org/jira/browse/FLINK-3899) | Document window processing with Reduce/FoldFunction + WindowFunction |  Major | Documentation, Streaming | Fabian Hueske | Daniel Blazevski |
 
 
 ### BUG FIXES:
@@ -97,6 +100,10 @@
 | [FLINK-4409](https://issues.apache.org/jira/browse/FLINK-4409) | class conflict between jsr305-1.3.9.jar and flink-shaded-hadoop2-1.1.1.jar |  Minor | Build System | Renkai Ge | Stephan Ewen |
 | [FLINK-4021](https://issues.apache.org/jira/browse/FLINK-4021) | Problem of setting autoread for netty channel when more tasks sharing the same Tcp connection |  Major | Network | Zhijiang Wang | Zhijiang Wang |
 | [FLINK-4425](https://issues.apache.org/jira/browse/FLINK-4425) | "Out Of Memory" during savepoint deserialization |  Major | State Backends, Checkpointing | Sergii Koshel |  |
+| [FLINK-4454](https://issues.apache.org/jira/browse/FLINK-4454) | Lookups for JobManager address in config |  Minor | Client | Maximilian Michels | Maximilian Michels |
+| [FLINK-4417](https://issues.apache.org/jira/browse/FLINK-4417) | Checkpoints should be subsumed by CheckpointID not, by timestamp |  Major | State Backends, Checkpointing | Stephan Ewen | ramkrishna.s.vasudevan |
+| [FLINK-4437](https://issues.apache.org/jira/browse/FLINK-4437) | Lock evasion around lastTriggeredCheckpoint may lead to lost updates to related fields |  Major | . | Ted Yu |  |
+| [FLINK-4453](https://issues.apache.org/jira/browse/FLINK-4453) | Scala code example in Window documentation shows Java |  Trivial | Documentation | Fabian Hueske | Jark Wu |
 
 
 ### SUB-TASKS:

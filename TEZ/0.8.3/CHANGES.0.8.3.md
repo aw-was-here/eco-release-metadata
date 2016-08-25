@@ -158,6 +158,7 @@
 | [TEZ-3173](https://issues.apache.org/jira/browse/TEZ-3173) | Update Tez AM REST APIs for more information for each vertex |  Major | . | Sreenath Somarajapuram | Zhiyuan Yang |
 | [TEZ-3172](https://issues.apache.org/jira/browse/TEZ-3172) | Tez UI: Swimlane - In progress & Shadow |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-3194](https://issues.apache.org/jira/browse/TEZ-3194) | Tez UI: Swimlane improve in-progress experience |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
+| [TEZ-2773](https://issues.apache.org/jira/browse/TEZ-2773) | Tez UI: in progress update handle the last update from AM |  Major | UI | Prakash Ramachandran | Sreenath Somarajapuram |
 
 
 ### OTHER:

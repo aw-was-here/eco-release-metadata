@@ -109,13 +109,6 @@ Remove invisible synchronization primitives from DataInputBuffer
 
 ---
 
-* [YARN-5049](https://issues.apache.org/jira/browse/YARN-5049) | *Major* | **Extend NMStateStore to save queued container information**
-
-**WARNING: No release note provided for this change.**
-
-
----
-
 * [MAPREDUCE-6701](https://issues.apache.org/jira/browse/MAPREDUCE-6701) | *Critical* | **application master log can not be available when clicking jobhistory's am logs link**
 
 **WARNING: No release note provided for this change.**
