@@ -267,13 +267,6 @@ There is a typo in the event string "WORKFLOW\_ID" (as "WORKLFOW\_ID").  The bra
 
 ---
 
-* [HADOOP-12081](https://issues.apache.org/jira/browse/HADOOP-12081) | *Major* | **Fix UserGroupInformation.java to support 64-bit zLinux**
-
-**WARNING: No release note provided for this change.**
-
-
----
-
 * [HDFS-7582](https://issues.apache.org/jira/browse/HDFS-7582) | *Major* | **Enforce maximum number of ACL entries separately per access and default.**
 
 Limit on Maximum number of ACL entries(32) will be enforced separately on access and default ACLs. So in total, max. 64 ACL entries can be present in a ACL spec.
@@ -283,7 +276,7 @@ Limit on Maximum number of ACL entries(32) will be enforced separately on access
 
 * [HADOOP-12269](https://issues.apache.org/jira/browse/HADOOP-12269) | *Major* | **Update aws-sdk dependency to 1.10.6; move to aws-sdk-s3**
 
-**WARNING: No release note provided for this change.**
+The Maven dependency on aws-sdk has been changed to aws-sdk-s3 and the version bumped. Applications depending on transitive dependencies pulled in by aws-sdk and not aws-sdk-s3 might not work.
 
 
 ---
@@ -836,21 +829,14 @@ The configuration option 'fs.s3a.threads.core' is no longer supported. The strin
 
 * [HADOOP-13382](https://issues.apache.org/jira/browse/HADOOP-13382) | *Major* | **remove unneeded commons-httpclient dependencies from POM files in Hadoop and sub-projects**
 
-**WARNING: No release note provided for this change.**
-
-
----
-
-* [MAPREDUCE-6729](https://issues.apache.org/jira/browse/MAPREDUCE-6729) | *Minor* | **Accurately compute the test execute time in DFSIO**
-
-**WARNING: No release note provided for this change.**
+Dependencies on commons-httpclient have been removed. Projects with undeclared transitive dependencies on commons-httpclient, previously provided via hadoop-common or hadoop-client, may find this to be an incompatible change. Such project are also potentially exposed to the commons-httpclient CVE, and should be fixed for that reason as well.
 
 
 ---
 
 * [HDFS-7933](https://issues.apache.org/jira/browse/HDFS-7933) | *Major* | **fsck should also report decommissioning replicas.**
 
-**WARNING: No release note provided for this change.**
+The output of hdfs fsck now also contains information about decommissioning replicas.
 
 
 ---

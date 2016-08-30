@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.10.1.0 - Unreleased (as of 2016-08-25)
+## Release 0.10.1.0 - Unreleased (as of 2016-08-30)
 
 
 
@@ -29,6 +29,7 @@
 | [KAFKA-3176](https://issues.apache.org/jira/browse/KAFKA-3176) | Allow console consumer to consume from particular partitions when new consumer is used. |  Major | tools | Jiangjie Qin | Vahid Hashemian |
 | [KAFKA-3858](https://issues.apache.org/jira/browse/KAFKA-3858) | Add functions to print stream topologies |  Major | streams | Roger Hoover | Eno Thereska |
 | [KAFKA-3909](https://issues.apache.org/jira/browse/KAFKA-3909) | Queryable state for Kafka Streams |  Major | streams | Eno Thereska |  |
+| [KAFKA-4015](https://issues.apache.org/jira/browse/KAFKA-4015) | Change cleanup.policy config to accept a list of valid policies |  Major | core | Damian Guy | Damian Guy |
 
 
 ### IMPROVEMENTS:
@@ -73,6 +74,8 @@
 | [KAFKA-4053](https://issues.apache.org/jira/browse/KAFKA-4053) | Refactor TopicCommand to remove redundant if/else statements |  Minor | admin | Shuai Zhang |  |
 | [KAFKA-4016](https://issues.apache.org/jira/browse/KAFKA-4016) | Kafka Streams join benchmark |  Major | streams | Eno Thereska | Eno Thereska |
 | [KAFKA-3680](https://issues.apache.org/jira/browse/KAFKA-3680) | Make Java client classloading more flexible |  Major | clients | Rajini Sivaram | Rajini Sivaram |
+| [KAFKA-4052](https://issues.apache.org/jira/browse/KAFKA-4052) | Allow passing properties file to ProducerPerformance |  Major | . | Ashish K Singh | Ashish K Singh |
+| [KAFKA-4070](https://issues.apache.org/jira/browse/KAFKA-4070) | Implement a useful Struct.toString() |  Minor | KafkaConnect | Shikhar Bhushan | Shikhar Bhushan |
 
 
 ### BUG FIXES:
@@ -140,6 +143,10 @@
 | [KAFKA-2894](https://issues.apache.org/jira/browse/KAFKA-2894) | WorkerSinkTask doesn't handle rewinding offsets on rebalance |  Blocker | KafkaConnect | Ewen Cheslack-Postava | Liquan Pei |
 | [KAFKA-3937](https://issues.apache.org/jira/browse/KAFKA-3937) | Kafka Clients Leak Native Memory For Longer Than Needed With Compressed Messages |  Minor | clients | Tom Crayford | William Yu |
 | [KAFKA-4082](https://issues.apache.org/jira/browse/KAFKA-4082) | Support Gradle 3.0 |  Major | . | Ismael Juma | Ismael Juma |
+| [KAFKA-3742](https://issues.apache.org/jira/browse/KAFKA-3742) | Can't run connect-distributed.sh with -daemon flag |  Minor | KafkaConnect | Geoff Anderson | Liquan Pei |
+| [KAFKA-4042](https://issues.apache.org/jira/browse/KAFKA-4042) | DistributedHerder thread can die because of connector & task lifecycle exceptions |  Major | KafkaConnect | Shikhar Bhushan | Shikhar Bhushan |
+| [KAFKA-4098](https://issues.apache.org/jira/browse/KAFKA-4098) | NetworkClient should not intercept all metadata requests on disconnect |  Major | . | Jason Gustafson | Jason Gustafson |
+| [KAFKA-4100](https://issues.apache.org/jira/browse/KAFKA-4100) | Connect Struct schemas built using SchemaBuilder with no fields cause NPE in Struct constructor |  Minor | KafkaConnect | Shikhar Bhushan | Shikhar Bhushan |
 
 
 ### TESTS:

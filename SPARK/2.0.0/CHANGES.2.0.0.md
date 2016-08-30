@@ -1183,7 +1183,6 @@
 | [SPARK-13655](https://issues.apache.org/jira/browse/SPARK-13655) | Fix WithAggregationKinesisBackedBlockRDDSuite |  Major | Streaming | Dongjoon Hyun | Josh Rosen |
 | [SPARK-13648](https://issues.apache.org/jira/browse/SPARK-13648) | org.apache.spark.sql.hive.client.VersionsSuite fails NoClassDefFoundError on IBM JDK |  Minor | SQL | Tim Preece | Tim Preece |
 | [SPARK-13711](https://issues.apache.org/jira/browse/SPARK-13711) | Apache Spark driver stopping JVM when master not available |  Major | Spark Core | Era | Shixiong Zhu |
-| [SPARK-13117](https://issues.apache.org/jira/browse/SPARK-13117) | WebUI should use the local ip not 0.0.0.0 |  Minor | Web UI | Jeremiah Jordan | Devaraj K |
 | [SPARK-13675](https://issues.apache.org/jira/browse/SPARK-13675) | The url link in historypage is not correct for application running in yarn cluster mode |  Major | Spark Core | Saisai Shao | Saisai Shao |
 | [SPARK-13657](https://issues.apache.org/jira/browse/SPARK-13657) | Support parsing very long AND/OR expression |  Major | SQL | Davies Liu | Davies Liu |
 | [SPARK-13755](https://issues.apache.org/jira/browse/SPARK-13755) | Escape quotes in SQL plan visualization node labels |  Major | SQL | Josh Rosen | Josh Rosen |
@@ -1785,6 +1784,8 @@
 | [SPARK-14666](https://issues.apache.org/jira/browse/SPARK-14666) | Using DISTINCT on a UDF (like CONCAT) is not supported |  Minor | SQL | Dominic Ricard |  |
 | [SPARK-2578](https://issues.apache.org/jira/browse/SPARK-2578) | OUTER JOINs cause ClassCastException |  Major | SQL | Christian Wuertz |  |
 | [SPARK-8045](https://issues.apache.org/jira/browse/SPARK-8045) | Stack overflow in query parser when there is too many where |  Minor | SQL | Olivier Toupin |  |
+| [SPARK-13117](https://issues.apache.org/jira/browse/SPARK-13117) | WebUI should use the local ip not 0.0.0.0 |  Minor | Web UI | Jeremiah Jordan | Devaraj K |
+| [SPARK-14662](https://issues.apache.org/jira/browse/SPARK-14662) | LinearRegressionModel uses only default parameters if yStd is 0 |  Minor | ML | Louis Traynard | Yanbo Liang |
 
 
 ### TESTS:

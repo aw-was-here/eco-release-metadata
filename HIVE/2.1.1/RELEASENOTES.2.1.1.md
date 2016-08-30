@@ -56,4 +56,11 @@ Vectorization: Fix Mapjoin overflow deserialization (Gopal V, reviewed by Matt M
 Vectorization: missed vectorization for const varchar()
 
 
+---
+
+* [HIVE-14418](https://issues.apache.org/jira/browse/HIVE-14418) | *Major* | **Hive config validation prevents unsetting the settings**
+
+"-d" option has been added to Hive CLI "reset" command, allowing one to reset specific settings to built-in defaults, overriding any session-specific values, as well as configuration files in use. E.g. "reset -d hive.compute.splits.in.am hive.smbjoin.cache.rows".
+
+
 

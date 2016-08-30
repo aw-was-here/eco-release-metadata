@@ -18,7 +18,7 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.9.0 - Unreleased (as of 2016-08-25)
+## Release 0.9.0 - Unreleased (as of 2016-08-30)
 
 
 
@@ -65,7 +65,7 @@
 | [TEZ-3203](https://issues.apache.org/jira/browse/TEZ-3203) | DAG hangs when one of the upstream vertices has zero tasks |  Critical | . | Jason Lowe | Jason Lowe |
 | [TEZ-3233](https://issues.apache.org/jira/browse/TEZ-3233) | Tez UI: Have LLAP information reflect in Tez UI |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-3193](https://issues.apache.org/jira/browse/TEZ-3193) | Deadlock in AM during task commit request |  Blocker | . | Jason Lowe | Jason Lowe |
-| [TEZ-3245](https://issues.apache.org/jira/browse/TEZ-3245) | Data race between addKnowInput and clearAndGetOnepartition of InputHost |  Major | . | Zhiyuan Yang | Zhiyuan Yang |
+| [TEZ-3245](https://issues.apache.org/jira/browse/TEZ-3245) | Race condition between addKnowInput and clearAndGetOnepartition of InputHost |  Major | . | Zhiyuan Yang | Zhiyuan Yang |
 | [TEZ-3250](https://issues.apache.org/jira/browse/TEZ-3250) | TezTaskRunner2 should accept ExecutorService |  Major | . | Prasanth Jayachandran | Prasanth Jayachandran |
 | [TEZ-3251](https://issues.apache.org/jira/browse/TEZ-3251) | Allow ability to add custom counters to TaskRunner2Callable |  Major | . | Prasanth Jayachandran | Prasanth Jayachandran |
 | [TEZ-3256](https://issues.apache.org/jira/browse/TEZ-3256) | [Backport HADOOP-11032] Remove Guava Stopwatch dependency |  Major | . | Jonathan Eagles | Jonathan Eagles |
@@ -108,6 +108,8 @@
 | [TEZ-3398](https://issues.apache.org/jira/browse/TEZ-3398) | Tez UI: Bread crumb link to Application from Application details dag/configuration tab is broken |  Critical | . | Sushmitha Sreenivasan | Sreenath Somarajapuram |
 | [TEZ-3352](https://issues.apache.org/jira/browse/TEZ-3352) | MRInputHelpers getStringProperty() should not fail if property value is null |  Major | . | Prasanth Jayachandran | Prasanth Jayachandran |
 | [TEZ-3413](https://issues.apache.org/jira/browse/TEZ-3413) | ConcurrentModificationException in HistoryEventTimelineConversion for AppLaunchedEvent |  Blocker | . | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-2852](https://issues.apache.org/jira/browse/TEZ-2852) | TestVertexImpl fails due to race in AsyncDispatcher |  Critical | . | Jeff Zhang | Zhiyuan Yang |
+| [TEZ-2741](https://issues.apache.org/jira/browse/TEZ-2741) | Hive on Tez does not work well with Sequence Files Schema changes |  Major | . | Rajat Jain | Gopal V |
 
 
 ### SUB-TASKS:

@@ -91,4 +91,32 @@ Vectorization: BytesBytes lookup capped count can be =0, =1, \>=2 (Gopal V, revi
 Vectorization: missed vectorization for const varchar()
 
 
+---
+
+* [HIVE-14437](https://issues.apache.org/jira/browse/HIVE-14437) | *Major* | **Vectorization: Optimize key misses in VectorMapJoinFastBytesHashTable**
+
+ Vectorization: Optimize key misses in VectorMapJoinFastBytesHashTable (Gopal V, reviewed by Matt McCline)
+
+
+---
+
+* [HIVE-14155](https://issues.apache.org/jira/browse/HIVE-14155) | *Major* | **Vectorization: Custom UDF Vectorization annotations are ignored**
+
+Vectorization: Custom UDF Vectorization annotations are ignored (Gopal V, reviewed by Ashutosh Chauhan)
+
+
+---
+
+* [HIVE-14648](https://issues.apache.org/jira/browse/HIVE-14648) | *Blocker* | **LLAP: Avoid private pages in the SSD cache**
+
+ LLAP: Avoid private pages in the SSD cache (Gopal V, reviewed by Sergey Shelukhin)
+
+
+---
+
+* [HIVE-14418](https://issues.apache.org/jira/browse/HIVE-14418) | *Major* | **Hive config validation prevents unsetting the settings**
+
+"-d" option has been added to Hive CLI "reset" command, allowing one to reset specific settings to built-in defaults, overriding any session-specific values, as well as configuration files in use. E.g. "reset -d hive.compute.splits.in.am hive.smbjoin.cache.rows".
+
+
 

@@ -66,11 +66,4 @@ Two recommendations for the mapreduce.jobhistory.loadedtasks.cache.size property
 Backport the fix to 2.7 and 2.8
 
 
----
-
-* [HADOOP-12406](https://issues.apache.org/jira/browse/HADOOP-12406) | *Blocker* | **AbstractMapWritable.readFields throws ClassNotFoundException with custom writables**
-
-**WARNING: No release note provided for this change.**
-
-
 

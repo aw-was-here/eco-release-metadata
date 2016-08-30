@@ -18,7 +18,7 @@
 -->
 # Apache Flink Changelog
 
-## Release 1.1.2 - Unreleased (as of 2016-08-25)
+## Release 1.1.2 - Unreleased (as of 2016-08-30)
 
 
 
@@ -43,5 +43,10 @@
 | [FLINK-4409](https://issues.apache.org/jira/browse/FLINK-4409) | class conflict between jsr305-1.3.9.jar and flink-shaded-hadoop2-1.1.1.jar |  Minor | Build System | Renkai Ge | Stephan Ewen |
 | [FLINK-4425](https://issues.apache.org/jira/browse/FLINK-4425) | "Out Of Memory" during savepoint deserialization |  Major | State Backends, Checkpointing | Sergii Koshel |  |
 | [FLINK-4454](https://issues.apache.org/jira/browse/FLINK-4454) | Lookups for JobManager address in config |  Minor | Client | Maximilian Michels | Maximilian Michels |
+| [FLINK-4480](https://issues.apache.org/jira/browse/FLINK-4480) | Incorrect link to elastic.co in documentation |  Trivial | Documentation | Fabian Hueske | Suneel Marthi |
+| [FLINK-4341](https://issues.apache.org/jira/browse/FLINK-4341) | Kinesis connector does not emit maximum watermark properly |  Blocker | Streaming Connectors | Scott Kidder | Tzu-Li (Gordon) Tai |
+| [FLINK-4488](https://issues.apache.org/jira/browse/FLINK-4488) | Prevent cluster shutdown after job execution for non-detached jobs |  Minor | YARN Client | Maximilian Michels | Maximilian Michels |
+| [FLINK-4486](https://issues.apache.org/jira/browse/FLINK-4486) | JobManager not fully running when yarn-session.sh finishes |  Major | YARN Client | Niels Basjes | Maximilian Michels |
+| [FLINK-4526](https://issues.apache.org/jira/browse/FLINK-4526) | ApplicationClient: remove redundant proxy messages |  Major | YARN Client | Maximilian Michels | Maximilian Michels |
 
 

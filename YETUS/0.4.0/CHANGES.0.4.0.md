@@ -18,7 +18,7 @@
 -->
 # Apache Yetus Changelog
 
-## Release 0.4.0 - Unreleased (as of 2016-08-25)
+## Release 0.4.0 - Unreleased (as of 2016-08-30)
 
 
 
@@ -76,6 +76,7 @@
 | [YETUS-433](https://issues.apache.org/jira/browse/YETUS-433) | releasedocmaker generates empty index and readme for non-semver versioning |  Major | Release Doc Maker | Ajay Yadava | Ajay Yadava |
 | [YETUS-309](https://issues.apache.org/jira/browse/YETUS-309) | pylint plugin false positives |  Major | Test Patch | Sean Busbey | Dima Spivak |
 | [YETUS-442](https://issues.apache.org/jira/browse/YETUS-442) | JIRA plugin will not fallback to normal patch if it fails to find a github pull |  Minor | Test Patch | Casey Brotherton | Casey Brotherton |
+| [YETUS-443](https://issues.apache.org/jira/browse/YETUS-443) | github pull request regular expression in the jira plugin should be more complete |  Minor | Test Patch | Casey Brotherton | Casey Brotherton |
 
 
 ### OTHER:

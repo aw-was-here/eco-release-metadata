@@ -35,7 +35,7 @@ The Code Changes include following:
 
 * [HDFS-7933](https://issues.apache.org/jira/browse/HDFS-7933) | *Major* | **fsck should also report decommissioning replicas.**
 
-**WARNING: No release note provided for this change.**
+The output of hdfs fsck now also contains information about decommissioning replicas.
 
 
 

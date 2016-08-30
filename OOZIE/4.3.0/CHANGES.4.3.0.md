@@ -18,7 +18,7 @@
 -->
 # Apache Oozie Changelog
 
-## Release 4.3.0 - Unreleased (as of 2016-08-25)
+## Release 4.3.0 - Unreleased (as of 2016-08-30)
 
 
 
@@ -224,6 +224,8 @@
 | [OOZIE-2589](https://issues.apache.org/jira/browse/OOZIE-2589) | CompletedActionXCommand is hardcoded to wrong priority |  Major | core | Linflytang | Linflytang |
 | [OOZIE-2517](https://issues.apache.org/jira/browse/OOZIE-2517) | Add support for startCreatedTime and endCreatedTime filters for coord and bundles |  Major | core | Abhishek Bafna | Abhishek Bafna |
 | [OOZIE-2521](https://issues.apache.org/jira/browse/OOZIE-2521) | Filter options are case sensitive for jobtye=bundle |  Major | core | Abhishek Bafna | Abhishek Bafna |
+| [OOZIE-2657](https://issues.apache.org/jira/browse/OOZIE-2657) | Clean up redundant access modifiers from oozie interfaces |  Minor | core | Abhishek Bafna | Abhishek Bafna |
+| [OOZIE-2656](https://issues.apache.org/jira/browse/OOZIE-2656) | OozieShareLibCLI uses op system username instead of Kerberos to upload jars |  Major | . | Peter Cseh | Peter Cseh |
 
 
 ### TESTS:
@@ -256,5 +258,6 @@
 | [OOZIE-2452](https://issues.apache.org/jira/browse/OOZIE-2452) | Coordinator Functional Specification - EL Constants Typo |  Trivial | docs | Mark Greene | Mark Greene |
 | [OOZIE-2532](https://issues.apache.org/jira/browse/OOZIE-2532) | patch apply does not handle binary files |  Major | . | Peter Cseh | Peter Cseh |
 | [OOZIE-2625](https://issues.apache.org/jira/browse/OOZIE-2625) | Drop workflowgenerator |  Major | . | Robert Kanter | Robert Kanter |
+| [OOZIE-1173](https://issues.apache.org/jira/browse/OOZIE-1173) | Refactor: use ParamChecker inXOozieClient |  Trivial | client, core | jun aoki | Abhishek Bafna |
 
 

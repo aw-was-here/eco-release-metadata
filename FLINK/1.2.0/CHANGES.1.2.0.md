@@ -18,7 +18,7 @@
 -->
 # Apache Flink Changelog
 
-## Release 1.2.0 - Unreleased (as of 2016-08-25)
+## Release 1.2.0 - Unreleased (as of 2016-08-30)
 
 
 
@@ -31,6 +31,7 @@
 | [FLINK-3940](https://issues.apache.org/jira/browse/FLINK-3940) | Add support for ORDER BY OFFSET FETCH |  Minor | Table API & SQL | Fabian Hueske | GaoLun |
 | [FLINK-4359](https://issues.apache.org/jira/browse/FLINK-4359) | Add INTERVAL type |  Major | Table API & SQL | Timo Walther | Timo Walther |
 | [FLINK-3097](https://issues.apache.org/jira/browse/FLINK-3097) | Add support for custom functions in Table API |  Major | Table API & SQL | Timo Walther | Timo Walther |
+| [FLINK-4420](https://issues.apache.org/jira/browse/FLINK-4420) | Introduce star(\*) to select all of the columns in the table |  Major | Table API & SQL | Jark Wu | Jark Wu |
 
 
 ### IMPROVEMENTS:
@@ -61,6 +62,8 @@
 | [FLINK-4253](https://issues.apache.org/jira/browse/FLINK-4253) | Rename "recovery.mode" config key to "high-availability" |  Major | . | Ufuk Celebi | ramkrishna.s.vasudevan |
 | [FLINK-4457](https://issues.apache.org/jira/browse/FLINK-4457) | Make the ExecutionGraph independent of Akka |  Major | Distributed Coordination | Till Rohrmann | Stephan Ewen |
 | [FLINK-3899](https://issues.apache.org/jira/browse/FLINK-3899) | Document window processing with Reduce/FoldFunction + WindowFunction |  Major | Documentation, Streaming | Fabian Hueske | Daniel Blazevski |
+| [FLINK-4525](https://issues.apache.org/jira/browse/FLINK-4525) | Drop the "eager split pre-assignment" code paths |  Major | JobManager | Stephan Ewen | Stephan Ewen |
+| [FLINK-4190](https://issues.apache.org/jira/browse/FLINK-4190) | Generalise RollingSink to work with arbitrary buckets |  Minor | filesystem-connector, Streaming Connectors | Josh Forman-Gornall | Josh Forman-Gornall |
 
 
 ### BUG FIXES:
@@ -102,8 +105,13 @@
 | [FLINK-4425](https://issues.apache.org/jira/browse/FLINK-4425) | "Out Of Memory" during savepoint deserialization |  Major | State Backends, Checkpointing | Sergii Koshel |  |
 | [FLINK-4454](https://issues.apache.org/jira/browse/FLINK-4454) | Lookups for JobManager address in config |  Minor | Client | Maximilian Michels | Maximilian Michels |
 | [FLINK-4417](https://issues.apache.org/jira/browse/FLINK-4417) | Checkpoints should be subsumed by CheckpointID not, by timestamp |  Major | State Backends, Checkpointing | Stephan Ewen | ramkrishna.s.vasudevan |
-| [FLINK-4437](https://issues.apache.org/jira/browse/FLINK-4437) | Lock evasion around lastTriggeredCheckpoint may lead to lost updates to related fields |  Major | . | Ted Yu |  |
 | [FLINK-4453](https://issues.apache.org/jira/browse/FLINK-4453) | Scala code example in Window documentation shows Java |  Trivial | Documentation | Fabian Hueske | Jark Wu |
+| [FLINK-4437](https://issues.apache.org/jira/browse/FLINK-4437) | Lock evasion around lastTriggeredCheckpoint may lead to lost updates to related fields |  Major | . | Ted Yu |  |
+| [FLINK-4341](https://issues.apache.org/jira/browse/FLINK-4341) | Kinesis connector does not emit maximum watermark properly |  Blocker | Streaming Connectors | Scott Kidder | Tzu-Li (Gordon) Tai |
+| [FLINK-4488](https://issues.apache.org/jira/browse/FLINK-4488) | Prevent cluster shutdown after job execution for non-detached jobs |  Minor | YARN Client | Maximilian Michels | Maximilian Michels |
+| [FLINK-4486](https://issues.apache.org/jira/browse/FLINK-4486) | JobManager not fully running when yarn-session.sh finishes |  Major | YARN Client | Niels Basjes | Maximilian Michels |
+| [FLINK-4526](https://issues.apache.org/jira/browse/FLINK-4526) | ApplicationClient: remove redundant proxy messages |  Major | YARN Client | Maximilian Michels | Maximilian Michels |
+| [FLINK-4271](https://issues.apache.org/jira/browse/FLINK-4271) | There is no way to set parallelism of operators produced by CoGroupedStreams |  Major | DataStream API | Wenlong Lyu | Jark Wu |
 
 
 ### SUB-TASKS:

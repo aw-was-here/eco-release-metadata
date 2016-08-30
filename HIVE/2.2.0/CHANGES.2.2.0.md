@@ -18,7 +18,7 @@
 -->
 # Apache Hive Changelog
 
-## Release 2.2.0 - Unreleased (as of 2016-08-25)
+## Release 2.2.0 - Unreleased (as of 2016-08-30)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -101,6 +101,8 @@
 | [HIVE-14534](https://issues.apache.org/jira/browse/HIVE-14534) | modify tables in tests in HIVE-14479 to use transactional\_properties=default |  Minor | Transactions | Eugene Koifman | Eugene Koifman |
 | [HIVE-14585](https://issues.apache.org/jira/browse/HIVE-14585) | Add travis.yml and update README to show build status |  Minor | Build Infrastructure | Prasanth Jayachandran | Prasanth Jayachandran |
 | [HIVE-14571](https://issues.apache.org/jira/browse/HIVE-14571) | Document configuration hive.msck.repair.batch.size |  Minor | Documentation | Chinna Rao Lalam | Chinna Rao Lalam |
+| [HIVE-14462](https://issues.apache.org/jira/browse/HIVE-14462) | Reduce number of partition check calls in add\_partitions |  Minor | Metastore | Rajesh Balamohan | Rajesh Balamohan |
+| [HIVE-14437](https://issues.apache.org/jira/browse/HIVE-14437) | Vectorization: Optimize key misses in VectorMapJoinFastBytesHashTable |  Major | Vectorization | Gopal V | Gopal V |
 
 
 ### BUG FIXES:
@@ -340,6 +342,17 @@
 | [HIVE-14446](https://issues.apache.org/jira/browse/HIVE-14446) | Add switch to control BloomFilter in Hybrid grace hash join and make the FPP adjustable |  Major | Hive | Wei Zheng | Wei Zheng |
 | [HIVE-13403](https://issues.apache.org/jira/browse/HIVE-13403) | Make Streaming API not create empty buckets |  Critical | HCatalog, Transactions | Eugene Koifman | Wei Zheng |
 | [HIVE-14574](https://issues.apache.org/jira/browse/HIVE-14574) | use consistent hashing for LLAP consistent splits to alleviate impact from cluster changes |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
+| [HIVE-14617](https://issues.apache.org/jira/browse/HIVE-14617) | NPE in UDF MapValues() if input is null |  Major | HiveServer2 | Xuefu Zhang | Xuefu Zhang |
+| [HIVE-14647](https://issues.apache.org/jira/browse/HIVE-14647) | Typo fixes in Beeline help |  Major | Documentation | Márton Balassi | Márton Balassi |
+| [HIVE-14619](https://issues.apache.org/jira/browse/HIVE-14619) | CASE folding can produce wrong expression |  Critical | CBO | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
+| [HIVE-14360](https://issues.apache.org/jira/browse/HIVE-14360) | Starting BeeLine after using !save, there is an error logged: "Error setting configuration: conf" |  Minor | Beeline | Peter Vary | Peter Vary |
+| [HIVE-14155](https://issues.apache.org/jira/browse/HIVE-14155) | Vectorization: Custom UDF Vectorization annotations are ignored |  Major | UDF, Vectorization | Gopal V | Gopal V |
+| [HIVE-14648](https://issues.apache.org/jira/browse/HIVE-14648) | LLAP: Avoid private pages in the SSD cache |  Blocker | llap | Gopal V | Gopal V |
+| [HIVE-13930](https://issues.apache.org/jira/browse/HIVE-13930) | upgrade Hive to Hadoop 2.7.2 |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
+| [HIVE-14659](https://issues.apache.org/jira/browse/HIVE-14659) | OutputStream won't close if caught exception in funtion unparseExprForValuesClause in SemanticAnalyzer.java |  Major | . | Fan Yunbo | Fan Yunbo |
+| [HIVE-14614](https://issues.apache.org/jira/browse/HIVE-14614) | Insert overwrite local directory fails with IllegalStateException |  Major | . | Vihang Karajgaonkar | Vihang Karajgaonkar |
+| [HIVE-14621](https://issues.apache.org/jira/browse/HIVE-14621) | LLAP: memory.mode = none has NPE |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
+| [HIVE-14418](https://issues.apache.org/jira/browse/HIVE-14418) | Hive config validation prevents unsetting the settings |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
 
 
 ### TESTS:
@@ -416,6 +429,15 @@
 | [HIVE-14511](https://issues.apache.org/jira/browse/HIVE-14511) | Improve MSCK for partitioned table to deal with special cases |  Major | . | Pengcheng Xiong | Pengcheng Xiong |
 | [HIVE-14613](https://issues.apache.org/jira/browse/HIVE-14613) | Move schema evolution tests to MiniLlap and disable LLAP IO |  Major | Tests | Prasanth Jayachandran | Prasanth Jayachandran |
 | [HIVE-14553](https://issues.apache.org/jira/browse/HIVE-14553) | Remove tez golden files after HIVE-14502 |  Major | Test | Prasanth Jayachandran | Prasanth Jayachandran |
+| [HIVE-14625](https://issues.apache.org/jira/browse/HIVE-14625) | Minor qtest fixes |  Major | . | Siddharth Seth | Siddharth Seth |
+| [HIVE-14612](https://issues.apache.org/jira/browse/HIVE-14612) | org.apache.hive.service.cli.operation.TestOperationLoggingLayout.testSwitchLogLayout failure |  Major | . | Hari Sankar Sivarama Subramaniyan | Hari Sankar Sivarama Subramaniyan |
+| [HIVE-14610](https://issues.apache.org/jira/browse/HIVE-14610) | CBO: Calcite Operator To Hive Operator(Calcite Return Path): Fix wrong result in input30 |  Major | CBO | Vineet Garg | Vineet Garg |
+| [HIVE-14561](https://issues.apache.org/jira/browse/HIVE-14561) | Minor ptest2 improvements |  Major | . | Siddharth Seth | Siddharth Seth |
+| [HIVE-14440](https://issues.apache.org/jira/browse/HIVE-14440) | Fix default value of USE\_DEPRECATED\_CLI in cli.cmd |  Minor | CLI | Vihang Karajgaonkar | Vihang Karajgaonkar |
+| [HIVE-14515](https://issues.apache.org/jira/browse/HIVE-14515) | Schema evolution uses slow INSERT INTO .. VALUES |  Critical | Hive | Matt McCline | Matt McCline |
+| [HIVE-14627](https://issues.apache.org/jira/browse/HIVE-14627) | Improvements to MiniMr tests |  Major | . | Prasanth Jayachandran | Prasanth Jayachandran |
+| [HIVE-14663](https://issues.apache.org/jira/browse/HIVE-14663) | Change ptest java language version to 1.7, other version changes and fixes |  Major | . | Siddharth Seth | Siddharth Seth |
+| [HIVE-14170](https://issues.apache.org/jira/browse/HIVE-14170) | Beeline IncrementalRows should buffer rows and incrementally re-calculate width if TableOutputFormat is used |  Major | Beeline | Sahil Takiar | Sahil Takiar |
 
 
 ### OTHER:
@@ -433,5 +455,6 @@
 | [HIVE-14320](https://issues.apache.org/jira/browse/HIVE-14320) | Fix table\_access\_key\_stats with returnpath feature on |  Major | Hive | Vineet Garg | Vineet Garg |
 | [HIVE-14364](https://issues.apache.org/jira/browse/HIVE-14364) | Update timeouts for llap comparator tests |  Major | . | Siddharth Seth | Siddharth Seth |
 | [HIVE-14405](https://issues.apache.org/jira/browse/HIVE-14405) | Have tests log to the console along with hive.log |  Major | . | Siddharth Seth | Siddharth Seth |
+| [HIVE-14554](https://issues.apache.org/jira/browse/HIVE-14554) | Download the spark-assembly file on itests only if the MD5 checksum file is different |  Major | Testing Infrastructure | Sergio Peña | Sergio Peña |
 
 
