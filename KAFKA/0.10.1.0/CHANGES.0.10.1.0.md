@@ -91,7 +91,6 @@
 | [KAFKA-2935](https://issues.apache.org/jira/browse/KAFKA-2935) | Remove vestigial CLUSTER\_CONFIG in WorkerConfig |  Major | KafkaConnect | Ewen Cheslack-Postava | Shikhar Bhushan |
 | [KAFKA-3735](https://issues.apache.org/jira/browse/KAFKA-3735) | RocksDB objects needs to be disposed after usage |  Major | streams | Guozhang Wang | Guozhang Wang |
 | [KAFKA-3723](https://issues.apache.org/jira/browse/KAFKA-3723) | Cannot change size of schema cache for JSON converter |  Major | KafkaConnect | Christian Posta | Ewen Cheslack-Postava |
-| [KAFKA-3723](https://issues.apache.org/jira/browse/KAFKA-3723) | Cannot change size of schema cache for JSON converter |  Major | KafkaConnect | Christian Posta | Ewen Cheslack-Postava |
 | [KAFKA-3710](https://issues.apache.org/jira/browse/KAFKA-3710) | MemoryOffsetBackingStore creates a non-daemon thread that prevents clean shutdown |  Major | KafkaConnect | Peter Davis | Ewen Cheslack-Postava |
 | [KAFKA-3682](https://issues.apache.org/jira/browse/KAFKA-3682) | ArrayIndexOutOfBoundsException thrown by SkimpyOffsetMap.get() when full |  Major | core | Edoardo Comar | Edoardo Comar |
 | [KAFKA-3767](https://issues.apache.org/jira/browse/KAFKA-3767) | Failed Kafka Connect's unit test with Unknown license. |  Major | KafkaConnect, unit tests | Sasaki Toru | Sasaki Toru |
@@ -155,6 +154,7 @@
 | [KAFKA-4104](https://issues.apache.org/jira/browse/KAFKA-4104) | Queryable state metadata is sometimes invalid |  Major | streams | Eno Thereska | Damian Guy |
 | [KAFKA-4099](https://issues.apache.org/jira/browse/KAFKA-4099) | Change the time based log rolling to only based on the message timestamp. |  Major | core | Jiangjie Qin | Jiangjie Qin |
 | [KAFKA-4105](https://issues.apache.org/jira/browse/KAFKA-4105) | Queryable state tests for concurrency and rebalancing |  Major | streams | Eno Thereska | Eno Thereska |
+| [KAFKA-4023](https://issues.apache.org/jira/browse/KAFKA-4023) | Add thread id as prefix in Kafka Streams thread logging |  Major | streams | Guozhang Wang | Bill Bejeck |
 
 
 ### TESTS:

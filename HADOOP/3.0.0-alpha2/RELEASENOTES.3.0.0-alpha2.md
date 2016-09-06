@@ -49,4 +49,18 @@ If the caller does not supply a permission, DFSClient#mkdirs and DFSClient#primi
 **WARNING: No release note provided for this change.**
 
 
+---
+
+* [HDFS-10760](https://issues.apache.org/jira/browse/HDFS-10760) | *Major* | **DataXceiver#run() should not log InvalidToken exception as an error**
+
+Log InvalidTokenException at trace level in DataXceiver#run().
+
+
+---
+
+* [HDFS-6962](https://issues.apache.org/jira/browse/HDFS-6962) | *Critical* | **ACL inheritance conflicts with umaskmode**
+
+The original implementation of HDFS ACLs applied the client's umask to the permissions when inheriting a default ACL defined on a parent directory.  This behavior is a deviation from the POSIX ACL specification, which states that the umask has no influence when a default ACL propagates from parent to child.  HDFS now offers the capability to ignore the umask in this case for improved compliance with POSIX.  This change is considered backward-incompatible, so the new behavior is off by default and must be explicitly configured by setting dfs.namenode.posix.acl.inheritance.enabled to true in hdfs-site.xml.  Please see the HDFS Permissions Guide for further details.
+
+
 

@@ -18,7 +18,7 @@
 -->
 # Apache Hadoop Changelog
 
-## Release 3.0.0-alpha1 - Unreleased (as of 2016-08-30)
+## Release 3.0.0-alpha1 - 2016-09-03
 
 ### INCOMPATIBLE CHANGES:
 
@@ -81,6 +81,7 @@
 | [HADOOP-12294](https://issues.apache.org/jira/browse/HADOOP-12294) | Throw an Exception when fs.permissions.umask-mode is misconfigured |  Major | conf | Chang Li | Chang Li |
 | [HADOOP-10465](https://issues.apache.org/jira/browse/HADOOP-10465) | Fix use of generics within SortedMapWritable |  Minor | . | Bertrand Dechoux | Bertrand Dechoux |
 | [HDFS-5165](https://issues.apache.org/jira/browse/HDFS-5165) | Remove the TotalFiles metrics |  Minor | . | Akira Ajisaka | Akira Ajisaka |
+| [HADOOP-11252](https://issues.apache.org/jira/browse/HADOOP-11252) | RPC client does not time out by default |  Critical | ipc | Wilfred Spiegelenburg | Masatake Iwasaki |
 | [HDFS-9047](https://issues.apache.org/jira/browse/HDFS-9047) | Retire libwebhdfs |  Major | webhdfs | Allen Wittenauer | Haohui Mai |
 | [HADOOP-12651](https://issues.apache.org/jira/browse/HADOOP-12651) | Replace dev-support with wrappers to Yetus |  Major | scripts | Allen Wittenauer | Allen Wittenauer |
 | [MAPREDUCE-6613](https://issues.apache.org/jira/browse/MAPREDUCE-6613) | Change mapreduce.jobhistory.jhist.format default from json to binary |  Minor | . | Ray Chiang | Ray Chiang |
@@ -113,6 +114,7 @@
 | [HDFS-10689](https://issues.apache.org/jira/browse/HDFS-10689) | Hdfs dfs chmod should reset sticky bit permission when the bit is omitted in the octal mode |  Minor | fs | Manoj Govindassamy | Manoj Govindassamy |
 | [HDFS-7933](https://issues.apache.org/jira/browse/HDFS-7933) | fsck should also report decommissioning replicas. |  Major | namenode | Jitendra Nath Pandey | Xiaoyu Yao |
 | [HADOOP-12726](https://issues.apache.org/jira/browse/HADOOP-12726) | Unsupported FS operations should throw UnsupportedOperationException |  Major | fs | Daniel Templeton | Daniel Templeton |
+| [YARN-5567](https://issues.apache.org/jira/browse/YARN-5567) | Fix script exit code checking in NodeHealthScriptRunner#reportHealthStatus |  Major | nodemanager | Yufei Gu | Yufei Gu |
 
 
 ### IMPORTANT ISSUES:
@@ -2157,7 +2159,6 @@
 | [YARN-4522](https://issues.apache.org/jira/browse/YARN-4522) | Queue acl can be checked at app submission |  Major | . | Jian He | Jian He |
 | [YARN-4510](https://issues.apache.org/jira/browse/YARN-4510) | Fix SLS startup failure caused by NPE |  Critical | . | Bibin A Chundatt | Bibin A Chundatt |
 | [YARN-4530](https://issues.apache.org/jira/browse/YARN-4530) | LocalizedResource trigger a NPE Cause the NodeManager exit |  Major | . | tangshangwen | tangshangwen |
-| [HADOOP-11252](https://issues.apache.org/jira/browse/HADOOP-11252) | RPC client does not time out by default |  Critical | ipc | Wilfred Spiegelenburg | Masatake Iwasaki |
 | [MAPREDUCE-6593](https://issues.apache.org/jira/browse/MAPREDUCE-6593) | TestJobHistoryEventHandler.testTimelineEventHandling fails on trunk because of NPE |  Major | . | Tsuyoshi Ozawa | Naganarasimha G R |
 | [HDFS-9445](https://issues.apache.org/jira/browse/HDFS-9445) | Datanode may deadlock while handling a bad volume |  Blocker | . | Kihwal Lee | Walter Su |
 | [HADOOP-12658](https://issues.apache.org/jira/browse/HADOOP-12658) | Clear javadoc and check style issues around DomainSocket |  Trivial | . | Kai Zheng | Kai Zheng |
@@ -3633,7 +3634,6 @@
 | [YARN-5434](https://issues.apache.org/jira/browse/YARN-5434) | Add -client\|server argument for graceful decom |  Blocker | graceful | Robert Kanter | Robert Kanter |
 | [YARN-5113](https://issues.apache.org/jira/browse/YARN-5113) | Refactoring and other clean-up for distributed scheduling |  Major | . | Arun Suresh | Konstantinos Karanasos |
 | [HADOOP-11540](https://issues.apache.org/jira/browse/HADOOP-11540) | Raw Reed-Solomon coder using Intel ISA-L library |  Major | . | Zhe Zhang | Kai Zheng |
-| [HDFS-10655](https://issues.apache.org/jira/browse/HDFS-10655) | Fix path related byte array conversion bugs |  Major | hdfs | Daryn Sharp | Daryn Sharp |
 | [YARN-5458](https://issues.apache.org/jira/browse/YARN-5458) | Rename DockerStopCommandTest to TestDockerStopCommand |  Trivial | . | Shane Kumpf | Shane Kumpf |
 | [YARN-5443](https://issues.apache.org/jira/browse/YARN-5443) | Add support for docker inspect command |  Major | yarn | Shane Kumpf | Shane Kumpf |
 | [HADOOP-13429](https://issues.apache.org/jira/browse/HADOOP-13429) | Dispose of unnecessary SASL servers |  Major | ipc | Daryn Sharp | Daryn Sharp |
@@ -3644,7 +3644,6 @@
 | [YARN-5342](https://issues.apache.org/jira/browse/YARN-5342) | Improve non-exclusive node partition resource allocation in Capacity Scheduler |  Major | . | Wangda Tan | Sunil G |
 | [HADOOP-13438](https://issues.apache.org/jira/browse/HADOOP-13438) | Optimize IPC server protobuf decoding |  Major | . | Daryn Sharp | Daryn Sharp |
 | [YARN-5459](https://issues.apache.org/jira/browse/YARN-5459) | Add support for docker rm |  Minor | yarn | Shane Kumpf | Shane Kumpf |
-| [HDFS-10662](https://issues.apache.org/jira/browse/HDFS-10662) | Optimize UTF8 string/byte conversions |  Major | hdfs | Daryn Sharp | Daryn Sharp |
 | [HDFS-10673](https://issues.apache.org/jira/browse/HDFS-10673) | Optimize FSPermissionChecker's internal path usage |  Major | hdfs | Daryn Sharp | Daryn Sharp |
 | [YARN-5429](https://issues.apache.org/jira/browse/YARN-5429) | Fix @return related javadoc warnings in yarn-api |  Major | . | Vrushali C | Vrushali C |
 | [YARN-4888](https://issues.apache.org/jira/browse/YARN-4888) | Changes in scheduler to identify resource-requests explicitly by allocation-id |  Major | resourcemanager | Subru Krishnan | Subru Krishnan |
@@ -3677,6 +3676,8 @@
 | [HDFS-10768](https://issues.apache.org/jira/browse/HDFS-10768) | Optimize mkdir ops |  Major | hdfs | Daryn Sharp | Daryn Sharp |
 | [YARN-5327](https://issues.apache.org/jira/browse/YARN-5327) | API changes required to support recurring reservations in the YARN ReservationSystem |  Major | resourcemanager | Subru Krishnan | Sangeetha Abdu Jyothi |
 | [YARN-4889](https://issues.apache.org/jira/browse/YARN-4889) | Changes in AMRMClient for identifying resource-requests explicitly |  Major | resourcemanager | Subru Krishnan | Arun Suresh |
+| [HDFS-10655](https://issues.apache.org/jira/browse/HDFS-10655) | Fix path related byte array conversion bugs |  Major | hdfs | Daryn Sharp | Daryn Sharp |
+| [HDFS-10662](https://issues.apache.org/jira/browse/HDFS-10662) | Optimize UTF8 string/byte conversions |  Major | hdfs | Daryn Sharp | Daryn Sharp |
 
 
 ### OTHER:

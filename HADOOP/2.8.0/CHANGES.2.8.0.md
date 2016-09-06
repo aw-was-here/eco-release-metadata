@@ -1747,6 +1747,7 @@
 | [YARN-5221](https://issues.apache.org/jira/browse/YARN-5221) | Expose UpdateResourceRequest API to allow AM to request for change in container properties |  Major | . | Arun Suresh | Arun Suresh |
 | [HADOOP-13375](https://issues.apache.org/jira/browse/HADOOP-13375) | o.a.h.security.TestGroupsCaching.testBackgroundRefreshCounters seems flaky |  Major | security, test | Mingliang Liu | Weiwei Yang |
 | [YARN-5549](https://issues.apache.org/jira/browse/YARN-5549) | AMLauncher#createAMContainerLaunchContext() should not log the command to be launched indiscriminately |  Critical | resourcemanager | Daniel Templeton | Daniel Templeton |
+| [HDFS-10841](https://issues.apache.org/jira/browse/HDFS-10841) | Remove duplicate or unused variable in appendFile() |  Minor | . | Kihwal Lee | Kihwal Lee |
 
 
 ### TESTS:

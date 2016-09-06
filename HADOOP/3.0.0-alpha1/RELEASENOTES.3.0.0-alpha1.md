@@ -1139,6 +1139,14 @@ Added -skip-empty-file option to hadoop fs -getmerge command. With the option, d
 
 ---
 
+* [HADOOP-11252](https://issues.apache.org/jira/browse/HADOOP-11252) | *Critical* | **RPC client does not time out by default**
+
+This fix includes public method interface change.
+A follow-up jira for this incompatibly for branch-2.7 is HADOOP-13579.
+
+
+---
+
 * [HDFS-9047](https://issues.apache.org/jira/browse/HDFS-9047) | *Major* | **Retire libwebhdfs**
 
 libwebhdfs has been retired in 2.8.0 due to the lack of maintenance.
@@ -1849,6 +1857,13 @@ Unsupported FileSystem operations now throw an UnsupportedOperationException rat
 * [HDFS-8986](https://issues.apache.org/jira/browse/HDFS-8986) | *Major* | **Add option to -du to calculate directory space usage excluding snapshots**
 
 Add a -x option for "hdfs -du" and "hdfs -count" commands to exclude snapshots from being calculated.
+
+
+---
+
+* [YARN-5567](https://issues.apache.org/jira/browse/YARN-5567) | *Major* | **Fix script exit code checking in NodeHealthScriptRunner#reportHealthStatus**
+
+Prior to this fix, the NodeManager will ignore any non-zero exit code for any script in the yarn.nodemanager.health-checker.script.path property.  With this change, any syntax errors in the health checking script will get flagged as an error in the same fashion (likely exit code 1) that the script detecting a health issue.
 
 
 
