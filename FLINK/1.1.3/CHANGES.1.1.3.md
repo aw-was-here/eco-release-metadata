@@ -16,23 +16,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-# Apache Mahout Changelog
+# Apache Flink Changelog
 
-## Release 1.0.0 - Unreleased (as of 2016-09-06)
-
-
-
-### IMPROVEMENTS:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-| [MAHOUT-1482](https://issues.apache.org/jira/browse/MAHOUT-1482) | Rework quickstart website |  Blocker | Documentation | Sebastian Schelter | Sebastian Schelter |
+## Release 1.1.3 - Unreleased (as of 2016-09-06)
 
 
-### OTHER:
+
+### BUG FIXES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [MAHOUT-1450](https://issues.apache.org/jira/browse/MAHOUT-1450) | Cleaning up clustering documentation on mahout website |  Major | Documentation | Pavan Kumar N |  |
+| [FLINK-4566](https://issues.apache.org/jira/browse/FLINK-4566) | ProducerFailedException does not properly preserve Exception causes |  Major | Network | Stephan Ewen | Stephan Ewen |
 
 

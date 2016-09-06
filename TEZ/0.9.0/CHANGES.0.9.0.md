@@ -18,7 +18,7 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.9.0 - Unreleased (as of 2016-08-30)
+## Release 0.9.0 - Unreleased (as of 2016-09-06)
 
 
 
@@ -52,6 +52,7 @@
 | [TEZ-1248](https://issues.apache.org/jira/browse/TEZ-1248) | Reduce slow-start should special case 1 reducer runs |  Critical | . | Gopal V | Zhiyuan Yang |
 | [TEZ-3303](https://issues.apache.org/jira/browse/TEZ-3303) | Have ShuffleVertexManager consume more precise partition stats |  Major | . | Ming Ma | Tsuyoshi Ozawa |
 | [TEZ-3370](https://issues.apache.org/jira/browse/TEZ-3370) | Tez UI: Display the log link as N/A if the app does not provide a log link |  Major | . | Siddharth Seth | Sreenath Somarajapuram |
+| [TEZ-3326](https://issues.apache.org/jira/browse/TEZ-3326) | Display JVM system properties in AM and task logs |  Major | . | Ming Ma | Eric Badger |
 
 
 ### BUG FIXES:
@@ -109,7 +110,7 @@
 | [TEZ-3352](https://issues.apache.org/jira/browse/TEZ-3352) | MRInputHelpers getStringProperty() should not fail if property value is null |  Major | . | Prasanth Jayachandran | Prasanth Jayachandran |
 | [TEZ-3413](https://issues.apache.org/jira/browse/TEZ-3413) | ConcurrentModificationException in HistoryEventTimelineConversion for AppLaunchedEvent |  Blocker | . | Jonathan Eagles | Jonathan Eagles |
 | [TEZ-2852](https://issues.apache.org/jira/browse/TEZ-2852) | TestVertexImpl fails due to race in AsyncDispatcher |  Critical | . | Jeff Zhang | Zhiyuan Yang |
-| [TEZ-2741](https://issues.apache.org/jira/browse/TEZ-2741) | Hive on Tez does not work well with Sequence Files Schema changes |  Major | . | Rajat Jain | Gopal V |
+| [TEZ-3009](https://issues.apache.org/jira/browse/TEZ-3009) | Errors that occur during container task acquisition are not logged |  Major | . | Jason Lowe | Jason Lowe |
 
 
 ### SUB-TASKS:
@@ -124,6 +125,7 @@
 | [TEZ-3359](https://issues.apache.org/jira/browse/TEZ-3359) | Add granular log levels for HistoryLoggingService. |  Major | . | Harish Jaiprakash | Harish Jaiprakash |
 | [TEZ-3376](https://issues.apache.org/jira/browse/TEZ-3376) | Fix groupId generation to account for dagId starting with 1. |  Major | . | Harish Jaiprakash | Harish Jaiprakash |
 | [TEZ-3395](https://issues.apache.org/jira/browse/TEZ-3395) | Refactor ShuffleVertexManager to make parts of it re-usable in other plugins |  Major | . | Ming Ma | Ming Ma |
+| [TEZ-3230](https://issues.apache.org/jira/browse/TEZ-3230) | Implement vertex manager and edge manager of cartesian product edge |  Major | . | Zhiyuan Yang | Zhiyuan Yang |
 
 
 ### OTHER:

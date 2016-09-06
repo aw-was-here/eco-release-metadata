@@ -119,4 +119,11 @@ Vectorization: Custom UDF Vectorization annotations are ignored (Gopal V, review
 "-d" option has been added to Hive CLI "reset" command, allowing one to reset specific settings to built-in defaults, overriding any session-specific values, as well as configuration files in use. E.g. "reset -d hive.compute.splits.in.am hive.smbjoin.cache.rows".
 
 
+---
+
+* [HIVE-14618](https://issues.apache.org/jira/browse/HIVE-14618) | *Major* | **beeline fetch logging delays before query completion**
+
+beeline fetch logging delays before query completion (Tao Li, via Gopal V)
+
+
 

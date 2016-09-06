@@ -18,7 +18,7 @@
 -->
 # Apache Oozie Changelog
 
-## Release 4.3.0 - Unreleased (as of 2016-08-30)
+## Release 4.3.0 - Unreleased (as of 2016-09-06)
 
 
 
@@ -43,6 +43,7 @@
 | [OOZIE-2185](https://issues.apache.org/jira/browse/OOZIE-2185) | Make oozie cli source conf/oozie-client-env.sh |  Minor | client | Robert Justice | Mike Grimes |
 | [OOZIE-1976](https://issues.apache.org/jira/browse/OOZIE-1976) | Specifying coordinator input datasets in more logical ways |  Major | coordinator | Mona Chitnis | Purshotam Shah |
 | [OOZIE-2563](https://issues.apache.org/jira/browse/OOZIE-2563) | pass spark-defaults.conf to spark action |  Minor | . | Satish Subhashrao Saley | Satish Subhashrao Saley |
+| [OOZIE-2632](https://issues.apache.org/jira/browse/OOZIE-2632) | Provide database dump/load functionality to make database migration easier |  Major | . | Peter Cseh | Peter Cseh |
 
 
 ### IMPROVEMENTS:
@@ -203,7 +204,7 @@
 | [OOZIE-2587](https://issues.apache.org/jira/browse/OOZIE-2587) | Disable SchedulerService on certain tests |  Minor | . | Peter Bacsko | Peter Bacsko |
 | [OOZIE-2579](https://issues.apache.org/jira/browse/OOZIE-2579) | Bulk kill tests in TestBulkWorkflowXCommand might fail because of a race condition |  Minor | . | Peter Bacsko | Peter Bacsko |
 | [OOZIE-2581](https://issues.apache.org/jira/browse/OOZIE-2581) | Oozie should reset SecurityManager in finally block |  Major | . | Satish Subhashrao Saley | Satish Subhashrao Saley |
-| [OOZIE-2462](https://issues.apache.org/jira/browse/OOZIE-2462) | When calling ParamChecker.notNull() in CoordActionsIgnoreXCommand.java, "Action" should be passed instead of "Action cannot be null". |  Trivial | . | Manjunath Ballur |  |
+| [OOZIE-2462](https://issues.apache.org/jira/browse/OOZIE-2462) | When calling ParamChecker.notNull() in CoordActionsIgnoreXCommand.java, "Action" should be passed instead of "Action cannot be null". |  Trivial | . | Manjunath Ballur | Manjunath Ballur |
 | [OOZIE-2390](https://issues.apache.org/jira/browse/OOZIE-2390) | Rerun with failed option removing completed output data |  Critical | . | Jaydeep Vishwakarma | Jaydeep Vishwakarma |
 | [OOZIE-2515](https://issues.apache.org/jira/browse/OOZIE-2515) | Duplicate information for "Changing endtime/pausetime of a Bundle Job" in CommandLineTool wiki |  Major | docs | Abhishek Bafna | Abhishek Bafna |
 | [OOZIE-2506](https://issues.apache.org/jira/browse/OOZIE-2506) | Add logs into RecoverService for logging information about queued commnads |  Major | core | Abhishek Bafna | Abhishek Bafna |
@@ -226,6 +227,9 @@
 | [OOZIE-2521](https://issues.apache.org/jira/browse/OOZIE-2521) | Filter options are case sensitive for jobtye=bundle |  Major | core | Abhishek Bafna | Abhishek Bafna |
 | [OOZIE-2657](https://issues.apache.org/jira/browse/OOZIE-2657) | Clean up redundant access modifiers from oozie interfaces |  Minor | core | Abhishek Bafna | Abhishek Bafna |
 | [OOZIE-2656](https://issues.apache.org/jira/browse/OOZIE-2656) | OozieShareLibCLI uses op system username instead of Kerberos to upload jars |  Major | . | Peter Cseh | Peter Cseh |
+| [OOZIE-2649](https://issues.apache.org/jira/browse/OOZIE-2649) | Can't override sub-workflow configuration property if defined in parent workflow XML |  Major | . | Attila Sasvari | Attila Sasvari |
+| [OOZIE-2243](https://issues.apache.org/jira/browse/OOZIE-2243) | Kill Command does not kill the child job for java action |  Major | . | Narayan Periwal | Jaydeep Vishwakarma |
+| [OOZIE-2615](https://issues.apache.org/jira/browse/OOZIE-2615) | Flaky tests TestCoordActionsKillXCommand.testActionKillCommandActionNumbers and testActionKillCommandDate |  Minor | tests | Peter Bacsko | Peter Bacsko |
 
 
 ### TESTS:

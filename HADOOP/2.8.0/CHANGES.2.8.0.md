@@ -18,7 +18,7 @@
 -->
 # Apache Hadoop Changelog
 
-## Release 2.8.0 - Unreleased (as of 2016-08-30)
+## Release 2.8.0 - Unreleased (as of 2016-09-06)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -35,6 +35,7 @@
 | [HADOOP-12269](https://issues.apache.org/jira/browse/HADOOP-12269) | Update aws-sdk dependency to 1.10.6; move to aws-sdk-s3 |  Major | fs/s3 | Thomas Demoor | Thomas Demoor |
 | [HDFS-8900](https://issues.apache.org/jira/browse/HDFS-8900) | Compact XAttrs to optimize memory footprint. |  Major | namenode | Yi Liu | Yi Liu |
 | [HADOOP-12416](https://issues.apache.org/jira/browse/HADOOP-12416) | Trash messages should be handled by Logger instead of being delivered on System.out |  Major | trash | Ashutosh Chauhan | Mingliang Liu |
+| [HADOOP-11252](https://issues.apache.org/jira/browse/HADOOP-11252) | RPC client does not time out by default |  Critical | ipc | Wilfred Spiegelenburg | Masatake Iwasaki |
 | [HDFS-9047](https://issues.apache.org/jira/browse/HDFS-9047) | Retire libwebhdfs |  Major | webhdfs | Allen Wittenauer | Haohui Mai |
 | [HADOOP-12651](https://issues.apache.org/jira/browse/HADOOP-12651) | Replace dev-support with wrappers to Yetus |  Major | scripts | Allen Wittenauer | Allen Wittenauer |
 | [HADOOP-12552](https://issues.apache.org/jira/browse/HADOOP-12552) | Fix undeclared/unused dependency to httpclient |  Minor | build | Masatake Iwasaki | Masatake Iwasaki |
@@ -669,6 +670,9 @@
 | [HDFS-10798](https://issues.apache.org/jira/browse/HDFS-10798) | Make the threshold of reporting FSNamesystem lock contention configurable |  Major | logging, namenode | Zhe Zhang | Erik Krogen |
 | [YARN-5550](https://issues.apache.org/jira/browse/YARN-5550) | TestYarnCLI#testGetContainers should format according to CONTAINER\_PATTERN |  Minor | client, test | Jonathan Hung | Jonathan Hung |
 | [HDFS-10814](https://issues.apache.org/jira/browse/HDFS-10814) | Add assertion for getNumEncryptionZones when no EZ is created |  Minor | test | Vinitha Reddy Gankidi | Vinitha Reddy Gankidi |
+| [HDFS-10817](https://issues.apache.org/jira/browse/HDFS-10817) | Add Logging for Long-held NN Read Locks |  Major | logging, namenode | Erik Krogen | Erik Krogen |
+| [HADOOP-13465](https://issues.apache.org/jira/browse/HADOOP-13465) | Design Server.Call to be extensible for unified call queue |  Major | ipc | Daryn Sharp | Daryn Sharp |
+| [HDFS-10833](https://issues.apache.org/jira/browse/HDFS-10833) | Fix JSON errors in WebHDFS.md examples |  Trivial | documentation | Andrew Wang | Andrew Wang |
 
 
 ### BUG FIXES:
@@ -1327,7 +1331,6 @@
 | [HADOOP-12608](https://issues.apache.org/jira/browse/HADOOP-12608) | Fix exception message in WASB when connecting with anonymous credential |  Major | tools | Dushyanth | Dushyanth |
 | [YARN-4524](https://issues.apache.org/jira/browse/YARN-4524) | Cleanup AppSchedulingInfo |  Major | scheduler | Karthik Kambatla | Karthik Kambatla |
 | [YARN-4510](https://issues.apache.org/jira/browse/YARN-4510) | Fix SLS startup failure caused by NPE |  Critical | . | Bibin A Chundatt | Bibin A Chundatt |
-| [HADOOP-11252](https://issues.apache.org/jira/browse/HADOOP-11252) | RPC client does not time out by default |  Critical | ipc | Wilfred Spiegelenburg | Masatake Iwasaki |
 | [MAPREDUCE-6593](https://issues.apache.org/jira/browse/MAPREDUCE-6593) | TestJobHistoryEventHandler.testTimelineEventHandling fails on trunk because of NPE |  Major | . | Tsuyoshi Ozawa | Naganarasimha G R |
 | [HADOOP-12658](https://issues.apache.org/jira/browse/HADOOP-12658) | Clear javadoc and check style issues around DomainSocket |  Trivial | . | Kai Zheng | Kai Zheng |
 | [HADOOP-12604](https://issues.apache.org/jira/browse/HADOOP-12604) | Exception may be swallowed in KMSClientProvider |  Major | kms | Yongjun Zhang | Yongjun Zhang |
@@ -1701,6 +1704,7 @@
 | [HADOOP-13439](https://issues.apache.org/jira/browse/HADOOP-13439) | Fix race between TestMetricsSystemImpl and TestGangliaMetrics |  Minor | test | Masatake Iwasaki | Chen Liang |
 | [YARN-5287](https://issues.apache.org/jira/browse/YARN-5287) | LinuxContainerExecutor fails to set proper permission |  Minor | nodemanager | Ying Zhang | Ying Zhang |
 | [MAPREDUCE-6750](https://issues.apache.org/jira/browse/MAPREDUCE-6750) | TestHSAdminServer.testRefreshSuperUserGroups is failing |  Minor | test | Kihwal Lee | Kihwal Lee |
+| [HADOOP-13473](https://issues.apache.org/jira/browse/HADOOP-13473) | Tracing in IPC Server is broken |  Major | . | Wei-Chiu Chuang | Daryn Sharp |
 | [HDFS-10738](https://issues.apache.org/jira/browse/HDFS-10738) | Fix TestRefreshUserMappings.testRefreshSuperUserGroupsConfiguration test failure |  Major | test | Rakesh R | Rakesh R |
 | [HADOOP-13299](https://issues.apache.org/jira/browse/HADOOP-13299) | JMXJsonServlet is vulnerable to TRACE |  Minor | . | Haibo Chen | Haibo Chen |
 | [HDFS-8224](https://issues.apache.org/jira/browse/HDFS-8224) | Schedule a block for scanning if its metadata file is corrupt |  Major | datanode | Rushabh S Shah | Rushabh S Shah |
@@ -1738,6 +1742,11 @@
 | [HADOOP-13559](https://issues.apache.org/jira/browse/HADOOP-13559) | Remove close() within try-with-resources in ChecksumFileSystem/ChecksumFs classes |  Minor | fs | Aaron Fabbri | Aaron Fabbri |
 | [HDFS-4210](https://issues.apache.org/jira/browse/HDFS-4210) | Throw helpful exception when DNS entry for JournalNode cannot be resolved |  Trivial | ha, journal-node, namenode | Damien Hardy | John Zhuge |
 | [MAPREDUCE-4784](https://issues.apache.org/jira/browse/MAPREDUCE-4784) | TestRecovery occasionally fails |  Major | mrv2, test | Jason Lowe | Haibo Chen |
+| [HDFS-10760](https://issues.apache.org/jira/browse/HDFS-10760) | DataXceiver#run() should not log InvalidToken exception as an error |  Major | . | Pan Yuxuan | Pan Yuxuan |
+| [HDFS-10729](https://issues.apache.org/jira/browse/HDFS-10729) | Improve log message for edit loading failures caused by FS limit checks. |  Major | namenode | Wei-Chiu Chuang | Wei-Chiu Chuang |
+| [YARN-5221](https://issues.apache.org/jira/browse/YARN-5221) | Expose UpdateResourceRequest API to allow AM to request for change in container properties |  Major | . | Arun Suresh | Arun Suresh |
+| [HADOOP-13375](https://issues.apache.org/jira/browse/HADOOP-13375) | o.a.h.security.TestGroupsCaching.testBackgroundRefreshCounters seems flaky |  Major | security, test | Mingliang Liu | Weiwei Yang |
+| [YARN-5549](https://issues.apache.org/jira/browse/YARN-5549) | AMLauncher#createAMContainerLaunchContext() should not log the command to be launched indiscriminately |  Critical | resourcemanager | Daniel Templeton | Daniel Templeton |
 
 
 ### TESTS:
@@ -2082,6 +2091,7 @@
 | [HDFS-7779](https://issues.apache.org/jira/browse/HDFS-7779) | Support changing ownership, group and replication in HDFS Web UI |  Major | ui | Ravi Prakash | Ravi Prakash |
 | [YARN-4393](https://issues.apache.org/jira/browse/YARN-4393) | TestResourceLocalizationService#testFailedDirsResourceRelease fails intermittently |  Major | test | Varun Saxena | Varun Saxena |
 | [YARN-4479](https://issues.apache.org/jira/browse/YARN-4479) | Retrospect app-priority in pendingOrderingPolicy during recovering applications |  Major | api, resourcemanager | Rohith Sharma K S | Rohith Sharma K S |
+| [HDFS-9621](https://issues.apache.org/jira/browse/HDFS-9621) | getListing wrongly associates Erasure Coding policy to pre-existing replicated files under an EC directory |  Critical | erasure-coding | Sushmitha Sreenivasan | Jing Zhao |
 | [YARN-4537](https://issues.apache.org/jira/browse/YARN-4537) | Pull out priority comparison from fifocomparator and use compound comparator for FifoOrdering policy |  Major | capacity scheduler | Rohith Sharma K S | Rohith Sharma K S |
 | [HADOOP-11262](https://issues.apache.org/jira/browse/HADOOP-11262) | Enable YARN to use S3A |  Major | fs/s3 | Thomas Demoor | Pieter Reuse |
 | [YARN-4265](https://issues.apache.org/jira/browse/YARN-4265) | Provide new timeline plugin storage to support fine-grained entity caching |  Major | timelineserver | Li Lu | Li Lu |
@@ -2185,17 +2195,31 @@
 | [HDFS-10642](https://issues.apache.org/jira/browse/HDFS-10642) | TestLazyPersistReplicaRecovery#testDnRestartWithSavedReplicas fails intermittently |  Major | datanode, test | Mingliang Liu | Mingliang Liu |
 | [HDFS-10668](https://issues.apache.org/jira/browse/HDFS-10668) | TestDataNodeMXBean#testDataNodeMXBeanBlockCount fails intermittently |  Major | test | Mingliang Liu | Mingliang Liu |
 | [YARN-5434](https://issues.apache.org/jira/browse/YARN-5434) | Add -client\|server argument for graceful decom |  Blocker | graceful | Robert Kanter | Robert Kanter |
-| [HDFS-10655](https://issues.apache.org/jira/browse/HDFS-10655) | Fix path related byte array conversion bugs |  Major | hdfs | Daryn Sharp | Daryn Sharp |
+| [HADOOP-13429](https://issues.apache.org/jira/browse/HADOOP-13429) | Dispose of unnecessary SASL servers |  Major | ipc | Daryn Sharp | Daryn Sharp |
+| [HADOOP-13426](https://issues.apache.org/jira/browse/HADOOP-13426) | More efficiently build IPC responses |  Major | . | Daryn Sharp | Daryn Sharp |
+| [HDFS-10656](https://issues.apache.org/jira/browse/HDFS-10656) | Optimize conversion of byte arrays back to path string |  Major | hdfs | Daryn Sharp | Daryn Sharp |
+| [HDFS-10674](https://issues.apache.org/jira/browse/HDFS-10674) | Optimize creating a full path from an inode |  Major | hdfs | Daryn Sharp | Daryn Sharp |
 | [YARN-5342](https://issues.apache.org/jira/browse/YARN-5342) | Improve non-exclusive node partition resource allocation in Capacity Scheduler |  Major | . | Wangda Tan | Sunil G |
-| [HDFS-10662](https://issues.apache.org/jira/browse/HDFS-10662) | Optimize UTF8 string/byte conversions |  Major | hdfs | Daryn Sharp | Daryn Sharp |
+| [HADOOP-13438](https://issues.apache.org/jira/browse/HADOOP-13438) | Optimize IPC server protobuf decoding |  Major | . | Daryn Sharp | Daryn Sharp |
+| [HDFS-10673](https://issues.apache.org/jira/browse/HDFS-10673) | Optimize FSPermissionChecker's internal path usage |  Major | hdfs | Daryn Sharp | Daryn Sharp |
 | [HADOOP-13418](https://issues.apache.org/jira/browse/HADOOP-13418) | Fix javadoc warnings by JDK8 in hadoop-nfs package |  Major | . | Kai Sasaki | Kai Sasaki |
+| [HDFS-10744](https://issues.apache.org/jira/browse/HDFS-10744) | Internally optimize path component resolution |  Major | hdfs | Daryn Sharp | Daryn Sharp |
 | [HDFS-10724](https://issues.apache.org/jira/browse/HDFS-10724) | Document the caller context config keys |  Minor | ipc, namenode | Mingliang Liu | Mingliang Liu |
 | [HDFS-10678](https://issues.apache.org/jira/browse/HDFS-10678) | Documenting NNThroughputBenchmark tool |  Major | benchmarks, test | Mingliang Liu | Mingliang Liu |
 | [HDFS-10641](https://issues.apache.org/jira/browse/HDFS-10641) | TestBlockManager#testBlockReportQueueing fails intermittently |  Major | namenode, test | Mingliang Liu | Daryn Sharp |
 | [HADOOP-13324](https://issues.apache.org/jira/browse/HADOOP-13324) | s3a tests don't authenticate with S3 frankfurt (or other V4 auth only endpoints) |  Major | fs/s3 | Steve Loughran | Steve Loughran |
 | [HADOOP-13405](https://issues.apache.org/jira/browse/HADOOP-13405) | doc for “fs.s3a.acl.default” indicates incorrect values |  Minor | fs/s3 | Shen Yinjie | Shen Yinjie |
+| [HDFS-10745](https://issues.apache.org/jira/browse/HDFS-10745) | Directly resolve paths into INodesInPath |  Major | hdfs | Daryn Sharp | Daryn Sharp |
+| [HDFS-10711](https://issues.apache.org/jira/browse/HDFS-10711) | Optimize FSPermissionChecker group membership check |  Major | hdfs | Daryn Sharp | Daryn Sharp |
 | [HADOOP-13252](https://issues.apache.org/jira/browse/HADOOP-13252) | Tune S3A provider plugin mechanism |  Minor | fs/s3 | Steve Loughran | Steve Loughran |
+| [HDFS-10762](https://issues.apache.org/jira/browse/HDFS-10762) | Pass IIP for file status related methods |  Major | hdfs | Daryn Sharp | Daryn Sharp |
+| [HDFS-10772](https://issues.apache.org/jira/browse/HDFS-10772) | Reduce byte/string conversions for get listing |  Major | hdfs | Daryn Sharp | Daryn Sharp |
 | [YARN-3940](https://issues.apache.org/jira/browse/YARN-3940) | Application moveToQueue should check NodeLabel permission |  Major | resourcemanager | Bibin A Chundatt | Bibin A Chundatt |
+| [HDFS-10768](https://issues.apache.org/jira/browse/HDFS-10768) | Optimize mkdir ops |  Major | hdfs | Daryn Sharp | Daryn Sharp |
+| [HDFS-10655](https://issues.apache.org/jira/browse/HDFS-10655) | Fix path related byte array conversion bugs |  Major | hdfs | Daryn Sharp | Daryn Sharp |
+| [HDFS-10662](https://issues.apache.org/jira/browse/HDFS-10662) | Optimize UTF8 string/byte conversions |  Major | hdfs | Daryn Sharp | Daryn Sharp |
+| [HADOOP-13547](https://issues.apache.org/jira/browse/HADOOP-13547) | Optimize IPC client protobuf decoding |  Major | . | Daryn Sharp | Daryn Sharp |
+| [HADOOP-13549](https://issues.apache.org/jira/browse/HADOOP-13549) | Eliminate intermediate buffer for server-side PB encoding |  Major | ipc | Daryn Sharp | Daryn Sharp |
 
 
 ### OTHER:

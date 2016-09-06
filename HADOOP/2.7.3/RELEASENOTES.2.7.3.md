@@ -31,6 +31,14 @@ In this improvement, we add a new API isCommitJobRepeatable() to OutputCommitter
 
 ---
 
+* [HADOOP-11252](https://issues.apache.org/jira/browse/HADOOP-11252) | *Critical* | **RPC client does not time out by default**
+
+This fix includes public method interface change.
+A follow-up jira for this incompatibly for branch-2.7 is HADOOP-13579.
+
+
+---
+
 * [HADOOP-12805](https://issues.apache.org/jira/browse/HADOOP-12805) | *Major* | **Annotate CanUnbuffer with @InterfaceAudience.Public**
 
 Made CanBuffer interface public for use in client applications.

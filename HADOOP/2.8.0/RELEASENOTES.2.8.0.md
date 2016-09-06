@@ -500,6 +500,14 @@ Added -skip-empty-file option to hadoop fs -getmerge command. With the option, d
 
 ---
 
+* [HADOOP-11252](https://issues.apache.org/jira/browse/HADOOP-11252) | *Critical* | **RPC client does not time out by default**
+
+This fix includes public method interface change.
+A follow-up jira for this incompatibly for branch-2.7 is HADOOP-13579.
+
+
+---
+
 * [HDFS-9047](https://issues.apache.org/jira/browse/HDFS-9047) | *Major* | **Retire libwebhdfs**
 
 libwebhdfs has been retired in 2.8.0 due to the lack of maintenance.
@@ -844,6 +852,20 @@ The output of hdfs fsck now also contains information about decommissioning repl
 * [HDFS-8986](https://issues.apache.org/jira/browse/HDFS-8986) | *Major* | **Add option to -du to calculate directory space usage excluding snapshots**
 
 Add a -x option for "hdfs -du" and "hdfs -count" commands to exclude snapshots from being calculated.
+
+
+---
+
+* [HDFS-10760](https://issues.apache.org/jira/browse/HDFS-10760) | *Major* | **DataXceiver#run() should not log InvalidToken exception as an error**
+
+Log InvalidTokenException at trace level in DataXceiver#run().
+
+
+---
+
+* [YARN-5549](https://issues.apache.org/jira/browse/YARN-5549) | *Critical* | **AMLauncher#createAMContainerLaunchContext() should not log the command to be launched indiscriminately**
+
+Introduces a new configuration property, yarn.resourcemanager.amlauncher.log.command.  If this property is set to true, then the AM command being launched will be masked in the RM log.
 
 
 

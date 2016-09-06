@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.10.0.2 - Unreleased (as of 2016-08-30)
+## Release 0.10.0.2 - Unreleased (as of 2016-09-06)
 
 
 
@@ -27,6 +27,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [KAFKA-4050](https://issues.apache.org/jira/browse/KAFKA-4050) | Allow configuration of the PRNG used for SSL |  Major | security | Todd Palino | Todd Palino |
+| [KAFKA-4112](https://issues.apache.org/jira/browse/KAFKA-4112) | Remove alpha quality label from Kafka Streams in docs |  Trivial | streams | Damian Guy | Damian Guy |
 
 
 ### BUG FIXES:

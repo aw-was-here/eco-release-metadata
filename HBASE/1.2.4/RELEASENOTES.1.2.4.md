@@ -16,23 +16,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-# Apache Mahout Changelog
+# Apache HBase  1.2.4 Release Notes
 
-## Release 1.0.0 - Unreleased (as of 2016-09-06)
-
-
-
-### IMPROVEMENTS:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-| [MAHOUT-1482](https://issues.apache.org/jira/browse/MAHOUT-1482) | Rework quickstart website |  Blocker | Documentation | Sebastian Schelter | Sebastian Schelter |
+These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
 
 
-### OTHER:
+---
 
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-| [MAHOUT-1450](https://issues.apache.org/jira/browse/MAHOUT-1450) | Cleaning up clustering documentation on mahout website |  Major | Documentation | Pavan Kumar N |  |
+* [HBASE-16340](https://issues.apache.org/jira/browse/HBASE-16340) | *Critical* | **ensure no Xerces jars included**
+
+HBase no longer includes Xerces implementation jars that were previously included via transitive dependencies. Downstream users relying on HBase for these artifacts will need to update their dependencies.
+
 
 

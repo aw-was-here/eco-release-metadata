@@ -122,6 +122,7 @@
 | [SPARK-15892](https://issues.apache.org/jira/browse/SPARK-15892) | Incorrectly merged AFTAggregator with zero total count |  Major | Examples, ML, PySpark | Joseph K. Bradley | Hyukjin Kwon |
 | [SPARK-16035](https://issues.apache.org/jira/browse/SPARK-16035) | The SparseVector parser fails checking for valid end parenthesis |  Minor | MLlib, PySpark | Andrea Pasqua | Andrea Pasqua |
 | [SPARK-16086](https://issues.apache.org/jira/browse/SPARK-16086) | Python UDF failed when there is no arguments |  Major | PySpark, SQL | Davies Liu | Davies Liu |
+| [SPARK-11301](https://issues.apache.org/jira/browse/SPARK-11301) | filter on partitioned column is case sensitive even the context is case insensitive |  Major | SQL | Wenchen Fan | Wenchen Fan |
 
 
 ### SUB-TASKS:

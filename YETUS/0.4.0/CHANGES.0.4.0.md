@@ -18,7 +18,7 @@
 -->
 # Apache Yetus Changelog
 
-## Release 0.4.0 - Unreleased (as of 2016-08-30)
+## Release 0.4.0 - Unreleased (as of 2016-09-06)
 
 
 
@@ -52,6 +52,7 @@
 | [YETUS-434](https://issues.apache.org/jira/browse/YETUS-434) | Add .pyc files to .gitignore |  Major | build | Ajay Yadava | Ajay Yadava |
 | [YETUS-430](https://issues.apache.org/jira/browse/YETUS-430) | Refactor releasedocmaker.py in separate modules |  Major | Release Doc Maker | Ajay Yadava | Ajay Yadava |
 | [YETUS-444](https://issues.apache.org/jira/browse/YETUS-444) | Improve documentation for Test Format Support |  Trivial | website and documentation | Ajay Yadava | Ajay Yadava |
+| [YETUS-455](https://issues.apache.org/jira/browse/YETUS-455) | Print help when no args passed to releasedocmaker.py |  Minor | Release Doc Maker | Andrew Wang | Andrew Wang |
 
 
 ### BUG FIXES:
@@ -77,6 +78,7 @@
 | [YETUS-309](https://issues.apache.org/jira/browse/YETUS-309) | pylint plugin false positives |  Major | Test Patch | Sean Busbey | Dima Spivak |
 | [YETUS-442](https://issues.apache.org/jira/browse/YETUS-442) | JIRA plugin will not fallback to normal patch if it fails to find a github pull |  Minor | Test Patch | Casey Brotherton | Casey Brotherton |
 | [YETUS-443](https://issues.apache.org/jira/browse/YETUS-443) | github pull request regular expression in the jira plugin should be more complete |  Minor | Test Patch | Casey Brotherton | Casey Brotherton |
+| [YETUS-448](https://issues.apache.org/jira/browse/YETUS-448) | Fix the docs for supported python versions |  Major | website and documentation | Ajay Yadava | Ajay Yadava |
 
 
 ### OTHER:

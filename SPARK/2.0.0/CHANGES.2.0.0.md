@@ -834,7 +834,6 @@
 | [SPARK-15821](https://issues.apache.org/jira/browse/SPARK-15821) | Should we use mvn -T for multithreaded Spark builds? |  Minor | Build | Adam Roberts | Adam Roberts |
 | [SPARK-15426](https://issues.apache.org/jira/browse/SPARK-15426) | Spark 2.0 SQL API audit |  Blocker | SQL | Reynold Xin | Reynold Xin |
 | [SPARK-15457](https://issues.apache.org/jira/browse/SPARK-15457) | Eliminate MLlib 2.0 build warnings from deprecations |  Blocker | ML, MLlib | Joseph K. Bradley | Joseph K. Bradley |
-| [SPARK-8813](https://issues.apache.org/jira/browse/SPARK-8813) | Combine files when there're many small files in table |  Major | SQL | Yadong Qi | Michael Armbrust |
 | [SPARK-13498](https://issues.apache.org/jira/browse/SPARK-13498) | JDBCRDD should update some input metrics |  Minor | SQL | Wayne Song | Wayne Song |
 | [SPARK-12492](https://issues.apache.org/jira/browse/SPARK-12492) | SQL page of Spark-sql is always blank |  Major | SQL, Web UI | meiyoula | KaiXinXIaoLei |
 | [SPARK-15862](https://issues.apache.org/jira/browse/SPARK-15862) | Better Error Message When Having Database Name in CACHE TABLE AS SELECT |  Minor | SQL | Xiao Li | Xiao Li |

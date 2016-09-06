@@ -18,7 +18,7 @@
 -->
 # Apache Flink Changelog
 
-## Release 1.2.0 - Unreleased (as of 2016-08-30)
+## Release 1.2.0 - Unreleased (as of 2016-09-06)
 
 
 
@@ -32,6 +32,7 @@
 | [FLINK-4359](https://issues.apache.org/jira/browse/FLINK-4359) | Add INTERVAL type |  Major | Table API & SQL | Timo Walther | Timo Walther |
 | [FLINK-3097](https://issues.apache.org/jira/browse/FLINK-3097) | Add support for custom functions in Table API |  Major | Table API & SQL | Timo Walther | Timo Walther |
 | [FLINK-4420](https://issues.apache.org/jira/browse/FLINK-4420) | Introduce star(\*) to select all of the columns in the table |  Major | Table API & SQL | Jark Wu | Jark Wu |
+| [FLINK-3755](https://issues.apache.org/jira/browse/FLINK-3755) | Introduce key groups for key-value state to support dynamic scaling |  Major | . | Till Rohrmann | Till Rohrmann |
 
 
 ### IMPROVEMENTS:
@@ -64,6 +65,9 @@
 | [FLINK-3899](https://issues.apache.org/jira/browse/FLINK-3899) | Document window processing with Reduce/FoldFunction + WindowFunction |  Major | Documentation, Streaming | Fabian Hueske | Daniel Blazevski |
 | [FLINK-4525](https://issues.apache.org/jira/browse/FLINK-4525) | Drop the "eager split pre-assignment" code paths |  Major | JobManager | Stephan Ewen | Stephan Ewen |
 | [FLINK-4190](https://issues.apache.org/jira/browse/FLINK-4190) | Generalise RollingSink to work with arbitrary buckets |  Minor | filesystem-connector, Streaming Connectors | Josh Forman-Gornall | Josh Forman-Gornall |
+| [FLINK-4539](https://issues.apache.org/jira/browse/FLINK-4539) | Duplicate/inconsistent logic for physical memory size in classes "Hardware" and "EnvironmentInformation" |  Minor | Local Runtime | Stephan Ewen | Stephan Ewen |
+| [FLINK-4340](https://issues.apache.org/jira/browse/FLINK-4340) | Remove RocksDB Semi-Async Checkpoint Mode |  Major | State Backends, Checkpointing | Aljoscha Krettek | Aljoscha Krettek |
+| [FLINK-4459](https://issues.apache.org/jira/browse/FLINK-4459) | Introduce SlotProvider for Scheduler |  Major | Scheduler | Till Rohrmann | Kurt Young |
 
 
 ### BUG FIXES:
@@ -112,6 +116,10 @@
 | [FLINK-4486](https://issues.apache.org/jira/browse/FLINK-4486) | JobManager not fully running when yarn-session.sh finishes |  Major | YARN Client | Niels Basjes | Maximilian Michels |
 | [FLINK-4526](https://issues.apache.org/jira/browse/FLINK-4526) | ApplicationClient: remove redundant proxy messages |  Major | YARN Client | Maximilian Michels | Maximilian Michels |
 | [FLINK-4271](https://issues.apache.org/jira/browse/FLINK-4271) | There is no way to set parallelism of operators produced by CoGroupedStreams |  Major | DataStream API | Wenlong Lyu | Jark Wu |
+| [FLINK-4567](https://issues.apache.org/jira/browse/FLINK-4567) | Enhance SerializedThrowable to properly preserver cause chains |  Major | . | Stephan Ewen | Stephan Ewen |
+| [FLINK-4566](https://issues.apache.org/jira/browse/FLINK-4566) | ProducerFailedException does not properly preserve Exception causes |  Major | Network | Stephan Ewen | Stephan Ewen |
+| [FLINK-4570](https://issues.apache.org/jira/browse/FLINK-4570) | Scalastyle Maven plugin fails undeterministically |  Major | Build System | Maximilian Michels | Maximilian Michels |
+| [FLINK-4073](https://issues.apache.org/jira/browse/FLINK-4073) | YARNSessionCapacitySchedulerITCase.testTaskManagerFailure failed on Travis |  Critical | Tests | Till Rohrmann | Maximilian Michels |
 
 
 ### SUB-TASKS:
@@ -123,5 +131,9 @@
 | [FLINK-4392](https://issues.apache.org/jira/browse/FLINK-4392) | Make RPC Service Thread Safe |  Major | Distributed Coordination | Stephan Ewen | Stephan Ewen |
 | [FLINK-4403](https://issues.apache.org/jira/browse/FLINK-4403) | RPC proxy classloading should use Flink class' classloader |  Major | Distributed Coordination | Stephan Ewen | Stephan Ewen |
 | [FLINK-4434](https://issues.apache.org/jira/browse/FLINK-4434) | Add a testing RPC service |  Major | Distributed Coordination | Stephan Ewen | Stephan Ewen |
+| [FLINK-4380](https://issues.apache.org/jira/browse/FLINK-4380) | Introduce KeyGroupAssigner and Max-Parallelism Parameter |  Major | Streaming | Aljoscha Krettek | Stefan Richter |
+| [FLINK-4381](https://issues.apache.org/jira/browse/FLINK-4381) | Refactor State to Prepare For Key-Group State Backends |  Major | Streaming | Aljoscha Krettek | Stefan Richter |
+| [FLINK-3761](https://issues.apache.org/jira/browse/FLINK-3761) | Refactor State Backends/Make Keyed State Key-Group Aware |  Major | State Backends, Checkpointing | Till Rohrmann | Aljoscha Krettek |
+| [FLINK-4490](https://issues.apache.org/jira/browse/FLINK-4490) | Decouple Slot and Instance |  Major | Distributed Coordination | Kurt Young | Stephan Ewen |
 
 

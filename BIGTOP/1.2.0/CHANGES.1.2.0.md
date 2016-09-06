@@ -18,7 +18,7 @@
 -->
 # Apache BigTop Changelog
 
-## Release 1.2.0 - Unreleased (as of 2016-08-30)
+## Release 1.2.0 - Unreleased (as of 2016-09-06)
 
 
 
@@ -128,6 +128,8 @@
 | [BIGTOP-2494](https://issues.apache.org/jira/browse/BIGTOP-2494) | Use systemd within bigtop/deploy docker image for debian-8, centos-7, fix centos-7 provisioner |  Major | deployment | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-2513](https://issues.apache.org/jira/browse/BIGTOP-2513) | Some RAT exclude rules defined in build.gradle are not defined in pom.xml |  Minor | build | Kengo Seki | Kengo Seki |
 | [BIGTOP-2512](https://issues.apache.org/jira/browse/BIGTOP-2512) | Wrong help message in docker-hadoop.sh |  Trivial | deployment, vm | Kengo Seki | Kengo Seki |
+| [BIGTOP-2523](https://issues.apache.org/jira/browse/BIGTOP-2523) | Incorrect cycle dependency during puppet deployment causes error at Debian 8 |  Major | deployment | Kirill Morozov | Artur A. Papikyan |
+| [BIGTOP-2528](https://issues.apache.org/jira/browse/BIGTOP-2528) | provisioner fails to add short host name |  Major | deployment, provisioner | Olaf Flebbe | Olaf Flebbe |
 
 
 ### SUB-TASKS:

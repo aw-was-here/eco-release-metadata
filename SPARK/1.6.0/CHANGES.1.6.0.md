@@ -642,7 +642,6 @@
 | [SPARK-11370](https://issues.apache.org/jira/browse/SPARK-11370) | fix a bug in GroupedIterator and create unit test for it |  Major | SQL | Wenchen Fan | Wenchen Fan |
 | [SPARK-11388](https://issues.apache.org/jira/browse/SPARK-11388) | Build breaks due to the use of \<p/\> tags in javadoc. |  Minor | Build | Herman van Hovell | Herman van Hovell |
 | [SPARK-11246](https://issues.apache.org/jira/browse/SPARK-11246) | [1.5] Table cache for Parquet broken in 1.5 |  Major | SQL | David Ross | Xin Wu |
-| [SPARK-11301](https://issues.apache.org/jira/browse/SPARK-11301) | filter on partitioned column is case sensitive even the context is case insensitive |  Major | SQL | Wenchen Fan | Wenchen Fan |
 | [SPARK-11409](https://issues.apache.org/jira/browse/SPARK-11409) | Enable url link in R doc for Persist |  Minor | SparkR | Felix Cheung | Felix Cheung |
 | [SPARK-10929](https://issues.apache.org/jira/browse/SPARK-10929) | Tungsten fails to acquire memory writing to HDFS |  Blocker | SQL | Naden Franciscus | Davies Liu |
 | [SPARK-11417](https://issues.apache.org/jira/browse/SPARK-11417) | @Override is not supported by older version of Janino |  Major | . | Davies Liu | Davies Liu |

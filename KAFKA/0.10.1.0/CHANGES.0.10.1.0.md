@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.10.1.0 - Unreleased (as of 2016-08-30)
+## Release 0.10.1.0 - Unreleased (as of 2016-09-06)
 
 
 
@@ -76,6 +76,8 @@
 | [KAFKA-3680](https://issues.apache.org/jira/browse/KAFKA-3680) | Make Java client classloading more flexible |  Major | clients | Rajini Sivaram | Rajini Sivaram |
 | [KAFKA-4052](https://issues.apache.org/jira/browse/KAFKA-4052) | Allow passing properties file to ProducerPerformance |  Major | . | Ashish K Singh | Ashish K Singh |
 | [KAFKA-4070](https://issues.apache.org/jira/browse/KAFKA-4070) | Implement a useful Struct.toString() |  Minor | KafkaConnect | Shikhar Bhushan | Shikhar Bhushan |
+| [KAFKA-4062](https://issues.apache.org/jira/browse/KAFKA-4062) | Require --print-data-log if --offsets-decoder is enabled for DumpLogOffsets |  Minor | admin | Dustin Cote | Dustin Cote |
+| [KAFKA-4112](https://issues.apache.org/jira/browse/KAFKA-4112) | Remove alpha quality label from Kafka Streams in docs |  Trivial | streams | Damian Guy | Damian Guy |
 
 
 ### BUG FIXES:
@@ -88,6 +90,7 @@
 | [KAFKA-3716](https://issues.apache.org/jira/browse/KAFKA-3716) | Check against negative timestamps |  Major | streams | Guozhang Wang | Guozhang Wang |
 | [KAFKA-2935](https://issues.apache.org/jira/browse/KAFKA-2935) | Remove vestigial CLUSTER\_CONFIG in WorkerConfig |  Major | KafkaConnect | Ewen Cheslack-Postava | Shikhar Bhushan |
 | [KAFKA-3735](https://issues.apache.org/jira/browse/KAFKA-3735) | RocksDB objects needs to be disposed after usage |  Major | streams | Guozhang Wang | Guozhang Wang |
+| [KAFKA-3723](https://issues.apache.org/jira/browse/KAFKA-3723) | Cannot change size of schema cache for JSON converter |  Major | KafkaConnect | Christian Posta | Ewen Cheslack-Postava |
 | [KAFKA-3723](https://issues.apache.org/jira/browse/KAFKA-3723) | Cannot change size of schema cache for JSON converter |  Major | KafkaConnect | Christian Posta | Ewen Cheslack-Postava |
 | [KAFKA-3710](https://issues.apache.org/jira/browse/KAFKA-3710) | MemoryOffsetBackingStore creates a non-daemon thread that prevents clean shutdown |  Major | KafkaConnect | Peter Davis | Ewen Cheslack-Postava |
 | [KAFKA-3682](https://issues.apache.org/jira/browse/KAFKA-3682) | ArrayIndexOutOfBoundsException thrown by SkimpyOffsetMap.get() when full |  Major | core | Edoardo Comar | Edoardo Comar |
@@ -147,6 +150,11 @@
 | [KAFKA-4042](https://issues.apache.org/jira/browse/KAFKA-4042) | DistributedHerder thread can die because of connector & task lifecycle exceptions |  Major | KafkaConnect | Shikhar Bhushan | Shikhar Bhushan |
 | [KAFKA-4098](https://issues.apache.org/jira/browse/KAFKA-4098) | NetworkClient should not intercept all metadata requests on disconnect |  Major | . | Jason Gustafson | Jason Gustafson |
 | [KAFKA-4100](https://issues.apache.org/jira/browse/KAFKA-4100) | Connect Struct schemas built using SchemaBuilder with no fields cause NPE in Struct constructor |  Minor | KafkaConnect | Shikhar Bhushan | Shikhar Bhushan |
+| [KAFKA-4103](https://issues.apache.org/jira/browse/KAFKA-4103) | DumpLogSegments cannot print data from offsets topic |  Blocker | tools | Ewen Cheslack-Postava | Jason Gustafson |
+| [KAFKA-4077](https://issues.apache.org/jira/browse/KAFKA-4077) | Backdate validity of certificates in system tests to cope with clock skew |  Minor | system tests | Rajini Sivaram | Rajini Sivaram |
+| [KAFKA-4104](https://issues.apache.org/jira/browse/KAFKA-4104) | Queryable state metadata is sometimes invalid |  Major | streams | Eno Thereska | Damian Guy |
+| [KAFKA-4099](https://issues.apache.org/jira/browse/KAFKA-4099) | Change the time based log rolling to only based on the message timestamp. |  Major | core | Jiangjie Qin | Jiangjie Qin |
+| [KAFKA-4105](https://issues.apache.org/jira/browse/KAFKA-4105) | Queryable state tests for concurrency and rebalancing |  Major | streams | Eno Thereska | Eno Thereska |
 
 
 ### TESTS:
@@ -154,6 +162,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [KAFKA-3863](https://issues.apache.org/jira/browse/KAFKA-3863) | Add system test for connector failure/restart |  Major | KafkaConnect, system tests | Jason Gustafson | Jason Gustafson |
+| [KAFKA-3799](https://issues.apache.org/jira/browse/KAFKA-3799) | Turn on endpoint validation in SSL system tests |  Major | system tests | Rajini Sivaram | Rajini Sivaram |
 
 
 ### SUB-TASKS:

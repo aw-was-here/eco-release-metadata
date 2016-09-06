@@ -18,7 +18,7 @@
 -->
 # Apache Pig Changelog
 
-## Release 0.17.0 - Unreleased (as of 2016-08-30)
+## Release 0.17.0 - Unreleased (as of 2016-09-06)
 
 
 
@@ -68,5 +68,9 @@
 | [PIG-4966](https://issues.apache.org/jira/browse/PIG-4966) | Fix Pig compatibility with Hive 2.1.0 |  Minor | build | Zach York | Zach York |
 | [PIG-4965](https://issues.apache.org/jira/browse/PIG-4965) | Refactor test/perf/pigmix/bin/runpigmix.pl to delete the output of single test case if we enable cleanup\_after\_test |  Major | . | liyunzhang\_intel | liyunzhang\_intel |
 | [PIG-4933](https://issues.apache.org/jira/browse/PIG-4933) | TestDataBagAccess.testBagConstantFlatten1/TestLogicalPlanBuilder.testQuery90  broken after PIG-2315 |  Major | . | Koji Noguchi | Koji Noguchi |
+| [PIG-4972](https://issues.apache.org/jira/browse/PIG-4972) | StreamingIO\_1 fail on perl 5.22 |  Major | e2e harness | Daniel Dai | Daniel Dai |
+| [PIG-4973](https://issues.apache.org/jira/browse/PIG-4973) | Bigdecimal divison fails |  Major | impl | Adam Szita | Adam Szita |
+| [PIG-4975](https://issues.apache.org/jira/browse/PIG-4975) | Map schema shows "Type: null Uid: null" in explain |  Trivial | . | Koji Noguchi | Koji Noguchi |
+| [PIG-5022](https://issues.apache.org/jira/browse/PIG-5022) | Error in TOKENIZE Example |  Major | documentation | Ian Cook | Ian Cook |
 
 

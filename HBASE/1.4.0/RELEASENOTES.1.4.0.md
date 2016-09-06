@@ -478,13 +478,6 @@ The MapReduce helper function `TableMapReduce.addDependencyJars(Configuration, c
 
 ---
 
-* [HBASE-16340](https://issues.apache.org/jira/browse/HBASE-16340) | *Critical* | **ensure no Xerces jars included**
-
-HBase no longer includes Xerces implementation jars that were previously included via transitive dependencies. Downstream users relying on HBase for these artifacts will need to update their dependencies.
-
-
----
-
 * [HBASE-16321](https://issues.apache.org/jira/browse/HBASE-16321) | *Blocker* | **Ensure findbugs jsr305 jar isn't present**
 
 HBase now ensures the jsr305 implementation from the findbugs project is not included in its binary artifacts or the compile / runtime dependencies of its user facing modules. Downstream users that rely on this jar will need to update their dependencies.
@@ -517,6 +510,43 @@ This feature relies on zk-less assignment, and conflicts with distributed log re
 * [HBASE-7621](https://issues.apache.org/jira/browse/HBASE-7621) | *Major* | **REST client (RemoteHTable) doesn't support binary row keys**
 
 RemoteHTable now supports binary row keys with any character or byte by properly encoding request URLs. This is a both a behavioral change from earlier versions and an important fix for protocol correctness.
+
+
+---
+
+* [HBASE-16409](https://issues.apache.org/jira/browse/HBASE-16409) | *Minor* | **Row key for bad row should be properly delimited in VerifyReplication**
+
+--delimiter= option is added to verifyrep.
+The delimiter would wrap bad rows in log output.
+
+
+---
+
+* [HBASE-16213](https://issues.apache.org/jira/browse/HBASE-16213) | *Major* | **A new HFileBlock structure for fast random get**
+
+HBASE-16213 introduced a new DataBlockEncoding in name of ROW\_INDEX\_V1, which could improve random read (get) performance especially when the average record size (key-value size per row) is small. To use this feature, please set DATA\_BLOCK\_ENCODING to ROW\_INDEX\_V1 for CF of newly created table, or change existing CF with below command:
+alter 'table\_name',{NAME =\> 'cf', DATA\_BLOCK\_ENCODING =\> 'ROW\_INDEX\_V1'}.
+
+Please note that if we turn this DBE on, HFile block will be bigger than NONE encoding because it adds some meta infos for binary search:
+/\*\*
+ \* Store cells following every row's start offset, so we can binary search to a row's cells.
+ \*
+ \* Format:
+ \* flat cells
+ \* integer: number of rows
+ \* integer: row0's offset
+ \* integer: row1's offset
+ \* ....
+ \* integer: dataSize
+ \*
+\*/
+
+
+---
+
+* [HBASE-16340](https://issues.apache.org/jira/browse/HBASE-16340) | *Critical* | **ensure no Xerces jars included**
+
+HBase no longer includes Xerces implementation jars that were previously included via transitive dependencies. Downstream users relying on HBase for these artifacts will need to update their dependencies.
 
 
 

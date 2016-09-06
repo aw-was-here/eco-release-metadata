@@ -3740,6 +3740,18 @@ A memory metrics reveals situations happened in both MemStores and BlockCache in
 
 ---
 
+* [HBASE-16289](https://issues.apache.org/jira/browse/HBASE-16289) | *Critical* | **AsyncProcess stuck messages need to print region/server**
+
+Adds logging of region and server. Helpful debugging. Logging now looks like this:
+{code}
+2016-06-23 17:07:18,759 INFO  [Thread-1] client.AsyncProcess$AsyncRequestFutureImpl(1601): #1, waiting for 1  actions to finish on table: DUMMY\_TABLE
+2016-06-23 17:07:18,759 INFO  [Thread-1] client.AsyncProcess(1720): Left over 1 task(s) are processed on server(s): [s1:1,1,1]
+2016-06-23 17:07:18,759 INFO  [Thread-1] client.AsyncProcess(1728): Regions against which left over task(s) are processed: [DUMMY\_TABLE,DUMMY\_BYTES\_1,1.3fd12ea80b4df621fb15497ba75f7368.,DUMMY\_TABLE,DUMMY\_BYTES\_2,2.924207e242e313d2e5491c625e0a296e.]
+{code}
+
+
+---
+
 * [HBASE-16186](https://issues.apache.org/jira/browse/HBASE-16186) | *Major* | **Fix AssignmentManager MBean name**
 
 The AssignmentManager MBean was named AssignmentManger (note misspelling). This patch fixed the misspelling.
@@ -3779,13 +3791,6 @@ If blockcache size \>= factor\*acceptableSize, we will reject the block into cac
 * [HBASE-8386](https://issues.apache.org/jira/browse/HBASE-8386) | *Major* | **deprecate TableMapReduce.addDependencyJars(Configuration, class\<?\> ...)**
 
 The MapReduce helper function `TableMapReduce.addDependencyJars(Configuration, class\<?\> ...)` has been deprecated since it is easy to use incorrectly. Most users should rely on addDependencyJars(Job) instead.
-
-
----
-
-* [HBASE-16340](https://issues.apache.org/jira/browse/HBASE-16340) | *Critical* | **ensure no Xerces jars included**
-
-HBase no longer includes Xerces implementation jars that were previously included via transitive dependencies. Downstream users relying on HBase for these artifacts will need to update their dependencies.
 
 
 ---
@@ -3877,6 +3882,43 @@ New tool to dump existing replication peers, configurations and queues when usin
  --distributed  This flag will poll each RS for information about the replication queues being processed on this RS.
 By default this is not enabled and the information about the replication queues and configuration will be obtained from ZooKeeper.
  --hdfs   When --distributed is used, this flag will attempt to calculate the total size of the WAL files used by the replication queues. Since its possible that multiple peers can be configured this value can be overestimated.
+
+
+---
+
+* [HBASE-16409](https://issues.apache.org/jira/browse/HBASE-16409) | *Minor* | **Row key for bad row should be properly delimited in VerifyReplication**
+
+--delimiter= option is added to verifyrep.
+The delimiter would wrap bad rows in log output.
+
+
+---
+
+* [HBASE-16213](https://issues.apache.org/jira/browse/HBASE-16213) | *Major* | **A new HFileBlock structure for fast random get**
+
+HBASE-16213 introduced a new DataBlockEncoding in name of ROW\_INDEX\_V1, which could improve random read (get) performance especially when the average record size (key-value size per row) is small. To use this feature, please set DATA\_BLOCK\_ENCODING to ROW\_INDEX\_V1 for CF of newly created table, or change existing CF with below command:
+alter 'table\_name',{NAME =\> 'cf', DATA\_BLOCK\_ENCODING =\> 'ROW\_INDEX\_V1'}.
+
+Please note that if we turn this DBE on, HFile block will be bigger than NONE encoding because it adds some meta infos for binary search:
+/\*\*
+ \* Store cells following every row's start offset, so we can binary search to a row's cells.
+ \*
+ \* Format:
+ \* flat cells
+ \* integer: number of rows
+ \* integer: row0's offset
+ \* integer: row1's offset
+ \* ....
+ \* integer: dataSize
+ \*
+\*/
+
+
+---
+
+* [HBASE-16340](https://issues.apache.org/jira/browse/HBASE-16340) | *Critical* | **ensure no Xerces jars included**
+
+HBase no longer includes Xerces implementation jars that were previously included via transitive dependencies. Downstream users relying on HBase for these artifacts will need to update their dependencies.
 
 
 

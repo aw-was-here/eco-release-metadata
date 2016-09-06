@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 1.6.3 - Unreleased (as of 2016-08-30)
+## Release 1.6.3 - Unreleased (as of 2016-09-06)
 
 
 
@@ -43,6 +43,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [SPARK-15761](https://issues.apache.org/jira/browse/SPARK-15761) | pyspark shell should load if PYSPARK\_DRIVER\_PYTHON is ipython an Python3 |  Minor | PySpark | Manoj Kumar | Manoj Kumar |
 | [SPARK-16796](https://issues.apache.org/jira/browse/SPARK-16796) | Visible passwords on Spark environment page |  Trivial | Web UI | Artur Sukhenko | Artur Sukhenko |
+| [SPARK-17316](https://issues.apache.org/jira/browse/SPARK-17316) | Don't block StandaloneSchedulerBackend.executorRemoved |  Major | Spark Core | Shixiong Zhu | Shixiong Zhu |
 
 
 ### BUG FIXES:
@@ -69,6 +70,8 @@
 | [SPARK-16939](https://issues.apache.org/jira/browse/SPARK-16939) | Fix build error by using `Tuple1` explicitly in StringFunctionSuite |  Minor | SQL | Dongjoon Hyun | Dongjoon Hyun |
 | [SPARK-17003](https://issues.apache.org/jira/browse/SPARK-17003) | release-build.sh is missing hive-thriftserver for scala 2.11 |  Major | Build | Yin Huai | Yin Huai |
 | [SPARK-17038](https://issues.apache.org/jira/browse/SPARK-17038) | StreamingSource reports metrics for lastCompletedBatch instead of lastReceivedBatch |  Minor | Streaming | Oz Ben-Ami | Xin Ren |
+| [SPARK-17404](https://issues.apache.org/jira/browse/SPARK-17404) | [BRANCH-1.6] Broken test: showDF in test\_sparkSQL.R |  Major | SparkR | Yin Huai | Sun Rui |
+| [SPARK-17356](https://issues.apache.org/jira/browse/SPARK-17356) | A large Metadata filed in Alias can cause OOM when calling TreeNode.toJSON |  Major | SQL | Sean Zhong | Sean Zhong |
 
 
 ### TESTS:

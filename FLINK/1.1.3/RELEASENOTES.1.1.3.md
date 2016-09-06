@@ -16,23 +16,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-# Apache Mahout Changelog
+# Apache Flink  1.1.3 Release Notes
 
-## Release 1.0.0 - Unreleased (as of 2016-09-06)
+These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
 
-
-
-### IMPROVEMENTS:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-| [MAHOUT-1482](https://issues.apache.org/jira/browse/MAHOUT-1482) | Rework quickstart website |  Blocker | Documentation | Sebastian Schelter | Sebastian Schelter |
-
-
-### OTHER:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-| [MAHOUT-1450](https://issues.apache.org/jira/browse/MAHOUT-1450) | Cleaning up clustering documentation on mahout website |  Major | Documentation | Pavan Kumar N |  |
 
 

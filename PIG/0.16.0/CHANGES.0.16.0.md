@@ -177,6 +177,7 @@
 | [PIG-4734](https://issues.apache.org/jira/browse/PIG-4734) | TOMAP schema inferring breaks some scripts in type checking for bincond |  Major | . | Rohini Palaniswamy | Daniel Dai |
 | [PIG-4821](https://issues.apache.org/jira/browse/PIG-4821) | Pig chararray field with special UTF-8 chars as part of tuple join key produces wrong results in Tez |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-4789](https://issues.apache.org/jira/browse/PIG-4789) | Pig on TEZ creates wrong result with replicated join |  Critical | tez | Michael Prim |  |
+| [PIG-4967](https://issues.apache.org/jira/browse/PIG-4967) | NPE in PigJobControl.run() when job status is null |  Critical | . | Xiang Li | Xiang Li |
 
 
 ### SUB-TASKS:

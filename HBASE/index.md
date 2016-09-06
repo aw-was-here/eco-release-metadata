@@ -31,6 +31,9 @@
 * Apache HBase v1.3
     * [Changes](1.3/CHANGES.1.3.html)
     * [Release Notes](1.3/RELEASENOTES.1.3.html)
+* Apache HBase v1.2.4
+    * [Changes](1.2.4/CHANGES.1.2.4.html)
+    * [Release Notes](1.2.4/RELEASENOTES.1.2.4.html)
 * Apache HBase v1.2.3
     * [Changes](1.2.3/CHANGES.1.2.3.html)
     * [Release Notes](1.2.3/RELEASENOTES.1.2.3.html)
