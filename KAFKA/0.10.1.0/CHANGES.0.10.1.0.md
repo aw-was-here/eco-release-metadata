@@ -156,6 +156,7 @@
 | [KAFKA-4105](https://issues.apache.org/jira/browse/KAFKA-4105) | Queryable state tests for concurrency and rebalancing |  Major | streams | Eno Thereska | Eno Thereska |
 | [KAFKA-4023](https://issues.apache.org/jira/browse/KAFKA-4023) | Add thread id as prefix in Kafka Streams thread logging |  Major | streams | Guozhang Wang | Bill Bejeck |
 | [KAFKA-4129](https://issues.apache.org/jira/browse/KAFKA-4129) | Processor throw exception when getting channel remote address after closing the channel |  Major | core | TAO XIAO | TAO XIAO |
+| [KAFKA-4034](https://issues.apache.org/jira/browse/KAFKA-4034) | Consumer need not lookup coordinator when using manual assignment |  Major | consumer | Jason Gustafson | Jason Gustafson |
 
 
 ### TESTS:
@@ -188,6 +189,7 @@
 | [KAFKA-4045](https://issues.apache.org/jira/browse/KAFKA-4045) | Investigate feasibility of hooking into RocksDb's cache |  Major | streams | Eno Thereska | Damian Guy |
 | [KAFKA-4038](https://issues.apache.org/jira/browse/KAFKA-4038) | Transient failure in DeleteTopicsRequestTest.testErrorDeleteTopicRequests |  Major | . | Jason Gustafson | Grant Henke |
 | [KAFKA-4049](https://issues.apache.org/jira/browse/KAFKA-4049) | Transient failure in RegexSourceIntegrationTest.testRegexMatchesTopicsAWhenDeleted |  Major | streams | Guozhang Wang | Guozhang Wang |
+| [KAFKA-4058](https://issues.apache.org/jira/browse/KAFKA-4058) | Failure in org.apache.kafka.streams.integration.ResetIntegrationTest.testReprocessingFromScratchAfterReset |  Major | streams | Guozhang Wang | Matthias J. Sax |
 
 
 ### OTHER:
