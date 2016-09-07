@@ -337,6 +337,7 @@
 | [YARN-5373](https://issues.apache.org/jira/browse/YARN-5373) | NPE listing wildcard directory in containerLaunch |  Blocker | nodemanager | Haibo Chen | Daniel Templeton |
 | [HADOOP-12765](https://issues.apache.org/jira/browse/HADOOP-12765) | HttpServer2 should switch to using the non-blocking SslSelectChannelConnector to prevent performance degradation when handling SSL connections |  Major | . | Min Shen | Min Shen |
 | [YARN-5555](https://issues.apache.org/jira/browse/YARN-5555) | Scheduler UI: "% of Queue" is inaccurate if leaf queue is hierarchically nested. |  Minor | . | Eric Payne | Eric Payne |
+| [HADOOP-13558](https://issues.apache.org/jira/browse/HADOOP-13558) | UserGroupInformation created from a Subject incorrectly tries to renew the Kerberos ticket |  Major | security | Alejandro Abdelnur | Xiao Chen |
 
 
 ### TESTS:

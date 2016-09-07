@@ -37,3 +37,11 @@
 | [MAHOUT-1876](https://issues.apache.org/jira/browse/MAHOUT-1876) | Mahout fails to read from lucene index of solr-5.5.2 |  Major | . | Raviteja Lokineni |  |
 
 
+### OTHER:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [MAHOUT-1880](https://issues.apache.org/jira/browse/MAHOUT-1880) | Remove H2O Bindings from the release binaries |  Critical | build | Andrew Palumbo | Suneel Marthi |
+| [MAHOUT-1865](https://issues.apache.org/jira/browse/MAHOUT-1865) | Remove Hadoop 1 support. |  Major | . | Andrew Palumbo | Suneel Marthi |
+
+

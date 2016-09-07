@@ -16,21 +16,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-* Apache Orc v1.3.0
-    * [Changes](1.3.0/CHANGES.1.3.0.html)
-    * [Release Notes](1.3.0/RELEASENOTES.1.3.0.html)
-* Apache Orc v1.2.1
-    * [Changes](1.2.1/CHANGES.1.2.1.html)
-    * [Release Notes](1.2.1/RELEASENOTES.1.2.1.html)
-* Apache Orc v1.2.0
-    * [Changes](1.2.0/CHANGES.1.2.0.html)
-    * [Release Notes](1.2.0/RELEASENOTES.1.2.0.html)
-* Apache Orc v1.1.2
-    * [Changes](1.1.2/CHANGES.1.1.2.html)
-    * [Release Notes](1.1.2/RELEASENOTES.1.1.2.html)
-* Apache Orc v1.1.0
-    * [Changes](1.1.0/CHANGES.1.1.0.html)
-    * [Release Notes](1.1.0/RELEASENOTES.1.1.0.html)
-* Apache Orc v1.0.0
-    * [Changes](1.0.0/CHANGES.1.0.0.html)
-    * [Release Notes](1.0.0/RELEASENOTES.1.0.0.html)
+# Apache Orc Changelog
+
+## Release 1.2.1 - Unreleased (as of 2016-09-07)
+
+
+
+### NEW FEATURES:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [ORC-97](https://issues.apache.org/jira/browse/ORC-97) | Support column name selection in ReaderOptions |  Major | C++ | Chunyang Wen | Chunyang Wen |
+| [ORC-92](https://issues.apache.org/jira/browse/ORC-92) | Support type id (column id) selection in ReaderOptions |  Minor | C++ | Chunyang Wen | Chunyang Wen |
+
+

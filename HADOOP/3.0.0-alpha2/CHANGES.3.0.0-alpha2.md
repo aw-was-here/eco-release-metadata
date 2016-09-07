@@ -82,6 +82,7 @@
 | [HDFS-10835](https://issues.apache.org/jira/browse/HDFS-10835) | Fix typos in httpfs.sh |  Trivial | httpfs | John Zhuge | John Zhuge |
 | [HDFS-10841](https://issues.apache.org/jira/browse/HDFS-10841) | Remove duplicate or unused variable in appendFile() |  Minor | . | Kihwal Lee | Kihwal Lee |
 | [HDFS-9038](https://issues.apache.org/jira/browse/HDFS-9038) | DFS reserved space is erroneously counted towards non-DFS used. |  Major | datanode | Chris Nauroth | Brahma Reddy Battula |
+| [HADOOP-13558](https://issues.apache.org/jira/browse/HADOOP-13558) | UserGroupInformation created from a Subject incorrectly tries to renew the Kerberos ticket |  Major | security | Alejandro Abdelnur | Xiao Chen |
 
 
 ### SUB-TASKS:
