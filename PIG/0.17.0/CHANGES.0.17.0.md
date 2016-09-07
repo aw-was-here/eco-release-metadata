@@ -18,7 +18,7 @@
 -->
 # Apache Pig Changelog
 
-## Release 0.17.0 - Unreleased (as of 2016-09-06)
+## Release 0.17.0 - Unreleased (as of 2016-09-07)
 
 
 
@@ -40,6 +40,7 @@
 | [PIG-4911](https://issues.apache.org/jira/browse/PIG-4911) | Provide option to disable DAG recovery |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-4852](https://issues.apache.org/jira/browse/PIG-4852) | Add accumulator implementation for MaxTupleBy1stField |  Minor | . | Eyal Allweil | Adam Szita |
 | [PIG-4931](https://issues.apache.org/jira/browse/PIG-4931) | Document IN operator |  Major | . | Rohini Palaniswamy | Artem Ervits |
+| [PIG-5023](https://issues.apache.org/jira/browse/PIG-5023) | Documentation for BagToTuple |  Major | documentation | Ian Cook | Ian Cook |
 
 
 ### BUG FIXES:

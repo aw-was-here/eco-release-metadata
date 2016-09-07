@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 1.5.3 - Unreleased (as of 2016-09-06)
+## Release 1.5.3 - Unreleased (as of 2016-09-07)
 
 
 

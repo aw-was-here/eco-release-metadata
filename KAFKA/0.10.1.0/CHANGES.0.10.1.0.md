@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.10.1.0 - Unreleased (as of 2016-09-06)
+## Release 0.10.1.0 - Unreleased (as of 2016-09-07)
 
 
 
@@ -155,6 +155,7 @@
 | [KAFKA-4099](https://issues.apache.org/jira/browse/KAFKA-4099) | Change the time based log rolling to only based on the message timestamp. |  Major | core | Jiangjie Qin | Jiangjie Qin |
 | [KAFKA-4105](https://issues.apache.org/jira/browse/KAFKA-4105) | Queryable state tests for concurrency and rebalancing |  Major | streams | Eno Thereska | Eno Thereska |
 | [KAFKA-4023](https://issues.apache.org/jira/browse/KAFKA-4023) | Add thread id as prefix in Kafka Streams thread logging |  Major | streams | Guozhang Wang | Bill Bejeck |
+| [KAFKA-4129](https://issues.apache.org/jira/browse/KAFKA-4129) | Processor throw exception when getting channel remote address after closing the channel |  Major | core | TAO XIAO | TAO XIAO |
 
 
 ### TESTS:
