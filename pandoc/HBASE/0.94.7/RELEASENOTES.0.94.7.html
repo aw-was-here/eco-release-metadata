@@ -1,0 +1,72 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hbase-0.94.7-release-notes">Apache HBase 0.94.7 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-8148">HBASE-8148</a> | <em>Major</em> | <strong>Allow IPC to bind on a specific address</strong></li>
+</ul>
+<p>hbase.master.ipc.address and hbase.regionserver.ipc.address can now be used to have HBase bind on specific IP addresses, 0.0.0.0 being the main use case. The default behavior still relies on hbase.regionserver.dns.interface/nameserver.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-8081">HBASE-8081</a> | <em>Major</em> | <strong>Backport HBASE-7213 (separate hlog for meta tables) to 0.94</strong></li>
+</ul>
+<p>The regionserver carrying .META. / -ROOT- region will now write two WALs; the usual one w/ all edits and then a special one with a .meta. suffix into which all edits for .META. / -ROOT- region go. These files will be recovered first on server crash. This feature is turned OFF by default. The configuration hbase.regionserver.separate.hlog.for.meta must be set to true to enable this behavior.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-8176">HBASE-8176</a> | <em>Minor</em> | <strong>Backport HBASE-5335 &quot;Dynamic Schema Configurations&quot; to 0.94</strong></li>
+</ul>
+<p>With HBASE-8176(&quot;Dynamic Schema Configurations&quot;), we can define table/column family specific configuration by HColumnDescriptor.setValue() or HTableDescriptor.setValue(). We can also do this easily in hbase shell.</p>
+<p>Change the table-scope by set attribute CONFIG like this: alter 'test', METHOD =&gt; 'table_att', CONFIG =&gt; {'hbase.hstore.compaction.min' =&gt; '5'}</p>
+<p>Change the column family config by set attribute CONFIG like this: alter 'test', NAME =&gt; 'f', CONFIG =&gt; {'hbase.hstore.compaction.min' =&gt; '5'}</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-8276">HBASE-8276</a> | <em>Major</em> | <strong>Backport hbase-6738 to 0.94 &quot;Too aggressive task resubmission from the distributed log manager&quot;</strong></li>
+</ul>
+<p>The Split Log Manager now takes into account the state of the region server doing the split. If this region server is marked as dead (i.e. its ZooKeeper connection expires), its task is immediately resubmitted. If the region server is still in the &quot;alive&quot; state, then we wait for 5 minutes before resubmitting, instead of 25 seconds previously. This delay can be changed with the parameter &quot;hbase.splitlog.manager.timeout&quot; (milliseconds, new default: 300000).</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-7824">HBASE-7824</a> | <em>Major</em> | <strong>Improve master start up time when there is log splitting work</strong></li>
+</ul>
+<p>Master now won't wait for existing or previously left log splitting work(except for ROOT and META region servers) finish before it can start up. Sometimes log splitting work could take more than minutes. In normal case, master node starts much faster than before when there is region server recovery work going on. The feature can be disabled by setting configuration value &quot;&quot;hbase.master.wait.for.log.splitting&quot; to true.(default value is false)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-1936">HBASE-1936</a> | <em>Major</em> | <strong>ClassLoader that loads from hdfs; useful adding filters to classpath without having to restart services</strong></li>
+</ul>
+<p>With this patch, customer filters can be dropped into a pre-configured folder (hbase.dynamic.jars.dir), which can be in hdfs. Region servers can pick them up dynamically, no need to restart the cluster for the new filters to take effect.</p>
+<p>However, if a filter class is already loaded, it won't be un-loaded. Therefore, we can't load a new version of an existing class. Users have to have a proper way to do filter class versioning.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-7801">HBASE-7801</a> | <em>Major</em> | <strong>Allow a deferred sync option per Mutation.</strong></li>
+</ul>
+<p>HBase clients from 0.94.7 going forward support the following new API for Mutations (Put/Delete/Append/Increment). Mutation.setDurability(Durability). Possible durability settings are: USE_DEFAULT (use whatever the table has been configured with), SKIP_WAL (do not write anything to the WAL), ASYNC_WAL (write to the WAL asynchronously), SYNC (write to the WAL synchrously), FSYNC (write to the WAL synchronously and force to disc everywhere - currently not supported).</p>
+<p>Regionservers prior to 0.94.7 with ignore anything but SKIP_WAL and assume USE_DEFAULT.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-8352">HBASE-8352</a> | <em>Blocker</em> | <strong>Rename '.snapshot' directory</strong></li>
+</ul>
+<p>In order to avoid name collision with hdfs snapshot, &quot;.snapshot&quot; under HBase root directory must be renamed as &quot;.hbase-snapshot&quot; before deployment of 0.94.7 or later release is started.</p>
+<p>Don't do rolling upgrade between 0.94.6.1 and 0.94.7 if there're on-going snapshots activities. Sequence of actions should be:</p>
+<ol>
+<li>make sure all on-going snapshots activities have completed</li>
+<li>shutdown all the masters</li>
+<li>rename &quot;.snapshot&quot; under HBase root directory as &quot;.hbase-snapshot&quot;</li>
+<li>upgrade the masters to 0.94.7+ release (You now can perform clone or restore, but not taking snapshots)</li>
+<li>upgrade the region servers (You should not take snapshots until all the regions server are aligned to 0.94.7+ release)</li>
+</ol>
+<p>If you take a snapshot during the RS upgrades nothing critical happens. The &quot;.snapshot&quot; folder would appear again and the snapshot will fail since half of the data will be in &quot;.hbase-snapshot&quot; and the other half in &quot;.snapshot&quot;</p>

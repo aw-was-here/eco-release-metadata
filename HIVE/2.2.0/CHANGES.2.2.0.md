@@ -18,7 +18,7 @@
 -->
 # Apache Hive Changelog
 
-## Release 2.2.0 - Unreleased (as of 2016-09-07)
+## Release 2.2.0 - Unreleased (as of 2016-09-09)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -32,6 +32,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HIVE-14436](https://issues.apache.org/jira/browse/HIVE-14436) | Hive 1.2.1/Hitting "ql.Driver: FAILED: IllegalArgumentException Error: , expected at the end of 'decimal(9'" after enabling hive.optimize.skewjoin and with MR engine |  Major | Hive | Ratish Maruthiyodan | Daniel Dai |
+| [HIVE-14159](https://issues.apache.org/jira/browse/HIVE-14159) | sorting of tuple array using multiple field[s] |  Major | UDF | Simanchal Das | Simanchal Das |
 
 
 ### NEW FEATURES:
@@ -43,6 +44,7 @@
 | [HIVE-14035](https://issues.apache.org/jira/browse/HIVE-14035) | Enable predicate pushdown to delta files created by ACID Transactions |  Major | Transactions | Saket Saurabh | Saket Saurabh |
 | [HIVE-14362](https://issues.apache.org/jira/browse/HIVE-14362) | Support explain analyze in Hive |  Major | . | Pengcheng Xiong | Pengcheng Xiong |
 | [HIVE-14233](https://issues.apache.org/jira/browse/HIVE-14233) | Improve vectorization for ACID by eliminating row-by-row stitching |  Major | Transactions, Vectorization | Saket Saurabh | Saket Saurabh |
+| [HIVE-14217](https://issues.apache.org/jira/browse/HIVE-14217) | Druid integration |  Major | Druid integration | Julian Hyde | Jesus Camacho Rodriguez |
 
 
 ### IMPROVEMENTS:
@@ -107,6 +109,8 @@
 | [HIVE-14290](https://issues.apache.org/jira/browse/HIVE-14290) | Refactor HIVE-14054 to use Collections#newSetFromMap |  Trivial | Metastore | Peter Slawski | Peter Slawski |
 | [HIVE-14672](https://issues.apache.org/jira/browse/HIVE-14672) | Add timestamps to startup message in hive scripts. |  Minor | Hive | Naveen Gangam | Naveen Gangam |
 | [HIVE-14462](https://issues.apache.org/jira/browse/HIVE-14462) | Reduce number of partition check calls in add\_partitions |  Minor | Metastore | Rajesh Balamohan | Rajesh Balamohan |
+| [HIVE-14451](https://issues.apache.org/jira/browse/HIVE-14451) | Vectorization: Add byRef mode for borrowed Strings in VectorDeserializeRow |  Major | Vectorization | Gopal V | Matt McCline |
+| [HIVE-14542](https://issues.apache.org/jira/browse/HIVE-14542) | VirtualColumn::equals() should use object equality |  Minor | Query Processor, Transactions | Gopal V | Eugene Koifman |
 
 
 ### BUG FIXES:
@@ -164,7 +168,6 @@
 | [HIVE-13725](https://issues.apache.org/jira/browse/HIVE-13725) | ACID: Streaming API should synchronize calls when multiple threads use the same endpoint |  Critical | HCatalog, Metastore, Transactions | Vaibhav Gumashta | Vaibhav Gumashta |
 | [HIVE-13991](https://issues.apache.org/jira/browse/HIVE-13991) | Union All on view fail with no valid permission on underneath table |  Major | Query Planning | Yongzhi Chen | Yongzhi Chen |
 | [HIVE-13997](https://issues.apache.org/jira/browse/HIVE-13997) | Insert overwrite directory doesn't overwrite existing files |  Major | Query Processor | Rui Li | Rui Li |
-| [HIVE-14098](https://issues.apache.org/jira/browse/HIVE-14098) | Logging task properties, and environment variables might contain passwords |  Major | HiveServer2, Logging, Spark | Peter Vary | Peter Vary |
 | [HIVE-14092](https://issues.apache.org/jira/browse/HIVE-14092) | Kryo exception when deserializing VectorFileSinkOperator |  Major | Serializers/Deserializers | Prasanth Jayachandran | Prasanth Jayachandran |
 | [HIVE-14073](https://issues.apache.org/jira/browse/HIVE-14073) | update config whiltelist for sql std authorization |  Major | Security, SQLStandardAuthorization | Thejas M Nair | Thejas M Nair |
 | [HIVE-14013](https://issues.apache.org/jira/browse/HIVE-14013) | Describe table doesn't show unicode properly |  Major | Query Planning | Aihua Xu | Aihua Xu |
@@ -361,7 +364,6 @@
 | [HIVE-14658](https://issues.apache.org/jira/browse/HIVE-14658) | UDF abs throws NPE when input arg type is string |  Minor | UDF | Niklaus Xiao | Niklaus Xiao |
 | [HIVE-14674](https://issues.apache.org/jira/browse/HIVE-14674) |  Incorrect syntax near the keyword 'with' using MS SQL Server |  Critical | Metastore, Transactions | Eugene Koifman | Eugene Koifman |
 | [HIVE-14652](https://issues.apache.org/jira/browse/HIVE-14652) | incorrect results for not in on partition columns |  Blocker | . | stephen sprague | Sergey Shelukhin |
-| [HIVE-13589](https://issues.apache.org/jira/browse/HIVE-13589) | beeline - support prompt for password with '-u' option |  Major | Beeline | Thejas M Nair | Ke Jia |
 | [HIVE-14426](https://issues.apache.org/jira/browse/HIVE-14426) | Extensive logging on info level in WebHCat |  Minor | . | Peter Vary | Peter Vary |
 | [HIVE-14538](https://issues.apache.org/jira/browse/HIVE-14538) | beeline throws exceptions with parsing hive config when using !sh statement |  Major | . | Yongzhi Chen | Yongzhi Chen |
 | [HIVE-14618](https://issues.apache.org/jira/browse/HIVE-14618) | beeline fetch logging delays before query completion |  Major | . | Tao Li | Tao Li |
@@ -374,6 +376,11 @@
 | [HIVE-14697](https://issues.apache.org/jira/browse/HIVE-14697) | Can not access kerberized HS2 Web UI |  Major | Web UI | Chaoyu Tang | Chaoyu Tang |
 | [HIVE-14570](https://issues.apache.org/jira/browse/HIVE-14570) | Create table with column names ROW\_\_ID, INPUT\_\_FILE\_\_NAME, BLOCK\_\_OFFSET\_\_INSIDE\_\_FILE sucess but query fails |  Major | HiveServer2 | Niklaus Xiao | Niklaus Xiao |
 | [HIVE-14694](https://issues.apache.org/jira/browse/HIVE-14694) | UDF rand throws NPE when input data is NULL |  Minor | UDF | Niklaus Xiao | Niklaus Xiao |
+| [HIVE-14710](https://issues.apache.org/jira/browse/HIVE-14710) | unify DB product type treatment in directsql and txnhandler |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
+| [HIVE-14608](https://issues.apache.org/jira/browse/HIVE-14608) | LLAP: slow scheduling due to LlapTaskScheduler not removing nodes on kill |  Critical | . | Sergey Shelukhin | Sergey Shelukhin |
+| [HIVE-14716](https://issues.apache.org/jira/browse/HIVE-14716) | Duplicate pom.xml entries for mockito |  Trivial | Beeline | Vihang Karajgaonkar | Vihang Karajgaonkar |
+| [HIVE-14591](https://issues.apache.org/jira/browse/HIVE-14591) | HS2 is shut down unexpectedly during the startup time |  Major | . | Tao Li | Tao Li |
+| [HIVE-14686](https://issues.apache.org/jira/browse/HIVE-14686) | Get unexpected command type when execute query "CREATE TABLE IF NOT EXISTS ... AS" |  Major | . | Fan Yunbo | Fan Yunbo |
 
 
 ### TESTS:
@@ -467,6 +474,18 @@
 | [HIVE-14656](https://issues.apache.org/jira/browse/HIVE-14656) | Clean up driver instance in get\_splits |  Major | . | Jason Dere | Jason Dere |
 | [HIVE-13555](https://issues.apache.org/jira/browse/HIVE-13555) | Add nullif udf |  Major | UDF | Ashutosh Chauhan | Zoltan Haindrich |
 | [HIVE-13556](https://issues.apache.org/jira/browse/HIVE-13556) | Support for double precision data type |  Major | Types | Ashutosh Chauhan | Zoltan Haindrich |
+| [HIVE-14438](https://issues.apache.org/jira/browse/HIVE-14438) | Create Table on Druid data source |  Major | Druid integration | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
+| [HIVE-14464](https://issues.apache.org/jira/browse/HIVE-14464) | Add property for default Druid broker address |  Major | Druid integration | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
+| [HIVE-14465](https://issues.apache.org/jira/browse/HIVE-14465) | Recognize scan of Druid table in Calcite optimizer |  Major | Druid integration | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
+| [HIVE-14466](https://issues.apache.org/jira/browse/HIVE-14466) | Extend Calcite capabilities to transform plan into Druid query |  Major | Druid integration | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
+| [HIVE-14467](https://issues.apache.org/jira/browse/HIVE-14467) | Translate Druid query back from Calcite plan |  Major | Druid integration | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
+| [HIVE-14468](https://issues.apache.org/jira/browse/HIVE-14468) | Implement Druid query based input format |  Major | Druid integration | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
+| [HIVE-14469](https://issues.apache.org/jira/browse/HIVE-14469) | Read results for Druid Timeseries query |  Major | Druid integration | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
+| [HIVE-14470](https://issues.apache.org/jira/browse/HIVE-14470) | Read results for Druid TopN query |  Major | Druid integration | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
+| [HIVE-14471](https://issues.apache.org/jira/browse/HIVE-14471) | Read results for Druid GroupBy query |  Major | Druid integration | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
+| [HIVE-14472](https://issues.apache.org/jira/browse/HIVE-14472) | Read results for Druid Select query |  Major | Druid integration | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
+| [HIVE-14626](https://issues.apache.org/jira/browse/HIVE-14626) | Support Trash in Truncate Table |  Minor | Query Processor | Chaoyu Tang | Chaoyu Tang |
+| [HIVE-14039](https://issues.apache.org/jira/browse/HIVE-14039) | HiveServer2: Make the usage of server with JDBC thirft serde enabled, backward compatible for older clients |  Major | HiveServer2, JDBC | Vaibhav Gumashta | Ziyang Zhao |
 
 
 ### OTHER:

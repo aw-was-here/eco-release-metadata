@@ -1,0 +1,160 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hbase-changelog">Apache HBase Changelog</h1>
+<h2 id="release-0.94.21---2014-07-03">Release 0.94.21 - 2014-07-03</h2>
+<h3 id="new-features">NEW FEATURES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-10935">HBASE-10935</a></td>
+<td align="left">support snapshot policy where flush memstore can be skipped to prevent production cluster freeze</td>
+<td align="left">Minor</td>
+<td align="left">shell, snapshots</td>
+<td align="left">Tianying Chang</td>
+<td align="left">Tianying Chang</td>
+</tr>
+</tbody>
+</table>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8495">HBASE-8495</a></td>
+<td align="left">Change ownership of the directory to bulk load</td>
+<td align="left">Trivial</td>
+<td align="left">mapreduce</td>
+<td align="left">Matteo Bertozzi</td>
+<td align="left">Matteo Bertozzi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-10871">HBASE-10871</a></td>
+<td align="left">Indefinite OPEN/CLOSE wait on busy RegionServers</td>
+<td align="left">Major</td>
+<td align="left">Balancer, master, Region Assignment</td>
+<td align="left">Harsh J</td>
+<td align="left">Esteban Gutierrez</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-11096">HBASE-11096</a></td>
+<td align="left">stop method of Master and RegionServer coprocessor is not invoked</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Qiang Tian</td>
+<td align="left">Qiang Tian</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-11234">HBASE-11234</a></td>
+<td align="left">FastDiffDeltaEncoder#getFirstKeyInBlock returns wrong result</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">chunhui shen</td>
+<td align="left">chunhui shen</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-10692">HBASE-10692</a></td>
+<td align="left">The Multi TableMap job don't support the security HBase cluster</td>
+<td align="left">Minor</td>
+<td align="left">mapreduce</td>
+<td align="left">Liu Shaohui</td>
+<td align="left">Liu Shaohui</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-11341">HBASE-11341</a></td>
+<td align="left">ZKProcedureCoordinatorRpcs should respond only to members</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Matteo Bertozzi</td>
+<td align="left">Matteo Bertozzi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-11052">HBASE-11052</a></td>
+<td align="left">Sending random data crashes thrift service</td>
+<td align="left">Major</td>
+<td align="left">Thrift</td>
+<td align="left">Adrian Muraru</td>
+<td align="left">Adrian Muraru</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-11414">HBASE-11414</a></td>
+<td align="left">Backport to 0.94: HBASE-7711 rowlock release problem with thread interruptions in batchMutate</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ted Yu</td>
+<td align="left">Ted Yu</td>
+</tr>
+</tbody>
+</table>

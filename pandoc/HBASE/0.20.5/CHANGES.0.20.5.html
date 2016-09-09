@@ -1,0 +1,287 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hbase-changelog">Apache HBase Changelog</h1>
+<h2 id="release-0.20.5---2010-06-24">Release 0.20.5 - 2010-06-24</h2>
+<h3 id="incompatible-changes">INCOMPATIBLE CHANGES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2397">HBASE-2397</a></td>
+<td align="left">Bytes.toStringBinary escapes printable chars</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Andrew Purtell</td>
+<td align="left">Andrew Purtell</td>
+</tr>
+</tbody>
+</table>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2567">HBASE-2567</a></td>
+<td align="left">[stargate] minimize differences between 0.20 branch and trunk</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Andrew Purtell</td>
+<td align="left">Andrew Purtell</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2613">HBASE-2613</a></td>
+<td align="left">Remove the code around MSG_CALL_SERVER_STARTUP</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jean-Daniel Cryans</td>
+<td align="left">Jean-Daniel Cryans</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2752">HBASE-2752</a></td>
+<td align="left">Don't retry forever when waiting on too many store files</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Jean-Daniel Cryans</td>
+<td align="left">stack</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2428">HBASE-2428</a></td>
+<td align="left">NPE in ProcessRegionClose because meta is offline kills master and thus the cluster</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">stack</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2482">HBASE-2482</a></td>
+<td align="left">regions in transition do not get reassigned by master when RS crashes</td>
+<td align="left">Blocker</td>
+<td align="left">master</td>
+<td align="left">Todd Lipcon</td>
+<td align="left">Todd Lipcon</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2503">HBASE-2503</a></td>
+<td align="left">PriorityQueue isn't thread safe, KeyValueHeap uses it that way</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Jean-Daniel Cryans</td>
+<td align="left">Jean-Daniel Cryans</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2545">HBASE-2545</a></td>
+<td align="left">Unresponsive region server, potential deadlock</td>
+<td align="left">Blocker</td>
+<td align="left">regionserver</td>
+<td align="left">Kris Jirapinyo</td>
+<td align="left">Todd Lipcon</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2530">HBASE-2530</a></td>
+<td align="left">HBASE-2165 removed compactionQueueSize metric</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Kannan Muthukkaruppan</td>
+<td align="left">Ruifang Ge</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2606">HBASE-2606</a></td>
+<td align="left">NativeException: org.apache.hadoop.hbase.client.NoServerForRegionException: No server address listed in .META. for region item,,1274235159640</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sam Pullara</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2610">HBASE-2610</a></td>
+<td align="left">ValueFilter copy pasted javadoc from QualifierFilter</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jean-Daniel Cryans</td>
+<td align="left">Jean-Daniel Cryans</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2617">HBASE-2617</a></td>
+<td align="left">Load balancer falls into pathological state if one server under average - slop; endless churn</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">stack</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2635">HBASE-2635</a></td>
+<td align="left">ImmutableBytesWritable ignores offset in several cases</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Todd Lipcon</td>
+<td align="left">Todd Lipcon</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2615">HBASE-2615</a></td>
+<td align="left">M/R on bulk imported tables</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Azza Abouzeid</td>
+<td align="left">stack</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2712">HBASE-2712</a></td>
+<td align="left">Cached region location that went stale won't recover if asking for first row</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Jean-Daniel Cryans</td>
+<td align="left">Jean-Daniel Cryans</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2740">HBASE-2740</a></td>
+<td align="left">NPE in ReadWriteConsistencyControl</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Dave Latham</td>
+<td align="left">ryan rawson</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2728">HBASE-2728</a></td>
+<td align="left">Support for HADOOP-4829</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jean-Daniel Cryans</td>
+<td align="left">Jean-Daniel Cryans</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2683">HBASE-2683</a></td>
+<td align="left">Make it obvious in the documentation that ZooKeeper needs permanent storage</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jean-Daniel Cryans</td>
+<td align="left">Jean-Daniel Cryans</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2616">HBASE-2616</a></td>
+<td align="left">TestHRegion.testWritesWhileGetting flaky on trunk</td>
+<td align="left">Critical</td>
+<td align="left">regionserver</td>
+<td align="left">Todd Lipcon</td>
+<td align="left">ryan rawson</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2455">HBASE-2455</a></td>
+<td align="left">&quot;Cached an already cached block&quot; RTE in RS after split</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Todd Lipcon</td>
+<td align="left">ryan rawson</td>
+</tr>
+</tbody>
+</table>
+<h3 id="other">OTHER:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2521">HBASE-2521</a></td>
+<td align="left">no license headers in 5 files</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Thomas Koch</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2568">HBASE-2568</a></td>
+<td align="left">Add new svn, ml, and website locations into branches/0.20/src/doc and into trunk/pom.xml, etc.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">stack</td>
+</tr>
+</tbody>
+</table>

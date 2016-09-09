@@ -1,0 +1,54 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hbase-0.94.2-release-notes">Apache HBase 0.94.2 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-6373">HBASE-6373</a> | <em>Minor</em> | <strong>Add more context information to audit log messages</strong></li>
+</ul>
+<p>Applied to 0.94 branch too.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-6263">HBASE-6263</a> | <em>Minor</em> | <strong>Use default mode for HBase Thrift gateway if not specified</strong></li>
+</ul>
+<p>The Thrift gateway no longer requires specification on the command line of an implementation type when starting. If missing, the default &quot;threadpool&quot; implementation will be selected.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-3271">HBASE-3271</a> | <em>Major</em> | <strong>Allow .META. table to be exported</strong></li>
+</ul>
+<p>mapreduce.Export is able to export .META. table</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-6364">HBASE-6364</a> | <em>Major</em> | <strong>Powering down the server host holding the .META. table causes HBase Client to take excessively long to recover and connect to reassigned .META. table</strong></li>
+</ul>
+<p>The client (ipc.HBaseClient) now keeps a list of the failed connection attempts. It does not retry to connect before 2 seconds after a failure. This can be configured by setting &quot;hbase.ipc.client.failed.servers.expiry&quot;: number of milliseconds before retrying the same server. Note that some clients retry multiple times to allow transient errors. If this parameter is set to a large value, these clients will fail without the server being actually retried.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-6710">HBASE-6710</a> | <em>Critical</em> | <strong>0.92/0.94 compatibility issues due to HBASE-5206</strong></li>
+</ul>
+<p>This issue introduces a compatibility mode on the HMaster for 0.92.0 and 0.92.1 clients. Without the compatibility mode, 0.92.0 and 0.92.1 clients will hang on calls to &quot;enableTable&quot; and &quot;is_enabled&quot; will always return false, even for enabled tables. To use the compatibility mode, 0.92.0 and 0.92.1 clients require a restart with the following configuration change: &lt;name&gt;zookeeper.znode.tableEnableDisable&lt;/name&gt; &lt;value&gt;table92&lt;/value&gt; In rare failure cases, even with the compatibility mode on, the client may report incorrect results for &quot;is_enabled&quot; and &quot;is_disabled.&quot; For example, &quot;is_enabled&quot; may return true even though the table is disabled (the correct value can be checked via the HMaster UI). This issue can be corrected by calling &quot;enable&quot; or &quot;disable&quot; to return the table to the desired state.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-6914">HBASE-6914</a> | <em>Major</em> | <strong>Scans/Gets/Mutations don't give a good error if the table is disabled.</strong></li>
+</ul>
+<p>Scans/Gets/Mutations will now throw a DoNotRetryException, with an explanation, when the tageted table has been disabled.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-6916">HBASE-6916</a> | <em>Minor</em> | <strong>HBA logs at info level errors that won't show in the shell</strong></li>
+</ul>
+<p>The close_region shell command won't fail silently anymore, code relying on this behavior will now get UnknownRegionException</p>

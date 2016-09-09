@@ -1,0 +1,1861 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-kafka-changelog">Apache Kafka Changelog</h1>
+<h2 id="release-0.8.2.0---2015-02-02">Release 0.8.2.0 - 2015-02-02</h2>
+<h3 id="new-features">NEW FEATURES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1227">KAFKA-1227</a></td>
+<td align="left">Code dump of new producer</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jay Kreps</td>
+<td align="left">Jay Kreps</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1384">KAFKA-1384</a></td>
+<td align="left">Log Broker state</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Timothy Chen</td>
+<td align="left">Timothy Chen</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1443">KAFKA-1443</a></td>
+<td align="left">Add delete topic to topic commands and update DeleteTopicCommand</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Timothy Chen</td>
+<td align="left">Timothy Chen</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1597">KAFKA-1597</a></td>
+<td align="left">New metrics: ResponseQueueSize and BeingSentResponses</td>
+<td align="left">Minor</td>
+<td align="left">core</td>
+<td align="left">Alexis Midon</td>
+<td align="left">Alexis Midon</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1512">KAFKA-1512</a></td>
+<td align="left">Limit the maximum number of connections per ip address</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jay Kreps</td>
+<td align="left">Jeff Holoman</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1000">KAFKA-1000</a></td>
+<td align="left">Inbuilt consumer offset management feature for kakfa</td>
+<td align="left">Minor</td>
+<td align="left">consumer</td>
+<td align="left">Tejas Patil</td>
+<td align="left">Tejas Patil</td>
+</tr>
+</tbody>
+</table>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1278">KAFKA-1278</a></td>
+<td align="left">More flexible helper scripts</td>
+<td align="left">Major</td>
+<td align="left">tools</td>
+<td align="left">Nathan Brown</td>
+<td align="left">Nathan Brown</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1287">KAFKA-1287</a></td>
+<td align="left">enable log4j in command line tools using the new producer</td>
+<td align="left">Major</td>
+<td align="left">core</td>
+<td align="left">Jun Rao</td>
+<td align="left">Jun Rao</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1028">KAFKA-1028</a></td>
+<td align="left">per topic configuration of preference for consistency over availability</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Scott Clasen</td>
+<td align="left">Andrew Olson</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1312">KAFKA-1312</a></td>
+<td align="left">Update gitignore to ignore IDE generated files</td>
+<td align="left">Trivial</td>
+<td align="left">.</td>
+<td align="left">Timothy Chen</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1344">KAFKA-1344</a></td>
+<td align="left">Kafka-console-producer.sh support snappy compression</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">aio</td>
+<td align="left">Ivan Lyutov</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1353">KAFKA-1353</a></td>
+<td align="left">report capacity used by request thread pool and network thread pool</td>
+<td align="left">Major</td>
+<td align="left">core</td>
+<td align="left">Jun Rao</td>
+<td align="left">Guozhang Wang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1390">KAFKA-1390</a></td>
+<td align="left">TestUtils.waitUntilLeaderIsElectedOrChanged may wait longer than it needs</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jun Rao</td>
+<td align="left">Jun Rao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1392">KAFKA-1392</a></td>
+<td align="left">all TestUtiles.waitUntilTrue() should throw an exception if the return value is false</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jun Rao</td>
+<td align="left">Jun Rao</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1425">KAFKA-1425</a></td>
+<td align="left">provide logStartOffset in addition to LogEndOffset metric</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">alexcb</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1298">KAFKA-1298</a></td>
+<td align="left">Controlled shutdown tool doesn't seem to work out of the box</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jay Kreps</td>
+<td align="left">Sriharsha Chintalapani</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1446">KAFKA-1446</a></td>
+<td align="left">Consumer metrics for rebalance</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Clark Haskins</td>
+<td align="left">Sriharsha Chintalapani</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1488">KAFKA-1488</a></td>
+<td align="left">new metrics for measuring the ratio when the new producer is block for space allocation</td>
+<td align="left">Major</td>
+<td align="left">core</td>
+<td align="left">Jun Rao</td>
+<td align="left">Jun Rao</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1456">KAFKA-1456</a></td>
+<td align="left">Add LZ4 and LZ4C as a compression codec</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Joe Stein</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1291">KAFKA-1291</a></td>
+<td align="left">Make wrapper shell scripts for important tools</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jay Kreps</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1513">KAFKA-1513</a></td>
+<td align="left">Cleanup KafkaServerStartable code</td>
+<td align="left">Minor</td>
+<td align="left">core</td>
+<td align="left">Evgeny Vereshchagin</td>
+<td align="left">Evgeny Vereshchagin</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1519">KAFKA-1519</a></td>
+<td align="left">Console consumer: expose configuration option to enable/disable writing the line separator</td>
+<td align="left">Minor</td>
+<td align="left">consumer</td>
+<td align="left">Michael Noll</td>
+<td align="left">Gwen Shapira</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1325">KAFKA-1325</a></td>
+<td align="left">Fix inconsistent per topic log configs</td>
+<td align="left">Major</td>
+<td align="left">log</td>
+<td align="left">Neha Narkhede</td>
+<td align="left">Manikumar Reddy</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1535">KAFKA-1535</a></td>
+<td align="left">return all live brokers in TopicMetadataResponse</td>
+<td align="left">Major</td>
+<td align="left">core</td>
+<td align="left">Jun Rao</td>
+<td align="left">nicu marasoiu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1483">KAFKA-1483</a></td>
+<td align="left">Split Brain about Leader Partitions</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Guozhang Wang</td>
+<td align="left">Sriharsha Chintalapani</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1414">KAFKA-1414</a></td>
+<td align="left">Speedup broker startup after hard reset</td>
+<td align="left">Major</td>
+<td align="left">log</td>
+<td align="left">Dmitry Bugaychenko</td>
+<td align="left">Anton Karamanov</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1576">KAFKA-1576</a></td>
+<td align="left">Make &quot;deleteTopic&quot; a bit more user friendly</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Gwen Shapira</td>
+<td align="left">Gwen Shapira</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1419">KAFKA-1419</a></td>
+<td align="left">cross build for scala 2.11</td>
+<td align="left">Blocker</td>
+<td align="left">clients</td>
+<td align="left">Scott Clasen</td>
+<td align="left">Ivan Lyutov</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1620">KAFKA-1620</a></td>
+<td align="left">Make kafka api protocol implementation public</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Anton Karamanov</td>
+<td align="left">Anton Karamanov</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-404">KAFKA-404</a></td>
+<td align="left">When using chroot path, create chroot on startup if it doesn't exist</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jonathan Creasy</td>
+<td align="left">Jonathan Creasy</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1618">KAFKA-1618</a></td>
+<td align="left">Exception thrown when running console producer with no port number for the broker</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Gwen Shapira</td>
+<td align="left">BalajiSeshadri</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1430">KAFKA-1430</a></td>
+<td align="left">Purgatory redesign</td>
+<td align="left">Blocker</td>
+<td align="left">core</td>
+<td align="left">Jun Rao</td>
+<td align="left">Guozhang Wang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1644">KAFKA-1644</a></td>
+<td align="left">Inherit FetchResponse from RequestOrResponse</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Anton Karamanov</td>
+<td align="left">Anton Karamanov</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1692">KAFKA-1692</a></td>
+<td align="left">[Java New Producer] IO Thread Name Must include Client ID</td>
+<td align="left">Trivial</td>
+<td align="left">producer</td>
+<td align="left">Bhavesh Mistry</td>
+<td align="left">Ewen Cheslack-Postava</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1493">KAFKA-1493</a></td>
+<td align="left">Use a well-documented LZ4 compression format and remove redundant LZ4HC option</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">James Oliver</td>
+<td align="left">James Oliver</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1719">KAFKA-1719</a></td>
+<td align="left">Make mirror maker exit when one consumer/producer thread exits.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jiangjie Qin</td>
+<td align="left">Jiangjie Qin</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1706">KAFKA-1706</a></td>
+<td align="left">Adding a byte bounded blocking queue to util.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jiangjie Qin</td>
+<td align="left">Jiangjie Qin</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1555">KAFKA-1555</a></td>
+<td align="left">provide strong consistency with reasonable availability</td>
+<td align="left">Major</td>
+<td align="left">controller</td>
+<td align="left">Jiang Wu</td>
+<td align="left">Gwen Shapira</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1769">KAFKA-1769</a></td>
+<td align="left">javadoc should only include client facing packages</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Jun Rao</td>
+<td align="left">Jun Rao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1768">KAFKA-1768</a></td>
+<td align="left">Expose version via JMX</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Otis Gospodnetic</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1797">KAFKA-1797</a></td>
+<td align="left">add the serializer/deserializer api to the new java client</td>
+<td align="left">Major</td>
+<td align="left">core</td>
+<td align="left">Jun Rao</td>
+<td align="left">Jun Rao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1879">KAFKA-1879</a></td>
+<td align="left">Log warning when receiving produce requests with acks &gt; 1</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Gwen Shapira</td>
+<td align="left">Gwen Shapira</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1872">KAFKA-1872</a></td>
+<td align="left">Update Developer Setup</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Sree Vaddi</td>
+<td align="left">Sree Vaddi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1294">KAFKA-1294</a></td>
+<td align="left">Enable leadership balancing by default</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jay Kreps</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-909">KAFKA-909</a></td>
+<td align="left">Provide support in the producer to specify a stateful instance of an Encoder, like the consuemr allows with the Decoder</td>
+<td align="left">Major</td>
+<td align="left">producer</td>
+<td align="left">Rob Withers</td>
+<td align="left">Jun Rao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1831">KAFKA-1831</a></td>
+<td align="left">Producer does not provide any information about which host the data was sent to</td>
+<td align="left">Major</td>
+<td align="left">producer</td>
+<td align="left">Mark Payne</td>
+<td align="left">Jun Rao</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-899">KAFKA-899</a></td>
+<td align="left">LeaderNotAvailableException the first time a new message for a partition is processed.</td>
+<td align="left">Major</td>
+<td align="left">core</td>
+<td align="left">Jason Rosenberg</td>
+<td align="left">Jun Rao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-409">KAFKA-409</a></td>
+<td align="left">Refactor DefaultEventHandler</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Neha Narkhede</td>
+<td align="left">Jay Kreps</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1238">KAFKA-1238</a></td>
+<td align="left">New producer hangs in a loop detecting metadata for auto created topics</td>
+<td align="left">Critical</td>
+<td align="left">producer</td>
+<td align="left">Neha Narkhede</td>
+<td align="left">Jay Kreps</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1276">KAFKA-1276</a></td>
+<td align="left">Provide a list of config overrides available when running kafka.topics</td>
+<td align="left">Major</td>
+<td align="left">tools</td>
+<td align="left">Todd Palino</td>
+<td align="left">Jay Kreps</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1280">KAFKA-1280</a></td>
+<td align="left">exclude kafka-clients jar from dependant-libs dir</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jun Rao</td>
+<td align="left">Jun Rao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1212">KAFKA-1212</a></td>
+<td align="left">System test exception handling does not stop background producer threads</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Guozhang Wang</td>
+<td align="left">Guozhang Wang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1041">KAFKA-1041</a></td>
+<td align="left">Number of file handles increases indefinitely in producer if broker host is unresolvable</td>
+<td align="left">Major</td>
+<td align="left">producer</td>
+<td align="left">Rajasekar Elango</td>
+<td align="left">Rajasekar Elango</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1189">KAFKA-1189</a></td>
+<td align="left">kafka-server-stop.sh doesn't stop broker</td>
+<td align="left">Minor</td>
+<td align="left">tools</td>
+<td align="left">Bryan Baugher</td>
+<td align="left">Martin Kleppmann</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1301">KAFKA-1301</a></td>
+<td align="left">system testcase_0206 fails using the new producer</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jun Rao</td>
+<td align="left">Jun Rao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1302">KAFKA-1302</a></td>
+<td align="left">cleanup logging in new producer</td>
+<td align="left">Major</td>
+<td align="left">core</td>
+<td align="left">Jun Rao</td>
+<td align="left">Jun Rao</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1307">KAFKA-1307</a></td>
+<td align="left">potential socket leak in new producer and clean up</td>
+<td align="left">Major</td>
+<td align="left">core</td>
+<td align="left">Jun Rao</td>
+<td align="left">Jun Rao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1297">KAFKA-1297</a></td>
+<td align="left">releaseTarGz target needs signing task</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jun Rao</td>
+<td align="left">Jun Rao</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1319">KAFKA-1319</a></td>
+<td align="left">kafka jar doesn't depend on metrics-annotation any more</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jun Rao</td>
+<td align="left">Jun Rao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1320">KAFKA-1320</a></td>
+<td align="left">Change compression.codec to compression.type in new producer configs of system tests</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Guozhang Wang</td>
+<td align="left">Guozhang Wang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1318">KAFKA-1318</a></td>
+<td align="left">waiting for producer to stop is not reliable in system tests</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jun Rao</td>
+<td align="left">Jun Rao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-472">KAFKA-472</a></td>
+<td align="left">update metadata in batches in Producer</td>
+<td align="left">Major</td>
+<td align="left">core</td>
+<td align="left">Jun Rao</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1375">KAFKA-1375</a></td>
+<td align="left">Formatting for &quot;Running a task on a particular version of Scala&quot; paragraph in README.md is broken</td>
+<td align="left">Trivial</td>
+<td align="left">website</td>
+<td align="left">Stevo Slavic</td>
+<td align="left">Stevo Slavic</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1364">KAFKA-1364</a></td>
+<td align="left">ReplicaManagerTest hard-codes log dir</td>
+<td align="left">Major</td>
+<td align="left">core</td>
+<td align="left">Jun Rao</td>
+<td align="left">Guozhang Wang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1376">KAFKA-1376</a></td>
+<td align="left">transient test failure in UncleanLeaderElectionTest</td>
+<td align="left">Major</td>
+<td align="left">core</td>
+<td align="left">Jun Rao</td>
+<td align="left">Jun Rao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1378">KAFKA-1378</a></td>
+<td align="left">transient unit test failure in LogRecoveryTest</td>
+<td align="left">Major</td>
+<td align="left">core</td>
+<td align="left">Jun Rao</td>
+<td align="left">Jun Rao</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1381">KAFKA-1381</a></td>
+<td align="left">transient unit test failure in AddPartitionsTest</td>
+<td align="left">Major</td>
+<td align="left">core</td>
+<td align="left">Jun Rao</td>
+<td align="left">Jun Rao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1210">KAFKA-1210</a></td>
+<td align="left">Windows Bat files are not working properly</td>
+<td align="left">Trivial</td>
+<td align="left">.</td>
+<td align="left">Håkan Canberger</td>
+<td align="left">Stevo Slavic</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1391">KAFKA-1391</a></td>
+<td align="left">transient unit test failure in DeleteTopicTest.testPreferredReplicaElectionDuringDeleteTopic</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jun Rao</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1410">KAFKA-1410</a></td>
+<td align="left">MetadataCache cleanup</td>
+<td align="left">Major</td>
+<td align="left">core</td>
+<td align="left">Jun Rao</td>
+<td align="left">Jun Rao</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1389">KAFKA-1389</a></td>
+<td align="left">transient unit test failure in ProducerFailureHandlingTest</td>
+<td align="left">Major</td>
+<td align="left">core</td>
+<td align="left">Jun Rao</td>
+<td align="left">Jun Rao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1418">KAFKA-1418</a></td>
+<td align="left">transient unit test failure in ProducerFailureHandlingTest</td>
+<td align="left">Major</td>
+<td align="left">core</td>
+<td align="left">Jun Rao</td>
+<td align="left">Jun Rao</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1409">KAFKA-1409</a></td>
+<td align="left">oversized messages can slow down the brokers</td>
+<td align="left">Critical</td>
+<td align="left">core</td>
+<td align="left">Jun Rao</td>
+<td align="left">Guozhang Wang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1395">KAFKA-1395</a></td>
+<td align="left">fix unit tests in AutoOffsetResetTest</td>
+<td align="left">Major</td>
+<td align="left">core</td>
+<td align="left">Jun Rao</td>
+<td align="left">Guozhang Wang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1424">KAFKA-1424</a></td>
+<td align="left">transient unit test failure in testSendWithDeadBroker</td>
+<td align="left">Major</td>
+<td align="left">core</td>
+<td align="left">Jun Rao</td>
+<td align="left">Jun Rao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1383">KAFKA-1383</a></td>
+<td align="left">transient unit test failure in SocketServerTest</td>
+<td align="left">Major</td>
+<td align="left">core</td>
+<td align="left">Jun Rao</td>
+<td align="left">Jun Rao</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1433">KAFKA-1433</a></td>
+<td align="left">transient unit test failure in ZookeeperConsumerConnectorTest</td>
+<td align="left">Major</td>
+<td align="left">core</td>
+<td align="left">Jun Rao</td>
+<td align="left">Jun Rao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1412">KAFKA-1412</a></td>
+<td align="left">transient unit test failure in ProducerSendTest.testAutoCreateTopic</td>
+<td align="left">Major</td>
+<td align="left">core</td>
+<td align="left">Jun Rao</td>
+<td align="left">Jun Rao</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1146">KAFKA-1146</a></td>
+<td align="left">toString() on KafkaStream gets stuck indefinitely</td>
+<td align="left">Trivial</td>
+<td align="left">consumer</td>
+<td align="left">Arup Malakar</td>
+<td align="left">Arup Malakar</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1432">KAFKA-1432</a></td>
+<td align="left">Make num.producerThreads configurable on new MirrrorMaker</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Guozhang Wang</td>
+<td align="left">Guozhang Wang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1397">KAFKA-1397</a></td>
+<td align="left">delete topic is not working</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jun Rao</td>
+<td align="left">Timothy Chen</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1442">KAFKA-1442</a></td>
+<td align="left">RBTools post-review is deprecated</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Sriharsha Chintalapani</td>
+<td align="left">Sriharsha Chintalapani</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1396">KAFKA-1396</a></td>
+<td align="left">fix transient unit test ProducerFailureHandlingTest.testBrokerFailure</td>
+<td align="left">Major</td>
+<td align="left">core</td>
+<td align="left">Jun Rao</td>
+<td align="left">Guozhang Wang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1431">KAFKA-1431</a></td>
+<td align="left">ConsoleConsumer - Option to clean zk consumer path</td>
+<td align="left">Minor</td>
+<td align="left">consumer</td>
+<td align="left">Jeremy A Laycock</td>
+<td align="left">Sriharsha Chintalapani</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1445">KAFKA-1445</a></td>
+<td align="left">New Producer should send all partitions that have non-empty batches when on of them is ready</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Guozhang Wang</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1179">KAFKA-1179</a></td>
+<td align="left">createMessageStreams() in javaapi.ZookeeperConsumerConnector does not throw</td>
+<td align="left">Major</td>
+<td align="left">consumer</td>
+<td align="left">Vincent Rischmann</td>
+<td align="left">Sriharsha Chintalapani</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1453">KAFKA-1453</a></td>
+<td align="left">Add a channel queue jmx in Mirror Maker</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Guozhang Wang</td>
+<td align="left">Guozhang Wang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1437">KAFKA-1437</a></td>
+<td align="left">ConsumerMetadataResponse should always include coordinator information</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Joel Koshy</td>
+<td align="left">Joel Koshy</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1444">KAFKA-1444</a></td>
+<td align="left">kafka.javaapi.TopicMetadata and PartitionMetadata doesn't forward the toString method</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Simon Cooper</td>
+<td align="left">Sriharsha Chintalapani</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1459">KAFKA-1459</a></td>
+<td align="left">kafka.tools.ConsumerOffsetChecker throws NoNodeException</td>
+<td align="left">Major</td>
+<td align="left">tools</td>
+<td align="left">Scott Clasen</td>
+<td align="left">Sriharsha Chintalapani</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-924">KAFKA-924</a></td>
+<td align="left">Specify console consumer properties via a single --property command line parameter</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Swapnil Ghike</td>
+<td align="left">Sriharsha Chintalapani</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1473">KAFKA-1473</a></td>
+<td align="left">transient unit test failure in testRequestHandlingDuringDeleteTopic</td>
+<td align="left">Major</td>
+<td align="left">core</td>
+<td align="left">Jun Rao</td>
+<td align="left">Guozhang Wang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1438">KAFKA-1438</a></td>
+<td align="left">Migrate kafka client tools</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Guozhang Wang</td>
+<td align="left">Sriharsha Chintalapani</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1469">KAFKA-1469</a></td>
+<td align="left">Util.abs function does not return correct absolute values for negative values</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Joel Koshy</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1382">KAFKA-1382</a></td>
+<td align="left">Update zkVersion on partition state update failures</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Joel Koshy</td>
+<td align="left">Sriharsha Chintalapani</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1096">KAFKA-1096</a></td>
+<td align="left">An old controller coming out of long GC could update its epoch to the latest controller's epoch</td>
+<td align="left">Major</td>
+<td align="left">controller</td>
+<td align="left">Swapnil Ghike</td>
+<td align="left">Sriharsha Chintalapani</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1491">KAFKA-1491</a></td>
+<td align="left">ConsumerMetadataResponse is not read completely</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Joel Koshy</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1511">KAFKA-1511</a></td>
+<td align="left">Malformated link and consumer/producer mixup in documentation</td>
+<td align="left">Minor</td>
+<td align="left">website</td>
+<td align="left">Vincent Bernat</td>
+<td align="left">Jun Rao</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1503">KAFKA-1503</a></td>
+<td align="left">all partitions are using same broker as their leader after broker is down</td>
+<td align="left">Major</td>
+<td align="left">controller</td>
+<td align="left">Jianwen Wang</td>
+<td align="left">Jianwen Wang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1515">KAFKA-1515</a></td>
+<td align="left">Wake-up Sender upon blocked on fetching leader metadata</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Guozhang Wang</td>
+<td align="left">Guozhang Wang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1406">KAFKA-1406</a></td>
+<td align="left">Fix scaladoc/javadoc warnings</td>
+<td align="left">Major</td>
+<td align="left">packaging</td>
+<td align="left">Joel Koshy</td>
+<td align="left">Alan Lee</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1067">KAFKA-1067</a></td>
+<td align="left">the default partitioner should be randomizing messages and a new partition for the meta refresh requirements created</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Joe Stein</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1026">KAFKA-1026</a></td>
+<td align="left">Dynamically Adjust Batch Size Upon Receiving MessageSizeTooLargeException</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Guozhang Wang</td>
+<td align="left">Guozhang Wang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1258">KAFKA-1258</a></td>
+<td align="left">Delete temporary data directory after unit test finishes</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Guozhang Wang</td>
+<td align="left">Manikumar Reddy</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1529">KAFKA-1529</a></td>
+<td align="left">transient unit test failure in testAutoCreateAfterDeleteTopic</td>
+<td align="left">Major</td>
+<td align="left">core</td>
+<td align="left">Jun Rao</td>
+<td align="left">Jun Rao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1531">KAFKA-1531</a></td>
+<td align="left">zookeeper.connection.timeout.ms is set to 10000000 in configuration file in Kafka tarball</td>
+<td align="left">Major</td>
+<td align="left">config</td>
+<td align="left">Michał Michalski</td>
+<td align="left">Manikumar Reddy</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1180">KAFKA-1180</a></td>
+<td align="left">WhiteList topic filter gets a NullPointerException on complex Regex</td>
+<td align="left">Major</td>
+<td align="left">consumer</td>
+<td align="left">Jason Rosenberg</td>
+<td align="left">Joe Stein</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1539">KAFKA-1539</a></td>
+<td align="left">Due to OS caching Kafka might loose offset files which causes full reset of data</td>
+<td align="left">Major</td>
+<td align="left">log</td>
+<td align="left">Dmitry Bugaychenko</td>
+<td align="left">Jay Kreps</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1192">KAFKA-1192</a></td>
+<td align="left">Enable DumpLogSegments tool to deserialize messages</td>
+<td align="left">Major</td>
+<td align="left">tools</td>
+<td align="left">Guozhang Wang</td>
+<td align="left">Manikumar Reddy</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1544">KAFKA-1544</a></td>
+<td align="left">LogCleaner may take a long time to shutdown</td>
+<td align="left">Major</td>
+<td align="left">core</td>
+<td align="left">Jun Rao</td>
+<td align="left">Manikumar Reddy</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1549">KAFKA-1549</a></td>
+<td align="left">dead brokers coming in the TopicMetadataResponse</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">nicu marasoiu</td>
+<td align="left">nicu marasoiu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1542">KAFKA-1542</a></td>
+<td align="left">normal IOException in the new producer is logged as ERROR</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jun Rao</td>
+<td align="left">David Corley</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1451">KAFKA-1451</a></td>
+<td align="left">Broker stuck due to leader election race</td>
+<td align="left">Minor</td>
+<td align="left">core</td>
+<td align="left">Maciek Makowski</td>
+<td align="left">Manikumar Reddy</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1562">KAFKA-1562</a></td>
+<td align="left">kafka-topics.sh alter add partitions resets cleanup.policy</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Kenny</td>
+<td align="left">Jonathan Natkins</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1571">KAFKA-1571</a></td>
+<td align="left">MetadataeTest hangs</td>
+<td align="left">Major</td>
+<td align="left">core</td>
+<td align="left">Jun Rao</td>
+<td align="left">Jun Rao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1578">KAFKA-1578</a></td>
+<td align="left">Controller should de-register all listeners upon designation</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Guozhang Wang</td>
+<td align="left">Guozhang Wang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1574">KAFKA-1574</a></td>
+<td align="left">unit tests can hang on socketserver shutdown</td>
+<td align="left">Major</td>
+<td align="left">core</td>
+<td align="left">Jun Rao</td>
+<td align="left">Jun Rao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1567">KAFKA-1567</a></td>
+<td align="left">Metric memory leaking after closing the clients</td>
+<td align="left">Major</td>
+<td align="left">clients</td>
+<td align="left">Jiangjie Qin</td>
+<td align="left">Jiangjie Qin</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1598">KAFKA-1598</a></td>
+<td align="left">Fix variable typo in Kafka main class</td>
+<td align="left">Trivial</td>
+<td align="left">.</td>
+<td align="left">Jarek Jarcec Cecho</td>
+<td align="left">Jarek Jarcec Cecho</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1603">KAFKA-1603</a></td>
+<td align="left">MirrorMaker consumer does not put the message key into ProducerRecord</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jiangjie Qin</td>
+<td align="left">Jiangjie Qin</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1609">KAFKA-1609</a></td>
+<td align="left">New producer metadata response handling should only exclude a PartitionInfo when its error is LEADER_NOT_AVAILABLE</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Dong Lin</td>
+<td align="left">Dong Lin</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1502">KAFKA-1502</a></td>
+<td align="left">source jar is empty</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Jun Rao</td>
+<td align="left">Jun Rao</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-703">KAFKA-703</a></td>
+<td align="left">A fetch request in Fetch Purgatory can double count the bytes from the same delayed produce request</td>
+<td align="left">Blocker</td>
+<td align="left">purgatory</td>
+<td align="left">Sriram Subramanian</td>
+<td align="left">Sriram Subramanian</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1585">KAFKA-1585</a></td>
+<td align="left">Client: Infinite &quot;conflict in /consumers/&quot;</td>
+<td align="left">Critical</td>
+<td align="left">consumer</td>
+<td align="left">Artur Denysenko</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1193">KAFKA-1193</a></td>
+<td align="left">Data loss if broker is killed using kill -9</td>
+<td align="left">Major</td>
+<td align="left">replication</td>
+<td align="left">Hanish Bansal</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1616">KAFKA-1616</a></td>
+<td align="left">Purgatory Size and Num.Delayed.Request metrics are incorrect</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Guozhang Wang</td>
+<td align="left">Guozhang Wang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1510">KAFKA-1510</a></td>
+<td align="left">Force offset commits when migrating consumer offsets from zookeeper to kafka</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Joel Koshy</td>
+<td align="left">Joel Koshy</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1533">KAFKA-1533</a></td>
+<td align="left">transient unit test failure in ProducerFailureHandlingTest</td>
+<td align="left">Major</td>
+<td align="left">core</td>
+<td align="left">Jun Rao</td>
+<td align="left">Guozhang Wang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1147">KAFKA-1147</a></td>
+<td align="left">Consumer socket timeout should be greater than fetch max wait</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Joel Koshy</td>
+<td align="left">Guozhang Wang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1002">KAFKA-1002</a></td>
+<td align="left">Delete aliveLeaders field from LeaderAndIsrRequest</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Swapnil Ghike</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1619">KAFKA-1619</a></td>
+<td align="left">perf dir can be removed</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jun Rao</td>
+<td align="left">Jun Rao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1369">KAFKA-1369</a></td>
+<td align="left">snappy version update 1.1.x</td>
+<td align="left">Minor</td>
+<td align="left">core</td>
+<td align="left">thinker0</td>
+<td align="left">Roger Hoover</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-847">KAFKA-847</a></td>
+<td align="left">kafka appender layout does not work for kafka 0.7.1</td>
+<td align="left">Major</td>
+<td align="left">producer</td>
+<td align="left">Sining Ma</td>
+<td align="left">Peter Pham</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1635">KAFKA-1635</a></td>
+<td align="left">Java doc of makeLeaders in ReplicaManager is wrong</td>
+<td align="left">Trivial</td>
+<td align="left">core, replication</td>
+<td align="left">Lantao Jin</td>
+<td align="left">Lantao Jin</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1123">KAFKA-1123</a></td>
+<td align="left">Broker IPv6 addresses parsed incorrectly</td>
+<td align="left">Major</td>
+<td align="left">producer</td>
+<td align="left">Andrew Otto</td>
+<td align="left">Krzysztof Szafrański</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1622">KAFKA-1622</a></td>
+<td align="left">project shouldn't require signing to build</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Joe Stein</td>
+<td align="left">Ivan Lyutov</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1490">KAFKA-1490</a></td>
+<td align="left">remove gradlew initial setup output from source distribution</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Joe Stein</td>
+<td align="left">Ivan Lyutov</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1645">KAFKA-1645</a></td>
+<td align="left">some more jars in our src release</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Joe Stein</td>
+<td align="left">Joe Stein</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1577">KAFKA-1577</a></td>
+<td align="left">Exception in ConnectionQuotas while shutting down</td>
+<td align="left">Blocker</td>
+<td align="left">core</td>
+<td align="left">Joel Koshy</td>
+<td align="left">Sriharsha Chintalapani</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-294">KAFKA-294</a></td>
+<td align="left">&quot;Path length must be &gt; 0&quot; error during startup</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Thomas Dudziak</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1662">KAFKA-1662</a></td>
+<td align="left">gradle release issue permgen space</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Joe Stein</td>
+<td align="left">Sriharsha Chintalapani</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1600">KAFKA-1600</a></td>
+<td align="left">Controller failover not working correctly.</td>
+<td align="left">Blocker</td>
+<td align="left">controller</td>
+<td align="left">Ding Haifeng</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1673">KAFKA-1673</a></td>
+<td align="left">potential java.lang.IllegalStateException in BufferPool.allocate()</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jun Rao</td>
+<td align="left">Jun Rao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1468">KAFKA-1468</a></td>
+<td align="left">Improve perf tests</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jay Kreps</td>
+<td align="left">Jay Kreps</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1681">KAFKA-1681</a></td>
+<td align="left">Newly elected KafkaController might not start deletion of pending topics</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Sriharsha Chintalapani</td>
+<td align="left">Sriharsha Chintalapani</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1663">KAFKA-1663</a></td>
+<td align="left">Controller unable to shutdown after a soft failure</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Sriharsha Chintalapani</td>
+<td align="left">Sriharsha Chintalapani</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1558">KAFKA-1558</a></td>
+<td align="left">AdminUtils.deleteTopic does not work</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Henning Schmiedehausen</td>
+<td align="left">Sriharsha Chintalapani</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1699">KAFKA-1699</a></td>
+<td align="left">autoRebalanceScheduler.shutdown() causes deadlock while controller shutting down</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sriharsha Chintalapani</td>
+<td align="left">Sriharsha Chintalapani</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1670">KAFKA-1670</a></td>
+<td align="left">Corrupt log files for segment.bytes values close to Int.MaxInt</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Ryan Berdeen</td>
+<td align="left">Sriharsha Chintalapani</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1305">KAFKA-1305</a></td>
+<td align="left">Controller can hang on controlled shutdown with auto leader balance enabled</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Joel Koshy</td>
+<td align="left">Sriharsha Chintalapani</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1637">KAFKA-1637</a></td>
+<td align="left">SimpleConsumer.fetchOffset returns wrong error code when no offset exists for topic/partition/consumer group</td>
+<td align="left">Major</td>
+<td align="left">consumer, core</td>
+<td align="left">Amir Malekpour</td>
+<td align="left">Ewen Cheslack-Postava</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1671">KAFKA-1671</a></td>
+<td align="left">uploaded archives are missing for Scala version 2.11</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Joe Stein</td>
+<td align="left">Ivan Lyutov</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1108">KAFKA-1108</a></td>
+<td align="left">when controlled shutdown attempt fails, the reason is not always logged</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jason Rosenberg</td>
+<td align="left">Ewen Cheslack-Postava</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1717">KAFKA-1717</a></td>
+<td align="left">remove netty dependency through ZK 3.4.x</td>
+<td align="left">Blocker</td>
+<td align="left">core</td>
+<td align="left">Jun Rao</td>
+<td align="left">Jun Rao</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1653">KAFKA-1653</a></td>
+<td align="left">Duplicate broker ids allowed in replica assignment</td>
+<td align="left">Major</td>
+<td align="left">tools</td>
+<td align="left">Ryan Berdeen</td>
+<td align="left">Ewen Cheslack-Postava</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1732">KAFKA-1732</a></td>
+<td align="left">DumpLogSegments tool fails when path has a '.'</td>
+<td align="left">Minor</td>
+<td align="left">tools</td>
+<td align="left">Ewen Cheslack-Postava</td>
+<td align="left">Ewen Cheslack-Postava</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1647">KAFKA-1647</a></td>
+<td align="left">Replication offset checkpoints (high water marks) can be lost on hard kills and restarts</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Joel Koshy</td>
+<td align="left">Jiangjie Qin</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1738">KAFKA-1738</a></td>
+<td align="left">Partitions for topic not created after restart from forced shutdown</td>
+<td align="left">Blocker</td>
+<td align="left">core</td>
+<td align="left">Pradeep</td>
+<td align="left">Jun Rao</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1742">KAFKA-1742</a></td>
+<td align="left">ControllerContext removeTopic does not correctly update state</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Onur Karaman</td>
+<td align="left">Onur Karaman</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1764">KAFKA-1764</a></td>
+<td align="left">ZookeeperConsumerConnector could put multiple shutdownCommand to the same data chunk queue.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jiangjie Qin</td>
+<td align="left">Jiangjie Qin</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1721">KAFKA-1721</a></td>
+<td align="left">Snappy compressor is not thread safe</td>
+<td align="left">Major</td>
+<td align="left">compression</td>
+<td align="left">Ewen Cheslack-Postava</td>
+<td align="left">Ewen Cheslack-Postava</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1766">KAFKA-1766</a></td>
+<td align="left">Ecosystem docs subsection has wrong anchor</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Kirill Zaborsky</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1743">KAFKA-1743</a></td>
+<td align="left">ConsumerConnector.commitOffsets in 0.8.2 is not backward compatible</td>
+<td align="left">Blocker</td>
+<td align="left">core</td>
+<td align="left">Jun Rao</td>
+<td align="left">Manikumar Reddy</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1481">KAFKA-1481</a></td>
+<td align="left">Stop using dashes AND underscores as separators in MBean names</td>
+<td align="left">Critical</td>
+<td align="left">core</td>
+<td align="left">Otis Gospodnetic</td>
+<td align="left">Vladimir Tretyakov</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1624">KAFKA-1624</a></td>
+<td align="left">bump up default scala version to 2.10.4 to compile with java 8</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Joe Stein</td>
+<td align="left">Guozhang Wang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1580">KAFKA-1580</a></td>
+<td align="left">Reject producer requests to internal topics</td>
+<td align="left">Critical</td>
+<td align="left">core</td>
+<td align="left">Joel Koshy</td>
+<td align="left">Guozhang Wang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1799">KAFKA-1799</a></td>
+<td align="left">ProducerConfig.METRIC_REPORTER_CLASSES_CONFIG doesn't work</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Jun Rao</td>
+<td align="left">Manikumar Reddy</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1806">KAFKA-1806</a></td>
+<td align="left">broker fetch request uses old leader offset which is higher than current leader offset causes error</td>
+<td align="left">Blocker</td>
+<td align="left">consumer</td>
+<td align="left">lokesh Birla</td>
+<td align="left">Neha Narkhede</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1642">KAFKA-1642</a></td>
+<td align="left">[Java New Producer Kafka Trunk] CPU Usage Spike to 100% when network connection is lost</td>
+<td align="left">Blocker</td>
+<td align="left">producer</td>
+<td align="left">Bhavesh Mistry</td>
+<td align="left">Ewen Cheslack-Postava</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1851">KAFKA-1851</a></td>
+<td align="left">OffsetFetchRequest returns extra partitions when input only contains unknown partitions</td>
+<td align="left">Blocker</td>
+<td align="left">core</td>
+<td align="left">Jun Rao</td>
+<td align="left">Jun Rao</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1819">KAFKA-1819</a></td>
+<td align="left">Cleaner gets confused about deleted and re-created topics</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Gian Merlino</td>
+<td align="left">Gwen Shapira</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1841">KAFKA-1841</a></td>
+<td align="left">OffsetCommitRequest API - timestamp field is not versioned</td>
+<td align="left">Blocker</td>
+<td align="left">core</td>
+<td align="left">Dana Powers</td>
+<td align="left">Jun Rao</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1868">KAFKA-1868</a></td>
+<td align="left">ConsoleConsumer shouldn't override dual.commit.enabled to false if not explicitly set</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Jun Rao</td>
+<td align="left">Jun Rao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1870">KAFKA-1870</a></td>
+<td align="left">Cannot commit with simpleConsumer on Zookeeper only with Java API</td>
+<td align="left">Blocker</td>
+<td align="left">consumer</td>
+<td align="left">Thomas Vandevelde</td>
+<td align="left">Jun Rao</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1864">KAFKA-1864</a></td>
+<td align="left">Revisit defaults for the internal offsets topic</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Neha Narkhede</td>
+<td align="left">Jun Rao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1761">KAFKA-1761</a></td>
+<td align="left">num.partitions documented default is 1 while actual default is 2</td>
+<td align="left">Minor</td>
+<td align="left">log</td>
+<td align="left">Stevo Slavic</td>
+<td align="left">Manikumar Reddy</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1876">KAFKA-1876</a></td>
+<td align="left">pom file for scala 2.11 should reference a specific version</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Jun Rao</td>
+<td align="left">Jun Rao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1873">KAFKA-1873</a></td>
+<td align="left">scalatest_2.10-1.9.1.jar of core build path is cross-compiled with an incompatible version of Scala (2.10.0)</td>
+<td align="left">Minor</td>
+<td align="left">core</td>
+<td align="left">Sree Vaddi</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1874">KAFKA-1874</a></td>
+<td align="left">missing import util.parsing.json.JSON</td>
+<td align="left">Major</td>
+<td align="left">core</td>
+<td align="left">Sree Vaddi</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1434">KAFKA-1434</a></td>
+<td align="left">kafka.admin.TopicCommand missing --delete topic command</td>
+<td align="left">Major</td>
+<td align="left">tools</td>
+<td align="left">Michał Czerwiński</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1124">KAFKA-1124</a></td>
+<td align="left">Sending to a new topic (with auto.create.topics.enable) returns ERROR</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jason Rosenberg</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1045">KAFKA-1045</a></td>
+<td align="left">producer zk.connect config</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">shijinkui</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1235">KAFKA-1235</a></td>
+<td align="left">Enable server to indefinitely retry on controlled shutdown</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Guozhang Wang</td>
+<td align="left">Guozhang Wang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1902">KAFKA-1902</a></td>
+<td align="left">fix MetricName so that Yammer reporter can work correctly</td>
+<td align="left">Blocker</td>
+<td align="left">core</td>
+<td align="left">Jun Rao</td>
+<td align="left">Jun Rao</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1861">KAFKA-1861</a></td>
+<td align="left">Publishing kafka-client:test in order to utilize the helper utils in TestUtils</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Navina Ramesh</td>
+<td align="left">Manikumar Reddy</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1423">KAFKA-1423</a></td>
+<td align="left">Updating partition count clears topic configuration and any further alters done to a topics config do not stick</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Nathan Brown</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1072">KAFKA-1072</a></td>
+<td align="left">Allow mulitple topics selected with a TopicFilter to be balanced among consumers</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jason Rosenberg</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1400">KAFKA-1400</a></td>
+<td align="left">transient unit test failure in SocketServerTest</td>
+<td align="left">Major</td>
+<td align="left">core</td>
+<td align="left">Jun Rao</td>
+<td align="left">Jun Rao</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tests">TESTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1079">KAFKA-1079</a></td>
+<td align="left">Liars in PrimitiveApiTest that promise to test api in compression mode, but don't do this actually</td>
+<td align="left">Minor</td>
+<td align="left">core</td>
+<td align="left">Kostya Golikov</td>
+<td align="left">Kostya Golikov</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1285">KAFKA-1285</a></td>
+<td align="left">enable log4j in unit test</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jun Rao</td>
+<td align="left">Jun Rao</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1411">KAFKA-1411</a></td>
+<td align="left">remove unused test cases</td>
+<td align="left">Major</td>
+<td align="left">core</td>
+<td align="left">Jun Rao</td>
+<td align="left">Jun Rao</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sub-tasks">SUB-TASKS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1237">KAFKA-1237</a></td>
+<td align="left">Add mirror maker using 08 consumer and 09 producer</td>
+<td align="left">Major</td>
+<td align="left">tools</td>
+<td align="left">Neha Narkhede</td>
+<td align="left">Neha Narkhede</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1233">KAFKA-1233</a></td>
+<td align="left">Integration test for the new producer</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Guozhang Wang</td>
+<td align="left">Guozhang Wang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1240">KAFKA-1240</a></td>
+<td align="left">Add ability to existing system tests to use the new producer client</td>
+<td align="left">Major</td>
+<td align="left">producer</td>
+<td align="left">Neha Narkhede</td>
+<td align="left">Jun Rao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1304">KAFKA-1304</a></td>
+<td align="left">unregistered mbean exception in new producer</td>
+<td align="left">Major</td>
+<td align="left">core</td>
+<td align="left">Jun Rao</td>
+<td align="left">Jun Rao</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1012">KAFKA-1012</a></td>
+<td align="left">Implement an Offset Manager and hook offset requests to it</td>
+<td align="left">Minor</td>
+<td align="left">consumer</td>
+<td align="left">Tejas Patil</td>
+<td align="left">Tejas Patil</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1359">KAFKA-1359</a></td>
+<td align="left">Add topic/broker metrics once new topic/broker is discovered</td>
+<td align="left">Major</td>
+<td align="left">producer</td>
+<td align="left">Guozhang Wang</td>
+<td align="left">Guozhang Wang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1472">KAFKA-1472</a></td>
+<td align="left">Add the compression ratio metrics in the new producer</td>
+<td align="left">Major</td>
+<td align="left">producer</td>
+<td align="left">Guozhang Wang</td>
+<td align="left">Dong Lin</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1462">KAFKA-1462</a></td>
+<td align="left">Add new request and response formats for the new consumer and coordinator communication</td>
+<td align="left">Major</td>
+<td align="left">consumer</td>
+<td align="left">Guozhang Wang</td>
+<td align="left">Jun Rao</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1611">KAFKA-1611</a></td>
+<td align="left">Improve system test configuration</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Gwen Shapira</td>
+<td align="left">Gwen Shapira</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-784">KAFKA-784</a></td>
+<td align="left">creating topic without partitions, deleting then creating with partition causes errors in 'kafka-list-topic'</td>
+<td align="left">Minor</td>
+<td align="left">core</td>
+<td align="left">Chris Curtin</td>
+<td align="left">Swapnil Ghike</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1471">KAFKA-1471</a></td>
+<td align="left">Add Producer Unit Tests for LZ4 and LZ4HC compression</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">James Oliver</td>
+<td align="left">Ewen Cheslack-Postava</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1731">KAFKA-1731</a></td>
+<td align="left">add config/jmx changes in 0.8.2 doc</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Jun Rao</td>
+<td align="left">Jun Rao</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1723">KAFKA-1723</a></td>
+<td align="left">make the metrics name in new producer more standard</td>
+<td align="left">Blocker</td>
+<td align="left">clients</td>
+<td align="left">Jun Rao</td>
+<td align="left">Manikumar Reddy</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1337">KAFKA-1337</a></td>
+<td align="left">Rationalize new producer configs</td>
+<td align="left">Major</td>
+<td align="left">producer</td>
+<td align="left">Jay Kreps</td>
+<td align="left">Jay Kreps</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1730">KAFKA-1730</a></td>
+<td align="left">add the doc for the new java producer in 0.8.2</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Jun Rao</td>
+<td align="left">Manikumar Reddy</td>
+</tr>
+</tbody>
+</table>
+<h3 id="other">OTHER:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1371">KAFKA-1371</a></td>
+<td align="left">Ignore build output dirs</td>
+<td align="left">Trivial</td>
+<td align="left">tools</td>
+<td align="left">Stevo Slavic</td>
+<td align="left">Stevo Slavic</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1370">KAFKA-1370</a></td>
+<td align="left">Gradle startup script for Windows</td>
+<td align="left">Trivial</td>
+<td align="left">tools</td>
+<td align="left">Stevo Slavic</td>
+<td align="left">Stevo Slavic</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1308">KAFKA-1308</a></td>
+<td align="left">Publish jar of test utilities to Maven</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Martin Kleppmann</td>
+<td align="left">Jakob Homan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1485">KAFKA-1485</a></td>
+<td align="left">Upgrade to Zookeeper 3.4.6 and create &quot;shim&quot; for ZKCLI so system tests can run</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Machiel Groeneveld</td>
+<td align="left">Gwen Shapira</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1559">KAFKA-1559</a></td>
+<td align="left">Upgrade Gradle wrapper to Gradle 2.0</td>
+<td align="left">Trivial</td>
+<td align="left">build</td>
+<td align="left">Stevo Slavic</td>
+<td align="left">Ivan Lyutov</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1399">KAFKA-1399</a></td>
+<td align="left">Drop Scala 2.8.x support</td>
+<td align="left">Major</td>
+<td align="left">packaging</td>
+<td align="left">Stevo Slavic</td>
+<td align="left">Ivan Lyutov</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-1728">KAFKA-1728</a></td>
+<td align="left">update 082 docs</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Jun Rao</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>

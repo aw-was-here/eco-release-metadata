@@ -1,0 +1,45 @@
+
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+# Apache HBase  0.94.9 Release Notes
+
+These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
+
+
+---
+
+* [HBASE-8283](https://issues.apache.org/jira/browse/HBASE-8283) | *Major* | **Backport HBASE-7842 Add compaction policy that explores more storefile groups to 0.94**
+
+Added a configuration option to turn on a new compaction selection algorithm that searches more storefile groups in order to find the best set of files to compact.
+
+
+---
+
+* [HBASE-8743](https://issues.apache.org/jira/browse/HBASE-8743) | *Major* | **upgrade hadoop-23 version to 0.23.7**
+
+no patch needed, just changing state so it gets into the right queue
+
+
+---
+
+* [HBASE-5083](https://issues.apache.org/jira/browse/HBASE-5083) | *Major* | **Backup HMaster should have http infoport open with link to the active master**
+
+This patch includes adding a table for the backup masters to the UI of the master server. It also has a link from the backup master server's UI to point to the primary.
+
+
+

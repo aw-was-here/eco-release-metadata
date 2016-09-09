@@ -1,0 +1,218 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-pig-changelog">Apache Pig Changelog</h1>
+<h2 id="release-0.15.1---unreleased-as-of-2016-09-08">Release 0.15.1 - Unreleased (as of 2016-09-08)</h2>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4624">PIG-4624</a></td>
+<td align="left">Error on ORC empty file without schema</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Thejas M Nair</td>
+<td align="left">Daniel Dai</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4649">PIG-4649</a></td>
+<td align="left">[Pig on Tez] Union followed by HCatStorer misses some data</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Rohini Palaniswamy</td>
+<td align="left">Rohini Palaniswamy</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4650">PIG-4650</a></td>
+<td align="left">ant mvn-deploy target is broken</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Daniel Dai</td>
+<td align="left">Daniel Dai</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4627">PIG-4627</a></td>
+<td align="left">[Pig on Tez] Self join does not handle null values correctly</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Rohini Palaniswamy</td>
+<td align="left">Rohini Palaniswamy</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4628">PIG-4628</a></td>
+<td align="left">Pig 0.14 job with order by fails in mapreduce mode with Oozie</td>
+<td align="left">Major</td>
+<td align="left">impl</td>
+<td align="left">Koji Noguchi</td>
+<td align="left">Koji Noguchi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4679">PIG-4679</a></td>
+<td align="left">Performance degradation due to InputSizeReducerEstimator since PIG-3754</td>
+<td align="left">Major</td>
+<td align="left">impl</td>
+<td align="left">Daniel Dai</td>
+<td align="left">Daniel Dai</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4644">PIG-4644</a></td>
+<td align="left">PORelationToExprProject.clone() is broken</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ratandeep Ratti</td>
+<td align="left">Anthony Hsu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4683">PIG-4683</a></td>
+<td align="left">Nested order is broken after PIG-3591 in some cases</td>
+<td align="left">Major</td>
+<td align="left">impl</td>
+<td align="left">Daniel Dai</td>
+<td align="left">Daniel Dai</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4635">PIG-4635</a></td>
+<td align="left">NPE while running pig script in tez mode( pig 0.15 with tez 0.7)</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sachin Sabbarwal</td>
+<td align="left">Daniel Dai</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4688">PIG-4688</a></td>
+<td align="left">Limit followed by POPartialAgg can give empty or partial results in Tez</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Rohini Palaniswamy</td>
+<td align="left">Rohini Palaniswamy</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4696">PIG-4696</a></td>
+<td align="left">Empty map returned by a streaming_python udf wrongly contains a null key</td>
+<td align="left">Minor</td>
+<td align="left">impl</td>
+<td align="left">Cheolsoo Park</td>
+<td align="left">Cheolsoo Park</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4703">PIG-4703</a></td>
+<td align="left">TezOperator.stores shall not ship to backend</td>
+<td align="left">Major</td>
+<td align="left">tez</td>
+<td align="left">Daniel Dai</td>
+<td align="left">Daniel Dai</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4707">PIG-4707</a></td>
+<td align="left">[Pig on Tez] Streaming job hangs with pig.exec.mapPartAgg=true</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Rohini Palaniswamy</td>
+<td align="left">Rohini Palaniswamy</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4712">PIG-4712</a></td>
+<td align="left">[Pig on Tez] NPE in Bloom UDF after Union</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Rohini Palaniswamy</td>
+<td align="left">Rohini Palaniswamy</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4760">PIG-4760</a></td>
+<td align="left">TezDAGStats.convertToHadoopCounters is not used, but impose MR counter limit</td>
+<td align="left">Major</td>
+<td align="left">tez</td>
+<td align="left">Daniel Dai</td>
+<td align="left">Daniel Dai</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4587">PIG-4587</a></td>
+<td align="left">Applying isFirstReduceOfKey for Skewed left outer join skips records</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Rohini Palaniswamy</td>
+<td align="left">Daniel Dai</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4808">PIG-4808</a></td>
+<td align="left">PluckTuple overwrites regex if used more than once in the same script</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Eyal Allweil</td>
+<td align="left">Eyal Allweil</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4812">PIG-4812</a></td>
+<td align="left">Register Groovy UDF with relative path does not work</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Daniel Dai</td>
+<td align="left">Daniel Dai</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4851">PIG-4851</a></td>
+<td align="left">Null not padded when input has less fields than declared schema for some loader</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Koji Noguchi</td>
+<td align="left">Rohini Palaniswamy</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4867">PIG-4867</a></td>
+<td align="left">-stop_on_failure does not work with Tez</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Rohini Palaniswamy</td>
+<td align="left">Rohini Palaniswamy</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4860">PIG-4860</a></td>
+<td align="left">Loading data using OrcStorage() accepts only default FileSystem path</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Anirudh Beria</td>
+<td align="left">Anirudh Beria</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4821">PIG-4821</a></td>
+<td align="left">Pig chararray field with special UTF-8 chars as part of tuple join key produces wrong results in Tez</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Rohini Palaniswamy</td>
+<td align="left">Rohini Palaniswamy</td>
+</tr>
+</tbody>
+</table>

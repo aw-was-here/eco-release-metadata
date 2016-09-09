@@ -1,0 +1,460 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hadoop-changelog">Apache Hadoop Changelog</h1>
+<h2 id="release-0.3.0---2006-06-02">Release 0.3.0 - 2006-06-02</h2>
+<h3 id="incompatible-changes">INCOMPATIBLE CHANGES:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="new-features">NEW FEATURES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-256">HADOOP-256</a></td>
+<td align="left">Implement a C api for hadoop dfs</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Arun C Murthy</td>
+<td align="left">Arun C Murthy</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-233">HADOOP-233</a></td>
+<td align="left">add a http status server for the task trackers</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Owen O'Malley</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-222">HADOOP-222</a></td>
+<td align="left">Set replication from dfsshell</td>
+<td align="left">Trivial</td>
+<td align="left">.</td>
+<td align="left">Johan Oskarsson</td>
+<td align="left">Johan Oskarsson</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-209">HADOOP-209</a></td>
+<td align="left">Add a program to recursively copy directories across file systems</td>
+<td align="left">Major</td>
+<td align="left">fs</td>
+<td align="left">Milind Bhandarkar</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-115">HADOOP-115</a></td>
+<td align="left">permit reduce input types to differ from reduce output types</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Runping Qi</td>
+<td align="left">Runping Qi</td>
+</tr>
+</tbody>
+</table>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-254">HADOOP-254</a></td>
+<td align="left">use http to shuffle data between the maps and the reduces</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Owen O'Malley</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-218">HADOOP-218</a></td>
+<td align="left">Inefficient calls to get configuration values in TaskInprogress</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Mahadev konar</td>
+<td align="left">Mahadev konar</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-216">HADOOP-216</a></td>
+<td align="left">Task Detail web page missing progress</td>
+<td align="left">Trivial</td>
+<td align="left">.</td>
+<td align="left">Bryan Pendleton</td>
+<td align="left">Doug Cutting</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-212">HADOOP-212</a></td>
+<td align="left">allow changes to dfs block size</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Owen O'Malley</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-211">HADOOP-211</a></td>
+<td align="left">logging improvements for Hadoop</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Sameer Paranjpye</td>
+<td align="left">Sameer Paranjpye</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-208">HADOOP-208</a></td>
+<td align="left">add failure page to webapp</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Owen O'Malley</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-204">HADOOP-204</a></td>
+<td align="left">Need to tweak a few things in the metrics package to support the Simon plugin</td>
+<td align="left">Major</td>
+<td align="left">metrics</td>
+<td align="left">David Bowen</td>
+<td align="left">David Bowen</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-202">HADOOP-202</a></td>
+<td align="left">sort should use a smaller number of reduces</td>
+<td align="left">Trivial</td>
+<td align="left">.</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Owen O'Malley</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-195">HADOOP-195</a></td>
+<td align="left">improve performance of map output transfers</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Owen O'Malley</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-75">HADOOP-75</a></td>
+<td align="left">dfs should check full file availability only at close</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Doug Cutting</td>
+<td align="left">Milind Bhandarkar</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-270">HADOOP-270</a></td>
+<td align="left">possible deadlock when shut down a datanode thread</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Hairong Kuang</td>
+<td align="left">Hairong Kuang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-265">HADOOP-265</a></td>
+<td align="left">Abort tasktracker if it can not write to its local directories</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Hairong Kuang</td>
+<td align="left">Hairong Kuang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-264">HADOOP-264</a></td>
+<td align="left">WritableFactory has no permissions to create DatanodeRegistration</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Owen O'Malley</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-259">HADOOP-259</a></td>
+<td align="left">map output http client does not timeout</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Owen O'Malley</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-251">HADOOP-251</a></td>
+<td align="left">progress report failures kill task</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Owen O'Malley</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-247">HADOOP-247</a></td>
+<td align="left">The Reduce Task thread for reporting progress during the sort exits in case of any IOException</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Mahadev konar</td>
+<td align="left">Mahadev konar</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-241">HADOOP-241</a></td>
+<td align="left">TestCopyFiles fails under cygwin due to incorrect path</td>
+<td align="left">Minor</td>
+<td align="left">fs</td>
+<td align="left">Konstantin Shvachko</td>
+<td align="left">Milind Bhandarkar</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-238">HADOOP-238</a></td>
+<td align="left">map outputs transfers fail with EOFException</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Owen O'Malley</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-235">HADOOP-235</a></td>
+<td align="left">LocalFileSystem.openRaw() throws the wrong string for FileNotFoundException</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Benjamin Reed</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-229">HADOOP-229</a></td>
+<td align="left">hadoop cp should generate a better number of map tasks</td>
+<td align="left">Minor</td>
+<td align="left">fs</td>
+<td align="left">Yoram Arnon</td>
+<td align="left">Milind Bhandarkar</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-228">HADOOP-228</a></td>
+<td align="left">hadoop cp should have a -config option</td>
+<td align="left">Minor</td>
+<td align="left">fs</td>
+<td align="left">Yoram Arnon</td>
+<td align="left">Milind Bhandarkar</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-219">HADOOP-219</a></td>
+<td align="left">SequenceFile#handleChecksumException NPE</td>
+<td align="left">Trivial</td>
+<td align="left">io</td>
+<td align="left">stack</td>
+<td align="left">Doug Cutting</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-217">HADOOP-217</a></td>
+<td align="left">IllegalAcessException when creating a Block object via WritableFactories</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Hairong Kuang</td>
+<td align="left">Hairong Kuang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-205">HADOOP-205</a></td>
+<td align="left">the job tracker does not schedule enough map on the cluster</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Mahadev konar</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-200">HADOOP-200</a></td>
+<td align="left">The map task names are sent to the reduces</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Owen O'Malley</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-180">HADOOP-180</a></td>
+<td align="left">task tracker times out cleaning big job</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Owen O'Malley</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-179">HADOOP-179</a></td>
+<td align="left">task tracker ghosts remain after 10 minutes</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Owen O'Malley</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-163">HADOOP-163</a></td>
+<td align="left">If a DFS datanode cannot write onto its file system. it should tell the name node not to assign new blocks to it.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Runping Qi</td>
+<td align="left">Hairong Kuang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-161">HADOOP-161</a></td>
+<td align="left">dfs blocks define equal, but not hashcode</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Milind Bhandarkar</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-146">HADOOP-146</a></td>
+<td align="left">potential conflict in block id's, leading to data corruption</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Yoram Arnon</td>
+<td align="left">Konstantin Shvachko</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-141">HADOOP-141</a></td>
+<td align="left">Disk thrashing / task timeouts during map output copy phase</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">p sutter</td>
+<td align="left">Owen O'Malley</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-124">HADOOP-124</a></td>
+<td align="left">don't permit two datanodes to run from same dfs.data.dir</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Bryan Pendleton</td>
+<td align="left">Konstantin Shvachko</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tests">TESTS:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="sub-tasks">SUB-TASKS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-220">HADOOP-220</a></td>
+<td align="left">Add -dfs and -jt command-line parameters to specify namenode and jobtracker.</td>
+<td align="left">Major</td>
+<td align="left">fs</td>
+<td align="left">Milind Bhandarkar</td>
+<td align="left">Milind Bhandarkar</td>
+</tr>
+</tbody>
+</table>
+<h3 id="other">OTHER:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>

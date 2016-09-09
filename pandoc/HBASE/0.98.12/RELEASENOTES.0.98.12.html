@@ -1,0 +1,60 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hbase-0.98.12-release-notes">Apache HBase 0.98.12 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-13207">HBASE-13207</a> | <em>Major</em> | <strong>Backport to 0.98 &quot;[PERF] Reuse the IPC buffers...&quot;</strong></li>
+</ul>
+<p>See parent issue.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-13273">HBASE-13273</a> | <em>Major</em> | <strong>Make Result.EMPTY_RESULT read-only; currently it can be modified</strong></li>
+</ul>
+<p>The Result.EMPTY_RESULT object is now immutable. In previous releases, the object could be modified by a caller to no longer be empty. Code that relies on this behavior will now receive an UnsupportedOperationException.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-13331">HBASE-13331</a> | <em>Blocker</em> | <strong>Exceptions from DFS client can cause CatalogJanitor to delete referenced files</strong></li>
+</ul>
+<p>Fixes an issue where files from a split region that were still referenced were erroneously deleted leading to data loss.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-10728">HBASE-10728</a> | <em>Major</em> | <strong>get_counter value is never used.</strong></li>
+</ul>
+<p>for 0.98 and 1.0 changes are compatible (due to mitigation by HBASE-13433):</p>
+<p>* The &quot;get_counter&quot; command no longer requires a dummy 4th argument. Downstream users are encouraged to migrate code to not pass this argument because it will result in an error for HBase 1.1+. * The &quot;incr&quot; command now outputs the current value of the counter to stdout. ex: {code} jruby-1.6.8 :005 &gt; incr 'counter_example', 'r1', 'cf1:foo', 10 COUNTER VALUE = 1772 0 row(s) in 0.1180 seconds {code}</p>
+<p>for 1.1+ changes are incompatible:</p>
+<p>* The &quot;get_counter&quot; command no longer accepts a dummy 4th argument. Downstream users will need to update their code to not pass this argument. ex: {code} jruby-1.6.8 :006 &gt; get_counter 'counter_example', 'r1', 'cf1:foo' COUNTER VALUE = 1772</p>
+<p>{code} * The &quot;incr&quot; command now outputs the current value of the counter to stdout. ex: {code} jruby-1.6.8 :005 &gt; incr 'counter_example', 'r1', 'cf1:foo', 10 COUNTER VALUE = 1772 0 row(s) in 0.1180 seconds {code}</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-13289">HBASE-13289</a> | <em>Major</em> | <strong>typo in splitSuccessCount metric</strong></li>
+</ul>
+<p>In hbase 1.0.0, 0.98.10, 0.98.10.1, 0.98.11, and 0.98.12 'splitSuccessCount' was misspelled as 'splitSuccessCounnt'</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-13362">HBASE-13362</a> | <em>Major</em> | <strong>Set max result size from client only (like scanner caching).</strong></li>
+</ul>
+<p>This introduces a new config option: hbase.server.scanner.max.result.size This setting enforces a maximum result size (in bytes), when reached the server will return the results is has so far. This is a safety setting and should be kept large. The default is inifinite in 0.98 and 1.0.x and 100mb in 1.1 and later.</p>
+<p>Use hbase.client.scanner.max.result.size instead to enforce practical chunk sizes of a few mb (defaults to 2mb)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-13275">HBASE-13275</a> | <em>Major</em> | <strong>Setting hbase.security.authorization to false does not disable authorization</strong></li>
+</ul>
+<p>Prior to this change the configuration setting 'hbase.security.authorization' had no effect if security coprocessor were installed. The act of installing the security coprocessors was assumed to indicate active authorizaton was desired and required. Now it is possible to install the security coprocessors yet have them operate in a passive state with active authorization disabled by setting 'hbase.security.authorization' to false. This can be useful but is probably not what you want. For more information, consult the Security section of the HBase online manual.</p>
+<p>'hbase.security.authorization' defaults to true for backwards comptatible behavior.</p>

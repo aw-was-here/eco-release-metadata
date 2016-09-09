@@ -1,0 +1,476 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hadoop-changelog">Apache Hadoop Changelog</h1>
+<h2 id="release-0.23.11---2014-06-25">Release 0.23.11 - 2014-06-25</h2>
+<h3 id="incompatible-changes">INCOMPATIBLE CHANGES:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="new-features">NEW FEATURES:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-10454">HADOOP-10454</a></td>
+<td align="left">Provide FileContext version of har file system</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Kihwal Lee</td>
+<td align="left">Kihwal Lee</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-10164">HADOOP-10164</a></td>
+<td align="left">Allow UGI to login with a known Subject</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Robert Joseph Evans</td>
+<td align="left">Robert Joseph Evans</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7688">HADOOP-7688</a></td>
+<td align="left">When a servlet filter throws an exception in init(..), the Jetty server failed silently.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+<td align="left">Uma Maheswara Rao G</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-6191">HDFS-6191</a></td>
+<td align="left">Disable quota checks when replaying edit log.</td>
+<td align="left">Major</td>
+<td align="left">namenode</td>
+<td align="left">Kihwal Lee</td>
+<td align="left">Kihwal Lee</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-5637">HDFS-5637</a></td>
+<td align="left">try to refeatchToken while local read InvalidToken occurred</td>
+<td align="left">Major</td>
+<td align="left">hdfs-client, security</td>
+<td align="left">Liang Xie</td>
+<td align="left">Liang Xie</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-4461">HDFS-4461</a></td>
+<td align="left">DirectoryScanner: volume path prefix takes up memory for every block that is scanned</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Colin Patrick McCabe</td>
+<td align="left">Colin Patrick McCabe</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-10588">HADOOP-10588</a></td>
+<td align="left">Workaround for jetty6 acceptor startup issue</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Kihwal Lee</td>
+<td align="left">Kihwal Lee</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-10332">HADOOP-10332</a></td>
+<td align="left">HttpServer's jetty audit log always logs 200 OK</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Daryn Sharp</td>
+<td align="left">Jonathan Eagles</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-10146">HADOOP-10146</a></td>
+<td align="left">Workaround JDK7 Process fd close bug</td>
+<td align="left">Critical</td>
+<td align="left">util</td>
+<td align="left">Daryn Sharp</td>
+<td align="left">Daryn Sharp</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-10129">HADOOP-10129</a></td>
+<td align="left">Distcp may succeed when it fails</td>
+<td align="left">Critical</td>
+<td align="left">tools/distcp</td>
+<td align="left">Daryn Sharp</td>
+<td align="left">Daryn Sharp</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-10112">HADOOP-10112</a></td>
+<td align="left">har file listing doesn't work with wild card</td>
+<td align="left">Major</td>
+<td align="left">tools</td>
+<td align="left">Brandon Li</td>
+<td align="left">Brandon Li</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-10110">HADOOP-10110</a></td>
+<td align="left">hadoop-auth has a build break due to missing dependency</td>
+<td align="left">Blocker</td>
+<td align="left">build</td>
+<td align="left">Chuan Liu</td>
+<td align="left">Chuan Liu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-10081">HADOOP-10081</a></td>
+<td align="left">Client.setupIOStreams can leak socket resources on exception or error</td>
+<td align="left">Critical</td>
+<td align="left">ipc</td>
+<td align="left">Jason Lowe</td>
+<td align="left">Tsuyoshi Ozawa</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9230">HADOOP-9230</a></td>
+<td align="left">TestUniformSizeInputFormat fails intermittently</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Karthik Kambatla</td>
+<td align="left">Karthik Kambatla</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8826">HADOOP-8826</a></td>
+<td align="left">Docs still refer to 0.20.205 as stable line</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Robert Joseph Evans</td>
+<td align="left">Mit Desai</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-6449">HDFS-6449</a></td>
+<td align="left">Incorrect counting in ContentSummaryComputationContext in 0.23.</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Kihwal Lee</td>
+<td align="left">Kihwal Lee</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-6166">HDFS-6166</a></td>
+<td align="left">revisit balancer so_timeout</td>
+<td align="left">Blocker</td>
+<td align="left">balancer &amp; mover</td>
+<td align="left">Nathan Roberts</td>
+<td align="left">Nathan Roberts</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-5881">HDFS-5881</a></td>
+<td align="left">Fix skip() of the short-circuit local reader (legacy).</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Kihwal Lee</td>
+<td align="left">Kihwal Lee</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-5806">HDFS-5806</a></td>
+<td align="left">balancer should set SoTimeout to avoid indefinite hangs</td>
+<td align="left">Major</td>
+<td align="left">balancer &amp; mover</td>
+<td align="left">Nathan Roberts</td>
+<td align="left">Nathan Roberts</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-5728">HDFS-5728</a></td>
+<td align="left">[Diskfull] Block recovery will fail if the metafile does not have crc for all chunks of the block</td>
+<td align="left">Critical</td>
+<td align="left">datanode</td>
+<td align="left">Vinayakumar B</td>
+<td align="left">Vinayakumar B</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-4576">HDFS-4576</a></td>
+<td align="left">Webhdfs authentication issues</td>
+<td align="left">Major</td>
+<td align="left">webhdfs</td>
+<td align="left">Daryn Sharp</td>
+<td align="left">Daryn Sharp</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5789">MAPREDUCE-5789</a></td>
+<td align="left">Average Reduce time is incorrect on Job Overview page</td>
+<td align="left">Major</td>
+<td align="left">jobhistoryserver, webapps</td>
+<td align="left">Rushabh S Shah</td>
+<td align="left">Rushabh S Shah</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5778">MAPREDUCE-5778</a></td>
+<td align="left">JobSummary does not escape newlines in the job name</td>
+<td align="left">Major</td>
+<td align="left">jobhistoryserver</td>
+<td align="left">Jason Lowe</td>
+<td align="left">Akira AJISAKA</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5757">MAPREDUCE-5757</a></td>
+<td align="left">ConcurrentModificationException in JobControl.toList</td>
+<td align="left">Major</td>
+<td align="left">client</td>
+<td align="left">Jason Lowe</td>
+<td align="left">Jason Lowe</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5746">MAPREDUCE-5746</a></td>
+<td align="left">Job diagnostics can implicate wrong task for a failed job</td>
+<td align="left">Major</td>
+<td align="left">jobhistoryserver</td>
+<td align="left">Jason Lowe</td>
+<td align="left">Jason Lowe</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5744">MAPREDUCE-5744</a></td>
+<td align="left">Job hangs because RMContainerAllocator$AssignedRequests.preemptReduce() violates the comparator contract</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Sangjin Lee</td>
+<td align="left">Gera Shegalov</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5689">MAPREDUCE-5689</a></td>
+<td align="left">MRAppMaster does not preempt reducers when scheduled maps cannot be fulfilled</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Lohit Vijayarenu</td>
+<td align="left">Lohit Vijayarenu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5623">MAPREDUCE-5623</a></td>
+<td align="left">TestJobCleanup fails because of RejectedExecutionException and NPE.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Tsuyoshi Ozawa</td>
+<td align="left">Jason Lowe</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5454">MAPREDUCE-5454</a></td>
+<td align="left">TestDFSIO fails intermittently on JDK7</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Karthik Kambatla</td>
+<td align="left">Karthik Kambatla</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3191">MAPREDUCE-3191</a></td>
+<td align="left">docs for map output compression incorrectly reference SequenceFile</td>
+<td align="left">Trivial</td>
+<td align="left">.</td>
+<td align="left">Todd Lipcon</td>
+<td align="left">Chen He</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-3829">YARN-3829</a></td>
+<td align="left">The History Tracking UI is broken for Tez application on ResourceManager WebUI</td>
+<td align="left">Critical</td>
+<td align="left">applications</td>
+<td align="left">Irina Easterling</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-1932">YARN-1932</a></td>
+<td align="left">Javascript injection on the job status page</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Mit Desai</td>
+<td align="left">Mit Desai</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-1670">YARN-1670</a></td>
+<td align="left">aggregated log writer can write more log data then it says is the log length</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Thomas Graves</td>
+<td align="left">Mit Desai</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-1592">YARN-1592</a></td>
+<td align="left">CapacityScheduler tries to reserve more than a node's total memory on branch-0.23</td>
+<td align="left">Major</td>
+<td align="left">capacityscheduler</td>
+<td align="left">Thomas Graves</td>
+<td align="left">Thomas Graves</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-1180">YARN-1180</a></td>
+<td align="left">Update capacity scheduler docs to include types on the configs</td>
+<td align="left">Trivial</td>
+<td align="left">capacityscheduler</td>
+<td align="left">Thomas Graves</td>
+<td align="left">Chen He</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-1145">YARN-1145</a></td>
+<td align="left">Potential file handle leak in aggregated logs web ui</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Rohith Sharma K S</td>
+<td align="left">Rohith Sharma K S</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-1053">YARN-1053</a></td>
+<td align="left">Diagnostic message from ContainerExitEvent is ignored in ContainerImpl</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Omkar Vinit Joshi</td>
+<td align="left">Omkar Vinit Joshi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-853">YARN-853</a></td>
+<td align="left">maximum-am-resource-percent doesn't work after refreshQueues command</td>
+<td align="left">Major</td>
+<td align="left">capacityscheduler</td>
+<td align="left">Devaraj K</td>
+<td align="left">Devaraj K</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-500">YARN-500</a></td>
+<td align="left">ResourceManager webapp is using next port if configured port is already in use</td>
+<td align="left">Major</td>
+<td align="left">resourcemanager</td>
+<td align="left">Nishan Shetty</td>
+<td align="left">Kenji Kikushima</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tests">TESTS:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="sub-tasks">SUB-TASKS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-10148">HADOOP-10148</a></td>
+<td align="left">backport hadoop-10107 to branch-0.23</td>
+<td align="left">Minor</td>
+<td align="left">ipc</td>
+<td align="left">Chen He</td>
+<td align="left">Chen He</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-1575">YARN-1575</a></td>
+<td align="left">Public localizer crashes with &quot;Localized unkown resource&quot;</td>
+<td align="left">Critical</td>
+<td align="left">nodemanager</td>
+<td align="left">Jason Lowe</td>
+<td align="left">Jason Lowe</td>
+</tr>
+</tbody>
+</table>
+<h3 id="other">OTHER:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>

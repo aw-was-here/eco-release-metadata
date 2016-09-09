@@ -1,0 +1,249 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hadoop-0.20.0-release-notes">Apache Hadoop 0.20.0 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-5565">HADOOP-5565</a> | <em>Major</em> | <strong>The job instrumentation API needs to have a method for finalizeJob,</strong></li>
+</ul>
+<p>Add finalizeJob &amp; terminateJob methods to JobTrackerInstrumentation class</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-5548">HADOOP-5548</a> | <em>Blocker</em> | <strong>Observed negative running maps on the job tracker</strong></li>
+</ul>
+<p>Adds synchronization for JobTracker methods in RecoveryManager.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-5531">HADOOP-5531</a> | <em>Blocker</em> | <strong>Remove Chukwa on branch-0.20</strong></li>
+</ul>
+<p>Disabled Chukwa unit tests for 0.20 branch only.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-5521">HADOOP-5521</a> | <em>Major</em> | <strong>Remove dependency of testcases on RESTART_COUNT</strong></li>
+</ul>
+<p>This patch makes TestJobHistory and its dependent testcases independent of RESTART_COUNT.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-5468">HADOOP-5468</a> | <em>Major</em> | <strong>Change Hadoop doc menu to sub-menus</strong></li>
+</ul>
+<p>Reformatted HTML documentation for Hadoop to use submenus at the left column.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-5030">HADOOP-5030</a> | <em>Major</em> | <strong>Chukwa RPM build improvements</strong></li>
+</ul>
+<p>Changed RPM install location to the value specified by build.properties file.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4970">HADOOP-4970</a> | <em>Major</em> | <strong>Use the full path when move files to .Trash/Current</strong></li>
+</ul>
+<p>Changed trash facility to use absolute path of the deleted file.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4873">HADOOP-4873</a> | <em>Major</em> | <strong>display minMaps/Reduces on advanced scheduler page</strong></li>
+</ul>
+<p>Changed fair scheduler UI to display minMaps and minReduces variables.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4843">HADOOP-4843</a> | <em>Major</em> | <strong>Collect Job History log file and Job Conf file into Chukwa</strong></li>
+</ul>
+<p>Introduced Chuckwa collection of job history.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4827">HADOOP-4827</a> | <em>Major</em> | <strong>Improve data aggregation in database</strong></li>
+</ul>
+<p>Improved framework for data aggregation in Chuckwa.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4826">HADOOP-4826</a> | <em>Major</em> | <strong>Admin command saveNamespace.</strong></li>
+</ul>
+<p>Introduced new dfsadmin command saveNamespace to command the name service to do an immediate save of the file system image.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4789">HADOOP-4789</a> | <em>Minor</em> | <strong>Change fair scheduler to share between pools by default, not between invidual jobs</strong></li>
+</ul>
+<p>Changed fair scheduler to divide resources equally between pools, not jobs.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4783">HADOOP-4783</a> | <em>Blocker</em> | <strong>History files are given world readable permissions.</strong></li>
+</ul>
+<p>Changed history directory permissions to 750 and history file permissions to 740.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4749">HADOOP-4749</a> | <em>Major</em> | <strong>reducer should output input data size when shuffling is done</strong></li>
+</ul>
+<p>Added a new counter REDUCE_INPUT_BYTES.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4661">HADOOP-4661</a> | <em>Major</em> | <strong>distch: a tool for distributed ch{mod,own}</strong></li>
+</ul>
+<p>Introduced distch tool for parallel ch{mod, own, grp}.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4631">HADOOP-4631</a> | <em>Major</em> | <strong>Split the default configurations into 3 parts</strong></li>
+</ul>
+<p>Split hadoop-default.xml into core-default.xml, hdfs-default.xml and mapreduce-default.xml.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4618">HADOOP-4618</a> | <em>Major</em> | <strong>Move http server from FSNamesystem into NameNode.</strong></li>
+</ul>
+<p>Moved HTTP server from FSNameSystem to NameNode. Removed FSNamesystem.getNameNodeInfoPort(). Replaced FSNamesystem.getDFSNameNodeMachine() and FSNamesystem.getDFSNameNodePort() with new method FSNamesystem.getDFSNameNodeAddress(). Removed constructor NameNode(bindAddress, conf).</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4576">HADOOP-4576</a> | <em>Major</em> | <strong>Modify pending tasks count in the UI to pending jobs count in the UI</strong></li>
+</ul>
+<p>Changed capacity scheduler UI to better present number of running and pending tasks.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4575">HADOOP-4575</a> | <em>Major</em> | <strong>An independent HTTPS proxy for HDFS</strong></li>
+</ul>
+<p>Introduced independent HSFTP proxy server for authenticated access to clusters.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4572">HADOOP-4572</a> | <em>Major</em> | <strong>INode and its sub-classes should be package private</strong></li>
+</ul>
+<p>Moved org.apache.hadoop.hdfs.{CreateEditsLog, NNThroughputBenchmark} to org.apache.hadoop.hdfs.server.namenode.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4567">HADOOP-4567</a> | <em>Major</em> | <strong>GetFileBlockLocations should return the NetworkTopology information of the machines that hosts those blocks</strong></li>
+</ul>
+<p>Changed GetFileBlockLocations to return topology information for nodes that host the block replicas.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4565">HADOOP-4565</a> | <em>Major</em> | <strong>MultiFileInputSplit can use data locality information to create splits</strong></li>
+</ul>
+<p>Improved MultiFileInputFormat so that multiple blocks from the same node or same rack can be combined into a single split.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4454">HADOOP-4454</a> | <em>Minor</em> | <strong>Support comments in 'slaves' file</strong></li>
+</ul>
+<p>Changed processing of conf/slaves file to allow # to begin a comment.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4445">HADOOP-4445</a> | <em>Major</em> | <strong>Wrong number of running map/reduce tasks are displayed in queue information.</strong></li>
+</ul>
+<p>Changed JobTracker UI to better present the number of active tasks.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4435">HADOOP-4435</a> | <em>Minor</em> | <strong>The JobTracker should display the amount of heap memory used</strong></li>
+</ul>
+<p>Changed JobTracker web status page to display the amount of heap memory in use. This changes the JobSubmissionProtocol.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4422">HADOOP-4422</a> | <em>Major</em> | <strong>S3 file systems should not create bucket</strong></li>
+</ul>
+<p>Modified Hadoop file system to no longer create S3 buckets. Applications can create buckets for their S3 file systems by other means, for example, using the JetS3t API.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4374">HADOOP-4374</a> | <em>Major</em> | <strong>JVM should not be killed but given an opportunity to exit gracefully</strong></li>
+</ul>
+<p>This patch (1) Adds a shutdownHook that does syncLogs sothat logs of the current task are flushed and log.index is up to date in cases like System.exit(), or killed using signals(other than SIGKILL). (2) Changes writeToIndexFile() to write to a temporary index file first and then rename to log.index sothat updates to log.index file are atomic.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4305">HADOOP-4305</a> | <em>Major</em> | <strong>repeatedly blacklisted tasktrackers should get declared dead</strong></li>
+</ul>
+<p>Improved TaskTracker blacklisting strategy to better exclude faulty tracker from executing tasks.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4284">HADOOP-4284</a> | <em>Major</em> | <strong>Support for user configurable global filters on HttpServer</strong></li>
+</ul>
+<p>Introduced HttpServer method to support global filters.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4253">HADOOP-4253</a> | <em>Major</em> | <strong>Fix warnings generated by FindBugs</strong></li>
+</ul>
+<p>Removed from class org.apache.hadoop.fs.RawLocalFileSystem deprecated methods public String getName(), public void lock(Path p, boolean shared) and public void release(Path p).</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4234">HADOOP-4234</a> | <em>Minor</em> | <strong>KFS: Allow KFS layer to interface with multiple KFS namenodes</strong></li>
+</ul>
+<p>Changed KFS glue layer to allow applications to interface with multiple KFS metaservers.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4210">HADOOP-4210</a> | <em>Major</em> | <strong>Findbugs warnings are printed related to equals implementation of several classes</strong></li>
+</ul>
+<p>Changed public class org.apache.hadoop.mapreduce.ID to be an abstract class. Removed from class org.apache.hadoop.mapreduce.ID the methods public static ID read(DataInput in) and public static ID forName(String str).</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4188">HADOOP-4188</a> | <em>Major</em> | <strong>Remove Task's dependency on concrete file systems</strong></li>
+</ul>
+<p>Removed Task's dependency on concrete file systems by taking list from FileSystem class. Added statistics table to FileSystem class. Deprecated FileSystem method getStatistics(Class&lt;? extends FileSystem&gt; cls).</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4179">HADOOP-4179</a> | <em>Major</em> | <strong>Hadoop-Vaidya : Rule based performance diagnostic tool for Map/Reduce jobs</strong></li>
+</ul>
+<p>Introduced Vaidya rule based performance diagnostic tool for Map/Reduce jobs.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4103">HADOOP-4103</a> | <em>Major</em> | <strong>Alert for missing blocks</strong></li>
+</ul>
+<p>Modified dfsadmin -report to report under replicated blocks. blocks with corrupt replicas, and missing blocks&quot;.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4035">HADOOP-4035</a> | <em>Blocker</em> | <strong>Modify the capacity scheduler (HADOOP-3445) to schedule tasks based on memory requirements and task trackers free memory</strong></li>
+</ul>
+<p>Changed capacity scheduler policy to take note of task memory requirements and task tracker memory availability.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4029">HADOOP-4029</a> | <em>Major</em> | <strong>NameNode should report status and performance for each replica of image and log</strong></li>
+</ul>
+<p>Added name node storage information to the dfshealth page, and moved data node information to a separated page.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3986">HADOOP-3986</a> | <em>Major</em> | <strong>JobClient should not have a static configuration</strong></li>
+</ul>
+<p>Removed classes org.apache.hadoop.mapred.JobShell and org.apache.hadoop.mapred.TestJobShell. Removed from JobClient methods static void setCommandLineConfig(Configuration conf) and public static Configuration getCommandLineConfig().</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3923">HADOOP-3923</a> | <em>Minor</em> | <strong>Deprecate org.apache.hadoop.mapred.StatusHttpServer</strong></li>
+</ul>
+<p>Moved class org.apache.hadoop.mapred.StatusHttpServer to org.apache.hadoop.http.HttpServer.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3750">HADOOP-3750</a> | <em>Major</em> | <strong>Fix and enforce module dependencies</strong></li>
+</ul>
+<p>Removed deprecated method parseArgs from org.apache.hadoop.fs.FileSystem.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3497">HADOOP-3497</a> | <em>Major</em> | <strong>File globbing with a PathFilter is too restrictive</strong></li>
+</ul>
+<p>Changed the semantics of file globbing with a PathFilter (using the globStatus method of FileSystem). Previously, the filtering was too restrictive, so that a glob of /*/* and a filter that only accepts /a/b would not have matched /a/b. With this change /a/b does match.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3422">HADOOP-3422</a> | <em>Major</em> | <strong>Ganglia counter metrics are all reported with the metric name &quot;value&quot;, so the counter values can not be seen</strong></li>
+</ul>
+<p>Changed names of ganglia metrics to avoid conflicts and to better identify source function.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3344">HADOOP-3344</a> | <em>Major</em> | <strong>libhdfs: always builds 32bit, even when x86_64 Java used</strong></li>
+</ul>
+<p>Changed build procedure for libhdfs to build correctly for different platforms. Build instructions are in the Jira item.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3063">HADOOP-3063</a> | <em>Major</em> | <strong>BloomMapFile - fail-fast version of MapFile for sparsely populated key space</strong></li>
+</ul>
+<p>Introduced BloomMapFile subclass of MapFile that creates a Bloom filter from all keys.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-1650">HADOOP-1650</a> | <em>Major</em> | <strong>Upgrade Jetty to 6.x</strong></li>
+</ul>
+<p>Upgraded all core servers to use Jetty 6</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-1230">HADOOP-1230</a> | <em>Major</em> | <strong>Replace parameters with context objects in Mapper, Reducer, Partitioner, InputFormat, and OutputFormat classes</strong></li>
+</ul>
+<p>Replaced parameters with context obejcts in Mapper, Reducer, Partitioner, InputFormat, and OutputFormat classes.</p>

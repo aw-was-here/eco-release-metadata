@@ -1,0 +1,258 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hbase-0.94.0-release-notes">Apache HBase 0.94.0 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4429">HBASE-4429</a> | <em>Major</em> | <strong>Provide synchronous balanceSwitch()</strong></li>
+</ul>
+<p>synchronousBalanceSwitch() has been added to HMaster. It waits until current balance() call, if outstanding, to return.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4132">HBASE-4132</a> | <em>Major</em> | <strong>Extend the WALActionsListener API to accomodate log archival</strong></li>
+</ul>
+<p>Add pre and post archiving methods to WALObserver</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4131">HBASE-4131</a> | <em>Major</em> | <strong>Make the Replication Service pluggable via a standard interface definition</strong></li>
+</ul>
+<p>The Replication Interface can be used to plug in external software for the purpose of cluster-to-cluster HBase replication.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4145">HBASE-4145</a> | <em>Major</em> | <strong>Provide metrics for hbase client</strong></li>
+</ul>
+<p>Scan related metrics from hbase client point of view are collected. These metrics are exposed as MapReduce counters.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4487">HBASE-4487</a> | <em>Major</em> | <strong>The increment operation can release the rowlock before sync-ing the Hlog</strong></li>
+</ul>
+<p>The increment operation releases the rowlock before doing the sync to the HLog. This improves performance of increments on hot rows. There is a fundamental change to the group-commit behaviour: it batches transactions in HBase code before pushing it down to the wal.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4465">HBASE-4465</a> | <em>Major</em> | <strong>Lazy-seek optimization for StoreFile scanners</strong></li>
+</ul>
+<p>Check the most recent file first before seeking all other files in a Store.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4489">HBASE-4489</a> | <em>Major</em> | <strong>Better key splitting in RegionSplitter</strong></li>
+</ul>
+<p>The split algorithm used by RegionSplitter is now a required parameter. Previously there was one split algorithm called MD5StringSplit, which was the default. MD5StringSplit has been renamed to HexStringSplit, and tweaked so that its maximum key is now &quot;FFFFFFFF&quot; instead of &quot;7FFFFFFF. A new split algorithm UniformSplit has been added which treats keys as arbitrary bytes.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4460">HBASE-4460</a> | <em>Major</em> | <strong>Support running an embedded ThriftServer within a RegionServer</strong></li>
+</ul>
+<p>Run a ThriftServer embedded within a RegionServer process by setting &quot;hbase.regionserver.export.thrift&quot; to true.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4648">HBASE-4648</a> | <em>Major</em> | <strong>Bytes.toBigDecimal() doesn't use offset</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4528">HBASE-4528</a> | <em>Major</em> | <strong>The put operation can release the rowlock before sync-ing the Hlog</strong></li>
+</ul>
+<p>Adds early-lock-release ability so we can do the WAL sync outside of the row lock. Extends MemStore/RWCC to support rollback.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4669">HBASE-4669</a> | <em>Minor</em> | <strong>Add an option of using round-robin assignment for enabling table</strong></li>
+</ul>
+<p>A new config parameter, hbase.master.enabletable.roundrobin, was introduced in this JIRA. The default value is false and old behavior is kept. When set true, regions of the table being enabled are assigned round-robin across the cluster.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4696">HBASE-4696</a> | <em>Major</em> | <strong>HRegionThriftServer' might have to indefinitely do redirtects</strong></li>
+</ul>
+<p>RS embedded thrift server can have redirecting turned on/off with &quot;hbase.regionserver.thrift.redirect&quot; (default: false)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4480">HBASE-4480</a> | <em>Minor</em> | <strong>Testing script to simplify local testing</strong></li>
+</ul>
+<p>Script to run a set of hbase tests. Run ./src/test/bin/test-util.sh -h to see usage.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4746">HBASE-4746</a> | <em>Major</em> | <strong>Use a random ZK client port in unit tests so we can run them in parallel</strong></li>
+</ul>
+<p>HTable ctors which only take table name are removed in 0.94</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-3433">HBASE-3433</a> | <em>Critical</em> | <strong>Remove the KV copy of every KV in Scan; introduced by HBASE-3232</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4752">HBASE-4752</a> | <em>Minor</em> | <strong>Don't create an unnecessary LinkedList when evicting from the BlockCache</strong></li>
+</ul>
+<p>This change removes a bit of public API, which although it is public I think is expected to be internal to HBase.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4768">HBASE-4768</a> | <em>Major</em> | <strong>Per-(table, columnFamily) metrics with configurable table name inclusion</strong></li>
+</ul>
+<p>Trying to get the most recent patch tested on Hudson.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-2418">HBASE-2418</a> | <em>Critical</em> | <strong>add support for ZooKeeper authentication</strong></li>
+</ul>
+<p>This adds support for protecting the state of HBase znodes on a multi-tenant ZooKeeper cluster. This support requires ZK 3.4.0. It is a companion patch to HBASE-2742 (secure RPC), and HBASE-3025 (Coprocessor based access control).</p>
+<p>SASL authentication of ZooKeeper clients with the quorum is handled in the ZK client independently of HBase concerns. To enable strong ZK authentication, one must create a suitable JaaS configuration, for example:</p>
+<p>Server { com.sun.security.auth.module.Krb5LoginModule required useKeyTab=true keyTab=&quot;/etc/hbase/conf/hbase.keytab&quot; storeKey=true useTicketCache=false principal=&quot;zookeeper/$HOSTNAME&quot;; }; Client { com.sun.security.auth.module.Krb5LoginModule required useKeyTab=true useTicketCache=false keyTab=&quot;/etc/hbase/conf/hbase.keytab&quot; principal=&quot;hbase/$HOSTNAME&quot;; };</p>
+<p>and then configure both the client and server processes to use it, for example in hbase-site.xml:</p>
+<p>HBASE_OPTS=&quot;${HBASE_OPTS} -Djava.security.auth.login.config=/etc/hbase/conf/jaas.conf&quot; HBASE_OPTS=&quot;${HBASE_OPTS} -Dzookeeper.kerberos.removeHostFromPrincipal=true&quot; HBASE_OPTS=&quot;${HBASE_OPTS} -Dzookeeper.kerberos.removeRealmFromPrincipal=true&quot;</p>
+<p>HBase will then secure all znodes but for a few world-readable read-only ones needed for clients to look up region locations. All internal cluster operations will be protected from unauthenticated ZK clients, or clients not authenticated to the HBase principal. Presumably the only ZK clients authenticated to the HBase principal will be those embedded in the master and regionservers.</p>
+<p>We will pull in a Hadoop artifact patched with HADOOP-7070 if building under the security profile (-P security). 0.20.205 does not yet include HADOOP-7070. Without it, the JAAS configuration required for secure operation of the ZooKeeper client will be ignored.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4798">HBASE-4798</a> | <em>Minor</em> | <strong>Sleeps and synchronisation improvements for tests</strong></li>
+</ul>
+<p>last try on the same patch, but I think it's ok to commit it.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4809">HBASE-4809</a> | <em>Minor</em> | <strong>Per-CF set RPC metrics</strong></li>
+</ul>
+<p>Testing the patch on Hudson.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4989">HBASE-4989</a> | <em>Minor</em> | <strong>Metrics to measure sequential reads and random reads separately</strong></li>
+</ul>
+<p>The metric fsReadLatency records the number of sequential reads. The metric fsPreadLatency records the number of random reads.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-5017">HBASE-5017</a> | <em>Blocker</em> | <strong>Bump the default hfile.block.cache.size because of HFileV2</strong></li>
+</ul>
+<p>The default percentage of heap space allocated to the block cache has been increased from 20% to 25%. However, index caching is now accounted for in the block cache, so total heap usage should be minimally affected.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-5055">HBASE-5055</a> | <em>Blocker</em> | <strong>Build against hadoop 0.22 broken</strong></li>
+</ul>
+<p>Changes pom so we build against 0.22.0 release.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-5033">HBASE-5033</a> | <em>Major</em> | <strong>Opening/Closing store in parallel to reduce region open/close time</strong></li>
+</ul>
+<p>&quot;hbase.hstore.open.and.close.threads.max&quot; is introduced to control the number of threads for opening/closing Store and store files.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-5201">HBASE-5201</a> | <em>Major</em> | <strong>Utilize TThreadedSelectorServer and remove redundant code in ThriftServer and HRegionThriftServer</strong></li>
+</ul>
+<p>New config parameters:</p>
+<p>&quot;hbase.thrift.selector.threads&quot; Number of selector threads for reading and writing socket &quot;hbase.thrift.worker.threads&quot; Number of threads for processing the thrift calls &quot;hbase.thrift.stop.timeout.seconds&quot; Time to wait for server to stop gracefully &quot;hbase.thrift.accept.queue.size.per.selector&quot; Maximum number of accepted elements per selector &quot;hbase.thrift.accept.policy&quot; The strategy for handling new accepted connections</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-3373">HBASE-3373</a> | <em>Major</em> | <strong>Allow regions to be load-balanced by table</strong></li>
+</ul>
+<p>There is a parameter, hbase.regions.slop, with default value of 0.2 This parameter allows actual region count to deviate by this percentage from (ideal) average region count.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-5384">HBASE-5384</a> | <em>Major</em> | <strong>Up heap used by hadoopqa</strong></li>
+</ul>
+<p>Make hadoopqa mvn heap same as it is for other hbase builds (trunk, 0.92, etc.)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4218">HBASE-4218</a> | <em>Major</em> | <strong>Data Block Encoding of KeyValues (aka delta encoding / prefix compression</strong></li>
+</ul>
+<p>Adds a block compression that stores the diff from the previous key only. Good for big keys and small value datasets. Makes writing and scanning slower but because the blocks compressed with this feature stay compressed when in memory up in the block cache, more data is cached. Off by default (DATA_BLOCK_ENCODING=NONE on column descriptor). To enable, set DATA_BLOCK_ENCODING to PREFIX, DIFF or FAST_DIFF on the column descriptor. Set ENCODE_ON_DISK to true on column descriptor to have the encoding in place out in the hfile (on by default).</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-5199">HBASE-5199</a> | <em>Major</em> | <strong>Delete out of TTL store files before compaction selection</strong></li>
+</ul>
+<p>set hbase.store.delete.expired.storefile as true to enable the expired store file deletion</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-5209">HBASE-5209</a> | <em>Major</em> | <strong>HConnection/HMasterInterface should allow for way to get hostname of currently active master in multi-master HBase setup</strong></li>
+</ul>
+<p>ClusterStatus client running this change running against servers without this change will encounter an error in readFields() as the new client will be expecting extra fields at the end of the Writable that the old server will not be providing.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-5166">HBASE-5166</a> | <em>Minor</em> | <strong>MultiThreaded Table Mapper analogous to MultiThreaded Mapper in hadoop</strong></li>
+</ul>
+<p>New MultiThreadedTableMapper facility</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4365">HBASE-4365</a> | <em>Critical</em> | <strong>Add a decent heuristic for region size</strong></li>
+</ul>
+<p>Changes default splitting policy from ConstantSizeRegionSplitPolicy to IncreasingToUpperBoundRegionSplitPolicy. Splits quickly initially slowing as the number of regions climbs.</p>
+<p>Split size is the number of regions that are on this server that all are of the same table, squared, times the region flush size OR the maximum region split size, whichever is smaller. For example, if the flush size is 128M, then on first flush we will split which will make two regions that will split when their size is 2 * 2 * 128M = 512M. If one of these regions splits, then there are three regions and now the split size is 3 * 3 * 128M = 1152M, and so on until we reach the configured maximum filesize and then from there on out, we'll use that.</p>
+<p>Be warned, this new default could bring on lots of splits if you have many tables on your cluster. Either go back to to the old split policy or up the lower bound configuration.</p>
+<p>This patch changes the default split size from 64M to 128M. It makes the region eventual split size, hbase.hregion.max.filesize, 10G (It was 1G).</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-5074">HBASE-5074</a> | <em>Major</em> | <strong>support checksums in HBase block cache</strong></li>
+</ul>
+<p>Adds hbase.regionserver.checksum.verify. If hbase.regionserver.checksum.verify is set to true, then hbase will read data and then verify checksums. Checksum verification inside hdfs will be switched off. If the hbase-checksum verification fails, then it will switch back to using hdfs checksums for verifiying data that is being read from storage. Also adds hbase.hstore.bytes.per.checksum -- number of bytes in a newly created checksum chunk -- and hbase.hstore.checksum.algorithm, name of an algorithm that is used to compute checksums.</p>
+<p>You will currently only see benefit if you have the local read short-circuit enabled -- see http://hbase.apache.org/book.html#perf.hdfs.configs -- while HDFS-3429 goes unfixed.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4608">HBASE-4608</a> | <em>Major</em> | <strong>HLog Compression</strong></li>
+</ul>
+<p>Adds a custom dictionary-based compression on WAL. Off by default. To enable, set hbase.regionserver.wal.enablecompression to true in hbase-site.xml. Note that replication is currently broken when WAL compression is enabled.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-5128">HBASE-5128</a> | <em>Major</em> | <strong>[uber hbck] Online automated repair of table integrity and region consistency problems</strong></li>
+</ul>
+<p>HBaseFsck (hbck) has been updated with new repair capabilities. hbck is a tool for checking the region consistency and the table integrity invariants of a running HBase cluster. Checking region consistency verifies that .META., region deployment on region servers and the state of data in HDFS (.regioninfo files) all are in accordance. Table integrity checks verify that all possible row keys resolve to exactly one region of a table -- e.g. there are no individual degenerate or backwards regions; no holes between regions; and no overlapping regions. Previously hbck had the ability to diagnose inconsistencies but only had the ability to repair deployment region consistency problems. The updated version now has been augmented with the ability repair region consistency problems in .META. (by patching holes), repair overlapping regions (via merging), patch region holes (by fabricating new regions), and detecting and adopting orphaned regions (by fabricating new .regioninfo file if it is missing in a region's dir).</p>
+<p>Caveats: * The new hbck selects repairs assuming that HDFS as ground truth, the previous version treated .META. as ground truth. * The hbck '-fix' option is present but deprecated and replaced with '-fixAssignments' option. * This tool adds APIs in 0.90.7, 0.92.2 and 0.94.0 for clean repairs. The 0.90 version of the tool is compatible with HBase 0.90+, but may require restarting the master or individual individual regionserver for table enable/disable/delete commands to work properly.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-5190">HBASE-5190</a> | <em>Major</em> | <strong>Limit the IPC queue size based on calls' payload size</strong></li>
+</ul>
+<p>Each region server can only have 1GB worth of calls's payload in flight and will refuse new calls when above that limit (those get automatically retried on the client side). Also, ipc.server.max.queue.size is now called ipc.server.max.callqueue.length</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-5671">HBASE-5671</a> | <em>Critical</em> | <strong>hbase.metrics.showTableName should be true by default</strong></li>
+</ul>
+<p>Sets hbase.metrics.showTableName to true as the default. See hbase-default.xml for explaination of this configuration.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-5701">HBASE-5701</a> | <em>Major</em> | <strong>Put RegionServerDynamicStatistics under RegionServer in MBean hierarchy rather than have it as a peer.</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-3443">HBASE-3443</a> | <em>Critical</em> | <strong>ICV optimization to look in memstore first and then store files (HBASE-3082) does not work when deletes are in the mix</strong></li>
+</ul>
+<p>This is a correctness fix and will incur a 10-20% performance penalty for ICV and Increment operations. Other operations are not affected.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-5604">HBASE-5604</a> | <em>Major</em> | <strong>M/R tool to replay WAL files</strong></li>
+</ul>
+<p>Tool to replay WAL files using a M/R job.</p>
+<p>The WAL can be replayed for a set of tables or all tables, and a timerange can be provided (in milliseconds). The WAL is filtered to this set of tables, the output can optionally be mapped to another set of tables.</p>
+<p>WAL replay can also generate HFiles for later bulk importing, in that case the WAL is replayed for a single table only.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4393">HBASE-4393</a> | <em>Major</em> | <strong>Implement a canary monitoring program</strong></li>
+</ul>
+<p>Tool to check cluster. See $ ./bin/hbase org.apache.hadoop.hbase.tool.Canary -help for how to use.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-5849">HBASE-5849</a> | <em>Major</em> | <strong>On first cluster startup, RS aborts if root znode is not available</strong></li>
+</ul>
+<p>Rather than exit, the regionserver will now wait even though the root directory in zookeeper has yet to be created.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-5862">HBASE-5862</a> | <em>Critical</em> | <strong>After Region Close remove the Operation Metrics.</strong></li>
+</ul>
+<p>Fixes the case where when a region closed, its metrics did not; they stayed up associated w/ old hosting server even though region may have moved elsewhere.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-5189">HBASE-5189</a> | <em>Minor</em> | <strong>Add metrics to keep track of region-splits in RS</strong></li>
+</ul>
+<p>Split metrics are now persistent across metrics reporting periods. Also the min/max/avg time of the split operation are stored.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-5208">HBASE-5208</a> | <em>Minor</em> | <strong>Allow setting Scan start/stop row individually in TableInputFormat</strong></li>
+</ul>
+<p>Added &quot;hbase.mapreduce.scan.row.start&quot; and &quot;hbase.mapreduce.scan.row.stop&quot; for defining start and stop rows for a MapReduce job without having to serialize a Scan object.</p>

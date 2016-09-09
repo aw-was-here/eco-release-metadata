@@ -1,0 +1,1852 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-falcon-changelog">Apache Falcon Changelog</h1>
+<h2 id="release-0.7---2015-09-09">Release 0.7 - 2015-09-09</h2>
+<h3 id="incompatible-changes">INCOMPATIBLE CHANGES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-593">FALCON-593</a></td>
+<td align="left">Preserve data type for properties in a vertex</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Venkatesh Seetharam</td>
+<td align="left">Ajay Yadava</td>
+</tr>
+</tbody>
+</table>
+<h3 id="new-features">NEW FEATURES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1039">FALCON-1039</a></td>
+<td align="left">Add instance dependency API in falcon</td>
+<td align="left">Major</td>
+<td align="left">feed, process</td>
+<td align="left">pavan kumar kolamuri</td>
+<td align="left">Ajay Yadava</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-796">FALCON-796</a></td>
+<td align="left">Enable users to triage data processing issues through falcon</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Srikanth Sundarrajan</td>
+<td align="left">Ajay Yadava</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1188">FALCON-1188</a></td>
+<td align="left">Falcon support for Hive Replication</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Venkat Ranganathan</td>
+<td align="left">Venkat Ranganathan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1133">FALCON-1133</a></td>
+<td align="left">Adding Falcon Unit</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">karan kumar</td>
+<td align="left">pavan kumar kolamuri</td>
+</tr>
+</tbody>
+</table>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-699">FALCON-699</a></td>
+<td align="left">Use APIResult and other support classes from falcon-client in falcon-regression</td>
+<td align="left">Critical</td>
+<td align="left">merlin</td>
+<td align="left">Ruslan Ostafiychuk</td>
+<td align="left">Ruslan Ostafiychuk</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-947">FALCON-947</a></td>
+<td align="left">Ignore hadoop configs in merlin/src/test/resources/hadoop-conf</td>
+<td align="left">Minor</td>
+<td align="left">merlin</td>
+<td align="left">Ruslan Ostafiychuk</td>
+<td align="left">Ruslan Ostafiychuk</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-953">FALCON-953</a></td>
+<td align="left">Change wasb replication to run with single cluster</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Ruslan Ostafiychuk</td>
+<td align="left">Ruslan Ostafiychuk</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-963">FALCON-963</a></td>
+<td align="left">Add option to exclude tests in falcon-regression</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Ruslan Ostafiychuk</td>
+<td align="left">Ruslan Ostafiychuk</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-942">FALCON-942</a></td>
+<td align="left">Cleanup BaseTestClass and setUp/tearDown methods</td>
+<td align="left">Minor</td>
+<td align="left">merlin</td>
+<td align="left">Ruslan Ostafiychuk</td>
+<td align="left">Ruslan Ostafiychuk</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1006">FALCON-1006</a></td>
+<td align="left">Add a property for inclusion of test</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Raghav Kumar Gautam</td>
+<td align="left">Raghav Kumar Gautam</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-968">FALCON-968</a></td>
+<td align="left">Remove only entities submitted by same test and baseHDFSDir usage refactored</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Ruslan Ostafiychuk</td>
+<td align="left">Ruslan Ostafiychuk</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1022">FALCON-1022</a></td>
+<td align="left">Wait for RUNNING status of instances before killing them</td>
+<td align="left">Minor</td>
+<td align="left">merlin</td>
+<td align="left">Ruslan Ostafiychuk</td>
+<td align="left">Ruslan Ostafiychuk</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1057">FALCON-1057</a></td>
+<td align="left">recipes.twiki should be renamed Recipes.twiki for consistency and to fix a dead link</td>
+<td align="left">Trivial</td>
+<td align="left">docs</td>
+<td align="left">Aaron Dossett</td>
+<td align="left">Aaron Dossett</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1094">FALCON-1094</a></td>
+<td align="left">getAllFilesRecursivelyHDFS without recursive call</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Ruslan Ostafiychuk</td>
+<td align="left">Ruslan Ostafiychuk</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-75">FALCON-75</a></td>
+<td align="left">Falcon CLI for deleting entities should inform user if entity does not exist</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Grant Liu</td>
+<td align="left">Ajay Yadava</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1059">FALCON-1059</a></td>
+<td align="left">Lineage should support bootstrapping</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ajay Yadava</td>
+<td align="left">Ajay Yadava</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1219">FALCON-1219</a></td>
+<td align="left">Minor doc fix</td>
+<td align="left">Major</td>
+<td align="left">docs</td>
+<td align="left">Raghav Kumar Gautam</td>
+<td align="left">Raghav Kumar Gautam</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1228">FALCON-1228</a></td>
+<td align="left">testSubscriber test of JMSMessageConsumerTest fails at a particular scenario</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Suhas Vasu</td>
+<td align="left">Suhas Vasu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1211">FALCON-1211</a></td>
+<td align="left">Source tarball are not generated in mvn assembly when profile is distributed.</td>
+<td align="left">Major</td>
+<td align="left">build-tools</td>
+<td align="left">Shaik Idris Ali</td>
+<td align="left">Shaik Idris Ali</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1253">FALCON-1253</a></td>
+<td align="left">Fortify ExternalFSTest</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Ruslan Ostafiychuk</td>
+<td align="left">Ruslan Ostafiychuk</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1147">FALCON-1147</a></td>
+<td align="left">Allow _ in the names for name value pair</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Venkat Ranganathan</td>
+<td align="left">Sowmya Ramesh</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1207">FALCON-1207</a></td>
+<td align="left">Falcon checkstyle allows wildcard imports</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Pallavi Rao</td>
+<td align="left">Pallavi Rao</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1114">FALCON-1114</a></td>
+<td align="left">Oozie findBundles lists a directory and tries to match with the bundle's appPath</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Pallavi Rao</td>
+<td align="left">Pallavi Rao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1283">FALCON-1283</a></td>
+<td align="left">Save screenshots to log.capture.location</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Ruslan Ostafiychuk</td>
+<td align="left">Ruslan Ostafiychuk</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1287">FALCON-1287</a></td>
+<td align="left">Use listAllEntities() instead of listEntities()</td>
+<td align="left">Critical</td>
+<td align="left">merlin</td>
+<td align="left">Ruslan Ostafiychuk</td>
+<td align="left">Ruslan Ostafiychuk</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1186">FALCON-1186</a></td>
+<td align="left">Add filtering capability to result of instance summary</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Suhas Vasu</td>
+<td align="left">Suhas Vasu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1306">FALCON-1306</a></td>
+<td align="left">Custom window dimensions for UI tests</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Ruslan Ostafiychuk</td>
+<td align="left">Ruslan Ostafiychuk</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1320">FALCON-1320</a></td>
+<td align="left">Add equals() and hashCode() method in LineageGraphResult.Edge</td>
+<td align="left">Major</td>
+<td align="left">client</td>
+<td align="left">Pragya Mittal</td>
+<td align="left">Pragya Mittal</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-668">FALCON-668</a></td>
+<td align="left">FeedReplicator improvement to include more DistCP options</td>
+<td align="left">Major</td>
+<td align="left">replication</td>
+<td align="left">Sowmya Ramesh</td>
+<td align="left">Sowmya Ramesh</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1324">FALCON-1324</a></td>
+<td align="left">Pagination API breaks backward compatibility</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ajay Yadava</td>
+<td align="left">Ajay Yadava</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1317">FALCON-1317</a></td>
+<td align="left">Inconsistent JSON serialization</td>
+<td align="left">Major</td>
+<td align="left">webapp</td>
+<td align="left">Pragya Mittal</td>
+<td align="left">Ajay Yadava</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1364">FALCON-1364</a></td>
+<td align="left">Add prefix in runtime.properties</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ajay Yadava</td>
+<td align="left">sandeep samudrala</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1301">FALCON-1301</a></td>
+<td align="left">Improve documentation for Installation</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Janarthanan</td>
+<td align="left">Pragya Mittal</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1360">FALCON-1360</a></td>
+<td align="left">Size of feed should be humanized in feed instance listing</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ajay Yadava</td>
+<td align="left">sandeep samudrala</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1362">FALCON-1362</a></td>
+<td align="left">Colo option shouldn't be mandatory</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ajay Yadava</td>
+<td align="left">sandeep samudrala</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1361">FALCON-1361</a></td>
+<td align="left">Default end date should be now</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ajay Yadava</td>
+<td align="left">Pragya Mittal</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1368">FALCON-1368</a></td>
+<td align="left">Improve Falcon server restart time</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ajay Yadava</td>
+<td align="left">sandeep samudrala</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1374">FALCON-1374</a></td>
+<td align="left">Remove the cap on numResults</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ajay Yadava</td>
+<td align="left">Pragya Mittal</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1174">FALCON-1174</a></td>
+<td align="left">Ability to disable oozie dryrun while scheduling or updating the falcon entity</td>
+<td align="left">Major</td>
+<td align="left">oozie</td>
+<td align="left">Sowmya Ramesh</td>
+<td align="left">Balu Vellanki</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-318">FALCON-318</a></td>
+<td align="left">Support copying of Hcat import/export action logs from replication</td>
+<td align="left">Major</td>
+<td align="left">replication</td>
+<td align="left">Shaik Idris Ali</td>
+<td align="left">Peeyush Bishnoi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1378">FALCON-1378</a></td>
+<td align="left">Falcon documentation lacks information on how to run Falcon on standalone Oozie/Hadoop setup</td>
+<td align="left">Major</td>
+<td align="left">docs</td>
+<td align="left">Pallavi Rao</td>
+<td align="left">Pallavi Rao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1419">FALCON-1419</a></td>
+<td align="left">Document ability to disable oozie dryRun during entity schedule actions</td>
+<td align="left">Critical</td>
+<td align="left">docs</td>
+<td align="left">Balu Vellanki</td>
+<td align="left">Balu Vellanki</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1430">FALCON-1430</a></td>
+<td align="left">Exclude designer from source tarball</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ajay Yadava</td>
+<td align="left">Ajay Yadava</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1432">FALCON-1432</a></td>
+<td align="left">Fix licenses in LICENSES.txt</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ajay Yadava</td>
+<td align="left">Ajay Yadava</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-916">FALCON-916</a></td>
+<td align="left">Falcon idempotency is being voilated during delete</td>
+<td align="left">Major</td>
+<td align="left">webapp</td>
+<td align="left">Balu Vellanki</td>
+<td align="left">Balu Vellanki</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-937">FALCON-937</a></td>
+<td align="left">Fix tests that are still using hdfs root dir in feeds</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Raghav Kumar Gautam</td>
+<td align="left">Raghav Kumar Gautam</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-939">FALCON-939</a></td>
+<td align="left">Fixing few typos and removing unused stuff</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Paul Isaychuk</td>
+<td align="left">Paul Isaychuk</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-940">FALCON-940</a></td>
+<td align="left">Avoid NPE in getAllEntitiesOfOneType() for zero elements</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Ruslan Ostafiychuk</td>
+<td align="left">Ruslan Ostafiychuk</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-900">FALCON-900</a></td>
+<td align="left">Release readiness for falcon-regression aka merlin</td>
+<td align="left">Critical</td>
+<td align="left">merlin</td>
+<td align="left">Venkatesh Seetharam</td>
+<td align="left">Raghav Kumar Gautam</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-955">FALCON-955</a></td>
+<td align="left">enable and fix feedAclUpdate and processAclUpdate tests</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Raghav Kumar Gautam</td>
+<td align="left">Raghav Kumar Gautam</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-952">FALCON-952</a></td>
+<td align="left">If hadoop home is set, use $HADOOP_HOME to set falcon classpath</td>
+<td align="left">Major</td>
+<td align="left">build-tools</td>
+<td align="left">Balu Vellanki</td>
+<td align="left">Balu Vellanki</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-969">FALCON-969</a></td>
+<td align="left">http://falcon.incubator.apache.org/ contributions link broken</td>
+<td align="left">Trivial</td>
+<td align="left">docs</td>
+<td align="left">karan kumar</td>
+<td align="left">karan kumar</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-976">FALCON-976</a></td>
+<td align="left">EntityDryRunTest failing in falcon trunk</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Pragya Mittal</td>
+<td align="left">Pragya Mittal</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-945">FALCON-945</a></td>
+<td align="left">Fix broken lineage feature in Web-UI</td>
+<td align="left">Critical</td>
+<td align="left">webapp</td>
+<td align="left">Adam Kawa</td>
+<td align="left">Adam Kawa</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-979">FALCON-979</a></td>
+<td align="left">Fix checkstyle issues introduced by falcon-976</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Raghav Kumar Gautam</td>
+<td align="left">Raghav Kumar Gautam</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-981">FALCON-981</a></td>
+<td align="left">Download links for current releases are broken</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Sebb</td>
+<td align="left">Srikanth Sundarrajan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-896">FALCON-896</a></td>
+<td align="left">Upgrade oozie to 4.1.0 and make it the default for falcon</td>
+<td align="left">Major</td>
+<td align="left">oozie</td>
+<td align="left">Venkatesh Seetharam</td>
+<td align="left">Peeyush Bishnoi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-984">FALCON-984</a></td>
+<td align="left">Falcon build is broken</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Peeyush Bishnoi</td>
+<td align="left">Peeyush Bishnoi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-990">FALCON-990</a></td>
+<td align="left">Fix and enable 3/4 tests of RescheduleProcessInFinalStatesTest</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Ruslan Ostafiychuk</td>
+<td align="left">Ruslan Ostafiychuk</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-109">FALCON-109</a></td>
+<td align="left">submission of clusters for non registered colos</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Samarth Gupta</td>
+<td align="left">Pallavi Rao</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1005">FALCON-1005</a></td>
+<td align="left">In ProcessInstanceSuspendTest clean test dir after each method execution</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Paul Isaychuk</td>
+<td align="left">Paul Isaychuk</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-993">FALCON-993</a></td>
+<td align="left">Falcon Oozie adaptor test case failed with umask issue</td>
+<td align="left">Major</td>
+<td align="left">oozie</td>
+<td align="left">Peeyush Bishnoi</td>
+<td align="left">Peeyush Bishnoi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1009">FALCON-1009</a></td>
+<td align="left">InstanceUtil cleanup</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Raghav Kumar Gautam</td>
+<td align="left">Raghav Kumar Gautam</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1007">FALCON-1007</a></td>
+<td align="left">Improve test output and variable names.</td>
+<td align="left">Minor</td>
+<td align="left">merlin</td>
+<td align="left">Paul Isaychuk</td>
+<td align="left">Paul Isaychuk</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1018">FALCON-1018</a></td>
+<td align="left">Enable and fix FalconClientTest#badClusterSubmit</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Paul Isaychuk</td>
+<td align="left">Paul Isaychuk</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1024">FALCON-1024</a></td>
+<td align="left">Updating tags and pipeline elements of the feed/process definition resubmits a new Oozie bundle</td>
+<td align="left">Minor</td>
+<td align="left">common</td>
+<td align="left">Pallavi Rao</td>
+<td align="left">Pallavi Rao</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-417">FALCON-417</a></td>
+<td align="left">Upgrade Hive and HCatalog to latest stable version</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Venkatesh Seetharam</td>
+<td align="left">Peeyush Bishnoi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1072">FALCON-1072</a></td>
+<td align="left">Dumping of Oozie info should use os specific newline</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Raghav Kumar Gautam</td>
+<td align="left">Raghav Kumar Gautam</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1089">FALCON-1089</a></td>
+<td align="left">ProcessInstanceStatusTest improvement</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Paul Isaychuk</td>
+<td align="left">Paul Isaychuk</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1093">FALCON-1093</a></td>
+<td align="left">Tag all new tests added to falcon-regression</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Paul Isaychuk</td>
+<td align="left">Paul Isaychuk</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1103">FALCON-1103</a></td>
+<td align="left">RetentionTest stabilization - remove check of all retention job actions.</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Paul Isaychuk</td>
+<td align="left">Paul Isaychuk</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1113">FALCON-1113</a></td>
+<td align="left">Clean up data files in merlin resource directory. Create better names for them.</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Paul Isaychuk</td>
+<td align="left">Paul Isaychuk</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1112">FALCON-1112</a></td>
+<td align="left">Migrate methods related to *Merlin.java classes from Util.java to their respective *Merlin.java</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Paul Isaychuk</td>
+<td align="left">Paul Isaychuk</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1142">FALCON-1142</a></td>
+<td align="left">ClusterEntityParserTest.testClusterWithOnlyStaging fails when run alone</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Pallavi Rao</td>
+<td align="left">Pallavi Rao</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1141">FALCON-1141</a></td>
+<td align="left">Reverse Lookup for feed in prism fails with BadRequest</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ajay Yadava</td>
+<td align="left">Ajay Yadava</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1135">FALCON-1135</a></td>
+<td align="left">Migrate methods related to *Merlin.java classes from InstanceUtil.java and Bundle.java</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Ruslan Ostafiychuk</td>
+<td align="left">Ruslan Ostafiychuk</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1151">FALCON-1151</a></td>
+<td align="left">Migrate oozie related methods from InstanceUtil.java to OozieUtil.java</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Paul Isaychuk</td>
+<td align="left">Paul Isaychuk</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1155">FALCON-1155</a></td>
+<td align="left">Unwanted character at the end of workflow.xml</td>
+<td align="left">Major</td>
+<td align="left">general, merlin</td>
+<td align="left">Karishma Gulati</td>
+<td align="left">Karishma Gulati</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1127">FALCON-1127</a></td>
+<td align="left">Falcon entity status is submitted when corresponding Bundle is runningwitherror</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Pallavi Rao</td>
+<td align="left">Pallavi Rao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1153">FALCON-1153</a></td>
+<td align="left">Instance kill fails intermittently</td>
+<td align="left">Critical</td>
+<td align="left">webapp</td>
+<td align="left">Balu Vellanki</td>
+<td align="left">Balu Vellanki</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1171">FALCON-1171</a></td>
+<td align="left">Adding search API tests</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Paul Isaychuk</td>
+<td align="left">Paul Isaychuk</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-954">FALCON-954</a></td>
+<td align="left">Secure Kerberos setup : Falcon should periodically revalidate auth token.</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Balu Vellanki</td>
+<td align="left">Balu Vellanki</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1177">FALCON-1177</a></td>
+<td align="left">Changing method modifier to make it be not concerned as a test</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Paul Isaychuk</td>
+<td align="left">Paul Isaychuk</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1183">FALCON-1183</a></td>
+<td align="left">Fix expected response in testScheduleDeletedFeedOnBothColosUsingColoHelper</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Ruslan Ostafiychuk</td>
+<td align="left">Ruslan Ostafiychuk</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1165">FALCON-1165</a></td>
+<td align="left">Falcon restart failed, if defined service in cluster entity is unreachable</td>
+<td align="left">Major</td>
+<td align="left">oozie</td>
+<td align="left">Peeyush Bishnoi</td>
+<td align="left">Peeyush Bishnoi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1051">FALCON-1051</a></td>
+<td align="left">Lineage apis broken for falcon setup in distributed mode.</td>
+<td align="left">Major</td>
+<td align="left">client</td>
+<td align="left">Karishma Gulati</td>
+<td align="left">pavan kumar kolamuri</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1202">FALCON-1202</a></td>
+<td align="left">Add tests for EntityPage</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Raghav Kumar Gautam</td>
+<td align="left">Raghav Kumar Gautam</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1218">FALCON-1218</a></td>
+<td align="left">Minor fix for testFeedListingAfterFeedDataPathUpdate &amp; testFeedListingAfterFeedAvailabilityFlagUpdate</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Raghav Kumar Gautam</td>
+<td align="left">Raghav Kumar Gautam</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1221">FALCON-1221</a></td>
+<td align="left">RescheduleProcessInFinalStatesTest.checkNotFoundDefinition() is needs to be case flexible</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Raghav Kumar Gautam</td>
+<td align="left">Raghav Kumar Gautam</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1216">FALCON-1216</a></td>
+<td align="left">Cluster setup wizard multiple tests</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Paul Isaychuk</td>
+<td align="left">Paul Isaychuk</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1222">FALCON-1222</a></td>
+<td align="left">Feed Wizard multiple tests</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Namit Maheshwari</td>
+<td align="left">Namit Maheshwari</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1241">FALCON-1241</a></td>
+<td align="left">Fix SearchApiTest according to changes in API, tag ClusterSetupTest, PrismProcessScheduleTest#testScheduleDeletedProcessOnBothColos</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Paul Isaychuk</td>
+<td align="left">Paul Isaychuk</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1244">FALCON-1244</a></td>
+<td align="left">listInstances : numResults query param is ignored when start and end params are not specified.</td>
+<td align="left">Critical</td>
+<td align="left">webapp</td>
+<td align="left">Balu Vellanki</td>
+<td align="left">Balu Vellanki</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1252">FALCON-1252</a></td>
+<td align="left">The parameter &quot;tagkey&quot; should be &quot;tagkeys&quot; in EntityList and FalconCLI twiki</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ying Zheng</td>
+<td align="left">Ying Zheng</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1220">FALCON-1220</a></td>
+<td align="left">Exclude downloaded directories from falcon-ui modules</td>
+<td align="left">Major</td>
+<td align="left">ui</td>
+<td align="left">Shaik Idris Ali</td>
+<td align="left">Shaik Idris Ali</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1246">FALCON-1246</a></td>
+<td align="left">Remove wrong parameter from update signature, delete related tests</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Paul Isaychuk</td>
+<td align="left">Paul Isaychuk</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1255">FALCON-1255</a></td>
+<td align="left">Fix list of expected statuses in drop down on Entity Page</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Ruslan Ostafiychuk</td>
+<td align="left">Ruslan Ostafiychuk</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1249">FALCON-1249</a></td>
+<td align="left">Tests for process setup wizard</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Paul Isaychuk</td>
+<td align="left">Paul Isaychuk</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1257">FALCON-1257</a></td>
+<td align="left">Fix feedAclUpdate and processAclUpdate</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Ruslan Ostafiychuk</td>
+<td align="left">Ruslan Ostafiychuk</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1258">FALCON-1258</a></td>
+<td align="left">Fix feed validity and fortify ELExpFutureAndLatestTest</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Ruslan Ostafiychuk</td>
+<td align="left">Ruslan Ostafiychuk</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1256">FALCON-1256</a></td>
+<td align="left">ListProcessInstancesTest needs to be stabilized</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Raghav Kumar Gautam</td>
+<td align="left">Raghav Kumar Gautam</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1261">FALCON-1261</a></td>
+<td align="left">ProcessSetupTest, EntitiesPatternSearchTest stabilization</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Paul Isaychuk</td>
+<td align="left">Paul Isaychuk</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1263">FALCON-1263</a></td>
+<td align="left">Fix waitTillInstanceReachState for EntityType.PROCESS</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Ruslan Ostafiychuk</td>
+<td align="left">Ruslan Ostafiychuk</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1254">FALCON-1254</a></td>
+<td align="left">ClusterSetup UI: edit xml test cases, stabilize 2 tests</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Paul Isaychuk</td>
+<td align="left">Paul Isaychuk</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1264">FALCON-1264</a></td>
+<td align="left">Fix validity parsing in ProcessWizardPage</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Paul Isaychuk</td>
+<td align="left">Paul Isaychuk</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1267">FALCON-1267</a></td>
+<td align="left">Fix Processsetuptest#testinoutstepdropdownfeeds</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Namit Maheshwari</td>
+<td align="left">Namit Maheshwari</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1265">FALCON-1265</a></td>
+<td align="left">ListProcessInstancesTest test fixes</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Raghav Kumar Gautam</td>
+<td align="left">Raghav Kumar Gautam</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1270">FALCON-1270</a></td>
+<td align="left">SearchUI. Login screen changed to not have password field</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Namit Maheshwari</td>
+<td align="left">Namit Maheshwari</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1269">FALCON-1269</a></td>
+<td align="left">Update InstancePageTest and other after UI changes</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Ruslan Ostafiychuk</td>
+<td align="left">Ruslan Ostafiychuk</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1272">FALCON-1272</a></td>
+<td align="left">InstanceParamTest still using root directory</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Raghav Kumar Gautam</td>
+<td align="left">Raghav Kumar Gautam</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1273">FALCON-1273</a></td>
+<td align="left">ProcessLateRerunTest still using root directory</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Raghav Kumar Gautam</td>
+<td align="left">Raghav Kumar Gautam</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1274">FALCON-1274</a></td>
+<td align="left">PrismProcessScheduleTest is using root directory</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Raghav Kumar Gautam</td>
+<td align="left">Raghav Kumar Gautam</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1275">FALCON-1275</a></td>
+<td align="left">PrismFeedUpdateTest is using root directory</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Raghav Kumar Gautam</td>
+<td align="left">Raghav Kumar Gautam</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1277">FALCON-1277</a></td>
+<td align="left">Fix SearchApiTest according to api changes</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Paul Isaychuk</td>
+<td align="left">Paul Isaychuk</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-99">FALCON-99</a></td>
+<td align="left">Adding late data to process doesn't create new coord</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Shwetha G S</td>
+<td align="left">Pallavi Rao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1116">FALCON-1116</a></td>
+<td align="left">Rule for Oozie 4+ doesn't match 5+ versions</td>
+<td align="left">Major</td>
+<td align="left">general</td>
+<td align="left">Ruslan Ostafiychuk</td>
+<td align="left">Ruslan Ostafiychuk</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1285">FALCON-1285</a></td>
+<td align="left">Don't reduce process name in ProcessSetupTest</td>
+<td align="left">Blocker</td>
+<td align="left">merlin</td>
+<td align="left">Ruslan Ostafiychuk</td>
+<td align="left">Ruslan Ostafiychuk</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1288">FALCON-1288</a></td>
+<td align="left">Fortify expressionLanguageTest</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Ruslan Ostafiychuk</td>
+<td align="left">Ruslan Ostafiychuk</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1284">FALCON-1284</a></td>
+<td align="left">Fix entity cleanup when is_depracate=true</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Ruslan Ostafiychuk</td>
+<td align="left">Ruslan Ostafiychuk</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1101">FALCON-1101</a></td>
+<td align="left">Cluster submission in falcon does not create an owned-by edge</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sowmya Ramesh</td>
+<td align="left">Sowmya Ramesh</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1260">FALCON-1260</a></td>
+<td align="left">Instance dependency API produces incorrect results</td>
+<td align="left">Major</td>
+<td align="left">feed, process</td>
+<td align="left">Pragya Mittal</td>
+<td align="left">Ajay Yadava</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1292">FALCON-1292</a></td>
+<td align="left">Avoid usage of hard coded feed names in Bundle class</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Paul Isaychuk</td>
+<td align="left">Paul Isaychuk</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1289">FALCON-1289</a></td>
+<td align="left">Select instances again after performing action on entity page</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Ruslan Ostafiychuk</td>
+<td align="left">Ruslan Ostafiychuk</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1290">FALCON-1290</a></td>
+<td align="left">Push Enter in start/end filter on entity page, start instance is included</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Ruslan Ostafiychuk</td>
+<td align="left">Ruslan Ostafiychuk</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1300">FALCON-1300</a></td>
+<td align="left">Use xml instead of properties for log4j</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Raghav Kumar Gautam</td>
+<td align="left">Raghav Kumar Gautam</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1307">FALCON-1307</a></td>
+<td align="left">Falcon trunk build is broken</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Srikanth Sundarrajan</td>
+<td align="left">Srikanth Sundarrajan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1311">FALCON-1311</a></td>
+<td align="left">Instance dependency API produces inconsistent results in some scenarios</td>
+<td align="left">Major</td>
+<td align="left">feed, process</td>
+<td align="left">Pragya Mittal</td>
+<td align="left">Pragya Mittal</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1278">FALCON-1278</a></td>
+<td align="left">Submitted entity properties must have unique names</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Raghav Kumar Gautam</td>
+<td align="left">Raghav Kumar Gautam</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1282">FALCON-1282</a></td>
+<td align="left">Incorrect hdfs servers property for feed replication in secured environment</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Venkat Ranganathan</td>
+<td align="left">Venkat Ranganathan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1314">FALCON-1314</a></td>
+<td align="left">Unify handling of local files and directory</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Raghav Kumar Gautam</td>
+<td align="left">Raghav Kumar Gautam</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1204">FALCON-1204</a></td>
+<td align="left">Expose default configs for feed late data handling in runtime.properties</td>
+<td align="left">Major</td>
+<td align="left">docs</td>
+<td align="left">Balu Vellanki</td>
+<td align="left">Balu Vellanki</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1139">FALCON-1139</a></td>
+<td align="left">Validation issues in Falcon UI</td>
+<td align="left">Minor</td>
+<td align="left">ui</td>
+<td align="left">Pallavi Rao</td>
+<td align="left">Pallavi Rao</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1247">FALCON-1247</a></td>
+<td align="left">ProcessSetupTests</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Paul Isaychuk</td>
+<td align="left">Paul Isaychuk</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1248">FALCON-1248</a></td>
+<td align="left">ProcessSetupTests</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Paul Isaychuk</td>
+<td align="left">Paul Isaychuk</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1237">FALCON-1237</a></td>
+<td align="left">Fix Logout button xpath.</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Paul Isaychuk</td>
+<td align="left">Paul Isaychuk</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1318">FALCON-1318</a></td>
+<td align="left">Method waitForAngularToFinish() should be robust to unresponsive browser</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Raghav Kumar Gautam</td>
+<td align="left">Raghav Kumar Gautam</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1329">FALCON-1329</a></td>
+<td align="left">Falcon's idempotent behaviour breaks in some cases</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Ajay Yadava</td>
+<td align="left">Ajay Yadava</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1323">FALCON-1323</a></td>
+<td align="left">Reverse lookup of feeds causes NPE</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ajay Yadava</td>
+<td align="left">Ajay Yadava</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1328">FALCON-1328</a></td>
+<td align="left">Error in Triage documentation</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Karishma Gulati</td>
+<td align="left">Karishma Gulati</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1327">FALCON-1327</a></td>
+<td align="left">When using triage on a server for a process which does not exist on that server, a NullPointerException is encountered</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Karishma Gulati</td>
+<td align="left">Ajay Yadava</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1319">FALCON-1319</a></td>
+<td align="left">Contribute HiveDr, Mirror tests and some test fixes</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Raghav Kumar Gautam</td>
+<td align="left">Raghav Kumar Gautam</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1338">FALCON-1338</a></td>
+<td align="left">Fortify ProcessInstanceRerunTest#testProcessInstanceRerunMultipleSucceeded</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Paul Isaychuk</td>
+<td align="left">Paul Isaychuk</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1332">FALCON-1332</a></td>
+<td align="left">Fortify ClusterSetupTest#testRegistryInterface - if checkbox wasn't clicked repeat an attempt</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Paul Isaychuk</td>
+<td align="left">Paul Isaychuk</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1363">FALCON-1363</a></td>
+<td align="left">Fix retry policy example in documentation</td>
+<td align="left">Major</td>
+<td align="left">docs</td>
+<td align="left">Peeyush Bishnoi</td>
+<td align="left">Peeyush Bishnoi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1369">FALCON-1369</a></td>
+<td align="left">Trunk build is broken</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ajay Yadava</td>
+<td align="left">Ajay Yadava</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1310">FALCON-1310</a></td>
+<td align="left">Falcon build fails with Oozie-4.2.0</td>
+<td align="left">Major</td>
+<td align="left">general</td>
+<td align="left">Peeyush Bishnoi</td>
+<td align="left">Peeyush Bishnoi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1359">FALCON-1359</a></td>
+<td align="left">Improve output format for Feed Instance Listing</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ajay Yadava</td>
+<td align="left">Ajay Yadava</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1379">FALCON-1379</a></td>
+<td align="left">Doc describes retention incorrectly</td>
+<td align="left">Major</td>
+<td align="left">docs</td>
+<td align="left">Paul Isaychuk</td>
+<td align="left">Ajay Yadava</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1383">FALCON-1383</a></td>
+<td align="left">MetadataMappingServiceTest#testLineageForTransactionFailure fails randomly</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">sandeep samudrala</td>
+<td align="left">sandeep samudrala</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1251">FALCON-1251</a></td>
+<td align="left">FeedEvictor UT fails intermittently</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sowmya Ramesh</td>
+<td align="left">sandeep samudrala</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1384">FALCON-1384</a></td>
+<td align="left">AbstractEntityHelper.java cleanup</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Paul Isaychuk</td>
+<td align="left">Paul Isaychuk</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1388">FALCON-1388</a></td>
+<td align="left">Fix merge conflicts produced by FALCON-1002</td>
+<td align="left">Blocker</td>
+<td align="left">merlin</td>
+<td align="left">Paul Isaychuk</td>
+<td align="left">Paul Isaychuk</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1002">FALCON-1002</a></td>
+<td align="left">Disable UpdateAtSpecific time test from falcon regression</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Samarth Gupta</td>
+<td align="left">Samarth Gupta</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1398">FALCON-1398</a></td>
+<td align="left">CrossEntityValidations contains incorrect validations</td>
+<td align="left">Major</td>
+<td align="left">prism</td>
+<td align="left">Pragya Mittal</td>
+<td align="left">Pragya Mittal</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1399">FALCON-1399</a></td>
+<td align="left">Property for default number of results is not loaded dynamically</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ajay Yadava</td>
+<td align="left">Ajay Yadava</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1344">FALCON-1344</a></td>
+<td align="left">EntityGraph returns null in list of dependent entities</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ajay Yadava</td>
+<td align="left">Ajay Yadava</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1409">FALCON-1409</a></td>
+<td align="left">Update API throws NullPointerException</td>
+<td align="left">Major</td>
+<td align="left">prism</td>
+<td align="left">Pragya Mittal</td>
+<td align="left">sandeep samudrala</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1412">FALCON-1412</a></td>
+<td align="left">Process waits indefinitely and finally timedout even though missing dependencies are met</td>
+<td align="left">Major</td>
+<td align="left">build-tools</td>
+<td align="left">Pragya Mittal</td>
+<td align="left">Pallavi Rao</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1382">FALCON-1382</a></td>
+<td align="left">Add a test for feed retention to make sure that data directory is not deleted</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Paul Isaychuk</td>
+<td align="left">Paul Isaychuk</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1038">FALCON-1038</a></td>
+<td align="left">Log mover fails for map-reduce action</td>
+<td align="left">Major</td>
+<td align="left">common</td>
+<td align="left">Pragya Mittal</td>
+<td align="left">Peeyush Bishnoi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1008">FALCON-1008</a></td>
+<td align="left">Deprecate V1 Log retriever</td>
+<td align="left">Major</td>
+<td align="left">common</td>
+<td align="left">Srikanth Sundarrajan</td>
+<td align="left">Peeyush Bishnoi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1325">FALCON-1325</a></td>
+<td align="left">Triage API on prism, for an instance at which a process does not exist sends incorrect message</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Karishma Gulati</td>
+<td align="left">Ajay Yadava</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1312">FALCON-1312</a></td>
+<td align="left">Falcon post processing action should use Oozie prepared configuration</td>
+<td align="left">Major</td>
+<td align="left">common</td>
+<td align="left">Venkat Ranganathan</td>
+<td align="left">Venkat Ranganathan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1423">FALCON-1423</a></td>
+<td align="left">HDFS recipe broken: Unrecognized option: -counterLogDir</td>
+<td align="left">Major</td>
+<td align="left">replication</td>
+<td align="left">Sowmya Ramesh</td>
+<td align="left">Sowmya Ramesh</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1203">FALCON-1203</a></td>
+<td align="left">2 validateACL UTs broken</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Pallavi Rao</td>
+<td align="left">Narayan Periwal</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tests">TESTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1167">FALCON-1167</a></td>
+<td align="left">Homepage &amp; Login test for search-ui</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Raghav Kumar Gautam</td>
+<td align="left">Raghav Kumar Gautam</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1173">FALCON-1173</a></td>
+<td align="left">Tests for entities table of search-ui</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Ruslan Ostafiychuk</td>
+<td align="left">Ruslan Ostafiychuk</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1187">FALCON-1187</a></td>
+<td align="left">Test that changes made via API are reflected on UI</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Ruslan Ostafiychuk</td>
+<td align="left">Ruslan Ostafiychuk</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1197">FALCON-1197</a></td>
+<td align="left">Use diamond operator in merlin and merlin-core</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Ruslan Ostafiychuk</td>
+<td align="left">Ruslan Ostafiychuk</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1198">FALCON-1198</a></td>
+<td align="left">Test buttons available on search results page</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Ruslan Ostafiychuk</td>
+<td align="left">Ruslan Ostafiychuk</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1226">FALCON-1226</a></td>
+<td align="left">Stabilize testActionsPauseResume()</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Ruslan Ostafiychuk</td>
+<td align="left">Ruslan Ostafiychuk</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1229">FALCON-1229</a></td>
+<td align="left">Tests for instance page on SearchUI</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Ruslan Ostafiychuk</td>
+<td align="left">Ruslan Ostafiychuk</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sub-tasks">SUB-TASKS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-782">FALCON-782</a></td>
+<td align="left">Update trunk version to 0.7-incubating-SNAPSHOT</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Venkatesh Seetharam</td>
+<td align="left">Venkatesh Seetharam</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-807">FALCON-807</a></td>
+<td align="left">Fix order of actual and expected expression in assert statements in webapp module</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ajay Yadava</td>
+<td align="left">Ajay Yadava</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-684">FALCON-684</a></td>
+<td align="left">Fix problems found by checkstyle in non-test files in falcon-regression</td>
+<td align="left">Minor</td>
+<td align="left">merlin</td>
+<td align="left">Ruslan Ostafiychuk</td>
+<td align="left">Ruslan Ostafiychuk</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-698">FALCON-698</a></td>
+<td align="left">Fix checkstyle bugs in test files in falcon-regression</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Ruslan Ostafiychuk</td>
+<td align="left">Ruslan Ostafiychuk</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-734">FALCON-734</a></td>
+<td align="left">Document when to use Distributed Mode vs. Embedded Mode</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ajay Yadava</td>
+<td align="left">Ajay Yadava</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-926">FALCON-926</a></td>
+<td align="left">Fix problems found by findbugs in merlin and merlin-core</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Ruslan Ostafiychuk</td>
+<td align="left">Ruslan Ostafiychuk</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-928">FALCON-928</a></td>
+<td align="left">Use falcon's checkstyle for falcon regression code</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Raghav Kumar Gautam</td>
+<td align="left">Raghav Kumar Gautam</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1121">FALCON-1121</a></td>
+<td align="left">Backend support for free-text entity search</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ying Zheng</td>
+<td align="left">Ying Zheng</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-676">FALCON-676</a></td>
+<td align="left">Enable metrics for Titan</td>
+<td align="left">Major</td>
+<td align="left">metrics</td>
+<td align="left">Venkatesh Seetharam</td>
+<td align="left">Ajay Yadava</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1293">FALCON-1293</a></td>
+<td align="left">Update CHANGES.txt to change 0.6.1 branch to release</td>
+<td align="left">Major</td>
+<td align="left">ease</td>
+<td align="left">Shaik Idris Ali</td>
+<td align="left">Shaik Idris Ali</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1170">FALCON-1170</a></td>
+<td align="left">Falcon Native Scheduler - Refactor existing workflow/coord/bundle builder</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Pallavi Rao</td>
+<td align="left">Pallavi Rao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1297">FALCON-1297</a></td>
+<td align="left">Falcon Unit which supports Submit and Schedule of jobs</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">pavan kumar kolamuri</td>
+<td align="left">pavan kumar kolamuri</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1353">FALCON-1353</a></td>
+<td align="left">Create branch 0.7</td>
+<td align="left">Major</td>
+<td align="left">general</td>
+<td align="left">Ajay Yadava</td>
+<td align="left">Ajay Yadava</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1380">FALCON-1380</a></td>
+<td align="left">Triage Result throws incorrect error message on prism for an invalid process instance</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ajay Yadava</td>
+<td align="left">Ajay Yadava</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1396">FALCON-1396</a></td>
+<td align="left">Disable the faulty tests</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Ajay Yadava</td>
+<td align="left">Ajay Yadava</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1189">FALCON-1189</a></td>
+<td align="left">Design document for Hive replication support</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Venkat Ranganathan</td>
+<td align="left">Venkat Ranganathan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1190">FALCON-1190</a></td>
+<td align="left">Sourcing of events for Hive replication</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Venkat Ranganathan</td>
+<td align="left">Sowmya Ramesh</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1191">FALCON-1191</a></td>
+<td align="left">Hive replication state managment</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Venkat Ranganathan</td>
+<td align="left">Balu Vellanki</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1192">FALCON-1192</a></td>
+<td align="left">Hive Replication data movement and target application</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Venkat Ranganathan</td>
+<td align="left">Peeyush Bishnoi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1194">FALCON-1194</a></td>
+<td align="left">Hive Replication alerts and monitoring</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Venkat Ranganathan</td>
+<td align="left">Peeyush Bishnoi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1294">FALCON-1294</a></td>
+<td align="left">Move HiveDR to addons</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Venkat Ranganathan</td>
+<td align="left">Peeyush Bishnoi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1295">FALCON-1295</a></td>
+<td align="left">Changes for HiveDR in secure clusters</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Venkat Ranganathan</td>
+<td align="left">Balu Vellanki</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1370">FALCON-1370</a></td>
+<td align="left">Update installation twiki for HiveDR</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sowmya Ramesh</td>
+<td align="left">Peeyush Bishnoi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1424">FALCON-1424</a></td>
+<td align="left">Update changes.txt for 0.7 branch</td>
+<td align="left">Major</td>
+<td align="left">ease</td>
+<td align="left">Ajay Yadava</td>
+<td align="left">Ajay Yadava</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1296">FALCON-1296</a></td>
+<td align="left">Falcon Unit Design Doc</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">pavan kumar kolamuri</td>
+<td align="left">pavan kumar kolamuri</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1346">FALCON-1346</a></td>
+<td align="left">Update JIRA fix versions</td>
+<td align="left">Major</td>
+<td align="left">general</td>
+<td align="left">Ajay Yadava</td>
+<td align="left">Ajay Yadava</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1349">FALCON-1349</a></td>
+<td align="left">Upgrade falcon POM for 0.7 release</td>
+<td align="left">Major</td>
+<td align="left">build-tools</td>
+<td align="left">Ajay Yadava</td>
+<td align="left">Ajay Yadava</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1352">FALCON-1352</a></td>
+<td align="left">Merge pending patches and update fix version</td>
+<td align="left">Major</td>
+<td align="left">general</td>
+<td align="left">Ajay Yadava</td>
+<td align="left">Ajay Yadava</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1356">FALCON-1356</a></td>
+<td align="left">Check licenses and copyright information</td>
+<td align="left">Major</td>
+<td align="left">docs</td>
+<td align="left">Ajay Yadava</td>
+<td align="left">Ajay Yadava</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1350">FALCON-1350</a></td>
+<td align="left">Verify source tarball and run few end to end tests</td>
+<td align="left">Major</td>
+<td align="left">build-tools</td>
+<td align="left">Ajay Yadava</td>
+<td align="left">Ajay Yadava</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1348">FALCON-1348</a></td>
+<td align="left">Document upgrade from 0.6.1 to 0.7</td>
+<td align="left">Major</td>
+<td align="left">docs</td>
+<td align="left">Ajay Yadava</td>
+<td align="left">Ajay Yadava</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1357">FALCON-1357</a></td>
+<td align="left">Update CHANGES.txt to change 0.7 branch to release</td>
+<td align="left">Major</td>
+<td align="left">ease</td>
+<td align="left">Ajay Yadava</td>
+<td align="left">Ajay Yadava</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1436">FALCON-1436</a></td>
+<td align="left">Update documentation on site and announce the release</td>
+<td align="left">Major</td>
+<td align="left">ease</td>
+<td align="left">Ajay Yadava</td>
+<td align="left">Ajay Yadava</td>
+</tr>
+</tbody>
+</table>
+<h3 id="other">OTHER:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1048">FALCON-1048</a></td>
+<td align="left">Incorrect documentation for feed instacnce listing api</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Suhas Vasu</td>
+<td align="left">Suhas Vasu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1427">FALCON-1427</a></td>
+<td align="left">Migrate download link to lua</td>
+<td align="left">Blocker</td>
+<td align="left">site</td>
+<td align="left">Srikanth Sundarrajan</td>
+<td align="left">Srikanth Sundarrajan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1345">FALCON-1345</a></td>
+<td align="left">Prepare Falcon Release v0.7</td>
+<td align="left">Major</td>
+<td align="left">ease</td>
+<td align="left">Ajay Yadava</td>
+<td align="left">Ajay Yadava</td>
+</tr>
+</tbody>
+</table>

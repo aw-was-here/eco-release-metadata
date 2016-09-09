@@ -1,0 +1,3204 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-flink-changelog">Apache Flink Changelog</h1>
+<h2 id="release-1.1.0---2016-08-04">Release 1.1.0 - 2016-08-04</h2>
+<h3 id="important-issues">IMPORTANT ISSUES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3608">FLINK-3608</a></td>
+<td align="left">ImmutableSettings error in ElasticsearchSink</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Carlos Gonzalez de Zarate</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="new-features">NEW FEATURES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3721">FLINK-3721</a></td>
+<td align="left">Min and max accumulators</td>
+<td align="left">Minor</td>
+<td align="left">Core</td>
+<td align="left">Greg Hogan</td>
+<td align="left">Greg Hogan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-2909">FLINK-2909</a></td>
+<td align="left">Gelly Graph Generators</td>
+<td align="left">Major</td>
+<td align="left">Gelly</td>
+<td align="left">Greg Hogan</td>
+<td align="left">Greg Hogan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3068">FLINK-3068</a></td>
+<td align="left">Add a Table API configuration to TableEnvironment</td>
+<td align="left">Major</td>
+<td align="left">Table API &amp; SQL</td>
+<td align="left">Timo Walther</td>
+<td align="left">Fabian Hueske</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3786">FLINK-3786</a></td>
+<td align="left">Add BigDecimal and BigInteger as Basic types</td>
+<td align="left">Major</td>
+<td align="left">Core</td>
+<td align="left">Timo Walther</td>
+<td align="left">Timo Walther</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3546">FLINK-3546</a></td>
+<td align="left">Streaming Table API</td>
+<td align="left">Major</td>
+<td align="left">Table API &amp; SQL</td>
+<td align="left">Vasia Kalavri</td>
+<td align="left">Vasia Kalavri</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3780">FLINK-3780</a></td>
+<td align="left">Jaccard Similarity</td>
+<td align="left">Major</td>
+<td align="left">Gelly</td>
+<td align="left">Greg Hogan</td>
+<td align="left">Greg Hogan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4013">FLINK-4013</a></td>
+<td align="left">GraphAlgorithms to simplify directed and undirected graphs</td>
+<td align="left">Minor</td>
+<td align="left">Gelly</td>
+<td align="left">Greg Hogan</td>
+<td align="left">Greg Hogan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3311">FLINK-3311</a></td>
+<td align="left">Add a connector for streaming data into Cassandra</td>
+<td align="left">Major</td>
+<td align="left">Streaming Connectors</td>
+<td align="left">Robert Metzger</td>
+<td align="left">Andrea Sella</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3626">FLINK-3626</a></td>
+<td align="left">zipWithIndex in Python API</td>
+<td align="left">Minor</td>
+<td align="left">Python API</td>
+<td align="left">Shannon Quinn</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3872">FLINK-3872</a></td>
+<td align="left">Add Kafka TableSource with JSON serialization</td>
+<td align="left">Major</td>
+<td align="left">Table API &amp; SQL</td>
+<td align="left">Fabian Hueske</td>
+<td align="left">Ufuk Celebi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3859">FLINK-3859</a></td>
+<td align="left">Add BigDecimal/BigInteger support to Table API</td>
+<td align="left">Critical</td>
+<td align="left">Table API &amp; SQL</td>
+<td align="left">Timo Walther</td>
+<td align="left">Timo Walther</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3907">FLINK-3907</a></td>
+<td align="left">Directed Clustering Coefficient</td>
+<td align="left">Major</td>
+<td align="left">Gelly</td>
+<td align="left">Greg Hogan</td>
+<td align="left">Greg Hogan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3898">FLINK-3898</a></td>
+<td align="left">Adamic-Adar Similarity</td>
+<td align="left">Major</td>
+<td align="left">Gelly</td>
+<td align="left">Greg Hogan</td>
+<td align="left">Greg Hogan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3879">FLINK-3879</a></td>
+<td align="left">Native implementation of HITS algorithm</td>
+<td align="left">Major</td>
+<td align="left">Gelly</td>
+<td align="left">Greg Hogan</td>
+<td align="left">Greg Hogan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3034">FLINK-3034</a></td>
+<td align="left">Redis SInk Connector</td>
+<td align="left">Minor</td>
+<td align="left">Streaming Connectors</td>
+<td align="left">Matthias J. Sax</td>
+<td align="left">Subhankar Biswas</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3942">FLINK-3942</a></td>
+<td align="left">Add support for INTERSECT</td>
+<td align="left">Minor</td>
+<td align="left">Table API &amp; SQL</td>
+<td align="left">Fabian Hueske</td>
+<td align="left">Jark Wu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3943">FLINK-3943</a></td>
+<td align="left">Add support for EXCEPT (set minus)</td>
+<td align="left">Minor</td>
+<td align="left">Table API &amp; SQL</td>
+<td align="left">Fabian Hueske</td>
+<td align="left">Ivan Mushketyk</td>
+</tr>
+</tbody>
+</table>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3535">FLINK-3535</a></td>
+<td align="left">Decrease logging verbosity of StackTraceSampleCoordinator</td>
+<td align="left">Minor</td>
+<td align="left">Webfrontend</td>
+<td align="left">Ufuk Celebi</td>
+<td align="left">Ufuk Celebi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3559">FLINK-3559</a></td>
+<td align="left">Don't print pid file check if no active PID</td>
+<td align="left">Trivial</td>
+<td align="left">Startup Shell Scripts</td>
+<td align="left">Ufuk Celebi</td>
+<td align="left">Ufuk Celebi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3461">FLINK-3461</a></td>
+<td align="left">Remove duplicate condition check in ZooKeeperLeaderElectionService</td>
+<td align="left">Trivial</td>
+<td align="left">.</td>
+<td align="left">Ufuk Celebi</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-2788">FLINK-2788</a></td>
+<td align="left">Add type hint with TypeExtactor call on Hint Type</td>
+<td align="left">Major</td>
+<td align="left">Core</td>
+<td align="left">Stephan Ewen</td>
+<td align="left">Stephan Ewen</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3570">FLINK-3570</a></td>
+<td align="left">Replace random NIC selection heuristic by InetAddress.getLocalHost</td>
+<td align="left">Minor</td>
+<td align="left">Distributed Coordination</td>
+<td align="left">Till Rohrmann</td>
+<td align="left">Till Rohrmann</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3575">FLINK-3575</a></td>
+<td align="left">Update Working With State Section in Doc</td>
+<td align="left">Major</td>
+<td align="left">Documentation</td>
+<td align="left">Aljoscha Krettek</td>
+<td align="left">Aljoscha Krettek</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3383">FLINK-3383</a></td>
+<td align="left">Separate Maven deployment from CI testing</td>
+<td align="left">Critical</td>
+<td align="left">Build System, Tests</td>
+<td align="left">Maximilian Michels</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3591">FLINK-3591</a></td>
+<td align="left">Replace Quickstart K-Means Example by Streaming Example</td>
+<td align="left">Major</td>
+<td align="left">Documentation</td>
+<td align="left">Aljoscha Krettek</td>
+<td align="left">Aljoscha Krettek</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3596">FLINK-3596</a></td>
+<td align="left">DataSet RelNode refactoring</td>
+<td align="left">Major</td>
+<td align="left">Table API &amp; SQL</td>
+<td align="left">Vasia Kalavri</td>
+<td align="left">Vasia Kalavri</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3590">FLINK-3590</a></td>
+<td align="left">JDBC Format tests don't hide derby logs</td>
+<td align="left">Minor</td>
+<td align="left">DataSet API, Tests</td>
+<td align="left">Chesnay Schepler</td>
+<td align="left">Chesnay Schepler</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3467">FLINK-3467</a></td>
+<td align="left">Remove superfluous objects from DataSourceTask.invoke</td>
+<td align="left">Minor</td>
+<td align="left">Distributed Coordination</td>
+<td align="left">Greg Hogan</td>
+<td align="left">Greg Hogan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3597">FLINK-3597</a></td>
+<td align="left">Table API operator names should reflect relational expression</td>
+<td align="left">Minor</td>
+<td align="left">Table API &amp; SQL</td>
+<td align="left">Fabian Hueske</td>
+<td align="left">Fabian Hueske</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3603">FLINK-3603</a></td>
+<td align="left">Re-enable Table API explain</td>
+<td align="left">Minor</td>
+<td align="left">Table API &amp; SQL</td>
+<td align="left">Fabian Hueske</td>
+<td align="left">Fabian Hueske</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3604">FLINK-3604</a></td>
+<td align="left">Enable ignored Table API tests</td>
+<td align="left">Minor</td>
+<td align="left">Table API &amp; SQL</td>
+<td align="left">Fabian Hueske</td>
+<td align="left">Fabian Hueske</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3506">FLINK-3506</a></td>
+<td align="left">ReduceExpressionsRule does not remove duplicate expression in Filter</td>
+<td align="left">Minor</td>
+<td align="left">Table API &amp; SQL</td>
+<td align="left">Chengxiang Li</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3503">FLINK-3503</a></td>
+<td align="left">ProjectJoinTransposeRule fails to push down project.</td>
+<td align="left">Minor</td>
+<td align="left">Table API &amp; SQL</td>
+<td align="left">Chengxiang Li</td>
+<td align="left">Fabian Hueske</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3487">FLINK-3487</a></td>
+<td align="left">FilterAggregateTransposeRule does not transform logical plan as desired.</td>
+<td align="left">Minor</td>
+<td align="left">Table API &amp; SQL</td>
+<td align="left">Chengxiang Li</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3407">FLINK-3407</a></td>
+<td align="left">Extend TwitterSource with interface StoppableFunction</td>
+<td align="left">Major</td>
+<td align="left">Streaming Connectors</td>
+<td align="left">Matthias J. Sax</td>
+<td align="left">Robert Metzger</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3115">FLINK-3115</a></td>
+<td align="left">Update Elasticsearch connector to 2.X</td>
+<td align="left">Major</td>
+<td align="left">Streaming Connectors</td>
+<td align="left">Maximilian Michels</td>
+<td align="left">Suneel Marthi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3658">FLINK-3658</a></td>
+<td align="left">Allow the FlinkKafkaProducer to send data to multiple topics</td>
+<td align="left">Major</td>
+<td align="left">Kafka Connector</td>
+<td align="left">Robert Metzger</td>
+<td align="left">Robert Metzger</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3524">FLINK-3524</a></td>
+<td align="left">Provide a JSONDeserialisationSchema in the kafka connector package</td>
+<td align="left">Major</td>
+<td align="left">Kafka Connector</td>
+<td align="left">Robert Metzger</td>
+<td align="left">Chesnay Schepler</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3623">FLINK-3623</a></td>
+<td align="left">Adjust MurmurHash algorithm</td>
+<td align="left">Trivial</td>
+<td align="left">Distributed Coordination</td>
+<td align="left">Greg Hogan</td>
+<td align="left">Greg Hogan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3614">FLINK-3614</a></td>
+<td align="left">Remove Non-Keyed Window Operator</td>
+<td align="left">Major</td>
+<td align="left">Streaming</td>
+<td align="left">Aljoscha Krettek</td>
+<td align="left">Aljoscha Krettek</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3174">FLINK-3174</a></td>
+<td align="left">Add merging WindowAssigner</td>
+<td align="left">Major</td>
+<td align="left">Streaming</td>
+<td align="left">Aljoscha Krettek</td>
+<td align="left">Aljoscha Krettek</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3637">FLINK-3637</a></td>
+<td align="left">Change RollingSink Writer interface to allow wider range of outputs</td>
+<td align="left">Major</td>
+<td align="left">Streaming Connectors</td>
+<td align="left">Lasse Dalegaard</td>
+<td align="left">Lasse Dalegaard</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3654">FLINK-3654</a></td>
+<td align="left">Disable Write-Ahead-Log in RocksDB State</td>
+<td align="left">Major</td>
+<td align="left">Streaming</td>
+<td align="left">Aljoscha Krettek</td>
+<td align="left">Aljoscha Krettek</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3634">FLINK-3634</a></td>
+<td align="left">Fix documentation for DataSetUtils.zipWithUniqueId()</td>
+<td align="left">Minor</td>
+<td align="left">Documentation</td>
+<td align="left">Greg Hogan</td>
+<td align="left">Greg Hogan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3469">FLINK-3469</a></td>
+<td align="left">Improve documentation for grouping keys</td>
+<td align="left">Major</td>
+<td align="left">Documentation</td>
+<td align="left">Greg Hogan</td>
+<td align="left">Greg Hogan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3541">FLINK-3541</a></td>
+<td align="left">Clean up workaround in FlinkKafkaConsumer09</td>
+<td align="left">Minor</td>
+<td align="left">Kafka Connector</td>
+<td align="left">Till Rohrmann</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3700">FLINK-3700</a></td>
+<td align="left">Replace Guava Preconditions class with Flink Preconditions</td>
+<td align="left">Major</td>
+<td align="left">Core</td>
+<td align="left">Stephan Ewen</td>
+<td align="left">Stephan Ewen</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3589">FLINK-3589</a></td>
+<td align="left">Allow setting Operator parallelism to default value</td>
+<td align="left">Minor</td>
+<td align="left">Java API</td>
+<td align="left">Greg Hogan</td>
+<td align="left">Greg Hogan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3747">FLINK-3747</a></td>
+<td align="left">Consolidate TimestampAssigner Methods in Kafka Consumer</td>
+<td align="left">Blocker</td>
+<td align="left">Streaming</td>
+<td align="left">Aljoscha Krettek</td>
+<td align="left">Aljoscha Krettek</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3375">FLINK-3375</a></td>
+<td align="left">Allow Watermark Generation in the Kafka Source</td>
+<td align="left">Major</td>
+<td align="left">Kafka Connector</td>
+<td align="left">Stephan Ewen</td>
+<td align="left">Kostas Kloudas</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3739">FLINK-3739</a></td>
+<td align="left">Add a null literal to Table API</td>
+<td align="left">Major</td>
+<td align="left">Table API &amp; SQL</td>
+<td align="left">Timo Walther</td>
+<td align="left">Timo Walther</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3657">FLINK-3657</a></td>
+<td align="left">Change access of DataSetUtils.countElements() to 'public'</td>
+<td align="left">Minor</td>
+<td align="left">DataSet API</td>
+<td align="left">Suneel Marthi</td>
+<td align="left">Suneel Marthi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3664">FLINK-3664</a></td>
+<td align="left">Create a method to easily Summarize a DataSet</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Todd Lisonbee</td>
+<td align="left">Todd Lisonbee</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3770">FLINK-3770</a></td>
+<td align="left">Fix TriangleEnumerator performance</td>
+<td align="left">Major</td>
+<td align="left">Gelly</td>
+<td align="left">Greg Hogan</td>
+<td align="left">Greg Hogan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3794">FLINK-3794</a></td>
+<td align="left">Add checks for unsupported operations in streaming table API</td>
+<td align="left">Major</td>
+<td align="left">Table API &amp; SQL</td>
+<td align="left">Vasia Kalavri</td>
+<td align="left">Vasia Kalavri</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3560">FLINK-3560</a></td>
+<td align="left">Examples shouldn't always print usage statement</td>
+<td align="left">Minor</td>
+<td align="left">Examples</td>
+<td align="left">Till Rohrmann</td>
+<td align="left">Till Rohrmann</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3678">FLINK-3678</a></td>
+<td align="left">Make Flink logs directory configurable</td>
+<td align="left">Minor</td>
+<td align="left">Startup Shell Scripts</td>
+<td align="left">Stefano Baghino</td>
+<td align="left">Stefano Baghino</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3811">FLINK-3811</a></td>
+<td align="left">Refactor ExecutionEnvironment in TableEnvironment</td>
+<td align="left">Minor</td>
+<td align="left">Table API &amp; SQL</td>
+<td align="left">Fabian Hueske</td>
+<td align="left">Fabian Hueske</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3804">FLINK-3804</a></td>
+<td align="left">Update YARN documentation</td>
+<td align="left">Minor</td>
+<td align="left">Documentation</td>
+<td align="left">Till Rohrmann</td>
+<td align="left">Robert Metzger</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3816">FLINK-3816</a></td>
+<td align="left">Replace Guava Preconditions usage in flink-clients</td>
+<td align="left">Trivial</td>
+<td align="left">Client</td>
+<td align="left">Chesnay Schepler</td>
+<td align="left">Chesnay Schepler</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3815">FLINK-3815</a></td>
+<td align="left">Replace Guava Preconditions usage in flink-gelly</td>
+<td align="left">Trivial</td>
+<td align="left">Gelly</td>
+<td align="left">Chesnay Schepler</td>
+<td align="left">Chesnay Schepler</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3817">FLINK-3817</a></td>
+<td align="left">Remove unused Guava dependency from RocksDB StateBackend</td>
+<td align="left">Major</td>
+<td align="left">State Backends, Checkpointing</td>
+<td align="left">Chesnay Schepler</td>
+<td align="left">Chesnay Schepler</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3818">FLINK-3818</a></td>
+<td align="left">Remove Guava dependency from flink-gelly-examples</td>
+<td align="left">Trivial</td>
+<td align="left">Gelly</td>
+<td align="left">Chesnay Schepler</td>
+<td align="left">Chesnay Schepler</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3819">FLINK-3819</a></td>
+<td align="left">Replace Guava Preconditions usage in flink-gelly-scala</td>
+<td align="left">Trivial</td>
+<td align="left">Gelly</td>
+<td align="left">Chesnay Schepler</td>
+<td align="left">Chesnay Schepler</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3428">FLINK-3428</a></td>
+<td align="left">Add fixed time trailing timestamp/watermark extractor</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Robert Metzger</td>
+<td align="left">Kostas Kloudas</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-1991">FLINK-1991</a></td>
+<td align="left">Return Table as DataSet&lt;Tuple&gt;</td>
+<td align="left">Major</td>
+<td align="left">Table API &amp; SQL</td>
+<td align="left">Fabian Hueske</td>
+<td align="left">Timo Walther</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3876">FLINK-3876</a></td>
+<td align="left">Improve documentation of Scala Shell</td>
+<td align="left">Major</td>
+<td align="left">Documentation, Scala Shell</td>
+<td align="left">Maximilian Michels</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3880">FLINK-3880</a></td>
+<td align="left">Improve performance of Accumulator map</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Ken Krugler</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3776">FLINK-3776</a></td>
+<td align="left">Flink Scala shell does not allow to set configuration for local execution</td>
+<td align="left">Minor</td>
+<td align="left">Scala Shell</td>
+<td align="left">Till Rohrmann</td>
+<td align="left">Dongwon Kim</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3912">FLINK-3912</a></td>
+<td align="left">Typos in Batch Scala API Documentation</td>
+<td align="left">Trivial</td>
+<td align="left">DataSet API, Documentation, Scala API</td>
+<td align="left">Ignacio N. Lucero Ascencio</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3900">FLINK-3900</a></td>
+<td align="left">Set nullCheck=true as default in TableConfig</td>
+<td align="left">Minor</td>
+<td align="left">Table API &amp; SQL</td>
+<td align="left">Flavio Pompermaier</td>
+<td align="left">Rekha Joshi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3913">FLINK-3913</a></td>
+<td align="left">Clean up documentation typos</td>
+<td align="left">Trivial</td>
+<td align="left">Documentation</td>
+<td align="left">Mark Reddy</td>
+<td align="left">Mark Reddy</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3507">FLINK-3507</a></td>
+<td align="left">PruneEmptyRules does not prune empty node as expected.</td>
+<td align="left">Minor</td>
+<td align="left">Table API &amp; SQL</td>
+<td align="left">Chengxiang Li</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-2829">FLINK-2829</a></td>
+<td align="left">Confusing error message when Flink cannot create enough task threads</td>
+<td align="left">Trivial</td>
+<td align="left">JobManager, TaskManager</td>
+<td align="left">Gyula Fora</td>
+<td align="left">Rekha Joshi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3887">FLINK-3887</a></td>
+<td align="left">Improve dependency management for building docs</td>
+<td align="left">Major</td>
+<td align="left">Documentation</td>
+<td align="left">Maximilian Michels</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3607">FLINK-3607</a></td>
+<td align="left">Decrease default forkCount for tests</td>
+<td align="left">Major</td>
+<td align="left">Build System</td>
+<td align="left">Maximilian Michels</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3979">FLINK-3979</a></td>
+<td align="left">[documentation]add missed import classes in run_example_quickstart</td>
+<td align="left">Major</td>
+<td align="left">Documentation</td>
+<td align="left">Jia Zhai</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3978">FLINK-3978</a></td>
+<td align="left">Add hasBroadcastVariable method to RuntimeContext</td>
+<td align="left">Minor</td>
+<td align="left">Core</td>
+<td align="left">Greg Hogan</td>
+<td align="left">Greg Hogan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3886">FLINK-3886</a></td>
+<td align="left">Give a better error when the application Main class is not public.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Niels Basjes</td>
+<td align="left">Niels Basjes</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3993">FLINK-3993</a></td>
+<td align="left">[py] Add generateSequence() support to Python API</td>
+<td align="left">Minor</td>
+<td align="left">Python API</td>
+<td align="left">Omar Alvarez</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3806">FLINK-3806</a></td>
+<td align="left">Revert use of DataSet.count() in Gelly</td>
+<td align="left">Critical</td>
+<td align="left">Gelly</td>
+<td align="left">Greg Hogan</td>
+<td align="left">Greg Hogan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4026">FLINK-4026</a></td>
+<td align="left">Fix code, grammar, and link issues in the Streaming documentation</td>
+<td align="left">Trivial</td>
+<td align="left">Documentation</td>
+<td align="left">Dyana Rose</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4025">FLINK-4025</a></td>
+<td align="left">Add possiblity for the RMQ Streaming Source to customize the queue</td>
+<td align="left">Major</td>
+<td align="left">Streaming Connectors</td>
+<td align="left">Dominik Bruhn</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3405">FLINK-3405</a></td>
+<td align="left">Extend NiFiSource with interface StoppableFunction</td>
+<td align="left">Major</td>
+<td align="left">Streaming Connectors</td>
+<td align="left">Matthias J. Sax</td>
+<td align="left">Suneel Marthi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3854">FLINK-3854</a></td>
+<td align="left">Support Avro key-value rolling sink writer</td>
+<td align="left">Major</td>
+<td align="left">filesystem-connector, Streaming Connectors</td>
+<td align="left">Igor Berman</td>
+<td align="left">Igor Berman</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3763">FLINK-3763</a></td>
+<td align="left">RabbitMQ Source/Sink standardize connection parameters</td>
+<td align="left">Major</td>
+<td align="left">Streaming Connectors</td>
+<td align="left">Robert Batts</td>
+<td align="left">Subhankar Biswas</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4049">FLINK-4049</a></td>
+<td align="left">Mark RichInputFormat.openInputFormat and closeInputFormat as @PublicEvolving</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Robert Metzger</td>
+<td align="left">Chesnay Schepler</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4054">FLINK-4054</a></td>
+<td align="left">Inconsistent Reporter synchronization within report()</td>
+<td align="left">Critical</td>
+<td align="left">Metrics</td>
+<td align="left">Chesnay Schepler</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4032">FLINK-4032</a></td>
+<td align="left">Replace all usage of Guava Preconditions</td>
+<td align="left">Trivial</td>
+<td align="left">.</td>
+<td align="left">Chesnay Schepler</td>
+<td align="left">Chesnay Schepler</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4063">FLINK-4063</a></td>
+<td align="left">Add Metrics Support for Triggers</td>
+<td align="left">Major</td>
+<td align="left">Streaming</td>
+<td align="left">Aljoscha Krettek</td>
+<td align="left">Aljoscha Krettek</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3332">FLINK-3332</a></td>
+<td align="left">Provide an exactly-once Cassandra connector</td>
+<td align="left">Major</td>
+<td align="left">Streaming Connectors</td>
+<td align="left">Robert Metzger</td>
+<td align="left">Chesnay Schepler</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3937">FLINK-3937</a></td>
+<td align="left">Make flink cli list, savepoint, cancel and stop work on Flink-on-YARN clusters</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Sebastian Klemke</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3667">FLINK-3667</a></td>
+<td align="left">Generalize client&lt;-&gt;cluster communication</td>
+<td align="left">Major</td>
+<td align="left">YARN Client</td>
+<td align="left">Maximilian Michels</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4082">FLINK-4082</a></td>
+<td align="left">Add Setting for LargeRecordHandler</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Aljoscha Krettek</td>
+<td align="left">Aljoscha Krettek</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3752">FLINK-3752</a></td>
+<td align="left">Add Per-Kafka-Partition Watermark Generation to the docs</td>
+<td align="left">Major</td>
+<td align="left">Documentation</td>
+<td align="left">Stephan Ewen</td>
+<td align="left">Kostas Kloudas</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3868">FLINK-3868</a></td>
+<td align="left">Specialized CopyableValue serializers and comparators</td>
+<td align="left">Major</td>
+<td align="left">Core</td>
+<td align="left">Greg Hogan</td>
+<td align="left">Greg Hogan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4121">FLINK-4121</a></td>
+<td align="left">Add timeunit (ms) to docs for timestamps and watermarks</td>
+<td align="left">Trivial</td>
+<td align="left">DataStream API</td>
+<td align="left">Jonas Traub</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4119">FLINK-4119</a></td>
+<td align="left">Null checks in close() for Cassandra Input/Output Formats, checking arguments via Flink Preconditions</td>
+<td align="left">Minor</td>
+<td align="left">Batch Connectors and Input/Output Formats, Streaming Connectors</td>
+<td align="left">Andrea Sella</td>
+<td align="left">Andrea Sella</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4074">FLINK-4074</a></td>
+<td align="left">Reporter can block TaskManager shutdown</td>
+<td align="left">Minor</td>
+<td align="left">Metrics</td>
+<td align="left">Chesnay Schepler</td>
+<td align="left">Chesnay Schepler</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4087">FLINK-4087</a></td>
+<td align="left">JMXReporter can't handle port conflicts</td>
+<td align="left">Blocker</td>
+<td align="left">Metrics</td>
+<td align="left">Chesnay Schepler</td>
+<td align="left">Chesnay Schepler</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4093">FLINK-4093</a></td>
+<td align="left">Expose metric interfaces</td>
+<td align="left">Minor</td>
+<td align="left">Metrics</td>
+<td align="left">Chesnay Schepler</td>
+<td align="left">Chesnay Schepler</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3152">FLINK-3152</a></td>
+<td align="left">Support all comparisons for Date type</td>
+<td align="left">Critical</td>
+<td align="left">Table API &amp; SQL</td>
+<td align="left">Timo Walther</td>
+<td align="left">Timo Walther</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4118">FLINK-4118</a></td>
+<td align="left">The docker-flink image is outdated (1.0.2) and can be slimmed down</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Ismaël Mejía</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4109">FLINK-4109</a></td>
+<td align="left">Change the name of ternary condition operator 'eval' to '?'</td>
+<td align="left">Major</td>
+<td align="left">Table API &amp; SQL</td>
+<td align="left">Jark Wu</td>
+<td align="left">Jark Wu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4086">FLINK-4086</a></td>
+<td align="left">Hide internal Expression methods from Table API</td>
+<td align="left">Major</td>
+<td align="left">Table API &amp; SQL</td>
+<td align="left">Fabian Hueske</td>
+<td align="left">Fabian Hueske</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4116">FLINK-4116</a></td>
+<td align="left">Document metrics</td>
+<td align="left">Major</td>
+<td align="left">Documentation, Metrics</td>
+<td align="left">Chesnay Schepler</td>
+<td align="left">Chesnay Schepler</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4185">FLINK-4185</a></td>
+<td align="left">Reflecting rename from Tachyon to Alluxio</td>
+<td align="left">Trivial</td>
+<td align="left">Documentation</td>
+<td align="left">Jiri Simsa</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3916">FLINK-3916</a></td>
+<td align="left">Allow generic types passing the Table API</td>
+<td align="left">Major</td>
+<td align="left">Table API &amp; SQL</td>
+<td align="left">Timo Walther</td>
+<td align="left">Timo Walther</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4127">FLINK-4127</a></td>
+<td align="left">Clean up configuration and check breaking API changes</td>
+<td align="left">Major</td>
+<td align="left">Build System</td>
+<td align="left">Robert Metzger</td>
+<td align="left">Robert Metzger</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4197">FLINK-4197</a></td>
+<td align="left">Allow Kinesis Endpoint to be Overridden via Config</td>
+<td align="left">Minor</td>
+<td align="left">Kinesis Connector</td>
+<td align="left">Scott Kidder</td>
+<td align="left">Scott Kidder</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4206">FLINK-4206</a></td>
+<td align="left">Metric names should allow special characters</td>
+<td align="left">Major</td>
+<td align="left">Metrics</td>
+<td align="left">Chesnay Schepler</td>
+<td align="left">Chesnay Schepler</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4170">FLINK-4170</a></td>
+<td align="left">Remove <code>CONFIG\_</code> prefix from KinesisConfigConstants variables</td>
+<td align="left">Major</td>
+<td align="left">Streaming Connectors</td>
+<td align="left">Ufuk Celebi</td>
+<td align="left">Tzu-Li (Gordon) Tai</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3666">FLINK-3666</a></td>
+<td align="left">Remove Nephele references</td>
+<td align="left">Trivial</td>
+<td align="left">Documentation</td>
+<td align="left">Chesnay Schepler</td>
+<td align="left">Chesnay Schepler</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4017">FLINK-4017</a></td>
+<td align="left">[py] Add Aggregation support to Python API</td>
+<td align="left">Minor</td>
+<td align="left">Python API</td>
+<td align="left">Geoffrey Mon</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4186">FLINK-4186</a></td>
+<td align="left">Expose Kafka metrics through Flink metrics</td>
+<td align="left">Major</td>
+<td align="left">Kafka Connector</td>
+<td align="left">Robert Metzger</td>
+<td align="left">Robert Metzger</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4209">FLINK-4209</a></td>
+<td align="left">Fix issue on docker with multiple NICs and remove supervisord dependency</td>
+<td align="left">Minor</td>
+<td align="left">flink-contrib</td>
+<td align="left">Ismaël Mejía</td>
+<td align="left">Ismaël Mejía</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-2985">FLINK-2985</a></td>
+<td align="left">Allow different field names for unionAll() in Table API</td>
+<td align="left">Minor</td>
+<td align="left">Table API &amp; SQL</td>
+<td align="left">Timo Walther</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4183">FLINK-4183</a></td>
+<td align="left">Move checking for StreamTableEnvironment into validation layer</td>
+<td align="left">Minor</td>
+<td align="left">Table API &amp; SQL</td>
+<td align="left">Timo Walther</td>
+<td align="left">Timo Walther</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3153">FLINK-3153</a></td>
+<td align="left">Support all comparisons for String type</td>
+<td align="left">Major</td>
+<td align="left">Table API &amp; SQL</td>
+<td align="left">Timo Walther</td>
+<td align="left">Timo Walther</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4070">FLINK-4070</a></td>
+<td align="left">Support literals on left side of binary expressions</td>
+<td align="left">Minor</td>
+<td align="left">Table API &amp; SQL</td>
+<td align="left">Timo Walther</td>
+<td align="left">Jark Wu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4229">FLINK-4229</a></td>
+<td align="left">Do not start Metrics Reporter by default</td>
+<td align="left">Major</td>
+<td align="left">Metrics</td>
+<td align="left">Aljoscha Krettek</td>
+<td align="left">Aljoscha Krettek</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4202">FLINK-4202</a></td>
+<td align="left">Add JM metric which shows the restart duration</td>
+<td align="left">Major</td>
+<td align="left">Distributed Coordination</td>
+<td align="left">Till Rohrmann</td>
+<td align="left">Till Rohrmann</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-2227">FLINK-2227</a></td>
+<td align="left">.yarn-properties file is not cleaned up</td>
+<td align="left">Minor</td>
+<td align="left">YARN Client</td>
+<td align="left">Ufuk Celebi</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-2929">FLINK-2929</a></td>
+<td align="left">Recovery of jobs on cluster restarts</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ufuk Celebi</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3901">FLINK-3901</a></td>
+<td align="left">Create a RowCsvInputFormat to use as default CSV IF in Table API</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Flavio Pompermaier</td>
+<td align="left">Flavio Pompermaier</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3891">FLINK-3891</a></td>
+<td align="left">Add a class containing all supported Table API types</td>
+<td align="left">Minor</td>
+<td align="left">Table API &amp; SQL</td>
+<td align="left">Timo Walther</td>
+<td align="left">Timo Walther</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4244">FLINK-4244</a></td>
+<td align="left">Field names for union operator do not have to be equal</td>
+<td align="left">Trivial</td>
+<td align="left">Table API &amp; SQL</td>
+<td align="left">Till Rohrmann</td>
+<td align="left">Jark Wu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4103">FLINK-4103</a></td>
+<td align="left">Modify CsvTableSource to implement StreamTableSource</td>
+<td align="left">Minor</td>
+<td align="left">Table API &amp; SQL</td>
+<td align="left">Suneel Marthi</td>
+<td align="left">Suneel Marthi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4067">FLINK-4067</a></td>
+<td align="left">Add version header to savepoints</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ufuk Celebi</td>
+<td align="left">Ufuk Celebi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4210">FLINK-4210</a></td>
+<td align="left">Move close()/isClosed() out of MetricGroup interface</td>
+<td align="left">Minor</td>
+<td align="left">Metrics</td>
+<td align="left">Chesnay Schepler</td>
+<td align="left">Chesnay Schepler</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4192">FLINK-4192</a></td>
+<td align="left">Move Metrics API to separate module</td>
+<td align="left">Major</td>
+<td align="left">Metrics</td>
+<td align="left">Chesnay Schepler</td>
+<td align="left">Chesnay Schepler</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4269">FLINK-4269</a></td>
+<td align="left">Decrease log level in RuntimeMonitorHandler</td>
+<td align="left">Minor</td>
+<td align="left">Webfrontend</td>
+<td align="left">Ufuk Celebi</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4279">FLINK-4279</a></td>
+<td align="left">[py] Set flink dependencies to provided</td>
+<td align="left">Minor</td>
+<td align="left">Python API</td>
+<td align="left">Chesnay Schepler</td>
+<td align="left">Chesnay Schepler</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4299">FLINK-4299</a></td>
+<td align="left">Show loss of job manager in Client</td>
+<td align="left">Major</td>
+<td align="left">Client</td>
+<td align="left">Ufuk Celebi</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4246">FLINK-4246</a></td>
+<td align="left">Allow Specifying Multiple Metrics Reporters</td>
+<td align="left">Major</td>
+<td align="left">Metrics</td>
+<td align="left">Aljoscha Krettek</td>
+<td align="left">Aljoscha Krettek</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3534">FLINK-3534</a></td>
+<td align="left">Cancelling a running job can lead to restart instead of stopping</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Robert Metzger</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3540">FLINK-3540</a></td>
+<td align="left">Hadoop 2.6.3 build contains /com/google/common (guava) classes in flink-dist.jar</td>
+<td align="left">Blocker</td>
+<td align="left">Build System</td>
+<td align="left">Robert Metzger</td>
+<td align="left">Robert Metzger</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3556">FLINK-3556</a></td>
+<td align="left">Unneeded check in HA blob store configuration</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Ufuk Celebi</td>
+<td align="left">Ufuk Celebi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3565">FLINK-3565</a></td>
+<td align="left">FlinkKafkaConsumer does not work with Scala 2.11</td>
+<td align="left">Blocker</td>
+<td align="left">Streaming</td>
+<td align="left">Aljoscha Krettek</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3562">FLINK-3562</a></td>
+<td align="left">Update docs in the course of EventTimeSourceFunction removal</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Maximilian Michels</td>
+<td align="left">Stephan Ewen</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3566">FLINK-3566</a></td>
+<td align="left">Input type validation often fails on custom TypeInfo implementations</td>
+<td align="left">Major</td>
+<td align="left">Type Serialization System</td>
+<td align="left">Gyula Fora</td>
+<td align="left">Timo Walther</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3491">FLINK-3491</a></td>
+<td align="left">HDFSCopyUtilitiesTest fails on Windows</td>
+<td align="left">Major</td>
+<td align="left">Tests</td>
+<td align="left">Chesnay Schepler</td>
+<td align="left">Chesnay Schepler</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3495">FLINK-3495</a></td>
+<td align="left">RocksDB Tests can't run on Windows</td>
+<td align="left">Major</td>
+<td align="left">Tests</td>
+<td align="left">Chesnay Schepler</td>
+<td align="left">Chesnay Schepler</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3578">FLINK-3578</a></td>
+<td align="left">Scala DataStream API does not support Rich Window Functions</td>
+<td align="left">Critical</td>
+<td align="left">Streaming</td>
+<td align="left">Stephan Ewen</td>
+<td align="left">Stephan Ewen</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3569">FLINK-3569</a></td>
+<td align="left">Test cases fail due to Maven Shade plugin</td>
+<td align="left">Major</td>
+<td align="left">Tests</td>
+<td align="left">Maximilian Michels</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3533">FLINK-3533</a></td>
+<td align="left">Update the Gelly docs wrt examples and cluster execution</td>
+<td align="left">Major</td>
+<td align="left">Documentation, Gelly</td>
+<td align="left">Vasia Kalavri</td>
+<td align="left">Vasia Kalavri</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3567">FLINK-3567</a></td>
+<td align="left">Rework selection when grouping in Table API</td>
+<td align="left">Major</td>
+<td align="left">Table API &amp; SQL</td>
+<td align="left">Timo Walther</td>
+<td align="left">Fabian Hueske</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3585">FLINK-3585</a></td>
+<td align="left">Deploy scripts don't support spaces in paths</td>
+<td align="left">Minor</td>
+<td align="left">Build System</td>
+<td align="left">Maximilian Michels</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3593">FLINK-3593</a></td>
+<td align="left">DistinctITCase is failing</td>
+<td align="left">Major</td>
+<td align="left">Table API &amp; SQL</td>
+<td align="left">Vasia Kalavri</td>
+<td align="left">Fabian Hueske</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3396">FLINK-3396</a></td>
+<td align="left">Job submission Savepoint restore logic flawed</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ufuk Celebi</td>
+<td align="left">Ufuk Celebi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3561">FLINK-3561</a></td>
+<td align="left">ExecutionConfig's timestampsEnabled is unused</td>
+<td align="left">Minor</td>
+<td align="left">Streaming</td>
+<td align="left">Maximilian Michels</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3577">FLINK-3577</a></td>
+<td align="left">Display anchor links when hovering over headers.</td>
+<td align="left">Minor</td>
+<td align="left">Documentation</td>
+<td align="left">Jark Wu</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3472">FLINK-3472</a></td>
+<td align="left">JDBCInputFormat.nextRecord(..) has misleading message on NPE</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Ken Geis</td>
+<td align="left">Chesnay Schepler</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3333">FLINK-3333</a></td>
+<td align="left">Documentation about object reuse should be improved</td>
+<td align="left">Critical</td>
+<td align="left">Documentation</td>
+<td align="left">Gabor Gevay</td>
+<td align="left">Gabor Gevay</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3563">FLINK-3563</a></td>
+<td align="left">.returns() doesn't compile when using .map() with a custom MapFunction</td>
+<td align="left">Minor</td>
+<td align="left">Type Serialization System</td>
+<td align="left">Simone Robutti</td>
+<td align="left">Timo Walther</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3583">FLINK-3583</a></td>
+<td align="left">Configuration not visible in gui when job is running</td>
+<td align="left">Minor</td>
+<td align="left">Web Client, Webfrontend</td>
+<td align="left">Michał Fijołek</td>
+<td align="left">Michał Fijołek</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3621">FLINK-3621</a></td>
+<td align="left">Misleading documentation of memory configuration parameters</td>
+<td align="left">Minor</td>
+<td align="left">Documentation</td>
+<td align="left">Fabian Hueske</td>
+<td align="left">Fabian Hueske</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-1964">FLINK-1964</a></td>
+<td align="left">Rework TwitterSource to use a Properties object instead of a file path</td>
+<td align="left">Minor</td>
+<td align="left">Streaming</td>
+<td align="left">Robert Metzger</td>
+<td align="left">Robert Metzger</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3622">FLINK-3622</a></td>
+<td align="left">Improve error messages for invalid joins</td>
+<td align="left">Major</td>
+<td align="left">Table API &amp; SQL</td>
+<td align="left">Fabian Hueske</td>
+<td align="left">Fabian Hueske</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3636">FLINK-3636</a></td>
+<td align="left">NoClassDefFoundError while running WindowJoin example</td>
+<td align="left">Major</td>
+<td align="left">Examples, Streaming</td>
+<td align="left">Zoltán Zvara</td>
+<td align="left">Márton Balassi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3645">FLINK-3645</a></td>
+<td align="left">HDFSCopyUtilitiesTest fails in a Hadoop cluster</td>
+<td align="left">Minor</td>
+<td align="left">Tests</td>
+<td align="left">Chiwan Park</td>
+<td align="left">Chiwan Park</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3631">FLINK-3631</a></td>
+<td align="left">CodeGenerator does not check type compatibility for equality expressions</td>
+<td align="left">Major</td>
+<td align="left">Table API &amp; SQL</td>
+<td align="left">Fabian Hueske</td>
+<td align="left">ramkrishna.s.vasudevan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3611">FLINK-3611</a></td>
+<td align="left">Wrong link in CONTRIBUTING.md</td>
+<td align="left">Trivial</td>
+<td align="left">Documentation</td>
+<td align="left">Martin Junghanns</td>
+<td align="left">Martin Junghanns</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3602">FLINK-3602</a></td>
+<td align="left">Recursive Types are not supported / crash TypeExtractor</td>
+<td align="left">Critical</td>
+<td align="left">Type Serialization System</td>
+<td align="left">Stephan Ewen</td>
+<td align="left">Timo Walther</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3179">FLINK-3179</a></td>
+<td align="left">Combiner is not injected if Reduce or GroupReduce input is explicitly partitioned</td>
+<td align="left">Critical</td>
+<td align="left">Optimizer</td>
+<td align="left">Fabian Hueske</td>
+<td align="left">ramkrishna.s.vasudevan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3653">FLINK-3653</a></td>
+<td align="left">recovery.zookeeper.storageDir is not documented on the configuration page</td>
+<td align="left">Minor</td>
+<td align="left">Documentation</td>
+<td align="left">Stefano Baghino</td>
+<td align="left">Stefano Baghino</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3663">FLINK-3663</a></td>
+<td align="left">FlinkKafkaConsumerBase.logPartitionInfo is missing a log marker</td>
+<td align="left">Trivial</td>
+<td align="left">Kafka Connector</td>
+<td align="left">Niels Zeilemaker</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3676">FLINK-3676</a></td>
+<td align="left">WebClient hasn't been removed from the docs</td>
+<td align="left">Major</td>
+<td align="left">Documentation</td>
+<td align="left">Maximilian Michels</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3651">FLINK-3651</a></td>
+<td align="left">Fix faulty RollingSink Restore</td>
+<td align="left">Major</td>
+<td align="left">Streaming</td>
+<td align="left">Aljoscha Krettek</td>
+<td align="left">Aljoscha Krettek</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3681">FLINK-3681</a></td>
+<td align="left">CEP library does not support Java 8 lambdas as select function</td>
+<td align="left">Minor</td>
+<td align="left">CEP</td>
+<td align="left">Till Rohrmann</td>
+<td align="left">Till Rohrmann</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3682">FLINK-3682</a></td>
+<td align="left">CEP operator does not set the processing timestamp correctly</td>
+<td align="left">Major</td>
+<td align="left">CEP</td>
+<td align="left">Till Rohrmann</td>
+<td align="left">Till Rohrmann</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3684">FLINK-3684</a></td>
+<td align="left">CEP operator does not forward watermarks properly</td>
+<td align="left">Major</td>
+<td align="left">CEP</td>
+<td align="left">Till Rohrmann</td>
+<td align="left">Till Rohrmann</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3633">FLINK-3633</a></td>
+<td align="left">Job submission silently fails when using user code types</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Till Rohrmann</td>
+<td align="left">Till Rohrmann</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3689">FLINK-3689</a></td>
+<td align="left">JobManager blocks cluster shutdown when not connected to ResourceManager</td>
+<td align="left">Minor</td>
+<td align="left">JobManager, ResourceManager</td>
+<td align="left">Maximilian Michels</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3635">FLINK-3635</a></td>
+<td align="left">Potential null deference in TwitterExample#SelectEnglishAndTokenizeFlatMap#flatMap</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Ted Yu</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3638">FLINK-3638</a></td>
+<td align="left">Invalid default ports in documentation</td>
+<td align="left">Major</td>
+<td align="left">Documentation</td>
+<td align="left">Maxim Dobryakov</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3693">FLINK-3693</a></td>
+<td align="left">JobManagerHAJobGraphRecoveryITCase.testClientNonDetachedListeningBehaviour is unstable</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Robert Metzger</td>
+<td align="left">Ufuk Celebi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3619">FLINK-3619</a></td>
+<td align="left">SavepointCoordinator test failure</td>
+<td align="left">Major</td>
+<td align="left">Streaming</td>
+<td align="left">Gyula Fora</td>
+<td align="left">Ufuk Celebi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3595">FLINK-3595</a></td>
+<td align="left">Kafka09 consumer thread does not interrupt when stuck in record emission</td>
+<td align="left">Critical</td>
+<td align="left">Kafka Connector</td>
+<td align="left">Stephan Ewen</td>
+<td align="left">Ufuk Celebi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-1159">FLINK-1159</a></td>
+<td align="left">Case style anonymous functions not supported by Scala API</td>
+<td align="left">Major</td>
+<td align="left">Scala API</td>
+<td align="left">Till Rohrmann</td>
+<td align="left">Stefano Baghino</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3712">FLINK-3712</a></td>
+<td align="left">YARN client dynamic properties are not passed correctly to the leader election service on the client</td>
+<td align="left">Major</td>
+<td align="left">YARN Client</td>
+<td align="left">Robert Metzger</td>
+<td align="left">Robert Metzger</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3579">FLINK-3579</a></td>
+<td align="left">Improve String concatenation</td>
+<td align="left">Minor</td>
+<td align="left">Table API &amp; SQL</td>
+<td align="left">Timo Walther</td>
+<td align="left">ramkrishna.s.vasudevan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3731">FLINK-3731</a></td>
+<td align="left">Embedded SQL outer joins should fail during translation</td>
+<td align="left">Major</td>
+<td align="left">Table API &amp; SQL</td>
+<td align="left">Vasia Kalavri</td>
+<td align="left">Vasia Kalavri</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3730">FLINK-3730</a></td>
+<td align="left">Fix RocksDB Local Directory Initialization</td>
+<td align="left">Major</td>
+<td align="left">State Backends, Checkpointing, Streaming</td>
+<td align="left">Aljoscha Krettek</td>
+<td align="left">Aljoscha Krettek</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3126">FLINK-3126</a></td>
+<td align="left">Remove accumulator type from &quot;value&quot; in web frontend</td>
+<td align="left">Major</td>
+<td align="left">Webfrontend</td>
+<td align="left">Robert Metzger</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3737">FLINK-3737</a></td>
+<td align="left">WikipediaEditsSourceTest.testWikipediaEditsSource() fails locally</td>
+<td align="left">Minor</td>
+<td align="left">Tests</td>
+<td align="left">Todd Lisonbee</td>
+<td align="left">Todd Lisonbee</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3644">FLINK-3644</a></td>
+<td align="left">WebRuntimMonitor set java.io.tmpdir does not work for change upload dir.</td>
+<td align="left">Major</td>
+<td align="left">Webfrontend</td>
+<td align="left">astralidea</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3444">FLINK-3444</a></td>
+<td align="left">env.fromElements relies on the first input element for determining the DataSet/DataStream type</td>
+<td align="left">Major</td>
+<td align="left">DataSet API, DataStream API</td>
+<td align="left">Vasia Kalavri</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3716">FLINK-3716</a></td>
+<td align="left">Kafka08ITCase.testFailOnNoBroker() timing out before it has a chance to pass</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Todd Lisonbee</td>
+<td align="left">Todd Lisonbee</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3735">FLINK-3735</a></td>
+<td align="left">Embedded SQL union should fail during translation</td>
+<td align="left">Major</td>
+<td align="left">Table API &amp; SQL</td>
+<td align="left">Vasia Kalavri</td>
+<td align="left">Vasia Kalavri</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3745">FLINK-3745</a></td>
+<td align="left">TimestampITCase testWatermarkPropagationNoFinalWatermarkOnStop failing intermittently</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Todd Lisonbee</td>
+<td align="left">Stephan Ewen</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3759">FLINK-3759</a></td>
+<td align="left">Table API should throw exception is null value is encountered in non-null mode.</td>
+<td align="left">Critical</td>
+<td align="left">Table API &amp; SQL</td>
+<td align="left">Fabian Hueske</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3762">FLINK-3762</a></td>
+<td align="left">Kryo StackOverflowError due to disabled Kryo Reference tracking</td>
+<td align="left">Major</td>
+<td align="left">Core</td>
+<td align="left">Andrew Palumbo</td>
+<td align="left">Andrew Palumbo</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-2544">FLINK-2544</a></td>
+<td align="left">Some test cases using PowerMock fail with Java 8u20</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Till Rohrmann</td>
+<td align="left">Soila Kavulya</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3732">FLINK-3732</a></td>
+<td align="left">Potential null deference in ExecutionConfig#equals()</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Ted Yu</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3773">FLINK-3773</a></td>
+<td align="left">Scanners are left unclosed in SqlExplainTest</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Ted Yu</td>
+<td align="left">Saikat Maitra</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3718">FLINK-3718</a></td>
+<td align="left">Add Option For Completely Async Backup in RocksDB State Backend</td>
+<td align="left">Major</td>
+<td align="left">Streaming</td>
+<td align="left">Aljoscha Krettek</td>
+<td align="left">Aljoscha Krettek</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3781">FLINK-3781</a></td>
+<td align="left">BlobClient may be left unclosed in BlobCache#deleteGlobal()</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Ted Yu</td>
+<td align="left">Chenguang He</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3790">FLINK-3790</a></td>
+<td align="left">Rolling File sink does not pick up hadoop configuration</td>
+<td align="left">Critical</td>
+<td align="left">Streaming Connectors</td>
+<td align="left">Gyula Fora</td>
+<td align="left">Gyula Fora</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3774">FLINK-3774</a></td>
+<td align="left">Flink configuration is not correctly forwarded to PlanExecutor in ScalaShellRemoteEnvironment</td>
+<td align="left">Minor</td>
+<td align="left">Scala Shell</td>
+<td align="left">Till Rohrmann</td>
+<td align="left">Till Rohrmann</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3803">FLINK-3803</a></td>
+<td align="left">Checkpoint Stats Tracker Reads from Wrong Configuration</td>
+<td align="left">Major</td>
+<td align="left">Streaming</td>
+<td align="left">Aljoscha Krettek</td>
+<td align="left">Ufuk Celebi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3086">FLINK-3086</a></td>
+<td align="left">ExpressionParser does not support concatenation of suffix operations</td>
+<td align="left">Major</td>
+<td align="left">Table API &amp; SQL</td>
+<td align="left">Timo Walther</td>
+<td align="left">Timo Walther</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3601">FLINK-3601</a></td>
+<td align="left">JobManagerTest times out on StopSignal test</td>
+<td align="left">Minor</td>
+<td align="left">JobManager, Tests</td>
+<td align="left">Maximilian Michels</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3824">FLINK-3824</a></td>
+<td align="left">ResourceManager may repeatedly connect to outdated JobManager in HA mode</td>
+<td align="left">Minor</td>
+<td align="left">ResourceManager</td>
+<td align="left">Maximilian Michels</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3835">FLINK-3835</a></td>
+<td align="left">JSON execution plan not helpful to debug plans with KeySelectors</td>
+<td align="left">Major</td>
+<td align="left">Optimizer</td>
+<td align="left">Fabian Hueske</td>
+<td align="left">Fabian Hueske</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3840">FLINK-3840</a></td>
+<td align="left">RocksDB local parent dir is polluted with empty folders with random names</td>
+<td align="left">Major</td>
+<td align="left">State Backends, Checkpointing</td>
+<td align="left">Gyula Fora</td>
+<td align="left">Aljoscha Krettek</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3846">FLINK-3846</a></td>
+<td align="left">Graph.removeEdges also removes duplicate edges</td>
+<td align="left">Major</td>
+<td align="left">Gelly</td>
+<td align="left">Greg Hogan</td>
+<td align="left">Greg Hogan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3845">FLINK-3845</a></td>
+<td align="left">Gelly allows duplicate vertices in Graph.addVertices</td>
+<td align="left">Major</td>
+<td align="left">Gelly</td>
+<td align="left">Greg Hogan</td>
+<td align="left">Greg Hogan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3793">FLINK-3793</a></td>
+<td align="left">Re-organize the Table API and SQL docs</td>
+<td align="left">Major</td>
+<td align="left">Documentation, Table API &amp; SQL</td>
+<td align="left">Vasia Kalavri</td>
+<td align="left">Vasia Kalavri</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3669">FLINK-3669</a></td>
+<td align="left">WindowOperator registers a lot of timers at StreamTask</td>
+<td align="left">Blocker</td>
+<td align="left">Streaming</td>
+<td align="left">Aljoscha Krettek</td>
+<td align="left">Konstantin Knauf</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3860">FLINK-3860</a></td>
+<td align="left">WikipediaEditsSourceTest.testWikipediaEditsSource times out</td>
+<td align="left">Major</td>
+<td align="left">Tests</td>
+<td align="left">Vasia Kalavri</td>
+<td align="left">Aljoscha Krettek</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3877">FLINK-3877</a></td>
+<td align="left">Create TranslateFunction interface for Graph translators</td>
+<td align="left">Minor</td>
+<td align="left">Gelly</td>
+<td align="left">Greg Hogan</td>
+<td align="left">Greg Hogan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3842">FLINK-3842</a></td>
+<td align="left">Fix handling null record/row in generated code</td>
+<td align="left">Major</td>
+<td align="left">Table API &amp; SQL</td>
+<td align="left">Dawid Wysakowicz</td>
+<td align="left">Timo Walther</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3882">FLINK-3882</a></td>
+<td align="left">Errors in sample Java code for the Elasticsearch 2.x sink</td>
+<td align="left">Trivial</td>
+<td align="left">Documentation, Streaming Connectors</td>
+<td align="left">Mark Reddy</td>
+<td align="left">Mark Reddy</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3878">FLINK-3878</a></td>
+<td align="left">File cache doesn't support multiple duplicate temp directories</td>
+<td align="left">Major</td>
+<td align="left">Distributed Coordination, Local Runtime</td>
+<td align="left">Ken Krugler</td>
+<td align="left">Ken Krugler</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3701">FLINK-3701</a></td>
+<td align="left">Cant call execute after first execution</td>
+<td align="left">Major</td>
+<td align="left">Scala Shell</td>
+<td align="left">Nikolaas Steenbergen</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3826">FLINK-3826</a></td>
+<td align="left">Broken test: StreamCheckpointingITCase</td>
+<td align="left">Major</td>
+<td align="left">Tests</td>
+<td align="left">Kostas Kloudas</td>
+<td align="left">Kostas Kloudas</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3488">FLINK-3488</a></td>
+<td align="left">Kafka08ITCase.testBigRecordJob fails on Travis</td>
+<td align="left">Critical</td>
+<td align="left">Kafka Connector</td>
+<td align="left">Till Rohrmann</td>
+<td align="left">Rekha Joshi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3926">FLINK-3926</a></td>
+<td align="left">Incorrect implementation of getFieldIndex in TupleTypeInfo</td>
+<td align="left">Minor</td>
+<td align="left">Core</td>
+<td align="left">Yijie Shen</td>
+<td align="left">Yijie Shen</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3914">FLINK-3914</a></td>
+<td align="left">BlobServer.createTemporaryFilename() has concurrency safety problem</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">ZhengBowen</td>
+<td align="left">Mark Reddy</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3934">FLINK-3934</a></td>
+<td align="left">Prevent translation of non-equi joins in DataSetJoinRule</td>
+<td align="left">Major</td>
+<td align="left">Table API &amp; SQL</td>
+<td align="left">Fabian Hueske</td>
+<td align="left">Fabian Hueske</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3935">FLINK-3935</a></td>
+<td align="left">Invalid check of key and ordering fields in PartitionNode</td>
+<td align="left">Major</td>
+<td align="left">Optimizer</td>
+<td align="left">Fabian Hueske</td>
+<td align="left">Fabian Hueske</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3909">FLINK-3909</a></td>
+<td align="left">Maven Failsafe plugin may report SUCCESS on failed tests</td>
+<td align="left">Major</td>
+<td align="left">Build System</td>
+<td align="left">Maximilian Michels</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3892">FLINK-3892</a></td>
+<td align="left">ConnectionUtils may die with NullPointerException</td>
+<td align="left">Minor</td>
+<td align="left">YARN Client</td>
+<td align="left">Maximilian Michels</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3893">FLINK-3893</a></td>
+<td align="left">LeaderChangeStateCleanupTest times out</td>
+<td align="left">Minor</td>
+<td align="left">Tests</td>
+<td align="left">Maximilian Michels</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3938">FLINK-3938</a></td>
+<td align="left">Yarn tests don't run on the current master</td>
+<td align="left">Critical</td>
+<td align="left">Build System</td>
+<td align="left">Maximilian Michels</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3928">FLINK-3928</a></td>
+<td align="left">Potential overflow due to 32-bit int arithmetic</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Ted Yu</td>
+<td align="left">Greg Hogan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3953">FLINK-3953</a></td>
+<td align="left">Surefire plugin executes unit tests twice</td>
+<td align="left">Minor</td>
+<td align="left">Build System, Tests</td>
+<td align="left">Maximilian Michels</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3927">FLINK-3927</a></td>
+<td align="left">TaskManager registration may fail if Yarn versions don't match</td>
+<td align="left">Major</td>
+<td align="left">ResourceManager</td>
+<td align="left">Maximilian Michels</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3939">FLINK-3939</a></td>
+<td align="left">Prevent distinct aggregates and grouping sets from being translated</td>
+<td align="left">Major</td>
+<td align="left">Table API &amp; SQL</td>
+<td align="left">Fabian Hueske</td>
+<td align="left">Fabian Hueske</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3963">FLINK-3963</a></td>
+<td align="left">AbstractReporter uses shaded dependency</td>
+<td align="left">Major</td>
+<td align="left">Tests</td>
+<td align="left">Maximilian Michels</td>
+<td align="left">Kostas Kloudas</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-2915">FLINK-2915</a></td>
+<td align="left">JobManagerProcessFailureBatchRecoveryITCase</td>
+<td align="left">Critical</td>
+<td align="left">Tests</td>
+<td align="left">Matthias J. Sax</td>
+<td align="left">Rekha Joshi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3696">FLINK-3696</a></td>
+<td align="left">Some Union tests fail for TableConfigMode.EFFICIENT</td>
+<td align="left">Major</td>
+<td align="left">Table API &amp; SQL</td>
+<td align="left">Vasia Kalavri</td>
+<td align="left">Yijie Shen</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3972">FLINK-3972</a></td>
+<td align="left">Subclasses of ResourceID may not to be serializable</td>
+<td align="left">Minor</td>
+<td align="left">ResourceManager</td>
+<td align="left">Maximilian Michels</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3982">FLINK-3982</a></td>
+<td align="left">Multiple ResourceManagers register at JobManager in standalone HA mode</td>
+<td align="left">Minor</td>
+<td align="left">ResourceManager</td>
+<td align="left">Maximilian Michels</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3981">FLINK-3981</a></td>
+<td align="left">Don't log duplicate TaskManager registrations as exceptions</td>
+<td align="left">Minor</td>
+<td align="left">ResourceManager</td>
+<td align="left">Maximilian Michels</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3975">FLINK-3975</a></td>
+<td align="left">Override baseurl when serving docs locally</td>
+<td align="left">Trivial</td>
+<td align="left">Documentation</td>
+<td align="left">Dyana Rose</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3994">FLINK-3994</a></td>
+<td align="left">Instable KNNITSuite</td>
+<td align="left">Critical</td>
+<td align="left">Machine Learning Library, Tests</td>
+<td align="left">Chiwan Park</td>
+<td align="left">Chiwan Park</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3948">FLINK-3948</a></td>
+<td align="left">EventTimeWindowCheckpointingITCase Fails with Core Dump</td>
+<td align="left">Critical</td>
+<td align="left">State Backends, Checkpointing</td>
+<td align="left">Aljoscha Krettek</td>
+<td align="left">Aljoscha Krettek</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3960">FLINK-3960</a></td>
+<td align="left">Disable, fix and re-enable EventTimeWindowCheckpointingITCase</td>
+<td align="left">Major</td>
+<td align="left">Streaming, Tests</td>
+<td align="left">Maximilian Michels</td>
+<td align="left">Aljoscha Krettek</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4011">FLINK-4011</a></td>
+<td align="left">Unable to access completed job in web frontend</td>
+<td align="left">Critical</td>
+<td align="left">Webfrontend</td>
+<td align="left">Robert Metzger</td>
+<td align="left">Robert Metzger</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4000">FLINK-4000</a></td>
+<td align="left">Exception: Could not restore checkpointed state to operators and functions; during Job Restart (Job restart is triggered due to one of the task manager failure)</td>
+<td align="left">Major</td>
+<td align="left">DataStream API</td>
+<td align="left">Aride Chettali</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3922">FLINK-3922</a></td>
+<td align="left">Infinite recursion on TypeExtractor</td>
+<td align="left">Critical</td>
+<td align="left">Type Serialization System</td>
+<td align="left">Flavio Pompermaier</td>
+<td align="left">Timo Walther</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-2832">FLINK-2832</a></td>
+<td align="left">Failing test: RandomSamplerTest.testReservoirSamplerWithReplacement</td>
+<td align="left">Critical</td>
+<td align="left">Tests</td>
+<td align="left">Vasia Kalavri</td>
+<td align="left">Till Rohrmann</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4031">FLINK-4031</a></td>
+<td align="left">Nightly Jenkins job doesn't deploy sources</td>
+<td align="left">Minor</td>
+<td align="left">Build System</td>
+<td align="left">Maximilian Michels</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3471">FLINK-3471</a></td>
+<td align="left">JDBCInputFormat cannot handle null fields of certain types</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ken Geis</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3530">FLINK-3530</a></td>
+<td align="left">Kafka09ITCase.testBigRecordJob fails on Travis</td>
+<td align="left">Major</td>
+<td align="left">Kafka Connector</td>
+<td align="left">Till Rohrmann</td>
+<td align="left">Robert Metzger</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4052">FLINK-4052</a></td>
+<td align="left">Unstable test ConnectionUtilsTest</td>
+<td align="left">Critical</td>
+<td align="left">Tests</td>
+<td align="left">Stephan Ewen</td>
+<td align="left">Stephan Ewen</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4002">FLINK-4002</a></td>
+<td align="left">[py] Improve testing infraestructure</td>
+<td align="left">Minor</td>
+<td align="left">Python API</td>
+<td align="left">Omar Alvarez</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3971">FLINK-3971</a></td>
+<td align="left">Aggregates handle null values incorrectly.</td>
+<td align="left">Critical</td>
+<td align="left">Table API &amp; SQL</td>
+<td align="left">Fabian Hueske</td>
+<td align="left">GaoLun</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4030">FLINK-4030</a></td>
+<td align="left">ScalaShellITCase gets stuck</td>
+<td align="left">Minor</td>
+<td align="left">Tests</td>
+<td align="left">Maximilian Michels</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4028">FLINK-4028</a></td>
+<td align="left">AbstractAlignedProcessingTimeWindowOperator creates wrong TimeWindow</td>
+<td align="left">Blocker</td>
+<td align="left">Windowing Operators</td>
+<td align="left">Aljoscha Krettek</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3908">FLINK-3908</a></td>
+<td align="left">FieldParsers error state is not reset correctly to NONE</td>
+<td align="left">Major</td>
+<td align="left">Core</td>
+<td align="left">Flavio Pompermaier</td>
+<td align="left">Flavio Pompermaier</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4024">FLINK-4024</a></td>
+<td align="left">FileSourceFunction not adjusted to new IF lifecycle</td>
+<td align="left">Critical</td>
+<td align="left">Streaming</td>
+<td align="left">Chesnay Schepler</td>
+<td align="left">Kostas Kloudas</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3933">FLINK-3933</a></td>
+<td align="left">Add an auto-type-extracting DeserializationSchema</td>
+<td align="left">Major</td>
+<td align="left">Streaming, Streaming Connectors</td>
+<td align="left">Stephan Ewen</td>
+<td align="left">Stephan Ewen</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4077">FLINK-4077</a></td>
+<td align="left">Register Pojo DataSet/DataStream as Table requires alias expression.</td>
+<td align="left">Major</td>
+<td align="left">Table API &amp; SQL</td>
+<td align="left">Fabian Hueske</td>
+<td align="left">Fabian Hueske</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3863">FLINK-3863</a></td>
+<td align="left">Yarn Cluster shutdown may fail if leader changed recently</td>
+<td align="left">Minor</td>
+<td align="left">YARN Client</td>
+<td align="left">Maximilian Michels</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3890">FLINK-3890</a></td>
+<td align="left">Deprecate streaming mode flag from Yarn CLI</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Maximilian Michels</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4056">FLINK-4056</a></td>
+<td align="left">SavepointITCase.testCheckpointHasBeenRemoved failed on Travis</td>
+<td align="left">Critical</td>
+<td align="left">Tests</td>
+<td align="left">Till Rohrmann</td>
+<td align="left">Ufuk Celebi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4009">FLINK-4009</a></td>
+<td align="left">Scala Shell fails to find library for inclusion in test</td>
+<td align="left">Major</td>
+<td align="left">Scala Shell, Tests</td>
+<td align="left">Maximilian Michels</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3977">FLINK-3977</a></td>
+<td align="left">Subclasses of InternalWindowFunction must support OutputTypeConfigurable</td>
+<td align="left">Critical</td>
+<td align="left">Streaming</td>
+<td align="left">Aljoscha Krettek</td>
+<td align="left">Fabian Hueske</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4083">FLINK-4083</a></td>
+<td align="left">Use ClosureCleaner for Join where and equalTo</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Stefan Richter</td>
+<td align="left">Stefan Richter</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4078">FLINK-4078</a></td>
+<td align="left">Use ClosureCleaner for CoGroup where</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ufuk Celebi</td>
+<td align="left">Stefan Richter</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4089">FLINK-4089</a></td>
+<td align="left">Ineffective null check in YarnClusterClient#getApplicationStatus()</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ted Yu</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4090">FLINK-4090</a></td>
+<td align="left">Close of OutputStream should be in finally clause in FlinkYarnSessionCli#writeYarnProperties()</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Ted Yu</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3380">FLINK-3380</a></td>
+<td align="left">Unstable Test: JobSubmissionFailsITCase</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Kostas Kloudas</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3105">FLINK-3105</a></td>
+<td align="left">Submission in per job YARN cluster mode reuses properties file of long-lived session</td>
+<td align="left">Major</td>
+<td align="left">YARN Client</td>
+<td align="left">Ufuk Celebi</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4012">FLINK-4012</a></td>
+<td align="left">Docs: Links to &quot;Iterations&quot; are broken (404)</td>
+<td align="left">Trivial</td>
+<td align="left">Documentation</td>
+<td align="left">Bernd Louis</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3973">FLINK-3973</a></td>
+<td align="left">Table API documentation is &quot;hidden&quot; in Programming Guide menu list</td>
+<td align="left">Major</td>
+<td align="left">Documentation</td>
+<td align="left">Fabian Hueske</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4079">FLINK-4079</a></td>
+<td align="left">YARN properties file used for per-job cluster</td>
+<td align="left">Major</td>
+<td align="left">Client</td>
+<td align="left">Ufuk Celebi</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4038">FLINK-4038</a></td>
+<td align="left">Impossible to set more than 1 JVM argument in env.java.opts</td>
+<td align="left">Critical</td>
+<td align="left">Startup Shell Scripts</td>
+<td align="left">Gyula Fora</td>
+<td align="left">Ufuk Celebi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4076">FLINK-4076</a></td>
+<td align="left">BoltWrapper#dispose() should call AbstractStreamOperator#dispose()</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Ted Yu</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4097">FLINK-4097</a></td>
+<td align="left">Cassandra Sink throws NPE on closing if server is not available</td>
+<td align="left">Major</td>
+<td align="left">Streaming Connectors</td>
+<td align="left">Robert Metzger</td>
+<td align="left">Andrea Sella</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4040">FLINK-4040</a></td>
+<td align="left">Same env.java.opts is applied for TM , JM and ZK</td>
+<td align="left">Critical</td>
+<td align="left">Startup Shell Scripts, YARN Client</td>
+<td align="left">Gyula Fora</td>
+<td align="left">Ufuk Celebi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4046">FLINK-4046</a></td>
+<td align="left">Failing a restarting job can get stuck in JobStatus.FAILING</td>
+<td align="left">Major</td>
+<td align="left">Distributed Coordination</td>
+<td align="left">Till Rohrmann</td>
+<td align="left">Till Rohrmann</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3864">FLINK-3864</a></td>
+<td align="left">Yarn tests don't check for prohibited strings in log output</td>
+<td align="left">Major</td>
+<td align="left">Tests, YARN Client</td>
+<td align="left">Maximilian Michels</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3757">FLINK-3757</a></td>
+<td align="left">addAccumulator does not throw Exception on duplicate accumulator name</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Konstantin Knauf</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3838">FLINK-3838</a></td>
+<td align="left">CLI parameter parser is munging application params</td>
+<td align="left">Minor</td>
+<td align="left">Client</td>
+<td align="left">Ken Krugler</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4041">FLINK-4041</a></td>
+<td align="left">Failure while asking ResourceManager for RegisterResource</td>
+<td align="left">Major</td>
+<td align="left">ResourceManager</td>
+<td align="left">Robert Metzger</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3974">FLINK-3974</a></td>
+<td align="left">enableObjectReuse fails when an operator chains to multiple downstream operators</td>
+<td align="left">Major</td>
+<td align="left">DataStream API</td>
+<td align="left">B Wyatt</td>
+<td align="left">Aljoscha Krettek</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4113">FLINK-4113</a></td>
+<td align="left">Always copy first value in ChainedAllReduceDriver</td>
+<td align="left">Critical</td>
+<td align="left">Local Runtime</td>
+<td align="left">Greg Hogan</td>
+<td align="left">Greg Hogan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4099">FLINK-4099</a></td>
+<td align="left">CliFrontendYarnAddressConfigurationTest fails</td>
+<td align="left">Major</td>
+<td align="left">YARN Client</td>
+<td align="left">Ufuk Celebi</td>
+<td align="left">Robert Metzger</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4132">FLINK-4132</a></td>
+<td align="left">Fix boxed comparison in CommunityDetection algorithm</td>
+<td align="left">Minor</td>
+<td align="left">Gelly</td>
+<td align="left">Greg Hogan</td>
+<td align="left">Greg Hogan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4122">FLINK-4122</a></td>
+<td align="left">Cassandra jar contains 2 guava versions</td>
+<td align="left">Blocker</td>
+<td align="left">Streaming Connectors</td>
+<td align="left">Chesnay Schepler</td>
+<td align="left">Chesnay Schepler</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4139">FLINK-4139</a></td>
+<td align="left">Yarn: Adjust parallelism and task slots correctly</td>
+<td align="left">Minor</td>
+<td align="left">Client, YARN Client</td>
+<td align="left">Maximilian Michels</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3675">FLINK-3675</a></td>
+<td align="left">YARN ship folder incosistent behavior</td>
+<td align="left">Critical</td>
+<td align="left">YARN Client</td>
+<td align="left">Stefano Baghino</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4141">FLINK-4141</a></td>
+<td align="left">TaskManager failures not always recover when killed during an ApplicationMaster failure in HA mode on Yarn</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Stefan Richter</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4144">FLINK-4144</a></td>
+<td align="left">Yarn properties file: replace hostname/port with Yarn application id</td>
+<td align="left">Major</td>
+<td align="left">YARN Client</td>
+<td align="left">Maximilian Michels</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4027">FLINK-4027</a></td>
+<td align="left">FlinkKafkaProducer09 sink can lose messages</td>
+<td align="left">Critical</td>
+<td align="left">Kafka Connector</td>
+<td align="left">Elias Levy</td>
+<td align="left">Robert Metzger</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4134">FLINK-4134</a></td>
+<td align="left">EventTimeSessionWindows trigger for empty windows when dropping late events</td>
+<td align="left">Major</td>
+<td align="left">DataStream API</td>
+<td align="left">Stefan Richter</td>
+<td align="left">Stefan Richter</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4145">FLINK-4145</a></td>
+<td align="left">JmxReporterTest fails due to port conflicts</td>
+<td align="left">Major</td>
+<td align="left">Local Runtime, Metrics</td>
+<td align="left">Ufuk Celebi</td>
+<td align="left">Chesnay Schepler</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4115">FLINK-4115</a></td>
+<td align="left">FsStateBackend filesystem verification can cause classpath exceptions</td>
+<td align="left">Blocker</td>
+<td align="left">Local Runtime</td>
+<td align="left">Josh Forman-Gornall</td>
+<td align="left">Josh Forman-Gornall</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3995">FLINK-3995</a></td>
+<td align="left">Properly Structure Test Utils and Dependencies</td>
+<td align="left">Major</td>
+<td align="left">Build System</td>
+<td align="left">Stephan Ewen</td>
+<td align="left">Stephan Ewen</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4133">FLINK-4133</a></td>
+<td align="left">Reflect streaming file source changes in documentation</td>
+<td align="left">Major</td>
+<td align="left">DataStream API, Documentation</td>
+<td align="left">Robert Metzger</td>
+<td align="left">Kostas Kloudas</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4146">FLINK-4146</a></td>
+<td align="left">CliFrontendYarnAddressConfigurationTest picks wrong IP address on Travis</td>
+<td align="left">Major</td>
+<td align="left">YARN Client</td>
+<td align="left">Ufuk Celebi</td>
+<td align="left">Robert Metzger</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4158">FLINK-4158</a></td>
+<td align="left">Scala QuickStart StreamingJob fails to compile</td>
+<td align="left">Major</td>
+<td align="left">Quickstarts</td>
+<td align="left">Chesnay Schepler</td>
+<td align="left">Chesnay Schepler</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4160">FLINK-4160</a></td>
+<td align="left">YARN session doesn't show input validation errors</td>
+<td align="left">Critical</td>
+<td align="left">YARN Client</td>
+<td align="left">Robert Metzger</td>
+<td align="left">Chesnay Schepler</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4168">FLINK-4168</a></td>
+<td align="left">ForkableFlinkMiniCluster not available in Kinesis connector tests</td>
+<td align="left">Major</td>
+<td align="left">Build System, Kinesis Connector, Streaming Connectors</td>
+<td align="left">Tzu-Li (Gordon) Tai</td>
+<td align="left">Tzu-Li (Gordon) Tai</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4176">FLINK-4176</a></td>
+<td align="left">Travis build fails at flink-connector-kinesis for JDK: openjdk7</td>
+<td align="left">Critical</td>
+<td align="left">Build System, Kinesis Connector, Streaming Connectors</td>
+<td align="left">Tzu-Li (Gordon) Tai</td>
+<td align="left">Tzu-Li (Gordon) Tai</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4171">FLINK-4171</a></td>
+<td align="left">StatsD does not accept metrics whose name contains &quot;:&quot;</td>
+<td align="left">Major</td>
+<td align="left">Metrics</td>
+<td align="left">Till Rohrmann</td>
+<td align="left">Till Rohrmann</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4172">FLINK-4172</a></td>
+<td align="left">Don't proxy a ProxiedObject</td>
+<td align="left">Major</td>
+<td align="left">Gelly</td>
+<td align="left">Greg Hogan</td>
+<td align="left">Greg Hogan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4157">FLINK-4157</a></td>
+<td align="left">FlinkKafkaMetrics cause TaskManager shutdown during cancellation</td>
+<td align="left">Critical</td>
+<td align="left">Kafka Connector</td>
+<td align="left">Robert Metzger</td>
+<td align="left">Robert Metzger</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4154">FLINK-4154</a></td>
+<td align="left">Correction of murmur hash breaks backwards compatibility</td>
+<td align="left">Blocker</td>
+<td align="left">Distributed Coordination</td>
+<td align="left">Till Rohrmann</td>
+<td align="left">Greg Hogan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4111">FLINK-4111</a></td>
+<td align="left">Flink Table &amp; SQL doesn't work in very simple example</td>
+<td align="left">Major</td>
+<td align="left">Table API &amp; SQL</td>
+<td align="left">Jark Wu</td>
+<td align="left">Timo Walther</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4123">FLINK-4123</a></td>
+<td align="left">CassandraWriteAheadSink can hang on cassandra failure</td>
+<td align="left">Blocker</td>
+<td align="left">Streaming Connectors</td>
+<td align="left">Chesnay Schepler</td>
+<td align="left">Chesnay Schepler</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4159">FLINK-4159</a></td>
+<td align="left">Quickstart poms exclude unused dependencies</td>
+<td align="left">Minor</td>
+<td align="left">Quickstarts</td>
+<td align="left">Chesnay Schepler</td>
+<td align="left">Chesnay Schepler</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4167">FLINK-4167</a></td>
+<td align="left">TaskMetricGroup does not close IOMetricGroup</td>
+<td align="left">Major</td>
+<td align="left">Metrics</td>
+<td align="left">Till Rohrmann</td>
+<td align="left">Till Rohrmann</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4216">FLINK-4216</a></td>
+<td align="left">WordWithCount example with Java has wrong generics type</td>
+<td align="left">Trivial</td>
+<td align="left">Documentation</td>
+<td align="left">Serhiy Boychenko</td>
+<td align="left">Matthias J. Sax</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4214">FLINK-4214</a></td>
+<td align="left">JobExceptionsHandler will return all exceptions</td>
+<td align="left">Minor</td>
+<td align="left">Webfrontend</td>
+<td align="left">Sumit Chawla</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3630">FLINK-3630</a></td>
+<td align="left">Little mistake in documentation</td>
+<td align="left">Minor</td>
+<td align="left">DataSet API, Documentation</td>
+<td align="left">Riccardo Diomedi</td>
+<td align="left">Greg Hogan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4053">FLINK-4053</a></td>
+<td align="left">Return value from Connection should be checked against null</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Ted Yu</td>
+<td align="left">Ivan Mushketyk</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4142">FLINK-4142</a></td>
+<td align="left">Recovery problem in HA on Hadoop Yarn 2.4.1</td>
+<td align="left">Major</td>
+<td align="left">YARN Client</td>
+<td align="left">Stefan Richter</td>
+<td align="left">Robert Metzger</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4184">FLINK-4184</a></td>
+<td align="left">Ganglia and GraphiteReporter report metric names with invalid characters</td>
+<td align="left">Major</td>
+<td align="left">Metrics</td>
+<td align="left">Till Rohrmann</td>
+<td align="left">Till Rohrmann</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3466">FLINK-3466</a></td>
+<td align="left">Job might get stuck in restoreState() from HDFS due to interrupt</td>
+<td align="left">Blocker</td>
+<td align="left">State Backends, Checkpointing</td>
+<td align="left">Robert Metzger</td>
+<td align="left">Stephan Ewen</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4196">FLINK-4196</a></td>
+<td align="left">Remove &quot;recoveryTimestamp&quot;</td>
+<td align="left">Major</td>
+<td align="left">State Backends, Checkpointing</td>
+<td align="left">Stephan Ewen</td>
+<td align="left">Stephan Ewen</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4149">FLINK-4149</a></td>
+<td align="left">Fix Serialization of NFA in AbstractKeyedCEPPatternOperator</td>
+<td align="left">Blocker</td>
+<td align="left">CEP</td>
+<td align="left">Aljoscha Krettek</td>
+<td align="left">Aljoscha Krettek</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3713">FLINK-3713</a></td>
+<td align="left">DisposeSavepoint message uses system classloader to discard state</td>
+<td align="left">Major</td>
+<td align="left">JobManager</td>
+<td align="left">Robert Metzger</td>
+<td align="left">Ufuk Celebi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4232">FLINK-4232</a></td>
+<td align="left">Flink executable does not return correct pid</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">David Moravek</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4130">FLINK-4130</a></td>
+<td align="left">CallGenerator could generate illegal code when taking no operands</td>
+<td align="left">Minor</td>
+<td align="left">Table API &amp; SQL</td>
+<td align="left">Cody</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3792">FLINK-3792</a></td>
+<td align="left">RowTypeInfo equality should not depend on field names</td>
+<td align="left">Major</td>
+<td align="left">Table API &amp; SQL</td>
+<td align="left">Vasia Kalavri</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4199">FLINK-4199</a></td>
+<td align="left">Misleading messages by CLI upon job submission</td>
+<td align="left">Major</td>
+<td align="left">Client</td>
+<td align="left">Kostas Kloudas</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4166">FLINK-4166</a></td>
+<td align="left">Generate automatic different namespaces in Zookeeper for Flink applications</td>
+<td align="left">Major</td>
+<td align="left">Distributed Coordination</td>
+<td align="left">Stefan Richter</td>
+<td align="left">Stefan Richter</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3729">FLINK-3729</a></td>
+<td align="left">Several SQL tests fail on Windows OS</td>
+<td align="left">Major</td>
+<td align="left">Table API &amp; SQL</td>
+<td align="left">Chesnay Schepler</td>
+<td align="left">Chesnay Schepler</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3956">FLINK-3956</a></td>
+<td align="left">Make FileInputFormats independent from Configuration</td>
+<td align="left">Major</td>
+<td align="left">Streaming</td>
+<td align="left">Kostas Kloudas</td>
+<td align="left">Kostas Kloudas</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4235">FLINK-4235</a></td>
+<td align="left">ClassLoaderITCase.testDisposeSavepointWithCustomKvState timed out on Travis</td>
+<td align="left">Major</td>
+<td align="left">Tests</td>
+<td align="left">Till Rohrmann</td>
+<td align="left">Ufuk Celebi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4238">FLINK-4238</a></td>
+<td align="left">Only allow/require query for Tuple Stream in CassandraSink</td>
+<td align="left">Major</td>
+<td align="left">Cassandra Connector</td>
+<td align="left">Aljoscha Krettek</td>
+<td align="left">Aljoscha Krettek</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-2392">FLINK-2392</a></td>
+<td align="left">Instable test in flink-yarn-tests</td>
+<td align="left">Critical</td>
+<td align="left">Tests</td>
+<td align="left">Matthias J. Sax</td>
+<td align="left">Robert Metzger</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3962">FLINK-3962</a></td>
+<td align="left">JMXReporter doesn't properly register/deregister metrics</td>
+<td align="left">Major</td>
+<td align="left">TaskManager</td>
+<td align="left">Maximilian Michels</td>
+<td align="left">Stephan Ewen</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4201">FLINK-4201</a></td>
+<td align="left">Checkpoints for jobs in non-terminal state (e.g. suspended) get deleted</td>
+<td align="left">Blocker</td>
+<td align="left">State Backends, Checkpointing</td>
+<td align="left">Stefan Richter</td>
+<td align="left">Ufuk Celebi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3725">FLINK-3725</a></td>
+<td align="left">Exception in thread &quot;main&quot; scala.MatchError: ... (of class scala.Tuple4)</td>
+<td align="left">Major</td>
+<td align="left">JobManager</td>
+<td align="left">Maxim Dobryakov</td>
+<td align="left">Stephan Ewen</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3411">FLINK-3411</a></td>
+<td align="left">Failed recovery can lead to removal of HA state</td>
+<td align="left">Critical</td>
+<td align="left">Distributed Coordination</td>
+<td align="left">Ufuk Celebi</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4150">FLINK-4150</a></td>
+<td align="left">Problem with Blobstore in Yarn HA setting on recovery after cluster shutdown</td>
+<td align="left">Blocker</td>
+<td align="left">Job-Submission</td>
+<td align="left">Stefan Richter</td>
+<td align="left">Ufuk Celebi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4152">FLINK-4152</a></td>
+<td align="left">TaskManager registration exponential backoff doesn't work</td>
+<td align="left">Major</td>
+<td align="left">Distributed Coordination, TaskManager, YARN Client</td>
+<td align="left">Robert Metzger</td>
+<td align="left">Till Rohrmann</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4156">FLINK-4156</a></td>
+<td align="left">Job with -m yarn-cluster registers TaskManagers to another running Yarn session</td>
+<td align="left">Major</td>
+<td align="left">Distributed Coordination, YARN Client</td>
+<td align="left">Stefan Richter</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4258">FLINK-4258</a></td>
+<td align="left">Potential null pointer dereference in SavepointCoordinator#onFullyAcknowledgedCheckpoint</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ted Yu</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4277">FLINK-4277</a></td>
+<td align="left">TaskManagerConfigurationTest fails</td>
+<td align="left">Major</td>
+<td align="left">Tests</td>
+<td align="left">Chesnay Schepler</td>
+<td align="left">Chesnay Schepler</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4284">FLINK-4284</a></td>
+<td align="left">DataSet/CEP link to non-existant &quot;Linking with Flink&quot; section</td>
+<td align="left">Major</td>
+<td align="left">Documentation</td>
+<td align="left">Chesnay Schepler</td>
+<td align="left">Chesnay Schepler</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4296">FLINK-4296</a></td>
+<td align="left">Scheduler accepts more tasks than it has task slots available</td>
+<td align="left">Critical</td>
+<td align="left">JobManager, TaskManager</td>
+<td align="left">Maximilian Michels</td>
+<td align="left">Till Rohrmann</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4307">FLINK-4307</a></td>
+<td align="left">Broken user-facing API for ListState</td>
+<td align="left">Blocker</td>
+<td align="left">Streaming</td>
+<td align="left">Stephan Ewen</td>
+<td align="left">Stephan Ewen</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3796">FLINK-3796</a></td>
+<td align="left">FileSourceFunction doesn't respect InputFormat's life cycle methods</td>
+<td align="left">Major</td>
+<td align="left">Streaming</td>
+<td align="left">Maximilian Michels</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tests">TESTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3517">FLINK-3517</a></td>
+<td align="left">Number of job and task managers not checked in scripts</td>
+<td align="left">Minor</td>
+<td align="left">Startup Shell Scripts</td>
+<td align="left">Ufuk Celebi</td>
+<td align="left">Ufuk Celebi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3782">FLINK-3782</a></td>
+<td align="left">ByteArrayOutputStream and ObjectOutputStream should close</td>
+<td align="left">Minor</td>
+<td align="left">Java API</td>
+<td align="left">Chenguang He</td>
+<td align="left">Rekha Joshi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4230">FLINK-4230</a></td>
+<td align="left">Session Windowing IT Case</td>
+<td align="left">Major</td>
+<td align="left">DataStream API, Local Runtime</td>
+<td align="left">Stefan Richter</td>
+<td align="left">Stefan Richter</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sub-tasks">SUB-TASKS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3550">FLINK-3550</a></td>
+<td align="left">Rework stream join example</td>
+<td align="left">Major</td>
+<td align="left">Examples</td>
+<td align="left">Stephan Ewen</td>
+<td align="left">Stephan Ewen</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3552">FLINK-3552</a></td>
+<td align="left">Change socket WordCount to be properly windowed</td>
+<td align="left">Major</td>
+<td align="left">Examples</td>
+<td align="left">Stephan Ewen</td>
+<td align="left">Stephan Ewen</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3489">FLINK-3489</a></td>
+<td align="left">Refactor Table API before merging into master</td>
+<td align="left">Major</td>
+<td align="left">Table API &amp; SQL</td>
+<td align="left">Timo Walther</td>
+<td align="left">Vasia Kalavri</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3612">FLINK-3612</a></td>
+<td align="left">Fix/adjust Table API examples</td>
+<td align="left">Major</td>
+<td align="left">Table API &amp; SQL</td>
+<td align="left">Vasia Kalavri</td>
+<td align="left">Vasia Kalavri</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3327">FLINK-3327</a></td>
+<td align="left">Attach the ExecutionConfig to the JobGraph and make it accessible to the AbstractInvocable.</td>
+<td align="left">Major</td>
+<td align="left">TaskManager</td>
+<td align="left">Kostas Kloudas</td>
+<td align="left">Kostas Kloudas</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3748">FLINK-3748</a></td>
+<td align="left">Add CASE function to Table API</td>
+<td align="left">Major</td>
+<td align="left">Table API &amp; SQL</td>
+<td align="left">Timo Walther</td>
+<td align="left">Timo Walther</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3230">FLINK-3230</a></td>
+<td align="left">Kinesis streaming producer</td>
+<td align="left">Major</td>
+<td align="left">Streaming Connectors</td>
+<td align="left">Tzu-Li (Gordon) Tai</td>
+<td align="left">Robert Metzger</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3756">FLINK-3756</a></td>
+<td align="left">Introduce state hierarchy in CheckpointCoordinator</td>
+<td align="left">Major</td>
+<td align="left">JobManager</td>
+<td align="left">Till Rohrmann</td>
+<td align="left">Till Rohrmann</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3837">FLINK-3837</a></td>
+<td align="left">Create FLOOR/CEIL function</td>
+<td align="left">Minor</td>
+<td align="left">Table API &amp; SQL</td>
+<td align="left">Timo Walther</td>
+<td align="left">Timo Walther</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3229">FLINK-3229</a></td>
+<td align="left">Kinesis streaming consumer with integration of Flink's checkpointing mechanics</td>
+<td align="left">Major</td>
+<td align="left">Streaming Connectors</td>
+<td align="left">Tzu-Li (Gordon) Tai</td>
+<td align="left">Tzu-Li (Gordon) Tai</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3141">FLINK-3141</a></td>
+<td align="left">Design of NULL values handling in operation</td>
+<td align="left">Major</td>
+<td align="left">Table API &amp; SQL</td>
+<td align="left">Chengxiang Li</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-1502">FLINK-1502</a></td>
+<td align="left">Expose metrics to graphite, ganglia and JMX.</td>
+<td align="left">Minor</td>
+<td align="left">JobManager, TaskManager</td>
+<td align="left">Robert Metzger</td>
+<td align="left">Chesnay Schepler</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3586">FLINK-3586</a></td>
+<td align="left">Risk of data overflow while use sum/count to calculate AVG value</td>
+<td align="left">Minor</td>
+<td align="left">Table API &amp; SQL</td>
+<td align="left">Chengxiang Li</td>
+<td align="left">Fabian Hueske</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3129">FLINK-3129</a></td>
+<td align="left">Add tooling to ensure interface stability</td>
+<td align="left">Major</td>
+<td align="left">Build System</td>
+<td align="left">Robert Metzger</td>
+<td align="left">Robert Metzger</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3923">FLINK-3923</a></td>
+<td align="left">Unify configuration conventions of the Kinesis producer to the same as the consumer</td>
+<td align="left">Major</td>
+<td align="left">Kinesis Connector, Streaming Connectors</td>
+<td align="left">Robert Metzger</td>
+<td align="left">Abdullah Ozturk</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3949">FLINK-3949</a></td>
+<td align="left">Collect Metrics in Runtime Operators</td>
+<td align="left">Major</td>
+<td align="left">Local Runtime</td>
+<td align="left">Stephan Ewen</td>
+<td align="left">Chesnay Schepler</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3951">FLINK-3951</a></td>
+<td align="left">Add Histogram Metric Type</td>
+<td align="left">Major</td>
+<td align="left">Core</td>
+<td align="left">Stephan Ewen</td>
+<td align="left">Till Rohrmann</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4080">FLINK-4080</a></td>
+<td align="left">Kinesis consumer not exactly-once if stopped in the middle of processing aggregated records</td>
+<td align="left">Critical</td>
+<td align="left">Kinesis Connector, Streaming Connectors</td>
+<td align="left">Tzu-Li (Gordon) Tai</td>
+<td align="left">Tzu-Li (Gordon) Tai</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4033">FLINK-4033</a></td>
+<td align="left">Missing Scala example snippets for the Kinesis Connector documentation</td>
+<td align="left">Minor</td>
+<td align="left">Documentation, Kinesis Connector, Streaming Connectors</td>
+<td align="left">Tzu-Li (Gordon) Tai</td>
+<td align="left">Tzu-Li (Gordon) Tai</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4085">FLINK-4085</a></td>
+<td align="left">Set Kinesis Consumer Agent to Flink</td>
+<td align="left">Major</td>
+<td align="left">Kinesis Connector, Streaming Connectors</td>
+<td align="left">Robert Metzger</td>
+<td align="left">Robert Metzger</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4062">FLINK-4062</a></td>
+<td align="left">Update Windowing Documentation</td>
+<td align="left">Major</td>
+<td align="left">Documentation</td>
+<td align="left">Aljoscha Krettek</td>
+<td align="left">Aljoscha Krettek</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-1550">FLINK-1550</a></td>
+<td align="left">Show JVM Metrics for JobManager</td>
+<td align="left">Major</td>
+<td align="left">JobManager, Metrics</td>
+<td align="left">Robert Metzger</td>
+<td align="left">Chesnay Schepler</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4057">FLINK-4057</a></td>
+<td align="left">Expose JobManager Metrics</td>
+<td align="left">Major</td>
+<td align="left">JobManager, Metrics</td>
+<td align="left">Chesnay Schepler</td>
+<td align="left">Chesnay Schepler</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3231">FLINK-3231</a></td>
+<td align="left">Handle Kinesis-side resharding in Kinesis streaming consumer</td>
+<td align="left">Major</td>
+<td align="left">Kinesis Connector, Streaming Connectors</td>
+<td align="left">Tzu-Li (Gordon) Tai</td>
+<td align="left">Tzu-Li (Gordon) Tai</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4020">FLINK-4020</a></td>
+<td align="left">Remove shard list querying from Kinesis consumer constructor</td>
+<td align="left">Major</td>
+<td align="left">Kinesis Connector, Streaming Connectors</td>
+<td align="left">Tzu-Li (Gordon) Tai</td>
+<td align="left">Tzu-Li (Gordon) Tai</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4019">FLINK-4019</a></td>
+<td align="left">Expose approximateArrivalTimestamp through the KinesisDeserializationSchema interface</td>
+<td align="left">Major</td>
+<td align="left">Streaming Connectors</td>
+<td align="left">Tzu-Li (Gordon) Tai</td>
+<td align="left">Tzu-Li (Gordon) Tai</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4191">FLINK-4191</a></td>
+<td align="left">Expose shard information in KinesisDeserializationSchema</td>
+<td align="left">Major</td>
+<td align="left">Kinesis Connector, Streaming Connectors</td>
+<td align="left">Robert Metzger</td>
+<td align="left">Robert Metzger</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4018">FLINK-4018</a></td>
+<td align="left">Configurable idle time between getRecords requests to Kinesis shards</td>
+<td align="left">Major</td>
+<td align="left">Kinesis Connector, Streaming Connectors</td>
+<td align="left">Tzu-Li (Gordon) Tai</td>
+<td align="left">Tzu-Li (Gordon) Tai</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4239">FLINK-4239</a></td>
+<td align="left">Set Default Allowed Lateness to Zero and Make Triggers Non-Purging</td>
+<td align="left">Major</td>
+<td align="left">Streaming</td>
+<td align="left">Aljoscha Krettek</td>
+<td align="left">Aljoscha Krettek</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3714">FLINK-3714</a></td>
+<td align="left">Add Support for &quot;Allowed Lateness&quot;</td>
+<td align="left">Major</td>
+<td align="left">Streaming</td>
+<td align="left">Aljoscha Krettek</td>
+<td align="left">Kostas Kloudas</td>
+</tr>
+</tbody>
+</table>
+<h3 id="other">OTHER:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3609">FLINK-3609</a></td>
+<td align="left">Revisit selection of Calcite rules</td>
+<td align="left">Major</td>
+<td align="left">Table API &amp; SQL</td>
+<td align="left">Fabian Hueske</td>
+<td align="left">Fabian Hueske</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3847">FLINK-3847</a></td>
+<td align="left">Reorganize package structure of flink-table</td>
+<td align="left">Minor</td>
+<td align="left">Table API &amp; SQL</td>
+<td align="left">Fabian Hueske</td>
+<td align="left">Fabian Hueske</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3852">FLINK-3852</a></td>
+<td align="left">Use a StreamExecutionEnvironment in the quickstart job skeleton</td>
+<td align="left">Major</td>
+<td align="left">Quickstarts</td>
+<td align="left">Robert Metzger</td>
+<td align="left">Mark Reddy</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3139">FLINK-3139</a></td>
+<td align="left">NULL values handling in Table API</td>
+<td align="left">Major</td>
+<td align="left">Table API &amp; SQL</td>
+<td align="left">Chengxiang Li</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>

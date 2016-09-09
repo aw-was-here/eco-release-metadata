@@ -1,5 +1,13 @@
 #!/usr/bin/env bash4
 
+function print_and_run
+{
+  echo "${*}"
+  # run the actual command
+  "${@}"
+}
+
+
 ## @description  Large display for the user console
 ## @audience     public
 ## @stability    stable
@@ -34,7 +42,8 @@ function common_rdm
 
   big_console_header "Apache ${title}"
 
-  "${RDM}" --project "${cap}" --outputdir "${cap}" \
+  print_and_run \
+	"${RDM}" --project "${cap}" --outputdir "${cap}" \
           --projecttitle "Apache ${title}" \
           --version "${v1}" --version "${v2}" \
           --range --index --license
@@ -53,7 +62,7 @@ common_rdm yetus 0.1.0 1.0.0
 
 common_rdm bigtop 1.0.1 2.0.0 BigTop
 
-common_rdm falcon 0.0 1.0
+common_rdm falcon 0.10 1.0
 
 common_rdm flink 1.0.0 2.0.0
 
@@ -79,19 +88,19 @@ common_rdm spark 1.4.2 2.0.0
 
 common_rdm tez 0.5.5 1.0.0
 
-
-
 big_console_header Hadoop
 # Hadoop is a mess.  There are now effectively 4 branches
 # in active development, so this range is huge. :(
-${RDM} --project HADOOP --project HDFS \
+print_and_run \
+	${RDM} --project HADOOP --project HDFS \
         --project YARN --project MAPREDUCE \
         --projecttitle "Apache Hadoop" \
         --version 2.6.4 --version 2.6.10 \
         --license --range \
         --outputdir HADOOP
 
-${RDM} --project HADOOP --project HDFS --project YARN --project MAPREDUCE \
+print_and_run \
+	${RDM} --project HADOOP --project HDFS --project YARN --project MAPREDUCE \
         --projecttitle "Apache Hadoop" \
         --range --version 2.7.3 --version 3.1.0 \
         --index --license \

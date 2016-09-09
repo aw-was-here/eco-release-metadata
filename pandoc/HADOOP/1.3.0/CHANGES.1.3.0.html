@@ -1,0 +1,860 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hadoop-changelog">Apache Hadoop Changelog</h1>
+<h2 id="release-1.3.0---unreleased-as-of-2015-09-04">Release 1.3.0 - Unreleased (as of 2015-09-04)</h2>
+<h3 id="incompatible-changes">INCOMPATIBLE CHANGES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5777">MAPREDUCE-5777</a></td>
+<td align="left">Support utf-8 text with BOM (byte order marker)</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">bc Wong</td>
+<td align="left">zhihai xu</td>
+</tr>
+</tbody>
+</table>
+<h3 id="new-features">NEW FEATURES:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-10614">HADOOP-10614</a></td>
+<td align="left">CBZip2InputStream is not threadsafe</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Xiangrui Meng</td>
+<td align="left">Xiangrui Meng</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9855">HADOOP-9855</a></td>
+<td align="left">Backport HADOOP-6578 to branch-1</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">James Kinley</td>
+<td align="left">James Kinley</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9450">HADOOP-9450</a></td>
+<td align="left">HADOOP_USER_CLASSPATH_FIRST is not honored; CLASSPATH is PREpended instead of APpended</td>
+<td align="left">Major</td>
+<td align="left">scripts</td>
+<td align="left">Mitch Wyle</td>
+<td align="left">Harsh J</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8873">HADOOP-8873</a></td>
+<td align="left">Port HADOOP-8175 (Add mkdir -p flag) to branch-1</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Eli Collins</td>
+<td align="left">Akira AJISAKA</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-7312">HDFS-7312</a></td>
+<td align="left">Update DistCp v1 to optionally not use tmp location (branch-1 only)</td>
+<td align="left">Minor</td>
+<td align="left">tools</td>
+<td align="left">Joseph Prosser</td>
+<td align="left">Joseph Prosser</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-5367">HDFS-5367</a></td>
+<td align="left">Restoring namenode storage locks namenode due to unnecessary fsimage write</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">zhaoyunjiong</td>
+<td align="left">zhaoyunjiong</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-5038">HDFS-5038</a></td>
+<td align="left">Backport several branch-2 APIs to branch-1</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Jing Zhao</td>
+<td align="left">Jing Zhao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-4963">HDFS-4963</a></td>
+<td align="left">Improve multihoming support in namenode</td>
+<td align="left">Major</td>
+<td align="left">namenode</td>
+<td align="left">Arpit Agarwal</td>
+<td align="left">Arpit Agarwal</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-4903">HDFS-4903</a></td>
+<td align="left">Print trash configuration and trash emptier state in namenode log</td>
+<td align="left">Minor</td>
+<td align="left">namenode</td>
+<td align="left">Suresh Srinivas</td>
+<td align="left">Arpit Agarwal</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-4521">HDFS-4521</a></td>
+<td align="left">invalid network topologies should not be cached</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Colin Patrick McCabe</td>
+<td align="left">Colin Patrick McCabe</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-6088">MAPREDUCE-6088</a></td>
+<td align="left">TestTokenCache tests should use their own JobConf instances</td>
+<td align="left">Major</td>
+<td align="left">mrv1, test</td>
+<td align="left">zhihai xu</td>
+<td align="left">zhihai xu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5712">MAPREDUCE-5712</a></td>
+<td align="left">Backport Fair Scheduler pool placement by secondary group</td>
+<td align="left">Major</td>
+<td align="left">scheduler</td>
+<td align="left">Ted Malaska</td>
+<td align="left">Ted Malaska</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5651">MAPREDUCE-5651</a></td>
+<td align="left">Backport Fair Scheduler queue placement policies to branch-1</td>
+<td align="left">Major</td>
+<td align="left">scheduler</td>
+<td align="left">Sandy Ryza</td>
+<td align="left">Ted Malaska</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5609">MAPREDUCE-5609</a></td>
+<td align="left">Add debug log message when sending job end notification</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Robert Kanter</td>
+<td align="left">Robert Kanter</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5457">MAPREDUCE-5457</a></td>
+<td align="left">Add a KeyOnlyTextOutputReader to enable streaming to write out text files without separators</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sandy Ryza</td>
+<td align="left">Sandy Ryza</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5408">MAPREDUCE-5408</a></td>
+<td align="left">CLONE - The logging level of the tasks should be configurable by the job</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Arun C Murthy</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5406">MAPREDUCE-5406</a></td>
+<td align="left">Improve logging around Task Tracker exiting with JVM manager inconsistent state</td>
+<td align="left">Major</td>
+<td align="left">tasktracker</td>
+<td align="left">Chelsey Chang</td>
+<td align="left">Chelsey Chang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5367">MAPREDUCE-5367</a></td>
+<td align="left">Local jobs all use same local working directory</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sandy Ryza</td>
+<td align="left">Sandy Ryza</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3310">MAPREDUCE-3310</a></td>
+<td align="left">Custom grouping comparator cannot be set for Combiners</td>
+<td align="left">Major</td>
+<td align="left">client</td>
+<td align="left">Mathias Herberts</td>
+<td align="left">Alejandro Abdelnur</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2351">MAPREDUCE-2351</a></td>
+<td align="left">mapred.job.tracker.history.completed.location should support an arbitrary filesystem URI</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Tom White</td>
+<td align="left">Tom White</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-11035">HADOOP-11035</a></td>
+<td align="left">distcp on mr1(branch-1) fails with NPE using a short relative source path.</td>
+<td align="left">Major</td>
+<td align="left">tools</td>
+<td align="left">zhihai xu</td>
+<td align="left">zhihai xu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-10562">HADOOP-10562</a></td>
+<td align="left">Namenode exits on exception without printing stack trace in AbstractDelegationTokenSecretManager</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Suresh Srinivas</td>
+<td align="left">Suresh Srinivas</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-10142">HADOOP-10142</a></td>
+<td align="left">Avoid groups lookup for unprivileged users such as &quot;dr.who&quot;</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Vinayakumar B</td>
+<td align="left">Vinayakumar B</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-10090">HADOOP-10090</a></td>
+<td align="left">Jobtracker metrics not updated properly after execution of a mapreduce job</td>
+<td align="left">Major</td>
+<td align="left">metrics</td>
+<td align="left">Ivan Mitic</td>
+<td align="left">Ivan Mitic</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-10009">HADOOP-10009</a></td>
+<td align="left">Backport HADOOP-7808 to branch-1</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Haohui Mai</td>
+<td align="left">Haohui Mai</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9801">HADOOP-9801</a></td>
+<td align="left">Configuration#writeXml uses platform defaulting encoding, which may mishandle multi-byte characters.</td>
+<td align="left">Major</td>
+<td align="left">conf</td>
+<td align="left">Chris Nauroth</td>
+<td align="left">Chris Nauroth</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9768">HADOOP-9768</a></td>
+<td align="left">chown and chgrp reject users and groups with spaces on platforms where spaces are otherwise acceptable</td>
+<td align="left">Major</td>
+<td align="left">fs</td>
+<td align="left">Chris Nauroth</td>
+<td align="left">Chris Nauroth</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9678">HADOOP-9678</a></td>
+<td align="left">TestRPC#testStopsAllThreads intermittently fails on Windows</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ivan Mitic</td>
+<td align="left">Ivan Mitic</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9507">HADOOP-9507</a></td>
+<td align="left">LocalFileSystem rename() is broken in some cases when destination exists</td>
+<td align="left">Minor</td>
+<td align="left">fs</td>
+<td align="left">Mostafa Elhemali</td>
+<td align="left">Chris Nauroth</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9307">HADOOP-9307</a></td>
+<td align="left">BufferedFSInputStream.read returns wrong results after certain seeks</td>
+<td align="left">Major</td>
+<td align="left">fs</td>
+<td align="left">Todd Lipcon</td>
+<td align="left">Todd Lipcon</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7140">HADOOP-7140</a></td>
+<td align="left">IPC Reader threads do not stop when server stops</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Todd Lipcon</td>
+<td align="left">Todd Lipcon</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-7503">HDFS-7503</a></td>
+<td align="left">Namenode restart after large deletions can cause slow processReport (due to logging)</td>
+<td align="left">Major</td>
+<td align="left">namenode</td>
+<td align="left">Arpit Agarwal</td>
+<td align="left">Arpit Agarwal</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-6822">HDFS-6822</a></td>
+<td align="left">In branch-1, Namenode and datanode fails to replace &quot;_HOST&quot; to hostname for hadoop.http.authentication.kerberos.principal</td>
+<td align="left">Major</td>
+<td align="left">security</td>
+<td align="left">Jing Zhao</td>
+<td align="left">Jing Zhao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-6649">HDFS-6649</a></td>
+<td align="left">Documentation for setrep is wrong</td>
+<td align="left">Trivial</td>
+<td align="left">documentation</td>
+<td align="left">Alexander Fahlke</td>
+<td align="left">Akira AJISAKA</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-6141">HDFS-6141</a></td>
+<td align="left">WebHdfsFileSystem#toUrl does not perform character escaping.</td>
+<td align="left">Major</td>
+<td align="left">webhdfs</td>
+<td align="left">Chris Nauroth</td>
+<td align="left">Chris Nauroth</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-5944">HDFS-5944</a></td>
+<td align="left">LeaseManager:findLeaseWithPrefixPath can't handle path like /a/b/ right and cause SecondaryNameNode failed do checkpoint</td>
+<td align="left">Major</td>
+<td align="left">namenode</td>
+<td align="left">zhaoyunjiong</td>
+<td align="left">zhaoyunjiong</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-5685">HDFS-5685</a></td>
+<td align="left">DistCp will fail to copy with -delete switch</td>
+<td align="left">Major</td>
+<td align="left">hdfs-client</td>
+<td align="left">Yongjun Zhang</td>
+<td align="left">Yongjun Zhang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-5516">HDFS-5516</a></td>
+<td align="left">WebHDFS does not require user name when anonymous http requests are disallowed.</td>
+<td align="left">Major</td>
+<td align="left">webhdfs</td>
+<td align="left">Chris Nauroth</td>
+<td align="left">Miodrag Radulovic</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-5245">HDFS-5245</a></td>
+<td align="left">shouldRetry() in WebHDFSFileSystem generates excessive warnings</td>
+<td align="left">Minor</td>
+<td align="left">webhdfs</td>
+<td align="left">Haohui Mai</td>
+<td align="left">Haohui Mai</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-5211">HDFS-5211</a></td>
+<td align="left">Race condition between DistributedFileSystem#close and FileSystem#close can cause return of a closed DistributedFileSystem instance from the FileSystem cache.</td>
+<td align="left">Major</td>
+<td align="left">hdfs-client</td>
+<td align="left">Chris Nauroth</td>
+<td align="left">Chris Nauroth</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-5003">HDFS-5003</a></td>
+<td align="left">TestNNThroughputBenchmark failed caused by existing directories</td>
+<td align="left">Minor</td>
+<td align="left">test</td>
+<td align="left">Xi Fang</td>
+<td align="left">Xi Fang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-4944">HDFS-4944</a></td>
+<td align="left">WebHDFS cannot create a file path containing characters that must be URI-encoded, such as space.</td>
+<td align="left">Major</td>
+<td align="left">webhdfs</td>
+<td align="left">Chris Nauroth</td>
+<td align="left">Chris Nauroth</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-4898">HDFS-4898</a></td>
+<td align="left">BlockPlacementPolicyWithNodeGroup.chooseRemoteRack() fails to properly fallback to local rack</td>
+<td align="left">Minor</td>
+<td align="left">namenode</td>
+<td align="left">Eric Sirianni</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-4794">HDFS-4794</a></td>
+<td align="left">Browsing filesystem via webui throws kerberos exception when NN service RPC is enabled in a secure cluster</td>
+<td align="left">Major</td>
+<td align="left">security</td>
+<td align="left">Benoy Antony</td>
+<td align="left">Benoy Antony</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-4622">HDFS-4622</a></td>
+<td align="left">Remove redundant synchronized from FSNamesystem#rollEditLog in branch-1</td>
+<td align="left">Trivial</td>
+<td align="left">.</td>
+<td align="left">Jing Zhao</td>
+<td align="left">Jing Zhao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-2264">HDFS-2264</a></td>
+<td align="left">NamenodeProtocol has the wrong value for clientPrincipal in KerberosInfo annotation</td>
+<td align="left">Major</td>
+<td align="left">namenode</td>
+<td align="left">Aaron T. Myers</td>
+<td align="left">Aaron T. Myers</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-6198">MAPREDUCE-6198</a></td>
+<td align="left">NPE from JobTracker#resolveAndAddToTopology in MR1 cause initJob and heartbeat failure.</td>
+<td align="left">Major</td>
+<td align="left">mrv1</td>
+<td align="left">zhihai xu</td>
+<td align="left">zhihai xu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-6196">MAPREDUCE-6196</a></td>
+<td align="left">Fix BigDecimal ArithmeticException in PiEstimator</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Ray Chiang</td>
+<td align="left">Ray Chiang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-6170">MAPREDUCE-6170</a></td>
+<td align="left">TestUlimit failure on JDK8</td>
+<td align="left">Major</td>
+<td align="left">contrib/streaming</td>
+<td align="left">bc Wong</td>
+<td align="left">bc Wong</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-6147">MAPREDUCE-6147</a></td>
+<td align="left">Support mapreduce.input.fileinputformat.split.maxsize</td>
+<td align="left">Minor</td>
+<td align="left">mrv1</td>
+<td align="left">zhihai xu</td>
+<td align="left">zhihai xu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-6076">MAPREDUCE-6076</a></td>
+<td align="left">Zero map split input length combine with none zero map split input length may cause MR1 job hung sometimes.</td>
+<td align="left">Major</td>
+<td align="left">mrv1</td>
+<td align="left">zhihai xu</td>
+<td align="left">zhihai xu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-6012">MAPREDUCE-6012</a></td>
+<td align="left">DBInputSplit creates invalid ranges on Oracle</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Julien Serdaru</td>
+<td align="left">Wei Yan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-6009">MAPREDUCE-6009</a></td>
+<td align="left">Map-only job with new-api runs wrong OutputCommitter when cleanup scheduled in a reduce slot</td>
+<td align="left">Blocker</td>
+<td align="left">client, job submission</td>
+<td align="left">Gera Shegalov</td>
+<td align="left">Gera Shegalov</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5979">MAPREDUCE-5979</a></td>
+<td align="left">FairScheduler: zero weight can cause sort failures</td>
+<td align="left">Major</td>
+<td align="left">scheduler</td>
+<td align="left">Anubhav Dhoot</td>
+<td align="left">Anubhav Dhoot</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5968">MAPREDUCE-5968</a></td>
+<td align="left">Work directory is not deleted when downloadCacheObject throws IOException</td>
+<td align="left">Major</td>
+<td align="left">mrv1</td>
+<td align="left">zhihai xu</td>
+<td align="left">zhihai xu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5966">MAPREDUCE-5966</a></td>
+<td align="left">MR1 FairScheduler use of custom weight adjuster is not thread safe for comparisons</td>
+<td align="left">Major</td>
+<td align="left">scheduler</td>
+<td align="left">Anubhav Dhoot</td>
+<td align="left">Anubhav Dhoot</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5877">MAPREDUCE-5877</a></td>
+<td align="left">Inconsistency between JT/TT for tasks taking a long time to launch</td>
+<td align="left">Critical</td>
+<td align="left">jobtracker, tasktracker</td>
+<td align="left">Karthik Kambatla</td>
+<td align="left">Karthik Kambatla</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5822">MAPREDUCE-5822</a></td>
+<td align="left">FairScheduler does not preempt due to fairshare-starvation when fairshare is 1</td>
+<td align="left">Major</td>
+<td align="left">scheduler</td>
+<td align="left">Anubhav Dhoot</td>
+<td align="left">Anubhav Dhoot</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5808">MAPREDUCE-5808</a></td>
+<td align="left">Port output replication factor configurable for terasort to Hadoop 1.x</td>
+<td align="left">Minor</td>
+<td align="left">examples</td>
+<td align="left">Chuan Liu</td>
+<td align="left">Chuan Liu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5710">MAPREDUCE-5710</a></td>
+<td align="left">Backport MAPREDUCE-1305 to branch-1</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Yongjun Zhang</td>
+<td align="left">Yongjun Zhang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5702">MAPREDUCE-5702</a></td>
+<td align="left">TaskLogServlet#printTaskLog has spurious HTML closing tags</td>
+<td align="left">Trivial</td>
+<td align="left">task</td>
+<td align="left">Karthik Kambatla</td>
+<td align="left">Robert Kanter</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5698">MAPREDUCE-5698</a></td>
+<td align="left">Backport MAPREDUCE-1285 to branch-1</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Yongjun Zhang</td>
+<td align="left">Yongjun Zhang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5660">MAPREDUCE-5660</a></td>
+<td align="left">Log info about possible thrashing (when using memory-based scheduling in Capacity Scheduler) is not printed</td>
+<td align="left">Trivial</td>
+<td align="left">capacity-sched, mrv1, tasktracker</td>
+<td align="left">Adam Kawa</td>
+<td align="left">Adam Kawa</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5569">MAPREDUCE-5569</a></td>
+<td align="left">FloatSplitter is not generating correct splits</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Nathan Roberts</td>
+<td align="left">Nathan Roberts</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5556">MAPREDUCE-5556</a></td>
+<td align="left">mapred docs have incorrect classpath</td>
+<td align="left">Trivial</td>
+<td align="left">.</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Harsh J</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5512">MAPREDUCE-5512</a></td>
+<td align="left">TaskTracker hung after failed reconnect to the JobTracker</td>
+<td align="left">Major</td>
+<td align="left">tasktracker</td>
+<td align="left">Ivan Mitic</td>
+<td align="left">Ivan Mitic</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5508">MAPREDUCE-5508</a></td>
+<td align="left">JobTracker memory leak caused by unreleased FileSystem objects in JobInProgress#cleanupJob</td>
+<td align="left">Critical</td>
+<td align="left">jobtracker</td>
+<td align="left">Xi Fang</td>
+<td align="left">Xi Fang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5405">MAPREDUCE-5405</a></td>
+<td align="left">Job recovery can fail if task log directory symlink from prior run still exists</td>
+<td align="left">Major</td>
+<td align="left">mrv1</td>
+<td align="left">Chris Nauroth</td>
+<td align="left">Chris Nauroth</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5288">MAPREDUCE-5288</a></td>
+<td align="left">ResourceEstimator#getEstimatedTotalMapOutputSize suffers from divide by zero issues</td>
+<td align="left">Major</td>
+<td align="left">mrv1</td>
+<td align="left">Harsh J</td>
+<td align="left">Karthik Kambatla</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5272">MAPREDUCE-5272</a></td>
+<td align="left">A Minor Error in Javadoc of TestMRWithDistributedCache in Branch-1</td>
+<td align="left">Trivial</td>
+<td align="left">test</td>
+<td align="left">Zhijie Shen</td>
+<td align="left">Zhijie Shen</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5250">MAPREDUCE-5250</a></td>
+<td align="left">Searching for ';' in JobTracker History throws ArrayOutOfBoundException</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Karthik Kambatla</td>
+<td align="left">Karthik Kambatla</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5218">MAPREDUCE-5218</a></td>
+<td align="left">Annotate (comment) internal classes as Private</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Karthik Kambatla</td>
+<td align="left">Karthik Kambatla</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5217">MAPREDUCE-5217</a></td>
+<td align="left">DistCp fails when launched by Oozie in a secure cluster</td>
+<td align="left">Major</td>
+<td align="left">distcp, security</td>
+<td align="left">Venkat Ranganathan</td>
+<td align="left">Venkat Ranganathan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5183">MAPREDUCE-5183</a></td>
+<td align="left">In, TaskTracker#reportProgress logging of 0.0-1.0 progress is followed by percent sign</td>
+<td align="left">Minor</td>
+<td align="left">mrv1, tasktracker</td>
+<td align="left">Sandy Ryza</td>
+<td align="left">Niranjan Singh</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5133">MAPREDUCE-5133</a></td>
+<td align="left">TestSubmitJob.testSecureJobExecution is flaky due to job dir deletion race</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Sandy Ryza</td>
+<td align="left">Sandy Ryza</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5095">MAPREDUCE-5095</a></td>
+<td align="left">TestShuffleExceptionCount#testCheckException fails occasionally with JDK7</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Arpit Agarwal</td>
+<td align="left">Arpit Agarwal</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5073">MAPREDUCE-5073</a></td>
+<td align="left">TestJobStatusPersistency.testPersistency fails on JDK7</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Sandy Ryza</td>
+<td align="left">Sandy Ryza</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5072">MAPREDUCE-5072</a></td>
+<td align="left">TestDelegationTokenRenewal.testDTRenewal fails in MR1 on jdk7</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Sandy Ryza</td>
+<td align="left">Sandy Ryza</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5070">MAPREDUCE-5070</a></td>
+<td align="left">TestClusterStatus.testClusterMetrics fails on JDK7</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Sandy Ryza</td>
+<td align="left">Sandy Ryza</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5047">MAPREDUCE-5047</a></td>
+<td align="left">keep.failed.task.files=true causes job failure on secure clusters</td>
+<td align="left">Major</td>
+<td align="left">task, tasktracker</td>
+<td align="left">Sandy Ryza</td>
+<td align="left">Sandy Ryza</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5046">MAPREDUCE-5046</a></td>
+<td align="left">backport MAPREDUCE-1423 to mapred.lib.CombineFileInputFormat</td>
+<td align="left">Major</td>
+<td align="left">client</td>
+<td align="left">Sangjin Lee</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4366">MAPREDUCE-4366</a></td>
+<td align="left">mapred metrics shows negative count of waiting maps and reduces</td>
+<td align="left">Major</td>
+<td align="left">jobtracker</td>
+<td align="left">Thomas Graves</td>
+<td align="left">Sandy Ryza</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2817">MAPREDUCE-2817</a></td>
+<td align="left">MiniRMCluster hardcodes 'mapred.local.dir' configuration to 'build/test/mapred/local'</td>
+<td align="left">Minor</td>
+<td align="left">test</td>
+<td align="left">Alejandro Abdelnur</td>
+<td align="left">Robert Kanter</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tests">TESTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9624">HADOOP-9624</a></td>
+<td align="left">TestFSMainOperationsLocalFileSystem failed when the Hadoop test root path has &quot;X&quot; in its name</td>
+<td align="left">Minor</td>
+<td align="left">test</td>
+<td align="left">Xi Fang</td>
+<td align="left">Xi Fang</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sub-tasks">SUB-TASKS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9573">HADOOP-9573</a></td>
+<td align="left">Fix test-patch script to work with the enhanced PreCommit-Admin script.</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Giridharan Kesavan</td>
+<td align="left">Giridharan Kesavan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4049">MAPREDUCE-4049</a></td>
+<td align="left">plugin for generic shuffle service</td>
+<td align="left">Major</td>
+<td align="left">performance, task, tasktracker</td>
+<td align="left">Avner BenHanoch</td>
+<td align="left">Avner BenHanoch</td>
+</tr>
+</tbody>
+</table>
+<h3 id="other">OTHER:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>

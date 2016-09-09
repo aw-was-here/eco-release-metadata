@@ -1,0 +1,56 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hbase-0.94.14-release-notes">Apache HBase 0.94.14 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-9850">HBASE-9850</a> | <em>Major</em> | <strong>Issues with UI for table compact/split operation completion. After split/compaction operation using UI, the page is not automatically redirecting back using IE8/Firefox.</strong></li>
+</ul>
+<p>Support auto redirect for IE/firefox browsers upon completion of Split/compact operation</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-9902">HBASE-9902</a> | <em>Major</em> | <strong>Region Server is starting normally even if clock skew is more than default 30 seconds(or any configured). -&gt; Regionserver node time is greater than master node time</strong></li>
+</ul>
+<p>Clock skew detection to be made absolute value comparison. Any time difference between master or region, high or low must prevent the region server startup</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-9138">HBASE-9138</a> | <em>Trivial</em> | <strong>getHaseIntegrationTestingUtility() is misspelled</strong></li>
+</ul>
+<p>patch for 0.94.x</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-9165">HBASE-9165</a> | <em>Major</em> | <strong>Improvements to addDependencyJars</strong></li>
+</ul>
+<p>Introduces the method TableMapReduceUtil#addHBaseDependencyJars for adding HBase and its direct dependencies (only) to the job configuration.</p>
+<p>This is intended as a low-level API, facilitating code reuse between this class and its mapred counterpart. It is also of use to external tools that need to build a MapReduce job that interacts with HBase but want fine-grained control over the jars shipped to the cluster. See also PIG-3285 and HIVE-2055.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-9834">HBASE-9834</a> | <em>Major</em> | <strong>Minimize byte[] copies for 'smart' clients</strong></li>
+</ul>
+<p>Committed v4 -thanks for the reviews.</p>
+<p>Roll away Lars.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-8438">HBASE-8438</a> | <em>Major</em> | <strong>Extend bin/hbase to print a &quot;mapreduce classpath&quot;</strong></li>
+</ul>
+<p>$ ./bin/hbase mapredcp --help Usage: hbase mapredcp [-Dtmpjars=...] Construct a CLASSPATH containing dependency jars required to run a mapreduce job. By default, includes any jars detected by TableMapReduceUtils. Provide additional entries by specifying a comma-separated list in tmpjars.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-9831">HBASE-9831</a> | <em>Minor</em> | <strong>'hbasefsck.numthreads' property isn't passed to hbck via cmdline -D option</strong></li>
+</ul>
+<p>try run hadoopqa for trunk</p>

@@ -1,0 +1,223 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hbase-changelog">Apache HBase Changelog</h1>
+<h2 id="release-0.94.24---2014-10-04">Release 0.94.24 - 2014-10-04</h2>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-12090">HBASE-12090</a></td>
+<td align="left">Bytes: more Unsafe, more Faster</td>
+<td align="left">Major</td>
+<td align="left">Performance</td>
+<td align="left">Vladimir Rodionov</td>
+<td align="left">Vladimir Rodionov</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-12020">HBASE-12020</a></td>
+<td align="left">String formatting on each RPC Invoke</td>
+<td align="left">Minor</td>
+<td align="left">IPC/RPC</td>
+<td align="left">Vladimir Rodionov</td>
+<td align="left">Vladimir Rodionov</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-12022">HBASE-12022</a></td>
+<td align="left">Payloads on Failure attempt to serialize the byte[] into strings.</td>
+<td align="left">Trivial</td>
+<td align="left">IPC/RPC</td>
+<td align="left">Vladimir Rodionov</td>
+<td align="left">Vladimir Rodionov</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-11405">HBASE-11405</a></td>
+<td align="left">Multiple invocations of hbck in parallel disables balancer permanently</td>
+<td align="left">Major</td>
+<td align="left">Balancer, hbck</td>
+<td align="left">bharath v</td>
+<td align="left">bharath v</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-11957">HBASE-11957</a></td>
+<td align="left">Backport to 0.94 HBASE-5974 Scanner retry behavior with RPC timeout on next() seems incorrect</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Liu Shaohui</td>
+<td align="left">Liu Shaohui</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-12114">HBASE-12114</a></td>
+<td align="left">Meta table cache hashing may access the wrong table</td>
+<td align="left">Major</td>
+<td align="left">Client</td>
+<td align="left">He Liangliang</td>
+<td align="left">He Liangliang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-12019">HBASE-12019</a></td>
+<td align="left">hbase-daemon.sh overwrite HBASE_ROOT_LOGGER and HBASE_SECURITY_LOGGER variables</td>
+<td align="left">Minor</td>
+<td align="left">scripts</td>
+<td align="left">Sebastien Barrier</td>
+<td align="left">Sebastien Barrier</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-12536">HBASE-12536</a></td>
+<td align="left">Reduce the effective scope of GLOBAL CREATE and ADMIN permission</td>
+<td align="left">Major</td>
+<td align="left">security</td>
+<td align="left">Andrew Purtell</td>
+<td align="left">Andrew Purtell</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sub-tasks">SUB-TASKS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-11923">HBASE-11923</a></td>
+<td align="left">Potential race condition in RecoverableZookeeper.checkZk()</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Lars Hofhansl</td>
+<td align="left">Lars Hofhansl</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-11963">HBASE-11963</a></td>
+<td align="left">Synchronize peer cluster replication connection attempts</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Andrew Purtell</td>
+<td align="left">Maddineni Sukumar</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-12023">HBASE-12023</a></td>
+<td align="left">HRegion.applyFamilyMapToMemstore creates too many iterator objects.</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Vladimir Rodionov</td>
+<td align="left">Vladimir Rodionov</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-12077">HBASE-12077</a></td>
+<td align="left">FilterLists create many ArrayList$Itr objects per row.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Lars Hofhansl</td>
+<td align="left">Lars Hofhansl</td>
+</tr>
+</tbody>
+</table>
+<h3 id="other">OTHER:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-12103">HBASE-12103</a></td>
+<td align="left">Backport HFileV1Detector to 0.94</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jeffrey Zhong</td>
+<td align="left">Jeffrey Zhong</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-12113">HBASE-12113</a></td>
+<td align="left">Backport to 0.94: HBASE-5525 Truncate and preserve region boundaries option</td>
+<td align="left">Minor</td>
+<td align="left">shell</td>
+<td align="left">Sean Busbey</td>
+<td align="left">Sean Busbey</td>
+</tr>
+</tbody>
+</table>

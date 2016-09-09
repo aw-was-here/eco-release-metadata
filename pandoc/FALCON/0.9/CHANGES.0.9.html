@@ -1,0 +1,1165 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-falcon-changelog">Apache Falcon Changelog</h1>
+<h2 id="release-0.9---2016-02-15">Release 0.9 - 2016-02-15</h2>
+<h3 id="new-features">NEW FEATURES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1617">FALCON-1617</a></td>
+<td align="left">Enable SLA monitoring for instances in past</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ajay Yadava</td>
+<td align="left">Narayan Periwal</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1479">FALCON-1479</a></td>
+<td align="left">Capture data transfer details for various available replications</td>
+<td align="left">Major</td>
+<td align="left">replication</td>
+<td align="left">Peeyush Bishnoi</td>
+<td align="left">Peeyush Bishnoi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1168">FALCON-1168</a></td>
+<td align="left">Native Scheduler in Falcon - Umbrella JIRA</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Pallavi Rao</td>
+<td align="left">Pallavi Rao</td>
+</tr>
+</tbody>
+</table>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1592">FALCON-1592</a></td>
+<td align="left">Code Refactoring: Introduce Event type for scheduler events</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ajay Yadava</td>
+<td align="left">Ajay Yadava</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1486">FALCON-1486</a></td>
+<td align="left">Add Unit Test cases for HiveDR</td>
+<td align="left">Major</td>
+<td align="left">replication</td>
+<td align="left">Peeyush Bishnoi</td>
+<td align="left">Peeyush Bishnoi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1587">FALCON-1587</a></td>
+<td align="left">Divide FalconCLI.twiki into sub sections for different modules on the lines of REST Api</td>
+<td align="left">Major</td>
+<td align="left">docs</td>
+<td align="left">Ajay Yadava</td>
+<td align="left">Praveen Adlakha</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1597">FALCON-1597</a></td>
+<td align="left">Falcon should not retry in case of an instance being manual kill from user.</td>
+<td align="left">Major</td>
+<td align="left">oozie, rerun</td>
+<td align="left">sandeep samudrala</td>
+<td align="left">sandeep samudrala</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1607">FALCON-1607</a></td>
+<td align="left">Code refactoring: Refactor ID into more specific sub classes</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Ajay Yadava</td>
+<td align="left">Ajay Yadava</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1622">FALCON-1622</a></td>
+<td align="left">On starting falcon server JPS shows Main and not Falcon</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">sandeep samudrala</td>
+<td align="left">sandeep samudrala</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1588">FALCON-1588</a></td>
+<td align="left">Add ability to provide the path for recipe files in command line</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ajay Yadava</td>
+<td align="left">Peeyush Bishnoi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1634">FALCON-1634</a></td>
+<td align="left">Add .reviewboardrc file so that review requests can be created using just command line</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Rajat Khandelwal</td>
+<td align="left">Rajat Khandelwal</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1616">FALCON-1616</a></td>
+<td align="left">Consume Workflow job end notifications for SLA monitoring</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ajay Yadava</td>
+<td align="left">sandeep samudrala</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1619">FALCON-1619</a></td>
+<td align="left">Create a sidebar navigation for falcon site</td>
+<td align="left">Major</td>
+<td align="left">docs, site</td>
+<td align="left">Ajay Yadava</td>
+<td align="left">Srikanth Sundarrajan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1656">FALCON-1656</a></td>
+<td align="left">Improve FeedHelper:getRetentionFrequency method</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ajay Yadava</td>
+<td align="left">Ajay Yadava</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1658">FALCON-1658</a></td>
+<td align="left">MySql Support for Native Scheduler</td>
+<td align="left">Major</td>
+<td align="left">scheduler</td>
+<td align="left">pavan kumar kolamuri</td>
+<td align="left">pavan kumar kolamuri</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1669">FALCON-1669</a></td>
+<td align="left">Falcon should show more helpful message when it is unable to initialize Falcon Client object</td>
+<td align="left">Major</td>
+<td align="left">client</td>
+<td align="left">baishuo</td>
+<td align="left">baishuo</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1683">FALCON-1683</a></td>
+<td align="left">Inconsistent behavior when user tries to switch schedulers</td>
+<td align="left">Major</td>
+<td align="left">scheduler</td>
+<td align="left">Pragya Mittal</td>
+<td align="left">Pallavi Rao</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1689">FALCON-1689</a></td>
+<td align="left">NoOutputProcessTest fails due to scheme missing in workflow.xml</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Pragya Mittal</td>
+<td align="left">Pragya Mittal</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1679">FALCON-1679</a></td>
+<td align="left">API to get type of scheduler(native/oozie)</td>
+<td align="left">Major</td>
+<td align="left">scheduler</td>
+<td align="left">Pragya Mittal</td>
+<td align="left">Pallavi Rao</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1601">FALCON-1601</a></td>
+<td align="left">Make Falcon StateStore more secure by not disclosing imp params in startup.props</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">pavan kumar kolamuri</td>
+<td align="left">pavan kumar kolamuri</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1643">FALCON-1643</a></td>
+<td align="left">Add CLI option to display captured replication metrics</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Peeyush Bishnoi</td>
+<td align="left">Peeyush Bishnoi</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1546">FALCON-1546</a></td>
+<td align="left">Add ProcessUpdateTest, PipelineInstanceDependencyTest and other tests and test fixes contributed by Raghav Gautam and Paul Isaychuk</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Paul Isaychuk</td>
+<td align="left">Paul Isaychuk</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1578">FALCON-1578</a></td>
+<td align="left">post-processing action fails with javax.servlet.jsp.el.ELException</td>
+<td align="left">Major</td>
+<td align="left">oozie</td>
+<td align="left">Pragya Mittal</td>
+<td align="left">Venkatesan Ramachandran</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1593">FALCON-1593</a></td>
+<td align="left">Oozie setup failing in setup phase</td>
+<td align="left">Major</td>
+<td align="left">build-tools</td>
+<td align="left">Praveen Adlakha</td>
+<td align="left">Praveen Adlakha</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1569">FALCON-1569</a></td>
+<td align="left">Bug in setting the frequency of Feed retention coordinator</td>
+<td align="left">Major</td>
+<td align="left">retention</td>
+<td align="left">Sowmya Ramesh</td>
+<td align="left">Sowmya Ramesh</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1372">FALCON-1372</a></td>
+<td align="left">Retention does not work in corner cases</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Balu Vellanki</td>
+<td align="left">Balu Vellanki</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1603">FALCON-1603</a></td>
+<td align="left">FeedHelperTest::testGetDateFromPath fails in some environments</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Ajay Yadava</td>
+<td align="left">Balu Vellanki</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1605">FALCON-1605</a></td>
+<td align="left">Instance API is not working as expected in case of Native Scheduler</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">pavan kumar kolamuri</td>
+<td align="left">pavan kumar kolamuri</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1606">FALCON-1606</a></td>
+<td align="left">Process schedule fails in some cases in case of NativeScheduler</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">pavan kumar kolamuri</td>
+<td align="left">pavan kumar kolamuri</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1589">FALCON-1589</a></td>
+<td align="left">Package sample recipe properties file</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Peeyush Bishnoi</td>
+<td align="left">Peeyush Bishnoi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1604">FALCON-1604</a></td>
+<td align="left">Status API Not working in case of Falcon Native Scheduler</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">pavan kumar kolamuri</td>
+<td align="left">pavan kumar kolamuri</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1595">FALCON-1595</a></td>
+<td align="left">In secure cluster, Falcon server loses ability to communicate with HDFS over time</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Balu Vellanki</td>
+<td align="left">Balu Vellanki</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1568">FALCON-1568</a></td>
+<td align="left">Process Instances are not getting scheduled in Falcon Native Scheduler</td>
+<td align="left">Blocker</td>
+<td align="left">scheduler</td>
+<td align="left">pavan kumar kolamuri</td>
+<td align="left">Pallavi Rao</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1651">FALCON-1651</a></td>
+<td align="left">Falcon doesn't start</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Ajay Yadava</td>
+<td align="left">Ajay Yadava</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1647">FALCON-1647</a></td>
+<td align="left">Unable to create feed : FilePermission error under cluster staging directory</td>
+<td align="left">Major</td>
+<td align="left">feed</td>
+<td align="left">Balu Vellanki</td>
+<td align="left">Balu Vellanki</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1660">FALCON-1660</a></td>
+<td align="left">Examples directory missing in distributed mode</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Praveen Adlakha</td>
+<td align="left">Praveen Adlakha</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1572">FALCON-1572</a></td>
+<td align="left">Only one instance is running in a process when run using Native Scheduler</td>
+<td align="left">Blocker</td>
+<td align="left">scheduler</td>
+<td align="left">pavan kumar kolamuri</td>
+<td align="left">Pallavi Rao</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1641">FALCON-1641</a></td>
+<td align="left">Triage on an invalid feed instance throws IndexOutOfBoundException</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Karishma Gulati</td>
+<td align="left">Karishma Gulati</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1644">FALCON-1644</a></td>
+<td align="left">Retention : Some feed instances are never deleted by retention jobs.</td>
+<td align="left">Major</td>
+<td align="left">retention</td>
+<td align="left">Balu Vellanki</td>
+<td align="left">Balu Vellanki</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1680">FALCON-1680</a></td>
+<td align="left">Error message is not intuitive when entity schedule fails</td>
+<td align="left">Major</td>
+<td align="left">client</td>
+<td align="left">Pragya Mittal</td>
+<td align="left">Pallavi Rao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1681">FALCON-1681</a></td>
+<td align="left">Improve logging for idempotent behaviour while scheduling entities.</td>
+<td align="left">Major</td>
+<td align="left">scheduler</td>
+<td align="left">Pragya Mittal</td>
+<td align="left">Pallavi Rao</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1694">FALCON-1694</a></td>
+<td align="left">Status API shows params along with instance status</td>
+<td align="left">Major</td>
+<td align="left">scheduler</td>
+<td align="left">Pragya Mittal</td>
+<td align="left">Pallavi Rao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1696">FALCON-1696</a></td>
+<td align="left">Falcon build failing in checkstyle module</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Pallavi Rao</td>
+<td align="left">Praveen Adlakha</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1565">FALCON-1565</a></td>
+<td align="left">Listing API non-intuitive response if time &gt; endTime</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Pragya Mittal</td>
+<td align="left">Praveen Adlakha</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1703">FALCON-1703</a></td>
+<td align="left">Falcon docs module not generating html files</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Pallavi Rao</td>
+<td align="left">Pallavi Rao</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1702">FALCON-1702</a></td>
+<td align="left">Exception thrown by workflow status listeners on success notification</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Pallavi Rao</td>
+<td align="left">Pallavi Rao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1711">FALCON-1711</a></td>
+<td align="left">DependencyInstance twiki does not contain correct documentation</td>
+<td align="left">Minor</td>
+<td align="left">docs</td>
+<td align="left">Pragya Mittal</td>
+<td align="left">Praveen Adlakha</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1653">FALCON-1653</a></td>
+<td align="left">Falcon server start throws NPE in distributed mode.</td>
+<td align="left">Major</td>
+<td align="left">scheduler</td>
+<td align="left">Pragya Mittal</td>
+<td align="left">pavan kumar kolamuri</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1654">FALCON-1654</a></td>
+<td align="left">ClassNotFoundException when starting falcon server in distributed mode</td>
+<td align="left">Major</td>
+<td align="left">scheduler</td>
+<td align="left">Pragya Mittal</td>
+<td align="left">pavan kumar kolamuri</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1655">FALCON-1655</a></td>
+<td align="left">Database creation fails with FileNotFound exception / Permission denied</td>
+<td align="left">Major</td>
+<td align="left">scheduler</td>
+<td align="left">Pragya Mittal</td>
+<td align="left">pavan kumar kolamuri</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1709">FALCON-1709</a></td>
+<td align="left">FIFO order is not followed when scheduled using native scheduler</td>
+<td align="left">Major</td>
+<td align="left">scheduler</td>
+<td align="left">Pragya Mittal</td>
+<td align="left">Pallavi Rao</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1648">FALCON-1648</a></td>
+<td align="left">Submit cluster entity without temp and working location fails.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Balu Vellanki</td>
+<td align="left">Balu Vellanki</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1674">FALCON-1674</a></td>
+<td align="left">Fix the mapping of InstanceState status to workflow Status in InstancesResult</td>
+<td align="left">Blocker</td>
+<td align="left">scheduler</td>
+<td align="left">pavan kumar kolamuri</td>
+<td align="left">Pallavi Rao</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1714">FALCON-1714</a></td>
+<td align="left">EntityNotRegisteredException when process with no input/output feed is scheduled</td>
+<td align="left">Major</td>
+<td align="left">metrics</td>
+<td align="left">Pragya Mittal</td>
+<td align="left">Ajay Yadava</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1710">FALCON-1710</a></td>
+<td align="left">dependency API sets totalResults as 0 by default</td>
+<td align="left">Minor</td>
+<td align="left">client</td>
+<td align="left">Pragya Mittal</td>
+<td align="left">Praveen Adlakha</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1720">FALCON-1720</a></td>
+<td align="left">Rerun API does not rerun succeeded instances</td>
+<td align="left">Major</td>
+<td align="left">scheduler</td>
+<td align="left">Pragya Mittal</td>
+<td align="left">pavan kumar kolamuri</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1719">FALCON-1719</a></td>
+<td align="left">Retry does not update the state of the instance in the database</td>
+<td align="left">Major</td>
+<td align="left">scheduler</td>
+<td align="left">Pragya Mittal</td>
+<td align="left">pavan kumar kolamuri</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1725">FALCON-1725</a></td>
+<td align="left">Falcon API shows results in ascending order in native scheduler</td>
+<td align="left">Major</td>
+<td align="left">scheduler</td>
+<td align="left">Pragya Mittal</td>
+<td align="left">Pallavi Rao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1708">FALCON-1708</a></td>
+<td align="left">params API does not take start as a mandatory option</td>
+<td align="left">Major</td>
+<td align="left">client</td>
+<td align="left">Pragya Mittal</td>
+<td align="left">Praveen Adlakha</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1678">FALCON-1678</a></td>
+<td align="left">SLA Monitoring does not honour entity end date</td>
+<td align="left">Major</td>
+<td align="left">feed</td>
+<td align="left">Pragya Mittal</td>
+<td align="left">Ajay Yadava</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1735">FALCON-1735</a></td>
+<td align="left">FalconException shouldn't be caught in AbstractRerunHandler in case of obtaining Workflow engine from entity</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">pavan kumar kolamuri</td>
+<td align="left">pavan kumar kolamuri</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1730">FALCON-1730</a></td>
+<td align="left">Upgrade enunciate for JDK 8 compatibility</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">ruoyu wang</td>
+<td align="left">Deepak Barr</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1675">FALCON-1675</a></td>
+<td align="left">Lifecycle stage is not honoured when only cluster level lifecycle is implemented.</td>
+<td align="left">Major</td>
+<td align="left">feed</td>
+<td align="left">Pragya Mittal</td>
+<td align="left">Ajay Yadava</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1677">FALCON-1677</a></td>
+<td align="left">Support re-tries for timed-out instances</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Pallavi Rao</td>
+<td align="left">Narayan Periwal</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1732">FALCON-1732</a></td>
+<td align="left">Folders not getting deleted after testing</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Praveen Adlakha</td>
+<td align="left">Praveen Adlakha</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1715">FALCON-1715</a></td>
+<td align="left">IllegalStateException in MetadataMappingService when entity is scheduled via native scheduler</td>
+<td align="left">Major</td>
+<td align="left">scheduler</td>
+<td align="left">Pragya Mittal</td>
+<td align="left">Pallavi Rao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1538">FALCON-1538</a></td>
+<td align="left">Prism status gives wrong info.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">sandeep samudrala</td>
+<td align="left">Praveen Adlakha</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1742">FALCON-1742</a></td>
+<td align="left">Implement instance summary api for native scheduler</td>
+<td align="left">Major</td>
+<td align="left">scheduler</td>
+<td align="left">Pragya Mittal</td>
+<td align="left">Pallavi Rao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1748">FALCON-1748</a></td>
+<td align="left">Client throws FalconWebException irrespective of type of error</td>
+<td align="left">Blocker</td>
+<td align="left">client</td>
+<td align="left">Pragya Mittal</td>
+<td align="left">Praveen Adlakha</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1762">FALCON-1762</a></td>
+<td align="left">status call from client redirected to RUNNING api</td>
+<td align="left">Blocker</td>
+<td align="left">client</td>
+<td align="left">Pragya Mittal</td>
+<td align="left">Ajay Yadava</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1757">FALCON-1757</a></td>
+<td align="left">EntityNotRegisteredException when entity is deleted from falcon</td>
+<td align="left">Major</td>
+<td align="left">scheduler</td>
+<td align="left">Pragya Mittal</td>
+<td align="left">pavan kumar kolamuri</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1754">FALCON-1754</a></td>
+<td align="left">JobCompletionService throws FalconException</td>
+<td align="left">Minor</td>
+<td align="left">scheduler</td>
+<td align="left">Pragya Mittal</td>
+<td align="left">Pallavi Rao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1758">FALCON-1758</a></td>
+<td align="left">APIs fail when oozie workflow entries are deleted</td>
+<td align="left">Major</td>
+<td align="left">scheduler</td>
+<td align="left">Pragya Mittal</td>
+<td align="left">pavan kumar kolamuri</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1727">FALCON-1727</a></td>
+<td align="left">Suspend fails with InvalidStateTransitionException if entity has 'KILLED' instances</td>
+<td align="left">Major</td>
+<td align="left">scheduler</td>
+<td align="left">Pragya Mittal</td>
+<td align="left">Pallavi Rao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1747">FALCON-1747</a></td>
+<td align="left">Falcon instance status listing is throwing error message.</td>
+<td align="left">Major</td>
+<td align="left">prism</td>
+<td align="left">Peeyush Bishnoi</td>
+<td align="left">Peeyush Bishnoi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1750">FALCON-1750</a></td>
+<td align="left">Null Pointer Exception while listening to Workflow Notifications</td>
+<td align="left">Major</td>
+<td align="left">general</td>
+<td align="left">Pragya Mittal</td>
+<td align="left">Pallavi Rao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1782">FALCON-1782</a></td>
+<td align="left">Client returns FalconWebException instead of the expected error message</td>
+<td align="left">Major</td>
+<td align="left">client, scheduler</td>
+<td align="left">Pragya Mittal</td>
+<td align="left">Praveen Adlakha</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1804">FALCON-1804</a></td>
+<td align="left">Non-SLA feed throws NullPointerException</td>
+<td align="left">Major</td>
+<td align="left">feed</td>
+<td align="left">Pragya Mittal</td>
+<td align="left">sandeep samudrala</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tests">TESTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1377">FALCON-1377</a></td>
+<td align="left">Add tests in falcon for the Triage API</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Karishma Gulati</td>
+<td align="left">Karishma Gulati</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sub-tasks">SUB-TASKS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1213">FALCON-1213</a></td>
+<td align="left">Base framework of the native scheduler</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Pallavi Rao</td>
+<td align="left">Pallavi Rao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1553">FALCON-1553</a></td>
+<td align="left">Flaky test in SchedulerUtilTest</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sowmya Ramesh</td>
+<td align="left">Balu Vellanki</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1520">FALCON-1520</a></td>
+<td align="left">Delete, update, Validate entity operations support in Falcon Unit</td>
+<td align="left">Major</td>
+<td align="left">general</td>
+<td align="left">pavan kumar kolamuri</td>
+<td align="left">pavan kumar kolamuri</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1214">FALCON-1214</a></td>
+<td align="left">Time Based Notification Service to enable timed scheduling of workflows on Oozie</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Pallavi Rao</td>
+<td align="left">Pallavi Rao</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1459">FALCON-1459</a></td>
+<td align="left">Ability to import from database</td>
+<td align="left">Major</td>
+<td align="left">acquisition</td>
+<td align="left">Venkatesan Ramachandran</td>
+<td align="left">Venkatesan Ramachandran</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1559">FALCON-1559</a></td>
+<td align="left">Config changes required for native scheduler</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Pallavi Rao</td>
+<td align="left">Pallavi Rao</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1528">FALCON-1528</a></td>
+<td align="left">Instance Management Api in Falcon Unit</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Narayan Periwal</td>
+<td align="left">Narayan Periwal</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1552">FALCON-1552</a></td>
+<td align="left">Migration of ProcessInstanceManagerIT to use falcon unit</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Narayan Periwal</td>
+<td align="left">Narayan Periwal</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1557">FALCON-1557</a></td>
+<td align="left">Supporting some Entity Management Api's and admin api in Falcon Unit</td>
+<td align="left">Major</td>
+<td align="left">falcon-unit</td>
+<td align="left">Narayan Periwal</td>
+<td align="left">Narayan Periwal</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1234">FALCON-1234</a></td>
+<td align="left">State Store for instances scheduled by Falcon</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Pallavi Rao</td>
+<td align="left">pavan kumar kolamuri</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1480">FALCON-1480</a></td>
+<td align="left">Gather data transfer details of Hive DR</td>
+<td align="left">Major</td>
+<td align="left">replication</td>
+<td align="left">Peeyush Bishnoi</td>
+<td align="left">Peeyush Bishnoi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1608">FALCON-1608</a></td>
+<td align="left">Base framework for Spring Shell based shell for Falcon</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Rajat Khandelwal</td>
+<td align="left">Rajat Khandelwal</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1233">FALCON-1233</a></td>
+<td align="left">Support co-existence of Oozie scheduler (coord) and Falcon native scheduler</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Pallavi Rao</td>
+<td align="left">Pallavi Rao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1490">FALCON-1490</a></td>
+<td align="left">Fixing the inconsistencies in the filterBy</td>
+<td align="left">Minor</td>
+<td align="left">client</td>
+<td align="left">sandeep samudrala</td>
+<td align="left">Narayan Periwal</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1598">FALCON-1598</a></td>
+<td align="left">Flaky test : EntityManagerJerseyIT.testDuplicateDeleteCommands</td>
+<td align="left">Major</td>
+<td align="left">tests</td>
+<td align="left">Balu Vellanki</td>
+<td align="left">Narayan Periwal</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1577">FALCON-1577</a></td>
+<td align="left">Migration of EntityManagerJerseyIT to use falcon unit</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Narayan Periwal</td>
+<td align="left">Narayan Periwal</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1512">FALCON-1512</a></td>
+<td align="left">Implement touch feature for native scheduler</td>
+<td align="left">Major</td>
+<td align="left">scheduler</td>
+<td align="left">Pallavi Rao</td>
+<td align="left">Pallavi Rao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1652">FALCON-1652</a></td>
+<td align="left">Documentation for enabling native scheduler in falcon</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Pragya Mittal</td>
+<td align="left">Pallavi Rao</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1447">FALCON-1447</a></td>
+<td align="left">Integration Tests for native scheduler</td>
+<td align="left">Major</td>
+<td align="left">scheduler</td>
+<td align="left">Pallavi Rao</td>
+<td align="left">pavan kumar kolamuri</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1635">FALCON-1635</a></td>
+<td align="left">Migration of EntityManagerJerseySmokeIT to use falcon unit</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Narayan Periwal</td>
+<td align="left">Narayan Periwal</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1636">FALCON-1636</a></td>
+<td align="left">Add Rerun API In Falcon Native Scheduler</td>
+<td align="left">Major</td>
+<td align="left">scheduler</td>
+<td align="left">pavan kumar kolamuri</td>
+<td align="left">pavan kumar kolamuri</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1639">FALCON-1639</a></td>
+<td align="left">Implement update feature for native scheduler</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Pallavi Rao</td>
+<td align="left">Pallavi Rao</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1645">FALCON-1645</a></td>
+<td align="left">Ability to export to database</td>
+<td align="left">Major</td>
+<td align="left">acquisition</td>
+<td align="left">Venkatesan Ramachandran</td>
+<td align="left">Venkatesan Ramachandran</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1640">FALCON-1640</a></td>
+<td align="left">Cascading Delete for instances in Native Scheduler</td>
+<td align="left">Blocker</td>
+<td align="left">scheduler</td>
+<td align="left">pavan kumar kolamuri</td>
+<td align="left">pavan kumar kolamuri</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1700">FALCON-1700</a></td>
+<td align="left">Add new test cases to HiveDRTest</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Paul Isaychuk</td>
+<td align="left">Paul Isaychuk</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1717">FALCON-1717</a></td>
+<td align="left">Update CHANGES.txt for 0.9 Release</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Pallavi Rao</td>
+<td align="left">Pallavi Rao</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1693">FALCON-1693</a></td>
+<td align="left">Create 0.9 branch</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Pallavi Rao</td>
+<td align="left">Pallavi Rao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1697">FALCON-1697</a></td>
+<td align="left">Stabilization of scenarios which are based on instances lifecycle</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Paul Isaychuk</td>
+<td align="left">Paul Isaychuk</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1698">FALCON-1698</a></td>
+<td align="left">New tests for ProcessSetupTest, ClusterSetupTest, UI test fixes</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Paul Isaychuk</td>
+<td align="left">Paul Isaychuk</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1705">FALCON-1705</a></td>
+<td align="left">Standardization of error handling in falcon Server</td>
+<td align="left">Major</td>
+<td align="left">webapp</td>
+<td align="left">Praveen Adlakha</td>
+<td align="left">Praveen Adlakha</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1718">FALCON-1718</a></td>
+<td align="left">Change version in pom.xml</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Pallavi Rao</td>
+<td align="left">Pallavi Rao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1701">FALCON-1701</a></td>
+<td align="left">HiveDr, ClusterSetupTest, MirrorSummaryTest fixes</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Paul Isaychuk</td>
+<td align="left">Murali Ramasami</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1699">FALCON-1699</a></td>
+<td align="left">Test fixes for RetentionTest, LineageApiTest, TouchAPIPrismAndServerTest, FeedReplicationTest and few fortifications</td>
+<td align="left">Major</td>
+<td align="left">merlin</td>
+<td align="left">Paul Isaychuk</td>
+<td align="left">Paul Isaychuk</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1741">FALCON-1741</a></td>
+<td align="left">Rerun API behaviour different in case of succeeded instances</td>
+<td align="left">Major</td>
+<td align="left">oozie, scheduler</td>
+<td align="left">Pragya Mittal</td>
+<td align="left">Pallavi Rao</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1545">FALCON-1545</a></td>
+<td align="left">Add documentation for Hive replication job counters</td>
+<td align="left">Major</td>
+<td align="left">replication</td>
+<td align="left">Sowmya Ramesh</td>
+<td align="left">Peeyush Bishnoi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1752">FALCON-1752</a></td>
+<td align="left">Revert FALCON-1573 from 0.9 branch</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Pallavi Rao</td>
+<td align="left">Pallavi Rao</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1662">FALCON-1662</a></td>
+<td align="left">Ensure entity can be scheduled on multiple clusters on same colo</td>
+<td align="left">Major</td>
+<td align="left">scheduler</td>
+<td align="left">Pallavi Rao</td>
+<td align="left">Pallavi Rao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1707">FALCON-1707</a></td>
+<td align="left">Code Refactoring for Falcon Client</td>
+<td align="left">Major</td>
+<td align="left">client</td>
+<td align="left">Ajay Yadava</td>
+<td align="left">Ajay Yadava</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1704">FALCON-1704</a></td>
+<td align="left">Standardization of error handling in falcon Client</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Praveen Adlakha</td>
+<td align="left">Praveen Adlakha</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1778">FALCON-1778</a></td>
+<td align="left">Check licenses and copyright information</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Pallavi Rao</td>
+<td align="left">Pallavi Rao</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1692">FALCON-1692</a></td>
+<td align="left">Update fix versions of JIRAs</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Pallavi Rao</td>
+<td align="left">Pallavi Rao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1800">FALCON-1800</a></td>
+<td align="left">Document any upgrade steps from 0.8 to 0.9</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Pallavi Rao</td>
+<td align="left">Pallavi Rao</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1799">FALCON-1799</a></td>
+<td align="left">Verify final source tar ball</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Pallavi Rao</td>
+<td align="left">Pallavi Rao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1797">FALCON-1797</a></td>
+<td align="left">Create user-friendly documentation</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Pallavi Rao</td>
+<td align="left">Pallavi Rao</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1824">FALCON-1824</a></td>
+<td align="left">Update Falcon site with latest doc.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Pallavi Rao</td>
+<td align="left">Pallavi Rao</td>
+</tr>
+</tbody>
+</table>
+<h3 id="other">OTHER:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1733">FALCON-1733</a></td>
+<td align="left">Support for building falcon with JDK 1.8 also.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Narayan Periwal</td>
+<td align="left">Narayan Periwal</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FALCON-1812">FALCON-1812</a></td>
+<td align="left">Data Import and Export documentation for Falcon 0.9</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Venkatesan Ramachandran</td>
+<td align="left">Venkatesan Ramachandran</td>
+</tr>
+</tbody>
+</table>

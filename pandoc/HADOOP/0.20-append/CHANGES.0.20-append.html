@@ -1,0 +1,444 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hadoop-changelog">Apache Hadoop Changelog</h1>
+<h2 id="release-0.20-append---unreleased-as-of-2015-09-04">Release 0.20-append - Unreleased (as of 2015-09-04)</h2>
+<h3 id="incompatible-changes">INCOMPATIBLE CHANGES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-1554">HDFS-1554</a></td>
+<td align="left">Append 0.20: New semantics for recoverLease</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Hairong Kuang</td>
+<td align="left">Hairong Kuang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-630">HDFS-630</a></td>
+<td align="left">In DFSOutputStream.nextBlockOutputStream(), the client can exclude specific datanodes when locating the next block.</td>
+<td align="left">Major</td>
+<td align="left">hdfs-client, namenode</td>
+<td align="left">Ruyue Ma</td>
+<td align="left">Cosmin Lehene</td>
+</tr>
+</tbody>
+</table>
+<h3 id="new-features">NEW FEATURES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-1520">HDFS-1520</a></td>
+<td align="left">HDFS 20 append: Lightweight NameNode operation to trigger lease recovery</td>
+<td align="left">Major</td>
+<td align="left">namenode</td>
+<td align="left">Hairong Kuang</td>
+<td align="left">Hairong Kuang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-200">HDFS-200</a></td>
+<td align="left">In HDFS, sync() not yet guarantees data available to the new readers</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+<td align="left">dhruba borthakur</td>
+</tr>
+</tbody>
+</table>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-1555">HDFS-1555</a></td>
+<td align="left">HDFS 20 append: Disallow pipeline recovery if a file is already being lease recovered</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Hairong Kuang</td>
+<td align="left">Hairong Kuang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-1211">HDFS-1211</a></td>
+<td align="left">0.20 append: Block receiver should not log &quot;rewind&quot; packets at INFO level</td>
+<td align="left">Minor</td>
+<td align="left">datanode</td>
+<td align="left">Todd Lipcon</td>
+<td align="left">Todd Lipcon</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-1210">HDFS-1210</a></td>
+<td align="left">DFSClient should log exception when block recovery fails</td>
+<td align="left">Trivial</td>
+<td align="left">hdfs-client</td>
+<td align="left">Todd Lipcon</td>
+<td align="left">Todd Lipcon</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-1054">HDFS-1054</a></td>
+<td align="left">Remove unnecessary sleep after failure in nextBlockOutputStream</td>
+<td align="left">Major</td>
+<td align="left">hdfs-client</td>
+<td align="left">Todd Lipcon</td>
+<td align="left">Todd Lipcon</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-895">HDFS-895</a></td>
+<td align="left">Allow hflush/sync to occur in parallel with new writes to the file</td>
+<td align="left">Major</td>
+<td align="left">hdfs-client</td>
+<td align="left">dhruba borthakur</td>
+<td align="left">Todd Lipcon</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-826">HDFS-826</a></td>
+<td align="left">Allow a mechanism for an application to detect that datanode(s) have died in the write pipeline</td>
+<td align="left">Major</td>
+<td align="left">hdfs-client</td>
+<td align="left">dhruba borthakur</td>
+<td align="left">dhruba borthakur</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-1779">HDFS-1779</a></td>
+<td align="left">After NameNode restart , Clients can not read partial files even after client invokes Sync.</td>
+<td align="left">Major</td>
+<td align="left">datanode, namenode</td>
+<td align="left">Uma Maheswara Rao G</td>
+<td align="left">Uma Maheswara Rao G</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-1346">HDFS-1346</a></td>
+<td align="left">DFSClient receives out of order packet ack</td>
+<td align="left">Major</td>
+<td align="left">datanode, hdfs-client</td>
+<td align="left">Hairong Kuang</td>
+<td align="left">Hairong Kuang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-1264">HDFS-1264</a></td>
+<td align="left">0.20: OOME in HDFS client made an unrecoverable HDFS block</td>
+<td align="left">Major</td>
+<td align="left">datanode, hdfs-client</td>
+<td align="left">Todd Lipcon</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-1258">HDFS-1258</a></td>
+<td align="left">Clearing namespace quota on &quot;/&quot; corrupts FS image</td>
+<td align="left">Blocker</td>
+<td align="left">namenode</td>
+<td align="left">Aaron T. Myers</td>
+<td align="left">Aaron T. Myers</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-1254">HDFS-1254</a></td>
+<td align="left">0.20: mark dfs.support.append to be true by default for the 0.20-append branch</td>
+<td align="left">Major</td>
+<td align="left">namenode</td>
+<td align="left">dhruba borthakur</td>
+<td align="left">dhruba borthakur</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-1240">HDFS-1240</a></td>
+<td align="left">TestDFSShell failing in branch-20</td>
+<td align="left">Critical</td>
+<td align="left">test</td>
+<td align="left">Todd Lipcon</td>
+<td align="left">Todd Lipcon</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-1215">HDFS-1215</a></td>
+<td align="left">TestNodeCount infinite loops on branch-20-append</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Todd Lipcon</td>
+<td align="left">Todd Lipcon</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-1207">HDFS-1207</a></td>
+<td align="left">0.20-append: stallReplicationWork should be volatile</td>
+<td align="left">Major</td>
+<td align="left">namenode</td>
+<td align="left">Todd Lipcon</td>
+<td align="left">Todd Lipcon</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-1204">HDFS-1204</a></td>
+<td align="left">0.20: Lease expiration should recover single files, not entire lease holder</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Todd Lipcon</td>
+<td align="left">sam rash</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-1202">HDFS-1202</a></td>
+<td align="left">DataBlockScanner throws NPE when updated before initialized</td>
+<td align="left">Major</td>
+<td align="left">datanode</td>
+<td align="left">Todd Lipcon</td>
+<td align="left">Todd Lipcon</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-1197">HDFS-1197</a></td>
+<td align="left">Blocks are considered &quot;complete&quot; prematurely after commitBlockSynchronization or DN restart</td>
+<td align="left">Major</td>
+<td align="left">datanode, hdfs-client, namenode</td>
+<td align="left">Todd Lipcon</td>
+<td align="left">Todd Lipcon</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-1141">HDFS-1141</a></td>
+<td align="left">completeFile does not check lease ownership</td>
+<td align="left">Blocker</td>
+<td align="left">namenode</td>
+<td align="left">Todd Lipcon</td>
+<td align="left">Todd Lipcon</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-1118">HDFS-1118</a></td>
+<td align="left">DFSOutputStream socket leak when cannot connect to DataNode</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Zheng Shao</td>
+<td align="left">Zheng Shao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-988">HDFS-988</a></td>
+<td align="left">saveNamespace race can corrupt the edits log</td>
+<td align="left">Blocker</td>
+<td align="left">namenode</td>
+<td align="left">dhruba borthakur</td>
+<td align="left">Eli Collins</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-724">HDFS-724</a></td>
+<td align="left">Pipeline close hangs if one of the datanode is not responsive.</td>
+<td align="left">Blocker</td>
+<td align="left">datanode, hdfs-client</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+<td align="left">Hairong Kuang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-606">HDFS-606</a></td>
+<td align="left">ConcurrentModificationException in invalidateCorruptReplicas()</td>
+<td align="left">Major</td>
+<td align="left">namenode</td>
+<td align="left">Konstantin Shvachko</td>
+<td align="left">Konstantin Shvachko</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-445">HDFS-445</a></td>
+<td align="left">pread() fails when cached block locations are no longer valid</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Kan Zhang</td>
+<td align="left">Kan Zhang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-142">HDFS-142</a></td>
+<td align="left">In 0.20, move blocks being written into a blocksBeingWritten directory</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Raghu Angadi</td>
+<td align="left">dhruba borthakur</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-101">HDFS-101</a></td>
+<td align="left">DFS write pipeline : DFSClient sometimes does not detect second datanode failure</td>
+<td align="left">Blocker</td>
+<td align="left">datanode</td>
+<td align="left">Raghu Angadi</td>
+<td align="left">Hairong Kuang</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tests">TESTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-1243">HDFS-1243</a></td>
+<td align="left">0.20 append: Replication tests in TestFileAppend4 should not expect immediate replication</td>
+<td align="left">Minor</td>
+<td align="left">test</td>
+<td align="left">Todd Lipcon</td>
+<td align="left">Todd Lipcon</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sub-tasks">SUB-TASKS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-1057">HDFS-1057</a></td>
+<td align="left">Concurrent readers hit ChecksumExceptions if following a writer to very end of file</td>
+<td align="left">Blocker</td>
+<td align="left">datanode</td>
+<td align="left">Todd Lipcon</td>
+<td align="left">sam rash</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-561">HDFS-561</a></td>
+<td align="left">Fix write pipeline READ_TIMEOUT</td>
+<td align="left">Major</td>
+<td align="left">datanode, hdfs-client</td>
+<td align="left">Kan Zhang</td>
+<td align="left">Kan Zhang</td>
+</tr>
+</tbody>
+</table>
+<h3 id="other">OTHER:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-1216">HDFS-1216</a></td>
+<td align="left">Update to JUnit 4 in branch 20 append</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Todd Lipcon</td>
+<td align="left">Todd Lipcon</td>
+</tr>
+</tbody>
+</table>

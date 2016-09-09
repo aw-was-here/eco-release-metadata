@@ -1,0 +1,58 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hbase-0.94.4-release-notes">Apache HBase 0.94.4 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-7009">HBASE-7009</a> | <em>Major</em> | <strong>Port HBaseCluster interface/tests to 0.94</strong></li>
+</ul>
+<p>Adds an Integration Test facilty that is run by invoking 'mvn verify'. It can run the same test on a minihbasecluster and also on an already distributed cluster. Adds a ChaosMonkey too.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-7204">HBASE-7204</a> | <em>Minor</em> | <strong>Make hbck ErrorReporter pluggable</strong></li>
+</ul>
+<p>Now hbck runs with ToolRunner, and can accept configurations from command line.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-6423">HBASE-6423</a> | <em>Major</em> | <strong>Writes should not block reads on blocking updates to memstores</strong></li>
+</ul>
+<p>Added new configuration parameters to adjust the wait time in getting a lock before acting on a region:</p>
+<p>hbase.busy.wait.multiplier.max (default 2) hbase.rowlock.wait.duration (same as the default RPC timeout time)</p>
+<p>For reading, it waits at most &quot;hbase.rowlock.wait.duration&quot; in getting a lock. For writing, it waits at most &quot;hbase.rowlock.wait.duration&quot; * min ( #rows affected, &quot; hbase.busy.wait.multiplier.max&quot;). However, it waits at most the server side call purge timeout time.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-7336">HBASE-7336</a> | <em>Critical</em> | <strong>HFileBlock.readAtOffset does not work well with multiple threads</strong></li>
+</ul>
+<p>Improves read concurrency by changing HFileBlock#readAtOffset from synchronized to reentrant lock; will have contending scanners fall back to preading rather than synchronized seek+read. Keeps all cores busy rather than just the one.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-6775">HBASE-6775</a> | <em>Minor</em> | <strong>Use ZK.multi when available for HBASE-6710 0.92/0.94 compatibility fix</strong></li>
+</ul>
+<p>hbase.zookeeper.useMulti Instructs HBase to make use of ZooKeeper's multi-update functionality. + This allows certain ZooKeeper operations to complete more quickly and prevents some issues + with rare ZooKeeper failure scenarios (see the release note of HBASE-6710 for an example). + IMPORTANT: only set this to true if all ZooKeeper servers in the cluster are on version 3.4+ + and will not be downgraded. ZooKeeper versions before 3.4 do not support multi-update and will + not fail gracefully if multi-update is invoked (see ZOOKEEPER-1495).</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-7357">HBASE-7357</a> | <em>Major</em> | <strong>HBaseClient and HBaseServer should use hbase.security.authentication when negotiating authentication</strong></li>
+</ul>
+<p>This is a slightly incompatible change. HBase SASL connection negotiation is now enabled by setting hbase.security.authentication rather than hadoop.security.authentication.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-7351">HBASE-7351</a> | <em>Minor</em> | <strong>Periodic health check chore</strong></li>
+</ul>
+<p>Run a script of your creation on a period. If it fails N times (configurable), have the server exit.</p>
+<p>New configs:</p>
+<p>hbase.node.health.script.location hbase.node.health.script.timeout hbase.node.health.script.frequency Default is every 60seconds. hbase.node.health.failure.threshold Defaults to 3.</p>

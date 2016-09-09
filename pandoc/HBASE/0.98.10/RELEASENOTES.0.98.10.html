@@ -1,0 +1,66 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hbase-0.98.10-release-notes">Apache HBase 0.98.10 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-12644">HBASE-12644</a> | <em>Major</em> | <strong>Visibility Labels: issue with storing super users in labels table</strong></li>
+</ul>
+<p>The system visibility label authorization for super users will no longer be persisted in hbase:labels table. Super users will be determined at server startup time. They will have all the permissions for Visibility labels. If you have a prior deployment that had super users' system label persisted in hbase:labels, you can clean up by invoking the shell command 'clear_auths'. For example: clear_auths 'old_superuser', 'system' This is particularly necessary when you change super users, i.e. a previous super user is no longer a super user.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-12121">HBASE-12121</a> | <em>Minor</em> | <strong>maven release plugin does not allow for customized goals</strong></li>
+</ul>
+<p>Allows user to add goals to release procedure mvn release:perform -Dgoal=&lt;goal-name&gt; If no goal is specified default behavior is used</p>
+<p>Example use case: Release to private repository and upload artifacts but also want the tarball to be uploaded, not just the jars. the following could be added to the release command -Dgoal=&quot;-X package install site assembly:single deploy -DskipTests&quot; This will execute the release procedure and also upload the tarball along with all jars.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-12787">HBASE-12787</a> | <em>Major</em> | <strong>Backport HBASE-12028 (Abort the RegionServer when it's handler threads die) to 0.98</strong></li>
+</ul>
+<p>This change adds the site configuration property &quot;hbase.regionserver.handler.abort.on.error.percent&quot;. This is the percent of region server RPC threads that can fail before a regionserver is aborted, and can have one of the following values: - -1 Disable aborting (default) - 0 Abort if even a single handler has died - 0.x Abort only when this percent of handlers have died - 1 Abort only all of the handers have died</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-12842">HBASE-12842</a> | <em>Major</em> | <strong>Fix the incompatibility introduced by AccessControlClient in 0.98</strong></li>
+</ul>
+<p>Restores AccessControlClient#grant(Configuration, TableName, String, byte[], byte[], Permission.Action...) and AccessControlClient#revoke(Configuration, String, TableName, byte[], byte[], Permission.Action...) for binary compatibility with earlier releases.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-12774">HBASE-12774</a> | <em>Minor</em> | <strong>Fix the inconsistent permission checks for bulkloading.</strong></li>
+</ul>
+<p>Bulk load permissions are changed from requiring both C and W to only require C.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-12731">HBASE-12731</a> | <em>Major</em> | <strong>Heap occupancy based client pushback</strong></li>
+</ul>
+<p>This feature incorporates reported regionserver heap occupancy in the (optional) client pushback calculations. If client pushback is enabled, the exponential backoff policy will take heap occupancy into account, should it exceed &quot;hbase.heap.occupancy.low_water_mark&quot; percentage of the heap (default 0.95). Once above the low water mark, heap occupancy is an additional factor scaling from 0.1 up to 1.0 at &quot;hbase.heap.occupancy.high_water_mark&quot; (default 0.98). At or above the high water mark the client will use the maximum configured backoff.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-12745">HBASE-12745</a> | <em>Major</em> | <strong>Visibility Labels: support visibility labels for user groups.</strong></li>
+</ul>
+<p>VisibilityClient API and shell commands can be used to grant and clear visibility authorizations of a group. e.g. set_auths '@group1', ['SECRET','PRIVATE'] get_auths '@group1' clear_auths '@group1', ['SECRET','PRIVATE']</p>
+<p>When checking visibility authorizations of a user, the server will include the visibility authorizations of the groups of which the user is a member, together with the user's own.</p>
+<p>On the other hand, get_auths 'user1' will only get user1's own visibility authorizations. clear_auths 'user1' will only clear user1's own visibility authorizations. The visibility authorizations of a group can be changed by invoking the API or command on the '@group1' itself.</p>
+<p>Note:</p>
+<p>The following two methods have been deprecated in VisibilityLabelService from 0.98.10 and will be removed in 2.0+ releases. getAuths(byte[], boolean) havingSystemAuth(byte[])</p>
+<p>Use the following methods instead: getUserAuths(byte[], boolean) getGroupAuths(String[], boolean) havingSystemAuth(User)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-12831">HBASE-12831</a> | <em>Major</em> | <strong>Changing the set of vis labels a user has access to doesn't generate an audit log event</strong></li>
+</ul>
+<p>Auditing of visibility label administration.</p>
+<p>Administrative actions on visibility labels, such as creation of a label or changing the set of labels a user or group may access, are now sent to the audit log. The audit messages should be similar to those already tracked by the access controller.</p>

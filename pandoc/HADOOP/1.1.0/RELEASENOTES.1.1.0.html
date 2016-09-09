@@ -1,0 +1,153 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hadoop-1.1.0-release-notes">Apache Hadoop 1.1.0 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-8552">HADOOP-8552</a> | <em>Major</em> | <strong>Conflict: Same security.log.file for multiple users.</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-8365">HADOOP-8365</a> | <em>Blocker</em> | <strong>Add flag to disable durable sync</strong></li>
+</ul>
+<p>This patch enables durable sync by default. Installation where HBase was not used, that used to run without setting &quot;dfs.support.append&quot; or setting it to false explicitly in the configuration, must add a new flag &quot;dfs.durable.sync&quot; and set it to false to preserve the previous semantics.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-8314">HADOOP-8314</a> | <em>Major</em> | <strong>HttpServer#hasAdminAccess should return false if authorization is enabled but user is not authenticated</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-8230">HADOOP-8230</a> | <em>Major</em> | <strong>Enable sync by default and disable append</strong></li>
+</ul>
+<p>Append is not supported in Hadoop 1.x. Please upgrade to 2.x if you need append. If you enabled dfs.support.append for HBase, you're OK, as durable sync (why HBase required dfs.support.append) is now enabled by default. If you really need the previous functionality, to turn on the append functionality set the flag &quot;dfs.support.broken.append&quot; to true.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-8154">HADOOP-8154</a> | <em>Major</em> | <strong>DNS#getIPs shouldn't silently return the local host IP for bogus interface names</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-6995">HADOOP-6995</a> | <em>Minor</em> | <strong>Allow wildcards to be used in ProxyUsers configurations</strong></li>
+</ul>
+<p>When configuring proxy users and hosts, the special wildcard value &quot;*&quot; may be specified to match any host or any user.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-5464">HADOOP-5464</a> | <em>Major</em> | <strong>DFSClient does not treat write timeout of 0 properly</strong></li>
+</ul>
+<p>Zero values for dfs.socket.timeout and dfs.datanode.socket.write.timeout are now respected. Previously zero values for these parameters resulted in a 5 second timeout.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-3814">HDFS-3814</a> | <em>Major</em> | <strong>Make the replication monitor multipliers configurable in 1.x</strong></li>
+</ul>
+<p>This change adds two new configuration parameters.</p>
+<h1 id="dfs.namenode.invalidate.work.pct.per.iteration-for-controlling-deletion-rate-of-blocks.">{{dfs.namenode.invalidate.work.pct.per.iteration}} for controlling deletion rate of blocks.</h1>
+<h1 id="dfs.namenode.replication.work.multiplier.per.iteration-for-controlling-replication-rate.-this-in-turn-allows-controlling-the-time-it-takes-for-decommissioning.">{{dfs.namenode.replication.work.multiplier.per.iteration}} for controlling replication rate. This in turn allows controlling the time it takes for decommissioning.</h1>
+<p>Please see hdfs-default.xml for detailed description.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-3703">HDFS-3703</a> | <em>Major</em> | <strong>Decrease the datanode failure detection time</strong></li>
+</ul>
+<p>This jira adds a new DataNode state called &quot;stale&quot; at the NameNode. DataNodes are marked as stale if it does not send heartbeat message to NameNode within the timeout configured using the configuration parameter &quot;dfs.namenode.stale.datanode.interval&quot; in seconds (default value is 30 seconds). NameNode picks a stale datanode as the last target to read from when returning block locations for reads.</p>
+<p>This feature is by default turned * off *. To turn on the feature, set the HDFS configuration &quot;dfs.namenode.check.stale.datanode&quot; to true.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-3522">HDFS-3522</a> | <em>Major</em> | <strong>If NN is in safemode, it should throw SafeModeException when getBlockLocations has zero locations</strong></li>
+</ul>
+<p>getBlockLocations(), and hence open() for read, will now throw SafeModeException if the NameNode is still in safe mode and there are no replicas reported yet for one of the blocks in the file.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-3518">HDFS-3518</a> | <em>Major</em> | <strong>Provide API to check HDFS operational state</strong></li>
+</ul>
+<p>Add a utility method HdfsUtils.isHealthy(uri) for checking if the given HDFS is healthy.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-3094">HDFS-3094</a> | <em>Major</em> | <strong>add -nonInteractive and -force option to namenode -format command</strong></li>
+</ul>
+<p>The 'namenode -format' command now supports the flags '-nonInteractive' and '-force' to improve usefulness without user input.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-3055">HDFS-3055</a> | <em>Minor</em> | <strong>Implement recovery mode for branch-1</strong></li>
+</ul>
+<p>This is a new feature. It is documented in hdfs_user_guide.xml.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-3044">HDFS-3044</a> | <em>Major</em> | <strong>fsck move should be non-destructive by default</strong></li>
+</ul>
+<p>The fsck &quot;move&quot; option is no longer destructive. It copies the accessible blocks of corrupt files to lost and found as before, but no longer deletes the corrupt files after copying the blocks. The original, destructive behavior can be enabled by specifying both the &quot;move&quot; and &quot;delete&quot; options.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-2741">HDFS-2741</a> | <em>Minor</em> | <strong>dfs.datanode.max.xcievers missing in 0.20.205.0</strong></li>
+</ul>
+<p>Document and raise the maximum allowed transfer threads on a DataNode to 4096. This helps Apache HBase in particular.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-2617">HDFS-2617</a> | <em>Major</em> | <strong>Replaced Kerberized SSL for image transfer and fsck with SPNEGO-based solution</strong></li>
+</ul>
+<p>Due to the requirement that KSSL use weak encryption types for Kerberos tickets, HTTP authentication to the NameNode will now use SPNEGO by default. This will require users of previous branch-1 releases with security enabled to modify their configurations and create new Kerberos principals in order to use SPNEGO. The old behavior of using KSSL can optionally be enabled by setting the configuration option &quot;hadoop.security.use-weak-http-crypto&quot; to &quot;true&quot;.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-2465">HDFS-2465</a> | <em>Major</em> | <strong>Add HDFS support for fadvise readahead and drop-behind</strong></li>
+</ul>
+<p>HDFS now has the ability to use posix_fadvise and sync_data_range syscalls to manage the OS buffer cache. This support is currently considered experimental, and may be enabled by configuring the following keys: dfs.datanode.drop.cache.behind.writes - set to true to drop data out of the buffer cache after writing dfs.datanode.drop.cache.behind.reads - set to true to drop data out of the buffer cache when performing sequential reads dfs.datanode.sync.behind.writes - set to true to trigger dirty page writeback immediately after writing data dfs.datanode.readahead.bytes - set to a non-zero value to trigger readahead for sequential reads</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4698">MAPREDUCE-4698</a> | <em>Minor</em> | <strong>TestJobHistoryConfig throws Exception in testJobHistoryLogging</strong></li>
+</ul>
+<p>Optionally call initialize/initializeFileSystem in JobTracker::startTracker() to allow for proper initialization when offerService is not being called.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4675">MAPREDUCE-4675</a> | <em>Major</em> | <strong>TestKillSubProcesses fails as the process is still alive after the job is done</strong></li>
+</ul>
+<p>Fixed a race condition caused in TestKillSubProcesses caused due to a recent commit.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4673">MAPREDUCE-4673</a> | <em>Major</em> | <strong>make TestRawHistoryFile and TestJobHistoryServer more robust</strong></li>
+</ul>
+<p>Fixed TestRawHistoryFile and TestJobHistoryServer to not write to /tmp.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4087">MAPREDUCE-4087</a> | <em>Major</em> | <strong>[Gridmix] GenerateDistCacheData job of Gridmix can become slow in some cases</strong></li>
+</ul>
+<p>Fixes the issue of GenerateDistCacheData job slowness.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3597">MAPREDUCE-3597</a> | <em>Major</em> | <strong>Provide a way to access other info of history file from Rumentool</strong></li>
+</ul>
+<p>Rumen now provides {{Parsed*}} objects. These objects provide extra information that are not provided by {{Logged*}} objects.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3118">MAPREDUCE-3118</a> | <em>Major</em> | <strong>Backport Gridmix and Rumen features from trunk to Hadoop 0.20 security branch</strong></li>
+</ul>
+<p>Backports latest features from trunk to 0.20.206 branch.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3008">MAPREDUCE-3008</a> | <em>Major</em> | <strong>[Gridmix] Improve cumulative CPU usage emulation for short running tasks</strong></li>
+</ul>
+<p>Improves cumulative CPU emulation for short running tasks.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2517">MAPREDUCE-2517</a> | <em>Major</em> | <strong>Porting Gridmix v3 system tests into trunk branch.</strong></li>
+</ul>
+<p>Adds system tests to Gridmix. These system tests cover various features like job types (load and sleep), user resolvers (round-robin, submitter-user, echo) and submission modes (stress, replay and serial).</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-1906">MAPREDUCE-1906</a> | <em>Major</em> | <strong>Lower default minimum heartbeat interval for tasktracker &gt; Jobtracker</strong></li>
+</ul>
+<p>The default minimum heartbeat interval has been dropped from 3 seconds to 300ms to increase scheduling throughput on small clusters. Users may tune mapreduce.jobtracker.heartbeats.in.second to adjust this value.</p>

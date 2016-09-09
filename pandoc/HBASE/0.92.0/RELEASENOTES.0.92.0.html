@@ -1,0 +1,445 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hbase-0.92.0-release-notes">Apache HBase 0.92.0 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-1987">HBASE-1987</a> | <em>Minor</em> | <strong>The Put object has no simple read methods for checking what has already been added.</strong></li>
+</ul>
+<p>Adds Put#has methods.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-2321">HBASE-2321</a> | <em>Major</em> | <strong>Support RPC interface changes at runtime</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-2002">HBASE-2002</a> | <em>Major</em> | <strong>Coprocessors: Client side support</strong></li>
+</ul>
+<p>Adds new HTable.coprocessorProxy() and HTable.coprocessorExec() calls, along with server-side hooks for registering user RPC protocol handlers. Together these allow the invocation and execution of custom server-side code configured as coprocessors.</p>
+<p>Adds pluggable RPC engines as a first step towards alternate RPC implementations. This adds a field for the RPC protocol interface on connection setup, so it's not RPC wire compatible with previous versions.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-3287">HBASE-3287</a> | <em>Major</em> | <strong>Add option to cache blocks on hfile write and evict blocks on hfile close</strong></li>
+</ul>
+<p>Introduces two new configuration parameters: hbase.rs.cacheblocksonwrite (default: false) which will pre-cache all blocks of a file into the block cache as it is written, and hbase.rs.evictblocksonclose (default: true) which will evict all blocks of a file from the block cache when a file is closed on a RS.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-3374">HBASE-3374</a> | <em>Major</em> | <strong>Our jruby jar has *GPL jars in it; fix</strong></li>
+</ul>
+<p>The lads over in jruby land say 1.6RC2 should have the licensing fixup. Lets get it into TRUNK when ready. I don't think this a 0.90.x issue. Moving it out.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-3623">HBASE-3623</a> | <em>Major</em> | <strong>Allow non-XML representable separator characters in the ImportTSV tool</strong></li>
+</ul>
+<p>Allow use of non-XML friendly characters as separators in the ImportTSV tool.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-3514">HBASE-3514</a> | <em>Minor</em> | <strong>Speedup HFile.Writer append</strong></li>
+</ul>
+<p>submitted to trunk!</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-3606">HBASE-3606</a> | <em>Major</em> | <strong>Create an package integration project</strong></li>
+</ul>
+<p>Build script for creating rpm/deb packages for HBase.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-3440">HBASE-3440</a> | <em>Major</em> | <strong>Clean out load_table.rb and make sure all roads lead to completebulkload tool</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-3474">HBASE-3474</a> | <em>Major</em> | <strong>HFileOutputFormat to use column family's compression algorithm</strong></li>
+</ul>
+<p>HFileOutputFormat to use column family's compression algorithm instead of a blanket all column family wide</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-3717">HBASE-3717</a> | <em>Trivial</em> | <strong>deprecate HTable isTableEnabled() methods in favor of HBaseAdmin methods</strong></li>
+</ul>
+<p>Deprecated HTable#isTableEnabled</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-3684">HBASE-3684</a> | <em>Minor</em> | <strong>Support column range filter</strong></li>
+</ul>
+<p>The column range filter is used for selecting only those keys with columns that are between minColumn to maxColumn. For example, if minColumn is 'an', and maxColumn is 'be', it will pass keys with columns like 'ana', 'bad', but not keys with columns like 'bed', 'eye'. If minColumn is null, there is no lower bound. If maxColumn is null, there is no upper bound.</p>
+<p>The range can be inclusive or exclusive by specifying minColumnInclusive and maxColumnInclusive. or not.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-3071">HBASE-3071</a> | <em>Major</em> | <strong>Graceful decommissioning of a regionserver</strong></li>
+</ul>
+<p>Adds bin/graceful_stop.sh. See the reference guide decommission section for documentation: http://hbase.apache.org/book.html#decommission</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-3677">HBASE-3677</a> | <em>Major</em> | <strong>Generate a globally unique identifier for a cluster and store in /hbase/hbase.id</strong></li>
+</ul>
+<p>Added a unique cluster ID to ClusterStatus, This makes the HMasterInterface RPC protocol incompatible with previous versions.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-3762">HBASE-3762</a> | <em>Major</em> | <strong>HTableFactory.releaseHTableInterface() wraps IOException in RuntimeException</strong></li>
+</ul>
+<p>The follow methods have been changed to now throw IOException:</p>
+<p>org.apache.hadoop.hbase.client.HTableFactory#releaseHTableInterface(HTableInterface) org.apache.hadoop.hbase.client.HTableInterfaceFactory#releaseHTableInterface(HTableInterface) org.apache.hadoop.hbase.client.HTablePool#closeTablePool(byte[]) org.apache.hadoop.hbase.client.HTablePool#closeTablePool(String) org.apache.hadoop.hbase.client.HTablePool#putTable(HTableInterface)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-1364">HBASE-1364</a> | <em>Critical</em> | <strong>[performance] Distributed splitting of regionserver commit logs</strong></li>
+</ul>
+<p>Adds distributed WAL log splitting in place of single-process master orchestrated splitting. Feature is ON by default (To disable, set hbase.master.distributed.log.splitting=false).</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-3609">HBASE-3609</a> | <em>Major</em> | <strong>Improve the selection of regions to balance; part 2</strong></li>
+</ul>
+<p>Balancer improvements over the previous purely random assignment balancer; distributes evenly from oldest and newest regions and does round robin loading a newly added server.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-3781">HBASE-3781</a> | <em>Major</em> | <strong>hbase shell cannot start &quot;NoMethodError: undefined method `close' for nil:NilClass&quot;</strong></li>
+</ul>
+<p>resolve problem under windows for starting the hbase shell (no close method error)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-3817">HBASE-3817</a> | <em>Trivial</em> | <strong>HBase Shell has an issue accepting FILTER for the 'scan' command.</strong></li>
+</ul>
+<p>Fix the FILTER feature for the HBase Shell's 'scan' command.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-1512">HBASE-1512</a> | <em>Major</em> | <strong>Coprocessors: Support aggregate functions</strong></li>
+</ul>
+<p>A coprocessor to do basic aggregating; max, min, counts, etc.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-3629">HBASE-3629</a> | <em>Major</em> | <strong>Update our thrift to 0.6</strong></li>
+</ul>
+<p>Updated our thrift to 0.6.1. Incompatible change with previous HBase thrift.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-1502">HBASE-1502</a> | <em>Blocker</em> | <strong>Remove need for heartbeats in HBase</strong></li>
+</ul>
+<p>Deprecates what were once considered fundamental classes, HServerInfo and HServerAddress. The former has been made irrelevant because its constituent info -- server name, server load -- is now passed otherwise. HServerAddress, a class that on deserialization, did a resolve (it created a new InetSocketAddress on deserialization) was just a bad idea from the get-go. Unfortunately, HSI and HSA were all over our codebase like a cancer. Hopefully the patient survives their purging.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-3880">HBASE-3880</a> | <em>Major</em> | <strong>Make mapper function in ImportTSV plug-able</strong></li>
+</ul>
+<p>ImportTsv allows using a custom Mapper implementation.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-3691">HBASE-3691</a> | <em>Critical</em> | <strong>Add compressor support for 'snappy', google's compressor</strong></li>
+</ul>
+<p>Added support for Google's Snappy compression codec.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-3841">HBASE-3841</a> | <em>Trivial</em> | <strong>HTable and HTableInterface docs are inconsistent with one another</strong></li>
+</ul>
+<p>Fix inconsistency of documentation between HTable and its Interface</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-2937">HBASE-2937</a> | <em>Critical</em> | <strong>Facilitate Timeouts In HBase Client</strong></li>
+</ul>
+<p>Add a &quot;hbase.client.operation.timeout&quot; parameter to specify shorter timeouts around HTable operations, which kicks in after the client has been initialized.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-3873">HBASE-3873</a> | <em>Major</em> | <strong>Mavenize Hadoop Snappy JAR/SOs project dependencies</strong></li>
+</ul>
+<p>Add support to hbase for snappy compression.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-2233">HBASE-2233</a> | <em>Critical</em> | <strong>Support both Hadoop 0.20, 0.21, and 0.22</strong></li>
+</ul>
+<p>HBase will run unadorned on hadoop 0.22 (HBase does not run on hadoop 0.21, not without forward port of recoverLease, HDFS-1948, and change to httpserver, HADOOP-7351)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-3789">HBASE-3789</a> | <em>Blocker</em> | <strong>Cleanup the locking contention in the master</strong></li>
+</ul>
+<p>The master now creates the znode when closing a region, which is an incompatible change. SplitTransaction now waits on the master to delete the znode that it created before it can finish. The master doesn't keep track of znodes being deleted and created anymore, it was getting out of sync too easily.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4000">HBASE-4000</a> | <em>Major</em> | <strong>You can't specify split points when you create a table in the shell</strong></li>
+</ul>
+<p>The shell's create command now supports: create 't1', 'f1', {SPLITS =&gt; ['01', '02', '03', '04']} create 't1', 'f1', {SPLITS_FILE =&gt; 'splits.txt'}</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-3534">HBASE-3534</a> | <em>Major</em> | <strong>Action should not store or serialize regionName</strong></li>
+</ul>
+<p>regionName is no longer carried by Action class.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4016">HBASE-4016</a> | <em>Major</em> | <strong>HRegion.incrementColumnValue() doesn't have a consistent behavior when the field that we are incrementing is less than 8 bytes long</strong></li>
+</ul>
+<p>Throws IOException if you attempt to increment a column that isn't exactly 8 bytes long. Includes test for this.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4079">HBASE-4079</a> | <em>Minor</em> | <strong>HTableUtil - helper class for loading data</strong></li>
+</ul>
+<p>HTableUtil provides the following helper methods: {code} public static void bucketRsPut(HTable htable, List&lt;Put&gt; puts) throws IOException {code} It processes a List of Puts and writes them to an HTable instance in RegionServer buckets via the htable.put method. {code} public static void bucketRsBatch(HTable htable, List&lt;Row&gt; rows) throws IOException {code} Processes a List of Rows (Put, Delete) and writes them to an HTable instance in RegionServer buckets via the htable.batch method.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4017">HBASE-4017</a> | <em>Major</em> | <strong>BlockCache interface should be truly modular</strong></li>
+</ul>
+<p>Adds metrics fields to BlockCache interface, modularizes BlockCache. Gets rid of (LruBlockCache) casts.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-451">HBASE-451</a> | <em>Critical</em> | <strong>Remove HTableDescriptor from HRegionInfo</strong></li>
+</ul>
+<p>Removes HTableDescriptor from HRegionInfo. Runs a migration of catalog tables on startup.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-3465">HBASE-3465</a> | <em>Major</em> | <strong>Hbase should use a HADOOP_HOME environment variable if available.</strong></li>
+</ul>
+<p>If HADOOP_HOME is defined, we'll use this hadoop over whats in HBASE_HOME/lib</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-3065">HBASE-3065</a> | <em>Blocker</em> | <strong>Retry all 'retryable' zk operations; e.g. connection loss</strong></li>
+</ul>
+<p>Adds recovery of 'recoverable' zk operations.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-3857">HBASE-3857</a> | <em>Major</em> | <strong>Change the HFile Format</strong></li>
+</ul>
+<p>HFile format version 2, multi-level block indexes, and compound Bloom filters.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4179">HBASE-4179</a> | <em>Major</em> | <strong>Failed to run RowCounter on top of Hadoop branch-0.22</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4181">HBASE-4181</a> | <em>Critical</em> | <strong>HConnectionManager can't find cached HRegionInterface which makes client very slow</strong></li>
+</ul>
+<p>Use the host and port string as the key of the Map&lt;String, HRegionInterface&gt; servers to avoid cache misses caused by different format of String returned by InetSocketAddress .</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4081">HBASE-4081</a> | <em>Major</em> | <strong>Issues with HRegion.compactStores methods</strong></li>
+</ul>
+<p>The fix has been checked in.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4176">HBASE-4176</a> | <em>Minor</em> | <strong>Exposing HBase Filters to the Thrift API</strong></li>
+</ul>
+<p>Means of specifying filters in thrift (and in shell) by passing a string specification</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4227">HBASE-4227</a> | <em>Minor</em> | <strong>Modify the webUI so that default values of column families are not shown</strong></li>
+</ul>
+<p>This patch addresses the following: 1. On the master web UI, the table description lists out only column families with non-default values. 2. A details link through which the complete table description is available.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4197">HBASE-4197</a> | <em>Major</em> | <strong>RegionServer expects all scanner to be subclasses of HRegion.RegionScanner</strong></li>
+</ul>
+<p>RegionScanner is now an interface which extends InternalScanner.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4233">HBASE-4233</a> | <em>Blocker</em> | <strong>Update protobuf dependency to 2.4.0a</strong></li>
+</ul>
+<p>The protobuf dependency has been updated to 2.4.0a. If your application uses protocol buffers and includes HBase's dependencies on the classpath, you may have to resolve this dependency change.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4071">HBASE-4071</a> | <em>Major</em> | <strong>Data GC: Remove all versions &gt; TTL EXCEPT the last written version</strong></li>
+</ul>
+<p>Even if older than TTL, keep N versions; e.g. if N is 1, we'll purge all versions but the most recent written even if this one version is older than TTL.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4027">HBASE-4027</a> | <em>Minor</em> | <strong>Enable direct byte buffers LruBlockCache</strong></li>
+</ul>
+<p>Setting hbase.offheapcachesize in hbase-site.xml and -XX:MaxDirectMemorySize in hbase-env.sh to enable this feature. The file already has a line you can uncomment and you need to set the size of the direct memory (your total memory - size allocated to memstores - size allocated to the normal block cache - and some head room for the other functionalities).</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4117">HBASE-4117</a> | <em>Minor</em> | <strong>Slow Query Log</strong></li>
+</ul>
+<p>Exposes JSON-parseable fingerprint and details for queries that take longer than a configurable threshold time. The exposure is currently to the main regionserver log, along with a (queryTooSlow) tag which allows it to be grepped out and easily aggregated and/or monitored in adminstrator scripts.</p>
+<p>The patch also provides a standard way to extract fingerprint and detail information of interest by requiring each &quot;DatabaseCommand&quot; to provide a fingerprint map and a details map, which will be a superset of the fingerprint.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-3900">HBASE-3900</a> | <em>Major</em> | <strong>Expose progress of a major compaction in UI and/or in shell</strong></li>
+</ul>
+<p>Expose counts of KVs compacted to UI.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4292">HBASE-4292</a> | <em>Major</em> | <strong>Add a debugging dump servlet to the master and regionserver</strong></li>
+</ul>
+<p>The master and region server web UIs expose a new servlet at '/dump' which contains a debug dump containing useful information about their state.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4299">HBASE-4299</a> | <em>Major</em> | <strong>Upgrade to Avro 1.5.3 &amp; use Avro Maven plugin to generate Avro classes</strong></li>
+</ul>
+<p>Upgraded the Avro dependency to 1.5.3. Those using both Avro and HBase may want to double check their dependencies are aligned.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4327">HBASE-4327</a> | <em>Major</em> | <strong>Compile HBase against hadoop 0.22</strong></li>
+</ul>
+<p>To compile against a version of hadoop other than 0.20, set hadoop.profile. When -Dhadoop.profile=22 is specified, HBase will build against hadoop 0.22. When -Dhadoop.profile=23 is specified, HBase will build against hadoop 0.23. This is a change in behavior, previously used to be -Dhadoop23. When nothing is specified, then HBase will build against 0.20</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4260">HBASE-4260</a> | <em>Major</em> | <strong>Expose a command to manually trigger an HLog roll</strong></li>
+</ul>
+<p>Add an hlog_roll &lt;SERVERNAME&gt; to shell. Rolls wal logs on named server.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4195">HBASE-4195</a> | <em>Critical</em> | <strong>Possible inconsistency in a memstore read after a reseek, possible performance improvement</strong></li>
+</ul>
+<p>This fixes the regression (identified by a random failure of test TestHRegion#testWritesWhileGetting) introduced by HBASE-3855. In production, the failure could occur purely randomly depending on the size of the MemStore list, or during a parallel execution of a scanner#next and a memstore flush. The fix improves the scanner reseek performance as well. The parameter &quot;hbase.hregion.memstore.reseek.maxkeys&quot; is not used anymore.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4369">HBASE-4369</a> | <em>Critical</em> | <strong>Deprecate HConnection#getZookeeperWatcher in prep for HBASE-1762</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4419">HBASE-4419</a> | <em>Trivial</em> | <strong>Resolve build warning messages</strong></li>
+</ul>
+<p>small fixes in pom.xml to resolve some maven warnings</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4247">HBASE-4247</a> | <em>Minor</em> | <strong>Add isAborted method to the Abortable interface</strong></li>
+</ul>
+<p>Add isAbortable to Abortable Interface.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-3130">HBASE-3130</a> | <em>Major</em> | <strong>[replication] ReplicationSource can't recover from session expired on remote clusters</strong></li>
+</ul>
+<p>ReplicationPeer is now the abortable for the sink's ZK and can be told to reconnect if the session expires.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4499">HBASE-4499</a> | <em>Minor</em> | <strong>[replication] Source shouldn't update ZK if it didn't progress</strong></li>
+</ul>
+<p>ReplicationSource keeps track of its previous location and won't update ZK if it doesn't need to.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-2794">HBASE-2794</a> | <em>Major</em> | <strong>Utilize ROWCOL bloom filter if multiple columns within same family are requested in a Get</strong></li>
+</ul>
+<p>Resolving (the patch has been committed).</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4422">HBASE-4422</a> | <em>Major</em> | <strong>Move block cache parameters and references into single CacheConf class</strong></li>
+</ul>
+<p>Relocates all cache configuration options and constants into a new CacheConfig class. Modifies lots of constructors from Store/StoreFile down to HFile.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-3417">HBASE-3417</a> | <em>Critical</em> | <strong>CacheOnWrite is using the temporary output path for block names, need to use a more consistent block naming scheme</strong></li>
+</ul>
+<p>StoreFile naming changes from random ascii longs to [0-9a-f] uuids. The same name is used in the tmp and perm location. This name is what gets used for the block name in the cache.</p>
+<p>This change is a backwards compatible slow migration, all new files will be named with the new scheme, old files will still be readable. However, once you have new files created in the new scheme, previous installations will fail.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-3446">HBASE-3446</a> | <em>Blocker</em> | <strong>ProcessServerShutdown fails if META moves, orphaning lots of regions</strong></li>
+</ul>
+<p>Makes catalog/* classes retry: e.g. MetaEditor, MetaReader and CatalogTracker. Previously they would try once and unless successful, fail. Retrying is courtesy of HTable instances.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4589">HBASE-4589</a> | <em>Critical</em> | <strong>CacheOnWrite broken in some cases because it can conflict with evictOnClose</strong></li>
+</ul>
+<p>EvictOnClose can be turned on/off on a per-file-close basis</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4579">HBASE-4579</a> | <em>Critical</em> | <strong>CST.requestCompaction semantics changed, logs are now spammed when too many store files</strong></li>
+</ul>
+<p>MemStoreFlusher will now request only 1 compaction when waiting because there are too many store files, instead of one per check</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-3581">HBASE-3581</a> | <em>Critical</em> | <strong>hbase rpc should send size of response</strong></li>
+</ul>
+<p>Adds a length to the rpc reponse</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4437">HBASE-4437</a> | <em>Major</em> | <strong>Update hadoop in 0.92 (0.20.205?)</strong></li>
+</ul>
+<p>We ship with hadoop 0.20.205.0 now. Make sure you have dfs.support.append enabled everywhere on your cluster.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4374">HBASE-4374</a> | <em>Blocker</em> | <strong>Up default regions size from 256M to 1G</strong></li>
+</ul>
+<p>Upped default split size to 1G from 256M and the flush size from 64M to 128M.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4648">HBASE-4648</a> | <em>Major</em> | <strong>Bytes.toBigDecimal() doesn't use offset</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4552">HBASE-4552</a> | <em>Major</em> | <strong>multi-CF bulk load is not atomic across column families</strong></li>
+</ul>
+<p>HRegion.bulkLoadHFile() has been removed in 0.92 and TRUNK. HRegion.bulkLoadHFiles() is introduced for multi-family bulk load.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-3939">HBASE-3939</a> | <em>Critical</em> | <strong>Some crossports of Hadoop IPC fixes</strong></li>
+</ul>
+<p>VersionedProtocol and ProtocolSignature are pulled from hadoop into HBase.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4740">HBASE-4740</a> | <em>Blocker</em> | <strong>[bulk load] the HBASE-4552 API can't tell if errors on region server are recoverable</strong></li>
+</ul>
+<p>Default value for hbase.bulkload.retries.number is 0, meaning bulk load would never give up.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-3433">HBASE-3433</a> | <em>Critical</em> | <strong>Remove the KV copy of every KV in Scan; introduced by HBASE-3232</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-3025">HBASE-3025</a> | <em>Critical</em> | <strong>Coprocessor based simple access control</strong></li>
+</ul>
+<p>This is part of an overall implementation of security features for HBase. This issue adds a new AccessController coprocessor which, when enabled, performs authorization checks on all cluster operations, using stored access control lists.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-2418">HBASE-2418</a> | <em>Critical</em> | <strong>add support for ZooKeeper authentication</strong></li>
+</ul>
+<p>This adds support for protecting the state of HBase znodes on a multi-tenant ZooKeeper cluster. This support requires ZK 3.4.0. It is a companion patch to HBASE-2742 (secure RPC), and HBASE-3025 (Coprocessor based access control).</p>
+<p>SASL authentication of ZooKeeper clients with the quorum is handled in the ZK client independently of HBase concerns. To enable strong ZK authentication, one must create a suitable JaaS configuration, for example:</p>
+<p>Server { com.sun.security.auth.module.Krb5LoginModule required useKeyTab=true keyTab=&quot;/etc/hbase/conf/hbase.keytab&quot; storeKey=true useTicketCache=false principal=&quot;zookeeper/$HOSTNAME&quot;; }; Client { com.sun.security.auth.module.Krb5LoginModule required useKeyTab=true useTicketCache=false keyTab=&quot;/etc/hbase/conf/hbase.keytab&quot; principal=&quot;hbase/$HOSTNAME&quot;; };</p>
+<p>and then configure both the client and server processes to use it, for example in hbase-site.xml:</p>
+<p>HBASE_OPTS=&quot;${HBASE_OPTS} -Djava.security.auth.login.config=/etc/hbase/conf/jaas.conf&quot; HBASE_OPTS=&quot;${HBASE_OPTS} -Dzookeeper.kerberos.removeHostFromPrincipal=true&quot; HBASE_OPTS=&quot;${HBASE_OPTS} -Dzookeeper.kerberos.removeRealmFromPrincipal=true&quot;</p>
+<p>HBase will then secure all znodes but for a few world-readable read-only ones needed for clients to look up region locations. All internal cluster operations will be protected from unauthenticated ZK clients, or clients not authenticated to the HBase principal. Presumably the only ZK clients authenticated to the HBase principal will be those embedded in the master and regionservers.</p>
+<p>We will pull in a Hadoop artifact patched with HADOOP-7070 if building under the security profile (-P security). 0.20.205 does not yet include HADOOP-7070. Without it, the JAAS configuration required for secure operation of the ZooKeeper client will be ignored.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4960">HBASE-4960</a> | <em>Major</em> | <strong>Document mutual authentication between HBase and Zookeeper using SASL</strong></li>
+</ul>
+<p>adds content to src/docbkx/configuration.xml regarding Zookeeper/HBase mutual authentication, including Kerberos-related content.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-5006">HBASE-5006</a> | <em>Major</em> | <strong>Move hbase 0.92RC1 on to hadoop 1.0.0RC2</strong></li>
+</ul>
+<p>Packages hadoop 1.0.0rc2.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-5017">HBASE-5017</a> | <em>Blocker</em> | <strong>Bump the default hfile.block.cache.size because of HFileV2</strong></li>
+</ul>
+<p>The default percentage of heap space allocated to the block cache has been increased from 20% to 25%. However, index caching is now accounted for in the block cache, so total heap usage should be minimally affected.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-5055">HBASE-5055</a> | <em>Blocker</em> | <strong>Build against hadoop 0.22 broken</strong></li>
+</ul>
+<p>Changes pom so we build against 0.22.0 release.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-5087">HBASE-5087</a> | <em>Major</em> | <strong>Up the 0.92RC zk to 3.4.1RC0</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-5204">HBASE-5204</a> | <em>Blocker</em> | <strong>Backward compatibility fixes for 0.92</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4187">HBASE-4187</a> | <em>Major</em> | <strong>Add Thrift Column Start/Stop Read/Scan Capability</strong></li>
+</ul>
+<p>Filters now support an offset,limit support to limit the reads to a definable col/chunk size.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4298">HBASE-4298</a> | <em>Critical</em> | <strong>Support to drain RS nodes through ZK</strong></li>
+</ul>
+<p>Just as HDFS currently has a way to exclude certain datanodes and prevent them from getting new blocks, this feature adds marking regionservers so they will not get new regions if you add a regionserver to the draining nodes directory in zk. These draining znodes look exactly the same as the corresponding nodes in /rs, except they live under /draining. This patch adds watching of /draining and the blocking of region assignment to draining nodes; it does not provide means of writing the draining znode (use zkcli).</p>

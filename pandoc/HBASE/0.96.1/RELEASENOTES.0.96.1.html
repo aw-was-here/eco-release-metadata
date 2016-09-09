@@ -1,0 +1,128 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hbase-0.96.1-release-notes">Apache HBase 0.96.1 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.</p>
+<hr />
+<ul>
+<li><p><a href="https://issues.apache.org/jira/browse/HBASE-9745">HBASE-9745</a> | <em>Major</em> | <strong>Append HBASE_CLASSPATH to end of Java classpath and use another env var for prefix</strong></p></li>
+<li>The additional JAR files specified with HBASE_CLASSPATH are appended to the system JARs.</li>
+<li><p>The additional JAR files specified with HBASE_CLASSPATH_PREFIX are prefixed to the system JARs.</p></li>
+</ul>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-9771">HBASE-9771</a> | <em>Trivial</em> | <strong>[WebUI] Humanize store and blockcache statistics on RS</strong></li>
+</ul>
+<p>Committed to 0.96 and trunk. Thanks for the review Elliott.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-7525">HBASE-7525</a> | <em>Critical</em> | <strong>A canary monitoring program specifically for regionserver</strong></li>
+</ul>
+<p>Tool to check cluster. See $ ./bin/hbase org.apache.hadoop.hbase.tool.RegionServerCanary -help for how to use.</p>
+<p>{code} Usage: bin/hbase org.apache.hadoop.hbase.tool.Canary [opts] [table/regionserver 1 [table/regionserver 2...]] where [opts] are: -help Show this help and exit. -regionserver replace the table argument to regionserver, which means to enable regionserver mode -daemon Continuous check at defined intervals. -interval &lt;N&gt; Interval between checks (sec) -e Use region/regionserver as regular expression which means the region/regionserver is regular expression pattern -f &lt;B&gt; stop whole program if first error occurs, default is true -t &lt;N&gt; timeout for a check, default is 600000 (milisecs) {code}</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-9848">HBASE-9848</a> | <em>Major</em> | <strong>Make regionserver Canary exit with different exit codes</strong></li>
+</ul>
+<p>Canary now has different return codes for different types of failures.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-9908">HBASE-9908</a> | <em>Major</em> | <strong>[WINDOWS] Fix filesystem / classloader related unit tests</strong></li>
+</ul>
+<p>Committed this. Thanks Nick for looking.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-9895">HBASE-9895</a> | <em>Major</em> | <strong>0.96 Import utility can't import an exported file from 0.94</strong></li>
+</ul>
+<p>To import 0.94 exported file in 0.96 cluster or onwards, you need to set system property &quot;hbase.import.version&quot; when running the import command as below:</p>
+<p>./bin/hbase -Dhbase.import.version=0.94 org.apache.hadoop.hbase.mapreduce.Import &lt;table name&gt; &lt;import file folder&gt;</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-9850">HBASE-9850</a> | <em>Major</em> | <strong>Issues with UI for table compact/split operation completion. After split/compaction operation using UI, the page is not automatically redirecting back using IE8/Firefox.</strong></li>
+</ul>
+<p>Support auto redirect for IE/firefox browsers upon completion of Split/compact operation</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-9902">HBASE-9902</a> | <em>Major</em> | <strong>Region Server is starting normally even if clock skew is more than default 30 seconds(or any configured). -&gt; Regionserver node time is greater than master node time</strong></li>
+</ul>
+<p>Clock skew detection to be made absolute value comparison. Any time difference between master or region, high or low must prevent the region server startup</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-9138">HBASE-9138</a> | <em>Trivial</em> | <strong>getHaseIntegrationTestingUtility() is misspelled</strong></li>
+</ul>
+<p>patch for 0.94.x</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-9870">HBASE-9870</a> | <em>Major</em> | <strong>HFileDataBlockEncoderImpl#diskToCacheFormat uses wrong format</strong></li>
+</ul>
+<p>The patch makes sure that data block encoding in cache is always the same as that on disk. It deprecates the column family attribute ENCODE_ON_DISK since it doesn't apply any more. HColumnDescriptor#setEncodeOnDisk(boolean) is still there for compatibility issue. However, it doesn't do anything now. HColumnDescriptor#getDataBlockEncodingOnDisk() is also deprecated because the data block encoding on disk is always the same as that in cache for a given store file.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-9757">HBASE-9757</a> | <em>Major</em> | <strong>Reenable fast region move in SlowDeterministicMonkey</strong></li>
+</ul>
+<p>Online encoding change is enabled by default in both trunk and 0.96 now.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-9165">HBASE-9165</a> | <em>Major</em> | <strong>Improvements to addDependencyJars</strong></li>
+</ul>
+<p>Introduces the method TableMapReduceUtil#addHBaseDependencyJars for adding HBase and its direct dependencies (only) to the job configuration.</p>
+<p>This is intended as a low-level API, facilitating code reuse between this class and its mapred counterpart. It is also of use to external tools that need to build a MapReduce job that interacts with HBase but want fine-grained control over the jars shipped to the cluster. See also PIG-3285 and HIVE-2055.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-9961">HBASE-9961</a> | <em>Major</em> | <strong>[WINDOWS] Multicast should bind to local address</strong></li>
+</ul>
+<p>Clients now bind to multicast address configured as &quot;hbase.status.multicast.bind.address.ip&quot;, 0.0.0.0 by default.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-8438">HBASE-8438</a> | <em>Major</em> | <strong>Extend bin/hbase to print a &quot;mapreduce classpath&quot;</strong></li>
+</ul>
+<p>$ ./bin/hbase mapredcp --help Usage: hbase mapredcp [-Dtmpjars=...] Construct a CLASSPATH containing dependency jars required to run a mapreduce job. By default, includes any jars detected by TableMapReduceUtils. Provide additional entries by specifying a comma-separated list in tmpjars.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-9985">HBASE-9985</a> | <em>Minor</em> | <strong>Add HBase shell command to start/stop tracing</strong></li>
+</ul>
+<p>Adds new trace 'start', trace 'status', and trace 'stop' commands to shell.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-9831">HBASE-9831</a> | <em>Minor</em> | <strong>'hbasefsck.numthreads' property isn't passed to hbck via cmdline -D option</strong></li>
+</ul>
+<p>try run hadoopqa for trunk</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-9973">HBASE-9973</a> | <em>Major</em> | <strong>[ACL]: Users with 'Admin' ACL permission will lose permissions after upgrade to 0.96.x from 0.94.x or 0.92.x</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-10001">HBASE-10001</a> | <em>Minor</em> | <strong>Add a coprocessor to help testing the performances without taking into account the i/o</strong></li>
+</ul>
+<p>New coprocessor to help analysing the performances of the cluster. This coprocessor drops all the writes on the server side, allowing the measure the client and network performances without any limitation on the disk i/o. For a table created like this: create 'usertable', {NAME =&gt; 'f1', VERSIONS =&gt; 1} . You can then add the coprocessor with this command: alter 'usertable', 'coprocessor' =&gt; '|org.apache.hadoop.hbase.tool.WriteSinkCoprocessor|'</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-8143">HBASE-8143</a> | <em>Critical</em> | <strong>HBase on Hadoop 2 with local short circuit reads (ssr) causes OOM</strong></li>
+</ul>
+<p>Committed 0.96 and trunk. Thanks for reviews.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-10073">HBASE-10073</a> | <em>Major</em> | <strong>Revert HBASE-9718 (Add a test scope dependency on org.slf4j:slf4j-api to hbase-client)</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-10010">HBASE-10010</a> | <em>Major</em> | <strong>eliminate the put latency spike on the new log file beginning</strong></li>
+</ul>
+<p>Forward port of a 0.89fb patch where we issue sync on WAL file construction to force immediate setup of write pipeline (and do it outside of locks so don't hold up writes during setup).</p>

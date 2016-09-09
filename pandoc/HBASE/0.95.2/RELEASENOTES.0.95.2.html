@@ -1,0 +1,248 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hbase-0.95.2-release-notes">Apache HBase 0.95.2 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-5959">HBASE-5959</a> | <em>Major</em> | <strong>Add other load balancers</strong></li>
+</ul>
+<p>Added a new StochasticLoadBalancer that when enabled will perform a randomized search for the optimal cluster balance. The new balancer takes into account data locality, storefile size, memstore size, and the evenness of tables over region servers when trying potential new cluster states.</p>
+<p>To enable the new balancer set hbase.master.loadbalancer.class to org.apache.hadoop.hbase.master.balancer.StochasticLoadBalancer . It is also recommended to set hbase.master.loadbalance.bytable to false . Lots of different configuration options can be tuned to prioritize costs differently. Explanations of all of the configuration options are available on the JavaDoc for StochasticLoadBalancer.</p>
+<p>StochasticLoadBalancer is the default in 0.96.0</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-7902">HBASE-7902</a> | <em>Minor</em> | <strong>deletes may be removed during minor compaction, in non-standard compaction schemes [rename enums]</strong></li>
+</ul>
+<p>committed to 0.95 and trunk last week</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-8723">HBASE-8723</a> | <em>Blocker</em> | <strong>HBase Intgration tests are failing because of new defaults.</strong></li>
+</ul>
+<p>Changed default number of RPC reties to 30 to ensure the client doesn't give up too soon during a region fail over.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-8696">HBASE-8696</a> | <em>Major</em> | <strong>Fixup for logs that show when running hbase-it tests.</strong></li>
+</ul>
+<p>Changes format of log messages; shorter thread names, favors encoded region name rather than full name or full descriptor, etc.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-6295">HBASE-6295</a> | <em>Major</em> | <strong>Possible performance improvement in client batch operations: presplit and send in background</strong></li>
+</ul>
+<p>The puts are now streamed, i.e. sent asynchronously to the region servers if autoflush it set to false. If a region server is slow or does not respond, its puts are kept into the write buffer while the others are sent to these respective region server, until the write buffer is full. This feature is keeps the semantic of the interface already existing in 0.94 when using autoflush.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-8692">HBASE-8692</a> | <em>Major</em> | <strong>[AccessController] Restrict HTableDescriptor enumeration</strong></li>
+</ul>
+<p>This change adds support for restricting access to table schema. Only a user with GLOBAL ADMIN privilege can enumerate the full list of table schemas. If passed a list of specific tables, the AccessController will check that the user has either GLOBAL ADMIN privs, or TABLE ADMIN or TABLE CREATE privs for all of the listed tables before allowing the request.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-8809">HBASE-8809</a> | <em>Major</em> | <strong>Include deletes in the scan (setRaw) method does not respect the time range or the filter</strong></li>
+</ul>
+<p>&quot;Raw&quot; scans (Scan.setRaw(true)), now honor the scan's time range if specified. Previously the time range would be ignored.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-8501">HBASE-8501</a> | <em>Major</em> | <strong>The hbase zkcli will connection failure the first and the second ip from ZooKeeperMainServerArg return connection string</strong></li>
+</ul>
+<p>Formats the ensemble string we pass to the zookeeper constructor so instead of server1,server2,server3:port, it is instead server1:port,server2:port, etc., as zk expects in its connectString parameter.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-8776">HBASE-8776</a> | <em>Major</em> | <strong>tweak retry settings some more (on trunk and 0.94)</strong></li>
+</ul>
+<p>Retry backoff intervals and retry count were set in such manner that at most ~5.5 minutes are spent retrying. On 94 this was adjusted up (from 1~min.), and on trunk/95 - down (from ~40min).</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-8861">HBASE-8861</a> | <em>Major</em> | <strong>Remove ReplicationState completely</strong></li>
+</ul>
+<p>stop_replication and start_replication aren't available anymore due to the confusion it was causing. The right way to stop/start replication is to disable_peer and enable_peer, for each peers.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-8888">HBASE-8888</a> | <em>Major</em> | <strong>Tweak retry settings some more, *some more*</strong></li>
+</ul>
+<p>Changes retries so we ram up quickly from a pause of 100ms between retries to 10 seonds between retries. Once at ten seconds, we keep retrying unto the maxium of 35 times by default which works out to about five minutes. Change this configuration to suit your work load.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-8915">HBASE-8915</a> | <em>Minor</em> | <strong>protobuf message style</strong></li>
+</ul>
+<p>Reformat of proto labels to suit protobuf style</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-8375">HBASE-8375</a> | <em>Major</em> | <strong>Durability setting per table</strong></li>
+</ul>
+<p>Added Durability setting for table with HTableDescriptor.setDurability() API. Deprecated HTableDescriptor.setDeferredLogFlush(), and shell usage in favor of the new durability setting. Now, durability can be configured per table and per mutation.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-8662">HBASE-8662</a> | <em>Major</em> | <strong>[rest] support impersonation</strong></li>
+</ul>
+<p>With the patch, if &quot;hbase.rest.authentication.type&quot; is set to &quot;kerberos&quot; and security is turned on, REST server will impersonate the authenticated user in access HBase.</p>
+<p>The RPC layer proxy user settings should be configured properly to allow impersonation.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-8877">HBASE-8877</a> | <em>Major</em> | <strong>Reentrant row locks</strong></li>
+</ul>
+<p>Changed the coprocessor RegionObserver methods preBatchMutate and postBatchMutate to remove the lock ids from the methods as lock ids are not longer used.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-8962">HBASE-8962</a> | <em>Minor</em> | <strong>Clean up code and remove regular log splitting</strong></li>
+</ul>
+<p>As distributed log splitting is getting more and more stable, non-distributed log splitting is removed and not supported any more. The configuration hbase.master.distributed.log.splitting is also removed, which used to the configuration to turn distributed log splitting on (true) and off (false).</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-9009">HBASE-9009</a> | <em>Major</em> | <strong>Disable TestMultiTableInputFormat</strong></li>
+</ul>
+<p>Removed this set of tests.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-8764">HBASE-8764</a> | <em>Major</em> | <strong>Some MasterMonitorCallable should retry</strong></li>
+</ul>
+<p>Add retrying of Master operations; helps when running hbase-it and chaos monkey kills Master or Master is not yet up ready to take on operations.</p>
+<p>Refactors ServerCallable. ServerCallable had a public call() method and then beside it a withRetries() and also a withoutRetries(). Confusing. Also the rpc retrying with its specific handling of server exception returns was not reusable buried down in ServerCallable guts.</p>
+<p>This patch moves the rpc retrying code out of ServerCallable into a utility RpcRetryingCaller class (A 'Caller' runs the 'Callable'). ServerCallable shrinks, implements a new RetryingCallable Interface, and becomes RegionServerCallable, a class that is just about Calling -- no rpc nor retries, a Callable class with added details on where the Callable is to be applied (table name and row), -- etc.</p>
+<p>This pattern is then applied to Master operations. Master operations were not retried previously. The Master operation Callables are now like RegionServerCallable (though they need to carry way less detail), implement RetryingCallable, and are passed to RpcRetryingCaller so they are retried. Changed some exceptions so they now implement DoNotRetryException because not all master operations should be retried.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-7826">HBASE-7826</a> | <em>Minor</em> | <strong>Improve Hbase Thrift v1 to return results in sorted order</strong></li>
+</ul>
+<p>When passing a TScan object, it's possible to ask for sortColumns. The result of doing this will populate TRowResult's &quot;sortedColumns&quot; instead of &quot;columns&quot;, where the former is a list of the new type TColumn that wraps a column name and a TCell. Backward compatibility is kept. Old clients will work against thrift servers with this patch, but new clients cannot request sorted columns on an old thrift server.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-9049">HBASE-9049</a> | <em>Major</em> | <strong>Generalize ServerCallable creation to support custom callables</strong></li>
+</ul>
+<p>Support custom RpcRetryingCaller via a configurable factory.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-7634">HBASE-7634</a> | <em>Major</em> | <strong>Replication handling of changes to peer clusters is inefficient</strong></li>
+</ul>
+<p>This change has an impact on the number of watches set on the ${zookeeper.znode.parent}/rs node in ZK in a replication slave cluster (i.e. a cluster that is being replicated to). Every region server in each master cluster will place a watch on the rs node of each slave node. No additional configuration is necessary for this, but this could potentially have an impact the performance and/or hardware requirements of ZK on very large clusters.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-6891">HBASE-6891</a> | <em>Critical</em> | <strong>Hadoop 2 unit test failures</strong></li>
+</ul>
+<p>HBase unit test now pass when run against hadoop2 (hadoop-2.0..5-alpha)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-9119">HBASE-9119</a> | <em>Major</em> | <strong>hbase.mapreduce.hfileoutputformat.blocksize should configure with blocksize of a table</strong></li>
+</ul>
+<p>While writing hfiles from HFileOutputFormat forcing blocksize from table schema(HColumnDescriptor). Even if we configure hbase.mapreduce.hfileoutputformat.blocksize during bulkload/import it will be overridden with actual block size from table schema.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-8957">HBASE-8957</a> | <em>Major</em> | <strong>TestDrainingServer. testDrainingServerWithAbort fails</strong></li>
+</ul>
+<p>Make it so tests run WITHOUT short circuit reads by default.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-8778">HBASE-8778</a> | <em>Critical</em> | <strong>Region assigments scan table directory making them slow for huge tables</strong></li>
+</ul>
+<p>Table descriptors are now moved inside hdfs from residing directly in the table directory (alongside region directories) to being in a well known subdirectory called &quot;.tabledesc&quot;. For example, instead of /hbase/exampleTable/.tableinfo.0000000003 the file would be /hbase/exampleTable/.tabledesc/.tableinfo.0000000003 after this release. The same will be true for snapshots. The first active master to be started up will move these files for existing tables and snapshots.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-9129">HBASE-9129</a> | <em>Blocker</em> | <strong>Scanner prefetching leaks scanners.</strong></li>
+</ul>
+<p>Reverted Scanner Pre-fetching</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-7325">HBASE-7325</a> | <em>Minor</em> | <strong>Replication reacts slowly on a lightly-loaded cluster</strong></li>
+</ul>
+<p>ReplicationSource won't backoff sleeping time if it can correctly read from the WAL even though it's not replicating anything. In that kind of situation it will put more load on the NN. replication.source.sleepforretries can still be tweaked to set the minimal sleep time.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-7183">HBASE-7183</a> | <em>Major</em> | <strong>print WARN message if hbase.replication.sizeOfLogQueue is too big</strong></li>
+</ul>
+<p>When a replication source's queue is higher than replication.source.log.queue.warn (default 2), it will print a WARN in the log as a new log is added.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-8224">HBASE-8224</a> | <em>Blocker</em> | <strong>Publish hbase build against h1 and h2 adding '-hadoop1' or '-hadoop2' to version string</strong></li>
+</ul>
+<p>When we publish artifacts, we add a -hadoop1 or -hadoop2 to the version to distingush hbase compiled against hadoop1 from that compiled against hadoop2. This issue adds a script that runs against checked out poms to derive poms that have the -hadoop1 or -hadoop2 modification made and they add/remove to the poms the appropriate set of modules to bundle. See refguide for final doc on how to make use of this script building (TODO); refguide will replace the notes here.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-6580">HBASE-6580</a> | <em>Major</em> | <strong>Deprecate HTablePool in favor of HConnection.getTable(...)</strong></li>
+</ul>
+<p>This issue introduces a few new APIs: * HConnectionManager: {code} public static HConnection createConnection(Configuration conf) public static HConnection createConnection(Configuration conf, ExecutorService pool) {code} * HConnection: {code} public HTableInterface getTable(String tableName) throws IOException public HTableInterface getTable(byte[] tableName) throws IOException public HTableInterface getTable(String tableName, ExecutorService pool) throws IOException public HTableInterface getTable(byte[] tableName, ExecutorService pool) throws IOException {code}</p>
+<p>By default HConnectionImplementation will create an ExecutorService when needed. The ExecutorService can optionally passed be passed in. HTableInterfaces are retrieved from the HConnection. By default the HConnection's ExecutorService is used, but optionally that can be overridden for each HTable.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-9142">HBASE-9142</a> | <em>Critical</em> | <strong>Mutation#getFamilyMap() return type change between HBase 94 and 96 breaks downstream apps</strong></li>
+</ul>
+<p>HBASE-9142 Mutation#getFamilyMap() return type change between HBase 94 and 96 breaks downstream apps</p>
+<p>For 0.95/0.96, we need to preserve the getFamilyMap signature through a deprecation cycle. The new method needs to be present alongside the old in 0.95, so we rename the method with the new signature to getFamilyCellMap() in both trunk and 0.95, and restore a deprecated version of the old in 0.95.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-7639">HBASE-7639</a> | <em>Major</em> | <strong>Enable online schema update by default</strong></li>
+</ul>
+<p>Online schema chages are now enabled by default.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-9097">HBASE-9097</a> | <em>Major</em> | <strong>Set HBASE_CLASSPATH before rest of the classpath</strong></li>
+</ul>
+<p>Move HBASE_CLASSPATH to the beginning of the CLASSPATH in bin/hbase script.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-8018">HBASE-8018</a> | <em>Major</em> | <strong>Add &quot;Flaky Testcase Detector&quot; tool into dev-tools</strong></li>
+</ul>
+<p>Tool that looks at jenkins builds and identifies flakey tests or tests that are 'invisibles' -- not mentioned in the test listing but that nonetheless cause the build to fail. See the README.md under dev-tools/jenkins-tools for how to build and use.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-9091">HBASE-9091</a> | <em>Major</em> | <strong>Update ByteRange to maintain consumer's position</strong></li>
+</ul>
+<p>Extract ByteRange out to an interface. Existing implementation becomes SimpleByteRange. Extend ByteRange interface with PositionedByteRange. Includes a position marker for tracking a consumer's place within a range. Implement SimplePositionedByteRange as subclass of SimpleByteRange. Also update and clarify documentation. This class starts to become a mutable alternative to java.nio.HeapByteBuffer.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-8201">HBASE-8201</a> | <em>Major</em> | <strong>OrderedBytes: an ordered encoding strategy</strong></li>
+</ul>
+<p>OrderedBytes provides a data encoding format in which the resulting byte[] retains the same sort order as the natural types. Encoded formats can be inspected and decoded without forward knowledge of their content. Implementations are provided for integer and floating point numbers with 32- and 64-bits of precision, numeric values of arbitrary precision, Strings, and byte[]s. Utility methods for counting and skipping encoded entries are also provided.</p>
+<p>Most of the encoding formats are modeled after the SQLite4 key encoding format. Implementations of variable-length encodings are very similar. Fixed-width encodings are modeled after the fixed-width formats provided by the Orderly library. Javadocs on the OrderedBytes class describe the encoding format in detail. See http://sqlite.org/src4/doc/trunk/www/key_encoding.wiki for additional context.</p>
+<p>Notable deviation from the sqlite4 spec include: - Different header byte values. This is to give users more room to place their own, custom encoding extensions as they see fit. - BlobCopy is modified to include a termination byte of 0x00 in descending order. This is necessary in order to maintain reverse sort order of empty values. It is also renamed from &quot;BlobLast&quot;. - Support for fixed-length integer and float encodings. Based on implementations from the Orderly library.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-8693">HBASE-8693</a> | <em>Blocker</em> | <strong>DataType: provide extensible type API</strong></li>
+</ul>
+<p>This patch introduces an extensible data types API for HBase. It is inspired by the following systems:</p>
+<ul>
+<li>PostgreSQL. Postgres has a user-extensible data type API, which has been used to great effect by it's user community (ie, PostGIS). The desire is for HBase to expose an equally extensible data type API. One aspect of the Postgres data type is the ability to provide equivalence functions for index operations. This appears to be of critical performance utility for its execution engine.</li>
+<li>Orderly. Orderly handles the issue of compound rowkeys by providing convenience classes for handling these kinds of data types. This influence is reflected in the Struct and Union family of classes.</li>
+<li>Phoenix. The PDataType enum used in Phoenix provides type hints, similar Postgres's equivalence functions. These appear to be used during query execution for numerical type promotion.</li>
+</ul>
+<p>This patch introduces an interface, DataType, along with a number of data type implementations based on the Bytes encoding. Also included are Struct and Union types, demonstrating simple implementations of compound types. Helper classes around the Struct implementation are also provided.</p>
+<p>This patch does not address the type compatibility concerns expressed by Phoenix's PDataType API (ie, isComparableTo, isCoercibleTo); these will be addressed in HBASE-8863.</p>
+<p>This patch also provides DataType implementations based on the OrderedBytes encoding from HBASE-8201.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-8663">HBASE-8663</a> | <em>Critical</em> | <strong>a HBase Shell command to list the tables replicated from current cluster</strong></li>
+</ul>
+<p>list_replicated_tables can now be used in the shell to get the list of tables and families that are configured to be replicated, instead of having to describe all the tables and manually filter those that have a replication scope of 1</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-8409">HBASE-8409</a> | <em>Blocker</em> | <strong>Security support for namespaces</strong></li>
+</ul>
+<p>This patch introduces security privileges to create, alter or drop namespaces. When security is enabled only global admin is allowed to do such operations. Richer namespace privileges will be introduced in HBASE-9206.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-9128">HBASE-9128</a> | <em>Critical</em> | <strong>Drop the '.' prefix from names under hbase.rootdir after namespaces goes in</strong></li>
+</ul>
+<p>Changes the dir names under hbase.rootdir dropping the no longer needed prefix '.' and renaming a few.</p>
+<p>&quot;.logs&quot; -&gt; &quot;WALs&quot;; &quot;.splitlog&quot; -&gt; &quot;splitWAL&quot; &quot;.corrupt&quot; -&gt; &quot;corrupt&quot; &quot;.oldlogs&quot; -&gt; &quot;oldWALs&quot; &quot;.data&quot; -&gt; &quot;data&quot; &quot;.archive&quot; -&gt; &quot;archive&quot;</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-9121">HBASE-9121</a> | <em>Major</em> | <strong>Update HTrace to 2.00 and add new example usage.</strong></li>
+</ul>
+<p>Updated to HTrace 2.00.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-9193">HBASE-9193</a> | <em>Major</em> | <strong>Make what Chaos monkey actions run configurable per test.</strong></li>
+</ul>
+<p>It is now possible to choose which ChaosMonkey you want to run with an integration test.</p>

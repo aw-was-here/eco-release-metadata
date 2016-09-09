@@ -126,4 +126,11 @@ Vectorization: Custom UDF Vectorization annotations are ignored (Gopal V, review
 beeline fetch logging delays before query completion (Tao Li, via Gopal V)
 
 
+---
+
+* [HIVE-14159](https://issues.apache.org/jira/browse/HIVE-14159) | *Major* | **sorting of tuple array using multiple field[s]**
+
+**WARNING: No release note provided for this change.**
+
+
 

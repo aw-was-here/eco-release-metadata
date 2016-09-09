@@ -1,0 +1,45 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hbase-0.90.4-release-notes">Apache HBase 0.90.4 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-2077">HBASE-2077</a> | <em>Critical</em> | <strong>NullPointerException with an open scanner that expired causing an immediate region server shutdown</strong></li>
+</ul>
+<p>Removes lease from lease monitor while operation is running inside the server.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-3994">HBASE-3994</a> | <em>Minor</em> | <strong>SplitTransaction has a window where clients can get RegionOfflineException</strong></li>
+</ul>
+<p>Added better error messages for regions that are offline or split parents</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-3984">HBASE-3984</a> | <em>Blocker</em> | <strong>CT.verifyRegionLocation isn't doing a very good check, can delay cluster recovery</strong></li>
+</ul>
+<p>In trunk: All HRegionInferface methods will now throw a RegionServerStoppedException if it's in that state, whereas we used to only check it for a few methods. SingleServerBulkAssigner will not kill the Master anymore when getting IOEs, instead it will just log an error and the TimeoutMonitor will take care of picking up the pieces.</p>
+<p>In 0.90: Only a couple of checkOpen calls were added in order to change as less code as possible while still fixing the issue.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-3968">HBASE-3968</a> | <em>Minor</em> | <strong>HLog Pretty Printer</strong></li>
+</ul>
+<p>Implementation of a Pretty Printer for HLogs. Can be accessed with the Java API or with a command line interface, which replaces HLog --dump functionality. Can output to a human-readable pretty format, or to a JSON list for easy parsing in diagnostic scripts. Can also filter by region, row, and/or sequence id. See command line usage (HLog --dump -h) and the javadocs for more detail on these features.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-3893">HBASE-3893</a> | <em>Blocker</em> | <strong>HRegion.internalObtainRowLock shouldn't wait forever</strong></li>
+</ul>
+<p>hbase.rowlock.wait.duration has been introduced which controls the duration in milliseconds waiting to acquire row lock. Default value is 30 seconds. If row lock cannot be acquired within this duration, no row lock would be obtained.</p>

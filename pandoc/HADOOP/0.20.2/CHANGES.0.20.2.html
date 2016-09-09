@@ -1,0 +1,516 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hadoop-changelog">Apache Hadoop Changelog</h1>
+<h2 id="release-0.20.2---2010-02-16">Release 0.20.2 - 2010-02-16</h2>
+<h3 id="incompatible-changes">INCOMPATIBLE CHANGES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-793">HDFS-793</a></td>
+<td align="left">DataNode should first receive the whole packet ack message before it constructs and sends its own ack message for the packet</td>
+<td align="left">Blocker</td>
+<td align="left">datanode</td>
+<td align="left">Hairong Kuang</td>
+<td align="left">Hairong Kuang</td>
+</tr>
+</tbody>
+</table>
+<h3 id="new-features">NEW FEATURES:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-1849">HADOOP-1849</a></td>
+<td align="left">IPC server max queue size should be configurable</td>
+<td align="left">Major</td>
+<td align="left">ipc</td>
+<td align="left">Raghu Angadi</td>
+<td align="left">Konstantin Shvachko</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-623">MAPREDUCE-623</a></td>
+<td align="left">Resolve javac warnings in mapred</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Jothi Padmanabhan</td>
+<td align="left">Jothi Padmanabhan</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-6576">HADOOP-6576</a></td>
+<td align="left">TestStreamingStatus is failing on 0.20 branch</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Chris Douglas</td>
+<td align="left">Todd Lipcon</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-6575">HADOOP-6575</a></td>
+<td align="left">Tests do not run on 0.20 branch</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Chris Douglas</td>
+<td align="left">Chris Douglas</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-6524">HADOOP-6524</a></td>
+<td align="left">Contrib tests are failing Clover'ed build</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Konstantin Boudnik</td>
+<td align="left">Konstantin Boudnik</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-6506">HADOOP-6506</a></td>
+<td align="left">Failing tests prevent the rest of test targets from execution.</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Konstantin Boudnik</td>
+<td align="left">Konstantin Boudnik</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-6498">HADOOP-6498</a></td>
+<td align="left">IPC client bug may cause rpc call hang</td>
+<td align="left">Blocker</td>
+<td align="left">ipc</td>
+<td align="left">Ruyue Ma</td>
+<td align="left">Ruyue Ma</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-6460">HADOOP-6460</a></td>
+<td align="left">Namenode runs of out of memory due to memory leak in ipc Server</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Suresh Srinivas</td>
+<td align="left">Suresh Srinivas</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-6428">HADOOP-6428</a></td>
+<td align="left">HttpServer sleeps with negative values</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+<td align="left">Konstantin Boudnik</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-6315">HADOOP-6315</a></td>
+<td align="left">GzipCodec should not represent BuiltInZlibInflater as decompressorType</td>
+<td align="left">Major</td>
+<td align="left">io</td>
+<td align="left">Aaron Kimball</td>
+<td align="left">Aaron Kimball</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-6269">HADOOP-6269</a></td>
+<td align="left">Missing synchronization for defaultResources in Configuration.addResource</td>
+<td align="left">Major</td>
+<td align="left">conf</td>
+<td align="left">Todd Lipcon</td>
+<td align="left">Sreekanth Ramakrishnan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-6231">HADOOP-6231</a></td>
+<td align="left">Allow caching of filesystem instances to be disabled on a per-instance basis</td>
+<td align="left">Major</td>
+<td align="left">fs</td>
+<td align="left">Tom White</td>
+<td align="left">Ben Slusky</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-6097">HADOOP-6097</a></td>
+<td align="left">Multiple bugs w/ Hadoop archives</td>
+<td align="left">Major</td>
+<td align="left">fs</td>
+<td align="left">Ben Slusky</td>
+<td align="left">Ben Slusky</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5759">HADOOP-5759</a></td>
+<td align="left">IllegalArgumentException when CombineFileInputFormat is used as job InputFormat</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Amareshwari Sriramadasu</td>
+<td align="left">Amareshwari Sriramadasu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5623">HADOOP-5623</a></td>
+<td align="left">Streaming: process provided status messages are overwritten every 10 seoncds</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Rick Cox</td>
+<td align="left">Rick Cox</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5612">HADOOP-5612</a></td>
+<td align="left">Some c++ scripts are not chmodded before ant execution</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Todd Lipcon</td>
+<td align="left">Todd Lipcon</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5611">HADOOP-5611</a></td>
+<td align="left">C++ libraries do not build on Debian Lenny</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Todd Lipcon</td>
+<td align="left">Todd Lipcon</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-927">HDFS-927</a></td>
+<td align="left">DFSInputStream retries too many times for new block locations</td>
+<td align="left">Critical</td>
+<td align="left">hdfs-client</td>
+<td align="left">Todd Lipcon</td>
+<td align="left">Todd Lipcon</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-872">HDFS-872</a></td>
+<td align="left">DFSClient 0.20.1 is incompatible with HDFS 0.20.2</td>
+<td align="left">Major</td>
+<td align="left">datanode, hdfs-client</td>
+<td align="left">Bassam Tabbara</td>
+<td align="left">Todd Lipcon</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-781">HDFS-781</a></td>
+<td align="left">Metrics PendingDeletionBlocks is not decremented</td>
+<td align="left">Blocker</td>
+<td align="left">namenode</td>
+<td align="left">Suresh Srinivas</td>
+<td align="left">Suresh Srinivas</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-761">HDFS-761</a></td>
+<td align="left">Failure to process rename operation from edits log due to quota verification</td>
+<td align="left">Major</td>
+<td align="left">namenode</td>
+<td align="left">Suresh Srinivas</td>
+<td align="left">Suresh Srinivas</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-745">HDFS-745</a></td>
+<td align="left">TestFsck timeout on 0.20.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-732">HDFS-732</a></td>
+<td align="left">HDFS files are ending up truncated</td>
+<td align="left">Blocker</td>
+<td align="left">hdfs-client</td>
+<td align="left">Christian Kunz</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-723">HDFS-723</a></td>
+<td align="left">Deadlock in DFSClient#DFSOutputStream</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Hairong Kuang</td>
+<td align="left">Hairong Kuang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-677">HDFS-677</a></td>
+<td align="left">Rename failure due to quota results in deletion of src directory</td>
+<td align="left">Blocker</td>
+<td align="left">namenode</td>
+<td align="left">Suresh Srinivas</td>
+<td align="left">Suresh Srinivas</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-596">HDFS-596</a></td>
+<td align="left">Memory leak in libhdfs: hdfsFreeFileInfo() in libhdfs does not free memory for mOwner and mGroup</td>
+<td align="left">Blocker</td>
+<td align="left">fuse-dfs</td>
+<td align="left">Zhang Bingjun</td>
+<td align="left">Zhang Bingjun</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-579">HDFS-579</a></td>
+<td align="left">HADOOP-3792 update of DfsTask incomplete</td>
+<td align="left">Major</td>
+<td align="left">hdfs-client</td>
+<td align="left">Christian Kunz</td>
+<td align="left">Christian Kunz</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-187">HDFS-187</a></td>
+<td align="left">TestStartup fails if hdfs is running in the same machine</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+<td align="left">Todd Lipcon</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-185">HDFS-185</a></td>
+<td align="left">Chown , chgrp , chmod operations allowed when namenode is in safemode .</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ravi Phulari</td>
+<td align="left">Ravi Phulari</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-101">HDFS-101</a></td>
+<td align="left">DFS write pipeline : DFSClient sometimes does not detect second datanode failure</td>
+<td align="left">Blocker</td>
+<td align="left">datanode</td>
+<td align="left">Raghu Angadi</td>
+<td align="left">Hairong Kuang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-1251">MAPREDUCE-1251</a></td>
+<td align="left">c++ utils doesn't compile</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Eli Collins</td>
+<td align="left">Eli Collins</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-1182">MAPREDUCE-1182</a></td>
+<td align="left">Reducers fail with OutOfMemoryError while copying Map outputs</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Chandra Prakash Bhagtani</td>
+<td align="left">Chandra Prakash Bhagtani</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-1163">MAPREDUCE-1163</a></td>
+<td align="left">hdfsJniHelper.h: Yahoo! specific paths are encoded</td>
+<td align="left">Trivial</td>
+<td align="left">.</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-1147">MAPREDUCE-1147</a></td>
+<td align="left">Map output records counter missing for map-only jobs in new API</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Chris Douglas</td>
+<td align="left">Amar Kamat</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-1070">MAPREDUCE-1070</a></td>
+<td align="left">Deadlock in FairSchedulerServlet</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Todd Lipcon</td>
+<td align="left">Todd Lipcon</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-1068">MAPREDUCE-1068</a></td>
+<td align="left">In hadoop-0.20.0 streaming job do not throw proper verbose error message if file is not present</td>
+<td align="left">Major</td>
+<td align="left">contrib/streaming</td>
+<td align="left">Peeyush Bishnoi</td>
+<td align="left">Amareshwari Sriramadasu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-1010">MAPREDUCE-1010</a></td>
+<td align="left">Adding tests for changes in archives.</td>
+<td align="left">Minor</td>
+<td align="left">harchive</td>
+<td align="left">Mahadev konar</td>
+<td align="left">Mahadev konar</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-979">MAPREDUCE-979</a></td>
+<td align="left">JobConf.getMemoryFor{Map|Reduce}Task doesn't fallback to newer config knobs when mapred.taskmaxvmem is set to DISABLED_MEMORY_LIMIT of -1</td>
+<td align="left">Blocker</td>
+<td align="left">jobtracker, tasktracker</td>
+<td align="left">Arun C Murthy</td>
+<td align="left">Sreekanth Ramakrishnan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-826">MAPREDUCE-826</a></td>
+<td align="left">harchive doesn't use ToolRunner / harchive returns 0 even if the job fails with exception</td>
+<td align="left">Trivial</td>
+<td align="left">harchive</td>
+<td align="left">Koji Noguchi</td>
+<td align="left">Koji Noguchi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-617">MAPREDUCE-617</a></td>
+<td align="left">Streaming should not throw java.lang.RuntimeException and ERROR while displaying help</td>
+<td align="left">Minor</td>
+<td align="left">contrib/streaming</td>
+<td align="left">Karam Singh</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-433">MAPREDUCE-433</a></td>
+<td align="left">TestReduceFetch failed.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+<td align="left">Chris Douglas</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-112">MAPREDUCE-112</a></td>
+<td align="left">Reduce Input Records and Reduce Output Records counters are not being set when using the new Mapreduce reducer API</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Jothi Padmanabhan</td>
+<td align="left">Jothi Padmanabhan</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tests">TESTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-919">HDFS-919</a></td>
+<td align="left">Create test to validate the BlocksVerified metric</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">gary murry</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-907">HDFS-907</a></td>
+<td align="left">Add tests for getBlockLocations and totalLoad metrics.</td>
+<td align="left">Minor</td>
+<td align="left">namenode</td>
+<td align="left">Ravi Phulari</td>
+<td align="left">Ravi Phulari</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sub-tasks">SUB-TASKS:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="other">OTHER:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>

@@ -1,0 +1,472 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hive-changelog">Apache Hive Changelog</h1>
+<h2 id="release-1.2.2---unreleased-as-of-2016-09-08">Release 1.2.2 - Unreleased (as of 2016-09-08)</h2>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-11076">HIVE-11076</a></td>
+<td align="left">Explicitly set hive.cbo.enable=true for some tests</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Pengcheng Xiong</td>
+<td align="left">Pengcheng Xiong</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-9583">HIVE-9583</a></td>
+<td align="left">Rolling upgrade of Hive MetaStore Server</td>
+<td align="left">Major</td>
+<td align="left">HCatalog, Metastore</td>
+<td align="left">Thiruvel Thirumoolan</td>
+<td align="left">Thiruvel Thirumoolan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-11780">HIVE-11780</a></td>
+<td align="left">Add &quot;set role none&quot; support</td>
+<td align="left">Major</td>
+<td align="left">Authorization</td>
+<td align="left">Dapeng Sun</td>
+<td align="left">Dapeng Sun</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-10308">HIVE-10308</a></td>
+<td align="left">Vectorization execution throws java.lang.IllegalArgumentException: Unsupported complex type: MAP</td>
+<td align="left">Major</td>
+<td align="left">Vectorization</td>
+<td align="left">Selina Zhang</td>
+<td align="left">Matt McCline</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-11028">HIVE-11028</a></td>
+<td align="left">Tez: table self join and join with another table fails with IndexOutOfBoundsException</td>
+<td align="left">Major</td>
+<td align="left">Query Planning</td>
+<td align="left">Jason Dere</td>
+<td align="left">Jason Dere</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-11050">HIVE-11050</a></td>
+<td align="left">testCliDriver_vector_outer_join.* failures in Unit tests due to unstable data creation queries</td>
+<td align="left">Blocker</td>
+<td align="left">Hive</td>
+<td align="left">Matt McCline</td>
+<td align="left">Matt McCline</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-11066">HIVE-11066</a></td>
+<td align="left">Ensure tests don't share directories on FS</td>
+<td align="left">Major</td>
+<td align="left">Tests</td>
+<td align="left">Eugene Koifman</td>
+<td align="left">Eugene Koifman</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-11059">HIVE-11059</a></td>
+<td align="left">hcatalog-server-extensions tests scope should depend on hive-exec</td>
+<td align="left">Minor</td>
+<td align="left">Tests</td>
+<td align="left">Sushanth Sowmyan</td>
+<td align="left">Sushanth Sowmyan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-11060">HIVE-11060</a></td>
+<td align="left">Make test windowing.q robust</td>
+<td align="left">Major</td>
+<td align="left">Tests</td>
+<td align="left">Jesus Camacho Rodriguez</td>
+<td align="left">Jesus Camacho Rodriguez</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-11074">HIVE-11074</a></td>
+<td align="left">Update tests for HIVE-9302 after removing binaries</td>
+<td align="left">Major</td>
+<td align="left">Tests</td>
+<td align="left">Jesus Camacho Rodriguez</td>
+<td align="left">Jesus Camacho Rodriguez</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-10996">HIVE-10996</a></td>
+<td align="left">Aggregation / Projection over Multi-Join Inner Query producing incorrect results</td>
+<td align="left">Critical</td>
+<td align="left">Query Planning</td>
+<td align="left">Gautam Kowshik</td>
+<td align="left">Jesus Camacho Rodriguez</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-11151">HIVE-11151</a></td>
+<td align="left">Calcite transitive predicate inference rule should not transitively add not null filter on non-nullable input</td>
+<td align="left">Major</td>
+<td align="left">CBO, Logical Optimizer</td>
+<td align="left">Ashutosh Chauhan</td>
+<td align="left">Ashutosh Chauhan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-11171">HIVE-11171</a></td>
+<td align="left">Join reordering algorithm might introduce projects between joins</td>
+<td align="left">Major</td>
+<td align="left">CBO</td>
+<td align="left">Jesus Camacho Rodriguez</td>
+<td align="left">Jesus Camacho Rodriguez</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-11224">HIVE-11224</a></td>
+<td align="left">AggregateStatsCache triggers java.util.ConcurrentModificationException under some conditions</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Pengcheng Xiong</td>
+<td align="left">Pengcheng Xiong</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-11216">HIVE-11216</a></td>
+<td align="left">UDF GenericUDFMapKeys throws NPE when a null map value is passed in</td>
+<td align="left">Major</td>
+<td align="left">UDF</td>
+<td align="left">Yibing Shi</td>
+<td align="left">Yibing Shi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-11172">HIVE-11172</a></td>
+<td align="left">Vectorization wrong results for aggregate query with where clause without group by</td>
+<td align="left">Critical</td>
+<td align="left">Hive</td>
+<td align="left">Yi Zhang</td>
+<td align="left">Hari Sankar Sivarama Subramaniyan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-11301">HIVE-11301</a></td>
+<td align="left">thrift metastore issue when getting stats results in disconnect</td>
+<td align="left">Major</td>
+<td align="left">Metastore</td>
+<td align="left">Sergey Shelukhin</td>
+<td align="left">Pengcheng Xiong</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-11344">HIVE-11344</a></td>
+<td align="left">HIVE-9845 makes HCatSplit.write modify the split so that PartInfo objects are unusable after it</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sushanth Sowmyan</td>
+<td align="left">Sushanth Sowmyan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-11606">HIVE-11606</a></td>
+<td align="left">Bucket map joins fail at hash table construction time</td>
+<td align="left">Major</td>
+<td align="left">Tez</td>
+<td align="left">Vikram Dixit K</td>
+<td align="left">Vikram Dixit K</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-11605">HIVE-11605</a></td>
+<td align="left">Incorrect results with bucket map join in tez.</td>
+<td align="left">Critical</td>
+<td align="left">Tez</td>
+<td align="left">Vikram Dixit K</td>
+<td align="left">Vikram Dixit K</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-11802">HIVE-11802</a></td>
+<td align="left">Float-point numbers are displayed with different precision in Beeline/JDBC</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sergio Peña</td>
+<td align="left">lijp</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-11745">HIVE-11745</a></td>
+<td align="left">Alter table Exchange partition with multiple partition_spec is not working</td>
+<td align="left">Major</td>
+<td align="left">Metastore</td>
+<td align="left">Yongzhi Chen</td>
+<td align="left">Yongzhi Chen</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-11832">HIVE-11832</a></td>
+<td align="left">HIVE-11802 breaks compilation in JDK 8</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Prasanth Jayachandran</td>
+<td align="left">Sergio Peña</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-11841">HIVE-11841</a></td>
+<td align="left">KeyValuesInputMerger creates huge logs</td>
+<td align="left">Major</td>
+<td align="left">Logging</td>
+<td align="left">Rajesh Balamohan</td>
+<td align="left">Rajesh Balamohan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-11517">HIVE-11517</a></td>
+<td align="left">Vectorized auto_smb_mapjoin_14.q produces different results</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Matt McCline</td>
+<td align="left">Matt McCline</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-12021">HIVE-12021</a></td>
+<td align="left">HivePreFilteringRule may introduce wrong common operands</td>
+<td align="left">Major</td>
+<td align="left">CBO</td>
+<td align="left">Jesus Camacho Rodriguez</td>
+<td align="left">Jesus Camacho Rodriguez</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-12083">HIVE-12083</a></td>
+<td align="left">HIVE-10965 introduces thrift error if partNames or colNames are empty</td>
+<td align="left">Major</td>
+<td align="left">Metastore</td>
+<td align="left">Sushanth Sowmyan</td>
+<td align="left">Sushanth Sowmyan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-11829">HIVE-11829</a></td>
+<td align="left">Create test for HIVE-11216</td>
+<td align="left">Major</td>
+<td align="left">Tests</td>
+<td align="left">Vikram Dixit K</td>
+<td align="left">Vikram Dixit K</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-9013">HIVE-9013</a></td>
+<td align="left">Hive set command exposes metastore db password</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Binglin Chang</td>
+<td align="left">Binglin Chang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-11988">HIVE-11988</a></td>
+<td align="left">[hive] security issue with hive &amp; ranger for import table command</td>
+<td align="left">Critical</td>
+<td align="left">Hive</td>
+<td align="left">Deepak Sharma</td>
+<td align="left">Sushanth Sowmyan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-12344">HIVE-12344</a></td>
+<td align="left">Wrong types inferred for SemiJoin generation in CBO</td>
+<td align="left">Major</td>
+<td align="left">CBO</td>
+<td align="left">Jesus Camacho Rodriguez</td>
+<td align="left">Jesus Camacho Rodriguez</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-12345">HIVE-12345</a></td>
+<td align="left">Followup for HIVE-9013 : Hidden conf vars still visible through beeline</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sushanth Sowmyan</td>
+<td align="left">Sushanth Sowmyan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-11356">HIVE-11356</a></td>
+<td align="left">SMB join on tez fails when one of the tables is empty</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Vikram Dixit K</td>
+<td align="left">Vikram Dixit K</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-12437">HIVE-12437</a></td>
+<td align="left">SMB join in tez fails when one of the tables is empty</td>
+<td align="left">Critical</td>
+<td align="left">Tez</td>
+<td align="left">Vikram Dixit K</td>
+<td align="left">Vikram Dixit K</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-11975">HIVE-11975</a></td>
+<td align="left">mssql scripts contains invalid 'GO' statement</td>
+<td align="left">Minor</td>
+<td align="left">Metastore</td>
+<td align="left">Huan Huang</td>
+<td align="left">Sushanth Sowmyan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-12875">HIVE-12875</a></td>
+<td align="left">Verify sem.getInputs() and sem.getOutputs()</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sushanth Sowmyan</td>
+<td align="left">Sushanth Sowmyan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-11470">HIVE-11470</a></td>
+<td align="left">NPE in DynamicPartFileRecordWriterContainer on null part-keys.</td>
+<td align="left">Major</td>
+<td align="left">HCatalog</td>
+<td align="left">Mithun Radhakrishnan</td>
+<td align="left">Mithun Radhakrishnan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-12981">HIVE-12981</a></td>
+<td align="left">ThriftCLIService uses incompatible getShortName() implementation</td>
+<td align="left">Critical</td>
+<td align="left">Authentication, Authorization, CLI, Security</td>
+<td align="left">Bolke de Bruin</td>
+<td align="left">Bolke de Bruin</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13115">HIVE-13115</a></td>
+<td align="left">MetaStore Direct SQL getPartitions call fail when the columns schemas for a partition are null</td>
+<td align="left">Major</td>
+<td align="left">Hive</td>
+<td align="left">Ratandeep Ratti</td>
+<td align="left">Ratandeep Ratti</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-12992">HIVE-12992</a></td>
+<td align="left">Hive on tez: Bucket map join plan is incorrect</td>
+<td align="left">Major</td>
+<td align="left">Tez</td>
+<td align="left">Vikram Dixit K</td>
+<td align="left">Vikram Dixit K</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-12937">HIVE-12937</a></td>
+<td align="left">DbNotificationListener unable to clean up old notification events</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sushanth Sowmyan</td>
+<td align="left">Sushanth Sowmyan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13394">HIVE-13394</a></td>
+<td align="left">Analyze table fails in tez on empty partitions/files/tables</td>
+<td align="left">Major</td>
+<td align="left">Tez</td>
+<td align="left">Vikram Dixit K</td>
+<td align="left">Vikram Dixit K</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13645">HIVE-13645</a></td>
+<td align="left">Beeline needs null-guard around hiveVars and hiveConfVars read</td>
+<td align="left">Minor</td>
+<td align="left">Beeline</td>
+<td align="left">Sushanth Sowmyan</td>
+<td align="left">Sushanth Sowmyan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13390">HIVE-13390</a></td>
+<td align="left">HiveServer2: Add more test to ZK service discovery using MiniHS2</td>
+<td align="left">Major</td>
+<td align="left">HiveServer2, JDBC</td>
+<td align="left">Vaibhav Gumashta</td>
+<td align="left">Vaibhav Gumashta</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13948">HIVE-13948</a></td>
+<td align="left">Incorrect timezone handling in Writable results in wrong dates in queries</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Sergey Shelukhin</td>
+<td align="left">Sergey Shelukhin</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-14210">HIVE-14210</a></td>
+<td align="left">ExecDriver should call jobclient.close() to trigger cleanup</td>
+<td align="left">Major</td>
+<td align="left">Hive, HiveServer2</td>
+<td align="left">Thomas Friedrich</td>
+<td align="left">Thomas Friedrich</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tests">TESTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-11048">HIVE-11048</a></td>
+<td align="left">Make test cbo_windowing robust</td>
+<td align="left">Major</td>
+<td align="left">Tests</td>
+<td align="left">Ashutosh Chauhan</td>
+<td align="left">Ashutosh Chauhan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-11083">HIVE-11083</a></td>
+<td align="left">Make test cbo_windowing robust</td>
+<td align="left">Major</td>
+<td align="left">Tests</td>
+<td align="left">Ashutosh Chauhan</td>
+<td align="left">Ashutosh Chauhan</td>
+</tr>
+</tbody>
+</table>

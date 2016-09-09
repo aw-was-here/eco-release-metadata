@@ -1,0 +1,132 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="release-notes">0.13.0 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/PIG-3996">PIG-3996</a> | <em>Major</em> | <strong>Delete zebra from svn</strong></li>
+</ul>
+<p>Zebra is deleted in 0.13.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/PIG-3950">PIG-3950</a> | <em>Trivial</em> | <strong>Removing empty file PColFilterExtractor.java speeds up rebuilds</strong></li>
+</ul>
+<p>removed empty file src/org/apache/pig/newplan/PColFilterExtractor.java</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/PIG-3945">PIG-3945</a> | <em>Major</em> | <strong>Ant not sending hadoopversion to piggybank sub-ant</strong></li>
+</ul>
+<p>Ant sends hadoopversion to piggybank sub-ant, fixes building piggybank from top level</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/PIG-3941">PIG-3941</a> | <em>Minor</em> | <strong>Piggybank's Over UDF returns an output schema with named fields</strong></li>
+</ul>
+<p>Passing a 'name:type' string to the constructor for Piggybank's Over UDF sets the name and type of the result in the output schema.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/PIG-3940">PIG-3940</a> | <em>Major</em> | <strong>NullPointerException writing .pig_header for field with null name (in JsonMetadata.java)</strong></li>
+</ul>
+<p>Fixed NullPointerException writing schema headers for fields with null names. They are now written as '$i' corresponding to the field's zero-based position.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/PIG-3926">PIG-3926</a> | <em>Minor</em> | <strong>ROUND_TO function: rounds double/float to fixed number of decimal places</strong></li>
+</ul>
+<p>The ROUND_TO(val, digits[, mode]) function accepts a single float or double value, along with an integer number of digits, and returns the value to that number of decimal places. For example, ROUND_TO(3.14159f, 3) returns 3.142f (a float); ROUND_TO(3.14159d, 0) returns 3.0d (a double); and ROUND_TO(1234.56d, -2) returns 1200d. The optional third argument controls the rounding mode; see the documentation.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/PIG-3923">PIG-3923</a> | <em>Trivial</em> | <strong>Gitignore file should ignore all generated artifacts</strong></li>
+</ul>
+<p>.gitignore ignores some generated artifacts it should ignore</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/PIG-3915">PIG-3915</a> | <em>Major</em> | <strong>MapReduce queries in Pigmix outputs different results than Pig's</strong></li>
+</ul>
+<p>Bug fixes for the Pigmix queries</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/PIG-3901">PIG-3901</a> | <em>Minor</em> | <strong>Organize the Pig properties file and document all properties</strong></li>
+</ul>
+<p>Default conf/pig.properties file has been organized, and all properties are documented</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/PIG-3793">PIG-3793</a> | <em>Major</em> | <strong>Provide info on number of LogicalRelationalOperator(s) used in the script through LogicalPlanData</strong></li>
+</ul>
+<p>Exposes methods getNumLogicalRelationOperators(), getNumSources() and getNumSinks() on LogicalPlanData.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/PIG-3653">PIG-3653</a> | <em>Major</em> | <strong>Add support for pre-deployed jars</strong></li>
+</ul>
+<p>Ability to mark jars as predeployed to the cluster so they will not be included in the generated job jar; new pig.predeployed.jars property for specifying predeployed jars on the command line</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/PIG-3642">PIG-3642</a> | <em>Major</em> | <strong>Direct HDFS access for small jobs (fetch)</strong></li>
+</ul>
+<p>When the DUMP operator is used to execute Pig Latin statements, Pig can take the advantage to minimize latency by directly reading data from HDFS rather than launching MapReduce jobs.</p>
+<p>Direct fetch is turned on by default. To turn it off set the property opt.fetch to false or start Pig with the &quot;-N&quot; or &quot;-no_fetch&quot; option.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/PIG-3608">PIG-3608</a> | <em>Minor</em> | <strong>ClassCastException when looking up a value from AvroMapWrapper using a Utf8 key</strong></li>
+</ul>
+<p>Committed to trunk.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/PIG-3582">PIG-3582</a> | <em>Major</em> | <strong>Document SUM, MIN, MAX, and AVG functions for BigInteger and BigDecimal</strong></li>
+</ul>
+<p>documentation updated to reflect addition of bigdecimal and biginteger data types to SUM, AVG, MAX and MIN functions.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/PIG-3580">PIG-3580</a> | <em>Critical</em> | <strong>MIN, MAX and AVG functions for BigDecimal and BigInteger</strong></li>
+</ul>
+<p>Attaced PIG_3580.patch. All tests pass for the attached patch.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/PIG-3569">PIG-3569</a> | <em>Critical</em> | <strong>SUM function for BigDecimal and BigInteger</strong></li>
+</ul>
+<p>Attached PIG_3569.patch was tested with latest from trunk.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/PIG-3485">PIG-3485</a> | <em>Major</em> | <strong>Remove CastUtils.bytesToMap(byte[] b) method from LoadCaster interface</strong></li>
+</ul>
+<p>This is a backward incompatible change in LoadCaster interface. Any loader that implements LoadCaster interface needs to replace the deprecated method &quot;bytesToMap(bytes[])&quot; with &quot;bytesToMap(bytes[], ResourceFieldSchema)&quot;.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/PIG-3373">PIG-3373</a> | <em>Major</em> | <strong>XMLLoader returns non-matching nodes when a tag name spans through the block boundary</strong></li>
+</ul>
+<p>I added a new patch that fixes this bug. It turned out that this bug happens only when the input file is .bz2 compressed and the non-matching tag spans two file splits in the compressed file. Since it's almost impossible to tailor an example that has this bug since the compression is virtually non-deterministic, I included a random generator that generates this test case. I don't like the idea of discovering a bug using this randomly generated file since, by definition, it's non-deterministic, I attached the test file for reference. The fix is still the same as the previous patch, but this time, the test fails without this fix.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/PIG-3299">PIG-3299</a> | <em>Major</em> | <strong>Provide support for LazyOutputFormat to avoid creating empty files</strong></li>
+</ul>
+<p>With this patch, the bundled Hadoop bump up to 1.0.4.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/PIG-3295">PIG-3295</a> | <em>Minor</em> | <strong>Casting from bytearray failing after Union (even when each field is from a single Loader)</strong></li>
+</ul>
+<p>Before, LoadCaster after Union was only available when two union-ed relations were from the same Loader with same parameters. Now, LoadCaster would work for cases when Loaders return the same LoadCaster that only have a default constructor.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/PIG-2132">PIG-2132</a> | <em>Minor</em> | <strong>Piggybank: MIN and MAX functions should ignore nulls</strong></li>
+</ul>
+<p>All I did was go through all of the Max and Min functions in Piggybank and add if (first==null) return second; if (second==null) return first;</p>
+<p>Following conversation on the message board, the desired outputs are: null,null -&gt; null 1,null -&gt; 1 null,1 -&gt; 1 1,1 -&gt; 1</p>
+<p>This change gives that.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/PIG-1577">PIG-1577</a> | <em>Major</em> | <strong>support to variable number of arguments in UDF</strong></li>
+</ul>
+<p>Fixed as part of PIG-3444.</p>

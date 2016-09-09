@@ -1,0 +1,371 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-spark-changelog">Apache Spark Changelog</h1>
+<h2 id="release-1.2.3---unreleased-as-of-2016-01-18">Release 1.2.3 - Unreleased (as of 2016-01-18)</h2>
+<h3 id="incompatible-changes">INCOMPATIBLE CHANGES:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="important-issues">IMPORTANT ISSUES:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="new-features">NEW FEATURES:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-11813">SPARK-11813</a></td>
+<td align="left">Avoid serialization of vocab in Word2Vec</td>
+<td align="left">Minor</td>
+<td align="left">MLlib</td>
+<td align="left">yuhao yang</td>
+<td align="left">yuhao yang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-10657">SPARK-10657</a></td>
+<td align="left">Remove legacy SCP-based Jenkins log archiving code</td>
+<td align="left">Major</td>
+<td align="left">Project Infra</td>
+<td align="left">Josh Rosen</td>
+<td align="left">Josh Rosen</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-9633">SPARK-9633</a></td>
+<td align="left">SBT download locations outdated; need an update</td>
+<td align="left">Minor</td>
+<td align="left">Build</td>
+<td align="left">Sean Owen</td>
+<td align="left">Sean Owen</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-7331">SPARK-7331</a></td>
+<td align="left">Create HiveConf per application instead of per query in HiveQl.scala</td>
+<td align="left">Minor</td>
+<td align="left">SQL</td>
+<td align="left">Nitin Goyal</td>
+<td align="left">Nitin Goyal</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-10980">SPARK-10980</a></td>
+<td align="left">Create wrong decimal if unscaled &gt; 1e18 and scale &gt; 0</td>
+<td align="left">Major</td>
+<td align="left">SQL</td>
+<td align="left">Davies Liu</td>
+<td align="left">Davies Liu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-10642">SPARK-10642</a></td>
+<td align="left">Crash in rdd.lookup() with &quot;java.lang.Long cannot be cast to java.lang.Integer&quot;</td>
+<td align="left">Major</td>
+<td align="left">PySpark</td>
+<td align="left">Thouis Jones</td>
+<td align="left">Liang-Chi Hsieh</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-9175">SPARK-9175</a></td>
+<td align="left">BLAS.gemm fails to update matrix C when alpha==0 and beta!=1</td>
+<td align="left">Critical</td>
+<td align="left">MLlib</td>
+<td align="left">Meihua Wu</td>
+<td align="left">Meihua Wu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-8563">SPARK-8563</a></td>
+<td align="left">Bug that IndexedRowMatrix.computeSVD() yields the U with wrong numCols</td>
+<td align="left">Major</td>
+<td align="left">MLlib</td>
+<td align="left">19 Lee</td>
+<td align="left">19 Lee</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-8525">SPARK-8525</a></td>
+<td align="left">Bug in Streaming k-means documentation</td>
+<td align="left">Minor</td>
+<td align="left">Documentation, MLlib</td>
+<td align="left">Oleksiy Dyagilev</td>
+<td align="left">Oleksiy Dyagilev</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-8062">SPARK-8062</a></td>
+<td align="left">NullPointerException in SparkHadoopUtil.getFileSystemThreadStatistics</td>
+<td align="left">Major</td>
+<td align="left">Spark Core</td>
+<td align="left">Josh Rosen</td>
+<td align="left">Josh Rosen</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-8032">SPARK-8032</a></td>
+<td align="left">Make NumPy version checking in mllib/__init__.py</td>
+<td align="left">Major</td>
+<td align="left">MLlib, PySpark</td>
+<td align="left">Manoj Kumar</td>
+<td align="left">Manoj Kumar</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-7946">SPARK-7946</a></td>
+<td align="left">DecayFactor wrongly set in StreamingKMeans</td>
+<td align="left">Major</td>
+<td align="left">MLlib, Streaming</td>
+<td align="left">Manoj Kumar</td>
+<td align="left">Manoj Kumar</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-7883">SPARK-7883</a></td>
+<td align="left">Fixing broken trainImplicit example in MLlib Collaborative Filtering documentation.</td>
+<td align="left">Trivial</td>
+<td align="left">Documentation, MLlib</td>
+<td align="left">Mike Dusenberry</td>
+<td align="left">Mike Dusenberry</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-7660">SPARK-7660</a></td>
+<td align="left">Snappy-java buffer-sharing bug leads to data corruption / test failures</td>
+<td align="left">Blocker</td>
+<td align="left">Shuffle, Spark Core</td>
+<td align="left">Josh Rosen</td>
+<td align="left">Josh Rosen</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-7522">SPARK-7522</a></td>
+<td align="left">ML Examples option for dataFormat should not be enclosed in angle brackets</td>
+<td align="left">Minor</td>
+<td align="left">Examples</td>
+<td align="left">Bryan Cutler</td>
+<td align="left">Bryan Cutler</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-7181">SPARK-7181</a></td>
+<td align="left">External Sorter merge with aggregation go to an infinite loop when we have a total ordering</td>
+<td align="left">Critical</td>
+<td align="left">Spark Core</td>
+<td align="left">Qiping Li</td>
+<td align="left">Qiping Li</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-6998">SPARK-6998</a></td>
+<td align="left">Make StreamingKMeans <code>Serializable</code></td>
+<td align="left">Major</td>
+<td align="left">MLlib</td>
+<td align="left">Shixiong Zhu</td>
+<td align="left">Shixiong Zhu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-6952">SPARK-6952</a></td>
+<td align="left">spark-daemon.sh PID reuse check fails on long classpath</td>
+<td align="left">Minor</td>
+<td align="left">Deploy</td>
+<td align="left">Punya Biswal</td>
+<td align="left">Punya Biswal</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-6931">SPARK-6931</a></td>
+<td align="left">python: struct.pack('!q', value) in write_long(value, stream) in serializers.py require int(but doesn't raise exceptions in common cases)</td>
+<td align="left">Critical</td>
+<td align="left">PySpark</td>
+<td align="left">Chunxi Zhang</td>
+<td align="left">Bryan Cutler</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-6905">SPARK-6905</a></td>
+<td align="left">Upgrade Snappy Java to 1.1.1.7 to fix bug that resulted in worse compression</td>
+<td align="left">Major</td>
+<td align="left">Spark Core</td>
+<td align="left">Josh Rosen</td>
+<td align="left">Josh Rosen</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-6886">SPARK-6886</a></td>
+<td align="left">Big closure in PySpark will fail during shuffle</td>
+<td align="left">Blocker</td>
+<td align="left">PySpark</td>
+<td align="left">Davies Liu</td>
+<td align="left">Davies Liu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-6753">SPARK-6753</a></td>
+<td align="left">Unit test for SPARK-3426 (in ShuffleSuite) doesn't correctly clone the SparkConf</td>
+<td align="left">Minor</td>
+<td align="left">Tests</td>
+<td align="left">Kay Ousterhout</td>
+<td align="left">Kay Ousterhout</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-6209">SPARK-6209</a></td>
+<td align="left">ExecutorClassLoader can leak connections after failing to load classes from the REPL class server</td>
+<td align="left">Critical</td>
+<td align="left">Spark Core</td>
+<td align="left">Josh Rosen</td>
+<td align="left">Josh Rosen</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-5969">SPARK-5969</a></td>
+<td align="left">The pyspark.rdd.sortByKey always fills only two partitions when ascending=False.</td>
+<td align="left">Major</td>
+<td align="left">PySpark</td>
+<td align="left">Milan Straka</td>
+<td align="left">Milan Straka</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-5412">SPARK-5412</a></td>
+<td align="left">Cannot bind Master to a specific hostname as per the documentation</td>
+<td align="left">Major</td>
+<td align="left">Deploy</td>
+<td align="left">Alexis Seigneurin</td>
+<td align="left">Sean Owen</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tests">TESTS:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="sub-tasks">SUB-TASKS:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="other">OTHER:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-9198">SPARK-9198</a></td>
+<td align="left">Typo in PySpark SparseVector docs (bad index)</td>
+<td align="left">Minor</td>
+<td align="left">Documentation, MLlib, PySpark</td>
+<td align="left">Joseph K. Bradley</td>
+<td align="left">Joseph K. Bradley</td>
+</tr>
+</tbody>
+</table>

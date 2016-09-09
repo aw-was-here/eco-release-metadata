@@ -1859,11 +1859,4 @@ Unsupported FileSystem operations now throw an UnsupportedOperationException rat
 Add a -x option for "hdfs -du" and "hdfs -count" commands to exclude snapshots from being calculated.
 
 
----
-
-* [YARN-5567](https://issues.apache.org/jira/browse/YARN-5567) | *Major* | **Fix script exit code checking in NodeHealthScriptRunner#reportHealthStatus**
-
-Prior to this fix, the NodeManager will ignore any non-zero exit code for any script in the yarn.nodemanager.health-checker.script.path property.  With this change, any syntax errors in the health checking script will get flagged as an error in the same fashion (likely exit code 1) that the script detecting a health issue.
-
-
 

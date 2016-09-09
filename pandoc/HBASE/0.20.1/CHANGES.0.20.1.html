@@ -1,0 +1,504 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hbase-changelog">Apache HBase Changelog</h1>
+<h2 id="release-0.20.1---2009-10-12">Release 0.20.1 - 2009-10-12</h2>
+<h3 id="new-features">NEW FEATURES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1823">HBASE-1823</a></td>
+<td align="left">Ability for Scanners to bypass the block cache</td>
+<td align="left">Major</td>
+<td align="left">Client, regionserver</td>
+<td align="left">Jonathan Gray</td>
+<td align="left">Jonathan Gray</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1684">HBASE-1684</a></td>
+<td align="left">Backup (Export/Import) contrib tool for 0.20</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jonathan Gray</td>
+<td align="left">stack</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-48">HBASE-48</a></td>
+<td align="left">[hbase] Bulk load tools</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1875">HBASE-1875</a></td>
+<td align="left">Compression test utility</td>
+<td align="left">Trivial</td>
+<td align="left">util</td>
+<td align="left">elsif</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1751">HBASE-1751</a></td>
+<td align="left">Server vs. Client-side KeyValue</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">stack</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1819">HBASE-1819</a></td>
+<td align="left">Update to 0.20.1 hadoop and zk 3.2.1</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">stack</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1765">HBASE-1765</a></td>
+<td align="left">Delay Result deserialization until asked for and permit access to the raw binary to prevent forced deserialization</td>
+<td align="left">Major</td>
+<td align="left">Client</td>
+<td align="left">Jonathan Gray</td>
+<td align="left">Jonathan Gray</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1808">HBASE-1808</a></td>
+<td align="left">[stargate] fix how columns are specified for scanners</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Andrew Purtell</td>
+<td align="left">Andrew Purtell</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1827">HBASE-1827</a></td>
+<td align="left">Add disabling block cache scanner flag to the shell, option for scan and count</td>
+<td align="left">Major</td>
+<td align="left">scripts</td>
+<td align="left">Jonathan Gray</td>
+<td align="left">Andrew Purtell</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1722">HBASE-1722</a></td>
+<td align="left">Add support for exporting HBase metrics via JMX</td>
+<td align="left">Minor</td>
+<td align="left">IPC/RPC, master, regionserver</td>
+<td align="left">Gary Helmling</td>
+<td align="left">Gary Helmling</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1818">HBASE-1818</a></td>
+<td align="left">HFile code review and refinement</td>
+<td align="left">Minor</td>
+<td align="left">io</td>
+<td align="left">Schubert Zhang</td>
+<td align="left">Schubert Zhang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1830">HBASE-1830</a></td>
+<td align="left">HbaseObjectWritable methods should allow null HBaseConfigurations for when Writable is not Configurable</td>
+<td align="left">Major</td>
+<td align="left">io</td>
+<td align="left">Jonathan Gray</td>
+<td align="left">stack</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1854">HBASE-1854</a></td>
+<td align="left">Remove the Region Historian</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jean-Daniel Cryans</td>
+<td align="left">Jean-Daniel Cryans</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1874">HBASE-1874</a></td>
+<td align="left">Client Scanner mechanism that is used for HbaseAdmin methods (listTables, tableExists), is very slow if the client is far away from the HBase cluster</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Andrei Dragomir</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1832">HBASE-1832</a></td>
+<td align="left">Faster enable/disable/delete</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">stack</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1481">HBASE-1481</a></td>
+<td align="left">Add fast row key only scanning</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Lars George</td>
+<td align="left">Jonathan Gray</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1506">HBASE-1506</a></td>
+<td align="left">[performance] Make splits faster</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">stack</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1791">HBASE-1791</a></td>
+<td align="left">Timeout in IndexRecordWriter</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Bradford Stephens</td>
+<td align="left">Bradford Stephens</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1779">HBASE-1779</a></td>
+<td align="left">ThriftServer logged error if getVer() result is empty</td>
+<td align="left">Major</td>
+<td align="left">Thrift</td>
+<td align="left">Shotaro Kamio</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1812">HBASE-1812</a></td>
+<td align="left">Document fact that Scanners do not respect row locks</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">stack</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1824">HBASE-1824</a></td>
+<td align="left">[stargate] default timestamp should be LATEST_TIMESTAMP</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Andrew Purtell</td>
+<td align="left">Andrew Purtell</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1795">HBASE-1795</a></td>
+<td align="left">log recovery doesnt reset the max sequence id, new logfiles can get tossed as 'duplicates'</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">ryan rawson</td>
+<td align="left">ryan rawson</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1794">HBASE-1794</a></td>
+<td align="left">recovered log files are not inserted into the storefile map</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">ryan rawson</td>
+<td align="left">ryan rawson</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1740">HBASE-1740</a></td>
+<td align="left">ICV has a subtle race condition only visible under high load</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">ryan rawson</td>
+<td align="left">ryan rawson</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1687">HBASE-1687</a></td>
+<td align="left">bin/hbase script doesn't allow for different memory settings for each daemon type</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Fernando Padilla</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1828">HBASE-1828</a></td>
+<td align="left">CompareFilters are broken from client-side</td>
+<td align="left">Critical</td>
+<td align="left">Filters</td>
+<td align="left">Jonathan Gray</td>
+<td align="left">Jonathan Gray</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1836">HBASE-1836</a></td>
+<td align="left">test of indexed hbase broken</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">stack</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1838">HBASE-1838</a></td>
+<td align="left">[javadoc] Add javadoc to Delete explaining behavior when no timestamp provided</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">stack</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1821">HBASE-1821</a></td>
+<td align="left">Filtering by SingleColumnValueFilter bug</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">Jonathan Gray</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1840">HBASE-1840</a></td>
+<td align="left">RowLock fails when used with IndexTable</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Keith Thomas</td>
+<td align="left">Keith Thomas</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1574">HBASE-1574</a></td>
+<td align="left">Client and server APIs to do batch deletes.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">ryan rawson</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1833">HBASE-1833</a></td>
+<td align="left">hfile.main fixes</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">stack</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1847">HBASE-1847</a></td>
+<td align="left">Delete latest of a null qualifier when non-null qualifiers exist throws a RuntimeException</td>
+<td align="left">Critical</td>
+<td align="left">regionserver</td>
+<td align="left">Jonathan Gray</td>
+<td align="left">Jonathan Gray</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1853">HBASE-1853</a></td>
+<td align="left">Each time around the regionserver core loop, we clear the messages to pass master, even if we failed to deliver them</td>
+<td align="left">Major</td>
+<td align="left">regionserver</td>
+<td align="left">stack</td>
+<td align="left">stack</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1815">HBASE-1815</a></td>
+<td align="left">HBaseClient can get stuck in an infinite loop while attempting to contact a failed regionserver</td>
+<td align="left">Major</td>
+<td align="left">Client</td>
+<td align="left">Justin Lynn</td>
+<td align="left">stack</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1856">HBASE-1856</a></td>
+<td align="left">HBASE-1765 broke MapReduce when using Result.list()</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Lars George</td>
+<td align="left">Lars George</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1857">HBASE-1857</a></td>
+<td align="left">WrongRegionException when setting region online after .META. split</td>
+<td align="left">Major</td>
+<td align="left">master</td>
+<td align="left">Cosmin Lehene</td>
+<td align="left">Cosmin Lehene</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1809">HBASE-1809</a></td>
+<td align="left">NPE thrown in BoundedRangeFileInputStream</td>
+<td align="left">Critical</td>
+<td align="left">io</td>
+<td align="left">Mathias Herberts</td>
+<td align="left">stack</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1859">HBASE-1859</a></td>
+<td align="left">Misc shell fixes patch.</td>
+<td align="left">Minor</td>
+<td align="left">scripts</td>
+<td align="left">Kyle Oba</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1860">HBASE-1860</a></td>
+<td align="left">Change HTablePool#createHTable from private to protected</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1865">HBASE-1865</a></td>
+<td align="left">0.20.0 TableInputFormatBase NPE</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Eric Tschetter</td>
+<td align="left">stack</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1866">HBASE-1866</a></td>
+<td align="left">Scan(Scan) copy constructor does not copy value of cacheBlocks</td>
+<td align="left">Major</td>
+<td align="left">Client</td>
+<td align="left">Jonathan Gray</td>
+<td align="left">Jonathan Gray</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1855">HBASE-1855</a></td>
+<td align="left">HMaster web application doesn't show the region end key in the table detail page</td>
+<td align="left">Minor</td>
+<td align="left">master</td>
+<td align="left">Andrei Dragomir</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1870">HBASE-1870</a></td>
+<td align="left">Bytes.toFloat(byte [] bytes, int offset) is private but a user needs it public</td>
+<td align="left">Trivial</td>
+<td align="left">.</td>
+<td align="left">Andrew Purtell</td>
+<td align="left">Andrew Purtell</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1858">HBASE-1858</a></td>
+<td align="left">Master can't split logs created by THBase</td>
+<td align="left">Major</td>
+<td align="left">master</td>
+<td align="left">Clint Morgan</td>
+<td align="left">Clint Morgan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1871">HBASE-1871</a></td>
+<td align="left">Wrong type used in TableMapReduceUtil.initTableReduceJob()</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Lars George</td>
+<td align="left">Lars George</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1883">HBASE-1883</a></td>
+<td align="left">HRegion passes the wrong minSequenceNumber to doReconstructionLog</td>
+<td align="left">Major</td>
+<td align="left">regionserver</td>
+<td align="left">Clint Morgan</td>
+<td align="left">Clint Morgan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1879">HBASE-1879</a></td>
+<td align="left">ReadOnly transactions generate WAL activity.</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Clint Morgan</td>
+<td align="left">Clint Morgan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1878">HBASE-1878</a></td>
+<td align="left">BaseScanner results can't be trusted at all (Related to hbase-1784)</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">stack</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1868">HBASE-1868</a></td>
+<td align="left">Spew about rebalancing but none done....</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">stack</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1831">HBASE-1831</a></td>
+<td align="left">Scanning API must be reworked to allow for fully functional Filters client-side</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Jonathan Gray</td>
+<td align="left">stack</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1890">HBASE-1890</a></td>
+<td align="left">hbase-1506 where assignment is done at regionserver doesn't work</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>

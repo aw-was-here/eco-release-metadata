@@ -18,7 +18,7 @@
 -->
 # Apache Hadoop Changelog
 
-## Release 3.0.0-alpha2 - Unreleased (as of 2016-09-07)
+## Release 3.0.0-alpha2 - Unreleased (as of 2016-09-09)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -51,6 +51,11 @@
 | [HADOOP-13465](https://issues.apache.org/jira/browse/HADOOP-13465) | Design Server.Call to be extensible for unified call queue |  Major | ipc | Daryn Sharp | Daryn Sharp |
 | [HDFS-10822](https://issues.apache.org/jira/browse/HDFS-10822) | Log DataNodes in the write pipeline |  Trivial | hdfs-client | John Zhuge | John Zhuge |
 | [HDFS-10833](https://issues.apache.org/jira/browse/HDFS-10833) | Fix JSON errors in WebHDFS.md examples |  Trivial | documentation | Andrew Wang | Andrew Wang |
+| [HDFS-10778](https://issues.apache.org/jira/browse/HDFS-10778) | Add -format option to make the output of FileDistribution processor human-readable in OfflineImageViewer |  Major | tools | Yiqun Lin | Yiqun Lin |
+| [HDFS-10847](https://issues.apache.org/jira/browse/HDFS-10847) | Complete the document for FileDistribution processor in OfflineImageViewer |  Minor | documentation | Yiqun Lin | Yiqun Lin |
+| [HADOOP-13519](https://issues.apache.org/jira/browse/HADOOP-13519) | Make Path serializable |  Minor | io | Steve Loughran | Steve Loughran |
+| [HDFS-10742](https://issues.apache.org/jira/browse/HDFS-10742) | Measure lock time in FsDatasetImpl |  Major | datanode | Chen Liang | Chen Liang |
+| [HDFS-10831](https://issues.apache.org/jira/browse/HDFS-10831) | Add log when URLConnectionFactory.openConnection failed |  Minor | webhdfs | yunjiong zhao | yunjiong zhao |
 
 
 ### BUG FIXES:
@@ -82,6 +87,9 @@
 | [HDFS-10835](https://issues.apache.org/jira/browse/HDFS-10835) | Fix typos in httpfs.sh |  Trivial | httpfs | John Zhuge | John Zhuge |
 | [HDFS-10841](https://issues.apache.org/jira/browse/HDFS-10841) | Remove duplicate or unused variable in appendFile() |  Minor | . | Kihwal Lee | Kihwal Lee |
 | [HADOOP-13558](https://issues.apache.org/jira/browse/HADOOP-13558) | UserGroupInformation created from a Subject incorrectly tries to renew the Kerberos ticket |  Major | security | Alejandro Abdelnur | Xiao Chen |
+| [HADOOP-13388](https://issues.apache.org/jira/browse/HADOOP-13388) | Clean up TestLocalFileSystemPermission |  Trivial | fs | Andras Bokor | Andras Bokor |
+| [HDFS-10844](https://issues.apache.org/jira/browse/HDFS-10844) | test\_libhdfs\_threaded\_hdfs\_static and test\_libhdfs\_zerocopy\_hdfs\_static are failing |  Major | libhdfs | Akira Ajisaka | Akira Ajisaka |
+| [HDFS-9038](https://issues.apache.org/jira/browse/HDFS-9038) | DFS reserved space is erroneously counted towards non-DFS used. |  Major | datanode | Chris Nauroth | Brahma Reddy Battula |
 
 
 ### SUB-TASKS:
@@ -89,7 +97,6 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-10588](https://issues.apache.org/jira/browse/HDFS-10588) | False alarm in datanode log - ERROR - Disk Balancer is not enabled |  Major | datanode, hdfs | Weiwei Yang | Weiwei Yang |
-| [YARN-4091](https://issues.apache.org/jira/browse/YARN-4091) | Add REST API to retrieve scheduler activity |  Major | capacity scheduler, resourcemanager | Sunil G | Chen Ge |
 | [HDFS-10681](https://issues.apache.org/jira/browse/HDFS-10681) | DiskBalancer: query command should report Plan file path apart from PlanID |  Minor | diskbalancer | Manoj Govindassamy | Manoj Govindassamy |
 | [YARN-5457](https://issues.apache.org/jira/browse/YARN-5457) | Refactor DistributedScheduling framework to pull out common functionality |  Major | resourcemanager | Arun Suresh | Arun Suresh |
 | [HDFS-10598](https://issues.apache.org/jira/browse/HDFS-10598) | DiskBalancer does not execute multi-steps plan. |  Critical | diskbalancer | Lei (Eddy) Xu | Lei (Eddy) Xu |
@@ -97,11 +104,14 @@
 | [HDFS-10813](https://issues.apache.org/jira/browse/HDFS-10813) | DiskBalancer: Add the getNodeList method in Command |  Minor | balancer & mover | Yiqun Lin | Yiqun Lin |
 | [YARN-5596](https://issues.apache.org/jira/browse/YARN-5596) | Fix failing unit test in TestDockerContainerRuntime |  Minor | nodemanager, yarn | Sidharta Seethana | Sidharta Seethana |
 | [HADOOP-13547](https://issues.apache.org/jira/browse/HADOOP-13547) | Optimize IPC client protobuf decoding |  Major | . | Daryn Sharp | Daryn Sharp |
-| [HADOOP-13218](https://issues.apache.org/jira/browse/HADOOP-13218) | Migrate other Hadoop side tests to prepare for removing WritableRPCEngine |  Major | test | Kai Zheng | Wei Zhou |
 | [YARN-5576](https://issues.apache.org/jira/browse/YARN-5576) | Allow resource localization while container is running |  Major | . | Jian He | Jian He |
 | [HADOOP-13549](https://issues.apache.org/jira/browse/HADOOP-13549) | Eliminate intermediate buffer for server-side PB encoding |  Major | ipc | Daryn Sharp | Daryn Sharp |
 | [HADOOP-13447](https://issues.apache.org/jira/browse/HADOOP-13447) | Refactor S3AFileSystem to support introduction of separate metadata repository and tests. |  Major | fs/s3 | Chris Nauroth | Chris Nauroth |
 | [HDFS-9847](https://issues.apache.org/jira/browse/HDFS-9847) | HDFS configuration should accept time units |  Major | . | Yiqun Lin | Yiqun Lin |
+| [HDFS-8901](https://issues.apache.org/jira/browse/HDFS-8901) | Use ByteBuffer in striping positional read |  Major | erasure-coding | Kai Zheng | SammiChen |
+| [HDFS-10845](https://issues.apache.org/jira/browse/HDFS-10845) | Change defaults in hdfs-site.xml to match timeunit type |  Minor | datanode, namenode | Yiqun Lin | Yiqun Lin |
+| [HDFS-10553](https://issues.apache.org/jira/browse/HDFS-10553) | DiskBalancer: Rename Tools/DiskBalancer class to Tools/DiskBalancerCLI |  Minor | balancer & mover | Anu Engineer | Manoj Govindassamy |
+| [HDFS-9849](https://issues.apache.org/jira/browse/HDFS-9849) | DiskBalancer : reduce lock path in shutdown code |  Major | balancer & mover | Anu Engineer | Yuanbo Liu |
 | [YARN-5566](https://issues.apache.org/jira/browse/YARN-5566) | Client-side NM graceful decom is not triggered when jobs finish |  Major | nodemanager | Robert Kanter | Robert Kanter |
 
 

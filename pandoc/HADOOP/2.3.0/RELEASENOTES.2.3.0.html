@@ -1,0 +1,79 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hadoop-2.3.0-release-notes">Apache Hadoop 2.3.0 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-10047">HADOOP-10047</a> | <em>Major</em> | <strong>Add a directbuffer Decompressor API to hadoop</strong></li>
+</ul>
+<p>Direct Bytebuffer decompressors for Zlib (Deflate &amp; Gzip) and Snappy</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-9241">HADOOP-9241</a> | <em>Trivial</em> | <strong>DU refresh interval is not configurable</strong></li>
+</ul>
+<p>The 'du' (disk usage command from Unix) script refresh monitor is now configurable in the same way as its 'df' counterpart, via the property 'fs.du.interval', the default of which is 10 minute (in ms).</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-8545">HADOOP-8545</a> | <em>Major</em> | <strong>Filesystem Implementation for OpenStack Swift</strong></li>
+</ul>
+<!-- markdown -->
+<p>Added file system implementation for OpenStack Swift. There are two implementation: block and native (similar to Amazon S3 integration). Data locality issue solved by patch in Swift, commit procedure to OpenStack is in progress.</p>
+<p>To use implementation add to core-site.xml following:</p>
+<p><code>xml     &lt;property&gt;             &lt;name&gt;fs.swift.impl&lt;/name&gt;             &lt;value&gt;com.mirantis.fs.SwiftFileSystem&lt;/value&gt;     &lt;/property&gt;     &lt;property&gt;             &lt;name&gt;fs.swift.block.impl&lt;/name&gt;              &lt;value&gt;com.mirantis.fs.block.SwiftBlockFileSystem&lt;/value&gt;         &lt;/property&gt;</code></p>
+<p>In MapReduce job specify following configs for OpenStack Keystone authentication:</p>
+<p><code>java conf.set(&quot;swift.auth.url&quot;, &quot;http://172.18.66.117:5000/v2.0/tokens&quot;); conf.set(&quot;swift.tenant&quot;, &quot;superuser&quot;); conf.set(&quot;swift.username&quot;, &quot;admin1&quot;); conf.set(&quot;swift.password&quot;, &quot;password&quot;); conf.setInt(&quot;swift.http.port&quot;, 8080); conf.setInt(&quot;swift.https.port&quot;, 443);</code></p>
+<p>Additional information specified on github: https://github.com/DmitryMezhensky/Hadoop-and-Swift-integration</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-5704">HDFS-5704</a> | <em>Major</em> | <strong>Change OP_UPDATE_BLOCKS with a new OP_ADD_BLOCK</strong></li>
+</ul>
+<p>Add a new editlog record (OP_ADD_BLOCK) that only records allocation of the new block instead of the entire block list, on every block allocation.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-5663">HDFS-5663</a> | <em>Major</em> | <strong>make the retry time and interval value configurable in openInfo()</strong></li>
+</ul>
+<p>Makes the retries and time between retries getting the length of the last block on file configurable. Below are the new configurations.</p>
+<p>dfs.client.retry.times.get-last-block-length dfs.client.retry.interval-ms.get-last-block-length</p>
+<p>They are set to the 3 and 4000 respectively, these being what was previously hardcoded.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-5536">HDFS-5536</a> | <em>Major</em> | <strong>Implement HTTP policy for Namenode and DataNode</strong></li>
+</ul>
+<p>Add new HTTP policy configuration. Users can use &quot;dfs.http.policy&quot; to control the HTTP endpoints for NameNode and DataNode. Specifically, The following values are supported: - HTTP_ONLY : Service is provided only on http - HTTPS_ONLY : Service is provided only on https - HTTP_AND_HTTPS : Service is provided both on http and https</p>
+<p>hadoop.ssl.enabled and dfs.https.enabled are deprecated. When the deprecated configuration properties are still configured, currently http policy is decided based on the following rules: 1. If dfs.http.policy is set to HTTPS_ONLY or HTTP_AND_HTTPS. It picks the specified policy, otherwise it proceeds to 2~4. 2. It picks HTTPS_ONLY if hadoop.ssl.enabled equals to true. 3. It picks HTTP_AND_HTTPS if dfs.https.enable equals to true. 4. It picks HTTP_ONLY for other configurations.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-5502">HDFS-5502</a> | <em>Major</em> | <strong>Fix HTTPS support in HsftpFileSystem</strong></li>
+</ul>
+<p>Fix the https support in HsftpFileSystem. With the change the client now verifies the server certificate. In particular, client side will verify the Common Name of the certificate using a strategy specified by the configuration property &quot;hadoop.ssl.hostname.verifier&quot;.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-4997">HDFS-4997</a> | <em>Major</em> | <strong>libhdfs doesn't return correct error codes in most cases</strong></li>
+</ul>
+<p>libhdfs now returns correct codes in errno. Previously, due to a bug, many functions set errno to 255 instead of the more specific error code.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-4983">HDFS-4983</a> | <em>Major</em> | <strong>Numeric usernames do not work with WebHDFS FS</strong></li>
+</ul>
+<p>Add a new configuration property &quot;dfs.webhdfs.user.provider.user.pattern&quot; for specifying user name filters for WebHDFS.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-1176">MAPREDUCE-1176</a> | <em>Major</em> | <strong>FixedLengthInputFormat and FixedLengthRecordReader</strong></li>
+</ul>
+<p>Addition of FixedLengthInputFormat and FixedLengthRecordReader in the org.apache.hadoop.mapreduce.lib.input package. These two classes can be used when you need to read data from files containing fixed length (fixed width) records. Such files have no CR/LF (or any combination thereof), no delimiters etc, but each record is a fixed length, and extra data is padded with spaces. The data is one gigantic line within a file. When creating a job that specifies this input format, the job must have the &quot;mapreduce.input.fixedlengthinputformat.record.length&quot; property set as follows myJobConf.setInt(&quot;mapreduce.input.fixedlengthinputformat.record.length&quot;,[myFixedRecordLength]);</p>
+<p>Please see javadoc for more details.</p>

@@ -1,0 +1,240 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-flink-changelog">Apache Flink Changelog</h1>
+<h2 id="release-0.10.2---unreleased-as-of-2016-07-14">Release 0.10.2 - Unreleased (as of 2016-07-14)</h2>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-2962">FLINK-2962</a></td>
+<td align="left">Cluster startup script refers to unused variable</td>
+<td align="left">Major</td>
+<td align="left">Startup Shell Scripts</td>
+<td align="left">Ufuk Celebi</td>
+<td align="left">Ufuk Celebi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3147">FLINK-3147</a></td>
+<td align="left">HadoopOutputFormatBase should expose fields as protected</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Nick Dimiduk</td>
+<td align="left">Nick Dimiduk</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3082">FLINK-3082</a></td>
+<td align="left">Confusing error about ManualTimestampSourceFunction</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Niels Basjes</td>
+<td align="left">Niels Basjes</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3081">FLINK-3081</a></td>
+<td align="left">Kafka Periodic Offset Committer does not properly terminate on canceling</td>
+<td align="left">Blocker</td>
+<td align="left">Kafka Connector</td>
+<td align="left">Stephan Ewen</td>
+<td align="left">Robert Metzger</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3080">FLINK-3080</a></td>
+<td align="left">Cannot union a data stream with a product of itself</td>
+<td align="left">Major</td>
+<td align="left">Streaming</td>
+<td align="left">Vasia Kalavri</td>
+<td align="left">Aljoscha Krettek</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3125">FLINK-3125</a></td>
+<td align="left">Web dashboard does not start when log files are not found</td>
+<td align="left">Major</td>
+<td align="left">Webfrontend</td>
+<td align="left">Stephan Ewen</td>
+<td align="left">Stephan Ewen</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3108">FLINK-3108</a></td>
+<td align="left">JoinOperator's with() calls the wrong TypeExtractor method</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Vasia Kalavri</td>
+<td align="left">Timo Walther</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3136">FLINK-3136</a></td>
+<td align="left">Scala Closure Cleaner uses wrong ASM import</td>
+<td align="left">Critical</td>
+<td align="left">Scala API</td>
+<td align="left">Stephan Ewen</td>
+<td align="left">Aljoscha Krettek</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3143">FLINK-3143</a></td>
+<td align="left">Update Clojure Cleaner's ASM references to ASM5</td>
+<td align="left">Major</td>
+<td align="left">Local Runtime</td>
+<td align="left">Maximilian Michels</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3145">FLINK-3145</a></td>
+<td align="left">Storm examples can't be run without flink-java as dependency</td>
+<td align="left">Major</td>
+<td align="left">Build System, Java API, Storm Compatibility</td>
+<td align="left">Maximilian Michels</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3180">FLINK-3180</a></td>
+<td align="left">MemoryLogger does not log direct memory</td>
+<td align="left">Major</td>
+<td align="left">Distributed Coordination</td>
+<td align="left">Ufuk Celebi</td>
+<td align="left">Ufuk Celebi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3185">FLINK-3185</a></td>
+<td align="left">Silent failure during job graph recovery</td>
+<td align="left">Major</td>
+<td align="left">Distributed Coordination</td>
+<td align="left">Ufuk Celebi</td>
+<td align="left">Ufuk Celebi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3218">FLINK-3218</a></td>
+<td align="left">Merging Hadoop configurations overrides user parameters</td>
+<td align="left">Major</td>
+<td align="left">Java API</td>
+<td align="left">Greg Hogan</td>
+<td align="left">Greg Hogan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3189">FLINK-3189</a></td>
+<td align="left">Error while parsing job arguments passed by CLI</td>
+<td align="left">Minor</td>
+<td align="left">Client</td>
+<td align="left">Filip Leczycki</td>
+<td align="left">Matthias J. Sax</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3151">FLINK-3151</a></td>
+<td align="left">YARN kills Flink TM containers due to memory overuse (outside heap/offheap)</td>
+<td align="left">Blocker</td>
+<td align="left">TaskManager</td>
+<td align="left">Robert Metzger</td>
+<td align="left">Ufuk Celebi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3236">FLINK-3236</a></td>
+<td align="left">Flink user code classloader should have Flink classloader as parent classloader</td>
+<td align="left">Major</td>
+<td align="left">Local Runtime</td>
+<td align="left">Stephan Ewen</td>
+<td align="left">Stephan Ewen</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3067">FLINK-3067</a></td>
+<td align="left">Kafka source fails during checkpoint notifications with NPE</td>
+<td align="left">Major</td>
+<td align="left">Kafka Connector</td>
+<td align="left">Gyula Fora</td>
+<td align="left">Robert Metzger</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3242">FLINK-3242</a></td>
+<td align="left">User-specified StateBackend is not Respected if Checkpointing is Disabled</td>
+<td align="left">Blocker</td>
+<td align="left">Streaming</td>
+<td align="left">Aljoscha Krettek</td>
+<td align="left">Aljoscha Krettek</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sub-tasks">SUB-TASKS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3224">FLINK-3224</a></td>
+<td align="left">The Streaming API does not call setInputType if a format implements InputTypeConfigurable</td>
+<td align="left">Major</td>
+<td align="left">DataStream API</td>
+<td align="left">Nick Dimiduk</td>
+<td align="left">Nick Dimiduk</td>
+</tr>
+</tbody>
+</table>

@@ -1,0 +1,632 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hive-changelog">Apache Hive Changelog</h1>
+<h2 id="release-2.0.1---2016-05-25">Release 2.0.1 - 2016-05-25</h2>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-10115">HIVE-10115</a></td>
+<td align="left">HS2 running on a Kerberized cluster should offer Kerberos(GSSAPI) and Delegation token(DIGEST) when alternate authentication is enabled</td>
+<td align="left">Major</td>
+<td align="left">Authentication</td>
+<td align="left">Mubashir Kazia</td>
+<td align="left">Mubashir Kazia</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13120">HIVE-13120</a></td>
+<td align="left">propagate doAs when generating ORC splits</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Yi Zhang</td>
+<td align="left">Sergey Shelukhin</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13782">HIVE-13782</a></td>
+<td align="left">Compile async query asynchronously</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Jimmy Xiang</td>
+<td align="left">Jimmy Xiang</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-11966">HIVE-11966</a></td>
+<td align="left">JDBC Driver parsing error when reading principal from ZooKeeper</td>
+<td align="left">Major</td>
+<td align="left">JDBC</td>
+<td align="left">Vaibhav Gumashta</td>
+<td align="left">Vaibhav Gumashta</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-12799">HIVE-12799</a></td>
+<td align="left">Always use Schema Evolution for ACID</td>
+<td align="left">Critical</td>
+<td align="left">Hive</td>
+<td align="left">Matt McCline</td>
+<td align="left">Matt McCline</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-12887">HIVE-12887</a></td>
+<td align="left">Handle ORC schema on read with fewer columns than file schema (after Schema Evolution changes)</td>
+<td align="left">Critical</td>
+<td align="left">ORC</td>
+<td align="left">Matt McCline</td>
+<td align="left">Matt McCline</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-12894">HIVE-12894</a></td>
+<td align="left">Detect whether ORC is reading from ACID table correctly for Schema Evolution</td>
+<td align="left">Critical</td>
+<td align="left">Hive, ORC</td>
+<td align="left">Matt McCline</td>
+<td align="left">Matt McCline</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-12990">HIVE-12990</a></td>
+<td align="left">LLAP: ORC cache NPE without FileID support</td>
+<td align="left">Major</td>
+<td align="left">llap</td>
+<td align="left">Gopal V</td>
+<td align="left">Sergey Shelukhin</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-9862">HIVE-9862</a></td>
+<td align="left">Vectorized execution corrupts timestamp values</td>
+<td align="left">Major</td>
+<td align="left">Vectorization</td>
+<td align="left">Nathan Howell</td>
+<td align="left">Matt McCline</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13036">HIVE-13036</a></td>
+<td align="left">Split hive.root.logger separately to make it compatible with log4j1.x (for remaining services)</td>
+<td align="left">Major</td>
+<td align="left">Logging</td>
+<td align="left">Prasanth Jayachandran</td>
+<td align="left">Prasanth Jayachandran</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13056">HIVE-13056</a></td>
+<td align="left">delegation tokens do not work with HS2 when used with http transport and kerberos</td>
+<td align="left">Critical</td>
+<td align="left">Authentication</td>
+<td align="left">Cheng Xu</td>
+<td align="left">Sushanth Sowmyan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13079">HIVE-13079</a></td>
+<td align="left">LLAP: Allow reading log4j properties from default JAR resources</td>
+<td align="left">Major</td>
+<td align="left">llap</td>
+<td align="left">Gopal V</td>
+<td align="left">Gopal V</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13086">HIVE-13086</a></td>
+<td align="left">LLAP: Programmatically initialize log4j2 to print out the properties location</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Prasanth Jayachandran</td>
+<td align="left">Prasanth Jayachandran</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-12165">HIVE-12165</a></td>
+<td align="left">wrong result when hive.optimize.sampling.orderby=true with some aggregate functions</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">ErwanMAS</td>
+<td align="left">Aihua Xu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13093">HIVE-13093</a></td>
+<td align="left">hive metastore does not exit on start failure</td>
+<td align="left">Major</td>
+<td align="left">Metastore</td>
+<td align="left">Thejas M Nair</td>
+<td align="left">Thejas M Nair</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13090">HIVE-13090</a></td>
+<td align="left">Hive metastore crashes on NPE with ZooKeeperTokenStore</td>
+<td align="left">Major</td>
+<td align="left">Metastore, Security</td>
+<td align="left">Thejas M Nair</td>
+<td align="left">Piotr Wikieł</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13105">HIVE-13105</a></td>
+<td align="left">LLAP token hashCode and equals methods are incorrect</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Sergey Shelukhin</td>
+<td align="left">Sergey Shelukhin</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13051">HIVE-13051</a></td>
+<td align="left">Deadline class has numerous issues</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sergey Shelukhin</td>
+<td align="left">Sergey Shelukhin</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13110">HIVE-13110</a></td>
+<td align="left">LLAP: Package log4j2 jars into Slider pkg</td>
+<td align="left">Major</td>
+<td align="left">llap</td>
+<td align="left">Gopal V</td>
+<td align="left">Gopal V</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13126">HIVE-13126</a></td>
+<td align="left">Clean up MapJoinOperator properly to avoid object cache reuse with unintentional states</td>
+<td align="left">Major</td>
+<td align="left">Hive</td>
+<td align="left">Wei Zheng</td>
+<td align="left">Wei Zheng</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-12064">HIVE-12064</a></td>
+<td align="left">prevent transactional=false</td>
+<td align="left">Critical</td>
+<td align="left">Transactions</td>
+<td align="left">Eugene Koifman</td>
+<td align="left">Wei Zheng</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13134">HIVE-13134</a></td>
+<td align="left">JDBC: JDBC Standalone should not be in the lib dir by default</td>
+<td align="left">Major</td>
+<td align="left">JDBC</td>
+<td align="left">Gopal V</td>
+<td align="left">Gopal V</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-12749">HIVE-12749</a></td>
+<td align="left">Constant propagate returns string values in incorrect format</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Oleksiy Sayankin</td>
+<td align="left">Aleksey Vovchenko</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13108">HIVE-13108</a></td>
+<td align="left">Operators: SORT BY randomness is not safe with network partitions</td>
+<td align="left">Major</td>
+<td align="left">Spark, Tez</td>
+<td align="left">Gopal V</td>
+<td align="left">Gopal V</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13200">HIVE-13200</a></td>
+<td align="left">Aggregation functions returning empty rows on partitioned columns</td>
+<td align="left">Major</td>
+<td align="left">Physical Optimizer</td>
+<td align="left">Yongzhi Chen</td>
+<td align="left">Yongzhi Chen</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13199">HIVE-13199</a></td>
+<td align="left">NDC stopped working in LLAP logging</td>
+<td align="left">Major</td>
+<td align="left">llap, Logging</td>
+<td align="left">Sergey Shelukhin</td>
+<td align="left">Prasanth Jayachandran</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13083">HIVE-13083</a></td>
+<td align="left">Writing HiveDecimal to ORC can wrongly suppress present stream</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Yi Zhang</td>
+<td align="left">Prasanth Jayachandran</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13153">HIVE-13153</a></td>
+<td align="left">SessionID is appended to thread name twice</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Prasanth Jayachandran</td>
+<td align="left">Prasanth Jayachandran</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13144">HIVE-13144</a></td>
+<td align="left">HS2 can leak ZK ACL objects when curator retries to create the persistent ephemeral node</td>
+<td align="left">Major</td>
+<td align="left">HiveServer2</td>
+<td align="left">Vaibhav Gumashta</td>
+<td align="left">Vaibhav Gumashta</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13236">HIVE-13236</a></td>
+<td align="left">LLAP: token renewal interval needs to be set</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sergey Shelukhin</td>
+<td align="left">Sergey Shelukhin</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13263">HIVE-13263</a></td>
+<td align="left">Vectorization: Unable to vectorize regexp_extract/regexp_replace &quot; Udf: GenericUDFBridge, is not supported&quot;</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Matt McCline</td>
+<td align="left">Matt McCline</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13243">HIVE-13243</a></td>
+<td align="left">Hive drop table on encyption zone fails for external tables</td>
+<td align="left">Major</td>
+<td align="left">Encryption, Metastore</td>
+<td align="left">Chaoyu Tang</td>
+<td align="left">Chaoyu Tang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13232">HIVE-13232</a></td>
+<td align="left">Aggressively drop compression buffers in ORC OutStreams</td>
+<td align="left">Major</td>
+<td align="left">ORC</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Owen O'Malley</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13285">HIVE-13285</a></td>
+<td align="left">Orc concatenation may drop old files from moving to final path</td>
+<td align="left">Critical</td>
+<td align="left">ORC</td>
+<td align="left">Prasanth Jayachandran</td>
+<td align="left">Prasanth Jayachandran</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13242">HIVE-13242</a></td>
+<td align="left">DISTINCT keyword is dropped by the parser for windowing</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jesus Camacho Rodriguez</td>
+<td align="left">Jesus Camacho Rodriguez</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13299">HIVE-13299</a></td>
+<td align="left">Column Names trimmed of leading and trailing spaces</td>
+<td align="left">Major</td>
+<td align="left">Parser</td>
+<td align="left">Pengcheng Xiong</td>
+<td align="left">Pengcheng Xiong</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13294">HIVE-13294</a></td>
+<td align="left">AvroSerde leaks the connection in a case when reading schema from a url</td>
+<td align="left">Major</td>
+<td align="left">Serializers/Deserializers</td>
+<td align="left">Chaoyu Tang</td>
+<td align="left">Chaoyu Tang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13327">HIVE-13327</a></td>
+<td align="left">SessionID added to HS2 threadname does not trim spaces</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Carter Shanklin</td>
+<td align="left">Prasanth Jayachandran</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13313">HIVE-13313</a></td>
+<td align="left">TABLESAMPLE ROWS feature broken for Vectorization</td>
+<td align="left">Critical</td>
+<td align="left">Hive</td>
+<td align="left">Matt McCline</td>
+<td align="left">Matt McCline</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13286">HIVE-13286</a></td>
+<td align="left">Query ID is being reused across queries</td>
+<td align="left">Critical</td>
+<td align="left">Parser</td>
+<td align="left">Vikram Dixit K</td>
+<td align="left">Aihua Xu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13310">HIVE-13310</a></td>
+<td align="left">Vectorized Projection Comparison Number Column to Scalar broken for !noNulls and selectedInUse</td>
+<td align="left">Critical</td>
+<td align="left">Hive</td>
+<td align="left">Matt McCline</td>
+<td align="left">Matt McCline</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13296">HIVE-13296</a></td>
+<td align="left">Add vectorized Q test with complex types showing count(*) etc work correctly</td>
+<td align="left">Critical</td>
+<td align="left">Hive</td>
+<td align="left">Matt McCline</td>
+<td align="left">Matt McCline</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-9499">HIVE-9499</a></td>
+<td align="left">hive.limit.query.max.table.partition makes queries fail on non-partitioned tables</td>
+<td align="left">Major</td>
+<td align="left">Query Planning</td>
+<td align="left">Alexander Kasper</td>
+<td align="left">Navis</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-12552">HIVE-12552</a></td>
+<td align="left">Wrong number of reducer estimation causing job to fail</td>
+<td align="left">Major</td>
+<td align="left">Physical Optimizer</td>
+<td align="left">Rajesh Balamohan</td>
+<td align="left">Rajesh Balamohan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13151">HIVE-13151</a></td>
+<td align="left">Clean up UGI objects in FileSystem cache for transactions</td>
+<td align="left">Major</td>
+<td align="left">Hive</td>
+<td align="left">Wei Zheng</td>
+<td align="left">Wei Zheng</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13324">HIVE-13324</a></td>
+<td align="left">LLAP: history log for FRAGMENT_START doesn't log DagId correctly</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sergey Shelukhin</td>
+<td align="left">Siddharth Seth</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13115">HIVE-13115</a></td>
+<td align="left">MetaStore Direct SQL getPartitions call fail when the columns schemas for a partition are null</td>
+<td align="left">Major</td>
+<td align="left">Hive</td>
+<td align="left">Ratandeep Ratti</td>
+<td align="left">Ratandeep Ratti</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-12992">HIVE-12992</a></td>
+<td align="left">Hive on tez: Bucket map join plan is incorrect</td>
+<td align="left">Major</td>
+<td align="left">Tez</td>
+<td align="left">Vikram Dixit K</td>
+<td align="left">Vikram Dixit K</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13111">HIVE-13111</a></td>
+<td align="left">Fix timestamp / interval_day_time wrong results with HIVE-9862</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Matt McCline</td>
+<td align="left">Matt McCline</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-10729">HIVE-10729</a></td>
+<td align="left">Query failed when select complex columns from joinned table (tez map join only)</td>
+<td align="left">Major</td>
+<td align="left">Query Processor</td>
+<td align="left">Selina Zhang</td>
+<td align="left">Matt McCline</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-12937">HIVE-12937</a></td>
+<td align="left">DbNotificationListener unable to clean up old notification events</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sushanth Sowmyan</td>
+<td align="left">Sushanth Sowmyan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13361">HIVE-13361</a></td>
+<td align="left">Orc concatenation should enforce the compression buffer size</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Yi Zhang</td>
+<td align="left">Prasanth Jayachandran</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13255">HIVE-13255</a></td>
+<td align="left">FloatTreeReader.nextVector is expensive</td>
+<td align="left">Major</td>
+<td align="left">ORC</td>
+<td align="left">Prasanth Jayachandran</td>
+<td align="left">Prasanth Jayachandran</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13379">HIVE-13379</a></td>
+<td align="left">HIVE-12851 args do not work (slider-keytab-dir, etc.)</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Swapan Shridhar</td>
+<td align="left">Sergey Shelukhin</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13396">HIVE-13396</a></td>
+<td align="left">LLAP: Include hadoop-metrics2.properties file LlapServiceDriver</td>
+<td align="left">Major</td>
+<td align="left">llap</td>
+<td align="left">Prasanth Jayachandran</td>
+<td align="left">Prasanth Jayachandran</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13330">HIVE-13330</a></td>
+<td align="left">ORC vectorized string dictionary reader does not differentiate null vs empty string dictionary</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Prasanth Jayachandran</td>
+<td align="left">Prasanth Jayachandran</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13394">HIVE-13394</a></td>
+<td align="left">Analyze table fails in tez on empty partitions/files/tables</td>
+<td align="left">Major</td>
+<td align="left">Tez</td>
+<td align="left">Vikram Dixit K</td>
+<td align="left">Vikram Dixit K</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13428">HIVE-13428</a></td>
+<td align="left">ZK SM in LLAP should have unique paths per cluster</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Sergey Shelukhin</td>
+<td align="left">Sergey Shelukhin</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13468">HIVE-13468</a></td>
+<td align="left">branch-2 build is broken</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sergey Shelukhin</td>
+<td align="left">Sergey Shelukhin</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13405">HIVE-13405</a></td>
+<td align="left">Fix Connection Leak in OrcRawRecordMerger</td>
+<td align="left">Major</td>
+<td align="left">ORC</td>
+<td align="left">Thomas Poepping</td>
+<td align="left">Thomas Poepping</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13523">HIVE-13523</a></td>
+<td align="left">Fix connection leak in ORC RecordReader and refactor for unit testing</td>
+<td align="left">Major</td>
+<td align="left">ORC</td>
+<td align="left">Thomas Poepping</td>
+<td align="left">Thomas Poepping</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13240">HIVE-13240</a></td>
+<td align="left">GroupByOperator: Drop the hash aggregates when closing operator</td>
+<td align="left">Major</td>
+<td align="left">Query Processor</td>
+<td align="left">Gopal V</td>
+<td align="left">Gopal V</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13463">HIVE-13463</a></td>
+<td align="left">Fix ImportSemanticAnalyzer to allow for different src/dst filesystems</td>
+<td align="left">Major</td>
+<td align="left">Import/Export</td>
+<td align="left">Zach York</td>
+<td align="left">Zach York</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13630">HIVE-13630</a></td>
+<td align="left">missing license headers</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Sergey Shelukhin</td>
+<td align="left">Sergey Shelukhin</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13346">HIVE-13346</a></td>
+<td align="left">LLAP doesn't update metadata priority when reusing from cache; some tweaks in LRFU policy</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sergey Shelukhin</td>
+<td align="left">Sergey Shelukhin</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13645">HIVE-13645</a></td>
+<td align="left">Beeline needs null-guard around hiveVars and hiveConfVars read</td>
+<td align="left">Minor</td>
+<td align="left">Beeline</td>
+<td align="left">Sushanth Sowmyan</td>
+<td align="left">Sushanth Sowmyan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13390">HIVE-13390</a></td>
+<td align="left">HiveServer2: Add more test to ZK service discovery using MiniHS2</td>
+<td align="left">Major</td>
+<td align="left">HiveServer2, JDBC</td>
+<td align="left">Vaibhav Gumashta</td>
+<td align="left">Vaibhav Gumashta</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sub-tasks">SUB-TASKS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13362">HIVE-13362</a></td>
+<td align="left">Commit binary file required for HIVE-13361</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Prasanth Jayachandran</td>
+<td align="left">Prasanth Jayachandran</td>
+</tr>
+</tbody>
+</table>

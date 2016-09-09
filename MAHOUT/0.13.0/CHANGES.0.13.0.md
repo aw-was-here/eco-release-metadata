@@ -18,7 +18,7 @@
 -->
 # Apache Mahout Changelog
 
-## Release 0.13.0 - Unreleased (as of 2016-09-07)
+## Release 0.13.0 - Unreleased (as of 2016-09-09)
 
 
 
@@ -35,6 +35,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [MAHOUT-1876](https://issues.apache.org/jira/browse/MAHOUT-1876) | Mahout fails to read from lucene index of solr-5.5.2 |  Major | . | Raviteja Lokineni |  |
+| [MAHOUT-1881](https://issues.apache.org/jira/browse/MAHOUT-1881) | flink-config.yaml is not copied to $MAHOUT\_HOME/conf in Binary Distro |  Blocker | Flink | Andrew Palumbo | Suneel Marthi |
 
 
 ### OTHER:

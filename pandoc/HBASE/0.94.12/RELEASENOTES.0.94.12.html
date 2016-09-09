@@ -1,0 +1,40 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hbase-0.94.12-release-notes">Apache HBase 0.94.12 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-9377">HBASE-9377</a> | <em>Major</em> | <strong>Backport HBASE- 9208 &quot;ReplicationLogCleaner slow at large scale&quot;</strong></li>
+</ul>
+<p>The FileCleanerDelegate interface is changed. External classes that directly used to implement that interface have to be changed. Classes that extend BaseHFileCleanerDelegate or BaseLogCleanerDelegate only have to be recompiled.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-9468">HBASE-9468</a> | <em>Major</em> | <strong>Previous active master can still serves RPC request when it is trying recovering expired zk session</strong></li>
+</ul>
+<p>Adds option to disable master's attempt at recovering zookeeper session: i.e. just fail. Set the fail-fast option when you have a backup master running that you can fail to.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-9482">HBASE-9482</a> | <em>Major</em> | <strong>Do not enforce secure Hadoop for secure HBase</strong></li>
+</ul>
+<p>While it is possible to run secure HBase without securing underlying filesystem, it is recommended that you run secure HBase on top of a secured HDFS cluster to provide stronger guarantees of security. In such cases, you must configure HBase services to be able to authenticate to HDFS services.</p>
+<p>However, if the cluster hosting HBase service is protected via other means; for example if it exports only HBase services to external users; you may save some overhead by running secure HBase over unsecured HDFS. In such cases, you must ensure that the HDSF services are not accessible to external user via any means.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-9534">HBASE-9534</a> | <em>Major</em> | <strong>Short-Circuit Coprocessor HTable access when on the same server</strong></li>
+</ul>
+<p>Allow coprocessors accessing an HTable to short-circuit access to the local HRegionServer, rather than requiring the usual RPC path.</p>

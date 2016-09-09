@@ -1,0 +1,885 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-tez-changelog">Apache Tez Changelog</h1>
+<h2 id="release-0.6.1---2015-05-18">Release 0.6.1 - 2015-05-18</h2>
+<h3 id="incompatible-changes">INCOMPATIBLE CHANGES:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2437">TEZ-2437</a></td>
+<td align="left">FilterLinesByWord NPEs when run in Localmode</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Amit Tiwari</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="new-features">NEW FEATURES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2018">TEZ-2018</a></td>
+<td align="left">App Tracking and History URL should point to the Tez UI</td>
+<td align="left">Critical</td>
+<td align="left">UI</td>
+<td align="left">Rohini Palaniswamy</td>
+<td align="left">Prakash Ramachandran</td>
+</tr>
+</tbody>
+</table>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-1917">TEZ-1917</a></td>
+<td align="left">Examples should extend TezExampleBase</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Siddharth Seth</td>
+<td align="left">Vasanth kumar RJ</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2035">TEZ-2035</a></td>
+<td align="left">Make timeline server putDomain exceptions non-fatal - work-around</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jonathan Eagles</td>
+<td align="left">Jonathan Eagles</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2043">TEZ-2043</a></td>
+<td align="left">Tez UI: add progress info from am webservice to dag and vertex views</td>
+<td align="left">Major</td>
+<td align="left">UI</td>
+<td align="left">Prakash Ramachandran</td>
+<td align="left">Prakash Ramachandran</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2091">TEZ-2091</a></td>
+<td align="left">Add support for hosting TEZ_UI with nodejs</td>
+<td align="left">Major</td>
+<td align="left">UI</td>
+<td align="left">Chang Li</td>
+<td align="left">Chang Li</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2256">TEZ-2256</a></td>
+<td align="left">Avoid use of BufferTooSmallException to signal end of buffer in UnorderedPartitionedKVWriter</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Cyrille Chépélov</td>
+<td align="left">Cyrille Chépélov</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-1923">TEZ-1923</a></td>
+<td align="left">FetcherOrderedGrouped gets into infinite loop due to memory pressure</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Rajesh Balamohan</td>
+<td align="left">Rajesh Balamohan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-1661">TEZ-1661</a></td>
+<td align="left">LocalTaskScheduler hangs when shutdown</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Oleg Zhurakousky</td>
+<td align="left">Jeff Zhang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-1949">TEZ-1949</a></td>
+<td align="left">Whitelist TEZ_RUNTIME_OPTIMIZE_SHARED_FETCH for broadcast edges</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Gopal V</td>
+<td align="left">Gopal V</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-1983">TEZ-1983</a></td>
+<td align="left">Tez UI swimlane task attempt link is broken</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jonathan Eagles</td>
+<td align="left">Jonathan Eagles</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-1987">TEZ-1987</a></td>
+<td align="left">non-standalone mode protocol correction + Row count selector in all tables + Format numbers displayed + Prettifications</td>
+<td align="left">Trivial</td>
+<td align="left">.</td>
+<td align="left">Gopal V</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2010">TEZ-2010</a></td>
+<td align="left">History payload generated from conf has ${var} placeholders</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Hitesh Shah</td>
+<td align="left">Hitesh Shah</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-1973">TEZ-1973</a></td>
+<td align="left">Dag View</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2014">TEZ-2014</a></td>
+<td align="left">TezUI - Nits : All tables, Vertices Page UI</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2012">TEZ-2012</a></td>
+<td align="left">TEZ UI - Show page number in all tables, and display more readable task/attempt ids</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2013">TEZ-2013</a></td>
+<td align="left">TEZ UI - App Details Page UI Nits</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2017">TEZ-2017</a></td>
+<td align="left">TEZ UI - Dag view throwing error whild re-displaying additionals in some dags</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-1929">TEZ-1929</a></td>
+<td align="left">pre-empted tasks should be marked as killed instead of failed</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Rajesh Balamohan</td>
+<td align="left">Bikas Saha</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2032">TEZ-2032</a></td>
+<td align="left">Update CHANGES.txt to show 0.6.0 is released</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Bikas Saha</td>
+<td align="left">Jonathan Eagles</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2052">TEZ-2052</a></td>
+<td align="left">Tez UI: log view fixes, show version from build, better handling of ats url config</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2056">TEZ-2056</a></td>
+<td align="left">Tez UI: fix VertexID filter,show only tez configs by default,fix appattemptid</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Prakash Ramachandran</td>
+<td align="left">Prakash Ramachandran</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2062">TEZ-2062</a></td>
+<td align="left">Tez UI: Showing 50 elements not working properly</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2069">TEZ-2069</a></td>
+<td align="left">Tez UI: appId should link to application in dag details view</td>
+<td align="left">Major</td>
+<td align="left">UI</td>
+<td align="left">Prakash Ramachandran</td>
+<td align="left">Prakash Ramachandran</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2063">TEZ-2063</a></td>
+<td align="left">Tez UI: Flaky log url in tasks table</td>
+<td align="left">Major</td>
+<td align="left">UI</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2079">TEZ-2079</a></td>
+<td align="left">Tez UI: trailing slash in timelineBaseUrl in ui should be handled</td>
+<td align="left">Major</td>
+<td align="left">UI</td>
+<td align="left">Prakash Ramachandran</td>
+<td align="left">Prakash Ramachandran</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2068">TEZ-2068</a></td>
+<td align="left">Tez UI: Dag view should use full window height, disable webuiservice in localmode</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2065">TEZ-2065</a></td>
+<td align="left">Setting up tez.tez-ui.history-url.base with a trailing slash can result in failures to redirect correctly</td>
+<td align="left">Major</td>
+<td align="left">UI</td>
+<td align="left">Hitesh Shah</td>
+<td align="left">Prakash Ramachandran</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2077">TEZ-2077</a></td>
+<td align="left">Tez UI: No diagnostics on Task Attempt Details page if task attempt failed</td>
+<td align="left">Major</td>
+<td align="left">UI</td>
+<td align="left">Prakash Ramachandran</td>
+<td align="left">Prakash Ramachandran</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2078">TEZ-2078</a></td>
+<td align="left">Tez UI: Task logs url use in-progress url causing various errors</td>
+<td align="left">Major</td>
+<td align="left">UI</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2073">TEZ-2073</a></td>
+<td align="left">SimpleHistoryLoggingService cannot be read by log aggregation (umask)</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jonathan Eagles</td>
+<td align="left">Jonathan Eagles</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2031">TEZ-2031</a></td>
+<td align="left">Tez UI: horizontal scrollbars do not appear in tables, causing them to look truncated</td>
+<td align="left">Major</td>
+<td align="left">UI</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2024">TEZ-2024</a></td>
+<td align="left">TaskFinishedEvent may not be logged in recovery</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jeff Zhang</td>
+<td align="left">Jeff Zhang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2098">TEZ-2098</a></td>
+<td align="left">Tez UI: Dag details should be the default page for dag, fix invalid time entries for failed Vertices</td>
+<td align="left">Major</td>
+<td align="left">UI</td>
+<td align="left">Prakash Ramachandran</td>
+<td align="left">Prakash Ramachandran</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2101">TEZ-2101</a></td>
+<td align="left">Tez UI: Issues on displaying a table</td>
+<td align="left">Major</td>
+<td align="left">UI</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2092">TEZ-2092</a></td>
+<td align="left">Tez UI history url handler injects spurious trailing slash</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Hitesh Shah</td>
+<td align="left">Hitesh Shah</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2102">TEZ-2102</a></td>
+<td align="left">Tez UI: DAG view has hidden edges, dragging DAG by holding vertex causes unintended click</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2038">TEZ-2038</a></td>
+<td align="left">TEZ-UI DAG is always running in tez-ui when the app is failed but no DAGFinishedEvent is logged</td>
+<td align="left">Major</td>
+<td align="left">UI</td>
+<td align="left">Jeff Zhang</td>
+<td align="left">Prakash Ramachandran</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2112">TEZ-2112</a></td>
+<td align="left">Tez UI: fix offset calculation, add home button to breadcrumbs</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2114">TEZ-2114</a></td>
+<td align="left">Tez UI: task/task attempt status is not available when its running</td>
+<td align="left">Major</td>
+<td align="left">UI</td>
+<td align="left">Prakash Ramachandran</td>
+<td align="left">Prakash Ramachandran</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2106">TEZ-2106</a></td>
+<td align="left">TEZ UI: Display data load time, and add a refresh button for items that can be refreshed</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2116">TEZ-2116</a></td>
+<td align="left">Tez UI: dags page filter does not work if more than one filter is specified.</td>
+<td align="left">Major</td>
+<td align="left">UI</td>
+<td align="left">Prakash Ramachandran</td>
+<td align="left">Prakash Ramachandran</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-1990">TEZ-1990</a></td>
+<td align="left">Tez UI: DAG details page shows Nan for end time when a DAG is running</td>
+<td align="left">Trivial</td>
+<td align="left">.</td>
+<td align="left">Hitesh Shah</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2135">TEZ-2135</a></td>
+<td align="left">ACL checks handled incorrectly in AMWebController</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Hitesh Shah</td>
+<td align="left">Hitesh Shah</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2136">TEZ-2136</a></td>
+<td align="left">Some enhancements to the new Tez UI</td>
+<td align="left">Major</td>
+<td align="left">UI</td>
+<td align="left">Vinod Kumar Vavilapalli</td>
+<td align="left">Vinod Kumar Vavilapalli</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2134">TEZ-2134</a></td>
+<td align="left">TEZ UI: On request failure, display request URL and server name in error bar.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2142">TEZ-2142</a></td>
+<td align="left">TEZ UI: Breadcrumb border color looks out of place in wrapped mode.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2133">TEZ-2133</a></td>
+<td align="left">Secured Impersonation: Failed to delete tez scratch data dir</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Johannes Zillmann</td>
+<td align="left">Chang Li</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2147">TEZ-2147</a></td>
+<td align="left">Swimlanes: Improved tooltip</td>
+<td align="left">Major</td>
+<td align="left">UI</td>
+<td align="left">Jonathan Eagles</td>
+<td align="left">Jonathan Eagles</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2160">TEZ-2160</a></td>
+<td align="left">Tez UI: App tracking URL should support navigation back</td>
+<td align="left">Major</td>
+<td align="left">UI</td>
+<td align="left">Ram Venkatesh</td>
+<td align="left">Prakash Ramachandran</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2158">TEZ-2158</a></td>
+<td align="left">TEZ UI: Display dag/vertex names, and task/attempt index in breadcrumb</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2165">TEZ-2165</a></td>
+<td align="left">Tez UI: DAG shows running status if killed by RM in some cases.</td>
+<td align="left">Major</td>
+<td align="left">UI</td>
+<td align="left">Prakash Ramachandran</td>
+<td align="left">Prakash Ramachandran</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2190">TEZ-2190</a></td>
+<td align="left">TestOrderedWordCount fails when generateSplitsInClient set to true</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Hitesh Shah</td>
+<td align="left">Hitesh Shah</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2168">TEZ-2168</a></td>
+<td align="left">Fix application dependencies on mutually exclusive artifacts: tez-yarn-timeline-history and tez-yarn-timeline-history-with-acls</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Hitesh Shah</td>
+<td align="left">Hitesh Shah</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2179">TEZ-2179</a></td>
+<td align="left">Timeline relatedentries missing cause exaggerated warning</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Chang Li</td>
+<td align="left">Chang Li</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2189">TEZ-2189</a></td>
+<td align="left">Tez UI live AM tracking url only works for localhost addresses</td>
+<td align="left">Major</td>
+<td align="left">UI</td>
+<td align="left">Jonathan Eagles</td>
+<td align="left">Jonathan Eagles</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2199">TEZ-2199</a></td>
+<td align="left">updateLocalResourcesForInputSplits assumes wrongly that split data is on same FS as the default FS</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Hitesh Shah</td>
+<td align="left">Hitesh Shah</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2064">TEZ-2064</a></td>
+<td align="left">SessionNotRunning Exception not thrown is all cases</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Jonathan Eagles</td>
+<td align="left">Jonathan Eagles</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2047">TEZ-2047</a></td>
+<td align="left">Build fails against hadoop-2.2 post TEZ-2018</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Hitesh Shah</td>
+<td align="left">Prakash Ramachandran</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2214">TEZ-2214</a></td>
+<td align="left">FetcherOrderedGrouped can get stuck indefinitely when MergeManager misses memToDiskMerging</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Rajesh Balamohan</td>
+<td align="left">Rajesh Balamohan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2242">TEZ-2242</a></td>
+<td align="left">Refactor ShuffleVertexManager code</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Bikas Saha</td>
+<td align="left">Bikas Saha</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2061">TEZ-2061</a></td>
+<td align="left">Tez UI: vertex id column and filter on tasks page should be changed to vertex name</td>
+<td align="left">Major</td>
+<td align="left">UI</td>
+<td align="left">Prakash Ramachandran</td>
+<td align="left">Prakash Ramachandran</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2240">TEZ-2240</a></td>
+<td align="left">Fix toUpperCase/toLowerCase to use Locale.ENGLISH</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Tsuyoshi Ozawa</td>
+<td align="left">Tsuyoshi Ozawa</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2192">TEZ-2192</a></td>
+<td align="left">Relocalization does not check for source</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Rohini Palaniswamy</td>
+<td align="left">Hitesh Shah</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2289">TEZ-2289</a></td>
+<td align="left">ATSHistoryLoggingService can generate ArrayOutOfBoundsException</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jonathan Eagles</td>
+<td align="left">Chang Li</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2287">TEZ-2287</a></td>
+<td align="left">Deprecate VertexManagerPluginContext.getTaskContainer()</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Bikas Saha</td>
+<td align="left">Hitesh Shah</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2326">TEZ-2326</a></td>
+<td align="left">Update branch 0.6 version to 0.6.1-SNAPSHOT</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Hitesh Shah</td>
+<td align="left">Hitesh Shah</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2334">TEZ-2334</a></td>
+<td align="left">ContainerManagementProtocolProxy modifies IPC timeout conf without making a copy</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Chang Li</td>
+<td align="left">Chang Li</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2224">TEZ-2224</a></td>
+<td align="left">EventQueue empty doesn't mean events are consumed in RecoveryService</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jeff Zhang</td>
+<td align="left">Jeff Zhang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2365">TEZ-2365</a></td>
+<td align="left">Update tez-ui war's license/notice to reflect OFL license correctly</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Hitesh Shah</td>
+<td align="left">Hitesh Shah</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2259">TEZ-2259</a></td>
+<td align="left">Push additional data to Timeline for Recovery for better consumption in UI</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Hitesh Shah</td>
+<td align="left">Hitesh Shah</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2305">TEZ-2305</a></td>
+<td align="left">MR compatibility sleep job fails with IOException: Undefined job output-path</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Tassapol Athiapinya</td>
+<td align="left">Jeff Zhang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2385">TEZ-2385</a></td>
+<td align="left">branch-0.6 compile failure caused by TEZ-2226</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Jeff Zhang</td>
+<td align="left">Hitesh Shah</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2380">TEZ-2380</a></td>
+<td align="left">Disable fall back to reading from timeline if timeline disabled</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Hitesh Shah</td>
+<td align="left">Chang Li</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-1560">TEZ-1560</a></td>
+<td align="left">Invalid state machine handling for V_SOURCE_VERTEX_RECOVERED in recovery</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Jeff Zhang</td>
+<td align="left">Jeff Zhang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2221">TEZ-2221</a></td>
+<td align="left">VertexGroup name should be unqiue</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jeff Zhang</td>
+<td align="left">Jeff Zhang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2390">TEZ-2390</a></td>
+<td align="left">tez-tools swimlane tool fails to parse large jobs &gt;8K containers</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jonathan Eagles</td>
+<td align="left">Jonathan Eagles</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-1988">TEZ-1988</a></td>
+<td align="left">Tez UI: does not work when using file:// in a browser</td>
+<td align="left">Major</td>
+<td align="left">UI</td>
+<td align="left">Hitesh Shah</td>
+<td align="left">Prakash Ramachandran</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2397">TEZ-2397</a></td>
+<td align="left">Translation of LocalResources via Tez plan serialization can be lossy</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Siddharth Seth</td>
+<td align="left">Siddharth Seth</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2379">TEZ-2379</a></td>
+<td align="left">org.apache.hadoop.yarn.state.InvalidStateTransitonException: Invalid event: T_ATTEMPT_KILLED at KILLED</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Rajesh Balamohan</td>
+<td align="left">Hitesh Shah</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2237">TEZ-2237</a></td>
+<td align="left">Valid events should be sent out when an Output is not started</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Cyrille Chépélov</td>
+<td align="left">Siddharth Seth</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2369">TEZ-2369</a></td>
+<td align="left">Add a few unit tests for RootInputInitializerManager</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Siddharth Seth</td>
+<td align="left">Siddharth Seth</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2396">TEZ-2396</a></td>
+<td align="left">pig-tez-tfile-parser pom is hard coded to depend on 0.6.0-SNAPSHOT version</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jonathan Eagles</td>
+<td align="left">Rajesh Balamohan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2282">TEZ-2282</a></td>
+<td align="left">Delimit reused yarn container logs (stderr, stdout, syslog) with task attempt start/stop events</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jonathan Eagles</td>
+<td align="left">Mit Desai</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2057">TEZ-2057</a></td>
+<td align="left">tez-dag/pom.xml contains versions for dependencies</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Hitesh Shah</td>
+<td align="left">Jonathan Eagles</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2451">TEZ-2451</a></td>
+<td align="left">Tez 0.6.1 Release Changes</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jonathan Eagles</td>
+<td align="left">Jonathan Eagles</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sub-tasks">SUB-TASKS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2205">TEZ-2205</a></td>
+<td align="left">Tez still tries to post to ATS when yarn.timeline-service.enabled=false</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Chang Li</td>
+<td align="left">Chang Li</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-1909">TEZ-1909</a></td>
+<td align="left">Remove need to copy over all events from attempt 1 to attempt 2 dir</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Hitesh Shah</td>
+<td align="left">Jeff Zhang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-1969">TEZ-1969</a></td>
+<td align="left">Stop the DAGAppMaster when a local mode client is stopped</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Siddharth Seth</td>
+<td align="left">Prakash Ramachandran</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2226">TEZ-2226</a></td>
+<td align="left">Disable writing history to timeline if domain creation fails.</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Hitesh Shah</td>
+<td align="left">Chang Li</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-1521">TEZ-1521</a></td>
+<td align="left">VertexDataMovementEventsGeneratedEvent may be logged twice in recovery log</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Jeff Zhang</td>
+<td align="left">Jeff Zhang</td>
+</tr>
+</tbody>
+</table>
+<h3 id="other">OTHER:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-1946">TEZ-1946</a></td>
+<td align="left">Tez UI: add source &amp; sink views, add counters to vertices/all task views</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+</tbody>
+</table>

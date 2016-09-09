@@ -1,0 +1,122 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hive-changelog">Apache Hive Changelog</h1>
+<h2 id="release-2.0.2---unreleased-as-of-2016-09-08">Release 2.0.2 - Unreleased (as of 2016-09-08)</h2>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13870">HIVE-13870</a></td>
+<td align="left">Decimal vector is not resized correctly</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sergey Shelukhin</td>
+<td align="left">Sergey Shelukhin</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13948">HIVE-13948</a></td>
+<td align="left">Incorrect timezone handling in Writable results in wrong dates in queries</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Sergey Shelukhin</td>
+<td align="left">Sergey Shelukhin</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13957">HIVE-13957</a></td>
+<td align="left">vectorized IN is inconsistent with non-vectorized (at least for decimal in (string))</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sergey Shelukhin</td>
+<td align="left">Sergey Shelukhin</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-14024">HIVE-14024</a></td>
+<td align="left">setAllColumns is called incorrectly after some changes</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Takahiko Saito</td>
+<td align="left">Sergey Shelukhin</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-14012">HIVE-14012</a></td>
+<td align="left">some ColumnVector-s are missing ensureSize</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Takahiko Saito</td>
+<td align="left">Sergey Shelukhin</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-14222">HIVE-14222</a></td>
+<td align="left">PTF: Operator initialization does not clean state</td>
+<td align="left">Major</td>
+<td align="left">PTF-Windowing</td>
+<td align="left">Gopal V</td>
+<td align="left">Wei Zheng</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-14322">HIVE-14322</a></td>
+<td align="left">Postgres db issues after Datanucleus 4.x upgrade</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Thejas M Nair</td>
+<td align="left">Sergey Shelukhin</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-14408">HIVE-14408</a></td>
+<td align="left">thread safety issue in fast hashtable</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Takahiko Saito</td>
+<td align="left">Sergey Shelukhin</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-14483">HIVE-14483</a></td>
+<td align="left">java.lang.ArrayIndexOutOfBoundsException org.apache.orc.impl.TreeReaderFactory$BytesColumnVectorUtil.commonReadByteArrays</td>
+<td align="left">Critical</td>
+<td align="left">ORC</td>
+<td align="left">Sergey Zadoroshnyak</td>
+<td align="left">Sergey Zadoroshnyak</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HIVE-13610">HIVE-13610</a></td>
+<td align="left">Hive exec module won't compile with IBM JDK</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Pan Yuxuan</td>
+<td align="left">Pan Yuxuan</td>
+</tr>
+</tbody>
+</table>

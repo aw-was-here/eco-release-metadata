@@ -1,0 +1,44 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hbase-0.20.4-release-notes">Apache HBase 0.20.4 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-2190">HBASE-2190</a> | <em>Major</em> | <strong>HRS should report to master when HMsg are available</strong></li>
+</ul>
+<p>This requires that making a rolling update, you upgrade the master first (so it knows what to do w/ the new split signal this patch introduces).</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-2378">HBASE-2378</a> | <em>Critical</em> | <strong>Bulk insert with multiple reducers broken due to improper ImmutableBytesWritable comparator</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-2422">HBASE-2422</a> | <em>Major</em> | <strong>Remove fragmentation indicator for 0.20.4... fix in 0.20.5.</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-2248">HBASE-2248</a> | <em>Blocker</em> | <strong>Provide new non-copy mechanism to assure atomic reads in get and scan</strong></li>
+</ul>
+<p>This patch changes the Get code path to instead be a Scan of one row. This means than inserting cells out of timestamp order should work now (tests to verify to follow part of hbase-2294) but also that a delete at an explicit timestamp now overshadows EVEN if the effected cell is put after the delete (The old Get code path did early-out so a subsequent puts would not see the delete).</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-1892">HBASE-1892</a> | <em>Major</em> | <strong>[performance] make hbase splits run faster</strong></li>
+</ul>
+<p>On region close, this change makes it so we don't wait on compaction to complete with the close-region flag in place -- i.e. region is offline while we wait on the compaction close -- and secondly, if the region memstores are over a configurable limit, before closing, we'll run a &quot;pre-flush&quot; to get the bulk of the memory flushed before we put the close flag up.</p>

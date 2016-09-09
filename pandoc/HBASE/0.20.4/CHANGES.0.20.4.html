@@ -1,0 +1,693 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hbase-changelog">Apache HBase Changelog</h1>
+<h2 id="release-0.20.4---2010-05-05">Release 0.20.4 - 2010-05-05</h2>
+<h3 id="incompatible-changes">INCOMPATIBLE CHANGES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2378">HBASE-2378</a></td>
+<td align="left">Bulk insert with multiple reducers broken due to improper ImmutableBytesWritable comparator</td>
+<td align="left">Critical</td>
+<td align="left">mapreduce</td>
+<td align="left">Ruslan Salyakhov</td>
+<td align="left">Todd Lipcon</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2422">HBASE-2422</a></td>
+<td align="left">Remove fragmentation indicator for 0.20.4... fix in 0.20.5.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">Jean-Daniel Cryans</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2248">HBASE-2248</a></td>
+<td align="left">Provide new non-copy mechanism to assure atomic reads in get and scan</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Dave Latham</td>
+<td align="left">ryan rawson</td>
+</tr>
+</tbody>
+</table>
+<h3 id="new-features">NEW FEATURES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2220">HBASE-2220</a></td>
+<td align="left">Add a binary comparator that only compares up to the length of the supplied byte array</td>
+<td align="left">Minor</td>
+<td align="left">Filters</td>
+<td align="left">Bruno Dumon</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2185">HBASE-2185</a></td>
+<td align="left">Add html version of default hbase-site.xml</td>
+<td align="left">Major</td>
+<td align="left">documentation</td>
+<td align="left">Karthik K</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2198">HBASE-2198</a></td>
+<td align="left">SingleColumnValueFilter should be able to find the column value even when it's not specifically added as input on the scan.</td>
+<td align="left">Major</td>
+<td align="left">Filters</td>
+<td align="left">Ferdy Galema</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2189">HBASE-2189</a></td>
+<td align="left">HCM trashes meta cache even when not needed</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jean-Daniel Cryans</td>
+<td align="left">Jean-Daniel Cryans</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2190">HBASE-2190</a></td>
+<td align="left">HRS should report to master when HMsg are available</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jean-Daniel Cryans</td>
+<td align="left">stack</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2222">HBASE-2222</a></td>
+<td align="left">Improve log &quot;Trying to contact region server Some server for region , row 'ip_info_100,,1263329969690', but failed after 11 attempts.&quot;</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">stack</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2167">HBASE-2167</a></td>
+<td align="left">PE for IHBase</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2230">HBASE-2230</a></td>
+<td align="left">SingleColumnValueFilter has an ungaurded debug log message.</td>
+<td align="left">Minor</td>
+<td align="left">Filters</td>
+<td align="left">Dan Washusen</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2262">HBASE-2262</a></td>
+<td align="left">ZKW.ensureExists should check for existence</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jean-Daniel Cryans</td>
+<td align="left">Jean-Daniel Cryans</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2273">HBASE-2273</a></td>
+<td align="left">[stargate] export metrics via Hadoop metrics, JMX, and ZooKeeper</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Andrew Purtell</td>
+<td align="left">Andrew Purtell</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2257">HBASE-2257</a></td>
+<td align="left">[stargate] multiuser mode</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Andrew Purtell</td>
+<td align="left">Andrew Purtell</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2277">HBASE-2277</a></td>
+<td align="left">Update branch to hadoop 0.20.2</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2174">HBASE-2174</a></td>
+<td align="left">Stop from resolving HRegionServer addresses to names using DNS on every heartbeat</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jean-Daniel Cryans</td>
+<td align="left">Karthik Ranganathan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2403">HBASE-2403</a></td>
+<td align="left">[stargate] client HTable interface to REST connector</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Andrew Purtell</td>
+<td align="left">Andrew Purtell</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2412">HBASE-2412</a></td>
+<td align="left">[stargate] PerformanceEvaluation</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Andrew Purtell</td>
+<td align="left">Andrew Purtell</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2419">HBASE-2419</a></td>
+<td align="left">Remove from RS logs the fat NotServingRegionException stack</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">stack</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2436">HBASE-2436</a></td>
+<td align="left">[stargate] review Jersey and JSON dependencies</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Andrew Purtell</td>
+<td align="left">Andrew Purtell</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2440">HBASE-2440</a></td>
+<td align="left">Master UI should check against known bad JDK versions and warn the user</td>
+<td align="left">Minor</td>
+<td align="left">scripts</td>
+<td align="left">Todd Lipcon</td>
+<td align="left">Todd Lipcon</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1892">HBASE-1892</a></td>
+<td align="left">[performance] make hbase splits run faster</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">stack</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2490">HBASE-2490</a></td>
+<td align="left">Improve the javadoc of the client API for HTable.</td>
+<td align="left">Minor</td>
+<td align="left">Client</td>
+<td align="left">Benoit Sigoure</td>
+<td align="left">Benoit Sigoure</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2173">HBASE-2173</a></td>
+<td align="left">New idx javadoc not included with the rest</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jean-Daniel Cryans</td>
+<td align="left">stack</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2177">HBASE-2177</a></td>
+<td align="left">Add timestamping to gc logging options</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">stack</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2199">HBASE-2199</a></td>
+<td align="left">hbase.client.tableindexed.IndexSpecification, lines 72-73 should be reversed</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Adrian Popescu</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2227">HBASE-2227</a></td>
+<td align="left">[IHBASE] Idx Expression functionality is incompatible with SingleColumnValueFilter</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Yoram Kulbak</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2207">HBASE-2207</a></td>
+<td align="left">[IHBASE] Index partial column values</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2206">HBASE-2206</a></td>
+<td align="left">[IHBASE] Idx memory allocation fix</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2205">HBASE-2205</a></td>
+<td align="left">[IHBASE] Updated Idx pacakge javadocs</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2204">HBASE-2204</a></td>
+<td align="left">[IHBASE] Index expression evaluation should fail with a DoNotRetryException in case of an invalid index specification</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2203">HBASE-2203</a></td>
+<td align="left">[IHBase] Include only those columns required for indexed scan</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2202">HBASE-2202</a></td>
+<td align="left">IdxRegion crash when binary characters</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2241">HBASE-2241</a></td>
+<td align="left">Change balancer sloppyness from 0.1 to 0.3</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">stack</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2258">HBASE-2258</a></td>
+<td align="left">The WhileMatchFilter doesn't delegate the call to filterRow()</td>
+<td align="left">Major</td>
+<td align="left">Filters</td>
+<td align="left">Dan Washusen</td>
+<td align="left">stack</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2259">HBASE-2259</a></td>
+<td align="left">StackOverflow in ExplicitColumnTracker when row has many columns</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Erik Rozendaal</td>
+<td align="left">Jean-Daniel Cryans</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2284">HBASE-2284</a></td>
+<td align="left">fsWriteLatency metric may be incorrectly reported</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Kannan Muthukkaruppan</td>
+<td align="left">Kannan Muthukkaruppan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2063">HBASE-2063</a></td>
+<td align="left">For hfileoutputformat, on timeout/failure/kill clean up half-written hfile</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">stack</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2244">HBASE-2244</a></td>
+<td align="left">META gets inconsistent in a number of crash scenarios</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Kannan Muthukkaruppan</td>
+<td align="left">stack</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2288">HBASE-2288</a></td>
+<td align="left">Shell fails on alter</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jean-Daniel Cryans</td>
+<td align="left">Jean-Daniel Cryans</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2293">HBASE-2293</a></td>
+<td align="left">CME in RegionManager#isMetaServer</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">Jean-Daniel Cryans</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2023">HBASE-2023</a></td>
+<td align="left">Client sync block can cause 1 thread of a multi-threaded client to block all others</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">ryan rawson</td>
+<td align="left">Karthik Ranganathan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2355">HBASE-2355</a></td>
+<td align="left">unsychronized logWriters map is mutated from several threads in HLog splitting</td>
+<td align="left">Critical</td>
+<td align="left">master</td>
+<td align="left">Todd Lipcon</td>
+<td align="left">Todd Lipcon</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2358">HBASE-2358</a></td>
+<td align="left">Store doReconstructionLog will fail if oldlogfile.log is empty and won't load region</td>
+<td align="left">Major</td>
+<td align="left">regionserver</td>
+<td align="left">Cosmin Lehene</td>
+<td align="left">Cosmin Lehene</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2373">HBASE-2373</a></td>
+<td align="left">Remove confusing log message of how &quot;BaseScanner GET got different address/startcode than SCAN&quot;</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Kannan Muthukkaruppan</td>
+<td align="left">stack</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2365">HBASE-2365</a></td>
+<td align="left">Double-assignment around split</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">stack</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2402">HBASE-2402</a></td>
+<td align="left">[stargate] set maxVersions on gets</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Andrew Purtell</td>
+<td align="left">Andrew Purtell</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2087">HBASE-2087</a></td>
+<td align="left">The wait on compaction because &quot;Too many store files&quot; holds up all flushing</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">Jean-Daniel Cryans</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2252">HBASE-2252</a></td>
+<td align="left">Mapping a very big table kills region servers</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jean-Daniel Cryans</td>
+<td align="left">Jean-Daniel Cryans</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2335">HBASE-2335</a></td>
+<td align="left">mapred package docs don't say zookeeper jar is a dependency.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">ryan rawson</td>
+<td align="left">stack</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2417">HBASE-2417</a></td>
+<td align="left">HCM.locateRootRegion fails hard on &quot;Connection refused&quot;</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jean-Daniel Cryans</td>
+<td align="left">Jean-Daniel Cryans</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2346">HBASE-2346</a></td>
+<td align="left">Usage of FilterList slows down scans</td>
+<td align="left">Major</td>
+<td align="left">Filters</td>
+<td align="left">Stefan Seelmann</td>
+<td align="left">Jean-Daniel Cryans</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2322">HBASE-2322</a></td>
+<td align="left">deadlock between put and cacheflusher in 0.20 branch</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">stack</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2481">HBASE-2481</a></td>
+<td align="left">Client is not getting UnknownScannerExceptions; they are being eaten</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">Jean-Daniel Cryans</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2210">HBASE-2210</a></td>
+<td align="left">NPE in thrift deleteAll</td>
+<td align="left">Minor</td>
+<td align="left">Thrift</td>
+<td align="left">Igor Ranitovic</td>
+<td align="left">Lars Francke</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2180">HBASE-2180</a></td>
+<td align="left">Bad random read performance from synchronizing hfile.fddatainputstream</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">ryan rawson</td>
+<td align="left">stack</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2499">HBASE-2499</a></td>
+<td align="left">Race condition when disabling a table leaves regions in transition</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Jean-Daniel Cryans</td>
+<td align="left">Jean-Daniel Cryans</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2509">HBASE-2509</a></td>
+<td align="left">NPEs in various places, HRegion.get, HRS.close</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">ryan rawson</td>
+<td align="left">ryan rawson</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sub-tasks">SUB-TASKS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2242">HBASE-2242</a></td>
+<td align="left">[EC2] Downgrade JDK to 6u17 and rebuild AMIs</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Andrew Purtell</td>
+<td align="left">Andrew Purtell</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2263">HBASE-2263</a></td>
+<td align="left">[stargate] multiuser mode: authenticator for zookeeper</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Andrew Purtell</td>
+<td align="left">Andrew Purtell</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2274">HBASE-2274</a></td>
+<td align="left">[stargate] support specification of filters for scanners: JSON descriptors</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Andrew Purtell</td>
+<td align="left">Andrew Purtell</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2319">HBASE-2319</a></td>
+<td align="left">[stargate] multiuser mode: request shaping</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Andrew Purtell</td>
+<td align="left">Andrew Purtell</td>
+</tr>
+</tbody>
+</table>
+<h3 id="other">OTHER:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2381">HBASE-2381</a></td>
+<td align="left">missing copyright headers</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Thomas Koch</td>
+<td align="left">Andrew Purtell</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2415">HBASE-2415</a></td>
+<td align="left">Disable META splitting in 0.20</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Todd Lipcon</td>
+<td align="left">Todd Lipcon</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2360">HBASE-2360</a></td>
+<td align="left">Make sure we have all the hadoop fixes in our our copy of its rpc</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">Todd Lipcon</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2423">HBASE-2423</a></td>
+<td align="left">Update 'Getting Started' for 0.20.4 including making &quot;important configurations more visiable&quot;</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">Jean-Daniel Cryans</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2383">HBASE-2383</a></td>
+<td align="left">Replace JSON-licensed json dependencies</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Thomas Koch</td>
+<td align="left">stack</td>
+</tr>
+</tbody>
+</table>

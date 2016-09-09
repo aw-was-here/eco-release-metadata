@@ -1,0 +1,379 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hadoop-0.17.0-release-notes">Apache Hadoop 0.17.0 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3382">HADOOP-3382</a> | <em>Blocker</em> | <strong>Memory leak when files are not cleanly closed</strong></li>
+</ul>
+<p>Fixed a memory leak associated with 'abandoned' files (i.e. not cleanly closed). This held up significant amounts of memory depending on activity and how long NameNode has been running.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3280">HADOOP-3280</a> | <em>Blocker</em> | <strong>virtual address space limits break streaming apps</strong></li>
+</ul>
+<p>This patch adds the mapred.child.ulimit to limit the virtual memory for children processes to the given value.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3266">HADOOP-3266</a> | <em>Major</em> | <strong>Remove HOD changes from CHANGES.txt, as they are now inside src/contrib/hod</strong></li>
+</ul>
+<p>Moved HOD change items from CHANGES.txt to a new file src/contrib/hod/CHANGES.txt.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3239">HADOOP-3239</a> | <em>Major</em> | <strong>exists() calls logs FileNotFoundException in namenode log</strong></li>
+</ul>
+<p>getFileInfo returns null for File not found instead of throwing FileNotFoundException</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3223">HADOOP-3223</a> | <em>Blocker</em> | <strong>Hadoop dfs -help for permissions contains a typo</strong></li>
+</ul>
+<p>Minor typo fix in help message for chmod. impact : none.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3204">HADOOP-3204</a> | <em>Blocker</em> | <strong>LocalFSMerger needs to catch throwable</strong></li>
+</ul>
+<p>Fixes LocalFSMerger in ReduceTask.java to handle errors/exceptions better. Prior to this all exceptions except IOException would be silently ignored.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3168">HADOOP-3168</a> | <em>Major</em> | <strong>reduce amount of logging in hadoop streaming</strong></li>
+</ul>
+<p>Decreases the frequency of logging from streaming from every 100 records to every 10,000 records.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3162">HADOOP-3162</a> | <em>Blocker</em> | <strong>Map/reduce stops working with comma separated input paths</strong></li>
+</ul>
+<p>The public methods org.apache.hadoop.mapred.JobConf.setInputPath(Path) and org.apache.hadoop.mapred.JobConf.addInputPath(Path) are deprecated. And the methods have the semantics of branch 0.16. The following public APIs are added in org.apache.hadoop.mapred.FileInputFormat : public static void setInputPaths(JobConf job, Path... paths); public static void setInputPaths(JobConf job, String commaSeparatedPaths); public static void addInputPath(JobConf job, Path path); public static void addInputPaths(JobConf job, String commaSeparatedPaths); Earlier code calling JobConf.setInputPath(Path), JobConf.addInputPath(Path) should now call FileInputFormat.setInputPaths(JobConf, Path...) and FileInputFormat.addInputPath(Path) respectively</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3152">HADOOP-3152</a> | <em>Minor</em> | <strong>Make index interval configuable when using MapFileOutputFormat for map-reduce job</strong></li>
+</ul>
+<p>Add a static method MapFile#setIndexInterval(Configuration, int interval) so that MapReduce jobs that use MapFileOutputFormat can set the index interval.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3140">HADOOP-3140</a> | <em>Major</em> | <strong>JobTracker should not try to promote a (map) task if it does not write to DFS at all</strong></li>
+</ul>
+<p>Tasks that don't generate any output are not inserted in the commit queue of the JobTracker. They are marked as SUCCESSFUL by the TaskTracker and the JobTracker updates their state short-circuiting the commit queue.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3137">HADOOP-3137</a> | <em>Major</em> | <strong>[HOD] Update hod version number</strong></li>
+</ul>
+<p>Build script was changed to make HOD versions follow Hadoop version numbers. As a result of this change, the next version of HOD would not be 0.5, but would be synchronized to the Hadoop version number. Users who rely on the version number of HOD should note the unexpected jump in version numbers.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3124">HADOOP-3124</a> | <em>Major</em> | <strong>DFS data node should not use hard coded 10 minutes as write timeout.</strong></li>
+</ul>
+<p>Makes DataNode socket write timeout configurable. User impact : none.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3099">HADOOP-3099</a> | <em>Blocker</em> | <strong>Need new options in distcp for preserving ower, group and permission</strong></li>
+</ul>
+<p>Added a new option -p to distcp for preserving file/directory status. -p[rbugp] Preserve status r: replication number b: block size u: user g: group p: permission -p alone is equivalent to -prbugp</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3093">HADOOP-3093</a> | <em>Major</em> | <strong>ma/reduce throws the following exception if &quot;io.serializations&quot; is not set:</strong></li>
+</ul>
+<p>The following public APIs are added in org.apache.hadoop.conf.Configuration String[] Configuration.getStrings(String name, String... defaultValue) and void Configuration.setStrings(String name, String... values)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3091">HADOOP-3091</a> | <em>Major</em> | <strong>hadoop dfs -put should support multiple src</strong></li>
+</ul>
+<p>hadoop dfs -put accepts multiple sources when destination is a directory.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3073">HADOOP-3073</a> | <em>Blocker</em> | <strong>SocketOutputStream.close() should close the channel.</strong></li>
+</ul>
+<p>SocketOutputStream.close() closes the underlying channel. Increase compatibility with java.net.Socket.getOutputStream. User Impact : none.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3060">HADOOP-3060</a> | <em>Major</em> | <strong>MiniMRCluster is ignoring parameter taskTrackerFirst</strong></li>
+</ul>
+<p>The parameter boolean taskTrackerFirst is removed from org.apache.hadoop.mapred.MiniMRCluster constructors. Thus signature of following APIs public MiniMRCluster(int jobTrackerPort, int taskTrackerPort, int numTaskTrackers, String namenode, boolean taskTrackerFirst, int numDir) public MiniMRCluster(int jobTrackerPort, int taskTrackerPort, int numTaskTrackers, String namenode, boolean taskTrackerFirst, int numDir, String[] racks) public MiniMRCluster(int jobTrackerPort, int taskTrackerPort, int numTaskTrackers, String namenode, boolean taskTrackerFirst, int numDir, String[] racks, String[] hosts) public MiniMRCluster(int jobTrackerPort, int taskTrackerPort, int numTaskTrackers, String namenode, boolean taskTrackerFirst, int numDir, String[] racks, String[] hosts, UnixUserGroupInformation ugi ) is changed to public MiniMRCluster(int jobTrackerPort, int taskTrackerPort, int numTaskTrackers, String namenode, int numDir) public MiniMRCluster(int jobTrackerPort, int taskTrackerPort, int numTaskTrackers, String namenode, int numDir, String[] racks) public MiniMRCluster(int jobTrackerPort, int taskTrackerPort, int numTaskTrackers, String namenode, int numDir, String[] racks, String[] hosts) public MiniMRCluster(int jobTrackerPort, int taskTrackerPort, int numTaskTrackers, String namenode, int numDir, String[] racks, String[] hosts, UnixUserGroupInformation ugi ) respectively. Since the old signatures were not deprecated, any code using the old constructors must be changed to use the new constructors.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3048">HADOOP-3048</a> | <em>Blocker</em> | <strong>Stringifier</strong></li>
+</ul>
+<p>A new Interface and a default implementation to convert and restore serializations of objects to strings.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3041">HADOOP-3041</a> | <em>Blocker</em> | <strong>Within a task, the value ofJobConf.getOutputPath() method is modified</strong></li>
+</ul>
+<ol>
+<li>Deprecates JobConf.setOutputPath and JobConf.getOutputPath JobConf.getOutputPath() still returns the same value that it used to return.</li>
+<li>Deprecates OutputFormatBase. Adds FileOutputFormat. Existing output formats extending OutputFormatBase, now extend FileOutputFormat.</li>
+<li>Adds the following APIs in FileOutputFormat : public static void setOutputPath(JobConf conf, Path outputDir); // sets mapred.output.dir public static Path getOutputPath(JobConf conf) ; // gets mapred.output.dir public static Path getWorkOutputPath(JobConf conf); // gets mapred.work.output.dir</li>
+<li>static void setWorkOutputPath(JobConf conf, Path outputDir) is also added to FileOutputFormat. This is used by the framework to set mapred.work.output.dir as task's temporary output dir .</li>
+</ol>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3040">HADOOP-3040</a> | <em>Major</em> | <strong>Streaming should assume an empty key if the first character on a line is the seperator (stream.map.output.field.separator, by default, tab)</strong></li>
+</ul>
+<p>If the first character on a line is the separator, empty key is assumed, and the whole line is the value (due to a bug this was not the case).</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3001">HADOOP-3001</a> | <em>Blocker</em> | <strong>FileSystems should track how many bytes are read and written</strong></li>
+</ul>
+<p>Adds new framework map/reduce counters that track the number of bytes read and written to HDFS, local, KFS, and S3 file systems.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-2982">HADOOP-2982</a> | <em>Blocker</em> | <strong>[HOD] checknodes should look for free nodes without the jobs attribute</strong></li>
+</ul>
+<p>The number of free nodes in the cluster is computed using a better algorithm that filters out inconsistencies in node status as reported by Torque.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-2947">HADOOP-2947</a> | <em>Blocker</em> | <strong>[HOD] Hod should redirect stderr and stdout of Hadoop daemons to assist debugging</strong></li>
+</ul>
+<p>The stdout and stderr streams of daemons are redirected to files that are created under the hadoop log directory. Users can now send kill 3 signals to the daemons to get stack traces and thread dumps for debugging.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-2899">HADOOP-2899</a> | <em>Major</em> | <strong>[HOD] hdfs:///mapredsystem directory not cleaned up after deallocation</strong></li>
+</ul>
+<p>The mapred system directory generated by HOD is cleaned up at cluster deallocation time.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-2873">HADOOP-2873</a> | <em>Major</em> | <strong>Namenode fails to re-start after cluster shutdown - DFSClient: Could not obtain blocks even all datanodes were up &amp; live</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-2855">HADOOP-2855</a> | <em>Blocker</em> | <strong>[HOD] HOD fails to allocate a cluster if the tarball specified is a relative path</strong></li>
+</ul>
+<p>Changes were made to handle relative paths correctly for important HOD options such as the cluster directory, tarball option, and script file.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-2854">HADOOP-2854</a> | <em>Blocker</em> | <strong>Remove the deprecated ipc.Server.getUserInfo()</strong></li>
+</ul>
+<p>Removes deprecated method Server.getUserInfo()</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-2839">HADOOP-2839</a> | <em>Blocker</em> | <strong>Remove deprecated methods in FileSystem</strong></li>
+</ul>
+<p>Removes deprecated API FileSystem#globPaths()</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-2831">HADOOP-2831</a> | <em>Blocker</em> | <strong>Remove the deprecated INode.getAbsoluteName()</strong></li>
+</ul>
+<p>Removes deprecated method INode#getAbsoluteName()</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-2828">HADOOP-2828</a> | <em>Major</em> | <strong>Remove deprecated methods in Configuration.java</strong></li>
+</ul>
+<p>The following deprecated methods in org.apache.hadoop.conf.Configuration are removed. public Object getObject(String name) public void setObject(String name, Object value) public Object get(String name, Object defaultValue) public void set(String name, Object value) and public Iterator entries()</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-2826">HADOOP-2826</a> | <em>Major</em> | <strong>FileSplit.getFile(), LineRecordReader. readLine() need to be removed</strong></li>
+</ul>
+<p>The deprecated methods, public File org.apache.hadoop.mapred.FileSplit.getFile() and public static long org.apache.hadoop.mapred.LineRecordReader.readLine(InputStream in, OutputStream out) are removed. The constructor org.apache.hadoop.mapred.LineRecordReader.LineReader(InputStream in, Configuration conf) 's visibility is made public. The signature of the public org.apache.hadoop.streaming.UTF8ByteArrayUtils.readLIne(InputStream) method is changed to UTF8ByteArrayUtils.readLIne(LineReader, Text). Since the old signature is not deprecated, any code using the old method must be changed to use the new method.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-2825">HADOOP-2825</a> | <em>Major</em> | <strong>MapOutputLocation.getFile() needs to be removed</strong></li>
+</ul>
+<p>The deprecated method, public long org.apache.hadoop.mapred.MapOutputLocation.getFile(FileSystem fileSys, Path localFilename, int reduce, Progressable pingee, int timeout) is removed.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-2824">HADOOP-2824</a> | <em>Major</em> | <strong>One of MiniMRCluster constructors needs tobe removed</strong></li>
+</ul>
+<p>The deprecated constructor org.apache.hadoop.mapred.MiniMRCluster.MiniMRCluster(int jobTrackerPort, int taskTrackerPort, int numTaskTrackers, String namenode, boolean taskTrackerFirst) is removed.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-2823">HADOOP-2823</a> | <em>Major</em> | <strong>SimpleCharStream.getColumn(), getLine() methods to be removed.</strong></li>
+</ul>
+<p>The deprecated methods in org.apache.hadoop.record.compiler.generated.SimpleCharStream : public int getColumn() and public int getLine() are removed</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-2822">HADOOP-2822</a> | <em>Major</em> | <strong>Remove deprecated classes in mapred</strong></li>
+</ul>
+<p>The deprecated classes org.apache.hadoop.mapred.InputFormatBase and org.apache.hadoop.mapred.PhasedFileSystem are removed.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-2821">HADOOP-2821</a> | <em>Major</em> | <strong>Remove deprecated classes in util</strong></li>
+</ul>
+<p>The deprecated classes org.apache.hadoop.util.ShellUtil and org.apache.hadoop.util.ToolBase are removed.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-2820">HADOOP-2820</a> | <em>Major</em> | <strong>Remove deprecated classes in streaming</strong></li>
+</ul>
+<p>The deprecated classes org.apache.hadoop.streaming.StreamLineRecordReader, org.apache.hadoop.streaming.StreamOutputFormat and org.apache.hadoop.streaming.StreamSequenceRecordReader are removed</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-2819">HADOOP-2819</a> | <em>Major</em> | <strong>Remove deprecated methods in JobConf()</strong></li>
+</ul>
+<p>The following deprecated methods are removed from org.apache.hadoop.JobConf : public Class getInputKeyClass() public void setInputKeyClass(Class theClass) public Class getInputValueClass() public void setInputValueClass(Class theClass)</p>
+<p>The methods, public boolean org.apache.hadoop.JobConf.getSpeculativeExecution() and public void org.apache.hadoop.JobConf.setSpeculativeExecution(boolean speculativeExecution) are undeprecated.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-2818">HADOOP-2818</a> | <em>Major</em> | <strong>Remove deprecated Counters.getDisplayName(), getCounterNames(), getCounter(String counterName)</strong></li>
+</ul>
+<p>The deprecated methods public String org.apache.hadoop.mapred.Counters.getDisplayName(String counter) and public synchronized Collection&lt;String&gt; org.apache.hadoop.mapred.Counters.getCounterNames() are removed. The deprecated method public synchronized long org.apache.hadoop.mapred.Counters.getCounter(String counterName) is undeprecated.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-2817">HADOOP-2817</a> | <em>Major</em> | <strong>Remove deprecated mapred.tasktracker.tasks.maximum and clusterStatus.getMaxTasks()</strong></li>
+</ul>
+<p>The deprecated method public int org.apache.hadoop.mapred.ClusterStatus.getMaxTasks() is removed. The deprecated configuration property &quot;mapred.tasktracker.tasks.maximum&quot; is removed.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-2796">HADOOP-2796</a> | <em>Major</em> | <strong>For script option hod should exit with distinguishable exit codes for script code and hod exit code.</strong></li>
+</ul>
+<p>A provision to reliably detect a failing script's exit code was added. In case the hod script option returned a non-zero exit code, users can now look for a 'script.exitcode' file written to the HOD cluster directory. If this file is present, it means the script failed with the returned exit code.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-2775">HADOOP-2775</a> | <em>Major</em> | <strong>[HOD] Put in place unit test framework for HOD</strong></li>
+</ul>
+<p>A unit testing framework based on pyunit is added to HOD. Developers contributing patches to HOD should now contribute unit tests along with the patches where possible.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-2765">HADOOP-2765</a> | <em>Major</em> | <strong>setting memory limits for tasks</strong></li>
+</ul>
+<p>This feature enables specifying ulimits for streaming/pipes tasks. Now pipes and streaming tasks have same virtual memory available as the java process which invokes them. Ulimit value will be the same as -Xmx value for java processes provided using mapred.child.java.opts.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-2758">HADOOP-2758</a> | <em>Major</em> | <strong>Reduce memory copies when data is read from DFS</strong></li>
+</ul>
+<p>DataNode takes 50% less CPU while serving data to clients.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-2657">HADOOP-2657</a> | <em>Major</em> | <strong>Enhancements to DFSClient to support flushing data at any point in time</strong></li>
+</ul>
+<p>A new API DFSOututStream.flush() flushes all outstanding data to the pipeline of datanodes.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-2634">HADOOP-2634</a> | <em>Blocker</em> | <strong>Deprecate exists() and isDir() to simplify ClientProtocol.</strong></li>
+</ul>
+<p>Deprecates exists() from ClientProtocol</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-2563">HADOOP-2563</a> | <em>Blocker</em> | <strong>Remove deprecated FileSystem#listPaths()</strong></li>
+</ul>
+<p>Removes deprecated method FileSystem#listPaths()</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-2559">HADOOP-2559</a> | <em>Major</em> | <strong>DFS should place one replica per rack</strong></li>
+</ul>
+<p>Change DFS block placement to allocate the first replica locally, the second off-rack, and the third intra-rack from the second.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-2551">HADOOP-2551</a> | <em>Blocker</em> | <strong>hadoop-env.sh needs finer granularity</strong></li>
+</ul>
+<p>New environment variables were introduced to allow finer grained control of Java options passed to server and client JVMs. See the new *_OPTS variables in conf/hadoop-env.sh.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-2470">HADOOP-2470</a> | <em>Major</em> | <strong>Open and isDir should be removed from ClientProtocol</strong></li>
+</ul>
+<p>Open and isDir were removed from ClientProtocol.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-2423">HADOOP-2423</a> | <em>Major</em> | <strong>The codes in FSDirectory.mkdirs(...) is inefficient.</strong></li>
+</ul>
+<p>Improved FSDirectory.mkdirs(...) performance. In NNThroughputBenchmark-create, the ops per sec in was improved ~54%.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-2410">HADOOP-2410</a> | <em>Major</em> | <strong>Make EC2 cluster nodes more independent of each other</strong></li>
+</ul>
+<p>The command &quot;hadoop-ec2 run&quot; has been replaced by &quot;hadoop-ec2 launch-cluster &lt;group&gt; &lt;number of instances&gt;&quot;, and &quot;hadoop-ec2 start-hadoop&quot; has been removed since Hadoop is started on instance start up. See http://wiki.apache.org/hadoop/AmazonEC2 for details.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-2399">HADOOP-2399</a> | <em>Major</em> | <strong>Input key and value to combiner and reducer should be reused</strong></li>
+</ul>
+<p>The key and value objects that are given to the Combiner and Reducer are now reused between calls. This is much more efficient, but the user can not assume the objects are constant.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-2345">HADOOP-2345</a> | <em>Major</em> | <strong>new transactions to support HDFS Appends</strong></li>
+</ul>
+<p>Introduce new namenode transactions to support appending to HDFS files.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-2239">HADOOP-2239</a> | <em>Major</em> | <strong>Security: Need to be able to encrypt Hadoop socket connections</strong></li>
+</ul>
+<p>This patch adds a new FileSystem, HftpsFileSystem, that allows access to HDFS data over HTTPS.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-2219">HADOOP-2219</a> | <em>Major</em> | <strong>du like command to count number of files under a given directory</strong></li>
+</ul>
+<p>Added a new fs command fs -count for counting the number of bytes, files and directories under a given path.</p>
+<p>Added a new RPC getContentSummary(String path) to ClientProtocol.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-2192">HADOOP-2192</a> | <em>Major</em> | <strong>dfs mv command differs from POSIX standards</strong></li>
+</ul>
+<p>this patch makes dfs -mv more like linux mv command getting rid of unnecessary output in dfs -mv and returns an error message when moving non existent files/directories --- mv: cannot stat &quot;filename&quot;: No such file or directory.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-2178">HADOOP-2178</a> | <em>Major</em> | <strong>Job history on HDFS</strong></li>
+</ul>
+<p>This feature provides facility to store job history on DFS. Now cluster admin can provide either localFS location or DFS location using configuration property &quot;mapred.job.history.location&quot; to store job histroy. History will be logged in user specified location also. User can specify history location using configuration property &quot;mapred.job.history.user.location&quot; . The classes org.apache.hadoop.mapred.DefaultJobHistoryParser.MasterIndex and org.apache.hadoop.mapred.DefaultJobHistoryParser.MasterIndexParseListener, and public method org.apache.hadoop.mapred.DefaultJobHistoryParser.parseMasterIndex are not available. The signature of public method org.apache.hadoop.mapred.DefaultJobHistoryParser.parseJobTasks(File jobHistoryFile, JobHistory.JobInfo job) is changed to DefaultJobHistoryParser.parseJobTasks(String jobHistoryFile, JobHistory.JobInfo job, FileSystem fs). The signature of public method org.apache.hadoop.mapred.JobHistory.parseHistory(File path, Listener l) is changed to JobHistory.parseHistoryFromFS(String path, Listener l, FileSystem fs)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-2119">HADOOP-2119</a> | <em>Critical</em> | <strong>JobTracker becomes non-responsive if the task trackers finish task too fast</strong></li>
+</ul>
+<p>This removes many inefficiencies in task placement and scheduling logic. The JobTracker would perform linear scans of the list of submitted tasks in cases where it did not find an obvious candidate task for a node. With better data structures for managing job state, all task placement operations now run in constant time (in most cases). Also, the task output promotions are batched.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-2116">HADOOP-2116</a> | <em>Major</em> | <strong>Job.local.dir to be exposed to tasks</strong></li>
+</ul>
+<p>This issue restructures local job directory on the tasktracker. Users are provided with a job-specific shared directory (mapred-local/taskTracker/jobcache/$jobid/ work) for using it as scratch space, through configuration property and system property &quot;job.local.dir&quot;. Now, the directory &quot;../work&quot; is not available from the task's cwd.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-2063">HADOOP-2063</a> | <em>Blocker</em> | <strong>Command to pull corrupted files</strong></li>
+</ul>
+<p>Added a new option -ignoreCrc to fs -get, or equivalently, fs -copyToLocal, such that crc checksum will be ignored for the command. The use of this option is to download the corrupted files.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-2055">HADOOP-2055</a> | <em>Minor</em> | <strong>JobConf should have a setInputPathFilter method</strong></li>
+</ul>
+<p>This issue provides users the ability to specify what paths to ignore for processing in the job input directory (apart from the filenames that start with &quot;_&quot; and &quot;.&quot;). Defines two new APIs - FileInputFormat.setInputPathFilter(JobConf, PathFilter), and, FileInputFormat.getInputPathFilter(JobConf).</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-2027">HADOOP-2027</a> | <em>Major</em> | <strong>FileSystem should provide byte ranges for file locations</strong></li>
+</ul>
+<p>New FileSystem API getFileBlockLocations to return the number of bytes in each block in a file via a single rpc to the namenode to speed up job planning. Deprecates getFileCacheHints.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-1986">HADOOP-1986</a> | <em>Major</em> | <strong>Add support for a general serialization mechanism for Map Reduce</strong></li>
+</ul>
+<p>Programs that implement the raw Mapper or Reducer interfaces will need modification to compile with this release. For example,</p>
+<p>class MyMapper implements Mapper { public void map(WritableComparable key, Writable val, OutputCollector out, Reporter reporter) throws IOException { // ... } // ... }</p>
+<p>will need to be changed to refer to the parameterized type. For example:</p>
+<p>class MyMapper implements Mapper&lt;WritableComparable, Writable, WritableComparable, Writable&gt; { public void map(WritableComparable key, Writable val, OutputCollector&lt;WritableComparable, Writable&gt; out, Reporter reporter) throws IOException { // ... } // ... }</p>
+<p>Similarly implementations of the following raw interfaces will need modification: InputFormat, OutputCollector, OutputFormat, Partitioner, RecordReader, RecordWriter</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-1985">HADOOP-1985</a> | <em>Major</em> | <strong>Abstract node to switch mapping into a topology service class used by namenode and jobtracker</strong></li>
+</ul>
+<p>This issue introduces rack awareness for map tasks. It also moves the rack resolution logic to the central servers - NameNode &amp; JobTracker. The administrator can specify a loadable class given by topology.node.switch.mapping.impl to specify the class implementing the logic for rack resolution. The class must implement a method - resolve(List&lt;String&gt; names), where names is the list of DNS-names/IP-addresses that we want resolved. The return value is a list of resolved network paths of the form /foo/rack, where rack is the rackID where the node belongs to and foo is the switch where multiple racks are connected, and so on. The default implementation of this class is packaged along with hadoop and points to org.apache.hadoop.net.ScriptBasedMapping and this class loads a script that can be used for rack resolution. The script location is configurable. It is specified by topology.script.file.name and defaults to an empty script. In the case where the script name is empty, /default-rack is returned for all dns-names/IP-addresses. The loadable topology.node.switch.mapping.impl provides administrators fleixibilty to define how their site's node resolution should happen. For mapred, one can also specify the level of the cache w.r.t the number of levels in the resolved network path - defaults to two. This means that the JobTracker will cache tasks at the host level and at the rack level. Known issue: the task caching will not work with levels greater than 2 (beyond racks). This bug is tracked in HADOOP-3296.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-1622">HADOOP-1622</a> | <em>Major</em> | <strong>Hadoop should provide a way to allow the user to specify jar file(s) the user job depends on</strong></li>
+</ul>
+<p>This patch allows new command line options for</p>
+<p>hadoop jar which are</p>
+<p>hadoop jar -files &lt;comma seperated list of files&gt; -libjars &lt;comma seperated list of jars&gt; -archives &lt;comma seperated list of archives&gt;</p>
+<p>-files options allows you to speficy comma seperated list of path which would be present in your current working directory of your task -libjars option allows you to add jars to the classpaths of the maps and reduces. -archives allows you to pass archives as arguments that are unzipped/unjarred and a link with name of the jar/zip are created in the current working directory if tasks.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-1593">HADOOP-1593</a> | <em>Major</em> | <strong>FsShell should work with paths in non-default FileSystem</strong></li>
+</ul>
+<p>This bug allows non default path to specifeid in fsshell commands.</p>
+<p>So, you can now specify hadoop dfs -ls hdfs://remotehost1:port/path and hadoop dfs -ls hdfs://remotehost2:port/path without changing the config.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-910">HADOOP-910</a> | <em>Major</em> | <strong>Reduces can do merges for the on-disk map output files in parallel with their copying</strong></li>
+</ul>
+<p>Reducers now perform merges of shuffle data (both in-memory and on disk) while fetching map outputs. Earlier, during shuffle they used to merge only the in-memory outputs.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-771">HADOOP-771</a> | <em>Major</em> | <strong>Namenode should return error when trying to delete non-empty directory</strong></li>
+</ul>
+<p>This patch adds a new api to file system i.e delete(path, boolean), deprecating the previous delete(path). the new api recursively deletes files only if boolean is set to true. If path is a file, the boolean value does not matter, if path is a directory and the directory is non empty delete(path, false) will throw an exception and delete(path, true) will delete all files recursively.</p>

@@ -1,0 +1,69 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hadoop-0.21.1-release-notes">Apache Hadoop 0.21.1 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-7193">HADOOP-7193</a> | <em>Minor</em> | <strong>Help message is wrong for touchz command.</strong></li>
+</ul>
+<p>Updated the help for the touchz command.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-7117">HADOOP-7117</a> | <em>Major</em> | <strong>Move secondary namenode checkpoint configs from core-default.xml to hdfs-default.xml</strong></li>
+</ul>
+<p>Removed references to the older fs.checkpoint.* properties that resided in core-site.xml</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-6971">HADOOP-6971</a> | <em>Major</em> | <strong>Clover build doesn't generate per-test coverage</strong></li>
+</ul>
+<p>This fix requires that test coverage is running under Clover 3.0+</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-6944">HADOOP-6944</a> | <em>Major</em> | <strong>[Herriot] Implement a functionality for getting proxy users definitions like groups and hosts.</strong></li>
+</ul>
+<p>I have just committed this to 0.21 and trunk. Thanks Vinay.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-1596">HDFS-1596</a> | <em>Major</em> | <strong>Move secondary namenode checkpoint configs from core-default.xml to hdfs-default.xml</strong></li>
+</ul>
+<p>Removed references to the older fs.checkpoint.* properties that resided in core-site.xml</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-1420">HDFS-1420</a> | <em>Major</em> | <strong>Clover build doesn't generate per-test coverage</strong></li>
+</ul>
+<p>This fix requires that test coverage is running under Clover 3.0+</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2090">MAPREDUCE-2090</a> | <em>Major</em> | <strong>Clover build doesn't generate per-test coverage</strong></li>
+</ul>
+<p>This fix requires that test coverage is running under Clover 3.0+</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2040">MAPREDUCE-2040</a> | <em>Minor</em> | <strong>Forrest Documentation for Dynamic Priority Scheduler</strong></li>
+</ul>
+<p>Forrest Documentation for Dynamic Priority Scheduler</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2032">MAPREDUCE-2032</a> | <em>Major</em> | <strong>TestJobOutputCommitter fails in ant test run</strong></li>
+</ul>
+<p>Clears a problem that {{TestJobCleanup}} leaves behind files that cause {{TestJobOutputCommitter}} to error out.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-1905">MAPREDUCE-1905</a> | <em>Blocker</em> | <strong>Context.setStatus() and progress() api are ignored</strong></li>
+</ul>
+<p>Moved the api public Counter getCounter(Enum&lt;?&gt; counterName), public Counter getCounter(String groupName, String counterName) from org.apache.hadoop.mapreduce.TaskInputOutputContext to org.apache.hadoop.mapreduce.TaskAttemptContext</p>

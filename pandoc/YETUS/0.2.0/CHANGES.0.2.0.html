@@ -1,0 +1,542 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-yetus-changelog">Apache Yetus Changelog</h1>
+<h2 id="release-0.2.0---2016-03-07">Release 0.2.0 - 2016-03-07</h2>
+<h3 id="important-issues">IMPORTANT ISSUES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-62">YETUS-62</a></td>
+<td align="left">add auto-formatting of usage options</td>
+<td align="left">Major</td>
+<td align="left">Test Patch</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-241">YETUS-241</a></td>
+<td align="left">revamp parameterized site</td>
+<td align="left">Major</td>
+<td align="left">build, website and documentation</td>
+<td align="left">Sean Busbey</td>
+<td align="left">Sean Busbey</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-187">YETUS-187</a></td>
+<td align="left">maven javac/javadoc can't use calcdiffs</td>
+<td align="left">Blocker</td>
+<td align="left">Test Patch</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-70">YETUS-70</a></td>
+<td align="left">add support for make, including cmake and autoconf</td>
+<td align="left">Major</td>
+<td align="left">Test Patch</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-282">YETUS-282</a></td>
+<td align="left">Allow the specification of a base JIRA URL</td>
+<td align="left">Major</td>
+<td align="left">Release Doc Maker</td>
+<td align="left">Pathangi Jatinshravan</td>
+<td align="left">Pathangi Jatinshravan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-229">YETUS-229</a></td>
+<td align="left">split --jenkins up</td>
+<td align="left">Major</td>
+<td align="left">Test Patch</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+</tbody>
+</table>
+<h3 id="new-features">NEW FEATURES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-204">YETUS-204</a></td>
+<td align="left">shelldocs lint mode</td>
+<td align="left">Major</td>
+<td align="left">ShellDocs</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Kengo Seki</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-263">YETUS-263</a></td>
+<td align="left">Personality for Accumulo</td>
+<td align="left">Major</td>
+<td align="left">Test Patch</td>
+<td align="left">Josh Elser</td>
+<td align="left">Josh Elser</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-214">YETUS-214</a></td>
+<td align="left">release doc maker should have option to specify output directory</td>
+<td align="left">Major</td>
+<td align="left">Release Doc Maker</td>
+<td align="left">Sean Busbey</td>
+<td align="left">Pathangi Jatinshravan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-205">YETUS-205</a></td>
+<td align="left">shelldocs lint test for precommit</td>
+<td align="left">Major</td>
+<td align="left">Test Patch</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Kengo Seki</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-78">YETUS-78</a></td>
+<td align="left">add support for orc</td>
+<td align="left">Major</td>
+<td align="left">Test Patch</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-285">YETUS-285</a></td>
+<td align="left">flag to enable/disable docker privileged mode</td>
+<td align="left">Blocker</td>
+<td align="left">Test Patch</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+</tbody>
+</table>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-240">YETUS-240</a></td>
+<td align="left">Skip checkstyle/findbugs during mvninstall</td>
+<td align="left">Major</td>
+<td align="left">Test Patch</td>
+<td align="left">Josh Elser</td>
+<td align="left">Josh Elser</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-191">YETUS-191</a></td>
+<td align="left">plugins that require external executables should verify those external executables exist.</td>
+<td align="left">Major</td>
+<td align="left">Test Patch</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Marco Zühlke</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-273">YETUS-273</a></td>
+<td align="left">Misleading warning messages when FINDBUGS_HOME is not set</td>
+<td align="left">Trivial</td>
+<td align="left">Test Patch</td>
+<td align="left">John Zhuge</td>
+<td align="left">Marco Zühlke</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-280">YETUS-280</a></td>
+<td align="left">build systems should be able to predetermine module order</td>
+<td align="left">Major</td>
+<td align="left">Test Patch</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-173">YETUS-173</a></td>
+<td align="left">report fixed issues</td>
+<td align="left">Major</td>
+<td align="left">Test Patch</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-272">YETUS-272</a></td>
+<td align="left">add a way to flag/veto patches to code which jenkins doesn't test</td>
+<td align="left">Minor</td>
+<td align="left">Test Patch</td>
+<td align="left">Steve Loughran</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-287">YETUS-287</a></td>
+<td align="left">Update year to 2016 on website footer</td>
+<td align="left">Blocker</td>
+<td align="left">website and documentation</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-281">YETUS-281</a></td>
+<td align="left">hadoop: use built-in dependency order</td>
+<td align="left">Blocker</td>
+<td align="left">Test Patch</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-190">YETUS-190</a></td>
+<td align="left">markdown table rendering on yetus website is ugly</td>
+<td align="left">Blocker</td>
+<td align="left">website and documentation</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-226">YETUS-226</a></td>
+<td align="left">Document release process</td>
+<td align="left">Blocker</td>
+<td align="left">website and documentation</td>
+<td align="left">Sean Busbey</td>
+<td align="left">Sean Busbey</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-308">YETUS-308</a></td>
+<td align="left">improve guidance on website maintenance</td>
+<td align="left">Minor</td>
+<td align="left">website and documentation</td>
+<td align="left">Sean Busbey</td>
+<td align="left">Sean Busbey</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-209">YETUS-209</a></td>
+<td align="left">releasedocmaker's error message is unintelligible if a non-existent project is specified</td>
+<td align="left">Minor</td>
+<td align="left">Release Doc Maker</td>
+<td align="left">Kengo Seki</td>
+<td align="left">Kengo Seki</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-232">YETUS-232</a></td>
+<td align="left">releasedocmaker with range option fails if project name is specified in lower case</td>
+<td align="left">Major</td>
+<td align="left">Release Doc Maker</td>
+<td align="left">Kengo Seki</td>
+<td align="left">Kengo Seki</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-221">YETUS-221</a></td>
+<td align="left">asflicense check exits multi-module Maven build early if there are pre-existing license problems.</td>
+<td align="left">Major</td>
+<td align="left">Test Patch</td>
+<td align="left">Chris Nauroth</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-249">YETUS-249</a></td>
+<td align="left">asflicense with ant can fail and succeed simultaneously</td>
+<td align="left">Major</td>
+<td align="left">Test Patch</td>
+<td align="left">Kengo Seki</td>
+<td align="left">Kengo Seki</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-258">YETUS-258</a></td>
+<td align="left">build.sh should detect missing third party dependecies and suggest how to install</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Wei-Chiu Chuang</td>
+<td align="left">Wei-Chiu Chuang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-260">YETUS-260</a></td>
+<td align="left">distclean step is not working</td>
+<td align="left">Critical</td>
+<td align="left">Test Patch</td>
+<td align="left">Marco Zühlke</td>
+<td align="left">Marco Zühlke</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-182">YETUS-182</a></td>
+<td align="left">document git hash in patchnames doc</td>
+<td align="left">Major</td>
+<td align="left">Test Patch, website and documentation</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Marco Zühlke</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-251">YETUS-251</a></td>
+<td align="left">default patch-naming-rule points to old yetus url</td>
+<td align="left">Major</td>
+<td align="left">Test Patch</td>
+<td align="left">Sean Busbey</td>
+<td align="left">Marco Zühlke</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-267">YETUS-267</a></td>
+<td align="left">use curl -L when given a patch URL</td>
+<td align="left">Minor</td>
+<td align="left">Test Patch</td>
+<td align="left">Josh Elser</td>
+<td align="left">Josh Elser</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-265">YETUS-265</a></td>
+<td align="left">maven javadocs aren't calcdiff'd correctly</td>
+<td align="left">Blocker</td>
+<td align="left">Test Patch</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-271">YETUS-271</a></td>
+<td align="left">findbugs.sh will -1 if there are no java source code in the module.</td>
+<td align="left">Major</td>
+<td align="left">Test Patch</td>
+<td align="left">Akira Ajisaka</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-275">YETUS-275</a></td>
+<td align="left">removing files(?) causes pylint file open failures</td>
+<td align="left">Major</td>
+<td align="left">Test Patch</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Marco Zühlke</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-104">YETUS-104</a></td>
+<td align="left">Update document about plugin functions</td>
+<td align="left">Major</td>
+<td align="left">website and documentation</td>
+<td align="left">Kengo Seki</td>
+<td align="left">Marco Zühlke</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-235">YETUS-235</a></td>
+<td align="left">releasedocmaker does not give an error if a non-existent version is given</td>
+<td align="left">Major</td>
+<td align="left">Release Doc Maker</td>
+<td align="left">Sean Busbey</td>
+<td align="left">Kengo Seki</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-290">YETUS-290</a></td>
+<td align="left">reference to another function in calcdiffs' description is wrong</td>
+<td align="left">Trivial</td>
+<td align="left">Test Patch</td>
+<td align="left">Kengo Seki</td>
+<td align="left">Marco Zühlke</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-201">YETUS-201</a></td>
+<td align="left">dsec file hanging around</td>
+<td align="left">Trivial</td>
+<td align="left">Test Patch</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Marco Zühlke</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-236">YETUS-236</a></td>
+<td align="left">Binary artifact LICENSE/NOTICE claims to include several third party dependencies that are not present.</td>
+<td align="left">Blocker</td>
+<td align="left">build</td>
+<td align="left">Sean Busbey</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-299">YETUS-299</a></td>
+<td align="left">RAT exclusions must include symlinks for 0.1.0 release</td>
+<td align="left">Blocker</td>
+<td align="left">build</td>
+<td align="left">Sean Busbey</td>
+<td align="left">Sean Busbey</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-284">YETUS-284</a></td>
+<td align="left">maven dependency solver needs enhancements</td>
+<td align="left">Blocker</td>
+<td align="left">Test Patch</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-215">YETUS-215</a></td>
+<td align="left">cli flag for &quot;license&quot; does the opposite of docs</td>
+<td align="left">Critical</td>
+<td align="left">Release Doc Maker</td>
+<td align="left">Sean Busbey</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-298">YETUS-298</a></td>
+<td align="left">precommit jira plugin will try to download deleted attachments</td>
+<td align="left">Critical</td>
+<td align="left">Test Patch</td>
+<td align="left">Sean Busbey</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-252">YETUS-252</a></td>
+<td align="left">'Max memory used' is unexplained,</td>
+<td align="left">Major</td>
+<td align="left">website and documentation</td>
+<td align="left">stack</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-233">YETUS-233</a></td>
+<td align="left">rdm release notes in markdown are corrupting underscores in some instances</td>
+<td align="left">Major</td>
+<td align="left">Release Doc Maker</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-144">YETUS-144</a></td>
+<td align="left">mvn install usually required on mvn builds</td>
+<td align="left">Blocker</td>
+<td align="left">Test Patch</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-319">YETUS-319</a></td>
+<td align="left">broken links on contrib page</td>
+<td align="left">Blocker</td>
+<td align="left">website and documentation</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Sean Busbey</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-297">YETUS-297</a></td>
+<td align="left">when verify_multijdk_test is no, use JAVA_HOME, not JDK_DIR_LIST</td>
+<td align="left">Major</td>
+<td align="left">Test Patch</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+</tbody>
+</table>
+<h3 id="other">OTHER:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-323">YETUS-323</a></td>
+<td align="left">Update copyright statement for the new year</td>
+<td align="left">Blocker</td>
+<td align="left">build</td>
+<td align="left">Sean Busbey</td>
+<td align="left">Sean Busbey</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-318">YETUS-318</a></td>
+<td align="left">Release 0.2.0</td>
+<td align="left">Major</td>
+<td align="left">website and documentation</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+</tbody>
+</table>

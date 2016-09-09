@@ -1,0 +1,668 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hadoop-changelog">Apache Hadoop Changelog</h1>
+<h2 id="release-0.20.204.0---2011-09-02">Release 0.20.204.0 - 2011-09-02</h2>
+<h3 id="incompatible-changes">INCOMPATIBLE CHANGES:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-6255">HADOOP-6255</a></td>
+<td align="left">Create an rpm integration project</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Eric Yang</td>
+</tr>
+</tbody>
+</table>
+<h3 id="new-features">NEW FEATURES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7398">HADOOP-7398</a></td>
+<td align="left">create a mechanism to suppress the HADOOP_HOME deprecated warning</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Owen O'Malley</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7144">HADOOP-7144</a></td>
+<td align="left">Expose JMX with something like JMXProxyServlet</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Luke Lu</td>
+<td align="left">Robert Joseph Evans</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2558">MAPREDUCE-2558</a></td>
+<td align="left">Add queue-level metrics 0.20-security branch</td>
+<td align="left">Major</td>
+<td align="left">jobtracker</td>
+<td align="left">Jeffrey Naisbitt</td>
+<td align="left">Jeffrey Naisbitt</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-1938">MAPREDUCE-1938</a></td>
+<td align="left">Ability for having user's classes take precedence over the system classes for tasks' classpath</td>
+<td align="left">Blocker</td>
+<td align="left">job submission, task, tasktracker</td>
+<td align="left">Devaraj Das</td>
+<td align="left">Krishna Ramachandran</td>
+</tr>
+</tbody>
+</table>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7277">HADOOP-7277</a></td>
+<td align="left">Add Eclipse launch tasks for the 0.20-security branch</td>
+<td align="left">Minor</td>
+<td align="left">build</td>
+<td align="left">Jeffrey Naisbitt</td>
+<td align="left">Jeffrey Naisbitt</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7248">HADOOP-7248</a></td>
+<td align="left">Have a way to automatically update Eclipse .classpath file when new libs are added to the classpath through Ivy for 0.20-* based sources</td>
+<td align="left">Minor</td>
+<td align="left">build</td>
+<td align="left">Konstantin Boudnik</td>
+<td align="left">Thomas Graves</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-1773">HDFS-1773</a></td>
+<td align="left">Remove a datanode from cluster if include list is not empty and this datanode is removed from both include and exclude lists</td>
+<td align="left">Minor</td>
+<td align="left">namenode</td>
+<td align="left">Tanping Wang</td>
+<td align="left">Tanping Wang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2524">MAPREDUCE-2524</a></td>
+<td align="left">Backport trunk heuristics for failing maps when we get fetch failures retrieving map output during shuffle</td>
+<td align="left">Minor</td>
+<td align="left">tasktracker</td>
+<td align="left">Thomas Graves</td>
+<td align="left">Thomas Graves</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2495">MAPREDUCE-2495</a></td>
+<td align="left">The distributed cache cleanup thread has no monitoring to check to see if it has died for some reason</td>
+<td align="left">Minor</td>
+<td align="left">distributed-cache</td>
+<td align="left">Robert Joseph Evans</td>
+<td align="left">Robert Joseph Evans</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2490">MAPREDUCE-2490</a></td>
+<td align="left">Log blacklist debug count</td>
+<td align="left">Trivial</td>
+<td align="left">jobtracker</td>
+<td align="left">Jonathan Eagles</td>
+<td align="left">Jonathan Eagles</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2479">MAPREDUCE-2479</a></td>
+<td align="left">Backport MAPREDUCE-1568 to hadoop security branch</td>
+<td align="left">Major</td>
+<td align="left">tasktracker</td>
+<td align="left">Robert Joseph Evans</td>
+<td align="left">Robert Joseph Evans</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2456">MAPREDUCE-2456</a></td>
+<td align="left">Show the reducer taskid and map/reduce tasktrackers for &quot;Failed fetch notification #_ for task attempt...&quot; log messages</td>
+<td align="left">Trivial</td>
+<td align="left">jobtracker</td>
+<td align="left">Jeffrey Naisbitt</td>
+<td align="left">Jeffrey Naisbitt</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7475">HADOOP-7475</a></td>
+<td align="left">hadoop-setup-single-node.sh is broken</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Eric Yang</td>
+<td align="left">Eric Yang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7373">HADOOP-7373</a></td>
+<td align="left">Tarball deployment doesn't work with {start,stop}-{dfs,mapred}</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Owen O'Malley</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7364">HADOOP-7364</a></td>
+<td align="left">TestMiniMRDFSCaching fails if test.build.dir is set to something other than build/test</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Thomas Graves</td>
+<td align="left">Thomas Graves</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7356">HADOOP-7356</a></td>
+<td align="left">RPM packages broke bin/hadoop script for hadoop 0.20.205</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Eric Yang</td>
+<td align="left">Eric Yang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7330">HADOOP-7330</a></td>
+<td align="left">The metrics source mbean implementation should return the attribute value instead of the object</td>
+<td align="left">Major</td>
+<td align="left">metrics</td>
+<td align="left">Luke Lu</td>
+<td align="left">Luke Lu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7324">HADOOP-7324</a></td>
+<td align="left">Ganglia plugins for metrics v2</td>
+<td align="left">Blocker</td>
+<td align="left">metrics</td>
+<td align="left">Luke Lu</td>
+<td align="left">Priyo Mustafi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7274">HADOOP-7274</a></td>
+<td align="left">CLONE - IOUtils.readFully and IOUtils.skipFully have typo in exception creation's message</td>
+<td align="left">Minor</td>
+<td align="left">util</td>
+<td align="left">Jonathan Eagles</td>
+<td align="left">Jonathan Eagles</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7232">HADOOP-7232</a></td>
+<td align="left">Fix javadoc warnings</td>
+<td align="left">Blocker</td>
+<td align="left">documentation</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Owen O'Malley</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-2057">HDFS-2057</a></td>
+<td align="left">Wait time to terminate the threads causing unit tests to take longer time</td>
+<td align="left">Major</td>
+<td align="left">datanode</td>
+<td align="left">Bharath Mundlapudi</td>
+<td align="left">Bharath Mundlapudi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-2023">HDFS-2023</a></td>
+<td align="left">Backport of NPE for File.list and File.listFiles</td>
+<td align="left">Major</td>
+<td align="left">datanode</td>
+<td align="left">Bharath Mundlapudi</td>
+<td align="left">Bharath Mundlapudi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-1878">HDFS-1878</a></td>
+<td align="left">TestHDFSServerPorts unit test failure - race condition in FSNamesystem.close() causes NullPointerException without serious consequence</td>
+<td align="left">Minor</td>
+<td align="left">namenode</td>
+<td align="left">Matt Foley</td>
+<td align="left">Matt Foley</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-1822">HDFS-1822</a></td>
+<td align="left">Editlog opcodes overlap between 20 security and later releases</td>
+<td align="left">Blocker</td>
+<td align="left">namenode</td>
+<td align="left">Suresh Srinivas</td>
+<td align="left">Suresh Srinivas</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-1758">HDFS-1758</a></td>
+<td align="left">Web UI JSP pages thread safety issue</td>
+<td align="left">Minor</td>
+<td align="left">tools</td>
+<td align="left">Tanping Wang</td>
+<td align="left">Tanping Wang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-1750">HDFS-1750</a></td>
+<td align="left">fs -ls hftp://file not working</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-1692">HDFS-1692</a></td>
+<td align="left">In secure mode, Datanode process doesn't exit when disks fail.</td>
+<td align="left">Major</td>
+<td align="left">datanode</td>
+<td align="left">Bharath Mundlapudi</td>
+<td align="left">Bharath Mundlapudi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-1592">HDFS-1592</a></td>
+<td align="left">Datanode startup doesn't honor volumes.tolerated</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Bharath Mundlapudi</td>
+<td align="left">Bharath Mundlapudi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-1377">HDFS-1377</a></td>
+<td align="left">Quota bug for partial blocks allows quotas to be violated</td>
+<td align="left">Blocker</td>
+<td align="left">namenode</td>
+<td align="left">Eli Collins</td>
+<td align="left">Eli Collins</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-1258">HDFS-1258</a></td>
+<td align="left">Clearing namespace quota on &quot;/&quot; corrupts FS image</td>
+<td align="left">Blocker</td>
+<td align="left">namenode</td>
+<td align="left">Aaron T. Myers</td>
+<td align="left">Aaron T. Myers</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-1189">HDFS-1189</a></td>
+<td align="left">Quota counts missed between clear quota and set quota</td>
+<td align="left">Major</td>
+<td align="left">namenode</td>
+<td align="left">Kang Xiao</td>
+<td align="left">John George</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2846">MAPREDUCE-2846</a></td>
+<td align="left">a small % of all tasks fail with DefaultTaskController</td>
+<td align="left">Blocker</td>
+<td align="left">task, task-controller, tasktracker</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Owen O'Malley</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2804">MAPREDUCE-2804</a></td>
+<td align="left">&quot;Creation of symlink to attempt log dir failed.&quot; message is not useful</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Owen O'Malley</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2651">MAPREDUCE-2651</a></td>
+<td align="left">Race condition in Linux Task Controller for job log directory creation</td>
+<td align="left">Major</td>
+<td align="left">task-controller</td>
+<td align="left">Bharath Mundlapudi</td>
+<td align="left">Bharath Mundlapudi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2621">MAPREDUCE-2621</a></td>
+<td align="left">TestCapacityScheduler fails with &quot;Queue &quot;q1&quot; does not exist&quot;</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Sherry Chen</td>
+<td align="left">Sherry Chen</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2555">MAPREDUCE-2555</a></td>
+<td align="left">JvmInvalidate errors in the gridmix TT logs</td>
+<td align="left">Minor</td>
+<td align="left">tasktracker</td>
+<td align="left">Thomas Graves</td>
+<td align="left">Thomas Graves</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2529">MAPREDUCE-2529</a></td>
+<td align="left">Recognize Jetty bug 1342 and handle it</td>
+<td align="left">Major</td>
+<td align="left">tasktracker</td>
+<td align="left">Thomas Graves</td>
+<td align="left">Thomas Graves</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2514">MAPREDUCE-2514</a></td>
+<td align="left">ReinitTrackerAction class name misspelled RenitTrackerAction in task tracker log</td>
+<td align="left">Trivial</td>
+<td align="left">tasktracker</td>
+<td align="left">Jonathan Eagles</td>
+<td align="left">Jonathan Eagles</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2451">MAPREDUCE-2451</a></td>
+<td align="left">Log the reason string of healthcheck script</td>
+<td align="left">Trivial</td>
+<td align="left">jobtracker</td>
+<td align="left">Thomas Graves</td>
+<td align="left">Thomas Graves</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2447">MAPREDUCE-2447</a></td>
+<td align="left">Set JvmContext sooner for a task - MR2429</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Siddharth Seth</td>
+<td align="left">Siddharth Seth</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2443">MAPREDUCE-2443</a></td>
+<td align="left">Fix FI build - broken after MR-2429</td>
+<td align="left">Minor</td>
+<td align="left">test</td>
+<td align="left">Siddharth Seth</td>
+<td align="left">Siddharth Seth</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2429">MAPREDUCE-2429</a></td>
+<td align="left">Check jvmid during task status report</td>
+<td align="left">Major</td>
+<td align="left">tasktracker</td>
+<td align="left">Arun C Murthy</td>
+<td align="left">Siddharth Seth</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2418">MAPREDUCE-2418</a></td>
+<td align="left">Errors not shown in the JobHistory servlet (specifically Counter Limit Exceeded)</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Siddharth Seth</td>
+<td align="left">Siddharth Seth</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2411">MAPREDUCE-2411</a></td>
+<td align="left">When you submit a job to a queue with no ACLs you get an inscrutible NPE</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Dick King</td>
+<td align="left">Dick King</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2409">MAPREDUCE-2409</a></td>
+<td align="left">Distributed Cache does not differentiate between file /archive for files with the same path</td>
+<td align="left">Major</td>
+<td align="left">distributed-cache</td>
+<td align="left">Siddharth Seth</td>
+<td align="left">Siddharth Seth</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2366">MAPREDUCE-2366</a></td>
+<td align="left">TaskTracker can't retrieve stdout and stderr from web UI</td>
+<td align="left">Major</td>
+<td align="left">tasktracker</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Dick King</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2364">MAPREDUCE-2364</a></td>
+<td align="left">Shouldn't hold lock on rjob while localizing resources.</td>
+<td align="left">Major</td>
+<td align="left">tasktracker</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Devaraj Das</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2362">MAPREDUCE-2362</a></td>
+<td align="left">Unit test failures: TestBadRecords and TestTaskTrackerMemoryManager</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Greg Roelofs</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2360">MAPREDUCE-2360</a></td>
+<td align="left">Pig fails when using non-default FileSystem</td>
+<td align="left">Major</td>
+<td align="left">client</td>
+<td align="left">Owen O'Malley</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2359">MAPREDUCE-2359</a></td>
+<td align="left">Distributed cache doesn't use non-default FileSystems correctly</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Krishna Ramachandran</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2358">MAPREDUCE-2358</a></td>
+<td align="left">MapReduce assumes HDFS as the default filesystem</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Krishna Ramachandran</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2357">MAPREDUCE-2357</a></td>
+<td align="left">When extending inputsplit (non-FileSplit), all exceptions are ignored</td>
+<td align="left">Major</td>
+<td align="left">task</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Luke Lu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2356">MAPREDUCE-2356</a></td>
+<td align="left">A task succeeded even though there were errors on all attempts.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Luke Lu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-517">MAPREDUCE-517</a></td>
+<td align="left">The capacity-scheduler should assign multiple tasks per heartbeat</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Arun C Murthy</td>
+<td align="left">Arun C Murthy</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-118">MAPREDUCE-118</a></td>
+<td align="left">Job.getJobID() will always return null</td>
+<td align="left">Blocker</td>
+<td align="left">client</td>
+<td align="left">Amar Kamat</td>
+<td align="left">Amareshwari Sriramadasu</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tests">TESTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-2218">HDFS-2218</a></td>
+<td align="left">Disable TestHdfsProxy.testHdfsProxyInterface in 0.20-security and branch-1 until HDFS-2217 is fixed</td>
+<td align="left">Blocker</td>
+<td align="left">contrib/hdfsproxy, test</td>
+<td align="left">Matt Foley</td>
+<td align="left">Matt Foley</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-2044">HDFS-2044</a></td>
+<td align="left">TestQueueProcessingStatistics failing automatic test due to timing issues</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Matt Foley</td>
+<td align="left">Matt Foley</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sub-tasks">SUB-TASKS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-1767">HDFS-1767</a></td>
+<td align="left">Namenode should ignore non-initial block reports from datanodes when in safemode during startup</td>
+<td align="left">Major</td>
+<td align="left">datanode</td>
+<td align="left">Matt Foley</td>
+<td align="left">Matt Foley</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-1541">HDFS-1541</a></td>
+<td align="left">Not marking datanodes dead When namenode in safemode</td>
+<td align="left">Major</td>
+<td align="left">namenode</td>
+<td align="left">Hairong Kuang</td>
+<td align="left">Hairong Kuang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-1445">HDFS-1445</a></td>
+<td align="left">Batch the calls in DataStorage to FileUtil.createHardLink(), so we call it once per directory instead of once per file</td>
+<td align="left">Major</td>
+<td align="left">datanode</td>
+<td align="left">Matt Foley</td>
+<td align="left">Matt Foley</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2415">MAPREDUCE-2415</a></td>
+<td align="left">Distribute TaskTracker userlogs onto multiple disks</td>
+<td align="left">Major</td>
+<td align="left">task-controller, tasktracker</td>
+<td align="left">Bharath Mundlapudi</td>
+<td align="left">Bharath Mundlapudi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2413">MAPREDUCE-2413</a></td>
+<td align="left">TaskTracker should handle disk failures at both startup and runtime</td>
+<td align="left">Major</td>
+<td align="left">task-controller, tasktracker</td>
+<td align="left">Bharath Mundlapudi</td>
+<td align="left">Ravi Gummadi</td>
+</tr>
+</tbody>
+</table>
+<h3 id="other">OTHER:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>

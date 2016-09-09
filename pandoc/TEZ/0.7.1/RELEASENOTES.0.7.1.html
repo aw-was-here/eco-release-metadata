@@ -1,0 +1,45 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-tez-0.7.1-release-notes">Apache Tez 0.7.1 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/TEZ-2679">TEZ-2679</a> | <em>Major</em> | <strong>Admin forms of launch env settings</strong></li>
+</ul>
+<p>TEZ-2679 introduced new admin configuration (tez.am.launch.cluster-default.env, tez.task.launch.cluster-default.env) settings. The settings will be merged per environment variable and environment variables specified in both admin setting and user override will merged in the following manner (assuming linux classpath here, but works for other OS's).</p>
+<p>./:USER_PATH:ADMIN_PATH</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/TEZ-2909">TEZ-2909</a> | <em>Major</em> | <strong>Tez UI: Application link in All DAGs table is disable when applicationhistory is unavailable.</strong></li>
+</ul>
+<p>Thanks you [~hitesh] Committed to both master and branch-0.7.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/TEZ-2949">TEZ-2949</a> | <em>Major</em> | <strong>Allow duplicate dag names within session for Tez</strong></li>
+</ul>
+<p>In earlier versions of Tez, DAG submissions to a Tez AM were rejected if the dagName was not unique for that Tez session/application. After this change, the uniqueness constraint for the dagName is no longer enforced.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/TEZ-2972">TEZ-2972</a> | <em>Major</em> | <strong>Avoid task rescheduling when a node turns unhealthy</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/TEZ-2914">TEZ-2914</a> | <em>Major</em> | <strong>Ability to limit vertex concurrency</strong></li>
+</ul>
+<p>Added new vertex level config &quot;tez.am.vertex.max-task-concurrency&quot; that can be set using the per vertex conf API to limit the task concurrency of a given vertex.</p>

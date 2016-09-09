@@ -1,0 +1,263 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hbase-changelog">Apache HBase Changelog</h1>
+<h2 id="release-0.92.3---unreleased-as-of-2016-09-08">Release 0.92.3 - Unreleased (as of 2016-09-08)</h2>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-6951">HBASE-6951</a></td>
+<td align="left">Allow the master info server to be started in a read only mode.</td>
+<td align="left">Critical</td>
+<td align="left">UI</td>
+<td align="left">Elliott Clark</td>
+<td align="left">Elliott Clark</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-7097">HBASE-7097</a></td>
+<td align="left">Log message in SecureServer.class uses wrong class name</td>
+<td align="left">Minor</td>
+<td align="left">security</td>
+<td align="left">Y. SREENIVASULU REDDY</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-6724">HBASE-6724</a></td>
+<td align="left">Port HBASE-6165 'Replication can overrun .META. scans on cluster re-start' to 0.92</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ted Yu</td>
+<td align="left">Ted Yu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-6844">HBASE-6844</a></td>
+<td align="left">upgrade 0.23 version dependency in 0.94</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Francis Liu</td>
+<td align="left">Francis Liu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-4565">HBASE-4565</a></td>
+<td align="left">Maven HBase build broken on cygwin with copynativelib.sh call.</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Suraj Varma</td>
+<td align="left">Suraj Varma</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5179">HBASE-5179</a></td>
+<td align="left">Concurrent processing of processFaileOver and ServerShutdownHandler may cause region to be assigned before log splitting is completed, causing data loss</td>
+<td align="left">Critical</td>
+<td align="left">master</td>
+<td align="left">chunhui shen</td>
+<td align="left">chunhui shen</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-7072">HBASE-7072</a></td>
+<td align="left">HBase-5256 breaks 0.92-0.94 compatibility</td>
+<td align="left">Major</td>
+<td align="left">master, shell</td>
+<td align="left">Himanshu Vashishtha</td>
+<td align="left">Himanshu Vashishtha</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-7061">HBASE-7061</a></td>
+<td align="left">region balance algorithm should do &quot;contiue&quot; instead of &quot;break&quot; when calculating the underloaded server</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Tianying Chang</td>
+<td align="left">Tianying Chang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-7442">HBASE-7442</a></td>
+<td align="left">HBase remote CopyTable not working when security enabled</td>
+<td align="left">Major</td>
+<td align="left">IPC/RPC, mapreduce, security</td>
+<td align="left">James Kinley</td>
+<td align="left">James Kinley</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5478">HBASE-5478</a></td>
+<td align="left">[0.92] TestMetaReaderEditor intermittently hangs</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ted Yu</td>
+<td align="left">Andrew Purtell</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-9209">HBASE-9209</a></td>
+<td align="left">[0.92] TestSplitTransactionOnCluster occasionally fails</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Andrew Purtell</td>
+<td align="left">Andrew Purtell</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-9212">HBASE-9212</a></td>
+<td align="left">[0.92] TestMasterObserver fails occasionally</td>
+<td align="left">Minor</td>
+<td align="left">test</td>
+<td align="left">Andrew Purtell</td>
+<td align="left">Andrew Purtell</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-9216">HBASE-9216</a></td>
+<td align="left">[0.92] TestReplication.queueFailover fails often</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Andrew Purtell</td>
+<td align="left">Andrew Purtell</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-9306">HBASE-9306</a></td>
+<td align="left">[0.92] TestAdmin.testCreateBadTables fails occasionally</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Andrew Purtell</td>
+<td align="left">Andrew Purtell</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-9304">HBASE-9304</a></td>
+<td align="left">[0.92] TestDrainingServer fails occasionally</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Andrew Purtell</td>
+<td align="left">Andrew Purtell</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-9349">HBASE-9349</a></td>
+<td align="left">[0.92] NPE in HMaster during shutdown</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Andrew Purtell</td>
+<td align="left">Andrew Purtell</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-10833">HBASE-10833</a></td>
+<td align="left">Region assignment may fail during cluster start up</td>
+<td align="left">Major</td>
+<td align="left">Region Assignment</td>
+<td align="left">Jeffrey Zhong</td>
+<td align="left">Jeffrey Zhong</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sub-tasks">SUB-TASKS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-6792">HBASE-6792</a></td>
+<td align="left">Remove interface audience annotations in 0.94/0.92 introduced by HBASE-6516</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jonathan Hsieh</td>
+<td align="left">Jonathan Hsieh</td>
+</tr>
+</tbody>
+</table>
+<h3 id="other">OTHER:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-9154">HBASE-9154</a></td>
+<td align="left">[0.92] Backport HBASE-8207 to fix replication test failures</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Andrew Purtell</td>
+<td align="left">Andrew Purtell</td>
+</tr>
+</tbody>
+</table>

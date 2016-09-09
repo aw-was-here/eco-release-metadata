@@ -1,0 +1,879 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-yetus-changelog">Apache Yetus Changelog</h1>
+<h2 id="release-0.1.0---2015-12-14">Release 0.1.0 - 2015-12-14</h2>
+<h3 id="new-features">NEW FEATURES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-5">YETUS-5</a></td>
+<td align="left">Support per-instance maven repos</td>
+<td align="left">Major</td>
+<td align="left">Test Patch</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-33">YETUS-33</a></td>
+<td align="left">committer mode for smart-apply-patch</td>
+<td align="left">Major</td>
+<td align="left">Test Patch</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-86">YETUS-86</a></td>
+<td align="left">add C/C++ compile support</td>
+<td align="left">Major</td>
+<td align="left">Test Patch</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-114">YETUS-114</a></td>
+<td align="left">Add no-op build tool for projects that don't have one.</td>
+<td align="left">Major</td>
+<td align="left">Test Patch</td>
+<td align="left">Sean Busbey</td>
+<td align="left">Sean Busbey</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-121">YETUS-121</a></td>
+<td align="left">support non-java-build-tool asflicense</td>
+<td align="left">Major</td>
+<td align="left">Test Patch</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-143">YETUS-143</a></td>
+<td align="left">add support for JMeter</td>
+<td align="left">Minor</td>
+<td align="left">Test Patch</td>
+<td align="left">Kengo Seki</td>
+<td align="left">Kengo Seki</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-77">YETUS-77</a></td>
+<td align="left">add bugzilla support</td>
+<td align="left">Major</td>
+<td align="left">Test Patch</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+</tbody>
+</table>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-2">YETUS-2</a></td>
+<td align="left">Build website</td>
+<td align="left">Critical</td>
+<td align="left">website and documentation</td>
+<td align="left">Sean Busbey</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-26">YETUS-26</a></td>
+<td align="left">rebrand for yetus</td>
+<td align="left">Major</td>
+<td align="left">Test Patch</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-31">YETUS-31</a></td>
+<td align="left">releasedocmaker should use the Important flag in jira</td>
+<td align="left">Major</td>
+<td align="left">Release Doc Maker</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Kengo Seki</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-98">YETUS-98</a></td>
+<td align="left">enable parallel tests on hadoop</td>
+<td align="left">Major</td>
+<td align="left">Test Patch</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-110">YETUS-110</a></td>
+<td align="left">typo fixes on test-patch basic documentation</td>
+<td align="left">Trivial</td>
+<td align="left">website and documentation</td>
+<td align="left">Tony Kurc</td>
+<td align="left">Tony Kurc</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-128">YETUS-128</a></td>
+<td align="left">Jira plugin should be configurable to accept issue status other than 'Patch Available'</td>
+<td align="left">Major</td>
+<td align="left">Test Patch</td>
+<td align="left">Kengo Seki</td>
+<td align="left">Kengo Seki</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-141">YETUS-141</a></td>
+<td align="left">make module for jdiff doclet optional</td>
+<td align="left">Major</td>
+<td align="left">Audience Annotations</td>
+<td align="left">Sean Busbey</td>
+<td align="left">Sean Busbey</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-161">YETUS-161</a></td>
+<td align="left">fix spelling error in maven plugin</td>
+<td align="left">Trivial</td>
+<td align="left">Test Patch</td>
+<td align="left">Tony Kurc</td>
+<td align="left">Tony Kurc</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-157">YETUS-157</a></td>
+<td align="left">build tools should force compile if their control file is patched</td>
+<td align="left">Blocker</td>
+<td align="left">Test Patch</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-177">YETUS-177</a></td>
+<td align="left">add yetus_abs to yetuslib</td>
+<td align="left">Trivial</td>
+<td align="left">Test Patch</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-81">YETUS-81</a></td>
+<td align="left">Publish generated apidocs on website</td>
+<td align="left">Critical</td>
+<td align="left">Audience Annotations, Test Patch, website and documentation</td>
+<td align="left">Sean Busbey</td>
+<td align="left">Sean Busbey</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-163">YETUS-163</a></td>
+<td align="left">parameterize site for releases</td>
+<td align="left">Blocker</td>
+<td align="left">website and documentation</td>
+<td align="left">Sean Busbey</td>
+<td align="left">Sean Busbey</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-218">YETUS-218</a></td>
+<td align="left">define project pylintrc file</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Sean Busbey</td>
+<td align="left">Sean Busbey</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-28">YETUS-28</a></td>
+<td align="left">if CHANGED_FILES is corrupt, find_changed_modules never returns</td>
+<td align="left">Major</td>
+<td align="left">Test Patch</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Kengo Seki</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-55">YETUS-55</a></td>
+<td align="left">fix recovery of broken rebase code</td>
+<td align="left">Major</td>
+<td align="left">Test Patch</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-9">YETUS-9</a></td>
+<td align="left">Update .gitignore to reflect Yetus instead of Hadoop</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-50">YETUS-50</a></td>
+<td align="left">asflicense is easily tricked</td>
+<td align="left">Major</td>
+<td align="left">Test Patch</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-63">YETUS-63</a></td>
+<td align="left">The menu button on Yetus website is invisible when viewed from mobile devices</td>
+<td align="left">Minor</td>
+<td align="left">website and documentation</td>
+<td align="left">Kengo Seki</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-40">YETUS-40</a></td>
+<td align="left">patch file confuses test-patch (date format problems)</td>
+<td align="left">Blocker</td>
+<td align="left">Test Patch</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-67">YETUS-67</a></td>
+<td align="left">XML plugin raises a false alarm against a removed file</td>
+<td align="left">Major</td>
+<td align="left">Test Patch</td>
+<td align="left">Kengo Seki</td>
+<td align="left">Kengo Seki</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-68">YETUS-68</a></td>
+<td align="left">Shellcheck plugin shows a warning against a removed file</td>
+<td align="left">Major</td>
+<td align="left">Test Patch</td>
+<td align="left">Kengo Seki</td>
+<td align="left">Kengo Seki</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-41">YETUS-41</a></td>
+<td align="left">github_find_jira_title in test-patch github plugin returns 0 even if jira_determine_issue failed</td>
+<td align="left">Major</td>
+<td align="left">Test Patch</td>
+<td align="left">Kengo Seki</td>
+<td align="left">Kengo Seki</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-66">YETUS-66</a></td>
+<td align="left">Update apache license on all files</td>
+<td align="left">Blocker</td>
+<td align="left">website and documentation</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-72">YETUS-72</a></td>
+<td align="left">Unassigned variable ${STARTDIR}?</td>
+<td align="left">Major</td>
+<td align="left">Test Patch</td>
+<td align="left">Kengo Seki</td>
+<td align="left">Kengo Seki</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-82">YETUS-82</a></td>
+<td align="left">personality_plugins with multiple entries doesn't work</td>
+<td align="left">Major</td>
+<td align="left">Test Patch</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-85">YETUS-85</a></td>
+<td align="left">test types aren't getting initialized</td>
+<td align="left">Major</td>
+<td align="left">Test Patch</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-97">YETUS-97</a></td>
+<td align="left">branch detection cut bug</td>
+<td align="left">Major</td>
+<td align="left">Test Patch</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-95">YETUS-95</a></td>
+<td align="left">docker not working on jenkins w/hadoop</td>
+<td align="left">Major</td>
+<td align="left">Test Patch</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-96">YETUS-96</a></td>
+<td align="left">multijdkdirs shouldn't show errors on bad input</td>
+<td align="left">Major</td>
+<td align="left">Test Patch</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-88">YETUS-88</a></td>
+<td align="left">Dockerfile is missing bats</td>
+<td align="left">Major</td>
+<td align="left">Test Patch</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-74">YETUS-74</a></td>
+<td align="left">document test formats</td>
+<td align="left">Major</td>
+<td align="left">Test Patch, website and documentation</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Kengo Seki</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-71">YETUS-71</a></td>
+<td align="left">releasedocmaker shouldn't use all desc when no release notes field</td>
+<td align="left">Major</td>
+<td align="left">Release Doc Maker</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Kengo Seki</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-117">YETUS-117</a></td>
+<td align="left">Nonexistent function invocation in the nobuild plugin</td>
+<td align="left">Minor</td>
+<td align="left">Test Patch</td>
+<td align="left">Kengo Seki</td>
+<td align="left">Kengo Seki</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-113">YETUS-113</a></td>
+<td align="left">On non-docker reexec, test patch mistakenly uses 'plugins' arg instead of 'user-plugins'</td>
+<td align="left">Critical</td>
+<td align="left">Test Patch</td>
+<td align="left">Sean Busbey</td>
+<td align="left">Sean Busbey</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-102">YETUS-102</a></td>
+<td align="left">Some underscores in the documents are not correctly escaped</td>
+<td align="left">Trivial</td>
+<td align="left">website and documentation</td>
+<td align="left">Kengo Seki</td>
+<td align="left">Kengo Seki</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-92">YETUS-92</a></td>
+<td align="left">checkstyle bogus screen output</td>
+<td align="left">Major</td>
+<td align="left">Test Patch</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Kengo Seki</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-120">YETUS-120</a></td>
+<td align="left">Add missing @params to patchfiles.sh</td>
+<td align="left">Trivial</td>
+<td align="left">Test Patch, website and documentation</td>
+<td align="left">jun aoki</td>
+<td align="left">jun aoki</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-129">YETUS-129</a></td>
+<td align="left">Add Geode personality</td>
+<td align="left">Minor</td>
+<td align="left">Test Patch</td>
+<td align="left">jun aoki</td>
+<td align="left">jun aoki</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-127">YETUS-127</a></td>
+<td align="left">small additional note for test-patch.sh --plugins parameter.</td>
+<td align="left">Trivial</td>
+<td align="left">Test Patch</td>
+<td align="left">jun aoki</td>
+<td align="left">jun aoki</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-137">YETUS-137</a></td>
+<td align="left">hadoop triggers java tests for pure-bash patch</td>
+<td align="left">Major</td>
+<td align="left">Test Patch</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-93">YETUS-93</a></td>
+<td align="left">tap needs to verify directories</td>
+<td align="left">Major</td>
+<td align="left">Test Patch</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-94">YETUS-94</a></td>
+<td align="left">docker cleanup invalid date</td>
+<td align="left">Major</td>
+<td align="left">Test Patch</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-132">YETUS-132</a></td>
+<td align="left">javadoc test does not run if javac test is disabled</td>
+<td align="left">Major</td>
+<td align="left">Test Patch</td>
+<td align="left">Kengo Seki</td>
+<td align="left">Kengo Seki</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-147">YETUS-147</a></td>
+<td align="left">Failed test table mixes result from different JDKs</td>
+<td align="left">Major</td>
+<td align="left">Test Patch</td>
+<td align="left">Marco Zühlke</td>
+<td align="left">Marco Zühlke</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-138">YETUS-138</a></td>
+<td align="left">Skipping maven poms that don't package causes testing holes</td>
+<td align="left">Blocker</td>
+<td align="left">Test Patch</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-134">YETUS-134</a></td>
+<td align="left">asflicense test should not be always added</td>
+<td align="left">Major</td>
+<td align="left">Test Patch</td>
+<td align="left">Kengo Seki</td>
+<td align="left">Kengo Seki</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-153">YETUS-153</a></td>
+<td align="left">asflicense plugin does not work if asflicense-rat-excludes option is specified</td>
+<td align="left">Major</td>
+<td align="left">Test Patch</td>
+<td align="left">Kengo Seki</td>
+<td align="left">Kengo Seki</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-133">YETUS-133</a></td>
+<td align="left">Geode personality does not contain ASF license</td>
+<td align="left">Major</td>
+<td align="left">Test Patch</td>
+<td align="left">Kengo Seki</td>
+<td align="left">Kengo Seki</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-103">YETUS-103</a></td>
+<td align="left">Wrong hook name in the bug system support document</td>
+<td align="left">Minor</td>
+<td align="left">website and documentation</td>
+<td align="left">Kengo Seki</td>
+<td align="left">Kengo Seki</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-142">YETUS-142</a></td>
+<td align="left">compile gets limited to 'warning' in generic log handler</td>
+<td align="left">Blocker</td>
+<td align="left">Test Patch</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-155">YETUS-155</a></td>
+<td align="left">add usage for asflicense plugin</td>
+<td align="left">Minor</td>
+<td align="left">Test Patch</td>
+<td align="left">Kengo Seki</td>
+<td align="left">Marco Zühlke</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-87">YETUS-87</a></td>
+<td align="left">whitespace console message is misleading</td>
+<td align="left">Trivial</td>
+<td align="left">Test Patch</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Marco Zühlke</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-23">YETUS-23</a></td>
+<td align="left">findbugs pre-apply check failures gives error as if convertXmlToText invocation fails</td>
+<td align="left">Blocker</td>
+<td align="left">Test Patch</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-179">YETUS-179</a></td>
+<td align="left">Clean up asflicense errors</td>
+<td align="left">Blocker</td>
+<td align="left">build</td>
+<td align="left">Sean Busbey</td>
+<td align="left">Kengo Seki</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-174">YETUS-174</a></td>
+<td align="left">releasedocmaker bug with ranges</td>
+<td align="left">Major</td>
+<td align="left">Release Doc Maker</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Kengo Seki</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-123">YETUS-123</a></td>
+<td align="left">Various Docker mode fixes: plug-in issues, local patch file problems, availability, &amp; Dockerfile re-usability</td>
+<td align="left">Critical</td>
+<td align="left">Test Patch</td>
+<td align="left">Sean Busbey</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-176">YETUS-176</a></td>
+<td align="left">hadoop: mvn site tests aren't getting run</td>
+<td align="left">Blocker</td>
+<td align="left">Test Patch</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-154">YETUS-154</a></td>
+<td align="left">Specifying help option before plugins option hides plugin-specific help messages</td>
+<td align="left">Trivial</td>
+<td align="left">Test Patch</td>
+<td align="left">Kengo Seki</td>
+<td align="left">Marco Zühlke</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-186">YETUS-186</a></td>
+<td align="left">non-existent dockerfile should fail or fallback</td>
+<td align="left">Blocker</td>
+<td align="left">Test Patch</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-171">YETUS-171</a></td>
+<td align="left">patches that don't apply are not getting reported back to JIRA</td>
+<td align="left">Blocker</td>
+<td align="left">Test Patch</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-196">YETUS-196</a></td>
+<td align="left">default dockerfile isn't being used</td>
+<td align="left">Blocker</td>
+<td align="left">Test Patch</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-89">YETUS-89</a></td>
+<td align="left">Variable name &quot;HOW_TO_CONTRIBUTE&quot; is misleading</td>
+<td align="left">Trivial</td>
+<td align="left">Test Patch</td>
+<td align="left">Kengo Seki</td>
+<td align="left">Kengo Seki</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-193">YETUS-193</a></td>
+<td align="left">Wrong format for return values in shelldoc generated docs</td>
+<td align="left">Minor</td>
+<td align="left">website and documentation</td>
+<td align="left">Kengo Seki</td>
+<td align="left">Kengo Seki</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-170">YETUS-170</a></td>
+<td align="left">hadoop mvninstall should run changed modules in dependency order</td>
+<td align="left">Major</td>
+<td align="left">Test Patch</td>
+<td align="left">Vinayakumar B</td>
+<td align="left">Vinayakumar B</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-202">YETUS-202</a></td>
+<td align="left">171 incomplete</td>
+<td align="left">Critical</td>
+<td align="left">Test Patch</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-210">YETUS-210</a></td>
+<td align="left">Link to pylint stderr file is invalid on Jenkins</td>
+<td align="left">Major</td>
+<td align="left">Test Patch</td>
+<td align="left">Kengo Seki</td>
+<td align="left">Kengo Seki</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-189">YETUS-189</a></td>
+<td align="left">shelldocs ignoring --skipprnorep</td>
+<td align="left">Critical</td>
+<td align="left">ShellDocs</td>
+<td align="left">Sean Busbey</td>
+<td align="left">Kengo Seki</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-211">YETUS-211</a></td>
+<td align="left">shelldocs, release-doc-maker, and precommit all missing version info</td>
+<td align="left">Blocker</td>
+<td align="left">Release Doc Maker, ShellDocs, Test Patch</td>
+<td align="left">Sean Busbey</td>
+<td align="left">Sean Busbey</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-219">YETUS-219</a></td>
+<td align="left">pylint plugin displays grep error message if patch contains modification to python and other files</td>
+<td align="left">Minor</td>
+<td align="left">Test Patch</td>
+<td align="left">Kengo Seki</td>
+<td align="left">Marco Zühlke</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-217">YETUS-217</a></td>
+<td align="left">docker fallback mode isn't reliable</td>
+<td align="left">Blocker</td>
+<td align="left">Test Patch</td>
+<td align="left">Tsuyoshi Ozawa</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-220">YETUS-220</a></td>
+<td align="left">can't cat the version file in re-exec or dockermode</td>
+<td align="left">Blocker</td>
+<td align="left">Test Patch</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-223">YETUS-223</a></td>
+<td align="left">hadoop: not compiling libwebhdfs in docker mode under jenkins</td>
+<td align="left">Major</td>
+<td align="left">Test Patch</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-212">YETUS-212</a></td>
+<td align="left">&quot;bundle exec middleman&quot; fails due to the lack of js runtime</td>
+<td align="left">Major</td>
+<td align="left">website and documentation</td>
+<td align="left">Kengo Seki</td>
+<td align="left">Kengo Seki</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-231">YETUS-231</a></td>
+<td align="left">Fix dead links in README</td>
+<td align="left">Trivial</td>
+<td align="left">website and documentation</td>
+<td align="left">Akihiro Suda</td>
+<td align="left">Akihiro Suda</td>
+</tr>
+</tbody>
+</table>
+<h3 id="other">OTHER:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-7">YETUS-7</a></td>
+<td align="left">update top level LICENSE and NOTICE</td>
+<td align="left">Blocker</td>
+<td align="left">website and documentation</td>
+<td align="left">Sean Busbey</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-1">YETUS-1</a></td>
+<td align="left">Migration of repo history from Hadoop</td>
+<td align="left">Blocker</td>
+<td align="left">build</td>
+<td align="left">Sean Busbey</td>
+<td align="left">Sean Busbey</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-54">YETUS-54</a></td>
+<td align="left">Add Yetus parent POM and top-level POM</td>
+<td align="left">Major</td>
+<td align="left">Audience Annotations, build</td>
+<td align="left">Andrew Bayer</td>
+<td align="left">Sean Busbey</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-3">YETUS-3</a></td>
+<td align="left">update audience annotations for move to yetus tlp</td>
+<td align="left">Blocker</td>
+<td align="left">Audience Annotations</td>
+<td align="left">Sean Busbey</td>
+<td align="left">Sean Busbey</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-59">YETUS-59</a></td>
+<td align="left">Verify any Cat X runtime dependencies are optional</td>
+<td align="left">Blocker</td>
+<td align="left">Test Patch</td>
+<td align="left">Sean Busbey</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-126">YETUS-126</a></td>
+<td align="left">break jdiff doclet into independent artifact</td>
+<td align="left">Major</td>
+<td align="left">Audience Annotations</td>
+<td align="left">Sean Busbey</td>
+<td align="left">Sean Busbey</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-6">YETUS-6</a></td>
+<td align="left">reorganize repo layout for break from Hadoop code base</td>
+<td align="left">Blocker</td>
+<td align="left">build</td>
+<td align="left">Sean Busbey</td>
+<td align="left">Sean Busbey</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-64">YETUS-64</a></td>
+<td align="left">file our DOAP</td>
+<td align="left">Blocker</td>
+<td align="left">website and documentation</td>
+<td align="left">Sean Busbey</td>
+<td align="left">Allen Wittenauer</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-124">YETUS-124</a></td>
+<td align="left">add exemplar drill personality</td>
+<td align="left">Major</td>
+<td align="left">Test Patch</td>
+<td align="left">Sean Busbey</td>
+<td align="left">Kengo Seki</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-116">YETUS-116</a></td>
+<td align="left">add checkstyle option for maven goal</td>
+<td align="left">Minor</td>
+<td align="left">Test Patch</td>
+<td align="left">Tony Kurc</td>
+<td align="left">Tony Kurc</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-162">YETUS-162</a></td>
+<td align="left">rename 'latest' documentation to 'in-progress' to denote non-release status.</td>
+<td align="left">Major</td>
+<td align="left">website and documentation</td>
+<td align="left">Sean Busbey</td>
+<td align="left">Sean Busbey</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-118">YETUS-118</a></td>
+<td align="left">set up yetus precommit job</td>
+<td align="left">Critical</td>
+<td align="left">build</td>
+<td align="left">Sean Busbey</td>
+<td align="left">Sean Busbey</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-192">YETUS-192</a></td>
+<td align="left">don't store intermediate markdown files for precommit's shelldocs.</td>
+<td align="left">Major</td>
+<td align="left">build, website and documentation</td>
+<td align="left">Sean Busbey</td>
+<td align="left">Sean Busbey</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-216">YETUS-216</a></td>
+<td align="left">create script to make release artifacts</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Sean Busbey</td>
+<td align="left">Sean Busbey</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YETUS-228">YETUS-228</a></td>
+<td align="left">Release 0.1.0</td>
+<td align="left">Major</td>
+<td align="left">website and documentation</td>
+<td align="left">Sean Busbey</td>
+<td align="left">Sean Busbey</td>
+</tr>
+</tbody>
+</table>

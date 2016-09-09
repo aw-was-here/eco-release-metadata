@@ -1,0 +1,114 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-flink-changelog">Apache Flink Changelog</h1>
+<h2 id="release-1.0.2---2016-04-22">Release 1.0.2 - 2016-04-22</h2>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3688">FLINK-3688</a></td>
+<td align="left">ClassCastException in StreamRecordSerializer when WindowOperator.trigger() is called and TimeCharacteristic = ProcessingTime</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Konstantin Knauf</td>
+<td align="left">Konstantin Knauf</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3712">FLINK-3712</a></td>
+<td align="left">YARN client dynamic properties are not passed correctly to the leader election service on the client</td>
+<td align="left">Major</td>
+<td align="left">YARN Client</td>
+<td align="left">Robert Metzger</td>
+<td align="left">Robert Metzger</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3730">FLINK-3730</a></td>
+<td align="left">Fix RocksDB Local Directory Initialization</td>
+<td align="left">Major</td>
+<td align="left">State Backends, Checkpointing, Streaming</td>
+<td align="left">Aljoscha Krettek</td>
+<td align="left">Aljoscha Krettek</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3716">FLINK-3716</a></td>
+<td align="left">Kafka08ITCase.testFailOnNoBroker() timing out before it has a chance to pass</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Todd Lisonbee</td>
+<td align="left">Todd Lisonbee</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3760">FLINK-3760</a></td>
+<td align="left">Fix StateDescriptor.readObject</td>
+<td align="left">Critical</td>
+<td align="left">Streaming</td>
+<td align="left">Aljoscha Krettek</td>
+<td align="left">Aljoscha Krettek</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3762">FLINK-3762</a></td>
+<td align="left">Kryo StackOverflowError due to disabled Kryo Reference tracking</td>
+<td align="left">Major</td>
+<td align="left">Core</td>
+<td align="left">Andrew Palumbo</td>
+<td align="left">Andrew Palumbo</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-2544">FLINK-2544</a></td>
+<td align="left">Some test cases using PowerMock fail with Java 8u20</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Till Rohrmann</td>
+<td align="left">Soila Kavulya</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3732">FLINK-3732</a></td>
+<td align="left">Potential null deference in ExecutionConfig#equals()</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Ted Yu</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4012">FLINK-4012</a></td>
+<td align="left">Docs: Links to &quot;Iterations&quot; are broken (404)</td>
+<td align="left">Trivial</td>
+<td align="left">Documentation</td>
+<td align="left">Bernd Louis</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>

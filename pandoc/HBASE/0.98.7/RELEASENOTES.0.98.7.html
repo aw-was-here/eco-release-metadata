@@ -1,0 +1,74 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hbase-0.98.7-release-notes">Apache HBase 0.98.7 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-11331">HBASE-11331</a> | <em>Major</em> | <strong>[blockcache] lazy block decompression</strong></li>
+</ul>
+<p>When hbase.block.data.cachecompressed=true, DATA (and ENCODED_DATA) blocks are cached in the BlockCache in their on-disk format. This is different from the default behavior, which decompresses and decrypts a block before caching.</p>
+<p>For a region server hosting more data than fits into cache, enabling this feature with SNAPPY compression results in 50% increase in throughput and 30% improvement in mean latency while increasing GC by 80% and increasing overall CPU load by 2%.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-11845">HBASE-11845</a> | <em>Minor</em> | <strong>HFile tool should implement Tool, disable blockcache by default</strong></li>
+</ul>
+<p>HFileTool now accepts configuration overrides in the usual way. Blockcache is disabled by default.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-11847">HBASE-11847</a> | <em>Minor</em> | <strong>HFile tool should be able to print block headers</strong></li>
+</ul>
+<p>The HFileTool (<code>hbase hfile</code>) can print block headers. The flag is -h,--printblockheaders.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-12054">HBASE-12054</a> | <em>Major</em> | <strong>bad state after NamespaceUpgrade with reserved table names</strong></li>
+</ul>
+<p>Prior to HBase 0.98.7, if you have 0.94 tables named (data, archive, corrupt, lib, WALs, splitWAl, oldWALs) upgrading would &quot;silently&quot; fail, corrupting the state of those tables.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-12087">HBASE-12087</a> | <em>Minor</em> | <strong>[0.98] Changing the default setting of hbase.security.access.early_out to true</strong></li>
+</ul>
+<p>Prior to 0.98.0 if a user was not granted access to a column family or partial access (qualifier grants), then the AccessController would immediately throw back an AccessDeniedException. This behavior was changed in 0.98.0. Instead, scanners will return result sets only including cells for which the user has access. If the user has no permissions on any cell then the scanner will return the empty result set. Code expecting an AccessDeniedException if the user has no access may not function as intended.</p>
+<p>This change introduces a configuration setting which restores the pre-0.98.0 behavior.</p>
+<p>If you would prefer the new behavior, this can be configured globally via site configuration or per table using HTableDescriptor#setConfiguration. The setting is AccessControlConstants.CF_ATTRIBUTE_EARLY_OUT (&quot;hbase.security.access.early_out&quot;), a boolean. Set to &quot;false&quot; and scanners will return result sets only including cells for which the user has access without throwing an AccessDeniedException.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-12052">HBASE-12052</a> | <em>Major</em> | <strong>BulkLoad Failed due to no write permission on input files</strong></li>
+</ul>
+<p>SecureBulkLoadEndPoint can be used in un-secure env to bulk load data without hitting &quot;Permission denied&quot; for hbase user.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-12099">HBASE-12099</a> | <em>Major</em> | <strong>TestScannerModel fails if using jackson 1.9.13</strong></li>
+</ul>
+<p>The XML element used for the visibility labels in the REST API has been renamed from &quot;label&quot; lo &quot;labels&quot; in order to support old and the new versions of jackson.</p>
+<p>Developers that use visibility labels via REST XML need to modify their applications in order to use the new XML element name.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-10153">HBASE-10153</a> | <em>Major</em> | <strong>improve VerifyReplication to compute BADROWS more accurately</strong></li>
+</ul>
+<p>VerifyReplicaiton reports the following counters besides the existing ones:</p>
+<p>ONLY_IN_SOURCE_TABLE_ROWS: number of rows found only in source ONLY_IN_PEER_TABLE_ROWS: number of rows found only in peer CONTENT_DIFFERENT_ROWS: number of rows whose contents are different between source and peer</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-11907">HBASE-11907</a> | <em>Minor</em> | <strong>Use the joni byte[] regex engine in place of j.u.regex in RegexStringComparator</strong></li>
+</ul>
+<p>The RegexStringComparator comparator now include an optional EngineType constructor parameter. Use EngineType.JONI to select the joni regex engine, which can be twice as fast as the Java regex engine and will be more efficient, producing less object churn while scanning, because it operates natively on byte arrays. RegexStringComparator still uses the Java regex engine by default.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-8808">HBASE-8808</a> | <em>Trivial</em> | <strong>Use Jacoco to generate Unit Test coverage reports</strong></li>
+</ul>
+<p>Adds jacoco plugin. Call it by defining argLine with necessary arguments. By default outputs to target dir.</p>

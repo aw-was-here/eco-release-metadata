@@ -1,0 +1,955 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-kafka-changelog">Apache Kafka Changelog</h1>
+<h2 id="release-0.9.1.0---unreleased-as-of-2016-01-18">Release 0.9.1.0 - Unreleased (as of 2016-01-18)</h2>
+<h3 id="incompatible-changes">INCOMPATIBLE CHANGES:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="important-issues">IMPORTANT ISSUES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-3044">KAFKA-3044</a></td>
+<td align="left">Consumer.poll doesnot return messages when poll interval is less</td>
+<td align="left">Major</td>
+<td align="left">clients</td>
+<td align="left">Praveen Devarao</td>
+<td align="left">Jason Gustafson</td>
+</tr>
+</tbody>
+</table>
+<h3 id="new-features">NEW FEATURES:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-3105">KAFKA-3105</a></td>
+<td align="left">Use <code>Utils.atomicMoveWithFallback</code> instead of <code>File.rename</code></td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ismael Juma</td>
+<td align="left">Ismael Juma</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-3084">KAFKA-3084</a></td>
+<td align="left">Topic existence checks in topic commands (create, alter, delete)</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Grant Henke</td>
+<td align="left">Grant Henke</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-3077">KAFKA-3077</a></td>
+<td align="left">Enable KafkaLog4jAppender to work with SASL enabled brokers.</td>
+<td align="left">Major</td>
+<td align="left">clients</td>
+<td align="left">Ashish K Singh</td>
+<td align="left">Ashish K Singh</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-3058">KAFKA-3058</a></td>
+<td align="left">remove the usage of deprecated config properties</td>
+<td align="left">Major</td>
+<td align="left">core</td>
+<td align="left">Jun Rao</td>
+<td align="left">Konrad Kalita</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-3043">KAFKA-3043</a></td>
+<td align="left">Replace request.required.acks with acks in docs</td>
+<td align="left">Major</td>
+<td align="left">website</td>
+<td align="left">Sasaki Toru</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-3024">KAFKA-3024</a></td>
+<td align="left">Remove old patch review tools</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Grant Henke</td>
+<td align="left">Grant Henke</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-3019">KAFKA-3019</a></td>
+<td align="left">Add an exceptionName method to Errors</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Grant Henke</td>
+<td align="left">Grant Henke</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-3002">KAFKA-3002</a></td>
+<td align="left">Make available to specify hostname with Uppercase at broker list</td>
+<td align="left">Minor</td>
+<td align="left">clients</td>
+<td align="left">Sasaki Toru</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2992">KAFKA-2992</a></td>
+<td align="left">Trace log statements in the replica fetcher inner loop create large amounts of garbage</td>
+<td align="left">Minor</td>
+<td align="left">core</td>
+<td align="left">Cory Kolbeck</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2964">KAFKA-2964</a></td>
+<td align="left">Split Security Rolling Upgrade Test By Client and Broker Protocols</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Ben Stopford</td>
+<td align="left">Ben Stopford</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2958">KAFKA-2958</a></td>
+<td align="left">Remove duplicate API key mapping functionality</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Grant Henke</td>
+<td align="left">Grant Henke</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2957">KAFKA-2957</a></td>
+<td align="left">Fix typos in Kafka documentation</td>
+<td align="left">Trivial</td>
+<td align="left">.</td>
+<td align="left">Vahid Hashemian</td>
+<td align="left">Vahid Hashemian</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2929">KAFKA-2929</a></td>
+<td align="left">Migrate server side error mapping functionality</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Grant Henke</td>
+<td align="left">Grant Henke</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2881">KAFKA-2881</a></td>
+<td align="left">Documentation improvement</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Gwen Shapira</td>
+<td align="left">Guozhang Wang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2879">KAFKA-2879</a></td>
+<td align="left">Make MiniKDC test service slightly more generic</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Gwen Shapira</td>
+<td align="left">Gwen Shapira</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2668">KAFKA-2668</a></td>
+<td align="left">Add a metric that records the total number of metrics</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Joel Koshy</td>
+<td align="left">Dong Lin</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-3098">KAFKA-3098</a></td>
+<td align="left">&quot;partition.assignment.strategy&quot; appears twice in documentation</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Gwen Shapira</td>
+<td align="left">David Jacot</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-3095">KAFKA-3095</a></td>
+<td align="left">No documentation on format of sasl.kerberos.principal.to.local.rules</td>
+<td align="left">Major</td>
+<td align="left">core</td>
+<td align="left">Thomas Graves</td>
+<td align="left">Thomas Graves</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-3085">KAFKA-3085</a></td>
+<td align="left">BrokerChangeListener computes inconsistent live/dead broker list</td>
+<td align="left">Major</td>
+<td align="left">core</td>
+<td align="left">Jun Rao</td>
+<td align="left">David Jacot</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-3069">KAFKA-3069</a></td>
+<td align="left">Fix recursion in ZkSecurityMigrator</td>
+<td align="left">Major</td>
+<td align="left">security</td>
+<td align="left">Flavio Junqueira</td>
+<td align="left">Flavio Junqueira</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-3055">KAFKA-3055</a></td>
+<td align="left">JsonConverter mangles schema during serialization (fromConnectData)</td>
+<td align="left">Major</td>
+<td align="left">copycat</td>
+<td align="left">Kishore Senji</td>
+<td align="left">Ewen Cheslack-Postava</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-3009">KAFKA-3009</a></td>
+<td align="left">Disallow star imports</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Gwen Shapira</td>
+<td align="left">Manasvi Gupta</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2999">KAFKA-2999</a></td>
+<td align="left">Errors enum should be a 1 to 1 mapping of error codes and exceptions</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Grant Henke</td>
+<td align="left">Grant Henke</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2990">KAFKA-2990</a></td>
+<td align="left">NoSuchMethodError when Kafka is compiled with 1.8 and run on 1.7</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jason Gustafson</td>
+<td align="left">Jason Gustafson</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2973">KAFKA-2973</a></td>
+<td align="left">Fix leak of child sensors on remove</td>
+<td align="left">Major</td>
+<td align="left">clients</td>
+<td align="left">Ismael Juma</td>
+<td align="left">Ismael Juma</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2965">KAFKA-2965</a></td>
+<td align="left">Two variables should be exchanged.</td>
+<td align="left">Minor</td>
+<td align="left">controller</td>
+<td align="left">Bo Wang</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2928">KAFKA-2928</a></td>
+<td align="left">system tests: failures in version-related sanity checks</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Geoff Anderson</td>
+<td align="left">Geoff Anderson</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2927">KAFKA-2927</a></td>
+<td align="left">System tests: reduce storage footprint of collected logs</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Geoff Anderson</td>
+<td align="left">Geoff Anderson</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2926">KAFKA-2926</a></td>
+<td align="left">[MirrorMaker] InternalRebalancer calls wrong method of external rebalancer</td>
+<td align="left">Major</td>
+<td align="left">tools</td>
+<td align="left">Gwen Shapira</td>
+<td align="left">Gwen Shapira</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2915">KAFKA-2915</a></td>
+<td align="left">System Tests that use bootstrap.servers embedded in jinja files are not working</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ben Stopford</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2911">KAFKA-2911</a></td>
+<td align="left">Replace Utils.sleep() with Time.sleep() whenever possible</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Guozhang Wang</td>
+<td align="left">Jason Gustafson</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2906">KAFKA-2906</a></td>
+<td align="left">Kafka Connect javadocs not built properly</td>
+<td align="left">Major</td>
+<td align="left">copycat</td>
+<td align="left">Ewen Cheslack-Postava</td>
+<td align="left">Ewen Cheslack-Postava</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2902">KAFKA-2902</a></td>
+<td align="left">StreamingConfig getConsumerConfiigs uses getRestoreConsumerConfigs instead of getBaseConsumerConfigs</td>
+<td align="left">Major</td>
+<td align="left">kafka streams</td>
+<td align="left">Bill Bejeck</td>
+<td align="left">Bill Bejeck</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2892">KAFKA-2892</a></td>
+<td align="left">Consumer Docs Use Wrong Method</td>
+<td align="left">Major</td>
+<td align="left">clients</td>
+<td align="left">Jesse Anderson</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2886">KAFKA-2886</a></td>
+<td align="left">WorkerSinkTask doesn't catch exceptions from rebalance callbacks</td>
+<td align="left">Major</td>
+<td align="left">copycat</td>
+<td align="left">Ewen Cheslack-Postava</td>
+<td align="left">Jason Gustafson</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2878">KAFKA-2878</a></td>
+<td align="left">Kafka broker throws OutOfMemory exception with invalid join group request</td>
+<td align="left">Critical</td>
+<td align="left">clients</td>
+<td align="left">Rajini Sivaram</td>
+<td align="left">Rajini Sivaram</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2874">KAFKA-2874</a></td>
+<td align="left">zookeeper-server-stop.sh may fail to shutdown ZK and/or may stop unrelated processes</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Michael Noll</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2872">KAFKA-2872</a></td>
+<td align="left">Error starting KafkaStream caused by sink not being connected to parent source/processor nodes</td>
+<td align="left">Major</td>
+<td align="left">kafka streams</td>
+<td align="left">Bill Bejeck</td>
+<td align="left">Bill Bejeck</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2862">KAFKA-2862</a></td>
+<td align="left">Incorrect help description for MirrorMaker's message.handler.args</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ashish K Singh</td>
+<td align="left">Ashish K Singh</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2859">KAFKA-2859</a></td>
+<td align="left">Deadlock in WorkerSourceTask</td>
+<td align="left">Blocker</td>
+<td align="left">copycat</td>
+<td align="left">Ewen Cheslack-Postava</td>
+<td align="left">Ewen Cheslack-Postava</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2850">KAFKA-2850</a></td>
+<td align="left">SslTransportLayerTest.testInvalidEndpointIdentification fails consistently</td>
+<td align="left">Major</td>
+<td align="left">clients, security</td>
+<td align="left">Flavio Junqueira</td>
+<td align="left">Rajini Sivaram</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2826">KAFKA-2826</a></td>
+<td align="left">Make Kafka Connect ducktape services easier to extend</td>
+<td align="left">Minor</td>
+<td align="left">copycat</td>
+<td align="left">Ewen Cheslack-Postava</td>
+<td align="left">Ewen Cheslack-Postava</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2824">KAFKA-2824</a></td>
+<td align="left">MiniKDC based tests don't run in VirtualBox</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ben Stopford</td>
+<td align="left">Ben Stopford</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2820">KAFKA-2820</a></td>
+<td align="left">System tests: log level is no longer propagating from service classes</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Geoff Anderson</td>
+<td align="left">Geoff Anderson</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2815">KAFKA-2815</a></td>
+<td align="left">unit test failure in org.apache.kafka.streams.processor.internals.KafkaStreamingPartitionAssignorTest</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jun Rao</td>
+<td align="left">Grant Henke</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2814">KAFKA-2814</a></td>
+<td align="left">Kafka Connect system tests using REST interface fail on AWS</td>
+<td align="left">Major</td>
+<td align="left">copycat, system tests</td>
+<td align="left">Ewen Cheslack-Postava</td>
+<td align="left">Ewen Cheslack-Postava</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2803">KAFKA-2803</a></td>
+<td align="left">Add hard bounce system test for distributed Kafka Connect</td>
+<td align="left">Major</td>
+<td align="left">copycat</td>
+<td align="left">Ewen Cheslack-Postava</td>
+<td align="left">Ewen Cheslack-Postava</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2578">KAFKA-2578</a></td>
+<td align="left">Client Metadata internal state should be synchronized</td>
+<td align="left">Trivial</td>
+<td align="left">.</td>
+<td align="left">Jason Gustafson</td>
+<td align="left">Edward Ribeiro</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2421">KAFKA-2421</a></td>
+<td align="left">Upgrade LZ4 to version 1.3 to avoid crashing with IBM Java 7</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Rajini Sivaram</td>
+<td align="left">Grant Henke</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2399">KAFKA-2399</a></td>
+<td align="left">Replace Stream.continually with Iterator.continually</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Ismael Juma</td>
+<td align="left">Ismael Juma</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tests">TESTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2989">KAFKA-2989</a></td>
+<td align="left">Verify all partitions consumed after rebalancing in system tests</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jason Gustafson</td>
+<td align="left">Jason Gustafson</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2979">KAFKA-2979</a></td>
+<td align="left">Enable authorizer and ACLs in ducktape tests</td>
+<td align="left">Major</td>
+<td align="left">system tests</td>
+<td align="left">Flavio Junqueira</td>
+<td align="left">Flavio Junqueira</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2949">KAFKA-2949</a></td>
+<td align="left">Make EndToEndAuthorizationTest replicated</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Flavio Junqueira</td>
+<td align="left">Flavio Junqueira</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2905">KAFKA-2905</a></td>
+<td align="left">System test for rolling upgrade to enable ZooKeeper ACLs with SASL</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Flavio Junqueira</td>
+<td align="left">Flavio Junqueira</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2825">KAFKA-2825</a></td>
+<td align="left">Add controller failover to existing replication tests</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Anna Povzner</td>
+<td align="left">Anna Povzner</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2732">KAFKA-2732</a></td>
+<td align="left">Add test cases with ZK Auth, SASL and SSL</td>
+<td align="left">Major</td>
+<td align="left">security</td>
+<td align="left">Flavio Junqueira</td>
+<td align="left">Flavio Junqueira</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sub-tasks">SUB-TASKS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-3108">KAFKA-3108</a></td>
+<td align="left">KStream custom StreamPartitioner for windowed key</td>
+<td align="left">Minor</td>
+<td align="left">kafka streams</td>
+<td align="left">Yasuhiro Matsuda</td>
+<td align="left">Yasuhiro Matsuda</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-3081">KAFKA-3081</a></td>
+<td align="left">KTable Aggregation Implementation</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Guozhang Wang</td>
+<td align="left">Guozhang Wang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-3078">KAFKA-3078</a></td>
+<td align="left">Add ducktape tests for KafkaLog4jAppender producing to SASL enabled Kafka cluster</td>
+<td align="left">Major</td>
+<td align="left">clients</td>
+<td align="left">Ashish K Singh</td>
+<td align="left">Ashish K Singh</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-3063">KAFKA-3063</a></td>
+<td align="left">LogRecoveryTest exits with -1 occasionally</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Guozhang Wang</td>
+<td align="left">Ismael Juma</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-3030">KAFKA-3030</a></td>
+<td align="left">Remove unused scala dependencies</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Grant Henke</td>
+<td align="left">Grant Henke</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-3022">KAFKA-3022</a></td>
+<td align="left">Deduplicate common project configurations</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Grant Henke</td>
+<td align="left">Grant Henke</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-3021">KAFKA-3021</a></td>
+<td align="left">Centralize dependency version managment</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Grant Henke</td>
+<td align="left">Grant Henke</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-3020">KAFKA-3020</a></td>
+<td align="left">Ensure Checkstyle runs on all Java code</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Grant Henke</td>
+<td align="left">Grant Henke</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-3016">KAFKA-3016</a></td>
+<td align="left">Add KStream-KStream window joins</td>
+<td align="left">Major</td>
+<td align="left">kafka streams</td>
+<td align="left">Yasuhiro Matsuda</td>
+<td align="left">Yasuhiro Matsuda</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2984">KAFKA-2984</a></td>
+<td align="left">KTable should send old values along with new values to downstreams</td>
+<td align="left">Major</td>
+<td align="left">kafka streams</td>
+<td align="left">Yasuhiro Matsuda</td>
+<td align="left">Yasuhiro Matsuda</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2962">KAFKA-2962</a></td>
+<td align="left">Add Simple Join API</td>
+<td align="left">Major</td>
+<td align="left">kafka streams</td>
+<td align="left">Yasuhiro Matsuda</td>
+<td align="left">Yasuhiro Matsuda</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2856">KAFKA-2856</a></td>
+<td align="left">add KTable</td>
+<td align="left">Major</td>
+<td align="left">kafka streams</td>
+<td align="left">Yasuhiro Matsuda</td>
+<td align="left">Yasuhiro Matsuda</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2837">KAFKA-2837</a></td>
+<td align="left">FAILING TEST: kafka.api.ProducerBounceTest &gt; testBrokerFailure</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Gwen Shapira</td>
+<td align="left">jin xing</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2811">KAFKA-2811</a></td>
+<td align="left">Add standby tasks</td>
+<td align="left">Major</td>
+<td align="left">kafka streams</td>
+<td align="left">Yasuhiro Matsuda</td>
+<td align="left">Yasuhiro Matsuda</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2804">KAFKA-2804</a></td>
+<td align="left">Create / Update changelog topics upon state store initialization</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Guozhang Wang</td>
+<td align="left">Guozhang Wang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2763">KAFKA-2763</a></td>
+<td align="left">Reduce stream task migrations and initialization costs</td>
+<td align="left">Major</td>
+<td align="left">kafka streams</td>
+<td align="left">Yasuhiro Matsuda</td>
+<td align="left">Yasuhiro Matsuda</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2733">KAFKA-2733</a></td>
+<td align="left">Distinguish metric names inside the sensor registry</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Guozhang Wang</td>
+<td align="left">Guozhang Wang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2727">KAFKA-2727</a></td>
+<td align="left">initialize only the part of the topology relevant to the task</td>
+<td align="left">Major</td>
+<td align="left">kafka streams</td>
+<td align="left">Yasuhiro Matsuda</td>
+<td align="left">Yasuhiro Matsuda</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2707">KAFKA-2707</a></td>
+<td align="left">Make KStream processor names deterministic</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Yasuhiro Matsuda</td>
+<td align="left">Yasuhiro Matsuda</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2706">KAFKA-2706</a></td>
+<td align="left">Make state stores first class citizens in the processor DAG</td>
+<td align="left">Major</td>
+<td align="left">kafka streams</td>
+<td align="left">Yasuhiro Matsuda</td>
+<td align="left">Yasuhiro Matsuda</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2694">KAFKA-2694</a></td>
+<td align="left">Make a task id be a composite id of a topic group id and a partition id</td>
+<td align="left">Major</td>
+<td align="left">kafka streams</td>
+<td align="left">Yasuhiro Matsuda</td>
+<td align="left">Yasuhiro Matsuda</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2667">KAFKA-2667</a></td>
+<td align="left">Copycat KafkaBasedLogTest.testSendAndReadToEnd transient failure</td>
+<td align="left">Major</td>
+<td align="left">copycat</td>
+<td align="left">Jason Gustafson</td>
+<td align="left">Ewen Cheslack-Postava</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2654">KAFKA-2654</a></td>
+<td align="left">Avoid calling Consumer.poll(0) in each iteration</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Guozhang Wang</td>
+<td align="left">Yasuhiro Matsuda</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2653">KAFKA-2653</a></td>
+<td align="left">Stateful operations in the KStream DSL layer</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Guozhang Wang</td>
+<td align="left">Guozhang Wang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2652">KAFKA-2652</a></td>
+<td align="left">Incorporate the new consumer protocol with partition-group interface</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Guozhang Wang</td>
+<td align="left">Yasuhiro Matsuda</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2649">KAFKA-2649</a></td>
+<td align="left">Add support for custom partitioner in sink nodes</td>
+<td align="left">Major</td>
+<td align="left">kafka streams</td>
+<td align="left">Randall Hauch</td>
+<td align="left">Randall Hauch</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2643">KAFKA-2643</a></td>
+<td align="left">Run mirror maker tests in ducktape with SSL and SASL</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Rajini Sivaram</td>
+<td align="left">Rajini Sivaram</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2642">KAFKA-2642</a></td>
+<td align="left">Run replication tests in ducktape with SSL for clients</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Rajini Sivaram</td>
+<td align="left">Rajini Sivaram</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2600">KAFKA-2600</a></td>
+<td align="left">Make KStream interfaces compatible with Java 8 java.util.function</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Guozhang Wang</td>
+<td align="left">Randall Hauch</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2594">KAFKA-2594</a></td>
+<td align="left">Add a key-value store that is a fixed-capacity in-memory LRU cache</td>
+<td align="left">Major</td>
+<td align="left">kafka streams</td>
+<td align="left">Randall Hauch</td>
+<td align="left">Randall Hauch</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2593">KAFKA-2593</a></td>
+<td align="left">KeyValueStores should not require use of the context's default serializers and deserializers</td>
+<td align="left">Major</td>
+<td align="left">kafka streams</td>
+<td align="left">Randall Hauch</td>
+<td align="left">Randall Hauch</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2591">KAFKA-2591</a></td>
+<td align="left">Remove Persistent Data before Restoringafter a Fault</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Guozhang Wang</td>
+<td align="left">Guozhang Wang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2509">KAFKA-2509</a></td>
+<td align="left">Replace LeaderAndIsr{Request,Response} with org.apache.kafka.common.network.requests equivalent</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ismael Juma</td>
+<td align="left">Grant Henke</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2422">KAFKA-2422</a></td>
+<td align="left">Allow copycat connector plugins to be aliased to simpler names</td>
+<td align="left">Minor</td>
+<td align="left">copycat</td>
+<td align="left">Ewen Cheslack-Postava</td>
+<td align="left">Gwen Shapira</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2072">KAFKA-2072</a></td>
+<td align="left">Add StopReplica request/response to o.a.k.common.requests and replace the usage in core module</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Gwen Shapira</td>
+<td align="left">David Jacot</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2070">KAFKA-2070</a></td>
+<td align="left">Replace OffsetRequest/response with ListOffsetRequest/response from org.apache.kafka.common.requests</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Gwen Shapira</td>
+<td align="left">Grant Henke</td>
+</tr>
+</tbody>
+</table>
+<h3 id="other">OTHER:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2896">KAFKA-2896</a></td>
+<td align="left">System test for partition re-assignment</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Gwen Shapira</td>
+<td align="left">Anna Povzner</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2845">KAFKA-2845</a></td>
+<td align="left">Add 0.9 clients vs 0.8 brokers compatibility test</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Geoff Anderson</td>
+<td align="left">Geoff Anderson</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/KAFKA-2830">KAFKA-2830</a></td>
+<td align="left">Change default fix version to 0.9.1.0 in kafka-merge-pr.py</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Ismael Juma</td>
+<td align="left">Ismael Juma</td>
+</tr>
+</tbody>
+</table>

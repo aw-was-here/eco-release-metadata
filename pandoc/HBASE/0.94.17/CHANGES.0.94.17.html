@@ -1,0 +1,383 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hbase-changelog">Apache HBase Changelog</h1>
+<h2 id="release-0.94.17---2014-02-25">Release 0.94.17 - 2014-02-25</h2>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-10423">HBASE-10423</a></td>
+<td align="left">Report back the message of split or rollback failure to the master</td>
+<td align="left">Trivial</td>
+<td align="left">regionserver</td>
+<td align="left">Harsh J</td>
+<td align="left">Harsh J</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-10457">HBASE-10457</a></td>
+<td align="left">Print corrupted file information in SnapshotInfo tool without -file option</td>
+<td align="left">Minor</td>
+<td align="left">snapshots</td>
+<td align="left">bharath v</td>
+<td align="left">bharath v</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-10212">HBASE-10212</a></td>
+<td align="left">New rpc metric: number of active handler</td>
+<td align="left">Major</td>
+<td align="left">IPC/RPC</td>
+<td align="left">Chao Shi</td>
+<td align="left">Chao Shi</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-10274">HBASE-10274</a></td>
+<td align="left">MiniZookeeperCluster should close ZKDatabase when shutdown ZooKeeperServers</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">chendihao</td>
+<td align="left">chendihao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-10320">HBASE-10320</a></td>
+<td align="left">Avoid ArrayList.iterator() ExplicitColumnTracker</td>
+<td align="left">Major</td>
+<td align="left">Performance</td>
+<td align="left">Lars Hofhansl</td>
+<td align="left">Lars Hofhansl</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-10335">HBASE-10335</a></td>
+<td align="left">AuthFailedException in zookeeper may block replication forever</td>
+<td align="left">Blocker</td>
+<td align="left">Replication, security</td>
+<td align="left">Liu Shaohui</td>
+<td align="left">Liu Shaohui</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-10249">HBASE-10249</a></td>
+<td align="left">TestReplicationSyncUpTool fails because failover takes too long</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Lars Hofhansl</td>
+<td align="left">Jean-Daniel Cryans</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-10400">HBASE-10400</a></td>
+<td align="left">[hbck] Continue if region dir missing on region merge attempt</td>
+<td align="left">Major</td>
+<td align="left">hbck</td>
+<td align="left">Jonathan Hsieh</td>
+<td align="left">Jonathan Hsieh</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-10401">HBASE-10401</a></td>
+<td align="left">[hbck] perform overlap group merges in parallel</td>
+<td align="left">Major</td>
+<td align="left">hbck</td>
+<td align="left">Jonathan Hsieh</td>
+<td align="left">Jonathan Hsieh</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-10383">HBASE-10383</a></td>
+<td align="left">Secure Bulk Load for 'completebulkload' fails for version 0.94.15</td>
+<td align="left">Critical</td>
+<td align="left">Coprocessors</td>
+<td align="left">Kashif</td>
+<td align="left">Jesse Yates</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-10371">HBASE-10371</a></td>
+<td align="left">Compaction creates empty hfile, then selects this file for compaction and creates empty hfile and over again</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">binlijin</td>
+<td align="left">binlijin</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-10448">HBASE-10448</a></td>
+<td align="left">ZKUtil create and watch methods don't set watch in some cases</td>
+<td align="left">Major</td>
+<td align="left">Zookeeper</td>
+<td align="left">Jerry He</td>
+<td align="left">Jerry He</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-7963">HBASE-7963</a></td>
+<td align="left">HBase VerifyReplication not working when security enabled</td>
+<td align="left">Major</td>
+<td align="left">Replication, security</td>
+<td align="left">Water Chow</td>
+<td align="left">Matteo Bertozzi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-10319">HBASE-10319</a></td>
+<td align="left">HLog should roll periodically to allow DN decommission to eventually complete.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jonathan Hsieh</td>
+<td align="left">Matteo Bertozzi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-10470">HBASE-10470</a></td>
+<td align="left">Import generates huge log file while importing large amounts of data</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Vasu Mariyala</td>
+<td align="left">Vasu Mariyala</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-10363">HBASE-10363</a></td>
+<td align="left">[0.94] TestInputSampler and TestInputSamplerTool fail under hadoop 2.0/23 profiles.</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Jonathan Hsieh</td>
+<td align="left">Lars Hofhansl</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-10340">HBASE-10340</a></td>
+<td align="left">[BACKPORT] HBASE-9892 Add info port to ServerName to support multi instances in a node</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">stack</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-10489">HBASE-10489</a></td>
+<td align="left">TestImportExport fails in 0.94 with Hadoop2</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Lars Hofhansl</td>
+<td align="left">Lars Hofhansl</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-10493">HBASE-10493</a></td>
+<td align="left">InclusiveStopFilter#filterKeyValue() should perform filtering on row key</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ted Yu</td>
+<td align="left">Ted Yu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-10485">HBASE-10485</a></td>
+<td align="left">PrefixFilter#filterKeyValue() should perform filtering on row key</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ted Yu</td>
+<td align="left">Ted Yu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-10481">HBASE-10481</a></td>
+<td align="left">API Compatibility JDiff script does not properly handle arguments in reverse order</td>
+<td align="left">Minor</td>
+<td align="left">test</td>
+<td align="left">Aleksandr Shulman</td>
+<td align="left">Aleksandr Shulman</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-10505">HBASE-10505</a></td>
+<td align="left">Import.filterKv does not call Filter.filterRowKey</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Lars Hofhansl</td>
+<td align="left">Lars Hofhansl</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-10482">HBASE-10482</a></td>
+<td align="left">ReplicationSyncUp doesn't clean up its ZK, needed for tests</td>
+<td align="left">Major</td>
+<td align="left">Replication</td>
+<td align="left">Jean-Daniel Cryans</td>
+<td align="left">Jean-Daniel Cryans</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-10508">HBASE-10508</a></td>
+<td align="left">Backport HBASE-10365 'HBaseFsck should clean up connection properly when repair is completed' to 0.94 and 0.96</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ted Yu</td>
+<td align="left">Ted Yu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-10506">HBASE-10506</a></td>
+<td align="left">Fail-fast if client connection is lost before the real call be executed in RPC layer</td>
+<td align="left">Major</td>
+<td align="left">IPC/RPC</td>
+<td align="left">Liang Xie</td>
+<td align="left">Liang Xie</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-10545">HBASE-10545</a></td>
+<td align="left">RS Hangs waiting on region to close on shutdown; has to timeout before can go down</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">stack</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-10551">HBASE-10551</a></td>
+<td align="left">Change local mode back to one RS thread by default</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Lars Hofhansl</td>
+<td align="left">Lars Hofhansl</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-10555">HBASE-10555</a></td>
+<td align="left">Backport HBASE-8519 to 0.94, Backup master will never come up if primary master dies during initialization</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Jingcheng Du</td>
+<td align="left">Jerry He</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-10552">HBASE-10552</a></td>
+<td align="left">HFilePerformanceEvaluation.GaussianRandomReadBenchmark fails sometimes.</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Lars Hofhansl</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-10562">HBASE-10562</a></td>
+<td align="left">Fix TestMultiTableInputFormat for Hadoop 2 in 0.94</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Lars Hofhansl</td>
+<td align="left">Lars Hofhansl</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-10539">HBASE-10539</a></td>
+<td align="left">HRegion.addAndGetGlobalMemstoreSize returns previous size</td>
+<td align="left">Major</td>
+<td align="left">regionserver</td>
+<td align="left">Honghua Feng</td>
+<td align="left">Honghua Feng</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-10546">HBASE-10546</a></td>
+<td align="left">Two scanner objects are open for each hbase map task but only one scanner object is closed</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Vasu Mariyala</td>
+<td align="left">Vasu Mariyala</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-10501">HBASE-10501</a></td>
+<td align="left">Improve IncreasingToUpperBoundRegionSplitPolicy to avoid too many regions</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Lars Hofhansl</td>
+<td align="left">Lars Hofhansl</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tests">TESTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-10480">HBASE-10480</a></td>
+<td align="left">TestLogRollPeriod#testWithEdits may fail due to insufficient waiting</td>
+<td align="left">Minor</td>
+<td align="left">test</td>
+<td align="left">Ted Yu</td>
+<td align="left">Matteo Bertozzi</td>
+</tr>
+</tbody>
+</table>
+<h3 id="other">OTHER:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-10473">HBASE-10473</a></td>
+<td align="left">Add utility for adorning http Context</td>
+<td align="left">Major</td>
+<td align="left">UI</td>
+<td align="left">stack</td>
+<td align="left">stack</td>
+</tr>
+</tbody>
+</table>

@@ -18,44 +18,14 @@
 -->
 # Apache HBase  0.98.13 Release Notes
 
-These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
+These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
 
 
 ---
 
-* [HBASE-13625](https://issues.apache.org/jira/browse/HBASE-13625) | *Major* | **Use HDFS for HFileOutputFormat2 partitioner's path**
+* [HBASE-11658](https://issues.apache.org/jira/browse/HBASE-11658) | *Major* | **Piped commands to hbase shell should return non-zero if shell command failed.**
 
-Introduces a new config hbase.fs.tmp.dir which is a directory in HDFS (or default file system) to use as a staging directory for HFileOutputFormat2.
-
-
----
-
-* [HBASE-13564](https://issues.apache.org/jira/browse/HBASE-13564) | *Major* | **Master MBeans are not published**
-
-To use the coprocessor-based JMX implementation provided by HBase for Master.
-Add below property in hbase-site.xml file: 
-
-<property>
-  <name>hbase.coprocessor.master.classes</name>
-  <value>org.apache.hadoop.hbase.JMXListener</value>
-</property>
-
-NOTE: DO NOT set `com.sun.management.jmxremote.port` for Java VM at the same time.
-
-By default, the JMX listens on TCP port 10101 for Master, we can further configure the port using below properties:
-
-<property>
-  <name>master.rmi.registry.port</name>
-  <value>61110</value>
-</property>
-<property>
-  <name>master.rmi.connector.port</name>
-  <value>61120</value>
-</property>
-----
-
-The registry port can be shared with connector port in most cases, so you only need to configure master.rmi.registry.port.
-However if you want to use SSL communication, the 2 ports must be configured to different values.
+Adds a noninteractive mode (-n or --noninteractive) to the hbase shell that exits with a non-zero error code on failed or invalid shell command executions, and exits with a zero error code upon successful execution.
 
 
 ---
@@ -68,9 +38,46 @@ Callers using this method must use PoolMap.removeValue(K key, V value) instead.
 
 ---
 
-* [HBASE-11658](https://issues.apache.org/jira/browse/HBASE-11658) | *Major* | **Piped commands to hbase shell should return non-zero if shell command failed.**
+* [HBASE-13564](https://issues.apache.org/jira/browse/HBASE-13564) | *Major* | **Master MBeans are not published**
 
-Adds a noninteractive mode (-n or --noninteractive) to the hbase shell that exits with a non-zero error code on failed or invalid shell command executions, and exits with a zero error code upon successful execution.
+To use the coprocessor-based JMX implementation provided by HBase for Master.
+Add below property in hbase-site.xml file: 
+
+\<property\>
+  \<name\>hbase.coprocessor.master.classes\</name\>
+  \<value\>org.apache.hadoop.hbase.JMXListener\</value\>
+\</property\>
+
+NOTE: DO NOT set `com.sun.management.jmxremote.port` for Java VM at the same time.
+
+By default, the JMX listens on TCP port 10101 for Master, we can further configure the port using below properties:
+
+\<property\>
+  \<name\>master.rmi.registry.port\</name\>
+  \<value\>61110\</value\>
+\</property\>
+\<property\>
+  \<name\>master.rmi.connector.port\</name\>
+  \<value\>61120\</value\>
+\</property\>
+----
+
+The registry port can be shared with connector port in most cases, so you only need to configure master.rmi.registry.port.
+However if you want to use SSL communication, the 2 ports must be configured to different values.
+
+
+---
+
+* [HBASE-13625](https://issues.apache.org/jira/browse/HBASE-13625) | *Major* | **Use HDFS for HFileOutputFormat2 partitioner's path**
+
+Introduces a new config hbase.fs.tmp.dir which is a directory in HDFS (or default file system) to use as a staging directory for HFileOutputFormat2. This is also used as the default for hbase.bulkload.staging.dir
+
+
+---
+
+* [HBASE-13632](https://issues.apache.org/jira/browse/HBASE-13632) | *Trivial* | **Backport HBASE-13368 to branch-1 and 0.98**
+
+Several utility classes related to making message digests were mistakenly marked InterfaceAudience.Public. This change corrects them to be InterfaceAudience.Private. Though this change itself will not break downstream users future changes may happen to these classes in patch releases. As such, downstream users are strongly encouraged to migrate away from uses the following classes in the org.apache.hadoop.hbase.util package: Hash, JenkinsHash, MurmurHash, and MurmurHash3.
 
 
 

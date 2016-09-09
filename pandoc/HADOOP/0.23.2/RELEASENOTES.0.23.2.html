@@ -1,0 +1,144 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hadoop-0.23.2-release-notes">Apache Hadoop 0.23.2 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-8175">HADOOP-8175</a> | <em>Major</em> | <strong>Add mkdir -p flag</strong></li>
+</ul>
+<p>FsShell mkdir now accepts a -p flag. Like unix, mkdir -p will not fail if the directory already exists. Unlike unix, intermediate directories are always created, regardless of the flag, to avoid incompatibilities at this time.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-8164">HADOOP-8164</a> | <em>Major</em> | <strong>Handle paths using back slash as path separator for windows only</strong></li>
+</ul>
+<p>This jira only allows providing paths using back slash as separator on Windows. The back slash on *nix system will be used as escape character. The support for paths using back slash as path separator will be removed in HADOOP-8139 in release 23.3.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-8131">HADOOP-8131</a> | <em>Critical</em> | <strong>FsShell put doesn't correctly handle a non-existent dir</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-2950">HDFS-2950</a> | <em>Minor</em> | <strong>Secondary NN HTTPS address should be listed as a NAMESERVICE_SPECIFIC_KEY</strong></li>
+</ul>
+<p>The configuration dfs.secondary.https.port has been renamed to dfs.namenode.secondary.https-port for consistency. The old configuration is still supported via a deprecation path.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-2907">HDFS-2907</a> | <em>Minor</em> | <strong>Make FSDataset in Datanode Pluggable</strong></li>
+</ul>
+<p>Add a private conf property dfs.datanode.fsdataset.factory to make FSDataset in Datanode pluggable.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-2887">HDFS-2887</a> | <em>Major</em> | <strong>Define a FSVolume interface</strong></li>
+</ul>
+<p>FSVolume, is a part of FSDatasetInterface implementation, should not be referred outside FSDataset. A new FSVolumeInterface is defined. The BlockVolumeChoosingPolicy.chooseVolume(..) method signature is also updated.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3982">MAPREDUCE-3982</a> | <em>Critical</em> | <strong>TestEmptyJob fails with FileNotFound</strong></li>
+</ul>
+<p>Fixed FileOutputCommitter to not err out for an 'empty-job' whose tasks don't write any outputs.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3975">MAPREDUCE-3975</a> | <em>Blocker</em> | <strong>Default value not set for Configuration parameter mapreduce.job.local.dir</strong></li>
+</ul>
+<p>Exporting mapreduce.job.local.dir for mapreduce tasks to use as job-level shared scratch space.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3954">MAPREDUCE-3954</a> | <em>Blocker</em> | <strong>Clean up passing HEAPSIZE to yarn and mapred commands.</strong></li>
+</ul>
+<p>Added new envs to separate heap size for different daemons started via bin scripts.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3931">MAPREDUCE-3931</a> | <em>Major</em> | <strong>MR tasks failing due to changing timestamps on Resources to download</strong></li>
+</ul>
+<p>Changed PB implementation of LocalResource to take locks so that race conditions don't fail tasks by inadvertantly changing the timestamps.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3922">MAPREDUCE-3922</a> | <em>Minor</em> | <strong>Fix the potential problem compiling 32 bit binaries on a x86_64 host.</strong></li>
+</ul>
+<p>Fixed build to not compile 32bit container-executor binary by default on all platforms.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3920">MAPREDUCE-3920</a> | <em>Major</em> | <strong>Revise yarn default port number selection</strong></li>
+</ul>
+<p>port number changes for resourcemanager and nodemanager</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3910">MAPREDUCE-3910</a> | <em>Blocker</em> | <strong>user not allowed to submit jobs even though queue -showacls shows it allows</strong></li>
+</ul>
+<p>Fixed a bug in CapacityScheduler LeafQueue which was causing app-submission to fail.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3901">MAPREDUCE-3901</a> | <em>Major</em> | <strong>lazy load JobHistory Task and TaskAttempt details</strong></li>
+</ul>
+<p>Modified JobHistory records in YARN to lazily load job and task reports so as to improve UI response times.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3866">MAPREDUCE-3866</a> | <em>Minor</em> | <strong>bin/yarn prints the command line unnecessarily</strong></li>
+</ul>
+<p>Fixed the bin/yarn script to not print the command line unnecessarily.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3798">MAPREDUCE-3798</a> | <em>Major</em> | <strong>TestJobCleanup testCustomCleanup is failing</strong></li>
+</ul>
+<p>Fixed failing TestJobCleanup.testCusomCleanup() and moved it to the maven build.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3792">MAPREDUCE-3792</a> | <em>Critical</em> | <strong>job -list displays only the jobs submitted by a particular user</strong></li>
+</ul>
+<p>Fix &quot;bin/mapred job -list&quot; to display all jobs instead of only the jobs owned by the user.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3738">MAPREDUCE-3738</a> | <em>Critical</em> | <strong>NM can hang during shutdown if AppLogAggregatorImpl thread dies unexpectedly</strong></li>
+</ul>
+<p>Committed to trunk and branch-0.23. Thanks Jason.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3730">MAPREDUCE-3730</a> | <em>Minor</em> | <strong>Allow restarted NM to rejoin cluster before RM expires it</strong></li>
+</ul>
+<p>Modified RM to allow restarted NMs to be able to join the cluster without waiting for expiry.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3686">MAPREDUCE-3686</a> | <em>Critical</em> | <strong>history server web ui - job counter values for map/reduce not shown properly</strong></li>
+</ul>
+<p>Fixed two bugs in Counters because of which web app displays zero counter values for framework counters.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3634">MAPREDUCE-3634</a> | <em>Major</em> | <strong>All daemons should crash instead of hanging around when their EventHandlers get exceptions</strong></li>
+</ul>
+<p>Fixed all daemons to crash instead of hanging around when their EventHandlers get exceptions.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3614">MAPREDUCE-3614</a> | <em>Major</em> | ** finalState UNDEFINED if AM is killed by hand**</li>
+</ul>
+<p>Fixed MR AM to close history file quickly and send a correct final state to the RM when it is killed.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3009">MAPREDUCE-3009</a> | <em>Major</em> | <strong>RM UI -&gt; Applications -&gt; Application(Job History) -&gt; Map Tasks -&gt; Task ID -&gt; Node link is not working</strong></li>
+</ul>
+<p>Fixed node link on JobHistory webapp.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2855">MAPREDUCE-2855</a> | <em>Major</em> | <strong>ResourceBundle lookup during counter name resolution takes a lot of time</strong></li>
+</ul>
+<p>Passing a cached class-loader to ResourceBundle creator to minimize counter names lookup time.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2793">MAPREDUCE-2793</a> | <em>Critical</em> | <strong>[MR-279] Maintain consistency in naming appIDs, jobIDs and attemptIDs</strong></li>
+</ul>
+<p>Corrected AppIDs, JobIDs, TaskAttemptIDs to be of correct format on the web pages.</p>

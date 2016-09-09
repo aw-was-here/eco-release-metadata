@@ -1,0 +1,76 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hbase-1.0.4-release-notes">Apache HBase 1.0.4 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-15129">HBASE-15129</a> | <em>Major</em> | <strong>Set default value for hbase.fs.tmp.dir rather than fully depend on hbase-default.xml</strong></li>
+</ul>
+<p>Before HBASE-15129, if somehow hbase-default.xml is not on classpath, default values for hbase.fs.tmp.dir and hbase.bulkload.staging.dir are left empty. After HBASE-15129, default values of both properties are set to &quot;/user/&lt;user.name&gt;/hbase-staging&quot;.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-15218">HBASE-15218</a> | <em>Blocker</em> | <strong>On RS crash and replay of WAL, loosing all Tags in Cells</strong></li>
+</ul>
+<p>This issue fixes - In case of normal WAL (Not encrypted) we were loosing all cell tags on WAL replay after an RS crash - In case of encrypted WAL we were not even persisting Cell tags in WAL. Tags from all unflushed (to HFile) Cells will get lost even after WAL replay recovery is done.</p>
+<p>As we use tags for Cell level security, this fixes 2 security issues - Cell level visibility labels security breach . Making a visibility restricted cell global readable - Cell level ACL availability issue. A user who is cell level authorized to read this cell can not read it. It is a data loss for him.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-15213">HBASE-15213</a> | <em>Major</em> | <strong>Fix increment performance regression caused by HBASE-8763 on branch-1.0</strong></li>
+</ul>
+<p>Fixes performance regression in increment/append and checkAnd* operations in hbase-1.0.x and hbase-1.1.x. This fix is not needed in hbase-1.2 and on up. They have HBASE-12751 which does effectively the same thing.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-15157">HBASE-15157</a> | <em>Major</em> | <strong>Add *PerformanceTest for Append, CheckAnd*</strong></li>
+</ul>
+<p>Add append, increment, checkAndMutate, checkAndPut, and checkAndDelete tests to PerformanceEvaluation tool. Below are excerpts from new usage from PE:</p>
+<p>.... Command: append Append on each row; clients overlap on keyspace so some concurrent operations checkAndDelete CheckAndDelete on each row; clients overlap on keyspace so some concurrent operations checkAndMutate CheckAndMutate on each row; clients overlap on keyspace so some concurrent operations checkAndPut CheckAndPut on each row; clients overlap on keyspace so some concurrent operations filterScan Run scan test using a filter to find a specific row based on it's value (make sure to use --rows=20) increment Increment on each row; clients overlap on keyspace so some concurrent operations randomRead Run random read test .... Examples: ... To run 10 clients doing increments over ten rows: $ bin/hbase org.apache.hadoop.hbase.PerformanceEvaluation --rows=10 --nomapred increment 10</p>
+<p>Removed IncrementPerformanceTest. It is not as configurable as the additions made here.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-14460">HBASE-14460</a> | <em>Critical</em> | <strong>[Perf Regression] Merge of MVCC and SequenceId (HBASE-8763) slowed Increments, CheckAndPuts, batch operations</strong></li>
+</ul>
+<p>This release note tries to tell the general story. Dive into sub-tasks for more specific release noting.</p>
+<p>Increments, appends, checkAnd* have been slow since hbase-.1.0.0. The unification of mvcc and sequence id done by HBASE-8763 was responsible.</p>
+<p>A ‘fast-path’ workaround was added by HBASE-15031 “Fix merge of MVCC and SequenceID performance regression in branch-1.0 for Increments”. It became available in 1.0.3 and 1.1.3. To enable the fast path, set &quot;hbase.increment.fast.but.narrow.consistency&quot; and then rolling restart. The workaround was for increments only (appends, checkAndPut, etc., were not addressed. See HBASE-15031 release note for more detail).</p>
+<p>Subsequently, the regression was properly identified and fixed in HBASE-15213 and the fix applied to branch-1.0 and branch-1.1. As it happens, hbase-1.2.0 does not suffer from the performance regression (though the thought was that it did -- and so it got the fast-path patch too via HBASE-15092) nor does the master branch. HBASE-15213 identified that HBASE-12751 (as a side effect) had cured the regression.</p>
+<p>hbase-1.0.4 (if it is ever released -- 1.0 has been end-of-lifed) and hbase-1.1.4 will have the HBASE-15213 fix. If you are suffering from the increment regression and you are on 1.0.3 or 1.1.3, you can enable the work around to get back your increment performance but you should upgrade.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-13963">HBASE-13963</a> | <em>Critical</em> | <strong>avoid leaking jdk.tools</strong></li>
+</ul>
+<p>HBase now ensures that the JDK tools jar used during the build process is not exposed to downstream clients as a transitive dependency of hbase-annotations.</p>
+<p>If you need to have the JDK tools jar in your classpath, you should add a system dependency on it. See the hbase-annotations pom for an example of the necessary pom additions.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-15645">HBASE-15645</a> | <em>Critical</em> | <strong>hbase.rpc.timeout is not used in operations of HTable</strong></li>
+</ul>
+<p>Fixes regression where hbase.rpc.timeout configuration was ignored in branch-1.0+</p>
+<p>Adds new methods setOperationTimeout, getOperationTimeout, setRpcTimeout, and getRpcTimeout to Table. In branch-1.3+ they are public interfaces and in 1.0-1.2 they are labeled as @InterfaceAudience.Private.</p>
+<p>Adds hbase.client.operation.timeout to hbase-default.xml with default of 1200000</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-15801">HBASE-15801</a> | <em>Major</em> | <strong>Upgrade checkstyle for all branches</strong></li>
+</ul>
+<p>All active branches now use maven-checkstyle-plugin 2.17 and checkstyle 6.18.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-15224">HBASE-15224</a> | <em>Major</em> | <strong>Undo &quot;hbase.increment.fast.but.narrow.consistency&quot; option; it is not necessary since HBASE-15213</strong></li>
+</ul>
+<p>HBASE-15031 “Fix merge of MVCC and SequenceID performance regression in branch-1.0 for Increments” and HBASE-15091 ‘Forward-port to 1.2+ HBASE-15031 &quot;Fix merge of MVCC and SequenceID performance regression in branch-1.0 for Increments&quot;’ added a workaround ‘fast-path’ to restore an increment performance regression that came into hbase 1.0 when we unified mvcc and sequence id in HBASE-8763. The workaround became available in hbase-1.0.3 and hbase-1.1.3. The workaround involved setting the flag &quot;hbase.increment.fast.but.narrow.consistency&quot; in your configuration and restarting.</p>
+<p>Subsequently, the regression was fixed in HBASE-15213. The fix will be available in hbase-1.0.4 and hbase-1.1.4 when they are released. hbase-1.2.0 has the flag but as it turns out, it is not needed; there is no regression in 1.2.0.</p>
+<p>This issue removes the fast-path flag. If set, it will just be ignored.</p>

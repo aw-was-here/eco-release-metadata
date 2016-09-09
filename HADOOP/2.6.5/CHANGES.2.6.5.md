@@ -18,7 +18,7 @@
 -->
 # Apache Hadoop Changelog
 
-## Release 2.6.5 - Unreleased (as of 2016-09-07)
+## Release 2.6.5 - Unreleased (as of 2016-09-09)
 
 
 
@@ -91,6 +91,7 @@
 | [YARN-5462](https://issues.apache.org/jira/browse/YARN-5462) | TestNodeStatusUpdater.testNodeStatusUpdaterRetryAndNMShutdown fails intermittently |  Major | . | Eric Badger | Eric Badger |
 | [HADOOP-13494](https://issues.apache.org/jira/browse/HADOOP-13494) | ReconfigurableBase can log sensitive information |  Major | security | Sean Mackrory | Sean Mackrory |
 | [HDFS-9530](https://issues.apache.org/jira/browse/HDFS-9530) | ReservedSpace is not cleared for abandoned Blocks |  Critical | datanode | Fei Hui | Brahma Reddy Battula |
+| [HADOOP-13579](https://issues.apache.org/jira/browse/HADOOP-13579) | Fix source-level compatibility after HADOOP-11252 |  Blocker | . | Akira Ajisaka | Tsuyoshi Ozawa |
 
 
 ### TESTS:

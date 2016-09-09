@@ -1,0 +1,54 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hbase-0.98.5-release-notes">Apache HBase 0.98.5 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-11480">HBASE-11480</a> | <em>Trivial</em> | <strong>ClientScanner might not close the HConnection created in construction</strong></li>
+</ul>
+<p>Deprecate a (unused) ClientScanner constructor because can leave a connection open.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-2217">HBASE-2217</a> | <em>Major</em> | <strong>VM OPTS for shell only</strong></li>
+</ul>
+<p>Set HBASE_SHELL_OPTS in the environment or in hbase-env.sh to supply extra VM arguments when launching the HBase command shell.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-11534">HBASE-11534</a> | <em>Minor</em> | <strong>Remove broken JAVA_HOME autodetection in hbase-config.sh</strong></li>
+</ul>
+<p>This change removes old and increasingly useless JAVA_HOME autodetection that looks for Java 6 runtimes in various locations. Ensure that JAVA_HOME is correctly set in the environment before launching HBase daemons.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-11557">HBASE-11557</a> | <em>Minor</em> | <strong>Counter.class should always be added as dependencyJar</strong></li>
+</ul>
+<p>hbase mapredcp now include high-scale-lib.jar in its output. This is useful for users of mapreduce over snapshots.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-11558">HBASE-11558</a> | <em>Major</em> | <strong>Caching set on Scan object gets lost when using TableMapReduceUtil in 0.95+</strong></li>
+</ul>
+<p>TableMapReduceUtil now restores the option to set scanner caching by setting it on the Scan object that is passe in. The priority order for choosing the scanner caching is as follows:</p>
+<ol>
+<li>Caching set on the scan object.</li>
+<li>Caching specified via the config &quot;hbase.client.scanner.caching&quot;, which can either be set manually on the conf or via the helper method TableMapReduceUtil.setScannerCaching().</li>
+<li>The default value HConstants.DEFAULT_HBASE_CLIENT_SCANNER_CACHING, which is set to 100 currently.</li>
+</ol>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-11651">HBASE-11651</a> | <em>Major</em> | <strong>Add conf which disables MetaMigrationConvertingToPB check (for experts only)</strong></li>
+</ul>
+<p>Set hbase.MetaMigrationConvertingToPB to false to avoid scan of META on startup. Useful if you know your meta has already been migrated and if your meta is very large.</p>

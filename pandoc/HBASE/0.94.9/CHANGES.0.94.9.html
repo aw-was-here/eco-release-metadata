@@ -1,0 +1,311 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hbase-changelog">Apache HBase Changelog</h1>
+<h2 id="release-0.94.9---2013-07-04">Release 0.94.9 - 2013-07-04</h2>
+<h3 id="new-features">NEW FEATURES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8504">HBASE-8504</a></td>
+<td align="left">HTable.getRegionsInRange() should provide a non-cached API</td>
+<td align="left">Major</td>
+<td align="left">Client</td>
+<td align="left">Alan Choi</td>
+<td align="left">Matteo Bertozzi</td>
+</tr>
+</tbody>
+</table>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8609">HBASE-8609</a></td>
+<td align="left">Make the CopyTable support startRow, stopRow options</td>
+<td align="left">Minor</td>
+<td align="left">mapreduce</td>
+<td align="left">Liu Shaohui</td>
+<td align="left">Liu Shaohui</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8636">HBASE-8636</a></td>
+<td align="left">Backport KeyValue Codec to 0.94 (HBASE-7413)</td>
+<td align="left">Minor</td>
+<td align="left">wal</td>
+<td align="left">Jesse Yates</td>
+<td align="left">Jesse Yates</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8683">HBASE-8683</a></td>
+<td align="left">Add major compaction support in CompactionTool</td>
+<td align="left">Minor</td>
+<td align="left">Compaction</td>
+<td align="left">Jerry He</td>
+<td align="left">Jerry He</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8702">HBASE-8702</a></td>
+<td align="left">Make WALEditCodec pluggable</td>
+<td align="left">Major</td>
+<td align="left">Replication, wal</td>
+<td align="left">Jesse Yates</td>
+<td align="left">Jesse Yates</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5083">HBASE-5083</a></td>
+<td align="left">Backup HMaster should have http infoport open with link to the active master</td>
+<td align="left">Major</td>
+<td align="left">master</td>
+<td align="left">Jonathan Hsieh</td>
+<td align="left">Cody Marcel</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8555">HBASE-8555</a></td>
+<td align="left">FilterList correctness may be affected by random ordering of sub-filter(list)</td>
+<td align="left">Critical</td>
+<td align="left">Filters</td>
+<td align="left">Liang Xie</td>
+<td align="left">Liang Xie</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8522">HBASE-8522</a></td>
+<td align="left">Archived hfiles and old hlogs may be deleted immediately by HFileCleaner, LogCleaner in HMaster</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Liu Shaohui</td>
+<td align="left">Liu Shaohui</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8639">HBASE-8639</a></td>
+<td align="left">Poor performance of htable#getscanner in multithreaded environment due to DNS.getDefaultHost() being called in ScannerCallable#prepare()</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Raymond Liu</td>
+<td align="left">Ted Yu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8655">HBASE-8655</a></td>
+<td align="left">Backport to 94 - HBASE-8346(Prefetching .META. rows in case only when useCache is set to true)</td>
+<td align="left">Major</td>
+<td align="left">Client</td>
+<td align="left">Anoop Sam John</td>
+<td align="left">Anoop Sam John</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8640">HBASE-8640</a></td>
+<td align="left">ServerName in master may not initialize with the configured ipc address of hbase.master.ipc.address</td>
+<td align="left">Major</td>
+<td align="left">master</td>
+<td align="left">rajeshbabu</td>
+<td align="left">rajeshbabu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8671">HBASE-8671</a></td>
+<td align="left">Per-region WAL breaks CP backwards compatibility in 0.94 for non-enabled case</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jesse Yates</td>
+<td align="left">Jesse Yates</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8590">HBASE-8590</a></td>
+<td align="left">[0.94] BlockingMetaScannerVisitor should check for parent meta entry while waiting for split daughter</td>
+<td align="left">Major</td>
+<td align="left">regionserver</td>
+<td align="left">Enis Soztutar</td>
+<td align="left">Enis Soztutar</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8684">HBASE-8684</a></td>
+<td align="left">Table Coprocessor can't access external HTable by default</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jesse Yates</td>
+<td align="left">Jesse Yates</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8724">HBASE-8724</a></td>
+<td align="left">[0.94] ExportSnapshot should not use hbase.tmp.dir as a staging dir on hdfs</td>
+<td align="left">Major</td>
+<td align="left">mapreduce, snapshots</td>
+<td align="left">Enis Soztutar</td>
+<td align="left">Enis Soztutar</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8742">HBASE-8742</a></td>
+<td align="left">HTableDescriptor Properties not preserved when cloning</td>
+<td align="left">Minor</td>
+<td align="left">snapshots</td>
+<td align="left">Micah Whitacre</td>
+<td align="left">Matteo Bertozzi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8749">HBASE-8749</a></td>
+<td align="left">Potential race condition between FSUtils.renameAndSetModifyTime() and HFile/LogCleaner</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ted Yu</td>
+<td align="left">Matteo Bertozzi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8700">HBASE-8700</a></td>
+<td align="left">IntegrationTestBigLinkedList can fail due to random number collision</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sergey Shelukhin</td>
+<td align="left">Sergey Shelukhin</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8762">HBASE-8762</a></td>
+<td align="left">Performance/operational penalty when calling HTable.get with a list of one Get</td>
+<td align="left">Minor</td>
+<td align="left">Client</td>
+<td align="left">Jason Bray</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8494">HBASE-8494</a></td>
+<td align="left">TestRemoteAdmin#testClusterStatus should not assume 'requests' does not change</td>
+<td align="left">Major</td>
+<td align="left">REST, test</td>
+<td align="left">Andrew Purtell</td>
+<td align="left">Andrew Purtell</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8743">HBASE-8743</a></td>
+<td align="left">upgrade hadoop-23 version to 0.23.7</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Francis Liu</td>
+<td align="left">Francis Liu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8783">HBASE-8783</a></td>
+<td align="left">RSSnapshotManager.ZKProcedureMemberRpcs may be initialized with the wrong server name</td>
+<td align="left">Minor</td>
+<td align="left">snapshots</td>
+<td align="left">Matteo Bertozzi</td>
+<td align="left">Matteo Bertozzi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8656">HBASE-8656</a></td>
+<td align="left">Rpc call may not be notified in SecureClient</td>
+<td align="left">Major</td>
+<td align="left">Client, IPC/RPC, security</td>
+<td align="left">Jianwei Cui</td>
+<td align="left">Jianwei Cui</td>
+</tr>
+</tbody>
+</table>
+<h3 id="other">OTHER:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8603">HBASE-8603</a></td>
+<td align="left">Backport HBASE-6921 to 0.94</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ted Yu</td>
+<td align="left">Ted Yu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8283">HBASE-8283</a></td>
+<td align="left">Backport HBASE-7842 Add compaction policy that explores more storefile groups to 0.94</td>
+<td align="left">Major</td>
+<td align="left">Compaction</td>
+<td align="left">Elliott Clark</td>
+<td align="left">Elliott Clark</td>
+</tr>
+</tbody>
+</table>

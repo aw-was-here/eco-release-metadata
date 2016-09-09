@@ -1,0 +1,316 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hadoop-changelog">Apache Hadoop Changelog</h1>
+<h2 id="release-1.1.1---2012-11-27">Release 1.1.1 - 2012-11-27</h2>
+<h3 id="incompatible-changes">INCOMPATIBLE CHANGES:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="new-features">NEW FEATURES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-528">HDFS-528</a></td>
+<td align="left">Add ability for safemode to wait for a minimum number of live datanodes</td>
+<td align="left">Major</td>
+<td align="left">scripts</td>
+<td align="left">Todd Lipcon</td>
+<td align="left">Todd Lipcon</td>
+</tr>
+</tbody>
+</table>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8823">HADOOP-8823</a></td>
+<td align="left">ant package target should not depend on cn-docs</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-4174">HDFS-4174</a></td>
+<td align="left">Backport HDFS-1031 to branch-1: to list a few of the corrupted files in WebUI</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jing Zhao</td>
+<td align="left">Jing Zhao</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-1539">HDFS-1539</a></td>
+<td align="left">prevent data loss when a cluster suffers a power loss</td>
+<td align="left">Major</td>
+<td align="left">datanode, hdfs-client, namenode</td>
+<td align="left">dhruba borthakur</td>
+<td align="left">dhruba borthakur</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9017">HADOOP-9017</a></td>
+<td align="left">fix hadoop-client-pom-template.xml and hadoop-client-pom-template.xml for version</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Giridharan Kesavan</td>
+<td align="left">Giridharan Kesavan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8995">HADOOP-8995</a></td>
+<td align="left">Remove unnecessary bogus exception log from Configuration</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Jing Zhao</td>
+<td align="left">Jing Zhao</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8882">HADOOP-8882</a></td>
+<td align="left">uppercase namenode host name causes fsck to fail when useKsslAuth is on</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Arpit Gupta</td>
+<td align="left">Arpit Gupta</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8878">HADOOP-8878</a></td>
+<td align="left">uppercase namenode hostname causes hadoop dfs calls with webhdfs filesystem and fsck to fail when security is on</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Arpit Gupta</td>
+<td align="left">Arpit Gupta</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8745">HADOOP-8745</a></td>
+<td align="left">Incorrect version numbers in hadoop-core POM</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Matthias Friedrich</td>
+<td align="left">Matthias Friedrich</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-4161">HDFS-4161</a></td>
+<td align="left">HDFS keeps a thread open for every file writer</td>
+<td align="left">Major</td>
+<td align="left">hdfs-client</td>
+<td align="left">Suresh Srinivas</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-4134">HDFS-4134</a></td>
+<td align="left">hadoop namenode &amp; datanode entry points should return negative exit code on bad arguments</td>
+<td align="left">Minor</td>
+<td align="left">namenode</td>
+<td align="left">Steve Loughran</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-4105">HDFS-4105</a></td>
+<td align="left">the SPNEGO user for secondary namenode should use the web keytab</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Arpit Gupta</td>
+<td align="left">Arpit Gupta</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-3846">HDFS-3846</a></td>
+<td align="left">Namenode deadlock in branch-1</td>
+<td align="left">Major</td>
+<td align="left">namenode</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+<td align="left">Brandon Li</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-3791">HDFS-3791</a></td>
+<td align="left">Backport HDFS-173 to Branch-1 : Recursively deleting a directory with millions of files makes NameNode unresponsive for other commands until the deletion completes</td>
+<td align="left">Major</td>
+<td align="left">namenode</td>
+<td align="left">Uma Maheswara Rao G</td>
+<td align="left">Uma Maheswara Rao G</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-3658">HDFS-3658</a></td>
+<td align="left">TestDFSClientRetries#testNamenodeRestart failed</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Eli Collins</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-2815">HDFS-2815</a></td>
+<td align="left">Namenode is not coming out of safemode when we perform ( NN crash + restart ) . Also FSCK report shows blocks missed.</td>
+<td align="left">Critical</td>
+<td align="left">namenode</td>
+<td align="left">Uma Maheswara Rao G</td>
+<td align="left">Uma Maheswara Rao G</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4792">MAPREDUCE-4792</a></td>
+<td align="left">Unit Test TestJobTrackerRestartWithLostTracker fails with ant-1.8.4</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Amir Sanjar</td>
+<td align="left">Amir Sanjar</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4782">MAPREDUCE-4782</a></td>
+<td align="left">NLineInputFormat skips first line of last InputSplit</td>
+<td align="left">Blocker</td>
+<td align="left">client</td>
+<td align="left">Mark Fuhs</td>
+<td align="left">Mark Fuhs</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4749">MAPREDUCE-4749</a></td>
+<td align="left">Killing multiple attempts of a task taker longer as more attempts are killed</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Arpit Gupta</td>
+<td align="left">Arpit Gupta</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tests">TESTS:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="sub-tasks">SUB-TASKS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-1108">HDFS-1108</a></td>
+<td align="left">Log newly allocated blocks</td>
+<td align="left">Major</td>
+<td align="left">ha, namenode</td>
+<td align="left">dhruba borthakur</td>
+<td align="left">Todd Lipcon</td>
+</tr>
+</tbody>
+</table>
+<h3 id="other">OTHER:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>

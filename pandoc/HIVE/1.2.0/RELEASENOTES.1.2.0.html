@@ -1,0 +1,166 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hive-1.2.0-release-notes">Apache Hive 1.2.0 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-7998">HIVE-7998</a> | <em>Trivial</em> | <strong>Enhance JDBC Driver to not require class specification</strong></li>
+</ul>
+<p>Applications no longer need to explicitly load JDBC drivers using Class.forName()</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-7175">HIVE-7175</a> | <em>Major</em> | <strong>Provide password file option to beeline</strong></li>
+</ul>
+<p>Added an --password-file (or, -w) option to BeeLine CLI, to read a password from a permission-protected file instead of supplying it in plaintext form as part of the command (-p).</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-9143">HIVE-9143</a> | <em>Minor</em> | <strong>select user(), current_user()</strong></li>
+</ul>
+<p>Adds a UDF current_user that returns current user name Example - {code} hive&gt; select current_user(); OK thejas Time taken: 1.786 seconds, Fetched: 1 row(s) {code}</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-9188">HIVE-9188</a> | <em>Major</em> | <strong>BloomFilter support in ORC</strong></li>
+</ul>
+<p>Support for Bloom Filters in ORC internal index.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-2573">HIVE-2573</a> | <em>Minor</em> | <strong>Create per-session function registry</strong></li>
+</ul>
+<p>Marked as incompatible because of a bug -</p>
+<p>This patch broke automatic loading of externally added permanent functions in HiveServer2. This only affects multi-HS2 setup, where only one HS2 adds the function; or functions added from Hive CLI bypassing HS2. In such cases, HS2 will not be able to run a query with the new function.</p>
+<p>Additionally, RELOAD FUNCTION call has been broken by this patch. Workaround: The HS2s that don't have the function need to be restarted.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-9667">HIVE-9667</a> | <em>Minor</em> | <strong>Disable ORC bloom filters for ORC v11 output-format</strong></li>
+</ul>
+<p>Disable ORC bloom filters for ORC v11 writer impl</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-9619">HIVE-9619</a> | <em>Minor</em> | <strong>Uninitialized read of numBitVectors in NumDistinctValueEstimator</strong></li>
+</ul>
+<p>Uninitialized read of numBitVectors in NumDistinctValueEstimator</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-9848">HIVE-9848</a> | <em>Trivial</em> | <strong>readlink -f is GNU coreutils only (used in bin/hive)</strong></li>
+</ul>
+<p>Prevent GNU style readlink -f from being invoked unnecessarily</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-9788">HIVE-9788</a> | <em>Major</em> | <strong>Make double quote optional in tsv/csv/dsv output</strong></li>
+</ul>
+<p>beeline --disableQuotingForSV=true --verbose=true -u jdbc:hive2://localhost:10000 issuing: !connect jdbc:hive2://localhost:10000 '' '' Connecting to jdbc:hive2://localhost:10000 Connected to: Apache Hive (version 1.2.0-SNAPSHOT) Driver: Hive JDBC (version 1.2.0-SNAPSHOT) Transaction isolation: TRANSACTION_REPEATABLE_READ Beeline version 1.2.0-SNAPSHOT by Apache Hive 0: jdbc:hive2://localhost:10000&gt; !outputformat csv2 0: jdbc:hive2://localhost:10000&gt; select * from test; Getting log thread is interrupted, since query is done! test.a,test.b 28,&quot;aa&quot; 37,a&quot;b 2 rows selected (1.421 seconds)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-9302">HIVE-9302</a> | <em>Major</em> | <strong>Beeline add commands to register local jdbc driver names and jars</strong></li>
+</ul>
+<p>Add one new command for beeline: addlocaljar. With this command, users are able to add local jdbc driver jar file in the beeline side.</p>
+<p>There are two kinds of use cases. One is to add an existing known driver like mysql driver or postgres driver. Current supported driver are postgres and mysql. {noformat}</p>
+<h1 id="beeline">beeline</h1>
+<p>beeline&gt; !addlocaldriverjar /path/to/mysql-connector-java-5.1.27-bin.jar beeline&gt; !connect mysql://host:3306/testdb {noformat} And another is to add a customized driver. {noformat}</p>
+<h1 id="beeline-1">beeline</h1>
+<p>beeline&gt;!addlocaldriverjar /path/to/DummyDriver-1.0-SNAPSHOT.jar beeline&gt;!addlocaldrivername org.apache.dummy.DummyDrive beeline&gt; !connect mysql://host:3306/testdb {noformat}</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-6617">HIVE-6617</a> | <em>Major</em> | <strong>Reduce ambiguity in grammar</strong></li>
+</ul>
+<p>SQL distinguishes between reserved and non-reserved keywords. We reserved 74 key words in this patch according to the SQL2011 standard. There are two ways if the user still would like to use the reserved keywords as identifiers, (1) Use quoted identifiers (2) set hive.support.sql11.reserved.keywords=false;</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-9813">HIVE-9813</a> | <em>Major</em> | <strong>Hive JDBC - DatabaseMetaData.getColumns method cannot find classes added with &quot;add jar&quot; command</strong></li>
+</ul>
+<p>We need to document the new API.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-8746">HIVE-8746</a> | <em>Major</em> | <strong>ORC timestamp columns are sensitive to daylight savings time</strong></li>
+</ul>
+<p>Fixed ORC timestamp columns for daylight savings changes.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-3454">HIVE-3454</a> | <em>Major</em> | <strong>Problem with CAST(BIGINT as TIMESTAMP)</strong></li>
+</ul>
+<p>The behaviors of converting from BOOLEAN/TINYINT/SMALLINT/INT/BIGINT and converting from FLOAT/DOUBLE to TIMESTAMP were inconsistent. The value of a BOOLEAN/TINYINT/SMALLINT/INT/BIGINT was treated as the time in milliseconds while the value of a FLOAT/DOUBLE was treated as the time in seconds. After the change, all the types during the conversion are interpreted in seconds.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-9664">HIVE-9664</a> | <em>Major</em> | <strong>Hive &quot;add jar&quot; command should be able to download and add jars from a repository</strong></li>
+</ul>
+<p>This patch makes it possible to dynamically resolve dependencies using the ADD command.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-10128">HIVE-10128</a> | <em>Major</em> | <strong>BytesBytesMultiHashMap does not allow concurrent read-only access</strong></li>
+</ul>
+<p>HIVE-10128: BytesBytesMultiHashMap does not allow concurrent read-only access (Sergey Shelukhin, reviewed by Gunther Hagleitner)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-10145">HIVE-10145</a> | <em>Major</em> | <strong>set Tez ACLs appropriately in hive</strong></li>
+</ul>
+<p>Earlier if hive.server2.enable.doAs was set to false, and tez acls were enabled, the end user who is running this query would not have access to the DAG information for the query. With this change the end user has permissions to view it.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-7351">HIVE-7351</a> | <em>Minor</em> | <strong>ANALYZE TABLE statement fails on postgres metastore</strong></li>
+</ul>
+<p>Users who use Postgres as the RDBMS for their metastore and who wish to collect stats must set hive.stats.jdbc.timeout -1.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-10119">HIVE-10119</a> | <em>Major</em> | <strong>Allow Log verbosity to be set in hiveserver2 session</strong></li>
+</ul>
+<p>The description for the newly added parameter, hive.server2.logging.level should go into beeline wiki https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients under a new section describing beeline logging. It should also be described under https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties#ConfigurationProperties-hive.server2.logging.operation.verbose . Also, hive.server2.logging.operation.verbose will be no longer available, hence it should be marked as not used anymore in beeline wiki.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-10271">HIVE-10271</a> | <em>Major</em> | <strong>remove hive.server2.thrift.http.min/max.worker.threads properties</strong></li>
+</ul>
+<p>Need to mark hive.server2.thrift.http.min/max.worker.threads parameters in https://cwiki.apache.org/confluence/display/Hive/Setting+Up+HiveServer2 as unused since hive 0.14.0</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-10215">HIVE-10215</a> | <em>Minor</em> | <strong>Large IN() clauses: deep hashCode performance during optimizer pass</strong></li>
+</ul>
+<p>Use object identity to prevent recursion instead of equality in the optimizer visitor pattern</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-6950">HIVE-6950</a> | <em>Major</em> | <strong>Parsing Error in GROUPING SETS</strong></li>
+</ul>
+<p>addressed in HIVE-6617</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-9711">HIVE-9711</a> | <em>Major</em> | <strong>ORC Vectorization DoubleColumnVector.isRepeating=false if all entries are NaN</strong></li>
+</ul>
+<p>Fix isRepeating checks for NaN in Float and Double vectorized readers</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-9917">HIVE-9917</a> | <em>Major</em> | <strong>After HIVE-3454 is done, make int to timestamp conversion configurable</strong></li>
+</ul>
+<p>With the change of HIVE-9917, we support an additional configuration &quot;hive.int.timestamp.conversion.in.seconds&quot; to enable the interpretation the BOOLEAN/BYTE/TINYINT/SMALLINT/INT/BIGINT value in seconds during the timestamp conversion without breaking the existing customers. By default, the existing functionality is kept.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-10339">HIVE-10339</a> | <em>Major</em> | <strong>Allow JDBC Driver to pass HTTP header Key/Value pairs</strong></li>
+</ul>
+<p>Doc - https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-PassingHTTPHeaderKey/ValuePairsviaJDBCDriver</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-10312">HIVE-10312</a> | <em>Major</em> | <strong>SASL.QOP in JDBC URL is ignored for Delegation token Authentication</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-10564">HIVE-10564</a> | <em>Major</em> | <strong>webhcat should use webhcat-site.xml properties for controller job submission</strong></li>
+</ul>
+<p>This change enables various hadoop properties to be passed to the LauncherTask via webhcat-site.xml. Earlier hadoop properties in webhcat-site.xml would get used in most other places, except for the launch of the LauncherTask. Only a few parameters could be set, and they had to be set using templeton.* parameters. For example templeton.mapper.memory.mb was used to set mapreduce.map.memory.mb.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-10715">HIVE-10715</a> | <em>Major</em> | <strong>RAT failures - many files do not have ASF licenses</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this change.</strong></p>

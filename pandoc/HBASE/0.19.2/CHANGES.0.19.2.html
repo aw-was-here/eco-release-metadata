@@ -1,0 +1,239 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hbase-changelog">Apache HBase Changelog</h1>
+<h2 id="release-0.19.2---2009-05-09">Release 0.19.2 - 2009-05-09</h2>
+<h3 id="incompatible-changes">INCOMPATIBLE CHANGES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1292">HBASE-1292</a></td>
+<td align="left">php thrift's getRow() would throw an exception if the row does not exist</td>
+<td align="left">Minor</td>
+<td align="left">Thrift</td>
+<td align="left">Rong-En Fan</td>
+<td align="left">Rong-En Fan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1264">HBASE-1264</a></td>
+<td align="left">Wrong return values of comparators for ColumnValueFilter</td>
+<td align="left">Minor</td>
+<td align="left">Filters</td>
+<td align="left">Thomas Schneider</td>
+<td align="left">Clint Morgan</td>
+</tr>
+</tbody>
+</table>
+<h3 id="new-features">NEW FEATURES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1350">HBASE-1350</a></td>
+<td align="left">New method in HTable.java to return start and end keys for regions in a table</td>
+<td align="left">Major</td>
+<td align="left">master</td>
+<td align="left">Vimal Mathew</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1347">HBASE-1347</a></td>
+<td align="left">HTable.incrementColumnValue does not take negative 'amount'</td>
+<td align="left">Minor</td>
+<td align="left">Client</td>
+<td align="left">atppp</td>
+<td align="left">Evgeny Ryabitskiy</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1303">HBASE-1303</a></td>
+<td align="left">Secondary index configuration prevents HBase from starting</td>
+<td align="left">Major</td>
+<td align="left">regionserver</td>
+<td align="left">Ken Weiner</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1202">HBASE-1202</a></td>
+<td align="left">getRow does not always work when specifying number of versions</td>
+<td align="left">Major</td>
+<td align="left">regionserver</td>
+<td align="left">Jim Kellerman</td>
+<td align="left">Jim Kellerman</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1319">HBASE-1319</a></td>
+<td align="left">Bug in atomicIncrement 0.19.1 only</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">ryan rawson</td>
+<td align="left">ryan rawson</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1301">HBASE-1301</a></td>
+<td align="left">HTable.getRow() returns null if the row does no exist</td>
+<td align="left">Minor</td>
+<td align="left">Client, documentation</td>
+<td align="left">Rong-En Fan</td>
+<td align="left">Rong-En Fan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1287">HBASE-1287</a></td>
+<td align="left">Partitioner class not used in TableMapReduceUtil.initTableReduceJob()</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Lars George</td>
+<td align="left">Billy Pearson</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1365">HBASE-1365</a></td>
+<td align="left">Typo in TableInputFormatBase.setInputColums</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jonathan Gray</td>
+<td align="left">Jonathan Gray</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1318">HBASE-1318</a></td>
+<td align="left">Thrift server doesnt know about atomicIncrement</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">ryan rawson</td>
+<td align="left">Tim Sell</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1352">HBASE-1352</a></td>
+<td align="left">incrementColumnValue/Memcache bug</td>
+<td align="left">Major</td>
+<td align="left">regionserver</td>
+<td align="left">atppp</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1279">HBASE-1279</a></td>
+<td align="left">Fix the way hostnames and IPs are handled</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jean-Daniel Cryans</td>
+<td align="left">Jean-Daniel Cryans</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1368">HBASE-1368</a></td>
+<td align="left">HBASE-1279 broke the build</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jean-Daniel Cryans</td>
+<td align="left">Jean-Daniel Cryans</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1371">HBASE-1371</a></td>
+<td align="left">Generating the javadoc gives warnings in branch 0.19</td>
+<td align="left">Minor</td>
+<td align="left">documentation</td>
+<td align="left">Jean-Daniel Cryans</td>
+<td align="left">Jean-Daniel Cryans</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1372">HBASE-1372</a></td>
+<td align="left">TestGetRowVersions doesn't pass on 0.19 branch</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Jean-Daniel Cryans</td>
+<td align="left">Jean-Daniel Cryans</td>
+</tr>
+</tbody>
+</table>

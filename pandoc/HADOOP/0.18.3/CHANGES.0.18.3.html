@@ -1,0 +1,572 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hadoop-changelog">Apache Hadoop Changelog</h1>
+<h2 id="release-0.18.3---2009-01-29">Release 0.18.3 - 2009-01-29</h2>
+<h3 id="incompatible-changes">INCOMPATIBLE CHANGES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-4997">HADOOP-4997</a></td>
+<td align="left">workaround for tmp file handling on DataNodes in 0.18 (HADOOP-4663)</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Raghu Angadi</td>
+<td align="left">Raghu Angadi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-4659">HADOOP-4659</a></td>
+<td align="left">Root cause of connection failure is being lost to code that uses it for delaying startup</td>
+<td align="left">Blocker</td>
+<td align="left">ipc</td>
+<td align="left">Steve Loughran</td>
+<td align="left">Steve Loughran</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-4061">HADOOP-4061</a></td>
+<td align="left">Large number of decommission freezes the Namenode</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Koji Noguchi</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+</tr>
+</tbody>
+</table>
+<h3 id="new-features">NEW FEATURES:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-3780">HADOOP-3780</a></td>
+<td align="left">JobTracker should synchronously resolve the tasktracker's network location when the tracker registers</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Amar Kamat</td>
+<td align="left">Amar Kamat</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5077">HADOOP-5077</a></td>
+<td align="left">JavaDoc errors in 0.18.3</td>
+<td align="left">Blocker</td>
+<td align="left">util</td>
+<td align="left">Raghu Angadi</td>
+<td align="left">Raghu Angadi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-4983">HADOOP-4983</a></td>
+<td align="left">Job counters sometimes go down as tasks run without task failures</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Amareshwari Sriramadasu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-4971">HADOOP-4971</a></td>
+<td align="left">Block report times from datanodes could converge to same time.</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Raghu Angadi</td>
+<td align="left">Raghu Angadi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-4961">HADOOP-4961</a></td>
+<td align="left">ConcurrentModificationException in lease recovery of empty files.</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Konstantin Shvachko</td>
+<td align="left">Konstantin Shvachko</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-4951">HADOOP-4951</a></td>
+<td align="left">Lease monitor does not own the LeaseManager lock in changing leases.</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-4935">HADOOP-4935</a></td>
+<td align="left">Manual leaving of safe mode may lead to data lost</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Hairong Kuang</td>
+<td align="left">Konstantin Shvachko</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-4924">HADOOP-4924</a></td>
+<td align="left">Race condition in re-init of TaskTracker</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Devaraj Das</td>
+<td align="left">Devaraj Das</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-4919">HADOOP-4919</a></td>
+<td align="left">[HOD] Provide execute access to JT history directory path for group</td>
+<td align="left">Major</td>
+<td align="left">contrib/hod</td>
+<td align="left">Hemanth Yamijala</td>
+<td align="left">Peeyush Bishnoi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-4910">HADOOP-4910</a></td>
+<td align="left">NameNode should exclude corrupt replicas when choosing excessive replicas to delete</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Hairong Kuang</td>
+<td align="left">Hairong Kuang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-4904">HADOOP-4904</a></td>
+<td align="left">Deadlock while leaving safe mode.</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Konstantin Shvachko</td>
+<td align="left">Konstantin Shvachko</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-4840">HADOOP-4840</a></td>
+<td align="left">TestNodeCount sometimes fails with NullPointerException</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Hairong Kuang</td>
+<td align="left">Hairong Kuang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-4822">HADOOP-4822</a></td>
+<td align="left">0.18 cannot be compiled in Java 5.</td>
+<td align="left">Blocker</td>
+<td align="left">util</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-4810">HADOOP-4810</a></td>
+<td align="left">Data lost at cluster startup time</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Hairong Kuang</td>
+<td align="left">Hairong Kuang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-4806">HADOOP-4806</a></td>
+<td align="left">HDFS rename does not work correctly if src contains Java regular expression special characters</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-4797">HADOOP-4797</a></td>
+<td align="left">RPC Server can leave a lot of direct buffers</td>
+<td align="left">Blocker</td>
+<td align="left">ipc</td>
+<td align="left">Raghu Angadi</td>
+<td align="left">Raghu Angadi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-4795">HADOOP-4795</a></td>
+<td align="left">Lease monitor may get into an infinite loop</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-4778">HADOOP-4778</a></td>
+<td align="left">Check for zero size block meta file when updating a block.</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-4746">HADOOP-4746</a></td>
+<td align="left">Job output directory should be normalized</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Hairong Kuang</td>
+<td align="left">Hairong Kuang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-4742">HADOOP-4742</a></td>
+<td align="left">Mistake delete replica in hadoop 0.18.1</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Wang Xu</td>
+<td align="left">Wang Xu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-4734">HADOOP-4734</a></td>
+<td align="left">Some lease recovery codes in 0.19 or trunk should also be committed in 0.18.</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-4726">HADOOP-4726</a></td>
+<td align="left">documentation typos: &quot;the the&quot;</td>
+<td align="left">Minor</td>
+<td align="left">documentation</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+<td align="left">Edward J. Yoon</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-4717">HADOOP-4717</a></td>
+<td align="left">Removal of default port# in NameNode.getUri() cause a map/reduce job failed to prompt temporay output</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Hairong Kuang</td>
+<td align="left">Hairong Kuang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-4714">HADOOP-4714</a></td>
+<td align="left">map tasks timing out during merge phase</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Christian Kunz</td>
+<td align="left">Jothi Padmanabhan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-4713">HADOOP-4713</a></td>
+<td align="left">librecordio does not scale to large records</td>
+<td align="left">Blocker</td>
+<td align="left">record</td>
+<td align="left">Christian Kunz</td>
+<td align="left">Christian Kunz</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-4703">HADOOP-4703</a></td>
+<td align="left">DataNode.createInterDataNodeProtocolProxy should not wait for proxy forever while recovering lease</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Hairong Kuang</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-4702">HADOOP-4702</a></td>
+<td align="left">Failed block replication leaves an incomplete block in receiver's tmp data directory</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Hairong Kuang</td>
+<td align="left">Hairong Kuang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-4679">HADOOP-4679</a></td>
+<td align="left">Datanode prints tons of log messages: Waiting for threadgroup to exit, active theads is XX</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Hairong Kuang</td>
+<td align="left">Hairong Kuang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-4654">HADOOP-4654</a></td>
+<td align="left">remove temporary output directory of failed tasks</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Christian Kunz</td>
+<td align="left">Amareshwari Sriramadasu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-4647">HADOOP-4647</a></td>
+<td align="left">NamenodeFsck creates a new DFSClient but never closes it</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-4643">HADOOP-4643</a></td>
+<td align="left">NameNode should exclude excessive replicas when counting live replicas for a block</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Hairong Kuang</td>
+<td align="left">Hairong Kuang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-4635">HADOOP-4635</a></td>
+<td align="left">Memory leak ?</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Marc-Olivier Fleury</td>
+<td align="left">Pete Wyckoff</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-4620">HADOOP-4620</a></td>
+<td align="left">Streaming mapper never completes if the mapper does not write to stdout</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Runping Qi</td>
+<td align="left">Ravi Gummadi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-4616">HADOOP-4616</a></td>
+<td align="left">assertion makes fuse-dfs exit when reading incomplete data</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Marc-Olivier Fleury</td>
+<td align="left">Pete Wyckoff</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-4614">HADOOP-4614</a></td>
+<td align="left">&quot;Too many open files&quot; error while processing a large gzip file</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Abdul Qadeer</td>
+<td align="left">Yuri Pradkin</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-4613">HADOOP-4613</a></td>
+<td align="left">browseBlock.jsp does not generate &quot;genstamp&quot; property.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Konstantin Shvachko</td>
+<td align="left">Johan Oskarsson</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-4610">HADOOP-4610</a></td>
+<td align="left">Always calculate mis-replicated blocks when safe-mode is turned off.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Konstantin Shvachko</td>
+<td align="left">Konstantin Shvachko</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-4597">HADOOP-4597</a></td>
+<td align="left">Under-replicated blocks are not calculated if the name-node is forced out of safe-mode.</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Konstantin Shvachko</td>
+<td align="left">Konstantin Shvachko</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-4556">HADOOP-4556</a></td>
+<td align="left">Block went missing</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Robert Chansler</td>
+<td align="left">Hairong Kuang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-4542">HADOOP-4542</a></td>
+<td align="left">Fault in TestDistributedUpgrade</td>
+<td align="left">Minor</td>
+<td align="left">test</td>
+<td align="left">Robert Chansler</td>
+<td align="left">Raghu Angadi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-4499">HADOOP-4499</a></td>
+<td align="left">DFSClient should invoke checksumOk only once.</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Raghu Angadi</td>
+<td align="left">Raghu Angadi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-4257">HADOOP-4257</a></td>
+<td align="left">TestLeaseRecovery2.testBlockSynchronization failing.</td>
+<td align="left">Blocker</td>
+<td align="left">test</td>
+<td align="left">Vinod Kumar Vavilapalli</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-3883">HADOOP-3883</a></td>
+<td align="left">TestFileCreation fails once in a while</td>
+<td align="left">Blocker</td>
+<td align="left">test</td>
+<td align="left">Lohit Vijayarenu</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-3121">HADOOP-3121</a></td>
+<td align="left">dfs -lsr fail with &quot;Could not get listing &quot;</td>
+<td align="left">Minor</td>
+<td align="left">fs</td>
+<td align="left">Koji Noguchi</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-1980">HADOOP-1980</a></td>
+<td align="left">'dfsadmin -safemode enter' should prevent the namenode from leaving safemode automatically after startup</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Koji Noguchi</td>
+<td align="left">Konstantin Shvachko</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tests">TESTS:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="sub-tasks">SUB-TASKS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-4824">HADOOP-4824</a></td>
+<td align="left">Should not use File.setWritable(..) in 0.18</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+<td align="left">Hairong Kuang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-4823">HADOOP-4823</a></td>
+<td align="left">Should not use java.util.NavigableMap in 0.18</td>
+<td align="left">Major</td>
+<td align="left">util</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+</tr>
+</tbody>
+</table>
+<h3 id="other">OTHER:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-4150">HADOOP-4150</a></td>
+<td align="left">Include librecordio as part of the release</td>
+<td align="left">Blocker</td>
+<td align="left">build</td>
+<td align="left">Koji Noguchi</td>
+<td align="left">Giridharan Kesavan</td>
+</tr>
+</tbody>
+</table>

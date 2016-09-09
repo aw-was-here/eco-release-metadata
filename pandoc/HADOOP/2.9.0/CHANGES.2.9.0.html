@@ -1,0 +1,3708 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hadoop-changelog">Apache Hadoop Changelog</h1>
+<h2 id="release-2.9.0---unreleased-as-of-2016-09-08">Release 2.9.0 - Unreleased (as of 2016-09-08)</h2>
+<h3 id="incompatible-changes">INCOMPATIBLE CHANGES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4784">YARN-4784</a></td>
+<td align="left">Fairscheduler: defaultQueueSchedulingPolicy should not accept FIFO</td>
+<td align="left">Major</td>
+<td align="left">fairscheduler</td>
+<td align="left">Yufei Gu</td>
+<td align="left">Yufei Gu</td>
+</tr>
+</tbody>
+</table>
+<h3 id="new-features">NEW FEATURES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-12321">HADOOP-12321</a></td>
+<td align="left">Make JvmPauseMonitor an AbstractService</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Steve Loughran</td>
+<td align="left">Sunil G</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-9525">HDFS-9525</a></td>
+<td align="left">hadoop utilities need to support provided delegation tokens</td>
+<td align="left">Blocker</td>
+<td align="left">security</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">HeeSoo Kim</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-12702">HADOOP-12702</a></td>
+<td align="left">Add an HDFS metrics sink</td>
+<td align="left">Major</td>
+<td align="left">metrics</td>
+<td align="left">Daniel Templeton</td>
+<td align="left">Daniel Templeton</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-12847">HADOOP-12847</a></td>
+<td align="left">hadoop daemonlog should support https and SPNEGO for Kerberized cluster</td>
+<td align="left">Major</td>
+<td align="left">security</td>
+<td align="left">Wei-Chiu Chuang</td>
+<td align="left">Wei-Chiu Chuang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-12747">HADOOP-12747</a></td>
+<td align="left">support wildcard in libjars argument</td>
+<td align="left">Major</td>
+<td align="left">util</td>
+<td align="left">Sangjin Lee</td>
+<td align="left">Sangjin Lee</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-9804">HDFS-9804</a></td>
+<td align="left">Allow long-running Balancer to login with keytab</td>
+<td align="left">Major</td>
+<td align="left">balancer &amp; mover, security</td>
+<td align="left">Xiao Chen</td>
+<td align="left">Xiao Chen</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-6690">MAPREDUCE-6690</a></td>
+<td align="left">Limit the number of resources a single map reduce job can submit for localization</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Chris Trezzo</td>
+<td align="left">Chris Trezzo</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-13396">HADOOP-13396</a></td>
+<td align="left">Allow pluggable audit loggers in KMS</td>
+<td align="left">Major</td>
+<td align="left">kms</td>
+<td align="left">Xiao Chen</td>
+<td align="left">Xiao Chen</td>
+</tr>
+</tbody>
+</table>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-9267">HDFS-9267</a></td>
+<td align="left">TestDiskError should get stored replicas through FsDatasetTestUtils.</td>
+<td align="left">Minor</td>
+<td align="left">test</td>
+<td align="left">Lei (Eddy) Xu</td>
+<td align="left">Lei (Eddy) Xu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-9491">HDFS-9491</a></td>
+<td align="left">Tests should get the number of pending async delets via FsDatasetTestUtils</td>
+<td align="left">Minor</td>
+<td align="left">test</td>
+<td align="left">Tony Wu</td>
+<td align="left">Tony Wu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-12625">HADOOP-12625</a></td>
+<td align="left">Add a config to disable the /logs endpoints</td>
+<td align="left">Major</td>
+<td align="left">security</td>
+<td align="left">Robert Kanter</td>
+<td align="left">Robert Kanter</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4341">YARN-4341</a></td>
+<td align="left">add doc about timeline performance tool usage</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Chang Li</td>
+<td align="left">Chang Li</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-9281">HDFS-9281</a></td>
+<td align="left">Change TestDeleteBlockPool to not explicitly use File to check block pool existence.</td>
+<td align="left">Minor</td>
+<td align="left">test</td>
+<td align="left">Lei (Eddy) Xu</td>
+<td align="left">Lei (Eddy) Xu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-8477">HDFS-8477</a></td>
+<td align="left">describe dfs.ha.zkfc.port in hdfs-default.xml</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Kanaka Kumar Avvaru</td>
+<td align="left">Kanaka Kumar Avvaru</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-9350">HDFS-9350</a></td>
+<td align="left">Avoid creating temprorary strings in Block.toString() and getBlockName()</td>
+<td align="left">Minor</td>
+<td align="left">performance</td>
+<td align="left">Staffan Friberg</td>
+<td align="left">Staffan Friberg</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-12566">HADOOP-12566</a></td>
+<td align="left">Add NullGroupMapping</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Daniel Templeton</td>
+<td align="left">Daniel Templeton</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-2934">YARN-2934</a></td>
+<td align="left">Improve handling of container's stderr</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Gera Shegalov</td>
+<td align="left">Naganarasimha G R</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-12663">HADOOP-12663</a></td>
+<td align="left">Remove Hard-Coded Values From FileSystem.java</td>
+<td align="left">Trivial</td>
+<td align="left">fs</td>
+<td align="left">BELUGA BEHR</td>
+<td align="left">BELUGA BEHR</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4438">YARN-4438</a></td>
+<td align="left">Implement RM leader election with curator</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jian He</td>
+<td align="left">Jian He</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-12683">HADOOP-12683</a></td>
+<td align="left">Add number of samples in last interval in snapshot of MutableStat</td>
+<td align="left">Minor</td>
+<td align="left">metrics</td>
+<td align="left">Vikram Srivastava</td>
+<td align="left">Vikram Srivastava</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8887">HADOOP-8887</a></td>
+<td align="left">Use a Maven plugin to build the native code using CMake</td>
+<td align="left">Minor</td>
+<td align="left">build</td>
+<td align="left">Colin P. McCabe</td>
+<td align="left">Colin P. McCabe</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-12713">HADOOP-12713</a></td>
+<td align="left">Disable spurious checkstyle checks</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Andrew Wang</td>
+<td align="left">Andrew Wang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-12662">HADOOP-12662</a></td>
+<td align="left">The build should fail if a -Dbundle option fails</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Kai Zheng</td>
+<td align="left">Kai Zheng</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-9576">HDFS-9576</a></td>
+<td align="left">HTrace: collect position/length information on read operations</td>
+<td align="left">Major</td>
+<td align="left">hdfs-client, tracing</td>
+<td align="left">Zhe Zhang</td>
+<td align="left">Zhe Zhang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4603">YARN-4603</a></td>
+<td align="left">FairScheduler should mention user requested queuename in error message when failed in queue ACL check</td>
+<td align="left">Trivial</td>
+<td align="left">fairscheduler</td>
+<td align="left">Tao Jie</td>
+<td align="left">Tao Jie</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-9674">HDFS-9674</a></td>
+<td align="left">The HTrace span for OpWriteBlock should record the maxWriteToDisk time</td>
+<td align="left">Major</td>
+<td align="left">datanode, tracing</td>
+<td align="left">Colin P. McCabe</td>
+<td align="left">Colin P. McCabe</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4496">YARN-4496</a></td>
+<td align="left">Improve HA ResourceManager Failover detection on the client</td>
+<td align="left">Major</td>
+<td align="left">client, resourcemanager</td>
+<td align="left">Arun Suresh</td>
+<td align="left">Jian He</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-3542">YARN-3542</a></td>
+<td align="left">Re-factor support for CPU as a resource using the new ResourceHandler mechanism</td>
+<td align="left">Critical</td>
+<td align="left">nodemanager</td>
+<td align="left">Sidharta Seethana</td>
+<td align="left">Varun Vasudev</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-9541">HDFS-9541</a></td>
+<td align="left">Add hdfsStreamBuilder API to libhdfs to support defaultBlockSizes greater than 2 GB</td>
+<td align="left">Major</td>
+<td align="left">libhdfs</td>
+<td align="left">Colin P. McCabe</td>
+<td align="left">Colin P. McCabe</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4462">YARN-4462</a></td>
+<td align="left">FairScheduler: Disallow preemption from a queue</td>
+<td align="left">Major</td>
+<td align="left">fairscheduler</td>
+<td align="left">Tao Jie</td>
+<td align="left">Tao Jie</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-9677">HDFS-9677</a></td>
+<td align="left">Rename generationStampV1/generationStampV2 to legacyGenerationStamp/generationStamp</td>
+<td align="left">Minor</td>
+<td align="left">namenode</td>
+<td align="left">Jing Zhao</td>
+<td align="left">Mingliang Liu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-6431">MAPREDUCE-6431</a></td>
+<td align="left">JobClient should be an AutoClosable</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">André Kelpe</td>
+<td align="left">Haibo Chen</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-7764">HDFS-7764</a></td>
+<td align="left">DirectoryScanner shouldn't abort the scan if one directory had an error</td>
+<td align="left">Major</td>
+<td align="left">datanode</td>
+<td align="left">Rakesh R</td>
+<td align="left">Rakesh R</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4647">YARN-4647</a></td>
+<td align="left">Make RegisterNodeManagerRequestPBImpl thread-safe</td>
+<td align="left">Major</td>
+<td align="left">nodemanager</td>
+<td align="left">Karthik Kambatla</td>
+<td align="left">Karthik Kambatla</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4649">YARN-4649</a></td>
+<td align="left">Add additional logging to some NM state store operations</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Sidharta Seethana</td>
+<td align="left">Sidharta Seethana</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-12759">HADOOP-12759</a></td>
+<td align="left">RollingFileSystemSink should eagerly rotate directories</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Daniel Templeton</td>
+<td align="left">Daniel Templeton</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4628">YARN-4628</a></td>
+<td align="left">Display application priority in yarn top</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Bibin A Chundatt</td>
+<td align="left">Bibin A Chundatt</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4655">YARN-4655</a></td>
+<td align="left">Log uncaught exceptions/errors in various thread pools in YARN</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sidharta Seethana</td>
+<td align="left">Sidharta Seethana</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-9637">HDFS-9637</a></td>
+<td align="left">Tests for RollingFileSystemSink</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Daniel Templeton</td>
+<td align="left">Daniel Templeton</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4569">YARN-4569</a></td>
+<td align="left">Remove incorrect part of maxResources in FairScheduler documentation</td>
+<td align="left">Major</td>
+<td align="left">documentation</td>
+<td align="left">Ray Chiang</td>
+<td align="left">Ray Chiang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4690">YARN-4690</a></td>
+<td align="left">Skip object allocation in FSAppAttempt#getResourceUsage when possible</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ming Ma</td>
+<td align="left">Ming Ma</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-6634">MAPREDUCE-6634</a></td>
+<td align="left">Log uncaught exceptions/errors in various thread pools in mapreduce</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sidharta Seethana</td>
+<td align="left">Sidharta Seethana</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-12817">HADOOP-12817</a></td>
+<td align="left">Enable TLS v1.1 and 1.2</td>
+<td align="left">Major</td>
+<td align="left">security</td>
+<td align="left">Robert Kanter</td>
+<td align="left">Robert Kanter</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-6627">MAPREDUCE-6627</a></td>
+<td align="left">Add machine-readable output to mapred job -history command</td>
+<td align="left">Major</td>
+<td align="left">client</td>
+<td align="left">Robert Kanter</td>
+<td align="left">Robert Kanter</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4708">YARN-4708</a></td>
+<td align="left">Missing default mapper type in TimelineServer performance test tool usage</td>
+<td align="left">Minor</td>
+<td align="left">timelineserver</td>
+<td align="left">Kai Sasaki</td>
+<td align="left">Kai Sasaki</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-12829">HADOOP-12829</a></td>
+<td align="left">StatisticsDataReferenceCleaner swallows interrupt exceptions</td>
+<td align="left">Minor</td>
+<td align="left">fs</td>
+<td align="left">Gregory Chanan</td>
+<td align="left">Gregory Chanan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-6640">MAPREDUCE-6640</a></td>
+<td align="left">mapred job -history command should be able to take Job ID</td>
+<td align="left">Major</td>
+<td align="left">client</td>
+<td align="left">Robert Kanter</td>
+<td align="left">Robert Kanter</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4697">YARN-4697</a></td>
+<td align="left">NM aggregation thread pool is not bound by limits</td>
+<td align="left">Critical</td>
+<td align="left">nodemanager</td>
+<td align="left">Haibo Chen</td>
+<td align="left">Haibo Chen</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4579">YARN-4579</a></td>
+<td align="left">Allow DefaultContainerExecutor container log directory permissions to be configurable</td>
+<td align="left">Major</td>
+<td align="left">yarn</td>
+<td align="left">Ray Chiang</td>
+<td align="left">Ray Chiang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4720">YARN-4720</a></td>
+<td align="left">Skip unnecessary NN operations in log aggregation</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ming Ma</td>
+<td align="left">Jun Gong</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-12841">HADOOP-12841</a></td>
+<td align="left">Update s3-related properties in core-default.xml</td>
+<td align="left">Minor</td>
+<td align="left">fs/s3</td>
+<td align="left">Wei-Chiu Chuang</td>
+<td align="left">Wei-Chiu Chuang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-6622">MAPREDUCE-6622</a></td>
+<td align="left">Add capability to set JHS job cache to a task-based limit</td>
+<td align="left">Critical</td>
+<td align="left">jobhistoryserver</td>
+<td align="left">Ray Chiang</td>
+<td align="left">Ray Chiang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4718">YARN-4718</a></td>
+<td align="left">Rename variables in SchedulerNode to reduce ambiguity post YARN-1011</td>
+<td align="left">Major</td>
+<td align="left">scheduler</td>
+<td align="left">Karthik Kambatla</td>
+<td align="left">Inigo Goiri</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-12859">HADOOP-12859</a></td>
+<td align="left">Disable hiding field style checks in class setters</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Kai Zheng</td>
+<td align="left">Kai Zheng</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-9521">HDFS-9521</a></td>
+<td align="left">TransferFsImage.receiveFile should account and log separate times for image download and fsync to disk</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Wellington Chevreuil</td>
+<td align="left">Wellington Chevreuil</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-11404">HADOOP-11404</a></td>
+<td align="left">Clarify the &quot;expected client Kerberos principal is null&quot; authorization message</td>
+<td align="left">Minor</td>
+<td align="left">security</td>
+<td align="left">Stephen Chu</td>
+<td align="left">Stephen Chu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4719">YARN-4719</a></td>
+<td align="left">Add a helper library to maintain node state and allows common queries</td>
+<td align="left">Major</td>
+<td align="left">scheduler</td>
+<td align="left">Karthik Kambatla</td>
+<td align="left">Karthik Kambatla</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-9928">HDFS-9928</a></td>
+<td align="left">Make HDFS commands guide up to date</td>
+<td align="left">Major</td>
+<td align="left">documentation</td>
+<td align="left">Wei-Chiu Chuang</td>
+<td align="left">Wei-Chiu Chuang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4560">YARN-4560</a></td>
+<td align="left">Make scheduler error checking message more user friendly</td>
+<td align="left">Trivial</td>
+<td align="left">yarn</td>
+<td align="left">Ray Chiang</td>
+<td align="left">Ray Chiang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-9579">HDFS-9579</a></td>
+<td align="left">Provide bytes-read-by-network-distance metrics at FileSystem.Statistics level</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ming Ma</td>
+<td align="left">Ming Ma</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4732">YARN-4732</a></td>
+<td align="left">*ProcessTree classes have too many whitespace issues</td>
+<td align="left">Trivial</td>
+<td align="left">.</td>
+<td align="left">Karthik Kambatla</td>
+<td align="left">Gabor Liptak</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-12952">HADOOP-12952</a></td>
+<td align="left">/BUILDING example of zero-docs dist should skip javadocs</td>
+<td align="left">Trivial</td>
+<td align="left">build, documentation</td>
+<td align="left">Steve Loughran</td>
+<td align="left">Steve Loughran</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4436">YARN-4436</a></td>
+<td align="left">DistShell ApplicationMaster.ExecBatScripStringtPath is misspelled</td>
+<td align="left">Trivial</td>
+<td align="left">applications/distributed-shell</td>
+<td align="left">Daniel Templeton</td>
+<td align="left">Matt LaMantia</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4884">YARN-4884</a></td>
+<td align="left">Fix missing documentation about rmadmin command regarding node labels</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Kai Sasaki</td>
+<td align="left">Kai Sasaki</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4607">YARN-4607</a></td>
+<td align="left">Pagination support for AppAttempt page TotalOutstandingResource Requests table</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Bibin A Chundatt</td>
+<td align="left">Bibin A Chundatt</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4769">YARN-4769</a></td>
+<td align="left">Add support for CSRF header in the dump capacity scheduler logs and kill app buttons in RM web UI</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Varun Vasudev</td>
+<td align="left">Varun Vasudev</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-12984">HADOOP-12984</a></td>
+<td align="left">Add GenericTestUtils.getTestDir method and use it for temporary directory in tests</td>
+<td align="left">Major</td>
+<td align="left">build, test</td>
+<td align="left">Steve Loughran</td>
+<td align="left">Steve Loughran</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4541">YARN-4541</a></td>
+<td align="left">Change log message in LocalizedResource#handle() to DEBUG</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Ray Chiang</td>
+<td align="left">Ray Chiang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-1297">YARN-1297</a></td>
+<td align="left">FairScheduler: Move some logs to debug and check if debug logging is enabled</td>
+<td align="left">Major</td>
+<td align="left">fairscheduler</td>
+<td align="left">Sandy Ryza</td>
+<td align="left">Yufei Gu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-3702">HDFS-3702</a></td>
+<td align="left">Add an option for NOT writing the blocks locally if there is a datanode on the same box as the client</td>
+<td align="left">Minor</td>
+<td align="left">hdfs-client</td>
+<td align="left">Nicolas Liochon</td>
+<td align="left">Lei (Eddy) Xu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5003">YARN-5003</a></td>
+<td align="left">Add container resource to RM audit log</td>
+<td align="left">Major</td>
+<td align="left">resourcemanager, scheduler</td>
+<td align="left">Nathan Roberts</td>
+<td align="left">Nathan Roberts</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-13068">HADOOP-13068</a></td>
+<td align="left">Clean up RunJar and related test class</td>
+<td align="left">Trivial</td>
+<td align="left">util</td>
+<td align="left">Andras Bokor</td>
+<td align="left">Andras Bokor</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4577">YARN-4577</a></td>
+<td align="left">Enable aux services to have their own custom classpath/jar file</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Xuan Gong</td>
+<td align="left">Xuan Gong</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5053">YARN-5053</a></td>
+<td align="left">More informative diagnostics when applications killed by a user</td>
+<td align="left">Major</td>
+<td align="left">resourcemanager</td>
+<td align="left">Jason Lowe</td>
+<td align="left">Eric Badger</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-12971">HADOOP-12971</a></td>
+<td align="left">FileSystemShell doc should explain relative path</td>
+<td align="left">Critical</td>
+<td align="left">documentation</td>
+<td align="left">John Zhuge</td>
+<td align="left">John Zhuge</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-6686">MAPREDUCE-6686</a></td>
+<td align="left">Add a way to download the job config from the mapred CLI</td>
+<td align="left">Major</td>
+<td align="left">client</td>
+<td align="left">Robert Kanter</td>
+<td align="left">Robert Kanter</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-6696">MAPREDUCE-6696</a></td>
+<td align="left">Add a configuration to limit the number of map tasks allowed per job.</td>
+<td align="left">Major</td>
+<td align="left">job submission</td>
+<td align="left">zhihai xu</td>
+<td align="left">zhihai xu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4878">YARN-4878</a></td>
+<td align="left">Expose scheduling policy and max running apps over JMX for Yarn queues</td>
+<td align="left">Major</td>
+<td align="left">yarn</td>
+<td align="left">Yufei Gu</td>
+<td align="left">Yufei Gu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-9782">HDFS-9782</a></td>
+<td align="left">RollingFileSystemSink should have configurable roll interval</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Daniel Templeton</td>
+<td align="left">Daniel Templeton</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-13160">HADOOP-13160</a></td>
+<td align="left">Suppress checkstyle JavadocPackage check for test source</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">John Zhuge</td>
+<td align="left">John Zhuge</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4766">YARN-4766</a></td>
+<td align="left">NM should not aggregate logs older than the retention policy</td>
+<td align="left">Major</td>
+<td align="left">log-aggregation, nodemanager</td>
+<td align="left">Haibo Chen</td>
+<td align="left">Haibo Chen</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-12291">HADOOP-12291</a></td>
+<td align="left">Add support for nested groups in LdapGroupsMapping</td>
+<td align="left">Major</td>
+<td align="left">security</td>
+<td align="left">Gautam Gopalakrishnan</td>
+<td align="left">Esther Kundin</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-7541">HDFS-7541</a></td>
+<td align="left">Upgrade Domains in HDFS</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ming Ma</td>
+<td align="left">Ming Ma</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-10256">HDFS-10256</a></td>
+<td align="left">Use GenericTestUtils.getTestDir method in tests for temporary directories</td>
+<td align="left">Major</td>
+<td align="left">build, test</td>
+<td align="left">Vinayakumar B</td>
+<td align="left">Vinayakumar B</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5083">YARN-5083</a></td>
+<td align="left">YARN CLI for AM logs does not give any error message if entered invalid am value</td>
+<td align="left">Major</td>
+<td align="left">yarn</td>
+<td align="left">Sumana Sathish</td>
+<td align="left">Jian He</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5082">YARN-5082</a></td>
+<td align="left">Limit ContainerId increase in fair scheduler if the num of node app reserved reached the limit</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">sandflee</td>
+<td align="left">sandflee</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4958">YARN-4958</a></td>
+<td align="left">The file localization process should allow for wildcards to reduce the application footprint in the state store</td>
+<td align="left">Critical</td>
+<td align="left">nodemanager</td>
+<td align="left">Daniel Templeton</td>
+<td align="left">Daniel Templeton</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-6719">MAPREDUCE-6719</a></td>
+<td align="left">The list of -libjars archives should be replaced with a wildcard in the distributed cache to reduce the application footprint in the state store</td>
+<td align="left">Critical</td>
+<td align="left">distributed-cache</td>
+<td align="left">Daniel Templeton</td>
+<td align="left">Daniel Templeton</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-6721">MAPREDUCE-6721</a></td>
+<td align="left">mapreduce.reduce.shuffle.memory.limit.percent=0.0 should be legal to enforce shuffle to disk</td>
+<td align="left">Major</td>
+<td align="left">mrv2, task</td>
+<td align="left">Gera Shegalov</td>
+<td align="left">Gera Shegalov</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-10568">HDFS-10568</a></td>
+<td align="left">Reuse ObjectMapper instance in CombinedHostsFileReader and CombinedHostsFileWriter</td>
+<td align="left">Major</td>
+<td align="left">hdfs-client</td>
+<td align="left">Yiqun Lin</td>
+<td align="left">Yiqun Lin</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-13337">HADOOP-13337</a></td>
+<td align="left">Update maven-enforcer-plugin version to 1.4.1</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Tsuyoshi Ozawa</td>
+<td align="left">Tsuyoshi Ozawa</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4568">YARN-4568</a></td>
+<td align="left">Fix message when NodeManager runs into errors initializing the recovery directory</td>
+<td align="left">Major</td>
+<td align="left">yarn</td>
+<td align="left">Ray Chiang</td>
+<td align="left">Ray Chiang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-6717">MAPREDUCE-6717</a></td>
+<td align="left">Remove deprecated StringUtils.getFormattedTimeWithDiff</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Akira Ajisaka</td>
+<td align="left">Shen Yinjie</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-10387">HDFS-10387</a></td>
+<td align="left">DataTransferProtocol#writeBlock missing some javadocs</td>
+<td align="left">Minor</td>
+<td align="left">datanode, hdfs</td>
+<td align="left">Yongjun Zhang</td>
+<td align="left">John Zhuge</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5339">YARN-5339</a></td>
+<td align="left">passing file to -out for YARN log CLI doesnt give warning or error code</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sumana Sathish</td>
+<td align="left">Xuan Gong</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-13290">HADOOP-13290</a></td>
+<td align="left">Appropriate use of generics in FairCallQueue</td>
+<td align="left">Major</td>
+<td align="left">ipc</td>
+<td align="left">Konstantin Shvachko</td>
+<td align="left">Jonathan Hung</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5303">YARN-5303</a></td>
+<td align="left">Clean up ContainerExecutor JavaDoc</td>
+<td align="left">Minor</td>
+<td align="left">nodemanager</td>
+<td align="left">Daniel Templeton</td>
+<td align="left">Daniel Templeton</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-6652">MAPREDUCE-6652</a></td>
+<td align="left">Add configuration property to prevent JHS from loading jobs with a task count greater than X</td>
+<td align="left">Major</td>
+<td align="left">jobhistoryserver</td>
+<td align="left">Haibo Chen</td>
+<td align="left">Haibo Chen</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5181">YARN-5181</a></td>
+<td align="left">ClusterNodeTracker: add method to get list of nodes matching a specific resourceName</td>
+<td align="left">Major</td>
+<td align="left">scheduler</td>
+<td align="left">Karthik Kambatla</td>
+<td align="left">Karthik Kambatla</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4996">YARN-4996</a></td>
+<td align="left">Make TestNMReconnect.testCompareRMNodeAfterReconnect() scheduler agnostic, or better yet parameterized</td>
+<td align="left">Minor</td>
+<td align="left">resourcemanager, test</td>
+<td align="left">Daniel Templeton</td>
+<td align="left">Kai Sasaki</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-6365">MAPREDUCE-6365</a></td>
+<td align="left">Refactor JobResourceUploader#uploadFilesInternal</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Chris Trezzo</td>
+<td align="left">Chris Trezzo</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-13354">HADOOP-13354</a></td>
+<td align="left">Update WASB driver to use the latest version (4.2.0) of SDK for Microsoft Azure Storage Clients</td>
+<td align="left">Major</td>
+<td align="left">fs/azure</td>
+<td align="left">Sivaguru Sankaridurg</td>
+<td align="left">Sivaguru Sankaridurg</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5460">YARN-5460</a></td>
+<td align="left">Change container runtime type logging in DelegatingLinuxContainerRuntime to debug</td>
+<td align="left">Trivial</td>
+<td align="left">yarn</td>
+<td align="left">Shane Kumpf</td>
+<td align="left">Shane Kumpf</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-13458">HADOOP-13458</a></td>
+<td align="left">LoadBalancingKMSClientProvider#doOp should log IOException stacktrace</td>
+<td align="left">Trivial</td>
+<td align="left">kms</td>
+<td align="left">Wei-Chiu Chuang</td>
+<td align="left">Chen Liang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-6748">MAPREDUCE-6748</a></td>
+<td align="left">Enhance logging for Cluster.java around InetSocketAddress</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">sarun singla</td>
+<td align="left">Vrushali C</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4910">YARN-4910</a></td>
+<td align="left">Fix incomplete log info in ResourceLocalizationService</td>
+<td align="left">Trivial</td>
+<td align="left">.</td>
+<td align="left">Jun Gong</td>
+<td align="left">Jun Gong</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-13380">HADOOP-13380</a></td>
+<td align="left">TestBasicDiskValidator should not write data to /tmp</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Lei (Eddy) Xu</td>
+<td align="left">Yufei Gu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-6741">MAPREDUCE-6741</a></td>
+<td align="left">add MR support to redact job conf properties</td>
+<td align="left">Major</td>
+<td align="left">mrv2</td>
+<td align="left">Haibo Chen</td>
+<td align="left">Haibo Chen</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-6751">MAPREDUCE-6751</a></td>
+<td align="left">Add debug log message when splitting is not possible due to unsplittable compression</td>
+<td align="left">Minor</td>
+<td align="left">client, mrv1, mrv2</td>
+<td align="left">Peter Vary</td>
+<td align="left">Peter Vary</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5455">YARN-5455</a></td>
+<td align="left">Update Javadocs for LinuxContainerExecutor</td>
+<td align="left">Major</td>
+<td align="left">nodemanager</td>
+<td align="left">Daniel Templeton</td>
+<td align="left">Daniel Templeton</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4702">YARN-4702</a></td>
+<td align="left">FairScheduler: Allow setting maxResources for ad hoc queues</td>
+<td align="left">Major</td>
+<td align="left">fairscheduler</td>
+<td align="left">Karthik Kambatla</td>
+<td align="left">Daniel Templeton</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-10645">HDFS-10645</a></td>
+<td align="left">Make block report size as a metric and add this metric to datanode web ui</td>
+<td align="left">Major</td>
+<td align="left">datanode, ui</td>
+<td align="left">Yuanbo Liu</td>
+<td align="left">Yuanbo Liu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4491">YARN-4491</a></td>
+<td align="left">yarn list command to support filtering by tags</td>
+<td align="left">Minor</td>
+<td align="left">client</td>
+<td align="left">Steve Loughran</td>
+<td align="left">Varun Saxena</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-10798">HDFS-10798</a></td>
+<td align="left">Make the threshold of reporting FSNamesystem lock contention configurable</td>
+<td align="left">Major</td>
+<td align="left">logging, namenode</td>
+<td align="left">Zhe Zhang</td>
+<td align="left">Erik Krogen</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-10784">HDFS-10784</a></td>
+<td align="left">Implement WebHdfsFileSystem#listStatusIterator</td>
+<td align="left">Major</td>
+<td align="left">webhdfs</td>
+<td align="left">Andrew Wang</td>
+<td align="left">Andrew Wang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-10822">HDFS-10822</a></td>
+<td align="left">Log DataNodes in the write pipeline</td>
+<td align="left">Trivial</td>
+<td align="left">hdfs-client</td>
+<td align="left">John Zhuge</td>
+<td align="left">John Zhuge</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5616">YARN-5616</a></td>
+<td align="left">Clean up WeightAdjuster</td>
+<td align="left">Major</td>
+<td align="left">fairscheduler</td>
+<td align="left">Yufei Gu</td>
+<td align="left">Yufei Gu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-10778">HDFS-10778</a></td>
+<td align="left">Add -format option to make the output of FileDistribution processor human-readable in OfflineImageViewer</td>
+<td align="left">Major</td>
+<td align="left">tools</td>
+<td align="left">Yiqun Lin</td>
+<td align="left">Yiqun Lin</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7256">HADOOP-7256</a></td>
+<td align="left">Resource leak during failure scenario of closing of resources.</td>
+<td align="left">Minor</td>
+<td align="left">util</td>
+<td align="left">ramkrishna.s.vasudevan</td>
+<td align="left">ramkrishna.s.vasudevan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4156">YARN-4156</a></td>
+<td align="left">TestAMRestart#testAMBlacklistPreventsRestartOnSameNode assumes CapacityScheduler</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Anubhav Dhoot</td>
+<td align="left">Anubhav Dhoot</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4417">YARN-4417</a></td>
+<td align="left">Make RM and Timeline-server REST APIs more consistent</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Wangda Tan</td>
+<td align="left">Wangda Tan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4522">YARN-4522</a></td>
+<td align="left">Queue acl can be checked at app submission</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jian He</td>
+<td align="left">Jian He</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4530">YARN-4530</a></td>
+<td align="left">LocalizedResource trigger a NPE Cause the NodeManager exit</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">tangshangwen</td>
+<td align="left">tangshangwen</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-6577">MAPREDUCE-6577</a></td>
+<td align="left">MR AM unable to load native library without MR_AM_ADMIN_USER_ENV set</td>
+<td align="left">Critical</td>
+<td align="left">mr-am</td>
+<td align="left">Sangjin Lee</td>
+<td align="left">Sangjin Lee</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-12655">HADOOP-12655</a></td>
+<td align="left">TestHttpServer.testBindAddress bind port range is wider than expected</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Wei-Chiu Chuang</td>
+<td align="left">Wei-Chiu Chuang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-12573">HADOOP-12573</a></td>
+<td align="left">TestRPC.testClientBackOff failing</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Steve Loughran</td>
+<td align="left">Xiao Chen</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4567">YARN-4567</a></td>
+<td align="left">javadoc failing on java 8</td>
+<td align="left">Blocker</td>
+<td align="left">build</td>
+<td align="left">Steve Loughran</td>
+<td align="left">Steve Loughran</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-12653">HADOOP-12653</a></td>
+<td align="left">Use SO_REUSEADDR to avoid getting &quot;Address already in use&quot; when using kerberos and attempting to bind to any port on the local IP address</td>
+<td align="left">Major</td>
+<td align="left">net</td>
+<td align="left">Colin P. McCabe</td>
+<td align="left">Colin P. McCabe</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4571">YARN-4571</a></td>
+<td align="left">Make app id/name available to the yarn authorizer provider for better auditing</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jian He</td>
+<td align="left">Jian He</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4551">YARN-4551</a></td>
+<td align="left">Address the duplication between StatusUpdateWhenHealthy and StatusUpdateWhenUnhealthy transitions</td>
+<td align="left">Minor</td>
+<td align="left">nodemanager</td>
+<td align="left">Karthik Kambatla</td>
+<td align="left">Sunil G</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-9517">HDFS-9517</a></td>
+<td align="left">Fix missing @Test annotation on TestDistCpUtils.testUnpackAttributes</td>
+<td align="left">Trivial</td>
+<td align="left">distcp</td>
+<td align="left">Wei-Chiu Chuang</td>
+<td align="left">Wei-Chiu Chuang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-9624">HDFS-9624</a></td>
+<td align="left">DataNode start slowly due to the initial DU command operations</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Yiqun Lin</td>
+<td align="left">Yiqun Lin</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-12712">HADOOP-12712</a></td>
+<td align="left">Fix some cmake plugin and native build warnings</td>
+<td align="left">Minor</td>
+<td align="left">native</td>
+<td align="left">Colin P. McCabe</td>
+<td align="left">Colin P. McCabe</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4559">YARN-4559</a></td>
+<td align="left">Make leader elector and zk store share the same curator client</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jian He</td>
+<td align="left">Jian He</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4611">YARN-4611</a></td>
+<td align="left">Fix scheduler load simulator to support multi-layer network location</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ming Ma</td>
+<td align="left">Ming Ma</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-12605">HADOOP-12605</a></td>
+<td align="left">Fix intermittent failure of TestIPC.testIpcWithReaderQueuing</td>
+<td align="left">Minor</td>
+<td align="left">test</td>
+<td align="left">Masatake Iwasaki</td>
+<td align="left">Masatake Iwasaki</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4584">YARN-4584</a></td>
+<td align="left">RM startup failure when AM attempts greater than max-attempts</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Bibin A Chundatt</td>
+<td align="left">Bibin A Chundatt</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-9618">HDFS-9618</a></td>
+<td align="left">Fix mismatch between log level and guard in BlockManager#computeRecoveryWorkForBlocks</td>
+<td align="left">Minor</td>
+<td align="left">namenode</td>
+<td align="left">Masatake Iwasaki</td>
+<td align="left">Masatake Iwasaki</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4497">YARN-4497</a></td>
+<td align="left">RM might fail to restart when recovering apps whose attempts are missing</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Jun Gong</td>
+<td align="left">Jun Gong</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4612">YARN-4612</a></td>
+<td align="left">Fix rumen and scheduler load simulator handle killed tasks properly</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ming Ma</td>
+<td align="left">Ming Ma</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-6620">MAPREDUCE-6620</a></td>
+<td align="left">Jobs that did not start are shown as starting in 1969 in the JHS web UI</td>
+<td align="left">Major</td>
+<td align="left">jobhistoryserver</td>
+<td align="left">Daniel Templeton</td>
+<td align="left">Haibo Chen</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4625">YARN-4625</a></td>
+<td align="left">Make ApplicationSubmissionContext and ApplicationSubmissionContextInfo more consistent</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Xuan Gong</td>
+<td align="left">Xuan Gong</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-12761">HADOOP-12761</a></td>
+<td align="left">incremental maven build is not really incremental</td>
+<td align="left">Minor</td>
+<td align="left">build</td>
+<td align="left">Sangjin Lee</td>
+<td align="left">Sangjin Lee</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4594">YARN-4594</a></td>
+<td align="left">container-executor fails to remove directory tree when chmod required</td>
+<td align="left">Major</td>
+<td align="left">nodemanager</td>
+<td align="left">Colin P. McCabe</td>
+<td align="left">Colin P. McCabe</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4669">YARN-4669</a></td>
+<td align="left">Fix logging statements in resource manager's Application class</td>
+<td align="left">Trivial</td>
+<td align="left">.</td>
+<td align="left">Sidharta Seethana</td>
+<td align="left">Sidharta Seethana</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-12773">HADOOP-12773</a></td>
+<td align="left">HBase classes fail to load with client/job classloader enabled</td>
+<td align="left">Major</td>
+<td align="left">util</td>
+<td align="left">Sangjin Lee</td>
+<td align="left">Sangjin Lee</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4629">YARN-4629</a></td>
+<td align="left">Distributed shell breaks under strong security</td>
+<td align="left">Major</td>
+<td align="left">applications/distributed-shell, security</td>
+<td align="left">Daniel Templeton</td>
+<td align="left">Daniel Templeton</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-9608">HDFS-9608</a></td>
+<td align="left">Disk IO imbalance in HDFS with heterogeneous storages</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Wei Zhou</td>
+<td align="left">Wei Zhou</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4689">YARN-4689</a></td>
+<td align="left">FairScheduler: Cleanup preemptContainer to be more readable</td>
+<td align="left">Trivial</td>
+<td align="left">fairscheduler</td>
+<td align="left">Karthik Kambatla</td>
+<td align="left">Kai Sasaki</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4651">YARN-4651</a></td>
+<td align="left">movetoqueue option does not documented in 'YARN Commands'</td>
+<td align="left">Major</td>
+<td align="left">documentation</td>
+<td align="left">Takashi Ohnishi</td>
+<td align="left">Takashi Ohnishi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4648">YARN-4648</a></td>
+<td align="left">Move preemption related tests from TestFairScheduler to TestFairSchedulerPreemption</td>
+<td align="left">Major</td>
+<td align="left">fairscheduler</td>
+<td align="left">Karthik Kambatla</td>
+<td align="left">Kai Sasaki</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4722">YARN-4722</a></td>
+<td align="left">AsyncDispatcher logs redundant event queue sizes</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jason Lowe</td>
+<td align="left">Jason Lowe</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4729">YARN-4729</a></td>
+<td align="left">SchedulerApplicationAttempt#getTotalRequiredResources can throw an NPE</td>
+<td align="left">Major</td>
+<td align="left">scheduler</td>
+<td align="left">Karthik Kambatla</td>
+<td align="left">Karthik Kambatla</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4701">YARN-4701</a></td>
+<td align="left">When task logs are not available, port 8041 is referenced instead of port 8042</td>
+<td align="left">Major</td>
+<td align="left">yarn</td>
+<td align="left">Haibo Chen</td>
+<td align="left">Haibo Chen</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-9858">HDFS-9858</a></td>
+<td align="left">RollingFileSystemSink can throw an NPE on non-secure clusters</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Daniel Templeton</td>
+<td align="left">Daniel Templeton</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-9855">HDFS-9855</a></td>
+<td align="left">Modify TestAuditLoggerWithCommands to workaround the absence of HDFS-8332</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Kuhu Shukla</td>
+<td align="left">Kuhu Shukla</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4731">YARN-4731</a></td>
+<td align="left">container-executor should not follow symlinks in recursive_unlink_children</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Bibin A Chundatt</td>
+<td align="left">Colin P. McCabe</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-10321">HADOOP-10321</a></td>
+<td align="left">TestCompositeService should cover all enumerations of adding a service to a parent service</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Karthik Kambatla</td>
+<td align="left">Ray Chiang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4763">YARN-4763</a></td>
+<td align="left">RMApps Page crashes with NPE</td>
+<td align="left">Major</td>
+<td align="left">webapp</td>
+<td align="left">Bibin A Chundatt</td>
+<td align="left">Bibin A Chundatt</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4737">YARN-4737</a></td>
+<td align="left">Add CSRF filter support in YARN</td>
+<td align="left">Major</td>
+<td align="left">nodemanager, resourcemanager, webapp</td>
+<td align="left">Jonathan Maron</td>
+<td align="left">Jonathan Maron</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4762">YARN-4762</a></td>
+<td align="left">NMs failing on DelegatingLinuxContainerRuntime init with LCE on</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Vinod Kumar Vavilapalli</td>
+<td align="left">Sidharta Seethana</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4764">YARN-4764</a></td>
+<td align="left">Application submission fails when submitted queue is not available in scheduler xml</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Bibin A Chundatt</td>
+<td align="left">Bibin A Chundatt</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-12895">HADOOP-12895</a></td>
+<td align="left">SSLFactory#createSSLSocketFactory exception message is wrong</td>
+<td align="left">Trivial</td>
+<td align="left">.</td>
+<td align="left">Wei-Chiu Chuang</td>
+<td align="left">Wei-Chiu Chuang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-12906">HADOOP-12906</a></td>
+<td align="left">AuthenticatedURL should convert a 404/Not Found into an FileNotFoundException.</td>
+<td align="left">Minor</td>
+<td align="left">io, security</td>
+<td align="left">Steve Loughran</td>
+<td align="left">Steve Loughran</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-9947">HDFS-9947</a></td>
+<td align="left">Block#toString should not output information from derived classes</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Colin P. McCabe</td>
+<td align="left">Colin P. McCabe</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4816">YARN-4816</a></td>
+<td align="left">SystemClock API broken in 2.9.0</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Siddharth Seth</td>
+<td align="left">Siddharth Seth</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-9780">HDFS-9780</a></td>
+<td align="left">RollingFileSystemSink doesn't work on secure clusters</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Daniel Templeton</td>
+<td align="left">Daniel Templeton</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-12888">HADOOP-12888</a></td>
+<td align="left">Shell to disable bash and setsid support when running under JVM security manager</td>
+<td align="left">Major</td>
+<td align="left">security</td>
+<td align="left">Costin Leau</td>
+<td align="left">Costin Leau</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4593">YARN-4593</a></td>
+<td align="left">Deadlock in AbstractService.getConfig()</td>
+<td align="left">Major</td>
+<td align="left">yarn</td>
+<td align="left">Steve Loughran</td>
+<td align="left">Steve Loughran</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-10173">HDFS-10173</a></td>
+<td align="left">Typo in DataXceiverServer</td>
+<td align="left">Trivial</td>
+<td align="left">datanode</td>
+<td align="left">Michael Han</td>
+<td align="left">Michael Han</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4812">YARN-4812</a></td>
+<td align="left">TestFairScheduler#testContinuousScheduling fails intermittently</td>
+<td align="left">Major</td>
+<td align="left">fairscheduler</td>
+<td align="left">Karthik Kambatla</td>
+<td align="left">Karthik Kambatla</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-6110">MAPREDUCE-6110</a></td>
+<td align="left">JobHistoryServer CLI throws NullPointerException with job ids that do not exist</td>
+<td align="left">Minor</td>
+<td align="left">jobhistoryserver</td>
+<td align="left">Li Lu</td>
+<td align="left">Kai Sasaki</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-6535">MAPREDUCE-6535</a></td>
+<td align="left">TaskID default constructor results in NPE on toString()</td>
+<td align="left">Major</td>
+<td align="left">mrv2</td>
+<td align="left">Daniel Templeton</td>
+<td align="left">Daniel Templeton</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-6655">MAPREDUCE-6655</a></td>
+<td align="left">Fix a typo (STRICT_IE6) in Encrypted Shuffle</td>
+<td align="left">Trivial</td>
+<td align="left">documentation</td>
+<td align="left">Wei-Chiu Chuang</td>
+<td align="left">Wei-Chiu Chuang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-12954">HADOOP-12954</a></td>
+<td align="left">Add a way to change hadoop.security.token.service.use_ip</td>
+<td align="left">Major</td>
+<td align="left">security</td>
+<td align="left">Robert Kanter</td>
+<td align="left">Robert Kanter</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-6662">MAPREDUCE-6662</a></td>
+<td align="left">Clear ASF Warnings on test data files</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Vinayakumar B</td>
+<td align="left">Vinayakumar B</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4865">YARN-4865</a></td>
+<td align="left">Track Reserved resources in ResourceUsage and QueueCapacities</td>
+<td align="left">Major</td>
+<td align="left">resourcemanager</td>
+<td align="left">Sunil G</td>
+<td align="left">Sunil G</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4183">YARN-4183</a></td>
+<td align="left">Clarify the behavior of timeline service config properties</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Mit Desai</td>
+<td align="left">Naganarasimha G R</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4657">YARN-4657</a></td>
+<td align="left">Javadoc comment is broken for Resources.multiplyByAndAddTo()</td>
+<td align="left">Trivial</td>
+<td align="left">.</td>
+<td align="left">Daniel Templeton</td>
+<td align="left">Daniel Templeton</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4706">YARN-4706</a></td>
+<td align="left">UI Hosting Configuration in TimelineServer doc is broken</td>
+<td align="left">Critical</td>
+<td align="left">documentation</td>
+<td align="left">Akira Ajisaka</td>
+<td align="left">Akira Ajisaka</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4880">YARN-4880</a></td>
+<td align="left">Running TestZKRMStateStorePerf with real zookeeper cluster throws NPE</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Rohith Sharma K S</td>
+<td align="left">Sunil G</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4609">YARN-4609</a></td>
+<td align="left">RM Nodes list page takes too much time to load</td>
+<td align="left">Major</td>
+<td align="left">webapp</td>
+<td align="left">Bibin A Chundatt</td>
+<td align="left">Bibin A Chundatt</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4906">YARN-4906</a></td>
+<td align="left">Capture container start/finish time in container metrics</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jian He</td>
+<td align="left">Jian He</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-6670">MAPREDUCE-6670</a></td>
+<td align="left">TestJobListCache#testEviction sometimes fails on Windows with timeout</td>
+<td align="left">Minor</td>
+<td align="left">test</td>
+<td align="left">Gergely Novák</td>
+<td align="left">Gergely Novák</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-10192">HDFS-10192</a></td>
+<td align="left">Namenode safemode not coming out during failover</td>
+<td align="left">Major</td>
+<td align="left">namenode</td>
+<td align="left">Brahma Reddy Battula</td>
+<td align="left">Brahma Reddy Battula</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-6647">MAPREDUCE-6647</a></td>
+<td align="left">MR usage counters use the resources requested instead of the resources allocated</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Haibo Chen</td>
+<td align="left">Haibo Chen</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-13006">HADOOP-13006</a></td>
+<td align="left">FileContextMainOperationsBaseTest.testListStatusThrowsExceptionForNonExistentFile() doesnt run</td>
+<td align="left">Minor</td>
+<td align="left">test</td>
+<td align="left">Steve Loughran</td>
+<td align="left">Kai Sasaki</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4927">YARN-4927</a></td>
+<td align="left">TestRMHA#testTransitionedToActiveRefreshFail fails with FairScheduler</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Karthik Kambatla</td>
+<td align="left">Bibin A Chundatt</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4562">YARN-4562</a></td>
+<td align="left">YARN WebApp ignores the configuration passed to it for keystore settings</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sergey Shelukhin</td>
+<td align="left">Sergey Shelukhin</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4897">YARN-4897</a></td>
+<td align="left">dataTables_wrapper change min height</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Bibin A Chundatt</td>
+<td align="left">Bibin A Chundatt</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-8356">HDFS-8356</a></td>
+<td align="left">Document missing properties in hdfs-default.xml</td>
+<td align="left">Major</td>
+<td align="left">documentation</td>
+<td align="left">Ray Chiang</td>
+<td align="left">Ray Chiang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4810">YARN-4810</a></td>
+<td align="left">NM applicationpage cause internal error 500</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Bibin A Chundatt</td>
+<td align="left">Bibin A Chundatt</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-10273">HDFS-10273</a></td>
+<td align="left">Remove duplicate logSync() and log message in FSN#enterSafemode()</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Vinayakumar B</td>
+<td align="left">Vinayakumar B</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-10282">HDFS-10282</a></td>
+<td align="left">The VolumeScanner should warn about replica files which are misplaced</td>
+<td align="left">Major</td>
+<td align="left">datanode</td>
+<td align="left">Colin P. McCabe</td>
+<td align="left">Colin P. McCabe</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-10283">HDFS-10283</a></td>
+<td align="left">o.a.h.hdfs.server.namenode.TestFSImageWithSnapshot#testSaveLoadImageWithAppending fails intermittently</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Mingliang Liu</td>
+<td align="left">Mingliang Liu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4934">YARN-4934</a></td>
+<td align="left">Reserved Resource for QueueMetrics needs to be handled correctly in few cases</td>
+<td align="left">Major</td>
+<td align="left">capacity scheduler</td>
+<td align="left">Sunil G</td>
+<td align="left">Sunil G</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-10306">HDFS-10306</a></td>
+<td align="left">SafeModeMonitor should not leave safe mode if name system is starting active service</td>
+<td align="left">Major</td>
+<td align="left">namenode</td>
+<td align="left">Mingliang Liu</td>
+<td align="left">Mingliang Liu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4935">YARN-4935</a></td>
+<td align="left">TestYarnClient#testSubmitIncorrectQueue fails with FairScheduler</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Yufei Gu</td>
+<td align="left">Yufei Gu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2398">MAPREDUCE-2398</a></td>
+<td align="left">MRBench: setting the baseDir parameter has no effect</td>
+<td align="left">Minor</td>
+<td align="left">benchmarks</td>
+<td align="left">Michael Noll</td>
+<td align="left">Wilfred Spiegelenburg</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4976">YARN-4976</a></td>
+<td align="left">Missing NullPointer check in ContainerLaunchContextPBImpl causes RM to die</td>
+<td align="left">Major</td>
+<td align="left">resourcemanager</td>
+<td align="left">Giovanni Matteo Fumarola</td>
+<td align="left">Giovanni Matteo Fumarola</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4795">YARN-4795</a></td>
+<td align="left">ContainerMetrics drops records</td>
+<td align="left">Major</td>
+<td align="left">resourcemanager</td>
+<td align="left">Daniel Templeton</td>
+<td align="left">Daniel Templeton</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4983">YARN-4983</a></td>
+<td align="left">JVM and UGI metrics disappear after RM is once transitioned to standby mode</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Li Lu</td>
+<td align="left">Li Lu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-13012">HADOOP-13012</a></td>
+<td align="left">yetus-wrapper should fail sooner when download fails</td>
+<td align="left">Minor</td>
+<td align="left">yetus</td>
+<td align="left">Steven K. Wong</td>
+<td align="left">Steven K. Wong</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-12469">HADOOP-12469</a></td>
+<td align="left">distcp should not ignore the ignoreFailures option</td>
+<td align="left">Critical</td>
+<td align="left">tools/distcp</td>
+<td align="left">Gera Shegalov</td>
+<td align="left">Mingliang Liu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-6677">MAPREDUCE-6677</a></td>
+<td align="left">LocalContainerAllocator doesn't specify resource of the containers allocated.</td>
+<td align="left">Major</td>
+<td align="left">mr-am</td>
+<td align="left">Haibo Chen</td>
+<td align="left">Haibo Chen</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-6675">MAPREDUCE-6675</a></td>
+<td align="left">TestJobImpl.testUnusableNode failed</td>
+<td align="left">Major</td>
+<td align="left">mrv2</td>
+<td align="left">Haibo Chen</td>
+<td align="left">Haibo Chen</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5002">YARN-5002</a></td>
+<td align="left">getApplicationReport call may raise NPE for removed queues</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Sumana Sathish</td>
+<td align="left">Jian He</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-13118">HADOOP-13118</a></td>
+<td align="left">Fix IOUtils#cleanup and IOUtils#closeStream javadoc</td>
+<td align="left">Trivial</td>
+<td align="left">io</td>
+<td align="left">Wei-Chiu Chuang</td>
+<td align="left">Wei-Chiu Chuang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-10694">HADOOP-10694</a></td>
+<td align="left">Remove synchronized input streams from Writable deserialization</td>
+<td align="left">Major</td>
+<td align="left">io</td>
+<td align="left">Gopal V</td>
+<td align="left">Gopal V</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-10410">HDFS-10410</a></td>
+<td align="left">RedundantEditLogInputStream#LOG is set to wrong class</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">John Zhuge</td>
+<td align="left">John Zhuge</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-10208">HDFS-10208</a></td>
+<td align="left">Addendum for HDFS-9579: to handle the case when client machine can't resolve network path</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ming Ma</td>
+<td align="left">Ming Ma</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-6701">MAPREDUCE-6701</a></td>
+<td align="left">application master log can not be available when clicking jobhistory's am logs link</td>
+<td align="left">Critical</td>
+<td align="left">jobhistoryserver</td>
+<td align="left">chenyukang</td>
+<td align="left">Haibo Chen</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-10404">HDFS-10404</a></td>
+<td align="left">Fix formatting of CacheAdmin command usage help text</td>
+<td align="left">Major</td>
+<td align="left">caching</td>
+<td align="left">Yiqun Lin</td>
+<td align="left">Yiqun Lin</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-6657">MAPREDUCE-6657</a></td>
+<td align="left">job history server can fail on startup when NameNode is in start phase</td>
+<td align="left">Major</td>
+<td align="left">jobhistoryserver</td>
+<td align="left">Haibo Chen</td>
+<td align="left">Haibo Chen</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-10360">HDFS-10360</a></td>
+<td align="left">DataNode may format directory and lose blocks if current/VERSION is missing</td>
+<td align="left">Major</td>
+<td align="left">datanode</td>
+<td align="left">Wei-Chiu Chuang</td>
+<td align="left">Wei-Chiu Chuang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5076">YARN-5076</a></td>
+<td align="left">YARN web interfaces lack XFS protection</td>
+<td align="left">Major</td>
+<td align="left">nodemanager, resourcemanager, timelineserver</td>
+<td align="left">Jonathan Maron</td>
+<td align="left">Jonathan Maron</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5126">YARN-5126</a></td>
+<td align="left">Remove CHANGES.txt from branch-2</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Akira Ajisaka</td>
+<td align="left">Akira Ajisaka</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5112">YARN-5112</a></td>
+<td align="left">Excessive log warnings for directory permission issue on NM recovery.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jian He</td>
+<td align="left">Jian He</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4979">YARN-4979</a></td>
+<td align="left">FSAppAttempt demand calculation considers demands at multiple locality levels different</td>
+<td align="left">Major</td>
+<td align="left">fairscheduler</td>
+<td align="left">zhihai xu</td>
+<td align="left">zhihai xu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-6703">MAPREDUCE-6703</a></td>
+<td align="left">Add flag to allow MapReduce AM to request for OPPORTUNISTIC containers</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Arun Suresh</td>
+<td align="left">Arun Suresh</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5131">YARN-5131</a></td>
+<td align="left">Distributed shell AM fails when extra container arrives during finishing</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sumana Sathish</td>
+<td align="left">Wangda Tan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4866">YARN-4866</a></td>
+<td align="left">FairScheduler: AMs can consume all vcores leading to a livelock when using FAIR policy</td>
+<td align="left">Major</td>
+<td align="left">fairscheduler</td>
+<td align="left">Karthik Kambatla</td>
+<td align="left">Yufei Gu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-10463">HDFS-10463</a></td>
+<td align="left">TestRollingFileSystemSinkWithHdfs needs some cleanup</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Daniel Templeton</td>
+<td align="left">Daniel Templeton</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-10449">HDFS-10449</a></td>
+<td align="left">TestRollingFileSystemSinkWithHdfs#testFailedClose() fails on branch-2</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Takanobu Asanuma</td>
+<td align="left">Takanobu Asanuma</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-10485">HDFS-10485</a></td>
+<td align="left">Fix findbugs warning in FSEditLog.java</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Akira Ajisaka</td>
+<td align="left">Akira Ajisaka</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-10468">HDFS-10468</a></td>
+<td align="left">HDFS read ends up ignoring an interrupt</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Siddharth Seth</td>
+<td align="left">Jing Zhao</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-6240">MAPREDUCE-6240</a></td>
+<td align="left">Hadoop client displays confusing error message</td>
+<td align="left">Major</td>
+<td align="left">client</td>
+<td align="left">Mohammad Kamrul Islam</td>
+<td align="left">Gera Shegalov</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4308">YARN-4308</a></td>
+<td align="left">ContainersAggregated CPU resource utilization reports negative usage in first few heartbeats</td>
+<td align="left">Major</td>
+<td align="left">nodemanager</td>
+<td align="left">Sunil G</td>
+<td align="left">Sunil G</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-10508">HDFS-10508</a></td>
+<td align="left">DFSInputStream should set thread's interrupt status after catching InterruptException from sleep</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jing Zhao</td>
+<td align="left">Jing Zhao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-13243">HADOOP-13243</a></td>
+<td align="left">TestRollingFileSystemSink.testSetInitialFlushTime() fails intermittently</td>
+<td align="left">Minor</td>
+<td align="left">test</td>
+<td align="left">Daniel Templeton</td>
+<td align="left">Daniel Templeton</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5077">YARN-5077</a></td>
+<td align="left">Fix FSLeafQueue#getFairShare() for queues with zero fairshare</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Yufei Gu</td>
+<td align="left">Yufei Gu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-10437">HDFS-10437</a></td>
+<td align="left">ReconfigurationProtocol not covered by HDFSPolicyProvider.</td>
+<td align="left">Major</td>
+<td align="left">namenode</td>
+<td align="left">Chris Nauroth</td>
+<td align="left">Arpit Agarwal</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5246">YARN-5246</a></td>
+<td align="left">NMWebAppFilter web redirects drop query parameters</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Varun Vasudev</td>
+<td align="left">Varun Vasudev</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-6197">MAPREDUCE-6197</a></td>
+<td align="left">Cache MapOutputLocations in ShuffleHandler</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Siddharth Seth</td>
+<td align="left">Junping Du</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5266">YARN-5266</a></td>
+<td align="left">Wrong exit code while trying to get app logs using regex via CLI</td>
+<td align="left">Critical</td>
+<td align="left">yarn</td>
+<td align="left">Sumana Sathish</td>
+<td align="left">Xuan Gong</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-10561">HDFS-10561</a></td>
+<td align="left">test_native_mini_dfs fails by NoClassDefFoundError</td>
+<td align="left">Major</td>
+<td align="left">native, test</td>
+<td align="left">Akira Ajisaka</td>
+<td align="left">Akira Ajisaka</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-10555">HDFS-10555</a></td>
+<td align="left">Unable to loadFSEdits due to a failure in readCachePoolInfo</td>
+<td align="left">Critical</td>
+<td align="left">caching, namenode</td>
+<td align="left">Uma Maheswara Rao G</td>
+<td align="left">Uma Maheswara Rao G</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5803">MAPREDUCE-5803</a></td>
+<td align="left">Counters page display all task neverthless of task type( Map or Reduce)</td>
+<td align="left">Minor</td>
+<td align="left">jobhistoryserver</td>
+<td align="left">Rohith Sharma K S</td>
+<td align="left">Kai Sasaki</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5182">YARN-5182</a></td>
+<td align="left">MockNodes.newNodes creates one more node per rack than requested</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Karthik Kambatla</td>
+<td align="left">Karthik Kambatla</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5282">YARN-5282</a></td>
+<td align="left">Fix typos in CapacityScheduler documentation</td>
+<td align="left">Trivial</td>
+<td align="left">documentation</td>
+<td align="left">Ray Chiang</td>
+<td align="left">Ray Chiang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-10572">HDFS-10572</a></td>
+<td align="left">Fix TestOfflineEditsViewer#testGenerated</td>
+<td align="left">Blocker</td>
+<td align="left">test</td>
+<td align="left">Xiaoyu Yao</td>
+<td align="left">Surendra Singh Lilhore</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5296">YARN-5296</a></td>
+<td align="left">NMs going OutOfMemory because ContainerMetrics leak in ContainerMonitorImpl</td>
+<td align="left">Major</td>
+<td align="left">nodemanager</td>
+<td align="left">Karam Singh</td>
+<td align="left">Junping Du</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5294">YARN-5294</a></td>
+<td align="left">Pass remote ip address down to YarnAuthorizationProvider</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jian He</td>
+<td align="left">Jian He</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-10336">HDFS-10336</a></td>
+<td align="left">TestBalancer failing intermittently because of not reseting UserGroupInformation completely</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Yiqun Lin</td>
+<td align="left">Yiqun Lin</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4366">YARN-4366</a></td>
+<td align="left">Fix Lint Warnings in YARN Common</td>
+<td align="left">Major</td>
+<td align="left">yarn</td>
+<td align="left">Daniel Templeton</td>
+<td align="left">Daniel Templeton</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-13315">HADOOP-13315</a></td>
+<td align="left">FileContext#umask is not initialized properly</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">John Zhuge</td>
+<td align="left">John Zhuge</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-11361">HADOOP-11361</a></td>
+<td align="left">Fix a race condition in MetricsSourceAdapter.updateJmxCache</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Brahma Reddy Battula</td>
+<td align="left">Brahma Reddy Battula</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5362">YARN-5362</a></td>
+<td align="left">TestRMRestart#testFinishedAppRemovalAfterRMRestart can fail</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jason Lowe</td>
+<td align="left">sandflee</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-10544">HDFS-10544</a></td>
+<td align="left">Balancer doesn't work with IPFailoverProxyProvider</td>
+<td align="left">Major</td>
+<td align="left">balancer &amp; mover, ha</td>
+<td align="left">Zhe Zhang</td>
+<td align="left">Zhe Zhang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-10617">HDFS-10617</a></td>
+<td align="left">PendingReconstructionBlocks.size() should be synchronized</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Eric Badger</td>
+<td align="left">Eric Badger</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5383">YARN-5383</a></td>
+<td align="left">Fix findbugs for nodemanager &amp; checkstyle warnings in nodemanager.ContainerExecutor</td>
+<td align="left">Major</td>
+<td align="left">nodemanager</td>
+<td align="left">Vrushali C</td>
+<td align="left">Vrushali C</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-6733">MAPREDUCE-6733</a></td>
+<td align="left">MapReduce JerseyTest tests failing with &quot;java.net.BindException: Address already in use&quot;</td>
+<td align="left">Critical</td>
+<td align="left">test</td>
+<td align="left">Vinod Kumar Vavilapalli</td>
+<td align="left">Vinod Kumar Vavilapalli</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-13254">HADOOP-13254</a></td>
+<td align="left">Create framework for configurable disk checkers</td>
+<td align="left">Major</td>
+<td align="left">util</td>
+<td align="left">Yufei Gu</td>
+<td align="left">Yufei Gu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5272">YARN-5272</a></td>
+<td align="left">Handle queue names consistently in FairScheduler</td>
+<td align="left">Major</td>
+<td align="left">fairscheduler</td>
+<td align="left">Wilfred Spiegelenburg</td>
+<td align="left">Wilfred Spiegelenburg</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5213">YARN-5213</a></td>
+<td align="left">Fix a bug in LogCLIHelpers which cause TestLogsCLI#testFetchApplictionLogs fails intermittently</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Rohith Sharma K S</td>
+<td align="left">Xuan Gong</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5195">YARN-5195</a></td>
+<td align="left">RM intermittently crashed with NPE while handling APP_ATTEMPT_REMOVED event when async-scheduling enabled in CapacityScheduler</td>
+<td align="left">Major</td>
+<td align="left">resourcemanager</td>
+<td align="left">Karam Singh</td>
+<td align="left">sandflee</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5441">YARN-5441</a></td>
+<td align="left">Fixing minor Scheduler test case failures</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Subru Krishnan</td>
+<td align="left">Subru Krishnan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5440">YARN-5440</a></td>
+<td align="left">Use AHSClient in YarnClient when TimelineServer is running</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Xuan Gong</td>
+<td align="left">Xuan Gong</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5203">YARN-5203</a></td>
+<td align="left">Return ResourceRequest JAXB object in ResourceManager Cluster Applications REST API</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Subru Krishnan</td>
+<td align="left">Ellen Hui</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-9276">HDFS-9276</a></td>
+<td align="left">Failed to Update HDFS Delegation Token for long running application in HA mode</td>
+<td align="left">Major</td>
+<td align="left">fs, ha, security</td>
+<td align="left">Liangliang Gu</td>
+<td align="left">Liangliang Gu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5436">YARN-5436</a></td>
+<td align="left">Race in AsyncDispatcher can cause random test failures in Tez (probably YARN also)</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Zhiyuan Yang</td>
+<td align="left">Zhiyuan Yang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-13381">HADOOP-13381</a></td>
+<td align="left">KMS clients should use KMS Delegation Tokens from current UGI.</td>
+<td align="left">Critical</td>
+<td align="left">kms</td>
+<td align="left">Xiao Chen</td>
+<td align="left">Xiao Chen</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5444">YARN-5444</a></td>
+<td align="left">Fix failing unit tests in TestLinuxContainerExecutorWithMocks</td>
+<td align="left">Major</td>
+<td align="left">nodemanager</td>
+<td align="left">Yufei Gu</td>
+<td align="left">Yufei Gu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-6724">MAPREDUCE-6724</a></td>
+<td align="left">Single shuffle to memory must not exceed Integer#MAX_VALUE</td>
+<td align="left">Major</td>
+<td align="left">mrv2</td>
+<td align="left">Haibo Chen</td>
+<td align="left">Haibo Chen</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-5805">HDFS-5805</a></td>
+<td align="left">TestCheckpoint.testCheckpoint fails intermittently on branch2</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Mit Desai</td>
+<td align="left">Eric Badger</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-742">HDFS-742</a></td>
+<td align="left">A down DataNode makes Balancer to hang on repeatingly asking NameNode its partial block list</td>
+<td align="left">Minor</td>
+<td align="left">balancer &amp; mover</td>
+<td align="left">Hairong Kuang</td>
+<td align="left">Mit Desai</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-10569">HDFS-10569</a></td>
+<td align="left">A bug causes OutOfIndex error in BlockListAsLongs</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Weiwei Yang</td>
+<td align="left">Weiwei Yang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-13443">HADOOP-13443</a></td>
+<td align="left">KMS should check the type of underlying keyprovider of KeyProviderExtension before falling back to default</td>
+<td align="left">Minor</td>
+<td align="left">kms</td>
+<td align="left">Anthony Young-Garner</td>
+<td align="left">Anthony Young-Garner</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5333">YARN-5333</a></td>
+<td align="left">Some recovered apps are put into default queue when RM HA</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jun Gong</td>
+<td align="left">Jun Gong</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-13353">HADOOP-13353</a></td>
+<td align="left">LdapGroupsMapping getPassward shouldn't return null when IOException throws</td>
+<td align="left">Major</td>
+<td align="left">security</td>
+<td align="left">Zhaohao Liang</td>
+<td align="left">Wei-Chiu Chuang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4624">YARN-4624</a></td>
+<td align="left">NPE in PartitionQueueCapacitiesInfo while accessing Schduler UI</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Brahma Reddy Battula</td>
+<td align="left">Brahma Reddy Battula</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-13403">HADOOP-13403</a></td>
+<td align="left">AzureNativeFileSystem rename/delete performance improvements</td>
+<td align="left">Major</td>
+<td align="left">azure</td>
+<td align="left">Subramanyam Pattipaka</td>
+<td align="left">Subramanyam Pattipaka</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-10457">HDFS-10457</a></td>
+<td align="left">DataNode should not auto-format block pool directory if VERSION is missing</td>
+<td align="left">Major</td>
+<td align="left">datanode</td>
+<td align="left">Wei-Chiu Chuang</td>
+<td align="left">Wei-Chiu Chuang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-4176">HDFS-4176</a></td>
+<td align="left">EditLogTailer should call rollEdits with a timeout</td>
+<td align="left">Major</td>
+<td align="left">ha, namenode</td>
+<td align="left">Todd Lipcon</td>
+<td align="left">Lei (Eddy) Xu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-13476">HADOOP-13476</a></td>
+<td align="left">CredentialProviderFactory fails at class loading from libhdfs (JNI)</td>
+<td align="left">Major</td>
+<td align="left">fs/s3</td>
+<td align="left">Aaron Fabbri</td>
+<td align="left">Aaron Fabbri</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-8224">HDFS-8224</a></td>
+<td align="left">Schedule a block for scanning if its metadata file is corrupt</td>
+<td align="left">Major</td>
+<td align="left">datanode</td>
+<td align="left">Rushabh S Shah</td>
+<td align="left">Rushabh S Shah</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-13461">HADOOP-13461</a></td>
+<td align="left">NPE in KeyProvider.rollNewVersion</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Colm O hEigeartaigh</td>
+<td align="left">Colm O hEigeartaigh</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-8897">HDFS-8897</a></td>
+<td align="left">Balancer should handle fs.defaultFS trailing slash in HA</td>
+<td align="left">Major</td>
+<td align="left">balancer &amp; mover</td>
+<td align="left">LINTE</td>
+<td align="left">John Zhuge</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-13441">HADOOP-13441</a></td>
+<td align="left">Document LdapGroupsMapping keystore password properties</td>
+<td align="left">Minor</td>
+<td align="left">security</td>
+<td align="left">Wei-Chiu Chuang</td>
+<td align="left">Yuanbo Liu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4833">YARN-4833</a></td>
+<td align="left">For Queue AccessControlException client retries multiple times on both RM</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Bibin A Chundatt</td>
+<td align="left">Bibin A Chundatt</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5491">YARN-5491</a></td>
+<td align="left">Random Failure TestCapacityScheduler#testCSQueueBlocked</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Bibin A Chundatt</td>
+<td align="left">Bibin A Chundatt</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5521">YARN-5521</a></td>
+<td align="left">TestCapacityScheduler#testKillAllAppsInQueue fails randomly</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Varun Saxena</td>
+<td align="left">sandflee</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-13437">HADOOP-13437</a></td>
+<td align="left">KMS should reload whitelist and default key ACLs when hot-reloading</td>
+<td align="left">Major</td>
+<td align="left">kms</td>
+<td align="left">Xiao Chen</td>
+<td align="left">Xiao Chen</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5514">YARN-5514</a></td>
+<td align="left">Clarify DecommissionType.FORCEFUL comment</td>
+<td align="left">Minor</td>
+<td align="left">documentation</td>
+<td align="left">Robert Kanter</td>
+<td align="left">Vrushali C</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5475">YARN-5475</a></td>
+<td align="left">Test failed for TestAggregatedLogFormat on trunk</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Junping Du</td>
+<td align="left">Jun Gong</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5523">YARN-5523</a></td>
+<td align="left">Yarn running container log fetching causes OutOfMemoryError</td>
+<td align="left">Major</td>
+<td align="left">log-aggregation</td>
+<td align="left">Prasanth Jayachandran</td>
+<td align="left">Xuan Gong</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5526">YARN-5526</a></td>
+<td align="left">DrainDispacher#ServiceStop blocked if setDrainEventsOnStop invoked</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">sandflee</td>
+<td align="left">sandflee</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5533">YARN-5533</a></td>
+<td align="left">JMX AM Used metrics for queue wrong when app submited to nodelabel partition</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Bibin A Chundatt</td>
+<td align="left">Bibin A Chundatt</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-6762">MAPREDUCE-6762</a></td>
+<td align="left">ControlledJob#toString failed with NPE when job status is not successfully updated</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Weiwei Yang</td>
+<td align="left">Weiwei Yang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-13526">HADOOP-13526</a></td>
+<td align="left">Add detailed logging in KMS for the authentication failure of proxy user</td>
+<td align="left">Minor</td>
+<td align="left">kms</td>
+<td align="left">Suraj Acharya</td>
+<td align="left">Suraj Acharya</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-8312">HDFS-8312</a></td>
+<td align="left">Trash does not descent into child directories to check for permissions</td>
+<td align="left">Critical</td>
+<td align="left">fs, security</td>
+<td align="left">Eric Yang</td>
+<td align="left">Weiwei Yang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5537">YARN-5537</a></td>
+<td align="left">Intermittent test failure of TestAMRMClient#testAMRMClientWithContainerResourceChange</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Varun Saxena</td>
+<td align="left">Bibin A Chundatt</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5430">YARN-5430</a></td>
+<td align="left">Return container's ip and host from NM ContainerStatus call</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jian He</td>
+<td align="left">Jian He</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5373">YARN-5373</a></td>
+<td align="left">NPE listing wildcard directory in containerLaunch</td>
+<td align="left">Blocker</td>
+<td align="left">nodemanager</td>
+<td align="left">Haibo Chen</td>
+<td align="left">Daniel Templeton</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-12765">HADOOP-12765</a></td>
+<td align="left">HttpServer2 should switch to using the non-blocking SslSelectChannelConnector to prevent performance degradation when handling SSL connections</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Min Shen</td>
+<td align="left">Min Shen</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5555">YARN-5555</a></td>
+<td align="left">Scheduler UI: &quot;% of Queue&quot; is inaccurate if leaf queue is hierarchically nested.</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Eric Payne</td>
+<td align="left">Eric Payne</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-13558">HADOOP-13558</a></td>
+<td align="left">UserGroupInformation created from a Subject incorrectly tries to renew the Kerberos ticket</td>
+<td align="left">Major</td>
+<td align="left">security</td>
+<td align="left">Alejandro Abdelnur</td>
+<td align="left">Xiao Chen</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tests">TESTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-9300">HDFS-9300</a></td>
+<td align="left">TestDirectoryScanner.testThrottle() is still a little flakey</td>
+<td align="left">Major</td>
+<td align="left">balancer &amp; mover, test</td>
+<td align="left">Daniel Templeton</td>
+<td align="left">Daniel Templeton</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4704">YARN-4704</a></td>
+<td align="left">TestResourceManager#testResourceAllocation() fails when using FairScheduler</td>
+<td align="left">Major</td>
+<td align="left">fairscheduler, test</td>
+<td align="left">Ray Chiang</td>
+<td align="left">Yufei Gu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-9888">HDFS-9888</a></td>
+<td align="left">Allow reseting KerberosName in unit tests</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Xiao Chen</td>
+<td align="left">Xiao Chen</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-12701">HADOOP-12701</a></td>
+<td align="left">Run checkstyle on test source files</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">John Zhuge</td>
+<td align="left">John Zhuge</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5024">YARN-5024</a></td>
+<td align="left">TestContainerResourceUsage#testUsageAfterAMRestartWithMultipleContainers random failure</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Bibin A Chundatt</td>
+<td align="left">Bibin A Chundatt</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5005">YARN-5005</a></td>
+<td align="left">TestRMWebServices#testDumpingSchedulerLogs fails randomly</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Bibin A Chundatt</td>
+<td align="left">Bibin A Chundatt</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5118">YARN-5118</a></td>
+<td align="left">Tests fails with localizer port bind exception.</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Brahma Reddy Battula</td>
+<td align="left">Brahma Reddy Battula</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4989">YARN-4989</a></td>
+<td align="left">TestWorkPreservingRMRestart#testCapacitySchedulerRecovery fails intermittently</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Rohith Sharma K S</td>
+<td align="left">Ajith S</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5208">YARN-5208</a></td>
+<td align="left">Run TestAMRMClient TestNMClient TestYarnClient TestClientRMTokens TestAMAuthorization tests with hadoop.security.token.service.use_ip enabled</td>
+<td align="left">Blocker</td>
+<td align="left">test</td>
+<td align="left">Rohith Sharma K S</td>
+<td align="left">Rohith Sharma K S</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-13395">HADOOP-13395</a></td>
+<td align="left">Enhance TestKMSAudit</td>
+<td align="left">Minor</td>
+<td align="left">kms</td>
+<td align="left">Xiao Chen</td>
+<td align="left">Xiao Chen</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5343">YARN-5343</a></td>
+<td align="left">TestContinuousScheduling#testSortedNodes fails intermittently</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">sandflee</td>
+<td align="left">Yufei Gu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-2398">YARN-2398</a></td>
+<td align="left">TestResourceTrackerOnHA crashes</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Jason Lowe</td>
+<td align="left">Ajith S</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5608">YARN-5608</a></td>
+<td align="left">TestAMRMClient.setup() fails with ArrayOutOfBoundsException</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Daniel Templeton</td>
+<td align="left">Daniel Templeton</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sub-tasks">SUB-TASKS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-9129">HDFS-9129</a></td>
+<td align="left">Move the safemode block count into BlockManager</td>
+<td align="left">Major</td>
+<td align="left">namenode</td>
+<td align="left">Haohui Mai</td>
+<td align="left">Mingliang Liu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-9414">HDFS-9414</a></td>
+<td align="left">Refactor reconfiguration of ClientDatanodeProtocol for reusability</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Xiaobing Zhou</td>
+<td align="left">Xiaobing Zhou</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-9371">HDFS-9371</a></td>
+<td align="left">Code cleanup for DatanodeManager</td>
+<td align="left">Major</td>
+<td align="left">namenode</td>
+<td align="left">Jing Zhao</td>
+<td align="left">Jing Zhao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-1856">YARN-1856</a></td>
+<td align="left">cgroups based memory monitoring for containers</td>
+<td align="left">Major</td>
+<td align="left">nodemanager</td>
+<td align="left">Karthik Kambatla</td>
+<td align="left">Varun Vasudev</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-2882">YARN-2882</a></td>
+<td align="left">Add an OPPORTUNISTIC ExecutionType</td>
+<td align="left">Major</td>
+<td align="left">nodemanager</td>
+<td align="left">Konstantinos Karanasos</td>
+<td align="left">Konstantinos Karanasos</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-3480">YARN-3480</a></td>
+<td align="left">Recovery may get very slow with lots of services with lots of app-attempts</td>
+<td align="left">Major</td>
+<td align="left">resourcemanager</td>
+<td align="left">Jun Gong</td>
+<td align="left">Jun Gong</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-9498">HDFS-9498</a></td>
+<td align="left">Move code that tracks blocks with future generation stamps to BlockManagerSafeMode</td>
+<td align="left">Major</td>
+<td align="left">namenode</td>
+<td align="left">Mingliang Liu</td>
+<td align="left">Mingliang Liu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4550">YARN-4550</a></td>
+<td align="left">some tests in TestContainerLanch fails on non-english locale environment</td>
+<td align="left">Minor</td>
+<td align="left">nodemanager, test</td>
+<td align="left">Takashi Ohnishi</td>
+<td align="left">Takashi Ohnishi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4335">YARN-4335</a></td>
+<td align="left">Allow ResourceRequests to specify ExecutionType of a request ask</td>
+<td align="left">Major</td>
+<td align="left">nodemanager, resourcemanager</td>
+<td align="left">Konstantinos Karanasos</td>
+<td align="left">Konstantinos Karanasos</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4553">YARN-4553</a></td>
+<td align="left">Add cgroups support for docker containers</td>
+<td align="left">Major</td>
+<td align="left">yarn</td>
+<td align="left">Sidharta Seethana</td>
+<td align="left">Sidharta Seethana</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4526">YARN-4526</a></td>
+<td align="left">Make SystemClock singleton so AppSchedulingInfo could use it</td>
+<td align="left">Major</td>
+<td align="left">scheduler</td>
+<td align="left">Karthik Kambatla</td>
+<td align="left">Karthik Kambatla</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-9542">HDFS-9542</a></td>
+<td align="left">Move BlockIdManager from FSNamesystem to BlockManager</td>
+<td align="left">Major</td>
+<td align="left">namenode</td>
+<td align="left">Jing Zhao</td>
+<td align="left">Jing Zhao</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4578">YARN-4578</a></td>
+<td align="left">Directories that are mounted in docker containers need to be more restrictive/container-specific</td>
+<td align="left">Major</td>
+<td align="left">yarn</td>
+<td align="left">Sidharta Seethana</td>
+<td align="left">Sidharta Seethana</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4574">YARN-4574</a></td>
+<td align="left">TestAMRMClientOnRMRestart fails on trunk</td>
+<td align="left">Major</td>
+<td align="left">client, test</td>
+<td align="left">Takashi Ohnishi</td>
+<td align="left">Takashi Ohnishi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4613">YARN-4613</a></td>
+<td align="left">TestClientRMService#testGetClusterNodes fails occasionally</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Jason Lowe</td>
+<td align="left">Takashi Ohnishi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-9094">HDFS-9094</a></td>
+<td align="left">Add command line option to ask NameNode reload configuration.</td>
+<td align="left">Major</td>
+<td align="left">namenode</td>
+<td align="left">Xiaobing Zhou</td>
+<td align="left">Xiaobing Zhou</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4633">YARN-4633</a></td>
+<td align="left">TestRMRestart.testRMRestartAfterPreemption fails intermittently in trunk</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Rohith Sharma K S</td>
+<td align="left">Bibin A Chundatt</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4543">YARN-4543</a></td>
+<td align="left">TestNodeStatusUpdater.testStopReentrant fails + JUnit misusage</td>
+<td align="left">Minor</td>
+<td align="left">nodemanager</td>
+<td align="left">Akihiro Suda</td>
+<td align="left">Akihiro Suda</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4615">YARN-4615</a></td>
+<td align="left">TestAbstractYarnScheduler#testResourceRequestRecoveryToTheRightAppAttempt fails occasionally</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Jason Lowe</td>
+<td align="left">Sunil G</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4684">YARN-4684</a></td>
+<td align="left">TestYarnCLI#testGetContainers failing in CN locale</td>
+<td align="left">Major</td>
+<td align="left">yarn</td>
+<td align="left">Bibin A Chundatt</td>
+<td align="left">Bibin A Chundatt</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-9754">HDFS-9754</a></td>
+<td align="left">Avoid unnecessary getBlockCollection calls in BlockManager</td>
+<td align="left">Major</td>
+<td align="left">namenode</td>
+<td align="left">Jing Zhao</td>
+<td align="left">Jing Zhao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-9691">HDFS-9691</a></td>
+<td align="left">TestBlockManagerSafeMode#testCheckSafeMode fails intermittently</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Mingliang Liu</td>
+<td align="left">Mingliang Liu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-12710">HADOOP-12710</a></td>
+<td align="left">Remove dependency on commons-httpclient for TestHttpServerLogs</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Wei-Chiu Chuang</td>
+<td align="left">Wei-Chiu Chuang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-7964">HDFS-7964</a></td>
+<td align="left">Add support for async edit logging</td>
+<td align="left">Major</td>
+<td align="left">namenode</td>
+<td align="left">Daryn Sharp</td>
+<td align="left">Daryn Sharp</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4749">YARN-4749</a></td>
+<td align="left">Generalize config file handling in container-executor</td>
+<td align="left">Major</td>
+<td align="left">nodemanager</td>
+<td align="left">Sidharta Seethana</td>
+<td align="left">Sidharta Seethana</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-1477">HDFS-1477</a></td>
+<td align="left">Support reconfiguring dfs.heartbeat.interval and dfs.namenode.heartbeat.recheck-interval without NN restart</td>
+<td align="left">Major</td>
+<td align="left">namenode</td>
+<td align="left">Patrick Kling</td>
+<td align="left">Xiaobing Zhou</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4108">YARN-4108</a></td>
+<td align="left">CapacityScheduler: Improve preemption to only kill containers that would satisfy the incoming request</td>
+<td align="left">Major</td>
+<td align="left">capacity scheduler</td>
+<td align="left">Wangda Tan</td>
+<td align="left">Wangda Tan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-12926">HADOOP-12926</a></td>
+<td align="left">lz4.c does not detect 64-bit mode properly</td>
+<td align="left">Major</td>
+<td align="left">native</td>
+<td align="left">Alan Burlison</td>
+<td align="left">Alan Burlison</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-9005">HDFS-9005</a></td>
+<td align="left">Provide configuration support for upgrade domain</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ming Ma</td>
+<td align="left">Ming Ma</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4805">YARN-4805</a></td>
+<td align="left">Don't go through all schedulers in ParameterizedTestBase</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Karthik Kambatla</td>
+<td align="left">Karthik Kambatla</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-9349">HDFS-9349</a></td>
+<td align="left">Support reconfiguring fs.protected.directories without NN restart</td>
+<td align="left">Major</td>
+<td align="left">namenode</td>
+<td align="left">Xiaobing Zhou</td>
+<td align="left">Xiaobing Zhou</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4822">YARN-4822</a></td>
+<td align="left">Refactor existing Preemption Policy of CS for easier adding new approach to select preemption candidates</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Wangda Tan</td>
+<td align="left">Wangda Tan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4811">YARN-4811</a></td>
+<td align="left">Generate histograms in ContainerMetrics for actual container resource usage</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Varun Vasudev</td>
+<td align="left">Varun Vasudev</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-12753">HADOOP-12753</a></td>
+<td align="left">S3A JUnit tests failing if using HTTP proxy</td>
+<td align="left">Minor</td>
+<td align="left">fs/s3</td>
+<td align="left">Zoran Rajic</td>
+<td align="left">Zoran Rajic</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-10209">HDFS-10209</a></td>
+<td align="left">Support enable caller context in HDFS namenode audit log without restart namenode</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Xiaoyu Yao</td>
+<td align="left">Xiaobing Zhou</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-10286">HDFS-10286</a></td>
+<td align="left">Fix TestDFSAdmin#testNameNodeGetReconfigurableProperties</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Xiaoyu Yao</td>
+<td align="left">Xiaobing Zhou</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-10284">HDFS-10284</a></td>
+<td align="left">o.a.h.hdfs.server.blockmanagement.TestBlockManagerSafeMode.testCheckSafeMode fails intermittently</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Mingliang Liu</td>
+<td align="left">Mingliang Liu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-2883">YARN-2883</a></td>
+<td align="left">Queuing of container requests in the NM</td>
+<td align="left">Major</td>
+<td align="left">nodemanager, resourcemanager</td>
+<td align="left">Konstantinos Karanasos</td>
+<td align="left">Konstantinos Karanasos</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4890">YARN-4890</a></td>
+<td align="left">Unit test intermittent failure: TestNodeLabelContainerAllocation#testQueueUsedCapacitiesUpdate</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Wangda Tan</td>
+<td align="left">Sunil G</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-10207">HDFS-10207</a></td>
+<td align="left">Support enable Hadoop IPC backoff without namenode restart</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Xiaoyu Yao</td>
+<td align="left">Xiaobing Zhou</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4968">YARN-4968</a></td>
+<td align="left">A couple of AM retry unit tests need to wait SchedulerApplicationAttempt stopped.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Wangda Tan</td>
+<td align="left">Wangda Tan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4846">YARN-4846</a></td>
+<td align="left">Random failures for TestCapacitySchedulerPreemption#testPreemptionPolicyShouldRespectAlreadyMarkedKillableContainers</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Bibin A Chundatt</td>
+<td align="left">Bibin A Chundatt</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-2885">YARN-2885</a></td>
+<td align="left">Create AMRMProxy request interceptor for distributed scheduling decisions for queueable containers</td>
+<td align="left">Major</td>
+<td align="left">nodemanager, resourcemanager</td>
+<td align="left">Konstantinos Karanasos</td>
+<td align="left">Arun Suresh</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4966">YARN-4966</a></td>
+<td align="left">Improve yarn logs to fetch container logs without specifying nodeId</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Xuan Gong</td>
+<td align="left">Xuan Gong</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4807">YARN-4807</a></td>
+<td align="left">MockAM#waitForState sleep duration is too long</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Karthik Kambatla</td>
+<td align="left">Yufei Gu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-3998">YARN-3998</a></td>
+<td align="left">Add support in the NodeManager to re-launch containers</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jun Gong</td>
+<td align="left">Jun Gong</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4920">YARN-4920</a></td>
+<td align="left">ATS/NM should support a link to dowload/get the logs in text format</td>
+<td align="left">Major</td>
+<td align="left">yarn</td>
+<td align="left">Xuan Gong</td>
+<td align="left">Xuan Gong</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4905">YARN-4905</a></td>
+<td align="left">Improve &quot;yarn logs&quot; command-line to optionally show log metadata also</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Xuan Gong</td>
+<td align="left">Xuan Gong</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4595">YARN-4595</a></td>
+<td align="left">Add support for configurable read-only mounts when launching Docker containers</td>
+<td align="left">Major</td>
+<td align="left">yarn</td>
+<td align="left">Billie Rinaldi</td>
+<td align="left">Billie Rinaldi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4390">YARN-4390</a></td>
+<td align="left">Do surgical preemption based on reserved container in CapacityScheduler</td>
+<td align="left">Major</td>
+<td align="left">capacity scheduler</td>
+<td align="left">Eric Payne</td>
+<td align="left">Wangda Tan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4778">YARN-4778</a></td>
+<td align="left">Support specifying resources for task containers in SLS</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Wangda Tan</td>
+<td align="left">Wangda Tan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4842">YARN-4842</a></td>
+<td align="left">&quot;yarn logs&quot; command should not require the appOwner argument</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ram Venkatesh</td>
+<td align="left">Xuan Gong</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5073">YARN-5073</a></td>
+<td align="left">Refactor startContainerInternal() in ContainerManager to remove unused parameter</td>
+<td align="left">Minor</td>
+<td align="left">nodemanager, resourcemanager</td>
+<td align="left">Konstantinos Karanasos</td>
+<td align="left">Konstantinos Karanasos</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-9389">HDFS-9389</a></td>
+<td align="left">Add maintenance states to AdminStates</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ming Ma</td>
+<td align="left">Ming Ma</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-2888">YARN-2888</a></td>
+<td align="left">Corrective mechanisms for rebalancing NM container queues</td>
+<td align="left">Major</td>
+<td align="left">nodemanager, resourcemanager</td>
+<td align="left">Konstantinos Karanasos</td>
+<td align="left">Arun Suresh</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4738">YARN-4738</a></td>
+<td align="left">Notify the RM about the status of OPPORTUNISTIC containers</td>
+<td align="left">Major</td>
+<td align="left">nodemanager, resourcemanager</td>
+<td align="left">Konstantinos Karanasos</td>
+<td align="left">Konstantinos Karanasos</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5075">YARN-5075</a></td>
+<td align="left">Fix findbugs warning in hadoop-yarn-common module</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Akira Ajisaka</td>
+<td align="left">Arun Suresh</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4412">YARN-4412</a></td>
+<td align="left">Create ClusterMonitor to compute ordered list of preferred NMs for OPPORTUNITIC containers</td>
+<td align="left">Major</td>
+<td align="left">nodemanager, resourcemanager</td>
+<td align="left">Arun Suresh</td>
+<td align="left">Arun Suresh</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5090">YARN-5090</a></td>
+<td align="left">Add End-to-End test-cases for DistributedScheduling using MiniYarnCluster</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Arun Suresh</td>
+<td align="left">Arun Suresh</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4913">YARN-4913</a></td>
+<td align="left">Yarn logs should take a -out option to write to a directory</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Xuan Gong</td>
+<td align="left">Xuan Gong</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-2173">HDFS-2173</a></td>
+<td align="left">saveNamespace should not throw IOE when only one storage directory fails to write VERSION file</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Todd Lipcon</td>
+<td align="left">Andras Bokor</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5110">YARN-5110</a></td>
+<td align="left">Fix OpportunisticContainerAllocator to insert complete HostAddress in issued ContainerTokenIds</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Arun Suresh</td>
+<td align="left">Konstantinos Karanasos</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5016">YARN-5016</a></td>
+<td align="left">Add support for a minimum retry interval for container retries</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Varun Vasudev</td>
+<td align="left">Jun Gong</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-7766">HDFS-7766</a></td>
+<td align="left">Add a flag to WebHDFS op=CREATE to not respond with a 307 redirect</td>
+<td align="left">Major</td>
+<td align="left">ui, webhdfs</td>
+<td align="left">Ravi Prakash</td>
+<td align="left">Ravi Prakash</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5115">YARN-5115</a></td>
+<td align="left">Avoid setting CONTENT-DISPOSITION header in the container-logs web-service</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Xuan Gong</td>
+<td align="left">Xuan Gong</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5089">YARN-5089</a></td>
+<td align="left">Improve &quot;yarn log&quot; command-line &quot;logFiles&quot; option to support regex</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Xuan Gong</td>
+<td align="left">Xuan Gong</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5127">YARN-5127</a></td>
+<td align="left">Expose ExecutionType in Container api record</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Arun Suresh</td>
+<td align="left">Hitesh Sharma</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5117">YARN-5117</a></td>
+<td align="left">QueuingContainerManager does not start GUARANTEED Container even if Resources are available</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Arun Suresh</td>
+<td align="left">Konstantinos Karanasos</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4007">YARN-4007</a></td>
+<td align="left">Add support for different network setups when launching the docker container</td>
+<td align="left">Major</td>
+<td align="left">nodemanager</td>
+<td align="left">Varun Vasudev</td>
+<td align="left">Sidharta Seethana</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5141">YARN-5141</a></td>
+<td align="left">Get Container logs for the Running application from Yarn Logs CommandLine</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Xuan Gong</td>
+<td align="left">Xuan Gong</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5088">YARN-5088</a></td>
+<td align="left">Improve &quot;yarn log&quot; command-line to read the last K bytes for the log files</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Xuan Gong</td>
+<td align="left">Xuan Gong</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5162">YARN-5162</a></td>
+<td align="left">Fix Exceptions thrown during registerAM call when Distributed Scheduling is Enabled</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Arun Suresh</td>
+<td align="left">Hitesh Sharma</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-9877">HDFS-9877</a></td>
+<td align="left">HDFS Namenode UI: Fix browsing directories that need to be encoded</td>
+<td align="left">Major</td>
+<td align="left">ui</td>
+<td align="left">Ravi Prakash</td>
+<td align="left">Ravi Prakash</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-7767">HDFS-7767</a></td>
+<td align="left">Use the noredirect flag in WebHDFS to allow web browsers to upload files via the NN UI</td>
+<td align="left">Major</td>
+<td align="left">ui, webhdfs</td>
+<td align="left">Ravi Prakash</td>
+<td align="left">Ravi Prakash</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5180">YARN-5180</a></td>
+<td align="left">Allow ResourceRequest to specify an enforceExecutionType flag</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Arun Suresh</td>
+<td align="left">Arun Suresh</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5204">YARN-5204</a></td>
+<td align="left">Properly report status of killed/stopped queued containers</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Konstantinos Karanasos</td>
+<td align="left">Konstantinos Karanasos</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5191">YARN-5191</a></td>
+<td align="left">Rename the “download=true” option for getLogs in NMWebServices and AHSWebServices</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Xuan Gong</td>
+<td align="left">Xuan Gong</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-7987">HDFS-7987</a></td>
+<td align="left">Allow files / directories to be moved</td>
+<td align="left">Major</td>
+<td align="left">ui</td>
+<td align="left">Ravi Prakash</td>
+<td align="left">Ravi Prakash</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5124">YARN-5124</a></td>
+<td align="left">Modify AMRMClient to set the ExecutionType in the ResourceRequest</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Arun Suresh</td>
+<td align="left">Arun Suresh</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5212">YARN-5212</a></td>
+<td align="left">Run existing ContainerManager tests using QueuingContainerManagerImpl</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Konstantinos Karanasos</td>
+<td align="left">Konstantinos Karanasos</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4887">YARN-4887</a></td>
+<td align="left">AM-RM protocol changes for identifying resource-requests explicitly</td>
+<td align="left">Major</td>
+<td align="left">applications, resourcemanager</td>
+<td align="left">Subru Krishnan</td>
+<td align="left">Subru Krishnan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-9016">HDFS-9016</a></td>
+<td align="left">Display upgrade domain information in fsck</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ming Ma</td>
+<td align="left">Ming Ma</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5223">YARN-5223</a></td>
+<td align="left">Container line in yarn logs output for a live application should include the hostname for the container</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Siddharth Seth</td>
+<td align="left">Xuan Gong</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5122">YARN-5122</a></td>
+<td align="left">&quot;yarn logs&quot; for running containers should print an explicit footer saying that the log may be incomplete</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Vinod Kumar Vavilapalli</td>
+<td align="left">Jian He</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-9922">HDFS-9922</a></td>
+<td align="left">Upgrade Domain placement policy status marks a good block in violation when there are decommissioned nodes</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Chris Trezzo</td>
+<td align="left">Chris Trezzo</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5251">YARN-5251</a></td>
+<td align="left">Yarn CLI to obtain App logs for last 'n' bytes fails with 'java.io.IOException' and for 'n' bytes fails with NumberFormatException</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Sumana Sathish</td>
+<td align="left">Xuan Gong</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-10328">HDFS-10328</a></td>
+<td align="left">Add per-cache-pool default replication num configuration</td>
+<td align="left">Minor</td>
+<td align="left">caching</td>
+<td align="left">xupeng</td>
+<td align="left">xupeng</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5171">YARN-5171</a></td>
+<td align="left">Extend DistributedSchedulerProtocol to notify RM of containers allocated by the Node</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Arun Suresh</td>
+<td align="left">Inigo Goiri</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5227">YARN-5227</a></td>
+<td align="left">yarn logs command: no need to specify -applicationId when specifying containerId</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jian He</td>
+<td align="left">Gergely Novák</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5224">YARN-5224</a></td>
+<td align="left">Logs for a completed container are not available in the yarn logs output for a live application</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Siddharth Seth</td>
+<td align="left">Xuan Gong</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5233">YARN-5233</a></td>
+<td align="left">Support for specifying a path for ATS plugin jars</td>
+<td align="left">Major</td>
+<td align="left">timelineserver</td>
+<td align="left">Li Lu</td>
+<td align="left">Li Lu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5200">YARN-5200</a></td>
+<td align="left">Improve yarn logs to get Container List</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Xuan Gong</td>
+<td align="left">Xuan Gong</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5299">YARN-5299</a></td>
+<td align="left">Log Docker run command when container fails</td>
+<td align="left">Major</td>
+<td align="left">yarn</td>
+<td align="left">Varun Vasudev</td>
+<td align="left">Varun Vasudev</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4759">YARN-4759</a></td>
+<td align="left">Fix signal handling for docker containers</td>
+<td align="left">Major</td>
+<td align="left">yarn</td>
+<td align="left">Sidharta Seethana</td>
+<td align="left">Shane Kumpf</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5363">YARN-5363</a></td>
+<td align="left">For AM containers, or for containers of running-apps, &quot;yarn logs&quot; incorrectly only (tries to) shows syslog file-type by default</td>
+<td align="left">Major</td>
+<td align="left">log-aggregation</td>
+<td align="left">Vinod Kumar Vavilapalli</td>
+<td align="left">Vinod Kumar Vavilapalli</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5298">YARN-5298</a></td>
+<td align="left">Mount usercache and NM filecache directories into Docker container</td>
+<td align="left">Major</td>
+<td align="left">yarn</td>
+<td align="left">Varun Vasudev</td>
+<td align="left">Sidharta Seethana</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5361">YARN-5361</a></td>
+<td align="left">Obtaining logs for completed container says 'file belongs to a running container ' at the end</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Sumana Sathish</td>
+<td align="left">Xuan Gong</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5350">YARN-5350</a></td>
+<td align="left">Distributed Scheduling: Ensure sort order of allocatable nodes returned by the RM is not lost</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Arun Suresh</td>
+<td align="left">Arun Suresh</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5392">YARN-5392</a></td>
+<td align="left">Replace use of Priority in the Scheduling infrastructure with an opaque ShedulerRequestKey</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Arun Suresh</td>
+<td align="left">Arun Suresh</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5351">YARN-5351</a></td>
+<td align="left">ResourceRequest should take ExecutionType into account during comparison</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Konstantinos Karanasos</td>
+<td align="left">Konstantinos Karanasos</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5113">YARN-5113</a></td>
+<td align="left">Refactoring and other clean-up for distributed scheduling</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Arun Suresh</td>
+<td align="left">Konstantinos Karanasos</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5458">YARN-5458</a></td>
+<td align="left">Rename DockerStopCommandTest to TestDockerStopCommand</td>
+<td align="left">Trivial</td>
+<td align="left">.</td>
+<td align="left">Shane Kumpf</td>
+<td align="left">Shane Kumpf</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5443">YARN-5443</a></td>
+<td align="left">Add support for docker inspect command</td>
+<td align="left">Major</td>
+<td align="left">yarn</td>
+<td align="left">Shane Kumpf</td>
+<td align="left">Shane Kumpf</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5226">YARN-5226</a></td>
+<td align="left">remove AHS enable check from LogsCLI#fetchAMContainerLogs</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Xuan Gong</td>
+<td align="left">Xuan Gong</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-10656">HDFS-10656</a></td>
+<td align="left">Optimize conversion of byte arrays back to path string</td>
+<td align="left">Major</td>
+<td align="left">hdfs</td>
+<td align="left">Daryn Sharp</td>
+<td align="left">Daryn Sharp</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-10674">HDFS-10674</a></td>
+<td align="left">Optimize creating a full path from an inode</td>
+<td align="left">Major</td>
+<td align="left">hdfs</td>
+<td align="left">Daryn Sharp</td>
+<td align="left">Daryn Sharp</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5459">YARN-5459</a></td>
+<td align="left">Add support for docker rm</td>
+<td align="left">Minor</td>
+<td align="left">yarn</td>
+<td align="left">Shane Kumpf</td>
+<td align="left">Shane Kumpf</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-10673">HDFS-10673</a></td>
+<td align="left">Optimize FSPermissionChecker's internal path usage</td>
+<td align="left">Major</td>
+<td align="left">hdfs</td>
+<td align="left">Daryn Sharp</td>
+<td align="left">Daryn Sharp</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5429">YARN-5429</a></td>
+<td align="left">Fix @return related javadoc warnings in yarn-api</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Vrushali C</td>
+<td align="left">Vrushali C</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4888">YARN-4888</a></td>
+<td align="left">Changes in scheduler to identify resource-requests explicitly by allocation-id</td>
+<td align="left">Major</td>
+<td align="left">resourcemanager</td>
+<td align="left">Subru Krishnan</td>
+<td align="left">Subru Krishnan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5470">YARN-5470</a></td>
+<td align="left">Differentiate exactly match with regex in yarn log CLI</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Xuan Gong</td>
+<td align="left">Xuan Gong</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5394">YARN-5394</a></td>
+<td align="left">Remove bind-mount /etc/passwd for Docker containers</td>
+<td align="left">Major</td>
+<td align="left">yarn</td>
+<td align="left">Zhankun Tang</td>
+<td align="left">Zhankun Tang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5137">YARN-5137</a></td>
+<td align="left">Make DiskChecker pluggable in NodeManager</td>
+<td align="left">Major</td>
+<td align="left">nodemanager</td>
+<td align="left">Ray Chiang</td>
+<td align="left">Yufei Gu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-13208">HADOOP-13208</a></td>
+<td align="left">S3A listFiles(recursive=true) to do a bulk listObjects instead of walking the pseudo-tree of directories</td>
+<td align="left">Minor</td>
+<td align="left">fs/s3</td>
+<td align="left">Steve Loughran</td>
+<td align="left">Steve Loughran</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4676">YARN-4676</a></td>
+<td align="left">Automatic and Asynchronous Decommissioning Nodes Status Tracking</td>
+<td align="left">Major</td>
+<td align="left">resourcemanager</td>
+<td align="left">Daniel Zhi</td>
+<td align="left">Daniel Zhi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-13446">HADOOP-13446</a></td>
+<td align="left">Support running isolated unit tests separate from AWS integration tests.</td>
+<td align="left">Major</td>
+<td align="left">fs/s3</td>
+<td align="left">Chris Nauroth</td>
+<td align="left">Chris Nauroth</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5042">YARN-5042</a></td>
+<td align="left">Mount /sys/fs/cgroup into Docker containers as read only mount</td>
+<td align="left">Major</td>
+<td align="left">yarn</td>
+<td align="left">Varun Vasudev</td>
+<td align="left">luhuichun</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5564">YARN-5564</a></td>
+<td align="left">Fix typo in RM_SCHEDULER_RESERVATION_THRESHOLD_INCREMENT_MULTIPLE</td>
+<td align="left">Trivial</td>
+<td align="left">fairscheduler</td>
+<td align="left">Ray Chiang</td>
+<td align="left">Ray Chiang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-3940">YARN-3940</a></td>
+<td align="left">Application moveToQueue should check NodeLabel permission</td>
+<td align="left">Major</td>
+<td align="left">resourcemanager</td>
+<td align="left">Bibin A Chundatt</td>
+<td align="left">Bibin A Chundatt</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5557">YARN-5557</a></td>
+<td align="left">Add localize API to the ContainerManagementProtocol</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jian He</td>
+<td align="left">Jian He</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5327">YARN-5327</a></td>
+<td align="left">API changes required to support recurring reservations in the YARN ReservationSystem</td>
+<td align="left">Major</td>
+<td align="left">resourcemanager</td>
+<td align="left">Subru Krishnan</td>
+<td align="left">Sangeetha Abdu Jyothi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4889">YARN-4889</a></td>
+<td align="left">Changes in AMRMClient for identifying resource-requests explicitly</td>
+<td align="left">Major</td>
+<td align="left">resourcemanager</td>
+<td align="left">Subru Krishnan</td>
+<td align="left">Arun Suresh</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-9392">HDFS-9392</a></td>
+<td align="left">Admins support for maintenance state</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ming Ma</td>
+<td align="left">Ming Ma</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-10813">HDFS-10813</a></td>
+<td align="left">DiskBalancer: Add the getNodeList method in Command</td>
+<td align="left">Minor</td>
+<td align="left">balancer &amp; mover</td>
+<td align="left">Yiqun Lin</td>
+<td align="left">Yiqun Lin</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5596">YARN-5596</a></td>
+<td align="left">Fix failing unit test in TestDockerContainerRuntime</td>
+<td align="left">Minor</td>
+<td align="left">nodemanager, yarn</td>
+<td align="left">Sidharta Seethana</td>
+<td align="left">Sidharta Seethana</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5264">YARN-5264</a></td>
+<td align="left">Store all queue-specific information in FSQueue</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Yufei Gu</td>
+<td align="left">Yufei Gu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5576">YARN-5576</a></td>
+<td align="left">Allow resource localization while container is running</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jian He</td>
+<td align="left">Jian He</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-13447">HADOOP-13447</a></td>
+<td align="left">Refactor S3AFileSystem to support introduction of separate metadata repository and tests.</td>
+<td align="left">Major</td>
+<td align="left">fs/s3</td>
+<td align="left">Chris Nauroth</td>
+<td align="left">Chris Nauroth</td>
+</tr>
+</tbody>
+</table>
+<h3 id="other">OTHER:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4535">YARN-4535</a></td>
+<td align="left">Fix checkstyle error in CapacityScheduler.java</td>
+<td align="left">Trivial</td>
+<td align="left">.</td>
+<td align="left">Rohith Sharma K S</td>
+<td align="left">Naganarasimha G R</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-5297">YARN-5297</a></td>
+<td align="left">Avoid printing a stack trace when recovering an app after the RM restarts</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Siddharth Seth</td>
+<td align="left">Junping Du</td>
+</tr>
+</tbody>
+</table>

@@ -1,0 +1,1070 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-tez-changelog">Apache Tez Changelog</h1>
+<h2 id="release-0.8.3---2016-04-15">Release 0.8.3 - 2016-04-15</h2>
+<h3 id="new-features">NEW FEATURES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3109">TEZ-3109</a></td>
+<td align="left">Tez UI 2: Add Vertex swimlanes</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+</tbody>
+</table>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3079">TEZ-3079</a></td>
+<td align="left">Fix tez-tfile parser documentation</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Rajesh Balamohan</td>
+<td align="left">Rajesh Balamohan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2974">TEZ-2974</a></td>
+<td align="left">Tez tools: TFileRecordReader in tez-tools should support reading &gt;2 GB tfiles</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Rajesh Balamohan</td>
+<td align="left">Rajesh Balamohan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3093">TEZ-3093</a></td>
+<td align="left">CriticalPathAnalyzer should be accessible via zeppelin</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Rajesh Balamohan</td>
+<td align="left">Rajesh Balamohan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3090">TEZ-3090</a></td>
+<td align="left">MRInput should make dagIdentifier, vertexIdentifier, etc available to the InputFormat jobConf</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Siddharth Seth</td>
+<td align="left">Siddharth Seth</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2980">TEZ-2980</a></td>
+<td align="left">Tez UI 2 - Umbrella</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3149">TEZ-3149</a></td>
+<td align="left">Tez-tools: Add username in DagInfo</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Rajesh Balamohan</td>
+<td align="left">Rajesh Balamohan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2756">TEZ-2756</a></td>
+<td align="left">MergeManager close should not try merging files on close if invoked after a shuffle exception</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Siddharth Seth</td>
+<td align="left">Tsuyoshi Ozawa</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3140">TEZ-3140</a></td>
+<td align="left">Reduce AM memory usage while serialization</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Rohini Palaniswamy</td>
+<td align="left">Rohini Palaniswamy</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3108">TEZ-3108</a></td>
+<td align="left">Add support for external services to local mode</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Siddharth Seth</td>
+<td align="left">Siddharth Seth</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3161">TEZ-3161</a></td>
+<td align="left">Allow task to report different kinds of errors - fatal / kill</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Siddharth Seth</td>
+<td align="left">Siddharth Seth</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3183">TEZ-3183</a></td>
+<td align="left">Change the taskFailed method on plugin contexts to specify the type of failure</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Siddharth Seth</td>
+<td align="left">Siddharth Seth</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3199">TEZ-3199</a></td>
+<td align="left">Rename getCredentials in TaskCommunicatorContext to be less confusing</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Siddharth Seth</td>
+<td align="left">Siddharth Seth</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-1491">TEZ-1491</a></td>
+<td align="left">Tez reducer-side merge's counter update is slow</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Gopal V</td>
+<td align="left">Gopal V</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3032">TEZ-3032</a></td>
+<td align="left">DAG start time getting logged using system time instead of recorded time in startTime field</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Hitesh Shah</td>
+<td align="left">Hitesh Shah</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3037">TEZ-3037</a></td>
+<td align="left">History URL should be set regardless of which history logging service is enabled</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Hitesh Shah</td>
+<td align="left">Hitesh Shah</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2937">TEZ-2937</a></td>
+<td align="left">Can Processor.close() be called after closing inputs and outputs?</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Rohini Palaniswamy</td>
+<td align="left">Jonathan Eagles</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2898">TEZ-2898</a></td>
+<td align="left">tez tools : swimlanes.py is broken in master</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Rajesh Balamohan</td>
+<td align="left">Rajesh Balamohan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3053">TEZ-3053</a></td>
+<td align="left">Containers timeout if they do not receive a task within the container timeout interval</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Siddharth Seth</td>
+<td align="left">Siddharth Seth</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3052">TEZ-3052</a></td>
+<td align="left">Task internal error due to Invalid event: T_ATTEMPT_FAILED at FAILED</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jason Lowe</td>
+<td align="left">Jason Lowe</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3036">TEZ-3036</a></td>
+<td align="left">Tez AM can hang on startup with no indication of error</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Jason Lowe</td>
+<td align="left">Jason Lowe</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3066">TEZ-3066</a></td>
+<td align="left">TaskAttemptFinishedEvent ConcurrentModificationException in recovery or history logging services</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jason Lowe</td>
+<td align="left">Jeff Zhang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3081">TEZ-3081</a></td>
+<td align="left">Update tez website for trademarks feedback</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Hitesh Shah</td>
+<td align="left">Hitesh Shah</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3076">TEZ-3076</a></td>
+<td align="left">Reduce merge memory overhead to support large number of in-memory mapoutputs</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jonathan Eagles</td>
+<td align="left">Jonathan Eagles</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2307">TEZ-2307</a></td>
+<td align="left">Possible wrong error message when submitting new dag</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jeff Zhang</td>
+<td align="left">Jeff Zhang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3089">TEZ-3089</a></td>
+<td align="left">TaskConcurrencyAnalyzer can return negative task count with very large jobs</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Rajesh Balamohan</td>
+<td align="left">Rajesh Balamohan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3103">TEZ-3103</a></td>
+<td align="left">Shuffle can hang when memory to memory merging enabled</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Jason Lowe</td>
+<td align="left">Jason Lowe</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3101">TEZ-3101</a></td>
+<td align="left">Tez UI: Task attempt log link doesn't have the correct protocol</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3117">TEZ-3117</a></td>
+<td align="left">Deadlock in Edge and Vertex code</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Yesha Vora</td>
+<td align="left">Bikas Saha</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3104">TEZ-3104</a></td>
+<td align="left">Tez fails on Bzip2 intermediate output format on hadoop 2.7.1 and earlier</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Jonathan Eagles</td>
+<td align="left">Jonathan Eagles</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3123">TEZ-3123</a></td>
+<td align="left">Containers can get re-used even with conflicting local resources</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Hitesh Shah</td>
+<td align="left">Hitesh Shah</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3067">TEZ-3067</a></td>
+<td align="left">Links to tez configs documentation should be bubbled up to top-level release page</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Hitesh Shah</td>
+<td align="left">Tsuyoshi Ozawa</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3131">TEZ-3131</a></td>
+<td align="left">Support a way to override test_root_dir for FaultToleranceTestRunner</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Hitesh Shah</td>
+<td align="left">Hitesh Shah</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3126">TEZ-3126</a></td>
+<td align="left">Log reason for not reducing parallelism</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Jonathan Eagles</td>
+<td align="left">Jonathan Eagles</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3134">TEZ-3134</a></td>
+<td align="left">tez-dag should depend on commons-collections4</td>
+<td align="left">Trivial</td>
+<td align="left">.</td>
+<td align="left">Hitesh Shah</td>
+<td align="left">Hitesh Shah</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3135">TEZ-3135</a></td>
+<td align="left">tez-ext-service-tests, tez-plugins/tez-yarn-timeline-history and tez-tools/tez-javadoc-tools missing dependencies</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Vijay Kumar</td>
+<td align="left">Vijay Kumar</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3124">TEZ-3124</a></td>
+<td align="left">Running task hangs due to missing event to initialize input in recovery</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jeff Zhang</td>
+<td align="left">Jeff Zhang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3102">TEZ-3102</a></td>
+<td align="left">Fetch failure of a speculated task causes job hang</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Jason Lowe</td>
+<td align="left">Jason Lowe</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-1911">TEZ-1911</a></td>
+<td align="left">MergeManager's unconditionalReserve() should check for memory limits before allocating memory to IntermediateMemoryToMemoryMerger</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Rajesh Balamohan</td>
+<td align="left">Rajesh Balamohan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3114">TEZ-3114</a></td>
+<td align="left">Shuffle OOM due to EventMetaData flood</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jason Lowe</td>
+<td align="left">Jason Lowe</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3129">TEZ-3129</a></td>
+<td align="left">Tez task and task attempt UI needs application fails with NotFoundException</td>
+<td align="left">Major</td>
+<td align="left">UI</td>
+<td align="left">Jonathan Eagles</td>
+<td align="left">Jonathan Eagles</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3128">TEZ-3128</a></td>
+<td align="left">Avoid stopping containers on the AM shutdown thread</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Siddharth Seth</td>
+<td align="left">Tsuyoshi Ozawa</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3141">TEZ-3141</a></td>
+<td align="left">mapreduce.task.timeout is not translated to container heartbeat timeout</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jason Lowe</td>
+<td align="left">Jason Lowe</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3147">TEZ-3147</a></td>
+<td align="left">Intermediate mem-to-mem: Fix early exit when only one segment can fit into memory</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Rajesh Balamohan</td>
+<td align="left">Rajesh Balamohan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2988">TEZ-2988</a></td>
+<td align="left">DAGAppMaster::shutdownTezAM should return with a no-op if it has been invoked earlier</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Hitesh Shah</td>
+<td align="left">Tsuyoshi Ozawa</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3151">TEZ-3151</a></td>
+<td align="left">expose DAG credentials to plugins</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sergey Shelukhin</td>
+<td align="left">Sergey Shelukhin</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3115">TEZ-3115</a></td>
+<td align="left">Shuffle string handling adds significant memory overhead</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jason Lowe</td>
+<td align="left">Jonathan Eagles</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3156">TEZ-3156</a></td>
+<td align="left">Tez client keeps trying to talk to RM even if RM does not know about the application</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Yesha Vora</td>
+<td align="left">Hitesh Shah</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2863">TEZ-2863</a></td>
+<td align="left">Container, node, and logs not available in UI for tasks that fail to launch</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jonathan Eagles</td>
+<td align="left">Jonathan Eagles</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3155">TEZ-3155</a></td>
+<td align="left">Support a way to submit DAGs to a session where the DAG plan exceeds hadoop ipc limits</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Hitesh Shah</td>
+<td align="left">Zhiyuan Yang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3105">TEZ-3105</a></td>
+<td align="left">TezMxBeanResourceCalculator does not work on IBM JDK 7 or 8 causing Tez failures</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Greg Senia</td>
+<td align="left">Greg Senia</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3148">TEZ-3148</a></td>
+<td align="left">Invalid event TA_TEZ_EVENT_UPDATE on TaskAttempt</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Rajesh Balamohan</td>
+<td align="left">Tsuyoshi Ozawa</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2936">TEZ-2936</a></td>
+<td align="left">Create ATS implementation that enables support for YARN-4265</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Hitesh Shah</td>
+<td align="left">Hitesh Shah</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3166">TEZ-3166</a></td>
+<td align="left">Counters aren't fully updated and sent for failed tasks</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Zhiyuan Yang</td>
+<td align="left">Zhiyuan Yang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3175">TEZ-3175</a></td>
+<td align="left">Add tez client submit host</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jonathan Eagles</td>
+<td align="left">Jonathan Eagles</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2967">TEZ-2967</a></td>
+<td align="left">Vertex start time should be that of first task start time in UI</td>
+<td align="left">Major</td>
+<td align="left">UI</td>
+<td align="left">Rohini Palaniswamy</td>
+<td align="left">Jonathan Eagles</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3189">TEZ-3189</a></td>
+<td align="left">Pre-warm dags should not be counted in submitted dags count by DAGAppMaster</td>
+<td align="left">Trivial</td>
+<td align="left">.</td>
+<td align="left">Zhiyuan Yang</td>
+<td align="left">Zhiyuan Yang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3192">TEZ-3192</a></td>
+<td align="left">IFile#checkState creating unnecessary objects though auto-boxing</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jonathan Eagles</td>
+<td align="left">Jonathan Eagles</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3177">TEZ-3177</a></td>
+<td align="left">Non-DAG events should use the session domain or no domain if the data does not need protection</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Hitesh Shah</td>
+<td align="left">Hitesh Shah</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3201">TEZ-3201</a></td>
+<td align="left">Tez-UI build broken</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Siddharth Seth</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3196">TEZ-3196</a></td>
+<td align="left">java.lang.InternalError from decompression codec is fatal to a task during shuffle</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jason Lowe</td>
+<td align="left">Jason Lowe</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3180">TEZ-3180</a></td>
+<td align="left">Update master docs to declare hadoop-2.6.x as a minimum requirement</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Hitesh Shah</td>
+<td align="left">Hitesh Shah</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sub-tasks">SUB-TASKS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2982">TEZ-2982</a></td>
+<td align="left">Tez UI 2: Create tez-ui2 directory and get a basic dummy page working in ember 2.2</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3016">TEZ-3016</a></td>
+<td align="left">Tez UI 2: Make bower dependency silent.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2983">TEZ-2983</a></td>
+<td align="left">Tez UI 2: Get ember initializers functional.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3018">TEZ-3018</a></td>
+<td align="left">Tez UI 2: Add config.env</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3019">TEZ-3019</a></td>
+<td align="left">Tez UI 2: Replace BaseURL with Host</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2984">TEZ-2984</a></td>
+<td align="left">Tez UI 2: Create abstract classes</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3020">TEZ-3020</a></td>
+<td align="left">Tez UI 2: Add entity blueprint</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2985">TEZ-2985</a></td>
+<td align="left">Tez UI 2: Create loader and entity classes</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3021">TEZ-3021</a></td>
+<td align="left">Tez UI 2: Add env service &amp; initializer</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3023">TEZ-3023</a></td>
+<td align="left">Tez UI 2: Abstract adapter and route</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3022">TEZ-3022</a></td>
+<td align="left">Tez UI 2: Add serializer &amp; adapter for timeline server</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3026">TEZ-3026</a></td>
+<td align="left">Tez UI 2: Add adapters for RM &amp; AM</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3027">TEZ-3027</a></td>
+<td align="left">Tez UI 2: Add header and footer elements</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2986">TEZ-2986</a></td>
+<td align="left">Tez UI 2: Implement All DAGs page</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3038">TEZ-3038</a></td>
+<td align="left">Tez UI 2: Create DAG details page</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3039">TEZ-3039</a></td>
+<td align="left">Tez UI 2: Create all sub-pages for DAG</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3040">TEZ-3040</a></td>
+<td align="left">Tez UI 2: Create Vertex details page &amp; sub tables</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3041">TEZ-3041</a></td>
+<td align="left">Tez UI 2: Create Task &amp; Attempt details page with sub tables</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3045">TEZ-3045</a></td>
+<td align="left">Tez UI 2: Create application details page with DAGs tab</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3048">TEZ-3048</a></td>
+<td align="left">Tez UI 2: Make PhantomJS a local dependency for build tests</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3042">TEZ-3042</a></td>
+<td align="left">Tez UI 2: Create Counters pages</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3043">TEZ-3043</a></td>
+<td align="left">Tez UI 2: Create configurations page</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3049">TEZ-3049</a></td>
+<td align="left">Tez UI 2: Add column selector</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3050">TEZ-3050</a></td>
+<td align="left">Tez UI 2: Add counter columns</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3056">TEZ-3056</a></td>
+<td align="left">Tez UI 2: Remove version changes in TEZ-2980 branch</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3064">TEZ-3064</a></td>
+<td align="left">Tez UI 2: Add All DAGs filters</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3059">TEZ-3059</a></td>
+<td align="left">Tez UI 2: Make refresh functional</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3070">TEZ-3070</a></td>
+<td align="left">Tez UI 2: Jenkins build is failing</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3060">TEZ-3060</a></td>
+<td align="left">Tez UI 2: Activate auto-refresh</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3061">TEZ-3061</a></td>
+<td align="left">Tez UI 2: Display in-progress vertex table in DAG details</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3069">TEZ-3069</a></td>
+<td align="left">Tez UI 2: Make error bar fully functional</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3062">TEZ-3062</a></td>
+<td align="left">Tez UI 2: Integrate graphical view</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3058">TEZ-3058</a></td>
+<td align="left">Tez UI 2: Add download data functionality</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3084">TEZ-3084</a></td>
+<td align="left">Tez UI 2: Display caller type and info</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3080">TEZ-3080</a></td>
+<td align="left">Tez UI 2: Ensure UI 2 is in-line with UI 1</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3092">TEZ-3092</a></td>
+<td align="left">Tez UI 2: Tuneups &amp; Improvements</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3095">TEZ-3095</a></td>
+<td align="left">Tez UI 2: Tuneups &amp; Improvements</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3088">TEZ-3088</a></td>
+<td align="left">Tez UI 2: Licenses of all the packages used by Tez Ui must be documented</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2916">TEZ-2916</a></td>
+<td align="left">Tez UI 2: Show counts of running tasks on the DAG visualization page</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Siddharth Seth</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3029">TEZ-3029</a></td>
+<td align="left">Add an onError method to service plugin contexts</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Siddharth Seth</td>
+<td align="left">Siddharth Seth</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3125">TEZ-3125</a></td>
+<td align="left">Tez UI 2: All auto-refresh pages refresh multiple times shortly after application complete</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3127">TEZ-3127</a></td>
+<td align="left">Tez UI 2: Release audit is failing</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3136">TEZ-3136</a></td>
+<td align="left">Tez UI 2: Pre-merge: Update CHANGES.txt and remove from excluded list</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3143">TEZ-3143</a></td>
+<td align="left">Tez UI 2: Make the build faster</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3160">TEZ-3160</a></td>
+<td align="left">Tez UI 2: Swimlane - Create swimlane page &amp; component</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2958">TEZ-2958</a></td>
+<td align="left">Recovered TA, whose commit cannot be recovered, should move to killed state</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Bikas Saha</td>
+<td align="left">Jason Lowe</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3170">TEZ-3170</a></td>
+<td align="left">Tez UI 2: Swimlane - Display computed events, event bars &amp; dependencies</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3152">TEZ-3152</a></td>
+<td align="left">Tez UI 2: Build fails when run by multiple users or when node_modules is old</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3171">TEZ-3171</a></td>
+<td align="left">Tez UI 2: Swimlane - Tooltip, zoom &amp; redirection</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3173">TEZ-3173</a></td>
+<td align="left">Update Tez AM REST APIs for more information for each vertex</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Zhiyuan Yang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3172">TEZ-3172</a></td>
+<td align="left">Tez UI: Swimlane - In progress &amp; Shadow</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3194">TEZ-3194</a></td>
+<td align="left">Tez UI: Swimlane improve in-progress experience</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreenath Somarajapuram</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+</tbody>
+</table>
+<h3 id="other">OTHER:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3033">TEZ-3033</a></td>
+<td align="left">changes for 0.8.2 release</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Siddharth Seth</td>
+<td align="left">Siddharth Seth</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2594">TEZ-2594</a></td>
+<td align="left">Fix LICENSE for missing entries for full and minimal tarballs</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Hitesh Shah</td>
+<td align="left">Hitesh Shah</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3120">TEZ-3120</a></td>
+<td align="left">Remove TaskCommContext.getCurrentDagName, Identifier</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Siddharth Seth</td>
+<td align="left">Tsuyoshi Ozawa</td>
+</tr>
+</tbody>
+</table>

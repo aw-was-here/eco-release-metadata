@@ -1,0 +1,308 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hadoop-changelog">Apache Hadoop Changelog</h1>
+<h2 id="release-1.2.1---2013-08-01">Release 1.2.1 - 2013-08-01</h2>
+<h3 id="incompatible-changes">INCOMPATIBLE CHANGES:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="new-features">NEW FEATURES:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5368">MAPREDUCE-5368</a></td>
+<td align="left">Save memory by set capacity, load factor and concurrency level for ConcurrentHashMap in TaskInProgress</td>
+<td align="left">Major</td>
+<td align="left">mrv1</td>
+<td align="left">zhaoyunjiong</td>
+<td align="left">zhaoyunjiong</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4838">MAPREDUCE-4838</a></td>
+<td align="left">Add extra info to JH files</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Arun C Murthy</td>
+<td align="left">Zhijie Shen</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9730">HADOOP-9730</a></td>
+<td align="left">fix hadoop.spec to add task-log4j.properties</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Giridharan Kesavan</td>
+<td align="left">Giridharan Kesavan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9665">HADOOP-9665</a></td>
+<td align="left">BlockDecompressorStream#decompress will throw EOFException instead of return -1 when EOF</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Zhijie Shen</td>
+<td align="left">Zhijie Shen</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9504">HADOOP-9504</a></td>
+<td align="left">MetricsDynamicMBeanBase has concurrency issues in createMBeanInfo</td>
+<td align="left">Critical</td>
+<td align="left">metrics</td>
+<td align="left">Liang Xie</td>
+<td align="left">Liang Xie</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-4880">HDFS-4880</a></td>
+<td align="left">Diagnostic logging while loading name/edits files</td>
+<td align="left">Major</td>
+<td align="left">namenode</td>
+<td align="left">Arpit Agarwal</td>
+<td align="left">Suresh Srinivas</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-4699">HDFS-4699</a></td>
+<td align="left">TestPipelinesFailover#testPipelineRecoveryStress fails sporadically</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Chris Nauroth</td>
+<td align="left">Chris Nauroth</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-4581">HDFS-4581</a></td>
+<td align="left">DataNode#checkDiskError should not be called on network errors</td>
+<td align="left">Major</td>
+<td align="left">datanode</td>
+<td align="left">Rohit Kochar</td>
+<td align="left">Rohit Kochar</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-4261">HDFS-4261</a></td>
+<td align="left">TestBalancerWithNodeGroup times out</td>
+<td align="left">Major</td>
+<td align="left">balancer &amp; mover</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+<td align="left">Junping Du</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5375">MAPREDUCE-5375</a></td>
+<td align="left">Delegation Token renewal exception in jobtracker logs</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Venkat Ranganathan</td>
+<td align="left">Venkat Ranganathan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5364">MAPREDUCE-5364</a></td>
+<td align="left">Deadlock between RenewalTimerTask methods cancel() and run()</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Karthik Kambatla</td>
+<td align="left">Karthik Kambatla</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5351">MAPREDUCE-5351</a></td>
+<td align="left">JobTracker memory leak caused by CleanupQueue reopening FileSystem</td>
+<td align="left">Critical</td>
+<td align="left">jobtracker</td>
+<td align="left">Sandy Ryza</td>
+<td align="left">Sandy Ryza</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5318">MAPREDUCE-5318</a></td>
+<td align="left">Ampersand in JSPUtil.java is not escaped</td>
+<td align="left">Minor</td>
+<td align="left">jobtracker</td>
+<td align="left">Bohou Li</td>
+<td align="left">Bohou Li</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5260">MAPREDUCE-5260</a></td>
+<td align="left">Job failed because of JvmManager running into inconsistent state</td>
+<td align="left">Major</td>
+<td align="left">tasktracker</td>
+<td align="left">zhaoyunjiong</td>
+<td align="left">zhaoyunjiong</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5256">MAPREDUCE-5256</a></td>
+<td align="left">CombineInputFormat isn't thread safe affecting HiveServer</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Vinod Kumar Vavilapalli</td>
+<td align="left">Vinod Kumar Vavilapalli</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5206">MAPREDUCE-5206</a></td>
+<td align="left">JT can show the same job multiple times in Retired Jobs section</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Arun C Murthy</td>
+<td align="left">Arun C Murthy</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5148">MAPREDUCE-5148</a></td>
+<td align="left">Syslog missing from Map/Reduce tasks</td>
+<td align="left">Major</td>
+<td align="left">tasktracker</td>
+<td align="left">Yesha Vora</td>
+<td align="left">Arun C Murthy</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4490">MAPREDUCE-4490</a></td>
+<td align="left">JVM reuse is incompatible with LinuxTaskController (and therefore incompatible with Security)</td>
+<td align="left">Critical</td>
+<td align="left">task-controller, tasktracker</td>
+<td align="left">George Datskos</td>
+<td align="left">sam liu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3859">MAPREDUCE-3859</a></td>
+<td align="left">CapacityScheduler incorrectly utilizes extra-resources of queue for high-memory jobs</td>
+<td align="left">Major</td>
+<td align="left">capacity-sched</td>
+<td align="left">Sergey Tryuber</td>
+<td align="left">Sergey Tryuber</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tests">TESTS:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="sub-tasks">SUB-TASKS:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="other">OTHER:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-10371">HADOOP-10371</a></td>
+<td align="left">The eclipse-plugin cannot work in my environment</td>
+<td align="left">Minor</td>
+<td align="left">contrib/eclipse-plugin</td>
+<td align="left">huangxing</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>

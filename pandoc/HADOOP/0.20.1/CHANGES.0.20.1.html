@@ -1,0 +1,764 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hadoop-changelog">Apache Hadoop Changelog</h1>
+<h2 id="release-0.20.1---2009-09-01">Release 0.20.1 - 2009-09-01</h2>
+<h3 id="incompatible-changes">INCOMPATIBLE CHANGES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5881">HADOOP-5881</a></td>
+<td align="left">Simplify configuration related to task-memory-monitoring and memory-based scheduling</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Vinod Kumar Vavilapalli</td>
+<td align="left">Vinod Kumar Vavilapalli</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5726">HADOOP-5726</a></td>
+<td align="left">Remove pre-emption from the capacity scheduler code base</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Hemanth Yamijala</td>
+<td align="left">rahul k singh</td>
+</tr>
+</tbody>
+</table>
+<h3 id="new-features">NEW FEATURES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-6080">HADOOP-6080</a></td>
+<td align="left">Handling of Trash with quota</td>
+<td align="left">Major</td>
+<td align="left">fs</td>
+<td align="left">Koji Noguchi</td>
+<td align="left">Jakob Homan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5714">HADOOP-5714</a></td>
+<td align="left">Metric to show number of fs.exists (or number of getFileInfo) calls</td>
+<td align="left">Minor</td>
+<td align="left">metrics</td>
+<td align="left">Koji Noguchi</td>
+<td align="left">Jakob Homan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-3315">HADOOP-3315</a></td>
+<td align="left">New binary file format</td>
+<td align="left">Major</td>
+<td align="left">io</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Hong Tang</td>
+</tr>
+</tbody>
+</table>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-635">HDFS-635</a></td>
+<td align="left">HDFS Project page does not show 0.20.1 documentation/release information.</td>
+<td align="left">Major</td>
+<td align="left">documentation</td>
+<td align="left">Andy Sautins</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-527">HDFS-527</a></td>
+<td align="left">Refactor DFSClient constructors</td>
+<td align="left">Major</td>
+<td align="left">hdfs-client</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-767">MAPREDUCE-767</a></td>
+<td align="left">to remove mapreduce dependency on commons-cli2</td>
+<td align="left">Major</td>
+<td align="left">contrib/streaming</td>
+<td align="left">Giridharan Kesavan</td>
+<td align="left">Amar Kamat</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-465">MAPREDUCE-465</a></td>
+<td align="left">Deprecate org.apache.hadoop.mapred.lib.MultithreadedMapRunner</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Amareshwari Sriramadasu</td>
+<td align="left">Amareshwari Sriramadasu</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-6215">HADOOP-6215</a></td>
+<td align="left">fix GenericOptionParser to deal with -D with '=' in the value</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Amar Kamat</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-6145">HADOOP-6145</a></td>
+<td align="left">No error message for deleting non-existant file or directory.</td>
+<td align="left">Major</td>
+<td align="left">fs</td>
+<td align="left">Suman Sehgal</td>
+<td align="left">Jakob Homan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-6141">HADOOP-6141</a></td>
+<td align="left">hadoop 0.20 branch &quot;test-patch&quot; is broken</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Hong Tang</td>
+<td align="left">Hong Tang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-6139">HADOOP-6139</a></td>
+<td align="left">Incomplete help message is displayed for rm and rmr options.</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Suman Sehgal</td>
+<td align="left">Jakob Homan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-6017">HADOOP-6017</a></td>
+<td align="left">NameNode and SecondaryNameNode fail to restart because of abnormal filenames.</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Raghu Angadi</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5951">HADOOP-5951</a></td>
+<td align="left">StorageInfo needs Apache license header.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Suresh Srinivas</td>
+<td align="left">Suresh Srinivas</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5937">HADOOP-5937</a></td>
+<td align="left">Correct info message &quot;Use hadoop dfs -safemode option&quot; to &quot; Use hdfs dfsadmin -safemode option&quot; .</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Ravi Phulari</td>
+<td align="left">Ravi Phulari</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5932">HADOOP-5932</a></td>
+<td align="left">MemoryMatcher logs 0 as freeMemOnTT even though there are free slots available on TaskTraker</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Karam Singh</td>
+<td align="left">Vinod Kumar Vavilapalli</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5924">HADOOP-5924</a></td>
+<td align="left">JT fails to recover the jobs after restart after HADOOP:4372</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ramya Sunil</td>
+<td align="left">Amar Kamat</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5921">HADOOP-5921</a></td>
+<td align="left">JobTracker does not come up because of NotReplicatedYetException</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Amareshwari Sriramadasu</td>
+<td align="left">Amar Kamat</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5920">HADOOP-5920</a></td>
+<td align="left">TestJobHistory fails some times.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Amareshwari Sriramadasu</td>
+<td align="left">Amar Kamat</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5908">HADOOP-5908</a></td>
+<td align="left">ArithmeticException in heartbeats with zero map jobs</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Vinod Kumar Vavilapalli</td>
+<td align="left">Amar Kamat</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5884">HADOOP-5884</a></td>
+<td align="left">Capacity scheduler should account high memory jobs as using more capacity of the queue</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Hemanth Yamijala</td>
+<td align="left">Vinod Kumar Vavilapalli</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5883">HADOOP-5883</a></td>
+<td align="left">TaskMemoryMonitorThread might shoot down tasks even if their processes momentarily exceed the requested memory</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Hemanth Yamijala</td>
+<td align="left">Hemanth Yamijala</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5882">HADOOP-5882</a></td>
+<td align="left">Progress is not updated when the New Reducer is running reduce phase</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Jothi Padmanabhan</td>
+<td align="left">Amareshwari Sriramadasu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5850">HADOOP-5850</a></td>
+<td align="left">map/reduce doesn't run jobs with 0 maps</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Vinod Kumar Vavilapalli</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5828">HADOOP-5828</a></td>
+<td align="left">Use absolute path for JobTracker's mapred.local.dir in MiniMRCluster</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Hemanth Yamijala</td>
+<td align="left">Hemanth Yamijala</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5746">HADOOP-5746</a></td>
+<td align="left">Errors encountered in MROutputThread after the last map/reduce call can go undetected</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Devaraj Das</td>
+<td align="left">Amar Kamat</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5736">HADOOP-5736</a></td>
+<td align="left">Update CapacityScheduler documentation to reflect latest changes</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreekanth Ramakrishnan</td>
+<td align="left">Sreekanth Ramakrishnan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5719">HADOOP-5719</a></td>
+<td align="left">Jobs failed during job initalization are never removed from Capacity Schedulers waiting list</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreekanth Ramakrishnan</td>
+<td align="left">Sreekanth Ramakrishnan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5718">HADOOP-5718</a></td>
+<td align="left">Capacity Scheduler should not check for presence of default queue while starting up.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sreekanth Ramakrishnan</td>
+<td align="left">Sreekanth Ramakrishnan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5711">HADOOP-5711</a></td>
+<td align="left">Change Namenode file close log to info</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5691">HADOOP-5691</a></td>
+<td align="left">org.apache.hadoop.mapreduce.Reducer should not be abstract.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Amareshwari Sriramadasu</td>
+<td align="left">Amareshwari Sriramadasu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5688">HADOOP-5688</a></td>
+<td align="left">HftpFileSystem.getChecksum(..) does not work for the paths with scheme and authority</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5655">HADOOP-5655</a></td>
+<td align="left">TestMRServerPorts fails on java.net.BindException</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Hairong Kuang</td>
+<td align="left">Devaraj Das</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5654">HADOOP-5654</a></td>
+<td align="left">TestReplicationPolicy.&lt;init&gt; fails on java.net.BindException</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Hairong Kuang</td>
+<td align="left">Hairong Kuang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5648">HADOOP-5648</a></td>
+<td align="left">Not able to generate gridmix.jar on already compiled version of hadoop</td>
+<td align="left">Major</td>
+<td align="left">benchmarks</td>
+<td align="left">Suman Sehgal</td>
+<td align="left">Giridharan Kesavan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5646">HADOOP-5646</a></td>
+<td align="left">TestQueueCapacities is failing Hudson tests for the last few builds</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jothi Padmanabhan</td>
+<td align="left">Vinod Kumar Vavilapalli</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5641">HADOOP-5641</a></td>
+<td align="left">Possible NPE in CapacityScheduler's MemoryMatcher</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Vinod Kumar Vavilapalli</td>
+<td align="left">Hemanth Yamijala</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5636">HADOOP-5636</a></td>
+<td align="left">Job is left in Running state after a killJob</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Amareshwari Sriramadasu</td>
+<td align="left">Amar Kamat</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5539">HADOOP-5539</a></td>
+<td align="left">o.a.h.mapred.Merger not maintaining map out compression on intermediate files</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Billy Pearson</td>
+<td align="left">Jothi Padmanabhan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5533">HADOOP-5533</a></td>
+<td align="left">Recovery duration shown on the jobtracker webpage is inaccurate</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Amar Kamat</td>
+<td align="left">Amar Kamat</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5349">HADOOP-5349</a></td>
+<td align="left">When the size required for a path is -1, LocalDirAllocator.getLocalPathForWrite fails with a DiskCheckerException when the disk it selects is bad.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Vinod Kumar Vavilapalli</td>
+<td align="left">Vinod Kumar Vavilapalli</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5213">HADOOP-5213</a></td>
+<td align="left">BZip2CompressionOutputStream NullPointerException</td>
+<td align="left">Blocker</td>
+<td align="left">io</td>
+<td align="left">Zheng Shao</td>
+<td align="left">Zheng Shao</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5210">HADOOP-5210</a></td>
+<td align="left">Reduce Task Progress shows &gt; 100% when the total size of map outputs (for a single reducer) is high</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Jothi Padmanabhan</td>
+<td align="left">Ravi Gummadi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-4674">HADOOP-4674</a></td>
+<td align="left">hadoop fs -help should list detailed help info for the following commands: test, text, tail, stat &amp; touchz</td>
+<td align="left">Trivial</td>
+<td align="left">fs</td>
+<td align="left">David NeSmith</td>
+<td align="left">Ravi Phulari</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-4626">HADOOP-4626</a></td>
+<td align="left">API link in forrest doc should point to the same version of hadoop.</td>
+<td align="left">Minor</td>
+<td align="left">documentation</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-1022">HDFS-1022</a></td>
+<td align="left">Merge under-10-min tests specs into one file</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Erik Steffl</td>
+<td align="left">Erik Steffl</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-525">HDFS-525</a></td>
+<td align="left">ListPathsServlet.java uses static SimpleDateFormat that has threading issues</td>
+<td align="left">Major</td>
+<td align="left">namenode</td>
+<td align="left">Suresh Srinivas</td>
+<td align="left">Suresh Srinivas</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-438">HDFS-438</a></td>
+<td align="left">Improve help message for quotas</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Raghu Angadi</td>
+<td align="left">Raghu Angadi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-167">HDFS-167</a></td>
+<td align="left">DFSClient continues to retry indefinitely</td>
+<td align="left">Minor</td>
+<td align="left">hdfs-client</td>
+<td align="left">Derek Wollenstein</td>
+<td align="left">Bill Zeller</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-26">HDFS-26</a></td>
+<td align="left">HADOOP-5862 for version .20 (Namespace quota exceeded message unclear)</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Boris Shkolnik</td>
+<td align="left">Boris Shkolnik</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-924">MAPREDUCE-924</a></td>
+<td align="left">TestPipes must not directly invoke 'main' of pipes as an exit from main could cause the testcase to crash.</td>
+<td align="left">Major</td>
+<td align="left">pipes</td>
+<td align="left">Amareshwari Sriramadasu</td>
+<td align="left">Amareshwari Sriramadasu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-911">MAPREDUCE-911</a></td>
+<td align="left">TestTaskFail fail sometimes</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Amareshwari Sriramadasu</td>
+<td align="left">Amareshwari Sriramadasu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-838">MAPREDUCE-838</a></td>
+<td align="left">Task succeeds even when committer.commitTask fails with IOException</td>
+<td align="left">Blocker</td>
+<td align="left">task</td>
+<td align="left">Koji Noguchi</td>
+<td align="left">Amareshwari Sriramadasu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-834">MAPREDUCE-834</a></td>
+<td align="left">When TaskTracker config use old memory management values its memory monitoring is diabled.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Karam Singh</td>
+<td align="left">Sreekanth Ramakrishnan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-832">MAPREDUCE-832</a></td>
+<td align="left">Too many WARN messages about deprecated memorty config variables in JobTacker log</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Karam Singh</td>
+<td align="left">rahul k singh</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-818">MAPREDUCE-818</a></td>
+<td align="left">org.apache.hadoop.mapreduce.Counters.getGroup returns null if the group name doesnt exist.</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Amareshwari Sriramadasu</td>
+<td align="left">Amareshwari Sriramadasu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-807">MAPREDUCE-807</a></td>
+<td align="left">Stray user files in mapred.system.dir with permissions other than 777 can prevent the jobtracker from starting up.</td>
+<td align="left">Blocker</td>
+<td align="left">jobtracker</td>
+<td align="left">Amar Kamat</td>
+<td align="left">Amar Kamat</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-805">MAPREDUCE-805</a></td>
+<td align="left">Deadlock in Jobtracker</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Michael Tamm</td>
+<td align="left">Amar Kamat</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-796">MAPREDUCE-796</a></td>
+<td align="left">Encountered &quot;ClassCastException&quot; on tasktracker while running wordcount with MultithreadedMapRunner</td>
+<td align="left">Major</td>
+<td align="left">examples</td>
+<td align="left">Suman Sehgal</td>
+<td align="left">Amar Kamat</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-745">MAPREDUCE-745</a></td>
+<td align="left">TestRecoveryManager fails sometimes</td>
+<td align="left">Major</td>
+<td align="left">jobtracker</td>
+<td align="left">Amareshwari Sriramadasu</td>
+<td align="left">Amar Kamat</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-735">MAPREDUCE-735</a></td>
+<td align="left">ArrayIndexOutOfBoundsException is thrown by KeyFieldBasedPartitioner</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Suman Sehgal</td>
+<td align="left">Amar Kamat</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-687">MAPREDUCE-687</a></td>
+<td align="left">TestMiniMRMapRedDebugScript fails sometimes</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Amar Kamat</td>
+<td align="left">Amareshwari Sriramadasu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-657">MAPREDUCE-657</a></td>
+<td align="left">CompletedJobStatusStore hardcodes filesystem to hdfs</td>
+<td align="left">Major</td>
+<td align="left">jobtracker</td>
+<td align="left">Amar Kamat</td>
+<td align="left">Amar Kamat</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-565">MAPREDUCE-565</a></td>
+<td align="left">Partitioner does not work with new API</td>
+<td align="left">Blocker</td>
+<td align="left">task</td>
+<td align="left">Jothi Padmanabhan</td>
+<td align="left">Owen O'Malley</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-430">MAPREDUCE-430</a></td>
+<td align="left">Task stuck in cleanup with OutOfMemoryErrors</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Amareshwari Sriramadasu</td>
+<td align="left">Amar Kamat</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-421">MAPREDUCE-421</a></td>
+<td align="left">mapred pipes might return exit code 0 even when failing</td>
+<td align="left">Major</td>
+<td align="left">pipes</td>
+<td align="left">Christian Kunz</td>
+<td align="left">Christian Kunz</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-383">MAPREDUCE-383</a></td>
+<td align="left">pipes combiner does not reset properly after a spill</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Christian Kunz</td>
+<td align="left">Christian Kunz</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-179">MAPREDUCE-179</a></td>
+<td align="left">setProgress not called for new RecordReaders</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Chris Douglas</td>
+<td align="left">Chris Douglas</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-130">MAPREDUCE-130</a></td>
+<td align="left">Delete the jobconf copy from the log directory of the JobTracker when the job is retired</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Devaraj Das</td>
+<td align="left">Amar Kamat</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-124">MAPREDUCE-124</a></td>
+<td align="left">When abortTask of OutputCommitter fails with an Exception for a map-only job, the task is marked as success</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jothi Padmanabhan</td>
+<td align="left">Amareshwari Sriramadasu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-40">MAPREDUCE-40</a></td>
+<td align="left">Memory management variables need a backwards compatibility option after HADOOP-5881</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Hemanth Yamijala</td>
+<td align="left">rahul k singh</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-18">MAPREDUCE-18</a></td>
+<td align="left">Under load the shuffle sometimes gets incorrect data</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Ravi Gummadi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2">MAPREDUCE-2</a></td>
+<td align="left">ArrayOutOfIndex error in KeyFieldBasedPartitioner on empty key</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Amar Kamat</td>
+<td align="left">Amar Kamat</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tests">TESTS:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="sub-tasks">SUB-TASKS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-6213">HADOOP-6213</a></td>
+<td align="left">Remove commons dependency on commons-cli2</td>
+<td align="left">Blocker</td>
+<td align="left">util</td>
+<td align="left">Amar Kamat</td>
+<td align="left">Amar Kamat</td>
+</tr>
+</tbody>
+</table>
+<h3 id="other">OTHER:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>

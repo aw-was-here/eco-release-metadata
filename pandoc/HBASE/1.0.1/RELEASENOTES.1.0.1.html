@@ -1,0 +1,96 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hbase-1.0.1-release-notes">Apache HBase 1.0.1 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-13044">HBASE-13044</a> | <em>Minor</em> | <strong>Configuration option for disabling coprocessor loading</strong></li>
+</ul>
+<p>This change adds two new configuration options: - &quot;hbase.coprocessor.enabled&quot; controls globally if any coprocessors will be loaded. Set to &quot;false&quot; to disable. Defaults to &quot;true&quot; for compatibility with previous releases. - &quot;hbase.coprocessor.user.enabled&quot; controls if any user (aka table) coprocessors will be loaded. Set to &quot;false&quot; to disable. Defaults to &quot;true&quot; for compatibility with previous releases.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-13047">HBASE-13047</a> | <em>Trivial</em> | <strong>Add &quot;HBase Configuration&quot; link missing on the table details pages</strong></li>
+</ul>
+<p>Add a '/conf' link to UI</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-12869">HBASE-12869</a> | <em>Major</em> | <strong>Add a REST API implementation of the ClusterManager interface</strong></li>
+</ul>
+<p>Adds an implementation of ClusterManager to control REST API-managed HBase clusters.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-13273">HBASE-13273</a> | <em>Major</em> | <strong>Make Result.EMPTY_RESULT read-only; currently it can be modified</strong></li>
+</ul>
+<p>The Result.EMPTY_RESULT object is now immutable. In previous releases, the object could be modified by a caller to no longer be empty. Code that relies on this behavior will now receive an UnsupportedOperationException.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-13331">HBASE-13331</a> | <em>Blocker</em> | <strong>Exceptions from DFS client can cause CatalogJanitor to delete referenced files</strong></li>
+</ul>
+<p>Fixes an issue where files from a split region that were still referenced were erroneously deleted leading to data loss.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-13298">HBASE-13298</a> | <em>Critical</em> | <strong>Clarify if Table.{set|get}WriteBufferSize() is deprecated or not</strong></li>
+</ul>
+<p>Deprecate said methods. They were mistakenly included in Table Interface.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-10728">HBASE-10728</a> | <em>Major</em> | <strong>get_counter value is never used.</strong></li>
+</ul>
+<p>for 0.98 and 1.0 changes are compatible (due to mitigation by HBASE-13433):</p>
+<p>* The &quot;get_counter&quot; command no longer requires a dummy 4th argument. Downstream users are encouraged to migrate code to not pass this argument because it will result in an error for HBase 1.1+. * The &quot;incr&quot; command now outputs the current value of the counter to stdout. ex: {code} jruby-1.6.8 :005 &gt; incr 'counter_example', 'r1', 'cf1:foo', 10 COUNTER VALUE = 1772 0 row(s) in 0.1180 seconds {code}</p>
+<p>for 1.1+ changes are incompatible:</p>
+<p>* The &quot;get_counter&quot; command no longer accepts a dummy 4th argument. Downstream users will need to update their code to not pass this argument. ex: {code} jruby-1.6.8 :006 &gt; get_counter 'counter_example', 'r1', 'cf1:foo' COUNTER VALUE = 1772</p>
+<p>{code} * The &quot;incr&quot; command now outputs the current value of the counter to stdout. ex: {code} jruby-1.6.8 :005 &gt; incr 'counter_example', 'r1', 'cf1:foo', 10 COUNTER VALUE = 1772 0 row(s) in 0.1180 seconds {code}</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-13289">HBASE-13289</a> | <em>Major</em> | <strong>typo in splitSuccessCount metric</strong></li>
+</ul>
+<p>In hbase 1.0.0, 0.98.10, 0.98.10.1, 0.98.11, and 0.98.12 'splitSuccessCount' was misspelled as 'splitSuccessCounnt'</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-13362">HBASE-13362</a> | <em>Major</em> | <strong>Set max result size from client only (like scanner caching).</strong></li>
+</ul>
+<p>This introduces a new config option: hbase.server.scanner.max.result.size This setting enforces a maximum result size (in bytes), when reached the server will return the results is has so far. This is a safety setting and should be kept large. The default is inifinite in 0.98 and 1.0.x and 100mb in 1.1 and later.</p>
+<p>Use hbase.client.scanner.max.result.size instead to enforce practical chunk sizes of a few mb (defaults to 2mb)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-13118">HBASE-13118</a> | <em>Major</em> | <strong>[PE] Add being able to write many columns</strong></li>
+</ul>
+<p>Adds a --columns option to PE so you can write more than one column (changes default qualifier from 'data' to '0').</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-13275">HBASE-13275</a> | <em>Major</em> | <strong>Setting hbase.security.authorization to false does not disable authorization</strong></li>
+</ul>
+<p>Prior to this change the configuration setting 'hbase.security.authorization' had no effect if security coprocessor were installed. The act of installing the security coprocessors was assumed to indicate active authorizaton was desired and required. Now it is possible to install the security coprocessors yet have them operate in a passive state with active authorization disabled by setting 'hbase.security.authorization' to false. This can be useful but is probably not what you want. For more information, consult the Security section of the HBase online manual.</p>
+<p>'hbase.security.authorization' defaults to true for backwards comptatible behavior.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-13419">HBASE-13419</a> | <em>Major</em> | <strong>Thrift gateway should propagate text from exception causes.</strong></li>
+</ul>
+<p>Compose thrift exception text from the text of the entire cause chain of the underlying exception.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-13479">HBASE-13479</a> | <em>Blocker</em> | <strong>[branch-1.0] Master should not bind to region server ports</strong></li>
+</ul>
+<p>HBase master now respects the configuration hbase.master.port if set. By default it is not set in hbase-default.xml in 1.0.x releases. Master also respects the parameter hbase.master.info.port, which is not changed. However, master will not bind to hbase.regionserver.info.port anymore. It only binds to hbase.master.info.port.</p>
+<p>The behavior: 1.0.0: RPC: hbase.master.port IS NOT respected. Master binds to hbase.regionserver.port INFO: Master binds to hbase.master.info.port AND hbase.regionserver.info.port. By default, master will use: 16010, 16020, 16030 1.0.1+: RPC: hbase.master.port IS respected if configured. Master binds to hbase.regionserver.port by default if not configured. INFO: Master binds to hbase.master.info.port only. By default, master will use: 16010, 16020.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-13481">HBASE-13481</a> | <em>Major</em> | <strong>Master should respect master (old) DNS/bind related configurations</strong></li>
+</ul>
+<p>Master now honors configuration options as was before 1.0.0 releases: hbase.master.ipc.address hbase.master.dns.interface hbase.master.dns.nameserver hbase.master.info.bindAddress This jira also adds hbase.master.hostname parameter as an extension to HBASE-12954.</p>

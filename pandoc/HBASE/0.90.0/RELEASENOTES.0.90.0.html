@@ -1,0 +1,239 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hbase-0.90.0-release-notes">Apache HBase 0.90.0 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-1822">HBASE-1822</a> | <em>Major</em> | <strong>Remove the deprecated APIs</strong></li>
+</ul>
+<p>Removed deprecated API calls and internal references to family:qualifier notation.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-1859">HBASE-1859</a> | <em>Minor</em> | <strong>Misc shell fixes patch.</strong></li>
+</ul>
+<p>Fix in HBase shell formatter to allow trapping of STDOUT while running HBase shell commands. Fix to HBase shell so that HBase shell commands are available to a loaded script.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-1885">HBASE-1885</a> | <em>Minor</em> | <strong>Simplify use of IndexedTable outside Java API</strong></li>
+</ul>
+<p>Simplify use of TableIndexed when your secondary keys are guaranteed to be unique. Ability to create an index from the Hbase shell.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-1949">HBASE-1949</a> | <em>Major</em> | <strong>KeyValue expiration by Time-to-Live during major compaction is broken</strong></li>
+</ul>
+<p>Fixed expiring of individual column values within rows via the column family time-to-live configuration. Previously all column values following the first expired value in a row would be truncated. Though in practice this might only be seen when lowering the TTL configuration on a column family with existing data.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-1829">HBASE-1829</a> | <em>Major</em> | <strong>Make use of start/stop row in TableInputFormat</strong></li>
+</ul>
+<p>Splits keep within the confines of star and end rows if provided.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-1904">HBASE-1904</a> | <em>Minor</em> | <strong>Add tutorilal for installing HBase on Windows using Cygwin as a test and development environment</strong></li>
+</ul>
+<p>WimVanLeuven has: foreseen a cygwin.html to sit next to the overview.html in the sourcetree so it can be linked from within the Java doc</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-1963">HBASE-1963</a> | <em>Minor</em> | <strong>Output to multiple tables from Hadoop MR without use of HTable</strong></li>
+</ul>
+<p>MultiTableOutputFormat allows output from a map/reduce job to be written to multiple tables. An example illustrates use for creating secondary indexes from an existing table.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-1987">HBASE-1987</a> | <em>Minor</em> | <strong>The Put object has no simple read methods for checking what has already been added.</strong></li>
+</ul>
+<p>Adds Put#has methods.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-2029">HBASE-2029</a> | <em>Minor</em> | <strong>Reduce shell exception dump on console</strong></li>
+</ul>
+<p>Added a -d and --debug to shell options</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-2036">HBASE-2036</a> | <em>Major</em> | <strong>Use Configuration instead of HBaseConfiguration</strong></li>
+</ul>
+<p>HBaseConfiguration as an object is now deprecated. Use HBaseConfiguration.create to make an Hadoop Configuration populated with hbase config. from here on out.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-2068">HBASE-2068</a> | <em>Minor</em> | <strong>MetricsRate is missing &quot;registry&quot; parameter</strong></li>
+</ul>
+<p>Converts MasterStatistics &quot;cluster_requests&quot; attribute to a MetricsRate value (computed as requests / sec). Also adds a &quot;requests&quot; attribute to RegionServerStatistics MBean, also as a MetricsRate value.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-1996">HBASE-1996</a> | <em>Major</em> | <strong>Configure scanner buffer in bytes instead of number of rows</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-1433">HBASE-1433</a> | <em>Major</em> | <strong>Update hbase build to match core, use ivy, publish jars to maven repo, etc.</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-2190">HBASE-2190</a> | <em>Major</em> | <strong>HRS should report to master when HMsg are available</strong></li>
+</ul>
+<p>This requires that making a rolling update, you upgrade the master first (so it knows what to do w/ the new split signal this patch introduces).</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-1728">HBASE-1728</a> | <em>Major</em> | <strong>Column family scoping and cluster identification</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-2276">HBASE-2276</a> | <em>Major</em> | <strong>Hbase Shell hcd() method is broken by the replication scope parameter</strong></li>
+</ul>
+<p>Attached HBASE-2276.patch file contains a patch that adds REPLICATION_SCOPE support to hcd() method and to the shell itself by defining the REPLICATION_SCOPE constant</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-2281">HBASE-2281</a> | <em>Trivial</em> | <strong>Hbase shell does not work when started from the build dir</strong></li>
+</ul>
+<p>Submitted a patch, please review</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-2287">HBASE-2287</a> | <em>Major</em> | <strong>TypeError in shell</strong></li>
+</ul>
+<p>Trivial patch attached, please review.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-2219">HBASE-2219</a> | <em>Blocker</em> | <strong>stop using code mapping for method names in the RPC</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-2255">HBASE-2255</a> | <em>Major</em> | <strong>take trunk back to hadoop 0.20</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-2378">HBASE-2378</a> | <em>Critical</em> | <strong>Bulk insert with multiple reducers broken due to improper ImmutableBytesWritable comparator</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-2446">HBASE-2446</a> | <em>Major</em> | <strong>Remove 'indexed' contrib</strong></li>
+</ul>
+<p>This contrib was moved to github -- http://github.com/ykulbak/ihbase</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-1892">HBASE-1892</a> | <em>Major</em> | <strong>[performance] make hbase splits run faster</strong></li>
+</ul>
+<p>On region close, this change makes it so we don't wait on compaction to complete with the close-region flag in place -- i.e. region is offline while we wait on the compaction close -- and secondly, if the region memstores are over a configurable limit, before closing, we'll run a &quot;pre-flush&quot; to get the bulk of the memory flushed before we put the close flag up.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-2438">HBASE-2438</a> | <em>Major</em> | <strong>Addition of a Column Pagination Filter</strong></li>
+</ul>
+<p>* A filter, based on the ColumnCountGetFilter, takes two arguments: limit and offset. * This filter can be used for row-based indexing, where references to other tables are stored across many columns, in order to efficient lookups and paginated results for end users.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-2294">HBASE-2294</a> | <em>Blocker</em> | <strong>Enumerate ACID properties of HBase in a well defined spec</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-2473">HBASE-2473</a> | <em>Major</em> | <strong>Add to admin create table start and end key params and desired number of regions</strong></li>
+</ul>
+<p>Changes HMasterInterface.createTable signature. Bumps RPC version.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-2392">HBASE-2392</a> | <em>Minor</em> | <strong>upgrade to ZooKeeper 3.3.0</strong></li>
+</ul>
+<p>This version of HBase uses ZooKeeper 3.3.0. If you are running a separate ZK quorum ensemble, you should upgrade it. See the ZooKeeper release notes for 3.3.0: http://hadoop.apache.org/zookeeper/docs/r3.3.0/releasenotes.html</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-2542">HBASE-2542</a> | <em>Major</em> | <strong>Fold Stargate into core</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-2531">HBASE-2531</a> | <em>Blocker</em> | <strong>32-bit encoding of regionnames waaaaaaayyyyy too susceptible to hash clashes</strong></li>
+</ul>
+<p>Changes format of region name. Adds an md5 suffix. Suffix is now the name used as directory name in filesystem.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-2579">HBASE-2579</a> | <em>Major</em> | <strong>Add atomic checkAndDelete support</strong></li>
+</ul>
+<p>Adds support for atomic checkAndDelete (updates to both client &amp; regionserver). Test cases in TestHRegion updated to support this new method.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-2397">HBASE-2397</a> | <em>Minor</em> | <strong>Bytes.toStringBinary escapes printable chars</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-2815">HBASE-2815</a> | <em>Major</em> | <strong>not able to run the test suite in background because TestShell gets suspended on tty output</strong></li>
+</ul>
+<p>Fixed. Please review and apply the patch.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-2905">HBASE-2905</a> | <em>Major</em> | <strong>Nullpointer Exception is throwed when insert mass data via rest interface</strong></li>
+</ul>
+<p>Fix Nullpointer exception when insert mass data via rest interface</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-997">HBASE-997</a> | <em>Major</em> | <strong>Count versions with same r/c/ts as one instance with most recent addition the winner</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-2394">HBASE-2394</a> | <em>Minor</em> | <strong>Use top-level Apache pom for shared configuration</strong></li>
+</ul>
+<p>Fixed as part of HBASE-2996</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-2982">HBASE-2982</a> | <em>Major</em> | <strong>Maven 3 doesn't like duplicate dependencies in hbase/pom.xml</strong></li>
+</ul>
+<p>Fixed as part of HBASE-2996</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-2538">HBASE-2538</a> | <em>Major</em> | <strong>Work on repository order in hbase pom</strong></li>
+</ul>
+<p>Fixed as part of HBASE-2996</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-3140">HBASE-3140</a> | <em>Major</em> | <strong>Rest schema modification throw null pointer exception</strong></li>
+</ul>
+<p>Patch provided as attach file, apply against svn trunk</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-3174">HBASE-3174</a> | <em>Minor</em> | <strong>Add ability for Get operations to enable/disable use of block caching</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-2006">HBASE-2006</a> | <em>Minor</em> | <strong>Documentation of hbase-site.xml parameters</strong></li>
+</ul>
+<p>New clarifying documentation</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-3154">HBASE-3154</a> | <em>Major</em> | <strong>HBase RPC should support timeout</strong></li>
+</ul>
+<p>Adds a timeout for client-side RPC. Default to 60 seconds. Change by adding hbase.rpc.timeout to hbase-site.xml and setting timeout in milliseconds.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-2935">HBASE-2935</a> | <em>Minor</em> | <strong>Refactor &quot;Corrupt Data&quot; Tests in TestHLogSplit</strong></li>
+</ul>
+<p>https://review.cloudera.org/r/1115/</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-3048">HBASE-3048</a> | <em>Major</em> | <strong>unify code for major/minor compactions</strong></li>
+</ul>
+<p>minor compactions now enforce ttl, maxversions, deletes, etc... but will let through the delete markers themselves</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-2898">HBASE-2898</a> | <em>Blocker</em> | <strong>MultiPut makes proper error handling impossible and leads to corrupted data</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this change.</strong></p>

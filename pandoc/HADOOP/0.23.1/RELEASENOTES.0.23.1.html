@@ -1,0 +1,480 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hadoop-0.23.1-release-notes">Apache Hadoop 0.23.1 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-8013">HADOOP-8013</a> | <em>Major</em> | <strong>ViewFileSystem does not honor setVerifyChecksum</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-8009">HADOOP-8009</a> | <em>Critical</em> | <strong>Create hadoop-client and hadoop-minicluster artifacts for downstream projects</strong></li>
+</ul>
+<p>Generate integration artifacts &quot;org.apache.hadoop:hadoop-client&quot; and &quot;org.apache.hadoop:hadoop-minicluster&quot; containing all the jars needed to use Hadoop client APIs, and to run Hadoop MiniClusters, respectively. Push these artifacts to the maven repository when mvn-deploy, along with existing artifacts.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-7986">HADOOP-7986</a> | <em>Major</em> | <strong>Add config for History Server protocol in hadoop-policy for service level authorization.</strong></li>
+</ul>
+<p>Adding config for MapReduce History Server protocol in hadoop-policy.xml for service level authorization.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-7963">HADOOP-7963</a> | <em>Blocker</em> | <strong>test failures: TestViewFileSystemWithAuthorityLocalFileSystem and TestViewFileSystemLocalFileSystem</strong></li>
+</ul>
+<p>Fix ViewFS to catch a null canonical service-name and pass tests TestViewFileSystem*</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-7851">HADOOP-7851</a> | <em>Major</em> | <strong>Configuration.getClasses() never returns the default value.</strong></li>
+</ul>
+<p>Fixed Configuration.getClasses() API to return the default value if the key is not set.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-7802">HADOOP-7802</a> | <em>Major</em> | <strong>Hadoop scripts unconditionally source &quot;$bin&quot;/../libexec/hadoop-config.sh.</strong></li>
+</ul>
+<p>Here is a patch to enable this behavior</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-7470">HADOOP-7470</a> | <em>Minor</em> | <strong>move up to Jackson 1.8.8</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-7348">HADOOP-7348</a> | <em>Major</em> | <strong>Modify the option of FsShell getmerge from [addnl] to [-nl] for consistency</strong></li>
+</ul>
+<p>The 'fs -getmerge' tool now uses a -nl flag to determine if adding a newline at end of each file is required, in favor of the 'addnl' boolean flag that was used earlier.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-2316">HDFS-2316</a> | <em>Major</em> | <strong>[umbrella] WebHDFS: a complete FileSystem implementation for accessing HDFS over HTTP</strong></li>
+</ul>
+<p>Provide WebHDFS as a complete FileSystem implementation for accessing HDFS over HTTP. Previous hftp feature was a read-only FileSystem and does not provide &quot;write&quot; accesses.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-2246">HDFS-2246</a> | <em>Major</em> | <strong>Shortcut a local client reads to a Datanodes files directly</strong></li>
+</ul>
+<ol>
+<li>New configurations</li>
+</ol>
+<p>a. dfs.block.local-path-access.user is the key in datanode configuration to specify the user allowed to do short circuit read. b. dfs.client.read.shortcircuit is the key to enable short circuit read at the client side configuration. c. dfs.client.read.shortcircuit.skip.checksum is the key to bypass checksum check at the client side. 2. By default none of the above are enabled and short circuit read will not kick in. 3. If security is on, the feature can be used only for user that has kerberos credentials at the client, therefore map reduce tasks cannot benefit from it in general.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-2130">HDFS-2130</a> | <em>Major</em> | <strong>Switch default checksum to CRC32C</strong></li>
+</ul>
+<p>The default checksum algorithm used on HDFS is now CRC32C. Data from previous versions of Hadoop can still be read backwards-compatibly.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-2129">HDFS-2129</a> | <em>Major</em> | <strong>Simplify BlockReader to not inherit from FSInputChecker</strong></li>
+</ul>
+<p>BlockReader has been reimplemented to use direct byte buffers. If you use a custom socket factory, it must generate sockets that have associated Channels.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-1314">HDFS-1314</a> | <em>Minor</em> | <strong>dfs.blocksize accepts only absolute value</strong></li>
+</ul>
+<p>The default blocksize property 'dfs.blocksize' now accepts unit symbols to be used instead of byte length. Values such as &quot;10k&quot;, &quot;128m&quot;, &quot;1g&quot; are now OK to provide instead of just no. of bytes as was before.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3854">MAPREDUCE-3854</a> | <em>Major</em> | <strong>Reinstate environment variable tests in TestMiniMRChildTask</strong></li>
+</ul>
+<p>Fixed and reenabled tests related to MR child JVM's environmental variables in TestMiniMRChildTask.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3846">MAPREDUCE-3846</a> | <em>Critical</em> | <strong>Restarted+Recovered AM hangs in some corner cases</strong></li>
+</ul>
+<p>Addressed MR AM hanging issues during AM restart and then the recovery.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3834">MAPREDUCE-3834</a> | <em>Critical</em> | <strong>If multiple hosts for a split belong to the same rack, the rack is added multiple times in the AM request table</strong></li>
+</ul>
+<p>Changed MR AM to not add the same rack entry multiple times into the container request table when multiple hosts for a split happen to be on the same rack</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3815">MAPREDUCE-3815</a> | <em>Critical</em> | <strong>Data Locality suffers if the AM asks for containers using IPs instead of hostnames</strong></li>
+</ul>
+<p>Fixed MR AM to always use hostnames and never IPs when requesting containers so that scheduler can give off data local containers correctly.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3808">MAPREDUCE-3808</a> | <em>Blocker</em> | <strong>NPE in FileOutputCommitter when running a 0 reduce job</strong></li>
+</ul>
+<p>Fixed an NPE in FileOutputCommitter for jobs with maps but no reduces.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3804">MAPREDUCE-3804</a> | <em>Major</em> | <strong>yarn webapp interface vulnerable to cross scripting attacks</strong></li>
+</ul>
+<p>fix cross scripting attacks vulnerability through webapp interface.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3802">MAPREDUCE-3802</a> | <em>Critical</em> | <strong>If an MR AM dies twice it looks like the process freezes</strong></li>
+</ul>
+<p>Added test to validate that AM can crash multiple times and still can recover successfully after MAPREDUCE-3846.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3784">MAPREDUCE-3784</a> | <em>Major</em> | <strong>maxActiveApplications(|PerUser) per queue is too low for small clusters</strong></li>
+</ul>
+<p>Fixed CapacityScheduler so that maxActiveApplication and maxActiveApplicationsPerUser per queue are not too low for small clusters.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3774">MAPREDUCE-3774</a> | <em>Major</em> | <strong>yarn-default.xml should be moved to hadoop-yarn-common.</strong></li>
+</ul>
+<p>MAPREDUCE-3774. Moved yarn-default.xml to hadoop-yarn-common from hadoop-server-common.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3760">MAPREDUCE-3760</a> | <em>Major</em> | <strong>Blacklisted NMs should not appear in Active nodes list</strong></li>
+</ul>
+<p>Changed active nodes list to not contain unhealthy nodes on the webUI and metrics.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3754">MAPREDUCE-3754</a> | <em>Major</em> | <strong>RM webapp should have pages filtered based on App-state</strong></li>
+</ul>
+<p>Modified RM UI to filter applications based on state of the applications.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3752">MAPREDUCE-3752</a> | <em>Blocker</em> | <strong>Headroom should be capped by queue max-cap</strong></li>
+</ul>
+<p>Modified application limits to include queue max-capacities besides the usual user limits.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3732">MAPREDUCE-3732</a> | <em>Blocker</em> | <strong>CS should only use 'activeUsers with pending requests' for computing user-limits</strong></li>
+</ul>
+<p>Modified CapacityScheduler to use only users with pending requests for computing user-limits.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3720">MAPREDUCE-3720</a> | <em>Major</em> | <strong>Command line listJobs should not visit each AM</strong></li>
+</ul>
+<p>Changed bin/mapred job -list to not print job-specific information not available at RM.</p>
+<p>Very minor incompatibility in cmd-line output, inevitable due to MRv2 architecture.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3716">MAPREDUCE-3716</a> | <em>Blocker</em> | <strong>java.io.File.createTempFile fails in map/reduce tasks</strong></li>
+</ul>
+<p>Fixing YARN+MR to allow MR jobs to be able to use java.io.File.createTempFile to create temporary files as part of their tasks.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3714">MAPREDUCE-3714</a> | <em>Blocker</em> | <strong>Reduce hangs in a corner case</strong></li>
+</ul>
+<p>Fixed EventFetcher and Fetcher threads to shut-down properly so that reducers don't hang in corner cases.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3713">MAPREDUCE-3713</a> | <em>Blocker</em> | <strong>Incorrect headroom reported to jobs</strong></li>
+</ul>
+<p>Fixed the way head-room is allocated to applications by CapacityScheduler so that it deducts current-usage per user and not per-application.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3711">MAPREDUCE-3711</a> | <em>Blocker</em> | <strong>AppMaster recovery for Medium to large jobs take long time</strong></li>
+</ul>
+<p>Fixed MR AM recovery so that only single selected task output is recovered and thus reduce the unnecessarily bloated recovery time.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3710">MAPREDUCE-3710</a> | <em>Major</em> | <strong>last split generated by FileInputFormat.getSplits may not have the best locality</strong></li>
+</ul>
+<p>Improved FileInputFormat to return better locality for the last split.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3703">MAPREDUCE-3703</a> | <em>Critical</em> | <strong>ResourceManager should provide node lists in JMX output</strong></li>
+</ul>
+<p>New JMX Bean in ResourceManager to provide list of live node managers:</p>
+<p>Hadoop:service=ResourceManager,name=RMNMInfo LiveNodeManagers</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3699">MAPREDUCE-3699</a> | <em>Major</em> | <strong>Default RPC handlers are very low for YARN servers</strong></li>
+</ul>
+<p>Increased RPC handlers for all YARN servers to reasonable values for working at scale.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3656">MAPREDUCE-3656</a> | <em>Blocker</em> | <strong>Sort job on 350 scale is consistently failing with latest MRV2 code</strong></li>
+</ul>
+<p>Fixed a race condition in MR AM which is failing the sort benchmark consistently.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3641">MAPREDUCE-3641</a> | <em>Blocker</em> | <strong>CapacityScheduler should be more conservative assigning off-switch requests</strong></li>
+</ul>
+<p>Making CapacityScheduler more conservative so as to assign only one off-switch container in a single scheduling iteration.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3639">MAPREDUCE-3639</a> | <em>Blocker</em> | <strong>TokenCache likely broken for FileSystems which don't issue delegation tokens</strong></li>
+</ul>
+<p>Fixed TokenCache to work with absent FileSystem canonical service-names.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3630">MAPREDUCE-3630</a> | <em>Critical</em> | <strong>NullPointerException running teragen</strong></li>
+</ul>
+<p>Committed to trunk and branch-0.23. Thanks Mahadev.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3618">MAPREDUCE-3618</a> | <em>Major</em> | <strong>TaskHeartbeatHandler holds a global lock for all task-updates</strong></li>
+</ul>
+<p>Fixed TaskHeartbeatHandler to not hold a global lock for all task-updates.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3597">MAPREDUCE-3597</a> | <em>Major</em> | <strong>Provide a way to access other info of history file from Rumentool</strong></li>
+</ul>
+<p>Rumen now provides {{Parsed*}} objects. These objects provide extra information that are not provided by {{Logged*}} objects.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3586">MAPREDUCE-3586</a> | <em>Blocker</em> | <strong>Lots of AMs hanging around in PIG testing</strong></li>
+</ul>
+<p>Modified CompositeService to avoid duplicate stop operations thereby solving race conditions in MR AM shutdown.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3568">MAPREDUCE-3568</a> | <em>Critical</em> | <strong>Optimize Job's progress calculations in MR AM</strong></li>
+</ul>
+<p>Optimized Job's progress calculations in MR AM.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3564">MAPREDUCE-3564</a> | <em>Blocker</em> | <strong>TestStagingCleanup and TestJobEndNotifier are failing on trunk.</strong></li>
+</ul>
+<p>Fixed failures in TestStagingCleanup and TestJobEndNotifier tests.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3549">MAPREDUCE-3549</a> | <em>Blocker</em> | <strong>write api documentation for web service apis for RM, NM, mapreduce app master, and job history server</strong></li>
+</ul>
+<p>new files added: A hadoop-mapreduce-project/hadoop-yarn/hadoop-yarn-site/src/site/apt/WebServicesIntro.apt.vm A hadoop-mapreduce-project/hadoop-yarn/hadoop-yarn-site/src/site/apt/NodeManagerRest.apt.vm A hadoop-mapreduce-project/hadoop-yarn/hadoop-yarn-site/src/site/apt/ResourceManagerRest.apt.vm A hadoop-mapreduce-project/hadoop-yarn/hadoop-yarn-site/src/site/apt/MapredAppMasterRest.apt.vm A hadoop-mapreduce-project/hadoop-yarn/hadoop-yarn-site/src/site/apt/HistoryServerRest.apt.vm</p>
+<p>The hadoop-project/src/site/site.xml is split into separate patch.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3532">MAPREDUCE-3532</a> | <em>Critical</em> | <strong>When 0 is provided as port number in yarn.nodemanager.webapp.address, NMs webserver component picks up random port, NM keeps on Reporting 0 port to RM</strong></li>
+</ul>
+<p>Modified NM to report correct http address when an ephemeral web port is configured.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3530">MAPREDUCE-3530</a> | <em>Blocker</em> | <strong>Sometimes NODE_UPDATE to the scheduler throws an NPE causing the scheduling to stop</strong></li>
+</ul>
+<p>Fixed an NPE occuring during scheduling in the ResourceManager.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3528">MAPREDUCE-3528</a> | <em>Major</em> | <strong>The task timeout check interval should be configurable independent of mapreduce.task.timeout</strong></li>
+</ul>
+<p>Fixed TaskHeartBeatHandler to use a new configuration for the thread loop interval separate from task-timeout configuration property.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3519">MAPREDUCE-3519</a> | <em>Blocker</em> | <strong>Deadlock in LocalDirsHandlerService and ShuffleHandler</strong></li>
+</ul>
+<p>Fixed a deadlock in NodeManager LocalDirectories's handling service.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3512">MAPREDUCE-3512</a> | <em>Blocker</em> | <strong>Batch jobHistory disk flushes</strong></li>
+</ul>
+<p>Batching JobHistory flushing to DFS so that we don't flush for every event slowing down AM.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3511">MAPREDUCE-3511</a> | <em>Blocker</em> | <strong>Counters occupy a good part of AM heap</strong></li>
+</ul>
+<p>Removed a multitude of cloned/duplicate counters in the AM thereby reducing the AM heap size and preventing full GCs.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3490">MAPREDUCE-3490</a> | <em>Blocker</em> | <strong>RMContainerAllocator counts failed maps towards Reduce ramp up</strong></li>
+</ul>
+<p>Fixed MapReduce AM to count failed maps also towards Reduce ramp up.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3487">MAPREDUCE-3487</a> | <em>Critical</em> | <strong>jobhistory web ui task counters no longer links to singletakecounter page</strong></li>
+</ul>
+<p>Fixed JobHistory web-UI to display links to single task's counters' page.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3484">MAPREDUCE-3484</a> | <em>Major</em> | <strong>JobEndNotifier is getting interrupted before completing all its retries.</strong></li>
+</ul>
+<p>Fixed JobEndNotifier to not get interrupted before completing all its retries.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3481">MAPREDUCE-3481</a> | <em>Major</em> | <strong>[Gridmix] Improve STRESS mode locking</strong></li>
+</ul>
+<p>Modified Gridmix STRESS mode locking structure. The submitted thread and the polling thread now run simultaneously without blocking each other.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3462">MAPREDUCE-3462</a> | <em>Blocker</em> | <strong>Job submission failing in JUnit tests</strong></li>
+</ul>
+<p>Fixed failing JUnit tests in Gridmix.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3426">MAPREDUCE-3426</a> | <em>Blocker</em> | <strong>uber-jobs tried to write outputs into wrong dir</strong></li>
+</ul>
+<p>Fixed MR AM in uber mode to write map intermediate outputs in the correct directory to work properly in secure mode.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3417">MAPREDUCE-3417</a> | <em>Blocker</em> | <strong>job access controls not working app master and job history UI's</strong></li>
+</ul>
+<p>Fixed job-access-controls to work with MR AM and JobHistoryServer web-apps.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3412">MAPREDUCE-3412</a> | <em>Major</em> | <strong>'ant docs' is broken</strong></li>
+</ul>
+<p>Fixes 'ant docs' by removing stale references to capacity-scheduler docs.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3407">MAPREDUCE-3407</a> | <em>Minor</em> | <strong>Wrong jar getting used in TestMR*Jobs* for MiniMRYarnCluster</strong></li>
+</ul>
+<p>Fixed pom files to refer to the correct MR app-jar needed by the integration tests.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3404">MAPREDUCE-3404</a> | <em>Critical</em> | <strong>Speculative Execution: speculative map tasks launched even if -Dmapreduce.map.speculative=false</strong></li>
+</ul>
+<p>Corrected MR AM to honor speculative configuration and enable speculating either maps or reduces.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3399">MAPREDUCE-3399</a> | <em>Blocker</em> | <strong>ContainerLocalizer should request new resources after completing the current one</strong></li>
+</ul>
+<p>Modified ContainerLocalizer to send a heartbeat to NM immediately after downloading a resource instead of always waiting for a second.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3398">MAPREDUCE-3398</a> | <em>Blocker</em> | <strong>Log Aggregation broken in Secure Mode</strong></li>
+</ul>
+<p>Fixed log aggregation to work correctly in secure mode. Contributed by Siddharth Seth.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3392">MAPREDUCE-3392</a> | <em>Blocker</em> | <strong>Cluster.getDelegationToken() throws NPE if client.getDelegationToken() returns null.</strong></li>
+</ul>
+<p>Fixed Cluster's getDelegationToken's API to return null when there isn't a supported token.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3387">MAPREDUCE-3387</a> | <em>Critical</em> | <strong>A tracking URL of N/A before the app master is launched breaks oozie</strong></li>
+</ul>
+<p>Fixed AM's tracking URL to always go through the proxy, even before the job started, so that it works properly with oozie throughout the job execution.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3382">MAPREDUCE-3382</a> | <em>Critical</em> | <strong>Network ACLs can prevent AMs to ping the Job-end notification URL</strong></li>
+</ul>
+<p>Enhanced MR AM to use a proxy to ping the job-end notification URL.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3379">MAPREDUCE-3379</a> | <em>Major</em> | <strong>LocalResourceTracker should not tracking deleted cache entries</strong></li>
+</ul>
+<p>Fixed LocalResourceTracker in NodeManager to remove deleted cache entries correctly.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3375">MAPREDUCE-3375</a> | <em>Major</em> | <strong>Memory Emulation system tests.</strong></li>
+</ul>
+<p>Added system tests to test the memory emulation feature in Gridmix.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3368">MAPREDUCE-3368</a> | <em>Critical</em> | <strong>compile-mapred-test fails</strong></li>
+</ul>
+<p>Fixed ant test compilation.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3360">MAPREDUCE-3360</a> | <em>Critical</em> | <strong>Provide information about lost nodes in the UI.</strong></li>
+</ul>
+<p>Added information about lost/rebooted/decommissioned nodes on the webapps.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3355">MAPREDUCE-3355</a> | <em>Blocker</em> | <strong>AM scheduling hangs frequently with sort job on 350 nodes</strong></li>
+</ul>
+<p>Fixed MR AM's ContainerLauncher to handle node-command timeouts correctly.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3349">MAPREDUCE-3349</a> | <em>Blocker</em> | <strong>No rack-name logged in JobHistory for unsuccessful tasks</strong></li>
+</ul>
+<p>Unsuccessful tasks now log hostname and rackname to job history.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3345">MAPREDUCE-3345</a> | <em>Major</em> | <strong>Race condition in ResourceManager causing TestContainerManagerSecurity to fail sometimes</strong></li>
+</ul>
+<p>Fixed a race condition in ResourceManager that was causing TestContainerManagerSecurity to fail sometimes.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3342">MAPREDUCE-3342</a> | <em>Critical</em> | <strong>JobHistoryServer doesn't show job queue</strong></li>
+</ul>
+<p>Fixed JobHistoryServer to also show the job's queue name.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3339">MAPREDUCE-3339</a> | <em>Blocker</em> | <strong>Job is getting hanged indefinitely,if the child processes are killed on the NM. KILL_CONTAINER eventtype is continuosly sent to the containers that are not existing</strong></li>
+</ul>
+<p>Fixed MR AM to stop considering node blacklisting after the number of nodes blacklisted crosses a threshold.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3333">MAPREDUCE-3333</a> | <em>Blocker</em> | <strong>MR AM for sort-job going out of memory</strong></li>
+</ul>
+<p>Fixed bugs in ContainerLauncher of MR AppMaster due to which per-container connections to NodeManager were lingering long enough to hit the ulimits on number of processes.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3325">MAPREDUCE-3325</a> | <em>Major</em> | <strong>Improvements to CapacityScheduler doc</strong></li>
+</ul>
+<p>document changes only.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3312">MAPREDUCE-3312</a> | <em>Major</em> | <strong>Make MR AM not send a stopContainer w/o corresponding start container</strong></li>
+</ul>
+<p>Modified MR AM to not send a stop-container request for a container that isn't launched at all.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3299">MAPREDUCE-3299</a> | <em>Minor</em> | <strong>Add AMInfo table to the AM job page</strong></li>
+</ul>
+<p>Added AMInfo table to the MR AM job pages to list all the job-attempts when AM restarts and recovers.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3297">MAPREDUCE-3297</a> | <em>Major</em> | <strong>Move Log Related components from yarn-server-nodemanager to yarn-common</strong></li>
+</ul>
+<p>Moved log related components into yarn-common so that HistoryServer and clients can use them without depending on the yarn-server-nodemanager module.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3280">MAPREDUCE-3280</a> | <em>Major</em> | <strong>MR AM should not read the username from configuration</strong></li>
+</ul>
+<p>Removed the unnecessary job user-name configuration in mapred-site.xml.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3221">MAPREDUCE-3221</a> | <em>Minor</em> | <strong>ant test TestSubmitJob failing on trunk</strong></li>
+</ul>
+<p>Fixed a bug in TestSubmitJob.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3219">MAPREDUCE-3219</a> | <em>Minor</em> | <strong>ant test TestDelegationToken failing on trunk</strong></li>
+</ul>
+<p>Reenabled and fixed bugs in the failing test TestDelegationToken.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3217">MAPREDUCE-3217</a> | <em>Minor</em> | <strong>ant test TestAuditLogger fails on trunk</strong></li>
+</ul>
+<p>Reenabled and fixed bugs in the failing ant test TestAuditLogger.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3215">MAPREDUCE-3215</a> | <em>Minor</em> | <strong>org.apache.hadoop.mapreduce.TestNoJobSetupCleanup failing on trunk</strong></li>
+</ul>
+<p>Reneabled and fixed bugs in the failing test TestNoJobSetupCleanup.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3102">MAPREDUCE-3102</a> | <em>Major</em> | <strong>NodeManager should fail fast with wrong configuration or permissions for LinuxContainerExecutor</strong></li>
+</ul>
+<p>Changed NodeManager to fail fast when LinuxContainerExecutor has wrong configuration or permissions.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2950">MAPREDUCE-2950</a> | <em>Major</em> | <strong>[Gridmix] TestUserResolve fails in trunk</strong></li>
+</ul>
+<p>Fixes bug in TestUserResolve.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2863">MAPREDUCE-2863</a> | <em>Blocker</em> | <strong>Support web-services for RM &amp; NM</strong></li>
+</ul>
+<p>Support for web-services in YARN and MR components.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2784">MAPREDUCE-2784</a> | <em>Major</em> | <strong>[Gridmix] TestGridmixSummary fails with NPE when run in DEBUG mode.</strong></li>
+</ul>
+<p>Fixed bugs in ExecutionSummarizer and ResourceUsageMatcher.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2765">MAPREDUCE-2765</a> | <em>Major</em> | <strong>DistCp Rewrite</strong></li>
+</ul>
+<p>DistCpV2 added to hadoop-tools.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2733">MAPREDUCE-2733</a> | <em>Major</em> | <strong>Gridmix v3 cpu emulation system tests.</strong></li>
+</ul>
+<p>Adds system tests for the CPU emulation feature in Gridmix3.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-778">MAPREDUCE-778</a> | <em>Major</em> | <strong>[Rumen] Need a standalone JobHistory log anonymizer</strong></li>
+</ul>
+<p>Added an anonymizer tool to Rumen. Anonymizer takes a Rumen trace file and/or topology as input. It supports persistence and plugins to override the default behavior.</p>

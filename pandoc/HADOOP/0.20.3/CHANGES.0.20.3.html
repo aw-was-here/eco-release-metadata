@@ -1,0 +1,476 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hadoop-changelog">Apache Hadoop Changelog</h1>
+<h2 id="release-0.20.3---unreleased-as-of-2015-09-04">Release 0.20.3 - Unreleased (as of 2015-09-04)</h2>
+<h3 id="incompatible-changes">INCOMPATIBLE CHANGES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-6701">HADOOP-6701</a></td>
+<td align="left">Incorrect exit codes for &quot;dfs -chown&quot;, &quot;dfs -chgrp&quot;</td>
+<td align="left">Minor</td>
+<td align="left">fs</td>
+<td align="left">Ravi Phulari</td>
+<td align="left">Ravi Phulari</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-6382">HADOOP-6382</a></td>
+<td align="left">publish hadoop jars to apache mvn repo.</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Giridharan Kesavan</td>
+<td align="left">Giridharan Kesavan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-132">HDFS-132</a></td>
+<td align="left">Namenode in Safemode reports to Simon non-zero number of deleted files during startup</td>
+<td align="left">Minor</td>
+<td align="left">namenode</td>
+<td align="left">Hairong Kuang</td>
+<td align="left">Suresh Srinivas</td>
+</tr>
+</tbody>
+</table>
+<h3 id="new-features">NEW FEATURES:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7240">HADOOP-7240</a></td>
+<td align="left">Update eclipse .classpath template</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Aaron T. Myers</td>
+<td align="left">Aaron T. Myers</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-6882">HADOOP-6882</a></td>
+<td align="left">Update the patch level of Jetty</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Owen O'Malley</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-1013">HDFS-1013</a></td>
+<td align="left">Miscellaneous improvements to HTML markup for web UIs</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Todd Lipcon</td>
+<td align="left">Eugene Koontz</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-1832">MAPREDUCE-1832</a></td>
+<td align="left">Support for file sizes less than 1MB in DFSIO benchmark.</td>
+<td align="left">Major</td>
+<td align="left">benchmarks</td>
+<td align="left">Konstantin Shvachko</td>
+<td align="left">Konstantin Shvachko</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-1734">MAPREDUCE-1734</a></td>
+<td align="left">Un-deprecate the old MapReduce API in the 0.20 branch</td>
+<td align="left">Blocker</td>
+<td align="left">documentation</td>
+<td align="left">Tom White</td>
+<td align="left">Todd Lipcon</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7116">HADOOP-7116</a></td>
+<td align="left">raise contrib junit test jvm memory size to 512mb</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Owen O'Malley</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-6928">HADOOP-6928</a></td>
+<td align="left">Fix BooleanWritable comparator in 0.20</td>
+<td align="left">Major</td>
+<td align="left">io</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Johannes Zillmann</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-6923">HADOOP-6923</a></td>
+<td align="left">Native Libraries do not load if a different platform signature is returned from org.apache.hadoop.util.PlatformName</td>
+<td align="left">Major</td>
+<td align="left">native</td>
+<td align="left">Stephen Watt</td>
+<td align="left">Stephen Watt</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-6881">HADOOP-6881</a></td>
+<td align="left">The efficient comparators aren't always used except for BytesWritable and Text</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Owen O'Malley</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-6833">HADOOP-6833</a></td>
+<td align="left">IPC leaks call parameters when exceptions thrown</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Todd Lipcon</td>
+<td align="left">Todd Lipcon</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-6760">HADOOP-6760</a></td>
+<td align="left">WebServer shouldn't increase port number in case of negative port setting caused by Jetty's race</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Konstantin Boudnik</td>
+<td align="left">Konstantin Boudnik</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-6724">HADOOP-6724</a></td>
+<td align="left">IPC doesn't properly handle IOEs thrown by socket factory</td>
+<td align="left">Major</td>
+<td align="left">ipc</td>
+<td align="left">Todd Lipcon</td>
+<td align="left">Todd Lipcon</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-6702">HADOOP-6702</a></td>
+<td align="left">Incorrect exit codes for &quot;dfs -chown&quot;, &quot;dfs -chgrp&quot; when input is given in wildcard format.</td>
+<td align="left">Minor</td>
+<td align="left">fs</td>
+<td align="left">Ravi Phulari</td>
+<td align="left">Ravi Phulari</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-1836">HDFS-1836</a></td>
+<td align="left">Thousand of CLOSE_WAIT socket</td>
+<td align="left">Major</td>
+<td align="left">hdfs-client</td>
+<td align="left">Dennis Cheung</td>
+<td align="left">Bharath Mundlapudi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-1543">HDFS-1543</a></td>
+<td align="left">Reduce dev. cycle time by moving system testing artifacts from default build and push to maven for HDFS</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Arun C Murthy</td>
+<td align="left">Luke Lu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-1406">HDFS-1406</a></td>
+<td align="left">TestCLI fails on Ubuntu with default /etc/hosts</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Todd Lipcon</td>
+<td align="left">Konstantin Boudnik</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-1404">HDFS-1404</a></td>
+<td align="left">TestNodeCount logic incorrect in branch-0.20</td>
+<td align="left">Minor</td>
+<td align="left">namenode, test</td>
+<td align="left">Todd Lipcon</td>
+<td align="left">Todd Lipcon</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-1377">HDFS-1377</a></td>
+<td align="left">Quota bug for partial blocks allows quotas to be violated</td>
+<td align="left">Blocker</td>
+<td align="left">namenode</td>
+<td align="left">Eli Collins</td>
+<td align="left">Eli Collins</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-1258">HDFS-1258</a></td>
+<td align="left">Clearing namespace quota on &quot;/&quot; corrupts FS image</td>
+<td align="left">Blocker</td>
+<td align="left">namenode</td>
+<td align="left">Aaron T. Myers</td>
+<td align="left">Aaron T. Myers</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-1240">HDFS-1240</a></td>
+<td align="left">TestDFSShell failing in branch-20</td>
+<td align="left">Critical</td>
+<td align="left">test</td>
+<td align="left">Todd Lipcon</td>
+<td align="left">Todd Lipcon</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-1041">HDFS-1041</a></td>
+<td align="left">DFSClient does not retry in getFileChecksum(..)</td>
+<td align="left">Major</td>
+<td align="left">hdfs-client</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-955">HDFS-955</a></td>
+<td align="left">FSImage.saveFSImage can lose edits</td>
+<td align="left">Blocker</td>
+<td align="left">namenode</td>
+<td align="left">Todd Lipcon</td>
+<td align="left">Konstantin Shvachko</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-909">HDFS-909</a></td>
+<td align="left">Race condition between rollEditLog or rollFSImage ant FSEditsLog.write operations corrupts edits log</td>
+<td align="left">Blocker</td>
+<td align="left">namenode</td>
+<td align="left">Cosmin Lehene</td>
+<td align="left">Todd Lipcon</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-908">HDFS-908</a></td>
+<td align="left">TestDistributedFileSystem fails with Wrong FS on weird hosts</td>
+<td align="left">Minor</td>
+<td align="left">test</td>
+<td align="left">Todd Lipcon</td>
+<td align="left">Todd Lipcon</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-727">HDFS-727</a></td>
+<td align="left">bug setting block size hdfsOpenFile</td>
+<td align="left">Blocker</td>
+<td align="left">libhdfs</td>
+<td align="left">Eli Collins</td>
+<td align="left">Eli Collins</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-15">HDFS-15</a></td>
+<td align="left">Rack replication policy can be violated for over replicated blocks</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Hairong Kuang</td>
+<td align="left">Jitendra Nath Pandey</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2262">MAPREDUCE-2262</a></td>
+<td align="left">Capacity Scheduler unit tests fail with class not found</td>
+<td align="left">Major</td>
+<td align="left">capacity-sched</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Owen O'Malley</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-1880">MAPREDUCE-1880</a></td>
+<td align="left">&quot;java.lang.ArithmeticException: Non-terminating decimal expansion; no exact representable decimal result.&quot; while running &quot;hadoop jar hadoop-0.20.1+169.89-examples.jar pi 4 30&quot;</td>
+<td align="left">Minor</td>
+<td align="left">examples</td>
+<td align="left">Victor Pakhomov</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-1522">MAPREDUCE-1522</a></td>
+<td align="left">FileInputFormat may change the file system of an input path</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-1407">MAPREDUCE-1407</a></td>
+<td align="left">Invalid example in the documentation of org.apache.hadoop.mapreduce.{Mapper,Reducer}</td>
+<td align="left">Trivial</td>
+<td align="left">documentation</td>
+<td align="left">Benoit Sigoure</td>
+<td align="left">Benoit Sigoure</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-1372">MAPREDUCE-1372</a></td>
+<td align="left">ConcurrentModificationException in JobInProgress</td>
+<td align="left">Blocker</td>
+<td align="left">jobtracker</td>
+<td align="left">Amareshwari Sriramadasu</td>
+<td align="left">Dick King</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-1280">MAPREDUCE-1280</a></td>
+<td align="left">Eclipse Plugin does not work with Eclipse Ganymede (3.4)</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Aaron Kimball</td>
+<td align="left">Alex Kozlov</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-118">MAPREDUCE-118</a></td>
+<td align="left">Job.getJobID() will always return null</td>
+<td align="left">Blocker</td>
+<td align="left">client</td>
+<td align="left">Amar Kamat</td>
+<td align="left">Amareshwari Sriramadasu</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tests">TESTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-6637">HADOOP-6637</a></td>
+<td align="left">Benchmark overhead of RPC session establishment</td>
+<td align="left">Major</td>
+<td align="left">benchmarks</td>
+<td align="left">Konstantin Shvachko</td>
+<td align="left">Konstantin Shvachko</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sub-tasks">SUB-TASKS:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="other">OTHER:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7372">HADOOP-7372</a></td>
+<td align="left">Remove ref of 20.3 release from branch-0.20 CHANGES.txt</td>
+<td align="left">Major</td>
+<td align="left">documentation</td>
+<td align="left">Eli Collins</td>
+<td align="left">Eli Collins</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-1286">HDFS-1286</a></td>
+<td align="left">Dry entropy pool on Hudson boxes causing test timeouts</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Todd Lipcon</td>
+<td align="left">Konstantin Boudnik</td>
+</tr>
+</tbody>
+</table>

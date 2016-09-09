@@ -1,0 +1,45 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-zookeeper-3.5.2-release-notes">Apache Zookeeper 3.5.2 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-1077">ZOOKEEPER-1077</a> | <em>Critical</em> | <strong>C client lib doesn't build on Solaris</strong></li>
+</ul>
+<p>Support for building C client lib on Illumos (and presumably OpenSolaris). Configure with &quot;CPPFLAGS=-D_POSIX_PTHREAD_SEMANTICS LDFLAGS=&quot;-lnsl -lsocket&quot; ./configure&quot;</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-1853">ZOOKEEPER-1853</a> | <em>Minor</em> | <strong>zkCli.sh can't issue a CREATE command containing spaces in the data</strong></li>
+</ul>
+<p>Allows spaces to be used for parameters in zkCli as long as they are in single or double quotes. ie: create /node1 &quot;This will now work&quot;</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-1929">ZOOKEEPER-1929</a> | <em>Major</em> | <strong>std::length_error on update children</strong></li>
+</ul>
+<p>Fix a bug in zkfuse that causes an abort upon reading a node's content</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2413">ZOOKEEPER-2413</a> | <em>Major</em> | <strong>ContainerManager doesn't close the Timer it creates when stop() is called</strong></li>
+</ul>
+<p>Thanks, Jordan.</p>
+<p>Branch 3.5: Committed revision 1740737. Trunk: Committed revision 1740738.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-1460">ZOOKEEPER-1460</a> | <em>Major</em> | <strong>IPv6 literal address not supported for quorum members</strong></li>
+</ul>
+<p>IPv6 addresses are now properly parsed in the config</p>

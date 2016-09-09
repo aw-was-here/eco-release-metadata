@@ -1,0 +1,2116 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hbase-changelog">Apache HBase Changelog</h1>
+<h2 id="release-0.95.1---2013-06-11">Release 0.95.1 - 2013-06-11</h2>
+<h3 id="incompatible-changes">INCOMPATIBLE CHANGES:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8352">HBASE-8352</a></td>
+<td align="left">Rename '.snapshot' directory</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Ted Yu</td>
+<td align="left">Ted Yu</td>
+</tr>
+</tbody>
+</table>
+<h3 id="new-features">NEW FEATURES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5525">HBASE-5525</a></td>
+<td align="left">Truncate and preserve region boundaries option</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jean-Daniel Cryans</td>
+<td align="left">Kevin Odell</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-7415">HBASE-7415</a></td>
+<td align="left">[snapshots] Add task information to snapshot operation</td>
+<td align="left">Major</td>
+<td align="left">Client, master, regionserver, snapshots, Zookeeper</td>
+<td align="left">Jesse Yates</td>
+<td align="left">Jesse Yates</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-7842">HBASE-7842</a></td>
+<td align="left">Add compaction policy that explores more storefile groups</td>
+<td align="left">Major</td>
+<td align="left">Compaction</td>
+<td align="left">Elliott Clark</td>
+<td align="left">Elliott Clark</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1936">HBASE-1936</a></td>
+<td align="left">ClassLoader that loads from hdfs; useful adding filters to classpath without having to restart services</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">Jimmy Xiang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-7828">HBASE-7828</a></td>
+<td align="left">Expose HBase Scan object's &quot;batch&quot; property for intra-row batching in Thrift API</td>
+<td align="left">Minor</td>
+<td align="left">Thrift</td>
+<td align="left">Shivendra Pratap Singh</td>
+<td align="left">Shivendra Pratap Singh</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8372">HBASE-8372</a></td>
+<td align="left">Provide mutability to CompoundConfiguration</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ted Yu</td>
+<td align="left">Jonathan Hsieh</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8415">HBASE-8415</a></td>
+<td align="left">DisabledRegionSplitPolicy</td>
+<td align="left">Major</td>
+<td align="left">regionserver</td>
+<td align="left">Enis Soztutar</td>
+<td align="left">Enis Soztutar</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-7244">HBASE-7244</a></td>
+<td align="left">Provide a command or argument to startup, that formats znodes if provided</td>
+<td align="left">Critical</td>
+<td align="left">Zookeeper</td>
+<td align="left">Harsh J</td>
+<td align="left">rajeshbabu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-7006">HBASE-7006</a></td>
+<td align="left">[MTTR] Improve Region Server Recovery Time - Distributed Log Replay</td>
+<td align="left">Critical</td>
+<td align="left">MTTR</td>
+<td align="left">stack</td>
+<td align="left">Jeffrey Zhong</td>
+</tr>
+</tbody>
+</table>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-4316">HBASE-4316</a></td>
+<td align="left">book.xml - overhauled MapReduce section to provide more examples</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Doug Meil</td>
+<td align="left">Doug Meil</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-4732">HBASE-4732</a></td>
+<td align="left">[book] book.xml, added link to MapReduce tutorial</td>
+<td align="left">Trivial</td>
+<td align="left">.</td>
+<td align="left">Doug Meil</td>
+<td align="left">Doug Meil</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-4906">HBASE-4906</a></td>
+<td align="left">[book] book.xml added MapReduce to RDBMS example</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Doug Meil</td>
+<td align="left">Doug Meil</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-7745">HBASE-7745</a></td>
+<td align="left">Import uses System.out.println instead of logging</td>
+<td align="left">Trivial</td>
+<td align="left">mapreduce</td>
+<td align="left">Nick Dimiduk</td>
+<td align="left">Gustavo Anatoly</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-7923">HBASE-7923</a></td>
+<td align="left">force unassign can confirm region online on any RS to get rid of double assignments.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">rajeshbabu</td>
+<td align="left">rajeshbabu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-7568">HBASE-7568</a></td>
+<td align="left">[replication] Create an interface for replication queues</td>
+<td align="left">Major</td>
+<td align="left">Replication</td>
+<td align="left">Chris Trezzo</td>
+<td align="left">Chris Trezzo</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-7649">HBASE-7649</a></td>
+<td align="left">client retry timeout doesn't need to do x2 fallback when going to different server</td>
+<td align="left">Major</td>
+<td align="left">Client, MTTR</td>
+<td align="left">Sergey Shelukhin</td>
+<td align="left">Sergey Shelukhin</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8240">HBASE-8240</a></td>
+<td align="left">CompoundConfiguration should implement Iterable</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ted Yu</td>
+<td align="left">Ted Yu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8301">HBASE-8301</a></td>
+<td align="left">Document for hbase.rpc.timeout</td>
+<td align="left">Minor</td>
+<td align="left">documentation</td>
+<td align="left">Daisuke Kobayashi</td>
+<td align="left">Daisuke Kobayashi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-7247">HBASE-7247</a></td>
+<td align="left">Assignment performances decreased by 50% because of regionserver.OpenRegionHandler#tickleOpening</td>
+<td align="left">Major</td>
+<td align="left">master, Region Assignment, regionserver</td>
+<td align="left">Nicolas Liochon</td>
+<td align="left">Nicolas Liochon</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8205">HBASE-8205</a></td>
+<td align="left">HBCK support for table locks</td>
+<td align="left">Major</td>
+<td align="left">hbck, master, regionserver</td>
+<td align="left">Enis Soztutar</td>
+<td align="left">Enis Soztutar</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8339">HBASE-8339</a></td>
+<td align="left">Make sure the StochasticLoadBalancer doesn't run a cost function when not needed</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Elliott Clark</td>
+<td align="left">Elliott Clark</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-7410">HBASE-7410</a></td>
+<td align="left">[snapshots] add snapshot/clone/restore/export docs to ref guide</td>
+<td align="left">Blocker</td>
+<td align="left">documentation, snapshots</td>
+<td align="left">Jonathan Hsieh</td>
+<td align="left">Matteo Bertozzi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-6870">HBASE-6870</a></td>
+<td align="left">HTable#coprocessorExec always scan the whole table</td>
+<td align="left">Critical</td>
+<td align="left">Coprocessors</td>
+<td align="left">chunhui shen</td>
+<td align="left">chunhui shen</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8284">HBASE-8284</a></td>
+<td align="left">Allow String Offset(s) in ColumnPaginationFilter for bookmark based pagination</td>
+<td align="left">Minor</td>
+<td align="left">Filters</td>
+<td align="left">Varun Sharma</td>
+<td align="left">Varun Sharma</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5577">HBASE-5577</a></td>
+<td align="left">improve 'patch submission' section in HBase book</td>
+<td align="left">Major</td>
+<td align="left">documentation</td>
+<td align="left">Sujee Maniyam</td>
+<td align="left">Sujee Maniyam</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-7434">HBASE-7434</a></td>
+<td align="left">Use generics appropriately in RPCEngine and reduce casts, with fixing a related bug of breaking thread-safety in HConnectionManager</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Hiroshi Ikeda</td>
+<td align="left">Hiroshi Ikeda</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8383">HBASE-8383</a></td>
+<td align="left">Support lib/*jar inside coprocessor jar</td>
+<td align="left">Minor</td>
+<td align="left">Coprocessors</td>
+<td align="left">Jimmy Xiang</td>
+<td align="left">Jimmy Xiang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8345">HBASE-8345</a></td>
+<td align="left">Add all available resources in o.a.h.h.rest.RootResource and VersionResource to o.a.h.h.rest.client.RemoteAdmin</td>
+<td align="left">Minor</td>
+<td align="left">Client, REST</td>
+<td align="left">Aleksandr Shulman</td>
+<td align="left">Aleksandr Shulman</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2231">HBASE-2231</a></td>
+<td align="left">Compaction events should be written to HLog</td>
+<td align="left">Blocker</td>
+<td align="left">regionserver</td>
+<td align="left">Todd Lipcon</td>
+<td align="left">stack</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8470">HBASE-8470</a></td>
+<td align="left">Data file used by TestReference should be excluded from Apache Rat check</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ted Yu</td>
+<td align="left">Ted Yu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8485">HBASE-8485</a></td>
+<td align="left">Retry to open a HLog on more exceptions</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Jimmy Xiang</td>
+<td align="left">Jimmy Xiang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8272">HBASE-8272</a></td>
+<td align="left">make compaction checker frequency configurable per table/cf</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Sergey Shelukhin</td>
+<td align="left">Sergey Shelukhin</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8405">HBASE-8405</a></td>
+<td align="left">Add more custom options to how ClusterManager runs commands</td>
+<td align="left">Minor</td>
+<td align="left">test</td>
+<td align="left">Sergey Shelukhin</td>
+<td align="left">Sergey Shelukhin</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1762">HBASE-1762</a></td>
+<td align="left">Remove concept of ZooKeeper from HConnection interface</td>
+<td align="left">Major</td>
+<td align="left">Client</td>
+<td align="left">Ken Weiner</td>
+<td align="left">stack</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8367">HBASE-8367</a></td>
+<td align="left">LoadIncrementalHFiles does not return an error code nor throw Exception when failures occur due to timeouts</td>
+<td align="left">Minor</td>
+<td align="left">mapreduce</td>
+<td align="left">Brian Dougan</td>
+<td align="left">Brian Dougan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5930">HBASE-5930</a></td>
+<td align="left">Limits the amount of time an edit can live in the memstore.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Lars Hofhansl</td>
+<td align="left">Devaraj Das</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8461">HBASE-8461</a></td>
+<td align="left">Provide the ability to delete multiple snapshots through single command</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ted Yu</td>
+<td align="left">Ted Yu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-7567">HBASE-7567</a></td>
+<td align="left">[replication] Create an interface for replication peers</td>
+<td align="left">Major</td>
+<td align="left">Replication</td>
+<td align="left">Chris Trezzo</td>
+<td align="left">Chris Trezzo</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8471">HBASE-8471</a></td>
+<td align="left">Server-side, remove convertion from pb type to client type before we call method</td>
+<td align="left">Critical</td>
+<td align="left">IPC/RPC, regionserver</td>
+<td align="left">stack</td>
+<td align="left">Anoop Sam John</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8235">HBASE-8235</a></td>
+<td align="left">Adding inmemory CF attribute to LoadTest and PerformanceEvaluation tool</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">ramkrishna.s.vasudevan</td>
+<td align="left">ramkrishna.s.vasudevan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8573">HBASE-8573</a></td>
+<td align="left">Store last flushed sequence id for each store of region for Distributed Log Replay</td>
+<td align="left">Major</td>
+<td align="left">MTTR</td>
+<td align="left">Ted Yu</td>
+<td align="left">Jeffrey Zhong</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8420">HBASE-8420</a></td>
+<td align="left">Port HBASE-6874 Implement prefetching for scanners from 0.89-fb</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jimmy Xiang</td>
+<td align="left">Jimmy Xiang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8613">HBASE-8613</a></td>
+<td align="left">Improve logging when BindException is received at startup time.</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Jean-Marc Spaggiari</td>
+<td align="left">Jean-Marc Spaggiari</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8618">HBASE-8618</a></td>
+<td align="left">Master is providing dead RegionServer ServerName's to the balancer</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Elliott Clark</td>
+<td align="left">Elliott Clark</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8704">HBASE-8704</a></td>
+<td align="left">Log the table name in ServerCallable.prepare.</td>
+<td align="left">Trivial</td>
+<td align="left">.</td>
+<td align="left">ramkrishna.s.vasudevan</td>
+<td align="left">ramkrishna.s.vasudevan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8608">HBASE-8608</a></td>
+<td align="left">Do an edit of logs.. we log too much.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">stack</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-276">HBASE-276</a></td>
+<td align="left">mapreduce input and output formats to go against hbase</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1644">HBASE-1644</a></td>
+<td align="left">Result.row is cached in getRow; this breaks MapReduce</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Doğacan Güney</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-3578">HBASE-3578</a></td>
+<td align="left">TableInputFormat does not setup the configuration for HBase mapreduce jobs correctly</td>
+<td align="left">Major</td>
+<td align="left">mapreduce</td>
+<td align="left">Dan Harvey</td>
+<td align="left">Dan Harvey</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-4885">HBASE-4885</a></td>
+<td align="left">Building against Hadoop 0.23 uses out-of-date MapReduce artifacts</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Tom White</td>
+<td align="left">Tom White</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-4398">HBASE-4398</a></td>
+<td align="left">If HRegionPartitioner is used in MapReduce, client side configurations are overwritten by hbase-site.xml.</td>
+<td align="left">Major</td>
+<td align="left">mapreduce</td>
+<td align="left">Takuya Ueshin</td>
+<td align="left">Takuya Ueshin</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5966">HBASE-5966</a></td>
+<td align="left">MapReduce based tests broken on Hadoop 2.0.0-alpha</td>
+<td align="left">Major</td>
+<td align="left">mapreduce, test</td>
+<td align="left">Andrew Purtell</td>
+<td align="left">Jimmy Xiang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-7851">HBASE-7851</a></td>
+<td align="left">Include the guava classes as a dependency for jobs using mapreduce.TableMapReduceUtil</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Devaraj Das</td>
+<td align="left">Devaraj Das</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8192">HBASE-8192</a></td>
+<td align="left">Logic errror causes infinite loop in HRegion.bulkLoadHFiles(List)</td>
+<td align="left">Major</td>
+<td align="left">regionserver</td>
+<td align="left">Chenghao Jiang</td>
+<td align="left">Chenghao Jiang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-7871">HBASE-7871</a></td>
+<td align="left">HBase can be stuck when closing regions concurrently</td>
+<td align="left">Critical</td>
+<td align="left">master</td>
+<td align="left">Nicolas Liochon</td>
+<td align="left">Ted Yu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8241">HBASE-8241</a></td>
+<td align="left">Fix the bad dependency on netty from HDFS</td>
+<td align="left">Major</td>
+<td align="left">build, Client, master, regionserver</td>
+<td align="left">Nicolas Liochon</td>
+<td align="left">Nicolas Liochon</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8204">HBASE-8204</a></td>
+<td align="left">Don't use hdfs append during lease recovery</td>
+<td align="left">Major</td>
+<td align="left">MTTR, wal</td>
+<td align="left">Nicolas Liochon</td>
+<td align="left">Nicolas Liochon</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-7401">HBASE-7401</a></td>
+<td align="left">Remove warning message about running 'hbase migrate'</td>
+<td align="left">Major</td>
+<td align="left">Usability</td>
+<td align="left">Jonathan Hsieh</td>
+<td align="left">Jonathan Hsieh</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8263">HBASE-8263</a></td>
+<td align="left">Master LogSplitting metrics update wrong counters</td>
+<td align="left">Minor</td>
+<td align="left">metrics</td>
+<td align="left">Jeffrey Zhong</td>
+<td align="left">Jeffrey Zhong</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8229">HBASE-8229</a></td>
+<td align="left">Replication code logs like crazy if a target table cannot be found.</td>
+<td align="left">Major</td>
+<td align="left">Replication</td>
+<td align="left">Lars Hofhansl</td>
+<td align="left">Lars Hofhansl</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8230">HBASE-8230</a></td>
+<td align="left">Possible NPE on regionserver abort if replication service has not been started</td>
+<td align="left">Major</td>
+<td align="left">regionserver, Replication</td>
+<td align="left">Jieshan Bean</td>
+<td align="left">Jieshan Bean</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8188">HBASE-8188</a></td>
+<td align="left">Avoid unnecessary row compare in StoreScanner</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Lars Hofhansl</td>
+<td align="left">Lars Hofhansl</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-7817">HBASE-7817</a></td>
+<td align="left">Suggested JDWP debug options in hbase-env.sh are wrong</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Ian Varley</td>
+<td align="left">Vasu Mariyala</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8231">HBASE-8231</a></td>
+<td align="left">delete tests in table_tests.rb(TestShell) always running on empty table.</td>
+<td align="left">Major</td>
+<td align="left">scripts</td>
+<td align="left">rajeshbabu</td>
+<td align="left">rajeshbabu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8169">HBASE-8169</a></td>
+<td align="left">TestMasterFailover#testMasterFailoverWithMockedRITOnDeadRS may fail due to regions randomly assigned to a RS</td>
+<td align="left">Minor</td>
+<td align="left">test</td>
+<td align="left">Jeffrey Zhong</td>
+<td align="left">Jeffrey Zhong</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8179">HBASE-8179</a></td>
+<td align="left">JSON formatting for cluster status is sort of broken</td>
+<td align="left">Major</td>
+<td align="left">REST, Usability</td>
+<td align="left">Devaraj Das</td>
+<td align="left">Devaraj Das</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8267">HBASE-8267</a></td>
+<td align="left">Add some resources checker for tests</td>
+<td align="left">Minor</td>
+<td align="left">build, test</td>
+<td align="left">Nicolas Liochon</td>
+<td align="left">Nicolas Liochon</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8208">HBASE-8208</a></td>
+<td align="left">In some situations data is not replicated to slaves when deferredLogSync is enabled</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jeffrey Zhong</td>
+<td align="left">Jeffrey Zhong</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8254">HBASE-8254</a></td>
+<td align="left">Add lz4 to test compression util usage string</td>
+<td align="left">Major</td>
+<td align="left">util</td>
+<td align="left">Elliott Clark</td>
+<td align="left">Elliott Clark</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8158">HBASE-8158</a></td>
+<td align="left">Backport HBASE-8140 &quot;TableMapReduceUtils#addDependencyJar fails when nested inside another MR job&quot;</td>
+<td align="left">Major</td>
+<td align="left">mapreduce</td>
+<td align="left">Nick Dimiduk</td>
+<td align="left">Nick Dimiduk</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8293">HBASE-8293</a></td>
+<td align="left">Move BigDecimalColumnInterpreter into hbase-client</td>
+<td align="left">Major</td>
+<td align="left">Client, Coprocessors</td>
+<td align="left">Elliott Clark</td>
+<td align="left">Elliott Clark</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8248">HBASE-8248</a></td>
+<td align="left">HConnectionManager moved region tracking can cause the region server to redirect to itself; load balancer uses incorrect servername compare</td>
+<td align="left">Major</td>
+<td align="left">Client</td>
+<td align="left">Sergey Shelukhin</td>
+<td align="left">Sergey Shelukhin</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8289">HBASE-8289</a></td>
+<td align="left">TestThreads#testSleepWithoutInterrupt should not expect a bounded wait time</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Nicolas Liochon</td>
+<td align="left">Nicolas Liochon</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8290">HBASE-8290</a></td>
+<td align="left">TestHTableMultiplexer is flaky</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Nicolas Liochon</td>
+<td align="left">Nicolas Liochon</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8305">HBASE-8305</a></td>
+<td align="left">Too much logs in the some tests</td>
+<td align="left">Major</td>
+<td align="left">build, test</td>
+<td align="left">Nicolas Liochon</td>
+<td align="left">Nicolas Liochon</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8239">HBASE-8239</a></td>
+<td align="left">ChaosMonkey action for root is irrelevant</td>
+<td align="left">Trivial</td>
+<td align="left">test</td>
+<td align="left">Sergey Shelukhin</td>
+<td align="left">Sergey Shelukhin</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8252">HBASE-8252</a></td>
+<td align="left">Regions by Region Server table in Master's table view needs styling</td>
+<td align="left">Trivial</td>
+<td align="left">UI</td>
+<td align="left">Elliott Clark</td>
+<td align="left">Elliott Clark</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8312">HBASE-8312</a></td>
+<td align="left">TestCompactionState - still timeouting</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Nicolas Liochon</td>
+<td align="left">Nicolas Liochon</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8313">HBASE-8313</a></td>
+<td align="left">Add Bloom filter testing for HFileOutputFormat</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Matteo Bertozzi</td>
+<td align="left">Matteo Bertozzi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8266">HBASE-8266</a></td>
+<td align="left">Master cannot start if TableNotFoundException is thrown while partial table recovery</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">ramkrishna.s.vasudevan</td>
+<td align="left">ramkrishna.s.vasudevan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-7658">HBASE-7658</a></td>
+<td align="left">grant with an empty string as permission should throw an exception</td>
+<td align="left">Trivial</td>
+<td align="left">security</td>
+<td align="left">Matteo Bertozzi</td>
+<td align="left">Matteo Bertozzi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8119">HBASE-8119</a></td>
+<td align="left">Optimize StochasticLoadBalancer</td>
+<td align="left">Critical</td>
+<td align="left">Region Assignment</td>
+<td align="left">Enis Soztutar</td>
+<td align="left">Enis Soztutar</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8303">HBASE-8303</a></td>
+<td align="left">Increse the test timeout to 60s when they are less than 20s</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Nicolas Liochon</td>
+<td align="left">Nicolas Liochon</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-7255">HBASE-7255</a></td>
+<td align="left">KV size metric went missing from StoreScanner.</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Lars Hofhansl</td>
+<td align="left">Elliott Clark</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8300">HBASE-8300</a></td>
+<td align="left">TestSplitTransaction fails to delete files due to open handles left when region is split</td>
+<td align="left">Major</td>
+<td align="left">regionserver</td>
+<td align="left">Malie Yin</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8334">HBASE-8334</a></td>
+<td align="left">Enable essential column family support by default</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ted Yu</td>
+<td align="left">Ted Yu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8096">HBASE-8096</a></td>
+<td align="left">[replication] NPE while replicating a log that is acquiring a new block from HDFS</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ian Friedman</td>
+<td align="left">Dave Latham</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8314">HBASE-8314</a></td>
+<td align="left">HLogSplitter can retry to open a 0-length hlog file</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jimmy Xiang</td>
+<td align="left">Jimmy Xiang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8285">HBASE-8285</a></td>
+<td align="left">HBaseClient never recovers for single HTable.get() calls with no retries when regions move</td>
+<td align="left">Critical</td>
+<td align="left">Client</td>
+<td align="left">Varun Sharma</td>
+<td align="left">Varun Sharma</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8341">HBASE-8341</a></td>
+<td align="left">RestoreSnapshotHandler.prepare() is not called by SnapshotManager and TakeSnapshotHandler should first acquire the table lock</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Enis Soztutar</td>
+<td align="left">Enis Soztutar</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8326">HBASE-8326</a></td>
+<td align="left">mapreduce.TestTableInputFormatScan times out frequently</td>
+<td align="left">Major</td>
+<td align="left">mapreduce, test</td>
+<td align="left">Nick Dimiduk</td>
+<td align="left">Nick Dimiduk</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8321">HBASE-8321</a></td>
+<td align="left">Log split worker should heartbeat to avoid timeout when the hlog is under recovery</td>
+<td align="left">Major</td>
+<td align="left">wal</td>
+<td align="left">Jimmy Xiang</td>
+<td align="left">Jimmy Xiang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8359">HBASE-8359</a></td>
+<td align="left">Too much logs on HConnectionManager</td>
+<td align="left">Major</td>
+<td align="left">Client</td>
+<td align="left">Nicolas Liochon</td>
+<td align="left">Nicolas Liochon</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8360">HBASE-8360</a></td>
+<td align="left">In HBaseClient#cancelConnections we should close fully the connection</td>
+<td align="left">Major</td>
+<td align="left">Client</td>
+<td align="left">Nicolas Liochon</td>
+<td align="left">Nicolas Liochon</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8374">HBASE-8374</a></td>
+<td align="left">NullPointerException when launching the balancer due to unknown region location</td>
+<td align="left">Major</td>
+<td align="left">Balancer</td>
+<td align="left">Nicolas Liochon</td>
+<td align="left">Ted Yu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8279">HBASE-8279</a></td>
+<td align="left">Performance Evaluation does not consider the args passed in case of more than one client</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">ramkrishna.s.vasudevan</td>
+<td align="left">ramkrishna.s.vasudevan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8377">HBASE-8377</a></td>
+<td align="left">IntegrationTestBigLinkedList calculates wrap for linked list size incorrectly</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Enis Soztutar</td>
+<td align="left">Enis Soztutar</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8317">HBASE-8317</a></td>
+<td align="left">Seek returns wrong result with PREFIX_TREE Encoding</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">chunhui shen</td>
+<td align="left">chunhui shen</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-1212">HBASE-1212</a></td>
+<td align="left">merge tool expects regions all have different sequence ids</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">Jean-Marc Spaggiari</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8391">HBASE-8391</a></td>
+<td align="left">StochasticLoadBalancer doesn't call needsBalance</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jean-Daniel Cryans</td>
+<td align="left">Jean-Daniel Cryans</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8379">HBASE-8379</a></td>
+<td align="left">bin/graceful_stop.sh does not return the balancer to original state</td>
+<td align="left">Major</td>
+<td align="left">scripts</td>
+<td align="left">Nick Dimiduk</td>
+<td align="left">Jean-Marc Spaggiari</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8295">HBASE-8295</a></td>
+<td align="left">TestMasterFailover.testMasterFailoverWithMockedRITOnDeadRS is flaky.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">rajeshbabu</td>
+<td align="left">rajeshbabu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-7838">HBASE-7838</a></td>
+<td align="left">HBase regionserver never stops when running <code>hbase-daemon.sh stop regionserver</code></td>
+<td align="left">Major</td>
+<td align="left">regionserver, scripts, shell</td>
+<td align="left">Damien Hardy</td>
+<td align="left">Damien Hardy</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8406">HBASE-8406</a></td>
+<td align="left">Fix rat check and rat warning in trunk</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">stack</td>
+<td align="left">stack</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-7921">HBASE-7921</a></td>
+<td align="left">TestHFileBlock.testGzipCompression should ignore the block checksum</td>
+<td align="left">Minor</td>
+<td align="left">test</td>
+<td align="left">Andrew Purtell</td>
+<td align="left">Andrew Purtell</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5472">HBASE-5472</a></td>
+<td align="left">LoadIncrementalHFiles loops forever if the target table misses a CF</td>
+<td align="left">Minor</td>
+<td align="left">mapreduce</td>
+<td align="left">Lars Hofhansl</td>
+<td align="left">Yu Li</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5946">HBASE-5946</a></td>
+<td align="left">Thrift Filter Language documentation is inconsistent</td>
+<td align="left">Minor</td>
+<td align="left">Filters, Thrift</td>
+<td align="left">Alexander</td>
+<td align="left">Jesse Anderson</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-7122">HBASE-7122</a></td>
+<td align="left">Proper warning message when opening a log file with no entries (idle cluster)</td>
+<td align="left">Major</td>
+<td align="left">Replication</td>
+<td align="left">Himanshu Vashishtha</td>
+<td align="left">Himanshu Vashishtha</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-7167">HBASE-7167</a></td>
+<td align="left">Thrift's deleteMultiple() raises exception instead of returning list of failed deletes</td>
+<td align="left">Major</td>
+<td align="left">Thrift</td>
+<td align="left">Daniel Gómez Ferro</td>
+<td align="left">Daniel Gómez Ferro</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8380">HBASE-8380</a></td>
+<td align="left">NPE in HBaseClient$Connection.readResponse</td>
+<td align="left">Major</td>
+<td align="left">Client</td>
+<td align="left">Nicolas Liochon</td>
+<td align="left">Nicolas Liochon</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8327">HBASE-8327</a></td>
+<td align="left">Consolidate class loaders</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Jimmy Xiang</td>
+<td align="left">Jimmy Xiang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8396">HBASE-8396</a></td>
+<td align="left">balancerSwitch making two zookeeper calls everytime.</td>
+<td align="left">Major</td>
+<td align="left">Balancer</td>
+<td align="left">rajeshbabu</td>
+<td align="left">rajeshbabu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-7192">HBASE-7192</a></td>
+<td align="left">Move TestHBase7051.java into TestAtomicOperation.java</td>
+<td align="left">Minor</td>
+<td align="left">test</td>
+<td align="left">Aleksandr Shulman</td>
+<td align="left">Aleksandr Shulman</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8427">HBASE-8427</a></td>
+<td align="left">Apache Rat is incorrectly excluding test source files</td>
+<td align="left">Blocker</td>
+<td align="left">build</td>
+<td align="left">Jonathan Hsieh</td>
+<td align="left">Jonathan Hsieh</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8431">HBASE-8431</a></td>
+<td align="left">Fix missing headers</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Elliott Clark</td>
+<td align="left">Elliott Clark</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8421">HBASE-8421</a></td>
+<td align="left">hbase-0.95.0 tgz does not include lib/junit*.jar</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Jonathan Hsieh</td>
+<td align="left">stack</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8299">HBASE-8299</a></td>
+<td align="left">ExploringCompactionPolicy can get stuck in rare cases.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Elliott Clark</td>
+<td align="left">Elliott Clark</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8428">HBASE-8428</a></td>
+<td align="left">Tighten up IntegrationTestsDriver filter</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">stack</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8393">HBASE-8393</a></td>
+<td align="left">Testcase TestHeapSize#testMutations is wrong</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Jeffrey Zhong</td>
+<td align="left">Jeffrey Zhong</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8451">HBASE-8451</a></td>
+<td align="left">MetricsMBeanBase has concurrency issues in init</td>
+<td align="left">Critical</td>
+<td align="left">metrics</td>
+<td align="left">Liang Xie</td>
+<td align="left">Liang Xie</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8426">HBASE-8426</a></td>
+<td align="left">Opening a region failed on &quot;Metrics source RegionServer,sub=Regions already exists!&quot;</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Jean-Daniel Cryans</td>
+<td align="left">Elliott Clark</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8407">HBASE-8407</a></td>
+<td align="left">Remove Async HBase from 0.95 and trunk.</td>
+<td align="left">Major</td>
+<td align="left">Performance</td>
+<td align="left">Elliott Clark</td>
+<td align="left">Elliott Clark</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8425">HBASE-8425</a></td>
+<td align="left">Per-region memstore size is missing in the new RS web UI</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jean-Daniel Cryans</td>
+<td align="left">Elliott Clark</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8456">HBASE-8456</a></td>
+<td align="left">HBase Windows scripts fail when there's a blank space in JAVA_HOME</td>
+<td align="left">Minor</td>
+<td align="left">scripts</td>
+<td align="left">Mostafa Elhemali</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8468">HBASE-8468</a></td>
+<td align="left">IntegrationTestImportTsv fails on a cluster</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Elliott Clark</td>
+<td align="left">Elliott Clark</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8472">HBASE-8472</a></td>
+<td align="left">mvn -Dhadoop.profile=2.0 -Dhadoop-two.version=2.0.5-SNAPSHOT fails because of Undef Class error wrt o.a.h.IdGenerator</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Jonathan Hsieh</td>
+<td align="left">Jonathan Hsieh</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8474">HBASE-8474</a></td>
+<td align="left">there are dups in hadoop2 pom</td>
+<td align="left">Trivial</td>
+<td align="left">.</td>
+<td align="left">Sergey Shelukhin</td>
+<td align="left">Sergey Shelukhin</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8460">HBASE-8460</a></td>
+<td align="left">[replication] Fix the three TODOs in TestReplicationStateBasic.testReplicationQueues</td>
+<td align="left">Minor</td>
+<td align="left">Replication</td>
+<td align="left">Chris Trezzo</td>
+<td align="left">Chris Trezzo</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8482">HBASE-8482</a></td>
+<td align="left">TestHBaseFsck#testCheckTableLocks broke; java.lang.AssertionError: expected:&lt;[]&gt; but was:&lt;[EXPIRED_TABLE_LOCK]&gt;</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">stack</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8214">HBASE-8214</a></td>
+<td align="left">Remove proxy and engine, rely directly on pb generated Service</td>
+<td align="left">Major</td>
+<td align="left">IPC/RPC</td>
+<td align="left">stack</td>
+<td align="left">stack</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8430">HBASE-8430</a></td>
+<td align="left">Cell decoder/scanner/etc. should not hide exceptions</td>
+<td align="left">Critical</td>
+<td align="left">IPC/RPC, Protobufs</td>
+<td align="left">Sergey Shelukhin</td>
+<td align="left">stack</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8404">HBASE-8404</a></td>
+<td align="left">Extra commas in LruBlockCache.logStats</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jean-Daniel Cryans</td>
+<td align="left">stack</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8346">HBASE-8346</a></td>
+<td align="left">Prefetching .META. rows in case only when useCache is set to true</td>
+<td align="left">Minor</td>
+<td align="left">Client</td>
+<td align="left">Himanshu Vashishtha</td>
+<td align="left">Himanshu Vashishtha</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8422">HBASE-8422</a></td>
+<td align="left">Master won't go down. Stuck waiting on .META. to come on line.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">rajeshbabu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5835">HBASE-5835</a></td>
+<td align="left">[hbck] Catch and handle NotServingRegionException when close region attempt fails</td>
+<td align="left">Major</td>
+<td align="left">hbck</td>
+<td align="left">Jonathan Hsieh</td>
+<td align="left">Liang Xie</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8483">HBASE-8483</a></td>
+<td align="left">HConnectionManager can leak ZooKeeper connections when using deleteStaleConnection</td>
+<td align="left">Critical</td>
+<td align="left">Client</td>
+<td align="left">Eric Yu</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8506">HBASE-8506</a></td>
+<td align="left">Remove unused/dead classes</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">stack</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8514">HBASE-8514</a></td>
+<td align="left">There's an orig file in 0.95</td>
+<td align="left">Trivial</td>
+<td align="left">.</td>
+<td align="left">Sergey Shelukhin</td>
+<td align="left">Sergey Shelukhin</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8510">HBASE-8510</a></td>
+<td align="left">HBASE-8469 added a hdfs-site.xml file for tests but it gets included in the test jar</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Jean-Daniel Cryans</td>
+<td align="left">Jean-Daniel Cryans</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8437">HBASE-8437</a></td>
+<td align="left">Clean up tmp coprocessor jars</td>
+<td align="left">Minor</td>
+<td align="left">Coprocessors</td>
+<td align="left">Jimmy Xiang</td>
+<td align="left">Jimmy Xiang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8509">HBASE-8509</a></td>
+<td align="left">ZKUtil#createWithParents won't set data during znode creation when parent folder doesn't exit</td>
+<td align="left">Major</td>
+<td align="left">Zookeeper</td>
+<td align="left">Jeffrey Zhong</td>
+<td align="left">Jeffrey Zhong</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8133">HBASE-8133</a></td>
+<td align="left">avoid assign for disabling table regions(OPENING/PENDING_OPEN) in SSH</td>
+<td align="left">Major</td>
+<td align="left">Region Assignment</td>
+<td align="left">rajeshbabu</td>
+<td align="left">rajeshbabu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8530">HBASE-8530</a></td>
+<td align="left">Refine error message from ExportSnapshot when there is leftover snapshot in target cluster</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Ted Yu</td>
+<td align="left">Ted Yu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8536">HBASE-8536</a></td>
+<td align="left">Possible NullPointerException in ZKInterProcessLockBase#reapExpiredLocks</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ted Yu</td>
+<td align="left">Ted Yu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8537">HBASE-8537</a></td>
+<td align="left">Dead region server pulled in from ZK</td>
+<td align="left">Minor</td>
+<td align="left">master</td>
+<td align="left">Jimmy Xiang</td>
+<td align="left">Jimmy Xiang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8547">HBASE-8547</a></td>
+<td align="left">Fix java.lang.RuntimeException: Cached an already cached block</td>
+<td align="left">Major</td>
+<td align="left">io, regionserver</td>
+<td align="left">Enis Soztutar</td>
+<td align="left">Enis Soztutar</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8519">HBASE-8519</a></td>
+<td align="left">Backup master will never come up if primary master dies during initialization</td>
+<td align="left">Minor</td>
+<td align="left">master</td>
+<td align="left">Jerry He</td>
+<td align="left">Jerry He</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8540">HBASE-8540</a></td>
+<td align="left">SnapshotFileCache logs too many times if snapshot dir doesn't exists</td>
+<td align="left">Trivial</td>
+<td align="left">snapshots</td>
+<td align="left">Matteo Bertozzi</td>
+<td align="left">Matteo Bertozzi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8355">HBASE-8355</a></td>
+<td align="left">BaseRegionObserver#pre(Compact|Flush|Store)ScannerOpen returns null</td>
+<td align="left">Major</td>
+<td align="left">Coprocessors</td>
+<td align="left">Andrew Purtell</td>
+<td align="left">Jesse Yates</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8507">HBASE-8507</a></td>
+<td align="left">HLog tool documentation should be updated to use FSHLog for trunk and 0.95.</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">ramkrishna.s.vasudevan</td>
+<td align="left">stack</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8466">HBASE-8466</a></td>
+<td align="left">Netty messages in the logs</td>
+<td align="left">Minor</td>
+<td align="left">master</td>
+<td align="left">Nicolas Liochon</td>
+<td align="left">Nicolas Liochon</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-7380">HBASE-7380</a></td>
+<td align="left">[replication] When transferring queues, check if the peer still exists before copying the znodes</td>
+<td align="left">Major</td>
+<td align="left">Replication, Usability</td>
+<td align="left">Jean-Daniel Cryans</td>
+<td align="left">Jean-Daniel Cryans</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8560">HBASE-8560</a></td>
+<td align="left">TestMasterShutdown failing in trunk 0.95/trunk -- &quot;Unable to get data of znode /hbase/meta-region-server because node does not exist (not an error)&quot;</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">Jeffrey Zhong</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-7726">HBASE-7726</a></td>
+<td align="left">Family Dir is not removed using modifyTable()</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Matteo Bertozzi</td>
+<td align="left">Matteo Bertozzi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8568">HBASE-8568</a></td>
+<td align="left">Test case TestDistributedLogSplitting#testWorkerAbort failed intermittently</td>
+<td align="left">Minor</td>
+<td align="left">test</td>
+<td align="left">Jeffrey Zhong</td>
+<td align="left">Jeffrey Zhong</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8567">HBASE-8567</a></td>
+<td align="left">TestDistributedLogSplitting#testLogReplayForDisablingTable fails on hadoop 2.0</td>
+<td align="left">Major</td>
+<td align="left">MTTR</td>
+<td align="left">Ted Yu</td>
+<td align="left">Jeffrey Zhong</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8577">HBASE-8577</a></td>
+<td align="left">TestZooKeeper#testLogSplittingAfterMasterRecoveryDueToZKExpiry failed intermittently</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jeffrey Zhong</td>
+<td align="left">Jeffrey Zhong</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8539">HBASE-8539</a></td>
+<td align="left">Double(or tripple ...) ZooKeeper listeners of the same type when Master recovers from ZK SessionExpiredException</td>
+<td align="left">Major</td>
+<td align="left">master</td>
+<td align="left">Jeffrey Zhong</td>
+<td align="left">Jeffrey Zhong</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8582">HBASE-8582</a></td>
+<td align="left">Possible NullPointerException in ZKInterProcessLockBase#visitLocks</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ted Yu</td>
+<td align="left">Ted Yu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8282">HBASE-8282</a></td>
+<td align="left">User triggered flushes does not allow compaction to get triggered even if compaction criteria is met</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">ramkrishna.s.vasudevan</td>
+<td align="left">ramkrishna.s.vasudevan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8545">HBASE-8545</a></td>
+<td align="left">Meta stuck in transition when it is assigned to a just restarted dead region sever</td>
+<td align="left">Major</td>
+<td align="left">Region Assignment</td>
+<td align="left">Jimmy Xiang</td>
+<td align="left">Jimmy Xiang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8581">HBASE-8581</a></td>
+<td align="left">rpc refactor dropped passing the operation timeout through to the rpcclient</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">stack</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8588">HBASE-8588</a></td>
+<td align="left">[Documentation]: Add information about adding REST and Thrift API kerberos principals to HBase ACL table</td>
+<td align="left">Minor</td>
+<td align="left">documentation, REST, security, Thrift</td>
+<td align="left">Aleksandr Shulman</td>
+<td align="left">Aleksandr Shulman</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8505">HBASE-8505</a></td>
+<td align="left">References to split daughters should not be deleted separately from parent META entry</td>
+<td align="left">Major</td>
+<td align="left">regionserver</td>
+<td align="left">Enis Soztutar</td>
+<td align="left">Enis Soztutar</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8525">HBASE-8525</a></td>
+<td align="left">Use sleep multilier when choosing sinks in ReplicationSource</td>
+<td align="left">Trivial</td>
+<td align="left">.</td>
+<td align="left">Lars Hofhansl</td>
+<td align="left">Lars Hofhansl</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8336">HBASE-8336</a></td>
+<td align="left">PooledHTable may be returned multiple times to the same pool</td>
+<td align="left">Minor</td>
+<td align="left">Client</td>
+<td align="left">Nikolai Grigoriev</td>
+<td align="left">samar</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8596">HBASE-8596</a></td>
+<td align="left">[docs] Add docs about Region server &quot;draining&quot; mode</td>
+<td align="left">Major</td>
+<td align="left">documentation, regionserver</td>
+<td align="left">Jonathan Hsieh</td>
+<td align="left">Jonathan Hsieh</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8531">HBASE-8531</a></td>
+<td align="left">TestZooKeeper fails in trunk/0.95 builds</td>
+<td align="left">Major</td>
+<td align="left">Zookeeper</td>
+<td align="left">stack</td>
+<td align="left">stack</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8555">HBASE-8555</a></td>
+<td align="left">FilterList correctness may be affected by random ordering of sub-filter(list)</td>
+<td align="left">Critical</td>
+<td align="left">Filters</td>
+<td align="left">Liang Xie</td>
+<td align="left">Liang Xie</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8564">HBASE-8564</a></td>
+<td align="left">TestMetricsRegionServer depends on test order</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Elliott Clark</td>
+<td align="left">Elliott Clark</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8602">HBASE-8602</a></td>
+<td align="left">Ugly stack trace just because regionserver comes up before master....</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">stack</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8522">HBASE-8522</a></td>
+<td align="left">Archived hfiles and old hlogs may be deleted immediately by HFileCleaner, LogCleaner in HMaster</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Liu Shaohui</td>
+<td align="left">Liu Shaohui</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8600">HBASE-8600</a></td>
+<td align="left">Bunch of log lines from QosFunction: Marking normal priority after</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Enis Soztutar</td>
+<td align="left">stack</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8606">HBASE-8606</a></td>
+<td align="left">Meta scanner is not closed</td>
+<td align="left">Trivial</td>
+<td align="left">Scanners</td>
+<td align="left">Jimmy Xiang</td>
+<td align="left">Jimmy Xiang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8570">HBASE-8570</a></td>
+<td align="left">CompactSplitThread logs a CompactSplitThread$CompactionRunner but it does not have a toString</td>
+<td align="left">Trivial</td>
+<td align="left">regionserver</td>
+<td align="left">Nicolas Liochon</td>
+<td align="left">samar</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8449">HBASE-8449</a></td>
+<td align="left">Refactor recoverLease retries and pauses informed by findings over in hbase-8389</td>
+<td align="left">Critical</td>
+<td align="left">Filesystem Integration</td>
+<td align="left">stack</td>
+<td align="left">stack</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8597">HBASE-8597</a></td>
+<td align="left">compaction record (probably) can block WAL cleanup forever if region is closed without edits</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Sergey Shelukhin</td>
+<td align="left">Sergey Shelukhin</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8366">HBASE-8366</a></td>
+<td align="left">HBaseServer logs the full query.</td>
+<td align="left">Critical</td>
+<td align="left">regionserver</td>
+<td align="left">Nicolas Liochon</td>
+<td align="left">stack</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8517">HBASE-8517</a></td>
+<td align="left">Stochastic Loadbalancer isn't finding steady state on real clusters</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Elliott Clark</td>
+<td align="left">Elliott Clark</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8621">HBASE-8621</a></td>
+<td align="left">More log edits; we log too much</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">stack</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8622">HBASE-8622</a></td>
+<td align="left">Remove ' You are currently running the HMaster without HDFS append support enabled. This may result in data loss. Please see the HBase wiki for details. ' from UI</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">stack</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8325">HBASE-8325</a></td>
+<td align="left">ReplicationSource read a empty HLog throws EOFException</td>
+<td align="left">Critical</td>
+<td align="left">Replication</td>
+<td align="left">zavakid</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8631">HBASE-8631</a></td>
+<td align="left">Meta Region First Recovery</td>
+<td align="left">Major</td>
+<td align="left">MTTR</td>
+<td align="left">Jeffrey Zhong</td>
+<td align="left">Jeffrey Zhong</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8658">HBASE-8658</a></td>
+<td align="left">hbase clean is deaf to the --config DIR option</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">stack</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8653">HBASE-8653</a></td>
+<td align="left">master seems to be deleting region tmp directory from under compaction</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Sergey Shelukhin</td>
+<td align="left">Sergey Shelukhin</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8686">HBASE-8686</a></td>
+<td align="left">Extra left brace in bin/hbase</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ted Yu</td>
+<td align="left">Ted Yu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8684">HBASE-8684</a></td>
+<td align="left">Table Coprocessor can't access external HTable by default</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jesse Yates</td>
+<td align="left">Jesse Yates</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8402">HBASE-8402</a></td>
+<td align="left">ScanMetrics depends on number of rpc calls to the server.</td>
+<td align="left">Minor</td>
+<td align="left">Client, metrics</td>
+<td align="left">Himanshu Vashishtha</td>
+<td align="left">Himanshu Vashishtha</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8637">HBASE-8637</a></td>
+<td align="left">IntegrationTestBigLinkedListWithChaosMonkey uses the wrong table name</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Elliott Clark</td>
+<td align="left">Jeffrey Zhong</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8664">HBASE-8664</a></td>
+<td align="left">Small fix ups for memory size outputs in UI</td>
+<td align="left">Major</td>
+<td align="left">UI</td>
+<td align="left">stack</td>
+<td align="left">stack</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8689">HBASE-8689</a></td>
+<td align="left">Cover all mutations rather than only Put while reporting for mutations not writing to WAL</td>
+<td align="left">Major</td>
+<td align="left">metrics, regionserver</td>
+<td align="left">Himanshu Vashishtha</td>
+<td align="left">Himanshu Vashishtha</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-4177">HBASE-4177</a></td>
+<td align="left">Handling read failures during recovery‏ - when HMaster calls Namenode recovery, recovery may be a failure leading to read failure while splitting logs</td>
+<td align="left">Critical</td>
+<td align="left">master</td>
+<td align="left">ramkrishna.s.vasudevan</td>
+<td align="left">ramkrishna.s.vasudevan</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tests">TESTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8071">HBASE-8071</a></td>
+<td align="left">TestRestoreFlushSnapshotFromClient fails intermittently in trunk builds</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ted Yu</td>
+<td align="left">Ted Yu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8308">HBASE-8308</a></td>
+<td align="left">Lower the number of expected regions in TestTableLockManager#testTableReadLock</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ted Yu</td>
+<td align="left">Ted Yu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8333">HBASE-8333</a></td>
+<td align="left">TestTableLockManager#testDelete may occasionally fail due to lack of synchronization between test and handler thread</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ted Yu</td>
+<td align="left">Ted Yu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8520">HBASE-8520</a></td>
+<td align="left">TestIOFencing fails intermittently due to compaction kicking in too soon</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ted Yu</td>
+<td align="left">Ted Yu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8535">HBASE-8535</a></td>
+<td align="left">Test for zk leak does not account for unsynchronized access to zk watcher</td>
+<td align="left">Major</td>
+<td align="left">Client</td>
+<td align="left">Eric Yu</td>
+<td align="left">stack</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8575">HBASE-8575</a></td>
+<td align="left">TestDistributedLogSplitting#testMarkRegionsRecoveringInZK fails intermittently due to lack of online region</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ted Yu</td>
+<td align="left">Jeffrey Zhong</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8668">HBASE-8668</a></td>
+<td align="left">TestHLogSplit.generateHLog() does not use local variables for entries</td>
+<td align="left">Trivial</td>
+<td align="left">.</td>
+<td align="left">ramkrishna.s.vasudevan</td>
+<td align="left">ramkrishna.s.vasudevan</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sub-tasks">SUB-TASKS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2009">HBASE-2009</a></td>
+<td align="left">[EC2] support mapreduce subsystem</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Andrew Purtell</td>
+<td align="left">Andrew Purtell</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-2299">HBASE-2299</a></td>
+<td align="left">[EC2] mapreduce fixups for PE</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Andrew Purtell</td>
+<td align="left">Andrew Purtell</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-7995">HBASE-7995</a></td>
+<td align="left">Export$Exporter could be replaced with IdentityTableMapper</td>
+<td align="left">Minor</td>
+<td align="left">mapreduce</td>
+<td align="left">Nick Dimiduk</td>
+<td align="left">Nick Dimiduk</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-7615">HBASE-7615</a></td>
+<td align="left">Add metrics for snapshots</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ted Yu</td>
+<td align="left">Matteo Bertozzi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-6330">HBASE-6330</a></td>
+<td align="left">TestImportExport has been failing against hadoop 0.23/2.0 profile</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Jonathan Hsieh</td>
+<td align="left">Jonathan Hsieh</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8316">HBASE-8316</a></td>
+<td align="left">JoinedHeap for non essential column families should reseek instead of seek</td>
+<td align="left">Major</td>
+<td align="left">Filters, Performance, regionserver</td>
+<td align="left">Lars Hofhansl</td>
+<td align="left">Lars Hofhansl</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-7605">HBASE-7605</a></td>
+<td align="left">TestMiniClusterLoadSequential fails in trunk build on hadoop 2</td>
+<td align="left">Critical</td>
+<td align="left">hadoop2, test</td>
+<td align="left">Ted Yu</td>
+<td align="left">Jonathan Hsieh</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-7606">HBASE-7606</a></td>
+<td align="left">TestJoinedScanners fails in trunk build on hadoop 2.0</td>
+<td align="left">Major</td>
+<td align="left">hadoop2, test</td>
+<td align="left">Ted Yu</td>
+<td align="left">Jonathan Hsieh</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8324">HBASE-8324</a></td>
+<td align="left">TestHFileOutputFormat.testMRIncremental* fails against hadoop2 profile</td>
+<td align="left">Major</td>
+<td align="left">hadoop2, test</td>
+<td align="left">Jonathan Hsieh</td>
+<td align="left">Jonathan Hsieh</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-7636">HBASE-7636</a></td>
+<td align="left">TestDistributedLogSplitting#testThreeRSAbort fails against hadoop 2.0</td>
+<td align="left">Major</td>
+<td align="left">hadoop2, test</td>
+<td align="left">Ted Yu</td>
+<td align="left">Jonathan Hsieh</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-7801">HBASE-7801</a></td>
+<td align="left">Allow a deferred sync option per Mutation.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Lars Hofhansl</td>
+<td align="left">Lars Hofhansl</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8342">HBASE-8342</a></td>
+<td align="left">TestTableInputFormatScan#testScanFromConfiguration fails on hadoop2 profile</td>
+<td align="left">Major</td>
+<td align="left">hadoop2, test</td>
+<td align="left">Jonathan Hsieh</td>
+<td align="left">Jonathan Hsieh</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8349">HBASE-8349</a></td>
+<td align="left">TestLogRolling#TestLogRollOnDatanodeDeath hangs under hadoop2 profile</td>
+<td align="left">Major</td>
+<td align="left">hadoop2</td>
+<td align="left">Jonathan Hsieh</td>
+<td align="left">Jonathan Hsieh</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-7239">HBASE-7239</a></td>
+<td align="left">Verify protobuf serialization is correctly chunking upon read to avoid direct memory OOMs</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Lars Hofhansl</td>
+<td align="left">Devaraj Das</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8347">HBASE-8347</a></td>
+<td align="left">TestSecureLoadInc* tests hang repeatedly getting UnsupportedOperationException in hadoop2 profile</td>
+<td align="left">Major</td>
+<td align="left">hadoop2, regionserver, security</td>
+<td align="left">Jonathan Hsieh</td>
+<td align="left">Jonathan Hsieh</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8424">HBASE-8424</a></td>
+<td align="left">IntegrationTestImportTsv missing Apache License</td>
+<td align="left">Blocker</td>
+<td align="left">test</td>
+<td align="left">Jonathan Hsieh</td>
+<td align="left">Jonathan Hsieh</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8429">HBASE-8429</a></td>
+<td align="left">TestMetricsWALSourceImpl from hbase-hadoop2-compat module missing Apache license.</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Jonathan Hsieh</td>
+<td align="left">Jonathan Hsieh</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8392">HBASE-8392</a></td>
+<td align="left">TestMetricMBeanBase#testGetAttribute is flakey under hadoop2 profile</td>
+<td align="left">Major</td>
+<td align="left">hadoop2, metrics, test</td>
+<td align="left">Jonathan Hsieh</td>
+<td align="left">Elliott Clark</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8024">HBASE-8024</a></td>
+<td align="left">Make Store flush algorithm pluggable</td>
+<td align="left">Major</td>
+<td align="left">regionserver</td>
+<td align="left">Maryann Xue</td>
+<td align="left">Sergey Shelukhin</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-7413">HBASE-7413</a></td>
+<td align="left">Convert WAL to pb</td>
+<td align="left">Critical</td>
+<td align="left">wal</td>
+<td align="left">stack</td>
+<td align="left">Sergey Shelukhin</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8477">HBASE-8477</a></td>
+<td align="left">[hadoop2] TestTableInputFormatScan* fails intermittently with PrivilegedActionException</td>
+<td align="left">Major</td>
+<td align="left">hadoop2, mapreduce, security</td>
+<td align="left">Jonathan Hsieh</td>
+<td align="left">Jonathan Hsieh</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8469">HBASE-8469</a></td>
+<td align="left">[hadoop2] Several tests break because of HDFS-4305</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Jonathan Hsieh</td>
+<td align="left">Jonathan Hsieh</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5746">HBASE-5746</a></td>
+<td align="left">HFileDataBlockEncoderImpl uses wrong header size when reading HFiles with no checksums (0.96)</td>
+<td align="left">Critical</td>
+<td align="left">io, regionserver</td>
+<td align="left">Lars Hofhansl</td>
+<td align="left">Sergey Shelukhin</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8478">HBASE-8478</a></td>
+<td align="left">HBASE-2231 breaks TestHRegion#testRecoveredEditsReplayCompaction under hadoop2 profile</td>
+<td align="left">Major</td>
+<td align="left">Compaction, hadoop2, Protobufs</td>
+<td align="left">Jonathan Hsieh</td>
+<td align="left">Enis Soztutar</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-7932">HBASE-7932</a></td>
+<td align="left">Do the necessary plumbing for the region locations in META table and send the info to the RegionServers</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Devaraj Das</td>
+<td align="left">Devaraj Das</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8528">HBASE-8528</a></td>
+<td align="left">[hadoop2] TestMultiTableInputFormat always fails on hadoop with YARN-129 applied</td>
+<td align="left">Major</td>
+<td align="left">hadoop2, mapreduce, test</td>
+<td align="left">Jonathan Hsieh</td>
+<td align="left">Jonathan Hsieh</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5995">HBASE-5995</a></td>
+<td align="left">Fix and reenable TestLogRolling.testLogRollOnPipelineRestart</td>
+<td align="left">Blocker</td>
+<td align="left">test</td>
+<td align="left">stack</td>
+<td align="left">Enis Soztutar</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-7942">HBASE-7942</a></td>
+<td align="left">Make use of the plumbing in HBASE-7932 to provide location hints when region files are created</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Devaraj Das</td>
+<td align="left">Devaraj Das</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8497">HBASE-8497</a></td>
+<td align="left">Protobuf WAL also needs a trailer</td>
+<td align="left">Major</td>
+<td align="left">Protobufs, wal</td>
+<td align="left">Enis Soztutar</td>
+<td align="left">Himanshu Vashishtha</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8583">HBASE-8583</a></td>
+<td align="left">Create a new IntegrationTestBigLinkedListWithChaosMonkey</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Jeffrey Zhong</td>
+<td align="left">Jeffrey Zhong</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8643">HBASE-8643</a></td>
+<td align="left">Do not log full classnames in logs, just the last two levels</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">stack</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8657">HBASE-8657</a></td>
+<td align="left">Miscellaneous log fixups for hbase-it; tidier logging, fix a few NPEs</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">stack</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5050">HBASE-5050</a></td>
+<td align="left">[rest] SPNEGO-based authentication</td>
+<td align="left">Major</td>
+<td align="left">REST, security</td>
+<td align="left">Andrew Purtell</td>
+<td align="left">Jimmy Xiang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8645">HBASE-8645</a></td>
+<td align="left">Change ServerName so it uses hostname only, not FQDN hostnames</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">stack</td>
+</tr>
+</tbody>
+</table>
+<h3 id="other">OTHER:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-7936">HBASE-7936</a></td>
+<td align="left">Undo prefix-tree module as dependency for mapreduce and for DataBlockEncoding</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">Ted Yu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8045">HBASE-8045</a></td>
+<td align="left">Fix .META. migration after HBASE-3171</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Jean-Daniel Cryans</td>
+<td align="left">rajeshbabu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8296">HBASE-8296</a></td>
+<td align="left">Add svn ignores to hbase-assembly</td>
+<td align="left">Minor</td>
+<td align="left">build</td>
+<td align="left">Elliott Clark</td>
+<td align="left">Elliott Clark</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8319">HBASE-8319</a></td>
+<td align="left">hbase-it tests are run when you ask to run all tests -- it should be that you have to ask explicitly to run them</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">Nicolas Liochon</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-7704">HBASE-7704</a></td>
+<td align="left">migration tool that checks presence of HFile V1 files</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Ted Yu</td>
+<td align="left">Himanshu Vashishtha</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8395">HBASE-8395</a></td>
+<td align="left">Remove TestFromClientSide.testPoolBehavior</td>
+<td align="left">Trivial</td>
+<td align="left">test</td>
+<td align="left">Himanshu Vashishtha</td>
+<td align="left">Himanshu Vashishtha</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-7897">HBASE-7897</a></td>
+<td align="left">Add support for tags to Cell Interface</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">ramkrishna.s.vasudevan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8574">HBASE-8574</a></td>
+<td align="left">Add how to rename a table in the docbook</td>
+<td align="left">Major</td>
+<td align="left">documentation</td>
+<td align="left">Matteo Bertozzi</td>
+<td align="left">Matteo Bertozzi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-8450">HBASE-8450</a></td>
+<td align="left">Update hbase-default.xml and general recommendations to better suit current hw, h2, experience, etc.</td>
+<td align="left">Critical</td>
+<td align="left">Usability</td>
+<td align="left">stack</td>
+<td align="left">stack</td>
+</tr>
+</tbody>
+</table>

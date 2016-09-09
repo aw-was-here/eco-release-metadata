@@ -1,0 +1,74 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hadoop-0.19.1-release-notes">Apache Hadoop 0.19.1 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-5225">HADOOP-5225</a> | <em>Blocker</em> | <strong>workaround for tmp file handling on DataNodes in 0.19.1 (HADOOP-4663)</strong></li>
+</ul>
+<p>Work around for tmp file handling. sync() does not work as a result.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-5224">HADOOP-5224</a> | <em>Blocker</em> | <strong>Disable append</strong></li>
+</ul>
+<p>HDFS append() is disabled. It throws UnsupportedOperationException.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-5034">HADOOP-5034</a> | <em>Major</em> | <strong>NameNode should send both replication and deletion requests to DataNode in one reply to a heartbeat</strong></li>
+</ul>
+<p>This patch changes the DatanodeProtocoal version number from 18 to 19. The patch allows NameNode to send both block replication and deletion request to a DataNode in response to a heartbeat.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-5002">HADOOP-5002</a> | <em>Blocker</em> | <strong>2 core tests TestFileOutputFormat and TestHarFileSystem are failing in branch 19</strong></li>
+</ul>
+<p>This patch solves the null pointer exception issue in the 2 core tests TestFileOutputFormat and TestHarFileSystem in branch 19.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4943">HADOOP-4943</a> | <em>Major</em> | <strong>fair share scheduler does not utilize all slots if the task trackers are configured heterogeneously</strong></li>
+</ul>
+<p>HADOOP-4943: Fixed fair share scheduler to utilize all slots when the task trackers are configured heterogeneously.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4906">HADOOP-4906</a> | <em>Blocker</em> | <strong>TaskTracker running out of memory after running several tasks</strong></li>
+</ul>
+<p>Fix the tasktracker for OOM exception by sharing the jobconf properties across tasks of the same job. Earlier a new instance was held for each task. With this fix, the job level configuration properties are shared across tasks of the same job.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4862">HADOOP-4862</a> | <em>Blocker</em> | <strong>A spurious IOException log on DataNode is not completely removed</strong></li>
+</ul>
+<p>Minor : HADOOP-3678 did not remove all the cases of spurious IOExceptions logged by DataNode.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4797">HADOOP-4797</a> | <em>Blocker</em> | <strong>RPC Server can leave a lot of direct buffers</strong></li>
+</ul>
+<p>Improve how RPC server reads and writes large buffers. Avoids soft-leak of direct buffers and excess copies in NIO layer.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4635">HADOOP-4635</a> | <em>Blocker</em> | <strong>Memory leak ?</strong></li>
+</ul>
+<p>fix memory leak of user/group information in fuse-dfs</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4494">HADOOP-4494</a> | <em>Major</em> | <strong>libhdfs does not call FileSystem.append when O_APPEND passed to hdfsOpenFile</strong></li>
+</ul>
+<p>libhdfs supports O_APPEND flag</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4061">HADOOP-4061</a> | <em>Major</em> | <strong>Large number of decommission freezes the Namenode</strong></li>
+</ul>
+<p>Added a new conf property dfs.namenode.decommission.nodes.per.interval so that NameNode checks decommission status of x nodes for every y seconds, where x is the value of dfs.namenode.decommission.nodes.per.interval and y is the value of dfs.namenode.decommission.interval.</p>

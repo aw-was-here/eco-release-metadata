@@ -1,0 +1,62 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hbase-0.98.4-release-notes">Apache HBase 0.98.4 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-11307">HBASE-11307</a> | <em>Major</em> | <strong>Deprecate SlabCache</strong></li>
+</ul>
+<p>SlabCache is deprecated and will be dropped for 1.0! Start investigating BucketCache for your off-heap caching needs.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-11094">HBASE-11094</a> | <em>Blocker</em> | <strong>Distributed log replay is incompatible for rolling restarts</strong></li>
+</ul>
+<p>Configuration setting &quot;hbase.master.distributed.log.replay&quot; is only used by Master(source of truth) and region servers which participate in recovery process will recover region servers either in log splitting or replay mode depending on what setting is told by Master.</p>
+<p>When &quot;hbase.master.distributed.log.replay&quot; configuration setting changes, master will wait for all existing log recovery work items drain before it applies the new setting in order not to mix different recovery mode &amp; ease administrator duty to manually wait all recovery work is done and then restart master.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-11052">HBASE-11052</a> | <em>Major</em> | <strong>Sending random data crashes thrift service</strong></li>
+</ul>
+<p>Thrift servers should use framed/compact protocol to protect against buffer overflow (default disabled as they are breaking old clients) - hbase.regionserver.thrift.framed = true - hbase.regionserver.thrift.compact = true</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-11374">HBASE-11374</a> | <em>Critical</em> | <strong>RpcRetryingCaller#callWithoutRetries has a timeout of zero</strong></li>
+</ul>
+<p>Previously, RPC multi operations had a timeout of 0, which was erroneously interpreted as infinity, and resulted in a fallback value of 2 seconds. RPC multi operations now use the value of hbase.rpc.timeout, as do other RPC operations. The default value is 60000, or 60 seconds.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-11355">HBASE-11355</a> | <em>Major</em> | <strong>a couple of callQueue related improvements</strong></li>
+</ul>
+<p>Near double the random read throughput (On random test bench with 8 clients running ycsb workloadc against a single server, see throughput go from 180k to 335k ops a second).</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-10885">HBASE-10885</a> | <em>Blocker</em> | <strong>Support visibility expressions on Deletes</strong></li>
+</ul>
+<p>Deletes can be specified with Cell Visibility as done for puts. Cells covered by the delete is found by doing pattern matching. A deleteFamily issued for row1, f1 with Cell Visibility (A &amp; B) would delete only those cells of row1 under family f1 which has cell visibility A&amp;B or B&amp;A. A delete without any cell visibility would only delete those cells that does not have any cell visibility. In case of delete specific column with latest version only the latest cell with the specified cell visibility will be covered by the delete marker. In case there is no such cell with the specified cell visibility then no cell gets deleted.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-11118">HBASE-11118</a> | <em>Blocker</em> | <strong>non environment variable solution for &quot;IllegalAccessError: class com.google.protobuf.ZeroCopyLiteralByteString cannot access its superclass com.google.protobuf.LiteralByteString&quot;</strong></li>
+</ul>
+<p>The workaround documented in HBASE-10304 for running a mapreduce job with a &quot;fat jar&quot; is no longer required. Such applications can be launched without adding hbase-protocol.jar to the HADOOP_CLASSPATH.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-11492">HBASE-11492</a> | <em>Critical</em> | <strong>Hadoop configuration overrides some ipc parameters including tcpNoDelay</strong></li>
+</ul>
+<p>If the Hadoop configuration is read after the HBase configuration, Hadoop's settings can override HBase's settings if the names of the settings are the same. To avoid the risk of override, HBase has renamed the following settings (by prepending 'hbase.') so that you can set them independent of your setting for Hadoop. If you do not use the HBase-specific variants, the Hadoop settings will be used.</p>
+<h1 id="old-name----new-name">Old Name --&gt; New Name</h1>
+<p>ipc.server.listen.queue.size --&gt; hbase.ipc.server.listen.queue.size ipc.server.max.callqueue.size --&gt; hbase.ipc.server.max.callqueue.size ipc.server.callqueue.handler.factor --&gt; hbase.ipc.server.callqueue.handler.factor ipc.server.callqueue.read.share --&gt; hbase.ipc.server.callqueue.read.share ipc.server.callqueue.type --&gt; hbase.ipc.server.callqueue.type ipc.server.queue.max.call.delay --&gt; hbase.ipc.server.queue.max.call.delay ipc.server.max.callqueue.length --&gt; hbase.ipc.server.max.callqueue.length ipc.server.read.threadpool.size --&gt; hbase.ipc.server.read.threadpool.size ipc.server.tcpkeepalive --&gt; hbase.ipc.server.tcpkeepalive ipc.server.tcpnodelay --&gt; hbase.ipc.server.tcpnodelay ipc.client.call.purge.timeout --&gt; hbase.ipc.client.call.purge.timeout ipc.client.connection.maxidletime --&gt; hbase.ipc.client.connection.maxidletime ipc.client.idlethreshold --&gt; hbase.ipc.client.idlethreshold ipc.client.kill.max --&gt; hbase.ipc.client.kill.max ipc.server.scan.vtime.weight --&gt; hbase.ipc.server.scan.vtime.weight</p>

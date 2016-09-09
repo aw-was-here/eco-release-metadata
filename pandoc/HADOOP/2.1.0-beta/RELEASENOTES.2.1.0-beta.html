@@ -1,0 +1,536 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hadoop-2.1.0-beta-release-notes">Apache Hadoop 2.1.0-beta Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-9832">HADOOP-9832</a> | <em>Blocker</em> | <strong>Add RPC header to client ping</strong></li>
+</ul>
+<p>Client ping will be sent as a RPC header with a reserved callId instead of as a sentinel RPC packet length.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-9820">HADOOP-9820</a> | <em>Blocker</em> | <strong>RPCv9 wire protocol is insufficient to support multiplexing</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-9698">HADOOP-9698</a> | <em>Blocker</em> | <strong>RPCv9 client must honor server's SASL negotiate response</strong></li>
+</ul>
+<p>The RPC client now waits for the Server's SASL negotiate response before instantiating its SASL client.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-9683">HADOOP-9683</a> | <em>Blocker</em> | <strong>Wrap IpcConnectionContext in RPC headers</strong></li>
+</ul>
+<p>Connection context is now sent as a rpc header wrapped protobuf.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-9649">HADOOP-9649</a> | <em>Blocker</em> | <strong>Promote YARN service life-cycle libraries into Hadoop Common</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-9630">HADOOP-9630</a> | <em>Major</em> | <strong>Remove IpcSerializationType</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-9425">HADOOP-9425</a> | <em>Major</em> | <strong>Add error codes to rpc-response</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-9421">HADOOP-9421</a> | <em>Blocker</em> | <strong>Convert SASL to use ProtoBuf and provide negotiation capabilities</strong></li>
+</ul>
+<p>Raw SASL protocol now uses protobufs wrapped with RPC headers. The negotiation sequence incorporates the state of the exchange. The server now has the ability to advertise its supported auth types.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-9380">HADOOP-9380</a> | <em>Major</em> | <strong>Add totalLength to rpc response</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-9228">HADOOP-9228</a> | <em>Minor</em> | <strong>FileSystemContractTestBase never verifies that files are files</strong></li>
+</ul>
+<p>fixed in HADOOP-9258</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-9227">HADOOP-9227</a> | <em>Trivial</em> | <strong>FileSystemContractBaseTest doesn't test filesystem's mkdir/isDirectory() logic rigorously enough</strong></li>
+</ul>
+<p>fixed in HADOOP-9258</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-9194">HADOOP-9194</a> | <em>Major</em> | <strong>RPC Support for QoS</strong></li>
+</ul>
+<p>Part of the RPC version 9 change. A service class byte is added after the version byte.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-9163">HADOOP-9163</a> | <em>Major</em> | <strong>The rpc msg in ProtobufRpcEngine.proto should be moved out to avoid an extra copy</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-9151">HADOOP-9151</a> | <em>Major</em> | <strong>Include RPC error info in RpcResponseHeader instead of sending it separately</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-8886">HADOOP-8886</a> | <em>Major</em> | <strong>Remove KFS support</strong></li>
+</ul>
+<p>Kosmos FS (KFS) is no longer maintained and Hadoop support has been removed. KFS has been replaced by QFS (HADOOP-8885).</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-8562">HADOOP-8562</a> | <em>Major</em> | <strong>Enhancements to support Hadoop on Windows Server and Windows Azure environments</strong></li>
+</ul>
+<p>This umbrella jira makes enhancements to support Hadoop natively on Windows Server and Windows Azure environments.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-8470">HADOOP-8470</a> | <em>Major</em> | <strong>Implementation of 4-layer subclass of NetworkTopology (NetworkTopologyWithNodeGroup)</strong></li>
+</ul>
+<p>This patch should be checked in together (or after) with JIRA Hadoop-8469: https://issues.apache.org/jira/browse/HADOOP-8469</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-5083">HDFS-5083</a> | <em>Blocker</em> | <strong>Update the HDFS compatibility version range</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-4996">HDFS-4996</a> | <em>Minor</em> | <strong>ClientProtocol#metaSave can be made idempotent by overwriting the output file instead of appending to it</strong></li>
+</ul>
+<p>The dfsadmin -metasave command has been changed to overwrite the output file. Previously, this command would append to the output file if it already existed.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-4866">HDFS-4866</a> | <em>Blocker</em> | <strong>Protocol buffer support cannot compile under C</strong></li>
+</ul>
+<p>The Protocol Buffers definition of the inter-namenode protocol required a change for compatibility with compiled C clients. This is a backwards-incompatible change. A namenode prior to this change will not be able to communicate with a namenode after this change.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-4832">HDFS-4832</a> | <em>Critical</em> | <strong>Namenode doesn't change the number of missing blocks in safemode when DNs rejoin or leave</strong></li>
+</ul>
+<p>This change makes name node keep its internal replication queues and data node state updated in manual safe mode. This allows metrics and UI to present up-to-date information while in safe mode. The behavior during start-up safe mode is unchanged.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-4659">HDFS-4659</a> | <em>Major</em> | <strong>Support setting execution bit for regular files</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-4519">HDFS-4519</a> | <em>Major</em> | <strong>Support override of jsvc binary and log file locations when launching secure datanode.</strong></li>
+</ul>
+<p>With this improvement the following options are available in release 1.2.0 and later on 1.x release stream: 1. jsvc location can be overridden by setting environment variable JSVC_HOME. Defaults to jsvc binary packaged within the Hadoop distro. 2. jsvc log output is directed to the file defined by JSVC_OUTFILE. Defaults to $HADOOP_LOG_DIR/jsvc.out. 3. jsvc error output is directed to the file defined by JSVC_ERRFILE file. Defaults to $HADOOP_LOG_DIR/jsvc.err.</p>
+<p>With this improvement the following options are available in release 2.0.4 and later on 2.x release stream: 1. jsvc log output is directed to the file defined by JSVC_OUTFILE. Defaults to $HADOOP_LOG_DIR/jsvc.out. 2. jsvc error output is directed to the file defined by JSVC_ERRFILE file. Defaults to $HADOOP_LOG_DIR/jsvc.err.</p>
+<p>For overriding jsvc location on 2.x releases, here is the release notes from HDFS-2303: To run secure Datanodes users must install jsvc for their platform and set JSVC_HOME to point to the location of jsvc in their environment.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-4434">HDFS-4434</a> | <em>Major</em> | <strong>Provide a mapping from INodeId to INode</strong></li>
+</ul>
+<p>This change adds support for referencing files and directories based on fileID/inodeID using a path /.reserved/.inodes/&lt;inodeid&gt;. With this change creating a file or directory /.reserved is not longer allowed. Before upgrading to a release with this change, files /.reserved needs to be renamed to another name.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-4305">HDFS-4305</a> | <em>Minor</em> | <strong>Add a configurable limit on number of blocks per file, and min block size</strong></li>
+</ul>
+<p>This change introduces a maximum number of blocks per file, by default one million, and a minimum block size, by default 1MB. These can optionally be changed via the configuration settings &quot;dfs.namenode.fs-limits.max-blocks-per-file&quot; and &quot;dfs.namenode.fs-limits.min-block-size&quot;, respectively.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-4053">HDFS-4053</a> | <em>Major</em> | <strong>Increase the default block size</strong></li>
+</ul>
+<p>The default blocks size prior to this change was 64MB. This jira changes the default block size to 128MB. To go back to previous behavior, please configure the in hdfs-site.xml, the configuration parameter &quot;dfs.blocksize&quot; to 67108864.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-2802">HDFS-2802</a> | <em>Major</em> | <strong>Support for RW/RO snapshots in HDFS</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-1804">HDFS-1804</a> | <em>Minor</em> | <strong>Add a new block-volume device choosing policy that looks at free space</strong></li>
+</ul>
+<p>There is now a new option to have the DN take into account available disk space on each volume when choosing where to place a replica when performing an HDFS write. This can be enabled by setting the config &quot;dfs.datanode.fsdataset.volume.choosing.policy&quot; to the value &quot;org.apache.hadoop.hdfs.server.datanode.fsdataset.AvailableSpaceVolumeChoosingPolicy&quot;.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5399">MAPREDUCE-5399</a> | <em>Blocker</em> | <strong>Unnecessary Configuration instantiation in IFileInputStream slows down merge</strong></li>
+</ul>
+<p>Fixes blank Configuration object creation overhead by reusing the Job configuration in InMemoryReader.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5304">MAPREDUCE-5304</a> | <em>Blocker</em> | <strong>mapreduce.Job killTask/failTask/getTaskCompletionEvents methods have incompatible signature changes</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5300">MAPREDUCE-5300</a> | <em>Major</em> | <strong>Two function signature changes in filecache.DistributedCache</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5237">MAPREDUCE-5237</a> | <em>Major</em> | <strong>ClusterStatus incompatiblity issues with MR1</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5234">MAPREDUCE-5234</a> | <em>Major</em> | <strong>Signature changes for getTaskId of TaskReport in mapred</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5233">MAPREDUCE-5233</a> | <em>Major</em> | <strong>Functions are changed or removed from Job in jobcontrol</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5184">MAPREDUCE-5184</a> | <em>Major</em> | <strong>Document MR Binary Compatibility vis-a-vis hadoop-1 and hadoop-2</strong></li>
+</ul>
+<p>Document MR Binary Compatibility vis-a-vis hadoop-1 and hadoop-2 for end-users.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5176">MAPREDUCE-5176</a> | <em>Major</em> | <strong>Preemptable annotations (to support preemption in MR)</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5156">MAPREDUCE-5156</a> | <em>Blocker</em> | <strong>Hadoop-examples-1.x.x.jar cannot run on Yarn</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4942">MAPREDUCE-4942</a> | <em>Major</em> | <strong>mapreduce.Job has a bunch of methods that throw InterruptedException so its incompatible with MR1</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4737">MAPREDUCE-4737</a> | <em>Major</em> | ** Hadoop does not close output file / does not call Mapper.cleanup if exception in map**</li>
+</ul>
+<p>Ensure that mapreduce APIs are semantically consistent with mapred API w.r.t Mapper.cleanup and Reducer.cleanup; in the sense that cleanup is now called even if there is an error. The old mapred API already ensures that Mapper.close and Reducer.close are invoked during error handling. Note that it is an incompatible change, however end-users can override Mapper.run and Reducer.run to get the old (inconsistent) behaviour.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4356">MAPREDUCE-4356</a> | <em>Major</em> | <strong>Provide access to ParsedTask.obtainTaskAttempts()</strong></li>
+</ul>
+<p>Made the method ParsedTask.obtainTaskAttempts() public.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4149">MAPREDUCE-4149</a> | <em>Major</em> | <strong>Rumen fails to parse certain counter strings</strong></li>
+</ul>
+<p>Fixes Rumen to parse counter strings containing the special characters &quot;{&quot; and &quot;}&quot;.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4100">MAPREDUCE-4100</a> | <em>Minor</em> | <strong>Sometimes gridmix emulates data larger much larger then acutal counter for map only jobs</strong></li>
+</ul>
+<p>Bug fixed in compression emulation feature for map only jobs.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4083">MAPREDUCE-4083</a> | <em>Major</em> | <strong>GridMix emulated job tasks.resource-usage emulator for CPU usage throws NPE when Trace contains cumulativeCpuUsage value of 0 at attempt level</strong></li>
+</ul>
+<p>Fixes NPE in cpu emulation in Gridmix</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4067">MAPREDUCE-4067</a> | <em>Critical</em> | <strong>Replace YarnRemoteException with IOException in MRv2 APIs</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3953">MAPREDUCE-3953</a> | <em>Major</em> | <strong>Gridmix throws NPE and does not simulate a job if the trace contains null taskStatus for a task</strong></li>
+</ul>
+<p>Fixes NPE and makes Gridmix simulate succeeded-jobs-with-failed-tasks. All tasks of such simulated jobs(including the failed ones of original job) will succeed.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3829">MAPREDUCE-3829</a> | <em>Major</em> | <strong>[Gridmix] Gridmix should give better error message when input-data directory already exists and -generate option is given</strong></li>
+</ul>
+<p>Makes Gridmix emit out correct error message when the input data directory already exists and -generate option is used. Makes Gridmix exit with proper exit codes when Gridmix fails in args-processing, startup/setup.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3787">MAPREDUCE-3787</a> | <em>Major</em> | <strong>[Gridmix] Improve STRESS mode</strong></li>
+</ul>
+<p>JobMonitor can now deploy multiple threads for faster job-status polling. Use 'gridmix.job-monitor.thread-count' to set the number of threads. Stress mode now relies on the updates from the job monitor instead of polling for job status. Failures in job submission now get reported to the statistics module and ultimately reported to the user via summary.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3757">MAPREDUCE-3757</a> | <em>Major</em> | <strong>Rumen Folder is not adjusting the shuffleFinished and sortFinished times of reduce task attempts</strong></li>
+</ul>
+<p>Fixed the sortFinishTime and shuffleFinishTime adjustments in Rumen Folder.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2722">MAPREDUCE-2722</a> | <em>Major</em> | <strong>Gridmix simulated job's map's hdfsBytesRead counter is wrong when compressed input is used</strong></li>
+</ul>
+<p>Makes Gridmix use the uncompressed input data size while simulating map tasks in the case where compressed input data was used in original job.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-1056">YARN-1056</a> | <em>Trivial</em> | <strong>Fix configs yarn.resourcemanager.resourcemanager.connect.{max.wait.secs|retry_interval.secs}</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-926">YARN-926</a> | <em>Blocker</em> | <strong>ContainerManagerProtcol APIs should take in requests for multiple containers</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-918">YARN-918</a> | <em>Blocker</em> | <strong>ApplicationMasterProtocol doesn't need ApplicationAttemptId in the payload after YARN-701</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-869">YARN-869</a> | <em>Blocker</em> | <strong>ResourceManagerAdministrationProtocol should neither be public(yet) nor in yarn.api</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-851">YARN-851</a> | <em>Major</em> | <strong>Share NMTokens using NMTokenCache (api-based) instead of memory based approach which is used currently.</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-841">YARN-841</a> | <em>Major</em> | <strong>Annotate and document AuxService APIs</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-840">YARN-840</a> | <em>Major</em> | <strong>Move ProtoUtils to yarn.api.records.pb.impl</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-837">YARN-837</a> | <em>Major</em> | <strong>ClusterInfo.java doesn't seem to belong to org.apache.hadoop.yarn</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-834">YARN-834</a> | <em>Blocker</em> | <strong>Review/fix annotations for yarn-client module and clearly differentiate *Async apis</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-831">YARN-831</a> | <em>Blocker</em> | <strong>Remove resource min from GetNewApplicationResponse</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-829">YARN-829</a> | <em>Major</em> | <strong>Rename RMTokenSelector to be RMDelegationTokenSelector</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-828">YARN-828</a> | <em>Major</em> | <strong>Remove YarnVersionAnnotation</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-826">YARN-826</a> | <em>Major</em> | <strong>Move Clock/SystemClock to util package</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-824">YARN-824</a> | <em>Major</em> | <strong>Add static factory to yarn client lib interface and change it to abstract class</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-823">YARN-823</a> | <em>Major</em> | <strong>Move RMAdmin from yarn.client to yarn.client.cli and rename as RMAdminCLI</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-822">YARN-822</a> | <em>Major</em> | <strong>Rename ApplicationToken to AMRMToken</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-821">YARN-821</a> | <em>Major</em> | <strong>Rename FinishApplicationMasterRequest.setFinishApplicationStatus to setFinalApplicationStatus to be consistent with getter</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-806">YARN-806</a> | <em>Major</em> | <strong>Move ContainerExitStatus from yarn.api to yarn.api.records</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-792">YARN-792</a> | <em>Major</em> | <strong>Move NodeHealthStatus from yarn.api.record to yarn.server.api.record</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-791">YARN-791</a> | <em>Blocker</em> | <strong>Ensure that RM RPC APIs that return nodes are consistent with /nodes REST API</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-787">YARN-787</a> | <em>Blocker</em> | <strong>Remove resource min from Yarn client API</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-777">YARN-777</a> | <em>Major</em> | <strong>Remove unreferenced objects from proto</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-756">YARN-756</a> | <em>Major</em> | <strong>Move PreemptionContainer/PremptionContract/PreemptionMessage/StrictPreemptionContract/PreemptionResourceRequest to api.records</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-755">YARN-755</a> | <em>Major</em> | <strong>Rename AllocateResponse.reboot to AllocateResponse.resync</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-753">YARN-753</a> | <em>Major</em> | <strong>Add individual factory method for api protocol records</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-749">YARN-749</a> | <em>Major</em> | <strong>Rename ResourceRequest (get,set)HostName to (get,set)ResourceName</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-748">YARN-748</a> | <em>Major</em> | <strong>Move BuilderUtils from yarn-common to yarn-server-common</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-746">YARN-746</a> | <em>Major</em> | <strong>rename Service.register() and Service.unregister() to registerServiceListener() &amp; unregisterServiceListener() respectively</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-735">YARN-735</a> | <em>Major</em> | <strong>Make ApplicationAttemptID, ContainerID, NodeID immutable</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-724">YARN-724</a> | <em>Major</em> | <strong>Move ProtoBase from api.records to api.records.impl.pb</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-720">YARN-720</a> | <em>Major</em> | <strong>container-log4j.properties should not refer to mapreduce properties</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-716">YARN-716</a> | <em>Major</em> | <strong>Make ApplicationID immutable</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-701">YARN-701</a> | <em>Blocker</em> | <strong>ApplicationTokens should be used irrespective of kerberos</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-694">YARN-694</a> | <em>Major</em> | <strong>Start using NMTokens to authenticate all communication with NM</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-684">YARN-684</a> | <em>Major</em> | <strong>ContainerManager.startContainer needs to only have ContainerTokenIdentifier instead of the whole Container</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-642">YARN-642</a> | <em>Major</em> | <strong>Fix up /nodes REST API to have 1 param and be consistent with the Java API</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-635">YARN-635</a> | <em>Major</em> | <strong>Rename YarnRemoteException to YarnException</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-633">YARN-633</a> | <em>Major</em> | <strong>Change RMAdminProtocol api to throw IOException and YarnRemoteException</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-632">YARN-632</a> | <em>Major</em> | <strong>Change ContainerManager api to throw IOException and YarnRemoteException</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-631">YARN-631</a> | <em>Major</em> | <strong>Change ClientRMProtocol api to throw IOException and YarnRemoteException</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-630">YARN-630</a> | <em>Major</em> | <strong>Change AMRMProtocol api to throw IOException and YarnRemoteException</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-629">YARN-629</a> | <em>Major</em> | <strong>Make YarnRemoteException not be rooted at IOException</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-615">YARN-615</a> | <em>Major</em> | <strong>ContainerLaunchContext.containerTokens should simply be called tokens</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-610">YARN-610</a> | <em>Blocker</em> | <strong>ClientToken (ClientToAMToken) should not be set in the environment</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-579">YARN-579</a> | <em>Major</em> | <strong>Make ApplicationToken part of Container's token list to help RM-restart</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-571">YARN-571</a> | <em>Major</em> | <strong>User should not be part of ContainerLaunchContext</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-561">YARN-561</a> | <em>Major</em> | <strong>Nodemanager should set some key information into the environment of every container that it launches.</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-553">YARN-553</a> | <em>Minor</em> | <strong>Have YarnClient generate a directly usable ApplicationSubmissionContext</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-536">YARN-536</a> | <em>Major</em> | <strong>Remove ContainerStatus, ContainerState from Container api interface as they will not be called by the container object</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-530">YARN-530</a> | <em>Major</em> | <strong>Define Service model strictly, implement AbstractService for robust subclassing, migrate yarn-common services</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-440">YARN-440</a> | <em>Major</em> | <strong>Flatten RegisterNodeManagerResponse</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-439">YARN-439</a> | <em>Major</em> | <strong>Flatten NodeHeartbeatResponse</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-396">YARN-396</a> | <em>Major</em> | <strong>Rationalize AllocateResponse in RM scheduler API</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-387">YARN-387</a> | <em>Blocker</em> | <strong>Fix inconsistent protocol naming</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>

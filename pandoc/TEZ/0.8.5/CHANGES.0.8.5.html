@@ -1,0 +1,271 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-tez-changelog">Apache Tez Changelog</h1>
+<h2 id="release-0.8.5---unreleased-as-of-2016-09-08">Release 0.8.5 - Unreleased (as of 2016-09-08)</h2>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-1248">TEZ-1248</a></td>
+<td align="left">Reduce slow-start should special case 1 reducer runs</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Gopal V</td>
+<td align="left">Zhiyuan Yang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3370">TEZ-3370</a></td>
+<td align="left">Tez UI: Display the log link as N/A if the app does not provide a log link</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Siddharth Seth</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3326">TEZ-3326</a></td>
+<td align="left">Display JVM system properties in AM and task logs</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ming Ma</td>
+<td align="left">Eric Badger</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3337">TEZ-3337</a></td>
+<td align="left">Do not log empty fields of TaskAttemptFinishedEvent to avoid confusion</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Zhiyuan Yang</td>
+<td align="left">Zhiyuan Yang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3356">TEZ-3356</a></td>
+<td align="left">Fix initializing of stats when custom ShuffleVertexManager is used</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Peter Slawski</td>
+<td align="left">Peter Slawski</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3348">TEZ-3348</a></td>
+<td align="left">NullPointerException in Tez MROutput while trying to write using Parquet's DeprecatedParquetOutputFormat</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Piyush Narang</td>
+<td align="left">Piyush Narang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3384">TEZ-3384</a></td>
+<td align="left">Fix TestATSV15HistoryLoggingService::testDAGGroupingGroupingEnabled unit test</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sushmitha Sreenivasan</td>
+<td align="left">Sushmitha Sreenivasan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3398">TEZ-3398</a></td>
+<td align="left">Tez UI: Bread crumb link to Application from Application details dag/configuration tab is broken</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Sushmitha Sreenivasan</td>
+<td align="left">Sreenath Somarajapuram</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3352">TEZ-3352</a></td>
+<td align="left">MRInputHelpers getStringProperty() should not fail if property value is null</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Prasanth Jayachandran</td>
+<td align="left">Prasanth Jayachandran</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3413">TEZ-3413</a></td>
+<td align="left">ConcurrentModificationException in HistoryEventTimelineConversion for AppLaunchedEvent</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Jonathan Eagles</td>
+<td align="left">Jonathan Eagles</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-2852">TEZ-2852</a></td>
+<td align="left">TestVertexImpl fails due to race in AsyncDispatcher</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Jeff Zhang</td>
+<td align="left">Zhiyuan Yang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3009">TEZ-3009</a></td>
+<td align="left">Errors that occur during container task acquisition are not logged</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jason Lowe</td>
+<td align="left">Jason Lowe</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3426">TEZ-3426</a></td>
+<td align="left">Second AM attempt launched for session mode and recovery disabled for certain cases</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Jonathan Eagles</td>
+<td align="left">Jason Lowe</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sub-tasks">SUB-TASKS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3357">TEZ-3357</a></td>
+<td align="left">Change TimelineCachePlugin to handle DAG grouping</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Harish Jaiprakash</td>
+<td align="left">Harish Jaiprakash</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3358">TEZ-3358</a></td>
+<td align="left">Support using the same TimelineGroupId for multiple DAGs</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Harish Jaiprakash</td>
+<td align="left">Harish Jaiprakash</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3374">TEZ-3374</a></td>
+<td align="left">Change TEZ_HISTORY_LOGGING_TIMELINE_NUM_DAGS_PER_GROUP conf key name.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Harish Jaiprakash</td>
+<td align="left">Tsuyoshi Ozawa</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3359">TEZ-3359</a></td>
+<td align="left">Add granular log levels for HistoryLoggingService.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Harish Jaiprakash</td>
+<td align="left">Harish Jaiprakash</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3376">TEZ-3376</a></td>
+<td align="left">Fix groupId generation to account for dagId starting with 1.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Harish Jaiprakash</td>
+<td align="left">Harish Jaiprakash</td>
+</tr>
+</tbody>
+</table>
+<h3 id="other">OTHER:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3235">TEZ-3235</a></td>
+<td align="left">Modify Example TestOrderedWordCount job to test the IPC limit for large dag plans</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sushmitha Sreenivasan</td>
+<td align="left">Sushmitha Sreenivasan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/TEZ-3409">TEZ-3409</a></td>
+<td align="left">Log dagId along with other information when submitting a dag</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Siddharth Seth</td>
+<td align="left">Siddharth Seth</td>
+</tr>
+</tbody>
+</table>

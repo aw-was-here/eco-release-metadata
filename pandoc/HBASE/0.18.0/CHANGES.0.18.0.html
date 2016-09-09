@@ -1,0 +1,550 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hbase-changelog">Apache HBase Changelog</h1>
+<h2 id="release-0.18.0---2008-09-21">Release 0.18.0 - 2008-09-21</h2>
+<h3 id="new-features">NEW FEATURES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-787">HBASE-787</a></td>
+<td align="left">Postgresql to HBase table replication example</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Tim Sell</td>
+<td align="left">stack</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-798">HBASE-798</a></td>
+<td align="left">Provide Client API to explicitly lock and unlock rows</td>
+<td align="left">Minor</td>
+<td align="left">Client, IPC/RPC, regionserver</td>
+<td align="left">Jonathan Gray</td>
+<td align="left">Jonathan Gray</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-669">HBASE-669</a></td>
+<td align="left">MultiRegion transactions with Optimistic Concurrency Control</td>
+<td align="left">Major</td>
+<td align="left">Client, IPC/RPC, regionserver</td>
+<td align="left">Clint Morgan</td>
+<td align="left">Clint Morgan</td>
+</tr>
+</tbody>
+</table>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-801">HBASE-801</a></td>
+<td align="left">[hbase] When a table haven't disable, shell could response in a &quot;user friendly&quot; way.</td>
+<td align="left">Trivial</td>
+<td align="left">build</td>
+<td align="left">PeterL in</td>
+<td align="left">Jean-Daniel Cryans</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-816">HBASE-816</a></td>
+<td align="left">TableMap should survive USE</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Andrew Purtell</td>
+<td align="left">Andrew Purtell</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-813">HBASE-813</a></td>
+<td align="left">Add a row counter in the new shell</td>
+<td align="left">Minor</td>
+<td align="left">scripts</td>
+<td align="left">Jean-Daniel Cryans</td>
+<td align="left">Jean-Daniel Cryans</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-806">HBASE-806</a></td>
+<td align="left">Change HbaseMapWritable and RowResult to implement SortedMap instead of Map</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jim Kellerman</td>
+<td align="left">Jonathan Gray</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-795">HBASE-795</a></td>
+<td align="left">More Table operation in TableHandler for REST interface</td>
+<td align="left">Major</td>
+<td align="left">REST</td>
+<td align="left">sishen.freecity</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-841">HBASE-841</a></td>
+<td align="left">Consolidate multiple overloaded methods in HRegionInterface, HRegionServer</td>
+<td align="left">Blocker</td>
+<td align="left">IPC/RPC, regionserver</td>
+<td align="left">Jim Kellerman</td>
+<td align="left">Jean-Daniel Cryans</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-849">HBASE-849</a></td>
+<td align="left">Speed improvement in JenkinsHash</td>
+<td align="left">Major</td>
+<td align="left">util</td>
+<td align="left">Andrzej Bialecki</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-834">HBASE-834</a></td>
+<td align="left">'Major' compactions and upper bound on files we compact at any one time</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">Billy Pearson</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-840">HBASE-840</a></td>
+<td align="left">More options on the row query in REST interface</td>
+<td align="left">Major</td>
+<td align="left">REST</td>
+<td align="left">sishen</td>
+<td align="left">sishen</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-882">HBASE-882</a></td>
+<td align="left">The BatchUpdate class provides, put(col, cell) and delete(col) but no get(col).</td>
+<td align="left">Minor</td>
+<td align="left">io</td>
+<td align="left">Ryan Smith</td>
+<td align="left">Jim Kellerman</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-552">HBASE-552</a></td>
+<td align="left">Bloom filter bugs</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Andrzej Bialecki</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-805">HBASE-805</a></td>
+<td align="left">Remove unnecessary getRow overloads in HRS</td>
+<td align="left">Major</td>
+<td align="left">regionserver</td>
+<td align="left">Jonathan Gray</td>
+<td align="left">Jim Kellerman</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-811">HBASE-811</a></td>
+<td align="left">HTD is not fully copyable</td>
+<td align="left">Minor</td>
+<td align="left">Client</td>
+<td align="left">Andrew Purtell</td>
+<td align="left">Andrew Purtell</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-729">HBASE-729</a></td>
+<td align="left">client region/metadata cache should have a public method for invalidating entries</td>
+<td align="left">Minor</td>
+<td align="left">Client</td>
+<td align="left">Andrew Purtell</td>
+<td align="left">Andrew Purtell</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-819">HBASE-819</a></td>
+<td align="left">Remove DOS-style ^M carriage returns from all code where found</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jonathan Gray</td>
+<td align="left">Jonathan Gray</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-812">HBASE-812</a></td>
+<td align="left">Compaction needs little better skip algo</td>
+<td align="left">Critical</td>
+<td align="left">regionserver</td>
+<td align="left">Billy Pearson</td>
+<td align="left">Daniel Leffel</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-818">HBASE-818</a></td>
+<td align="left">Deadlock running 'flushSomeRegions'</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">Andrew Purtell</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-820">HBASE-820</a></td>
+<td align="left">Need mainline to flush when 'Blocking updates' goes up.</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">Jean-Daniel Cryans</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-821">HBASE-821</a></td>
+<td align="left">UnknownScanner happens too often.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">Jean-Daniel Cryans</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-824">HBASE-824</a></td>
+<td align="left">Bug in Hlog we print array of byes for region name</td>
+<td align="left">Trivial</td>
+<td align="left">regionserver</td>
+<td align="left">Billy Pearson</td>
+<td align="left">Billy Pearson</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-825">HBASE-825</a></td>
+<td align="left">master logs showing byte[] in place of string on logging</td>
+<td align="left">Trivial</td>
+<td align="left">master</td>
+<td align="left">Billy Pearson</td>
+<td align="left">Billy Pearson</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-808">HBASE-808</a></td>
+<td align="left">MAX_VERSIONS not respected.</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-809">HBASE-809</a></td>
+<td align="left">Deletall doesn't and inserts after delete don't work as expected.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-831">HBASE-831</a></td>
+<td align="left">committing BatchUpdate with no row should complain</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Michael Bieniosek</td>
+<td align="left">Andrew Purtell</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-830">HBASE-830</a></td>
+<td align="left">Debugging HCM.locateRegionInMeta is painful</td>
+<td align="left">Minor</td>
+<td align="left">Client</td>
+<td align="left">Jean-Daniel Cryans</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-833">HBASE-833</a></td>
+<td align="left">Doing an insert with an unknown family throws a NPE in HRS</td>
+<td align="left">Trivial</td>
+<td align="left">regionserver</td>
+<td align="left">Jean-Daniel Cryans</td>
+<td align="left">Jean-Daniel Cryans</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-822">HBASE-822</a></td>
+<td align="left">Update thrift README and HBase.thrift to use thrift 20080411</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-697">HBASE-697</a></td>
+<td align="left">thrift idl needs update/edit to match new 0.2 API (and to fix bugs)</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">Tim Sell</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-810">HBASE-810</a></td>
+<td align="left">Prevent temporary deadlocks when, during a scan with write operations, the region splits</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Jean-Daniel Cryans</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-843">HBASE-843</a></td>
+<td align="left">Deleting and recreating a table in a single process does not work</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jonathan Gray</td>
+<td align="left">Jonathan Gray</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-762">HBASE-762</a></td>
+<td align="left">deleteFamily takes timestamp, should only take row and family. Javadoc describes both cases but only implements the timestamp case.</td>
+<td align="left">Minor</td>
+<td align="left">Client, IPC/RPC, regionserver</td>
+<td align="left">Jonathan Gray</td>
+<td align="left">Izaak Rubin</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-768">HBASE-768</a></td>
+<td align="left">[Migration] This message 'java.io.IOException: Install 0.1.x of hbase and run its migration first' is useless</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">Izaak Rubin</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-826">HBASE-826</a></td>
+<td align="left">delete table followed by recreation results in honked table</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">stack</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-854">HBASE-854</a></td>
+<td align="left">hbase-841 broke build on hudson?</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">Jim Kellerman</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-855">HBASE-855</a></td>
+<td align="left">compaction can return less versions then we should in some cases</td>
+<td align="left">Major</td>
+<td align="left">regionserver</td>
+<td align="left">Billy Pearson</td>
+<td align="left">Billy Pearson</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-832">HBASE-832</a></td>
+<td align="left">Problem with row keys beginnig with characters &lt; than ',' and the region location cache</td>
+<td align="left">Blocker</td>
+<td align="left">Client, regionserver</td>
+<td align="left">Jean-Daniel Cryans</td>
+<td align="left">Jean-Daniel Cryans</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-860">HBASE-860</a></td>
+<td align="left">IndexTableReduce doesnt write the column name as the lucene index field properly.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ryan Smith</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-864">HBASE-864</a></td>
+<td align="left">Deadlock in regionserver</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-865">HBASE-865</a></td>
+<td align="left">Fix javadoc warnings</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Jim Kellerman</td>
+<td align="left">Jim Kellerman</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-872">HBASE-872</a></td>
+<td align="left">Getting exceptions in shell when creating/disabling tables</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Jean-Daniel Cryans</td>
+<td align="left">Jean-Daniel Cryans</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-874">HBASE-874</a></td>
+<td align="left">deleting a table kills client rpc; no subsequent communication if shell or thrift server, etc.</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">Jonathan Gray</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-871">HBASE-871</a></td>
+<td align="left">Major compaction periodicity should be specifyable at the column family level, not cluster wide</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">Jonathan Gray</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-868">HBASE-868</a></td>
+<td align="left">Incrementing binary rows cause strange behavior once table splits</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Jonathan Gray</td>
+<td align="left">Jonathan Gray</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-881">HBASE-881</a></td>
+<td align="left">If a server's lease times out or the server dies, All regions will get reassigned even split or offline ones.</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Jim Kellerman</td>
+<td align="left">Jean-Daniel Cryans</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-877">HBASE-877</a></td>
+<td align="left">HCM is unable to find table with multiple regions which contains binary</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Jonathan Gray</td>
+<td align="left">Jonathan Gray</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-836">HBASE-836</a></td>
+<td align="left">Update thrift examples to work with changed IDL (HBASE-697)</td>
+<td align="left">Blocker</td>
+<td align="left">Thrift</td>
+<td align="left">stack</td>
+<td align="left">Jean-Daniel Cryans</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tests">TESTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-784">HBASE-784</a></td>
+<td align="left">Base hbase-0.3.0 on hadoop-0.18</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Jim Kellerman</td>
+<td align="left">Jim Kellerman</td>
+</tr>
+</tbody>
+</table>
+<h3 id="other">OTHER:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-842">HBASE-842</a></td>
+<td align="left">Remove methods that have Text as a parameter and were deprecated in 0.2.1</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Jim Kellerman</td>
+<td align="left">Jean-Daniel Cryans</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-465">HBASE-465</a></td>
+<td align="left">Fix javadoc for all public declarations</td>
+<td align="left">Minor</td>
+<td align="left">documentation</td>
+<td align="left">Jim Kellerman</td>
+<td align="left">Jim Kellerman</td>
+</tr>
+</tbody>
+</table>

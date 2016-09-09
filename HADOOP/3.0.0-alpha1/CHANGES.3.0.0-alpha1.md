@@ -114,7 +114,6 @@
 | [HDFS-10689](https://issues.apache.org/jira/browse/HDFS-10689) | Hdfs dfs chmod should reset sticky bit permission when the bit is omitted in the octal mode |  Minor | fs | Manoj Govindassamy | Manoj Govindassamy |
 | [HDFS-7933](https://issues.apache.org/jira/browse/HDFS-7933) | fsck should also report decommissioning replicas. |  Major | namenode | Jitendra Nath Pandey | Xiaoyu Yao |
 | [HADOOP-12726](https://issues.apache.org/jira/browse/HADOOP-12726) | Unsupported FS operations should throw UnsupportedOperationException |  Major | fs | Daniel Templeton | Daniel Templeton |
-| [YARN-5567](https://issues.apache.org/jira/browse/YARN-5567) | Fix script exit code checking in NodeHealthScriptRunner#reportHealthStatus |  Major | nodemanager | Yufei Gu | Yufei Gu |
 
 
 ### IMPORTANT ISSUES:
@@ -2593,7 +2592,6 @@
 | [HDFS-10367](https://issues.apache.org/jira/browse/HDFS-10367) | TestDFSShell.testMoveWithTargetPortEmpty fails with Address bind exception. |  Major | test | Brahma Reddy Battula | Brahma Reddy Battula |
 | [HADOOP-13224](https://issues.apache.org/jira/browse/HADOOP-13224) | Grep job in Single Cluster document fails |  Major | documentation | Akira Ajisaka | Akira Ajisaka |
 | [HDFS-10471](https://issues.apache.org/jira/browse/HDFS-10471) | DFSAdmin#SetQuotaCommand's help msg is not correct |  Minor | documentation | Yiqun Lin | Yiqun Lin |
-| [YARN-5190](https://issues.apache.org/jira/browse/YARN-5190) | Registering/unregistering container metrics triggered by ContainerEvent and ContainersMonitorEvent are conflict which cause uncaught exception in ContainerMonitorImpl |  Blocker | . | Junping Du | Junping Du |
 | [YARN-5098](https://issues.apache.org/jira/browse/YARN-5098) | Yarn Application log Aggreagation fails due to NM can not get correct HDFS delegation token |  Major | yarn | Yesha Vora | Jian He |
 | [HADOOP-13155](https://issues.apache.org/jira/browse/HADOOP-13155) | Implement TokenRenewer to renew and cancel delegation tokens in KMS |  Major | kms, security | Xiao Chen | Xiao Chen |
 | [HDFS-10481](https://issues.apache.org/jira/browse/HDFS-10481) | HTTPFS server should correctly impersonate as end user to open file |  Major | httpfs | Xiao Chen | Xiao Chen |

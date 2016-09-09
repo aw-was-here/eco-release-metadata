@@ -1,0 +1,396 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hadoop-changelog">Apache Hadoop Changelog</h1>
+<h2 id="release-0.20.203.0---2011-05-11">Release 0.20.203.0 - 2011-05-11</h2>
+<h3 id="incompatible-changes">INCOMPATIBLE CHANGES:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="new-features">NEW FEATURES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7108">HADOOP-7108</a></td>
+<td align="left">hadoop-0.20.100</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Arun C Murthy</td>
+<td align="left">Arun C Murthy</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-4343">HADOOP-4343</a></td>
+<td align="left">Adding user and service-to-service authentication to Hadoop</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Kan Zhang</td>
+<td align="left">Kan Zhang</td>
+</tr>
+</tbody>
+</table>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7247">HADOOP-7247</a></td>
+<td align="left">Fix documentation to reflect new jar names</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Owen O'Malley</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-1626">HDFS-1626</a></td>
+<td align="left">Make BLOCK_INVALIDATE_LIMIT configurable</td>
+<td align="left">Minor</td>
+<td align="left">namenode</td>
+<td align="left">Arun C Murthy</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-457">HDFS-457</a></td>
+<td align="left">better handling of volume failure in Data Node storage</td>
+<td align="left">Major</td>
+<td align="left">datanode</td>
+<td align="left">Boris Shkolnik</td>
+<td align="left">Boris Shkolnik</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2355">MAPREDUCE-2355</a></td>
+<td align="left">Add an out of band heartbeat damper</td>
+<td align="left">Major</td>
+<td align="left">jobtracker</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Arun C Murthy</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2316">MAPREDUCE-2316</a></td>
+<td align="left">Update docs for CapacityScheduler</td>
+<td align="left">Major</td>
+<td align="left">capacity-sched, documentation</td>
+<td align="left">Arun C Murthy</td>
+<td align="left">Arun C Murthy</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-1943">MAPREDUCE-1943</a></td>
+<td align="left">Implement limits on per-job JobConf, Counters, StatusReport, Split-Sizes</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Mahadev konar</td>
+<td align="left">Mahadev konar</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-478">MAPREDUCE-478</a></td>
+<td align="left">separate jvm param for mapper and reducer</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Koji Noguchi</td>
+<td align="left">Arun C Murthy</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7259">HADOOP-7259</a></td>
+<td align="left">contrib modules should include build.properties from parent.</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Owen O'Malley</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7258">HADOOP-7258</a></td>
+<td align="left">Gzip codec should not return null decompressors</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Owen O'Malley</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7253">HADOOP-7253</a></td>
+<td align="left">Fix default config</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Owen O'Malley</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7246">HADOOP-7246</a></td>
+<td align="left">The default log4j configuration causes warnings about EventCounter</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Luke Lu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7243">HADOOP-7243</a></td>
+<td align="left">Fix contrib unit tests (fairshare, hdfsproxy, datajoin, streaming)</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Owen O'Malley</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7232">HADOOP-7232</a></td>
+<td align="left">Fix javadoc warnings</td>
+<td align="left">Blocker</td>
+<td align="left">documentation</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Owen O'Malley</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7215">HADOOP-7215</a></td>
+<td align="left">RPC clients must connect over a network interface corresponding to the host name in the client's kerberos principal key</td>
+<td align="left">Blocker</td>
+<td align="left">security</td>
+<td align="left">Suresh Srinivas</td>
+<td align="left">Suresh Srinivas</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7190">HADOOP-7190</a></td>
+<td align="left">Put metrics v1 back into the hadoop-20-security branch</td>
+<td align="left">Major</td>
+<td align="left">metrics</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Owen O'Malley</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7163">HADOOP-7163</a></td>
+<td align="left">&quot;java.net.SocketTimeoutException: 60000 millis timeout&quot; happens a lot</td>
+<td align="left">Major</td>
+<td align="left">ipc</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Devaraj Das</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7143">HADOOP-7143</a></td>
+<td align="left">Hive Hadoop20SShims depends on removed HadoopArchives</td>
+<td align="left">Major</td>
+<td align="left">fs</td>
+<td align="left">Joep Rottinghuis</td>
+<td align="left">Joep Rottinghuis</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7040">HADOOP-7040</a></td>
+<td align="left">DiskChecker:mkdirsWithExistsCheck swallows FileNotFoundException.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Boris Shkolnik</td>
+<td align="left">Boris Shkolnik</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-6907">HADOOP-6907</a></td>
+<td align="left">Rpc client doesn't use the per-connection conf to figure out server's Kerberos principal</td>
+<td align="left">Major</td>
+<td align="left">ipc, security</td>
+<td align="left">Kan Zhang</td>
+<td align="left">Kan Zhang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5647">HADOOP-5647</a></td>
+<td align="left">TestJobHistory fails if /tmp/_logs is not writable to. Testcase should not depend on /tmp</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Ravi Gummadi</td>
+<td align="left">Ravi Gummadi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-1822">HDFS-1822</a></td>
+<td align="left">Editlog opcodes overlap between 20 security and later releases</td>
+<td align="left">Blocker</td>
+<td align="left">namenode</td>
+<td align="left">Suresh Srinivas</td>
+<td align="left">Suresh Srinivas</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-1022">HDFS-1022</a></td>
+<td align="left">Merge under-10-min tests specs into one file</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Erik Steffl</td>
+<td align="left">Erik Steffl</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2365">MAPREDUCE-2365</a></td>
+<td align="left">Add counters for FileInputFormat (BYTES_READ) and FileOutputFormat (BYTES_WRITTEN)</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Siddharth Seth</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2278">MAPREDUCE-2278</a></td>
+<td align="left">DistributedCache shouldn't hold a ref to JobConf</td>
+<td align="left">Major</td>
+<td align="left">distributed-cache, tasktracker</td>
+<td align="left">Arun C Murthy</td>
+<td align="left">Chris Douglas</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-1699">MAPREDUCE-1699</a></td>
+<td align="left">JobHistory shouldn't be disabled for any reason</td>
+<td align="left">Major</td>
+<td align="left">jobtracker</td>
+<td align="left">Arun C Murthy</td>
+<td align="left">Krishna Ramachandran</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-1280">MAPREDUCE-1280</a></td>
+<td align="left">Eclipse Plugin does not work with Eclipse Ganymede (3.4)</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Aaron Kimball</td>
+<td align="left">Alex Kozlov</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-1233">MAPREDUCE-1233</a></td>
+<td align="left">Incorrect Waiting maps/reduces in Jobtracker metrics</td>
+<td align="left">Major</td>
+<td align="left">jobtracker</td>
+<td align="left">V.Karthikeyan</td>
+<td align="left">Luke Lu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-1118">MAPREDUCE-1118</a></td>
+<td align="left">Capacity Scheduler scheduling information is hard to read / should be tabular format</td>
+<td align="left">Major</td>
+<td align="left">capacity-sched</td>
+<td align="left">Allen Wittenauer</td>
+<td align="left">Krishna Ramachandran</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-323">MAPREDUCE-323</a></td>
+<td align="left">Improve the way job history files are managed</td>
+<td align="left">Critical</td>
+<td align="left">jobtracker</td>
+<td align="left">Amar Kamat</td>
+<td align="left">Dick King</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tests">TESTS:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="sub-tasks">SUB-TASKS:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="other">OTHER:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>

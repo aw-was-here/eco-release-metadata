@@ -1,0 +1,348 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hadoop-changelog">Apache Hadoop Changelog</h1>
+<h2 id="release-0.23.8---2013-06-05">Release 0.23.8 - 2013-06-05</h2>
+<h3 id="incompatible-changes">INCOMPATIBLE CHANGES:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="new-features">NEW FEATURES:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9614">HADOOP-9614</a></td>
+<td align="left">smart-test-patch.sh hangs for new version of patch (2.7.1)</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ravi Prakash</td>
+<td align="left">Ravi Prakash</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9504">HADOOP-9504</a></td>
+<td align="left">MetricsDynamicMBeanBase has concurrency issues in createMBeanInfo</td>
+<td align="left">Critical</td>
+<td align="left">metrics</td>
+<td align="left">Liang Xie</td>
+<td align="left">Liang Xie</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9469">HADOOP-9469</a></td>
+<td align="left">mapreduce/yarn source jars not included in dist tarball</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Thomas Graves</td>
+<td align="left">Robert Parker</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-4835">HDFS-4835</a></td>
+<td align="left">Port trunk WebHDFS changes to branch-0.23</td>
+<td align="left">Critical</td>
+<td align="left">webhdfs</td>
+<td align="left">Robert Parker</td>
+<td align="left">Robert Parker</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-4807">HDFS-4807</a></td>
+<td align="left">DFSOutputStream.createSocketForPipeline() should not include timeout extension on connect</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Kihwal Lee</td>
+<td align="left">Cristina L. Abad</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-4714">HDFS-4714</a></td>
+<td align="left">Log short messages in Namenode RPC server for exceptions meant for clients</td>
+<td align="left">Major</td>
+<td align="left">namenode</td>
+<td align="left">Kihwal Lee</td>
+<td align="left">Kihwal Lee</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-4699">HDFS-4699</a></td>
+<td align="left">TestPipelinesFailover#testPipelineRecoveryStress fails sporadically</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Chris Nauroth</td>
+<td align="left">Chris Nauroth</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-4690">HDFS-4690</a></td>
+<td align="left">Namenode exits if entering safemode while secret manager is edit logging</td>
+<td align="left">Critical</td>
+<td align="left">namenode, security</td>
+<td align="left">Daryn Sharp</td>
+<td align="left">Daryn Sharp</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-4477">HDFS-4477</a></td>
+<td align="left">Secondary namenode may retain old tokens</td>
+<td align="left">Critical</td>
+<td align="left">security</td>
+<td align="left">Kihwal Lee</td>
+<td align="left">Daryn Sharp</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-3875">HDFS-3875</a></td>
+<td align="left">Issue handling checksum errors in write pipeline</td>
+<td align="left">Critical</td>
+<td align="left">datanode, hdfs-client</td>
+<td align="left">Todd Lipcon</td>
+<td align="left">Kihwal Lee</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5211">MAPREDUCE-5211</a></td>
+<td align="left">Reducer intermediate files can collide during merge</td>
+<td align="left">Blocker</td>
+<td align="left">mrv2</td>
+<td align="left">Jason Lowe</td>
+<td align="left">Jason Lowe</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5168">MAPREDUCE-5168</a></td>
+<td align="left">Reducer can OOM during shuffle because on-disk output stream not released</td>
+<td align="left">Critical</td>
+<td align="left">mrv2</td>
+<td align="left">Jason Lowe</td>
+<td align="left">Jason Lowe</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5147">MAPREDUCE-5147</a></td>
+<td align="left">Maven build should create hadoop-mapreduce-client-app-VERSION.jar directly</td>
+<td align="left">Major</td>
+<td align="left">mrv2</td>
+<td align="left">Robert Parker</td>
+<td align="left">Robert Parker</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5065">MAPREDUCE-5065</a></td>
+<td align="left">DistCp should skip checksum comparisons if block-sizes are different on source/target.</td>
+<td align="left">Major</td>
+<td align="left">distcp</td>
+<td align="left">Mithun Radhakrishnan</td>
+<td align="left">Mithun Radhakrishnan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5059">MAPREDUCE-5059</a></td>
+<td align="left">Job overview shows average merge time larger than for any reduce attempt</td>
+<td align="left">Major</td>
+<td align="left">jobhistoryserver, webapps</td>
+<td align="left">Jason Lowe</td>
+<td align="left">Omkar Vinit Joshi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4927">MAPREDUCE-4927</a></td>
+<td align="left">Historyserver 500 error due to NPE when accessing specific counters page for failed job</td>
+<td align="left">Major</td>
+<td align="left">jobhistoryserver</td>
+<td align="left">Jason Lowe</td>
+<td align="left">Ashwin Shankar</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4383">MAPREDUCE-4383</a></td>
+<td align="left">HadoopPipes.cc needs to include unistd.h</td>
+<td align="left">Minor</td>
+<td align="left">pipes</td>
+<td align="left">Andy Isaacson</td>
+<td align="left">Andy Isaacson</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-690">YARN-690</a></td>
+<td align="left">RM exits on token cancel/renew problems</td>
+<td align="left">Blocker</td>
+<td align="left">resourcemanager</td>
+<td align="left">Daryn Sharp</td>
+<td align="left">Daryn Sharp</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-476">YARN-476</a></td>
+<td align="left">ProcfsBasedProcessTree info message confuses users</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Jason Lowe</td>
+<td align="left">Sandy Ryza</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-363">YARN-363</a></td>
+<td align="left">yarn proxyserver fails to find webapps/proxy directory on startup</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jason Lowe</td>
+<td align="left">Kenji Kikushima</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-71">YARN-71</a></td>
+<td align="left">Ensure/confirm that the NodeManager cleans up local-dirs on restart</td>
+<td align="left">Critical</td>
+<td align="left">nodemanager</td>
+<td align="left">Vinod Kumar Vavilapalli</td>
+<td align="left">Xuan Gong</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tests">TESTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9233">HADOOP-9233</a></td>
+<td align="left">Cover package org.apache.hadoop.io.compress.zlib with unit tests</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Vadim Bondarev</td>
+<td align="left">Vadim Bondarev</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9222">HADOOP-9222</a></td>
+<td align="left">Cover package with org.apache.hadoop.io.lz4 unit tests</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Vadim Bondarev</td>
+<td align="left">Vadim Bondarev</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5015">MAPREDUCE-5015</a></td>
+<td align="left">Coverage fix for org.apache.hadoop.mapreduce.tools.CLI</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Aleksey Gorshkov</td>
+<td align="left">Aleksey Gorshkov</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sub-tasks">SUB-TASKS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-548">YARN-548</a></td>
+<td align="left">Add tests for YarnUncaughtExceptionHandler</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Vadim Bondarev</td>
+<td align="left">Vadim Bondarev</td>
+</tr>
+</tbody>
+</table>
+<h3 id="other">OTHER:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>

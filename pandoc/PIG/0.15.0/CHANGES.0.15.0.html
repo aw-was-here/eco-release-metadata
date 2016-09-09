@@ -1,0 +1,1339 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-pig-changelog">Apache Pig Changelog</h1>
+<h2 id="release-0.15.0---2015-06-06">Release 0.15.0 - 2015-06-06</h2>
+<h3 id="incompatible-changes">INCOMPATIBLE CHANGES:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="important-issues">IMPORTANT ISSUES:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="new-features">NEW FEATURES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4458">PIG-4458</a></td>
+<td align="left">Support UDFs in a FOREACH Before a Merge Join</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">William Watson</td>
+<td align="left">William Watson</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4408">PIG-4408</a></td>
+<td align="left">Merge join should support replicated join as a predecessor</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Brian Johnson</td>
+<td align="left">Brian Johnson</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4370">PIG-4370</a></td>
+<td align="left">HBaseStorage should support delete markers</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Brian Johnson</td>
+<td align="left">Brian Johnson</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4360">PIG-4360</a></td>
+<td align="left">HBaseStorage should support setting the timestamp field</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Brian Johnson</td>
+<td align="left">Brian Johnson</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4358">PIG-4358</a></td>
+<td align="left">Add test cases for utf8 chinese in Pig</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Namit Maheshwari</td>
+<td align="left">Namit Maheshwari</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-3760">PIG-3760</a></td>
+<td align="left">Predicate pushdown for columnar file formats</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Andrew Musselman</td>
+<td align="left">Rohini Palaniswamy</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-3294">PIG-3294</a></td>
+<td align="left">Allow Pig use Hive UDFs</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Daniel Dai</td>
+<td align="left">Daniel Dai</td>
+</tr>
+</tbody>
+</table>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4563">PIG-4563</a></td>
+<td align="left">Upgrade to released Tez 0.7.0</td>
+<td align="left">Major</td>
+<td align="left">tez</td>
+<td align="left">Daniel Dai</td>
+<td align="left">Daniel Dai</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4560">PIG-4560</a></td>
+<td align="left">Pig 0.15.0 Documentation</td>
+<td align="left">Major</td>
+<td align="left">documentation</td>
+<td align="left">Daniel Dai</td>
+<td align="left">Daniel Dai</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4544">PIG-4544</a></td>
+<td align="left">Upgrade Hbase to 0.98.12</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Daniel Dai</td>
+<td align="left">Daniel Dai</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4525">PIG-4525</a></td>
+<td align="left">Clarify &quot;Scalar has more than one row in the output.&quot;</td>
+<td align="left">Trivial</td>
+<td align="left">.</td>
+<td align="left">Niels Basjes</td>
+<td align="left">Niels Basjes</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4511">PIG-4511</a></td>
+<td align="left">Add columns to prune from PluckTuple</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Joseph Babcock</td>
+<td align="left">Joseph Babcock</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4483">PIG-4483</a></td>
+<td align="left">Pig on Tez output statistics shows storing to same directory twice for union</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Rohini Palaniswamy</td>
+<td align="left">Rohini Palaniswamy</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4454">PIG-4454</a></td>
+<td align="left">Upgrade tez to 0.6.0</td>
+<td align="left">Major</td>
+<td align="left">tez</td>
+<td align="left">Daniel Dai</td>
+<td align="left">Daniel Dai</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4451">PIG-4451</a></td>
+<td align="left">Log partition and predicate filter pushdown information and fix optimizer looping</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Rohini Palaniswamy</td>
+<td align="left">Rohini Palaniswamy</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4442">PIG-4442</a></td>
+<td align="left">Eliminate redundant RPC call to get file information in HPath.</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Chris Nauroth</td>
+<td align="left">Chris Nauroth</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4434">PIG-4434</a></td>
+<td align="left">Improve auto-parallelism for tez</td>
+<td align="left">Major</td>
+<td align="left">tez</td>
+<td align="left">Daniel Dai</td>
+<td align="left">Daniel Dai</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4430">PIG-4430</a></td>
+<td align="left">Pig should support reading log4j.properties file from classpath as well</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ratandeep Ratti</td>
+<td align="left">Ratandeep Ratti</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4429">PIG-4429</a></td>
+<td align="left">Add Pig alias information and Pig script to the DAG view in Tez UI</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Rohini Palaniswamy</td>
+<td align="left">Daniel Dai</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4407">PIG-4407</a></td>
+<td align="left">Allow specifying a replication factor for jarcache</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Gera Shegalov</td>
+<td align="left">Gera Shegalov</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4401">PIG-4401</a></td>
+<td align="left">Add pattern matching to PluckTuple</td>
+<td align="left">Minor</td>
+<td align="left">internal-udfs</td>
+<td align="left">Cheolsoo Park</td>
+<td align="left">Cheolsoo Park</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4389">PIG-4389</a></td>
+<td align="left">Flag to run selected test suites in e2e tests</td>
+<td align="left">Major</td>
+<td align="left">e2e harness</td>
+<td align="left">Daniel Dai</td>
+<td align="left">Daniel Dai</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4379">PIG-4379</a></td>
+<td align="left">Make RoundRobinPartitioner public</td>
+<td align="left">Major</td>
+<td align="left">impl</td>
+<td align="left">Daniel Dai</td>
+<td align="left">Daniel Dai</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4337">PIG-4337</a></td>
+<td align="left">Split Types and MultiQuery e2e tests into multiple groups</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Rohini Palaniswamy</td>
+<td align="left">Rohini Palaniswamy</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4333">PIG-4333</a></td>
+<td align="left">Split BigData tests into multiple groups</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Rohini Palaniswamy</td>
+<td align="left">Rohini Palaniswamy</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4332">PIG-4332</a></td>
+<td align="left">Remove redundant jars packaged into pig-withouthadoop.jar for hadoop 2</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Rohini Palaniswamy</td>
+<td align="left">Rohini Palaniswamy</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4213">PIG-4213</a></td>
+<td align="left">CSVExcelStorage not quoting texts containing (CR) when storing</td>
+<td align="left">Trivial</td>
+<td align="left">piggybank</td>
+<td align="left">Alfonso Nishikawa</td>
+<td align="left">Alfonso Nishikawa</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4210">PIG-4210</a></td>
+<td align="left">Drop support for JDK 6 from Pig 0.14</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Rohini Palaniswamy</td>
+<td align="left">Daniel Dai</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4066">PIG-4066</a></td>
+<td align="left">An optimization for ROLLUP operation in Pig</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Quang-Nhat HOANG-XUAN</td>
+<td align="left">Quang-Nhat HOANG-XUAN</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-3994">PIG-3994</a></td>
+<td align="left">Implement getting backend exception for Tez</td>
+<td align="left">Major</td>
+<td align="left">tez</td>
+<td align="left">Rohini Palaniswamy</td>
+<td align="left">Rohini Palaniswamy</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-3232">PIG-3232</a></td>
+<td align="left">Refactor Pig so that configurations use PigConfiguration wherever possible</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jonathan Coveney</td>
+<td align="left">Rohini Palaniswamy</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-2692">PIG-2692</a></td>
+<td align="left">Make the Pig unit faciliities more generalizable and update javadocs</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Jeremy Hanna</td>
+<td align="left">Richard So</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4602">PIG-4602</a></td>
+<td align="left">The test org.apache.pig.builtin.TestOrcStoragePushdown.testPredicatePushdownTimestamp is failing</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Gaurav Pande</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4592">PIG-4592</a></td>
+<td align="left">Pig 0.15 stopped working with Hadoop 1.x</td>
+<td align="left">Blocker</td>
+<td align="left">build</td>
+<td align="left">Costin Leau</td>
+<td align="left">Daniel Dai</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4580">PIG-4580</a></td>
+<td align="left">Fix TestTezAutoParallelism.testSkewedJoinIncreaseParallelism test failure</td>
+<td align="left">Major</td>
+<td align="left">tez</td>
+<td align="left">Daniel Dai</td>
+<td align="left">Daniel Dai</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4571">PIG-4571</a></td>
+<td align="left">TestPigRunner.testGetHadoopCounters fail on Windows</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Daniel Dai</td>
+<td align="left">Daniel Dai</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4569">PIG-4569</a></td>
+<td align="left">Fix e2e test Rank_1 failure</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Daniel Dai</td>
+<td align="left">Daniel Dai</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4564">PIG-4564</a></td>
+<td align="left">Pig can deadlock in POPartialAgg if there is a bag</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Rohini Palaniswamy</td>
+<td align="left">Rohini Palaniswamy</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4562">PIG-4562</a></td>
+<td align="left">Typo in DataType.toDateTime</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Daniel Dai</td>
+<td align="left">Daniel Dai</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4559">PIG-4559</a></td>
+<td align="left">Fix several new tez e2e test failures</td>
+<td align="left">Major</td>
+<td align="left">tez</td>
+<td align="left">Daniel Dai</td>
+<td align="left">Daniel Dai</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4556">PIG-4556</a></td>
+<td align="left">Local mode is broken in some case by PIG-4247</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Daniel Dai</td>
+<td align="left">Daniel Dai</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4545">PIG-4545</a></td>
+<td align="left">Fix Unit test TestJobSubmissionMR</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Daniel Dai</td>
+<td align="left">Daniel Dai</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4543">PIG-4543</a></td>
+<td align="left">TestEvalPipelineLocal.testRankWithEmptyReduce fail on Hadoop 1</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Daniel Dai</td>
+<td align="left">Daniel Dai</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4541">PIG-4541</a></td>
+<td align="left">Skewed full outer join does not return records if any relation is empty. Outer join does not return any record if left relation is empty</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Dipankar</td>
+<td align="left">Daniel Dai</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4538">PIG-4538</a></td>
+<td align="left">Pig script fail with CNF in follow up MR job</td>
+<td align="left">Major</td>
+<td align="left">tez</td>
+<td align="left">Daniel Dai</td>
+<td align="left">Daniel Dai</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4537">PIG-4537</a></td>
+<td align="left">Fix unit test failure introduced by TEZ-2392: TestCollectedGroup, TestLimitVariable, TestMapSideCogroup, etc</td>
+<td align="left">Major</td>
+<td align="left">tez</td>
+<td align="left">Daniel Dai</td>
+<td align="left">Daniel Dai</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4532">PIG-4532</a></td>
+<td align="left">Pig Documentation contains typo for AvroStorage</td>
+<td align="left">Trivial</td>
+<td align="left">documentation</td>
+<td align="left">Frederic Schmaljohann</td>
+<td align="left">Frederic Schmaljohann</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4530">PIG-4530</a></td>
+<td align="left">StackOverflow in TestMultiQueryLocal running under hadoop20</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Niels Basjes</td>
+<td align="left">Niels Basjes</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4529">PIG-4529</a></td>
+<td align="left">Pig on tez hit counter limit imposed by MR</td>
+<td align="left">Major</td>
+<td align="left">tez</td>
+<td align="left">Daniel Dai</td>
+<td align="left">Daniel Dai</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4528">PIG-4528</a></td>
+<td align="left">Fix a typo in src/docs/src/documentation/content/xdocs/basic.xml</td>
+<td align="left">Minor</td>
+<td align="left">documentation</td>
+<td align="left">namusyaka</td>
+<td align="left">namusyaka</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4527">PIG-4527</a></td>
+<td align="left">NON-ASCII Characters in Javadoc break 'ant docs'</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Niels Basjes</td>
+<td align="left">Niels Basjes</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4524">PIG-4524</a></td>
+<td align="left">Pig Minicluster unit tests broken by TEZ-2333</td>
+<td align="left">Major</td>
+<td align="left">tez</td>
+<td align="left">Daniel Dai</td>
+<td align="left">Daniel Dai</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4523">PIG-4523</a></td>
+<td align="left">Tez engine should use tez config rather than mr config whenever possible</td>
+<td align="left">Major</td>
+<td align="left">tez</td>
+<td align="left">Daniel Dai</td>
+<td align="left">Daniel Dai</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4519">PIG-4519</a></td>
+<td align="left">Correct link to Contribute page</td>
+<td align="left">Minor</td>
+<td align="left">documentation</td>
+<td align="left">Gabor Liptak</td>
+<td align="left">Gabor Liptak</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4514">PIG-4514</a></td>
+<td align="left">pig trunk compilation is broken - VertexManagerPluginContext.reconfigureVertex change</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Thejas M Nair</td>
+<td align="left">Thejas M Nair</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4509">PIG-4509</a></td>
+<td align="left">[Pig on Tez] Unassigned applications not killed on shutdown</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Rohini Palaniswamy</td>
+<td align="left">Rohini Palaniswamy</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4508">PIG-4508</a></td>
+<td align="left">[Pig on Tez] PigProcessor check for commit only on MROutput</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Rohini Palaniswamy</td>
+<td align="left">Rohini Palaniswamy</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4506">PIG-4506</a></td>
+<td align="left">binstorage fails to write biginteger</td>
+<td align="left">Major</td>
+<td align="left">data, impl</td>
+<td align="left">Savvas Savvides</td>
+<td align="left">Savvas Savvides</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4505">PIG-4505</a></td>
+<td align="left">[Pig on Tez] Auto adjust AM memory can hit OOM with 3.5GXmx</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Rohini Palaniswamy</td>
+<td align="left">Rohini Palaniswamy</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4503">PIG-4503</a></td>
+<td align="left">[Pig on Tez] NPE in UnionOptimizer with multiple levels of union</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Rohini Palaniswamy</td>
+<td align="left">Rohini Palaniswamy</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4502">PIG-4502</a></td>
+<td align="left">E2E tests build fail with udfs compile</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Namit Maheshwari</td>
+<td align="left">Namit Maheshwari</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4499">PIG-4499</a></td>
+<td align="left">mvn-build miss tez classes in pig-h2.jar</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Daniel Dai</td>
+<td align="left">Daniel Dai</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4498">PIG-4498</a></td>
+<td align="left">AvroStorage in Piggbank does not handle bad records and fails</td>
+<td align="left">Major</td>
+<td align="left">piggybank</td>
+<td align="left">Viraj Bhat</td>
+<td align="left">Viraj Bhat</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4497">PIG-4497</a></td>
+<td align="left">[Pig on Tez] NPE for null scalar</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Rohini Palaniswamy</td>
+<td align="left">Rohini Palaniswamy</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4494">PIG-4494</a></td>
+<td align="left">Pig's htrace version conflicts with that of hadoop 2.6.0</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jeff Zhang</td>
+<td align="left">Daniel Dai</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4493">PIG-4493</a></td>
+<td align="left">Pig on Tez gives wrong results if Union is followed by Split</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Rohini Palaniswamy</td>
+<td align="left">Rohini Palaniswamy</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4491">PIG-4491</a></td>
+<td align="left">Streaming Python Bytearray Bugs</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jeremy Karn</td>
+<td align="left">Jeremy Karn</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4490">PIG-4490</a></td>
+<td align="left">MIN/MAX builtin UDFs return wrong results when accumulating for strings</td>
+<td align="left">Major</td>
+<td align="left">internal-udfs</td>
+<td align="left">xplenty</td>
+<td align="left">xplenty</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4488">PIG-4488</a></td>
+<td align="left">Pig on tez mask tez.queue.name</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Daniel Dai</td>
+<td align="left">Daniel Dai</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4487">PIG-4487</a></td>
+<td align="left">Pig on Tez gives wrong success message on failure in case of multiple outputs</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Rohini Palaniswamy</td>
+<td align="left">Rohini Palaniswamy</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4484">PIG-4484</a></td>
+<td align="left">Ant pull jetty-6.1.26.zip on some platform</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Daniel Dai</td>
+<td align="left">Daniel Dai</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4480">PIG-4480</a></td>
+<td align="left">Pig script failure on Tez with split and order by due to missing sample collection</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Rohini Palaniswamy</td>
+<td align="left">Rohini Palaniswamy</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4479">PIG-4479</a></td>
+<td align="left">Pig script with union within nested splits followed by join failed on Tez</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Rohini Palaniswamy</td>
+<td align="left">Rohini Palaniswamy</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4478">PIG-4478</a></td>
+<td align="left">TestCSVExcelStorage fails with jdk8</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Rohini Palaniswamy</td>
+<td align="left">Rohini Palaniswamy</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4476">PIG-4476</a></td>
+<td align="left">Fix logging in AvroStorage* classes and SchemaTuple class</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ratandeep Ratti</td>
+<td align="left">Ratandeep Ratti</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4475">PIG-4475</a></td>
+<td align="left">Keys in AvroMapWrapper are not proper Pig types</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ratandeep Ratti</td>
+<td align="left">Ratandeep Ratti</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4474">PIG-4474</a></td>
+<td align="left">Increasing intermediate parallelism has issue with default parallelism</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Rohini Palaniswamy</td>
+<td align="left">Rohini Palaniswamy</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4465">PIG-4465</a></td>
+<td align="left">Pig streaming ship fails for relative paths on Tez</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Rohini Palaniswamy</td>
+<td align="left">Rohini Palaniswamy</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4463">PIG-4463</a></td>
+<td align="left">AvroMapWrapper still leaks Avro data types and AvroStorageDataConversionUtilities do not handle Pig maps</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ratandeep Ratti</td>
+<td align="left">Ratandeep Ratti</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4461">PIG-4461</a></td>
+<td align="left">Use benchmarks for Windows Pig e2e tests</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Namit Maheshwari</td>
+<td align="left">Namit Maheshwari</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4460">PIG-4460</a></td>
+<td align="left">TestBuiltIn testValueListOutputSchemaComplexType and testValueSetOutputSchemaComplexType tests create bags whose inner schema is not a tuple</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Anthony Hsu</td>
+<td align="left">Anthony Hsu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4457">PIG-4457</a></td>
+<td align="left">Error is thrown by JobStats.getOutputSize() when storing to a MySql table</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Kunal Kumar</td>
+<td align="left">Rohini Palaniswamy</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4452">PIG-4452</a></td>
+<td align="left">Embedded SQL using &quot;SQL&quot; instead of &quot;sql&quot; fails with string index out of range: -1 error</td>
+<td align="left">Minor</td>
+<td align="left">grunt, parser</td>
+<td align="left">Brian Kessler</td>
+<td align="left">Daniel Dai</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4448">PIG-4448</a></td>
+<td align="left">AvroMapWrapper leaks Avro data types when the map values are complex avro records</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ratandeep Ratti</td>
+<td align="left">Ratandeep Ratti</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4447">PIG-4447</a></td>
+<td align="left">Pig Cannot handle nullable values (arrays and records) in avro records</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ratandeep Ratti</td>
+<td align="left">Ratandeep Ratti</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4445">PIG-4445</a></td>
+<td align="left">VALUELIST and VALUESET outputSchema does not match actual schema of data returned when map value schema is complex</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Anthony Hsu</td>
+<td align="left">Anthony Hsu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4444">PIG-4444</a></td>
+<td align="left">Fix unit test failure TestTezAutoParallelism</td>
+<td align="left">Major</td>
+<td align="left">tez</td>
+<td align="left">Daniel Dai</td>
+<td align="left">Daniel Dai</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4443">PIG-4443</a></td>
+<td align="left">Write inputsplits in Tez to disk if the size is huge and option to compress pig input splits</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Rohini Palaniswamy</td>
+<td align="left">Rohini Palaniswamy</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4440">PIG-4440</a></td>
+<td align="left">Some code samples in documentation use Unicode left/right single quotes, which cause a parse failure.</td>
+<td align="left">Minor</td>
+<td align="left">documentation</td>
+<td align="left">Chris Nauroth</td>
+<td align="left">Chris Nauroth</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4437">PIG-4437</a></td>
+<td align="left">Fix tez unit test failure TestJoinSmoke, TestSkewedJoin</td>
+<td align="left">Major</td>
+<td align="left">tez</td>
+<td align="left">Daniel Dai</td>
+<td align="left">Daniel Dai</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4433">PIG-4433</a></td>
+<td align="left">Loading bigdecimal in nested tuple does not work</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Kevin J. Price</td>
+<td align="left">Kevin J. Price</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4432">PIG-4432</a></td>
+<td align="left">Built-in VALUELIST and VALUESET UDFs do not preserve the schema when the map value type is a complex type</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Anthony Hsu</td>
+<td align="left">Anthony Hsu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4431">PIG-4431</a></td>
+<td align="left">ReadToEndLoader does not close the record reader for the last input split</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ratandeep Ratti</td>
+<td align="left">Ratandeep Ratti</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4426">PIG-4426</a></td>
+<td align="left">RowNumber(simple) Rank not producing correct results</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Koji Noguchi</td>
+<td align="left">Koji Noguchi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4418">PIG-4418</a></td>
+<td align="left">NullPointerException in JVMReuseImpl</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Jeff Zhang</td>
+<td align="left">Rohini Palaniswamy</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4410">PIG-4410</a></td>
+<td align="left">Fix testRankWithEmptyReduce in tez mode</td>
+<td align="left">Major</td>
+<td align="left">tez</td>
+<td align="left">Daniel Dai</td>
+<td align="left">Daniel Dai</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4409">PIG-4409</a></td>
+<td align="left">fs.defaultFS is overwritten in JobConf by replicated join at runtime</td>
+<td align="left">Critical</td>
+<td align="left">impl</td>
+<td align="left">Cheolsoo Park</td>
+<td align="left">Cheolsoo Park</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4404">PIG-4404</a></td>
+<td align="left">LOAD with HBaseStorage on secure cluster is broken in Tez</td>
+<td align="left">Major</td>
+<td align="left">tez</td>
+<td align="left">Rohini Palaniswamy</td>
+<td align="left">Rohini Palaniswamy</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4403">PIG-4403</a></td>
+<td align="left">Combining -Dpig.additional.jars.uris with -useHCatalog breaks due to combination with colon instead of comma</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Olivier Van Laere</td>
+<td align="left">Olivier Van Laere</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4402">PIG-4402</a></td>
+<td align="left">JavaScript UDF example in the doc is broken</td>
+<td align="left">Minor</td>
+<td align="left">documentation</td>
+<td align="left">Cheolsoo Park</td>
+<td align="left">Cheolsoo Park</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4397">PIG-4397</a></td>
+<td align="left">CSVExcelStorage incorrect output if last field value is null</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Niels Basjes</td>
+<td align="left">Daniel Dai</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4394">PIG-4394</a></td>
+<td align="left">Fix Split_9 and Union_5 e2e failures</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Rohini Palaniswamy</td>
+<td align="left">Rohini Palaniswamy</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4392">PIG-4392</a></td>
+<td align="left">RANK BY fails when default_parallel is greater than cardinality of field being ranked by</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Anthony Hsu</td>
+<td align="left">Daniel Dai</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4387">PIG-4387</a></td>
+<td align="left">Honor yarn settings in tez-site.xml and optimize dag status fetch</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Rohini Palaniswamy</td>
+<td align="left">Rohini Palaniswamy</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4384">PIG-4384</a></td>
+<td align="left">TezLauncher thread should be deamon thread</td>
+<td align="left">Major</td>
+<td align="left">tez</td>
+<td align="left">Jeff Zhang</td>
+<td align="left">Jeff Zhang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4381">PIG-4381</a></td>
+<td align="left">PIG grunt shell DEFINE commands fails when it spans multiple lines</td>
+<td align="left">Major</td>
+<td align="left">grunt</td>
+<td align="left">Daniel Dai</td>
+<td align="left">Daniel Dai</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4377">PIG-4377</a></td>
+<td align="left">Skewed outer join produce wrong result if a key is oversampled</td>
+<td align="left">Major</td>
+<td align="left">impl</td>
+<td align="left">Daniel Dai</td>
+<td align="left">Daniel Dai</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4376">PIG-4376</a></td>
+<td align="left">NullPointerException accessing a field of an invalid bag from a nested foreach</td>
+<td align="left">Minor</td>
+<td align="left">parser</td>
+<td align="left">Kevin Springborn</td>
+<td align="left">Kevin Springborn</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4371">PIG-4371</a></td>
+<td align="left">Duplicate snappy.version in libraries.properties</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Daniel Dai</td>
+<td align="left">Daniel Dai</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4361">PIG-4361</a></td>
+<td align="left">Fix perl script problem in TestStreaming.java</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">liyunzhang_intel</td>
+<td align="left">liyunzhang_intel</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4355">PIG-4355</a></td>
+<td align="left">Piggybank: XPath cant handle namespace in xpath, nor can it return more than one match</td>
+<td align="left">Major</td>
+<td align="left">piggybank</td>
+<td align="left">John Cavanaugh</td>
+<td align="left">John Cavanaugh</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4351">PIG-4351</a></td>
+<td align="left">TestPigRunner.simpleTest2 fail on trunk</td>
+<td align="left">Major</td>
+<td align="left">impl</td>
+<td align="left">Daniel Dai</td>
+<td align="left">Daniel Dai</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4345">PIG-4345</a></td>
+<td align="left">e2e test &quot;RubyUDFs_13&quot; fails because of the different result of &quot;group a all&quot; in different engines like &quot;spark&quot;, &quot;mapreduce&quot;</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">liyunzhang_intel</td>
+<td align="left">liyunzhang_intel</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4340">PIG-4340</a></td>
+<td align="left">PigStorage fails parsing empty map.</td>
+<td align="left">Minor</td>
+<td align="left">impl</td>
+<td align="left">Akira Murashita</td>
+<td align="left">Daniel Dai</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4339">PIG-4339</a></td>
+<td align="left">e2e test framework assumes default exectype as mapred</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Rohini Palaniswamy</td>
+<td align="left">Rohini Palaniswamy</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4338">PIG-4338</a></td>
+<td align="left">Fix test failures with JDK8</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Rohini Palaniswamy</td>
+<td align="left">Rohini Palaniswamy</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4331">PIG-4331</a></td>
+<td align="left">update README, '-x' option in usage to include tez</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Thejas M Nair</td>
+<td align="left">Thejas M Nair</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4330">PIG-4330</a></td>
+<td align="left">Regression test for PIG-3584 - AvroStorage does not correctly translate arrays of strings</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Brock Noland</td>
+<td align="left">Brock Noland</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4329">PIG-4329</a></td>
+<td align="left">Fetch optimization should be disabled when limit is not pushed up</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Cheolsoo Park</td>
+<td align="left">Lorand Bendig</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4327">PIG-4327</a></td>
+<td align="left">Schema of map with value that has an alias can't be parsed again</td>
+<td align="left">Major</td>
+<td align="left">parser</td>
+<td align="left">Michael Prim</td>
+<td align="left">Michael Prim</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4326">PIG-4326</a></td>
+<td align="left">AvroStorageSchemaConversionUtilities does not properly convert schema for maps of arrays of records</td>
+<td align="left">Major</td>
+<td align="left">impl</td>
+<td align="left">Michael Prim</td>
+<td align="left">Michael Prim</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4265">PIG-4265</a></td>
+<td align="left">SUM functions returns different value in spark and mapreduce engine</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">liyunzhang_intel</td>
+<td align="left">liyunzhang_intel</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4247">PIG-4247</a></td>
+<td align="left">S3 properties are not picked up from core-site.xml in local mode</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Cheolsoo Park</td>
+<td align="left">Cheolsoo Park</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4242">PIG-4242</a></td>
+<td align="left">For indented xmls with multiline content (e.g. wikipedia) XMLLoader cuts out the begining of every line</td>
+<td align="left">Major</td>
+<td align="left">piggybank</td>
+<td align="left">Geza Radics</td>
+<td align="left">Geza Radics</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4012">PIG-4012</a></td>
+<td align="left">java.lang.IllegalArgumentException: Comparison method violates its general contract! SpillableMemoryManager</td>
+<td align="left">Major</td>
+<td align="left">impl</td>
+<td align="left">David Dreyfus</td>
+<td align="left">Rohini Palaniswamy</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-3413">PIG-3413</a></td>
+<td align="left">JsonLoader fails the pig job in case of malformed json input</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Demeter Sztanko</td>
+<td align="left">Eyal Allweil</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-2949">PIG-2949</a></td>
+<td align="left">JsonLoader only reads arrays of objects</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">David LaBarbera</td>
+<td align="left">Eyal Allweil</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-2647">PIG-2647</a></td>
+<td align="left">Split Combining drops splits with empty getLocations()</td>
+<td align="left">Major</td>
+<td align="left">impl</td>
+<td align="left">Alex Levenson</td>
+<td align="left">Travis Woodruff</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tests">TESTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4385">PIG-4385</a></td>
+<td align="left">testDefaultBootup fails because it cannot find &quot;pig.properties&quot;</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Martin Kudlej</td>
+<td align="left">Martin Kudlej</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sub-tasks">SUB-TASKS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4495">PIG-4495</a></td>
+<td align="left">Better multi-query planning in case of multiple edges</td>
+<td align="left">Major</td>
+<td align="left">tez</td>
+<td align="left">Rohini Palaniswamy</td>
+<td align="left">Rohini Palaniswamy</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4453">PIG-4453</a></td>
+<td align="left">Remove test-tez-local target</td>
+<td align="left">Major</td>
+<td align="left">tez</td>
+<td align="left">Daniel Dai</td>
+<td align="left">Daniel Dai</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4391">PIG-4391</a></td>
+<td align="left">Fix TestPigStats test failure</td>
+<td align="left">Major</td>
+<td align="left">tez</td>
+<td align="left">Rohini Palaniswamy</td>
+<td align="left">Rohini Palaniswamy</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4378">PIG-4378</a></td>
+<td align="left">Better way to fix tez local mode test hanging</td>
+<td align="left">Major</td>
+<td align="left">tez</td>
+<td align="left">Daniel Dai</td>
+<td align="left">Daniel Dai</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4375">PIG-4375</a></td>
+<td align="left">ObjectCache should use ProcessorContext.getObjectRegistry()</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Rohini Palaniswamy</td>
+<td align="left">Rohini Palaniswamy</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4368">PIG-4368</a></td>
+<td align="left">Port local mode tests to Tez - TestLoadStoreFuncLifeCycle</td>
+<td align="left">Major</td>
+<td align="left">tez</td>
+<td align="left">Daniel Dai</td>
+<td align="left">Daniel Dai</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4367">PIG-4367</a></td>
+<td align="left">Port local mode tests to Tez - TestMultiQueryBasic</td>
+<td align="left">Major</td>
+<td align="left">tez</td>
+<td align="left">Daniel Dai</td>
+<td align="left">Daniel Dai</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4366">PIG-4366</a></td>
+<td align="left">Port local mode tests to Tez - part5</td>
+<td align="left">Major</td>
+<td align="left">tez</td>
+<td align="left">Daniel Dai</td>
+<td align="left">Daniel Dai</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4359">PIG-4359</a></td>
+<td align="left">Port local mode tests to Tez - part4</td>
+<td align="left">Major</td>
+<td align="left">tez</td>
+<td align="left">Daniel Dai</td>
+<td align="left">Daniel Dai</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4354">PIG-4354</a></td>
+<td align="left">Port local mode tests to Tez - part3</td>
+<td align="left">Major</td>
+<td align="left">tez</td>
+<td align="left">Daniel Dai</td>
+<td align="left">Daniel Dai</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4352">PIG-4352</a></td>
+<td align="left">Port local mode tests to Tez - TestUnionOnSchema</td>
+<td align="left">Major</td>
+<td align="left">tez</td>
+<td align="left">Daniel Dai</td>
+<td align="left">Daniel Dai</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4350">PIG-4350</a></td>
+<td align="left">Port local mode tests to Tez - part2</td>
+<td align="left">Major</td>
+<td align="left">tez</td>
+<td align="left">Daniel Dai</td>
+<td align="left">Daniel Dai</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4334">PIG-4334</a></td>
+<td align="left">PigProcessor does not set pig.datetime.default.tz</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Rohini Palaniswamy</td>
+<td align="left">Rohini Palaniswamy</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4264">PIG-4264</a></td>
+<td align="left">Port TestAvroStorage to tez local mode</td>
+<td align="left">Major</td>
+<td align="left">tez</td>
+<td align="left">Daniel Dai</td>
+<td align="left">Daniel Dai</td>
+</tr>
+</tbody>
+</table>
+<h3 id="other">OTHER:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-3840">PIG-3840</a></td>
+<td align="left">Umbrella jira for Pig on Tez Unit Test porting</td>
+<td align="left">Major</td>
+<td align="left">tez</td>
+<td align="left">Rohini Palaniswamy</td>
+<td align="left">Daniel Dai</td>
+</tr>
+</tbody>
+</table>

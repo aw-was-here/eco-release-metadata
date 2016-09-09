@@ -1,0 +1,79 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hbase-0.94.1-release-notes">Apache HBase 0.94.1 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-5887">HBASE-5887</a> | <em>Major</em> | <strong>Make TestAcidGuarantees usable for system testing.</strong></li>
+</ul>
+<p>Fix TestAcidGuarantees so it can be run from its Main (so you can point it at a cluster to run)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-6001">HBASE-6001</a> | <em>Major</em> | <strong>Upgrade slf4j to 1.6.1</strong></li>
+</ul>
+<p>The version of SLF4J we bundle is now targeted to that required by the Hadoop version HBase has been compiled against.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-6010">HBASE-6010</a> | <em>Minor</em> | <strong>Security audit logger configuration for log4j</strong></li>
+</ul>
+<p>We now set up security audit logging in the LOG4J configuration in a similar manner to Hadoop core.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-5802">HBASE-5802</a> | <em>Minor</em> | <strong>Change the default metrics class to NullContextWithUpdateThread</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-6114">HBASE-6114</a> | <em>Major</em> | <strong>CacheControl flags should be tunable per table schema per CF</strong></li>
+</ul>
+<p>Make CacheControl flags tunable per table schema per CF; e.g. cacheDataOnWrite, cacheIndexesOnWrite and cacheBloomsOnWrite.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-6040">HBASE-6040</a> | <em>Major</em> | <strong>Use block encoding and HBase handled checksum verification in bulk loading using HFileOutputFormat</strong></li>
+</ul>
+<p>Added a new config param &quot;hbase.mapreduce.hfileoutputformat.datablock.encoding&quot; using which we can specify which encoding scheme to be used on disk. Data will get written in to HFiles using this encoding scheme while bulk load. The value of this can be NONE, PREFIX, DIFF, FAST_DIFF as these are the DataBlockEncoding types supported now. [When any new types are added later, corresponding names also will become valid] The checksum type and number of bytes per checksum can be configured using the config params hbase.hstore.checksum.algorithm, hbase.hstore.bytes.per.checksum respectively</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-5609">HBASE-5609</a> | <em>Minor</em> | <strong>Add the ability to pass additional information for slow query logging</strong></li>
+</ul>
+<p>Added the ability to add identifiers to client operations. These identifiers will be output with slow query logging. The could be used to identify the piece of code that initiated the operation. This could be anything from a module name to a class.method with a line number.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-6207">HBASE-6207</a> | <em>Major</em> | <strong>Add jitter to client retry timer</strong></li>
+</ul>
+<p>The retries in the client now have a jitter of up to 1% of the normal computed sleep time.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-6236">HBASE-6236</a> | <em>Major</em> | <strong>Offline meta repair fails if the HBase base mount point is on a different cluster/volume than its parent in a ViewFS or similar FS</strong></li>
+</ul>
+<p>-sidelineDir option has been added to both hbck and OfflineMetaRepair. It allows specification of hdfs directory where offlined data is stored.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-6377">HBASE-6377</a> | <em>Major</em> | <strong>HBASE-5533 metrics miss all operations submitted via MultiAction</strong></li>
+</ul>
+<p>The misleading &quot;getRequestLatency&quot;, &quot;deleteRequestLatency&quot;, and &quot;putRequestLatency&quot; histograms were removed from metrics because such requests often were not actually measured.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-6382">HBASE-6382</a> | <em>Major</em> | <strong>Upgrade Jersey to 1.8 to match Hadoop 1 and 2</strong></li>
+</ul>
+<p>Removed 0.90 (Jon likes new issue for backports it seems) and pegged it against 0.94.2 and 0.92.2 rather than 0.94.1 and 0.92.1.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-6363">HBASE-6363</a> | <em>Trivial</em> | <strong>HBaseConfiguration can carry a main method that dumps XML output for debug purposes</strong></li>
+</ul>
+<p>Adds a main to HBaseConfiguration to dump out configs.</p>

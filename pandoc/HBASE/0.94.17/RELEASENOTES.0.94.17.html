@@ -1,0 +1,36 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hbase-0.94.17-release-notes">Apache HBase 0.94.17 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-10249">HBASE-10249</a> | <em>Major</em> | <strong>TestReplicationSyncUpTool fails because failover takes too long</strong></li>
+</ul>
+<p>This change also fixes a potential data loss issue when using ZK multi actions because region servers could try to failover themselves (the replication sync up tool acts as a RS too)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-10470">HBASE-10470</a> | <em>Critical</em> | <strong>Import generates huge log file while importing large amounts of data</strong></li>
+</ul>
+<p>Committed to 0.94 and 0.96 as well.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-10501">HBASE-10501</a> | <em>Critical</em> | <strong>Improve IncreasingToUpperBoundRegionSplitPolicy to avoid too many regions</strong></li>
+</ul>
+<p>Changes the default split policy to avoid too many regions with default settings. The old policy calculates the split size at each RS as follows: MIN(maxFileSize, flushSize*NoRegions^2) (NoRegions is the number of regions for the table in question seen on this RS)</p>
+<p>The new policy calculates the size this way: MIN(maxFileSize, flushSize*2*NoRegions^3) Note that the initial split size is now 2 * the flushSize. With default settings it increased from 128mb to 256mb.</p>
+<p>The new policy still allows spreading out the regions over the cluster quickly, but then grows the desired size fairly quickly in order to avoid too many regions per RS.</p>

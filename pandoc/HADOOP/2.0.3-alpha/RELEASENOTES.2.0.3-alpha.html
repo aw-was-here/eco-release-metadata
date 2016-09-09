@@ -1,0 +1,157 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hadoop-2.0.3-alpha-release-notes">Apache Hadoop 2.0.3-alpha Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-9147">HADOOP-9147</a> | <em>Trivial</em> | <strong>Add missing fields to FIleStatus.toString</strong></li>
+</ul>
+<p>Update FileStatus.toString to include missing fields</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-9119">HADOOP-9119</a> | <em>Minor</em> | <strong>Add test to FileSystemContractBaseTest to verify integrity of overwritten files</strong></li>
+</ul>
+<p>Patches adds more tests to verify overwritten and more complex operations -write-delete-overwrite. By using differently sized datasets and different data inside, these tests verify that the overwrite really did take place. While HDFS meets all these requirements directly, eventually consistent object stores may not -hence these tests.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-9118">HADOOP-9118</a> | <em>Trivial</em> | <strong>FileSystemContractBaseTest test data for read/write isn't rigorous enough</strong></li>
+</ul>
+<p>Resolved as part of HADOOP-9119 -it's test data generator creates more bits in every test byte</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-9106">HADOOP-9106</a> | <em>Major</em> | <strong>Allow configuration of IPC connect timeout</strong></li>
+</ul>
+<p>This jira introduces a new configuration parameter &quot;ipc.client.connect.timeout&quot;. This configuration defines the Hadoop RPC connection timeout in milliseconds for a client to connect to a server. For details see the description associated with this configuration in core-default.xml.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-9070">HADOOP-9070</a> | <em>Blocker</em> | <strong>Kerberos SASL server cannot find kerberos key</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-8999">HADOOP-8999</a> | <em>Major</em> | <strong>SASL negotiation is flawed</strong></li>
+</ul>
+<p>The RPC SASL negotiation now always ends with final response. If the SASL mechanism does not have a final response (GSSAPI, PLAIN), then an empty success response is sent to the client. The client will now always expect a final response to definitively know if negotiation is complete/successful.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-8926">HADOOP-8926</a> | <em>Major</em> | <strong>hadoop.util.PureJavaCrc32 cache hit-ratio is low for static data</strong></li>
+</ul>
+<p>Speed up Crc32 by improving the cache hit-ratio of hadoop.util.PureJavaCrc32</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-8922">HADOOP-8922</a> | <em>Trivial</em> | <strong>Provide alternate JSONP output for JMXJsonServlet to allow javascript in browser dashboard</strong></li>
+</ul>
+<p>Add a JSONP alternative outpout for /jmx HTTP interface to provide a Javascript polling ability in browsers.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-8712">HADOOP-8712</a> | <em>Minor</em> | <strong>Change default hadoop.security.group.mapping</strong></li>
+</ul>
+<p>The default group mapping policy has been changed to JniBasedUnixGroupsNetgroupMappingWithFallback. This should maintain the same semantics as the prior default for most users.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-4451">HDFS-4451</a> | <em>Major</em> | <strong>hdfs balancer command returns exit code 1 on success instead of 0</strong></li>
+</ul>
+<p>This is an incompatible change from release 2.0.2-alpha and prior releases. Balancer tool exited with exit code 1 on success. It is changed to exit with exit code 0 on success. Non 0 exit code indicates failure.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-4403">HDFS-4403</a> | <em>Minor</em> | <strong>DFSClient can infer checksum type when not provided by reading first byte</strong></li>
+</ul>
+<p>The HDFS implementation of getFileChecksum() can now operate correctly against earlier-version datanodes which do not include the checksum type information in their checksum response. The checksum type is automatically inferred by issuing a read of the first byte of each block.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-4369">HDFS-4369</a> | <em>Blocker</em> | <strong>GetBlockKeysResponseProto does not handle null response</strong></li>
+</ul>
+<p>Protobuf message GetBlockKeysResponseProto member keys is made optional from required so that null values can be passed over the wire. This is an incompatible wire protocol change and does not affect the API backward compatibility.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-4367">HDFS-4367</a> | <em>Blocker</em> | <strong>GetDataEncryptionKeyResponseProto does not handle null response</strong></li>
+</ul>
+<p>Member dataEncryptionKey of the protobuf message GetDataEncryptionKeyResponseProto is made optional instead of required. This is incompatible change is not likely to affect the existing users (that are using HDFS FileSystem and other public APIs).</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-4364">HDFS-4364</a> | <em>Blocker</em> | <strong>GetLinkTargetResponseProto does not handle null path</strong></li>
+</ul>
+<p>Protobuf message GetLinkTargetResponseProto member targetPath is made optional from required so that null values can be passed over the wire. This is an incompatible wire protocol change and does not affect the API backward compatibility.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-4362">HDFS-4362</a> | <em>Critical</em> | <strong>GetDelegationTokenResponseProto does not handle null token</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-4350">HDFS-4350</a> | <em>Major</em> | <strong>Make enabling of stale marking on read and write paths independent</strong></li>
+</ul>
+<p>This patch makes an incompatible configuration change, as described below: In releases 1.1.0 and other point releases 1.1.x, the configuration parameter &quot;dfs.namenode.check.stale.datanode&quot; could be used to turn on checking for the stale nodes. This configuration is no longer supported in release 1.2.0 onwards and is renamed as &quot;dfs.namenode.avoid.read.stale.datanode&quot;.</p>
+<p>How feature works and configuring this feature: As described in HDFS-3703 release notes, datanode stale period can be configured using parameter &quot;dfs.namenode.stale.datanode.interval&quot; in seconds (default value is 30 seconds). NameNode can be configured to use this staleness information for reads using configuration &quot;dfs.namenode.avoid.read.stale.datanode&quot;. When this parameter is set to true, namenode picks a stale datanode as the last target to read from when returning block locations for reads. Using staleness information for writes is as described in the releases notes of HDFS-3912.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-4122">HDFS-4122</a> | <em>Major</em> | <strong>Cleanup HDFS logs and reduce the size of logged messages</strong></li>
+</ul>
+<p>The change from this jira changes the content of some of the log messages. No log message are removed. Only the content of the log messages is changed to reduce the size. If you have a tool that depends on the exact content of the log, please look at the patch and make appropriate updates to the tool.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-4080">HDFS-4080</a> | <em>Major</em> | <strong>Add a separate logger for block state change logs to enable turning off those logs</strong></li>
+</ul>
+<p>Add a separate logger &quot;BlockStateChange&quot; for block state change logs.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-4059">HDFS-4059</a> | <em>Minor</em> | <strong>Add number of stale DataNodes to metrics</strong></li>
+</ul>
+<p>This jira adds a new metric with name &quot;StaleDataNodes&quot; under metrics context &quot;dfs&quot; of type Gauge. This tracks the number of DataNodes marked as stale. A DataNode is marked stale when the heartbeat message from the DataNode is not received within the configured time &quot;&quot;dfs.namenode.stale.datanode.interval&quot;.</p>
+<p>Please see hdfs-default.xml documentation corresponding to &quot;&quot;dfs.namenode.stale.datanode.interval&quot; for more details on how to configure this feature. When this feature is not configured, this metrics would return zero.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-3703">HDFS-3703</a> | <em>Major</em> | <strong>Decrease the datanode failure detection time</strong></li>
+</ul>
+<p>This jira adds a new DataNode state called &quot;stale&quot; at the NameNode. DataNodes are marked as stale if it does not send heartbeat message to NameNode within the timeout configured using the configuration parameter &quot;dfs.namenode.stale.datanode.interval&quot; in seconds (default value is 30 seconds). NameNode picks a stale datanode as the last target to read from when returning block locations for reads.</p>
+<p>This feature is by default turned * off *. To turn on the feature, set the HDFS configuration &quot;dfs.namenode.check.stale.datanode&quot; to true.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-1331">HDFS-1331</a> | <em>Minor</em> | <strong>dfs -test should work like /bin/test</strong></li>
+</ul>
+<p>&quot;test&quot; will not print a warning for non-existent paths when testing for existence</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4928">MAPREDUCE-4928</a> | <em>Major</em> | <strong>Use token request messages defined in hadoop common</strong></li>
+</ul>
+<p>Protobuf message GetDelegationTokenRequestProto field renewer is made requried from optional. This change is not wire compatible with the older releases.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4637">MAPREDUCE-4637</a> | <em>Major</em> | <strong>Killing an unassigned task attempt causes the job to fail</strong></li>
+</ul>
+<p>Handle TaskAttempt diagnostic updates while in the NEW and UNASSIGNED states.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4123">MAPREDUCE-4123</a> | <em>Critical</em> | <strong>./mapred groups gives NoClassDefFoundError</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4049">MAPREDUCE-4049</a> | <em>Major</em> | <strong>plugin for generic shuffle service</strong></li>
+</ul>
+<p>Allow ReduceTask loading a third party plugin for shuffle (and merge) instead of the default shuffle.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3678">MAPREDUCE-3678</a> | <em>Major</em> | <strong>The Map tasks logs should have the value of input split it processed</strong></li>
+</ul>
+<p>A map-task's syslogs now carries basic info on the InputSplit it processed.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2454">MAPREDUCE-2454</a> | <em>Minor</em> | <strong>Allow external sorter plugin for MR</strong></li>
+</ul>
+<p>MAPREDUCE-4807 Allow external implementations of the sort phase in a Map task</p>

@@ -1,0 +1,374 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hadoop-0.19.0-release-notes">Apache Hadoop 0.19.0 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4466">HADOOP-4466</a> | <em>Blocker</em> | <strong>SequenceFileOutputFormat is coupled to WritableComparable and Writable</strong></li>
+</ul>
+<p>Ensure that SequenceFileOutputFormat isn't tied to Writables and can be used with other Serialization frameworks.</p>
+<hr />
+<ul>
+<li><p><a href="https://issues.apache.org/jira/browse/HADOOP-4433">HADOOP-4433</a> | <em>Major</em> | <strong>Improve data loader for collecting metrics and log files from hadoop and system</strong></p></li>
+<li>Added startup and shutdown script</li>
+<li>Added torque metrics data loader</li>
+<li>Improve handling of Exec Plugin</li>
+<li>Added Test cases for File Tailing Adaptors</li>
+<li><p>Added Test cases for Start streaming at specific offset</p></li>
+</ul>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4430">HADOOP-4430</a> | <em>Blocker</em> | <strong>Namenode Web UI capacity report is inconsistent with Balancer</strong></li>
+</ul>
+<p>Changed reporting in the NameNode Web UI to more closely reflect the behavior of the re-balancer. Removed no longer used config parameter dfs.datanode.du.pct from hadoop-default.xml.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4293">HADOOP-4293</a> | <em>Major</em> | <strong>Remove WritableJobConf</strong></li>
+</ul>
+<p>Made Configuration Writable and rename the old write method to writeXml.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4281">HADOOP-4281</a> | <em>Blocker</em> | <strong>Capacity reported in some of the commands is not consistent with the Web UI reported data</strong></li>
+</ul>
+<p>Changed command &quot;hadoop dfsadmin -report&quot; to be consistent with Web UI for both Namenode and Datanode reports. &quot;Total raw bytes&quot; is changed to &quot;Configured Capacity&quot;. &quot;Present Capacity&quot; is newly added to indicate the present capacity of the DFS. &quot;Remaining raw bytes&quot; is changed to &quot;DFS Remaining&quot;. &quot;Used raw bytes&quot; is changed to &quot;DFS Used&quot;. &quot;% used&quot; is changed to &quot;DFS Used%&quot;. Applications that parse command output should be reviewed.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4227">HADOOP-4227</a> | <em>Minor</em> | <strong>Remove the deprecated, unused class ShellCommand.</strong></li>
+</ul>
+<p>Removed the deprecated class org.apache.hadoop.fs.ShellCommand.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4205">HADOOP-4205</a> | <em>Major</em> | <strong>[Hive] metastore and ql to use the refactored SerDe library</strong></li>
+</ul>
+<p>Improved Hive metastore and ql to use the refactored SerDe library.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4190">HADOOP-4190</a> | <em>Blocker</em> | <strong>Changes to JobHistory makes it backward incompatible</strong></li>
+</ul>
+<p>Changed job history format to add a dot at end of each line.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4176">HADOOP-4176</a> | <em>Major</em> | <strong>Implement getFileChecksum(Path) in HftpFileSystem</strong></li>
+</ul>
+<p>Implemented getFileChecksum(Path) in HftpFileSystemfor distcp support.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4138">HADOOP-4138</a> | <em>Major</em> | <strong>[Hive] refactor the SerDe library</strong></li>
+</ul>
+<p>Introduced new SerDe library for src/contrib/hive.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4117">HADOOP-4117</a> | <em>Major</em> | <strong>Improve configurability of Hadoop EC2 instances</strong></li>
+</ul>
+<p>Changed scripts to pass initialization script for EC2 instances at boot time (as EC2 user data) rather than embedding initialization information in the EC2 image. This change makes it easy to customize the hadoop-site.xml file for your cluster before launch, by editing the hadoop-ec2-init-remote.sh script, or by setting the environment variable USER_DATA_FILE in hadoop-ec2-env.sh to run a script of your choice.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4116">HADOOP-4116</a> | <em>Blocker</em> | <strong>Balancer should provide better resource management</strong></li>
+</ul>
+<p>Changed DataNode protocol version without impact to clients other than to compel use of current version of client application.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4106">HADOOP-4106</a> | <em>Major</em> | <strong>add time, permission and user attribute support to fuse-dfs</strong></li>
+</ul>
+<p>Added time, permission and user attribute support to libhdfs.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4086">HADOOP-4086</a> | <em>Major</em> | <strong>Add limit to Hive QL</strong></li>
+</ul>
+<p>Added LIMIT to Hive query language.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4084">HADOOP-4084</a> | <em>Major</em> | <strong>Add explain plan capabilities to Hive QL</strong></li>
+</ul>
+<p>Introduced &quot;EXPLAIN&quot; plan for Hive.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4018">HADOOP-4018</a> | <em>Major</em> | <strong>limit memory usage in jobtracker</strong></li>
+</ul>
+<p>Introduced new configuration parameter mapred.max.tasks.per.job to specifie the maximum number of tasks per job.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3992">HADOOP-3992</a> | <em>Major</em> | <strong>Synthetic Load Generator for NameNode testing</strong></li>
+</ul>
+<p>Added a synthetic load generation facility to the test directory.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3981">HADOOP-3981</a> | <em>Major</em> | <strong>Need a distributed file checksum algorithm for HDFS</strong></li>
+</ul>
+<p>Implemented MD5-of-xxxMD5-of-yyyCRC32 which is a distributed file checksum algorithm for HDFS, where xxx is the number of CRCs per block and yyy is the number of bytes per CRC.</p>
+<p>Changed DistCp to use file checksum for comparing files if both source and destination FileSystem(s) support getFileChecksum(...).</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3970">HADOOP-3970</a> | <em>Major</em> | <strong>Counters written to the job history cannot be recovered back</strong></li>
+</ul>
+<p>Added getEscapedCompactString() and fromEscapedCompactString() to Counters.java to represent counters as Strings and to reconstruct the counters from the Strings.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3963">HADOOP-3963</a> | <em>Minor</em> | <strong>libhdfs should never exit on its own but rather return errors to the calling application</strong></li>
+</ul>
+<p>Modified libhdfs to return NULL or error code when unrecoverable error occurs rather than exiting itself.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3941">HADOOP-3941</a> | <em>Major</em> | <strong>Extend FileSystem API to return file-checksums/file-digests</strong></li>
+</ul>
+<p>Added new FileSystem APIs: FileChecksum and FileSystem.getFileChecksum(Path).</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3939">HADOOP-3939</a> | <em>Major</em> | <strong>DistCp should support an option for deleting non-existing files.</strong></li>
+</ul>
+<p>Added a new option -delete to DistCp so that if the files/directories exist in dst but not in src will be deleted. It uses FsShell to do delete, so that it will use trash if the trash is enable.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3938">HADOOP-3938</a> | <em>Major</em> | <strong>Quotas for disk space management</strong></li>
+</ul>
+<p>Introducted byte space quotas for directories. The count shell command modified to report both name and byte quotas.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3930">HADOOP-3930</a> | <em>Major</em> | <strong>Decide how to integrate scheduler info into CLI and job tracker web page</strong></li>
+</ul>
+<p>Changed TaskScheduler to expose API for Web UI and Command Line Tool.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3911">HADOOP-3911</a> | <em>Minor</em> | <strong>' -blocks ' option not being recognized</strong></li>
+</ul>
+<p>Added a check to fsck options to make sure -files is not the first option so as to resolve conflicts with GenericOptionsParser.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3908">HADOOP-3908</a> | <em>Minor</em> | <strong>Better error message if llibhdfs.so doesn't exist</strong></li>
+</ul>
+<p>Improved Fuse-dfs better error message if llibhdfs.so doesn't exist.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3889">HADOOP-3889</a> | <em>Minor</em> | <strong>distcp: Better Error Message should be thrown when accessing source files/directory with no read permission</strong></li>
+</ul>
+<p>Changed DistCp error messages when there is a RemoteException. Changed the corresponding return value from -999 to -3.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3873">HADOOP-3873</a> | <em>Major</em> | <strong>DistCp should have an option for limiting the number of files/bytes being copied</strong></li>
+</ul>
+<p>Added two new options -filelimit &lt;n&gt; and -sizelimit &lt;n&gt; to DistCp for limiting the total number of files and the total size in bytes, respectively.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3854">HADOOP-3854</a> | <em>Major</em> | <strong>org.apache.hadoop.http.HttpServer should support user configurable filter</strong></li>
+</ul>
+<p>Added a configuration property hadoop.http.filter.initializers and a class org.apache.hadoop.http.FilterInitializer for supporting servlet filter. Cluster administrator could possibly configure customized filters for their web site.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3837">HADOOP-3837</a> | <em>Major</em> | <strong>hadop streaming does not use progress reporting to detect hung tasks</strong></li>
+</ul>
+<p>Changed streaming tasks to adhere to task timeout value specified in the job configuration.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3829">HADOOP-3829</a> | <em>Major</em> | <strong>Narrown down skipped records based on user acceptable value</strong></li>
+</ul>
+<p>Introduced new config parameter org.apache.hadoop.mapred.SkipBadRecords.setMapperMaxSkipRecords to set range of records to be skipped in the neighborhood of a failed record.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3828">HADOOP-3828</a> | <em>Major</em> | <strong>Write skipped records' bytes to DFS</strong></li>
+</ul>
+<p>Skipped records can optionally be written to the HDFS. Refer org.apache.hadoop.mapred.SkipBadRecords.setSkipOutputPath for setting the output path.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3796">HADOOP-3796</a> | <em>Major</em> | <strong>fuse-dfs should take rw,ro,trashon,trashoff,protected=blah mount arguments rather than them being compiled in</strong></li>
+</ul>
+<p>Changed Fuse configuration to use mount options.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3792">HADOOP-3792</a> | <em>Minor</em> | <strong>exit code from &quot;hadoop dfs -test ...&quot; is wrong for Unix shell</strong></li>
+</ul>
+<p>Changed exit code from hadoop.fs.FsShell -test to match the usual Unix convention.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3746">HADOOP-3746</a> | <em>Minor</em> | <strong>A fair sharing job scheduler</strong></li>
+</ul>
+<p>Introduced Fair Scheduler.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3730">HADOOP-3730</a> | <em>Major</em> | <strong>add new JobConf constructor that disables loading default configurations</strong></li>
+</ul>
+<p>Added a JobConf constructor that disables loading default configurations so as to take all default values from the JobTracker's configuration.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3722">HADOOP-3722</a> | <em>Minor</em> | <strong>Provide a unified way to pass jobconf options from bin/hadoop</strong></li>
+</ul>
+<p>Changed streaming StreamJob and Submitter to implement Tool and Configurable, and to use GenericOptionsParser arguments -fs, -jt, -conf, -D, -libjars, -files, and -archives. Deprecated -jobconf, -cacheArchive, -dfs, -cacheArchive, -additionalconfspec, from streaming and pipes in favor of the generic options. Removed from streaming -config, -mapred.job.tracker, and -cluster.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3719">HADOOP-3719</a> | <em>Major</em> | <strong>Chukwa</strong></li>
+</ul>
+<p>Introduced Chukwa data collection and analysis framework.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3714">HADOOP-3714</a> | <em>Trivial</em> | <strong>Bash tab completion support</strong></li>
+</ul>
+<p>Adds a new contrib, bash-tab-completion, which enables bash tab completion for the bin/hadoop script. See the README file in the contrib directory for the installation.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3702">HADOOP-3702</a> | <em>Major</em> | <strong>add support for chaining Maps in a single Map and after a Reduce [M*/RM*]</strong></li>
+</ul>
+<p>Introduced ChainMapper and the ChainReducer classes to allow composing chains of Maps and Reduces in a single Map/Reduce job, something like MAP+ REDUCE MAP*.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3695">HADOOP-3695</a> | <em>Major</em> | <strong>[HOD] Have an ability to run multiple slaves per node</strong></li>
+</ul>
+<p>Added an ability in HOD to start multiple workers (TaskTrackers and/or DataNodes) per node to assist testing and simulation of scale. A configuration variable ringmaster.workers_per_ring was added to specify the number of workers to start.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3684">HADOOP-3684</a> | <em>Major</em> | <strong>The data_join should allow the user to implement a customer cloning function</strong></li>
+</ul>
+<p>Allowed user to overwrite clone function in a subclass of TaggedMapOutput class.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3667">HADOOP-3667</a> | <em>Major</em> | <strong>Remove deprecated methods in JobConf</strong></li>
+</ul>
+<p>Removed the following deprecated methods from JobConf: addInputPath(Path) getInputPaths() getMapOutputCompressionType() getOutputPath() getSystemDir() setInputPath(Path) setMapOutputCompressionType(CompressionType style) setOutputPath(Path)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3652">HADOOP-3652</a> | <em>Major</em> | <strong>Remove deprecated class OutputFormatBase</strong></li>
+</ul>
+<p>Removed deprecated org.apache.hadoop.mapred.OutputFormatBase.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3646">HADOOP-3646</a> | <em>Major</em> | <strong>Providing bzip2 as codec</strong></li>
+</ul>
+<p>Introduced support for bzip2 compressed files.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3601">HADOOP-3601</a> | <em>Minor</em> | <strong>Hive as a contrib project</strong></li>
+</ul>
+<p>Introduced Hive Data Warehouse built on top of Hadoop that enables structuring Hadoop files as tables and partitions and allows users to query this data through a SQL like language using a command line interface.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3595">HADOOP-3595</a> | <em>Major</em> | <strong>Remove deprecated mapred.combine.once functionality</strong></li>
+</ul>
+<p>Removed deprecated methods for mapred.combine.once functionality.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3585">HADOOP-3585</a> | <em>Minor</em> | <strong>Hardware Failure Monitoring in large clusters running Hadoop/HDFS</strong></li>
+</ul>
+<p>Added FailMon as a contrib project for hardware failure monitoring and analysis, under /src/contrib/failmon. Created User Manual and Quick Start Guide.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3581">HADOOP-3581</a> | <em>Major</em> | <strong>Prevent memory intensive user tasks from taking down nodes</strong></li>
+</ul>
+<p>Added the ability to kill process trees transgressing memory limits. TaskTracker uses the configuration parameters introduced in HADOOP-3759. In addition, mapred.tasktracker.taskmemorymanager.monitoring-interval specifies the interval for which TT waits between cycles of monitoring tasks' memory usage, and mapred.tasktracker.procfsbasedprocesstree.sleeptime-before-sigkill specifies the time TT waits for sending a SIGKILL to a process-tree that has overrun memory limits, after it has been sent a SIGTERM.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3549">HADOOP-3549</a> | <em>Major</em> | <strong>meaningful errno values in libhdfs</strong></li>
+</ul>
+<p>Improved error reporting for libhdfs so permission problems now return EACCES.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3498">HADOOP-3498</a> | <em>Major</em> | <strong>File globbing alternation should be able to span path components</strong></li>
+</ul>
+<p>Extended file globbing alternation to cross path components. For example, {/a/b,/c/d} expands to a path that matches the files /a/b and /c/d.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3485">HADOOP-3485</a> | <em>Minor</em> | <strong>fix writes</strong></li>
+</ul>
+<p>Introduce write support for Fuse; requires Linux kernel 2.6.15 or better.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3478">HADOOP-3478</a> | <em>Major</em> | <strong>The algorithm to decide map re-execution on fetch failures can be improved</strong></li>
+</ul>
+<p>Changed reducers to fetch maps in the same order for a given host to speed up identification of the faulty maps; reducers still randomize the host selection to distribute load.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3445">HADOOP-3445</a> | <em>Major</em> | <strong>Implementing core scheduler functionality in Resource Manager (V1) for Hadoop</strong></li>
+</ul>
+<p>Introduced Capacity Task Scheduler.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3412">HADOOP-3412</a> | <em>Minor</em> | <strong>Refactor the scheduler out of the JobTracker</strong></li>
+</ul>
+<p>Added the ability to chose between many schedulers, and to limit the number of running tasks per job.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3245">HADOOP-3245</a> | <em>Major</em> | <strong>Provide ability to persist running jobs (extend HADOOP-1876)</strong></li>
+</ul>
+<p>Introduced recovery of jobs when JobTracker restarts. This facility is off by default. Introduced config parameters mapred.jobtracker.restart.recover, mapred.jobtracker.job.history.block.size, and mapred.jobtracker.job.history.buffer.size.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3150">HADOOP-3150</a> | <em>Major</em> | <strong>Move task file promotion into the task</strong></li>
+</ul>
+<p>Moved task file promotion to the Task. When the task has finished, it will do a commit and is declared SUCCEDED. Job cleanup is done by a separate task. Job is declared SUCCEDED/FAILED after the cleanup task has finished. Added public classes org.apache.hadoop.mapred.JobContext, TaskAttemptContext, OutputCommitter and FileOutputCommiitter. Added public APIs: public OutputCommitter getOutputCommitter() and public void setOutputCommitter(Class&lt;? extends OutputCommitter&gt; theClass) in org.apache.hadoop.mapred.JobConf</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3149">HADOOP-3149</a> | <em>Major</em> | <strong>supporting multiple outputs for M/R jobs</strong></li>
+</ul>
+<p>Introduced MultipleOutputs class so Map/Reduce jobs can write data to different output files. Each output can use a different OutputFormat. Outpufiles are created within the job output directory. FileOutputFormat.getPathForCustomFile() creates a filename under the outputdir that is named with the task ID and task type (i.e. myfile-r-00001).</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3062">HADOOP-3062</a> | <em>Major</em> | <strong>Need to capture the metrics for the network ios generate by dfs reads/writes and map/reduce shuffling and break them down by racks</strong></li>
+</ul>
+<p>Introduced additional log records for data transfers.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-3019">HADOOP-3019</a> | <em>Major</em> | <strong>want input sampler &amp; sorted partitioner</strong></li>
+</ul>
+<p>Added a partitioner that effects a total order of output data, and an input sampler for generating the partition keyset for TotalOrderPartitioner for when the map's input keytype and distribution approximates its output.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-2816">HADOOP-2816</a> | <em>Major</em> | <strong>Cluster summary at name node web has confusing report for space utilization</strong></li>
+</ul>
+<p>Improved space reporting for NameNode Web UI. Applications that parse the Web UI output should be reviewed.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-2664">HADOOP-2664</a> | <em>Major</em> | <strong>lzop-compatible CompresionCodec</strong></li>
+</ul>
+<p>Introduced LZOP codec.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-2411">HADOOP-2411</a> | <em>Major</em> | <strong>Add support for larger EC2 instance types</strong></li>
+</ul>
+<p>Added support for c1.* instance types and associated kernels for EC2.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-2325">HADOOP-2325</a> | <em>Major</em> | <strong>Require Java 6</strong></li>
+</ul>
+<p>Hadoop now requires Java 6.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-2302">HADOOP-2302</a> | <em>Major</em> | ** Streaming should provide an option for numerical sort of keys**</li>
+</ul>
+<p>Introduced numerical key comparison for streaming.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-1869">HADOOP-1869</a> | <em>Major</em> | <strong>access times of HDFS files</strong></li>
+</ul>
+<p>Added HDFS file access times. By default, access times will be precise to the most recent hour boundary. A configuration parameter dfs.access.time.precision (milliseconds) is used to control this precision. Setting a value of 0 will disable persisting access times for HDFS files.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-1823">HADOOP-1823</a> | <em>Major</em> | <strong>want InputFormat for bzip2 files</strong></li>
+</ul>
+<p>bzip2 provided as codec in 0.19.0 https://issues.apache.org/jira/browse/HADOOP-3646</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-1700">HADOOP-1700</a> | <em>Major</em> | <strong>Append to files in HDFS</strong></li>
+</ul>
+<p>Introduced append operation for HDFS files.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-249">HADOOP-249</a> | <em>Major</em> | <strong>Improving Map -&gt; Reduce performance and Task JVM reuse</strong></li>
+</ul>
+<p>Enabled task JVMs to be reused via the job config mapred.job.reuse.jvm.num.tasks.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-153">HADOOP-153</a> | <em>Major</em> | <strong>skip records that fail Task</strong></li>
+</ul>
+<p>Introduced record skipping where tasks fail on certain records. (org.apache.hadoop.mapred.SkipBadRecords)</p>

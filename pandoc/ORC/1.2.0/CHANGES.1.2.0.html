@@ -1,0 +1,217 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-orc-changelog">Apache Orc Changelog</h1>
+<h2 id="release-1.2.0---2016-08-25">Release 1.2.0 - 2016-08-25</h2>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ORC-65">ORC-65</a></td>
+<td align="left">Write new documentation for site</td>
+<td align="left">Major</td>
+<td align="left">site</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Owen O'Malley</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ORC-71">ORC-71</a></td>
+<td align="left">Apache ORC C++ ONLY build</td>
+<td align="left">Trivial</td>
+<td align="left">C++</td>
+<td align="left">Sudhir Babu Pothineni</td>
+<td align="left">Sudhir Babu Pothineni</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ORC-69">ORC-69</a></td>
+<td align="left">Add batch option support in orc-contents and orc-scan tools.</td>
+<td align="left">Trivial</td>
+<td align="left">tools</td>
+<td align="left">hongwu</td>
+<td align="left">hongwu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ORC-75">ORC-75</a></td>
+<td align="left">Don't create backup versions of the poms when version change</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Owen O'Malley</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ORC-84">ORC-84</a></td>
+<td align="left">Create a separate java tool module</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Owen O'Malley</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ORC-85">ORC-85</a></td>
+<td align="left">Update the C++ library with the newer WriterVersion values.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Owen O'Malley</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ORC-54">ORC-54</a></td>
+<td align="left">Evolve schemas based on field name rather than index</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Mark Wagner</td>
+<td align="left">Mark Wagner</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ORC-96">ORC-96</a></td>
+<td align="left">Pass Context to Orc tree readers</td>
+<td align="left">Major</td>
+<td align="left">Reader</td>
+<td align="left">Prasanth Jayachandran</td>
+<td align="left">Prasanth Jayachandran</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ORC-76">ORC-76</a></td>
+<td align="left">Update website with ORC 1.1.1</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Owen O'Malley</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ORC-79">ORC-79</a></td>
+<td align="left">Minor updates to the website.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Owen O'Malley</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ORC-80">ORC-80</a></td>
+<td align="left">C++ build breaks due to warnings with gcc-4.9</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Deepak Majeti</td>
+<td align="left">Deepak Majeti</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ORC-82">ORC-82</a></td>
+<td align="left">Fix compilation on ubuntu 12.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Owen O'Malley</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ORC-83">ORC-83</a></td>
+<td align="left">Protected users from Reader.rows(Options) modifying the Options object</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Owen O'Malley</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ORC-88">ORC-88</a></td>
+<td align="left">Add a raw metadata switch to orc-metadata</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Owen O'Malley</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ORC-81">ORC-81</a></td>
+<td align="left">Add support for lzo and lz4 to c++ reader</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Owen O'Malley</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ORC-77">ORC-77</a></td>
+<td align="left">Support Snappy, LZO, and LZ4 from aircompressor.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Owen O'Malley</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ORC-93">ORC-93</a></td>
+<td align="left">remove log message about seeking into an empty stream</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Owen O'Malley</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ORC-94">ORC-94</a></td>
+<td align="left">Remove obsolete MaxPermSize from pom file</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Owen O'Malley</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ORC-95">ORC-95</a></td>
+<td align="left">Fix some missing ASF headers</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Owen O'Malley</td>
+</tr>
+</tbody>
+</table>

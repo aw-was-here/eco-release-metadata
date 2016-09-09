@@ -1,0 +1,54 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hbase-0.98.20-release-notes">Apache HBase 0.98.20 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-15686">HBASE-15686</a> | <em>Major</em> | <strong>Add override mechanism for the exempt classes when dynamically loading table coprocessor</strong></li>
+</ul>
+<p>New coprocessor table descriptor attribute, hbase.coprocessor.classloader.included.classes, is added. User can specify class name prefixes (semicolon separated) which should be loaded by CoprocessorClassLoader through this attribute using the following syntax: {code} hbase&gt; alter 't1', 'coprocessor'=&gt;'hdfs:///foo.jar|com.foo.FooRegionObserver|1001|arg1=1,arg2=2' {code}</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-15720">HBASE-15720</a> | <em>Major</em> | <strong>Print row locks at the debug dump page</strong></li>
+</ul>
+<p>Adds a section to the debug dump page listing current row locks held.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-15740">HBASE-15740</a> | <em>Major</em> | <strong>Replication source.shippedKBs metric is undercounting because it is in KB</strong></li>
+</ul>
+<p>Deprecated Replication source.shippedKBs metric in favor of source.shippedBytes</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-15801">HBASE-15801</a> | <em>Major</em> | <strong>Upgrade checkstyle for all branches</strong></li>
+</ul>
+<p>All active branches now use maven-checkstyle-plugin 2.17 and checkstyle 6.18.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-15856">HBASE-15856</a> | <em>Critical</em> | <strong>Cached Connection instances can wind up with addresses never resolved</strong></li>
+</ul>
+<p>During periods where DNS resolution was not available or not working correctly, we could previously cache unresolved hostnames forever, in some cases preventing further connections to these hosts even when DNS service was restored. With this change, unresolved hostnames will no longer be cached, and will instead throw an UnknownHostException during connection setup.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-15890">HBASE-15890</a> | <em>Major</em> | <strong>Allow thrift to set/unset &quot;cacheBlocks&quot; for Scans</strong></li>
+</ul>
+<p>Adds cacheBlocks to Scan</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-15931">HBASE-15931</a> | <em>Critical</em> | <strong>Add log for long-running tasks in AsyncProcess</strong></li>
+</ul>
+<p>After HBASE-15931, we will log more details for long-running tasks in AsyncProcess#waitForMaximumCurrentTasks every 10 seconds, including: 1. Table name will be included in the tasks status log 2. On which regionserver(s) the tasks are runnning will be logged when less than hbase.client.threshold.log.details tasks left, by default 10. 3. Against which regions the tasks are running will be logged when less than 2 tasks left.</p>

@@ -1,0 +1,220 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hadoop-changelog">Apache Hadoop Changelog</h1>
+<h2 id="release-0.18.1---2008-09-17">Release 0.18.1 - 2008-09-17</h2>
+<h3 id="incompatible-changes">INCOMPATIBLE CHANGES:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="new-features">NEW FEATURES:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-4145">HADOOP-4145</a></td>
+<td align="left">[HOD] Support an accounting plugin script for HOD</td>
+<td align="left">Blocker</td>
+<td align="left">contrib/hod</td>
+<td align="left">Hemanth Yamijala</td>
+<td align="left">Hemanth Yamijala</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-3934">HADOOP-3934</a></td>
+<td align="left">Update log4j from 1.2.13 to 1.2.15</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Don Kim</td>
+<td align="left">Owen O'Malley</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-4161">HADOOP-4161</a></td>
+<td align="left">[HOD] Uncaught exceptions can potentially hang hod-client.</td>
+<td align="left">Major</td>
+<td align="left">contrib/hod</td>
+<td align="left">Vinod Kumar Vavilapalli</td>
+<td align="left">Vinod Kumar Vavilapalli</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-4060">HADOOP-4060</a></td>
+<td align="left">[HOD] Make HOD to roll log files on the client</td>
+<td align="left">Blocker</td>
+<td align="left">contrib/hod</td>
+<td align="left">Hemanth Yamijala</td>
+<td align="left">Vinod Kumar Vavilapalli</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-4046">HADOOP-4046</a></td>
+<td align="left">WritableComparator's constructor should be protected instead of private</td>
+<td align="left">Major</td>
+<td align="left">io</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Chris Douglas</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-4040">HADOOP-4040</a></td>
+<td align="left">Remove the hardcoded ipc.client.connection.maxidletime setting from the TaskTracker.Child.main()</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Devaraj Das</td>
+<td align="left">Devaraj Das</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-4037">HADOOP-4037</a></td>
+<td align="left">HadoopQA contrib -1 comments due to inconsistency in eclipse plugin declared jars</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Nigel Daley</td>
+<td align="left">Nigel Daley</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-3995">HADOOP-3995</a></td>
+<td align="left">renameTo(src, dst) does not restore src name in case of quota failure.</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Raghu Angadi</td>
+<td align="left">Raghu Angadi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-3940">HADOOP-3940</a></td>
+<td align="left">Reduce often attempts in memory merge with no work</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Chris Douglas</td>
+<td align="left">Chris Douglas</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-3821">HADOOP-3821</a></td>
+<td align="left">SequenceFile's Reader.decompressorPool or Writer.decompressorPool gets into an inconsistent state when calling close() more than once</td>
+<td align="left">Major</td>
+<td align="left">io</td>
+<td align="left">Peter Voss</td>
+<td align="left">Arun C Murthy</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tests">TESTS:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="sub-tasks">SUB-TASKS:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="other">OTHER:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>

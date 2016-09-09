@@ -1,0 +1,38 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-flink-1.0.0-release-notes">Apache Flink 1.0.0 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/FLINK-3292">FLINK-3292</a> | <em>Minor</em> | <strong>Bug in flink-jdbc. Not all JDBC drivers supported</strong></li>
+</ul>
+<p>Hello,</p>
+<p>In method open in JDBCInputFormat.java, while using dbConn.createStatement, the resultSetType &amp; resultSetConcurrency are hardcoded. These two fields may vary with different JDBC drivers &amp; hence it fails in a few cases like SAP HANA Jdbc driver. There are two variants of the method dbCon.createStatement, one with parameters &amp; the other without parameters. Both should be supported.</p>
+<p>Thanks &amp; regards, Subhobrata</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/FLINK-3271">FLINK-3271</a> | <em>Major</em> | <strong>Using webhdfs in a flink topology throws classnotfound exception</strong></li>
+</ul>
+<p>I was just trying to run a storm topology on flink using flink-storm. I got this exception -</p>
+<p>{noformat} Caused by: java.lang.NoClassDefFoundError: org/mortbay/util/ajax/JSON at org.apache.hadoop.hdfs.web.WebHdfsFileSystem.jsonParse(WebHdfsFileSystem.java:325) at org.apache.hadoop.hdfs.web.WebHdfsFileSystem$FsPathResponseRunner.getResponse(WebHdfsFileSystem.java:727) at org.apache.hadoop.hdfs.web.WebHdfsFileSystem$AbstractRunner.runWithRetry(WebHdfsFileSystem.java:610) at org.apache.hadoop.hdfs.web.WebHdfsFileSystem$AbstractRunner.access$100(WebHdfsFileSystem.java:458) at org.apache.hadoop.hdfs.web.WebHdfsFileSystem$AbstractRunner$1.run(WebHdfsFileSystem.java:487) at java.security.AccessController.doPrivileged(Native Method) at javax.security.auth.Subject.doAs(Subject.java:422) at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1628) at org.apache.hadoop.hdfs.web.WebHdfsFileSystem$AbstractRunner.run(WebHdfsFileSystem.java:483) at org.apache.hadoop.hdfs.web.WebHdfsFileSystem.listStatus(WebHdfsFileSystem.java:1277) {noformat}</p>
+<p>My topology list some files on hdfs using webhdfs API. org.mortbay.util.ajax.JSON was included in the application uber jar. I noticed that flink loads the application jar in a child classloader. This is what most likely happened -</p>
+<ol>
+<li>WebHdfsFileSystem class was loaded through parent class loader since it is included in flink-dist.jar.</li>
+<li>WebHdfsFileSystem has reference to the org.mortbay.util.ajax.JSON but since it is loaded through parent class loader, WebHdfsFileSystem can't read a class in child class loader.</li>
+</ol>
+<p>Ideally all the referenced classes should be available in the distribution jar so that these sort of issues may not occur.</p>

@@ -18,23 +18,32 @@
 -->
 # Apache HBase  0.98.10 Release Notes
 
-These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
+These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
 
 
 ---
 
-* [HBASE-12842](https://issues.apache.org/jira/browse/HBASE-12842) | *Major* | **Fix the incompatibility introduced by AccessControlClient in 0.98**
+* [HBASE-12644](https://issues.apache.org/jira/browse/HBASE-12644) | *Major* | **Visibility Labels: issue with storing super users in labels table**
 
-Restores AccessControlClient#grant(Configuration, TableName, String, byte[], byte[], Permission.Action...) and AccessControlClient#revoke(Configuration, String, TableName, byte[], byte[], Permission.Action...) for binary compatibility with earlier releases.
+The system visibility label authorization for super users will no longer be persisted in hbase:labels table. Super users will be determined at server startup time. They will have all the permissions for Visibility labels.
+If you have a prior deployment that had super users' system label persisted in hbase:labels, you can clean up by invoking the shell command 'clear\_auths'.
+For example: clear\_auths 'old\_superuser', 'system'
+This is particularly necessary when you change super users, i.e. a previous super user is no longer a super user.
 
 
 ---
 
-* [HBASE-12831](https://issues.apache.org/jira/browse/HBASE-12831) | *Major* | **Changing the set of vis labels a user has access to doesn't generate an audit log event**
+* [HBASE-12121](https://issues.apache.org/jira/browse/HBASE-12121) | *Minor* | **maven release plugin does not allow for customized goals**
 
-Auditing of visibility label administration.
+Allows user to add goals to release procedure
+mvn release:perform -Dgoal=\<goal-name\>
+If no goal is specified default behavior is used
 
-Administrative actions on visibility labels, such as creation of a label or changing the set of labels a user or group may access, are now sent to the audit log. The audit messages should be similar to those already tracked by the access controller.
+Example use case:
+Release to private repository and upload artifacts but also want the tarball to be uploaded, not just the jars. 
+the following could be added to the release command
+-Dgoal="-X package install site assembly:single deploy -DskipTests"
+This will execute the release procedure and also upload the tarball along with all jars.
 
 
 ---
@@ -50,9 +59,23 @@ This change adds the site configuration property "hbase.regionserver.handler.abo
 
 ---
 
+* [HBASE-12842](https://issues.apache.org/jira/browse/HBASE-12842) | *Major* | **Fix the incompatibility introduced by AccessControlClient in 0.98**
+
+Restores AccessControlClient#grant(Configuration, TableName, String, byte[], byte[], Permission.Action...) and AccessControlClient#revoke(Configuration, String, TableName, byte[], byte[], Permission.Action...) for binary compatibility with earlier releases.
+
+
+---
+
 * [HBASE-12774](https://issues.apache.org/jira/browse/HBASE-12774) | *Minor* | **Fix the inconsistent permission checks for bulkloading.**
 
 Bulk load permissions are changed from requiring both C and W to only require C.
+
+
+---
+
+* [HBASE-12731](https://issues.apache.org/jira/browse/HBASE-12731) | *Major* | **Heap occupancy based client pushback**
+
+This feature incorporates reported regionserver heap occupancy in the (optional) client pushback calculations. If client pushback is enabled, the exponential backoff policy will take heap occupancy into account, should it exceed "hbase.heap.occupancy.low\_water\_mark" percentage of the heap (default 0.95). Once above the low water mark, heap occupancy is an additional factor scaling from 0.1 up to 1.0 at "hbase.heap.occupancy.high\_water\_mark" (default 0.98). At or above the high water mark the client will use the maximum configured backoff.
 
 
 ---
@@ -85,34 +108,11 @@ havingSystemAuth(User)
 
 ---
 
-* [HBASE-12731](https://issues.apache.org/jira/browse/HBASE-12731) | *Major* | **Heap occupancy based client pushback**
+* [HBASE-12831](https://issues.apache.org/jira/browse/HBASE-12831) | *Major* | **Changing the set of vis labels a user has access to doesn't generate an audit log event**
 
-This feature incorporates reported regionserver heap occupancy in the (optional) client pushback calculations. If client pushback is enabled, the exponential backoff policy will take heap occupancy into account, should it exceed "hbase.heap.occupancy.low\_water\_mark" percentage of the heap (default 0.95). Once above the low water mark, heap occupancy is an additional factor scaling from 0.1 up to 1.0 at "hbase.heap.occupancy.high\_water\_mark" (default 0.98). At or above the high water mark the client will use the maximum configured backoff.
+Auditing of visibility label administration.
 
-
----
-
-* [HBASE-12644](https://issues.apache.org/jira/browse/HBASE-12644) | *Major* | **Visibility Labels: issue with storing super users in labels table**
-
-The system visibility label authorization for super users will no longer be persisted in hbase:labels table. Super users will be determined at server startup time. They will have all the permissions for Visibility labels.
-If you have a prior deployment that had super users' system label persisted in hbase:labels, you can clean up by invoking the shell command 'clear\_auths'.
-For example: clear\_auths 'old\_superuser', 'system'
-This is particularly necessary when you change super users, i.e. a previous super user is no longer a super user.
-
-
----
-
-* [HBASE-12121](https://issues.apache.org/jira/browse/HBASE-12121) | *Minor* | **maven release plugin does not allow for customized goals**
-
-Allows user to add goals to release procedure
-mvn release:perform -Dgoal=<goal-name>
-If no goal is specified default behavior is used
-
-Example use case:
-Release to private repository and upload artifacts but also want the tarball to be uploaded, not just the jars. 
-the following could be added to the release command
--Dgoal="-X package install site assembly:single deploy -DskipTests"
-This will execute the release procedure and also upload the tarball along with all jars.
+Administrative actions on visibility labels, such as creation of a label or changing the set of labels a user or group may access, are now sent to the audit log. The audit messages should be similar to those already tracked by the access controller.
 
 
 

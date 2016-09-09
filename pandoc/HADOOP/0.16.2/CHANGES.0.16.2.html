@@ -1,0 +1,324 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hadoop-changelog">Apache Hadoop Changelog</h1>
+<h2 id="release-0.16.2---2008-04-02">Release 0.16.2 - 2008-04-02</h2>
+<h3 id="incompatible-changes">INCOMPATIBLE CHANGES:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="new-features">NEW FEATURES:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-3128">HADOOP-3128</a></td>
+<td align="left">TestDFSPermission due to not throwing exception.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Konstantin Shvachko</td>
+<td align="left">Konstantin Shvachko</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-3108">HADOOP-3108</a></td>
+<td align="left">NPE in FSDirectory.unprotectedSetPermission</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Koji Noguchi</td>
+<td align="left">Konstantin Shvachko</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-3107">HADOOP-3107</a></td>
+<td align="left">fsck failing with NPE</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Koji Noguchi</td>
+<td align="left">dhruba borthakur</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-3105">HADOOP-3105</a></td>
+<td align="left">compile-core-test fails for branch 0.16</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Amareshwari Sriramadasu</td>
+<td align="left">Alejandro Abdelnur</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-3104">HADOOP-3104</a></td>
+<td align="left">MultithreadMapRunner keeps consuming records even if trheads are not available</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Alejandro Abdelnur</td>
+<td align="left">Alejandro Abdelnur</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-3103">HADOOP-3103</a></td>
+<td align="left">[HOD] Hadoop.tmp.dir should not be set to cluster directory</td>
+<td align="left">Blocker</td>
+<td align="left">contrib/hod</td>
+<td align="left">Vinod Kumar Vavilapalli</td>
+<td align="left">Vinod Kumar Vavilapalli</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-3098">HADOOP-3098</a></td>
+<td align="left">dfs -chown does not like &quot;_&quot; underscore in user name</td>
+<td align="left">Blocker</td>
+<td align="left">fs</td>
+<td align="left">Koji Noguchi</td>
+<td align="left">Raghu Angadi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-3084">HADOOP-3084</a></td>
+<td align="left">distcp fails for files with zero length</td>
+<td align="left">Blocker</td>
+<td align="left">util</td>
+<td align="left">Mukund Madhugiri</td>
+<td align="left">Chris Douglas</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-3070">HADOOP-3070</a></td>
+<td align="left">Trash not being expunged, Trash Emptier thread gone by NPE</td>
+<td align="left">Blocker</td>
+<td align="left">fs</td>
+<td align="left">Koji Noguchi</td>
+<td align="left">Koji Noguchi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-3056">HADOOP-3056</a></td>
+<td align="left">distcp seems to be broken in 0.16.1</td>
+<td align="left">Blocker</td>
+<td align="left">util</td>
+<td align="left">Christian Kunz</td>
+<td align="left">Chris Douglas</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-3049">HADOOP-3049</a></td>
+<td align="left">MultithreadedMapRunner eats RuntimeExceptions</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Alejandro Abdelnur</td>
+<td align="left">Alejandro Abdelnur</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-3042">HADOOP-3042</a></td>
+<td align="left">Update the Javadoc in JobConf.getOutputPath to reflect the actual temporary path</td>
+<td align="left">Major</td>
+<td align="left">documentation</td>
+<td align="left">Devaraj Das</td>
+<td align="left">Amareshwari Sriramadasu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-3039">HADOOP-3039</a></td>
+<td align="left">Runtime exceptions not killing job</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Amareshwari Sriramadasu</td>
+<td align="left">Amareshwari Sriramadasu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-3033">HADOOP-3033</a></td>
+<td align="left">Datanode fails write to DFS file with exception message &quot;Trying to change block file offset&quot;</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">dhruba borthakur</td>
+<td align="left">dhruba borthakur</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-3027">HADOOP-3027</a></td>
+<td align="left">JobTracker shuts down during initialization if the NameNode is down</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Amareshwari Sriramadasu</td>
+<td align="left">Amareshwari Sriramadasu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-3011">HADOOP-3011</a></td>
+<td align="left">Distcp deleting target directory</td>
+<td align="left">Blocker</td>
+<td align="left">util</td>
+<td align="left">Koji Noguchi</td>
+<td align="left">Chris Douglas</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-3007">HADOOP-3007</a></td>
+<td align="left">DataNode pipelining : failure on mirror results in failure on upstream datanode</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Raghu Angadi</td>
+<td align="left">Raghu Angadi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-3003">HADOOP-3003</a></td>
+<td align="left">FileSystem cache key should be updated after a FileSystem object is created</td>
+<td align="left">Major</td>
+<td align="left">fs</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-2985">HADOOP-2985</a></td>
+<td align="left">LocalJobRunner gets NullPointerException if there is no output directory</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Amareshwari Sriramadasu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-2978">HADOOP-2978</a></td>
+<td align="left">JobHistory log format for COUNTER is ambigurous</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Runping Qi</td>
+<td align="left">Runping Qi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-2944">HADOOP-2944</a></td>
+<td align="left">redesigned plugin has missing functionality</td>
+<td align="left">Major</td>
+<td align="left">contrib/eclipse-plugin</td>
+<td align="left">Chris Dyer</td>
+<td align="left">Christophe Taton</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-2833">HADOOP-2833</a></td>
+<td align="left">JobClient.submitJob(...) should not use &quot;Dr Who&quot; as a default username</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tests">TESTS:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="sub-tasks">SUB-TASKS:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="other">OTHER:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-3111">HADOOP-3111</a></td>
+<td align="left">Remove HBase from Hadoop contrib</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jim Kellerman</td>
+<td align="left">Jim Kellerman</td>
+</tr>
+</tbody>
+</table>

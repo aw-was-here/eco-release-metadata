@@ -1,0 +1,356 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hadoop-changelog">Apache Hadoop Changelog</h1>
+<h2 id="release-1.1.2---2013-02-15">Release 1.1.2 - 2013-02-15</h2>
+<h3 id="incompatible-changes">INCOMPATIBLE CHANGES:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="new-features">NEW FEATURES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8567">HADOOP-8567</a></td>
+<td align="left">Port conf servlet to dump running configuration to branch 1.x</td>
+<td align="left">Major</td>
+<td align="left">conf</td>
+<td align="left">Junping Du</td>
+<td align="left">Jing Zhao</td>
+</tr>
+</tbody>
+</table>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9111">HADOOP-9111</a></td>
+<td align="left">Fix failed testcases with @ignore annotation In branch-1</td>
+<td align="left">Minor</td>
+<td align="left">test</td>
+<td align="left">Jing Zhao</td>
+<td align="left">Jing Zhao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8561">HADOOP-8561</a></td>
+<td align="left">Introduce HADOOP_PROXY_USER for secure impersonation in child hadoop client processes</td>
+<td align="left">Major</td>
+<td align="left">security</td>
+<td align="left">Luke Lu</td>
+<td align="left">Yu Gao</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-4252">HDFS-4252</a></td>
+<td align="left">Improve confusing log message that prints exception when editlog read is completed</td>
+<td align="left">Major</td>
+<td align="left">namenode</td>
+<td align="left">Suresh Srinivas</td>
+<td align="left">Jing Zhao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4397">MAPREDUCE-4397</a></td>
+<td align="left">Introduce HADOOP_SECURITY_CONF_DIR for task-controller</td>
+<td align="left">Major</td>
+<td align="left">task-controller</td>
+<td align="left">Luke Lu</td>
+<td align="left">Yu Gao</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9115">HADOOP-9115</a></td>
+<td align="left">Deadlock in configuration when writing configuration to hdfs</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Arpit Gupta</td>
+<td align="left">Jing Zhao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8880">HADOOP-8880</a></td>
+<td align="left">Missing jersey jars as dependency in the pom causes hive tests to fail</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Giridharan Kesavan</td>
+<td align="left">Giridharan Kesavan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8419">HADOOP-8419</a></td>
+<td align="left">GzipCodec NPE upon reset with IBM JDK</td>
+<td align="left">Major</td>
+<td align="left">io</td>
+<td align="left">Luke Lu</td>
+<td align="left">Yu Li</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8418">HADOOP-8418</a></td>
+<td align="left">Fix UGI for IBM JDK running on Windows</td>
+<td align="left">Major</td>
+<td align="left">security</td>
+<td align="left">Luke Lu</td>
+<td align="left">Yu Gao</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-5996">HDFS-5996</a></td>
+<td align="left">hadoop 1.1.2. hdfs write bug</td>
+<td align="left">Major</td>
+<td align="left">fuse-dfs</td>
+<td align="left">WangMeng</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-4423">HDFS-4423</a></td>
+<td align="left">Checkpoint exception causes fatal damage to fsimage.</td>
+<td align="left">Blocker</td>
+<td align="left">namenode</td>
+<td align="left">ChenFolin</td>
+<td align="left">Chris Nauroth</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-4208">HDFS-4208</a></td>
+<td align="left">NameNode could be stuck in SafeMode due to never-created blocks</td>
+<td align="left">Critical</td>
+<td align="left">namenode</td>
+<td align="left">Brandon Li</td>
+<td align="left">Brandon Li</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-3727">HDFS-3727</a></td>
+<td align="left">When using SPNEGO, NN should not try to log in using KSSL principal</td>
+<td align="left">Major</td>
+<td align="left">namenode</td>
+<td align="left">Aaron T. Myers</td>
+<td align="left">Aaron T. Myers</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4888">MAPREDUCE-4888</a></td>
+<td align="left">NLineInputFormat drops data in 1.1 and beyond</td>
+<td align="left">Blocker</td>
+<td align="left">mrv1</td>
+<td align="left">Robert Joseph Evans</td>
+<td align="left">Vinod Kumar Vavilapalli</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4859">MAPREDUCE-4859</a></td>
+<td align="left">TestRecoveryManager fails on branch-1</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Arun C Murthy</td>
+<td align="left">Arun C Murthy</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4858">MAPREDUCE-4858</a></td>
+<td align="left">TestWebUIAuthorization fails on branch-1</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Arun C Murthy</td>
+<td align="left">Arun C Murthy</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4798">MAPREDUCE-4798</a></td>
+<td align="left">TestJobHistoryServer fails some times with 'java.lang.AssertionError: Address already in use'</td>
+<td align="left">Minor</td>
+<td align="left">jobhistoryserver, test</td>
+<td align="left">sam liu</td>
+<td align="left">sam liu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4699">MAPREDUCE-4699</a></td>
+<td align="left">TestFairScheduler &amp; TestCapacityScheduler fails due to JobHistory exception</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Gopal V</td>
+<td align="left">Gopal V</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4697">MAPREDUCE-4697</a></td>
+<td align="left">TestMapredHeartbeat fails assertion on HeartbeatInterval</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Gopal V</td>
+<td align="left">Gopal V</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4696">MAPREDUCE-4696</a></td>
+<td align="left">TestMRServerPorts throws NullReferenceException</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Gopal V</td>
+<td align="left">Gopal V</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4478">MAPREDUCE-4478</a></td>
+<td align="left">TaskTracker's heartbeat is out of control</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Liyin Liang</td>
+<td align="left">Liyin Liang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4396">MAPREDUCE-4396</a></td>
+<td align="left">Make LocalJobRunner work with private distributed cache</td>
+<td align="left">Minor</td>
+<td align="left">client</td>
+<td align="left">Luke Lu</td>
+<td align="left">Yu Gao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4272">MAPREDUCE-4272</a></td>
+<td align="left">SortedRanges.Range#compareTo is not spec compliant</td>
+<td align="left">Major</td>
+<td align="left">task</td>
+<td align="left">Luke Lu</td>
+<td align="left">Yu Gao</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2374">MAPREDUCE-2374</a></td>
+<td align="left">&quot;Text File Busy&quot; errors launching MR tasks</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Todd Lipcon</td>
+<td align="left">Andy Isaacson</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tests">TESTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9051">HADOOP-9051</a></td>
+<td align="left">“ant test” will build failed for trying to delete a file</td>
+<td align="left">Minor</td>
+<td align="left">test</td>
+<td align="left">meng gong</td>
+<td align="left">Luke Lu</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sub-tasks">SUB-TASKS:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="other">OTHER:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>

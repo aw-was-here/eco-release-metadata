@@ -1,0 +1,50 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="release-notes">1.0.0 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-9473">HIVE-9473</a> | <em>Major</em> | <strong>sql std auth should disallow built-in udfs that allow any java methods to be called</strong></li>
+</ul>
+<p>SQL Standard authorization will disable the udfs reflect, reflect2 and java_method by automatically setting the udf blacklist config parameter (hive.server2.builtin.udf.blacklist). However, if HiveServer2 admin chooses to set the config param to a specific value, it will not be altered.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-9401">HIVE-9401</a> | <em>Minor</em> | <strong>Backport: Fastpath for limited fetches from unpartitioned tables</strong></li>
+</ul>
+<p>SimpleFetchOptimizer for limited fetches without filters</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-9249">HIVE-9249</a> | <em>Critical</em> | <strong>java.lang.ClassCastException: org.apache.hadoop.hive.serde2.io.HiveVarcharWritable cannot be cast to org.apache.hadoop.hive.common.type.HiveVarchar when joining tables</strong></li>
+</ul>
+<p>HIVE-9249: Vectorization: Join involving CHAR/VARCHAR fails during execution. (Matt McCline, reviewed by Gopal V)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-8966">HIVE-8966</a> | <em>Critical</em> | <strong>Delta files created by hive hcatalog streaming cannot be compacted</strong></li>
+</ul>
+<p>Don't do compaction on the current delta if it has a file in bucket pattern but not compactable</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-8953">HIVE-8953</a> | <em>Major</em> | <strong>0.5.2-SNAPSHOT Dependency</strong></li>
+</ul>
+<p>Fixed in 1.0</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-8485">HIVE-8485</a> | <em>Major</em> | <strong>HMS on Oracle incompatibility</strong></li>
+</ul>
+<p>Introduces a new hive-site.xml parameter : &quot;hive.metastore.orm.retrieveMapNullsAsEmptyStrings&quot; that defaults to false. For operation with oracle, or any other datastore that converts empty strings to nulls, users should set this to true.</p>
+<p>If this parameter is set to true, ObjectStore will transform any null map values it finds in any of the parameters maps to &quot;&quot;. If this parameter is set to false, ObjectStore will prune any map entry where the value is null.</p>

@@ -1,0 +1,130 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hadoop-2.6.0-release-notes">Apache Hadoop 2.6.0 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-10903">HADOOP-10903</a> | <em>Major</em> | <strong>Enhance hadoop classpath command to expand wildcards or write classpath into jar manifest.</strong></li>
+</ul>
+<p>The &quot;hadoop classpath&quot; command has been enhanced to support options for automatic expansion of wildcards in classpath elements and writing the classpath to a jar file manifest. These options make it easier to construct a correct classpath for libhdfs applications.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-10839">HADOOP-10839</a> | <em>Major</em> | <strong>Add unregisterSource() to MetricsSystem API</strong></li>
+</ul>
+<p>The MetricsSystem abstract class has added a new abstract method, unregisterSource, for unregistering a previously registered metrics source. Custom subclasses of MetricsSystem must be updated to provide an implementation of this method.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-10681">HADOOP-10681</a> | <em>Major</em> | <strong>Remove synchronized blocks from SnappyCodec and ZlibCodec buffering inner loop</strong></li>
+</ul>
+<p>Remove unnecessary synchronized blocks from Snappy/Zlib codecs.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-10620">HADOOP-10620</a> | <em>Major</em> | <strong>/docs/current doesn't point to the latest version 2.4.0</strong></li>
+</ul>
+<p>Verified http://hadoop.apache.org/docs/current/ link now point to current release (v2.6.0).</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-10583">HADOOP-10583</a> | <em>Minor</em> | <strong>bin/hadoop key throws NPE with no args and assorted other fixups</strong></li>
+</ul>
+<p>bin/hadoop key with no args would throw an NPE.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-10244">HADOOP-10244</a> | <em>Major</em> | <strong>TestKeyShell improperly tests the results of a Delete</strong></li>
+</ul>
+<p>Fix of inappropriate test of delete functionality.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-10201">HADOOP-10201</a> | <em>Major</em> | <strong>Add Listing Support to Key Management APIs</strong></li>
+</ul>
+<p>I just committed this. Thanks, Larry!</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-8944">HADOOP-8944</a> | <em>Trivial</em> | <strong>Shell command fs -count should include human readable option</strong></li>
+</ul>
+<p>Implements -h option for fs -count to show file sizes in human readable format. Additionally, ContentSummary.getHeader() now returns a different string that is incompatible with previous releases.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-8069">HADOOP-8069</a> | <em>Major</em> | <strong>Enable TCP_NODELAY by default for IPC</strong></li>
+</ul>
+<p>This change enables the TCP_NODELAY flag for all Hadoop IPC connections, hence bypassing TCP Nagling. Nagling interacts poorly with TCP delayed ACKs especially for request-response protocols.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-7276">HDFS-7276</a> | <em>Major</em> | <strong>Limit the number of byte arrays used by DFSOutputStream</strong></li>
+</ul>
+<p>The following configuration properties are added.</p>
+<ul>
+<li><p>dfs.client.write.byte-array-manager.enabled: for enabling/disabling byte array manger. Default is false.</p></li>
+<li><p>dfs.client.write.byte-array-manager.count-threshold: The count threshold for each array length so that a manager is created only after the allocation count exceeds the threshold. In other words, the particular array length is not managed until the allocation count exceeds the threshold. Default is 128.</p></li>
+<li><p>dfs.client.write.byte-array-manager.count-limit: The maximum number of arrays allowed for each array length. Default is 2048.</p></li>
+<li><p>dfs.client.write.byte-array-manager.count-reset-time-period-ms: The time period in milliseconds that the allocation count for each array length is reset to zero if there is no increment. Default is 10,000ms, i.e. 10 seconds.</p></li>
+</ul>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-7091">HDFS-7091</a> | <em>Minor</em> | <strong>Add forwarding constructor for INodeFile for existing callers</strong></li>
+</ul>
+<p>Thanks Nicholas! Revised title and committed to the feature branch.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-7046">HDFS-7046</a> | <em>Critical</em> | <strong>HA NN can NPE upon transition to active</strong></li>
+</ul>
+<p>Thanks for the reviews, gentlemen. It's been committed to trunk and branch-2.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-6606">HDFS-6606</a> | <em>Major</em> | <strong>Optimize HDFS Encrypted Transport performance</strong></li>
+</ul>
+<p>HDFS now supports the option to configure AES encryption for block data transfer. AES offers improved cryptographic strength and performance over the prior options of 3DES and RC4.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-6482">HDFS-6482</a> | <em>Major</em> | <strong>Use block ID-based block layout on datanodes</strong></li>
+</ul>
+<p>The directory structure for finalized replicas on DNs has been changed. Now, the directory that a finalized replica goes in is determined uniquely by its ID. Specifically, we use a two-level directory structure, with the 24th through 17th bits identifying the correct directory at the first level and the 16th through 8th bits identifying the correct directory at the second level.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-6376">HDFS-6376</a> | <em>Major</em> | <strong>Distcp data between two HA clusters requires another configuration</strong></li>
+</ul>
+<p>Allow distcp to copy data between HA clusters. Users can use a new configuration property &quot;dfs.internal.nameservices&quot; to explicitly specify the name services belonging to the local cluster, while continue using the configuration property &quot;dfs.nameservices&quot; to specify all the name services in the local and remote clusters.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-2856">HDFS-2856</a> | <em>Major</em> | <strong>Fix block protocol so that Datanodes don't require root or jsvc</strong></li>
+</ul>
+<p>SASL now can be used to secure the DataTransferProtocol, which transfers file block content between HDFS clients and DataNodes. In this configuration, it is no longer required for secured clusters to start the DataNode as root and bind to privileged ports.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-573">HDFS-573</a> | <em>Major</em> | <strong>Porting libhdfs to Windows</strong></li>
+</ul>
+<p>The libhdfs C API is now supported on Windows.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-2830">YARN-2830</a> | <em>Blocker</em> | <strong>Add backwords compatible ContainerId.newInstance constructor for use within Tez Local Mode</strong></li>
+</ul>
+<p>I just committed this. Thanks [~jeagles] for the patch and [~ozawa] for the reviews!</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-2615">YARN-2615</a> | <em>Blocker</em> | <strong>ClientToAMTokenIdentifier and DelegationTokenIdentifier should allow extended fields</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-1051">YARN-1051</a> | <em>Major</em> | <strong>YARN Admission Control/Planner: enhancing the resource allocation model with time.</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-668">YARN-668</a> | <em>Blocker</em> | <strong>TokenIdentifier serialization should consider Unknown fields</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>

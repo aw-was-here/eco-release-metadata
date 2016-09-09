@@ -1,0 +1,86 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hbase-1.2.2-release-notes">Apache HBase 1.2.2 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-15592">HBASE-15592</a> | <em>Major</em> | <strong>Print Procedure WAL content</strong></li>
+</ul>
+<p>Use hbase org.apache.hadoop.hbase.procedure2.store.wal.ProcedureWALPrettyPrinter to print the content of a Procedure WAL. e.g. hbase org.apache.hadoop.hbase.procedure2.store.wal.ProcedureWALPrettyPrinter -f /hbase/MasterProcWALs/state-00000000000000002571.log</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-15386">HBASE-15386</a> | <em>Major</em> | <strong>PREFETCH_BLOCKS_ON_OPEN in HColumnDescriptor is ignored</strong></li>
+</ul>
+<p>This was a non-issue. The PREFETCH_... flag actually works. While here though made the following additions.</p>
+<p>Changes the prefetch TRACE-level loggings to include the word 'Prefetch' in them so you know what they are about.</p>
+<p>Changes the cryptic logging of the CacheConfig#toString to have some preamble saying why and what column family is responsible (helps figure what is going on)</p>
+<p>Add test that verifies setting flag on HColumnDescriptor actually works.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-15640">HBASE-15640</a> | <em>Major</em> | <strong>L1 cache doesn't give fair warning that it is showing partial stats only when it hits limit</strong></li>
+</ul>
+<p>The blockcache UI tab would stop refreshing at 100k blocks (configurable, see &quot;hbase.ui.blockcache.by.file.max&quot;), which isn't very many blocks when doing a big cache, giving a misleading picture of the content of L1 and/or L2 cache. Up the default limit to 1M blocks (UI takes a while but just a few seconds counting over 1M blocks).</p>
+<p>Also, when beyond the limit give the user a noticeable WARNING in the UI.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-15645">HBASE-15645</a> | <em>Critical</em> | <strong>hbase.rpc.timeout is not used in operations of HTable</strong></li>
+</ul>
+<p>Fixes regression where hbase.rpc.timeout configuration was ignored in branch-1.0+</p>
+<p>Adds new methods setOperationTimeout, getOperationTimeout, setRpcTimeout, and getRpcTimeout to Table. In branch-1.3+ they are public interfaces and in 1.0-1.2 they are labeled as @InterfaceAudience.Private.</p>
+<p>Adds hbase.client.operation.timeout to hbase-default.xml with default of 1200000</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-15551">HBASE-15551</a> | <em>Minor</em> | <strong>Make call queue too big exception use servername</strong></li>
+</ul>
+<p>Fixes issue when CallQueueTooBig exception returned to the client could print useless address info (like 0.0.0.0) if RPC server is listening on something other than the host name, making troubleshooting inconvenient.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-15720">HBASE-15720</a> | <em>Major</em> | <strong>Print row locks at the debug dump page</strong></li>
+</ul>
+<p>Adds a section to the debug dump page listing current row locks held.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-15801">HBASE-15801</a> | <em>Major</em> | <strong>Upgrade checkstyle for all branches</strong></li>
+</ul>
+<p>All active branches now use maven-checkstyle-plugin 2.17 and checkstyle 6.18.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-15811">HBASE-15811</a> | <em>Blocker</em> | <strong>Batch Get after batch Put does not fetch all Cells</strong></li>
+</ul>
+<p>We were not waiting on all executors in a batch to complete which meant a read-your-own-writes could sometimes fail -- especially if client is loaded; i.e. putting to multiple machines in a cluster. The test for no-more-executors was damaged by the 0.99/0.98.4 fix &quot;HBASE-11403 Fix race conditions around Object#notify&quot;</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-15856">HBASE-15856</a> | <em>Critical</em> | <strong>Cached Connection instances can wind up with addresses never resolved</strong></li>
+</ul>
+<p>During periods where DNS resolution was not available or not working correctly, we could previously cache unresolved hostnames forever, in some cases preventing further connections to these hosts even when DNS service was restored. With this change, unresolved hostnames will no longer be cached, and will instead throw an UnknownHostException during connection setup.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-15920">HBASE-15920</a> | <em>Minor</em> | <strong>Backport submit-patch.py to branch-1 and earlier branches.</strong></li>
+</ul>
+<p>See HBASE-1582 and HBASE-15909 release notes.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-16140">HBASE-16140</a> | <em>Major</em> | <strong>bump owasp.esapi from 2.1.0 to 2.1.0.1</strong></li>
+</ul>
+<p>The dependency owasp.esapi had a compatible change from 2.1.0 to 2.1.0.1. As a result, the transitive dependency commons-fileupload had a change from 1.2 to 1.3.1, which has some minor class changes that impact binary compatibility. Interested users should check the release notes of commons-fileupload to see if any of the incompatible changes impact them.</p>
+<p>http://commons.apache.org/proper/commons-fileupload/changes-report.html</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-15925">HBASE-15925</a> | <em>Blocker</em> | <strong>compat-module maven variable not evaluated</strong></li>
+</ul>
+<p>Downstream users of HBase dependencies that do not properly activate Maven profiles should now see a correct transitive dependency on the default hadoop-compatibility-module.</p>

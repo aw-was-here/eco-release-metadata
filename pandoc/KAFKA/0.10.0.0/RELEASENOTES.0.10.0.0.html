@@ -1,0 +1,52 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-kafka-0.10.0.0-release-notes">Apache Kafka 0.10.0.0 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/KAFKA-3044">KAFKA-3044</a> | <em>Major</em> | <strong>Consumer.poll doesnot return messages when poll interval is less</strong></li>
+</ul>
+<p>When seeking to particular position in consumer and starting poll with timeout param 0 the consumer does not come back with data though there is data published via a producer already. If the timeout is increased slowly in chunks of 100ms then at 700ms value the consumer returns back the record on first call to poll.</p>
+<p>Docs [http://kafka.apache.org/090/javadoc/org/apache/kafka/clients/consumer/KafkaConsumer.html#poll(long)] for poll reads if timeout is 0 then data will be returned immediately but the behaviour seen is that data is not returned.</p>
+<p>The test code I am using can be found here https://gist.github.com/praveend/013dcab01ebb8c7e2f2d</p>
+<p>I have created a topic with data published as below and then running the test program [ConsumerPollTest.java]</p>
+<p>$ bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic mytopic $ bin/kafka-console-producer.sh --broker-list localhost:9092 --topic mytopic Hello Hai bye $ java ConsumerPollTest</p>
+<p>I have published this 3 lines of data to kafka only once....later on I just use the above program with different poll interval</p>
+<p>Let me know if I am missing anything and interpreting it wrongly.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/KAFKA-3029">KAFKA-3029</a> | <em>Major</em> | <strong>Make class org.apache.kafka.common.TopicPartition Serializable</strong></li>
+</ul>
+<p>The client class TopicPartition is exposed and used by consumer applications directly. In case where the application needs to checkpoint the state it is difficult to serialize different app classes that use TopicPartition as TopicParitition is not serializable.</p>
+<p>For instance consider the Spark use case where RDDs have to be checkpointed....the KafakaInputDstream (which we are currently modifying to use the new Kafka API rather than the Highlevel apis in previous version) cannot be serialized due to above limitation.</p>
+<p>I have created a patch to serialize TopicPartition class by making it implement serializable interface and have issued a pull request.</p>
+<p>Can this be merged for the next release (0.9.0.1)</p>
+<p>Thanks</p>
+<p>Praveen</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/KAFKA-3372">KAFKA-3372</a> | <em>Major</em> | <strong>Trailing space in Kafka ConsumerConfig</strong></li>
+</ul>
+<p>When I by luck I had left value in properties file with trailing space it thrown such error. example : group.id=MyGroupID&lt;Blank Space&gt;</p>
+<p>when I read this group.id from properties file and put it to ConsumerConfig, the error appeared as below stacktrace.</p>
+<p>Exception in thread &quot;Thread-1003&quot; kafka.common.InvalidConfigException: client.id MyUserDataReaderGroup is illegal, contains a character other than ASCII alphanumerics, '.', '_' and '-' at kafka.common.Config$class.validateChars(Config.scala:32) at kafka.consumer.ConsumerConfig$.validateChars(ConsumerConfig.scala:25) at kafka.consumer.ConsumerConfig$.validateClientId(ConsumerConfig.scala:64) at kafka.consumer.ConsumerConfig$.validate(ConsumerConfig.scala:57) at kafka.consumer.ConsumerConfig.&lt;init&gt;(ConsumerConfig.scala:184) at kafka.consumer.ConsumerConfig.&lt;init&gt;(ConsumerConfig.scala:94) at my.package.group.services.kafka.MyUserDataConsumer.setKafkaConfig(MyUserDataConsumer.java:96) at my.package.group.services.kafka.MyUserDataConsumer.run(MyUserDataConsumer.java:112) 2016-03-10 13:34:41.280:INFO:oejsh.ContextHandler:main: Started o.e.j.w.WebAppContext@69a90966{/km,file:/tmp/jetty-0.0.0.0-8080-km.war-_km-any-7539601194543292160.dir/webapp/,AVAILABLE}{/km.war} 2016-03-10 13:34:47.128:INFO:ProProject:main: Spring WebApplicationInitializers detected on classpath: [my.package.group.ProProject.services.web.ApplicationInitializer@3474c3b6] 2016-03-10 13:34:47.259:INFO:ProProject:main: Initializing Spring root WebApplicationContext 2016-03-10 13:34:55.972:INFO:ProProject:main: Initializing Spring FrameworkServlet 'dispatcher' 2016-03-10 13:34:56.782:INFO:oejsh.ContextHandler:main: Started o.e.j.w.WebAppContext@554b8728{/ProProject,file:/tmp/jetty-0.0.0.0-8080-ProProject.war-_ProProject-any-2165600182871766069.dir/webapp/,AVAILABLE}{/ProProject.war} 2016-03-10 13:34:56.792:INFO:oejs.ServerConnector:main: Started ServerConnector@65269268{HTTP/1.1}{0.0.0.0:8080}</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/KAFKA-3448">KAFKA-3448</a> | <em>Major</em> | <strong>Support zone index in IPv6 regex</strong></li>
+</ul>
+<p>When an address is written textually, the zone index is appended to the address, separated by a percent sign (%). The actual syntax of zone indices depends on the operating system.</p>

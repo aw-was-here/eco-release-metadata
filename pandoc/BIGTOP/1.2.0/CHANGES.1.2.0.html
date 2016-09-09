@@ -1,0 +1,1094 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-bigtop-changelog">Apache BigTop Changelog</h1>
+<h2 id="release-1.2.0---unreleased-as-of-2016-09-08">Release 1.2.0 - Unreleased (as of 2016-09-08)</h2>
+<h3 id="new-features">NEW FEATURES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-1641">BIGTOP-1641</a></td>
+<td align="left">Add packaging for Apache Tajo</td>
+<td align="left">Major</td>
+<td align="left">debian, rpm, tests</td>
+<td align="left">YoungWoo Kim</td>
+<td align="left">Yeongeon KIM</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2296">BIGTOP-2296</a></td>
+<td align="left">Provide a way to build Docker container with functional stack</td>
+<td align="left">Major</td>
+<td align="left">docker, general</td>
+<td align="left">Konstantin Boudnik</td>
+<td align="left">Konstantin Boudnik</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2339">BIGTOP-2339</a></td>
+<td align="left">add centos-7 to the provisioiner matrix</td>
+<td align="left">Major</td>
+<td align="left">provisioner</td>
+<td align="left">Konstantin Boudnik</td>
+<td align="left">Konstantin Boudnik</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2435">BIGTOP-2435</a></td>
+<td align="left">Add Juju charms for hadoop component</td>
+<td align="left">Minor</td>
+<td align="left">deployment</td>
+<td align="left">Kevin W Monroe</td>
+<td align="left">Kevin W Monroe</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2452">BIGTOP-2452</a></td>
+<td align="left">Adding Dockerfile to build deploy image for ubuntu-16.04-x86</td>
+<td align="left">Major</td>
+<td align="left">build, deployment, docker</td>
+<td align="left">Amir Sanjar</td>
+<td align="left">Amir Sanjar</td>
+</tr>
+</tbody>
+</table>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2118">BIGTOP-2118</a></td>
+<td align="left">Update HBase to 0.98.17</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Andrew Purtell</td>
+<td align="left">YoungWoo Kim</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2337">BIGTOP-2337</a></td>
+<td align="left">Fix script to make deb in Tajo</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Yeongeon KIM</td>
+<td align="left">Yeongeon KIM</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2332">BIGTOP-2332</a></td>
+<td align="left">Upgrade Tajo version to 0.11.1</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Yeongeon KIM</td>
+<td align="left">Yeongeon KIM</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-1843">BIGTOP-1843</a></td>
+<td align="left">Upgrade Sqoop to 1.4.6</td>
+<td align="left">Critical</td>
+<td align="left">build</td>
+<td align="left">YoungWoo Kim</td>
+<td align="left">Craig Foster</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2351">BIGTOP-2351</a></td>
+<td align="left">Vagrant VM is missing /user/vagrant HDFS directory</td>
+<td align="left">Major</td>
+<td align="left">provisioner</td>
+<td align="left">Konstantin Boudnik</td>
+<td align="left">Konstantin Boudnik</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2352">BIGTOP-2352</a></td>
+<td align="left">Packaged Vagrant box has incorrect host info on restart</td>
+<td align="left">Major</td>
+<td align="left">provisioner</td>
+<td align="left">Konstantin Boudnik</td>
+<td align="left">Konstantin Boudnik</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2327">BIGTOP-2327</a></td>
+<td align="left">Bump up Phoenix to 4.7.0</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">YoungWoo Kim</td>
+<td align="left">YoungWoo Kim</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2381">BIGTOP-2381</a></td>
+<td align="left">Making Zookeeper hosts templatize in puppet module of hue</td>
+<td align="left">Minor</td>
+<td align="left">hue</td>
+<td align="left">Amit Kabra</td>
+<td align="left">Amit Kabra</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2395">BIGTOP-2395</a></td>
+<td align="left">Create separate page to point &quot;Download now&quot; link to</td>
+<td align="left">Major</td>
+<td align="left">website</td>
+<td align="left">Konstantin Boudnik</td>
+<td align="left">Konstantin Boudnik</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2393">BIGTOP-2393</a></td>
+<td align="left">Add ARM64 support for build environment</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Roman Shaposhnik</td>
+<td align="left">Roman Shaposhnik</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2403">BIGTOP-2403</a></td>
+<td align="left">Remove affiliation column in the team list</td>
+<td align="left">Major</td>
+<td align="left">website</td>
+<td align="left">Konstantin Boudnik</td>
+<td align="left">Konstantin Boudnik</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2407">BIGTOP-2407</a></td>
+<td align="left">Making &quot;force_username_lowercase&quot; variable templatize in puppet module of hue</td>
+<td align="left">Minor</td>
+<td align="left">hue</td>
+<td align="left">Amit Kabra</td>
+<td align="left">Amit Kabra</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2410">BIGTOP-2410</a></td>
+<td align="left">Making &quot;ldap_username_pattern&quot; variable templatize in puppet module of hue</td>
+<td align="left">Major</td>
+<td align="left">hue</td>
+<td align="left">Amit Kabra</td>
+<td align="left">Amit Kabra</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2409">BIGTOP-2409</a></td>
+<td align="left">nt_domain configuration option for hue to connect to Active Directory</td>
+<td align="left">Major</td>
+<td align="left">hue</td>
+<td align="left">Amit Kabra</td>
+<td align="left">Amit Kabra</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2408">BIGTOP-2408</a></td>
+<td align="left">group_filter variable value is not templatize in puppet module of hue</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Amit Kabra</td>
+<td align="left">Amit Kabra</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2411">BIGTOP-2411</a></td>
+<td align="left">Add OS-neutral wrappers to build all native packages and repositories</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Konstantin Boudnik</td>
+<td align="left">Konstantin Boudnik</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2077">BIGTOP-2077</a></td>
+<td align="left">Bump HBase version to 1.1</td>
+<td align="left">Major</td>
+<td align="left">hbase</td>
+<td align="left">Konstantin Boudnik</td>
+<td align="left">YoungWoo Kim</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2333">BIGTOP-2333</a></td>
+<td align="left">Make Apache Pig work with HBase 1.1 on Hadoop 2</td>
+<td align="left">Major</td>
+<td align="left">build, pig</td>
+<td align="left">YoungWoo Kim</td>
+<td align="left">YoungWoo Kim</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2416">BIGTOP-2416</a></td>
+<td align="left">Upgrade Crunch to 0.13.0</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">YoungWoo Kim</td>
+<td align="left">YoungWoo Kim</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2455">BIGTOP-2455</a></td>
+<td align="left">support pre-installed java environment</td>
+<td align="left">Minor</td>
+<td align="left">deployment</td>
+<td align="left">Kevin W Monroe</td>
+<td align="left">Kevin W Monroe</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2479">BIGTOP-2479</a></td>
+<td align="left">Update qfs maintainer to kstinson</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Faraaz Sareshwala</td>
+<td align="left">Faraaz Sareshwala</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2478">BIGTOP-2478</a></td>
+<td align="left">Zookeeper does not have any smoke tests</td>
+<td align="left">Major</td>
+<td align="left">deployment</td>
+<td align="left">Pete Vander Giessen</td>
+<td align="left">Pete Vander Giessen</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2429">BIGTOP-2429</a></td>
+<td align="left">Add Solr to gradle smokes</td>
+<td align="left">Major</td>
+<td align="left">tests</td>
+<td align="left">Dasha Boudnik</td>
+<td align="left">Dasha Boudnik</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2466">BIGTOP-2466</a></td>
+<td align="left">HBase puppet scripts co-deploy ZK and Datanode along with HBase</td>
+<td align="left">Minor</td>
+<td align="left">hbase</td>
+<td align="left">Konstantinos Tsakalozos</td>
+<td align="left">Konstantinos Tsakalozos</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2507">BIGTOP-2507</a></td>
+<td align="left">Make buildstamp configurable by a bom file</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Teruyoshi Zenmyo</td>
+<td align="left">Teruyoshi Zenmyo</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2458">BIGTOP-2458</a></td>
+<td align="left">Add option to disable IP hostname checking for DataNode registration</td>
+<td align="left">Minor</td>
+<td align="left">deployment</td>
+<td align="left">Cory Johns</td>
+<td align="left">Cory Johns</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2301">BIGTOP-2301</a></td>
+<td align="left">Bigtop Homepage shows wrong url to CI</td>
+<td align="left">Major</td>
+<td align="left">website</td>
+<td align="left">Olaf Flebbe</td>
+<td align="left">Olaf Flebbe</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2303">BIGTOP-2303</a></td>
+<td align="left">Fix the indentation in docker-hadoop.sh</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Faraaz Sareshwala</td>
+<td align="left">Faraaz Sareshwala</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2302">BIGTOP-2302</a></td>
+<td align="left">Use apt instead of yum in setup-env-debian.sh</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Faraaz Sareshwala</td>
+<td align="left">Faraaz Sareshwala</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2318">BIGTOP-2318</a></td>
+<td align="left">Release assembly needs to be updated</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Konstantin Boudnik</td>
+<td align="left">Konstantin Boudnik</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2308">BIGTOP-2308</a></td>
+<td align="left">Clean up build directory after sucessfull build of package</td>
+<td align="left">Major</td>
+<td align="left">debian</td>
+<td align="left">Olaf Flebbe</td>
+<td align="left">Olaf Flebbe</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2136">BIGTOP-2136</a></td>
+<td align="left">A comment about parameter substitution in BPS_analytics.pig is slightly wrong</td>
+<td align="left">Trivial</td>
+<td align="left">blueprints</td>
+<td align="left">Kengo Seki</td>
+<td align="left">Kengo Seki</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2340">BIGTOP-2340</a></td>
+<td align="left">BIGTOP-2319 is incomplete: the code for smoke-tests is missing</td>
+<td align="left">Major</td>
+<td align="left">tests</td>
+<td align="left">Konstantin Boudnik</td>
+<td align="left">Konstantin Boudnik</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2229">BIGTOP-2229</a></td>
+<td align="left">bigtop deploy to support centos-7</td>
+<td align="left">Major</td>
+<td align="left">docker</td>
+<td align="left">Olaf Flebbe</td>
+<td align="left">Konstantin Boudnik</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2347">BIGTOP-2347</a></td>
+<td align="left">Clean up build directory after sucessfull build of package (2nd try)</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Olaf Flebbe</td>
+<td align="left">Olaf Flebbe</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2346">BIGTOP-2346</a></td>
+<td align="left">Do not use gradle delete() for sources and build directories</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Olaf Flebbe</td>
+<td align="left">Olaf Flebbe</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2220">BIGTOP-2220</a></td>
+<td align="left">flume-agent.init incorrectly handles flume.conf</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Teruyoshi Zenmyo</td>
+<td align="left">Teruyoshi Zenmyo</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2353">BIGTOP-2353</a></td>
+<td align="left">fix qfs suse build</td>
+<td align="left">Major</td>
+<td align="left">build, qfs</td>
+<td align="left">Olaf Flebbe</td>
+<td align="left">Olaf Flebbe</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2350">BIGTOP-2350</a></td>
+<td align="left">HCatalog WebHCat server's default file incorrectly specifies HCAT_PREFIX AND HADOOP_PREFIX</td>
+<td align="left">Minor</td>
+<td align="left">hive</td>
+<td align="left">Rob Leidle</td>
+<td align="left">Rob Leidle</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2358">BIGTOP-2358</a></td>
+<td align="left">Update the URL for Bigtop-trunk-packages job on README</td>
+<td align="left">Trivial</td>
+<td align="left">documentation</td>
+<td align="left">YoungWoo Kim</td>
+<td align="left">YoungWoo Kim</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2354">BIGTOP-2354</a></td>
+<td align="left">qfs does not build on fedora</td>
+<td align="left">Major</td>
+<td align="left">qfs</td>
+<td align="left">Olaf Flebbe</td>
+<td align="left">Faraaz Sareshwala</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2359">BIGTOP-2359</a></td>
+<td align="left">Add .DS_Store to .gitignore</td>
+<td align="left">Trivial</td>
+<td align="left">.</td>
+<td align="left">YoungWoo Kim</td>
+<td align="left">YoungWoo Kim</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2362">BIGTOP-2362</a></td>
+<td align="left">Enabling bigtop docker provisioner for ppc64le (ubuntu 15.04)</td>
+<td align="left">Major</td>
+<td align="left">deployment, ppc64le</td>
+<td align="left">Amir Sanjar</td>
+<td align="left">Amir Sanjar</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2367">BIGTOP-2367</a></td>
+<td align="left">QFS packages do not handle /var/run/qfs properly</td>
+<td align="left">Major</td>
+<td align="left">qfs</td>
+<td align="left">Olaf Flebbe</td>
+<td align="left">Faraaz Sareshwala</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2372">BIGTOP-2372</a></td>
+<td align="left">Puppet deploy README points to non-existing repo</td>
+<td align="left">Major</td>
+<td align="left">documentation</td>
+<td align="left">Konstantin Boudnik</td>
+<td align="left">Konstantin Boudnik</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2373">BIGTOP-2373</a></td>
+<td align="left">kinit path is not correctly configured in hue.ini template for CentOs by puppet module</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Vishal Khandelwal</td>
+<td align="left">Vishal Khandelwal</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2376">BIGTOP-2376</a></td>
+<td align="left">Update Tomcat and remove obsolete downloads</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Olaf Flebbe</td>
+<td align="left">Olaf Flebbe</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2366">BIGTOP-2366</a></td>
+<td align="left">Support https:// repositories for DEB systems</td>
+<td align="left">Major</td>
+<td align="left">ci, deployment</td>
+<td align="left">Olaf Flebbe</td>
+<td align="left">Olaf Flebbe</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2377">BIGTOP-2377</a></td>
+<td align="left">Update to Hadoop 2.7.2</td>
+<td align="left">Major</td>
+<td align="left">build, hadoop</td>
+<td align="left">Olaf Flebbe</td>
+<td align="left">Olaf Flebbe</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2378">BIGTOP-2378</a></td>
+<td align="left">Do not use archive.apache.org for ant download</td>
+<td align="left">Major</td>
+<td align="left">toolchain</td>
+<td align="left">Olaf Flebbe</td>
+<td align="left">Olaf Flebbe</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2379">BIGTOP-2379</a></td>
+<td align="left">update maven to 3.3.9 and refactor toolchain</td>
+<td align="left">Major</td>
+<td align="left">toolchain</td>
+<td align="left">Olaf Flebbe</td>
+<td align="left">Olaf Flebbe</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2380">BIGTOP-2380</a></td>
+<td align="left">support opensuse-42.1 (leap)</td>
+<td align="left">Major</td>
+<td align="left">toolchain</td>
+<td align="left">Olaf Flebbe</td>
+<td align="left">Olaf Flebbe</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2382">BIGTOP-2382</a></td>
+<td align="left">Parameterise and expose &quot;default_hdfs_superuser&quot; for hue.ini</td>
+<td align="left">Major</td>
+<td align="left">deployment</td>
+<td align="left">Vishal Khandelwal</td>
+<td align="left">Vishal Khandelwal</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2342">BIGTOP-2342</a></td>
+<td align="left">Set yarn.log.server.url to point to JH server</td>
+<td align="left">Major</td>
+<td align="left">hadoop</td>
+<td align="left">Aaron Tokhy</td>
+<td align="left">Aaron Tokhy</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2399">BIGTOP-2399</a></td>
+<td align="left">Maven artifacts are still on 2.6.0 version of Apache Hadoop</td>
+<td align="left">Major</td>
+<td align="left">build, tests</td>
+<td align="left">Konstantin Boudnik</td>
+<td align="left">Konstantin Boudnik</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2402">BIGTOP-2402</a></td>
+<td align="left">yet another commiter name is missing in the &quot;Who we are&quot; page</td>
+<td align="left">Minor</td>
+<td align="left">website</td>
+<td align="left">Konstantin Boudnik</td>
+<td align="left">Konstantin Boudnik</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2404">BIGTOP-2404</a></td>
+<td align="left">puppetize.sh fails on Ubuntu 14.04 because of the lack of apt-get update</td>
+<td align="left">Major</td>
+<td align="left">build, docker</td>
+<td align="left">Roman Shaposhnik</td>
+<td align="left">Roman Shaposhnik</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2413">BIGTOP-2413</a></td>
+<td align="left">QFS README.md breaks RAT</td>
+<td align="left">Critical</td>
+<td align="left">build</td>
+<td align="left">Konstantin Boudnik</td>
+<td align="left">Faraaz Sareshwala</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2406">BIGTOP-2406</a></td>
+<td align="left">init scripts do not work reliable on systemd systems</td>
+<td align="left">Major</td>
+<td align="left">debian, Init scripts</td>
+<td align="left">Olaf Flebbe</td>
+<td align="left">Olaf Flebbe</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2419">BIGTOP-2419</a></td>
+<td align="left">Fix symlinks on packaging Crunch rpm and deb</td>
+<td align="left">Major</td>
+<td align="left">debian, rpm</td>
+<td align="left">YoungWoo Kim</td>
+<td align="left">YoungWoo Kim</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2423">BIGTOP-2423</a></td>
+<td align="left">Fix hard-coded port number in Sqoop smokes</td>
+<td align="left">Major</td>
+<td align="left">tests</td>
+<td align="left">Dasha Boudnik</td>
+<td align="left">Dasha Boudnik</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2425">BIGTOP-2425</a></td>
+<td align="left">crunch needs JDK8 javadoc</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Olaf Flebbe</td>
+<td align="left">Olaf Flebbe</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-1533">BIGTOP-1533</a></td>
+<td align="left">failed to load/initialize native-bzip2 library system-native</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Guo Ruijing</td>
+<td align="left">Olaf Flebbe</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2433">BIGTOP-2433</a></td>
+<td align="left">mvn is missing in Bigtop Toolchain</td>
+<td align="left">Major</td>
+<td align="left">toolchain</td>
+<td align="left">Olaf Flebbe</td>
+<td align="left">Olaf Flebbe</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2400">BIGTOP-2400</a></td>
+<td align="left">Get groovy plugins used by Maven in sync with Bigtop groovy runtime</td>
+<td align="left">Major</td>
+<td align="left">build, tests</td>
+<td align="left">Konstantin Boudnik</td>
+<td align="left">Konstantin Boudnik</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2434">BIGTOP-2434</a></td>
+<td align="left">Change Spark test to unpack jar file and retrieve resources</td>
+<td align="left">Major</td>
+<td align="left">tests</td>
+<td align="left">Dasha Boudnik</td>
+<td align="left">Dasha Boudnik</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2439">BIGTOP-2439</a></td>
+<td align="left">flink: fix adduser and register init.d scripts on DEB systemes</td>
+<td align="left">Major</td>
+<td align="left">build, flink</td>
+<td align="left">Olaf Flebbe</td>
+<td align="left">Olaf Flebbe</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2441">BIGTOP-2441</a></td>
+<td align="left">spark smoke test doesn't work relying on yarn-client submittion</td>
+<td align="left">Major</td>
+<td align="left">tests</td>
+<td align="left">Konstantin Boudnik</td>
+<td align="left">Konstantin Boudnik</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2412">BIGTOP-2412</a></td>
+<td align="left">arm dockerfile breaks RAT</td>
+<td align="left">Critical</td>
+<td align="left">build</td>
+<td align="left">Konstantin Boudnik</td>
+<td align="left">Konstantin Boudnik</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2427">BIGTOP-2427</a></td>
+<td align="left">jsvc build not recognizing ARM as valid platform</td>
+<td align="left">Critical</td>
+<td align="left">jsvc</td>
+<td align="left">Ganesh Raju</td>
+<td align="left">Ganesh Raju</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2463">BIGTOP-2463</a></td>
+<td align="left">Regression: bigtop-jsvc build fails on ppc64le architecture</td>
+<td align="left">Critical</td>
+<td align="left">build, jsvc, ppc64le</td>
+<td align="left">Amir Sanjar</td>
+<td align="left">Amir Sanjar</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2430">BIGTOP-2430</a></td>
+<td align="left">Adding Dockerfile to build puppet image for ubuntu-16.04-ppc64le</td>
+<td align="left">Major</td>
+<td align="left">build, docker, ppc64le</td>
+<td align="left">Amir Sanjar</td>
+<td align="left">Amir Sanjar</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2431">BIGTOP-2431</a></td>
+<td align="left">Adding Dockerfile to build slaves image for ubuntu-16.04-ppc64le</td>
+<td align="left">Major</td>
+<td align="left">build, docker, ppc64le</td>
+<td align="left">Amir Sanjar</td>
+<td align="left">Amir Sanjar</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2374">BIGTOP-2374</a></td>
+<td align="left">Toolchain needs clear warning for Puppet &lt;3</td>
+<td align="left">Major</td>
+<td align="left">toolchain</td>
+<td align="left">Konstantin Boudnik</td>
+<td align="left">Kengo Seki</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2449">BIGTOP-2449</a></td>
+<td align="left">Adding Dockerfile to build slaves image for ubuntu-16.04-x86</td>
+<td align="left">Major</td>
+<td align="left">build, docker</td>
+<td align="left">Amir Sanjar</td>
+<td align="left">Amir Sanjar</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2472">BIGTOP-2472</a></td>
+<td align="left">zeppelin puppet module needs to expose ZEPPELIN_WAR_TEMPDIR</td>
+<td align="left">Major</td>
+<td align="left">deployment</td>
+<td align="left">Kevin W Monroe</td>
+<td align="left">Kevin W Monroe</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2474">BIGTOP-2474</a></td>
+<td align="left">Improve handling of gradle home</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Olaf Flebbe</td>
+<td align="left">Olaf Flebbe</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2445">BIGTOP-2445</a></td>
+<td align="left">Adding Dockerfile to build deploy image for ubuntu-16.04-ppc64le</td>
+<td align="left">Major</td>
+<td align="left">build, docker, ppc64le</td>
+<td align="left">Amir Sanjar</td>
+<td align="left">Amir Sanjar</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2473">BIGTOP-2473</a></td>
+<td align="left">Mahout puppet script fails to find Package[hadoop]</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Konstantinos Tsakalozos</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2488">BIGTOP-2488</a></td>
+<td align="left">Redundant zookeeper/lib directory</td>
+<td align="left">Minor</td>
+<td align="left">debian, rpm</td>
+<td align="left">Ted Yu</td>
+<td align="left">Ted Yu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2487">BIGTOP-2487</a></td>
+<td align="left">Alluxio /var/log/alluxio is not created</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Olaf Flebbe</td>
+<td align="left">Konstantinos Tsakalozos</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2495">BIGTOP-2495</a></td>
+<td align="left">hive-hbase package is broken</td>
+<td align="left">Major</td>
+<td align="left">hive</td>
+<td align="left">YoungWoo Kim</td>
+<td align="left">YoungWoo Kim</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2494">BIGTOP-2494</a></td>
+<td align="left">Use systemd within bigtop/deploy docker image for debian-8, centos-7, fix centos-7 provisioner</td>
+<td align="left">Major</td>
+<td align="left">deployment</td>
+<td align="left">Olaf Flebbe</td>
+<td align="left">Olaf Flebbe</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2513">BIGTOP-2513</a></td>
+<td align="left">Some RAT exclude rules defined in build.gradle are not defined in pom.xml</td>
+<td align="left">Minor</td>
+<td align="left">build</td>
+<td align="left">Kengo Seki</td>
+<td align="left">Kengo Seki</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2512">BIGTOP-2512</a></td>
+<td align="left">Wrong help message in docker-hadoop.sh</td>
+<td align="left">Trivial</td>
+<td align="left">deployment, vm</td>
+<td align="left">Kengo Seki</td>
+<td align="left">Kengo Seki</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2523">BIGTOP-2523</a></td>
+<td align="left">Incorrect cycle dependency during puppet deployment causes error at Debian 8</td>
+<td align="left">Major</td>
+<td align="left">deployment</td>
+<td align="left">Kirill Morozov</td>
+<td align="left">Artur A. Papikyan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2528">BIGTOP-2528</a></td>
+<td align="left">provisioner fails to add short host name</td>
+<td align="left">Major</td>
+<td align="left">deployment, provisioner</td>
+<td align="left">Olaf Flebbe</td>
+<td align="left">Olaf Flebbe</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sub-tasks">SUB-TASKS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2180">BIGTOP-2180</a></td>
+<td align="left">Apache Tajo to bigtop: make tests</td>
+<td align="left">Major</td>
+<td align="left">tests</td>
+<td align="left">Yeongeon KIM</td>
+<td align="left">Yeongeon KIM</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2319">BIGTOP-2319</a></td>
+<td align="left">Build initial smoke-tests distribution</td>
+<td align="left">Major</td>
+<td align="left">build, tests</td>
+<td align="left">Konstantin Boudnik</td>
+<td align="left">Konstantin Boudnik</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2179">BIGTOP-2179</a></td>
+<td align="left">Apache Tajo to bigtop: packaging as deb/rpm</td>
+<td align="left">Major</td>
+<td align="left">debian, rpm, tests</td>
+<td align="left">Yeongeon KIM</td>
+<td align="left">Yeongeon KIM</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2314">BIGTOP-2314</a></td>
+<td align="left">Added deb and rpm package of Apache Apex to bigtop.</td>
+<td align="left">Major</td>
+<td align="left">debian, rpm</td>
+<td align="left">Chinmay Kolhatkar</td>
+<td align="left">Chinmay Kolhatkar</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2285">BIGTOP-2285</a></td>
+<td align="left">Add qfs rpm and debian packaging code</td>
+<td align="left">Major</td>
+<td align="left">debian, rpm, toolchain</td>
+<td align="left">Faraaz Sareshwala</td>
+<td align="left">Faraaz Sareshwala</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2326">BIGTOP-2326</a></td>
+<td align="left">Build salves need to have the toolchain run again to install qfs dependencies</td>
+<td align="left">Major</td>
+<td align="left">toolchain</td>
+<td align="left">Faraaz Sareshwala</td>
+<td align="left">Faraaz Sareshwala</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2316">BIGTOP-2316</a></td>
+<td align="left">Add apex puppet receipes</td>
+<td align="left">Major</td>
+<td align="left">deployment</td>
+<td align="left">Chinmay Kolhatkar</td>
+<td align="left">Chinmay Kolhatkar</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2293">BIGTOP-2293</a></td>
+<td align="left">Add puppet recipes for qfs components</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Faraaz Sareshwala</td>
+<td align="left">Faraaz Sareshwala</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2315">BIGTOP-2315</a></td>
+<td align="left">Add smoke test for apex</td>
+<td align="left">Major</td>
+<td align="left">tests</td>
+<td align="left">Chinmay Kolhatkar</td>
+<td align="left">Chinmay Kolhatkar</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2317">BIGTOP-2317</a></td>
+<td align="left">Add smoke tests for QFS</td>
+<td align="left">Major</td>
+<td align="left">tests</td>
+<td align="left">Faraaz Sareshwala</td>
+<td align="left">Faraaz Sareshwala</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2345">BIGTOP-2345</a></td>
+<td align="left">Create Flink packaging</td>
+<td align="left">Major</td>
+<td align="left">build, flink, general</td>
+<td align="left">Bhupendra Singh</td>
+<td align="left">Bhupendra Singh</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2468">BIGTOP-2468</a></td>
+<td align="left">Add Juju hadoop-processing bundle</td>
+<td align="left">Minor</td>
+<td align="left">deployment</td>
+<td align="left">Kevin W Monroe</td>
+<td align="left">Kevin W Monroe</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2469">BIGTOP-2469</a></td>
+<td align="left">Add cloud-weather-report test plan</td>
+<td align="left">Minor</td>
+<td align="left">tests</td>
+<td align="left">Cory Johns</td>
+<td align="left">Cory Johns</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2357">BIGTOP-2357</a></td>
+<td align="left">Create puppet recipes</td>
+<td align="left">Major</td>
+<td align="left">flink, general</td>
+<td align="left">Bhupendra Singh</td>
+<td align="left">Robert Metzger</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-1624">BIGTOP-1624</a></td>
+<td align="left">Add puppet recipes for deploying kafka</td>
+<td align="left">Minor</td>
+<td align="left">deployment</td>
+<td align="left">Manikandan Narayanaswamy</td>
+<td align="left">Konstantinos Tsakalozos</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2254">BIGTOP-2254</a></td>
+<td align="left">Replace the Docker orchestration tool from Vagrant to Docker Compose</td>
+<td align="left">Major</td>
+<td align="left">docker, provisioner</td>
+<td align="left">Evans Ye</td>
+<td align="left">Evans Ye</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2312">BIGTOP-2312</a></td>
+<td align="left">Add environment check</td>
+<td align="left">Minor</td>
+<td align="left">docker, provisioner</td>
+<td align="left">Evans Ye</td>
+<td align="left">Evans Ye</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2505">BIGTOP-2505</a></td>
+<td align="left">Support systemd containers, clean up hiera.yaml handling, fix exec (-e) flag</td>
+<td align="left">Major</td>
+<td align="left">provisioner</td>
+<td align="left">Olaf Flebbe</td>
+<td align="left">Olaf Flebbe</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2518">BIGTOP-2518</a></td>
+<td align="left">Add node to the build slave configuration</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Roman Shaposhnik</td>
+<td align="left">Roman Shaposhnik</td>
+</tr>
+</tbody>
+</table>
+<h3 id="other">OTHER:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2289">BIGTOP-2289</a></td>
+<td align="left">Set master version to 1.2.0-SNAPSHOT</td>
+<td align="left">Major</td>
+<td align="left">general</td>
+<td align="left">Konstantin Boudnik</td>
+<td align="left">Konstantin Boudnik</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2335">BIGTOP-2335</a></td>
+<td align="left">ci link should use https:// authority</td>
+<td align="left">Major</td>
+<td align="left">website</td>
+<td align="left">Konstantin Boudnik</td>
+<td align="left">Konstantin Boudnik</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2334">BIGTOP-2334</a></td>
+<td align="left">Update latest release link on the website</td>
+<td align="left">Major</td>
+<td align="left">website</td>
+<td align="left">Konstantin Boudnik</td>
+<td align="left">Konstantin Boudnik</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2368">BIGTOP-2368</a></td>
+<td align="left">OpenStack config bigtop repo-url changes.</td>
+<td align="left">Minor</td>
+<td align="left">provisioner</td>
+<td align="left">Bhupendra Singh</td>
+<td align="left">Bhupendra Singh</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2371">BIGTOP-2371</a></td>
+<td align="left">Add Oozie to gradle smoke tests</td>
+<td align="left">Major</td>
+<td align="left">tests</td>
+<td align="left">Dasha Boudnik</td>
+<td align="left">Dasha Boudnik</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2415">BIGTOP-2415</a></td>
+<td align="left">readme spelling error</td>
+<td align="left">Trivial</td>
+<td align="left">documentation</td>
+<td align="left">Artem Ervits</td>
+<td align="left">Artem Ervits</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2414">BIGTOP-2414</a></td>
+<td align="left">Rename Tachyon to Alluxio</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jonathan Kelly</td>
+<td align="left">Jonathan Kelly</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2456">BIGTOP-2456</a></td>
+<td align="left">Update Apache Apex version to 3.4.0</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Chinmay Kolhatkar</td>
+<td align="left">Chinmay Kolhatkar</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/BIGTOP-2500">BIGTOP-2500</a></td>
+<td align="left">Remove hadoop jars from TEZ_HOME/lib and create appropriate symlinks</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">YoungWoo Kim</td>
+<td align="left">YoungWoo Kim</td>
+</tr>
+</tbody>
+</table>

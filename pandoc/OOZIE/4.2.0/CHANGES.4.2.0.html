@@ -1,0 +1,1315 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-oozie-changelog">Apache Oozie Changelog</h1>
+<h2 id="release-4.2.0---2015-06-03">Release 4.2.0 - 2015-06-03</h2>
+<h3 id="incompatible-changes">INCOMPATIBLE CHANGES:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="important-issues">IMPORTANT ISSUES:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="new-features">NEW FEATURES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2133">OOZIE-2133</a></td>
+<td align="left">Support getting ATS delegation tokens for tez jobs</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Rohini Palaniswamy</td>
+<td align="left">Rohini Palaniswamy</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2130">OOZIE-2130</a></td>
+<td align="left">Add EL Function for offsetting a date by a timezone amount including DST</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Robert Kanter</td>
+<td align="left">Robert Kanter</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2108">OOZIE-2108</a></td>
+<td align="left">bulk kill, suspend, resume jobs using existing filter, offset, len, and jobtype params</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Bowen Zhang</td>
+<td align="left">Bowen Zhang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-1983">OOZIE-1983</a></td>
+<td align="left">Add spark action executor</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Shwetha G S</td>
+<td align="left">pavan kumar kolamuri</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-1954">OOZIE-1954</a></td>
+<td align="left">Add a way for the MapReduce action to be configured by Java code</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Robert Kanter</td>
+<td align="left">Robert Kanter</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-1653">OOZIE-1653</a></td>
+<td align="left">Support ALL to allowed error code of the user retry</td>
+<td align="left">Minor</td>
+<td align="left">action</td>
+<td align="left">Azrael Seoeun</td>
+<td align="left">Azrael Seoeun</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-1567">OOZIE-1567</a></td>
+<td align="left">Provide a wait tool in Oozie</td>
+<td align="left">Trivial</td>
+<td align="left">core</td>
+<td align="left">Viji</td>
+<td align="left">Robert Kanter</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-1457">OOZIE-1457</a></td>
+<td align="left">Create a Hive Server 2 action</td>
+<td align="left">Minor</td>
+<td align="left">action</td>
+<td align="left">Robert Kanter</td>
+<td align="left">Robert Kanter</td>
+</tr>
+</tbody>
+</table>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2223">OOZIE-2223</a></td>
+<td align="left">Improve documentation with regard to Java action retries</td>
+<td align="left">Major</td>
+<td align="left">docs</td>
+<td align="left">Ben Roling</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2209">OOZIE-2209</a></td>
+<td align="left">Oozie launchers to set &quot;java.io.tmpdir&quot; to &quot;./tmp&quot;</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Kailong Sheng</td>
+<td align="left">Kailong Sheng</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2186">OOZIE-2186</a></td>
+<td align="left">Upgrade Tomcat to 6.0.43</td>
+<td align="left">Major</td>
+<td align="left">core</td>
+<td align="left">Robert Kanter</td>
+<td align="left">Robert Kanter</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2184">OOZIE-2184</a></td>
+<td align="left">Change default value of action tmp dir removal to true</td>
+<td align="left">Minor</td>
+<td align="left">action</td>
+<td align="left">Viji</td>
+<td align="left">Viji</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2174">OOZIE-2174</a></td>
+<td align="left">Add missing admin commands to OozieClient and OozieCLI</td>
+<td align="left">Major</td>
+<td align="left">client</td>
+<td align="left">Robert Kanter</td>
+<td align="left">Robert Kanter</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2170">OOZIE-2170</a></td>
+<td align="left">Oozie should automatically set configs to make Spark jobs show up in the Spark History Server</td>
+<td align="left">Major</td>
+<td align="left">action</td>
+<td align="left">Robert Kanter</td>
+<td align="left">Robert Kanter</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2164">OOZIE-2164</a></td>
+<td align="left">make master parameterizable in Spark action example</td>
+<td align="left">Major</td>
+<td align="left">examples</td>
+<td align="left">Wing Yew Poon</td>
+<td align="left">Wing Yew Poon</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2111">OOZIE-2111</a></td>
+<td align="left">Kerberized Oozie doesn't allow connections from users with a lot of groups</td>
+<td align="left">Major</td>
+<td align="left">security</td>
+<td align="left">Robert Kanter</td>
+<td align="left">Robert Kanter</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2107">OOZIE-2107</a></td>
+<td align="left">Schema config properties should be consistent with ActionExecutor config properties</td>
+<td align="left">Major</td>
+<td align="left">core</td>
+<td align="left">Robert Kanter</td>
+<td align="left">Robert Kanter</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2088">OOZIE-2088</a></td>
+<td align="left">Exponential retries for transient failures</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">pavan kumar kolamuri</td>
+<td align="left">pavan kumar kolamuri</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2042">OOZIE-2042</a></td>
+<td align="left">Max substitution for config variables should be configurable</td>
+<td align="left">Major</td>
+<td align="left">core</td>
+<td align="left">Robert Kanter</td>
+<td align="left">Azrael Seoeun</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-1917">OOZIE-1917</a></td>
+<td align="left">Authentication secret should be random by default and needs to coordinate with HA</td>
+<td align="left">Critical</td>
+<td align="left">HA, security</td>
+<td align="left">Robert Kanter</td>
+<td align="left">Robert Kanter</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-1913">OOZIE-1913</a></td>
+<td align="left">Devise a way to turn off SLA alerts for bundle/coordinator flexibly</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Mona Chitnis</td>
+<td align="left">Purshotam Shah</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-1889">OOZIE-1889</a></td>
+<td align="left">Convert NamedNativeQueries to JPQL</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">David Villegas</td>
+<td align="left">David Villegas</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-1876">OOZIE-1876</a></td>
+<td align="left">use pom properties rather than specific version numbers in the pom files of hbaselibs, hcataloglibs, sharelib, etc</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Xiaoshuang LU</td>
+<td align="left">Shwetha G S</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-1846">OOZIE-1846</a></td>
+<td align="left">Convert CoordActionMaterializeCommand to an XCommand and remove Command</td>
+<td align="left">Major</td>
+<td align="left">core</td>
+<td align="left">Robert Kanter</td>
+<td align="left">Azrael Seoeun</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-1830">OOZIE-1830</a></td>
+<td align="left">Change hadoop-1 profile to use 1.2.1</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Azrael Seoeun</td>
+<td align="left">Azrael Seoeun</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-1803">OOZIE-1803</a></td>
+<td align="left">Improvement in Purge service</td>
+<td align="left">Major</td>
+<td align="left">core</td>
+<td align="left">Jaydeep Vishwakarma</td>
+<td align="left">Jaydeep Vishwakarma</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-1730">OOZIE-1730</a></td>
+<td align="left">Change hadoop-2 profile to use 2.4.0</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Robert Kanter</td>
+<td align="left">Jaydeep Vishwakarma</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-1726">OOZIE-1726</a></td>
+<td align="left">Oozie does not support _HOST when configuring kerberos security</td>
+<td align="left">Major</td>
+<td align="left">core</td>
+<td align="left">Mingjiang Shi</td>
+<td align="left">Venkat Ranganathan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-1722">OOZIE-1722</a></td>
+<td align="left">When an ApplicationMaster restarts, it restarts the launcher job</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Robert Kanter</td>
+<td align="left">Robert Kanter</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-1677">OOZIE-1677</a></td>
+<td align="left">Add Oozie servers to instrumentation info</td>
+<td align="left">Minor</td>
+<td align="left">HA</td>
+<td align="left">Robert Kanter</td>
+<td align="left">Robert Kanter</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-1534">OOZIE-1534</a></td>
+<td align="left">Launcher job might run do hadoop attempt relaunch - possibly causing correctness issues</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Srikanth Sundarrajan</td>
+<td align="left">Jaydeep Vishwakarma</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-1428">OOZIE-1428</a></td>
+<td align="left">The delay time for requeue should be configurable</td>
+<td align="left">Minor</td>
+<td align="left">core</td>
+<td align="left">Robert Kanter</td>
+<td align="left">Sreepathi Prasanna</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2350">OOZIE-2350</a></td>
+<td align="left">Package changes for release</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Shwetha G S</td>
+<td align="left">Shwetha G S</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2240">OOZIE-2240</a></td>
+<td align="left">add configuration to disable email attachment support</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ryota Egashira</td>
+<td align="left">Ryota Egashira</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2236">OOZIE-2236</a></td>
+<td align="left">Need to package hive-hcatalog-server-extensions.jar in the hcatalog sharelib</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Venkat Ranganathan</td>
+<td align="left">Venkat Ranganathan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2227">OOZIE-2227</a></td>
+<td align="left">PartitionDependencyManagerService keeps on purging delete coord actions</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Purshotam Shah</td>
+<td align="left">Purshotam Shah</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2221">OOZIE-2221</a></td>
+<td align="left">Oozie audit log has null id for some of input request</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Purshotam Shah</td>
+<td align="left">Purshotam Shah</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2218">OOZIE-2218</a></td>
+<td align="left">META-INF directories in the war file have 777 permissions</td>
+<td align="left">Blocker</td>
+<td align="left">core, security</td>
+<td align="left">Robert Kanter</td>
+<td align="left">Robert Kanter</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2214">OOZIE-2214</a></td>
+<td align="left">fix test case TestCoordRerunXCommand.testCoordRerunDateNeg</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ryota Egashira</td>
+<td align="left">Ryota Egashira</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2213">OOZIE-2213</a></td>
+<td align="left">oozie-setup.ps1 should use &quot;start-process&quot; rather than &quot;cmd /c&quot; to invoke OozieSharelibCLI or OozieDBCLI commands</td>
+<td align="left">Major</td>
+<td align="left">scripts, tools</td>
+<td align="left">Bowen Zhang</td>
+<td align="left">Bowen Zhang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2206">OOZIE-2206</a></td>
+<td align="left">Change Reaper mode on ChildReaper in ZKLocksService</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ryota Egashira</td>
+<td align="left">Ryota Egashira</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2205">OOZIE-2205</a></td>
+<td align="left">add option to load default/site.xml to actionConf on compute node</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ryota Egashira</td>
+<td align="left">Ryota Egashira</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2199">OOZIE-2199</a></td>
+<td align="left">Ooziedb.cmd and oozie-setup.ps1 are missing jars in lib/ for classpath on Windows</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Bowen Zhang</td>
+<td align="left">Venkat Ranganathan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2197">OOZIE-2197</a></td>
+<td align="left">ooziedb.cmd command failed due to classpath being too long on windows.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Bowen Zhang</td>
+<td align="left">Venkat Ramachandran</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2191">OOZIE-2191</a></td>
+<td align="left">Upgrade jackson version for hadoop-2 profile</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ryota Egashira</td>
+<td align="left">Ryota Egashira</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2188">OOZIE-2188</a></td>
+<td align="left">Fix typos in twiki documentation</td>
+<td align="left">Trivial</td>
+<td align="left">docs</td>
+<td align="left">Jacob Tolar</td>
+<td align="left">Jacob Tolar</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2183">OOZIE-2183</a></td>
+<td align="left">provide an option to disable cleanup for output dataset in rerun</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ryota Egashira</td>
+<td align="left">Ryota Egashira</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2182">OOZIE-2182</a></td>
+<td align="left">SLA alert commands are not in sync with doc</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Purshotam Shah</td>
+<td align="left">Purshotam Shah</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2181">OOZIE-2181</a></td>
+<td align="left">JsonToBean has some missing and incorrect mappings</td>
+<td align="left">Major</td>
+<td align="left">client</td>
+<td align="left">Robert Kanter</td>
+<td align="left">Robert Kanter</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2180">OOZIE-2180</a></td>
+<td align="left">Oozie hive2 should explicitly depend on commons-io rather than transitive dependency of hive-exec</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Bowen Zhang</td>
+<td align="left">Bowen Zhang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2177">OOZIE-2177</a></td>
+<td align="left">Parameterize javadoc plugin configuration</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ryota Egashira</td>
+<td align="left">Ryota Egashira</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2171">OOZIE-2171</a></td>
+<td align="left">Some error code messages are not parsed correctly due to unescaped single quote</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Robert Kanter</td>
+<td align="left">Robert Kanter</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2169">OOZIE-2169</a></td>
+<td align="left">Fix return type for fs:dirSize, fs:fileSize and fs:blockSize in WF spec</td>
+<td align="left">Major</td>
+<td align="left">docs</td>
+<td align="left">Alexander Pivovarov</td>
+<td align="left">Alexander Pivovarov</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2167">OOZIE-2167</a></td>
+<td align="left">TestCoordMaterializeTransitionXCommand fails</td>
+<td align="left">Major</td>
+<td align="left">tests</td>
+<td align="left">Robert Kanter</td>
+<td align="left">Robert Kanter</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2158">OOZIE-2158</a></td>
+<td align="left">Overrides in action conf in streaming action do not work</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Rohini Palaniswamy</td>
+<td align="left">Rohini Palaniswamy</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2156">OOZIE-2156</a></td>
+<td align="left">override hive.querylog.location in hive-site.xml</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ryota Egashira</td>
+<td align="left">Ryota Egashira</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2155">OOZIE-2155</a></td>
+<td align="left">Incorrect DST Shifts are occurring based on the Database timezone</td>
+<td align="left">Blocker</td>
+<td align="left">core</td>
+<td align="left">Robert Kanter</td>
+<td align="left">Robert Kanter</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2153">OOZIE-2153</a></td>
+<td align="left">modify HCatCredentialHelper to use HCatClient</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ryota Egashira</td>
+<td align="left">Ryota Egashira</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2147">OOZIE-2147</a></td>
+<td align="left">Oozie upgrade from 4.0.0 to 4.1.0 fails with CLOBs of zero length with Oracle DB</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Venkat Ranganathan</td>
+<td align="left">Venkat Ranganathan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2146">OOZIE-2146</a></td>
+<td align="left">Add option to filter sla information by bundle id or name</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ryota Egashira</td>
+<td align="left">Ryota Egashira</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2145">OOZIE-2145</a></td>
+<td align="left">ZooKeeper paths should start with a &quot;/&quot;</td>
+<td align="left">Critical</td>
+<td align="left">HA</td>
+<td align="left">Robert Kanter</td>
+<td align="left">Robert Kanter</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2142">OOZIE-2142</a></td>
+<td align="left">Changing the JT whitelist causes running Workflows to stay RUNNING forever</td>
+<td align="left">Major</td>
+<td align="left">core</td>
+<td align="left">Robert Kanter</td>
+<td align="left">Robert Kanter</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2140">OOZIE-2140</a></td>
+<td align="left">Audit Log should be shown in Oozie UI</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Purshotam Shah</td>
+<td align="left">Purshotam Shah</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2139">OOZIE-2139</a></td>
+<td align="left">Coord update doesn't work for job which is submitted by bundle</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Purshotam Shah</td>
+<td align="left">Purshotam Shah</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2132">OOZIE-2132</a></td>
+<td align="left">FS actions are not retried</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ryota Egashira</td>
+<td align="left">Ryota Egashira</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2131">OOZIE-2131</a></td>
+<td align="left">Add flag to sqoop action to skip hbase delegation token generation</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Abraham Elmahrek</td>
+<td align="left">Abraham Elmahrek</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2129">OOZIE-2129</a></td>
+<td align="left">Duplicate child jobs per instance</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Shwetha G S</td>
+<td align="left">Jaydeep Vishwakarma</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2127">OOZIE-2127</a></td>
+<td align="left">Add created time to RecoveryService WF queries</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Purshotam Shah</td>
+<td align="left">Purshotam Shah</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2126">OOZIE-2126</a></td>
+<td align="left">SSH action can be too fast for Oozie sometimes</td>
+<td align="left">Major</td>
+<td align="left">action</td>
+<td align="left">Robert Kanter</td>
+<td align="left">Robert Kanter</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2123">OOZIE-2123</a></td>
+<td align="left">Disable launcher uber mode if classloader options are set</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ryota Egashira</td>
+<td align="left">Ryota Egashira</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2122">OOZIE-2122</a></td>
+<td align="left">fix test case failure of TestLiteWorkflowAppService</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ryota Egashira</td>
+<td align="left">Ryota Egashira</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2121">OOZIE-2121</a></td>
+<td align="left">CoordinatorFunctionalSpec 4.4.1.1 swap Value and First Occurrence line 4 in example table</td>
+<td align="left">Trivial</td>
+<td align="left">docs</td>
+<td align="left">Alexander Pivovarov</td>
+<td align="left">Alexander Pivovarov</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2120">OOZIE-2120</a></td>
+<td align="left">Many JPAExecutor names are wrong</td>
+<td align="left">Major</td>
+<td align="left">monitoring</td>
+<td align="left">Robert Kanter</td>
+<td align="left">Robert Kanter</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2119">OOZIE-2119</a></td>
+<td align="left">Distcp action fails when -D option in arguments</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ryota Egashira</td>
+<td align="left">Ryota Egashira</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2118">OOZIE-2118</a></td>
+<td align="left">add createdtime option to workflow jobs query</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ryota Egashira</td>
+<td align="left">Ryota Egashira</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2113">OOZIE-2113</a></td>
+<td align="left">Oozie Command Line Utilities are failing as hadoop-auth jar not found</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">pavan kumar kolamuri</td>
+<td align="left">Shwetha G S</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2112">OOZIE-2112</a></td>
+<td align="left">Child Job URL doesn't show properly with Hive on Tez</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ryota Egashira</td>
+<td align="left">Ryota Egashira</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2110">OOZIE-2110</a></td>
+<td align="left">cancel delegation token of launcher jobs that stay till child jobs finish</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ryota Egashira</td>
+<td align="left">Ryota Egashira</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2109">OOZIE-2109</a></td>
+<td align="left">Possibly incorrect job ID may be printed for map-reduce action errors</td>
+<td align="left">Major</td>
+<td align="left">action</td>
+<td align="left">Harsh J</td>
+<td align="left">Harsh J</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2104">OOZIE-2104</a></td>
+<td align="left">oozie server dies on startup if oozie-site redefines ActionExecutor classes</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Robert Kanter</td>
+<td align="left">Robert Kanter</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2100">OOZIE-2100</a></td>
+<td align="left">Publish oozie-webapp artifact</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Suresh Srinivas</td>
+<td align="left">Suresh Srinivas</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2098">OOZIE-2098</a></td>
+<td align="left">Add Apache parent POM to oozie</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Suresh Srinivas</td>
+<td align="left">Suresh Srinivas</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2093">OOZIE-2093</a></td>
+<td align="left">TestSubmitXCommand.testProtoConfStorage fails against Hadoop 2</td>
+<td align="left">Major</td>
+<td align="left">tests</td>
+<td align="left">Robert Kanter</td>
+<td align="left">Robert Kanter</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2090">OOZIE-2090</a></td>
+<td align="left">wf:lastErrorNode does not take into account transient errors with retries</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Robert Kanter</td>
+<td align="left">Robert Kanter</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2074">OOZIE-2074</a></td>
+<td align="left">Compatibility issue with Yarn and Hadoop 0.23/2.x</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jaydeep Vishwakarma</td>
+<td align="left">Jaydeep Vishwakarma</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2069">OOZIE-2069</a></td>
+<td align="left">RecoveryService reads incorrect configuration</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Purshotam Shah</td>
+<td align="left">Purshotam Shah</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2068">OOZIE-2068</a></td>
+<td align="left">Configuration as part of sharelib</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Purshotam Shah</td>
+<td align="left">Purshotam Shah</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2065">OOZIE-2065</a></td>
+<td align="left">Oozie returns incorrect total action for coord dryrun</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Purshotam Shah</td>
+<td align="left">Purshotam Shah</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2064">OOZIE-2064</a></td>
+<td align="left">coord job with frequency coord:endOfMonths doesn't materialize</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Purshotam Shah</td>
+<td align="left">Purshotam Shah</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2063">OOZIE-2063</a></td>
+<td align="left">Cron syntax creates duplicate actions</td>
+<td align="left">Blocker</td>
+<td align="left">coordinator</td>
+<td align="left">Robert Kanter</td>
+<td align="left">Bowen Zhang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2055">OOZIE-2055</a></td>
+<td align="left">PauseTransitService does not proceed forward if any job has issue</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Purshotam Shah</td>
+<td align="left">Purshotam Shah</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2053">OOZIE-2053</a></td>
+<td align="left">Change old HCatalog API</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ryota Egashira</td>
+<td align="left">Ryota Egashira</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2051">OOZIE-2051</a></td>
+<td align="left">Allows multiple default action configuration files per action</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Venkat Ranganathan</td>
+<td align="left">Venkat Ranganathan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2048">OOZIE-2048</a></td>
+<td align="left">HadoopAccessorService should also process ssl_client.xml</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Venkat Ranganathan</td>
+<td align="left">Venkat Ranganathan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2047">OOZIE-2047</a></td>
+<td align="left">Oozie does not support Hive tables that use datatypes introduced since Hive 0.8</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Venkat Ranganathan</td>
+<td align="left">Venkat Ranganathan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2045">OOZIE-2045</a></td>
+<td align="left">Symlink support for sharelib</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Purshotam Shah</td>
+<td align="left">Purshotam Shah</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2043">OOZIE-2043</a></td>
+<td align="left">Misc test failures against JDK8</td>
+<td align="left">Major</td>
+<td align="left">tests</td>
+<td align="left">Robert Kanter</td>
+<td align="left">Robert Kanter</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2035">OOZIE-2035</a></td>
+<td align="left">NotificationXCommand should support proxy</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Purshotam Shah</td>
+<td align="left">Purshotam Shah</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2023">OOZIE-2023</a></td>
+<td align="left">Job rerun can stuck in prep</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Purshotam Shah</td>
+<td align="left">Purshotam Shah</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2019">OOZIE-2019</a></td>
+<td align="left">SLA miss processed on server2 not send email</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Purshotam Shah</td>
+<td align="left">Purshotam Shah</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2014">OOZIE-2014</a></td>
+<td align="left">TestAuthFilterAuthOozieClient fails after OOZIE-1917</td>
+<td align="left">Major</td>
+<td align="left">tests</td>
+<td align="left">Robert Kanter</td>
+<td align="left">Robert Kanter</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2012">OOZIE-2012</a></td>
+<td align="left">coordinator with an invalid cron frequency throws NPE after validation</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Bowen Zhang</td>
+<td align="left">Bowen Zhang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2009">OOZIE-2009</a></td>
+<td align="left">Requeue CoordActionInputCheck in case of permission error</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ryota Egashira</td>
+<td align="left">Ryota Egashira</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2003">OOZIE-2003</a></td>
+<td align="left">Checkstyle issues</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Shwetha G S</td>
+<td align="left">Robert Kanter</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2001">OOZIE-2001</a></td>
+<td align="left">Workflow re-runs doesn't update coord action status</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Shwetha G S</td>
+<td align="left">Jaydeep Vishwakarma</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-1993">OOZIE-1993</a></td>
+<td align="left">Rerun fails during join in certain condition</td>
+<td align="left">Major</td>
+<td align="left">core</td>
+<td align="left">Robert Kanter</td>
+<td align="left">Shwetha G S</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-1985">OOZIE-1985</a></td>
+<td align="left">support dropping hcat dataset in coord rerun with cleanup option</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ryota Egashira</td>
+<td align="left">Ryota Egashira</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-1957">OOZIE-1957</a></td>
+<td align="left">Coord update command override group when oozie.service.AuthorizationService.default.group.as.acl is set and group/acl is not configured in job property</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Purshotam Shah</td>
+<td align="left">Purshotam Shah</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-1941">OOZIE-1941</a></td>
+<td align="left">Bundle coordinator name can't be parameterized</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Purshotam Shah</td>
+<td align="left">Purshotam Shah</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-1940">OOZIE-1940</a></td>
+<td align="left">StatusTransitService has race condition</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Purshotam Shah</td>
+<td align="left">Purshotam Shah</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-1939">OOZIE-1939</a></td>
+<td align="left">Incorrect job information is set while logging</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Purshotam Shah</td>
+<td align="left">Azrael Seoeun</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-1923">OOZIE-1923</a></td>
+<td align="left">ZKLocksService locks are not re-entrant like MemoryLocks</td>
+<td align="left">Major</td>
+<td align="left">HA</td>
+<td align="left">Purshotam Shah</td>
+<td align="left">Purshotam Shah</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-1914">OOZIE-1914</a></td>
+<td align="left">CLI should retry on timeout</td>
+<td align="left">Major</td>
+<td align="left">HA</td>
+<td align="left">Purshotam Shah</td>
+<td align="left">Purshotam Shah</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-1896">OOZIE-1896</a></td>
+<td align="left">ZKUUIDService - Too many job submission fails</td>
+<td align="left">Major</td>
+<td align="left">HA</td>
+<td align="left">Purshotam Shah</td>
+<td align="left">Purshotam Shah</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-1894">OOZIE-1894</a></td>
+<td align="left">Better error reporting to user</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Purshotam Shah</td>
+<td align="left">Purshotam Shah</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-1891">OOZIE-1891</a></td>
+<td align="left">Parametrize surefire argLine to bump up heap memory for testing</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ryota Egashira</td>
+<td align="left">Ryota Egashira</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-1890">OOZIE-1890</a></td>
+<td align="left">Make oozie-site empty and reconcile defaults between oozie-default and the code</td>
+<td align="left">Major</td>
+<td align="left">core</td>
+<td align="left">Robert Kanter</td>
+<td align="left">Azrael Seoeun</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-1847">OOZIE-1847</a></td>
+<td align="left">HA - Oozie servers should shutdown (or go in safe mode) in case of ZK failure</td>
+<td align="left">Major</td>
+<td align="left">HA</td>
+<td align="left">Purshotam Shah</td>
+<td align="left">Purshotam Shah</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-1843">OOZIE-1843</a></td>
+<td align="left">Bulk update for coord last modified time for CoordMaterializeTriggerService</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Purshotam Shah</td>
+<td align="left">Purshotam Shah</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-1818">OOZIE-1818</a></td>
+<td align="left">CoordMaterializeTransitionXCommand verifyPrecondition doesn't verify current time</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Purshotam Shah</td>
+<td align="left">Purshotam Shah</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-1813">OOZIE-1813</a></td>
+<td align="left">Add service to report/kill rogue bundles and coordinator jobs</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Purshotam Shah</td>
+<td align="left">Purshotam Shah</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-1808">OOZIE-1808</a></td>
+<td align="left">Change DG_QuickStart.twiki to reflect changes in sharelib installation</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Bowen Zhang</td>
+<td align="left">Ryota Egashira</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-1688">OOZIE-1688</a></td>
+<td align="left">New configuration to specify server-server authentication type.</td>
+<td align="left">Major</td>
+<td align="left">HA</td>
+<td align="left">Purshotam Shah</td>
+<td align="left">Purshotam Shah</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-1391">OOZIE-1391</a></td>
+<td align="left">Sub wf suspend doesn't update parent wf</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Shwetha G S</td>
+<td align="left">Jaydeep Vishwakarma</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-1385">OOZIE-1385</a></td>
+<td align="left">Make Uber Mode the default</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Robert Kanter</td>
+<td align="left">Robert Kanter</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tests">TESTS:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="sub-tasks">SUB-TASKS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2210">OOZIE-2210</a></td>
+<td align="left">Update extjs 2.2 link</td>
+<td align="left">Major</td>
+<td align="left">docs</td>
+<td align="left">Robert Kanter</td>
+<td align="left">Bowen Zhang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2163">OOZIE-2163</a></td>
+<td align="left">Remove CoordinatorStore</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Bowen Zhang</td>
+<td align="left">Azrael Seoeun</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2092">OOZIE-2092</a></td>
+<td align="left">Provide option to supply config to workflow during rerun of coordinator</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jaydeep Vishwakarma</td>
+<td align="left">Jaydeep Vishwakarma</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2029">OOZIE-2029</a></td>
+<td align="left">Workflow re-run with RERUN_FAIL_NODES=true should re-run only the failed nodes of the sub-workflow</td>
+<td align="left">Major</td>
+<td align="left">workflow</td>
+<td align="left">Jaydeep Vishwakarma</td>
+<td align="left">Jaydeep Vishwakarma</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2028">OOZIE-2028</a></td>
+<td align="left">Coord action rerun with -failed option should rerun existing workflow with RERUN_FAIL_NODES=true</td>
+<td align="left">Major</td>
+<td align="left">workflow</td>
+<td align="left">Jaydeep Vishwakarma</td>
+<td align="left">Jaydeep Vishwakarma</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2027">OOZIE-2027</a></td>
+<td align="left">Disable re-runs using the workflow directly if it has a parent</td>
+<td align="left">Major</td>
+<td align="left">workflow</td>
+<td align="left">Jaydeep Vishwakarma</td>
+<td align="left">Jaydeep Vishwakarma</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2006">OOZIE-2006</a></td>
+<td align="left">Hive 2 action should support tez delegation tokens</td>
+<td align="left">Major</td>
+<td align="left">action</td>
+<td align="left">Robert Kanter</td>
+<td align="left">Bowen Zhang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-1968">OOZIE-1968</a></td>
+<td align="left">Building modules independently</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Shwetha G S</td>
+<td align="left">Shwetha G S</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-1966">OOZIE-1966</a></td>
+<td align="left">Fix Headers in java code</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Shwetha G S</td>
+<td align="left">Shwetha G S</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-1964">OOZIE-1964</a></td>
+<td align="left">Hive Server 2 action doesn't return Hadoop Job IDs</td>
+<td align="left">Major</td>
+<td align="left">action</td>
+<td align="left">Robert Kanter</td>
+<td align="left">Robert Kanter</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-1963">OOZIE-1963</a></td>
+<td align="left">Create a Hive Server 2 example</td>
+<td align="left">Major</td>
+<td align="left">action</td>
+<td align="left">Robert Kanter</td>
+<td align="left">Harsh J</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-1853">OOZIE-1853</a></td>
+<td align="left">Improve the Credentials documentation</td>
+<td align="left">Major</td>
+<td align="left">docs</td>
+<td align="left">Robert Kanter</td>
+<td align="left">Robert Kanter</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-1728">OOZIE-1728</a></td>
+<td align="left">When an ApplicationMaster restarts, it restarts the launcher job: DistCp followup</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Robert Kanter</td>
+<td align="left">Ryota Egashira</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-1696">OOZIE-1696</a></td>
+<td align="left">Document how to get the action conf in the Java action</td>
+<td align="left">Major</td>
+<td align="left">docs</td>
+<td align="left">Robert Kanter</td>
+<td align="left">James Kinley</td>
+</tr>
+</tbody>
+</table>
+<h3 id="other">OTHER:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2224">OOZIE-2224</a></td>
+<td align="left">Add example worklfow.xml for hive in secure mode</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Bowen Zhang</td>
+<td align="left">Venkat Ranganathan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-2071">OOZIE-2071</a></td>
+<td align="left">Add a Spark example</td>
+<td align="left">Major</td>
+<td align="left">examples</td>
+<td align="left">Robert Kanter</td>
+<td align="left">pavan kumar kolamuri</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/OOZIE-1943">OOZIE-1943</a></td>
+<td align="left">Bump up trunk to 4.2.0-SNAPSHOT</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Bowen Zhang</td>
+<td align="left">Bowen Zhang</td>
+</tr>
+</tbody>
+</table>

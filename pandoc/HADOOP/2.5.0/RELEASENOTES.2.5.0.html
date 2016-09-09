@@ -1,0 +1,95 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hadoop-2.5.0-release-notes">Apache Hadoop 2.5.0 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-10568">HADOOP-10568</a> | <em>Major</em> | <strong>Add s3 server-side encryption</strong></li>
+</ul>
+<p>s3 server-side encryption is now supported.</p>
+<p>To enable this feature, specify the following in your client-side configuration:</p>
+<p>name: fs.s3n.server-side-encryption-algorithm value: AES256</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-10451">HADOOP-10451</a> | <em>Trivial</em> | <strong>Remove unused field and imports from SaslRpcServer</strong></li>
+</ul>
+<p>SaslRpcServer.SASL_PROPS is removed. Any use of this variable should be replaced with the following code: SaslPropertiesResolver saslPropsResolver = SaslPropertiesResolver.getInstance(conf); Map&lt;String, String&gt; sasl_props = saslPropsResolver.getDefaultProperties();</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-10342">HADOOP-10342</a> | <em>Major</em> | <strong>Extend UserGroupInformation to return a UGI given a preauthenticated kerberos Subject</strong></li>
+</ul>
+<p>Add getUGIFromSubject to leverage an external kerberos authentication</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-9919">HADOOP-9919</a> | <em>Major</em> | <strong>Update hadoop-metrics2.properties examples to Yarn</strong></li>
+</ul>
+<p>Remove MRv1 settings from hadoop-metrics2.properties, add YARN settings instead.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-6471">HDFS-6471</a> | <em>Major</em> | <strong>Make moveFromLocal CLI testcases to be non-disruptive</strong></li>
+</ul>
+<p>Committed to trunk and merged into branch-2. Thanks Dasha!</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-6297">HDFS-6297</a> | <em>Major</em> | <strong>Add CLI testcases to reflect new features of dfs and dfsadmin</strong></li>
+</ul>
+<p>Committed to the trunk and branch-2. Thanks Dasha!</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-6293">HDFS-6293</a> | <em>Blocker</em> | <strong>Issues with OIV processing PB-based fsimages</strong></li>
+</ul>
+<p>Set &quot;dfs.namenode.legacy-oiv-image.dir&quot; to an appropriate directory to make standby name node or secondary name node save its file system state in the old fsimage format during checkpointing. This image can be used for offline analysis using the OfflineImageViewer. Use the &quot;hdfs oiv_legacy&quot; command to process the old fsimage format.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-6273">HDFS-6273</a> | <em>Major</em> | <strong>Config options to allow wildcard endpoints for namenode HTTP and HTTPS servers</strong></li>
+</ul>
+<p>HDFS-6273 introduces two new HDFS configuration keys: - dfs.namenode.http-bind-host - dfs.namenode.https-bind-host</p>
+<p>The most common use case for these keys is to have the NameNode HTTP (or HTTPS) endpoints listen on all interfaces on multi-homed systems by setting the keys to 0.0.0.0 i.e. INADDR_ANY.</p>
+<p>For the systems background on this usage of INADDR_ANY please refer to ip(7) in the Linux Programmer's Manual (web link: http://man7.org/linux/man-pages/man7/ip.7.html).</p>
+<p>These keys complement the existing NameNode options: - dfs.namenode.rpc-bind-host - dfs.namenode.servicerpc-bind-host</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-6168">HDFS-6168</a> | <em>Major</em> | <strong>Remove deprecated methods in DistributedFileSystem</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-6164">HDFS-6164</a> | <em>Major</em> | <strong>Remove lsr in OfflineImageViewer</strong></li>
+</ul>
+<p>The offlineimageviewer no longer generates lsr-style outputs. The functionality has been superseded by a tool that takes the fsimage and exposes WebHDFS-like API for user queries.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-6153">HDFS-6153</a> | <em>Minor</em> | <strong>Document &quot;fileId&quot; and &quot;childrenNum&quot; fields in the FileStatus Json schema</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-6110">HDFS-6110</a> | <em>Major</em> | <strong>adding more slow action log in critical write path</strong></li>
+</ul>
+<p>Log slow i/o. Set log thresholds in dfsclient and datanode via the below new configs:</p>
+<p>dfs.client.slow.io.warning.threshold.ms (Default 30 seconds) dfs.datanode.slow.io.warning.threshold.ms (Default 300ms)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5777">MAPREDUCE-5777</a> | <em>Major</em> | <strong>Support utf-8 text with BOM (byte order marker)</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-2107">YARN-2107</a> | <em>Major</em> | <strong>Refactor timeline classes into server.timeline package</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>

@@ -1,0 +1,295 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hbase-changelog">Apache HBase Changelog</h1>
+<h2 id="release-1.1.5---2016-05-13">Release 1.1.5 - 2016-05-13</h2>
+<h3 id="new-features">NEW FEATURES:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-15592">HBASE-15592</a></td>
+<td align="left">Print Procedure WAL content</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jerry He</td>
+<td align="left">Jerry He</td>
+</tr>
+</tbody>
+</table>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-15478">HBASE-15478</a></td>
+<td align="left">add comments to FSHLog explaining why syncRunnerIndex won't overflow</td>
+<td align="left">Minor</td>
+<td align="left">wal</td>
+<td align="left">Sean Busbey</td>
+<td align="left">Sean Busbey</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-15720">HBASE-15720</a></td>
+<td align="left">Print row locks at the debug dump page</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Enis Soztutar</td>
+<td align="left">Heng Chen</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-15791">HBASE-15791</a></td>
+<td align="left">Improve javadoc in ScheduledChore</td>
+<td align="left">Minor</td>
+<td align="left">master</td>
+<td align="left">Jonathan Hsieh</td>
+<td align="left">Jonathan Hsieh</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-15433">HBASE-15433</a></td>
+<td align="left">SnapshotManager#restoreSnapshot not update table and region count quota correctly when encountering exception</td>
+<td align="left">Major</td>
+<td align="left">snapshots</td>
+<td align="left">Jianwei Cui</td>
+<td align="left">Jianwei Cui</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-15325">HBASE-15325</a></td>
+<td align="left">ResultScanner allowing partial result will miss the rest of the row if the region is moved between two rpc requests</td>
+<td align="left">Critical</td>
+<td align="left">dataloss, Scanners</td>
+<td align="left">Phil Yang</td>
+<td align="left">Phil Yang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-15295">HBASE-15295</a></td>
+<td align="left">MutateTableAccess.multiMutate() does not get high priority causing a deadlock</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Enis Soztutar</td>
+<td align="left">Enis Soztutar</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-15234">HBASE-15234</a></td>
+<td align="left">ReplicationLogCleaner can abort due to transient ZK issues</td>
+<td align="left">Critical</td>
+<td align="left">master, Replication</td>
+<td align="left">Gary Helmling</td>
+<td align="left">Gary Helmling</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-15582">HBASE-15582</a></td>
+<td align="left">SnapshotManifestV1 too verbose when there are no regions</td>
+<td align="left">Trivial</td>
+<td align="left">master, snapshots</td>
+<td align="left">Matteo Bertozzi</td>
+<td align="left">Matteo Bertozzi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-15485">HBASE-15485</a></td>
+<td align="left">Filter.reset() should not be called between batches</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Phil Yang</td>
+<td align="left">Phil Yang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-15587">HBASE-15587</a></td>
+<td align="left">FSTableDescriptors.getDescriptor() logs stack trace erronously</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Enis Soztutar</td>
+<td align="left">Enis Soztutar</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-15627">HBASE-15627</a></td>
+<td align="left">Miss space and closing quote in AccessController#checkSystemOrSuperUser</td>
+<td align="left">Minor</td>
+<td align="left">security</td>
+<td align="left">huaxiang sun</td>
+<td align="left">huaxiang sun</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-15621">HBASE-15621</a></td>
+<td align="left">Suppress Hbase SnapshotHFile cleaner error messages when a snaphot is going on</td>
+<td align="left">Minor</td>
+<td align="left">snapshots</td>
+<td align="left">huaxiang sun</td>
+<td align="left">huaxiang sun</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-15636">HBASE-15636</a></td>
+<td align="left">hard coded wait time out value in HBaseTestingUtility#waitUntilAllRegionsAssigned might cause test failure</td>
+<td align="left">Minor</td>
+<td align="left">integration tests, test</td>
+<td align="left">Stephen Yuan Jiang</td>
+<td align="left">Stephen Yuan Jiang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-15622">HBASE-15622</a></td>
+<td align="left">Superusers does not consider the keytab credentials</td>
+<td align="left">Critical</td>
+<td align="left">security</td>
+<td align="left">Matteo Bertozzi</td>
+<td align="left">Matteo Bertozzi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-15674">HBASE-15674</a></td>
+<td align="left">HRegionLocator#getAllRegionLocations should put the results in cache</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Elliott Clark</td>
+<td align="left">Heng Chen</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-15670">HBASE-15670</a></td>
+<td align="left">Add missing Snapshot.proto to the maven profile for compiling protobuf</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Enis Soztutar</td>
+<td align="left">Enis Soztutar</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-15645">HBASE-15645</a></td>
+<td align="left">hbase.rpc.timeout is not used in operations of HTable</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Phil Yang</td>
+<td align="left">Phil Yang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-15676">HBASE-15676</a></td>
+<td align="left">FuzzyRowFilter fails and matches all the rows in the table if the mask consists of all 0s</td>
+<td align="left">Major</td>
+<td align="left">Filters</td>
+<td align="left">Rohit Sinha</td>
+<td align="left">Matt Warhaftig</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-15613">HBASE-15613</a></td>
+<td align="left">TestNamespaceCommand times out</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Enis Soztutar</td>
+<td align="left">Enis Soztutar</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-15755">HBASE-15755</a></td>
+<td align="left">SnapshotDescriptionUtils and SnapshotTestingUtils do not have any Interface audience marked</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">ramkrishna.s.vasudevan</td>
+<td align="left">Matteo Bertozzi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-15738">HBASE-15738</a></td>
+<td align="left">Ensure artifacts in project dist area include required md5 file</td>
+<td align="left">Blocker</td>
+<td align="left">build, community</td>
+<td align="left">Sean Busbey</td>
+<td align="left">Nick Dimiduk</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-15742">HBASE-15742</a></td>
+<td align="left">Reduce allocation of objects in metrics</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Phil Yang</td>
+<td align="left">Phil Yang</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sub-tasks">SUB-TASKS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-15479">HBASE-15479</a></td>
+<td align="left">No more garbage or beware of autoboxing</td>
+<td align="left">Major</td>
+<td align="left">Client</td>
+<td align="left">Vladimir Rodionov</td>
+<td align="left">Vladimir Rodionov</td>
+</tr>
+</tbody>
+</table>

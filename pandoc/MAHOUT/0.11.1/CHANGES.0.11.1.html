@@ -1,0 +1,295 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-mahout-changelog">Apache Mahout Changelog</h1>
+<h2 id="release-0.11.1---2015-11-06">Release 0.11.1 - 2015-11-06</h2>
+<h3 id="important-issues">IMPORTANT ISSUES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1772">MAHOUT-1772</a></td>
+<td align="left">delimiterPattern instance variable of FileDataModel should be marked as a Transient field</td>
+<td align="left">Major</td>
+<td align="left">Collaborative Filtering</td>
+<td align="left">Lina Hovanessian</td>
+<td align="left">Suneel Marthi</td>
+</tr>
+</tbody>
+</table>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1684">MAHOUT-1684</a></td>
+<td align="left">Updated NOTICE and LICENSE texts</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Suneel Marthi</td>
+<td align="left">Suneel Marthi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1781">MAHOUT-1781</a></td>
+<td align="left">Dense matrix view multiplication is 4x slower than non-view one</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Dmitriy Lyubimov</td>
+<td align="left">Dmitriy Lyubimov</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1783">MAHOUT-1783</a></td>
+<td align="left">Remove code for ConcatVectors Job</td>
+<td align="left">Major</td>
+<td align="left">Integration</td>
+<td align="left">Suneel Marthi</td>
+<td align="left">Suneel Marthi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1782">MAHOUT-1782</a></td>
+<td align="left">Remove code for lucene2seq</td>
+<td align="left">Minor</td>
+<td align="left">Integration</td>
+<td align="left">Suneel Marthi</td>
+<td align="left">Suneel Marthi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1778">MAHOUT-1778</a></td>
+<td align="left">MAhout Spark Shell doesn't work with Spark &gt; 1.3</td>
+<td align="left">Major</td>
+<td align="left">Mahout spark shell</td>
+<td align="left">Suneel Marthi</td>
+<td align="left">Pat Ferrel</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1784">MAHOUT-1784</a></td>
+<td align="left">Remove mention of Spark in comment and Javadoc of math-scala when the code is generic</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Henry Saputra</td>
+<td align="left">Suneel Marthi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1759">MAHOUT-1759</a></td>
+<td align="left">Deprecate random forest</td>
+<td align="left">Critical</td>
+<td align="left">Examples</td>
+<td align="left">Andrew Musselman</td>
+<td align="left">Andrew Musselman</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1536">MAHOUT-1536</a></td>
+<td align="left">Update &quot;Creating vectors from text&quot; page</td>
+<td align="left">Minor</td>
+<td align="left">Documentation</td>
+<td align="left">Andrew Palumbo</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1642">MAHOUT-1642</a></td>
+<td align="left">Iterator class within SimilarItems class always misses the first element</td>
+<td align="left">Major</td>
+<td align="left">Collaborative Filtering</td>
+<td align="left">Guohua Hao</td>
+<td align="left">Suneel Marthi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1613">MAHOUT-1613</a></td>
+<td align="left">classifier.df.tools.Describe does not handle -D parameters</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Haohui Mai</td>
+<td align="left">Suneel Marthi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1771">MAHOUT-1771</a></td>
+<td align="left">Cluster dumper omits indices and 0 elements for dense vector or sparse containing 0s</td>
+<td align="left">Minor</td>
+<td align="left">Clustering, mrlegacy</td>
+<td align="left">Sean Owen</td>
+<td align="left">Suneel Marthi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1773">MAHOUT-1773</a></td>
+<td align="left">Fix cluster-syntheticcontrol.sh for HDFS synthax</td>
+<td align="left">Trivial</td>
+<td align="left">Clustering</td>
+<td align="left">Eduardo Niemeyer</td>
+<td align="left">Andrew Musselman</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1775">MAHOUT-1775</a></td>
+<td align="left">FileNotFoundException caused by aborting the process of downloading Wikipedia dataset</td>
+<td align="left">Trivial</td>
+<td align="left">Examples</td>
+<td align="left">Bowei Zhang</td>
+<td align="left">Suneel Marthi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1787">MAHOUT-1787</a></td>
+<td align="left">compute-classpath scripts are not being packaged in the binary distribution</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Andrew Palumbo</td>
+<td align="left">Suneel Marthi</td>
+</tr>
+</tbody>
+</table>
+<h3 id="other">OTHER:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1774">MAHOUT-1774</a></td>
+<td align="left">Enable maven compilation with JDK 1.8</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Dmitriy Lyubimov</td>
+<td align="left">Dmitriy Lyubimov</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1671">MAHOUT-1671</a></td>
+<td align="left">CMS Link Sweep after refactoring</td>
+<td align="left">Major</td>
+<td align="left">Documentation</td>
+<td align="left">Andrew Palumbo</td>
+<td align="left">Andrew Palumbo</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1687">MAHOUT-1687</a></td>
+<td align="left">Add documentation to the website and fix any problems</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Andrew Palumbo</td>
+<td align="left">Andrew Palumbo</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1618">MAHOUT-1618</a></td>
+<td align="left">Cooccurrence Recommender example and documentation</td>
+<td align="left">Trivial</td>
+<td align="left">Examples</td>
+<td align="left">Thejas Prasad</td>
+<td align="left">Pat Ferrel</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1743">MAHOUT-1743</a></td>
+<td align="left">Issues w.r.t algorithms on top of samsara</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Dmitriy Lyubimov</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1675">MAHOUT-1675</a></td>
+<td align="left">Remove MLP from codebase</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Andrew Palumbo</td>
+<td align="left">Suneel Marthi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1673">MAHOUT-1673</a></td>
+<td align="left">Create CI job to verify hadoop1 profile builds ok</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Stevo Slavic</td>
+<td align="left">Stevo Slavic</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1443">MAHOUT-1443</a></td>
+<td align="left">Update &quot;How to release page&quot;</td>
+<td align="left">Major</td>
+<td align="left">Documentation</td>
+<td align="left">Sebastian Schelter</td>
+<td align="left">Suneel Marthi</td>
+</tr>
+</tbody>
+</table>

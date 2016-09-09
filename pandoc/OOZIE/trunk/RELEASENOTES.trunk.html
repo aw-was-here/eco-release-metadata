@@ -1,0 +1,331 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="trunk-release-notes">trunk Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/OOZIE-2286">OOZIE-2286</a> | <em>Major</em> | <strong>Update Log4j and Log4j-extras to latest 1.2.x release</strong></li>
+</ul>
+<p>Oozie currently uses log4j 1.2.16 and log4j-extras 1.1. These were released way back in 2010. We should update to the newest releases 1.2.17 (though they're also pretty old at 2012 and 2013 respectively), which fix some bugs.</p>
+<p>The changelogs are pretty minimal: log4j: https://logging.apache.org/log4j/1.2/changes-report.html#a1.2.17 log4j-extras: http://logging.apache.org/log4j/extras/changes-report.html#a1.2.17</p>
+<p>Looks like log4j-extras changed their versioning scheme to match log4j's because 1.2.17 is the next release after 1.1.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/OOZIE-2284">OOZIE-2284</a> | <em>Major</em> | <strong>HBaseCredentials should only add hbase-default.xml and hbase-site.xml to actionConf</strong></li>
+</ul>
+<p>OOZIE-2205 added support to not automatically add <em>-default.xml and </em>-site.xml to the actionConf (just pig and hive for now) and pick them from classpath of the hadoop node. This makes rolling upgrades work well as it will pick up latest config changes without having to upgrade Oozie server. But HBaseCredentials ends up adding the <em>-default.xml and </em>-site.xml to the actionConf.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/OOZIE-2271">OOZIE-2271</a> | <em>Major</em> | <strong>Upgrade Tomcat to 6.0.44</strong></li>
+</ul>
+<p>We should upgrade Tomcat to 6.0.44, which includes bug and security fixes.</p>
+<p>http://tomcat.apache.org/security-6.html#Fixed_in_Apache_Tomcat_6.0.44</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/OOZIE-2268">OOZIE-2268</a> | <em>Major</em> | <strong>Update ActiveMQ version for security and other fixes</strong></li>
+</ul>
+<p>We're currently using ActiveMQ 5.8.0. We should use the latest Java 6 compatible version, 5.10.2, which includes various security and bug fixes.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/OOZIE-2266">OOZIE-2266</a> | <em>Major</em> | <strong>Fix 'total' actions returned in coordinator job info</strong></li>
+</ul>
+<p>Coordinator job info doesn't take filtering into account when returning 'total' actions. It always returns total actions.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/OOZIE-2264">OOZIE-2264</a> | <em>Major</em> | <strong>Fix coord:offset(n,&quot;DAY&quot;) to resolve correct data set</strong></li>
+</ul>
+<p>Time unit was hardcoded as &quot;Minute&quot; when materializing the instances.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/OOZIE-2262">OOZIE-2262</a> | <em>Major</em> | <strong>Fix log streaming from other server with start/end filter</strong></li>
+</ul>
+<p>Log streaming from other server fails with start/end filter. Fixed the bug by encoding the start/end filter.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/OOZIE-2260">OOZIE-2260</a> | <em>Major</em> | <strong>Only set &quot;java.io.tmpdir&quot; to &quot;./tmp&quot; for the AM</strong></li>
+</ul>
+<p>OOZIE-2209 sets java.io.tmpdir to ./tmp for AM, map and reduce for both launcher and action jobs.</p>
+<p>MapReduceChildJVM already sets java.io.tmpdir to ./tmp {code} Path childTmpDir = new Path(Environment.PWD.$(), YarnConfiguration.DEFAULT_CONTAINER_TEMP_DIR); vargs.add(&quot;-Djava.io.tmpdir=&quot; + childTmpDir); {code}</p>
+<p>So it is only needed to be set for AM in launcher because of uber mode.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/OOZIE-2250">OOZIE-2250</a> | <em>Major</em> | <strong>Show log for WAITING and TIMEDOUT coord actions</strong></li>
+</ul>
+<p>It would be good to be automatically taken to the logs tab when clicked on actions without an external id. i.e WAITING, TIMEDOUT, etc.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/OOZIE-2236">OOZIE-2236</a> | <em>Critical</em> | <strong>Need to package hive-hcatalog-server-extensions.jar in the hcatalog sharelib</strong></li>
+</ul>
+<p>We used to package hive-hcatalog-server-extensions-<version>.jar with hcatalog sharelib which is depended on by upstream projects like Falcon. We have to add it back as it became unavailable after the latest POM changes</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/OOZIE-2215">OOZIE-2215</a> | <em>Major</em> | <strong>Support glob in FS EL function</strong></li>
+</ul>
+<p>this patch is to support glob in fs_exists EL funct similar to OOZIE-1471. need to set upper-limit in number of files to check, not to slow down oozie server.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/OOZIE-2178">OOZIE-2178</a> | <em>Major</em> | <strong>fix javadoc to compile on JDK8</strong></li>
+</ul>
+<p>creating this JIRA from discussion on OOZIE-2177</p>
+JDK8 enforce strict HTML4 checking on javadoc.<br />
+when compiling oozie on JDK8, hit following javadoc error {quote} [ERROR] /Users/egashira/Projects/git/aoozie-cms/client/src/main/java/org/apache/oozie/cli/OozieCLI.java:205: error: self-closing element not allowed [ERROR] *
+<p/>
+<p>{quote}</p>
+the fix is to change self-closing element
+<p/>
+, <br/> to
+<p></p>
+<p>, <br></br></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/OOZIE-2160">OOZIE-2160</a> | <em>Major</em> | <strong>Support attachment in email action</strong></li>
+</ul>
+<p>Make email action able to attach a file on HDFS.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/OOZIE-2159">OOZIE-2159</a> | <em>Major</em> | <strong>'oozie validate' command should be moved server-side</strong></li>
+</ul>
+<p>The {{oozie validate}} command runs an XML validator against a workflow, coordinator, or bundle XML file to check that it's valid with any of the XSD schema files we have.</p>
+<p>Currently, this is implemented in the Oozie CLI ({{OozieCLI.validateCommand(...)}}, which has some downsides:</p>
+<h1 id="its-only-available-to-ooziecli-users-anyone-using-the-rest-api-cant-use-it">It's only available to OozieCLI users; anyone using the REST API can't use it</h1>
+<h1 id="its-currently-hardcoded-to-the-specific-xsd-files-we-ship-with-oozie">It's currently hardcoded to the specific XSD files we ship with Oozie</h1>
+<h2 id="whenever-we-add-a-new-schema-we-have-to-also-manually-update-this-which-is-easy-to-forget">Whenever we add a new schema, we have to also manually update this, which is easy to forget</h2>
+<h2 id="users-cant-validate-custom-schemas-that-the-oozie-server-would-accept">Users can't validate custom schemas that the Oozie server would accept</h2>
+<p>We should move this to the Oozie server, perhaps at a new &quot;validate&quot; endpoint. It should be able to accept a local file path (the current behavior) and perhaps also an HDFS file while we're at it. For the local XML file, it can just be uploaded as part of the REST call.</p>
+<p>Also, the description for the command needs to be updated to mention that it also handles coordinators and bundles.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/OOZIE-2109">OOZIE-2109</a> | <em>Major</em> | <strong>Possibly incorrect job ID may be printed for map-reduce action errors</strong></li>
+</ul>
+<p>Follow-up to OOZIE-2024, based on comment posted there:</p>
+<p>{quote} bq. &quot;JA017: Could not lookup launched hadoop job ID [job_12048563533402_20232] which was associated with action [1129661-1909061866638236-oozie-oozi-W@java-action]. Failing this action!”</p>
+<p>Is not that incorrect? After Id swap, jobId will be child jobId not launcher jobId. {quote}</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/OOZIE-2102">OOZIE-2102</a> | <em>Blocker</em> | <strong>Streaming actions are broken cause of incorrect method signature</strong></li>
+</ul>
+<p>OOZIE-1954 changed the submitJob(Configuration) signature to submitJob(JobConf), but this change was not caught and made in the StreamingMain class cause it did not use an Override annotation.</p>
+<p>Streaming jobs no longer succeed on trunk as a result. Pipe jobs still do as the change was made in it instead.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/OOZIE-2079">OOZIE-2079</a> | <em>Major</em> | <strong>Notify when a coordinator action status becomes RUNNING</strong></li>
+</ul>
+<p>When a coordinator-action is materialized with WAITING status, Oozie calls the oozie.coord.action.notification.url as expected, but it does not when the coordinator-action status changes to RUNNING.</p>
+<p>It appears that CoordActionStartXCommand.execute() (CoordActionStartXCommand.java) method does not invoke a CoordActionNotificationXCommand().</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/OOZIE-2076">OOZIE-2076</a> | <em>Major</em> | <strong>Sharelib usage improvement</strong></li>
+</ul>
+<ol>
+<li>By default enable oozie.use.system.libpath. If the action property oozie.action.sharelib.for.#ACTIONTYPE# is set, it can safely be assumed that the user wants to use sharelib. Property oozie.action.sharelib.for.#ACTIONTYPE# itself indicate that user want to use sharelib. User can still disable sharelib for WF by setting oozie.use.system.libpath=false.</li>
+</ol>
+<p>We will have server level setting( oozie.use.system.libpath.default = false ) to support backward compatibility.</p>
+<ol>
+<li><p>User should be able to enable/disable sharelib for action ( ex oozie.use.system.libpath = false ) at action level. =oozie.use.system.libpath= defined at action level overrides job setting.</p></li>
+<li><p>Remove duplicate jars. ex. Hcat and hive have lots of duplicate jars. If user want to use both sharelib, too many duplicate jars may cause slow job submission.</p></li>
+</ol>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/OOZIE-2072">OOZIE-2072</a> | <em>Minor</em> | <strong>Improve the whitelist error message by showing allowed values</strong></li>
+</ul>
+<p>The current error is vague and causes users to google and find odd solutions such as disabling the entire whitelist (which causes other issues).</p>
+<p>Proposing to change the error to also print whitelist set in the message returned back, so they at least realise why they are getting that.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/OOZIE-2031">OOZIE-2031</a> | <em>Trivial</em> | <strong>Credentials doc uses 'hive' name for HBase Credentials example</strong></li>
+</ul>
+<p>On http://oozie.apache.org/docs/4.0.1//DG_UnifiedCredentialsModule.html, the below is observed carrying the typo 'hive=' instead of 'hbase=':</p>
+<p>{code} <property> <name>oozie.credentials.credentialclasses</name> <value> hcat=org.apache.oozie.action.hadoop.HCatCredentials, hive=org.apache.oozie.action.hadoop.HbaseCredentials </value> </property> {code}</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/OOZIE-2024">OOZIE-2024</a> | <em>Minor</em> | <strong>Confusing message when a job can't be looked up by JavaActionExecutor</strong></li>
+</ul>
+<p>When you have issues where JT is missing job history or JHS is lacking it, causing JavaActionExecutor to fail when its RunningJob is returned back as null, it prints a very confusing message such as below, that can read instead as &quot;This is not the Job ID I was supposed to find&quot; instead of what is meant to be &quot;I could not find this Job ID on the server&quot;:</p>
+<p>{code} &quot;JA017: Unknown hadoop job [job_12048563533402_20232] associated with action [1129661-1909061866638236-oozie-oozi-W@java-action]. Failing this action!” {code}</p>
+<p>What would instead be clearer is this:</p>
+<p>{code} &quot;JA017: Could not lookup launched hadoop job ID [job_12048563533402_20232] which was associated with action [1129661-1909061866638236-oozie-oozi-W@java-action]. Failing this action!” {code}</p>
+<p>Patch attached, feel free to refine further during commit if the text is unsatisfactory in parts.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/OOZIE-1885">OOZIE-1885</a> | <em>Major</em> | <strong>Query optimization for StatusTransitService</strong></li>
+</ul>
+<p>{code} private void coordTransit() throws JPAExecutorException, CommandException { List<CoordinatorJobBean> pendingJobCheckList = null; if (lastInstanceStartTime == null) { LOG.info(&quot;Running coordinator status service first instance&quot;); // this is the first instance, we need to check for all pending jobs; pendingJobCheckList = jpaService.execute(new CoordJobsGetPendingJPAExecutor(limit)); } else { LOG.info(&quot;Running coordinator status service from last instance time = &quot; + DateUtils.formatDateOozieTZ(lastInstanceStartTime)); // this is not the first instance, we should only check jobs // that have actions or jobs been // updated &gt;= start time of last service run; List<CoordinatorActionBean> actionsList = CoordActionQueryExecutor.getInstance().getList( CoordActionQuery.GET_COORD_ACTIONS_BY_LAST_MODIFIED_TIME, lastInstanceStartTime); Set<String> coordIds = new HashSet<String>(); for (CoordinatorActionBean action : actionsList) { coordIds.add(action.getJobId()); }</p>
+<pre><code>            pendingJobCheckList = new ArrayList&lt;CoordinatorJobBean&gt;();
+            for (String coordId : coordIds.toArray(new String[coordIds.size()])) {
+                CoordinatorJobBean coordJob;
+                try {
+                    coordJob = CoordJobQueryExecutor.getInstance().get(CoordJobQuery.GET\_COORD\_JOB, coordId);
+                }
+                catch (JPAExecutorException jpaee) {
+                    if (jpaee.getErrorCode().equals(ErrorCode.E0604)) {
+                        LOG.warn(&quot;Exception happened during StatusTransitRunnable; Coordinator Job doesn&#39;t exist&quot;, jpaee);
+                        continue;
+                    } else {
+                        throw jpaee;
+                    }
+                }
+                // Running coord job might have pending false
+                Job.Status coordJobStatus = coordJob.getStatus();
+                if ((coordJob.isPending() || coordJobStatus.equals(Job.Status.PAUSED)
+                        || coordJobStatus.equals(Job.Status.RUNNING)
+                        || coordJobStatus.equals(Job.Status.RUNNINGWITHERROR)
+                        || coordJobStatus.equals(Job.Status.PAUSEDWITHERROR))
+                        &amp;&amp; !coordJobStatus.equals(Job.Status.IGNORED)) {
+                    pendingJobCheckList.add(coordJob);
+                }
+            }
+            pendingJobCheckList.addAll(CoordJobQueryExecutor.getInstance().getList(
+                    CoordJobQuery.GET\_COORD\_JOBS\_CHANGED, lastInstanceStartTime));
+        }
+        aggregateCoordJobsStatus(pendingJobCheckList);
+    }
+}</code></pre>
+<p>{code}</p>
+<p>This could be done in one sql, something like select w.id, w.status, w.pending from CoordinatorJobBean w where w.startTimestamp &lt;= :matTime AND (w.statusStr = 'PREP' OR w.statusStr = 'RUNNING' or w.statusStr = 'RUNNINGWITHERROR' or w.statusStr= 'PAUSEDWITHERROR' and w.statusStr &lt;&gt; 'IGNORED') w.id in ( select a.jobId from CoordinatorActionBean a where a.lastModifiedTimestamp &gt;= :lastModifiedTime groupby a.jobId)</p>
+<p>Same for bundleTransit().</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/OOZIE-1872">OOZIE-1872</a> | <em>Major</em> | <strong>TestCoordActionInputCheckXCommand.testActionInputCheckLatestActionCreationTime is failing for past couple of builds</strong></li>
+</ul>
+<p>https://builds.apache.org/job/oozie-trunk-precommit-build/1291/testReport/junit/org.apache.oozie.command.coord/TestCoordActionInputCheckXCommand/testActionInputCheckLatestActionCreationTime/</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/OOZIE-1845">OOZIE-1845</a> | <em>Major</em> | <strong>Coord submit command doesn't honor conf &quot;materialization_window&quot; while calling CoordMaterializeTransitionXCommand</strong></li>
+</ul>
+<p>{code} /** * Queue MaterializeTransitionXCommand */ protected void queueMaterializeTransitionXCommand(String jobId) { // submit a command to materialize jobs for the next 1 hour (3600 secs) // so we don't wait 10 mins for the Service to run. queue(new CoordMaterializeTransitionXCommand(jobId, 3600), 100); } {code}</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/OOZIE-1836">OOZIE-1836</a> | <em>Major</em> | <strong>Documenation is wrong for the timestamp() EL Function</strong></li>
+</ul>
+<p>The documentation for the {{timestamp()}} EL Function says: {quote} It returns the UTC current date and time in W3C format down to the second (YYYY-MM-DDThh:mm:ss.sZ). I.e.: 1997-07-16T19:20:30.45Z {quote} https://oozie.apache.org/docs/4.0.1/WorkflowFunctionalSpec.html#a4.2_Expression_Language_Functions</p>
+<p>This is incorrect. It's ISO08601 format in Oozie processing timezone down to the minute (like other Oozie time formats). The Javadoc is even correct: {code:java} /** * Return the current datetime in ISO8601 using Oozie processing timezone, yyyy-MM-ddTHH:mmZ. i.e.: * 1997-07-16T19:20Z <em> </em> @return the formatted time string. */ public static String timestamp() { return DateUtils.formatDateOozieTZ(new Date()); } {code}</p>
+<p>We should update the documentation to match the javadoc</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/OOZIE-1756">OOZIE-1756</a> | <em>Major</em> | <strong>hadoop-auth version is wrong if profile isn't selected</strong></li>
+</ul>
+<p>In the hadooplibs for the non-sepecified version of hadoop (e.g. if you build with no profile (i.e. Hadoop 1) and look at the hadoop-2 sharelib), it will have the wrong version of the hadoop-auth jar.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/OOZIE-1743">OOZIE-1743</a> | <em>Major</em> | <strong>generateDocs is failing</strong></li>
+</ul>
+<p>[ERROR] Failed to execute goal org.apache.maven.plugins:maven-site-plugin:2.0-beta-6:site (default) on project oozie-docs: Execution default of goal org.apache.maven.plugins:maven-site-plugin:2.0-beta-6:site failed: Plugin org.apache.maven.plugins:maven-site-plugin:2.0-beta-6 or one of its dependencies could not be resolved: The following artifacts could not be resolved: org.apache.maven.doxia:doxia-module-twiki:jar:1.0-alpha-9.2y, org.apache.maven.doxia:doxia-core:jar:1.0-alpha-9.2y: Could not find artifact org.apache.maven.doxia:doxia-module-twiki:jar:1.0-alpha-9.2y in repository.cloudera.com (https://repository.cloudera.com/artifactory/ext-release-local) -&gt; [Help 1]</p>
+<p>If you can't reproduce, delete ~/.m2/repository/org/apache/maven/doxia/ and try.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/OOZIE-1736">OOZIE-1736</a> | <em>Major</em> | <strong>Switch to Hadoop 2.3.0 for the hadoop-2 profile</strong></li>
+</ul>
+<p>We should update the &quot;hadoop-2&quot; profile to use Hadoop 2.3.0 instead of 2.2.0. Y! has done some QE runs on it and I also just tried all of the unit tests.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/OOZIE-1729">OOZIE-1729</a> | <em>Major</em> | <strong>Add support to Hadoop-2 for AM restarts of the launcher job</strong></li>
+</ul>
+<p>Once we update our Hadoop-2 to Hadoop 2.4.0, we can add support for AM restarts of the launcher job (OOZIE-1722) for Hadoop-2 instead of just Hadoop-3.</p>
+<p>This should be fairly trivial: just need to copy {{./hadooplibs/hadoop-utils-3/src/main/java/org/apache/oozie/action/hadoop/LauncherMainHadoopUtils.java}} in place of {{./hadooplibs/hadoop-utils-2/src/main/java/org/apache/oozie/action/hadoop/LauncherMainHadoopUtils.java}}</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/OOZIE-1630">OOZIE-1630</a> | <em>Major</em> | <strong>&lt;prepare&gt; operations fail when path doesn't have scheme</strong></li>
+</ul>
+<p>hitting exception &quot;Scheme not present in uri /user/aaaa/test_hbase_workflow/output&quot; when doing something like <mkdir path ="/user/aaaa/test\_hbase\_workflow/output"/>. it should default to hdfs when no scheme specified considering typical use case, also use default namenode if not specified.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/OOZIE-1626">OOZIE-1626</a> | <em>Major</em> | <strong>pig action pop-up is not working properly in UI</strong></li>
+</ul>
+<p>pop-up doesn't show up when pig job failed and externalChildIDs is &quot;null&quot; (as string)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/OOZIE-1582">OOZIE-1582</a> | <em>Major</em> | <strong>Bump up Tomcat version to 6.0.37</strong></li>
+</ul>
+<p>Tomcat 6.0.37 fixes two security issues (http://tomcat.apache.org/security-6.html). We should upgrade from 6.0.36 to incorporate them.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/OOZIE-1573">OOZIE-1573</a> | <em>Major</em> | <strong>coord:tzOffset() gives incorrect offset for daylight saving timezones</strong></li>
+</ul>
+<p>Case 1:</p>
+<p>Daily job run through oozie bundle Coordinator time Zone: UTC Dataset timezone: America/New_York Start Time: 2013-10-13T00:00Z End Time: 2013-10-14T00:00Z</p>
+<p>Return from tzOffset() function: 4 hrs (which is correct)</p>
+<p>Case 2:</p>
+<p>Daily job run through oozie bundle Coordinator time Zone: UTC Dataset timezone: America/New_York Start Time: 2012-11-13T00:00Z End Time: 2012-11-14T00:00Z</p>
+<p>Return from tzOffset() function: 4 hrs (which is not correct as difference between GMT and America/New_York timezone should be 5 hrs).</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/OOZIE-1565">OOZIE-1565</a> | <em>Major</em> | <strong>OOZIE-1481 should only affect v2 of the API, not v1</strong></li>
+</ul>
+<p>OOZIE-1481 changed the behavior of the v1 API such that when getting coord info, specifying {{len=0}} now returns 0 actions instead of all actions. Also, on the REST call, not specifying any {{len}} parameter is interpreted by the Oozie server as {{len=0}}.</p>
+<p>This is a logically backwards incompatible change. We should keep this change in the v2 API, but change the v1 API back to the original (incorrect) behavior.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/OOZIE-1563">OOZIE-1563</a> | <em>Major</em> | <strong>colt jar includes GPL licence</strong></li>
+</ul>
+<p>I believe the colt jar is introduced in the SLA feature. The &quot;Hep&quot; class inside the jar has GPL licence which restricts the usage and distribution of oozie.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/OOZIE-1551">OOZIE-1551</a> | <em>Blocker</em> | <strong>Change hadoop-2 profile to use 2.2.0</strong></li>
+</ul>
+<p>We should change the hadoop-2 profile to use 2.2.0 (GA) instead of 2.2.0-SNAPSHOT now that its been released.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/OOZIE-1542">OOZIE-1542</a> | <em>Minor</em> | <strong>When extjs isn't installed, the web UI is unhelpfully blank</strong></li>
+</ul>
+<p>When extjs isn't installed, the web UI page is currently unhelpfully blank (it has the oozie logo and docs link). In the past (when it used to be an html page instead of a jsp page) it had some text to let the user know that they have to install extjs to see the UI.</p>
+<p>It would be good to put back the same or similar text; otherwise, users may be confused why they can't see the UI if they forget to install extjs.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/OOZIE-1514">OOZIE-1514</a> | <em>Blocker</em> | <strong>Rerunning a coordinator with no input dependencies puts actions in WAITING instead of READY and proceeding</strong></li>
+</ul>
+<p>Following issue reported by Bowen:</p>
+<p>{quote} rerun oozie coordinator action that has no data dependency will make the action stuck in &quot;WAITING&quot; forever. The issue has to do with the change introduced in coordActionInputCheckXCommand. The rerun action will fail this if statement: if (!nonExistListStr.equals(missingDeps)) since nonExistListStr and missingDeps are both empty strings. Once it fails the if statement, isChangeDependency is still set to false and the status change to &quot;READY&quot; will not be persisted since we will call CoordActionUpdateForModifiedTimeJPAExecutor instead of CoordActionUpdateForInputCheckJPAExecutor in the updateCoordAction method. the Action is in &quot;WAITING&quot; stage forever. {quote}</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/OOZIE-1299">OOZIE-1299</a> | <em>Major</em> | <strong>Rerunning the main workflow to rerun sub-workflow and not create new one</strong></li>
+</ul>
+<p>Consider the case that the oozie workflow calls sub-workflow. If we kill the main workflow and rerun the same does not rerun the same sub-workflow,instead it creates new sub-workflow. For example: Workflow Id 0000004-130401101507291-oozie-oozi-W calls the sub-workflow 0000005-130401101507291-oozie-oozi-W.Sub-workflow fails (0000005-130401101507291-oozie-oozi-W i.e main workflow (0000004-130401101507291-oozie-oozi-W) also be killed).If we rerun the main workflow(0000004-130401101507291-oozie-oozi-W)again, it doesn't rerun the same sub-workflow(0000005-130401101507291-oozie-oozi-W),instead it call another sub-workflow(0000006-130401101507291-oozie-oozi-W).</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/OOZIE-1284">OOZIE-1284</a> | <em>Major</em> | <strong>oozie.service.SchemaService.wf.ext.schemas in oozie-site is missing some newer xsd files</strong></li>
+</ul>
+<p>In oozie-site.xml, we have the following listed under {{oozie.service.SchemaService.wf.ext.schemas}}: {noformat} shell-action-0.1.xsd shell-action-0.2.xsd email-action-0.1.xsd hive-action-0.2.xsd hive-action-0.3.xsd sqoop-action-0.2.xsd sqoop-action-0.3.xsd ssh-action-0.1.xsd distcp-action-0.1.xsd {noformat}</p>
+<p>It's missing the following xsd files: {noformat} distcp-action-0.2.xsd hive-action-0.4.xsd shell-action-0.3.xsd sqoop-action-0.4.xsd {noformat}</p>
+<p>If I recall correctly, this will cause Oozie to reject workflows using those versions of those extension action schemas.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/OOZIE-1236">OOZIE-1236</a> | <em>Minor</em> | <strong>Documentation on capture-output element for Java action has incorrect property to get the filename</strong></li>
+</ul>
+<p>In the documentation [here|http://oozie.apache.org/docs/3.3.1/WorkflowFunctionalSpec.html#a3.2.7_Java_Action], it says:</p>
+<p>{quote} The capture-output element can be used to propagate values back into Oozie context, which can then be accessed via EL-functions. This needs to be written out as a java properties format file. The filename is obtained via a System property specified by the constant JavaMainMapper.OOZIE_JAVA_MAIN_CAPTURE_OUTPUT_FILE {quote}</p>
+<p>That property is incorrect; it should be {{oozie.action.output.properties}}, which is what the [Java action cookbook|https://cwiki.apache.org/OOZIE/java-cookbook.html] has.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/OOZIE-658">OOZIE-658</a> | <em>Minor</em> | <strong>Some doc improvements for HowToContribute</strong></li>
+</ul>
+<p>HowToContribute can have a couple of things added to it:</p>
+<ul>
+<li><p>Base directory for SVN reviewboard for uploading patches: http://svn.apache.org/repos/asf/incubator/oozie/trunk</p></li>
+<li><p>Tag to search for, for easy fixes to get started into contributing: newbie</p></li>
+</ul>
+<p>Will post a patch.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/OOZIE-44">OOZIE-44</a> | <em>Trivial</em> | <strong>Oozie JIRA changes that'd be favorable</strong></li>
+</ul>
+<p>None of this is urgent to do at the moment (given all the work you're already going through -- let me know if I can help in any way too!). But am just compiling some notes here to make the Oozie jira work/act more like the other ecosystem elements:</p>
+<ul>
+<li>Enable formatting in comments. Right now tags like {code}, (-), etc. do not work. These are useful in filing reports or talking in general.</li>
+<li>Limit down issue types in this JIRA instance. HDFS, for example, has just Bug, Task, Improvement, New Feature, Wish types. OOZIE seems to have a load of things.</li>
+</ul>
+<p>(Will add more notes as a comment as I notice them while contributing things)</p>

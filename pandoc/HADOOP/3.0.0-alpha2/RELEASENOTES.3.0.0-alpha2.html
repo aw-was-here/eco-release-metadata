@@ -1,0 +1,49 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hadoop-3.0.0-alpha2-release-notes">Apache Hadoop 3.0.0-alpha2 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-5049">YARN-5049</a> | <em>Major</em> | <strong>Extend NMStateStore to save queued container information</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-13301">HADOOP-13301</a> | <em>Minor</em> | <strong>Millisecond timestamp for FsShell console log and MapReduce jobsummary log</strong></li>
+</ul>
+<p>The time format of console logger and MapReduce job summary logger is ISO8601 by default to print milliseconds.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-10650">HDFS-10650</a> | <em>Minor</em> | <strong>DFSClient#mkdirs and DFSClient#primitiveMkdir should use default directory permission</strong></li>
+</ul>
+<p>If the caller does not supply a permission, DFSClient#mkdirs and DFSClient#primitiveMkdir will create a new directory with the default directory permission 00777 instead of 00666.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-10725">HDFS-10725</a> | <em>Minor</em> | <strong>Caller context should always be constructed by a builder</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-10760">HDFS-10760</a> | <em>Major</em> | <strong>DataXceiver#run() should not log InvalidToken exception as an error</strong></li>
+</ul>
+<p>Log InvalidTokenException at trace level in DataXceiver#run().</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-6962">HDFS-6962</a> | <em>Critical</em> | <strong>ACL inheritance conflicts with umaskmode</strong></li>
+</ul>
+<p>The original implementation of HDFS ACLs applied the client's umask to the permissions when inheriting a default ACL defined on a parent directory. This behavior is a deviation from the POSIX ACL specification, which states that the umask has no influence when a default ACL propagates from parent to child. HDFS now offers the capability to ignore the umask in this case for improved compliance with POSIX. This change is considered backward-incompatible, so the new behavior is off by default and must be explicitly configured by setting dfs.namenode.posix.acl.inheritance.enabled to true in hdfs-site.xml. Please see the HDFS Permissions Guide for further details.</p>

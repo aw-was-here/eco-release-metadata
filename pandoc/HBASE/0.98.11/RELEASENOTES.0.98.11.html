@@ -1,0 +1,79 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hbase-0.98.11-release-notes">Apache HBase 0.98.11 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-8329">HBASE-8329</a> | <em>Major</em> | <strong>Limit compaction speed</strong></li>
+</ul>
+<p>Adds compaction throughput limit mechanism(the word &quot;throttle&quot; is already used when choosing compaction thread pool, so use a different word here to avoid ambiguity). Default is org.apache.hadoop.hbase.regionserver.compactions.PressureAwareCompactionThroughputController, will limit throughput as follow: 1. In off peak hours, use a fixed limitation &quot;hbase.hstore.compaction.throughput.offpeak&quot; (default is Long.MAX_VALUE which means no limitation). 2. In normal hours, the limitation is tuned between &quot;hbase.hstore.compaction.throughput.lower.bound&quot;(default 10MB/sec) and &quot;hbase.hstore.compaction.throughput.higher.bound&quot;(default 20MB/sec), using the formula &quot;lower + (higer - lower) * param&quot; where param is in range [0.0, 1.0] and calculate based on store files count on this regionserver. 3. If some stores have too many store files(storefilesCount &gt; blockingFileCount), then there is no limitation no matter peak or off peak. You can set &quot;hbase.regionserver.throughput.controller&quot; to org.apache.hadoop.hbase.regionserver.throttle.NoLimitThroughputController to disable throughput controlling. And we have implemented ConfigurationObserver which means you can change all configurations above and do not need to restart cluster.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-12108">HBASE-12108</a> | <em>Minor</em> | <strong>HBaseConfiguration: set classloader before loading xml files</strong></li>
+</ul>
+<p>This patch fixes hbase configuration not found issues when HBase jars are loaded in a child class loader whose parent has already loaded hadoop classes. Setting appropriate classloader in Configuration should fix this issue.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-7332">HBASE-7332</a> | <em>Minor</em> | <strong>[webui] HMaster webui should display the number of regions a table has.</strong></li>
+</ul>
+<p>Adds counts for various regions states to the table listing on main page. See attached screenshot.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-12961">HBASE-12961</a> | <em>Minor</em> | <strong>Negative values in read and write region server metrics</strong></li>
+</ul>
+<p>Change read and write request count in ServerLoad from int to long</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-12976">HBASE-12976</a> | <em>Major</em> | <strong>Set default value for hbase.client.scanner.max.result.size</strong></li>
+</ul>
+<p>With this setting defaulted now, scanner caching should be set to large value unless the caller knows how many rows it needs/expects back.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-12897">HBASE-12897</a> | <em>Major</em> | <strong>Minimum memstore size is a percentage</strong></li>
+</ul>
+<p>This change lowers the minimum acceptable configured memstore heap percentage from 5% (0.05f) (10% (0.1f) in 0.98) to 0% (0.0f), and in branch 0.98 lowers the maximum acceptable percentage from 90% (0.9f) to 80% (0.8f).</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-9910">HBASE-9910</a> | <em>Major</em> | <strong>TestHFilePerformance and HFilePerformanceEvaluation should be merged in a single HFile performance test class.</strong></li>
+</ul>
+<p>Add support for codec and cipher in HFilePerformanceEvaluation</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-12070">HBASE-12070</a> | <em>Major</em> | <strong>Add an option to hbck to fix ZK inconsistencies</strong></li>
+</ul>
+<p>Adds a new option to HBCK tool -fixOrphanedTableZnodes, which fixes orphaned table entries in zookeeper which does not have corresponding meta entries. This state can be from a failed create table attempt.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-13008">HBASE-13008</a> | <em>Minor</em> | <strong>Better default for hbase.regionserver.regionSplitLimit parameter.</strong></li>
+</ul>
+<p>The configuration parameter &quot;hbase.regionserver.regionSplitLimit&quot;, the number of regions a regionserver can open before splitting on the server is stopped to limit further region count growth, was lowered from Integer.MAX_VALUE (2147483647) to a much more reasonable 1000, and documented in hbase-defaults.xml.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-13044">HBASE-13044</a> | <em>Minor</em> | <strong>Configuration option for disabling coprocessor loading</strong></li>
+</ul>
+<p>This change adds two new configuration options: - &quot;hbase.coprocessor.enabled&quot; controls globally if any coprocessors will be loaded. Set to &quot;false&quot; to disable. Defaults to &quot;true&quot; for compatibility with previous releases. - &quot;hbase.coprocessor.user.enabled&quot; controls if any user (aka table) coprocessors will be loaded. Set to &quot;false&quot; to disable. Defaults to &quot;true&quot; for compatibility with previous releases.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-13047">HBASE-13047</a> | <em>Trivial</em> | <strong>Add &quot;HBase Configuration&quot; link missing on the table details pages</strong></li>
+</ul>
+<p>Add a '/conf' link to UI</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-12869">HBASE-12869</a> | <em>Major</em> | <strong>Add a REST API implementation of the ClusterManager interface</strong></li>
+</ul>
+<p>Adds an implementation of ClusterManager to control REST API-managed HBase clusters.</p>

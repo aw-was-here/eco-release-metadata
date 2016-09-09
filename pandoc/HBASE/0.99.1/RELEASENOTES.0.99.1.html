@@ -1,0 +1,109 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hbase-0.99.1-release-notes">Apache HBase 0.99.1 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-11917">HBASE-11917</a> | <em>Major</em> | <strong>Deprecate / Remove HTableUtil</strong></li>
+</ul>
+<p>HTableUtil removed in master branch (2.0) and deprecated in 1.0.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-12046">HBASE-12046</a> | <em>Major</em> | <strong>HTD/HCD setters should be builder-style</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-12068">HBASE-12068</a> | <em>Major</em> | <strong>[Branch-1] Avoid need to always do KeyValueUtil#ensureKeyValue for Filter transformCell</strong></li>
+</ul>
+<p>When custom Filters are used, make sure to override Cell based methods and not keyValue based methods. ie. transformCell(Cell) instead of transform(KeyValue) getNextCellHint(Cell) instead of getNextKeyHint(KeyValue) Else there can be possible performance hit of a conversion of a non KV Cell to a KV which required key and value deep copy.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-12054">HBASE-12054</a> | <em>Major</em> | <strong>bad state after NamespaceUpgrade with reserved table names</strong></li>
+</ul>
+<p>Prior to HBase 0.98.7, if you have 0.94 tables named (data, archive, corrupt, lib, WALs, splitWAl, oldWALs) upgrading would &quot;silently&quot; fail, corrupting the state of those tables.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-12052">HBASE-12052</a> | <em>Major</em> | <strong>BulkLoad Failed due to no write permission on input files</strong></li>
+</ul>
+<p>SecureBulkLoadEndPoint can be used in un-secure env to bulk load data without hitting &quot;Permission denied&quot; for hbase user.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-12099">HBASE-12099</a> | <em>Major</em> | <strong>TestScannerModel fails if using jackson 1.9.13</strong></li>
+</ul>
+<p>The XML element used for the visibility labels in the REST API has been renamed from &quot;label&quot; lo &quot;labels&quot; in order to support old and the new versions of jackson.</p>
+<p>Developers that use visibility labels via REST XML need to modify their applications in order to use the new XML element name.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-11804">HBASE-11804</a> | <em>Major</em> | <strong>Raise default heap size if unspecified</strong></li>
+</ul>
+<p>When run without a specified heap size the HBase scripts will now let the jvm choose the defaults. Usually this will mean that the max heap size will be the larger of 1gig or 1/4 of physical memory.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-12145">HBASE-12145</a> | <em>Major</em> | <strong>Fix javadoc and findbugs so new folks aren't freaked when they see them</strong></li>
+</ul>
+<p>Fix javadoc warnings.</p>
+<p>Fixup findbugs warnings mostly by adding annotations saying 'working as expected'.</p>
+<p>In RpcRetryingCallerWithReadReplicas made following change which findbugs spotted:</p>
+<ul>
+<li><pre><code>  if (completed == null) tasks.wait();</code></pre></li>
+<li><pre><code> while (completed == null) tasks.wait();</code></pre></li>
+</ul>
+<p>In RecoverableZooKeeper, made all zk accesses synchronized -- we were doing it half-ways previously.</p>
+<p>In RatioBasedCompactionPolicy we were making an instance of Random on each invocation of getNextMajorCompactionTime</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-12133">HBASE-12133</a> | <em>Minor</em> | <strong>Add FastLongHistogram for metric computation</strong></li>
+</ul>
+<p>Adds Histogram and AtomicLong Utils</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-10153">HBASE-10153</a> | <em>Major</em> | <strong>improve VerifyReplication to compute BADROWS more accurately</strong></li>
+</ul>
+<p>VerifyReplicaiton reports the following counters besides the existing ones:</p>
+<p>ONLY_IN_SOURCE_TABLE_ROWS: number of rows found only in source ONLY_IN_PEER_TABLE_ROWS: number of rows found only in peer CONTENT_DIFFERENT_ROWS: number of rows whose contents are different between source and peer</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-11907">HBASE-11907</a> | <em>Minor</em> | <strong>Use the joni byte[] regex engine in place of j.u.regex in RegexStringComparator</strong></li>
+</ul>
+<p>The RegexStringComparator comparator now include an optional EngineType constructor parameter. Use EngineType.JONI to select the joni regex engine, which can be twice as fast as the Java regex engine and will be more efficient, producing less object churn while scanning, because it operates natively on byte arrays. RegexStringComparator still uses the Java regex engine by default.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-8808">HBASE-8808</a> | <em>Trivial</em> | <strong>Use Jacoco to generate Unit Test coverage reports</strong></li>
+</ul>
+<p>Adds jacoco plugin. Call it by defining argLine with necessary arguments. By default outputs to target dir.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-11997">HBASE-11997</a> | <em>Minor</em> | <strong>CopyTable with bulkload</strong></li>
+</ul>
+<p>CopyTable now can generate HFiles and bulkload to the destination table.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-11990">HBASE-11990</a> | <em>Major</em> | <strong>Make setting the start and stop row for a specific prefix easier</strong></li>
+</ul>
+<p>Added new utility method, setRowPrefixFilter, to Scan to easily scan for a specific row prefix</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-12189">HBASE-12189</a> | <em>Major</em> | <strong>Fix new issues found by coverity static analysis</strong></li>
+</ul>
+<p>Fixes up the worst offenders reported by coverity. Many hundreds more of issues to address but seem minor relatively on review.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-12197">HBASE-12197</a> | <em>Major</em> | <strong>Move REST</strong></li>
+</ul>
+<p>HBase Rest has moved to it's own module. If you previously were using the rest sever code in your project you will now need to depend upon hbase-rest module in addition to the hbase-server module.</p>

@@ -1,0 +1,85 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hbase-0.98.1-release-notes">Apache HBase 0.98.1 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-10413">HBASE-10413</a> | <em>Major</em> | <strong>Tablesplit.getLength returns 0</strong></li>
+</ul>
+<p>TableSplit.getLength() contains correct sizes of region in bytes. It is used by M/R framework for better scheduling.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-9501">HBASE-9501</a> | <em>Major</em> | <strong>Provide throttling for replication</strong></li>
+</ul>
+<p>A new configuration replication.source.per.peer.node.bandwidth is added by this jira. the default is 0 which means no throttling. the unit of this configuration is bytes-per-second.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-8751">HBASE-8751</a> | <em>Major</em> | <strong>Enable peer cluster to choose/change the ColumnFamilies/Tables it really want to replicate from a source cluster</strong></li>
+</ul>
+<p>From the shell's doc:</p>
+<h1 id="set-table-table-cf-to-be-replicable-for-a-peer-for-a-table-without">set table / table-cf to be replicable for a peer, for a table without</h1>
+<h1 id="an-explicit-column-family-list-all-replicable-column-families-with">an explicit column-family list, all replicable column-families (with</h1>
+<h1 id="replication_scope-1-will-be-replicated">replication_scope == 1) will be replicated</h1>
+<p>hbase&gt; set_peer_tableCFs '2', &quot;table1; table2:cf1,cf2; table3:cfA,cfB&quot;</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-10501">HBASE-10501</a> | <em>Critical</em> | <strong>Improve IncreasingToUpperBoundRegionSplitPolicy to avoid too many regions</strong></li>
+</ul>
+<p>Changes the default split policy to avoid too many regions with default settings. The old policy calculates the split size at each RS as follows: MIN(maxFileSize, flushSize*NoRegions^2) (NoRegions is the number of regions for the table in question seen on this RS)</p>
+<p>The new policy calculates the size this way: MIN(maxFileSize, flushSize*2*NoRegions^3) Note that the initial split size is now 2 * the flushSize. With default settings it increased from 128mb to 256mb.</p>
+<p>The new policy still allows spreading out the regions over the cluster quickly, but then grows the desired size fairly quickly in order to avoid too many regions per RS.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-10548">HBASE-10548</a> | <em>Minor</em> | <strong>Correct commons-math dependency version</strong></li>
+</ul>
+<p>Downgrades HBase's dependency on commons-math to 2.1, which is consistent with all stable releases of Hadoop.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-6642">HBASE-6642</a> | <em>Major</em> | <strong>enable_all,disable_all,drop_all can call &quot;list&quot; command with regex directly.</strong></li>
+</ul>
+<p>from 0.98.1 every hbase shell command that support regex filtering is using the java Pattern class, which does not support glob patterns. http://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-10436">HBASE-10436</a> | <em>Critical</em> | <strong>restore regionserver lists removed from hbase 0.96+ jmx</strong></li>
+</ul>
+<p>Many of the metrics exposed in 0.94 were removed with the refactorization of metrics in 0.96. This patch restores the availability of the live and dead regionserver lists. In 0.94 this used to be found as a large nested structure which included regionserver lists and metrics from each region.</p>
+<p>{ &quot;name&quot; : &quot;hadoop:service=Master,name=Master&quot;, &quot;modelerType&quot; : &quot;org.apache.hadoop.hbase.master.MXBeanImpl&quot;, &quot;ZookeeperQuorum&quot; : &quot;localhost:2181&quot;, .... &quot;RegionsInTransition&quot; : [ ], &quot;RegionServers&quot; : [ { &quot;key&quot; : &quot;localhost,48346,1390857257246&quot;, &quot;value&quot; : { &quot;load&quot; : 2, ....</p>
+<p>In 0.96.0, 0.96.1.x and 0.98.0 did not contain this list -- it only contained counts of the number of live and dead regionservers. After this patch, the list are present in a ';' separated field like so:</p>
+<p>{ &quot;name&quot; : &quot;Hadoop:service=HBase,name=Master,sub=Server&quot;, &quot;modelerType&quot; : &quot;Master,sub=Server&quot;, &quot;tag.Context&quot; : &quot;master&quot;, &quot;tag.liveRegionServers&quot; : &quot;localhost,56196,1391992019130&quot;, &quot;tag.deadRegionServers&quot; : &quot;localhost,40010,1391035309673;localhost,41408,1391990380724;localhost,38682,1390950017735&quot;, ... }</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-8803">HBASE-8803</a> | <em>Major</em> | <strong>region_mover.rb should move multiple regions at a time</strong></li>
+</ul>
+<p>Multithread the region mover so can run more than one region move at a time. Specify how many threads on the command line. Feature will make rolling restart complete the sooner (if with a little more disruption as more regions are in flight at a time).</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-10675">HBASE-10675</a> | <em>Major</em> | <strong>IntegrationTestIngestWithACL should allow User to be passed as Parameter</strong></li>
+</ul>
+<p>To use this feature of passing superuser and userlist we need to give the following command {code} ./hbase --config /usr/lib/hbase/conf/ org.apache.hadoop.hbase.IntegrationTestIngestWithACL -superuser &lt;user&gt; -userlist &lt;user1&gt;,&lt;user2&gt;,&lt;user3&gt; {code} Ensure that the userlist is comma seperated.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-9778">HBASE-9778</a> | <em>Major</em> | <strong>Add hint to ExplicitColumnTracker to avoid seeking</strong></li>
+</ul>
+<p>Introduces a new scan attribute to allow a scan operation with explicit columns (Scan.addColumn) to opportunistically look ahead a few KeyValues (columns/versions) before scheduling a seek operation to seek between columns.</p>
+<p>A seek is efficient when it can seek past 5-10 KeyValue (columns) or 512-1024 bytes. With small rows and few versions look ahead is typically more efficient.</p>
+<p>API: {code} Scan s = new Scan(...); s.addColumn(...); // instructs the RegionServer to attempt two iterations of next before scheduling a seek s.setAttribute(Scan.HINT_LOOKAHEAD, Bytes.toBytes(2)); table.getScanner(s); {code}</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-10741">HBASE-10741</a> | <em>Major</em> | <strong>Deprecate HTablePool and HTableFactory</strong></li>
+</ul>
+<p>HTablePool and HTableFactory are relics and are going away. See HConnection#getTable instead.</p>

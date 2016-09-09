@@ -1,0 +1,468 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hadoop-changelog">Apache Hadoop Changelog</h1>
+<h2 id="release-0.19.2---2009-07-23">Release 0.19.2 - 2009-07-23</h2>
+<h3 id="incompatible-changes">INCOMPATIBLE CHANGES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5332">HADOOP-5332</a></td>
+<td align="left">Make support for file append API configurable</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Nigel Daley</td>
+<td align="left">dhruba borthakur</td>
+</tr>
+</tbody>
+</table>
+<h3 id="new-features">NEW FEATURES:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5379">HADOOP-5379</a></td>
+<td align="left">Throw exception instead of writing to System.err when there is a CRC error on CBZip2InputStream</td>
+<td align="left">Minor</td>
+<td align="left">io</td>
+<td align="left">Rodrigo Schmidt</td>
+<td align="left">Rodrigo Schmidt</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-6017">HADOOP-6017</a></td>
+<td align="left">NameNode and SecondaryNameNode fail to restart because of abnormal filenames.</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Raghu Angadi</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5951">HADOOP-5951</a></td>
+<td align="left">StorageInfo needs Apache license header.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Suresh Srinivas</td>
+<td align="left">Suresh Srinivas</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5816">HADOOP-5816</a></td>
+<td align="left">ArrayIndexOutOfBoundsException when using KeyFieldBasedComparator</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Min Zhou</td>
+<td align="left">He Yongqiang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5728">HADOOP-5728</a></td>
+<td align="left">FSEditLog.printStatistics may cause IndexOutOfBoundsException</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Wang Xu</td>
+<td align="left">Wang Xu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5671">HADOOP-5671</a></td>
+<td align="left">DistCp.sameFile(..) should return true if src fs does not support checksum</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5644">HADOOP-5644</a></td>
+<td align="left">Namnode is stuck in safe mode</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Suresh Srinivas</td>
+<td align="left">Suresh Srinivas</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5579">HADOOP-5579</a></td>
+<td align="left">libhdfs does not set errno correctly</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Brian Bockelman</td>
+<td align="left">Brian Bockelman</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5557">HADOOP-5557</a></td>
+<td align="left">Two minor problems in TestOverReplicatedBlocks</td>
+<td align="left">Minor</td>
+<td align="left">test</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5554">HADOOP-5554</a></td>
+<td align="left">DataNodeCluster should create blocks with the same generation stamp as the blocks created in CreateEditsLog</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Hairong Kuang</td>
+<td align="left">Hairong Kuang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5551">HADOOP-5551</a></td>
+<td align="left">Namenode permits directory destruction on overwrite</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Brian Bockelman</td>
+<td align="left">Brian Bockelman</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5549">HADOOP-5549</a></td>
+<td align="left">ReplicationMonitor should schedule both replication and deletion work in one iteration</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Hairong Kuang</td>
+<td align="left">Hairong Kuang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5522">HADOOP-5522</a></td>
+<td align="left">Document job setup/cleaup tasks and task cleanup tasks in mapred tutorial</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Amareshwari Sriramadasu</td>
+<td align="left">Amareshwari Sriramadasu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5479">HADOOP-5479</a></td>
+<td align="left">NameNode should not send empty block replication request to DataNode</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Hairong Kuang</td>
+<td align="left">Hairong Kuang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5465">HADOOP-5465</a></td>
+<td align="left">Blocks remain under-replicated</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Hairong Kuang</td>
+<td align="left">Hairong Kuang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5449">HADOOP-5449</a></td>
+<td align="left">Verify if JobHistory.HistoryCleaner works as expected</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Amar Kamat</td>
+<td align="left">Amareshwari Sriramadasu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5446">HADOOP-5446</a></td>
+<td align="left">TaskTracker metrics are disabled</td>
+<td align="left">Major</td>
+<td align="left">metrics</td>
+<td align="left">Chris Douglas</td>
+<td align="left">Chris Douglas</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5440">HADOOP-5440</a></td>
+<td align="left">Successful taskid are not removed from TaskMemoryManager</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Amareshwari Sriramadasu</td>
+<td align="left">Amareshwari Sriramadasu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5421">HADOOP-5421</a></td>
+<td align="left">HADOOP-4638 has broken 0.19 compilation</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Amar Kamat</td>
+<td align="left">Devaraj Das</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5392">HADOOP-5392</a></td>
+<td align="left">JobTracker crashes during recovery if job files are garbled</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Amar Kamat</td>
+<td align="left">Amar Kamat</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5384">HADOOP-5384</a></td>
+<td align="left">DataNodeCluster should not create blocks with generationStamp == 1</td>
+<td align="left">Blocker</td>
+<td align="left">test</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5376">HADOOP-5376</a></td>
+<td align="left">JobInProgress.obtainTaskCleanupTask() throws an ArrayIndexOutOfBoundsException</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Vinod Kumar Vavilapalli</td>
+<td align="left">Amareshwari Sriramadasu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5374">HADOOP-5374</a></td>
+<td align="left">NPE in JobTracker.getTasksToSave() method</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Vinod Kumar Vavilapalli</td>
+<td align="left">Amareshwari Sriramadasu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5333">HADOOP-5333</a></td>
+<td align="left">The libhdfs append API is not coded correctly</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">dhruba borthakur</td>
+<td align="left">dhruba borthakur</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5326">HADOOP-5326</a></td>
+<td align="left">bzip2 codec (CBZip2OutputStream) creates corrupted output file for some inputs</td>
+<td align="left">Major</td>
+<td align="left">io</td>
+<td align="left">Rodrigo Schmidt</td>
+<td align="left">Rodrigo Schmidt</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5285">HADOOP-5285</a></td>
+<td align="left">JobTracker hangs for long periods of time</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Vinod Kumar Vavilapalli</td>
+<td align="left">Devaraj Das</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5280">HADOOP-5280</a></td>
+<td align="left">When expiring a lost launched task, JT doesn't remove the attempt from the taskidToTIPMap.</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Vinod Kumar Vavilapalli</td>
+<td align="left">Devaraj Das</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5269">HADOOP-5269</a></td>
+<td align="left">TaskTracker.runningTasks holding FAILED_UNCLEAN and KILLED_UNCLEAN taskStatuses forever in some cases.</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Amareshwari Sriramadasu</td>
+<td align="left">Amareshwari Sriramadasu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5247">HADOOP-5247</a></td>
+<td align="left">NPEs in JobTracker and JobClient when mapred.jobtracker.completeuserjobs.maximum is set to zero.</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Vinod Kumar Vavilapalli</td>
+<td align="left">Amar Kamat</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5241">HADOOP-5241</a></td>
+<td align="left">Reduce tasks get stuck because of over-estimated task size (regression from 0.18)</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Andy Pavlo</td>
+<td align="left">Sharad Agarwal</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5233">HADOOP-5233</a></td>
+<td align="left">Reducer not Succeded after 100%</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Amareshwari Sriramadasu</td>
+<td align="left">Amareshwari Sriramadasu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5231">HADOOP-5231</a></td>
+<td align="left">Negative number of maps in cluster summary</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Amareshwari Sriramadasu</td>
+<td align="left">Amareshwari Sriramadasu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5213">HADOOP-5213</a></td>
+<td align="left">BZip2CompressionOutputStream NullPointerException</td>
+<td align="left">Blocker</td>
+<td align="left">io</td>
+<td align="left">Zheng Shao</td>
+<td align="left">Zheng Shao</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5154">HADOOP-5154</a></td>
+<td align="left">4-way deadlock in FairShare scheduler</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Vinod Kumar Vavilapalli</td>
+<td align="left">Matei Zaharia</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5146">HADOOP-5146</a></td>
+<td align="left">LocalDirAllocator misses files on the local filesystem</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Arun C Murthy</td>
+<td align="left">Devaraj Das</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-4780">HADOOP-4780</a></td>
+<td align="left">Task Tracker burns a lot of cpu in calling getLocalCache</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Runping Qi</td>
+<td align="left">He Yongqiang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-4719">HADOOP-4719</a></td>
+<td align="left">The ls shell command documentation is out-dated</td>
+<td align="left">Major</td>
+<td align="left">documentation</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+<td align="left">Ravi Phulari</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-4638">HADOOP-4638</a></td>
+<td align="left">Exception thrown in/from RecoveryManager.recover() should be caught and handled</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Amar Kamat</td>
+<td align="left">Amar Kamat</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-3998">HADOOP-3998</a></td>
+<td align="left">Got an exception from ClientFinalizer when the JT is terminated</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Amar Kamat</td>
+<td align="left">dhruba borthakur</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tests">TESTS:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="sub-tasks">SUB-TASKS:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="other">OTHER:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>

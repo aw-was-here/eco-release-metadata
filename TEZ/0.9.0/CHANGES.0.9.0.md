@@ -18,7 +18,7 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.9.0 - Unreleased (as of 2016-09-07)
+## Release 0.9.0 - Unreleased (as of 2016-09-09)
 
 
 
@@ -53,6 +53,7 @@
 | [TEZ-3303](https://issues.apache.org/jira/browse/TEZ-3303) | Have ShuffleVertexManager consume more precise partition stats |  Major | . | Ming Ma | Tsuyoshi Ozawa |
 | [TEZ-3370](https://issues.apache.org/jira/browse/TEZ-3370) | Tez UI: Display the log link as N/A if the app does not provide a log link |  Major | . | Siddharth Seth | Sreenath Somarajapuram |
 | [TEZ-3326](https://issues.apache.org/jira/browse/TEZ-3326) | Display JVM system properties in AM and task logs |  Major | . | Ming Ma | Eric Badger |
+| [TEZ-3272](https://issues.apache.org/jira/browse/TEZ-3272) | Add AMContainerImpl and AMNodeImpl to StateMachine visualization list |  Major | . | Ming Ma | Tsuyoshi Ozawa |
 
 
 ### BUG FIXES:
@@ -112,6 +113,7 @@
 | [TEZ-2852](https://issues.apache.org/jira/browse/TEZ-2852) | TestVertexImpl fails due to race in AsyncDispatcher |  Critical | . | Jeff Zhang | Zhiyuan Yang |
 | [TEZ-3009](https://issues.apache.org/jira/browse/TEZ-3009) | Errors that occur during container task acquisition are not logged |  Major | . | Jason Lowe | Jason Lowe |
 | [TEZ-3426](https://issues.apache.org/jira/browse/TEZ-3426) | Second AM attempt launched for session mode and recovery disabled for certain cases |  Critical | . | Jonathan Eagles | Jason Lowe |
+| [TEZ-3284](https://issues.apache.org/jira/browse/TEZ-3284) | Synchronization for every write in UnorderdKVWriter |  Critical | . | Gopal V | Jonathan Eagles |
 
 
 ### SUB-TASKS:

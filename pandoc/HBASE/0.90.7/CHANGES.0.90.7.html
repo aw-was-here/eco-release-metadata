@@ -1,0 +1,302 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hbase-changelog">Apache HBase Changelog</h1>
+<h2 id="release-0.90.7---unreleased-as-of-2016-09-08">Release 0.90.7 - Unreleased (as of 2016-09-08)</h2>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5801">HBASE-5801</a></td>
+<td align="left">[hbck] Hbck should handle case where some regions have different HTD settings in .regioninfo files (0.90 specific)</td>
+<td align="left">Major</td>
+<td align="left">hbck</td>
+<td align="left">Jonathan Hsieh</td>
+<td align="left">Jimmy Xiang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5911">HBASE-5911</a></td>
+<td align="left">hbck need an option -help to printout usage</td>
+<td align="left">Trivial</td>
+<td align="left">hbck</td>
+<td align="left">Jimmy Xiang</td>
+<td align="left">Jimmy Xiang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-6124">HBASE-6124</a></td>
+<td align="left">Backport HBASE-6033 to 0.90, 0.92 and 0.94</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Jimmy Xiang</td>
+<td align="left">Jimmy Xiang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-6379">HBASE-6379</a></td>
+<td align="left">[0.90 branch] Backport HBASE-6334 to 0.90</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Gregory Chanan</td>
+<td align="left">Gregory Chanan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-6661">HBASE-6661</a></td>
+<td align="left">Mark single parameter HTable constructors as deprecated in 0.90 and 0.92</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Jean-Daniel Cryans</td>
+<td align="left">Ted Yu</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5271">HBASE-5271</a></td>
+<td align="left">Result.getValue and Result.getColumnLatest return the wrong column.</td>
+<td align="left">Major</td>
+<td align="left">Client</td>
+<td align="left">Ghais Issa</td>
+<td align="left">Ghais Issa</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5466">HBASE-5466</a></td>
+<td align="left">Opening a table also opens the metatable and never closes it.</td>
+<td align="left">Major</td>
+<td align="left">Client</td>
+<td align="left">Ashley Taylor</td>
+<td align="left">Ashley Taylor</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5482">HBASE-5482</a></td>
+<td align="left">In 0.90, balancer algo leading to same region balanced twice and picking same region with Src and Destination as same RS.</td>
+<td align="left">Major</td>
+<td align="left">master</td>
+<td align="left">ramkrishna.s.vasudevan</td>
+<td align="left">ramkrishna.s.vasudevan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5593">HBASE-5593</a></td>
+<td align="left">Reverse DNS resolution in regionServerStartup() does not strip trailing dot</td>
+<td align="left">Major</td>
+<td align="left">master</td>
+<td align="left">David S. Wang</td>
+<td align="left">David S. Wang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5637">HBASE-5637</a></td>
+<td align="left">Fix failing 0.90 TestHMsg testcase introduced by HBASE-5563.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jonathan Hsieh</td>
+<td align="left">Jonathan Hsieh</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5724">HBASE-5724</a></td>
+<td align="left">Row cache of KeyValue should be cleared in readFields().</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Teruyoshi Zenmyo</td>
+<td align="left">Teruyoshi Zenmyo</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5545">HBASE-5545</a></td>
+<td align="left">region can't be opened for a long time. Because the creating File failed.</td>
+<td align="left">Major</td>
+<td align="left">regionserver</td>
+<td align="left">gaojinchao</td>
+<td align="left">ramkrishna.s.vasudevan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5833">HBASE-5833</a></td>
+<td align="left">0.92 build has been failing pretty consistently on TestMasterFailover....</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left">stack</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5850">HBASE-5850</a></td>
+<td align="left">Refuse operations from Admin before master is initialized - fix for all branches.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">xufeng</td>
+<td align="left">xufeng</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5615">HBASE-5615</a></td>
+<td align="left">the master never does balance because of balancing the parent region</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">xufeng</td>
+<td align="left">xufeng</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-6041">HBASE-6041</a></td>
+<td align="left">NullPointerException prevents the master from starting up</td>
+<td align="left">Major</td>
+<td align="left">master</td>
+<td align="left">Jimmy Xiang</td>
+<td align="left">Jimmy Xiang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5904">HBASE-5904</a></td>
+<td align="left">is_enabled from shell returns differently from pre- and post- HBASE-5155</td>
+<td align="left">Blocker</td>
+<td align="left">Zookeeper</td>
+<td align="left">David S. Wang</td>
+<td align="left">David S. Wang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-6385">HBASE-6385</a></td>
+<td align="left">[0.90 branch] Backport HBASE-4195 to 0.90</td>
+<td align="left">Major</td>
+<td align="left">regionserver</td>
+<td align="left">Gregory Chanan</td>
+<td align="left">Gregory Chanan</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tests">TESTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-6190">HBASE-6190</a></td>
+<td align="left">TestPriorityCompactionQueue throws NPE</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Jimmy Xiang</td>
+<td align="left">Jimmy Xiang</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sub-tasks">SUB-TASKS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5751">HBASE-5751</a></td>
+<td align="left">&quot;hbase master stop&quot; does not bring down backup masters</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Lars Hofhansl</td>
+<td align="left">Gregory Chanan</td>
+</tr>
+</tbody>
+</table>
+<h3 id="other">OTHER:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-3691">HBASE-3691</a></td>
+<td align="left">Add compressor support for 'snappy', google's compressor</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">stack</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>

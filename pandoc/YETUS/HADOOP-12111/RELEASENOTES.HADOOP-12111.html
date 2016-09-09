@@ -1,0 +1,70 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-yetus-hadoop-12111-release-notes">Apache Yetus HADOOP-12111 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-12156">HADOOP-12156</a> | <em>Major</em> | <strong>modernize smart-apply-patch</strong></li>
+</ul>
+<p>This is an incompatible change with previous versions of smart-apply-patch due to the dryrun facility being moved from a parameter to an option.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-12129">HADOOP-12129</a> | <em>Blocker</em> | <strong>rework test-patch bug system support</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-12113">HADOOP-12113</a> | <em>Major</em> | <strong>update test-patch branch to latest code</strong></li>
+</ul>
+<p>The following changes have occurred vs. the release currently shipping with Hadoop:</p>
+<p>MAJOR: * Documentation</p>
+<p>A first pass at some documentation in markdown format covering beginner, advanced, some architecture/design thoughts, and a glossary covering terms.</p>
+<p>* De-Hadoop-ification / Personalities / Modules</p>
+<p>By far, the largest change was a significant rewrite to create a core engine to enable pulling out most/all of the Hadoop-specific settings into a separate file. This was done in order to support many projects with different source layouts to use effectively the test-patch code base. As a result, the internals now use a concept of modules to dictate what to do where rather than assuming that the root of the source repo is a valid location.</p>
+<p>Project specific logic has been pushed into plugins we call 'personalities'. Personalities allow projects to dictate flags and ordering as well as perform other actions as needed before tests execute. As a result, there are several early personalities for various projects included.</p>
+<p>* Docker support</p>
+<p>Initial support for test-patch to switch to a dedicated docker container during execution, including the ability to provide a custom Dockerfile.</p>
+<p>* Multiple build systems</p>
+<p>Support for ant with the groundwork laid to support more. An early version of a pig personality is included to use this functionality.</p>
+<p>* Multiple JDKs</p>
+<p>It is possible to specify multiple JDKs to run supported tests. Built-in tests that support multiple JDKs are javac, javadoc, and unit.</p>
+<p>* Multiple bug system support</p>
+<p>Preliminary work to enable supporting bug tracking systems beyond Apache's JIRA system has been introduced. A prototype github PR support plugin is bundled. Additionally, large parts of the JIRA support have been pulled out into a separate plugin.</p>
+<p>* API and variable renames/cleanups</p>
+<p>Many, many changes to the names of variables and functions to be less Hadoop-specific and just overall better. As a result, this is a breaking change for any plugins written against the old bits.</p>
+<p>Additionally, many interface stabilities have changed as a result.</p>
+<p>MINOR:</p>
+<p>* A compile+install has been added as the first test step to populate the maven repo with the current code base, skipping over any failed compiles. This will help stabilize build predictability in between runs with different patches.</p>
+<p>* findbugs and ASF license checks have been moved to plug-ins</p>
+<p>* smart-apply-patch has a stray rm fixed.</p>
+<p>* File names of generated test logs, etc, that use the core engine are now consistent across tests.</p>
+<p>* JIRA output is now colored across the entire line, making it easier to spot failing tests.</p>
+<p>* Warn about old versions of shellcheck, because there are some false positives with it.</p>
+<p>* New files are now handled properly.</p>
+<p>* Deleted modules and files should be handled better.</p>
+<p>* Off-by-one errors in the git diff line listing should fix false positives in a few reports.</p>
+<p>* whitespace now errors on tabs in files not named Makefile.</p>
+<p>* xml files are now validated.</p>
+<p>* bash version check has been added to prevent running on older versions.</p>
+<p>* Some tests now default to a summary report rather than listing all results.</p>
+<p>* In order to prepare for eventual split, many defaults have been changed to be yetus-specific rather than Hadoop specific.</p>
+<p>* Eliminated egrep usage in favor of grep -E</p>
+<p>* Many additions/cleanups to report output.</p>
+<p>* Plugins can now add output to the usage message.</p>
+<p>* test-patch temp directory has been renamed.</p>
+<p>* wget errors are more specific now.</p>

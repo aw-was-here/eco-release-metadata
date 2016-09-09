@@ -1,0 +1,359 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-mahout-changelog">Apache Mahout Changelog</h1>
+<h2 id="release-0.10.2---2015-08-06">Release 0.10.2 - 2015-08-06</h2>
+<h3 id="new-features">NEW FEATURES:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1752">MAHOUT-1752</a></td>
+<td align="left">H2O implementation of CbindScalar</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Anand Avati</td>
+<td align="left">Anand Avati</td>
+</tr>
+</tbody>
+</table>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1732">MAHOUT-1732</a></td>
+<td align="left">Native support for kryo serialization of tensor types.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Dmitriy Lyubimov</td>
+<td align="left">Dmitriy Lyubimov</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1731">MAHOUT-1731</a></td>
+<td align="left">Deprecate SparseColumnMatrix.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Dmitriy Lyubimov</td>
+<td align="left">Dmitriy Lyubimov</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1730">MAHOUT-1730</a></td>
+<td align="left">new mutable transposition view for in-core matrices.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Dmitriy Lyubimov</td>
+<td align="left">Dmitriy Lyubimov</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1728">MAHOUT-1728</a></td>
+<td align="left">in-core functional assignments</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Dmitriy Lyubimov</td>
+<td align="left">Dmitriy Lyubimov</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1727">MAHOUT-1727</a></td>
+<td align="left">Elementwise analogues of scala.math functions for tensor types</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Dmitriy Lyubimov</td>
+<td align="left">Dmitriy Lyubimov</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1726">MAHOUT-1726</a></td>
+<td align="left">R-like vector concatenation operator</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Dmitriy Lyubimov</td>
+<td align="left">Dmitriy Lyubimov</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1725">MAHOUT-1725</a></td>
+<td align="left">elementwise power operator ^</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Dmitriy Lyubimov</td>
+<td align="left">Dmitriy Lyubimov</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1724">MAHOUT-1724</a></td>
+<td align="left">Optimizations of matrix-matrix in-core multiplication based on structural flavors</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Dmitriy Lyubimov</td>
+<td align="left">Dmitriy Lyubimov</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1723">MAHOUT-1723</a></td>
+<td align="left">Optional structural &quot;flavor&quot; abstraction for in-core matrices.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Dmitriy Lyubimov</td>
+<td align="left">Dmitriy Lyubimov</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1722">MAHOUT-1722</a></td>
+<td align="left">DRM row sampling api</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Dmitriy Lyubimov</td>
+<td align="left">Dmitriy Lyubimov</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1721">MAHOUT-1721</a></td>
+<td align="left">rowSumsMap summary for non-int-keyed DRMs</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Dmitriy Lyubimov</td>
+<td align="left">Dmitriy Lyubimov</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1720">MAHOUT-1720</a></td>
+<td align="left">Support 1 cbind X, X cbind 1 etc. for both Matrix and DRM</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Dmitriy Lyubimov</td>
+<td align="left">Dmitriy Lyubimov</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1719">MAHOUT-1719</a></td>
+<td align="left">Unary elementwise function operator and function fusions</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Dmitriy Lyubimov</td>
+<td align="left">Dmitriy Lyubimov</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1718">MAHOUT-1718</a></td>
+<td align="left">Support for conversion of any type-keyed DRM into ordinally-keyed DRM</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Dmitriy Lyubimov</td>
+<td align="left">Dmitriy Lyubimov</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1717">MAHOUT-1717</a></td>
+<td align="left">allreduceBlock operator api and Spark implementation</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Dmitriy Lyubimov</td>
+<td align="left">Dmitriy Lyubimov</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1716">MAHOUT-1716</a></td>
+<td align="left">Scala logging style</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Dmitriy Lyubimov</td>
+<td align="left">Dmitriy Lyubimov</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1715">MAHOUT-1715</a></td>
+<td align="left">Closeable API for broadcast tensors</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Dmitriy Lyubimov</td>
+<td align="left">Dmitriy Lyubimov</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1714">MAHOUT-1714</a></td>
+<td align="left">Add MAHOUT_OPTS environment when running Spark shell</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Dmitriy Lyubimov</td>
+<td align="left">Dmitriy Lyubimov</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1713">MAHOUT-1713</a></td>
+<td align="left">Performance and parallelization improvements for AB', A'B, A'A spark physical operators</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Dmitriy Lyubimov</td>
+<td align="left">Dmitriy Lyubimov</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1736">MAHOUT-1736</a></td>
+<td align="left">H20 implementation for allreduceBlock</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Dmitriy Lyubimov</td>
+<td align="left">Anand Avati</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1737">MAHOUT-1737</a></td>
+<td align="left">H20 implementation of AewUnaryFunc physical operator</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Dmitriy Lyubimov</td>
+<td align="left">Anand Avati</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1738">MAHOUT-1738</a></td>
+<td align="left">Flavor support for H2o in-core matrices</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Dmitriy Lyubimov</td>
+<td align="left">Anand Avati</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1757">MAHOUT-1757</a></td>
+<td align="left">Small fix in spca formula</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Dmitriy Lyubimov</td>
+<td align="left">Suneel Marthi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1756">MAHOUT-1756</a></td>
+<td align="left">Missing +=: and *=: operators on vectors</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Dmitriy Lyubimov</td>
+<td align="left">Suneel Marthi</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1729">MAHOUT-1729</a></td>
+<td align="left">Straighten out behavior of Matrix.iterator() and iterateNonEmpty()</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Dmitriy Lyubimov</td>
+<td align="left">Dmitriy Lyubimov</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1660">MAHOUT-1660</a></td>
+<td align="left">Hadoop1HDFSUtil.readDRMHEader should be taking Hadoop conf</td>
+<td align="left">Minor</td>
+<td align="left">spark</td>
+<td align="left">Suneel Marthi</td>
+<td align="left">Dmitriy Lyubimov</td>
+</tr>
+</tbody>
+</table>
+<h3 id="other">OTHER:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1746">MAHOUT-1746</a></td>
+<td align="left">Fix: mxA ^ 2, mxA ^ 0.5 to mean the same thing as mxA * mxA and mxA ::= sqrt _</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Dmitriy Lyubimov</td>
+<td align="left">Dmitriy Lyubimov</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1753">MAHOUT-1753</a></td>
+<td align="left">First and second moment routines</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Dmitriy Lyubimov</td>
+<td align="left">Dmitriy Lyubimov</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1754">MAHOUT-1754</a></td>
+<td align="left">Distance and squared distance matrix routines</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Dmitriy Lyubimov</td>
+<td align="left">Dmitriy Lyubimov</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1745">MAHOUT-1745</a></td>
+<td align="left">Purge deprecated ConcatVectorsJob from codebase</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Andrew Palumbo</td>
+<td align="left">Suneel Marthi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1761">MAHOUT-1761</a></td>
+<td align="left">Upgrade to Apache parent pom v17</td>
+<td align="left">Trivial</td>
+<td align="left">.</td>
+<td align="left">Stevo Slavic</td>
+<td align="left">Stevo Slavic</td>
+</tr>
+</tbody>
+</table>

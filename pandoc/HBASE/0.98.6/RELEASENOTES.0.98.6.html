@@ -1,0 +1,45 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hbase-0.98.6-release-notes">Apache HBase 0.98.6 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-11059">HBASE-11059</a> | <em>Major</em> | <strong>ZK-less region assignment</strong></li>
+</ul>
+<p>This patch makes it possible to do region assignment without ZK. By default, it is off (i.e. ZK is used for region assignment as before).</p>
+<p>Two setting &quot;hbase.assignment.usezk&quot;, &quot;hbase.assignment.usezk.migrating&quot; are introduced to control migration from using ZK for assignment to not using ZK for assignment.</p>
+<p>For rolling upgrade from using ZK to not using ZK, it can be done in two steps:</p>
+<ol>
+<li><p>Set both hbase.assignment.usezk and hbase.assignment.usezk.migrating to true, do a rolling upgrade so that both masters and regionservers have the new code. Either master or regionserver can be upgraded at first. The order is not important for this step. If you want to keep using ZK for assignment, you'd better set hbase.assignment.usezk to true, and hbase.assignment.usezk.migrating to false so that region states are not persisted in meta table.</p></li>
+<li><p>Set hbase.assignment.usezk to false, do a rolling restart so that region assignments don't use ZK any more. For this step, masters should be restarted after regionservers have all restarted at first so that they won't update meta table directly and master doesn't know about it.</p></li>
+</ol>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-11610">HBASE-11610</a> | <em>Major</em> | <strong>Enhance remote meta updates</strong></li>
+</ul>
+<p>Adds &quot;hbase.regionstatestore.meta.connection&quot; configuration and new MultiHConnection class. Is set to 1 by default. Set it higher if you want to run with more than one connection to the meta table. Useful if you have a very large meta table -- e.g. 1M regions -- otherwise, stick to the default.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-11821">HBASE-11821</a> | <em>Major</em> | <strong>[ImportTSV] Abstract labels tags creation into pluggable Interface</strong></li>
+</ul>
+<p>Added a facade org.apache.hadoop.hbase.mapreduce.CellCreator to create Cells for HFileOutputFormat. When working with HFileOutputFormat (with or with out visibility labels) in bulk load one can use this facade to make Cells with visibility tags. Also we allow plugin an implementation of org.apache.hadoop.hbase.mapreduce.VisibilityExpressionResolver by configuring the the FQCN with key &quot;hbase.mapreduce.visibility.expression.resolver.class&quot;. The default implementation will tag Cells with visibility label ordinal.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-11878">HBASE-11878</a> | <em>Major</em> | <strong>TestVisibilityLabelsWithDistributedLogReplay#testAddVisibilityLabelsOnRSRestart sometimes fails due to VisibilityController not yet initialized</strong></li>
+</ul>
+<p>A new exception, VisibilityControllerNotReadyException, is introduced for the case where VisibilityController is being initialized. Client can respond to this exception by retrying prior operation. VisibilityControllerNotReadyException isn't a DoNotRetryIOException.</p>

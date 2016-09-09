@@ -1,0 +1,77 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hadoop-0.18.3-release-notes">Apache Hadoop 0.18.3 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-5077">HADOOP-5077</a> | <em>Blocker</em> | <strong>JavaDoc errors in 0.18.3</strong></li>
+</ul>
+<p>Fix couple of JavaDoc warnings.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4997">HADOOP-4997</a> | <em>Blocker</em> | <strong>workaround for tmp file handling on DataNodes in 0.18 (HADOOP-4663)</strong></li>
+</ul>
+<p>Revert tmp files handling on DataNodes back to 0.17. sync() introduced in 0.18 has less gaurantees.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4971">HADOOP-4971</a> | <em>Blocker</em> | <strong>Block report times from datanodes could converge to same time.</strong></li>
+</ul>
+<p>A long (unexpected) delay at datanodes could make subsequent block reports from many datanode at the same time.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4797">HADOOP-4797</a> | <em>Blocker</em> | <strong>RPC Server can leave a lot of direct buffers</strong></li>
+</ul>
+<p>Improve how RPC server reads and writes large buffers. Avoids soft-leak of direct buffers and excess copies in NIO layer.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4679">HADOOP-4679</a> | <em>Major</em> | <strong>Datanode prints tons of log messages: Waiting for threadgroup to exit, active theads is XX</strong></li>
+</ul>
+<ol>
+<li>Only datanode's offerService thread shutdown the datanode to avoid deadlock;</li>
+<li>Datanode checks disk in case of failure on creating a block file.</li>
+</ol>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4659">HADOOP-4659</a> | <em>Blocker</em> | <strong>Root cause of connection failure is being lost to code that uses it for delaying startup</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4635">HADOOP-4635</a> | <em>Blocker</em> | <strong>Memory leak ?</strong></li>
+</ul>
+<p>fix memory leak of user/group information in fuse-dfs</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4620">HADOOP-4620</a> | <em>Major</em> | <strong>Streaming mapper never completes if the mapper does not write to stdout</strong></li>
+</ul>
+<p>This patch HADOOP-4620.patch (1) solves the hanging problem on map side with empty input and nonempty output — this map task generates output properly to intermediate files similar to other map tasks. (2) solves the problem of hanging reducer with empty input to reduce task and nonempty output — this reduce task doesn't generate output if input to reduce task is empty.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4542">HADOOP-4542</a> | <em>Minor</em> | <strong>Fault in TestDistributedUpgrade</strong></li>
+</ul>
+<p>TestDistributedUpgrade used succeed for wrong reasons.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4150">HADOOP-4150</a> | <em>Blocker</em> | <strong>Include librecordio as part of the release</strong></li>
+</ul>
+<p>Included librecordio in release for use by xerces-c (ant -Dlibrecordio=true -Dxercescroot=&lt;path to the xerces-c root&gt;)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4061">HADOOP-4061</a> | <em>Major</em> | <strong>Large number of decommission freezes the Namenode</strong></li>
+</ul>
+<p>Added a new conf property dfs.namenode.decommission.nodes.per.interval so that NameNode checks decommission status of x nodes for every y seconds, where x is the value of dfs.namenode.decommission.nodes.per.interval and y is the value of dfs.namenode.decommission.interval.</p>

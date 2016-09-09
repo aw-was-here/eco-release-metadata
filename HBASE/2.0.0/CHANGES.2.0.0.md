@@ -18,7 +18,7 @@
 -->
 # Apache HBase Changelog
 
-## Release 2.0.0 - Unreleased (as of 2016-09-07)
+## Release 2.0.0 - Unreleased (as of 2016-09-08)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -730,6 +730,7 @@
 | [HBASE-16399](https://issues.apache.org/jira/browse/HBASE-16399) | Provide an API to get list of failed regions and servername in Canary |  Major | canary | Vishal Khandelwal | Vishal Khandelwal |
 | [HBASE-16541](https://issues.apache.org/jira/browse/HBASE-16541) | Avoid unnecessary cell copy in Result#compareResults |  Major | . | ChiaPing Tsai | ChiaPing Tsai |
 | [HBASE-16562](https://issues.apache.org/jira/browse/HBASE-16562) | ITBLL should fail to start if misconfigured |  Major | integration tests | Andrew Purtell | Heng Chen |
+| [HBASE-15565](https://issues.apache.org/jira/browse/HBASE-15565) | Rewrite restore with Procedure V2 |  Major | . | Ted Yu | Ted Yu |
 
 
 ### BUG FIXES:
@@ -2156,7 +2157,6 @@
 | [HBASE-16515](https://issues.apache.org/jira/browse/HBASE-16515) | AsyncProcess has incorrent count of tasks if the backoff policy is enabled |  Minor | . | ChiaPing Tsai | ChiaPing Tsai |
 | [HBASE-16535](https://issues.apache.org/jira/browse/HBASE-16535) | Use regex to exclude generated classes for findbugs |  Major | findbugs | Duo Zhang | Duo Zhang |
 | [HBASE-16528](https://issues.apache.org/jira/browse/HBASE-16528) | Procedure-V2: ServerCrashProcedure misses owner information |  Major | hbase, master, proc-v2 | Stephen Yuan Jiang | Stephen Yuan Jiang |
-| [HBASE-16532](https://issues.apache.org/jira/browse/HBASE-16532) | Procedure-V2: Enforce procedure ownership at submission |  Major | proc-v2 | Ted Yu | Ted Yu |
 | [HBASE-15278](https://issues.apache.org/jira/browse/HBASE-15278) | AsyncRPCClient hangs if Connection closes before RPC call response |  Blocker | rpc, test | Enis Soztutar | Heng Chen |
 | [HBASE-16527](https://issues.apache.org/jira/browse/HBASE-16527) | IOExceptions from DFS client still can cause CatalogJanitor to delete referenced files |  Major | . | Vladimir Rodionov | Vladimir Rodionov |
 | [HBASE-16375](https://issues.apache.org/jira/browse/HBASE-16375) | Mapreduce mini cluster using HBaseTestingUtility not setting correct resourcemanager and jobhistory webapp address of MapReduceTestingShim |  Minor | . | Loknath Priyatham Teja Singamsetty | Loknath Priyatham Teja Singamsetty |
@@ -2165,6 +2165,8 @@
 | [HBASE-16538](https://issues.apache.org/jira/browse/HBASE-16538) | Version mismatch in HBaseConfiguration.checkDefaultsVersion |  Major | . | Appy | Appy |
 | [HBASE-16556](https://issues.apache.org/jira/browse/HBASE-16556) | The read/write timeout are not used in HTable.delete(List), HTable.get(List), and HTable.existsAll(List) |  Minor | . | ChiaPing Tsai | ChiaPing Tsai |
 | [HBASE-16460](https://issues.apache.org/jira/browse/HBASE-16460) | Can't rebuild the BucketAllocator's data structures when BucketCache uses FileIOEngine |  Major | BucketCache | Guanghao Zhang | Guanghao Zhang |
+| [HBASE-16572](https://issues.apache.org/jira/browse/HBASE-16572) | Sync method in RecoverableZooKeeper failed to pass callback function in |  Minor | Zookeeper | Allan Yang | Allan Yang |
+| [HBASE-16544](https://issues.apache.org/jira/browse/HBASE-16544) | Remove or Clarify  'Using Amazon S3 Storage' section in the reference guide |  Major | documentation, Filesystem Integration | Yi Liang | Yi Liang |
 
 
 ### TESTS:
@@ -2761,12 +2763,14 @@
 | [HBASE-16522](https://issues.apache.org/jira/browse/HBASE-16522) | Procedure v2 - Cache system user and avoid IOException |  Major | master, proc-v2 | Matteo Bertozzi | Matteo Bertozzi |
 | [HBASE-16533](https://issues.apache.org/jira/browse/HBASE-16533) | Procedure v2 - Extract chore from the executor |  Minor | proc-v2 | Matteo Bertozzi | Matteo Bertozzi |
 | [HBASE-16531](https://issues.apache.org/jira/browse/HBASE-16531) | Move cell block related code out of IPCUtil |  Major | rpc | Duo Zhang | Duo Zhang |
+| [HBASE-16532](https://issues.apache.org/jira/browse/HBASE-16532) | Procedure-V2: Enforce procedure ownership at submission |  Major | proc-v2 | Ted Yu | Ted Yu |
 | [HBASE-16526](https://issues.apache.org/jira/browse/HBASE-16526) | Add more ipc tests |  Major | rpc, test | Duo Zhang | Duo Zhang |
 | [HBASE-16507](https://issues.apache.org/jira/browse/HBASE-16507) | Procedure v2 - Force DDL operation to always roll forward |  Minor | master, proc-v2 | Matteo Bertozzi | Matteo Bertozzi |
 | [HBASE-16519](https://issues.apache.org/jira/browse/HBASE-16519) | Procedure v2 - Avoid sync wait on DDLs operation |  Major | master, proc-v2 | Matteo Bertozzi | Matteo Bertozzi |
 | [HBASE-16311](https://issues.apache.org/jira/browse/HBASE-16311) | Audit log for delete snapshot operation is missing in case of snapshot owner deleting the same |  Minor | snapshots | Abhishek Kumar | Yi Liang |
 | [HBASE-16101](https://issues.apache.org/jira/browse/HBASE-16101) | Procedure v2 - Perf Tool for WAL |  Major | proc-v2, tooling | Appy | Appy |
 | [HBASE-16516](https://issues.apache.org/jira/browse/HBASE-16516) | Revisit the implementation of PayloadCarryingRpcController |  Major | rpc | Duo Zhang | Duo Zhang |
+| [HBASE-16445](https://issues.apache.org/jira/browse/HBASE-16445) | Refactor and reimplement RpcClient |  Major | IPC/RPC, rpc | Duo Zhang | Duo Zhang |
 
 
 ### OTHER:
@@ -2784,6 +2788,7 @@
 | [HBASE-11425](https://issues.apache.org/jira/browse/HBASE-11425) | Cell/DBB end-to-end on the read-path |  Major | regionserver, Scanners | Anoop Sam John | Anoop Sam John |
 | [HBASE-14030](https://issues.apache.org/jira/browse/HBASE-14030) | HBase Backup/Restore Phase 1 |  Major | . | Vladimir Rodionov | Vladimir Rodionov |
 | [HBASE-16037](https://issues.apache.org/jira/browse/HBASE-16037) | Make automatic mode default one |  Major | . | Vladimir Rodionov | Vladimir Rodionov |
+| [HBASE-16432](https://issues.apache.org/jira/browse/HBASE-16432) | Revisit the asynchronous ipc implementation |  Major | rpc | Duo Zhang | Duo Zhang |
 | [HBASE-11459](https://issues.apache.org/jira/browse/HBASE-11459) | Add more doc on compression codecs, how to hook up native lib, lz4, etc. |  Minor | documentation | stack | stack |
 | [HBASE-11317](https://issues.apache.org/jira/browse/HBASE-11317) | Expand unit testing to cover Mockito and MRUnit and give more examples |  Trivial | documentation | Mike Drob | Misty Stanley-Jones |
 | [HBASE-10398](https://issues.apache.org/jira/browse/HBASE-10398) | HBase book updates for Replication after HBASE-10322 |  Major | documentation | Anoop Sam John | Misty Stanley-Jones |

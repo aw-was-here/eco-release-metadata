@@ -1,0 +1,564 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hadoop-changelog">Apache Hadoop Changelog</h1>
+<h2 id="release-0.22.1---unreleased-as-of-2015-09-04">Release 0.22.1 - Unreleased (as of 2015-09-04)</h2>
+<h3 id="incompatible-changes">INCOMPATIBLE CHANGES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-6453">HADOOP-6453</a></td>
+<td align="left">Hadoop wrapper script shouldn't ignore an existing JAVA_LIBRARY_PATH</td>
+<td align="left">Minor</td>
+<td align="left">scripts</td>
+<td align="left">Chad Metcalf</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="new-features">NEW FEATURES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7937">HADOOP-7937</a></td>
+<td align="left">Forward port SequenceFile#syncFs and friends from Hadoop 1.x</td>
+<td align="left">Major</td>
+<td align="left">io</td>
+<td align="left">Eli Collins</td>
+<td align="left">Tom White</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7119">HADOOP-7119</a></td>
+<td align="left">add Kerberos HTTP SPNEGO authentication support to Hadoop JT/NN/DN/TT web-consoles</td>
+<td align="left">Major</td>
+<td align="left">security</td>
+<td align="left">Alejandro Abdelnur</td>
+<td align="left">Alejandro Abdelnur</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3837">MAPREDUCE-3837</a></td>
+<td align="left">Job tracker is not able to recover job in case of crash and after that no user can submit job.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Mayank Bansal</td>
+<td align="left">Mayank Bansal</td>
+</tr>
+</tbody>
+</table>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7338">HADOOP-7338</a></td>
+<td align="left">LocalDirAllocator improvements for MR-2178</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Todd Lipcon</td>
+<td align="left">Benoy Antony</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7272">HADOOP-7272</a></td>
+<td align="left">Remove unnecessary security related info logs</td>
+<td align="left">Major</td>
+<td align="left">ipc, security</td>
+<td align="left">Suresh Srinivas</td>
+<td align="left">Suresh Srinivas</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-6995">HADOOP-6995</a></td>
+<td align="left">Allow wildcards to be used in ProxyUsers configurations</td>
+<td align="left">Minor</td>
+<td align="left">security</td>
+<td align="left">Todd Lipcon</td>
+<td align="left">Todd Lipcon</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-2246">HDFS-2246</a></td>
+<td align="left">Shortcut a local client reads to a Datanodes files directly</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sanjay Radia</td>
+<td align="left">Jitendra Nath Pandey</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-1601">HDFS-1601</a></td>
+<td align="left">Pipeline ACKs are sent as lots of tiny TCP packets</td>
+<td align="left">Major</td>
+<td align="left">datanode</td>
+<td align="left">Todd Lipcon</td>
+<td align="left">Todd Lipcon</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4405">MAPREDUCE-4405</a></td>
+<td align="left">Adding test case for HierarchicalQueue in TestJobQueueClient</td>
+<td align="left">Minor</td>
+<td align="left">client</td>
+<td align="left">Mayank Bansal</td>
+<td align="left">Mayank Bansal</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4403">MAPREDUCE-4403</a></td>
+<td align="left">Adding test case for resubmission of jobs in TestRecoveryManager</td>
+<td align="left">Minor</td>
+<td align="left">jobtracker</td>
+<td align="left">Mayank Bansal</td>
+<td align="left">Mayank Bansal</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4349">MAPREDUCE-4349</a></td>
+<td align="left">Distributed Cache gives inconsistent result if cache Archive files get deleted from task tracker</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Mayank Bansal</td>
+<td align="left">Mayank Bansal</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2353">MAPREDUCE-2353</a></td>
+<td align="left">Make the MR changes to reflect the API changes in SecureIO library</td>
+<td align="left">Major</td>
+<td align="left">security, task, tasktracker</td>
+<td align="left">Devaraj Das</td>
+<td align="left">Benoy Antony</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-1521">MAPREDUCE-1521</a></td>
+<td align="left">Protection against incorrectly configured reduces</td>
+<td align="left">Major</td>
+<td align="left">jobtracker</td>
+<td align="left">Arun C Murthy</td>
+<td align="left">Mahadev konar</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7680">HADOOP-7680</a></td>
+<td align="left">TestHardLink fails on Mac OS X, when gnu stat is in path</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Milind Bhandarkar</td>
+<td align="left">Milind Bhandarkar</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7621">HADOOP-7621</a></td>
+<td align="left">alfredo config should be in a file not readable by users</td>
+<td align="left">Critical</td>
+<td align="left">security</td>
+<td align="left">Alejandro Abdelnur</td>
+<td align="left">Aaron T. Myers</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7115">HADOOP-7115</a></td>
+<td align="left">Add a cache for getpwuid_r and getpwgid_r calls</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Arun C Murthy</td>
+<td align="left">Alejandro Abdelnur</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-3402">HDFS-3402</a></td>
+<td align="left">Fix hdfs scripts for secure datanodes</td>
+<td align="left">Minor</td>
+<td align="left">scripts, security</td>
+<td align="left">Benoy Antony</td>
+<td align="left">Benoy Antony</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-3368">HDFS-3368</a></td>
+<td align="left">Missing blocks due to bad DataNodes coming up and down.</td>
+<td align="left">Major</td>
+<td align="left">namenode</td>
+<td align="left">Konstantin Shvachko</td>
+<td align="left">Konstantin Shvachko</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-2991">HDFS-2991</a></td>
+<td align="left">failure to load edits: ClassCastException</td>
+<td align="left">Blocker</td>
+<td align="left">namenode</td>
+<td align="left">Todd Lipcon</td>
+<td align="left">Todd Lipcon</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-2877">HDFS-2877</a></td>
+<td align="left">If locking of a storage dir fails, it will remove the other NN's lock file on exit</td>
+<td align="left">Major</td>
+<td align="left">namenode</td>
+<td align="left">Todd Lipcon</td>
+<td align="left">Todd Lipcon</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-2718">HDFS-2718</a></td>
+<td align="left">Optimize OP_ADD in edits loading</td>
+<td align="left">Major</td>
+<td align="left">namenode</td>
+<td align="left">Konstantin Shvachko</td>
+<td align="left">Konstantin Shvachko</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-2698">HDFS-2698</a></td>
+<td align="left">BackupNode is downloading image from NameNode for every checkpoint</td>
+<td align="left">Major</td>
+<td align="left">namenode</td>
+<td align="left">Konstantin Shvachko</td>
+<td align="left">Konstantin Shvachko</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-1910">HDFS-1910</a></td>
+<td align="left">when dfs.name.dir and dfs.name.edits.dir are same fsimage will be saved twice every time</td>
+<td align="left">Minor</td>
+<td align="left">namenode</td>
+<td align="left">Gokul</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-1584">HDFS-1584</a></td>
+<td align="left">Need to check TGT and renew if needed when fetching delegation tokens using HFTP</td>
+<td align="left">Major</td>
+<td align="left">security</td>
+<td align="left">Kan Zhang</td>
+<td align="left">Benoy Antony</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5706">MAPREDUCE-5706</a></td>
+<td align="left">toBeDeleted parent directories aren't being cleaned up</td>
+<td align="left">Major</td>
+<td align="left">security</td>
+<td align="left">Robert Kanter</td>
+<td align="left">Robert Kanter</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4404">MAPREDUCE-4404</a></td>
+<td align="left">Adding Test case for TestMRJobClient to verify the user name</td>
+<td align="left">Minor</td>
+<td align="left">client</td>
+<td align="left">Mayank Bansal</td>
+<td align="left">Mayank Bansal</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4360">MAPREDUCE-4360</a></td>
+<td align="left">Capacity Scheduler Hierarchical leaf queue does not honor the max capacity of container queue</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Mayank Bansal</td>
+<td align="left">Mayank Bansal</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4318">MAPREDUCE-4318</a></td>
+<td align="left">TestRecoveryManager should not use raw and deprecated configuration parameters.</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Konstantin Shvachko</td>
+<td align="left">Benoy Antony</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4314">MAPREDUCE-4314</a></td>
+<td align="left">Synchronization in JvmManager for 0.22 branch</td>
+<td align="left">Major</td>
+<td align="left">tasktracker</td>
+<td align="left">Konstantin Shvachko</td>
+<td align="left">Benoy Antony</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4164">MAPREDUCE-4164</a></td>
+<td align="left">Hadoop 22 Exception thrown after task completion causes its reexecution</td>
+<td align="left">Major</td>
+<td align="left">tasktracker</td>
+<td align="left">Mayank Bansal</td>
+<td align="left">Mayank Bansal</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3863">MAPREDUCE-3863</a></td>
+<td align="left">0.22 branch mvn deploy is not publishing hadoop-streaming JAR</td>
+<td align="left">Critical</td>
+<td align="left">build</td>
+<td align="left">Alejandro Abdelnur</td>
+<td align="left">Benoy Antony</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3725">MAPREDUCE-3725</a></td>
+<td align="left">Hadoop 22 hadoop job -list returns user name as NULL</td>
+<td align="left">Major</td>
+<td align="left">client</td>
+<td align="left">Mayank Bansal</td>
+<td align="left">Mayank Bansal</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3593">MAPREDUCE-3593</a></td>
+<td align="left">MAPREDUCE Impersonation is not working in 22</td>
+<td align="left">Major</td>
+<td align="left">job submission</td>
+<td align="left">Mayank Bansal</td>
+<td align="left">Mayank Bansal</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2452">MAPREDUCE-2452</a></td>
+<td align="left">Delegation token cancellation shouldn't hold global JobTracker lock</td>
+<td align="left">Major</td>
+<td align="left">jobtracker</td>
+<td align="left">Devaraj Das</td>
+<td align="left">Devaraj Das</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2420">MAPREDUCE-2420</a></td>
+<td align="left">JobTracker should be able to renew delegation token over HTTP</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Boris Shkolnik</td>
+<td align="left">Boris Shkolnik</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2377">MAPREDUCE-2377</a></td>
+<td align="left">task-controller fails to parse configuration if it doesn't end in </td>
+<td align="left">Major</td>
+<td align="left">task-controller</td>
+<td align="left">Todd Lipcon</td>
+<td align="left">Benoy Antony</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2178">MAPREDUCE-2178</a></td>
+<td align="left">Race condition in LinuxTaskController permissions handling</td>
+<td align="left">Major</td>
+<td align="left">security, task-controller</td>
+<td align="left">Todd Lipcon</td>
+<td align="left">Benoy Antony</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tests">TESTS:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="sub-tasks">SUB-TASKS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8383">HADOOP-8383</a></td>
+<td align="left">TestKerberosAuthenticator fails</td>
+<td align="left">Minor</td>
+<td align="left">security</td>
+<td align="left">Benoy Antony</td>
+<td align="left">Benoy Antony</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8381">HADOOP-8381</a></td>
+<td align="left">Substitute _HOST with hostname for HTTP principals</td>
+<td align="left">Minor</td>
+<td align="left">security</td>
+<td align="left">Benoy Antony</td>
+<td align="left">Benoy Antony</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-2886">HDFS-2886</a></td>
+<td align="left">CreateEditLogs should generate a realistic edit log.</td>
+<td align="left">Major</td>
+<td align="left">namenode</td>
+<td align="left">Konstantin Shvachko</td>
+<td align="left">Konstantin Shvachko</td>
+</tr>
+</tbody>
+</table>
+<h3 id="other">OTHER:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8357">HADOOP-8357</a></td>
+<td align="left">Restore security in Hadoop 0.22 branch</td>
+<td align="left">Major</td>
+<td align="left">security</td>
+<td align="left">Konstantin Shvachko</td>
+<td align="left">Benoy Antony</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4249">MAPREDUCE-4249</a></td>
+<td align="left">Fix failures in streaming test TestFileArgs</td>
+<td align="left">Minor</td>
+<td align="left">security</td>
+<td align="left">Benoy Antony</td>
+<td align="left">Benoy Antony</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4248">MAPREDUCE-4248</a></td>
+<td align="left">TestRecoveryManager fails</td>
+<td align="left">Minor</td>
+<td align="left">security</td>
+<td align="left">Benoy Antony</td>
+<td align="left">Benoy Antony</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4247">MAPREDUCE-4247</a></td>
+<td align="left">TestTaskTrackerLocalization fails</td>
+<td align="left">Minor</td>
+<td align="left">security</td>
+<td align="left">Benoy Antony</td>
+<td align="left">Benoy Antony</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4246">MAPREDUCE-4246</a></td>
+<td align="left">Failure in deleting user directories in Secure hadoop</td>
+<td align="left">Major</td>
+<td align="left">security</td>
+<td align="left">Benoy Antony</td>
+<td align="left">Benoy Antony</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4244">MAPREDUCE-4244</a></td>
+<td align="left">Fix an issue related to do with setting of correct groups for tasks</td>
+<td align="left">Minor</td>
+<td align="left">security</td>
+<td align="left">Benoy Antony</td>
+<td align="left">Benoy Antony</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4243">MAPREDUCE-4243</a></td>
+<td align="left">Modify mapreduce build to include task-controller</td>
+<td align="left">Minor</td>
+<td align="left">build</td>
+<td align="left">Benoy Antony</td>
+<td align="left">Benoy Antony</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4240">MAPREDUCE-4240</a></td>
+<td align="left">Revert MAPREDUCE-2767</td>
+<td align="left">Minor</td>
+<td align="left">security</td>
+<td align="left">Benoy Antony</td>
+<td align="left">Benoy Antony</td>
+</tr>
+</tbody>
+</table>

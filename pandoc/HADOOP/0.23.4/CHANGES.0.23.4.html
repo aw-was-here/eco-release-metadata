@@ -1,0 +1,404 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hadoop-changelog">Apache Hadoop Changelog</h1>
+<h2 id="release-0.23.4---2012-10-15">Release 0.23.4 - 2012-10-15</h2>
+<h3 id="incompatible-changes">INCOMPATIBLE CHANGES:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="new-features">NEW FEATURES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7788">HADOOP-7788</a></td>
+<td align="left">HA: Simple HealthMonitor class to watch an HAService</td>
+<td align="left">Major</td>
+<td align="left">ha</td>
+<td align="left">Todd Lipcon</td>
+<td align="left">Todd Lipcon</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4651">MAPREDUCE-4651</a></td>
+<td align="left">Benchmarking random reads with DFSIO</td>
+<td align="left">Major</td>
+<td align="left">benchmarks, test</td>
+<td align="left">Konstantin Shvachko</td>
+<td align="left">Konstantin Shvachko</td>
+</tr>
+</tbody>
+</table>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8623">HADOOP-8623</a></td>
+<td align="left">hadoop jar command should respect HADOOP_OPTS</td>
+<td align="left">Minor</td>
+<td align="left">scripts</td>
+<td align="left">Steven Willis</td>
+<td align="left">Steven Willis</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8183">HADOOP-8183</a></td>
+<td align="left">Stop using &quot;mapred.used.genericoptionsparser&quot; to avoid unnecessary warnings</td>
+<td align="left">Minor</td>
+<td align="left">util</td>
+<td align="left">Harsh J</td>
+<td align="left">Harsh J</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4645">MAPREDUCE-4645</a></td>
+<td align="left">Providing a random seed to Slive should make the sequence of filenames completely deterministic</td>
+<td align="left">Major</td>
+<td align="left">performance, test</td>
+<td align="left">Ravi Prakash</td>
+<td align="left">Ravi Prakash</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4408">MAPREDUCE-4408</a></td>
+<td align="left">allow jobs to set a JAR that is in the distributed cached</td>
+<td align="left">Major</td>
+<td align="left">mrv1, mrv2</td>
+<td align="left">Alejandro Abdelnur</td>
+<td align="left">Robert Kanter</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2786">MAPREDUCE-2786</a></td>
+<td align="left">TestDFSIO should also test compression reading/writing from command-line.</td>
+<td align="left">Minor</td>
+<td align="left">benchmarks</td>
+<td align="left">Plamen Jeliazkov</td>
+<td align="left">Plamen Jeliazkov</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-137">YARN-137</a></td>
+<td align="left">Change the default scheduler to the CapacityScheduler</td>
+<td align="left">Major</td>
+<td align="left">scheduler</td>
+<td align="left">Siddharth Seth</td>
+<td align="left">Siddharth Seth</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-57">YARN-57</a></td>
+<td align="left">Plugable process tree</td>
+<td align="left">Major</td>
+<td align="left">nodemanager</td>
+<td align="left">Radim Kolar</td>
+<td align="left">Radim Kolar</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8843">HADOOP-8843</a></td>
+<td align="left">Old trash directories are never deleted on upgrade from 1.x</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Robert Joseph Evans</td>
+<td align="left">Jason Lowe</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8822">HADOOP-8822</a></td>
+<td align="left">relnotes.py was deleted post mavenization</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Robert Joseph Evans</td>
+<td align="left">Robert Joseph Evans</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8684">HADOOP-8684</a></td>
+<td align="left">Deadlock between WritableComparator and WritableComparable</td>
+<td align="left">Minor</td>
+<td align="left">io</td>
+<td align="left">Hiroshi Ikeda</td>
+<td align="left">Jing Zhao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8310">HADOOP-8310</a></td>
+<td align="left">FileContext#checkPath should handle URIs with no port</td>
+<td align="left">Major</td>
+<td align="left">fs</td>
+<td align="left">Aaron T. Myers</td>
+<td align="left">Aaron T. Myers</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-3922">HDFS-3922</a></td>
+<td align="left">0.22 and 0.23 namenode throws away blocks under construction on restart</td>
+<td align="left">Critical</td>
+<td align="left">namenode</td>
+<td align="left">Kihwal Lee</td>
+<td align="left">Kihwal Lee</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-3860">HDFS-3860</a></td>
+<td align="left">HeartbeatManager#Monitor may wrongly hold the writelock of namesystem</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jing Zhao</td>
+<td align="left">Jing Zhao</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-3831">HDFS-3831</a></td>
+<td align="left">Failure to renew tokens due to test-sources left in classpath</td>
+<td align="left">Critical</td>
+<td align="left">security</td>
+<td align="left">Jason Lowe</td>
+<td align="left">Jason Lowe</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-3731">HDFS-3731</a></td>
+<td align="left">2.0 release upgrade must handle blocks being written from 1.0</td>
+<td align="left">Blocker</td>
+<td align="left">datanode</td>
+<td align="left">Suresh Srinivas</td>
+<td align="left">Kihwal Lee</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-3626">HDFS-3626</a></td>
+<td align="left">Creating file with invalid path can corrupt edit log</td>
+<td align="left">Blocker</td>
+<td align="left">namenode</td>
+<td align="left">Todd Lipcon</td>
+<td align="left">Todd Lipcon</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-3553">HDFS-3553</a></td>
+<td align="left">Hftp proxy tokens are broken</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Daryn Sharp</td>
+<td align="left">Daryn Sharp</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-3373">HDFS-3373</a></td>
+<td align="left">FileContext HDFS implementation can leak socket caches</td>
+<td align="left">Major</td>
+<td align="left">hdfs-client</td>
+<td align="left">Todd Lipcon</td>
+<td align="left">John George</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4691">MAPREDUCE-4691</a></td>
+<td align="left">Historyserver can report &quot;Unknown job&quot; after RM says job has completed</td>
+<td align="left">Critical</td>
+<td align="left">jobhistoryserver, mrv2</td>
+<td align="left">Jason Lowe</td>
+<td align="left">Robert Joseph Evans</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4689">MAPREDUCE-4689</a></td>
+<td align="left">JobClient.getMapTaskReports on failed job results in NPE</td>
+<td align="left">Major</td>
+<td align="left">client</td>
+<td align="left">Jason Lowe</td>
+<td align="left">Jason Lowe</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4647">MAPREDUCE-4647</a></td>
+<td align="left">We should only unjar jobjar if there is a lib directory in it.</td>
+<td align="left">Major</td>
+<td align="left">mrv2</td>
+<td align="left">Robert Joseph Evans</td>
+<td align="left">Robert Joseph Evans</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4646">MAPREDUCE-4646</a></td>
+<td align="left">client does not receive job diagnostics for failed jobs</td>
+<td align="left">Major</td>
+<td align="left">mrv2</td>
+<td align="left">Jason Lowe</td>
+<td align="left">Jason Lowe</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4193">MAPREDUCE-4193</a></td>
+<td align="left">broken doc link for yarn-default.xml in site.xml</td>
+<td align="left">Major</td>
+<td align="left">documentation</td>
+<td align="left">Patrick Hunt</td>
+<td align="left">Patrick Hunt</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-138">YARN-138</a></td>
+<td align="left">Improve default config values for YARN</td>
+<td align="left">Major</td>
+<td align="left">resourcemanager, scheduler</td>
+<td align="left">Arun C Murthy</td>
+<td align="left">Harsh J</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-108">YARN-108</a></td>
+<td align="left">FSDownload can create cache directories with the wrong permissions</td>
+<td align="left">Critical</td>
+<td align="left">nodemanager</td>
+<td align="left">Jason Lowe</td>
+<td align="left">Jason Lowe</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-106">YARN-106</a></td>
+<td align="left">Nodemanager needs to set permissions of local directories</td>
+<td align="left">Major</td>
+<td align="left">nodemanager</td>
+<td align="left">Jason Lowe</td>
+<td align="left">Jason Lowe</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-93">YARN-93</a></td>
+<td align="left">Diagnostics missing from applications that have finished but failed</td>
+<td align="left">Major</td>
+<td align="left">resourcemanager</td>
+<td align="left">Jason Lowe</td>
+<td align="left">Jason Lowe</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-88">YARN-88</a></td>
+<td align="left">DefaultContainerExecutor can fail to set proper permissions</td>
+<td align="left">Major</td>
+<td align="left">nodemanager</td>
+<td align="left">Jason Lowe</td>
+<td align="left">Jason Lowe</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-75">YARN-75</a></td>
+<td align="left">RMContainer should handle a RELEASE event while RUNNING</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Siddharth Seth</td>
+<td align="left">Siddharth Seth</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-42">YARN-42</a></td>
+<td align="left">Node Manager throws NPE on startup</td>
+<td align="left">Major</td>
+<td align="left">nodemanager</td>
+<td align="left">Devaraj K</td>
+<td align="left">Devaraj K</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tests">TESTS:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="sub-tasks">SUB-TASKS:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="other">OTHER:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>

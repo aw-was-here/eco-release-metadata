@@ -1,0 +1,49 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hadoop-1-win-release-notes">Apache Hadoop 1-win Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-8902">HADOOP-8902</a> | <em>Major</em> | <strong>Enable Gridmix v1 &amp; v2 benchmarks on Windows platform</strong></li>
+</ul>
+<p>Enables gridmix v1 and v2 benchmarks on Windows platform.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-4337">HDFS-4337</a> | <em>Major</em> | <strong>Backport HDFS-4240 to branch-1: Make sure nodes are avoided to place replica if some replica are already under the same nodegroup.</strong></li>
+</ul>
+<p>Backport HDFS-4240 to branch-1</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-3649">HDFS-3649</a> | <em>Major</em> | <strong>Port HDFS-385 to branch-1-win</strong></li>
+</ul>
+<p>blockplacement policy is now ported to branch-1 and branch-1-win</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-385">HDFS-385</a> | <em>Major</em> | <strong>Design a pluggable interface to place replicas of blocks in HDFS</strong></li>
+</ul>
+<p>New experimental API BlockPlacementPolicy allows investigating alternate rules for locating block replicas.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4737">MAPREDUCE-4737</a> | <em>Major</em> | ** Hadoop does not close output file / does not call Mapper.cleanup if exception in map**</li>
+</ul>
+<p>Ensure that mapreduce APIs are semantically consistent with mapred API w.r.t Mapper.cleanup and Reducer.cleanup; in the sense that cleanup is now called even if there is an error. The old mapred API already ensures that Mapper.close and Reducer.close are invoked during error handling. Note that it is an incompatible change, however end-users can override Mapper.run and Reducer.run to get the old (inconsistent) behaviour.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4203">MAPREDUCE-4203</a> | <em>Major</em> | <strong>Create equivalent of ProcfsBasedProcessTree for Windows</strong></li>
+</ul>
+<p>Added an implementation of the process tree for Windows.</p>

@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.10.1.0 - Unreleased (as of 2016-09-07)
+## Release 0.10.1.0 - Unreleased (as of 2016-09-09)
 
 
 
@@ -78,6 +78,7 @@
 | [KAFKA-4070](https://issues.apache.org/jira/browse/KAFKA-4070) | Implement a useful Struct.toString() |  Minor | KafkaConnect | Shikhar Bhushan | Shikhar Bhushan |
 | [KAFKA-4062](https://issues.apache.org/jira/browse/KAFKA-4062) | Require --print-data-log if --offsets-decoder is enabled for DumpLogOffsets |  Minor | admin | Dustin Cote | Dustin Cote |
 | [KAFKA-4112](https://issues.apache.org/jira/browse/KAFKA-4112) | Remove alpha quality label from Kafka Streams in docs |  Trivial | streams | Damian Guy | Damian Guy |
+| [KAFKA-3595](https://issues.apache.org/jira/browse/KAFKA-3595) | Add capability to specify replication compact option for stream store |  Minor | streams | Henry Cai | Damian Guy |
 
 
 ### BUG FIXES:
@@ -157,6 +158,8 @@
 | [KAFKA-4023](https://issues.apache.org/jira/browse/KAFKA-4023) | Add thread id as prefix in Kafka Streams thread logging |  Major | streams | Guozhang Wang | Bill Bejeck |
 | [KAFKA-4129](https://issues.apache.org/jira/browse/KAFKA-4129) | Processor throw exception when getting channel remote address after closing the channel |  Major | core | TAO XIAO | TAO XIAO |
 | [KAFKA-4034](https://issues.apache.org/jira/browse/KAFKA-4034) | Consumer need not lookup coordinator when using manual assignment |  Major | consumer | Jason Gustafson | Jason Gustafson |
+| [KAFKA-4123](https://issues.apache.org/jira/browse/KAFKA-4123) | Queryable State returning null for key before all stores in instance have been initialized |  Major | streams | Damian Guy | Damian Guy |
+| [KAFKA-4033](https://issues.apache.org/jira/browse/KAFKA-4033) | KIP-70: Revise Partition Assignment Semantics on New Consumer's Subscription Change |  Major | . | Vahid Hashemian | Vahid Hashemian |
 
 
 ### TESTS:

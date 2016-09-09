@@ -1,0 +1,145 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-flink-changelog">Apache Flink Changelog</h1>
+<h2 id="release-0.9.2---unreleased-as-of-2016-07-14">Release 0.9.2 - Unreleased (as of 2016-07-14)</h2>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-2834">FLINK-2834</a></td>
+<td align="left">Global round-robin for temporary directories</td>
+<td align="left">Minor</td>
+<td align="left">Distributed Coordination</td>
+<td align="left">Greg Hogan</td>
+<td align="left">Greg Hogan</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-2235">FLINK-2235</a></td>
+<td align="left">Local Flink cluster allocates too much memory</td>
+<td align="left">Minor</td>
+<td align="left">Local Runtime, TaskManager</td>
+<td align="left">Maximilian Michels</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-2639">FLINK-2639</a></td>
+<td align="left">Building Flink for specific HDP versions fails</td>
+<td align="left">Major</td>
+<td align="left">Build System</td>
+<td align="left">Robert Metzger</td>
+<td align="left">Robert Metzger</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-2656">FLINK-2656</a></td>
+<td align="left">FlinkKafkaConsumer is failing with OutOfRangeException</td>
+<td align="left">Critical</td>
+<td align="left">Kafka Connector</td>
+<td align="left">Robert Metzger</td>
+<td align="left">Robert Metzger</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-2722">FLINK-2722</a></td>
+<td align="left">Use InetAddress.getLocalHost() first when detecting TaskManager IP address</td>
+<td align="left">Major</td>
+<td align="left">Distributed Coordination, TaskManager</td>
+<td align="left">Robert Metzger</td>
+<td align="left">Robert Metzger</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-1610">FLINK-1610</a></td>
+<td align="left">Java docs do not build</td>
+<td align="left">Major</td>
+<td align="left">Build System, Documentation</td>
+<td align="left">Maximilian Michels</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-2607">FLINK-2607</a></td>
+<td align="left">Shade plugin copies signature files from original jar into fat jar</td>
+<td align="left">Major</td>
+<td align="left">Quickstarts</td>
+<td align="left">Maximilian Michels</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-2885">FLINK-2885</a></td>
+<td align="left">Path to Python resources is not constructed correctly</td>
+<td align="left">Blocker</td>
+<td align="left">Python API</td>
+<td align="left">Maximilian Michels</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-2800">FLINK-2800</a></td>
+<td align="left">kryo serialization problem</td>
+<td align="left">Major</td>
+<td align="left">Type Serialization System</td>
+<td align="left">Stefano Bortoli</td>
+<td align="left">Till Rohrmann</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-2953">FLINK-2953</a></td>
+<td align="left">Chained sortPartition() calls produce incorrect results in Scala DataSet API</td>
+<td align="left">Blocker</td>
+<td align="left">DataSet API, Scala API</td>
+<td align="left">Fabian Hueske</td>
+<td align="left">Fabian Hueske</td>
+</tr>
+</tbody>
+</table>

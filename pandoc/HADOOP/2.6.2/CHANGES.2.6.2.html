@@ -1,0 +1,283 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hadoop-changelog">Apache Hadoop Changelog</h1>
+<h2 id="release-2.6.2---2015-10-28">Release 2.6.2 - 2015-10-28</h2>
+<h3 id="incompatible-changes">INCOMPATIBLE CHANGES:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="important-issues">IMPORTANT ISSUES:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="new-features">NEW FEATURES:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-3727">YARN-3727</a></td>
+<td align="left">For better error recovery, check if the directory exists before using it for localization.</td>
+<td align="left">Major</td>
+<td align="left">nodemanager</td>
+<td align="left">zhihai xu</td>
+<td align="left">zhihai xu</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-6497">MAPREDUCE-6497</a></td>
+<td align="left">Fix wrong value of JOB_FINISHED event in JobHistoryEventHandler</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Shinichi Yamashita</td>
+<td align="left">Shinichi Yamashita</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-6454">MAPREDUCE-6454</a></td>
+<td align="left">MapReduce doesn't set the HADOOP_CLASSPATH for jar lib in distributed cache.</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Junping Du</td>
+<td align="left">Junping Du</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-6334">MAPREDUCE-6334</a></td>
+<td align="left">Fetcher#copyMapOutput is leaking usedMemory upon IOException during InMemoryMapOutput shuffle handler</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Eric Payne</td>
+<td align="left">Eric Payne</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4087">YARN-4087</a></td>
+<td align="left">Followup fixes after YARN-2019 regarding RM behavior when state-store error occurs</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jian He</td>
+<td align="left">Jian He</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4005">YARN-4005</a></td>
+<td align="left">Completed container whose app is finished is not removed from NMStateStore</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jun Gong</td>
+<td align="left">Jun Gong</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-3896">YARN-3896</a></td>
+<td align="left">RMNode transitioned from RUNNING to REBOOTED because its response id had not been reset synchronously</td>
+<td align="left">Major</td>
+<td align="left">resourcemanager</td>
+<td align="left">Jun Gong</td>
+<td align="left">Jun Gong</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-3802">YARN-3802</a></td>
+<td align="left">Two RMNodes for the same NodeId are used in RM sometimes after NM is reconnected.</td>
+<td align="left">Major</td>
+<td align="left">resourcemanager</td>
+<td align="left">zhihai xu</td>
+<td align="left">zhihai xu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-3798">YARN-3798</a></td>
+<td align="left">ZKRMStateStore shouldn't create new session without occurrance of SESSIONEXPIED</td>
+<td align="left">Blocker</td>
+<td align="left">resourcemanager</td>
+<td align="left">Bibin A Chundatt</td>
+<td align="left">Varun Saxena</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-3780">YARN-3780</a></td>
+<td align="left">Should use equals when compare Resource in RMNodeImpl#ReconnectNodeTransition</td>
+<td align="left">Minor</td>
+<td align="left">resourcemanager</td>
+<td align="left">zhihai xu</td>
+<td align="left">zhihai xu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-3554">YARN-3554</a></td>
+<td align="left">Default value for maximum nodemanager connect wait time is too high</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jason Lowe</td>
+<td align="left">Naganarasimha G R</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-3194">YARN-3194</a></td>
+<td align="left">RM should handle NMContainerStatuses sent by NM while registering if NM is Reconnected node</td>
+<td align="left">Blocker</td>
+<td align="left">resourcemanager</td>
+<td align="left">Rohith Sharma K S</td>
+<td align="left">Rohith Sharma K S</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-2019">YARN-2019</a></td>
+<td align="left">Retrospect on decision of making RM crashed if any exception throw in ZKRMStateStore</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Junping Du</td>
+<td align="left">Jian He</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tests">TESTS:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="sub-tasks">SUB-TASKS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4101">YARN-4101</a></td>
+<td align="left">RM should print alert messages if Zookeeper and Resourcemanager gets connection issue</td>
+<td align="left">Critical</td>
+<td align="left">yarn</td>
+<td align="left">Yesha Vora</td>
+<td align="left">Xuan Gong</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/YARN-4092">YARN-4092</a></td>
+<td align="left">RM HA UI redirection needs to be fixed when both RMs are in standby mode</td>
+<td align="left">Major</td>
+<td align="left">resourcemanager</td>
+<td align="left">Xuan Gong</td>
+<td align="left">Xuan Gong</td>
+</tr>
+</tbody>
+</table>
+<h3 id="other">OTHER:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>

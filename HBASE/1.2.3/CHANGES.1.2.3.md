@@ -18,7 +18,7 @@
 -->
 # Apache HBase Changelog
 
-## Release 1.2.3 - Unreleased (as of 2016-09-07)
+## Release 1.2.3 - Unreleased (as of 2016-09-08)
 
 ### INCOMPATIBLE CHANGES:
 

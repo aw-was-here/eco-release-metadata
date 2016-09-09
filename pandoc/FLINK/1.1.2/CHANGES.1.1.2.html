@@ -1,0 +1,193 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-flink-changelog">Apache Flink Changelog</h1>
+<h2 id="release-1.1.2---2016-09-05">Release 1.1.2 - 2016-09-05</h2>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4302">FLINK-4302</a></td>
+<td align="left">Add JavaDocs to MetricConfig</td>
+<td align="left">Major</td>
+<td align="left">Metrics</td>
+<td align="left">Ufuk Celebi</td>
+<td align="left">Chesnay Schepler</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3866">FLINK-3866</a></td>
+<td align="left">StringArraySerializer claims type is immutable; shouldn't</td>
+<td align="left">Minor</td>
+<td align="left">Core</td>
+<td align="left">Tatu Saloranta</td>
+<td align="left">Ivan Mushketyk</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3899">FLINK-3899</a></td>
+<td align="left">Document window processing with Reduce/FoldFunction + WindowFunction</td>
+<td align="left">Major</td>
+<td align="left">Documentation, Streaming</td>
+<td align="left">Fabian Hueske</td>
+<td align="left">Daniel Blazevski</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4334">FLINK-4334</a></td>
+<td align="left">Shaded Hadoop1 jar not fully excluded in Quickstart</td>
+<td align="left">Major</td>
+<td align="left">Quickstarts</td>
+<td align="left">Shannon Carey</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4236">FLINK-4236</a></td>
+<td align="left">Flink Dashboard stops showing list of uploaded jars if main method cannot be looked up</td>
+<td align="left">Major</td>
+<td align="left">Job-Submission</td>
+<td align="left">Gary Yao</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4309">FLINK-4309</a></td>
+<td align="left">Potential null pointer dereference in DelegatingConfiguration#keySet()</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Ted Yu</td>
+<td align="left">Sunny T</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4411">FLINK-4411</a></td>
+<td align="left">[py] Chained dual input children are not properly propagated</td>
+<td align="left">Minor</td>
+<td align="left">Python API</td>
+<td align="left">Chesnay Schepler</td>
+<td align="left">Chesnay Schepler</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4412">FLINK-4412</a></td>
+<td align="left">[py] Chaining does not properly handle broadcast variables</td>
+<td align="left">Major</td>
+<td align="left">Python API</td>
+<td align="left">Chesnay Schepler</td>
+<td align="left">Chesnay Schepler</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4409">FLINK-4409</a></td>
+<td align="left">class conflict between jsr305-1.3.9.jar and flink-shaded-hadoop2-1.1.1.jar</td>
+<td align="left">Minor</td>
+<td align="left">Build System</td>
+<td align="left">Renkai Ge</td>
+<td align="left">Stephan Ewen</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4425">FLINK-4425</a></td>
+<td align="left">&quot;Out Of Memory&quot; during savepoint deserialization</td>
+<td align="left">Major</td>
+<td align="left">State Backends, Checkpointing</td>
+<td align="left">Sergii Koshel</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4454">FLINK-4454</a></td>
+<td align="left">Lookups for JobManager address in config</td>
+<td align="left">Minor</td>
+<td align="left">Client</td>
+<td align="left">Maximilian Michels</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4480">FLINK-4480</a></td>
+<td align="left">Incorrect link to elastic.co in documentation</td>
+<td align="left">Trivial</td>
+<td align="left">Documentation</td>
+<td align="left">Fabian Hueske</td>
+<td align="left">Suneel Marthi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4341">FLINK-4341</a></td>
+<td align="left">Kinesis connector does not emit maximum watermark properly</td>
+<td align="left">Blocker</td>
+<td align="left">Streaming Connectors</td>
+<td align="left">Scott Kidder</td>
+<td align="left">Tzu-Li (Gordon) Tai</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4488">FLINK-4488</a></td>
+<td align="left">Prevent cluster shutdown after job execution for non-detached jobs</td>
+<td align="left">Minor</td>
+<td align="left">YARN Client</td>
+<td align="left">Maximilian Michels</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4486">FLINK-4486</a></td>
+<td align="left">JobManager not fully running when yarn-session.sh finishes</td>
+<td align="left">Major</td>
+<td align="left">YARN Client</td>
+<td align="left">Niels Basjes</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4526">FLINK-4526</a></td>
+<td align="left">ApplicationClient: remove redundant proxy messages</td>
+<td align="left">Major</td>
+<td align="left">YARN Client</td>
+<td align="left">Maximilian Michels</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+</tbody>
+</table>

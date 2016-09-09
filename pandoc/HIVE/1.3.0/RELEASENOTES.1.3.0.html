@@ -1,0 +1,210 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hive-1.3.0-release-notes">Apache Hive 1.3.0 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-10509">HIVE-10509</a> | <em>Major</em> | <strong>Bump trunk version to 1.3 as branch-1.2 has been created.</strong></li>
+</ul>
+<p>Hive master/trunk version bumped up to 1.3</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-9365">HIVE-9365</a> | <em>Minor</em> | <strong>The Metastore should take port configuration from hive-site.xml</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-10707">HIVE-10707</a> | <em>Trivial</em> | <strong>CBO: debug logging OOMs</strong></li>
+</ul>
+<p>CBO: dump AST only when in DEBUG mode.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-6026">HIVE-6026</a> | <em>Minor</em> | <strong>Ldap Authenticator should be more generic with BindDN</strong></li>
+</ul>
+<p>Hive LDAP Authenticator now has filter support for LDAP users and groups.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-11073">HIVE-11073</a> | <em>Minor</em> | <strong>ORC FileDump utility ignores errors when writing output</strong></li>
+</ul>
+<p>orcfiledump exits if errors are detected when writing to stdout.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-11051">HIVE-11051</a> | <em>Critical</em> | <strong>Hive 1.2.0 MapJoin w/Tez - LazyBinaryArray cannot be cast to [Ljava.lang.Object;</strong></li>
+</ul>
+<p>HIVE-11051: Hive 1.2.0 MapJoin w/Tez - LazyBinaryArray cannot be cast to [Ljava.lang.Object; (Matt McCline via Gopal V)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-10191">HIVE-10191</a> | <em>Major</em> | <strong>ORC: Cleanup writer per-row synchronization</strong></li>
+</ul>
+<p>Remove per-row synchronization from ORC WriterImpl</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-11054">HIVE-11054</a> | <em>Major</em> | <strong>Read error : Partition Varchar column cannot be cast to string</strong></li>
+</ul>
+<p>HIVE-11054: Handle varchar/char partition columns in vectorization</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-11215">HIVE-11215</a> | <em>Minor</em> | <strong>Vectorized grace hash-join throws FileUtil warnings</strong></li>
+</ul>
+<p>HIVE-11215: Delete spills only if they exist (Gopal V, reviewed by Matt Mccline)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-10673">HIVE-10673</a> | <em>Major</em> | <strong>Dynamically partitioned hash join for Tez</strong></li>
+</ul>
+<p>This adds configuration parameter hive.optimize.dynamic.partition.hashjoin, which enables selection of the dynamically partitioned hash join with the Tez execution engine</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-11476">HIVE-11476</a> | <em>Minor</em> | <strong>TypeInfoParser cannot handle column names with spaces in them</strong></li>
+</ul>
+<p>HIVE-11476: TypeInfoParser cannot handle column names with spaces in them (Gopal V, reviewed by Hari Sankar Sivarama Subramaniyan)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-11457">HIVE-11457</a> | <em>Major</em> | <strong>Vectorization: Improve SIMD JIT in GenVectorCode StringExpr instrinsics</strong></li>
+</ul>
+<p>Vectorization: Improve GenVectorCode string equals intrinsic</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-11462">HIVE-11462</a> | <em>Major</em> | <strong>GenericUDFStruct should constant fold at compile time</strong></li>
+</ul>
+<p>Constant fold struct() UDF</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-11594">HIVE-11594</a> | <em>Major</em> | <strong>Analyze Table For Columns cannot handle columns with embedded spaces</strong></li>
+</ul>
+<p>Analyze Table for column names with embedded spaces</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-11472">HIVE-11472</a> | <em>Minor</em> | <strong>ORC StringDirectTreeReader is thrashing the GC due to byte[] allocation per row</strong></li>
+</ul>
+<p>HIVE-11472: ORC StringDirectTreeReader is thrashing the GC due to byte[] allocation per row (Gopal V, reviewed by Ashutosh Chauhan)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-11366">HIVE-11366</a> | <em>Major</em> | <strong>Avoid right leaning tree hashCode depth during ExprNodeDescEqualityWrapper HashMaps</strong></li>
+</ul>
+<p>HIVE-11366: Avoid right leaning tree hashCode depth in ExprNodeDescEqualityWrapper hashmaps (Gopal V, reviewed by Ashutosh Chauhan)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-11638">HIVE-11638</a> | <em>Major</em> | <strong>ExprNodeDesc hashMap accidentally degrades into O(N) instead of O(1)</strong></li>
+</ul>
+<p>Use fastest hashmap implementation of ExprNodeDesc lookups</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-11618">HIVE-11618</a> | <em>Major</em> | <strong>Correct the SARG api to reunify the PredicateLeaf.Type INTEGER and LONG</strong></li>
+</ul>
+<p>Thanks [~owen.omalley]. I committed this to master.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-11544">HIVE-11544</a> | <em>Minor</em> | <strong>LazyInteger should avoid throwing NumberFormatException</strong></li>
+</ul>
+<p>Improve LazySimpleSerDe null data handling for Byte, Short, Integer, Float, Long and Double.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-11821">HIVE-11821</a> | <em>Major</em> | <strong>JDK8 strict build broken for master</strong></li>
+</ul>
+<p>JDK8 strict build broken for master</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-11468">HIVE-11468</a> | <em>Critical</em> | <strong>Vectorize: Struct IN() clauses</strong></li>
+</ul>
+<p>HIVE-11468: Vectorize Struct IN() clauses (Matt McCline, via Gopal V)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-11831">HIVE-11831</a> | <em>Major</em> | <strong>TXN tables in Oracle should be created with ROWDEPENDENCIES</strong></li>
+</ul>
+<p>ROWDEPENDENCIES cannot be added to the table after it has already been created. If you hit this issue on an existing database, you might want to (this requires stopping all Hive workloads for the duration), for each table (see the patch for what tables need to be updated; locks and txns table are the ones most affected):</p>
+<p>1) create temp table 2) move contents of existing table to temp table 3) drop existing table 4) create new table with ROWDEPENDENCIES, as per the attached patch 5) move data back from temp table</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-12090">HIVE-12090</a> | <em>Major</em> | <strong>Dead-code: Vectorized map-join murmur hash is run twice</strong></li>
+</ul>
+<p>Dead-code: Vectorized map-join runs Murmurhash twice</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-11882">HIVE-11882</a> | <em>Major</em> | <strong>Fetch optimizer should stop source files traversal once it exceeds the hive.fetch.task.conversion.threshold</strong></li>
+</ul>
+<p>HIVE-11882: Fetch optimizer should stop source files traversal once it exceeds the hive.fetch.task.conversion.threshold (Illya Yalovyy, via Gopal V)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-11578">HIVE-11578</a> | <em>Major</em> | <strong>ATS hook fails for ExplainWork</strong></li>
+</ul>
+<p>HIVE-11578: Fix NPE in ExplainWork (Rajesh Balamohan, via Gopal V)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-12202">HIVE-12202</a> | <em>Major</em> | <strong>NPE thrown when reading legacy ACID delta files</strong></li>
+</ul>
+<p>Reading legacy ACID formats (prior to 1.3.0) no longer results in an NPE.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-12315">HIVE-12315</a> | <em>Critical</em> | <strong>vectorization_short_regress.q has a wrong result issue for a double calculation</strong></li>
+</ul>
+<p>HIVE-12315: Fix Vectorized double divide by zero (Gopal V, reviewed by Matt McCline)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-12363">HIVE-12363</a> | <em>Major</em> | <strong>Incorrect results with orc ppd across ORC versions</strong></li>
+</ul>
+<p>&quot;HIVE-12363: Incorrect results with orc ppd across ORC versions (Gopal V, reviewed by Prasanth Jayachandran)&quot;</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-11825">HIVE-11825</a> | <em>Critical</em> | <strong>get_json_object(col,'$.a') is null in where clause didn`t work</strong></li>
+</ul>
+<p>Enabled to accept quoting of all character backslash qooting mechanism</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-12399">HIVE-12399</a> | <em>Critical</em> | <strong>Native Vector MapJoin can encounter &quot;Null key not expected in MapJoin&quot; and &quot;Unexpected NULL in map join small table&quot; exceptions</strong></li>
+</ul>
+<p>HIVE-12399: Filter out NULLs in the Native Vector MapJoin operators.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-12463">HIVE-12463</a> | <em>Major</em> | <strong>VectorMapJoinFastKeyStore has Array OOB errors</strong></li>
+</ul>
+<p>HIVE-12463: VectorMapJoinFastKeyStore has Array OOB errors</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-8396">HIVE-8396</a> | <em>Major</em> | <strong>Hive CliDriver command splitting can be broken when comments are present</strong></li>
+</ul>
+<p>Hive interactive shell now strips full line comments from the input, matching the behaviour of hive -f, beeline (interactive), and beeline -f.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-12875">HIVE-12875</a> | <em>Major</em> | <strong>Verify sem.getInputs() and sem.getOutputs()</strong></li>
+</ul>
+<p>No release notes needed here.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-13021">HIVE-13021</a> | <em>Critical</em> | <strong>GenericUDAFEvaluator.isEstimable(agg) always returns false</strong></li>
+</ul>
+<p>GenericUDAFEvaluator.isEstimable(agg) always returns false (Gopal V, reviewed by Prasanth Jayachandran)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-13108">HIVE-13108</a> | <em>Major</em> | <strong>Operators: SORT BY randomness is not safe with network partitions</strong></li>
+</ul>
+<p>Operators: SORT BY randomness is not safe with network partitions (Gopal V, reviewed by Sergey Shelukhin)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-13840">HIVE-13840</a> | <em>Critical</em> | <strong>Orc split generation is reading file footers twice</strong></li>
+</ul>
+<p>Fix for ORC split generation reading file footers twice. Also reduces number of file system calls during ORC split generation.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-14349">HIVE-14349</a> | <em>Major</em> | <strong>Vectorization: LIKE should anchor the regexes</strong></li>
+</ul>
+<p>Vectorization: LIKE should anchor the regexes</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-14436">HIVE-14436</a> | <em>Major</em> | <strong>Hive 1.2.1/Hitting &quot;ql.Driver: FAILED: IllegalArgumentException Error: , expected at the end of 'decimal(9'&quot; after enabling hive.optimize.skewjoin and with MR engine</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this change.</strong></p>

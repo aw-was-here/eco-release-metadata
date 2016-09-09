@@ -18,7 +18,7 @@
 -->
 # Apache Hadoop Changelog
 
-## Release 2.7.4 - Unreleased (as of 2016-09-07)
+## Release 2.7.4 - Unreleased (as of 2016-09-09)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -90,6 +90,8 @@
 | [MAPREDUCE-6768](https://issues.apache.org/jira/browse/MAPREDUCE-6768) | TestRecovery.testSpeculative failed with NPE |  Major | mrv2 | Haibo Chen | Haibo Chen |
 | [MAPREDUCE-4784](https://issues.apache.org/jira/browse/MAPREDUCE-4784) | TestRecovery occasionally fails |  Major | mrv2, test | Jason Lowe | Haibo Chen |
 | [HDFS-10809](https://issues.apache.org/jira/browse/HDFS-10809) | getNumEncryptionZones causes NPE in branch-2.7 |  Major | encryption, namenode | Zhe Zhang | Vinitha Reddy Gankidi |
+| [HDFS-9038](https://issues.apache.org/jira/browse/HDFS-9038) | DFS reserved space is erroneously counted towards non-DFS used. |  Major | datanode | Chris Nauroth | Brahma Reddy Battula |
+| [HADOOP-13579](https://issues.apache.org/jira/browse/HADOOP-13579) | Fix source-level compatibility after HADOOP-11252 |  Blocker | . | Akira Ajisaka | Tsuyoshi Ozawa |
 
 
 ### TESTS:

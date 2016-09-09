@@ -1,0 +1,49 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hbase-0.98.13-release-notes">Apache HBase 0.98.13 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-11658">HBASE-11658</a> | <em>Major</em> | <strong>Piped commands to hbase shell should return non-zero if shell command failed.</strong></li>
+</ul>
+<p>Adds a noninteractive mode (-n or --noninteractive) to the hbase shell that exits with a non-zero error code on failed or invalid shell command executions, and exits with a zero error code upon successful execution.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-13494">HBASE-13494</a> | <em>Major</em> | <strong>0.98: Remove remove(K, V) from type PoolMap&lt;K,V&gt;</strong></li>
+</ul>
+<p>This removes PoolMap.remove(K key, V value). Callers using this method must use PoolMap.removeValue(K key, V value) instead.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-13564">HBASE-13564</a> | <em>Major</em> | <strong>Master MBeans are not published</strong></li>
+</ul>
+<p>To use the coprocessor-based JMX implementation provided by HBase for Master. Add below property in hbase-site.xml file:</p>
+<p>&lt;property&gt; &lt;name&gt;hbase.coprocessor.master.classes&lt;/name&gt; &lt;value&gt;org.apache.hadoop.hbase.JMXListener&lt;/value&gt; &lt;/property&gt;</p>
+<p>NOTE: DO NOT set <code>com.sun.management.jmxremote.port</code> for Java VM at the same time.</p>
+<p>By default, the JMX listens on TCP port 10101 for Master, we can further configure the port using below properties:</p>
+<p>&lt;property&gt; &lt;name&gt;master.rmi.registry.port&lt;/name&gt; &lt;value&gt;61110&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;master.rmi.connector.port&lt;/name&gt; &lt;value&gt;61120&lt;/value&gt; &lt;/property&gt; ----</p>
+<p>The registry port can be shared with connector port in most cases, so you only need to configure master.rmi.registry.port. However if you want to use SSL communication, the 2 ports must be configured to different values.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-13625">HBASE-13625</a> | <em>Major</em> | <strong>Use HDFS for HFileOutputFormat2 partitioner's path</strong></li>
+</ul>
+<p>Introduces a new config hbase.fs.tmp.dir which is a directory in HDFS (or default file system) to use as a staging directory for HFileOutputFormat2. This is also used as the default for hbase.bulkload.staging.dir</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-13632">HBASE-13632</a> | <em>Trivial</em> | <strong>Backport HBASE-13368 to branch-1 and 0.98</strong></li>
+</ul>
+<p>Several utility classes related to making message digests were mistakenly marked InterfaceAudience.Public. This change corrects them to be InterfaceAudience.Private. Though this change itself will not break downstream users future changes may happen to these classes in patch releases. As such, downstream users are strongly encouraged to migrate away from uses the following classes in the org.apache.hadoop.hbase.util package: Hash, JenkinsHash, MurmurHash, and MurmurHash3.</p>

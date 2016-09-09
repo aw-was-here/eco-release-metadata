@@ -1,0 +1,54 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hbase-0.90.3-release-notes">Apache HBase 0.90.3 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-3717">HBASE-3717</a> | <em>Trivial</em> | <strong>deprecate HTable isTableEnabled() methods in favor of HBaseAdmin methods</strong></li>
+</ul>
+<p>Deprecated HTable#isTableEnabled</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-3071">HBASE-3071</a> | <em>Major</em> | <strong>Graceful decommissioning of a regionserver</strong></li>
+</ul>
+<p>Adds bin/graceful_stop.sh. See the reference guide decommission section for documentation: http://hbase.apache.org/book.html#decommission</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-3773">HBASE-3773</a> | <em>Blocker</em> | <strong>Set ZK max connections much higher in 0.90</strong></li>
+</ul>
+<p>The max connections per IP for ZK is now set at 2000, but only for 0.90</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-3783">HBASE-3783</a> | <em>Blocker</em> | <strong>hbase-0.90.2.jar exists in hbase root and in 'lib/'</strong></li>
+</ul>
+<p>The HBase release tarball no longer contains hbase or hbase-tests jars in the lib/ directory. Users should be sure to reference those jars from in $HBASE_HOME directory directly.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-3767">HBASE-3767</a> | <em>Major</em> | <strong>Improve how HTable handles threads used for multi actions</strong></li>
+</ul>
+<p>hbase.htable.threads.max now defaults to Integer.MAX_VALUE. Setting this below the number of region servers can result into RejectedExecutionException.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-3795">HBASE-3795</a> | <em>Trivial</em> | <strong>Remove the &quot;Cache hit for row&quot; message</strong></li>
+</ul>
+<p>The client will stop printing messages like &quot;DEBUG client.HConnectionManager$HConnectionImplementation: Cache hit for row...&quot;</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-3817">HBASE-3817</a> | <em>Trivial</em> | <strong>HBase Shell has an issue accepting FILTER for the 'scan' command.</strong></li>
+</ul>
+<p>Fix the FILTER feature for the HBase Shell's 'scan' command.</p>

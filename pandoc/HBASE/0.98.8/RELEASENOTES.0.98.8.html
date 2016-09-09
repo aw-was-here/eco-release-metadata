@@ -1,0 +1,59 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hbase-0.98.8-release-notes">Apache HBase 0.98.8 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-11997">HBASE-11997</a> | <em>Minor</em> | <strong>CopyTable with bulkload</strong></li>
+</ul>
+<p>CopyTable now can generate HFiles and bulkload to the destination table.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-12197">HBASE-12197</a> | <em>Major</em> | <strong>Move REST</strong></li>
+</ul>
+<p>HBase Rest has moved to it's own module. If you previously were using the rest sever code in your project you will now need to depend upon hbase-rest module in addition to the hbase-server module.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-12314">HBASE-12314</a> | <em>Major</em> | <strong>Add chaos monkey policy to execute two actions concurrently</strong></li>
+</ul>
+<p>Adds a new chaos monkey noKill that won't kill services. Instead it runs two or more ddl commands at the same time.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-12381">HBASE-12381</a> | <em>Minor</em> | <strong>Add maven enforcer rules for build assumptions</strong></li>
+</ul>
+<p>Enforces maven &gt;= 3.0.3 (based on the oldest version we have building on jenkins) and java &gt;= the source compilation target variable, which is 1.7 on master and branch-1 (based on java compat doc) and 1.6 before this.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-12142">HBASE-12142</a> | <em>Minor</em> | <strong>Truncate command does not preserve ACLs table</strong></li>
+</ul>
+<p>Prior to this change, the truncate shell command could not preserve ACLs on the table being truncated. In the 0.98 branch, this change also backports HBASE-8332, which adds a master handler for table truncation and new HBaseAdmin APIs for same.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-12389">HBASE-12389</a> | <em>Minor</em> | <strong>Reduce the number of versions configured for the ACL table</strong></li>
+</ul>
+<p>This change reduces the number of versions kept in the ACL table from 10 to 1. This is a fully compatible change. Existing ACL tables will not be affected, only newly initialized ones. Furthermore, old versions of ACL table entries were never considered by the AccessController in decision making, and any and all entries in the ACL table are not user accessible.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-12432">HBASE-12432</a> | <em>Minor</em> | <strong>RpcRetryingCaller should log after fixed number of retries like AsyncProcess</strong></li>
+</ul>
+<p>hbase.client.start.log.errors.counter now also applies to Scanners.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-12536">HBASE-12536</a> | <em>Major</em> | <strong>Reduce the effective scope of GLOBAL CREATE and ADMIN permission</strong></li>
+</ul>
+<p>This change removes implicit write access to the META and ACL tables for any user with GLOBAL CREATE or ADMIN privilege. Users with GLOBAL CREATE will not be able to elevate their privileges unexpectedly through direct access to the ACL table. A GLOBAL ADMIN will still correctly be allowed to grant themselves any desired privilege.</p>

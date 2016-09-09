@@ -1,0 +1,64 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hbase-0.96.3-release-notes">Apache HBase 0.96.3 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-10118">HBASE-10118</a> | <em>Minor</em> | <strong>Major compact keeps deletes with future timestamps</strong></li>
+</ul>
+<p>hbase.hstore.time.to.purge.deletes has been changed; if it is not set, or set to 0, all delete markers including those with future timestamp are purged during the later major compaction. Otherwise, a delete marker is kept until the major compaction after marker's timestamp + this setting.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-10964">HBASE-10964</a> | <em>Major</em> | <strong>Delete mutation is not consistent with Put wrt timestamp</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-10966">HBASE-10966</a> | <em>Trivial</em> | <strong>RowCounter misinterprets column names that have colons in their qualifier</strong></li>
+</ul>
+<p>Applied to all branches (0.94 doesn't have TestRowCounter so didn't get test change). Thanks for the patch Alexandre.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-11008">HBASE-11008</a> | <em>Major</em> | <strong>Align bulk load, flush, and compact to require Action.CREATE</strong></li>
+</ul>
+<p>preBulkLoadHFile now requires CREATE, which it effectively already needed since getTableDescriptor also requires it which is what LoadIncrementalHFiles is doing before bulk loading. compact and flush can now be issued by users with CREATE permission.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-10958">HBASE-10958</a> | <em>Blocker</em> | <strong>[dataloss] Bulk loading with seqids can prevent some log entries from being replayed</strong></li>
+</ul>
+<p>Bulk loading with sequence IDs, an option in late 0.94 releases and the default since 0.96.0, will now trigger a flush per region that loads an HFile (if there's data that needs to flushed).</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-11480">HBASE-11480</a> | <em>Trivial</em> | <strong>ClientScanner might not close the HConnection created in construction</strong></li>
+</ul>
+<p>Deprecate a (unused) ClientScanner constructor because can leave a connection open.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-2217">HBASE-2217</a> | <em>Major</em> | <strong>VM OPTS for shell only</strong></li>
+</ul>
+<p>Set HBASE_SHELL_OPTS in the environment or in hbase-env.sh to supply extra VM arguments when launching the HBase command shell.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-11558">HBASE-11558</a> | <em>Major</em> | <strong>Caching set on Scan object gets lost when using TableMapReduceUtil in 0.95+</strong></li>
+</ul>
+<p>TableMapReduceUtil now restores the option to set scanner caching by setting it on the Scan object that is passe in. The priority order for choosing the scanner caching is as follows:</p>
+<ol>
+<li>Caching set on the scan object.</li>
+<li>Caching specified via the config &quot;hbase.client.scanner.caching&quot;, which can either be set manually on the conf or via the helper method TableMapReduceUtil.setScannerCaching().</li>
+<li>The default value HConstants.DEFAULT_HBASE_CLIENT_SCANNER_CACHING, which is set to 100 currently.</li>
+</ol>

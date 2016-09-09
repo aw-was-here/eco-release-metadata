@@ -1,0 +1,676 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hadoop-changelog">Apache Hadoop Changelog</h1>
+<h2 id="release-0.12.0---2007-03-02">Release 0.12.0 - 2007-03-02</h2>
+<h3 id="incompatible-changes">INCOMPATIBLE CHANGES:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="new-features">NEW FEATURES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-1032">HADOOP-1032</a></td>
+<td align="left">Support for caching Job JARs</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Gautam Kowshik</td>
+<td align="left">Gautam Kowshik</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-492">HADOOP-492</a></td>
+<td align="left">Global counters</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">arkady borkovsky</td>
+<td align="left">David Bowen</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-491">HADOOP-491</a></td>
+<td align="left">streaming jobs should allow programs that don't do any IO for a long time</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">arkady borkovsky</td>
+<td align="left">Arun C Murthy</td>
+</tr>
+</tbody>
+</table>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-1043">HADOOP-1043</a></td>
+<td align="left">Optimize the shuffle phase (increase the parallelism)</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Devaraj Das</td>
+<td align="left">Devaraj Das</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-1042">HADOOP-1042</a></td>
+<td align="left">Improve the handling of failed map output fetches</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Devaraj Das</td>
+<td align="left">Devaraj Das</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-1041">HADOOP-1041</a></td>
+<td align="left">Counter names are ugly</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">David Bowen</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-1040">HADOOP-1040</a></td>
+<td align="left">Improvement of RandomWriter example to use custom InputFormat, OutputFormat, and Counters</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Owen O'Malley</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-1033">HADOOP-1033</a></td>
+<td align="left">Rewrite AmazonEC2 wiki page</td>
+<td align="left">Minor</td>
+<td align="left">scripts</td>
+<td align="left">Tom White</td>
+<td align="left">Tom White</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-1030">HADOOP-1030</a></td>
+<td align="left">in unit tests, set ipc timeout in one place</td>
+<td align="left">Minor</td>
+<td align="left">test</td>
+<td align="left">Doug Cutting</td>
+<td align="left">Doug Cutting</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-1025">HADOOP-1025</a></td>
+<td align="left">remove dead code in Server.java</td>
+<td align="left">Minor</td>
+<td align="left">ipc</td>
+<td align="left">Doug Cutting</td>
+<td align="left">Doug Cutting</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-1017">HADOOP-1017</a></td>
+<td align="left">Optimization: Reduce Overhead from ReflectionUtils.newInstance</td>
+<td align="left">Major</td>
+<td align="left">util</td>
+<td align="left">Ron Bodkin</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-1007">HADOOP-1007</a></td>
+<td align="left">Names used for map, reduce, and shuffle metrics should be unique</td>
+<td align="left">Trivial</td>
+<td align="left">metrics</td>
+<td align="left">Nigel Daley</td>
+<td align="left">Nigel Daley</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-997">HADOOP-997</a></td>
+<td align="left">Implement S3 retry mechanism for failed block transfers</td>
+<td align="left">Major</td>
+<td align="left">fs</td>
+<td align="left">Tom White</td>
+<td align="left">Tom White</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-985">HADOOP-985</a></td>
+<td align="left">Namenode should identify DataNodes as ip:port instead of hostname:port</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Raghu Angadi</td>
+<td align="left">Raghu Angadi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-982">HADOOP-982</a></td>
+<td align="left">A couple setter functions and toString method for BytesWritable.</td>
+<td align="left">Major</td>
+<td align="left">io</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Owen O'Malley</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-977">HADOOP-977</a></td>
+<td align="left">The output from the user's task should be tagged and sent to the resepective console streams.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Arun C Murthy</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-975">HADOOP-975</a></td>
+<td align="left">Separation of user tasks' stdout and stderr streams</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Arun C Murthy</td>
+<td align="left">Arun C Murthy</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-972">HADOOP-972</a></td>
+<td align="left">Improve the rack-aware replica placement performance</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Hairong Kuang</td>
+<td align="left">Hairong Kuang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-954">HADOOP-954</a></td>
+<td align="left">Metrics should offer complete set of static report methods or none at all</td>
+<td align="left">Minor</td>
+<td align="left">metrics</td>
+<td align="left">Nigel Daley</td>
+<td align="left">David Bowen</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-952">HADOOP-952</a></td>
+<td align="left">Create a public (shared) Hadoop EC2 AMI</td>
+<td align="left">Major</td>
+<td align="left">scripts</td>
+<td align="left">Tom White</td>
+<td align="left">Tom White</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-943">HADOOP-943</a></td>
+<td align="left">fsck to show the filename of the corrupted file</td>
+<td align="left">Trivial</td>
+<td align="left">.</td>
+<td align="left">Koji Noguchi</td>
+<td align="left">dhruba borthakur</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-941">HADOOP-941</a></td>
+<td align="left">Enhancements to Hadoop record I/O - Part 1</td>
+<td align="left">Major</td>
+<td align="left">record</td>
+<td align="left">Milind Bhandarkar</td>
+<td align="left">Milind Bhandarkar</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-940">HADOOP-940</a></td>
+<td align="left">pendingReplications of FSNamesystem is not informative</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Hairong Kuang</td>
+<td align="left">dhruba borthakur</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-928">HADOOP-928</a></td>
+<td align="left">make checksums optional per FileSystem</td>
+<td align="left">Major</td>
+<td align="left">fs</td>
+<td align="left">Doug Cutting</td>
+<td align="left">Hairong Kuang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-889">HADOOP-889</a></td>
+<td align="left">DFS unit tests have duplicate code</td>
+<td align="left">Minor</td>
+<td align="left">test</td>
+<td align="left">Doug Cutting</td>
+<td align="left">Milind Bhandarkar</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-882">HADOOP-882</a></td>
+<td align="left">S3FileSystem should retry if there is a communication problem with S3</td>
+<td align="left">Major</td>
+<td align="left">fs</td>
+<td align="left">Tom White</td>
+<td align="left">Tom White</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-867">HADOOP-867</a></td>
+<td align="left">job client should generate input fragments before the job is submitted</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Owen O'Malley</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-858">HADOOP-858</a></td>
+<td align="left">clean up smallJobsBenchmark and move to src/test/org/apache/hadoop/mapred</td>
+<td align="left">Minor</td>
+<td align="left">build</td>
+<td align="left">Nigel Daley</td>
+<td align="left">Nigel Daley</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-432">HADOOP-432</a></td>
+<td align="left">support undelete, snapshots, or other mechanism to recover lost files</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Yoram Arnon</td>
+<td align="left">Doug Cutting</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-333">HADOOP-333</a></td>
+<td align="left">we should have some checks that the sort benchmark generates correct outputs</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Arun C Murthy</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-248">HADOOP-248</a></td>
+<td align="left">locating map outputs via random probing is inefficient</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Devaraj Das</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-1056">HADOOP-1056</a></td>
+<td align="left">Decommission only recognizes IP addesses in hosts and exclude files on refresh.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Wendy Chien</td>
+<td align="left">Wendy Chien</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-1049">HADOOP-1049</a></td>
+<td align="left">race condition in setting up ipc connections</td>
+<td align="left">Major</td>
+<td align="left">ipc</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Devaraj Das</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-1046">HADOOP-1046</a></td>
+<td align="left">Datanode should periodically clean up /tmp from partially received (and not completed) block files</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Andrzej Bialecki</td>
+<td align="left">Andrzej Bialecki</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-1044">HADOOP-1044</a></td>
+<td align="left">TestDecommission fails because it attempts to transfer block to a dead datanode</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Wendy Chien</td>
+<td align="left">Wendy Chien</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-1039">HADOOP-1039</a></td>
+<td align="left">Reduce the time taken by TestCheckpoint</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">dhruba borthakur</td>
+<td align="left">dhruba borthakur</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-1037">HADOOP-1037</a></td>
+<td align="left">bin/slaves.sh not compatible with /bin/dash</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Doug Cutting</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-1036">HADOOP-1036</a></td>
+<td align="left">task gets lost during assignment</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Arun C Murthy</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-1034">HADOOP-1034</a></td>
+<td align="left">RuntimeException and Error not catched in DataNode.DataXceiver.run()</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Philippe Gassmann</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-1029">HADOOP-1029</a></td>
+<td align="left">streaming doesn't work with multiple maps</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Arun C Murthy</td>
+<td align="left">Arun C Murthy</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-1027">HADOOP-1027</a></td>
+<td align="left">Fix the RAM FileSystem/Merge problems (reported in HADOOP-1014)</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Devaraj Das</td>
+<td align="left">Devaraj Das</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-1021">HADOOP-1021</a></td>
+<td align="left">TestMiniMRLocalFS and TestMiniMRCaching broken on Windows</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Nigel Daley</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-1020">HADOOP-1020</a></td>
+<td align="left">Path class on Windows seems broken</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Nigel Daley</td>
+<td align="left">Doug Cutting</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-1010">HADOOP-1010</a></td>
+<td align="left">getReordReader methof of InputFormat class should handle null reporter argument</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Runping Qi</td>
+<td align="left">Runping Qi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-1006">HADOOP-1006</a></td>
+<td align="left">The &quot;-local&quot; option does work properly with test programs</td>
+<td align="left">Minor</td>
+<td align="left">test</td>
+<td align="left">Gautam Kowshik</td>
+<td align="left">Doug Cutting</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-1000">HADOOP-1000</a></td>
+<td align="left">Loggers in the Task framework should not write the the Tasks stderr</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Arun C Murthy</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-994">HADOOP-994</a></td>
+<td align="left">DFS Scalability : a BlockReport that returns large number of blocks-to-be-deleted cause datanode to lost connectivity to namenode</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">dhruba borthakur</td>
+<td align="left">dhruba borthakur</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-992">HADOOP-992</a></td>
+<td align="left">The mini/mr cluster for testing always uses the local file system rather than the namenode that was passed in</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Owen O'Malley</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-990">HADOOP-990</a></td>
+<td align="left">Datanode doesn't retry when write to one (full)drive fail</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Koji Noguchi</td>
+<td align="left">Raghu Angadi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-973">HADOOP-973</a></td>
+<td align="left">NPE in FSDataset during heavy Namenode load</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Nigel Daley</td>
+<td align="left">dhruba borthakur</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-947">HADOOP-947</a></td>
+<td align="left">isReplicationInProgress() is very heavyweight</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">dhruba borthakur</td>
+<td align="left">dhruba borthakur</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-933">HADOOP-933</a></td>
+<td align="left">Application defined InputSplits do not work</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Benjamin Reed</td>
+<td align="left">Owen O'Malley</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-923">HADOOP-923</a></td>
+<td align="left">DFS Scalability: datanode heartbeat timeouts cause cascading timeouts of other datanodes</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">dhruba borthakur</td>
+<td align="left">dhruba borthakur</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-893">HADOOP-893</a></td>
+<td align="left">dead datanode set should be maintained in the file handle or file system for hdfs</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Raghu Angadi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-878">HADOOP-878</a></td>
+<td align="left">reducer NONE does not work with multiple maps</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Mahadev konar</td>
+<td align="left">Arun C Murthy</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-803">HADOOP-803</a></td>
+<td align="left">Reducing memory consumption on Namenode : Part 1</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Raghu Angadi</td>
+<td align="left">Raghu Angadi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-761">HADOOP-761</a></td>
+<td align="left">Unit tests should cleanup created files in /tmp. It causes tests to fail if more than one users run tests on same machine.</td>
+<td align="left">Minor</td>
+<td align="left">test</td>
+<td align="left">Sanjay Dahiya</td>
+<td align="left">Nigel Daley</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-654">HADOOP-654</a></td>
+<td align="left">jobs fail with some hardware/system failures on a small number of nodes</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Yoram Arnon</td>
+<td align="left">Arun C Murthy</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-649">HADOOP-649</a></td>
+<td align="left">Jobs without any map and reduce operations seems to be lost after their execution</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Thomas Friol</td>
+<td align="left">Owen O'Malley</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-564">HADOOP-564</a></td>
+<td align="left">we should use hdfs:// in all API URIs</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">eric baldeschwieler</td>
+<td align="left">Wendy Chien</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-476">HADOOP-476</a></td>
+<td align="left">Streaming should check for correctness of the task</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">arkady borkovsky</td>
+<td align="left">Arun C Murthy</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-442">HADOOP-442</a></td>
+<td align="left">slaves file should include an 'exclude' section, to prevent &quot;bad&quot; datanodes and tasktrackers from disrupting a cluster</td>
+<td align="left">Major</td>
+<td align="left">conf</td>
+<td align="left">Yoram Arnon</td>
+<td align="left">Wendy Chien</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-338">HADOOP-338</a></td>
+<td align="left">the number of maps in the JobConf does not match reality</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Owen O'Malley</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-109">HADOOP-109</a></td>
+<td align="left">Blocks are not replicated when...</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Konstantin Shvachko</td>
+<td align="left">Konstantin Shvachko</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tests">TESTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-1051">HADOOP-1051</a></td>
+<td align="left">Add checkstyle target to ant build file</td>
+<td align="left">Major</td>
+<td align="left">build, test</td>
+<td align="left">Tom White</td>
+<td align="left">Tom White</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sub-tasks">SUB-TASKS:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="other">OTHER:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>

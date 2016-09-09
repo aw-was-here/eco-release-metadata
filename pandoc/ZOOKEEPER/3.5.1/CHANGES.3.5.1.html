@@ -1,0 +1,827 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-zookeeper-changelog">Apache Zookeeper Changelog</h1>
+<h2 id="release-3.5.1---2015-09-02">Release 3.5.1 - 2015-09-02</h2>
+<h3 id="incompatible-changes">INCOMPATIBLE CHANGES:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="important-issues">IMPORTANT ISSUES:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="new-features">NEW FEATURES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2163">ZOOKEEPER-2163</a></td>
+<td align="left">Introduce new ZNode type: container</td>
+<td align="left">Major</td>
+<td align="left">c client, java client, server</td>
+<td align="left">Jordan Zimmerman</td>
+<td align="left">Jordan Zimmerman</td>
+</tr>
+</tbody>
+</table>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2223">ZOOKEEPER-2223</a></td>
+<td align="left">support method-level JUnit testcase</td>
+<td align="left">Minor</td>
+<td align="left">tests</td>
+<td align="left">Akihiro Suda</td>
+<td align="left">Akihiro Suda</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2214">ZOOKEEPER-2214</a></td>
+<td align="left">Findbugs warning: LearnerHandler.packetToString Dead store to local variable</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Hongchao Deng</td>
+<td align="left">Hongchao Deng</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2208">ZOOKEEPER-2208</a></td>
+<td align="left">Log type of unexpected quorum packet in observer loop</td>
+<td align="left">Trivial</td>
+<td align="left">server</td>
+<td align="left">Akihiro Suda</td>
+<td align="left">Hitoshi Mitake</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2207">ZOOKEEPER-2207</a></td>
+<td align="left">Enhance error logs with LearnerHandler.packetToString()</td>
+<td align="left">Trivial</td>
+<td align="left">server</td>
+<td align="left">Hitoshi Mitake</td>
+<td align="left">Hitoshi Mitake</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2206">ZOOKEEPER-2206</a></td>
+<td align="left">Add missing packet types to LearnerHandler.packetToString()</td>
+<td align="left">Trivial</td>
+<td align="left">server</td>
+<td align="left">Hitoshi Mitake</td>
+<td align="left">Hitoshi Mitake</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2205">ZOOKEEPER-2205</a></td>
+<td align="left">Log type of unexpected quorum packet in learner handler loop</td>
+<td align="left">Trivial</td>
+<td align="left">server</td>
+<td align="left">Hitoshi Mitake</td>
+<td align="left">Hitoshi Mitake</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2194">ZOOKEEPER-2194</a></td>
+<td align="left">Let DataNode.getChildren() return an unmodifiable view of its children set</td>
+<td align="left">Trivial</td>
+<td align="left">server</td>
+<td align="left">Hitoshi Mitake</td>
+<td align="left">Hitoshi Mitake</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2185">ZOOKEEPER-2185</a></td>
+<td align="left">Run server with -XX:+HeapDumpOnOutOfMemoryError and -XX:OnOutOfMemoryError='kill %p'.</td>
+<td align="left">Minor</td>
+<td align="left">documentation, scripts</td>
+<td align="left">Chris Nauroth</td>
+<td align="left">Chris Nauroth</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2183">ZOOKEEPER-2183</a></td>
+<td align="left">Concurrent Testing Processes and Port Assignments</td>
+<td align="left">Major</td>
+<td align="left">tests</td>
+<td align="left">Chris Nauroth</td>
+<td align="left">Chris Nauroth</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2176">ZOOKEEPER-2176</a></td>
+<td align="left">Unclear error message should be info not error</td>
+<td align="left">Major</td>
+<td align="left">quorum</td>
+<td align="left">Raul Gutierrez Segales</td>
+<td align="left">Raul Gutierrez Segales</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2149">ZOOKEEPER-2149</a></td>
+<td align="left">Logging of client address when socket connection established</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Hongchao Deng</td>
+<td align="left">Hongchao Deng</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2140">ZOOKEEPER-2140</a></td>
+<td align="left">NettyServerCnxn and NIOServerCnxn code should be improved</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Arshad Mohammad</td>
+<td align="left">Arshad Mohammad</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2126">ZOOKEEPER-2126</a></td>
+<td align="left">Improve exit log messsage of EventThread and SendThread by adding SessionId</td>
+<td align="left">Major</td>
+<td align="left">java client</td>
+<td align="left">zhihai xu</td>
+<td align="left">Surendra Singh Lilhore</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2110">ZOOKEEPER-2110</a></td>
+<td align="left">Typo fixes in the ZK documentation</td>
+<td align="left">Minor</td>
+<td align="left">documentation</td>
+<td align="left">Jeffrey Schroeder</td>
+<td align="left">Jeffrey Schroeder</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2107">ZOOKEEPER-2107</a></td>
+<td align="left">zookeeper client should support custom HostProviders</td>
+<td align="left">Major</td>
+<td align="left">java client</td>
+<td align="left">Robert Kamphuis</td>
+<td align="left">Robert Kamphuis</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2098">ZOOKEEPER-2098</a></td>
+<td align="left">QuorumCnxManager: use BufferedOutputStream for initial msg</td>
+<td align="left">Major</td>
+<td align="left">quorum, server</td>
+<td align="left">Raul Gutierrez Segales</td>
+<td align="left">Raul Gutierrez Segales</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2079">ZOOKEEPER-2079</a></td>
+<td align="left">Stop daemon with &quot;kill&quot; rather than &quot;kill -9&quot;</td>
+<td align="left">Minor</td>
+<td align="left">scripts</td>
+<td align="left">Guillaume ALAUX</td>
+<td align="left">Guillaume ALAUX</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2066">ZOOKEEPER-2066</a></td>
+<td align="left">Updates to README.txt</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Wendy Smoak</td>
+<td align="left">Camille Fournier</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-1994">ZOOKEEPER-1994</a></td>
+<td align="left">Backup config files.</td>
+<td align="left">Major</td>
+<td align="left">server</td>
+<td align="left">Hongchao Deng</td>
+<td align="left">Hongchao Deng</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-1963">ZOOKEEPER-1963</a></td>
+<td align="left">Make JDK 7 the minimum requirement for Zookeeper</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Edward Carter</td>
+<td align="left">Hongchao Deng</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-1948">ZOOKEEPER-1948</a></td>
+<td align="left">Enable JMX remote monitoring</td>
+<td align="left">Major</td>
+<td align="left">server</td>
+<td align="left">Biju Nair</td>
+<td align="left">Biju Nair</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-1907">ZOOKEEPER-1907</a></td>
+<td align="left">Improve Thread handling</td>
+<td align="left">Major</td>
+<td align="left">server</td>
+<td align="left">Rakesh R</td>
+<td align="left">Rakesh R</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-1423">ZOOKEEPER-1423</a></td>
+<td align="left">4lw and jmx should expose the size of the datadir/datalogdir</td>
+<td align="left">Major</td>
+<td align="left">jmx</td>
+<td align="left">Patrick Hunt</td>
+<td align="left">Edward Ribeiro</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2235">ZOOKEEPER-2235</a></td>
+<td align="left">License update</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Flavio Junqueira</td>
+<td align="left">Flavio Junqueira</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2224">ZOOKEEPER-2224</a></td>
+<td align="left">Four letter command hangs when network is slow</td>
+<td align="left">Minor</td>
+<td align="left">java client</td>
+<td align="left">Arshad Mohammad</td>
+<td align="left">Arshad Mohammad</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2221">ZOOKEEPER-2221</a></td>
+<td align="left">Zookeeper JettyAdminServer server should start on configured IP.</td>
+<td align="left">Major</td>
+<td align="left">server</td>
+<td align="left">Surendra Singh Lilhore</td>
+<td align="left">Surendra Singh Lilhore</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2213">ZOOKEEPER-2213</a></td>
+<td align="left">Empty path in Set crashes server and prevents restart</td>
+<td align="left">Blocker</td>
+<td align="left">server</td>
+<td align="left">Brian Brazil</td>
+<td align="left">Hongchao Deng</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2212">ZOOKEEPER-2212</a></td>
+<td align="left">distributed race condition related to QV version</td>
+<td align="left">Critical</td>
+<td align="left">quorum</td>
+<td align="left">Akihiro Suda</td>
+<td align="left">Akihiro Suda</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2210">ZOOKEEPER-2210</a></td>
+<td align="left">clock_gettime is not available in os x</td>
+<td align="left">Major</td>
+<td align="left">c client</td>
+<td align="left">Michi Mutsuzaki</td>
+<td align="left">Michi Mutsuzaki</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2198">ZOOKEEPER-2198</a></td>
+<td align="left">Set default test.junit.threads to 1.</td>
+<td align="left">Minor</td>
+<td align="left">build</td>
+<td align="left">Chris Nauroth</td>
+<td align="left">Chris Nauroth</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2197">ZOOKEEPER-2197</a></td>
+<td align="left">non-ascii character in FinalRequestProcessor.java</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Michi Mutsuzaki</td>
+<td align="left">Michi Mutsuzaki</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2193">ZOOKEEPER-2193</a></td>
+<td align="left">reconfig command completes even if parameter is wrong obviously</td>
+<td align="left">Major</td>
+<td align="left">leaderElection, server</td>
+<td align="left">Yasuhito Fukuda</td>
+<td align="left">Yasuhito Fukuda</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2190">ZOOKEEPER-2190</a></td>
+<td align="left">In StandaloneDisabledTest, testReconfig() shouldn't take leaving servers as joining servers</td>
+<td align="left">Major</td>
+<td align="left">tests</td>
+<td align="left">Hongchao Deng</td>
+<td align="left">Hongchao Deng</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2187">ZOOKEEPER-2187</a></td>
+<td align="left">remove duplicated code between CreateRequest{,2}</td>
+<td align="left">Minor</td>
+<td align="left">c client, java client, server</td>
+<td align="left">Raul Gutierrez Segales</td>
+<td align="left">Raul Gutierrez Segales</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2186">ZOOKEEPER-2186</a></td>
+<td align="left">QuorumCnxManager#receiveConnection may crash with random input</td>
+<td align="left">Major</td>
+<td align="left">server</td>
+<td align="left">Raul Gutierrez Segales</td>
+<td align="left">Raul Gutierrez Segales</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2182">ZOOKEEPER-2182</a></td>
+<td align="left">Several test suites are not running during pre-commit, because their names do not end with &quot;Test&quot;.</td>
+<td align="left">Major</td>
+<td align="left">tests</td>
+<td align="left">Chris Nauroth</td>
+<td align="left">Chris Nauroth</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2178">ZOOKEEPER-2178</a></td>
+<td align="left">Native client fails compilation on Windows.</td>
+<td align="left">Major</td>
+<td align="left">c client</td>
+<td align="left">Chris Nauroth</td>
+<td align="left">Chris Nauroth</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2173">ZOOKEEPER-2173</a></td>
+<td align="left">ZK startup failure should be handled with proper error message</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">J.Andreina</td>
+<td align="left">J.Andreina</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2171">ZOOKEEPER-2171</a></td>
+<td align="left">avoid reverse lookups in QuorumCnxManager</td>
+<td align="left">Major</td>
+<td align="left">quorum</td>
+<td align="left">Raul Gutierrez Segales</td>
+<td align="left">Raul Gutierrez Segales</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2157">ZOOKEEPER-2157</a></td>
+<td align="left">Upgrade option should be removed from zkServer.sh usage</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">J.Andreina</td>
+<td align="left">J.Andreina</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2146">ZOOKEEPER-2146</a></td>
+<td align="left">BinaryInputArchive readString should check length before allocating memory</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Hongchao Deng</td>
+<td align="left">Hongchao Deng</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2124">ZOOKEEPER-2124</a></td>
+<td align="left">Allow Zookeeper version string to have underscore '_'</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jerry He</td>
+<td align="left">Chris Nauroth</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2114">ZOOKEEPER-2114</a></td>
+<td align="left">jute generated allocate_* functions are not externally visible</td>
+<td align="left">Major</td>
+<td align="left">c client</td>
+<td align="left">Tim Crowder</td>
+<td align="left">Tim Crowder</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2111">ZOOKEEPER-2111</a></td>
+<td align="left">Not isAlive states should be synchronized in ClientCnxn</td>
+<td align="left">Major</td>
+<td align="left">java client</td>
+<td align="left">Hongchao Deng</td>
+<td align="left">Hongchao Deng</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2109">ZOOKEEPER-2109</a></td>
+<td align="left">Typo in src/c/src/load_gen.c</td>
+<td align="left">Trivial</td>
+<td align="left">.</td>
+<td align="left">Emmanuel Bourg</td>
+<td align="left">Surendra Singh Lilhore</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2096">ZOOKEEPER-2096</a></td>
+<td align="left">C client builds with incorrect error codes in VisualStudio 2010+</td>
+<td align="left">Major</td>
+<td align="left">build, c client</td>
+<td align="left">Vitaly Stakhovsky</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2073">ZOOKEEPER-2073</a></td>
+<td align="left">Memory leak on zookeeper_close</td>
+<td align="left">Critical</td>
+<td align="left">c client</td>
+<td align="left">Dave Gosselin</td>
+<td align="left">Dave Gosselin</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2072">ZOOKEEPER-2072</a></td>
+<td align="left">Netty Server Should Configure Child Channel Pipeline By Specifying ChannelPipelineFactory</td>
+<td align="left">Major</td>
+<td align="left">server</td>
+<td align="left">Hongchao Deng</td>
+<td align="left">Hongchao Deng</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2064">ZOOKEEPER-2064</a></td>
+<td align="left">Prevent resource leak in various classes</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Ted Yu</td>
+<td align="left">Ted Yu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2062">ZOOKEEPER-2062</a></td>
+<td align="left">RemoveWatchesTest takes forever to run</td>
+<td align="left">Major</td>
+<td align="left">tests</td>
+<td align="left">Flavio Junqueira</td>
+<td align="left">Chris Nauroth</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2060">ZOOKEEPER-2060</a></td>
+<td align="left">Trace bug in NettyServerCnxnFactory</td>
+<td align="left">Major</td>
+<td align="left">server</td>
+<td align="left">Ian Dimayuga</td>
+<td align="left">Ian Dimayuga</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2056">ZOOKEEPER-2056</a></td>
+<td align="left">Zookeeper 3.4.x and 3.5.0-alpha is not OSGi compliant</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Keren Dong</td>
+<td align="left">Deiwin Sarjas</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2052">ZOOKEEPER-2052</a></td>
+<td align="left">Unable to delete a node when the node has no children</td>
+<td align="left">Major</td>
+<td align="left">server</td>
+<td align="left">Yip Ng</td>
+<td align="left">Hongchao Deng</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2049">ZOOKEEPER-2049</a></td>
+<td align="left">Yosemite build failure: htonll conflict</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Till Toenshoff</td>
+<td align="left">Till Toenshoff</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2039">ZOOKEEPER-2039</a></td>
+<td align="left">Jute compareBytes incorrect comparison index</td>
+<td align="left">Minor</td>
+<td align="left">jute</td>
+<td align="left">Ian Dimayuga</td>
+<td align="left">Ian Dimayuga</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2030">ZOOKEEPER-2030</a></td>
+<td align="left">dynamicConfigFile should have an absolute path, not a relative path, to the dynamic configuration file</td>
+<td align="left">Minor</td>
+<td align="left">server</td>
+<td align="left">Alexander Shraer</td>
+<td align="left">Alexander Shraer</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2029">ZOOKEEPER-2029</a></td>
+<td align="left">Leader.LearnerCnxAcceptor should handle exceptions in run()</td>
+<td align="left">Minor</td>
+<td align="left">quorum</td>
+<td align="left">Asad Saeed</td>
+<td align="left">Rakesh R</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2026">ZOOKEEPER-2026</a></td>
+<td align="left">Startup order in ServerCnxnFactory-ies is wrong</td>
+<td align="left">Minor</td>
+<td align="left">jmx, server</td>
+<td align="left">Stevo Slavic</td>
+<td align="left">Stevo Slavic</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2013">ZOOKEEPER-2013</a></td>
+<td align="left">typos in zookeeperProgrammers</td>
+<td align="left">Trivial</td>
+<td align="left">documentation</td>
+<td align="left">Tim Chambers</td>
+<td align="left">Tim Chambers</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2008">ZOOKEEPER-2008</a></td>
+<td align="left">System test fails due to missing leader election port</td>
+<td align="left">Minor</td>
+<td align="left">contrib-fatjar</td>
+<td align="left">Kfir Lev-Ari</td>
+<td align="left">Kfir Lev-Ari</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2006">ZOOKEEPER-2006</a></td>
+<td align="left">Standalone mode won't take client port from dynamic config</td>
+<td align="left">Major</td>
+<td align="left">server</td>
+<td align="left">Hongchao Deng</td>
+<td align="left">Hongchao Deng</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-1987">ZOOKEEPER-1987</a></td>
+<td align="left">unable to restart 3 node cluster</td>
+<td align="left">Blocker</td>
+<td align="left">tests</td>
+<td align="left">Patrick Hunt</td>
+<td align="left">Alexander Shraer</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-1952">ZOOKEEPER-1952</a></td>
+<td align="left">Default log directory and file name can be changed</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">nijel</td>
+<td align="left">nijel</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-1949">ZOOKEEPER-1949</a></td>
+<td align="left">recipes jar not included in the distribution package</td>
+<td align="left">Major</td>
+<td align="left">recipes</td>
+<td align="left">Rakesh R</td>
+<td align="left">Rakesh R</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-1917">ZOOKEEPER-1917</a></td>
+<td align="left">Apache Zookeeper logs cleartext admin passwords</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Flavio Junqueira</td>
+<td align="left">Flavio Junqueira</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-1893">ZOOKEEPER-1893</a></td>
+<td align="left">automake: use serial-tests option</td>
+<td align="left">Minor</td>
+<td align="left">c client</td>
+<td align="left">Michi Mutsuzaki</td>
+<td align="left">Michi Mutsuzaki</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-1784">ZOOKEEPER-1784</a></td>
+<td align="left">Logic to process INFORMANDACTIVATE packets in syncWithLeader seems bogus</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Raul Gutierrez Segales</td>
+<td align="left">Raul Gutierrez Segales</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-1366">ZOOKEEPER-1366</a></td>
+<td align="left">Zookeeper should be tolerant of clock adjustments</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Ted Dunning</td>
+<td align="left">Hongchao Deng</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tests">TESTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2204">ZOOKEEPER-2204</a></td>
+<td align="left">LearnerSnapshotThrottlerTest.testHighContentionWithTimeout fails occasionally</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Donny Nadolny</td>
+<td align="left">Donny Nadolny</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2032">ZOOKEEPER-2032</a></td>
+<td align="left">ReconfigBackupTest didn't clean up resources.</td>
+<td align="left">Minor</td>
+<td align="left">tests</td>
+<td align="left">Hongchao Deng</td>
+<td align="left">Hongchao Deng</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2017">ZOOKEEPER-2017</a></td>
+<td align="left">New tests for reconfig failure cases</td>
+<td align="left">Minor</td>
+<td align="left">tests</td>
+<td align="left">Alexander Shraer</td>
+<td align="left">Alexander Shraer</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sub-tasks">SUB-TASKS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2153">ZOOKEEPER-2153</a></td>
+<td align="left">X509 Authentication Documentation</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Hongchao Deng</td>
+<td align="left">Ian Dimayuga</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2134">ZOOKEEPER-2134</a></td>
+<td align="left">AsyncHammerTest.testHammer fails intermittently</td>
+<td align="left">Blocker</td>
+<td align="left">tests</td>
+<td align="left">Michi Mutsuzaki</td>
+<td align="left">Michi Mutsuzaki</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2125">ZOOKEEPER-2125</a></td>
+<td align="left">SSL on Netty client-server communication</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Hongchao Deng</td>
+<td align="left">Hongchao Deng</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2123">ZOOKEEPER-2123</a></td>
+<td align="left">Provide implementation of X509 AuthenticationProvider</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Hongchao Deng</td>
+<td align="left">Ian Dimayuga</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2119">ZOOKEEPER-2119</a></td>
+<td align="left">Netty client docs</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Hongchao Deng</td>
+<td align="left">Hongchao Deng</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2069">ZOOKEEPER-2069</a></td>
+<td align="left">Netty Support for ClientCnxnSocket</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Hongchao Deng</td>
+<td align="left">Hongchao Deng</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2047">ZOOKEEPER-2047</a></td>
+<td align="left">testTruncationNullLog fails on windows</td>
+<td align="left">Major</td>
+<td align="left">tests</td>
+<td align="left">Flavio Junqueira</td>
+<td align="left">Flavio Junqueira</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-1660">ZOOKEEPER-1660</a></td>
+<td align="left">Add documentation for dynamic reconfiguration</td>
+<td align="left">Blocker</td>
+<td align="left">documentation</td>
+<td align="left">Alexander Shraer</td>
+<td align="left">Reed Wanderman-Milne</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-1626">ZOOKEEPER-1626</a></td>
+<td align="left">Zookeeper C client should be tolerant of clock adjustments</td>
+<td align="left">Major</td>
+<td align="left">c client</td>
+<td align="left">Colin Patrick McCabe</td>
+<td align="left">Colin Patrick McCabe</td>
+</tr>
+</tbody>
+</table>
+<h3 id="other">OTHER:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>

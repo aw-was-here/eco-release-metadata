@@ -1,0 +1,676 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-spark-changelog">Apache Spark Changelog</h1>
+<h2 id="release-1.2.2---2015-04-17">Release 1.2.2 - 2015-04-17</h2>
+<h3 id="incompatible-changes">INCOMPATIBLE CHANGES:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="new-features">NEW FEATURES:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-5628">SPARK-5628</a></td>
+<td align="left">Add option to return spark-ec2 version</td>
+<td align="left">Minor</td>
+<td align="left">EC2</td>
+<td align="left">Nicholas Chammas</td>
+<td align="left">Nicholas Chammas</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-5559">SPARK-5559</a></td>
+<td align="left">Flaky test: o.a.s.streaming.flume.FlumeStreamSuite</td>
+<td align="left">Major</td>
+<td align="left">Streaming, Tests</td>
+<td align="left">Kousuke Saruta</td>
+<td align="left">Kousuke Saruta</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-5417">SPARK-5417</a></td>
+<td align="left">Remove redundant executor-ID set() call</td>
+<td align="left">Minor</td>
+<td align="left">Spark Core</td>
+<td align="left">Ryan Williams</td>
+<td align="left">Ryan Williams</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-677">SPARK-677</a></td>
+<td align="left">PySpark should not collect results through local filesystem</td>
+<td align="left">Major</td>
+<td align="left">PySpark</td>
+<td align="left">Josh Rosen</td>
+<td align="left">Davies Liu</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-7027">SPARK-7027</a></td>
+<td align="left">Spark 1.2.2 Hadoop 2.4 download is missing</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Marius Soutier</td>
+<td align="left">Patrick Wendell</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-6878">SPARK-6878</a></td>
+<td align="left">Sum on empty RDD fails with exception</td>
+<td align="left">Minor</td>
+<td align="left">Spark Core</td>
+<td align="left">Erik van Oosten</td>
+<td align="left">Erik van Oosten</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-6667">SPARK-6667</a></td>
+<td align="left">hang while collect in PySpark</td>
+<td align="left">Blocker</td>
+<td align="left">PySpark</td>
+<td align="left">Davies Liu</td>
+<td align="left">Davies Liu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-6578">SPARK-6578</a></td>
+<td align="left">Outbound channel in network library is not thread-safe, can lead to fetch failures</td>
+<td align="left">Blocker</td>
+<td align="left">Spark Core</td>
+<td align="left">Marcelo Vanzin</td>
+<td align="left">Marcelo Vanzin</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-6480">SPARK-6480</a></td>
+<td align="left">histogram() bucket function is wrong in some simple edge cases</td>
+<td align="left">Major</td>
+<td align="left">Spark Core</td>
+<td align="left">Sean Owen</td>
+<td align="left">Sean Owen</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-6414">SPARK-6414</a></td>
+<td align="left">Spark driver failed with NPE on job cancelation</td>
+<td align="left">Critical</td>
+<td align="left">Scheduler</td>
+<td align="left">Yuri Makhno</td>
+<td align="left">Hung Lin</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-6313">SPARK-6313</a></td>
+<td align="left">Fetch File Lock file creation doesnt work when Spark working dir is on a NFS mount</td>
+<td align="left">Critical</td>
+<td align="left">Spark Core</td>
+<td align="left">Nathan McCarthy</td>
+<td align="left">Nathan McCarthy</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-6294">SPARK-6294</a></td>
+<td align="left">PySpark task may hang while call take() on in Java/Scala</td>
+<td align="left">Critical</td>
+<td align="left">PySpark</td>
+<td align="left">Davies Liu</td>
+<td align="left">Davies Liu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-6194">SPARK-6194</a></td>
+<td align="left">collect() in PySpark will cause memory leak in JVM</td>
+<td align="left">Critical</td>
+<td align="left">PySpark</td>
+<td align="left">Davies Liu</td>
+<td align="left">Davies Liu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-6167">SPARK-6167</a></td>
+<td align="left">Previous Commit Broke BroadcastTest</td>
+<td align="left">Minor</td>
+<td align="left">Examples</td>
+<td align="left">RJ Nowling</td>
+<td align="left">Sean Owen</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-6133">SPARK-6133</a></td>
+<td align="left">SparkContext#stop is not idempotent</td>
+<td align="left">Major</td>
+<td align="left">Spark Core</td>
+<td align="left">Andrew Or</td>
+<td align="left">Andrew Or</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-6132">SPARK-6132</a></td>
+<td align="left">Context cleaner race condition across SparkContexts</td>
+<td align="left">Major</td>
+<td align="left">Spark Core</td>
+<td align="left">Andrew Or</td>
+<td align="left">Andrew Or</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-6055">SPARK-6055</a></td>
+<td align="left">Memory leak in pyspark sql due to incorrect equality check</td>
+<td align="left">Blocker</td>
+<td align="left">PySpark, SQL</td>
+<td align="left">Davies Liu</td>
+<td align="left">Davies Liu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-6018">SPARK-6018</a></td>
+<td align="left">NoSuchMethodError in Spark app is swallowed by YARN AM</td>
+<td align="left">Minor</td>
+<td align="left">YARN</td>
+<td align="left">Cheolsoo Park</td>
+<td align="left">Cheolsoo Park</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-5973">SPARK-5973</a></td>
+<td align="left">zip two rdd with AutoBatchedSerializer will fail</td>
+<td align="left">Blocker</td>
+<td align="left">PySpark</td>
+<td align="left">Davies Liu</td>
+<td align="left">Davies Liu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-5967">SPARK-5967</a></td>
+<td align="left">JobProgressListener.stageIdToActiveJobIds never cleared</td>
+<td align="left">Blocker</td>
+<td align="left">Streaming, Web UI</td>
+<td align="left">Tathagata Das</td>
+<td align="left">Tathagata Das</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-5889">SPARK-5889</a></td>
+<td align="left">remove pid file in spark-daemon.sh after killing the process.</td>
+<td align="left">Minor</td>
+<td align="left">Deploy</td>
+<td align="left">Zhan Zhang</td>
+<td align="left">Zhan Zhang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-5846">SPARK-5846</a></td>
+<td align="left">Spark SQL does not correctly set job description and scheduler pool</td>
+<td align="left">Critical</td>
+<td align="left">SQL</td>
+<td align="left">Kay Ousterhout</td>
+<td align="left">Kay Ousterhout</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-5825">SPARK-5825</a></td>
+<td align="left">Failure stopping Services while command line argument is too long</td>
+<td align="left">Critical</td>
+<td align="left">Deploy</td>
+<td align="left">Cheng Hao</td>
+<td align="left">Cheng Hao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-5788">SPARK-5788</a></td>
+<td align="left">Capture exceptions in Python write thread</td>
+<td align="left">Blocker</td>
+<td align="left">PySpark</td>
+<td align="left">Davies Liu</td>
+<td align="left">Davies Liu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-5749">SPARK-5749</a></td>
+<td align="left">Fix Bash word splitting bugs in compute-classpath.sh</td>
+<td align="left">Major</td>
+<td align="left">Build</td>
+<td align="left">Nicholas Chammas</td>
+<td align="left">Venkata Ramana G</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-5728">SPARK-5728</a></td>
+<td align="left">MQTTStreamSuite leaves behind ActiveMQ database files</td>
+<td align="left">Trivial</td>
+<td align="left">Streaming, Tests</td>
+<td align="left">Sean Owen</td>
+<td align="left">Sean Owen</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-5722">SPARK-5722</a></td>
+<td align="left">Infer_schema_type incorrect for Integers in pyspark</td>
+<td align="left">Major</td>
+<td align="left">PySpark</td>
+<td align="left">Don Drake</td>
+<td align="left">Don Drake</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-5703">SPARK-5703</a></td>
+<td align="left">AllJobsPage throws empty.max error</td>
+<td align="left">Critical</td>
+<td align="left">Spark Core</td>
+<td align="left">Andrew Or</td>
+<td align="left">Andrew Or</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-5698">SPARK-5698</a></td>
+<td align="left">Dynamic allocation: do not allow user to request a negative delta</td>
+<td align="left">Critical</td>
+<td align="left">Spark Core, YARN</td>
+<td align="left">Andrew Or</td>
+<td align="left">Andrew Or</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-5691">SPARK-5691</a></td>
+<td align="left">Preventing duplicate registering of an application has incorrect logic</td>
+<td align="left">Major</td>
+<td align="left">Deploy</td>
+<td align="left">Matt Cheah</td>
+<td align="left">Matthew Cheah</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-5679">SPARK-5679</a></td>
+<td align="left">Flaky tests in o.a.s.metrics.InputOutputMetricsSuite: input metrics with interleaved reads and input metrics with mixed read method</td>
+<td align="left">Critical</td>
+<td align="left">Spark Core, Tests</td>
+<td align="left">Patrick Wendell</td>
+<td align="left">Josh Rosen</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-5655">SPARK-5655</a></td>
+<td align="left">YARN Auxiliary Shuffle service can't access shuffle files on Hadoop cluster configured in secure mode</td>
+<td align="left">Critical</td>
+<td align="left">YARN</td>
+<td align="left">Andrew Rowson</td>
+<td align="left">Andrew Rowson</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-5613">SPARK-5613</a></td>
+<td align="left">YarnClientSchedulerBackend fails to get application report when yarn restarts</td>
+<td align="left">Minor</td>
+<td align="left">YARN</td>
+<td align="left">Kashish Jain</td>
+<td align="left">Kashish Jain</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-5441">SPARK-5441</a></td>
+<td align="left">SerDeUtil Pair RDD to python conversion doesn't accept empty RDDs</td>
+<td align="left">Major</td>
+<td align="left">PySpark</td>
+<td align="left">Michael Nazario</td>
+<td align="left">Michael Nazario</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-5434">SPARK-5434</a></td>
+<td align="left">Preserve spaces in path to spark-ec2</td>
+<td align="left">Minor</td>
+<td align="left">EC2</td>
+<td align="left">Nicholas Chammas</td>
+<td align="left">Nicholas Chammas</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-5425">SPARK-5425</a></td>
+<td align="left">ConcurrentModificationException during SparkConf creation</td>
+<td align="left">Major</td>
+<td align="left">Spark Core</td>
+<td align="left">Jacek Lewandowski</td>
+<td align="left">Jacek Lewandowski</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-5395">SPARK-5395</a></td>
+<td align="left">Large number of Python workers causing resource depletion</td>
+<td align="left">Major</td>
+<td align="left">PySpark</td>
+<td align="left">Sven Krasser</td>
+<td align="left">Davies Liu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-5363">SPARK-5363</a></td>
+<td align="left">Spark 1.2 freeze without error notification</td>
+<td align="left">Blocker</td>
+<td align="left">PySpark</td>
+<td align="left">Tassilo Klein</td>
+<td align="left">Davies Liu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-5361">SPARK-5361</a></td>
+<td align="left">Multiple Java RDD &lt;-&gt; Python RDD conversions not working correctly</td>
+<td align="left">Major</td>
+<td align="left">PySpark</td>
+<td align="left">Winston Chen</td>
+<td align="left">Winston Chen</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-5335">SPARK-5335</a></td>
+<td align="left">Destroying cluster in VPC with &quot;--delete-groups&quot; fails to remove security groups</td>
+<td align="left">Major</td>
+<td align="left">EC2</td>
+<td align="left">Vladimir Grigor</td>
+<td align="left">Vladimir Grigor</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-5227">SPARK-5227</a></td>
+<td align="left">InputOutputMetricsSuite &quot;input metrics when reading text file with multiple splits&quot; test fails in branch-1.2 SBT Jenkins build w/hadoop1.0 and hadoop2.0 profiles</td>
+<td align="left">Blocker</td>
+<td align="left">Spark Core</td>
+<td align="left">Josh Rosen</td>
+<td align="left">Josh Rosen</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-5186">SPARK-5186</a></td>
+<td align="left">Vector.equals and Vector.hashCode are very inefficient and fail on SparseVectors with large size</td>
+<td align="left">Major</td>
+<td align="left">MLlib</td>
+<td align="left">Derrick Burns</td>
+<td align="left">yuhao yang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-5153">SPARK-5153</a></td>
+<td align="left">Flaky test: o.a.s.streaming.kafka.ReliableKafkaStreamSuite</td>
+<td align="left">Critical</td>
+<td align="left">Streaming</td>
+<td align="left">Nan Zhu</td>
+<td align="left">Tathagata Das</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-4986">SPARK-4986</a></td>
+<td align="left">Graceful shutdown for Spark Streaming does not work in Standalone cluster mode</td>
+<td align="left">Blocker</td>
+<td align="left">Streaming</td>
+<td align="left">Jesper Lundgren</td>
+<td align="left">Jesper Lundgren</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-4983">SPARK-4983</a></td>
+<td align="left">Add sleep() before tagging EC2 instances to allow instance metadata to propagate</td>
+<td align="left">Minor</td>
+<td align="left">EC2</td>
+<td align="left">Nicholas Chammas</td>
+<td align="left">Gen TANG</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-4939">SPARK-4939</a></td>
+<td align="left">Python updateStateByKey example hang in local mode</td>
+<td align="left">Blocker</td>
+<td align="left">PySpark, Spark Core, Streaming</td>
+<td align="left">Davies Liu</td>
+<td align="left">Davies Liu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-4905">SPARK-4905</a></td>
+<td align="left">Flaky test: o.a.s.streaming.flume.FlumeStreamSuite.flume input stream</td>
+<td align="left">Critical</td>
+<td align="left">Streaming</td>
+<td align="left">Josh Rosen</td>
+<td align="left">Hari Shreedharan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-4832">SPARK-4832</a></td>
+<td align="left">some other processes might take the daemon pid</td>
+<td align="left">Minor</td>
+<td align="left">Deploy</td>
+<td align="left">Tao Wang</td>
+<td align="left">Tao Wang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-4814">SPARK-4814</a></td>
+<td align="left">Enable assertions in SBT, Maven tests / AssertionError from Hive's LazyBinaryInteger</td>
+<td align="left">Major</td>
+<td align="left">Spark Core, SQL</td>
+<td align="left">Sean Owen</td>
+<td align="left">Sean Owen</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-4704">SPARK-4704</a></td>
+<td align="left">SparkSubmitDriverBootstrap doesn't flush output</td>
+<td align="left">Major</td>
+<td align="left">Spark Core</td>
+<td align="left">Stephen Haberman</td>
+<td align="left">Sean Owen</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-4579">SPARK-4579</a></td>
+<td align="left">Scheduling Delay appears negative</td>
+<td align="left">Major</td>
+<td align="left">Web UI</td>
+<td align="left">Arun Ahuja</td>
+<td align="left">Sean Owen</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-4300">SPARK-4300</a></td>
+<td align="left">Race condition during SparkWorker shutdown</td>
+<td align="left">Minor</td>
+<td align="left">Spark Shell</td>
+<td align="left">Alex Liu</td>
+<td align="left">Sean Owen</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-4267">SPARK-4267</a></td>
+<td align="left">Failing to launch jobs on Spark on YARN with Hadoop 2.5.0 or later</td>
+<td align="left">Blocker</td>
+<td align="left">YARN</td>
+<td align="left">Tsuyoshi Ozawa</td>
+<td align="left">Sean Owen</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-3266">SPARK-3266</a></td>
+<td align="left">JavaDoubleRDD doesn't contain max()</td>
+<td align="left">Major</td>
+<td align="left">Java API</td>
+<td align="left">Amey Chaugule</td>
+<td align="left">Sean Owen</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-2472">SPARK-2472</a></td>
+<td align="left">Spark SQL Thrift server sometimes assigns wrong job group name</td>
+<td align="left">Minor</td>
+<td align="left">SQL</td>
+<td align="left">Cheng Lian</td>
+<td align="left">Kay Ousterhout</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-1955">SPARK-1955</a></td>
+<td align="left">VertexRDD can incorrectly assume index sharing</td>
+<td align="left">Minor</td>
+<td align="left">GraphX</td>
+<td align="left">Ankur Dave</td>
+<td align="left">Brennon York</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-1911">SPARK-1911</a></td>
+<td align="left">Warn users if their assembly jars are not built with Java 6</td>
+<td align="left">Major</td>
+<td align="left">Documentation</td>
+<td align="left">Andrew Or</td>
+<td align="left">Sean Owen</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-1600">SPARK-1600</a></td>
+<td align="left">flaky &quot;recovery with file input stream&quot; test in streaming.CheckpointSuite</td>
+<td align="left">Major</td>
+<td align="left">Streaming</td>
+<td align="left">Nan Zhu</td>
+<td align="left">Josh Rosen</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-794">SPARK-794</a></td>
+<td align="left">Remove sleep() in ClusterScheduler.stop</td>
+<td align="left">Major</td>
+<td align="left">Scheduler</td>
+<td align="left">Matei Zaharia</td>
+<td align="left">Brennon York</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tests">TESTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-4631">SPARK-4631</a></td>
+<td align="left">Add real unit test for MQTT</td>
+<td align="left">Critical</td>
+<td align="left">Streaming</td>
+<td align="left">Tathagata Das</td>
+<td align="left">Iulian Dragos</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sub-tasks">SUB-TASKS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-5765">SPARK-5765</a></td>
+<td align="left">word split problem in run-example and compute-classpath</td>
+<td align="left">Major</td>
+<td align="left">Examples</td>
+<td align="left">Venkata Ramana G</td>
+<td align="left">Venkata Ramana G</td>
+</tr>
+</tbody>
+</table>
+<h3 id="other">OTHER:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-6033">SPARK-6033</a></td>
+<td align="left">the description abou the &quot;spark.worker.cleanup.enabled&quot; is not matched with the code</td>
+<td align="left">Minor</td>
+<td align="left">Documentation</td>
+<td align="left">pengxu</td>
+<td align="left">pengxu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-6015">SPARK-6015</a></td>
+<td align="left">Backport Python doc source code link fix to 1.2</td>
+<td align="left">Minor</td>
+<td align="left">Documentation, PySpark</td>
+<td align="left">Joseph K. Bradley</td>
+<td align="left">Davies Liu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/SPARK-5805">SPARK-5805</a></td>
+<td align="left">Fix the type error in the final example given in MLlib - Clustering documentation</td>
+<td align="left">Minor</td>
+<td align="left">Documentation, MLlib</td>
+<td align="left">Emre Sevinç</td>
+<td align="left">Emre Sevinç</td>
+</tr>
+</tbody>
+</table>

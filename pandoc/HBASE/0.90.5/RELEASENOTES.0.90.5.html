@@ -1,0 +1,44 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hbase-0.90.5-release-notes">Apache HBase 0.90.5 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4225">HBASE-4225</a> | <em>Critical</em> | <strong>NoSuchColumnFamilyException in multi doesn't say which family is bad</strong></li>
+</ul>
+<p>Created a new class OperationStatus that wraps OperationStatusCode and an exception message, most of the patch consists of the former replacing the latter.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4395">HBASE-4395</a> | <em>Blocker</em> | <strong>EnableTableHandler races with itself</strong></li>
+</ul>
+<p>EnableTableHandler used to call many enables on the table, now it calls it once and eventually times out if not all the regions are assigned and none is moving.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-3421">HBASE-3421</a> | <em>Major</em> | <strong>Very wide rows -- 30M plus -- cause us OOME</strong></li>
+</ul>
+<p>A new config parameter, &quot;hbase.hstore.compaction.kv.max&quot;, has been added to limit the number of rows processed in each iteration of the internal compaction code. Default value is 10.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4508">HBASE-4508</a> | <em>Major</em> | <strong>Backport HBASE-3777 to 0.90 branch</strong></li>
+</ul>
+<p>A new config parameter, hbase.connection.per.config, has been added. If set to true, there is no connection sharing. This is default setting. If set to false, connection sharing would be enabled so that fewer connections to zookeeper are used.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-4718">HBASE-4718</a> | <em>Major</em> | <strong>Backport HBASE-4552 to 0.90 branch</strong></li>
+</ul>
+<p>HRegion.bulkLoadHFile() has been removed in 0.92 and TRUNK. It is deprecated in 0.90.5 HRegion.bulkLoadHFiles() is introduced for multi-family bulk load. Default value for hbase.bulkload.retries.number is 0, meaning bulk load would never give up.</p>

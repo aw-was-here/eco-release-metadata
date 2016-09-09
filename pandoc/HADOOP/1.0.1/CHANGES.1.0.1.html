@@ -1,0 +1,260 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hadoop-changelog">Apache Hadoop Changelog</h1>
+<h2 id="release-1.0.1---2012-02-22">Release 1.0.1 - 2012-02-22</h2>
+<h3 id="incompatible-changes">INCOMPATIBLE CHANGES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8037">HADOOP-8037</a></td>
+<td align="left">Binary tarball does not preserve platform info for native builds, and RPMs fail to provide needed symlinks for libhadoop.so</td>
+<td align="left">Blocker</td>
+<td align="left">build</td>
+<td align="left">Matt Foley</td>
+<td align="left">Matt Foley</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7470">HADOOP-7470</a></td>
+<td align="left">move up to Jackson 1.8.8</td>
+<td align="left">Minor</td>
+<td align="left">util</td>
+<td align="left">Steve Loughran</td>
+<td align="left">Enis Soztutar</td>
+</tr>
+</tbody>
+</table>
+<h3 id="new-features">NEW FEATURES:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8009">HADOOP-8009</a></td>
+<td align="left">Create hadoop-client and hadoop-minicluster artifacts for downstream projects</td>
+<td align="left">Critical</td>
+<td align="left">build</td>
+<td align="left">Alejandro Abdelnur</td>
+<td align="left">Alejandro Abdelnur</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7987">HADOOP-7987</a></td>
+<td align="left">Support setting the run-as user in unsecure mode</td>
+<td align="left">Major</td>
+<td align="left">security</td>
+<td align="left">Devaraj Das</td>
+<td align="left">Jitendra Nath Pandey</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-2814">HDFS-2814</a></td>
+<td align="left">NamenodeMXBean does not account for svn revision in the version information</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Hitesh Shah</td>
+<td align="left">Hitesh Shah</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3607">MAPREDUCE-3607</a></td>
+<td align="left">Port missing new API mapreduce lib classes to 1.x</td>
+<td align="left">Major</td>
+<td align="left">client</td>
+<td align="left">Tom White</td>
+<td align="left">Tom White</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3184">MAPREDUCE-3184</a></td>
+<td align="left">Improve handling of fetch failures when a tasktracker is not responding on HTTP</td>
+<td align="left">Major</td>
+<td align="left">jobtracker</td>
+<td align="left">Todd Lipcon</td>
+<td align="left">Todd Lipcon</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8052">HADOOP-8052</a></td>
+<td align="left">Hadoop Metrics2 should emit Float.MAX_VALUE (instead of Double.MAX_VALUE) to avoid making Ganglia's gmetad core</td>
+<td align="left">Major</td>
+<td align="left">metrics</td>
+<td align="left">Varun Kapoor</td>
+<td align="left">Varun Kapoor</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8010">HADOOP-8010</a></td>
+<td align="left">hadoop-config.sh spews error message when HADOOP_HOME_WARN_SUPPRESS is set to true and HADOOP_HOME is present</td>
+<td align="left">Minor</td>
+<td align="left">scripts</td>
+<td align="left">Roman Shaposhnik</td>
+<td align="left">Roman Shaposhnik</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7988">HADOOP-7988</a></td>
+<td align="left">Upper case in hostname part of the principals doesn't work with kerberos.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jitendra Nath Pandey</td>
+<td align="left">Jitendra Nath Pandey</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7964">HADOOP-7964</a></td>
+<td align="left">Deadlock in class init.</td>
+<td align="left">Blocker</td>
+<td align="left">security, util</td>
+<td align="left">Kihwal Lee</td>
+<td align="left">Daryn Sharp</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7960">HADOOP-7960</a></td>
+<td align="left">Port HADOOP-5203 to branch-1, build version comparison is too restrictive</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Giridharan Kesavan</td>
+<td align="left">Matt Foley</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-2379">HDFS-2379</a></td>
+<td align="left">0.20: Allow block reports to proceed without holding FSDataset lock</td>
+<td align="left">Critical</td>
+<td align="left">datanode</td>
+<td align="left">Todd Lipcon</td>
+<td align="left">Todd Lipcon</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3343">MAPREDUCE-3343</a></td>
+<td align="left">TaskTracker Out of Memory because of distributed cache</td>
+<td align="left">Major</td>
+<td align="left">mrv1</td>
+<td align="left">Ahmed Radwan</td>
+<td align="left">zhaoyunjiong</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tests">TESTS:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="sub-tasks">SUB-TASKS:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="other">OTHER:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>

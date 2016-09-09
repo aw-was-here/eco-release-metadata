@@ -1,0 +1,40 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hadoop-1.1.2-release-notes">Apache Hadoop 1.1.2 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-9115">HADOOP-9115</a> | <em>Blocker</em> | <strong>Deadlock in configuration when writing configuration to hdfs</strong></li>
+</ul>
+<p>This fixes a bug where Hive could trigger a deadlock condition in the Hadoop configuration management code.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-8567">HADOOP-8567</a> | <em>Major</em> | <strong>Port conf servlet to dump running configuration to branch 1.x</strong></li>
+</ul>
+<p>Users can use the conf servlet to get the server-side configuration. Users can</p>
+<p>1) connect to http_server_url/conf or http_server_url/conf?format=xml and get XML-based configuration description; 2) connect to http_server_url/conf?format=json and get JSON-based configuration description.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-5996">HDFS-5996</a> | <em>Major</em> | <strong>hadoop 1.1.2. hdfs write bug</strong></li>
+</ul>
+<p>someone has discovered this bug and it has been resolved</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4478">MAPREDUCE-4478</a> | <em>Major</em> | <strong>TaskTracker's heartbeat is out of control</strong></li>
+</ul>
+<p>Fixed a bug in TaskTracker's heartbeat to keep it under control.</p>

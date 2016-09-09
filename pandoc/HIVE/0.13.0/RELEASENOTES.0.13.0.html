@@ -1,0 +1,448 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="release-notes">0.13.0 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-6752">HIVE-6752</a> | <em>Major</em> | <strong>Vectorized Between and IN expressions don't work with decimal, date types.</strong></li>
+</ul>
+<p>I have committed this to trunk and branch-0.13</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-6748">HIVE-6748</a> | <em>Major</em> | <strong>FileSinkOperator needs to cleanup held references for container reuse</strong></li>
+</ul>
+<p>FileSinkOperator cleanliness of references on closeOp/initializeOp</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-6662">HIVE-6662</a> | <em>Major</em> | <strong>Vector Join operations with DATE columns fail</strong></li>
+</ul>
+<p>Add VectorColumnAssignFactory methods to assign DATE into LongColumn vectors</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-6643">HIVE-6643</a> | <em>Major</em> | <strong>Add a check for cross products in plans and output a warning</strong></li>
+</ul>
+<p>Added new config parameter 'hive.exec.check.crossproducts' to warn about Cross Products. By default this check is on.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-6636">HIVE-6636</a> | <em>Major</em> | <strong>/user/hive is a bad default for HDFS jars path for Tez</strong></li>
+</ul>
+<p>Hive on Tez will now use /user/<current Hadoop user name>, rather than just /user/hive, as default HDFS directory for jars. {{hive.jar.directory}} can still be used to set the path explicitly.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-6587">HIVE-6587</a> | <em>Trivial</em> | <strong>allow specifying additional Hive classpath for Hadoop</strong></li>
+</ul>
+<p>HIVE_CLASSPATH environment variable support has been added. This is added to Hadoop classpath for jobs.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-6518">HIVE-6518</a> | <em>Minor</em> | <strong>Add a GC canary to the VectorGroupByOperator to flush whenever a GC is triggered</strong></li>
+</ul>
+<p>Flush VectorGroupBy aggregation hashes in case of a full GC</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-6507">HIVE-6507</a> | <em>Major</em> | <strong>OrcFile table property names are specified as strings</strong></li>
+</ul>
+<p>(none, this is minor refactoring so as to avoid future issues where new orc properties are added and not accounted for in HCatalog/etc)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-6499">HIVE-6499</a> | <em>Major</em> | <strong>Using Metastore-side Auth errors on non-resolvable IF/OF/SerDe</strong></li>
+</ul>
+<p>Fixes bug where if Metastore-side authorization was used, tables that used a custom IF/OF/SerDe that was not accessible from the metastore-side could not be created or dropped.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-6486">HIVE-6486</a> | <em>Major</em> | <strong>Support secure Subject.doAs() in HiveServer2 JDBC client.</strong></li>
+</ul>
+<p>Using Kerberos with Pre-Authenticated Subject: In the current approach of using Kerberos you will need to have valid Kerberos ticket in the ticket cache before connecting. This will entail static login(using kinit, key tab or ticketcache) and restriction of one Kerberos user per client. These restrictions will limit the usage in multi-user scenarios and in scenarios where in the client wants to login programmatically to Kerberos KDC. Using proxy users (see https://issues.apache.org/jira/browse/HIVE-5155 ) is one way to mitigate the problem of multi-user scenarios. The other way is to use pre-authenticated subject(see https://issues.apache.org/jira/browse/HIVE-6486 ). In this method, Hive JDBC client uses a pre-authenticated Kerberos Subject to authenticate to HiveServer2. To use pre-authenticated Subject you will need the following changes.</p>
+<ul>
+<li>Add hive-exec<em>.jar to the classpath in addition to the regular Hive JDBC jars (commons-configuration-1.6.jar and hadoop-core</em>.jar are not required).</li>
+<li>Add auth=kerberos and kerberosAuthType=fromSubject JDBC URL properties in addition to having the “principal&quot; url property.</li>
+<li>Open the connection in Subject.doAs()</li>
+</ul>
+<p>The following code snippet illustrates the usage (refer to https://issues.apache.org/jira/browse/HIVE-6486 for complete test case):</p>
+<pre><code>static Connection getConnection( Subject signedOnUserSubject ) throws Exception{
+
+    Connection conn = (Connection) Subject.doAs(signedOnUserSubject, new PrivilegedExceptionAction&lt;Object&gt;()
+            {
+        public Object run()
+        {                     
+            Connection con = null;
+            String JDBC\_DB\_URL = &quot;jdbc:hive2://HiveHost:10000/default;principal=hive/localhost.localdomain@EXAMPLE.COM;auth=kerberos;kerberosAuthType=fromSubject&quot;;
+            try {
+                Class.forName(JDBC\_DRIVER);
+                con =  DriverManager.getConnection(JDBC\_DB\_URL);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            } 
+            return con;
+        }
+            });
+
+    return conn;
+}</code></pre>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-6475">HIVE-6475</a> | <em>Major</em> | <strong>Implement support for appending to mutable tables in HCatalog</strong></li>
+</ul>
+<p>Introduces append feature for HCatalog writes.</p>
+<p>Previously, if an unpartitioned table had data in it, or if a partition in a partitioned table had data in it, or if the partition even existed, HCat would fail if a user attempted to write to them. Now, that behaviour is extended so that the strict behaviour exists only if the table in question has a parameter &quot;immutable&quot; set to &quot;true&quot; (see HIVE-6406).</p>
+<p>With this patch, we can append to existing partitions or non-partitioned tables that already have data in them, as long as the new data being written is compatible to the old data (i.e. one cannot mix fileformats when attempting an append)</p>
+<p>As a further note, append is currently not compatible with dynamic partitioning, and a dynamic partitioning job is still unable to append to a table, even if it is a mutable table.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-6466">HIVE-6466</a> | <em>Major</em> | <strong>Add support for pluggable authentication modules (PAM) in Hive</strong></li>
+</ul>
+<p><em>Release notes:</em> PAM support allows Hive to use existing PAM services for authentication. PAM requires the native [JPAM|http://sourceforge.net/projects/jpam/files/jpam/jpam-1.1/] library. To enable PAM usage: 1. Download the JPAM native library [JPAM|http://sourceforge.net/projects/jpam/files/jpam/jpam-1.1/] for the relevant architecture. 2. Unzip and copy libjpam.so to a directory (<libjmap-directory>) on the system. 3. Add the directory to the LD_LIBRARY_PATH environment variable like so: export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:<libjmap-directory> 4. Set the &quot;hive.server2.authentication&quot; to PAM in hive-site.xml 5. Set the &quot;hive.server2.authentication.pam.services&quot; to a list of comma separated PAM services that will be used. Note that a file with the same name as the PAM service must exist in /etc/pam.d 6. Start HiveServer2</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-6460">HIVE-6460</a> | <em>Major</em> | <strong>Need new &quot;show&quot; functionality for transactions</strong></li>
+</ul>
+<p>A new command SHOW TRANSACTIONS has been added. This will show a list of all currently open and aborted transactions in the system. It is intended for use by administrators. It will print out: • transaction id • transaction state • user who started the transaction • machine where it was started</p>
+<p>A new command SHOW COMPACTIONS has been added. This will provide a list of all tables and partitions currently being compacted or scheduled for compaction. For details on compaction see Basic Design below. This will print: • database name • table name • partition name (if this is a partitioned table) • whether it is a major or minor compaction • the state the compaction is in, which can be: ⁃ 'initiated' - waiting in the queue to be done [could use dashes instead of commas for these 3 state definitions] [I never understand when to use dashes versus commas.] ⁃ 'working' - being compacted ⁃ 'ready for cleaning' - the compaction has been done and the old files are scheduled to be cleaned • thread id of the worker thread doing the compaction (only if in working state) • the time at which the compaction started (only if in working or ready for cleaning state)</p>
+<p>The SHOW LOCKS command has been altered to provide information about the new locks associated with transactions. If you are using the ZooKeeper or in-memory lock managers you will notice no difference in the output of this command. If you are using transactions then SHOW LOCKS will return: • database name • table name • partition (if this is a partitioned table) • the state the lock is in, which can be: ⁃ 'acquired' - the requestor holds the lock ⁃ 'waiting' - the requestor is waiting for the lock ⁃ 'aborted' - the lock has timed out but not yet been cleaned up • the type of lock, which can be: ⁃ 'exclusive' - no one else can hold the lock at the same time (obtained mostly by DDL operations such as drop table) ⁃ 'shared_read’ - any number of other shared_read locks can lock the same resource at the same time (obtained by reads; confusingly, an insert operation also obtains a shared_read lock) ⁃ 'shared_write' - any number of shared_read locks can lock the same resource at the same time, but no other shared_write locks are allowed (obtained by update and delete) • id of the transaction this lock is associated with, if there is one • last time the holder of this lock sent a heartbeat indicating it was still alive • the time the lock was acquired, if it has been acquired • Hive user who requested the lock • host the user is running on</p>
+<p>A new option has been added to ALTER TABLE to request a compaction of a table or partition. In general users do not need to request compactions, as the system will detect the need for them and initiate the compaction. However, if compaction is turned off for a table or a user wants to compact the table at a time the system would not choose to, ALTER TABLE can be used to initiate the compaction. The syntax is:</p>
+<p>ALTER TABLE tablename [PARTITION (partition_key = 'partition_value' [, ...])] COMPACT 'compaction_type'</p>
+<p>where compaction_type can be MAJOR or MINOR. This will enqueue a request for compaction and return. To watch the progress of the compaction the user can use SHOW COMPACTIONS.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-6455">HIVE-6455</a> | <em>Major</em> | <strong>Scalable dynamic partitioning and bucketing optimization</strong></li>
+</ul>
+<p>Added the new config to https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-6440">HIVE-6440</a> | <em>Major</em> | <strong>sql std auth - add command to change owner of database</strong></li>
+</ul>
+<p>Adds support for following statement that can be used to set owner of a database:</p>
+<p>alter database [dbname] set owner [user|group|role] [username]</p>
+<p>Note that 'group' in above command is for parity with grant/revoke statement syntax. But the concept of group is not supported with the new sql standard authorization (only user/role are ).</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-6433">HIVE-6433</a> | <em>Major</em> | <strong>SQL std auth - allow grant/revoke roles if user has ADMIN OPTION</strong></li>
+</ul>
+<p>If a user/role has admin option on a role, then user should be able to grant /revoke other users to/from the role.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-6406">HIVE-6406</a> | <em>Major</em> | <strong>Introduce immutable-table table property and if set, disallow insert-into</strong></li>
+</ul>
+<p>This patch introduces a new table property &quot;immutable&quot;.</p>
+<p>If we create a table with TBLPROPERTIES(&quot;immutable&quot;=&quot;true&quot;), then INSERT INTO behaviour into that table will be disallowed if there is any data already present that the INSERT INTO would append to.</p>
+<p>INSERT INTO will still work if it is empty.</p>
+<p>INSERT OVERWRITE behaviour is not modified by this property, since an INSERT OVERWRITE's intent is effectively to drop and re-create.</p>
+<p>The desirability of having an immutable flag for a table is that it allows a table to be flagged to be protected against accidental updates due to a script loading data into it being run multiple times by mistake. With the flag set, the first insert would succeed, and successive inserts would fail, thus resulting in only one set of data in the table, instead of silently succeeding with 4 copies(say) of the data in the table.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-6403">HIVE-6403</a> | <em>Major</em> | <strong>uncorrelated subquery is failing with auto.convert.join=true</strong></li>
+</ul>
+<p>also added to 0.13 thanks Navis</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-6380">HIVE-6380</a> | <em>Major</em> | <strong>Specify jars/files when creating permanent UDFs</strong></li>
+</ul>
+<p>This allows the user to specify what jars/files/archives are required for a permanent UDF:</p>
+<p>CREATE FUNCTION [db_name.]function_name AS class_name [USING JAR|FILE|ARCHIVE 'file_uri' [, JAR|FILE|ARCHIVE 'file_uri'] ]</p>
+<p>When the function is referenced for the first time by a Hive session, these resources will be added to the environment.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-6342">HIVE-6342</a> | <em>Major</em> | <strong>hive drop partitions should use standard expr filter instead of some custom class</strong></li>
+</ul>
+<p>Hive now supports non-string columns and any operators when parsing the partition specification to drop partitions.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-6339">HIVE-6339</a> | <em>Major</em> | <strong>Implement new JDK7 schema management APIs in java.sql.Connection</strong></li>
+</ul>
+<p>Now supports getSchema()/setSchema() in jdbc for hiveserver2</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-6327">HIVE-6327</a> | <em>Major</em> | <strong>A few mathematic functions don't take decimal input</strong></li>
+</ul>
+<p>Wiki updated.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-6251">HIVE-6251</a> | <em>Major</em> | <strong>Add ability to specify delimiter in HCatalog Java API to create tables - HCatCreateTableDesc</strong></li>
+</ul>
+<p>Added ability to set serde parameters from webhcat-java client.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-6248">HIVE-6248</a> | <em>Major</em> | <strong>HCatReader/Writer should hide Hadoop and Hive classes</strong></li>
+</ul>
+<p>HCatReader and HCatWriter API changed. See https://cwiki.apache.org/confluence/display/Hive/HCatalog+ReaderWriter for details.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-6226">HIVE-6226</a> | <em>Major</em> | <strong>It should be possible to get hadoop, hive, and pig version being used by WebHCat</strong></li>
+</ul>
+<p>Added new call in webhcat to allow version/hadoop and version/hive which will return the versions of hadoop and hive being run.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-6173">HIVE-6173</a> | <em>Major</em> | <strong>Beeline doesn't accept --hiveconf option as Hive CLI does</strong></li>
+</ul>
+<p>This (--hiveconf option) needs documentation if not being documented yet.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-6109">HIVE-6109</a> | <em>Major</em> | <strong>Support customized location for EXTERNAL tables created by Dynamic Partitioning</strong></li>
+</ul>
+<p>A new Job conf property &quot;hcat.dynamic.partitioning.custom.pattern&quot; is introduced that can be configured to provide custom path pattern in case of dynamic partitioning. E.g. &quot;${year}/${month}/${day}/${hour}/${minute}/${country}&quot;</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-6098">HIVE-6098</a> | <em>Major</em> | <strong>Merge Tez branch into trunk</strong></li>
+</ul>
+<p>Here are the instructions for setting up Tez on your hadoop 2 cluster: https://github.com/apache/incubator-tez/blob/branch-0.2.0/INSTALL.txt</p>
+<p>Notes:</p>
+<ul>
+<li>I start hive with &quot;hive -hiveconf hive.execution.engine=tez&quot;, not exactly necessary, but it will start the AM/containers right away instead of on first query.</li>
+<li>hive-exec jar should be copied to hdfs:///user/hive/ (location can be changed with: hive.jar.directory). This avoids re-localization of the hive jar.</li>
+</ul>
+<p>Hive settings:</p>
+<p>// needed because SMB isn't supported on tez yet set hive.optimize.bucketmapjoin=false; set hive.optimize.bucketmapjoin.sortedmerge=false; set hive.auto.convert.sortmerge.join=false; set hive.auto.convert.sortmerge.join.noconditionaltask=false; set hive.auto.convert.join.noconditionaltask=true;</p>
+<p>// depends on your available mem/cluster, but map/reduce mb should be set to the same for container reuse set hive.auto.convert.join.noconditionaltask.size=64000000; set mapred.map.child.java.opts=-server -Xmx3584m -Djava.net.preferIPv4Stack=true; set mapred.reduce.child.java.opts=-server -Xmx3584m -Djava.net.preferIPv4Stack=true; set mapreduce.map.memory.mb=4096; set mapreduce.reduce.memory.mb=4096;</p>
+<p>// generic opts set hive.optimize.reducededuplication.min.reducer=1; set hive.optimize.mapjoin.mapreduce=true;</p>
+<p>// autogather might require you to up the max number of counters, if you run into issues set hive.stats.autogather=true; set hive.stats.dbclass=counter;</p>
+<p>// tea settings can also go into fez-site if desired set mapreduce.map.output.compress=true; set mapreduce.map.output.compress.codec=org.apache.hadoop.io.compress.DefaultCodec; set tez.runtime.intermediate-output.should-compress=true; set tez.runtime.intermediate-output.compress.codec=org.apache.hadoop.io.compress.DefaultCodec; set tez.runtime.intermdiate-input.is-compressed=true; set tez.runtime.intermediate-input.compress.codec=org.apache.hadoop.io.compress.DefaultCodec;</p>
+<p>// tez groups in the AM set hive.input.format=org.apache.hadoop.hive.ql.io.HiveInputFormat;</p>
+<p>set hive.orc.splits.include.file.footer=true;</p>
+<p>set hive.root.logger=ERROR,console; set hive.execution.engine=tez; set hive.vectorized.execution.enabled=true; set hive.exec.local.cache=true; set hive.compute.query.using.stats=true;</p>
+<p>for tez:</p>
+<p><property> <name>tez.am.resource.memory.mb</name> <value>8192</value> </property> <property> <name>tez.am.java.opts</name> <value>-server -Xmx7168m -Djava.net.preferIPv4Stack=true</value> </property> <property> <name>tez.am.grouping.min-size</name> <value>16777216</value> </property> <!-- Client Submission timeout value when submitting DAGs to a session --> <property> <name>tez.session.client.timeout.secs</name> <value>-1</value> </property> <!-- prewarm stuff --> <property> <name>tez.session.pre-warm.enabled</name> <value>true</value> </property></p>
+<p><property> <name>tez.session.pre-warm.num.containers</name> <value>10</value> </property> <property> <name>tez.am.grouping.split-waves</name> <value>0.9</value> </property></p>
+<p><property> <name>tez.am.container.reuse.enabled</name> <value>true</value> </property> <property> <name>tez.am.container.reuse.rack-fallback.enabled</name> <value>true</value> </property> <property> <name>tez.am.container.reuse.non-local-fallback.enabled</name> <value>true</value> </property> <property> <name>tez.am.container.session.delay-allocation-millis</name> <value>-1</value> </property> <property> <name>tez.am.container.reuse.locality.delay-allocation-millis</name> <value>250</value> </property></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-6052">HIVE-6052</a> | <em>Major</em> | <strong>metastore JDO filter pushdown for integers may produce unexpected results with non-normalized integer columns</strong></li>
+</ul>
+<p>JDO pushdown for integers in metastore didn't work correctly for some legacy data in partition columns in Hive 0.12. In 0.13, hive.metastore.integral.jdo.pushdown setting is added to enable it, and it's disabled by default. Enabling it improves metastore perf for integral columns, especially if there's a large number of partitions. However, it doesn't work correctly with integral values that are not normalized (e.g. have leading zeroes, like 0012). If metastore direct SQL is enabled and works, this optimization is also irrelevant.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-6013">HIVE-6013</a> | <em>Major</em> | <strong>Supporting Quoted Identifiers in Column Names</strong></li>
+</ul>
+<p>The default behavior for quoted identifiers has been changed. Now at the language level any Column Name that is specified within back-ticks(`) is treated literally. This is inline with standard sql behavior for quoted identifiers. Within back-tick strings use double back-ticks to escape.</p>
+<p>To revert to old behavior(that of interpreting back-ticked names as regular expressions) use the new parameter: hive.support.quoted.identifiers; set to the value 'none'.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-5985">HIVE-5985</a> | <em>Trivial</em> | <strong>Make qfile_regex to accept multiple patterns</strong></li>
+</ul>
+<p>Committed to trunk. Thanks for a review, Ashutosh!</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-5960">HIVE-5960</a> | <em>Major</em> | <strong>SQL std auth - special handling of PUBLIC role</strong></li>
+</ul>
+<p>In sql standard authorization mode all users by default belong to PUBLIC role</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-5959">HIVE-5959</a> | <em>Major</em> | <strong>SQL std auth - bootstrap SUPERUSER roles</strong></li>
+</ul>
+<p>A new property is added in HiveConf. {{hive.users.in.admin.role}} An admin can provide a comma separated list of users which will be added to admin role when metastore starts up. More users can still be added later on.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-5953">HIVE-5953</a> | <em>Major</em> | <strong>SQL std auth - authorize grant/revoke on table</strong></li>
+</ul>
+<p>Granting privileges on a table now requires the grantor to have the same privileges 'with grant option'.</p>
+<p>Also, note that this patch adds a new method setSessionState to the authentication interface. Any users of the interface would need to add that method.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-5941">HIVE-5941</a> | <em>Major</em> | <strong>SQL std auth - support 'show roles'</strong></li>
+</ul>
+<p>This jira adds support for &quot;show roles&quot; statement, it list all existing roles.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-5923">HIVE-5923</a> | <em>Major</em> | <strong>SQL std auth - parser changes</strong></li>
+</ul>
+<p>Grant privilege and revoke privilege statements don't have the requirement (but not the option) for the noise word TABLE. TABLE is the assumed default for grant and revoke statements. Hive’s syntax changes from &quot;GRANT action ON TABLE table TO grantee&quot; to &quot;GRANT action ON [TABLE] table TO grantee&quot;.</p>
+<p>Grant role and revoke role statements has been changed to remove the need for keyword ROLE.</p>
+<p>Support for WITH ADMIN OPTION has been added to grant role and revoke role statement syntax.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-5879">HIVE-5879</a> | <em>Trivial</em> | <strong>Fix spelling errors in hive-default.xml</strong></li>
+</ul>
+<p>Fix spelling and name capitalizations in hive-default.xml.template file.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-5795">HIVE-5795</a> | <em>Major</em> | <strong>Hive should be able to skip header and footer rows when reading data file for a table</strong></li>
+</ul>
+<p>hive.file.max.footer Default Value: 100 Max number of lines of footer user can set for a table file. skip.header.line.count Default Value: 0 Number of header lines for the table file. skip.footer.line.count Default Value: 0 Number of footer lines for the table file.</p>
+<p>&quot;skip.footer.line.count&quot; and &quot;skip.header.line.count&quot; should be specified in the table property during creating the table. Following example shows the usage of these two properties:</p>
+<p>Create external table testtable (name string, message string) row format delimited fields terminated by '' lines terminated by '' location '/testtable' tblproperties (&quot;skip.header.line.count&quot;=&quot;1&quot;, &quot;skip.footer.line.count&quot;=&quot;2&quot;);</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-5783">HIVE-5783</a> | <em>Minor</em> | <strong>Native Parquet Support in Hive</strong></li>
+</ul>
+<p>Added support for 'STORED AS PARQUET' and for setting parquet as the default storage engine.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-5687">HIVE-5687</a> | <em>Major</em> | <strong>Streaming support in Hive</strong></li>
+</ul>
+<p>New transactional APIs to support Streaming data directly into Hive.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-5682">HIVE-5682</a> | <em>Major</em> | <strong>can not display the table's comment in chinese</strong></li>
+</ul>
+<p>the hive-0.12.0 can not display the table's comment in chinese(not unicode),so it is displayed in messy code,the patch HIVE-5682 can fix this.and i have test it.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-5663">HIVE-5663</a> | <em>Major</em> | <strong>Refactor ORC RecordReader to operate on direct &amp; wrapped ByteBuffers</strong></li>
+</ul>
+<p>Refactor ORC RecordReader to use ByteBuffer APIs instead of relying on underlying array()</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-5655">HIVE-5655</a> | <em>Major</em> | <strong>Hive incorrecly handles divide-by-zero case</strong></li>
+</ul>
+<p>The behaviour needs to be documented.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-5636">HIVE-5636</a> | <em>Major</em> | <strong>Introduce getPartitionColumns() functionality from HCatInputFormat</strong></li>
+</ul>
+<p>Introduces 2 static functions on HCatInputFormat:</p>
+<p>public static HCatSchema getPartitionColumns(Configuration conf) throws IOException public static HCatSchema getDataColumns(Configuration conf) throws IOException</p>
+<p>These return the partitioning columns and data column schemas for a HCatInputFormat user, and can be used after HCatInputFormat.setInput has been called on a job with an associated conf.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-5504">HIVE-5504</a> | <em>Major</em> | <strong>OrcOutputFormat honors compression properties only from within hive</strong></li>
+</ul>
+<p>Allows OrcOutputFormat.createRecordWriter() to use its table property parameters (like &quot;orc.compress&quot;) if specified in JobConf as well. This codepath is not called from Hive, but will be helpful to those that want to use OrcOutputFormat as a generic M/R OutputFormat.</p>
+<p>In addition, makes changes to HCatalog to look for certain Orc table properties, and if present, copies them out to JobConf before instantiating OrcOutputFormat, thus passing the properties back to it. This allows users of Orc from outside Hive to have Orc behave as the metadata dictates.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-5454">HIVE-5454</a> | <em>Major</em> | <strong>HCatalog runs a partition listing with an empty filter</strong></li>
+</ul>
+<p>Deprecated the HCatInputFormat#setFilter(…) chain API call in favor of a new, filter-passing, HCatInputFormat#setInput(…) method.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-5400">HIVE-5400</a> | <em>Major</em> | <strong>Allow admins to disable compile and other commands</strong></li>
+</ul>
+<p>Introduces new hive config parameter - hive.security.command.whitelist . This can use used to restrict the set of commands that can be run. Currently supported command list is - &quot;set,reset,dfs,add,delete&quot; and by default all these commands are supported. If you want to restrict any of these commands, you can set the config to a value that does not have the command in it.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-5380">HIVE-5380</a> | <em>Minor</em> | <strong>Non-default OI constructors should be supported for backwards compatibility</strong></li>
+</ul>
+<p>Apache Hive recommends that custom ObjectInspectors created for use with custom Serdes have a no-argument constructor in addition to their normal constructors for serialization purposes. See HIVE-5380 for more details.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-5356">HIVE-5356</a> | <em>Major</em> | <strong>Move arithmatic UDFs to generic UDF implementations</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-5345">HIVE-5345</a> | <em>Major</em> | <strong>Operator::close() leaks Operator::out, holding reference to buffers</strong></li>
+</ul>
+<p>Prevent OutputCollector leaks from an Operator by clearing the Operator::out reference on close()</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-5269">HIVE-5269</a> | <em>Trivial</em> | <strong>Use thrift binary type for conveying binary values in hiveserver2</strong></li>
+</ul>
+<p>Merged into HIVE-3746. Now uses ByteBuffer for binary types.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-5217">HIVE-5217</a> | <em>Major</em> | <strong>Add long polling to asynchronous execution in HiveServer2</strong></li>
+</ul>
+<p>Change to use Long polling as described in description. Adds hive.server2.long.polling.timeout configuration parameter, which can be used to configure how long the long poll waits. Most users would not need to bother about changing this configuration parameter.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-5193">HIVE-5193</a> | <em>Major</em> | <strong>Columnar Pushdown for RC/ORC File not happening in HCatLoader</strong></li>
+</ul>
+<p>(Columnar pushdown will now work with HCatLoader - basically, what this means is that when using RC/ORC tables, not all rows are necessarily read and processed if pig would discard (by filtering) it anyway. This allows reads to be a bit faster.)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-5191">HIVE-5191</a> | <em>Major</em> | <strong>Add char data type</strong></li>
+</ul>
+<p>The new datatype (char) has been documented in Types and DDL wikidocs.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-4971">HIVE-4971</a> | <em>Major</em> | <strong>Unit test failure in TestVectorTimestampExpressions</strong></li>
+</ul>
+<p>Fix vectorized TIMESTAMP() to handle negative timestamps with fractional seconds</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-4884">HIVE-4884</a> | <em>Major</em> | <strong>ORC TimestampTreeReader.nextVector() off by a second when time in fractional</strong></li>
+</ul>
+<p>Adjust milliseconds down when encountering a negative second value with a fractional second stored as nanoseconds.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-4758">HIVE-4758</a> | <em>Major</em> | <strong>NULLs and record separators broken with vectorization branch intermediate outputs</strong></li>
+</ul>
+<p>Fix the NULL serialization and record separator insertion for VectorizedRowBatch.toString()</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-4699">HIVE-4699</a> | <em>Minor</em> | <strong>Integrate basic UDFs for Timesamp</strong></li>
+</ul>
+<p>Integrate vectorized Year, Month, Week, Day, Hour, Minute, Second &amp; UnixTimestamp UDFs for Timestamp fields.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-4694">HIVE-4694</a> | <em>Minor</em> | <strong>Fix ORC TestVectorizedORCReader testcase for Timestamps</strong></li>
+</ul>
+<p>Fix ORC TestVectorizedORCReader for Timestamps containing sub-second timings</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-4681">HIVE-4681</a> | <em>Major</em> | <strong>Fix ORC TimestampTreeReader.nextVector() to handle milli-nano math corectly</strong></li>
+</ul>
+<p>Fix ORC TimestampTreeReader to sum the second and nanosecond fraction timestamp vectors correctly</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-4608">HIVE-4608</a> | <em>Minor</em> | <strong>Vectorized UDFs for Timestamp in nanoseconds</strong></li>
+</ul>
+<p>Vectorized UDFs for timestamp functions which accept long vectors</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-4518">HIVE-4518</a> | <em>Major</em> | <strong>Counter Strike: Operation Operator</strong></li>
+</ul>
+<p>Added config setting hive.counters.group.name: counter group name for counters used during query execution.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-4485">HIVE-4485</a> | <em>Major</em> | <strong>beeline prints null as empty strings</strong></li>
+</ul>
+<p>This introduces a backward incompatible change. Earlier, null was getting printed as an empty string. There was no way to distinguish between an empty string an a null value. With this change null values will be printed as NULL. To get the old behavior you can set the property nullemptystring to values. This can be done via commandline argument : beeline --nullemptystring=true Or within the beeline shell</p>
+<blockquote>
+<p>!set nullemptystring true</p>
+</blockquote>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-3976">HIVE-3976</a> | <em>Major</em> | <strong>Support specifying scale and precision with Hive decimal type</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-3611">HIVE-3611</a> | <em>Major</em> | <strong>Hive JDBC doesn't support BINARY column</strong></li>
+</ul>
+<p>Path to support BINARY type in Hive JDBC - Jira: HIVE-3611</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-3455">HIVE-3455</a> | <em>Major</em> | <strong>ANSI CORR(X,Y) is incorrect</strong></li>
+</ul>
+<p>the patch for the src/ql/src/java/org/apache/hadoop/hive/ql/udf/generic</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-2817">HIVE-2817</a> | <em>Major</em> | <strong>Drop any table even without privilege</strong></li>
+</ul>
+<p>Fix bug drop any table even without privilege</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-2055">HIVE-2055</a> | <em>Major</em> | <strong>Hive should add HBase classpath dependencies when available</strong></li>
+</ul>
+<p>HBase will be detected via HBASE_HOME and HBASE_CONF_DIR. HBASE_HOME defaults to BigTop path /usr/lib/hbase.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-1511">HIVE-1511</a> | <em>Major</em> | <strong>Hive plan serialization is slow</strong></li>
+</ul>
+<p>Any 3rd party UDFs used must be declared as public classes.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-1466">HIVE-1466</a> | <em>Major</em> | <strong>Add NULL DEFINED AS to ROW FORMAT specification</strong></li>
+</ul>
+<p>This features enables defining a custom null format for a table via 'create table' statement. A custom null format can also be specified while exporting data to local filesystem using 'insert overwrite .. local dir' statement.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-784">HIVE-784</a> | <em>Major</em> | <strong>Support uncorrelated subqueries in the WHERE clause</strong></li>
+</ul>
+<p>Not ready for release</p>

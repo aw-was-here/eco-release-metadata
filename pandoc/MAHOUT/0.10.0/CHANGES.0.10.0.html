@@ -1,0 +1,1398 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-mahout-changelog">Apache Mahout Changelog</h1>
+<h2 id="release-0.10.0---2015-04-12">Release 0.10.0 - 2015-04-12</h2>
+<h3 id="new-features">NEW FEATURES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1438">MAHOUT-1438</a></td>
+<td align="left">&quot;quickstart&quot; tutorial for building a simple recommender</td>
+<td align="left">Major</td>
+<td align="left">Examples</td>
+<td align="left">Maciej Mazur</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1420">MAHOUT-1420</a></td>
+<td align="left">Add solr-recommender to examples</td>
+<td align="left">Minor</td>
+<td align="left">Examples</td>
+<td align="left">Andrew Musselman</td>
+<td align="left">Andrew Musselman</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1445">MAHOUT-1445</a></td>
+<td align="left">Create an intro for item based recommender</td>
+<td align="left">Major</td>
+<td align="left">Documentation</td>
+<td align="left">Maciej Mazur</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1518">MAHOUT-1518</a></td>
+<td align="left">Preprocessing for collaborative filtering with the Scala DSL</td>
+<td align="left">Major</td>
+<td align="left">Collaborative Filtering</td>
+<td align="left">Sebastian Schelter</td>
+<td align="left">Sebastian Schelter</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1489">MAHOUT-1489</a></td>
+<td align="left">Interactive Scala &amp; Spark Bindings Shell &amp; Script processor</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Saikat Kanjilal</td>
+<td align="left">Dmitriy Lyubimov</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1446">MAHOUT-1446</a></td>
+<td align="left">Create an intro for matrix factorization</td>
+<td align="left">Major</td>
+<td align="left">Documentation</td>
+<td align="left">Maciej Mazur</td>
+<td align="left">Sebastian Schelter</td>
+</tr>
+</tbody>
+</table>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1416">MAHOUT-1416</a></td>
+<td align="left">Make access of DecisionForest read() less restricted</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Manoj Awasthi</td>
+<td align="left">Suneel Marthi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1429">MAHOUT-1429</a></td>
+<td align="left">Parallelize YtransposeY in ImplicitFeedbackAlternatingLeastSquaresSolver</td>
+<td align="left">Minor</td>
+<td align="left">Collaborative Filtering</td>
+<td align="left">Adam Ilardi</td>
+<td align="left">Sebastian Schelter</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1433">MAHOUT-1433</a></td>
+<td align="left">Make SVDRecommender look at all unknown items of a user per default</td>
+<td align="left">Major</td>
+<td align="left">Collaborative Filtering</td>
+<td align="left">Sebastian Schelter</td>
+<td align="left">Sebastian Schelter</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1413">MAHOUT-1413</a></td>
+<td align="left">Rework algorithms page</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Sebastian Schelter</td>
+<td align="left">Suneel Marthi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1447">MAHOUT-1447</a></td>
+<td align="left">ImplicitFeedbackAlternatingLeastSquaresSolver tests and features</td>
+<td align="left">Minor</td>
+<td align="left">Collaborative Filtering</td>
+<td align="left">Adam Ilardi</td>
+<td align="left">Sebastian Schelter</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1448">MAHOUT-1448</a></td>
+<td align="left">In Random Forest, the training does not support multiple input files. The input dataset must be one single file.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Manoj Awasthi</td>
+<td align="left">Sebastian Schelter</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1459">MAHOUT-1459</a></td>
+<td align="left">Move Hadoop related code out of CanopyClusterer</td>
+<td align="left">Minor</td>
+<td align="left">Clustering</td>
+<td align="left">Frank Scholten</td>
+<td align="left">Frank Scholten</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1460">MAHOUT-1460</a></td>
+<td align="left">Remove reference to Dirichlet in ClusterIterator</td>
+<td align="left">Major</td>
+<td align="left">Clustering</td>
+<td align="left">Frank Scholten</td>
+<td align="left">Frank Scholten</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1437">MAHOUT-1437</a></td>
+<td align="left">Remove all links to wiki pages from the website</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sebastian Schelter</td>
+<td align="left">Sebastian Schelter</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1463">MAHOUT-1463</a></td>
+<td align="left">Modify OnlineSummarizers to use the TDigest dependency from Maven Central.</td>
+<td align="left">Major</td>
+<td align="left">Math</td>
+<td align="left">Suneel Marthi</td>
+<td align="left">Suneel Marthi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1356">MAHOUT-1356</a></td>
+<td align="left">Ensure unit tests fail fast when writing outside mvn target directory</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Isabel Drost-Fromm</td>
+<td align="left">Suneel Marthi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1472">MAHOUT-1472</a></td>
+<td align="left">Cleanup website on Fuzzy k-Means</td>
+<td align="left">Major</td>
+<td align="left">Documentation</td>
+<td align="left">Sebastian Schelter</td>
+<td align="left">Suneel Marthi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1475">MAHOUT-1475</a></td>
+<td align="left">Clean up website on Naive Bayes</td>
+<td align="left">Major</td>
+<td align="left">Documentation</td>
+<td align="left">Sebastian Schelter</td>
+<td align="left">Suneel Marthi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1471">MAHOUT-1471</a></td>
+<td align="left">Cleanup website on Canopy Clustering</td>
+<td align="left">Major</td>
+<td align="left">Documentation</td>
+<td align="left">Sebastian Schelter</td>
+<td align="left">Suneel Marthi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1476">MAHOUT-1476</a></td>
+<td align="left">Cleanup website on Hidden Markov Models</td>
+<td align="left">Major</td>
+<td align="left">Documentation</td>
+<td align="left">Sebastian Schelter</td>
+<td align="left">Andrew Musselman</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1374">MAHOUT-1374</a></td>
+<td align="left">Ability to provide input file with userid, itemid pair</td>
+<td align="left">Major</td>
+<td align="left">Collaborative Filtering</td>
+<td align="left">Romit Singhai</td>
+<td align="left">Sebastian Schelter</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1483">MAHOUT-1483</a></td>
+<td align="left">Organize links in web site navigation bar</td>
+<td align="left">Minor</td>
+<td align="left">Documentation</td>
+<td align="left">Andrew Musselman</td>
+<td align="left">Andrew Musselman</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1387">MAHOUT-1387</a></td>
+<td align="left">Create page for release notes</td>
+<td align="left">Minor</td>
+<td align="left">Documentation</td>
+<td align="left">Isabel Drost-Fromm</td>
+<td align="left">Sebastian Schelter</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1440">MAHOUT-1440</a></td>
+<td align="left">Add option to set the RNG seed for inital cluster generation in Kmeans/fKmeans</td>
+<td align="left">Minor</td>
+<td align="left">CLI, Clustering</td>
+<td align="left">Andrew Palumbo</td>
+<td align="left">Sebastian Schelter</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-950">MAHOUT-950</a></td>
+<td align="left">Change BtJob to use new MultipleOutputs API</td>
+<td align="left">Major</td>
+<td align="left">Math</td>
+<td align="left">Tom White</td>
+<td align="left">Suneel Marthi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1519">MAHOUT-1519</a></td>
+<td align="left">Remove StandardThetaTrainer</td>
+<td align="left">Major</td>
+<td align="left">Classification</td>
+<td align="left">Sebastian Schelter</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1520">MAHOUT-1520</a></td>
+<td align="left">Fix links in Mahout website documentation</td>
+<td align="left">Major</td>
+<td align="left">Documentation</td>
+<td align="left">Saleem Ansari</td>
+<td align="left">Suneel Marthi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1530">MAHOUT-1530</a></td>
+<td align="left">Custom prompt and welcome message for the Spark Shell</td>
+<td align="left">Minor</td>
+<td align="left">Math</td>
+<td align="left">Sebastian Schelter</td>
+<td align="left">Sebastian Schelter</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1346">MAHOUT-1346</a></td>
+<td align="left">Spark Bindings (DRM)</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Dmitriy Lyubimov</td>
+<td align="left">Dmitriy Lyubimov</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1542">MAHOUT-1542</a></td>
+<td align="left">Tutorial for playing with Mahout's Spark shell</td>
+<td align="left">Major</td>
+<td align="left">Documentation, Math</td>
+<td align="left">Sebastian Schelter</td>
+<td align="left">Sebastian Schelter</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1388">MAHOUT-1388</a></td>
+<td align="left">Add command line support and logging for MLP</td>
+<td align="left">Major</td>
+<td align="left">Classification</td>
+<td align="left">Yexi Jiang</td>
+<td align="left">Suneel Marthi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1554">MAHOUT-1554</a></td>
+<td align="left">Provide more comprehensive classification statistics</td>
+<td align="left">Minor</td>
+<td align="left">Classification</td>
+<td align="left">Karol Grzegorczyk</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1558">MAHOUT-1558</a></td>
+<td align="left">Clean up classify-wiki.sh and add in a binary classification problem</td>
+<td align="left">Minor</td>
+<td align="left">Classification, Examples</td>
+<td align="left">Andrew Palumbo</td>
+<td align="left">Sebastian Schelter</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1480">MAHOUT-1480</a></td>
+<td align="left">Clean up website on 20 newsgroups</td>
+<td align="left">Major</td>
+<td align="left">Documentation</td>
+<td align="left">Sebastian Schelter</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1529">MAHOUT-1529</a></td>
+<td align="left">Finalize abstraction of distributed logical plans from backend operations</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Dmitriy Lyubimov</td>
+<td align="left">Dmitriy Lyubimov</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1580">MAHOUT-1580</a></td>
+<td align="left">Optimize getNumNonZeroElements</td>
+<td align="left">Major</td>
+<td align="left">Math</td>
+<td align="left">Sebastian Schelter</td>
+<td align="left">Sebastian Schelter</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1565">MAHOUT-1565</a></td>
+<td align="left">add MR2 options to MAHOUT_OPTS in bin/mahout</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Nishkam Ravi</td>
+<td align="left">Gokhan Capan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1606">MAHOUT-1606</a></td>
+<td align="left">Add rowSums, rowMeans and diagonal extraction operations to distributed matrices</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Dmitriy Lyubimov</td>
+<td align="left">Dmitriy Lyubimov</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1608">MAHOUT-1608</a></td>
+<td align="left">Add Option WikipediaToSequenceFile to remove Category Labels from Documents</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Andrew Palumbo</td>
+<td align="left">Andrew Palumbo</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1500">MAHOUT-1500</a></td>
+<td align="left">H2O integration</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Anand Avati</td>
+<td align="left">Andrew Palumbo</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1616">MAHOUT-1616</a></td>
+<td align="left">Better support for hadoop dependencies of multiple versions</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Gokhan Capan</td>
+<td align="left">Gokhan Capan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1425">MAHOUT-1425</a></td>
+<td align="left">SGD classifier example with bank marketing dataset</td>
+<td align="left">Major</td>
+<td align="left">Examples</td>
+<td align="left">Frank Scholten</td>
+<td align="left">Frank Scholten</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1485">MAHOUT-1485</a></td>
+<td align="left">Clean up Recommender Overview page</td>
+<td align="left">Major</td>
+<td align="left">Documentation</td>
+<td align="left">Sebastian Schelter</td>
+<td align="left">Sebastian Schelter</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1578">MAHOUT-1578</a></td>
+<td align="left">Optimizations in matrix serialization</td>
+<td align="left">Major</td>
+<td align="left">Math</td>
+<td align="left">Sebastian Schelter</td>
+<td align="left">Sebastian Schelter</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1598">MAHOUT-1598</a></td>
+<td align="left">extend seq2sparse to handle multiple text blocks of same document</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Wolfgang Buchner</td>
+<td align="left">Andrew Musselman</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1278">MAHOUT-1278</a></td>
+<td align="left">Upgrade to Apache parent pom v16</td>
+<td align="left">Minor</td>
+<td align="left">build</td>
+<td align="left">Stevo Slavic</td>
+<td align="left">Stevo Slavic</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1661">MAHOUT-1661</a></td>
+<td align="left">Deprecate Lanczos in the code base</td>
+<td align="left">Critical</td>
+<td align="left">Clustering</td>
+<td align="left">Suneel Marthi</td>
+<td align="left">Shannon Quinn</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1655">MAHOUT-1655</a></td>
+<td align="left">Refactor module dependencies</td>
+<td align="left">Critical</td>
+<td align="left">mrlegacy</td>
+<td align="left">Pat Ferrel</td>
+<td align="left">Andrew Musselman</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1559">MAHOUT-1559</a></td>
+<td align="left">Add documentation for and clean up the wikipedia classifier example</td>
+<td align="left">Minor</td>
+<td align="left">Documentation, Examples</td>
+<td align="left">Andrew Palumbo</td>
+<td align="left">Andrew Palumbo</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1672">MAHOUT-1672</a></td>
+<td align="left">Update OnlineSummarizer to use the new T-Digest 3.1</td>
+<td align="left">Trivial</td>
+<td align="left">Math</td>
+<td align="left">Suneel Marthi</td>
+<td align="left">Ted Dunning</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1649">MAHOUT-1649</a></td>
+<td align="left">Upgrade to Lucene 4.10.x</td>
+<td align="left">Major</td>
+<td align="left">Integration</td>
+<td align="left">Suneel Marthi</td>
+<td align="left">Suneel Marthi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1585">MAHOUT-1585</a></td>
+<td align="left">Javadocs are not hosted By Mahout Quality</td>
+<td align="left">Major</td>
+<td align="left">Documentation</td>
+<td align="left">Andrew Palumbo</td>
+<td align="left">Stevo Slavic</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1562">MAHOUT-1562</a></td>
+<td align="left">Publish Scaladocs</td>
+<td align="left">Minor</td>
+<td align="left">Documentation</td>
+<td align="left">Pat Ferrel</td>
+<td align="left">Stevo Slavic</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1415">MAHOUT-1415</a></td>
+<td align="left">Clone method on sparse matrices fails if there is an empty row which has not been set explicitly</td>
+<td align="left">Minor</td>
+<td align="left">Math</td>
+<td align="left">Till Rohrmann</td>
+<td align="left">Sebastian Schelter</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1417">MAHOUT-1417</a></td>
+<td align="left">Random decision forest implementation fails in Hadoop 2</td>
+<td align="left">Major</td>
+<td align="left">Classification</td>
+<td align="left">Sean Owen</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1419">MAHOUT-1419</a></td>
+<td align="left">Random decision forest is excessively slow on numeric features</td>
+<td align="left">Major</td>
+<td align="left">Classification</td>
+<td align="left">Sean Owen</td>
+<td align="left">Sean Owen</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1455">MAHOUT-1455</a></td>
+<td align="left">Forkcount config causes JVM crashes during build</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Frank Scholten</td>
+<td align="left">Frank Scholten</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1458">MAHOUT-1458</a></td>
+<td align="left">Remove KMeansConfigKeys and FuzzyKMeansConfigKeys</td>
+<td align="left">Major</td>
+<td align="left">Clustering</td>
+<td align="left">Frank Scholten</td>
+<td align="left">Frank Scholten</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1457">MAHOUT-1457</a></td>
+<td align="left">Move EigenSeedGenerator into spectral kmeans package</td>
+<td align="left">Major</td>
+<td align="left">Clustering</td>
+<td align="left">Frank Scholten</td>
+<td align="left">Frank Scholten</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1465">MAHOUT-1465</a></td>
+<td align="left">Clean up README</td>
+<td align="left">Trivial</td>
+<td align="left">Documentation</td>
+<td align="left">Andrew Musselman</td>
+<td align="left">Andrew Musselman</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1466">MAHOUT-1466</a></td>
+<td align="left">Cluster visualization fails to execute</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sebastian Schelter</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1467">MAHOUT-1467</a></td>
+<td align="left">ClusterClassifier readPolicy leaks file handles</td>
+<td align="left">Major</td>
+<td align="left">Clustering</td>
+<td align="left">Avi Shinnar</td>
+<td align="left">Suneel Marthi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1488">MAHOUT-1488</a></td>
+<td align="left">DisplaySpectralKMeans fails: examples/output/clusteredPoints/part-m-00000 does not exist.</td>
+<td align="left">Major</td>
+<td align="left">Examples</td>
+<td align="left">Saleem Ansari</td>
+<td align="left">Suneel Marthi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1491">MAHOUT-1491</a></td>
+<td align="left">Spectral KMeans Clustering doesn't clean its /tmp dir and fails when seeing it again</td>
+<td align="left">Minor</td>
+<td align="left">Clustering</td>
+<td align="left">Suneel Marthi</td>
+<td align="left">Suneel Marthi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1492">MAHOUT-1492</a></td>
+<td align="left">Doap file has references to cwiki still</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ted Dunning</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1501">MAHOUT-1501</a></td>
+<td align="left">ClusterOutputPostProcessorDriver has private default constructor</td>
+<td align="left">Trivial</td>
+<td align="left">Clustering</td>
+<td align="left">Reinis Vicups</td>
+<td align="left">Sebastian Schelter</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1494">MAHOUT-1494</a></td>
+<td align="left">README.txt is examples/clustering needs to be updated</td>
+<td align="left">Minor</td>
+<td align="left">Clustering</td>
+<td align="left">Suneel Marthi</td>
+<td align="left">Andrew Musselman</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1508">MAHOUT-1508</a></td>
+<td align="left">Performance problems with sparse matrices</td>
+<td align="left">Blocker</td>
+<td align="left">Math</td>
+<td align="left">Sebastian Schelter</td>
+<td align="left">Sebastian Schelter</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1435">MAHOUT-1435</a></td>
+<td align="left">Website Redesign</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sebastian Schelter</td>
+<td align="left">Sebastian Schelter</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1503">MAHOUT-1503</a></td>
+<td align="left">TestNaiveBayesDriver fails in sequential mode</td>
+<td align="left">Minor</td>
+<td align="left">Classification, Examples</td>
+<td align="left">Andrew Palumbo</td>
+<td align="left">Suneel Marthi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1497">MAHOUT-1497</a></td>
+<td align="left">mahout resplit not producing splited files</td>
+<td align="left">Major</td>
+<td align="left">CLI</td>
+<td align="left">Reinis Vicups</td>
+<td align="left">Sebastian Schelter</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1517">MAHOUT-1517</a></td>
+<td align="left">Remove casts to int in ALSWRFactorizer</td>
+<td align="left">Major</td>
+<td align="left">Collaborative Filtering</td>
+<td align="left">Sebastian Schelter</td>
+<td align="left">Sebastian Schelter</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1496">MAHOUT-1496</a></td>
+<td align="left">Create a website describing the distributed ALS recommender</td>
+<td align="left">Major</td>
+<td align="left">Collaborative Filtering, Documentation</td>
+<td align="left">Sebastian Schelter</td>
+<td align="left">Sebastian Schelter</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1523">MAHOUT-1523</a></td>
+<td align="left">Remove @author tags in sparkbindings</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sebastian Schelter</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1502">MAHOUT-1502</a></td>
+<td align="left">Update Naive Bayes Webpage to Current Implementation</td>
+<td align="left">Minor</td>
+<td align="left">Documentation</td>
+<td align="left">Andrew Palumbo</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1537">MAHOUT-1537</a></td>
+<td align="left">minor fixes to spark-shell</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Anand Avati</td>
+<td align="left">Dmitriy Lyubimov</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1428">MAHOUT-1428</a></td>
+<td align="left">Recommending already consumed items</td>
+<td align="left">Major</td>
+<td align="left">Collaborative Filtering</td>
+<td align="left">Mario Levitin</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1548">MAHOUT-1548</a></td>
+<td align="left">Fix broken links in quickstart webpage</td>
+<td align="left">Major</td>
+<td align="left">Documentation</td>
+<td align="left">Andrew Palumbo</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1441">MAHOUT-1441</a></td>
+<td align="left">Add documentation for Spectral KMeans to Mahout Website</td>
+<td align="left">Major</td>
+<td align="left">Documentation</td>
+<td align="left">Suneel Marthi</td>
+<td align="left">Shannon Quinn</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1532">MAHOUT-1532</a></td>
+<td align="left">Add solve() function to the Scala DSL</td>
+<td align="left">Major</td>
+<td align="left">Math</td>
+<td align="left">Sebastian Schelter</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1385">MAHOUT-1385</a></td>
+<td align="left">Caching Encoders don't cache</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Johannes Schulte</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1498">MAHOUT-1498</a></td>
+<td align="left">DistributedCache.setCacheFiles in DictionaryVectorizer overwrites jars pushed using oozie</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sergey</td>
+<td align="left">Sebastian Schelter</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1560">MAHOUT-1560</a></td>
+<td align="left">Last batch is not filled correctly in MultithreadedBatchItemSimilarities</td>
+<td align="left">Minor</td>
+<td align="left">Collaborative Filtering</td>
+<td align="left">Jarosław Bojar</td>
+<td align="left">Sebastian Schelter</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1561">MAHOUT-1561</a></td>
+<td align="left">cluster-syntheticcontrol.sh not running locally with MAHOUT_LOCAL=true</td>
+<td align="left">Minor</td>
+<td align="left">Clustering, Examples</td>
+<td align="left">Andrew Palumbo</td>
+<td align="left">Sebastian Schelter</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1555">MAHOUT-1555</a></td>
+<td align="left">Exception thrown when a test example has the label not present in training examples</td>
+<td align="left">Minor</td>
+<td align="left">Classification</td>
+<td align="left">Karol Grzegorczyk</td>
+<td align="left">Suneel Marthi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1505">MAHOUT-1505</a></td>
+<td align="left">structure of clusterdump's JSON output</td>
+<td align="left">Major</td>
+<td align="left">Clustering</td>
+<td align="left">Terry Blankers</td>
+<td align="left">Andrew Musselman</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1574">MAHOUT-1574</a></td>
+<td align="left">SparseRowMatrix needs performance improvement for times()</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ted Dunning</td>
+<td align="left">Ted Dunning</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1575">MAHOUT-1575</a></td>
+<td align="left">Conjugate gradient assumes best case scenario for convergence</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ted Dunning</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1576">MAHOUT-1576</a></td>
+<td align="left">Do a quick style pass to knock down some accumulated warnings</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ted Dunning</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1577">MAHOUT-1577</a></td>
+<td align="left">FindBugs and PMD settings unrealistic</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ted Dunning</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1571">MAHOUT-1571</a></td>
+<td align="left">Functional Views are not serialized as dense/sparse correctly</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Dmitriy Lyubimov</td>
+<td align="left">Dmitriy Lyubimov</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1572">MAHOUT-1572</a></td>
+<td align="left">blockify() to detect (naively) the data sparsity in the loaded data</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Dmitriy Lyubimov</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1439">MAHOUT-1439</a></td>
+<td align="left">Update talks on Mahout</td>
+<td align="left">Major</td>
+<td align="left">Documentation</td>
+<td align="left">Sebastian Schelter</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1581">MAHOUT-1581</a></td>
+<td align="left">Timeout-based SRM test can hit limits on Apache test infra</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ted Dunning</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1521">MAHOUT-1521</a></td>
+<td align="left">lucene2seq - Error trying to load data from stored field (when non-indexed)</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Terry Blankers</td>
+<td align="left">Frank Scholten</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1427">MAHOUT-1427</a></td>
+<td align="left">Convert old .mapred API to new .mapreduce</td>
+<td align="left">Minor</td>
+<td align="left">Collaborative Filtering, Integration</td>
+<td align="left">Suneel Marthi</td>
+<td align="left">Suneel Marthi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1597">MAHOUT-1597</a></td>
+<td align="left">A + 1.0 (element-wise scala operation) gives wrong result if rdd is missing rows, Spark side</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Dmitriy Lyubimov</td>
+<td align="left">Dmitriy Lyubimov</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1596">MAHOUT-1596</a></td>
+<td align="left">support for rbind() operator on DRMs</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Anand Avati</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1587">MAHOUT-1587</a></td>
+<td align="left">Update website to reflect move to GitHub</td>
+<td align="left">Major</td>
+<td align="left">Documentation</td>
+<td align="left">Andrew Palumbo</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1595">MAHOUT-1595</a></td>
+<td align="left">iterateNonZero() is broken in MatrixVectorView</td>
+<td align="left">Major</td>
+<td align="left">Math</td>
+<td align="left">Anand Avati</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1610">MAHOUT-1610</a></td>
+<td align="left">Tests can be made more robust to pass in Java 8</td>
+<td align="left">Minor</td>
+<td align="left">Integration</td>
+<td align="left">Sean Owen</td>
+<td align="left">Sean Owen</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1615">MAHOUT-1615</a></td>
+<td align="left">SparkEngine drmFromHDFS returning the same Key for all Key,Vec Pairs for Text-Keyed SequenceFiles</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Andrew Palumbo</td>
+<td align="left">Andrew Palumbo</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1611">MAHOUT-1611</a></td>
+<td align="left">Preconditions.checkArgument in org.apache.mahout.utils.ConcatenateVectorsJob</td>
+<td align="left">Minor</td>
+<td align="left">Integration</td>
+<td align="left">Haishou Ma</td>
+<td align="left">Suneel Marthi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1639">MAHOUT-1639</a></td>
+<td align="left">streamingkmeans doesn't properly validate estimatedNumMapClusters -km</td>
+<td align="left">Minor</td>
+<td align="left">CLI</td>
+<td align="left">Peter Sergeant</td>
+<td align="left">Suneel Marthi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1590">MAHOUT-1590</a></td>
+<td align="left">mahout unit test failures due to guava version conflict on hadoop 2</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Venkat Ranganathan</td>
+<td align="left">Stevo Slavic</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1636">MAHOUT-1636</a></td>
+<td align="left">Class dependencies for the spark module are put in a job.jar, which is very inefficient</td>
+<td align="left">Major</td>
+<td align="left">spark</td>
+<td align="left">Pat Ferrel</td>
+<td align="left">Pat Ferrel</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1624">MAHOUT-1624</a></td>
+<td align="left">Compilation errors when changing Lucene version to 4.10.1</td>
+<td align="left">Minor</td>
+<td align="left">Integration</td>
+<td align="left">Tom Lampert</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1612">MAHOUT-1612</a></td>
+<td align="left">NullPointerException happens during JSON output format for clusterdumper</td>
+<td align="left">Major</td>
+<td align="left">Clustering</td>
+<td align="left">Guo Ruijing</td>
+<td align="left">Suneel Marthi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1563">MAHOUT-1563</a></td>
+<td align="left">Clean up WARNINGs during build</td>
+<td align="left">Minor</td>
+<td align="left">build</td>
+<td align="left">Andrew Musselman</td>
+<td align="left">Stevo Slavic</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1516">MAHOUT-1516</a></td>
+<td align="left">run classify-20newsgroups.sh failed cause by /tmp/mahout-work-jpan/20news-all does not exists in hdfs.</td>
+<td align="left">Minor</td>
+<td align="left">Examples</td>
+<td align="left">Jian Pan</td>
+<td align="left">Andrew Palumbo</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1619">MAHOUT-1619</a></td>
+<td align="left">HighDFWordsPruner overwrites cache files</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Burke Webster</td>
+<td align="left">Suneel Marthi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1602">MAHOUT-1602</a></td>
+<td align="left">Euclidean Distance Similarity Math</td>
+<td align="left">Minor</td>
+<td align="left">Collaborative Filtering, Math</td>
+<td align="left">Leonardo Fernandez Sanchez</td>
+<td align="left">Stevo Slavic</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1522">MAHOUT-1522</a></td>
+<td align="left">Handle logging levels via log4j.xml</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Andrew Musselman</td>
+<td align="left">Andrew Musselman</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1589">MAHOUT-1589</a></td>
+<td align="left">mahout.cmd has duplicated content</td>
+<td align="left">Major</td>
+<td align="left">CLI</td>
+<td align="left">Venkat Ranganathan</td>
+<td align="left">Pat Ferrel</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1586">MAHOUT-1586</a></td>
+<td align="left">Downloads must have hashes</td>
+<td align="left">Blocker</td>
+<td align="left">collections</td>
+<td align="left">Sebb</td>
+<td align="left">Suneel Marthi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1617">MAHOUT-1617</a></td>
+<td align="left">404 error on link in cluster-dumper tutorial page</td>
+<td align="left">Trivial</td>
+<td align="left">.</td>
+<td align="left">Anthony Daniell</td>
+<td align="left">Andrew Palumbo</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1638">MAHOUT-1638</a></td>
+<td align="left">H2O bindings fail at drmParallelizeWithRowLabels(...)</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Andrew Palumbo</td>
+<td align="left">Andrew Palumbo</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1593">MAHOUT-1593</a></td>
+<td align="left">cluster-reuters.sh does not work complaining java.lang.IllegalStateException</td>
+<td align="left">Minor</td>
+<td align="left">Examples</td>
+<td align="left">jaehoon ko</td>
+<td align="left">Suneel Marthi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1662">MAHOUT-1662</a></td>
+<td align="left">Potential Path bug in SequenceFileVaultIterator breaks DisplaySpectralKMeans</td>
+<td align="left">Major</td>
+<td align="left">Examples, mrlegacy</td>
+<td align="left">Shannon Quinn</td>
+<td align="left">Suneel Marthi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1667">MAHOUT-1667</a></td>
+<td align="left">Support Hadoop 1.2.1 in poms</td>
+<td align="left">Critical</td>
+<td align="left">build</td>
+<td align="left">Pat Ferrel</td>
+<td align="left">Stevo Slavic</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1635">MAHOUT-1635</a></td>
+<td align="left">Getting an exception when I provide classification labels manually for Naive Bayes</td>
+<td align="left">Major</td>
+<td align="left">Classification</td>
+<td align="left">Suman Somasundar</td>
+<td align="left">Andrew Palumbo</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1622">MAHOUT-1622</a></td>
+<td align="left">MultithreadedBatchItemSimilarities outputs incorrect number of similarities.</td>
+<td align="left">Minor</td>
+<td align="left">Collaborative Filtering</td>
+<td align="left">Jesse Daniels</td>
+<td align="left">Anand Avati</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1674">MAHOUT-1674</a></td>
+<td align="left">A'A fails getting with an index out of range for a row vector</td>
+<td align="left">Critical</td>
+<td align="left">s</td>
+<td align="left">Pat Ferrel</td>
+<td align="left">Pat Ferrel</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1665">MAHOUT-1665</a></td>
+<td align="left">Update hadoop commands in example scripts</td>
+<td align="left">Critical</td>
+<td align="left">Examples</td>
+<td align="left">Andrew Musselman</td>
+<td align="left">Andrew Musselman</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1630">MAHOUT-1630</a></td>
+<td align="left">Incorrect SparseColumnMatrix.numSlices() causes IndexException in toString()</td>
+<td align="left">Major</td>
+<td align="left">Math</td>
+<td align="left">Oleg Nitz</td>
+<td align="left">Suneel Marthi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1678">MAHOUT-1678</a></td>
+<td align="left">Hadoop 1 build broken</td>
+<td align="left">Blocker</td>
+<td align="left">Integration</td>
+<td align="left">Pat Ferrel</td>
+<td align="left">Suneel Marthi</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tests">TESTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1605">MAHOUT-1605</a></td>
+<td align="left">Make VisualizerTest locale independent</td>
+<td align="left">Trivial</td>
+<td align="left">.</td>
+<td align="left">Frank Rosner</td>
+<td align="left">Anand Avati</td>
+</tr>
+</tbody>
+</table>
+<h3 id="other">OTHER:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1434">MAHOUT-1434</a></td>
+<td align="left">Dead links on the website</td>
+<td align="left">Minor</td>
+<td align="left">Documentation</td>
+<td align="left">Kévin Moulart</td>
+<td align="left">Suneel Marthi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1451">MAHOUT-1451</a></td>
+<td align="left">Cleaning up the examples for clustering on the website</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Gaurav Misra</td>
+<td align="left">Sebastian Schelter</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1449">MAHOUT-1449</a></td>
+<td align="left">Update the Known Issues in Random Forests Page</td>
+<td align="left">Major</td>
+<td align="left">Documentation</td>
+<td align="left">Manoj Awasthi</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1509">MAHOUT-1509</a></td>
+<td align="left">Invalid URL in link from &quot;quick start/basics&quot; page</td>
+<td align="left">Minor</td>
+<td align="left">Examples</td>
+<td align="left">Nick Martin</td>
+<td align="left">Suneel Marthi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1369">MAHOUT-1369</a></td>
+<td align="left">Why does theta normalization for naive bayes classification commented out?</td>
+<td align="left">Minor</td>
+<td align="left">Classification</td>
+<td align="left">utku yaman</td>
+<td align="left">Suneel Marthi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1468">MAHOUT-1468</a></td>
+<td align="left">Creating a new page for StreamingKMeans documentation on mahout website</td>
+<td align="left">Major</td>
+<td align="left">Documentation</td>
+<td align="left">Pavan Kumar N</td>
+<td align="left">Andrew Musselman</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1525">MAHOUT-1525</a></td>
+<td align="left">train/validateAdaptiveLogistic</td>
+<td align="left">Major</td>
+<td align="left">Classification</td>
+<td align="left">Richard Scharrer</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1644">MAHOUT-1644</a></td>
+<td align="left">[JDK8] errors when compile the module math-scala with JDK8 and maven dependency org.scala-lang:scala-library</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">zhubin</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1666">MAHOUT-1666</a></td>
+<td align="left">Broken Links on Website</td>
+<td align="left">Minor</td>
+<td align="left">Documentation</td>
+<td align="left">Tyler Palsulich</td>
+<td align="left">Andrew Palumbo</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1652">MAHOUT-1652</a></td>
+<td align="left">Java 7 update</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Andrew Musselman</td>
+<td align="left">Suneel Marthi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1418">MAHOUT-1418</a></td>
+<td align="left">Removal of write access to anything but CMS for username isabel</td>
+<td align="left">Trivial</td>
+<td align="left">.</td>
+<td align="left">Isabel Drost-Fromm</td>
+<td align="left">Isabel Drost-Fromm</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1329">MAHOUT-1329</a></td>
+<td align="left">Mahout for hadoop 2</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Sergey Svinarchuk</td>
+<td align="left">Gokhan Capan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1504">MAHOUT-1504</a></td>
+<td align="left">Enable/fix thetaSummer job in TrainNaiveBayesJob</td>
+<td align="left">Minor</td>
+<td align="left">Classification, Examples</td>
+<td align="left">Andrew Palumbo</td>
+<td align="left">Suneel Marthi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1513">MAHOUT-1513</a></td>
+<td align="left">Deprecate Canopy Clustering</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sebastian Schelter</td>
+<td align="left">Sebastian Schelter</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1511">MAHOUT-1511</a></td>
+<td align="left">Renaming core to mrlegacy</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sebastian Schelter</td>
+<td align="left">Frank Scholten</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1510">MAHOUT-1510</a></td>
+<td align="left">Goodbye MapReduce</td>
+<td align="left">Major</td>
+<td align="left">Documentation</td>
+<td align="left">Sebastian Schelter</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1310">MAHOUT-1310</a></td>
+<td align="left">Mahout support windows</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sergey Svinarchuk</td>
+<td align="left">Sergey Svinarchuk</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1515">MAHOUT-1515</a></td>
+<td align="left">Contact the original Frequent Pattern Mining author</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Sebastian Schelter</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1526">MAHOUT-1526</a></td>
+<td align="left">Ant file in examples</td>
+<td align="left">Major</td>
+<td align="left">Examples</td>
+<td align="left">Sebastian Schelter</td>
+<td align="left">Sebastian Schelter</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1535">MAHOUT-1535</a></td>
+<td align="left">Fix mathjax on website</td>
+<td align="left">Major</td>
+<td align="left">Documentation</td>
+<td align="left">Sebastian Schelter</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1533">MAHOUT-1533</a></td>
+<td align="left">Remove Frequent Pattern Mining</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sebastian Schelter</td>
+<td align="left">Sebastian Schelter</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1527">MAHOUT-1527</a></td>
+<td align="left">Fix wikipedia classifier example</td>
+<td align="left">Major</td>
+<td align="left">Classification, Documentation, Examples</td>
+<td align="left">Sebastian Schelter</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1534">MAHOUT-1534</a></td>
+<td align="left">Add documentation for using Mahout with Hadoop2 to the website</td>
+<td align="left">Major</td>
+<td align="left">Documentation</td>
+<td align="left">Sebastian Schelter</td>
+<td align="left">Gokhan Capan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1566">MAHOUT-1566</a></td>
+<td align="left">Regular ALS factorizer with convergence test.</td>
+<td align="left">Trivial</td>
+<td align="left">.</td>
+<td align="left">Dmitriy Lyubimov</td>
+<td align="left">Dmitriy Lyubimov</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1573">MAHOUT-1573</a></td>
+<td align="left">More explicit parallelism adjustments in math-scala DRM apis; elements of automatic parallelism management</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Dmitriy Lyubimov</td>
+<td align="left">Dmitriy Lyubimov</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1583">MAHOUT-1583</a></td>
+<td align="left">cbind() operator for Scala DRMs</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Dmitriy Lyubimov</td>
+<td align="left">Dmitriy Lyubimov</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1603">MAHOUT-1603</a></td>
+<td align="left">Tweaks for Spark 1.0.x</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Dmitriy Lyubimov</td>
+<td align="left">Dmitriy Lyubimov</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1659">MAHOUT-1659</a></td>
+<td align="left">Remove deprecated Lanczos solver from spectral clustering in mr-legacy</td>
+<td align="left">Minor</td>
+<td align="left">Clustering, mrlegacy</td>
+<td align="left">Shannon Quinn</td>
+<td align="left">Shannon Quinn</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1656">MAHOUT-1656</a></td>
+<td align="left">Change SNAPSHOT version from 1.0 to 0.10.0</td>
+<td align="left">Critical</td>
+<td align="left">build</td>
+<td align="left">Andrew Musselman</td>
+<td align="left">Suneel Marthi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAHOUT-1512">MAHOUT-1512</a></td>
+<td align="left">Hadoop 2 compatibility</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Sebastian Schelter</td>
+<td align="left">Suneel Marthi</td>
+</tr>
+</tbody>
+</table>

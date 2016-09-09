@@ -1,0 +1,320 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hbase-changelog">Apache HBase Changelog</h1>
+<h2 id="release-0.94.19---2014-04-28">Release 0.94.19 - 2014-04-28</h2>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-10766">HBASE-10766</a></td>
+<td align="left">SnapshotCleaner allows to delete referenced files</td>
+<td align="left">Major</td>
+<td align="left">snapshots</td>
+<td align="left">Matteo Bertozzi</td>
+<td align="left">bharath v</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-10805">HBASE-10805</a></td>
+<td align="left">Speed up KeyValueHeap.next() a bit</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Lars Hofhansl</td>
+<td align="left">Lars Hofhansl</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-10847">HBASE-10847</a></td>
+<td align="left">0.94: drop non-secure builds, make security the default</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Lars Hofhansl</td>
+<td align="left">Lars Hofhansl</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-10848">HBASE-10848</a></td>
+<td align="left">Filter SingleColumnValueFilter combined with NullComparator does not work</td>
+<td align="left">Major</td>
+<td align="left">Filters</td>
+<td align="left">Fabien Le Gallo</td>
+<td align="left">Fabien Le Gallo</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-10118">HBASE-10118</a></td>
+<td align="left">Major compact keeps deletes with future timestamps</td>
+<td align="left">Minor</td>
+<td align="left">Compaction, Deletes, regionserver</td>
+<td align="left">Max Lapan</td>
+<td align="left">Liu Shaohui</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-10807">HBASE-10807</a></td>
+<td align="left">-ROOT- still stale in table.jsp if it moved</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Esteban Gutierrez</td>
+<td align="left">Esteban Gutierrez</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-10533">HBASE-10533</a></td>
+<td align="left">commands.rb is giving wrong error messages on exceptions</td>
+<td align="left">Major</td>
+<td align="left">shell</td>
+<td align="left">rajeshbabu</td>
+<td align="left">rajeshbabu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-10966">HBASE-10966</a></td>
+<td align="left">RowCounter misinterprets column names that have colons in their qualifier</td>
+<td align="left">Trivial</td>
+<td align="left">.</td>
+<td align="left">Alexandre Normand</td>
+<td align="left">Alexandre Normand</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-10845">HBASE-10845</a></td>
+<td align="left">Memstore snapshot size isn't updated in DefaultMemStore#rollback()</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ted Yu</td>
+<td align="left">Ted Yu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-10312">HBASE-10312</a></td>
+<td align="left">Flooding the cluster with administrative actions leads to collapse</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Andrew Purtell</td>
+<td align="left">Jean-Daniel Cryans</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-10991">HBASE-10991</a></td>
+<td align="left">Port HBASE-10639 'Unload script displays wrong counts (off by one) when unloading regions' to 0.94</td>
+<td align="left">Trivial</td>
+<td align="left">.</td>
+<td align="left">Ted Yu</td>
+<td align="left">Srikanth Srungarapu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-11003">HBASE-11003</a></td>
+<td align="left">ExportSnapshot is using the wrong fs when staging dir is not in fs.defaultFS</td>
+<td align="left">Major</td>
+<td align="left">snapshots</td>
+<td align="left">Matteo Bertozzi</td>
+<td align="left">Matteo Bertozzi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-11030">HBASE-11030</a></td>
+<td align="left">HBaseTestingUtility.getMiniHBaseCluster should be able to return null</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Lars Hofhansl</td>
+<td align="left">Lars Hofhansl</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tests">TESTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-10782">HBASE-10782</a></td>
+<td align="left">Hadoop2 MR tests fail occasionally because of mapreduce.jobhistory.address is no set in job conf</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Liu Shaohui</td>
+<td align="left">Liu Shaohui</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-10969">HBASE-10969</a></td>
+<td align="left">TestDistributedLogSplitting fails frequently in 0.94.</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Lars Hofhansl</td>
+<td align="left">Lars Hofhansl</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-10982">HBASE-10982</a></td>
+<td align="left">TestZKProcedure.testMultiCohortWithMemberTimeoutDuringPrepare fails frequently in 0.94</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Lars Hofhansl</td>
+<td align="left">Lars Hofhansl</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-10987">HBASE-10987</a></td>
+<td align="left">Increase timeout in TestZKLeaderManager.testLeaderSelection</td>
+<td align="left">Minor</td>
+<td align="left">test</td>
+<td align="left">Lars Hofhansl</td>
+<td align="left">Lars Hofhansl</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-10989">HBASE-10989</a></td>
+<td align="left">TestAccessController needs better timeout</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Lars Hofhansl</td>
+<td align="left">Lars Hofhansl</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-10996">HBASE-10996</a></td>
+<td align="left">TestTableSnapshotInputFormatScan fails frequently on 0.94</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Lars Hofhansl</td>
+<td align="left">Lars Hofhansl</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-10988">HBASE-10988</a></td>
+<td align="left">Properly wait for server in TestThriftServerCmdLine</td>
+<td align="left">Minor</td>
+<td align="left">test</td>
+<td align="left">Lars Hofhansl</td>
+<td align="left">Lars Hofhansl</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-11010">HBASE-11010</a></td>
+<td align="left">TestChangingEncoding is unnecessarily slow</td>
+<td align="left">Minor</td>
+<td align="left">test</td>
+<td align="left">Lars Hofhansl</td>
+<td align="left">Lars Hofhansl</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-11017">HBASE-11017</a></td>
+<td align="left">TestHRegionBusyWait.testWritesWhileScanning fails frequently in 0.94</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Lars Hofhansl</td>
+<td align="left">stack</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-11022">HBASE-11022</a></td>
+<td align="left">Increase timeout for TestHBaseFsck.testSplitDaughtersNotInMeta</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Lars Hofhansl</td>
+<td align="left">Lars Hofhansl</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-11024">HBASE-11024</a></td>
+<td align="left">TestSecureLoadIncrementalHFilesSplitRecovery should wait longer for ACL table</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Lars Hofhansl</td>
+<td align="left">Lars Hofhansl</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-11029">HBASE-11029</a></td>
+<td align="left">Increase wait in TestSplitTransactionOnCluster.split</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Lars Hofhansl</td>
+<td align="left">Lars Hofhansl</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-11037">HBASE-11037</a></td>
+<td align="left">Race condition in TestZKBasedOpenCloseRegion</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Lars Hofhansl</td>
+<td align="left">Lars Hofhansl</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-11040">HBASE-11040</a></td>
+<td align="left">TestAccessController, TestAccessControllerFilter, and TestTablePermissions need to wait longer to ACL table</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Lars Hofhansl</td>
+<td align="left">Lars Hofhansl</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-11042">HBASE-11042</a></td>
+<td align="left">TestForceCacheImportantBlocks OOMs occasionally in 0.94</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Lars Hofhansl</td>
+<td align="left">Lars Hofhansl</td>
+</tr>
+</tbody>
+</table>
+<h3 id="other">OTHER:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-10921">HBASE-10921</a></td>
+<td align="left">Port HBASE-10323 'Auto detect data block encoding in HFileOutputFormat' to 0.94 / 0.96</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ted Yu</td>
+<td align="left">Kashif</td>
+</tr>
+</tbody>
+</table>

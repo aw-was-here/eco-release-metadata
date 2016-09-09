@@ -18,7 +18,7 @@
 -->
 # Apache Oozie Changelog
 
-## Release 4.3.0 - Unreleased (as of 2016-09-07)
+## Release 4.3.0 - Unreleased (as of 2016-09-09)
 
 
 

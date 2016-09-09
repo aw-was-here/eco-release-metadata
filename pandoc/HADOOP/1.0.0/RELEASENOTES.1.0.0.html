@@ -1,0 +1,52 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hadoop-1.0.0-release-notes">Apache Hadoop 1.0.0 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-7923">HADOOP-7923</a> | <em>Major</em> | <strong>Automatically update doc versions</strong></li>
+</ul>
+<p>Docs version number is now automatically updated by reference to the build number.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-7740">HADOOP-7740</a> | <em>Minor</em> | <strong>security audit logger is not on by default, fix the log4j properties to enable the logger</strong></li>
+</ul>
+<p>Fixed security audit logger configuration. (Arpit Gupta via Eric Yang)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-7728">HADOOP-7728</a> | <em>Major</em> | <strong>hadoop-setup-conf.sh should be modified to enable task memory manager</strong></li>
+</ul>
+<p>Enable task memory management to be configurable via hadoop config setup script.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-2316">HDFS-2316</a> | <em>Major</em> | <strong>[umbrella] WebHDFS: a complete FileSystem implementation for accessing HDFS over HTTP</strong></li>
+</ul>
+<p>Provide WebHDFS as a complete FileSystem implementation for accessing HDFS over HTTP. Previous hftp feature was a read-only FileSystem and does not provide &quot;write&quot; accesses.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-2246">HDFS-2246</a> | <em>Major</em> | <strong>Shortcut a local client reads to a Datanodes files directly</strong></li>
+</ul>
+<ol>
+<li>New configurations</li>
+</ol>
+<p>a. dfs.block.local-path-access.user is the key in datanode configuration to specify the user allowed to do short circuit read. b. dfs.client.read.shortcircuit is the key to enable short circuit read at the client side configuration. c. dfs.client.read.shortcircuit.skip.checksum is the key to bypass checksum check at the client side. 2. By default none of the above are enabled and short circuit read will not kick in. 3. If security is on, the feature can be used only for user that has kerberos credentials at the client, therefore map reduce tasks cannot benefit from it in general.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-617">HDFS-617</a> | <em>Major</em> | <strong>Support for non-recursive create() in HDFS</strong></li>
+</ul>
+<p>New DFSClient.create(...) allows option of not creating missing parent(s).</p>

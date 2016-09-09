@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 1.6.3 - Unreleased (as of 2016-09-07)
+## Release 1.6.3 - Unreleased (as of 2016-09-08)
 
 
 
@@ -73,6 +73,7 @@
 | [SPARK-17038](https://issues.apache.org/jira/browse/SPARK-17038) | StreamingSource reports metrics for lastCompletedBatch instead of lastReceivedBatch |  Minor | Streaming | Oz Ben-Ami | Xin Ren |
 | [SPARK-17404](https://issues.apache.org/jira/browse/SPARK-17404) | [BRANCH-1.6] Broken test: showDF in test\_sparkSQL.R |  Major | SparkR | Yin Huai | Sun Rui |
 | [SPARK-17356](https://issues.apache.org/jira/browse/SPARK-17356) | A large Metadata filed in Alias can cause OOM when calling TreeNode.toJSON |  Major | SQL | Sean Zhong | Sean Zhong |
+| [SPARK-17245](https://issues.apache.org/jira/browse/SPARK-17245) | NPE thrown by ClientWrapper.conf |  Major | SQL | Yin Huai | Yin Huai |
 
 
 ### TESTS:

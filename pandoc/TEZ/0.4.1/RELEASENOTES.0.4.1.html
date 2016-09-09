@@ -1,0 +1,108 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="release-notes">0.4.1 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/TEZ-1162">TEZ-1162</a> | <em>Major</em> | <strong>Tez leaks CodecPool buffers</strong></li>
+</ul>
+<p>Tez Fetcher currently leaks a codec pool (~32kb) for each partition fetched</p>
+<p>This causes task failures due to the direct buffers allocated by the codec, which are not freed until a full GC (but whose allocation does not trigger GC).</p>
+<p>It is possible to perform the entire shuffle operations without ever triggering a full GC, the following case</p>
+<p>{code} Container exited with a non-zero exit code 143 ], AttemptID:attempt_1399351577718_2330_1_05_000020_3 Info:Container container_1399351577718_2330_01_000310 COMPLETED with diagnostics set to [Container [pid=1734,containerID=container_1399351577718_2330_01_000310] is running beyond physical memory limits. Current usage: 4.1 GB of 4 GB physical memory used; 5.4 GB of 40 GB virtual memory used. Killing container.</p>
+<p>container_1399351577718_2330_01_000365/ $ grep -ri &quot;CodecPool.<em>brand-new&quot; syslog</em> | wc -l</p>
+<p>6988 {code}</p>
+<p>That is approx ~436Mb leak on a JVM spun up with -Xmx3500m &amp; 4096m container.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/TEZ-1135">TEZ-1135</a> | <em>Critical</em> | <strong>ShuffledUnorderedKVInput handles empty partitions incorrectly</strong></li>
+</ul>
+<p>If the source data has empty partitions, the ShuffledInput which does need to fetch data (i.e. other partition is empty), ends up doing nothing.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/TEZ-1097">TEZ-1097</a> | <em>Major</em> | <strong>Tez assumes that the scratch directory has to be same as the default filesystem</strong></li>
+</ul>
+<p>In HDInsight Azure, we have hive scratch directory set to using HDFS. However the default filesystem is WASB.</p>
+<p>Due to this configuration, Tez seems to fail.</p>
+<p>The relevant error logs are as follows. {noformat} 2014-05-01 04:09:15,007 INFO tez.TezSessionState (TezSessionState.java:open(142)) - User of session id 41905b13-36e7-4755-af34-265768778443 is chuan 2014-05-01 04:09:15,054 INFO tez.DagUtils (DagUtils.java:getHiveJarDirectory(760)) - Jar dir is null/directory doesn't exist. Choosing HIVE_INSTALL_DIR - wasb://hdi31-chuanliu@clhdistorage.blob.core.windows.net/user/chuan/.hiveJars 2014-05-01 04:09:15,382 INFO tez.DagUtils (DagUtils.java:localizeResource(839)) - Localizing resource because it does not exist: file:/C:/apps/dist/hive-0.13.0.2.1.2.0-1660/lib/hive-exec-0.13.0.2.1.2.0-1660.jar to dest: wasb://hdi31-chuanliu@clhdistorage.blob.core.windows.net/user/chuan/.hiveJars/hive-exec-0.13.0.2.1.2.0-1660-3abc67a6088fef5988020d9608d28d3025115d4201be785434c57c8a90d4cb5f.jar 2014-05-01 04:09:15,413 INFO tez.DagUtils (DagUtils.java:localizeResource(843)) - Looks like another thread is writing the same file will wait. 2014-05-01 04:09:15,413 INFO tez.DagUtils (DagUtils.java:localizeResource(850)) - Number of wait attempts: 5. Wait interval: 5000 2014-05-01 04:09:15,444 INFO tez.DagUtils (DagUtils.java:createLocalResource(603)) - Resource modification time: 1398916679000 2014-05-01 04:09:15,444 ERROR exec.Task (TezTask.java:execute(192)) - Failed to execute tez graph. java.lang.IllegalArgumentException: Wrong FS: hdfs://headnodehost:9000/hive/scratch/_tez_session_dir/41905b13-36e7-4755-af34-265768778443, expected: wasb://hdi31-chuanliu@clhdistorage.blob.core.windows.net at org.apache.hadoop.fs.FileSystem.checkPath(FileSystem.java:643) at org.apache.hadoop.fs.azurenative.NativeAzureFileSystem.checkPath(NativeAzureFileSystem.java:436) at org.apache.hadoop.fs.FileSystem.resolvePath(FileSystem.java:747) at org.apache.tez.client.AMConfiguration.<init>(AMConfiguration.java:81) at org.apache.hadoop.hive.ql.exec.tez.TezSessionState.open(TezSessionState.java:174) at org.apache.hadoop.hive.ql.exec.tez.TezTask.execute(TezTask.java:154) at org.apache.hadoop.hive.ql.exec.Task.executeTask(Task.java:153) at org.apache.hadoop.hive.ql.exec.TaskRunner.runSequential(TaskRunner.java:85) at org.apache.hadoop.hive.ql.Driver.launchTask(Driver.java:1504) at org.apache.hadoop.hive.ql.Driver.execute(Driver.java:1271) at org.apache.hadoop.hive.ql.Driver.runInternal(Driver.java:1089) at org.apache.hadoop.hive.ql.Driver.run(Driver.java:912) at org.apache.hadoop.hive.ql.Driver.run(Driver.java:902) at org.apache.hadoop.hive.cli.CliDriver.processLocalCmd(CliDriver.java:268) at org.apache.hadoop.hive.cli.CliDriver.processCmd(CliDriver.java:220) at org.apache.hadoop.hive.cli.CliDriver.processLine(CliDriver.java:423) at org.apache.hadoop.hive.cli.CliDriver.executeDriver(CliDriver.java:793) at org.apache.hadoop.hive.cli.CliDriver.run(CliDriver.java:686) at org.apache.hadoop.hive.cli.CliDriver.main(CliDriver.java:625) at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) at java.lang.reflect.Method.invoke(Method.java:601) at org.apache.hadoop.util.RunJar.main(RunJar.java:212) 2014-05-01 04:09:15,444 ERROR ql.Driver (SessionState.java:printError(546)) - FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.tez.TezTask {noformat}</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/TEZ-1048">TEZ-1048</a> | <em>Major</em> | <strong>NPE when previous task attempts fail without generating any data</strong></li>
+</ul>
+<p>We NPE when the previous task fails without generating data.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/TEZ-1040">TEZ-1040</a> | <em>Blocker</em> | <strong>TezMerger hangs when io.sort.mb value is 1</strong></li>
+</ul>
+<p>TestCombiner.testMultiCombinerUse() in pig test suite sets io.sort.mb to 1 for testing purposes. Tez is stuck at a loop while running the task with 0.4.0-incubating and 0.5.0-incubating-SNAPSHOT in org.apache.tez.runtime.library.common.sort.impl.TezMerger$MergeQueue.computeBytesInMerges. It runs fine with 0.3.0-incubating.</p>
+<p>{code} at java.lang.Long.valueOf(Long.java:557) at org.apache.tez.runtime.library.common.sort.impl.TezMerger$MergeQueue.computeBytesInMerges(TezMerger.java:814) at org.apache.tez.runtime.library.common.sort.impl.TezMerger$MergeQueue.merge(TezMerger.java:571) at org.apache.tez.runtime.library.common.sort.impl.TezMerger$MergeQueue.merge(TezMerger.java:541) at org.apache.tez.runtime.library.common.sort.impl.TezMerger.merge(TezMerger.java:164) at org.apache.tez.runtime.library.common.sort.impl.dflt.DefaultSorter.mergeParts(DefaultSorter.java:1078) at org.apache.tez.runtime.library.common.sort.impl.dflt.DefaultSorter.flush(DefaultSorter.java:633) at org.apache.tez.runtime.library.output.OnFileSortedOutput.close(OnFileSortedOutput.java:134) - locked &lt;7f03a5b90&gt; (a org.apache.tez.runtime.library.output.OnFileSortedOutput) at org.apache.tez.runtime.LogicalIOProcessorRuntimeTask.close(LogicalIOProcessorRuntimeTask.java:331) at org.apache.hadoop.mapred.YarnTezDagChild$5.run(YarnTezDagChild.java:567) at java.security.AccessController.doPrivileged(Native Method) at javax.security.auth.Subject.doAs(Subject.java:394) at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1548) at org.apache.hadoop.mapred.YarnTezDagChild.main(YarnTezDagChild.java:553) {code}</p>
+<p>To reproduce: ant clean test -Dtestcase=TestCombiner -Dexectype=tez -Dhadoopversion=23 -Dtest.output=true -logfile /tmp/log</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/TEZ-1033">TEZ-1033</a> | <em>Major</em> | <strong>AM hangs during recovery with Tasks awaiting init event</strong></li>
+</ul>
+<p>Here is the trace we saw {code} 2014-04-09 09:13:43,758 INFO [main] org.apache.tez.runtime.LogicalIOProcessorRuntimeTask: AutoStartComplete 2014-04-09 09:13:43,759 INFO [main] org.apache.hadoop.mapred.YarnTezDagChild: Running task, taskAttemptId=attempt_1397032861365_0001_1_09_000011_0 2014-04-09 09:13:43,759 INFO [main] org.apache.hadoop.hive.ql.log.PerfLogger: <PERFLOG method=TezRunProcessor from=org.apache.hadoop.hive.ql.exec.tez.TezProcessor> 2014-04-09 09:13:43,759 INFO [main] org.apache.hadoop.hive.ql.exec.tez.TezProcessor: Running task: attempt_1397032861365_0001_1_09_000011_0_10001 2014-04-09 09:13:43,780 INFO [main] org.apache.tez.mapreduce.input.MRInput: Initialzed MRInput: store_sales 2014-04-09 09:13:43,780 INFO [main] org.apache.tez.mapreduce.input.MRInputLegacy: Awaiting init event before initializing record reader {code}</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/TEZ-1029">TEZ-1029</a> | <em>Major</em> | <strong>Fetcher can fail to report input failed event upon connection error</strong></li>
+</ul>
+<p>When there is a connection error then the fetcher fails all the maps but does not report input read error to the AM. So the AM does not get any information to rerun the source (if many fetchers report read errors). A connection failed also results in the shuffle-scheduler deciding that too many different map sources have failed and so it should fail itself. Multiple attempts of the reducer fail and the job fails. Looking at MR Fetcher code, a connection issue is also reported as a read error to the MR AM. Planning on making the same fix in the Tez Fetcher as was made in MAPREDUCE-4772.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/TEZ-1021">TEZ-1021</a> | <em>Major</em> | <strong>TezClient cannot connect to AM in a secure cluster when launched via Oozie</strong></li>
+</ul>
+<p>Caused by: com.google.protobuf.ServiceException: java.io.IOException: Failed on local exception: java.io.IOException: org.apache.hadoop.security.AccessControlException: Client cannot authenticate via:[TOKEN, KERBEROS]; Host Details : local host is: &quot;hor11n39.gq1.ygridcore.net/68.142.247.186&quot;; destination host is: &quot;hor11n39.gq1.ygridcore.net&quot;:37741; at org.apache.hadoop.ipc.ProtobufRpcEngine$Invoker.invoke(ProtobufRpcEngine.java:216) at $Proxy26.submitDAG(Unknown Source) at org.apache.tez.client.TezSession.submitDAG(TezSession.java:235) ... 36 more Caused by: java.io.IOException: Failed on local exception: java.io.IOException: org.apache.hadoop.security.AccessControlException: Client cannot authenticate via:[TOKEN, KERBEROS]; Host Details : local host is: &quot;hor11n39.gq1.ygridcore.net/68.142.247.186&quot;; destination host is: &quot;hor11n39.gq1.ygridcore.net&quot;:37741; at org.apache.hadoop.net.NetUtils.wrapException(NetUtils.java:764) at org.apache.hadoop.ipc.Client.call(Client.java:1414) at org.apache.hadoop.ipc.Client.call(Client.java:1363) at org.apache.hadoop.ipc.ProtobufRpcEngine$Invoker.invoke(ProtobufRpcEngine.java:206) ... 38 more</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/TEZ-1015">TEZ-1015</a> | <em>Major</em> | <strong>Dag failed with Invalid event: V_ROUTE_EVENT at RECOVERING</strong></li>
+</ul>
+<p>During HA tests hive job was run where NN was killed in the background and RM was also killed once. The job failed with</p>
+<p>{code} 2014-04-03 08:59:03,253 ERROR [AsyncDispatcher event handler] org.apache.tez.dag.app.dag.impl.VertexImpl: Can't handle Invalid event V_ROUTE_EVENT on vertex Reducer 8 with vertexId vertex_1396515360091_0001_1_03 at current state RECOVERING org.apache.hadoop.yarn.state.InvalidStateTransitonException: Invalid event: V_ROUTE_EVENT at RECOVERING at org.apache.hadoop.yarn.state.StateMachineFactory.doTransition(StateMachineFactory.java:305) at org.apache.hadoop.yarn.state.StateMachineFactory.access$300(StateMachineFactory.java:46) at org.apache.hadoop.yarn.state.StateMachineFactory$InternalStateMachine.doTransition(StateMachineFactory.java:448) at org.apache.tez.dag.app.dag.impl.VertexImpl.handle(VertexImpl.java:1210) at org.apache.tez.dag.app.dag.impl.VertexImpl.handle(VertexImpl.java:156) at org.apache.tez.dag.app.DAGAppMaster$VertexEventDispatcher.handle(DAGAppMaster.java:1659) at org.apache.tez.dag.app.DAGAppMaster$VertexEventDispatcher.handle(DAGAppMaster.java:1645) at org.apache.hadoop.yarn.event.AsyncDispatcher.dispatch(AsyncDispatcher.java:173) at org.apache.hadoop.yarn.event.AsyncDispatcher$1.run(AsyncDispatcher.java:106) at java.lang.Thread.run(Thread.java:662) {code}</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/TEZ-1010">TEZ-1010</a> | <em>Major</em> | <strong>TestAMNodeMap.testSelfBlacklist fails intermittently</strong></li>
+</ul>
+<p>The node map is a hashmap and the ordering of events depends on the order of the nodes in the hashmap. This leads to flaky tests.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/TEZ-1009">TEZ-1009</a> | <em>Major</em> | <strong>Fixes in log file roll-over</strong></li>
+</ul>
+<p>1) Close the previous file when transferring to a new file 2) In YARNTezDAGChild use _post for new files to maintain chronological continuity. Currently syslog/stdout/stderr have the contexts in between consecutive tasks.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/TEZ-1005">TEZ-1005</a> | <em>Major</em> | <strong>AM relocalization adds resources to the wrong classloader</strong></li>
+</ul>
+<p>If one works around TEZ-1004 by removing hand-picked jars from additional jar list (same will happen after it's fixed to compare and remove jars correctly), these jars are not usable in initializer, so you get something like, for example: {noformat} Mon Mar 31 20:45:17 UTC 2014, org.apache.hadoop.hbase.client.RpcRetryingCaller@343d511e, java.lang.IllegalAccessError: class com.google.protobuf.HBaseZeroCopyByteString cannot access its superclass com.google.protobuf.LiteralByteString {noformat}</p>
+<p>We have a small fix that seems to fix it, by adding to system classloader</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/TEZ-1004">TEZ-1004</a> | <em>Major</em> | <strong>AM relocalization doesn't handle conflicting resources correctly</strong></li>
+</ul>
+<p>If you add a jar that tez already has, it throws despite having the same jar, probably due to ts. Might need to compare SHA-s.</p>
+<p>{noformat} org.apache.hadoop.ipc.RemoteException(org.apache.tez.dag.api.TezUncheckedException): Cannot add different additional resources with the same name : protobuf-java-2.5.0.jar, Existing: [resource { scheme: &quot;hdfs&quot; host: &quot;hor18n31.gq1.ygridcore.net&quot; port: 8020 file: &quot;/apps/tez/lib/protobuf-java-2.5.0.jar&quot; } size: 533455 timestamp: 1395764131176 type: FILE visibility: PUBLIC], New: [resource { scheme: &quot;hdfs&quot; port: -1 file: &quot;/user/hrt_qa/.hiveJars/protobuf-java-2.5.0.jar&quot; } size: 533455 timestamp: 1395961799302 type: FILE visibility: APPLICATION] at org.apache.tez.dag.app.DAGAppMaster.getAdditionalLocalResourceDiff(DAGAppMaster.java:1108) at org.apache.tez.dag.app.DAGAppMaster.startDAG(DAGAppMaster.java:1821) at org.apache.tez.dag.app.DAGAppMaster.submitDAGToAppMaster(DAGAppMaster.java:955) at org.apache.tez.dag.app.DAGAppMaster$DAGClientHandler.submitDAG(DAGAppMaster.java:1058) at org.apache.tez.dag.api.client.rpc.DAGClientAMProtocolBlockingPBServerImpl.submitDAG(DAGClientAMProtocolBlockingPBServerImpl.java:131) at org.apache.tez.dag.api.client.rpc.DAGClientAMProtocolRPC$DAGClientAMProtocol$2.callBlockingMethod(DAGClientAMProtocolRPC.java:8292) at org.apache.hadoop.ipc.ProtobufRpcEngine$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine.java:585) at org.apache.hadoop.ipc.RPC$Server.call(RPC.java:928) at org.apache.hadoop.ipc.Server$Handler$1.run(Server.java:2007) at org.apache.hadoop.ipc.Server$Handler$1.run(Server.java:2003) at java.security.AccessController.doPrivileged(Native Method) at javax.security.auth.Subject.doAs(Subject.java:396) at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1548) at org.apache.hadoop.ipc.Server$Handler.run(Server.java:2001) at org.apache.hadoop.ipc.Client.call(Client.java:1410) at org.apache.hadoop.ipc.Client.call(Client.java:1363) at org.apache.hadoop.ipc.ProtobufRpcEngine$Invoker.invoke(ProtobufRpcEngine.java:206) {noformat}</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/TEZ-998">TEZ-998</a> | <em>Major</em> | <strong>InvalidStateTransitonException: Invalid event: V_INIT at INITED</strong></li>
+</ul>
+<p>While running HA tests where AM was being killed while the hive query was running we saw that the application failed with exception</p>
+<p>org.apache.hadoop.yarn.state.InvalidStateTransitonException: Invalid event: V_INIT at INITED</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/TEZ-997">TEZ-997</a> | <em>Major</em> | <strong>Internal Errror in am logs during dag shutdown</strong></li>
+</ul>
+<p>During a hive on tez job which failed we saw an exception trace during dag shutdown.</p>

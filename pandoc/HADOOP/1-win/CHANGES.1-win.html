@@ -1,0 +1,1276 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hadoop-changelog">Apache Hadoop Changelog</h1>
+<h2 id="release-1-win---unreleased-as-of-2015-09-04">Release 1-win - Unreleased (as of 2015-09-04)</h2>
+<h3 id="incompatible-changes">INCOMPATIBLE CHANGES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4737">MAPREDUCE-4737</a></td>
+<td align="left">Hadoop does not close output file / does not call Mapper.cleanup if exception in map</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Daniel Dai</td>
+<td align="left">Arun C Murthy</td>
+</tr>
+</tbody>
+</table>
+<h3 id="new-features">NEW FEATURES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8820">HADOOP-8820</a></td>
+<td align="left">Backport HADOOP-8469 and HADOOP-8470: add &quot;NodeGroup&quot; layer in new NetworkTopology (also known as NetworkTopologyWithNodeGroup)</td>
+<td align="left">Major</td>
+<td align="left">net</td>
+<td align="left">Junping Du</td>
+<td align="left">Junping Du</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-3942">HDFS-3942</a></td>
+<td align="left">Backport HDFS-3495: Update balancer policy for Network Topology with additional 'NodeGroup' layer</td>
+<td align="left">Major</td>
+<td align="left">balancer &amp; mover</td>
+<td align="left">Junping Du</td>
+<td align="left">Junping Du</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-3941">HDFS-3941</a></td>
+<td align="left">Backport HDFS-3498 and HDFS3601: update replica placement policy for new added &quot;NodeGroup&quot; layer topology</td>
+<td align="left">Major</td>
+<td align="left">namenode</td>
+<td align="left">Junping Du</td>
+<td align="left">Junping Du</td>
+</tr>
+</tbody>
+</table>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9802">HADOOP-9802</a></td>
+<td align="left">Support Snappy codec on Windows.</td>
+<td align="left">Major</td>
+<td align="left">io</td>
+<td align="left">Chris Nauroth</td>
+<td align="left">Chris Nauroth</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9450">HADOOP-9450</a></td>
+<td align="left">HADOOP_USER_CLASSPATH_FIRST is not honored; CLASSPATH is PREpended instead of APpended</td>
+<td align="left">Major</td>
+<td align="left">scripts</td>
+<td align="left">Mitch Wyle</td>
+<td align="left">Harsh J</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9111">HADOOP-9111</a></td>
+<td align="left">Fix failed testcases with @ignore annotation In branch-1</td>
+<td align="left">Minor</td>
+<td align="left">test</td>
+<td align="left">Jing Zhao</td>
+<td align="left">Jing Zhao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8908">HADOOP-8908</a></td>
+<td align="left">Refactor 'winutils.exe' code</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Chuan Liu</td>
+<td align="left">Chuan Liu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8847">HADOOP-8847</a></td>
+<td align="left">Change untar to use Java API on Windows instead of spawning tar process</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Bikas Saha</td>
+<td align="left">Bikas Saha</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8823">HADOOP-8823</a></td>
+<td align="left">ant package target should not depend on cn-docs</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-4963">HDFS-4963</a></td>
+<td align="left">Improve multihoming support in namenode</td>
+<td align="left">Major</td>
+<td align="left">namenode</td>
+<td align="left">Arpit Agarwal</td>
+<td align="left">Arpit Agarwal</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-4782">HDFS-4782</a></td>
+<td align="left">backport edit log corruption toleration to branch-1-win</td>
+<td align="left">Major</td>
+<td align="left">namenode</td>
+<td align="left">Chris Nauroth</td>
+<td align="left">Chris Nauroth</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-3649">HDFS-3649</a></td>
+<td align="left">Port HDFS-385 to branch-1-win</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sumadhur Reddy Bolli</td>
+<td align="left">Sumadhur Reddy Bolli</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-3566">HDFS-3566</a></td>
+<td align="left">Custom Replication Policy for Azure</td>
+<td align="left">Major</td>
+<td align="left">namenode</td>
+<td align="left">Sumadhur Reddy Bolli</td>
+<td align="left">Sumadhur Reddy Bolli</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-3564">HDFS-3564</a></td>
+<td align="left">Design enhancements to the pluggable blockplacementpolicy</td>
+<td align="left">Major</td>
+<td align="left">namenode</td>
+<td align="left">Sumadhur Reddy Bolli</td>
+<td align="left">Sumadhur Reddy Bolli</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-496">HDFS-496</a></td>
+<td align="left">Use PureJavaCrc32 in HDFS</td>
+<td align="left">Minor</td>
+<td align="left">datanode, hdfs-client, performance</td>
+<td align="left">Todd Lipcon</td>
+<td align="left">Todd Lipcon</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-385">HDFS-385</a></td>
+<td align="left">Design a pluggable interface to place replicas of blocks in HDFS</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">dhruba borthakur</td>
+<td align="left">dhruba borthakur</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5406">MAPREDUCE-5406</a></td>
+<td align="left">Improve logging around Task Tracker exiting with JVM manager inconsistent state</td>
+<td align="left">Major</td>
+<td align="left">tasktracker</td>
+<td align="left">Chelsey Chang</td>
+<td align="left">Chelsey Chang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5161">MAPREDUCE-5161</a></td>
+<td align="left">Merge MAPREDUCE-1806 from branch-1 to branch-1-win. CombineFileInputFormat fix for paths not on default FS</td>
+<td align="left">Major</td>
+<td align="left">mrv1</td>
+<td align="left">Chris Nauroth</td>
+<td align="left">Chris Nauroth</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4203">MAPREDUCE-4203</a></td>
+<td align="left">Create equivalent of ProcfsBasedProcessTree for Windows</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Bikas Saha</td>
+<td align="left">Bikas Saha</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-10142">HADOOP-10142</a></td>
+<td align="left">Avoid groups lookup for unprivileged users such as &quot;dr.who&quot;</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Vinayakumar B</td>
+<td align="left">Vinayakumar B</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-10094">HADOOP-10094</a></td>
+<td align="left">NPE in GenericOptionsParser#preProcessForWindows()</td>
+<td align="left">Trivial</td>
+<td align="left">util</td>
+<td align="left">Enis Soztutar</td>
+<td align="left">Enis Soztutar</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-10090">HADOOP-10090</a></td>
+<td align="left">Jobtracker metrics not updated properly after execution of a mapreduce job</td>
+<td align="left">Major</td>
+<td align="left">metrics</td>
+<td align="left">Ivan Mitic</td>
+<td align="left">Ivan Mitic</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9801">HADOOP-9801</a></td>
+<td align="left">Configuration#writeXml uses platform defaulting encoding, which may mishandle multi-byte characters.</td>
+<td align="left">Major</td>
+<td align="left">conf</td>
+<td align="left">Chris Nauroth</td>
+<td align="left">Chris Nauroth</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9791">HADOOP-9791</a></td>
+<td align="left">Add a test case covering long paths for new FileUtil access check methods</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ivan Mitic</td>
+<td align="left">Ivan Mitic</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9790">HADOOP-9790</a></td>
+<td align="left">Job token path is not unquoted properly</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Xi Fang</td>
+<td align="left">Xi Fang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9768">HADOOP-9768</a></td>
+<td align="left">chown and chgrp reject users and groups with spaces on platforms where spaces are otherwise acceptable</td>
+<td align="left">Major</td>
+<td align="left">fs</td>
+<td align="left">Chris Nauroth</td>
+<td align="left">Chris Nauroth</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9722">HADOOP-9722</a></td>
+<td align="left">Branch-1-win TestNativeIO failed caused by Window incompatible test case</td>
+<td align="left">Minor</td>
+<td align="left">test</td>
+<td align="left">Xi Fang</td>
+<td align="left">Xi Fang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9719">HADOOP-9719</a></td>
+<td align="left">Branch-1-win TestFsShellReturnCode#testChgrp() failed caused by incorrect exit codes</td>
+<td align="left">Minor</td>
+<td align="left">test</td>
+<td align="left">Xi Fang</td>
+<td align="left">Xi Fang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9718">HADOOP-9718</a></td>
+<td align="left">Branch-1-win TestGroupFallback#testGroupWithFallback() failed caused by java.lang.UnsatisfiedLinkError</td>
+<td align="left">Major</td>
+<td align="left">security</td>
+<td align="left">Xi Fang</td>
+<td align="left">Xi Fang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9687">HADOOP-9687</a></td>
+<td align="left">branch-1-win TestJobTrackerQuiescence and TestFileLengthOnClusterRestart failed caused by incorrect DFS path construction on Windows</td>
+<td align="left">Minor</td>
+<td align="left">test</td>
+<td align="left">Xi Fang</td>
+<td align="left">Xi Fang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9685">HADOOP-9685</a></td>
+<td align="left">hadoop-config.cmd: builds a classpath that is too long on windows</td>
+<td align="left">Major</td>
+<td align="left">bin</td>
+<td align="left">Raja Aluri</td>
+<td align="left">Raja Aluri</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9681">HADOOP-9681</a></td>
+<td align="left">FileUtil.unTarUsingJava() should close the InputStream upon finishing</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Chuan Liu</td>
+<td align="left">Chuan Liu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9678">HADOOP-9678</a></td>
+<td align="left">TestRPC#testStopsAllThreads intermittently fails on Windows</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ivan Mitic</td>
+<td align="left">Ivan Mitic</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9677">HADOOP-9677</a></td>
+<td align="left">TestSetupAndCleanupFailure#testWithDFS fails on Windows</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ivan Mitic</td>
+<td align="left">Xi Fang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9665">HADOOP-9665</a></td>
+<td align="left">BlockDecompressorStream#decompress will throw EOFException instead of return -1 when EOF</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Zhijie Shen</td>
+<td align="left">Zhijie Shen</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9660">HADOOP-9660</a></td>
+<td align="left">[WINDOWS] Powershell / cmd parses -Dkey=value from command line as [-Dkey, value] which breaks GenericsOptionParser</td>
+<td align="left">Major</td>
+<td align="left">scripts, util</td>
+<td align="left">Enis Soztutar</td>
+<td align="left">Enis Soztutar</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9609">HADOOP-9609</a></td>
+<td align="left">Remove sh dependency of bin-package target</td>
+<td align="left">Minor</td>
+<td align="left">build</td>
+<td align="left">Chuan Liu</td>
+<td align="left">Chuan Liu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9579">HADOOP-9579</a></td>
+<td align="left">Contrib ant test target not setting the java.library.path</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ivan Mitic</td>
+<td align="left">Ivan Mitic</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9552">HADOOP-9552</a></td>
+<td align="left">Windows log4j template should suppress info messages from mortbay.log</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ivan Mitic</td>
+<td align="left">Ivan Mitic</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9551">HADOOP-9551</a></td>
+<td align="left">Backport common utils introduced with HADOOP-9413 to branch-1-win</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ivan Mitic</td>
+<td align="left">Ivan Mitic</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9507">HADOOP-9507</a></td>
+<td align="left">LocalFileSystem rename() is broken in some cases when destination exists</td>
+<td align="left">Minor</td>
+<td align="left">fs</td>
+<td align="left">Mostafa Elhemali</td>
+<td align="left">Chris Nauroth</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9472">HADOOP-9472</a></td>
+<td align="left">Cleanup hadoop-config.cmd</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Ivan Mitic</td>
+<td align="left">Ivan Mitic</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9463">HADOOP-9463</a></td>
+<td align="left">branch-1-win fails to build with OpenJDK7</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ivan Mitic</td>
+<td align="left">Ivan Mitic</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9250">HADOOP-9250</a></td>
+<td align="left">Windows installer bugfixes</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ivan Mitic</td>
+<td align="left">Ivan Mitic</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9185">HADOOP-9185</a></td>
+<td align="left">TestFileCreation.testFsClose should clean up on exit.</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Arpit Agarwal</td>
+<td align="left">Arpit Agarwal</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9177">HADOOP-9177</a></td>
+<td align="left">Address issues that came out from running static code analysis on winutils</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ivan Mitic</td>
+<td align="left">Ivan Mitic</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9110">HADOOP-9110</a></td>
+<td align="left">winutils ls off-by-one error indexing MONTHS array can cause access violation</td>
+<td align="left">Major</td>
+<td align="left">util</td>
+<td align="left">Chris Nauroth</td>
+<td align="left">Chris Nauroth</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9102">HADOOP-9102</a></td>
+<td align="left">winutils task isAlive does not return a non-zero exit code if the requested task is not alive</td>
+<td align="left">Major</td>
+<td align="left">util</td>
+<td align="left">Chris Nauroth</td>
+<td align="left">Chris Nauroth</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9099">HADOOP-9099</a></td>
+<td align="left">NetUtils.normalizeHostName fails on domains where UnknownHost resolves to an IP address</td>
+<td align="left">Minor</td>
+<td align="left">test</td>
+<td align="left">Ivan Mitic</td>
+<td align="left">Ivan Mitic</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9095">HADOOP-9095</a></td>
+<td align="left">TestNNThroughputBenchmark fails in branch-1</td>
+<td align="left">Minor</td>
+<td align="left">net</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+<td align="left">Jing Zhao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9062">HADOOP-9062</a></td>
+<td align="left">hadoop-env.cmd overwrites the value of *_OPTS set before install</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ganeshan Iyer</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9061">HADOOP-9061</a></td>
+<td align="left">Java6+Windows does not work well with symlinks</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ivan Mitic</td>
+<td align="left">Ivan Mitic</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9043">HADOOP-9043</a></td>
+<td align="left">disallow in winutils creating symlinks with forwards slashes</td>
+<td align="left">Major</td>
+<td align="left">util</td>
+<td align="left">Chris Nauroth</td>
+<td align="left">Chris Nauroth</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9036">HADOOP-9036</a></td>
+<td align="left">TestSinkQueue.testConcurrentConsumers fails intermittently (Backports HADOOP-7292)</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ivan Mitic</td>
+<td align="left">Suresh Srinivas</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9027">HADOOP-9027</a></td>
+<td align="left">Build fails on Windows without sh/sed/echo in the path</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ivan Mitic</td>
+<td align="left">Ivan Mitic</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9026">HADOOP-9026</a></td>
+<td align="left">Hadoop.cmd fails to initialize if user's %path% variable has parenthesis</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ivan Mitic</td>
+<td align="left">Ivan Mitic</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9007">HADOOP-9007</a></td>
+<td align="left">TestJobStatusPersistency.testJobStoreDisablingWithInvalidPath failure</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Chuan Liu</td>
+<td align="left">Chuan Liu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9006">HADOOP-9006</a></td>
+<td align="left">Winutils should keep Administrators privileges intact</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Chuan Liu</td>
+<td align="left">Chuan Liu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8983">HADOOP-8983</a></td>
+<td align="left">Minor fixes to windows batch scripts to accept alternate config directory location</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ramya Bharathi Nimmagadda</td>
+<td align="left">Ramya Bharathi Nimmagadda</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8973">HADOOP-8973</a></td>
+<td align="left">DiskChecker cannot reliably detect an inaccessible disk on Windows with NTFS ACLs</td>
+<td align="left">Major</td>
+<td align="left">util</td>
+<td align="left">Chris Nauroth</td>
+<td align="left">Chris Nauroth</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8972">HADOOP-8972</a></td>
+<td align="left">Move winutils tests from bat to Java</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ivan Mitic</td>
+<td align="left">Ivan Mitic</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8936">HADOOP-8936</a></td>
+<td align="left">Local users should be able to query a domain user's groups on Windows</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Chuan Liu</td>
+<td align="left">Chuan Liu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8935">HADOOP-8935</a></td>
+<td align="left">Make 'winutils ls' show the SID if the owner does not exist on the system</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Chuan Liu</td>
+<td align="left">Chuan Liu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8912">HADOOP-8912</a></td>
+<td align="left">adding .gitattributes file to prevent CRLF and LF mismatches for source and text files</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Raja Aluri</td>
+<td align="left">Raja Aluri</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8911">HADOOP-8911</a></td>
+<td align="left">CRLF characters in source and text files</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Raja Aluri</td>
+<td align="left">Raja Aluri</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8907">HADOOP-8907</a></td>
+<td align="left">Provide means to look for zlib1.dll next to hadoop.dll on Windows</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ivan Mitic</td>
+<td align="left">Ivan Mitic</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8903">HADOOP-8903</a></td>
+<td align="left">support HADOOP_USER_CLASSPATH_FIRST in windows hadoop cmd</td>
+<td align="left">Major</td>
+<td align="left">scripts</td>
+<td align="left">Thejas M Nair</td>
+<td align="left">Thejas M Nair</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8902">HADOOP-8902</a></td>
+<td align="left">Enable Gridmix v1 &amp; v2 benchmarks on Windows platform</td>
+<td align="left">Major</td>
+<td align="left">benchmarks</td>
+<td align="left">Mike Liddell</td>
+<td align="left">Mike Liddell</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8899">HADOOP-8899</a></td>
+<td align="left">Classpath exceeds maximum OS limit</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ahmed El Baz</td>
+<td align="left">Ahmed El Baz</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8880">HADOOP-8880</a></td>
+<td align="left">Missing jersey jars as dependency in the pom causes hive tests to fail</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Giridharan Kesavan</td>
+<td align="left">Giridharan Kesavan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8879">HADOOP-8879</a></td>
+<td align="left">TestUserGroupInformation fails on Windows when runas Administrator</td>
+<td align="left">Minor</td>
+<td align="left">test</td>
+<td align="left">Bikas Saha</td>
+<td align="left">Bikas Saha</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8872">HADOOP-8872</a></td>
+<td align="left">FileSystem#length returns zero for symlinks on windows+java6</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ivan Mitic</td>
+<td align="left">Ivan Mitic</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8871">HADOOP-8871</a></td>
+<td align="left">FileUtil.symLink: if shell command fails, logging message does not correctly print command attempted</td>
+<td align="left">Major</td>
+<td align="left">fs</td>
+<td align="left">Chris Nauroth</td>
+<td align="left">Chris Nauroth</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8869">HADOOP-8869</a></td>
+<td align="left">Links at the bottom of the jobdetails page do not render correctly in IE9</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ivan Mitic</td>
+<td align="left">Ivan Mitic</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8868">HADOOP-8868</a></td>
+<td align="left">FileUtil#chmod should normalize the path before calling into shell APIs</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ivan Mitic</td>
+<td align="left">Ivan Mitic</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8763">HADOOP-8763</a></td>
+<td align="left">Set group owner on Windows failed</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Chuan Liu</td>
+<td align="left">Chuan Liu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8739">HADOOP-8739</a></td>
+<td align="left">Cmd scripts for Windows have issues in argument parsing</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Bikas Saha</td>
+<td align="left">Bikas Saha</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8734">HADOOP-8734</a></td>
+<td align="left">LocalJobRunner does not support private distributed cache</td>
+<td align="left">Major</td>
+<td align="left">filecache</td>
+<td align="left">Ivan Mitic</td>
+<td align="left">Ivan Mitic</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8733">HADOOP-8733</a></td>
+<td align="left">TestStreamingTaskLog, TestJvmManager, TestLinuxTaskControllerLaunchArgs fail on Windows</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Ivan Mitic</td>
+<td align="left">Ivan Mitic</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8732">HADOOP-8732</a></td>
+<td align="left">Address intermittent test failures on Windows</td>
+<td align="left">Major</td>
+<td align="left">util</td>
+<td align="left">Ivan Mitic</td>
+<td align="left">Ivan Mitic</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8731">HADOOP-8731</a></td>
+<td align="left">TestTrackerDistributedCacheManager fails on Windows</td>
+<td align="left">Major</td>
+<td align="left">filecache</td>
+<td align="left">Ivan Mitic</td>
+<td align="left">Ivan Mitic</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8694">HADOOP-8694</a></td>
+<td align="left">Create true symbolic links on Windows</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Chuan Liu</td>
+<td align="left">Chuan Liu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8664">HADOOP-8664</a></td>
+<td align="left">hadoop streaming job need the full path to commands even when they are in the path</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Bikas Saha</td>
+<td align="left">Bikas Saha</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8657">HADOOP-8657</a></td>
+<td align="left">TestCLI fails on Windows because it uses hardcoded file length of test files committed to the source code</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Bikas Saha</td>
+<td align="left">Bikas Saha</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8564">HADOOP-8564</a></td>
+<td align="left">Port and extend Hadoop native libraries for Windows to address datanode concurrent reading and writing issue</td>
+<td align="left">Major</td>
+<td align="left">io</td>
+<td align="left">Chuan Liu</td>
+<td align="left">Chuan Liu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8544">HADOOP-8544</a></td>
+<td align="left">Move an assertion location in 'winutils chmod'</td>
+<td align="left">Trivial</td>
+<td align="left">.</td>
+<td align="left">Chuan Liu</td>
+<td align="left">Chuan Liu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8486">HADOOP-8486</a></td>
+<td align="left">Resource leak - Close the open resource handles (File handles) before throwing the exception from the SequenceFile constructor</td>
+<td align="left">Major</td>
+<td align="left">fs, io</td>
+<td align="left">Kanna Karanam</td>
+<td align="left">Kanna Karanam</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8456">HADOOP-8456</a></td>
+<td align="left">Support spaces in user names and group names in results returned via winutils</td>
+<td align="left">Minor</td>
+<td align="left">native</td>
+<td align="left">Chuan Liu</td>
+<td align="left">Ivan Mitic</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8440">HADOOP-8440</a></td>
+<td align="left">HarFileSystem.decodeHarURI fails for URIs whose host contains numbers</td>
+<td align="left">Minor</td>
+<td align="left">fs</td>
+<td align="left">Ivan Mitic</td>
+<td align="left">Ivan Mitic</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8424">HADOOP-8424</a></td>
+<td align="left">Web UI broken on Windows because classpath not setup correctly</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Bikas Saha</td>
+<td align="left">Bikas Saha</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8420">HADOOP-8420</a></td>
+<td align="left">Hadoop Common creating package-info.java must not depend on sh</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Bikas Saha</td>
+<td align="left">Bikas Saha</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8414">HADOOP-8414</a></td>
+<td align="left">Address problems related to localhost resolving to 127.0.0.1 on Windows</td>
+<td align="left">Major</td>
+<td align="left">fs, test</td>
+<td align="left">Ivan Mitic</td>
+<td align="left">Ivan Mitic</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8409">HADOOP-8409</a></td>
+<td align="left">Fix TestCommandLineJobSubmission and TestGenericOptionsParser to work for windows</td>
+<td align="left">Major</td>
+<td align="left">fs, test, util</td>
+<td align="left">Ivan Mitic</td>
+<td align="left">Ivan Mitic</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8329">HADOOP-8329</a></td>
+<td align="left">Build fails with Java 7</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Kumar Ravi</td>
+<td align="left">Eli Collins</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-6527">HADOOP-6527</a></td>
+<td align="left">UserGroupInformation::createUserForTesting clobbers already defined group mappings</td>
+<td align="left">Major</td>
+<td align="left">security</td>
+<td align="left">Jakob Homan</td>
+<td align="left">Ivan Mitic</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-6496">HADOOP-6496</a></td>
+<td align="left">HttpServer sends wrong content-type for CSS files (and others)</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Lars Francke</td>
+<td align="left">Ivan Mitic</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-5516">HDFS-5516</a></td>
+<td align="left">WebHDFS does not require user name when anonymous http requests are disallowed.</td>
+<td align="left">Major</td>
+<td align="left">webhdfs</td>
+<td align="left">Chris Nauroth</td>
+<td align="left">Miodrag Radulovic</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-5211">HDFS-5211</a></td>
+<td align="left">Race condition between DistributedFileSystem#close and FileSystem#close can cause return of a closed DistributedFileSystem instance from the FileSystem cache.</td>
+<td align="left">Major</td>
+<td align="left">hdfs-client</td>
+<td align="left">Chris Nauroth</td>
+<td align="left">Chris Nauroth</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-5003">HDFS-5003</a></td>
+<td align="left">TestNNThroughputBenchmark failed caused by existing directories</td>
+<td align="left">Minor</td>
+<td align="left">test</td>
+<td align="left">Xi Fang</td>
+<td align="left">Xi Fang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-5001">HDFS-5001</a></td>
+<td align="left">Branch-1-Win TestAzureBlockPlacementPolicy and TestReplicationPolicyWithNodeGroup failed caused by 1) old APIs and 2) incorrect value of depthOfAllLeaves</td>
+<td align="left">Major</td>
+<td align="left">namenode</td>
+<td align="left">Xi Fang</td>
+<td align="left">Xi Fang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-4975">HDFS-4975</a></td>
+<td align="left">Branch-1-win TestReplicationPolicy failed caused by stale data node handling</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Xi Fang</td>
+<td align="left">Xi Fang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-4677">HDFS-4677</a></td>
+<td align="left">Editlog should support synchronous writes</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ivan Mitic</td>
+<td align="left">Ivan Mitic</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-4341">HDFS-4341</a></td>
+<td align="left">TestBalancerWithNodeGroup fails on Windows</td>
+<td align="left">Minor</td>
+<td align="left">test</td>
+<td align="left">Ivan Mitic</td>
+<td align="left">Ivan Mitic</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-4337">HDFS-4337</a></td>
+<td align="left">Backport HDFS-4240 to branch-1: Make sure nodes are avoided to place replica if some replica are already under the same nodegroup.</td>
+<td align="left">Major</td>
+<td align="left">namenode</td>
+<td align="left">Junping Du</td>
+<td align="left">meng gong</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-4093">HDFS-4093</a></td>
+<td align="left">In branch-1-win, AzureBlockPlacementPolicy#chooseTarget only returns one DN when replication factor is greater than 3.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jing Zhao</td>
+<td align="left">Jing Zhao</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-4065">HDFS-4065</a></td>
+<td align="left">TestDFSShell.testGet sporadically fails attempting to corrupt block files due to race condition</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Chris Nauroth</td>
+<td align="left">Chris Nauroth</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-3833">HDFS-3833</a></td>
+<td align="left">TestDFSShell fails on Windows due to file concurrent read write</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Brandon Li</td>
+<td align="left">Brandon Li</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-3766">HDFS-3766</a></td>
+<td align="left">Fix TestStorageRestore on Windows</td>
+<td align="left">Major</td>
+<td align="left">namenode</td>
+<td align="left">Brandon Li</td>
+<td align="left">Brandon Li</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-3763">HDFS-3763</a></td>
+<td align="left">TestNameNodeMXBean fails on Windows</td>
+<td align="left">Major</td>
+<td align="left">namenode</td>
+<td align="left">Brandon Li</td>
+<td align="left">Brandon Li</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5808">MAPREDUCE-5808</a></td>
+<td align="left">Port output replication factor configurable for terasort to Hadoop 1.x</td>
+<td align="left">Minor</td>
+<td align="left">examples</td>
+<td align="left">Chuan Liu</td>
+<td align="left">Chuan Liu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5512">MAPREDUCE-5512</a></td>
+<td align="left">TaskTracker hung after failed reconnect to the JobTracker</td>
+<td align="left">Major</td>
+<td align="left">tasktracker</td>
+<td align="left">Ivan Mitic</td>
+<td align="left">Ivan Mitic</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5508">MAPREDUCE-5508</a></td>
+<td align="left">JobTracker memory leak caused by unreleased FileSystem objects in JobInProgress#cleanupJob</td>
+<td align="left">Critical</td>
+<td align="left">jobtracker</td>
+<td align="left">Xi Fang</td>
+<td align="left">Xi Fang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5405">MAPREDUCE-5405</a></td>
+<td align="left">Job recovery can fail if task log directory symlink from prior run still exists</td>
+<td align="left">Major</td>
+<td align="left">mrv1</td>
+<td align="left">Chris Nauroth</td>
+<td align="left">Chris Nauroth</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5391">MAPREDUCE-5391</a></td>
+<td align="left">TestNonLocalJobJarSubmission fails on Windows due to missing classpath entries</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Chris Nauroth</td>
+<td align="left">Chris Nauroth</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5371">MAPREDUCE-5371</a></td>
+<td align="left">TestProxyUserFromEnv#testProxyUserFromEnvironment failed caused by domains of windows users</td>
+<td align="left">Minor</td>
+<td align="left">test</td>
+<td align="left">Xi Fang</td>
+<td align="left">Xi Fang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5351">MAPREDUCE-5351</a></td>
+<td align="left">JobTracker memory leak caused by CleanupQueue reopening FileSystem</td>
+<td align="left">Critical</td>
+<td align="left">jobtracker</td>
+<td align="left">Sandy Ryza</td>
+<td align="left">Sandy Ryza</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5330">MAPREDUCE-5330</a></td>
+<td align="left">JVM manager should not forcefully kill the process on Signal.TERM on Windows</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Xi Fang</td>
+<td align="left">Xi Fang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5278">MAPREDUCE-5278</a></td>
+<td align="left">Distributed cache is broken when JT staging dir is not on the default FS</td>
+<td align="left">Major</td>
+<td align="left">distributed-cache</td>
+<td align="left">Xi Fang</td>
+<td align="left">Xi Fang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5224">MAPREDUCE-5224</a></td>
+<td align="left">JobTracker should allow the system directory to be in non-default FS</td>
+<td align="left">Minor</td>
+<td align="left">jobtracker</td>
+<td align="left">Xi Fang</td>
+<td align="left">Xi Fang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5066">MAPREDUCE-5066</a></td>
+<td align="left">JobTracker should set a timeout when calling into job.end.notification.url</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ivan Mitic</td>
+<td align="left">Ivan Mitic</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4657">MAPREDUCE-4657</a></td>
+<td align="left">WindowsResourceCalculatorPlugin has NPE</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Bikas Saha</td>
+<td align="left">Bikas Saha</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4598">MAPREDUCE-4598</a></td>
+<td align="left">Support for node health scripts on Windows</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Bikas Saha</td>
+<td align="left">Bikas Saha</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4597">MAPREDUCE-4597</a></td>
+<td align="left">TestKillSubProcesses intermittently fails</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Bikas Saha</td>
+<td align="left">Bikas Saha</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4564">MAPREDUCE-4564</a></td>
+<td align="left">Shell timeout mechanism does not work for processes spawned using winutils</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Bikas Saha</td>
+<td align="left">Bikas Saha</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4510">MAPREDUCE-4510</a></td>
+<td align="left">Avoid logging &quot;Cannot run program getconf&quot; on Windows</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Bikas Saha</td>
+<td align="left">Bikas Saha</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4374">MAPREDUCE-4374</a></td>
+<td align="left">Fix child task environment variable config and add support for Windows</td>
+<td align="left">Minor</td>
+<td align="left">mrv2</td>
+<td align="left">Chuan Liu</td>
+<td align="left">Chuan Liu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4369">MAPREDUCE-4369</a></td>
+<td align="left">Fix streaming job failures with WindowsResourceCalculatorPlugin</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Bikas Saha</td>
+<td align="left">Bikas Saha</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4368">MAPREDUCE-4368</a></td>
+<td align="left">TaskRunner fails to start jars when the java.library.path contains a quoted path with embedded spaces</td>
+<td align="left">Major</td>
+<td align="left">tasktracker</td>
+<td align="left">John Gordon</td>
+<td align="left">John Gordon</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4322">MAPREDUCE-4322</a></td>
+<td align="left">Fix command-line length abort issues on Windows</td>
+<td align="left">Major</td>
+<td align="left">tasktracker</td>
+<td align="left">John Gordon</td>
+<td align="left">Ivan Mitic</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4321">MAPREDUCE-4321</a></td>
+<td align="left">DefaultTaskController fails to launch tasks on Windows</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ivan Mitic</td>
+<td align="left">Ivan Mitic</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tests">TESTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9624">HADOOP-9624</a></td>
+<td align="left">TestFSMainOperationsLocalFileSystem failed when the Hadoop test root path has &quot;X&quot; in its name</td>
+<td align="left">Minor</td>
+<td align="left">test</td>
+<td align="left">Xi Fang</td>
+<td align="left">Xi Fang</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sub-tasks">SUB-TASKS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-9050">HADOOP-9050</a></td>
+<td align="left">Remove java5 dependencies from build</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Raja Aluri</td>
+<td align="left">Raja Aluri</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8874">HADOOP-8874</a></td>
+<td align="left">HADOOP_HOME and -Dhadoop.home (from hadoop wrapper script) are not uniformly handled</td>
+<td align="left">Major</td>
+<td align="left">scripts, security</td>
+<td align="left">John Gordon</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8618">HADOOP-8618</a></td>
+<td align="left">Windows build failing after 1.0.3 got merged into branch-1-win</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Bikas Saha</td>
+<td align="left">Bikas Saha</td>
+</tr>
+</tbody>
+</table>
+<h3 id="other">OTHER:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8949">HADOOP-8949</a></td>
+<td align="left">FileUtil.CygPathCommand is dead code on branch-1-win and branch-trunk-win</td>
+<td align="left">Major</td>
+<td align="left">fs</td>
+<td align="left">Chris Nauroth</td>
+<td align="left">Chris Nauroth</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8453">HADOOP-8453</a></td>
+<td align="left">Add unit tests for winutils</td>
+<td align="left">Minor</td>
+<td align="left">test</td>
+<td align="left">Chuan Liu</td>
+<td align="left">Chuan Liu</td>
+</tr>
+</tbody>
+</table>

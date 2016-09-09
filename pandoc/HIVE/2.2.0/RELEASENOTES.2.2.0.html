@@ -1,0 +1,99 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hive-2.2.0-release-notes">Apache Hive 2.2.0 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-13380">HIVE-13380</a> | <em>Major</em> | <strong>Decimal should have lower precedence than double in type hierachy</strong></li>
+</ul>
+<p>Hive now considers float &amp; double higher in precedence than decimal.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-14060">HIVE-14060</a> | <em>Major</em> | <strong>Hive: Remove bogus &quot;localhost&quot; from Hive splits</strong></li>
+</ul>
+<p>Hive: Remove bogus &quot;localhost&quot; from Hive splits</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-14122">HIVE-14122</a> | <em>Critical</em> | <strong>VectorMapOperator: Missing update to AbstractMapOperator::numRows</strong></li>
+</ul>
+<p>VectorMapOperator: Missing update to AbstractMapOperator::numRows (Gopal V, reviewed by Sergey Shelukhin)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-14200">HIVE-14200</a> | <em>Major</em> | <strong>Tez: disable auto-reducer parallelism when reducer-count * min.partition.factor &lt; 1.0</strong></li>
+</ul>
+<p>Tez: disable auto-reducer parallelism when reducer-count * min.partition.factor &lt; 1.0 (Gopal V, reviewed by Gunther Hagleitner)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-14267">HIVE-14267</a> | <em>Minor</em> | <strong>HS2 open_operations metrics not decremented when an operation gets timed out</strong></li>
+</ul>
+<p>Committed to 2.2.0 and 2.1.1. Thanks Naveen for the patch.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-14123">HIVE-14123</a> | <em>Minor</em> | <strong>Add beeline configuration option to show database in the prompt</strong></li>
+</ul>
+<p>New BeeLine Command option --showDbInPrompt to display the current database name in prompt</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-14349">HIVE-14349</a> | <em>Major</em> | <strong>Vectorization: LIKE should anchor the regexes</strong></li>
+</ul>
+<p>Vectorization: LIKE should anchor the regexes</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-14434">HIVE-14434</a> | <em>Major</em> | <strong>Vectorization: BytesBytes lookup capped count can be =0, =1, &gt;=2</strong></li>
+</ul>
+<p>Vectorization: BytesBytes lookup capped count can be =0, =1, &gt;=2 (Gopal V, reviewed by Sergey Shelukhin)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-14436">HIVE-14436</a> | <em>Major</em> | <strong>Hive 1.2.1/Hitting &quot;ql.Driver: FAILED: IllegalArgumentException Error: , expected at the end of 'decimal(9'&quot; after enabling hive.optimize.skewjoin and with MR engine</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-14435">HIVE-14435</a> | <em>Major</em> | <strong>Vectorization: missed vectorization for const varchar()</strong></li>
+</ul>
+<p>Vectorization: missed vectorization for const varchar()</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-14437">HIVE-14437</a> | <em>Major</em> | <strong>Vectorization: Optimize key misses in VectorMapJoinFastBytesHashTable</strong></li>
+</ul>
+<p>Vectorization: Optimize key misses in VectorMapJoinFastBytesHashTable (Gopal V, reviewed by Matt McCline)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-14155">HIVE-14155</a> | <em>Major</em> | <strong>Vectorization: Custom UDF Vectorization annotations are ignored</strong></li>
+</ul>
+<p>Vectorization: Custom UDF Vectorization annotations are ignored (Gopal V, reviewed by Ashutosh Chauhan)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-14648">HIVE-14648</a> | <em>Blocker</em> | <strong>LLAP: Avoid private pages in the SSD cache</strong></li>
+</ul>
+<p>LLAP: Avoid private pages in the SSD cache (Gopal V, reviewed by Sergey Shelukhin)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-14418">HIVE-14418</a> | <em>Major</em> | <strong>Hive config validation prevents unsetting the settings</strong></li>
+</ul>
+<p>&quot;-d&quot; option has been added to Hive CLI &quot;reset&quot; command, allowing one to reset specific settings to built-in defaults, overriding any session-specific values, as well as configuration files in use. E.g. &quot;reset -d hive.compute.splits.in.am hive.smbjoin.cache.rows&quot;.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-14618">HIVE-14618</a> | <em>Major</em> | <strong>beeline fetch logging delays before query completion</strong></li>
+</ul>
+<p>beeline fetch logging delays before query completion (Tao Li, via Gopal V)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-14159">HIVE-14159</a> | <em>Major</em> | <strong>sorting of tuple array using multiple field[s]</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this change.</strong></p>

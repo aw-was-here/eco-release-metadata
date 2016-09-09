@@ -1,0 +1,104 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hadoop-2.4.0-release-notes">Apache Hadoop 2.4.0 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-10295">HADOOP-10295</a> | <em>Major</em> | <strong>Allow distcp to automatically identify the checksum type of source files and use it for the target</strong></li>
+</ul>
+<p>Add option for distcp to preserve the checksum type of the source files. Users can use &quot;-pc&quot; as distcp command option to preserve the checksum type.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-10221">HADOOP-10221</a> | <em>Major</em> | <strong>Add a plugin to specify SaslProperties for RPC protocol based on connection properties</strong></li>
+</ul>
+<p>SaslPropertiesResolver or its subclass is used to resolve the QOP used for a connection. The subclass can be specified via &quot;hadoop.security.saslproperties.resolver.class&quot; configuration property. If not specified, the full set of values specified in hadoop.rpc.protection is used while determining the QOP used for the connection. If a class is specified, then the QOP values returned by the class will be used while determining the QOP used for the connection.</p>
+<p>Note that this change, effectively removes SaslRpcServer.SASL_PROPS which was a public field. Any use of this variable should be replaced with the following code: SaslPropertiesResolver saslPropsResolver = SaslPropertiesResolver.getInstance(conf); Map&lt;String, String&gt; sasl_props = saslPropsResolver.getDefaultProperties();</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-10211">HADOOP-10211</a> | <em>Major</em> | <strong>Enable RPC protocol to negotiate SASL-QOP values between clients and servers</strong></li>
+</ul>
+<p>The hadoop.rpc.protection configuration property previously supported specifying a single value: one of authentication, integrity or privacy. An unrecognized value was silently assumed to mean authentication. This configuration property now accepts a comma-separated list of any of the 3 values, and unrecognized values are rejected with an error. Existing configurations containing an invalid value must be corrected. If the property is empty or not specified, authentication is assumed.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-8691">HADOOP-8691</a> | <em>Minor</em> | <strong>FsShell can print &quot;Found xxx items&quot; unnecessarily often</strong></li>
+</ul>
+<p>The <code>ls</code> command only prints &quot;Found foo items&quot; once when listing the directories recursively.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-6102">HDFS-6102</a> | <em>Blocker</em> | <strong>Lower the default maximum items per directory to fix PB fsimage loading</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-6055">HDFS-6055</a> | <em>Major</em> | <strong>Change default configuration to limit file name length in HDFS</strong></li>
+</ul>
+<p>The default configuration of HDFS now sets dfs.namenode.fs-limits.max-component-length to 255 for improved interoperability with other file system implementations. This limits each component of a file system path to a maximum of 255 bytes in UTF-8 encoding. Attempts to create new files that violate this rule will fail with an error. Existing files that violate the rule are not effected. Previously, dfs.namenode.fs-limits.max-component-length was set to 0 (ignored). If necessary, it is possible to set the value back to 0 in the cluster's configuration to restore the old behavior.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-5804">HDFS-5804</a> | <em>Major</em> | <strong>HDFS NFS Gateway fails to mount and proxy when using Kerberos</strong></li>
+</ul>
+<p>Fixes NFS on Kerberized cluster.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-5790">HDFS-5790</a> | <em>Major</em> | <strong>LeaseManager.findPath is very slow when many leases need recovery</strong></li>
+</ul>
+<p>Committed to branch-2 and trunk.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-5776">HDFS-5776</a> | <em>Major</em> | <strong>Support 'hedged' reads in DFSClient</strong></li>
+</ul>
+<p>If a read from a block is slow, start up another parallel, 'hedged' read against a different block replica. We then take the result of which ever read returns first (the outstanding read is cancelled). This 'hedged' read feature will help rein in the outliers, the odd read that takes a long time because it hit a bad patch on the disc, etc.</p>
+<p>This feature is off by default. To enable this feature, set &lt;code&gt;dfs.client.hedged.read.threadpool.size&lt;/code&gt; to a positive number. The threadpool size is how many threads to dedicate to the running of these 'hedged', concurrent reads in your client.</p>
+<p>Then set &lt;code&gt;dfs.client.hedged.read.threshold.millis&lt;/code&gt; to the number of milliseconds to wait before starting up a 'hedged' read. For example, if you set this property to 10, then if a read has not returned within 10 milliseconds, we will start up a new read against a different block replica.</p>
+<p>This feature emits new metrics:</p>
+<ul>
+<li>hedgedReadOps</li>
+<li>hedgeReadOpsWin -- how many times the hedged read 'beat' the original read</li>
+<li>hedgedReadOpsInCurThread -- how many times we went to do a hedged read but we had to run it in the current thread because dfs.client.hedged.read.threadpool.size was at a maximum.</li>
+</ul>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-5698">HDFS-5698</a> | <em>Major</em> | <strong>Use protobuf to serialize / deserialize FSImage</strong></li>
+</ul>
+<p>Use protobuf to serialize/deserialize the FSImage.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-5321">HDFS-5321</a> | <em>Major</em> | <strong>Clean up the HTTP-related configuration in HDFS</strong></li>
+</ul>
+<p>dfs.http.port and dfs.https.port are removed. Filesystem clients, such as WebHdfsFileSystem, now have fixed instead of configurable default ports (i.e., 50070 for http and 50470 for https).</p>
+<p>Users can explicitly specify the port in the URI to access the file system which runs on non-default ports.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-5138">HDFS-5138</a> | <em>Blocker</em> | <strong>Support HDFS upgrade in HA</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-4685">HDFS-4685</a> | <em>Major</em> | <strong>Implementation of ACLs in HDFS</strong></li>
+</ul>
+<p>HDFS now supports ACLs (Access Control Lists). ACLs can specify fine-grained file permissions for specific named users or named groups.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-4370">HDFS-4370</a> | <em>Major</em> | <strong>Fix typo Blanacer in DataNode</strong></li>
+</ul>
+<p>I just committed this. Thank you Chu.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5036">MAPREDUCE-5036</a> | <em>Major</em> | <strong>Default shuffle handler port should not be 8080</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>

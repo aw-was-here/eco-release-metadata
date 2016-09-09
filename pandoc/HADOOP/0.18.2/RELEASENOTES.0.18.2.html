@@ -1,0 +1,44 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hadoop-0.18.2-release-notes">Apache Hadoop 0.18.2 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4467">HADOOP-4467</a> | <em>Blocker</em> | <strong>SerializationFactory should use current context ClassLoader</strong></li>
+</ul>
+<p>SerializationFactory now uses the current context ClassLoader allowing for user supplied Serialization instances.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4314">HADOOP-4314</a> | <em>Blocker</em> | <strong>TestReplication fails quite often</strong></li>
+</ul>
+<p>Simulated Datanodes should not include blocks that are still being written in their block report.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4277">HADOOP-4277</a> | <em>Blocker</em> | <strong>Checksum verification is disabled for LocalFS</strong></li>
+</ul>
+<p>Checksum verification was mistakenly disabled for LocalFileSystem.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4271">HADOOP-4271</a> | <em>Blocker</em> | <strong>Bug in FSInputChecker makes it possible to read from an invalid buffer</strong></li>
+</ul>
+<p>Checksum input stream can sometimes return invalid data to the user.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-4228">HADOOP-4228</a> | <em>Blocker</em> | <strong>dfs datanode metrics, bytes_read, bytes_written overflows due to incorrect type used.</strong></li>
+</ul>
+<p>Changed bytes_read, bytes_written to type long to prevent metrics overflow.</p>

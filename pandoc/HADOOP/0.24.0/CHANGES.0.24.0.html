@@ -1,0 +1,420 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hadoop-changelog">Apache Hadoop Changelog</h1>
+<h2 id="release-0.24.0---unreleased-as-of-2015-09-04">Release 0.24.0 - Unreleased (as of 2015-09-04)</h2>
+<h3 id="incompatible-changes">INCOMPATIBLE CHANGES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7547">HADOOP-7547</a></td>
+<td align="left">Fix the warning in writable classes.[ WritableComparable is a raw type. References to generic type WritableComparable&lt;T&gt; should be parameterized ]</td>
+<td align="left">Minor</td>
+<td align="left">io</td>
+<td align="left">Uma Maheswara Rao G</td>
+<td align="left">Uma Maheswara Rao G</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7507">HADOOP-7507</a></td>
+<td align="left">jvm metrics all use the same namespace</td>
+<td align="left">Major</td>
+<td align="left">metrics</td>
+<td align="left">Jeff Bean</td>
+<td align="left">Alejandro Abdelnur</td>
+</tr>
+</tbody>
+</table>
+<h3 id="new-features">NEW FEATURES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7705">HADOOP-7705</a></td>
+<td align="left">Add a log4j back end that can push out JSON data, one per line</td>
+<td align="left">Minor</td>
+<td align="left">util</td>
+<td align="left">Steve Loughran</td>
+<td align="left">Steve Loughran</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7594">HADOOP-7594</a></td>
+<td align="left">Support HTTP REST in HttpServer</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+</tr>
+</tbody>
+</table>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7772">HADOOP-7772</a></td>
+<td align="left">javadoc the topology classes</td>
+<td align="left">Trivial</td>
+<td align="left">.</td>
+<td align="left">Steve Loughran</td>
+<td align="left">Steve Loughran</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7763">HADOOP-7763</a></td>
+<td align="left">Add top-level navigation to APT docs</td>
+<td align="left">Major</td>
+<td align="left">documentation</td>
+<td align="left">Tom White</td>
+<td align="left">Tom White</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7743">HADOOP-7743</a></td>
+<td align="left">Add Maven profile to create a full source tarball</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Alejandro Abdelnur</td>
+<td align="left">Alejandro Abdelnur</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7737">HADOOP-7737</a></td>
+<td align="left">normalize hadoop-mapreduce &amp; hadoop-dist dist/tar build with common/hdfs</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Alejandro Abdelnur</td>
+<td align="left">Alejandro Abdelnur</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7668">HADOOP-7668</a></td>
+<td align="left">Add a NetUtils method that can tell if an InetAddress belongs to local host</td>
+<td align="left">Minor</td>
+<td align="left">util</td>
+<td align="left">Suresh Srinivas</td>
+<td align="left">Steve Loughran</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7642">HADOOP-7642</a></td>
+<td align="left">create hadoop-dist module where TAR stitching would happen</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Alejandro Abdelnur</td>
+<td align="left">Tom White</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7595">HADOOP-7595</a></td>
+<td align="left">Upgrade dependency to Avro 1.5.3</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Alejandro Abdelnur</td>
+<td align="left">Alejandro Abdelnur</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7509">HADOOP-7509</a></td>
+<td align="left">Improve message when Authentication is required</td>
+<td align="left">Trivial</td>
+<td align="left">.</td>
+<td align="left">Ravi Prakash</td>
+<td align="left">Ravi Prakash</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7360">HADOOP-7360</a></td>
+<td align="left">FsShell does not preserve relative paths with globs</td>
+<td align="left">Major</td>
+<td align="left">fs</td>
+<td align="left">Daryn Sharp</td>
+<td align="left">Kihwal Lee</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7782">HADOOP-7782</a></td>
+<td align="left">Aggregate project javadocs</td>
+<td align="left">Critical</td>
+<td align="left">build</td>
+<td align="left">Arun C Murthy</td>
+<td align="left">Tom White</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7778">HADOOP-7778</a></td>
+<td align="left">FindBugs warning in Token.getKind()</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Tom White</td>
+<td align="left">Tom White</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7771">HADOOP-7771</a></td>
+<td align="left">NPE when running hdfs dfs -copyToLocal, -get etc</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">John George</td>
+<td align="left">John George</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7766">HADOOP-7766</a></td>
+<td align="left">The auth to local mappings are not being respected, with webhdfs and security enabled.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jitendra Nath Pandey</td>
+<td align="left">Jitendra Nath Pandey</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7745">HADOOP-7745</a></td>
+<td align="left">I switched variable names in HADOOP-7509</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ravi Prakash</td>
+<td align="left">Ravi Prakash</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7728">HADOOP-7728</a></td>
+<td align="left">hadoop-setup-conf.sh should be modified to enable task memory manager</td>
+<td align="left">Major</td>
+<td align="left">conf</td>
+<td align="left">Ramya Sunil</td>
+<td align="left">Ramya Sunil</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7721">HADOOP-7721</a></td>
+<td align="left">dfs.web.authentication.kerberos.principal expects the full hostname and does not replace _HOST with the hostname</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Arpit Gupta</td>
+<td align="left">Jitendra Nath Pandey</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7663">HADOOP-7663</a></td>
+<td align="left">TestHDFSTrash failing on 22</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Mayank Bansal</td>
+<td align="left">Mayank Bansal</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7608">HADOOP-7608</a></td>
+<td align="left">SnappyCodec check for Hadoop native lib is wrong</td>
+<td align="left">Major</td>
+<td align="left">io</td>
+<td align="left">Alejandro Abdelnur</td>
+<td align="left">Alejandro Abdelnur</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7606">HADOOP-7606</a></td>
+<td align="left">Upgrade Jackson to version 1.7.1 to match the version required by Jersey</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Aaron T. Myers</td>
+<td align="left">Alejandro Abdelnur</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7599">HADOOP-7599</a></td>
+<td align="left">Improve hadoop setup conf script to setup secure Hadoop cluster</td>
+<td align="left">Major</td>
+<td align="left">scripts</td>
+<td align="left">Eric Yang</td>
+<td align="left">Eric Yang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7593">HADOOP-7593</a></td>
+<td align="left">AssertionError in TestHttpServer.testMaxThreads()</td>
+<td align="left">Major</td>
+<td align="left">test</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+<td align="left">Uma Maheswara Rao G</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7589">HADOOP-7589</a></td>
+<td align="left">Prefer mvn test -DskipTests over mvn compile in test-patch.sh</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Robert Joseph Evans</td>
+<td align="left">Robert Joseph Evans</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7576">HADOOP-7576</a></td>
+<td align="left">Fix findbugs warnings in Hadoop Auth (Alfredo)</td>
+<td align="left">Major</td>
+<td align="left">security</td>
+<td align="left">Tom White</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7568">HADOOP-7568</a></td>
+<td align="left">SequenceFile should not print into stdout</td>
+<td align="left">Major</td>
+<td align="left">io</td>
+<td align="left">Konstantin Shvachko</td>
+<td align="left">Plamen Jeliazkov</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tests">TESTS:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="sub-tasks">SUB-TASKS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7564">HADOOP-7564</a></td>
+<td align="left">Remove test-patch SVN externals</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Tom White</td>
+<td align="left">Tom White</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7469">HADOOP-7469</a></td>
+<td align="left">add a standard handler for socket connection problems which improves diagnostics</td>
+<td align="left">Minor</td>
+<td align="left">util</td>
+<td align="left">Steve Loughran</td>
+<td align="left">Steve Loughran</td>
+</tr>
+</tbody>
+</table>
+<h3 id="other">OTHER:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7579">HADOOP-7579</a></td>
+<td align="left">Rename package names from alfredo to auth</td>
+<td align="left">Major</td>
+<td align="left">security</td>
+<td align="left">Alejandro Abdelnur</td>
+<td align="left">Alejandro Abdelnur</td>
+</tr>
+</tbody>
+</table>

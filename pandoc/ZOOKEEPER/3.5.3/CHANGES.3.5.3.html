@@ -1,0 +1,232 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-zookeeper-changelog">Apache Zookeeper Changelog</h1>
+<h2 id="release-3.5.3---unreleased-as-of-2016-09-08">Release 3.5.3 - Unreleased (as of 2016-09-08)</h2>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2505">ZOOKEEPER-2505</a></td>
+<td align="left">Use shared library instead of static library in C client unit test</td>
+<td align="left">Minor</td>
+<td align="left">c client</td>
+<td align="left">Michael Han</td>
+<td align="left">Michael Han</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2489">ZOOKEEPER-2489</a></td>
+<td align="left">Upgrade Jetty dependency to a recent stable release version.</td>
+<td align="left">Major</td>
+<td align="left">server</td>
+<td align="left">Michael Han</td>
+<td align="left">Edward Ribeiro</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2507">ZOOKEEPER-2507</a></td>
+<td align="left">C unit test improvement: line break between 'ZooKeeper server started' and 'Running'</td>
+<td align="left">Minor</td>
+<td align="left">tests</td>
+<td align="left">Michael Han</td>
+<td align="left">Michael Han</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-1927">ZOOKEEPER-1927</a></td>
+<td align="left">zkServer.sh fails to read dataDir (and others) from zoo.cfg on Solaris 10 (grep issue, manifests as FAILED TO WRITE PID).</td>
+<td align="left">Major</td>
+<td align="left">scripts</td>
+<td align="left">Ed Schmed</td>
+<td align="left">Chris Nauroth</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-1898">ZOOKEEPER-1898</a></td>
+<td align="left">ZooKeeper Java cli shell always returns &quot;0&quot; as exit code</td>
+<td align="left">Critical</td>
+<td align="left">java client</td>
+<td align="left">Srinath Mantripragada</td>
+<td align="left">Abraham Fine</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2477">ZOOKEEPER-2477</a></td>
+<td align="left">documentation should refer to Java cli shell and not C cli shell</td>
+<td align="left">Major</td>
+<td align="left">documentation</td>
+<td align="left">Patrick Hunt</td>
+<td align="left">Abraham Fine</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-1256">ZOOKEEPER-1256</a></td>
+<td align="left">ClientPortBindTest is failing on Mac OS X</td>
+<td align="left">Major</td>
+<td align="left">tests</td>
+<td align="left">Daniel Gómez Ferro</td>
+<td align="left">Flavio Junqueira</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2498">ZOOKEEPER-2498</a></td>
+<td align="left">Potential resource leak in C client when processing unexpected / out of order response</td>
+<td align="left">Major</td>
+<td align="left">c client</td>
+<td align="left">Michael Han</td>
+<td align="left">Michael Han</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2500">ZOOKEEPER-2500</a></td>
+<td align="left">Fix compilation warnings for CliException classes</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Abraham Fine</td>
+<td align="left">Abraham Fine</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2074">ZOOKEEPER-2074</a></td>
+<td align="left">Incorrect exit codes for &quot;./zkCli.sh cmd arg&quot;</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Surendra Singh Lilhore</td>
+<td align="left">Abraham Fine</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2247">ZOOKEEPER-2247</a></td>
+<td align="left">Zookeeper service becomes unavailable when leader fails to write transaction log</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Arshad Mohammad</td>
+<td align="left">Rakesh R</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2482">ZOOKEEPER-2482</a></td>
+<td align="left">Flaky Test: org.apache.zookeeper.test.ClientPortBindTest.testBindByAddress</td>
+<td align="left">Major</td>
+<td align="left">server, tests</td>
+<td align="left">Michael Han</td>
+<td align="left">Michael Han</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2508">ZOOKEEPER-2508</a></td>
+<td align="left">Many ZooKeeper tests are flaky because they proceed with zk operation without connecting to ZooKeeper server.</td>
+<td align="left">Major</td>
+<td align="left">tests</td>
+<td align="left">Arshad Mohammad</td>
+<td align="left">Arshad Mohammad</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2548">ZOOKEEPER-2548</a></td>
+<td align="left">zooInspector does not start on Windows</td>
+<td align="left">Major</td>
+<td align="left">contrib</td>
+<td align="left">Arshad Mohammad</td>
+<td align="left">Arshad Mohammad</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2558">ZOOKEEPER-2558</a></td>
+<td align="left">Potential memory leak in recordio.c</td>
+<td align="left">Minor</td>
+<td align="left">c client</td>
+<td align="left">Michael Han</td>
+<td align="left">Michael Han</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2536">ZOOKEEPER-2536</a></td>
+<td align="left">When provide path for &quot;dataDir&quot; with trailing space, it is taking correct path (by trucating space) for snapshot but creating temporary file with some junk folder name for zookeeper_server.pid</td>
+<td align="left">Major</td>
+<td align="left">server</td>
+<td align="left">Rakesh Kumar Singh</td>
+<td align="left">Rakesh Kumar Singh</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2539">ZOOKEEPER-2539</a></td>
+<td align="left">Throwing nullpointerException when run the command &quot;config -c&quot; when client port is mentioned as separate and not like new style</td>
+<td align="left">Minor</td>
+<td align="left">java client</td>
+<td align="left">Rakesh Kumar Singh</td>
+<td align="left">Rakesh Kumar Singh</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sub-tasks">SUB-TASKS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/ZOOKEEPER-2152">ZOOKEEPER-2152</a></td>
+<td align="left">Intermittent failure in TestReconfig.cc</td>
+<td align="left">Major</td>
+<td align="left">c client</td>
+<td align="left">Michi Mutsuzaki</td>
+<td align="left">Michael Han</td>
+</tr>
+</tbody>
+</table>

@@ -1,0 +1,361 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hbase-changelog">Apache HBase Changelog</h1>
+<h2 id="release-0.90.6---2012-03-16">Release 0.90.6 - 2012-03-16</h2>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-4970">HBASE-4970</a></td>
+<td align="left">Add a parameter so that keepAliveTime of Htable thread pool can be changed</td>
+<td align="left">Trivial</td>
+<td align="left">Client</td>
+<td align="left">gaojinchao</td>
+<td align="left">gaojinchao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5102">HBASE-5102</a></td>
+<td align="left">Change the default value of the property &quot;hbase.connection.per.config&quot; to false in hbase-default.xml</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">ramkrishna.s.vasudevan</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5363">HBASE-5363</a></td>
+<td align="left">Automatically run rat check on mvn release builds</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Jonathan Hsieh</td>
+<td align="left">Jonathan Hsieh</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5197">HBASE-5197</a></td>
+<td align="left">[replication] Handle socket timeouts in ReplicationSource to prevent DDOS</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jean-Daniel Cryans</td>
+<td align="left">Jean-Daniel Cryans</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5395">HBASE-5395</a></td>
+<td align="left">CopyTable needs to use GenericOptionsParser</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jean-Daniel Cryans</td>
+<td align="left">Jean-Daniel Cryans</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5008">HBASE-5008</a></td>
+<td align="left">The clusters can't provide services because Region can't flush.</td>
+<td align="left">Blocker</td>
+<td align="left">regionserver</td>
+<td align="left">gaojinchao</td>
+<td align="left">gaojinchao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5020">HBASE-5020</a></td>
+<td align="left">MetaReader#fullScan doesn't stop scanning when vistor returns false in 0.90 version</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">chunhui shen</td>
+<td align="left">chunhui shen</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5060">HBASE-5060</a></td>
+<td align="left">HBase client is blocked forever</td>
+<td align="left">Critical</td>
+<td align="left">Client</td>
+<td align="left">gaojinchao</td>
+<td align="left">gaojinchao</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5073">HBASE-5073</a></td>
+<td align="left">Registered listeners not getting removed leading to memory leak in HBaseAdmin</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">ramkrishna.s.vasudevan</td>
+<td align="left">ramkrishna.s.vasudevan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5009">HBASE-5009</a></td>
+<td align="left">Failure of creating split dir if it already exists prevents splits from happening further</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">ramkrishna.s.vasudevan</td>
+<td align="left">ramkrishna.s.vasudevan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-4773">HBASE-4773</a></td>
+<td align="left">HBaseAdmin may leak ZooKeeper connections</td>
+<td align="left">Critical</td>
+<td align="left">Client</td>
+<td align="left">gaojinchao</td>
+<td align="left">xufeng</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5088">HBASE-5088</a></td>
+<td align="left">A concurrency issue on SoftValueSortedMap</td>
+<td align="left">Critical</td>
+<td align="left">Client</td>
+<td align="left">Jieshan Bean</td>
+<td align="left">Lars Hofhansl</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5041">HBASE-5041</a></td>
+<td align="left">Major compaction on non existing table does not throw error</td>
+<td align="left">Major</td>
+<td align="left">regionserver, shell</td>
+<td align="left">Shrijeet Paliwal</td>
+<td align="left">Shrijeet Paliwal</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5137">HBASE-5137</a></td>
+<td align="left">MasterFileSystem.splitLog() should abort even if waitOnSafeMode() throws IOException</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">ramkrishna.s.vasudevan</td>
+<td align="left">ramkrishna.s.vasudevan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5178">HBASE-5178</a></td>
+<td align="left">Backport HBASE-4101 - Regionserver Deadlock</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">ramkrishna.s.vasudevan</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5192">HBASE-5192</a></td>
+<td align="left">Backport HBASE-4236 Don't lock the stream while serializing the response</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">ramkrishna.s.vasudevan</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5160">HBASE-5160</a></td>
+<td align="left">Backport HBASE-4397 - -ROOT-, .META. tables stay offline for too long in recovery phase after all RSs are shutdown at the same time</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">ramkrishna.s.vasudevan</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5184">HBASE-5184</a></td>
+<td align="left">Backport HBASE-5152 - Region is on service before completing initialization when doing rollback of split, it will affect read correctness</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">ramkrishna.s.vasudevan</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5159">HBASE-5159</a></td>
+<td align="left">Backport HBASE-4079 - HTableUtil - helper class for loading data</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">ramkrishna.s.vasudevan</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5168">HBASE-5168</a></td>
+<td align="left">Backport HBASE-5100 - Rollback of split could cause closed region to be opened again</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">ramkrishna.s.vasudevan</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5158">HBASE-5158</a></td>
+<td align="left">Backport HBASE-4878 - Master crash when splitting hlog may cause data loss</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">ramkrishna.s.vasudevan</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5156">HBASE-5156</a></td>
+<td align="left">Backport HBASE-4899 - Region would be assigned twice easily with continually killing server and moving region in testing environment</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">ramkrishna.s.vasudevan</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5196">HBASE-5196</a></td>
+<td align="left">Failure in region split after PONR could cause region hole</td>
+<td align="left">Major</td>
+<td align="left">master, regionserver</td>
+<td align="left">Jimmy Xiang</td>
+<td align="left">Jimmy Xiang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5228">HBASE-5228</a></td>
+<td align="left">[REST] Rip out &quot;transform&quot; feature</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Andrew Purtell</td>
+<td align="left">Andrew Purtell</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5225">HBASE-5225</a></td>
+<td align="left">Backport HBASE-3845 -data loss because lastSeqWritten can miss memstore edits</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">ramkrishna.s.vasudevan</td>
+<td align="left">ramkrishna.s.vasudevan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5269">HBASE-5269</a></td>
+<td align="left">IllegalMonitorStateException while retryin HLog split in 0.90 branch.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">ramkrishna.s.vasudevan</td>
+<td align="left">ramkrishna.s.vasudevan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-4893">HBASE-4893</a></td>
+<td align="left">HConnectionImplementation is closed but not deleted</td>
+<td align="left">Major</td>
+<td align="left">Client</td>
+<td align="left">Mubarak Seyed</td>
+<td align="left">Mubarak Seyed</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5235">HBASE-5235</a></td>
+<td align="left">HLogSplitter writer thread's streams not getting closed when any of the writer threads has exceptions.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">ramkrishna.s.vasudevan</td>
+<td align="left">ramkrishna.s.vasudevan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5243">HBASE-5243</a></td>
+<td align="left">LogSyncerThread not getting shutdown waiting for the interrupted flag</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">ramkrishna.s.vasudevan</td>
+<td align="left">ramkrishna.s.vasudevan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5237">HBASE-5237</a></td>
+<td align="left">Addendum for HBASE-5160 and HBASE-4397</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">ramkrishna.s.vasudevan</td>
+<td align="left">ramkrishna.s.vasudevan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5321">HBASE-5321</a></td>
+<td align="left">this.allRegionServersOffline not set to false after one RS comes online and assignment is done in 0.90.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">ramkrishna.s.vasudevan</td>
+<td align="left">ramkrishna.s.vasudevan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5364">HBASE-5364</a></td>
+<td align="left">Fix source files missing licenses in 0.92 and trunk</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Jonathan Hsieh</td>
+<td align="left">Elliott Clark</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5377">HBASE-5377</a></td>
+<td align="left">Fix licenses on the 0.90 branch.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jonathan Hsieh</td>
+<td align="left">Jonathan Hsieh</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5327">HBASE-5327</a></td>
+<td align="left">Print a message when an invalid hbase.rootdir is passed</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jean-Daniel Cryans</td>
+<td align="left">Jimmy Xiang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5379">HBASE-5379</a></td>
+<td align="left">Backport HBASE-4287 to 0.90 - If region opening fails, try to transition region back to &quot;offline&quot; in ZK</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">ramkrishna.s.vasudevan</td>
+<td align="left">ramkrishna.s.vasudevan</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5490">HBASE-5490</a></td>
+<td align="left">Move the enum RS_ZK_REGION_FAILED_OPEN to the last of the enum list in 0.90 EventHandler</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">ramkrishna.s.vasudevan</td>
+<td align="left">ramkrishna.s.vasudevan</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-5153">HBASE-5153</a></td>
+<td align="left">Add retry logic in HConnectionImplementation#resetZooKeeperTrackers</td>
+<td align="left">Major</td>
+<td align="left">Client</td>
+<td align="left">Jieshan Bean</td>
+<td align="left">Jieshan Bean</td>
+</tr>
+</tbody>
+</table>

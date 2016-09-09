@@ -1,0 +1,66 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hbase-0.98.2-release-notes">Apache HBase 0.98.2 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-10118">HBASE-10118</a> | <em>Minor</em> | <strong>Major compact keeps deletes with future timestamps</strong></li>
+</ul>
+<p>hbase.hstore.time.to.purge.deletes has been changed; if it is not set, or set to 0, all delete markers including those with future timestamp are purged during the later major compaction. Otherwise, a delete marker is kept until the major compaction after marker's timestamp + this setting.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-10964">HBASE-10964</a> | <em>Major</em> | <strong>Delete mutation is not consistent with Put wrt timestamp</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-10966">HBASE-10966</a> | <em>Trivial</em> | <strong>RowCounter misinterprets column names that have colons in their qualifier</strong></li>
+</ul>
+<p>Applied to all branches (0.94 doesn't have TestRowCounter so didn't get test change). Thanks for the patch Alexandre.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-10884">HBASE-10884</a> | <em>Major</em> | <strong>[REST] Do not disable block caching when scanning</strong></li>
+</ul>
+<p>The REST gateway no longer disables block cache when issuing Scans to the cluster, and in this way, Scans now behave the same as Gets.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-10916">HBASE-10916</a> | <em>Critical</em> | <strong>[VisibilityController] Stackable ScanLabelGenerators</strong></li>
+</ul>
+<p>One can configure a set of ScanLabelGenerators to be used by the system. For this, a comma separated set of implementation class names to be configured for config &quot;hbase.regionserver.scan.visibility.label.generator.class&quot;.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-11054">HBASE-11054</a> | <em>Major</em> | <strong>Create new hook in StoreScanner to help user creating his own delete tracker</strong></li>
+</ul>
+<p>Creates a new hook in the RegionObserver Coprocessor, {code} RegionObserver postInstantiateDeleteTracker(final ObserverContext&lt;RegionCoprocessorEnvironment&gt; ctx, DeleteTracker delTracker) {code} Introduced in 0.98.2.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-11008">HBASE-11008</a> | <em>Major</em> | <strong>Align bulk load, flush, and compact to require Action.CREATE</strong></li>
+</ul>
+<p>preBulkLoadHFile now requires CREATE, which it effectively already needed since getTableDescriptor also requires it which is what LoadIncrementalHFiles is doing before bulk loading. compact and flush can now be issued by users with CREATE permission.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-10958">HBASE-10958</a> | <em>Blocker</em> | <strong>[dataloss] Bulk loading with seqids can prevent some log entries from being replayed</strong></li>
+</ul>
+<p>Bulk loading with sequence IDs, an option in late 0.94 releases and the default since 0.96.0, will now trigger a flush per region that loads an HFile (if there's data that needs to flushed).</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-11077">HBASE-11077</a> | <em>Critical</em> | <strong>[AccessController] Restore compatible early-out access denial</strong></li>
+</ul>
+<p>Prior to 0.98.0 if a user was not granted access to a column family or partial access (qualifier grants), then the AccessController would immediately throw back an AccessDeniedException. This behavior was changed in 0.98.0 to allow cell level ACLs to grant exceptional access. The user will no longer see an exception; instead the scanner will return result sets only including cells which grant exceptional access. If no such cell level grants are made, then the scanner will return the empty result set.</p>
+<p>This change introduces a configuration setting which restores the pre-0.98.0 behavior. It can be set in the site file for global effect, or per table using HTableDescriptor#setConfiguration. This setting is AccessControlConstants.CF_ATTRIBUTE_EARLY_OUT (&quot;hbase.security.access.early_out&quot;), a boolean. Set to &quot;true&quot; for backwards compatible behavior. As a consequence if there are no grants at the CF level then an AccessDeniedException will be thrown immediately, and cell ACLs will be ignored, unless the cell-first ACL evaluation strategy is used (toggled via Query#setACLStrategy).</p>
+<p>This change also repairs a defect related to audit logging. In all cases, compatible behavior or not, indications of successful or failed access attempts will be logged.</p>

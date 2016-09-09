@@ -1,0 +1,31 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-spark-1.4.0-release-notes">Apache Spark 1.4.0 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/SPARK-7746">SPARK-7746</a> | <em>Major</em> | <strong>SetFetchSize for JDBCRDD's prepareStatement</strong></li>
+</ul>
+<p>The prepareStatement created internal to compute() method in JDBCRDD should have some options that the setFetchSize() can be set. We found that the parameter can affect Oracle DB tremendously. With current implementation, we have no way to set the size.</p>
+<p>One of my team did his implementation, and we found 10X improvement by setting the size to a proper number.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/SPARK-6994">SPARK-6994</a> | <em>Minor</em> | <strong>Allow to fetch field values by name in sql.Row</strong></li>
+</ul>
+<p>It looked weird that up to now there was no way in Spark's Scala API to access fields of <code>DataFrame/sql.Row</code> by name, only by their index.</p>
+<p>This tries to solve this issue.</p>

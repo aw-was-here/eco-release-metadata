@@ -1,0 +1,348 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hadoop-changelog">Apache Hadoop Changelog</h1>
+<h2 id="release-1.0.3---2012-05-07">Release 1.0.3 - 2012-05-07</h2>
+<h3 id="incompatible-changes">INCOMPATIBLE CHANGES:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="new-features">NEW FEATURES:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-5528">HADOOP-5528</a></td>
+<td align="left">Binary partitioner</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Klaas Bosteels</td>
+<td align="left">Klaas Bosteels</td>
+</tr>
+</tbody>
+</table>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8352">HADOOP-8352</a></td>
+<td align="left">We should always generate a new configure script for the c++ code</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Owen O'Malley</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8188">HADOOP-8188</a></td>
+<td align="left">Fix the build process to do with jsvc, with IBM's JDK as the underlying jdk</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Devaraj Das</td>
+<td align="left">Devaraj Das</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8027">HADOOP-8027</a></td>
+<td align="left">Visiting /jmx on the daemon web interfaces may print unnecessary error in logs</td>
+<td align="left">Minor</td>
+<td align="left">metrics</td>
+<td align="left">Harsh J</td>
+<td align="left">Aaron T. Myers</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8346">HADOOP-8346</a></td>
+<td align="left">Changes to support Kerberos with non Sun JVM (HADOOP-6941) broke SPNEGO</td>
+<td align="left">Blocker</td>
+<td align="left">security</td>
+<td align="left">Alejandro Abdelnur</td>
+<td align="left">Devaraj Das</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8338">HADOOP-8338</a></td>
+<td align="left">Can't renew or cancel HDFS delegation tokens over secure RPC</td>
+<td align="left">Major</td>
+<td align="left">security</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Owen O'Malley</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8294">HADOOP-8294</a></td>
+<td align="left">IPC Connection becomes unusable even if server address was temporarilly unresolvable</td>
+<td align="left">Critical</td>
+<td align="left">ipc</td>
+<td align="left">Kihwal Lee</td>
+<td align="left">Kihwal Lee</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8293">HADOOP-8293</a></td>
+<td align="left">The native library's Makefile.am doesn't include JNI path</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Owen O'Malley</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8251">HADOOP-8251</a></td>
+<td align="left">SecurityUtil.fetchServiceTicket broken after HADOOP-6941</td>
+<td align="left">Blocker</td>
+<td align="left">security</td>
+<td align="left">Todd Lipcon</td>
+<td align="left">Todd Lipcon</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-8151">HADOOP-8151</a></td>
+<td align="left">Error handling in snappy decompressor throws invalid exceptions</td>
+<td align="left">Major</td>
+<td align="left">io, native</td>
+<td align="left">Todd Lipcon</td>
+<td align="left">Matt Foley</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-7381">HADOOP-7381</a></td>
+<td align="left">FindBugs OutOfMemoryError</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Joep Rottinghuis</td>
+<td align="left">Joep Rottinghuis</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-6941">HADOOP-6941</a></td>
+<td align="left">Support non-SUN JREs in UserGroupInformation</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Stephen Watt</td>
+<td align="left">Devaraj Das</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-6924">HADOOP-6924</a></td>
+<td align="left">Build fails with non-Sun JREs due to different pathing to the operating system architecture shared libraries</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Stephen Watt</td>
+<td align="left">Devaraj Das</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-3374">HDFS-3374</a></td>
+<td align="left">hdfs' TestDelegationToken fails intermittently with a race condition</td>
+<td align="left">Major</td>
+<td align="left">namenode</td>
+<td align="left">Owen O'Malley</td>
+<td align="left">Owen O'Malley</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-3310">HDFS-3310</a></td>
+<td align="left">Make sure that we abort when no edit log directories are left</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Colin Patrick McCabe</td>
+<td align="left">Colin Patrick McCabe</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-3265">HDFS-3265</a></td>
+<td align="left">PowerPc Build error.</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Kumar Ravi</td>
+<td align="left">Kumar Ravi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-3127">HDFS-3127</a></td>
+<td align="left">failure in recovering removed storage directories should not stop checkpoint process</td>
+<td align="left">Major</td>
+<td align="left">namenode</td>
+<td align="left">Brandon Li</td>
+<td align="left">Brandon Li</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-3061">HDFS-3061</a></td>
+<td align="left">Backport HDFS-1487 to branch-1</td>
+<td align="left">Blocker</td>
+<td align="left">namenode</td>
+<td align="left">Alex Holmes</td>
+<td align="left">Kihwal Lee</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-1041">HDFS-1041</a></td>
+<td align="left">DFSClient does not retry in getFileChecksum(..)</td>
+<td align="left">Major</td>
+<td align="left">hdfs-client</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+<td align="left">Tsz Wo Nicholas Sze</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HDFS-119">HDFS-119</a></td>
+<td align="left">logSync() may block NameNode forever.</td>
+<td align="left">Major</td>
+<td align="left">namenode</td>
+<td align="left">Konstantin Shvachko</td>
+<td align="left">Suresh Srinivas</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4207">MAPREDUCE-4207</a></td>
+<td align="left">Remove System.out.println() in FileInputFormat</td>
+<td align="left">Major</td>
+<td align="left">mrv1</td>
+<td align="left">Kihwal Lee</td>
+<td align="left">Kihwal Lee</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4154">MAPREDUCE-4154</a></td>
+<td align="left">streaming MR job succeeds even if the streaming command fails</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Thejas M Nair</td>
+<td align="left">Devaraj Das</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-4003">MAPREDUCE-4003</a></td>
+<td align="left">log.index (No such file or directory) AND Task process exit with nonzero status of 126</td>
+<td align="left">Major</td>
+<td align="left">task-controller, tasktracker</td>
+<td align="left">toughman</td>
+<td align="left">Koji Noguchi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3857">MAPREDUCE-3857</a></td>
+<td align="left">Grep example ignores mapred.job.queue.name</td>
+<td align="left">Major</td>
+<td align="left">examples</td>
+<td align="left">Jonathan Eagles</td>
+<td align="left">Jonathan Eagles</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3377">MAPREDUCE-3377</a></td>
+<td align="left">Compatibility issue with 0.20.203.</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Jane Chen</td>
+<td align="left">Jane Chen</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/MAPREDUCE-1238">MAPREDUCE-1238</a></td>
+<td align="left">mapred metrics shows negative count of waiting maps and reduces</td>
+<td align="left">Major</td>
+<td align="left">jobtracker</td>
+<td align="left">Ramya Sunil</td>
+<td align="left">Thomas Graves</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tests">TESTS:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="sub-tasks">SUB-TASKS:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="other">OTHER:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>

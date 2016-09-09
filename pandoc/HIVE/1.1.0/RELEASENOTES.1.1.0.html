@@ -1,0 +1,119 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hive-1.1.0-release-notes">Apache Hive 1.1.0 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-8330">HIVE-8330</a> | <em>Major</em> | <strong>HiveResultSet.findColumn() parameters are case sensitive</strong></li>
+</ul>
+<p>HiveResultSet.findColumn() was case sensitive which is non-standard. This has been fixed.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-8337">HIVE-8337</a> | <em>Major</em> | <strong>Change default of hive.warehouse.subdir.inherit.perms to true</strong></li>
+</ul>
+<p>The default value of hive.warehouse.subdir.inherit.perms is now true.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-5865">HIVE-5865</a> | <em>Major</em> | <strong>AvroDeserializer incorrectly assumes keys to Maps will always be of type 'org.apache.avro.util.Utf8'</strong></li>
+</ul>
+<p>AvroSerde no longer assumes Map Keys will be subclass of Utf8, only CharSequence. This allows it to work with Avro data that has been serialized with a Schema that uses the &quot;avro.java.string&quot; property.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-7858">HIVE-7858</a> | <em>Major</em> | <strong>Parquet compression should be configurable via table property</strong></li>
+</ul>
+<p>The property parquet.compression can now be configured as a table property.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-8661">HIVE-8661</a> | <em>Minor</em> | <strong>JDBC MinimizeJAR should be configurable in pom.xml</strong></li>
+</ul>
+<p>Minimize standalone jars only during dist builds.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-8885">HIVE-8885</a> | <em>Major</em> | <strong>Investigate test failure on auto_join13.q [Spark Branch]</strong></li>
+</ul>
+<p>Fixed after HIVE-8867 is resolved.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-9174">HIVE-9174</a> | <em>Major</em> | <strong>Enable queuing of HCatalog notification events in metastore DB</strong></li>
+</ul>
+<p>Introduces new DbNotificationListener as another possible Metastore EventListener. This enables integration with external tools like Falcon to implement Replication.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-8327">HIVE-8327</a> | <em>Major</em> | <strong>mvn site -Pfindbugs</strong></li>
+</ul>
+<p>mvn site -Pfindbugs for hive</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-4639">HIVE-4639</a> | <em>Major</em> | <strong>Add has null flag to ORC internal index</strong></li>
+</ul>
+<p>Support for hasNull flag in ORC row group index.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-3405">HIVE-3405</a> | <em>Major</em> | <strong>UDF initcap to obtain a string with the first letter of each word in uppercase other letters in lowercase</strong></li>
+</ul>
+<p>Returns string, with the first letter of each word in uppercase, all other letters in lowercase.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-9244">HIVE-9244</a> | <em>Major</em> | <strong>Upgrade 0.23 hadoop-shims to latest stable hadoop-2.6.0</strong></li>
+</ul>
+<p>Upgrade 0.23 hadoop-shims version to the latest stable version (2.6.0)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-9310">HIVE-9310</a> | <em>Minor</em> | <strong>CLI JLine does not flush history back to ~/.hivehistory</strong></li>
+</ul>
+<p>Flush hive CLI history to disk on exit</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-7313">HIVE-7313</a> | <em>Major</em> | <strong>Allow in-memory/ssd session-level temp-tables</strong></li>
+</ul>
+<p>Memory &amp; SSD storage policies for temporary tables.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-9381">HIVE-9381</a> | <em>Major</em> | <strong>HCatalog hardcodes maximum append limit to 1000.</strong></li>
+</ul>
+<p>Introduces new hcat jobconf parameter : hcat.append.limit for those that want to increase the hcatalog append limit above 1000.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-9255">HIVE-9255</a> | <em>Minor</em> | <strong>Fastpath for limited fetches from unpartitioned tables</strong></li>
+</ul>
+<p>SimpleFetchOptimizer for limited fetches without filters</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-9357">HIVE-9357</a> | <em>Major</em> | <strong>Create ADD_MONTHS UDF</strong></li>
+</ul>
+<p>Returns the date that is num_months after start_date</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-9358">HIVE-9358</a> | <em>Major</em> | <strong>Create LAST_DAY UDF</strong></li>
+</ul>
+<p>Returns the last day of the month which the date belongs to.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-9382">HIVE-9382</a> | <em>Major</em> | <strong>Query got rerun with Global Limit optimization on and Fetch optimization off</strong></li>
+</ul>
+<p>HIVE-9382: Fix Global Limit optimization when Fetch optimizations are off (Wei Zheng, reviewed by Gopal V)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-9402">HIVE-9402</a> | <em>Major</em> | <strong>Create GREATEST and LEAST udf</strong></li>
+</ul>
+<p>Returns the greatest/least value of the list of values</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-9443">HIVE-9443</a> | <em>Major</em> | <strong>ORC PPD - fix fuzzy case evaluation of IS_NULL</strong></li>
+</ul>
+<p>Fix ORC IS_NULL predicate for columns with some nulls</p>

@@ -1,0 +1,233 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-flink-changelog">Apache Flink Changelog</h1>
+<h2 id="release-0.10.1---2015-11-27">Release 0.10.1 - 2015-11-27</h2>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-2966">FLINK-2966</a></td>
+<td align="left">Improve the way job duration is reported on web frontend.</td>
+<td align="left">Minor</td>
+<td align="left">Webfrontend</td>
+<td align="left">Sachin Goel</td>
+<td align="left">Sachin Goel</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3040">FLINK-3040</a></td>
+<td align="left">Add docs describing how to configure State Backends</td>
+<td align="left">Major</td>
+<td align="left">Documentation</td>
+<td align="left">Stephan Ewen</td>
+<td align="left">Stephan Ewen</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3041">FLINK-3041</a></td>
+<td align="left">Twitter Streaming Description section of Streaming Programming guide refers to an incorrect example 'TwitterLocal'</td>
+<td align="left">Minor</td>
+<td align="left">Documentation, Examples, Streaming</td>
+<td align="left">Suneel Marthi</td>
+<td align="left">Suneel Marthi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3028">FLINK-3028</a></td>
+<td align="left">Cannot cancel restarting job via web frontend</td>
+<td align="left">Major</td>
+<td align="left">Webfrontend</td>
+<td align="left">Ufuk Celebi</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-2974">FLINK-2974</a></td>
+<td align="left">Add periodic offset commit to Kafka Consumer if checkpointing is disabled</td>
+<td align="left">Major</td>
+<td align="left">Kafka Connector</td>
+<td align="left">Robert Metzger</td>
+<td align="left">Robert Metzger</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3176">FLINK-3176</a></td>
+<td align="left">Window Apply Website Example</td>
+<td align="left">Trivial</td>
+<td align="left">Project Website</td>
+<td align="left">radu</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-2938">FLINK-2938</a></td>
+<td align="left">Streaming docs not in sync with latest state changes</td>
+<td align="left">Minor</td>
+<td align="left">Documentation</td>
+<td align="left">Maximilian Michels</td>
+<td align="left">Stephan Ewen</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-2987">FLINK-2987</a></td>
+<td align="left">Flink 0.10 fails to start on YARN 2.6.0</td>
+<td align="left">Major</td>
+<td align="left">Build System, YARN Client</td>
+<td align="left">Robert Metzger</td>
+<td align="left">Robert Metzger</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-2977">FLINK-2977</a></td>
+<td align="left">Cannot access HBase in a Kerberos secured Yarn cluster</td>
+<td align="left">Major</td>
+<td align="left">YARN Client</td>
+<td align="left">Niels Basjes</td>
+<td align="left">Niels Basjes</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3024">FLINK-3024</a></td>
+<td align="left">TimestampExtractor Does not Work When returning Long.MIN_VALUE</td>
+<td align="left">Major</td>
+<td align="left">Streaming</td>
+<td align="left">Aljoscha Krettek</td>
+<td align="left">Aljoscha Krettek</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-2879">FLINK-2879</a></td>
+<td align="left">Links in documentation are broken</td>
+<td align="left">Minor</td>
+<td align="left">Project Website</td>
+<td align="left">Nikolaas Steenbergen</td>
+<td align="left">Andra Lungu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-2967">FLINK-2967</a></td>
+<td align="left">TM address detection might not always detect the right interface on slow networks / overloaded JMs</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Robert Metzger</td>
+<td align="left">Robert Metzger</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-2989">FLINK-2989</a></td>
+<td align="left">Job Cancel button doesn't work on Yarn</td>
+<td align="left">Major</td>
+<td align="left">Webfrontend</td>
+<td align="left">Sachin Goel</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-2942">FLINK-2942</a></td>
+<td align="left">Dangling operators in web UI's program visualization (non-deterministic)</td>
+<td align="left">Critical</td>
+<td align="left">Webfrontend</td>
+<td align="left">Fabian Hueske</td>
+<td align="left">Piotr Godek</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3005">FLINK-3005</a></td>
+<td align="left">Commons-collections object deserialization remote command execution vulnerability</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ted Yu</td>
+<td align="left">Ted Yu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3043">FLINK-3043</a></td>
+<td align="left">Kafka Connector description in Streaming API guide is wrong/outdated</td>
+<td align="left">Major</td>
+<td align="left">Documentation</td>
+<td align="left">Stephan Ewen</td>
+<td align="left">Stephan Ewen</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3019">FLINK-3019</a></td>
+<td align="left">CLI does not list running/restarting jobs</td>
+<td align="left">Minor</td>
+<td align="left">Client</td>
+<td align="left">Ufuk Celebi</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3011">FLINK-3011</a></td>
+<td align="left">Cannot cancel failing/restarting streaming job from the command line</td>
+<td align="left">Critical</td>
+<td align="left">Client</td>
+<td align="left">Gyula Fora</td>
+<td align="left">Ufuk Celebi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3032">FLINK-3032</a></td>
+<td align="left">Flink does not start on Hadoop 2.7.1 (HDP), due to class conflict</td>
+<td align="left">Critical</td>
+<td align="left">Build System</td>
+<td align="left">Robert Metzger</td>
+<td align="left">Robert Metzger</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3052">FLINK-3052</a></td>
+<td align="left">Optimizer does not push properties out of bulk iterations</td>
+<td align="left">Major</td>
+<td align="left">Optimizer</td>
+<td align="left">Till Rohrmann</td>
+<td align="left">Till Rohrmann</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3020">FLINK-3020</a></td>
+<td align="left">Local streaming execution: set number of task manager slots to the maximum parallelism</td>
+<td align="left">Minor</td>
+<td align="left">Local Runtime</td>
+<td align="left">Maximilian Michels</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+</tbody>
+</table>

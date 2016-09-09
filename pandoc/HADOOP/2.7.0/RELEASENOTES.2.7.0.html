@@ -1,0 +1,218 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hadoop-2.7.0-release-notes">Apache Hadoop 2.7.0 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-11801">HADOOP-11801</a> | <em>Minor</em> | <strong>Update BUILDING.txt for Ubuntu</strong></li>
+</ul>
+<p>ProtocolBuffer is packaged in Ubuntu</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-11729">HADOOP-11729</a> | <em>Minor</em> | <strong>Fix link to cgroups doc in site.xml</strong></li>
+</ul>
+<p>Committed this to trunk, branch-2, and branch-2.7. Thanks Masatake for your contribution!</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-11498">HADOOP-11498</a> | <em>Major</em> | <strong>Bump the version of HTrace to 3.1.0-incubating</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-11497">HADOOP-11497</a> | <em>Major</em> | <strong>Fix typo in ClusterSetup.html#Hadoop_Startup</strong></li>
+</ul>
+<p>Correct startup command for cluster data nodes</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-11492">HADOOP-11492</a> | <em>Major</em> | <strong>Bump up curator version to 2.7.1</strong></li>
+</ul>
+<p>Apache Curator version change: Apache Hadoop has updated the version of Apache Curator used from 2.6.0 to 2.7.1. This change should be binary and source compatible for the majority of downstream users. Notable exceptions:</p>
+<h1 id="binary-incompatible-change-org.apache.curator.utils.pathutils.validatepathstring-changed-return-types.-downstream-users-of-this-method-will-need-to-recompile.">Binary incompatible change: org.apache.curator.utils.PathUtils.validatePath(String) changed return types. Downstream users of this method will need to recompile.</h1>
+<h1 id="source-incompatible-change-org.apache.curator.framework.recipes.shared.sharedcountreader-added-a-method-to-its-interface-definition.-downstream-users-with-custom-implementations-of-this-interface-can-continue-without-binary-compatibility-problems-but-will-need-to-modify-their-source-code-to-recompile.">Source incompatible change: org.apache.curator.framework.recipes.shared.SharedCountReader added a method to its interface definition. Downstream users with custom implementations of this interface can continue without binary compatibility problems but will need to modify their source code to recompile.</h1>
+<h1 id="source-incompatible-change-org.apache.curator.framework.recipes.shared.sharedvaluereader-added-a-method-to-its-interface-definition.-downstream-users-with-custom-implementations-of-this-interface-can-continue-without-binary-compatibility-problems-but-will-need-to-modify-their-source-code-to-recompile.">Source incompatible change: org.apache.curator.framework.recipes.shared.SharedValueReader added a method to its interface definition. Downstream users with custom implementations of this interface can continue without binary compatibility problems but will need to modify their source code to recompile.</h1>
+<p>Downstream users are reminded that while the Hadoop community will attempt to avoid egregious incompatible dependency changes, there is currently no policy around when Hadoop's exposed dependencies will change across versions (ref http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/Compatibility.html#Java_Classpath).</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-11464">HADOOP-11464</a> | <em>Major</em> | <strong>Reinstate support for launching Hadoop processes on Windows using Cygwin.</strong></li>
+</ul>
+<p>We have reinstated support for launching Hadoop processes on Windows by using Cygwin to run the shell scripts. All processes still must have access to the native components: hadoop.dll and winutils.exe.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-11446">HADOOP-11446</a> | <em>Major</em> | <strong>S3AOutputStream should use shared thread pool to avoid OutOfMemoryError</strong></li>
+</ul>
+<p>The following parameters are introduced in this JIRA: fs.s3a.threads.max: the maximum number of threads to allow in the pool used by TransferManager fs.s3a.threads.core: the number of threads to keep in the pool used by TransferManager fs.s3a.threads.keepalivetime: when the number of threads is greater than the core, this is the maximum time that excess idle threads will wait for new tasks before terminating fs.s3a.max.total.tasks: the maximum number of tasks that the LinkedBlockingQueue can hold</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-11385">HADOOP-11385</a> | <em>Critical</em> | <strong>Prevent cross site scripting attack on JMXJSONServlet</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-11348">HADOOP-11348</a> | <em>Minor</em> | <strong>Remove unused variable from CMake error message for finding openssl</strong></li>
+</ul>
+<p>Test failure is unrelated. Committed to 2.7. Thanks, Dian.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-11311">HADOOP-11311</a> | <em>Major</em> | <strong>Restrict uppercase key names from being created with JCEKS</strong></li>
+</ul>
+<p>Keys with uppercase names can no longer be created when using the JavaKeyStoreProvider to resolve ambiguity about case-sensitivity in the KeyStore spec.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-10530">HADOOP-10530</a> | <em>Blocker</em> | <strong>Make hadoop trunk build on Java7+ only</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-10181">HADOOP-10181</a> | <em>Minor</em> | <strong>GangliaContext does not work with multicast ganglia setup</strong></li>
+</ul>
+<p>Hadoop metrics sent to Ganglia over multicast now support optional configuration of socket TTL. The default TTL is 1, which preserves the behavior of prior Hadoop versions. Clusters that span multiple subnets/VLANs will likely want to increase this.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-9922">HADOOP-9922</a> | <em>Major</em> | <strong>hadoop windows native build will fail in 32 bit machine</strong></li>
+</ul>
+<p>The Hadoop Common native components now support 32-bit build targets on Windows.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-9629">HADOOP-9629</a> | <em>Major</em> | <strong>Support Windows Azure Storage - Blob as a file system in Hadoop</strong></li>
+</ul>
+<p>Hadoop now supports integration with Azure Storage as an alternative Hadoop Compatible File System.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-9329">HADOOP-9329</a> | <em>Trivial</em> | <strong>document native build dependencies in BUILDING.txt</strong></li>
+</ul>
+<p>Added a section to BUILDING.txt on how to install required / optional packages on a clean install of Ubuntu 14.04 LTS Desktop.</p>
+<p>Went through the CMakeLists.txt files in the repo and added the following optional library dependencies - Snappy, Bzip2, Linux FUSE and Jansson.</p>
+<p>Updated the required packages / version numbers from the trunk branch version of BUILDING.txt.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-8989">HADOOP-8989</a> | <em>Major</em> | <strong>hadoop fs -find feature</strong></li>
+</ul>
+<p>New fs -find command</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-8001">HDFS-8001</a> | <em>Trivial</em> | <strong>RpcProgramNfs3 : wrong parsing of dfs.blocksize</strong></li>
+</ul>
+<p>patch is fully backward compatible.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-7806">HDFS-7806</a> | <em>Minor</em> | <strong>Refactor: move StorageType from hadoop-hdfs to hadoop-common</strong></li>
+</ul>
+<p>This fix moves the public class StorageType from the package org.apache.hadoop.hdfs to org.apache.hadoop.fs.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-7774">HDFS-7774</a> | <em>Critical</em> | <strong>Unresolved symbols error while compiling HDFS on Windows 7/32 bit</strong></li>
+</ul>
+<p>LibHDFS now supports 32-bit build targets on Windows.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-7584">HDFS-7584</a> | <em>Major</em> | <strong>Enable Quota Support for Storage Types</strong></li>
+</ul>
+<ol>
+<li>Introduced quota by storage type as a hard limit on the amount of space usage allowed for different storage types (SSD, DISK, ARCHIVE) under the target directory.</li>
+<li>Added {{SetQuotaByStorageType}} API and {{-storagetype}} option for {{hdfs dfsadmin -setSpaceQuota/-clrSpaceQuota}} commands to allow set/clear quota by storage type under the target directory.</li>
+</ol>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-7457">HDFS-7457</a> | <em>Major</em> | <strong>DatanodeID generates excessive garbage</strong></li>
+</ul>
+<p>Thanks for the reviews, gentlemen. I've committed this to trunk and branch-2. Thanks for identifying and working on the issue, Daryn.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-7411">HDFS-7411</a> | <em>Major</em> | <strong>Refactor and improve decommissioning logic into DecommissionManager</strong></li>
+</ul>
+<p>This change introduces a new configuration key used to throttle decommissioning work, &quot;dfs.namenode.decommission.blocks.per.interval&quot;. This new key overrides and deprecates the previous related configuration key &quot;dfs.namenode.decommission.nodes.per.interval&quot;. The new key is intended to result in more predictable pause times while scanning decommissioning nodes.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-7326">HDFS-7326</a> | <em>Minor</em> | <strong>Add documentation for hdfs debug commands</strong></li>
+</ul>
+<p>Added documentation for the hdfs debug commands to the following URL in the documentation website.</p>
+<p>hadoop-project-dist/hadoop-hdfs/HDFSCommands.html</p>
+<p>In order to view the new documentation, build the website in a staging area: $ mvn clean site; mvn site:stage -DstagingDirectory=/tmp/hadoop-site</p>
+<p>Point your browser to file:///tmp/hadoop-site/hadoop-project/hadoop-project-dist/hadoop-hdfs/HDFSCommands.html</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-7270">HDFS-7270</a> | <em>Major</em> | <strong>Add congestion signaling capability to DataNode write protocol</strong></li>
+</ul>
+<p>Introduced a new configuration dfs.pipeline.ecn. When the configuration is turned on, DataNodes will signal in the writing pipelines when they are overloaded. The client can back off based on this congestion signal to avoid overloading the system.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-7210">HDFS-7210</a> | <em>Major</em> | <strong>Avoid two separate RPC's namenode.append() and namenode.getFileInfo() for an append call from DFSClient</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-6651">HDFS-6651</a> | <em>Critical</em> | <strong>Deletion failure can leak inodes permanently</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-6252">HDFS-6252</a> | <em>Minor</em> | <strong>Phase out the old web UI in HDFS</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-6133">HDFS-6133</a> | <em>Major</em> | <strong>Make Balancer support exclude specified path</strong></li>
+</ul>
+<p>Add a feature for replica pinning so that when a replica is pinned in a datanode, it will not be moved by Balancer/Mover. The replica pinning feature can be enabled/disabled by &quot;dfs.datanode.block-pinning.enabled&quot;, where the default is false.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-3689">HDFS-3689</a> | <em>Major</em> | <strong>Add support for variable length block</strong></li>
+</ul>
+<ol>
+<li>HDFS now can choose to append data to a new block instead of end of the last partial block. Users can pass {{CreateFlag.APPEND}} and {{CreateFlag.NEW_BLOCK}} to the {{append}} API to indicate this requirement.</li>
+<li>HDFS now allows users to pass {{SyncFlag.END_BLOCK}} to the {{hsync}} API to finish the current block and write remaining data to a new block.</li>
+</ol>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-1522">HDFS-1522</a> | <em>Major</em> | <strong>Merge Block.BLOCK_FILE_PREFIX and DataStorage.BLOCK_FILE_PREFIX into one constant</strong></li>
+</ul>
+<p>This merges Block.BLOCK_FILE_PREFIX and DataStorage.BLOCK_FILE_PREFIX into one constant. Hard-coded literals of &quot;blk_&quot; in various files are also updated to use the same constant.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-1362">HDFS-1362</a> | <em>Major</em> | <strong>Provide volume management functionality for DataNode</strong></li>
+</ul>
+<p>Based on the reconfiguration framework provided by HADOOP-7001, enable reconfigure the dfs.datanode.data.dir and add new volumes into service.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-5583">MAPREDUCE-5583</a> | <em>Major</em> | <strong>Ability to limit running map and reduce tasks</strong></li>
+</ul>
+<p>This introduces two new MR2 job configs, mentioned below, which allow users to control the maximum simultaneously-running tasks of the submitted job, across the cluster:</p>
+<p>* mapreduce.job.running.map.limit (default: 0, for no limit) * mapreduce.job.running.reduce.limit (default: 0, for no limit)</p>
+<p>This is controllable at a per-job level.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-3217">YARN-3217</a> | <em>Major</em> | <strong>Remove httpclient dependency from hadoop-yarn-server-web-proxy</strong></li>
+</ul>
+<p>Removed commons-httpclient dependency from hadoop-yarn-server-web-proxy module.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-3154">YARN-3154</a> | <em>Blocker</em> | <strong>Should not upload partial logs for MR jobs or other &quot;short-running' applications</strong></li>
+</ul>
+<p>Applications which made use of the LogAggregationContext in their application will need to revisit this code in order to make sure that their logs continue to get rolled out.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-2230">YARN-2230</a> | <em>Minor</em> | <strong>Fix description of yarn.scheduler.maximum-allocation-vcores in yarn-default.xml (or code)</strong></li>
+</ul>
+<p>I have modified the description of the yarn.scheduler.maximum-allocation-vcores setting in yarn-default.xml to be reflective of the actual behavior (throw InvalidRequestException when the limit is crossed).</p>
+<p>Since this is a documentation change, I have not added any test cases.</p>
+<p>Please review the patch, thanks!</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/YARN-1904">YARN-1904</a> | <em>Major</em> | <strong>Uniform the XXXXNotFound messages from ClientRMService and ApplicationHistoryClientService</strong></li>
+</ul>
+<p>I just committed this. Thanks Zhijie!</p>

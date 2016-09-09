@@ -18,7 +18,7 @@
 -->
 # Apache Flink Changelog
 
-## Release 1.2.0 - Unreleased (as of 2016-09-07)
+## Release 1.2.0 - Unreleased (as of 2016-09-09)
 
 
 
@@ -120,6 +120,10 @@
 | [FLINK-4566](https://issues.apache.org/jira/browse/FLINK-4566) | ProducerFailedException does not properly preserve Exception causes |  Major | Network | Stephan Ewen | Stephan Ewen |
 | [FLINK-4570](https://issues.apache.org/jira/browse/FLINK-4570) | Scalastyle Maven plugin fails undeterministically |  Major | Build System | Maximilian Michels | Maximilian Michels |
 | [FLINK-4073](https://issues.apache.org/jira/browse/FLINK-4073) | YARNSessionCapacitySchedulerITCase.testTaskManagerFailure failed on Travis |  Critical | Tests | Till Rohrmann | Maximilian Michels |
+| [FLINK-4436](https://issues.apache.org/jira/browse/FLINK-4436) | Unclosed DataOutputBuffer in Utils#setTokensFor() |  Minor | . | Ted Yu |  |
+| [FLINK-4522](https://issues.apache.org/jira/browse/FLINK-4522) | Gelly link broken in homepage |  Major | Documentation, Gelly | Vasia Kalavri | Greg Hogan |
+| [FLINK-4257](https://issues.apache.org/jira/browse/FLINK-4257) | Handle delegating algorithm change of class |  Major | Gelly | Greg Hogan | Greg Hogan |
+| [FLINK-4601](https://issues.apache.org/jira/browse/FLINK-4601) | Check for empty string properly |  Trivial | . | Alexander Pivovarov |  |
 
 
 ### SUB-TASKS:

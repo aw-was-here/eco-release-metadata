@@ -1,0 +1,50 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hbase-0.98.16-release-notes">Apache HBase 0.98.16 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-12911">HBASE-12911</a> | <em>Major</em> | <strong>Client-side metrics</strong></li>
+</ul>
+<p>Introduces collection and reporting of various client-perceived metrics. Metrics are exposed via JMX under &quot;org.apache.hadoop.hbase.client.MetricsConnection&quot;. Metrics are scoped according to connection instance, so multiple connection objects (ie, to different clusters) will report their metrics separately. Metrics are disabled by default, must be enabled by configuring &quot;hbase.client.metrics.enable=true&quot;.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-14658">HBASE-14658</a> | <em>Major</em> | <strong>Allow loading a MonkeyFactory by class name</strong></li>
+</ul>
+<p>You can specify one of the predefined set of Monkeys when you run Integration Tests by passing the -m|--monkey arguments on the command line; e.g -m CALM or -m SLOW_DETERMINISTIC</p>
+<p>This patch makes it so you can pass the name of a class as the monkey to run: e.g. -m org.example.KingKong</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-14700">HBASE-14700</a> | <em>Major</em> | <strong>Support a &quot;permissive&quot; mode for secure clusters to allow &quot;simple&quot; auth clients</strong></li>
+</ul>
+<p>Secure HBase now supports a permissive mode to allow mixed secure and insecure clients. This allows clients to be incrementally migrated over to a secure configuration. To enable clients to continue to connect using SIMPLE authentication when the cluster is configured for security, set &quot;hbase.ipc.server.fallback-to-simple-auth-allowed&quot; equal to &quot;true&quot; in hbase-site.xml. NOTE: This setting should ONLY be used as a temporary measure while converting clients over to secure authentication. It MUST BE DISABLED for secure operation.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-14605">HBASE-14605</a> | <em>Blocker</em> | <strong>Split fails due to 'No valid credentials' error when SecureBulkLoadEndpoint#start tries to access hdfs</strong></li>
+</ul>
+<p>When split is requested by non-super user, split related notifications for Coprocessor are executed using the login of the request user. Previously the notifications were carried out as super user.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-14631">HBASE-14631</a> | <em>Blocker</em> | <strong>Region merge request should be audited with request user through proper scope of doAs() calls to region observer notifications</strong></li>
+</ul>
+<p>Region observer notifications w.r.t. merge request are now audited with request user through proper scope of doAs() calls.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-14655">HBASE-14655</a> | <em>Blocker</em> | <strong>Narrow the scope of doAs() calls to region observer notifications for compaction</strong></li>
+</ul>
+<p>Region observer notifications w.r.t. compaction request are now audited with request user through proper scope of doAs() calls.</p>

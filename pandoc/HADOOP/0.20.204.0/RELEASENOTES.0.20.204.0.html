@@ -1,0 +1,60 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hadoop-0.20.204.0-release-notes">Apache Hadoop 0.20.204.0 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-6255">HADOOP-6255</a> | <em>Major</em> | <strong>Create an rpm integration project</strong></li>
+</ul>
+<p>Added RPM/DEB packages to build system.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-2218">HDFS-2218</a> | <em>Blocker</em> | <strong>Disable TestHdfsProxy.testHdfsProxyInterface in 0.20-security and branch-1 until HDFS-2217 is fixed</strong></li>
+</ul>
+<p>Test case TestHdfsProxy.testHdfsProxyInterface has been temporarily disabled for this release, due to failure in the Hudson automated test environment.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-1445">HDFS-1445</a> | <em>Major</em> | <strong>Batch the calls in DataStorage to FileUtil.createHardLink(), so we call it once per directory instead of once per file</strong></li>
+</ul>
+<p>Batch hardlinking during &quot;upgrade&quot; snapshots, cutting time from aprx 8 minutes per volume to aprx 8 seconds. Validated in both Linux and Windows. Depends on prior integration with patch for HADOOP-7133.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2846">MAPREDUCE-2846</a> | <em>Blocker</em> | <strong>a small % of all tasks fail with DefaultTaskController</strong></li>
+</ul>
+<p>Fixed a race condition in writing the log index file that caused tasks to 'fail'.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2804">MAPREDUCE-2804</a> | <em>Blocker</em> | <strong>&quot;Creation of symlink to attempt log dir failed.&quot; message is not useful</strong></li>
+</ul>
+<p>Removed duplicate chmods of job log dir that were vulnerable to race conditions between tasks. Also improved the messages when the symlinks failed to be created.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2529">MAPREDUCE-2529</a> | <em>Major</em> | <strong>Recognize Jetty bug 1342 and handle it</strong></li>
+</ul>
+<p>Added 2 new config parameters:</p>
+<p>mapreduce.reduce.shuffle.catch.exception.stack.regex mapreduce.reduce.shuffle.catch.exception.message.regex</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2524">MAPREDUCE-2524</a> | <em>Minor</em> | <strong>Backport trunk heuristics for failing maps when we get fetch failures retrieving map output during shuffle</strong></li>
+</ul>
+<p>Added a new configuration option: mapreduce.reduce.shuffle.maxfetchfailures, and removed a no longer used option: mapred.reduce.copy.backoff.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-2479">MAPREDUCE-2479</a> | <em>Major</em> | <strong>Backport MAPREDUCE-1568 to hadoop security branch</strong></li>
+</ul>
+<p>Added mapreduce.tasktracker.distributedcache.checkperiod to the task tracker that defined the period to wait while cleaning up the distributed cache. The default is 1 min.</p>

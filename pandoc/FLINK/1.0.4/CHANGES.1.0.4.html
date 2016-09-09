@@ -1,0 +1,153 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-flink-changelog">Apache Flink Changelog</h1>
+<h2 id="release-1.0.4---unreleased-as-of-2016-09-08">Release 1.0.4 - Unreleased (as of 2016-09-08)</h2>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3912">FLINK-3912</a></td>
+<td align="left">Typos in Batch Scala API Documentation</td>
+<td align="left">Trivial</td>
+<td align="left">DataSet API, Documentation, Scala API</td>
+<td align="left">Ignacio N. Lucero Ascencio</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3878">FLINK-3878</a></td>
+<td align="left">File cache doesn't support multiple duplicate temp directories</td>
+<td align="left">Major</td>
+<td align="left">Distributed Coordination, Local Runtime</td>
+<td align="left">Ken Krugler</td>
+<td align="left">Ken Krugler</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3926">FLINK-3926</a></td>
+<td align="left">Incorrect implementation of getFieldIndex in TupleTypeInfo</td>
+<td align="left">Minor</td>
+<td align="left">Core</td>
+<td align="left">Yijie Shen</td>
+<td align="left">Yijie Shen</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3914">FLINK-3914</a></td>
+<td align="left">BlobServer.createTemporaryFilename() has concurrency safety problem</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">ZhengBowen</td>
+<td align="left">Mark Reddy</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3975">FLINK-3975</a></td>
+<td align="left">Override baseurl when serving docs locally</td>
+<td align="left">Trivial</td>
+<td align="left">Documentation</td>
+<td align="left">Dyana Rose</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4056">FLINK-4056</a></td>
+<td align="left">SavepointITCase.testCheckpointHasBeenRemoved failed on Travis</td>
+<td align="left">Critical</td>
+<td align="left">Tests</td>
+<td align="left">Till Rohrmann</td>
+<td align="left">Ufuk Celebi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4089">FLINK-4089</a></td>
+<td align="left">Ineffective null check in YarnClusterClient#getApplicationStatus()</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ted Yu</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4079">FLINK-4079</a></td>
+<td align="left">YARN properties file used for per-job cluster</td>
+<td align="left">Major</td>
+<td align="left">Client</td>
+<td align="left">Ufuk Celebi</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4038">FLINK-4038</a></td>
+<td align="left">Impossible to set more than 1 JVM argument in env.java.opts</td>
+<td align="left">Critical</td>
+<td align="left">Startup Shell Scripts</td>
+<td align="left">Gyula Fora</td>
+<td align="left">Ufuk Celebi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-3838">FLINK-3838</a></td>
+<td align="left">CLI parameter parser is munging application params</td>
+<td align="left">Minor</td>
+<td align="left">Client</td>
+<td align="left">Ken Krugler</td>
+<td align="left">Maximilian Michels</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/FLINK-4113">FLINK-4113</a></td>
+<td align="left">Always copy first value in ChainedAllReduceDriver</td>
+<td align="left">Critical</td>
+<td align="left">Local Runtime</td>
+<td align="left">Greg Hogan</td>
+<td align="left">Greg Hogan</td>
+</tr>
+</tbody>
+</table>

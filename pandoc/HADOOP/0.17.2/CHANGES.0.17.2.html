@@ -1,0 +1,236 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hadoop-changelog">Apache Hadoop Changelog</h1>
+<h2 id="release-0.17.2---2008-08-11">Release 0.17.2 - 2008-08-11</h2>
+<h3 id="incompatible-changes">INCOMPATIBLE CHANGES:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="new-features">NEW FEATURES:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-4773">HADOOP-4773</a></td>
+<td align="left">namenode startup error, hadoop-user-namenode.pid permission denied.</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Focus</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-3931">HADOOP-3931</a></td>
+<td align="left">Bug in MapTask.MapOutputBuffer.collect leads to an unnecessary and harmful 'reset'</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Arun C Murthy</td>
+<td align="left">Chris Douglas</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-3859">HADOOP-3859</a></td>
+<td align="left">1000 concurrent read on a single file failing the task/client</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Koji Noguchi</td>
+<td align="left">Johan Oskarsson</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-3813">HADOOP-3813</a></td>
+<td align="left">RPC queue overload of JobTracker</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Christian Kunz</td>
+<td align="left">Amareshwari Sriramadasu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-3760">HADOOP-3760</a></td>
+<td align="left">DFS operations fail because of Stream closed error</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Amar Kamat</td>
+<td align="left">Lohit Vijayarenu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-3758">HADOOP-3758</a></td>
+<td align="left">Excessive exceptions in HDFS namenode log file</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Jim Huang</td>
+<td align="left">Lohit Vijayarenu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-3707">HADOOP-3707</a></td>
+<td align="left">Frequent DiskOutOfSpaceException on almost-full datanodes</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Koji Noguchi</td>
+<td align="left">Raghu Angadi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-3685">HADOOP-3685</a></td>
+<td align="left">Unbalanced replication target</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Koji Noguchi</td>
+<td align="left">Hairong Kuang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-3681">HADOOP-3681</a></td>
+<td align="left">Infinite loop in dfs close</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Koji Noguchi</td>
+<td align="left">Lohit Vijayarenu</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-3678">HADOOP-3678</a></td>
+<td align="left">Avoid spurious &quot;DataXceiver: java.io.IOException: Connection reset by peer&quot; errors in DataNode log</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Raghu Angadi</td>
+<td align="left">Raghu Angadi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-3633">HADOOP-3633</a></td>
+<td align="left">Uncaught exception in DataXceiveServer</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Koji Noguchi</td>
+<td align="left">Konstantin Shvachko</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-3370">HADOOP-3370</a></td>
+<td align="left">failed tasks may stay forever in TaskTracker.runningJobs</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Zheng Shao</td>
+<td align="left">Zheng Shao</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HADOOP-3002">HADOOP-3002</a></td>
+<td align="left">HDFS should not remove blocks while in safemode.</td>
+<td align="left">Blocker</td>
+<td align="left">.</td>
+<td align="left">Konstantin Shvachko</td>
+<td align="left">Konstantin Shvachko</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tests">TESTS:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="sub-tasks">SUB-TASKS:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="other">OTHER:</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>

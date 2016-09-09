@@ -1,0 +1,109 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hadoop-0.20.2-release-notes">Apache Hadoop 0.20.2 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-6498">HADOOP-6498</a> | <em>Blocker</em> | <strong>IPC client bug may cause rpc call hang</strong></li>
+</ul>
+<p>Correct synchronization error in IPC where handler thread could hang if request reader got an error.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-6460">HADOOP-6460</a> | <em>Blocker</em> | <strong>Namenode runs of out of memory due to memory leak in ipc Server</strong></li>
+</ul>
+<p>If an IPC server response buffer has grown to than 1MB, it is replaced by a smaller buffer to free up the Java heap that was used. This will improve the longevity of the name service.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-6428">HADOOP-6428</a> | <em>Major</em> | <strong>HttpServer sleeps with negative values</strong></li>
+</ul>
+<p>Corrected arithmetic error that made sleep times less than zero.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-6231">HADOOP-6231</a> | <em>Major</em> | <strong>Allow caching of filesystem instances to be disabled on a per-instance basis</strong></li>
+</ul>
+<p>Allow a general mechanism to disable the cache on a per filesystem basis by using property fs.&lt;schemename&gt;.impl.disable.cache. eg. fs.har.impl.disable.cache in core-default.xml</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-6097">HADOOP-6097</a> | <em>Major</em> | <strong>Multiple bugs w/ Hadoop archives</strong></li>
+</ul>
+<p>Bugs fixed for Hadoop archives: character escaping in paths, LineReader and file system caching.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-793">HDFS-793</a> | <em>Blocker</em> | <strong>DataNode should first receive the whole packet ack message before it constructs and sends its own ack message for the packet</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-781">HDFS-781</a> | <em>Blocker</em> | <strong>Metrics PendingDeletionBlocks is not decremented</strong></li>
+</ul>
+<p>Correct PendingDeletionBlocks metric to properly decrement counts.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-761">HDFS-761</a> | <em>Major</em> | <strong>Failure to process rename operation from edits log due to quota verification</strong></li>
+</ul>
+<p>Corrected an error when checking quota policy that resulted in a failure to read the edits log, stopping the primary/secondary name node.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-677">HDFS-677</a> | <em>Blocker</em> | <strong>Rename failure due to quota results in deletion of src directory</strong></li>
+</ul>
+<p>Rename properly considers the case where both source and destination are over quota; operation will fail with error indication.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-596">HDFS-596</a> | <em>Blocker</em> | <strong>Memory leak in libhdfs: hdfsFreeFileInfo() in libhdfs does not free memory for mOwner and mGroup</strong></li>
+</ul>
+<p>Memory leak in function hdfsFreeFileInfo in libhdfs. This bug affects fuse-dfs severely.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-1182">MAPREDUCE-1182</a> | <em>Blocker</em> | <strong>Reducers fail with OutOfMemoryError while copying Map outputs</strong></li>
+</ul>
+<p>Modifies shuffle related memory parameters to use 'long' from 'int' so that sizes greater than maximum integer size are handled correctly</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-1147">MAPREDUCE-1147</a> | <em>Blocker</em> | <strong>Map output records counter missing for map-only jobs in new API</strong></li>
+</ul>
+<p>Adds a counter to track the number of records emitted by map writing directly to HDFS i.e map tasks of job with 0 reducers.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-1068">MAPREDUCE-1068</a> | <em>Major</em> | <strong>In hadoop-0.20.0 streaming job do not throw proper verbose error message if file is not present</strong></li>
+</ul>
+<p>Fix streaming job to show proper message if file is is not present, for -file option.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-979">MAPREDUCE-979</a> | <em>Blocker</em> | <strong>JobConf.getMemoryFor{Map|Reduce}Task doesn't fallback to newer config knobs when mapred.taskmaxvmem is set to DISABLED_MEMORY_LIMIT of -1</strong></li>
+</ul>
+<p>Added support to fallback to new task memory configuration when deprecated memory configuration values are set to disabled.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-826">MAPREDUCE-826</a> | <em>Trivial</em> | <strong>harchive doesn't use ToolRunner / harchive returns 0 even if the job fails with exception</strong></li>
+</ul>
+<p>Use ToolRunner for archives job and return non zero error code on failure.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-623">MAPREDUCE-623</a> | <em>Major</em> | <strong>Resolve javac warnings in mapred</strong></li>
+</ul>
+<p>Removes javac warnings by either resolving them or suppressing them (wherever resolution is not possible)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-433">MAPREDUCE-433</a> | <em>Major</em> | <strong>TestReduceFetch failed.</strong></li>
+</ul>
+<p>Resolves the test failure by modifying the test to base it on spill counters rather than on bytes read/written. It also introduces a new configuration parameter &quot;mapred.job.shuffle.input.buffer.percent&quot; to provide finer grained control on the memory limit to be used during shuffle.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-112">MAPREDUCE-112</a> | <em>Blocker</em> | <strong>Reduce Input Records and Reduce Output Records counters are not being set when using the new Mapreduce reducer API</strong></li>
+</ul>
+<p>Updates of counters for reduce input and output records were added in the new API so they are available for jobs using the new API.</p>

@@ -1,0 +1,114 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hadoop-2.0.0-alpha-release-notes">Apache Hadoop 2.0.0-alpha Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-8314">HADOOP-8314</a> | <em>Major</em> | <strong>HttpServer#hasAdminAccess should return false if authorization is enabled but user is not authenticated</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-8270">HADOOP-8270</a> | <em>Minor</em> | <strong>hadoop-daemon.sh stop action should return 0 for an already stopped service</strong></li>
+</ul>
+<p>The daemon stop action no longer returns failure when stopping an already stopped service.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-8184">HADOOP-8184</a> | <em>Major</em> | <strong>ProtoBuf RPC engine does not need it own reply packet - it can use the IPC layer reply packet.</strong></li>
+</ul>
+<p>This change will affect the output of errors for some Hadoop CLI commands. Specifically, the name of the exception class will no longer appear, and instead only the text of the exception message will appear.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-8154">HADOOP-8154</a> | <em>Major</em> | <strong>DNS#getIPs shouldn't silently return the local host IP for bogus interface names</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-8149">HADOOP-8149</a> | <em>Major</em> | <strong>cap space usage of default log4j rolling policy</strong></li>
+</ul>
+<p>Hadoop log files are now rolled by size instead of date (daily) by default. Tools that depend on the log file name format will need to be updated. Users who would like to maintain the previous settings of hadoop.root.logger and hadoop.security.logger can use their current log4j.properties files and update the HADOOP_ROOT_LOGGER and HADOOP_SECURITY_LOGGER environment variables to use DRFA and DRFAS respectively.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-7704">HADOOP-7704</a> | <em>Minor</em> | <strong>JsonFactory can be created only once and used for every next request to create JsonGenerator inside JMXJsonServlet</strong></li>
+</ul>
+<p>Reduce number of object created by JMXJsonServlet. (Devaraj K via Eric Yang)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HADOOP-7524">HADOOP-7524</a> | <em>Major</em> | <strong>Change RPC to allow multiple protocols including multiple versions of the same protocol</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-3286">HDFS-3286</a> | <em>Major</em> | <strong>When the threshold value for balancer is 0(zero) ,unexpected output is displayed</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-3164">HDFS-3164</a> | <em>Major</em> | <strong>Move DatanodeInfo#hostName to DatanodeID</strong></li>
+</ul>
+<p>This change modifies DatanodeID, which is part of the client to server protocol, therefore clients must be upgraded with servers.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-3144">HDFS-3144</a> | <em>Major</em> | <strong>Refactor DatanodeID#getName by use</strong></li>
+</ul>
+<p>This change modifies DatanodeID, which is part of the client to server protocol, therefore clients must be upgraded with servers.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-3138">HDFS-3138</a> | <em>Major</em> | <strong>Move DatanodeInfo#ipcPort to DatanodeID</strong></li>
+</ul>
+<p>This change modifies DatanodeID, which is part of the client to server protocol, therefore clients must be upgraded with servers.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-3137">HDFS-3137</a> | <em>Major</em> | <strong>Bump LAST_UPGRADABLE_LAYOUT_VERSION to -16</strong></li>
+</ul>
+<p>Upgrade from Hadoop versions earlier than 0.18 is not supported as of 2.0. To upgrade from an earlier release, first upgrade to 0.18, and then upgrade again from there.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-3094">HDFS-3094</a> | <em>Major</em> | <strong>add -nonInteractive and -force option to namenode -format command</strong></li>
+</ul>
+<p>The 'namenode -format' command now supports the flags '-nonInteractive' and '-force' to improve usefulness without user input.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-3044">HDFS-3044</a> | <em>Major</em> | <strong>fsck move should be non-destructive by default</strong></li>
+</ul>
+<p>The fsck &quot;move&quot; option is no longer destructive. It copies the accessible blocks of corrupt files to lost and found as before, but no longer deletes the corrupt files after copying the blocks. The original, destructive behavior can be enabled by specifying both the &quot;move&quot; and &quot;delete&quot; options.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-3004">HDFS-3004</a> | <em>Major</em> | <strong>Implement Recovery Mode</strong></li>
+</ul>
+<p>This is a new feature. It is documented in hdfs_user_guide.xml.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-2731">HDFS-2731</a> | <em>Major</em> | <strong>HA: Autopopulate standby name dirs if they're empty</strong></li>
+</ul>
+<p>The HA NameNode may now be started with the &quot;-bootstrapStandby&quot; flag. This causes it to copy the namespace information and most recent checkpoint from its HA pair, and save it to local storage, allowing an HA setup to be bootstrapped without use of rsync or external tools.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-2303">HDFS-2303</a> | <em>Major</em> | <strong>Unbundle jsvc</strong></li>
+</ul>
+<p>To run secure Datanodes users must install jsvc for their platform and set JSVC_HOME to point to the location of jsvc in their environment.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-395">HDFS-395</a> | <em>Major</em> | <strong>DFS Scalability: Incremental block reports</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/MAPREDUCE-3818">MAPREDUCE-3818</a> | <em>Blocker</em> | <strong>Trunk MRV1 compilation is broken.</strong></li>
+</ul>
+<p>Fixed broken compilation in TestSubmitJob after the patch for HDFS-2895.</p>

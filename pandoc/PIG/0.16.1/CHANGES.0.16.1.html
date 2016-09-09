@@ -1,0 +1,122 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-pig-changelog">Apache Pig Changelog</h1>
+<h2 id="release-0.16.1---unreleased-as-of-2016-09-08">Release 0.16.1 - Unreleased (as of 2016-09-08)</h2>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4949">PIG-4949</a></td>
+<td align="left">Fix registering jar in S3 which was broken by PIG-4417 in Pig 0.16</td>
+<td align="left">Major</td>
+<td align="left">parser</td>
+<td align="left">Yishan Yang</td>
+<td align="left">Yishan Yang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4945">PIG-4945</a></td>
+<td align="left">Update document for conflicting macro params</td>
+<td align="left">Trivial</td>
+<td align="left">documentation</td>
+<td align="left">Koji Noguchi</td>
+<td align="left">Koji Noguchi</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4950">PIG-4950</a></td>
+<td align="left">Fix minor issues with running scripts in non-local FileSystems</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Peter Slawski</td>
+<td align="left">Peter Slawski</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4942">PIG-4942</a></td>
+<td align="left">Fix mvn-install ant target</td>
+<td align="left">Major</td>
+<td align="left">build</td>
+<td align="left">Peter Slawski</td>
+<td align="left">Peter Slawski</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4948">PIG-4948</a></td>
+<td align="left">Pig on Tez AM use too much memory on a small cluster</td>
+<td align="left">Major</td>
+<td align="left">tez</td>
+<td align="left">Daniel Dai</td>
+<td align="left">Daniel Dai</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4947">PIG-4947</a></td>
+<td align="left">LOAD with HBaseStorage using a mix of pure wildcards and prefixed wildcards results in empty maps for the pure wildcarded column families.</td>
+<td align="left">Major</td>
+<td align="left">grunt</td>
+<td align="left">Youngjin</td>
+<td align="left">Daniel Dai</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4960">PIG-4960</a></td>
+<td align="left">Split followed by order by/skewed join is skewed in Tez</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Rohini Palaniswamy</td>
+<td align="left">Rohini Palaniswamy</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4961">PIG-4961</a></td>
+<td align="left">CROSS followed by LIMIT inside nested foreach drop data from result</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Sergey Svinarchuk</td>
+<td align="left">Rohini Palaniswamy</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4935">PIG-4935</a></td>
+<td align="left">TEZ_USE_CLUSTER_HADOOP_LIBS is always set to true</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Rohini Palaniswamy</td>
+<td align="left">Rohini Palaniswamy</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/PIG-4967">PIG-4967</a></td>
+<td align="left">NPE in PigJobControl.run() when job status is null</td>
+<td align="left">Critical</td>
+<td align="left">.</td>
+<td align="left">Xiang Li</td>
+<td align="left">Xiang Li</td>
+</tr>
+</tbody>
+</table>

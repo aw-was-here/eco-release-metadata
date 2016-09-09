@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+PANDOCDIR=pandoc
+
+for i in $(find * -name '*md' -type f)
+do
+	dir=$(dirname $i)
+        newname=$(echo $i | sed -e s,md$,html,g)
+	mkdir -p ${PANDOCDIR}/${dir}
+        echo Converting ${i}
+	pandoc --verbose -f markdown_mmd -w html -o ${PANDOCDIR}/${newname} $i
+done

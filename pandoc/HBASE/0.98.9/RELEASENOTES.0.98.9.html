@@ -1,0 +1,57 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hbase-0.98.9-release-notes">Apache HBase 0.98.9 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-12411">HBASE-12411</a> | <em>Major</em> | <strong>Optionally enable p-reads and private readers for compactions</strong></li>
+</ul>
+<p>This introduces two new configuration options:</p>
+<h1 id="hbase.storescanner.use.pread-enables-postional-reads-for-all-scanners-except-compactions.-default-off-i.e.-try-to-use-seekread-as-before">hbase.storescanner.use.pread enables postional reads for all scanners (except compactions). Default off (i.e. try to use seek+read as before)</h1>
+<h1 id="hbase.regionserver.compaction.private.readers-has-compaction-run-with-their-own-readers.-default-off-i.e.-share-readers-with-all-other-scanners-as-before">hbase.regionserver.compaction.private.readers has compaction run with their own readers. Default off (i.e. share readers with all other scanners as before)</h1>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-12277">HBASE-12277</a> | <em>Major</em> | <strong>Refactor bulkLoad methods in AccessController to its own interface</strong></li>
+</ul>
+<p>Adds new BulkLoadObserver Interface</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-8572">HBASE-8572</a> | <em>Major</em> | <strong>Enhance delete_snapshot.rb to call snapshot deletion API with regex</strong></li>
+</ul>
+<p>Adds a new shell command that allows you delete snapshots that match a regex:</p>
+<p>hbase&gt; delete_all_snapshot 's.*'</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-12346">HBASE-12346</a> | <em>Major</em> | <strong>Scan's default auths behavior under Visibility labels</strong></li>
+</ul>
+<p>When no Authorizations passed in Scan , will take user's Auth labels for the Scan and return results accordingly. Prior to this Jira, we were returning only those cells with out any visibility in such a case.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-12573">HBASE-12573</a> | <em>Major</em> | <strong>Backport HBASE-10591 Sanity check table configuration in createTable</strong></li>
+</ul>
+<p>This change backports table schema sanity checks from branch-1. The checks disallow only illegal or highly unusual settings, and can be disabled by setting &quot;hbase.table.sanity.checks&quot; to &quot;false&quot; in site configuration.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-12619">HBASE-12619</a> | <em>Major</em> | <strong>Backport HBASE-11639 (Replicate the visibility of Cells as strings) to 0.98</strong></li>
+</ul>
+<p>Allows the visibility tags to be replicated as Strings to the peer cluster. Useful in cases where the peer cluster and the source cluster does not have a common global LABELs table. In order to enable this feature configure the below property in hbase-site.xml &lt;property&gt; &lt;name&gt; hbase.coprocessor.regionserver.classes &lt;/name&gt; &lt;value&gt; org.apache.hadoop.hbase.security.visibility.VisibilityController$VisibilityReplication &lt;/value&gt; &lt;property&gt;</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HBASE-12373">HBASE-12373</a> | <em>Minor</em> | <strong>Provide a command to list visibility labels</strong></li>
+</ul>
+<p>Adds new list_labels command to shell.</p>

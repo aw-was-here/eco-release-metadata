@@ -1,0 +1,64 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="release-notes">0.14.0 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/PIG-4156">PIG-4156</a> | <em>Major</em> | <strong>[PATCH] fix NPE when running scripts stored on hdfs://</strong></li>
+</ul>
+<p>I will also post one for trunk</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/PIG-4062">PIG-4062</a> | <em>Minor</em> | <strong>Add ascending order option to builtin TOP function</strong></li>
+</ul>
+<p>Changes 1. Added option to configure sorting order 2. Moved test cases from piggybank to builtin test folder 3. Updated function documentation.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/PIG-4047">PIG-4047</a> | <em>Major</em> | <strong>Break up pig withouthadoop and fat jar</strong></li>
+</ul>
+<p><strong>WARNING: No release note provided for this incompatible change.</strong></p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/PIG-4038">PIG-4038</a> | <em>Minor</em> | <strong>SPRINTF should return NULL on any NULL input</strong></li>
+</ul>
+<p>SPRINTF returns null on any null argument</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/PIG-3996">PIG-3996</a> | <em>Major</em> | <strong>Delete zebra from svn</strong></li>
+</ul>
+<p>Zebra is deleted in 0.13.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/PIG-3985">PIG-3985</a> | <em>Major</em> | <strong>Multiquery execution of RANK with RANK BY causes NPE JobCreationException &quot;ERROR 2017: Internal error creating job configuration&quot;</strong></li>
+</ul>
+<p>Multiquery execution of RANK with RANK BY causes NPE</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/PIG-3939">PIG-3939</a> | <em>Major</em> | <strong>SPRINTF function to format strings using a printf-style template</strong></li>
+</ul>
+<p>The SPRINTF function formats strings with printf-style templates: SPRINTF('%6s|%-8s|%2$,10d %2$8x %3$1TFT%&lt;tT%&lt;tz', 'yay', 1234567, ToMilliSeconds(CurrentTime())) =&gt; ' yay|1234567 | 1,234,567 12d687 2014-05-15T08:22:26-0500'.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/PIG-3870">PIG-3870</a> | <em>Major</em> | <strong>STRSPLITTOBAG UDF</strong></li>
+</ul>
+<p>Patch committed to trunk. thanks Karan!</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/PIG-2834">PIG-2834</a> | <em>Trivial</em> | <strong>MultiStorage requires unused constructor argument</strong></li>
+</ul>
+<p>MultiStorage no longer requires parentPathStr as at constructor argument.</p>

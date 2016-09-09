@@ -1,0 +1,460 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="release-notes">0.14.0 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, features, and major improvements.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-8772">HIVE-8772</a> | <em>Major</em> | <strong>zookeeper info logs are always printed from beeline with service discovery mode</strong></li>
+</ul>
+<p>Log messages in beeline that come from jdbc driver logging statements can be configured using placing a beeline-log4j.properties file in hive conf directory. In the default setting, log messages at WARN level or above are printed to console.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-8687">HIVE-8687</a> | <em>Critical</em> | <strong>Support Avro through HCatalog</strong></li>
+</ul>
+<p>Hive Avro tables are now usable through HCatalog.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-8632">HIVE-8632</a> | <em>Major</em> | <strong>VectorKeyHashWrapper::duplicateTo allocates too many zero sized arrays</strong></li>
+</ul>
+<p>VectorKeyHashWrapper::duplicateTo allocates too many zero sized arrays</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-8629">HIVE-8629</a> | <em>Major</em> | <strong>Streaming / ACID : hive cli session creation takes too long and times out if execution engine is tez</strong></li>
+</ul>
+<p>Patch committed to trunk and branch 0.14. Thanks Roshan.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-8615">HIVE-8615</a> | <em>Critical</em> | <strong>beeline csv,tsv outputformat needs backward compatibility mode</strong></li>
+</ul>
+<p>The formats csv, tsv have been deprecated. The use of csv2 and tsv2 is recommended in place of them.</p>
+<ul>
+<li>Old format quoted every field. New format quotes only fields that contain a delimiter or the quoting char.</li>
+<li>Old format quoted using single quotes, new format quotes using double quotes</li>
+<li>Old format didn't escape quotes in a field (a bug). New format does escape the quotes</li>
+</ul>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-8546">HIVE-8546</a> | <em>Critical</em> | <strong>Handle &quot;add archive scripts.tar.gz&quot; in Tez</strong></li>
+</ul>
+<p>Support ADD ARCHIVE in Tez</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-8461">HIVE-8461</a> | <em>Critical</em> | <strong>Make Vectorized Decimal query results match Non-Vectorized query results with respect to trailing zeroes... .0000</strong></li>
+</ul>
+<p>Fix a few test failures.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-8349">HIVE-8349</a> | <em>Major</em> | <strong>DISTRIBUTE BY should work with tez auto-parallelism enabled</strong></li>
+</ul>
+<p>HIVE-8349: Distinguish between UNIFORM hash-partitioning and AUTOPARALLEL re-partitioning. (Gopal V, reviewed by Gunther Hagleitner)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-8341">HIVE-8341</a> | <em>Critical</em> | <strong>Transaction information in config file can grow excessively large</strong></li>
+</ul>
+<p>A new environment variable hive.script.operator.env.blacklist was added in 0.14. Its default value is &quot;hive.txn.valid.txns,hive.script.operator.env.blacklist&quot;</p>
+<p>By default all values in the HiveConf object are converted to environment variables of the same name as the key (with '.' (dot) converted to '_' (underscore)) and set as part of the script operator's environment. However, some values can grow large or are not amenable to translation to environment variables. This value gives a comma separated list of configuration values that will not be set in the environment when calling a script operator. By default the valid transaction list is excluded, as it can grow large and is sometimes compressed, which does not translate well to an environment variable.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-8328">HIVE-8328</a> | <em>Blocker</em> | <strong>MapJoin implementation in Tez should not reload hashtables</strong></li>
+</ul>
+<p>HIVE-8328: Mapjoins in reducer vertices should reuse cached hashtables (Gopal V, reviewed by Vikram Dixit)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-8304">HIVE-8304</a> | <em>Critical</em> | <strong>Tez Reduce-Side GROUP BY Vectorization doesn't copy NULL keys correctly</strong></li>
+</ul>
+<p>HIVE-8304: Tez Reduce-Side GROUP BY Vectorization doesn't copy NULL keys correctly (Matt McCline via Gopal V)&quot;</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-8296">HIVE-8296</a> | <em>Critical</em> | <strong>Tez ReduceShuffle Vectorization needs 2 data buffers (key and value) for adding rows</strong></li>
+</ul>
+<p>&quot;HIVE-8296: Reduce vectorization should use independent buffers for key and value (Matt McCline, via Gopal V)&quot;</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-8292">HIVE-8292</a> | <em>Major</em> | <strong>Reading from partitioned bucketed tables has high overhead in MapOperator.cleanUpInputFileChangedOp</strong></li>
+</ul>
+<p>HIVE-8292: MapRecordSource should obtain its ExecContext from a MapOperator (Gopal V, reviewed by Vikram Dixit)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-8240">HIVE-8240</a> | <em>Critical</em> | <strong>VectorColumnAssignFactory throws &quot;Incompatible Bytes vector column and primitive category VARCHAR&quot;</strong></li>
+</ul>
+<p>HIVE-8240: VectorColumnAssignFactory support for VARCHAR (Matt McCline, via Gopal V)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-8236">HIVE-8236</a> | <em>Blocker</em> | <strong>VectorHashKeyWrapper allocates too many zero sized arrays</strong></li>
+</ul>
+<p>HIVE-8236: VectorHashKeyWrapper allocates too many zero sized arrays (Gopal V, reviewed by Prasanth J)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-8224">HIVE-8224</a> | <em>Major</em> | <strong>Support Char, Varchar in AvroSerDe</strong></li>
+</ul>
+<p>To document support of char/varchar for avro.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-8221">HIVE-8221</a> | <em>Blocker</em> | <strong>authorize additional metadata read operations in metastore storage based authorization</strong></li>
+</ul>
+<p>Storagebased authorization now authorizes read privilege on database and tables. get_database api call needs database directory read privilege. get_table_* calls that fetch table information and get_partition_* calls to list the partitions of a table require read privilege on the table directory. . It is enabled by default with Storagebased authorization. Set hive.security.metastore.authorization.auth.reads=false to disable this check in storage based authorization.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-8158">HIVE-8158</a> | <em>Major</em> | <strong>Optimize writeValue/setValue in VectorExpressionWriterFactory (in VectorReduceSinkOperator codepath)</strong></li>
+</ul>
+<p>HIVE-8158: Optimize writeValue/setValue in VectorExpressionWriterFactory</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-8156">HIVE-8156</a> | <em>Major</em> | <strong>Vectorized reducers need to avoid memory build-up during a single key</strong></li>
+</ul>
+<p>HIVE-8156: Vectorized reducers need to avoid memory build-up during a single key (Gopal V reviewed by Prasanth J)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-8151">HIVE-8151</a> | <em>Blocker</em> | <strong>Dynamic partition sort optimization inserts record wrongly to partition when used with GroupBy</strong></li>
+</ul>
+<p>Added config changes to https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-8114">HIVE-8114</a> | <em>Major</em> | <strong>Type resolution for udf arguments of Decimal Type results in error</strong></li>
+</ul>
+<p>Removes mixed double/decimal versions of log(). log() will be resolved to one of the following versions, using type conversion where necessary:</p>
+<p>double log(double base, double a) double log(decimal base, decimal a)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-8090">HIVE-8090</a> | <em>Minor</em> | <strong>Potential null pointer reference in WriterImpl#StreamFactory#createStream()</strong></li>
+</ul>
+<p>Committed to trunk - thanks [~rpalamut]!</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-8083">HIVE-8083</a> | <em>Major</em> | <strong>Authorization DDLs should not enforce hive identifier syntax for user or group</strong></li>
+</ul>
+<p>The user name in the grant and revoke statements may be optionally surrounded by backtick characters (`) irrespective of the hive.support.quoted.identifiers setting.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-8071">HIVE-8071</a> | <em>Major</em> | <strong>hive shell tries to write hive-exec.jar for each run</strong></li>
+</ul>
+<p>&quot;HIVE-8071: Speed up hive shell startup by avoiding hive-exec.jar uploads (Rajesh Balamohan via Gopal V)&quot;</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-8038">HIVE-8038</a> | <em>Major</em> | <strong>Decouple ORC files split calculation logic from Filesystem's get file location implementation</strong></li>
+</ul>
+<p>HIVE-8038: Decouple ORC files split calculation logic from fixed-size block assumptions. (Pankit Thapar via Gopal V)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-7936">HIVE-7936</a> | <em>Major</em> | <strong>Support for handling Thrift Union types</strong></li>
+</ul>
+<p>Support Thrift union type as hive union type</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-7901">HIVE-7901</a> | <em>Major</em> | <strong>CLONE - pig -useHCatalog with embedded metastore fails to pass command line args to metastore (org.apache.hive.hcatalog version)</strong></li>
+</ul>
+<p>(None, this is reinstating a fix that was already in place with HIVE-6633 and was lost)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-7892">HIVE-7892</a> | <em>Major</em> | <strong>Thrift Set type not working with Hive</strong></li>
+</ul>
+<p>Maps thrift's set type to hive's array type.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-7832">HIVE-7832</a> | <em>Major</em> | <strong>Do ORC dictionary check at a finer level and preserve encoding across stripes</strong></li>
+</ul>
+<p>Added the new configuration to https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties#ConfigurationProperties-ORCFileFormat</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-7777">HIVE-7777</a> | <em>Major</em> | <strong>Add CSV Serde based on OpenCSV</strong></li>
+</ul>
+<p>A CSVSerde based on OpenCSV has been added. This Serde works for most CSV data, but does not handled embedded newlines. To use the Serde, specify the fully qualified class name org.apache.hadoop.hive.serde2.OpenCSVSerde.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-7738">HIVE-7738</a> | <em>Major</em> | <strong>tez select sum(decimal) from union all of decimal and null throws NPE</strong></li>
+</ul>
+<p>tez select sum(decimal) from union all of decimal and null throws NPE (Alexander Pivovarov, reviewed by Gopal V)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-7694">HIVE-7694</a> | <em>Major</em> | <strong>SMB join on tables differing by number of sorted by columns with same join prefix fails</strong></li>
+</ul>
+<p>SMB join on tables differing by number of sorted by columns with same join prefix</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-7669">HIVE-7669</a> | <em>Major</em> | <strong>parallel order by clause on a string column fails with IOException: Split points are out of order</strong></li>
+</ul>
+<p>Background: HIVE-1402 added parallelism (multiple reducers) to an order-by query, enabled by &quot;hive.optimize.sampling.orderby&quot;. As order-by requires total order, partitioning data among reducers uses a range-partition, and thus sampling is needed to give us the values for the ranges of each reducer (eg, 1-100, 100-200, etc).</p>
+<p>HIVE-7669 fixes the algorithm to generate a better range-partition split when the sample data lacks enough unique values.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-7647">HIVE-7647</a> | <em>Minor</em> | <strong>Beeline does not honor --headerInterval and --color when executing with &quot;-e&quot;</strong></li>
+</ul>
+<p>Beeline does not honor --headerInterval and --color options when running with &quot;-e&quot; option. It results in header being printed after each row. This has now been resolved in Hive 0.14.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-7553">HIVE-7553</a> | <em>Major</em> | <strong>avoid the scheduling maintenance window for every jar change</strong></li>
+</ul>
+<p>The newly added parameter &quot;hive.reloadable.aux.jars.path&quot; is serving for the complement of the previous configuration &quot;hive.aux.jars.path&quot;. In order to making the HiveServer2 as a service, it should not be restarted when the auxiliary jars changed. In this JIRA, a new command &quot;reload&quot; with a parameter &quot;hive.reloadable.aux.jars.path&quot; can be used for avoid the scheduling maintenance window for every jar change. User can execute the reload command via the beeline to make the HS2 aware of the changes made in the path specified by the parameter &quot;hive.reloadable.aux.jars.path&quot;. And the supported changes including adding, removing or updating jar files.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-7544">HIVE-7544</a> | <em>Major</em> | <strong>Changes related to TEZ-1288 (FastTezSerialization)</strong></li>
+</ul>
+<p>TEZ-1288 related changes</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-7509">HIVE-7509</a> | <em>Major</em> | <strong>Fast stripe level merging for ORC</strong></li>
+</ul>
+<p>Added hive.merge.orcfile.stripe.level configuration parameter here https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties#ConfigurationProperties-HiveConfigurationProperties</p>
+<p>Added concatenate syntax to https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-AlterTable/PartitionConcatenate</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-7446">HIVE-7446</a> | <em>Major</em> | <strong>Add support to ALTER TABLE .. ADD COLUMN to Avro backed tables</strong></li>
+</ul>
+<p>Support to add columns to an Avro backed Hive table using Alter Table﻿ statement.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-7427">HIVE-7427</a> | <em>Major</em> | <strong>Changes for EdgeConfigurations</strong></li>
+</ul>
+<p>Committed to tez branch.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-7397">HIVE-7397</a> | <em>Major</em> | <strong>Set the default threshold for fetch task conversion to 1Gb</strong></li>
+</ul>
+<p>Set the simple fetch task conversion to &quot;more&quot; with a default threshold of 1Gb</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-7394">HIVE-7394</a> | <em>Trivial</em> | <strong>ORC writer logging fails when the padding is &lt; 0.01</strong></li>
+</ul>
+<p>Fix logging of ORC padding percentages during inserts</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-7390">HIVE-7390</a> | <em>Major</em> | <strong>Make single quote character optional and configurable in BeeLine CSV/TSV output</strong></li>
+</ul>
+<p>--outputformat=[table/vertical/csv/tsv/dsv] Format mode for result display. Default is table. Usage: beeline --outputformat=tsv</p>
+<p>--delimiterForDSV=DELIMITER specify the delimiter for delimiter-separated values output format (default: |) Usage: beeline --outputformat=dsv --delimiterForDSV=,</p>
+<p>beeline dsv and delimiterForDSV examples are as followings: % bin/beeline Hive version 0.11.0-SNAPSHOT by Apache beeline&gt; !connect jdbc:hive2://localhost:10000 scott tiger org.apache.hive.jdbc.HiveDriver !connect jdbc:hive2://localhost:10000 scott tiger org.apache.hive.jdbc.HiveDriver Connecting to jdbc:hive2://localhost:10000 Connected to: Hive (version 0.14.0-SNAPSHOT) Driver: Hive (version 0.14.0-SNAPSHOT) Transaction isolation: TRANSACTION_REPEATABLE_READ HiveServer2 Clients – dsv Example 0: jdbc:hive2://localhost:10000&gt; create table csv_table(id int, name string, info string) row format delimited fields terminated by ''; No rows affected (0.121 seconds) 0: jdbc:hive2://localhost:10000&gt; load data local inpath '/root/names' overwrite into table csv_table;<br />
+No rows affected (0.245 seconds) 0: jdbc:hive2://localhost:10000&gt; select * from csv_table;<br />
++---------------+-----------------+-----------------+--+ | csv_table.id | csv_table.name | csv_table.info | +---------------+-----------------+-----------------+--+ | 19630001 | &quot;john&quot; | lennon | | 19630002 | peter,paul | mccartney | | 19630003 | george | harrison | | 19630004 | ringo | starr | +---------------+-----------------+-----------------+--+ 4 rows selected (0.09 seconds) 0: jdbc:hive2://localhost:10000&gt; !outformat csv Unknown command: outformat csv 0: jdbc:hive2://localhost:10000&gt; !outputformat csv 0: jdbc:hive2://localhost:10000&gt; select * from csv_table; csv_table.id,csv_table.name,csv_table.info 19630001,&quot;&quot;&quot;john&quot;&quot;&quot;,lennon 19630002,&quot;peter,paul&quot;,mccartney 19630003,george,harrison 19630004,ringo,starr 4 rows selected (0.105 seconds) 0: jdbc:hive2://localhost:10000&gt; !outputformat dsv<br />
+0: jdbc:hive2://localhost:10000&gt; select * from csv_table; csv_table.id|csv_table.name|csv_table.info 19630001|&quot;&quot;&quot;john&quot;&quot;&quot;|lennon 19630002|peter,paul|mccartney 19630003|george|harrison 19630004|ringo|starr 4 rows selected (0.123 seconds) 0: jdbc:hive2://localhost:10000&gt; !set delimiterForDSV ','; 0: jdbc:hive2://localhost:10000&gt; select * from csv_table; csv_table.id'csv_table.name'csv_table.info 19630001'&quot;&quot;&quot;john&quot;&quot;&quot;'lennon 19630002'peter,paul'mccartney 19630003'george'harrison 19630004'ringo'starr 4 rows selected (0.11 seconds)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-7385">HIVE-7385</a> | <em>Major</em> | <strong>Optimize for empty relation scans</strong></li>
+</ul>
+<p>Don't scan relations which are guaranteed to not generate any rows.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-7381">HIVE-7381</a> | <em>Trivial</em> | <strong>Class TezEdgeProperty missing license header</strong></li>
+</ul>
+<p>It would be good if we can go thru all other Tez related classes to fix all in one shot.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-7361">HIVE-7361</a> | <em>Major</em> | <strong>using authorization api for RESET, DFS, ADD, DELETE, COMPILE commands</strong></li>
+</ul>
+<p>This also changes behavior in SQL std auth - reset command is now allowed. dfs,add,delete,compile commands are now allowed for the admin user.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-7343">HIVE-7343</a> | <em>Major</em> | <strong>Update committer list</strong></li>
+</ul>
+<p>Committed Gopal's version of the patch. Thanks Gopal.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-7342">HIVE-7342</a> | <em>Major</em> | <strong>support hiveserver2,metastore specific config files</strong></li>
+</ul>
+<p>Adds support for server specific config files.</p>
+<p>HiveMetastore server reads hive-site.xml as well as hivemetastore-site.xml configuration files that are available in the $HIVE_CONF_DIR or in the classpath. If metastore is being used in embedded mode (ie hive.metastore.uris is not set or empty) in hive commandline or hiveserver2, the hivemetastore-site.xml gets loaded by the parent process as well. The value of hive.metastore.uris is examined to determine this, and the value should be set appropriately in hive-site.xml . Certain metastore configuration parameters like hive.metastore.sasl.enabled, hive.metastore.kerberos.principal, hive.metastore.execute.setugi, hive.metastore.thrift.framed.transport.enabled are used by the metastore client as well as server. For such common parameters it is better to set the values in hive-site.xml, that will help in keeping them consistent.</p>
+<p>HiveServer2 reads hive-site.xml as well as hiveserver2-site.xml that are available in the $HIVE_CONF_DIR or in the classpath. If hiveserver2 is using metastore in embedded mode, hivemetastore-site.xml also is loaded.</p>
+<p>The order of precedence of the config files is as follows (later one has higher precedence) - hive-site.xml -&gt; hivemetastore-site.xml -&gt; hiveserver2-site.xml -&gt; '-hiveconf' commandline parameters</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-7325">HIVE-7325</a> | <em>Major</em> | <strong>Support non-constant expressions for ARRAY/MAP type indices.</strong></li>
+</ul>
+<p>Supports negative and non-constant expressions for ARRAY/MAP type indices.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-7289">HIVE-7289</a> | <em>Major</em> | <strong>revert HIVE-6469</strong></li>
+</ul>
+<p>Remove documentation, if any, for HIVE-6469, as its change has been reverted.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-7271">HIVE-7271</a> | <em>Major</em> | <strong>Speed up unit tests</strong></li>
+</ul>
+<p>hive.exec.submit.local.task.via.child</p>
+<p>Determines whether local tasks (typically mapjoin hashtable generation phase) runs in separate JVM (&quot;true&quot;, recommended) or not. Avoids the overhead of spawning new JVM, but can lead to out-of-memory issues.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-7236">HIVE-7236</a> | <em>Minor</em> | <strong>Tez progress monitor should indicate running/failed tasks</strong></li>
+</ul>
+<p>Log Tez running/failed tasks in TezJobMonitor</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-7232">HIVE-7232</a> | <em>Major</em> | <strong>VectorReduceSink is emitting incorrect JOIN keys</strong></li>
+</ul>
+<p>VectorReduceSink is emitting incorrect JOIN keys (Navis, via Gopal V)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-7231">HIVE-7231</a> | <em>Major</em> | <strong>Improve ORC padding</strong></li>
+</ul>
+<p>HIVE-7231 : Improve ORC padding (Prasanth J, reviewed by Gopal V)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-7209">HIVE-7209</a> | <em>Major</em> | <strong>allow metastore authorization api calls to be restricted to certain invokers</strong></li>
+</ul>
+<p>With this change hive.security.metastore.authorization.manager configuration parameter allows you to specify more than one authorization manager class (comma separated).</p>
+<p>This patch introduces a new authorization manager for use under this configuration - org.apache.hadoop.hive.ql.security.authorization.MetaStoreAuthzAPIAuthorizerEmbedOnly. It will disallow any of the authorization api calls to be invoked in a remote metastore. HiveServer2 can be configured to use embedded metastore, and that will allow it to invoke metastore authorization api. Hive cli and any other remote metastore users would be denied authorization when they try to make authorization api calls. This allows restricting the authorization api use to privileged HiveServer2 process.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-7204">HIVE-7204</a> | <em>Minor</em> | <strong>Use NULL vertex location hint for Prewarm DAG vertices</strong></li>
+</ul>
+<p>Use NULL VertexLocationHint for prewarm DAG vertexes.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-7165">HIVE-7165</a> | <em>Major</em> | <strong>Fix hive-default.xml.template errors &amp; omissions</strong></li>
+</ul>
+<p>Fix errors and omissions in hive-default.xml.template file.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-7156">HIVE-7156</a> | <em>Blocker</em> | <strong>Group-By operator stat-annotation only uses distinct approx to generate rollups</strong></li>
+</ul>
+<p>Updated the removal of config in https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties#ConfigurationProperties-hive.stats.map.parallelism https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties#ConfigurationProperties-Tez</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-7147">HIVE-7147</a> | <em>Minor</em> | <strong>ORC PPD should handle CHAR/VARCHAR types</strong></li>
+</ul>
+<p>ORC PPD should recognize CHAR/VARCHAR index entries</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-7144">HIVE-7144</a> | <em>Major</em> | <strong>GC pressure during ORC StringDictionary writes</strong></li>
+</ul>
+<p>Use Text writables directly in ORC dictionaries to avoid String allocations.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-7137">HIVE-7137</a> | <em>Minor</em> | <strong>Add progressable to writer interfaces so they could report progress while different operations are in progress</strong></li>
+</ul>
+<p>This patch has been rebased to current state of hive 0.13 branch (0.13.1)</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-7105">HIVE-7105</a> | <em>Major</em> | <strong>Enable ReduceRecordProcessor to generate VectorizedRowBatches</strong></li>
+</ul>
+<p>Tez vectorized shuffle record reader</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-7100">HIVE-7100</a> | <em>Major</em> | <strong>Users of hive should be able to specify skipTrash when dropping tables.</strong></li>
+</ul>
+<p>Add PURGE option to DROP TABLE to skip moving table data to the trash</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-7068">HIVE-7068</a> | <em>Major</em> | <strong>Integrate AccumuloStorageHandler</strong></li>
+</ul>
+<p>Introduces accumulo-handler</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-7051">HIVE-7051</a> | <em>Major</em> | <strong>Display partition level column stats in DESCRIBE FORMATTED PARTITION</strong></li>
+</ul>
+<p>Added &quot;Display column statistics&quot; section to https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-Describe</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-7050">HIVE-7050</a> | <em>Major</em> | <strong>Display table level column stats in DESCRIBE FORMATTED TABLE</strong></li>
+</ul>
+<p>Added &quot;Display column statistics&quot; section to https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-Describe</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-6972">HIVE-6972</a> | <em>Major</em> | <strong>jdbc HTTP configuration options should be part of sessionConf part of connection string</strong></li>
+</ul>
+<p>Check jira description.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-6806">HIVE-6806</a> | <em>Minor</em> | <strong>CREATE TABLE should support STORED AS AVRO</strong></li>
+</ul>
+<p>Add support to infer Avro schema from Hive table schema. Avro-backed tables can simply be created by using &quot;STORED AS AVRO&quot; in DDL statement. AvroSerDe takes care of creating appropriate Avro schema from Hive table schema, a big win in terms of Avro usability in Hive.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-6694">HIVE-6694</a> | <em>Major</em> | <strong>Beeline should provide a way to execute shell command as Hive CLI does</strong></li>
+</ul>
+<p>Please doc the new feature.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-6586">HIVE-6586</a> | <em>Blocker</em> | <strong>Update parameters in HiveConf.java after commit HIVE-6037</strong></li>
+</ul>
+<p>Update the parameter descriptions in HiveConf.java.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-6584">HIVE-6584</a> | <em>Major</em> | <strong>Add HiveHBaseTableSnapshotInputFormat</strong></li>
+</ul>
+<p>Hive can now execute queries against HBase table snapshots. This feature is available for any table defined using the HBaseStorageHandler. It requires at least HBase 0.98.3.</p>
+<p>To query against a snapshot instead of the online table, specify the snapshot name via hive.hbase.snapshot.name. The snapshot will be restored into a unique directory under /tmp. This location can be overridden by setting a path via hive.hbase.snapshot.restoredir.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-6570">HIVE-6570</a> | <em>Major</em> | <strong>Hive variable substitution does not work with the &quot;source&quot; command</strong></li>
+</ul>
+<p>This patch adds Hive variable substitution support to the &quot;source&quot; command. For example, you will now be able to use a statement such as: source ${hivevar:test-dir}/test.q;</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-6561">HIVE-6561</a> | <em>Major</em> | <strong>Beeline should accept -i option to Initializing a SQL file</strong></li>
+</ul>
+<p>Document the new feature.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-6473">HIVE-6473</a> | <em>Major</em> | <strong>Allow writing HFiles via HBaseStorageHandler table</strong></li>
+</ul>
+<p>Allows direct creation of HFiles and location for them as part of HBaseStorageHandler write if the following properties are specified in the HQL:</p>
+<p>set hive.hbase.generatehfiles=true; set hfile.family.path=/tmp/columnfamily_name;</p>
+<p>hfile.family.path can also be set as a table property, HQL value takes precedence.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-6455">HIVE-6455</a> | <em>Major</em> | <strong>Scalable dynamic partitioning and bucketing optimization</strong></li>
+</ul>
+<p>Added the new config to https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-6432">HIVE-6432</a> | <em>Major</em> | <strong>Remove deprecated methods in HCatalog</strong></li>
+</ul>
+<p>Removes all org.apache.hcatalog.* components, removes all functions and methods that were deprecated on and before hive-0.12.</p>
+<p>Warning note : especially removes HBaseHCatStorageHandler altogether.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-6411">HIVE-6411</a> | <em>Minor</em> | <strong>Support more generic way of using composite key for HBaseHandler</strong></li>
+</ul>
+<p>The new feature needs to be documented at Hive-HBase integration page.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-6252">HIVE-6252</a> | <em>Major</em> | <strong>sql std auth - support 'with admin option' in revoke role metastore api</strong></li>
+</ul>
+<p>Adds support for &quot;ADMIN OPTION FOR&quot; in revoke role. It lets you revoke the ADMIN OPTION of a user on a role. The user remains a member of that role. eg - revoke admin option for src_role_wadmin from user user2;</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-6093">HIVE-6093</a> | <em>Minor</em> | <strong>table creation should fail when user does not have permissions on db</strong></li>
+</ul>
+<p>One cannot create table (whether or not they provide a LOCATION) if they do not have WRITE permission on the database directory.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-5823">HIVE-5823</a> | <em>Major</em> | <strong>Support for DECIMAL primitive type in AvroSerDe</strong></li>
+</ul>
+<p>The feature may need to be properly documented on Hive avro support.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-5607">HIVE-5607</a> | <em>Minor</em> | <strong>Hive fails to parse the &quot;%&quot; (mod) sign after brackets.</strong></li>
+</ul>
+<p>From 0.10.0 to 0.13.0, the following syntax for order by is allowed (though the doc doesn't specify):</p>
+<p>select * from table order by (expr1, exp2);</p>
+<p>From 0.14, the above syntax is illegal. Instead, the following should be used:</p>
+<p>select * from table order by expr1, exp2;</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-3635">HIVE-3635</a> | <em>Major</em> | ** allow 't', 'T', '1', 'f', 'F', and '0' to be allowable true/false values for the boolean hive type**</li>
+</ul>
+<p>New configuration, hive.lazysimple.extended_boolean_literal, needs to be documented.</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-2974">HIVE-2974</a> | <em>Major</em> | <strong>Add online docs for from_utc_timestamp() and to_utc_timestamp()</strong></li>
+</ul>
+<p>patch available for this</p>
+<hr />
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HIVE-2390">HIVE-2390</a> | <em>Major</em> | <strong>Add UNIONTYPE serialization support to LazyBinarySerDe</strong></li>
+</ul>
+<p>Adds UnionType support in LazyBinarySerde</p>

@@ -1,0 +1,357 @@
+<!---
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<h1 id="apache-hbase-changelog">Apache HBase Changelog</h1>
+<h2 id="release-0.98.22---2016-09-09">Release 0.98.22 - 2016-09-09</h2>
+<h3 id="incompatible-changes">INCOMPATIBLE CHANGES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-16340">HBASE-16340</a></td>
+<td align="left">ensure no Xerces jars included</td>
+<td align="left">Critical</td>
+<td align="left">dependencies</td>
+<td align="left">Sean Busbey</td>
+<td align="left">Sean Busbey</td>
+</tr>
+</tbody>
+</table>
+<h3 id="improvements">IMPROVEMENTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-16299">HBASE-16299</a></td>
+<td align="left">Update REST API scanner with ability to do reverse scan</td>
+<td align="left">Minor</td>
+<td align="left">REST</td>
+<td align="left">Bjorn Olsen</td>
+<td align="left">Minwoo Kang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-16379">HBASE-16379</a></td>
+<td align="left">[replication] Minor improvement to replication/copy_tables_desc.rb</td>
+<td align="left">Trivial</td>
+<td align="left">Replication, shell</td>
+<td align="left">Esteban Gutierrez</td>
+<td align="left">Esteban Gutierrez</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-16385">HBASE-16385</a></td>
+<td align="left">Have hbase-rest pull hbase.rest.port from Constants.java</td>
+<td align="left">Minor</td>
+<td align="left">REST</td>
+<td align="left">Dima Spivak</td>
+<td align="left">Yi Liang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-16448">HBASE-16448</a></td>
+<td align="left">Custom metrics for custom replication endpoints</td>
+<td align="left">Major</td>
+<td align="left">Replication</td>
+<td align="left">Geoffrey Jacoby</td>
+<td align="left">Geoffrey Jacoby</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-16502">HBASE-16502</a></td>
+<td align="left">Reduce garbage in BufferedDataBlockEncoder</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">binlijin</td>
+<td align="left">binlijin</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-16399">HBASE-16399</a></td>
+<td align="left">Provide an API to get list of failed regions and servername in Canary</td>
+<td align="left">Major</td>
+<td align="left">canary</td>
+<td align="left">Vishal Khandelwal</td>
+<td align="left">Vishal Khandelwal</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-fixes">BUG FIXES:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-16315">HBASE-16315</a></td>
+<td align="left">RegionSizeCalculator prints region names as binary without escapes</td>
+<td align="left">Trivial</td>
+<td align="left">.</td>
+<td align="left">Enis Soztutar</td>
+<td align="left">Enis Soztutar</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-16377">HBASE-16377</a></td>
+<td align="left">ServerName check is ineffective in region_mover.rb</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Ted Yu</td>
+<td align="left">Ted Yu</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-16402">HBASE-16402</a></td>
+<td align="left">RegionServerCoprocessorHost should be initialized before RpcServer starts</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Guanghao Zhang</td>
+<td align="left">Guanghao Zhang</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-15635">HBASE-15635</a></td>
+<td align="left">Mean age of Blocks in cache (seconds) on webUI should be greater than zero</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Heng Chen</td>
+<td align="left">Heng Chen</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-16360">HBASE-16360</a></td>
+<td align="left">TableMapReduceUtil addHBaseDependencyJars has the wrong class name for PrefixTreeCodec</td>
+<td align="left">Minor</td>
+<td align="left">mapreduce</td>
+<td align="left">Matteo Bertozzi</td>
+<td align="left">Jing Pu Chen</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-16464">HBASE-16464</a></td>
+<td align="left">archive folder grows bigger and bigger due to corrupt snapshot under tmp dir</td>
+<td align="left">Major</td>
+<td align="left">snapshots</td>
+<td align="left">Heng Chen</td>
+<td align="left">Heng Chen</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-16471">HBASE-16471</a></td>
+<td align="left">Region Server metrics context will be wrong when machine hostname contain &quot;master&quot; word</td>
+<td align="left">Minor</td>
+<td align="left">metrics</td>
+<td align="left">Pankaj Kumar</td>
+<td align="left">Pankaj Kumar</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-16495">HBASE-16495</a></td>
+<td align="left">When accessed via Thrift, all column families have timeToLive equal to -1</td>
+<td align="left">Minor</td>
+<td align="left">Thrift</td>
+<td align="left">Tigran Saluev</td>
+<td align="left">Tigran Saluev</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-16512">HBASE-16512</a></td>
+<td align="left">when locate meta region, we should respect the param &quot;useCache&quot; passed in on 0.98</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Heng Chen</td>
+<td align="left">Heng Chen</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-16535">HBASE-16535</a></td>
+<td align="left">Use regex to exclude generated classes for findbugs</td>
+<td align="left">Major</td>
+<td align="left">findbugs</td>
+<td align="left">Duo Zhang</td>
+<td align="left">Duo Zhang</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-16527">HBASE-16527</a></td>
+<td align="left">IOExceptions from DFS client still can cause CatalogJanitor to delete referenced files</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Vladimir Rodionov</td>
+<td align="left">Vladimir Rodionov</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-16375">HBASE-16375</a></td>
+<td align="left">Mapreduce mini cluster using HBaseTestingUtility not setting correct resourcemanager and jobhistory webapp address of MapReduceTestingShim</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Loknath Priyatham Teja Singamsetty</td>
+<td align="left">Loknath Priyatham Teja Singamsetty</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-16552">HBASE-16552</a></td>
+<td align="left">MiniHBaseCluster#getServerWith() does not ignore stopped RSs</td>
+<td align="left">Trivial</td>
+<td align="left">test</td>
+<td align="left">Matteo Bertozzi</td>
+<td align="left">Matteo Bertozzi</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-16538">HBASE-16538</a></td>
+<td align="left">Version mismatch in HBaseConfiguration.checkDefaultsVersion</td>
+<td align="left">Major</td>
+<td align="left">.</td>
+<td align="left">Appy</td>
+<td align="left">Appy</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tests">TESTS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-16400">HBASE-16400</a></td>
+<td align="left">TestHBaseFsck fails on HBase-0.98-on-Hadoop-1.1 build</td>
+<td align="left">Minor</td>
+<td align="left">.</td>
+<td align="left">Ted Yu</td>
+<td align="left">Ted Yu</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sub-tasks">SUB-TASKS:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-16318">HBASE-16318</a></td>
+<td align="left">fail build if license isn't in whitelist</td>
+<td align="left">Major</td>
+<td align="left">build, dependencies</td>
+<td align="left">Sean Busbey</td>
+<td align="left">Sean Busbey</td>
+</tr>
+</tbody>
+</table>
+<h3 id="other">OTHER:</h3>
+<table style="width:49%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">JIRA</th>
+<th align="left">Summary</th>
+<th align="left">Priority</th>
+<th align="left">Component</th>
+<th align="left">Reporter</th>
+<th align="left">Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-16467">HBASE-16467</a></td>
+<td align="left">Move AbstractHBaseTool to hbase-common</td>
+<td align="left">Trivial</td>
+<td align="left">.</td>
+<td align="left">Appy</td>
+<td align="left">Appy</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://issues.apache.org/jira/browse/HBASE-16518">HBASE-16518</a></td>
+<td align="left">Remove old .arcconfig file</td>
+<td align="left">Trivial</td>
+<td align="left">tooling</td>
+<td align="left">Gary Helmling</td>
+<td align="left">Gary Helmling</td>
+</tr>
+</tbody>
+</table>
