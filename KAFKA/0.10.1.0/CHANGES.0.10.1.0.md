@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.10.1.0 - Unreleased (as of 2016-09-09)
+## Release 0.10.1.0 - Unreleased (as of 2016-09-15)
 
 
 
@@ -28,7 +28,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [KAFKA-3176](https://issues.apache.org/jira/browse/KAFKA-3176) | Allow console consumer to consume from particular partitions when new consumer is used. |  Major | tools | Jiangjie Qin | Vahid Hashemian |
 | [KAFKA-3858](https://issues.apache.org/jira/browse/KAFKA-3858) | Add functions to print stream topologies |  Major | streams | Roger Hoover | Eno Thereska |
-| [KAFKA-3909](https://issues.apache.org/jira/browse/KAFKA-3909) | Queryable state for Kafka Streams |  Major | streams | Eno Thereska |  |
+| [KAFKA-3909](https://issues.apache.org/jira/browse/KAFKA-3909) | Queryable state for Kafka Streams |  Major | streams | Eno Thereska | Damian Guy |
 | [KAFKA-4015](https://issues.apache.org/jira/browse/KAFKA-4015) | Change cleanup.policy config to accept a list of valid policies |  Major | core | Damian Guy | Damian Guy |
 
 
@@ -79,6 +79,7 @@
 | [KAFKA-4062](https://issues.apache.org/jira/browse/KAFKA-4062) | Require --print-data-log if --offsets-decoder is enabled for DumpLogOffsets |  Minor | admin | Dustin Cote | Dustin Cote |
 | [KAFKA-4112](https://issues.apache.org/jira/browse/KAFKA-4112) | Remove alpha quality label from Kafka Streams in docs |  Trivial | streams | Damian Guy | Damian Guy |
 | [KAFKA-3595](https://issues.apache.org/jira/browse/KAFKA-3595) | Add capability to specify replication compact option for stream store |  Minor | streams | Henry Cai | Damian Guy |
+| [KAFKA-1981](https://issues.apache.org/jira/browse/KAFKA-1981) | Make log compaction point configurable |  Major | . | Jay Kreps |  |
 
 
 ### BUG FIXES:
@@ -94,8 +95,8 @@
 | [KAFKA-3723](https://issues.apache.org/jira/browse/KAFKA-3723) | Cannot change size of schema cache for JSON converter |  Major | KafkaConnect | Christian Posta | Ewen Cheslack-Postava |
 | [KAFKA-3710](https://issues.apache.org/jira/browse/KAFKA-3710) | MemoryOffsetBackingStore creates a non-daemon thread that prevents clean shutdown |  Major | KafkaConnect | Peter Davis | Ewen Cheslack-Postava |
 | [KAFKA-3682](https://issues.apache.org/jira/browse/KAFKA-3682) | ArrayIndexOutOfBoundsException thrown by SkimpyOffsetMap.get() when full |  Major | core | Edoardo Comar | Edoardo Comar |
-| [KAFKA-3767](https://issues.apache.org/jira/browse/KAFKA-3767) | Failed Kafka Connect's unit test with Unknown license. |  Major | KafkaConnect, unit tests | Sasaki Toru | Sasaki Toru |
-| [KAFKA-3774](https://issues.apache.org/jira/browse/KAFKA-3774) | GetOffsetShell tool reports 'Missing required argument "[time]"' despite the default |  Minor | tools | Vahid Hashemian | Vahid Hashemian |
+| [KAFKA-3767](https://issues.apache.org/jira/browse/KAFKA-3767) | Failed Kafka Connect\'s unit test with Unknown license. |  Major | KafkaConnect, unit tests | Sasaki Toru | Sasaki Toru |
+| [KAFKA-3774](https://issues.apache.org/jira/browse/KAFKA-3774) | GetOffsetShell tool reports \'Missing required argument "[time]"\' despite the default |  Minor | tools | Vahid Hashemian | Vahid Hashemian |
 | [KAFKA-3645](https://issues.apache.org/jira/browse/KAFKA-3645) | NPE in ConsumerGroupCommand and ConsumerOffsetChecker when running in a secure env |  Minor | . | Arun Mahadevan | Arun Mahadevan |
 | [KAFKA-2948](https://issues.apache.org/jira/browse/KAFKA-2948) | Kafka producer does not cope well with topic deletions |  Major | producer | Rajini Sivaram | Rajini Sivaram |
 | [KAFKA-3781](https://issues.apache.org/jira/browse/KAFKA-3781) | Errors.exceptionName() can throw NPE |  Major | . | Grant Henke | Ismael Juma |
@@ -130,7 +131,7 @@
 | [KAFKA-4002](https://issues.apache.org/jira/browse/KAFKA-4002) | task.open() should be invoked in case that 0 partitions is assigned to task. |  Major | KafkaConnect | Liquan Pei | Liquan Pei |
 | [KAFKA-2932](https://issues.apache.org/jira/browse/KAFKA-2932) | Adjust importance level of Kafka Connect configs |  Major | KafkaConnect | Ewen Cheslack-Postava | Dustin Cote |
 | [KAFKA-3934](https://issues.apache.org/jira/browse/KAFKA-3934) | Start scripts enable GC by default with no way to disable |  Major | . | Grant Henke | Grant Henke |
-| [KAFKA-4031](https://issues.apache.org/jira/browse/KAFKA-4031) | Check DirectBuffer's cleaner to be not null before using |  Major | core | Soumyajit Sahu | Soumyajit Sahu |
+| [KAFKA-4031](https://issues.apache.org/jira/browse/KAFKA-4031) | Check DirectBuffer\'s cleaner to be not null before using |  Major | core | Soumyajit Sahu | Soumyajit Sahu |
 | [KAFKA-4035](https://issues.apache.org/jira/browse/KAFKA-4035) | AclCommand should allow Describe operation on groups |  Major | . | Jun Rao | Manikumar Reddy |
 | [KAFKA-3769](https://issues.apache.org/jira/browse/KAFKA-3769) | KStream job spending 60% of time writing metrics |  Critical | streams | Greg Fodor | Guozhang Wang |
 | [KAFKA-4037](https://issues.apache.org/jira/browse/KAFKA-4037) | Transient failure in ConnectRestApiTest |  Minor | KafkaConnect | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
@@ -142,11 +143,11 @@
 | [KAFKA-4032](https://issues.apache.org/jira/browse/KAFKA-4032) | Uncaught exceptions when autocreating topics |  Major | core | Jason Gustafson | Grant Henke |
 | [KAFKA-3916](https://issues.apache.org/jira/browse/KAFKA-3916) | Connection from controller to broker disconnects |  Major | controller | Dave Powell | Jason Gustafson |
 | [KAFKA-4073](https://issues.apache.org/jira/browse/KAFKA-4073) | MirrorMaker should handle mirroring messages w/o timestamp better |  Major | . | Jun Rao | Ismael Juma |
-| [KAFKA-3218](https://issues.apache.org/jira/browse/KAFKA-3218) | Kafka-0.9.0.0 does not work as OSGi module |  Major | clients | Joe O'Connor | Rajini Sivaram |
-| [KAFKA-2894](https://issues.apache.org/jira/browse/KAFKA-2894) | WorkerSinkTask doesn't handle rewinding offsets on rebalance |  Blocker | KafkaConnect | Ewen Cheslack-Postava | Liquan Pei |
+| [KAFKA-3218](https://issues.apache.org/jira/browse/KAFKA-3218) | Kafka-0.9.0.0 does not work as OSGi module |  Major | clients | Joe O\'Connor | Rajini Sivaram |
+| [KAFKA-2894](https://issues.apache.org/jira/browse/KAFKA-2894) | WorkerSinkTask doesn\'t handle rewinding offsets on rebalance |  Blocker | KafkaConnect | Ewen Cheslack-Postava | Liquan Pei |
 | [KAFKA-3937](https://issues.apache.org/jira/browse/KAFKA-3937) | Kafka Clients Leak Native Memory For Longer Than Needed With Compressed Messages |  Minor | clients | Tom Crayford | William Yu |
 | [KAFKA-4082](https://issues.apache.org/jira/browse/KAFKA-4082) | Support Gradle 3.0 |  Major | . | Ismael Juma | Ismael Juma |
-| [KAFKA-3742](https://issues.apache.org/jira/browse/KAFKA-3742) | Can't run connect-distributed.sh with -daemon flag |  Minor | KafkaConnect | Geoff Anderson | Liquan Pei |
+| [KAFKA-3742](https://issues.apache.org/jira/browse/KAFKA-3742) | Can\'t run connect-distributed.sh with -daemon flag |  Minor | KafkaConnect | Geoff Anderson | Liquan Pei |
 | [KAFKA-4042](https://issues.apache.org/jira/browse/KAFKA-4042) | DistributedHerder thread can die because of connector & task lifecycle exceptions |  Major | KafkaConnect | Shikhar Bhushan | Shikhar Bhushan |
 | [KAFKA-4098](https://issues.apache.org/jira/browse/KAFKA-4098) | NetworkClient should not intercept all metadata requests on disconnect |  Major | . | Jason Gustafson | Jason Gustafson |
 | [KAFKA-4100](https://issues.apache.org/jira/browse/KAFKA-4100) | Connect Struct schemas built using SchemaBuilder with no fields cause NPE in Struct constructor |  Minor | KafkaConnect | Shikhar Bhushan | Shikhar Bhushan |
@@ -159,7 +160,13 @@
 | [KAFKA-4129](https://issues.apache.org/jira/browse/KAFKA-4129) | Processor throw exception when getting channel remote address after closing the channel |  Major | core | TAO XIAO | TAO XIAO |
 | [KAFKA-4034](https://issues.apache.org/jira/browse/KAFKA-4034) | Consumer need not lookup coordinator when using manual assignment |  Major | consumer | Jason Gustafson | Jason Gustafson |
 | [KAFKA-4123](https://issues.apache.org/jira/browse/KAFKA-4123) | Queryable State returning null for key before all stores in instance have been initialized |  Major | streams | Damian Guy | Damian Guy |
-| [KAFKA-4033](https://issues.apache.org/jira/browse/KAFKA-4033) | KIP-70: Revise Partition Assignment Semantics on New Consumer's Subscription Change |  Major | . | Vahid Hashemian | Vahid Hashemian |
+| [KAFKA-4033](https://issues.apache.org/jira/browse/KAFKA-4033) | KIP-70: Revise Partition Assignment Semantics on New Consumer\'s Subscription Change |  Major | . | Vahid Hashemian | Vahid Hashemian |
+| [KAFKA-3807](https://issues.apache.org/jira/browse/KAFKA-3807) | OffsetValidationTest - transient failure on test\_broker\_rolling\_bounce |  Major | system tests | Geoff Anderson | Jason Gustafson |
+| [KAFKA-2311](https://issues.apache.org/jira/browse/KAFKA-2311) | Consumer\'s ensureNotClosed method not thread safe |  Major | clients | Tim Brooks | Tim Brooks |
+| [KAFKA-4158](https://issues.apache.org/jira/browse/KAFKA-4158) | Reset quota to default value if quota override is deleted for a given clientId |  Critical | . | Dong Lin | Dong Lin |
+| [KAFKA-4162](https://issues.apache.org/jira/browse/KAFKA-4162) | Typo in Kafka Connect document |  Trivial | KafkaConnect | David Chen | Ewen Cheslack-Postava |
+| [KAFKA-4172](https://issues.apache.org/jira/browse/KAFKA-4172) | Fix masked test error in KafkaConsumerTest.testSubscriptionChangesWithAutoCommitEnabled |  Major | consumer, unit tests | Jason Gustafson | Jason Gustafson |
+| [KAFKA-4160](https://issues.apache.org/jira/browse/KAFKA-4160) | Consumer onPartitionsRevoked should not be invoked while holding the coordinator lock |  Blocker | consumer | Jason Gustafson | Jason Gustafson |
 
 
 ### TESTS:
@@ -168,6 +175,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [KAFKA-3863](https://issues.apache.org/jira/browse/KAFKA-3863) | Add system test for connector failure/restart |  Major | KafkaConnect, system tests | Jason Gustafson | Jason Gustafson |
 | [KAFKA-3799](https://issues.apache.org/jira/browse/KAFKA-3799) | Turn on endpoint validation in SSL system tests |  Major | system tests | Rajini Sivaram | Rajini Sivaram |
+| [KAFKA-4145](https://issues.apache.org/jira/browse/KAFKA-4145) | Avoid redundant integration testing in ProducerSendTests |  Major | unit tests | Jason Gustafson | Vahid Hashemian |
 
 
 ### SUB-TASKS:
@@ -189,10 +197,10 @@
 | [KAFKA-3290](https://issues.apache.org/jira/browse/KAFKA-3290) | WorkerSourceTask testCommit transient failure |  Major | KafkaConnect | Jason Gustafson | Ewen Cheslack-Postava |
 | [KAFKA-3914](https://issues.apache.org/jira/browse/KAFKA-3914) | Global discovery of state stores |  Major | streams | Damian Guy | Damian Guy |
 | [KAFKA-2946](https://issues.apache.org/jira/browse/KAFKA-2946) | DeleteTopic - protocol and server side implementation |  Major | . | Grant Henke | Grant Henke |
-| [KAFKA-4045](https://issues.apache.org/jira/browse/KAFKA-4045) | Investigate feasibility of hooking into RocksDb's cache |  Major | streams | Eno Thereska | Damian Guy |
+| [KAFKA-4045](https://issues.apache.org/jira/browse/KAFKA-4045) | Investigate feasibility of hooking into RocksDb\'s cache |  Major | streams | Eno Thereska | Damian Guy |
 | [KAFKA-4038](https://issues.apache.org/jira/browse/KAFKA-4038) | Transient failure in DeleteTopicsRequestTest.testErrorDeleteTopicRequests |  Major | . | Jason Gustafson | Grant Henke |
 | [KAFKA-4049](https://issues.apache.org/jira/browse/KAFKA-4049) | Transient failure in RegexSourceIntegrationTest.testRegexMatchesTopicsAWhenDeleted |  Major | streams | Guozhang Wang | Guozhang Wang |
-| [KAFKA-4058](https://issues.apache.org/jira/browse/KAFKA-4058) | Failure in org.apache.kafka.streams.integration.ResetIntegrationTest.testReprocessingFromScratchAfterReset |  Major | streams | Guozhang Wang | Matthias J. Sax |
+| [KAFKA-4147](https://issues.apache.org/jira/browse/KAFKA-4147) | Transient failure in ConsumerCoordinatorTest.testAutoCommitDynamicAssignment |  Major | unit tests | Jason Gustafson | Jason Gustafson |
 
 
 ### OTHER:

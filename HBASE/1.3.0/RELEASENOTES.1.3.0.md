@@ -39,14 +39,14 @@ This patch adds optional ability for HMaster to normalize regions in size (disab
 
 * [HBASE-13906](https://issues.apache.org/jira/browse/HBASE-13906) | *Major* | **Improve handling of NeedUnmanagedConnectionException**
 
-With this patch NeedUnmanagedConnectionException is effectively treated as non-retryable exception, but for backwards compatibility purposes we don't throw it directly, but instead wrap into DoNotRetryIOException when we return error to the caller.
+With this patch NeedUnmanagedConnectionException is effectively treated as non-retryable exception, but for backwards compatibility purposes we don\'t throw it directly, but instead wrap into DoNotRetryIOException when we return error to the caller.
 
 
 ---
 
 * [HBASE-13938](https://issues.apache.org/jira/browse/HBASE-13938) | *Major* | **Deletes done during the region merge transaction may get eclipsed**
 
-Use the master's timestamp when sending hbase:meta edits on region merge to ensure proper ordering of new region addition and old region deletes.
+Use the master\'s timestamp when sending hbase:meta edits on region merge to ensure proper ordering of new region addition and old region deletes.
 
 
 ---
@@ -60,7 +60,7 @@ The performance of region splitting has been improved by using a thread pool to 
 
 * [HBASE-14045](https://issues.apache.org/jira/browse/HBASE-14045) | *Major* | **Bumping thrift version to 0.9.2.**
 
-This changes upgrades thrift dependency of HBase to 0.9.2. Though this doesn't break any HBase compatibility promises, it might impact any downstream projects that share thrift dependency with HBase.
+This changes upgrades thrift dependency of HBase to 0.9.2. Though this doesn\'t break any HBase compatibility promises, it might impact any downstream projects that share thrift dependency with HBase.
 
 
 ---
@@ -118,7 +118,7 @@ Promotes an -ea assert to logged FATAL and RS abort when memstore is found to be
 * [HBASE-14148](https://issues.apache.org/jira/browse/HBASE-14148) | *Major* | **Web UI Framable Page**
 
 Security fix: Adds protection from clickjacking using X-Frame-Options header.
-This will prevent use of HBase UI in frames. To disable this feature, set the configuration 'hbase.http.filter.xframeoptions.mode' to 'ALLOW' (default is 'DENY').
+This will prevent use of HBase UI in frames. To disable this feature, set the configuration \'hbase.http.filter.xframeoptions.mode\' to \'ALLOW\' (default is \'DENY\').
 
 
 ---
@@ -157,7 +157,7 @@ HConnection could get stuck when talking to a host that went down and then retur
 
 * [HBASE-14309](https://issues.apache.org/jira/browse/HBASE-14309) | *Major* | **Allow load balancer to operate when there is region in transition by adding force flag**
 
-This issue adds boolean parameter, force, to 'balancer' command so that admin can force region balancing even when there is region (other than hbase:meta) in transition - assuming RIT being transient.
+This issue adds boolean parameter, force, to \'balancer\' command so that admin can force region balancing even when there is region (other than hbase:meta) in transition - assuming RIT being transient.
 If hbase:meta is in transition, balancer command returns false.
 
 WARNING: For experts only. Forcing a balance may do more damage than repair when assignment is confused
@@ -168,7 +168,7 @@ Note: enclose the force parameter in double quotes
 
 * [HBASE-14261](https://issues.apache.org/jira/browse/HBASE-14261) | *Major* | **Enhance Chaos Monkey framework by adding zookeeper and datanode fault injections.**
 
-This change augments existing chaos monkey framework with actions for restarting underlying zookeeper quorum and hdfs nodes of distributed hbase cluster. One assumption made while creating zk actions are that zookeper ensemble is an independent external service and won't be managed by hbase cluster.  For these actions to work as expected, the following parameters need to be configured appropriately.
+This change augments existing chaos monkey framework with actions for restarting underlying zookeeper quorum and hdfs nodes of distributed hbase cluster. One assumption made while creating zk actions are that zookeper ensemble is an independent external service and won\'t be managed by hbase cluster.  For these actions to work as expected, the following parameters need to be configured appropriately.
 
 {code}
 \<property\>
@@ -200,7 +200,7 @@ The service user related configurations are newly introduced since in prod/test 
 
 ---
 
-* [HBASE-14317](https://issues.apache.org/jira/browse/HBASE-14317) | *Blocker* | **Stuck FSHLog: bad disk (HDFS-8960) and can't roll WAL**
+* [HBASE-14317](https://issues.apache.org/jira/browse/HBASE-14317) | *Blocker* | **Stuck FSHLog: bad disk (HDFS-8960) and can\'t roll WAL**
 
 Tighten up WAL-use semantic.
 
@@ -241,21 +241,21 @@ ReplicationSourceManager now could track multiple wal paths. Notice that althoug
 
 * [HBASE-14306](https://issues.apache.org/jira/browse/HBASE-14306) | *Major* | **Refine RegionGroupingProvider: fix issues and make it more scalable**
 
-In HBASE-14306 we've changed default strategy of RegionGroupingProvider from "identify" to "bounded", so it's required to explicitly set "hbase.wal.regiongrouping.strategy" to "identify" if user still wants to use one WAL per region
+In HBASE-14306 we\'ve changed default strategy of RegionGroupingProvider from "identify" to "bounded", so it\'s required to explicitly set "hbase.wal.regiongrouping.strategy" to "identify" if user still wants to use one WAL per region
 
-Please also notice that in the new framework there will be one WAL per group, and the region-group mapping is decided by RegionGroupingStrategy. Accordingly, we've removed BoundedRegionGroupingProvider and added BoundedRegionGroupingStrategy as a replacement. If you already have a customized class for hbase.wal.regiongrouping.strategy, please check the new logic and make updates if necessary.
+Please also notice that in the new framework there will be one WAL per group, and the region-group mapping is decided by RegionGroupingStrategy. Accordingly, we\'ve removed BoundedRegionGroupingProvider and added BoundedRegionGroupingStrategy as a replacement. If you already have a customized class for hbase.wal.regiongrouping.strategy, please check the new logic and make updates if necessary.
 
 
 ---
 
 * [HBASE-14400](https://issues.apache.org/jira/browse/HBASE-14400) | *Critical* | **Fix HBase RPC protection documentation**
 
-To use rpc protection in HBase, set the value of 'hbase.rpc.protection' to:
-'authentication' : simple authentication using kerberos
-'integrity' : authentication and integrity
-'privacy' : authentication and confidentiality
+To use rpc protection in HBase, set the value of \'hbase.rpc.protection\' to:
+\'authentication\' : simple authentication using kerberos
+\'integrity\' : authentication and integrity
+\'privacy\' : authentication and confidentiality
 
-Earlier, HBase reference guide erroneously mentioned in some places to set the value to 'auth-conf'. This patch fixes the guide and adds temporary support for erroneously recommended values.
+Earlier, HBase reference guide erroneously mentioned in some places to set the value to \'auth-conf\'. This patch fixes the guide and adds temporary support for erroneously recommended values.
 
 
 ---
@@ -282,7 +282,7 @@ Remove calling getNumCurrentReplicas on HdfsDataOutputStream via reflection. get
 
 ---
 
-* [HBASE-14465](https://issues.apache.org/jira/browse/HBASE-14465) | *Major* | **Backport 'Allow rowlock to be reader/write' to branch-1**
+* [HBASE-14465](https://issues.apache.org/jira/browse/HBASE-14465) | *Major* | **Backport \'Allow rowlock to be reader/write\' to branch-1**
 
 Locks on row are now reader/writer rather than exclusive. 
 
@@ -292,7 +292,7 @@ MVCC methods cleaned up. Make a bit more sense now. Less of them.
 
 Simplifies our update of MemStore/WAL. Now we update memstore AFTER we add to WAL (but before we sync). This fixes possible dataloss when two edits came in with same coordinates; we could order the edits in memstore differently to how they arrived in the WAL. 
 
-Marked as an incompatible change because it breaks Distributed Log Replay, a feature we'd determined already was unreliable and to be removed (See http://search-hadoop.com/m/YGbbhTJpoal8GD1).
+Marked as an incompatible change because it breaks Distributed Log Replay, a feature we\'d determined already was unreliable and to be removed (See http://search-hadoop.com/m/YGbbhTJpoal8GD1).
 
 
 ---
@@ -308,23 +308,23 @@ Region observer notifications w.r.t. split request are now audited with request 
 
 This patch adds shell support for region normalizer (see HBASE-13103).
 
-3 commands have been added to hbase shell 'tools' command group (modeled on how the balancer works):
+3 commands have been added to hbase shell \'tools\' command group (modeled on how the balancer works):
 
- - 'normalizer\_enabled' checks whether region normalizer is turned on
- - 'normalizer\_switch' allows user to turn normalizer on and off
- - 'normalize' runs region normalizer if it's turned on.
+ - \'normalizer\_enabled\' checks whether region normalizer is turned on
+ - \'normalizer\_switch\' allows user to turn normalizer on and off
+ - \'normalize\' runs region normalizer if it\'s turned on.
 
-Also 'alter' command has been extended to allow user to enable/disable region normalization per table (disabled by default). Use it as 
+Also \'alter\' command has been extended to allow user to enable/disable region normalization per table (disabled by default). Use it as 
 
-alter 'testtable', {NORMALIZATION\_MODE =\> 'true'}
+alter \'testtable\', {NORMALIZATION\_MODE =\> \'true\'}
 
 Here is the help for the normalize command:
 
 {code}
-hbase(main):008:0\> help 'normalize'
+hbase(main):008:0\> help \'normalize\'
 Trigger region normalizer for all tables which have NORMALIZATION\_MODE flag set. Returns true
  if normalizer ran successfully, false otherwise. Note that this command has no effect
- if region normalizer is disabled (make sure it's turned on using 'normalizer\_switch' command).
+ if region normalizer is disabled (make sure it\'s turned on using \'normalizer\_switch\' command).
 
  Examples:
 
@@ -336,7 +336,7 @@ Trigger region normalizer for all tables which have NORMALIZATION\_MODE flag set
 
 * [HBASE-14544](https://issues.apache.org/jira/browse/HBASE-14544) | *Major* | **Allow HConnectionImpl to not refresh the dns on errors**
 
-By setting hbase.resolve.hostnames.on.failure to false you can reduce the number of dns name resolutions that a client will do. However if machines leave and come back with different ip's the changes will not be noticed by the clients. So only set hbase.resolve.hostnames.on.failure to false if your cluster dns is not changing while clients are connected.
+By setting hbase.resolve.hostnames.on.failure to false you can reduce the number of dns name resolutions that a client will do. However if machines leave and come back with different ip\'s the changes will not be noticed by the clients. So only set hbase.resolve.hostnames.on.failure to false if your cluster dns is not changing while clients are connected.
 
 
 ---
@@ -352,7 +352,7 @@ HBASE-14502 Purge use of jmock and remove as dependency
 
 HBase daemons can now be signaled to reload their config by sending SIGHUP to the java process. Not all config parameters can be reloaded.
 
-In order for this new feature to work the hbase-daemon.sh script was changed to use disown rather than nohup. Functionally this shouldn't change anything but the processes will have a different parent when being run from a connected login shell.
+In order for this new feature to work the hbase-daemon.sh script was changed to use disown rather than nohup. Functionally this shouldn\'t change anything but the processes will have a different parent when being run from a connected login shell.
 
 
 ---
@@ -364,11 +364,11 @@ Introduces collection and reporting of various client-perceived metrics. Metrics
 
 ---
 
-* [HBASE-14517](https://issues.apache.org/jira/browse/HBASE-14517) | *Minor* | **Show regionserver's version in master status page**
+* [HBASE-14517](https://issues.apache.org/jira/browse/HBASE-14517) | *Minor* | **Show regionserver\'s version in master status page**
 
 Adds server version to the listing of regionservers on the master home page.
 
-if a cluster where the versions deviate, at the bottom of the 'Version' column on the master home page listing of 'Region Servers', you will see a note in red that says something like: 'Total:10		9 nodes with inconsistent version'
+if a cluster where the versions deviate, at the bottom of the \'Version\' column on the master home page listing of \'Region Servers\', you will see a note in red that says something like: \'Total:10		9 nodes with inconsistent version\'
 
 
 ---
@@ -376,7 +376,7 @@ if a cluster where the versions deviate, at the bottom of the 'Version' column o
 * [HBASE-13819](https://issues.apache.org/jira/browse/HBASE-13819) | *Major* | **Make RPC layer CellBlock buffer a DirectByteBuffer**
 
 For master branch(2.0 version), the BoundedByteBufferPool always create Direct (off heap) ByteBuffers and return that.
-For branch-1(1.3 version), byte default the buffers returned will be off heap. This can be changed to return on heap ByteBuffers by configuring 'hbase.ipc.server.reservoir.direct.buffer' to false.
+For branch-1(1.3 version), byte default the buffers returned will be off heap. This can be changed to return on heap ByteBuffers by configuring \'hbase.ipc.server.reservoir.direct.buffer\' to false.
 
 
 ---
@@ -433,7 +433,7 @@ Adds a timeout to server read from clients. Adds new configs hbase.thrift.server
 
 ---
 
-* [HBASE-14605](https://issues.apache.org/jira/browse/HBASE-14605) | *Blocker* | **Split fails due to 'No valid credentials' error when SecureBulkLoadEndpoint#start tries to access hdfs**
+* [HBASE-14605](https://issues.apache.org/jira/browse/HBASE-14605) | *Blocker* | **Split fails due to \'No valid credentials\' error when SecureBulkLoadEndpoint#start tries to access hdfs**
 
 When split is requested by non-super user, split related notifications for Coprocessor are executed using the login of the request user.
 Previously the notifications were carried out as super user.
@@ -459,7 +459,7 @@ Region observer notifications w.r.t. compaction request are now audited with req
 
 HBASE-7171 adds 2 new pages to the region server Web UI to ease debugging and provide greater insight into the physical data layout.
 
-Region names in UI table listing all regions (on the RS status page) are now hyperlinks leading to region detail page which shows some aggregate memstore information (currently just memory used) along with the list of all Store Files (HFiles) in the region. Names of Store Files are also hyperlinks leading to Store File detail page, which currently runs 'hbase hfile' command behind the scene and displays statistics about store file.
+Region names in UI table listing all regions (on the RS status page) are now hyperlinks leading to region detail page which shows some aggregate memstore information (currently just memory used) along with the list of all Store Files (HFiles) in the region. Names of Store Files are also hyperlinks leading to Store File detail page, which currently runs \'hbase hfile\' command behind the scene and displays statistics about store file.
 
 
 ---
@@ -470,14 +470,14 @@ This enhances the HBase replication to support replication of bulk loaded data. 
 
 Following are the additional configurations added for this enhancement,
  a. hbase.replication.cluster.id - This is manadatory to configure in cluster where replication for bulk loaded data is enabled. A source cluster is uniquely identified by sink cluster using this id. This should be configured in the source cluster configuration file for all the RS.
- b. hbase.replication.conf.dir - This represents the directory where all the active cluster's file system client configurations are defined in subfolders corresponding to their respective replication cluster id in peer cluster. This should be configured in the peer cluster configuration file for all the RS. Default is HBASE\_CONF\_DIR.
+ b. hbase.replication.conf.dir - This represents the directory where all the active cluster\'s file system client configurations are defined in subfolders corresponding to their respective replication cluster id in peer cluster. This should be configured in the peer cluster configuration file for all the RS. Default is HBASE\_CONF\_DIR.
  c. hbase.replication.source.fs.conf.provider - This represents the class which provides the source cluster file system client configuration to peer cluster. This should be configured in the peer cluster configuration file for all the RS. Default is org.apache.hadoop.hbase.replication.regionserver.DefaultSourceFSConfigurationProvider
 
  For example: If source cluster FS client configurations are copied in peer cluster under directory /home/user/dc1/ then  hbase.replication.cluster.id should be configured as dc1 and hbase.replication.conf.dir as /home/user
 
 Note: 
  a. Any modification to source cluster FS client configuration files in peer cluster side replication configuration directory then it needs to restart all its peer(s) cluster RS with default hbase.replication.source.fs.conf.provider.
- b. Only 'xml' type files will be loaded by the default hbase.replication.source.fs.conf.provider.
+ b. Only \'xml\' type files will be loaded by the default hbase.replication.source.fs.conf.provider.
 
 As part of this we have made following changes to LoadIncrementalHFiles class which is marked as Public and Stable class,
  a. Raised the visibility scope of LoadQueueItem class from package private to public.
@@ -486,13 +486,13 @@ As part of this we have made following changes to LoadIncrementalHFiles class wh
 
 ---
 
-* [HBASE-14946](https://issues.apache.org/jira/browse/HBASE-14946) | *Critical* | **Don't allow multi's to over run the max result size.**
+* [HBASE-14946](https://issues.apache.org/jira/browse/HBASE-14946) | *Critical* | **Don\'t allow multi\'s to over run the max result size.**
 
 The HBase region server will now send a chunk of get responses to a client if the total response size is too large. This will only be done for clients 1.2.0 and beyond. Older clients by default will have the old behavior.
 
 This patch is for the case where the basic flow is like this:
 
-I want to get a single column from lots of rows. So I create a list of gets. Then I send them to table.get(List\<Get\>). If the regions for that table are spread out then those requests get chunked out to all the region servers. No one regionserver gets too many. However if one region server contains lots of regions for that table then a multi action can contain lots of gets. No single get is too onerous. However the regionserver won't return until every get is complete. So if there are thousands of gets that are sent in one multi then the regionserver can retain lots of data in one thread.
+I want to get a single column from lots of rows. So I create a list of gets. Then I send them to table.get(List\<Get\>). If the regions for that table are spread out then those requests get chunked out to all the region servers. No one regionserver gets too many. However if one region server contains lots of regions for that table then a multi action can contain lots of gets. No single get is too onerous. However the regionserver won\'t return until every get is complete. So if there are thousands of gets that are sent in one multi then the regionserver can retain lots of data in one thread.
 
 
 ---
@@ -553,7 +553,7 @@ heap	memstore perc	maxLogs
 
 ---
 
-* [HBASE-14978](https://issues.apache.org/jira/browse/HBASE-14978) | *Blocker* | **Don't allow Multi to retain too many blocks**
+* [HBASE-14978](https://issues.apache.org/jira/browse/HBASE-14978) | *Blocker* | **Don\'t allow Multi to retain too many blocks**
 
 Limiting the amount of memory resident for any one request allows the server to handle concurrent requests smoothly. To this end we added the ability to limit the size of responses to a multi request. That worked well however it correctly represent the amount of memory resident. So this issue adds on a an approximation of the number of blocks held for a request.
 
@@ -569,7 +569,7 @@ All clients before 1.2.0 will not get this multi request chunking based upon blo
 
 ---
 
-* [HBASE-14822](https://issues.apache.org/jira/browse/HBASE-14822) | *Major* | **Renewing leases of scanners doesn't work**
+* [HBASE-14822](https://issues.apache.org/jira/browse/HBASE-14822) | *Major* | **Renewing leases of scanners doesn\'t work**
 
 And 1.1, 1.0, and 0.98.
 
@@ -621,15 +621,15 @@ UPDATE: This forward port was not necessary. hbase-1.2.0 as it happens does not 
 
 Increments can be 10x slower (or more) when there is high concurrency since HBase 1.0.0 (HBASE-8763). 
 
-This 'fix' adds back a fast increment but speed is achieved by relaxing row-level consistency for Increments (only). The default remains the old, slow, consistent Increment behavior. 
+This \'fix\' adds back a fast increment but speed is achieved by relaxing row-level consistency for Increments (only). The default remains the old, slow, consistent Increment behavior. 
 
-Set "hbase.increment.fast.but.narrow.consistency" to true in hbase-site.xml to enable 'fast' increments and then rolling restart your cluster. This is a setting the server-side needs to read. 
+Set "hbase.increment.fast.but.narrow.consistency" to true in hbase-site.xml to enable \'fast\' increments and then rolling restart your cluster. This is a setting the server-side needs to read. 
 
 Intermixing fast increment with other Mutations will give indeterminate results; e.g. a Put and Increment against the same Cell will not always give you the result you expect. Fast Increments are consistent unto themselves. A Get with {@link IsolationLevel#READ\_UNCOMMITTED} will return the latest increment value or an Increment of an amount zero will do the same (beware doing Get on a cell that has not been incremented yet -- this will return no results). 
 
 The difference between fastAndNarrowConsistencyIncrement and slowButConsistentIncrement is that the former holds the row lock until the WAL sync completes; this allows us to reason that there are no other writers afoot when we read the current increment value. In this case we do not need to wait on mvcc reads to catch up to writes before we proceed with the read of the current Increment value, the root of the slowdown seen in HBASE-14460. The fast-path also does not wait on mvcc to complete before returning to the client (but the write has been synced and put into memstore before we return). 
 
-Also adds a simple performance test tool that will run against existing cluster. It expects the table to be already created (by default it expects the table 'tableName' with a column family 'columnFamilyName'): 
+Also adds a simple performance test tool that will run against existing cluster. It expects the table to be already created (by default it expects the table \'tableName\' with a column family \'columnFamilyName\'): 
 
 {code} 
 $ ./bin/hbase org.apache.hadoop.hbase.IncrementPerformanceTest 
@@ -652,12 +652,12 @@ $ time ./bin/hbase --config ~/conf\_hbase org.apache.hadoop.hbase.IncrementPerfo
 
 * [HBASE-13082](https://issues.apache.org/jira/browse/HBASE-13082) | *Major* | **Coarsen StoreScanner locks to RegionScanner**
 
-After this JIRA we will not be doing any scanner reset after compaction during a course of a scan. The files that were compacted will still be continued to be used in the scan process. The compacted files will be archived by a background thread that runs every 2 mins by default only when there are no active scanners on those comapcted files. The above duration can be controlled using the knob 'hbase.hfile.compactions.cleaner.interval'.
+After this JIRA we will not be doing any scanner reset after compaction during a course of a scan. The files that were compacted will still be continued to be used in the scan process. The compacted files will be archived by a background thread that runs every 2 mins by default only when there are no active scanners on those comapcted files. The above duration can be controlled using the knob \'hbase.hfile.compactions.cleaner.interval\'.
 
 
 ---
 
-* [HBASE-15125](https://issues.apache.org/jira/browse/HBASE-15125) | *Major* | **HBaseFsck's adoptHdfsOrphan function creates region with wrong end key boundary**
+* [HBASE-15125](https://issues.apache.org/jira/browse/HBASE-15125) | *Major* | **HBaseFsck\'s adoptHdfsOrphan function creates region with wrong end key boundary**
 
 **WARNING: No release note provided for this change.**
 
@@ -709,7 +709,7 @@ Command:
  checkAndDelete  CheckAndDelete on each row; clients overlap on keyspace so some concurrent operations
  checkAndMutate  CheckAndMutate on each row; clients overlap on keyspace so some concurrent operations
  checkAndPut     CheckAndPut on each row; clients overlap on keyspace so some concurrent operations
- filterScan      Run scan test using a filter to find a specific row based on it's value (make sure to use --rows=20)
+ filterScan      Run scan test using a filter to find a specific row based on it\'s value (make sure to use --rows=20)
  increment       Increment on each row; clients overlap on keyspace so some concurrent operations
  randomRead      Run random read test
 ....
@@ -777,7 +777,7 @@ When it performs well:
 
     reads for limited time ranges, especially scans of recent data
 
-When it doesn't perform as well:
+When it doesn\'t perform as well:
 
     random gets without a time range
     frequent deletes and updates
@@ -798,7 +798,7 @@ hbase.hstore.compaction.date.tiered.window.policy.class: the policy to select st
 With tiered compaction all servers in the cluster will promote windows to higher tier at the same time, so using a compaction throttle is recommended:
 hbase.regionserver.throughput.controller:org.apache.hadoop.hbase.regionserver.compactions.PressureAwareCompactionThroughputController
 
-Because there will most likely be more store files around, we need to adjust the configuration so that flush won't be blocked and compaction will be properly throttled:
+Because there will most likely be more store files around, we need to adjust the configuration so that flush won\'t be blocked and compaction will be properly throttled:
 hbase.hstore.blockingStoreFiles: change to 50 if using all default parameters when turning on date tiered compaction. Use 1.5~2 x projected file count if changing the parameters, Projected file count = windows per tier x tier count + incoming window min + files older than max age
 
 For more details, please refer to the design spec at https://docs.google.com/document/d/1\_AmlNb2N8Us1xICsTeGDLKIqL6T-oHoRLZ323MG\_uy8/edit#
@@ -892,7 +892,7 @@ Adds get\_peer\_config and list\_peer\_configs to the hbase shell.
 
 * [HBASE-15479](https://issues.apache.org/jira/browse/HBASE-15479) | *Major* | **No more garbage or beware of autoboxing**
 
-This fix decreases client's memory allocation during writes by more than 50%.
+This fix decreases client\'s memory allocation during writes by more than 50%.
 
 
 ---
@@ -939,7 +939,7 @@ hbase org.apache.hadoop.hbase.procedure2.store.wal.ProcedureWALPrettyPrinter -f 
 * [HBASE-15400](https://issues.apache.org/jira/browse/HBASE-15400) | *Major* | **Use DateTieredCompactor for Date Tiered Compaction**
 
 With this patch combined with HBASE-15389, when we compact, we can output multiple files along the current window boundaries. There are two use cases:
-1. Major compaction: We want to output date tiered store files with data older than max age archived in trunks of the window size on the higher tier. Once a window is old enough, we don't combine the windows to promote to the next tier any further. So files in these windows retain the same timespan as they were minor-compacted last time, which is the window size of the highest tier. Major compaction will touch these files and we want to maintain the same layout. This way, TTL and archiving will be simpler and more efficient.
+1. Major compaction: We want to output date tiered store files with data older than max age archived in trunks of the window size on the higher tier. Once a window is old enough, we don\'t combine the windows to promote to the next tier any further. So files in these windows retain the same timespan as they were minor-compacted last time, which is the window size of the highest tier. Major compaction will touch these files and we want to maintain the same layout. This way, TTL and archiving will be simpler and more efficient.
 2. Bulk load files and the old file generated by major compaction before upgrading to DTCP.
 
 This will change the way to enable date tiered compaction.
@@ -950,7 +950,7 @@ With tiered compaction all servers in the cluster will promote windows to higher
 hbase.regionserver.throughput.controller:org.apache.hadoop.hbase.regionserver.compactions.PressureAwareCompactionThroughputController 
 hbase.hstore.compaction.throughput.higher.bound and hbase.hstore.compaction.throughput.lower.bound need to be set for desired throughput range as uncompressed rates.
 
-Because there will most likely be more store files around, we need to adjust the configuration so that flush won't be blocked and compaction will be properly throttled: 
+Because there will most likely be more store files around, we need to adjust the configuration so that flush won\'t be blocked and compaction will be properly throttled: 
 hbase.hstore.blockingStoreFiles: change to 50 if using all default parameters when turning on date tiered compaction. Use 1.5~2 x projected file count if changing the parameters, Projected file count = windows per tier x tier count + incoming window min + files older than max age 
 
 Because major compaction is turned on now, we also need to adjust the configuration for max file to compact according to the larger file count:
@@ -963,7 +963,7 @@ For more details, please refer to the design spec at https://docs.google.com/doc
 
 * [HBASE-15537](https://issues.apache.org/jira/browse/HBASE-15537) | *Major* | **Make multi WAL work with WALs other than FSHLog**
 
-Add the delegate config for multiwal back. Now you can use 'hbase.wal.regiongrouping.delegate.provider' to specify the wal provider you want to use for multiwal. For example:
+Add the delegate config for multiwal back. Now you can use \'hbase.wal.regiongrouping.delegate.provider\' to specify the wal provider you want to use for multiwal. For example:
 {code}
 \<property\>
 \<name\>hbase.wal.regiongrouping.delegate.provider\</name\>
@@ -993,9 +993,9 @@ HBASE-13372 Add unit tests for SplitTransaction and RegionMergeTransaction liste
 
 ---
 
-* [HBASE-15640](https://issues.apache.org/jira/browse/HBASE-15640) | *Major* | **L1 cache doesn't give fair warning that it is showing partial stats only when it hits limit**
+* [HBASE-15640](https://issues.apache.org/jira/browse/HBASE-15640) | *Major* | **L1 cache doesn\'t give fair warning that it is showing partial stats only when it hits limit**
 
-The blockcache UI tab would stop refreshing at 100k blocks (configurable, see "hbase.ui.blockcache.by.file.max"), which isn't very many blocks when doing a big cache, giving a misleading picture of the content of L1 and/or L2 cache. Up the default limit to 1M blocks (UI takes a while but just a few seconds counting over 1M blocks).
+The blockcache UI tab would stop refreshing at 100k blocks (configurable, see "hbase.ui.blockcache.by.file.max"), which isn\'t very many blocks when doing a big cache, giving a misleading picture of the content of L1 and/or L2 cache. Up the default limit to 1M blocks (UI takes a while but just a few seconds counting over 1M blocks).
 
 Also, when beyond the limit give the user a noticeable WARNING in the UI.
 
@@ -1011,7 +1011,7 @@ Adds per-table metrics aggregated from per-region metrics in region server metri
 
 * [HBASE-15368](https://issues.apache.org/jira/browse/HBASE-15368) | *Major* | **Add pluggable window support**
 
-Use 'hbase.hstore.compaction.date.tiered.window.factory.class' to specify the window implementation you like for date tiered compaction. Now the only and default implementation is org.apache.hadoop.hbase.regionserver.compactions.ExponentialCompactionWindowFactory.
+Use \'hbase.hstore.compaction.date.tiered.window.factory.class\' to specify the window implementation you like for date tiered compaction. Now the only and default implementation is org.apache.hadoop.hbase.regionserver.compactions.ExponentialCompactionWindowFactory.
 
 {code} 
 \<property\> 
@@ -1040,9 +1040,9 @@ Adds storeFileSize, memstoreSize and tableSize to the per-table metrics.
 
 * [HBASE-15392](https://issues.apache.org/jira/browse/HBASE-15392) | *Major* | **Single Cell Get reads two HFileBlocks**
 
-When an explicit Get with a one or more columns specified, we at a minimum, were overseeking, reading until we tripped over the next row, regardless, and only then returning. If the next row was in-block, we'd just do too much seeking but if the next row was in the next (or in the next block beyond that), we would keep seeking and loading blocks until we found the next row before we'd return.
+When an explicit Get with a one or more columns specified, we at a minimum, were overseeking, reading until we tripped over the next row, regardless, and only then returning. If the next row was in-block, we\'d just do too much seeking but if the next row was in the next (or in the next block beyond that), we would keep seeking and loading blocks until we found the next row before we\'d return.
 
-There remains one case where we will still 'overread'. It is when the row end aligns with the end of the block. In this case we will load the next block just to find that there are no more cells in the current row. See HBASE-15457.
+There remains one case where we will still \'overread\'. It is when the row end aligns with the end of the block. In this case we will load the next block just to find that there are no more cells in the current row. See HBASE-15457.
 
 
 ---
@@ -1058,7 +1058,7 @@ Adds hbase.client.operation.timeout to hbase-default.xml with default of 1200000
 
 ---
 
-* [HBASE-15713](https://issues.apache.org/jira/browse/HBASE-15713) | *Major* | **Backport "HBASE-15477 Do not save 'next block header' when we cache hfileblocks"**
+* [HBASE-15713](https://issues.apache.org/jira/browse/HBASE-15713) | *Major* | **Backport "HBASE-15477 Do not save \'next block header\' when we cache hfileblocks"**
 
 (Release note has been ported from the master issue -- with an addendum)
 
@@ -1075,10 +1075,10 @@ This patch also removed the tests TestUpgradeTo96 and TestMetaMigrationConvertin
 
 After this JIRA we will not be doing any scanner reset after compaction during a course of a scan. The files that were compacted will still be continued to be used in the scan process. The compacted files will be archived by a background thread that runs every 2 mins by default only when there are no active scanners on those comapcted files.
 
-'hbase.hfile.compaction.discharger.interval' describes the interval after which the compaction discharger chore service should run. 
-The property 'hbase.hfile.compaction.discharger.thread.count' describes the thread count that does the compaction discharge work. 
+\'hbase.hfile.compaction.discharger.interval\' describes the interval after which the compaction discharger chore service should run. 
+The property \'hbase.hfile.compaction.discharger.thread.count\' describes the thread count that does the compaction discharge work. 
 
-The CompactedHFilesDischarger is a chore service now started as part of the RegionServer and this chore service iterates over all the onlineRegions in that RS and uses the RegionServer's executor service to launch a set of threads that does this job of compaction files clean up.
+The CompactedHFilesDischarger is a chore service now started as part of the RegionServer and this chore service iterates over all the onlineRegions in that RS and uses the RegionServer\'s executor service to launch a set of threads that does this job of compaction files clean up.
 
 
 ---
@@ -1101,7 +1101,7 @@ This patch adds new configuration property - hbase.fs.wrapper. If provided, it s
 
 With previous deadline mode of RPC scheduling (the implementation in SimpleRpcScheduler, which is basically a FIFO except that long-running scans are de-prioritized) and FIFO-based RPC scheduler clients are getting CallQueueTooBigException when RPC call queue is full.
 
-With this patch and when hbase.ipc.server.callqueue.type property is set to "codel" mode, clients will also be getting CallDroppedException, which means that the request was discarded by the server as it considers itself to be overloaded and starts to drop requests to avoid going down under the load. The clients will retry upon receiving this exception. It doesn't clear MetaCache with region locations.
+With this patch and when hbase.ipc.server.callqueue.type property is set to "codel" mode, clients will also be getting CallDroppedException, which means that the request was discarded by the server as it considers itself to be overloaded and starts to drop requests to avoid going down under the load. The clients will retry upon receiving this exception. It doesn\'t clear MetaCache with region locations.
 
 
 ---
@@ -1155,7 +1155,7 @@ For more information, see the javadoc for the org.apache.hadoop.hbase.AuthUtil c
 * [HBASE-15593](https://issues.apache.org/jira/browse/HBASE-15593) | *Major* | **Time limit of scanning should be offered by client**
 
 Add a new configuration: hbase.ipc.min.client.request.timeout
-Minimum allowable timeout (in milliseconds) in rpc request's header. This configuration exists to prevent the rpc service regarding this request as timeout immediately.
+Minimum allowable timeout (in milliseconds) in rpc request\'s header. This configuration exists to prevent the rpc service regarding this request as timeout immediately.
 
 
 ---
@@ -1169,9 +1169,9 @@ During periods where DNS resolution was not available or not working correctly, 
 
 * [HBASE-15876](https://issues.apache.org/jira/browse/HBASE-15876) | *Blocker* | **Remove doBulkLoad(Path hfofDir, final HTable table) though it has not been through a full deprecation cycle**
 
-Removes a doBulkLoad method though it has not been through a full deprecation cycle (but it is 'damaged' because it has a parameter that has been properly deprecated). Use the alternative {code}public void doBulkLoad(Path hfofDir, final Admin admin, Table table, RegionLocator regionLocator){code}
+Removes a doBulkLoad method though it has not been through a full deprecation cycle (but it is \'damaged\' because it has a parameter that has been properly deprecated). Use the alternative {code}public void doBulkLoad(Path hfofDir, final Admin admin, Table table, RegionLocator regionLocator){code}
 
-See http://mail-archives.apache.org/mod\_mbox/hbase-dev/201605.mbox/%3CCAMUu0w-ZiLoLBLO3D76=n3AjUr=VMtTUeYA28weLHYeq8+e3bQ@mail.gmail.com%3E for NOTICE on this 'premature' removal.
+See http://mail-archives.apache.org/mod\_mbox/hbase-dev/201605.mbox/%3CCAMUu0w-ZiLoLBLO3D76=n3AjUr=VMtTUeYA28weLHYeq8+e3bQ@mail.gmail.com%3E for NOTICE on this \'premature\' removal.
 
 
 ---
@@ -1202,14 +1202,14 @@ After HBASE-15931, we will log more details for long-running tasks in AsyncProce
 
 * [HBASE-15971](https://issues.apache.org/jira/browse/HBASE-15971) | *Critical* | **Regression: Random Read/WorkloadC slower in 1.x than 0.98**
 
-Change the default rpc scheduler from 'deadline' to 'fifo' instead so it is the same as in branch 0.98. 'deadline' was of questionable benefit but with a high cost scheduling. To re-enable 'deadline', set hbase.ipc.server.callqueue.type to 'deadline' in your hbase-site.xml.
+Change the default rpc scheduler from \'deadline\' to \'fifo\' instead so it is the same as in branch 0.98. \'deadline\' was of questionable benefit but with a high cost scheduling. To re-enable \'deadline\', set hbase.ipc.server.callqueue.type to \'deadline\' in your hbase-site.xml.
 
 
 ---
 
 * [HBASE-16023](https://issues.apache.org/jira/browse/HBASE-16023) | *Major* | **Fastpath for the FIFO rpcscheduler**
 
-Adds a 'fastpath' when using the default FIFO rpc scheduler ('fifo'). Does direct handoff from Reader thread to Handler if there is one ready and willing. Will shine best when high random read workload (YCSB workloadc for instance)
+Adds a \'fastpath\' when using the default FIFO rpc scheduler (\'fifo\'). Does direct handoff from Reader thread to Handler if there is one ready and willing. Will shine best when high random read workload (YCSB workloadc for instance)
 
 
 ---
@@ -1237,7 +1237,7 @@ Here is the opening paragraph of the README.md file:
 ================= 
 The hbase-archetypes subproject of hbase provides an infrastructure for creation and maintenance of Maven archetypes pertinent to HBase. Upon deployment to the archetype catalog of the central Maven repository, these archetypes may be used by end-user developers to autogenerate completely configured Maven projects (including fully-functioning sample code) through invocation of the archetype:generate goal of the maven-archetype-plugin. 
 ======== 
-The README.md file also contains several paragraphs under the heading, "Notes for contributors and committers to the HBase project", which explains the layout of 'hbase-archetypes', and how archetypes are created and installed into the local Maven repository, ready for deployment to the central Maven repository. It also outlines how new archetypes may be developed and added to the collection in the future.
+The README.md file also contains several paragraphs under the heading, "Notes for contributors and committers to the HBase project", which explains the layout of \'hbase-archetypes\', and how archetypes are created and installed into the local Maven repository, ready for deployment to the central Maven repository. It also outlines how new archetypes may be developed and added to the collection in the future.
 
 
 ---
@@ -1265,11 +1265,11 @@ Downstream users of HBase dependencies that do not properly activate Maven profi
 
 ---
 
-* [HBASE-16087](https://issues.apache.org/jira/browse/HBASE-16087) | *Major* | **Replication shouldn't start on a master if if only hosts system tables**
+* [HBASE-16087](https://issues.apache.org/jira/browse/HBASE-16087) | *Major* | **Replication shouldn\'t start on a master if if only hosts system tables**
 
 Masters will no longer start any replication threads if they are hosting only system tables. 
 
-In order to change this add something to the config for tables on master that doesn't start with "hbase:" ( Replicating system tables is something that's currently unsupported and can open up security holes, so do this at your own peril)
+In order to change this add something to the config for tables on master that doesn\'t start with "hbase:" ( Replicating system tables is something that\'s currently unsupported and can open up security holes, so do this at your own peril)
 
 
 ---
@@ -1292,7 +1292,7 @@ Regions of high priority tables (priority \>= than HIGH\_QOS) are opened from a 
 
 ---
 
-* [HBASE-16144](https://issues.apache.org/jira/browse/HBASE-16144) | *Major* | **Replication queue's lock will live forever if RS acquiring the lock has died prematurely**
+* [HBASE-16144](https://issues.apache.org/jira/browse/HBASE-16144) | *Major* | **Replication queue\'s lock will live forever if RS acquiring the lock has died prematurely**
 
 If zk based replication queue is used and useMulti is false, we will schedule a chore to clean up the orphan replication queue lock on zk.
 
@@ -1320,7 +1320,7 @@ A new hfile configuration "hfile.index.block.min.entries" which defaults to 16 d
 
 * [HBASE-16317](https://issues.apache.org/jira/browse/HBASE-16317) | *Blocker* | **revert all ESAPI changes**
 
-This issue reverts fixes designed to prevent malicious content from rendering in HBase's UIs. Specifically, these changes shipped in 1.1.4+ and 1.2.0+. They were removed due to licensing issues discovered in the dependencies they introduced. Their implementation and those dependencies have been removed from HBase! Removal of these dependencies is against the strict definition of our version compatibility guidelines. However, inclusion of non-Apache approved licenses cannot be tolerated. Implementation of these fixes using an Apache-appropriate means is tracked in HBASE-16328.
+This issue reverts fixes designed to prevent malicious content from rendering in HBase\'s UIs. Specifically, these changes shipped in 1.1.4+ and 1.2.0+. They were removed due to licensing issues discovered in the dependencies they introduced. Their implementation and those dependencies have been removed from HBase! Removal of these dependencies is against the strict definition of our version compatibility guidelines. However, inclusion of non-Apache approved licenses cannot be tolerated. Implementation of these fixes using an Apache-appropriate means is tracked in HBASE-16328.
 
 
 ---
@@ -1347,7 +1347,7 @@ The MapReduce helper function `TableMapReduce.addDependencyJars(Configuration, c
 
 ---
 
-* [HBASE-16321](https://issues.apache.org/jira/browse/HBASE-16321) | *Blocker* | **Ensure findbugs jsr305 jar isn't present**
+* [HBASE-16321](https://issues.apache.org/jira/browse/HBASE-16321) | *Blocker* | **Ensure findbugs jsr305 jar isn\'t present**
 
 HBase now ensures the jsr305 implementation from the findbugs project is not included in its binary artifacts or the compile / runtime dependencies of its user facing modules. Downstream users that rely on this jar will need to update their dependencies.
 
@@ -1382,6 +1382,15 @@ By default this is not enabled and the information about the replication queues 
 * [HBASE-16340](https://issues.apache.org/jira/browse/HBASE-16340) | *Critical* | **ensure no Xerces jars included**
 
 HBase no longer includes Xerces implementation jars that were previously included via transitive dependencies. Downstream users relying on HBase for these artifacts will need to update their dependencies.
+
+
+---
+
+* [HBASE-15297](https://issues.apache.org/jira/browse/HBASE-15297) | *Minor* | **error message is wrong when a wrong namspace is specified in grant in hbase shell**
+
+The security admin instance available within the HBase shell now returns "false" from the namespace\_exists? method for non-existent namespaces rather than raising a wrapped NamespaceNotFoundException.
+
+As a side effect, when the "grant" and "revoke" commands in the HBase shell are invoked with a non-existent namespace the resulting error message now properly refers to said namespace rather than to the user.
 
 
 

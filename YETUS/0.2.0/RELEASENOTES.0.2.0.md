@@ -38,7 +38,7 @@ Website layout was changed to better accommodate multiple versions.
 
 ---
 
-* [YETUS-187](https://issues.apache.org/jira/browse/YETUS-187) | *Blocker* | **maven javac/javadoc can't use calcdiffs**
+* [YETUS-187](https://issues.apache.org/jira/browse/YETUS-187) | *Blocker* | **maven javac/javadoc can\'t use calcdiffs**
 
 The calcdiff function has been changed to be pluggable to allow for a variety of difference calculators to allow for greater accuracy when more information is available.  As a result, this fixes some (but not all!) instances where pre-existing errors were reported as new in some reports.
 

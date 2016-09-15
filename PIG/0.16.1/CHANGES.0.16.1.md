@@ -18,7 +18,7 @@
 -->
 # Apache Pig Changelog
 
-## Release 0.16.1 - Unreleased (as of 2016-09-09)
+## Release 0.16.1 - Unreleased (as of 2016-09-15)
 
 
 
@@ -37,5 +37,7 @@
 | [PIG-4935](https://issues.apache.org/jira/browse/PIG-4935) | TEZ\_USE\_CLUSTER\_HADOOP\_LIBS is always set to true |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-4967](https://issues.apache.org/jira/browse/PIG-4967) | NPE in PigJobControl.run() when job status is null |  Critical | . | Xiang Li | Xiang Li |
 | [PIG-4974](https://issues.apache.org/jira/browse/PIG-4974) | A simple map reference fail to cast |  Major | . | Koji Noguchi | Koji Noguchi |
+| [PIG-5019](https://issues.apache.org/jira/browse/PIG-5019) | Pig generates tons of warnings for udf with enabled warnings aggregation |  Major | internal-udfs | Murshid Chalaev | Murshid Chalaev |
+| [PIG-5032](https://issues.apache.org/jira/browse/PIG-5032) | Output record stats in Tez is wrong when there is split followed by union |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 
 

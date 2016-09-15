@@ -18,7 +18,7 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.8.5 - Unreleased (as of 2016-09-09)
+## Release 0.8.5 - Unreleased (as of 2016-09-15)
 
 
 
@@ -37,7 +37,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [TEZ-3337](https://issues.apache.org/jira/browse/TEZ-3337) | Do not log empty fields of TaskAttemptFinishedEvent to avoid confusion |  Major | . | Zhiyuan Yang | Zhiyuan Yang |
 | [TEZ-3356](https://issues.apache.org/jira/browse/TEZ-3356) | Fix initializing of stats when custom ShuffleVertexManager is used |  Major | . | Peter Slawski | Peter Slawski |
-| [TEZ-3348](https://issues.apache.org/jira/browse/TEZ-3348) | NullPointerException in Tez MROutput while trying to write using Parquet's DeprecatedParquetOutputFormat |  Major | . | Piyush Narang | Piyush Narang |
+| [TEZ-3348](https://issues.apache.org/jira/browse/TEZ-3348) | NullPointerException in Tez MROutput while trying to write using Parquet\'s DeprecatedParquetOutputFormat |  Major | . | Piyush Narang | Piyush Narang |
 | [TEZ-3384](https://issues.apache.org/jira/browse/TEZ-3384) | Fix TestATSV15HistoryLoggingService::testDAGGroupingGroupingEnabled unit test |  Major | . | Sushmitha Sreenivasan | Sushmitha Sreenivasan |
 | [TEZ-3398](https://issues.apache.org/jira/browse/TEZ-3398) | Tez UI: Bread crumb link to Application from Application details dag/configuration tab is broken |  Critical | . | Sushmitha Sreenivasan | Sreenath Somarajapuram |
 | [TEZ-3352](https://issues.apache.org/jira/browse/TEZ-3352) | MRInputHelpers getStringProperty() should not fail if property value is null |  Major | . | Prasanth Jayachandran | Prasanth Jayachandran |

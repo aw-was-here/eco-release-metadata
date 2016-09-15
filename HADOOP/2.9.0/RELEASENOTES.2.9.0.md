@@ -41,7 +41,7 @@ Two recommendations for the mapreduce.jobhistory.loadedtasks.cache.size property
 
 * [YARN-4762](https://issues.apache.org/jira/browse/YARN-4762) | *Blocker* | **NMs failing on DelegatingLinuxContainerRuntime init with LCE on**
 
-Fixed CgroupHandler's creation and usage to avoid NodeManagers crashing when LinuxContainerExecutor is enabled.
+Fixed CgroupHandler\'s creation and usage to avoid NodeManagers crashing when LinuxContainerExecutor is enabled.
 
 
 ---
@@ -139,7 +139,7 @@ WASB has added an optional capability to execute certain FileSystem operations i
 
 * [HADOOP-12747](https://issues.apache.org/jira/browse/HADOOP-12747) | *Major* | **support wildcard in libjars argument**
 
-It is now possible to specify multiple jar files for the libjars argument using a wildcard. For example, you can specify "-libjars 'libs/\*'" as a shorthand for all jars in the libs directory.
+It is now possible to specify multiple jar files for the libjars argument using a wildcard. For example, you can specify "-libjars \'libs/\*\'" as a shorthand for all jars in the libs directory.
 
 
 ---

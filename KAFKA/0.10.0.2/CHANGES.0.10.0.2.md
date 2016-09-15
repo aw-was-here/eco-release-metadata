@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.10.0.2 - Unreleased (as of 2016-09-09)
+## Release 0.10.0.2 - Unreleased (as of 2016-09-15)
 
 
 
@@ -38,5 +38,6 @@
 | [KAFKA-4073](https://issues.apache.org/jira/browse/KAFKA-4073) | MirrorMaker should handle mirroring messages w/o timestamp better |  Major | . | Jun Rao | Ismael Juma |
 | [KAFKA-4082](https://issues.apache.org/jira/browse/KAFKA-4082) | Support Gradle 3.0 |  Major | . | Ismael Juma | Ismael Juma |
 | [KAFKA-4034](https://issues.apache.org/jira/browse/KAFKA-4034) | Consumer need not lookup coordinator when using manual assignment |  Major | consumer | Jason Gustafson | Jason Gustafson |
+| [KAFKA-4162](https://issues.apache.org/jira/browse/KAFKA-4162) | Typo in Kafka Connect document |  Trivial | KafkaConnect | David Chen | Ewen Cheslack-Postava |
 
 

@@ -27,11 +27,18 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 This was a non-issue. The PREFETCH\_... flag actually works. While here though made the following additions.
 
-Changes the prefetch TRACE-level loggings to include the word 'Prefetch' in them so you know what they are about.
+Changes the prefetch TRACE-level loggings to include the word \'Prefetch\' in them so you know what they are about.
 
 Changes the cryptic logging of the CacheConfig#toString to have some preamble saying why and what column family is responsible (helps figure what is going on)
 
 Add test that verifies setting flag on HColumnDescriptor actually works.
+
+
+---
+
+* [HBASE-16086](https://issues.apache.org/jira/browse/HBASE-16086) | *Major* | **TableCfWALEntryFilter and ScopeWALEntryFilter should not redundantly iterate over cells.**
+
+push to branch-1.3+
 
 
 

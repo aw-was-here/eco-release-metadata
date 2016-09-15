@@ -110,8 +110,8 @@
 | [TEZ-2287](https://issues.apache.org/jira/browse/TEZ-2287) | Deprecate VertexManagerPluginContext.getTaskContainer() |  Blocker | . | Bikas Saha | Hitesh Shah |
 | [TEZ-2326](https://issues.apache.org/jira/browse/TEZ-2326) | Update branch 0.6 version to 0.6.1-SNAPSHOT |  Minor | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-2334](https://issues.apache.org/jira/browse/TEZ-2334) | ContainerManagementProtocolProxy modifies IPC timeout conf without making a copy |  Major | . | Chang Li | Chang Li |
-| [TEZ-2224](https://issues.apache.org/jira/browse/TEZ-2224) | EventQueue empty doesn't mean events are consumed in RecoveryService |  Major | . | Jeff Zhang | Jeff Zhang |
-| [TEZ-2365](https://issues.apache.org/jira/browse/TEZ-2365) | Update tez-ui war's license/notice to reflect OFL license correctly |  Major | . | Hitesh Shah | Hitesh Shah |
+| [TEZ-2224](https://issues.apache.org/jira/browse/TEZ-2224) | EventQueue empty doesn\'t mean events are consumed in RecoveryService |  Major | . | Jeff Zhang | Jeff Zhang |
+| [TEZ-2365](https://issues.apache.org/jira/browse/TEZ-2365) | Update tez-ui war\'s license/notice to reflect OFL license correctly |  Major | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-2259](https://issues.apache.org/jira/browse/TEZ-2259) | Push additional data to Timeline for Recovery for better consumption in UI |  Major | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-2305](https://issues.apache.org/jira/browse/TEZ-2305) | MR compatibility sleep job fails with IOException: Undefined job output-path |  Critical | . | Tassapol Athiapinya | Jeff Zhang |
 | [TEZ-2385](https://issues.apache.org/jira/browse/TEZ-2385) | branch-0.6 compile failure caused by TEZ-2226 |  Critical | . | Jeff Zhang | Hitesh Shah |

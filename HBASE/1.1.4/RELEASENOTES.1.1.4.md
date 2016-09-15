@@ -75,7 +75,7 @@ Command:
  checkAndDelete  CheckAndDelete on each row; clients overlap on keyspace so some concurrent operations
  checkAndMutate  CheckAndMutate on each row; clients overlap on keyspace so some concurrent operations
  checkAndPut     CheckAndPut on each row; clients overlap on keyspace so some concurrent operations
- filterScan      Run scan test using a filter to find a specific row based on it's value (make sure to use --rows=20)
+ filterScan      Run scan test using a filter to find a specific row based on it\'s value (make sure to use --rows=20)
  increment       Increment on each row; clients overlap on keyspace so some concurrent operations
  randomRead      Run random read test
 ....

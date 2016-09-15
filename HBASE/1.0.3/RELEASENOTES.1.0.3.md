@@ -32,7 +32,7 @@ HConnection could get stuck when talking to a host that went down and then retur
 
 * [HBASE-14261](https://issues.apache.org/jira/browse/HBASE-14261) | *Major* | **Enhance Chaos Monkey framework by adding zookeeper and datanode fault injections.**
 
-This change augments existing chaos monkey framework with actions for restarting underlying zookeeper quorum and hdfs nodes of distributed hbase cluster. One assumption made while creating zk actions are that zookeper ensemble is an independent external service and won't be managed by hbase cluster.  For these actions to work as expected, the following parameters need to be configured appropriately.
+This change augments existing chaos monkey framework with actions for restarting underlying zookeeper quorum and hdfs nodes of distributed hbase cluster. One assumption made while creating zk actions are that zookeper ensemble is an independent external service and won\'t be managed by hbase cluster.  For these actions to work as expected, the following parameters need to be configured appropriately.
 
 {code}
 \<property\>
@@ -66,12 +66,12 @@ The service user related configurations are newly introduced since in prod/test 
 
 * [HBASE-14400](https://issues.apache.org/jira/browse/HBASE-14400) | *Critical* | **Fix HBase RPC protection documentation**
 
-To use rpc protection in HBase, set the value of 'hbase.rpc.protection' to:
-'authentication' : simple authentication using kerberos
-'integrity' : authentication and integrity
-'privacy' : authentication and confidentiality
+To use rpc protection in HBase, set the value of \'hbase.rpc.protection\' to:
+\'authentication\' : simple authentication using kerberos
+\'integrity\' : authentication and integrity
+\'privacy\' : authentication and confidentiality
 
-Earlier, HBase reference guide erroneously mentioned in some places to set the value to 'auth-conf'. This patch fixes the guide and adds temporary support for erroneously recommended values.
+Earlier, HBase reference guide erroneously mentioned in some places to set the value to \'auth-conf\'. This patch fixes the guide and adds temporary support for erroneously recommended values.
 
 
 ---
@@ -90,7 +90,7 @@ This issue resolves a potential security vulnerability. For all versions we upda
 
 ---
 
-* [HBASE-14605](https://issues.apache.org/jira/browse/HBASE-14605) | *Blocker* | **Split fails due to 'No valid credentials' error when SecureBulkLoadEndpoint#start tries to access hdfs**
+* [HBASE-14605](https://issues.apache.org/jira/browse/HBASE-14605) | *Blocker* | **Split fails due to \'No valid credentials\' error when SecureBulkLoadEndpoint#start tries to access hdfs**
 
 When split is requested by non-super user, split related notifications for Coprocessor are executed using the login of the request user.
 Previously the notifications were carried out as super user.
@@ -112,7 +112,7 @@ Region observer notifications w.r.t. compaction request are now audited with req
 
 ---
 
-* [HBASE-14822](https://issues.apache.org/jira/browse/HBASE-14822) | *Major* | **Renewing leases of scanners doesn't work**
+* [HBASE-14822](https://issues.apache.org/jira/browse/HBASE-14822) | *Major* | **Renewing leases of scanners doesn\'t work**
 
 And 1.1, 1.0, and 0.98.
 
@@ -123,15 +123,15 @@ And 1.1, 1.0, and 0.98.
 
 Increments can be 10x slower (or more) when there is high concurrency since HBase 1.0.0 (HBASE-8763).
 
-This 'fix' adds back a fast increment but speed is achieved by relaxing row-level consistency for Increments (only). The default remains the old, slow, consistent Increment behavior.
+This \'fix\' adds back a fast increment but speed is achieved by relaxing row-level consistency for Increments (only). The default remains the old, slow, consistent Increment behavior.
 
-Set  "hbase.increment.fast.but.narrow.consistency" to true in hbase-site.xml to enable 'fast' increments and then rolling restart your cluster. This is a setting the server-side needs to read.
+Set  "hbase.increment.fast.but.narrow.consistency" to true in hbase-site.xml to enable \'fast\' increments and then rolling restart your cluster. This is a setting the server-side needs to read.
 
 Intermixing fast increment with other Mutations will give indeterminate results; e.g. a Put and Increment against the same Cell will not always give you the result you expect. Fast Increments are consistent unto themselves. A Get with {@link IsolationLevel#READ\_UNCOMMITTED} will return the latest increment value or an Increment of an amount zero will do the same (beware doing Get on a cell that has not been incremented yet -- this will return no results).
 
 The difference between fastAndNarrowConsistencyIncrement and slowButConsistentIncrement is that the former holds the row lock until the WAL sync completes; this allows us to reason that there are no other writers afoot when we read the current increment value. In this case we do not need to wait on mvcc reads to catch up to writes before we proceed with the read of the current Increment value, the root of the slowdown seen in HBASE-14460. The fast-path also does not wait on mvcc to complete before returning to the client (but the write has been synced and put into memstore before we return). 
 
-Also adds a simple performance test tool that will run against existing cluster. It expects the table to be already created (by default it expects the table 'tableName' with a column family 'columnFamilyName'): 
+Also adds a simple performance test tool that will run against existing cluster. It expects the table to be already created (by default it expects the table \'tableName\' with a column family \'columnFamilyName\'): 
 
 {code}
 $ ./bin/hbase org.apache.hadoop.hbase.IncrementPerformanceTest

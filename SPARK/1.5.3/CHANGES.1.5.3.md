@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 1.5.3 - Unreleased (as of 2016-09-08)
+## Release 1.5.3 - Unreleased (as of 2016-09-15)
 
 
 
@@ -26,14 +26,14 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [SPARK-12016](https://issues.apache.org/jira/browse/SPARK-12016) | word2vec load model can't use findSynonyms to get words |  Major | PySpark | yuangang.liu | Liang-Chi Hsieh |
+| [SPARK-12016](https://issues.apache.org/jira/browse/SPARK-12016) | word2vec load model can\'t use findSynonyms to get words |  Major | PySpark | yuangang.liu | Liang-Chi Hsieh |
 
 
 ### NEW FEATURES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [SPARK-10359](https://issues.apache.org/jira/browse/SPARK-10359) | Enumerate Spark's dependencies in a file and diff against it for new pull requests |  Major | Build, Project Infra | Patrick Wendell | Josh Rosen |
+| [SPARK-10359](https://issues.apache.org/jira/browse/SPARK-10359) | Enumerate Spark\'s dependencies in a file and diff against it for new pull requests |  Major | Build, Project Infra | Patrick Wendell | Josh Rosen |
 
 
 ### IMPROVEMENTS:
@@ -56,18 +56,18 @@
 | [SPARK-11287](https://issues.apache.org/jira/browse/SPARK-11287) | Executing deploy.client TestClient fails with bad class name |  Trivial | Spark Core | Bryan Cutler | Bryan Cutler |
 | [SPARK-5966](https://issues.apache.org/jira/browse/SPARK-5966) | Spark-submit deploy-mode incorrectly affecting submission when master = local[4] |  Critical | Spark Submit | Tathagata Das | kevin yu |
 | [SPARK-11311](https://issues.apache.org/jira/browse/SPARK-11311) | spark cannot describe temporary functions |  Major | SQL | Adrian Wang | Adrian Wang |
-| [SPARK-11432](https://issues.apache.org/jira/browse/SPARK-11432) | Personalized PageRank shouldn't use uniform initialization |  Minor | GraphX | Yves Raimond | Yves Raimond |
-| [SPARK-11265](https://issues.apache.org/jira/browse/SPARK-11265) | YarnClient can't get tokens to talk to Hive 1.2.1 in a secure cluster |  Major | YARN | Steve Loughran | Steve Loughran |
+| [SPARK-11432](https://issues.apache.org/jira/browse/SPARK-11432) | Personalized PageRank shouldn\'t use uniform initialization |  Minor | GraphX | Yves Raimond | Yves Raimond |
+| [SPARK-11265](https://issues.apache.org/jira/browse/SPARK-11265) | YarnClient can\'t get tokens to talk to Hive 1.2.1 in a secure cluster |  Major | YARN | Steve Loughran | Steve Loughran |
 | [SPARK-11378](https://issues.apache.org/jira/browse/SPARK-11378) | StreamingContext.awaitTerminationOrTimeout does not return |  Minor | PySpark, Streaming | Nick Evans | Nick Evans |
 | [SPARK-11474](https://issues.apache.org/jira/browse/SPARK-11474) | Options to jdbc load are lower cased |  Minor | SQL | Stephen Samuel | Huaxin Gao |
 | [SPARK-10648](https://issues.apache.org/jira/browse/SPARK-10648) | Spark-SQL JDBC fails to set a default precision and scale when they are not defined in an oracle schema. |  Major | SQL | Travis Hegner | Travis Hegner |
 | [SPARK-11511](https://issues.apache.org/jira/browse/SPARK-11511) | Creating an InputDStream but not using it throws NPE |  Major | Streaming | Shixiong Zhu | Shixiong Zhu |
-| [SPARK-11555](https://issues.apache.org/jira/browse/SPARK-11555) | spark on yarn spark-class --num-workers doesn't work |  Critical | YARN | Thomas Graves | Thomas Graves |
+| [SPARK-11555](https://issues.apache.org/jira/browse/SPARK-11555) | spark on yarn spark-class --num-workers doesn\'t work |  Critical | YARN | Thomas Graves | Thomas Graves |
 | [SPARK-10046](https://issues.apache.org/jira/browse/SPARK-10046) | Hive warehouse dir not set in current directory when not providing hive-site.xml |  Major | Spark Core, SQL | Antonio Murgia | Xin Wu |
 | [SPARK-11581](https://issues.apache.org/jira/browse/SPARK-11581) | Example mllib code in documentation incorrectly computes MSE |  Trivial | Documentation | Brian Webb | M Bharat lal |
 | [SPARK-11577](https://issues.apache.org/jira/browse/SPARK-11577) | Handle code review comments for SPARK-11188 |  Minor | SQL | Dilip Biswal | Dilip Biswal |
-| [SPARK-11595](https://issues.apache.org/jira/browse/SPARK-11595) | "ADD JAR" doesn't work if the given path contains URL scheme like "file:/" and "hdfs:/" |  Blocker | SQL | Cheng Lian | Cheng Lian |
-| [SPARK-11191](https://issues.apache.org/jira/browse/SPARK-11191) | [1.5] Can't create UDF's using hive thrift service |  Blocker | SQL | David Ross | Cheng Lian |
+| [SPARK-11595](https://issues.apache.org/jira/browse/SPARK-11595) | "ADD JAR" doesn\'t work if the given path contains URL scheme like "file:/" and "hdfs:/" |  Blocker | SQL | Cheng Lian | Cheng Lian |
+| [SPARK-11191](https://issues.apache.org/jira/browse/SPARK-11191) | [1.5] Can\'t create UDF\'s using hive thrift service |  Blocker | SQL | David Ross | Cheng Lian |
 | [SPARK-8029](https://issues.apache.org/jira/browse/SPARK-8029) | ShuffleMapTasks must be robust to concurrent attempts on the same executor |  Critical | Spark Core | Imran Rashid | Davies Liu |
 | [SPARK-7829](https://issues.apache.org/jira/browse/SPARK-7829) | SortShuffleWriter writes inconsistent data & index files on stage retry |  Major | Shuffle, Spark Core | Imran Rashid | Davies Liu |
 | [SPARK-7308](https://issues.apache.org/jira/browse/SPARK-7308) | Should there be multiple concurrent attempts for one stage? |  Major | Spark Core | Imran Rashid | Davies Liu |
@@ -92,7 +92,7 @@
 | [SPARK-12087](https://issues.apache.org/jira/browse/SPARK-12087) | DStream.saveAsHadoopFiles can throw ConcurrentModificationException |  Major | Streaming | Tathagata Das | Tathagata Das |
 | [SPARK-12090](https://issues.apache.org/jira/browse/SPARK-12090) | Coalesce does not consider shuffle in PySpark |  Major | . | Davies Liu | Davies Liu |
 | [SPARK-12048](https://issues.apache.org/jira/browse/SPARK-12048) | JDBCRDD calls close() twice - SQLite then throws an exception |  Minor | SQL | R. H. | R. H. |
-| [SPARK-12138](https://issues.apache.org/jira/browse/SPARK-12138) | Escape \u in the generated comments. |  Major | SQL | Yin Huai | Xiao Li |
+| [SPARK-12138](https://issues.apache.org/jira/browse/SPARK-12138) | Escape \\u in the generated comments. |  Major | SQL | Yin Huai | Xiao Li |
 | [SPARK-12101](https://issues.apache.org/jira/browse/SPARK-12101) | Fix thread pools that cannot cache tasks in Worker and AppClient |  Minor | Spark Core | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-12160](https://issues.apache.org/jira/browse/SPARK-12160) | spark.mllib should use SQLContext.getOrCreate |  Major | MLlib | Joseph K. Bradley | Joseph K. Bradley |
 | [SPARK-11885](https://issues.apache.org/jira/browse/SPARK-11885) | UDAF may nondeterministically generate wrong results |  Critical | SQL | Yin Huai | Davies Liu |
@@ -115,9 +115,9 @@
 | [SPARK-13088](https://issues.apache.org/jira/browse/SPARK-13088) | DAG viz does not work with latest version of chrome |  Blocker | Web UI | Andrew Or | Andrew Or |
 | [SPARK-12363](https://issues.apache.org/jira/browse/SPARK-12363) | PowerIterationClustering test case failed if we deprecated KMeans.setRuns |  Minor | MLlib | Yanbo Liang | Liang-Chi Hsieh |
 | [SPARK-13355](https://issues.apache.org/jira/browse/SPARK-13355) | Replace GraphImpl.fromExistingRDDs by Graph |  Major | ML, MLlib | Xiangrui Meng | Xiangrui Meng |
-| [SPARK-13473](https://issues.apache.org/jira/browse/SPARK-13473) | Predicate can't be pushed through project with nondeterministic field |  Major | SQL | Cheng Lian | Cheng Lian |
+| [SPARK-13473](https://issues.apache.org/jira/browse/SPARK-13473) | Predicate can\'t be pushed through project with nondeterministic field |  Major | SQL | Cheng Lian | Cheng Lian |
 | [SPARK-12941](https://issues.apache.org/jira/browse/SPARK-12941) | Spark-SQL JDBC Oracle dialect fails to map string datatypes to Oracle VARCHAR datatype |  Major | Spark Core | Jose Martinez Poblete | Thomas Sebastian |
-| [SPARK-13697](https://issues.apache.org/jira/browse/SPARK-13697) | TransformFunctionSerializer.loads doesn't restore the function's module name if it's '\_\_main\_\_' |  Major | PySpark | Shixiong Zhu | Shixiong Zhu |
+| [SPARK-13697](https://issues.apache.org/jira/browse/SPARK-13697) | TransformFunctionSerializer.loads doesn\'t restore the function\'s module name if it\'s \'\_\_main\_\_\' |  Major | PySpark | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-13803](https://issues.apache.org/jira/browse/SPARK-13803) | Standalone master does not balance cluster-mode drivers across workers |  Major | Deploy, Spark Core | Brian Wongchaowart | Nan Zhu |
 | [SPARK-13806](https://issues.apache.org/jira/browse/SPARK-13806) | SQL round() produces incorrect results for negative values |  Major | SQL | Mark Hamstra | Davies Liu |
 | [SPARK-14187](https://issues.apache.org/jira/browse/SPARK-14187) | Incorrect use of binarysearch in SparseMatrix |  Minor | MLlib | Chenliang Xu | Chenliang Xu |

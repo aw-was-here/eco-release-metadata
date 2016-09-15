@@ -31,7 +31,7 @@
 | [FLINK-3591](https://issues.apache.org/jira/browse/FLINK-3591) | Replace Quickstart K-Means Example by Streaming Example |  Major | Documentation | Aljoscha Krettek | Aljoscha Krettek |
 | [FLINK-3634](https://issues.apache.org/jira/browse/FLINK-3634) | Fix documentation for DataSetUtils.zipWithUniqueId() |  Minor | Documentation | Greg Hogan | Greg Hogan |
 | [FLINK-3469](https://issues.apache.org/jira/browse/FLINK-3469) | Improve documentation for grouping keys |  Major | Documentation | Greg Hogan | Greg Hogan |
-| [FLINK-3657](https://issues.apache.org/jira/browse/FLINK-3657) | Change access of DataSetUtils.countElements() to 'public' |  Minor | DataSet API | Suneel Marthi | Suneel Marthi |
+| [FLINK-3657](https://issues.apache.org/jira/browse/FLINK-3657) | Change access of DataSetUtils.countElements() to \'public\' |  Minor | DataSet API | Suneel Marthi | Suneel Marthi |
 
 
 ### BUG FIXES:
@@ -40,11 +40,11 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [FLINK-3566](https://issues.apache.org/jira/browse/FLINK-3566) | Input type validation often fails on custom TypeInfo implementations |  Major | Type Serialization System | Gyula Fora | Timo Walther |
 | [FLINK-3491](https://issues.apache.org/jira/browse/FLINK-3491) | HDFSCopyUtilitiesTest fails on Windows |  Major | Tests | Chesnay Schepler | Chesnay Schepler |
-| [FLINK-3495](https://issues.apache.org/jira/browse/FLINK-3495) | RocksDB Tests can't run on Windows |  Major | Tests | Chesnay Schepler | Chesnay Schepler |
+| [FLINK-3495](https://issues.apache.org/jira/browse/FLINK-3495) | RocksDB Tests can\'t run on Windows |  Major | Tests | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-3578](https://issues.apache.org/jira/browse/FLINK-3578) | Scala DataStream API does not support Rich Window Functions |  Critical | Streaming | Stephan Ewen | Stephan Ewen |
 | [FLINK-3533](https://issues.apache.org/jira/browse/FLINK-3533) | Update the Gelly docs wrt examples and cluster execution |  Major | Documentation, Gelly | Vasia Kalavri | Vasia Kalavri |
 | [FLINK-3472](https://issues.apache.org/jira/browse/FLINK-3472) | JDBCInputFormat.nextRecord(..) has misleading message on NPE |  Minor | . | Ken Geis | Chesnay Schepler |
-| [FLINK-3563](https://issues.apache.org/jira/browse/FLINK-3563) | .returns() doesn't compile when using .map() with a custom MapFunction |  Minor | Type Serialization System | Simone Robutti | Timo Walther |
+| [FLINK-3563](https://issues.apache.org/jira/browse/FLINK-3563) | .returns() doesn\'t compile when using .map() with a custom MapFunction |  Minor | Type Serialization System | Simone Robutti | Timo Walther |
 | [FLINK-3621](https://issues.apache.org/jira/browse/FLINK-3621) | Misleading documentation of memory configuration parameters |  Minor | Documentation | Fabian Hueske | Fabian Hueske |
 | [FLINK-3629](https://issues.apache.org/jira/browse/FLINK-3629) | In wikiedits Quick Start example, "The first call, .window()" should be "The first call, .timeWindow()" |  Trivial | Quickstarts | Li Fanxi |  |
 | [FLINK-3602](https://issues.apache.org/jira/browse/FLINK-3602) | Recursive Types are not supported / crash TypeExtractor |  Critical | Type Serialization System | Stephan Ewen | Timo Walther |

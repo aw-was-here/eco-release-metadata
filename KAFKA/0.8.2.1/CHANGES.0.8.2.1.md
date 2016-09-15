@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.8.2.1 - Unreleased (as of 2016-09-09)
+## Release 0.8.2.1 - Unreleased (as of 2016-09-15)
 
 
 
@@ -30,7 +30,7 @@
 | [KAFKA-1919](https://issues.apache.org/jira/browse/KAFKA-1919) | Metadata request issued with no backoff in new producer if there are no topics |  Blocker | . | Jay Kreps | Jay Kreps |
 | [KAFKA-1971](https://issues.apache.org/jira/browse/KAFKA-1971) | starting a broker with a conflicting id will delete the previous broker registration |  Blocker | . | Jun Rao | Jun Rao |
 | [KAFKA-1984](https://issues.apache.org/jira/browse/KAFKA-1984) | java producer may miss an available partition |  Blocker | producer | Jun Rao | Jun Rao |
-| [KAFKA-1100](https://issues.apache.org/jira/browse/KAFKA-1100) | metrics shouldn't have generation/timestamp specific names |  Major | . | Jason Rosenberg |  |
+| [KAFKA-1100](https://issues.apache.org/jira/browse/KAFKA-1100) | metrics shouldn\'t have generation/timestamp specific names |  Major | . | Jason Rosenberg |  |
 
 
 ### SUB-TASKS:

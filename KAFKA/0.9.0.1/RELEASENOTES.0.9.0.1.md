@@ -31,7 +31,7 @@ Adding more and more consumers to a consumer group may result in unsuccessful re
 
 Significantly higher CPU utilization was observed in such cases (from about 3% to 17%). The CPU utilization takes place in both the affected consumer and Kafka broker according to htop and profiling using jvisualvm. 
 
-Jvisualvm indicates the issue may be related to KAFKA-2936 (see its screenshots in the GitHub repo below), but I'm very unsure. I don't also know if the issue is in consumer or broker because both are affected and I don't know Kafka internals.
+Jvisualvm indicates the issue may be related to KAFKA-2936 (see its screenshots in the GitHub repo below), but I\'m very unsure. I don\'t also know if the issue is in consumer or broker because both are affected and I don\'t know Kafka internals.
 
 The issue is not deterministic but it can be easily reproduced after a few minutes just by executing more and more consumers. More parallelism with multiple CPUs probably gives the issue more chances to appear.
 

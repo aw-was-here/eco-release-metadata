@@ -18,7 +18,7 @@
 -->
 # Apache Pig Changelog
 
-## Release 0.17.0 - Unreleased (as of 2016-09-09)
+## Release 0.17.0 - Unreleased (as of 2016-09-15)
 
 
 
@@ -41,6 +41,7 @@
 | [PIG-4852](https://issues.apache.org/jira/browse/PIG-4852) | Add accumulator implementation for MaxTupleBy1stField |  Minor | . | Eyal Allweil | Adam Szita |
 | [PIG-4931](https://issues.apache.org/jira/browse/PIG-4931) | Document IN operator |  Major | . | Rohini Palaniswamy | Artem Ervits |
 | [PIG-5023](https://issues.apache.org/jira/browse/PIG-5023) | Documentation for BagToTuple |  Major | documentation | Ian Cook | Ian Cook |
+| [PIG-5027](https://issues.apache.org/jira/browse/PIG-5027) | Improve SAMPLE Scalar Expression Example |  Minor | documentation | Ian Cook | Ian Cook |
 
 
 ### BUG FIXES:
@@ -73,5 +74,8 @@
 | [PIG-4973](https://issues.apache.org/jira/browse/PIG-4973) | Bigdecimal divison fails |  Major | impl | Adam Szita | Adam Szita |
 | [PIG-4975](https://issues.apache.org/jira/browse/PIG-4975) | Map schema shows "Type: null Uid: null" in explain |  Trivial | . | Koji Noguchi | Koji Noguchi |
 | [PIG-5022](https://issues.apache.org/jira/browse/PIG-5022) | Error in TOKENIZE Example |  Major | documentation | Ian Cook | Ian Cook |
+| [PIG-5019](https://issues.apache.org/jira/browse/PIG-5019) | Pig generates tons of warnings for udf with enabled warnings aggregation |  Major | internal-udfs | Murshid Chalaev | Murshid Chalaev |
+| [PIG-5031](https://issues.apache.org/jira/browse/PIG-5031) | Tez failing to compile when replicate join is done with a limit vertex on left |  Minor | tez | Koji Noguchi | Koji Noguchi |
+| [PIG-5032](https://issues.apache.org/jira/browse/PIG-5032) | Output record stats in Tez is wrong when there is split followed by union |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 
 

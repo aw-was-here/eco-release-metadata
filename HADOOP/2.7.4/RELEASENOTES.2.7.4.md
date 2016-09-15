@@ -38,4 +38,11 @@ The Code Changes include following:
 The output of hdfs fsck now also contains information about decommissioning replicas.
 
 
+---
+
+* [HDFS-8818](https://issues.apache.org/jira/browse/HDFS-8818) | *Major* | **Allow Balancer to run faster**
+
+Add a new conf "dfs.balancer.max-size-to-move" so that Balancer.MAX\_SIZE\_TO\_MOVE becomes configurable.
+
+
 

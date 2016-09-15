@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 1.6.3 - Unreleased (as of 2016-09-08)
+## Release 1.6.3 - Unreleased (as of 2016-09-15)
 
 
 
@@ -43,7 +43,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [SPARK-15761](https://issues.apache.org/jira/browse/SPARK-15761) | pyspark shell should load if PYSPARK\_DRIVER\_PYTHON is ipython an Python3 |  Minor | PySpark | Manoj Kumar | Manoj Kumar |
 | [SPARK-16796](https://issues.apache.org/jira/browse/SPARK-16796) | Visible passwords on Spark environment page |  Trivial | Web UI | Artur Sukhenko | Artur Sukhenko |
-| [SPARK-17316](https://issues.apache.org/jira/browse/SPARK-17316) | Don't block StandaloneSchedulerBackend.executorRemoved |  Major | Spark Core | Shixiong Zhu | Shixiong Zhu |
+| [SPARK-17316](https://issues.apache.org/jira/browse/SPARK-17316) | Don\'t block StandaloneSchedulerBackend.executorRemoved |  Major | Spark Core | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-17378](https://issues.apache.org/jira/browse/SPARK-17378) | Upgrade snappy-java to 1.1.2.6 |  Trivial | Build | Adam Roberts | Adam Roberts |
 
 
@@ -74,6 +74,9 @@
 | [SPARK-17404](https://issues.apache.org/jira/browse/SPARK-17404) | [BRANCH-1.6] Broken test: showDF in test\_sparkSQL.R |  Major | SparkR | Yin Huai | Sun Rui |
 | [SPARK-17356](https://issues.apache.org/jira/browse/SPARK-17356) | A large Metadata filed in Alias can cause OOM when calling TreeNode.toJSON |  Major | SQL | Sean Zhong | Sean Zhong |
 | [SPARK-17245](https://issues.apache.org/jira/browse/SPARK-17245) | NPE thrown by ClientWrapper.conf |  Major | SQL | Yin Huai | Yin Huai |
+| [SPARK-17531](https://issues.apache.org/jira/browse/SPARK-17531) | Don\'t initialize Hive Listeners for the Execution Client |  Major | SQL | Burak Yavuz | Burak Yavuz |
+| [SPARK-17465](https://issues.apache.org/jira/browse/SPARK-17465) | Inappropriate memory management in `org.apache.spark.storage.MemoryStore` may lead to memory leak |  Major | Spark Core | Xing Shi | Xing Shi |
+| [SPARK-17547](https://issues.apache.org/jira/browse/SPARK-17547) | Temporary shuffle data files may be leaked following exception in write |  Major | Shuffle | Josh Rosen | Josh Rosen |
 
 
 ### TESTS:

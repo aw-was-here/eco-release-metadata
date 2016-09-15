@@ -79,7 +79,7 @@ Vectorization: BytesBytes lookup capped count can be =0, =1, \>=2 (Gopal V, revi
 
 ---
 
-* [HIVE-14436](https://issues.apache.org/jira/browse/HIVE-14436) | *Major* | **Hive 1.2.1/Hitting "ql.Driver: FAILED: IllegalArgumentException Error: , expected at the end of 'decimal(9'" after enabling hive.optimize.skewjoin and with MR engine**
+* [HIVE-14436](https://issues.apache.org/jira/browse/HIVE-14436) | *Major* | **Hive 1.2.1/Hitting "ql.Driver: FAILED: IllegalArgumentException Error: , expected at the end of \'decimal(9\'" after enabling hive.optimize.skewjoin and with MR engine**
 
 **WARNING: No release note provided for this change.**
 
@@ -131,6 +131,13 @@ beeline fetch logging delays before query completion (Tao Li, via Gopal V)
 * [HIVE-14159](https://issues.apache.org/jira/browse/HIVE-14159) | *Major* | **sorting of tuple array using multiple field[s]**
 
 **WARNING: No release note provided for this change.**
+
+
+---
+
+* [HIVE-14251](https://issues.apache.org/jira/browse/HIVE-14251) | *Major* | **Union All of different types resolves to incorrect data**
+
+With this change, Hive will only perform implicit conversion within each type groups including string group, number group or date group, not across groups. So in order to union a string type with a date type, a explicit cast from string to date or from date to string is needed.
 
 
 

@@ -18,7 +18,7 @@
 -->
 # Apache Yetus Changelog
 
-## Release 0.4.0 - Unreleased (as of 2016-09-09)
+## Release 0.4.0 - Unreleased (as of 2016-09-15)
 
 
 
@@ -27,7 +27,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YETUS-390](https://issues.apache.org/jira/browse/YETUS-390) | qbt needs an "abbreviated email" mode |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
-| [YETUS-341](https://issues.apache.org/jira/browse/YETUS-341) | docker cleanup in sentinel mode doesn't know about Created |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
+| [YETUS-341](https://issues.apache.org/jira/browse/YETUS-341) | docker cleanup in sentinel mode doesn\'t know about Created |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
 
 
 ### NEW FEATURES:
@@ -63,7 +63,7 @@
 | [YETUS-409](https://issues.apache.org/jira/browse/YETUS-409) | Some fixes and improvements for "Cleanup" section in "Managing a Release" document |  Major | website and documentation | Kengo Seki | Kengo Seki |
 | [YETUS-403](https://issues.apache.org/jira/browse/YETUS-403) | hadoop personality needs better handling of homebrew |  Major | Test Patch | Allen Wittenauer | Kengo Seki |
 | [YETUS-419](https://issues.apache.org/jira/browse/YETUS-419) | releasedocmaker should retry when the connection fails |  Major | Release Doc Maker | Akira Ajisaka | Akira Ajisaka |
-| [YETUS-380](https://issues.apache.org/jira/browse/YETUS-380) | "Release Notes" button doesn't appear immediately in some cases |  Trivial | website and documentation | Kengo Seki | Kengo Seki |
+| [YETUS-380](https://issues.apache.org/jira/browse/YETUS-380) | "Release Notes" button doesn\'t appear immediately in some cases |  Trivial | website and documentation | Kengo Seki | Kengo Seki |
 | [YETUS-414](https://issues.apache.org/jira/browse/YETUS-414) | ctest logs are really broken |  Blocker | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-407](https://issues.apache.org/jira/browse/YETUS-407) | DOAP is broken |  Major | website and documentation | Sebb | Kengo Seki |
 | [YETUS-405](https://issues.apache.org/jira/browse/YETUS-405) | Minor typo for python-dateutil package |  Minor | Release Doc Maker, website and documentation | Kengo Seki | Karen Clark |
@@ -87,5 +87,6 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YETUS-339](https://issues.apache.org/jira/browse/YETUS-339) | Make the site config file pass rubocop |  Major | build, website and documentation | Sean Busbey | Kengo Seki |
+| [YETUS-80](https://issues.apache.org/jira/browse/YETUS-80) | update missing docs from Hadoop |  Major | website and documentation | Sean Busbey | Ajay Yadava |
 
 
