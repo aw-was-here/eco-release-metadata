@@ -18,7 +18,7 @@
 -->
 # Apache Hadoop Changelog
 
-## Release 3.0.0-alpha2 - Unreleased (as of 2016-09-15)
+## Release 3.0.0-alpha2 - Unreleased (as of 2016-09-16)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -146,6 +146,7 @@
 | [HDFS-10562](https://issues.apache.org/jira/browse/HDFS-10562) | DiskBalancer: update documentation on how to report issues and debug |  Minor | balancer & mover | Anu Engineer | Anu Engineer |
 | [HDFS-10805](https://issues.apache.org/jira/browse/HDFS-10805) | Reduce runtime for append test |  Minor | test | Gergely Novák | Gergely Novák |
 | [YARN-5620](https://issues.apache.org/jira/browse/YARN-5620) | Core changes in NodeManager to support re-initialization of Containers with new launchContext |  Major | . | Arun Suresh | Arun Suresh |
+| [HDFS-9895](https://issues.apache.org/jira/browse/HDFS-9895) | Remove unnecessary conf cache from DataNode |  Major | datanode | Xiaobing Zhou | Xiaobing Zhou |
 
 
 ### OTHER:

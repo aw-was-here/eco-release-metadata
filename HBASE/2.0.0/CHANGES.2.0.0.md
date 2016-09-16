@@ -737,6 +737,7 @@
 | [HBASE-16616](https://issues.apache.org/jira/browse/HBASE-16616) | Rpc handlers stuck on ThreadLocalMap.expungeStaleEntry |  Major | Performance | Tomu Tsuruhara | Tomu Tsuruhara |
 | [HBASE-16381](https://issues.apache.org/jira/browse/HBASE-16381) | Shell deleteall command should support row key prefixes |  Minor | shell | Andrew Purtell | Yi Liang |
 | [HBASE-15949](https://issues.apache.org/jira/browse/HBASE-15949) | Cleanup TestRegionServerMetrics |  Minor | . | Appy | Appy |
+| [HBASE-16640](https://issues.apache.org/jira/browse/HBASE-16640) | TimeoutBlockingQueue#remove() should return whether the entry is removed |  Minor | . | Ted Yu | Ted Yu |
 
 
 ### BUG FIXES:
