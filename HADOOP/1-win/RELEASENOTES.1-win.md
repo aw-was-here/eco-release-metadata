@@ -18,7 +18,28 @@
 -->
 # Apache Hadoop  1-win Release Notes
 
-These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
+These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
+
+
+---
+
+* [HDFS-385](https://issues.apache.org/jira/browse/HDFS-385) | *Major* | **Design a pluggable interface to place replicas of blocks in HDFS**
+
+New experimental API BlockPlacementPolicy allows investigating alternate rules for locating block replicas.
+
+
+---
+
+* [MAPREDUCE-4203](https://issues.apache.org/jira/browse/MAPREDUCE-4203) | *Major* | **Create equivalent of ProcfsBasedProcessTree for Windows**
+
+Added an implementation of the process tree for Windows.
+
+
+---
+
+* [HDFS-3649](https://issues.apache.org/jira/browse/HDFS-3649) | *Major* | **Port HDFS-385 to branch-1-win**
+
+blockplacement policy is now ported to branch-1 and branch-1-win
 
 
 ---
@@ -37,30 +58,9 @@ Backport HDFS-4240 to branch-1
 
 ---
 
-* [HDFS-3649](https://issues.apache.org/jira/browse/HDFS-3649) | *Major* | **Port HDFS-385 to branch-1-win**
-
-blockplacement policy is now ported to branch-1 and branch-1-win
-
-
----
-
-* [HDFS-385](https://issues.apache.org/jira/browse/HDFS-385) | *Major* | **Design a pluggable interface to place replicas of blocks in HDFS**
-
-New experimental API BlockPlacementPolicy allows investigating alternate rules for locating block replicas.
-
-
----
-
 * [MAPREDUCE-4737](https://issues.apache.org/jira/browse/MAPREDUCE-4737) | *Major* | ** Hadoop does not close output file / does not call Mapper.cleanup if exception in map**
 
 Ensure that mapreduce APIs are semantically consistent with mapred API w.r.t Mapper.cleanup and Reducer.cleanup; in the sense that cleanup is now called even if there is an error. The old mapred API already ensures that Mapper.close and Reducer.close are invoked during error handling. Note that it is an incompatible change, however end-users can override Mapper.run and Reducer.run to get the old (inconsistent) behaviour.
-
-
----
-
-* [MAPREDUCE-4203](https://issues.apache.org/jira/browse/MAPREDUCE-4203) | *Major* | **Create equivalent of ProcfsBasedProcessTree for Windows**
-
-Added an implementation of the process tree for Windows.
 
 
 

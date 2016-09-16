@@ -21,4 +21,11 @@
 These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
 
 
+---
+
+* [YARN-4087](https://issues.apache.org/jira/browse/YARN-4087) | *Major* | **Followup fixes after YARN-2019 regarding RM behavior when state-store error occurs**
+
+**WARNING: No release note provided for this change.**
+
+
 

@@ -30,9 +30,9 @@ Existing sequence files can be appended.
 
 ---
 
-* [HDFS-7645](https://issues.apache.org/jira/browse/HDFS-7645) | *Major* | **Rolling upgrade is restoring blocks from trash multiple times**
+* [YARN-4087](https://issues.apache.org/jira/browse/YARN-4087) | *Major* | **Followup fixes after YARN-2019 regarding RM behavior when state-store error occurs**
 
-**WARNING: No release note provided for this incompatible change.**
+**WARNING: No release note provided for this change.**
 
 
 

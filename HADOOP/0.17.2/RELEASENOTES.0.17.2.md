@@ -18,14 +18,7 @@
 -->
 # Apache Hadoop  0.17.2 Release Notes
 
-These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
-
-
----
-
-* [HADOOP-3859](https://issues.apache.org/jira/browse/HADOOP-3859) | *Blocker* | **1000  concurrent read on a single file failing  the task/client**
-
-Allows the user to change the maximum number of xceivers in the datanode.
+These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
 
 
 ---
@@ -47,6 +40,13 @@ NameNode keeps a count of number of blocks scheduled to be written to a datanode
 * [HADOOP-3678](https://issues.apache.org/jira/browse/HADOOP-3678) | *Blocker* | **Avoid spurious "DataXceiver: java.io.IOException: Connection reset by peer" errors in DataNode log**
 
 Avoid spurious exceptions logged at DataNode when clients read from DFS.
+
+
+---
+
+* [HADOOP-3859](https://issues.apache.org/jira/browse/HADOOP-3859) | *Blocker* | **1000  concurrent read on a single file failing  the task/client**
+
+Allows the user to change the maximum number of xceivers in the datanode.
 
 
 

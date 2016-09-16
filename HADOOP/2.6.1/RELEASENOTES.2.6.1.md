@@ -23,18 +23,12 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
-* [HADOOP-7139](https://issues.apache.org/jira/browse/HADOOP-7139) | *Major* | **Allow appending to existing SequenceFiles**
-
-Existing sequence files can be appended.
-
-
----
-
 * [HDFS-8486](https://issues.apache.org/jira/browse/HDFS-8486) | *Blocker* | **DN startup may cause severe data loss**
 
+<!-- markdown -->
 Public service notice:
-- Every restart of a 2.6.x or 2.7.0 DN incurs a risk of unwanted block deletion.
-- Apply this patch if you are running a pre-2.7.1 release.
+* Every restart of a 2.6.x or 2.7.0 DN incurs a risk of unwanted block deletion.
+* Apply this patch if you are running a pre-2.7.1 release.
 
 
 ---
@@ -42,6 +36,13 @@ Public service notice:
 * [HDFS-8270](https://issues.apache.org/jira/browse/HDFS-8270) | *Major* | **create() always retried with hardcoded timeout when file already exists with open lease**
 
 Proxy level retries will not be done on AlreadyBeingCreatedExeption for create() op.
+
+
+---
+
+* [HADOOP-7139](https://issues.apache.org/jira/browse/HADOOP-7139) | *Major* | **Allow appending to existing SequenceFiles**
+
+Existing sequence files can be appended.
 
 
 

@@ -18,7 +18,21 @@
 -->
 # Apache Hadoop  1.0.1 Release Notes
 
-These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
+These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
+
+
+---
+
+* [MAPREDUCE-3184](https://issues.apache.org/jira/browse/MAPREDUCE-3184) | *Major* | **Improve handling of fetch failures when a tasktracker is not responding on HTTP**
+
+The TaskTracker now has a thread which monitors for a known Jetty bug in which the selector thread starts spinning and map output can no longer be served. If the bug is detected, the TaskTracker will shut itself down. This feature can be disabled by setting mapred.tasktracker.jetty.cpu.check.enabled to false.
+
+
+---
+
+* [HADOOP-7470](https://issues.apache.org/jira/browse/HADOOP-7470) | *Minor* | **move up to Jackson 1.8.8**
+
+**WARNING: No release note provided for this change.**
 
 
 ---
@@ -33,20 +47,6 @@ This fix is marked "incompatible" only because it changes the bin-tarball direct
 * [HADOOP-8009](https://issues.apache.org/jira/browse/HADOOP-8009) | *Critical* | **Create hadoop-client and hadoop-minicluster artifacts for downstream projects**
 
 Generate integration artifacts "org.apache.hadoop:hadoop-client" and "org.apache.hadoop:hadoop-minicluster" containing all the jars needed to use Hadoop client APIs, and to run Hadoop MiniClusters, respectively.  Push these artifacts to the maven repository when mvn-deploy, along with existing artifacts.
-
-
----
-
-* [HADOOP-7470](https://issues.apache.org/jira/browse/HADOOP-7470) | *Minor* | **move up to Jackson 1.8.8**
-
-**WARNING: No release note provided for this incompatible change.**
-
-
----
-
-* [MAPREDUCE-3184](https://issues.apache.org/jira/browse/MAPREDUCE-3184) | *Major* | **Improve handling of fetch failures when a tasktracker is not responding on HTTP**
-
-The TaskTracker now has a thread which monitors for a known Jetty bug in which the selector thread starts spinning and map output can no longer be served. If the bug is detected, the TaskTracker will shut itself down. This feature can be disabled by setting mapred.tasktracker.jetty.cpu.check.enabled to false.
 
 
 

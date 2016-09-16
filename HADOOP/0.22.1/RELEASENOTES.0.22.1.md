@@ -18,14 +18,7 @@
 -->
 # Apache Hadoop  0.22.1 Release Notes
 
-These release notes cover new developer and user-facing incompatibilities, features, and major improvements.
-
-
----
-
-* [HADOOP-7119](https://issues.apache.org/jira/browse/HADOOP-7119) | *Major* | **add Kerberos HTTP SPNEGO authentication support to Hadoop JT/NN/DN/TT web-consoles**
-
-Adding support for Kerberos HTTP SPNEGO authentication to the Hadoop web-consoles
+These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
 
 
 ---
@@ -37,9 +30,9 @@ When configuring proxy users and hosts, the special wildcard value "\*" may be s
 
 ---
 
-* [HADOOP-6453](https://issues.apache.org/jira/browse/HADOOP-6453) | *Minor* | **Hadoop wrapper script shouldn't ignore an existing JAVA\_LIBRARY\_PATH**
+* [HADOOP-7119](https://issues.apache.org/jira/browse/HADOOP-7119) | *Major* | **add Kerberos HTTP SPNEGO authentication support to Hadoop JT/NN/DN/TT web-consoles**
 
-**WARNING: No release note provided for this incompatible change.**
+Adding support for Kerberos HTTP SPNEGO authentication to the Hadoop web-consoles
 
 
 ---
@@ -59,6 +52,13 @@ c. dfs.client.read.shortcircuit.skip.checksum is the key to bypass checksum chec
 * [MAPREDUCE-3725](https://issues.apache.org/jira/browse/MAPREDUCE-3725) | *Major* | **Hadoop 22 hadoop job -list returns user name as NULL**
 
 Submitting the patch after setting the user name at the client side
+
+
+---
+
+* [HADOOP-6453](https://issues.apache.org/jira/browse/HADOOP-6453) | *Minor* | **Hadoop wrapper script shouldn\'t ignore an existing JAVA\_LIBRARY\_PATH**
+
+**WARNING: No release note provided for this change.**
 
 
 
