@@ -18,7 +18,7 @@
 -->
 # Apache HBase Changelog
 
-## Release 2.0.0 - Unreleased (as of 2016-09-15)
+## Release 2.0.0 - Unreleased (as of 2016-09-16)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -736,6 +736,7 @@
 | [HBASE-16086](https://issues.apache.org/jira/browse/HBASE-16086) | TableCfWALEntryFilter and ScopeWALEntryFilter should not redundantly iterate over cells. |  Major | . | churro morales | Vincent Poon |
 | [HBASE-16616](https://issues.apache.org/jira/browse/HBASE-16616) | Rpc handlers stuck on ThreadLocalMap.expungeStaleEntry |  Major | Performance | Tomu Tsuruhara | Tomu Tsuruhara |
 | [HBASE-16381](https://issues.apache.org/jira/browse/HBASE-16381) | Shell deleteall command should support row key prefixes |  Minor | shell | Andrew Purtell | Yi Liang |
+| [HBASE-15949](https://issues.apache.org/jira/browse/HBASE-15949) | Cleanup TestRegionServerMetrics |  Minor | . | Appy | Appy |
 
 
 ### BUG FIXES:

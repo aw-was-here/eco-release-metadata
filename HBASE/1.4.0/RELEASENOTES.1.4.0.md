@@ -253,6 +253,15 @@ There remains one case where we will still \'overread\'. It is when the row end 
 
 ---
 
+* [HBASE-15477](https://issues.apache.org/jira/browse/HBASE-15477) | *Major* | **Do not save \'next block header\' when we cache hfileblocks**
+
+Fix over-persisting in blockcache; no longer save the block PLUS the header of the next block (3 bytes) when writing the cache.
+
+Also removes support for hfileblock v1; hfile block v1 was used writing hfile v1. hfile v1 was the default in hbase before hbase-0.92. hbase.96 would not start unless all v1 hfiles had been compacted out of the cluster.
+
+
+---
+
 * [HBASE-15645](https://issues.apache.org/jira/browse/HBASE-15645) | *Critical* | **hbase.rpc.timeout is not used in operations of HTable**
 
 Fixes regression where hbase.rpc.timeout configuration was ignored in branch-1.0+

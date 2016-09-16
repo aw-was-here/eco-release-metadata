@@ -18,7 +18,7 @@
 -->
 # Apache Yetus Changelog
 
-## Release 0.4.0 - Unreleased (as of 2016-09-15)
+## Release 0.4.0 - Unreleased (as of 2016-09-16)
 
 
 
@@ -80,6 +80,7 @@
 | [YETUS-443](https://issues.apache.org/jira/browse/YETUS-443) | github pull request regular expression in the jira plugin should be more complete |  Minor | Test Patch | Casey Brotherton | Casey Brotherton |
 | [YETUS-448](https://issues.apache.org/jira/browse/YETUS-448) | Fix the docs for supported python versions |  Major | website and documentation | Ajay Yadava | Ajay Yadava |
 | [YETUS-456](https://issues.apache.org/jira/browse/YETUS-456) | Typos in documentation |  Trivial | website and documentation | Ajay Yadava | Ajay Yadava |
+| [YETUS-446](https://issues.apache.org/jira/browse/YETUS-446) | releasedocmaker not handling 0 version in a range correctly? |  Major | Release Doc Maker | Allen Wittenauer | Ajay Yadava |
 
 
 ### OTHER:

@@ -18,7 +18,7 @@
 -->
 # Apache BigTop Changelog
 
-## Release 1.2.0 - Unreleased (as of 2016-09-15)
+## Release 1.2.0 - Unreleased (as of 2016-09-16)
 
 
 
@@ -132,6 +132,7 @@
 | [BIGTOP-2512](https://issues.apache.org/jira/browse/BIGTOP-2512) | Wrong help message in docker-hadoop.sh |  Trivial | deployment, vm | Kengo Seki | Kengo Seki |
 | [BIGTOP-2523](https://issues.apache.org/jira/browse/BIGTOP-2523) | Incorrect cycle dependency during puppet deployment causes error at Debian 8 |  Major | deployment | Kirill Morozov | Artur A. Papikyan |
 | [BIGTOP-2528](https://issues.apache.org/jira/browse/BIGTOP-2528) | provisioner fails to add short host name |  Major | deployment, provisioner | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2535](https://issues.apache.org/jira/browse/BIGTOP-2535) | frontend-maven-plugin fails on ppc64le |  Major | build, docker, ppc64le | Amir Sanjar | Amir Sanjar |
 
 
 ### SUB-TASKS:

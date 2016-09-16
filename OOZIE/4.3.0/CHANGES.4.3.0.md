@@ -18,7 +18,7 @@
 -->
 # Apache Oozie Changelog
 
-## Release 4.3.0 - Unreleased (as of 2016-09-15)
+## Release 4.3.0 - Unreleased (as of 2016-09-16)
 
 
 
@@ -44,6 +44,7 @@
 | [OOZIE-1976](https://issues.apache.org/jira/browse/OOZIE-1976) | Specifying coordinator input datasets in more logical ways |  Major | coordinator | Mona Chitnis | Purshotam Shah |
 | [OOZIE-2563](https://issues.apache.org/jira/browse/OOZIE-2563) | pass spark-defaults.conf to spark action |  Minor | . | Satish Subhashrao Saley | Satish Subhashrao Saley |
 | [OOZIE-2632](https://issues.apache.org/jira/browse/OOZIE-2632) | Provide database dump/load functionality to make database migration easier |  Major | . | Peter Cseh | Peter Cseh |
+| [OOZIE-2571](https://issues.apache.org/jira/browse/OOZIE-2571) | Add spark.scala.binary.version Maven property so that Scala 2.11 can be used |  Major | build | Jonathan Kelly | Jonathan Kelly |
 
 
 ### IMPROVEMENTS:
@@ -85,6 +86,7 @@
 | [OOZIE-2648](https://issues.apache.org/jira/browse/OOZIE-2648) | Child jobs shouldn\'t send callbacks to Oozie |  Major | . | Robert Kanter | Abhishek Bafna |
 | [OOZIE-2488](https://issues.apache.org/jira/browse/OOZIE-2488) | Upgrade to latest OpenJPA version |  Major | core | Robert Kanter | Abhishek Bafna |
 | [OOZIE-2660](https://issues.apache.org/jira/browse/OOZIE-2660) | Create documentation for DB Dump/Load functionality |  Major | . | Peter Cseh | Peter Cseh |
+| [OOZIE-2530](https://issues.apache.org/jira/browse/OOZIE-2530) | Allow Hive to use a different jline version |  Major | . | Thomas Poepping | Thomas Poepping |
 
 
 ### BUG FIXES:
@@ -239,6 +241,7 @@
 | [OOZIE-2635](https://issues.apache.org/jira/browse/OOZIE-2635) | TimeZone.getTimeZone has performance issue. |  Major | . | Satish Subhashrao Saley | Satish Subhashrao Saley |
 | [OOZIE-2584](https://issues.apache.org/jira/browse/OOZIE-2584) | Eliminate Thread.sleep() calls in TestMemoryLocks |  Minor | . | Peter Bacsko | Peter Bacsko |
 | [OOZIE-2659](https://issues.apache.org/jira/browse/OOZIE-2659) | TestPauseTransitService is flaky |  Major | . | Peter Cseh | Peter Cseh |
+| [OOZIE-2500](https://issues.apache.org/jira/browse/OOZIE-2500) | -DtestJarSimple option mentioned in minioozie doc does not work |  Major | . | Satish Subhashrao Saley | Abhishek Bafna |
 
 
 ### TESTS:
@@ -262,6 +265,7 @@
 | [OOZIE-2173](https://issues.apache.org/jira/browse/OOZIE-2173) | DISCLAIMER.txt still refers to Apache Incubator |  Minor | docs | Robert Kanter | Eva Andreasson |
 | [OOZIE-2283](https://issues.apache.org/jira/browse/OOZIE-2283) | Documentation should not say that System.exit is not allowed in Java Action |  Major | docs | Robert Kanter | Eva Andreasson |
 | [OOZIE-2342](https://issues.apache.org/jira/browse/OOZIE-2342) | Coordinator docs still mention old SLA system |  Major | docs | Robert Kanter | Satish Subhashrao Saley |
+| [OOZIE-2552](https://issues.apache.org/jira/browse/OOZIE-2552) | Update ActiveMQ version for security and other fixes |  Major | . | Robert Kanter | Attila Sasvari |
 
 
 ### OTHER:

@@ -18,8 +18,15 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.10.1.0 - Unreleased (as of 2016-09-15)
+## Release 0.10.1.0 - Unreleased (as of 2016-09-16)
 
+
+
+### IMPORTANT ISSUES:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-4131](https://issues.apache.org/jira/browse/KAFKA-4131) | Multiple Regex KStream-Consumers cause Null pointer exception in addRawRecords in RecordQueue class |  Major | streams | David J. Garcia | Bill Bejeck |
 
 
 ### NEW FEATURES:

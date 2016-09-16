@@ -1,22 +1,4 @@
-
-<!---
-# Licensed to the Apache Software Foundation (ASF) under one
-# or more contributor license agreements.  See the NOTICE file
-# distributed with this work for additional information
-# regarding copyright ownership.  The ASF licenses this file
-# to you under the Apache License, Version 2.0 (the
-# "License"); you may not use this file except in compliance
-# with the License.  You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
--->
-# Apache HBase  0.98.0 Release Notes
+# HBASE  0.98.0 Release Notes
 
 These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
 
@@ -57,7 +39,7 @@ Added a system test called IntegrationTestBigLinkedList. This test runs many ing
 
 * [HBASE-8090](https://issues.apache.org/jira/browse/HBASE-8090) | *Blocker* | **Versioning site; part two, publish 0.94 site and add link from main site**
 
-Added a '0.94 Documentation' to hbase.apache.org navbar.  Points into reports, refguide, and apidocs generated out of 0.94 branch.
+Added a \'0.94 Documentation\' to hbase.apache.org navbar.  Points into reports, refguide, and apidocs generated out of 0.94 branch.
 
 
 ---
@@ -88,7 +70,7 @@ the partition file on localFs, not HDFS.
 
 Or run it stand-alone:
 
-  $ HBASE\_CLASSPATH="hbase-it/target/hbase-it-\<version\>-tests.jar" \
+  $ HBASE\_CLASSPATH="hbase-it/target/hbase-it-\<version\>-tests.jar" \\
     ./bin/hbase org.apache.hadoop.hbase.mapreduce.IntegrationTestImportTsv
 
 When run stand-alone, it supports all the usual Hadoop Tool arguments,
@@ -111,7 +93,7 @@ use the configuration key mapred.job.name to set the map reduce job name for imp
 
 * [HBASE-7590](https://issues.apache.org/jira/browse/HBASE-7590) | *Major* | **Add a costless notifications mechanism from master to regionservers & clients**
 
-This allows to setup a multicast connection between the master and the hbase clients. With the feature on, when a regionserver is marked as dead by the master, the master sends as well a multicast message that will make the hbase client to disconnect immediately from the dead server instead of waiting for a socket timeout. Specifically, this allows to set hbase.rpc.timeout to larger values (like 5 minutes) without impacting the MTTR: without this, even if the dead regionserver data is now available on another server, the client stays on the dead one, waiting for an answer that will never come. It's a multicast message, hence cheap, scalable, but unreliable. For this reason, the master sends the information 5 times, to allow the hbase client to miss a message. This feature is NOT activated by default. To activate it, add to your hbase-site.xml:
+This allows to setup a multicast connection between the master and the hbase clients. With the feature on, when a regionserver is marked as dead by the master, the master sends as well a multicast message that will make the hbase client to disconnect immediately from the dead server instead of waiting for a socket timeout. Specifically, this allows to set hbase.rpc.timeout to larger values (like 5 minutes) without impacting the MTTR: without this, even if the dead regionserver data is now available on another server, the client stays on the dead one, waiting for an answer that will never come. It\'s a multicast message, hence cheap, scalable, but unreliable. For this reason, the master sends the information 5 times, to allow the hbase client to miss a message. This feature is NOT activated by default. To activate it, add to your hbase-site.xml:
 
   \<property\>
     \<name\>hbase.status.published\</name\>
@@ -169,7 +151,7 @@ Mimics Leveldb ByteWiseComparatorImpl::FindShortestSeparator() & FindShortSucces
 
 * [HBASE-7878](https://issues.apache.org/jira/browse/HBASE-7878) | *Critical* | **recoverFileLease does not check return value of recoverLease**
 
-A new config parameter, hbase.lease.recovery.timeout, is introduced for the maximum duration recoverFileLease() would wait for any single file. Default is 5 minutes. If lease recovery doesn't succeed within this limit, append() would be called.
+A new config parameter, hbase.lease.recovery.timeout, is introduced for the maximum duration recoverFileLease() would wait for any single file. Default is 5 minutes. If lease recovery doesn\'t succeed within this limit, append() would be called.
 
 
 ---
@@ -195,7 +177,7 @@ Support reusing MemStoreChunk when MSLAB is enabled, thereby decrease the cost o
 
 ---
 
-* [HBASE-8161](https://issues.apache.org/jira/browse/HBASE-8161) | *Minor* | **setting blocking file count on table level doesn't work**
+* [HBASE-8161](https://issues.apache.org/jira/browse/HBASE-8161) | *Minor* | **setting blocking file count on table level doesn\'t work**
 
 in trunk and 95
 
@@ -243,7 +225,7 @@ Default compaction policy has been changed to a new policy that will explore mor
 
 With this patch, customer filters can be dropped into a pre-configured folder (hbase.dynamic.jars.dir), which can be in hdfs. Region servers can pick them up dynamically, no need to restart the cluster for the new filters to take effect.
 
-However, if a filter class is already loaded, it won't be un-loaded. Therefore, we can't load a new version of an existing class.  Users have to have a proper way to do filter class versioning.
+However, if a filter class is already loaded, it won\'t be un-loaded. Therefore, we can\'t load a new version of an existing class.  Users have to have a proper way to do filter class versioning.
 
 
 ---
@@ -258,11 +240,11 @@ Regionservers prior to 0.94.7 with ignore anything but SKIP\_WAL and assume USE\
 
 ---
 
-* [HBASE-8352](https://issues.apache.org/jira/browse/HBASE-8352) | *Blocker* | **Rename '.snapshot' directory**
+* [HBASE-8352](https://issues.apache.org/jira/browse/HBASE-8352) | *Blocker* | **Rename \'.snapshot\' directory**
 
 In order to avoid name collision with hdfs snapshot, ".snapshot" under HBase root directory must be renamed as ".hbase-snapshot" before deployment of 0.94.7 or later release is started.
 
-Don't do rolling upgrade between 0.94.6.1 and 0.94.7 if there're on-going snapshots activities.
+Don\'t do rolling upgrade between 0.94.6.1 and 0.94.7 if there\'re on-going snapshots activities.
 Sequence of actions should be:
 
 1. make sure all on-going snapshots activities have completed
@@ -295,7 +277,7 @@ In AggregationClient added a new set of APIs which takes an HTable instance rath
 
 Distributed Log Replay Description:
 
-After a region server fails, we firstly assign a failed region to another region server with recovering state marked in ZooKeeper. Then a SplitLogWorker directly replays edits from WAL(Write-Ahead-Log)s of the failed region server to the region after it's re-opened in the new location. When a region is in recovering state, it can also accept writes but no reads(including Append and Increment), region split or merge. 
+After a region server fails, we firstly assign a failed region to another region server with recovering state marked in ZooKeeper. Then a SplitLogWorker directly replays edits from WAL(Write-Ahead-Log)s of the failed region server to the region after it\'s re-opened in the new location. When a region is in recovering state, it can also accept writes but no reads(including Append and Increment), region split or merge. 
 
 The feature piggybacks on existing distributed log splitting framework and directly replay WAL edits to another region server instead of creating recovered.edits files.
 
@@ -352,7 +334,7 @@ A new configuration "hbase.rest.authentication" is added to enable authenticatio
 
 * [HBASE-8723](https://issues.apache.org/jira/browse/HBASE-8723) | *Blocker* | **HBase Intgration tests are failing because of new defaults.**
 
-Changed default number of RPC reties to 30 to ensure the client doesn't give up too soon during a region fail over.
+Changed default number of RPC reties to 30 to ensure the client doesn\'t give up too soon during a region fail over.
 
 
 ---
@@ -373,7 +355,7 @@ This change adds support for restricting access to table schema. Only a user wit
 
 * [HBASE-8809](https://issues.apache.org/jira/browse/HBASE-8809) | *Major* | **Include deletes in the scan (setRaw) method does not respect the time range or the filter**
 
-"Raw" scans (Scan.setRaw(true)), now honor the scan's time range if specified.
+"Raw" scans (Scan.setRaw(true)), now honor the scan\'s time range if specified.
 Previously the time range would be ignored.
 
 
@@ -381,7 +363,7 @@ Previously the time range would be ignored.
 
 * [HBASE-8861](https://issues.apache.org/jira/browse/HBASE-8861) | *Major* | **Remove ReplicationState completely**
 
-stop\_replication and start\_replication aren't available anymore due to the confusion it was causing. The right way to stop/start replication is to disable\_peer and enable\_peer, for each peers.
+stop\_replication and start\_replication aren\'t available anymore due to the confusion it was causing. The right way to stop/start replication is to disable\_peer and enable\_peer, for each peers.
 
 
 ---
@@ -425,7 +407,7 @@ As distributed log splitting is getting more and more stable, non-distributed lo
 
 * [HBASE-7826](https://issues.apache.org/jira/browse/HBASE-7826) | *Minor* | **Improve Hbase Thrift v1 to return results in sorted order**
 
-When passing a TScan object, it's possible to ask for sortColumns. The result of doing this will populate TRowResult's "sortedColumns" instead of "columns", where the former is a list of the new type TColumn that wraps a column name and a TCell. 
+When passing a TScan object, it\'s possible to ask for sortColumns. The result of doing this will populate TRowResult\'s "sortedColumns" instead of "columns", where the former is a list of the new type TColumn that wraps a column name and a TCell. 
 Backward compatibility is kept. Old clients will work against thrift servers with this patch, but new clients cannot request sorted columns on an old thrift server.
 
 
@@ -468,19 +450,19 @@ Table descriptors are now moved inside hdfs from residing directly in the table 
 
 * [HBASE-7325](https://issues.apache.org/jira/browse/HBASE-7325) | *Minor* | **Replication reacts slowly on a lightly-loaded cluster**
 
-ReplicationSource won't backoff sleeping time if it can correctly read from the WAL even though it's not replicating anything. In that kind of situation it will put more load on the NN. replication.source.sleepforretries can still be tweaked to set the minimal sleep time.
+ReplicationSource won\'t backoff sleeping time if it can correctly read from the WAL even though it\'s not replicating anything. In that kind of situation it will put more load on the NN. replication.source.sleepforretries can still be tweaked to set the minimal sleep time.
 
 
 ---
 
 * [HBASE-7183](https://issues.apache.org/jira/browse/HBASE-7183) | *Major* | **print WARN message if hbase.replication.sizeOfLogQueue is too big**
 
-When a replication source's queue is higher than replication.source.log.queue.warn (default 2), it will print a WARN in the log as a new log is added.
+When a replication source\'s queue is higher than replication.source.log.queue.warn (default 2), it will print a WARN in the log as a new log is added.
 
 
 ---
 
-* [HBASE-8224](https://issues.apache.org/jira/browse/HBASE-8224) | *Blocker* | **Publish hbase build against h1 and h2 adding '-hadoop1' or '-hadoop2' to version string**
+* [HBASE-8224](https://issues.apache.org/jira/browse/HBASE-8224) | *Blocker* | **Publish hbase build against h1 and h2 adding \'-hadoop1\' or \'-hadoop2\' to version string**
 
 When we publish artifacts, we add a -hadoop1 or -hadoop2 to the version to distingush hbase compiled against hadoop1 from that compiled against hadoop2.  This issue adds a script that runs against checked out poms to derive poms that have the -hadoop1 or -hadoop2 modification made and they add/remove to the poms the appropriate set of modules to bundle.  See refguide for final doc on how to make use of this script building (TODO); refguide will replace the notes here.
 
@@ -504,7 +486,7 @@ This issue introduces a few new APIs:
 {code}
 
 By default HConnectionImplementation will create an ExecutorService when needed. The ExecutorService can optionally passed be passed in.
-HTableInterfaces are retrieved from the HConnection. By default the HConnection's ExecutorService is used, but optionally that can be overridden for each HTable.
+HTableInterfaces are retrieved from the HConnection. By default the HConnection\'s ExecutorService is used, but optionally that can be overridden for each HTable.
 
 
 ---
@@ -525,14 +507,14 @@ Move HBASE\_CLASSPATH to the beginning of the CLASSPATH in bin/hbase script.
 
 * [HBASE-8018](https://issues.apache.org/jira/browse/HBASE-8018) | *Major* | **Add "Flaky Testcase Detector" tool into dev-tools**
 
-Tool that looks at jenkins builds and identifies flakey tests or tests that are 'invisibles' -- not mentioned in the test listing but that nonetheless cause the build to fail.  See the README.md under dev-tools/jenkins-tools for how to build and use.
+Tool that looks at jenkins builds and identifies flakey tests or tests that are \'invisibles\' -- not mentioned in the test listing but that nonetheless cause the build to fail.  See the README.md under dev-tools/jenkins-tools for how to build and use.
 
 
 ---
 
-* [HBASE-9091](https://issues.apache.org/jira/browse/HBASE-9091) | *Major* | **Update ByteRange to maintain consumer's position**
+* [HBASE-9091](https://issues.apache.org/jira/browse/HBASE-9091) | *Major* | **Update ByteRange to maintain consumer\'s position**
 
-Extract ByteRange out to an interface. Existing implementation becomes SimpleByteRange. Extend ByteRange interface with PositionedByteRange. Includes a position marker for tracking a consumer's place within a range. Implement SimplePositionedByteRange as subclass of SimpleByteRange. Also update and clarify documentation. This class starts to become a mutable alternative to java.nio.HeapByteBuffer.
+Extract ByteRange out to an interface. Existing implementation becomes SimpleByteRange. Extend ByteRange interface with PositionedByteRange. Includes a position marker for tracking a consumer\'s place within a range. Implement SimplePositionedByteRange as subclass of SimpleByteRange. Also update and clarify documentation. This class starts to become a mutable alternative to java.nio.HeapByteBuffer.
 
 
 ---
@@ -555,13 +537,13 @@ Notable deviation from the sqlite4 spec include:
 
 This patch introduces an extensible data types API for HBase. It is inspired by the following systems:
 
- - PostgreSQL. Postgres has a user-extensible data type API, which has been used to great effect by it's user community (ie, PostGIS). The desire is for HBase to expose an equally extensible data type API. One aspect of the Postgres data type is the ability to provide equivalence functions for index operations. This appears to be of critical performance utility for its execution engine.
+ - PostgreSQL. Postgres has a user-extensible data type API, which has been used to great effect by it\'s user community (ie, PostGIS). The desire is for HBase to expose an equally extensible data type API. One aspect of the Postgres data type is the ability to provide equivalence functions for index operations. This appears to be of critical performance utility for its execution engine.
  - Orderly. Orderly handles the issue of compound rowkeys by providing convenience classes for handling these kinds of data types. This influence is reflected in the Struct and Union family of classes.
- - Phoenix. The PDataType enum used in Phoenix provides type hints, similar Postgres's equivalence functions. These appear to be used during query execution for numerical type promotion.
+ - Phoenix. The PDataType enum used in Phoenix provides type hints, similar Postgres\'s equivalence functions. These appear to be used during query execution for numerical type promotion.
 
 This patch introduces an interface, DataType, along with a number of data type implementations based on the Bytes encoding. Also included are Struct and Union types, demonstrating simple implementations of compound types. Helper classes around the Struct implementation are also provided.
 
-This patch does not address the type compatibility concerns expressed by Phoenix's PDataType API (ie, isComparableTo, isCoercibleTo); these will be addressed in HBASE-8863.
+This patch does not address the type compatibility concerns expressed by Phoenix\'s PDataType API (ie, isComparableTo, isCoercibleTo); these will be addressed in HBASE-8863.
 
 This patch also provides DataType implementations based on the OrderedBytes encoding from HBASE-8201.
 
@@ -582,9 +564,9 @@ This patch introduces security privileges to create, alter or drop namespaces. W
 
 ---
 
-* [HBASE-9128](https://issues.apache.org/jira/browse/HBASE-9128) | *Critical* | **Drop the '.' prefix from names under hbase.rootdir after namespaces goes in**
+* [HBASE-9128](https://issues.apache.org/jira/browse/HBASE-9128) | *Critical* | **Drop the \'.\' prefix from names under hbase.rootdir after namespaces goes in**
 
-Changes the dir names under hbase.rootdir dropping the no longer needed prefix '.' and renaming a few.
+Changes the dir names under hbase.rootdir dropping the no longer needed prefix \'.\' and renaming a few.
 
  ".logs" -\> "WALs";
 ".splitlog" -\> "splitWAL"
@@ -612,7 +594,7 @@ It is now possible to choose which ChaosMonkey you want to run with an integrati
 
 * [HBASE-9262](https://issues.apache.org/jira/browse/HBASE-9262) | *Major* | **Make KeyValue.KEY\_COMPARATOR default for HFile WriterFactory**
 
-Previously, when using a WriterFactory to create an HFile writer, the HFile Writer would default to using a raw byte array comparator instead of one that was aware of the a KV's Key structure.  All actual instances of HFileWriter creation required the specification of a KEY\_COMPARATOR.  With this modification the KEY\_COMPARATOR becomes the default, and we add a special comparator for unit tests that required the rare old default semantics.
+Previously, when using a WriterFactory to create an HFile writer, the HFile Writer would default to using a raw byte array comparator instead of one that was aware of the a KV\'s Key structure.  All actual instances of HFileWriter creation required the specification of a KEY\_COMPARATOR.  With this modification the KEY\_COMPARATOR becomes the default, and we add a special comparator for unit tests that required the rare old default semantics.
 
 
 ---
@@ -663,7 +645,7 @@ If the client does not specify a codec, the server will not respond using cellbl
 
 * [HBASE-9208](https://issues.apache.org/jira/browse/HBASE-9208) | *Major* | **ReplicationLogCleaner slow at large scale**
 
-The FileCleanerDelegate interface has changed to operate on a batch of files at a time.  Any custom implementations that implemented the interface directly for cleaning HLog's (specified by hbase.master.logcleaner.plugins) or HFile's (specified by hbase.master.hfilecleaner.plugins) will have to be updated to implement the new interface or extend one of the included abstract base classes.
+The FileCleanerDelegate interface has changed to operate on a batch of files at a time.  Any custom implementations that implemented the interface directly for cleaning HLog\'s (specified by hbase.master.logcleaner.plugins) or HFile\'s (specified by hbase.master.hfilecleaner.plugins) will have to be updated to implement the new interface or extend one of the included abstract base classes.
 
 
 ---
@@ -675,7 +657,7 @@ Adds a step to migration where we split any outstanding WAL files.  This process
 
 ---
 
-* [HBASE-9382](https://issues.apache.org/jira/browse/HBASE-9382) | *Major* | **replicateWALEntry doesn't use the replication handlers**
+* [HBASE-9382](https://issues.apache.org/jira/browse/HBASE-9382) | *Major* | **replicateWALEntry doesn\'t use the replication handlers**
 
 Fix regression introduced by pb styling of method names.  TODO: have client say priority of method and remove all this QosFunction reflection stuff; its brittle and messy.
 
@@ -736,7 +718,7 @@ The Result#raw() and Result#list APIs have been deprecated.  Users and applicati
 
 * [HBASE-9468](https://issues.apache.org/jira/browse/HBASE-9468) | *Major* | **Previous active master can still serves RPC request when it is trying recovering expired zk session**
 
-Adds option to disable master's attempt at recovering zookeeper session: i.e. just fail.  Set the fail-fast option when you have a backup master running that you can fail to.
+Adds option to disable master\'s attempt at recovering zookeeper session: i.e. just fail.  Set the fail-fast option when you have a backup master running that you can fail to.
 
 
 ---
@@ -782,14 +764,14 @@ hbase.replication is now true by default, meaning that users can add peers witho
 
 HBase supports addressing cells with an empty column qualifier, but not all edge services handle that scenario correctly. In some case, attempting to address a cell at [rowkey, fam, ] results in interaction with the entire column family.
 
-Users of the shell, MapReduce, REST, and Thrift who wish to interact with an entire column family must use "family" instead of "family:" (notice the omitted ':'). Including the ':' will be interpreted as an interaction with the empty qualifier in the "family" column family.
+Users of the shell, MapReduce, REST, and Thrift who wish to interact with an entire column family must use "family" instead of "family:" (notice the omitted \':\'). Including the \':\' will be interpreted as an interaction with the empty qualifier in the "family" column family.
 
 
 ---
 
 * [HBASE-9488](https://issues.apache.org/jira/browse/HBASE-9488) | *Major* | **Improve performance for small scan**
 
-Better perfomance for small scan (e.g. scan range is within one data block(64KB)) through setting 'small' attribute as true in Scan Object
+Better perfomance for small scan (e.g. scan range is within one data block(64KB)) through setting \'small\' attribute as true in Scan Object
 
 
 ---
@@ -824,7 +806,7 @@ Added hooks (preStoreFileReaderOpen and postStoreFileReaderOpen) around Store fi
 
 * [HBASE-9597](https://issues.apache.org/jira/browse/HBASE-9597) | *Major* | **Create hbase-thrift module**
 
-HBase's thrift server was moved into it's own module.  This has removed the dependency for Thrift in the hbase-server module.
+HBase\'s thrift server was moved into it\'s own module.  This has removed the dependency for Thrift in the hbase-server module.
 
 
 ---
@@ -870,16 +852,16 @@ hbase.regionserver.metrics.period can now be used to configure how often the RS 
 
 ---
 
-* [HBASE-8710](https://issues.apache.org/jira/browse/HBASE-8710) | *Minor* | **The balancer shouldn't try balancing one node**
+* [HBASE-8710](https://issues.apache.org/jira/browse/HBASE-8710) | *Minor* | **The balancer shouldn\'t try balancing one node**
 
-The balancer will not try balancing the regions when there's only one node.
+The balancer will not try balancing the regions when there\'s only one node.
 
 
 ---
 
 * [HBASE-9612](https://issues.apache.org/jira/browse/HBASE-9612) | *Blocker* | **Ability to batch edits destined to different regions**
 
-Restores being able to send many regions's worth of edits to a regionserver when running the multi call (previous it was doing a single region's worth at a time).  Required redo of the multi proto model.  Removed multiGet since it had same problem in that it only did a region's worth at a time; use the multi call instead to do multiGets.  All should be transparent to the user but those trying to do clients against hbase will see changes (flags moved from GetRequest to Get and the above mentioned refactor of the MultiRequest proto).
+Restores being able to send many regions\'s worth of edits to a regionserver when running the multi call (previous it was doing a single region\'s worth at a time).  Required redo of the multi proto model.  Removed multiGet since it had same problem in that it only did a region\'s worth at a time; use the multi call instead to do multiGets.  All should be transparent to the user but those trying to do clients against hbase will see changes (flags moved from GetRequest to Get and the above mentioned refactor of the MultiRequest proto).
 
 
 ---
@@ -892,7 +874,7 @@ The patch is backward compatible except for the following:
 
 StorageClusterStatusModel, which is broken and had to be fixed in this patch. It only shows one node in the liveNodes field.
 
-Previously when submitting requests represented in json, some fields prefixed with the '@' sign were accepted as equivalent to the same field name without the prefix. This was unintended and likely caused by a bug in Jersey. This has been rectified and no longer supported. It should be noted that responses represented in json remain the same (no '@' prefix).
+Previously when submitting requests represented in json, some fields prefixed with the \'@\' sign were accepted as equivalent to the same field name without the prefix. This was unintended and likely caused by a bug in Jersey. This has been rectified and no longer supported. It should be noted that responses represented in json remain the same (no \'@\' prefix).
 
 
 ---
@@ -919,9 +901,9 @@ Committed to 0.96 and trunk. Thanks for the review Elliott.
 
 ---
 
-* [HBASE-9645](https://issues.apache.org/jira/browse/HBASE-9645) | *Critical* | **Regionserver halt because of HLog's "Logic Error Snapshot seq id from earlier flush still present!"**
+* [HBASE-9645](https://issues.apache.org/jira/browse/HBASE-9645) | *Critical* | **Regionserver halt because of HLog\'s "Logic Error Snapshot seq id from earlier flush still present!"**
 
-We used to add some code in postBatchMutation coprocessor that calls the HLog.appendNoSync method. This could cause some trouble if I didn't lock the updatesLock of HRegion. However, the HRegion class doesn't provide public methods to lock/unlock this updatesLock outside of it, so I submit a small patch adding two public methods to solve this.
+We used to add some code in postBatchMutation coprocessor that calls the HLog.appendNoSync method. This could cause some trouble if I didn\'t lock the updatesLock of HRegion. However, the HRegion class doesn\'t provide public methods to lock/unlock this updatesLock outside of it, so I submit a small patch adding two public methods to solve this.
 
 
 ---
@@ -995,7 +977,7 @@ Committed this. Thanks Nick for looking.
 
 ---
 
-* [HBASE-9895](https://issues.apache.org/jira/browse/HBASE-9895) | *Major* | **0.96 Import utility can't import an exported file from 0.94**
+* [HBASE-9895](https://issues.apache.org/jira/browse/HBASE-9895) | *Major* | **0.96 Import utility can\'t import an exported file from 0.94**
 
 To import 0.94 exported file in 0.96 cluster or onwards, you need to set system property "hbase.import.version" when running the import command as below:
 
@@ -1027,7 +1009,7 @@ patch for 0.94.x
 
 * [HBASE-9870](https://issues.apache.org/jira/browse/HBASE-9870) | *Major* | **HFileDataBlockEncoderImpl#diskToCacheFormat uses wrong format**
 
-The patch makes sure that data block encoding in cache is always the same as that on disk. It deprecates the column family attribute ENCODE\_ON\_DISK since it doesn't apply any more. HColumnDescriptor#setEncodeOnDisk(boolean) is still there for compatibility issue. However, it doesn't do anything now. HColumnDescriptor#getDataBlockEncodingOnDisk() is also deprecated because the data block encoding on disk is always the same as that in cache for a given store file.
+The patch makes sure that data block encoding in cache is always the same as that on disk. It deprecates the column family attribute ENCODE\_ON\_DISK since it doesn\'t apply any more. HColumnDescriptor#setEncodeOnDisk(boolean) is still there for compatibility issue. However, it doesn\'t do anything now. HColumnDescriptor#getDataBlockEncodingOnDisk() is also deprecated because the data block encoding on disk is always the same as that in cache for a given store file.
 
 
 ---
@@ -1066,19 +1048,19 @@ Usage: hbase mapredcp [-Dtmpjars=...]
 
 * [HBASE-9985](https://issues.apache.org/jira/browse/HBASE-9985) | *Minor* | **Add HBase shell command to start/stop tracing**
 
-Adds new trace 'start', trace 'status', and trace 'stop' commands to shell.
+Adds new trace \'start\', trace \'status\', and trace \'stop\' commands to shell.
 
 
 ---
 
-* [HBASE-9831](https://issues.apache.org/jira/browse/HBASE-9831) | *Minor* | **'hbasefsck.numthreads' property isn't passed to hbck via cmdline -D option**
+* [HBASE-9831](https://issues.apache.org/jira/browse/HBASE-9831) | *Minor* | **\'hbasefsck.numthreads\' property isn\'t passed to hbck via cmdline -D option**
 
 try run hadoopqa for trunk
 
 
 ---
 
-* [HBASE-9973](https://issues.apache.org/jira/browse/HBASE-9973) | *Major* | **[ACL]: Users with 'Admin' ACL permission will lose permissions after upgrade to 0.96.x from 0.94.x or 0.92.x**
+* [HBASE-9973](https://issues.apache.org/jira/browse/HBASE-9973) | *Major* | **[ACL]: Users with \'Admin\' ACL permission will lose permissions after upgrade to 0.96.x from 0.94.x or 0.92.x**
 
 **WARNING: No release note provided for this change.**
 
@@ -1124,8 +1106,8 @@ Using AC along with Visibility is optional. When AC is not available, permission
 
 * [HBASE-10001](https://issues.apache.org/jira/browse/HBASE-10001) | *Minor* | **Add a coprocessor to help testing the performances without taking into account the i/o**
 
-New coprocessor to help analysing the performances of the cluster. This coprocessor drops all the writes on the server side, allowing the measure the client and network performances without any limitation on the disk i/o. For a table created like this: create 'usertable', {NAME =\> 'f1', VERSIONS =\> 1}  . You can then add the coprocessor with this command:
-alter 'usertable', 'coprocessor' =\> '\|org.apache.hadoop.hbase.tool.WriteSinkCoprocessor\|'
+New coprocessor to help analysing the performances of the cluster. This coprocessor drops all the writes on the server side, allowing the measure the client and network performances without any limitation on the disk i/o. For a table created like this: create \'usertable\', {NAME =\> \'f1\', VERSIONS =\> 1}  . You can then add the coprocessor with this command:
+alter \'usertable\', \'coprocessor\' =\> \'\|org.apache.hadoop.hbase.tool.WriteSinkCoprocessor\|\'
 
 
 ---
@@ -1197,7 +1179,7 @@ This change provides support for MurmurHash3, the successor to MurmurHash2. It i
 
 * [HBASE-10010](https://issues.apache.org/jira/browse/HBASE-10010) | *Major* | **eliminate the put latency spike on the new log file beginning**
 
-Forward port of a 0.89fb patch where we issue sync on WAL file construction to force immediate setup of write pipeline (and do it outside of locks so don't hold up writes during setup).
+Forward port of a 0.89fb patch where we issue sync on WAL file construction to force immediate setup of write pipeline (and do it outside of locks so don\'t hold up writes during setup).
 
 
 ---
@@ -1212,7 +1194,7 @@ User can specify REVERSED =\> true along with other scan parameters.
 
 * [HBASE-10116](https://issues.apache.org/jira/browse/HBASE-10116) | *Minor* | **SlabCache metrics improvements**
 
-This change introduces DirectMemory reporting to the RegionServer status page. Oracle JDK6 (1.6.0\_31 in my test) doesn't expose "java.nio:type=BufferPool,name=direct", so DirectMemoryUtils#getDirectMemoryUsage (and thus the change to rs-status#memoryStats) reports 0 on that environment, even when DirectMemory is being consumed.
+This change introduces DirectMemory reporting to the RegionServer status page. Oracle JDK6 (1.6.0\_31 in my test) doesn\'t expose "java.nio:type=BufferPool,name=direct", so DirectMemoryUtils#getDirectMemoryUsage (and thus the change to rs-status#memoryStats) reports 0 on that environment, even when DirectMemory is being consumed.
 
 
 ---
@@ -1234,7 +1216,7 @@ Added hooks postStartRegionOperation and postCloseRegionOperation after startReg
 * [HBASE-10164](https://issues.apache.org/jira/browse/HBASE-10164) | *Major* | **Allow heapsize of different units to be passed as HBASE\_HEAPSIZE**
 
 HBASE\_HEAPSIZE accepts input with units (m, M, g, G).
-If there is no unit, an 'm' would be appended to the value - keeping backward compatibility.
+If there is no unit, an \'m\' would be appended to the value - keeping backward compatibility.
 
 
 ---
@@ -1248,7 +1230,7 @@ A CP hook (postLogReplay) is added which will be called once distributed log rep
 
 * [HBASE-9866](https://issues.apache.org/jira/browse/HBASE-9866) | *Major* | **Support the mode where REST server authorizes proxy users**
 
-hbase.rest.support.proxyuser when set to true would enable enable proxy-user support in the REST server. Like any other server, e.g., NameNode, which supports proxy user mode, appropriate proxy-user configuration needs to be set as well in the REST server (hadoop.proxyuser.$user.hosts, hadoop.proxyuser.$user.groups). Requests can then be made to the REST server with a 'doAs' in the query string url and if proxy user authorization check passes, the query will be executed as the 'doAs' user.
+hbase.rest.support.proxyuser when set to true would enable enable proxy-user support in the REST server. Like any other server, e.g., NameNode, which supports proxy user mode, appropriate proxy-user configuration needs to be set as well in the REST server (hadoop.proxyuser.$user.hosts, hadoop.proxyuser.$user.groups). Requests can then be made to the REST server with a \'doAs\' in the query string url and if proxy user authorization check passes, the query will be executed as the \'doAs\' user.
 
 
 ---
@@ -1300,21 +1282,21 @@ In HTableDescriptor, isDeferredLogFlush() and setDeferredLogFlush() are replaced
 
 * [HBASE-10304](https://issues.apache.org/jira/browse/HBASE-10304) | *Blocker* | **Running an hbase job jar: IllegalAccessError: class com.google.protobuf.ZeroCopyLiteralByteString cannot access its superclass com.google.protobuf.LiteralByteString**
 
-My local site run generates the docbook correctly, looks good to me on both branches. I've committed this to 0.98 and trunk.
+My local site run generates the docbook correctly, looks good to me on both branches. I\'ve committed this to 0.98 and trunk.
 
 
 ---
 
 * [HBASE-6873](https://issues.apache.org/jira/browse/HBASE-6873) | *Blocker* | **Clean up Coprocessor loading failure handling**
 
-The default setting of the configuration parameter 'hbase.coprocessor.abortonerror' has been changed from "false" to "true". This will cause HBase processes to abort if a coprocessor cannot be loaded, fails to initialize, or throws an unexpected exception. If "false", this instead will allow the server to continue execution in such cases but the system wide state of the coprocessor in question will become inconsistent as it will be properly executing in only a subset of servers, so this is most useful for debugging a new coprocessor deployment on a test cluster. Running a secure production cluster with this setting set to "false" is not advised.
+The default setting of the configuration parameter \'hbase.coprocessor.abortonerror\' has been changed from "false" to "true". This will cause HBase processes to abort if a coprocessor cannot be loaded, fails to initialize, or throws an unexpected exception. If "false", this instead will allow the server to continue execution in such cases but the system wide state of the coprocessor in question will become inconsistent as it will be properly executing in only a subset of servers, so this is most useful for debugging a new coprocessor deployment on a test cluster. Running a secure production cluster with this setting set to "false" is not advised.
 
 
 ---
 
 * [HBASE-10366](https://issues.apache.org/jira/browse/HBASE-10366) | *Critical* | **0.94 filterRow() may be skipped in 0.96(or onwards) code**
 
-Thanks for the reviews! I've integrated the v1 patch into trunk, 0.98 & 0.96 branches.
+Thanks for the reviews! I\'ve integrated the v1 patch into trunk, 0.98 & 0.96 branches.
 
 
 ---
@@ -1328,7 +1310,7 @@ This change also fixes a potential data loss issue when using ZK multi actions b
 
 * [HBASE-10322](https://issues.apache.org/jira/browse/HBASE-10322) | *Blocker* | **Strip tags from KV while sending back to client on reads**
 
-Added a new config hbase.replication.rpc.codec, using which one can specify the codec to be used by the replication. This config don't have a default value. When it is not specified, the codec specified by hbase.client.rpc.codec config will be used for replication.(For which org.apache.hadoop.hbase.codec.KeyValueCodec is the default value)
+Added a new config hbase.replication.rpc.codec, using which one can specify the codec to be used by the replication. This config don\'t have a default value. When it is not specified, the codec specified by hbase.client.rpc.codec config will be used for replication.(For which org.apache.hadoop.hbase.codec.KeyValueCodec is the default value)
 
 Note : When using tags directly or indirectly (ie. Usage of cell level visibility labels or per cell ACL) make sure to configure hbase.replication.rpc.codec with a Codec which supports shipping of tags. We have org.apache.hadoop.hbase.codec.KeyValueCodecWithTags  and org.apache.hadoop.hbase.codec.CellCodecWithTags, which can handle tags.
 
@@ -1348,7 +1330,7 @@ Import with this fix supports
 
 a) Filtering of the row using the Filter#filterRowKey(byte[] buffer, int offset, int length).
 
-b) Accepts durability parameter (Ex: -Dimport.wal.durability=SKIP\_WAL ) while importing the data into HBase. If the data doesn't need to be replicated to the DR cluster or if the same import job would be run on the DR cluster, consider using SKIP\_WAL durability for performance.
+b) Accepts durability parameter (Ex: -Dimport.wal.durability=SKIP\_WAL ) while importing the data into HBase. If the data doesn\'t need to be replicated to the DR cluster or if the same import job would be run on the DR cluster, consider using SKIP\_WAL durability for performance.
 
 
 ---

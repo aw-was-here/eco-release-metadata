@@ -18,7 +18,7 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.6.3 - Unreleased (as of 2016-09-15)
+## Release 0.6.3 - Unreleased (as of 2016-09-16)
 
 
 
