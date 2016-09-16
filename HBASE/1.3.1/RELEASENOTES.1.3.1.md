@@ -27,7 +27,7 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 This was a non-issue. The PREFETCH\_... flag actually works. While here though made the following additions.
 
-Changes the prefetch TRACE-level loggings to include the word \'Prefetch\' in them so you know what they are about.
+Changes the prefetch TRACE-level loggings to include the word 'Prefetch' in them so you know what they are about.
 
 Changes the cryptic logging of the CacheConfig#toString to have some preamble saying why and what column family is responsible (helps figure what is going on)
 

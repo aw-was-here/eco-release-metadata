@@ -64,7 +64,7 @@
 | [HIVE-13236](https://issues.apache.org/jira/browse/HIVE-13236) | LLAP: token renewal interval needs to be set |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
 | [HIVE-13263](https://issues.apache.org/jira/browse/HIVE-13263) | Vectorization: Unable to vectorize regexp\_extract/regexp\_replace " Udf: GenericUDFBridge, is not supported" |  Critical | . | Matt McCline | Matt McCline |
 | [HIVE-13243](https://issues.apache.org/jira/browse/HIVE-13243) | Hive drop table on encyption zone fails for external tables |  Major | Encryption, Metastore | Chaoyu Tang | Chaoyu Tang |
-| [HIVE-13232](https://issues.apache.org/jira/browse/HIVE-13232) | Aggressively drop compression buffers in ORC OutStreams |  Major | ORC | Owen O\'Malley | Owen O\'Malley |
+| [HIVE-13232](https://issues.apache.org/jira/browse/HIVE-13232) | Aggressively drop compression buffers in ORC OutStreams |  Major | ORC | Owen O'Malley | Owen O'Malley |
 | [HIVE-13285](https://issues.apache.org/jira/browse/HIVE-13285) | Orc concatenation may drop old files from moving to final path |  Critical | ORC | Prasanth Jayachandran | Prasanth Jayachandran |
 | [HIVE-13242](https://issues.apache.org/jira/browse/HIVE-13242) | DISTINCT keyword is dropped by the parser for windowing |  Major | . | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
 | [HIVE-13299](https://issues.apache.org/jira/browse/HIVE-13299) | Column Names trimmed of leading and trailing spaces |  Major | Parser | Pengcheng Xiong | Pengcheng Xiong |
@@ -77,7 +77,7 @@
 | [HIVE-9499](https://issues.apache.org/jira/browse/HIVE-9499) | hive.limit.query.max.table.partition makes queries fail on non-partitioned tables |  Major | Query Planning | Alexander Kasper | Navis |
 | [HIVE-12552](https://issues.apache.org/jira/browse/HIVE-12552) | Wrong number of reducer estimation causing job to fail |  Major | Physical Optimizer | Rajesh Balamohan | Rajesh Balamohan |
 | [HIVE-13151](https://issues.apache.org/jira/browse/HIVE-13151) | Clean up UGI objects in FileSystem cache for transactions |  Major | Hive | Wei Zheng | Wei Zheng |
-| [HIVE-13324](https://issues.apache.org/jira/browse/HIVE-13324) | LLAP: history log for FRAGMENT\_START doesn\'t log DagId correctly |  Major | . | Sergey Shelukhin | Siddharth Seth |
+| [HIVE-13324](https://issues.apache.org/jira/browse/HIVE-13324) | LLAP: history log for FRAGMENT\_START doesn't log DagId correctly |  Major | . | Sergey Shelukhin | Siddharth Seth |
 | [HIVE-13115](https://issues.apache.org/jira/browse/HIVE-13115) | MetaStore Direct SQL getPartitions call fail when the columns schemas for a partition are null |  Major | Hive | Ratandeep Ratti | Ratandeep Ratti |
 | [HIVE-12992](https://issues.apache.org/jira/browse/HIVE-12992) | Hive on tez: Bucket map join plan is incorrect |  Major | Tez | Vikram Dixit K | Vikram Dixit K |
 | [HIVE-13111](https://issues.apache.org/jira/browse/HIVE-13111) | Fix timestamp / interval\_day\_time wrong results with HIVE-9862 |  Critical | . | Matt McCline | Matt McCline |
@@ -96,7 +96,7 @@
 | [HIVE-13240](https://issues.apache.org/jira/browse/HIVE-13240) | GroupByOperator: Drop the hash aggregates when closing operator |  Major | Query Processor | Gopal V | Gopal V |
 | [HIVE-13463](https://issues.apache.org/jira/browse/HIVE-13463) | Fix ImportSemanticAnalyzer to allow for different src/dst filesystems |  Major | Import/Export | Zach York | Zach York |
 | [HIVE-13630](https://issues.apache.org/jira/browse/HIVE-13630) | missing license headers |  Blocker | . | Sergey Shelukhin | Sergey Shelukhin |
-| [HIVE-13346](https://issues.apache.org/jira/browse/HIVE-13346) | LLAP doesn\'t update metadata priority when reusing from cache; some tweaks in LRFU policy |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
+| [HIVE-13346](https://issues.apache.org/jira/browse/HIVE-13346) | LLAP doesn't update metadata priority when reusing from cache; some tweaks in LRFU policy |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
 | [HIVE-13645](https://issues.apache.org/jira/browse/HIVE-13645) | Beeline needs null-guard around hiveVars and hiveConfVars read |  Minor | Beeline | Sushanth Sowmyan | Sushanth Sowmyan |
 | [HIVE-13390](https://issues.apache.org/jira/browse/HIVE-13390) | HiveServer2: Add more test to ZK service discovery using MiniHS2 |  Major | HiveServer2, JDBC | Vaibhav Gumashta | Vaibhav Gumashta |
 

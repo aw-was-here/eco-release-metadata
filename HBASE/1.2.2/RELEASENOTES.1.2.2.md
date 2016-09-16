@@ -37,7 +37,7 @@ hbase org.apache.hadoop.hbase.procedure2.store.wal.ProcedureWALPrettyPrinter -f 
 
 This was a non-issue. The PREFETCH\_... flag actually works. While here though made the following additions.
 
-Changes the prefetch TRACE-level loggings to include the word \'Prefetch\' in them so you know what they are about.
+Changes the prefetch TRACE-level loggings to include the word 'Prefetch' in them so you know what they are about.
 
 Changes the cryptic logging of the CacheConfig#toString to have some preamble saying why and what column family is responsible (helps figure what is going on)
 
@@ -46,9 +46,9 @@ Add test that verifies setting flag on HColumnDescriptor actually works.
 
 ---
 
-* [HBASE-15640](https://issues.apache.org/jira/browse/HBASE-15640) | *Major* | **L1 cache doesn\'t give fair warning that it is showing partial stats only when it hits limit**
+* [HBASE-15640](https://issues.apache.org/jira/browse/HBASE-15640) | *Major* | **L1 cache doesn't give fair warning that it is showing partial stats only when it hits limit**
 
-The blockcache UI tab would stop refreshing at 100k blocks (configurable, see "hbase.ui.blockcache.by.file.max"), which isn\'t very many blocks when doing a big cache, giving a misleading picture of the content of L1 and/or L2 cache. Up the default limit to 1M blocks (UI takes a while but just a few seconds counting over 1M blocks).
+The blockcache UI tab would stop refreshing at 100k blocks (configurable, see "hbase.ui.blockcache.by.file.max"), which isn't very many blocks when doing a big cache, giving a misleading picture of the content of L1 and/or L2 cache. Up the default limit to 1M blocks (UI takes a while but just a few seconds counting over 1M blocks).
 
 Also, when beyond the limit give the user a noticeable WARNING in the UI.
 

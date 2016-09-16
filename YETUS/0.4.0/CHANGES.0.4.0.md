@@ -27,7 +27,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YETUS-390](https://issues.apache.org/jira/browse/YETUS-390) | qbt needs an "abbreviated email" mode |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
-| [YETUS-341](https://issues.apache.org/jira/browse/YETUS-341) | docker cleanup in sentinel mode doesn\'t know about Created |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
+| [YETUS-341](https://issues.apache.org/jira/browse/YETUS-341) | docker cleanup in sentinel mode doesn't know about Created |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
 
 
 ### NEW FEATURES:
@@ -63,7 +63,7 @@
 | [YETUS-409](https://issues.apache.org/jira/browse/YETUS-409) | Some fixes and improvements for "Cleanup" section in "Managing a Release" document |  Major | website and documentation | Kengo Seki | Kengo Seki |
 | [YETUS-403](https://issues.apache.org/jira/browse/YETUS-403) | hadoop personality needs better handling of homebrew |  Major | Test Patch | Allen Wittenauer | Kengo Seki |
 | [YETUS-419](https://issues.apache.org/jira/browse/YETUS-419) | releasedocmaker should retry when the connection fails |  Major | Release Doc Maker | Akira Ajisaka | Akira Ajisaka |
-| [YETUS-380](https://issues.apache.org/jira/browse/YETUS-380) | "Release Notes" button doesn\'t appear immediately in some cases |  Trivial | website and documentation | Kengo Seki | Kengo Seki |
+| [YETUS-380](https://issues.apache.org/jira/browse/YETUS-380) | "Release Notes" button doesn't appear immediately in some cases |  Trivial | website and documentation | Kengo Seki | Kengo Seki |
 | [YETUS-414](https://issues.apache.org/jira/browse/YETUS-414) | ctest logs are really broken |  Blocker | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-407](https://issues.apache.org/jira/browse/YETUS-407) | DOAP is broken |  Major | website and documentation | Sebb | Kengo Seki |
 | [YETUS-405](https://issues.apache.org/jira/browse/YETUS-405) | Minor typo for python-dateutil package |  Minor | Release Doc Maker, website and documentation | Kengo Seki | Karen Clark |
@@ -81,6 +81,7 @@
 | [YETUS-448](https://issues.apache.org/jira/browse/YETUS-448) | Fix the docs for supported python versions |  Major | website and documentation | Ajay Yadava | Ajay Yadava |
 | [YETUS-456](https://issues.apache.org/jira/browse/YETUS-456) | Typos in documentation |  Trivial | website and documentation | Ajay Yadava | Ajay Yadava |
 | [YETUS-446](https://issues.apache.org/jira/browse/YETUS-446) | releasedocmaker not handling 0 version in a range correctly? |  Major | Release Doc Maker | Allen Wittenauer | Ajay Yadava |
+| [YETUS-457](https://issues.apache.org/jira/browse/YETUS-457) | RDM does not properly escape entities |  Critical | . | Andrew Wang | Andrew Wang |
 
 
 ### OTHER:

@@ -66,14 +66,14 @@ In Apache Hadoop 3.0.0-alpha1, verification required environment variables with 
 
 Developers:
 
-This changes hadoop\_verify\_user to require the program\'s name as part of the function call.  This is incompatible with Apache Hadoop 3.0.0-alpha1.
+This changes hadoop\_verify\_user to require the program's name as part of the function call.  This is incompatible with Apache Hadoop 3.0.0-alpha1.
 
 
 ---
 
 * [HDFS-6962](https://issues.apache.org/jira/browse/HDFS-6962) | *Critical* | **ACL inheritance conflicts with umaskmode**
 
-The original implementation of HDFS ACLs applied the client\'s umask to the permissions when inheriting a default ACL defined on a parent directory.  This behavior is a deviation from the POSIX ACL specification, which states that the umask has no influence when a default ACL propagates from parent to child.  HDFS now offers the capability to ignore the umask in this case for improved compliance with POSIX.  This change is considered backward-incompatible, so the new behavior is off by default and must be explicitly configured by setting dfs.namenode.posix.acl.inheritance.enabled to true in hdfs-site.xml.  Please see the HDFS Permissions Guide for further details.
+The original implementation of HDFS ACLs applied the client's umask to the permissions when inheriting a default ACL defined on a parent directory.  This behavior is a deviation from the POSIX ACL specification, which states that the umask has no influence when a default ACL propagates from parent to child.  HDFS now offers the capability to ignore the umask in this case for improved compliance with POSIX.  This change is considered backward-incompatible, so the new behavior is off by default and must be explicitly configured by setting dfs.namenode.posix.acl.inheritance.enabled to true in hdfs-site.xml.  Please see the HDFS Permissions Guide for further details.
 
 
 ---
@@ -113,7 +113,7 @@ HDFS\_SECONDARYNAMENODE\_OPTS |
 
 * [HADOOP-13588](https://issues.apache.org/jira/browse/HADOOP-13588) | *Major* | **ConfServlet should respect Accept request header**
 
-Conf HTTP service should set response\'s content type according to the Accept header in the request.
+Conf HTTP service should set response's content type according to the Accept header in the request.
 
 
 ---

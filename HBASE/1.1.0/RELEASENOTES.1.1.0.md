@@ -26,14 +26,14 @@ These release notes cover new developer and user-facing incompatibilities, impor
 * [HBASE-12644](https://issues.apache.org/jira/browse/HBASE-12644) | *Major* | **Visibility Labels: issue with storing super users in labels table**
 
 The system visibility label authorization for super users will no longer be persisted in hbase:labels table. Super users will be determined at server startup time. They will have all the permissions for Visibility labels.
-If you have a prior deployment that had super users\' system label persisted in hbase:labels, you can clean up by invoking the shell command \'clear\_auths\'.
-For example: clear\_auths \'old\_superuser\', \'system\'
+If you have a prior deployment that had super users' system label persisted in hbase:labels, you can clean up by invoking the shell command 'clear\_auths'.
+For example: clear\_auths 'old\_superuser', 'system'
 This is particularly necessary when you change super users, i.e. a previous super user is no longer a super user.
 
 
 ---
 
-* [HBASE-10201](https://issues.apache.org/jira/browse/HBASE-10201) | *Major* | **Port \'Make flush decisions per column family\' to trunk**
+* [HBASE-10201](https://issues.apache.org/jira/browse/HBASE-10201) | *Major* | **Port 'Make flush decisions per column family' to trunk**
 
 Adds new flushing policy mechanism. Default, org.apache.hadoop.hbase.regionserver.FlushLargeStoresPolicy, will try to avoid flushing out the small column families in a region, those whose memstores are \< hbase.hregion.percolumnfamilyflush.size.lower.bound. To restore the old behavior of flushes writing out all column families, set hbase.regionserver.flush.policy to org.apache.hadoop.hbase.regionserver.FlushAllStoresPolicy either in hbase-default.xml or on a per-table basis by setting the policy to use with HTableDescriptor.getFlushPolicyClassName().
 
@@ -49,7 +49,7 @@ TestAcidGuarantees used to be runnable from the command line.  It has been renam
 
 * [HBASE-5699](https://issues.apache.org/jira/browse/HBASE-5699) | *Critical* | **Run with \> 1 WAL in HRegionServer**
 
-HBase\'s write-ahead-log (WAL) can now be configured to use multiple HDFS pipelines in parallel to provide better write throughput for clusters by using additional disks. By default, HBase will still use only a single HDFS-based WAL. 
+HBase's write-ahead-log (WAL) can now be configured to use multiple HDFS pipelines in parallel to provide better write throughput for clusters by using additional disks. By default, HBase will still use only a single HDFS-based WAL. 
 
 To run with multiple WALs, alter the hbase-site.xml property "hbase.wal.provider" to have the value "multiwal". To return to having HBase determine what kind of WAL implementation to use either remove the property all together or set it to "defaultProvider".
 
@@ -58,9 +58,9 @@ Altering the WAL provider used by a particular RegionServer requires restarting 
 
 ---
 
-* [HBASE-12028](https://issues.apache.org/jira/browse/HBASE-12028) | *Major* | **Abort the RegionServer, when it\'s handler threads die**
+* [HBASE-12028](https://issues.apache.org/jira/browse/HBASE-12028) | *Major* | **Abort the RegionServer, when it's handler threads die**
 
-Adds a configuration property "hbase.regionserver.handler.abort.on.error.percent" for aborting the region server when some of it\'s handler threads die. The default value is 0.5 causing an abort in the RS when half of it\'s handler threads die. A handler thread only dies in case of a serious software bug, or a non-recoverable Error (StackOverflow, OOM, etc) is thrown. 
+Adds a configuration property "hbase.regionserver.handler.abort.on.error.percent" for aborting the region server when some of it's handler threads die. The default value is 0.5 causing an abort in the RS when half of it's handler threads die. A handler thread only dies in case of a serious software bug, or a non-recoverable Error (StackOverflow, OOM, etc) is thrown. 
 These are possible values for the configuration:
    \* -1  =\> Disable aborting
    \* 0   =\> Abort if even a single handler has died
@@ -102,7 +102,7 @@ MultiRowRangeFilter is a filter to support scanning multiple row key ranges. If 
 
 For users on a version of Hadoop that supports tiered storage policies (i.e. Apache Hadoop 2.6.0+), HBase now allows users to opt-in to having the write ahead log placed on the SSD tier. Users on earlier versions of Hadoop will be unable to take advantage of this feature.
 
-Use of tiered storage is controlled by a new RegionServer config, hbase.wal.storage.policy. It defaults to the value \'NONE\', which will rely on HDFS defaults for a policy decision.
+Use of tiered storage is controlled by a new RegionServer config, hbase.wal.storage.policy. It defaults to the value 'NONE', which will rely on HDFS defaults for a policy decision.
 
 User can specify ONE\_SSD or ALL\_SSD as the value:
 ONE\_SSD: place only one replica of WAL files in SSD and the remaining in default storage
@@ -156,15 +156,15 @@ This client is on by default in master branch (2.0 hbase). It is off in branch-1
 
 VisibilityClient API and shell commands can be used to grant and clear visibility authorizations of a group.
 e.g. 
-set\_auths \'@group1\', [\'SECRET\',\'PRIVATE\']
-get\_auths \'@group1\'
-clear\_auths \'@group1\', [\'SECRET\',\'PRIVATE\']
+set\_auths '@group1', ['SECRET','PRIVATE']
+get\_auths '@group1'
+clear\_auths '@group1', ['SECRET','PRIVATE']
 
-When checking visibility authorizations of a user, the server will include the visibility authorizations of the groups of which the user is a member, together with the user\'s own.
+When checking visibility authorizations of a user, the server will include the visibility authorizations of the groups of which the user is a member, together with the user's own.
 
-On the other hand, get\_auths \'user1\' will only get user1\'s own visibility authorizations.
-clear\_auths \'user1\' will only clear user1\'s own visibility authorizations.
-The visibility authorizations of a group can be changed by invoking the API or command on the \'@group1\' itself.
+On the other hand, get\_auths 'user1' will only get user1's own visibility authorizations.
+clear\_auths 'user1' will only clear user1's own visibility authorizations.
+The visibility authorizations of a group can be changed by invoking the API or command on the '@group1' itself.
 
 Note:
 
@@ -180,7 +180,7 @@ havingSystemAuth(User)
 
 ---
 
-* [HBASE-11574](https://issues.apache.org/jira/browse/HBASE-11574) | *Major* | **hbase:meta\'s regions can be replicated**
+* [HBASE-11574](https://issues.apache.org/jira/browse/HBASE-11574) | *Major* | **hbase:meta's regions can be replicated**
 
 On the server side, set hbase.meta.replica.count to the number of replicas of meta that you want to have in the cluster (defaults to 1). hbase.regionserver. meta.storefile.refresh.period should be set to a non-zero number in milliseconds - something like 30000 (defaults to 0).
 On the client/user side, set hbase.meta.replicas.use to true.
@@ -188,7 +188,7 @@ On the client/user side, set hbase.meta.replicas.use to true.
 
 ---
 
-* [HBASE-12831](https://issues.apache.org/jira/browse/HBASE-12831) | *Major* | **Changing the set of vis labels a user has access to doesn\'t generate an audit log event**
+* [HBASE-12831](https://issues.apache.org/jira/browse/HBASE-12831) | *Major* | **Changing the set of vis labels a user has access to doesn't generate an audit log event**
 
 Auditing of visibility label administration.
 
@@ -264,7 +264,7 @@ Add support for codec and cipher in HFilePerformanceEvaluation
 
 * [HBASE-12978](https://issues.apache.org/jira/browse/HBASE-12978) | *Blocker* | **Region goes permanently offline (WAS: hbase:meta has a row missing hregioninfo and it causes my long-running job to fail)**
 
-Fixes a bug where an optimization that keeps our hfile indexes files small chanced upon an entry that has special meaning in the meta table making it so  we failed to find a region entry in an hbase:meta HFile (though the entry was present). Once we\'d happened upon this condition, the region would be unfindable thereafter making it so the region was considered offline. The bug is in branch-1+ hbase only.
+Fixes a bug where an optimization that keeps our hfile indexes files small chanced upon an entry that has special meaning in the meta table making it so  we failed to find a region entry in an hbase:meta HFile (though the entry was present). Once we'd happened upon this condition, the region would be unfindable thereafter making it so the region was considered offline. The bug is in branch-1+ hbase only.
 
 
 ---
@@ -283,7 +283,7 @@ The configuration parameter "hbase.regionserver.regionSplitLimit", the number of
 
 ---
 
-* [HBASE-13030](https://issues.apache.org/jira/browse/HBASE-13030) | *Major* | **[1.0.0 polish] Make ScanMetrics public again and align Put \'add\' with Get, Delete, etc., addColumn**
+* [HBASE-13030](https://issues.apache.org/jira/browse/HBASE-13030) | *Major* | **[1.0.0 polish] Make ScanMetrics public again and align Put 'add' with Get, Delete, etc., addColumn**
 
 Miscellaneous cleanup. Make ScanMetrics audience public -- was mistakenly made private -- and make their access more amenable. Make Put like Delete and Get adding addColumn method (deprecating add). Make the ByteBuffer returned by Cell read only. Add to CellUtil a method to get a ByteRange on a value.
 
@@ -301,7 +301,7 @@ This change adds two new configuration options:
 
 * [HBASE-13047](https://issues.apache.org/jira/browse/HBASE-13047) | *Trivial* | **Add "HBase Configuration" link missing on the table details pages**
 
-Add a \'/conf\' link to UI
+Add a '/conf' link to UI
 
 
 ---
@@ -321,7 +321,7 @@ The buffer reservoir is bounded at a maximum count after which we will start log
 
 The reservoir will not cache buffers in excess of hbase.ipc.server.reservoir.max.buffer.size  The default is 10MB. This means that if a row is very large, then we will allocate a buffer of the average size that is currently in the pool and we will then resize it till we can accommodate the return. These resizes are expensive. The resultant buffer will be used and then discarded.
 
-To check how the reservoir is doing, enable trace level logging for a few seconds on a regionserver. You can do this from the regionserver UI. See \'Log Level\'. Set org.apache.hadoop.hbase.io.BoundedByteBufferPool to TRACE. The BoundedByteBufferPool will spew report to the log. Disable the TRACE level and then check the log. You\'ll see allocation rate, size of pool, size of buffers in pool, etc.
+To check how the reservoir is doing, enable trace level logging for a few seconds on a regionserver. You can do this from the regionserver UI. See 'Log Level'. Set org.apache.hadoop.hbase.io.BoundedByteBufferPool to TRACE. The BoundedByteBufferPool will spew report to the log. Disable the TRACE level and then check the log. You'll see allocation rate, size of pool, size of buffers in pool, etc.
 
 
 ---
@@ -383,7 +383,7 @@ for 0.98 and 1.0 changes are compatible (due to mitigation by HBASE-13433):
 \* The "incr" command now outputs the current value of the counter to stdout.
 ex:
 {code}
-jruby-1.6.8 :005 \> incr \'counter\_example\', \'r1\', \'cf1:foo\', 10
+jruby-1.6.8 :005 \> incr 'counter\_example', 'r1', 'cf1:foo', 10
 COUNTER VALUE = 1772
 0 row(s) in 0.1180 seconds
 {code}
@@ -393,14 +393,14 @@ for 1.1+ changes are incompatible:
 \* The "get\_counter" command no longer accepts a dummy 4th argument. Downstream users will need to update their code to not pass this argument.
 ex:
 {code}
-jruby-1.6.8 :006 \> get\_counter \'counter\_example\', \'r1\', \'cf1:foo\'
+jruby-1.6.8 :006 \> get\_counter 'counter\_example', 'r1', 'cf1:foo'
 COUNTER VALUE = 1772
 
 {code}
 \* The "incr" command now outputs the current value of the counter to stdout.
 ex:
 {code}
-jruby-1.6.8 :005 \> incr \'counter\_example\', \'r1\', \'cf1:foo\', 10
+jruby-1.6.8 :005 \> incr 'counter\_example', 'r1', 'cf1:foo', 10
 COUNTER VALUE = 1772
 0 row(s) in 0.1180 seconds
 {code}
@@ -410,7 +410,7 @@ COUNTER VALUE = 1772
 
 * [HBASE-13187](https://issues.apache.org/jira/browse/HBASE-13187) | *Critical* | **Add ITBLL that exercises per CF flush**
 
-Pass the -D flag generator.multiple.columnfamilies on the command-line if you want the generator to write three column families rather than the default one. When set, we will write the usual \'meta\' column family and use it checking linked-list is wholesome but we will also write a \'tiny\' column family and a \'big\' column family to provoke uneven flushing; good for testing the flush-by-columnfamily feature.
+Pass the -D flag generator.multiple.columnfamilies on the command-line if you want the generator to write three column families rather than the default one. When set, we will write the usual 'meta' column family and use it checking linked-list is wholesome but we will also write a 'tiny' column family and a 'big' column family to provoke uneven flushing; good for testing the flush-by-columnfamily feature.
 
 
 ---
@@ -421,7 +421,7 @@ The following config is added by this JIRA:
 
 hbase.regionserver.hostname
 
-This config is for experts: don\'t set its value unless you really know what you are doing.
+This config is for experts: don't set its value unless you really know what you are doing.
 When set to a non-empty value, this represents the (external facing) hostname for the underlying server.
 See https://issues.apache.org/jira/browse/HBASE-12954 for details.
 
@@ -432,7 +432,7 @@ Caution: please make sure rolling upgrade succeeds before turning on this featur
 
 * [HBASE-13289](https://issues.apache.org/jira/browse/HBASE-13289) | *Major* | **typo in splitSuccessCount  metric**
 
-In hbase 1.0.0, 0.98.10, 0.98.10.1, 0.98.11, and 0.98.12 \'splitSuccessCount\' was misspelled as \'splitSuccessCounnt\'
+In hbase 1.0.0, 0.98.10, 0.98.10.1, 0.98.11, and 0.98.12 'splitSuccessCount' was misspelled as 'splitSuccessCounnt'
 
 
 ---
@@ -449,7 +449,7 @@ Enhance WALPrettyPrinter to print information (writer classnames and cell codec 
 Results returned from RPC calls may now be returned as partials
 
 When is a Result marked as a partial? 
-When the server must stop the scan because the max size limit has been reached. Means that the LAST Result returned within the ScanResult\'s Result array may be marked as a partial if the scan\'s max size limit caused it to stop in the middle of a row.
+When the server must stop the scan because the max size limit has been reached. Means that the LAST Result returned within the ScanResult's Result array may be marked as a partial if the scan's max size limit caused it to stop in the middle of a row.
 
 Incompatible Change: The return type of InternalScanners#next and RegionScanners#nextRaw has been changed to NextState from boolean
 The previous boolean return value can be accessed via NextState#hasMoreValues()
@@ -493,16 +493,16 @@ Deprecates Result#addResults in favor of Result#setStatistics
 
 * [HBASE-13118](https://issues.apache.org/jira/browse/HBASE-13118) | *Major* | **[PE] Add being able to write many columns**
 
-Adds a --columns option to PE so you can write more than one column (changes default qualifier from \'data\' to \'0\').
+Adds a --columns option to PE so you can write more than one column (changes default qualifier from 'data' to '0').
 
 
 ---
 
 * [HBASE-13275](https://issues.apache.org/jira/browse/HBASE-13275) | *Major* | **Setting hbase.security.authorization to false does not disable authorization**
 
-Prior to this change the configuration setting \'hbase.security.authorization\' had no effect if security coprocessor were installed. The act of installing the security coprocessors was assumed to indicate active authorizaton was desired and required. Now it is possible to install the security coprocessors yet have them operate in a passive state with active authorization disabled by setting \'hbase.security.authorization\' to false. This can be useful but is probably not what you want. For more information, consult the Security section of the HBase online manual. 
+Prior to this change the configuration setting 'hbase.security.authorization' had no effect if security coprocessor were installed. The act of installing the security coprocessors was assumed to indicate active authorizaton was desired and required. Now it is possible to install the security coprocessors yet have them operate in a passive state with active authorization disabled by setting 'hbase.security.authorization' to false. This can be useful but is probably not what you want. For more information, consult the Security section of the HBase online manual. 
 
-\'hbase.security.authorization\' defaults to true for backwards comptatible behavior.
+'hbase.security.authorization' defaults to true for backwards comptatible behavior.
 
 
 ---
@@ -523,7 +523,7 @@ In 1.0.x, master by default binds to the region server ports (both rpc and info)
 
 * [HBASE-13307](https://issues.apache.org/jira/browse/HBASE-13307) | *Major* | **Making methods under ScannerV2#next inlineable, faster**
 
-Made methods smaller under Scanner#next so inlinable and compilable (was getting \'too big to compile\' from hotspot). Use of unsafe to parse shorts rather than use BB#getShort... faster, etc.
+Made methods smaller under Scanner#next so inlinable and compilable (was getting 'too big to compile' from hotspot). Use of unsafe to parse shorts rather than use BB#getShort... faster, etc.
 
 
 ---
@@ -555,7 +555,7 @@ This jira also adds hbase.master.hostname parameter as an extension to HBASE-129
 
 * [HBASE-13469](https://issues.apache.org/jira/browse/HBASE-13469) | *Major* | **[branch-1.1] Procedure V2 - Make procedure v2 configurable in branch-1.1**
 
-In 1.1 release, we implemented Procedure V2 to execute table DDL operations (create/delete/modify/truncate/enable/disable table; add/delete/modify column) to replace 1.0 release\'s handler implementation. By default, Procedure V2 feature is enabled in 1.1 release. We provide a config for customer to go back to 1.0 release implementation.
+In 1.1 release, we implemented Procedure V2 to execute table DDL operations (create/delete/modify/truncate/enable/disable table; add/delete/modify column) to replace 1.0 release's handler implementation. By default, Procedure V2 feature is enabled in 1.1 release. We provide a config for customer to go back to 1.0 release implementation.
 The "hbase.master.procedure.tableddl" configuration accepts 2 values to change the behavior (other values treats as default - Procedure "enabled"):
 (1). "unused" 
 (1a). uses handler implementation to execute new table DDLs; 
@@ -588,7 +588,7 @@ It is recommended that your HBase application matches the Jackson version provid
 In HBase 0.98.x and HBase 1.0.x, we have NOT upgraded the version of Jackson dependencies. If you are on Hadoop 2.5 or above, and your HBase application involves running Yarn jobs, you may encounter Jackson class incomparability issue, as reported in HBASE-13149.
 
 You can do the following to mitigate the problem:
-1. Use \'hadoop jar\' command to run your HBase jobs.
+1. Use 'hadoop jar' command to run your HBase jobs.
 2. Explore classpath isolation options (e.g. HADOOP-10893) or have your own classpath isolation strategy that works for you.
 3. You can also choose to replace the Jackson 1.8.8 jars in $HBASE\_HOME/lib with 1.9.13 jars from your Hadoop lib directory. We have tested HBase 0.98 with Jackson 1.9.13.
 

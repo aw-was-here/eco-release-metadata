@@ -74,7 +74,7 @@ when I read this group.id from properties file and put it to ConsumerConfig, the
 
 
 
-Exception in thread "Thread-1003" kafka.common.InvalidConfigException: client.id MyUserDataReaderGroup  is illegal, contains a character other than ASCII alphanumerics, \'.\', \'\_\' and \'-\'
+Exception in thread "Thread-1003" kafka.common.InvalidConfigException: client.id MyUserDataReaderGroup  is illegal, contains a character other than ASCII alphanumerics, '.', '\_' and '-'
         at kafka.common.Config$class.validateChars(Config.scala:32)
         at kafka.consumer.ConsumerConfig$.validateChars(ConsumerConfig.scala:25)
         at kafka.consumer.ConsumerConfig$.validateClientId(ConsumerConfig.scala:64)
@@ -86,7 +86,7 @@ Exception in thread "Thread-1003" kafka.common.InvalidConfigException: client.id
 2016-03-10 13:34:41.280:INFO:oejsh.ContextHandler:main: Started o.e.j.w.WebAppContext@69a90966{/km,file:/tmp/jetty-0.0.0.0-8080-km.war-\_km-any-7539601194543292160.dir/webapp/,AVAILABLE}{/km.war}
 2016-03-10 13:34:47.128:INFO:ProProject:main: Spring WebApplicationInitializers detected on classpath: [my.package.group.ProProject.services.web.ApplicationInitializer@3474c3b6]
 2016-03-10 13:34:47.259:INFO:ProProject:main: Initializing Spring root WebApplicationContext
-2016-03-10 13:34:55.972:INFO:ProProject:main: Initializing Spring FrameworkServlet \'dispatcher\'
+2016-03-10 13:34:55.972:INFO:ProProject:main: Initializing Spring FrameworkServlet 'dispatcher'
 2016-03-10 13:34:56.782:INFO:oejsh.ContextHandler:main: Started o.e.j.w.WebAppContext@554b8728{/ProProject,file:/tmp/jetty-0.0.0.0-8080-ProProject.war-\_ProProject-any-2165600182871766069.dir/webapp/,AVAILABLE}{/ProProject.war}
 2016-03-10 13:34:56.792:INFO:oejs.ServerConnector:main: Started ServerConnector@65269268{HTTP/1.1}{0.0.0.0:8080}
 

@@ -60,7 +60,7 @@ However if you want to use SSL communication, the 2 ports must be configured to 
 
 ---
 
-* [HBASE-13625](https://issues.apache.org/jira/browse/HBASE-13625) | *Major* | **Use HDFS for HFileOutputFormat2 partitioner\'s path**
+* [HBASE-13625](https://issues.apache.org/jira/browse/HBASE-13625) | *Major* | **Use HDFS for HFileOutputFormat2 partitioner's path**
 
 Introduces a new config hbase.fs.tmp.dir which is a directory in HDFS (or default file system) to use as a staging directory for HFileOutputFormat2. This is also used as the default for hbase.bulkload.staging.dir
 
@@ -127,14 +127,14 @@ Correct Javadoc generation errors
 
 * [HBASE-13906](https://issues.apache.org/jira/browse/HBASE-13906) | *Major* | **Improve handling of NeedUnmanagedConnectionException**
 
-With this patch NeedUnmanagedConnectionException is effectively treated as non-retryable exception, but for backwards compatibility purposes we don\'t throw it directly, but instead wrap into DoNotRetryIOException when we return error to the caller.
+With this patch NeedUnmanagedConnectionException is effectively treated as non-retryable exception, but for backwards compatibility purposes we don't throw it directly, but instead wrap into DoNotRetryIOException when we return error to the caller.
 
 
 ---
 
 * [HBASE-13938](https://issues.apache.org/jira/browse/HBASE-13938) | *Major* | **Deletes done during the region merge transaction may get eclipsed**
 
-Use the master\'s timestamp when sending hbase:meta edits on region merge to ensure proper ordering of new region addition and old region deletes.
+Use the master's timestamp when sending hbase:meta edits on region merge to ensure proper ordering of new region addition and old region deletes.
 
 
 ---
@@ -219,7 +219,7 @@ Previously, HBTU.truncateTable instead issued deletes for all the data already i
 
 * [HBASE-14027](https://issues.apache.org/jira/browse/HBASE-14027) | *Major* | **Clean up netty dependencies**
 
-HBase\'s convenience binary artifact no longer contains the netty 3.2.4 jar . This jar was not directly used by HBase, but may have been relied on by downstream applications.
+HBase's convenience binary artifact no longer contains the netty 3.2.4 jar . This jar was not directly used by HBase, but may have been relied on by downstream applications.
 
 
 ---
@@ -286,7 +286,7 @@ Promotes an -ea assert to logged FATAL and RS abort when memstore is found to be
 * [HBASE-14148](https://issues.apache.org/jira/browse/HBASE-14148) | *Major* | **Web UI Framable Page**
 
 Security fix: Adds protection from clickjacking using X-Frame-Options header.
-This will prevent use of HBase UI in frames. To disable this feature, set the configuration \'hbase.http.filter.xframeoptions.mode\' to \'ALLOW\' (default is \'DENY\').
+This will prevent use of HBase UI in frames. To disable this feature, set the configuration 'hbase.http.filter.xframeoptions.mode' to 'ALLOW' (default is 'DENY').
 
 
 ---
@@ -325,7 +325,7 @@ HConnection could get stuck when talking to a host that went down and then retur
 
 * [HBASE-14261](https://issues.apache.org/jira/browse/HBASE-14261) | *Major* | **Enhance Chaos Monkey framework by adding zookeeper and datanode fault injections.**
 
-This change augments existing chaos monkey framework with actions for restarting underlying zookeeper quorum and hdfs nodes of distributed hbase cluster. One assumption made while creating zk actions are that zookeper ensemble is an independent external service and won\'t be managed by hbase cluster.  For these actions to work as expected, the following parameters need to be configured appropriately.
+This change augments existing chaos monkey framework with actions for restarting underlying zookeeper quorum and hdfs nodes of distributed hbase cluster. One assumption made while creating zk actions are that zookeper ensemble is an independent external service and won't be managed by hbase cluster.  For these actions to work as expected, the following parameters need to be configured appropriately.
 
 {code}
 \<property\>
@@ -357,7 +357,7 @@ The service user related configurations are newly introduced since in prod/test 
 
 ---
 
-* [HBASE-14317](https://issues.apache.org/jira/browse/HBASE-14317) | *Blocker* | **Stuck FSHLog: bad disk (HDFS-8960) and can\'t roll WAL**
+* [HBASE-14317](https://issues.apache.org/jira/browse/HBASE-14317) | *Blocker* | **Stuck FSHLog: bad disk (HDFS-8960) and can't roll WAL**
 
 Tighten up WAL-use semantic.
 
@@ -398,12 +398,12 @@ ReplicationSourceManager now could track multiple wal paths. Notice that althoug
 
 * [HBASE-14400](https://issues.apache.org/jira/browse/HBASE-14400) | *Critical* | **Fix HBase RPC protection documentation**
 
-To use rpc protection in HBase, set the value of \'hbase.rpc.protection\' to:
-\'authentication\' : simple authentication using kerberos
-\'integrity\' : authentication and integrity
-\'privacy\' : authentication and confidentiality
+To use rpc protection in HBase, set the value of 'hbase.rpc.protection' to:
+'authentication' : simple authentication using kerberos
+'integrity' : authentication and integrity
+'privacy' : authentication and confidentiality
 
-Earlier, HBase reference guide erroneously mentioned in some places to set the value to \'auth-conf\'. This patch fixes the guide and adds temporary support for erroneously recommended values.
+Earlier, HBase reference guide erroneously mentioned in some places to set the value to 'auth-conf'. This patch fixes the guide and adds temporary support for erroneously recommended values.
 
 
 ---
@@ -415,9 +415,9 @@ Tests run with client executors that have core thread count of 4 and a keepalive
 
 ---
 
-* [HBASE-14334](https://issues.apache.org/jira/browse/HBASE-14334) | *Major* | **Move Memcached block cache in to it\'s own optional module.**
+* [HBASE-14334](https://issues.apache.org/jira/browse/HBASE-14334) | *Major* | **Move Memcached block cache in to it's own optional module.**
 
-Move external block cache to it\'s own module. This  will reduce dependencies for people who use hbase-server.
+Move external block cache to it's own module. This  will reduce dependencies for people who use hbase-server.
 Currently Memcached is the reference implementation for external block cache. External block caches allow HBase to take advantage of other more complex caches that can live longer than the HBase regionserver process and are not necessarily tied to a single computer
     life time. However external block caches add in extra operational overhead.
 
@@ -439,7 +439,7 @@ Remove calling getNumCurrentReplicas on HdfsDataOutputStream via reflection. get
 
 ---
 
-* [HBASE-14465](https://issues.apache.org/jira/browse/HBASE-14465) | *Major* | **Backport \'Allow rowlock to be reader/write\' to branch-1**
+* [HBASE-14465](https://issues.apache.org/jira/browse/HBASE-14465) | *Major* | **Backport 'Allow rowlock to be reader/write' to branch-1**
 
 Locks on row are now reader/writer rather than exclusive. 
 
@@ -449,7 +449,7 @@ MVCC methods cleaned up. Make a bit more sense now. Less of them.
 
 Simplifies our update of MemStore/WAL. Now we update memstore AFTER we add to WAL (but before we sync). This fixes possible dataloss when two edits came in with same coordinates; we could order the edits in memstore differently to how they arrived in the WAL. 
 
-Marked as an incompatible change because it breaks Distributed Log Replay, a feature we\'d determined already was unreliable and to be removed (See http://search-hadoop.com/m/YGbbhTJpoal8GD1).
+Marked as an incompatible change because it breaks Distributed Log Replay, a feature we'd determined already was unreliable and to be removed (See http://search-hadoop.com/m/YGbbhTJpoal8GD1).
 
 
 ---
@@ -465,23 +465,23 @@ Region observer notifications w.r.t. split request are now audited with request 
 
 This patch adds shell support for region normalizer (see HBASE-13103).
 
-3 commands have been added to hbase shell \'tools\' command group (modeled on how the balancer works):
+3 commands have been added to hbase shell 'tools' command group (modeled on how the balancer works):
 
- - \'normalizer\_enabled\' checks whether region normalizer is turned on
- - \'normalizer\_switch\' allows user to turn normalizer on and off
- - \'normalize\' runs region normalizer if it\'s turned on.
+ - 'normalizer\_enabled' checks whether region normalizer is turned on
+ - 'normalizer\_switch' allows user to turn normalizer on and off
+ - 'normalize' runs region normalizer if it's turned on.
 
-Also \'alter\' command has been extended to allow user to enable/disable region normalization per table (disabled by default). Use it as 
+Also 'alter' command has been extended to allow user to enable/disable region normalization per table (disabled by default). Use it as 
 
-alter \'testtable\', {NORMALIZATION\_MODE =\> \'true\'}
+alter 'testtable', {NORMALIZATION\_MODE =\> 'true'}
 
 Here is the help for the normalize command:
 
 {code}
-hbase(main):008:0\> help \'normalize\'
+hbase(main):008:0\> help 'normalize'
 Trigger region normalizer for all tables which have NORMALIZATION\_MODE flag set. Returns true
  if normalizer ran successfully, false otherwise. Note that this command has no effect
- if region normalizer is disabled (make sure it\'s turned on using \'normalizer\_switch\' command).
+ if region normalizer is disabled (make sure it's turned on using 'normalizer\_switch' command).
 
  Examples:
 
@@ -493,7 +493,7 @@ Trigger region normalizer for all tables which have NORMALIZATION\_MODE flag set
 
 * [HBASE-14544](https://issues.apache.org/jira/browse/HBASE-14544) | *Major* | **Allow HConnectionImpl to not refresh the dns on errors**
 
-By setting hbase.resolve.hostnames.on.failure to false you can reduce the number of dns name resolutions that a client will do. However if machines leave and come back with different ip\'s the changes will not be noticed by the clients. So only set hbase.resolve.hostnames.on.failure to false if your cluster dns is not changing while clients are connected.
+By setting hbase.resolve.hostnames.on.failure to false you can reduce the number of dns name resolutions that a client will do. However if machines leave and come back with different ip's the changes will not be noticed by the clients. So only set hbase.resolve.hostnames.on.failure to false if your cluster dns is not changing while clients are connected.
 
 
 ---
@@ -509,7 +509,7 @@ HBASE-14502 Purge use of jmock and remove as dependency
 
 HBase daemons can now be signaled to reload their config by sending SIGHUP to the java process. Not all config parameters can be reloaded.
 
-In order for this new feature to work the hbase-daemon.sh script was changed to use disown rather than nohup. Functionally this shouldn\'t change anything but the processes will have a different parent when being run from a connected login shell.
+In order for this new feature to work the hbase-daemon.sh script was changed to use disown rather than nohup. Functionally this shouldn't change anything but the processes will have a different parent when being run from a connected login shell.
 
 
 ---
@@ -521,11 +521,11 @@ Introduces collection and reporting of various client-perceived metrics. Metrics
 
 ---
 
-* [HBASE-14517](https://issues.apache.org/jira/browse/HBASE-14517) | *Minor* | **Show regionserver\'s version in master status page**
+* [HBASE-14517](https://issues.apache.org/jira/browse/HBASE-14517) | *Minor* | **Show regionserver's version in master status page**
 
 Adds server version to the listing of regionservers on the master home page.
 
-if a cluster where the versions deviate, at the bottom of the \'Version\' column on the master home page listing of \'Region Servers\', you will see a note in red that says something like: \'Total:10		9 nodes with inconsistent version\'
+if a cluster where the versions deviate, at the bottom of the 'Version' column on the master home page listing of 'Region Servers', you will see a note in red that says something like: 'Total:10		9 nodes with inconsistent version'
 
 
 ---
@@ -589,7 +589,7 @@ Adds a timeout to server read from clients. Adds new configs hbase.thrift.server
 
 ---
 
-* [HBASE-14605](https://issues.apache.org/jira/browse/HBASE-14605) | *Blocker* | **Split fails due to \'No valid credentials\' error when SecureBulkLoadEndpoint#start tries to access hdfs**
+* [HBASE-14605](https://issues.apache.org/jira/browse/HBASE-14605) | *Blocker* | **Split fails due to 'No valid credentials' error when SecureBulkLoadEndpoint#start tries to access hdfs**
 
 When split is requested by non-super user, split related notifications for Coprocessor are executed using the login of the request user.
 Previously the notifications were carried out as super user.
@@ -615,18 +615,18 @@ Region observer notifications w.r.t. compaction request are now audited with req
 
 HBASE-7171 adds 2 new pages to the region server Web UI to ease debugging and provide greater insight into the physical data layout.
 
-Region names in UI table listing all regions (on the RS status page) are now hyperlinks leading to region detail page which shows some aggregate memstore information (currently just memory used) along with the list of all Store Files (HFiles) in the region. Names of Store Files are also hyperlinks leading to Store File detail page, which currently runs \'hbase hfile\' command behind the scene and displays statistics about store file.
+Region names in UI table listing all regions (on the RS status page) are now hyperlinks leading to region detail page which shows some aggregate memstore information (currently just memory used) along with the list of all Store Files (HFiles) in the region. Names of Store Files are also hyperlinks leading to Store File detail page, which currently runs 'hbase hfile' command behind the scene and displays statistics about store file.
 
 
 ---
 
-* [HBASE-14946](https://issues.apache.org/jira/browse/HBASE-14946) | *Critical* | **Don\'t allow multi\'s to over run the max result size.**
+* [HBASE-14946](https://issues.apache.org/jira/browse/HBASE-14946) | *Critical* | **Don't allow multi's to over run the max result size.**
 
 The HBase region server will now send a chunk of get responses to a client if the total response size is too large. This will only be done for clients 1.2.0 and beyond. Older clients by default will have the old behavior.
 
 This patch is for the case where the basic flow is like this:
 
-I want to get a single column from lots of rows. So I create a list of gets. Then I send them to table.get(List\<Get\>). If the regions for that table are spread out then those requests get chunked out to all the region servers. No one regionserver gets too many. However if one region server contains lots of regions for that table then a multi action can contain lots of gets. No single get is too onerous. However the regionserver won\'t return until every get is complete. So if there are thousands of gets that are sent in one multi then the regionserver can retain lots of data in one thread.
+I want to get a single column from lots of rows. So I create a list of gets. Then I send them to table.get(List\<Get\>). If the regions for that table are spread out then those requests get chunked out to all the region servers. No one regionserver gets too many. However if one region server contains lots of regions for that table then a multi action can contain lots of gets. No single get is too onerous. However the regionserver won't return until every get is complete. So if there are thousands of gets that are sent in one multi then the regionserver can retain lots of data in one thread.
 
 
 ---
@@ -687,7 +687,7 @@ heap	memstore perc	maxLogs
 
 ---
 
-* [HBASE-14978](https://issues.apache.org/jira/browse/HBASE-14978) | *Blocker* | **Don\'t allow Multi to retain too many blocks**
+* [HBASE-14978](https://issues.apache.org/jira/browse/HBASE-14978) | *Blocker* | **Don't allow Multi to retain too many blocks**
 
 Limiting the amount of memory resident for any one request allows the server to handle concurrent requests smoothly. To this end we added the ability to limit the size of responses to a multi request. That worked well however it correctly represent the amount of memory resident. So this issue adds on a an approximation of the number of blocks held for a request.
 
@@ -703,7 +703,7 @@ All clients before 1.2.0 will not get this multi request chunking based upon blo
 
 ---
 
-* [HBASE-14822](https://issues.apache.org/jira/browse/HBASE-14822) | *Major* | **Renewing leases of scanners doesn\'t work**
+* [HBASE-14822](https://issues.apache.org/jira/browse/HBASE-14822) | *Major* | **Renewing leases of scanners doesn't work**
 
 And 1.1, 1.0, and 0.98.
 
@@ -755,15 +755,15 @@ UPDATE: This forward port was not necessary. hbase-1.2.0 as it happens does not 
 
 Increments can be 10x slower (or more) when there is high concurrency since HBase 1.0.0 (HBASE-8763). 
 
-This \'fix\' adds back a fast increment but speed is achieved by relaxing row-level consistency for Increments (only). The default remains the old, slow, consistent Increment behavior. 
+This 'fix' adds back a fast increment but speed is achieved by relaxing row-level consistency for Increments (only). The default remains the old, slow, consistent Increment behavior. 
 
-Set "hbase.increment.fast.but.narrow.consistency" to true in hbase-site.xml to enable \'fast\' increments and then rolling restart your cluster. This is a setting the server-side needs to read. 
+Set "hbase.increment.fast.but.narrow.consistency" to true in hbase-site.xml to enable 'fast' increments and then rolling restart your cluster. This is a setting the server-side needs to read. 
 
 Intermixing fast increment with other Mutations will give indeterminate results; e.g. a Put and Increment against the same Cell will not always give you the result you expect. Fast Increments are consistent unto themselves. A Get with {@link IsolationLevel#READ\_UNCOMMITTED} will return the latest increment value or an Increment of an amount zero will do the same (beware doing Get on a cell that has not been incremented yet -- this will return no results). 
 
 The difference between fastAndNarrowConsistencyIncrement and slowButConsistentIncrement is that the former holds the row lock until the WAL sync completes; this allows us to reason that there are no other writers afoot when we read the current increment value. In this case we do not need to wait on mvcc reads to catch up to writes before we proceed with the read of the current Increment value, the root of the slowdown seen in HBASE-14460. The fast-path also does not wait on mvcc to complete before returning to the client (but the write has been synced and put into memstore before we return). 
 
-Also adds a simple performance test tool that will run against existing cluster. It expects the table to be already created (by default it expects the table \'tableName\' with a column family \'columnFamilyName\'): 
+Also adds a simple performance test tool that will run against existing cluster. It expects the table to be already created (by default it expects the table 'tableName' with a column family 'columnFamilyName'): 
 
 {code} 
 $ ./bin/hbase org.apache.hadoop.hbase.IncrementPerformanceTest 
@@ -829,7 +829,7 @@ Command:
  checkAndDelete  CheckAndDelete on each row; clients overlap on keyspace so some concurrent operations
  checkAndMutate  CheckAndMutate on each row; clients overlap on keyspace so some concurrent operations
  checkAndPut     CheckAndPut on each row; clients overlap on keyspace so some concurrent operations
- filterScan      Run scan test using a filter to find a specific row based on it\'s value (make sure to use --rows=20)
+ filterScan      Run scan test using a filter to find a specific row based on it's value (make sure to use --rows=20)
  increment       Increment on each row; clients overlap on keyspace so some concurrent operations
  randomRead      Run random read test
 ....
@@ -880,7 +880,7 @@ Checksumming is cpu intensive. HBase computes additional checksums for HFiles (h
 
 Default checksum algorithm has been changed from CRC32 to CRC32C primarily because of two reasons: 1) CRC32C has better error detection properties, and 2) New Intel processors have a dedicated instruction for crc32c computation (SSE4.2 instruction set)\*. This change is fully backward compatible. Also, users should not see any differences except decrease in cpu usage. To keep old settings, set configuration ‘hbase.hstore.checksum.algorithm’ to ‘CRC32’.
 
-\* On linux, run \'cat /proc/cpuinfo’ and look for sse4\_2 in list of flags to see if your processor supports SSE4.2.
+\* On linux, run 'cat /proc/cpuinfo’ and look for sse4\_2 in list of flags to see if your processor supports SSE4.2.
 
 
 ---

@@ -33,7 +33,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [FLINK-3878](https://issues.apache.org/jira/browse/FLINK-3878) | File cache doesn\'t support multiple duplicate temp directories |  Major | Distributed Coordination, Local Runtime | Ken Krugler | Ken Krugler |
+| [FLINK-3878](https://issues.apache.org/jira/browse/FLINK-3878) | File cache doesn't support multiple duplicate temp directories |  Major | Distributed Coordination, Local Runtime | Ken Krugler | Ken Krugler |
 | [FLINK-3926](https://issues.apache.org/jira/browse/FLINK-3926) | Incorrect implementation of getFieldIndex in TupleTypeInfo |  Minor | Core | Yijie Shen | Yijie Shen |
 | [FLINK-3914](https://issues.apache.org/jira/browse/FLINK-3914) | BlobServer.createTemporaryFilename() has concurrency safety problem |  Major | . | ZhengBowen | Mark Reddy |
 | [FLINK-3975](https://issues.apache.org/jira/browse/FLINK-3975) | Override baseurl when serving docs locally |  Trivial | Documentation | Dyana Rose |  |

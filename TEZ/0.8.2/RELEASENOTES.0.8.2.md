@@ -25,7 +25,7 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 * [TEZ-2679](https://issues.apache.org/jira/browse/TEZ-2679) | *Major* | **Admin forms of launch env settings**
 
-TEZ-2679 introduced new admin configuration (tez.am.launch.cluster-default.env, tez.task.launch.cluster-default.env) settings. The settings will be merged per environment variable and environment variables specified in both admin setting and user override will merged in the following manner (assuming linux classpath here, but works for other OS\'s).
+TEZ-2679 introduced new admin configuration (tez.am.launch.cluster-default.env, tez.task.launch.cluster-default.env) settings. The settings will be merged per environment variable and environment variables specified in both admin setting and user override will merged in the following manner (assuming linux classpath here, but works for other OS's).
 
 ./:USER\_PATH:ADMIN\_PATH
 

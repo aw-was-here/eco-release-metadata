@@ -83,7 +83,7 @@
 | [BIGTOP-2346](https://issues.apache.org/jira/browse/BIGTOP-2346) | Do not use gradle delete() for sources and build directories |  Major | build | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-2220](https://issues.apache.org/jira/browse/BIGTOP-2220) | flume-agent.init incorrectly handles flume.conf |  Major | . | Teruyoshi Zenmyo | Teruyoshi Zenmyo |
 | [BIGTOP-2353](https://issues.apache.org/jira/browse/BIGTOP-2353) | fix qfs suse build |  Major | build, qfs | Olaf Flebbe | Olaf Flebbe |
-| [BIGTOP-2350](https://issues.apache.org/jira/browse/BIGTOP-2350) | HCatalog WebHCat server\'s default file incorrectly specifies HCAT\_PREFIX AND HADOOP\_PREFIX |  Minor | hive | Rob Leidle | Rob Leidle |
+| [BIGTOP-2350](https://issues.apache.org/jira/browse/BIGTOP-2350) | HCatalog WebHCat server's default file incorrectly specifies HCAT\_PREFIX AND HADOOP\_PREFIX |  Minor | hive | Rob Leidle | Rob Leidle |
 | [BIGTOP-2358](https://issues.apache.org/jira/browse/BIGTOP-2358) | Update the URL for Bigtop-trunk-packages job on README |  Trivial | documentation | YoungWoo Kim | YoungWoo Kim |
 | [BIGTOP-2354](https://issues.apache.org/jira/browse/BIGTOP-2354) | qfs does not build on fedora |  Major | qfs | Olaf Flebbe | Faraaz Sareshwala |
 | [BIGTOP-2359](https://issues.apache.org/jira/browse/BIGTOP-2359) | Add .DS\_Store to .gitignore |  Trivial | . | YoungWoo Kim | YoungWoo Kim |
@@ -112,7 +112,7 @@
 | [BIGTOP-2400](https://issues.apache.org/jira/browse/BIGTOP-2400) | Get groovy plugins used by Maven in sync with Bigtop groovy runtime |  Major | build, tests | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2434](https://issues.apache.org/jira/browse/BIGTOP-2434) | Change Spark test to unpack jar file and retrieve resources |  Major | tests | Dasha Boudnik | Dasha Boudnik |
 | [BIGTOP-2439](https://issues.apache.org/jira/browse/BIGTOP-2439) | flink: fix adduser and register init.d scripts on DEB systemes |  Major | build, flink | Olaf Flebbe | Olaf Flebbe |
-| [BIGTOP-2441](https://issues.apache.org/jira/browse/BIGTOP-2441) | spark smoke test doesn\'t work relying on yarn-client submittion |  Major | tests | Konstantin Boudnik | Konstantin Boudnik |
+| [BIGTOP-2441](https://issues.apache.org/jira/browse/BIGTOP-2441) | spark smoke test doesn't work relying on yarn-client submittion |  Major | tests | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2412](https://issues.apache.org/jira/browse/BIGTOP-2412) | arm dockerfile breaks RAT |  Critical | build | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2427](https://issues.apache.org/jira/browse/BIGTOP-2427) | jsvc build not recognizing ARM as valid platform |  Critical | jsvc | Ganesh Raju | Ganesh Raju |
 | [BIGTOP-2463](https://issues.apache.org/jira/browse/BIGTOP-2463) | Regression: bigtop-jsvc build fails on ppc64le architecture |  Critical | build, jsvc, ppc64le | Amir Sanjar | Amir Sanjar |

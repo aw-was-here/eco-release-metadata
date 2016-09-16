@@ -101,10 +101,11 @@
 | [HDFS-10832](https://issues.apache.org/jira/browse/HDFS-10832) | Propagate ACL bit and isEncrypted bit in HttpFS FileStatus permissions |  Critical | httpfs | Andrew Wang | Andrew Wang |
 | [HDFS-9781](https://issues.apache.org/jira/browse/HDFS-9781) | FsDatasetImpl#getBlockReports can occasionally throw NullPointerException |  Major | datanode | Wei-Chiu Chuang | Manoj Govindassamy |
 | [HDFS-10830](https://issues.apache.org/jira/browse/HDFS-10830) | FsDatasetImpl#removeVolumes crashes with IllegalMonitorStateException when vol being removed is in use |  Major | hdfs | Manoj Govindassamy | Arpit Agarwal |
-| [HADOOP-13587](https://issues.apache.org/jira/browse/HADOOP-13587) | distcp.map.bandwidth.mb is overwritten even when -bandwidth flag isn\'t set |  Minor | tools/distcp | Zoran Dimitrijevic | Zoran Dimitrijevic |
+| [HADOOP-13587](https://issues.apache.org/jira/browse/HADOOP-13587) | distcp.map.bandwidth.mb is overwritten even when -bandwidth flag isn't set |  Minor | tools/distcp | Zoran Dimitrijevic | Zoran Dimitrijevic |
 | [HDFS-10856](https://issues.apache.org/jira/browse/HDFS-10856) | Update the comment of BPServiceActor$Scheduler#scheduleNextBlockReport |  Minor | documentation | Akira Ajisaka | Yiqun Lin |
 | [YARN-5630](https://issues.apache.org/jira/browse/YARN-5630) | NM fails to start after downgrade from 2.8 to 2.7 |  Blocker | nodemanager | Jason Lowe | Jason Lowe |
 | [HADOOP-13616](https://issues.apache.org/jira/browse/HADOOP-13616) | Broken code snippet area in Hadoop Benchmarking |  Minor | documentation | Kai Sasaki | Kai Sasaki |
+| [HDFS-10862](https://issues.apache.org/jira/browse/HDFS-10862) | Typos in 4 log messages |  Trivial | . | Mehran Hassani | Mehran Hassani |
 
 
 ### SUB-TASKS:
@@ -146,7 +147,6 @@
 | [HDFS-10562](https://issues.apache.org/jira/browse/HDFS-10562) | DiskBalancer: update documentation on how to report issues and debug |  Minor | balancer & mover | Anu Engineer | Anu Engineer |
 | [HDFS-10805](https://issues.apache.org/jira/browse/HDFS-10805) | Reduce runtime for append test |  Minor | test | Gergely Novák | Gergely Novák |
 | [YARN-5620](https://issues.apache.org/jira/browse/YARN-5620) | Core changes in NodeManager to support re-initialization of Containers with new launchContext |  Major | . | Arun Suresh | Arun Suresh |
-| [HDFS-9895](https://issues.apache.org/jira/browse/HDFS-9895) | Remove unnecessary conf cache from DataNode |  Major | datanode | Xiaobing Zhou | Xiaobing Zhou |
 
 
 ### OTHER:

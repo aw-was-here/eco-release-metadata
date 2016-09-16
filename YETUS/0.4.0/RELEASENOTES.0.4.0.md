@@ -42,7 +42,7 @@ Developers:
 
 ---
 
-* [YETUS-341](https://issues.apache.org/jira/browse/YETUS-341) | *Major* | **docker cleanup in sentinel mode doesn\'t know about Created**
+* [YETUS-341](https://issues.apache.org/jira/browse/YETUS-341) | *Major* | **docker cleanup in sentinel mode doesn't know about Created**
 
 Developers:
 

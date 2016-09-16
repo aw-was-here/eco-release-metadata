@@ -25,7 +25,7 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 * [HBASE-15479](https://issues.apache.org/jira/browse/HBASE-15479) | *Major* | **No more garbage or beware of autoboxing**
 
-This fix decreases client\'s memory allocation during writes by more than 50%.
+This fix decreases client's memory allocation during writes by more than 50%.
 
 
 ---

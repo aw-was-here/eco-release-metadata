@@ -39,7 +39,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [FLINK-3904](https://issues.apache.org/jira/browse/FLINK-3904) | GlobalConfiguration doesn\'t ensure config has been loaded |  Minor | . | Maximilian Michels | Maximilian Michels |
+| [FLINK-3904](https://issues.apache.org/jira/browse/FLINK-3904) | GlobalConfiguration doesn't ensure config has been loaded |  Minor | . | Maximilian Michels | Maximilian Michels |
 | [FLINK-4179](https://issues.apache.org/jira/browse/FLINK-4179) | Update TPCHQuery3Table example |  Major | Table API & SQL | Timo Walther |  |
 | [FLINK-4299](https://issues.apache.org/jira/browse/FLINK-4299) | Show loss of job manager in Client |  Major | Client | Ufuk Celebi | Maximilian Michels |
 | [FLINK-4251](https://issues.apache.org/jira/browse/FLINK-4251) | Add possiblity for the RMQ Streaming Sink to customize the queue |  Minor | Streaming Connectors | Philipp Grulich |  |
@@ -58,8 +58,8 @@
 | [FLINK-4189](https://issues.apache.org/jira/browse/FLINK-4189) | Introduce symbols for internal use |  Major | Table API & SQL | Timo Walther | Timo Walther |
 | [FLINK-4282](https://issues.apache.org/jira/browse/FLINK-4282) | Add Offset Parameter to WindowAssigners |  Major | Streaming | Aljoscha Krettek |  |
 | [FLINK-4222](https://issues.apache.org/jira/browse/FLINK-4222) | Allow Kinesis configuration to get credentials from AWS Metadata |  Minor | Streaming Connectors | Nick Chadwick |  |
-| [FLINK-3866](https://issues.apache.org/jira/browse/FLINK-3866) | StringArraySerializer claims type is immutable; shouldn\'t |  Minor | Core | Tatu Saloranta | Ivan Mushketyk |
-| [FLINK-4435](https://issues.apache.org/jira/browse/FLINK-4435) | Replace Guava\'s VisibleForTesting annotation with Flink\'s annotation |  Major | . | Stephan Ewen | Jark Wu |
+| [FLINK-3866](https://issues.apache.org/jira/browse/FLINK-3866) | StringArraySerializer claims type is immutable; shouldn't |  Minor | Core | Tatu Saloranta | Ivan Mushketyk |
+| [FLINK-4435](https://issues.apache.org/jira/browse/FLINK-4435) | Replace Guava's VisibleForTesting annotation with Flink's annotation |  Major | . | Stephan Ewen | Jark Wu |
 | [FLINK-4253](https://issues.apache.org/jira/browse/FLINK-4253) | Rename "recovery.mode" config key to "high-availability" |  Major | . | Ufuk Celebi | ramkrishna.s.vasudevan |
 | [FLINK-4457](https://issues.apache.org/jira/browse/FLINK-4457) | Make the ExecutionGraph independent of Akka |  Major | Distributed Coordination | Till Rohrmann | Stephan Ewen |
 | [FLINK-3899](https://issues.apache.org/jira/browse/FLINK-3899) | Document window processing with Reduce/FoldFunction + WindowFunction |  Major | Documentation, Streaming | Fabian Hueske | Daniel Blazevski |
@@ -68,7 +68,7 @@
 | [FLINK-4539](https://issues.apache.org/jira/browse/FLINK-4539) | Duplicate/inconsistent logic for physical memory size in classes "Hardware" and "EnvironmentInformation" |  Minor | Local Runtime | Stephan Ewen | Stephan Ewen |
 | [FLINK-4340](https://issues.apache.org/jira/browse/FLINK-4340) | Remove RocksDB Semi-Async Checkpoint Mode |  Major | State Backends, Checkpointing | Aljoscha Krettek | Aljoscha Krettek |
 | [FLINK-4459](https://issues.apache.org/jira/browse/FLINK-4459) | Introduce SlotProvider for Scheduler |  Major | Scheduler | Till Rohrmann | Kurt Young |
-| [FLINK-4599](https://issues.apache.org/jira/browse/FLINK-4599) | Add \'explain()\' also to StreamTableEnvironment |  Major | Table API & SQL | Timo Walther | Simone Robutti |
+| [FLINK-4599](https://issues.apache.org/jira/browse/FLINK-4599) | Add 'explain()' also to StreamTableEnvironment |  Major | Table API & SQL | Timo Walther | Simone Robutti |
 
 
 ### BUG FIXES:
@@ -85,7 +85,7 @@
 | [FLINK-4307](https://issues.apache.org/jira/browse/FLINK-4307) | Broken user-facing API for ListState |  Blocker | Streaming | Stephan Ewen | Stephan Ewen |
 | [FLINK-4219](https://issues.apache.org/jira/browse/FLINK-4219) | Quote PDSH opts in start-cluster.sh |  Major | Startup Shell Scripts | Greg Hogan | Greg Hogan |
 | [FLINK-4314](https://issues.apache.org/jira/browse/FLINK-4314) | Test instability in JobManagerHAJobGraphRecoveryITCase.testJobPersistencyWhenJobManagerShutdown |  Major | . | Ufuk Celebi |  |
-| [FLINK-4297](https://issues.apache.org/jira/browse/FLINK-4297) | Yarn client can\'t determine fat jar location if path contains spaces |  Major | YARN Client | Maximilian Michels | Maximilian Michels |
+| [FLINK-4297](https://issues.apache.org/jira/browse/FLINK-4297) | Yarn client can't determine fat jar location if path contains spaces |  Major | YARN Client | Maximilian Michels | Maximilian Michels |
 | [FLINK-4304](https://issues.apache.org/jira/browse/FLINK-4304) | Jar names that contain whitespace cause problems in web client |  Major | Web Client | Timo Walther | Timo Walther |
 | [FLINK-3138](https://issues.apache.org/jira/browse/FLINK-3138) | Method References are not supported as lambda expressions |  Major | Core | Stephan Ewen | Timo Walther |
 | [FLINK-4226](https://issues.apache.org/jira/browse/FLINK-4226) | Typo: Define Keys using Field Expressions example should use window and not reduce |  Trivial | Documentation | Ahmad Ragab |  |
@@ -96,7 +96,7 @@
 | [FLINK-4337](https://issues.apache.org/jira/browse/FLINK-4337) | Remove unnecessary Scala suffix from Hadoop1 artifact |  Major | Build System | Stephan Ewen | Stephan Ewen |
 | [FLINK-4316](https://issues.apache.org/jira/browse/FLINK-4316) | Make flink-core independent of Hadoop |  Major | Core | Stephan Ewen | Stephan Ewen |
 | [FLINK-4342](https://issues.apache.org/jira/browse/FLINK-4342) | Fix dependencies of flink-connector-filesystem |  Major | Streaming Connectors | Stephan Ewen | Stephan Ewen |
-| [FLINK-4270](https://issues.apache.org/jira/browse/FLINK-4270) | \'as\' in front of join does not work |  Major | Table API & SQL | Timo Walther | Jark Wu |
+| [FLINK-4270](https://issues.apache.org/jira/browse/FLINK-4270) | 'as' in front of join does not work |  Major | Table API & SQL | Timo Walther | Jark Wu |
 | [FLINK-4236](https://issues.apache.org/jira/browse/FLINK-4236) | Flink Dashboard stops showing list of uploaded jars if main method cannot be looked up |  Major | Job-Submission | Gary Yao | Maximilian Michels |
 | [FLINK-4385](https://issues.apache.org/jira/browse/FLINK-4385) | Union on Timestamp fields does not work |  Major | Table API & SQL | Timo Walther | Jark Wu |
 | [FLINK-4394](https://issues.apache.org/jira/browse/FLINK-4394) | RMQSource: The QueueName is not accessible to subclasses |  Major | Streaming Connectors | Dominik Bruhn | Dominik Bruhn |
@@ -126,6 +126,9 @@
 | [FLINK-4257](https://issues.apache.org/jira/browse/FLINK-4257) | Handle delegating algorithm change of class |  Major | Gelly | Greg Hogan | Greg Hogan |
 | [FLINK-4601](https://issues.apache.org/jira/browse/FLINK-4601) | Check for empty string properly |  Trivial | . | Alexander Pivovarov |  |
 | [FLINK-4592](https://issues.apache.org/jira/browse/FLINK-4592) | Fix flaky test ScalarFunctionsTest.testCurrentTimePoint |  Major | Table API & SQL | Timo Walther | Timo Walther |
+| [FLINK-4626](https://issues.apache.org/jira/browse/FLINK-4626) | Missing break in MetricStore#add() |  Major | Metrics | Ted Yu | Chesnay Schepler |
+| [FLINK-4612](https://issues.apache.org/jira/browse/FLINK-4612) | Close FileWriter using try with resources |  Trivial | Java API | Alexander Pivovarov |  |
+| [FLINK-4622](https://issues.apache.org/jira/browse/FLINK-4622) | CLI help message should include 'savepoint' action |  Trivial | Client | Scott Kidder | Scott Kidder |
 
 
 ### SUB-TASKS:
@@ -135,7 +138,7 @@
 | [FLINK-4312](https://issues.apache.org/jira/browse/FLINK-4312) | Remove Serializabiliy of ExecutionGraph |  Minor | JobManager | Stephan Ewen | Stephan Ewen |
 | [FLINK-4320](https://issues.apache.org/jira/browse/FLINK-4320) | Fix misleading ScheduleMode names |  Minor | Distributed Coordination | Stephan Ewen | Stephan Ewen |
 | [FLINK-4392](https://issues.apache.org/jira/browse/FLINK-4392) | Make RPC Service Thread Safe |  Major | Distributed Coordination | Stephan Ewen | Stephan Ewen |
-| [FLINK-4403](https://issues.apache.org/jira/browse/FLINK-4403) | RPC proxy classloading should use Flink class\' classloader |  Major | Distributed Coordination | Stephan Ewen | Stephan Ewen |
+| [FLINK-4403](https://issues.apache.org/jira/browse/FLINK-4403) | RPC proxy classloading should use Flink class' classloader |  Major | Distributed Coordination | Stephan Ewen | Stephan Ewen |
 | [FLINK-4434](https://issues.apache.org/jira/browse/FLINK-4434) | Add a testing RPC service |  Major | Distributed Coordination | Stephan Ewen | Stephan Ewen |
 | [FLINK-4380](https://issues.apache.org/jira/browse/FLINK-4380) | Introduce KeyGroupAssigner and Max-Parallelism Parameter |  Major | Streaming | Aljoscha Krettek | Stefan Richter |
 | [FLINK-4381](https://issues.apache.org/jira/browse/FLINK-4381) | Refactor State to Prepare For Key-Group State Backends |  Major | Streaming | Aljoscha Krettek | Stefan Richter |

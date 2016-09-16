@@ -61,7 +61,7 @@
 | [TEZ-2850](https://issues.apache.org/jira/browse/TEZ-2850) | Tez MergeManager OOM for small Map Outputs |  Major | . | Saikat | Jonathan Eagles |
 | [TEZ-2907](https://issues.apache.org/jira/browse/TEZ-2907) | NPE in IFile.Reader.getLength during final merge operation |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-2899](https://issues.apache.org/jira/browse/TEZ-2899) | Tez UI: DAG getting created with huge horizontal gap in between vertices |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
-| [TEZ-2904](https://issues.apache.org/jira/browse/TEZ-2904) | Pig can\'t specify task specific command opts |  Major | . | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-2904](https://issues.apache.org/jira/browse/TEZ-2904) | Pig can't specify task specific command opts |  Major | . | Jonathan Eagles | Jonathan Eagles |
 | [TEZ-2900](https://issues.apache.org/jira/browse/TEZ-2900) | Ignore V\_INPUT\_DATA\_INFORMATION when vertex is in Failed/Killed/Error |  Major | . | Jeff Zhang | Jeff Zhang |
 | [TEZ-2906](https://issues.apache.org/jira/browse/TEZ-2906) | Compilation fails with hadoop 2.2.0 |  Major | . | Jeff Zhang | Jeff Zhang |
 | [TEZ-2814](https://issues.apache.org/jira/browse/TEZ-2814) | ATSImportTool has a return statement in a finally block |  Major | . | Hitesh Shah | Rajesh Balamohan |

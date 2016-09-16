@@ -23,9 +23,9 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
-* [SPARK-12016](https://issues.apache.org/jira/browse/SPARK-12016) | *Major* | **word2vec load model can\'t use findSynonyms to get words**
+* [SPARK-12016](https://issues.apache.org/jira/browse/SPARK-12016) | *Major* | **word2vec load model can't use findSynonyms to get words**
 
-I use word2vec.fit to train a word2vecModel and then save the model to file system. when I load the model from file system, I found I can use transform(\'a\') to get a vector, but I can\'t use findSynonyms(\'a\', 2) to get some words.
+I use word2vec.fit to train a word2vecModel and then save the model to file system. when I load the model from file system, I found I can use transform('a') to get a vector, but I can't use findSynonyms('a', 2) to get some words.
 
 I use the fellow code to test word2vec
 
@@ -35,8 +35,8 @@ from pyspark.mllib.feature import Word2Vec, Word2VecModel
 import os, tempfile
 from shutil import rmtree
 
-if \_\_name\_\_ == \'\_\_main\_\_\':
-    sc = SparkContext(\'local\', \'test\')
+if \_\_name\_\_ == '\_\_main\_\_':
+    sc = SparkContext('local', 'test')
     sentence = "a b " \* 100 + "a c " \* 10
     localDoc = [sentence, sentence]
     doc = sc.parallelize(localDoc).map(lambda line: line.split(" "))
@@ -55,9 +55,9 @@ if \_\_name\_\_ == \'\_\_main\_\_\':
     except OSError:
         pass
 
-I got "[u\'b\', u\'c\']" when the first printf
-then the “True” and " [u\'\_\_class\_\_\'] "
-I don\'t know how to get \'b\' or \'c\' with sameModel.findSynonyms("a", 2)
+I got "[u'b', u'c']" when the first printf
+then the “True” and " [u'\_\_class\_\_'] "
+I don't know how to get 'b' or 'c' with sameModel.findSynonyms("a", 2)
 
 
 

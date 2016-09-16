@@ -58,7 +58,7 @@ Caused by: java.lang.NoClassDefFoundError: org/mortbay/util/ajax/JSON
 My topology list some files on hdfs using webhdfs API. org.mortbay.util.ajax.JSON was included in the application uber jar. I noticed that flink loads the application jar in a child classloader. This is what most likely happened - 
 
 1. WebHdfsFileSystem class was loaded through parent class loader since it is included in flink-dist.jar.
-2. WebHdfsFileSystem has reference to the org.mortbay.util.ajax.JSON but since it is loaded through parent class loader, WebHdfsFileSystem can\'t read a class in child class loader. 
+2. WebHdfsFileSystem has reference to the org.mortbay.util.ajax.JSON but since it is loaded through parent class loader, WebHdfsFileSystem can't read a class in child class loader. 
 
 Ideally all the referenced classes should be available in the distribution jar so that these sort of issues may not occur.
 

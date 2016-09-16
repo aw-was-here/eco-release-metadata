@@ -104,7 +104,7 @@
 | [TEZ-3329](https://issues.apache.org/jira/browse/TEZ-3329) | Tez ATS data is incomplete for a vertex which fails or gets killed before initialization |  Critical | . | Sushmitha Sreenivasan | Sreenath Somarajapuram |
 | [TEZ-3337](https://issues.apache.org/jira/browse/TEZ-3337) | Do not log empty fields of TaskAttemptFinishedEvent to avoid confusion |  Major | . | Zhiyuan Yang | Zhiyuan Yang |
 | [TEZ-3356](https://issues.apache.org/jira/browse/TEZ-3356) | Fix initializing of stats when custom ShuffleVertexManager is used |  Major | . | Peter Slawski | Peter Slawski |
-| [TEZ-3348](https://issues.apache.org/jira/browse/TEZ-3348) | NullPointerException in Tez MROutput while trying to write using Parquet\'s DeprecatedParquetOutputFormat |  Major | . | Piyush Narang | Piyush Narang |
+| [TEZ-3348](https://issues.apache.org/jira/browse/TEZ-3348) | NullPointerException in Tez MROutput while trying to write using Parquet's DeprecatedParquetOutputFormat |  Major | . | Piyush Narang | Piyush Narang |
 | [TEZ-3333](https://issues.apache.org/jira/browse/TEZ-3333) | Tez UI: Handle cases where Vertex/Task/Task Attempt data is missing |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-3379](https://issues.apache.org/jira/browse/TEZ-3379) | Tez analyzer: Move sysout to log4j |  Trivial | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-3382](https://issues.apache.org/jira/browse/TEZ-3382) | Tez analyzer: Should be resilient to new counters |  Minor | . | Rajesh Balamohan | Rajesh Balamohan |
