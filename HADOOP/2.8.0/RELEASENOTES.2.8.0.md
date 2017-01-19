@@ -162,13 +162,6 @@ ResourceManager renews delegation tokens for applications. This behavior has bee
 
 ---
 
-* [HADOOP-10597](https://issues.apache.org/jira/browse/HADOOP-10597) | *Major* | **RPC Server signals backoff to clients when all request queues are full**
-
-This change introduces a new configuration key used by RPC server to decide whether to send backoff signal to RPC Client when RPC call queue is full. When the feature is enabled, RPC server will no longer block on the processing of RPC requests when RPC call queue is full. It helps to improve quality of service when the service is under heavy load. The configuration key is in the format of "ipc.#port#.backoff.enable" where #port# is the port number that RPC server listens on. For example, if you want to enable the feature for the RPC server that listens on 8020, set ipc.8020.backoff.enable to true.
-
-
----
-
 * [HADOOP-11843](https://issues.apache.org/jira/browse/HADOOP-11843) | *Major* | **Make setting up the build environment easier**
 
 Includes a docker based solution for setting up a build environment with minimal effort.
@@ -179,6 +172,13 @@ Includes a docker based solution for setting up a build environment with minimal
 * [HADOOP-11813](https://issues.apache.org/jira/browse/HADOOP-11813) | *Minor* | **releasedocmaker.py should use today's date instead of unreleased**
 
 Use today instead of 'Unreleased' in releasedocmaker.py when --usetoday is given as an option.
+
+
+---
+
+* [HDFS-8226](https://issues.apache.org/jira/browse/HDFS-8226) | *Blocker* | **Non-HA rollback compatibility broken**
+
+Non-HA rollback steps have been changed. Run the rollback command on the namenode (\`bin/hdfs namenode -rollback\`) before starting cluster with '-rollback' option using (sbin/start-dfs.sh -rollback).
 
 
 ---
@@ -213,7 +213,24 @@ Modifying key methods in ContainerExecutor to use context objects instead of an 
 
 * [YARN-2336](https://issues.apache.org/jira/browse/YARN-2336) | *Major* | **Fair scheduler REST api returns a missing '[' bracket JSON for deep queue tree**
 
-**WARNING: No release note provided for this change.**
+Fix FairScheduler's REST api returns a missing '[' blacket JSON for childQueues.
+
+
+---
+
+* [HDFS-8486](https://issues.apache.org/jira/browse/HDFS-8486) | *Blocker* | **DN startup may cause severe data loss**
+
+<!-- markdown -->
+Public service notice:
+* Every restart of a 2.6.x or 2.7.0 DN incurs a risk of unwanted block deletion.
+* Apply this patch if you are running a pre-2.7.1 release.
+
+
+---
+
+* [HDFS-8270](https://issues.apache.org/jira/browse/HDFS-8270) | *Major* | **create() always retried with hardcoded timeout when file already exists with open lease**
+
+Proxy level retries will not be done on AlreadyBeingCreatedExeption for create() op.
 
 
 ---
@@ -221,6 +238,13 @@ Modifying key methods in ContainerExecutor to use context objects instead of an 
 * [YARN-41](https://issues.apache.org/jira/browse/YARN-41) | *Major* | **The RM should handle the graceful shutdown of the NM.**
 
 The behavior of shutdown a NM could be different (if NM work preserving is not enabled): NM will unregister to RM immediately rather than waiting for timeout to be LOST. A new status of NodeStatus - SHUTDOWN is involved which could affect UI, CLI and ClusterMetrics for node's status.
+
+
+---
+
+* [HADOOP-7139](https://issues.apache.org/jira/browse/HADOOP-7139) | *Major* | **Allow appending to existing SequenceFiles**
+
+Existing sequence files can be appended.
 
 
 ---
@@ -305,6 +329,13 @@ The balancer will only run on blockpools included in this list.
 
 ---
 
+* [YARN-4087](https://issues.apache.org/jira/browse/YARN-4087) | *Major* | **Followup fixes after YARN-2019 regarding RM behavior when state-store error occurs**
+
+Set YARN\_FAIL\_FAST to be false by default. If HA is enabled and if there's any state-store error, after the retry operation failed, we always transition RM to standby state.
+
+
+---
+
 * [HADOOP-12384](https://issues.apache.org/jira/browse/HADOOP-12384) | *Major* | **Add "-direct" flag option for fs copy so that user can choose not to create ".\_COPYING\_" file**
 
 An option '-d' added for all command-line copy commands to skip intermediate '.COPYING' file creation.
@@ -361,6 +392,15 @@ The first version of configuration format is:
 * [HADOOP-12416](https://issues.apache.org/jira/browse/HADOOP-12416) | *Major* | **Trash messages should be handled by Logger instead of being delivered on System.out**
 
 Now trash message is not printed to System.out. It is handled by Logger instead.
+
+
+---
+
+* [HDFS-9063](https://issues.apache.org/jira/browse/HDFS-9063) | *Major* | **Correctly handle snapshot path for getContentSummary**
+
+The jira made the following changes:
+1. Fix a bug to exclude newly-created files from quota usage calculation for a snapshot path. 
+2. Number of snapshots is no longer counted as directory number in getContentSummary result.
 
 
 ---
@@ -428,6 +468,13 @@ Projects that access HDFS can depend on the hadoop-hdfs-client module instead of
 
 ---
 
+* [HDFS-9057](https://issues.apache.org/jira/browse/HDFS-9057) | *Major* | **allow/disallow snapshots via webhdfs**
+
+Snapshots can be allowed/disallowed on a directory via WebHdfs from users with superuser privilege.
+
+
+---
+
 * [MAPREDUCE-5485](https://issues.apache.org/jira/browse/MAPREDUCE-5485) | *Critical* | **Allow repeating job commit by extending OutputCommitter API**
 
 Previously, the MR job will get failed if AM get restarted for some reason (like node failure, etc.) during its doing commit job no matter if AM attempts reach to the maximum attempts. 
@@ -445,7 +492,7 @@ Allow stop() before start() completed in JvmPauseMonitor
 
 * [HDFS-9433](https://issues.apache.org/jira/browse/HDFS-9433) | *Major* | **DFS getEZForPath API on a non-existent file should throw FileNotFoundException**
 
-**WARNING: No release note provided for this change.**
+Unify the behavior of dfs.getEZForPath() API when getting a non-existent normal file and non-existent ezone file by throwing FileNotFoundException
 
 
 ---
@@ -655,7 +702,7 @@ This release adds a new feature called the DataNode Lifeline Protocol.  If confi
 
 * [YARN-4785](https://issues.apache.org/jira/browse/YARN-4785) | *Major* | **inconsistent value type of the "type" field for LeafQueueInfo in response of RM REST API - cluster/scheduler**
 
-**WARNING: No release note provided for this change.**
+Fix inconsistent value type ( String and Array ) of the "type" field for LeafQueueInfo in response of RM REST API
 
 
 ---
@@ -705,13 +752,6 @@ HDFS will create a ".Trash" subdirectory when creating a new encryption zone to 
 * [HADOOP-13122](https://issues.apache.org/jira/browse/HADOOP-13122) | *Minor* | **Customize User-Agent header sent in HTTP requests by S3A.**
 
 S3A now includes the current Hadoop version in the User-Agent string passed through the AWS SDK to the S3 service.  Users also may include optional additional information to identify their application.  See the documentation of configuration property fs.s3a.user.agent.prefix for further details.
-
-
----
-
-* [HADOOP-12782](https://issues.apache.org/jira/browse/HADOOP-12782) | *Major* | **Faster LDAP group name resolution with ActiveDirectory**
-
-If the user object returned by LDAP server has the user's group object DN (supported by Active Directory), Hadoop can reduce LDAP group mapping latency by setting hadoop.security.group.mapping.ldap.search.attr.memberof to memberOf.
 
 
 ---
@@ -849,6 +889,20 @@ The output of hdfs fsck now also contains information about decommissioning repl
 
 ---
 
+* [HADOOP-13208](https://issues.apache.org/jira/browse/HADOOP-13208) | *Minor* | **S3A listFiles(recursive=true) to do a bulk listObjects instead of walking the pseudo-tree of directories**
+
+S3A has optimized the listFiles method by doing a bulk listing of all entries under a path in a single S3 operation instead of recursively walking the directory tree.  The listLocatedStatus method has been optimized by fetching results from S3 lazily as the caller traverses the returned iterator instead of doing an eager fetch of all possible results.
+
+
+---
+
+* [HADOOP-13252](https://issues.apache.org/jira/browse/HADOOP-13252) | *Minor* | **Tune S3A provider plugin mechanism**
+
+S3A now supports configuration of multiple credential provider classes for authenticating to S3.  These are loaded and queried in sequence for a valid set of credentials.  For more details, refer to the description of the fs.s3a.aws.credentials.provider configuration property or the S3A documentation page.
+
+
+---
+
 * [HDFS-8986](https://issues.apache.org/jira/browse/HDFS-8986) | *Major* | **Add option to -du to calculate directory space usage excluding snapshots**
 
 Add a -x option for "hdfs -du" and "hdfs -count" commands to exclude snapshots from being calculated.
@@ -873,6 +927,129 @@ Introduces a new configuration property, yarn.resourcemanager.amlauncher.log.com
 * [HDFS-8818](https://issues.apache.org/jira/browse/HDFS-8818) | *Major* | **Allow Balancer to run faster**
 
 Add a new conf "dfs.balancer.max-size-to-move" so that Balancer.MAX\_SIZE\_TO\_MOVE becomes configurable.
+
+
+---
+
+* [HDFS-10489](https://issues.apache.org/jira/browse/HDFS-10489) | *Minor* | **Deprecate dfs.encryption.key.provider.uri for HDFS encryption zones**
+
+The configuration dfs.encryption.key.provider.uri is deprecated. To configure key provider in HDFS, please use hadoop.security.key.provider.path.
+
+
+---
+
+* [HDFS-10914](https://issues.apache.org/jira/browse/HDFS-10914) | *Critical* | **Move remnants of oah.hdfs.client to hadoop-hdfs-client**
+
+The remaining classes in the org.apache.hadoop.hdfs.client package have been moved from hadoop-hdfs to hadoop-hdfs-client.
+
+
+---
+
+* [HADOOP-12667](https://issues.apache.org/jira/browse/HADOOP-12667) | *Major* | **s3a: Support createNonRecursive API**
+
+S3A now provides a working implementation of the FileSystem#createNonRecursive method.
+
+
+---
+
+* [HDFS-10609](https://issues.apache.org/jira/browse/HDFS-10609) | *Major* | **Uncaught InvalidEncryptionKeyException during pipeline recovery may abort downstream applications**
+
+If pipeline recovery fails due to expired encryption key, attempt to refresh the key and retry.
+
+
+---
+
+* [HDFS-10797](https://issues.apache.org/jira/browse/HDFS-10797) | *Major* | **Disk usage summary of snapshots causes renamed blocks to get counted twice**
+
+Disk usage summaries previously incorrectly counted files twice if they had been renamed (including files moved to Trash) since being snapshotted. Summaries now include current data plus snapshotted data that is no longer under the directory either due to deletion or being moved outside of the directory.
+
+
+---
+
+* [HDFS-10883](https://issues.apache.org/jira/browse/HDFS-10883) | *Major* | **\`getTrashRoot\`'s behavior is not consistent in DFS after enabling EZ.**
+
+If root path / is an encryption zone, the old DistributedFileSystem#getTrashRoot(new Path("/")) returns
+/user/$USER/.Trash
+which is a wrong behavior. The correct value should be
+/.Trash/$USER
+
+
+---
+
+* [HADOOP-13560](https://issues.apache.org/jira/browse/HADOOP-13560) | *Major* | **S3ABlockOutputStream to support huge (many GB) file writes**
+
+This mechanism replaces the (experimental) fast output stream of Hadoop 2.7.x, combining better scalability options with instrumentation. Consult the S3A documentation to see the extra configuration operations.
+
+
+---
+
+* [HDFS-11018](https://issues.apache.org/jira/browse/HDFS-11018) | *Major* | **Incorrect check and message in FsDatasetImpl#invalidate**
+
+Improves the error message when datanode removes a replica which is not found.
+
+
+---
+
+* [YARN-5767](https://issues.apache.org/jira/browse/YARN-5767) | *Major* | **Fix the order that resources are cleaned up from the local Public/Private caches**
+
+This issue fixes a bug in how resources are evicted from the PUBLIC and PRIVATE yarn local caches used by the node manager for resource localization. In summary, the caches are now properly cleaned based on an LRU policy across both the public and private caches.
+
+
+---
+
+* [HDFS-11048](https://issues.apache.org/jira/browse/HDFS-11048) | *Major* | **Audit Log should escape control characters**
+
+HDFS audit logs are formatted as individual lines, each of which has a few of key-value pair fields. Some of the values come from client request (e.g. src, dst). Before this patch the control characters including \\t \\n etc are not escaped in audit logs. That may break lines unexpectedly or introduce additional table character (in the worst case, both) within a field. Tools that parse audit logs had to deal with this case carefully. After this patch, the control characters in the src/dst fields are escaped.
+
+
+---
+
+* [HADOOP-10597](https://issues.apache.org/jira/browse/HADOOP-10597) | *Major* | **RPC Server signals backoff to clients when all request queues are full**
+
+This change introduces a new configuration key used by RPC server to decide whether to send backoff signal to RPC Client when RPC call queue is full. When the feature is enabled, RPC server will no longer block on the processing of RPC requests when RPC call queue is full. It helps to improve quality of service when the service is under heavy load. The configuration key is in the format of "ipc.#port#.backoff.enable" where #port# is the port number that RPC server listens on. For example, if you want to enable the feature for the RPC server that listens on 8020, set ipc.8020.backoff.enable to true.
+
+
+---
+
+* [HDFS-11056](https://issues.apache.org/jira/browse/HDFS-11056) | *Major* | **Concurrent append and read operations lead to checksum error**
+
+Load last partial chunk checksum properly into memory when converting a finalized/temporary replica to rbw replica. This ensures concurrent reader reads the correct checksum that matches the data before the update.
+
+
+---
+
+* [YARN-5271](https://issues.apache.org/jira/browse/YARN-5271) | *Major* | **ATS client doesn't work with Jersey 2 on the classpath**
+
+A workaround to avoid dependency conflict with Spark2, before a full classpath isolation solution is implemented.
+Skip instantiating a Timeline Service client if encountering NoClassDefFoundError.
+
+
+---
+
+* [HADOOP-13812](https://issues.apache.org/jira/browse/HADOOP-13812) | *Blocker* | **Upgrade Tomcat to 6.0.48**
+
+Tomcat 6.0.46 starts to filter weak ciphers. Some old SSL clients may be affected. It is recommended to upgrade the SSL client. Run the SSL client against https://www.howsmyssl.com/a/check to find out its TLS version and cipher suites.
+
+
+---
+
+* [HDFS-11217](https://issues.apache.org/jira/browse/HDFS-11217) | *Major* | **Annotate NameNode and DataNode MXBean interfaces as Private/Stable**
+
+The DataNode and NameNode MXBean interfaces have been marked as Private and Stable to indicate that although users should not be implementing these interfaces directly, the information exposed by these interfaces is part of the HDFS public API.
+
+
+---
+
+* [HDFS-11229](https://issues.apache.org/jira/browse/HDFS-11229) | *Blocker* | **HDFS-11056 failed to close meta file**
+
+The fix for HDFS-11056 reads meta file to load last partial chunk checksum when a block is converted from finalized/temporary to rbw. However, it did not close the file explicitly, which may cause number of open files reaching system limit. This jira fixes it by closing the file explicitly after the meta file is read.
+
+
+---
+
+* [HDFS-11160](https://issues.apache.org/jira/browse/HDFS-11160) | *Major* | **VolumeScanner reports write-in-progress replicas as corrupt incorrectly**
+
+Fixed a race condition that caused VolumeScanner to recognize a good replica as a bad one if the replica is also being written concurrently.
 
 
 

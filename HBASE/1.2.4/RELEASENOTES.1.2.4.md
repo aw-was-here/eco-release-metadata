@@ -28,4 +28,47 @@ These release notes cover new developer and user-facing incompatibilities, impor
 HBase no longer includes Xerces implementation jars that were previously included via transitive dependencies. Downstream users relying on HBase for these artifacts will need to update their dependencies.
 
 
+---
+
+* [HBASE-16294](https://issues.apache.org/jira/browse/HBASE-16294) | *Minor* | **hbck reporting "No HDFS region dir found" for replicas**
+
+Fixed warning error message displayed for region directory not found for non-default/ non-primary replicas in hbck
+
+
+---
+
+* [HBASE-15984](https://issues.apache.org/jira/browse/HBASE-15984) | *Critical* | **Given failure to parse a given WAL that was closed cleanly, replay the WAL.**
+
+In some particular deployments, the Replication code believes it has
+reached EOF for a WAL prior to successfully parsing all bytes known to
+exist in a cleanly closed file.
+
+If an EOF is detected due to parsing or other errors while there are still unparsed bytes before the end-of-file trailer, we now reset the WAL to the very beginning and attempt a clean read-through. Because we will retry these failures indefinitely, two additional changes are made to help with diagnostics:
+
+\* On each retry attempt, a log message like the below will be emitted at the WARN level:
+    
+      Processing end of WAL file '{}'. At position {}, which is too far away
+      from reported file length {}. Restarting WAL reading (see HBASE-15983
+      for details).
+
+\*  additional metrics measure the use of this recovery mechanism. they are described in the reference guide.
+
+
+---
+
+* [HBASE-16721](https://issues.apache.org/jira/browse/HBASE-16721) | *Critical* | **Concurrency issue in WAL unflushed seqId tracking**
+
+Fixed a bug in sequenceId tracking for the WALs that caused WAL files to accumulate without being deleted due to a rare race condition.
+
+
+---
+
+* [HBASE-16765](https://issues.apache.org/jira/browse/HBASE-16765) | *Critical* | **New SteppingRegionSplitPolicy, avoid too aggressive spread of regions for small tables.**
+
+Introduces a new split policy: SteppingSplitPolicy
+This will use a simple step function to split a region at (by default) 2  xflushSize when no other region of the same table is seen on the region server, or max-file-size when one or more other regions of the same table is seen.
+
+In HBase 2.0 this is going to be the default. In previous versions it can be configured.
+
+
 

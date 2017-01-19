@@ -18,7 +18,7 @@
 -->
 # Apache BigTop Changelog
 
-## Release 1.2.0 - Unreleased (as of 2016-09-16)
+## Release 1.2.0 - Unreleased (as of 2017-01-19)
 
 
 
@@ -31,6 +31,14 @@
 | [BIGTOP-2339](https://issues.apache.org/jira/browse/BIGTOP-2339) | add centos-7 to the provisioiner matrix |  Major | provisioner | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2435](https://issues.apache.org/jira/browse/BIGTOP-2435) | Add Juju charms for hadoop component |  Minor | deployment | Kevin W Monroe | Kevin W Monroe |
 | [BIGTOP-2452](https://issues.apache.org/jira/browse/BIGTOP-2452) | Adding Dockerfile to build deploy image for ubuntu-16.04-x86 |  Major | build, deployment, docker | Amir Sanjar | Amir Sanjar |
+| [BIGTOP-2477](https://issues.apache.org/jira/browse/BIGTOP-2477) | Add Juju charm for spark component |  Minor | deployment | Cory Johns | Cory Johns |
+| [BIGTOP-2524](https://issues.apache.org/jira/browse/BIGTOP-2524) | Add Greenplum component |  Major | build, debian, rpm | Kirill Morozov | Kirill Morozov |
+| [BIGTOP-2486](https://issues.apache.org/jira/browse/BIGTOP-2486) | Add Kafka Charm |  Minor | deployment | Konstantinos Tsakalozos | Konstantinos Tsakalozos |
+| [BIGTOP-2482](https://issues.apache.org/jira/browse/BIGTOP-2482) | Adding Pig charm |  Minor | deployment | Andrew McLeod | Andrew McLeod |
+| [BIGTOP-2476](https://issues.apache.org/jira/browse/BIGTOP-2476) | Add Zookeeper Charm |  Major | deployment | Pete Vander Giessen | Pete Vander Giessen |
+| [BIGTOP-2481](https://issues.apache.org/jira/browse/BIGTOP-2481) | Add HBase Charm |  Minor | hbase | Konstantinos Tsakalozos | Konstantinos Tsakalozos |
+| [BIGTOP-2483](https://issues.apache.org/jira/browse/BIGTOP-2483) | Add Mahout Charm |  Minor | deployment | Konstantinos Tsakalozos | Konstantinos Tsakalozos |
+| [BIGTOP-2615](https://issues.apache.org/jira/browse/BIGTOP-2615) | Provide a tool to build pseudo cluster docker images |  Major | docker | Evans Ye | Evans Ye |
 
 
 ### IMPROVEMENTS:
@@ -65,12 +73,36 @@
 | [BIGTOP-2458](https://issues.apache.org/jira/browse/BIGTOP-2458) | Add option to disable IP hostname checking for DataNode registration |  Minor | deployment | Cory Johns | Cory Johns |
 | [BIGTOP-2521](https://issues.apache.org/jira/browse/BIGTOP-2521) | Problem with deprecated methods in puppet code with puppet option parser=future |  Major | deployment | Kirill Morozov | Kirill Morozov |
 | [BIGTOP-2443](https://issues.apache.org/jira/browse/BIGTOP-2443) | inject unzip method to ZipInputStream, accepting regex for include |  Major | tests | Konstantin Boudnik | Kengo Seki |
+| [BIGTOP-2385](https://issues.apache.org/jira/browse/BIGTOP-2385) | Reformat bigtop\_toolchain/manifests/packages.pp to ease maintenance |  Major | toolchain | Konstantin Boudnik | Kengo Seki |
+| [BIGTOP-2459](https://issues.apache.org/jira/browse/BIGTOP-2459) | Add option to disable vmem check for NodeManager |  Minor | deployment | Cory Johns | Cory Johns |
+| [BIGTOP-2547](https://issues.apache.org/jira/browse/BIGTOP-2547) | Don't render ip-hostname-check in hdfs-site.xml if default |  Minor | deployment, hadoop | Cory Johns | Cory Johns |
+| [BIGTOP-2522](https://issues.apache.org/jira/browse/BIGTOP-2522) | Add spark processing juju bundle |  Minor | deployment | Konstantinos Tsakalozos | Konstantinos Tsakalozos |
+| [BIGTOP-2504](https://issues.apache.org/jira/browse/BIGTOP-2504) | Kafka should be able to bind to something other than 0.0.0.0/the default interface |  Minor | deployment | Pete Vander Giessen | Pete Vander Giessen |
+| [BIGTOP-2516](https://issues.apache.org/jira/browse/BIGTOP-2516) | Add Zeppelin Charm |  Minor | deployment | Konstantinos Tsakalozos | Kevin W Monroe |
+| [BIGTOP-2548](https://issues.apache.org/jira/browse/BIGTOP-2548) | Refresh charms for Juju 2.0 and Xenial |  Minor | deployment | Kevin W Monroe | Kevin W Monroe |
+| [BIGTOP-2384](https://issues.apache.org/jira/browse/BIGTOP-2384) | Refactor toolchain code to extract packages version out of every action |  Major | toolchain | Konstantin Boudnik | Kengo Seki |
+| [BIGTOP-2554](https://issues.apache.org/jira/browse/BIGTOP-2554) | expose bind-host options in hieradata |  Minor | deployment | Kevin W Monroe | Kevin W Monroe |
+| [BIGTOP-2555](https://issues.apache.org/jira/browse/BIGTOP-2555) | hadoop charms should use bind-host overrides |  Minor | deployment | Kevin W Monroe | Kevin W Monroe |
+| [BIGTOP-2571](https://issues.apache.org/jira/browse/BIGTOP-2571) | cwr driven updates to the zeppelin juju charm |  Minor | deployment | Kevin W Monroe | Kevin W Monroe |
+| [BIGTOP-2578](https://issues.apache.org/jira/browse/BIGTOP-2578) | Puppet needs to be updated for Hive Server2 |  Major | deployment | Roman Shaposhnik | Roman Shaposhnik |
+| [BIGTOP-2576](https://issues.apache.org/jira/browse/BIGTOP-2576) | For small clusters it is useful to turn replace-datanode-on-failure off |  Major | deployment | Roman Shaposhnik | Roman Shaposhnik |
+| [BIGTOP-2579](https://issues.apache.org/jira/browse/BIGTOP-2579) | Puppet needs to be updated for Hive Metastore service |  Major | deployment | Roman Shaposhnik | Roman Shaposhnik |
+| [BIGTOP-2575](https://issues.apache.org/jira/browse/BIGTOP-2575) | zk charm test updates |  Minor | deployment, tests | Kevin W Monroe | Kevin W Monroe |
+| [BIGTOP-2577](https://issues.apache.org/jira/browse/BIGTOP-2577) | kafka charm test updates |  Minor | deployment, tests | Kevin W Monroe | Kevin W Monroe |
+| [BIGTOP-2561](https://issues.apache.org/jira/browse/BIGTOP-2561) | add juju bundle for hadoop-spark |  Trivial | deployment | Kevin W Monroe | Kevin W Monroe |
+| [BIGTOP-2616](https://issues.apache.org/jira/browse/BIGTOP-2616) | refresh juju hadoop-processing bundle |  Minor | deployment | Kevin W Monroe | Kevin W Monroe |
+| [BIGTOP-2617](https://issues.apache.org/jira/browse/BIGTOP-2617) | refresh juju spark-processing bundle |  Minor | deployment | Kevin W Monroe | Kevin W Monroe |
+| [BIGTOP-2370](https://issues.apache.org/jira/browse/BIGTOP-2370) | Upgrade DataFu version to 1.3.0 |  Minor | . | YoungWoo Kim | Kengo Seki |
+| [BIGTOP-2611](https://issues.apache.org/jira/browse/BIGTOP-2611) | Adding Fedora-25 with Java 1.8 support |  Major | build, docker | Amir Sanjar | Amir Sanjar |
 
 
 ### BUG FIXES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [BIGTOP-2134](https://issues.apache.org/jira/browse/BIGTOP-2134) | Wrong package name in bigpetstore-mapreduce/arch.dot |  Trivial | blueprints | Kengo Seki | Kengo Seki |
+| [BIGTOP-2135](https://issues.apache.org/jira/browse/BIGTOP-2135) | PigCSVCleaner fails due to the lack of the dependent jar |  Major | blueprints | Kengo Seki | Kengo Seki |
+| [BIGTOP-2133](https://issues.apache.org/jira/browse/BIGTOP-2133) | Running BPSGenerator using fat-jar fails on Mac OS X |  Minor | blueprints | Kengo Seki | Kengo Seki |
 | [BIGTOP-2301](https://issues.apache.org/jira/browse/BIGTOP-2301) | Bigtop Homepage shows wrong url to CI |  Major | website | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-2303](https://issues.apache.org/jira/browse/BIGTOP-2303) | Fix the indentation in docker-hadoop.sh |  Minor | . | Faraaz Sareshwala | Faraaz Sareshwala |
 | [BIGTOP-2302](https://issues.apache.org/jira/browse/BIGTOP-2302) | Use apt instead of yum in setup-env-debian.sh |  Minor | . | Faraaz Sareshwala | Faraaz Sareshwala |
@@ -132,7 +164,79 @@
 | [BIGTOP-2512](https://issues.apache.org/jira/browse/BIGTOP-2512) | Wrong help message in docker-hadoop.sh |  Trivial | deployment, vm | Kengo Seki | Kengo Seki |
 | [BIGTOP-2523](https://issues.apache.org/jira/browse/BIGTOP-2523) | Incorrect cycle dependency during puppet deployment causes error at Debian 8 |  Major | deployment | Kirill Morozov | Artur A. Papikyan |
 | [BIGTOP-2528](https://issues.apache.org/jira/browse/BIGTOP-2528) | provisioner fails to add short host name |  Major | deployment, provisioner | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2537](https://issues.apache.org/jira/browse/BIGTOP-2537) | Hive smoke test identifies as org.apache.bigtop.itest.hadoop.mapreduce |  Major | tests | Roman Shaposhnik | Roman Shaposhnik |
+| [BIGTOP-2536](https://issues.apache.org/jira/browse/BIGTOP-2536) | tarball.destination is ignored when set |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
+| [BIGTOP-2545](https://issues.apache.org/jira/browse/BIGTOP-2545) | Add ZOOKEEPER-2594 to bigtop |  Major | build | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2546](https://issues.apache.org/jira/browse/BIGTOP-2546) | Make debian/ubuntu toolchain install more resistent agains failures |  Major | . | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2551](https://issues.apache.org/jira/browse/BIGTOP-2551) | docker-hadoop.sh --create fails with "Error: Could not match \|$index" message |  Major | provisioner | Kengo Seki | Kengo Seki |
+| [BIGTOP-2542](https://issues.apache.org/jira/browse/BIGTOP-2542) | Some files related to docker provisioner breaks RAT |  Major | build | Kengo Seki | Kengo Seki |
+| [BIGTOP-2405](https://issues.apache.org/jira/browse/BIGTOP-2405) | Rollback BIGTOP-2049 as the original issue was fixed in the upstream |  Major | build | Konstantin Boudnik | Kengo Seki |
+| [BIGTOP-2549](https://issues.apache.org/jira/browse/BIGTOP-2549) | "Expected" and "actual" values are mistakenly switched in some JUnit method invocation |  Minor | tests | Kengo Seki | Kengo Seki |
+| [BIGTOP-2543](https://issues.apache.org/jira/browse/BIGTOP-2543) | Some minor problems on provisioner/docker/docker-hadoop.sh |  Minor | provisioner | Kengo Seki | Kengo Seki |
+| [BIGTOP-2529](https://issues.apache.org/jira/browse/BIGTOP-2529) | Vagrant Provisioner failed to start up daemons |  Minor | provisioner | Evans Ye | Evans Ye |
+| [BIGTOP-2553](https://issues.apache.org/jira/browse/BIGTOP-2553) | namenode ports are not configured for non-HA mode |  Minor | deployment | Kevin W Monroe | Kevin W Monroe |
 | [BIGTOP-2535](https://issues.apache.org/jira/browse/BIGTOP-2535) | frontend-maven-plugin fails on ppc64le |  Major | build, docker, ppc64le | Amir Sanjar | Amir Sanjar |
+| [BIGTOP-2557](https://issues.apache.org/jira/browse/BIGTOP-2557) | BIGTOP-2536 broke DataFu, QFS and YCSB |  Major | build | Kengo Seki | Kengo Seki |
+| [BIGTOP-2559](https://issues.apache.org/jira/browse/BIGTOP-2559) | Revert JIRA BIGTOP-2535 |  Major | build | Amir Sanjar | Amir Sanjar |
+| [BIGTOP-2558](https://issues.apache.org/jira/browse/BIGTOP-2558) | Add ppc64le and arm64 node to the build slave configuration |  Major | build | Amir Sanjar | Amir Sanjar |
+| [BIGTOP-2556](https://issues.apache.org/jira/browse/BIGTOP-2556) | Building Hadoop fails because Tomcat 6.0.45 is not downloadable from Apache mirror |  Major | build, hadoop | Kengo Seki | Kengo Seki |
+| [BIGTOP-2563](https://issues.apache.org/jira/browse/BIGTOP-2563) | zeppelin build fails on ppc64le |  Major | build | Amir Sanjar | Amir Sanjar |
+| [BIGTOP-2564](https://issues.apache.org/jira/browse/BIGTOP-2564) | HBase build fails on Power |  Major | build, ppc64le | Amir Sanjar | Amir Sanjar |
+| [BIGTOP-2565](https://issues.apache.org/jira/browse/BIGTOP-2565) | upgrade Spark to version 1.6.2 |  Major | build, spark | Amir Sanjar | Amir Sanjar |
+| [BIGTOP-2533](https://issues.apache.org/jira/browse/BIGTOP-2533) | Use TLS for downloading sources |  Major | build | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2566](https://issues.apache.org/jira/browse/BIGTOP-2566) | Specify KAFKA\_VERSION in build command for Flume |  Major | build | YoungWoo Kim | YoungWoo Kim |
+| [BIGTOP-2560](https://issues.apache.org/jira/browse/BIGTOP-2560) | Spark charm failing automated tests |  Minor | deployment | Konstantinos Tsakalozos | Konstantinos Tsakalozos |
+| [BIGTOP-2582](https://issues.apache.org/jira/browse/BIGTOP-2582) | Adding Spark1 components for Spark 1.x family |  Major | build, spark | Amir Sanjar | Amir Sanjar |
+| [BIGTOP-2569](https://issues.apache.org/jira/browse/BIGTOP-2569) | Spark 2.0 |  Major | build | Olaf Flebbe | Jonathan Kelly |
+| [BIGTOP-2585](https://issues.apache.org/jira/browse/BIGTOP-2585) | Zookeeper service does not start if kerberos is disabled |  Major | deployment | Kengo Seki | Kengo Seki |
+| [BIGTOP-2591](https://issues.apache.org/jira/browse/BIGTOP-2591) | Fix bug in BIGTOP-2569 |  Trivial | . | Jonathan Kelly | Jonathan Kelly |
+| [BIGTOP-2589](https://issues.apache.org/jira/browse/BIGTOP-2589) | spark1 build break |  Critical | ppc64le, spark | Amir Sanjar | Amir Sanjar |
+| [BIGTOP-2596](https://issues.apache.org/jira/browse/BIGTOP-2596) | Phoenix build fails |  Major | build | Amir Sanjar | Amir Sanjar |
+| [BIGTOP-2590](https://issues.apache.org/jira/browse/BIGTOP-2590) | Flume build break on RPM |  Major | build | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2588](https://issues.apache.org/jira/browse/BIGTOP-2588) | Spark 2.0.1 installation fails on DEB |  Blocker | spark | Amir Sanjar | Olaf Flebbe |
+| [BIGTOP-2597](https://issues.apache.org/jira/browse/BIGTOP-2597) | crunch build failed |  Major | build | Amir Sanjar | Amir Sanjar |
+| [BIGTOP-2599](https://issues.apache.org/jira/browse/BIGTOP-2599) | Zeppelin 0.6.2 build fails on Power |  Major | build, ppc64le | Amir Sanjar | Amir Sanjar |
+| [BIGTOP-2602](https://issues.apache.org/jira/browse/BIGTOP-2602) | ignite-hadoop build break |  Major | build | Amir Sanjar | Amir Sanjar |
+| [BIGTOP-2570](https://issues.apache.org/jira/browse/BIGTOP-2570) | ease hadoop charm debugging |  Major | deployment | Antonio Rosales | Kevin W Monroe |
+| [BIGTOP-2606](https://issues.apache.org/jira/browse/BIGTOP-2606) | spark1 build fails when RPM is sellected |  Major | build, spark | Amir Sanjar | Amir Sanjar |
+| [BIGTOP-2608](https://issues.apache.org/jira/browse/BIGTOP-2608) | upgrade Hadoop to 2.7.3 |  Major | build | Amir Sanjar | Amir Sanjar |
+| [BIGTOP-2587](https://issues.apache.org/jira/browse/BIGTOP-2587) | vagrant-puppet-vm fails with "Could not find class node\_with\_components" |  Major | vm | Kengo Seki | Kengo Seki |
+| [BIGTOP-2609](https://issues.apache.org/jira/browse/BIGTOP-2609) | upgrade Kafka to version 0.10.0.0 |  Major | build | Amir Sanjar | Amir Sanjar |
+| [BIGTOP-2610](https://issues.apache.org/jira/browse/BIGTOP-2610) | upgrade mahout to version 0.12.2 |  Major | build | Amir Sanjar | Amir Sanjar |
+| [BIGTOP-2621](https://issues.apache.org/jira/browse/BIGTOP-2621) | JAVA\_HOME is not set on Fedora-25+JAVA-1.8 for x86 |  Major | build | Amir Sanjar | Amir Sanjar |
+| [BIGTOP-2623](https://issues.apache.org/jira/browse/BIGTOP-2623) | Zeppelin 0.6.2 build fails on all platforms |  Critical | build | Amir Sanjar |  |
+| [BIGTOP-2605](https://issues.apache.org/jira/browse/BIGTOP-2605) | Addendum for BIGTOP-2514 |  Major | . | YoungWoo Kim | YoungWoo Kim |
+| [BIGTOP-2618](https://issues.apache.org/jira/browse/BIGTOP-2618) | bigtop-jsvc build fails with OpenJDK-1.8 |  Critical | build, jsvc | Amir Sanjar | Amir Sanjar |
+| [BIGTOP-2635](https://issues.apache.org/jira/browse/BIGTOP-2635) | ubuntu on ppc64le is missing a apt-get update |  Major | toolchain | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2637](https://issues.apache.org/jira/browse/BIGTOP-2637) | Fix flume because of kafka 0.10 update |  Major | build | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2638](https://issues.apache.org/jira/browse/BIGTOP-2638) | Update to kafka 0.10.1.0 |  Major | build | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2628](https://issues.apache.org/jira/browse/BIGTOP-2628) | sqoop2 build fails when JAVA 8 is used |  Major | build | Amir Sanjar | Olaf Flebbe |
+| [BIGTOP-2471](https://issues.apache.org/jira/browse/BIGTOP-2471) | qfs does not build on opensuse:42.1 |  Major | qfs | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2594](https://issues.apache.org/jira/browse/BIGTOP-2594) | Workaround to fix Hive Build, by using SPARK1 Version |  Major | build | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2274](https://issues.apache.org/jira/browse/BIGTOP-2274) | CLONE - rpm: need to make bigtop-jsvc a wrapper package for jsvc package |  Major | build, debian, ppc64le | Amir Sanjar | Olaf Flebbe |
+| [BIGTOP-2640](https://issues.apache.org/jira/browse/BIGTOP-2640) | Incomplete patch BIGTOP-2635 - Bigtop stack build fails on Ubuntu 16.04-ppc64le |  Blocker | build | Amir Sanjar | Olaf Flebbe |
+| [BIGTOP-2636](https://issues.apache.org/jira/browse/BIGTOP-2636) | Fix giraph after upgrade to Hadoop-2.7.3 |  Major | build | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2604](https://issues.apache.org/jira/browse/BIGTOP-2604) | Build flink-dist with proper shading |  Major | flink | Craig Foster | Craig Foster |
+| [BIGTOP-2643](https://issues.apache.org/jira/browse/BIGTOP-2643) | Force giraph to compile by removing findbugs from all pom.xml |  Major | build | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2464](https://issues.apache.org/jira/browse/BIGTOP-2464) | Outdated descriptions in vagrant-puppet-vm/README.md |  Major | deployment, vm | Kengo Seki | Kengo Seki |
+| [BIGTOP-2648](https://issues.apache.org/jira/browse/BIGTOP-2648) | Gradle 2.7 SSL Problems |  Major | build | Arnaud Launay | Arnaud Launay |
+| [BIGTOP-2651](https://issues.apache.org/jira/browse/BIGTOP-2651) | Delete obsolete docker images and build files. |  Major | build | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2650](https://issues.apache.org/jira/browse/BIGTOP-2650) | Docker build should pull up to date packages |  Major | build | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2653](https://issues.apache.org/jira/browse/BIGTOP-2653) | upgrading to Spark 2.1 |  Major | build, spark | Amir Sanjar | Amir Sanjar |
+| [BIGTOP-2654](https://issues.apache.org/jira/browse/BIGTOP-2654) | spark 2.1 binaries need either SPARK\_HOME or non existing find-spark-home exe |  Major | . | Olaf Flebbe | Amir Sanjar |
+| [BIGTOP-2656](https://issues.apache.org/jira/browse/BIGTOP-2656) | regression - spark 2.1 upgrade breaks rpm packaging |  Major | spark | Amir Sanjar | Amir Sanjar |
+| [BIGTOP-2652](https://issues.apache.org/jira/browse/BIGTOP-2652) | tajo rpm packaging seriously broken |  Major | build | Olaf Flebbe | YoungWoo Kim |
+| [BIGTOP-2649](https://issues.apache.org/jira/browse/BIGTOP-2649) | Default Java8 blocks default debian jdk |  Major | build, debian | Arnaud Launay | Arnaud Launay |
+| [BIGTOP-2662](https://issues.apache.org/jira/browse/BIGTOP-2662) | provisioner: Add support for JDK8 on debian |  Major | deployment | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2663](https://issues.apache.org/jira/browse/BIGTOP-2663) | puppet hadoop module: Consolidate memory resource settings |  Major | . | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2665](https://issues.apache.org/jira/browse/BIGTOP-2665) | Fix hue for opensuse |  Major | build | Olaf Flebbe | Olaf Flebbe |
+
+
+### TESTS:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [BIGTOP-2534](https://issues.apache.org/jira/browse/BIGTOP-2534) | Flume tests fail with java.lang.NoClassDefFoundError: org/apache/commons/io/Charsets |  Major | build | Divya sree | Olaf Flebbe |
 
 
 ### SUB-TASKS:
@@ -158,6 +262,19 @@
 | [BIGTOP-2312](https://issues.apache.org/jira/browse/BIGTOP-2312) | Add environment check |  Minor | docker, provisioner | Evans Ye | Evans Ye |
 | [BIGTOP-2505](https://issues.apache.org/jira/browse/BIGTOP-2505) | Support systemd containers, clean up hiera.yaml handling, fix exec (-e) flag |  Major | provisioner | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-2518](https://issues.apache.org/jira/browse/BIGTOP-2518) | Add node to the build slave configuration |  Major | build | Roman Shaposhnik | Roman Shaposhnik |
+| [BIGTOP-2530](https://issues.apache.org/jira/browse/BIGTOP-2530) | Create Greenplum packages |  Major | debian, rpm | Kirill Morozov | Kirill Morozov |
+| [BIGTOP-2531](https://issues.apache.org/jira/browse/BIGTOP-2531) | Create Greenplum deployment scripts |  Major | deployment | Kirill Morozov | Kirill Morozov |
+| [BIGTOP-2532](https://issues.apache.org/jira/browse/BIGTOP-2532) | Create Greenplum test |  Major | tests | Kirill Morozov | Kirill Morozov |
+| [BIGTOP-2614](https://issues.apache.org/jira/browse/BIGTOP-2614) | create bigtop/slave docker image for fedora 25 |  Major | build, docker | Amir Sanjar | Amir Sanjar |
+| [BIGTOP-2613](https://issues.apache.org/jira/browse/BIGTOP-2613) | create bigtop/puppet docker image or fedora 25 |  Major | build, docker | Amir Sanjar | Amir Sanjar |
+| [BIGTOP-2620](https://issues.apache.org/jira/browse/BIGTOP-2620) | Bump oozie version to 4.3.0 |  Major | general | Roman Shaposhnik | Roman Shaposhnik |
+| [BIGTOP-2624](https://issues.apache.org/jira/browse/BIGTOP-2624) | Bump Phoenix version to 4.9.0 |  Major | general | YoungWoo Kim | YoungWoo Kim |
+| [BIGTOP-2526](https://issues.apache.org/jira/browse/BIGTOP-2526) | Bump flink version to 1.1.3 |  Major | flink, general | David Moravek | Dennis Huo |
+| [BIGTOP-2625](https://issues.apache.org/jira/browse/BIGTOP-2625) | update crunch for JAVA 8 |  Major | build | Amir Sanjar | Olaf Flebbe |
+| [BIGTOP-2627](https://issues.apache.org/jira/browse/BIGTOP-2627) | Kite 1.1.0 build fails when JAVA 8 is used |  Major | build | Amir Sanjar | Olaf Flebbe |
+| [BIGTOP-2657](https://issues.apache.org/jira/browse/BIGTOP-2657) | Upgrade to Hue 3.11.0 |  Major | hue | Zach York | Zach York |
+| [BIGTOP-2626](https://issues.apache.org/jira/browse/BIGTOP-2626) | HBase build fails when JAVA 8 is used |  Major | build | Amir Sanjar |  |
+| [BIGTOP-2646](https://issues.apache.org/jira/browse/BIGTOP-2646) | Move Vagrant Provisioner from bigtop-deploy/vm to provisioner directory |  Major | docker, provisioner | Evans Ye | Evans Ye |
 
 
 ### OTHER:
@@ -173,5 +290,13 @@
 | [BIGTOP-2414](https://issues.apache.org/jira/browse/BIGTOP-2414) | Rename Tachyon to Alluxio |  Major | . | Jonathan Kelly | Jonathan Kelly |
 | [BIGTOP-2456](https://issues.apache.org/jira/browse/BIGTOP-2456) | Update Apache Apex version to 3.4.0 |  Major | build | Chinmay Kolhatkar | Chinmay Kolhatkar |
 | [BIGTOP-2500](https://issues.apache.org/jira/browse/BIGTOP-2500) | Remove hadoop jars from TEZ\_HOME/lib and create appropriate symlinks |  Major | . | YoungWoo Kim | YoungWoo Kim |
+| [BIGTOP-2538](https://issues.apache.org/jira/browse/BIGTOP-2538) | Bump version of Solr to 4.10.4 |  Minor | build, solr | Andrew Kuchling | Andrew Kuchling |
+| [BIGTOP-2550](https://issues.apache.org/jira/browse/BIGTOP-2550) | Update juju hadoop bundle for Juju 2.0 and Xenial |  Minor | deployment | Kevin W Monroe | Kevin W Monroe |
+| [BIGTOP-2497](https://issues.apache.org/jira/browse/BIGTOP-2497) | Upgrade Apache Phoenix to 4.8.1 |  Major | . | YoungWoo Kim | Kengo Seki |
+| [BIGTOP-2568](https://issues.apache.org/jira/browse/BIGTOP-2568) | Upgrade Kafka version to 0.9.0.1 |  Major | . | YoungWoo Kim | YoungWoo Kim |
+| [BIGTOP-2567](https://issues.apache.org/jira/browse/BIGTOP-2567) | Upgrade Flume version to 1.7.0 |  Major | . | YoungWoo Kim | YoungWoo Kim |
+| [BIGTOP-2592](https://issues.apache.org/jira/browse/BIGTOP-2592) | Upgrade to Spark 2.0.2 |  Major | spark | Jonathan Kelly | Jonathan Kelly |
+| [BIGTOP-2622](https://issues.apache.org/jira/browse/BIGTOP-2622) | Add Kengo Seki to team list |  Trivial | website | Kengo Seki | Kengo Seki |
+| [BIGTOP-2629](https://issues.apache.org/jira/browse/BIGTOP-2629) | Add Jonathan Kelly to team list |  Trivial | website | Jonathan Kelly | Jonathan Kelly |
 
 

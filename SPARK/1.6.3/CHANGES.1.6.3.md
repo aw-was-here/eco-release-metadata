@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 1.6.3 - Unreleased (as of 2016-09-16)
+## Release 1.6.3 - 2016-11-07
 
 
 
@@ -45,13 +45,15 @@
 | [SPARK-16796](https://issues.apache.org/jira/browse/SPARK-16796) | Visible passwords on Spark environment page |  Trivial | Web UI | Artur Sukhenko | Artur Sukhenko |
 | [SPARK-17316](https://issues.apache.org/jira/browse/SPARK-17316) | Don't block StandaloneSchedulerBackend.executorRemoved |  Major | Spark Core | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-17378](https://issues.apache.org/jira/browse/SPARK-17378) | Upgrade snappy-java to 1.1.2.6 |  Trivial | Build | Adam Roberts | Adam Roberts |
+| [SPARK-17485](https://issues.apache.org/jira/browse/SPARK-17485) | Failed remote cached block reads can lead to whole job failure |  Critical | Block Manager | Josh Rosen | Josh Rosen |
+| [SPARK-17649](https://issues.apache.org/jira/browse/SPARK-17649) | Log how many Spark events got dropped in LiveListenerBus |  Minor | Spark Core | Shixiong Zhu | Shixiong Zhu |
 
 
 ### BUG FIXES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [SPARK-6005](https://issues.apache.org/jira/browse/SPARK-6005) | Flaky test: o.a.s.streaming.kafka.DirectKafkaStreamSuite.offset recovery |  Major | Streaming | Iulian Dragos | Shixiong Zhu |
+| [SPARK-6005](https://issues.apache.org/jira/browse/SPARK-6005) | Flaky test: o.a.s.streaming.kafka.DirectKafkaStreamSuite.offset recovery |  Major | DStreams | Iulian Dragos | Shixiong Zhu |
 | [SPARK-15606](https://issues.apache.org/jira/browse/SPARK-15606) | Driver hang in o.a.s.DistributedSuite on 2 core machine |  Major | Spark Core | Pete Robbins | Pete Robbins |
 | [SPARK-16044](https://issues.apache.org/jira/browse/SPARK-16044) | input\_file\_name() returns empty strings in data sources based on NewHadoopRDD. |  Major | SQL | Hyukjin Kwon | Hyukjin Kwon |
 | [SPARK-16077](https://issues.apache.org/jira/browse/SPARK-16077) | Python UDF may fail because of six |  Major | PySpark | Davies Liu | Davies Liu |
@@ -68,15 +70,24 @@
 | [SPARK-16873](https://issues.apache.org/jira/browse/SPARK-16873) | force spill NPE |  Major | Spark Core | sharkd tu | sharkd tu |
 | [SPARK-16925](https://issues.apache.org/jira/browse/SPARK-16925) | Spark tasks which cause JVM to exit with a zero exit code may cause app to hang in Standalone mode |  Critical | Deploy | Josh Rosen | Josh Rosen |
 | [SPARK-16409](https://issues.apache.org/jira/browse/SPARK-16409) | regexp\_extract with optional groups causes NPE |  Major | Spark Core | Max Moroz | Sean Owen |
-| [SPARK-16939](https://issues.apache.org/jira/browse/SPARK-16939) | Fix build error by using `Tuple1` explicitly in StringFunctionSuite |  Minor | SQL | Dongjoon Hyun | Dongjoon Hyun |
+| [SPARK-16939](https://issues.apache.org/jira/browse/SPARK-16939) | Fix build error by using \`Tuple1\` explicitly in StringFunctionSuite |  Minor | SQL | Dongjoon Hyun | Dongjoon Hyun |
 | [SPARK-17003](https://issues.apache.org/jira/browse/SPARK-17003) | release-build.sh is missing hive-thriftserver for scala 2.11 |  Major | Build | Yin Huai | Yin Huai |
-| [SPARK-17038](https://issues.apache.org/jira/browse/SPARK-17038) | StreamingSource reports metrics for lastCompletedBatch instead of lastReceivedBatch |  Minor | Streaming | Oz Ben-Ami | Xin Ren |
+| [SPARK-17038](https://issues.apache.org/jira/browse/SPARK-17038) | StreamingSource reports metrics for lastCompletedBatch instead of lastReceivedBatch |  Minor | DStreams | Oz Ben-Ami | Xin Ren |
 | [SPARK-17404](https://issues.apache.org/jira/browse/SPARK-17404) | [BRANCH-1.6] Broken test: showDF in test\_sparkSQL.R |  Major | SparkR | Yin Huai | Sun Rui |
 | [SPARK-17356](https://issues.apache.org/jira/browse/SPARK-17356) | A large Metadata filed in Alias can cause OOM when calling TreeNode.toJSON |  Major | SQL | Sean Zhong | Sean Zhong |
+| [SPARK-11301](https://issues.apache.org/jira/browse/SPARK-11301) | filter on partitioned column is case sensitive even the context is case insensitive |  Major | SQL | Wenchen Fan | Wenchen Fan |
 | [SPARK-17245](https://issues.apache.org/jira/browse/SPARK-17245) | NPE thrown by ClientWrapper.conf |  Major | SQL | Yin Huai | Yin Huai |
 | [SPARK-17531](https://issues.apache.org/jira/browse/SPARK-17531) | Don't initialize Hive Listeners for the Execution Client |  Major | SQL | Burak Yavuz | Burak Yavuz |
-| [SPARK-17465](https://issues.apache.org/jira/browse/SPARK-17465) | Inappropriate memory management in `org.apache.spark.storage.MemoryStore` may lead to memory leak |  Major | Spark Core | Xing Shi | Xing Shi |
+| [SPARK-17465](https://issues.apache.org/jira/browse/SPARK-17465) | Inappropriate memory management in \`org.apache.spark.storage.MemoryStore\` may lead to memory leak |  Major | Spark Core | Xing Shi | Xing Shi |
 | [SPARK-17547](https://issues.apache.org/jira/browse/SPARK-17547) | Temporary shuffle data files may be leaked following exception in write |  Major | Shuffle | Josh Rosen | Josh Rosen |
+| [SPARK-17617](https://issues.apache.org/jira/browse/SPARK-17617) | Remainder(%) expression.eval returns incorrect result |  Major | SQL | Sean Zhong | Sean Zhong |
+| [SPARK-17418](https://issues.apache.org/jira/browse/SPARK-17418) | Spark release must NOT distribute Kinesis related assembly artifact |  Blocker | Build, DStreams | Luciano Resende | Josh Rosen |
+| [SPARK-14209](https://issues.apache.org/jira/browse/SPARK-14209) | Application failure during preemption. |  Major | Block Manager | Miles Crawford | Josh Rosen |
+| [SPARK-17618](https://issues.apache.org/jira/browse/SPARK-17618) | Dataframe except returns incorrect results when combined with coalesce |  Blocker | SQL | Graeme Edwards | Josh Rosen |
+| [SPARK-17696](https://issues.apache.org/jira/browse/SPARK-17696) | Race in CoarseGrainedExecutorBackend shutdown can lead to wrong exit status |  Minor | Spark Core, YARN | Marcelo Vanzin | Charles Allen |
+| [SPARK-17721](https://issues.apache.org/jira/browse/SPARK-17721) | Erroneous computation in multiplication of transposed SparseMatrix with SparseVector |  Critical | ML, MLlib | Bjarne Fruergaard | Bjarne Fruergaard |
+| [SPARK-17884](https://issues.apache.org/jira/browse/SPARK-17884) | In the cast expression, casting from empty string to interval type throws NullPointerException |  Major | SQL | Priyanka Garg | Priyanka Garg |
+| [SPARK-17678](https://issues.apache.org/jira/browse/SPARK-17678) | Spark 1.6 Scala-2.11 repl doesn't honor "spark.replClassServer.port" |  Major | Spark Shell | Saisai Shao | Saisai Shao |
 
 
 ### TESTS:

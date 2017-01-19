@@ -53,7 +53,7 @@
 | [KAFKA-1915](https://issues.apache.org/jira/browse/KAFKA-1915) | Integrate checkstyle for java code |  Minor | . | Jay Kreps | Jay Kreps |
 | [KAFKA-2044](https://issues.apache.org/jira/browse/KAFKA-2044) | Support requests and responses from o.a.k.common in KafkaApis |  Major | . | Gwen Shapira | Gwen Shapira |
 | [KAFKA-2039](https://issues.apache.org/jira/browse/KAFKA-2039) | Update Scala to 2.10.5 and 2.11.6 |  Minor | . | Ismael Juma | Ismael Juma |
-| [KAFKA-2016](https://issues.apache.org/jira/browse/KAFKA-2016) | RollingBounceTest takes long |  Major | . | Jun Rao | Ted Malaska |
+| [KAFKA-2016](https://issues.apache.org/jira/browse/KAFKA-2016) | RollingBounceTest takes long |  Major | . | Jun Rao | Theodore michael Malaska |
 | [KAFKA-1546](https://issues.apache.org/jira/browse/KAFKA-1546) | Automate replica lag tuning |  Major | replication | Neha Narkhede | Aditya Auradkar |
 | [KAFKA-1926](https://issues.apache.org/jira/browse/KAFKA-1926) | Replace kafka.utils.Utils with o.a.k.common.utils.Utils |  Major | . | Jay Kreps | Tong Li |
 | [KAFKA-1461](https://issues.apache.org/jira/browse/KAFKA-1461) | Replica fetcher thread does not implement any back-off behavior |  Major | replication | Sam Meder | Sriharsha Chintalapani |
@@ -74,7 +74,7 @@
 | [KAFKA-2265](https://issues.apache.org/jira/browse/KAFKA-2265) | creating a topic with large number of partitions takes a long time |  Major | core | Jun Rao | Manikumar Reddy |
 | [KAFKA-1646](https://issues.apache.org/jira/browse/KAFKA-1646) | Improve consumer read performance for Windows |  Major | log | xueqiang wang | Honghai Chen |
 | [KAFKA-2132](https://issues.apache.org/jira/browse/KAFKA-2132) | Move Log4J appender to a separate module |  Major | . | Gwen Shapira | Ashish K Singh |
-| [KAFKA-2314](https://issues.apache.org/jira/browse/KAFKA-2314) | Proper help message for MirrorMaker's `message.handler` property |  Trivial | . | Kostya Golikov | Kostya Golikov |
+| [KAFKA-2314](https://issues.apache.org/jira/browse/KAFKA-2314) | Proper help message for MirrorMaker's \`message.handler\` property |  Trivial | . | Kostya Golikov | Kostya Golikov |
 | [KAFKA-2312](https://issues.apache.org/jira/browse/KAFKA-2312) | Use AtomicLong opposed to AtomicReference to store currentThread in consumer |  Minor | clients | Tim Brooks | Tim Brooks |
 | [KAFKA-2323](https://issues.apache.org/jira/browse/KAFKA-2323) | Simplify ScalaTest dependency versions |  Minor | . | Ismael Juma | Ismael Juma |
 | [KAFKA-2324](https://issues.apache.org/jira/browse/KAFKA-2324) | Update to Scala 2.11.7 |  Minor | . | Ismael Juma | Ismael Juma |
@@ -298,7 +298,7 @@
 | [KAFKA-2477](https://issues.apache.org/jira/browse/KAFKA-2477) | Replicas spuriously deleting all segments in partition |  Major | . | Håkon Hitland | Jiangjie Qin |
 | [KAFKA-2621](https://issues.apache.org/jira/browse/KAFKA-2621) | nextOffsetMetadata should be changed after rolling a new log segment |  Major | core | Jun Rao | Jiangjie Qin |
 | [KAFKA-2596](https://issues.apache.org/jira/browse/KAFKA-2596) | Coordinator should return illegal generation for commits from unknown groups with non-negative generation |  Major | . | Jason Gustafson | Jason Gustafson |
-| [KAFKA-2614](https://issues.apache.org/jira/browse/KAFKA-2614) | No more clients can connect after `TooManyConnectionsException` threshold (max.connections.per.ip) is reached |  Critical | core | Stephen Chu | Ismael Juma |
+| [KAFKA-2614](https://issues.apache.org/jira/browse/KAFKA-2614) | No more clients can connect after \`TooManyConnectionsException\` threshold (max.connections.per.ip) is reached |  Critical | core | Stephen Chu | Ismael Juma |
 | [KAFKA-2567](https://issues.apache.org/jira/browse/KAFKA-2567) | throttle-time shouldn't be NaN |  Minor | . | Jun Rao | Aditya Auradkar |
 | [KAFKA-2203](https://issues.apache.org/jira/browse/KAFKA-2203) | Get gradle build to work with Java 8 |  Minor | build | Gaju Bhat | Gwen Shapira |
 | [KAFKA-2633](https://issues.apache.org/jira/browse/KAFKA-2633) | Default logging from tools to Stderr |  Major | . | Grant Henke | Grant Henke |
@@ -383,7 +383,7 @@
 | [KAFKA-2833](https://issues.apache.org/jira/browse/KAFKA-2833) | OffsetsMessageFormatter hits unexpected exception |  Major | . | Jun Rao | Guozhang Wang |
 | [KAFKA-2838](https://issues.apache.org/jira/browse/KAFKA-2838) | allow comma when specifying superusers |  Major | . | Jun Rao |  |
 | [KAFKA-2624](https://issues.apache.org/jira/browse/KAFKA-2624) | Truncate warn message logged after truncating partitions |  Trivial | replication | Francois Visconte | Francois Visconte |
-| [KAFKA-2688](https://issues.apache.org/jira/browse/KAFKA-2688) | Avoid forcing reload of `Configuration` |  Critical | security | Ismael Juma | Ismael Juma |
+| [KAFKA-2688](https://issues.apache.org/jira/browse/KAFKA-2688) | Avoid forcing reload of \`Configuration\` |  Critical | security | Ismael Juma | Ismael Juma |
 | [KAFKA-2721](https://issues.apache.org/jira/browse/KAFKA-2721) | Avoid handling duplicate LeaderAndISR requests |  Major | . | Guozhang Wang | Dong Lin |
 | [KAFKA-2848](https://issues.apache.org/jira/browse/KAFKA-2848) | Use withClientSslSupport/withClientSaslSupport in Kafka Connect |  Major | KafkaConnect | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-2847](https://issues.apache.org/jira/browse/KAFKA-2847) | remove principal.builder.class from client configs |  Major | clients | Jun Rao | Ismael Juma |
@@ -435,6 +435,7 @@
 | [KAFKA-1809](https://issues.apache.org/jira/browse/KAFKA-1809) | Refactor brokers to allow listening on multiple ports and IPs |  Major | security | Gwen Shapira | Gwen Shapira |
 | [KAFKA-2056](https://issues.apache.org/jira/browse/KAFKA-2056) | PartitionAssignorTest.testRangePartitionAssignor transient failure |  Major | . | Guozhang Wang | Fangmin Lv |
 | [KAFKA-1910](https://issues.apache.org/jira/browse/KAFKA-1910) | Refactor KafkaConsumer |  Major | consumer | Guozhang Wang | Guozhang Wang |
+| [KAFKA-2196](https://issues.apache.org/jira/browse/KAFKA-2196) | remove roundrobin identical topic constraint in consumer coordinator |  Major | . | Onur Karaman | Onur Karaman |
 | [KAFKA-1333](https://issues.apache.org/jira/browse/KAFKA-1333) | Add consumer co-ordinator module to the server |  Major | consumer | Neha Narkhede | Guozhang Wang |
 | [KAFKA-1334](https://issues.apache.org/jira/browse/KAFKA-1334) | Coordinator should detect consumer failures |  Major | consumer | Neha Narkhede | Onur Karaman |
 | [KAFKA-1335](https://issues.apache.org/jira/browse/KAFKA-1335) | Add rebalancing logic to the coordinator / consumer |  Major | consumer | Neha Narkhede | Guozhang Wang |
@@ -448,7 +449,6 @@
 | [KAFKA-2342](https://issues.apache.org/jira/browse/KAFKA-2342) | KafkaConsumer rebalance with in-flight fetch can cause invalid position |  Major | core | Jun Rao | Jason Gustafson |
 | [KAFKA-2301](https://issues.apache.org/jira/browse/KAFKA-2301) | Deprecate ConsumerOffsetChecker |  Major | tools | Ashish K Singh | Ashish K Singh |
 | [KAFKA-2275](https://issues.apache.org/jira/browse/KAFKA-2275) | Add a ListTopics() API to the new consumer |  Critical | consumer | Guozhang Wang | Ashish K Singh |
-| [KAFKA-2089](https://issues.apache.org/jira/browse/KAFKA-2089) | MetadataTest transient failure |  Major | . | Jun Rao | Rajini Sivaram |
 | [KAFKA-2386](https://issues.apache.org/jira/browse/KAFKA-2386) | Transient test failure: testGenerationIdIncrementsOnRebalance |  Major | . | Jason Gustafson | Jason Gustafson |
 | [KAFKA-2055](https://issues.apache.org/jira/browse/KAFKA-2055) | ConsumerBounceTest.testSeekAndCommitWithBrokerFailures transient failure |  Major | . | Guozhang Wang | Fangmin Lv |
 | [KAFKA-2205](https://issues.apache.org/jira/browse/KAFKA-2205) | Generalize TopicConfigManager to handle multiple entity configs |  Major | . | Aditya Auradkar | Aditya Auradkar |
@@ -476,7 +476,7 @@
 | [KAFKA-2453](https://issues.apache.org/jira/browse/KAFKA-2453) | enable new consumer in EndToEndLatency |  Blocker | consumer | Jun Rao | Ben Stopford |
 | [KAFKA-1893](https://issues.apache.org/jira/browse/KAFKA-1893) | Allow regex subscriptions in the new consumer |  Blocker | consumer | Jay Kreps | Ashish K Singh |
 | [KAFKA-2389](https://issues.apache.org/jira/browse/KAFKA-2389) | CommitType seems not necessary in commit(). |  Major | . | Jiangjie Qin | Jiangjie Qin |
-| [KAFKA-2440](https://issues.apache.org/jira/browse/KAFKA-2440) | Use `NetworkClient` instead of `SimpleConsumer` to fetch data from replica |  Blocker | security | Ismael Juma | Ismael Juma |
+| [KAFKA-2440](https://issues.apache.org/jira/browse/KAFKA-2440) | Use \`NetworkClient\` instead of \`SimpleConsumer\` to fetch data from replica |  Blocker | security | Ismael Juma | Ismael Juma |
 | [KAFKA-2532](https://issues.apache.org/jira/browse/KAFKA-2532) | Remove Consumer from rebalance callback arguments |  Major | . | Jason Gustafson | Jason Gustafson |
 | [KAFKA-2211](https://issues.apache.org/jira/browse/KAFKA-2211) | KafkaAuthorizer: Add simpleACLAuthorizer implementation. |  Blocker | security | Parth Brahmbhatt | Parth Brahmbhatt |
 | [KAFKA-2558](https://issues.apache.org/jira/browse/KAFKA-2558) | ServerShutdownTest is failing intermittently |  Major | unit tests | Flavio Junqueira | Flavio Junqueira |
@@ -488,14 +488,14 @@
 | [KAFKA-2374](https://issues.apache.org/jira/browse/KAFKA-2374) | Implement Copycat log/file connector |  Major | KafkaConnect | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-2368](https://issues.apache.org/jira/browse/KAFKA-2368) | Add Copycat standalone CLI |  Major | KafkaConnect | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-2212](https://issues.apache.org/jira/browse/KAFKA-2212) | KafkaAuthorizer: Add CLI for Acl management. |  Blocker | security | Parth Brahmbhatt | Parth Brahmbhatt |
-| [KAFKA-2604](https://issues.apache.org/jira/browse/KAFKA-2604) | Remove `completeAll` and improve timeout passed to `Selector.poll` from `NetworkClient.poll` |  Major | consumer | Ismael Juma | Ismael Juma |
+| [KAFKA-2604](https://issues.apache.org/jira/browse/KAFKA-2604) | Remove \`completeAll\` and improve timeout passed to \`Selector.poll\` from \`NetworkClient.poll\` |  Major | consumer | Ismael Juma | Ismael Juma |
 | [KAFKA-2482](https://issues.apache.org/jira/browse/KAFKA-2482) | Allow copycat sink tasks to pause/resume consumption of specific topic partitions |  Major | KafkaConnect | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-2474](https://issues.apache.org/jira/browse/KAFKA-2474) | Add caching for converted Copycat schemas in JSONConverter |  Major | KafkaConnect | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-2476](https://issues.apache.org/jira/browse/KAFKA-2476) | Define logical types for Copycat data API |  Major | KafkaConnect | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
-| [KAFKA-2587](https://issues.apache.org/jira/browse/KAFKA-2587) | Transient test failure: `SimpleAclAuthorizerTest` |  Major | . | Ismael Juma | Parth Brahmbhatt |
+| [KAFKA-2587](https://issues.apache.org/jira/browse/KAFKA-2587) | Transient test failure: \`SimpleAclAuthorizerTest\` |  Major | . | Ismael Juma | Parth Brahmbhatt |
 | [KAFKA-2622](https://issues.apache.org/jira/browse/KAFKA-2622) | Add Time logical type for Copycat |  Major | KafkaConnect | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-2581](https://issues.apache.org/jira/browse/KAFKA-2581) | Run some existing ducktape tests with SSL-enabled clients and brokers |  Major | security | Rajini Sivaram | Rajini Sivaram |
-| [KAFKA-2613](https://issues.apache.org/jira/browse/KAFKA-2613) | Consider capping `maxParallelForks` for Jenkins builds |  Major | build | Ismael Juma | Ewen Cheslack-Postava |
+| [KAFKA-2613](https://issues.apache.org/jira/browse/KAFKA-2613) | Consider capping \`maxParallelForks\` for Jenkins builds |  Major | build | Ismael Juma | Ewen Cheslack-Postava |
 | [KAFKA-2372](https://issues.apache.org/jira/browse/KAFKA-2372) | Copycat distributed config storage |  Major | KafkaConnect | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-2527](https://issues.apache.org/jira/browse/KAFKA-2527) | System Test for Quotas in Ducktape |  Major | . | Dong Lin | Dong Lin |
 | [KAFKA-2632](https://issues.apache.org/jira/browse/KAFKA-2632) | Move fetchable check from fetchedRecords to fetch response handler |  Major | consumer | Guozhang Wang | Guozhang Wang |
@@ -552,7 +552,7 @@
 | [KAFKA-1661](https://issues.apache.org/jira/browse/KAFKA-1661) | Move MockConsumer and MockProducer from src/main to src/test |  Trivial | clients, consumer, producer | Andras Hatvani |  |
 | [KAFKA-1856](https://issues.apache.org/jira/browse/KAFKA-1856) | Add PreCommit Patch Testing |  Major | . | Ashish K Singh | Ashish K Singh |
 | [KAFKA-2348](https://issues.apache.org/jira/browse/KAFKA-2348) | Drop support for Scala 2.9 |  Major | . | Ismael Juma | Ismael Juma |
-| [KAFKA-2349](https://issues.apache.org/jira/browse/KAFKA-2349) | `contributing` website page should link to "Contributing Code Changes" wiki page |  Major | . | Ismael Juma | Ismael Juma |
+| [KAFKA-2349](https://issues.apache.org/jira/browse/KAFKA-2349) | \`contributing\` website page should link to "Contributing Code Changes" wiki page |  Major | . | Ismael Juma | Ismael Juma |
 | [KAFKA-2492](https://issues.apache.org/jira/browse/KAFKA-2492) | Upgrade zkclient dependency to 0.6 |  Trivial | . | Stevo Slavic | Stevo Slavic |
 | [KAFKA-2364](https://issues.apache.org/jira/browse/KAFKA-2364) | Improve documentation for contributing to docs |  Minor | . | Aseem Bansal | Manikumar Reddy |
 | [KAFKA-2443](https://issues.apache.org/jira/browse/KAFKA-2443) | Expose windowSize on Rate |  Major | . | Aditya Auradkar | Aditya Auradkar |

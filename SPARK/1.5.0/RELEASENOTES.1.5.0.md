@@ -23,12 +23,12 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
-* [SPARK-10578](https://issues.apache.org/jira/browse/SPARK-10578) | *Major* | **pyspark.ml.classification.RandomForestClassifer does not return `rawPrediction` column**
+* [SPARK-10578](https://issues.apache.org/jira/browse/SPARK-10578) | *Major* | **pyspark.ml.classification.RandomForestClassifer does not return \`rawPrediction\` column**
 
-To use `pyspark.ml.classification.RandomForestClassifer` with `BinaryClassificationEvaluator`, a column called `rawPrediction` needs to be returned by the `RandomForestClassifer`. 
-The PySpark documentation example of `logisticsRegression`outputs the `rawPrediction` column but not `RandomForestClassifier`.
+To use \`pyspark.ml.classification.RandomForestClassifer\` with \`BinaryClassificationEvaluator\`, a column called \`rawPrediction\` needs to be returned by the \`RandomForestClassifer\`. 
+The PySpark documentation example of \`logisticsRegression\`outputs the \`rawPrediction\` column but not \`RandomForestClassifier\`.
 
-Therefore, one is unable to use `RandomForestClassifier` with the evaluator nor put it in a pipeline with cross validation.
+Therefore, one is unable to use \`RandomForestClassifier\` with the evaluator nor put it in a pipeline with cross validation.
 
 A relevant piece of code showing how to reproduce the bug can be found at:
 https://gist.github.com/karenyyng/cf61ae655b032f754bfb

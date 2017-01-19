@@ -29,6 +29,6 @@
 | [HADOOP-1135](https://issues.apache.org/jira/browse/HADOOP-1135) | A block report processing may incorrectly cause the namenode to delete blocks |  Major | . | dhruba borthakur | dhruba borthakur |
 | [HADOOP-1145](https://issues.apache.org/jira/browse/HADOOP-1145) | XmlRecordInput class should be public |  Major | record | Runping Qi | Milind Bhandarkar |
 | [HADOOP-1140](https://issues.apache.org/jira/browse/HADOOP-1140) | Deadlock bug involving the o.a.h.metrics package |  Major | metrics | David Bowen | David Bowen |
-| [HADOOP-1150](https://issues.apache.org/jira/browse/HADOOP-1150) | Streaming -reducer and -mapper no longer have defaults |  Major | . | Nigel Daley | Owen O\'Malley |
+| [HADOOP-1150](https://issues.apache.org/jira/browse/HADOOP-1150) | Streaming -reducer and -mapper no longer have defaults |  Major | . | Nigel Daley | Owen O'Malley |
 
 

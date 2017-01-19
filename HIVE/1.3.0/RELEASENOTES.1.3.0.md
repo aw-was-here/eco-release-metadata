@@ -226,7 +226,7 @@ HIVE-12315: Fix Vectorized double divide by zero (Gopal V, reviewed by Matt McCl
 
 ---
 
-* [HIVE-11825](https://issues.apache.org/jira/browse/HIVE-11825) | *Critical* | **get\_json\_object(col,'$.a') is null in where clause didn`t work**
+* [HIVE-11825](https://issues.apache.org/jira/browse/HIVE-11825) | *Critical* | **get\_json\_object(col,'$.a') is null in where clause didn\`t work**
 
 Enabled to accept quoting of all character backslash qooting mechanism
 

@@ -131,7 +131,7 @@
 | [FLINK-4063](https://issues.apache.org/jira/browse/FLINK-4063) | Add Metrics Support for Triggers |  Major | Streaming | Aljoscha Krettek | Aljoscha Krettek |
 | [FLINK-3332](https://issues.apache.org/jira/browse/FLINK-3332) | Provide an exactly-once Cassandra connector |  Major | Streaming Connectors | Robert Metzger | Chesnay Schepler |
 | [FLINK-3937](https://issues.apache.org/jira/browse/FLINK-3937) | Make flink cli list, savepoint, cancel and stop work on Flink-on-YARN clusters |  Minor | . | Sebastian Klemke | Maximilian Michels |
-| [FLINK-3667](https://issues.apache.org/jira/browse/FLINK-3667) | Generalize client\<-\>cluster communication |  Major | YARN Client | Maximilian Michels | Maximilian Michels |
+| [FLINK-3667](https://issues.apache.org/jira/browse/FLINK-3667) | Generalize client\<-\>cluster communication |  Major | YARN | Maximilian Michels | Maximilian Michels |
 | [FLINK-4082](https://issues.apache.org/jira/browse/FLINK-4082) | Add Setting for LargeRecordHandler |  Major | . | Aljoscha Krettek | Aljoscha Krettek |
 | [FLINK-3752](https://issues.apache.org/jira/browse/FLINK-3752) | Add Per-Kafka-Partition Watermark Generation to the docs |  Major | Documentation | Stephan Ewen | Kostas Kloudas |
 | [FLINK-3868](https://issues.apache.org/jira/browse/FLINK-3868) | Specialized CopyableValue serializers and comparators |  Major | Core | Greg Hogan | Greg Hogan |
@@ -150,7 +150,7 @@
 | [FLINK-4127](https://issues.apache.org/jira/browse/FLINK-4127) | Clean up configuration and check breaking API changes |  Major | Build System | Robert Metzger | Robert Metzger |
 | [FLINK-4197](https://issues.apache.org/jira/browse/FLINK-4197) | Allow Kinesis Endpoint to be Overridden via Config |  Minor | Kinesis Connector | Scott Kidder | Scott Kidder |
 | [FLINK-4206](https://issues.apache.org/jira/browse/FLINK-4206) | Metric names should allow special characters |  Major | Metrics | Chesnay Schepler | Chesnay Schepler |
-| [FLINK-4170](https://issues.apache.org/jira/browse/FLINK-4170) | Remove `CONFIG\_` prefix from KinesisConfigConstants variables |  Major | Streaming Connectors | Ufuk Celebi | Tzu-Li (Gordon) Tai |
+| [FLINK-4170](https://issues.apache.org/jira/browse/FLINK-4170) | Remove \`CONFIG\_\` prefix from KinesisConfigConstants variables |  Major | Streaming Connectors | Ufuk Celebi | Tzu-Li (Gordon) Tai |
 | [FLINK-3666](https://issues.apache.org/jira/browse/FLINK-3666) | Remove Nephele references |  Trivial | Documentation | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-4017](https://issues.apache.org/jira/browse/FLINK-4017) | [py] Add Aggregation support to Python API |  Minor | Python API | Geoffrey Mon |  |
 | [FLINK-4186](https://issues.apache.org/jira/browse/FLINK-4186) | Expose Kafka metrics through Flink metrics |  Major | Kafka Connector | Robert Metzger | Robert Metzger |
@@ -161,7 +161,7 @@
 | [FLINK-4070](https://issues.apache.org/jira/browse/FLINK-4070) | Support literals on left side of binary expressions |  Minor | Table API & SQL | Timo Walther | Jark Wu |
 | [FLINK-4229](https://issues.apache.org/jira/browse/FLINK-4229) | Do not start Metrics Reporter by default |  Major | Metrics | Aljoscha Krettek | Aljoscha Krettek |
 | [FLINK-4202](https://issues.apache.org/jira/browse/FLINK-4202) | Add JM metric which shows the restart duration |  Major | Distributed Coordination | Till Rohrmann | Till Rohrmann |
-| [FLINK-2227](https://issues.apache.org/jira/browse/FLINK-2227) | .yarn-properties file is not cleaned up |  Minor | YARN Client | Ufuk Celebi |  |
+| [FLINK-2227](https://issues.apache.org/jira/browse/FLINK-2227) | .yarn-properties file is not cleaned up |  Minor | YARN | Ufuk Celebi |  |
 | [FLINK-2929](https://issues.apache.org/jira/browse/FLINK-2929) | Recovery of jobs on cluster restarts |  Major | . | Ufuk Celebi |  |
 | [FLINK-3901](https://issues.apache.org/jira/browse/FLINK-3901) | Create a RowCsvInputFormat to use as default CSV IF in Table API |  Minor | . | Flavio Pompermaier | Flavio Pompermaier |
 | [FLINK-3891](https://issues.apache.org/jira/browse/FLINK-3891) | Add a class containing all supported Table API types |  Minor | Table API & SQL | Timo Walther | Timo Walther |
@@ -225,7 +225,7 @@
 | [FLINK-3619](https://issues.apache.org/jira/browse/FLINK-3619) | SavepointCoordinator test failure |  Major | Streaming | Gyula Fora | Ufuk Celebi |
 | [FLINK-3595](https://issues.apache.org/jira/browse/FLINK-3595) | Kafka09 consumer thread does not interrupt when stuck in record emission |  Critical | Kafka Connector | Stephan Ewen | Ufuk Celebi |
 | [FLINK-1159](https://issues.apache.org/jira/browse/FLINK-1159) | Case style anonymous functions not supported by Scala API |  Major | Scala API | Till Rohrmann | Stefano Baghino |
-| [FLINK-3712](https://issues.apache.org/jira/browse/FLINK-3712) | YARN client dynamic properties are not passed correctly to the leader election service on the client |  Major | YARN Client | Robert Metzger | Robert Metzger |
+| [FLINK-3712](https://issues.apache.org/jira/browse/FLINK-3712) | YARN client dynamic properties are not passed correctly to the leader election service on the client |  Major | YARN | Robert Metzger | Robert Metzger |
 | [FLINK-3579](https://issues.apache.org/jira/browse/FLINK-3579) | Improve String concatenation |  Minor | Table API & SQL | Timo Walther | ramkrishna.s.vasudevan |
 | [FLINK-3731](https://issues.apache.org/jira/browse/FLINK-3731) | Embedded SQL outer joins should fail during translation |  Major | Table API & SQL | Vasia Kalavri | Vasia Kalavri |
 | [FLINK-3730](https://issues.apache.org/jira/browse/FLINK-3730) | Fix RocksDB Local Directory Initialization |  Major | State Backends, Checkpointing, Streaming | Aljoscha Krettek | Aljoscha Krettek |
@@ -268,7 +268,7 @@
 | [FLINK-3934](https://issues.apache.org/jira/browse/FLINK-3934) | Prevent translation of non-equi joins in DataSetJoinRule |  Major | Table API & SQL | Fabian Hueske | Fabian Hueske |
 | [FLINK-3935](https://issues.apache.org/jira/browse/FLINK-3935) | Invalid check of key and ordering fields in PartitionNode |  Major | Optimizer | Fabian Hueske | Fabian Hueske |
 | [FLINK-3909](https://issues.apache.org/jira/browse/FLINK-3909) | Maven Failsafe plugin may report SUCCESS on failed tests |  Major | Build System | Maximilian Michels | Maximilian Michels |
-| [FLINK-3892](https://issues.apache.org/jira/browse/FLINK-3892) | ConnectionUtils may die with NullPointerException |  Minor | YARN Client | Maximilian Michels | Maximilian Michels |
+| [FLINK-3892](https://issues.apache.org/jira/browse/FLINK-3892) | ConnectionUtils may die with NullPointerException |  Minor | YARN | Maximilian Michels | Maximilian Michels |
 | [FLINK-3893](https://issues.apache.org/jira/browse/FLINK-3893) | LeaderChangeStateCleanupTest times out |  Minor | Tests | Maximilian Michels | Maximilian Michels |
 | [FLINK-3938](https://issues.apache.org/jira/browse/FLINK-3938) | Yarn tests don't run on the current master |  Critical | Build System | Maximilian Michels | Maximilian Michels |
 | [FLINK-3928](https://issues.apache.org/jira/browse/FLINK-3928) | Potential overflow due to 32-bit int arithmetic |  Minor | . | Ted Yu | Greg Hogan |
@@ -301,7 +301,7 @@
 | [FLINK-4024](https://issues.apache.org/jira/browse/FLINK-4024) | FileSourceFunction not adjusted to new IF lifecycle |  Critical | Streaming | Chesnay Schepler | Kostas Kloudas |
 | [FLINK-3933](https://issues.apache.org/jira/browse/FLINK-3933) | Add an auto-type-extracting DeserializationSchema |  Major | Streaming, Streaming Connectors | Stephan Ewen | Stephan Ewen |
 | [FLINK-4077](https://issues.apache.org/jira/browse/FLINK-4077) | Register Pojo DataSet/DataStream as Table requires alias expression. |  Major | Table API & SQL | Fabian Hueske | Fabian Hueske |
-| [FLINK-3863](https://issues.apache.org/jira/browse/FLINK-3863) | Yarn Cluster shutdown may fail if leader changed recently |  Minor | YARN Client | Maximilian Michels | Maximilian Michels |
+| [FLINK-3863](https://issues.apache.org/jira/browse/FLINK-3863) | Yarn Cluster shutdown may fail if leader changed recently |  Minor | YARN | Maximilian Michels | Maximilian Michels |
 | [FLINK-3890](https://issues.apache.org/jira/browse/FLINK-3890) | Deprecate streaming mode flag from Yarn CLI |  Minor | . | Maximilian Michels | Maximilian Michels |
 | [FLINK-4056](https://issues.apache.org/jira/browse/FLINK-4056) | SavepointITCase.testCheckpointHasBeenRemoved failed on Travis |  Critical | Tests | Till Rohrmann | Ufuk Celebi |
 | [FLINK-4009](https://issues.apache.org/jira/browse/FLINK-4009) | Scala Shell fails to find library for inclusion in test |  Major | Scala Shell, Tests | Maximilian Michels | Maximilian Michels |
@@ -311,37 +311,37 @@
 | [FLINK-4089](https://issues.apache.org/jira/browse/FLINK-4089) | Ineffective null check in YarnClusterClient#getApplicationStatus() |  Major | . | Ted Yu | Maximilian Michels |
 | [FLINK-4090](https://issues.apache.org/jira/browse/FLINK-4090) | Close of OutputStream should be in finally clause in FlinkYarnSessionCli#writeYarnProperties() |  Minor | . | Ted Yu | Maximilian Michels |
 | [FLINK-3380](https://issues.apache.org/jira/browse/FLINK-3380) | Unstable Test: JobSubmissionFailsITCase |  Critical | . | Kostas Kloudas |  |
-| [FLINK-3105](https://issues.apache.org/jira/browse/FLINK-3105) | Submission in per job YARN cluster mode reuses properties file of long-lived session |  Major | YARN Client | Ufuk Celebi | Maximilian Michels |
+| [FLINK-3105](https://issues.apache.org/jira/browse/FLINK-3105) | Submission in per job YARN cluster mode reuses properties file of long-lived session |  Major | YARN | Ufuk Celebi | Maximilian Michels |
 | [FLINK-4012](https://issues.apache.org/jira/browse/FLINK-4012) | Docs: Links to "Iterations" are broken (404) |  Trivial | Documentation | Bernd Louis |  |
 | [FLINK-3973](https://issues.apache.org/jira/browse/FLINK-3973) | Table API documentation is "hidden" in Programming Guide menu list |  Major | Documentation | Fabian Hueske |  |
 | [FLINK-4079](https://issues.apache.org/jira/browse/FLINK-4079) | YARN properties file used for per-job cluster |  Major | Client | Ufuk Celebi | Maximilian Michels |
 | [FLINK-4038](https://issues.apache.org/jira/browse/FLINK-4038) | Impossible to set more than 1 JVM argument in env.java.opts |  Critical | Startup Shell Scripts | Gyula Fora | Ufuk Celebi |
 | [FLINK-4076](https://issues.apache.org/jira/browse/FLINK-4076) | BoltWrapper#dispose() should call AbstractStreamOperator#dispose() |  Minor | . | Ted Yu |  |
 | [FLINK-4097](https://issues.apache.org/jira/browse/FLINK-4097) | Cassandra Sink throws NPE on closing if server is not available |  Major | Streaming Connectors | Robert Metzger | Andrea Sella |
-| [FLINK-4040](https://issues.apache.org/jira/browse/FLINK-4040) | Same env.java.opts is applied for TM , JM and ZK |  Critical | Startup Shell Scripts, YARN Client | Gyula Fora | Ufuk Celebi |
+| [FLINK-4040](https://issues.apache.org/jira/browse/FLINK-4040) | Same env.java.opts is applied for TM , JM and ZK |  Critical | Startup Shell Scripts, YARN | Gyula Fora | Ufuk Celebi |
 | [FLINK-4046](https://issues.apache.org/jira/browse/FLINK-4046) | Failing a restarting job can get stuck in JobStatus.FAILING |  Major | Distributed Coordination | Till Rohrmann | Till Rohrmann |
-| [FLINK-3864](https://issues.apache.org/jira/browse/FLINK-3864) | Yarn tests don't check for prohibited strings in log output |  Major | Tests, YARN Client | Maximilian Michels | Maximilian Michels |
+| [FLINK-3864](https://issues.apache.org/jira/browse/FLINK-3864) | Yarn tests don't check for prohibited strings in log output |  Major | Tests, YARN | Maximilian Michels | Maximilian Michels |
 | [FLINK-3757](https://issues.apache.org/jira/browse/FLINK-3757) | addAccumulator does not throw Exception on duplicate accumulator name |  Minor | . | Konstantin Knauf | Maximilian Michels |
 | [FLINK-3838](https://issues.apache.org/jira/browse/FLINK-3838) | CLI parameter parser is munging application params |  Minor | Client | Ken Krugler | Maximilian Michels |
 | [FLINK-4041](https://issues.apache.org/jira/browse/FLINK-4041) | Failure while asking ResourceManager for RegisterResource |  Major | ResourceManager | Robert Metzger | Maximilian Michels |
 | [FLINK-3974](https://issues.apache.org/jira/browse/FLINK-3974) | enableObjectReuse fails when an operator chains to multiple downstream operators |  Major | DataStream API | B Wyatt | Aljoscha Krettek |
 | [FLINK-4113](https://issues.apache.org/jira/browse/FLINK-4113) | Always copy first value in ChainedAllReduceDriver |  Critical | Local Runtime | Greg Hogan | Greg Hogan |
-| [FLINK-4099](https://issues.apache.org/jira/browse/FLINK-4099) | CliFrontendYarnAddressConfigurationTest fails |  Major | YARN Client | Ufuk Celebi | Robert Metzger |
+| [FLINK-4099](https://issues.apache.org/jira/browse/FLINK-4099) | CliFrontendYarnAddressConfigurationTest fails |  Major | YARN | Ufuk Celebi | Robert Metzger |
 | [FLINK-4132](https://issues.apache.org/jira/browse/FLINK-4132) | Fix boxed comparison in CommunityDetection algorithm |  Minor | Gelly | Greg Hogan | Greg Hogan |
 | [FLINK-4122](https://issues.apache.org/jira/browse/FLINK-4122) | Cassandra jar contains 2 guava versions |  Blocker | Streaming Connectors | Chesnay Schepler | Chesnay Schepler |
-| [FLINK-4139](https://issues.apache.org/jira/browse/FLINK-4139) | Yarn: Adjust parallelism and task slots correctly |  Minor | Client, YARN Client | Maximilian Michels | Maximilian Michels |
-| [FLINK-3675](https://issues.apache.org/jira/browse/FLINK-3675) | YARN ship folder incosistent behavior |  Critical | YARN Client | Stefano Baghino | Maximilian Michels |
+| [FLINK-4139](https://issues.apache.org/jira/browse/FLINK-4139) | Yarn: Adjust parallelism and task slots correctly |  Minor | Client, YARN | Maximilian Michels | Maximilian Michels |
+| [FLINK-3675](https://issues.apache.org/jira/browse/FLINK-3675) | YARN ship folder incosistent behavior |  Critical | YARN | Stefano Baghino | Maximilian Michels |
 | [FLINK-4141](https://issues.apache.org/jira/browse/FLINK-4141) | TaskManager failures not always recover when killed during an ApplicationMaster failure in HA mode on Yarn |  Major | . | Stefan Richter | Maximilian Michels |
-| [FLINK-4144](https://issues.apache.org/jira/browse/FLINK-4144) | Yarn properties file: replace hostname/port with Yarn application id |  Major | YARN Client | Maximilian Michels | Maximilian Michels |
+| [FLINK-4144](https://issues.apache.org/jira/browse/FLINK-4144) | Yarn properties file: replace hostname/port with Yarn application id |  Major | YARN | Maximilian Michels | Maximilian Michels |
 | [FLINK-4027](https://issues.apache.org/jira/browse/FLINK-4027) | FlinkKafkaProducer09 sink can lose messages |  Critical | Kafka Connector | Elias Levy | Robert Metzger |
 | [FLINK-4134](https://issues.apache.org/jira/browse/FLINK-4134) | EventTimeSessionWindows trigger for empty windows when dropping late events |  Major | DataStream API | Stefan Richter | Stefan Richter |
 | [FLINK-4145](https://issues.apache.org/jira/browse/FLINK-4145) | JmxReporterTest fails due to port conflicts |  Major | Local Runtime, Metrics | Ufuk Celebi | Chesnay Schepler |
 | [FLINK-4115](https://issues.apache.org/jira/browse/FLINK-4115) | FsStateBackend filesystem verification can cause classpath exceptions |  Blocker | Local Runtime | Josh Forman-Gornall | Josh Forman-Gornall |
 | [FLINK-3995](https://issues.apache.org/jira/browse/FLINK-3995) | Properly Structure Test Utils and Dependencies |  Major | Build System | Stephan Ewen | Stephan Ewen |
 | [FLINK-4133](https://issues.apache.org/jira/browse/FLINK-4133) | Reflect streaming file source changes in documentation |  Major | DataStream API, Documentation | Robert Metzger | Kostas Kloudas |
-| [FLINK-4146](https://issues.apache.org/jira/browse/FLINK-4146) | CliFrontendYarnAddressConfigurationTest picks wrong IP address on Travis |  Major | YARN Client | Ufuk Celebi | Robert Metzger |
+| [FLINK-4146](https://issues.apache.org/jira/browse/FLINK-4146) | CliFrontendYarnAddressConfigurationTest picks wrong IP address on Travis |  Major | YARN | Ufuk Celebi | Robert Metzger |
 | [FLINK-4158](https://issues.apache.org/jira/browse/FLINK-4158) | Scala QuickStart StreamingJob fails to compile |  Major | Quickstarts | Chesnay Schepler | Chesnay Schepler |
-| [FLINK-4160](https://issues.apache.org/jira/browse/FLINK-4160) | YARN session doesn't show input validation errors |  Critical | YARN Client | Robert Metzger | Chesnay Schepler |
+| [FLINK-4160](https://issues.apache.org/jira/browse/FLINK-4160) | YARN session doesn't show input validation errors |  Critical | YARN | Robert Metzger | Chesnay Schepler |
 | [FLINK-4168](https://issues.apache.org/jira/browse/FLINK-4168) | ForkableFlinkMiniCluster not available in Kinesis connector tests |  Major | Build System, Kinesis Connector, Streaming Connectors | Tzu-Li (Gordon) Tai | Tzu-Li (Gordon) Tai |
 | [FLINK-4176](https://issues.apache.org/jira/browse/FLINK-4176) | Travis build fails at flink-connector-kinesis for JDK: openjdk7 |  Critical | Build System, Kinesis Connector, Streaming Connectors | Tzu-Li (Gordon) Tai | Tzu-Li (Gordon) Tai |
 | [FLINK-4171](https://issues.apache.org/jira/browse/FLINK-4171) | StatsD does not accept metrics whose name contains ":" |  Major | Metrics | Till Rohrmann | Till Rohrmann |
@@ -356,7 +356,7 @@
 | [FLINK-4214](https://issues.apache.org/jira/browse/FLINK-4214) | JobExceptionsHandler will return all exceptions |  Minor | Webfrontend | Sumit Chawla |  |
 | [FLINK-3630](https://issues.apache.org/jira/browse/FLINK-3630) | Little mistake in documentation |  Minor | DataSet API, Documentation | Riccardo Diomedi | Greg Hogan |
 | [FLINK-4053](https://issues.apache.org/jira/browse/FLINK-4053) | Return value from Connection should be checked against null |  Minor | . | Ted Yu | Ivan Mushketyk |
-| [FLINK-4142](https://issues.apache.org/jira/browse/FLINK-4142) | Recovery problem in HA on Hadoop Yarn 2.4.1 |  Major | YARN Client | Stefan Richter | Robert Metzger |
+| [FLINK-4142](https://issues.apache.org/jira/browse/FLINK-4142) | Recovery problem in HA on Hadoop Yarn 2.4.1 |  Major | YARN | Stefan Richter | Robert Metzger |
 | [FLINK-4184](https://issues.apache.org/jira/browse/FLINK-4184) | Ganglia and GraphiteReporter report metric names with invalid characters |  Major | Metrics | Till Rohrmann | Till Rohrmann |
 | [FLINK-3466](https://issues.apache.org/jira/browse/FLINK-3466) | Job might get stuck in restoreState() from HDFS due to interrupt |  Blocker | State Backends, Checkpointing | Robert Metzger | Stephan Ewen |
 | [FLINK-4196](https://issues.apache.org/jira/browse/FLINK-4196) | Remove "recoveryTimestamp" |  Major | State Backends, Checkpointing | Stephan Ewen | Stephan Ewen |
@@ -377,14 +377,15 @@
 | [FLINK-3725](https://issues.apache.org/jira/browse/FLINK-3725) | Exception in thread "main" scala.MatchError: ... (of class scala.Tuple4) |  Major | JobManager | Maxim Dobryakov | Stephan Ewen |
 | [FLINK-3411](https://issues.apache.org/jira/browse/FLINK-3411) | Failed recovery can lead to removal of HA state |  Critical | Distributed Coordination | Ufuk Celebi |  |
 | [FLINK-4150](https://issues.apache.org/jira/browse/FLINK-4150) | Problem with Blobstore in Yarn HA setting on recovery after cluster shutdown |  Blocker | Job-Submission | Stefan Richter | Ufuk Celebi |
-| [FLINK-4152](https://issues.apache.org/jira/browse/FLINK-4152) | TaskManager registration exponential backoff doesn't work |  Major | Distributed Coordination, TaskManager, YARN Client | Robert Metzger | Till Rohrmann |
-| [FLINK-4156](https://issues.apache.org/jira/browse/FLINK-4156) | Job with -m yarn-cluster registers TaskManagers to another running Yarn session |  Major | Distributed Coordination, YARN Client | Stefan Richter |  |
+| [FLINK-4152](https://issues.apache.org/jira/browse/FLINK-4152) | TaskManager registration exponential backoff doesn't work |  Major | Distributed Coordination, TaskManager, YARN | Robert Metzger | Till Rohrmann |
+| [FLINK-4156](https://issues.apache.org/jira/browse/FLINK-4156) | Job with -m yarn-cluster registers TaskManagers to another running Yarn session |  Major | Distributed Coordination, YARN | Stefan Richter |  |
 | [FLINK-4258](https://issues.apache.org/jira/browse/FLINK-4258) | Potential null pointer dereference in SavepointCoordinator#onFullyAcknowledgedCheckpoint |  Major | . | Ted Yu | Maximilian Michels |
 | [FLINK-4277](https://issues.apache.org/jira/browse/FLINK-4277) | TaskManagerConfigurationTest fails |  Major | Tests | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-4284](https://issues.apache.org/jira/browse/FLINK-4284) | DataSet/CEP link to non-existant "Linking with Flink" section |  Major | Documentation | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-4296](https://issues.apache.org/jira/browse/FLINK-4296) | Scheduler accepts more tasks than it has task slots available |  Critical | JobManager, TaskManager | Maximilian Michels | Till Rohrmann |
 | [FLINK-4307](https://issues.apache.org/jira/browse/FLINK-4307) | Broken user-facing API for ListState |  Blocker | Streaming | Stephan Ewen | Stephan Ewen |
 | [FLINK-3796](https://issues.apache.org/jira/browse/FLINK-3796) | FileSourceFunction doesn't respect InputFormat's life cycle methods |  Major | Streaming | Maximilian Michels | Maximilian Michels |
+| [FLINK-3594](https://issues.apache.org/jira/browse/FLINK-3594) | StreamTask may fail when checkpoint is concurrent to regular termination |  Critical | . | Chesnay Schepler | Stephan Ewen |
 
 
 ### TESTS:

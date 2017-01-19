@@ -1,0 +1,2 @@
+/Users/aw/shared-vmware/yetus/release-doc-maker/releasedocmaker.py --project HADOOP --project HDFS --project YARN --project MAPREDUCE --projecttitle "Apache Hadoop" --range --version 1 --version 2 --index --license --outputdir HADOOP
+

@@ -62,7 +62,7 @@ default value is true.
 
 * [HDFS-5079](https://issues.apache.org/jira/browse/HDFS-5079) | *Major* | **Cleaning up NNHAStatusHeartbeat.State DatanodeProtocolProtos.**
 
-This change affects wire-compatibility of the NameNode/DataNode heartbeat protocol.
+This change affects wire-compatibility of the NameNode/DataNode heartbeat protocol.  Only present in 3.0.0-alpha1. It has been reverted before 3.0.0-alpha2
 
 
 ---
@@ -327,7 +327,7 @@ Prior to this change, distcp had hard-coded values for memory usage.  Now distcp
 
 ---
 
-* [HADOOP-11657](https://issues.apache.org/jira/browse/HADOOP-11657) | *Minor* | **Align the output of `hadoop fs -du` to be more Unix-like**
+* [HADOOP-11657](https://issues.apache.org/jira/browse/HADOOP-11657) | *Minor* | **Align the output of \`hadoop fs -du\` to be more Unix-like**
 
 The output of du has now been made more Unix-like, with aligned output.
 
@@ -522,13 +522,6 @@ ResourceManager renews delegation tokens for applications. This behavior has bee
 
 ---
 
-* [HADOOP-10597](https://issues.apache.org/jira/browse/HADOOP-10597) | *Major* | **RPC Server signals backoff to clients when all request queues are full**
-
-This change introduces a new configuration key used by RPC server to decide whether to send backoff signal to RPC Client when RPC call queue is full. When the feature is enabled, RPC server will no longer block on the processing of RPC requests when RPC call queue is full. It helps to improve quality of service when the service is under heavy load. The configuration key is in the format of "ipc.#port#.backoff.enable" where #port# is the port number that RPC server listens on. For example, if you want to enable the feature for the RPC server that listens on 8020, set ipc.8020.backoff.enable to true.
-
-
----
-
 * [HADOOP-11627](https://issues.apache.org/jira/browse/HADOOP-11627) | *Major* | **Remove io.native.lib.available**
 
 io.native.lib.available was removed. Always use native libraries if they exist.
@@ -564,7 +557,7 @@ Use today instead of 'Unreleased' in releasedocmaker.py when --usetoday is given
 
 * [HDFS-8226](https://issues.apache.org/jira/browse/HDFS-8226) | *Blocker* | **Non-HA rollback compatibility broken**
 
-Non-HA rollback steps have been changed. Run the rollback command on the namenode (`bin/hdfs namenode -rollback`) before starting cluster with '-rollback' option using (sbin/start-dfs.sh -rollback).
+Non-HA rollback steps have been changed. Run the rollback command on the namenode (\`bin/hdfs namenode -rollback\`) before starting cluster with '-rollback' option using (sbin/start-dfs.sh -rollback).
 
 
 ---
@@ -627,7 +620,7 @@ Modifying key methods in ContainerExecutor to use context objects instead of an 
 
 * [YARN-2336](https://issues.apache.org/jira/browse/YARN-2336) | *Major* | **Fair scheduler REST api returns a missing '[' bracket JSON for deep queue tree**
 
-**WARNING: No release note provided for this change.**
+Fix FairScheduler's REST api returns a missing '[' blacket JSON for childQueues.
 
 
 ---
@@ -724,6 +717,13 @@ Proxy level retries will not be done on AlreadyBeingCreatedExeption for create()
 * [YARN-41](https://issues.apache.org/jira/browse/YARN-41) | *Major* | **The RM should handle the graceful shutdown of the NM.**
 
 The behavior of shutdown a NM could be different (if NM work preserving is not enabled): NM will unregister to RM immediately rather than waiting for timeout to be LOST. A new status of NodeStatus - SHUTDOWN is involved which could affect UI, CLI and ClusterMetrics for node's status.
+
+
+---
+
+* [HADOOP-11347](https://issues.apache.org/jira/browse/HADOOP-11347) | *Major* | **RawLocalFileSystem#mkdir and create should honor umask**
+
+**WARNING: No release note provided for this change.**
 
 
 ---
@@ -847,7 +847,7 @@ The new getVersion method would return both version string and revision string.
 
 * [YARN-4087](https://issues.apache.org/jira/browse/YARN-4087) | *Major* | **Followup fixes after YARN-2019 regarding RM behavior when state-store error occurs**
 
-**WARNING: No release note provided for this change.**
+Set YARN\_FAIL\_FAST to be false by default. If HA is enabled and if there's any state-store error, after the retry operation failed, we always transition RM to standby state.
 
 
 ---
@@ -869,6 +869,13 @@ Exposed a metric 'LastJournalTimestamp' for JournalNode
 * [HDFS-7116](https://issues.apache.org/jira/browse/HDFS-7116) | *Major* | **Add a command to get the balancer bandwidth**
 
 Exposed command "-getBalancerBandwidth" in dfsadmin to get the bandwidth of balancer.
+
+
+---
+
+* [YARN-4126](https://issues.apache.org/jira/browse/YARN-4126) | *Major* | **RM should not issue delegation tokens in unsecure mode**
+
+Yarn now only issues and allows delegation tokens in secure clusters.  Clients should no longer request delegation tokens in a non-secure cluster, or they'll receive an IOException.
 
 
 ---
@@ -908,6 +915,15 @@ The first version of configuration format is:
 * [HADOOP-12416](https://issues.apache.org/jira/browse/HADOOP-12416) | *Major* | **Trash messages should be handled by Logger instead of being delivered on System.out**
 
 Now trash message is not printed to System.out. It is handled by Logger instead.
+
+
+---
+
+* [HDFS-9063](https://issues.apache.org/jira/browse/HDFS-9063) | *Major* | **Correctly handle snapshot path for getContentSummary**
+
+The jira made the following changes:
+1. Fix a bug to exclude newly-created files from quota usage calculation for a snapshot path. 
+2. Number of snapshots is no longer counted as directory number in getContentSummary result.
 
 
 ---
@@ -987,7 +1003,7 @@ The output of fsck command for being written hdfs files had been changed. When u
 
 * [HDFS-9278](https://issues.apache.org/jira/browse/HDFS-9278) | *Trivial* | **Fix preferredBlockSize typo in OIV XML output**
 
-The preferred block size XML element has been corrected from "\\<perferredBlockSize\>" to "\\<preferredBlockSize\>".
+The preferred block size XML element has been corrected from "\\\<perferredBlockSize\>" to "\\\<preferredBlockSize\>".
 
 
 ---
@@ -1077,7 +1093,7 @@ Allow stop() before start() completed in JvmPauseMonitor
 
 * [HDFS-9433](https://issues.apache.org/jira/browse/HDFS-9433) | *Major* | **DFS getEZForPath API on a non-existent file should throw FileNotFoundException**
 
-**WARNING: No release note provided for this change.**
+Unify the behavior of dfs.getEZForPath() API when getting a non-existent normal file and non-existent ezone file by throwing FileNotFoundException
 
 
 ---
@@ -1157,6 +1173,13 @@ libwebhdfs has been retired in 2.8.0 due to the lack of maintenance.
 * [HADOOP-11262](https://issues.apache.org/jira/browse/HADOOP-11262) | *Major* | **Enable YARN to use S3A**
 
 S3A has been made accessible through the FileContext API.
+
+
+---
+
+* [HDFS-9624](https://issues.apache.org/jira/browse/HDFS-9624) | *Major* | **DataNode start slowly due to the initial DU command operations**
+
+Make it configurable how long the cached du file is valid. Useful for rolling upgrade.
 
 
 ---
@@ -1349,7 +1372,7 @@ Steps to reconfigure:
 
 * [YARN-4785](https://issues.apache.org/jira/browse/YARN-4785) | *Major* | **inconsistent value type of the "type" field for LeafQueueInfo in response of RM REST API - cluster/scheduler**
 
-**WARNING: No release note provided for this change.**
+Fix inconsistent value type ( String and Array ) of the "type" field for LeafQueueInfo in response of RM REST API
 
 
 ---
@@ -1520,6 +1543,13 @@ The output of "hdfs oev -p stats" has changed. The option prints 0 instead of nu
 * [HADOOP-10694](https://issues.apache.org/jira/browse/HADOOP-10694) | *Major* | **Remove synchronized input streams from Writable deserialization**
 
 Remove invisible synchronization primitives from DataInputBuffer
+
+
+---
+
+* [YARN-5049](https://issues.apache.org/jira/browse/YARN-5049) | *Major* | **Extend NMStateStore to save queued container information**
+
+**WARNING: No release note provided for this change.**
 
 
 ---
@@ -1777,6 +1807,13 @@ More details are available in the [YARN Timeline Service v.2](./hadoop-yarn/hado
 
 ---
 
+* [HADOOP-13301](https://issues.apache.org/jira/browse/HADOOP-13301) | *Minor* | **Millisecond timestamp for FsShell console log and MapReduce jobsummary log**
+
+The time format of console logger and MapReduce job summary logger is ISO8601 by default to print milliseconds.
+
+
+---
+
 * [HADOOP-13382](https://issues.apache.org/jira/browse/HADOOP-13382) | *Major* | **remove unneeded commons-httpclient dependencies from POM files in Hadoop and sub-projects**
 
 Dependencies on commons-httpclient have been removed. Projects with undeclared transitive dependencies on commons-httpclient, previously provided via hadoop-common or hadoop-client, may find this to be an incompatible change. Such project are also potentially exposed to the commons-httpclient CVE, and should be fixed for that reason as well.
@@ -1794,6 +1831,13 @@ The WASB FileSystem now uses version 4.2.0 of the Azure Storage SDK.
 * [HDFS-10519](https://issues.apache.org/jira/browse/HDFS-10519) | *Minor* | **Add a configuration option to enable in-progress edit log tailing**
 
 Add a configuration option to enable in-progress edit tailing and a related unit test
+
+
+---
+
+* [HDFS-10650](https://issues.apache.org/jira/browse/HDFS-10650) | *Minor* | **DFSClient#mkdirs and DFSClient#primitiveMkdir should use default directory permission**
+
+If the caller does not supply a permission, DFSClient#mkdirs and DFSClient#primitiveMkdir will create a new directory with the default directory permission 00777 now, instead of 00666.
 
 
 ---
@@ -1826,6 +1870,13 @@ Added new plugin property yarn.nodemanager.disk-validator to allow the NodeManag
 
 ---
 
+* [HDFS-10725](https://issues.apache.org/jira/browse/HDFS-10725) | *Minor* | **Caller context should always be constructed by a builder**
+
+**WARNING: No release note provided for this change.**
+
+
+---
+
 * [HDFS-7933](https://issues.apache.org/jira/browse/HDFS-7933) | *Major* | **fsck should also report decommissioning replicas.**
 
 The output of hdfs fsck now also contains information about decommissioning replicas.
@@ -1836,6 +1887,13 @@ The output of hdfs fsck now also contains information about decommissioning repl
 * [HADOOP-13208](https://issues.apache.org/jira/browse/HADOOP-13208) | *Minor* | **S3A listFiles(recursive=true) to do a bulk listObjects instead of walking the pseudo-tree of directories**
 
 S3A has optimized the listFiles method by doing a bulk listing of all entries under a path in a single S3 operation instead of recursively walking the directory tree.  The listLocatedStatus method has been optimized by fetching results from S3 lazily as the caller traverses the returned iterator instead of doing an eager fetch of all possible results.
+
+
+---
+
+* [HADOOP-13252](https://issues.apache.org/jira/browse/HADOOP-13252) | *Minor* | **Tune S3A provider plugin mechanism**
+
+S3A now supports configuration of multiple credential provider classes for authenticating to S3.  These are loaded and queried in sequence for a valid set of credentials.  For more details, refer to the description of the fs.s3a.aws.credentials.provider configuration property or the S3A documentation page.
 
 
 ---
@@ -1861,6 +1919,13 @@ Add a -x option for "hdfs -du" and "hdfs -count" commands to exclude snapshots f
 
 ---
 
+* [HADOOP-13534](https://issues.apache.org/jira/browse/HADOOP-13534) | *Minor* | **Remove unused TrashPolicy#getInstance and initialize code**
+
+TrashPolicy#getInstance and initialize with Path were removed. Use the method without Path instead.
+
+
+---
+
 * [YARN-5567](https://issues.apache.org/jira/browse/YARN-5567) | *Major* | **Fix script exit code checking in NodeHealthScriptRunner#reportHealthStatus**
 
 Prior to this fix, the NodeManager will ignore any non-zero exit code for any script in the yarn.nodemanager.health-checker.script.path property.  With this change, any syntax errors in the health checking script will get flagged as an error in the same fashion (likely exit code 1) that the script detecting a health issue.
@@ -1871,6 +1936,20 @@ Prior to this fix, the NodeManager will ignore any non-zero exit code for any sc
 * [HDFS-8818](https://issues.apache.org/jira/browse/HDFS-8818) | *Major* | **Allow Balancer to run faster**
 
 Add a new conf "dfs.balancer.max-size-to-move" so that Balancer.MAX\_SIZE\_TO\_MOVE becomes configurable.
+
+
+---
+
+* [HADOOP-13364](https://issues.apache.org/jira/browse/HADOOP-13364) | *Major* | **Variable HADOOP\_LIBEXEC\_DIR must be quoted in bin/hadoop line 26**
+
+This is my first time filling out a field like this, but you could add "now supports spaces in working directory names?".
+
+
+---
+
+* [HADOOP-10597](https://issues.apache.org/jira/browse/HADOOP-10597) | *Major* | **RPC Server signals backoff to clients when all request queues are full**
+
+This change introduces a new configuration key used by RPC server to decide whether to send backoff signal to RPC Client when RPC call queue is full. When the feature is enabled, RPC server will no longer block on the processing of RPC requests when RPC call queue is full. It helps to improve quality of service when the service is under heavy load. The configuration key is in the format of "ipc.#port#.backoff.enable" where #port# is the port number that RPC server listens on. For example, if you want to enable the feature for the RPC server that listens on 8020, set ipc.8020.backoff.enable to true.
 
 
 

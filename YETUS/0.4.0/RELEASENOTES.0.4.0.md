@@ -56,4 +56,15 @@ This changes the ordering of the DOCKER\_CONTAINER\_PURGE array.
 The precommit plugin for pylint now ignores messages at the INFO level, which includes locally disabled warnings.
 
 
+---
+
+* [YETUS-461](https://issues.apache.org/jira/browse/YETUS-461) | *Minor* | **Allow specifying exclusions for whitespace report**
+
+<!-- markdown -->
+Apache Yetus Precommit users can specify a list of filename regexes to ignore when checking for whitespace errors with the new command line arguments:
+
+* `--whitespace-eol-ignore-list` to skip end-of-line whitespace checks
+* `--whitespace-tabs-ignore-list` to skip checking for tabs
+
+
 

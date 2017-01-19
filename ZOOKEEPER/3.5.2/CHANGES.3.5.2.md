@@ -27,6 +27,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [ZOOKEEPER-2191](https://issues.apache.org/jira/browse/ZOOKEEPER-2191) | Continue supporting prior Ant versions that don't implement the threads attribute for the JUnit task. |  Major | build | Chris Nauroth | Chris Nauroth |
+| [ZOOKEEPER-2270](https://issues.apache.org/jira/browse/ZOOKEEPER-2270) | Allow MBeanRegistry to be overridden for better unit tests |  Major | server | Jordan Zimmerman | Jordan Zimmerman |
 | [ZOOKEEPER-2040](https://issues.apache.org/jira/browse/ZOOKEEPER-2040) | Server to log underlying cause of SASL connection problems |  Major | server | Steve Loughran | Steve Loughran |
 | [ZOOKEEPER-2315](https://issues.apache.org/jira/browse/ZOOKEEPER-2315) | Change client connect zk service timeout log level from Info to Warn level |  Minor | java client | Yiqun Lin | Yiqun Lin |
 | [ZOOKEEPER-2326](https://issues.apache.org/jira/browse/ZOOKEEPER-2326) | Include connected server address:port in log |  Minor | java client | Arshad Mohammad | Arshad Mohammad |
@@ -69,6 +70,7 @@
 | [ZOOKEEPER-1371](https://issues.apache.org/jira/browse/ZOOKEEPER-1371) | Remove dependency on log4j in the source code. |  Major | . | Mahadev konar | Arshad Mohammad |
 | [ZOOKEEPER-2329](https://issues.apache.org/jira/browse/ZOOKEEPER-2329) | Clear javac and javadoc warning from zookeeper |  Minor | . | Arshad Mohammad | Arshad Mohammad |
 | [ZOOKEEPER-2211](https://issues.apache.org/jira/browse/ZOOKEEPER-2211) | PurgeTxnLog does not correctly purge when snapshots and logs are at different locations |  Major | scripts | Wesley Chow | Arshad Mohammad |
+| [ZOOKEEPER-2335](https://issues.apache.org/jira/browse/ZOOKEEPER-2335) | Java Compilation Error in ClientCnxn.java |  Major | java client, server | Arshad Mohammad | Arshad Mohammad |
 | [ZOOKEEPER-2311](https://issues.apache.org/jira/browse/ZOOKEEPER-2311) | assert in setup\_random |  Major | c client | Marshall McMullen | Marshall McMullen |
 | [ZOOKEEPER-2304](https://issues.apache.org/jira/browse/ZOOKEEPER-2304) | JMX ClientPort from ZooKeeperServerBean incorrect |  Major | jmx | Arshad Mohammad | Arshad Mohammad |
 | [ZOOKEEPER-2301](https://issues.apache.org/jira/browse/ZOOKEEPER-2301) | QuorumPeer does not listen on passed client IP in the constructor |  Major | server | Arshad Mohammad | Arshad Mohammad |

@@ -34,11 +34,4 @@ Changes the cryptic logging of the CacheConfig#toString to have some preamble sa
 Add test that verifies setting flag on HColumnDescriptor actually works.
 
 
----
-
-* [HBASE-16086](https://issues.apache.org/jira/browse/HBASE-16086) | *Major* | **TableCfWALEntryFilter and ScopeWALEntryFilter should not redundantly iterate over cells.**
-
-push to branch-1.3+
-
-
 

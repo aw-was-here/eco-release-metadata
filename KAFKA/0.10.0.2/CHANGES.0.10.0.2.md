@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.10.0.2 - Unreleased (as of 2016-09-16)
+## Release 0.10.0.2 - Unreleased (as of 2017-01-19)
 
 
 
@@ -39,5 +39,6 @@
 | [KAFKA-4082](https://issues.apache.org/jira/browse/KAFKA-4082) | Support Gradle 3.0 |  Major | . | Ismael Juma | Ismael Juma |
 | [KAFKA-4034](https://issues.apache.org/jira/browse/KAFKA-4034) | Consumer need not lookup coordinator when using manual assignment |  Major | consumer | Jason Gustafson | Jason Gustafson |
 | [KAFKA-4162](https://issues.apache.org/jira/browse/KAFKA-4162) | Typo in Kafka Connect document |  Trivial | KafkaConnect | David Chen | Ewen Cheslack-Postava |
+| [KAFKA-4157](https://issues.apache.org/jira/browse/KAFKA-4157) | Transient system test failure in replica\_verification\_test.test\_replica\_lags |  Major | system tests | Grant Henke | Grant Henke |
 
 

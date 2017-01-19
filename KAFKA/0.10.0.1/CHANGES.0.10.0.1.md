@@ -26,7 +26,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [KAFKA-3747](https://issues.apache.org/jira/browse/KAFKA-3747) | Close `RecordBatch.records` when append to batch fails |  Major | . | Ismael Juma | Ismael Juma |
+| [KAFKA-3747](https://issues.apache.org/jira/browse/KAFKA-3747) | Close \`RecordBatch.records\` when append to batch fails |  Major | . | Ismael Juma | Ismael Juma |
 | [KAFKA-3683](https://issues.apache.org/jira/browse/KAFKA-3683) | Add file descriptor recommendation to ops guide |  Trivial | website | Dustin Cote | Dustin Cote |
 | [KAFKA-3785](https://issues.apache.org/jira/browse/KAFKA-3785) | Fetcher spending unnecessary time during metrics recording |  Major | consumer | Greg Fodor | Greg Fodor |
 | [KAFKA-3699](https://issues.apache.org/jira/browse/KAFKA-3699) | Update protocol page on website to explain how KIP-35 should be used |  Major | . | Ismael Juma | Ashish K Singh |
@@ -64,7 +64,6 @@
 | [KAFKA-3952](https://issues.apache.org/jira/browse/KAFKA-3952) | VerifyConsumerRebalance cannot succeed when checking partition owner |  Minor | core | Simon Wan Wenli | Simon Wan Wenli |
 | [KAFKA-3855](https://issues.apache.org/jira/browse/KAFKA-3855) | Guard race conditions in TopologyBuilder |  Major | streams | Guozhang Wang | Damian Guy |
 | [KAFKA-3915](https://issues.apache.org/jira/browse/KAFKA-3915) | LogCleaner IO buffers do not account for potential size difference due to message format change |  Blocker | log | Tommy Becker | Ismael Juma |
-| [KAFKA-3782](https://issues.apache.org/jira/browse/KAFKA-3782) | Transient failure with kafkatest.tests.connect.connect\_distributed\_test.ConnectDistributedTest.test\_bounce.clean=True |  Minor | KafkaConnect | Liquan Pei | Jason Gustafson |
 | [KAFKA-3983](https://issues.apache.org/jira/browse/KAFKA-3983) | It would be helpful if SocketServer's Acceptors logged both the SocketChannel port and the processor ID upon registra |  Minor | core | Ryan P | Ryan P |
 | [KAFKA-3960](https://issues.apache.org/jira/browse/KAFKA-3960) | Committed offset not set after first assign |  Blocker | clients | Alexey Romanchuk | Alexey Romanchuk |
 | [KAFKA-3887](https://issues.apache.org/jira/browse/KAFKA-3887) | StreamBounceTest.test\_bounce and StreamSmokeTest.test\_streams failing |  Major | streams, system tests | Ismael Juma | Guozhang Wang |

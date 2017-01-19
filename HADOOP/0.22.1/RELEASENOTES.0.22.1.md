@@ -56,7 +56,7 @@ Submitting the patch after setting the user name at the client side
 
 ---
 
-* [HADOOP-6453](https://issues.apache.org/jira/browse/HADOOP-6453) | *Minor* | **Hadoop wrapper script shouldn\'t ignore an existing JAVA\_LIBRARY\_PATH**
+* [HADOOP-6453](https://issues.apache.org/jira/browse/HADOOP-6453) | *Minor* | **Hadoop wrapper script shouldn't ignore an existing JAVA\_LIBRARY\_PATH**
 
 **WARNING: No release note provided for this change.**
 

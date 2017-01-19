@@ -32,7 +32,7 @@ Changes in zkServer.sh to support JMX remote monitoring of Zookeeper processes. 
 
 * [ZOOKEEPER-2079](https://issues.apache.org/jira/browse/ZOOKEEPER-2079) | *Minor* | **Stop daemon with "kill" rather than "kill -9"**
 
-Kill java process with `SIGTERM` rather than `SIGKILL`
+Kill java process with \`SIGTERM\` rather than \`SIGKILL\`
 
 
 ---
@@ -87,6 +87,13 @@ Trunk: Committed revision 1740738.
 * [ZOOKEEPER-1460](https://issues.apache.org/jira/browse/ZOOKEEPER-1460) | *Major* | **IPv6 literal address not supported for quorum members**
 
 IPv6 addresses are now properly parsed in the config
+
+
+---
+
+* [ZOOKEEPER-1525](https://issues.apache.org/jira/browse/ZOOKEEPER-1525) | *Major* | **Plumb ZooKeeperServer object into auth plugins**
+
+Plumb ZooKeeperServer object into auth plugins.
 
 
 

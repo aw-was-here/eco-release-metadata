@@ -18,7 +18,7 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.7.2 - Unreleased (as of 2016-09-16)
+## Release 0.7.2 - Unreleased (as of 2017-01-19)
 
 
 
@@ -44,6 +44,8 @@
 | [TEZ-3240](https://issues.apache.org/jira/browse/TEZ-3240) | Improvements to tez.lib.uris to allow for multiple tarballs and mixing tarballs and jars. |  Major | . | Eric Badger | Eric Badger |
 | [TEZ-2769](https://issues.apache.org/jira/browse/TEZ-2769) | TEZ-UI Hive SQL is only displayed to line 11 |  Major | UI | Jeff Zhang | Prakash Ramachandran |
 | [TEZ-3326](https://issues.apache.org/jira/browse/TEZ-3326) | Display JVM system properties in AM and task logs |  Major | . | Ming Ma | Eric Badger |
+| [TEZ-3317](https://issues.apache.org/jira/browse/TEZ-3317) | Speculative execution starts too early due to 0 progress |  Major | . | Jonathan Eagles | Kuhu Shukla |
+| [TEZ-3505](https://issues.apache.org/jira/browse/TEZ-3505) | Move license to the file header for TezBytesWritableSerialization |  Major | . | darion yaphet | darion yaphet |
 
 
 ### BUG FIXES:
@@ -68,5 +70,30 @@
 | [TEZ-2852](https://issues.apache.org/jira/browse/TEZ-2852) | TestVertexImpl fails due to race in AsyncDispatcher |  Critical | . | Jeff Zhang | Zhiyuan Yang |
 | [TEZ-3009](https://issues.apache.org/jira/browse/TEZ-3009) | Errors that occur during container task acquisition are not logged |  Major | . | Jason Lowe | Jason Lowe |
 | [TEZ-3426](https://issues.apache.org/jira/browse/TEZ-3426) | Second AM attempt launched for session mode and recovery disabled for certain cases |  Critical | . | Jonathan Eagles | Jason Lowe |
+| [TEZ-3442](https://issues.apache.org/jira/browse/TEZ-3442) | Flaky test: TestMapProcessor::testMapProcessorProgress |  Major | . | Hitesh Shah | Kuhu Shukla |
+| [TEZ-3440](https://issues.apache.org/jira/browse/TEZ-3440) | Shuffling to memory can get out-of-sync when fetching multiple compressed map outputs |  Major | . | Nathan Roberts | Nathan Roberts |
+| [TEZ-3460](https://issues.apache.org/jira/browse/TEZ-3460) | Tez Precommit Release audit warning |  Major | . | Kuhu Shukla | Kuhu Shukla |
+| [TEZ-3437](https://issues.apache.org/jira/browse/TEZ-3437) | Improve synchronization and the progress report behavior for Inputs from TEZ-3317 |  Major | . | Kuhu Shukla | Kuhu Shukla |
+| [TEZ-3368](https://issues.apache.org/jira/browse/TEZ-3368) | NPE in DelayedContainerManager |  Major | . | Jason Lowe | Jason Lowe |
+| [TEZ-3335](https://issues.apache.org/jira/browse/TEZ-3335) | DAG client thinks app is still running when app status is null |  Major | . | Jason Lowe | Jason Lowe |
+| [TEZ-3464](https://issues.apache.org/jira/browse/TEZ-3464) | Fix findbugs warnings in tez-dag mainLoop |  Major | . | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-3439](https://issues.apache.org/jira/browse/TEZ-3439) | Tez joinvalidate fails when first input argument size is bigger than the second |  Major | . | Hui Cao | Hui Cao |
+| [TEZ-3452](https://issues.apache.org/jira/browse/TEZ-3452) | Auto-reduce parallelism calculation can overflow with large inputs |  Major | . | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-3483](https://issues.apache.org/jira/browse/TEZ-3483) | Create basic travis yml file for Tez |  Trivial | . | Hitesh Shah | Hitesh Shah |
+| [TEZ-3486](https://issues.apache.org/jira/browse/TEZ-3486) | COMBINE\_OUTPUT\_RECORDS/COMBINE\_INPUT\_RECORDS are not correct |  Major | . | Eric Badger | Eric Badger |
+| [TEZ-3493](https://issues.apache.org/jira/browse/TEZ-3493) | DAG submit timeout cannot be set to a month |  Minor | . | Siddharth Seth | Hitesh Shah |
+| [TEZ-3536](https://issues.apache.org/jira/browse/TEZ-3536) | NPE in WebUIService start when host resolution fails. |  Major | . | Hitesh Shah | Hitesh Shah |
+| [TEZ-3347](https://issues.apache.org/jira/browse/TEZ-3347) | Tez UI: Vertex UI throws an error while getting vertexProgress for a killed Vertex |  Major | UI | Kuhu Shukla | Kuhu Shukla |
+| [TEZ-3507](https://issues.apache.org/jira/browse/TEZ-3507) | Task logs link when editing url from one task to another |  Major | UI | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-3537](https://issues.apache.org/jira/browse/TEZ-3537) | ArrayIndexOutOfBoundsException with empty environment variables/Port YARN-3768 to Tez |  Major | . | Eric Badger | Eric Badger |
+| [TEZ-3549](https://issues.apache.org/jira/browse/TEZ-3549) | TaskAttemptImpl does not initialize TEZ\_TASK\_PROGRESS\_STUCK\_INTERVAL\_MS correctly |  Major | . | Kuhu Shukla | Kuhu Shukla |
+| [TEZ-3559](https://issues.apache.org/jira/browse/TEZ-3559) | TEZ\_LIB\_URIS doesn't work with schemes different than the defaultFS |  Major | . | Eric Badger | Eric Badger |
+
+
+### SUB-TASKS:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-3487](https://issues.apache.org/jira/browse/TEZ-3487) | Improvements in travis yml file to get builds to work |  Major | . | darion yaphet | darion yaphet |
 
 

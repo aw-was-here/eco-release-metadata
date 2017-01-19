@@ -18,7 +18,7 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.9.0 - Unreleased (as of 2016-09-16)
+## Release 0.9.0 - Unreleased (as of 2017-01-19)
 
 
 
@@ -35,6 +35,8 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [TEZ-3206](https://issues.apache.org/jira/browse/TEZ-3206) | Have unordered partitioned KV output send partition stats via VertexManagerEvent |  Major | . | Ming Ma | Ming Ma |
 | [TEZ-909](https://issues.apache.org/jira/browse/TEZ-909) | Provide support for application tags |  Major | . | Rohini Palaniswamy | Eric Badger |
+| [TEZ-3466](https://issues.apache.org/jira/browse/TEZ-3466) | Tez classpath building to mimic mapreduce classpath building |  Major | . | Jonathan Eagles | Jason Lowe |
+| [TEZ-3271](https://issues.apache.org/jira/browse/TEZ-3271) | Provide mapreduce failures.maxpercent equivalent |  Major | . | Jonathan Eagles | Jonathan Eagles |
 
 
 ### IMPROVEMENTS:
@@ -56,6 +58,16 @@
 | [TEZ-3272](https://issues.apache.org/jira/browse/TEZ-3272) | Add AMContainerImpl and AMNodeImpl to StateMachine visualization list |  Major | . | Ming Ma | Tsuyoshi Ozawa |
 | [TEZ-3404](https://issues.apache.org/jira/browse/TEZ-3404) | Move blocking call for YARN Timeline domain creation from client side to AM |  Major | . | Harish Jaiprakash | Harish Jaiprakash |
 | [TEZ-3317](https://issues.apache.org/jira/browse/TEZ-3317) | Speculative execution starts too early due to 0 progress |  Major | . | Jonathan Eagles | Kuhu Shukla |
+| [TEZ-3436](https://issues.apache.org/jira/browse/TEZ-3436) | Check input and output count before start in MapProcessor |  Minor | . | darion yaphet | darion yaphet |
+| [TEZ-3430](https://issues.apache.org/jira/browse/TEZ-3430) | Make split sorting optional |  Major | . | Ming Ma | Ming Ma |
+| [TEZ-3215](https://issues.apache.org/jira/browse/TEZ-3215) | Support for MultipleOutputs |  Major | . | Ming Ma | Ming Ma |
+| [TEZ-3505](https://issues.apache.org/jira/browse/TEZ-3505) | Move license to the file header for TezBytesWritableSerialization |  Major | . | darion yaphet | darion yaphet |
+| [TEZ-3547](https://issues.apache.org/jira/browse/TEZ-3547) | Add TaskAssignment Analyzer |  Major | . | Dharmesh Kakadia | Dharmesh Kakadia |
+| [TEZ-3552](https://issues.apache.org/jira/browse/TEZ-3552) | Shuffle split array when size-based sorting is turned off |  Major | . | Ming Ma | Zhiyuan Yang |
+| [TEZ-3551](https://issues.apache.org/jira/browse/TEZ-3551) | FrameworkClient created twice causing minor delay |  Minor | . | Rajesh Balamohan | Rajesh Balamohan |
+| [TEZ-3443](https://issues.apache.org/jira/browse/TEZ-3443) | Remove a repeated method |  Minor | . | darion yaphet | darion yaphet |
+| [TEZ-3496](https://issues.apache.org/jira/browse/TEZ-3496) | Tez UI: Optimize display of all tasks table |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
+| [TEZ-2712](https://issues.apache.org/jira/browse/TEZ-2712) | Tez UI: Display the vertex description in the tooltip of vertex in DAG view UI |  Major | . | Rohini Palaniswamy | Sreenath Somarajapuram |
 
 
 ### BUG FIXES:
@@ -116,6 +128,64 @@
 | [TEZ-3009](https://issues.apache.org/jira/browse/TEZ-3009) | Errors that occur during container task acquisition are not logged |  Major | . | Jason Lowe | Jason Lowe |
 | [TEZ-3426](https://issues.apache.org/jira/browse/TEZ-3426) | Second AM attempt launched for session mode and recovery disabled for certain cases |  Critical | . | Jonathan Eagles | Jason Lowe |
 | [TEZ-3284](https://issues.apache.org/jira/browse/TEZ-3284) | Synchronization for every write in UnorderdKVWriter |  Critical | . | Gopal V | Jonathan Eagles |
+| [TEZ-3434](https://issues.apache.org/jira/browse/TEZ-3434) | Add unit tests for flushing of recovery events |  Major | . | Harish Jaiprakash | Harish Jaiprakash |
+| [TEZ-3163](https://issues.apache.org/jira/browse/TEZ-3163) | Reuse and tune Inflaters and Deflaters to speed DME processing |  Major | . | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-3442](https://issues.apache.org/jira/browse/TEZ-3442) | Flaky test: TestMapProcessor::testMapProcessorProgress |  Major | . | Hitesh Shah | Kuhu Shukla |
+| [TEZ-3429](https://issues.apache.org/jira/browse/TEZ-3429) | Set reconfigureDoneTime on VertexConfigurationDoneEvent properly |  Major | . | Ming Ma | Ming Ma |
+| [TEZ-3433](https://issues.apache.org/jira/browse/TEZ-3433) | Tez UI: Searching using wrong ID causes error in all DAGs page |  Major | . | Sreenath Somarajapuram | Sushmitha Sreenivasan |
+| [TEZ-3440](https://issues.apache.org/jira/browse/TEZ-3440) | Shuffling to memory can get out-of-sync when fetching multiple compressed map outputs |  Major | . | Nathan Roberts | Nathan Roberts |
+| [TEZ-3460](https://issues.apache.org/jira/browse/TEZ-3460) | Tez Precommit Release audit warning |  Major | . | Kuhu Shukla | Kuhu Shukla |
+| [TEZ-3437](https://issues.apache.org/jira/browse/TEZ-3437) | Improve synchronization and the progress report behavior for Inputs from TEZ-3317 |  Major | . | Kuhu Shukla | Kuhu Shukla |
+| [TEZ-3368](https://issues.apache.org/jira/browse/TEZ-3368) | NPE in DelayedContainerManager |  Major | . | Jason Lowe | Jason Lowe |
+| [TEZ-3335](https://issues.apache.org/jira/browse/TEZ-3335) | DAG client thinks app is still running when app status is null |  Major | . | Jason Lowe | Jason Lowe |
+| [TEZ-3330](https://issues.apache.org/jira/browse/TEZ-3330) | Propagate additional config parameters when running MR jobs via Tez. |  Major | . | Manuel Godbert | Siddharth Seth |
+| [TEZ-3464](https://issues.apache.org/jira/browse/TEZ-3464) | Fix findbugs warnings in tez-dag mainLoop |  Major | . | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-3449](https://issues.apache.org/jira/browse/TEZ-3449) | Fix Spelling typos |  Minor | . | darion yaphet | darion yaphet |
+| [TEZ-3453](https://issues.apache.org/jira/browse/TEZ-3453) | Correct the downloaded ATS dag data location for analyzer |  Minor | . | Dharmesh Kakadia |  |
+| [TEZ-3428](https://issues.apache.org/jira/browse/TEZ-3428) | Tez UI: First Tab not needed for few entries in DAG listings |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
+| [TEZ-3106](https://issues.apache.org/jira/browse/TEZ-3106) | Tez UI 2 - Features Umbrella |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
+| [TEZ-3469](https://issues.apache.org/jira/browse/TEZ-3469) | Tez UI: Bump Phantom JS version to 2.1.1 |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
+| [TEZ-3439](https://issues.apache.org/jira/browse/TEZ-3439) | Tez joinvalidate fails when first input argument size is bigger than the second |  Major | . | Hui Cao | Hui Cao |
+| [TEZ-3452](https://issues.apache.org/jira/browse/TEZ-3452) | Auto-reduce parallelism calculation can overflow with large inputs |  Major | . | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-3483](https://issues.apache.org/jira/browse/TEZ-3483) | Create basic travis yml file for Tez |  Trivial | . | Hitesh Shah | Hitesh Shah |
+| [TEZ-3405](https://issues.apache.org/jira/browse/TEZ-3405) | Support ability for AM to kill itself if there is no client heartbeating to it |  Critical | . | Gunther Hagleitner | Hitesh Shah |
+| [TEZ-3097](https://issues.apache.org/jira/browse/TEZ-3097) | Flaky test: TestCommit.testDAGCommitStartedEventFail\_OnDAGSuccess |  Major | . | Jeff Zhang | Harish Jaiprakash |
+| [TEZ-3457](https://issues.apache.org/jira/browse/TEZ-3457) | Add more unit test coverage for container reuse. |  Major | . | Harish Jaiprakash | Harish Jaiprakash |
+| [TEZ-3470](https://issues.apache.org/jira/browse/TEZ-3470) | Tez UI: Make the build work in IBM PPC |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
+| [TEZ-3502](https://issues.apache.org/jira/browse/TEZ-3502) | Tez UI: Search in All DAGs page doesn't work with numeric values |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
+| [TEZ-3486](https://issues.apache.org/jira/browse/TEZ-3486) | COMBINE\_OUTPUT\_RECORDS/COMBINE\_INPUT\_RECORDS are not correct |  Major | . | Eric Badger | Eric Badger |
+| [TEZ-3493](https://issues.apache.org/jira/browse/TEZ-3493) | DAG submit timeout cannot be set to a month |  Minor | . | Siddharth Seth | Hitesh Shah |
+| [TEZ-3477](https://issues.apache.org/jira/browse/TEZ-3477) | MRInputHelpers generateInputSplitsToMem public API modified |  Major | . | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-3533](https://issues.apache.org/jira/browse/TEZ-3533) | ShuffleScheduler should shutdown threadpool on exit |  Critical | . | Rajesh Balamohan | Rajesh Balamohan |
+| [TEZ-3491](https://issues.apache.org/jira/browse/TEZ-3491) | Tez job can hang due to container priority inversion |  Critical | . | Jason Lowe | Jason Lowe |
+| [TEZ-3536](https://issues.apache.org/jira/browse/TEZ-3536) | NPE in WebUIService start when host resolution fails. |  Major | . | Hitesh Shah | Hitesh Shah |
+| [TEZ-3546](https://issues.apache.org/jira/browse/TEZ-3546) | Tez UI: On sorting asc - Not Available must be at the top. |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
+| [TEZ-3222](https://issues.apache.org/jira/browse/TEZ-3222) | Reduce messaging overhead for auto-reduce parallelism case |  Major | . | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-3537](https://issues.apache.org/jira/browse/TEZ-3537) | ArrayIndexOutOfBoundsException with empty environment variables/Port YARN-3768 to Tez |  Major | . | Eric Badger | Eric Badger |
+| [TEZ-3549](https://issues.apache.org/jira/browse/TEZ-3549) | TaskAttemptImpl does not initialize TEZ\_TASK\_PROGRESS\_STUCK\_INTERVAL\_MS correctly |  Major | . | Kuhu Shukla | Kuhu Shukla |
+| [TEZ-3558](https://issues.apache.org/jira/browse/TEZ-3558) | CartesianProduct is missing from the ExampleDriver class |  Minor | . | Sushmitha Sreenivasan | Sushmitha Sreenivasan |
+| [TEZ-3559](https://issues.apache.org/jira/browse/TEZ-3559) | TEZ\_LIB\_URIS doesn't work with schemes different than the defaultFS |  Major | . | Eric Badger | Eric Badger |
+| [TEZ-3565](https://issues.apache.org/jira/browse/TEZ-3565) | amConfig should check queuename isEmpty |  Major | . | Fei Hui | Fei Hui |
+| [TEZ-3555](https://issues.apache.org/jira/browse/TEZ-3555) | Tez UI: Build is failing in RHEL6 |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
+| [TEZ-3561](https://issues.apache.org/jira/browse/TEZ-3561) | Fix wrong tez tarball name in install.md |  Minor | . | Akira Ajisaka | Akira Ajisaka |
+| [TEZ-3570](https://issues.apache.org/jira/browse/TEZ-3570) | Tez UI: Wait for sometime before tooltips are displayed |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
+| [TEZ-3504](https://issues.apache.org/jira/browse/TEZ-3504) | Tez UI: Duration is displaying invalid values when start or end time is invalid |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
+| [TEZ-3568](https://issues.apache.org/jira/browse/TEZ-3568) | Update SecurityUtils configuration to pick user provided configuration. |  Major | . | Harish Jaiprakash | Harish Jaiprakash |
+| [TEZ-3566](https://issues.apache.org/jira/browse/TEZ-3566) | OOM because of too many DFSClient instances in TokenCache.obtainTokensForFileSystems |  Major | . | Harish Jaiprakash | Harish Jaiprakash |
+| [TEZ-3574](https://issues.apache.org/jira/browse/TEZ-3574) | Container reuse won't pickup extra dag level local resource |  Major | . | Zhiyuan Yang | Zhiyuan Yang |
+| [TEZ-3529](https://issues.apache.org/jira/browse/TEZ-3529) | Tez UI: Add 'All Queries' table in the landing page along 'All DAGs' page |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
+| [TEZ-3530](https://issues.apache.org/jira/browse/TEZ-3530) | Tez UI: Add query details page, and link the page from All Queries table |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
+| [TEZ-3531](https://issues.apache.org/jira/browse/TEZ-3531) | Tez UI: All Queries table: Improve searchability |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
+| [TEZ-3556](https://issues.apache.org/jira/browse/TEZ-3556) | Tez UI: Display query configurations |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
+| [TEZ-3571](https://issues.apache.org/jira/browse/TEZ-3571) | Tez UI: Display a Total Timeline View for Hive Queries |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
+| [TEZ-3583](https://issues.apache.org/jira/browse/TEZ-3583) | Tez UI: UTs are flaky because of a dependency issue |  Critical | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
+
+
+### TESTS:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-3508](https://issues.apache.org/jira/browse/TEZ-3508) | TestTaskScheduler cleanup |  Major | . | Jason Lowe | Jason Lowe |
 
 
 ### SUB-TASKS:
@@ -131,6 +201,13 @@
 | [TEZ-3376](https://issues.apache.org/jira/browse/TEZ-3376) | Fix groupId generation to account for dagId starting with 1. |  Major | . | Harish Jaiprakash | Harish Jaiprakash |
 | [TEZ-3395](https://issues.apache.org/jira/browse/TEZ-3395) | Refactor ShuffleVertexManager to make parts of it re-usable in other plugins |  Major | . | Ming Ma | Ming Ma |
 | [TEZ-3230](https://issues.apache.org/jira/browse/TEZ-3230) | Implement vertex manager and edge manager of cartesian product edge |  Major | . | Zhiyuan Yang | Zhiyuan Yang |
+| [TEZ-3000](https://issues.apache.org/jira/browse/TEZ-3000) | Fix TestContainerReuse |  Major | . | Jeff Zhang | Ming Ma |
+| [TEZ-3419](https://issues.apache.org/jira/browse/TEZ-3419) | Tez UI: Applications page shows error, for users with only DAG level ACL permission. |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
+| [TEZ-3487](https://issues.apache.org/jira/browse/TEZ-3487) | Improvements in travis yml file to get builds to work |  Major | . | darion yaphet | darion yaphet |
+| [TEZ-3465](https://issues.apache.org/jira/browse/TEZ-3465) | Support broadcast edge into cartesian product vertex and forbid other edges |  Major | . | Zhiyuan Yang | Zhiyuan Yang |
+| [TEZ-3269](https://issues.apache.org/jira/browse/TEZ-3269) | Provide basic fair routing and scheduling functionality via custom VertexManager and EdgeManager |  Major | . | Ming Ma | Ming Ma |
+| [TEZ-3458](https://issues.apache.org/jira/browse/TEZ-3458) | Auto grouping for cartesian product edge(unpartitioned case) |  Major | . | Zhiyuan Yang | Zhiyuan Yang |
+| [TEZ-3579](https://issues.apache.org/jira/browse/TEZ-3579) | Wrong configuration key for max slow start fraction in CartesianProductVertexManager |  Major | . | Zhiyuan Yang | Zhiyuan Yang |
 
 
 ### OTHER:
@@ -140,5 +217,7 @@
 | [TEZ-3228](https://issues.apache.org/jira/browse/TEZ-3228) | Update version in master to 0.9.0 |  Major | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-3323](https://issues.apache.org/jira/browse/TEZ-3323) | Update license and Notice for xml-apis, update year |  Major | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-3235](https://issues.apache.org/jira/browse/TEZ-3235) | Modify Example TestOrderedWordCount job to test the IPC limit for large dag plans |  Major | . | Sushmitha Sreenivasan | Sushmitha Sreenivasan |
+| [TEZ-3484](https://issues.apache.org/jira/browse/TEZ-3484) | Tez UI: Remove .travis.yml from webapp folder |  Trivial | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
+| [TEZ-3534](https://issues.apache.org/jira/browse/TEZ-3534) | Differentiate thread names on Fetchers, minor changes to shuffle shutdown code |  Major | . | Siddharth Seth | Siddharth Seth |
 
 

@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.10.1.0 - Unreleased (as of 2016-09-16)
+## Release 0.10.1.0 - 2016-10-20
 
 
 
@@ -27,6 +27,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [KAFKA-4131](https://issues.apache.org/jira/browse/KAFKA-4131) | Multiple Regex KStream-Consumers cause Null pointer exception in addRawRecords in RecordQueue class |  Major | streams | David J. Garcia | Bill Bejeck |
+| [KAFKA-4233](https://issues.apache.org/jira/browse/KAFKA-4233) | StateDirectory fails to create directory if any parent directory does not exist |  Major | streams | Ryan Worsley | Damian Guy |
 
 
 ### NEW FEATURES:
@@ -39,6 +40,8 @@
 | [KAFKA-4015](https://issues.apache.org/jira/browse/KAFKA-4015) | Change cleanup.policy config to accept a list of valid policies |  Major | core | Damian Guy | Damian Guy |
 | [KAFKA-1464](https://issues.apache.org/jira/browse/KAFKA-1464) | Add a throttling option to the Kafka replication tool |  Minor | replication | mjuarez | Ben Stopford |
 | [KAFKA-3776](https://issues.apache.org/jira/browse/KAFKA-3776) | Unify store and downstream caching in streams |  Major | streams | Eno Thereska | Eno Thereska |
+| [KAFKA-4093](https://issues.apache.org/jira/browse/KAFKA-4093) | Cluster id |  Major | . | Ismael Juma | Sumit Arrawatia |
+| [KAFKA-3492](https://issues.apache.org/jira/browse/KAFKA-3492) | support quota based on authenticated user name |  Major | core | Jun Rao | Rajini Sivaram |
 
 
 ### IMPROVEMENTS:
@@ -89,6 +92,17 @@
 | [KAFKA-4112](https://issues.apache.org/jira/browse/KAFKA-4112) | Remove alpha quality label from Kafka Streams in docs |  Trivial | streams | Damian Guy | Damian Guy |
 | [KAFKA-3595](https://issues.apache.org/jira/browse/KAFKA-3595) | Add capability to specify replication compact option for stream store |  Minor | streams | Henry Cai | Damian Guy |
 | [KAFKA-1981](https://issues.apache.org/jira/browse/KAFKA-1981) | Make log compaction point configurable |  Major | . | Jay Kreps |  |
+| [KAFKA-2063](https://issues.apache.org/jira/browse/KAFKA-2063) | Bound fetch response size (KIP-74) |  Major | . | Jay Kreps | Andrey Neporada |
+| [KAFKA-3281](https://issues.apache.org/jira/browse/KAFKA-3281) | Improve message of stop scripts when no processes are running |  Minor | . | Sasaki Toru | Sasaki Toru |
+| [KAFKA-4151](https://issues.apache.org/jira/browse/KAFKA-4151) | Update public docs for KIP-78 |  Major | . | Sumit Arrawatia | Sumit Arrawatia |
+| [KAFKA-3282](https://issues.apache.org/jira/browse/KAFKA-3282) | Change tools to use new consumer if zookeeper is not specified |  Major | tools | Ismael Juma | Arun Mahadevan |
+| [KAFKA-4177](https://issues.apache.org/jira/browse/KAFKA-4177) | Replication Throttling: Remove ThrottledReplicationRateLimit from Server Config |  Major | replication | Ben Stopford | Ben Stopford |
+| [KAFKA-3283](https://issues.apache.org/jira/browse/KAFKA-3283) | Remove beta from new consumer documentation |  Major | consumer | Ismael Juma | Ismael Juma |
+| [KAFKA-3697](https://issues.apache.org/jira/browse/KAFKA-3697) | Clean-up website documentation when it comes to clients |  Major | . | Ismael Juma | Vahid Hashemian |
+| [KAFKA-3824](https://issues.apache.org/jira/browse/KAFKA-3824) | Docs indicate auto.commit breaks at least once delivery but that is incorrect |  Major | consumer | Jay Kreps | Jason Gustafson |
+| [KAFKA-4165](https://issues.apache.org/jira/browse/KAFKA-4165) | Add 0.10.0.1 as a source for compatibility tests where relevant |  Blocker | . | Ismael Juma | Jason Gustafson |
+| [KAFKA-4244](https://issues.apache.org/jira/browse/KAFKA-4244) | Update our website look & feel |  Major | . | Gwen Shapira | Gwen Shapira |
+| [KAFKA-3545](https://issues.apache.org/jira/browse/KAFKA-3545) | Generalized Serdes for List/Map |  Minor | streams | Greg Fodor |  |
 
 
 ### BUG FIXES:
@@ -118,7 +132,6 @@
 | [KAFKA-3810](https://issues.apache.org/jira/browse/KAFKA-3810) | replication of internal topics should not be limited by replica.fetch.max.bytes |  Major | . | Onur Karaman | Onur Karaman |
 | [KAFKA-3850](https://issues.apache.org/jira/browse/KAFKA-3850) | WorkerSinkTask should retry commits if woken up during rebalance or shutdown |  Major | KafkaConnect | Jason Gustafson | Jason Gustafson |
 | [KAFKA-3864](https://issues.apache.org/jira/browse/KAFKA-3864) | Kafka Connect Struct.get returning defaultValue from Struct not the field schema |  Blocker | KafkaConnect | Andrew Stevenson | Ewen Cheslack-Postava |
-| [KAFKA-3896](https://issues.apache.org/jira/browse/KAFKA-3896) | Unstable test KStreamRepartitionJoinTest.shouldCorrectlyRepartitionOnJoinOperations |  Major | unit tests | Ashish K Singh | Damian Guy |
 | [KAFKA-3761](https://issues.apache.org/jira/browse/KAFKA-3761) | Controller has RunningAsBroker instead of RunningAsController state |  Major | . | Ismael Juma | Roger Hoover |
 | [KAFKA-3854](https://issues.apache.org/jira/browse/KAFKA-3854) | Subsequent regex subscription calls fail |  Major | consumer | Vahid Hashemian | Vahid Hashemian |
 | [KAFKA-3794](https://issues.apache.org/jira/browse/KAFKA-3794) | Add Stream / Table prefix in print functions |  Major | streams | Guozhang Wang | Bill Bejeck |
@@ -129,7 +142,6 @@
 | [KAFKA-3812](https://issues.apache.org/jira/browse/KAFKA-3812) | State store locking is incorrect |  Major | streams | Eno Thereska | Damian Guy |
 | [KAFKA-3915](https://issues.apache.org/jira/browse/KAFKA-3915) | LogCleaner IO buffers do not account for potential size difference due to message format change |  Blocker | log | Tommy Becker | Ismael Juma |
 | [KAFKA-3740](https://issues.apache.org/jira/browse/KAFKA-3740) | Enable configuration of RocksDBStores |  Major | streams | Guozhang Wang | Damian Guy |
-| [KAFKA-3782](https://issues.apache.org/jira/browse/KAFKA-3782) | Transient failure with kafkatest.tests.connect.connect\_distributed\_test.ConnectDistributedTest.test\_bounce.clean=True |  Minor | KafkaConnect | Liquan Pei | Jason Gustafson |
 | [KAFKA-3500](https://issues.apache.org/jira/browse/KAFKA-3500) | KafkaOffsetBackingStore set method needs to handle null |  Blocker | KafkaConnect | Liquan Pei | Ewen Cheslack-Postava |
 | [KAFKA-3852](https://issues.apache.org/jira/browse/KAFKA-3852) | Clarify how to handle message format upgrade without killing performance |  Blocker | . | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-3946](https://issues.apache.org/jira/browse/KAFKA-3946) | Protocol guide should say that Produce request acks can only be 0, 1, or -1 |  Minor | . | James Cheng | Mickael Maison |
@@ -176,6 +188,52 @@
 | [KAFKA-4162](https://issues.apache.org/jira/browse/KAFKA-4162) | Typo in Kafka Connect document |  Trivial | KafkaConnect | David Chen | Ewen Cheslack-Postava |
 | [KAFKA-4172](https://issues.apache.org/jira/browse/KAFKA-4172) | Fix masked test error in KafkaConsumerTest.testSubscriptionChangesWithAutoCommitEnabled |  Major | consumer, unit tests | Jason Gustafson | Jason Gustafson |
 | [KAFKA-4160](https://issues.apache.org/jira/browse/KAFKA-4160) | Consumer onPartitionsRevoked should not be invoked while holding the coordinator lock |  Blocker | consumer | Jason Gustafson | Jason Gustafson |
+| [KAFKA-4173](https://issues.apache.org/jira/browse/KAFKA-4173) | SchemaProjector should successfully project when source schema field is missing and target schema field is optional |  Major | KafkaConnect | Shikhar Bhushan | Shikhar Bhushan |
+| [KAFKA-4118](https://issues.apache.org/jira/browse/KAFKA-4118) | StreamsSmokeTest.test\_streams started failing since 18 August build |  Major | streams | Ismael Juma | Eno Thereska |
+| [KAFKA-4175](https://issues.apache.org/jira/browse/KAFKA-4175) | Can't have StandbyTasks in KafkaStreams where NUM\_STREAM\_THREADS\_CONFIG \> 1 |  Major | streams | Damian Guy | Damian Guy |
+| [KAFKA-4163](https://issues.apache.org/jira/browse/KAFKA-4163) | NPE in StreamsMetadataState during re-balance operations |  Major | streams | Damian Guy | Damian Guy |
+| [KAFKA-4183](https://issues.apache.org/jira/browse/KAFKA-4183) | Logical converters in JsonConverter don't properly handle null values |  Major | KafkaConnect | Randall Hauch | Shikhar Bhushan |
+| [KAFKA-4135](https://issues.apache.org/jira/browse/KAFKA-4135) | Inconsistent javadoc for KafkaConsumer.poll behavior when there is no subscription |  Minor | consumer | Jason Gustafson | Vahid Hashemian |
+| [KAFKA-4153](https://issues.apache.org/jira/browse/KAFKA-4153) | Incorrect KStream-KStream join behavior with asymmetric time window |  Major | streams | Elias Levy | Elias Levy |
+| [KAFKA-4193](https://issues.apache.org/jira/browse/KAFKA-4193) | FetcherTest fails intermittently |  Major | . | Ben Stopford | Ben Stopford |
+| [KAFKA-4197](https://issues.apache.org/jira/browse/KAFKA-4197) | Make ReassignPartitionsTest System Test move data |  Minor | . | Ben Stopford | Ben Stopford |
+| [KAFKA-3782](https://issues.apache.org/jira/browse/KAFKA-3782) | Transient failure with kafkatest.tests.connect.connect\_distributed\_test.ConnectDistributedTest.test\_bounce.clean=True |  Minor | KafkaConnect | Liquan Pei | Jason Gustafson |
+| [KAFKA-3590](https://issues.apache.org/jira/browse/KAFKA-3590) | KafkaConsumer fails with "Messages are rejected since there are fewer in-sync replicas than required." when polling |  Major | consumer | Sergey Alaev | Jason Gustafson |
+| [KAFKA-1196](https://issues.apache.org/jira/browse/KAFKA-1196) | java.lang.IllegalArgumentException Buffer.limit on FetchResponse.scala + 33 |  Critical | consumer | Gerrit Jansen van Vuuren | Ewen Cheslack-Postava |
+| [KAFKA-4214](https://issues.apache.org/jira/browse/KAFKA-4214) | kafka-reassign-partitions fails all the time when brokers are bounced during reassignment |  Major | . | Apurva Mehta | Apurva Mehta |
+| [KAFKA-4200](https://issues.apache.org/jira/browse/KAFKA-4200) | Minor issue with throttle argument in kafka-reassign-partitions.sh |  Major | . | Ben Stopford | Ben Stopford |
+| [KAFKA-3719](https://issues.apache.org/jira/browse/KAFKA-3719) | Pattern regex org.apache.kafka.common.utils.Utils.HOST\_PORT\_PATTERN is too narrow |  Trivial | . | Balazs Kossovics | Ryan P |
+| [KAFKA-4227](https://issues.apache.org/jira/browse/KAFKA-4227) | AdminManager is not shutdown when KafkaServer is shutdown |  Major | core | Rajini Sivaram | Rajini Sivaram |
+| [KAFKA-4216](https://issues.apache.org/jira/browse/KAFKA-4216) | Replication Quotas: Control Leader & Follower Throttled Replicas Separately |  Critical | . | Ben Stopford | Ben Stopford |
+| [KAFKA-3965](https://issues.apache.org/jira/browse/KAFKA-3965) | Mirror maker sync send fails will lose messages |  Critical | core | NieWang | Jiangjie Qin |
+| [KAFKA-4223](https://issues.apache.org/jira/browse/KAFKA-4223) | RocksDBStore should close all open iterators on close |  Major | streams | Damian Guy | Damian Guy |
+| [KAFKA-4235](https://issues.apache.org/jira/browse/KAFKA-4235) | Fix the closing order in Sender.initiateClose(). |  Major | . | Jiangjie Qin | Jiangjie Qin |
+| [KAFKA-3930](https://issues.apache.org/jira/browse/KAFKA-3930) | IPv6 address can't used as ObjectName |  Minor | metrics | wateray | Rajini Sivaram |
+| [KAFKA-4234](https://issues.apache.org/jira/browse/KAFKA-4234) | Consumer should not commit offsets in unsubscribe() |  Major | consumer | Jason Gustafson | Vahid Hashemian |
+| [KAFKA-3396](https://issues.apache.org/jira/browse/KAFKA-3396) | Unauthorized topics are returned to the user |  Critical | security | Grant Henke | Edoardo Comar |
+| [KAFKA-4241](https://issues.apache.org/jira/browse/KAFKA-4241) | StreamsConfig doesn't pass through custom consumer and producer properties to ConsumerConfig and ProducerConfig |  Major | streams | Damian Guy | Damian Guy |
+| [KAFKA-3938](https://issues.apache.org/jira/browse/KAFKA-3938) | Fix consumer session timeout issue in Kafka Streams |  Major | streams | Guozhang Wang | Guozhang Wang |
+| [KAFKA-4248](https://issues.apache.org/jira/browse/KAFKA-4248) | Consumer can return data from old regex subscription in poll() |  Major | consumer | Jason Gustafson | Jason Gustafson |
+| [KAFKA-4019](https://issues.apache.org/jira/browse/KAFKA-4019) | LogCleaner should grow read/write buffer to max message size for the topic |  Critical | core | Jun Rao | Rajini Sivaram |
+| [KAFKA-4251](https://issues.apache.org/jira/browse/KAFKA-4251) | Test driver not launching in Vagrant 1.8.6 |  Major | system tests | Xavier Léauté |  |
+| [KAFKA-4176](https://issues.apache.org/jira/browse/KAFKA-4176) | Node stopped receiving heartbeat responses once another node started within the same group |  Major | consumer | Marek Svitok | Guozhang Wang |
+| [KAFKA-4253](https://issues.apache.org/jira/browse/KAFKA-4253) | Fix Kafka Stream thread shutting down process ordering |  Major | streams | Guozhang Wang | Damian Guy |
+| [KAFKA-4252](https://issues.apache.org/jira/browse/KAFKA-4252) | Missing ProducerRequestPurgatory |  Minor | consumer, documentation, metrics, producer | Narendra Bidari | Rajini Sivaram |
+| [KAFKA-4267](https://issues.apache.org/jira/browse/KAFKA-4267) | Quota initialization for \<user, clientId\> uses incorrect ZK path |  Major | core | Rajini Sivaram | Rajini Sivaram |
+| [KAFKA-4262](https://issues.apache.org/jira/browse/KAFKA-4262) | Intermittent unit test failure ReassignPartitionsClusterTest.shouldExecuteThrottledReassignment |  Major | unit tests | Rajini Sivaram | Rajini Sivaram |
+| [KAFKA-4257](https://issues.apache.org/jira/browse/KAFKA-4257) | Inconsistencies in 0.10.1 upgrade docs |  Minor | documentation | Jeff Klukas |  |
+| [KAFKA-4274](https://issues.apache.org/jira/browse/KAFKA-4274) | KafkaConsumer.offsetsForTimes() hangs and times out on an empty map |  Major | core | Jun Rao | Jiangjie Qin |
+| [KAFKA-4265](https://issues.apache.org/jira/browse/KAFKA-4265) | Intermittent test failure ReplicationQuotasTest.shouldBootstrapTwoBrokersWithFollowerThrottle |  Major | unit tests | Rajini Sivaram | Rajini Sivaram |
+| [KAFKA-4290](https://issues.apache.org/jira/browse/KAFKA-4290) | High CPU caused by timeout overflow in WorkerCoordinator |  Blocker | KafkaConnect | Jason Gustafson | Jason Gustafson |
+| [KAFKA-4130](https://issues.apache.org/jira/browse/KAFKA-4130) | [docs] Link to Varnish architect notes is broken |  Trivial | website | Stevo Slavic | Andrea Cosentino |
+| [KAFKA-4283](https://issues.apache.org/jira/browse/KAFKA-4283) | records deleted from CachingKeyValueStore still appear in range and all queries |  Major | streams | Damian Guy | Damian Guy |
+| [KAFKA-4300](https://issues.apache.org/jira/browse/KAFKA-4300) | NamedCache throws an NPE when evict is called and the cache is empty |  Major | streams | Damian Guy | Damian Guy |
+| [KAFKA-4254](https://issues.apache.org/jira/browse/KAFKA-4254) | Questionable handling of unknown partitions in KafkaProducer |  Major | producer | Jason Gustafson | Konstantine Karantasis |
+| [KAFKA-4298](https://issues.apache.org/jira/browse/KAFKA-4298) | LogCleaner writes inconsistent compressed message set if topic message format != message format |  Critical | . | Jason Gustafson | Jason Gustafson |
+| [KAFKA-4303](https://issues.apache.org/jira/browse/KAFKA-4303) | KafkaConsumer blocks unnecessarily in commitSync() |  Blocker | consumer | Jason Gustafson | Jason Gustafson |
+| [KAFKA-4225](https://issues.apache.org/jira/browse/KAFKA-4225) | Replication Quotas: Control Leader & Follower Limit Separately |  Major | . | Ben Stopford | Ben Stopford |
+| [KAFKA-4120](https://issues.apache.org/jira/browse/KAFKA-4120) | byte[] keys in RocksDB state stores do not work as expected |  Major | streams | Greg Fodor | Guozhang Wang |
+| [KAFKA-4536](https://issues.apache.org/jira/browse/KAFKA-4536) | Kafka clients throw NullPointerException on poll when delete the relative topic |  Major | clients | mayi\_hetu |  |
 
 
 ### TESTS:
@@ -185,6 +243,10 @@
 | [KAFKA-3863](https://issues.apache.org/jira/browse/KAFKA-3863) | Add system test for connector failure/restart |  Major | KafkaConnect, system tests | Jason Gustafson | Jason Gustafson |
 | [KAFKA-3799](https://issues.apache.org/jira/browse/KAFKA-3799) | Turn on endpoint validation in SSL system tests |  Major | system tests | Rajini Sivaram | Rajini Sivaram |
 | [KAFKA-4145](https://issues.apache.org/jira/browse/KAFKA-4145) | Avoid redundant integration testing in ProducerSendTests |  Major | unit tests | Jason Gustafson | Vahid Hashemian |
+| [KAFKA-4055](https://issues.apache.org/jira/browse/KAFKA-4055) | Add system tests for secure quotas |  Major | system tests | Rajini Sivaram | Rajini Sivaram |
+| [KAFKA-4213](https://issues.apache.org/jira/browse/KAFKA-4213) | Add system tests for replication throttling (KIP-73) |  Major | . | Apurva Mehta | Apurva Mehta |
+| [KAFKA-3985](https://issues.apache.org/jira/browse/KAFKA-3985) | Transient system test failure ZooKeeperSecurityUpgradeTest.test\_zk\_security\_upgrade.security\_protocol |  Major | system tests | Jason Gustafson | Flavio Junqueira |
+| [KAFKA-3374](https://issues.apache.org/jira/browse/KAFKA-3374) | Failure in security rolling upgrade phase 2 system test |  Major | system tests | Ismael Juma | Flavio Junqueira |
 
 
 ### SUB-TASKS:
@@ -210,6 +272,16 @@
 | [KAFKA-4038](https://issues.apache.org/jira/browse/KAFKA-4038) | Transient failure in DeleteTopicsRequestTest.testErrorDeleteTopicRequests |  Major | . | Jason Gustafson | Grant Henke |
 | [KAFKA-4049](https://issues.apache.org/jira/browse/KAFKA-4049) | Transient failure in RegexSourceIntegrationTest.testRegexMatchesTopicsAWhenDeleted |  Major | streams | Guozhang Wang | Guozhang Wang |
 | [KAFKA-4147](https://issues.apache.org/jira/browse/KAFKA-4147) | Transient failure in ConsumerCoordinatorTest.testAutoCommitDynamicAssignment |  Major | unit tests | Jason Gustafson | Jason Gustafson |
+| [KAFKA-3777](https://issues.apache.org/jira/browse/KAFKA-3777) | Extract the existing LRU cache out of RocksDBStore |  Major | streams | Eno Thereska | Damian Guy |
+| [KAFKA-3974](https://issues.apache.org/jira/browse/KAFKA-3974) | LRU cache should store bytes/object and not records |  Major | streams | Eno Thereska | Eno Thereska |
+| [KAFKA-3778](https://issues.apache.org/jira/browse/KAFKA-3778) | Avoiding using range queries of RocksDBWindowStore on KStream windowed aggregations |  Major | streams | Eno Thereska | Eno Thereska |
+| [KAFKA-4069](https://issues.apache.org/jira/browse/KAFKA-4069) | Forward records in context of cache flushing/eviction |  Major | streams | Eno Thereska | Damian Guy |
+| [KAFKA-4167](https://issues.apache.org/jira/browse/KAFKA-4167) | Add cache metrics |  Major | streams | Eno Thereska | Eno Thereska |
+| [KAFKA-3780](https://issues.apache.org/jira/browse/KAFKA-3780) | Add new config cache.max.bytes.buffering to the streams configuration |  Major | streams | Eno Thereska | Eno Thereska |
+| [KAFKA-3973](https://issues.apache.org/jira/browse/KAFKA-3973) | Investigate feasibility of caching bytes vs. records |  Major | streams | Eno Thereska | Bill Bejeck |
+| [KAFKA-3708](https://issues.apache.org/jira/browse/KAFKA-3708) | Rethink exception handling in KafkaStreams |  Major | streams | Guozhang Wang | Damian Guy |
+| [KAFKA-4194](https://issues.apache.org/jira/browse/KAFKA-4194) | Add more tests for KIP-79 |  Major | . | Jiangjie Qin | Jiangjie Qin |
+| [KAFKA-2076](https://issues.apache.org/jira/browse/KAFKA-2076) | Add an API to new consumer to allow user get high watermark of partitions. |  Major | . | Jiangjie Qin | Jiangjie Qin |
 
 
 ### OTHER:
@@ -217,6 +289,10 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [KAFKA-3905](https://issues.apache.org/jira/browse/KAFKA-3905) | Check for null in KafkaConsumer#{subscribe, assign} |  Minor | clients | Xing Huang | Rekha Joshi |
+| [KAFKA-3838](https://issues.apache.org/jira/browse/KAFKA-3838) | Bump zkclient and Zookeeper versions |  Major | core | FIlipe Azevedo |  |
 | [KAFKA-3163](https://issues.apache.org/jira/browse/KAFKA-3163) | KIP-33 - Add a time based log index to Kafka |  Major | core | Jiangjie Qin | Jiangjie Qin |
+| [KAFKA-4079](https://issues.apache.org/jira/browse/KAFKA-4079) | Document quota configuration changes from KIP-55 |  Major | config | Rajini Sivaram | Rajini Sivaram |
+| [KAFKA-4148](https://issues.apache.org/jira/browse/KAFKA-4148) | KIP-79 add ListOffsetRequest v1 and search by timestamp interface to consumer. |  Major | . | Jiangjie Qin | Jiangjie Qin |
+| [KAFKA-4192](https://issues.apache.org/jira/browse/KAFKA-4192) | Update upgrade documentation for 0.10.1.0 to mention inter.broker.protocol.version |  Critical | . | Ismael Juma | Jiangjie Qin |
 
 

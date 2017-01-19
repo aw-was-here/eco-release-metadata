@@ -64,7 +64,7 @@ Two recommendations for the mapreduce.jobhistory.loadedtasks.cache.size property
 
 * [YARN-4785](https://issues.apache.org/jira/browse/YARN-4785) | *Major* | **inconsistent value type of the "type" field for LeafQueueInfo in response of RM REST API - cluster/scheduler**
 
-**WARNING: No release note provided for this change.**
+Fix inconsistent value type ( String and Array ) of the "type" field for LeafQueueInfo in response of RM REST API
 
 
 ---

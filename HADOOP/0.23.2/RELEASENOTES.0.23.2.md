@@ -123,7 +123,7 @@ Fixed build to not compile 32bit container-executor binary by default on all pla
 
 * [MAPREDUCE-3931](https://issues.apache.org/jira/browse/MAPREDUCE-3931) | *Major* | **MR tasks failing due to changing timestamps on Resources to download**
 
-Changed PB implementation of LocalResource to take locks so that race conditions don\'t fail tasks by inadvertantly changing the timestamps.
+Changed PB implementation of LocalResource to take locks so that race conditions don't fail tasks by inadvertantly changing the timestamps.
 
 
 ---
@@ -135,7 +135,7 @@ port number changes for resourcemanager and nodemanager
 
 ---
 
-* [HADOOP-8131](https://issues.apache.org/jira/browse/HADOOP-8131) | *Critical* | **FsShell put doesn\'t correctly handle a non-existent dir**
+* [HADOOP-8131](https://issues.apache.org/jira/browse/HADOOP-8131) | *Critical* | **FsShell put doesn't correctly handle a non-existent dir**
 
 **WARNING: No release note provided for this change.**
 
@@ -179,7 +179,7 @@ Exporting mapreduce.job.local.dir for mapreduce tasks to use as job-level shared
 
 * [MAPREDUCE-3982](https://issues.apache.org/jira/browse/MAPREDUCE-3982) | *Critical* | **TestEmptyJob fails with FileNotFound**
 
-Fixed FileOutputCommitter to not err out for an \'empty-job\' whose tasks don\'t write any outputs.
+Fixed FileOutputCommitter to not err out for an 'empty-job' whose tasks don't write any outputs.
 
 
 ---

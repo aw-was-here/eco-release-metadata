@@ -395,7 +395,7 @@ See:  http://docs.oracle.com/javase/7/docs/api/java/sql/DatabaseMetaData.html#ge
 
 ---
 
-* [HIVE-11825](https://issues.apache.org/jira/browse/HIVE-11825) | *Critical* | **get\_json\_object(col,'$.a') is null in where clause didn`t work**
+* [HIVE-11825](https://issues.apache.org/jira/browse/HIVE-11825) | *Critical* | **get\_json\_object(col,'$.a') is null in where clause didn\`t work**
 
 Enabled to accept quoting of all character backslash qooting mechanism
 

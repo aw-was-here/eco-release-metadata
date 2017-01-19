@@ -28,7 +28,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-2735](https://issues.apache.org/jira/browse/HADOOP-2735) | Setting default tmp directory for java createTempFile (java.io.tmpdir) |  Critical | . | Koji Noguchi | Amareshwari Sriramadasu |
 | [HADOOP-2371](https://issues.apache.org/jira/browse/HADOOP-2371) | Candidate user guide for permissions feature of Hadoop DFS |  Major | . | Robert Chansler | Robert Chansler |
-| [HADOOP-2923](https://issues.apache.org/jira/browse/HADOOP-2923) | Check in missing files from HADOOP-2603 |  Major | . | Owen O\'Malley | Chris Douglas |
+| [HADOOP-2923](https://issues.apache.org/jira/browse/HADOOP-2923) | Check in missing files from HADOOP-2603 |  Major | . | Owen O'Malley | Chris Douglas |
 
 
 ### IMPROVEMENTS:
@@ -58,13 +58,13 @@
 | [HADOOP-2808](https://issues.apache.org/jira/browse/HADOOP-2808) | FileUtil::copy ignores "overwrite" formal |  Major | . | Chris Douglas | Chris Douglas |
 | [HADOOP-2683](https://issues.apache.org/jira/browse/HADOOP-2683) | Provide a way to specifiy login out side an RPC |  Blocker | . | Raghu Angadi | Tsz Wo Nicholas Sze |
 | [HADOOP-2814](https://issues.apache.org/jira/browse/HADOOP-2814) | NPE in datanode during TestDataTransferProtocol. |  Major | . | Raghu Angadi | Raghu Angadi |
-| [HADOOP-2811](https://issues.apache.org/jira/browse/HADOOP-2811) | method Counters.makeCompactString() does not insert separator char \',\' between the counters of different groups. |  Critical | . | Runping Qi | Runping Qi |
+| [HADOOP-2811](https://issues.apache.org/jira/browse/HADOOP-2811) | method Counters.makeCompactString() does not insert separator char ',' between the counters of different groups. |  Critical | . | Runping Qi | Runping Qi |
 | [HADOOP-2843](https://issues.apache.org/jira/browse/HADOOP-2843) | mapred.join access control is overly restrictive |  Major | . | Chris Douglas | Chris Douglas |
 | [HADOOP-2813](https://issues.apache.org/jira/browse/HADOOP-2813) | Unit test fails on Linux: org.apache.hadoop.fs.TestDU.testDU |  Blocker | fs | Mukund Madhugiri | Mahadev konar |
 | [HADOOP-2840](https://issues.apache.org/jira/browse/HADOOP-2840) | Gridmix test script fails to run java sort tests |  Major | test | Mukund Madhugiri | Mukund Madhugiri |
 | [HADOOP-2766](https://issues.apache.org/jira/browse/HADOOP-2766) | [HOD] No way to set HADOOP\_OPTS environment variable to the Hadoop daemons through HOD |  Critical | contrib/hod | Hemanth Yamijala | Vinod Kumar Vavilapalli |
-| [HADOOP-2769](https://issues.apache.org/jira/browse/HADOOP-2769) | TestNNThroughputBenchmark should not used a fixed http port |  Major | test | Owen O\'Malley | Owen O\'Malley |
-| [HADOOP-2894](https://issues.apache.org/jira/browse/HADOOP-2894) | task trackers can\'t survive a job tracker bounce |  Blocker | . | Owen O\'Malley | Owen O\'Malley |
+| [HADOOP-2769](https://issues.apache.org/jira/browse/HADOOP-2769) | TestNNThroughputBenchmark should not used a fixed http port |  Major | test | Owen O'Malley | Owen O'Malley |
+| [HADOOP-2894](https://issues.apache.org/jira/browse/HADOOP-2894) | task trackers can't survive a job tracker bounce |  Blocker | . | Owen O'Malley | Owen O'Malley |
 | [HADOOP-2904](https://issues.apache.org/jira/browse/HADOOP-2904) | 3 minor fixes in the rpc metrics area. |  Major | . | girish vaitheeswaran | dhruba borthakur |
 | [HADOOP-2903](https://issues.apache.org/jira/browse/HADOOP-2903) | Data type mismatch exception raised from pushMetric |  Major | metrics | girish vaitheeswaran | girish vaitheeswaran |
 | [HADOOP-2847](https://issues.apache.org/jira/browse/HADOOP-2847) | [HOD] Idle cluster cleanup does not work if the JobTracker becomes unresponsive to RPC calls |  Blocker | contrib/hod | Hemanth Yamijala | Hemanth Yamijala |

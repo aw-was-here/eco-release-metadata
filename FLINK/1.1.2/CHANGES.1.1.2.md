@@ -45,8 +45,8 @@
 | [FLINK-4454](https://issues.apache.org/jira/browse/FLINK-4454) | Lookups for JobManager address in config |  Minor | Client | Maximilian Michels | Maximilian Michels |
 | [FLINK-4480](https://issues.apache.org/jira/browse/FLINK-4480) | Incorrect link to elastic.co in documentation |  Trivial | Documentation | Fabian Hueske | Suneel Marthi |
 | [FLINK-4341](https://issues.apache.org/jira/browse/FLINK-4341) | Kinesis connector does not emit maximum watermark properly |  Blocker | Streaming Connectors | Scott Kidder | Tzu-Li (Gordon) Tai |
-| [FLINK-4488](https://issues.apache.org/jira/browse/FLINK-4488) | Prevent cluster shutdown after job execution for non-detached jobs |  Minor | YARN Client | Maximilian Michels | Maximilian Michels |
-| [FLINK-4486](https://issues.apache.org/jira/browse/FLINK-4486) | JobManager not fully running when yarn-session.sh finishes |  Major | YARN Client | Niels Basjes | Maximilian Michels |
-| [FLINK-4526](https://issues.apache.org/jira/browse/FLINK-4526) | ApplicationClient: remove redundant proxy messages |  Major | YARN Client | Maximilian Michels | Maximilian Michels |
+| [FLINK-4488](https://issues.apache.org/jira/browse/FLINK-4488) | Prevent cluster shutdown after job execution for non-detached jobs |  Minor | YARN | Maximilian Michels | Maximilian Michels |
+| [FLINK-4486](https://issues.apache.org/jira/browse/FLINK-4486) | JobManager not fully running when yarn-session.sh finishes |  Major | YARN | Niels Basjes | Maximilian Michels |
+| [FLINK-4526](https://issues.apache.org/jira/browse/FLINK-4526) | ApplicationClient: remove redundant proxy messages |  Major | YARN | Maximilian Michels | Maximilian Michels |
 
 

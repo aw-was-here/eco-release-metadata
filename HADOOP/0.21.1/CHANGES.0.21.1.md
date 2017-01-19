@@ -61,9 +61,9 @@
 | [MAPREDUCE-1280](https://issues.apache.org/jira/browse/MAPREDUCE-1280) | Eclipse Plugin does not work with Eclipse Ganymede (3.4) |  Major | . | Aaron Kimball | Alex Kozlov |
 | [HDFS-1413](https://issues.apache.org/jira/browse/HDFS-1413) | Broken links to HDFS Wiki in hdfs site and documentation. |  Major | documentation | Konstantin Shvachko | Konstantin Shvachko |
 | [MAPREDUCE-1984](https://issues.apache.org/jira/browse/MAPREDUCE-1984) | herriot TestCluster fails because exclusion is not there |  Major | . | Balaji Rajagopalan | Balaji Rajagopalan |
-| [HADOOP-6971](https://issues.apache.org/jira/browse/HADOOP-6971) | Clover build doesn\'t generate per-test coverage |  Major | build, test | Konstantin Boudnik | Konstantin Boudnik |
-| [HDFS-1420](https://issues.apache.org/jira/browse/HDFS-1420) | Clover build doesn\'t generate per-test coverage |  Major | build, test | Konstantin Boudnik | Konstantin Boudnik |
-| [MAPREDUCE-2090](https://issues.apache.org/jira/browse/MAPREDUCE-2090) | Clover build doesn\'t generate per-test coverage |  Major | build, test | Konstantin Boudnik | Konstantin Boudnik |
+| [HADOOP-6971](https://issues.apache.org/jira/browse/HADOOP-6971) | Clover build doesn't generate per-test coverage |  Major | build, test | Konstantin Boudnik | Konstantin Boudnik |
+| [HDFS-1420](https://issues.apache.org/jira/browse/HDFS-1420) | Clover build doesn't generate per-test coverage |  Major | build, test | Konstantin Boudnik | Konstantin Boudnik |
+| [MAPREDUCE-2090](https://issues.apache.org/jira/browse/MAPREDUCE-2090) | Clover build doesn't generate per-test coverage |  Major | build, test | Konstantin Boudnik | Konstantin Boudnik |
 | [HADOOP-6969](https://issues.apache.org/jira/browse/HADOOP-6969) | CHANGES.txt does not reflect the release of version 0.21.0. |  Major | . | Konstantin Shvachko | Tom White |
 | [HDFS-1416](https://issues.apache.org/jira/browse/HDFS-1416) | CHANGES.txt does not reflect the release version 0.21.0. |  Major | . | Konstantin Shvachko | Tom White |
 | [MAPREDUCE-2086](https://issues.apache.org/jira/browse/MAPREDUCE-2086) | CHANGES.txt does not reflect the release of version 0.21.0. |  Major | . | Konstantin Shvachko | Tom White |
@@ -92,11 +92,11 @@
 | [HDFS-1750](https://issues.apache.org/jira/browse/HDFS-1750) | fs -ls hftp://file not working |  Major | . | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HADOOP-7174](https://issues.apache.org/jira/browse/HADOOP-7174) | null is displayed in the console,if the src path is invalid while doing copyToLocal operation from commandLine |  Minor | fs | Uma Maheswara Rao G | Uma Maheswara Rao G |
 | [HADOOP-7194](https://issues.apache.org/jira/browse/HADOOP-7194) | Potential Resource leak in IOUtils.java |  Major | io | Devaraj K | Devaraj K |
-| [HADOOP-7019](https://issues.apache.org/jira/browse/HADOOP-7019) | Refactor build targets to enable faster cross project dev cycles. |  Major | build | Owen O\'Malley | Luke Lu |
+| [HADOOP-7019](https://issues.apache.org/jira/browse/HADOOP-7019) | Refactor build targets to enable faster cross project dev cycles. |  Major | build | Owen O'Malley | Luke Lu |
 | [HDFS-1189](https://issues.apache.org/jira/browse/HDFS-1189) | Quota counts missed between clear quota and set quota |  Major | namenode | Kang Xiao | John George |
 | [MAPREDUCE-2317](https://issues.apache.org/jira/browse/MAPREDUCE-2317) | HadoopArchives throwing NullPointerException while creating hadoop archives (.har files) |  Minor | harchive | Devaraj K | Devaraj K |
 | [HADOOP-7183](https://issues.apache.org/jira/browse/HADOOP-7183) | WritableComparator.get should not cache comparator objects |  Blocker | . | Todd Lipcon | Tom White |
-| [HADOOP-7215](https://issues.apache.org/jira/browse/HADOOP-7215) | RPC clients must connect over a network interface corresponding to the host name in the client\'s kerberos principal key |  Blocker | security | Suresh Srinivas | Suresh Srinivas |
+| [HADOOP-7215](https://issues.apache.org/jira/browse/HADOOP-7215) | RPC clients must connect over a network interface corresponding to the host name in the client's kerberos principal key |  Blocker | security | Suresh Srinivas | Suresh Srinivas |
 
 
 ### TESTS:

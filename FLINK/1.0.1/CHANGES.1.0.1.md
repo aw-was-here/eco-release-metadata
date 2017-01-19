@@ -32,6 +32,7 @@
 | [FLINK-3634](https://issues.apache.org/jira/browse/FLINK-3634) | Fix documentation for DataSetUtils.zipWithUniqueId() |  Minor | Documentation | Greg Hogan | Greg Hogan |
 | [FLINK-3469](https://issues.apache.org/jira/browse/FLINK-3469) | Improve documentation for grouping keys |  Major | Documentation | Greg Hogan | Greg Hogan |
 | [FLINK-3657](https://issues.apache.org/jira/browse/FLINK-3657) | Change access of DataSetUtils.countElements() to 'public' |  Minor | DataSet API | Suneel Marthi | Suneel Marthi |
+| [FLINK-2999](https://issues.apache.org/jira/browse/FLINK-2999) | Support connected keyed streams |  Major | Streaming | Fabian Hueske | Stephan Ewen |
 
 
 ### BUG FIXES:
@@ -56,5 +57,6 @@
 | [FLINK-3682](https://issues.apache.org/jira/browse/FLINK-3682) | CEP operator does not set the processing timestamp correctly |  Major | CEP | Till Rohrmann | Till Rohrmann |
 | [FLINK-3684](https://issues.apache.org/jira/browse/FLINK-3684) | CEP operator does not forward watermarks properly |  Major | CEP | Till Rohrmann | Till Rohrmann |
 | [FLINK-3595](https://issues.apache.org/jira/browse/FLINK-3595) | Kafka09 consumer thread does not interrupt when stuck in record emission |  Critical | Kafka Connector | Stephan Ewen | Ufuk Celebi |
+| [FLINK-2644](https://issues.apache.org/jira/browse/FLINK-2644) | State partitioning does not respect the different partitioning of multiple inputs |  Major | Streaming | Gyula Fora |  |
 
 

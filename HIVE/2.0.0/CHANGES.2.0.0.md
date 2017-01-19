@@ -230,7 +230,7 @@
 | [HIVE-10308](https://issues.apache.org/jira/browse/HIVE-10308) | Vectorization execution throws java.lang.IllegalArgumentException: Unsupported complex type: MAP |  Major | Vectorization | Selina Zhang | Matt McCline |
 | [HIVE-10521](https://issues.apache.org/jira/browse/HIVE-10521) | TxnHandler.timeOutTxns only times out some of the expired transactions |  Major | Transactions | Alan Gates | Alan Gates |
 | [HIVE-10542](https://issues.apache.org/jira/browse/HIVE-10542) | Full outer joins in tez produce incorrect results in certain cases |  Blocker | Tez | Vikram Dixit K | Vikram Dixit K |
-| [HIVE-10608](https://issues.apache.org/jira/browse/HIVE-10608) | Fix useless 'if' stamement in RetryingMetaStoreClient (135) |  Minor | Metastore | Alexander Pivovarov | Alexander Pivovarov |
+| [HIVE-10608](https://issues.apache.org/jira/browse/HIVE-10608) | Fix useless 'if' statement in RetryingMetaStoreClient (135) |  Minor | Metastore | Alexander Pivovarov | Alexander Pivovarov |
 | [HIVE-10620](https://issues.apache.org/jira/browse/HIVE-10620) | ZooKeeperHiveLock overrides equal() method but not hashcode() |  Major | . | Chaoyu Tang | Chaoyu Tang |
 | [HIVE-10538](https://issues.apache.org/jira/browse/HIVE-10538) | Fix NPE in FileSinkOperator from hashcode mismatch |  Critical | Query Processor | Peter Slawski | Peter Slawski |
 | [HIVE-10626](https://issues.apache.org/jira/browse/HIVE-10626) | Spark paln need to be updated [Spark Branch] |  Major | Spark | Chinna Rao Lalam | Chinna Rao Lalam |
@@ -670,7 +670,7 @@
 | [HIVE-12208](https://issues.apache.org/jira/browse/HIVE-12208) | Vectorized JOIN NPE on dynamically partitioned hash-join + map-join |  Major | Vectorization | Gopal V | Gunther Hagleitner |
 | [HIVE-12365](https://issues.apache.org/jira/browse/HIVE-12365) | Added resource path is sent to cluster as an empty string when externally removed |  Major | Hive | Chaoyu Tang | Chaoyu Tang |
 | [HIVE-12354](https://issues.apache.org/jira/browse/HIVE-12354) | MapJoin with double keys is slow on MR |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
-| [HIVE-11825](https://issues.apache.org/jira/browse/HIVE-11825) | get\_json\_object(col,'$.a') is null in where clause didn`t work |  Critical | Hive | Feng Yuan | Cazen Lee |
+| [HIVE-11825](https://issues.apache.org/jira/browse/HIVE-11825) | get\_json\_object(col,'$.a') is null in where clause didn\`t work |  Critical | Hive | Feng Yuan | Cazen Lee |
 | [HIVE-12385](https://issues.apache.org/jira/browse/HIVE-12385) | schematool failed on MySQL |  Major | . | Takahiko Saito | Sergey Shelukhin |
 | [HIVE-12391](https://issues.apache.org/jira/browse/HIVE-12391) | SkewJoinOptimizer might not kick in if columns are renamed after TableScanOperator |  Major | Logical Optimizer | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
 | [HIVE-12396](https://issues.apache.org/jira/browse/HIVE-12396) | BucketingSortingReduceSinkOptimizer may still throw IOB exception for duplicate columns |  Major | Logical Optimizer | Ashutosh Chauhan | Ashutosh Chauhan |
@@ -799,7 +799,7 @@
 | [HIVE-12824](https://issues.apache.org/jira/browse/HIVE-12824) | CBO doesnt get triggered when aggregate function is used within windowing function |  Major | CBO | Ashutosh Chauhan | Ashutosh Chauhan |
 | [HIVE-12645](https://issues.apache.org/jira/browse/HIVE-12645) | ConstantPropagateProcCtx.resolve() should verify internal names in addition to alias to match 2 columns from different row schemas |  Major | . | Hari Sankar Sivarama Subramaniyan | Hari Sankar Sivarama Subramaniyan |
 | [HIVE-12768](https://issues.apache.org/jira/browse/HIVE-12768) | Thread safety: binary sortable serde decimal deserialization |  Blocker | Serializers/Deserializers | Vikram Dixit K | Vikram Dixit K |
-| [HIVE-12785](https://issues.apache.org/jira/browse/HIVE-12785) | View with union type and UDF to `cast` the struct is broken |  Minor | Parser | Benoit Perroud | Pengcheng Xiong |
+| [HIVE-12785](https://issues.apache.org/jira/browse/HIVE-12785) | View with union type and UDF to \`cast\` the struct is broken |  Minor | Parser | Benoit Perroud | Pengcheng Xiong |
 | [HIVE-12687](https://issues.apache.org/jira/browse/HIVE-12687) | LLAP Workdirs need to default to YARN local |  Major | llap | Gopal V | Sergey Shelukhin |
 | [HIVE-12772](https://issues.apache.org/jira/browse/HIVE-12772) | Beeline/JDBC output of decimal values is not 0-padded, does not match with CLI output |  Major | JDBC | Jason Dere | Jason Dere |
 | [HIVE-12640](https://issues.apache.org/jira/browse/HIVE-12640) | Allow StatsOptimizer to optimize the query for Constant GroupBy keys |  Major | . | Hari Sankar Sivarama Subramaniyan | Hari Sankar Sivarama Subramaniyan |

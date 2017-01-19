@@ -1,4 +1,4 @@
-#!/usr/bin/env bash4
+#!/usr/bin/env bash
 
 function print_and_run
 {

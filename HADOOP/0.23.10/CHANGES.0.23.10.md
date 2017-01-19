@@ -50,7 +50,7 @@
 | [MAPREDUCE-4571](https://issues.apache.org/jira/browse/MAPREDUCE-4571) | TestHsWebServicesJobs fails on jdk7 |  Major | webapps | Thomas Graves | Thomas Graves |
 | [MAPREDUCE-4716](https://issues.apache.org/jira/browse/MAPREDUCE-4716) | TestHsWebServicesJobsQuery.testJobsQueryStateInvalid fails with jdk7 |  Major | jobhistoryserver | Thomas Graves | Thomas Graves |
 | [HDFS-4943](https://issues.apache.org/jira/browse/HDFS-4943) | WebHdfsFileSystem does not work when original file path has encoded chars |  Minor | webhdfs | Jerry He | Jerry He |
-| [MAPREDUCE-3193](https://issues.apache.org/jira/browse/MAPREDUCE-3193) | FileInputFormat doesn\'t read files recursively in the input path dir |  Major | mrv1, mrv2 | Ramgopal N | Devaraj K |
+| [MAPREDUCE-3193](https://issues.apache.org/jira/browse/MAPREDUCE-3193) | FileInputFormat doesn't read files recursively in the input path dir |  Major | mrv1, mrv2 | Ramgopal N | Devaraj K |
 | [HDFS-4984](https://issues.apache.org/jira/browse/HDFS-4984) | Incorrect Quota counting in INodeFile |  Major | namenode | Kihwal Lee | Jing Zhao |
 | [HDFS-4972](https://issues.apache.org/jira/browse/HDFS-4972) | [branch-0.23] permission check and operation are done in a separate lock for getBlockLocations() |  Major | namenode | Kihwal Lee | Kihwal Lee |
 | [MAPREDUCE-5380](https://issues.apache.org/jira/browse/MAPREDUCE-5380) | Invalid mapred command should return non-zero exit code |  Major | . | Stephen Chu | Stephen Chu |
@@ -75,7 +75,7 @@
 | [YARN-1101](https://issues.apache.org/jira/browse/YARN-1101) | Active nodes can be decremented below 0 |  Major | resourcemanager | Robert Parker | Robert Parker |
 | [MAPREDUCE-5475](https://issues.apache.org/jira/browse/MAPREDUCE-5475) | MRClientService does not verify ACLs properly |  Blocker | mr-am, mrv2 | Jason Lowe | Jason Lowe |
 | [MAPREDUCE-5414](https://issues.apache.org/jira/browse/MAPREDUCE-5414) | TestTaskAttempt fails jdk7 with NullPointerException |  Major | test | Nemon Lou | Nemon Lou |
-| [YARN-1176](https://issues.apache.org/jira/browse/YARN-1176) | RM web services ClusterMetricsInfo total nodes doesn\'t include unhealthy nodes |  Critical | resourcemanager | Thomas Graves | Jonathan Eagles |
+| [YARN-1176](https://issues.apache.org/jira/browse/YARN-1176) | RM web services ClusterMetricsInfo total nodes doesn't include unhealthy nodes |  Critical | resourcemanager | Thomas Graves | Jonathan Eagles |
 | [MAPREDUCE-5504](https://issues.apache.org/jira/browse/MAPREDUCE-5504) | mapred queue -info inconsistent with types |  Major | client | Thomas Graves | Kousuke Saruta |
 | [YARN-1243](https://issues.apache.org/jira/browse/YARN-1243) | ResourceManager: Error in handling event type NODE\_UPDATE to the scheduler - NPE at SchedulerApp.java:411 |  Major | capacityscheduler | Sanjay Upadhyay | Jason Lowe |
 | [MAPREDUCE-5543](https://issues.apache.org/jira/browse/MAPREDUCE-5543) | In-memory map outputs can be leaked after shuffle completes in 0.23 |  Blocker | mrv2 | Jason Lowe | Jason Lowe |

@@ -227,6 +227,7 @@
 | [BIGTOP-2288](https://issues.apache.org/jira/browse/BIGTOP-2288) | workaround to fix invalid leveldbjni in maven repository |  Major | hadoop, ppc64le | Amir Sanjar | Amir Sanjar |
 | [BIGTOP-2299](https://issues.apache.org/jira/browse/BIGTOP-2299) | test resources are breaking rat |  Blocker | tests | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2344](https://issues.apache.org/jira/browse/BIGTOP-2344) | distributions does not mention ppc64el, i386 obsolete |  Major | build, ppc64le | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2574](https://issues.apache.org/jira/browse/BIGTOP-2574) | gpdb: Multiple lintian errors |  Major | build | Olaf Flebbe | Olaf Flebbe |
 
 
 ### TESTS:

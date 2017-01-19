@@ -18,7 +18,7 @@
 -->
 # Apache Yetus Changelog
 
-## Release 0.4.0 - Unreleased (as of 2016-09-16)
+## Release 0.4.0 - 2017-01-10
 
 
 
@@ -37,6 +37,7 @@
 | [YETUS-293](https://issues.apache.org/jira/browse/YETUS-293) | archiving functionality |  Major | Test Patch | Colin P. McCabe | Allen Wittenauer |
 | [YETUS-428](https://issues.apache.org/jira/browse/YETUS-428) | Provide fallback option to mark issues as incompatible |  Major | Release Doc Maker | Ajay Yadava | Ajay Yadava |
 | [YETUS-415](https://issues.apache.org/jira/browse/YETUS-415) | shelldocs ability to ignore a file |  Major | ShellDocs | Allen Wittenauer | Ajay Yadava |
+| [YETUS-461](https://issues.apache.org/jira/browse/YETUS-461) | Allow specifying exclusions for whitespace report |  Minor | Test Patch | stack | Kengo Seki |
 
 
 ### IMPROVEMENTS:
@@ -81,7 +82,13 @@
 | [YETUS-448](https://issues.apache.org/jira/browse/YETUS-448) | Fix the docs for supported python versions |  Major | website and documentation | Ajay Yadava | Ajay Yadava |
 | [YETUS-456](https://issues.apache.org/jira/browse/YETUS-456) | Typos in documentation |  Trivial | website and documentation | Ajay Yadava | Ajay Yadava |
 | [YETUS-446](https://issues.apache.org/jira/browse/YETUS-446) | releasedocmaker not handling 0 version in a range correctly? |  Major | Release Doc Maker | Allen Wittenauer | Ajay Yadava |
-| [YETUS-457](https://issues.apache.org/jira/browse/YETUS-457) | RDM does not properly escape entities |  Critical | . | Andrew Wang | Andrew Wang |
+| [YETUS-457](https://issues.apache.org/jira/browse/YETUS-457) | RDM does not properly escape entities |  Critical | Release Doc Maker | Andrew Wang | Andrew Wang |
+| [YETUS-447](https://issues.apache.org/jira/browse/YETUS-447) | invalid byte in cut |  Major | Test Patch | Allen Wittenauer | Casey Brotherton |
+| [YETUS-463](https://issues.apache.org/jira/browse/YETUS-463) | Enable yarn-ui profile in Yetus's precommit logic |  Major | Test Patch | Wangda Tan | Wangda Tan |
+| [YETUS-467](https://issues.apache.org/jira/browse/YETUS-467) | Update hbase personality after YETUS-322 "flip verify\_ result codes" |  Major | Test Patch | stack | stack |
+| [YETUS-470](https://issues.apache.org/jira/browse/YETUS-470) | user\_plugin directory is not copied over properly. |  Major | Test Patch | Suraj Acharya | Suraj Acharya |
+| [YETUS-469](https://issues.apache.org/jira/browse/YETUS-469) | running docker as root fails. |  Major | Test Patch | Suraj Acharya | Suraj Acharya |
+| [YETUS-472](https://issues.apache.org/jira/browse/YETUS-472) | Exclude src/test/java from findbugs source folders by default |  Major | Test Patch | Akira Ajisaka | Akira Ajisaka |
 
 
 ### OTHER:
@@ -90,5 +97,6 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YETUS-339](https://issues.apache.org/jira/browse/YETUS-339) | Make the site config file pass rubocop |  Major | build, website and documentation | Sean Busbey | Kengo Seki |
 | [YETUS-80](https://issues.apache.org/jira/browse/YETUS-80) | update missing docs from Hadoop |  Major | website and documentation | Sean Busbey | Ajay Yadava |
+| [YETUS-468](https://issues.apache.org/jira/browse/YETUS-468) | Release 0.4.0 |  Major | website and documentation | Ajay Yadava | Ajay Yadava |
 
 

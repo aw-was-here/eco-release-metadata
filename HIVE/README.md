@@ -19,6 +19,9 @@
 * Apache Hive v2.2.0
     * [Changes](2.2.0/CHANGES.2.2.0.md)
     * [Release Notes](2.2.0/RELEASENOTES.2.2.0.md)
+* Apache Hive v2.1.2
+    * [Changes](2.1.2/CHANGES.2.1.2.md)
+    * [Release Notes](2.1.2/RELEASENOTES.2.1.2.md)
 * Apache Hive v2.1.1
     * [Changes](2.1.1/CHANGES.2.1.1.md)
     * [Release Notes](2.1.1/RELEASENOTES.2.1.1.md)

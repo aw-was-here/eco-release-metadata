@@ -23,7 +23,7 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
-* [MAPREDUCE-826](https://issues.apache.org/jira/browse/MAPREDUCE-826) | *Trivial* | **harchive doesn\'t use ToolRunner / harchive returns 0 even if the job fails with exception**
+* [MAPREDUCE-826](https://issues.apache.org/jira/browse/MAPREDUCE-826) | *Trivial* | **harchive doesn't use ToolRunner / harchive returns 0 even if the job fails with exception**
 
 Use ToolRunner for archives job and return non zero error code on failure.
 
@@ -44,7 +44,7 @@ Allow a general mechanism to disable the cache on a per filesystem basis by usin
 
 ---
 
-* [MAPREDUCE-979](https://issues.apache.org/jira/browse/MAPREDUCE-979) | *Blocker* | **JobConf.getMemoryFor{Map\|Reduce}Task doesn\'t fallback to newer config knobs when mapred.taskmaxvmem is set to DISABLED\_MEMORY\_LIMIT of -1**
+* [MAPREDUCE-979](https://issues.apache.org/jira/browse/MAPREDUCE-979) | *Blocker* | **JobConf.getMemoryFor{Map\|Reduce}Task doesn't fallback to newer config knobs when mapred.taskmaxvmem is set to DISABLED\_MEMORY\_LIMIT of -1**
 
 Added support to fallback to new task memory configuration when deprecated memory configuration values are set to disabled.
 
@@ -95,7 +95,7 @@ Adds a counter to track the number of records emitted by map writing directly to
 
 * [MAPREDUCE-1182](https://issues.apache.org/jira/browse/MAPREDUCE-1182) | *Blocker* | **Reducers fail with OutOfMemoryError while copying Map outputs**
 
-Modifies shuffle related memory parameters to use \'long\' from \'int\' so that sizes greater than maximum integer size are handled correctly
+Modifies shuffle related memory parameters to use 'long' from 'int' so that sizes greater than maximum integer size are handled correctly
 
 
 ---

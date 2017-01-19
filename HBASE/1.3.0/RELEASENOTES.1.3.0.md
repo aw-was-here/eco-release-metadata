@@ -603,7 +603,7 @@ See: https://github.com/facebook/rocksdb/wiki/FIFO-compaction-style
 
 * [HBASE-15111](https://issues.apache.org/jira/browse/HBASE-15111) | *Trivial* | **"hbase version" should write to stdout**
 
-The `hbase version` command now outputs directly to stdout rather than to a logger. This change allows the version information to be output consistently regardless of logger configuration. Naturally, this also means the command output ignores all logger configuration. Furthermore, the move from loggers to direct output changes the output of the command to omit metadata commonly included in logger ouput such as a timestamp, log level, and logger name.
+The \`hbase version\` command now outputs directly to stdout rather than to a logger. This change allows the version information to be output consistently regardless of logger configuration. Naturally, this also means the command output ignores all logger configuration. Furthermore, the move from loggers to direct output changes the output of the command to omit metadata commonly included in logger ouput such as a timestamp, log level, and logger name.
 
 
 ---
@@ -832,6 +832,17 @@ hbase.ipc.server.callqueue.codel.lifo.threshold
 Removed ScanNext histogram metrics as regionserver level and per-region level metrics since the semantics is not compatible with other similar metrics (size histogram vs latency histogram). 
 
 Instead, this patch adds ScanTime and ScanSize histogram metrics at the regionserver and per-region level.
+
+
+---
+
+* [HBASE-15354](https://issues.apache.org/jira/browse/HBASE-15354) | *Major* | **Use same criteria for clearing meta cache for all operations**
+
+This patch fixes some issues when MetaCache (region location cache) gets unnecessarily dropped on the client.
+
+On master branch we now in RegionServerCallable and RegionServerAdminCallable pass the actual exception down to Connection#updateCachedLocation, so we could check there if the exception is "meta-clearing" or not.
+
+on branch-1, branch-1.2 and branch 1.3 we now check if the exception is meta-clearing or not in AsyncProcess (this check was there on master, but not on earlier branches)
 
 
 ---
@@ -1351,7 +1362,7 @@ If blockcache size \>= factor\*acceptableSize, we will reject the block into cac
 
 * [HBASE-8386](https://issues.apache.org/jira/browse/HBASE-8386) | *Major* | **deprecate TableMapReduce.addDependencyJars(Configuration, class\<?\> ...)**
 
-The MapReduce helper function `TableMapReduce.addDependencyJars(Configuration, class\<?\> ...)` has been deprecated since it is easy to use incorrectly. Most users should rely on addDependencyJars(Job) instead.
+The MapReduce helper function \`TableMapReduce.addDependencyJars(Configuration, class\<?\> ...)\` has been deprecated since it is easy to use incorrectly. Most users should rely on addDependencyJars(Job) instead.
 
 
 ---
@@ -1395,11 +1406,85 @@ HBase no longer includes Xerces implementation jars that were previously include
 
 ---
 
+* [HBASE-16086](https://issues.apache.org/jira/browse/HBASE-16086) | *Major* | **TableCfWALEntryFilter and ScopeWALEntryFilter should not redundantly iterate over cells.**
+
+push to branch-1.3+
+
+
+---
+
 * [HBASE-15297](https://issues.apache.org/jira/browse/HBASE-15297) | *Minor* | **error message is wrong when a wrong namspace is specified in grant in hbase shell**
 
 The security admin instance available within the HBase shell now returns "false" from the namespace\_exists? method for non-existent namespaces rather than raising a wrapped NamespaceNotFoundException.
 
 As a side effect, when the "grant" and "revoke" commands in the HBase shell are invoked with a non-existent namespace the resulting error message now properly refers to said namespace rather than to the user.
+
+
+---
+
+* [HBASE-16294](https://issues.apache.org/jira/browse/HBASE-16294) | *Minor* | **hbck reporting "No HDFS region dir found" for replicas**
+
+Fixed warning error message displayed for region directory not found for non-default/ non-primary replicas in hbck
+
+
+---
+
+* [HBASE-15984](https://issues.apache.org/jira/browse/HBASE-15984) | *Critical* | **Given failure to parse a given WAL that was closed cleanly, replay the WAL.**
+
+In some particular deployments, the Replication code believes it has
+reached EOF for a WAL prior to successfully parsing all bytes known to
+exist in a cleanly closed file.
+
+If an EOF is detected due to parsing or other errors while there are still unparsed bytes before the end-of-file trailer, we now reset the WAL to the very beginning and attempt a clean read-through. Because we will retry these failures indefinitely, two additional changes are made to help with diagnostics:
+
+\* On each retry attempt, a log message like the below will be emitted at the WARN level:
+    
+      Processing end of WAL file '{}'. At position {}, which is too far away
+      from reported file length {}. Restarting WAL reading (see HBASE-15983
+      for details).
+
+\*  additional metrics measure the use of this recovery mechanism. they are described in the reference guide.
+
+
+---
+
+* [HBASE-16661](https://issues.apache.org/jira/browse/HBASE-16661) | *Minor* | **Add last major compaction age to per-region metrics**
+
+This adds a new per-region metric named "lastMajorCompactionAge" for tracking time since the last major compaction ran on a given region.  If a major compaction has never run, the age will be equal to the current timestamp.
+
+
+---
+
+* [HBASE-16664](https://issues.apache.org/jira/browse/HBASE-16664) | *Major* | **Timeout logic in AsyncProcess is broken**
+
+This issue fix three bugs:
+1.  rpcTimeout configuration not work for one rpc call in AP
+2.  operationTimeout configuration not work for multi-request (batch, put) in AP 
+3.  setRpcTimeout and setOperationTimeout in HTable is not worked for AP and BufferedMutator.
+
+
+---
+
+* [HBASE-16721](https://issues.apache.org/jira/browse/HBASE-16721) | *Critical* | **Concurrency issue in WAL unflushed seqId tracking**
+
+Fixed a bug in sequenceId tracking for the WALs that caused WAL files to accumulate without being deleted due to a rare race condition.
+
+
+---
+
+* [HBASE-16765](https://issues.apache.org/jira/browse/HBASE-16765) | *Critical* | **New SteppingRegionSplitPolicy, avoid too aggressive spread of regions for small tables.**
+
+Introduces a new split policy: SteppingSplitPolicy
+This will use a simple step function to split a region at (by default) 2  xflushSize when no other region of the same table is seen on the region server, or max-file-size when one or more other regions of the same table is seen.
+
+In HBase 2.0 this is going to be the default. In previous versions it can be configured.
+
+
+---
+
+* [HBASE-17017](https://issues.apache.org/jira/browse/HBASE-17017) | *Major* | **Remove the current per-region latency histogram metrics**
+
+Removes per-region level (get size, get time, scan size and scan time histogram) metrics that was exposed before. Per-region histogram metrics with 1000+ regions causes millions of objects to be allocated on heap. The patch introduces getCount and scanCount as counters rather than histograms. Other per-region level metrics are kept as they are.
 
 
 

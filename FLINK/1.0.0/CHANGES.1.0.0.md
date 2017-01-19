@@ -75,7 +75,7 @@
 | [FLINK-2488](https://issues.apache.org/jira/browse/FLINK-2488) | Expose attemptNumber in RuntimeContext |  Minor | JobManager, TaskManager | Robert Metzger | Sachin Goel |
 | [FLINK-2897](https://issues.apache.org/jira/browse/FLINK-2897) | Use distinct initial indices for OutputEmitter round-robin |  Major | Distributed Coordination | Greg Hogan | Greg Hogan |
 | [FLINK-3073](https://issues.apache.org/jira/browse/FLINK-3073) | Activate streaming mode by default |  Major | TaskManager | Robert Metzger | Aljoscha Krettek |
-| [FLINK-3074](https://issues.apache.org/jira/browse/FLINK-3074) | Make ApplicationMaster/JobManager akka port configurable |  Major | YARN Client | Robert Metzger | Robert Metzger |
+| [FLINK-3074](https://issues.apache.org/jira/browse/FLINK-3074) | Make ApplicationMaster/JobManager akka port configurable |  Major | YARN | Robert Metzger | Robert Metzger |
 | [FLINK-2936](https://issues.apache.org/jira/browse/FLINK-2936) | ClassCastException when using EventTimeSourceFunction in non-EventTime program |  Major | Streaming | Fabian Hueske | Aljoscha Krettek |
 | [FLINK-3023](https://issues.apache.org/jira/browse/FLINK-3023) | Show Flink version + commit id for -SNAPSHOT versions in web frontend |  Major | Webfrontend | Robert Metzger | Sachin Goel |
 | [FLINK-3077](https://issues.apache.org/jira/browse/FLINK-3077) | Add "version" command to CliFrontend for showing the version of the installation |  Major | Client | Robert Metzger | Sachin Goel |
@@ -133,7 +133,7 @@
 | [FLINK-3147](https://issues.apache.org/jira/browse/FLINK-3147) | HadoopOutputFormatBase should expose fields as protected |  Minor | . | Nick Dimiduk | Nick Dimiduk |
 | [FLINK-3386](https://issues.apache.org/jira/browse/FLINK-3386) | Kafka consumers are not properly respecting the "auto.offset.reset" behavior |  Major | Kafka Connector, Streaming Connectors | Gyula Fora | Robert Metzger |
 | [FLINK-3455](https://issues.apache.org/jira/browse/FLINK-3455) | Bump Kafka 0.9 connector dependency to Kafka 0.9.0.1 |  Major | Kafka Connector | Robert Metzger | Robert Metzger |
-| [FLINK-2213](https://issues.apache.org/jira/browse/FLINK-2213) | Configure number of vcores |  Major | YARN Client | Ufuk Celebi | Kostas Kloudas |
+| [FLINK-2213](https://issues.apache.org/jira/browse/FLINK-2213) | Configure number of vcores |  Major | YARN | Ufuk Celebi | Kostas Kloudas |
 | [FLINK-3460](https://issues.apache.org/jira/browse/FLINK-3460) | Make flink-streaming-connectors' flink dependencies provided |  Minor | . | Till Rohrmann | Till Rohrmann |
 | [FLINK-3459](https://issues.apache.org/jira/browse/FLINK-3459) | Make build SBT compatible |  Minor | . | Till Rohrmann | Till Rohrmann |
 | [FLINK-2021](https://issues.apache.org/jira/browse/FLINK-2021) | Rework examples to use ParameterTool |  Minor | Examples | Robert Metzger | Stefano Baghino |
@@ -160,6 +160,7 @@
 | [FLINK-3358](https://issues.apache.org/jira/browse/FLINK-3358) | Create constructors for FsStateBackend in RocksDBBackens |  Critical | State Backends, Checkpointing | Stephan Ewen | Stephan Ewen |
 | [FLINK-2344](https://issues.apache.org/jira/browse/FLINK-2344) | Deprecate/Remove the old Pact Pair type |  Major | Core | Stephan Ewen | Stephan Ewen |
 | [FLINK-3887](https://issues.apache.org/jira/browse/FLINK-3887) | Improve dependency management for building docs |  Major | Documentation | Maximilian Michels | Maximilian Michels |
+| [FLINK-3042](https://issues.apache.org/jira/browse/FLINK-3042) | Define a way to let types create their own TypeInformation |  Major | Core | Stephan Ewen | Timo Walther |
 
 
 ### BUG FIXES:
@@ -173,12 +174,12 @@
 | [FLINK-2930](https://issues.apache.org/jira/browse/FLINK-2930) | ExecutionConfig execution retry delay not respected |  Major | Distributed Coordination | Ufuk Celebi | Ufuk Celebi |
 | [FLINK-2938](https://issues.apache.org/jira/browse/FLINK-2938) | Streaming docs not in sync with latest state changes |  Minor | Documentation | Maximilian Michels | Stephan Ewen |
 | [FLINK-2979](https://issues.apache.org/jira/browse/FLINK-2979) | RollingSink does not work with Hadoop 2.7.1 |  Major | Streaming Connectors | Till Rohrmann | Aljoscha Krettek |
-| [FLINK-2990](https://issues.apache.org/jira/browse/FLINK-2990) | Scala 2.11 build fails to start on YARN |  Major | Build System, YARN Client | Robert Metzger | Robert Metzger |
-| [FLINK-2987](https://issues.apache.org/jira/browse/FLINK-2987) | Flink 0.10 fails to start on YARN 2.6.0 |  Major | Build System, YARN Client | Robert Metzger | Robert Metzger |
+| [FLINK-2990](https://issues.apache.org/jira/browse/FLINK-2990) | Scala 2.11 build fails to start on YARN |  Major | Build System, YARN | Robert Metzger | Robert Metzger |
+| [FLINK-2987](https://issues.apache.org/jira/browse/FLINK-2987) | Flink 0.10 fails to start on YARN 2.6.0 |  Major | Build System, YARN | Robert Metzger | Robert Metzger |
 | [FLINK-2992](https://issues.apache.org/jira/browse/FLINK-2992) | New Windowing code is using SerializationUtils with wrong classloader |  Critical | Streaming | Robert Metzger | Robert Metzger |
 | [FLINK-2826](https://issues.apache.org/jira/browse/FLINK-2826) | transformed is modified in BroadcastVariableMaterialization#decrementReferenceInternal without proper locking |  Major | . | Ted Yu | Ted Yu |
 | [FLINK-2797](https://issues.apache.org/jira/browse/FLINK-2797) | CLI: Missing option to submit jobs in detached mode |  Major | Client | Maximilian Michels | Sachin Goel |
-| [FLINK-2977](https://issues.apache.org/jira/browse/FLINK-2977) | Cannot access HBase in a Kerberos secured Yarn cluster |  Major | YARN Client | Niels Basjes | Niels Basjes |
+| [FLINK-2977](https://issues.apache.org/jira/browse/FLINK-2977) | Cannot access HBase in a Kerberos secured Yarn cluster |  Major | YARN | Niels Basjes | Niels Basjes |
 | [FLINK-3022](https://issues.apache.org/jira/browse/FLINK-3022) | Broken link 'Working With State' in Fault Tolerance Section of Stream Programming Guide |  Major | Documentation | Suneel Marthi | Suneel Marthi |
 | [FLINK-3024](https://issues.apache.org/jira/browse/FLINK-3024) | TimestampExtractor Does not Work When returning Long.MIN\_VALUE |  Major | Streaming | Aljoscha Krettek | Aljoscha Krettek |
 | [FLINK-2879](https://issues.apache.org/jira/browse/FLINK-2879) | Links in documentation are broken |  Minor | Project Website | Nikolaas Steenbergen | Andra Lungu |
@@ -197,7 +198,7 @@
 | [FLINK-3032](https://issues.apache.org/jira/browse/FLINK-3032) | Flink does not start on Hadoop 2.7.1 (HDP), due to class conflict |  Critical | Build System | Robert Metzger | Robert Metzger |
 | [FLINK-3052](https://issues.apache.org/jira/browse/FLINK-3052) | Optimizer does not push properties out of bulk iterations |  Major | Optimizer | Till Rohrmann | Till Rohrmann |
 | [FLINK-3020](https://issues.apache.org/jira/browse/FLINK-3020) | Local streaming execution: set number of task manager slots to the maximum parallelism |  Minor | Local Runtime | Maximilian Michels | Maximilian Michels |
-| [FLINK-3000](https://issues.apache.org/jira/browse/FLINK-3000) | Add ShutdownHook to YARN CLI to prevent lingering sessions |  Major | YARN Client | Ufuk Celebi | Sachin Goel |
+| [FLINK-3000](https://issues.apache.org/jira/browse/FLINK-3000) | Add ShutdownHook to YARN CLI to prevent lingering sessions |  Major | YARN | Ufuk Celebi | Sachin Goel |
 | [FLINK-3059](https://issues.apache.org/jira/browse/FLINK-3059) | Javadoc fix for DataSet.writeAsText() |  Trivial | . | jun aoki | jun aoki |
 | [FLINK-3082](https://issues.apache.org/jira/browse/FLINK-3082) | Confusing error about ManualTimestampSourceFunction |  Major | . | Niels Basjes | Niels Basjes |
 | [FLINK-3054](https://issues.apache.org/jira/browse/FLINK-3054) | Remove R (return) type variable from SerializationSchema |  Major | Streaming | Robert Metzger | Robert Metzger |
@@ -260,7 +261,7 @@
 | [FLINK-3287](https://issues.apache.org/jira/browse/FLINK-3287) | Flink Kafka Consumer fails due to Curator version conflict |  Major | Kafka Connector | Robert Metzger | Robert Metzger |
 | [FLINK-2348](https://issues.apache.org/jira/browse/FLINK-2348) | IterateExampleITCase failing |  Critical | Streaming | Matthias J. Sax | Stephan Ewen |
 | [FLINK-3314](https://issues.apache.org/jira/browse/FLINK-3314) | Early cancel calls can cause Tasks to not cancel properly |  Blocker | Local Runtime | Stephan Ewen | Stephan Ewen |
-| [FLINK-3293](https://issues.apache.org/jira/browse/FLINK-3293) | Custom Application Name on YARN is ignored in deploy jobmanager mode |  Minor | YARN Client | Johannes | Johannes |
+| [FLINK-3293](https://issues.apache.org/jira/browse/FLINK-3293) | Custom Application Name on YARN is ignored in deploy jobmanager mode |  Minor | YARN | Johannes | Johannes |
 | [FLINK-3254](https://issues.apache.org/jira/browse/FLINK-3254) | CombineFunction interface not respected |  Blocker | DataSet API | Fabian Hueske | Kostas Kloudas |
 | [FLINK-3328](https://issues.apache.org/jira/browse/FLINK-3328) | Incorrectly shaded dependencies in flink-runtime |  Blocker | Build System | Stephan Ewen | Robert Metzger |
 | [FLINK-3268](https://issues.apache.org/jira/browse/FLINK-3268) | Unstable test JobManagerSubmittedJobGraphsRecoveryITCase |  Critical | Tests | Stephan Ewen | Stephan Ewen |
@@ -336,6 +337,7 @@
 | [FLINK-3638](https://issues.apache.org/jira/browse/FLINK-3638) | Invalid default ports in documentation |  Major | Documentation | Maxim Dobryakov | Maximilian Michels |
 | [FLINK-2674](https://issues.apache.org/jira/browse/FLINK-2674) | Rework windowing logic |  Critical | Streaming | Stephan Ewen |  |
 | [FLINK-3138](https://issues.apache.org/jira/browse/FLINK-3138) | Method References are not supported as lambda expressions |  Major | Core | Stephan Ewen | Timo Walther |
+| [FLINK-2624](https://issues.apache.org/jira/browse/FLINK-2624) | RabbitMQ source / sink should participate in checkpointing |  Major | Streaming Connectors | Stephan Ewen | Hilmi Yildirim |
 
 
 ### TESTS:
@@ -343,6 +345,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [FLINK-3517](https://issues.apache.org/jira/browse/FLINK-3517) | Number of job and task managers not checked in scripts |  Minor | Startup Shell Scripts | Ufuk Celebi | Ufuk Celebi |
+| [FLINK-2480](https://issues.apache.org/jira/browse/FLINK-2480) | Improving tests coverage for org.apache.flink.streaming.api |  Major | Streaming | Huang Wei |  |
 
 
 ### SUB-TASKS:

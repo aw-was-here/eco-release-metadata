@@ -340,8 +340,8 @@ Work around:
                 \</exec\>
 
 Error trace:
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-antrun-plugin:1.8:run (default) on project spark-core\_2.11: An Ant BuildException has occured: Execute failed: java.io.IOException: Cannot run program "C:\dev\spark\core\..\build\spark-build-info" (in directory "C:\dev\spark\core"): CreateProcess error=193, %1 is not a valid Win32 application
-[ERROR] around Ant part ...\<exec executable="C:\dev\spark\core/../build/spark-build-info"\>... @ 4:73 in C:\dev\spark\core\target\antrun\build-main.xml
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-antrun-plugin:1.8:run (default) on project spark-core\_2.11: An Ant BuildException has occured: Execute failed: java.io.IOException: Cannot run program "C:\\dev\\spark\\core\\..\\build\\spark-build-info" (in directory "C:\\dev\\spark\\core"): CreateProcess error=193, %1 is not a valid Win32 application
+[ERROR] around Ant part ...\<exec executable="C:\\dev\\spark\\core/../build/spark-build-info"\>... @ 4:73 in C:\\dev\\spark\\core\\target\\antrun\\build-main.xml
 
 
 ---
@@ -515,6 +515,47 @@ Caused by: org.apache.avro.AvroTypeException: Found avro.FullName, expecting uni
 For what it's worth, I found an issue (DRILL-957) reported in Apache Drill and related fix that look very simliar to this. I'll look that to this issue.
 
 Originally [posted here\|http://stackoverflow.com/questions/35826850/spark-unable-to-decode-avro-when-partitioned] on StackOverflow as a question, but I felt strongly that this is indeed a bug so I created this issue.
+
+
+---
+
+* [SPARK-18709](https://issues.apache.org/jira/browse/SPARK-18709) | *Major* | **Automatic null conversion bug (instead of throwing error) when creating a Spark Datarame with incompatible types for fields.**
+
+When converting an RDD with a \`float\` type field to a spark dataframe with an \`IntegerType\` / \`LongType\` schema field, spark 1.6.2 and 1.6.3 silently convert the field values to nulls instead of throwing an error like \`LongType can not accept object \_\_\_ in type \<type 'float'\>\`. However, this seems to be fixed in Spark 2.0.2.
+
+
+The following example should make the problem clear:
+{code}
+from pyspark.sql.types import StructField, StructType, LongType, DoubleType
+
+schema = StructType([
+        StructField("0", LongType(), True),
+        StructField("1", DoubleType(), True),
+    ])
+
+data = [[1.0, 1.0], [nan, 2.0]]
+spark\_df = sqlContext.createDataFrame(sc.parallelize(data), schema)
+spark\_df.show()
+{code}
+
+Instead of throwing an error like:
+{code}
+LongType can not accept object 1.0 in type \<type 'float'\>
+{code}
+
+Spark converts all the values in the first column to nulls
+
+Running \`spark\_df.show()\` gives:
+{code}
++----+---+
+\|   0\|  1\|
++----+---+
+\|null\|1.0\|
+\|null\|1.0\|
++----+---+
+{code}
+
+For the purposes of my computation, I'm doing a \`mapPartitions\` on a spark data frame, and for each partition, converting it into a pandas data frame, doing a few computations on this pandas dataframe and the return value will be a list of lists, which is converted to an RDD while being returned from 'mapPartitions' (for all partitions). This RDD is then converted into a spark dataframe similar to the example above, using \`sqlContext.createDataFrame(rdd, schema)\`. The rdd has a column that should be converted to a \`LongType\` in the spark data frame, but since it has missing values, it is a \`float\` type. When spark tries to create the data frame, it converts all the values in that column to nulls instead of throwing an error that there is a type mismatch.
 
 
 

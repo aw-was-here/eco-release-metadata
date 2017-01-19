@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.9.0.2 - Unreleased (as of 2016-09-16)
+## Release 0.9.0.2 - Unreleased (as of 2017-01-19)
 
 
 
@@ -36,6 +36,7 @@
 | [KAFKA-3088](https://issues.apache.org/jira/browse/KAFKA-3088) | 0.9.0.0 broker crash on receipt of produce request with empty client ID |  Major | producer | Dave Peterson | Grant Henke |
 | [KAFKA-3594](https://issues.apache.org/jira/browse/KAFKA-3594) | Kafka new producer retries doesn't work in 0.9.0.1 |  Critical | producer | Nicolas PHUNG | Manikumar Reddy |
 | [KAFKA-3632](https://issues.apache.org/jira/browse/KAFKA-3632) | ConsumerLag metrics persist after partition migration |  Minor | core | Brian Lueck | Jason Gustafson |
+| [KAFKA-3587](https://issues.apache.org/jira/browse/KAFKA-3587) | LogCleaner fails due to incorrect offset map computation on a replica |  Major | . | Kiran Pillarisetty | Edoardo Comar |
 | [KAFKA-3773](https://issues.apache.org/jira/browse/KAFKA-3773) | SocketServer inflightResponses collection leaks memory on client disconnect |  Major | core | Jason Gustafson | Jason Gustafson |
 | [KAFKA-3952](https://issues.apache.org/jira/browse/KAFKA-3952) | VerifyConsumerRebalance cannot succeed when checking partition owner |  Minor | core | Simon Wan Wenli | Simon Wan Wenli |
 

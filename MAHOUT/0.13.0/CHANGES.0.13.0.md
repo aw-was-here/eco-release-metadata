@@ -18,8 +18,18 @@
 -->
 # Apache Mahout Changelog
 
-## Release 0.13.0 - Unreleased (as of 2016-09-16)
+## Release 0.13.0 - Unreleased (as of 2017-01-19)
 
+
+
+### NEW FEATURES:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [MAHOUT-1883](https://issues.apache.org/jira/browse/MAHOUT-1883) | Create a type if IndexedDataset that filters unneeded data for CCO |  Major | Collaborative Filtering | Pat Ferrel | Pat Ferrel |
+| [MAHOUT-1853](https://issues.apache.org/jira/browse/MAHOUT-1853) | Improvements to CCO (Correlated Cross-Occurrence) |  Major | . | Andrew Palumbo | Pat Ferrel |
+| [MAHOUT-1854](https://issues.apache.org/jira/browse/MAHOUT-1854) | Zeppelin integration: Spark Intrepreter |  Major | . | Andrew Palumbo | Trevor Grant |
+| [MAHOUT-1855](https://issues.apache.org/jira/browse/MAHOUT-1855) | Zeppelin integration: Visualization |  Major | . | Andrew Palumbo | Trevor Grant |
 
 
 ### IMPROVEMENTS:
@@ -36,13 +46,18 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [MAHOUT-1876](https://issues.apache.org/jira/browse/MAHOUT-1876) | Mahout fails to read from lucene index of solr-5.5.2 |  Major | . | Raviteja Lokineni |  |
 | [MAHOUT-1881](https://issues.apache.org/jira/browse/MAHOUT-1881) | flink-config.yaml is not copied to $MAHOUT\_HOME/conf in Binary Distro |  Blocker | Flink | Andrew Palumbo | Suneel Marthi |
+| [MAHOUT-1888](https://issues.apache.org/jira/browse/MAHOUT-1888) | Performance Bug with Mahout Vector Serialization |  Major | spark | Suneel Marthi | Suneel Marthi |
 
 
 ### OTHER:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [MAHOUT-1858](https://issues.apache.org/jira/browse/MAHOUT-1858) | Mahout visualization features including Mahout plotting and Zeppelin integration |  Major | . | Andrew Palumbo | Andrew Palumbo |
+| [MAHOUT-1849](https://issues.apache.org/jira/browse/MAHOUT-1849) | Update home page language |  Major | . | Andrew Musselman | Andrew Musselman |
+| [MAHOUT-1906](https://issues.apache.org/jira/browse/MAHOUT-1906) | Ensure customJars are added to the MahoutContext under certain conditions for spark 1.6+ |  Major | . | Andrew Palumbo | Andrew Palumbo |
 | [MAHOUT-1880](https://issues.apache.org/jira/browse/MAHOUT-1880) | Remove H2O Bindings from the release binaries |  Critical | build | Andrew Palumbo | Suneel Marthi |
 | [MAHOUT-1865](https://issues.apache.org/jira/browse/MAHOUT-1865) | Remove Hadoop 1 support. |  Major | . | Andrew Palumbo | Suneel Marthi |
+| [MAHOUT-1901](https://issues.apache.org/jira/browse/MAHOUT-1901) | Remove h20 from the Binary Release Build |  Major | . | Andrew Palumbo | Suneel Marthi |
 
 

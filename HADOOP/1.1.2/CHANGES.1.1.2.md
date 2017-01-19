@@ -47,8 +47,8 @@
 | [HADOOP-8880](https://issues.apache.org/jira/browse/HADOOP-8880) | Missing jersey jars as dependency in the pom causes hive tests to fail |  Major | . | Giridharan Kesavan | Giridharan Kesavan |
 | [HDFS-4208](https://issues.apache.org/jira/browse/HDFS-4208) | NameNode could be stuck in SafeMode due to never-created blocks |  Critical | namenode | Brandon Li | Brandon Li |
 | [HDFS-3727](https://issues.apache.org/jira/browse/HDFS-3727) | When using SPNEGO, NN should not try to log in using KSSL principal |  Major | namenode | Aaron T. Myers | Aaron T. Myers |
-| [MAPREDUCE-4478](https://issues.apache.org/jira/browse/MAPREDUCE-4478) | TaskTracker\'s heartbeat is out of control |  Major | . | Liyin Liang | Liyin Liang |
-| [MAPREDUCE-4798](https://issues.apache.org/jira/browse/MAPREDUCE-4798) | TestJobHistoryServer fails some times with \'java.lang.AssertionError: Address already in use\' |  Minor | jobhistoryserver, test | sam liu | sam liu |
+| [MAPREDUCE-4478](https://issues.apache.org/jira/browse/MAPREDUCE-4478) | TaskTracker's heartbeat is out of control |  Major | . | Liyin Liang | Liyin Liang |
+| [MAPREDUCE-4798](https://issues.apache.org/jira/browse/MAPREDUCE-4798) | TestJobHistoryServer fails some times with 'java.lang.AssertionError: Address already in use' |  Minor | jobhistoryserver, test | sam liu | sam liu |
 | [HADOOP-9115](https://issues.apache.org/jira/browse/HADOOP-9115) | Deadlock in configuration when writing configuration to hdfs |  Blocker | . | Arpit Gupta | Jing Zhao |
 | [MAPREDUCE-4696](https://issues.apache.org/jira/browse/MAPREDUCE-4696) | TestMRServerPorts throws NullReferenceException |  Minor | . | Gopal V | Gopal V |
 | [MAPREDUCE-4697](https://issues.apache.org/jira/browse/MAPREDUCE-4697) | TestMapredHeartbeat fails assertion on HeartbeatInterval |  Minor | . | Gopal V | Gopal V |

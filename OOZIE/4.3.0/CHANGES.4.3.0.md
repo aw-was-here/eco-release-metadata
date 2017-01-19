@@ -18,7 +18,7 @@
 -->
 # Apache Oozie Changelog
 
-## Release 4.3.0 - Unreleased (as of 2016-09-16)
+## Release 4.3.0 - 2016-12-02
 
 
 
@@ -37,7 +37,6 @@
 | [OOZIE-1299](https://issues.apache.org/jira/browse/OOZIE-1299) | Rerunning the main workflow to rerun sub-workflow and not create new one |  Major | workflow | PriyaSundararajan |  |
 | [OOZIE-2159](https://issues.apache.org/jira/browse/OOZIE-2159) | 'oozie validate' command should be moved server-side |  Major | . | Robert Kanter | Azrael Seoeun |
 | [OOZIE-2187](https://issues.apache.org/jira/browse/OOZIE-2187) | Add a way to specify a default JT/RM and NN |  Major | core | Robert Kanter | Robert Kanter |
-| [OOZIE-2245](https://issues.apache.org/jira/browse/OOZIE-2245) | Service to periodically check database schema |  Major | core | Robert Kanter | Robert Kanter |
 | [OOZIE-2251](https://issues.apache.org/jira/browse/OOZIE-2251) | Expose instrumental matrices in Realtime Graphing tool |  Major | monitoring | Jaydeep Vishwakarma | Narayan Periwal |
 | [OOZIE-2411](https://issues.apache.org/jira/browse/OOZIE-2411) | Add BCC to oozie email action |  Major | action, docs, tests | Ferenc Denes | Ferenc Denes |
 | [OOZIE-2185](https://issues.apache.org/jira/browse/OOZIE-2185) | Make oozie cli source conf/oozie-client-env.sh |  Minor | client | Robert Justice | Mike Grimes |
@@ -87,6 +86,7 @@
 | [OOZIE-2488](https://issues.apache.org/jira/browse/OOZIE-2488) | Upgrade to latest OpenJPA version |  Major | core | Robert Kanter | Abhishek Bafna |
 | [OOZIE-2660](https://issues.apache.org/jira/browse/OOZIE-2660) | Create documentation for DB Dump/Load functionality |  Major | . | Peter Cseh | Peter Cseh |
 | [OOZIE-2530](https://issues.apache.org/jira/browse/OOZIE-2530) | Allow Hive to use a different jline version |  Major | . | Thomas Poepping | Thomas Poepping |
+| [OOZIE-2498](https://issues.apache.org/jira/browse/OOZIE-2498) | Oozie CallerId configuration for downstream components |  Major | core | Abhishek Bafna | Abhishek Bafna |
 
 
 ### BUG FIXES:
@@ -231,7 +231,6 @@
 | [OOZIE-2589](https://issues.apache.org/jira/browse/OOZIE-2589) | CompletedActionXCommand is hardcoded to wrong priority |  Major | core | Linflytang | Linflytang |
 | [OOZIE-2517](https://issues.apache.org/jira/browse/OOZIE-2517) | Add support for startCreatedTime and endCreatedTime filters for coord and bundles |  Major | core | Abhishek Bafna | Abhishek Bafna |
 | [OOZIE-2521](https://issues.apache.org/jira/browse/OOZIE-2521) | Filter options are case sensitive for jobtye=bundle |  Major | core | Abhishek Bafna | Abhishek Bafna |
-| [OOZIE-2657](https://issues.apache.org/jira/browse/OOZIE-2657) | Clean up redundant access modifiers from oozie interfaces |  Minor | core | Abhishek Bafna | Abhishek Bafna |
 | [OOZIE-2656](https://issues.apache.org/jira/browse/OOZIE-2656) | OozieShareLibCLI uses op system username instead of Kerberos to upload jars |  Major | . | Peter Cseh | Peter Cseh |
 | [OOZIE-2649](https://issues.apache.org/jira/browse/OOZIE-2649) | Can't override sub-workflow configuration property if defined in parent workflow XML |  Major | . | Attila Sasvari | Attila Sasvari |
 | [OOZIE-2243](https://issues.apache.org/jira/browse/OOZIE-2243) | Kill Command does not kill the child job for java action |  Major | . | Narayan Periwal | Jaydeep Vishwakarma |
@@ -242,6 +241,43 @@
 | [OOZIE-2584](https://issues.apache.org/jira/browse/OOZIE-2584) | Eliminate Thread.sleep() calls in TestMemoryLocks |  Minor | . | Peter Bacsko | Peter Bacsko |
 | [OOZIE-2659](https://issues.apache.org/jira/browse/OOZIE-2659) | TestPauseTransitService is flaky |  Major | . | Peter Cseh | Peter Cseh |
 | [OOZIE-2500](https://issues.apache.org/jira/browse/OOZIE-2500) | -DtestJarSimple option mentioned in minioozie doc does not work |  Major | . | Satish Subhashrao Saley | Abhishek Bafna |
+| [OOZIE-2538](https://issues.apache.org/jira/browse/OOZIE-2538) | Update HttpClient versions to close security vulnerabilities |  Major | core | Abhishek Bafna | Abhishek Bafna |
+| [OOZIE-2657](https://issues.apache.org/jira/browse/OOZIE-2657) | Clean up redundant access modifiers from oozie interfaces |  Minor | core | Abhishek Bafna | Abhishek Bafna |
+| [OOZIE-2588](https://issues.apache.org/jira/browse/OOZIE-2588) | Support getting credentials for same cluster hcat when credentials config is empty |  Minor | . | Satish Subhashrao Saley | Satish Subhashrao Saley |
+| [OOZIE-2675](https://issues.apache.org/jira/browse/OOZIE-2675) | Drop support for hadoop 0.23 |  Blocker | core | Abhishek Bafna | Abhishek Bafna |
+| [OOZIE-2569](https://issues.apache.org/jira/browse/OOZIE-2569) | Adding yarn-site, core-site, hdfs-site and mapred-site into spark launcher |  Major | core | Abhishek Bafna | Abhishek Bafna |
+| [OOZIE-2491](https://issues.apache.org/jira/browse/OOZIE-2491) | oozie acl cannot specify group,it does\`t work |  Minor | core | Lingang Deng | Abhishek Bafna |
+| [OOZIE-2672](https://issues.apache.org/jira/browse/OOZIE-2672) | SLA periodic update does not remove job from map if job is removed from database |  Major | . | Satish Subhashrao Saley | Satish Subhashrao Saley |
+| [OOZIE-2572](https://issues.apache.org/jira/browse/OOZIE-2572) | SLA DURATION miss not shown when job is running for longer than expected time |  Major | . | Satish Subhashrao Saley | Satish Subhashrao Saley |
+| [OOZIE-2667](https://issues.apache.org/jira/browse/OOZIE-2667) | Optimize queries for DB export |  Major | . | Peter Cseh | Peter Cseh |
+| [OOZIE-2273](https://issues.apache.org/jira/browse/OOZIE-2273) | MiniOozie does not work outside of Oozie |  Major | tests | Robert Kanter | Robert Kanter |
+| [OOZIE-2661](https://issues.apache.org/jira/browse/OOZIE-2661) | Coordinator Action status not updated when workflow job SUSPENDED |  Major | . | Satish Subhashrao Saley | Satish Subhashrao Saley |
+| [OOZIE-2679](https://issues.apache.org/jira/browse/OOZIE-2679) | Decrease HttpClient library versions due to Hadoop incompatibility |  Blocker | . | Peter Cseh | Abhishek Bafna |
+| [OOZIE-2682](https://issues.apache.org/jira/browse/OOZIE-2682) | Oozie test-patch script is not updating Jira with jenkins test report |  Blocker | . | Abhishek Bafna | Abhishek Bafna |
+| [OOZIE-1978](https://issues.apache.org/jira/browse/OOZIE-1978) | Forkjoin validation code is ridiculously slow in some cases |  Blocker | core | Robert Kanter | Peter Bacsko |
+| [OOZIE-2487](https://issues.apache.org/jira/browse/OOZIE-2487) | Temporary workaround for Java 8 Javadoc errors |  Blocker | core | Rajendra Patil | Abhishek Bafna |
+| [OOZIE-2676](https://issues.apache.org/jira/browse/OOZIE-2676) | Make hadoop-2 as the default profile |  Major | core | Abhishek Bafna | Peter Cseh |
+| [OOZIE-2678](https://issues.apache.org/jira/browse/OOZIE-2678) | Oozie job -kill doesn't work with tez jobs |  Major | . | Rohini Palaniswamy | Abhishek Bafna |
+| [OOZIE-2582](https://issues.apache.org/jira/browse/OOZIE-2582) | Populating external child Ids for action failures |  Major | core | Abhishek Bafna | Abhishek Bafna |
+| [OOZIE-2501](https://issues.apache.org/jira/browse/OOZIE-2501) | ZK reentrant lock doesn't work for few cases |  Blocker | . | Purshotam Shah | Purshotam Shah |
+| [OOZIE-2194](https://issues.apache.org/jira/browse/OOZIE-2194) | oozie job -kill doesn't work with spark action |  Major | . | Thomas Graves | Abhishek Bafna |
+| [OOZIE-2673](https://issues.apache.org/jira/browse/OOZIE-2673) | Include XSD for shell-action:0.3 in documentation |  Minor | . | Satish Subhashrao Saley | Abhishek Bafna |
+| [OOZIE-2606](https://issues.apache.org/jira/browse/OOZIE-2606) | Set spark.yarn.jars to fix Spark 2.0 with Oozie |  Major | core | Jonathan Kelly | Satish Subhashrao Saley |
+| [OOZIE-2622](https://issues.apache.org/jira/browse/OOZIE-2622) | ExtJS 2.2 is no longer available |  Blocker | . | Sergey Svinarchuk | Robert Kanter |
+| [OOZIE-1814](https://issues.apache.org/jira/browse/OOZIE-1814) | Oozie should mask any passwords in logs and REST interfaces |  Major | . | Bowen Zhang | Andras Piros |
+| [OOZIE-2658](https://issues.apache.org/jira/browse/OOZIE-2658) | --driver-class-path can overwrite the classpath in SparkMain |  Blocker | . | Peter Cseh | Peter Cseh |
+| [OOZIE-2613](https://issues.apache.org/jira/browse/OOZIE-2613) | Upgrade hive version from 0.13.1 to 1.2.0 |  Blocker | core | Abhishek Bafna | Abhishek Bafna |
+| [OOZIE-2621](https://issues.apache.org/jira/browse/OOZIE-2621) | Use hive-exec-\<version\>-core instead of hive-exec in oozie-core |  Major | . | Peter Cseh | Peter Cseh |
+| [OOZIE-2705](https://issues.apache.org/jira/browse/OOZIE-2705) | Oozie Spark action ignores spark.executor.extraJavaOptions and spark.driver.extraJavaOptions |  Blocker | action | Prabhu Joseph | Peter Cseh |
+| [OOZIE-2710](https://issues.apache.org/jira/browse/OOZIE-2710) | Oozie HCatalog example workflow fails |  Blocker | core, examples | Abhishek Bafna | Abhishek Bafna |
+| [OOZIE-2674](https://issues.apache.org/jira/browse/OOZIE-2674) | Improve oozie commads documentation |  Major | docs | Abhishek Bafna | Abhishek Bafna |
+| [OOZIE-2536](https://issues.apache.org/jira/browse/OOZIE-2536) | Hadoop's cleanup of local directory in uber mode causing failures |  Blocker | . | Satish Subhashrao Saley | Satish Subhashrao Saley |
+| [OOZIE-2719](https://issues.apache.org/jira/browse/OOZIE-2719) | Test case failure |  Major | core | Jaydeep Vishwakarma | Abhishek Bafna |
+| [OOZIE-2725](https://issues.apache.org/jira/browse/OOZIE-2725) | Upgrade Tomcat to 6.0.47 for the latest security fixes |  Blocker | . | Robert Kanter | Robert Kanter |
+| [OOZIE-2724](https://issues.apache.org/jira/browse/OOZIE-2724) | coord:current resolves monthly/yearly dependencies incorrectly |  Critical | . | Satish Subhashrao Saley | Satish Subhashrao Saley |
+| [OOZIE-2720](https://issues.apache.org/jira/browse/OOZIE-2720) | Test failure - TestCoordMaterializeTriggerService#testMaxMatThrottleNotPicked |  Major | . | Satish Subhashrao Saley | Peter Cseh |
+| [OOZIE-2742](https://issues.apache.org/jira/browse/OOZIE-2742) | Unable to kill applications based on tag |  Major | . | Satish Subhashrao Saley | Satish Subhashrao Saley |
+| [OOZIE-2723](https://issues.apache.org/jira/browse/OOZIE-2723) | JSON.org license is now CatX |  Blocker | . | Sean Busbey | Robert Kanter |
 
 
 ### TESTS:
@@ -266,6 +302,8 @@
 | [OOZIE-2283](https://issues.apache.org/jira/browse/OOZIE-2283) | Documentation should not say that System.exit is not allowed in Java Action |  Major | docs | Robert Kanter | Eva Andreasson |
 | [OOZIE-2342](https://issues.apache.org/jira/browse/OOZIE-2342) | Coordinator docs still mention old SLA system |  Major | docs | Robert Kanter | Satish Subhashrao Saley |
 | [OOZIE-2552](https://issues.apache.org/jira/browse/OOZIE-2552) | Update ActiveMQ version for security and other fixes |  Major | . | Robert Kanter | Attila Sasvari |
+| [OOZIE-2037](https://issues.apache.org/jira/browse/OOZIE-2037) | Add TLSv1.1,TLSv1.2 |  Blocker | security | Robert Kanter | Robert Kanter |
+| [OOZIE-1793](https://issues.apache.org/jira/browse/OOZIE-1793) | Improve find bugs reporting for Oozie |  Blocker | build | Robert Kanter | Robert Kanter |
 
 
 ### OTHER:

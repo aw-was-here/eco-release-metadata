@@ -27,7 +27,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-1009](https://issues.apache.org/jira/browse/HADOOP-1009) | Infinite loop in chooseTarget |  Major | . | dhruba borthakur | dhruba borthakur |
-| [HADOOP-1014](https://issues.apache.org/jira/browse/HADOOP-1014) | map/reduce is corrupting data between map and reduce |  Blocker | . | Owen O\'Malley | Devaraj Das |
+| [HADOOP-1014](https://issues.apache.org/jira/browse/HADOOP-1014) | map/reduce is corrupting data between map and reduce |  Blocker | . | Owen O'Malley | Devaraj Das |
 | [HADOOP-1013](https://issues.apache.org/jira/browse/HADOOP-1013) | ArithmeticException when number of racks is zero |  Major | . | James P. White | Hairong Kuang |
 
 

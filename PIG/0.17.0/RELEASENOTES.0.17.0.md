@@ -36,4 +36,39 @@ GENERATE FLATTEN(MYSTITCH(ini, MYOVER(test.impt\_prima, 'sum(bigdecimal)'), MYOV
 with the normal OVER function the foreach fails because all MYOVERS return the same alias.
 
 
+---
+
+* [PIG-5067](https://issues.apache.org/jira/browse/PIG-5067) | *Major* | **Revisit union on numeric type and chararray to bytearray**
+
+This change now disallows union-onschema of incompatible types,  (for example, numeric types and chararray). It makes it consistent with plain union.
+
+
+---
+
+* [PIG-4923](https://issues.apache.org/jira/browse/PIG-4923) | *Major* | **Drop Hadoop 1.x support in Pig 0.17**
+
+**WARNING: No release note provided for this change.**
+
+
+---
+
+* [PIG-4897](https://issues.apache.org/jira/browse/PIG-4897) | *Major* | **Scope of param substitution for run/exec commands**
+
+With run/exec command, parameters are now scoped and caller would not see the parameters declared within the callee's scripts.
+
+
+---
+
+* [PIG-4728](https://issues.apache.org/jira/browse/PIG-4728) | *Major* | **Compilation against hbase 1.x fails with hbase-hadoop1-compat not found**
+
+HBase 1.x and above will be supported with Pig 0.17. Compiling with 0.98 or below versions will require reversing this patch.
+
+
+---
+
+* [PIG-3938](https://issues.apache.org/jira/browse/PIG-3938) | *Major* | **Add LoadCaster to EvalFunc(UDF)**
+
+UDF now supports LoadCaster.  Default behavior is to check if all parameters belong to same loadcaster and use it when true.
+
+
 

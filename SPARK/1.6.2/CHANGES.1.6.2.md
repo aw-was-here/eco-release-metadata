@@ -63,7 +63,7 @@
 | [SPARK-13711](https://issues.apache.org/jira/browse/SPARK-13711) | Apache Spark driver stopping JVM when master not available |  Major | Spark Core | Era | Shixiong Zhu |
 | [SPARK-13755](https://issues.apache.org/jira/browse/SPARK-13755) | Escape quotes in SQL plan visualization node labels |  Major | SQL | Josh Rosen | Josh Rosen |
 | [SPARK-13631](https://issues.apache.org/jira/browse/SPARK-13631) | getPreferredLocations race condition in spark 1.6.0? |  Major | Scheduler | Andy Sloane | Andy Sloane |
-| [SPARK-13242](https://issues.apache.org/jira/browse/SPARK-13242) | Moderately complex `when` expression causes code generation failure |  Major | SQL | Joe Halliwell | Davies Liu |
+| [SPARK-13242](https://issues.apache.org/jira/browse/SPARK-13242) | Moderately complex \`when\` expression causes code generation failure |  Major | SQL | Joe Halliwell | Davies Liu |
 | [SPARK-13327](https://issues.apache.org/jira/browse/SPARK-13327) | colnames()\<- allows invalid column names |  Major | SparkR | Oscar D. Lara Yejas | Oscar D. Lara Yejas |
 | [SPARK-13207](https://issues.apache.org/jira/browse/SPARK-13207) | \_SUCCESS should not break partition discovery |  Major | SQL | Yin Huai | Yin Huai |
 | [SPARK-13803](https://issues.apache.org/jira/browse/SPARK-13803) | Standalone master does not balance cluster-mode drivers across workers |  Major | Deploy, Spark Core | Brian Wongchaowart | Nan Zhu |
@@ -76,7 +76,7 @@
 | [SPARK-14074](https://issues.apache.org/jira/browse/SPARK-14074) | Use fixed version of install\_github in SparkR build |  Minor | Build, SparkR | Xiangrui Meng | Sun Rui |
 | [SPARK-14187](https://issues.apache.org/jira/browse/SPARK-14187) | Incorrect use of binarysearch in SparseMatrix |  Minor | MLlib | Chenliang Xu | Chenliang Xu |
 | [SPARK-13622](https://issues.apache.org/jira/browse/SPARK-13622) | Issue creating level db file for YARN shuffle service if URI is used in yarn.nodemanager.local-dirs |  Minor | YARN | Nicolas Fraison | Nicolas Fraison |
-| [SPARK-14219](https://issues.apache.org/jira/browse/SPARK-14219) | Fix `pickRandomVertex` not to fall into infinite loops for graphs with one vertex |  Major | GraphX | Dongjoon Hyun | Dongjoon Hyun |
+| [SPARK-14219](https://issues.apache.org/jira/browse/SPARK-14219) | Fix \`pickRandomVertex\` not to fall into infinite loops for graphs with one vertex |  Major | GraphX | Dongjoon Hyun | Dongjoon Hyun |
 | [SPARK-14232](https://issues.apache.org/jira/browse/SPARK-14232) | Event timeline on job page doesn't show if an executor is removed with multiple line reason |  Minor | Web UI | Carson Wang | Carson Wang |
 | [SPARK-11507](https://issues.apache.org/jira/browse/SPARK-11507) | Error thrown when using BlockMatrix.add |  Minor | MLlib | Kareem Alhazred | yuhao yang |
 | [SPARK-11327](https://issues.apache.org/jira/browse/SPARK-11327) | spark-dispatcher doesn't pass along some spark properties |  Major | Mesos | Alan Braithwaite | Jo Voordeckers |
@@ -122,7 +122,6 @@
 | [SPARK-15892](https://issues.apache.org/jira/browse/SPARK-15892) | Incorrectly merged AFTAggregator with zero total count |  Major | Examples, ML, PySpark | Joseph K. Bradley | Hyukjin Kwon |
 | [SPARK-16035](https://issues.apache.org/jira/browse/SPARK-16035) | The SparseVector parser fails checking for valid end parenthesis |  Minor | MLlib, PySpark | Andrea Pasqua | Andrea Pasqua |
 | [SPARK-16086](https://issues.apache.org/jira/browse/SPARK-16086) | Python UDF failed when there is no arguments |  Major | PySpark, SQL | Davies Liu | Davies Liu |
-| [SPARK-11301](https://issues.apache.org/jira/browse/SPARK-11301) | filter on partitioned column is case sensitive even the context is case insensitive |  Major | SQL | Wenchen Fan | Wenchen Fan |
 
 
 ### SUB-TASKS:

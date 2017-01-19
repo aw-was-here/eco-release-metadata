@@ -18,7 +18,7 @@
 -->
 # Apache Flink Changelog
 
-## Release 1.0.4 - Unreleased (as of 2016-09-16)
+## Release 1.0.4 - Unreleased (as of 2017-01-19)
 
 
 
@@ -43,5 +43,6 @@
 | [FLINK-4038](https://issues.apache.org/jira/browse/FLINK-4038) | Impossible to set more than 1 JVM argument in env.java.opts |  Critical | Startup Shell Scripts | Gyula Fora | Ufuk Celebi |
 | [FLINK-3838](https://issues.apache.org/jira/browse/FLINK-3838) | CLI parameter parser is munging application params |  Minor | Client | Ken Krugler | Maximilian Michels |
 | [FLINK-4113](https://issues.apache.org/jira/browse/FLINK-4113) | Always copy first value in ChainedAllReduceDriver |  Critical | Local Runtime | Greg Hogan | Greg Hogan |
+| [FLINK-4589](https://issues.apache.org/jira/browse/FLINK-4589) | Fix Merging of Covering Window in MergingWindowSet |  Blocker | Windowing Operators | Aljoscha Krettek | Aljoscha Krettek |
 
 

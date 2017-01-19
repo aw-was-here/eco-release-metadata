@@ -40,7 +40,7 @@ Add below property in hbase-site.xml file:
   \<value\>org.apache.hadoop.hbase.JMXListener\</value\>
 \</property\>
 
-NOTE: DO NOT set `com.sun.management.jmxremote.port` for Java VM at the same time.
+NOTE: DO NOT set \`com.sun.management.jmxremote.port\` for Java VM at the same time.
 
 By default, the JMX listens on TCP port 10101 for Master, we can further configure the port using below properties:
 
@@ -737,7 +737,7 @@ See: https://github.com/facebook/rocksdb/wiki/FIFO-compaction-style
 
 * [HBASE-15111](https://issues.apache.org/jira/browse/HBASE-15111) | *Trivial* | **"hbase version" should write to stdout**
 
-The `hbase version` command now outputs directly to stdout rather than to a logger. This change allows the version information to be output consistently regardless of logger configuration. Naturally, this also means the command output ignores all logger configuration. Furthermore, the move from loggers to direct output changes the output of the command to omit metadata commonly included in logger ouput such as a timestamp, log level, and logger name.
+The \`hbase version\` command now outputs directly to stdout rather than to a logger. This change allows the version information to be output consistently regardless of logger configuration. Naturally, this also means the command output ignores all logger configuration. Furthermore, the move from loggers to direct output changes the output of the command to omit metadata commonly included in logger ouput such as a timestamp, log level, and logger name.
 
 
 ---

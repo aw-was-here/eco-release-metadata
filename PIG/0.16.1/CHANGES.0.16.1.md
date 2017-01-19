@@ -18,8 +18,16 @@
 -->
 # Apache Pig Changelog
 
-## Release 0.16.1 - Unreleased (as of 2016-09-16)
+## Release 0.16.1 - Unreleased (as of 2017-01-19)
 
+
+
+### IMPROVEMENTS:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [PIG-4951](https://issues.apache.org/jira/browse/PIG-4951) | Rename PIG\_ATS\_ENABLED constant |  Major | . | Daniel Dai | Adam Szita |
+| [PIG-5037](https://issues.apache.org/jira/browse/PIG-5037) | Add api getDisplayString to PigStats |  Major | . | Jeff Zhang | Jeff Zhang |
 
 
 ### BUG FIXES:
@@ -39,5 +47,22 @@
 | [PIG-4974](https://issues.apache.org/jira/browse/PIG-4974) | A simple map reference fail to cast |  Major | . | Koji Noguchi | Koji Noguchi |
 | [PIG-5019](https://issues.apache.org/jira/browse/PIG-5019) | Pig generates tons of warnings for udf with enabled warnings aggregation |  Major | internal-udfs | Murshid Chalaev | Murshid Chalaev |
 | [PIG-5032](https://issues.apache.org/jira/browse/PIG-5032) | Output record stats in Tez is wrong when there is split followed by union |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
+| [PIG-5035](https://issues.apache.org/jira/browse/PIG-5035) | killJob API does not work in Tez |  Major | . | Jeff Zhang | Jeff Zhang |
+| [PIG-5040](https://issues.apache.org/jira/browse/PIG-5040) | Order by and CROSS partitioning is not deterministic due to usage of Random |  Critical | . | Rohini Palaniswamy | Rohini Palaniswamy |
+| [PIG-5041](https://issues.apache.org/jira/browse/PIG-5041) | RoundRobinPartitioner is not deterministic when order of input records change |  Critical | . | Rohini Palaniswamy | Rohini Palaniswamy |
+| [PIG-5033](https://issues.apache.org/jira/browse/PIG-5033) | MultiQueryOptimizerTez creates bad plan with union, split and FRJoin |  Major | tez | Travis Woodruff | Rohini Palaniswamy |
+| [PIG-5048](https://issues.apache.org/jira/browse/PIG-5048) | HiveUDTF fail if it is the first expression in projection |  Major | impl | Daniel Dai | Nandor Kollar |
+| [PIG-5064](https://issues.apache.org/jira/browse/PIG-5064) | NPE in TestScriptUDF#testPythonBuiltinModuleImport1 when JAVA\_HOME is not set |  Minor | . | Xiang Li | Xiang Li |
+| [PIG-5074](https://issues.apache.org/jira/browse/PIG-5074) | Build broken when hadoopversion=20 in branch 0.16 |  Major | build | Adam Szita | Adam Szita |
+| [PIG-3417](https://issues.apache.org/jira/browse/PIG-3417) | Job fails when skewed join is done on tuple key |  Critical | impl | Nick White | Nandor Kollar |
+| [PIG-4930](https://issues.apache.org/jira/browse/PIG-4930) | Skewed Join Breaks On Empty Sampled Input When Key is From Map |  Major | . | William Butler | Nandor Kollar |
+| [PIG-5043](https://issues.apache.org/jira/browse/PIG-5043) | Slowstart not applied in Tez with PARALLEL clause |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
+| [PIG-5088](https://issues.apache.org/jira/browse/PIG-5088) | HashValuePartitioner has skew when there is only map fields |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
+| [PIG-5082](https://issues.apache.org/jira/browse/PIG-5082) | Tez UnionOptimizer creates vertex group with one member |  Minor | tez | Travis Woodruff | Rohini Palaniswamy |
+| [PIG-5078](https://issues.apache.org/jira/browse/PIG-5078) | Script fails with error - POStoreTez only accepts MROutput |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
+| [PIG-4918](https://issues.apache.org/jira/browse/PIG-4918) | Pig on Tez cannot switch pig.temp.dir to another fs |  Major | . | Daniel Dai | Daniel Dai |
+| [PIG-4260](https://issues.apache.org/jira/browse/PIG-4260) | SpillableMemoryManager.spill should revert spill on all exception |  Major | impl | Daniel Dai | Rohini Palaniswamy |
+| [PIG-5108](https://issues.apache.org/jira/browse/PIG-5108) | AvroStorage on Tez with exception on nested records |  Major | tez | Sebastian Geller | Daniel Dai |
+| [PIG-5046](https://issues.apache.org/jira/browse/PIG-5046) | Skewed join with auto parallelism hangs when right input also has autoparallelism |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 
 

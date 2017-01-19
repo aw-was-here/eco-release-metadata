@@ -31,7 +31,7 @@
 | [HADOOP-4567](https://issues.apache.org/jira/browse/HADOOP-4567) | GetFileBlockLocations should return the NetworkTopology information of the machines that hosts those blocks |  Major | . | dhruba borthakur | dhruba borthakur |
 | [HADOOP-4435](https://issues.apache.org/jira/browse/HADOOP-4435) | The JobTracker should display the amount of heap memory used |  Minor | . | dhruba borthakur | dhruba borthakur |
 | [HADOOP-3923](https://issues.apache.org/jira/browse/HADOOP-3923) | Deprecate org.apache.hadoop.mapred.StatusHttpServer |  Minor | . | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
-| [HADOOP-4188](https://issues.apache.org/jira/browse/HADOOP-4188) | Remove Task\'s dependency on concrete file systems |  Major | . | Tom White | Sharad Agarwal |
+| [HADOOP-4188](https://issues.apache.org/jira/browse/HADOOP-4188) | Remove Task's dependency on concrete file systems |  Major | . | Tom White | Sharad Agarwal |
 | [HADOOP-1650](https://issues.apache.org/jira/browse/HADOOP-1650) | Upgrade Jetty to 6.x |  Major | . | Devaraj Das | Chris Douglas |
 | [HADOOP-3986](https://issues.apache.org/jira/browse/HADOOP-3986) | JobClient should not have a static configuration |  Major | . | Amareshwari Sriramadasu | Amareshwari Sriramadasu |
 | [HADOOP-4422](https://issues.apache.org/jira/browse/HADOOP-4422) | S3 file systems should not create bucket |  Major | fs/s3 | David Phillips | David Phillips |
@@ -43,7 +43,7 @@
 | [HADOOP-4445](https://issues.apache.org/jira/browse/HADOOP-4445) | Wrong number of running map/reduce tasks are displayed in queue information. |  Major | . | Karam Singh | Sreekanth Ramakrishnan |
 | [HADOOP-4029](https://issues.apache.org/jira/browse/HADOOP-4029) | NameNode should report status and performance for each replica of image and log |  Major | . | Robert Chansler | Boris Shkolnik |
 | [HADOOP-4826](https://issues.apache.org/jira/browse/HADOOP-4826) | Admin command saveNamespace. |  Major | . | Konstantin Shvachko | Konstantin Shvachko |
-| [HADOOP-4631](https://issues.apache.org/jira/browse/HADOOP-4631) | Split the default configurations into 3 parts |  Major | conf | Owen O\'Malley | Sharad Agarwal |
+| [HADOOP-4631](https://issues.apache.org/jira/browse/HADOOP-4631) | Split the default configurations into 3 parts |  Major | conf | Owen O'Malley | Sharad Agarwal |
 | [HADOOP-3344](https://issues.apache.org/jira/browse/HADOOP-3344) | libhdfs: always builds 32bit, even when x86\_64 Java used |  Major | build | Craig Macdonald | Giridharan Kesavan |
 | [HADOOP-4789](https://issues.apache.org/jira/browse/HADOOP-4789) | Change fair scheduler to share between pools by default, not between invidual jobs |  Minor | . | Matei Zaharia | Matei Zaharia |
 | [HADOOP-4970](https://issues.apache.org/jira/browse/HADOOP-4970) | Use the full path when move files to .Trash/Current |  Major | . | Prasad Chakka | Prasad Chakka |
@@ -73,23 +73,23 @@
 | [HADOOP-4234](https://issues.apache.org/jira/browse/HADOOP-4234) | KFS: Allow KFS layer to interface with multiple KFS namenodes |  Minor | fs | Sriram Rao | Sriram Rao |
 | [HADOOP-4244](https://issues.apache.org/jira/browse/HADOOP-4244) | In "ant test-patch", runContribTestOnEclipseFiles should not be run on Hudson only |  Major | build, test | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HADOOP-3180](https://issues.apache.org/jira/browse/HADOOP-3180) | add name of faulty class to WritableName.getClass IOException upon ClassNotFoundException |  Trivial | io | Pete Wyckoff | Pete Wyckoff |
-| [HADOOP-4178](https://issues.apache.org/jira/browse/HADOOP-4178) | The capacity scheduler\'s defaults for queues should be configurable. |  Blocker | . | Owen O\'Malley | Sreekanth Ramakrishnan |
+| [HADOOP-4178](https://issues.apache.org/jira/browse/HADOOP-4178) | The capacity scheduler's defaults for queues should be configurable. |  Blocker | . | Owen O'Malley | Sreekanth Ramakrishnan |
 | [HADOOP-4226](https://issues.apache.org/jira/browse/HADOOP-4226) | LineReader::readLine cleanup |  Minor | . | Yuri Pradkin | Yuri Pradkin |
 | [HADOOP-4440](https://issues.apache.org/jira/browse/HADOOP-4440) | TestJobInProgressListener should also test for jobs killed in queued state |  Minor | test | Amar Kamat | Amar Kamat |
-| [HADOOP-4276](https://issues.apache.org/jira/browse/HADOOP-4276) | The mapred.\*ID classes are inefficient for hashCode and serialization |  Major | . | Owen O\'Malley | Owen O\'Malley |
+| [HADOOP-4276](https://issues.apache.org/jira/browse/HADOOP-4276) | The mapred.\*ID classes are inefficient for hashCode and serialization |  Major | . | Owen O'Malley | Owen O'Malley |
 | [HADOOP-4485](https://issues.apache.org/jira/browse/HADOOP-4485) | ant compile-native shorthand |  Trivial | build | Enis Soztutar | Enis Soztutar |
-| [HADOOP-4454](https://issues.apache.org/jira/browse/HADOOP-4454) | Support comments in \'slaves\'  file |  Minor | conf, scripts | Rama, Ramasamy | Rama, Ramasamy |
+| [HADOOP-4454](https://issues.apache.org/jira/browse/HADOOP-4454) | Support comments in 'slaves'  file |  Minor | conf, scripts | Rama, Ramasamy | Rama, Ramasamy |
 | [HADOOP-3461](https://issues.apache.org/jira/browse/HADOOP-3461) | Remove dfs.StringBytesWritbale |  Major | . | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HADOOP-4437](https://issues.apache.org/jira/browse/HADOOP-4437) | Use qMC sequence to improve the accuracy of PiEstimator |  Minor | . | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HADOOP-4599](https://issues.apache.org/jira/browse/HADOOP-4599) | BlocksMap and BlockInfo should be package private. |  Major | . | Konstantin Shvachko | Konstantin Shvachko |
 | [HADOOP-4453](https://issues.apache.org/jira/browse/HADOOP-4453) | Improve ssl handling for distcp |  Major | . | Chris Douglas | Kan Zhang |
 | [HADOOP-4126](https://issues.apache.org/jira/browse/HADOOP-4126) | Allow access to HDFS web UI on EC2 |  Major | contrib/cloud | Tom White | Tom White |
 | [HADOOP-4523](https://issues.apache.org/jira/browse/HADOOP-4523) | Enhance how memory-intensive user tasks are handled |  Major | . | Vivek Ratan | Vinod Kumar Vavilapalli |
-| [HADOOP-4668](https://issues.apache.org/jira/browse/HADOOP-4668) | Improve JavaDoc on JobConf.setCombinerClass to better document restrictions on combiners |  Major | documentation | Owen O\'Malley | Owen O\'Malley |
+| [HADOOP-4668](https://issues.apache.org/jira/browse/HADOOP-4668) | Improve JavaDoc on JobConf.setCombinerClass to better document restrictions on combiners |  Major | documentation | Owen O'Malley | Owen O'Malley |
 | [HADOOP-4640](https://issues.apache.org/jira/browse/HADOOP-4640) | Add ability to split text files compressed with lzo |  Trivial | io | Johan Oskarsson | Johan Oskarsson |
 | [HADOOP-4666](https://issues.apache.org/jira/browse/HADOOP-4666) | Launch reduces only after a few maps have run in the Fair Scheduler |  Major | . | Matei Zaharia | Matei Zaharia |
 | [HADOOP-4339](https://issues.apache.org/jira/browse/HADOOP-4339) | Improve FsShell -du/-dus and FileSystem.getContentSummary efficiency |  Major | fs | David Phillips | David Phillips |
-| [HADOOP-2774](https://issues.apache.org/jira/browse/HADOOP-2774) | Add counters to show number of key/values that have been sorted and merged in the maps and reduces |  Major | . | Owen O\'Malley | Ravi Gummadi |
+| [HADOOP-2774](https://issues.apache.org/jira/browse/HADOOP-2774) | Add counters to show number of key/values that have been sorted and merged in the maps and reduces |  Major | . | Owen O'Malley | Ravi Gummadi |
 | [HADOOP-4705](https://issues.apache.org/jira/browse/HADOOP-4705) | [HOD] Grant read permissions for files/directories created by hod as part of provisioning hadoop clusters |  Major | contrib/hod | Hemanth Yamijala | Peeyush Bishnoi |
 | [HADOOP-4649](https://issues.apache.org/jira/browse/HADOOP-4649) | Improve abstraction for spill indices |  Minor | . | Chris Douglas | Chris Douglas |
 | [HADOOP-3770](https://issues.apache.org/jira/browse/HADOOP-3770) | improve composition, submission and result collection of gridmix |  Major | benchmarks | Lingyun Yang | Runping Qi |
@@ -98,23 +98,23 @@
 | [HADOOP-4690](https://issues.apache.org/jira/browse/HADOOP-4690) | fuse-dfs - create source file/function + utils + config + main source files |  Minor | . | Pete Wyckoff | Pete Wyckoff |
 | [HADOOP-4747](https://issues.apache.org/jira/browse/HADOOP-4747) | Reuse FileStatus in FsShell where possible |  Minor | fs | David Phillips | David Phillips |
 | [HADOOP-4305](https://issues.apache.org/jira/browse/HADOOP-4305) | repeatedly blacklisted tasktrackers should get declared dead |  Major | . | Christian Kunz | Amareshwari Sriramadasu |
-| [HADOOP-4628](https://issues.apache.org/jira/browse/HADOOP-4628) | Move Hive out of Core |  Major | . | Owen O\'Malley |  |
+| [HADOOP-4628](https://issues.apache.org/jira/browse/HADOOP-4628) | Move Hive out of Core |  Major | . | Owen O'Malley |  |
 | [HADOOP-4749](https://issues.apache.org/jira/browse/HADOOP-4749) | reducer should output input data size when shuffling is done |  Major | . | Zheng Shao | He Yongqiang |
 | [HADOOP-4837](https://issues.apache.org/jira/browse/HADOOP-4837) | Move HADOOP\_CONF\_DIR to chukwa-env.sh |  Major | . | Jerome Boulon | Jerome Boulon |
 | [HADOOP-4699](https://issues.apache.org/jira/browse/HADOOP-4699) | Change TaskTracker.MapOutputServlet to send only the IFile segment, validate checksum in Reduce |  Major | . | Chris Douglas | Chris Douglas |
 | [HADOOP-3063](https://issues.apache.org/jira/browse/HADOOP-3063) | BloomMapFile - fail-fast version of MapFile for sparsely populated key space |  Major | io | Andrzej Bialecki | Andrzej Bialecki |
-| [HADOOP-1230](https://issues.apache.org/jira/browse/HADOOP-1230) | Replace parameters with context objects in Mapper, Reducer, Partitioner, InputFormat, and OutputFormat classes |  Major | . | Owen O\'Malley | Owen O\'Malley |
+| [HADOOP-1230](https://issues.apache.org/jira/browse/HADOOP-1230) | Replace parameters with context objects in Mapper, Reducer, Partitioner, InputFormat, and OutputFormat classes |  Major | . | Owen O'Malley | Owen O'Malley |
 | [HADOOP-4838](https://issues.apache.org/jira/browse/HADOOP-4838) | Cleanup Metrics and the MBeans |  Major | . | Sanjay Radia | Sanjay Radia |
 | [HADOOP-3136](https://issues.apache.org/jira/browse/HADOOP-3136) | Assign multiple tasks per TaskTracker heartbeat |  Major | . | Devaraj Das | Arun C Murthy |
-| [HADOOP-4545](https://issues.apache.org/jira/browse/HADOOP-4545) | Add an example of a secondary sort |  Major | . | Owen O\'Malley | Owen O\'Malley |
+| [HADOOP-4545](https://issues.apache.org/jira/browse/HADOOP-4545) | Add an example of a secondary sort |  Major | . | Owen O'Malley | Owen O'Malley |
 | [HADOOP-4753](https://issues.apache.org/jira/browse/HADOOP-4753) | gridmix2 code can be condensed |  Minor | benchmarks | Chris Douglas | Chris Douglas |
 | [HADOOP-4827](https://issues.apache.org/jira/browse/HADOOP-4827) | Improve data aggregation in database |  Major | . | Eric Yang | Eric Yang |
 | [HADOOP-4880](https://issues.apache.org/jira/browse/HADOOP-4880) | Improvements to TestJobTrackerRestart |  Major | test | Arun C Murthy | Amar Kamat |
-| [HADOOP-4909](https://issues.apache.org/jira/browse/HADOOP-4909) | Clean up map/reduce api to take JobContext in the static methods |  Major | . | Owen O\'Malley | Owen O\'Malley |
+| [HADOOP-4909](https://issues.apache.org/jira/browse/HADOOP-4909) | Clean up map/reduce api to take JobContext in the static methods |  Major | . | Owen O'Malley | Owen O'Malley |
 | [HADOOP-4920](https://issues.apache.org/jira/browse/HADOOP-4920) | do not keep forrest output in subversion |  Major | documentation | Doug Cutting | Doug Cutting |
 | [HADOOP-4980](https://issues.apache.org/jira/browse/HADOOP-4980) | Cleanup the Capacity Scheduler code |  Major | . | Vivek Ratan | Vivek Ratan |
 | [HADOOP-4916](https://issues.apache.org/jira/browse/HADOOP-4916) | adjust build.xml to reference external properties when building the "init.d" for the rpm |  Major | . | Eric Yang | Eric Yang |
-| [HADOOP-4950](https://issues.apache.org/jira/browse/HADOOP-4950) | CompressorStream and BlockCompressorStream should be public |  Major | io | Owen O\'Malley | Owen O\'Malley |
+| [HADOOP-4950](https://issues.apache.org/jira/browse/HADOOP-4950) | CompressorStream and BlockCompressorStream should be public |  Major | io | Owen O'Malley | Owen O'Malley |
 | [HADOOP-4843](https://issues.apache.org/jira/browse/HADOOP-4843) | Collect Job History log file and Job Conf file into Chukwa |  Major | . | Eric Yang | Eric Yang |
 | [HADOOP-5030](https://issues.apache.org/jira/browse/HADOOP-5030) | Chukwa RPM build improvements |  Major | . | Eric Yang | Eric Yang |
 | [HADOOP-4828](https://issues.apache.org/jira/browse/HADOOP-4828) | Update documentation for default configuration |  Major | documentation | Sharad Agarwal | Sharad Agarwal |
@@ -129,7 +129,7 @@
 | [HADOOP-5521](https://issues.apache.org/jira/browse/HADOOP-5521) | Remove dependency of testcases on RESTART\_COUNT |  Major | test | Amar Kamat | Ravi Gummadi |
 | [HADOOP-5468](https://issues.apache.org/jira/browse/HADOOP-5468) | Change Hadoop doc menu to sub-menus |  Major | documentation | Corinne Chandel | Corinne Chandel |
 | [HADOOP-5520](https://issues.apache.org/jira/browse/HADOOP-5520) | Typo in diskQuota help  documentation |  Trivial | documentation | Ravi Phulari | Ravi Phulari |
-| [HADOOP-5519](https://issues.apache.org/jira/browse/HADOOP-5519) | Remove claims from mapred-default.xml that prime numbers of tasks are helpful. |  Major | . | Owen O\'Malley | Owen O\'Malley |
+| [HADOOP-5519](https://issues.apache.org/jira/browse/HADOOP-5519) | Remove claims from mapred-default.xml that prime numbers of tasks are helpful. |  Major | . | Owen O'Malley | Owen O'Malley |
 | [HADOOP-4944](https://issues.apache.org/jira/browse/HADOOP-4944) | Allow Xinclude in hadoop config file |  Minor | conf | Rama, Ramasamy | Rama, Ramasamy |
 | [HADOOP-6150](https://issues.apache.org/jira/browse/HADOOP-6150) | Need to be able to instantiate a comparator instance from a comparator string without creating a TFile.Reader object |  Minor | io | Hong Tang | Hong Tang |
 | [HADOOP-466](https://issues.apache.org/jira/browse/HADOOP-466) | Startup scripts will not start instances of Hadoop daemons w/different configs w/o setting separate PID directories |  Major | conf | Vetle Roeim |  |
@@ -144,7 +144,7 @@
 | [HADOOP-4204](https://issues.apache.org/jira/browse/HADOOP-4204) | Fix warnings generated by FindBugs |  Blocker | . | Suresh Srinivas | Suresh Srinivas |
 | [HADOOP-4207](https://issues.apache.org/jira/browse/HADOOP-4207) | update derby.jar to eliminate the one time wait of 2-3 minutes while running junit tests |  Minor | . | Prasad Chakka | Prasad Chakka |
 | [HADOOP-4325](https://issues.apache.org/jira/browse/HADOOP-4325) | Hadoop SocketInputStream.read() should return -1 in case of EOF. |  Minor | io | Raghu Angadi | Raghu Angadi |
-| [HADOOP-4408](https://issues.apache.org/jira/browse/HADOOP-4408) | FsAction operations shouldn\'t create new Objects |  Minor | fs | Chris Douglas | Chris Douglas |
+| [HADOOP-4408](https://issues.apache.org/jira/browse/HADOOP-4408) | FsAction operations shouldn't create new Objects |  Minor | fs | Chris Douglas | Chris Douglas |
 | [HADOOP-4238](https://issues.apache.org/jira/browse/HADOOP-4238) | [mapred] Unavailable schedulingInfo in "hadoop list [all]" output should be marked "N/A" |  Major | . | Vinod Kumar Vavilapalli | Sreekanth Ramakrishnan |
 | [HADOOP-3842](https://issues.apache.org/jira/browse/HADOOP-3842) | There is a window where the JobTracker is in the RUNNING state (i.e ready to accept jobs) and never executes them. |  Major | . | Amar Kamat | Hemanth Yamijala |
 | [HADOOP-4346](https://issues.apache.org/jira/browse/HADOOP-4346) | Hadoop triggers a "soft" fd leak. |  Major | io | Raghu Angadi | Raghu Angadi |
@@ -158,12 +158,12 @@
 | [HADOOP-4589](https://issues.apache.org/jira/browse/HADOOP-4589) | Fix the PiEstimator output messages and code comments |  Minor | documentation | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HADOOP-4650](https://issues.apache.org/jira/browse/HADOOP-4650) | local.cache.size is set to 10 GB, while DEFAULT\_CACHE\_SIZE is set to 1 MB |  Trivial | filecache | Jeff Hammerbacher | Jeff Hammerbacher |
 | [HADOOP-4608](https://issues.apache.org/jira/browse/HADOOP-4608) | Examples -Driver does not check first argument. |  Major | . | Edward J. Yoon | Edward J. Yoon |
-| [HADOOP-4645](https://issues.apache.org/jira/browse/HADOOP-4645) | hdfs proxy doesn\'t package itself right. |  Major | . | Owen O\'Malley | Kan Zhang |
+| [HADOOP-4645](https://issues.apache.org/jira/browse/HADOOP-4645) | hdfs proxy doesn't package itself right. |  Major | . | Owen O'Malley | Kan Zhang |
 | [HADOOP-4606](https://issues.apache.org/jira/browse/HADOOP-4606) | There is a cygpath error if log directory does not exist |  Minor | scripts | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HADOOP-4141](https://issues.apache.org/jira/browse/HADOOP-4141) | ScriptBasedMapping has infinite loop with invalid jobconf parameter |  Minor | . | Aaron Kimball | Aaron Kimball |
 | [HADOOP-3293](https://issues.apache.org/jira/browse/HADOOP-3293) | When an input split spans cross block boundary, the split location should be the host having most of bytes on it. |  Major | . | Runping Qi | Jothi Padmanabhan |
 | [HADOOP-4691](https://issues.apache.org/jira/browse/HADOOP-4691) | In the javadoc of IndexedSortable.compare(...), the link is wrong. |  Minor | documentation, util | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
-| [HADOOP-4598](https://issues.apache.org/jira/browse/HADOOP-4598) | \'-setrep\' command skips under-replicated blocks |  Minor | . | Koji Noguchi | Hairong Kuang |
+| [HADOOP-4598](https://issues.apache.org/jira/browse/HADOOP-4598) | '-setrep' command skips under-replicated blocks |  Minor | . | Koji Noguchi | Hairong Kuang |
 | [HADOOP-4429](https://issues.apache.org/jira/browse/HADOOP-4429) | Misconfigured UNIX Groups Break Hadoop |  Minor | . | Alex Loddengaard | Alex Loddengaard |
 | [HADOOP-4676](https://issues.apache.org/jira/browse/HADOOP-4676) | Go back to Job has a wrong URL on blacklisted trackers page |  Minor | . | Amareshwari Sriramadasu | Amareshwari Sriramadasu |
 | [HADOOP-4704](https://issues.apache.org/jira/browse/HADOOP-4704) | javadoc: "the the" =\> "the" |  Trivial | documentation | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
@@ -171,9 +171,9 @@
 | [HADOOP-4677](https://issues.apache.org/jira/browse/HADOOP-4677) | FileSystem.getFileBlockLocations() (aka default implementation for Local FileSystem) incorrect. |  Major | fs | Hong Tang | Hong Tang |
 | [HADOOP-4669](https://issues.apache.org/jira/browse/HADOOP-4669) | A file-open sometimes may not set the access time of a file |  Major | . | dhruba borthakur | dhruba borthakur |
 | [HADOOP-4732](https://issues.apache.org/jira/browse/HADOOP-4732) |  connectionTimeout and readTimeout are passed in wrong order in ReduceTask.java |  Minor | . | Amareshwari Sriramadasu | Amareshwari Sriramadasu |
-| [HADOOP-2771](https://issues.apache.org/jira/browse/HADOOP-2771) | changing the number of reduces dramatically changes the time of the map time |  Major | . | Owen O\'Malley |  |
+| [HADOOP-2771](https://issues.apache.org/jira/browse/HADOOP-2771) | changing the number of reduces dramatically changes the time of the map time |  Major | . | Owen O'Malley |  |
 | [HADOOP-4558](https://issues.apache.org/jira/browse/HADOOP-4558) | Scheduler fails to reclaim capacity if Jobs are submitted to queue one after the other |  Major | . | Karam Singh | Amar Kamat |
-| [HADOOP-4770](https://issues.apache.org/jira/browse/HADOOP-4770) | gridmix2 run script doesn\'t work on trunk |  Trivial | benchmarks | Chris Douglas | Chris Douglas |
+| [HADOOP-4770](https://issues.apache.org/jira/browse/HADOOP-4770) | gridmix2 run script doesn't work on trunk |  Trivial | benchmarks | Chris Douglas | Chris Douglas |
 | [HADOOP-4738](https://issues.apache.org/jira/browse/HADOOP-4738) | saveVersion.sh could write a package-info.java that cannot be compiled when used with git |  Trivial | build | Hemanth Yamijala | Chris Douglas |
 | [HADOOP-4623](https://issues.apache.org/jira/browse/HADOOP-4623) | Running tasks are not maintained by JobInProgress if speculation is off |  Major | . | Amar Kamat | Amar Kamat |
 | [HADOOP-4786](https://issues.apache.org/jira/browse/HADOOP-4786) | TestTrackerBlacklistAcrossJobs compilation is broken |  Blocker | . | Hemanth Yamijala | Hemanth Yamijala |
@@ -194,24 +194,24 @@
 | [HADOOP-4860](https://issues.apache.org/jira/browse/HADOOP-4860) | File Tailing Adaptor test cases causes random failure |  Major | . | Eric Yang | Eric Yang |
 | [HADOOP-3921](https://issues.apache.org/jira/browse/HADOOP-3921) | Clover breaks nightly builds |  Major | build | Tom White | Tom White |
 | [HADOOP-4845](https://issues.apache.org/jira/browse/HADOOP-4845) | Shuffle counter issues |  Major | . | Chris Douglas | He Yongqiang |
-| [HADOOP-4879](https://issues.apache.org/jira/browse/HADOOP-4879) | TestJobTrackerRestart fails on trunk |  Blocker | test | Arun C Murthy | Owen O\'Malley |
+| [HADOOP-4879](https://issues.apache.org/jira/browse/HADOOP-4879) | TestJobTrackerRestart fails on trunk |  Blocker | test | Arun C Murthy | Owen O'Malley |
 | [HADOOP-4791](https://issues.apache.org/jira/browse/HADOOP-4791) | Improve rpm build process for Chukwa |  Major | . | Eric Yang | Eric Yang |
 | [HADOOP-4771](https://issues.apache.org/jira/browse/HADOOP-4771) | FSImage saveFSImage() will have problem. |  Major | . | Ruyue Ma | Ruyue Ma |
 | [HADOOP-4878](https://issues.apache.org/jira/browse/HADOOP-4878) | After introduction of ivy ant test-patch always returns -1 score |  Blocker | build | Sreekanth Ramakrishnan | Giridharan Kesavan |
-| [HADOOP-4874](https://issues.apache.org/jira/browse/HADOOP-4874) | Remove bindings to lzo |  Blocker | io | Owen O\'Malley | Owen O\'Malley |
+| [HADOOP-4874](https://issues.apache.org/jira/browse/HADOOP-4874) | Remove bindings to lzo |  Blocker | io | Owen O'Malley | Owen O'Malley |
 | [HADOOP-4774](https://issues.apache.org/jira/browse/HADOOP-4774) | CapacityScheduler should work even if capacity-scheduler.xml is not in the classpath i.e with the code defaults |  Major | . | Amar Kamat | Sreekanth Ramakrishnan |
 | [HADOOP-4876](https://issues.apache.org/jira/browse/HADOOP-4876) | Capacity reclaimation for queue would not work as intended |  Blocker | . | Sreekanth Ramakrishnan | Sreekanth Ramakrishnan |
 | [HADOOP-4782](https://issues.apache.org/jira/browse/HADOOP-4782) | [HOD] HOD opens up directory permissions more than required |  Blocker | contrib/hod | Hemanth Yamijala | Peeyush Bishnoi |
 | [HADOOP-4849](https://issues.apache.org/jira/browse/HADOOP-4849) | Document service level authorization - HADOOP-4348 |  Major | documentation, scripts | Arun C Murthy | Arun C Murthy |
-| [HADOOP-4894](https://issues.apache.org/jira/browse/HADOOP-4894) | fix Chukwa\'s jettyCollector.sh |  Minor | . | Ari Rabkin | Ari Rabkin |
-| [HADOOP-4892](https://issues.apache.org/jira/browse/HADOOP-4892) | File descriptor leak in Chukwa\'s ExecPlugin |  Major | . | Ari Rabkin | Ari Rabkin |
+| [HADOOP-4894](https://issues.apache.org/jira/browse/HADOOP-4894) | fix Chukwa's jettyCollector.sh |  Minor | . | Ari Rabkin | Ari Rabkin |
+| [HADOOP-4892](https://issues.apache.org/jira/browse/HADOOP-4892) | File descriptor leak in Chukwa's ExecPlugin |  Major | . | Ari Rabkin | Ari Rabkin |
 | [HADOOP-4889](https://issues.apache.org/jira/browse/HADOOP-4889) | Chukwa RPM needs to chown user/group in build stage instead of post install stage. |  Trivial | . | Eric Yang | Eric Yang |
 | [HADOOP-4869](https://issues.apache.org/jira/browse/HADOOP-4869) | Lost Trackers may not be able to join back |  Blocker | . | Devaraj Das | Amareshwari Sriramadasu |
 | [HADOOP-4716](https://issues.apache.org/jira/browse/HADOOP-4716) | testRestartWithLostTracker frequently times out |  Blocker | . | Johan Oskarsson | Amar Kamat |
 | [HADOOP-4854](https://issues.apache.org/jira/browse/HADOOP-4854) | Capacity Scheduler should read the reclaim-capacity-interval config value from its own config file |  Minor | . | Vivek Ratan | Sreekanth Ramakrishnan |
 | [HADOOP-4896](https://issues.apache.org/jira/browse/HADOOP-4896) | hdfs fsck does not load hdfs configuration. |  Blocker | . | Raghu Angadi | Raghu Angadi |
 | [HADOOP-4956](https://issues.apache.org/jira/browse/HADOOP-4956) | NPE when jobdetails.jsp |  Blocker | . | Devaraj Das | Devaraj Das |
-| [HADOOP-4979](https://issues.apache.org/jira/browse/HADOOP-4979) | Capacity Scheduler does not always return no task to a TT if a job\'s memry requirements are not met |  Major | . | Vivek Ratan | Vivek Ratan |
+| [HADOOP-4979](https://issues.apache.org/jira/browse/HADOOP-4979) | Capacity Scheduler does not always return no task to a TT if a job's memry requirements are not met |  Major | . | Vivek Ratan | Vivek Ratan |
 | [HADOOP-4830](https://issues.apache.org/jira/browse/HADOOP-4830) | Have end to end tests based on MiniMRCluster to verify that queue capacities are honoured. |  Major | . | Vinod Kumar Vavilapalli | Vinod Kumar Vavilapalli |
 | [HADOOP-4949](https://issues.apache.org/jira/browse/HADOOP-4949) | Native compilation is broken |  Blocker | . | Chris Douglas | Chris Douglas |
 | [HADOOP-4787](https://issues.apache.org/jira/browse/HADOOP-4787) | TestTrackerBlacklistAcrossJobs fails randomly |  Blocker | test | Hemanth Yamijala | Amareshwari Sriramadasu |
@@ -227,7 +227,7 @@
 | [HADOOP-4993](https://issues.apache.org/jira/browse/HADOOP-4993) | chukwa agent startup should be more modular |  Major | . | Ari Rabkin | Ari Rabkin |
 | [HADOOP-5048](https://issues.apache.org/jira/browse/HADOOP-5048) | Sometimes job is still displayed in jobqueue\_details page for long time after job was killed. |  Major | . | Karam Singh | Sreekanth Ramakrishnan |
 | [HADOOP-5075](https://issues.apache.org/jira/browse/HADOOP-5075) | Potential infinite loop in updateMinSlots |  Blocker | . | Matei Zaharia | Matei Zaharia |
-| [HADOOP-4671](https://issues.apache.org/jira/browse/HADOOP-4671) | Make some "flag" booleans volatile because they are set/read in different threads |  Minor | . | Owen O\'Malley | Chris Douglas |
+| [HADOOP-4671](https://issues.apache.org/jira/browse/HADOOP-4671) | Make some "flag" booleans volatile because they are set/read in different threads |  Minor | . | Owen O'Malley | Chris Douglas |
 | [HADOOP-4999](https://issues.apache.org/jira/browse/HADOOP-4999) | IndexOutOfBoundsException in FSEditLog |  Major | . | Boris Shkolnik | Boris Shkolnik |
 | [HADOOP-5139](https://issues.apache.org/jira/browse/HADOOP-5139) | RPC call throws IllegalArgumentException complaining duplicate metrics registration |  Major | ipc | Hairong Kuang | Hairong Kuang |
 | [HADOOP-5085](https://issues.apache.org/jira/browse/HADOOP-5085) | Copying a file to local with Crc throws an exception |  Major | fs | Hairong Kuang | Hairong Kuang |
@@ -246,7 +246,7 @@
 | [HADOOP-5285](https://issues.apache.org/jira/browse/HADOOP-5285) | JobTracker hangs for long periods of time |  Blocker | . | Vinod Kumar Vavilapalli | Devaraj Das |
 | [HADOOP-5241](https://issues.apache.org/jira/browse/HADOOP-5241) | Reduce tasks get stuck because of over-estimated task size (regression from 0.18) |  Blocker | . | Andy Pavlo | Sharad Agarwal |
 | [HADOOP-5142](https://issues.apache.org/jira/browse/HADOOP-5142) | MapWritable#putAll does not store classes |  Minor | io | Doğacan Güney |  |
-| [HADOOP-5280](https://issues.apache.org/jira/browse/HADOOP-5280) | When expiring a lost launched task, JT doesn\'t remove the attempt from the taskidToTIPMap. |  Blocker | . | Vinod Kumar Vavilapalli | Devaraj Das |
+| [HADOOP-5280](https://issues.apache.org/jira/browse/HADOOP-5280) | When expiring a lost launched task, JT doesn't remove the attempt from the taskidToTIPMap. |  Blocker | . | Vinod Kumar Vavilapalli | Devaraj Das |
 | [HADOOP-5272](https://issues.apache.org/jira/browse/HADOOP-5272) | JobTracker does not log TIP start information after restart |  Critical | . | Amar Kamat | Amar Kamat |
 | [HADOOP-5154](https://issues.apache.org/jira/browse/HADOOP-5154) | 4-way deadlock in FairShare scheduler |  Blocker | . | Vinod Kumar Vavilapalli | Matei Zaharia |
 | [HADOOP-5306](https://issues.apache.org/jira/browse/HADOOP-5306) | Job History file can have empty string as http port after JobTracker Restart in case of lost TT, which can result in NumberFormatException when JT is restarted 2nd time |  Blocker | . | Ravi Gummadi | Amar Kamat |
@@ -280,12 +280,12 @@
 | [HADOOP-5259](https://issues.apache.org/jira/browse/HADOOP-5259) | Job with output hdfs:/user/\<username\>/outputpath (no authority) fails with Wrong FS |  Major | fs | Koji Noguchi | Doug Cutting |
 | [HADOOP-5499](https://issues.apache.org/jira/browse/HADOOP-5499) | JobTracker metrics do not match job counters |  Major | metrics | Chris Douglas |  |
 | [HADOOP-5516](https://issues.apache.org/jira/browse/HADOOP-5516) | TaskMemoryManagerThread crashes in a corner case |  Blocker | . | Vinod Kumar Vavilapalli | Vinod Kumar Vavilapalli |
-| [HADOOP-5382](https://issues.apache.org/jira/browse/HADOOP-5382) | The new map/reduce api doesn\'t support combiners |  Blocker | . | Owen O\'Malley | Owen O\'Malley |
+| [HADOOP-5382](https://issues.apache.org/jira/browse/HADOOP-5382) | The new map/reduce api doesn't support combiners |  Blocker | . | Owen O'Malley | Owen O'Malley |
 | [HADOOP-5471](https://issues.apache.org/jira/browse/HADOOP-5471) | SyncLogs thread in Child.java would update wrong file for a cleanup attempt, in some cases. |  Major | . | Amareshwari Sriramadasu | Amareshwari Sriramadasu |
 | [HADOOP-5522](https://issues.apache.org/jira/browse/HADOOP-5522) | Document job setup/cleaup tasks and task cleanup tasks in mapred tutorial |  Blocker | . | Amareshwari Sriramadasu | Amareshwari Sriramadasu |
-| [HADOOP-5534](https://issues.apache.org/jira/browse/HADOOP-5534) | Deadlock triggered by FairScheduler scheduler\'s servlet due to changes from HADOOP-5214. |  Blocker | . | Vinod Kumar Vavilapalli | rahul k singh |
+| [HADOOP-5534](https://issues.apache.org/jira/browse/HADOOP-5534) | Deadlock triggered by FairScheduler scheduler's servlet due to changes from HADOOP-5214. |  Blocker | . | Vinod Kumar Vavilapalli | rahul k singh |
 | [HADOOP-5328](https://issues.apache.org/jira/browse/HADOOP-5328) | Renaming of Job histroy file is incorrect if Jobtracker is restarted multimple times |  Major | . | Karam Singh | Amar Kamat |
-| [HADOOP-5417](https://issues.apache.org/jira/browse/HADOOP-5417) | IPC client drops interrupted exceptions |  Blocker | ipc | Owen O\'Malley | Owen O\'Malley |
+| [HADOOP-5417](https://issues.apache.org/jira/browse/HADOOP-5417) | IPC client drops interrupted exceptions |  Blocker | ipc | Owen O'Malley | Owen O'Malley |
 | [HADOOP-5320](https://issues.apache.org/jira/browse/HADOOP-5320) | TestMapReduceLocal is missing a close() that is causing it to fail while running the test on NFS |  Minor | test | Jothi Padmanabhan | Jothi Padmanabhan |
 | [HADOOP-5549](https://issues.apache.org/jira/browse/HADOOP-5549) | ReplicationMonitor should schedule both replication and deletion work in one iteration |  Major | . | Hairong Kuang | Hairong Kuang |
 | [HADOOP-5554](https://issues.apache.org/jira/browse/HADOOP-5554) | DataNodeCluster should create blocks with the same generation stamp as the blocks created in CreateEditsLog |  Major | test | Hairong Kuang | Hairong Kuang |
@@ -301,17 +301,17 @@
 | [HADOOP-5551](https://issues.apache.org/jira/browse/HADOOP-5551) | Namenode permits directory destruction on overwrite |  Critical | . | Brian Bockelman | Brian Bockelman |
 | [HADOOP-5576](https://issues.apache.org/jira/browse/HADOOP-5576) | LocalJobRunner does not run jobs using new MapReduce API |  Blocker | . | Tom White | Tom White |
 | [HADOOP-4374](https://issues.apache.org/jira/browse/HADOOP-4374) | JVM should not be killed but given an opportunity to exit gracefully |  Major | . | Devaraj Das | Ravi Gummadi |
-| [HADOOP-5577](https://issues.apache.org/jira/browse/HADOOP-5577) | The Job.waitForCompletion doesn\'t print status as the job runs |  Blocker | . | Owen O\'Malley | Owen O\'Malley |
+| [HADOOP-5577](https://issues.apache.org/jira/browse/HADOOP-5577) | The Job.waitForCompletion doesn't print status as the job runs |  Blocker | . | Owen O'Malley | Owen O'Malley |
 | [HADOOP-5607](https://issues.apache.org/jira/browse/HADOOP-5607) | TestCapacityScheduler fails with NPE |  Major | test | Chris Douglas | Chris Douglas |
 | [HADOOP-5605](https://issues.apache.org/jira/browse/HADOOP-5605) | All the replicas incorrectly got marked as corrupt. |  Blocker | . | Raghu Angadi | Hairong Kuang |
 | [HADOOP-5337](https://issues.apache.org/jira/browse/HADOOP-5337) | JobTracker greedily schedules tasks without running tasks to join |  Major | . | Karam Singh | Amar Kamat |
 | [HADOOP-5227](https://issues.apache.org/jira/browse/HADOOP-5227) | distcp -delete option deletes all files from the destination directory |  Major | . | Suhas Gogate | Tsz Wo Nicholas Sze |
 | [HADOOP-5305](https://issues.apache.org/jira/browse/HADOOP-5305) | Unit test org.apache.hadoop.fs.TestCopyFiles.testMapCount fails on trunk |  Minor | test | Ramya Sunil | Tsz Wo Nicholas Sze |
-| [HADOOP-5437](https://issues.apache.org/jira/browse/HADOOP-5437) | Unit test for jvm -reuse |  Blocker | . | Amareshwari Sriramadasu | Owen O\'Malley |
-| [HADOOP-5548](https://issues.apache.org/jira/browse/HADOOP-5548) | Observed negative running maps on the job tracker |  Blocker | . | Owen O\'Malley | Amareshwari Sriramadasu |
+| [HADOOP-5437](https://issues.apache.org/jira/browse/HADOOP-5437) | Unit test for jvm -reuse |  Blocker | . | Amareshwari Sriramadasu | Owen O'Malley |
+| [HADOOP-5548](https://issues.apache.org/jira/browse/HADOOP-5548) | Observed negative running maps on the job tracker |  Blocker | . | Owen O'Malley | Amareshwari Sriramadasu |
 | [HADOOP-3810](https://issues.apache.org/jira/browse/HADOOP-3810) | NameNode seems unstable on a cluster with little space left |  Major | . | Raghu Angadi | Hairong Kuang |
 | [HADOOP-5068](https://issues.apache.org/jira/browse/HADOOP-5068) | testClusterBlockingForLackOfMemory in TestCapacityScheduler fails randomly |  Major | . | Sreekanth Ramakrishnan | Vinod Kumar Vavilapalli |
-| [HADOOP-5585](https://issues.apache.org/jira/browse/HADOOP-5585) | FileSystem statistic counters are too high when JVM reuse is enabled. |  Blocker | . | Owen O\'Malley | Owen O\'Malley |
+| [HADOOP-5585](https://issues.apache.org/jira/browse/HADOOP-5585) | FileSystem statistic counters are too high when JVM reuse is enabled. |  Blocker | . | Owen O'Malley | Owen O'Malley |
 | [HADOOP-5394](https://issues.apache.org/jira/browse/HADOOP-5394) | JobTracker might schedule 2 attempts of the same task with the same attempt id across restarts |  Critical | . | Amar Kamat | Amar Kamat |
 | [HADOOP-5645](https://issues.apache.org/jira/browse/HADOOP-5645) | After HADOOP-4920 we need a place to checkin releasenotes.html |  Major | build | Nigel Daley | Nigel Daley |
 | [HADOOP-5644](https://issues.apache.org/jira/browse/HADOOP-5644) | Namnode is stuck in safe mode |  Major | . | Suresh Srinivas | Suresh Srinivas |
@@ -335,7 +335,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-4187](https://issues.apache.org/jira/browse/HADOOP-4187) | Create a MapReduce-specific ReflectionUtils that handles JobConf and JobConfigurable |  Major | . | Tom White | Sharad Agarwal |
-| [HADOOP-4612](https://issues.apache.org/jira/browse/HADOOP-4612) | Remove RunJar\'s dependency on JobClient |  Major | . | Sharad Agarwal | Sharad Agarwal |
+| [HADOOP-4612](https://issues.apache.org/jira/browse/HADOOP-4612) | Remove RunJar's dependency on JobClient |  Major | . | Sharad Agarwal | Sharad Agarwal |
 | [HADOOP-4185](https://issues.apache.org/jira/browse/HADOOP-4185) | Add setVerifyChecksum() method to FileSystem |  Major | fs | Tom White | Sharad Agarwal |
 
 

@@ -46,7 +46,7 @@
 | [HADOOP-9665](https://issues.apache.org/jira/browse/HADOOP-9665) | BlockDecompressorStream#decompress will throw EOFException instead of return -1 when EOF |  Critical | . | Zhijie Shen | Zhijie Shen |
 | [MAPREDUCE-5375](https://issues.apache.org/jira/browse/MAPREDUCE-5375) | Delegation Token renewal exception in jobtracker logs |  Critical | . | Venkat Ranganathan | Venkat Ranganathan |
 | [HADOOP-9504](https://issues.apache.org/jira/browse/HADOOP-9504) | MetricsDynamicMBeanBase has concurrency issues in createMBeanInfo |  Critical | metrics | Liang Xie | Liang Xie |
-| [MAPREDUCE-5256](https://issues.apache.org/jira/browse/MAPREDUCE-5256) | CombineInputFormat isn\'t thread safe affecting HiveServer |  Major | . | Vinod Kumar Vavilapalli | Vinod Kumar Vavilapalli |
+| [MAPREDUCE-5256](https://issues.apache.org/jira/browse/MAPREDUCE-5256) | CombineInputFormat isn't thread safe affecting HiveServer |  Major | . | Vinod Kumar Vavilapalli | Vinod Kumar Vavilapalli |
 | [MAPREDUCE-5351](https://issues.apache.org/jira/browse/MAPREDUCE-5351) | JobTracker memory leak caused by CleanupQueue reopening FileSystem |  Critical | jobtracker | Sandy Ryza | Sandy Ryza |
 | [MAPREDUCE-5364](https://issues.apache.org/jira/browse/MAPREDUCE-5364) | Deadlock between RenewalTimerTask methods cancel() and run() |  Major | . | Karthik Kambatla | Karthik Kambatla |
 | [HADOOP-9730](https://issues.apache.org/jira/browse/HADOOP-9730) | fix hadoop.spec to add task-log4j.properties |  Major | build | Giridharan Kesavan | Giridharan Kesavan |

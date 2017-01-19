@@ -94,14 +94,14 @@ The new API described above, which can be used to programmatically obtain histor
        public int numMatches() { ... }
     }
 
-    // returns a JobHistoryRecordRetriever that delivers all Path\'s of job matching job history files,
+    // returns a JobHistoryRecordRetriever that delivers all Path's of job matching job history files,
     // in no particular order.  Any criterion that is null or the empty string does not constrain.
-    // All criteria that are specified are applied conjunctively, except that if there\'s more than
-    // one date you retrieve all Path\'s matching ANY date.
+    // All criteria that are specified are applied conjunctively, except that if there's more than
+    // one date you retrieve all Path's matching ANY date.
     // soughtUser and soughtJobid must match exactly.
     // soughtJobName can match the entire job name or any substring.
     // dates must be in the format exactly MM/DD/YYYY .  
-    // Dates\' leading digits must be 2\'s .  We\'re incubating a Y3K problem.
+    // Dates' leading digits must be 2's .  We're incubating a Y3K problem.
     public JobHistoryRecordRetriever getMatchingJob
         (String soughtUser, String soughtJobName, String[] dateStrings, String soughtJobid)
       throws IOException

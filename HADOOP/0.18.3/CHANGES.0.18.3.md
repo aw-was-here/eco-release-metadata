@@ -33,7 +33,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [HADOOP-3780](https://issues.apache.org/jira/browse/HADOOP-3780) | JobTracker should synchronously resolve the tasktracker\'s network location when the tracker registers |  Major | . | Amar Kamat | Amar Kamat |
+| [HADOOP-3780](https://issues.apache.org/jira/browse/HADOOP-3780) | JobTracker should synchronously resolve the tasktracker's network location when the tracker registers |  Major | . | Amar Kamat | Amar Kamat |
 
 
 ### BUG FIXES:
@@ -64,7 +64,7 @@
 | [HADOOP-4717](https://issues.apache.org/jira/browse/HADOOP-4717) | Removal of default port# in NameNode.getUri() cause a map/reduce job failed to prompt temporay output |  Blocker | . | Hairong Kuang | Hairong Kuang |
 | [HADOOP-4778](https://issues.apache.org/jira/browse/HADOOP-4778) | Check for zero size block meta file when updating a block. |  Blocker | . | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HADOOP-4742](https://issues.apache.org/jira/browse/HADOOP-4742) | Mistake delete replica in hadoop 0.18.1 |  Blocker | . | Wang Xu | Wang Xu |
-| [HADOOP-4702](https://issues.apache.org/jira/browse/HADOOP-4702) | Failed block replication leaves an incomplete block in receiver\'s tmp data directory |  Blocker | . | Hairong Kuang | Hairong Kuang |
+| [HADOOP-4702](https://issues.apache.org/jira/browse/HADOOP-4702) | Failed block replication leaves an incomplete block in receiver's tmp data directory |  Blocker | . | Hairong Kuang | Hairong Kuang |
 | [HADOOP-4613](https://issues.apache.org/jira/browse/HADOOP-4613) | browseBlock.jsp does not generate "genstamp" property. |  Major | . | Konstantin Shvachko | Johan Oskarsson |
 | [HADOOP-4806](https://issues.apache.org/jira/browse/HADOOP-4806) | HDFS rename does not work correctly if src contains Java regular expression special characters |  Blocker | . | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HADOOP-4795](https://issues.apache.org/jira/browse/HADOOP-4795) | Lease monitor may get into an infinite loop |  Blocker | . | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
@@ -75,7 +75,7 @@
 | [HADOOP-4840](https://issues.apache.org/jira/browse/HADOOP-4840) | TestNodeCount sometimes fails with NullPointerException |  Major | . | Hairong Kuang | Hairong Kuang |
 | [HADOOP-4904](https://issues.apache.org/jira/browse/HADOOP-4904) | Deadlock while leaving safe mode. |  Blocker | . | Konstantin Shvachko | Konstantin Shvachko |
 | [HADOOP-4919](https://issues.apache.org/jira/browse/HADOOP-4919) | [HOD] Provide execute access to JT history directory path for group |  Major | contrib/hod | Hemanth Yamijala | Peeyush Bishnoi |
-| [HADOOP-1980](https://issues.apache.org/jira/browse/HADOOP-1980) | \'dfsadmin -safemode enter\' should prevent the namenode from leaving safemode automatically after startup |  Minor | . | Koji Noguchi | Konstantin Shvachko |
+| [HADOOP-1980](https://issues.apache.org/jira/browse/HADOOP-1980) | 'dfsadmin -safemode enter' should prevent the namenode from leaving safemode automatically after startup |  Minor | . | Koji Noguchi | Konstantin Shvachko |
 | [HADOOP-4924](https://issues.apache.org/jira/browse/HADOOP-4924) | Race condition in re-init of TaskTracker |  Blocker | . | Devaraj Das | Devaraj Das |
 | [HADOOP-4935](https://issues.apache.org/jira/browse/HADOOP-4935) | Manual leaving of safe mode may lead to data lost |  Major | . | Hairong Kuang | Konstantin Shvachko |
 | [HADOOP-4951](https://issues.apache.org/jira/browse/HADOOP-4951) | Lease monitor does not own the LeaseManager lock in changing leases. |  Blocker | . | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
@@ -83,7 +83,7 @@
 | [HADOOP-4971](https://issues.apache.org/jira/browse/HADOOP-4971) | Block report times from datanodes could converge to same time. |  Blocker | . | Raghu Angadi | Raghu Angadi |
 | [HADOOP-4910](https://issues.apache.org/jira/browse/HADOOP-4910) | NameNode should exclude corrupt replicas when choosing excessive replicas to delete |  Blocker | . | Hairong Kuang | Hairong Kuang |
 | [HADOOP-5077](https://issues.apache.org/jira/browse/HADOOP-5077) | JavaDoc errors in 0.18.3 |  Blocker | util | Raghu Angadi | Raghu Angadi |
-| [HADOOP-4983](https://issues.apache.org/jira/browse/HADOOP-4983) | Job counters sometimes go down as tasks run without task failures |  Critical | . | Owen O\'Malley | Amareshwari Sriramadasu |
+| [HADOOP-4983](https://issues.apache.org/jira/browse/HADOOP-4983) | Job counters sometimes go down as tasks run without task failures |  Critical | . | Owen O'Malley | Amareshwari Sriramadasu |
 
 
 ### SUB-TASKS:

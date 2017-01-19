@@ -32,6 +32,17 @@ Instead, this patch adds ScanTime and ScanSize histogram metrics at the regionse
 
 ---
 
+* [HBASE-15354](https://issues.apache.org/jira/browse/HBASE-15354) | *Major* | **Use same criteria for clearing meta cache for all operations**
+
+This patch fixes some issues when MetaCache (region location cache) gets unnecessarily dropped on the client.
+
+On master branch we now in RegionServerCallable and RegionServerAdminCallable pass the actual exception down to Connection#updateCachedLocation, so we could check there if the exception is "meta-clearing" or not.
+
+on branch-1, branch-1.2 and branch 1.3 we now check if the exception is meta-clearing or not in AsyncProcess (this check was there on master, but not on earlier branches)
+
+
+---
+
 * [HBASE-15243](https://issues.apache.org/jira/browse/HBASE-15243) | *Major* | **Utilize the lowest seek value when all Filters in MUST\_PASS\_ONE FilterList return SEEK\_NEXT\_USING\_HINT**
 
 When all filters in a MUST\_PASS\_ONE FilterList return a SEEK\_USING\_NEXT\_HINT code, we return SEEK\_NEXT\_USING\_HINT from the FilterList#filterKeyValue() to utilize the lowest seek value.
@@ -482,7 +493,7 @@ If blockcache size \>= factor\*acceptableSize, we will reject the block into cac
 
 * [HBASE-8386](https://issues.apache.org/jira/browse/HBASE-8386) | *Major* | **deprecate TableMapReduce.addDependencyJars(Configuration, class\<?\> ...)**
 
-The MapReduce helper function `TableMapReduce.addDependencyJars(Configuration, class\<?\> ...)` has been deprecated since it is easy to use incorrectly. Most users should rely on addDependencyJars(Job) instead.
+The MapReduce helper function \`TableMapReduce.addDependencyJars(Configuration, class\<?\> ...)\` has been deprecated since it is easy to use incorrectly. Most users should rely on addDependencyJars(Job) instead.
 
 
 ---
@@ -519,6 +530,17 @@ This feature relies on zk-less assignment, and conflicts with distributed log re
 * [HBASE-7621](https://issues.apache.org/jira/browse/HBASE-7621) | *Major* | **REST client (RemoteHTable) doesn't support binary row keys**
 
 RemoteHTable now supports binary row keys with any character or byte by properly encoding request URLs. This is a both a behavioral change from earlier versions and an important fix for protocol correctness.
+
+
+---
+
+* [HBASE-16450](https://issues.apache.org/jira/browse/HBASE-16450) | *Major* | **Shell tool to dump replication queues**
+
+New tool to dump existing replication peers, configurations and queues when using HBase Replication. The tool provides two flags:
+
+ --distributed  This flag will poll each RS for information about the replication queues being processed on this RS.
+By default this is not enabled and the information about the replication queues and configuration will be obtained from ZooKeeper.
+ --hdfs   When --distributed is used, this flag will attempt to calculate the total size of the WAL files used by the replication queues. Since its possible that multiple peers can be configured this value can be overestimated.
 
 
 ---
@@ -585,6 +607,187 @@ For completeness, here extract on new config from hbase-default.xml:
 Property: hbase.client.perserver.requests.threshold
 Default: 2147483647
 Description: The max number of concurrent pending requests for one server in all client threads (process level). Exceeding requests will be thrown ServerTooBusyException immediately to prevent user's threads being occupied and blocked by only one slow region server. If you use a fix number of threads to access HBase in a synchronous way, set this to a suitable value which is  related to the number of threads will help you. See https://issues.apache.org/jira/browse/HBASE-16388 for details.
+
+
+---
+
+* [HBASE-16540](https://issues.apache.org/jira/browse/HBASE-16540) | *Major* | **Scan should do additional validation on start and stop row**
+
+Scan#setStartRow() and Scan#setStopRow() now validate the argument passed for each row key.  If the length of the byte[] passed exceeds Short.MAX\_VALUE, an IllegalArgumentException will be thrown.
+
+
+---
+
+* [HBASE-16294](https://issues.apache.org/jira/browse/HBASE-16294) | *Minor* | **hbck reporting "No HDFS region dir found" for replicas**
+
+Fixed warning error message displayed for region directory not found for non-default/ non-primary replicas in hbck
+
+
+---
+
+* [HBASE-16672](https://issues.apache.org/jira/browse/HBASE-16672) | *Major* | **Add option for bulk load to always copy hfile(s) instead of renaming**
+
+This issue adds a config, always.copy.files, to LoadIncrementalHFiles.
+When set to true, source hfiles would be copied. Meaning source hfiles would be kept after bulk load is done.
+Default value is false.
+
+
+---
+
+* [HBASE-15984](https://issues.apache.org/jira/browse/HBASE-15984) | *Critical* | **Given failure to parse a given WAL that was closed cleanly, replay the WAL.**
+
+In some particular deployments, the Replication code believes it has
+reached EOF for a WAL prior to successfully parsing all bytes known to
+exist in a cleanly closed file.
+
+If an EOF is detected due to parsing or other errors while there are still unparsed bytes before the end-of-file trailer, we now reset the WAL to the very beginning and attempt a clean read-through. Because we will retry these failures indefinitely, two additional changes are made to help with diagnostics:
+
+\* On each retry attempt, a log message like the below will be emitted at the WARN level:
+    
+      Processing end of WAL file '{}'. At position {}, which is too far away
+      from reported file length {}. Restarting WAL reading (see HBASE-15983
+      for details).
+
+\*  additional metrics measure the use of this recovery mechanism. they are described in the reference guide.
+
+
+---
+
+* [HBASE-16661](https://issues.apache.org/jira/browse/HBASE-16661) | *Minor* | **Add last major compaction age to per-region metrics**
+
+This adds a new per-region metric named "lastMajorCompactionAge" for tracking time since the last major compaction ran on a given region.  If a major compaction has never run, the age will be equal to the current timestamp.
+
+
+---
+
+* [HBASE-16664](https://issues.apache.org/jira/browse/HBASE-16664) | *Major* | **Timeout logic in AsyncProcess is broken**
+
+This issue fix three bugs:
+1.  rpcTimeout configuration not work for one rpc call in AP
+2.  operationTimeout configuration not work for multi-request (batch, put) in AP 
+3.  setRpcTimeout and setOperationTimeout in HTable is not worked for AP and BufferedMutator.
+
+
+---
+
+* [HBASE-16721](https://issues.apache.org/jira/browse/HBASE-16721) | *Critical* | **Concurrency issue in WAL unflushed seqId tracking**
+
+Fixed a bug in sequenceId tracking for the WALs that caused WAL files to accumulate without being deleted due to a rare race condition.
+
+
+---
+
+* [HBASE-16653](https://issues.apache.org/jira/browse/HBASE-16653) | *Major* | **Backport HBASE-11393 to all branches which support namespace**
+
+During HBASE-11393, we have done two things:
+1.  unify tableCFs with peerConfig
+2.  Fix ns not support issue for replication. 
+
+This issue is to backport it to branch-1
+
+Notes:
+Due to we modify proto object of ReplicationPeerConfig (add tableCFs field), so when we do rolling update, we have to update original ReplicationPeerConfig data on ZK firstly. 
+This means during rolling update, if one peer with namespace added, this peer replication on old regionserver could not work. We have to wait for the rolling update completed.
+
+
+---
+
+* [HBASE-16765](https://issues.apache.org/jira/browse/HBASE-16765) | *Critical* | **New SteppingRegionSplitPolicy, avoid too aggressive spread of regions for small tables.**
+
+Introduces a new split policy: SteppingSplitPolicy
+This will use a simple step function to split a region at (by default) 2  xflushSize when no other region of the same table is seen on the region server, or max-file-size when one or more other regions of the same table is seen.
+
+In HBase 2.0 this is going to be the default. In previous versions it can be configured.
+
+
+---
+
+* [HBASE-17017](https://issues.apache.org/jira/browse/HBASE-17017) | *Major* | **Remove the current per-region latency histogram metrics**
+
+Removes per-region level (get size, get time, scan size and scan time histogram) metrics that was exposed before. Per-region histogram metrics with 1000+ regions causes millions of objects to be allocated on heap. The patch introduces getCount and scanCount as counters rather than histograms. Other per-region level metrics are kept as they are.
+
+
+---
+
+* [HBASE-16962](https://issues.apache.org/jira/browse/HBASE-16962) | *Major* | **Add readPoint to preCompactScannerOpen() and preFlushScannerOpen() API**
+
+The following RegionObserver methods are deprecated
+
+InternalScanner preFlushScannerOpen(final ObserverContext\<RegionCoprocessorEnvironment\> c,
+    final Store store, final KeyValueScanner memstoreScanner, final InternalScanner s)
+    throws IOException;
+
+InternalScanner preCompactScannerOpen(final ObserverContext\<RegionCoprocessorEnvironment\> c,
+    final Store store, List\<? extends KeyValueScanner\> scanners, final ScanType scanType,
+    final long earliestPutTs, final InternalScanner s, CompactionRequest request)
+
+Instead, use the following methods:
+
+InternalScanner preFlushScannerOpen(final ObserverContext\<RegionCoprocessorEnvironment\> c,
+    final Store store, final KeyValueScanner memstoreScanner, final InternalScanner s,
+    final long readPoint) throws IOException;
+
+InternalScanner preCompactScannerOpen(final ObserverContext\<RegionCoprocessorEnvironment\> c,
+    final Store store, List\<? extends KeyValueScanner\> scanners, final ScanType scanType,
+    final long earliestPutTs, final InternalScanner s, final CompactionRequest request,
+    final long readPoint) throws IOException
+
+
+---
+
+* [HBASE-17178](https://issues.apache.org/jira/browse/HBASE-17178) | *Major* | **Add region balance throttling**
+
+Add region balance throttling. Master execute every region balance plan per balance interval, which is equals to divide max balancing time by the size of region balance plan. And Introduce a new config hbase.master.balancer.maxRitPercent to protect availability. If config this to 0.01, then the max percent of regions in transition is 1% when balancing. Then the cluster's availability is at least 99% when balancing.
+
+
+---
+
+* [HBASE-17181](https://issues.apache.org/jira/browse/HBASE-17181) | *Minor* | **Let HBase thrift2 support TThreadedSelectorServer**
+
+Add TThreadedSelectorServer support for HBase Thrift2
+
+
+---
+
+* [HBASE-17112](https://issues.apache.org/jira/browse/HBASE-17112) | *Major* | **Prevent setting timestamp of delta operations the same as previous value's**
+
+Before this issue, two concurrent Increments/Appends done in same millisecond or RS's clock going back will result in two results have same TS, which is not friendly to versioning and will get wrong result in slave cluster if the replication is disordered.
+After this issue, the result of Increment/Append will always have an incremental TS. There is no any inconsistent in replication for these operations. But there is a rare case that if there is a Delete in same millisecond, the later result can not be masked by this Delete. This can be fixed after we have new semantics that previous Delete will never mask later Put even its timestamp is higher.
+
+
+---
+
+* [HBASE-16336](https://issues.apache.org/jira/browse/HBASE-16336) | *Major* | **Removing peers seems to be leaving spare queues**
+
+Add a ReplicationZKNodeCleaner periodically check and delete the useless replication queue zk node belong to the peer which is not exist.
+
+
+---
+
+* [HBASE-17296](https://issues.apache.org/jira/browse/HBASE-17296) | *Major* | **Provide per peer throttling for replication**
+
+Provide per peer throttling for replication. Add the bandwidth upper limit to ReplicationPeerConfig and a new shell cmd set\_peer\_bandwidth to update the bandwidth in need.
+
+
+---
+
+* [HBASE-15924](https://issues.apache.org/jira/browse/HBASE-15924) | *Major* | **Enhance hbase services autorestart capability to hbase-daemon.sh**
+
+Now one can start hbase services with enabled "autostart/autorestart" feature in controlled fashion with the help of "--autostart-window-size" to define the window period and the "--autostart-window-retry-limit" to define the number of times the hbase services have to be restarted upon being killed/terminated abnormally within the provided window perioid.
+
+The following cases are supported with "autostart/autorestart":
+
+a) --autostart-window-size=0 and --autostart-window-retry-limit=0, indicates infinite window size and no retry limit
+b) not providing the args, will default to a)
+c) --autostart-window-size=0 and --autostart-window-retry-limit=\<positive value\> indicates the autostart process to bail out if the retry limit exceeds irrespective of window period
+d) --autostart-window-size=\<x\> and --autostart-window-retry-limit=\<y\> indicates the autostart process to bail out if the retry limit "y" is exceeded for the last window period "x".
+
+
+---
+
+* [HBASE-17314](https://issues.apache.org/jira/browse/HBASE-17314) | *Major* | **Limit total buffered size for all replication sources**
+
+Add a conf "replication.total.buffer.quota" to limit total size of buffered entries in all replication peers. It will prevent server getting OOM if there are many peers. Default value is 256MB.
 
 
 

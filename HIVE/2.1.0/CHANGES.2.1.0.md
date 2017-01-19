@@ -378,7 +378,7 @@
 | [HIVE-13339](https://issues.apache.org/jira/browse/HIVE-13339) | Vectorization: GenericUDFBetween in Projection mode |  Major | Vectorization | Gopal V | Gopal V |
 | [HIVE-13320](https://issues.apache.org/jira/browse/HIVE-13320) | Apply HIVE-11544 to explicit conversions as well as implicit ones |  Major | UDF | Gopal V | Nita Dembla |
 | [HIVE-13405](https://issues.apache.org/jira/browse/HIVE-13405) | Fix Connection Leak in OrcRawRecordMerger |  Major | ORC | Thomas Poepping | Thomas Poepping |
-| [HIVE-13434](https://issues.apache.org/jira/browse/HIVE-13434) | BaseSemanticAnalyzer.unescapeSQLString doesn't unescape \u0000 style character literals. |  Major | Parser | Kousuke Saruta | Kousuke Saruta |
+| [HIVE-13434](https://issues.apache.org/jira/browse/HIVE-13434) | BaseSemanticAnalyzer.unescapeSQLString doesn't unescape \\u0000 style character literals. |  Major | Parser | Kousuke Saruta | Kousuke Saruta |
 | [HIVE-11959](https://issues.apache.org/jira/browse/HIVE-11959) | add simple test case for TestTableIterable |  Major | . | Thejas M Nair | Thejas M Nair |
 | [HIVE-13438](https://issues.apache.org/jira/browse/HIVE-13438) | Add a service check script for llap |  Major | llap | Vikram Dixit K | Vikram Dixit K |
 | [HIVE-13439](https://issues.apache.org/jira/browse/HIVE-13439) | JDBC: provide a way to retrieve GUID to query Yarn ATS |  Major | JDBC | Vaibhav Gumashta | Vaibhav Gumashta |
@@ -474,7 +474,7 @@
 | [HIVE-13686](https://issues.apache.org/jira/browse/HIVE-13686) | TestRecordReaderImpl is deleting target/tmp causing all the tests after it to fail |  Major | Test | Rajat Khandelwal | Rajat Khandelwal |
 | [HIVE-13682](https://issues.apache.org/jira/browse/HIVE-13682) | EOFException with fast hashtable |  Major | . | Sergey Shelukhin | Matt McCline |
 | [HIVE-13753](https://issues.apache.org/jira/browse/HIVE-13753) | Make metastore client thread safe in DbTxnManager |  Major | Transactions | Wei Zheng | Wei Zheng |
-| [HIVE-13293](https://issues.apache.org/jira/browse/HIVE-13293) | Query occurs performance degradation after enabling parallel order by for Hive on Spark |  Major | Spark | Lifeng Wang | Rui Li |
+| [HIVE-13293](https://issues.apache.org/jira/browse/HIVE-13293) | Cache RDD to improve parallel order by performance for HoS |  Major | Spark | Lifeng Wang | Rui Li |
 | [HIVE-13767](https://issues.apache.org/jira/browse/HIVE-13767) | Wrong type inferred in Semijoin condition leads to AssertionError |  Major | CBO | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
 | [HIVE-13608](https://issues.apache.org/jira/browse/HIVE-13608) | We should provide better error message while constraints with duplicate names are created |  Major | Diagnosability, Metastore | Hari Sankar Sivarama Subramaniyan | Hari Sankar Sivarama Subramaniyan |
 | [HIVE-13449](https://issues.apache.org/jira/browse/HIVE-13449) | LLAP: HS2 should get the token directly, rather than from LLAP |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
@@ -560,6 +560,7 @@
 | [HIVE-14006](https://issues.apache.org/jira/browse/HIVE-14006) | Hive query with UNION ALL fails with ArrayIndexOutOfBoundsException |  Major | Hive | Naveen Gangam | Naveen Gangam |
 | [HIVE-14015](https://issues.apache.org/jira/browse/HIVE-14015) | SMB MapJoin failed for Hive on Spark when kerberized |  Major | Logical Optimizer | Yongzhi Chen | Yongzhi Chen |
 | [HIVE-14258](https://issues.apache.org/jira/browse/HIVE-14258) | Reduce task timed out because CommonJoinOperator.genUniqueJoinObject took too long to finish without reporting progress |  Major | Query Processor | zhihai xu | zhihai xu |
+| [HIVE-14819](https://issues.apache.org/jira/browse/HIVE-14819) | FunctionInfo for permanent functions shows TEMPORARY FunctionType |  Major | UDF | Jason Dere | Jason Dere |
 
 
 ### TESTS:

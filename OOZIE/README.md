@@ -16,6 +16,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
+* Apache Oozie v5.0.0
+    * [Changes](5.0.0/CHANGES.5.0.0.md)
+    * [Release Notes](5.0.0/RELEASENOTES.5.0.0.md)
 * Apache Oozie v4.3.0
     * [Changes](4.3.0/CHANGES.4.3.0.md)
     * [Release Notes](4.3.0/RELEASENOTES.4.3.0.md)

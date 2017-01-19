@@ -60,7 +60,7 @@ fix memory leak of user/group information in fuse-dfs
 
 * [HADOOP-4679](https://issues.apache.org/jira/browse/HADOOP-4679) | *Major* | **Datanode prints tons of log messages: Waiting for threadgroup to exit, active theads is XX**
 
-1. Only datanode\'s offerService thread shutdown the datanode to avoid deadlock;
+1. Only datanode's offerService thread shutdown the datanode to avoid deadlock;
 2. Datanode checks disk in case of failure on creating a block file.
 
 
@@ -70,7 +70,7 @@ fix memory leak of user/group information in fuse-dfs
 
 This patch HADOOP-4620.patch
 (1) solves the hanging problem on map side with empty input and nonempty output — this map task generates output properly to intermediate files similar to other map tasks.
-(2) solves the problem of hanging reducer with empty input to reduce task and nonempty output — this reduce task doesn\'t generate output if input to reduce task is empty.
+(2) solves the problem of hanging reducer with empty input to reduce task and nonempty output — this reduce task doesn't generate output if input to reduce task is empty.
 
 
 ---

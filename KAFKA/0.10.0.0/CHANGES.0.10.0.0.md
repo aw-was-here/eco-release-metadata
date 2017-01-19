@@ -61,7 +61,7 @@
 | [KAFKA-3084](https://issues.apache.org/jira/browse/KAFKA-3084) | Topic existence checks in topic commands (create, alter, delete) |  Major | . | Grant Henke | Grant Henke |
 | [KAFKA-3019](https://issues.apache.org/jira/browse/KAFKA-3019) | Add an exceptionName method to Errors |  Major | . | Grant Henke | Grant Henke |
 | [KAFKA-3077](https://issues.apache.org/jira/browse/KAFKA-3077) | Enable KafkaLog4jAppender to work with SASL enabled brokers. |  Major | clients | Ashish K Singh | Ashish K Singh |
-| [KAFKA-3105](https://issues.apache.org/jira/browse/KAFKA-3105) | Use `Utils.atomicMoveWithFallback` instead of `File.rename` |  Major | . | Ismael Juma | Ismael Juma |
+| [KAFKA-3105](https://issues.apache.org/jira/browse/KAFKA-3105) | Use \`Utils.atomicMoveWithFallback\` instead of \`File.rename\` |  Major | . | Ismael Juma | Ismael Juma |
 | [KAFKA-3119](https://issues.apache.org/jira/browse/KAFKA-3119) | Adding -daemon option to zookeeper-server-start.sh USAGE |  Minor | config | Atul Soman | Atul Soman |
 | [KAFKA-3012](https://issues.apache.org/jira/browse/KAFKA-3012) | Avoid reserved.broker.max.id collisions on upgrade |  Major | . | Grant Henke | Grant Henke |
 | [KAFKA-3076](https://issues.apache.org/jira/browse/KAFKA-3076) | BrokerChangeListener should log the brokers in order |  Major | core | Jun Rao | Konrad Kalita |
@@ -97,16 +97,16 @@
 | [KAFKA-3319](https://issues.apache.org/jira/browse/KAFKA-3319) | Improve session timeout broker and client configuration documentation |  Major | config, consumer | Jason Gustafson | Jason Gustafson |
 | [KAFKA-3301](https://issues.apache.org/jira/browse/KAFKA-3301) | CommonClientConfigs.METRICS\_SAMPLE\_WINDOW\_MS\_DOC  is incorrect |  Major | . | Jun Rao | Grant Henke |
 | [KAFKA-3447](https://issues.apache.org/jira/browse/KAFKA-3447) | partitionState in UpdateMetadataRequest not logged properly state-change log |  Major | . | Jun Rao | Ismael Juma |
-| [KAFKA-3431](https://issues.apache.org/jira/browse/KAFKA-3431) | Remove `o.a.k.common.BrokerEndPoint` in favour of `Node` |  Critical | . | Ismael Juma | Ismael Juma |
+| [KAFKA-3431](https://issues.apache.org/jira/browse/KAFKA-3431) | Remove \`o.a.k.common.BrokerEndPoint\` in favour of \`Node\` |  Critical | . | Ismael Juma | Ismael Juma |
 | [KAFKA-3432](https://issues.apache.org/jira/browse/KAFKA-3432) | Cluster.update() thread-safety |  Critical | . | Ismael Juma | Ismael Juma |
 | [KAFKA-3445](https://issues.apache.org/jira/browse/KAFKA-3445) | ConnectorConfig should validate TASKS\_MAX\_CONFIG's lower bound limit |  Trivial | config | Ryan P |  |
 | [KAFKA-3407](https://issues.apache.org/jira/browse/KAFKA-3407) | ErrorLoggingCallback trims helpful diagnostic information. |  Minor | . | Jeremy Custenborder |  |
 | [KAFKA-3463](https://issues.apache.org/jira/browse/KAFKA-3463) | Change default consumer receive buffer size to 64K |  Major | consumer | Jason Gustafson | Jason Gustafson |
 | [KAFKA-3425](https://issues.apache.org/jira/browse/KAFKA-3425) | Add missing notes to upgrade docs |  Blocker | consumer | Jason Gustafson | Jason Gustafson |
-| [KAFKA-3475](https://issues.apache.org/jira/browse/KAFKA-3475) | Introduce our own `MiniKdc` |  Major | security | Ismael Juma | Ismael Juma |
+| [KAFKA-3475](https://issues.apache.org/jira/browse/KAFKA-3475) | Introduce our own \`MiniKdc\` |  Major | security | Ismael Juma | Ismael Juma |
 | [KAFKA-2930](https://issues.apache.org/jira/browse/KAFKA-2930) | Update references to ZooKeeper in the docs |  Major | . | Flavio Junqueira | Flavio Junqueira |
 | [KAFKA-3419](https://issues.apache.org/jira/browse/KAFKA-3419) | New consumer javadoc unclear on topic subscription vs partition assignment |  Major | consumer | Jason Gustafson | Jason Gustafson |
-| [KAFKA-3495](https://issues.apache.org/jira/browse/KAFKA-3495) | `NetworkClient.blockingSendAndReceive` should rely on requestTimeout |  Major | . | Ismael Juma | Ismael Juma |
+| [KAFKA-3495](https://issues.apache.org/jira/browse/KAFKA-3495) | \`NetworkClient.blockingSendAndReceive\` should rely on requestTimeout |  Major | . | Ismael Juma | Ismael Juma |
 | [KAFKA-3483](https://issues.apache.org/jira/browse/KAFKA-3483) | Restructure ducktape tests to simplify running subsets of tests |  Major | . | Grant Henke | Grant Henke |
 | [KAFKA-3470](https://issues.apache.org/jira/browse/KAFKA-3470) | Consumer group coordinator should take commit requests as effective as heartbeats |  Major | . | Zaiming Shi | Jason Gustafson |
 | [KAFKA-3549](https://issues.apache.org/jira/browse/KAFKA-3549) | Close consumers instantiated in consumer tests |  Major | . | Grant Henke | Grant Henke |
@@ -230,7 +230,7 @@
 | [KAFKA-1148](https://issues.apache.org/jira/browse/KAFKA-1148) | Delayed fetch/producer requests should be satisfied on a leader change |  Major | . | Joel Koshy |  |
 | [KAFKA-3047](https://issues.apache.org/jira/browse/KAFKA-3047) | Explicit offset assignment in Log.append can corrupt the log |  Major | log | Maciek Makowski | Ismael Juma |
 | [KAFKA-2551](https://issues.apache.org/jira/browse/KAFKA-2551) | Unclean leader election docs outdated |  Trivial | website | Stevo Slavic | Manikumar Reddy |
-| [KAFKA-3373](https://issues.apache.org/jira/browse/KAFKA-3373) | Add `log` prefix to KIP-31/32 configs |  Blocker | . | Ismael Juma | Jiangjie Qin |
+| [KAFKA-3373](https://issues.apache.org/jira/browse/KAFKA-3373) | Add \`log\` prefix to KIP-31/32 configs |  Blocker | . | Ismael Juma | Jiangjie Qin |
 | [KAFKA-3402](https://issues.apache.org/jira/browse/KAFKA-3402) | Restore behaviour of MetadataCache.getTopicMetadata when unsupported security protocol is received |  Critical | . | Ismael Juma | Ismael Juma |
 | [KAFKA-3392](https://issues.apache.org/jira/browse/KAFKA-3392) | ConsumerRecords iterator throws NoSuchElementException when a TopicPartition is empty |  Major | clients, consumer | Drausin Wulsin | Drausin Wulsin |
 | [KAFKA-3315](https://issues.apache.org/jira/browse/KAFKA-3315) | Add Connect API to expose connector configuration info |  Blocker | KafkaConnect | Ewen Cheslack-Postava | Liquan Pei |
@@ -346,7 +346,7 @@
 | [KAFKA-3371](https://issues.apache.org/jira/browse/KAFKA-3371) | ClientCompatibilityTest system test failing since KIP-31/KIP-32 was merged |  Blocker | . | Ismael Juma | Eno Thereska |
 | [KAFKA-3617](https://issues.apache.org/jira/browse/KAFKA-3617) | Add unit tests for SASL authentication |  Major | security | Rajini Sivaram | Rajini Sivaram |
 | [KAFKA-3597](https://issues.apache.org/jira/browse/KAFKA-3597) | Enable query ConsoleConsumer and VerifiableProducer if they shutdown cleanly |  Major | . | Anna Povzner | Anna Povzner |
-| [KAFKA-3675](https://issues.apache.org/jira/browse/KAFKA-3675) | Add lz4 to parametrized `test\_upgrade` system test |  Major | . | Ismael Juma | Ismael Juma |
+| [KAFKA-3675](https://issues.apache.org/jira/browse/KAFKA-3675) | Add lz4 to parametrized \`test\_upgrade\` system test |  Major | . | Ismael Juma | Ismael Juma |
 | [KAFKA-3634](https://issues.apache.org/jira/browse/KAFKA-3634) | Add ducktape tests for upgrade with SASL |  Major | . | Rajini Sivaram | Rajini Sivaram |
 | [KAFKA-3676](https://issues.apache.org/jira/browse/KAFKA-3676) | Add system tests for connector pause/resume |  Major | KafkaConnect | Jason Gustafson | Jason Gustafson |
 | [KAFKA-3520](https://issues.apache.org/jira/browse/KAFKA-3520) | System tests of config validate and list connectors REST APIs |  Major | KafkaConnect | Liquan Pei | Liquan Pei |
@@ -464,7 +464,7 @@
 | [KAFKA-2830](https://issues.apache.org/jira/browse/KAFKA-2830) | Change default fix version to 0.9.1.0 in kafka-merge-pr.py |  Major | build | Ismael Juma | Ismael Juma |
 | [KAFKA-2845](https://issues.apache.org/jira/browse/KAFKA-2845) | Add 0.9 clients vs 0.8 brokers compatibility test |  Major | . | Geoff Anderson | Geoff Anderson |
 | [KAFKA-2896](https://issues.apache.org/jira/browse/KAFKA-2896) | System test for partition re-assignment |  Major | . | Gwen Shapira | Anna Povzner |
-| [KAFKA-3435](https://issues.apache.org/jira/browse/KAFKA-3435) | Remove `Unstable` annotation from new Java Consumer |  Major | . | Ismael Juma | Grant Henke |
+| [KAFKA-3435](https://issues.apache.org/jira/browse/KAFKA-3435) | Remove \`Unstable\` annotation from new Java Consumer |  Major | . | Ismael Juma | Grant Henke |
 | [KAFKA-3460](https://issues.apache.org/jira/browse/KAFKA-3460) | Remove old 0.7 KafkaMigrationTool |  Major | . | Grant Henke | Grant Henke |
 | [KAFKA-3621](https://issues.apache.org/jira/browse/KAFKA-3621) | Add tests for ApiVersionRequest/Response |  Critical | . | Ashish K Singh | Ashish K Singh |
 | [KAFKA-3618](https://issues.apache.org/jira/browse/KAFKA-3618) | Handle ApiVersionRequest before SASL handshake |  Major | security | Rajini Sivaram | Rajini Sivaram |

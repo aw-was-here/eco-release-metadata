@@ -68,8 +68,8 @@
 | [KAFKA-2942](https://issues.apache.org/jira/browse/KAFKA-2942) | Inadvertent auto-commit when pre-fetching can cause message loss |  Major | . | Jason Gustafson | Jason Gustafson |
 | [KAFKA-2950](https://issues.apache.org/jira/browse/KAFKA-2950) | Performance regression in producer |  Major | . | Jay Kreps |  |
 | [KAFKA-2973](https://issues.apache.org/jira/browse/KAFKA-2973) | Fix leak of child sensors on remove |  Major | clients | Ismael Juma | Ismael Juma |
-| [KAFKA-2972](https://issues.apache.org/jira/browse/KAFKA-2972) | ControlledShutdownResponse always serialises `partitionsRemaining` as empty |  Major | network | Ismael Juma | Ismael Juma |
-| [KAFKA-2974](https://issues.apache.org/jira/browse/KAFKA-2974) | `==` is used incorrectly in a few places in Java code |  Major | . | Ismael Juma | Ismael Juma |
+| [KAFKA-2972](https://issues.apache.org/jira/browse/KAFKA-2972) | ControlledShutdownResponse always serialises \`partitionsRemaining\` as empty |  Major | network | Ismael Juma | Ismael Juma |
+| [KAFKA-2974](https://issues.apache.org/jira/browse/KAFKA-2974) | \`==\` is used incorrectly in a few places in Java code |  Major | . | Ismael Juma | Ismael Juma |
 | [KAFKA-2578](https://issues.apache.org/jira/browse/KAFKA-2578) | Client Metadata internal state should be synchronized |  Trivial | . | Jason Gustafson | Edward Ribeiro |
 | [KAFKA-2893](https://issues.apache.org/jira/browse/KAFKA-2893) | Add Negative Partition Seek Check |  Major | clients | Jesse Anderson | jin xing |
 | [KAFKA-2926](https://issues.apache.org/jira/browse/KAFKA-2926) | [MirrorMaker] InternalRebalancer calls wrong method of external rebalancer |  Major | tools | Gwen Shapira | Gwen Shapira |
@@ -82,7 +82,7 @@
 | [KAFKA-2695](https://issues.apache.org/jira/browse/KAFKA-2695) | Handle null string/bytes protocol primitives |  Major | . | Jason Gustafson | Jason Gustafson |
 | [KAFKA-3098](https://issues.apache.org/jira/browse/KAFKA-3098) | "partition.assignment.strategy" appears twice in documentation |  Major | . | Gwen Shapira | David Jacot |
 | [KAFKA-3095](https://issues.apache.org/jira/browse/KAFKA-3095) | No documentation on format of sasl.kerberos.principal.to.local.rules |  Major | core | Thomas Graves | Thomas Graves |
-| [KAFKA-3122](https://issues.apache.org/jira/browse/KAFKA-3122) | Memory leak in `Sender.completeBatch` on TOPIC\_AUTHORIZATION\_FAILED |  Major | clients | Ismael Juma | Ismael Juma |
+| [KAFKA-3122](https://issues.apache.org/jira/browse/KAFKA-3122) | Memory leak in \`Sender.completeBatch\` on TOPIC\_AUTHORIZATION\_FAILED |  Major | clients | Ismael Juma | Ismael Juma |
 | [KAFKA-3134](https://issues.apache.org/jira/browse/KAFKA-3134) | Missing required configuration "value.deserializer" when initializing a KafkaConsumer with a valid "valueDeserializer" |  Major | . | Yifan Ying |  |
 | [KAFKA-2478](https://issues.apache.org/jira/browse/KAFKA-2478) | KafkaConsumer javadoc example seems wrong |  Major | consumer | Dmitry Stratiychuk | Dmitry Stratiychuk |
 | [KAFKA-3152](https://issues.apache.org/jira/browse/KAFKA-3152) | kafka-acl doesn't allow space in principal name |  Major | core | Jun Rao | Ismael Juma |

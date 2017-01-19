@@ -63,4 +63,11 @@ Vectorization: missed vectorization for const varchar()
 "-d" option has been added to Hive CLI "reset" command, allowing one to reset specific settings to built-in defaults, overriding any session-specific values, as well as configuration files in use. E.g. "reset -d hive.compute.splits.in.am hive.smbjoin.cache.rows".
 
 
+---
+
+* [HIVE-15123](https://issues.apache.org/jira/browse/HIVE-15123) | *Major* | **LLAP UI: The UI should work even if the cache is disabled**
+
+LLAP UI: The UI should work even if the cache is disabled (Gopal V, reviewed by Siddharth Seth)
+
+
 

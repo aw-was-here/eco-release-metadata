@@ -27,7 +27,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [FLINK-3688](https://issues.apache.org/jira/browse/FLINK-3688) | ClassCastException in StreamRecordSerializer when WindowOperator.trigger() is called and TimeCharacteristic = ProcessingTime |  Critical | . | Konstantin Knauf | Konstantin Knauf |
-| [FLINK-3712](https://issues.apache.org/jira/browse/FLINK-3712) | YARN client dynamic properties are not passed correctly to the leader election service on the client |  Major | YARN Client | Robert Metzger | Robert Metzger |
+| [FLINK-3712](https://issues.apache.org/jira/browse/FLINK-3712) | YARN client dynamic properties are not passed correctly to the leader election service on the client |  Major | YARN | Robert Metzger | Robert Metzger |
 | [FLINK-3730](https://issues.apache.org/jira/browse/FLINK-3730) | Fix RocksDB Local Directory Initialization |  Major | State Backends, Checkpointing, Streaming | Aljoscha Krettek | Aljoscha Krettek |
 | [FLINK-3716](https://issues.apache.org/jira/browse/FLINK-3716) | Kafka08ITCase.testFailOnNoBroker() timing out before it has a chance to pass |  Major | . | Todd Lisonbee | Todd Lisonbee |
 | [FLINK-3760](https://issues.apache.org/jira/browse/FLINK-3760) | Fix StateDescriptor.readObject |  Critical | Streaming | Aljoscha Krettek | Aljoscha Krettek |

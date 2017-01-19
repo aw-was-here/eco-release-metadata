@@ -16,6 +16,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
+* Apache Yetus v0.5.0
+    * [Changes](0.5.0/CHANGES.0.5.0.html)
+    * [Release Notes](0.5.0/RELEASENOTES.0.5.0.html)
 * Apache Yetus v0.4.0
     * [Changes](0.4.0/CHANGES.0.4.0.html)
     * [Release Notes](0.4.0/RELEASENOTES.0.4.0.html)

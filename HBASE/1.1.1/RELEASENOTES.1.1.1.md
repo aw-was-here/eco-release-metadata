@@ -33,7 +33,7 @@ Add below property in hbase-site.xml file:
   \<value\>org.apache.hadoop.hbase.JMXListener\</value\>
 \</property\>
 
-NOTE: DO NOT set `com.sun.management.jmxremote.port` for Java VM at the same time.
+NOTE: DO NOT set \`com.sun.management.jmxremote.port\` for Java VM at the same time.
 
 By default, the JMX listens on TCP port 10101 for Master, we can further configure the port using below properties:
 

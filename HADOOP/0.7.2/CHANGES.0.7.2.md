@@ -34,6 +34,6 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [HADOOP-609](https://issues.apache.org/jira/browse/HADOOP-609) | Mini map/reduce cluster should use multiple temp directories |  Major | . | Owen O\'Malley | Mahadev konar |
+| [HADOOP-609](https://issues.apache.org/jira/browse/HADOOP-609) | Mini map/reduce cluster should use multiple temp directories |  Major | . | Owen O'Malley | Mahadev konar |
 
 

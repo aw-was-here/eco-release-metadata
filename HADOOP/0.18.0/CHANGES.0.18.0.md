@@ -29,8 +29,8 @@
 | [HADOOP-2865](https://issues.apache.org/jira/browse/HADOOP-2865) | FsShell.ls() should print file attributes first then the path name. |  Major | . | Konstantin Shvachko | Edward J. Yoon |
 | [HADOOP-3283](https://issues.apache.org/jira/browse/HADOOP-3283) | Need a mechanism for data nodes to update generation stamps. |  Major | . | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HADOOP-2797](https://issues.apache.org/jira/browse/HADOOP-2797) | Withdraw CRC upgrade from HDFS |  Critical | . | Robert Chansler | Raghu Angadi |
-| [HADOOP-544](https://issues.apache.org/jira/browse/HADOOP-544) | Replace the job, tip and task ids with objects. |  Major | . | Owen O\'Malley | Enis Soztutar |
-| [HADOOP-2188](https://issues.apache.org/jira/browse/HADOOP-2188) | RPC should send a ping rather than use client timeouts |  Major | ipc | Owen O\'Malley | Hairong Kuang |
+| [HADOOP-544](https://issues.apache.org/jira/browse/HADOOP-544) | Replace the job, tip and task ids with objects. |  Major | . | Owen O'Malley | Enis Soztutar |
+| [HADOOP-2188](https://issues.apache.org/jira/browse/HADOOP-2188) | RPC should send a ping rather than use client timeouts |  Major | ipc | Owen O'Malley | Hairong Kuang |
 | [HADOOP-2181](https://issues.apache.org/jira/browse/HADOOP-2181) | Input Split details for maps should be logged |  Minor | . | Lohit Vijayarenu | Amareshwari Sriramadasu |
 | [HADOOP-3317](https://issues.apache.org/jira/browse/HADOOP-3317) | add default port for hdfs namenode |  Minor | . | Doug Cutting | Doug Cutting |
 | [HADOOP-3226](https://issues.apache.org/jira/browse/HADOOP-3226) | Run combiner when merging spills from map output |  Major | . | Chris Douglas | Chris Douglas |
@@ -43,7 +43,7 @@
 | [HADOOP-3035](https://issues.apache.org/jira/browse/HADOOP-3035) | Data nodes should inform the name-node about block crc errors. |  Major | . | Konstantin Shvachko | Lohit Vijayarenu |
 | [HADOOP-3265](https://issues.apache.org/jira/browse/HADOOP-3265) | Remove deprecated API getFileCacheHints |  Major | fs | Lohit Vijayarenu | Lohit Vijayarenu |
 | [HADOOP-3310](https://issues.apache.org/jira/browse/HADOOP-3310) | Lease recovery for append |  Major | . | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
-| [HADOOP-3417](https://issues.apache.org/jira/browse/HADOOP-3417) | JobClient should not have a static configuration for cli parsing |  Major | . | Owen O\'Malley | Amareshwari Sriramadasu |
+| [HADOOP-3417](https://issues.apache.org/jira/browse/HADOOP-3417) | JobClient should not have a static configuration for cli parsing |  Major | . | Owen O'Malley | Amareshwari Sriramadasu |
 | [HADOOP-2909](https://issues.apache.org/jira/browse/HADOOP-2909) | Improve IPC idle connection management |  Major | ipc | Hairong Kuang | Hairong Kuang |
 | [HADOOP-3486](https://issues.apache.org/jira/browse/HADOOP-3486) | Change default for initial block report to 0 sec and document it in hadoop-defaults.xml |  Major | . | Sanjay Radia | Sanjay Radia |
 | [HADOOP-3459](https://issues.apache.org/jira/browse/HADOOP-3459) | Change dfs -ls listing to closely match format on Linux |  Major | . | Mukund Madhugiri | Mukund Madhugiri |
@@ -53,7 +53,7 @@
 | [HADOOP-3483](https://issues.apache.org/jira/browse/HADOOP-3483) | [HOD] Improvements with cluster directory handling |  Major | contrib/hod | Hemanth Yamijala | Hemanth Yamijala |
 | [HADOOP-3184](https://issues.apache.org/jira/browse/HADOOP-3184) | HOD gracefully exclude "bad" nodes during ring formation |  Major | contrib/hod | Marco Nicosia | Hemanth Yamijala |
 | [HADOOP-3193](https://issues.apache.org/jira/browse/HADOOP-3193) | Discovery of corrupt block reported in name node log |  Minor | . | Robert Chansler | Chris Douglas |
-| [HADOOP-3512](https://issues.apache.org/jira/browse/HADOOP-3512) | Split map/reduce tools into separate jars |  Major | . | Owen O\'Malley | Owen O\'Malley |
+| [HADOOP-3512](https://issues.apache.org/jira/browse/HADOOP-3512) | Split map/reduce tools into separate jars |  Major | . | Owen O'Malley | Owen O'Malley |
 | [HADOOP-3379](https://issues.apache.org/jira/browse/HADOOP-3379) | Document the "stream.non.zero.exit.status.is.failure" knob for streaming |  Blocker | documentation | Arun C Murthy | Amareshwari Sriramadasu |
 | [HADOOP-3569](https://issues.apache.org/jira/browse/HADOOP-3569) | KFS input stream read() returns 4 bytes instead of 1 |  Minor | . | Sriram Rao | Sriram Rao |
 | [HADOOP-3598](https://issues.apache.org/jira/browse/HADOOP-3598) | Map-Reduce framework needlessly creates temporary \_${taskid} directories for Maps |  Blocker | . | Arun C Murthy | Arun C Murthy |
@@ -104,7 +104,7 @@
 | [HADOOP-3345](https://issues.apache.org/jira/browse/HADOOP-3345) | Enhance the hudson-test-patch target |  Minor | build | Nigel Daley | Nigel Daley |
 | [HADOOP-3144](https://issues.apache.org/jira/browse/HADOOP-3144) | better fault tolerance for corrupted text files |  Major | . | Joydeep Sen Sarma | Zheng Shao |
 | [HADOOP-3334](https://issues.apache.org/jira/browse/HADOOP-3334) | Move lease handling codes out from FSNamesystem |  Major | . | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
-| [HADOOP-2019](https://issues.apache.org/jira/browse/HADOOP-2019) | DistributedFileCache should support .tgz files in addition to jars and zip files |  Major | . | Owen O\'Malley | Amareshwari Sriramadasu |
+| [HADOOP-2019](https://issues.apache.org/jira/browse/HADOOP-2019) | DistributedFileCache should support .tgz files in addition to jars and zip files |  Major | . | Owen O'Malley | Amareshwari Sriramadasu |
 | [HADOOP-3058](https://issues.apache.org/jira/browse/HADOOP-3058) | Hadoop DFS to report more replication metrics |  Minor | metrics | Marco Nicosia | Lohit Vijayarenu |
 | [HADOOP-3297](https://issues.apache.org/jira/browse/HADOOP-3297) | The way in which ReduceTask/TaskTracker gets completion events during shuffle can be improved |  Major | . | Devaraj Das | Devaraj Das |
 | [HADOOP-3364](https://issues.apache.org/jira/browse/HADOOP-3364) | Faster image and log edits loading. |  Major | . | Konstantin Shvachko | Konstantin Shvachko |
@@ -117,12 +117,12 @@
 | [HADOOP-3377](https://issues.apache.org/jira/browse/HADOOP-3377) | Use StringUtils#replaceAll instead of |  Trivial | . | Brice Arnould | Brice Arnould |
 | [HADOOP-2661](https://issues.apache.org/jira/browse/HADOOP-2661) | Replicator log should include block id |  Minor | . | Raghu Angadi | Raghu Angadi |
 | [HADOOP-3398](https://issues.apache.org/jira/browse/HADOOP-3398) | ReduceTask::closestPowerOf2 is inefficient |  Trivial | . | Chris Douglas | Chris Douglas |
-| [HADOOP-2867](https://issues.apache.org/jira/browse/HADOOP-2867) | Add a task\'s cwd to it\'s LD\_LIBRARY\_PATH |  Major | . | Arun C Murthy | Amareshwari Sriramadasu |
+| [HADOOP-2867](https://issues.apache.org/jira/browse/HADOOP-2867) | Add a task's cwd to it's LD\_LIBRARY\_PATH |  Major | . | Arun C Murthy | Amareshwari Sriramadasu |
 | [HADOOP-3400](https://issues.apache.org/jira/browse/HADOOP-3400) | Facilitate creation of temporary files in HDFS |  Major | . | dhruba borthakur | dhruba borthakur |
 | [HADOOP-4](https://issues.apache.org/jira/browse/HADOOP-4) | tool to mount dfs on linux |  Major | . | John Xing | Pete Wyckoff |
 | [HADOOP-3434](https://issues.apache.org/jira/browse/HADOOP-3434) | Retain cause of bind failure in Server.bind |  Major | . | Steve Loughran | Steve Loughran |
-| [HADOOP-3429](https://issues.apache.org/jira/browse/HADOOP-3429) | Increase the buffersize for the streaming parent java process\'s streams |  Major | . | Devaraj Das | Amareshwari Sriramadasu |
-| [HADOOP-3448](https://issues.apache.org/jira/browse/HADOOP-3448) | Add some more hints of the problem when datanode and namenode don\'t match |  Minor | . | Steve Loughran | Steve Loughran |
+| [HADOOP-3429](https://issues.apache.org/jira/browse/HADOOP-3429) | Increase the buffersize for the streaming parent java process's streams |  Major | . | Devaraj Das | Amareshwari Sriramadasu |
+| [HADOOP-3448](https://issues.apache.org/jira/browse/HADOOP-3448) | Add some more hints of the problem when datanode and namenode don't match |  Minor | . | Steve Loughran | Steve Loughran |
 | [HADOOP-3177](https://issues.apache.org/jira/browse/HADOOP-3177) | Expose DFSOutputStream.fsync API though the FileSystem interface |  Major | . | dhruba borthakur | Tsz Wo Nicholas Sze |
 | [HADOOP-3464](https://issues.apache.org/jira/browse/HADOOP-3464) | [HOD] HOD can improve error messages by reporting failures on compute nodes back to hod client |  Major | contrib/hod | Vinod Kumar Vavilapalli | Vinod Kumar Vavilapalli |
 | [HADOOP-3455](https://issues.apache.org/jira/browse/HADOOP-3455) | IPC.Client synchronisation looks weak |  Major | ipc | Steve Loughran | Hairong Kuang |
@@ -134,10 +134,10 @@
 | [HADOOP-3406](https://issues.apache.org/jira/browse/HADOOP-3406) | Document controls for profiling maps & reduces |  Blocker | documentation | Arun C Murthy | Amareshwari Sriramadasu |
 | [HADOOP-3277](https://issues.apache.org/jira/browse/HADOOP-3277) | hod should better errors message when deallocate is fired on non allocated directory. |  Minor | contrib/hod | Karam Singh |  |
 | [HADOOP-2762](https://issues.apache.org/jira/browse/HADOOP-2762) | Better documentation of controls for memory limits on hadoop daemons and Map-Reduce tasks |  Blocker | documentation, scripts | Arun C Murthy | Amareshwari Sriramadasu |
-| [HADOOP-3535](https://issues.apache.org/jira/browse/HADOOP-3535) | IOUtils.close needs better documentation |  Blocker | io | Owen O\'Malley | Owen O\'Malley |
-| [HADOOP-3599](https://issues.apache.org/jira/browse/HADOOP-3599) | The new setCombineOnceOnly shouldn\'t take a JobConf, since it is a method on JobConf |  Major | . | Owen O\'Malley | Owen O\'Malley |
+| [HADOOP-3535](https://issues.apache.org/jira/browse/HADOOP-3535) | IOUtils.close needs better documentation |  Blocker | io | Owen O'Malley | Owen O'Malley |
+| [HADOOP-3599](https://issues.apache.org/jira/browse/HADOOP-3599) | The new setCombineOnceOnly shouldn't take a JobConf, since it is a method on JobConf |  Major | . | Owen O'Malley | Owen O'Malley |
 | [HADOOP-3547](https://issues.apache.org/jira/browse/HADOOP-3547) | Improve documentation about distributing native libraries via DistributedCache |  Blocker | documentation | Arun C Murthy | Amareshwari Sriramadasu |
-| [HADOOP-3532](https://issues.apache.org/jira/browse/HADOOP-3532) | Create build targets to create api change reports using jdiff |  Major | build | Owen O\'Malley | Owen O\'Malley |
+| [HADOOP-3532](https://issues.apache.org/jira/browse/HADOOP-3532) | Create build targets to create api change reports using jdiff |  Major | build | Owen O'Malley | Owen O'Malley |
 | [HADOOP-3572](https://issues.apache.org/jira/browse/HADOOP-3572) | setQuotas usage interface has some minor bugs. |  Minor | . | Mahadev konar | Hairong Kuang |
 | [HADOOP-2987](https://issues.apache.org/jira/browse/HADOOP-2987) | Keep two generations of fsimage |  Major | . | Robert Chansler | Konstantin Shvachko |
 
@@ -151,7 +151,7 @@
 | [HADOOP-3176](https://issues.apache.org/jira/browse/HADOOP-3176) | Change lease record when a open-for-write-file gets renamed |  Major | . | dhruba borthakur | dhruba borthakur |
 | [HADOOP-3130](https://issues.apache.org/jira/browse/HADOOP-3130) | Shuffling takes too long to get the last map output. |  Major | . | Runping Qi | Amar Kamat |
 | [HADOOP-3160](https://issues.apache.org/jira/browse/HADOOP-3160) | remove exists() from ClientProtocol and NameNode |  Major | . | Lohit Vijayarenu | Lohit Vijayarenu |
-| [HADOOP-3269](https://issues.apache.org/jira/browse/HADOOP-3269) | NameNode doesn\'t startup when restarted after running an MR job |  Blocker | . | Devaraj Das | Tsz Wo Nicholas Sze |
+| [HADOOP-3269](https://issues.apache.org/jira/browse/HADOOP-3269) | NameNode doesn't startup when restarted after running an MR job |  Blocker | . | Devaraj Das | Tsz Wo Nicholas Sze |
 | [HADOOP-3282](https://issues.apache.org/jira/browse/HADOOP-3282) | TestCheckpoint occasionally fails because of the port issues. |  Major | test | Konstantin Shvachko | Konstantin Shvachko |
 | [HADOOP-3272](https://issues.apache.org/jira/browse/HADOOP-3272) | Reduce redundant copy of Block object in BlocksMap.map hash map |  Major | . | Lohit Vijayarenu | Lohit Vijayarenu |
 | [HADOOP-3268](https://issues.apache.org/jira/browse/HADOOP-3268) | TestUrlStreamHandler.testFileUrls fails on Windows |  Major | test | Nigel Daley | Christophe Taton |
@@ -159,16 +159,16 @@
 | [HADOOP-3300](https://issues.apache.org/jira/browse/HADOOP-3300) | FindBugs warnings in NetworkTopology |  Major | . | Tom White | Tom White |
 | [HADOOP-2793](https://issues.apache.org/jira/browse/HADOOP-2793) | Links for worst performing shuffle tasks are broken in Analyze Job. |  Minor | . | Amar Kamat | Amareshwari Sriramadasu |
 | [HADOOP-3313](https://issues.apache.org/jira/browse/HADOOP-3313) | RPC::Invoker makes unnecessary calls to System.currentTimeMillis |  Minor | . | Chris Douglas | Chris Douglas |
-| [HADOOP-3318](https://issues.apache.org/jira/browse/HADOOP-3318) | Hadoop streaming doesn\'t recognize "Darwin" as an OS but Soylatte (OpenJDK port to Mac) reports that rather than "Mac OS X" |  Major | . | Sam Pullara | Sam Pullara |
+| [HADOOP-3318](https://issues.apache.org/jira/browse/HADOOP-3318) | Hadoop streaming doesn't recognize "Darwin" as an OS but Soylatte (OpenJDK port to Mac) reports that rather than "Mac OS X" |  Major | . | Sam Pullara | Sam Pullara |
 | [HADOOP-3301](https://issues.apache.org/jira/browse/HADOOP-3301) | Misleading error message when S3 URI contains hostname containing an underscore |  Major | fs/s3 | Tom White | Tom White |
 | [HADOOP-3109](https://issues.apache.org/jira/browse/HADOOP-3109) | RPC should accepted connections even when rpc queue is full (ie undo part of HADOOP-2910) |  Blocker | . | Sanjay Radia | Hairong Kuang |
-| [HADOOP-3338](https://issues.apache.org/jira/browse/HADOOP-3338) | trunk doesn\'t compile after HADOOP-544 was committed |  Blocker | . | Nigel Daley | Christophe Taton |
+| [HADOOP-3338](https://issues.apache.org/jira/browse/HADOOP-3338) | trunk doesn't compile after HADOOP-544 was committed |  Blocker | . | Nigel Daley | Christophe Taton |
 | [HADOOP-3337](https://issues.apache.org/jira/browse/HADOOP-3337) | Name-node fails to start because DatanodeInfo format changed. |  Blocker | . | Konstantin Shvachko | Tsz Wo Nicholas Sze |
-| [HADOOP-3101](https://issues.apache.org/jira/browse/HADOOP-3101) | \'bin/hadoop job\' should display the help and silently exit |  Minor | . | Amar Kamat | Edward J. Yoon |
+| [HADOOP-3101](https://issues.apache.org/jira/browse/HADOOP-3101) | 'bin/hadoop job' should display the help and silently exit |  Minor | . | Amar Kamat | Edward J. Yoon |
 | [HADOOP-3119](https://issues.apache.org/jira/browse/HADOOP-3119) | Text.getBytes() |  Trivial | . | Andrew Gudkov | Tim Nelson |
 | [HADOOP-2294](https://issues.apache.org/jira/browse/HADOOP-2294) | In hdfs.h , the comment says you release the result of a hdfsListDirectory with a freehdfsFileInfo, but should say hdfsFreeFileInfo |  Trivial | . | Dick King | Craig Macdonald |
-| [HADOOP-3335](https://issues.apache.org/jira/browse/HADOOP-3335) | \'make clean\' in src/c++/libhdfs does \'rm -rf /\*\' |  Critical | build | Doug Cutting | Doug Cutting |
-| [HADOOP-2930](https://issues.apache.org/jira/browse/HADOOP-2930) | make {start,stop}-balancer.sh work even if hadoop-daemon.sh isn\'t in the PATH |  Trivial | scripts | Spiros Papadimitriou | Spiros Papadimitriou |
+| [HADOOP-3335](https://issues.apache.org/jira/browse/HADOOP-3335) | 'make clean' in src/c++/libhdfs does 'rm -rf /\*' |  Critical | build | Doug Cutting | Doug Cutting |
+| [HADOOP-2930](https://issues.apache.org/jira/browse/HADOOP-2930) | make {start,stop}-balancer.sh work even if hadoop-daemon.sh isn't in the PATH |  Trivial | scripts | Spiros Papadimitriou | Spiros Papadimitriou |
 | [HADOOP-3085](https://issues.apache.org/jira/browse/HADOOP-3085) | pushMetric() method of various metric util classes should catch exceptions |  Major | metrics | Runping Qi | Chris Douglas |
 | [HADOOP-3248](https://issues.apache.org/jira/browse/HADOOP-3248) | Improve Namenode startup performance |  Major | . | girish vaitheeswaran | dhruba borthakur |
 | [HADOOP-3299](https://issues.apache.org/jira/browse/HADOOP-3299) | org.apache.hadoop.mapred.join.CompositeInputFormat does not initialize  TextInput format files with the configuration resulting in an NullPointerException |  Major | io | Jason | Chris Douglas |
@@ -177,7 +177,7 @@
 | [HADOOP-3371](https://issues.apache.org/jira/browse/HADOOP-3371) | MBeanUtil dumps stacktrace from registerMBean |  Minor | metrics | Lohit Vijayarenu | Lohit Vijayarenu |
 | [HADOOP-3349](https://issues.apache.org/jira/browse/HADOOP-3349) | FSNamesystem.changeLease(src, dst) incorrectly updates the paths inside a lease |  Major | . | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HADOOP-3365](https://issues.apache.org/jira/browse/HADOOP-3365) | SequenceFile.Sorter.MergeQueue.next does an unnecessary copy of the key |  Major | io | Arun C Murthy | Devaraj Das |
-| [HADOOP-3203](https://issues.apache.org/jira/browse/HADOOP-3203) | TaskTracker::localizeJob doesn\'t provide the correct size to LocalDirAllocator |  Major | . | Chris Douglas | Amareshwari Sriramadasu |
+| [HADOOP-3203](https://issues.apache.org/jira/browse/HADOOP-3203) | TaskTracker::localizeJob doesn't provide the correct size to LocalDirAllocator |  Major | . | Chris Douglas | Amareshwari Sriramadasu |
 | [HADOOP-3388](https://issues.apache.org/jira/browse/HADOOP-3388) | TestDatanodeBlockScanner failed while trying to corrupt replicas |  Major | test | dhruba borthakur | dhruba borthakur |
 | [HADOOP-3393](https://issues.apache.org/jira/browse/HADOOP-3393) | TestHDFSServerPorts fails on LINUX (NFS mounted directory) and on WINDOWS |  Major | . | Lohit Vijayarenu | Lohit Vijayarenu |
 | [HADOOP-3391](https://issues.apache.org/jira/browse/HADOOP-3391) | HADOOP-3248 introduced a findbugs warning. |  Minor | . | Raghu Angadi | Raghu Angadi |
@@ -187,11 +187,11 @@
 | [HADOOP-3409](https://issues.apache.org/jira/browse/HADOOP-3409) | NameNode should save the root inode into fsimage |  Major | . | Hairong Kuang | Hairong Kuang |
 | [HADOOP-3296](https://issues.apache.org/jira/browse/HADOOP-3296) | Some levels are skipped while creating the task cache in JobInProgress |  Major | . | Amar Kamat | Amar Kamat |
 | [HADOOP-3375](https://issues.apache.org/jira/browse/HADOOP-3375) | Lease paths are sometimes not removed from LeaseManager.sortedLeasesByPath |  Blocker | . | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
-| [HADOOP-3424](https://issues.apache.org/jira/browse/HADOOP-3424) | the value returned from getPartition should be checked to make sure it is in the range 0..#reduces-1 |  Major | . | Owen O\'Malley | Chris Douglas |
+| [HADOOP-3424](https://issues.apache.org/jira/browse/HADOOP-3424) | the value returned from getPartition should be checked to make sure it is in the range 0..#reduces-1 |  Major | . | Owen O'Malley | Chris Douglas |
 | [HADOOP-3408](https://issues.apache.org/jira/browse/HADOOP-3408) | Change FSNamesytem status metrics to IntValue |  Major | metrics | Lohit Vijayarenu | Lohit Vijayarenu |
 | [HADOOP-3381](https://issues.apache.org/jira/browse/HADOOP-3381) | INode interlinks can multiply effect of memory leaks |  Major | . | Raghu Angadi | Raghu Angadi |
-| [HADOOP-3403](https://issues.apache.org/jira/browse/HADOOP-3403) | Job tracker\'s ExpireTackers thread gets NullPointerException if a tasktracker is lost. |  Blocker | . | Amareshwari Sriramadasu | Arun C Murthy |
-| [HADOOP-1318](https://issues.apache.org/jira/browse/HADOOP-1318) | Do not fail completed maps on lost tasktrackers if \'-reducer NONE\' is specified |  Minor | . | Arun C Murthy | Amareshwari Sriramadasu |
+| [HADOOP-3403](https://issues.apache.org/jira/browse/HADOOP-3403) | Job tracker's ExpireTackers thread gets NullPointerException if a tasktracker is lost. |  Blocker | . | Amareshwari Sriramadasu | Arun C Murthy |
+| [HADOOP-1318](https://issues.apache.org/jira/browse/HADOOP-1318) | Do not fail completed maps on lost tasktrackers if '-reducer NONE' is specified |  Minor | . | Arun C Murthy | Amareshwari Sriramadasu |
 | [HADOOP-3351](https://issues.apache.org/jira/browse/HADOOP-3351) | Fix history viewer |  Major | . | Amareshwari Sriramadasu | Amareshwari Sriramadasu |
 | [HADOOP-3419](https://issues.apache.org/jira/browse/HADOOP-3419) | TestFsck fails once in a while on WINDOWS/LINUX |  Major | . | Lohit Vijayarenu | Lohit Vijayarenu |
 | [HADOOP-3259](https://issues.apache.org/jira/browse/HADOOP-3259) | Configuration.substituteVars() needs to handle security exceptions |  Trivial | conf | Steve Loughran | Edward J. Yoon |
@@ -204,7 +204,7 @@
 | [HADOOP-3340](https://issues.apache.org/jira/browse/HADOOP-3340) | hadoop dfs metrics shows 0 |  Major | metrics | Eric Yang | Lohit Vijayarenu |
 | [HADOOP-3435](https://issues.apache.org/jira/browse/HADOOP-3435) | test-patch fail if sh != bash |  Major | . | Brice Arnould | Brice Arnould |
 | [HADOOP-3471](https://issues.apache.org/jira/browse/HADOOP-3471) | TestIndexedSort sometimes fails |  Major | test | Chris Douglas | Chris Douglas |
-| [HADOOP-3443](https://issues.apache.org/jira/browse/HADOOP-3443) | map outputs should not be renamed between partitions |  Critical | . | Owen O\'Malley | Owen O\'Malley |
+| [HADOOP-3443](https://issues.apache.org/jira/browse/HADOOP-3443) | map outputs should not be renamed between partitions |  Critical | . | Owen O'Malley | Owen O'Malley |
 | [HADOOP-3454](https://issues.apache.org/jira/browse/HADOOP-3454) | Text.find incorrectly searches beyond the end of the buffer |  Major | . | Chad Whipkey | Chad Whipkey |
 | [HADOOP-3376](https://issues.apache.org/jira/browse/HADOOP-3376) | [HOD] HOD should have a way to detect and deal with clusters that violate/exceed resource manager limits |  Major | contrib/hod | Vinod Kumar Vavilapalli | Vinod Kumar Vavilapalli |
 | [HADOOP-2132](https://issues.apache.org/jira/browse/HADOOP-2132) | Killing successfully completed jobs moves them to failed |  Critical | . | Srikanth Kakani | Jothi Padmanabhan |
@@ -214,7 +214,7 @@
 | [HADOOP-2095](https://issues.apache.org/jira/browse/HADOOP-2095) | Reducer failed due to Out ofMemory |  Major | . | Runping Qi | Arun C Murthy |
 | [HADOOP-2427](https://issues.apache.org/jira/browse/HADOOP-2427) | Cleanup of mapred.local.dir after maptask is complete |  Major | . | Lohit Vijayarenu | Amareshwari Sriramadasu |
 | [HADOOP-2565](https://issues.apache.org/jira/browse/HADOOP-2565) | DFSPath cache of FileStatus can become stale |  Major | . | Doug Cutting | Tsz Wo Nicholas Sze |
-| [HADOOP-3326](https://issues.apache.org/jira/browse/HADOOP-3326) | ReduceTask should not sleep for 200 ms while waiting for merge to finish |  Major | . | Owen O\'Malley | Sharad Agarwal |
+| [HADOOP-3326](https://issues.apache.org/jira/browse/HADOOP-3326) | ReduceTask should not sleep for 200 ms while waiting for merge to finish |  Major | . | Owen O'Malley | Sharad Agarwal |
 | [HADOOP-3493](https://issues.apache.org/jira/browse/HADOOP-3493) | TestStreamingFailure fails. |  Major | . | Amareshwari Sriramadasu | Lohit Vijayarenu |
 | [HADOOP-236](https://issues.apache.org/jira/browse/HADOOP-236) | job tracker should refuse connection from a task tracker with a different version number |  Major | . | Hairong Kuang | Sharad Agarwal |
 | [HADOOP-3453](https://issues.apache.org/jira/browse/HADOOP-3453) | ipc.Client.close() throws NullPointerException |  Major | ipc | Tsz Wo Nicholas Sze | Hairong Kuang |
@@ -222,15 +222,15 @@
 | [HADOOP-3240](https://issues.apache.org/jira/browse/HADOOP-3240) | TestJobShell should not create files in the current directory |  Blocker | test | Tsz Wo Nicholas Sze | Mahadev konar |
 | [HADOOP-3496](https://issues.apache.org/jira/browse/HADOOP-3496) | TestHarFileSystem.testArchives fails |  Blocker | fs | Amareshwari Sriramadasu | Tom White |
 | [HADOOP-2393](https://issues.apache.org/jira/browse/HADOOP-2393) | TaskTracker locks up removing job files within a synchronized method |  Critical | . | Joydeep Sen Sarma | Amareshwari Sriramadasu |
-| [HADOOP-3135](https://issues.apache.org/jira/browse/HADOOP-3135) | if the \'mapred.system.dir\' in the client jobconf is different from the JobTracker\'s value job submission fails |  Critical | . | Alejandro Abdelnur | Subru Krishnan |
+| [HADOOP-3135](https://issues.apache.org/jira/browse/HADOOP-3135) | if the 'mapred.system.dir' in the client jobconf is different from the JobTracker's value job submission fails |  Critical | . | Alejandro Abdelnur | Subru Krishnan |
 | [HADOOP-3503](https://issues.apache.org/jira/browse/HADOOP-3503) | Race condition when client and namenode start block recovery simultaneously |  Major | . | dhruba borthakur | dhruba borthakur |
-| [HADOOP-3440](https://issues.apache.org/jira/browse/HADOOP-3440) | TaskRunner creates a symlink with name \'null\' if a file is added to DistributedCache without fragment |  Minor | . | Abhijit Bagri | Devaraj Das |
-| [HADOOP-3413](https://issues.apache.org/jira/browse/HADOOP-3413) | SequenceFile.Reader doesn\'t use the Serialization framework |  Critical | io | Arun C Murthy | Tom White |
-| [HADOOP-3463](https://issues.apache.org/jira/browse/HADOOP-3463) | hadoop scripts don\'t change directory to hadoop\_home |  Critical | scripts | Owen O\'Malley | Owen O\'Malley |
+| [HADOOP-3440](https://issues.apache.org/jira/browse/HADOOP-3440) | TaskRunner creates a symlink with name 'null' if a file is added to DistributedCache without fragment |  Minor | . | Abhijit Bagri | Devaraj Das |
+| [HADOOP-3413](https://issues.apache.org/jira/browse/HADOOP-3413) | SequenceFile.Reader doesn't use the Serialization framework |  Critical | io | Arun C Murthy | Tom White |
+| [HADOOP-3463](https://issues.apache.org/jira/browse/HADOOP-3463) | hadoop scripts don't change directory to hadoop\_home |  Critical | scripts | Owen O'Malley | Owen O'Malley |
 | [HADOOP-3491](https://issues.apache.org/jira/browse/HADOOP-3491) | Name-node shutdown causes InterruptedException in ResolutionMonitor |  Major | . | Konstantin Shvachko | Lohit Vijayarenu |
 | [HADOOP-3509](https://issues.apache.org/jira/browse/HADOOP-3509) | FSNamesystem.close() throws NullPointerException |  Major | . | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HADOOP-3489](https://issues.apache.org/jira/browse/HADOOP-3489) | NPE in SafeModeMonitor |  Major | . | Konstantin Shvachko | Lohit Vijayarenu |
-| [HADOOP-3511](https://issues.apache.org/jira/browse/HADOOP-3511) | Namenode should not restore the root\'s quota if the quota was not in the image |  Blocker | . | Hairong Kuang | Hairong Kuang |
+| [HADOOP-3511](https://issues.apache.org/jira/browse/HADOOP-3511) | Namenode should not restore the root's quota if the quota was not in the image |  Blocker | . | Hairong Kuang | Hairong Kuang |
 | [HADOOP-3516](https://issues.apache.org/jira/browse/HADOOP-3516) | TestHarFileSystem.testArchives fails with NullPointerException |  Blocker | test | Nigel Daley | Subru Krishnan |
 | [HADOOP-3513](https://issues.apache.org/jira/browse/HADOOP-3513) | Improve NNThroughputBenchmark log messages. |  Major | test | Konstantin Shvachko | Konstantin Shvachko |
 | [HADOOP-3519](https://issues.apache.org/jira/browse/HADOOP-3519) | NPE in DFS FileSystem rename |  Blocker | . | Tom White | Hairong Kuang |
@@ -238,24 +238,24 @@
 | [HADOOP-3418](https://issues.apache.org/jira/browse/HADOOP-3418) | NameNode does not restart if parent directory of a "FileUnderConstruction" is deleted. |  Blocker | . | Raghu Angadi | Tsz Wo Nicholas Sze |
 | [HADOOP-3542](https://issues.apache.org/jira/browse/HADOOP-3542) | Hadoop archives should not create \_logs file in the final archive directory. |  Blocker | . | Mahadev konar | Mahadev konar |
 | [HADOOP-3544](https://issues.apache.org/jira/browse/HADOOP-3544) | The command "archive" is missing in the example in  docs/hadoop\_archives.html (and pdf) |  Blocker | documentation | Jothi Padmanabhan | Jothi Padmanabhan |
-| [HADOOP-3523](https://issues.apache.org/jira/browse/HADOOP-3523) | [HOD] If a job does not exist in Torque\'s list of jobs, HOD allocate on previously allocated directory fails. |  Blocker | contrib/hod | Hemanth Yamijala | Hemanth Yamijala |
+| [HADOOP-3523](https://issues.apache.org/jira/browse/HADOOP-3523) | [HOD] If a job does not exist in Torque's list of jobs, HOD allocate on previously allocated directory fails. |  Blocker | contrib/hod | Hemanth Yamijala | Hemanth Yamijala |
 | [HADOOP-3517](https://issues.apache.org/jira/browse/HADOOP-3517) | The last InMemory merge may be missed |  Blocker | . | Devaraj Das | Arun C Murthy |
-| [HADOOP-3548](https://issues.apache.org/jira/browse/HADOOP-3548) | The tools.jar is not included in the distribution |  Blocker | build | Owen O\'Malley | Owen O\'Malley |
+| [HADOOP-3548](https://issues.apache.org/jira/browse/HADOOP-3548) | The tools.jar is not included in the distribution |  Blocker | build | Owen O'Malley | Owen O'Malley |
 | [HADOOP-3363](https://issues.apache.org/jira/browse/HADOOP-3363) | HDFS throws a InconsistentFSStateException when the name node starts up on a directory that isnt formatted |  Blocker | . | Steve Loughran | Konstantin Shvachko |
 | [HADOOP-3560](https://issues.apache.org/jira/browse/HADOOP-3560) | Archvies sometimes create empty part files. |  Blocker | . | Mahadev konar | Mahadev konar |
 | [HADOOP-3545](https://issues.apache.org/jira/browse/HADOOP-3545) | archive  is failing with "Illegal Capacity" error |  Blocker | . | Jothi Padmanabhan | Mahadev konar |
-| [HADOOP-3561](https://issues.apache.org/jira/browse/HADOOP-3561) | With trash enabled, \'hadoop fs -rmr .\' still fully deletes the working dir |  Blocker | . | Chris Douglas | Chris Douglas |
+| [HADOOP-3561](https://issues.apache.org/jira/browse/HADOOP-3561) | With trash enabled, 'hadoop fs -rmr .' still fully deletes the working dir |  Blocker | . | Chris Douglas | Chris Douglas |
 | [HADOOP-3531](https://issues.apache.org/jira/browse/HADOOP-3531) | Hod does not  report job tracker failure on hod client side when job tracker fails to come up |  Blocker | contrib/hod | Karam Singh | Hemanth Yamijala |
 | [HADOOP-3575](https://issues.apache.org/jira/browse/HADOOP-3575) | clover target broken after src restructuring |  Minor | build | Nigel Daley | Nigel Daley |
 | [HADOOP-3539](https://issues.apache.org/jira/browse/HADOOP-3539) | Cygwin: cygpath displays an error message in running bin/hadoop script |  Blocker | scripts | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HADOOP-3564](https://issues.apache.org/jira/browse/HADOOP-3564) | Sometime after successful  hod allocation datanode fails to come up with java.net.BindException for dfs.datanode.ipc.address |  Blocker | contrib/hod | Karam Singh | Vinod Kumar Vavilapalli |
 | [HADOOP-3520](https://issues.apache.org/jira/browse/HADOOP-3520) | Generation stamp upgrade fails TestDFSUpgradeFromImage |  Blocker | . | Konstantin Shvachko | dhruba borthakur |
 | [HADOOP-3586](https://issues.apache.org/jira/browse/HADOOP-3586) | keep combiner backward compatible with earlier versions of hadoop |  Blocker | . | Olga Natkovich | Chris Douglas |
-| [HADOOP-3533](https://issues.apache.org/jira/browse/HADOOP-3533) | The api to JobTracker and TaskTracker have changed incompatibly |  Blocker | . | Owen O\'Malley | Owen O\'Malley |
+| [HADOOP-3533](https://issues.apache.org/jira/browse/HADOOP-3533) | The api to JobTracker and TaskTracker have changed incompatibly |  Blocker | . | Owen O'Malley | Owen O'Malley |
 | [HADOOP-3593](https://issues.apache.org/jira/browse/HADOOP-3593) | Update MapRed tutorial |  Blocker | documentation | Devaraj Das | Devaraj Das |
 | [HADOOP-3580](https://issues.apache.org/jira/browse/HADOOP-3580) | Using a har file as input for the Sort example fails |  Blocker | . | Jothi Padmanabhan | Mahadev konar |
 | [HADOOP-3333](https://issues.apache.org/jira/browse/HADOOP-3333) | job failing because of reassigning same tasktracker to failing tasks |  Blocker | . | Christian Kunz | Jothi Padmanabhan |
-| [HADOOP-3534](https://issues.apache.org/jira/browse/HADOOP-3534) | The namenode ignores ioexceptions in close |  Blocker | . | Owen O\'Malley | Tsz Wo Nicholas Sze |
+| [HADOOP-3534](https://issues.apache.org/jira/browse/HADOOP-3534) | The namenode ignores ioexceptions in close |  Blocker | . | Owen O'Malley | Tsz Wo Nicholas Sze |
 | [HADOOP-3546](https://issues.apache.org/jira/browse/HADOOP-3546) | TaskTracker re-initialization gets stuck in cleaning up |  Blocker | . | Amareshwari Sriramadasu | Amareshwari Sriramadasu |
 | [HADOOP-3320](https://issues.apache.org/jira/browse/HADOOP-3320) | NPE in NetworkTopology.getDistance() |  Blocker | . | Konstantin Shvachko | Hairong Kuang |
 | [HADOOP-3576](https://issues.apache.org/jira/browse/HADOOP-3576) | hadoop dfs -mv throws NullPointerException |  Blocker | . | Lohit Vijayarenu | Tsz Wo Nicholas Sze |
@@ -324,7 +324,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [HADOOP-2984](https://issues.apache.org/jira/browse/HADOOP-2984) | Distcp should have forrest documentation |  Blocker | util | Owen O\'Malley | Chris Douglas |
+| [HADOOP-2984](https://issues.apache.org/jira/browse/HADOOP-2984) | Distcp should have forrest documentation |  Blocker | util | Owen O'Malley | Chris Douglas |
 | [HADOOP-3541](https://issues.apache.org/jira/browse/HADOOP-3541) | Namespace recovery from the secondary image should be documented. |  Blocker | documentation | Konstantin Shvachko | Konstantin Shvachko |
 | [HADOOP-2632](https://issues.apache.org/jira/browse/HADOOP-2632) | Discussion of fsck operation in the permissions regime |  Major | . | Robert Chansler | Robert Chansler |
 

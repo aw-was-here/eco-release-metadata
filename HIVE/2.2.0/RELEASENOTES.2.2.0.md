@@ -140,4 +140,122 @@ beeline fetch logging delays before query completion (Tao Li, via Gopal V)
 With this change, Hive will only perform implicit conversion within each type groups including string group, number group or date group, not across groups. So in order to union a string type with a date type, a explicit cast from string to date or from date to string is needed.
 
 
+---
+
+* [HIVE-14358](https://issues.apache.org/jira/browse/HIVE-14358) | *Major* | **Add metrics for number of queries executed for each execution engine (mr, spark, tez)**
+
+Add metrics showing the number of queries ran for each execution engine.
+New values can be found on the metrics dump page of the webUI under the following properties :
+- hive\_mapred\_tasks
+- hive\_spark\_tasks
+- hive\_tez\_tasks
+
+
+---
+
+* [HIVE-14775](https://issues.apache.org/jira/browse/HIVE-14775) | *Major* | **Cleanup IOException usage in Metrics APIs**
+
+Refactored the public metrics API. Calls capturing metrics should log warnings instead of throwing IOExceptions.
+
+
+---
+
+* [HIVE-14872](https://issues.apache.org/jira/browse/HIVE-14872) | *Major* | **Remove the configuration HIVE\_SUPPORT\_SQL11\_RESERVED\_KEYWORDS**
+
+**WARNING: No release note provided for this change.**
+
+
+---
+
+* [HIVE-14950](https://issues.apache.org/jira/browse/HIVE-14950) | *Minor* | **Support integer data type**
+
+**WARNING: No release note provided for this change.**
+
+
+---
+
+* [HIVE-14837](https://issues.apache.org/jira/browse/HIVE-14837) | *Major* | **JDBC: standalone jar is missing hadoop core dependencies**
+
+JDBC: standalone jar is missing hadoop core dependencies (Tao Li, via Gopal V)
+
+
+---
+
+* [HIVE-15025](https://issues.apache.org/jira/browse/HIVE-15025) | *Major* | **Secure-Socket-Layer (SSL) support for HMS**
+
+The patch adds the following properties to hive configuration. 
+hive.metastore.use.SSL: to enable/disable SSL encryption for the communication between the client and HMS server.
+The following properties are used when hive.metastore.use.SSL is set to true.
+hive.metastore.keystore.path: the keystore file used by HMS server
+hive.metastore.keystore.password: the keystore file password
+hive.metastore.truststore.path: the truststore file used by HS2 server (acting as HMS client to connect to HMS server)
+hive.metastore.truststore.password: the truststore file password 
+
+SSL encryption is only used to encrypt the communication to HMS when no kerberos authentication is enabled for HMS. When SSL is enabled for HMS, HS2 (one of the HMS clients) uses hive.metastore.use.SSL flag to enable SSL on the client side. Other HMS clients are required to support SSL in non-kerberos mode in order to communicate with HMS.
+
+
+---
+
+* [HIVE-15123](https://issues.apache.org/jira/browse/HIVE-15123) | *Major* | **LLAP UI: The UI should work even if the cache is disabled**
+
+LLAP UI: The UI should work even if the cache is disabled (Gopal V, reviewed by Siddharth Seth)
+
+
+---
+
+* [HIVE-15060](https://issues.apache.org/jira/browse/HIVE-15060) | *Major* | **Remove the autoCommit warning from beeline**
+
+Beeline option for autoCommit has changed to true. 
+To turn autoCommit to false (does not work with Hive), use beeline --autoCommit=false
+
+
+---
+
+* [HIVE-13931](https://issues.apache.org/jira/browse/HIVE-13931) | *Major* | **Add support for HikariCP  connection pooling**
+
+This change adds support for hikaricp as connection pooling library. It can be set via datanucleus.connectionPoolingType in hive configuration.
+The version of hikaricp being used requires java8 runtime or later and should be enabled only when appropriate version of runtime is in use.
+
+
+---
+
+* [HIVE-15125](https://issues.apache.org/jira/browse/HIVE-15125) | *Major* | **LLAP: Parallelize slider package generator**
+
+ LLAP: Parallelize slider package generator (Gopal V, reviewed by Sergey Shelukhin)
+
+
+---
+
+* [HIVE-15196](https://issues.apache.org/jira/browse/HIVE-15196) | *Major* | **LLAP UI: HIVE-14984 broke LLAP UI**
+
+LLAP UI: HIVE-14984 broke LLAP UI (Barna Zsombor Klara via Gopal V)
+
+
+---
+
+* [HIVE-15420](https://issues.apache.org/jira/browse/HIVE-15420) | *Major* | **LLAP UI: Relativize resources to allow proxied/secured views**
+
+LLAP UI: Relativize resources to allow proxied/secured views (Gopal V, reviewed by Rajesh Balamohan)
+
+
+---
+
+* [HIVE-15331](https://issues.apache.org/jira/browse/HIVE-15331) | *Major* | **Decimal multiplication with high precision/scale often returns NULL**
+
+The resulting precision/scale of decimal arithmetic has been changed in the case where the precision/scale exceeds the maximum precision of 38.
+
+When reducing the precision/scale down to the Hive limit of 38, the new behavior is to reduce the scale to preserve the integer portion of the precision, while leaving a minimum of 6 digits for the scale.
+
+The previous behavior was to always shrink the integer portion of the precision first before the scale.
+
+
+---
+
+* [HIVE-15520](https://issues.apache.org/jira/browse/HIVE-15520) | *Major* | **Improve the sum performance for Range based window**
+
+This is to improve the performance of sum function over range based windowing. 
+
+One issue related to sum(lag(x)) over (partition by c1 order by c2 range between ...)  and sum(lead(x)) over (partition by c1 order by c2 range between ...) has been fixed which would produce different result. Without the patch, lag(x)/lead(x) would only consider the previous/next row in the windowing, not within the partition, which doesn't match other databases, also doesn't match rows based windowing.
+
+
 

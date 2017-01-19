@@ -195,6 +195,7 @@
 | [KAFKA-1653](https://issues.apache.org/jira/browse/KAFKA-1653) | Duplicate broker ids allowed in replica assignment |  Major | tools | Ryan Berdeen | Ewen Cheslack-Postava |
 | [KAFKA-1732](https://issues.apache.org/jira/browse/KAFKA-1732) | DumpLogSegments tool fails when path has a '.' |  Minor | tools | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-1647](https://issues.apache.org/jira/browse/KAFKA-1647) | Replication offset checkpoints (high water marks) can be lost on hard kills and restarts |  Critical | . | Joel Koshy | Jiangjie Qin |
+| [KAFKA-1733](https://issues.apache.org/jira/browse/KAFKA-1733) | Producer.send will block indeterminately when broker is unavailable. |  Major | core, producer | Marc Chung | Marc Chung |
 | [KAFKA-1738](https://issues.apache.org/jira/browse/KAFKA-1738) | Partitions for topic not created after restart from forced shutdown |  Blocker | core | Pradeep | Jun Rao |
 | [KAFKA-1742](https://issues.apache.org/jira/browse/KAFKA-1742) | ControllerContext removeTopic does not correctly update state |  Blocker | . | Onur Karaman | Onur Karaman |
 | [KAFKA-1764](https://issues.apache.org/jira/browse/KAFKA-1764) | ZookeeperConsumerConnector could put multiple shutdownCommand to the same data chunk queue. |  Major | . | Jiangjie Qin | Jiangjie Qin |
