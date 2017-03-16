@@ -123,7 +123,7 @@
 | [HIVE-9474](https://issues.apache.org/jira/browse/HIVE-9474) | truncate table changes permissions on the target |  Minor | Query Processor | Aihua Xu | Aihua Xu |
 | [HIVE-9489](https://issues.apache.org/jira/browse/HIVE-9489) | add javadoc for UDFType annotation |  Major | Documentation, UDF | Thejas M Nair | Thejas M Nair |
 | [HIVE-9482](https://issues.apache.org/jira/browse/HIVE-9482) | Hive parquet timestamp compatibility |  Major | File Formats | Szehon Ho | Szehon Ho |
-| [HIVE-9526](https://issues.apache.org/jira/browse/HIVE-9526) | ClassCastException thrown by HiveStatement |  Major | . | Ashish K Singh | Ashish K Singh |
+| [HIVE-9526](https://issues.apache.org/jira/browse/HIVE-9526) | ClassCastException thrown by HiveStatement |  Major | . | Ashish Singh | Ashish Singh |
 | [HIVE-9512](https://issues.apache.org/jira/browse/HIVE-9512) | HIVE-9327 causing regression in stats annotation |  Major | . | Prasanth Jayachandran | Jesus Camacho Rodriguez |
 | [HIVE-9539](https://issues.apache.org/jira/browse/HIVE-9539) | Wrong check of version format in TestWebHCatE2e.getHiveVersion() |  Minor | HCatalog | Damien Carol | Damien Carol |
 | [HIVE-9303](https://issues.apache.org/jira/browse/HIVE-9303) | Parquet files are written with incorrect definition levels |  Major | . | Skye Wanderman-Milne | Sergio Peña |
@@ -136,7 +136,7 @@
 | [HIVE-6099](https://issues.apache.org/jira/browse/HIVE-6099) | Multi insert does not work properly with distinct count |  Major | Query Processor | Pavan Gadam Manohar | Ashutosh Chauhan |
 | [HIVE-9567](https://issues.apache.org/jira/browse/HIVE-9567) | JSON SerDe not escaping special chars when writing char/varchar data |  Major | Serializers/Deserializers | Jason Dere | Jason Dere |
 | [HIVE-9496](https://issues.apache.org/jira/browse/HIVE-9496) | Slf4j warning in hive command |  Minor | CLI | Philippe Kernevez | Alexander Pivovarov |
-| [HIVE-9438](https://issues.apache.org/jira/browse/HIVE-9438) | The standalone-jdbc jar missing some jars |  Blocker | . | Ashish K Singh | Brock Noland |
+| [HIVE-9438](https://issues.apache.org/jira/browse/HIVE-9438) | The standalone-jdbc jar missing some jars |  Blocker | . | Ashish Singh | Brock Noland |
 | [HIVE-9560](https://issues.apache.org/jira/browse/HIVE-9560) | When hive.stats.collect.rawdatasize=true, 'rawDataSize' for an ORC table will result in value '0' after running 'analyze table TABLE\_NAME compute statistics;' |  Major | . | Xin Hao | Prasanth Jayachandran |
 | [HIVE-9002](https://issues.apache.org/jira/browse/HIVE-9002) | union all does not generate correct result for order by and limit |  Major | . | Pengcheng Xiong | Pengcheng Xiong |
 | [HIVE-9587](https://issues.apache.org/jira/browse/HIVE-9587) | UDF decode should accept STRING\_GROUP types for the second parameter |  Major | UDF | Alexander Pivovarov | Alexander Pivovarov |

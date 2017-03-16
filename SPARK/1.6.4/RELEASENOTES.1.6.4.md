@@ -21,4 +21,17 @@
 These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
 
 
+---
+
+* [SPARK-16845](https://issues.apache.org/jira/browse/SPARK-16845) | *Major* | **org.apache.spark.sql.catalyst.expressions.GeneratedClass$SpecificOrdering" grows beyond 64 KB**
+
+I have a wide table(400 columns), when I try fitting the traindata on all columns,  the fatal error occurs. 
+
+
+	... 46 more
+Caused by: org.codehaus.janino.JaninoRuntimeException: Code of method "(Lorg/apache/spark/sql/catalyst/InternalRow;Lorg/apache/spark/sql/catalyst/InternalRow;)I" of class "org.apache.spark.sql.catalyst.expressions.GeneratedClass$SpecificOrdering" grows beyond 64 KB
+	at org.codehaus.janino.CodeContext.makeSpace(CodeContext.java:941)
+	at org.codehaus.janino.CodeContext.write(CodeContext.java:854)
+
+
 

@@ -29,7 +29,7 @@
 | [KAFKA-3747](https://issues.apache.org/jira/browse/KAFKA-3747) | Close \`RecordBatch.records\` when append to batch fails |  Major | . | Ismael Juma | Ismael Juma |
 | [KAFKA-3683](https://issues.apache.org/jira/browse/KAFKA-3683) | Add file descriptor recommendation to ops guide |  Trivial | website | Dustin Cote | Dustin Cote |
 | [KAFKA-3785](https://issues.apache.org/jira/browse/KAFKA-3785) | Fetcher spending unnecessary time during metrics recording |  Major | consumer | Greg Fodor | Greg Fodor |
-| [KAFKA-3699](https://issues.apache.org/jira/browse/KAFKA-3699) | Update protocol page on website to explain how KIP-35 should be used |  Major | . | Ismael Juma | Ashish K Singh |
+| [KAFKA-3699](https://issues.apache.org/jira/browse/KAFKA-3699) | Update protocol page on website to explain how KIP-35 should be used |  Major | . | Ismael Juma | Ashish Singh |
 | [KAFKA-3880](https://issues.apache.org/jira/browse/KAFKA-3880) | Disallow Join Windows with size zero |  Minor | streams | Matthias J. Sax | Matthias J. Sax |
 | [KAFKA-3836](https://issues.apache.org/jira/browse/KAFKA-3836) | RocksDBStore.get() should not pass nulls to Deserializers |  Trivial | streams | Avi Flax | Jeyhun Karimov |
 | [KAFKA-3725](https://issues.apache.org/jira/browse/KAFKA-3725) | Update documentation with regards to XFS |  Major | . | Ismael Juma | Todd Palino |
@@ -71,12 +71,12 @@
 | [KAFKA-3935](https://issues.apache.org/jira/browse/KAFKA-3935) | ConnectDistributedTest.test\_restart\_failed\_task.connector\_type=sink system test failing |  Major | KafkaConnect | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-3500](https://issues.apache.org/jira/browse/KAFKA-3500) | KafkaOffsetBackingStore set method needs to handle null |  Blocker | KafkaConnect | Liquan Pei | Ewen Cheslack-Postava |
 | [KAFKA-3996](https://issues.apache.org/jira/browse/KAFKA-3996) | ByteBufferMessageSet.writeTo() should be non-blocking |  Blocker | . | Jun Rao | Ismael Juma |
-| [KAFKA-3924](https://issues.apache.org/jira/browse/KAFKA-3924) | Data loss due to halting when LEO is larger than leader's LEO |  Major | core | Maysam Yabandeh |  |
+| [KAFKA-3924](https://issues.apache.org/jira/browse/KAFKA-3924) | Data loss due to halting when LEO is larger than leader's LEO |  Major | core | Maysam Yabandeh | Maysam Yabandeh |
 | [KAFKA-3185](https://issues.apache.org/jira/browse/KAFKA-3185) | Allow users to cleanup internal data |  Blocker | streams | Guozhang Wang | Matthias J. Sax |
 | [KAFKA-3851](https://issues.apache.org/jira/browse/KAFKA-3851) | Add references to important installation/upgrade notes to release notes |  Blocker | . | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-3977](https://issues.apache.org/jira/browse/KAFKA-3977) | KafkaConsumer swallows exceptions raised from message deserializers |  Blocker | consumer | Jason Gustafson | Jason Gustafson |
 | [KAFKA-3852](https://issues.apache.org/jira/browse/KAFKA-3852) | Clarify how to handle message format upgrade without killing performance |  Blocker | . | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
-| [KAFKA-3950](https://issues.apache.org/jira/browse/KAFKA-3950) | kafka mirror maker tool is not respecting whitelist option |  Critical | . | Raghav Kumar Gautam | Manikumar Reddy |
+| [KAFKA-3950](https://issues.apache.org/jira/browse/KAFKA-3950) | kafka mirror maker tool is not respecting whitelist option |  Critical | . | Raghav Kumar Gautam | Manikumar |
 | [KAFKA-4008](https://issues.apache.org/jira/browse/KAFKA-4008) | Module "tools" should not be dependent on "core" |  Blocker | core, tools | Matthias J. Sax | Matthias J. Sax |
 | [KAFKA-4018](https://issues.apache.org/jira/browse/KAFKA-4018) | Streams causing older slf4j-log4j library to be packaged along with newer version |  Major | . | Ismael Juma | Ismael Juma |
 

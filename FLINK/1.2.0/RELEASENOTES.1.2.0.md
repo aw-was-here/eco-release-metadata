@@ -21,4 +21,22 @@
 These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
 
 
+---
+
+* [FLINK-5221](https://issues.apache.org/jira/browse/FLINK-5221) | *Major* | **Checkpointed workless in Window Operator**
+
+When window OPERATOR making checkpoint like this:
+
+class WindowStatistic extends WindowFunction[Event, Int, Tuple, TimeWindow] with Checkpointed[Option[List[Event]]] {
+    override def appley().... 
+
+    override def snapshotState()...
+
+    override def restoreState()
+
+}
+
+Window Operator couldn't invoke user defined function "snapshotState()". In debug model, line 123 in AbstractUdfStreamOperator.java returns false and can't make user defined state when checking the window whether is a Checkpointed instance. I think there is something wrong in userFunction var, it's a ScalaWindowFunctionWrapper object and it couldn't reflect if the user defined window extend Checkpointed Interface. Actually, the user defined window is kept in "func" var of userFunction.
+
+
 

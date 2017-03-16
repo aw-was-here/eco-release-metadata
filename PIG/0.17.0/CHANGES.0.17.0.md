@@ -18,7 +18,7 @@
 -->
 # Apache Pig Changelog
 
-## Release 0.17.0 - Unreleased (as of 2017-01-19)
+## Release 0.17.0 - Unreleased (as of 2017-03-16)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -28,6 +28,7 @@
 | [PIG-4923](https://issues.apache.org/jira/browse/PIG-4923) | Drop Hadoop 1.x support in Pig 0.17 |  Major | . | Daniel Dai | Adam Szita |
 | [PIG-4897](https://issues.apache.org/jira/browse/PIG-4897) | Scope of param substitution for run/exec commands |  Major | . | Koji Noguchi | Koji Noguchi |
 | [PIG-4728](https://issues.apache.org/jira/browse/PIG-4728) | Compilation against hbase 1.x fails with hbase-hadoop1-compat not found |  Major | . | Ted Yu | Adam Szita |
+| [PIG-5085](https://issues.apache.org/jira/browse/PIG-5085) | Support FLATTEN of maps |  Major | . | Rohini Palaniswamy | Adam Szita |
 
 
 ### NEW FEATURES:
@@ -35,6 +36,8 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [PIG-4925](https://issues.apache.org/jira/browse/PIG-4925) | Support for passing the bloom filter to the Bloom UDF |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
+| [PIG-4963](https://issues.apache.org/jira/browse/PIG-4963) | Add a Bloom join |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
+| [PIG-5110](https://issues.apache.org/jira/browse/PIG-5110) | Removing schema alias and :: coming from parent relation |  Major | . | Adam Szita | Adam Szita |
 
 
 ### IMPROVEMENTS:
@@ -61,6 +64,10 @@
 | [PIG-5025](https://issues.apache.org/jira/browse/PIG-5025) | Fix flaky test failures in TestLoad.java |  Minor | . | Adam Szita | Adam Szita |
 | [PIG-4901](https://issues.apache.org/jira/browse/PIG-4901) | To use Multistorage for each Group |  Minor | piggybank | Divya | Adam Szita |
 | [PIG-3938](https://issues.apache.org/jira/browse/PIG-3938) | Add LoadCaster to EvalFunc(UDF) |  Major | internal-udfs | Hongchang Li | Koji Noguchi |
+| [PIG-3851](https://issues.apache.org/jira/browse/PIG-3851) | Upgrade jline to 2.11 |  Major | . | Jun Wang | Daniel Dai |
+| [PIG-5120](https://issues.apache.org/jira/browse/PIG-5120) | Let tez\_local mode run without a jar file |  Trivial | . | Koji Noguchi | Koji Noguchi |
+| [PIG-5126](https://issues.apache.org/jira/browse/PIG-5126) | Add doc about pig in zeppelin |  Major | . | Jeff Zhang | Jeff Zhang |
+| [PIG-5175](https://issues.apache.org/jira/browse/PIG-5175) | Upgrade jruby to 1.7.26 |  Major | . | Daniel Dai | Daniel Dai |
 
 
 ### BUG FIXES:
@@ -122,8 +129,19 @@
 | [PIG-4918](https://issues.apache.org/jira/browse/PIG-4918) | Pig on Tez cannot switch pig.temp.dir to another fs |  Major | . | Daniel Dai | Daniel Dai |
 | [PIG-5083](https://issues.apache.org/jira/browse/PIG-5083) | CombinerPackager and LitePackager should not materialize bags |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-4260](https://issues.apache.org/jira/browse/PIG-4260) | SpillableMemoryManager.spill should revert spill on all exception |  Major | impl | Daniel Dai | Rohini Palaniswamy |
-| [PIG-5108](https://issues.apache.org/jira/browse/PIG-5108) | AvroStorage on Tez with exception on nested records |  Major | tez | Sebastian Geller | Daniel Dai |
 | [PIG-5046](https://issues.apache.org/jira/browse/PIG-5046) | Skewed join with auto parallelism hangs when right input also has autoparallelism |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
+| [PIG-5108](https://issues.apache.org/jira/browse/PIG-5108) | AvroStorage on Tez with exception on nested records |  Major | tez | Sebastian Geller | Daniel Dai |
+| [PIG-5112](https://issues.apache.org/jira/browse/PIG-5112) | Cleanup pig-template.xml |  Major | build | Daniel Dai | Daniel Dai |
+| [PIG-5111](https://issues.apache.org/jira/browse/PIG-5111) | e2e Utf8Test fails in local mode |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
+| [PIG-5118](https://issues.apache.org/jira/browse/PIG-5118) | Script fails with Invalid dag containing 0 vertices |  Major | tez | Rohini Palaniswamy | Rohini Palaniswamy |
+| [PIG-5119](https://issues.apache.org/jira/browse/PIG-5119) | SkewedJoin\_15 is unstable |  Major | . | Daniel Dai | Daniel Dai |
+| [PIG-5127](https://issues.apache.org/jira/browse/PIG-5127) | Test fail when running test-core-mrtez |  Major | . | Daniel Dai | Daniel Dai |
+| [PIG-4953](https://issues.apache.org/jira/browse/PIG-4953) | Predicate push-down will not run filters for single unary expressions |  Major | impl | Ryan Blue | Ryan Blue |
+| [PIG-5159](https://issues.apache.org/jira/browse/PIG-5159) | Fix Pig not saving grunt history |  Major | . | Adam Szita | Adam Szita |
+| [PIG-5173](https://issues.apache.org/jira/browse/PIG-5173) | Script with multiple splits fails with Invalid dag containing 0 vertices |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
+| [PIG-5156](https://issues.apache.org/jira/browse/PIG-5156) | Duplicate jars in CLASSPATH when running test |  Major | . | Daniel Dai | Daniel Dai |
+| [PIG-5182](https://issues.apache.org/jira/browse/PIG-5182) | ant docs target is broken by PIG-5110 |  Major | documentation | Daniel Dai | Daniel Dai |
+| [PIG-5183](https://issues.apache.org/jira/browse/PIG-5183) | We shall mention NATIVE instead of MAPREDUCE operator in document |  Major | . | Daniel Dai | Daniel Dai |
 
 
 ### TESTS:

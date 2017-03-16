@@ -968,6 +968,7 @@
 | [SPARK-8430](https://issues.apache.org/jira/browse/SPARK-8430) | ExternalShuffleBlockResolver should support UnsafeShuffleManager |  Critical | Shuffle | Lianhui Wang | Lianhui Wang |
 | [SPARK-8119](https://issues.apache.org/jira/browse/SPARK-8119) | HeartbeatReceiver should not adjust application executor resources |  Critical | Spark Core | carlmartin | Andrew Or |
 | [SPARK-6416](https://issues.apache.org/jira/browse/SPARK-6416) | Document that RDD.fold() requires the operator to be commutative |  Minor | Documentation, Spark Core | Josh Rosen | Sean Owen |
+| [SPARK-8273](https://issues.apache.org/jira/browse/SPARK-8273) | Driver hangs up when yarn shutdown in client mode |  Major | Spark Core, YARN | Tao Wang | Tao Wang |
 
 
 ### TESTS:

@@ -54,7 +54,7 @@
 | [KAFKA-1291](https://issues.apache.org/jira/browse/KAFKA-1291) | Make wrapper shell scripts for important tools |  Major | . | Jay Kreps |  |
 | [KAFKA-1513](https://issues.apache.org/jira/browse/KAFKA-1513) | Cleanup KafkaServerStartable code |  Minor | core | Evgeny Vereshchagin | Evgeny Vereshchagin |
 | [KAFKA-1519](https://issues.apache.org/jira/browse/KAFKA-1519) | Console consumer: expose configuration option to enable/disable writing the line separator |  Minor | consumer | Michael Noll | Gwen Shapira |
-| [KAFKA-1325](https://issues.apache.org/jira/browse/KAFKA-1325) | Fix inconsistent per topic log configs |  Major | log | Neha Narkhede | Manikumar Reddy |
+| [KAFKA-1325](https://issues.apache.org/jira/browse/KAFKA-1325) | Fix inconsistent per topic log configs |  Major | log | Neha Narkhede | Manikumar |
 | [KAFKA-1535](https://issues.apache.org/jira/browse/KAFKA-1535) | return all live brokers in TopicMetadataResponse |  Major | core | Jun Rao | nicu marasoiu |
 | [KAFKA-1483](https://issues.apache.org/jira/browse/KAFKA-1483) | Split Brain about Leader Partitions |  Major | . | Guozhang Wang | Sriharsha Chintalapani |
 | [KAFKA-1414](https://issues.apache.org/jira/browse/KAFKA-1414) | Speedup broker startup after hard reset |  Major | log | Dmitry Bugaychenko | Anton Karamanov |
@@ -141,16 +141,16 @@
 | [KAFKA-1406](https://issues.apache.org/jira/browse/KAFKA-1406) | Fix scaladoc/javadoc warnings |  Major | packaging | Joel Koshy | Alan Lee |
 | [KAFKA-1067](https://issues.apache.org/jira/browse/KAFKA-1067) | the default partitioner should be randomizing messages and a new partition for the meta refresh requirements created |  Major | . | Joe Stein |  |
 | [KAFKA-1026](https://issues.apache.org/jira/browse/KAFKA-1026) | Dynamically Adjust Batch Size Upon Receiving MessageSizeTooLargeException |  Major | . | Guozhang Wang | Guozhang Wang |
-| [KAFKA-1258](https://issues.apache.org/jira/browse/KAFKA-1258) | Delete temporary data directory after unit test finishes |  Major | . | Guozhang Wang | Manikumar Reddy |
+| [KAFKA-1258](https://issues.apache.org/jira/browse/KAFKA-1258) | Delete temporary data directory after unit test finishes |  Major | . | Guozhang Wang | Manikumar |
 | [KAFKA-1529](https://issues.apache.org/jira/browse/KAFKA-1529) | transient unit test failure in testAutoCreateAfterDeleteTopic |  Major | core | Jun Rao | Jun Rao |
-| [KAFKA-1531](https://issues.apache.org/jira/browse/KAFKA-1531) | zookeeper.connection.timeout.ms is set to 10000000 in configuration file in Kafka tarball |  Major | config | Michał Michalski | Manikumar Reddy |
+| [KAFKA-1531](https://issues.apache.org/jira/browse/KAFKA-1531) | zookeeper.connection.timeout.ms is set to 10000000 in configuration file in Kafka tarball |  Major | config | Michał Michalski | Manikumar |
 | [KAFKA-1180](https://issues.apache.org/jira/browse/KAFKA-1180) | WhiteList topic filter gets a NullPointerException on complex Regex |  Major | consumer | Jason Rosenberg | Joe Stein |
 | [KAFKA-1539](https://issues.apache.org/jira/browse/KAFKA-1539) | Due to OS caching Kafka might loose offset files which causes full reset of data |  Major | log | Dmitry Bugaychenko | Jay Kreps |
-| [KAFKA-1192](https://issues.apache.org/jira/browse/KAFKA-1192) | Enable DumpLogSegments tool to deserialize messages |  Major | tools | Guozhang Wang | Manikumar Reddy |
-| [KAFKA-1544](https://issues.apache.org/jira/browse/KAFKA-1544) | LogCleaner may take a long time to shutdown |  Major | core | Jun Rao | Manikumar Reddy |
+| [KAFKA-1192](https://issues.apache.org/jira/browse/KAFKA-1192) | Enable DumpLogSegments tool to deserialize messages |  Major | tools | Guozhang Wang | Manikumar |
+| [KAFKA-1544](https://issues.apache.org/jira/browse/KAFKA-1544) | LogCleaner may take a long time to shutdown |  Major | core | Jun Rao | Manikumar |
 | [KAFKA-1549](https://issues.apache.org/jira/browse/KAFKA-1549) | dead brokers coming in the TopicMetadataResponse |  Major | . | nicu marasoiu | nicu marasoiu |
 | [KAFKA-1542](https://issues.apache.org/jira/browse/KAFKA-1542) | normal IOException in the new producer is logged as ERROR |  Major | . | Jun Rao | David Corley |
-| [KAFKA-1451](https://issues.apache.org/jira/browse/KAFKA-1451) | Broker stuck due to leader election race |  Minor | core | Maciek Makowski | Manikumar Reddy |
+| [KAFKA-1451](https://issues.apache.org/jira/browse/KAFKA-1451) | Broker stuck due to leader election race |  Minor | core | Maciek Makowski | Manikumar |
 | [KAFKA-1562](https://issues.apache.org/jira/browse/KAFKA-1562) | kafka-topics.sh alter add partitions resets cleanup.policy |  Major | . | Kenny | Jonathan Natkins |
 | [KAFKA-1571](https://issues.apache.org/jira/browse/KAFKA-1571) | MetadataeTest hangs |  Major | core | Jun Rao | Jun Rao |
 | [KAFKA-1578](https://issues.apache.org/jira/browse/KAFKA-1578) | Controller should de-register all listeners upon designation |  Major | . | Guozhang Wang | Guozhang Wang |
@@ -201,11 +201,11 @@
 | [KAFKA-1764](https://issues.apache.org/jira/browse/KAFKA-1764) | ZookeeperConsumerConnector could put multiple shutdownCommand to the same data chunk queue. |  Major | . | Jiangjie Qin | Jiangjie Qin |
 | [KAFKA-1721](https://issues.apache.org/jira/browse/KAFKA-1721) | Snappy compressor is not thread safe |  Major | compression | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-1766](https://issues.apache.org/jira/browse/KAFKA-1766) | Ecosystem docs subsection has wrong anchor |  Minor | . | Kirill Zaborsky |  |
-| [KAFKA-1743](https://issues.apache.org/jira/browse/KAFKA-1743) | ConsumerConnector.commitOffsets in 0.8.2 is not backward compatible |  Blocker | core | Jun Rao | Manikumar Reddy |
+| [KAFKA-1743](https://issues.apache.org/jira/browse/KAFKA-1743) | ConsumerConnector.commitOffsets in 0.8.2 is not backward compatible |  Blocker | core | Jun Rao | Manikumar |
 | [KAFKA-1481](https://issues.apache.org/jira/browse/KAFKA-1481) | Stop using dashes AND underscores as separators in MBean names |  Critical | core | Otis Gospodnetic | Vladimir Tretyakov |
 | [KAFKA-1624](https://issues.apache.org/jira/browse/KAFKA-1624) | bump up default scala version to 2.10.4 to compile with java 8 |  Major | . | Joe Stein | Guozhang Wang |
 | [KAFKA-1580](https://issues.apache.org/jira/browse/KAFKA-1580) | Reject producer requests to internal topics |  Critical | core | Joel Koshy | Guozhang Wang |
-| [KAFKA-1799](https://issues.apache.org/jira/browse/KAFKA-1799) | ProducerConfig.METRIC\_REPORTER\_CLASSES\_CONFIG doesn't work |  Blocker | . | Jun Rao | Manikumar Reddy |
+| [KAFKA-1799](https://issues.apache.org/jira/browse/KAFKA-1799) | ProducerConfig.METRIC\_REPORTER\_CLASSES\_CONFIG doesn't work |  Blocker | . | Jun Rao | Manikumar |
 | [KAFKA-1806](https://issues.apache.org/jira/browse/KAFKA-1806) | broker fetch request uses old leader offset which is higher than current leader offset causes error |  Blocker | consumer | lokesh Birla | Neha Narkhede |
 | [KAFKA-1642](https://issues.apache.org/jira/browse/KAFKA-1642) | [Java New Producer Kafka Trunk] CPU Usage Spike to 100% when network connection is lost |  Blocker | producer | Bhavesh Mistry | Ewen Cheslack-Postava |
 | [KAFKA-1851](https://issues.apache.org/jira/browse/KAFKA-1851) | OffsetFetchRequest returns extra partitions when input only contains unknown partitions |  Blocker | core | Jun Rao | Jun Rao |
@@ -214,7 +214,7 @@
 | [KAFKA-1868](https://issues.apache.org/jira/browse/KAFKA-1868) | ConsoleConsumer shouldn't override dual.commit.enabled to false if not explicitly set |  Blocker | . | Jun Rao | Jun Rao |
 | [KAFKA-1870](https://issues.apache.org/jira/browse/KAFKA-1870) | Cannot commit with simpleConsumer on Zookeeper only with Java API |  Blocker | consumer | Thomas Vandevelde | Jun Rao |
 | [KAFKA-1864](https://issues.apache.org/jira/browse/KAFKA-1864) | Revisit defaults for the internal offsets topic |  Blocker | . | Neha Narkhede | Jun Rao |
-| [KAFKA-1761](https://issues.apache.org/jira/browse/KAFKA-1761) | num.partitions 	documented default is 1 while actual default is 2 |  Minor | log | Stevo Slavic | Manikumar Reddy |
+| [KAFKA-1761](https://issues.apache.org/jira/browse/KAFKA-1761) | num.partitions 	documented default is 1 while actual default is 2 |  Minor | log | Stevo Slavic | Manikumar |
 | [KAFKA-1876](https://issues.apache.org/jira/browse/KAFKA-1876) | pom file for scala 2.11 should reference a specific version |  Blocker | . | Jun Rao | Jun Rao |
 | [KAFKA-1873](https://issues.apache.org/jira/browse/KAFKA-1873) | scalatest\_2.10-1.9.1.jar of core build path is cross-compiled with an incompatible version of Scala (2.10.0) |  Minor | core | Sree Vaddi |  |
 | [KAFKA-1874](https://issues.apache.org/jira/browse/KAFKA-1874) | missing import util.parsing.json.JSON |  Major | core | Sree Vaddi |  |
@@ -223,7 +223,7 @@
 | [KAFKA-1045](https://issues.apache.org/jira/browse/KAFKA-1045) | producer zk.connect config |  Major | . | shijinkui |  |
 | [KAFKA-1235](https://issues.apache.org/jira/browse/KAFKA-1235) | Enable server to indefinitely retry on controlled shutdown |  Major | . | Guozhang Wang | Guozhang Wang |
 | [KAFKA-1902](https://issues.apache.org/jira/browse/KAFKA-1902) | fix MetricName so that Yammer reporter can work correctly |  Blocker | core | Jun Rao | Jun Rao |
-| [KAFKA-1861](https://issues.apache.org/jira/browse/KAFKA-1861) | Publishing kafka-client:test in order to utilize the helper utils in TestUtils |  Major | . | Navina Ramesh | Manikumar Reddy |
+| [KAFKA-1861](https://issues.apache.org/jira/browse/KAFKA-1861) | Publishing kafka-client:test in order to utilize the helper utils in TestUtils |  Major | . | Navina Ramesh | Manikumar |
 | [KAFKA-1423](https://issues.apache.org/jira/browse/KAFKA-1423) | Updating partition count clears topic configuration and any further alters done to a topics config do not stick |  Major | . | Nathan Brown |  |
 | [KAFKA-1072](https://issues.apache.org/jira/browse/KAFKA-1072) | Allow mulitple topics selected with a TopicFilter to be balanced among consumers |  Major | . | Jason Rosenberg |  |
 | [KAFKA-1400](https://issues.apache.org/jira/browse/KAFKA-1400) | transient unit test failure in SocketServerTest |  Major | core | Jun Rao | Jun Rao |
@@ -254,9 +254,10 @@
 | [KAFKA-784](https://issues.apache.org/jira/browse/KAFKA-784) | creating topic without partitions, deleting then creating with partition causes errors in 'kafka-list-topic' |  Minor | core | Chris Curtin | Swapnil Ghike |
 | [KAFKA-1471](https://issues.apache.org/jira/browse/KAFKA-1471) | Add Producer Unit Tests for LZ4 and LZ4HC compression |  Major | . | James Oliver | Ewen Cheslack-Postava |
 | [KAFKA-1731](https://issues.apache.org/jira/browse/KAFKA-1731) | add config/jmx changes in 0.8.2 doc |  Blocker | . | Jun Rao | Jun Rao |
-| [KAFKA-1723](https://issues.apache.org/jira/browse/KAFKA-1723) | make the metrics name in new producer more standard |  Blocker | clients | Jun Rao | Manikumar Reddy |
+| [KAFKA-1723](https://issues.apache.org/jira/browse/KAFKA-1723) | make the metrics name in new producer more standard |  Blocker | clients | Jun Rao | Manikumar |
 | [KAFKA-1337](https://issues.apache.org/jira/browse/KAFKA-1337) | Rationalize new producer configs |  Major | producer | Jay Kreps | Jay Kreps |
-| [KAFKA-1730](https://issues.apache.org/jira/browse/KAFKA-1730) | add the doc for the new java producer in 0.8.2 |  Blocker | . | Jun Rao | Manikumar Reddy |
+| [KAFKA-1730](https://issues.apache.org/jira/browse/KAFKA-1730) | add the doc for the new java producer in 0.8.2 |  Blocker | . | Jun Rao | Manikumar |
+| [KAFKA-1729](https://issues.apache.org/jira/browse/KAFKA-1729) | add doc for Kafka-based offset management in 0.8.2 |  Major | . | Jun Rao | Joel Koshy |
 
 
 ### OTHER:

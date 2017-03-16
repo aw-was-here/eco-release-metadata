@@ -61,14 +61,4 @@ If an EOF is detected due to parsing or other errors while there are still unpar
 Fixed a bug in sequenceId tracking for the WALs that caused WAL files to accumulate without being deleted due to a rare race condition.
 
 
----
-
-* [HBASE-16765](https://issues.apache.org/jira/browse/HBASE-16765) | *Critical* | **New SteppingRegionSplitPolicy, avoid too aggressive spread of regions for small tables.**
-
-Introduces a new split policy: SteppingSplitPolicy
-This will use a simple step function to split a region at (by default) 2  xflushSize when no other region of the same table is seen on the region server, or max-file-size when one or more other regions of the same table is seen.
-
-In HBase 2.0 this is going to be the default. In previous versions it can be configured.
-
-
 

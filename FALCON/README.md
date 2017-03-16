@@ -19,6 +19,9 @@
 * Apache Falcon v1.0
     * [Changes](1.0/CHANGES.1.0.md)
     * [Release Notes](1.0/RELEASENOTES.1.0.md)
+* Apache Falcon v0.11
+    * [Changes](0.11/CHANGES.0.11.md)
+    * [Release Notes](0.11/RELEASENOTES.0.11.md)
 * Apache Falcon v0.10
     * [Changes](0.10/CHANGES.0.10.md)
     * [Release Notes](0.10/RELEASENOTES.0.10.md)

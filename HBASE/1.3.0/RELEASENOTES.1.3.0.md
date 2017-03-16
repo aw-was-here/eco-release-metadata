@@ -1482,6 +1482,13 @@ In HBase 2.0 this is going to be the default. In previous versions it can be con
 
 ---
 
+* [HBASE-16972](https://issues.apache.org/jira/browse/HBASE-16972) | *Major* | **Log more details for Scan#next request when responseTooSlow**
+
+**WARNING: No release note provided for this change.**
+
+
+---
+
 * [HBASE-17017](https://issues.apache.org/jira/browse/HBASE-17017) | *Major* | **Remove the current per-region latency histogram metrics**
 
 Removes per-region level (get size, get time, scan size and scan time histogram) metrics that was exposed before. Per-region histogram metrics with 1000+ regions causes millions of objects to be allocated on heap. The patch introduces getCount and scanCount as counters rather than histograms. Other per-region level metrics are kept as they are.

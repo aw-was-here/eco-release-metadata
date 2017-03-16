@@ -40,6 +40,13 @@ In HBase 2.0 this is going to be the default. In previous versions it can be con
 
 ---
 
+* [HBASE-16972](https://issues.apache.org/jira/browse/HBASE-16972) | *Major* | **Log more details for Scan#next request when responseTooSlow**
+
+**WARNING: No release note provided for this change.**
+
+
+---
+
 * [HBASE-17112](https://issues.apache.org/jira/browse/HBASE-17112) | *Major* | **Prevent setting timestamp of delta operations the same as previous value's**
 
 Before this issue, two concurrent Increments/Appends done in same millisecond or RS's clock going back will result in two results have same TS, which is not friendly to versioning and will get wrong result in slave cluster if the replication is disordered.

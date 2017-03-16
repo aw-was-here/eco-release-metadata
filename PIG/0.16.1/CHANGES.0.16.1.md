@@ -18,7 +18,7 @@
 -->
 # Apache Pig Changelog
 
-## Release 0.16.1 - Unreleased (as of 2017-01-19)
+## Release 0.16.1 - Unreleased (as of 2017-03-16)
 
 
 
@@ -28,18 +28,22 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [PIG-4951](https://issues.apache.org/jira/browse/PIG-4951) | Rename PIG\_ATS\_ENABLED constant |  Major | . | Daniel Dai | Adam Szita |
 | [PIG-5037](https://issues.apache.org/jira/browse/PIG-5037) | Add api getDisplayString to PigStats |  Major | . | Jeff Zhang | Jeff Zhang |
+| [PIG-5126](https://issues.apache.org/jira/browse/PIG-5126) | Add doc about pig in zeppelin |  Major | . | Jeff Zhang | Jeff Zhang |
 
 
 ### BUG FIXES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [PIG-4916](https://issues.apache.org/jira/browse/PIG-4916) | Pig on Tez fail to remove temporary HDFS files in some cases |  Major | . | Daniel Dai | Daniel Dai |
+| [PIG-4921](https://issues.apache.org/jira/browse/PIG-4921) | Kill running jobs on InterruptedException |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-4949](https://issues.apache.org/jira/browse/PIG-4949) | Fix registering jar in S3 which was broken by PIG-4417 in Pig 0.16 |  Major | parser | Yishan Yang | Yishan Yang |
 | [PIG-4945](https://issues.apache.org/jira/browse/PIG-4945) | Update document for conflicting macro params |  Trivial | documentation | Koji Noguchi | Koji Noguchi |
 | [PIG-4950](https://issues.apache.org/jira/browse/PIG-4950) | Fix minor issues with running scripts in non-local FileSystems |  Minor | . | Peter Slawski | Peter Slawski |
 | [PIG-4942](https://issues.apache.org/jira/browse/PIG-4942) | Fix mvn-install ant target |  Major | build | Peter Slawski | Peter Slawski |
 | [PIG-4948](https://issues.apache.org/jira/browse/PIG-4948) | Pig on Tez AM use too much memory on a small cluster |  Major | tez | Daniel Dai | Daniel Dai |
 | [PIG-4947](https://issues.apache.org/jira/browse/PIG-4947) | LOAD with HBaseStorage using a mix of pure wildcards and prefixed wildcards results in empty maps for the pure wildcarded column families. |  Major | grunt | Youngjin | Daniel Dai |
+| [PIG-4957](https://issues.apache.org/jira/browse/PIG-4957) | See "Received kill signal" message for a normal run after PIG-4921 |  Major | . | Daniel Dai | Rohini Palaniswamy |
 | [PIG-4960](https://issues.apache.org/jira/browse/PIG-4960) | Split followed by order by/skewed join is skewed in Tez |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-4961](https://issues.apache.org/jira/browse/PIG-4961) | CROSS followed by LIMIT inside nested foreach drop data from result |  Major | . | Sergey Svinarchuk | Rohini Palaniswamy |
 | [PIG-4935](https://issues.apache.org/jira/browse/PIG-4935) | TEZ\_USE\_CLUSTER\_HADOOP\_LIBS is always set to true |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
@@ -62,7 +66,12 @@
 | [PIG-5078](https://issues.apache.org/jira/browse/PIG-5078) | Script fails with error - POStoreTez only accepts MROutput |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-4918](https://issues.apache.org/jira/browse/PIG-4918) | Pig on Tez cannot switch pig.temp.dir to another fs |  Major | . | Daniel Dai | Daniel Dai |
 | [PIG-4260](https://issues.apache.org/jira/browse/PIG-4260) | SpillableMemoryManager.spill should revert spill on all exception |  Major | impl | Daniel Dai | Rohini Palaniswamy |
-| [PIG-5108](https://issues.apache.org/jira/browse/PIG-5108) | AvroStorage on Tez with exception on nested records |  Major | tez | Sebastian Geller | Daniel Dai |
 | [PIG-5046](https://issues.apache.org/jira/browse/PIG-5046) | Skewed join with auto parallelism hangs when right input also has autoparallelism |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
+| [PIG-5108](https://issues.apache.org/jira/browse/PIG-5108) | AvroStorage on Tez with exception on nested records |  Major | tez | Sebastian Geller | Daniel Dai |
+| [PIG-5112](https://issues.apache.org/jira/browse/PIG-5112) | Cleanup pig-template.xml |  Major | build | Daniel Dai | Daniel Dai |
+| [PIG-5111](https://issues.apache.org/jira/browse/PIG-5111) | e2e Utf8Test fails in local mode |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
+| [PIG-5118](https://issues.apache.org/jira/browse/PIG-5118) | Script fails with Invalid dag containing 0 vertices |  Major | tez | Rohini Palaniswamy | Rohini Palaniswamy |
+| [PIG-5119](https://issues.apache.org/jira/browse/PIG-5119) | SkewedJoin\_15 is unstable |  Major | . | Daniel Dai | Daniel Dai |
+| [PIG-5121](https://issues.apache.org/jira/browse/PIG-5121) | Backport PIG-4916, PIG-4921 and PIG-4957 to 0.16 branch |  Major | . | Daniel Dai | Daniel Dai |
 
 

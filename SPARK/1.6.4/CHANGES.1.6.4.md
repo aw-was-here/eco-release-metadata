@@ -18,8 +18,15 @@
 -->
 # Apache Spark Changelog
 
-## Release 1.6.4 - Unreleased (as of 2017-01-19)
+## Release 1.6.4 - Unreleased (as of 2017-03-16)
 
+
+
+### IMPORTANT ISSUES:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-16845](https://issues.apache.org/jira/browse/SPARK-16845) | org.apache.spark.sql.catalyst.expressions.GeneratedClass$SpecificOrdering" grows beyond 64 KB |  Major | SQL | hejie | Liwei Lin |
 
 
 ### BUG FIXES:
@@ -27,6 +34,8 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [SPARK-18553](https://issues.apache.org/jira/browse/SPARK-18553) | Executor loss may cause TaskSetManager to be leaked |  Blocker | Scheduler | Josh Rosen | Josh Rosen |
+| [SPARK-13478](https://issues.apache.org/jira/browse/SPARK-13478) | Fetching delegation tokens for Hive fails when using proxy users |  Minor | YARN | Marcelo Vanzin | Marcelo Vanzin |
+| [SPARK-19529](https://issues.apache.org/jira/browse/SPARK-19529) | TransportClientFactory.createClient() shouldn't call awaitUninterruptibly() |  Major | Shuffle, Spark Core | Josh Rosen | Josh Rosen |
 
 
 ### TESTS:

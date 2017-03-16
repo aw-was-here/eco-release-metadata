@@ -18,7 +18,7 @@
 -->
 # Apache BigTop Changelog
 
-## Release 1.2.0 - Unreleased (as of 2017-01-19)
+## Release 1.2.0 - Unreleased (as of 2017-03-16)
 
 
 
@@ -39,6 +39,7 @@
 | [BIGTOP-2481](https://issues.apache.org/jira/browse/BIGTOP-2481) | Add HBase Charm |  Minor | hbase | Konstantinos Tsakalozos | Konstantinos Tsakalozos |
 | [BIGTOP-2483](https://issues.apache.org/jira/browse/BIGTOP-2483) | Add Mahout Charm |  Minor | deployment | Konstantinos Tsakalozos | Konstantinos Tsakalozos |
 | [BIGTOP-2615](https://issues.apache.org/jira/browse/BIGTOP-2615) | Provide a tool to build pseudo cluster docker images |  Major | docker | Evans Ye | Evans Ye |
+| [BIGTOP-2660](https://issues.apache.org/jira/browse/BIGTOP-2660) | Add Giraph Charm |  Minor | deployment | Konstantinos Tsakalozos | Kevin W Monroe |
 
 
 ### IMPROVEMENTS:
@@ -94,6 +95,11 @@
 | [BIGTOP-2617](https://issues.apache.org/jira/browse/BIGTOP-2617) | refresh juju spark-processing bundle |  Minor | deployment | Kevin W Monroe | Kevin W Monroe |
 | [BIGTOP-2370](https://issues.apache.org/jira/browse/BIGTOP-2370) | Upgrade DataFu version to 1.3.0 |  Minor | . | YoungWoo Kim | Kengo Seki |
 | [BIGTOP-2611](https://issues.apache.org/jira/browse/BIGTOP-2611) | Adding Fedora-25 with Java 1.8 support |  Major | build, docker | Amir Sanjar | Amir Sanjar |
+| [BIGTOP-2490](https://issues.apache.org/jira/browse/BIGTOP-2490) | Spark in HA when Zookeeper is available |  Minor | spark | Konstantinos Tsakalozos | Konstantinos Tsakalozos |
+| [BIGTOP-2682](https://issues.apache.org/jira/browse/BIGTOP-2682) | update juju bundles with recent charm revs |  Trivial | deployment | Kevin W Monroe | Kevin W Monroe |
+| [BIGTOP-2688](https://issues.apache.org/jira/browse/BIGTOP-2688) | Add flag for provisioning of Yum Repo |  Trivial | deployment | Mike Grimes | Mike Grimes |
+| [BIGTOP-2694](https://issues.apache.org/jira/browse/BIGTOP-2694) | Added Hernan Vivani (hvivani) as elasticsearch maintainer |  Minor | . | Hernan Vivani | Hernan Vivani |
+| [BIGTOP-2696](https://issues.apache.org/jira/browse/BIGTOP-2696) | Build out VM for sandboxes |  Major | build | Roman Shaposhnik | Roman Shaposhnik |
 
 
 ### BUG FIXES:
@@ -230,6 +236,17 @@
 | [BIGTOP-2662](https://issues.apache.org/jira/browse/BIGTOP-2662) | provisioner: Add support for JDK8 on debian |  Major | deployment | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-2663](https://issues.apache.org/jira/browse/BIGTOP-2663) | puppet hadoop module: Consolidate memory resource settings |  Major | . | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-2665](https://issues.apache.org/jira/browse/BIGTOP-2665) | Fix hue for opensuse |  Major | build | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2261](https://issues.apache.org/jira/browse/BIGTOP-2261) | adding bigtop/puppet:fedora-22 build support for ppc64le |  Major | build, docker, ppc64le | Amir Sanjar | Amir Sanjar |
+| [BIGTOP-2674](https://issues.apache.org/jira/browse/BIGTOP-2674) | docker-hadoop option -C does not work correctly any more |  Blocker | provisioner | Olaf Flebbe | Evans Ye |
+| [BIGTOP-2676](https://issues.apache.org/jira/browse/BIGTOP-2676) | Smoke test fails on Spark 2 |  Major | spark, tests | Kengo Seki | Kengo Seki |
+| [BIGTOP-2678](https://issues.apache.org/jira/browse/BIGTOP-2678) | Add hive-hbase role to install hive-hbase rpm |  Major | deployment | Zach York | Zach York |
+| [BIGTOP-2603](https://issues.apache.org/jira/browse/BIGTOP-2603) | NN/RM charm should include a spark user/group |  Minor | deployment | Kevin W Monroe | Kevin W Monroe |
+| [BIGTOP-2690](https://issues.apache.org/jira/browse/BIGTOP-2690) | gradlew toolchain fails trying to download Ant 1.9.8 |  Major | build | Felix Cheung | Felix Cheung |
+| [BIGTOP-2692](https://issues.apache.org/jira/browse/BIGTOP-2692) | Flume init script should load only '.conf' extension files |  Major | . | Satoshi Iijima | Satoshi Iijima |
+| [BIGTOP-2644](https://issues.apache.org/jira/browse/BIGTOP-2644) | CI compiles random greenplum source |  Major | build | Olaf Flebbe | Roman Shaposhnik |
+| [BIGTOP-2693](https://issues.apache.org/jira/browse/BIGTOP-2693) | Update readme for build and configuring git repo for packages |  Minor | build, documentation | Felix Cheung | Felix Cheung |
+| [BIGTOP-2689](https://issues.apache.org/jira/browse/BIGTOP-2689) | Upgrade Zeppelin to version 0.7 |  Major | build | Kengo Seki | YoungWoo Kim |
+| [BIGTOP-2695](https://issues.apache.org/jira/browse/BIGTOP-2695) | arch.dot for bigpetstore-spark is outdated |  Minor | blueprints, documentation | Kengo Seki | Roman Shaposhnik |
 
 
 ### TESTS:
@@ -275,12 +292,16 @@
 | [BIGTOP-2657](https://issues.apache.org/jira/browse/BIGTOP-2657) | Upgrade to Hue 3.11.0 |  Major | hue | Zach York | Zach York |
 | [BIGTOP-2626](https://issues.apache.org/jira/browse/BIGTOP-2626) | HBase build fails when JAVA 8 is used |  Major | build | Amir Sanjar |  |
 | [BIGTOP-2646](https://issues.apache.org/jira/browse/BIGTOP-2646) | Move Vagrant Provisioner from bigtop-deploy/vm to provisioner directory |  Major | docker, provisioner | Evans Ye | Evans Ye |
+| [BIGTOP-2668](https://issues.apache.org/jira/browse/BIGTOP-2668) | Polish and update Docker Provisioner configurations |  Minor | docker, provisioner | Evans Ye | Evans Ye |
+| [BIGTOP-2491](https://issues.apache.org/jira/browse/BIGTOP-2491) | Update provisioner/docker-hadoop.sh to bind with provisioner/utils |  Minor | docker, provisioner | Evans Ye | Evans Ye |
+| [BIGTOP-2647](https://issues.apache.org/jira/browse/BIGTOP-2647) | Clean up code under bigtop-deploy/vm after everything moved to provisioner directory |  Minor | provisioner | Evans Ye | Evans Ye |
 
 
 ### OTHER:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [BIGTOP-2680](https://issues.apache.org/jira/browse/BIGTOP-2680) | Update kafka to 0.10.1.1 |  Major | build | Ryohei Asano | Ryohei Asano |
 | [BIGTOP-2289](https://issues.apache.org/jira/browse/BIGTOP-2289) | Set master version to 1.2.0-SNAPSHOT |  Major | general | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2335](https://issues.apache.org/jira/browse/BIGTOP-2335) | ci link should use https:// authority |  Major | website | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2334](https://issues.apache.org/jira/browse/BIGTOP-2334) | Update latest release link on the website |  Major | website | Konstantin Boudnik | Konstantin Boudnik |
@@ -298,5 +319,7 @@
 | [BIGTOP-2592](https://issues.apache.org/jira/browse/BIGTOP-2592) | Upgrade to Spark 2.0.2 |  Major | spark | Jonathan Kelly | Jonathan Kelly |
 | [BIGTOP-2622](https://issues.apache.org/jira/browse/BIGTOP-2622) | Add Kengo Seki to team list |  Trivial | website | Kengo Seki | Kengo Seki |
 | [BIGTOP-2629](https://issues.apache.org/jira/browse/BIGTOP-2629) | Add Jonathan Kelly to team list |  Trivial | website | Jonathan Kelly | Jonathan Kelly |
+| [BIGTOP-2687](https://issues.apache.org/jira/browse/BIGTOP-2687) | Remove /usr/share/java/\*.jar from Sqoop2 catalina.properties |  Major | . | Anna Szonyi |  |
+| [BIGTOP-2670](https://issues.apache.org/jira/browse/BIGTOP-2670) | Bump up Apache Apex version to 3.5.0 |  Major | build | Chinmay Kolhatkar | Chinmay Kolhatkar |
 
 

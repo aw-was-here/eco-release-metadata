@@ -114,6 +114,7 @@
 | [HIVE-9707](https://issues.apache.org/jira/browse/HIVE-9707) | ExecDriver does not get token from environment |  Major | . | Brock Noland | Brock Noland |
 | [HIVE-9705](https://issues.apache.org/jira/browse/HIVE-9705) | All curator deps should be listed in dependency management section |  Major | . | Brock Noland | Brock Noland |
 | [HIVE-9708](https://issues.apache.org/jira/browse/HIVE-9708) | Remove testlibs directory |  Major | . | Brock Noland | Brock Noland |
+| [HIVE-8065](https://issues.apache.org/jira/browse/HIVE-8065) | Support HDFS encryption functionality on Hive |  Major | . | Sergio Peña | Sergio Peña |
 
 
 ### BUG FIXES:
@@ -303,7 +304,7 @@
 | [HIVE-9462](https://issues.apache.org/jira/browse/HIVE-9462) | HIVE-8577 - breaks type evolution |  Major | Serializers/Deserializers | Brock Noland | Brock Noland |
 | [HIVE-6308](https://issues.apache.org/jira/browse/HIVE-6308) | COLUMNS\_V2 Metastore table not populated for tables created without an explicit column list. |  Major | Database/Schema | Alexander Behm | Yongzhi Chen |
 | [HIVE-9515](https://issues.apache.org/jira/browse/HIVE-9515) | Check hive.vectorized.execution.reduce.enabled [Spark Branch] |  Minor | Spark | Jimmy Xiang | Jimmy Xiang |
-| [HIVE-9519](https://issues.apache.org/jira/browse/HIVE-9519) | Bump up spark client connection timeout |  Blocker | Spark | Ashish K Singh | Ashish K Singh |
+| [HIVE-9519](https://issues.apache.org/jira/browse/HIVE-9519) | Bump up spark client connection timeout |  Blocker | Spark | Ashish Singh | Ashish Singh |
 | [HIVE-9502](https://issues.apache.org/jira/browse/HIVE-9502) | Parquet cannot read Map types from files written with Hive \<= 0.12 |  Major | . | Sergio Peña | Sergio Peña |
 | [HIVE-7069](https://issues.apache.org/jira/browse/HIVE-7069) | Zookeeper connection leak |  Major | HiveServer2 | Z. S. |  |
 | [HIVE-9610](https://issues.apache.org/jira/browse/HIVE-9610) | Continuation of HIVE-9438 - The standalone-jdbc jar missing some classes |  Major | . | Brock Noland | Brock Noland |
@@ -313,7 +314,7 @@
 | [HIVE-9651](https://issues.apache.org/jira/browse/HIVE-9651) | FileSinkOperator does not pass in conf to serde.initialize |  Major | . | Brock Noland | Brock Noland |
 | [HIVE-9621](https://issues.apache.org/jira/browse/HIVE-9621) | HiveServer2 http mode - embedded jetty should use SynchronousQueue |  Major | HiveServer2 | Vaibhav Gumashta | Vaibhav Gumashta |
 | [HIVE-9593](https://issues.apache.org/jira/browse/HIVE-9593) | ORC Reader should ignore unknown metadata streams |  Major | File Formats | Gopal V | Owen O'Malley |
-| [HIVE-9437](https://issues.apache.org/jira/browse/HIVE-9437) | Beeline does not add any existing HADOOP\_CLASSPATH |  Blocker | . | Ashish K Singh | Brock Noland |
+| [HIVE-9437](https://issues.apache.org/jira/browse/HIVE-9437) | Beeline does not add any existing HADOOP\_CLASSPATH |  Blocker | . | Ashish Singh | Brock Noland |
 | [HIVE-9684](https://issues.apache.org/jira/browse/HIVE-9684) | Incorrect disk range computation in ORC because of optional stream kind |  Critical | File Formats | Prasanth Jayachandran | Prasanth Jayachandran |
 | [HIVE-9686](https://issues.apache.org/jira/browse/HIVE-9686) | HiveMetastore.logAuditEvent can be used before sasl server is started |  Major | . | Brock Noland | Brock Noland |
 | [HIVE-9685](https://issues.apache.org/jira/browse/HIVE-9685) | CLIService should create SessionState after logging into kerberos |  Major | . | Brock Noland | Brock Noland |
@@ -486,6 +487,7 @@
 | [HIVE-8852](https://issues.apache.org/jira/browse/HIVE-8852) | Update new spark progress API for local submitted job monitoring [Spark Branch] |  Major | Spark | Chengxiang Li | Rui Li |
 | [HIVE-8892](https://issues.apache.org/jira/browse/HIVE-8892) | Use MEMORY\_AND\_DISK for RDD caching [Spark Branch] |  Minor | Spark | Jimmy Xiang | Jimmy Xiang |
 | [HIVE-8867](https://issues.apache.org/jira/browse/HIVE-8867) | Investigate test failure on mapjoin\_filter\_on\_outerjoin.q [Spark Branch] |  Major | Spark | Chao Sun | Chao Sun |
+| [HIVE-8750](https://issues.apache.org/jira/browse/HIVE-8750) | Commit initial encryption work |  Major | . | Brock Noland | Sergio Peña |
 | [HIVE-8882](https://issues.apache.org/jira/browse/HIVE-8882) | Fix test TestHiveKVResultCache [Spark Branch] |  Minor | Tests | Szehon Ho | Jimmy Xiang |
 | [HIVE-8899](https://issues.apache.org/jira/browse/HIVE-8899) | Merge from trunk to spark [Spark Branch] |  Major | Spark | Brock Noland | Brock Noland |
 | [HIVE-8885](https://issues.apache.org/jira/browse/HIVE-8885) | Investigate test failure on auto\_join13.q [Spark Branch] |  Major | Spark | Chao Sun |  |
@@ -549,6 +551,7 @@
 | [HIVE-9035](https://issues.apache.org/jira/browse/HIVE-9035) | CBO: Disable PPD when functions are non-deterministic (ppd\_random.q  - non-deterministic udf rand() pushed above join) |  Major | CBO | Sergey Shelukhin | Laljo John Pullokkaran |
 | [HIVE-9085](https://issues.apache.org/jira/browse/HIVE-9085) | Spark Client RPC should have larger default max message size [Spark Branch] |  Major | Spark | Brock Noland | Brock Noland |
 | [HIVE-9079](https://issues.apache.org/jira/browse/HIVE-9079) | Hive hangs while failed to get executorCount[Spark Branch] |  Major | Spark | Chengxiang Li | Chengxiang Li |
+| [HIVE-8864](https://issues.apache.org/jira/browse/HIVE-8864) | Fix permission inheritance with HDFS encryption |  Major | . | Szehon Ho | Szehon Ho |
 | [HIVE-9081](https://issues.apache.org/jira/browse/HIVE-9081) | Bucket mapjoin should use the new alias in posToAliasMap [Spark Branch] |  Major | . | Jimmy Xiang | Jimmy Xiang |
 | [HIVE-8982](https://issues.apache.org/jira/browse/HIVE-8982) | IndexOutOfBounds exception in mapjoin [Spark Branch] |  Major | Spark | Szehon Ho | Chao Sun |
 | [HIVE-8911](https://issues.apache.org/jira/browse/HIVE-8911) | Enable mapjoin hints [Spark Branch] |  Major | Spark | Szehon Ho | Chao Sun |

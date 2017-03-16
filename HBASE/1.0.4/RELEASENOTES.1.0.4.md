@@ -125,23 +125,4 @@ Subsequently, the regression was fixed in HBASE-15213. The fix will be available
 This issue removes the fast-path flag. If set, it will just be ignored.
 
 
----
-
-* [HBASE-15984](https://issues.apache.org/jira/browse/HBASE-15984) | *Critical* | **Given failure to parse a given WAL that was closed cleanly, replay the WAL.**
-
-In some particular deployments, the Replication code believes it has
-reached EOF for a WAL prior to successfully parsing all bytes known to
-exist in a cleanly closed file.
-
-If an EOF is detected due to parsing or other errors while there are still unparsed bytes before the end-of-file trailer, we now reset the WAL to the very beginning and attempt a clean read-through. Because we will retry these failures indefinitely, two additional changes are made to help with diagnostics:
-
-\* On each retry attempt, a log message like the below will be emitted at the WARN level:
-    
-      Processing end of WAL file '{}'. At position {}, which is too far away
-      from reported file length {}. Restarting WAL reading (see HBASE-15983
-      for details).
-
-\*  additional metrics measure the use of this recovery mechanism. they are described in the reference guide.
-
-
 

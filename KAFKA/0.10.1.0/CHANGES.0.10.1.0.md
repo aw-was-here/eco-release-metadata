@@ -62,14 +62,14 @@
 | [KAFKA-724](https://issues.apache.org/jira/browse/KAFKA-724) | Allow automatic socket.send.buffer from operating system |  Major | . | Pablo Barrera | Rekha Joshi |
 | [KAFKA-3748](https://issues.apache.org/jira/browse/KAFKA-3748) | Add consumer-property to console tools consumer (similar to --producer-property) |  Major | core | Bharat Viswanadham | Bharat Viswanadham |
 | [KAFKA-3711](https://issues.apache.org/jira/browse/KAFKA-3711) | Allow configuration of MetricsReporter subclasses |  Minor | clients, streams | Jeff Klukas | Guozhang Wang |
-| [KAFKA-3699](https://issues.apache.org/jira/browse/KAFKA-3699) | Update protocol page on website to explain how KIP-35 should be used |  Major | . | Ismael Juma | Ashish K Singh |
+| [KAFKA-3699](https://issues.apache.org/jira/browse/KAFKA-3699) | Update protocol page on website to explain how KIP-35 should be used |  Major | . | Ismael Juma | Ashish Singh |
 | [KAFKA-3762](https://issues.apache.org/jira/browse/KAFKA-3762) | Log.loadSegments() should log the message in exception |  Major | core | Jun Rao | Ishita Mandhan |
 | [KAFKA-3842](https://issues.apache.org/jira/browse/KAFKA-3842) | Add Helper Functions Into TestUtils |  Major | . | Bill Bejeck | Bill Bejeck |
 | [KAFKA-3846](https://issues.apache.org/jira/browse/KAFKA-3846) | Connect record types should include timestamps |  Major | KafkaConnect | Ewen Cheslack-Postava | Shikhar Bhushan |
 | [KAFKA-3753](https://issues.apache.org/jira/browse/KAFKA-3753) | Add approximateNumEntries() to the StateStore interface for metrics reporting |  Minor | streams | Jeff Klukas | Jeff Klukas |
 | [KAFKA-3920](https://issues.apache.org/jira/browse/KAFKA-3920) | Add Schema source connector to Kafka Connect |  Major | KafkaConnect | Liquan Pei | Liquan Pei |
 | [KAFKA-3844](https://issues.apache.org/jira/browse/KAFKA-3844) | Sort configuration items in log |  Trivial | clients | Xing Huang | Rekha Joshi |
-| [KAFKA-3849](https://issues.apache.org/jira/browse/KAFKA-3849) | Add explanation on why polling every second in MirrorMaker is required |  Major | . | Ashish K Singh | Ashish K Singh |
+| [KAFKA-3849](https://issues.apache.org/jira/browse/KAFKA-3849) | Add explanation on why polling every second in MirrorMaker is required |  Major | . | Ashish Singh | Ashish Singh |
 | [KAFKA-3942](https://issues.apache.org/jira/browse/KAFKA-3942) | Change IntegrationTestUtils.purgeLocalStreamsState to use java.io.tmpdir |  Trivial | streams | Damian Guy | Damian Guy |
 | [KAFKA-3922](https://issues.apache.org/jira/browse/KAFKA-3922) | Add a copy-constructor to AbstractStream |  Trivial | streams | Florian Hussonnois | Florian Hussonnois |
 | [KAFKA-3479](https://issues.apache.org/jira/browse/KAFKA-3479) | Add new consumer metrics documentation |  Major | . | Jason Gustafson | Kaufman Ng |
@@ -79,14 +79,14 @@
 | [KAFKA-3847](https://issues.apache.org/jira/browse/KAFKA-3847) | Connect tasks should not share a producer |  Critical | KafkaConnect | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-3997](https://issues.apache.org/jira/browse/KAFKA-3997) | Halting because log truncation is not allowed and suspicious logging |  Major | core | Alexey Ozeritskiy |  |
 | [KAFKA-4012](https://issues.apache.org/jira/browse/KAFKA-4012) | KerberosShortNamer should implement toString() |  Major | clients | Bryan Baugher |  |
-| [KAFKA-4044](https://issues.apache.org/jira/browse/KAFKA-4044) | log actual socket send/receive buffer size after connecting in Selector |  Major | . | Jun Rao | Manikumar Reddy |
+| [KAFKA-4044](https://issues.apache.org/jira/browse/KAFKA-4044) | log actual socket send/receive buffer size after connecting in Selector |  Major | . | Jun Rao | Manikumar |
 | [KAFKA-3888](https://issues.apache.org/jira/browse/KAFKA-3888) | Allow consumer to send heartbeats in background thread (KIP-62) |  Major | consumer | Jason Gustafson | Jason Gustafson |
 | [KAFKA-3845](https://issues.apache.org/jira/browse/KAFKA-3845) | Support per-connector converters |  Critical | KafkaConnect | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-4050](https://issues.apache.org/jira/browse/KAFKA-4050) | Allow configuration of the PRNG used for SSL |  Major | security | Todd Palino | Todd Palino |
 | [KAFKA-4053](https://issues.apache.org/jira/browse/KAFKA-4053) | Refactor TopicCommand to remove redundant if/else statements |  Minor | admin | Shuai Zhang |  |
 | [KAFKA-4016](https://issues.apache.org/jira/browse/KAFKA-4016) | Kafka Streams join benchmark |  Major | streams | Eno Thereska | Eno Thereska |
 | [KAFKA-3680](https://issues.apache.org/jira/browse/KAFKA-3680) | Make Java client classloading more flexible |  Major | clients | Rajini Sivaram | Rajini Sivaram |
-| [KAFKA-4052](https://issues.apache.org/jira/browse/KAFKA-4052) | Allow passing properties file to ProducerPerformance |  Major | . | Ashish K Singh | Ashish K Singh |
+| [KAFKA-4052](https://issues.apache.org/jira/browse/KAFKA-4052) | Allow passing properties file to ProducerPerformance |  Major | . | Ashish Singh | Ashish Singh |
 | [KAFKA-4070](https://issues.apache.org/jira/browse/KAFKA-4070) | Implement a useful Struct.toString() |  Minor | KafkaConnect | Shikhar Bhushan | Shikhar Bhushan |
 | [KAFKA-4062](https://issues.apache.org/jira/browse/KAFKA-4062) | Require --print-data-log if --offsets-decoder is enabled for DumpLogOffsets |  Minor | admin | Dustin Cote | Dustin Cote |
 | [KAFKA-4112](https://issues.apache.org/jira/browse/KAFKA-4112) | Remove alpha quality label from Kafka Streams in docs |  Trivial | streams | Damian Guy | Damian Guy |
@@ -111,7 +111,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [KAFKA-3650](https://issues.apache.org/jira/browse/KAFKA-3650) | AWS test script fails to install vagrant |  Trivial | . | Roger Hoover | Roger Hoover |
 | [KAFKA-2684](https://issues.apache.org/jira/browse/KAFKA-2684) | Add force option to TopicCommand & ConfigCommand to suppress console prompts |  Trivial | . | Ben Stopford | Ben Stopford |
-| [KAFKA-3525](https://issues.apache.org/jira/browse/KAFKA-3525) | max.reserved.broker.id off-by-one error |  Major | config | Alan Braithwaite | Manikumar Reddy |
+| [KAFKA-3525](https://issues.apache.org/jira/browse/KAFKA-3525) | max.reserved.broker.id off-by-one error |  Major | config | Alan Braithwaite | Manikumar |
 | [KAFKA-3716](https://issues.apache.org/jira/browse/KAFKA-3716) | Check against negative timestamps |  Major | streams | Guozhang Wang | Guozhang Wang |
 | [KAFKA-2935](https://issues.apache.org/jira/browse/KAFKA-2935) | Remove vestigial CLUSTER\_CONFIG in WorkerConfig |  Major | KafkaConnect | Ewen Cheslack-Postava | Shikhar Bhushan |
 | [KAFKA-3735](https://issues.apache.org/jira/browse/KAFKA-3735) | RocksDB objects needs to be disposed after usage |  Major | streams | Guozhang Wang | Guozhang Wang |
@@ -153,7 +153,7 @@
 | [KAFKA-2932](https://issues.apache.org/jira/browse/KAFKA-2932) | Adjust importance level of Kafka Connect configs |  Major | KafkaConnect | Ewen Cheslack-Postava | Dustin Cote |
 | [KAFKA-3934](https://issues.apache.org/jira/browse/KAFKA-3934) | Start scripts enable GC by default with no way to disable |  Major | . | Grant Henke | Grant Henke |
 | [KAFKA-4031](https://issues.apache.org/jira/browse/KAFKA-4031) | Check DirectBuffer's cleaner to be not null before using |  Major | core | Soumyajit Sahu | Soumyajit Sahu |
-| [KAFKA-4035](https://issues.apache.org/jira/browse/KAFKA-4035) | AclCommand should allow Describe operation on groups |  Major | . | Jun Rao | Manikumar Reddy |
+| [KAFKA-4035](https://issues.apache.org/jira/browse/KAFKA-4035) | AclCommand should allow Describe operation on groups |  Major | . | Jun Rao | Manikumar |
 | [KAFKA-3769](https://issues.apache.org/jira/browse/KAFKA-3769) | KStream job spending 60% of time writing metrics |  Critical | streams | Greg Fodor | Guozhang Wang |
 | [KAFKA-4037](https://issues.apache.org/jira/browse/KAFKA-4037) | Transient failure in ConnectRestApiTest |  Minor | KafkaConnect | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-4056](https://issues.apache.org/jira/browse/KAFKA-4056) | Kafka logs values of sensitive configs like passwords |  Major | . | jaikiran pai | Mickael Maison |

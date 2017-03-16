@@ -18,7 +18,7 @@
 -->
 # Apache Mahout Changelog
 
-## Release 1.0.0 - Unreleased (as of 2017-01-19)
+## Release 1.0.0 - Unreleased (as of 2017-03-16)
 
 
 
@@ -29,10 +29,18 @@
 | [MAHOUT-1482](https://issues.apache.org/jira/browse/MAHOUT-1482) | Rework quickstart website |  Blocker | Documentation | Sebastian Schelter | Sebastian Schelter |
 
 
+### BUG FIXES:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [MAHOUT-1902](https://issues.apache.org/jira/browse/MAHOUT-1902) | Parse Spark and Mahout variable arguments from the Mahout spark-shell |  Major | Mahout spark shell | Andrew Palumbo |  |
+
+
 ### OTHER:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [MAHOUT-1450](https://issues.apache.org/jira/browse/MAHOUT-1450) | Cleaning up clustering documentation on mahout website |  Major | Documentation | Pavan Kumar N |  |
+| [MAHOUT-1894](https://issues.apache.org/jira/browse/MAHOUT-1894) | Add support for Spark 2x backend |  Critical | spark | Suneel Marthi | Trevor Grant |
 
 

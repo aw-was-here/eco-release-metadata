@@ -18,7 +18,7 @@
 -->
 # Apache Orc Changelog
 
-## Release 1.3.0 - Unreleased (as of 2017-01-19)
+## Release 1.3.0 - 2017-01-23
 
 
 
@@ -58,13 +58,14 @@
 | [ORC-104](https://issues.apache.org/jira/browse/ORC-104) | Make TypeDescription toString and fromString handle utf-8 field names. |  Major | . | Owen O'Malley | Owen O'Malley |
 | [ORC-115](https://issues.apache.org/jira/browse/ORC-115) | Unable to write string data into ORC file (or at least read it back) |  Major | Java | Scott Wells | Owen O'Malley |
 | [ORC-118](https://issues.apache.org/jira/browse/ORC-118) | fix Java findColumn from getting null pointers when columns aren't mapped |  Major | . | Owen O'Malley | Owen O'Malley |
-| [ORC-109](https://issues.apache.org/jira/browse/ORC-109) | fix some minor issues with pom dependencies |  Major | . | Owen O'Malley | Tarun Kumar |
 | [ORC-122](https://issues.apache.org/jira/browse/ORC-122) | [CPP] Timezone.cc leaks memory |  Major | C++ | Deepak Majeti | Deepak Majeti |
 | [ORC-123](https://issues.apache.org/jira/browse/ORC-123) | ToolTest.cc leaks memory |  Major | C++ | Deepak Majeti | Deepak Majeti |
 | [ORC-125](https://issues.apache.org/jira/browse/ORC-125) | Correct OrcFile.WriterVersion to correctly use FUTURE |  Major | . | Owen O'Malley | Owen O'Malley |
 | [ORC-127](https://issues.apache.org/jira/browse/ORC-127) | Fix Coverity bug report |  Major | C++ | Deepak Majeti | Deepak Majeti |
 | [ORC-119](https://issues.apache.org/jira/browse/ORC-119) | Create an abstraction named PhysicalWriter that abstracts where the Writer puts the bytes |  Major | Java | Owen O'Malley | Owen O'Malley |
 | [ORC-131](https://issues.apache.org/jira/browse/ORC-131) | getRawDataSize always returns 0 |  Major | . | Owen O'Malley | Owen O'Malley |
+| [ORC-132](https://issues.apache.org/jira/browse/ORC-132) | Merging ORC files produces incorrect row counts |  Major | . | Owen O'Malley | Owen O'Malley |
+| [ORC-109](https://issues.apache.org/jira/browse/ORC-109) | fix some minor issues with pom dependencies |  Major | . | Owen O'Malley | Tarun Kumar |
 
 
 ### OTHER:

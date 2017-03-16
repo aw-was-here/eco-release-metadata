@@ -558,4 +558,17 @@ Running \`spark\_df.show()\` gives:
 For the purposes of my computation, I'm doing a \`mapPartitions\` on a spark data frame, and for each partition, converting it into a pandas data frame, doing a few computations on this pandas dataframe and the return value will be a list of lists, which is converted to an RDD while being returned from 'mapPartitions' (for all partitions). This RDD is then converted into a spark dataframe similar to the example above, using \`sqlContext.createDataFrame(rdd, schema)\`. The rdd has a column that should be converted to a \`LongType\` in the spark data frame, but since it has missing values, it is a \`float\` type. When spark tries to create the data frame, it converts all the values in that column to nulls instead of throwing an error that there is a type mismatch.
 
 
+---
+
+* [SPARK-7661](https://issues.apache.org/jira/browse/SPARK-7661) | *Major* | **Support for dynamic allocation of resources in Kinesis Spark Streaming**
+
+Currently the no. of cores is (N + 1), where N is no. of shards in a Kinesis Stream.
+
+My Requirement is that if I use this Resharding util for Amazon Kinesis :
+
+Amazon Kinesis Resharding : https://github.com/awslabs/amazon-kinesis-scaling-utils
+
+Then there should be some way to allocate executors on the basis of no. of shards directly (for Spark Streaming only).
+
+
 

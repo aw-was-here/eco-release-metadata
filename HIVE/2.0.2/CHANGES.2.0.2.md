@@ -18,7 +18,7 @@
 -->
 # Apache Hive Changelog
 
-## Release 2.0.2 - Unreleased (as of 2017-01-19)
+## Release 2.0.2 - Unreleased (as of 2017-03-16)
 
 
 
@@ -37,5 +37,6 @@
 | [HIVE-14483](https://issues.apache.org/jira/browse/HIVE-14483) |  java.lang.ArrayIndexOutOfBoundsException org.apache.orc.impl.TreeReaderFactory$BytesColumnVectorUtil.commonReadByteArrays |  Critical | ORC | Sergey Zadoroshnyak | Sergey Zadoroshnyak |
 | [HIVE-13610](https://issues.apache.org/jira/browse/HIVE-13610) | Hive exec module won't compile with IBM JDK |  Major | . | Pan Yuxuan | Pan Yuxuan |
 | [HIVE-15551](https://issues.apache.org/jira/browse/HIVE-15551) | memory leak in directsql for mysql+bonecp specific initialization |  Major | Metastore | Xiaomin Zhang | Xiaomin Zhang |
+| [HIVE-14804](https://issues.apache.org/jira/browse/HIVE-14804) | HPLSQL multiple db connection does not switch back to Hive |  Blocker | hpl/sql | Dmitry Kozlov | Fei Hui |
 
 

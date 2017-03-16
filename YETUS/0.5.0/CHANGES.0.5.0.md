@@ -18,7 +18,7 @@
 -->
 # Apache Yetus Changelog
 
-## Release 0.5.0 - Unreleased (as of 2017-01-19)
+## Release 0.5.0 - Unreleased (as of 2017-03-16)
 
 
 
@@ -27,5 +27,23 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YETUS-471](https://issues.apache.org/jira/browse/YETUS-471) | Add possibility to skip the source check for Findbugs |  Major | Test Patch | Peter Vary | Peter Vary |
+| [YETUS-459](https://issues.apache.org/jira/browse/YETUS-459) | Option to suppress assignee and contributor from RDM output |  Major | Release Doc Maker | Allen Wittenauer | Suraj Acharya |
+
+
+### BUG FIXES:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [YETUS-484](https://issues.apache.org/jira/browse/YETUS-484) | Fixing bug when checkstyle runs on multiple modules |  Major | Test Patch | Peter Vary | Peter Vary |
+| [YETUS-460](https://issues.apache.org/jira/browse/YETUS-460) | RDM should handle connection reset by peer |  Major | Release Doc Maker | Allen Wittenauer | Adam Faris |
+| [YETUS-489](https://issues.apache.org/jira/browse/YETUS-489) | checkstyle.sh does not support checkstyle 6.14 or upper |  Major | Test Patch | Akira Ajisaka | Akira Ajisaka |
+| [YETUS-476](https://issues.apache.org/jira/browse/YETUS-476) | Replace docker's time handler with awk |  Major | Test Patch | Allen Wittenauer | Akira Ajisaka |
+
+
+### OTHER:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [YETUS-481](https://issues.apache.org/jira/browse/YETUS-481) | Add 0.4.0 release to the website |  Major | website and documentation | Ajay Yadava | Ajay Yadava |
 
 

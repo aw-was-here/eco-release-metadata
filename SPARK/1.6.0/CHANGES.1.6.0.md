@@ -833,7 +833,7 @@
 | [SPARK-12030](https://issues.apache.org/jira/browse/SPARK-12030) | Incorrect results when aggregate joined data |  Blocker | SQL | Maciej Bryński | Nong Li |
 | [SPARK-11788](https://issues.apache.org/jira/browse/SPARK-11788) | Using java.sql.Timestamp and java.sql.Date in where clauses on JDBC dataframes causes SQLServerException |  Major | SQL | Martin Tapp | Huaxin Gao |
 | [SPARK-11352](https://issues.apache.org/jira/browse/SPARK-11352) | codegen.GeneratePredicate fails due to unquoted comment |  Major | SQL | Rares Mirica | Yin Huai |
-| [SPARK-11596](https://issues.apache.org/jira/browse/SPARK-11596) | SQL execution very slow for nested query plans because of DataFrame.withNewExecutionId |  Major | SQL | Cristian O. | Yin Huai |
+| [SPARK-11596](https://issues.apache.org/jira/browse/SPARK-11596) | SQL execution very slow for nested query plans because of DataFrame.withNewExecutionId |  Major | SQL | Cristian Opris | Yin Huai |
 | [SPARK-8414](https://issues.apache.org/jira/browse/SPARK-8414) | Ensure ContextCleaner actually triggers clean ups |  Critical | Spark Core | Andrew Or | Andrew Or |
 | [SPARK-12081](https://issues.apache.org/jira/browse/SPARK-12081) | Make unified memory management work with small heaps |  Critical | Spark Core | Andrew Or | Andrew Or |
 | [SPARK-12087](https://issues.apache.org/jira/browse/SPARK-12087) | DStream.saveAsHadoopFiles can throw ConcurrentModificationException |  Major | DStreams | Tathagata Das | Tathagata Das |

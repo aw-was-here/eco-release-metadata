@@ -34,7 +34,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [FLINK-4566](https://issues.apache.org/jira/browse/FLINK-4566) | ProducerFailedException does not properly preserve Exception causes |  Major | Network | Stephan Ewen | Stephan Ewen |
-| [FLINK-4589](https://issues.apache.org/jira/browse/FLINK-4589) | Fix Merging of Covering Window in MergingWindowSet |  Blocker | Windowing Operators | Aljoscha Krettek | Aljoscha Krettek |
+| [FLINK-4589](https://issues.apache.org/jira/browse/FLINK-4589) | Fix Merging of Covering Window in MergingWindowSet |  Blocker | DataStream API | Aljoscha Krettek | Aljoscha Krettek |
 | [FLINK-4640](https://issues.apache.org/jira/browse/FLINK-4640) | Serialization of the initialValue of a Fold on WindowedStream fails |  Blocker | Streaming | Fabian Hueske | Stephan Ewen |
 | [FLINK-4663](https://issues.apache.org/jira/browse/FLINK-4663) | Flink JDBCOutputFormat logs wrong WARN message |  Minor | Batch Connectors and Input/Output Formats | Swapnil Chougule | Swapnil Chougule |
 | [FLINK-4485](https://issues.apache.org/jira/browse/FLINK-4485) | Finished jobs in yarn session fill /tmp filesystem |  Blocker | JobManager | Niels Basjes | Maximilian Michels |

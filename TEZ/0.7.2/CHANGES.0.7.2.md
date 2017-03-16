@@ -18,7 +18,7 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.7.2 - Unreleased (as of 2017-01-19)
+## Release 0.7.2 - Unreleased (as of 2017-03-16)
 
 
 
@@ -88,6 +88,8 @@
 | [TEZ-3537](https://issues.apache.org/jira/browse/TEZ-3537) | ArrayIndexOutOfBoundsException with empty environment variables/Port YARN-3768 to Tez |  Major | . | Eric Badger | Eric Badger |
 | [TEZ-3549](https://issues.apache.org/jira/browse/TEZ-3549) | TaskAttemptImpl does not initialize TEZ\_TASK\_PROGRESS\_STUCK\_INTERVAL\_MS correctly |  Major | . | Kuhu Shukla | Kuhu Shukla |
 | [TEZ-3559](https://issues.apache.org/jira/browse/TEZ-3559) | TEZ\_LIB\_URIS doesn't work with schemes different than the defaultFS |  Major | . | Eric Badger | Eric Badger |
+| [TEZ-3582](https://issues.apache.org/jira/browse/TEZ-3582) | Exception swallowed in PipelinedSorter causing incorrect results |  Blocker | . | Travis Woodruff | Rajesh Balamohan |
+| [TEZ-3632](https://issues.apache.org/jira/browse/TEZ-3632) | Tez Task attempt listing can hang if log link is null |  Major | UI | Kuhu Shukla | Kuhu Shukla |
 
 
 ### SUB-TASKS:
@@ -95,5 +97,12 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [TEZ-3487](https://issues.apache.org/jira/browse/TEZ-3487) | Improvements in travis yml file to get builds to work |  Major | . | darion yaphet | darion yaphet |
+
+
+### OTHER:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-3660](https://issues.apache.org/jira/browse/TEZ-3660) | Remove CHANGES.txt |  Major | . | Siddharth Seth | Siddharth Seth |
 
 

@@ -16,6 +16,21 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
+* Apache Kafka v0.11.0.0
+    * [Changes](0.11.0.0/CHANGES.0.11.0.0.md)
+    * [Release Notes](0.11.0.0/RELEASENOTES.0.11.0.0.md)
+* Apache Kafka v0.10.2.1
+    * [Changes](0.10.2.1/CHANGES.0.10.2.1.md)
+    * [Release Notes](0.10.2.1/RELEASENOTES.0.10.2.1.md)
+* Apache Kafka v0.10.2.0
+    * [Changes](0.10.2.0/CHANGES.0.10.2.0.md)
+    * [Release Notes](0.10.2.0/RELEASENOTES.0.10.2.0.md)
+* Apache Kafka v0.10.1.2
+    * [Changes](0.10.1.2/CHANGES.0.10.1.2.md)
+    * [Release Notes](0.10.1.2/RELEASENOTES.0.10.1.2.md)
+* Apache Kafka v0.10.1.1
+    * [Changes](0.10.1.1/CHANGES.0.10.1.1.md)
+    * [Release Notes](0.10.1.1/RELEASENOTES.0.10.1.1.md)
 * Apache Kafka v0.10.1.0
     * [Changes](0.10.1.0/CHANGES.0.10.1.0.md)
     * [Release Notes](0.10.1.0/RELEASENOTES.0.10.1.0.md)

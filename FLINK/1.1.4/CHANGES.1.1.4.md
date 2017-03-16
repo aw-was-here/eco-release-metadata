@@ -27,7 +27,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [FLINK-4894](https://issues.apache.org/jira/browse/FLINK-4894) | Don't block on buffer request after broadcastEvent |  Major | . | Ufuk Celebi | Ufuk Celebi |
-| [FLINK-4715](https://issues.apache.org/jira/browse/FLINK-4715) | TaskManager should commit suicide after cancellation failure |  Major | TaskManager | Till Rohrmann | Ufuk Celebi |
+| [FLINK-4715](https://issues.apache.org/jira/browse/FLINK-4715) | TaskManager should commit suicide after cancellation failure |  Major | Distributed Coordination | Till Rohrmann | Ufuk Celebi |
 | [FLINK-4445](https://issues.apache.org/jira/browse/FLINK-4445) | Ignore unmatched state when restoring from savepoint |  Major | State Backends, Checkpointing | Ufuk Celebi | Ufuk Celebi |
 | [FLINK-4996](https://issues.apache.org/jira/browse/FLINK-4996) | Make CrossHint @Public |  Trivial | Core | Greg Hogan | Greg Hogan |
 | [FLINK-4975](https://issues.apache.org/jira/browse/FLINK-4975) | Add a limit for how much data may be buffered during checkpoint alignment |  Major | State Backends, Checkpointing | Stephan Ewen | Stephan Ewen |
@@ -39,11 +39,11 @@
 | [FLINK-5198](https://issues.apache.org/jira/browse/FLINK-5198) | Overwrite TaskState toString |  Major | . | Ufuk Celebi | Ufuk Celebi |
 | [FLINK-5199](https://issues.apache.org/jira/browse/FLINK-5199) | Improve logging of submitted job graph actions in HA case |  Major | . | Ufuk Celebi |  |
 | [FLINK-5207](https://issues.apache.org/jira/browse/FLINK-5207) | Decrease HadoopFileSystem logging |  Major | . | Ufuk Celebi |  |
-| [FLINK-5192](https://issues.apache.org/jira/browse/FLINK-5192) | Provide better log config templates |  Major | JobManager, TaskManager | Ufuk Celebi | Ufuk Celebi |
+| [FLINK-5192](https://issues.apache.org/jira/browse/FLINK-5192) | Provide better log config templates |  Major | Distributed Coordination, JobManager | Ufuk Celebi | Ufuk Celebi |
 | [FLINK-5169](https://issues.apache.org/jira/browse/FLINK-5169) | Make consumption of input channels fair |  Critical | Network | Ufuk Celebi | Ufuk Celebi |
 | [FLINK-5249](https://issues.apache.org/jira/browse/FLINK-5249) | description of datastream rescaling doesn't match the figure |  Minor | Documentation | David Anderson | David Anderson |
 | [FLINK-5259](https://issues.apache.org/jira/browse/FLINK-5259) | wrong execution environment in retry delays example |  Minor | . | David Anderson | David Anderson |
-| [FLINK-5278](https://issues.apache.org/jira/browse/FLINK-5278) | Improve Task and checkpoint logging |  Minor | State Backends, Checkpointing, TaskManager | Till Rohrmann | Till Rohrmann |
+| [FLINK-5278](https://issues.apache.org/jira/browse/FLINK-5278) | Improve Task and checkpoint logging |  Minor | Distributed Coordination, State Backends, Checkpointing | Till Rohrmann | Till Rohrmann |
 
 
 ### BUG FIXES:
@@ -54,11 +54,11 @@
 | [FLINK-4506](https://issues.apache.org/jira/browse/FLINK-4506) | CsvOutputFormat defaults allowNullValues to false, even though doc and declaration says true |  Minor | Batch Connectors and Input/Output Formats, Documentation | Michael Wong | Kirill Morozov |
 | [FLINK-4586](https://issues.apache.org/jira/browse/FLINK-4586) | NumberSequenceIterator and Accumulator threading issue |  Minor | DataSet API | Johannes | Greg Hogan |
 | [FLINK-4581](https://issues.apache.org/jira/browse/FLINK-4581) | Table API throws "No suitable driver found for jdbc:calcite" |  Major | Table API & SQL | Timo Walther | Timo Walther |
-| [FLINK-4862](https://issues.apache.org/jira/browse/FLINK-4862) | NPE on EventTimeSessionWindows with ContinuousEventTimeTrigger |  Major | Streaming, Windowing Operators | Manu Zhang | Manu Zhang |
+| [FLINK-4862](https://issues.apache.org/jira/browse/FLINK-4862) | NPE on EventTimeSessionWindows with ContinuousEventTimeTrigger |  Major | DataStream API, Streaming | Manu Zhang | Manu Zhang |
 | [FLINK-4619](https://issues.apache.org/jira/browse/FLINK-4619) | JobManager does not answer to client when restore from savepoint fails |  Major | . | Maciej Prochniak |  |
 | [FLINK-4932](https://issues.apache.org/jira/browse/FLINK-4932) | Don't let ExecutionGraph fail when in state Restarting |  Major | Distributed Coordination | Till Rohrmann | Till Rohrmann |
 | [FLINK-4933](https://issues.apache.org/jira/browse/FLINK-4933) | ExecutionGraph.scheduleOrUpdateConsumers can fail the ExecutionGraph |  Major | Distributed Coordination | Till Rohrmann | Till Rohrmann |
-| [FLINK-4991](https://issues.apache.org/jira/browse/FLINK-4991) | TestTask hangs in testWatchDogInterruptsTask |  Major | TaskManager | Ufuk Celebi |  |
+| [FLINK-4991](https://issues.apache.org/jira/browse/FLINK-4991) | TestTask hangs in testWatchDogInterruptsTask |  Major | Distributed Coordination | Ufuk Celebi |  |
 | [FLINK-4977](https://issues.apache.org/jira/browse/FLINK-4977) | Enum serialization does not work in all cases |  Minor | . | Sean Winard | Stephan Ewen |
 | [FLINK-3813](https://issues.apache.org/jira/browse/FLINK-3813) | YARNSessionFIFOITCase.testDetachedMode failed on Travis |  Critical | . | Till Rohrmann | Maximilian Michels |
 | [FLINK-4998](https://issues.apache.org/jira/browse/FLINK-4998) | ResourceManager fails when num task slots \> Yarn vcores |  Major | ResourceManager, YARN | Maximilian Michels | Maximilian Michels |
@@ -96,6 +96,9 @@
 | [FLINK-5114](https://issues.apache.org/jira/browse/FLINK-5114) | PartitionState update with finished execution fails |  Major | Network | Ufuk Celebi | Ufuk Celebi |
 | [FLINK-5326](https://issues.apache.org/jira/browse/FLINK-5326) | IllegalStateException: Bug in Netty consumer logic: reader queue got notified by partition about available data,  but none was available |  Major | Network | Robert Metzger | Ufuk Celebi |
 | [FLINK-5352](https://issues.apache.org/jira/browse/FLINK-5352) | Restore RocksDB 1.1.3 memory behavior |  Major | State Backends, Checkpointing | Stephan Ewen | Stephan Ewen |
+| [FLINK-4829](https://issues.apache.org/jira/browse/FLINK-4829) | Accumulators are not thread safe |  Major | Local Runtime | Till Rohrmann | Maximilian Michels |
+| [FLINK-5214](https://issues.apache.org/jira/browse/FLINK-5214) | Clean up checkpoint files when failing checkpoint operation on TM |  Major | Distributed Coordination | Till Rohrmann | Till Rohrmann |
+| [FLINK-5229](https://issues.apache.org/jira/browse/FLINK-5229) | Cleanup StreamTaskStates if a checkpoint operation of a subsequent operator fails |  Major | Distributed Coordination, State Backends, Checkpointing | Till Rohrmann | Till Rohrmann |
 
 
 ### SUB-TASKS:

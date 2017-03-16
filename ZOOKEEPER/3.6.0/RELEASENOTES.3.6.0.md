@@ -23,6 +23,13 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
+* [ZOOKEEPER-27](https://issues.apache.org/jira/browse/ZOOKEEPER-27) | *Major* | **Unique DB identifiers for servers and clients**
+
+**WARNING: No release note provided for this change.**
+
+
+---
+
 * [ZOOKEEPER-1948](https://issues.apache.org/jira/browse/ZOOKEEPER-1948) | *Major* | **Enable JMX remote monitoring**
 
 Changes in zkServer.sh to support JMX remote monitoring of Zookeeper processes. The change doesn't impact current installations and new installations requiring JMX remote monitoring need to set the jmx port to enable it.
@@ -94,6 +101,13 @@ IPv6 addresses are now properly parsed in the config
 * [ZOOKEEPER-1525](https://issues.apache.org/jira/browse/ZOOKEEPER-1525) | *Major* | **Plumb ZooKeeperServer object into auth plugins**
 
 Plumb ZooKeeperServer object into auth plugins.
+
+
+---
+
+* [ZOOKEEPER-2573](https://issues.apache.org/jira/browse/ZOOKEEPER-2573) | *Major* | **Modify Info.REVISION to adapt git repo**
+
+After the migration of ZooKeeper's version control system from 'svn repo' to 'apache git repo' the revision info becomes git's SHA-1 hash value.
 
 
 

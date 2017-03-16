@@ -258,4 +258,67 @@ This is to improve the performance of sum function over range based windowing.
 One issue related to sum(lag(x)) over (partition by c1 order by c2 range between ...)  and sum(lead(x)) over (partition by c1 order by c2 range between ...) has been fixed which would produce different result. Without the patch, lag(x)/lead(x) would only consider the previous/next row in the windowing, not within the partition, which doesn't match other databases, also doesn't match rows based windowing.
 
 
+---
+
+* [HIVE-15579](https://issues.apache.org/jira/browse/HIVE-15579) | *Major* | **Support HADOOP\_PROXY\_USER for secure impersonation in hive metastore client**
+
+Using HADOOP\_PROXY\_USER a superuser can access hive through hive cli on behalf of another user.
+To use this feature, export HADOOP\_PROXY\_USER with the user that has to be proxied and start hive cli.
+The HADOOP\_PROXY\_USER variable can be set as part of system environmental variable or in system properties.
+
+
+---
+
+* [HIVE-15655](https://issues.apache.org/jira/browse/HIVE-15655) | *Major* | **Optimizer: Allow config option to disable n-way JOIN merging**
+
+Optimizer: Allow config option to disable n-way JOIN merging (Gopal V, reviewed by Jesus Camacho Rodriguez)
+
+
+---
+
+* [HIVE-15723](https://issues.apache.org/jira/browse/HIVE-15723) | *Minor* | **Hive should report a warning about missing table/column statistics to user.**
+
+hive.cbo.show.warnings (default false) is added to control display of cost-based-optimizer compiler warnings, like missing stats.
+
+
+---
+
+* [HIVE-14573](https://issues.apache.org/jira/browse/HIVE-14573) | *Major* | **Vectorization: Implement StringExpr::find()**
+
+Vectorization: Implement StringExpr::find() (Teddy Choi, reviewed by Gopal V)
+
+
+---
+
+* [HIVE-14754](https://issues.apache.org/jira/browse/HIVE-14754) | *Major* | **Track the queries execution lifecycle times**
+
+Five new metrics are being added to track the query execution in HiveServer2.
+- hs2\_submitted\_queries - is showing the number of queries currently submitted to HS2 and being processed as well as the min/max/mean execution times for the last 1028 measurements.
+- hs2\_compiling\_queries - is showing the number of queries currently in the compilation phase and the min/max/mean execution times for the last 1028 measurements.
+- hs2\_executing\_queries - is showing the number of queries currently in the execution phase and the min/max/mean execution times for the last 1028 measurements.
+- hs2\_failed\_queries - is showing the total number of failed queries, as well as the query failure rate exponentially weighted moving average for the last 1/5/15 minutes
+- hs2\_suceeded\_queries - is showing the total number of successful queries, as well as the query success rate exponentially weighted moving average for the last 1/5/15 minutes
+
+
+---
+
+* [HIVE-15683](https://issues.apache.org/jira/browse/HIVE-15683) | *Major* | **Make what's done in HIVE-15580 for group by configurable**
+
+Document the new configuration for 2.2.0.
+
+
+---
+
+* [HIVE-16050](https://issues.apache.org/jira/browse/HIVE-16050) | *Major* | **Regression: Union of null with non-null**
+
+Regression: Union of null with non-null (Gopal V, reviewed by Sergey Shelukhin)
+
+
+---
+
+* [HIVE-16182](https://issues.apache.org/jira/browse/HIVE-16182) | *Major* | **Semijoin: Avoid VectorHashKeyWrapper allocations for the bloom hash aggregate**
+
+Semijoin: Avoid VectorHashKeyWrapper allocations for the bloom hash aggregate (Gopal V, reviewed by Sergey Shelukhin)
+
+
 

@@ -71,4 +71,11 @@ HBase 1.x and above will be supported with Pig 0.17. Compiling with 0.98 or belo
 UDF now supports LoadCaster.  Default behavior is to check if all parameters belong to same loadcaster and use it when true.
 
 
+---
+
+* [PIG-5085](https://issues.apache.org/jira/browse/PIG-5085) | *Major* | **Support FLATTEN of maps**
+
+**WARNING: No release note provided for this change.**
+
+
 

@@ -18,7 +18,7 @@
 -->
 # Apache HBase Changelog
 
-## Release 2.0.. - Unreleased (as of 2017-01-19)
+## Release 2.0.. - Unreleased (as of 2017-03-16)
 
 
 

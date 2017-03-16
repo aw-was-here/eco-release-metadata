@@ -200,7 +200,7 @@ add 'serialization.encoding' and suport GBK charset for the class 'org.apache.ha
 
 * [HIVE-6535](https://issues.apache.org/jira/browse/HIVE-6535) | *Major* | **JDBC: provide an async API to execute query and fetch results**
 
-Starts the query execution asynchronously on the server, and immediately returns to the client. The client subsequently blocks on ResultSet#next or Statement#getUpdateCount, depending on the query type. Users should call ResultSet.next or Statement#getUpdateCount (depending on whether query returns results) to ensure that query completes successfully. Calling another execute method, or close before query completion would result in the async query getting killed if it is not already finished.
+Introduced new method HiveStatement.executeAsync - Starts the query execution asynchronously on the server, and immediately returns to the client. The client subsequently blocks on ResultSet#next or Statement#getUpdateCount, depending on the query type. Users should call ResultSet.next or Statement#getUpdateCount (depending on whether query returns results) to ensure that query completes successfully. Calling another execute method, or close before query completion would result in the async query getting killed if it is not already finished.
 Note: This method is an API for limited usage outside of Hive by applications like Apache Ambari, although it is not part of the interface java.sql.Statement.
 
 

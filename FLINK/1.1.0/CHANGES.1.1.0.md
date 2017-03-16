@@ -112,7 +112,7 @@
 | [FLINK-3900](https://issues.apache.org/jira/browse/FLINK-3900) | Set nullCheck=true as default in TableConfig |  Minor | Table API & SQL | Flavio Pompermaier | Rekha Joshi |
 | [FLINK-3913](https://issues.apache.org/jira/browse/FLINK-3913) | Clean up documentation typos |  Trivial | Documentation | Mark Reddy | Mark Reddy |
 | [FLINK-3507](https://issues.apache.org/jira/browse/FLINK-3507) | PruneEmptyRules does not prune empty node as expected. |  Minor | Table API & SQL | Chengxiang Li |  |
-| [FLINK-2829](https://issues.apache.org/jira/browse/FLINK-2829) | Confusing error message when Flink cannot create enough task threads |  Trivial | JobManager, TaskManager | Gyula Fora | Rekha Joshi |
+| [FLINK-2829](https://issues.apache.org/jira/browse/FLINK-2829) | Confusing error message when Flink cannot create enough task threads |  Trivial | Distributed Coordination, JobManager | Gyula Fora | Rekha Joshi |
 | [FLINK-3887](https://issues.apache.org/jira/browse/FLINK-3887) | Improve dependency management for building docs |  Major | Documentation | Maximilian Michels | Maximilian Michels |
 | [FLINK-3607](https://issues.apache.org/jira/browse/FLINK-3607) | Decrease default forkCount for tests |  Major | Build System | Maximilian Michels | Maximilian Michels |
 | [FLINK-3979](https://issues.apache.org/jira/browse/FLINK-3979) | [documentation]add missed import classes in run\_example\_quickstart |  Major | Documentation | Jia Zhai |  |
@@ -292,11 +292,10 @@
 | [FLINK-4031](https://issues.apache.org/jira/browse/FLINK-4031) | Nightly Jenkins job doesn't deploy sources |  Minor | Build System | Maximilian Michels | Maximilian Michels |
 | [FLINK-3471](https://issues.apache.org/jira/browse/FLINK-3471) | JDBCInputFormat cannot handle null fields of certain types |  Major | . | Ken Geis |  |
 | [FLINK-3530](https://issues.apache.org/jira/browse/FLINK-3530) | Kafka09ITCase.testBigRecordJob fails on Travis |  Major | Kafka Connector | Till Rohrmann | Robert Metzger |
-| [FLINK-4052](https://issues.apache.org/jira/browse/FLINK-4052) | Unstable test ConnectionUtilsTest |  Critical | Tests | Stephan Ewen | Stephan Ewen |
 | [FLINK-4002](https://issues.apache.org/jira/browse/FLINK-4002) | [py] Improve testing infraestructure |  Minor | Python API | Omar Alvarez |  |
 | [FLINK-3971](https://issues.apache.org/jira/browse/FLINK-3971) | Aggregates handle null values incorrectly. |  Critical | Table API & SQL | Fabian Hueske | GaoLun |
 | [FLINK-4030](https://issues.apache.org/jira/browse/FLINK-4030) | ScalaShellITCase gets stuck |  Minor | Tests | Maximilian Michels | Maximilian Michels |
-| [FLINK-4028](https://issues.apache.org/jira/browse/FLINK-4028) | AbstractAlignedProcessingTimeWindowOperator creates wrong TimeWindow |  Blocker | Windowing Operators | Aljoscha Krettek |  |
+| [FLINK-4028](https://issues.apache.org/jira/browse/FLINK-4028) | AbstractAlignedProcessingTimeWindowOperator creates wrong TimeWindow |  Blocker | DataStream API | Aljoscha Krettek |  |
 | [FLINK-3908](https://issues.apache.org/jira/browse/FLINK-3908) | FieldParsers error state is not reset correctly to NONE |  Major | Core | Flavio Pompermaier | Flavio Pompermaier |
 | [FLINK-4024](https://issues.apache.org/jira/browse/FLINK-4024) | FileSourceFunction not adjusted to new IF lifecycle |  Critical | Streaming | Chesnay Schepler | Kostas Kloudas |
 | [FLINK-3933](https://issues.apache.org/jira/browse/FLINK-3933) | Add an auto-type-extracting DeserializationSchema |  Major | Streaming, Streaming Connectors | Stephan Ewen | Stephan Ewen |
@@ -372,20 +371,21 @@
 | [FLINK-4235](https://issues.apache.org/jira/browse/FLINK-4235) | ClassLoaderITCase.testDisposeSavepointWithCustomKvState timed out on Travis |  Major | Tests | Till Rohrmann | Ufuk Celebi |
 | [FLINK-4238](https://issues.apache.org/jira/browse/FLINK-4238) | Only allow/require query for Tuple Stream in CassandraSink |  Major | Cassandra Connector | Aljoscha Krettek | Aljoscha Krettek |
 | [FLINK-2392](https://issues.apache.org/jira/browse/FLINK-2392) | Instable test in flink-yarn-tests |  Critical | Tests | Matthias J. Sax | Robert Metzger |
-| [FLINK-3962](https://issues.apache.org/jira/browse/FLINK-3962) | JMXReporter doesn't properly register/deregister metrics |  Major | TaskManager | Maximilian Michels | Stephan Ewen |
+| [FLINK-3962](https://issues.apache.org/jira/browse/FLINK-3962) | JMXReporter doesn't properly register/deregister metrics |  Major | Distributed Coordination | Maximilian Michels | Stephan Ewen |
 | [FLINK-4201](https://issues.apache.org/jira/browse/FLINK-4201) | Checkpoints for jobs in non-terminal state (e.g. suspended) get deleted |  Blocker | State Backends, Checkpointing | Stefan Richter | Ufuk Celebi |
 | [FLINK-3725](https://issues.apache.org/jira/browse/FLINK-3725) | Exception in thread "main" scala.MatchError: ... (of class scala.Tuple4) |  Major | JobManager | Maxim Dobryakov | Stephan Ewen |
 | [FLINK-3411](https://issues.apache.org/jira/browse/FLINK-3411) | Failed recovery can lead to removal of HA state |  Critical | Distributed Coordination | Ufuk Celebi |  |
 | [FLINK-4150](https://issues.apache.org/jira/browse/FLINK-4150) | Problem with Blobstore in Yarn HA setting on recovery after cluster shutdown |  Blocker | Job-Submission | Stefan Richter | Ufuk Celebi |
-| [FLINK-4152](https://issues.apache.org/jira/browse/FLINK-4152) | TaskManager registration exponential backoff doesn't work |  Major | Distributed Coordination, TaskManager, YARN | Robert Metzger | Till Rohrmann |
+| [FLINK-4152](https://issues.apache.org/jira/browse/FLINK-4152) | TaskManager registration exponential backoff doesn't work |  Major | Distributed Coordination, YARN | Robert Metzger | Till Rohrmann |
 | [FLINK-4156](https://issues.apache.org/jira/browse/FLINK-4156) | Job with -m yarn-cluster registers TaskManagers to another running Yarn session |  Major | Distributed Coordination, YARN | Stefan Richter |  |
 | [FLINK-4258](https://issues.apache.org/jira/browse/FLINK-4258) | Potential null pointer dereference in SavepointCoordinator#onFullyAcknowledgedCheckpoint |  Major | . | Ted Yu | Maximilian Michels |
 | [FLINK-4277](https://issues.apache.org/jira/browse/FLINK-4277) | TaskManagerConfigurationTest fails |  Major | Tests | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-4284](https://issues.apache.org/jira/browse/FLINK-4284) | DataSet/CEP link to non-existant "Linking with Flink" section |  Major | Documentation | Chesnay Schepler | Chesnay Schepler |
-| [FLINK-4296](https://issues.apache.org/jira/browse/FLINK-4296) | Scheduler accepts more tasks than it has task slots available |  Critical | JobManager, TaskManager | Maximilian Michels | Till Rohrmann |
+| [FLINK-4296](https://issues.apache.org/jira/browse/FLINK-4296) | Scheduler accepts more tasks than it has task slots available |  Critical | Distributed Coordination, JobManager | Maximilian Michels | Till Rohrmann |
 | [FLINK-4307](https://issues.apache.org/jira/browse/FLINK-4307) | Broken user-facing API for ListState |  Blocker | Streaming | Stephan Ewen | Stephan Ewen |
 | [FLINK-3796](https://issues.apache.org/jira/browse/FLINK-3796) | FileSourceFunction doesn't respect InputFormat's life cycle methods |  Major | Streaming | Maximilian Michels | Maximilian Michels |
 | [FLINK-3594](https://issues.apache.org/jira/browse/FLINK-3594) | StreamTask may fail when checkpoint is concurrent to regular termination |  Critical | . | Chesnay Schepler | Stephan Ewen |
+| [FLINK-2496](https://issues.apache.org/jira/browse/FLINK-2496) | Expose Task Manager configuration to Runtime Context |  Major | DataSet API, DataStream API, Java API | Sachin Goel | Sachin Goel |
 
 
 ### TESTS:
@@ -405,14 +405,14 @@
 | [FLINK-3552](https://issues.apache.org/jira/browse/FLINK-3552) | Change socket WordCount to be properly windowed |  Major | Examples | Stephan Ewen | Stephan Ewen |
 | [FLINK-3489](https://issues.apache.org/jira/browse/FLINK-3489) | Refactor Table API before merging into master |  Major | Table API & SQL | Timo Walther | Vasia Kalavri |
 | [FLINK-3612](https://issues.apache.org/jira/browse/FLINK-3612) | Fix/adjust Table API examples |  Major | Table API & SQL | Vasia Kalavri | Vasia Kalavri |
-| [FLINK-3327](https://issues.apache.org/jira/browse/FLINK-3327) | Attach the ExecutionConfig to the JobGraph and make it accessible to the AbstractInvocable. |  Major | TaskManager | Kostas Kloudas | Kostas Kloudas |
+| [FLINK-3327](https://issues.apache.org/jira/browse/FLINK-3327) | Attach the ExecutionConfig to the JobGraph and make it accessible to the AbstractInvocable. |  Major | Distributed Coordination | Kostas Kloudas | Kostas Kloudas |
 | [FLINK-3748](https://issues.apache.org/jira/browse/FLINK-3748) | Add CASE function to Table API |  Major | Table API & SQL | Timo Walther | Timo Walther |
 | [FLINK-3230](https://issues.apache.org/jira/browse/FLINK-3230) | Kinesis streaming producer |  Major | Streaming Connectors | Tzu-Li (Gordon) Tai | Robert Metzger |
 | [FLINK-3756](https://issues.apache.org/jira/browse/FLINK-3756) | Introduce state hierarchy in CheckpointCoordinator |  Major | JobManager | Till Rohrmann | Till Rohrmann |
 | [FLINK-3837](https://issues.apache.org/jira/browse/FLINK-3837) | Create FLOOR/CEIL function |  Minor | Table API & SQL | Timo Walther | Timo Walther |
 | [FLINK-3229](https://issues.apache.org/jira/browse/FLINK-3229) | Kinesis streaming consumer with integration of Flink's checkpointing mechanics |  Major | Streaming Connectors | Tzu-Li (Gordon) Tai | Tzu-Li (Gordon) Tai |
 | [FLINK-3141](https://issues.apache.org/jira/browse/FLINK-3141) | Design of NULL values handling in operation |  Major | Table API & SQL | Chengxiang Li |  |
-| [FLINK-1502](https://issues.apache.org/jira/browse/FLINK-1502) | Expose metrics to graphite, ganglia and JMX. |  Minor | JobManager, TaskManager | Robert Metzger | Chesnay Schepler |
+| [FLINK-1502](https://issues.apache.org/jira/browse/FLINK-1502) | Expose metrics to graphite, ganglia and JMX. |  Minor | Distributed Coordination, JobManager | Robert Metzger | Chesnay Schepler |
 | [FLINK-3586](https://issues.apache.org/jira/browse/FLINK-3586) | Risk of data overflow while use sum/count to calculate AVG value |  Minor | Table API & SQL | Chengxiang Li | Fabian Hueske |
 | [FLINK-3129](https://issues.apache.org/jira/browse/FLINK-3129) | Add tooling to ensure interface stability |  Major | Build System | Robert Metzger | Robert Metzger |
 | [FLINK-3923](https://issues.apache.org/jira/browse/FLINK-3923) | Unify configuration conventions of the Kinesis producer to the same as the consumer |  Major | Kinesis Connector, Streaming Connectors | Robert Metzger | Abdullah Ozturk |

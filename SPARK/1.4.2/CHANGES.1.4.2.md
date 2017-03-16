@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 1.4.2 - Unreleased (as of 2017-01-19)
+## Release 1.4.2 - Unreleased (as of 2017-03-16)
 
 
 
@@ -121,6 +121,7 @@
 | [SPARK-13803](https://issues.apache.org/jira/browse/SPARK-13803) | Standalone master does not balance cluster-mode drivers across workers |  Major | Deploy, Spark Core | Brian Wongchaowart | Nan Zhu |
 | [SPARK-14468](https://issues.apache.org/jira/browse/SPARK-14468) | Always enable OutputCommitCoordinator |  Major | Spark Core | Andrew Or | Andrew Or |
 | [SPARK-12488](https://issues.apache.org/jira/browse/SPARK-12488) | LDA describeTopics() Generates Invalid Term IDs |  Major | MLlib | Ilya Ganelin | Xiangrui Meng |
+| [SPARK-8273](https://issues.apache.org/jira/browse/SPARK-8273) | Driver hangs up when yarn shutdown in client mode |  Major | Spark Core, YARN | Tao Wang | Tao Wang |
 
 
 ### SUB-TASKS:

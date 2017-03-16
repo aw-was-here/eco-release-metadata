@@ -87,4 +87,12 @@ The fix for HDFS-11056 reads meta file to load last partial chunk checksum when 
 Fixed a race condition that caused VolumeScanner to recognize a good replica as a bad one if the replica is also being written concurrently.
 
 
+---
+
+* [HDFS-11499](https://issues.apache.org/jira/browse/HDFS-11499) | *Major* | **Decommissioning stuck because of failing recovery**
+
+Allow a block to complete if the number of replicas on live nodes, decommissioning nodes and nodes in maintenance mode satisfies minimum replication factor.
+The fix prevents block recovery failure if replica of last block is being decommissioned. Vice versa, the decommissioning will be stuck, waiting for the last block to be completed. In addition, file close() operation will not fail due to last block being decommissioned.
+
+
 

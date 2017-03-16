@@ -18,7 +18,7 @@
 -->
 # Apache Hive Changelog
 
-## Release 1.3.0 - Unreleased (as of 2017-01-19)
+## Release 1.3.0 - Unreleased (as of 2017-03-16)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -663,6 +663,9 @@
 | [HIVE-15120](https://issues.apache.org/jira/browse/HIVE-15120) | Storage based auth: allow option to enforce write checks for external tables |  Major | Authorization | Thejas M Nair | Daniel Dai |
 | [HIVE-15181](https://issues.apache.org/jira/browse/HIVE-15181) | buildQueryWithINClause didn't properly handle multiples of ConfVars.METASTORE\_DIRECT\_SQL\_MAX\_ELEMENTS\_IN\_CLAUSE |  Critical | Hive, Transactions | Wei Zheng | Wei Zheng |
 | [HIVE-15551](https://issues.apache.org/jira/browse/HIVE-15551) | memory leak in directsql for mysql+bonecp specific initialization |  Major | Metastore | Xiaomin Zhang | Xiaomin Zhang |
+| [HIVE-15519](https://issues.apache.org/jira/browse/HIVE-15519) | BitSet not computed properly for ColumnBuffer subset |  Critical | Hive, JDBC | Bharat Viswanadham | Rui Li |
+| [HIVE-15714](https://issues.apache.org/jira/browse/HIVE-15714) | backport HIVE-11985 (and HIVE-12601) to branch-1 |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
+| [HIVE-15840](https://issues.apache.org/jira/browse/HIVE-15840) | Webhcat test TestPig\_5 failing with Pig on Tez at check for percent complete of job |  Major | HCatalog | Daniel Dai | Daniel Dai |
 
 
 ### TESTS:

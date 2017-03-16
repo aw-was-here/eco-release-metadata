@@ -21,4 +21,11 @@
 These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
 
 
+---
+
+* [ZOOKEEPER-2573](https://issues.apache.org/jira/browse/ZOOKEEPER-2573) | *Major* | **Modify Info.REVISION to adapt git repo**
+
+After the migration of ZooKeeper's version control system from 'svn repo' to 'apache git repo' the revision info becomes git's SHA-1 hash value.
+
+
 

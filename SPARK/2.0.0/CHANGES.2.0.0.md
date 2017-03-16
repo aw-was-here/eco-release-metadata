@@ -34,6 +34,7 @@
 | [SPARK-15851](https://issues.apache.org/jira/browse/SPARK-15851) | Spark 2.0 does not compile in Windows 7 |  Major | Build | Alexander Ulanov | Reynold Xin |
 | [SPARK-13709](https://issues.apache.org/jira/browse/SPARK-13709) | Spark unable to decode Avro when partitioned |  Major | SQL | Chris Miller | Cheng Lian |
 | [SPARK-18709](https://issues.apache.org/jira/browse/SPARK-18709) | Automatic null conversion bug (instead of throwing error) when creating a Spark Datarame with incompatible types for fields. |  Major | SQL | Amogh Param | Andrew Or |
+| [SPARK-7661](https://issues.apache.org/jira/browse/SPARK-7661) | Support for dynamic allocation of resources in Kinesis Spark Streaming |  Major | DStreams | Murtaza Kanchwala |  |
 
 
 ### NEW FEATURES:
@@ -901,6 +902,7 @@
 | [SPARK-15163](https://issues.apache.org/jira/browse/SPARK-15163) | Mark experimental algorithms experimental in PySpark |  Trivial | ML, PySpark | holdenk | holdenk |
 | [SPARK-15745](https://issues.apache.org/jira/browse/SPARK-15745) | Use classloader's getResource() for reading resource files in HiveTests |  Trivial | SQL | Sameer Agarwal | Sameer Agarwal |
 | [SPARK-15023](https://issues.apache.org/jira/browse/SPARK-15023) | Add support for testing against the \`ProcessingTime(intervalMS \> 0)\` trigger and \`ManualClock\` |  Major | SQL | Liwei Lin(Inactive) | Liwei Lin |
+| [SPARK-13637](https://issues.apache.org/jira/browse/SPARK-13637) | use more information to simplify the code in Expand builder |  Minor | SQL | Wenchen Fan | Wenchen Fan |
 
 
 ### BUG FIXES:
@@ -1795,6 +1797,7 @@
 | [SPARK-18593](https://issues.apache.org/jira/browse/SPARK-18593) | JDBCRDD returns incorrect results for filters on CHAR of PostgreSQL |  Minor | SQL | Durga Prasad Gunturu | Takeshi Yamamuro |
 | [SPARK-18642](https://issues.apache.org/jira/browse/SPARK-18642) | Spark SQL: Catalyst is scanning undesired columns |  Major | SQL | Mohit | Dongjoon Hyun |
 | [SPARK-12143](https://issues.apache.org/jira/browse/SPARK-12143) | When column type is binary, select occurs ClassCastExcption in Beeline. |  Major | SQL | meiyoula | Hyukjin Kwon |
+| [SPARK-13478](https://issues.apache.org/jira/browse/SPARK-13478) | Fetching delegation tokens for Hive fails when using proxy users |  Minor | YARN | Marcelo Vanzin | Marcelo Vanzin |
 
 
 ### TESTS:

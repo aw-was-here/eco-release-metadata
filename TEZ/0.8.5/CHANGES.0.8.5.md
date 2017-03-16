@@ -18,7 +18,7 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.8.5 - Unreleased (as of 2017-01-19)
+## Release 0.8.5 - 2017-03-13
 
 
 
@@ -76,6 +76,14 @@
 | [TEZ-3568](https://issues.apache.org/jira/browse/TEZ-3568) | Update SecurityUtils configuration to pick user provided configuration. |  Major | . | Harish Jaiprakash | Harish Jaiprakash |
 | [TEZ-3566](https://issues.apache.org/jira/browse/TEZ-3566) | OOM because of too many DFSClient instances in TokenCache.obtainTokensForFileSystems |  Major | . | Harish Jaiprakash | Harish Jaiprakash |
 | [TEZ-3574](https://issues.apache.org/jira/browse/TEZ-3574) | Container reuse won't pickup extra dag level local resource |  Major | . | Zhiyuan Yang | Zhiyuan Yang |
+| [TEZ-3462](https://issues.apache.org/jira/browse/TEZ-3462) | Task attempt failure during container shutdown loses useful container diagnostics |  Major | . | Jason Lowe | Eric Badger |
+| [TEZ-3582](https://issues.apache.org/jira/browse/TEZ-3582) | Exception swallowed in PipelinedSorter causing incorrect results |  Blocker | . | Travis Woodruff | Rajesh Balamohan |
+| [TEZ-3601](https://issues.apache.org/jira/browse/TEZ-3601) | Add another HistoryLogLevel to suppress TaskAttempts at specific levels |  Major | . | Harish Jaiprakash | Harish Jaiprakash |
+| [TEZ-3244](https://issues.apache.org/jira/browse/TEZ-3244) | Allow overlap of input and output memory when they are not concurrent |  Major | . | Jason Lowe | Jason Lowe |
+| [TEZ-3609](https://issues.apache.org/jira/browse/TEZ-3609) | Improve ATSv15 performance for DAG entities read calls. |  Major | . | Harish Jaiprakash | Harish Jaiprakash |
+| [TEZ-3550](https://issues.apache.org/jira/browse/TEZ-3550) | DagClient does not provide access to AppID/DagID |  Major | . | Jason Dere | Siddharth Seth |
+| [TEZ-3643](https://issues.apache.org/jira/browse/TEZ-3643) | Long running AMs can go out of memory due to retained AMContainer instances |  Critical | . | Siddharth Seth | Siddharth Seth |
+| [TEZ-3644](https://issues.apache.org/jira/browse/TEZ-3644) | Cleanup container list stored in AMNode |  Major | . | Siddharth Seth | Siddharth Seth |
 
 
 ### SUB-TASKS:
@@ -99,5 +107,7 @@
 | [TEZ-3235](https://issues.apache.org/jira/browse/TEZ-3235) | Modify Example TestOrderedWordCount job to test the IPC limit for large dag plans |  Major | . | Sushmitha Sreenivasan | Sushmitha Sreenivasan |
 | [TEZ-3409](https://issues.apache.org/jira/browse/TEZ-3409) | Log dagId along with other information when submitting a dag |  Major | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-3534](https://issues.apache.org/jira/browse/TEZ-3534) | Differentiate thread names on Fetchers, minor changes to shuffle shutdown code |  Major | . | Siddharth Seth | Siddharth Seth |
+| [TEZ-3624](https://issues.apache.org/jira/browse/TEZ-3624) | Split multiple calls on the same line in TaskCommunicatorContextImpl |  Minor | . | Siddharth Seth | Siddharth Seth |
+| [TEZ-3651](https://issues.apache.org/jira/browse/TEZ-3651) | Changes for 0.8.5 release |  Major | . | Siddharth Seth | Siddharth Seth |
 
 
