@@ -18,7 +18,7 @@
 -->
 # Apache Yetus Changelog
 
-## Release 0.5.0 - Unreleased (as of 2017-03-16)
+## Release 0.5.0 - Unreleased (as of 2017-03-24)
 
 
 

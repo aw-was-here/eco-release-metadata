@@ -18,7 +18,7 @@
 -->
 # Apache BigTop Changelog
 
-## Release 1.2.0 - Unreleased (as of 2017-03-16)
+## Release 1.2.0 - Unreleased (as of 2017-03-24)
 
 
 
@@ -100,6 +100,9 @@
 | [BIGTOP-2688](https://issues.apache.org/jira/browse/BIGTOP-2688) | Add flag for provisioning of Yum Repo |  Trivial | deployment | Mike Grimes | Mike Grimes |
 | [BIGTOP-2694](https://issues.apache.org/jira/browse/BIGTOP-2694) | Added Hernan Vivani (hvivani) as elasticsearch maintainer |  Minor | . | Hernan Vivani | Hernan Vivani |
 | [BIGTOP-2696](https://issues.apache.org/jira/browse/BIGTOP-2696) | Build out VM for sandboxes |  Major | build | Roman Shaposhnik | Roman Shaposhnik |
+| [BIGTOP-2697](https://issues.apache.org/jira/browse/BIGTOP-2697) | Back port HADOOP-12366 into Bigtop |  Major | hadoop | Roman Shaposhnik | Roman Shaposhnik |
+| [BIGTOP-1608](https://issues.apache.org/jira/browse/BIGTOP-1608) | Create Unified testing solution: Smoke-Tests and Test-Artifacts |  Major | tests | David Capwell | Konstantin Boudnik |
+| [BIGTOP-2714](https://issues.apache.org/jira/browse/BIGTOP-2714) | Update Groovy in the toolchain to 2.4.10 |  Major | toolchain | Konstantin Boudnik | Konstantin Boudnik |
 
 
 ### BUG FIXES:
@@ -247,6 +250,15 @@
 | [BIGTOP-2693](https://issues.apache.org/jira/browse/BIGTOP-2693) | Update readme for build and configuring git repo for packages |  Minor | build, documentation | Felix Cheung | Felix Cheung |
 | [BIGTOP-2689](https://issues.apache.org/jira/browse/BIGTOP-2689) | Upgrade Zeppelin to version 0.7 |  Major | build | Kengo Seki | YoungWoo Kim |
 | [BIGTOP-2695](https://issues.apache.org/jira/browse/BIGTOP-2695) | arch.dot for bigpetstore-spark is outdated |  Minor | blueprints, documentation | Kengo Seki | Roman Shaposhnik |
+| [BIGTOP-2401](https://issues.apache.org/jira/browse/BIGTOP-2401) | a commiter name is missing in the "Who we are" page |  Minor | website | Konstantin Boudnik | Konstantin Boudnik |
+| [BIGTOP-2673](https://issues.apache.org/jira/browse/BIGTOP-2673) | Need to back port HADOOP-11628 for JDK8 |  Blocker | deployment | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2231](https://issues.apache.org/jira/browse/BIGTOP-2231) | build.gradle carries one too many sets of repositories |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
+| [BIGTOP-976](https://issues.apache.org/jira/browse/BIGTOP-976) | package deployment tests are CDH specific: \_has\_ to be removed or fixed |  Critical | tests | Konstantin Boudnik | Konstantin Boudnik |
+| [BIGTOP-2710](https://issues.apache.org/jira/browse/BIGTOP-2710) | qfs debian build is breaking because it is confused about Maven home |  Major | build, debian | Roman Shaposhnik | Roman Shaposhnik |
+| [BIGTOP-2711](https://issues.apache.org/jira/browse/BIGTOP-2711) | fix rat problems |  Major | build | Roman Shaposhnik | Roman Shaposhnik |
+| [BIGTOP-2699](https://issues.apache.org/jira/browse/BIGTOP-2699) | Zeppeling CI build is broken |  Blocker | . | Konstantin Boudnik | Roman Shaposhnik |
+| [BIGTOP-2707](https://issues.apache.org/jira/browse/BIGTOP-2707) | localhost is missing in docker provisioner instances |  Major | docker, provisioner | Roman Shaposhnik | Roman Shaposhnik |
+| [BIGTOP-2715](https://issues.apache.org/jira/browse/BIGTOP-2715) | Tiny typo in the README.md |  Major | documentation | Konstantin Boudnik | Konstantin Boudnik |
 
 
 ### TESTS:
@@ -295,6 +307,14 @@
 | [BIGTOP-2668](https://issues.apache.org/jira/browse/BIGTOP-2668) | Polish and update Docker Provisioner configurations |  Minor | docker, provisioner | Evans Ye | Evans Ye |
 | [BIGTOP-2491](https://issues.apache.org/jira/browse/BIGTOP-2491) | Update provisioner/docker-hadoop.sh to bind with provisioner/utils |  Minor | docker, provisioner | Evans Ye | Evans Ye |
 | [BIGTOP-2647](https://issues.apache.org/jira/browse/BIGTOP-2647) | Clean up code under bigtop-deploy/vm after everything moved to provisioner directory |  Minor | provisioner | Evans Ye | Evans Ye |
+| [BIGTOP-2224](https://issues.apache.org/jira/browse/BIGTOP-2224) | Let's bump groovy version for smokes to 2.4.10 |  Major | tests | Konstantin Boudnik | Konstantin Boudnik |
+| [BIGTOP-2701](https://issues.apache.org/jira/browse/BIGTOP-2701) | Update hcfs tests so it can work in both casers where fs.trash.interval is disabled or enabled. |  Major | tests | Roman Shaposhnik | Roman Shaposhnik |
+| [BIGTOP-1406](https://issues.apache.org/jira/browse/BIGTOP-1406) | package Ambari in Bigtop |  Major | debian, rpm | Roman Shaposhnik | Roman Shaposhnik |
+| [BIGTOP-2702](https://issues.apache.org/jira/browse/BIGTOP-2702) | Fix Sandbox creation script |  Major | provisioner | Roman Shaposhnik | Roman Shaposhnik |
+| [BIGTOP-2700](https://issues.apache.org/jira/browse/BIGTOP-2700) | Adding tests to test the doas feature of httpfs |  Major | tests | Roman Shaposhnik | Roman Shaposhnik |
+| [BIGTOP-2600](https://issues.apache.org/jira/browse/BIGTOP-2600) | Bump Groovy version to 2.4.10 |  Major | general | Konstantin Boudnik | Roman Shaposhnik |
+| [BIGTOP-2492](https://issues.apache.org/jira/browse/BIGTOP-2492) | Split flink debian packaging |  Major | debian, flink | David Moravek | David Moravek |
+| [BIGTOP-2704](https://issues.apache.org/jira/browse/BIGTOP-2704) | Include ODPi runtime tests option into the battery of smoke tests |  Major | tests | Roman Shaposhnik | Roman Shaposhnik |
 
 
 ### OTHER:
@@ -321,5 +341,6 @@
 | [BIGTOP-2629](https://issues.apache.org/jira/browse/BIGTOP-2629) | Add Jonathan Kelly to team list |  Trivial | website | Jonathan Kelly | Jonathan Kelly |
 | [BIGTOP-2687](https://issues.apache.org/jira/browse/BIGTOP-2687) | Remove /usr/share/java/\*.jar from Sqoop2 catalina.properties |  Major | . | Anna Szonyi |  |
 | [BIGTOP-2670](https://issues.apache.org/jira/browse/BIGTOP-2670) | Bump up Apache Apex version to 3.5.0 |  Major | build | Chinmay Kolhatkar | Chinmay Kolhatkar |
+| [BIGTOP-2703](https://issues.apache.org/jira/browse/BIGTOP-2703) | refresh juju charms/bundles with metric and CI support |  Minor | deployment | Kevin W Monroe | Kevin W Monroe |
 
 

@@ -205,9 +205,58 @@ Added two configuration key fs.ftp.data.connection.mode and fs.ftp.transfer.mode
 
 ---
 
-* [YARN-6110](https://issues.apache.org/jira/browse/YARN-6110) | *Minor* | **Fix opportunistic containers documentation**
+* [HADOOP-14003](https://issues.apache.org/jira/browse/HADOOP-14003) | *Major* | **Make additional KMS tomcat settings configurable**
 
-Committed to trunk and branch-2
+<!-- markdown -->
+
+The KMS can now be configured with the additional environment variables `KMS_PROTOCOL`, `KMS_ACCEPT_COUNT`, and `KMS_ACCEPTOR_THREAD_COUNT`. See `kms-env.sh` for more information about these variables.
+
+
+---
+
+* [MAPREDUCE-6404](https://issues.apache.org/jira/browse/MAPREDUCE-6404) | *Major* | **Allow AM to specify a port range for starting its webapp**
+
+Add a new configuration - "yarn.app.mapreduce.am.webapp.port-range" to specify port-range for webapp launched by AM.
+
+
+---
+
+* [YARN-6177](https://issues.apache.org/jira/browse/YARN-6177) | *Major* | **Yarn client should exit with an informative error message if an incompatible Jersey library is used at client**
+
+Let yarn client exit with an informative error message if an incompatible Jersey library is used from client side.
+
+
+---
+
+* [HADOOP-13817](https://issues.apache.org/jira/browse/HADOOP-13817) | *Minor* | **Add a finite shell command timeout to ShellBasedUnixGroupsMapping**
+
+A new introduced configuration key "hadoop.security.groups.shell.command.timeout" allows applying a finite wait timeout over the 'id' commands launched by the ShellBasedUnixGroupsMapping plugin. Values specified can be in any valid time duration units: https://hadoop.apache.org/docs/current/api/org/apache/hadoop/conf/Configuration.html#getTimeDuration-java.lang.String-long-java.util.concurrent.TimeUnit-
+
+Value defaults to 0, indicating infinite wait (preserving existing behaviour).
+
+
+---
+
+* [HADOOP-6801](https://issues.apache.org/jira/browse/HADOOP-6801) | *Minor* | **io.sort.mb and io.sort.factor were renamed and moved to mapreduce but are still in CommonConfigurationKeysPublic.java and used in SequenceFile.java**
+
+Two new configuration keys, seq.io.sort.mb and seq.io.sort.factor have been introduced for the SequenceFile's Sorter feature to replace older, deprecated property keys of io.sort.mb and io.sort.factor.
+
+This only affects direct users of the org.apache.hadoop.io.SequenceFile.Sorter Java class. For controlling MR2's internal sorting instead, use the existing config keys of mapreduce.task.io.sort.mb and mapreduce.task.io.sort.factor.
+
+
+---
+
+* [HDFS-11499](https://issues.apache.org/jira/browse/HDFS-11499) | *Major* | **Decommissioning stuck because of failing recovery**
+
+Allow a block to complete if the number of replicas on live nodes, decommissioning nodes and nodes in maintenance mode satisfies minimum replication factor.
+The fix prevents block recovery failure if replica of last block is being decommissioned. Vice versa, the decommissioning will be stuck, waiting for the last block to be completed. In addition, file close() operation will not fail due to last block being decommissioned.
+
+
+---
+
+* [HADOOP-14213](https://issues.apache.org/jira/browse/HADOOP-14213) | *Major* | **Move Configuration runtime check for hadoop-site.xml to initialization**
+
+Move the check for hadoop-site.xml to static initialization of the Configuration class.
 
 
 

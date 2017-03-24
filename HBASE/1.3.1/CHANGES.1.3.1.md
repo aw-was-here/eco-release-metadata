@@ -18,7 +18,7 @@
 -->
 # Apache HBase Changelog
 
-## Release 1.3.1 - Unreleased (as of 2017-03-16)
+## Release 1.3.1 - Unreleased (as of 2017-03-24)
 
 
 
@@ -81,6 +81,10 @@
 | [HBASE-17716](https://issues.apache.org/jira/browse/HBASE-17716) | Formalize Scan Metric names |  Minor | metrics | Karan Mehta | Karan Mehta |
 | [HBASE-17717](https://issues.apache.org/jira/browse/HBASE-17717) | Incorrect ZK ACL set for HBase superuser |  Critical | security, Zookeeper | Shreya Bhat | Josh Elser |
 | [HBASE-17501](https://issues.apache.org/jira/browse/HBASE-17501) | NullPointerException after Datanodes Decommissioned and Terminated |  Minor | Filesystem Integration, Operability | Patrick Dignan | James Moore |
+| [HBASE-17175](https://issues.apache.org/jira/browse/HBASE-17175) | backport HBASE-17127 to 1.3.1 |  Major | . | Yu Li | Yu Li |
+| [HBASE-17059](https://issues.apache.org/jira/browse/HBASE-17059) | backport HBASE-17039 to 1.3.1 |  Major | Balancer | Yu Li | Yu Li |
+| [HBASE-17070](https://issues.apache.org/jira/browse/HBASE-17070) | backport HBASE-17020 to 1.3.1 |  Major | . | Yu Li | Yu Li |
+| [HBASE-17813](https://issues.apache.org/jira/browse/HBASE-17813) | backport HBASE-16983 to branch-1.3 |  Major | . | Yu Li | Yu Li |
 
 
 ### SUB-TASKS:
@@ -89,6 +93,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HBASE-15386](https://issues.apache.org/jira/browse/HBASE-15386) | PREFETCH\_BLOCKS\_ON\_OPEN in HColumnDescriptor is ignored |  Major | BucketCache | stack | stack |
 | [HBASE-17561](https://issues.apache.org/jira/browse/HBASE-17561) | table status page should escape values that may contain arbitrary characters. |  Major | master, UI | Sean Busbey | Sean Busbey |
+| [HBASE-17060](https://issues.apache.org/jira/browse/HBASE-17060) | backport HBASE-16570 to 1.3.1 |  Major | . | Yu Li | binlijin |
 
 
 ### OTHER:

@@ -18,7 +18,7 @@
 -->
 # Apache Mahout Changelog
 
-## Release 0.13.0 - Unreleased (as of 2017-03-16)
+## Release 0.13.0 - Unreleased (as of 2017-03-24)
 
 
 
@@ -68,6 +68,7 @@
 | [MAHOUT-1913](https://issues.apache.org/jira/browse/MAHOUT-1913) | Clean Up of VCL bindings |  Blocker | . | Andrew Palumbo | Andrew Musselman |
 | [MAHOUT-1919](https://issues.apache.org/jira/browse/MAHOUT-1919) | Flink Module breaks the build regularly |  Critical | . | Andrew Palumbo | Andrew Palumbo |
 | [MAHOUT-1951](https://issues.apache.org/jira/browse/MAHOUT-1951) | Drivers don't run with remote Spark |  Blocker | Classification, CLI, Collaborative Filtering | Pat Ferrel | Pat Ferrel |
+| [MAHOUT-1955](https://issues.apache.org/jira/browse/MAHOUT-1955) | Viennacl jars are not being picked up by the shell startup script |  Blocker | Mahout spark shell | Andrew Palumbo | Andrew Palumbo |
 
 
 ### TESTS:

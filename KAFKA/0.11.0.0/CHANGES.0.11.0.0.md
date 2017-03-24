@@ -112,6 +112,17 @@
 | [KAFKA-4738](https://issues.apache.org/jira/browse/KAFKA-4738) | Remove generic type of class ClientState |  Minor | streams | Matthias J. Sax | Sharad |
 | [KAFKA-4891](https://issues.apache.org/jira/browse/KAFKA-4891) | kafka.request.logger TRACE regression |  Major | . | Onur Karaman | Onur Karaman |
 | [KAFKA-4783](https://issues.apache.org/jira/browse/KAFKA-4783) | Blackbox or pass through converter or ByteArrayConverter for connect |  Major | KafkaConnect | Antony Stubbs | Ewen Cheslack-Postava |
+| [KAFKA-4885](https://issues.apache.org/jira/browse/KAFKA-4885) | processstreamwithcachedstatestore﻿ and other streams benchmarks fail occasionally |  Major | streams | Eno Thereska | Guozhang Wang |
+| [KAFKA-4895](https://issues.apache.org/jira/browse/KAFKA-4895) | Fix findbugs "format string should use %n rather than \\n" in tools |  Major | tools | Colin P. McCabe | Colin P. McCabe |
+| [KAFKA-4607](https://issues.apache.org/jira/browse/KAFKA-4607) | Kafka Streams allows you to provide strings with illegal characters for internal topic names |  Minor | . | Nikki Thean | Nikki Thean |
+| [KAFKA-4894](https://issues.apache.org/jira/browse/KAFKA-4894) | Fix findbugs "default character set in use" warnings |  Major | . | Colin P. McCabe | Colin P. McCabe |
+| [KAFKA-4848](https://issues.apache.org/jira/browse/KAFKA-4848) | Stream thread getting into deadlock state while trying to get rocksdb lock in retryWithBackoff |  Major | streams | Sachin Mittal | Sachin Mittal |
+| [KAFKA-4594](https://issues.apache.org/jira/browse/KAFKA-4594) | Annotate integration tests and provide gradle build targets to run subsets of tests |  Minor | unit tests | Ewen Cheslack-Postava | Damian Guy |
+| [KAFKA-4863](https://issues.apache.org/jira/browse/KAFKA-4863) | Querying window store may return unwanted keys |  Critical | streams | Xavier Léauté | Damian Guy |
+| [KAFKA-4924](https://issues.apache.org/jira/browse/KAFKA-4924) | Fix findbugs warnings in Kafka-Connect-API |  Major | KafkaConnect | Colin P. McCabe | Colin P. McCabe |
+| [KAFKA-4779](https://issues.apache.org/jira/browse/KAFKA-4779) | Failure in kafka/tests/kafkatest/tests/core/security\_rolling\_upgrade\_test.py |  Major | . | Apurva Mehta | Rajini Sivaram |
+| [KAFKA-4929](https://issues.apache.org/jira/browse/KAFKA-4929) | Transformation Key/Value type references should be to class name(), not canonicalName() |  Minor | KafkaConnect | bruce szalwinski |  |
+| [KAFKA-4919](https://issues.apache.org/jira/browse/KAFKA-4919) | Document that stores must not be closed when Processors are closed |  Major | streams | Elias Levy | Damian Guy |
 
 
 ### SUB-TASKS:
@@ -135,6 +146,7 @@
 | [KAFKA-3155](https://issues.apache.org/jira/browse/KAFKA-3155) | Transient Failure in kafka.api.PlaintextProducerSendTest.testFlush |  Major | . | Guozhang Wang | Armin Braun |
 | [KAFKA-4467](https://issues.apache.org/jira/browse/KAFKA-4467) | Run tests on travis-ci using docker |  Major | system tests | Raghav Kumar Gautam | Raghav Kumar Gautam |
 | [KAFKA-4657](https://issues.apache.org/jira/browse/KAFKA-4657) | Improve test coverage of CompositeReadOnlyWindowStore |  Major | streams | Damian Guy |  |
+| [KAFKA-4859](https://issues.apache.org/jira/browse/KAFKA-4859) | Transient test failure: org.apache.kafka.streams.integration.JoinIntegrationTest.shouldCountClicksPerRegion (again) |  Major | streams | Armin Braun | Armin Braun |
 
 
 ### OTHER:

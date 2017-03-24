@@ -917,4 +917,21 @@ The executor for CoDel is changed to FastPathBalancedQueueRpcExecutor
 The netty dependency is upgraded to 4.1.1.Final. And also some configurations of the old AsyncRpcClient is gone. Such as "hbase.rpc.client.threads.max" and "hbase.rpc.client.nativetransport".
 
 
+---
+
+* [HBASE-17426](https://issues.apache.org/jira/browse/HBASE-17426) | *Major* | **Inconsistent environment variable names for enabling JMX**
+
+In bin/hbase-config.sh,
+if value for HBASE\_JMX\_BASE is empty, keep current behavior.
+if HBASE\_JMX\_OPTS is not empty, keep current behavior.
+otherwise use the value of HBASE\_JMX\_BASE
+
+
+---
+
+* [HBASE-17595](https://issues.apache.org/jira/browse/HBASE-17595) | *Critical* | **Add partial result support for small/limited scan**
+
+Now small scan and limited scan could also return partial results.
+
+
 

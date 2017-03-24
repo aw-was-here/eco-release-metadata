@@ -16,23 +16,25 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-# Apache Tez  0.9.0 Release Notes
+# Apache Hadoop  3.0.0-beta1 Release Notes
 
 These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
 
 
 ---
 
-* [TEZ-3258](https://issues.apache.org/jira/browse/TEZ-3258) | *Major* | **Jvm Checker does not ignore DisableExplicitGC when checking JVM GC options**
+* [HADOOP-13817](https://issues.apache.org/jira/browse/HADOOP-13817) | *Minor* | **Add a finite shell command timeout to ShellBasedUnixGroupsMapping**
 
-**WARNING: No release note provided for this change.**
+A new introduced configuration key "hadoop.security.groups.shell.command.timeout" allows applying a finite wait timeout over the 'id' commands launched by the ShellBasedUnixGroupsMapping plugin. Values specified can be in any valid time duration units: https://hadoop.apache.org/docs/current/api/org/apache/hadoop/conf/Configuration.html#getTimeDuration-java.lang.String-long-java.util.concurrent.TimeUnit-
+
+Value defaults to 0, indicating infinite wait (preserving existing behaviour).
 
 
 ---
 
-* [TEZ-3659](https://issues.apache.org/jira/browse/TEZ-3659) | *Major* | **AM/Task classpath should not contain hadoop conf directory.**
+* [HADOOP-14213](https://issues.apache.org/jira/browse/HADOOP-14213) | *Major* | **Move Configuration runtime check for hadoop-site.xml to initialization**
 
-**WARNING: No release note provided for this change.**
+Move the check for hadoop-site.xml to static initialization of the Configuration class.
 
 
 

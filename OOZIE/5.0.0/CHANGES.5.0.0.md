@@ -18,7 +18,7 @@
 -->
 # Apache Oozie Changelog
 
-## Release 5.0.0 - Unreleased (as of 2017-03-16)
+## Release 5.0.0 - Unreleased (as of 2017-03-24)
 
 
 
@@ -28,6 +28,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [OOZIE-2245](https://issues.apache.org/jira/browse/OOZIE-2245) | Service to periodically check database schema |  Major | core | Robert Kanter | Robert Kanter |
 | [OOZIE-2630](https://issues.apache.org/jira/browse/OOZIE-2630) | Oozie Coordinator EL Functions to get first day of the week/month |  Major | . | Satish Subhashrao Saley | Satish Subhashrao Saley |
+| [OOZIE-2041](https://issues.apache.org/jira/browse/OOZIE-2041) | Add an admin command to run the PurgeXCommand |  Major | core | Robert Kanter | Abhishek Bafna |
 
 
 ### IMPROVEMENTS:
@@ -46,6 +47,8 @@
 | [OOZIE-2771](https://issues.apache.org/jira/browse/OOZIE-2771) | Allow retrieving keystore and truststore passwords from Hadoop Credential Provider |  Major | . | Attila Sasvari | Attila Sasvari |
 | [OOZIE-2786](https://issues.apache.org/jira/browse/OOZIE-2786) | Pass Oozie workflow ID and settings to Spark application configuration |  Critical | action | Xiaobin Zheng | Xiaobin Zheng |
 | [OOZIE-807](https://issues.apache.org/jira/browse/OOZIE-807) | Docs can be explicit about multiple sub-workflow definitions being possible |  Trivial | docs | Harsh J | Harsh J |
+| [OOZIE-2830](https://issues.apache.org/jira/browse/OOZIE-2830) | Use tarLongFileMode with 'gnu' in the assembly plugin's configuration |  Trivial | . | Attila Sasvari | Attila Sasvari |
+| [OOZIE-2393](https://issues.apache.org/jira/browse/OOZIE-2393) | Allow table drop in hcat prepare |  Minor | core | Muhammad Ehsan ul Haque | Abhishek Bafna |
 
 
 ### BUG FIXES:
@@ -75,6 +78,11 @@
 | [OOZIE-2807](https://issues.apache.org/jira/browse/OOZIE-2807) | Oozie gets RM delegation token even for checking job status |  Major | . | Rohini Palaniswamy | Satish Subhashrao Saley |
 | [OOZIE-2750](https://issues.apache.org/jira/browse/OOZIE-2750) | Spelling errors in the log messages and exception messages |  Trivial | client, core, tools | Grant Sohn | Grant Sohn |
 | [OOZIE-2819](https://issues.apache.org/jira/browse/OOZIE-2819) | Make Oozie REST API accept multibyte characters for script Actions |  Major | . | Attila Sasvari | Attila Sasvari |
+| [OOZIE-2813](https://issues.apache.org/jira/browse/OOZIE-2813) | Remove tabs and trailing whitespaces from oozie-defaul.xml |  Major | . | Peter Cseh | Peter Cseh |
+| [OOZIE-2816](https://issues.apache.org/jira/browse/OOZIE-2816) | Strip out the first command word from Sqoop action if its "sqoop" |  Trivial | action | Harsh J | Harsh J |
+| [OOZIE-2820](https://issues.apache.org/jira/browse/OOZIE-2820) | Fix more spelling errors in exceptions and logging |  Trivial | core | Grant Sohn | Laszlo Zeke |
+| [OOZIE-2835](https://issues.apache.org/jira/browse/OOZIE-2835) | TestIOUtils shall not be an XTestCase |  Trivial | . | Attila Sasvari | Attila Sasvari |
+| [OOZIE-2817](https://issues.apache.org/jira/browse/OOZIE-2817) | Increase test case stability in pre-commit job |  Major | . | Peter Cseh | Peter Cseh |
 
 
 ### SUB-TASKS:

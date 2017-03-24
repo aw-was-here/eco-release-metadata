@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 1.6.4 - Unreleased (as of 2017-03-16)
+## Release 1.6.4 - Unreleased (as of 2017-03-24)
 
 
 

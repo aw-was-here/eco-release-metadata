@@ -18,7 +18,7 @@
 -->
 # Apache Zookeeper Changelog
 
-## Release 3.5.3 - Unreleased (as of 2017-03-16)
+## Release 3.5.3 - Unreleased (as of 2017-03-24)
 
 
 
@@ -27,6 +27,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [ZOOKEEPER-1962](https://issues.apache.org/jira/browse/ZOOKEEPER-1962) | Add a CLI command to recursively list a znode and children |  Minor | java client | Gautam Gopalakrishnan | Gautam Gopalakrishnan |
+| [ZOOKEEPER-2719](https://issues.apache.org/jira/browse/ZOOKEEPER-2719) | Port ZOOKEEPER-2169 to 3.5 branch |  Major | java client, server | Jordan Zimmerman | Jordan Zimmerman |
 
 
 ### IMPROVEMENTS:
@@ -44,6 +45,7 @@
 | [ZOOKEEPER-2511](https://issues.apache.org/jira/browse/ZOOKEEPER-2511) | Implement AutoCloseable in ZooKeeper.java |  Major | . | Abraham Fine | Abraham Fine |
 | [ZOOKEEPER-2682](https://issues.apache.org/jira/browse/ZOOKEEPER-2682) | Make it optional to fail build on test failure |  Minor | build, tests | Mohammad Arshad | Mohammad Arshad |
 | [ZOOKEEPER-2672](https://issues.apache.org/jira/browse/ZOOKEEPER-2672) | Remove CHANGE.txt |  Major | build | Michael Han | Michael Han |
+| [ZOOKEEPER-2724](https://issues.apache.org/jira/browse/ZOOKEEPER-2724) | Skip cert files for releaseaudit target. |  Blocker | build | Michael Han | Michael Han |
 
 
 ### BUG FIXES:
@@ -91,6 +93,8 @@
 | [ZOOKEEPER-2687](https://issues.apache.org/jira/browse/ZOOKEEPER-2687) | Deadlock while shutting down the Leader server. |  Major | server | Mohammad Arshad | Mohammad Arshad |
 | [ZOOKEEPER-2693](https://issues.apache.org/jira/browse/ZOOKEEPER-2693) | DOS attack on wchp/wchc four letter words (4lw) |  Blocker | security, server | Patrick Hunt | Michael Han |
 | [ZOOKEEPER-2460](https://issues.apache.org/jira/browse/ZOOKEEPER-2460) | Remove javacc dependency from public Maven pom |  Critical | java client | Enrico Olivelli |  |
+| [ZOOKEEPER-2726](https://issues.apache.org/jira/browse/ZOOKEEPER-2726) | Patch for ZOOKEEPER-2693 introduces potential race condition |  Major | . | Kyle Nusbaum | Kyle Nusbaum |
+| [ZOOKEEPER-2635](https://issues.apache.org/jira/browse/ZOOKEEPER-2635) | Regenerate documentation |  Blocker | documentation | Flavio Junqueira | Michael Han |
 
 
 ### TESTS:

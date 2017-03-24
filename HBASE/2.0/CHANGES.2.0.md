@@ -18,15 +18,8 @@
 -->
 # Apache HBase Changelog
 
-## Release 2.0 - Unreleased (as of 2017-03-16)
+## Release 2.0 - Unreleased (as of 2017-03-24)
 
-
-
-### NEW FEATURES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-| [HBASE-17707](https://issues.apache.org/jira/browse/HBASE-17707) | New More Accurate Table Skew cost function/generator |  Minor | Balancer | Kahlil Oppenheimer | Kahlil Oppenheimer |
 
 
 ### IMPROVEMENTS:
@@ -45,6 +38,7 @@
 | [HBASE-17674](https://issues.apache.org/jira/browse/HBASE-17674) | Major compaction may be cancelled in CompactionChecker |  Major | Compaction | Guangxu Cheng | Guangxu Cheng |
 | [HBASE-17760](https://issues.apache.org/jira/browse/HBASE-17760) | HDFS Balancer doc is misleading |  Minor | documentation | Harsh J | Harsh J |
 | [HBASE-17779](https://issues.apache.org/jira/browse/HBASE-17779) | disable\_table\_replication returns misleading message and does not turn off replication |  Major | . | Ted Yu | Janos Gub |
+| [HBASE-17798](https://issues.apache.org/jira/browse/HBASE-17798) | RpcServer.Listener.Reader can abort due to CancelledKeyException |  Major | . | Guangxu Cheng | Guangxu Cheng |
 
 
 ### TESTS:
@@ -52,6 +46,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HBASE-17703](https://issues.apache.org/jira/browse/HBASE-17703) | TestThriftServerCmdLine is flaky in master branch |  Major | . | Ted Yu | Jan Hentschel |
+| [HBASE-17806](https://issues.apache.org/jira/browse/HBASE-17806) | TestRSGroups#testMoveServersAndTables is flaky in master branch |  Major | . | Ted Yu | Guangxu Cheng |
 
 
 ### SUB-TASKS:

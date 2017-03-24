@@ -18,7 +18,7 @@
 -->
 # Apache Zookeeper Changelog
 
-## Release 3.6.0 - Unreleased (as of 2017-03-16)
+## Release 3.6.0 - Unreleased (as of 2017-03-24)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -234,6 +234,10 @@
 | [ZOOKEEPER-2687](https://issues.apache.org/jira/browse/ZOOKEEPER-2687) | Deadlock while shutting down the Leader server. |  Major | server | Mohammad Arshad | Mohammad Arshad |
 | [ZOOKEEPER-2693](https://issues.apache.org/jira/browse/ZOOKEEPER-2693) | DOS attack on wchp/wchc four letter words (4lw) |  Blocker | security, server | Patrick Hunt | Michael Han |
 | [ZOOKEEPER-2460](https://issues.apache.org/jira/browse/ZOOKEEPER-2460) | Remove javacc dependency from public Maven pom |  Critical | java client | Enrico Olivelli |  |
+| [ZOOKEEPER-2726](https://issues.apache.org/jira/browse/ZOOKEEPER-2726) | Patch for ZOOKEEPER-2693 introduces potential race condition |  Major | . | Kyle Nusbaum | Kyle Nusbaum |
+| [ZOOKEEPER-2725](https://issues.apache.org/jira/browse/ZOOKEEPER-2725) | Upgrading to a global session fails with a multiop |  Major | server | Brian Nixon |  |
+| [ZOOKEEPER-2635](https://issues.apache.org/jira/browse/ZOOKEEPER-2635) | Regenerate documentation |  Blocker | documentation | Flavio Junqueira | Michael Han |
+| [ZOOKEEPER-2735](https://issues.apache.org/jira/browse/ZOOKEEPER-2735) | Typo fixes in some scripts |  Trivial | scripts | Woojin Joe |  |
 
 
 ### TESTS:
@@ -269,6 +273,7 @@
 | [ZOOKEEPER-2152](https://issues.apache.org/jira/browse/ZOOKEEPER-2152) | Intermittent failure in TestReconfig.cc |  Major | c client | Michi Mutsuzaki | Michael Han |
 | [ZOOKEEPER-2080](https://issues.apache.org/jira/browse/ZOOKEEPER-2080) | Fix deadlock in dynamic reconfiguration |  Major | server | Ted Yu | Michael Han |
 | [ZOOKEEPER-2692](https://issues.apache.org/jira/browse/ZOOKEEPER-2692) | Fix race condition in testWatchAutoResetWithPending |  Major | tests | Abraham Fine | Abraham Fine |
+| [ZOOKEEPER-2608](https://issues.apache.org/jira/browse/ZOOKEEPER-2608) | Create CLI option for TTL ephemerals |  Major | c client, java client, jute, server | Camille Fournier | Jordan Zimmerman |
 
 
 ### OTHER:

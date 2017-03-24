@@ -18,7 +18,7 @@
 -->
 # Apache Hive Changelog
 
-## Release 2.2.0 - Unreleased (as of 2017-03-16)
+## Release 2.2.0 - Unreleased (as of 2017-03-24)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -211,6 +211,12 @@
 | [HIVE-16210](https://issues.apache.org/jira/browse/HIVE-16210) | Use jvm temporary tmp dir by default |  Major | Druid integration | slim bouguerra | slim bouguerra |
 | [HIVE-15166](https://issues.apache.org/jira/browse/HIVE-15166) | Provide beeline option to set the jline history max size |  Minor | Beeline | Eric Lin | Eric Lin |
 | [HIVE-15947](https://issues.apache.org/jira/browse/HIVE-15947) | Enhance Templeton service job operations reliability |  Major | . | Subramanyam Pattipaka | Subramanyam Pattipaka |
+| [HIVE-16234](https://issues.apache.org/jira/browse/HIVE-16234) | Add support for quarter in trunc udf |  Major | UDF | Deepesh Khandelwal | Deepesh Khandelwal |
+| [HIVE-14016](https://issues.apache.org/jira/browse/HIVE-14016) | Vectorization: Add support for Grouping Sets |  Major | Vectorization | Gopal V | Matt McCline |
+| [HIVE-15573](https://issues.apache.org/jira/browse/HIVE-15573) | Vectorization: Non-Uniform shuffle ReduceSink is not specialized |  Major | Transactions, Vectorization | Gopal V | Matt McCline |
+| [HIVE-16205](https://issues.apache.org/jira/browse/HIVE-16205) | Improving type safety in Objectstore |  Major | Metastore | Vihang Karajgaonkar | Vihang Karajgaonkar |
+| [HIVE-16230](https://issues.apache.org/jira/browse/HIVE-16230) | Enable CBO in presence of hints |  Major | CBO, Logical Optimizer | Ashutosh Chauhan | Ashutosh Chauhan |
+| [HIVE-16166](https://issues.apache.org/jira/browse/HIVE-16166) | HS2 may still waste up to 15% of memory on duplicate strings |  Major | . | Misha Dmitriev | Misha Dmitriev |
 
 
 ### BUG FIXES:
@@ -917,6 +923,30 @@
 | [HIVE-16168](https://issues.apache.org/jira/browse/HIVE-16168) | llap log links should use the NM nodeId port instead of web port |  Major | llap | Siddharth Seth | Siddharth Seth |
 | [HIVE-16080](https://issues.apache.org/jira/browse/HIVE-16080) | Add parquet to possible values for hive.default.fileformat and hive.default.fileformat.managed |  Major | . | Sahil Takiar | Sahil Takiar |
 | [HIVE-16215](https://issues.apache.org/jira/browse/HIVE-16215) | counter recording for text cache may not fully work |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
+| [HIVE-16211](https://issues.apache.org/jira/browse/HIVE-16211) | MERGE statement failing with ClassCastException |  Major | HiveServer2 | Deepak Jaiswal | Deepak Jaiswal |
+| [HIVE-16160](https://issues.apache.org/jira/browse/HIVE-16160) | OutOfMemoryError: GC overhead limit exceeded on Hiveserver2 |  Critical | HiveServer2 | Kavan Suresh | Sushanth Sowmyan |
+| [HIVE-16196](https://issues.apache.org/jira/browse/HIVE-16196) | UDFJson having thread-safety issues |  Major | UDF | Xuefu Zhang | Xuefu Zhang |
+| [HIVE-15849](https://issues.apache.org/jira/browse/HIVE-15849) | hplsql should add enterGlobalScope func to UDF |  Major | hpl/sql | Fei Hui | Fei Hui |
+| [HIVE-16183](https://issues.apache.org/jira/browse/HIVE-16183) | Fix potential thread safety issues with static variables |  Major | HiveServer2 | Xuefu Zhang | Xuefu Zhang |
+| [HIVE-16189](https://issues.apache.org/jira/browse/HIVE-16189) | Table column stats might be invalidated in a failed table rename |  Major | . | Chaoyu Tang | Chaoyu Tang |
+| [HIVE-16236](https://issues.apache.org/jira/browse/HIVE-16236) | BuddyAllocator fragmentation - short-term fix |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
+| [HIVE-16071](https://issues.apache.org/jira/browse/HIVE-16071) | HoS RPCServer misuses the timeout in its RPC handshake |  Major | Spark | Chaoyu Tang | Chaoyu Tang |
+| [HIVE-15857](https://issues.apache.org/jira/browse/HIVE-15857) | Vectorization: Add string conversion case for UDFToInteger, etc |  Critical | Hive | Matt McCline | Matt McCline |
+| [HIVE-16110](https://issues.apache.org/jira/browse/HIVE-16110) | Vectorization: Support 2 Value CASE WHEN instead of fall back to VectorUDFAdaptor |  Critical | Hive | Matt McCline | Matt McCline |
+| [HIVE-16024](https://issues.apache.org/jira/browse/HIVE-16024) | MSCK Repair Requires nonstrict hive.mapred.mode |  Major | Metastore | Barna Zsombor Klara | Barna Zsombor Klara |
+| [HIVE-15766](https://issues.apache.org/jira/browse/HIVE-15766) | DBNotificationlistener leaks JDOPersistenceManager |  Major | Metastore | Vaibhav Gumashta | Vaibhav Gumashta |
+| [HIVE-16251](https://issues.apache.org/jira/browse/HIVE-16251) | Vectorization: new octet\_length function (HIVE-15979) get NPE |  Critical | Hive | Matt McCline | Teddy Choi |
+| [HIVE-16180](https://issues.apache.org/jira/browse/HIVE-16180) | LLAP: Native memory leak in EncodedReader |  Critical | llap | Prasanth Jayachandran | Sergey Shelukhin |
+| [HIVE-15929](https://issues.apache.org/jira/browse/HIVE-15929) | Fix HiveDecimalWritable to be compatible with Hive 2.1 |  Major | . | Owen O'Malley | Owen O'Malley |
+| [HIVE-16107](https://issues.apache.org/jira/browse/HIVE-16107) | JDBC: HttpClient should retry one more time on NoHttpResponseException |  Major | HiveServer2, JDBC | Vaibhav Gumashta | Vaibhav Gumashta |
+| [HIVE-15784](https://issues.apache.org/jira/browse/HIVE-15784) | Vectorization: Turn on text vectorization by default (vector serde) |  Critical | Hive | Matt McCline | Matt McCline |
+| [HIVE-15789](https://issues.apache.org/jira/browse/HIVE-15789) | Vectorization: limit reduce vectorization to 32Mb chunks |  Major | Vectorization | Gopal V | Teddy Choi |
+| [HIVE-15867](https://issues.apache.org/jira/browse/HIVE-15867) | Add blobstore tests for import/export |  Major | . | Thomas Poepping | Juan Rodríguez Hortalá |
+| [HIVE-16229](https://issues.apache.org/jira/browse/HIVE-16229) | Wrong result for correlated scalar subquery with aggregate |  Major | . | Vineet Garg | Vineet Garg |
+| [HIVE-14606](https://issues.apache.org/jira/browse/HIVE-14606) | Beeline fails if quoted string ends with \\\\ |  Major | Beeline | Sahil Takiar | Sahil Takiar |
+| [HIVE-16208](https://issues.apache.org/jira/browse/HIVE-16208) | Vectorization: ProcessingModeHashAggregate::sumBatchSize is never reset |  Minor | . | Gopal V | Gopal V |
+| [HIVE-16278](https://issues.apache.org/jira/browse/HIVE-16278) | LLAP: metadata cache may incorrectly decrease memory usage in mem manager |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
+| [HIVE-16154](https://issues.apache.org/jira/browse/HIVE-16154) | Determine when dynamic runtime filtering should be disabled |  Major | Query Planning | Jason Dere | Jason Dere |
 
 
 ### TESTS:
@@ -1216,6 +1246,14 @@
 | [HIVE-16091](https://issues.apache.org/jira/browse/HIVE-16091) | Support subqueries in project/select |  Major | Logical Optimizer | Vineet Garg | Vineet Garg |
 | [HIVE-15556](https://issues.apache.org/jira/browse/HIVE-15556) | Replicate views |  Major | repl | Vaibhav Gumashta | Sankar Hariappan |
 | [HIVE-15983](https://issues.apache.org/jira/browse/HIVE-15983) | Support the named columns join |  Major | SQL | Carter Shanklin | Pengcheng Xiong |
+| [HIVE-15978](https://issues.apache.org/jira/browse/HIVE-15978) | Support regr\_\* functions |  Major | SQL | Carter Shanklin | Zoltan Haindrich |
+| [HIVE-15979](https://issues.apache.org/jira/browse/HIVE-15979) | Support character\_length and octet\_length |  Major | SQL | Carter Shanklin | Teddy Choi |
+| [HIVE-16176](https://issues.apache.org/jira/browse/HIVE-16176) | SchemaTool should exit with non-zero exit code when one or more validator's fail. |  Minor | Hive | Naveen Gangam | Naveen Gangam |
+| [HIVE-16244](https://issues.apache.org/jira/browse/HIVE-16244) | Flaky test : dynamic\_semijoin\_reduction\_3.q |  Major | Tests | Ashutosh Chauhan | Ashutosh Chauhan |
+| [HIVE-16232](https://issues.apache.org/jira/browse/HIVE-16232) | Support stats computation for column in QuotedIdentifier |  Major | . | Pengcheng Xiong | Pengcheng Xiong |
+| [HIVE-16227](https://issues.apache.org/jira/browse/HIVE-16227) | GenMRFileSink1.java may refer to a wrong MR task in multi-insert case |  Major | . | Pengcheng Xiong | Pengcheng Xiong |
+| [HIVE-16178](https://issues.apache.org/jira/browse/HIVE-16178) | corr/covar\_samp UDAF standard compliance |  Minor | SQL | Zoltan Haindrich | Zoltan Haindrich |
+| [HIVE-16246](https://issues.apache.org/jira/browse/HIVE-16246) | Support auto gather column stats for columns with trailing white spaces |  Major | . | Pengcheng Xiong | Pengcheng Xiong |
 
 
 ### OTHER:
@@ -1266,5 +1304,6 @@
 | [HIVE-15881](https://issues.apache.org/jira/browse/HIVE-15881) | Use hive.exec.input.listing.max.threads variable name instead of mapred.dfsclient.parallelism.max |  Minor | Query Planning | Sergio Peña | Sergio Peña |
 | [HIVE-16005](https://issues.apache.org/jira/browse/HIVE-16005) | miscellaneous small fixes to help with llap debuggability |  Major | . | Siddharth Seth | Siddharth Seth |
 | [HIVE-16090](https://issues.apache.org/jira/browse/HIVE-16090) | Addendum to HIVE-16014 |  Minor | Hive | Vihang Karajgaonkar | Vihang Karajgaonkar |
+| [HIVE-16260](https://issues.apache.org/jira/browse/HIVE-16260) | Remove parallel edges of semijoin with map joins. |  Major | . | Deepak Jaiswal | Deepak Jaiswal |
 
 

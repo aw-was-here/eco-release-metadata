@@ -18,7 +18,7 @@
 -->
 # Apache Falcon Changelog
 
-## Release 0.11 - Unreleased (as of 2017-03-16)
+## Release 0.11 - Unreleased (as of 2017-03-24)
 
 
 
@@ -46,5 +46,6 @@
 | [FALCON-2291](https://issues.apache.org/jira/browse/FALCON-2291) | Incorrect path to the REST calls on extension (POST) |  Major | docs | Pengfei Xuan | Pengfei Xuan |
 | [FALCON-2292](https://issues.apache.org/jira/browse/FALCON-2292) | User Extension submission is failing because of the validate late inputs |  Major | . | sandeep samudrala | sandeep samudrala |
 | [FALCON-2286](https://issues.apache.org/jira/browse/FALCON-2286) | Falcon upgradation fails to create new tables |  Major | extensions | Pragya Mittal | Pracheer Agarwal |
+| [FALCON-2293](https://issues.apache.org/jira/browse/FALCON-2293) | falcon extension fails for deletion if 2 extensions have same entity name |  Major | . | sandeep samudrala | sandeep samudrala |
 
 

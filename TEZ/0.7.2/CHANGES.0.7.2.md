@@ -18,7 +18,7 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.7.2 - Unreleased (as of 2017-03-16)
+## Release 0.7.2 - Unreleased (as of 2017-03-24)
 
 
 

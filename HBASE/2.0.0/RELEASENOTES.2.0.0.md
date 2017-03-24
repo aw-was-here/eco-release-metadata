@@ -3412,93 +3412,6 @@ See http://mail-archives.apache.org/mod\_mbox/hbase-dev/201605.mbox/%3CCAMUu0w-Z
 
 ---
 
-* [HBASE-14030](https://issues.apache.org/jira/browse/HBASE-14030) | *Major* | **HBase Backup/Restore Phase 1**
-
-This experimental feature allows to perform backup/restore operations, including incremental ones, on a set of HBase tables. 
-
-Key features and Use Cases
-
-A common practice of backup and restore in database is to first take full baseline backup, and
-then periodically take incremental backup that capture the changes since the full baseline
-backup. HBase cluster can store massive amount data. Therefore we want use full backup in
-combination with incremental backups for HBase as well.
-The following is a typical use case scenario for full and incremental backup:
-
-● The user takes a full backup of a table or a set of tables in HBase.
-● The user schedules periodical incremental backups to capture the changes from the full
-backup, or from last incremental backup.
-● The user needs to restore table data to a past point in time.
-● The full backup is restored to the table(s) or to different table name(s). Then the
-incremental backups that are up to the desired point in time are applied on top of the full
-backup.
-We would support the following key features and capabilities.
-● Backup to DFS FileSystem across clusters and possibly to other storage media or
-servers.
-● Support single table or a set of tables backup and restore (full and incremental).
-● Restore to different table names and to different clusters. 
-● Support adding and removing tables to and from backup set without interruption of
-incremental backup schedule.
-● Support merge of incremental backups into longer period and bigger incremental
-backups for easy storage and restore.
-● Support scheduled backups.
-● Unified command line interface for all the above.
-
-To illustrate these key capabilities, the following are two more detailed use case examples.
-
-Use case example 1:
-
-1. User takes a full backup of a set of tables (i.e. table1 and table2) in HBase.
-2. User takes incremental backups. The incremental backup will only track table1 and
-table2.
-3. User adds other tables (i.e. table3 and table4) in HBase, and an implicit full backup is
-executed during the add process
-4. User continues to take incremental backups. The incremental backup data would cover
-table1, table2, table3 and table4.
-5. User wants to restore table3 and table4 to a past PIT (point-in-time).
-6. Full backup in 3. is restored onto HBase cluster. Then the incremental backups after that
-full backup are applied on top of the full restore until the PIT.
-
-Use case example 2:
-
-1. User takes a full backup of a set of tables in HBase.
-2. User takes daily incremental backups.
-3. User merges the daily incremental backups into weekly incremental backups.
-4. User combines/rolls up the weekly incremental backup into monthly incremental
-backups.
-5. User wants to restore the tables to a past PIT.
-6. Full backup is restored onto HBase cluster.
-7. Monthly incremental backups before the desired PIT are applied.
-8. Closest daily backups up to the PIT are applied.
-
-To create full backup:
-
-HBASE\_DIR/bin/hbase backup create full \<backup\_root\_path\> [tables]
-
-backup\_root\_path - path to backup root directory (file://, hdfs:// or any other Hadoop-compatible path)
-tables - list of tables, comma-separated. If no tables specified then all tables will be saved.
-
-To create full backup:
-
-HBASE\_DIR/bin/hbase backup create incremental \<backup\_root\_path\> [tables]
-
-backup\_root\_path - path to backup root directory (file://, hdfs:// or any other Hadoop-compatible path)
-tables - list of tables, comma-separated. If no tables specified then all tables will be saved.
-
-To restore table(s):
-
-HBASE\_DIR/bin/hbase backup restore \<backup\_root\_path\> \<backup\_id\> [tables]
-
-backup\_root\_path - path to backup root directory (file://, hdfs:// or any other Hadoop-compatible path)
-backup\_id  - The id identifying the backup image.
-tables - list of tables, comma-separated. 
-
-FOR EXPERIENCED USERS only:
-
-To get list of backup ids you will need to scan hbase:backup table using hbase shell or other means.
-
-
----
-
 * [HBASE-15890](https://issues.apache.org/jira/browse/HBASE-15890) | *Major* | **Allow thrift to set/unset "cacheBlocks" for Scans**
 
 Adds cacheBlocks to Scan
@@ -4283,6 +4196,13 @@ Delimit START, STOP, and ABORT messages with '\*\*\*\*\*' so denote.
 
 ---
 
+* [HBASE-16972](https://issues.apache.org/jira/browse/HBASE-16972) | *Major* | **Log more details for Scan#next request when responseTooSlow**
+
+**WARNING: No release note provided for this change.**
+
+
+---
+
 * [HBASE-15513](https://issues.apache.org/jira/browse/HBASE-15513) | *Major* | **hbase.hregion.memstore.chunkpool.maxsize is 0.0 by default**
 
 MSLAB chunk pool is on by default in hbase-2.0.0.
@@ -4651,6 +4571,401 @@ With HBASE-16119, the merge logic moves to master-side.  This JIRA cleans up unu
 * [HBASE-16786](https://issues.apache.org/jira/browse/HBASE-16786) | *Major* | **Procedure V2 - Move ZK-lock's uses to Procedure framework locks (LockProcedure)**
 
 Move locking to be procedure (Pv2) rather than zookeeper based. All locking moved over to new infrastructure including MOBing locking.
+
+
+---
+
+* [HBASE-16867](https://issues.apache.org/jira/browse/HBASE-16867) | *Major* | **Procedure V2 - Check ACLs for remote HBaseLock**
+
+Add checking ACL when taking locks.
+
+
+---
+
+* [HBASE-16831](https://issues.apache.org/jira/browse/HBASE-16831) | *Minor* | **Procedure V2 - Remove org.apache.hadoop.hbase.zookeeper.lock**
+
+Purges code that did zk-hosted locks for table ops (we do procedure-based locks now)
+
+
+---
+
+* [HBASE-17488](https://issues.apache.org/jira/browse/HBASE-17488) | *Trivial* | **WALEdit should be lazily instantiated**
+
+prevent creating unused objects in the WALEdit's construction.
++If the cp#preBatchMutate returns true, the WALEdit is useless. So we should create the WALEdit after step 2.
++The cells came from cp should be counted because they are added into the WALEdit . The use case is the local index of phoenix
++If the mutation contains the SKIP\_WAL property, its cells aren't added into the WALEdit. So these cells shouldn't be counted.
+
+
+---
+
+* [HBASE-16698](https://issues.apache.org/jira/browse/HBASE-16698) | *Major* | **Performance issue: handlers stuck waiting for CountDownLatch inside WALKey#getWriteEntry under high writing workload**
+
+Assign sequenceid to an edit before we go on the ringbuffer; undoes contention on WALKey latch. Adds a new config "hbase.hregion.mvcc.preassign" which defaults to true: i.e. this speedup is enabled.
+
+User could set this per-table level, like:
+create 'table',{NAME=\>'f1',CONFIGURATION=\>{'hbase.hregion.mvcc.preassign'=\>'false'}}
+
+
+---
+
+* [HBASE-17067](https://issues.apache.org/jira/browse/HBASE-17067) | *Major* | **Procedure v2 - remove tryAcquire\*Lock and use wait/wake to make framework event based**
+
+Make the framework more 'lively'; undo 'suspend' notion in Procedure, rely on eventing mechanism instead. Lets us remove no longer needed synchronizations. Framework can now do more ops per second.
+
+
+---
+
+* [HBASE-17491](https://issues.apache.org/jira/browse/HBASE-17491) | *Major* | **Remove all setters from HTable interface and introduce a TableBuilder to build Table instance**
+
+After HBASE-17491 all setter methods in HTable are marked as deprecated, moved into TableBuilder, and will be removed later.
+
+
+---
+
+* [HBASE-9774](https://issues.apache.org/jira/browse/HBASE-9774) | *Major* | **HBase native metrics and metric collection for coprocessors**
+
+This issue adds two new modules, hbase-metrics and hbase-metrics-api which define and implement the "new" metric system used internally within HBase. These two modules (and some other code in hbase-hadoop2-compat) module are referred as "HBase metrics framework" which is HBase-specific and independent of any other metrics library (including Hadoop metrics2 and dropwizards metrics). 
+
+HBase Metrics API (hbase-metrics-api) contains the interface that HBase exposes internally and to third party code (including coprocessors). It is a thin
+abstraction over the actual implementation for backwards compatibility guarantees. The metrics API in this hbase-metrics-api module is inspired by the Dropwizard metrics 3.1 API, however, the API is completely independent. 
+
+hbase-metrics module contains implementation of the "HBase Metrics API", including MetricRegistry, Counter, Histogram, etc. These are highly concurrent implementations of the Metric interfaces. Metrics in HBase are grouped into different sets (like WAL, RPC, RegionServer, etc). Each group of metrics should be tracked via a MetricRegistry specific to that group. 
+
+Historically, HBase has been using Hadoop's Metrics2 framework [3] for collecting and reporting the metrics internally. However, due to the difficultly of dealing with the Metrics2 framework, HBase is moving away from Hadoop's metrics implementation to its custom implementation. The move will happen incrementally, and during the time, both Hadoop Metrics2-based metrics and hbase-metrics module based classes will be in the source code. All new implementations for metrics SHOULD use the new API and framework.
+
+This jira also introduces the metrics API to coprocessor implementations. Coprocessor writes can export custom metrics using the API and have those collected via metrics2 sinks, as well as exported via JMX in regionserver metrics. 
+
+More documentation available at: hbase-metrics-api/README.txt
+
+
+---
+
+* [HBASE-17566](https://issues.apache.org/jira/browse/HBASE-17566) | *Major* | **Jetty upgrade fixes**
+
+Fix inability at finding static content post push of parent issue moving us to jetty9.
+
+
+---
+
+* [HBASE-12894](https://issues.apache.org/jira/browse/HBASE-12894) | *Critical* | **Upgrade Jetty to 9.2.6**
+
+Upgrades Jetty to 9.x from 6.x (Jetty9 is in different namespace from Jetty6). Also updated Jersey to 2.x and Servlet to 3.x.
+
+
+---
+
+* [HBASE-16812](https://issues.apache.org/jira/browse/HBASE-16812) | *Minor* | **Clean up the locks in MOB**
+
+In MOB-enabled column family, the lock in the major compaction is removed. All the delete markers are retained in the major compaction, and a MOB reference tag is appended to each of the retained delete markers.
+
+
+---
+
+* [HBASE-17197](https://issues.apache.org/jira/browse/HBASE-17197) | *Major* | **hfile does not work in 2.0**
+
+The -f argument is no longer required specifying target file; just pass the file as an argument.
+
+
+---
+
+* [HBASE-16981](https://issues.apache.org/jira/browse/HBASE-16981) | *Major* | **Expand Mob Compaction Partition policy from daily to weekly, monthly**
+
+Mob compaction partition policy can be set by
+hbase\> create 't1', {NAME =\> 'f1', IS\_MOB =\> true, MOB\_THRESHOLD =\> 1000000, MOB\_COMPACT\_PARTITION\_POLICY =\> 'weekly'}
+ 
+or 
+
+hbase\> alter 't1', {NAME =\> 'f1', IS\_MOB =\> true, MOB\_THRESHOLD =\> 1000000, MOB\_COMPACT\_PARTITION\_POLICY =\> 'monthly'}
+
+Available MOB\_COMPACT\_PARTITION\_POLICY options are "daily", "weekly" and "monthly", the default is "daily".
+
+When it is "weekly" policy, the mob compaction will try to compact files within one calendar week into one for a specific partition, similar for "daily" and "monthly".
+
+With "weekly" policy, one mob file normally is compacted twice during its lifetime (that is first on daily basis and then all such daily based compacted files belonging to a week at the weekly interval), for one region, there normally are 52 files for one year. With "Monthly" policy, one mob file normally is compacted 3 times during its lifetime (First daily and then weekly followed by monthly at end of every month) and normally there are 12 files for one year.
+
+
+---
+
+* [HBASE-17508](https://issues.apache.org/jira/browse/HBASE-17508) | *Major* | **Unify the implementation of small scan and regular scan for sync client**
+
+Now the scan.setSmall method is deprecated. Consider using scan.setLimit and scan.setReadType in the future. And we will open scanner lazily when you call scanner.next. This is an incompatible change which delays the table existence check and permission check.
+
+
+---
+
+* [HBASE-17578](https://issues.apache.org/jira/browse/HBASE-17578) | *Major* | **Thrift per-method metrics should still update in the case of exceptions**
+
+In prior versions, the HBase Thrift handlers failed to increment per-method metrics when an exception was encountered.  These metrics will now always be incremented, whether an exception is encountered or not.  This change also adds exception-type metrics, similar to those exposed in regionservers, for individual exceptions which are received by the Thrift handlers.
+
+
+---
+
+* [HBASE-17350](https://issues.apache.org/jira/browse/HBASE-17350) | *Critical* | **Fixup of regionserver group-based assignment**
+
+A few bug fixes and tweaks to the fsgroup feature.
+
+Renamed shell command move\_rsgroup\_servers as move\_servers\_rsgroup
+Renamed shell comand move\_rsgroup\_tables as move\_tables\_rsgroup
+
+Made the 'default' group more 'dynamic'; i.e. dead servers no longer show in the 'default' group.
+
+
+---
+
+* [HBASE-17574](https://issues.apache.org/jira/browse/HBASE-17574) | *Major* | **Clean up how to run tests under hbase-spark module**
+
+Run test under root dir or hbase-spark dir
+1. mvn test //run all small and medium java tests, and all scala tests
+2. mvn test -P skipSparkTests //skip all scala and java tests in hbase-spark
+3. mvn test -P runAllTests //run all tests, including scala and all java test even the large test
+
+Run specified test case, since we have two plugins, we need specify both java and scala.
+When only test scala or jave test case, disable the other one use -Dxx=None as follow:
+1. mvn test -Dtest=TestJavaHBaseContext -DwildcardSuites=None // java unit test
+2. mvn test -Dtest=None -DwildcardSuites=org.apache.hadoop.hbase.spark.BulkLoadSuite //scala unit test, only support full name in scalatest plugin
+
+
+---
+
+* [HBASE-17437](https://issues.apache.org/jira/browse/HBASE-17437) | *Major* | **Support specifying a WAL directory outside of the root directory**
+
+This patch adds support for specifying a WAL directory outside of the HBase root directory.
+
+Multiple configuration variables were added to accomplish this:
+hbase.wal.dir: used to configure where the root WAL directory is located. Could be on a different FileSystem than the root directory. WAL directory can not be set to a subdirectory of the root directory. The default value of this is the root directory if unset.
+
+hbase.rootdir.perms: Configures FileSystem permissions to set on the root directory. This is '700' by default.
+
+hbase.wal.dir.perms: Configures FileSystem permissions to set on the WAL directory FileSystem. This is '700' by default.
+
+
+---
+
+* [HBASE-17599](https://issues.apache.org/jira/browse/HBASE-17599) | *Major* | **Use mayHaveMoreCellsInRow instead of isPartial**
+
+The word 'isPartial' is ambiguous so we introduce a new method 'mayHaveMoreCellsInRow' to replace it. And the old meaning of 'isPartial' is not the same with 'mayHaveMoreCellsInRow' as for batched scan, if the number of returned cells equals to the batch, isPartial will be false. After this change the meaning of 'isPartial' will be same with 'mayHaveMoreCellsInRow'. This is an incompatible change but it is not likely to break a lot of things as for batched scan the old 'isPartial' is just a redundant information, i.e, if the number of returned cells reaches the batch limit. You have already know the number of returned cells and the value of batch.
+
+
+---
+
+* [HBASE-17280](https://issues.apache.org/jira/browse/HBASE-17280) | *Minor* | **Add mechanism to control hbase cleaner behavior**
+
+The HBase cleaner chore process cleans up old WAL files and archived HFiles. Cleaner operation can affect query performance when running heavy workloads, so disable the cleaner during peak hours. The cleaner has the following HBase shell commands:
+
+- cleaner\_chore\_enabled: Queries whether cleaner chore is enabled/ disabled. 
+- cleaner\_chore\_run: Manually runs the cleaner to remove files.
+- cleaner\_chore\_switch: enables or disables the cleaner and returns the previous state of the cleaner. For example, cleaner-switch true enables the cleaner.
+
+Following APIs are added in Admin:
+- setCleanerChoreRunning(boolean on): Enable/Disable the cleaner chore
+- runCleanerChore(): Ask for cleaner chore to run
+- isCleanerChoreEnabled(): Query whether cleaner chore is enabled/ disabled.
+
+
+---
+
+* [HBASE-9702](https://issues.apache.org/jira/browse/HBASE-9702) | *Major* | **Change unittests that use "table" or "testtable" to use method names.**
+
+Changes all tests to use the TestName JUnit Rule everywhere rather than hardcode table/region/store names.
+
+
+---
+
+* [HBASE-17583](https://issues.apache.org/jira/browse/HBASE-17583) | *Major* | **Add inclusive/exclusive support for startRow and endRow of scan for sync client**
+
+Now you can include/exlude the startRow and stopRow for a scan. And the new methods to specify startRow and stopRow are withStartRow and withStopRow. The old methods to specify startRow and Row(include constructors) are marked as deprecated as in the old time if startRow and stopRow are equal then we will consider it as a get scan and include the stopRow implicitly. This is strange after we can set inclusiveness explicitly so we add new methods and depredate the old methods. The deprecated methods will be removed in the future.
+
+
+---
+
+* [HBASE-17472](https://issues.apache.org/jira/browse/HBASE-17472) | *Major* | **Correct the semantic of  permission grant**
+
+Before this patch, later granted permissions will override previous granted permissions, and previous granted permissions LOST. this issue re-define grant semantic: for master branch, later granted permissions will merge with previous granted permissions.  for branch-1.4, grant keep override behavior for compatibility purpose, and a grant with mergeExistingPermission flag provided.
+
+
+---
+
+* [HBASE-13718](https://issues.apache.org/jira/browse/HBASE-13718) | *Minor* | **Add a pretty printed table description to the table detail page of HBase's master**
+
+<!-- markdown -->
+
+The table information page in the Master UI now includes a schema section that describes the column families defined for that table as well as any column family specific properties that are set.
+
+
+---
+
+* [HBASE-17647](https://issues.apache.org/jira/browse/HBASE-17647) | *Major* | **OffheapKeyValue#heapSize() implementation is wrong**
+
+**WARNING: No release note provided for this change.**
+
+
+---
+
+* [HBASE-17312](https://issues.apache.org/jira/browse/HBASE-17312) | *Major* | **[JDK8] Use default method for Observer Coprocessors**
+
+Deletes BaseMasterAndRegionObserver, BaseMasterObserver, BaseRegionObserver, BaseRegionServerObserver and BaseWALObserver.
+Their corresponding interface classes now use JDK8's 'default' keyword to provide empty/no-op implementations so that:
+1. Derived class don't break when more coprocessor hooks are added in future.
+2. Derived classes don't have to redundantly override functions they don't care about with empty implementations.
+
+Earlier, BaseXXXObserver classes provided these exact two benefits, but with 'default' keyword in JDK8, they are not needed anymore.
+
+To fix the breakages because of this change, simply change "Foo extends BaseXXXObserver" to "Foo implements XXXObserver".
+
+
+---
+
+* [HBASE-15484](https://issues.apache.org/jira/browse/HBASE-15484) | *Blocker* | **Correct the semantic of batch and partial**
+
+Now setBatch doesn't mean setAllowPartialResult(true)
+If user setBatch(5) and rpc returns 3+5+5+5+3 cells, we should return 5+5+5+5+1 to user.
+Scan#setBatch is helpful in paging queries, if you just want to prevent OOM at client, use setAllowPartialResults(true) is better.
+We deprecated isPartial and use mayHaveMoreCellsInRow. If it returns false, current Result must be the last one of this row.
+
+
+---
+
+* [HBASE-17717](https://issues.apache.org/jira/browse/HBASE-17717) | *Critical* | **Incorrect ZK ACL set for HBase superuser**
+
+In previous versions of HBase, the system intended to set a ZooKeeper ACL on all "sensitive" ZNodes for the user specified in the hbase.superuser configuration property. Unfortunately, the ACL was malformed which resulted in the hbase.superuser being unable to access the sensitive ZNodes that HBase creates. This JIRA issue fixes this bug. HBase will automatically correct the ACLs on start so users do not need to manually correct the ACLs.
+
+
+---
+
+* [HBASE-17718](https://issues.apache.org/jira/browse/HBASE-17718) | *Major* | **Difference between RS's servername and its ephemeral node cause SSH stop working**
+
+Fix our accidentally registering a RegionServer's ephermal znode BEFORE we checked in with the master.
+
+
+---
+
+* [HBASE-17737](https://issues.apache.org/jira/browse/HBASE-17737) | *Major* | **Thrift2 proxy should support scan timeRange per column family**
+
+Thrift2 proxy supports scan timeRange per column family
+
+
+---
+
+* [HBASE-15941](https://issues.apache.org/jira/browse/HBASE-15941) | *Major* | **HBCK repair should not unsplit healthy splitted region**
+
+A new option -removeParents is now available that will remove an old parent when two valid daughters for that parent exist and -fixHdfsOverlaps is used. If there is an issue trying to remove the parent from META or sidelining the parent from HDFS we will fallback to do a regular merge. For now this option only works when the overlap group consists only of 3 regions (a parent, daughter A and daughter B)
+
+
+---
+
+* [HBASE-17712](https://issues.apache.org/jira/browse/HBASE-17712) | *Major* | **Remove/Simplify the logic of RegionScannerImpl.handleFileNotFound**
+
+Add a config named 'hbase.hregion.unassign.for.fnfe'. It is used to control whether to reopen a region when hitting FileNotFoundException. The default value is true.
+
+
+---
+
+* [HBASE-17746](https://issues.apache.org/jira/browse/HBASE-17746) | *Major* | **TestSimpleRpcScheduler.testCoDelScheduling is broken**
+
+The executor for CoDel is changed to FastPathBalancedQueueRpcExecutor
+
+
+---
+
+* [HBASE-17426](https://issues.apache.org/jira/browse/HBASE-17426) | *Major* | **Inconsistent environment variable names for enabling JMX**
+
+In bin/hbase-config.sh,
+if value for HBASE\_JMX\_BASE is empty, keep current behavior.
+if HBASE\_JMX\_OPTS is not empty, keep current behavior.
+otherwise use the value of HBASE\_JMX\_BASE
+
+
+---
+
+* [HBASE-14123](https://issues.apache.org/jira/browse/HBASE-14123) | *Blocker* | **HBase Backup/Restore Phase 2**
+
+Vladimir Rodionov, Feb 2017
+
+\*\*\* Summary of work HBASE-14123
+
+The new feature introduces new command-line extensions to the hbase command and, from the client side, is accessible through command-line only
+Operations: 
+\* Create full backup on a list of tables or backup set
+\* Create incremental backup image for table list or backup set
+\* Restore list of tables from a given backup image
+\* Show current backup progress
+\* Delete backup image and all related images
+\* Show history of backups
+\* Backup set operations: create backup set, add/remove table to/from backup set, etc
+
+In the current implementation, the feature is already usable, meaning that users can backup tables and restore them using provided command-line tools. Both: full and incremental backups are supported.
+This work is based on original work of IBM team (HBASE-7912). The full list of JIRAs included in this mega patch can be found in three umbrella JIRAs: HBASE-14030 (Phase 1), HBASE-14123 (Phase 2) and HBASE-14414 (Phase 3 - all resolved ones made it into the patch)
+
+\*\*\* What are the remaining work items
+
+All remaining items can be found in Phase 3 umbrella JIRA: HBASE-14414.
+They are split into 3 groups: BLOCKER, CRITICAL, MAJOR
+Only BLOCKERs and CRITICALs are guaranteed for HBase 2.0 release.  
+
+\*\*\*\*\* BLOCKER
+
+\* HBASE-14417 Incremental backup and bulk loading ( Patch available)
+\* HBASE-14135 HBase Backup/Restore Phase 3: Merge backup images
+\* HBASE-14141 HBase Backup/Restore Phase 3: Filter WALs on backup to include only edits from backup tables (Patch available)
+\* HBASE-17133 Backup documentation
+\* HBASE-15227 Fault tolerance support
+
+\*\*\*\*\* CRITICAL
+
+\* HBASE-16465 Disable split/merges during backup
+
+We have umbrella JIRA (HBASE-14414) to track all the remaining work 
+All the BLOCKER and CRITICAL JIRAs currently in open state will be implemented by 2.0 release time. Some MAJOR too, but it depends on resource availability
+The former development branch (HBASE-7912) is obsolete and will be closed/deleted after the merge. 
+We want backup to be a GA feature in 2.0
+We are going to support full backward compatibility for backup tool in 2.0 and onwards.
+
+\*\*\*\* Configuration
+
+Backup is disabled, by default. To enable it, the following configuration properties must be added to hbase-site.xml:
+
+hbase.backup.enable=true
+hbase.master.logcleaner.plugins=YOUR\_PLUGINS,org.apache.hadoop.hbase.backup.master.BackupLogCleaner
+hbase.procedure.master.classes=YOUR\_CLASSES,org.apache.hadoop.hbase.backup.master.LogRollMasterProcedureManager
+hbase.procedure.regionserver.classes=YOUR\_CLASSES,org.apache.hadoop.hbase.backup.regionserver.LogRollRegionServerProcedureManager
+
+
+\*\*\*\* Known Issues
+
+\* Bulk loaded data is not visible for incremental backup (will be resolved by 2.0 release)
+\* After first backup sessions, WAL files will be accumulated in old WAL directory until the next backup sessions. Make sure, that you either run backups regularly or disable backups in the system. 
+\* No fault tolerance yet, some backup failures may result in corrupted backup data and will require manual intervention (will be resolved by 2.0 release)
+
+
+---
+
+* [HBASE-17802](https://issues.apache.org/jira/browse/HBASE-17802) | *Major* | **Add note that minor versions can add methods to Interfaces**
+
+Update our semver section to include a note on our allowing ourselves the right to add methods to an Interface over a minor version as agreed to up on the dev list:  "If a Client implements an HBase Interface, a recompile MAY be required upgrading to a newer minor version (See release notes for warning about incompatible changes). All effort will be made to provide a default implementation so this case should not arise."
+
+
+---
+
+* [HBASE-17584](https://issues.apache.org/jira/browse/HBASE-17584) | *Major* | **Expose ScanMetrics with ResultScanner rather than Scan**
+
+Now you can use ResultScanner.getScanMetrics to get the scan metrics at any time during the scan operation. The old Scan.getScanMetrics is deprecated and still work, but if you use ResultScanner.getScanMetrics to get the scan metrics and reset it, then the metrics published to the Scan instaince will be messed up.
+
+
+---
+
+* [HBASE-16014](https://issues.apache.org/jira/browse/HBASE-16014) | *Major* | **Get and Put constructor argument lists are divergent**
+
+Add 2 constructors fot API Get
+1. Get(byte[], int, int) 
+2. Get(ByteBuffer)
+
+
+---
+
+* [HBASE-17595](https://issues.apache.org/jira/browse/HBASE-17595) | *Critical* | **Add partial result support for small/limited scan**
+
+Now small scan and limited scan could also return partial results.
 
 
 

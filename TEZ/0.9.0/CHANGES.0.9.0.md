@@ -18,8 +18,13 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.9.0 - Unreleased (as of 2017-03-16)
+## Release 0.9.0 - Unreleased (as of 2017-03-24)
 
+### INCOMPATIBLE CHANGES:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-3659](https://issues.apache.org/jira/browse/TEZ-3659) | AM/Task classpath should not contain hadoop conf directory. |  Major | . | Harish Jaiprakash | Harish Jaiprakash |
 
 
 ### IMPORTANT ISSUES:
@@ -255,6 +260,8 @@
 | [TEZ-3458](https://issues.apache.org/jira/browse/TEZ-3458) | Auto grouping for cartesian product edge(unpartitioned case) |  Major | . | Zhiyuan Yang | Zhiyuan Yang |
 | [TEZ-3253](https://issues.apache.org/jira/browse/TEZ-3253) | Remove special handling for last app attempt (absence of ApplicationConstants.MAX\_APP\_ATTEMPTS\_ENV in AM env) |  Major | . | Hitesh Shah | Akira Ajisaka |
 | [TEZ-3655](https://issues.apache.org/jira/browse/TEZ-3655) | Specify netty version instead of inheriting from hadoop dependency |  Major | . | Zhiyuan Yang | Zhiyuan Yang |
+| [TEZ-3665](https://issues.apache.org/jira/browse/TEZ-3665) | TestATSV15HistoryLoggingService should use mocked TimelineClient |  Major | . | Zhiyuan Yang | Zhiyuan Yang |
+| [TEZ-3667](https://issues.apache.org/jira/browse/TEZ-3667) | Stop using org.apache.hadoop.security.ssl.SSLFactory.DEFAULT\_SSL\_REQUIRE\_CLIENT\_CERT |  Major | . | Zhiyuan Yang | Zhiyuan Yang |
 
 
 ### OTHER:
@@ -271,5 +278,6 @@
 | [TEZ-3653](https://issues.apache.org/jira/browse/TEZ-3653) | Tez UI: Swimlane tooltip is not proper for running DAGs |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-3660](https://issues.apache.org/jira/browse/TEZ-3660) | Remove CHANGES.txt |  Major | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-3657](https://issues.apache.org/jira/browse/TEZ-3657) | Add committer zhiyuany to the Tez Team List |  Major | . | Zhiyuan Yang | Zhiyuan Yang |
+| [TEZ-3663](https://issues.apache.org/jira/browse/TEZ-3663) | Add harishjp to Tez teams list. |  Minor | . | Harish Jaiprakash | Harish Jaiprakash |
 
 

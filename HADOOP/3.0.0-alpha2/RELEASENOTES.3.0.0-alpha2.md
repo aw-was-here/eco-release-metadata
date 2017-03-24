@@ -89,9 +89,9 @@ Developers:
 | HADOOP\_MOVER\_OPTS | HDFS\_MOVER\_OPTS | 
 | HADOOP\_NAMENODE\_OPTS | HDFS\_NAMENODE\_OPTS | 
 | HADOOP\_NFS3\_OPTS | HDFS\_NFS3\_OPTS | 
-| HADOOP\_NFS3\_SECURE\_EXTRA\_OPTS | HDFS\_NFS3\_SECURE\_EXTRA\_OPTS | | HADOOP\_PORTMAP\_OPTS | HDFS\_PORTMAP\_OPTS | 
-| HADOOP\_SECONDARYNAMENODE\_OPTS | 
-HDFS\_SECONDARYNAMENODE\_OPTS | 
+| HADOOP\_NFS3\_SECURE\_EXTRA\_OPTS | HDFS\_NFS3\_SECURE\_EXTRA\_OPTS |
+| HADOOP\_PORTMAP\_OPTS | HDFS\_PORTMAP\_OPTS | 
+| HADOOP\_SECONDARYNAMENODE\_OPTS | HDFS\_SECONDARYNAMENODE\_OPTS | 
 | HADOOP\_ZKFC\_OPTS | HDFS\_ZKFC\_OPTS |
 
 
@@ -245,6 +245,13 @@ The BookkeeperJournalManager implementation has been removed. Users are encourag
 * [HADOOP-13522](https://issues.apache.org/jira/browse/HADOOP-13522) | *Major* | **Add %A and %a formats for fs -stat command to print permissions**
 
 Added permissions to the fs stat command. They are now available as symbolic (%A) and octal (%a) formats, which are in line with Linux.
+
+
+---
+
+* [YARN-5718](https://issues.apache.org/jira/browse/YARN-5718) | *Major* | **TimelineClient (and other places in YARN) shouldn't over-write HDFS client retry settings which could cause unexpected behavior**
+
+**WARNING: No release note provided for this change.**
 
 
 ---
@@ -421,14 +428,6 @@ This change reverts YARN-5287 from 3.0.0-alpha1. chmod clears the set-group-ID b
 
 ---
 
-* [YARN-5271](https://issues.apache.org/jira/browse/YARN-5271) | *Major* | **ATS client doesn't work with Jersey 2 on the classpath**
-
-A workaround to avoid dependency conflict with Spark2, before a full classpath isolation solution is implemented.
-Skip instantiating a Timeline Service client if encountering NoClassDefFoundError.
-
-
----
-
 * [HADOOP-13660](https://issues.apache.org/jira/browse/HADOOP-13660) | *Major* | **Upgrade commons-configuration version to 2.1**
 
 Bump commons-configuration version from 1.6 to 2.1
@@ -560,31 +559,33 @@ Fixed a race condition that caused VolumeScanner to recognize a good replica as 
 
 * [HADOOP-13597](https://issues.apache.org/jira/browse/HADOOP-13597) | *Major* | **Switch KMS from Tomcat to Jetty**
 
+<!-- markdown -->
+
 The following environment variables are deprecated. Set the corresponding
 configuration properties instead.
 
-Environment Variable     \| Configuration Property       \| Configuration File
--------------------------\|------------------------------\|--------------------
-KMS\_HTTP\_PORT            \| hadoop.kms.http.port         \| kms-site.xml
-KMS\_MAX\_HTTP\_HEADER\_SIZE \| hadoop.http.max.request.header.size and hadoop.http.max.response.header.size \| kms-site.xml
-KMS\_MAX\_THREADS          \| hadoop.http.max.threads      \| kms-site.xml
-KMS\_SSL\_ENABLED          \| hadoop.kms.ssl.enabled       \| kms-site.xml
-KMS\_SSL\_KEYSTORE\_FILE    \| ssl.server.keystore.location \| ssl-server.xml
-KMS\_SSL\_KEYSTORE\_PASS    \| ssl.server.keystore.password \| ssl-server.xml
-KMS\_TEMP                 \| hadoop.http.temp.dir         \| kms-site.xml
+Environment Variable     | Configuration Property       | Configuration File
+-------------------------|------------------------------|--------------------
+KMS_HTTP_PORT            | hadoop.kms.http.port         | kms-site.xml
+KMS_MAX_HTTP_HEADER_SIZE | hadoop.http.max.request.header.size and hadoop.http.max.response.header.size | kms-site.xml
+KMS_MAX_THREADS          | hadoop.http.max.threads      | kms-site.xml
+KMS_SSL_ENABLED          | hadoop.kms.ssl.enabled       | kms-site.xml
+KMS_SSL_KEYSTORE_FILE    | ssl.server.keystore.location | ssl-server.xml
+KMS_SSL_KEYSTORE_PASS    | ssl.server.keystore.password | ssl-server.xml
+KMS_TEMP                 | hadoop.http.temp.dir         | kms-site.xml
 
 These default HTTP Services have been added.
 
-Name               \| Description
--------------------\|------------------------------------
-/conf              \| Display configuration properties
-/jmx               \| Java JMX management interface
-/logLevel          \| Get or set log level per class
-/logs              \| Display log files
-/stacks            \| Display JVM stacks
-/static/index.html \| The static home page
+Name               | Description
+-------------------|------------------------------------
+/conf              | Display configuration properties
+/jmx               | Java JMX management interface
+/logLevel          | Get or set log level per class
+/logs              | Display log files
+/stacks            | Display JVM stacks
+/static/index.html | The static home page
 
-Script kms.sh has been deprecated, use 'hadoop kms' instead. Conform to the Hadoop shell scripting framework. Support 'hadoop daemonlog'. Read SSL configurations from ssl-server.xml, like many other Hadoop components.
+Script kms.sh has been deprecated, use `hadoop kms` instead. The new scripts are based on the Hadoop shell scripting framework. `hadoop daemonlog` is supported. SSL configurations are read from ssl-server.xml.
 
 
 ---
@@ -617,9 +618,17 @@ This patch removes share/hadoop/{hadoop,hdfs,mapred,yarn}/templates directories 
 
 ---
 
-* [YARN-6110](https://issues.apache.org/jira/browse/YARN-6110) | *Minor* | **Fix opportunistic containers documentation**
+* [YARN-5271](https://issues.apache.org/jira/browse/YARN-5271) | *Major* | **ATS client doesn't work with Jersey 2 on the classpath**
 
-Committed to trunk and branch-2
+A workaround to avoid dependency conflict with Spark2, before a full classpath isolation solution is implemented.
+Skip instantiating a Timeline Service client if encountering NoClassDefFoundError.
+
+
+---
+
+* [HADOOP-13037](https://issues.apache.org/jira/browse/HADOOP-13037) | *Major* | **Refactor Azure Data Lake Store as an independent FileSystem**
+
+Hadoop now supports integration with Azure Data Lake as an alternative Hadoop-compatible file system. Please refer to the Hadoop site documentation of Azure Data Lake for details on usage and configuration.
 
 
 

@@ -464,6 +464,7 @@ There is now support for offloading HA health check RPC activity to a separate R
 * [HDFS-6200](https://issues.apache.org/jira/browse/HDFS-6200) | *Major* | **Create a separate jar for hdfs-client**
 
 Projects that access HDFS can depend on the hadoop-hdfs-client module instead of the hadoop-hdfs module to avoid pulling in unnecessary dependency.
+Please note that hadoop-hdfs-client module could miss class like ConfiguredFailoverProxyProvider. So if a cluster is in HA deployment, we should still use hadoop-hdfs instead.
 
 
 ---
@@ -1018,14 +1019,6 @@ Load last partial chunk checksum properly into memory when converting a finalize
 
 ---
 
-* [YARN-5271](https://issues.apache.org/jira/browse/YARN-5271) | *Major* | **ATS client doesn't work with Jersey 2 on the classpath**
-
-A workaround to avoid dependency conflict with Spark2, before a full classpath isolation solution is implemented.
-Skip instantiating a Timeline Service client if encountering NoClassDefFoundError.
-
-
----
-
 * [HADOOP-13812](https://issues.apache.org/jira/browse/HADOOP-13812) | *Blocker* | **Upgrade Tomcat to 6.0.48**
 
 Tomcat 6.0.46 starts to filter weak ciphers. Some old SSL clients may be affected. It is recommended to upgrade the SSL client. Run the SSL client against https://www.howsmyssl.com/a/check to find out its TLS version and cipher suites.
@@ -1050,6 +1043,63 @@ The fix for HDFS-11056 reads meta file to load last partial chunk checksum when 
 * [HDFS-11160](https://issues.apache.org/jira/browse/HDFS-11160) | *Major* | **VolumeScanner reports write-in-progress replicas as corrupt incorrectly**
 
 Fixed a race condition that caused VolumeScanner to recognize a good replica as a bad one if the replica is also being written concurrently.
+
+
+---
+
+* [HADOOP-13956](https://issues.apache.org/jira/browse/HADOOP-13956) | *Critical* | **Read ADLS credentials from Credential Provider**
+
+The hadoop-azure-datalake file system now supports configuration of the Azure Data Lake Store account credentials using the standard Hadoop Credential Provider API. For details, please refer to the documentation on hadoop-azure-datalake and the Credential Provider API.
+
+
+---
+
+* [YARN-5271](https://issues.apache.org/jira/browse/YARN-5271) | *Major* | **ATS client doesn't work with Jersey 2 on the classpath**
+
+A workaround to avoid dependency conflict with Spark2, before a full classpath isolation solution is implemented.
+Skip instantiating a Timeline Service client if encountering NoClassDefFoundError.
+
+
+---
+
+* [HADOOP-13929](https://issues.apache.org/jira/browse/HADOOP-13929) | *Major* | **ADLS connector should not check in contract-test-options.xml**
+
+To run live unit tests, create src/test/resources/auth-keys.xml with the same properties as in the deprecated contract-test-options.xml.
+
+
+---
+
+* [YARN-6177](https://issues.apache.org/jira/browse/YARN-6177) | *Major* | **Yarn client should exit with an informative error message if an incompatible Jersey library is used at client**
+
+Let yarn client exit with an informative error message if an incompatible Jersey library is used from client side.
+
+
+---
+
+* [HDFS-11498](https://issues.apache.org/jira/browse/HDFS-11498) | *Major* | **Make RestCsrfPreventionHandler and WebHdfsHandler compatible with Netty 4.0**
+
+This JIRA sets the Netty 4 dependency to 4.0.23. This is an incompatible change for the 3.0 release line, as 3.0.0-alpha1 and 3.0.0-alpha2 depended on Netty 4.1.0.Beta5.
+
+
+---
+
+* [HADOOP-13037](https://issues.apache.org/jira/browse/HADOOP-13037) | *Major* | **Refactor Azure Data Lake Store as an independent FileSystem**
+
+Hadoop now supports integration with Azure Data Lake as an alternative Hadoop-compatible file system. Please refer to the Hadoop site documentation of Azure Data Lake for details on usage and configuration.
+
+
+---
+
+* [HDFS-11431](https://issues.apache.org/jira/browse/HDFS-11431) | *Blocker* | **hadoop-hdfs-client JAR does not include ConfiguredFailoverProxyProvider**
+
+The hadoop-client POM now includes a leaner hdfs-client, stripping out all the transitive dependencies on JARs only needed for the Hadoop HDFS daemon itself. The specific jars now excluded are: leveldbjni-all, jetty-util, commons-daemon, xercesImpl, netty and servlet-api.
+
+This should make downstream projects dependent JARs smaller, and avoid version conflict problems with the specific JARs now excluded.
+
+Applications may encounter build problems if they did depend on these JARs, and which didn't explicitly include them. There are two fixes for this
+
+\* explicitly include the JARs, stating which version of them you want.
+\* add a dependency on hadoop-hdfs. For Hadoop 2.8+, this will add the missing dependencies. For builds against older versions of Hadoop, this will be harmless, as hadoop-hdfs and all its dependencies are already pulled in by the hadoop-client POM.
 
 
 

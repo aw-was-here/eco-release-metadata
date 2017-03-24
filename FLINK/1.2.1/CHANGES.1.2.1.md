@@ -18,8 +18,15 @@
 -->
 # Apache Flink Changelog
 
-## Release 1.2.1 - Unreleased (as of 2017-03-16)
+## Release 1.2.1 - Unreleased (as of 2017-03-24)
 
+
+
+### NEW FEATURES:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [FLINK-6139](https://issues.apache.org/jira/browse/FLINK-6139) | Documentation for building / preparing Flink for MapR |  Major | Documentation | Tzu-Li (Gordon) Tai | Tzu-Li (Gordon) Tai |
 
 
 ### IMPROVEMENTS:
@@ -42,6 +49,7 @@
 | [FLINK-5877](https://issues.apache.org/jira/browse/FLINK-5877) | Fix Scala snippet in Async I/O API doc |  Minor | Documentation | Andrea Sella | Andrea Sella |
 | [FLINK-5895](https://issues.apache.org/jira/browse/FLINK-5895) | Reduce logging aggressiveness of FileSystemSafetyNet |  Major | Local Runtime | Stephan Ewen | Stephan Ewen |
 | [FLINK-5938](https://issues.apache.org/jira/browse/FLINK-5938) | Replace ExecutionContext by Executor in Scheduler |  Minor | Distributed Coordination | Till Rohrmann | Till Rohrmann |
+| [FLINK-4326](https://issues.apache.org/jira/browse/FLINK-4326) | Flink start-up scripts should optionally start services on the foreground |  Major | Startup Shell Scripts | Elias Levy | Greg Hogan |
 
 
 ### BUG FIXES:
@@ -81,6 +89,13 @@
 | [FLINK-6051](https://issues.apache.org/jira/browse/FLINK-6051) | Wrong metric scope names in documentation |  Minor | Documentation, Metrics | Joshua Griffith |  |
 | [FLINK-5701](https://issues.apache.org/jira/browse/FLINK-5701) | FlinkKafkaProducer should check asyncException on checkpoints |  Critical | Kafka Connector, Streaming Connectors | Tzu-Li (Gordon) Tai | Tzu-Li (Gordon) Tai |
 | [FLINK-5962](https://issues.apache.org/jira/browse/FLINK-5962) | Cancel checkpoint canceller tasks in CheckpointCoordinator |  Critical | State Backends, Checkpointing | Till Rohrmann | Stephan Ewen |
+| [FLINK-5650](https://issues.apache.org/jira/browse/FLINK-5650) | Flink-python tests executing cost too long time |  Critical | Python API, Tests | shijinkui | Chesnay Schepler |
+| [FLINK-5985](https://issues.apache.org/jira/browse/FLINK-5985) | Flink treats every task as stateful (making topology changes impossible) |  Critical | State Backends, Checkpointing | Gyula Fora | Stefan Richter |
+| [FLINK-5808](https://issues.apache.org/jira/browse/FLINK-5808) | Missing verification for setParallelism and setMaxParallelism |  Blocker | DataStream API | Aljoscha Krettek |  |
+| [FLINK-6084](https://issues.apache.org/jira/browse/FLINK-6084) | Cassandra connector does not declare all dependencies |  Critical | Cassandra Connector | Robert Metzger | Robert Metzger |
+| [FLINK-6000](https://issues.apache.org/jira/browse/FLINK-6000) | Can not start HA cluster with start-cluster.sh |  Major | Startup Shell Scripts | Dawid Wysakowicz | Dawid Wysakowicz |
+| [FLINK-6170](https://issues.apache.org/jira/browse/FLINK-6170) | Some checkpoint metrics rely on latest stat snapshot |  Major | Metrics, State Backends, Checkpointing, Webfrontend | Ufuk Celebi | Ufuk Celebi |
+| [FLINK-6133](https://issues.apache.org/jira/browse/FLINK-6133) | fix build status in README.md |  Minor | Build System | Bowen Li | Bowen Li |
 
 
 ### SUB-TASKS:

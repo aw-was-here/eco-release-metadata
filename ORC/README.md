@@ -19,6 +19,9 @@
 * Apache Orc v1.4.0
     * [Changes](1.4.0/CHANGES.1.4.0.md)
     * [Release Notes](1.4.0/RELEASENOTES.1.4.0.md)
+* Apache Orc v1.3.4
+    * [Changes](1.3.4/CHANGES.1.3.4.md)
+    * [Release Notes](1.3.4/RELEASENOTES.1.3.4.md)
 * Apache Orc v1.3.3
     * [Changes](1.3.3/CHANGES.1.3.3.md)
     * [Release Notes](1.3.3/RELEASENOTES.1.3.3.md)

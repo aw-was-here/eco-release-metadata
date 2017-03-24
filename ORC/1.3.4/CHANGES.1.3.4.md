@@ -16,18 +16,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-# Apache Kafka Changelog
+# Apache Orc Changelog
 
-## Release 0.10.1.2 - Unreleased (as of 2017-03-24)
+## Release 1.3.4 - Unreleased (as of 2017-03-24)
 
 
 
-### BUG FIXES:
+### TESTS:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [KAFKA-4523](https://issues.apache.org/jira/browse/KAFKA-4523) | Controlled shutdown fails if consumer group restabilizes during shutdown |  Major | . | Steve Niemitz | Steve Niemitz |
-| [KAFKA-4673](https://issues.apache.org/jira/browse/KAFKA-4673) | Python VerifiableConsumer service has thread-safety bug for event\_handlers |  Major | system tests | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
-| [KAFKA-4717](https://issues.apache.org/jira/browse/KAFKA-4717) | connect jars are missing LICENSE/NOTICE files |  Blocker | KafkaConnect | dan norwood | Ewen Cheslack-Postava |
+| [ORC-157](https://issues.apache.org/jira/browse/ORC-157) | Test failed due to timezone DST |  Trivial | tools | Andrey Morskoy | Owen O'Malley |
 
 

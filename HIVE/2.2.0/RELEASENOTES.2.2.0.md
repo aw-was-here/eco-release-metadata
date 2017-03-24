@@ -321,4 +321,11 @@ Regression: Union of null with non-null (Gopal V, reviewed by Sergey Shelukhin)
 Semijoin: Avoid VectorHashKeyWrapper allocations for the bloom hash aggregate (Gopal V, reviewed by Sergey Shelukhin)
 
 
+---
+
+* [HIVE-15789](https://issues.apache.org/jira/browse/HIVE-15789) | *Major* | **Vectorization: limit reduce vectorization to 32Mb chunks**
+
+Vectorization: limit reduce vectorization to 32Mb chunks (Teddy Choi, via Gopal V)
+
+
 

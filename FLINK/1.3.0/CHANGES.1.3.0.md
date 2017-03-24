@@ -18,7 +18,7 @@
 -->
 # Apache Flink Changelog
 
-## Release 1.3.0 - Unreleased (as of 2017-03-16)
+## Release 1.3.0 - Unreleased (as of 2017-03-24)
 
 
 
@@ -43,6 +43,8 @@
 | [FLINK-5692](https://issues.apache.org/jira/browse/FLINK-5692) | Add an Option to Deactivate Kryo Fallback for Serializers |  Major | Type Serialization System | Stephan Ewen | Jin Mingjian |
 | [FLINK-5979](https://issues.apache.org/jira/browse/FLINK-5979) | Backwards compatibility for HeapKeyedStateBackend serialization format (1.2 -\> 1.3) |  Major | State Backends, Checkpointing | Stefan Richter | Stefan Richter |
 | [FLINK-5715](https://issues.apache.org/jira/browse/FLINK-5715) | Asynchronous snapshotting for HeapKeyedStateBackend |  Major | State Backends, Checkpointing | Stefan Richter | Stefan Richter |
+| [FLINK-4460](https://issues.apache.org/jira/browse/FLINK-4460) | Side Outputs in Flink |  Major | Core, DataStream API | Chen Qin | Chen Qin |
+| [FLINK-6139](https://issues.apache.org/jira/browse/FLINK-6139) | Documentation for building / preparing Flink for MapR |  Major | Documentation | Tzu-Li (Gordon) Tai | Tzu-Li (Gordon) Tai |
 
 
 ### IMPROVEMENTS:
@@ -140,6 +142,7 @@
 | [FLINK-5917](https://issues.apache.org/jira/browse/FLINK-5917) | Remove MapState.size() |  Blocker | DataStream API | Aljoscha Krettek | Xiaogang Shi |
 | [FLINK-5067](https://issues.apache.org/jira/browse/FLINK-5067) | Make Flink compile with 1.8 Java compiler |  Minor | Build System | Andrey Melentyev | Andrey Melentyev |
 | [FLINK-5916](https://issues.apache.org/jira/browse/FLINK-5916) | make env.java.opts.jobmanager and env.java.opts.taskmanager working in YARN mode |  Major | YARN | Tao Wang | Tao Wang |
+| [FLINK-4326](https://issues.apache.org/jira/browse/FLINK-4326) | Flink start-up scripts should optionally start services on the foreground |  Major | Startup Shell Scripts | Elias Levy | Greg Hogan |
 | [FLINK-5722](https://issues.apache.org/jira/browse/FLINK-5722) | Implement DISTINCT as dedicated operator |  Major | Table API & SQL | Fabian Hueske | Fabian Hueske |
 | [FLINK-5414](https://issues.apache.org/jira/browse/FLINK-5414) | Bump up Calcite version to 1.11 |  Major | Table API & SQL | Timo Walther | Jark Wu |
 | [FLINK-5983](https://issues.apache.org/jira/browse/FLINK-5983) | Replace for/foreach/map in aggregates by while loops |  Major | Table API & SQL | Timo Walther | Fabian Hueske |
@@ -153,9 +156,17 @@
 | [FLINK-5222](https://issues.apache.org/jira/browse/FLINK-5222) | Rename StateBackend interface to StateBinder |  Minor | State Backends, Checkpointing | Guowei Ma | Guowei Ma |
 | [FLINK-3398](https://issues.apache.org/jira/browse/FLINK-3398) | Flink Kafka consumer should support auto-commit opt-outs |  Critical | Kafka Connector | Shikhar Bhushan | Tzu-Li (Gordon) Tai |
 | [FLINK-5635](https://issues.apache.org/jira/browse/FLINK-5635) | Improve Docker tooling to make it easier to build images and launch Flink via Docker tools |  Major | Docker | Jamie Grier | Patrick Lucas |
-| [FLINK-6018](https://issues.apache.org/jira/browse/FLINK-6018) | Properly initialise StateDescriptor in AbstractStateBackend.getPartitionedState() |  Major | DataStream API, State Backends, Checkpointing | sunjincheng | sunjincheng |
 | [FLINK-4754](https://issues.apache.org/jira/browse/FLINK-4754) | Make number of retained checkpoints user configurable |  Major | State Backends, Checkpointing | Ufuk Celebi | Wei-Che Wei |
 | [FLINK-6041](https://issues.apache.org/jira/browse/FLINK-6041) | Move StreamingFunctionUtils to 'org.apache.flink.streaming.util' |  Trivial | DataStream API | liuyuzhong7 |  |
+| [FLINK-6076](https://issues.apache.org/jira/browse/FLINK-6076) | Let the HeartbeatManager interface extend HeartbeatTarget |  Minor | Distributed Coordination | Till Rohrmann | Till Rohrmann |
+| [FLINK-6111](https://issues.apache.org/jira/browse/FLINK-6111) | Remove sleep after python process generation |  Major | Python API | Chesnay Schepler | Chesnay Schepler |
+| [FLINK-5183](https://issues.apache.org/jira/browse/FLINK-5183) | [py] Support multiple jobs per Python plan file |  Minor | Python API | Geoffrey Mon | Geoffrey Mon |
+| [FLINK-6124](https://issues.apache.org/jira/browse/FLINK-6124) | support max/min aggregations for string type |  Major | Table API & SQL | Zhenghua Gao | Zhenghua Gao |
+| [FLINK-6138](https://issues.apache.org/jira/browse/FLINK-6138) | Improve UnboundedNonPartitionedProcessingOverProcessFunction |  Major | Table API & SQL | sunjincheng | sunjincheng |
+| [FLINK-6144](https://issues.apache.org/jira/browse/FLINK-6144) | Port job manager related configuration options to ConfigOption |  Minor | Core | Till Rohrmann | Till Rohrmann |
+| [FLINK-5792](https://issues.apache.org/jira/browse/FLINK-5792) | Improve “UDF/UDTF" to support constructor with parameter. |  Major | Table API & SQL | sunjincheng | sunjincheng |
+| [FLINK-6134](https://issues.apache.org/jira/browse/FLINK-6134) | Set UUID(0L, 0L) as default leader session id |  Minor | Distributed Coordination | Till Rohrmann | Till Rohrmann |
+| [FLINK-3318](https://issues.apache.org/jira/browse/FLINK-3318) | Add support for quantifiers to CEP's pattern API |  Minor | CEP | Till Rohrmann | Dawid Wysakowicz |
 
 
 ### BUG FIXES:
@@ -313,6 +324,17 @@
 | [FLINK-5701](https://issues.apache.org/jira/browse/FLINK-5701) | FlinkKafkaProducer should check asyncException on checkpoints |  Critical | Kafka Connector, Streaming Connectors | Tzu-Li (Gordon) Tai | Tzu-Li (Gordon) Tai |
 | [FLINK-6032](https://issues.apache.org/jira/browse/FLINK-6032) | CEP-Clean up the operator state when not needed. |  Major | CEP | Kostas Kloudas | Kostas Kloudas |
 | [FLINK-5962](https://issues.apache.org/jira/browse/FLINK-5962) | Cancel checkpoint canceller tasks in CheckpointCoordinator |  Critical | State Backends, Checkpointing | Till Rohrmann | Stephan Ewen |
+| [FLINK-5650](https://issues.apache.org/jira/browse/FLINK-5650) | Flink-python tests executing cost too long time |  Critical | Python API, Tests | shijinkui | Chesnay Schepler |
+| [FLINK-5981](https://issues.apache.org/jira/browse/FLINK-5981) | SSL version and ciper suites cannot be constrained as configured |  Major | Security | Tao Wang | Tao Wang |
+| [FLINK-5932](https://issues.apache.org/jira/browse/FLINK-5932) | Order of legacy vs new state initialization in the AbstractStreamOperator. |  Major | DataStream API | Kostas Kloudas | Kostas Kloudas |
+| [FLINK-5985](https://issues.apache.org/jira/browse/FLINK-5985) | Flink treats every task as stateful (making topology changes impossible) |  Critical | State Backends, Checkpointing | Gyula Fora | Stefan Richter |
+| [FLINK-5808](https://issues.apache.org/jira/browse/FLINK-5808) | Missing verification for setParallelism and setMaxParallelism |  Blocker | DataStream API | Aljoscha Krettek |  |
+| [FLINK-6084](https://issues.apache.org/jira/browse/FLINK-6084) | Cassandra connector does not declare all dependencies |  Critical | Cassandra Connector | Robert Metzger | Robert Metzger |
+| [FLINK-6000](https://issues.apache.org/jira/browse/FLINK-6000) | Can not start HA cluster with start-cluster.sh |  Major | Startup Shell Scripts | Dawid Wysakowicz | Dawid Wysakowicz |
+| [FLINK-6080](https://issues.apache.org/jira/browse/FLINK-6080) | Unclosed ObjectOutputStream in NFA#serialize() |  Minor | CEP | Ted Yu | Dawid Wysakowicz |
+| [FLINK-6170](https://issues.apache.org/jira/browse/FLINK-6170) | Some checkpoint metrics rely on latest stat snapshot |  Major | Metrics, State Backends, Checkpointing, Webfrontend | Ufuk Celebi | Ufuk Celebi |
+| [FLINK-6129](https://issues.apache.org/jira/browse/FLINK-6129) | MetricRegistry does not stop query actor |  Major | Metrics | Till Rohrmann | Till Rohrmann |
+| [FLINK-6133](https://issues.apache.org/jira/browse/FLINK-6133) | fix build status in README.md |  Minor | Build System | Bowen Li | Bowen Li |
 
 
 ### TESTS:
@@ -360,6 +382,8 @@
 | [FLINK-5881](https://issues.apache.org/jira/browse/FLINK-5881) | ScalarFunction(UDF) should support variable types and variable arguments |  Major | . | Zhuoluo Yang | Zhuoluo Yang |
 | [FLINK-5882](https://issues.apache.org/jira/browse/FLINK-5882) | TableFunction (UDTF) should support variable types and variable arguments |  Major | . | Zhuoluo Yang | Zhuoluo Yang |
 | [FLINK-5134](https://issues.apache.org/jira/browse/FLINK-5134) | Aggregate ResourceSpec for chained operators when generating job graph |  Major | DataStream API | zhijiang | zhijiang |
+| [FLINK-5846](https://issues.apache.org/jira/browse/FLINK-5846) | CEP: make the operators backwards compatible. |  Major | CEP | Kostas Kloudas | Kostas Kloudas |
+| [FLINK-6037](https://issues.apache.org/jira/browse/FLINK-6037) | the estimateRowCount method of DataSetCalc didn't work in SQL |  Major | Table API & SQL | jingzhang | jingzhang |
 
 
 ### OTHER:
@@ -367,6 +391,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [FLINK-5378](https://issues.apache.org/jira/browse/FLINK-5378) | Update Scopt version to 3.5.0 |  Trivial | . | Lorenz Bühmann |  |
+| [FLINK-6056](https://issues.apache.org/jira/browse/FLINK-6056) | apache-rat exclude flink directory in tools |  Major | Build System | jinkuishi |  |
 | [FLINK-5084](https://issues.apache.org/jira/browse/FLINK-5084) | Replace Java Table API integration tests by unit tests |  Minor | Table API & SQL | Fabian Hueske |  |
 | [FLINK-4820](https://issues.apache.org/jira/browse/FLINK-4820) | Slf4j / log4j version upgrade to support dynamic change of log levels --\> Make logging framework exchangeable |  Major | Build System | Zhenzhong Xu | Stephan Ewen |
 | [FLINK-5074](https://issues.apache.org/jira/browse/FLINK-5074) | Implement a RunningJobRegistry based on Zookeeper |  Major | Cluster Management | shuai.xu | shuai.xu |

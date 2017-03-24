@@ -18,7 +18,7 @@
 -->
 # Apache Orc Changelog
 
-## Release 1.4.0 - Unreleased (as of 2017-03-16)
+## Release 1.4.0 - Unreleased (as of 2017-03-24)
 
 
 
@@ -34,6 +34,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [ORC-100](https://issues.apache.org/jira/browse/ORC-100) | Add findbugs as part of the build |  Major | build, Java | Owen O'Malley | Tarun Kumar |
+| [ORC-154](https://issues.apache.org/jira/browse/ORC-154) | add OrcFile.WriterOptions.clone() |  Major | . | Eugene Koifman | Eugene Koifman |
 
 
 ### BUG FIXES:
@@ -48,5 +49,14 @@
 | [ORC-151](https://issues.apache.org/jira/browse/ORC-151) | Cut down on the size of the tools jar by excluding more |  Major | . | Owen O'Malley | Owen O'Malley |
 | [ORC-153](https://issues.apache.org/jira/browse/ORC-153) | Treat no arguments in tools jar convert and json-schema as help request |  Major | . | Owen O'Malley | Owen O'Malley |
 | [ORC-143](https://issues.apache.org/jira/browse/ORC-143) | DELTA encoding may exaggerate number of bits required |  Minor | Java | Douglas Drinka | Douglas Drinka |
+| [ORC-165](https://issues.apache.org/jira/browse/ORC-165) | add eclipse files to gitignore |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
+| [ORC-166](https://issues.apache.org/jira/browse/ORC-166) | add codec pool to ORC; make sure end is called on underlying codecs |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
+
+
+### TESTS:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [ORC-157](https://issues.apache.org/jira/browse/ORC-157) | Test failed due to timezone DST |  Trivial | tools | Andrey Morskoy | Owen O'Malley |
 
 

@@ -1032,6 +1032,7 @@ There is now support for offloading HA health check RPC activity to a separate R
 * [HDFS-6200](https://issues.apache.org/jira/browse/HDFS-6200) | *Major* | **Create a separate jar for hdfs-client**
 
 Projects that access HDFS can depend on the hadoop-hdfs-client module instead of the hadoop-hdfs module to avoid pulling in unnecessary dependency.
+Please note that hadoop-hdfs-client module could miss class like ConfiguredFailoverProxyProvider. So if a cluster is in HA deployment, we should still use hadoop-hdfs instead.
 
 
 ---
