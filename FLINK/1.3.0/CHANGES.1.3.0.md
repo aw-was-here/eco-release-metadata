@@ -393,6 +393,7 @@
 | [FLINK-5846](https://issues.apache.org/jira/browse/FLINK-5846) | CEP: make the operators backwards compatible. |  Major | CEP | Kostas Kloudas | Kostas Kloudas |
 | [FLINK-6037](https://issues.apache.org/jira/browse/FLINK-6037) | the estimateRowCount method of DataSetCalc didn't work in SQL |  Major | Table API & SQL | jingzhang | jingzhang |
 | [FLINK-5658](https://issues.apache.org/jira/browse/FLINK-5658) | Add event time OVER ROWS BETWEEN UNBOUNDED PRECEDING aggregation to SQL |  Major | Table API & SQL | Fabian Hueske | hongyuhong |
+| [FLINK-6034](https://issues.apache.org/jira/browse/FLINK-6034) | Add KeyedStateHandle for the snapshots in keyed streams |  Major | State Backends, Checkpointing | Xiaogang Shi | Xiaogang Shi |
 
 
 ### OTHER:

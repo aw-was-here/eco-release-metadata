@@ -1261,6 +1261,7 @@
 | [HIVE-16227](https://issues.apache.org/jira/browse/HIVE-16227) | GenMRFileSink1.java may refer to a wrong MR task in multi-insert case |  Major | . | Pengcheng Xiong | Pengcheng Xiong |
 | [HIVE-16178](https://issues.apache.org/jira/browse/HIVE-16178) | corr/covar\_samp UDAF standard compliance |  Minor | SQL | Zoltan Haindrich | Zoltan Haindrich |
 | [HIVE-16246](https://issues.apache.org/jira/browse/HIVE-16246) | Support auto gather column stats for columns with trailing white spaces |  Major | . | Pengcheng Xiong | Pengcheng Xiong |
+| [HIVE-16186](https://issues.apache.org/jira/browse/HIVE-16186) | REPL DUMP shows last event ID of the database even if we use LIMIT option. |  Major | repl | Sankar Hariappan | Sankar Hariappan |
 
 
 ### OTHER:

@@ -29,4 +29,15 @@ Allow a block to complete if the number of replicas on live nodes, decommissioni
 The fix prevents block recovery failure if replica of last block is being decommissioned. Vice versa, the decommissioning will be stuck, waiting for the last block to be completed. In addition, file close() operation will not fail due to last block being decommissioned.
 
 
+---
+
+* [HADOOP-14038](https://issues.apache.org/jira/browse/HADOOP-14038) | *Minor* | **Rename ADLS credential properties**
+
+<!-- markdown --> 
+
+* Properties {{dfs.adls.*}} are renamed {{fs.adl.*}}
+* Property {{adl.dfs.enable.client.latency.tracker}} is renamed {{adl.enable.client.latency.tracker}}
+* Old properties are still supported
+
+
 

@@ -47,6 +47,7 @@
 | [HIVE-11103](https://issues.apache.org/jira/browse/HIVE-11103) | Add banker's rounding BROUND UDF |  Major | UDF | Alexander Pivovarov | Alexander Pivovarov |
 | [HIVE-11593](https://issues.apache.org/jira/browse/HIVE-11593) | Add aes\_encrypt and aes\_decrypt UDFs |  Major | UDF | Alexander Pivovarov | Alexander Pivovarov |
 | [HIVE-12634](https://issues.apache.org/jira/browse/HIVE-12634) | Add command to kill an ACID transaction |  Major | Transactions | Eugene Koifman | Wei Zheng |
+| [HIVE-15691](https://issues.apache.org/jira/browse/HIVE-15691) | Create StrictRegexWriter to work with RegexSerializer for Flume Hive Sink |  Critical | HCatalog, Transactions | Kalyan | Kalyan |
 
 
 ### IMPROVEMENTS:

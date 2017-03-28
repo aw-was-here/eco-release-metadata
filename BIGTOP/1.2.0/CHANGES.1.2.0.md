@@ -275,6 +275,7 @@
 | [BIGTOP-2509](https://issues.apache.org/jira/browse/BIGTOP-2509) | Path error in bigtop-packages/src/common/solr/tomcat-deployment.sh |  Major | solr | Lucas Alberto Santos | Roman Shaposhnik |
 | [BIGTOP-2724](https://issues.apache.org/jira/browse/BIGTOP-2724) | putting a final nail in Java's 7 coffin |  Major | utils | Roman Shaposhnik | Roman Shaposhnik |
 | [BIGTOP-2725](https://issues.apache.org/jira/browse/BIGTOP-2725) | a few usability improvements to run\_itest.sh |  Major | tests | Roman Shaposhnik | Roman Shaposhnik |
+| [BIGTOP-2675](https://issues.apache.org/jira/browse/BIGTOP-2675) | [Puppet] Kafka can only be deployed on master node |  Major | deployment | Evans Ye | Evans Ye |
 
 
 ### TESTS:
@@ -334,6 +335,7 @@
 | [BIGTOP-2705](https://issues.apache.org/jira/browse/BIGTOP-2705) | provide puppet deployment code for Ambari |  Major | deployment | Roman Shaposhnik | Roman Shaposhnik |
 | [BIGTOP-2601](https://issues.apache.org/jira/browse/BIGTOP-2601) | Bump Ignite to 1.9 |  Major | general | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-1408](https://issues.apache.org/jira/browse/BIGTOP-1408) | create basic end-to-end tests for Ambari integration |  Major | tests | Roman Shaposhnik | Roman Shaposhnik |
+| [BIGTOP-2672](https://issues.apache.org/jira/browse/BIGTOP-2672) | Update gradle wrapper for Docker Provisioner |  Major | docker | Evans Ye | Evans Ye |
 
 
 ### OTHER:

@@ -259,4 +259,15 @@ The fix prevents block recovery failure if replica of last block is being decomm
 Move the check for hadoop-site.xml to static initialization of the Configuration class.
 
 
+---
+
+* [HADOOP-14038](https://issues.apache.org/jira/browse/HADOOP-14038) | *Minor* | **Rename ADLS credential properties**
+
+<!-- markdown --> 
+
+* Properties {{dfs.adls.*}} are renamed {{fs.adl.*}}
+* Property {{adl.dfs.enable.client.latency.tracker}} is renamed {{adl.enable.client.latency.tracker}}
+* Old properties are still supported
+
+
 

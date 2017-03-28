@@ -131,6 +131,15 @@ The \`hdfs ec\` CLI command has been substantially reworked to make the calling 
 
 ---
 
+* [HADOOP-13817](https://issues.apache.org/jira/browse/HADOOP-13817) | *Minor* | **Add a finite shell command timeout to ShellBasedUnixGroupsMapping**
+
+A new introduced configuration key "hadoop.security.groups.shell.command.timeout" allows applying a finite wait timeout over the 'id' commands launched by the ShellBasedUnixGroupsMapping plugin. Values specified can be in any valid time duration units: https://hadoop.apache.org/docs/current/api/org/apache/hadoop/conf/Configuration.html#getTimeDuration-java.lang.String-long-java.util.concurrent.TimeUnit-
+
+Value defaults to 0, indicating infinite wait (preserving existing behaviour).
+
+
+---
+
 * [HDFS-11427](https://issues.apache.org/jira/browse/HDFS-11427) | *Major* | **Rename "rs-default" to "rs"**
 
 The "rs-default" codec has been renamed to simply "rs" for simplicity. Previous configuration keys like "io.erasurecode.codec.rs-default" have also been renamed to match.
@@ -200,6 +209,35 @@ The fix prevents block recovery failure if replica of last block is being decomm
 * [HDFS-11505](https://issues.apache.org/jira/browse/HDFS-11505) | *Major* | **Do not enable any erasure coding policies by default**
 
 By default, none of the built-in erasure coding policies are enabled. Users have to explicitly enable the erasure coding policy via the hdfs configuration 'dfs.namenode.ec.policies.enabled' before setting the policy on any directories.
+
+
+---
+
+* [HADOOP-14213](https://issues.apache.org/jira/browse/HADOOP-14213) | *Major* | **Move Configuration runtime check for hadoop-site.xml to initialization**
+
+Move the check for hadoop-site.xml to static initialization of the Configuration class.
+
+
+---
+
+* [HADOOP-10101](https://issues.apache.org/jira/browse/HADOOP-10101) | *Major* | **Update guava dependency to the latest version**
+
+Guava is updated to version 21.0. 
+
+In the background of merging this patch into trunk, there is a work, shaded Hadoop client artifacts and minicluster, on HADOOP-11804. hadoop-client has its own Guava which is shaded, so we can update dependency with minimum effect compare to previous HADOOP-11804. 
+
+See also HADOOP-14238 as related problem.
+
+
+---
+
+* [HADOOP-14038](https://issues.apache.org/jira/browse/HADOOP-14038) | *Minor* | **Rename ADLS credential properties**
+
+<!-- markdown --> 
+
+* Properties {{dfs.adls.*}} are renamed {{fs.adl.*}}
+* Property {{adl.dfs.enable.client.latency.tracker}} is renamed {{adl.enable.client.latency.tracker}}
+* Old properties are still supported
 
 
 
