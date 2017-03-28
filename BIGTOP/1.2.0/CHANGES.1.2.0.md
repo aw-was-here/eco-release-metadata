@@ -18,7 +18,7 @@
 -->
 # Apache BigTop Changelog
 
-## Release 1.2.0 - Unreleased (as of 2017-03-24)
+## Release 1.2.0 - Unreleased (as of 2017-03-28)
 
 
 
@@ -40,6 +40,7 @@
 | [BIGTOP-2483](https://issues.apache.org/jira/browse/BIGTOP-2483) | Add Mahout Charm |  Minor | deployment | Konstantinos Tsakalozos | Konstantinos Tsakalozos |
 | [BIGTOP-2615](https://issues.apache.org/jira/browse/BIGTOP-2615) | Provide a tool to build pseudo cluster docker images |  Major | docker | Evans Ye | Evans Ye |
 | [BIGTOP-2660](https://issues.apache.org/jira/browse/BIGTOP-2660) | Add Giraph Charm |  Minor | deployment | Konstantinos Tsakalozos | Kevin W Monroe |
+| [BIGTOP-2451](https://issues.apache.org/jira/browse/BIGTOP-2451) | Adding Ubuntu 16.04 support to Bigtop |  Major | build, deployment, docker, ppc64le, provisioner | Amir Sanjar | Amir Sanjar |
 
 
 ### IMPROVEMENTS:
@@ -103,6 +104,10 @@
 | [BIGTOP-2697](https://issues.apache.org/jira/browse/BIGTOP-2697) | Back port HADOOP-12366 into Bigtop |  Major | hadoop | Roman Shaposhnik | Roman Shaposhnik |
 | [BIGTOP-1608](https://issues.apache.org/jira/browse/BIGTOP-1608) | Create Unified testing solution: Smoke-Tests and Test-Artifacts |  Major | tests | David Capwell | Konstantin Boudnik |
 | [BIGTOP-2714](https://issues.apache.org/jira/browse/BIGTOP-2714) | Update Groovy in the toolchain to 2.4.10 |  Major | toolchain | Konstantin Boudnik | Konstantin Boudnik |
+| [BIGTOP-2306](https://issues.apache.org/jira/browse/BIGTOP-2306) | Add support for specifying git repository access credentials |  Minor | build | Andrew Purtell | Andrew Purtell |
+| [BIGTOP-2309](https://issues.apache.org/jira/browse/BIGTOP-2309) | Update submodules after git clone |  Minor | build | Andrew Purtell | Andrew Purtell |
+| [BIGTOP-2506](https://issues.apache.org/jira/browse/BIGTOP-2506) | Zookeeper: non default interface for client |  Minor | deployment | Pete Vander Giessen | Pete Vander Giessen |
+| [BIGTOP-2712](https://issues.apache.org/jira/browse/BIGTOP-2712) | Juju CI driven updates |  Minor | deployment | Kevin W Monroe | Kevin W Monroe |
 
 
 ### BUG FIXES:
@@ -259,6 +264,17 @@
 | [BIGTOP-2699](https://issues.apache.org/jira/browse/BIGTOP-2699) | Zeppeling CI build is broken |  Blocker | . | Konstantin Boudnik | Roman Shaposhnik |
 | [BIGTOP-2707](https://issues.apache.org/jira/browse/BIGTOP-2707) | localhost is missing in docker provisioner instances |  Major | docker, provisioner | Roman Shaposhnik | Roman Shaposhnik |
 | [BIGTOP-2715](https://issues.apache.org/jira/browse/BIGTOP-2715) | Tiny typo in the README.md |  Major | documentation | Konstantin Boudnik | Konstantin Boudnik |
+| [BIGTOP-2047](https://issues.apache.org/jira/browse/BIGTOP-2047) | detect JAVA\_HOME for JDK8, remove obsolete detection code (JDK6/oracle JDK) |  Major | . | Olaf Flebbe | Roman Shaposhnik |
+| [BIGTOP-2655](https://issues.apache.org/jira/browse/BIGTOP-2655) | Help spark find the native hadoop libs |  Major | deployment | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2664](https://issues.apache.org/jira/browse/BIGTOP-2664) | create provisioner test for trunk packages with jdk8 |  Major | . | Olaf Flebbe | Roman Shaposhnik |
+| [BIGTOP-2708](https://issues.apache.org/jira/browse/BIGTOP-2708) | puppet code always installs hdfs by default |  Major | deployment | Roman Shaposhnik | Roman Shaposhnik |
+| [BIGTOP-2421](https://issues.apache.org/jira/browse/BIGTOP-2421) | Ignite RPM is broken: "missing" osgi package deps |  Blocker | deployment | Konstantin Boudnik | Konstantin Boudnik |
+| [BIGTOP-2721](https://issues.apache.org/jira/browse/BIGTOP-2721) | libsnappy reference path is not correct for hadoop/ubuntu16 build |  Major | build, ci | Jun He | Jun He |
+| [BIGTOP-2450](https://issues.apache.org/jira/browse/BIGTOP-2450) | Adding Dockerfile to build slaves image for ubuntu-16.04-arm |  Major | build, docker | Amir Sanjar | Roman Shaposhnik |
+| [BIGTOP-2448](https://issues.apache.org/jira/browse/BIGTOP-2448) | Adding Dockerfile to build puppet image for ubuntu-16.04-arm |  Major | build, docker | Amir Sanjar | Roman Shaposhnik |
+| [BIGTOP-2509](https://issues.apache.org/jira/browse/BIGTOP-2509) | Path error in bigtop-packages/src/common/solr/tomcat-deployment.sh |  Major | solr | Lucas Alberto Santos | Roman Shaposhnik |
+| [BIGTOP-2724](https://issues.apache.org/jira/browse/BIGTOP-2724) | putting a final nail in Java's 7 coffin |  Major | utils | Roman Shaposhnik | Roman Shaposhnik |
+| [BIGTOP-2725](https://issues.apache.org/jira/browse/BIGTOP-2725) | a few usability improvements to run\_itest.sh |  Major | tests | Roman Shaposhnik | Roman Shaposhnik |
 
 
 ### TESTS:
@@ -315,6 +331,9 @@
 | [BIGTOP-2600](https://issues.apache.org/jira/browse/BIGTOP-2600) | Bump Groovy version to 2.4.10 |  Major | general | Konstantin Boudnik | Roman Shaposhnik |
 | [BIGTOP-2492](https://issues.apache.org/jira/browse/BIGTOP-2492) | Split flink debian packaging |  Major | debian, flink | David Moravek | David Moravek |
 | [BIGTOP-2704](https://issues.apache.org/jira/browse/BIGTOP-2704) | Include ODPi runtime tests option into the battery of smoke tests |  Major | tests | Roman Shaposhnik | Roman Shaposhnik |
+| [BIGTOP-2705](https://issues.apache.org/jira/browse/BIGTOP-2705) | provide puppet deployment code for Ambari |  Major | deployment | Roman Shaposhnik | Roman Shaposhnik |
+| [BIGTOP-2601](https://issues.apache.org/jira/browse/BIGTOP-2601) | Bump Ignite to 1.9 |  Major | general | Konstantin Boudnik | Konstantin Boudnik |
+| [BIGTOP-1408](https://issues.apache.org/jira/browse/BIGTOP-1408) | create basic end-to-end tests for Ambari integration |  Major | tests | Roman Shaposhnik | Roman Shaposhnik |
 
 
 ### OTHER:
@@ -342,5 +361,6 @@
 | [BIGTOP-2687](https://issues.apache.org/jira/browse/BIGTOP-2687) | Remove /usr/share/java/\*.jar from Sqoop2 catalina.properties |  Major | . | Anna Szonyi |  |
 | [BIGTOP-2670](https://issues.apache.org/jira/browse/BIGTOP-2670) | Bump up Apache Apex version to 3.5.0 |  Major | build | Chinmay Kolhatkar | Chinmay Kolhatkar |
 | [BIGTOP-2703](https://issues.apache.org/jira/browse/BIGTOP-2703) | refresh juju charms/bundles with metric and CI support |  Minor | deployment | Kevin W Monroe | Kevin W Monroe |
+| [BIGTOP-2722](https://issues.apache.org/jira/browse/BIGTOP-2722) | Remove workaround allowing build by root in Tez |  Major | build, tez | Evans Ye | Evans Ye |
 
 

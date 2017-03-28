@@ -18,7 +18,7 @@
 -->
 # Apache Pig Changelog
 
-## Release 0.17.0 - Unreleased (as of 2017-03-24)
+## Release 0.17.0 - Unreleased (as of 2017-03-28)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -142,6 +142,7 @@
 | [PIG-5156](https://issues.apache.org/jira/browse/PIG-5156) | Duplicate jars in CLASSPATH when running test |  Major | . | Daniel Dai | Daniel Dai |
 | [PIG-5182](https://issues.apache.org/jira/browse/PIG-5182) | ant docs target is broken by PIG-5110 |  Major | documentation | Daniel Dai | Daniel Dai |
 | [PIG-5183](https://issues.apache.org/jira/browse/PIG-5183) | We shall mention NATIVE instead of MAPREDUCE operator in document |  Major | . | Daniel Dai | Daniel Dai |
+| [PIG-5198](https://issues.apache.org/jira/browse/PIG-5198) | streaming job stuck with script failure when combined with split |  Minor | impl | Koji Noguchi | Koji Noguchi |
 
 
 ### TESTS:

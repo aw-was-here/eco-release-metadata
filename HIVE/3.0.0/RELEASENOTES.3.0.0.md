@@ -16,24 +16,23 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-# Apache Orc Changelog
+# Apache Hive  3.0.0 Release Notes
 
-## Release 1.2.4 - Unreleased (as of 2017-03-28)
-
-
-
-### BUG FIXES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-| [ORC-122](https://issues.apache.org/jira/browse/ORC-122) | [CPP] Timezone.cc leaks memory |  Major | C++ | Deepak Majeti | Deepak Majeti |
-| [ORC-125](https://issues.apache.org/jira/browse/ORC-125) | Correct OrcFile.WriterVersion to correctly use FUTURE |  Major | . | Owen O'Malley | Owen O'Malley |
+These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
 
 
-### OTHER:
+---
 
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-| [ORC-126](https://issues.apache.org/jira/browse/ORC-126) | Remove our fork of storage-api |  Major | Java | Owen O'Malley | Owen O'Malley |
+* [HIVE-16281](https://issues.apache.org/jira/browse/HIVE-16281) | *Major* | **Upgrade master branch to JDK8**
+
+With this change, we are switching to build master branch with JDK8
+
+
+---
+
+* [HIVE-12274](https://issues.apache.org/jira/browse/HIVE-12274) | *Major* | **Increase width of columns used for general configuration in the metastore.**
+
+Increased width of metastore text columns for general configuration storage.
+
 
 

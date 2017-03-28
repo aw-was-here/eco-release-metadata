@@ -499,7 +499,6 @@
 | [FLINK-5329](https://issues.apache.org/jira/browse/FLINK-5329) | Metric list is being cut off in the WebFrontend |  Blocker | Webfrontend | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-5434](https://issues.apache.org/jira/browse/FLINK-5434) | Remove unsupported project() transformation from Scala DataStream docs |  Minor | Documentation | Vasia Kalavri | GaoLun |
 | [FLINK-5419](https://issues.apache.org/jira/browse/FLINK-5419) | Taskmanager metrics not accessible via REST |  Major | Metrics, Webfrontend | Chesnay Schepler | Chesnay Schepler |
-| [FLINK-5417](https://issues.apache.org/jira/browse/FLINK-5417) | Fix the wrong config file name |  Trivial | Documentation | Tao Wang |  |
 | [FLINK-5321](https://issues.apache.org/jira/browse/FLINK-5321) | FlinkMiniCluster does not start Jobmanager MetricQueryService |  Major | JobManager, Metrics | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-5493](https://issues.apache.org/jira/browse/FLINK-5493) | FlinkDistributionOverlay does not properly display missing environment variables |  Minor | Cluster Management | Till Rohrmann | Boris Osipov |
 | [FLINK-5482](https://issues.apache.org/jira/browse/FLINK-5482) | QueryableStateClient does not recover from a failed lookup due to a non-running job |  Major | . | Nico Kruber | Nico Kruber |
@@ -608,6 +607,7 @@
 | [FLINK-4959](https://issues.apache.org/jira/browse/FLINK-4959) | Write Documentation for ProcessFunction |  Critical | Streaming | Aljoscha Krettek | Stephan Ewen |
 | [FLINK-4901](https://issues.apache.org/jira/browse/FLINK-4901) | Build DCOS Docker image |  Major | Cluster Management, Mesos | Eron Wright |  |
 | [FLINK-5555](https://issues.apache.org/jira/browse/FLINK-5555) | Add documentation about debugging watermarks |  Major | Documentation | Robert Metzger | Robert Metzger |
+| [FLINK-5417](https://issues.apache.org/jira/browse/FLINK-5417) | Fix the wrong config file name |  Trivial | Documentation | Tao Wang |  |
 | [FLINK-5459](https://issues.apache.org/jira/browse/FLINK-5459) | Add documentation how to debug classloading issues |  Major | Documentation | Stephan Ewen | Stephan Ewen |
 | [FLINK-5454](https://issues.apache.org/jira/browse/FLINK-5454) | Add Documentation about how to tune Checkpointing for large state |  Major | Documentation | Stephan Ewen | Stephan Ewen |
 | [FLINK-4994](https://issues.apache.org/jira/browse/FLINK-4994) | Don't Clear Trigger State and Merging Window Set When Purging |  Major | Streaming | Aljoscha Krettek | Aljoscha Krettek |

@@ -18,7 +18,7 @@
 -->
 # Apache Hive Changelog
 
-## Release 2.2.0 - Unreleased (as of 2017-03-24)
+## Release 2.2.0 - Unreleased (as of 2017-03-28)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -217,6 +217,7 @@
 | [HIVE-16205](https://issues.apache.org/jira/browse/HIVE-16205) | Improving type safety in Objectstore |  Major | Metastore | Vihang Karajgaonkar | Vihang Karajgaonkar |
 | [HIVE-16230](https://issues.apache.org/jira/browse/HIVE-16230) | Enable CBO in presence of hints |  Major | CBO, Logical Optimizer | Ashutosh Chauhan | Ashutosh Chauhan |
 | [HIVE-16166](https://issues.apache.org/jira/browse/HIVE-16166) | HS2 may still waste up to 15% of memory on duplicate strings |  Major | . | Misha Dmitriev | Misha Dmitriev |
+| [HIVE-16286](https://issues.apache.org/jira/browse/HIVE-16286) | Log canceled query id |  Trivial | . | Jimmy Xiang | Jimmy Xiang |
 
 
 ### BUG FIXES:
@@ -947,6 +948,12 @@
 | [HIVE-16208](https://issues.apache.org/jira/browse/HIVE-16208) | Vectorization: ProcessingModeHashAggregate::sumBatchSize is never reset |  Minor | . | Gopal V | Gopal V |
 | [HIVE-16278](https://issues.apache.org/jira/browse/HIVE-16278) | LLAP: metadata cache may incorrectly decrease memory usage in mem manager |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
 | [HIVE-16154](https://issues.apache.org/jira/browse/HIVE-16154) | Determine when dynamic runtime filtering should be disabled |  Major | Query Planning | Jason Dere | Jason Dere |
+| [HIVE-15841](https://issues.apache.org/jira/browse/HIVE-15841) | Upgrade Hive to ORC 1.3.3 |  Major | . | Owen O'Malley | Owen O'Malley |
+| [HIVE-15644](https://issues.apache.org/jira/browse/HIVE-15644) | Collect LLAP's JVM metrics via Hive's JvmPauseMonitor |  Major | Hive | Wei Zheng | Wei Zheng |
+| [HIVE-16273](https://issues.apache.org/jira/browse/HIVE-16273) | Vectorization: Make non-column key expressions work in MERGEPARTIAL mode |  Critical | Hive | Matt McCline | Matt McCline |
+| [HIVE-16282](https://issues.apache.org/jira/browse/HIVE-16282) | Semijoin: Disable slow-start for the bloom filter aggregate task |  Major | . | Gopal V | Deepak Jaiswal |
+| [HIVE-16298](https://issues.apache.org/jira/browse/HIVE-16298) | Add config to specify multi-column joins have correlated columns |  Major | . | Jason Dere | Siddharth Seth |
+| [HIVE-16292](https://issues.apache.org/jira/browse/HIVE-16292) | SparkUtilities upload to HDFS doesn't work with viewfs |  Minor | . | Jimmy Xiang | Jimmy Xiang |
 
 
 ### TESTS:

@@ -18,7 +18,7 @@
 -->
 # Apache HBase Changelog
 
-## Release 1.4.0 - Unreleased (as of 2017-03-24)
+## Release 1.4.0 - Unreleased (as of 2017-03-28)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -200,6 +200,8 @@
 | [HBASE-17731](https://issues.apache.org/jira/browse/HBASE-17731) | Fractional latency reporting in MultiThreadedAction |  Trivial | . | Andrew Purtell | Andrew Purtell |
 | [HBASE-15429](https://issues.apache.org/jira/browse/HBASE-15429) | Add a split policy for busy regions |  Major | regionserver | Ashu Pachauri | Ashu Pachauri |
 | [HBASE-17778](https://issues.apache.org/jira/browse/HBASE-17778) | Remove the testing code in the AsyncRequestFutureImpl |  Trivial | . | Chia-Ping Tsai | Chia-Ping Tsai |
+| [HBASE-17623](https://issues.apache.org/jira/browse/HBASE-17623) | Reuse the bytes array when building the hfile block |  Major | HFile | Chia-Ping Tsai | Chia-Ping Tsai |
+| [HBASE-17831](https://issues.apache.org/jira/browse/HBASE-17831) | Support small scan in thrift2 |  Major | Thrift | Guangxu Cheng | Guangxu Cheng |
 
 
 ### BUG FIXES:

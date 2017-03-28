@@ -18,7 +18,7 @@
 -->
 # Apache Zookeeper Changelog
 
-## Release 3.5.3 - Unreleased (as of 2017-03-24)
+## Release 3.5.3 - Unreleased (as of 2017-03-28)
 
 
 
@@ -95,6 +95,7 @@
 | [ZOOKEEPER-2460](https://issues.apache.org/jira/browse/ZOOKEEPER-2460) | Remove javacc dependency from public Maven pom |  Critical | java client | Enrico Olivelli |  |
 | [ZOOKEEPER-2726](https://issues.apache.org/jira/browse/ZOOKEEPER-2726) | Patch for ZOOKEEPER-2693 introduces potential race condition |  Major | . | Kyle Nusbaum | Kyle Nusbaum |
 | [ZOOKEEPER-2635](https://issues.apache.org/jira/browse/ZOOKEEPER-2635) | Regenerate documentation |  Blocker | documentation | Flavio Junqueira | Michael Han |
+| [ZOOKEEPER-2737](https://issues.apache.org/jira/browse/ZOOKEEPER-2737) | NettyServerCnxFactory leaks connection if exception happens while writing to a channel. |  Critical | server | Michael Han | Michael Han |
 
 
 ### TESTS:
@@ -126,5 +127,6 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [ZOOKEEPER-2658](https://issues.apache.org/jira/browse/ZOOKEEPER-2658) | Trunk / branch-3.5 build broken. |  Critical | . | Michael Han | Michael Han |
 | [ZOOKEEPER-2709](https://issues.apache.org/jira/browse/ZOOKEEPER-2709) | Clarify documentation around "auth" ACL scheme |  Minor | documentation | Josh Elser | Josh Elser |
+| [ZOOKEEPER-2734](https://issues.apache.org/jira/browse/ZOOKEEPER-2734) | 3.5.3 should be a beta release instead of alpha release. |  Blocker | build | Michael Han | Michael Han |
 
 

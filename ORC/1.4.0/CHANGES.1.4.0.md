@@ -18,7 +18,7 @@
 -->
 # Apache Orc Changelog
 
-## Release 1.4.0 - Unreleased (as of 2017-03-24)
+## Release 1.4.0 - Unreleased (as of 2017-03-28)
 
 
 

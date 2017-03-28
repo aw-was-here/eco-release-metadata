@@ -18,7 +18,7 @@
 -->
 # Apache Flink Changelog
 
-## Release 1.2.1 - Unreleased (as of 2017-03-24)
+## Release 1.2.1 - Unreleased (as of 2017-03-28)
 
 
 
@@ -43,13 +43,13 @@
 | [FLINK-5800](https://issues.apache.org/jira/browse/FLINK-5800) | Make sure that the CheckpointStreamFactory is instantiated once per operator only |  Major | State Backends, Checkpointing | Stephan Ewen | Stephan Ewen |
 | [FLINK-5705](https://issues.apache.org/jira/browse/FLINK-5705) | webmonitor's request/response use UTF-8 explicitly |  Major | Webfrontend | shijinkui | shijinkui |
 | [FLINK-5837](https://issues.apache.org/jira/browse/FLINK-5837) | improve readability of the queryable state docs |  Minor | Documentation | David Anderson | David Anderson |
-| [FLINK-5723](https://issues.apache.org/jira/browse/FLINK-5723) | Use "Used" instead of "Initial" to make taskmanager tag more readable |  Trivial | Webfrontend | Tao Wang |  |
 | [FLINK-5876](https://issues.apache.org/jira/browse/FLINK-5876) | Mention Scala type fallacies for queryable state client serializers |  Major | Documentation | Ufuk Celebi |  |
 | [FLINK-5894](https://issues.apache.org/jira/browse/FLINK-5894) | HA docs are misleading re: state backends |  Major | Documentation | David Anderson |  |
 | [FLINK-5877](https://issues.apache.org/jira/browse/FLINK-5877) | Fix Scala snippet in Async I/O API doc |  Minor | Documentation | Andrea Sella | Andrea Sella |
 | [FLINK-5895](https://issues.apache.org/jira/browse/FLINK-5895) | Reduce logging aggressiveness of FileSystemSafetyNet |  Major | Local Runtime | Stephan Ewen | Stephan Ewen |
 | [FLINK-5938](https://issues.apache.org/jira/browse/FLINK-5938) | Replace ExecutionContext by Executor in Scheduler |  Minor | Distributed Coordination | Till Rohrmann | Till Rohrmann |
 | [FLINK-4326](https://issues.apache.org/jira/browse/FLINK-4326) | Flink start-up scripts should optionally start services on the foreground |  Major | Startup Shell Scripts | Elias Levy | Greg Hogan |
+| [FLINK-5217](https://issues.apache.org/jira/browse/FLINK-5217) | Deprecated interface Checkpointed make clear suggestion |  Major | DataStream API | shijinkui |  |
 
 
 ### BUG FIXES:
@@ -68,7 +68,6 @@
 | [FLINK-5751](https://issues.apache.org/jira/browse/FLINK-5751) | 404 in documentation |  Trivial | Documentation | Colin Breame |  |
 | [FLINK-5773](https://issues.apache.org/jira/browse/FLINK-5773) | Cannot cast scala.util.Failure to org.apache.flink.runtime.messages.Acknowledge |  Major | Distributed Coordination | Colin Breame | Till Rohrmann |
 | [FLINK-5814](https://issues.apache.org/jira/browse/FLINK-5814) | flink-dist creates wrong symlink when not used with cleaned before |  Minor | Build System | Nico Kruber | Nico Kruber |
-| [FLINK-5825](https://issues.apache.org/jira/browse/FLINK-5825) | In yarn mode, a small pic can not be loaded |  Minor | Webfrontend, YARN | Tao Wang |  |
 | [FLINK-5828](https://issues.apache.org/jira/browse/FLINK-5828) | BlobServer create cache dir has concurrency safety problem |  Major | Core | ZhengBowen |  |
 | [FLINK-5817](https://issues.apache.org/jira/browse/FLINK-5817) | Fix test concurrent execution failure by test dir conflicts. |  Major | . | Wenlong Lyu | Wenlong Lyu |
 | [FLINK-5669](https://issues.apache.org/jira/browse/FLINK-5669) | flink-streaming-contrib DataStreamUtils.collect in local environment mode fails when offline |  Minor | flink-contrib | Rick Cox |  |
@@ -96,13 +95,18 @@
 | [FLINK-6000](https://issues.apache.org/jira/browse/FLINK-6000) | Can not start HA cluster with start-cluster.sh |  Major | Startup Shell Scripts | Dawid Wysakowicz | Dawid Wysakowicz |
 | [FLINK-6170](https://issues.apache.org/jira/browse/FLINK-6170) | Some checkpoint metrics rely on latest stat snapshot |  Major | Metrics, State Backends, Checkpointing, Webfrontend | Ufuk Celebi | Ufuk Celebi |
 | [FLINK-6133](https://issues.apache.org/jira/browse/FLINK-6133) | fix build status in README.md |  Minor | Build System | Bowen Li | Bowen Li |
+| [FLINK-5972](https://issues.apache.org/jira/browse/FLINK-5972) | Don't allow shrinking merging windows |  Blocker | DataStream API | Aljoscha Krettek | Aljoscha Krettek |
+| [FLINK-6182](https://issues.apache.org/jira/browse/FLINK-6182) | Fix possible NPE in SourceStreamTask |  Minor | Local Runtime | Ufuk Celebi |  |
+| [FLINK-6207](https://issues.apache.org/jira/browse/FLINK-6207) | Duplicate type serializers for async snapshots of CopyOnWriteStateTable |  Major | State Backends, Checkpointing | Stefan Richter | Stefan Richter |
 
 
 ### SUB-TASKS:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [FLINK-5825](https://issues.apache.org/jira/browse/FLINK-5825) | In yarn mode, a small pic can not be loaded |  Minor | Webfrontend, YARN | Tao Wang |  |
 | [FLINK-5640](https://issues.apache.org/jira/browse/FLINK-5640) | configure the explicit Unit Test file suffix |  Major | Tests | shijinkui | shijinkui |
+| [FLINK-5723](https://issues.apache.org/jira/browse/FLINK-5723) | Use "Used" instead of "Initial" to make taskmanager tag more readable |  Trivial | Webfrontend | Tao Wang |  |
 
 
 ### OTHER:

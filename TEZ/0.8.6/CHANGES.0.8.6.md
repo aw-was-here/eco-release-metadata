@@ -18,7 +18,7 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.8.6 - Unreleased (as of 2017-03-24)
+## Release 0.8.6 - Unreleased (as of 2017-03-28)
 
 
 
@@ -27,6 +27,8 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [TEZ-3632](https://issues.apache.org/jira/browse/TEZ-3632) | Tez Task attempt listing can hang if log link is null |  Major | UI | Kuhu Shukla | Kuhu Shukla |
+| [TEZ-3672](https://issues.apache.org/jira/browse/TEZ-3672) | Remove duplicate Apache license headers |  Trivial | . | Saijin Huang | Saijin Huang |
+| [TEZ-3671](https://issues.apache.org/jira/browse/TEZ-3671) | TestCompositeDataMovementEvent has a misplaced Apache license header |  Minor | . | Saijin Huang | Saijin Huang |
 
 
 ### OTHER:

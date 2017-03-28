@@ -4968,4 +4968,22 @@ Add 2 constructors fot API Get
 Now small scan and limited scan could also return partial results.
 
 
+---
+
+* [HBASE-13395](https://issues.apache.org/jira/browse/HBASE-13395) | *Major* | **Remove HTableInterface**
+
+HTableInterface was deprecated in 0.21.0 and is removed in 2.0.0. Use org.apache.hadoop.hbase.client.Table instead.
+
+
+---
+
+* [HBASE-17765](https://issues.apache.org/jira/browse/HBASE-17765) | *Major* | **Reviving the merge possibility in the CompactingMemStore**
+
+Reviving the merge of the compacting pipeline: making the limit on the number of the segments in the pipeline configurable and adding the merge test.
+
+In order to customize the pipeline size limit change the value of the "hbase.hregion.compacting.pipeline.segments.limit" in the hbase-site.xml
+
+Value 1 means to merge the segments on any flush-in-memory. Value higher than 16 means no merge.
+
+
 

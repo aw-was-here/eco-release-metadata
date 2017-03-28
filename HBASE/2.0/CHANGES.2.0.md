@@ -18,7 +18,7 @@
 -->
 # Apache HBase Changelog
 
-## Release 2.0 - Unreleased (as of 2017-03-24)
+## Release 2.0 - Unreleased (as of 2017-03-28)
 
 
 
@@ -29,6 +29,7 @@
 | [HBASE-17676](https://issues.apache.org/jira/browse/HBASE-17676) | Get class name once for all in AbstractFSWAL |  Major | Performance | Yu Li | Yu Li |
 | [HBASE-17689](https://issues.apache.org/jira/browse/HBASE-17689) | Add support for table.existsAll in thrift2 THBaseservice |  Major | Thrift | Yechao Chen | Yechao Chen |
 | [HBASE-17747](https://issues.apache.org/jira/browse/HBASE-17747) | Support both weak and soft object pool |  Major | . | Yu Li | Yu Li |
+| [HBASE-17831](https://issues.apache.org/jira/browse/HBASE-17831) | Support small scan in thrift2 |  Major | Thrift | Guangxu Cheng | Guangxu Cheng |
 
 
 ### BUG FIXES:

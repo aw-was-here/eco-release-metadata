@@ -18,7 +18,7 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.9.0 - Unreleased (as of 2017-03-24)
+## Release 0.9.0 - Unreleased (as of 2017-03-28)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -229,6 +229,9 @@
 | [TEZ-3503](https://issues.apache.org/jira/browse/TEZ-3503) | Tez UI: Support search by queue name |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-3632](https://issues.apache.org/jira/browse/TEZ-3632) | Tez Task attempt listing can hang if log link is null |  Major | UI | Kuhu Shukla | Kuhu Shukla |
 | [TEZ-3656](https://issues.apache.org/jira/browse/TEZ-3656) | Tez UI: Status correction is not working as expected |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
+| [TEZ-3252](https://issues.apache.org/jira/browse/TEZ-3252) | [Umbrella] Enable support for Hadoop-3.x |  Major | . | Hitesh Shah |  |
+| [TEZ-3672](https://issues.apache.org/jira/browse/TEZ-3672) | Remove duplicate Apache license headers |  Trivial | . | Saijin Huang | Saijin Huang |
+| [TEZ-3671](https://issues.apache.org/jira/browse/TEZ-3671) | TestCompositeDataMovementEvent has a misplaced Apache license header |  Minor | . | Saijin Huang | Saijin Huang |
 
 
 ### TESTS:
@@ -262,6 +265,8 @@
 | [TEZ-3655](https://issues.apache.org/jira/browse/TEZ-3655) | Specify netty version instead of inheriting from hadoop dependency |  Major | . | Zhiyuan Yang | Zhiyuan Yang |
 | [TEZ-3665](https://issues.apache.org/jira/browse/TEZ-3665) | TestATSV15HistoryLoggingService should use mocked TimelineClient |  Major | . | Zhiyuan Yang | Zhiyuan Yang |
 | [TEZ-3667](https://issues.apache.org/jira/browse/TEZ-3667) | Stop using org.apache.hadoop.security.ssl.SSLFactory.DEFAULT\_SSL\_REQUIRE\_CLIENT\_CERT |  Major | . | Zhiyuan Yang | Zhiyuan Yang |
+| [TEZ-3668](https://issues.apache.org/jira/browse/TEZ-3668) | Explicitly include hadoop-mapreduce-client-shuffle for test in root pom |  Major | . | Zhiyuan Yang | Zhiyuan Yang |
+| [TEZ-3652](https://issues.apache.org/jira/browse/TEZ-3652) | Remove ShuffleClientMetrics |  Major | . | Zhiyuan Yang | Zhiyuan Yang |
 
 
 ### OTHER:

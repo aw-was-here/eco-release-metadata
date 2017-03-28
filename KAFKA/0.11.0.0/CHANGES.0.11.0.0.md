@@ -34,6 +34,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [KAFKA-4720](https://issues.apache.org/jira/browse/KAFKA-4720) | Add KStream.peek(ForeachAction\<K,V\>) |  Major | streams | Steven Schlansker | Steven Schlansker |
+| [KAFKA-4881](https://issues.apache.org/jira/browse/KAFKA-4881) | Add internal leave.group.on.close config to consumer |  Major | clients | Damian Guy | Damian Guy |
 
 
 ### IMPROVEMENTS:
@@ -123,6 +124,7 @@
 | [KAFKA-4779](https://issues.apache.org/jira/browse/KAFKA-4779) | Failure in kafka/tests/kafkatest/tests/core/security\_rolling\_upgrade\_test.py |  Major | . | Apurva Mehta | Rajini Sivaram |
 | [KAFKA-4929](https://issues.apache.org/jira/browse/KAFKA-4929) | Transformation Key/Value type references should be to class name(), not canonicalName() |  Minor | KafkaConnect | bruce szalwinski |  |
 | [KAFKA-4919](https://issues.apache.org/jira/browse/KAFKA-4919) | Document that stores must not be closed when Processors are closed |  Major | streams | Elias Levy | Damian Guy |
+| [KAFKA-4790](https://issues.apache.org/jira/browse/KAFKA-4790) | Kafka cannot recover after a disk full |  Major | . | Pengwei |  |
 
 
 ### SUB-TASKS:
@@ -147,6 +149,8 @@
 | [KAFKA-4467](https://issues.apache.org/jira/browse/KAFKA-4467) | Run tests on travis-ci using docker |  Major | system tests | Raghav Kumar Gautam | Raghav Kumar Gautam |
 | [KAFKA-4657](https://issues.apache.org/jira/browse/KAFKA-4657) | Improve test coverage of CompositeReadOnlyWindowStore |  Major | streams | Damian Guy |  |
 | [KAFKA-4859](https://issues.apache.org/jira/browse/KAFKA-4859) | Transient test failure: org.apache.kafka.streams.integration.JoinIntegrationTest.shouldCountClicksPerRegion (again) |  Major | streams | Armin Braun | Armin Braun |
+| [KAFKA-4816](https://issues.apache.org/jira/browse/KAFKA-4816) | Message format changes for idempotent/transactional producer |  Major | clients, core, producer | Jason Gustafson | Jason Gustafson |
+| [KAFKA-4569](https://issues.apache.org/jira/browse/KAFKA-4569) | Transient failure in org.apache.kafka.clients.consumer.KafkaConsumerTest.testWakeupWithFetchDataAvailable |  Major | unit tests | Guozhang Wang | Umesh Chaudhary |
 
 
 ### OTHER:

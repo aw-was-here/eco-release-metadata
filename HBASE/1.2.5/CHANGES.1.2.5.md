@@ -18,7 +18,7 @@
 -->
 # Apache HBase Changelog
 
-## Release 1.2.5 - Unreleased (as of 2017-03-24)
+## Release 1.2.5 - 2017-03-24
 
 ### INCOMPATIBLE CHANGES:
 
@@ -105,5 +105,6 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HBASE-17255](https://issues.apache.org/jira/browse/HBASE-17255) | Backport HBASE-17181 to branch-1.2 |  Minor | Thrift | Jian Yi | Jian Yi |
 | [HBASE-16710](https://issues.apache.org/jira/browse/HBASE-16710) | Add ZStandard Codec to Compression.java |  Minor | . | churro morales | churro morales |
+| [HBASE-17700](https://issues.apache.org/jira/browse/HBASE-17700) | Release 1.2.5 |  Major | community | Sean Busbey | Sean Busbey |
 
 

@@ -16,6 +16,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
+* Apache Hive v3.0.0
+    * [Changes](3.0.0/CHANGES.3.0.0.md)
+    * [Release Notes](3.0.0/RELEASENOTES.3.0.0.md)
+* Apache Hive v2.3.0
+    * [Changes](2.3.0/CHANGES.2.3.0.md)
+    * [Release Notes](2.3.0/RELEASENOTES.2.3.0.md)
 * Apache Hive v2.2.0
     * [Changes](2.2.0/CHANGES.2.2.0.md)
     * [Release Notes](2.2.0/RELEASENOTES.2.2.0.md)

@@ -18,7 +18,7 @@
 -->
 # Apache Zookeeper Changelog
 
-## Release 3.6.0 - Unreleased (as of 2017-03-24)
+## Release 3.6.0 - Unreleased (as of 2017-03-28)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -238,6 +238,7 @@
 | [ZOOKEEPER-2725](https://issues.apache.org/jira/browse/ZOOKEEPER-2725) | Upgrading to a global session fails with a multiop |  Major | server | Brian Nixon |  |
 | [ZOOKEEPER-2635](https://issues.apache.org/jira/browse/ZOOKEEPER-2635) | Regenerate documentation |  Blocker | documentation | Flavio Junqueira | Michael Han |
 | [ZOOKEEPER-2735](https://issues.apache.org/jira/browse/ZOOKEEPER-2735) | Typo fixes in some scripts |  Trivial | scripts | Woojin Joe |  |
+| [ZOOKEEPER-2737](https://issues.apache.org/jira/browse/ZOOKEEPER-2737) | NettyServerCnxFactory leaks connection if exception happens while writing to a channel. |  Critical | server | Michael Han | Michael Han |
 
 
 ### TESTS:

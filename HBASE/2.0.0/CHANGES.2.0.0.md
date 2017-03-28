@@ -18,7 +18,7 @@
 -->
 # Apache HBase Changelog
 
-## Release 2.0.0 - Unreleased (as of 2017-03-24)
+## Release 2.0.0 - Unreleased (as of 2017-03-28)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -897,6 +897,7 @@
 | [HBASE-15339](https://issues.apache.org/jira/browse/HBASE-15339) | Improve DateTieredCompactionPolicy |  Major | Compaction | Duo Zhang |  |
 | [HBASE-17778](https://issues.apache.org/jira/browse/HBASE-17778) | Remove the testing code in the AsyncRequestFutureImpl |  Trivial | . | Chia-Ping Tsai | Chia-Ping Tsai |
 | [HBASE-17815](https://issues.apache.org/jira/browse/HBASE-17815) | Remove the unused field in PrefixTreeSeeker |  Trivial | . | Chia-Ping Tsai | Chia-Ping Tsai |
+| [HBASE-17623](https://issues.apache.org/jira/browse/HBASE-17623) | Reuse the bytes array when building the hfile block |  Major | HFile | Chia-Ping Tsai | Chia-Ping Tsai |
 
 
 ### BUG FIXES:
@@ -3388,6 +3389,9 @@
 | [HBASE-17691](https://issues.apache.org/jira/browse/HBASE-17691) | Add ScanMetrics support for async scan |  Major | Client | Duo Zhang | Duo Zhang |
 | [HBASE-17805](https://issues.apache.org/jira/browse/HBASE-17805) | We should remove BoundedByteBufferPool because it is replaced by ByteBufferPool |  Minor | . | Chia-Ping Tsai | Chia-Ping Tsai |
 | [HBASE-17809](https://issues.apache.org/jira/browse/HBASE-17809) | cleanup unused class |  Major | . | Chia-Ping Tsai | Chia-Ping Tsai |
+| [HBASE-17669](https://issues.apache.org/jira/browse/HBASE-17669) | Implement async mergeRegion/splitRegion methods. |  Major | Admin, asyncclient, Client | Zheng Hu | Zheng Hu |
+| [HBASE-13395](https://issues.apache.org/jira/browse/HBASE-13395) | Remove HTableInterface |  Major | API | Mikhail Antonov | Jan Hentschel |
+| [HBASE-17765](https://issues.apache.org/jira/browse/HBASE-17765) | Reviving the merge possibility in the CompactingMemStore |  Major | . | Anastasia Braginsky | Anastasia Braginsky |
 
 
 ### OTHER:
@@ -3571,5 +3575,6 @@
 | [HBASE-17618](https://issues.apache.org/jira/browse/HBASE-17618) | Refactor the implementation of modify table and delete column in MOB |  Major | mob | Jingcheng Du | Jingcheng Du |
 | [HBASE-14375](https://issues.apache.org/jira/browse/HBASE-14375) | Define public API for spark integration module |  Blocker | spark | Sean Busbey | Jerry He |
 | [HBASE-17802](https://issues.apache.org/jira/browse/HBASE-17802) | Add note that minor versions can add methods to Interfaces |  Major | documentation | stack | stack |
+| [HBASE-17834](https://issues.apache.org/jira/browse/HBASE-17834) | close stale github PRs |  Minor | community | Sean Busbey | Sean Busbey |
 
 

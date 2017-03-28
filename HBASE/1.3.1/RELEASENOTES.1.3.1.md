@@ -70,4 +70,11 @@ A new option -removeParents is now available that will remove an old parent when
 The replication sources and replication sinks will now expose ageOfLastShippedOp and ageOfLastAppliedOp metrics respectively as histograms (with percentile suffixes). The 'max' values in these histograms are also exported as simple metrics (no percentile suffix) under the same metric names for backward compatibility.
 
 
+---
+
+* [HBASE-16755](https://issues.apache.org/jira/browse/HBASE-16755) | *Major* | **Honor flush policy under global memstore pressure**
+
+Prior to this change, when the memstore low water mark is exceeded on a regionserver, the regionserver will force flush all stores on the regions selected for flushing until we drop below the low water mark.  With this change, the regionserver will continue to force flush regions when above the memstore low water mark, but will only flush the stores returned by the configured FlushPolicy.
+
+
 
