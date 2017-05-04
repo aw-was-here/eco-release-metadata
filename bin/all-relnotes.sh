@@ -64,17 +64,20 @@ common_rdm bigtop 1.0.1 2.0.0 BigTop
 
 common_rdm falcon 0.10 1.0
 
-common_rdm flink 1.0.0 2.0.0
+common_rdm flink 1.1.5 2.0.0
 
-common_rdm hbase 1.0.3 2.0.0 HBase
+common_rdm hbase 1.1.11 2.0.0 HBase
 
-common_rdm hive 1.1.0 3.0.0
+common_rdm hive 1.1.2 1.4.0
+common_rdm hive 2.1.2 3.0.0
 
 common_rdm mahout 0.13.0 2.0.0
 
 common_rdm oozie 4.3.0 5.0.0
 
-common_rdm orc 1.0.0 2.0.0
+common_rdm orc 1.2.4 2.0.0
+
+common_rdm parquet 1.5.0 2.0.0
 
 common_rdm pig 0.15.1 1.0.0
 
@@ -82,11 +85,11 @@ common_rdm zookeeper 3.5.2 4.0.0
 
 # Here are the problematic ones:
 
-common_rdm kafka 0.8.1 1.0.0
+common_rdm kafka 0.10.1.2 1.0.0
 
-common_rdm spark 1.4.2 2.0.0
+common_rdm spark 2.0.0 3.0.0
 
-common_rdm tez 0.5.5 1.0.0
+common_rdm tez 0.7.2 1.0.0
 
 big_console_header Hadoop
 # Hadoop is a mess.  There are now effectively 4 branches
@@ -95,16 +98,31 @@ print_and_run \
 	${RDM} --project HADOOP --project HDFS \
         --project YARN --project MAPREDUCE \
         --projecttitle "Apache Hadoop" \
-        --version 2.6.4 --version 2.6.10 \
+        --version 2.6.6 --version 2.6.10 \
         --license --range \
         --outputdir HADOOP
 
 print_and_run \
 	${RDM} --project HADOOP --project HDFS --project YARN --project MAPREDUCE \
         --projecttitle "Apache Hadoop" \
-        --range --version 2.7.3 --version 3.1.0 \
+        --range --version 2.7.4 --version 2.7.9 \
         --index --license \
         --outputdir HADOOP
+
+print_and_run \
+        ${RDM} --project HADOOP --project HDFS --project YARN --project MAPREDUCE \
+        --projecttitle "Apache Hadoop" \
+        --range --version 2.8.1 --version 2.10.0 \
+        --index --license \
+        --outputdir HADOOP
+
+print_and_run \
+        ${RDM} --project HADOOP --project HDFS --project YARN --project MAPREDUCE \
+        --projecttitle "Apache Hadoop" \
+        --range --version 3.0.0 --version 4 \
+        --index --license \
+        --outputdir HADOOP
+
 
 d=$(date -u "+%Y-%m-%d %H:%m")
 git add -A

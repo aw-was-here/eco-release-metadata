@@ -33,7 +33,7 @@ Applications which made use of the LogAggregationContext in their application wi
 * [HADOOP-11252](https://issues.apache.org/jira/browse/HADOOP-11252) | *Critical* | **RPC client does not time out by default**
 
 This fix includes public method interface change.
-A follow-up jira for this incompatibly for branch-2.7 is HADOOP-13579.
+A follow-up JIRA issue for this incompatibility for branch-2.7 is HADOOP-13579.
 
 
 

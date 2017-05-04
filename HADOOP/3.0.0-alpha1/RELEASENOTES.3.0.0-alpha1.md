@@ -1866,7 +1866,7 @@ Added new plugin property yarn.nodemanager.disk-validator to allow the NodeManag
 
 * [HDFS-10725](https://issues.apache.org/jira/browse/HDFS-10725) | *Minor* | **Caller context should always be constructed by a builder**
 
-Currently CallerContext is constructed by a builder. In this pattern, the constructor should be private so that caller context should always be constructed by a builder. This is an omission of the initial effort.
+Previously, CallerContext was constructed by a builder. In this new pattern, the constructor is private so that caller context will always be constructed by a builder.
 
 
 ---

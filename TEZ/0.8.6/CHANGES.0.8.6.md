@@ -34,6 +34,7 @@
 | [TEZ-3678](https://issues.apache.org/jira/browse/TEZ-3678) | The command "hadoop dfs" should be replaced by "hadoop fs" in install markdown |  Trivial | . | Saijin Huang | Saijin Huang |
 | [TEZ-3679](https://issues.apache.org/jira/browse/TEZ-3679) | Minor ASF header issues |  Minor | . | Saijin Huang | Saijin Huang |
 | [TEZ-3658](https://issues.apache.org/jira/browse/TEZ-3658) | building tez-ui throws exceptions |  Minor | . | Rajesh Balamohan | Zhiyuan Yang |
+| [TEZ-3696](https://issues.apache.org/jira/browse/TEZ-3696) | Jobs can hang when both concurrency and speculation are enabled |  Major | . | Eric Badger | Eric Badger |
 
 
 ### OTHER:
