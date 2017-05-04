@@ -454,6 +454,8 @@
 | [HDFS-11739](https://issues.apache.org/jira/browse/HDFS-11739) | Fix regression in tests caused by YARN-679 |  Major | test | Steve Loughran | Steve Loughran |
 | [HDFS-11643](https://issues.apache.org/jira/browse/HDFS-11643) | Add shouldReplicate option to create builder |  Blocker | balancer & mover, erasure-coding | Andrew Wang | SammiChen |
 | [HADOOP-14380](https://issues.apache.org/jira/browse/HADOOP-14380) | Make the Guava version Hadoop which builds with configurable |  Major | build | Steve Loughran | Steve Loughran |
+| [HDFS-11448](https://issues.apache.org/jira/browse/HDFS-11448) | JN log segment syncing should support HA upgrade |  Major | hdfs | Hanisha Koneru | Hanisha Koneru |
+| [HADOOP-14207](https://issues.apache.org/jira/browse/HADOOP-14207) | "dfsadmin -refreshCallQueue" fails with DecayRpcScheduler |  Blocker | rpc-server | Surendra Singh Lilhore | Surendra Singh Lilhore |
 
 
 ### TESTS:
