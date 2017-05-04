@@ -41,7 +41,7 @@
 | [HADOOP-2158](https://issues.apache.org/jira/browse/HADOOP-2158) | hdfsListDirectory in libhdfs does not scale |  Blocker | . | Christian Kunz | Christian Kunz |
 | [HADOOP-2378](https://issues.apache.org/jira/browse/HADOOP-2378) | last TaskCompletionEvent gets added to the job after the job is marked as completed |  Blocker | . | Alejandro Abdelnur | Devaraj Das |
 | [HADOOP-2228](https://issues.apache.org/jira/browse/HADOOP-2228) | Jobs fail because job.xml exists |  Major | . | Johan Oskarsson | Johan Oskarsson |
-| [HADOOP-2422](https://issues.apache.org/jira/browse/HADOOP-2422) | dfs -cat multiple files fail with \'Unable to write to output stream.\' |  Blocker | . | Koji Noguchi | Raghu Angadi |
+| [HADOOP-2422](https://issues.apache.org/jira/browse/HADOOP-2422) | dfs -cat multiple files fail with 'Unable to write to output stream.' |  Blocker | . | Koji Noguchi | Raghu Angadi |
 | [HADOOP-2460](https://issues.apache.org/jira/browse/HADOOP-2460) | NameNode could delete wrong edits file when there is an error |  Major | . | Raghu Angadi | dhruba borthakur |
 | [HADOOP-2227](https://issues.apache.org/jira/browse/HADOOP-2227) | wrong usage of mapred.local.dir.minspacestart |  Critical | . | Christian Kunz | Amareshwari Sriramadasu |
 | [HADOOP-2437](https://issues.apache.org/jira/browse/HADOOP-2437) | final map output not evenly distributed across multiple disks |  Blocker | . | Christian Kunz | Arun C Murthy |

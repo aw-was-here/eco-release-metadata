@@ -25,7 +25,7 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 * [HADOOP-9241](https://issues.apache.org/jira/browse/HADOOP-9241) | *Trivial* | **DU refresh interval is not configurable**
 
-The \'du\' (disk usage command from Unix) script refresh monitor is now configurable in the same way as its \'df\' counterpart, via the property \'fs.du.interval\', the default of which is 10 minute (in ms).
+The 'du' (disk usage command from Unix) script refresh monitor is now configurable in the same way as its 'df' counterpart, via the property 'fs.du.interval', the default of which is 10 minute (in ms).
 
 
 ---
@@ -89,7 +89,7 @@ Direct Bytebuffer decompressors for Zlib (Deflate & Gzip) and Snappy
 
 ---
 
-* [HDFS-4997](https://issues.apache.org/jira/browse/HDFS-4997) | *Major* | **libhdfs doesn\'t return correct error codes in most cases**
+* [HDFS-4997](https://issues.apache.org/jira/browse/HDFS-4997) | *Major* | **libhdfs doesn't return correct error codes in most cases**
 
 libhdfs now returns correct codes in errno. Previously, due to a bug, many functions set errno to 255 instead of the more specific error code.
 

@@ -35,7 +35,7 @@
 | [HIVE-14322](https://issues.apache.org/jira/browse/HIVE-14322) | Postgres db issues after Datanucleus 4.x upgrade |  Major | . | Thejas M Nair | Sergey Shelukhin |
 | [HIVE-14408](https://issues.apache.org/jira/browse/HIVE-14408) | thread safety issue in fast hashtable |  Major | . | Takahiko Saito | Sergey Shelukhin |
 | [HIVE-14483](https://issues.apache.org/jira/browse/HIVE-14483) |  java.lang.ArrayIndexOutOfBoundsException org.apache.orc.impl.TreeReaderFactory$BytesColumnVectorUtil.commonReadByteArrays |  Critical | ORC | Sergey Zadoroshnyak | Sergey Zadoroshnyak |
-| [HIVE-13610](https://issues.apache.org/jira/browse/HIVE-13610) | Hive exec module won\'t compile with IBM JDK |  Major | . | Pan Yuxuan | Pan Yuxuan |
+| [HIVE-13610](https://issues.apache.org/jira/browse/HIVE-13610) | Hive exec module won't compile with IBM JDK |  Major | . | Pan Yuxuan | Pan Yuxuan |
 | [HIVE-15551](https://issues.apache.org/jira/browse/HIVE-15551) | memory leak in directsql for mysql+bonecp specific initialization |  Major | Metastore | Xiaomin Zhang | Xiaomin Zhang |
 | [HIVE-14804](https://issues.apache.org/jira/browse/HIVE-14804) | HPLSQL multiple db connection does not switch back to Hive |  Blocker | hpl/sql | Dmitry Kozlov | Fei Hui |
 | [HIVE-16336](https://issues.apache.org/jira/browse/HIVE-16336) | Rename hive.spark.use.file.size.for.mapjoin to hive.spark.use.ts.stats.for.mapjoin |  Major | Configuration | Chao Sun | Chao Sun |

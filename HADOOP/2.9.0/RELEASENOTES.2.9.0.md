@@ -39,7 +39,7 @@ If hadoop.token.files property is defined and configured to one or more comma-de
 
 * [YARN-4762](https://issues.apache.org/jira/browse/YARN-4762) | *Blocker* | **NMs failing on DelegatingLinuxContainerRuntime init with LCE on**
 
-Fixed CgroupHandler\'s creation and usage to avoid NodeManagers crashing when LinuxContainerExecutor is enabled.
+Fixed CgroupHandler's creation and usage to avoid NodeManagers crashing when LinuxContainerExecutor is enabled.
 
 
 ---
@@ -95,7 +95,7 @@ Remove invisible synchronization primitives from DataInputBuffer
 
 * [HADOOP-12782](https://issues.apache.org/jira/browse/HADOOP-12782) | *Major* | **Faster LDAP group name resolution with ActiveDirectory**
 
-If the user object returned by LDAP server has the user\'s group object DN (supported by Active Directory), Hadoop can reduce LDAP group mapping latency by setting hadoop.security.group.mapping.ldap.search.attr.memberof to memberOf.
+If the user object returned by LDAP server has the user's group object DN (supported by Active Directory), Hadoop can reduce LDAP group mapping latency by setting hadoop.security.group.mapping.ldap.search.attr.memberof to memberOf.
 
 
 ---
@@ -123,7 +123,7 @@ WASB has added an optional capability to execute certain FileSystem operations i
 
 * [HADOOP-12747](https://issues.apache.org/jira/browse/HADOOP-12747) | *Major* | **support wildcard in libjars argument**
 
-It is now possible to specify multiple jar files for the libjars argument using a wildcard. For example, you can specify "-libjars \'libs/\*\'" as a shorthand for all jars in the libs directory.
+It is now possible to specify multiple jar files for the libjars argument using a wildcard. For example, you can specify "-libjars 'libs/\*'" as a shorthand for all jars in the libs directory.
 
 
 ---
@@ -179,7 +179,7 @@ DockerContainerExecutor is deprecated starting 2.9.0 and removed from 3.0.0. Ple
 
 * [HADOOP-12705](https://issues.apache.org/jira/browse/HADOOP-12705) | *Major* | **Upgrade Jackson 2.2.3 to 2.7.8**
 
-We are sorry for causing pain for everyone for whom this Jackson update causes problems, but it was proving impossible to stay on the older version: too much code had moved past it, and by staying back we were limiting what Hadoop could do, and giving everyone who wanted an up to date version of Jackson a different set of problems. We\'ve selected Jackson 2.7.8 as it fixed fix a security issue in XML parsing, yet proved compatible at the API level with the Hadoop codebase --and hopefully everything downstream.
+We are sorry for causing pain for everyone for whom this Jackson update causes problems, but it was proving impossible to stay on the older version: too much code had moved past it, and by staying back we were limiting what Hadoop could do, and giving everyone who wanted an up to date version of Jackson a different set of problems. We've selected Jackson 2.7.8 as it fixed fix a security issue in XML parsing, yet proved compatible at the API level with the Hadoop codebase --and hopefully everything downstream.
 
 
 ---
@@ -191,7 +191,7 @@ The dependency on the AWS SDK has been bumped to 1.11.45.
 
 ---
 
-* [HADOOP-13953](https://issues.apache.org/jira/browse/HADOOP-13953) | *Major* | **Make FTPFileSystem\'s data connection mode and transfer mode configurable**
+* [HADOOP-13953](https://issues.apache.org/jira/browse/HADOOP-13953) | *Major* | **Make FTPFileSystem's data connection mode and transfer mode configurable**
 
 Added two configuration key fs.ftp.data.connection.mode and fs.ftp.transfer.mode, and configure FTP data connection mode and transfer mode accordingly.
 
@@ -230,7 +230,7 @@ Let yarn client exit with an informative error message if an incompatible Jersey
 
 * [HADOOP-13817](https://issues.apache.org/jira/browse/HADOOP-13817) | *Minor* | **Add a finite shell command timeout to ShellBasedUnixGroupsMapping**
 
-A new introduced configuration key "hadoop.security.groups.shell.command.timeout" allows applying a finite wait timeout over the \'id\' commands launched by the ShellBasedUnixGroupsMapping plugin. Values specified can be in any valid time duration units: https://hadoop.apache.org/docs/current/api/org/apache/hadoop/conf/Configuration.html#getTimeDuration-java.lang.String-long-java.util.concurrent.TimeUnit-
+A new introduced configuration key "hadoop.security.groups.shell.command.timeout" allows applying a finite wait timeout over the 'id' commands launched by the ShellBasedUnixGroupsMapping plugin. Values specified can be in any valid time duration units: https://hadoop.apache.org/docs/current/api/org/apache/hadoop/conf/Configuration.html#getTimeDuration-java.lang.String-long-java.util.concurrent.TimeUnit-
 
 Value defaults to 0, indicating infinite wait (preserving existing behaviour).
 
@@ -239,9 +239,9 @@ Value defaults to 0, indicating infinite wait (preserving existing behaviour).
 
 * [HADOOP-6801](https://issues.apache.org/jira/browse/HADOOP-6801) | *Minor* | **io.sort.mb and io.sort.factor were renamed and moved to mapreduce but are still in CommonConfigurationKeysPublic.java and used in SequenceFile.java**
 
-Two new configuration keys, seq.io.sort.mb and seq.io.sort.factor have been introduced for the SequenceFile\'s Sorter feature to replace older, deprecated property keys of io.sort.mb and io.sort.factor.
+Two new configuration keys, seq.io.sort.mb and seq.io.sort.factor have been introduced for the SequenceFile's Sorter feature to replace older, deprecated property keys of io.sort.mb and io.sort.factor.
 
-This only affects direct users of the org.apache.hadoop.io.SequenceFile.Sorter Java class. For controlling MR2\'s internal sorting instead, use the existing config keys of mapreduce.task.io.sort.mb and mapreduce.task.io.sort.factor.
+This only affects direct users of the org.apache.hadoop.io.SequenceFile.Sorter Java class. For controlling MR2's internal sorting instead, use the existing config keys of mapreduce.task.io.sort.mb and mapreduce.task.io.sort.factor.
 
 
 ---

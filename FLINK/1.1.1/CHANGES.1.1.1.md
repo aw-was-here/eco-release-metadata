@@ -38,7 +38,7 @@
 | [FLINK-4292](https://issues.apache.org/jira/browse/FLINK-4292) | HCatalog project incorrectly set up |  Critical | Batch Connectors and Input/Output Formats | Stephan Ewen | Stephan Ewen |
 | [FLINK-4219](https://issues.apache.org/jira/browse/FLINK-4219) | Quote PDSH opts in start-cluster.sh |  Major | Startup Shell Scripts | Greg Hogan | Greg Hogan |
 | [FLINK-4314](https://issues.apache.org/jira/browse/FLINK-4314) | Test instability in JobManagerHAJobGraphRecoveryITCase.testJobPersistencyWhenJobManagerShutdown |  Major | . | Ufuk Celebi |  |
-| [FLINK-4297](https://issues.apache.org/jira/browse/FLINK-4297) | Yarn client can\'t determine fat jar location if path contains spaces |  Major | YARN | Maximilian Michels | Maximilian Michels |
+| [FLINK-4297](https://issues.apache.org/jira/browse/FLINK-4297) | Yarn client can't determine fat jar location if path contains spaces |  Major | YARN | Maximilian Michels | Maximilian Michels |
 | [FLINK-4332](https://issues.apache.org/jira/browse/FLINK-4332) | Savepoint Serializer mixed read()/readFully() |  Critical | State Backends, Checkpointing | Stephan Ewen | Stephan Ewen |
 
 

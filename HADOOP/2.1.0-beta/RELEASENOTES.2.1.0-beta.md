@@ -25,12 +25,12 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 * [MAPREDUCE-3787](https://issues.apache.org/jira/browse/MAPREDUCE-3787) | *Major* | **[Gridmix] Improve STRESS mode**
 
-JobMonitor can now deploy multiple threads for faster job-status polling. Use \'gridmix.job-monitor.thread-count\' to set the number of threads. Stress mode now relies on the updates from the job monitor instead of polling for job status. Failures in job submission now get reported to the statistics module and ultimately reported to the user via summary.
+JobMonitor can now deploy multiple threads for faster job-status polling. Use 'gridmix.job-monitor.thread-count' to set the number of threads. Stress mode now relies on the updates from the job monitor instead of polling for job status. Failures in job submission now get reported to the statistics module and ultimately reported to the user via summary.
 
 
 ---
 
-* [MAPREDUCE-2722](https://issues.apache.org/jira/browse/MAPREDUCE-2722) | *Major* | **Gridmix simulated job\'s map\'s hdfsBytesRead counter is wrong when compressed input is used**
+* [MAPREDUCE-2722](https://issues.apache.org/jira/browse/MAPREDUCE-2722) | *Major* | **Gridmix simulated job's map's hdfsBytesRead counter is wrong when compressed input is used**
 
 Makes Gridmix use the uncompressed input data size while simulating map tasks in the case where compressed input data was used in original job.
 
@@ -152,7 +152,7 @@ fixed in HADOOP-9258
 
 ---
 
-* [HADOOP-9227](https://issues.apache.org/jira/browse/HADOOP-9227) | *Trivial* | **FileSystemContractBaseTest doesn\'t test filesystem\'s mkdir/isDirectory() logic rigorously enough**
+* [HADOOP-9227](https://issues.apache.org/jira/browse/HADOOP-9227) | *Trivial* | **FileSystemContractBaseTest doesn't test filesystem's mkdir/isDirectory() logic rigorously enough**
 
 fixed in HADOOP-9258
 
@@ -215,7 +215,7 @@ This change introduces a maximum number of blocks per file, by default one milli
 
 ---
 
-* [YARN-579](https://issues.apache.org/jira/browse/YARN-579) | *Major* | **Make ApplicationToken part of Container\'s token list to help RM-restart**
+* [YARN-579](https://issues.apache.org/jira/browse/YARN-579) | *Major* | **Make ApplicationToken part of Container's token list to help RM-restart**
 
 **WARNING: No release note provided for this change.**
 
@@ -432,7 +432,7 @@ This patch should be checked in together (or after) with JIRA Hadoop-8469: https
 
 ---
 
-* [HDFS-4832](https://issues.apache.org/jira/browse/HDFS-4832) | *Critical* | **Namenode doesn\'t change the number of missing blocks in safemode when DNs rejoin or leave**
+* [HDFS-4832](https://issues.apache.org/jira/browse/HDFS-4832) | *Critical* | **Namenode doesn't change the number of missing blocks in safemode when DNs rejoin or leave**
 
 This change makes name node keep its internal replication queues and data node state updated in manual safe mode. This allows metrics and UI to present up-to-date information while in safe mode. The behavior during start-up safe mode is unchanged.
 
@@ -586,7 +586,7 @@ Document MR Binary Compatibility vis-a-vis hadoop-1 and hadoop-2 for end-users.
 
 ---
 
-* [YARN-837](https://issues.apache.org/jira/browse/YARN-837) | *Major* | **ClusterInfo.java doesn\'t seem to belong to org.apache.hadoop.yarn**
+* [YARN-837](https://issues.apache.org/jira/browse/YARN-837) | *Major* | **ClusterInfo.java doesn't seem to belong to org.apache.hadoop.yarn**
 
 **WARNING: No release note provided for this change.**
 
@@ -693,7 +693,7 @@ The dfsadmin -metasave command has been changed to overwrite the output file.  P
 
 ---
 
-* [YARN-918](https://issues.apache.org/jira/browse/YARN-918) | *Blocker* | **ApplicationMasterProtocol doesn\'t need ApplicationAttemptId in the payload after YARN-701**
+* [YARN-918](https://issues.apache.org/jira/browse/YARN-918) | *Blocker* | **ApplicationMasterProtocol doesn't need ApplicationAttemptId in the payload after YARN-701**
 
 **WARNING: No release note provided for this change.**
 
@@ -707,9 +707,9 @@ The dfsadmin -metasave command has been changed to overwrite the output file.  P
 
 ---
 
-* [HADOOP-9698](https://issues.apache.org/jira/browse/HADOOP-9698) | *Blocker* | **RPCv9 client must honor server\'s SASL negotiate response**
+* [HADOOP-9698](https://issues.apache.org/jira/browse/HADOOP-9698) | *Blocker* | **RPCv9 client must honor server's SASL negotiate response**
 
-The RPC client now waits for the Server\'s SASL negotiate response before instantiating its SASL client.
+The RPC client now waits for the Server's SASL negotiate response before instantiating its SASL client.
 
 
 ---

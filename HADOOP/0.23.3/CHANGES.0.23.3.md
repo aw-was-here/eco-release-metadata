@@ -36,7 +36,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-2978](https://issues.apache.org/jira/browse/HDFS-2978) | The NameNode should expose name dir statuses via JMX |  Major | namenode | Aaron T. Myers | Aaron T. Myers |
-| [MAPREDUCE-3773](https://issues.apache.org/jira/browse/MAPREDUCE-3773) | Add queue metrics with buckets for job run times |  Major | jobtracker | Owen O\'Malley | Owen O\'Malley |
+| [MAPREDUCE-3773](https://issues.apache.org/jira/browse/MAPREDUCE-3773) | Add queue metrics with buckets for job run times |  Major | jobtracker | Owen O'Malley | Owen O'Malley |
 
 
 ### IMPROVEMENTS:
@@ -56,7 +56,7 @@
 | [MAPREDUCE-4190](https://issues.apache.org/jira/browse/MAPREDUCE-4190) |  Improve web UI for task attempts userlog link |  Major | mrv2, webapps | Thomas Graves | Thomas Graves |
 | [MAPREDUCE-4079](https://issues.apache.org/jira/browse/MAPREDUCE-4079) | Allow MR AppMaster to limit ephemeral port range. |  Blocker | mr-am, mrv2 | Robert Joseph Evans | Robert Joseph Evans |
 | [HADOOP-8227](https://issues.apache.org/jira/browse/HADOOP-8227) | Allow RPC to limit ephemeral port range. |  Blocker | . | Robert Joseph Evans | Robert Joseph Evans |
-| [HADOOP-8335](https://issues.apache.org/jira/browse/HADOOP-8335) | Improve Configuration\'s address handling |  Major | util | Daryn Sharp | Daryn Sharp |
+| [HADOOP-8335](https://issues.apache.org/jira/browse/HADOOP-8335) | Improve Configuration's address handling |  Major | util | Daryn Sharp | Daryn Sharp |
 | [MAPREDUCE-4210](https://issues.apache.org/jira/browse/MAPREDUCE-4210) | Expose listener address for WebApp |  Major | webapps | Daryn Sharp | Daryn Sharp |
 | [MAPREDUCE-4205](https://issues.apache.org/jira/browse/MAPREDUCE-4205) | retrofit all JVM shutdown hooks to use ShutdownHookManager |  Major | mrv2 | Alejandro Abdelnur | Alejandro Abdelnur |
 | [MAPREDUCE-3850](https://issues.apache.org/jira/browse/MAPREDUCE-3850) | Avoid redundant calls for tokens in TokenCache |  Major | security | Daryn Sharp | Daryn Sharp |
@@ -76,7 +76,7 @@
 | [HDFS-2421](https://issues.apache.org/jira/browse/HDFS-2421) | Improve the concurrency of  SerialNumberMap in NameNode |  Major | namenode | Hairong Kuang | Jing Zhao |
 | [HADOOP-8240](https://issues.apache.org/jira/browse/HADOOP-8240) | Allow users to specify a checksum type on create() |  Major | fs | Kihwal Lee | Kihwal Lee |
 | [HADOOP-8239](https://issues.apache.org/jira/browse/HADOOP-8239) | Extend MD5MD5CRC32FileChecksum to show the actual checksum type being used |  Major | fs | Kihwal Lee | Kihwal Lee |
-| [MAPREDUCE-4614](https://issues.apache.org/jira/browse/MAPREDUCE-4614) | Simplify debugging a job\'s tokens |  Major | client, task | Daryn Sharp | Daryn Sharp |
+| [MAPREDUCE-4614](https://issues.apache.org/jira/browse/MAPREDUCE-4614) | Simplify debugging a job's tokens |  Major | client, task | Daryn Sharp | Daryn Sharp |
 
 
 ### BUG FIXES:
@@ -86,28 +86,28 @@
 | [HADOOP-7621](https://issues.apache.org/jira/browse/HADOOP-7621) | alfredo config should be in a file not readable by users |  Critical | security | Alejandro Abdelnur | Aaron T. Myers |
 | [HDFS-2285](https://issues.apache.org/jira/browse/HDFS-2285) | BackupNode should reject requests trying to modify namespace |  Major | namenode | Konstantin Shvachko | Konstantin Shvachko |
 | [HADOOP-8104](https://issues.apache.org/jira/browse/HADOOP-8104) | Inconsistent Jackson versions |  Major | . | Colin P. McCabe | Alejandro Abdelnur |
-| [MAPREDUCE-3728](https://issues.apache.org/jira/browse/MAPREDUCE-3728) | ShuffleHandler can\'t access results when configured in a secure mode |  Critical | mrv2, nodemanager | Roman Shaposhnik | Ding Yuan |
+| [MAPREDUCE-3728](https://issues.apache.org/jira/browse/MAPREDUCE-3728) | ShuffleHandler can't access results when configured in a secure mode |  Critical | mrv2, nodemanager | Roman Shaposhnik | Ding Yuan |
 | [HDFS-3037](https://issues.apache.org/jira/browse/HDFS-3037) | TestMulitipleNNDataBlockScanner#testBlockScannerAfterRestart is racy |  Minor | test | Aaron T. Myers | Aaron T. Myers |
 | [MAPREDUCE-3348](https://issues.apache.org/jira/browse/MAPREDUCE-3348) | mapred job -status fails to give info even if the job is present in History |  Major | mrv2 | Devaraj K | Devaraj K |
 | [HADOOP-8167](https://issues.apache.org/jira/browse/HADOOP-8167) | Configuration deprecation logic breaks backwards compatibility |  Blocker | conf | Alejandro Abdelnur | Alejandro Abdelnur |
 | [HDFS-3067](https://issues.apache.org/jira/browse/HDFS-3067) | NPE in DFSInputStream.readBuffer if read is repeated on corrupted block |  Major | hdfs-client | Henry Robinson | Henry Robinson |
 | [MAPREDUCE-4010](https://issues.apache.org/jira/browse/MAPREDUCE-4010) | TestWritableJobConf fails on trunk |  Critical | mrv2 | Jason Lowe | Alejandro Abdelnur |
 | [HADOOP-8197](https://issues.apache.org/jira/browse/HADOOP-8197) | Configuration logs WARNs on every use of a deprecated key |  Critical | conf | Alejandro Abdelnur | Alejandro Abdelnur |
-| [MAPREDUCE-3992](https://issues.apache.org/jira/browse/MAPREDUCE-3992) | Reduce fetcher doesn\'t verify HTTP status code of response |  Major | mrv1 | Todd Lipcon | Todd Lipcon |
-| [MAPREDUCE-4082](https://issues.apache.org/jira/browse/MAPREDUCE-4082) | hadoop-mapreduce-client-app\'s mrapp-generated-classpath file should not be in the module JAR |  Critical | build | Alejandro Abdelnur | Alejandro Abdelnur |
+| [MAPREDUCE-3992](https://issues.apache.org/jira/browse/MAPREDUCE-3992) | Reduce fetcher doesn't verify HTTP status code of response |  Major | mrv1 | Todd Lipcon | Todd Lipcon |
+| [MAPREDUCE-4082](https://issues.apache.org/jira/browse/MAPREDUCE-4082) | hadoop-mapreduce-client-app's mrapp-generated-classpath file should not be in the module JAR |  Critical | build | Alejandro Abdelnur | Alejandro Abdelnur |
 | [MAPREDUCE-4091](https://issues.apache.org/jira/browse/MAPREDUCE-4091) | tools testcases failing because of MAPREDUCE-4082 |  Critical | build, test | Alejandro Abdelnur | Alejandro Abdelnur |
 | [MAPREDUCE-4092](https://issues.apache.org/jira/browse/MAPREDUCE-4092) | commitJob Exception does not fail job (regression in 0.23 vs 0.20) |  Blocker | mrv2 | Jonathan Eagles | Jonathan Eagles |
 | [MAPREDUCE-4089](https://issues.apache.org/jira/browse/MAPREDUCE-4089) | Hung Tasks never time out. |  Blocker | mrv2 | Robert Joseph Evans | Robert Joseph Evans |
-| [MAPREDUCE-4024](https://issues.apache.org/jira/browse/MAPREDUCE-4024) | RM webservices can\'t query on finalStatus |  Major | mrv2 | Thomas Graves | Thomas Graves |
+| [MAPREDUCE-4024](https://issues.apache.org/jira/browse/MAPREDUCE-4024) | RM webservices can't query on finalStatus |  Major | mrv2 | Thomas Graves | Thomas Graves |
 | [MAPREDUCE-4060](https://issues.apache.org/jira/browse/MAPREDUCE-4060) | Multiple SLF4J binding warning |  Major | build | Jason Lowe | Jason Lowe |
 | [MAPREDUCE-4012](https://issues.apache.org/jira/browse/MAPREDUCE-4012) | Hadoop Job setup error leaves no useful info to users (when LinuxTaskController is used) |  Minor | . | Koji Noguchi | Thomas Graves |
 | [MAPREDUCE-4062](https://issues.apache.org/jira/browse/MAPREDUCE-4062) | AM Launcher thread can hang forever |  Major | mrv2 | Thomas Graves | Thomas Graves |
-| [MAPREDUCE-3988](https://issues.apache.org/jira/browse/MAPREDUCE-3988) | mapreduce.job.local.dir doesn\'t point to a single directory on a node. |  Major | mrv2 | Vinod Kumar Vavilapalli | Eric Payne |
+| [MAPREDUCE-3988](https://issues.apache.org/jira/browse/MAPREDUCE-3988) | mapreduce.job.local.dir doesn't point to a single directory on a node. |  Major | mrv2 | Vinod Kumar Vavilapalli | Eric Payne |
 | [HDFS-3166](https://issues.apache.org/jira/browse/HDFS-3166) | Hftp connections do not have a timeout |  Critical | hdfs-client | Daryn Sharp | Daryn Sharp |
-| [MAPREDUCE-3999](https://issues.apache.org/jira/browse/MAPREDUCE-3999) | Tracking link gives an error if the AppMaster hasn\'t started yet |  Major | mrv2, webapps | Ravi Prakash | Ravi Prakash |
+| [MAPREDUCE-3999](https://issues.apache.org/jira/browse/MAPREDUCE-3999) | Tracking link gives an error if the AppMaster hasn't started yet |  Major | mrv2, webapps | Ravi Prakash | Ravi Prakash |
 | [HDFS-3176](https://issues.apache.org/jira/browse/HDFS-3176) | JsonUtil should not parse the MD5MD5CRC32FileChecksum bytes on its own. |  Major | hdfs-client | Kihwal Lee | Kihwal Lee |
 | [MAPREDUCE-4020](https://issues.apache.org/jira/browse/MAPREDUCE-4020) | Web services returns incorrect JSON for deep queue tree |  Major | mrv2, webapps | Jason Lowe | Anupam Seth |
-| [MAPREDUCE-3672](https://issues.apache.org/jira/browse/MAPREDUCE-3672) | Killed maps shouldn\'t be counted towards JobCounter.NUM\_FAILED\_MAPS |  Major | mr-am, mrv2 | Vinod Kumar Vavilapalli | Anupam Seth |
+| [MAPREDUCE-3672](https://issues.apache.org/jira/browse/MAPREDUCE-3672) | Killed maps shouldn't be counted towards JobCounter.NUM\_FAILED\_MAPS |  Major | mr-am, mrv2 | Vinod Kumar Vavilapalli | Anupam Seth |
 | [MAPREDUCE-3682](https://issues.apache.org/jira/browse/MAPREDUCE-3682) | Tracker URL says AM tasks run on localhost |  Major | mrv2 | David Capwell | Ravi Prakash |
 | [MAPREDUCE-3082](https://issues.apache.org/jira/browse/MAPREDUCE-3082) | archive command take wrong path for input file with current directory |  Major | harchive | Rajit Saha | John George |
 | [MAPREDUCE-3650](https://issues.apache.org/jira/browse/MAPREDUCE-3650) | testGetTokensForHftpFS() fails |  Blocker | mrv2 | Thomas Graves | Ravi Prakash |
@@ -115,7 +115,7 @@
 | [HADOOP-8179](https://issues.apache.org/jira/browse/HADOOP-8179) | risk of NPE in CopyCommands processArguments() |  Minor | fs | Steve Loughran | Daryn Sharp |
 | [MAPREDUCE-4097](https://issues.apache.org/jira/browse/MAPREDUCE-4097) | tools testcases fail because missing mrapp-generated-classpath file in classpath |  Major | build | Alejandro Abdelnur | Roman Shaposhnik |
 | [HADOOP-8180](https://issues.apache.org/jira/browse/HADOOP-8180) | Remove hsqldb since its not needed from pom.xml |  Major | . | Ravi Prakash | Ravi Prakash |
-| [HADOOP-6963](https://issues.apache.org/jira/browse/HADOOP-6963) | Fix FileUtil.getDU. It should not include the size of the directory or follow symbolic links |  Critical | fs | Owen O\'Malley | Ravi Prakash |
+| [HADOOP-6963](https://issues.apache.org/jira/browse/HADOOP-6963) | Fix FileUtil.getDU. It should not include the size of the directory or follow symbolic links |  Critical | fs | Owen O'Malley | Ravi Prakash |
 | [MAPREDUCE-3621](https://issues.apache.org/jira/browse/MAPREDUCE-3621) | TestDBJob and TestDataDrivenDBInputFormat ant tests fail |  Major | mrv2 | Thomas Graves | Ravi Prakash |
 | [MAPREDUCE-4073](https://issues.apache.org/jira/browse/MAPREDUCE-4073) | CS assigns multiple off-switch containers when using multi-level-queues |  Critical | mrv2, scheduler | Siddharth Seth | Siddharth Seth |
 | [HDFS-3136](https://issues.apache.org/jira/browse/HDFS-3136) | Multiple SLF4J binding warning |  Major | build | Jason Lowe | Jason Lowe |
@@ -125,7 +125,7 @@
 | [MAPREDUCE-4099](https://issues.apache.org/jira/browse/MAPREDUCE-4099) | ApplicationMaster may fail to remove staging directory |  Critical | mrv2 | Jason Lowe | Jason Lowe |
 | [MAPREDUCE-3932](https://issues.apache.org/jira/browse/MAPREDUCE-3932) | MR tasks failing and crashing the AM when available-resources/headRoom becomes zero |  Critical | mr-am, mrv2 | Vinod Kumar Vavilapalli | Robert Joseph Evans |
 | [MAPREDUCE-4140](https://issues.apache.org/jira/browse/MAPREDUCE-4140) | mapreduce classes incorrectly importing "clover.org.apache.\*" classes |  Major | client, mrv2 | Patrick Hunt | Patrick Hunt |
-| [HADOOP-8144](https://issues.apache.org/jira/browse/HADOOP-8144) | pseudoSortByDistance in NetworkTopology doesn\'t work properly if no local node and first node is local rack node |  Minor | io | Junping Du | Junping Du |
+| [HADOOP-8144](https://issues.apache.org/jira/browse/HADOOP-8144) | pseudoSortByDistance in NetworkTopology doesn't work properly if no local node and first node is local rack node |  Minor | io | Junping Du | Junping Du |
 | [MAPREDUCE-4050](https://issues.apache.org/jira/browse/MAPREDUCE-4050) | Invalid node link |  Major | mrv2 | Bhallamudi Venkata Siva Kamesh | Bhallamudi Venkata Siva Kamesh |
 | [MAPREDUCE-4128](https://issues.apache.org/jira/browse/MAPREDUCE-4128) | AM Recovery expects all attempts of a completed task to also be completed. |  Major | mrv2 | Bikas Saha | Bikas Saha |
 | [HADOOP-8005](https://issues.apache.org/jira/browse/HADOOP-8005) | Multiple SLF4J binding message in .out file for all daemons |  Major | scripts | Joe Crobak | Jason Lowe |
@@ -139,7 +139,7 @@
 | [MAPREDUCE-4165](https://issues.apache.org/jira/browse/MAPREDUCE-4165) | Committing is misspelled as commiting in task logs |  Trivial | mrv2 | Jonathan Eagles | Jonathan Eagles |
 | [MAPREDUCE-4129](https://issues.apache.org/jira/browse/MAPREDUCE-4129) | Lots of unneeded counters log messages |  Major | mrv2 | Ahmed Radwan | Ahmed Radwan |
 | [MAPREDUCE-3947](https://issues.apache.org/jira/browse/MAPREDUCE-3947) | yarn.app.mapreduce.am.resource.mb not documented |  Minor | . | Todd Lipcon | Devaraj K |
-| [HDFS-3308](https://issues.apache.org/jira/browse/HDFS-3308) | hftp/webhdfs can\'t get tokens if authority has no port |  Critical | webhdfs | Daryn Sharp | Daryn Sharp |
+| [HDFS-3308](https://issues.apache.org/jira/browse/HDFS-3308) | hftp/webhdfs can't get tokens if authority has no port |  Critical | webhdfs | Daryn Sharp | Daryn Sharp |
 | [MAPREDUCE-4133](https://issues.apache.org/jira/browse/MAPREDUCE-4133) | MR over viewfs is broken |  Major | . | John George | John George |
 | [HDFS-3312](https://issues.apache.org/jira/browse/HDFS-3312) | Hftp selects wrong token service |  Blocker | hdfs-client | Daryn Sharp | Daryn Sharp |
 | [HDFS-3321](https://issues.apache.org/jira/browse/HDFS-3321) | Error message for insufficient data nodes to come out of safemode is wrong. |  Major | . | Ravi Prakash | Ravi Prakash |
@@ -161,7 +161,7 @@
 | [HDFS-3359](https://issues.apache.org/jira/browse/HDFS-3359) | DFSClient.close should close cached sockets |  Critical | hdfs-client | Todd Lipcon | Todd Lipcon |
 | [MAPREDUCE-4048](https://issues.apache.org/jira/browse/MAPREDUCE-4048) | NullPointerException exception while accessing the Application Master UI |  Major | mrv2 | Devaraj K | Devaraj K |
 | [HADOOP-8327](https://issues.apache.org/jira/browse/HADOOP-8327) | distcpv2 and distcpv1 jars should not coexist |  Major | . | Dave Thompson | Dave Thompson |
-| [HADOOP-8328](https://issues.apache.org/jira/browse/HADOOP-8328) | Duplicate FileSystem Statistics object for \'file\' scheme |  Major | fs | Tom White | Tom White |
+| [HADOOP-8328](https://issues.apache.org/jira/browse/HADOOP-8328) | Duplicate FileSystem Statistics object for 'file' scheme |  Major | fs | Tom White | Tom White |
 | [MAPREDUCE-4220](https://issues.apache.org/jira/browse/MAPREDUCE-4220) | RM apps page starttime/endtime sorts are incorrect |  Minor | mrv2 | Jonathan Eagles | Jonathan Eagles |
 | [MAPREDUCE-4226](https://issues.apache.org/jira/browse/MAPREDUCE-4226) | ConcurrentModificationException in FileSystemCounterGroup |  Major | mrv2 | Tom White | Tom White |
 | [HADOOP-8341](https://issues.apache.org/jira/browse/HADOOP-8341) | Fix or filter findbugs issues in hadoop-tools |  Major | . | Robert Joseph Evans | Robert Joseph Evans |
@@ -179,7 +179,7 @@
 | [MAPREDUCE-3870](https://issues.apache.org/jira/browse/MAPREDUCE-3870) | Invalid App Metrics |  Major | mrv2 | Bhallamudi Venkata Siva Kamesh | Bhallamudi Venkata Siva Kamesh |
 | [MAPREDUCE-4152](https://issues.apache.org/jira/browse/MAPREDUCE-4152) | map task left hanging after AM dies trying to connect to RM |  Major | mrv2 | Thomas Graves | Thomas Graves |
 | [MAPREDUCE-4297](https://issues.apache.org/jira/browse/MAPREDUCE-4297) | Usersmap file in gridmix should not fail on empty lines |  Major | contrib/gridmix | Ravi Prakash | Ravi Prakash |
-| [HDFS-3486](https://issues.apache.org/jira/browse/HDFS-3486) | offlineimageviewer can\'t read fsimage files that contain persistent delegation tokens |  Minor | security, tools | Colin P. McCabe | Colin P. McCabe |
+| [HDFS-3486](https://issues.apache.org/jira/browse/HDFS-3486) | offlineimageviewer can't read fsimage files that contain persistent delegation tokens |  Minor | security, tools | Colin P. McCabe | Colin P. McCabe |
 | [MAPREDUCE-4302](https://issues.apache.org/jira/browse/MAPREDUCE-4302) | NM goes down if error encountered during log aggregation |  Critical | nodemanager | Daryn Sharp | Daryn Sharp |
 | [HDFS-3442](https://issues.apache.org/jira/browse/HDFS-3442) | Incorrect count for Missing Replicas in FSCK report |  Minor | . | suja s | Andrew Wang |
 | [MAPREDUCE-4307](https://issues.apache.org/jira/browse/MAPREDUCE-4307) | TeraInputFormat calls FileSystem.getDefaultBlockSize() without a Path - Failure when using ViewFileSystem |  Major | mrv2 | Ahmed Radwan | Ahmed Radwan |
@@ -191,14 +191,14 @@
 | [MAPREDUCE-4341](https://issues.apache.org/jira/browse/MAPREDUCE-4341) | add types to capacity scheduler properties documentation |  Major | capacity-sched, mrv2 | Thomas Graves | Karthik Kambatla |
 | [MAPREDUCE-4267](https://issues.apache.org/jira/browse/MAPREDUCE-4267) | mavenize pipes |  Critical | mrv2 | Thomas Graves | Thomas Graves |
 | [MAPREDUCE-4270](https://issues.apache.org/jira/browse/MAPREDUCE-4270) | data\_join test classes are in the wrong packge |  Major | mrv2 | Brock Noland | Thomas Graves |
-| [MAPREDUCE-3889](https://issues.apache.org/jira/browse/MAPREDUCE-3889) | job client tries to use /tasklog interface, but that doesn\'t exist anymore |  Critical | mrv2 | Thomas Graves | Devaraj K |
+| [MAPREDUCE-3889](https://issues.apache.org/jira/browse/MAPREDUCE-3889) | job client tries to use /tasklog interface, but that doesn't exist anymore |  Critical | mrv2 | Thomas Graves | Devaraj K |
 | [MAPREDUCE-4320](https://issues.apache.org/jira/browse/MAPREDUCE-4320) | gridmix mainClass wrong in pom.xml |  Major | contrib/gridmix | Thomas Graves | Thomas Graves |
 | [MAPREDUCE-4295](https://issues.apache.org/jira/browse/MAPREDUCE-4295) | RM crashes due to DNS issue |  Critical | mrv2, resourcemanager | Thomas Graves | Thomas Graves |
 | [MAPREDUCE-4031](https://issues.apache.org/jira/browse/MAPREDUCE-4031) | Node Manager hangs on shut down |  Critical | mrv2, nodemanager | Devaraj K | Devaraj K |
 | [MAPREDUCE-4361](https://issues.apache.org/jira/browse/MAPREDUCE-4361) | Fix detailed metrics for protobuf-based RPC on 0.23 |  Major | mrv2 | Jason Lowe | Jason Lowe |
 | [MAPREDUCE-4290](https://issues.apache.org/jira/browse/MAPREDUCE-4290) | JobStatus.getState() API is giving ambiguous values |  Major | mrv2 | Nishan Shetty | Devaraj K |
 | [MAPREDUCE-2289](https://issues.apache.org/jira/browse/MAPREDUCE-2289) | Permissions race can make getStagingDir fail on local filesystem |  Major | job submission | Todd Lipcon | Ahmed Radwan |
-| [HADOOP-8129](https://issues.apache.org/jira/browse/HADOOP-8129) | ViewFileSystemTestSetup setupForViewFileSystem is erring when the user\'s home directory is somewhere other than /home (eg. /User) etc. |  Major | fs, test | Ravi Prakash | Ahmed Radwan |
+| [HADOOP-8129](https://issues.apache.org/jira/browse/HADOOP-8129) | ViewFileSystemTestSetup setupForViewFileSystem is erring when the user's home directory is somewhere other than /home (eg. /User) etc. |  Major | fs, test | Ravi Prakash | Ahmed Radwan |
 | [MAPREDUCE-4228](https://issues.apache.org/jira/browse/MAPREDUCE-4228) | mapreduce.job.reduce.slowstart.completedmaps is not working properly to delay the scheduling of the reduce tasks |  Major | applicationmaster, mrv2 | Jason Lowe | Jason Lowe |
 | [MAPREDUCE-4372](https://issues.apache.org/jira/browse/MAPREDUCE-4372) | Deadlock in Resource Manager between SchedulerEventDispatcher.EventProcessor and Shutdown hook manager |  Major | mrv2, resourcemanager | Devaraj K | Devaraj K |
 | [MAPREDUCE-4376](https://issues.apache.org/jira/browse/MAPREDUCE-4376) | TestClusterMRNotification times out |  Major | mrv2, test | Jason Lowe | Kihwal Lee |
@@ -214,7 +214,7 @@
 | [MAPREDUCE-4300](https://issues.apache.org/jira/browse/MAPREDUCE-4300) | OOM in AM can turn it into a zombie. |  Major | applicationmaster | Robert Joseph Evans | Robert Joseph Evans |
 | [MAPREDUCE-4252](https://issues.apache.org/jira/browse/MAPREDUCE-4252) | MR2 job never completes with 1 pending task |  Major | mrv2 | Tom White | Tom White |
 | [HADOOP-8573](https://issues.apache.org/jira/browse/HADOOP-8573) | Configuration tries to read from an inputstream resource multiple times. |  Major | conf | Robert Joseph Evans | Robert Joseph Evans |
-| [HADOOP-8587](https://issues.apache.org/jira/browse/HADOOP-8587) | HarFileSystem access of harMetaCache isn\'t threadsafe |  Minor | fs | Eli Collins | Eli Collins |
+| [HADOOP-8587](https://issues.apache.org/jira/browse/HADOOP-8587) | HarFileSystem access of harMetaCache isn't threadsafe |  Minor | fs | Eli Collins | Eli Collins |
 | [MAPREDUCE-4419](https://issues.apache.org/jira/browse/MAPREDUCE-4419) | ./mapred queue -info \<queuename\> -showJobs displays all the jobs irrespective of \<queuename\> |  Major | mrv2 | Nishan Shetty | Devaraj K |
 | [MAPREDUCE-4299](https://issues.apache.org/jira/browse/MAPREDUCE-4299) | Terasort hangs with MR2 FifoScheduler |  Major | mrv2 | Tom White | Tom White |
 | [HADOOP-8543](https://issues.apache.org/jira/browse/HADOOP-8543) | Invalid pom.xml files on 0.23 branch |  Major | build | Radim Kolar | Radim Kolar |
@@ -235,7 +235,7 @@
 | [HDFS-3696](https://issues.apache.org/jira/browse/HDFS-3696) | Create files with WebHdfsFileSystem goes OOM when file size is big |  Critical | webhdfs | Kihwal Lee | Tsz Wo Nicholas Sze |
 | [HADOOP-8613](https://issues.apache.org/jira/browse/HADOOP-8613) | AbstractDelegationTokenIdentifier#getUser() should set token auth type |  Critical | . | Daryn Sharp | Daryn Sharp |
 | [HADOOP-8627](https://issues.apache.org/jira/browse/HADOOP-8627) | FS deleteOnExit may delete the wrong path |  Critical | fs | Daryn Sharp | Daryn Sharp |
-| [HADOOP-8634](https://issues.apache.org/jira/browse/HADOOP-8634) | Ensure FileSystem#close doesn\'t squawk for deleteOnExit paths |  Critical | fs | Daryn Sharp | Daryn Sharp |
+| [HADOOP-8634](https://issues.apache.org/jira/browse/HADOOP-8634) | Ensure FileSystem#close doesn't squawk for deleteOnExit paths |  Critical | fs | Daryn Sharp | Daryn Sharp |
 | [HADOOP-8550](https://issues.apache.org/jira/browse/HADOOP-8550) | hadoop fs -touchz automatically created parent directories |  Major | fs | Robert Joseph Evans | John George |
 | [MAPREDUCE-4456](https://issues.apache.org/jira/browse/MAPREDUCE-4456) | LocalDistributedCacheManager can get an ArrayIndexOutOfBounds when creating symlinks |  Major | mrv2 | Robert Joseph Evans | Robert Joseph Evans |
 | [MAPREDUCE-4496](https://issues.apache.org/jira/browse/MAPREDUCE-4496) | AM logs link is missing user name |  Major | applicationmaster, mrv2 | Jason Lowe | Jason Lowe |
@@ -249,13 +249,13 @@
 | [MAPREDUCE-4504](https://issues.apache.org/jira/browse/MAPREDUCE-4504) | SortValidator writes to wrong directory |  Major | mrv2 | Robert Joseph Evans | Robert Joseph Evans |
 | [MAPREDUCE-3782](https://issues.apache.org/jira/browse/MAPREDUCE-3782) | teragen terasort jobs fail when using webhdfs:// |  Critical | mrv2 | Arpit Gupta | Jason Lowe |
 | [YARN-14](https://issues.apache.org/jira/browse/YARN-14) | Symlinks to peer distributed cache files no longer work |  Major | nodemanager | Jason Lowe | Jason Lowe |
-| [MAPREDUCE-4053](https://issues.apache.org/jira/browse/MAPREDUCE-4053) | Counters group names deprecation is wrong, iterating over group names deprecated names don\'t show up |  Major | mrv2 | Alejandro Abdelnur | Robert Joseph Evans |
-| [HDFS-3718](https://issues.apache.org/jira/browse/HDFS-3718) | Datanode won\'t shutdown because of runaway DataBlockScanner thread |  Critical | datanode | Kihwal Lee | Kihwal Lee |
+| [MAPREDUCE-4053](https://issues.apache.org/jira/browse/MAPREDUCE-4053) | Counters group names deprecation is wrong, iterating over group names deprecated names don't show up |  Major | mrv2 | Alejandro Abdelnur | Robert Joseph Evans |
+| [HDFS-3718](https://issues.apache.org/jira/browse/HDFS-3718) | Datanode won't shutdown because of runaway DataBlockScanner thread |  Critical | datanode | Kihwal Lee | Kihwal Lee |
 | [HDFS-3794](https://issues.apache.org/jira/browse/HDFS-3794) | WebHDFS Open used with Offset returns the original (and incorrect) Content Length in the HTTP Header. |  Major | webhdfs | Ravi Prakash | Ravi Prakash |
 | [HADOOP-8703](https://issues.apache.org/jira/browse/HADOOP-8703) | distcpV2: turn CRC checking off for 0 byte size |  Major | . | Dave Thompson | Dave Thompson |
 | [MAPREDUCE-4562](https://issues.apache.org/jira/browse/MAPREDUCE-4562) | Support for "FileSystemCounter" legacy counter group name for compatibility reasons is creating incorrect counter name |  Major | . | Jarek Jarcec Cecho | Jarek Jarcec Cecho |
 | [HADOOP-8390](https://issues.apache.org/jira/browse/HADOOP-8390) | TestFileSystemCanonicalization fails with JDK7 |  Major | test | Trevor Robinson | Trevor Robinson |
-| [HDFS-3788](https://issues.apache.org/jira/browse/HDFS-3788) | distcp can\'t copy large files using webhdfs due to missing Content-Length header |  Critical | webhdfs | Eli Collins | Tsz Wo Nicholas Sze |
+| [HDFS-3788](https://issues.apache.org/jira/browse/HDFS-3788) | distcp can't copy large files using webhdfs due to missing Content-Length header |  Critical | webhdfs | Eli Collins | Tsz Wo Nicholas Sze |
 | [HADOOP-8692](https://issues.apache.org/jira/browse/HADOOP-8692) | TestLocalDirAllocator fails intermittently with JDK7 |  Major | test | Trevor Robinson | Trevor Robinson |
 | [HADOOP-8693](https://issues.apache.org/jira/browse/HADOOP-8693) | TestSecurityUtil fails intermittently with JDK7 |  Major | test | Trevor Robinson | Trevor Robinson |
 | [HADOOP-8697](https://issues.apache.org/jira/browse/HADOOP-8697) | TestWritableName fails intermittently with JDK7 |  Major | test | Trevor Robinson | Trevor Robinson |
@@ -291,8 +291,8 @@
 | [HDFS-3852](https://issues.apache.org/jira/browse/HDFS-3852) | TestHftpDelegationToken is broken after HADOOP-8225 |  Major | hdfs-client, security | Aaron T. Myers | Daryn Sharp |
 | [YARN-68](https://issues.apache.org/jira/browse/YARN-68) | NodeManager will refuse to shutdown indefinitely due to container log aggregation |  Major | nodemanager | patrick white | Daryn Sharp |
 | [YARN-87](https://issues.apache.org/jira/browse/YARN-87) | NM ResourceLocalizationService does not set permissions of local cache directories |  Critical | nodemanager | Jason Lowe | Jason Lowe |
-| [HDFS-3890](https://issues.apache.org/jira/browse/HDFS-3890) | filecontext mkdirs doesn\'t apply umask as expected |  Critical | . | Thomas Graves | Thomas Graves |
-| [MAPREDUCE-4633](https://issues.apache.org/jira/browse/MAPREDUCE-4633) | history server doesn\'t set permissions on all subdirs |  Critical | jobhistoryserver | Thomas Graves | oss.wakayama |
+| [HDFS-3890](https://issues.apache.org/jira/browse/HDFS-3890) | filecontext mkdirs doesn't apply umask as expected |  Critical | . | Thomas Graves | Thomas Graves |
+| [MAPREDUCE-4633](https://issues.apache.org/jira/browse/MAPREDUCE-4633) | history server doesn't set permissions on all subdirs |  Critical | jobhistoryserver | Thomas Graves | oss.wakayama |
 | [MAPREDUCE-4641](https://issues.apache.org/jira/browse/MAPREDUCE-4641) | Exception in commitJob marks job as successful in job history |  Major | mrv2 | Jason Lowe | Jason Lowe |
 
 

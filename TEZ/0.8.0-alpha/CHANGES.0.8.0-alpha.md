@@ -76,7 +76,7 @@
 | [TEZ-2482](https://issues.apache.org/jira/browse/TEZ-2482) | Tez UI: Mouse events not working on IE11 |  Major | UI | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2440](https://issues.apache.org/jira/browse/TEZ-2440) | Sorter should check for indexCacheList.size() in flush() |  Major | . | Rajesh Balamohan | Mit Desai |
 | [TEZ-1883](https://issues.apache.org/jira/browse/TEZ-1883) | Change findbugs version to 3.x |  Minor | . | Hitesh Shah | Siddharth Seth |
-| [TEZ-2503](https://issues.apache.org/jira/browse/TEZ-2503) | findbugs version isn\'t reported properly in test-patch report |  Minor | . | Siddharth Seth | Siddharth Seth |
+| [TEZ-2503](https://issues.apache.org/jira/browse/TEZ-2503) | findbugs version isn't reported properly in test-patch report |  Minor | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-2504](https://issues.apache.org/jira/browse/TEZ-2504) | Tez UI: tables - show status column without scrolling, numeric 0 shown as Not available |  Major | UI | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2506](https://issues.apache.org/jira/browse/TEZ-2506) | TestAysncHttpConnection failing |  Major | . | Siddharth Seth | Rajesh Balamohan |
 | [TEZ-2523](https://issues.apache.org/jira/browse/TEZ-2523) | Tez UI: derive applicationId from dag/vertex id instead of relying on json data |  Major | UI | Prakash Ramachandran | Prakash Ramachandran |
@@ -191,7 +191,7 @@
 | [TEZ-2694](https://issues.apache.org/jira/browse/TEZ-2694) | Add TaskConcurrencyAnalyzer |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-2678](https://issues.apache.org/jira/browse/TEZ-2678) | Fix comments from reviews - part 1 |  Major | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-2707](https://issues.apache.org/jira/browse/TEZ-2707) | Fix comments from reviews - part 2 |  Major | . | Siddharth Seth | Siddharth Seth |
-| [TEZ-2713](https://issues.apache.org/jira/browse/TEZ-2713) | Add tests for node handling when there\'s multiple schedulers |  Major | . | Siddharth Seth | Siddharth Seth |
+| [TEZ-2713](https://issues.apache.org/jira/browse/TEZ-2713) | Add tests for node handling when there's multiple schedulers |  Major | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-2701](https://issues.apache.org/jira/browse/TEZ-2701) | Add time at which container was allocated to attempt |  Major | . | Bikas Saha | Bikas Saha |
 | [TEZ-2721](https://issues.apache.org/jira/browse/TEZ-2721) | rebase 08/14 |  Major | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-2714](https://issues.apache.org/jira/browse/TEZ-2714) | Fix comments from review - part 3 |  Major | . | Siddharth Seth | Siddharth Seth |

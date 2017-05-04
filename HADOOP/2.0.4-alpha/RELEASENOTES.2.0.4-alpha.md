@@ -23,7 +23,7 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
-* [HADOOP-9399](https://issues.apache.org/jira/browse/HADOOP-9399) | *Minor* | **protoc maven plugin doesn\'t work on mvn 3.0.2**
+* [HADOOP-9399](https://issues.apache.org/jira/browse/HADOOP-9399) | *Minor* | **protoc maven plugin doesn't work on mvn 3.0.2**
 
 Committed to 2.0.4-alpha branch
 

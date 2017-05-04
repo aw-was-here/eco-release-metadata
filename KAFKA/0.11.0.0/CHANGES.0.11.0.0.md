@@ -26,7 +26,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [KAFKA-4864](https://issues.apache.org/jira/browse/KAFKA-4864) | Kafka Secure Migrator tool doesn\'t secure all the nodes |  Critical | . | Stephane Maarek |  |
+| [KAFKA-4864](https://issues.apache.org/jira/browse/KAFKA-4864) | Kafka Secure Migrator tool doesn't secure all the nodes |  Critical | . | Stephane Maarek |  |
 
 
 ### NEW FEATURES:
@@ -53,7 +53,7 @@
 | [KAFKA-4709](https://issues.apache.org/jira/browse/KAFKA-4709) | Error message from Struct.validate() should include the name of the offending field. |  Minor | KafkaConnect | Jeremy Custenborder | Aegeaner |
 | [KAFKA-4775](https://issues.apache.org/jira/browse/KAFKA-4775) | Fix findbugs warnings in kafka-tools |  Major | . | Colin P. McCabe | Colin P. McCabe |
 | [KAFKA-4317](https://issues.apache.org/jira/browse/KAFKA-4317) | RocksDB checkpoint files lost on kill -9 |  Critical | streams | Greg Fodor | Damian Guy |
-| [KAFKA-4774](https://issues.apache.org/jira/browse/KAFKA-4774) | Inner classes which don\'t need a reference to the outer class should be static |  Major | . | Colin P. McCabe | Colin P. McCabe |
+| [KAFKA-4774](https://issues.apache.org/jira/browse/KAFKA-4774) | Inner classes which don't need a reference to the outer class should be static |  Major | . | Colin P. McCabe | Colin P. McCabe |
 | [KAFKA-4340](https://issues.apache.org/jira/browse/KAFKA-4340) | Change the default value of log.message.timestamp.difference.max.ms to the same as log.retention.ms |  Major | core | Jiangjie Qin | Jiangjie Qin |
 | [KAFKA-4773](https://issues.apache.org/jira/browse/KAFKA-4773) | The Kafka build should run findbugs |  Major | . | Colin P. McCabe | Colin P. McCabe |
 | [KAFKA-4276](https://issues.apache.org/jira/browse/KAFKA-4276) | REST configuration not visible in connector properties config files |  Major | KafkaConnect | Gwen Shapira | Akhilesh Naidu |
@@ -63,14 +63,16 @@
 | [KAFKA-4769](https://issues.apache.org/jira/browse/KAFKA-4769) | Add Float serializer, deserializer, serde |  Minor | clients | Michael Noll | Michael Noll |
 | [KAFKA-1449](https://issues.apache.org/jira/browse/KAFKA-1449) | Extend wire protocol to allow CRC32C |  Major | consumer | Albert Strasheim | Ismael Juma |
 | [KAFKA-4843](https://issues.apache.org/jira/browse/KAFKA-4843) | Stream round-robin scheduler is inneficient |  Major | streams | Eno Thereska | Eno Thereska |
-| [KAFKA-4943](https://issues.apache.org/jira/browse/KAFKA-4943) | SCRAM secret\'s should be better protected with Zookeeper ACLs |  Major | security | Johan Ström | Rajini Sivaram |
-| [KAFKA-5052](https://issues.apache.org/jira/browse/KAFKA-5052) | We shouldn\'t pass the underlying exception to RetriableCommitFailedException when an async offset commit fails. |  Major | . | Apurva Mehta | Apurva Mehta |
+| [KAFKA-4943](https://issues.apache.org/jira/browse/KAFKA-4943) | SCRAM secret's should be better protected with Zookeeper ACLs |  Major | security | Johan Ström | Rajini Sivaram |
+| [KAFKA-5052](https://issues.apache.org/jira/browse/KAFKA-5052) | We shouldn't pass the underlying exception to RetriableCommitFailedException when an async offset commit fails. |  Major | . | Apurva Mehta | Apurva Mehta |
 | [KAFKA-4965](https://issues.apache.org/jira/browse/KAFKA-4965) | set internal.leave.group.on.close to false in KafkaStreams |  Major | streams | Damian Guy | Damian Guy |
 | [KAFKA-5068](https://issues.apache.org/jira/browse/KAFKA-5068) | Optionally print out metrics after running the perf tests |  Major | tools | Jun Rao | huxi |
 | [KAFKA-5094](https://issues.apache.org/jira/browse/KAFKA-5094) | Censor SCRAM config change logging |  Major | log | Johan Ström | Rajini Sivaram |
 | [KAFKA-4144](https://issues.apache.org/jira/browse/KAFKA-4144) | Allow per stream/table timestamp extractor |  Major | streams | Elias Levy | Jeyhun Karimov |
 | [KAFKA-5111](https://issues.apache.org/jira/browse/KAFKA-5111) | Improve internal Task APIs |  Major | streams | Matthias J. Sax | Matthias J. Sax |
 | [KAFKA-5091](https://issues.apache.org/jira/browse/KAFKA-5091) | ReassignPartitionsCommand should protect against empty replica list assignment |  Major | tools | Ryan P | huxi |
+| [KAFKA-5118](https://issues.apache.org/jira/browse/KAFKA-5118) | Improve message for Kafka failed startup with non-Kafka data in data.dirs |  Minor | core | Dustin Cote | huxi |
+| [KAFKA-5104](https://issues.apache.org/jira/browse/KAFKA-5104) | DumpLogSegments should not open index files with \`rw\` |  Minor | log | Yeva Byzek | huxi |
 
 
 ### BUG FIXES:
@@ -104,7 +106,7 @@
 | [KAFKA-4752](https://issues.apache.org/jira/browse/KAFKA-4752) | Streams Simple Benchmark MB/sec calculation is not correct for Join operations |  Minor | streams | Damian Guy | Eno Thereska |
 | [KAFKA-4757](https://issues.apache.org/jira/browse/KAFKA-4757) | Improve NetworkClient trace logging of request details |  Major | . | Onur Karaman | Colin P. McCabe |
 | [KAFKA-4708](https://issues.apache.org/jira/browse/KAFKA-4708) | Fix Transient failure in BrokerApiVersionsCommandTest.checkBrokerApiVersionCommandOutput |  Major | unit tests | Jason Gustafson | Colin P. McCabe |
-| [KAFKA-4788](https://issues.apache.org/jira/browse/KAFKA-4788) | Broker level configuration \'log.segment.bytes\' not used when \'segment.bytes\' not configured per topic. |  Major | log | Ciprian Pascu |  |
+| [KAFKA-4788](https://issues.apache.org/jira/browse/KAFKA-4788) | Broker level configuration 'log.segment.bytes' not used when 'segment.bytes' not configured per topic. |  Major | log | Ciprian Pascu |  |
 | [KAFKA-4494](https://issues.apache.org/jira/browse/KAFKA-4494) | Significant startup delays in KStreams app |  Major | streams | j yeargers | Damian Guy |
 | [KAFKA-4806](https://issues.apache.org/jira/browse/KAFKA-4806) | KafkaConsumer: ConsumerConfig gets logged twice. |  Minor | clients, consumer, log | Marco Ebert |  |
 | [KAFKA-4744](https://issues.apache.org/jira/browse/KAFKA-4744) | Streams\_bounce test failing occassionally |  Major | streams | Eno Thereska |  |
@@ -119,7 +121,7 @@
 | [KAFKA-4826](https://issues.apache.org/jira/browse/KAFKA-4826) | Fix some findbugs warnings in Kafka Streams |  Major | streams | Colin P. McCabe | Colin P. McCabe |
 | [KAFKA-4567](https://issues.apache.org/jira/browse/KAFKA-4567) | Connect Producer and Consumer ignore ssl parameters configured for worker |  Minor | KafkaConnect | Sönke Liebau |  |
 | [KAFKA-4828](https://issues.apache.org/jira/browse/KAFKA-4828) | ProcessorTopologyTestDriver does not work when using .through() |  Major | streams | Hamidreza Afzali | Hamidreza Afzali |
-| [KAFKA-4408](https://issues.apache.org/jira/browse/KAFKA-4408) | KTable doesn\'t work with ProcessorTopologyTestDriver in Kafka 0.10.1.0 |  Major | streams | Byron Nikolaidis | Hamidreza Afzali |
+| [KAFKA-4408](https://issues.apache.org/jira/browse/KAFKA-4408) | KTable doesn't work with ProcessorTopologyTestDriver in Kafka 0.10.1.0 |  Major | streams | Byron Nikolaidis | Hamidreza Afzali |
 | [KAFKA-4851](https://issues.apache.org/jira/browse/KAFKA-4851) | SessionStore.fetch(key) is a performance bottleneck |  Major | streams | Damian Guy | Damian Guy |
 | [KAFKA-4841](https://issues.apache.org/jira/browse/KAFKA-4841) | NetworkClient should only consider a connection to be fail after attempt to connect |  Major | . | Dong Lin | Dong Lin |
 | [KAFKA-4738](https://issues.apache.org/jira/browse/KAFKA-4738) | Remove generic type of class ClientState |  Minor | streams | Matthias J. Sax | Sharad |
@@ -152,7 +154,7 @@
 | [KAFKA-4837](https://issues.apache.org/jira/browse/KAFKA-4837) | Config validation in Connector plugins need to compare against both canonical and simple class names |  Major | KafkaConnect | Konstantine Karantasis | Konstantine Karantasis |
 | [KAFKA-4993](https://issues.apache.org/jira/browse/KAFKA-4993) | Fix findbugs warnings in kafka-clients |  Major | . | Colin P. McCabe | Colin P. McCabe |
 | [KAFKA-4916](https://issues.apache.org/jira/browse/KAFKA-4916) | Add streams tests with brokers failing |  Blocker | streams | Eno Thereska | Eno Thereska |
-| [KAFKA-1211](https://issues.apache.org/jira/browse/KAFKA-1211) | Hold the produce request with ack \> 1 in purgatory until replicas\' HW has larger than the produce offset (KIP-101) |  Major | . | Guozhang Wang | Ben Stopford |
+| [KAFKA-1211](https://issues.apache.org/jira/browse/KAFKA-1211) | Hold the produce request with ack \> 1 in purgatory until replicas' HW has larger than the produce offset (KIP-101) |  Major | . | Guozhang Wang | Ben Stopford |
 | [KAFKA-5003](https://issues.apache.org/jira/browse/KAFKA-5003) | StreamThread should catch InvalidTopicException |  Blocker | streams | Eno Thereska | Matthias J. Sax |
 | [KAFKA-4995](https://issues.apache.org/jira/browse/KAFKA-4995) | Fix remaining findbugs warnings in Kafka Streams |  Major | streams | Colin P. McCabe | Colin P. McCabe |
 | [KAFKA-5040](https://issues.apache.org/jira/browse/KAFKA-5040) | Increase number of Streams producer retries from the default of 0 |  Blocker | streams | Eno Thereska | Eno Thereska |
@@ -163,10 +165,10 @@
 | [KAFKA-4866](https://issues.apache.org/jira/browse/KAFKA-4866) | Kafka console consumer property is ignored |  Trivial | core, tools | Frank Lyaruu | huxi |
 | [KAFKA-5013](https://issues.apache.org/jira/browse/KAFKA-5013) | Fail the build when findbugs fails |  Major | . | Colin P. McCabe | Colin P. McCabe |
 | [KAFKA-5038](https://issues.apache.org/jira/browse/KAFKA-5038) | running multiple kafka streams instances causes one or more instance to get into file contention |  Blocker | streams | Bharad Tirumala | Eno Thereska |
-| [KAFKA-5075](https://issues.apache.org/jira/browse/KAFKA-5075) | Defer exception to the next pollOnce() if consumer\'s fetch position has already increased |  Major | clients, consumer | Jiangjie Qin | Dong Lin |
+| [KAFKA-5075](https://issues.apache.org/jira/browse/KAFKA-5075) | Defer exception to the next pollOnce() if consumer's fetch position has already increased |  Major | clients, consumer | Jiangjie Qin | Dong Lin |
 | [KAFKA-5049](https://issues.apache.org/jira/browse/KAFKA-5049) | Chroot check should be done for each ZkUtils instance |  Major | . | Ismael Juma | anugrah |
 | [KAFKA-4814](https://issues.apache.org/jira/browse/KAFKA-4814) | ZookeeperLeaderElector not respecting zookeeper.set.acl |  Major | security | Stevo Slavic | Rajini Sivaram |
-| [KAFKA-4937](https://issues.apache.org/jira/browse/KAFKA-4937) | Batch resetting offsets in Streams\' StoreChangelogReader |  Major | streams | Guozhang Wang | Damian Guy |
+| [KAFKA-4937](https://issues.apache.org/jira/browse/KAFKA-4937) | Batch resetting offsets in Streams' StoreChangelogReader |  Major | streams | Guozhang Wang | Damian Guy |
 | [KAFKA-5014](https://issues.apache.org/jira/browse/KAFKA-5014) | SSL Channel not ready but tcp is established and the server is hung will not sending metadata |  Minor | . | Pengwei |  |
 | [KAFKA-5047](https://issues.apache.org/jira/browse/KAFKA-5047) | NullPointerException while using GlobalKTable in KafkaStreams |  Major | streams | Ivan Ursul | Damian Guy |
 | [KAFKA-5073](https://issues.apache.org/jira/browse/KAFKA-5073) | Kafka Streams stuck rebalancing after exception thrown in rebalance listener |  Major | streams | Xavier Léauté | Matthias J. Sax |
@@ -180,13 +182,14 @@
 | [KAFKA-4755](https://issues.apache.org/jira/browse/KAFKA-4755) | SimpleBenchmark test fails for streams |  Blocker | streams | Eno Thereska | Eno Thereska |
 | [KAFKA-5086](https://issues.apache.org/jira/browse/KAFKA-5086) | Update topic expiry time in Metadata every time the topic metadata is requested |  Major | . | Dong Lin | Dong Lin |
 | [KAFKA-5119](https://issues.apache.org/jira/browse/KAFKA-5119) | Transient test failure SocketServerTest.testMetricCollectionAfterShutdown |  Major | unit tests | Jason Gustafson |  |
-| [KAFKA-5101](https://issues.apache.org/jira/browse/KAFKA-5101) | Remove KafkaController\'s incrementControllerEpoch method parameter |  Trivial | controller | Balint Molnar | Balint Molnar |
+| [KAFKA-5101](https://issues.apache.org/jira/browse/KAFKA-5101) | Remove KafkaController's incrementControllerEpoch method parameter |  Trivial | controller | Balint Molnar | Balint Molnar |
 | [KAFKA-5005](https://issues.apache.org/jira/browse/KAFKA-5005) | JoinIntegrationTest fails occasionally |  Major | streams, unit tests | Matthias J. Sax | Armin Braun |
 | [KAFKA-5140](https://issues.apache.org/jira/browse/KAFKA-5140) | Flaky ResetIntegrationTest |  Major | streams, unit tests | Matthias J. Sax | Matthias J. Sax |
 | [KAFKA-4899](https://issues.apache.org/jira/browse/KAFKA-4899) | Fix findbugs warnings in kafka-core |  Major | core | Colin P. McCabe | Colin P. McCabe |
 | [KAFKA-3754](https://issues.apache.org/jira/browse/KAFKA-3754) | Kafka default -Xloggc settings should include GC log rotation flags |  Minor | . | Ryan P | Ryan P |
 | [KAFKA-5144](https://issues.apache.org/jira/browse/KAFKA-5144) | MinTimestampTracker uses confusing variable names |  Trivial | streams | Michal Borowiecki | Michal Borowiecki |
 | [KAFKA-5055](https://issues.apache.org/jira/browse/KAFKA-5055) | Kafka Streams skipped-records-rate sensor producing nonzero values even when FailOnInvalidTimestamp is used as extractor |  Major | streams | Nikki Thean | Davor Poldrugo |
+| [KAFKA-4925](https://issues.apache.org/jira/browse/KAFKA-4925) | Add a configurable delay to the initial consumer group rebalance |  Major | core | Damian Guy | Damian Guy |
 
 
 ### TESTS:

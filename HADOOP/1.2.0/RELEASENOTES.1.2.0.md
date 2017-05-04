@@ -74,7 +74,7 @@ The jsvc build target is now supported for Mac OSX and other platforms as well.
 
 * [MAPREDUCE-3678](https://issues.apache.org/jira/browse/MAPREDUCE-3678) | *Major* | **The Map tasks logs should have the value of input split it processed**
 
-A map-task\'s syslogs now carries basic info on the InputSplit it processed.
+A map-task's syslogs now carries basic info on the InputSplit it processed.
 
 
 ---

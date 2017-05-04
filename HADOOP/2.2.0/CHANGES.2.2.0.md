@@ -94,7 +94,7 @@
 | [YARN-1273](https://issues.apache.org/jira/browse/YARN-1273) | Distributed shell does not account for start container failures reported asynchronously. |  Major | . | Hitesh Shah | Hitesh Shah |
 | [YARN-1032](https://issues.apache.org/jira/browse/YARN-1032) | NPE in RackResolve |  Critical | . | Lohit Vijayarenu | Lohit Vijayarenu |
 | [YARN-1090](https://issues.apache.org/jira/browse/YARN-1090) | Job does not get into Pending State |  Major | . | Yesha Vora | Jian He |
-| [YARN-1274](https://issues.apache.org/jira/browse/YARN-1274) | LCE fails to run containers that don\'t have resources to localize |  Blocker | nodemanager | Alejandro Abdelnur | Siddharth Seth |
+| [YARN-1274](https://issues.apache.org/jira/browse/YARN-1274) | LCE fails to run containers that don't have resources to localize |  Blocker | nodemanager | Alejandro Abdelnur | Siddharth Seth |
 | [YARN-1278](https://issues.apache.org/jira/browse/YARN-1278) | New AM does not start after rm restart |  Blocker | . | Yesha Vora | Hitesh Shah |
 | [HDFS-5299](https://issues.apache.org/jira/browse/HDFS-5299) | DFS client hangs in updatePipeline RPC when failover happened |  Blocker | namenode | Vinayakumar B | Vinayakumar B |
 
@@ -121,7 +121,7 @@
 | [MAPREDUCE-5531](https://issues.apache.org/jira/browse/MAPREDUCE-5531) | Binary and source incompatibility in mapreduce.TaskID and mapreduce.TaskAttemptID between branch-1 and branch-2 |  Blocker | mrv1, mrv2 | Robert Kanter | Robert Kanter |
 | [MAPREDUCE-5529](https://issues.apache.org/jira/browse/MAPREDUCE-5529) | Binary incompatibilities in mapred.lib.TotalOrderPartitioner between branch-1 and branch-2 |  Blocker | mrv1, mrv2 | Robert Kanter | Robert Kanter |
 | [YARN-899](https://issues.apache.org/jira/browse/YARN-899) | Get queue administration ACLs working |  Major | scheduler | Sandy Ryza | Xuan Gong |
-| [MAPREDUCE-5538](https://issues.apache.org/jira/browse/MAPREDUCE-5538) | MRAppMaster#shutDownJob shouldn\'t send job end notification before checking isLastRetry |  Blocker | . | Zhijie Shen | Zhijie Shen |
+| [MAPREDUCE-5538](https://issues.apache.org/jira/browse/MAPREDUCE-5538) | MRAppMaster#shutDownJob shouldn't send job end notification before checking isLastRetry |  Blocker | . | Zhijie Shen | Zhijie Shen |
 | [HDFS-5230](https://issues.apache.org/jira/browse/HDFS-5230) | Introduce RpcInfo to decouple XDR classes from the RPC API |  Major | nfs | Haohui Mai | Haohui Mai |
 | [YARN-1070](https://issues.apache.org/jira/browse/YARN-1070) | ContainerImpl State Machine: Invalid event: CONTAINER\_KILLED\_ON\_REQUEST at CONTAINER\_CLEANEDUP\_AFTER\_KILL |  Major | nodemanager | Hitesh Shah | Zhijie Shen |
 | [MAPREDUCE-5551](https://issues.apache.org/jira/browse/MAPREDUCE-5551) | Binary Incompatibility of O.A.H.U.mapred.SequenceFileAsBinaryOutputFormat.WritableValueBytes |  Blocker | . | Zhijie Shen | Zhijie Shen |
@@ -130,7 +130,7 @@
 | [YARN-621](https://issues.apache.org/jira/browse/YARN-621) | RM triggers web auth failure before first job |  Critical | resourcemanager | Allen Wittenauer | Omkar Vinit Joshi |
 | [YARN-1256](https://issues.apache.org/jira/browse/YARN-1256) | NM silently ignores non-existent service in StartContainerRequest |  Critical | . | Bikas Saha | Xuan Gong |
 | [YARN-1131](https://issues.apache.org/jira/browse/YARN-1131) | $yarn logs command should return an appropriate error message if YARN application is still running |  Minor | client | Tassapol Athiapinya | Siddharth Seth |
-| [YARN-1254](https://issues.apache.org/jira/browse/YARN-1254) | NM is polluting container\'s credentials |  Major | . | Vinod Kumar Vavilapalli | Omkar Vinit Joshi |
+| [YARN-1254](https://issues.apache.org/jira/browse/YARN-1254) | NM is polluting container's credentials |  Major | . | Vinod Kumar Vavilapalli | Omkar Vinit Joshi |
 | [HDFS-5306](https://issues.apache.org/jira/browse/HDFS-5306) | Datanode https port is not available at the namenode |  Major | datanode, namenode | Suresh Srinivas | Suresh Srinivas |
 | [HADOOP-10017](https://issues.apache.org/jira/browse/HADOOP-10017) | Fix NPE in DFSClient#getDelegationToken when doing Distcp from a secured cluster to an insecured cluster |  Major | . | Jing Zhao | Haohui Mai |
 | [YARN-1277](https://issues.apache.org/jira/browse/YARN-1277) | Add http policy support for YARN daemons |  Major | . | Suresh Srinivas | Omkar Vinit Joshi |

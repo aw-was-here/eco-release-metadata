@@ -51,7 +51,7 @@ Introduced HttpServer method to support global filters.
 
 ---
 
-* [HADOOP-4454](https://issues.apache.org/jira/browse/HADOOP-4454) | *Minor* | **Support comments in \'slaves\'  file**
+* [HADOOP-4454](https://issues.apache.org/jira/browse/HADOOP-4454) | *Minor* | **Support comments in 'slaves'  file**
 
 Changed processing of conf/slaves file to allow # to begin a comment.
 
@@ -100,9 +100,9 @@ Moved class org.apache.hadoop.mapred.StatusHttpServer to org.apache.hadoop.http.
 
 ---
 
-* [HADOOP-4188](https://issues.apache.org/jira/browse/HADOOP-4188) | *Major* | **Remove Task\'s dependency on concrete file systems**
+* [HADOOP-4188](https://issues.apache.org/jira/browse/HADOOP-4188) | *Major* | **Remove Task's dependency on concrete file systems**
 
-Removed Task\'s dependency on concrete file systems by taking list from FileSystem class. Added statistics table to FileSystem class. Deprecated FileSystem method getStatistics(Class\<? extends FileSystem\> cls).
+Removed Task's dependency on concrete file systems by taking list from FileSystem class. Added statistics table to FileSystem class. Deprecated FileSystem method getStatistics(Class\<? extends FileSystem\> cls).
 
 
 ---

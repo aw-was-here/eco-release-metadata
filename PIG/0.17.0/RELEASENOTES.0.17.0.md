@@ -30,8 +30,8 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 x = FOREACH SUM {
 		ini = FOREACH test GENERATE id, id\_2;
-GENERATE FLATTEN(MYSTITCH(ini, MYOVER(test.impt\_prima, \'sum(bigdecimal)\'), MYOVER(test.impt\_1, \'sum(bigdecimal)\'), 
-								MYOVER(test.impt\_2, \'sum(bigdecimal)\')));
+GENERATE FLATTEN(MYSTITCH(ini, MYOVER(test.impt\_prima, 'sum(bigdecimal)'), MYOVER(test.impt\_1, 'sum(bigdecimal)'), 
+								MYOVER(test.impt\_2, 'sum(bigdecimal)')));
 
 with the normal OVER function the foreach fails because all MYOVERS return the same alias.
 
@@ -54,7 +54,7 @@ This change now disallows union-onschema of incompatible types,  (for example, n
 
 * [PIG-4897](https://issues.apache.org/jira/browse/PIG-4897) | *Major* | **Scope of param substitution for run/exec commands**
 
-With run/exec command, parameters are now scoped and caller would not see the parameters declared within the callee\'s scripts.
+With run/exec command, parameters are now scoped and caller would not see the parameters declared within the callee's scripts.
 
 
 ---

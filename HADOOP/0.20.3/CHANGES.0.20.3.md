@@ -37,7 +37,7 @@
 | [HADOOP-7240](https://issues.apache.org/jira/browse/HADOOP-7240) | Update eclipse .classpath template |  Major | . | Aaron T. Myers | Aaron T. Myers |
 | [MAPREDUCE-1734](https://issues.apache.org/jira/browse/MAPREDUCE-1734) | Un-deprecate the old MapReduce API in the 0.20 branch |  Blocker | documentation | Tom White | Todd Lipcon |
 | [HDFS-1013](https://issues.apache.org/jira/browse/HDFS-1013) | Miscellaneous improvements to HTML markup for web UIs |  Minor | . | Todd Lipcon | Eugene Koontz |
-| [HADOOP-6882](https://issues.apache.org/jira/browse/HADOOP-6882) | Update the patch level of Jetty |  Major | . | Owen O\'Malley | Owen O\'Malley |
+| [HADOOP-6882](https://issues.apache.org/jira/browse/HADOOP-6882) | Update the patch level of Jetty |  Major | . | Owen O'Malley | Owen O'Malley |
 
 
 ### BUG FIXES:
@@ -51,27 +51,27 @@
 | [HDFS-1041](https://issues.apache.org/jira/browse/HDFS-1041) | DFSClient does not retry in getFileChecksum(..) |  Major | hdfs-client | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HDFS-909](https://issues.apache.org/jira/browse/HDFS-909) | Race condition between rollEditLog or rollFSImage ant FSEditsLog.write operations  corrupts edits log |  Blocker | namenode | Cosmin Lehene | Todd Lipcon |
 | [HADOOP-6702](https://issues.apache.org/jira/browse/HADOOP-6702) | Incorrect exit codes for "dfs -chown", "dfs -chgrp"  when input is given in wildcard format. |  Minor | fs | Ravi Phulari | Ravi Phulari |
-| [HADOOP-6760](https://issues.apache.org/jira/browse/HADOOP-6760) | WebServer shouldn\'t increase port number in case of negative port setting caused by Jetty\'s race |  Major | . | Konstantin Boudnik | Konstantin Boudnik |
+| [HADOOP-6760](https://issues.apache.org/jira/browse/HADOOP-6760) | WebServer shouldn't increase port number in case of negative port setting caused by Jetty's race |  Major | . | Konstantin Boudnik | Konstantin Boudnik |
 | [MAPREDUCE-1372](https://issues.apache.org/jira/browse/MAPREDUCE-1372) | ConcurrentModificationException in JobInProgress |  Blocker | jobtracker | Amareshwari Sriramadasu | Dick King |
 | [MAPREDUCE-118](https://issues.apache.org/jira/browse/MAPREDUCE-118) | Job.getJobID() will always return null |  Blocker | client | Amar Kamat | Amareshwari Sriramadasu |
 | [MAPREDUCE-1880](https://issues.apache.org/jira/browse/MAPREDUCE-1880) | "java.lang.ArithmeticException: Non-terminating decimal expansion; no exact representable decimal result." while running "hadoop jar hadoop-0.20.1+169.89-examples.jar pi 4 30" |  Minor | examples | Victor Pakhomov | Tsz Wo Nicholas Sze |
 | [HDFS-1258](https://issues.apache.org/jira/browse/HDFS-1258) | Clearing namespace quota on "/" corrupts FS image |  Blocker | namenode | Aaron T. Myers | Aaron T. Myers |
-| [HADOOP-6881](https://issues.apache.org/jira/browse/HADOOP-6881) | The efficient comparators aren\'t always used except for BytesWritable and Text |  Major | . | Owen O\'Malley | Owen O\'Malley |
+| [HADOOP-6881](https://issues.apache.org/jira/browse/HADOOP-6881) | The efficient comparators aren't always used except for BytesWritable and Text |  Major | . | Owen O'Malley | Owen O'Malley |
 | [HADOOP-6833](https://issues.apache.org/jira/browse/HADOOP-6833) | IPC leaks call parameters when exceptions thrown |  Blocker | . | Todd Lipcon | Todd Lipcon |
-| [HADOOP-6928](https://issues.apache.org/jira/browse/HADOOP-6928) | Fix BooleanWritable comparator in 0.20 |  Major | io | Owen O\'Malley | Johannes Zillmann |
+| [HADOOP-6928](https://issues.apache.org/jira/browse/HADOOP-6928) | Fix BooleanWritable comparator in 0.20 |  Major | io | Owen O'Malley | Johannes Zillmann |
 | [HDFS-1404](https://issues.apache.org/jira/browse/HDFS-1404) | TestNodeCount logic incorrect in branch-0.20 |  Minor | namenode, test | Todd Lipcon | Todd Lipcon |
 | [MAPREDUCE-1280](https://issues.apache.org/jira/browse/MAPREDUCE-1280) | Eclipse Plugin does not work with Eclipse Ganymede (3.4) |  Major | . | Aaron Kimball | Alex Kozlov |
-| [HADOOP-6724](https://issues.apache.org/jira/browse/HADOOP-6724) | IPC doesn\'t properly handle IOEs thrown by socket factory |  Major | ipc | Todd Lipcon | Todd Lipcon |
+| [HADOOP-6724](https://issues.apache.org/jira/browse/HADOOP-6724) | IPC doesn't properly handle IOEs thrown by socket factory |  Major | ipc | Todd Lipcon | Todd Lipcon |
 | [HDFS-1240](https://issues.apache.org/jira/browse/HDFS-1240) | TestDFSShell failing in branch-20 |  Critical | test | Todd Lipcon | Todd Lipcon |
 | [HDFS-727](https://issues.apache.org/jira/browse/HDFS-727) | bug setting block size hdfsOpenFile |  Blocker | libhdfs | Eli Collins | Eli Collins |
 | [HDFS-908](https://issues.apache.org/jira/browse/HDFS-908) | TestDistributedFileSystem fails with Wrong FS on weird hosts |  Minor | test | Todd Lipcon | Todd Lipcon |
 | [HDFS-1377](https://issues.apache.org/jira/browse/HDFS-1377) | Quota bug for partial blocks allows quotas to be violated |  Blocker | namenode | Eli Collins | Eli Collins |
 | [HDFS-1406](https://issues.apache.org/jira/browse/HDFS-1406) | TestCLI fails on Ubuntu with default /etc/hosts |  Minor | . | Todd Lipcon | Konstantin Boudnik |
-| [MAPREDUCE-2262](https://issues.apache.org/jira/browse/MAPREDUCE-2262) | Capacity Scheduler unit tests fail with class not found |  Major | capacity-sched | Owen O\'Malley | Owen O\'Malley |
+| [MAPREDUCE-2262](https://issues.apache.org/jira/browse/MAPREDUCE-2262) | Capacity Scheduler unit tests fail with class not found |  Major | capacity-sched | Owen O'Malley | Owen O'Malley |
 | [HADOOP-6923](https://issues.apache.org/jira/browse/HADOOP-6923) | Native Libraries do not load if a different platform signature is returned from org.apache.hadoop.util.PlatformName |  Major | native | Stephen Watt | Stephen Watt |
 | [HDFS-1543](https://issues.apache.org/jira/browse/HDFS-1543) | Reduce dev. cycle time by moving system testing artifacts from default build and push to maven for HDFS |  Major | . | Arun C Murthy | Luke Lu |
 | [HDFS-1836](https://issues.apache.org/jira/browse/HDFS-1836) | Thousand of CLOSE\_WAIT socket |  Major | hdfs-client | Dennis Cheung | Bharath Mundlapudi |
-| [HADOOP-7116](https://issues.apache.org/jira/browse/HADOOP-7116) | raise contrib junit test jvm memory size to 512mb |  Major | test | Owen O\'Malley | Owen O\'Malley |
+| [HADOOP-7116](https://issues.apache.org/jira/browse/HADOOP-7116) | raise contrib junit test jvm memory size to 512mb |  Major | test | Owen O'Malley | Owen O'Malley |
 
 
 ### TESTS:

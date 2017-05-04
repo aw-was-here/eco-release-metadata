@@ -37,7 +37,7 @@
 | [HIVE-16115](https://issues.apache.org/jira/browse/HIVE-16115) | Stop printing progress info from operation logs with beeline progress bar |  Minor | HiveServer2 | anishek | anishek |
 | [HIVE-12274](https://issues.apache.org/jira/browse/HIVE-12274) | Increase width of columns used for general configuration in the metastore. |  Major | Metastore | Elliot West | Naveen Gangam |
 | [HIVE-12299](https://issues.apache.org/jira/browse/HIVE-12299) | Hive Column Data Type definition in schema limited to 4000 characters - too small |  Major | Hive | Lakshmi Ramakrishnan | Naveen Gangam |
-| [HIVE-14145](https://issues.apache.org/jira/browse/HIVE-14145) | Too small length of column \'PARAM\_VALUE\' in table \'SERDE\_PARAMS\' |  Major | Metastore | Oleksiy Sayankin | Oleksiy Sayankin |
+| [HIVE-14145](https://issues.apache.org/jira/browse/HIVE-14145) | Too small length of column 'PARAM\_VALUE' in table 'SERDE\_PARAMS' |  Major | Metastore | Oleksiy Sayankin | Oleksiy Sayankin |
 | [HIVE-15880](https://issues.apache.org/jira/browse/HIVE-15880) | Allow insert overwrite and truncate table query to use auto.purge table property |  Major | . | Vihang Karajgaonkar | Vihang Karajgaonkar |
 | [HIVE-16164](https://issues.apache.org/jira/browse/HIVE-16164) | Provide mechanism for passing HMS notification ID between transactional and non-transactional listeners. |  Major | Metastore | Sergio Peña | Sergio Peña |
 
@@ -60,7 +60,7 @@
 | [HIVE-16305](https://issues.apache.org/jira/browse/HIVE-16305) | Additional Datanucleus ClassLoaderResolverImpl leaks causing HS2 OOM |  Major | HiveServer2 | Daniel Dai | Daniel Dai |
 | [HIVE-16318](https://issues.apache.org/jira/browse/HIVE-16318) | LLAP cache: address some issues in 2.2/2.3 |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
 | [HIVE-16301](https://issues.apache.org/jira/browse/HIVE-16301) | Preparing for 2.3 development. |  Blocker | Hive | Naveen Gangam | Naveen Gangam |
-| [HIVE-16315](https://issues.apache.org/jira/browse/HIVE-16315) | Describe table doesn\'t show num of partitions |  Major | . | Rui Li | Rui Li |
+| [HIVE-16315](https://issues.apache.org/jira/browse/HIVE-16315) | Describe table doesn't show num of partitions |  Major | . | Rui Li | Rui Li |
 | [HIVE-16308](https://issues.apache.org/jira/browse/HIVE-16308) | PreExecutePrinter and PostExecutePrinter should log to INFO level instead of ERROR |  Major | Test | Sahil Takiar | Sahil Takiar |
 | [HIVE-16336](https://issues.apache.org/jira/browse/HIVE-16336) | Rename hive.spark.use.file.size.for.mapjoin to hive.spark.use.ts.stats.for.mapjoin |  Major | Configuration | Chao Sun | Chao Sun |
 | [HIVE-15923](https://issues.apache.org/jira/browse/HIVE-15923) | Hive default partition causes errors in get partitions |  Blocker | . | Sergey Shelukhin | Sergey Shelukhin |

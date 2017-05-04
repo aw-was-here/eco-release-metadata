@@ -26,10 +26,10 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [ORC-105](https://issues.apache.org/jira/browse/ORC-105) | Fix compilation warnings in libs for MacOS 10.12 (Sierra) |  Major | . | Owen O\'Malley | Owen O\'Malley |
-| [ORC-108](https://issues.apache.org/jira/browse/ORC-108) | Fix linux build issues |  Major | . | Owen O\'Malley | Owen O\'Malley |
-| [ORC-107](https://issues.apache.org/jira/browse/ORC-107) | Fix JavaDoc for compiling with OpenJdk 8. |  Major | . | Owen O\'Malley | Owen O\'Malley |
+| [ORC-105](https://issues.apache.org/jira/browse/ORC-105) | Fix compilation warnings in libs for MacOS 10.12 (Sierra) |  Major | . | Owen O'Malley | Owen O'Malley |
+| [ORC-108](https://issues.apache.org/jira/browse/ORC-108) | Fix linux build issues |  Major | . | Owen O'Malley | Owen O'Malley |
+| [ORC-107](https://issues.apache.org/jira/browse/ORC-107) | Fix JavaDoc for compiling with OpenJdk 8. |  Major | . | Owen O'Malley | Owen O'Malley |
 | [ORC-110](https://issues.apache.org/jira/browse/ORC-110) | [C++] getTimezoneByFilename is not thread-safe |  Major | C++ | Deepak Majeti | Deepak Majeti |
-| [ORC-104](https://issues.apache.org/jira/browse/ORC-104) | Make TypeDescription toString and fromString handle utf-8 field names. |  Major | . | Owen O\'Malley | Owen O\'Malley |
+| [ORC-104](https://issues.apache.org/jira/browse/ORC-104) | Make TypeDescription toString and fromString handle utf-8 field names. |  Major | . | Owen O'Malley | Owen O'Malley |
 
 

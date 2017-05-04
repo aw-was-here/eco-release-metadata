@@ -72,7 +72,7 @@ Failed taking snapshot - Manifest proto-message too large. add property ("snapsh
 
 * [HBASE-15479](https://issues.apache.org/jira/browse/HBASE-15479) | *Major* | **No more garbage or beware of autoboxing**
 
-This fix decreases client\'s memory allocation during writes by more than 50%.
+This fix decreases client's memory allocation during writes by more than 50%.
 
 
 ---

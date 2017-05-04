@@ -26,21 +26,21 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [KAFKA-4864](https://issues.apache.org/jira/browse/KAFKA-4864) | Kafka Secure Migrator tool doesn\'t secure all the nodes |  Critical | . | Stephane Maarek |  |
+| [KAFKA-4864](https://issues.apache.org/jira/browse/KAFKA-4864) | Kafka Secure Migrator tool doesn't secure all the nodes |  Critical | . | Stephane Maarek |  |
 
 
 ### IMPROVEMENTS:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [KAFKA-4943](https://issues.apache.org/jira/browse/KAFKA-4943) | SCRAM secret\'s should be better protected with Zookeeper ACLs |  Major | security | Johan Ström | Rajini Sivaram |
+| [KAFKA-4943](https://issues.apache.org/jira/browse/KAFKA-4943) | SCRAM secret's should be better protected with Zookeeper ACLs |  Major | security | Johan Ström | Rajini Sivaram |
 
 
 ### BUG FIXES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [KAFKA-4788](https://issues.apache.org/jira/browse/KAFKA-4788) | Broker level configuration \'log.segment.bytes\' not used when \'segment.bytes\' not configured per topic. |  Major | log | Ciprian Pascu |  |
+| [KAFKA-4788](https://issues.apache.org/jira/browse/KAFKA-4788) | Broker level configuration 'log.segment.bytes' not used when 'segment.bytes' not configured per topic. |  Major | log | Ciprian Pascu |  |
 | [KAFKA-4806](https://issues.apache.org/jira/browse/KAFKA-4806) | KafkaConsumer: ConsumerConfig gets logged twice. |  Minor | clients, consumer, log | Marco Ebert |  |
 | [KAFKA-4809](https://issues.apache.org/jira/browse/KAFKA-4809) | docker/run\_tests.sh should set up /opt/kafka-dev to be the source directory |  Major | . | Colin P. McCabe | Colin P. McCabe |
 | [KAFKA-4800](https://issues.apache.org/jira/browse/KAFKA-4800) | Streams State transition ASCII diagrams need fixing and polishing |  Minor | streams | Eno Thereska | Clemens Valiente |
@@ -61,7 +61,7 @@
 | [KAFKA-5040](https://issues.apache.org/jira/browse/KAFKA-5040) | Increase number of Streams producer retries from the default of 0 |  Blocker | streams | Eno Thereska | Eno Thereska |
 | [KAFKA-4901](https://issues.apache.org/jira/browse/KAFKA-4901) | Make ProduceRequest thread-safe |  Major | . | Ismael Juma | Ismael Juma |
 | [KAFKA-5038](https://issues.apache.org/jira/browse/KAFKA-5038) | running multiple kafka streams instances causes one or more instance to get into file contention |  Blocker | streams | Bharad Tirumala | Eno Thereska |
-| [KAFKA-5075](https://issues.apache.org/jira/browse/KAFKA-5075) | Defer exception to the next pollOnce() if consumer\'s fetch position has already increased |  Major | clients, consumer | Jiangjie Qin | Dong Lin |
+| [KAFKA-5075](https://issues.apache.org/jira/browse/KAFKA-5075) | Defer exception to the next pollOnce() if consumer's fetch position has already increased |  Major | clients, consumer | Jiangjie Qin | Dong Lin |
 | [KAFKA-5097](https://issues.apache.org/jira/browse/KAFKA-5097) | KafkaConsumer.poll throws IllegalStateException |  Blocker | . | Ismael Juma | Eno Thereska |
 | [KAFKA-5095](https://issues.apache.org/jira/browse/KAFKA-5095) | ThreadCacheTest.cacheOverheadsSmallValues fails intermittently |  Major | streams | Damian Guy | Eno Thereska |
 | [KAFKA-4980](https://issues.apache.org/jira/browse/KAFKA-4980) | testReprocessingFromScratch unit test failure |  Major | streams | Eno Thereska | Matthias J. Sax |

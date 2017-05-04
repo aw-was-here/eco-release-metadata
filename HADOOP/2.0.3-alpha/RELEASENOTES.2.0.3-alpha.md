@@ -41,7 +41,7 @@ This feature is by default turned \* off \*. To turn on the feature, set the HDF
 
 * [MAPREDUCE-3678](https://issues.apache.org/jira/browse/MAPREDUCE-3678) | *Major* | **The Map tasks logs should have the value of input split it processed**
 
-A map-task\'s syslogs now carries basic info on the InputSplit it processed.
+A map-task's syslogs now carries basic info on the InputSplit it processed.
 
 
 ---
@@ -140,9 +140,9 @@ Patches adds more tests to verify overwritten and more complex operations -write
 
 ---
 
-* [HADOOP-9118](https://issues.apache.org/jira/browse/HADOOP-9118) | *Trivial* | **FileSystemContractBaseTest test data for read/write isn\'t rigorous enough**
+* [HADOOP-9118](https://issues.apache.org/jira/browse/HADOOP-9118) | *Trivial* | **FileSystemContractBaseTest test data for read/write isn't rigorous enough**
 
-Resolved as part of HADOOP-9119 -it\'s test data generator creates more bits in every test byte
+Resolved as part of HADOOP-9119 -it's test data generator creates more bits in every test byte
 
 
 ---

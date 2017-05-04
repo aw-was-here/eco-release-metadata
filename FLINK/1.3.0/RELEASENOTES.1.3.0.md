@@ -25,7 +25,7 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 * [FLINK-6103](https://issues.apache.org/jira/browse/FLINK-6103) | *Major* | **LocalFileSystem rename() uses File.renameTo()**
 
-I\'ve tried to move a directory to another on the LocalFilesystem and it doesn\'t work (in my case fs is an instance of java.io.UnixFileSystem).
+I've tried to move a directory to another on the LocalFilesystem and it doesn't work (in my case fs is an instance of java.io.UnixFileSystem).
 As for Flink-1840 (there was a PR to fix the issue - https://github.com/apache/flink/pull/578) the problem is that {{File.renameTo()}} is not reliable.
 
 Indeed, the Javadoc says:

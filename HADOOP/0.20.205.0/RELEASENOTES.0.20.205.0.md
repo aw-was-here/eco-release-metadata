@@ -166,7 +166,7 @@ Adds cumulative cpu usage and total heap usage to task counters. This is a backp
 
 ---
 
-* [HDFS-2358](https://issues.apache.org/jira/browse/HDFS-2358) | *Major* | **NPE when the default filesystem\'s uri has no authority**
+* [HDFS-2358](https://issues.apache.org/jira/browse/HDFS-2358) | *Major* | **NPE when the default filesystem's uri has no authority**
 
 Give meaningful error message instead of NPE.
 

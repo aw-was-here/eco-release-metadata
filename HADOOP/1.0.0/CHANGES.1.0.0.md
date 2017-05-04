@@ -71,20 +71,20 @@
 | [MAPREDUCE-3480](https://issues.apache.org/jira/browse/MAPREDUCE-3480) | TestJvmReuse fails in 1.0 |  Major | . | Jitendra Nath Pandey | Jitendra Nath Pandey |
 | [HADOOP-7865](https://issues.apache.org/jira/browse/HADOOP-7865) | Test Failures in 1.0.0 hdfs/common |  Major | . | Jitendra Nath Pandey | Jitendra Nath Pandey |
 | [HADOOP-7854](https://issues.apache.org/jira/browse/HADOOP-7854) | UGI getCurrentUser is not synchronized |  Critical | security | Daryn Sharp | Daryn Sharp |
-| [HADOOP-7869](https://issues.apache.org/jira/browse/HADOOP-7869) | HADOOP\_HOME warning happens all of the time |  Critical | scripts | Owen O\'Malley | Owen O\'Malley |
+| [HADOOP-7869](https://issues.apache.org/jira/browse/HADOOP-7869) | HADOOP\_HOME warning happens all of the time |  Critical | scripts | Owen O'Malley | Owen O'Malley |
 | [HADOOP-7461](https://issues.apache.org/jira/browse/HADOOP-7461) | Jackson Dependency Not Declared in Hadoop POM |  Major | build | Ron Bodkin | Giridharan Kesavan |
 | [HDFS-2589](https://issues.apache.org/jira/browse/HDFS-2589) | unnecessary hftp token fetch and renewal thread |  Major | security | Daryn Sharp | Daryn Sharp |
 | [MAPREDUCE-3319](https://issues.apache.org/jira/browse/MAPREDUCE-3319) | multifilewc from hadoop examples seems to be broken in 0.20.205.0 |  Blocker | examples | Roman Shaposhnik | Subroto Sanyal |
 | [HDFS-2673](https://issues.apache.org/jira/browse/HDFS-2673) | While Namenode processing the blocksBeingWrittenReport, it will log incorrect number blocks count |  Trivial | namenode | Uma Maheswara Rao G | Uma Maheswara Rao G |
 | [HADOOP-7903](https://issues.apache.org/jira/browse/HADOOP-7903) | hadoop artifacts do not contain 64 bit libhdfs native lib |  Major | build | Arpit Gupta | Matt Foley |
 | [MAPREDUCE-1744](https://issues.apache.org/jira/browse/MAPREDUCE-1744) | DistributedCache creates its own FileSytem instance when adding a file/archive to the path |  Major | . | Dick King | Dick King |
-| [HADOOP-7116](https://issues.apache.org/jira/browse/HADOOP-7116) | raise contrib junit test jvm memory size to 512mb |  Major | test | Owen O\'Malley | Owen O\'Malley |
+| [HADOOP-7116](https://issues.apache.org/jira/browse/HADOOP-7116) | raise contrib junit test jvm memory size to 512mb |  Major | test | Owen O'Malley | Owen O'Malley |
 | [HADOOP-8067](https://issues.apache.org/jira/browse/HADOOP-8067) | Errors building hadoop-gpl-compression with Hadoop 1.0.0 and HBase 0.92.0 |  Major | build | John Lewis |  |
 | [HDFS-838](https://issues.apache.org/jira/browse/HDFS-838) | libhdfs causes a segfault due to race condition |  Major | libhdfs | Brian Bockelman |  |
 | [HADOOP-9128](https://issues.apache.org/jira/browse/HADOOP-9128) | MetricsDynamicMBeanBase can cause high cpu load |  Major | metrics | Nate Putnam |  |
 | [HADOOP-8389](https://issues.apache.org/jira/browse/HADOOP-8389) | MetricsDynamicMBeanBase throws IllegalArgumentException for empty attribute list |  Major | metrics | Elias Ross |  |
 | [MAPREDUCE-4935](https://issues.apache.org/jira/browse/MAPREDUCE-4935) | Support timeout limitation to MRv1 job end notifications |  Major | jobtracker, mrv1 | Olga Shen | Brad Liu |
-| [MAPREDUCE-3475](https://issues.apache.org/jira/browse/MAPREDUCE-3475) | JT can\'t renew its own tokens |  Major | jobtracker | Daryn Sharp | Daryn Sharp |
+| [MAPREDUCE-3475](https://issues.apache.org/jira/browse/MAPREDUCE-3475) | JT can't renew its own tokens |  Major | jobtracker | Daryn Sharp | Daryn Sharp |
 
 
 ### SUB-TASKS:

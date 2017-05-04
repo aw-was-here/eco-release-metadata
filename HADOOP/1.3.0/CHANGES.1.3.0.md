@@ -37,7 +37,7 @@
 | [HADOOP-8873](https://issues.apache.org/jira/browse/HADOOP-8873) | Port HADOOP-8175 (Add mkdir -p flag) to branch-1 |  Major | . | Eli Collins | Akira Ajisaka |
 | [HDFS-4903](https://issues.apache.org/jira/browse/HDFS-4903) | Print trash configuration and trash emptier state in namenode log |  Minor | namenode | Suresh Srinivas | Arpit Agarwal |
 | [MAPREDUCE-5406](https://issues.apache.org/jira/browse/MAPREDUCE-5406) | Improve logging around Task Tracker exiting with JVM manager inconsistent state |  Major | tasktracker | Chelsey Chang | Chelsey Chang |
-| [MAPREDUCE-5408](https://issues.apache.org/jira/browse/MAPREDUCE-5408) | CLONE - The logging level of the tasks should be configurable by the job |  Major | . | Owen O\'Malley | Arun C Murthy |
+| [MAPREDUCE-5408](https://issues.apache.org/jira/browse/MAPREDUCE-5408) | CLONE - The logging level of the tasks should be configurable by the job |  Major | . | Owen O'Malley | Arun C Murthy |
 | [MAPREDUCE-5367](https://issues.apache.org/jira/browse/MAPREDUCE-5367) | Local jobs all use same local working directory |  Major | . | Sandy Ryza | Sandy Ryza |
 | [HDFS-4963](https://issues.apache.org/jira/browse/HDFS-4963) | Improve multihoming support in namenode |  Major | namenode | Arpit Agarwal | Arpit Agarwal |
 | [HADOOP-9855](https://issues.apache.org/jira/browse/HADOOP-9855) | Backport HADOOP-6578 to branch-1 |  Major | . | James Kinley | James Kinley |
@@ -65,12 +65,12 @@
 | [MAPREDUCE-5072](https://issues.apache.org/jira/browse/MAPREDUCE-5072) | TestDelegationTokenRenewal.testDTRenewal fails in MR1 on jdk7 |  Major | test | Sandy Ryza | Sandy Ryza |
 | [MAPREDUCE-5073](https://issues.apache.org/jira/browse/MAPREDUCE-5073) | TestJobStatusPersistency.testPersistency fails on JDK7 |  Major | test | Sandy Ryza | Sandy Ryza |
 | [HDFS-4622](https://issues.apache.org/jira/browse/HDFS-4622) | Remove redundant synchronized from FSNamesystem#rollEditLog in branch-1 |  Trivial | . | Jing Zhao | Jing Zhao |
-| [MAPREDUCE-2817](https://issues.apache.org/jira/browse/MAPREDUCE-2817) | MiniRMCluster hardcodes \'mapred.local.dir\' configuration to \'build/test/mapred/local\' |  Minor | test | Alejandro Abdelnur | Robert Kanter |
+| [MAPREDUCE-2817](https://issues.apache.org/jira/browse/MAPREDUCE-2817) | MiniRMCluster hardcodes 'mapred.local.dir' configuration to 'build/test/mapred/local' |  Minor | test | Alejandro Abdelnur | Robert Kanter |
 | [MAPREDUCE-5133](https://issues.apache.org/jira/browse/MAPREDUCE-5133) | TestSubmitJob.testSecureJobExecution is flaky due to job dir deletion race |  Major | test | Sandy Ryza | Sandy Ryza |
 | [MAPREDUCE-5218](https://issues.apache.org/jira/browse/MAPREDUCE-5218) | Annotate (comment) internal classes as Private |  Minor | . | Karthik Kambatla | Karthik Kambatla |
 | [MAPREDUCE-5217](https://issues.apache.org/jira/browse/MAPREDUCE-5217) | DistCp fails when launched by Oozie in a secure cluster |  Major | distcp, security | Venkat Ranganathan | Venkat Ranganathan |
 | [MAPREDUCE-5095](https://issues.apache.org/jira/browse/MAPREDUCE-5095) | TestShuffleExceptionCount#testCheckException fails occasionally with JDK7 |  Major | . | Arpit Agarwal | Arpit Agarwal |
-| [MAPREDUCE-5250](https://issues.apache.org/jira/browse/MAPREDUCE-5250) | Searching for \';\' in JobTracker History throws ArrayOutOfBoundException |  Minor | . | Karthik Kambatla | Karthik Kambatla |
+| [MAPREDUCE-5250](https://issues.apache.org/jira/browse/MAPREDUCE-5250) | Searching for ';' in JobTracker History throws ArrayOutOfBoundException |  Minor | . | Karthik Kambatla | Karthik Kambatla |
 | [HDFS-4944](https://issues.apache.org/jira/browse/HDFS-4944) | WebHDFS cannot create a file path containing characters that must be URI-encoded, such as space. |  Major | webhdfs | Chris Nauroth | Chris Nauroth |
 | [HADOOP-9678](https://issues.apache.org/jira/browse/HADOOP-9678) | TestRPC#testStopsAllThreads intermittently fails on Windows |  Major | . | Ivan Mitic | Ivan Mitic |
 | [HADOOP-9307](https://issues.apache.org/jira/browse/HADOOP-9307) | BufferedFSInputStream.read returns wrong results after certain seeks |  Major | fs | Todd Lipcon | Todd Lipcon |
@@ -95,7 +95,7 @@
 | [MAPREDUCE-5698](https://issues.apache.org/jira/browse/MAPREDUCE-5698) | Backport MAPREDUCE-1285 to branch-1 |  Major | . | Yongjun Zhang | Yongjun Zhang |
 | [HDFS-5685](https://issues.apache.org/jira/browse/HDFS-5685) | DistCp will fail to copy with -delete switch |  Major | hdfs-client | Yongjun Zhang | Yongjun Zhang |
 | [MAPREDUCE-5710](https://issues.apache.org/jira/browse/MAPREDUCE-5710) | Backport MAPREDUCE-1305 to branch-1 |  Major | . | Yongjun Zhang | Yongjun Zhang |
-| [HDFS-5944](https://issues.apache.org/jira/browse/HDFS-5944) | LeaseManager:findLeaseWithPrefixPath can\'t handle path like /a/b/ right and cause SecondaryNameNode failed do checkpoint |  Major | namenode | yunjiong zhao | yunjiong zhao |
+| [HDFS-5944](https://issues.apache.org/jira/browse/HDFS-5944) | LeaseManager:findLeaseWithPrefixPath can't handle path like /a/b/ right and cause SecondaryNameNode failed do checkpoint |  Major | namenode | yunjiong zhao | yunjiong zhao |
 | [HDFS-5516](https://issues.apache.org/jira/browse/HDFS-5516) | WebHDFS does not require user name when anonymous http requests are disallowed. |  Major | webhdfs | Chris Nauroth | Miodrag Radulovic |
 | [MAPREDUCE-5808](https://issues.apache.org/jira/browse/MAPREDUCE-5808) | Port output replication factor configurable for terasort to Hadoop 1.x |  Minor | examples | Chuan Liu | Chuan Liu |
 | [MAPREDUCE-5822](https://issues.apache.org/jira/browse/MAPREDUCE-5822) | FairScheduler does not preempt due to fairshare-starvation when fairshare is 1 |  Major | scheduler | Anubhav Dhoot | Anubhav Dhoot |

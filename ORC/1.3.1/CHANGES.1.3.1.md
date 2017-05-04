@@ -26,7 +26,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [ORC-100](https://issues.apache.org/jira/browse/ORC-100) | Add findbugs as part of the build |  Major | build, Java | Owen O\'Malley | Tarun Kumar |
+| [ORC-100](https://issues.apache.org/jira/browse/ORC-100) | Add findbugs as part of the build |  Major | build, Java | Owen O'Malley | Tarun Kumar |
 
 
 ### BUG FIXES:
@@ -34,6 +34,6 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [ORC-134](https://issues.apache.org/jira/browse/ORC-134) | DecimalColumnStatistics methods throws NPE when all column values are null |  Critical | . | Prasanth Jayachandran | Prasanth Jayachandran |
-| [ORC-138](https://issues.apache.org/jira/browse/ORC-138) | Missed part of HIVE-15335 that changed how decimal schema evolution works |  Major | . | Owen O\'Malley | Owen O\'Malley |
+| [ORC-138](https://issues.apache.org/jira/browse/ORC-138) | Missed part of HIVE-15335 that changed how decimal schema evolution works |  Major | . | Owen O'Malley | Owen O'Malley |
 
 

@@ -36,7 +36,7 @@ class WindowStatistic extends WindowFunction[Event, Int, Tuple, TimeWindow] with
 
 }
 
-Window Operator couldn\'t invoke user defined function "snapshotState()". In debug model, line 123 in AbstractUdfStreamOperator.java returns false and can\'t make user defined state when checking the window whether is a Checkpointed instance. I think there is something wrong in userFunction var, it\'s a ScalaWindowFunctionWrapper object and it couldn\'t reflect if the user defined window extend Checkpointed Interface. Actually, the user defined window is kept in "func" var of userFunction.
+Window Operator couldn't invoke user defined function "snapshotState()". In debug model, line 123 in AbstractUdfStreamOperator.java returns false and can't make user defined state when checking the window whether is a Checkpointed instance. I think there is something wrong in userFunction var, it's a ScalaWindowFunctionWrapper object and it couldn't reflect if the user defined window extend Checkpointed Interface. Actually, the user defined window is kept in "func" var of userFunction.
 
 
 

@@ -60,7 +60,7 @@ Removed deprecated method FileSystem.delete(Path).
 
 * [HADOOP-3953](https://issues.apache.org/jira/browse/HADOOP-3953) | *Major* | **Sticky bit for directories**
 
-UNIX-style sticky bit implemented for HDFS directories. When  the  sticky  bit  is set on a directory, files in that directory may be deleted or renamed only by a superuser or the file\'s owner.
+UNIX-style sticky bit implemented for HDFS directories. When  the  sticky  bit  is set on a directory, files in that directory may be deleted or renamed only by a superuser or the file's owner.
 
 
 ---
@@ -88,7 +88,7 @@ Changed df dfsadmin -report to list live and dead nodes, and attempt to resolve 
 
 * [HADOOP-3741](https://issues.apache.org/jira/browse/HADOOP-3741) | *Major* | **SecondaryNameNode has http server on dfs.secondary.http.address but without any contents**
 
-Backup namenode\'s web UI default page now has some useful content.
+Backup namenode's web UI default page now has some useful content.
 
 
 ---
@@ -186,7 +186,7 @@ New DFSAdmin command -restoreFailedStorage true\|false\|check sets policy for re
 
 ---
 
-* [HADOOP-5258](https://issues.apache.org/jira/browse/HADOOP-5258) | *Major* | **Provide dfsadmin functionality to report on namenode\'s view of network topology**
+* [HADOOP-5258](https://issues.apache.org/jira/browse/HADOOP-5258) | *Major* | **Provide dfsadmin functionality to report on namenode's view of network topology**
 
 New dfsAdmin command -printTopology shows topology as understood by the namenode.
 
@@ -335,7 +335,7 @@ New Fair Scheduler configuration parameter sets a default limit on number of run
 
 * [HADOOP-5643](https://issues.apache.org/jira/browse/HADOOP-5643) | *Major* | **Ability to blacklist tasktracker**
 
-New mradmin command -refreshNodes updates the job tracker\'s node lists.
+New mradmin command -refreshNodes updates the job tracker's node lists.
 
 
 ---
@@ -356,7 +356,7 @@ Distcp will no longer start jobs that move no data.
 
 * [HADOOP-5737](https://issues.apache.org/jira/browse/HADOOP-5737) | *Major* | **UGI checks in testcases are broken**
 
-Fixed JobTracker to use it\'s own credentials instead of the job\'s credentials for accessing mapred.system.dir. Also added APIs in the JobTracker to get the FileSystem objects as per the JobTracker\'s configuration.
+Fixed JobTracker to use it's own credentials instead of the job's credentials for accessing mapred.system.dir. Also added APIs in the JobTracker to get the FileSystem objects as per the JobTracker's configuration.
 
 
 ---
@@ -440,7 +440,7 @@ New contribution Dynamic Scheduler implements dynamic priorities with a currency
 
 * [HADOOP-5457](https://issues.apache.org/jira/browse/HADOOP-5457) | *Major* | **Failing contrib tests should not stop the build**
 
-Fixed the build to make sure that all the unit tests in contrib are run, regardless of the success/failure status of the previous projects\' tests.
+Fixed the build to make sure that all the unit tests in contrib are run, regardless of the success/failure status of the previous projects' tests.
 
 
 ---
@@ -466,7 +466,7 @@ New Sqoop argument --hive-import facilitates loading data into Hive.
 
 ---
 
-* [MAPREDUCE-516](https://issues.apache.org/jira/browse/MAPREDUCE-516) | *Major* | **Fix the \'cluster drain\' problem in the Capacity Scheduler wrt High RAM Jobs**
+* [MAPREDUCE-516](https://issues.apache.org/jira/browse/MAPREDUCE-516) | *Major* | **Fix the 'cluster drain' problem in the Capacity Scheduler wrt High RAM Jobs**
 
 **WARNING: No release note provided for this change.**
 
@@ -491,7 +491,7 @@ If the configuration is set to false, no setup or cleanup will be done.
 
 * [MAPREDUCE-502](https://issues.apache.org/jira/browse/MAPREDUCE-502) | *Major* | **Allow jobtracker to be configured with zero completed jobs in memory**
 
-If the number of jobs per user exceeded mapred.jobtracker.completeuserjobs.maximum then the job was flushed out of the jobtracker\'s memory after the job finishes min-time (hardcoded to 1 min). This caused jobclient\'s fail with NPE. In this patch the min-time to retain a job is made configurable (mapred.jobtracker.retirejob.interval.min).
+If the number of jobs per user exceeded mapred.jobtracker.completeuserjobs.maximum then the job was flushed out of the jobtracker's memory after the job finishes min-time (hardcoded to 1 min). This caused jobclient's fail with NPE. In this patch the min-time to retain a job is made configurable (mapred.jobtracker.retirejob.interval.min).
 
 
 ---
@@ -503,14 +503,14 @@ Added support for preemption in the fair scheduler. The new configuration option
 
 ---
 
-* [MAPREDUCE-416](https://issues.apache.org/jira/browse/MAPREDUCE-416) | *Major* | **Move the completed jobs\' history files to a DONE subdirectory inside the configured history directory**
+* [MAPREDUCE-416](https://issues.apache.org/jira/browse/MAPREDUCE-416) | *Major* | **Move the completed jobs' history files to a DONE subdirectory inside the configured history directory**
 
-Once the job is done, the history file and associated conf file is moved to history.folder/done folder. This is done to avoid garbling the running jobs\'  folder and the framework no longer gets affected with the files in the done folder. This helps in 2 was
+Once the job is done, the history file and associated conf file is moved to history.folder/done folder. This is done to avoid garbling the running jobs'  folder and the framework no longer gets affected with the files in the done folder. This helps in 2 was
 1) ls on running folder (recovery) is faster with less files
 2) changes in running folder results into FileNotFoundException. 
 
 
-So with existing code, the best way to keep the running folder clean is to note the id\'s of running job and then move files that are not in this list to the done folder. Note that on an avg there will be 2 files in the history folder namely
+So with existing code, the best way to keep the running folder clean is to note the id's of running job and then move files that are not in this list to the done folder. Note that on an avg there will be 2 files in the history folder namely
 1) job history file
 2) conf file. 
 
@@ -521,7 +521,7 @@ With restart, there might be more than 2 files, mostly the extra conf files. In 
 
 * [MAPREDUCE-646](https://issues.apache.org/jira/browse/MAPREDUCE-646) | *Major* | **distcp should place the file distcp\_src\_files in distributed cache**
 
-Patch increases the replication factor of \_distcp\_src\_files to sqrt(min(maxMapsOnCluster, totalMapsInThisJob)) sothat many maps won\'t access the same replica of the file \_distcp\_src\_files at the same time.
+Patch increases the replication factor of \_distcp\_src\_files to sqrt(min(maxMapsOnCluster, totalMapsInThisJob)) sothat many maps won't access the same replica of the file \_distcp\_src\_files at the same time.
 
 
 ---
@@ -626,7 +626,7 @@ Modifies TestCommandLineJobSubmission to add a test for testing custom output co
 
 * [MAPREDUCE-467](https://issues.apache.org/jira/browse/MAPREDUCE-467) | *Major* | **Collect information about number of tasks succeeded / total per time unit for a tasktracker.**
 
-Provide ability to collect statistics about tasks completed and succeeded for each tracker in time windows. The statistics is available on the jobtrackers\' nodes UI page.
+Provide ability to collect statistics about tasks completed and succeeded for each tracker in time windows. The statistics is available on the jobtrackers' nodes UI page.
 
 
 ---
@@ -789,7 +789,7 @@ TestNodeRefresh waits for the newly added tracker to join before starting the te
 
 * [MAPREDUCE-766](https://issues.apache.org/jira/browse/MAPREDUCE-766) | *Major* | **Enhance -list-blacklisted-trackers to display host name, blacklisted reason and blacklist report.**
 
-Enhanced -list-blacklisted-trackers to include the reason for blacklisting a node. Modified JobSubmissionProtocol\'s version as the ClusterStatus is changed to have a new class. The format of the -list-blacklisted-trackers command line interface has also changed to show the reason.
+Enhanced -list-blacklisted-trackers to include the reason for blacklisting a node. Modified JobSubmissionProtocol's version as the ClusterStatus is changed to have a new class. The format of the -list-blacklisted-trackers command line interface has also changed to show the reason.
 
 
 ---
@@ -803,7 +803,7 @@ Ports the SequenceFile\* classes to the new Map/Reduce API
 
 * [MAPREDUCE-670](https://issues.apache.org/jira/browse/MAPREDUCE-670) | *Major* | ** Create target for 10 minute patch test build for mapreduce**
 
-Added a new target \'test-commit\' to the build.xml file which runs tests specified in the file src/test/commit-tests. The tests specified in src/test/commit-tests should provide maximum coverage and all the tests should run within 10mins.
+Added a new target 'test-commit' to the build.xml file which runs tests specified in the file src/test/commit-tests. The tests specified in src/test/commit-tests should provide maximum coverage and all the tests should run within 10mins.
 
 
 ---
@@ -856,11 +856,11 @@ MAPREDUCE-805 changed the way the job was initialized. Capacity schedulers testc
 * [MAPREDUCE-842](https://issues.apache.org/jira/browse/MAPREDUCE-842) | *Major* | **Per-job local data on the TaskTracker node should have right access-control**
 
 Modified TaskTracker and related classes so that per-job local data on the TaskTracker node has right access-control. Important changes:
- - All files/directories of the job on the TaskTracker are now user-owned by the job-owner and group-owner by a special TaskTracker\'s group.
+ - All files/directories of the job on the TaskTracker are now user-owned by the job-owner and group-owner by a special TaskTracker's group.
  - The permissions of the file/directories are set to the most restrictive permissions possible.
- - Files/dirs shareable by all tasks of the job on this TT are set proper access control as soon as possible, i.e immediately after job-localization and those that are private to a single task are set access control after the corresponding task\'s localization.
+ - Files/dirs shareable by all tasks of the job on this TT are set proper access control as soon as possible, i.e immediately after job-localization and those that are private to a single task are set access control after the corresponding task's localization.
  - Also fixes MAPREDUCE-131 which is related to a bug because of which tasks hang when the taskcontroller.cfg has multiple entries for mapred.local.dir
- - A new configuration entry hadoop.log.dir corresponding to the hadoop.log.dir in TT\'s configuration is now needed in task-controller.cfg so as to support restricted access control for userlogs of the tasks on the TaskTracker.
+ - A new configuration entry hadoop.log.dir corresponding to the hadoop.log.dir in TT's configuration is now needed in task-controller.cfg so as to support restricted access control for userlogs of the tasks on the TaskTracker.
 
 
 ---
@@ -933,7 +933,7 @@ FileSystem.listStatus() previously returned null for empty or nonexistent direct
 
 * [MAPREDUCE-895](https://issues.apache.org/jira/browse/MAPREDUCE-895) | *Major* | **FileSystem::ListStatus will now throw FileNotFoundException, MapRed needs updated**
 
-The semantics for dealing with non-existent paths passed to FileSystem::listStatus() were updated and solidified in HADOOP-6201 and HDFS-538.  Existing code within MapReduce that relied on the previous behavior of some FileSystem implementations of returning null has been updated to catch or propagate a FileNotFoundException, per the method\'s contract.
+The semantics for dealing with non-existent paths passed to FileSystem::listStatus() were updated and solidified in HADOOP-6201 and HDFS-538.  Existing code within MapReduce that relied on the previous behavior of some FileSystem implementations of returning null has been updated to catch or propagate a FileNotFoundException, per the method's contract.
 
 
 ---
@@ -1079,11 +1079,11 @@ Improved error message suggests using -skpTrash option when hdfs -rm fails to mo
 
 ---
 
-* [MAPREDUCE-144](https://issues.apache.org/jira/browse/MAPREDUCE-144) | *Major* | **TaskMemoryManager should log process-tree\'s status while killing tasks.**
+* [MAPREDUCE-144](https://issues.apache.org/jira/browse/MAPREDUCE-144) | *Major* | **TaskMemoryManager should log process-tree's status while killing tasks.**
 
-Modified TaskMemoryManager so that it logs a map/reduce task\'s process-tree\'s status just before it is killed when it grows out of its configured memory limits. The log dump is in the format " \|- PID PPID PGRPID SESSID CMD\_NAME VMEM\_USAGE(BYTES) FULL\_CMD\_LINE".
+Modified TaskMemoryManager so that it logs a map/reduce task's process-tree's status just before it is killed when it grows out of its configured memory limits. The log dump is in the format " \|- PID PPID PGRPID SESSID CMD\_NAME VMEM\_USAGE(BYTES) FULL\_CMD\_LINE".
 
-This is useful for debugging the cause for a map/reduce task and it\'s corresponding process-tree to be killed by the TaskMemoryManager.
+This is useful for debugging the cause for a map/reduce task and it's corresponding process-tree to be killed by the TaskMemoryManager.
 
 
 ---
@@ -1097,7 +1097,7 @@ New FileSystem method reports default parameters that would be used by server. S
 
 * [HDFS-578](https://issues.apache.org/jira/browse/HDFS-578) | *Major* | **Support for using server default values for blockSize and replication when creating a file**
 
-New FileSystem.getServerDefaults() reports the server\'s default file creation parameters.
+New FileSystem.getServerDefaults() reports the server's default file creation parameters.
 
 
 ---
@@ -1130,7 +1130,7 @@ Annotation mechanism enables interface classification.
 
 ---
 
-* [MAPREDUCE-963](https://issues.apache.org/jira/browse/MAPREDUCE-963) | *Major* | **mapred\'s FileAlreadyExistsException should be deprecated in favor of hadoop-common\'s one.**
+* [MAPREDUCE-963](https://issues.apache.org/jira/browse/MAPREDUCE-963) | *Major* | **mapred's FileAlreadyExistsException should be deprecated in favor of hadoop-common's one.**
 
 Deprecate o.a.h.mapred.FileAlreadyExistsException and replace it with o.a.h.fs.FileAlreadyExistsException.
 
@@ -1160,7 +1160,7 @@ Splitting support for BZip2 Text data
 
 * [HADOOP-5879](https://issues.apache.org/jira/browse/HADOOP-5879) | *Major* | **GzipCodec should read compression level etc from configuration**
 
-Provide an ability to configure the compression level and strategy for codecs. Compressors need to be \'reinited\' with new characteristics such as compression level etc. and hence an incompatible addition to the api.
+Provide an ability to configure the compression level and strategy for codecs. Compressors need to be 'reinited' with new characteristics such as compression level etc. and hence an incompatible addition to the api.
 
 
 ---
@@ -1175,7 +1175,7 @@ $mapred.local.dir
                \|- distcache
                \`-- jobcache
  - Distributed cache files/archives are now user-owned by the job-owner and the group-owned by the special group-owner of the task-controller binary. The files/archives are set most private permissions possible, and as soon as possible, immediately after the files/dirs are first localized on the TT.
- - As depicted by the new directory structure, a directory corresponding to each user is created on each TT when that particular user\'s first task are assigned to the corresponding TT. These user directories remain on the TT forever are not cleaned when unused, which is targeted to be fixed via MAPREDUCE-1019.
+ - As depicted by the new directory structure, a directory corresponding to each user is created on each TT when that particular user's first task are assigned to the corresponding TT. These user directories remain on the TT forever are not cleaned when unused, which is targeted to be fixed via MAPREDUCE-1019.
  - The distributed cache files are now accessible \_only\_ by the user who first localized them. Sharing of these files across users is no longer possible, but is targeted for future versions via MAPREDUCE-744.
 
 
@@ -1207,7 +1207,7 @@ New DFSClient.create(...) allows option of not creating missing parent(s).
 Added support for hierarchical queues in the Map/Reduce framework with the following changes:
 - mapred-queues.xml is modified to a new XML template as mentioned in the JIRA.
 - Modified JobQueueInfo to contain a handle to child queues.
-- Added new APIs in the client to get \'root\' queues, so that the entire hierarchy of queues can be iterated.
+- Added new APIs in the client to get 'root' queues, so that the entire hierarchy of queues can be iterated.
 -Added new APIs to get the child queues for a given queue .
 
 
@@ -1277,7 +1277,7 @@ Rename and categorize configuration keys into - cluster, jobtracker, tasktracker
 
 * [HADOOP-6151](https://issues.apache.org/jira/browse/HADOOP-6151) | *Critical* | **The servlets should quote html characters**
 
-The input parameters for all of the servlets will have the 5 html meta characters quoted. The characters are \'&\', \'\<\', \'\>\', \'"\' and the apostrophe. The goal is to ensure that our web ui servlets can\'t be used for cross site scripting (XSS) attacks. In particular, it blocks the frequent (especially for errors) case where the servlet echos back the parameters to the user.
+The input parameters for all of the servlets will have the 5 html meta characters quoted. The characters are '&', '\<', '\>', '"' and the apostrophe. The goal is to ensure that our web ui servlets can't be used for cross site scripting (XSS) attacks. In particular, it blocks the frequent (especially for errors) case where the servlet echos back the parameters to the user.
 
 
 ---
@@ -1312,7 +1312,7 @@ Add native and streaming support for Vertica as an input or output format taking
 
 * [MAPREDUCE-893](https://issues.apache.org/jira/browse/MAPREDUCE-893) | *Major* | **Provide an ability to refresh queue configuration without restart.**
 
-Extended the framework\'s refresh-queue mechanism to support refresh of scheduler specific queue properties and implemented this refresh operation for some of the capacity scheduler properties. With this feature, one can refresh some of the capacity-scheduler\'s queue related properties - queue capacities, user-limits per queue, max map/reduce capacity and max-jobs per user to initialize while the system is running and without restarting JT. Even after this, some features like changing enable/disable priorities, adding/removing queues are not supported in capacity-scheduler.
+Extended the framework's refresh-queue mechanism to support refresh of scheduler specific queue properties and implemented this refresh operation for some of the capacity scheduler properties. With this feature, one can refresh some of the capacity-scheduler's queue related properties - queue capacities, user-limits per queue, max map/reduce capacity and max-jobs per user to initialize while the system is running and without restarting JT. Even after this, some features like changing enable/disable priorities, adding/removing queues are not supported in capacity-scheduler.
 
 
 ---
@@ -1324,7 +1324,7 @@ Added XML-based JobTracker status JSP page for metrics reporting
 
 ---
 
-* [MAPREDUCE-954](https://issues.apache.org/jira/browse/MAPREDUCE-954) | *Major* | **The new interface\'s Context objects should be interfaces**
+* [MAPREDUCE-954](https://issues.apache.org/jira/browse/MAPREDUCE-954) | *Major* | **The new interface's Context objects should be interfaces**
 
 Changed Map-Reduce context objects to be interfaces.
 
@@ -1394,7 +1394,7 @@ Rename properly considers the case where both source and destination are over qu
 
 ---
 
-* [MAPREDUCE-1086](https://issues.apache.org/jira/browse/MAPREDUCE-1086) | *Major* | **hadoop commands in streaming tasks are trying to write to tasktracker\'s log**
+* [MAPREDUCE-1086](https://issues.apache.org/jira/browse/MAPREDUCE-1086) | *Major* | **hadoop commands in streaming tasks are trying to write to tasktracker's log**
 
 This patch makes TT to set HADOOP\_ROOT\_LOGGER to INFO,TLA by default in the environment of taskjvm and its children.
 
@@ -1408,7 +1408,7 @@ Introduced abortJob() method in OutputCommitter which will be invoked when the j
 
 ---
 
-* [MAPREDUCE-1105](https://issues.apache.org/jira/browse/MAPREDUCE-1105) | *Blocker* | **CapacityScheduler: It should be possible to set queue hard-limit beyond it\'s actual capacity**
+* [MAPREDUCE-1105](https://issues.apache.org/jira/browse/MAPREDUCE-1105) | *Blocker* | **CapacityScheduler: It should be possible to set queue hard-limit beyond it's actual capacity**
 
 Replaced the existing max task limits variables "mapred.capacity-scheduler.queue.\<queue-name\>.max.map.slots" and "mapred.capacity-scheduler.queue.\<queue-name\>.max.reduce.slots"  with  "mapred.capacity-scheduler.queue.\<queue-name\>.maximum-capacity" . 
 
@@ -1456,7 +1456,7 @@ Added occupied map/reduce slots and reserved map/reduce slots to the "Cluster Su
 
 * [MAPREDUCE-1098](https://issues.apache.org/jira/browse/MAPREDUCE-1098) | *Major* | **Incorrect synchronization in DistributedCache causes TaskTrackers to freeze up during localization of Cache for tasks.**
 
-Fixed the distributed cache\'s localizeCache to lock only the uri it is localizing.
+Fixed the distributed cache's localizeCache to lock only the uri it is localizing.
 
 
 ---
@@ -1510,7 +1510,7 @@ Add new file system interface AbstractFileSystem with implementation of some fil
 
 ---
 
-* [HADOOP-6344](https://issues.apache.org/jira/browse/HADOOP-6344) | *Major* | **rm and rmr fail to correctly move the user\'s files to the trash prior to deleting when they are over quota.**
+* [HADOOP-6344](https://issues.apache.org/jira/browse/HADOOP-6344) | *Major* | **rm and rmr fail to correctly move the user's files to the trash prior to deleting when they are over quota.**
 
 Trash feature notifies user of over-quota condition rather than silently deleting files/directories; deletion can be compelled with "rm -skiptrash".
 
@@ -1624,7 +1624,7 @@ Correct PendingDeletionBlocks metric to properly decrement counts.
 
 * [MAPREDUCE-754](https://issues.apache.org/jira/browse/MAPREDUCE-754) | *Minor* | **NPE in expiry thread when a TT is lost**
 
-Fixes the NPE in \'refreshNodes\', ExpiryTracker thread and heartbeat. NPE occurred in the following cases
+Fixes the NPE in 'refreshNodes', ExpiryTracker thread and heartbeat. NPE occurred in the following cases
 - a blacklisted tracker is either decommissioned or expires.
 - a lost tracker gets blacklisted
 
@@ -1638,7 +1638,7 @@ Fixes the NPE in \'refreshNodes\', ExpiryTracker thread and heartbeat. NPE occur
 
 ---
 
-* [MAPREDUCE-1230](https://issues.apache.org/jira/browse/MAPREDUCE-1230) | *Major* | **Vertica streaming adapter doesn\'t handle nulls in all cases**
+* [MAPREDUCE-1230](https://issues.apache.org/jira/browse/MAPREDUCE-1230) | *Major* | **Vertica streaming adapter doesn't handle nulls in all cases**
 
 Fixes null handling in records returned from VerticaInputFormat
 
@@ -1719,7 +1719,7 @@ Add an api to get the visible length of a DFSDataInputStream.
 
 * [MAPREDUCE-744](https://issues.apache.org/jira/browse/MAPREDUCE-744) | *Major* | **Support in DistributedCache to share cache files with other users after HADOOP-4493**
 
-Fixed DistributedCache to support sharing of the local cache files with other users on the same TaskTracker. The cache files are checked at the client side for public/private access on the file system, and that information is passed in the configuration. The TaskTrackers look at the configuration for each file during task localization, and, if the file was public on the filesystem, they are localized to a common space for sharing by all users\' tasks on the TaskTracker. Else the file is localized to the user\'s private directory on the local filesystem.
+Fixed DistributedCache to support sharing of the local cache files with other users on the same TaskTracker. The cache files are checked at the client side for public/private access on the file system, and that information is passed in the configuration. The TaskTrackers look at the configuration for each file during task localization, and, if the file was public on the filesystem, they are localized to a common space for sharing by all users' tasks on the TaskTracker. Else the file is localized to the user's private directory on the local filesystem.
 
 
 ---
@@ -1740,7 +1740,7 @@ New name node web UI page displays details of decommissioning progress. (dfsnode
 
 * [MAPREDUCE-1218](https://issues.apache.org/jira/browse/MAPREDUCE-1218) | *Major* | **Collecting cpu and memory usage for TaskTrackers**
 
-This patch allows TaskTracker reports it\'s current available memory and CPU usage to JobTracker through heartbeat. The information can be used for scheduling and monitoring in the JobTracker. This patch changes the version of InterTrackerProtocal.
+This patch allows TaskTracker reports it's current available memory and CPU usage to JobTracker through heartbeat. The information can be used for scheduling and monitoring in the JobTracker. This patch changes the version of InterTrackerProtocal.
 
 
 ---
@@ -1825,12 +1825,12 @@ mapreduce.job.hdfs-servers - declares hdfs servers to be used by the job, so cli
 
 * [MAPREDUCE-899](https://issues.apache.org/jira/browse/MAPREDUCE-899) | *Major* | **When using LinuxTaskController, localized files may become accessible to unintended users if permissions are misconfigured.**
 
-Added configuration "mapreduce.tasktracker.group", a group name to which TaskTracker belongs. When LinuxTaskController is used, task-controller binary\'s group owner should be this group. The same should be specified in task-controller.cfg also.
+Added configuration "mapreduce.tasktracker.group", a group name to which TaskTracker belongs. When LinuxTaskController is used, task-controller binary's group owner should be this group. The same should be specified in task-controller.cfg also.
 
 
 ---
 
-* [HADOOP-6386](https://issues.apache.org/jira/browse/HADOOP-6386) | *Blocker* | **NameNode\'s HttpServer can\'t instantiate InetSocketAddress: IllegalArgumentException is thrown**
+* [HADOOP-6386](https://issues.apache.org/jira/browse/HADOOP-6386) | *Blocker* | **NameNode's HttpServer can't instantiate InetSocketAddress: IllegalArgumentException is thrown**
 
 Improved initialization sequence so that Port Out of Range error when starting web server will less likely interrupt testing.
 
@@ -1867,19 +1867,19 @@ Add hidden configuration option "ipc.server.max.response.size" to change the def
 
 * [MAPREDUCE-1307](https://issues.apache.org/jira/browse/MAPREDUCE-1307) | *Major* | **Introduce the concept of Job Permissions**
 
-Added job-level authorization to MapReduce. JobTracker will now use the cluster configuration "mapreduce.cluster.job-authorization-enabled" to enable the checks to verify the authority of access of jobs where ever needed. Introduced two job-configuration properties to specify ACLs: "mapreduce.job.acl-view-job" and "mapreduce.job.acl-modify-job". For now, RPCs related to job-level counters, task-level counters and tasks\' diagnostic information are protected by "mapreduce.job.acl-view-job" ACL. "mapreduce.job.acl-modify-job" protects killing of a job, killing a task of a job, failing a task of a job and setting the priority of a job. Irrespective of the above two ACLs, job-owner, superuser and members of supergroup configured on JobTracker via mapred.permissions.supergroup, can do all the view and modification operations.
+Added job-level authorization to MapReduce. JobTracker will now use the cluster configuration "mapreduce.cluster.job-authorization-enabled" to enable the checks to verify the authority of access of jobs where ever needed. Introduced two job-configuration properties to specify ACLs: "mapreduce.job.acl-view-job" and "mapreduce.job.acl-modify-job". For now, RPCs related to job-level counters, task-level counters and tasks' diagnostic information are protected by "mapreduce.job.acl-view-job" ACL. "mapreduce.job.acl-modify-job" protects killing of a job, killing a task of a job, failing a task of a job and setting the priority of a job. Irrespective of the above two ACLs, job-owner, superuser and members of supergroup configured on JobTracker via mapred.permissions.supergroup, can do all the view and modification operations.
 
 
 ---
 
 * [MAPREDUCE-1430](https://issues.apache.org/jira/browse/MAPREDUCE-1430) | *Major* | **JobTracker should be able to renew delegation tokens for the jobs**
 
-mapreduce.job.complete.cancel.delegation.tokens - if false - don\'t cancel delegation token renewal when the job is complete, because it may be used by some other job.
+mapreduce.job.complete.cancel.delegation.tokens - if false - don't cancel delegation token renewal when the job is complete, because it may be used by some other job.
 
 
 ---
 
-* [HDFS-913](https://issues.apache.org/jira/browse/HDFS-913) | *Major* | **TestRename won\'t run automatically from \'run-test-hdfs-faul-inject\' target**
+* [HDFS-913](https://issues.apache.org/jira/browse/HDFS-913) | *Major* | **TestRename won't run automatically from 'run-test-hdfs-faul-inject' target**
 
 HDFS-913. Rename fault injection test TestRename.java to TestFiRename.java to include it in tests run by ant target run-test-hdfs-fault-inject.
 
@@ -1973,7 +1973,7 @@ Added web-authorization for job-history pages. This is an incompatible change - 
 
 * [MAPREDUCE-1422](https://issues.apache.org/jira/browse/MAPREDUCE-1422) | *Major* | **Changing permissions of files/dirs under job-work-dir may be needed sothat cleaning up of job-dir in all mapred-local-directories succeeds always**
 
-Introduced enableJobForCleanup() api in TaskController. This api enables deletion of stray files (with no write permissions for task-tracker) from job\'s work dir.  Note that the behavior is similar to TaskController#enableTaskForCleanup() except the path on which the \'chmod\' is done is the job\'s work dir.
+Introduced enableJobForCleanup() api in TaskController. This api enables deletion of stray files (with no write permissions for task-tracker) from job's work dir.  Note that the behavior is similar to TaskController#enableTaskForCleanup() except the path on which the 'chmod' is done is the job's work dir.
 
 
 ---
@@ -2001,7 +2001,7 @@ Added private configuration variables: mapred.cache.files.filesizes and mapred.c
 
 * [MAPREDUCE-1482](https://issues.apache.org/jira/browse/MAPREDUCE-1482) | *Major* | **Better handling of task diagnostic information stored in the TaskInProgress**
 
-Limit the size of diagnostics-string and state-string shipped as part of task status. This will help keep the JobTracker\'s memory usage under control. Diagnostic string and state string are capped to 1024 chars.
+Limit the size of diagnostics-string and state-string shipped as part of task status. This will help keep the JobTracker's memory usage under control. Diagnostic string and state string are capped to 1024 chars.
 
 
 ---
@@ -2055,7 +2055,7 @@ Added a private configuration variable mapreduce.input.num.files, to store numbe
 
 ---
 
-* [HDFS-1012](https://issues.apache.org/jira/browse/HDFS-1012) | *Major* | **documentLocation attribute in LdapEntry for HDFSProxy isn\'t specific to a cluster**
+* [HDFS-1012](https://issues.apache.org/jira/browse/HDFS-1012) | *Major* | **documentLocation attribute in LdapEntry for HDFSProxy isn't specific to a cluster**
 
 Support for fully qualified HDFS path in addition to simple unqualified path. 
 The qualified path indicates that the path is accessible on the specific HDFS. Non qualified path is qualified in all clusters.
@@ -2114,7 +2114,7 @@ Fixed a race condition involving JvmRunner.kill() and KillTaskAction, which was 
 
 * [MAPREDUCE-1609](https://issues.apache.org/jira/browse/MAPREDUCE-1609) | *Major* | **TaskTracker.localizeJob should not set permissions on job log directory recursively**
 
-Fixed TaskTracker so that it does not set permissions on job-log directory recursively. This fix both improves the performance of job localization as well as avoids a bug related to launching of task-cleanup attempts after TaskTracker\'s restart.
+Fixed TaskTracker so that it does not set permissions on job-log directory recursively. This fix both improves the performance of job localization as well as avoids a bug related to launching of task-cleanup attempts after TaskTracker's restart.
 
 
 ---
@@ -2168,9 +2168,9 @@ Fixed a bug that caused all the AdminOperationsProtocol operations to fail when 
 
 ---
 
-* [MAPREDUCE-1747](https://issues.apache.org/jira/browse/MAPREDUCE-1747) | *Blocker* | **Remove documentation for the \'unstable\' job-acls feature**
+* [MAPREDUCE-1747](https://issues.apache.org/jira/browse/MAPREDUCE-1747) | *Blocker* | **Remove documentation for the 'unstable' job-acls feature**
 
-Removed the documentation for the \'unstable\' job-acls feature from branch 0.21.
+Removed the documentation for the 'unstable' job-acls feature from branch 0.21.
 
 
 ---
@@ -2182,9 +2182,9 @@ Updated forrest documentation to reflect the changes to make localized files fro
 
 ---
 
-* [MAPREDUCE-1607](https://issues.apache.org/jira/browse/MAPREDUCE-1607) | *Major* | **Task controller may not set permissions for a task cleanup attempt\'s log directory**
+* [MAPREDUCE-1607](https://issues.apache.org/jira/browse/MAPREDUCE-1607) | *Major* | **Task controller may not set permissions for a task cleanup attempt's log directory**
 
-Fixed initialization of a task-cleanup attempt\'s log directory by setting correct permissions via task-controller. Added new log4j properties hadoop.tasklog.iscleanup and log4j.appender.TLA.isCleanup to conf/log4j.properties. Changed the userlogs for a task-cleanup attempt to go into its own directory instead of the original attempt directory. This is an incompatible change as old userlogs of cleanup attempt-dirs before this release will no longer be visible.
+Fixed initialization of a task-cleanup attempt's log directory by setting correct permissions via task-controller. Added new log4j properties hadoop.tasklog.iscleanup and log4j.appender.TLA.isCleanup to conf/log4j.properties. Changed the userlogs for a task-cleanup attempt to go into its own directory instead of the original attempt directory. This is an incompatible change as old userlogs of cleanup attempt-dirs before this release will no longer be visible.
 
 
 ---
@@ -2198,7 +2198,7 @@ Fixed TaskTracker to avoid hung and unusable slots when TaskRunner crashes with 
 
 * [HADOOP-6813](https://issues.apache.org/jira/browse/HADOOP-6813) | *Blocker* | **Add a new newInstance method in FileSystem that takes a "user" as argument**
 
-I\'ve just committed this to 0.21.
+I've just committed this to 0.21.
 
 
 ---

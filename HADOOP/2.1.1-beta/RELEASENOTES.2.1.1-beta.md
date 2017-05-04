@@ -37,7 +37,7 @@ Used for testing when NameNode HA is enabled. Users can use a new configuration 
 
 ---
 
-* [YARN-1170](https://issues.apache.org/jira/browse/YARN-1170) | *Blocker* | **yarn proto definitions should specify package as \'hadoop.yarn\'**
+* [YARN-1170](https://issues.apache.org/jira/browse/YARN-1170) | *Blocker* | **yarn proto definitions should specify package as 'hadoop.yarn'**
 
 **WARNING: No release note provided for this change.**
 

@@ -28,7 +28,7 @@
 | [HADOOP-7524](https://issues.apache.org/jira/browse/HADOOP-7524) | Change RPC to allow multiple protocols including multiple versions of the same protocol |  Major | ipc | Sanjay Radia | Sanjay Radia |
 | [HDFS-2303](https://issues.apache.org/jira/browse/HDFS-2303) | Unbundle jsvc |  Major | build, scripts | Roman Shaposhnik | Mingjie Lai |
 | [HDFS-3044](https://issues.apache.org/jira/browse/HDFS-3044) | fsck move should be non-destructive by default |  Major | namenode | Eli Collins | Colin P. McCabe |
-| [HADOOP-8154](https://issues.apache.org/jira/browse/HADOOP-8154) | DNS#getIPs shouldn\'t silently return the local host IP for bogus interface names |  Major | conf | Eli Collins | Eli Collins |
+| [HADOOP-8154](https://issues.apache.org/jira/browse/HADOOP-8154) | DNS#getIPs shouldn't silently return the local host IP for bogus interface names |  Major | conf | Eli Collins | Eli Collins |
 | [HADOOP-8184](https://issues.apache.org/jira/browse/HADOOP-8184) | ProtoBuf RPC engine does not need it own reply packet - it can use the IPC layer reply packet. |  Major | ipc | Sanjay Radia | Sanjay Radia |
 | [HADOOP-8149](https://issues.apache.org/jira/browse/HADOOP-8149) | cap space usage of default log4j rolling policy |  Major | conf | Patrick Hunt | Patrick Hunt |
 | [HDFS-3137](https://issues.apache.org/jira/browse/HDFS-3137) | Bump LAST\_UPGRADABLE\_LAYOUT\_VERSION to -16 |  Major | namenode | Eli Collins | Eli Collins |
@@ -48,7 +48,7 @@
 | [HDFS-2430](https://issues.apache.org/jira/browse/HDFS-2430) | The number of failed or low-resource volumes the NN can tolerate should be configurable |  Major | namenode | Aaron T. Myers | Aaron T. Myers |
 | [HADOOP-7454](https://issues.apache.org/jira/browse/HADOOP-7454) | Common side of High Availability Framework (HDFS-1623) |  Major | . | Aaron T. Myers |  |
 | [HDFS-1623](https://issues.apache.org/jira/browse/HDFS-1623) | High Availability Framework for HDFS NN |  Major | . | Sanjay Radia |  |
-| [HDFS-2731](https://issues.apache.org/jira/browse/HDFS-2731) | HA: Autopopulate standby name dirs if they\'re empty |  Major | ha | Aaron T. Myers | Todd Lipcon |
+| [HDFS-2731](https://issues.apache.org/jira/browse/HDFS-2731) | HA: Autopopulate standby name dirs if they're empty |  Major | ha | Aaron T. Myers | Todd Lipcon |
 | [HADOOP-8121](https://issues.apache.org/jira/browse/HADOOP-8121) | Active Directory Group Mapping Service |  Major | security | Jonathan Natkins | Jonathan Natkins |
 | [HADOOP-7806](https://issues.apache.org/jira/browse/HADOOP-7806) | Support binding to sub-interfaces |  Major | util | Harsh J | Harsh J |
 | [HADOOP-7030](https://issues.apache.org/jira/browse/HADOOP-7030) | Add TableMapping topology implementation to read host to rack mapping from a file |  Major | . | Patrick Angeles | Tom White |
@@ -72,7 +72,7 @@
 | [MAPREDUCE-2934](https://issues.apache.org/jira/browse/MAPREDUCE-2934) | MR portion of HADOOP-7607 - Simplify the RPC proxy cleanup process |  Major | mrv2 | Aaron T. Myers | Aaron T. Myers |
 | [HADOOP-7607](https://issues.apache.org/jira/browse/HADOOP-7607) | Simplify the RPC proxy cleanup process |  Major | ipc | Aaron T. Myers | Aaron T. Myers |
 | [HADOOP-7635](https://issues.apache.org/jira/browse/HADOOP-7635) | RetryInvocationHandler should release underlying resources on close |  Major | ipc | Aaron T. Myers | Aaron T. Myers |
-| [HDFS-2337](https://issues.apache.org/jira/browse/HDFS-2337) | DFSClient shouldn\'t keep multiple RPC proxy references |  Major | hdfs-client | Aaron T. Myers | Aaron T. Myers |
+| [HDFS-2337](https://issues.apache.org/jira/browse/HDFS-2337) | DFSClient shouldn't keep multiple RPC proxy references |  Major | hdfs-client | Aaron T. Myers | Aaron T. Myers |
 | [HDFS-2351](https://issues.apache.org/jira/browse/HDFS-2351) | Change Namenode and Datanode to register each of their protocols seperately |  Major | . | Sanjay Radia | Sanjay Radia |
 | [HADOOP-7687](https://issues.apache.org/jira/browse/HADOOP-7687) | Make getProtocolSignature public |  Minor | . | Sanjay Radia | Sanjay Radia |
 | [HADOOP-7716](https://issues.apache.org/jira/browse/HADOOP-7716) | RPC protocol registration on SS does not log the protocol name (only the class which may be different) |  Minor | . | Sanjay Radia | Sanjay Radia |
@@ -129,7 +129,7 @@
 | [HDFS-3204](https://issues.apache.org/jira/browse/HDFS-3204) | Minor modification to JournalProtocol.proto to make it generic |  Major | namenode | Suresh Srinivas | Suresh Srinivas |
 | [HDFS-3226](https://issues.apache.org/jira/browse/HDFS-3226) | Allow GetConf tool to print arbitrary keys |  Major | tools | Todd Lipcon | Todd Lipcon |
 | [HDFS-3240](https://issues.apache.org/jira/browse/HDFS-3240) | Drop log level of "heartbeat: ..." in BPServiceActor to DEBUG |  Trivial | datanode | Todd Lipcon | Todd Lipcon |
-| [HDFS-3238](https://issues.apache.org/jira/browse/HDFS-3238) | ServerCommand and friends don\'t need to be writables |  Major | . | Eli Collins | Eli Collins |
+| [HDFS-3238](https://issues.apache.org/jira/browse/HDFS-3238) | ServerCommand and friends don't need to be writables |  Major | . | Eli Collins | Eli Collins |
 | [HDFS-3244](https://issues.apache.org/jira/browse/HDFS-3244) | Remove dead writable code from hdfs/protocol |  Major | . | Eli Collins | Eli Collins |
 | [HDFS-3247](https://issues.apache.org/jira/browse/HDFS-3247) | Improve bootstrapStandby behavior when original NN is not active |  Minor | ha | Todd Lipcon | Todd Lipcon |
 | [HDFS-3249](https://issues.apache.org/jira/browse/HDFS-3249) | Use ToolRunner.confirmPrompt in NameNode |  Trivial | namenode | Todd Lipcon | Todd Lipcon |
@@ -188,11 +188,11 @@
 | [HADOOP-7931](https://issues.apache.org/jira/browse/HADOOP-7931) | o.a.h.ipc.WritableRpcEngine should have a way to force initialization |  Major | ipc | Aaron T. Myers | Aaron T. Myers |
 | [HDFS-2694](https://issues.apache.org/jira/browse/HDFS-2694) | Removal of Avro broke non-PB NN services |  Major | namenode | Aaron T. Myers | Aaron T. Myers |
 | [HDFS-2700](https://issues.apache.org/jira/browse/HDFS-2700) | TestDataNodeMultipleRegistrations is failing in trunk |  Major | . | Uma Maheswara Rao G | Uma Maheswara Rao G |
-| [HDFS-2739](https://issues.apache.org/jira/browse/HDFS-2739) | SecondaryNameNode doesn\'t start up |  Critical | . | Sho Shimauchi | Jitendra Nath Pandey |
+| [HDFS-2739](https://issues.apache.org/jira/browse/HDFS-2739) | SecondaryNameNode doesn't start up |  Critical | . | Sho Shimauchi | Jitendra Nath Pandey |
 | [HADOOP-7920](https://issues.apache.org/jira/browse/HADOOP-7920) | Remove Avro RPC |  Major | ipc | Suresh Srinivas | Suresh Srinivas |
 | [HADOOP-7968](https://issues.apache.org/jira/browse/HADOOP-7968) | Errant println left in RPC.getHighestSupportedProtocol |  Minor | ipc | Todd Lipcon | Sho Shimauchi |
 | [MAPREDUCE-3740](https://issues.apache.org/jira/browse/MAPREDUCE-3740) | Mapreduce Trunk compilation fails |  Blocker | mrv2 | Devaraj K | Devaraj K |
-| [HADOOP-7988](https://issues.apache.org/jira/browse/HADOOP-7988) | Upper case in hostname part of the principals doesn\'t work with kerberos. |  Major | . | Jitendra Nath Pandey | Jitendra Nath Pandey |
+| [HADOOP-7988](https://issues.apache.org/jira/browse/HADOOP-7988) | Upper case in hostname part of the principals doesn't work with kerberos. |  Major | . | Jitendra Nath Pandey | Jitendra Nath Pandey |
 | [MAPREDUCE-3818](https://issues.apache.org/jira/browse/MAPREDUCE-3818) | Trunk MRV1 compilation is broken. |  Blocker | build, test | Vinod Kumar Vavilapalli | Suresh Srinivas |
 | [HDFS-2878](https://issues.apache.org/jira/browse/HDFS-2878) | TestBlockRecovery does not compile |  Blocker | test | Eli Collins | Todd Lipcon |
 | [HDFS-2968](https://issues.apache.org/jira/browse/HDFS-2968) | Protocol translator for BlockRecoveryCommand broken when multiple blocks need recovery |  Blocker | datanode, namenode | Todd Lipcon | Todd Lipcon |
@@ -203,9 +203,9 @@
 | [HDFS-3038](https://issues.apache.org/jira/browse/HDFS-3038) | Add FSEditLog.metrics to findbugs exclude list |  Trivial | . | Todd Lipcon | Todd Lipcon |
 | [MAPREDUCE-3952](https://issues.apache.org/jira/browse/MAPREDUCE-3952) | In MR2, when Total input paths to process == 1, CombinefileInputFormat.getSplits() returns 0 split. |  Major | mrv2 | Zhenxiao Luo | Bhallamudi Venkata Siva Kamesh |
 | [HDFS-1765](https://issues.apache.org/jira/browse/HDFS-1765) | Block Replication should respect under-replication block priority |  Major | namenode | Hairong Kuang | Uma Maheswara Rao G |
-| [MAPREDUCE-3578](https://issues.apache.org/jira/browse/MAPREDUCE-3578) | starting nodemanager as \'root\' gives "Unknown -jvm option" |  Major | nodemanager | Gilad Wolff | Tom White |
+| [MAPREDUCE-3578](https://issues.apache.org/jira/browse/MAPREDUCE-3578) | starting nodemanager as 'root' gives "Unknown -jvm option" |  Major | nodemanager | Gilad Wolff | Tom White |
 | [HADOOP-7900](https://issues.apache.org/jira/browse/HADOOP-7900) | LocalDirAllocator confChanged() accesses conf.get() twice |  Major | fs | Ravi Gummadi | Ravi Gummadi |
-| [MAPREDUCE-3974](https://issues.apache.org/jira/browse/MAPREDUCE-3974) | TestSubmitJob in MR1 tests doesn\'t compile after HDFS-1623 merge |  Blocker | . | Arun C Murthy | Aaron T. Myers |
+| [MAPREDUCE-3974](https://issues.apache.org/jira/browse/MAPREDUCE-3974) | TestSubmitJob in MR1 tests doesn't compile after HDFS-1623 merge |  Blocker | . | Arun C Murthy | Aaron T. Myers |
 | [HADOOP-8169](https://issues.apache.org/jira/browse/HADOOP-8169) | javadoc generation fails with java.lang.OutOfMemoryError: Java heap space |  Critical | build | Thomas Graves | Thomas Graves |
 | [HDFS-3057](https://issues.apache.org/jira/browse/HDFS-3057) | httpfs and hdfs launcher scripts should honor CATALINA\_HOME and HADOOP\_LIBEXEC\_DIR |  Major | scripts | Roman Shaposhnik | Roman Shaposhnik |
 | [MAPREDUCE-4007](https://issues.apache.org/jira/browse/MAPREDUCE-4007) | JobClient getJob(JobID) should return NULL if the job does not exist (for backwards compatibility) |  Major | mrv2 | Alejandro Abdelnur | Alejandro Abdelnur |
@@ -215,7 +215,7 @@
 | [HDFS-3062](https://issues.apache.org/jira/browse/HDFS-3062) | Fail to submit mapred job on a secured-HA-HDFS: logic URI cannot be picked up by job submission. |  Critical | ha, security | Mingjie Lai | Mingjie Lai |
 | [MAPREDUCE-3431](https://issues.apache.org/jira/browse/MAPREDUCE-3431) | NPE in Resource Manager shutdown |  Minor | resourcemanager | Steve Loughran | Steve Loughran |
 | [HADOOP-6924](https://issues.apache.org/jira/browse/HADOOP-6924) | Build fails with non-Sun JREs due to different pathing to the operating system architecture shared libraries |  Major | . | Stephen Watt | Devaraj Das |
-| [HADOOP-8189](https://issues.apache.org/jira/browse/HADOOP-8189) | LdapGroupsMapping shouldn\'t throw away IOException |  Major | security | Jonathan Natkins | Jonathan Natkins |
+| [HADOOP-8189](https://issues.apache.org/jira/browse/HADOOP-8189) | LdapGroupsMapping shouldn't throw away IOException |  Major | security | Jonathan Natkins | Jonathan Natkins |
 | [HADOOP-6941](https://issues.apache.org/jira/browse/HADOOP-6941) | Support non-SUN JREs in UserGroupInformation |  Major | . | Stephen Watt | Devaraj Das |
 | [MAPREDUCE-1740](https://issues.apache.org/jira/browse/MAPREDUCE-1740) | NPE in getMatchingLevelForNodes when node locations are variable depth |  Major | jobtracker | Todd Lipcon | Ahmed Radwan |
 | [HDFS-3083](https://issues.apache.org/jira/browse/HDFS-3083) | Cannot run an MR job with HA and security enabled when second-listed NN active |  Critical | ha, security | Mingjie Lai | Aaron T. Myers |
@@ -227,14 +227,14 @@
 | [MAPREDUCE-4066](https://issues.apache.org/jira/browse/MAPREDUCE-4066) | To get "yarn.app.mapreduce.am.staging-dir" value, should set the default value |  Minor | job submission, mrv2 | xieguiming | xieguiming |
 | [HADOOP-8159](https://issues.apache.org/jira/browse/HADOOP-8159) | NetworkTopology: getLeaf should check for invalid topologies |  Major | . | Colin P. McCabe | Colin P. McCabe |
 | [HADOOP-8202](https://issues.apache.org/jira/browse/HADOOP-8202) | stopproxy() is not closing the proxies correctly |  Minor | ipc | Hari Mankude | Hari Mankude |
-| [HADOOP-8218](https://issues.apache.org/jira/browse/HADOOP-8218) | RPC.closeProxy shouldn\'t throw error when closing a mock |  Critical | ipc, test | Todd Lipcon | Todd Lipcon |
+| [HADOOP-8218](https://issues.apache.org/jira/browse/HADOOP-8218) | RPC.closeProxy shouldn't throw error when closing a mock |  Critical | ipc, test | Todd Lipcon | Todd Lipcon |
 | [HDFS-3156](https://issues.apache.org/jira/browse/HDFS-3156) | TestDFSHAAdmin is failing post HADOOP-8202 |  Major | test | Aaron T. Myers | Aaron T. Myers |
 | [HDFS-3143](https://issues.apache.org/jira/browse/HDFS-3143) | TestGetBlocks.testGetBlocks is failing |  Major | test | Eli Collins | Arpit Gupta |
 | [MAPREDUCE-3377](https://issues.apache.org/jira/browse/MAPREDUCE-3377) | Compatibility issue with 0.20.203. |  Major | . | Jane Chen | Jane Chen |
 | [MAPREDUCE-4081](https://issues.apache.org/jira/browse/MAPREDUCE-4081) | TestMROutputFormat.java does not compile |  Blocker | build, mrv2 | Jason Lowe | Jason Lowe |
 | [HDFS-3142](https://issues.apache.org/jira/browse/HDFS-3142) | TestHDFSCLI.testAll is failing |  Blocker | test | Eli Collins | Brandon Li |
 | [MAPREDUCE-3916](https://issues.apache.org/jira/browse/MAPREDUCE-3916) | various issues with running yarn proxyserver |  Critical | mrv2, resourcemanager, webapps | Roman Shaposhnik | Devaraj K |
-| [HDFS-3070](https://issues.apache.org/jira/browse/HDFS-3070) | HDFS balancer doesn\'t ensure that hdfs-site.xml is loaded |  Major | balancer & mover | Stephen Chu | Aaron T. Myers |
+| [HDFS-3070](https://issues.apache.org/jira/browse/HDFS-3070) | HDFS balancer doesn't ensure that hdfs-site.xml is loaded |  Major | balancer & mover | Stephen Chu | Aaron T. Myers |
 | [HADOOP-8199](https://issues.apache.org/jira/browse/HADOOP-8199) | Fix issues in start-all.sh and stop-all.sh |  Major | . | Nishan Shetty | Devaraj K |
 | [HADOOP-8238](https://issues.apache.org/jira/browse/HADOOP-8238) | NetUtils#getHostNameOfIP blows up if given ip:port string w/o port |  Major | . | Eli Collins | Eli Collins |
 | [MAPREDUCE-4095](https://issues.apache.org/jira/browse/MAPREDUCE-4095) | TestJobInProgress#testLocality uses a bogus topology |  Major | . | Eli Collins | Colin P. McCabe |
@@ -246,8 +246,8 @@
 | [HDFS-3210](https://issues.apache.org/jira/browse/HDFS-3210) | JsonUtil#toJsonMap for for a DatanodeInfo should use "ipAddr" instead of "name" |  Major | . | Eli Collins | Eli Collins |
 | [HDFS-3208](https://issues.apache.org/jira/browse/HDFS-3208) | Bogus entries in hosts files are incorrectly displayed in the report |  Major | namenode | Eli Collins | Eli Collins |
 | [HADOOP-8251](https://issues.apache.org/jira/browse/HADOOP-8251) | SecurityUtil.fetchServiceTicket broken after HADOOP-6941 |  Blocker | security | Todd Lipcon | Todd Lipcon |
-| [HDFS-3214](https://issues.apache.org/jira/browse/HDFS-3214) | InterDatanodeProtocolServerSideTranslatorPB doesn\'t handle null response from initReplicaRecovery |  Blocker | datanode | Todd Lipcon | Todd Lipcon |
-| [HADOOP-8261](https://issues.apache.org/jira/browse/HADOOP-8261) | Har file system doesn\'t deal with FS URIs with a host but no port |  Major | fs | Aaron T. Myers | Aaron T. Myers |
+| [HDFS-3214](https://issues.apache.org/jira/browse/HDFS-3214) | InterDatanodeProtocolServerSideTranslatorPB doesn't handle null response from initReplicaRecovery |  Blocker | datanode | Todd Lipcon | Todd Lipcon |
+| [HADOOP-8261](https://issues.apache.org/jira/browse/HADOOP-8261) | Har file system doesn't deal with FS URIs with a host but no port |  Major | fs | Aaron T. Myers | Aaron T. Myers |
 | [HDFS-3119](https://issues.apache.org/jira/browse/HDFS-3119) | Overreplicated block is not deleted even after the replication factor is reduced after sync follwed by closing that file |  Minor | namenode | J.Andreina | Ashish Singhi |
 | [HDFS-2995](https://issues.apache.org/jira/browse/HDFS-2995) | start-dfs.sh should only start the 2NN for namenodes with dfs.namenode.secondary.http-address configured |  Major | scripts | Todd Lipcon | Eli Collins |
 | [MAPREDUCE-4105](https://issues.apache.org/jira/browse/MAPREDUCE-4105) | Yarn RackResolver ignores rack configurations |  Major | mrv2 | Ahmed Radwan | Ahmed Radwan |
@@ -261,7 +261,7 @@
 | [MAPREDUCE-4076](https://issues.apache.org/jira/browse/MAPREDUCE-4076) | Stream job fails with ZipException when use yarn jar command |  Blocker | mrv2 | Devaraj K | Devaraj K |
 | [HDFS-3248](https://issues.apache.org/jira/browse/HDFS-3248) | bootstrapstanby repeated twice in hdfs namenode usage message |  Minor | . | Colin P. McCabe | Colin P. McCabe |
 | [HDFS-2696](https://issues.apache.org/jira/browse/HDFS-2696) | Fix the fuse-fds build |  Major | build, fuse-dfs | Petru Dimulescu | Bruno Mahé |
-| [HDFS-3254](https://issues.apache.org/jira/browse/HDFS-3254) | Branch-2 build broken due to wrong version number in fuse-dfs\' pom.xml |  Major | fuse-dfs | Anupam Seth | Anupam Seth |
+| [HDFS-3254](https://issues.apache.org/jira/browse/HDFS-3254) | Branch-2 build broken due to wrong version number in fuse-dfs' pom.xml |  Major | fuse-dfs | Anupam Seth | Anupam Seth |
 | [HDFS-3260](https://issues.apache.org/jira/browse/HDFS-3260) | TestDatanodeRegistration should set minimum DN version in addition to minimum NN version |  Major | . | Aaron T. Myers | Aaron T. Myers |
 | [HDFS-3255](https://issues.apache.org/jira/browse/HDFS-3255) | HA DFS returns wrong token service |  Critical | ha, hdfs-client | Daryn Sharp | Daryn Sharp |
 | [HDFS-3256](https://issues.apache.org/jira/browse/HDFS-3256) | HDFS considers blocks under-replicated if topology script is configured with only 1 rack |  Major | . | Aaron T. Myers | Aaron T. Myers |
@@ -287,22 +287,22 @@
 | [HDFS-3326](https://issues.apache.org/jira/browse/HDFS-3326) | Append enabled log message uses the wrong variable |  Trivial | namenode | J.Andreina | Matthew Jacobs |
 | [MAPREDUCE-4202](https://issues.apache.org/jira/browse/MAPREDUCE-4202) | TestYarnClientProtocolProvider is broken |  Major | test | Daryn Sharp | Daryn Sharp |
 | [HADOOP-8275](https://issues.apache.org/jira/browse/HADOOP-8275) | Range check DelegationKey length |  Minor | . | Colin P. McCabe | Colin P. McCabe |
-| [MAPREDUCE-3173](https://issues.apache.org/jira/browse/MAPREDUCE-3173) | MRV2 UI doesn\'t work properly without internet |  Critical | mrv2 | Devaraj K | Devaraj K |
+| [MAPREDUCE-3173](https://issues.apache.org/jira/browse/MAPREDUCE-3173) | MRV2 UI doesn't work properly without internet |  Critical | mrv2 | Devaraj K | Devaraj K |
 | [HDFS-3336](https://issues.apache.org/jira/browse/HDFS-3336) | hdfs launcher script will be better off not special casing namenode command with regards to hadoop.security.logger |  Minor | scripts | Roman Shaposhnik | Roman Shaposhnik |
 | [HDFS-3351](https://issues.apache.org/jira/browse/HDFS-3351) | NameNode#initializeGenericKeys should always set fs.defaultFS regardless of whether HA or Federation is enabled |  Major | namenode | Aaron T. Myers | Aaron T. Myers |
-| [HADOOP-8347](https://issues.apache.org/jira/browse/HADOOP-8347) | Hadoop Common logs misspell \'successful\' |  Major | security | Philip Zeyliger | Philip Zeyliger |
+| [HADOOP-8347](https://issues.apache.org/jira/browse/HADOOP-8347) | Hadoop Common logs misspell 'successful' |  Major | security | Philip Zeyliger | Philip Zeyliger |
 | [HDFS-3332](https://issues.apache.org/jira/browse/HDFS-3332) | NullPointerException in DN when directoryscanner is trying to report bad blocks |  Major | datanode | amith | amith |
-| [HDFS-3350](https://issues.apache.org/jira/browse/HDFS-3350) | findbugs warning: INodeFileUnderConstruction doesn\'t override INodeFile.equals(Object) |  Major | namenode | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
+| [HDFS-3350](https://issues.apache.org/jira/browse/HDFS-3350) | findbugs warning: INodeFileUnderConstruction doesn't override INodeFile.equals(Object) |  Major | namenode | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HADOOP-8355](https://issues.apache.org/jira/browse/HADOOP-8355) | SPNEGO filter throws/logs exception when authentication fails |  Minor | security | Alejandro Abdelnur | Alejandro Abdelnur |
 | [MAPREDUCE-3958](https://issues.apache.org/jira/browse/MAPREDUCE-3958) | RM: Remove RMNodeState and replace it with NodeState |  Major | mrv2 | Bikas Saha | Bikas Saha |
 | [HDFS-3357](https://issues.apache.org/jira/browse/HDFS-3357) | DataXceiver reads from client socket with incorrect/no timeout |  Critical | datanode | Todd Lipcon | Todd Lipcon |
-| [HDFS-3303](https://issues.apache.org/jira/browse/HDFS-3303) | RemoteEditLogManifest doesn\'t need to implements Writable |  Minor | namenode | Brandon Li | Brandon Li |
-| [HADOOP-8349](https://issues.apache.org/jira/browse/HADOOP-8349) | ViewFS doesn\'t work when the root of a file system is mounted |  Major | viewfs | Aaron T. Myers | Aaron T. Myers |
+| [HDFS-3303](https://issues.apache.org/jira/browse/HDFS-3303) | RemoteEditLogManifest doesn't need to implements Writable |  Minor | namenode | Brandon Li | Brandon Li |
+| [HADOOP-8349](https://issues.apache.org/jira/browse/HADOOP-8349) | ViewFS doesn't work when the root of a file system is mounted |  Major | viewfs | Aaron T. Myers | Aaron T. Myers |
 | [HDFS-3376](https://issues.apache.org/jira/browse/HDFS-3376) | DFSClient fails to make connection to DN if there are many unusable cached sockets |  Critical | hdfs-client | Todd Lipcon | Todd Lipcon |
 | [MAPREDUCE-4231](https://issues.apache.org/jira/browse/MAPREDUCE-4231) | Update RAID to not to use FSInodeInfo |  Major | contrib/raid | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HDFS-3328](https://issues.apache.org/jira/browse/HDFS-3328) | NPE in DataNode.getIpcPort |  Minor | datanode | Uma Maheswara Rao G | Eli Collins |
 | [HDFS-3396](https://issues.apache.org/jira/browse/HDFS-3396) | FUSE build fails on Ubuntu 12.04 |  Minor | fuse-dfs | Colin P. McCabe | Colin P. McCabe |
-| [HDFS-3395](https://issues.apache.org/jira/browse/HDFS-3395) | NN doesn\'t start with HA+security enabled and HTTP address set to 0.0.0.0 |  Major | namenode | Aaron T. Myers | Aaron T. Myers |
+| [HDFS-3395](https://issues.apache.org/jira/browse/HDFS-3395) | NN doesn't start with HA+security enabled and HTTP address set to 0.0.0.0 |  Major | namenode | Aaron T. Myers | Aaron T. Myers |
 | [HDFS-3026](https://issues.apache.org/jira/browse/HDFS-3026) | HA: Handle failure during HA state transition |  Major | ha, namenode | Aaron T. Myers | Aaron T. Myers |
 | [HDFS-3330](https://issues.apache.org/jira/browse/HDFS-3330) | If GetImageServlet throws an Error or RTE, response has HTTP "OK" status |  Critical | namenode | Todd Lipcon | Todd Lipcon |
 | [HADOOP-7827](https://issues.apache.org/jira/browse/HADOOP-7827) | jsp pages missing DOCTYPE |  Trivial | . | Dave Vronay | Dave Vronay |

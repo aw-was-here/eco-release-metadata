@@ -103,7 +103,7 @@ Adds a new contrib, bash-tab-completion, which enables bash tab completion for t
 
 * [HADOOP-3730](https://issues.apache.org/jira/browse/HADOOP-3730) | *Major* | **add new JobConf constructor that disables loading default configurations**
 
- Added a JobConf constructor that disables loading  default configurations so as to take all default values from the JobTracker\'s configuration.
+ Added a JobConf constructor that disables loading  default configurations so as to take all default values from the JobTracker's configuration.
 
 
 ---
@@ -220,9 +220,9 @@ Added a configuration property hadoop.http.filter.initializers and a class org.a
 
 ---
 
-* [HADOOP-3908](https://issues.apache.org/jira/browse/HADOOP-3908) | *Minor* | **Better error message if llibhdfs.so doesn\'t exist**
+* [HADOOP-3908](https://issues.apache.org/jira/browse/HADOOP-3908) | *Minor* | **Better error message if llibhdfs.so doesn't exist**
 
-Improved Fuse-dfs better error message if llibhdfs.so doesn\'t exist.
+Improved Fuse-dfs better error message if llibhdfs.so doesn't exist.
 
 
 ---
@@ -234,7 +234,7 @@ Introduced Fair Scheduler.
 
 ---
 
-* [HADOOP-3828](https://issues.apache.org/jira/browse/HADOOP-3828) | *Major* | **Write skipped records\' bytes to DFS**
+* [HADOOP-3828](https://issues.apache.org/jira/browse/HADOOP-3828) | *Major* | **Write skipped records' bytes to DFS**
 
 Skipped records can optionally be written to the HDFS. Refer org.apache.hadoop.mapred.SkipBadRecords.setSkipOutputPath for setting the output path.
 
@@ -293,7 +293,7 @@ Added HDFS file access times. By default, access times will be precise to the mo
 
 * [HADOOP-3581](https://issues.apache.org/jira/browse/HADOOP-3581) | *Major* | **Prevent memory intensive user tasks from taking down nodes**
 
-Added the ability to kill process trees transgressing memory limits. TaskTracker uses the configuration parameters introduced in HADOOP-3759. In addition, mapred.tasktracker.taskmemorymanager.monitoring-interval specifies the interval for which TT waits between cycles of monitoring tasks\' memory usage, and mapred.tasktracker.procfsbasedprocesstree.sleeptime-before-sigkill specifies the time TT waits for sending a SIGKILL to a process-tree that has overrun memory limits, after it has been sent a SIGTERM.
+Added the ability to kill process trees transgressing memory limits. TaskTracker uses the configuration parameters introduced in HADOOP-3759. In addition, mapred.tasktracker.taskmemorymanager.monitoring-interval specifies the interval for which TT waits between cycles of monitoring tasks' memory usage, and mapred.tasktracker.procfsbasedprocesstree.sleeptime-before-sigkill specifies the time TT waits for sending a SIGKILL to a process-tree that has overrun memory limits, after it has been sent a SIGTERM.
 
 
 ---
@@ -342,7 +342,7 @@ Introduced recovery of jobs when JobTracker restarts. This facility is off by de
 
 ---
 
-* [HADOOP-3911](https://issues.apache.org/jira/browse/HADOOP-3911) | *Minor* | **\' -blocks \' option not being recognized**
+* [HADOOP-3911](https://issues.apache.org/jira/browse/HADOOP-3911) | *Minor* | **' -blocks ' option not being recognized**
 
 Added a check to fsck options to make sure -files is not the first option so as to resolve conflicts with GenericOptionsParser.
 
@@ -435,7 +435,7 @@ Removed the deprecated class org.apache.hadoop.fs.ShellCommand.
 
 * [HADOOP-3019](https://issues.apache.org/jira/browse/HADOOP-3019) | *Major* | **want input sampler & sorted partitioner**
 
-Added a partitioner that effects a total order of output data, and an input sampler for generating the partition keyset for TotalOrderPartitioner for when the map\'s input keytype and distribution approximates its output.
+Added a partitioner that effects a total order of output data, and an input sampler for generating the partition keyset for TotalOrderPartitioner for when the map's input keytype and distribution approximates its output.
 
 
 ---
@@ -505,7 +505,7 @@ Added LIMIT to Hive query language.
 
 * [HADOOP-4466](https://issues.apache.org/jira/browse/HADOOP-4466) | *Blocker* | **SequenceFileOutputFormat is coupled to WritableComparable and Writable**
 
-Ensure that SequenceFileOutputFormat isn\'t tied to Writables and can be used with other Serialization frameworks.
+Ensure that SequenceFileOutputFormat isn't tied to Writables and can be used with other Serialization frameworks.
 
 
 ---

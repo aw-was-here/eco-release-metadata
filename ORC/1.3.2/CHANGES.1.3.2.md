@@ -26,8 +26,8 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [ORC-141](https://issues.apache.org/jira/browse/ORC-141) | inconsistent memorymanager usage after PhysicalWriter patch |  Major | . | Sergey Shelukhin | Owen O\'Malley |
+| [ORC-141](https://issues.apache.org/jira/browse/ORC-141) | inconsistent memorymanager usage after PhysicalWriter patch |  Major | . | Sergey Shelukhin | Owen O'Malley |
 | [ORC-135](https://issues.apache.org/jira/browse/ORC-135) | PPD for timestamp is wrong when reader and writer timezones are different |  Critical | . | Prasanth Jayachandran | Prasanth Jayachandran |
-| [ORC-142](https://issues.apache.org/jira/browse/ORC-142) | When reading pre-ORC-135 files, the timestamp statistics are wrong. |  Major | Java | Owen O\'Malley | Owen O\'Malley |
+| [ORC-142](https://issues.apache.org/jira/browse/ORC-142) | When reading pre-ORC-135 files, the timestamp statistics are wrong. |  Major | Java | Owen O'Malley | Owen O'Malley |
 
 

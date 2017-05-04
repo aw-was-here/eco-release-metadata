@@ -35,5 +35,6 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [MAHOUT-1902](https://issues.apache.org/jira/browse/MAHOUT-1902) | Parse Spark and Mahout variable arguments from the Mahout spark-shell |  Major | Mahout spark shell | Andrew Palumbo |  |
 | [MAHOUT-1971](https://issues.apache.org/jira/browse/MAHOUT-1971) | Aggregate Transpose Bug |  Major | . | Trevor Grant | Trevor Grant |
+| [MAHOUT-1897](https://issues.apache.org/jira/browse/MAHOUT-1897) | Mahout Shell is running with a lag |  Major | Mahout spark shell | Andrew Palumbo |  |
 
 

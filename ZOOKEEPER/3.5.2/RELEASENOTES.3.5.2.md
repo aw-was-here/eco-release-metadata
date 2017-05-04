@@ -23,14 +23,14 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
-* [ZOOKEEPER-1077](https://issues.apache.org/jira/browse/ZOOKEEPER-1077) | *Critical* | **C client lib doesn\'t build on Solaris**
+* [ZOOKEEPER-1077](https://issues.apache.org/jira/browse/ZOOKEEPER-1077) | *Critical* | **C client lib doesn't build on Solaris**
 
 Support for building C client lib on Illumos (and presumably OpenSolaris).  Configure with "CPPFLAGS=-D\_POSIX\_PTHREAD\_SEMANTICS LDFLAGS="-lnsl -lsocket" ./configure"
 
 
 ---
 
-* [ZOOKEEPER-1853](https://issues.apache.org/jira/browse/ZOOKEEPER-1853) | *Minor* | **zkCli.sh can\'t issue a CREATE command containing spaces in the data**
+* [ZOOKEEPER-1853](https://issues.apache.org/jira/browse/ZOOKEEPER-1853) | *Minor* | **zkCli.sh can't issue a CREATE command containing spaces in the data**
 
 Allows spaces to be used for parameters in zkCli as long as they are in single or double quotes.  ie: create /node1 "This will now work"
 
@@ -39,12 +39,12 @@ Allows spaces to be used for parameters in zkCli as long as they are in single o
 
 * [ZOOKEEPER-1929](https://issues.apache.org/jira/browse/ZOOKEEPER-1929) | *Major* | **std::length\_error on update children**
 
-Fix a bug in zkfuse that causes an abort upon reading a node\'s content
+Fix a bug in zkfuse that causes an abort upon reading a node's content
 
 
 ---
 
-* [ZOOKEEPER-2413](https://issues.apache.org/jira/browse/ZOOKEEPER-2413) | *Major* | **ContainerManager doesn\'t close the Timer it creates when stop() is called**
+* [ZOOKEEPER-2413](https://issues.apache.org/jira/browse/ZOOKEEPER-2413) | *Major* | **ContainerManager doesn't close the Timer it creates when stop() is called**
 
 Thanks, Jordan.
 

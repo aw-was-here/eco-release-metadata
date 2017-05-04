@@ -53,7 +53,7 @@ Added UDF to allow interrogation of uniontype values.
 
 * [HIVE-16049](https://issues.apache.org/jira/browse/HIVE-16049) | *Major* | **upgrade to jetty 9**
 
-Embedded web services now rely on Jetty 9; downstream users who rely on Hive\'s classpath for their Jetty jars will need to update their use for the change.
+Embedded web services now rely on Jetty 9; downstream users who rely on Hive's classpath for their Jetty jars will need to update their use for the change.
 
 
 ---

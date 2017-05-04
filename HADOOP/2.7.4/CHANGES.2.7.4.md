@@ -69,7 +69,7 @@
 | [HDFS-11628](https://issues.apache.org/jira/browse/HDFS-11628) | Clarify the behavior of HDFS Mover in documentation |  Major | documentation | Xiaobing Zhou | Xiaobing Zhou |
 | [HADOOP-14276](https://issues.apache.org/jira/browse/HADOOP-14276) | Add a nanosecond API to Time/Timer/FakeTimer |  Minor | util | Erik Krogen | Erik Krogen |
 | [HDFS-11634](https://issues.apache.org/jira/browse/HDFS-11634) | Optimize BlockIterator when iterating starts in the middle. |  Major | . | Konstantin Shvachko | Konstantin Shvachko |
-| [HDFS-11384](https://issues.apache.org/jira/browse/HDFS-11384) | Add option for balancer to disperse getBlocks calls to avoid NameNode\'s rpc.CallQueueLength spike |  Major | balancer & mover | yunjiong zhao | Konstantin Shvachko |
+| [HDFS-11384](https://issues.apache.org/jira/browse/HDFS-11384) | Add option for balancer to disperse getBlocks calls to avoid NameNode's rpc.CallQueueLength spike |  Major | balancer & mover | yunjiong zhao | Konstantin Shvachko |
 | [HDFS-8873](https://issues.apache.org/jira/browse/HDFS-8873) | Allow the directoryScanner to be rate-limited |  Major | datanode | Nathan Roberts | Daniel Templeton |
 
 
@@ -79,7 +79,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YARN-3269](https://issues.apache.org/jira/browse/YARN-3269) | Yarn.nodemanager.remote-app-log-dir could not be configured to fully qualified path |  Major | . | Xuan Gong | Xuan Gong |
 | [HADOOP-11859](https://issues.apache.org/jira/browse/HADOOP-11859) | PseudoAuthenticationHandler fails with httpcomponents v4.4 |  Major | . | Eugene Koifman | Eugene Koifman |
-| [YARN-3707](https://issues.apache.org/jira/browse/YARN-3707) | RM Web UI queue filter doesn\'t work |  Blocker | . | Wangda Tan | Wangda Tan |
+| [YARN-3707](https://issues.apache.org/jira/browse/YARN-3707) | RM Web UI queue filter doesn't work |  Blocker | . | Wangda Tan | Wangda Tan |
 | [HDFS-8682](https://issues.apache.org/jira/browse/HDFS-8682) | Should not remove decommissioned node,while calculating the number of live/dead decommissioned node. |  Major | . | J.Andreina | J.Andreina |
 | [HDFS-5802](https://issues.apache.org/jira/browse/HDFS-5802) | NameNode does not check for inode type before traversing down a path |  Trivial | namenode | Harsh J | Xiao Chen |
 | [HADOOP-12483](https://issues.apache.org/jira/browse/HADOOP-12483) | Maintain wrapped SASL ordering for postponed IPC responses |  Critical | ipc | Daryn Sharp | Daryn Sharp |
@@ -95,7 +95,7 @@
 | [HDFS-10512](https://issues.apache.org/jira/browse/HDFS-10512) | VolumeScanner may terminate due to NPE in DataNode.reportBadBlocks |  Major | datanode | Wei-Chiu Chuang | Yiqun Lin |
 | [YARN-5353](https://issues.apache.org/jira/browse/YARN-5353) | ResourceManager can leak delegation tokens when they are shared across apps |  Critical | resourcemanager | Jason Lowe | Jason Lowe |
 | [HADOOP-11361](https://issues.apache.org/jira/browse/HADOOP-11361) | Fix a race condition in MetricsSourceAdapter.updateJmxCache |  Major | . | Brahma Reddy Battula | Brahma Reddy Battula |
-| [HDFS-10544](https://issues.apache.org/jira/browse/HDFS-10544) | Balancer doesn\'t work with IPFailoverProxyProvider |  Major | balancer & mover, ha | Zhe Zhang | Zhe Zhang |
+| [HDFS-10544](https://issues.apache.org/jira/browse/HDFS-10544) | Balancer doesn't work with IPFailoverProxyProvider |  Major | balancer & mover, ha | Zhe Zhang | Zhe Zhang |
 | [HADOOP-13202](https://issues.apache.org/jira/browse/HADOOP-13202) | Avoid possible overflow in org.apache.hadoop.util.bloom.BloomFilter#getNBytes |  Major | util | zhengbing li | Kai Sasaki |
 | [HADOOP-12991](https://issues.apache.org/jira/browse/HADOOP-12991) | Conflicting default ports in DelegateToFileSystem |  Major | fs | Kevin Hogeland | Kai Sasaki |
 | [MAPREDUCE-6744](https://issues.apache.org/jira/browse/MAPREDUCE-6744) | Increase timeout on TestDFSIO tests |  Major | . | Eric Badger | Eric Badger |
@@ -145,7 +145,7 @@
 | [HADOOP-13236](https://issues.apache.org/jira/browse/HADOOP-13236) | truncate will fail when we use viewfilesystem |  Major | . | Brahma Reddy Battula | Brahma Reddy Battula |
 | [HDFS-11015](https://issues.apache.org/jira/browse/HDFS-11015) | Enforce timeout in balancer |  Major | balancer & mover | Kihwal Lee | Kihwal Lee |
 | [HDFS-11053](https://issues.apache.org/jira/browse/HDFS-11053) | Unnecessary superuser check in versionRequest() |  Major | namenode, security | Kihwal Lee | Kihwal Lee |
-| [HDFS-10921](https://issues.apache.org/jira/browse/HDFS-10921) | TestDiskspaceQuotaUpdate doesn\'t wait for NN to get out of safe mode |  Major | . | Eric Badger | Eric Badger |
+| [HDFS-10921](https://issues.apache.org/jira/browse/HDFS-10921) | TestDiskspaceQuotaUpdate doesn't wait for NN to get out of safe mode |  Major | . | Eric Badger | Eric Badger |
 | [HADOOP-13201](https://issues.apache.org/jira/browse/HADOOP-13201) | Print the directory paths when ViewFs denies the rename operation on internal dirs |  Major | viewfs | Tianyin Xu | Rakesh R |
 | [YARN-4328](https://issues.apache.org/jira/browse/YARN-4328) | Findbugs warning in resourcemanager in branch-2.7 and branch-2.6 |  Minor | resourcemanager | Varun Saxena | Akira Ajisaka |
 | [YARN-3432](https://issues.apache.org/jira/browse/YARN-3432) | Cluster metrics have wrong Total Memory when there is reserved memory on CS |  Major | capacityscheduler, resourcemanager | Thomas Graves | Brahma Reddy Battula |
@@ -165,7 +165,7 @@
 | [HDFS-11229](https://issues.apache.org/jira/browse/HDFS-11229) | HDFS-11056 failed to close meta file |  Blocker | datanode | Wei-Chiu Chuang | Wei-Chiu Chuang |
 | [HDFS-11160](https://issues.apache.org/jira/browse/HDFS-11160) | VolumeScanner reports write-in-progress replicas as corrupt incorrectly |  Major | datanode | Wei-Chiu Chuang | Wei-Chiu Chuang |
 | [HDFS-11263](https://issues.apache.org/jira/browse/HDFS-11263) | ClassCastException when we use Bzipcodec for Fsimage compression |  Critical | . | Brahma Reddy Battula | Brahma Reddy Battula |
-| [YARN-6024](https://issues.apache.org/jira/browse/YARN-6024) | Capacity Scheduler \'continuous reservation looking\' doesn\'t work when sum of queue\'s used and reserved resources is equal to max |  Major | . | Wangda Tan | Wangda Tan |
+| [YARN-6024](https://issues.apache.org/jira/browse/YARN-6024) | Capacity Scheduler 'continuous reservation looking' doesn't work when sum of queue's used and reserved resources is equal to max |  Major | . | Wangda Tan | Wangda Tan |
 | [HADOOP-13839](https://issues.apache.org/jira/browse/HADOOP-13839) | Fix outdated tracing documentation |  Minor | documentation, tracing | Masatake Iwasaki | Elek, Marton |
 | [HDFS-11280](https://issues.apache.org/jira/browse/HDFS-11280) | Allow WebHDFS to reuse HTTP connections to NN |  Major | hdfs | Zheng Shao | Zheng Shao |
 | [MAPREDUCE-6711](https://issues.apache.org/jira/browse/MAPREDUCE-6711) | JobImpl fails to handle preemption events on state COMMITTING |  Major | . | Li Lu | Prabhu Joseph |
@@ -180,7 +180,7 @@
 | [YARN-1728](https://issues.apache.org/jira/browse/YARN-1728) | Workaround guice3x-undecoded pathInfo in YARN WebApp |  Major | . | Abraham Elmahrek | Yuanbo Liu |
 | [YARN-6310](https://issues.apache.org/jira/browse/YARN-6310) | OutputStreams in AggregatedLogFormat.LogWriter can be left open upon exceptions |  Major | yarn | Haibo Chen | Haibo Chen |
 | [HDFS-11499](https://issues.apache.org/jira/browse/HDFS-11499) | Decommissioning stuck because of failing recovery |  Major | hdfs, namenode | Lukas Majercak | Lukas Majercak |
-| [HADOOP-9631](https://issues.apache.org/jira/browse/HADOOP-9631) | ViewFs should use underlying FileSystem\'s server side defaults |  Major | fs, viewfs | Lohit Vijayarenu | Erik Krogen |
+| [HADOOP-9631](https://issues.apache.org/jira/browse/HADOOP-9631) | ViewFs should use underlying FileSystem's server side defaults |  Major | fs, viewfs | Lohit Vijayarenu | Erik Krogen |
 | [HADOOP-14195](https://issues.apache.org/jira/browse/HADOOP-14195) | CredentialProviderFactory$getProviders is not thread-safe |  Major | security | Vihang Karajgaonkar | Vihang Karajgaonkar |
 | [HADOOP-14211](https://issues.apache.org/jira/browse/HADOOP-14211) | FilterFs and ChRootedFs are too aggressive about enforcing "authorityNeeded" |  Major | viewfs | Erik Krogen | Erik Krogen |
 | [HDFS-11486](https://issues.apache.org/jira/browse/HDFS-11486) | Client close() should not fail fast if the last block is being decommissioned |  Major | . | Wei-Chiu Chuang | Wei-Chiu Chuang |
@@ -192,7 +192,7 @@
 | [HDFS-11615](https://issues.apache.org/jira/browse/HDFS-11615) | FSNamesystemLock metrics can be inaccurate due to millisecond precision |  Major | hdfs | Erik Krogen | Erik Krogen |
 | [HDFS-11709](https://issues.apache.org/jira/browse/HDFS-11709) | StandbyCheckpointer should handle an non-existing legacyOivImageDir gracefully |  Critical | ha, namenode | Zhe Zhang | Erik Krogen |
 | [HDFS-11609](https://issues.apache.org/jira/browse/HDFS-11609) | Some blocks can be permanently lost if nodes are decommissioned while dead |  Blocker | namenode | Kihwal Lee | Kihwal Lee |
-| [HDFS-11714](https://issues.apache.org/jira/browse/HDFS-11714) | Newly added NN storage directory won\'t get initialized and cause space exhaustion |  Critical | . | Kihwal Lee | Kihwal Lee |
+| [HDFS-11714](https://issues.apache.org/jira/browse/HDFS-11714) | Newly added NN storage directory won't get initialized and cause space exhaustion |  Critical | . | Kihwal Lee | Kihwal Lee |
 | [HADOOP-14371](https://issues.apache.org/jira/browse/HADOOP-14371) | License error in TestLoadBalancingKMSClientProvider.java |  Major | . | hu xiaodong | hu xiaodong |
 
 
@@ -224,7 +224,7 @@
 | [HDFS-10674](https://issues.apache.org/jira/browse/HDFS-10674) | Optimize creating a full path from an inode |  Major | hdfs | Daryn Sharp | Daryn Sharp |
 | [HDFS-10655](https://issues.apache.org/jira/browse/HDFS-10655) | Fix path related byte array conversion bugs |  Major | hdfs | Daryn Sharp | Daryn Sharp |
 | [HDFS-10662](https://issues.apache.org/jira/browse/HDFS-10662) | Optimize UTF8 string/byte conversions |  Major | hdfs | Daryn Sharp | Daryn Sharp |
-| [HDFS-10673](https://issues.apache.org/jira/browse/HDFS-10673) | Optimize FSPermissionChecker\'s internal path usage |  Major | hdfs | Daryn Sharp | Daryn Sharp |
+| [HDFS-10673](https://issues.apache.org/jira/browse/HDFS-10673) | Optimize FSPermissionChecker's internal path usage |  Major | hdfs | Daryn Sharp | Daryn Sharp |
 | [HDFS-10744](https://issues.apache.org/jira/browse/HDFS-10744) | Internally optimize path component resolution |  Major | hdfs | Daryn Sharp | Daryn Sharp |
 | [HDFS-10896](https://issues.apache.org/jira/browse/HDFS-10896) | Move lock logging logic from FSNamesystem into FSNamesystemLock |  Major | namenode | Erik Krogen | Erik Krogen |
 | [HDFS-10745](https://issues.apache.org/jira/browse/HDFS-10745) | Directly resolve paths into INodesInPath |  Major | hdfs | Daryn Sharp | Daryn Sharp |

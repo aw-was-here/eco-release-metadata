@@ -23,9 +23,9 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
-* [SPARK-12016](https://issues.apache.org/jira/browse/SPARK-12016) | *Major* | **word2vec load model can\'t use findSynonyms to get words**
+* [SPARK-12016](https://issues.apache.org/jira/browse/SPARK-12016) | *Major* | **word2vec load model can't use findSynonyms to get words**
 
-I use word2vec.fit to train a word2vecModel and then save the model to file system. when I load the model from file system, I found I can use transform(\'a\') to get a vector, but I can\'t use findSynonyms(\'a\', 2) to get some words.
+I use word2vec.fit to train a word2vecModel and then save the model to file system. when I load the model from file system, I found I can use transform('a') to get a vector, but I can't use findSynonyms('a', 2) to get some words.
 
 I use the fellow code to test word2vec
 
@@ -35,8 +35,8 @@ from pyspark.mllib.feature import Word2Vec, Word2VecModel
 import os, tempfile
 from shutil import rmtree
 
-if \_\_name\_\_ == \'\_\_main\_\_\':
-    sc = SparkContext(\'local\', \'test\')
+if \_\_name\_\_ == '\_\_main\_\_':
+    sc = SparkContext('local', 'test')
     sentence = "a b " \* 100 + "a c " \* 10
     localDoc = [sentence, sentence]
     doc = sc.parallelize(localDoc).map(lambda line: line.split(" "))
@@ -55,23 +55,23 @@ if \_\_name\_\_ == \'\_\_main\_\_\':
     except OSError:
         pass
 
-I got "[u\'b\', u\'c\']" when the first printf
-then the “True” and " [u\'\_\_class\_\_\'] "
-I don\'t know how to get \'b\' or \'c\' with sameModel.findSynonyms("a", 2)
+I got "[u'b', u'c']" when the first printf
+then the “True” and " [u'\_\_class\_\_'] "
+I don't know how to get 'b' or 'c' with sameModel.findSynonyms("a", 2)
 
 
 ---
 
 * [SPARK-13195](https://issues.apache.org/jira/browse/SPARK-13195) | *Major* | **PairDStreamFunctions.mapWithState fails in case timeout is set without updating State[S]**
 
-Using the new spark mapWithState API, I\'ve encountered a bug when setting a timeout for mapWithState but no explicit state handling.
+Using the new spark mapWithState API, I've encountered a bug when setting a timeout for mapWithState but no explicit state handling.
 
 h1. Steps to reproduce:
 
 1. Create a method which conforms to the StateSpec signature, make sure to not update any state inside it using \*state.update\*. Simply create a "pass through" method, may even be empty.
 2. Create a StateSpec object with method from step 1, which explicitly sets a timeout using \*StateSpec.timeout\* method.
 3. Create a DStream pipeline that uses mapWithState with the given StateSpec.
-4. Run code using spark-submit. You\'ll see that the method ends up throwing the following exception:
+4. Run code using spark-submit. You'll see that the method ends up throwing the following exception:
 
 {code}
 org.apache.spark.SparkException: Job aborted due to stage failure: Task 0 in stage 136.0 failed 4 times, most recent failure: Lost task 0.3 in stage 136.0 (TID 176, \*\*\*\*): java.util.NoSuchElementException: State is not set
@@ -129,7 +129,7 @@ object Program {
 
     ssc.remember(Minutes(1)) // To make sure data is not deleted by the time we query it interactively
 
-    // Don\'t forget to set checkpoint directory
+    // Don't forget to set checkpoint directory
     ssc.checkpoint("")
     ssc.start()
     ssc.awaitTermination()
@@ -192,11 +192,11 @@ dataIterator.foreach { case (key, value) =\>
 }
 {code}
 
-In case the stream has a timeout set, but the state wasn\'t set at all, the "else-if" will still follow through because the timeout is defined but "wrappedState" is empty and wasn\'t set.
+In case the stream has a timeout set, but the state wasn't set at all, the "else-if" will still follow through because the timeout is defined but "wrappedState" is empty and wasn't set.
 
-If it is mandatory to update state for each entry of \*mapWithState\*, then this code should throw a better exception than "NoSuchElementException", which doesn\'t really saw anything to the developer.
+If it is mandatory to update state for each entry of \*mapWithState\*, then this code should throw a better exception than "NoSuchElementException", which doesn't really saw anything to the developer.
 
-I haven\'t provided a fix myself because I\'m not familiar with the spark implementation, but it seems to be there needs to either be an extra check if the state is set, or as previously stated a better exception message.
+I haven't provided a fix myself because I'm not familiar with the spark implementation, but it seems to be there needs to either be an extra check if the state is set, or as previously stated a better exception message.
 
 
 

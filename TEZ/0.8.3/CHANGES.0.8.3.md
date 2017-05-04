@@ -51,7 +51,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [TEZ-1491](https://issues.apache.org/jira/browse/TEZ-1491) | Tez reducer-side merge\'s counter update is slow |  Major | . | Gopal V | Gopal V |
+| [TEZ-1491](https://issues.apache.org/jira/browse/TEZ-1491) | Tez reducer-side merge's counter update is slow |  Major | . | Gopal V | Gopal V |
 | [TEZ-3032](https://issues.apache.org/jira/browse/TEZ-3032) | DAG start time getting logged using system time instead of recorded time in startTime field |  Minor | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-3037](https://issues.apache.org/jira/browse/TEZ-3037) | History URL should be set regardless of which history logging service is enabled |  Major | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-2937](https://issues.apache.org/jira/browse/TEZ-2937) | Can Processor.close() be called after closing inputs and outputs? |  Major | . | Rohini Palaniswamy | Jonathan Eagles |
@@ -65,7 +65,7 @@
 | [TEZ-2307](https://issues.apache.org/jira/browse/TEZ-2307) | Possible wrong error message when submitting new dag |  Major | . | Jeff Zhang | Jeff Zhang |
 | [TEZ-3089](https://issues.apache.org/jira/browse/TEZ-3089) | TaskConcurrencyAnalyzer can return negative task count with very large jobs |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-3103](https://issues.apache.org/jira/browse/TEZ-3103) | Shuffle can hang when memory to memory merging enabled |  Critical | . | Jason Lowe | Jason Lowe |
-| [TEZ-3101](https://issues.apache.org/jira/browse/TEZ-3101) | Tez UI: Task attempt log link doesn\'t have the correct protocol |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
+| [TEZ-3101](https://issues.apache.org/jira/browse/TEZ-3101) | Tez UI: Task attempt log link doesn't have the correct protocol |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-3117](https://issues.apache.org/jira/browse/TEZ-3117) | Deadlock in Edge and Vertex code |  Major | . | Yesha Vora | Bikas Saha |
 | [TEZ-3104](https://issues.apache.org/jira/browse/TEZ-3104) | Tez fails on Bzip2 intermediate output format on hadoop 2.7.1 and earlier |  Critical | . | Jonathan Eagles | Jonathan Eagles |
 | [TEZ-3123](https://issues.apache.org/jira/browse/TEZ-3123) | Containers can get re-used even with conflicting local resources |  Major | . | Hitesh Shah | Hitesh Shah |
@@ -76,7 +76,7 @@
 | [TEZ-3135](https://issues.apache.org/jira/browse/TEZ-3135) | tez-ext-service-tests, tez-plugins/tez-yarn-timeline-history and tez-tools/tez-javadoc-tools missing dependencies |  Major | . | Vijay Kumar | Vijay Kumar |
 | [TEZ-3124](https://issues.apache.org/jira/browse/TEZ-3124) | Running task hangs due to missing event to initialize input in recovery |  Major | . | Jeff Zhang | Jeff Zhang |
 | [TEZ-3102](https://issues.apache.org/jira/browse/TEZ-3102) | Fetch failure of a speculated task causes job hang |  Critical | . | Jason Lowe | Jason Lowe |
-| [TEZ-1911](https://issues.apache.org/jira/browse/TEZ-1911) | MergeManager\'s unconditionalReserve() should check for memory limits before allocating memory to IntermediateMemoryToMemoryMerger |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
+| [TEZ-1911](https://issues.apache.org/jira/browse/TEZ-1911) | MergeManager's unconditionalReserve() should check for memory limits before allocating memory to IntermediateMemoryToMemoryMerger |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-3114](https://issues.apache.org/jira/browse/TEZ-3114) | Shuffle OOM due to EventMetaData flood |  Major | . | Jason Lowe | Jason Lowe |
 | [TEZ-3129](https://issues.apache.org/jira/browse/TEZ-3129) | Tez task and task attempt UI needs application fails with NotFoundException |  Major | UI | Jonathan Eagles | Jonathan Eagles |
 | [TEZ-3128](https://issues.apache.org/jira/browse/TEZ-3128) | Avoid stopping containers on the AM shutdown thread |  Major | . | Siddharth Seth | Tsuyoshi Ozawa |
@@ -91,7 +91,7 @@
 | [TEZ-3105](https://issues.apache.org/jira/browse/TEZ-3105) | TezMxBeanResourceCalculator does not work on IBM JDK 7 or 8 causing Tez failures |  Major | . | Greg Senia | Greg Senia |
 | [TEZ-3148](https://issues.apache.org/jira/browse/TEZ-3148) | Invalid event TA\_TEZ\_EVENT\_UPDATE on TaskAttempt |  Major | . | Rajesh Balamohan | Tsuyoshi Ozawa |
 | [TEZ-2936](https://issues.apache.org/jira/browse/TEZ-2936) | Create ATS implementation that enables support for YARN-4265 |  Major | . | Hitesh Shah | Hitesh Shah |
-| [TEZ-3166](https://issues.apache.org/jira/browse/TEZ-3166) | Counters aren\'t fully updated and sent for failed tasks |  Major | . | Zhiyuan Yang | Zhiyuan Yang |
+| [TEZ-3166](https://issues.apache.org/jira/browse/TEZ-3166) | Counters aren't fully updated and sent for failed tasks |  Major | . | Zhiyuan Yang | Zhiyuan Yang |
 | [TEZ-3175](https://issues.apache.org/jira/browse/TEZ-3175) | Add tez client submit host |  Major | . | Jonathan Eagles | Jonathan Eagles |
 | [TEZ-2967](https://issues.apache.org/jira/browse/TEZ-2967) | Vertex start time should be that of first task start time in UI |  Major | UI | Rohini Palaniswamy | Jonathan Eagles |
 | [TEZ-3189](https://issues.apache.org/jira/browse/TEZ-3189) | Pre-warm dags should not be counted in submitted dags count by DAGAppMaster |  Trivial | . | Zhiyuan Yang | Zhiyuan Yang |

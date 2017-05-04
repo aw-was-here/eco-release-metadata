@@ -119,7 +119,7 @@
 | [HADOOP-9303](https://issues.apache.org/jira/browse/HADOOP-9303) | command manual dfsadmin missing entry for restoreFailedStorage option |  Major | . | Thomas Graves | Andy Isaacson |
 | [MAPREDUCE-5000](https://issues.apache.org/jira/browse/MAPREDUCE-5000) | TaskImpl.getCounters() can return the counters for the wrong task attempt when task is speculating |  Critical | mr-am | Jason Lowe | Jason Lowe |
 | [HDFS-4495](https://issues.apache.org/jira/browse/HDFS-4495) | Allow client-side lease renewal to be retried beyond soft-limit |  Major | hdfs-client | Kihwal Lee | Kihwal Lee |
-| [HADOOP-9154](https://issues.apache.org/jira/browse/HADOOP-9154) | SortedMapWritable#putAll() doesn\'t add key/value classes to the map |  Major | io | Karthik Kambatla | Karthik Kambatla |
+| [HADOOP-9154](https://issues.apache.org/jira/browse/HADOOP-9154) | SortedMapWritable#putAll() doesn't add key/value classes to the map |  Major | io | Karthik Kambatla | Karthik Kambatla |
 | [MAPREDUCE-5009](https://issues.apache.org/jira/browse/MAPREDUCE-5009) | Killing the Task Attempt slated for commit does not clear the value from the Task commitAttempt member |  Critical | mrv1 | Robert Parker | Robert Parker |
 | [YARN-400](https://issues.apache.org/jira/browse/YARN-400) | RM can return null application resource usage report leading to NPE in client |  Critical | resourcemanager | Jason Lowe | Jason Lowe |
 | [YARN-236](https://issues.apache.org/jira/browse/YARN-236) | RM should point tracking URL to RM web page when app fails to start |  Major | resourcemanager | Jason Lowe | Jason Lowe |
@@ -177,13 +177,13 @@
 | [HDFS-2495](https://issues.apache.org/jira/browse/HDFS-2495) | Increase granularity of write operations in ReplicationMonitor thus reducing contention for write lock |  Major | namenode | Tomasz Nykiel | Tomasz Nykiel |
 | [HDFS-2476](https://issues.apache.org/jira/browse/HDFS-2476) | More CPU efficient data structure for under-replicated/over-replicated/invalidate blocks |  Major | namenode | Tomasz Nykiel | Tomasz Nykiel |
 | [YARN-29](https://issues.apache.org/jira/browse/YARN-29) | Add a yarn-client module |  Major | client | Vinod Kumar Vavilapalli | Vinod Kumar Vavilapalli |
-| [HDFS-4542](https://issues.apache.org/jira/browse/HDFS-4542) | Webhdfs doesn\'t support secure proxy users |  Blocker | webhdfs | Daryn Sharp | Daryn Sharp |
+| [HDFS-4542](https://issues.apache.org/jira/browse/HDFS-4542) | Webhdfs doesn't support secure proxy users |  Blocker | webhdfs | Daryn Sharp | Daryn Sharp |
 | [HDFS-4560](https://issues.apache.org/jira/browse/HDFS-4560) | Webhdfs cannot use tokens obtained by another user |  Major | webhdfs | Daryn Sharp | Daryn Sharp |
 | [HDFS-4566](https://issues.apache.org/jira/browse/HDFS-4566) | Webdhfs token cancelation should use authentication |  Major | webhdfs | Daryn Sharp | Daryn Sharp |
 | [HDFS-4567](https://issues.apache.org/jira/browse/HDFS-4567) | Webhdfs does not need a token for token operations |  Major | webhdfs | Daryn Sharp | Daryn Sharp |
 | [HDFS-4577](https://issues.apache.org/jira/browse/HDFS-4577) | Webhdfs operations should declare if authentication is required |  Major | webhdfs | Daryn Sharp | Daryn Sharp |
 | [YARN-468](https://issues.apache.org/jira/browse/YARN-468) | coverage fix for org.apache.hadoop.yarn.server.webproxy.amfilter |  Major | . | Aleksey Gorshkov | Aleksey Gorshkov |
 | [YARN-200](https://issues.apache.org/jira/browse/YARN-200) | yarn log does not output all needed information, and is in a binary format |  Major | . | Robert Joseph Evans | Ravi Prakash |
-| [HDFS-4548](https://issues.apache.org/jira/browse/HDFS-4548) | Webhdfs doesn\'t renegotiate SPNEGO token |  Blocker | . | Daryn Sharp | Daryn Sharp |
+| [HDFS-4548](https://issues.apache.org/jira/browse/HDFS-4548) | Webhdfs doesn't renegotiate SPNEGO token |  Blocker | . | Daryn Sharp | Daryn Sharp |
 
 

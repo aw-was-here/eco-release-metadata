@@ -100,9 +100,9 @@ The upgrade is due to an already disclosed vulnerability (CVE-2015-1832) in derb
 
 This was raised on the mailing list at http://apache-spark-developers-list.1001551.n3.nabble.com/VOTE-Release-Apache-Spark-2-0-0-RC5-tp18367p18465.html by Stephen Hellberg and replied to by Sean Owen.
 
-I\'ve checked the impact to previous Spark releases and this particular version of derby is the only relatively recent and without vulnerabilities version (I checked up to the 1.3 branch) so ideally we\'d backport this for all impacted Spark releases.
+I've checked the impact to previous Spark releases and this particular version of derby is the only relatively recent and without vulnerabilities version (I checked up to the 1.3 branch) so ideally we'd backport this for all impacted Spark releases.
 
-I\'ve marked this as critical and ticked the important checkbox as it\'s going to impact every user, there isn\'t a security component (should we add one?) and hence the build tag.
+I've marked this as critical and ticked the important checkbox as it's going to impact every user, there isn't a security component (should we add one?) and hence the build tag.
 
 
 

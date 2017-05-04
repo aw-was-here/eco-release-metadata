@@ -26,7 +26,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [FLINK-4894](https://issues.apache.org/jira/browse/FLINK-4894) | Don\'t block on buffer request after broadcastEvent |  Major | . | Ufuk Celebi | Ufuk Celebi |
+| [FLINK-4894](https://issues.apache.org/jira/browse/FLINK-4894) | Don't block on buffer request after broadcastEvent |  Major | . | Ufuk Celebi | Ufuk Celebi |
 | [FLINK-4715](https://issues.apache.org/jira/browse/FLINK-4715) | TaskManager should commit suicide after cancellation failure |  Major | Distributed Coordination | Till Rohrmann | Ufuk Celebi |
 | [FLINK-4445](https://issues.apache.org/jira/browse/FLINK-4445) | Ignore unmatched state when restoring from savepoint |  Major | State Backends, Checkpointing | Ufuk Celebi | Ufuk Celebi |
 | [FLINK-4996](https://issues.apache.org/jira/browse/FLINK-4996) | Make CrossHint @Public |  Trivial | Core | Greg Hogan | Greg Hogan |
@@ -35,13 +35,13 @@
 | [FLINK-5123](https://issues.apache.org/jira/browse/FLINK-5123) | Add description how to do proper shading to Flink docs. |  Major | Documentation | Stephan Ewen | Stephan Ewen |
 | [FLINK-5194](https://issues.apache.org/jira/browse/FLINK-5194) | Log heartbeats on TRACE level |  Major | . | Ufuk Celebi | Ufuk Celebi |
 | [FLINK-5201](https://issues.apache.org/jira/browse/FLINK-5201) | Promote loaded config properties to INFO |  Major | . | Ufuk Celebi | Ufuk Celebi |
-| [FLINK-5196](https://issues.apache.org/jira/browse/FLINK-5196) | Don\'t log InputChannelDescriptor |  Major | JobManager | Ufuk Celebi | Ufuk Celebi |
+| [FLINK-5196](https://issues.apache.org/jira/browse/FLINK-5196) | Don't log InputChannelDescriptor |  Major | JobManager | Ufuk Celebi | Ufuk Celebi |
 | [FLINK-5198](https://issues.apache.org/jira/browse/FLINK-5198) | Overwrite TaskState toString |  Major | . | Ufuk Celebi | Ufuk Celebi |
 | [FLINK-5199](https://issues.apache.org/jira/browse/FLINK-5199) | Improve logging of submitted job graph actions in HA case |  Major | . | Ufuk Celebi |  |
 | [FLINK-5207](https://issues.apache.org/jira/browse/FLINK-5207) | Decrease HadoopFileSystem logging |  Major | . | Ufuk Celebi |  |
 | [FLINK-5192](https://issues.apache.org/jira/browse/FLINK-5192) | Provide better log config templates |  Major | Distributed Coordination, JobManager | Ufuk Celebi | Ufuk Celebi |
 | [FLINK-5169](https://issues.apache.org/jira/browse/FLINK-5169) | Make consumption of input channels fair |  Critical | Network | Ufuk Celebi | Ufuk Celebi |
-| [FLINK-5249](https://issues.apache.org/jira/browse/FLINK-5249) | description of datastream rescaling doesn\'t match the figure |  Minor | Documentation | David Anderson | David Anderson |
+| [FLINK-5249](https://issues.apache.org/jira/browse/FLINK-5249) | description of datastream rescaling doesn't match the figure |  Minor | Documentation | David Anderson | David Anderson |
 | [FLINK-5259](https://issues.apache.org/jira/browse/FLINK-5259) | wrong execution environment in retry delays example |  Minor | . | David Anderson | David Anderson |
 | [FLINK-5278](https://issues.apache.org/jira/browse/FLINK-5278) | Improve Task and checkpoint logging |  Minor | Distributed Coordination, State Backends, Checkpointing | Till Rohrmann | Till Rohrmann |
 | [FLINK-3347](https://issues.apache.org/jira/browse/FLINK-3347) | TaskManager (or its ActorSystem) need to restart in case they notice quarantine |  Critical | Distributed Coordination | Stephan Ewen | Till Rohrmann |
@@ -57,7 +57,7 @@
 | [FLINK-4581](https://issues.apache.org/jira/browse/FLINK-4581) | Table API throws "No suitable driver found for jdbc:calcite" |  Major | Table API & SQL | Timo Walther | Timo Walther |
 | [FLINK-4862](https://issues.apache.org/jira/browse/FLINK-4862) | NPE on EventTimeSessionWindows with ContinuousEventTimeTrigger |  Major | DataStream API, Streaming | Manu Zhang | Manu Zhang |
 | [FLINK-4619](https://issues.apache.org/jira/browse/FLINK-4619) | JobManager does not answer to client when restore from savepoint fails |  Major | . | Maciej Prochniak |  |
-| [FLINK-4932](https://issues.apache.org/jira/browse/FLINK-4932) | Don\'t let ExecutionGraph fail when in state Restarting |  Major | Distributed Coordination | Till Rohrmann | Till Rohrmann |
+| [FLINK-4932](https://issues.apache.org/jira/browse/FLINK-4932) | Don't let ExecutionGraph fail when in state Restarting |  Major | Distributed Coordination | Till Rohrmann | Till Rohrmann |
 | [FLINK-4933](https://issues.apache.org/jira/browse/FLINK-4933) | ExecutionGraph.scheduleOrUpdateConsumers can fail the ExecutionGraph |  Major | Distributed Coordination | Till Rohrmann | Till Rohrmann |
 | [FLINK-4991](https://issues.apache.org/jira/browse/FLINK-4991) | TestTask hangs in testWatchDogInterruptsTask |  Major | Distributed Coordination | Ufuk Celebi |  |
 | [FLINK-4977](https://issues.apache.org/jira/browse/FLINK-4977) | Enum serialization does not work in all cases |  Minor | . | Sean Winard | Stephan Ewen |
@@ -69,24 +69,24 @@
 | [FLINK-5057](https://issues.apache.org/jira/browse/FLINK-5057) | Cancellation timeouts are picked from wrong config |  Major | . | Ufuk Celebi | Ufuk Celebi |
 | [FLINK-5063](https://issues.apache.org/jira/browse/FLINK-5063) | State handles are not properly cleaned up for declined or expired checkpoints |  Critical | State Backends, Checkpointing | Till Rohrmann | Till Rohrmann |
 | [FLINK-5058](https://issues.apache.org/jira/browse/FLINK-5058) | taskManagerMemory attribute set wrong value in FlinkShell |  Major | Scala Shell | wyp |  |
-| [FLINK-5085](https://issues.apache.org/jira/browse/FLINK-5085) | Execute CheckpointCoodinator\'s state discard calls asynchronously |  Major | State Backends, Checkpointing | Till Rohrmann | Till Rohrmann |
+| [FLINK-5085](https://issues.apache.org/jira/browse/FLINK-5085) | Execute CheckpointCoodinator's state discard calls asynchronously |  Major | State Backends, Checkpointing | Till Rohrmann | Till Rohrmann |
 | [FLINK-5073](https://issues.apache.org/jira/browse/FLINK-5073) | ZooKeeperCompleteCheckpointStore executes blocking delete operation in ZooKeeper client thread |  Major | Distributed Coordination | Till Rohrmann | Till Rohrmann |
 | [FLINK-5082](https://issues.apache.org/jira/browse/FLINK-5082) | Pull ExecutionService lifecycle management out of the JobManager |  Major | JobManager | Till Rohrmann | Till Rohrmann |
-| [FLINK-5149](https://issues.apache.org/jira/browse/FLINK-5149) | ContinuousEventTimeTrigger doesn\'t fire at the end of the window |  Major | Streaming | Maximilian Michels | Maximilian Michels |
+| [FLINK-5149](https://issues.apache.org/jira/browse/FLINK-5149) | ContinuousEventTimeTrigger doesn't fire at the end of the window |  Major | Streaming | Maximilian Michels | Maximilian Michels |
 | [FLINK-5075](https://issues.apache.org/jira/browse/FLINK-5075) | Kinesis consumer incorrectly determines shards as newly discovered when tested against Kinesalite |  Major | Kinesis Connector | Tzu-Li (Gordon) Tai | Tzu-Li (Gordon) Tai |
-| [FLINK-5013](https://issues.apache.org/jira/browse/FLINK-5013) | Flink Kinesis connector doesn\'t work on old EMR versions |  Critical | Kinesis Connector | Robert Metzger | Tzu-Li (Gordon) Tai |
+| [FLINK-5013](https://issues.apache.org/jira/browse/FLINK-5013) | Flink Kinesis connector doesn't work on old EMR versions |  Critical | Kinesis Connector | Robert Metzger | Tzu-Li (Gordon) Tai |
 | [FLINK-5050](https://issues.apache.org/jira/browse/FLINK-5050) | JSON.org license is CatX |  Major | . | Ted Yu | Sergey\_Sokur |
 | [FLINK-5142](https://issues.apache.org/jira/browse/FLINK-5142) | Resource leak in CheckpointCoordinator |  Major | State Backends, Checkpointing | Frank Lauterwald | Stephan Ewen |
 | [FLINK-5184](https://issues.apache.org/jira/browse/FLINK-5184) | Error result of compareSerialized in RowComparator class |  Major | Table API & SQL | godfrey he | godfrey he |
 | [FLINK-5197](https://issues.apache.org/jira/browse/FLINK-5197) | Late JobStatusChanged messages can interfere with running jobs |  Minor | JobManager | Till Rohrmann | Till Rohrmann |
 | [FLINK-3680](https://issues.apache.org/jira/browse/FLINK-3680) | Remove or improve (not set) text in the Job Plan UI |  Major | Webfrontend | Jamie Grier | Ivan Mushketyk |
-| [FLINK-5216](https://issues.apache.org/jira/browse/FLINK-5216) | CheckpointCoordinator\'s \'minPauseBetweenCheckpoints\' refers to checkpoint start rather then checkpoint completion |  Major | State Backends, Checkpointing | Stephan Ewen | Stephan Ewen |
+| [FLINK-5216](https://issues.apache.org/jira/browse/FLINK-5216) | CheckpointCoordinator's 'minPauseBetweenCheckpoints' refers to checkpoint start rather then checkpoint completion |  Major | State Backends, Checkpointing | Stephan Ewen | Stephan Ewen |
 | [FLINK-5218](https://issues.apache.org/jira/browse/FLINK-5218) | Eagerly close checkpoint streams on cancellation |  Critical | State Backends, Checkpointing | Stephan Ewen | Stephan Ewen |
 | [FLINK-5228](https://issues.apache.org/jira/browse/FLINK-5228) | LocalInputChannel re-trigger request and release deadlock |  Critical | Network | Ufuk Celebi | Ufuk Celebi |
 | [FLINK-5172](https://issues.apache.org/jira/browse/FLINK-5172) | In RocksDBStateBackend, set flink-core and flink-streaming-java to "provided" |  Major | Build System | Stephan Ewen | Stephan Ewen |
 | [FLINK-5173](https://issues.apache.org/jira/browse/FLINK-5173) | Upgrade RocksDB dependency |  Major | State Backends, Checkpointing | Stephan Ewen | Stephan Ewen |
-| [FLINK-5246](https://issues.apache.org/jira/browse/FLINK-5246) | Don\'t discard unknown checkpoint messages in the CheckpointCoordinator |  Major | State Backends, Checkpointing | Till Rohrmann | Till Rohrmann |
-| [FLINK-5248](https://issues.apache.org/jira/browse/FLINK-5248) | SavepointITCase doesn\'t catch savepoint restore failure |  Critical | Tests | Ufuk Celebi | Ufuk Celebi |
+| [FLINK-5246](https://issues.apache.org/jira/browse/FLINK-5246) | Don't discard unknown checkpoint messages in the CheckpointCoordinator |  Major | State Backends, Checkpointing | Till Rohrmann | Till Rohrmann |
+| [FLINK-5248](https://issues.apache.org/jira/browse/FLINK-5248) | SavepointITCase doesn't catch savepoint restore failure |  Critical | Tests | Ufuk Celebi | Ufuk Celebi |
 | [FLINK-5276](https://issues.apache.org/jira/browse/FLINK-5276) | ExecutionVertex archiving can throw NPE with many previous attempts |  Major | JobManager | Ufuk Celebi | Ufuk Celebi |
 | [FLINK-5275](https://issues.apache.org/jira/browse/FLINK-5275) | InputChanelDeploymentDescriptors throws misleading Exception if producer failed/cancelled |  Major | Network | Ufuk Celebi | Ufuk Celebi |
 | [FLINK-5274](https://issues.apache.org/jira/browse/FLINK-5274) | LocalInputChannel throws NPE if partition reader is released |  Major | Network | Ufuk Celebi | Ufuk Celebi |

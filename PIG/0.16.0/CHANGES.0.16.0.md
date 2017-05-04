@@ -37,9 +37,9 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [PIG-4578](https://issues.apache.org/jira/browse/PIG-4578) | ToDateISO should support optional \' \' space variant used by JDBC |  Minor | internal-udfs | Michael Howard | Michael Howard |
+| [PIG-4578](https://issues.apache.org/jira/browse/PIG-4578) | ToDateISO should support optional ' ' space variant used by JDBC |  Minor | internal-udfs | Michael Howard | Michael Howard |
 | [PIG-3622](https://issues.apache.org/jira/browse/PIG-3622) | Allow casting bytearray fields to bytearray type |  Minor | . | Redis Liu | Redis Liu |
-| [PIG-4405](https://issues.apache.org/jira/browse/PIG-4405) | Adding \'map[]\' support to mock/Storage |  Major | . | Niels Basjes | Niels Basjes |
+| [PIG-4405](https://issues.apache.org/jira/browse/PIG-4405) | Adding 'map[]' support to mock/Storage |  Major | . | Niels Basjes | Niels Basjes |
 | [PIG-4638](https://issues.apache.org/jira/browse/PIG-4638) | Allow TOMAP to accept dynamically sized input |  Major | . | Niels Basjes | Niels Basjes |
 | [PIG-4651](https://issues.apache.org/jira/browse/PIG-4651) | Optimize NullablePartitionWritable serialization for skewed join |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-4676](https://issues.apache.org/jira/browse/PIG-4676) | Upgrade Hive to 1.2.1 |  Major | impl | Daniel Dai | Daniel Dai |
@@ -53,7 +53,7 @@
 | [PIG-4717](https://issues.apache.org/jira/browse/PIG-4717) | Update Apache HTTPD LogParser to latest version |  Major | . | Niels Basjes | Niels Basjes |
 | [PIG-4704](https://issues.apache.org/jira/browse/PIG-4704) | Customizable Error Handling for Storers in Pig |  Major | . | Siddhi Mehta | Siddhi Mehta |
 | [PIG-3251](https://issues.apache.org/jira/browse/PIG-3251) | Bzip2TextInputFormat requires double the memory of maximum record size |  Major | . | Koji Noguchi | Koji Noguchi |
-| [PIG-4417](https://issues.apache.org/jira/browse/PIG-4417) | Pig\'s register command should support automatic fetching of jars from repo. |  Major | . | Akshay Rai | Akshay Rai |
+| [PIG-4417](https://issues.apache.org/jira/browse/PIG-4417) | Pig's register command should support automatic fetching of jars from repo. |  Major | . | Akshay Rai | Akshay Rai |
 | [PIG-4744](https://issues.apache.org/jira/browse/PIG-4744) | Honor tez.staging-dir setting in tez-site.xml |  Major | tez | Daniel Dai | Rohini Palaniswamy |
 | [PIG-4411](https://issues.apache.org/jira/browse/PIG-4411) | Support for vertex level configuration like speculative execution |  Major | tez | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-4787](https://issues.apache.org/jira/browse/PIG-4787) | Log JSONLoader exception while parsing records |  Minor | . | Rohini Palaniswamy | Rohini Palaniswamy |
@@ -106,7 +106,7 @@
 | [PIG-4703](https://issues.apache.org/jira/browse/PIG-4703) | TezOperator.stores shall not ship to backend |  Major | tez | Daniel Dai | Daniel Dai |
 | [PIG-4707](https://issues.apache.org/jira/browse/PIG-4707) | [Pig on Tez] Streaming job hangs with pig.exec.mapPartAgg=true |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-4712](https://issues.apache.org/jira/browse/PIG-4712) | [Pig on Tez] NPE in Bloom UDF after Union |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
-| [PIG-4468](https://issues.apache.org/jira/browse/PIG-4468) | Pig\'s jackson version conflicts with that of hadoop 2.6.0 or newer |  Major | . | Jeff Zhang | Jeff Zhang |
+| [PIG-4468](https://issues.apache.org/jira/browse/PIG-4468) | Pig's jackson version conflicts with that of hadoop 2.6.0 or newer |  Major | . | Jeff Zhang | Jeff Zhang |
 | [PIG-4721](https://issues.apache.org/jira/browse/PIG-4721) | IsEmpty documentation error |  Trivial | documentation | Nathan Smith | Nathan Smith |
 | [PIG-4725](https://issues.apache.org/jira/browse/PIG-4725) | Typo in FrontendException messages "Incompatable" |  Trivial | . | Nathan Smith | Nathan Smith |
 | [PIG-4727](https://issues.apache.org/jira/browse/PIG-4727) | Incorrect types table for AVG in docs |  Trivial | documentation | Nathan Smith | Nathan Smith |
@@ -194,6 +194,6 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [PIG-4365](https://issues.apache.org/jira/browse/PIG-4365) | TOP udf should implement Accumulator interface |  Major | . | Rohini Palaniswamy | Eyal Allweil |
 | [PIG-4713](https://issues.apache.org/jira/browse/PIG-4713) | Document Bloom UDF |  Major | . | Rohini Palaniswamy | Gabor Liptak |
-| [PIG-4742](https://issues.apache.org/jira/browse/PIG-4742) | Document Pig\'s Register Artifact Command added in PIG-4417 |  Major | . | Akshay Rai | Akshay Rai |
+| [PIG-4742](https://issues.apache.org/jira/browse/PIG-4742) | Document Pig's Register Artifact Command added in PIG-4417 |  Major | . | Akshay Rai | Akshay Rai |
 
 

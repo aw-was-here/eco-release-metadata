@@ -33,9 +33,9 @@ Users can use the conf servlet to get the server-side configuration. Users can
 
 ---
 
-* [MAPREDUCE-4478](https://issues.apache.org/jira/browse/MAPREDUCE-4478) | *Major* | **TaskTracker\'s heartbeat is out of control**
+* [MAPREDUCE-4478](https://issues.apache.org/jira/browse/MAPREDUCE-4478) | *Major* | **TaskTracker's heartbeat is out of control**
 
-Fixed a bug in TaskTracker\'s heartbeat to keep it under control.
+Fixed a bug in TaskTracker's heartbeat to keep it under control.
 
 
 ---

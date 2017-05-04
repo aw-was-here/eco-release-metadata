@@ -79,7 +79,7 @@
 | [MAPREDUCE-5827](https://issues.apache.org/jira/browse/MAPREDUCE-5827) | TestSpeculativeExecutionWithMRApp fails |  Major | . | Zhijie Shen | Zhijie Shen |
 | [MAPREDUCE-5832](https://issues.apache.org/jira/browse/MAPREDUCE-5832) | Few tests in TestJobClient fail on Windows |  Major | . | Jian He | Vinod Kumar Vavilapalli |
 | [HADOOP-10527](https://issues.apache.org/jira/browse/HADOOP-10527) | Fix incorrect return code and allow more retries on EINTR |  Major | . | Kihwal Lee | Kihwal Lee |
-| [MAPREDUCE-5841](https://issues.apache.org/jira/browse/MAPREDUCE-5841) | uber job doesn\'t terminate on getting mapred job kill |  Major | mrv2 | Sangjin Lee | Sangjin Lee |
+| [MAPREDUCE-5841](https://issues.apache.org/jira/browse/MAPREDUCE-5841) | uber job doesn't terminate on getting mapred job kill |  Major | mrv2 | Sangjin Lee | Sangjin Lee |
 | [YARN-1975](https://issues.apache.org/jira/browse/YARN-1975) | Used resources shows escaped html in CapacityScheduler and FairScheduler page |  Major | resourcemanager | Nathan Roberts | Mit Desai |
 | [MAPREDUCE-5835](https://issues.apache.org/jira/browse/MAPREDUCE-5835) | Killing Task might cause the job to go to ERROR state |  Critical | . | Ming Ma | Ming Ma |
 | [MAPREDUCE-5714](https://issues.apache.org/jira/browse/MAPREDUCE-5714) | TestMRAppComponentDependencies causes surefire to exit without saying proper goodbye |  Major | test | Jinghui Wang | Jinghui Wang |
@@ -87,7 +87,7 @@
 | [YARN-1929](https://issues.apache.org/jira/browse/YARN-1929) | DeadLock in RM when automatic failover is enabled. |  Blocker | resourcemanager | Rohith Sharma K S | Karthik Kambatla |
 | [YARN-1201](https://issues.apache.org/jira/browse/YARN-1201) | TestAMAuthorization fails with local hostname cannot be resolved |  Minor | resourcemanager | Nemon Lou | Wangda Tan |
 | [HADOOP-10562](https://issues.apache.org/jira/browse/HADOOP-10562) | Namenode exits on exception without printing stack trace in AbstractDelegationTokenSecretManager |  Critical | . | Suresh Srinivas | Suresh Srinivas |
-| [HDFS-6340](https://issues.apache.org/jira/browse/HDFS-6340) | DN can\'t finalize upgrade |  Blocker | datanode | Rahul Singhal | Rahul Singhal |
+| [HDFS-6340](https://issues.apache.org/jira/browse/HDFS-6340) | DN can't finalize upgrade |  Blocker | datanode | Rahul Singhal | Rahul Singhal |
 | [HDFS-6329](https://issues.apache.org/jira/browse/HDFS-6329) | WebHdfs does not work if HA is enabled on NN but logical URI is not configured. |  Blocker | . | Kihwal Lee | Kihwal Lee |
 | [HDFS-6313](https://issues.apache.org/jira/browse/HDFS-6313) | WebHdfs may use the wrong NN when configured for multiple HA NNs |  Blocker | webhdfs | Daryn Sharp | Kihwal Lee |
 | [YARN-1976](https://issues.apache.org/jira/browse/YARN-1976) | Tracking url missing http protocol for FAILED application |  Major | . | Yesha Vora | Junping Du |
@@ -131,6 +131,6 @@
 | [YARN-1861](https://issues.apache.org/jira/browse/YARN-1861) | Both RM stuck in standby mode when automatic failover is enabled |  Blocker | resourcemanager | Arpit Gupta | Karthik Kambatla |
 | [YARN-1957](https://issues.apache.org/jira/browse/YARN-1957) | ProportionalCapacitPreemptionPolicy handling of corner cases... |  Major | resourcemanager | Carlo Curino | Carlo Curino |
 | [YARN-2053](https://issues.apache.org/jira/browse/YARN-2053) | Slider AM fails to restart: NPE in RegisterApplicationMasterResponseProto$Builder.addAllNmTokensFromPreviousAttempts |  Major | resourcemanager | Sumit Mohanty | Wangda Tan |
-| [YARN-1898](https://issues.apache.org/jira/browse/YARN-1898) | Standby RM\'s conf, stacks, logLevel, metrics, jmx and logs links are redirecting to Active RM |  Major | resourcemanager | Yesha Vora | Xuan Gong |
+| [YARN-1898](https://issues.apache.org/jira/browse/YARN-1898) | Standby RM's conf, stacks, logLevel, metrics, jmx and logs links are redirecting to Active RM |  Major | resourcemanager | Yesha Vora | Xuan Gong |
 
 

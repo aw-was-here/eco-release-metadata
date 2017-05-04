@@ -39,7 +39,7 @@
 | [HADOOP-8932](https://issues.apache.org/jira/browse/HADOOP-8932) | JNI-based user-group mapping modules can be too chatty on lookup failures |  Major | security | Kihwal Lee | Kihwal Lee |
 | [HADOOP-8926](https://issues.apache.org/jira/browse/HADOOP-8926) | hadoop.util.PureJavaCrc32 cache hit-ratio is low for static data |  Major | util | Gopal V | Gopal V |
 | [HADOOP-8930](https://issues.apache.org/jira/browse/HADOOP-8930) | Cumulative code coverage calculation |  Major | test | Andrey Klochkov | Andrey Klochkov |
-| [MAPREDUCE-4229](https://issues.apache.org/jira/browse/MAPREDUCE-4229) | Counter names\' memory usage can be decreased by interning |  Major | jobtracker | Todd Lipcon | Miomir Boljanovic |
+| [MAPREDUCE-4229](https://issues.apache.org/jira/browse/MAPREDUCE-4229) | Counter names' memory usage can be decreased by interning |  Major | jobtracker | Todd Lipcon | Miomir Boljanovic |
 | [MAPREDUCE-4752](https://issues.apache.org/jira/browse/MAPREDUCE-4752) | Reduce MR AM memory usage through String Interning |  Major | mrv2 | Robert Joseph Evans | Robert Joseph Evans |
 | [YARN-165](https://issues.apache.org/jira/browse/YARN-165) | RM should point tracking URL to RM web page for app when AM fails |  Blocker | resourcemanager | Jason Lowe | Jason Lowe |
 | [MAPREDUCE-4763](https://issues.apache.org/jira/browse/MAPREDUCE-4763) | repair test org.apache.hadoop.mapreduce.security.TestUmbilicalProtocolWithJobToken |  Minor | . | Ivan A. Veselovsky |  |
@@ -59,7 +59,7 @@
 | [YARN-28](https://issues.apache.org/jira/browse/YARN-28) | TestCompositeService fails on jdk7 |  Major | . | Thomas Graves | Thomas Graves |
 | [MAPREDUCE-4674](https://issues.apache.org/jira/browse/MAPREDUCE-4674) | Hadoop examples secondarysort has a typo "secondarysrot" in the usage |  Minor | . | Robert Justice | Robert Justice |
 | [HADOOP-8791](https://issues.apache.org/jira/browse/HADOOP-8791) | rm "Only deletes non empty directory and files." |  Major | documentation | Bertrand Dechoux | Jing Zhao |
-| [HADOOP-8386](https://issues.apache.org/jira/browse/HADOOP-8386) | hadoop script doesn\'t work if \'cd\' prints to stdout (default behavior in Ubuntu) |  Major | scripts | Christopher Berner | Christopher Berner |
+| [HADOOP-8386](https://issues.apache.org/jira/browse/HADOOP-8386) | hadoop script doesn't work if 'cd' prints to stdout (default behavior in Ubuntu) |  Major | scripts | Christopher Berner | Christopher Berner |
 | [YARN-116](https://issues.apache.org/jira/browse/YARN-116) | RM is missing ability to add include/exclude files without a restart |  Major | resourcemanager | xieguiming | xieguiming |
 | [YARN-131](https://issues.apache.org/jira/browse/YARN-131) | Incorrect ACL properties in capacity scheduler documentation |  Major | capacityscheduler | Ahmed Radwan | Ahmed Radwan |
 | [HDFS-3905](https://issues.apache.org/jira/browse/HDFS-3905) | Secure cluster cannot use hftp to an insecure cluster |  Critical | hdfs-client, security | Daryn Sharp | Daryn Sharp |
@@ -95,7 +95,7 @@
 | [MAPREDUCE-1806](https://issues.apache.org/jira/browse/MAPREDUCE-1806) | CombineFileInputFormat does not work with paths not on default FS |  Major | harchive | Paul Yang | Gera Shegalov |
 | [HADOOP-8986](https://issues.apache.org/jira/browse/HADOOP-8986) | Server$Call object is never released after it is sent |  Critical | ipc | Robert Joseph Evans | Robert Joseph Evans |
 | [YARN-159](https://issues.apache.org/jira/browse/YARN-159) | RM web ui applications page should be sorted to display last app first |  Major | resourcemanager | Thomas Graves | Thomas Graves |
-| [YARN-166](https://issues.apache.org/jira/browse/YARN-166) | capacity scheduler doesn\'t allow capacity \< 1.0 |  Major | capacityscheduler | Thomas Graves | Thomas Graves |
+| [YARN-166](https://issues.apache.org/jira/browse/YARN-166) | capacity scheduler doesn't allow capacity \< 1.0 |  Major | capacityscheduler | Thomas Graves | Thomas Graves |
 | [MAPREDUCE-4724](https://issues.apache.org/jira/browse/MAPREDUCE-4724) | job history web ui applications page should be sorted to display last app first |  Major | jobhistoryserver | Thomas Graves | Thomas Graves |
 | [YARN-189](https://issues.apache.org/jira/browse/YARN-189) | deadlock in RM - AMResponse object |  Blocker | resourcemanager | Thomas Graves | Thomas Graves |
 | [MAPREDUCE-4746](https://issues.apache.org/jira/browse/MAPREDUCE-4746) | The MR Application Master does not have a config to set environment variables |  Major | applicationmaster | Robert Parker | Robert Parker |
@@ -104,7 +104,7 @@
 | [HDFS-4075](https://issues.apache.org/jira/browse/HDFS-4075) | Reduce recommissioning overhead |  Critical | namenode | Kihwal Lee | Kihwal Lee |
 | [YARN-201](https://issues.apache.org/jira/browse/YARN-201) | CapacityScheduler can take a very long time to schedule containers if requests are off cluster |  Critical | capacityscheduler | Jason Lowe | Jason Lowe |
 | [MAPREDUCE-4772](https://issues.apache.org/jira/browse/MAPREDUCE-4772) | Fetch failures can take way too long for a map to be restarted |  Critical | mrv2 | Robert Joseph Evans | Robert Joseph Evans |
-| [HDFS-3990](https://issues.apache.org/jira/browse/HDFS-3990) | NN\'s health report has severe performance problems |  Critical | namenode | Daryn Sharp | Daryn Sharp |
+| [HDFS-3990](https://issues.apache.org/jira/browse/HDFS-3990) | NN's health report has severe performance problems |  Critical | namenode | Daryn Sharp | Daryn Sharp |
 | [MAPREDUCE-4782](https://issues.apache.org/jira/browse/MAPREDUCE-4782) | NLineInputFormat skips first line of last InputSplit |  Blocker | client | Mark Fuhs | Mark Fuhs |
 | [HDFS-4162](https://issues.apache.org/jira/browse/HDFS-4162) | Some malformed and unquoted HTML strings are returned from datanode web ui |  Minor | datanode | Derek Dagit | Derek Dagit |
 | [MAPREDUCE-4774](https://issues.apache.org/jira/browse/MAPREDUCE-4774) | JobImpl does not handle asynchronous task events in FAILED state |  Major | applicationmaster, mrv2 | Ivan A. Veselovsky | Jason Lowe |
@@ -117,7 +117,7 @@
 | [HADOOP-9022](https://issues.apache.org/jira/browse/HADOOP-9022) | Hadoop distcp tool fails to copy file if -m 0 specified |  Major | . | Haiyang Jiang | Jonathan Eagles |
 | [HADOOP-9025](https://issues.apache.org/jira/browse/HADOOP-9025) | org.apache.hadoop.tools.TestCopyListing failing |  Major | . | Robert Joseph Evans | Jonathan Eagles |
 | [HDFS-4181](https://issues.apache.org/jira/browse/HDFS-4181) | LeaseManager tries to double remove and prints extra messages |  Critical | namenode | Kihwal Lee | Kihwal Lee |
-| [YARN-212](https://issues.apache.org/jira/browse/YARN-212) | NM state machine ignores an APPLICATION\_CONTAINER\_FINISHED event when it shouldn\'t |  Blocker | nodemanager | Nathan Roberts | Nathan Roberts |
+| [YARN-212](https://issues.apache.org/jira/browse/YARN-212) | NM state machine ignores an APPLICATION\_CONTAINER\_FINISHED event when it shouldn't |  Blocker | nodemanager | Nathan Roberts | Nathan Roberts |
 | [YARN-144](https://issues.apache.org/jira/browse/YARN-144) | MiniMRYarnCluster launches RM and JHS on default ports |  Major | . | Robert Parker | Robert Parker |
 | [HDFS-4182](https://issues.apache.org/jira/browse/HDFS-4182) | SecondaryNameNode leaks NameCache entries |  Critical | namenode | Todd Lipcon | Robert Joseph Evans |
 | [MAPREDUCE-4797](https://issues.apache.org/jira/browse/MAPREDUCE-4797) | LocalContainerAllocator can loop forever trying to contact the RM |  Major | applicationmaster | Jason Lowe | Jason Lowe |

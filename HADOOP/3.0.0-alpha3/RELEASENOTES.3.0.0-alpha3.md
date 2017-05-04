@@ -140,7 +140,7 @@ The \`hdfs ec\` CLI command has been substantially reworked to make the calling 
 
 * [HADOOP-13817](https://issues.apache.org/jira/browse/HADOOP-13817) | *Minor* | **Add a finite shell command timeout to ShellBasedUnixGroupsMapping**
 
-A new introduced configuration key "hadoop.security.groups.shell.command.timeout" allows applying a finite wait timeout over the \'id\' commands launched by the ShellBasedUnixGroupsMapping plugin. Values specified can be in any valid time duration units: https://hadoop.apache.org/docs/current/api/org/apache/hadoop/conf/Configuration.html#getTimeDuration-java.lang.String-long-java.util.concurrent.TimeUnit-
+A new introduced configuration key "hadoop.security.groups.shell.command.timeout" allows applying a finite wait timeout over the 'id' commands launched by the ShellBasedUnixGroupsMapping plugin. Values specified can be in any valid time duration units: https://hadoop.apache.org/docs/current/api/org/apache/hadoop/conf/Configuration.html#getTimeDuration-java.lang.String-long-java.util.concurrent.TimeUnit-
 
 Value defaults to 0, indicating infinite wait (preserving existing behaviour).
 
@@ -156,14 +156,14 @@ The "rs-default" codec has been renamed to simply "rs" for simplicity. Previous 
 
 * [HDFS-11382](https://issues.apache.org/jira/browse/HDFS-11382) | *Major* | **Persist Erasure Coding Policy ID in a new optional field in INodeFile in FSImage**
 
-The FSImage on-disk format for INodeFile is changed to additionally include a field for Erasure Coded files. This optional field \'erasureCodingPolicyID\' which is unit32 type is available for all Erasure Coded files and represents the Erasure Coding Policy ID. Previously, the \'replication\' field in INodeFile disk format was overloaded  to represent the same Erasure Coding Policy ID.
+The FSImage on-disk format for INodeFile is changed to additionally include a field for Erasure Coded files. This optional field 'erasureCodingPolicyID' which is unit32 type is available for all Erasure Coded files and represents the Erasure Coding Policy ID. Previously, the 'replication' field in INodeFile disk format was overloaded  to represent the same Erasure Coding Policy ID.
 
 
 ---
 
 * [HDFS-11428](https://issues.apache.org/jira/browse/HDFS-11428) | *Major* | **Change setErasureCodingPolicy to take a required string EC policy name**
 
-{{HdfsAdmin#setErasureCodingPolicy}} now takes a String {{ecPolicyName}} rather than an ErasureCodingPolicy object. The corresponding RPC\'s wire format has also been modified.
+{{HdfsAdmin#setErasureCodingPolicy}} now takes a String {{ecPolicyName}} rather than an ErasureCodingPolicy object. The corresponding RPC's wire format has also been modified.
 
 
 ---
@@ -177,9 +177,9 @@ The classpath implementing the s3a filesystem is now defined in core-default.xml
 
 * [HADOOP-6801](https://issues.apache.org/jira/browse/HADOOP-6801) | *Minor* | **io.sort.mb and io.sort.factor were renamed and moved to mapreduce but are still in CommonConfigurationKeysPublic.java and used in SequenceFile.java**
 
-Two new configuration keys, seq.io.sort.mb and seq.io.sort.factor have been introduced for the SequenceFile\'s Sorter feature to replace older, deprecated property keys of io.sort.mb and io.sort.factor.
+Two new configuration keys, seq.io.sort.mb and seq.io.sort.factor have been introduced for the SequenceFile's Sorter feature to replace older, deprecated property keys of io.sort.mb and io.sort.factor.
 
-This only affects direct users of the org.apache.hadoop.io.SequenceFile.Sorter Java class. For controlling MR2\'s internal sorting instead, use the existing config keys of mapreduce.task.io.sort.mb and mapreduce.task.io.sort.factor.
+This only affects direct users of the org.apache.hadoop.io.SequenceFile.Sorter Java class. For controlling MR2's internal sorting instead, use the existing config keys of mapreduce.task.io.sort.mb and mapreduce.task.io.sort.factor.
 
 
 ---
@@ -222,7 +222,7 @@ The fix prevents block recovery failure if replica of last block is being decomm
 
 * [HDFS-11505](https://issues.apache.org/jira/browse/HDFS-11505) | *Major* | **Do not enable any erasure coding policies by default**
 
-By default, none of the built-in erasure coding policies are enabled. Users have to explicitly enable the erasure coding policy via the hdfs configuration \'dfs.namenode.ec.policies.enabled\' before setting the policy on any directories.
+By default, none of the built-in erasure coding policies are enabled. Users have to explicitly enable the erasure coding policy via the hdfs configuration 'dfs.namenode.ec.policies.enabled' before setting the policy on any directories.
 
 
 ---
@@ -265,7 +265,7 @@ DistCpOptions has been changed to be constructed with a Builder pattern. This po
 
 * [HDFS-11596](https://issues.apache.org/jira/browse/HDFS-11596) | *Critical* | **hadoop-hdfs-client jar is in the wrong directory in release tarball**
 
-The scope of hadoop-hdfs\'s dependency on hadoop-hdfs-client has changed from "compile" to "provided". This may affect users who directly consume hadoop-hdfs, which is a private API. These users need to add a new dependency on hadoop-hdfs-client, or better yet, switch from hadoop-hdfs to hadoop-hdfs-client.
+The scope of hadoop-hdfs's dependency on hadoop-hdfs-client has changed from "compile" to "provided". This may affect users who directly consume hadoop-hdfs, which is a private API. These users need to add a new dependency on hadoop-hdfs-client, or better yet, switch from hadoop-hdfs to hadoop-hdfs-client.
 
 
 ---
@@ -357,7 +357,7 @@ The deprecated ProcessTree methods getCumulativeVmem
 
 * [HDFS-6708](https://issues.apache.org/jira/browse/HDFS-6708) | *Major* | **StorageType should be encoded in the block token**
 
-StorageTypes are now encoded in the BlockTokenIdentifier to ensure that the intended StorageType for writes is not tampered with on it\'s way through the Client to the Datanode.
+StorageTypes are now encoded in the BlockTokenIdentifier to ensure that the intended StorageType for writes is not tampered with on it's way through the Client to the Datanode.
 
 
 ---

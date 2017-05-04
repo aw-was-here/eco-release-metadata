@@ -79,7 +79,7 @@ Vectorization: BytesBytes lookup capped count can be =0, =1, \>=2 (Gopal V, revi
 
 ---
 
-* [HIVE-14436](https://issues.apache.org/jira/browse/HIVE-14436) | *Major* | **Hive 1.2.1/Hitting "ql.Driver: FAILED: IllegalArgumentException Error: , expected at the end of \'decimal(9\'" after enabling hive.optimize.skewjoin and with MR engine**
+* [HIVE-14436](https://issues.apache.org/jira/browse/HIVE-14436) | *Major* | **Hive 1.2.1/Hitting "ql.Driver: FAILED: IllegalArgumentException Error: , expected at the end of 'decimal(9'" after enabling hive.optimize.skewjoin and with MR engine**
 
 **WARNING: No release note provided for this change.**
 
@@ -255,7 +255,7 @@ The previous behavior was to always shrink the integer portion of the precision 
 
 This is to improve the performance of sum function over range based windowing. 
 
-One issue related to sum(lag(x)) over (partition by c1 order by c2 range between ...)  and sum(lead(x)) over (partition by c1 order by c2 range between ...) has been fixed which would produce different result. Without the patch, lag(x)/lead(x) would only consider the previous/next row in the windowing, not within the partition, which doesn\'t match other databases, also doesn\'t match rows based windowing.
+One issue related to sum(lag(x)) over (partition by c1 order by c2 range between ...)  and sum(lead(x)) over (partition by c1 order by c2 range between ...) has been fixed which would produce different result. Without the patch, lag(x)/lead(x) would only consider the previous/next row in the windowing, not within the partition, which doesn't match other databases, also doesn't match rows based windowing.
 
 
 ---
@@ -302,7 +302,7 @@ Five new metrics are being added to track the query execution in HiveServer2.
 
 ---
 
-* [HIVE-15683](https://issues.apache.org/jira/browse/HIVE-15683) | *Major* | **Make what\'s done in HIVE-15580 for group by configurable**
+* [HIVE-15683](https://issues.apache.org/jira/browse/HIVE-15683) | *Major* | **Make what's done in HIVE-15580 for group by configurable**
 
 Document the new configuration for 2.2.0.
 

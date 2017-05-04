@@ -27,13 +27,13 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [ORC-122](https://issues.apache.org/jira/browse/ORC-122) | [CPP] Timezone.cc leaks memory |  Major | C++ | Deepak Majeti | Deepak Majeti |
-| [ORC-125](https://issues.apache.org/jira/browse/ORC-125) | Correct OrcFile.WriterVersion to correctly use FUTURE |  Major | . | Owen O\'Malley | Owen O\'Malley |
+| [ORC-125](https://issues.apache.org/jira/browse/ORC-125) | Correct OrcFile.WriterVersion to correctly use FUTURE |  Major | . | Owen O'Malley | Owen O'Malley |
 
 
 ### OTHER:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [ORC-126](https://issues.apache.org/jira/browse/ORC-126) | Remove our fork of storage-api |  Major | Java | Owen O\'Malley | Owen O\'Malley |
+| [ORC-126](https://issues.apache.org/jira/browse/ORC-126) | Remove our fork of storage-api |  Major | Java | Owen O'Malley | Owen O'Malley |
 
 

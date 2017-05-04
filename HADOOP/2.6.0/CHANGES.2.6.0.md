@@ -83,14 +83,14 @@
 | [HDFS-5202](https://issues.apache.org/jira/browse/HDFS-5202) | Support Centralized Cache Management on Windows. |  Major | datanode | Colin P. McCabe | Chris Nauroth |
 | [HADOOP-10736](https://issues.apache.org/jira/browse/HADOOP-10736) | Add key attributes to the key shell |  Major | security | Mike Yoder | Mike Yoder |
 | [YARN-2274](https://issues.apache.org/jira/browse/YARN-2274) | FairScheduler: Add debug information about cluster capacity, availability and reservations |  Trivial | fairscheduler | Karthik Kambatla | Karthik Kambatla |
-| [HDFS-2856](https://issues.apache.org/jira/browse/HDFS-2856) | Fix block protocol so that Datanodes don\'t require root or jsvc |  Major | datanode, security | Owen O\'Malley | Chris Nauroth |
+| [HDFS-2856](https://issues.apache.org/jira/browse/HDFS-2856) | Fix block protocol so that Datanodes don't require root or jsvc |  Major | datanode, security | Owen O'Malley | Chris Nauroth |
 | [HADOOP-10845](https://issues.apache.org/jira/browse/HADOOP-10845) | Add common tests for ACLs in combination with viewfs. |  Major | fs, test | Chris Nauroth | Stephen Chu |
 | [HADOOP-10824](https://issues.apache.org/jira/browse/HADOOP-10824) | Refactor KMSACLs to avoid locking |  Major | security | Benoy Antony | Benoy Antony |
 | [HADOOP-10839](https://issues.apache.org/jira/browse/HADOOP-10839) | Add unregisterSource() to MetricsSystem API |  Major | metrics | shanyu zhao | shanyu zhao |
 | [MAPREDUCE-5971](https://issues.apache.org/jira/browse/MAPREDUCE-5971) | Move the default options for distcp -p to DistCpOptionSwitch |  Trivial | distcp | Charles Lamb | Charles Lamb |
 | [HDFS-6690](https://issues.apache.org/jira/browse/HDFS-6690) | Deduplicate xattr names in memory |  Major | namenode | Andrew Wang | Andrew Wang |
 | [HADOOP-10610](https://issues.apache.org/jira/browse/HADOOP-10610) | Upgrade S3n fs.s3.buffer.dir to support multi directories |  Minor | fs/s3 | Theodore michael Malaska | Theodore michael Malaska |
-| [HDFS-6655](https://issues.apache.org/jira/browse/HDFS-6655) | Add \'header banner\' to \'explorer.html\' also in Namenode UI |  Major | . | Vinayakumar B | Vinayakumar B |
+| [HDFS-6655](https://issues.apache.org/jira/browse/HDFS-6655) | Add 'header banner' to 'explorer.html' also in Namenode UI |  Major | . | Vinayakumar B | Vinayakumar B |
 | [HADOOP-10841](https://issues.apache.org/jira/browse/HADOOP-10841) | EncryptedKeyVersion should have a key name property |  Major | security | Alejandro Abdelnur | Arun Suresh |
 | [HDFS-4120](https://issues.apache.org/jira/browse/HDFS-4120) | Add a new "-skipSharedEditsCheck" option for BootstrapStandby |  Minor | ha, namenode | Liang Xie | Rakesh R |
 | [HDFS-6597](https://issues.apache.org/jira/browse/HDFS-6597) | Add a new option to NN upgrade to terminate the process after upgrade on NN is completed |  Major | namenode | Danilo Vunjak | Danilo Vunjak |
@@ -124,7 +124,7 @@
 | [HADOOP-10903](https://issues.apache.org/jira/browse/HADOOP-10903) | Enhance hadoop classpath command to expand wildcards or write classpath into jar manifest. |  Major | scripts, util | Chris Nauroth | Chris Nauroth |
 | [HADOOP-10936](https://issues.apache.org/jira/browse/HADOOP-10936) | Change default KeyProvider bitlength to 128 |  Major | . | Andrew Wang | Andrew Wang |
 | [HADOOP-10791](https://issues.apache.org/jira/browse/HADOOP-10791) | AuthenticationFilter should support externalizing the secret for signing and provide rotation support |  Major | security | Alejandro Abdelnur | Robert Kanter |
-| [HDFS-6809](https://issues.apache.org/jira/browse/HDFS-6809) | Move some Balancer\'s inner classes to standalone classes |  Minor | balancer & mover | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
+| [HDFS-6809](https://issues.apache.org/jira/browse/HDFS-6809) | Move some Balancer's inner classes to standalone classes |  Minor | balancer & mover | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HDFS-6812](https://issues.apache.org/jira/browse/HDFS-6812) | Remove addBlock and replaceBlock from DatanodeDescriptor |  Minor | namenode | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HDFS-6781](https://issues.apache.org/jira/browse/HDFS-6781) | Separate HDFS commands from CommandsManual.apt.vm |  Major | documentation | Akira Ajisaka | Akira Ajisaka |
 | [HADOOP-10771](https://issues.apache.org/jira/browse/HADOOP-10771) | Refactor HTTP delegation support out of httpfs to common |  Major | security | Alejandro Abdelnur | Alejandro Abdelnur |
@@ -147,7 +147,7 @@
 | [MAPREDUCE-5906](https://issues.apache.org/jira/browse/MAPREDUCE-5906) | Inconsistent configuration in property "mapreduce.reduce.shuffle.input.buffer.percent" |  Minor | . | Akira Ajisaka | Akira Ajisaka |
 | [HADOOP-10231](https://issues.apache.org/jira/browse/HADOOP-10231) | Add some components in Native Libraries document |  Minor | documentation | Akira Ajisaka | Akira Ajisaka |
 | [YARN-2197](https://issues.apache.org/jira/browse/YARN-2197) | Add a link to YARN CHANGES.txt in the left side of doc |  Minor | documentation | Akira Ajisaka | Akira Ajisaka |
-| [YARN-1918](https://issues.apache.org/jira/browse/YARN-1918) | Typo in description and error message for \'yarn.resourcemanager.cluster-id\' |  Trivial | . | Devaraj K | Anandha L Ranganathan |
+| [YARN-1918](https://issues.apache.org/jira/browse/YARN-1918) | Typo in description and error message for 'yarn.resourcemanager.cluster-id' |  Trivial | . | Devaraj K | Anandha L Ranganathan |
 | [HDFS-6850](https://issues.apache.org/jira/browse/HDFS-6850) | Move NFS out of order write unit tests into TestWrites class |  Minor | nfs | Zhe Zhang | Zhe Zhang |
 | [HADOOP-10770](https://issues.apache.org/jira/browse/HADOOP-10770) | KMS add delegation token support |  Major | security | Alejandro Abdelnur | Alejandro Abdelnur |
 | [HADOOP-10967](https://issues.apache.org/jira/browse/HADOOP-10967) | Improve DefaultCryptoExtension#generateEncryptedKey performance |  Major | security | Yi Liu | Yi Liu |
@@ -175,9 +175,9 @@
 | [HADOOP-11054](https://issues.apache.org/jira/browse/HADOOP-11054) | Add a KeyProvider instantiation based on a URI |  Major | security | Alejandro Abdelnur | Alejandro Abdelnur |
 | [HADOOP-11015](https://issues.apache.org/jira/browse/HADOOP-11015) | Http server/client utils to propagate and recreate Exceptions from server to client |  Major | . | Alejandro Abdelnur | Alejandro Abdelnur |
 | [HDFS-6886](https://issues.apache.org/jira/browse/HDFS-6886) | Use single editlog record for creating file + overwrite. |  Critical | namenode | Yi Liu | Yi Liu |
-| [MAPREDUCE-6071](https://issues.apache.org/jira/browse/MAPREDUCE-6071) | JobImpl#makeUberDecision doesn\'t log that Uber mode is disabled because of too much CPUs |  Trivial | client | Tsuyoshi Ozawa | Tsuyoshi Ozawa |
-| [HDFS-6943](https://issues.apache.org/jira/browse/HDFS-6943) | Improve NN allocateBlock log to include replicas\' datanode IPs |  Minor | namenode | Ming Ma | Ming Ma |
-| [HDFS-5182](https://issues.apache.org/jira/browse/HDFS-5182) | BlockReaderLocal must allow zero-copy  reads only when the DN believes it\'s valid |  Major | hdfs-client | Colin P. McCabe | Colin P. McCabe |
+| [MAPREDUCE-6071](https://issues.apache.org/jira/browse/MAPREDUCE-6071) | JobImpl#makeUberDecision doesn't log that Uber mode is disabled because of too much CPUs |  Trivial | client | Tsuyoshi Ozawa | Tsuyoshi Ozawa |
+| [HDFS-6943](https://issues.apache.org/jira/browse/HDFS-6943) | Improve NN allocateBlock log to include replicas' datanode IPs |  Minor | namenode | Ming Ma | Ming Ma |
+| [HDFS-5182](https://issues.apache.org/jira/browse/HDFS-5182) | BlockReaderLocal must allow zero-copy  reads only when the DN believes it's valid |  Major | hdfs-client | Colin P. McCabe | Colin P. McCabe |
 | [HADOOP-11057](https://issues.apache.org/jira/browse/HADOOP-11057) | checknative command to probe for winutils.exe on windows |  Minor | native | Steve Loughran | Xiaoyu Yao |
 | [YARN-2448](https://issues.apache.org/jira/browse/YARN-2448) | RM should expose the resource types considered during scheduling when AMs register |  Major | . | Varun Vasudev | Varun Vasudev |
 | [HADOOP-10758](https://issues.apache.org/jira/browse/HADOOP-10758) | KMS: add ACLs on per key basis. |  Major | security | Alejandro Abdelnur | Arun Suresh |
@@ -200,7 +200,7 @@
 | [HADOOP-11101](https://issues.apache.org/jira/browse/HADOOP-11101) | How about inputstream close statement from catch block to finally block in FileContext#copy() ? |  Minor | . | skrho | skrho |
 | [YARN-2577](https://issues.apache.org/jira/browse/YARN-2577) | Clarify ACL delimiter and how to configure ACL groups only |  Trivial | documentation, fairscheduler | Miklos Christine | Miklos Christine |
 | [HADOOP-10954](https://issues.apache.org/jira/browse/HADOOP-10954) | Adding site documents of hadoop-tools |  Minor | documentation | Masatake Iwasaki | Masatake Iwasaki |
-| [YARN-2372](https://issues.apache.org/jira/browse/YARN-2372) | There are Chinese Characters in the FairScheduler\'s document |  Minor | documentation | Fengdong Yu | Fengdong Yu |
+| [YARN-2372](https://issues.apache.org/jira/browse/YARN-2372) | There are Chinese Characters in the FairScheduler's document |  Minor | documentation | Fengdong Yu | Fengdong Yu |
 | [HADOOP-10731](https://issues.apache.org/jira/browse/HADOOP-10731) | Remove @date JavaDoc comment in ProgramDriver class |  Trivial | documentation | Henry Saputra | Henry Saputra |
 | [HDFS-7093](https://issues.apache.org/jira/browse/HDFS-7093) | Add config key to restrict setStoragePolicy |  Major | namenode | Arpit Agarwal | Arpit Agarwal |
 | [YARN-1769](https://issues.apache.org/jira/browse/YARN-1769) | CapacityScheduler:  Improve reservations |  Major | capacityscheduler | Thomas Graves | Thomas Graves |
@@ -214,8 +214,8 @@
 | [HADOOP-11007](https://issues.apache.org/jira/browse/HADOOP-11007) | Reinstate building of ant tasks support |  Major | build, fs | Jason Lowe | Jason Lowe |
 | [HDFS-7128](https://issues.apache.org/jira/browse/HDFS-7128) | Decommission slows way down when it gets towards the end |  Major | namenode | Ming Ma | Ming Ma |
 | [HDFS-7217](https://issues.apache.org/jira/browse/HDFS-7217) | Better batching of IBRs |  Major | . | Kihwal Lee | Kihwal Lee |
-| [HDFS-7195](https://issues.apache.org/jira/browse/HDFS-7195) | Update user doc of secure mode about Datanodes don\'t require root or jsvc |  Major | documentation, security | Yi Liu | Chris Nauroth |
-| [HADOOP-11184](https://issues.apache.org/jira/browse/HADOOP-11184) | Update Hadoop\'s lz4 to r123 |  Major | native | Colin P. McCabe | Colin P. McCabe |
+| [HDFS-7195](https://issues.apache.org/jira/browse/HDFS-7195) | Update user doc of secure mode about Datanodes don't require root or jsvc |  Major | documentation, security | Yi Liu | Chris Nauroth |
+| [HADOOP-11184](https://issues.apache.org/jira/browse/HADOOP-11184) | Update Hadoop's lz4 to r123 |  Major | native | Colin P. McCabe | Colin P. McCabe |
 | [YARN-2377](https://issues.apache.org/jira/browse/YARN-2377) | Localization exception stack traces are not passed as diagnostic info |  Major | nodemanager | Gera Shegalov | Gera Shegalov |
 | [HDFS-7228](https://issues.apache.org/jira/browse/HDFS-7228) | Add an SSD policy into the default BlockStoragePolicySuite |  Major | . | Jing Zhao | Jing Zhao |
 | [MAPREDUCE-5970](https://issues.apache.org/jira/browse/MAPREDUCE-5970) | Provide a boolean switch to enable MR-AM profiling |  Minor | applicationmaster, client | Gera Shegalov | Gera Shegalov |
@@ -244,15 +244,15 @@
 | [HDFS-3482](https://issues.apache.org/jira/browse/HDFS-3482) | hdfs balancer throws ArrayIndexOutOfBoundsException if option is specified without arguments |  Minor | balancer & mover | Stephen Chu | madhukara phatak |
 | [HADOOP-8158](https://issues.apache.org/jira/browse/HADOOP-8158) | Interrupting hadoop fs -put from the command line causes a LeaseExpiredException |  Major | . | Todd Lipcon | Daryn Sharp |
 | [HDFS-4165](https://issues.apache.org/jira/browse/HDFS-4165) | Faulty sanity check in FsDirectory.unprotectedSetQuota |  Trivial | namenode | Binglin Chang | Binglin Chang |
-| [HADOOP-9740](https://issues.apache.org/jira/browse/HADOOP-9740) | FsShell\'s Text command does not read avro data files stored on HDFS |  Major | fs | Allan Yan | Allan Yan |
-| [HADOOP-10141](https://issues.apache.org/jira/browse/HADOOP-10141) | Create an API to separate encryption key storage from applications |  Major | security | Owen O\'Malley | Owen O\'Malley |
-| [HADOOP-10177](https://issues.apache.org/jira/browse/HADOOP-10177) | Create CLI tools for managing keys via the KeyProvider API |  Major | security | Owen O\'Malley | Larry McCay |
+| [HADOOP-9740](https://issues.apache.org/jira/browse/HADOOP-9740) | FsShell's Text command does not read avro data files stored on HDFS |  Major | fs | Allan Yan | Allan Yan |
+| [HADOOP-10141](https://issues.apache.org/jira/browse/HADOOP-10141) | Create an API to separate encryption key storage from applications |  Major | security | Owen O'Malley | Owen O'Malley |
+| [HADOOP-10177](https://issues.apache.org/jira/browse/HADOOP-10177) | Create CLI tools for managing keys via the KeyProvider API |  Major | security | Owen O'Malley | Larry McCay |
 | [HADOOP-10244](https://issues.apache.org/jira/browse/HADOOP-10244) | TestKeyShell improperly tests the results of a Delete |  Major | security | Larry McCay | Larry McCay |
 | [HADOOP-10237](https://issues.apache.org/jira/browse/HADOOP-10237) | JavaKeyStoreProvider needs to set keystore permissions properly |  Major | security | Larry McCay | Larry McCay |
 | [HADOOP-10488](https://issues.apache.org/jira/browse/HADOOP-10488) | TestKeyProviderFactory fails randomly |  Major | test | Alejandro Abdelnur | Alejandro Abdelnur |
-| [HADOOP-10534](https://issues.apache.org/jira/browse/HADOOP-10534) | KeyProvider API should using windowing for retrieving metadata |  Major | . | Owen O\'Malley | Owen O\'Malley |
+| [HADOOP-10534](https://issues.apache.org/jira/browse/HADOOP-10534) | KeyProvider API should using windowing for retrieving metadata |  Major | . | Owen O'Malley | Owen O'Malley |
 | [HADOOP-10583](https://issues.apache.org/jira/browse/HADOOP-10583) | bin/hadoop key throws NPE with no args and assorted other fixups |  Minor | bin | Charles Lamb | Charles Lamb |
-| [HADOOP-10586](https://issues.apache.org/jira/browse/HADOOP-10586) | KeyShell doesn\'t allow setting Options via CLI |  Minor | bin | Charles Lamb | Charles Lamb |
+| [HADOOP-10586](https://issues.apache.org/jira/browse/HADOOP-10586) | KeyShell doesn't allow setting Options via CLI |  Minor | bin | Charles Lamb | Charles Lamb |
 | [HADOOP-10645](https://issues.apache.org/jira/browse/HADOOP-10645) | TestKMS fails because race condition writing acl files |  Major | security | Alejandro Abdelnur | Alejandro Abdelnur |
 | [HADOOP-10611](https://issues.apache.org/jira/browse/HADOOP-10611) | KMS, keyVersion name should not be assumed to be keyName@versionNumber |  Major | security | Alejandro Abdelnur | Alejandro Abdelnur |
 | [YARN-2251](https://issues.apache.org/jira/browse/YARN-2251) | Avoid negative elapsed time in JHS/MRAM web UI and services |  Major | . | Zhijie Shen | Zhijie Shen |
@@ -272,20 +272,20 @@
 | [HADOOP-10673](https://issues.apache.org/jira/browse/HADOOP-10673) | Update rpc metrics when the call throws an exception |  Major | . | Ming Ma | Ming Ma |
 | [HADOOP-9921](https://issues.apache.org/jira/browse/HADOOP-9921) | daemon scripts should remove pid file on stop call after stop or process is found not running |  Major | . | Vinayakumar B | Vinayakumar B |
 | [YARN-2264](https://issues.apache.org/jira/browse/YARN-2264) | Race in DrainDispatcher can cause random test failures |  Major | . | Siddharth Seth | Li Lu |
-| [HDFS-6689](https://issues.apache.org/jira/browse/HDFS-6689) | NFS doesn\'t return correct lookup access for directories |  Major | nfs | Yesha Vora | Brandon Li |
+| [HDFS-6689](https://issues.apache.org/jira/browse/HDFS-6689) | NFS doesn't return correct lookup access for directories |  Major | nfs | Yesha Vora | Brandon Li |
 | [HADOOP-10816](https://issues.apache.org/jira/browse/HADOOP-10816) | KeyShell returns -1 on error to the shell, should be 1 |  Major | security | Mike Yoder | Mike Yoder |
 | [YARN-2219](https://issues.apache.org/jira/browse/YARN-2219) | AMs and NMs can get exceptions after recovery but before scheduler knowns apps and app-attempts |  Major | resourcemanager | Ashwin Shankar | Jian He |
-| [HDFS-6478](https://issues.apache.org/jira/browse/HDFS-6478) | RemoteException can\'t be retried properly for non-HA scenario |  Major | . | Ming Ma | Ming Ma |
+| [HDFS-6478](https://issues.apache.org/jira/browse/HDFS-6478) | RemoteException can't be retried properly for non-HA scenario |  Major | . | Ming Ma | Ming Ma |
 | [HADOOP-10732](https://issues.apache.org/jira/browse/HADOOP-10732) | Update without holding write lock in JavaKeyStoreProvider#innerSetCredential() |  Minor | . | Ted Yu | Ted Yu |
 | [HADOOP-10733](https://issues.apache.org/jira/browse/HADOOP-10733) | Potential null dereference in CredentialShell#promptForCredential() |  Minor | . | Ted Yu | Ted Yu |
 | [HADOOP-10591](https://issues.apache.org/jira/browse/HADOOP-10591) | Compression codecs must used pooled direct buffers or deallocate direct buffers when stream is closed |  Major | . | Hari Shreedharan | Colin P. McCabe |
 | [HDFS-6693](https://issues.apache.org/jira/browse/HDFS-6693) | TestDFSAdminWithHA fails on windows |  Major | test, tools | Vinayakumar B | Vinayakumar B |
 | [HDFS-6667](https://issues.apache.org/jira/browse/HDFS-6667) | In HDFS HA mode, Distcp/SLive with webhdfs on secure cluster fails with Client cannot authenticate via:[TOKEN, KERBEROS] error |  Major | security | Jian He | Jing Zhao |
 | [HADOOP-10842](https://issues.apache.org/jira/browse/HADOOP-10842) | CryptoExtension generateEncryptedKey method should receive the key name |  Major | security | Alejandro Abdelnur | Arun Suresh |
-| [HDFS-6616](https://issues.apache.org/jira/browse/HDFS-6616) | bestNode shouldn\'t always return the first DataNode |  Minor | webhdfs | yunjiong zhao | yunjiong zhao |
+| [HDFS-6616](https://issues.apache.org/jira/browse/HDFS-6616) | bestNode shouldn't always return the first DataNode |  Minor | webhdfs | yunjiong zhao | yunjiong zhao |
 | [YARN-2244](https://issues.apache.org/jira/browse/YARN-2244) | FairScheduler missing handling of containers for unknown application attempts |  Critical | fairscheduler | Anubhav Dhoot | Anubhav Dhoot |
 | [MAPREDUCE-5957](https://issues.apache.org/jira/browse/MAPREDUCE-5957) | AM throws ClassNotFoundException with job classloader enabled if custom output format/committer is used |  Major | . | Sangjin Lee | Sangjin Lee |
-| [HADOOP-10857](https://issues.apache.org/jira/browse/HADOOP-10857) | Native Libraries Guide doen\'t mention a dependency on openssl-development package |  Major | documentation | Tsuyoshi Ozawa | Tsuyoshi Ozawa |
+| [HADOOP-10857](https://issues.apache.org/jira/browse/HADOOP-10857) | Native Libraries Guide doen't mention a dependency on openssl-development package |  Major | documentation | Tsuyoshi Ozawa | Tsuyoshi Ozawa |
 | [MAPREDUCE-5756](https://issues.apache.org/jira/browse/MAPREDUCE-5756) | CombineFileInputFormat.getSplits() including directories in its results |  Major | . | Jason Dere | Jason Dere |
 | [YARN-2321](https://issues.apache.org/jira/browse/YARN-2321) | NodeManager web UI can incorrectly report Pmem enforcement |  Major | nodemanager | Leitao Guo | Leitao Guo |
 | [HADOOP-10866](https://issues.apache.org/jira/browse/HADOOP-10866) | RawLocalFileSystem fails to read symlink targets via the stat command when the format of stat command uses non-curly quotes |  Major | . | Yongjun Zhang | Yongjun Zhang |
@@ -300,8 +300,8 @@
 | [HADOOP-10887](https://issues.apache.org/jira/browse/HADOOP-10887) | Add XAttrs to ViewFs and make XAttrs + ViewFileSystem internal dir behavior consistent |  Major | fs, test | Stephen Chu | Stephen Chu |
 | [YARN-2147](https://issues.apache.org/jira/browse/YARN-2147) | client lacks delegation token exception details when application submit fails |  Minor | resourcemanager | Jason Lowe | Chen He |
 | [HDFS-6715](https://issues.apache.org/jira/browse/HDFS-6715) | webhdfs wont fail over when it gets java.io.IOException: Namenode is in startup mode |  Major | ha, webhdfs | Arpit Gupta | Jing Zhao |
-| [HDFS-5919](https://issues.apache.org/jira/browse/HDFS-5919) | FileJournalManager doesn\'t purge empty and corrupt inprogress edits files |  Major | namenode | Vinayakumar B | Vinayakumar B |
-| [YARN-1796](https://issues.apache.org/jira/browse/YARN-1796) | container-executor shouldn\'t require o-r permissions |  Minor | nodemanager | Aaron T. Myers | Aaron T. Myers |
+| [HDFS-5919](https://issues.apache.org/jira/browse/HDFS-5919) | FileJournalManager doesn't purge empty and corrupt inprogress edits files |  Major | namenode | Vinayakumar B | Vinayakumar B |
+| [YARN-1796](https://issues.apache.org/jira/browse/YARN-1796) | container-executor shouldn't require o-r permissions |  Minor | nodemanager | Aaron T. Myers | Aaron T. Myers |
 | [HDFS-6749](https://issues.apache.org/jira/browse/HDFS-6749) | FSNamesystem methods should call resolvePath |  Major | namenode | Charles Lamb | Charles Lamb |
 | [HDFS-6778](https://issues.apache.org/jira/browse/HDFS-6778) | The extended attributes javadoc should simply refer to the user docs |  Major | . | Charles Lamb | Charles Lamb |
 | [HDFS-4629](https://issues.apache.org/jira/browse/HDFS-4629) | Using com.sun.org.apache.xml.internal.serialize.\* in XmlEditsVisitor.java is JVM vendor specific. Breaks IBM JAVA |  Major | tools | Amir Sanjar |  |
@@ -309,7 +309,7 @@
 | [MAPREDUCE-6019](https://issues.apache.org/jira/browse/MAPREDUCE-6019) | MapReduce changes for exposing YARN/MR endpoints on multiple interfaces. |  Major | . | Xuan Gong | Craig Welch |
 | [HDFS-6797](https://issues.apache.org/jira/browse/HDFS-6797) | DataNode logs wrong layoutversion during upgrade |  Major | datanode | Benoy Antony | Benoy Antony |
 | [HADOOP-10900](https://issues.apache.org/jira/browse/HADOOP-10900) | CredentialShell args should use single-dash style |  Minor | . | Andrew Wang | Andrew Wang |
-| [HADOOP-10920](https://issues.apache.org/jira/browse/HADOOP-10920) | site plugin couldn\'t parse hadoop-kms index.apt.vm |  Minor | documentation | Ted Yu | Akira Ajisaka |
+| [HADOOP-10920](https://issues.apache.org/jira/browse/HADOOP-10920) | site plugin couldn't parse hadoop-kms index.apt.vm |  Minor | documentation | Ted Yu | Akira Ajisaka |
 | [HDFS-6802](https://issues.apache.org/jira/browse/HDFS-6802) | Some tests in TestDFSClientFailover are missing @Test annotation |  Major | test | Akira Ajisaka | Akira Ajisaka |
 | [HDFS-6788](https://issues.apache.org/jira/browse/HDFS-6788) | Improve synchronization in BPOfferService with read write lock |  Major | datanode | Yongjun Zhang | Yongjun Zhang |
 | [HADOOP-10925](https://issues.apache.org/jira/browse/HADOOP-10925) | Compilation fails in native link0 function on Windows. |  Blocker | native | Chris Nauroth | Chris Nauroth |
@@ -319,7 +319,7 @@
 | [HDFS-5185](https://issues.apache.org/jira/browse/HDFS-5185) | DN fails to startup if one of the data dir is full |  Critical | datanode | Vinayakumar B | Vinayakumar B |
 | [HDFS-6787](https://issues.apache.org/jira/browse/HDFS-6787) | Remove duplicate code in FSDirectory#unprotectedConcat |  Major | namenode | Yi Liu | Yi Liu |
 | [HDFS-6451](https://issues.apache.org/jira/browse/HDFS-6451) | NFS should not return NFS3ERR\_IO for AccessControlException |  Major | nfs | Brandon Li | Abhiraj Butala |
-| [HADOOP-10928](https://issues.apache.org/jira/browse/HADOOP-10928) | Incorrect usage on \'hadoop credential list\' |  Trivial | security | Josh Elser | Josh Elser |
+| [HADOOP-10928](https://issues.apache.org/jira/browse/HADOOP-10928) | Incorrect usage on 'hadoop credential list' |  Trivial | security | Josh Elser | Josh Elser |
 | [HADOOP-10927](https://issues.apache.org/jira/browse/HADOOP-10927) | Fix CredentialShell help behavior and error codes |  Minor | security | Josh Elser | Josh Elser |
 | [HADOOP-10937](https://issues.apache.org/jira/browse/HADOOP-10937) | Need to set version name correctly before decrypting EEK |  Major | security | Arun Suresh | Arun Suresh |
 | [HADOOP-10918](https://issues.apache.org/jira/browse/HADOOP-10918) | JMXJsonServlet fails when used within Tomcat |  Major | . | Alejandro Abdelnur | Alejandro Abdelnur |
@@ -369,7 +369,7 @@
 | [MAPREDUCE-6036](https://issues.apache.org/jira/browse/MAPREDUCE-6036) | TestJobEndNotifier fails intermittently in branch-2 |  Major | . | Mit Desai | Chang Li |
 | [MAPREDUCE-6012](https://issues.apache.org/jira/browse/MAPREDUCE-6012) | DBInputSplit creates invalid ranges on Oracle |  Major | . | Julien Serdaru | Wei Yan |
 | [HADOOP-10972](https://issues.apache.org/jira/browse/HADOOP-10972) | Native Libraries Guide contains mis-spelt build line |  Major | documentation | Peter Klavins | Peter Klavins |
-| [HDFS-6569](https://issues.apache.org/jira/browse/HDFS-6569) | OOB message can\'t be sent to the client when DataNode shuts down for upgrade |  Major | datanode | Brandon Li | Brandon Li |
+| [HDFS-6569](https://issues.apache.org/jira/browse/HDFS-6569) | OOB message can't be sent to the client when DataNode shuts down for upgrade |  Major | datanode | Brandon Li | Brandon Li |
 | [YARN-2409](https://issues.apache.org/jira/browse/YARN-2409) | Active to StandBy transition does not stop rmDispatcher that causes 1 AsyncDispatcher thread leak. |  Critical | resourcemanager | Nishan Shetty | Rohith Sharma K S |
 | [HADOOP-10968](https://issues.apache.org/jira/browse/HADOOP-10968) | hadoop native build fails to detect java\_libarch on ppc64le |  Major | build | Dinar Valeev |  |
 | [MAPREDUCE-6041](https://issues.apache.org/jira/browse/MAPREDUCE-6041) | Fix TestOptionsParser |  Major | security | Charles Lamb | Charles Lamb |
@@ -378,7 +378,7 @@
 | [HDFS-6870](https://issues.apache.org/jira/browse/HDFS-6870) | Blocks and INodes could leak for Rename with overwrite flag |  Major | namenode | Yi Liu | Yi Liu |
 | [YARN-1919](https://issues.apache.org/jira/browse/YARN-1919) | Potential NPE in EmbeddedElectorService#stop |  Minor | resourcemanager | Devaraj K | Tsuyoshi Ozawa |
 | [YARN-2424](https://issues.apache.org/jira/browse/YARN-2424) | LCE should support non-cgroups, non-secure mode |  Blocker | nodemanager | Allen Wittenauer | Allen Wittenauer |
-| [HDFS-6890](https://issues.apache.org/jira/browse/HDFS-6890) | NFS readdirplus doesn\'t return dotdot attributes |  Major | nfs | Brandon Li | Brandon Li |
+| [HDFS-6890](https://issues.apache.org/jira/browse/HDFS-6890) | NFS readdirplus doesn't return dotdot attributes |  Major | nfs | Brandon Li | Brandon Li |
 | [HADOOP-10989](https://issues.apache.org/jira/browse/HADOOP-10989) | Work around buggy getgrouplist() implementations on Linux that return 0 on failure |  Major | native | Chris Nauroth | Chris Nauroth |
 | [HDFS-6905](https://issues.apache.org/jira/browse/HDFS-6905) | fs-encryption merge triggered release audit failures |  Blocker | . | Allen Wittenauer | Charles Lamb |
 | [MAPREDUCE-6044](https://issues.apache.org/jira/browse/MAPREDUCE-6044) | Fully qualified intermediate done directory will break per-user dir creation on Windows |  Major | jobhistoryserver | Zhijie Shen | Zhijie Shen |
@@ -394,11 +394,11 @@
 | [YARN-2449](https://issues.apache.org/jira/browse/YARN-2449) | Timelineserver returns invalid Delegation token in secure kerberos enabled cluster when hadoop.http.filter.initializers are not set |  Critical | timelineserver | Karam Singh | Varun Vasudev |
 | [YARN-2450](https://issues.apache.org/jira/browse/YARN-2450) | Fix typos in log messages |  Trivial | . | Ray Chiang | Ray Chiang |
 | [HADOOP-10911](https://issues.apache.org/jira/browse/HADOOP-10911) | hadoop.auth cookie after HADOOP-10710 still not proper according to RFC2109 |  Major | security | Gregory Chanan |  |
-| [YARN-2447](https://issues.apache.org/jira/browse/YARN-2447) | RM web services app submission doesn\'t pass secrets correctly |  Major | . | Varun Vasudev | Varun Vasudev |
+| [YARN-2447](https://issues.apache.org/jira/browse/YARN-2447) | RM web services app submission doesn't pass secrets correctly |  Major | . | Varun Vasudev | Varun Vasudev |
 | [HADOOP-10814](https://issues.apache.org/jira/browse/HADOOP-10814) | Update Tomcat version used by HttpFS and KMS to latest 6.x version |  Major | . | Alejandro Abdelnur | Robert Kanter |
 | [MAPREDUCE-5931](https://issues.apache.org/jira/browse/MAPREDUCE-5931) | Validate SleepJob command line parameters |  Minor | test | Gera Shegalov | Gera Shegalov |
 | [YARN-2462](https://issues.apache.org/jira/browse/YARN-2462) | TestNodeManagerResync#testBlockNewContainerRequestsOnStartAndResync should have a test timeout |  Major | . | Jason Lowe | Eric Payne |
-| [HDFS-6972](https://issues.apache.org/jira/browse/HDFS-6972) | TestRefreshUserMappings.testRefreshSuperUserGroupsConfiguration doesn\'t decode url correctly |  Major | . | Yongjun Zhang | Yongjun Zhang |
+| [HDFS-6972](https://issues.apache.org/jira/browse/HDFS-6972) | TestRefreshUserMappings.testRefreshSuperUserGroupsConfiguration doesn't decode url correctly |  Major | . | Yongjun Zhang | Yongjun Zhang |
 | [HADOOP-11036](https://issues.apache.org/jira/browse/HADOOP-11036) | Add build directory to .gitignore |  Minor | . | Tsuyoshi Ozawa | Tsuyoshi Ozawa |
 | [HADOOP-11012](https://issues.apache.org/jira/browse/HADOOP-11012) | hadoop fs -text of zero-length file causes EOFException |  Major | fs | Eric Payne | Eric Payne |
 | [HDFS-6954](https://issues.apache.org/jira/browse/HDFS-6954) | With crypto, no native lib systems are too verbose |  Major | encryption | Allen Wittenauer | Charles Lamb |
@@ -411,18 +411,18 @@
 | [HADOOP-11063](https://issues.apache.org/jira/browse/HADOOP-11063) | KMS cannot deploy on Windows, because class names are too long. |  Blocker | . | Chris Nauroth | Chris Nauroth |
 | [HDFS-6996](https://issues.apache.org/jira/browse/HDFS-6996) | SnapshotDiff report can hit IndexOutOfBoundsException when there are nested renamed directory/file |  Major | snapshots | Jing Zhao | Jing Zhao |
 | [HDFS-6714](https://issues.apache.org/jira/browse/HDFS-6714) | TestBlocksScheduledCounter#testBlocksScheduledCounter should shutdown cluster |  Minor | test | Vinayakumar B | Vinayakumar B |
-| [HDFS-6831](https://issues.apache.org/jira/browse/HDFS-6831) | Inconsistency between \'hdfs dfsadmin\' and \'hdfs dfsadmin -help\' |  Minor | . | Akira Ajisaka | Xiaoyu Yao |
+| [HDFS-6831](https://issues.apache.org/jira/browse/HDFS-6831) | Inconsistency between 'hdfs dfsadmin' and 'hdfs dfsadmin -help' |  Minor | . | Akira Ajisaka | Xiaoyu Yao |
 | [HDFS-6376](https://issues.apache.org/jira/browse/HDFS-6376) | Distcp data between two HA clusters requires another configuration |  Major | datanode, federation, hdfs-client | Dave Marion | Dave Marion |
 | [HDFS-6979](https://issues.apache.org/jira/browse/HDFS-6979) | hdfs.dll does not produce .pdb files |  Minor | hdfs-client | Remus Rusanu | Chris Nauroth |
 | [HDFS-6862](https://issues.apache.org/jira/browse/HDFS-6862) | Add missing timeout annotations to tests |  Major | test | Arpit Agarwal | Xiaoyu Yao |
-| [HADOOP-11067](https://issues.apache.org/jira/browse/HADOOP-11067) | warning message \'ssl.client.truststore.location has not been set\' gets printed for hftp command |  Major | . | Yesha Vora | Xiaoyu Yao |
+| [HADOOP-11067](https://issues.apache.org/jira/browse/HADOOP-11067) | warning message 'ssl.client.truststore.location has not been set' gets printed for hftp command |  Major | . | Yesha Vora | Xiaoyu Yao |
 | [HADOOP-11069](https://issues.apache.org/jira/browse/HADOOP-11069) | KMSClientProvider should use getAuthenticationMethod() to determine if in proxyuser mode or not |  Major | security | Alejandro Abdelnur | Alejandro Abdelnur |
 | [HDFS-6898](https://issues.apache.org/jira/browse/HDFS-6898) | DN must reserve space for a full block when an RBW block is created |  Major | datanode | Gopal V | Arpit Agarwal |
 | [HDFS-7005](https://issues.apache.org/jira/browse/HDFS-7005) | DFS input streams do not timeout |  Critical | hdfs-client | Daryn Sharp | Daryn Sharp |
 | [HDFS-6981](https://issues.apache.org/jira/browse/HDFS-6981) | Fix DN upgrade with layout version change |  Major | datanode | James Thomas | Arpit Agarwal |
 | [HDFS-6506](https://issues.apache.org/jira/browse/HDFS-6506) | Newly moved block replica been invalidated and deleted in TestBalancer |  Major | balancer & mover, test | Binglin Chang | Binglin Chang |
 | [YARN-2526](https://issues.apache.org/jira/browse/YARN-2526) | SLS can deadlock when all the threads are taken by AMSimulators |  Critical | scheduler-load-simulator | Wei Yan | Wei Yan |
-| [HDFS-6776](https://issues.apache.org/jira/browse/HDFS-6776) | Using distcp to copy data between insecure and secure cluster via webdhfs doesn\'t work |  Major | . | Yongjun Zhang | Yongjun Zhang |
+| [HDFS-6776](https://issues.apache.org/jira/browse/HDFS-6776) | Using distcp to copy data between insecure and secure cluster via webdhfs doesn't work |  Major | . | Yongjun Zhang | Yongjun Zhang |
 | [HADOOP-11077](https://issues.apache.org/jira/browse/HADOOP-11077) | NPE if hosts not specified in ProxyUsers |  Major | security | Gregory Chanan | Gregory Chanan |
 | [HADOOP-9989](https://issues.apache.org/jira/browse/HADOOP-9989) | Bug introduced in HADOOP-9374, which parses the -tokenCacheFile as binary file but set it to the configuration as JSON file. |  Major | security, util | Jinghui Wang | zhihai xu |
 | [YARN-2459](https://issues.apache.org/jira/browse/YARN-2459) | RM crashes if App gets rejected for any reason and HA is enabled |  Major | resourcemanager | Mayank Bansal | Mayank Bansal |
@@ -462,7 +462,7 @@
 | [HDFS-6948](https://issues.apache.org/jira/browse/HDFS-6948) | DN rejects blocks if it has older UC block |  Major | . | Daryn Sharp | Eric Payne |
 | [HDFS-7065](https://issues.apache.org/jira/browse/HDFS-7065) | Pipeline close recovery race can cause block corruption |  Critical | datanode | Kihwal Lee | Kihwal Lee |
 | [HDFS-7096](https://issues.apache.org/jira/browse/HDFS-7096) | Fix TestRpcProgramNfs3 to use DFS\_ENCRYPTION\_KEY\_PROVIDER\_URI |  Minor | test | Charles Lamb | Charles Lamb |
-| [YARN-2565](https://issues.apache.org/jira/browse/YARN-2565) | RM shouldn\'t use the old RMApplicationHistoryWriter unless explicitly setting FileSystemApplicationHistoryStore |  Major | resourcemanager, timelineserver | Karam Singh | Zhijie Shen |
+| [YARN-2565](https://issues.apache.org/jira/browse/YARN-2565) | RM shouldn't use the old RMApplicationHistoryWriter unless explicitly setting FileSystemApplicationHistoryStore |  Major | resourcemanager, timelineserver | Karam Singh | Zhijie Shen |
 | [MAPREDUCE-6091](https://issues.apache.org/jira/browse/MAPREDUCE-6091) | YARNRunner.getJobStatus() fails with ApplicationNotFoundException if the job rolled off the RM view |  Major | client | Sangjin Lee | Sangjin Lee |
 | [HADOOP-10946](https://issues.apache.org/jira/browse/HADOOP-10946) | Fix a bunch of typos in log messages |  Trivial | . | Ray Chiang | Ray Chiang |
 | [YARN-2460](https://issues.apache.org/jira/browse/YARN-2460) | Remove obsolete entries from yarn-default.xml |  Minor | . | Ray Chiang | Ray Chiang |
@@ -499,7 +499,7 @@
 | [HDFS-7131](https://issues.apache.org/jira/browse/HDFS-7131) | During HA upgrade, JournalNode should create a new committedTxnId file in the current directory |  Major | qjm | Jing Zhao | Jing Zhao |
 | [YARN-2608](https://issues.apache.org/jira/browse/YARN-2608) | FairScheduler: Potential deadlocks in loading alloc files and clock access |  Major | . | Wei Yan | Wei Yan |
 | [HDFS-7148](https://issues.apache.org/jira/browse/HDFS-7148) | TestEncryptionZones#testIsEncryptedMethod fails on branch-2 after archival storage merge |  Major | encryption | Andrew Wang | Andrew Wang |
-| [HADOOP-11140](https://issues.apache.org/jira/browse/HADOOP-11140) | hadoop-aws only need test-scoped dependency on hadoop-common\'s tests jar |  Major | . | Juan Yu | Juan Yu |
+| [HADOOP-11140](https://issues.apache.org/jira/browse/HADOOP-11140) | hadoop-aws only need test-scoped dependency on hadoop-common's tests jar |  Major | . | Juan Yu | Juan Yu |
 | [MAPREDUCE-5831](https://issues.apache.org/jira/browse/MAPREDUCE-5831) | Old MR client is not compatible with new MR application |  Blocker | client, mr-am | Zhijie Shen | Junping Du |
 | [HADOOP-8808](https://issues.apache.org/jira/browse/HADOOP-8808) | Update FsShell documentation to mention deprecation of some of the commands, and mention alternatives |  Major | documentation, fs | Hemanth Yamijala | Akira Ajisaka |
 | [MAPREDUCE-6073](https://issues.apache.org/jira/browse/MAPREDUCE-6073) | Description of mapreduce.job.speculative.slowtaskthreshold in mapred-default should be moved into description tags |  Trivial | documentation | Tsuyoshi Ozawa | Tsuyoshi Ozawa |
@@ -528,7 +528,7 @@
 | [HADOOP-11113](https://issues.apache.org/jira/browse/HADOOP-11113) | Namenode not able to reconnect to KMS after KMS restart |  Major | security | Arun Suresh | Arun Suresh |
 | [HDFS-6754](https://issues.apache.org/jira/browse/HDFS-6754) | TestNamenodeCapacityReport.testXceiverCount may sometimes fail due to lack of retry |  Major | . | Mit Desai | Mit Desai |
 | [HDFS-7172](https://issues.apache.org/jira/browse/HDFS-7172) | Test data files may be checked out of git with incorrect line endings, causing test failures in TestHDFSCLI. |  Trivial | test | Chris Nauroth | Chris Nauroth |
-| [HDFS-7176](https://issues.apache.org/jira/browse/HDFS-7176) | The namenode usage message doesn\'t include "-rollingupgrade started" |  Minor | namenode | Colin P. McCabe | Colin P. McCabe |
+| [HDFS-7176](https://issues.apache.org/jira/browse/HDFS-7176) | The namenode usage message doesn't include "-rollingupgrade started" |  Minor | namenode | Colin P. McCabe | Colin P. McCabe |
 | [YARN-2630](https://issues.apache.org/jira/browse/YARN-2630) | TestDistributedShell#testDSRestartWithPreviousRunningContainers fails |  Major | . | Jian He | Jian He |
 | [HDFS-7178](https://issues.apache.org/jira/browse/HDFS-7178) | Additional unit test for replica write with full disk |  Major | test | Arpit Agarwal | Arpit Agarwal |
 | [YARN-2617](https://issues.apache.org/jira/browse/YARN-2617) | NM does not need to send finished container whose APP is not running to RM |  Major | nodemanager | Jun Gong | Jun Gong |
@@ -542,7 +542,7 @@
 | [YARN-2635](https://issues.apache.org/jira/browse/YARN-2635) | TestRM, TestRMRestart, TestClientToAMTokens should run with both CS and FS |  Major | . | Wei Yan | Wei Yan |
 | [HADOOP-11163](https://issues.apache.org/jira/browse/HADOOP-11163) | MetricsSystemImpl may miss a registered source |  Minor | metrics | Chuan Liu | Chuan Liu |
 | [HADOOP-10681](https://issues.apache.org/jira/browse/HADOOP-10681) | Remove synchronized blocks from SnappyCodec and ZlibCodec buffering inner loop |  Major | performance | Gopal V | Gopal V |
-| [HDFS-6995](https://issues.apache.org/jira/browse/HDFS-6995) | Block should be placed in the client\'s \'rack-local\' node if \'client-local\' node is not available |  Major | namenode | Vinayakumar B | Vinayakumar B |
+| [HDFS-6995](https://issues.apache.org/jira/browse/HDFS-6995) | Block should be placed in the client's 'rack-local' node if 'client-local' node is not available |  Major | namenode | Vinayakumar B | Vinayakumar B |
 | [HDFS-7169](https://issues.apache.org/jira/browse/HDFS-7169) | Fix a findbugs warning in ReplaceDatanodeOnFailure |  Minor | build | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HADOOP-10404](https://issues.apache.org/jira/browse/HADOOP-10404) | Some accesses to DomainSocketWatcher#closed are not protected by lock |  Minor | . | Ted Yu | Colin P. McCabe |
 | [HADOOP-11168](https://issues.apache.org/jira/browse/HADOOP-11168) | Remove duplicated entry "dfs.webhdfs.enabled" in the user doc |  Trivial | documentation | Yi Liu | Yi Liu |
@@ -573,7 +573,7 @@
 | [MAPREDUCE-5873](https://issues.apache.org/jira/browse/MAPREDUCE-5873) | Shuffle bandwidth computation includes time spent waiting for maps |  Major | . | Siqi Li | Siqi Li |
 | [HDFS-7185](https://issues.apache.org/jira/browse/HDFS-7185) | The active NameNode will not accept an fsimage sent from the standby during rolling upgrade |  Major | namenode | Colin P. McCabe | Jing Zhao |
 | [HADOOP-11182](https://issues.apache.org/jira/browse/HADOOP-11182) | GraphiteSink emits wrong timestamps |  Major | . | Sascha Coenen | Ravi Prakash |
-| [HDFS-7208](https://issues.apache.org/jira/browse/HDFS-7208) | NN doesn\'t schedule replication when a DN storage fails |  Major | namenode | Ming Ma | Ming Ma |
+| [HDFS-7208](https://issues.apache.org/jira/browse/HDFS-7208) | NN doesn't schedule replication when a DN storage fails |  Major | namenode | Ming Ma | Ming Ma |
 | [HDFS-5089](https://issues.apache.org/jira/browse/HDFS-5089) | When a LayoutVersion support SNAPSHOT, it must support FSIMAGE\_NAME\_OPTIMIZATION. |  Major | namenode | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [YARN-2682](https://issues.apache.org/jira/browse/YARN-2682) | WindowsSecureContainerExecutor should not depend on DefaultContainerExecutor#getFirstApplicationDir. |  Minor | nodemanager | zhihai xu | zhihai xu |
 | [YARN-2588](https://issues.apache.org/jira/browse/YARN-2588) | Standby RM does not transitionToActive if previous transitionToActive is failed with ZK exception. |  Major | resourcemanager | Rohith Sharma K S | Rohith Sharma K S |
@@ -599,11 +599,11 @@
 | [YARN-2734](https://issues.apache.org/jira/browse/YARN-2734) | If a sub-folder is encountered by log aggregator it results in invalid aggregated file |  Major | log-aggregation | Sumit Mohanty | Xuan Gong |
 | [HDFS-7296](https://issues.apache.org/jira/browse/HDFS-7296) | HdfsConstants#MEMORY\_STORAGE\_POLICY\_ID and HdfsConstants#MEMORY\_STORAGE\_POLICY\_ID are missing in branch-2 |  Minor | . | Jing Zhao | Jing Zhao |
 | [HADOOP-11233](https://issues.apache.org/jira/browse/HADOOP-11233) | hadoop.security.kms.client.encrypted.key.cache.expiry property spelled wrong in core-default |  Minor | conf | Steve Loughran | Stephen Chu |
-| [YARN-2760](https://issues.apache.org/jira/browse/YARN-2760) | Completely remove word \'experimental\' from FairScheduler docs |  Trivial | documentation | Harsh J | Harsh J |
+| [YARN-2760](https://issues.apache.org/jira/browse/YARN-2760) | Completely remove word 'experimental' from FairScheduler docs |  Trivial | documentation | Harsh J | Harsh J |
 | [YARN-2741](https://issues.apache.org/jira/browse/YARN-2741) | Windows: Node manager cannot serve up log files via the web user interface when yarn.nodemanager.log-dirs to any drive letter other than C: (or, the drive that nodemanager is running on) |  Major | nodemanager | Craig Welch | Craig Welch |
 | [HDFS-7180](https://issues.apache.org/jira/browse/HDFS-7180) | NFSv3 gateway frequently gets stuck due to GC |  Critical | nfs | Eric Zhiqiang Ma | Brandon Li |
 | [HDFS-7274](https://issues.apache.org/jira/browse/HDFS-7274) | Disable SSLv3 in HttpFS |  Blocker | webhdfs | Robert Kanter | Robert Kanter |
-| [HADOOP-11243](https://issues.apache.org/jira/browse/HADOOP-11243) | SSLFactory shouldn\'t allow SSLv3 |  Blocker | . | Wei Yan | Wei Yan |
+| [HADOOP-11243](https://issues.apache.org/jira/browse/HADOOP-11243) | SSLFactory shouldn't allow SSLv3 |  Blocker | . | Wei Yan | Wei Yan |
 | [MAPREDUCE-6022](https://issues.apache.org/jira/browse/MAPREDUCE-6022) | map\_input\_file is missing from streaming job environment |  Major | . | Jason Lowe | Jason Lowe |
 | [YARN-2769](https://issues.apache.org/jira/browse/YARN-2769) | Timeline server domain not set correctly when using shell\_command on Windows |  Major | applications/distributed-shell | Varun Vasudev | Varun Vasudev |
 | [HDFS-7287](https://issues.apache.org/jira/browse/HDFS-7287) | The OfflineImageViewer (OIV) can output invalid XML depending on the filename |  Major | . | Ravi Prakash | Ravi Prakash |
@@ -614,13 +614,13 @@
 | [HADOOP-11250](https://issues.apache.org/jira/browse/HADOOP-11250) | fix endmacro of set\_find\_shared\_library\_without\_version in CMakeLists |  Minor | build | Yi Liu | Yi Liu |
 | [HADOOP-11221](https://issues.apache.org/jira/browse/HADOOP-11221) | JAVA specification for hashcode does not enforce it to be non-negative, but IdentityHashStore assumes System.identityHashCode() is non-negative |  Major | util | Jinghui Wang | Jinghui Wang |
 | [YARN-2779](https://issues.apache.org/jira/browse/YARN-2779) | SystemMetricsPublisher can use Kerberos directly instead of timeline DT |  Critical | resourcemanager, timelineserver | Zhijie Shen | Zhijie Shen |
-| [HDFS-7309](https://issues.apache.org/jira/browse/HDFS-7309) | XMLUtils.mangleXmlString doesn\'t seem to handle less than sign |  Minor | . | Ravi Prakash | Colin P. McCabe |
+| [HDFS-7309](https://issues.apache.org/jira/browse/HDFS-7309) | XMLUtils.mangleXmlString doesn't seem to handle less than sign |  Minor | . | Ravi Prakash | Colin P. McCabe |
 | [YARN-2701](https://issues.apache.org/jira/browse/YARN-2701) | Potential race condition in startLocalizer when using LinuxContainerExecutor |  Blocker | . | Xuan Gong | Xuan Gong |
 | [YARN-2707](https://issues.apache.org/jira/browse/YARN-2707) | Potential null dereference in FSDownload |  Minor | . | Ted Yu | Gera Shegalov |
 | [HADOOP-11254](https://issues.apache.org/jira/browse/HADOOP-11254) | Promoting AccessControlList to be public |  Major | . | Zhijie Shen | Zhijie Shen |
-| [YARN-2790](https://issues.apache.org/jira/browse/YARN-2790) | NM can\'t aggregate logs past HDFS delegation token expiry. |  Critical | nodemanager | Tassapol Athiapinya | Jian He |
+| [YARN-2790](https://issues.apache.org/jira/browse/YARN-2790) | NM can't aggregate logs past HDFS delegation token expiry. |  Critical | nodemanager | Tassapol Athiapinya | Jian He |
 | [MAPREDUCE-6052](https://issues.apache.org/jira/browse/MAPREDUCE-6052) | Support overriding log4j.properties per job |  Major | . | Junping Du | Junping Du |
-| [YARN-2798](https://issues.apache.org/jira/browse/YARN-2798) | YarnClient doesn\'t need to translate Kerberos name of timeline DT renewer |  Blocker | timelineserver | Arpit Gupta | Zhijie Shen |
+| [YARN-2798](https://issues.apache.org/jira/browse/YARN-2798) | YarnClient doesn't need to translate Kerberos name of timeline DT renewer |  Blocker | timelineserver | Arpit Gupta | Zhijie Shen |
 | [YARN-2788](https://issues.apache.org/jira/browse/YARN-2788) | yarn logs -applicationId on 2.6.0 should support logs written by 2.4.0 |  Blocker | log-aggregation | Gopal V | Xuan Gong |
 | [YARN-2730](https://issues.apache.org/jira/browse/YARN-2730) | DefaultContainerExecutor runs only one localizer at a time |  Critical | . | Siqi Li | Siqi Li |
 | [HDFS-7147](https://issues.apache.org/jira/browse/HDFS-7147) | Update archival storage user documentation |  Blocker | documentation | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
@@ -636,11 +636,11 @@
 | [HADOOP-11265](https://issues.apache.org/jira/browse/HADOOP-11265) | Credential and Key Shell Commands not available on Windows |  Major | scripts | Larry McCay | Larry McCay |
 | [HDFS-7199](https://issues.apache.org/jira/browse/HDFS-7199) | DFSOutputStream should not silently drop data if DataStreamer crashes with an unchecked exception |  Critical | hdfs-client | Jason Lowe | Rushabh S Shah |
 | [HDFS-7359](https://issues.apache.org/jira/browse/HDFS-7359) | NameNode in secured HA cluster fails to start if dfs.namenode.secondary.http-address cannot be interpreted as a network address. |  Major | journal-node, namenode | Chris Nauroth | Chris Nauroth |
-| [YARN-2805](https://issues.apache.org/jira/browse/YARN-2805) | RM2 in HA setup tries to login using the RM1\'s kerberos principal |  Blocker | resourcemanager | Arpit Gupta | Wangda Tan |
+| [YARN-2805](https://issues.apache.org/jira/browse/YARN-2805) | RM2 in HA setup tries to login using the RM1's kerberos principal |  Blocker | resourcemanager | Arpit Gupta | Wangda Tan |
 | [YARN-2579](https://issues.apache.org/jira/browse/YARN-2579) | Deadlock when EmbeddedElectorService and FatalEventDispatcher try to transition RM to StandBy at the same time |  Blocker | resourcemanager | Rohith Sharma K S | Rohith Sharma K S |
 | [YARN-2813](https://issues.apache.org/jira/browse/YARN-2813) | NPE from MemoryTimelineStore.getDomains |  Major | timelineserver | Zhijie Shen | Zhijie Shen |
 | [HDFS-7367](https://issues.apache.org/jira/browse/HDFS-7367) | HDFS short-circuit read cannot negotiate shared memory slot and file descriptors when SASL is enabled on DataTransferProtocol. |  Major | hdfs-client | Chris Nauroth | Chris Nauroth |
-| [MAPREDUCE-5960](https://issues.apache.org/jira/browse/MAPREDUCE-5960) | JobSubmitter\'s check whether job.jar is local is incorrect with no authority in job jar path. |  Major | client | Gera Shegalov | Gera Shegalov |
+| [MAPREDUCE-5960](https://issues.apache.org/jira/browse/MAPREDUCE-5960) | JobSubmitter's check whether job.jar is local is incorrect with no authority in job jar path. |  Major | client | Gera Shegalov | Gera Shegalov |
 | [YARN-2818](https://issues.apache.org/jira/browse/YARN-2818) | Remove the logic to inject entity owner as the primary filter |  Critical | timelineserver | Zhijie Shen | Zhijie Shen |
 | [MAPREDUCE-5958](https://issues.apache.org/jira/browse/MAPREDUCE-5958) | Wrong reduce task progress if map output is compressed |  Minor | . | Emilio Coppa | Emilio Coppa |
 | [HDFS-7364](https://issues.apache.org/jira/browse/HDFS-7364) | Balancer always shows zero Bytes Already Moved |  Minor | balancer & mover | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
@@ -663,13 +663,13 @@
 | [YARN-2794](https://issues.apache.org/jira/browse/YARN-2794) | Fix log msgs about distributing system-credentials |  Major | . | Jian He | Jian He |
 | [HADOOP-11217](https://issues.apache.org/jira/browse/HADOOP-11217) | Disable SSLv3 in KMS |  Blocker | kms | Robert Kanter | Robert Kanter |
 | [HDFS-7391](https://issues.apache.org/jira/browse/HDFS-7391) | Renable SSLv2Hello in HttpFS |  Blocker | webhdfs | Robert Kanter | Robert Kanter |
-| [MAPREDUCE-6156](https://issues.apache.org/jira/browse/MAPREDUCE-6156) | Fetcher - connect() doesn\'t handle connection refused correctly |  Blocker | . | Sidharta Seethana | Junping Du |
+| [MAPREDUCE-6156](https://issues.apache.org/jira/browse/MAPREDUCE-6156) | Fetcher - connect() doesn't handle connection refused correctly |  Blocker | . | Sidharta Seethana | Junping Du |
 | [YARN-2853](https://issues.apache.org/jira/browse/YARN-2853) | Killing app may hang while AM is unregistering |  Major | . | Jian He | Jian He |
 | [YARN-2846](https://issues.apache.org/jira/browse/YARN-2846) | Incorrect persist exit code for running containers in reacquireContainer() that interrupted by NodeManager restart. |  Blocker | nodemanager | Junping Du | Junping Du |
 | [HDFS-7385](https://issues.apache.org/jira/browse/HDFS-7385) | ThreadLocal used in FSEditLog class causes FSImage permission mess up |  Blocker | namenode | jiangyu | jiangyu |
 | [YARN-2426](https://issues.apache.org/jira/browse/YARN-2426) | ResourceManger is not able renew WebHDFS token when application submitted by Yarn WebService |  Major | nodemanager, resourcemanager, webapp | Karam Singh | Varun Vasudev |
 | [HADOOP-10744](https://issues.apache.org/jira/browse/HADOOP-10744) | LZ4 Compression fails to recognize PowerPC Little Endian Architecture |  Major | io, native | Ayappan | Bert Sanders |
-| [HADOOP-10037](https://issues.apache.org/jira/browse/HADOOP-10037) | s3n read truncated, but doesn\'t throw exception |  Major | fs/s3 | David Rosenstrauch |  |
+| [HADOOP-10037](https://issues.apache.org/jira/browse/HADOOP-10037) | s3n read truncated, but doesn't throw exception |  Major | fs/s3 | David Rosenstrauch |  |
 
 
 ### TESTS:
@@ -780,7 +780,7 @@
 | [HDFS-6925](https://issues.apache.org/jira/browse/HDFS-6925) | DataNode should attempt to place replicas on transient storage first if lazyPersist flag is received |  Major | datanode | Arpit Agarwal | Arpit Agarwal |
 | [HDFS-6924](https://issues.apache.org/jira/browse/HDFS-6924) | Add new RAM\_DISK storage type |  Major | datanode | Arpit Agarwal | Arpit Agarwal |
 | [HDFS-6929](https://issues.apache.org/jira/browse/HDFS-6929) | NN periodically unlinks lazy persist files with missing replicas from namespace |  Major | datanode | Arpit Agarwal | Arpit Agarwal |
-| [HDFS-6928](https://issues.apache.org/jira/browse/HDFS-6928) | \'hdfs put\' command should accept lazyPersist flag for testing |  Major | datanode | Tassapol Athiapinya | Arpit Agarwal |
+| [HDFS-6928](https://issues.apache.org/jira/browse/HDFS-6928) | 'hdfs put' command should accept lazyPersist flag for testing |  Major | datanode | Tassapol Athiapinya | Arpit Agarwal |
 | [HDFS-6865](https://issues.apache.org/jira/browse/HDFS-6865) | Byte array native checksumming on client side (HDFS changes) |  Major | hdfs-client, performance | James Thomas | James Thomas |
 | [YARN-2406](https://issues.apache.org/jira/browse/YARN-2406) | Move RM recovery related proto to yarn\_server\_resourcemanager\_recovery.proto |  Major | . | Jian He | Tsuyoshi Ozawa |
 | [HDFS-6931](https://issues.apache.org/jira/browse/HDFS-6931) | Move lazily persisted replicas to finalized directory on DN startup |  Major | datanode | Arpit Agarwal | Arpit Agarwal |
@@ -820,7 +820,7 @@
 | [YARN-611](https://issues.apache.org/jira/browse/YARN-611) | Add an AM retry count reset window to YARN RM |  Major | resourcemanager | Chris Riccomini | Xuan Gong |
 | [HDFS-7061](https://issues.apache.org/jira/browse/HDFS-7061) | Add test to verify encryption zone creation after NameNode restart without saving namespace |  Minor | encryption, test | Stephen Chu | Stephen Chu |
 | [HDFS-7032](https://issues.apache.org/jira/browse/HDFS-7032) | Add WebHDFS support for reading and writing to encryption zones |  Major | encryption, webhdfs | Stephen Chu | Charles Lamb |
-| [YARN-2529](https://issues.apache.org/jira/browse/YARN-2529) | Generic history service RPC interface doesn\'t work when service authorization is enabled |  Major | timelineserver | Zhijie Shen | Zhijie Shen |
+| [YARN-2529](https://issues.apache.org/jira/browse/YARN-2529) | Generic history service RPC interface doesn't work when service authorization is enabled |  Major | timelineserver | Zhijie Shen | Zhijie Shen |
 | [HDFS-7066](https://issues.apache.org/jira/browse/HDFS-7066) | LazyWriter#evictBlocks misses a null check for replicaState |  Minor | datanode | Xiaoyu Yao | Xiaoyu Yao |
 | [YARN-1710](https://issues.apache.org/jira/browse/YARN-1710) | Admission Control: agents to allocate reservation |  Major | resourcemanager | Carlo Curino | Carlo Curino |
 | [HADOOP-10868](https://issues.apache.org/jira/browse/HADOOP-10868) | Create a ZooKeeper-backed secret provider |  Major | security | Robert Kanter | Robert Kanter |
@@ -886,7 +886,7 @@
 | [HDFS-7181](https://issues.apache.org/jira/browse/HDFS-7181) | Remove incorrect precondition check on key length in FileEncryptionInfo |  Critical | encryption | Andrew Wang | Andrew Wang |
 | [YARN-2468](https://issues.apache.org/jira/browse/YARN-2468) | Log handling for LRS |  Major | log-aggregation, nodemanager, resourcemanager | Xuan Gong | Xuan Gong |
 | [YARN-2644](https://issues.apache.org/jira/browse/YARN-2644) | Recalculate headroom more frequently to keep it accurate |  Major | . | Craig Welch | Craig Welch |
-| [YARN-1857](https://issues.apache.org/jira/browse/YARN-1857) | CapacityScheduler headroom doesn\'t account for other AM\'s running |  Critical | capacityscheduler | Thomas Graves | Chen He |
+| [YARN-1857](https://issues.apache.org/jira/browse/YARN-1857) | CapacityScheduler headroom doesn't account for other AM's running |  Critical | capacityscheduler | Thomas Graves | Chen He |
 | [HDFS-7112](https://issues.apache.org/jira/browse/HDFS-7112) | LazyWriter should use either async IO or one thread per physical disk |  Major | datanode | Arpit Agarwal | Xiaoyu Yao |
 | [YARN-2652](https://issues.apache.org/jira/browse/YARN-2652) | add hadoop-yarn-registry package under hadoop-yarn |  Major | api | Steve Loughran | Steve Loughran |
 | [YARN-2493](https://issues.apache.org/jira/browse/YARN-2493) | API changes for users |  Major | api | Wangda Tan | Wangda Tan |
@@ -895,7 +895,7 @@
 | [YARN-2583](https://issues.apache.org/jira/browse/YARN-2583) | Modify the LogDeletionService to support Log aggregation for LRS |  Major | nodemanager, resourcemanager | Xuan Gong | Xuan Gong |
 | [YARN-2494](https://issues.apache.org/jira/browse/YARN-2494) | Node label manager API and storage implementations |  Major | resourcemanager | Wangda Tan | Wangda Tan |
 | [YARN-2501](https://issues.apache.org/jira/browse/YARN-2501) | Changes in AMRMClient to support labels |  Major | resourcemanager | Wangda Tan | Wangda Tan |
-| [YARN-2668](https://issues.apache.org/jira/browse/YARN-2668) | yarn-registry JAR won\'t link against ZK 3.4.5 |  Major | client | Steve Loughran | Steve Loughran |
+| [YARN-2668](https://issues.apache.org/jira/browse/YARN-2668) | yarn-registry JAR won't link against ZK 3.4.5 |  Major | client | Steve Loughran | Steve Loughran |
 | [YARN-2651](https://issues.apache.org/jira/browse/YARN-2651) | Spin off the LogRollingInterval from LogAggregationContext |  Major | nodemanager, resourcemanager | Xuan Gong | Xuan Gong |
 | [HDFS-7090](https://issues.apache.org/jira/browse/HDFS-7090) | Use unbuffered writes when persisting in-memory replicas |  Major | datanode | Arpit Agarwal | Xiaoyu Yao |
 | [YARN-2566](https://issues.apache.org/jira/browse/YARN-2566) | DefaultContainerExecutor should pick a working directory randomly |  Critical | nodemanager | zhihai xu | zhihai xu |
@@ -903,8 +903,8 @@
 | [YARN-2496](https://issues.apache.org/jira/browse/YARN-2496) | Changes for capacity scheduler to support allocate resource respect labels |  Major | resourcemanager | Wangda Tan | Wangda Tan |
 | [YARN-2500](https://issues.apache.org/jira/browse/YARN-2500) | Miscellaneous changes in ResourceManager to support labels |  Major | resourcemanager | Wangda Tan | Wangda Tan |
 | [YARN-2685](https://issues.apache.org/jira/browse/YARN-2685) | Resource on each label not correct when multiple NMs in a same host and some has label some not |  Major | api, client, resourcemanager | Wangda Tan | Wangda Tan |
-| [YARN-2689](https://issues.apache.org/jira/browse/YARN-2689) | TestSecureRMRegistryOperations failing on windows: secure ZK won\'t start |  Major | api, resourcemanager | Steve Loughran | Steve Loughran |
-| [YARN-2621](https://issues.apache.org/jira/browse/YARN-2621) | Simplify the output when the user doesn\'t have the access for getDomain(s) |  Major | timelineserver | Zhijie Shen | Zhijie Shen |
+| [YARN-2689](https://issues.apache.org/jira/browse/YARN-2689) | TestSecureRMRegistryOperations failing on windows: secure ZK won't start |  Major | api, resourcemanager | Steve Loughran | Steve Loughran |
+| [YARN-2621](https://issues.apache.org/jira/browse/YARN-2621) | Simplify the output when the user doesn't have the access for getDomain(s) |  Major | timelineserver | Zhijie Shen | Zhijie Shen |
 | [YARN-2699](https://issues.apache.org/jira/browse/YARN-2699) | Fix test timeout in TestResourceTrackerOnHA#testResourceTrackerOnHA |  Blocker | client | Wangda Tan | Wangda Tan |
 | [YARN-1879](https://issues.apache.org/jira/browse/YARN-1879) | Mark Idempotent/AtMostOnce annotations to ApplicationMasterProtocol for RM fail over |  Critical | resourcemanager | Jian He | Tsuyoshi Ozawa |
 | [YARN-2705](https://issues.apache.org/jira/browse/YARN-2705) | Changes of RM node label manager default configuration |  Critical | api, client, resourcemanager | Wangda Tan | Wangda Tan |
@@ -920,10 +920,10 @@
 | [YARN-2700](https://issues.apache.org/jira/browse/YARN-2700) | TestSecureRMRegistryOperations failing on windows: auth problems |  Major | api, resourcemanager | Steve Loughran | Steve Loughran |
 | [HDFS-6988](https://issues.apache.org/jira/browse/HDFS-6988) | Improve HDFS-6581 eviction configuration |  Major | datanode | Arpit Agarwal | Xiaoyu Yao |
 | [YARN-2703](https://issues.apache.org/jira/browse/YARN-2703) | Add logUploadedTime into LogValue for better display |  Major | nodemanager, resourcemanager | Xuan Gong | Xuan Gong |
-| [YARN-2723](https://issues.apache.org/jira/browse/YARN-2723) | rmadmin -replaceLabelsOnNode does not correctly parse port |  Major | client | Phil D\'Amore | Naganarasimha G R |
+| [YARN-2723](https://issues.apache.org/jira/browse/YARN-2723) | rmadmin -replaceLabelsOnNode does not correctly parse port |  Major | client | Phil D'Amore | Naganarasimha G R |
 | [YARN-1915](https://issues.apache.org/jira/browse/YARN-1915) | ClientToAMTokenMasterKey should be provided to AM at launch time |  Blocker | . | Hitesh Shah | Jason Lowe |
-| [YARN-2726](https://issues.apache.org/jira/browse/YARN-2726) | CapacityScheduler should explicitly log when an accessible label has no capacity |  Minor | capacityscheduler | Phil D\'Amore | Wangda Tan |
-| [YARN-2591](https://issues.apache.org/jira/browse/YARN-2591) | AHSWebServices should return FORBIDDEN(403) if the request user doesn\'t have access to the history data |  Major | timelineserver | Zhijie Shen | Zhijie Shen |
+| [YARN-2726](https://issues.apache.org/jira/browse/YARN-2726) | CapacityScheduler should explicitly log when an accessible label has no capacity |  Minor | capacityscheduler | Phil D'Amore | Wangda Tan |
+| [YARN-2591](https://issues.apache.org/jira/browse/YARN-2591) | AHSWebServices should return FORBIDDEN(403) if the request user doesn't have access to the history data |  Major | timelineserver | Zhijie Shen | Zhijie Shen |
 | [HDFS-6934](https://issues.apache.org/jira/browse/HDFS-6934) | Move checksum computation off the hot path when writing to RAM disk |  Major | datanode, hdfs-client | Arpit Agarwal | Chris Nauroth |
 | [YARN-2704](https://issues.apache.org/jira/browse/YARN-2704) |  Localization and log-aggregation will fail if hdfs delegation token expired after token-max-life-time |  Critical | . | Jian He | Jian He |
 | [MAPREDUCE-5933](https://issues.apache.org/jira/browse/MAPREDUCE-5933) | Enable MR AM to post history events to the timeline server |  Major | mr-am | Zhijie Shen | Robert Kanter |
@@ -933,12 +933,12 @@
 | [YARN-2502](https://issues.apache.org/jira/browse/YARN-2502) | Changes in distributed shell to support specify labels |  Major | resourcemanager | Wangda Tan | Wangda Tan |
 | [YARN-2503](https://issues.apache.org/jira/browse/YARN-2503) | Changes in RM Web UI to better show labels to end users |  Major | resourcemanager | Wangda Tan | Wangda Tan |
 | [MAPREDUCE-6142](https://issues.apache.org/jira/browse/MAPREDUCE-6142) | Test failure in TestJobHistoryEventHandler and TestMRTimelineEventHandling |  Critical | . | Zhijie Shen | Zhijie Shen |
-| [YARN-2677](https://issues.apache.org/jira/browse/YARN-2677) | registry punycoding of usernames doesn\'t fix all usernames to be DNS-valid |  Major | api, resourcemanager | Steve Loughran | Steve Loughran |
+| [YARN-2677](https://issues.apache.org/jira/browse/YARN-2677) | registry punycoding of usernames doesn't fix all usernames to be DNS-valid |  Major | api, resourcemanager | Steve Loughran | Steve Loughran |
 | [HDFS-6385](https://issues.apache.org/jira/browse/HDFS-6385) | Show when block deletion will start after NameNode startup in WebUI |  Major | . | Jing Zhao | Chris Nauroth |
 | [YARN-2698](https://issues.apache.org/jira/browse/YARN-2698) | Move getClusterNodeLabels and getNodeToLabels to YarnClient instead of AdminService |  Critical | api, client, resourcemanager | Wangda Tan | Wangda Tan |
 | [YARN-2778](https://issues.apache.org/jira/browse/YARN-2778) | YARN node CLI should display labels on returned node reports |  Major | client | Wangda Tan | Wangda Tan |
 | [YARN-2770](https://issues.apache.org/jira/browse/YARN-2770) | Timeline delegation tokens need to be automatically renewed by the RM |  Critical | timelineserver | Zhijie Shen | Zhijie Shen |
-| [YARN-2795](https://issues.apache.org/jira/browse/YARN-2795) | Resource Manager fails startup with HDFS label storage and secure cluster |  Major | resourcemanager | Phil D\'Amore | Wangda Tan |
+| [YARN-2795](https://issues.apache.org/jira/browse/YARN-2795) | Resource Manager fails startup with HDFS label storage and secure cluster |  Major | resourcemanager | Phil D'Amore | Wangda Tan |
 | [YARN-2678](https://issues.apache.org/jira/browse/YARN-2678) | Improved Yarn Registry service record structure |  Major | api, resourcemanager | Gour Saha | Steve Loughran |
 | [YARN-2744](https://issues.apache.org/jira/browse/YARN-2744) | Under some scenario, it is possible to end up with capacity scheduler configuration that uses labels that no longer exist |  Critical | capacityscheduler | Sumit Mohanty | Wangda Tan |
 | [YARN-2647](https://issues.apache.org/jira/browse/YARN-2647) | Add yarn queue CLI to get queue infos |  Major | client | Wangda Tan | Sunil G |

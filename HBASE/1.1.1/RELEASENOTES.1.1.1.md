@@ -53,7 +53,7 @@ However if you want to use SSL communication, the 2 ports must be configured to 
 
 ---
 
-* [HBASE-13625](https://issues.apache.org/jira/browse/HBASE-13625) | *Major* | **Use HDFS for HFileOutputFormat2 partitioner\'s path**
+* [HBASE-13625](https://issues.apache.org/jira/browse/HBASE-13625) | *Major* | **Use HDFS for HFileOutputFormat2 partitioner's path**
 
 Introduces a new config hbase.fs.tmp.dir which is a directory in HDFS (or default file system) to use as a staging directory for HFileOutputFormat2. This is also used as the default for hbase.bulkload.staging.dir
 
@@ -83,7 +83,7 @@ Note: Client needs to restart the cluster for the configuration to take into eff
 
 * [HBASE-13938](https://issues.apache.org/jira/browse/HBASE-13938) | *Major* | **Deletes done during the region merge transaction may get eclipsed**
 
-Use the master\'s timestamp when sending hbase:meta edits on region merge to ensure proper ordering of new region addition and old region deletes.
+Use the master's timestamp when sending hbase:meta edits on region merge to ensure proper ordering of new region addition and old region deletes.
 
 
 ---

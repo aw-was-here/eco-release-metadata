@@ -81,11 +81,11 @@
 | [KAFKA-1135](https://issues.apache.org/jira/browse/KAFKA-1135) | Code cleanup - use Json.encode() to write json data to zk |  Major | . | Swapnil Ghike | Swapnil Ghike |
 | [KAFKA-933](https://issues.apache.org/jira/browse/KAFKA-933) | Hadoop example running DataGenerator causes kafka.message.Message cannot be cast to [B exception |  Minor | contrib | Andrew Milkowski |  |
 | [KAFKA-1103](https://issues.apache.org/jira/browse/KAFKA-1103) | Consumer uses two zkclients |  Major | . | Joel Koshy | Guozhang Wang |
-| [KAFKA-1133](https://issues.apache.org/jira/browse/KAFKA-1133) | LICENSE and NOTICE files need to get into  META-INF when jars are built before they\'re signed for publishing to maven |  Major | . | Joe Stein | Joe Stein |
+| [KAFKA-1133](https://issues.apache.org/jira/browse/KAFKA-1133) | LICENSE and NOTICE files need to get into  META-INF when jars are built before they're signed for publishing to maven |  Major | . | Joe Stein | Joe Stein |
 | [KAFKA-1004](https://issues.apache.org/jira/browse/KAFKA-1004) | Handle topic event for trivial whitelist topic filters |  Major | . | Guozhang Wang | Guozhang Wang |
 | [KAFKA-1141](https://issues.apache.org/jira/browse/KAFKA-1141) | make changes to downloads for the archive old releases to new old\_releases folder |  Blocker | . | Joe Stein | Joe Stein |
 | [KAFKA-1140](https://issues.apache.org/jira/browse/KAFKA-1140) | Move the decoding logic from ConsumerIterator.makeNext to next |  Major | . | Guozhang Wang | Guozhang Wang |
-| [KAFKA-1152](https://issues.apache.org/jira/browse/KAFKA-1152) | ReplicaManager\'s handling of the leaderAndIsrRequest should gracefully handle leader == -1 |  Major | . | Swapnil Ghike | Swapnil Ghike |
+| [KAFKA-1152](https://issues.apache.org/jira/browse/KAFKA-1152) | ReplicaManager's handling of the leaderAndIsrRequest should gracefully handle leader == -1 |  Major | . | Swapnil Ghike | Swapnil Ghike |
 | [KAFKA-1154](https://issues.apache.org/jira/browse/KAFKA-1154) | replicas may not have consistent data after becoming follower |  Major | core | Jun Rao | Jun Rao |
 | [KAFKA-1157](https://issues.apache.org/jira/browse/KAFKA-1157) | Clean up Per-topic Configuration from Kafka properties |  Major | . | Guozhang Wang | Guozhang Wang |
 | [KAFKA-1169](https://issues.apache.org/jira/browse/KAFKA-1169) | missing synchronization in access to leaderCache in KafkaApis |  Major | core | Jun Rao | Jun Rao |
@@ -112,10 +112,10 @@
 | [KAFKA-1289](https://issues.apache.org/jira/browse/KAFKA-1289) | Misc. nitpicks in log cleaner |  Major | . | Jay Kreps |  |
 | [KAFKA-1288](https://issues.apache.org/jira/browse/KAFKA-1288) | add enclosing dir in release tar gz |  Major | packaging | Jun Rao | Jun Rao |
 | [KAFKA-1275](https://issues.apache.org/jira/browse/KAFKA-1275) | fixes for quickstart documentation |  Minor | website | Evan Zacks | Jay Kreps |
-| [KAFKA-1319](https://issues.apache.org/jira/browse/KAFKA-1319) | kafka jar doesn\'t depend on metrics-annotation any more |  Major | . | Jun Rao | Jun Rao |
+| [KAFKA-1319](https://issues.apache.org/jira/browse/KAFKA-1319) | kafka jar doesn't depend on metrics-annotation any more |  Major | . | Jun Rao | Jun Rao |
 | [KAFKA-1417](https://issues.apache.org/jira/browse/KAFKA-1417) | Very slow initial high-level consumer startup in low traffic/blocking fetch scenario |  Major | consumer | Sam Meder | Neha Narkhede |
 | [KAFKA-1032](https://issues.apache.org/jira/browse/KAFKA-1032) | Messages sent to the old leader will be lost on broker GC resulted failure |  Major | . | Guozhang Wang | Guozhang Wang |
-| [KAFKA-723](https://issues.apache.org/jira/browse/KAFKA-723) | Scala\'s default case class toString() is very inefficient |  Critical | core | Neha Narkhede |  |
+| [KAFKA-723](https://issues.apache.org/jira/browse/KAFKA-723) | Scala's default case class toString() is very inefficient |  Critical | core | Neha Narkhede |  |
 
 
 ### SUB-TASKS:

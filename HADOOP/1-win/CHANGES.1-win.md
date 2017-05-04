@@ -33,7 +33,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-8820](https://issues.apache.org/jira/browse/HADOOP-8820) | Backport HADOOP-8469 and HADOOP-8470: add "NodeGroup" layer in new NetworkTopology (also known as NetworkTopologyWithNodeGroup) |  Major | net | Junping Du | Junping Du |
 | [HDFS-3941](https://issues.apache.org/jira/browse/HDFS-3941) | Backport HDFS-3498 and HDFS3601: update replica placement policy for new added "NodeGroup" layer topology |  Major | namenode | Junping Du | Junping Du |
-| [HDFS-3942](https://issues.apache.org/jira/browse/HDFS-3942) | Backport HDFS-3495: Update balancer policy for Network Topology with additional \'NodeGroup\' layer |  Major | balancer & mover | Junping Du | Junping Du |
+| [HDFS-3942](https://issues.apache.org/jira/browse/HDFS-3942) | Backport HDFS-3495: Update balancer policy for Network Topology with additional 'NodeGroup' layer |  Major | balancer & mover | Junping Du | Junping Du |
 
 
 ### IMPROVEMENTS:
@@ -46,7 +46,7 @@
 | [HDFS-3649](https://issues.apache.org/jira/browse/HDFS-3649) | Port HDFS-385 to branch-1-win |  Major | . | Sumadhur Reddy Bolli | Sumadhur Reddy Bolli |
 | [HDFS-3564](https://issues.apache.org/jira/browse/HDFS-3564) | Design enhancements to the pluggable blockplacementpolicy |  Major | namenode | Sumadhur Reddy Bolli | Sumadhur Reddy Bolli |
 | [HDFS-3566](https://issues.apache.org/jira/browse/HDFS-3566) | Custom Replication Policy for Azure |  Major | namenode | Sumadhur Reddy Bolli | Sumadhur Reddy Bolli |
-| [HADOOP-8908](https://issues.apache.org/jira/browse/HADOOP-8908) | Refactor \'winutils.exe\' code |  Minor | . | Chuan Liu | Chuan Liu |
+| [HADOOP-8908](https://issues.apache.org/jira/browse/HADOOP-8908) | Refactor 'winutils.exe' code |  Minor | . | Chuan Liu | Chuan Liu |
 | [HADOOP-8823](https://issues.apache.org/jira/browse/HADOOP-8823) | ant package target should not depend on cn-docs |  Major | build | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HADOOP-8847](https://issues.apache.org/jira/browse/HADOOP-8847) | Change untar to use Java API on Windows instead of spawning tar process |  Major | . | Bikas Saha | Bikas Saha |
 | [HADOOP-9111](https://issues.apache.org/jira/browse/HADOOP-9111) | Fix failed testcases with @ignore annotation In branch-1 |  Minor | test | Jing Zhao | Jing Zhao |
@@ -72,7 +72,7 @@
 | [MAPREDUCE-4368](https://issues.apache.org/jira/browse/MAPREDUCE-4368) | TaskRunner fails to start jars when the java.library.path contains a quoted path with embedded spaces |  Major | tasktracker | John Gordon | John Gordon |
 | [HADOOP-8414](https://issues.apache.org/jira/browse/HADOOP-8414) | Address problems related to localhost resolving to 127.0.0.1 on Windows |  Major | fs, test | Ivan Mitic | Ivan Mitic |
 | [HADOOP-6527](https://issues.apache.org/jira/browse/HADOOP-6527) | UserGroupInformation::createUserForTesting clobbers already defined group mappings |  Major | security | Jakob Homan | Ivan Mitic |
-| [HADOOP-8544](https://issues.apache.org/jira/browse/HADOOP-8544) | Move an assertion location in \'winutils chmod\' |  Trivial | . | Chuan Liu | Chuan Liu |
+| [HADOOP-8544](https://issues.apache.org/jira/browse/HADOOP-8544) | Move an assertion location in 'winutils chmod' |  Trivial | . | Chuan Liu | Chuan Liu |
 | [HDFS-3763](https://issues.apache.org/jira/browse/HDFS-3763) | TestNameNodeMXBean fails on Windows |  Major | namenode | Brandon Li | Brandon Li |
 | [HDFS-3766](https://issues.apache.org/jira/browse/HDFS-3766) | Fix TestStorageRestore on Windows |  Major | namenode | Brandon Li | Brandon Li |
 | [HADOOP-8657](https://issues.apache.org/jira/browse/HADOOP-8657) | TestCLI fails on Windows because it uses hardcoded file length of test files committed to the source code |  Major | . | Bikas Saha | Bikas Saha |
@@ -94,10 +94,10 @@
 | [HADOOP-8911](https://issues.apache.org/jira/browse/HADOOP-8911) | CRLF characters in source and text files |  Major | build | Raja Aluri | Raja Aluri |
 | [HADOOP-8912](https://issues.apache.org/jira/browse/HADOOP-8912) | adding .gitattributes file to prevent CRLF and LF mismatches for source and text files |  Major | build | Raja Aluri | Raja Aluri |
 | [HADOOP-8868](https://issues.apache.org/jira/browse/HADOOP-8868) | FileUtil#chmod should normalize the path before calling into shell APIs |  Major | . | Ivan Mitic | Ivan Mitic |
-| [HADOOP-8936](https://issues.apache.org/jira/browse/HADOOP-8936) | Local users should be able to query a domain user\'s groups on Windows |  Minor | . | Chuan Liu | Chuan Liu |
+| [HADOOP-8936](https://issues.apache.org/jira/browse/HADOOP-8936) | Local users should be able to query a domain user's groups on Windows |  Minor | . | Chuan Liu | Chuan Liu |
 | [HADOOP-8869](https://issues.apache.org/jira/browse/HADOOP-8869) | Links at the bottom of the jobdetails page do not render correctly in IE9 |  Major | . | Ivan Mitic | Ivan Mitic |
 | [HADOOP-6496](https://issues.apache.org/jira/browse/HADOOP-6496) | HttpServer sends wrong content-type for CSS files (and others) |  Minor | . | Lars Francke | Ivan Mitic |
-| [HADOOP-8935](https://issues.apache.org/jira/browse/HADOOP-8935) | Make \'winutils ls\' show the SID if the owner does not exist on the system |  Minor | . | Chuan Liu | Chuan Liu |
+| [HADOOP-8935](https://issues.apache.org/jira/browse/HADOOP-8935) | Make 'winutils ls' show the SID if the owner does not exist on the system |  Minor | . | Chuan Liu | Chuan Liu |
 | [HDFS-4065](https://issues.apache.org/jira/browse/HDFS-4065) | TestDFSShell.testGet sporadically fails attempting to corrupt block files due to race condition |  Major | test | Chris Nauroth | Chris Nauroth |
 | [HADOOP-8763](https://issues.apache.org/jira/browse/HADOOP-8763) | Set group owner on Windows failed |  Minor | . | Chuan Liu | Chuan Liu |
 | [HADOOP-8902](https://issues.apache.org/jira/browse/HADOOP-8902) | Enable Gridmix v1 & v2 benchmarks on Windows platform |  Major | benchmarks | Mike Liddell | Mike Liddell |
@@ -112,7 +112,7 @@
 | [HADOOP-9007](https://issues.apache.org/jira/browse/HADOOP-9007) | TestJobStatusPersistency.testJobStoreDisablingWithInvalidPath failure |  Minor | . | Chuan Liu | Chuan Liu |
 | [HADOOP-9006](https://issues.apache.org/jira/browse/HADOOP-9006) | Winutils should keep Administrators privileges intact |  Minor | . | Chuan Liu | Chuan Liu |
 | [HADOOP-8972](https://issues.apache.org/jira/browse/HADOOP-8972) | Move winutils tests from bat to Java |  Major | . | Ivan Mitic | Ivan Mitic |
-| [HADOOP-9026](https://issues.apache.org/jira/browse/HADOOP-9026) | Hadoop.cmd fails to initialize if user\'s %path% variable has parenthesis |  Major | . | Ivan Mitic | Ivan Mitic |
+| [HADOOP-9026](https://issues.apache.org/jira/browse/HADOOP-9026) | Hadoop.cmd fails to initialize if user's %path% variable has parenthesis |  Major | . | Ivan Mitic | Ivan Mitic |
 | [HADOOP-9027](https://issues.apache.org/jira/browse/HADOOP-9027) | Build fails on Windows without sh/sed/echo in the path |  Major | . | Ivan Mitic | Ivan Mitic |
 | [HADOOP-9036](https://issues.apache.org/jira/browse/HADOOP-9036) | TestSinkQueue.testConcurrentConsumers fails intermittently (Backports HADOOP-7292) |  Major | . | Ivan Mitic | Suresh Srinivas |
 | [HADOOP-8456](https://issues.apache.org/jira/browse/HADOOP-8456) | Support spaces in user names and group names in results returned via winutils |  Minor | native | Chuan Liu | Ivan Mitic |

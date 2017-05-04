@@ -76,7 +76,7 @@ HDFS-6273 introduces two new HDFS configuration keys:
 
 The most common use case for these keys is to have the NameNode HTTP (or HTTPS) endpoints listen on all interfaces on multi-homed systems by setting the keys to 0.0.0.0 i.e. INADDR\_ANY.
 
-For the systems background on this usage of INADDR\_ANY please refer to ip(7) in the Linux Programmer\'s Manual (web link: http://man7.org/linux/man-pages/man7/ip.7.html).
+For the systems background on this usage of INADDR\_ANY please refer to ip(7) in the Linux Programmer's Manual (web link: http://man7.org/linux/man-pages/man7/ip.7.html).
 
 These keys complement the existing NameNode options:
 - dfs.namenode.rpc-bind-host

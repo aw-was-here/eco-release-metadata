@@ -57,7 +57,7 @@
 | [KAFKA-4488](https://issues.apache.org/jira/browse/KAFKA-4488) | UnsupportedOperationException during initialization of StandbyTask |  Major | streams | Damian Guy | Damian Guy |
 | [KAFKA-4431](https://issues.apache.org/jira/browse/KAFKA-4431) | HeartbeatThread should be a daemon thread |  Major | clients | David Judd | Rajini Sivaram |
 | [KAFKA-4529](https://issues.apache.org/jira/browse/KAFKA-4529) | tombstone may be removed earlier than it should |  Major | . | Jun Rao | Jiangjie Qin |
-| [KAFKA-4477](https://issues.apache.org/jira/browse/KAFKA-4477) | Node reduces its ISR to itself, and doesn\'t recover. Other nodes do not take leadership, cluster remains sick until node is restarted. |  Critical | core | Michael Andre Pearce (IG) | Apurva Mehta |
+| [KAFKA-4477](https://issues.apache.org/jira/browse/KAFKA-4477) | Node reduces its ISR to itself, and doesn't recover. Other nodes do not take leadership, cluster remains sick until node is restarted. |  Critical | core | Michael Andre Pearce (IG) | Apurva Mehta |
 | [KAFKA-4497](https://issues.apache.org/jira/browse/KAFKA-4497) | log cleaner breaks on timeindex |  Critical | log | Robert Schumann | Jiangjie Qin |
 
 

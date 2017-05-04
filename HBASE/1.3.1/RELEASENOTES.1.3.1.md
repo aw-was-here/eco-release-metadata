@@ -27,7 +27,7 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 This was a non-issue. The PREFETCH\_... flag actually works. While here though made the following additions.
 
-Changes the prefetch TRACE-level loggings to include the word \'Prefetch\' in them so you know what they are about.
+Changes the prefetch TRACE-level loggings to include the word 'Prefetch' in them so you know what they are about.
 
 Changes the cryptic logging of the CacheConfig#toString to have some preamble saying why and what column family is responsible (helps figure what is going on)
 
@@ -36,9 +36,9 @@ Add test that verifies setting flag on HColumnDescriptor actually works.
 
 ---
 
-* [HBASE-17112](https://issues.apache.org/jira/browse/HBASE-17112) | *Major* | **Prevent setting timestamp of delta operations the same as previous value\'s**
+* [HBASE-17112](https://issues.apache.org/jira/browse/HBASE-17112) | *Major* | **Prevent setting timestamp of delta operations the same as previous value's**
 
-Before this issue, two concurrent Increments/Appends done in same millisecond or RS\'s clock going back will result in two results have same TS, which is not friendly to versioning and will get wrong result in slave cluster if the replication is disordered.
+Before this issue, two concurrent Increments/Appends done in same millisecond or RS's clock going back will result in two results have same TS, which is not friendly to versioning and will get wrong result in slave cluster if the replication is disordered.
 After this issue, the result of Increment/Append will always have an incremental TS. There is no any inconsistent in replication for these operations. But there is a rare case that if there is a Delete in same millisecond, the later result can not be masked by this Delete. This can be fixed after we have new semantics that previous Delete will never mask later Put even its timestamp is higher.
 
 
@@ -74,7 +74,7 @@ A new option -removeParents is now available that will remove an old parent when
 
 * [HBASE-17579](https://issues.apache.org/jira/browse/HBASE-17579) | *Major* | **Backport HBASE-16302 to 1.3.1**
 
-The replication sources and replication sinks will now expose ageOfLastShippedOp and ageOfLastAppliedOp metrics respectively as histograms (with percentile suffixes). The \'max\' values in these histograms are also exported as simple metrics (no percentile suffix) under the same metric names for backward compatibility.
+The replication sources and replication sinks will now expose ageOfLastShippedOp and ageOfLastAppliedOp metrics respectively as histograms (with percentile suffixes). The 'max' values in these histograms are also exported as simple metrics (no percentile suffix) under the same metric names for backward compatibility.
 
 
 ---

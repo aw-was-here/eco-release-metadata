@@ -78,7 +78,7 @@
 | [BIGTOP-2443](https://issues.apache.org/jira/browse/BIGTOP-2443) | inject unzip method to ZipInputStream, accepting regex for include |  Major | tests | Konstantin Boudnik | Kengo Seki |
 | [BIGTOP-2385](https://issues.apache.org/jira/browse/BIGTOP-2385) | Reformat bigtop\_toolchain/manifests/packages.pp to ease maintenance |  Major | toolchain | Konstantin Boudnik | Kengo Seki |
 | [BIGTOP-2459](https://issues.apache.org/jira/browse/BIGTOP-2459) | Add option to disable vmem check for NodeManager |  Minor | deployment | Cory Johns | Cory Johns |
-| [BIGTOP-2547](https://issues.apache.org/jira/browse/BIGTOP-2547) | Don\'t render ip-hostname-check in hdfs-site.xml if default |  Minor | deployment, hadoop | Cory Johns | Cory Johns |
+| [BIGTOP-2547](https://issues.apache.org/jira/browse/BIGTOP-2547) | Don't render ip-hostname-check in hdfs-site.xml if default |  Minor | deployment, hadoop | Cory Johns | Cory Johns |
 | [BIGTOP-2522](https://issues.apache.org/jira/browse/BIGTOP-2522) | Add spark processing juju bundle |  Minor | deployment | Konstantinos Tsakalozos | Konstantinos Tsakalozos |
 | [BIGTOP-2504](https://issues.apache.org/jira/browse/BIGTOP-2504) | Kafka should be able to bind to something other than 0.0.0.0/the default interface |  Minor | deployment | Pete Vander Giessen | Pete Vander Giessen |
 | [BIGTOP-2516](https://issues.apache.org/jira/browse/BIGTOP-2516) | Add Zeppelin Charm |  Minor | deployment | Konstantinos Tsakalozos | Kevin W Monroe |
@@ -130,7 +130,7 @@
 | [BIGTOP-2346](https://issues.apache.org/jira/browse/BIGTOP-2346) | Do not use gradle delete() for sources and build directories |  Major | build | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-2220](https://issues.apache.org/jira/browse/BIGTOP-2220) | flume-agent.init incorrectly handles flume.conf |  Major | . | Teruyoshi Zenmyo | Teruyoshi Zenmyo |
 | [BIGTOP-2353](https://issues.apache.org/jira/browse/BIGTOP-2353) | fix qfs suse build |  Major | build, qfs | Olaf Flebbe | Olaf Flebbe |
-| [BIGTOP-2350](https://issues.apache.org/jira/browse/BIGTOP-2350) | HCatalog WebHCat server\'s default file incorrectly specifies HCAT\_PREFIX AND HADOOP\_PREFIX |  Minor | hive | Rob Leidle | Rob Leidle |
+| [BIGTOP-2350](https://issues.apache.org/jira/browse/BIGTOP-2350) | HCatalog WebHCat server's default file incorrectly specifies HCAT\_PREFIX AND HADOOP\_PREFIX |  Minor | hive | Rob Leidle | Rob Leidle |
 | [BIGTOP-2358](https://issues.apache.org/jira/browse/BIGTOP-2358) | Update the URL for Bigtop-trunk-packages job on README |  Trivial | documentation | YoungWoo Kim | YoungWoo Kim |
 | [BIGTOP-2354](https://issues.apache.org/jira/browse/BIGTOP-2354) | qfs does not build on fedora |  Major | qfs | Olaf Flebbe | Faraaz Sareshwala |
 | [BIGTOP-2359](https://issues.apache.org/jira/browse/BIGTOP-2359) | Add .DS\_Store to .gitignore |  Trivial | . | YoungWoo Kim | YoungWoo Kim |
@@ -159,7 +159,7 @@
 | [BIGTOP-2400](https://issues.apache.org/jira/browse/BIGTOP-2400) | Get groovy plugins used by Maven in sync with Bigtop groovy runtime |  Major | build, tests | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2434](https://issues.apache.org/jira/browse/BIGTOP-2434) | Change Spark test to unpack jar file and retrieve resources |  Major | tests | Dasha Boudnik | Dasha Boudnik |
 | [BIGTOP-2439](https://issues.apache.org/jira/browse/BIGTOP-2439) | flink: fix adduser and register init.d scripts on DEB systemes |  Major | build, flink | Olaf Flebbe | Olaf Flebbe |
-| [BIGTOP-2441](https://issues.apache.org/jira/browse/BIGTOP-2441) | spark smoke test doesn\'t work relying on yarn-client submittion |  Major | tests | Konstantin Boudnik | Konstantin Boudnik |
+| [BIGTOP-2441](https://issues.apache.org/jira/browse/BIGTOP-2441) | spark smoke test doesn't work relying on yarn-client submittion |  Major | tests | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2412](https://issues.apache.org/jira/browse/BIGTOP-2412) | arm dockerfile breaks RAT |  Critical | build | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2427](https://issues.apache.org/jira/browse/BIGTOP-2427) | jsvc build not recognizing ARM as valid platform |  Critical | jsvc | Ganesh Raju | Ganesh Raju |
 | [BIGTOP-2463](https://issues.apache.org/jira/browse/BIGTOP-2463) | Regression: bigtop-jsvc build fails on ppc64le architecture |  Critical | build, jsvc, ppc64le | Amir Sanjar | Amir Sanjar |
@@ -251,7 +251,7 @@
 | [BIGTOP-2678](https://issues.apache.org/jira/browse/BIGTOP-2678) | Add hive-hbase role to install hive-hbase rpm |  Major | deployment | Zach York | Zach York |
 | [BIGTOP-2603](https://issues.apache.org/jira/browse/BIGTOP-2603) | NN/RM charm should include a spark user/group |  Minor | deployment | Kevin W Monroe | Kevin W Monroe |
 | [BIGTOP-2690](https://issues.apache.org/jira/browse/BIGTOP-2690) | gradlew toolchain fails trying to download Ant 1.9.8 |  Major | build | Felix Cheung | Felix Cheung |
-| [BIGTOP-2692](https://issues.apache.org/jira/browse/BIGTOP-2692) | Flume init script should load only \'.conf\' extension files |  Major | . | Satoshi Iijima | Satoshi Iijima |
+| [BIGTOP-2692](https://issues.apache.org/jira/browse/BIGTOP-2692) | Flume init script should load only '.conf' extension files |  Major | . | Satoshi Iijima | Satoshi Iijima |
 | [BIGTOP-2644](https://issues.apache.org/jira/browse/BIGTOP-2644) | CI compiles random greenplum source |  Major | build | Olaf Flebbe | Roman Shaposhnik |
 | [BIGTOP-2693](https://issues.apache.org/jira/browse/BIGTOP-2693) | Update readme for build and configuring git repo for packages |  Minor | build, documentation | Felix Cheung | Felix Cheung |
 | [BIGTOP-2689](https://issues.apache.org/jira/browse/BIGTOP-2689) | Upgrade Zeppelin to version 0.7 |  Major | build | Kengo Seki | YoungWoo Kim |
@@ -274,7 +274,7 @@
 | [BIGTOP-2450](https://issues.apache.org/jira/browse/BIGTOP-2450) | Adding Dockerfile to build slaves image for ubuntu-16.04-arm |  Major | build, docker | Amir Sanjar | Roman Shaposhnik |
 | [BIGTOP-2448](https://issues.apache.org/jira/browse/BIGTOP-2448) | Adding Dockerfile to build puppet image for ubuntu-16.04-arm |  Major | build, docker | Amir Sanjar | Roman Shaposhnik |
 | [BIGTOP-2509](https://issues.apache.org/jira/browse/BIGTOP-2509) | Path error in bigtop-packages/src/common/solr/tomcat-deployment.sh |  Major | solr | Lucas Alberto Santos | Roman Shaposhnik |
-| [BIGTOP-2724](https://issues.apache.org/jira/browse/BIGTOP-2724) | putting a final nail in Java\'s 7 coffin |  Major | utils | Roman Shaposhnik | Roman Shaposhnik |
+| [BIGTOP-2724](https://issues.apache.org/jira/browse/BIGTOP-2724) | putting a final nail in Java's 7 coffin |  Major | utils | Roman Shaposhnik | Roman Shaposhnik |
 | [BIGTOP-2725](https://issues.apache.org/jira/browse/BIGTOP-2725) | a few usability improvements to run\_itest.sh |  Major | tests | Roman Shaposhnik | Roman Shaposhnik |
 | [BIGTOP-2675](https://issues.apache.org/jira/browse/BIGTOP-2675) | [Puppet] Kafka can only be deployed on master node |  Major | deployment | Evans Ye | Evans Ye |
 | [BIGTOP-2727](https://issues.apache.org/jira/browse/BIGTOP-2727) | fix deployment tasks |  Major | build | Roman Shaposhnik | Roman Shaposhnik |
@@ -328,7 +328,7 @@
 | [BIGTOP-2668](https://issues.apache.org/jira/browse/BIGTOP-2668) | Polish and update Docker Provisioner configurations |  Minor | docker, provisioner | Evans Ye | Evans Ye |
 | [BIGTOP-2491](https://issues.apache.org/jira/browse/BIGTOP-2491) | Update provisioner/docker-hadoop.sh to bind with provisioner/utils |  Minor | docker, provisioner | Evans Ye | Evans Ye |
 | [BIGTOP-2647](https://issues.apache.org/jira/browse/BIGTOP-2647) | Clean up code under bigtop-deploy/vm after everything moved to provisioner directory |  Minor | provisioner | Evans Ye | Evans Ye |
-| [BIGTOP-2224](https://issues.apache.org/jira/browse/BIGTOP-2224) | Let\'s bump groovy version for smokes to 2.4.10 |  Major | tests | Konstantin Boudnik | Konstantin Boudnik |
+| [BIGTOP-2224](https://issues.apache.org/jira/browse/BIGTOP-2224) | Let's bump groovy version for smokes to 2.4.10 |  Major | tests | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2701](https://issues.apache.org/jira/browse/BIGTOP-2701) | Update hcfs tests so it can work in both casers where fs.trash.interval is disabled or enabled. |  Major | tests | Roman Shaposhnik | Roman Shaposhnik |
 | [BIGTOP-1406](https://issues.apache.org/jira/browse/BIGTOP-1406) | package Ambari in Bigtop |  Major | debian, rpm | Roman Shaposhnik | Roman Shaposhnik |
 | [BIGTOP-2702](https://issues.apache.org/jira/browse/BIGTOP-2702) | Fix Sandbox creation script |  Major | provisioner | Roman Shaposhnik | Roman Shaposhnik |

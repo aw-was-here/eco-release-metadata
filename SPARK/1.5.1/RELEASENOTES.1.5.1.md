@@ -23,7 +23,7 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
-* [SPARK-10716](https://issues.apache.org/jira/browse/SPARK-10716) | *Minor* | **spark-1.5.0-bin-hadoop2.6.tgz file doesn\'t uncompress on OS X due to hidden file**
+* [SPARK-10716](https://issues.apache.org/jira/browse/SPARK-10716) | *Minor* | **spark-1.5.0-bin-hadoop2.6.tgz file doesn't uncompress on OS X due to hidden file**
 
 Directly downloaded prebuilt binaries of http://d3kbcqa49mib13.cloudfront.net/spark-1.5.0-bin-hadoop2.6.tgz 
 got error when tar xvzf it.  Tried download twice and extract twice.

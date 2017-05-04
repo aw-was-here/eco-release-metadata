@@ -37,7 +37,7 @@ The default value of hive.warehouse.subdir.inherit.perms is now true.
 
 ---
 
-* [HIVE-5865](https://issues.apache.org/jira/browse/HIVE-5865) | *Major* | **AvroDeserializer incorrectly assumes keys to Maps will always be of type \'org.apache.avro.util.Utf8\'**
+* [HIVE-5865](https://issues.apache.org/jira/browse/HIVE-5865) | *Major* | **AvroDeserializer incorrectly assumes keys to Maps will always be of type 'org.apache.avro.util.Utf8'**
 
 AvroSerde no longer assumes Map Keys will be subclass of Utf8, only CharSequence. This allows it to work with Avro data that has been serialized with a Schema that uses the "avro.java.string" property.
 

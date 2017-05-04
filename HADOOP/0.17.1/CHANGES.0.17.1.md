@@ -36,9 +36,9 @@
 | [HADOOP-3442](https://issues.apache.org/jira/browse/HADOOP-3442) | QuickSort may get into unbounded recursion |  Blocker | . | Runping Qi | Chris Douglas |
 | [HADOOP-3477](https://issues.apache.org/jira/browse/HADOOP-3477) | release tar.gz contains duplicate files |  Major | build | Adam Heath | Adam Heath |
 | [HADOOP-3475](https://issues.apache.org/jira/browse/HADOOP-3475) | MapOutputBuffer allocates 4x as much space to record capacity as intended |  Major | . | Chris Douglas | Chris Douglas |
-| [HADOOP-3522](https://issues.apache.org/jira/browse/HADOOP-3522) | ValuesIterator.next() doesn\'t return a new object, thus failing many equals() tests. |  Major | . | Spyros Blanas | Owen O\'Malley |
+| [HADOOP-3522](https://issues.apache.org/jira/browse/HADOOP-3522) | ValuesIterator.next() doesn't return a new object, thus failing many equals() tests. |  Major | . | Spyros Blanas | Owen O'Malley |
 | [HADOOP-3550](https://issues.apache.org/jira/browse/HADOOP-3550) | Reduce tasks failing with OOM |  Blocker | . | Arun C Murthy | Chris Douglas |
-| [HADOOP-3526](https://issues.apache.org/jira/browse/HADOOP-3526) | contrib/data\_join doesn\'t work |  Blocker | . | Spyros Blanas | Spyros Blanas |
+| [HADOOP-3526](https://issues.apache.org/jira/browse/HADOOP-3526) | contrib/data\_join doesn't work |  Blocker | . | Spyros Blanas | Spyros Blanas |
 | [HADOOP-1979](https://issues.apache.org/jira/browse/HADOOP-1979) | fsck on namenode without datanodes takes too much time |  Minor | . | Koji Noguchi | Lohit Vijayarenu |
 
 

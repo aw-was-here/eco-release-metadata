@@ -53,7 +53,7 @@ libhdfs is enhanced to read directly into user-supplied buffers when possible, r
 
 * [MAPREDUCE-4017](https://issues.apache.org/jira/browse/MAPREDUCE-4017) | *Trivial* | **Add jobname to jobsummary log**
 
-The Job Summary log may contain commas in values that are escaped by a \'\\\' character.  This was true before, but is more likely to be exposed now.
+The Job Summary log may contain commas in values that are escaped by a '\\' character.  This was true before, but is more likely to be exposed now.
 
 
 ---
@@ -109,7 +109,7 @@ If this is merged to more then trunk, the version inside of hadoop-tools/hadoop-
 
 * [MAPREDUCE-3873](https://issues.apache.org/jira/browse/MAPREDUCE-3873) | *Minor* | **Nodemanager is not getting decommisioned if the absolute ip is given in exclude file.**
 
-Fixed NodeManagers\' decommissioning at RM to accept IP addresses also.
+Fixed NodeManagers' decommissioning at RM to accept IP addresses also.
 
 
 ---
@@ -197,7 +197,7 @@ Due to the requirement that KSSL use weak encryption types for Kerberos tickets,
 
 * [HADOOP-8551](https://issues.apache.org/jira/browse/HADOOP-8551) | *Major* | **fs -mkdir creates parent directories without the -p option**
 
-FsShell\'s "mkdir" no longer implicitly creates all non-existent parent directories.  The command adopts the posix compliant behavior of requiring the "-p" flag to auto-create parent directories.
+FsShell's "mkdir" no longer implicitly creates all non-existent parent directories.  The command adopts the posix compliant behavior of requiring the "-p" flag to auto-create parent directories.
 
 
 ---
@@ -225,7 +225,7 @@ distcp skips CRC on 0 byte files.
 
 * [HADOOP-8689](https://issues.apache.org/jira/browse/HADOOP-8689) | *Major* | **Make trash a server side configuration option**
 
-If fs.trash.interval is configured on the server then the client\'s value for this configuration is ignored.
+If fs.trash.interval is configured on the server then the client's value for this configuration is ignored.
 
 
 ---

@@ -97,7 +97,7 @@ The fsck "move" option is no longer destructive. It copies the accessible blocks
 
 ---
 
-* [HADOOP-8154](https://issues.apache.org/jira/browse/HADOOP-8154) | *Major* | **DNS#getIPs shouldn\'t silently return the local host IP for bogus interface names**
+* [HADOOP-8154](https://issues.apache.org/jira/browse/HADOOP-8154) | *Major* | **DNS#getIPs shouldn't silently return the local host IP for bogus interface names**
 
 **WARNING: No release note provided for this change.**
 
@@ -120,7 +120,7 @@ This is a new feature.  It is documented in hdfs\_user\_guide.xml.
 
 * [HDFS-3094](https://issues.apache.org/jira/browse/HDFS-3094) | *Major* | **add -nonInteractive and -force option to namenode -format command**
 
-The \'namenode -format\' command now supports the flags \'-nonInteractive\' and \'-force\' to improve usefulness without user input.
+The 'namenode -format' command now supports the flags '-nonInteractive' and '-force' to improve usefulness without user input.
 
 
 ---
@@ -134,7 +134,7 @@ The \'namenode -format\' command now supports the flags \'-nonInteractive\' and 
 
 * [HADOOP-8230](https://issues.apache.org/jira/browse/HADOOP-8230) | *Major* | **Enable sync by default and disable append**
 
-Append is not supported in Hadoop 1.x. Please upgrade to 2.x if you need append. If you enabled dfs.support.append for HBase, you\'re OK, as durable sync (why HBase required dfs.support.append) is now enabled by default. If you really need the previous functionality, to turn on the append functionality set the flag "dfs.support.broken.append" to true.
+Append is not supported in Hadoop 1.x. Please upgrade to 2.x if you need append. If you enabled dfs.support.append for HBase, you're OK, as durable sync (why HBase required dfs.support.append) is now enabled by default. If you really need the previous functionality, to turn on the append functionality set the flag "dfs.support.broken.append" to true.
 
 
 ---

@@ -23,9 +23,9 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
-* [PIG-4578](https://issues.apache.org/jira/browse/PIG-4578) | *Minor* | **ToDateISO should support optional \' \' space variant used by JDBC**
+* [PIG-4578](https://issues.apache.org/jira/browse/PIG-4578) | *Minor* | **ToDateISO should support optional ' ' space variant used by JDBC**
 
-Built-in UDF ToDateISO(chararray) now allows a space character instead of requiring a \'T\' between date and time in an ISO-8601 timestamp. Facilitates parsing of JDBC timestamp format.
+Built-in UDF ToDateISO(chararray) now allows a space character instead of requiring a 'T' between date and time in an ISO-8601 timestamp. Facilitates parsing of JDBC timestamp format.
 
 
 ---
@@ -37,7 +37,7 @@ TOP udf implements Accumulator interface
 
 ---
 
-* [PIG-4405](https://issues.apache.org/jira/browse/PIG-4405) | *Major* | **Adding \'map[]\' support to mock/Storage**
+* [PIG-4405](https://issues.apache.org/jira/browse/PIG-4405) | *Major* | **Adding 'map[]' support to mock/Storage**
 
 The Storage mocking feature supports input and output of "map" types.
 
@@ -67,7 +67,7 @@ Built In UDF - REPLACE\_MULTI : Method which take a tuple having source string a
 
 * [PIG-4691](https://issues.apache.org/jira/browse/PIG-4691) | *Major* | **[Pig on Tez] Support for whitelisting storefuncs for union optimization**
 
-Union optimization (pig.tez.opt.union=true) in tez uses vertex groups to store output from different vertices into one final output location. If a StoreFunc\'s OutputCommitter does not honor mapreduce.output.basename or has other issues with multiple vertices writing to the destination location at the same time, then you can disable union optimization just for that StoreFunc. Refer PIG-4649. You can also specify a whitelist of StoreFuncs that are known to work with multiple vertices writing to same location instead of a blacklist.
+Union optimization (pig.tez.opt.union=true) in tez uses vertex groups to store output from different vertices into one final output location. If a StoreFunc's OutputCommitter does not honor mapreduce.output.basename or has other issues with multiple vertices writing to the destination location at the same time, then you can disable union optimization just for that StoreFunc. Refer PIG-4649. You can also specify a whitelist of StoreFuncs that are known to work with multiple vertices writing to same location instead of a blacklist.
 
 #pig.tez.opt.union.unsupported.storefuncs=org.apache.hcatalog.pig.HCatStorer,org.apache.hive.hcatalog.pig.HCatStorer
 #pig.tez.opt.union.supported.storefuncs=
@@ -77,7 +77,7 @@ Union optimization (pig.tez.opt.union=true) in tez uses vertex groups to store o
 
 * [PIG-3251](https://issues.apache.org/jira/browse/PIG-3251) | *Major* | **Bzip2TextInputFormat requires double the memory of maximum record size**
 
-With hadoop 2.X or later, pig will use hadoop\'s bzip codec to handle bzip inputs.  (To turn it off, set pig.bzip.use.hadoop.inputformat=false)
+With hadoop 2.X or later, pig will use hadoop's bzip codec to handle bzip inputs.  (To turn it off, set pig.bzip.use.hadoop.inputformat=false)
 
 
 ---

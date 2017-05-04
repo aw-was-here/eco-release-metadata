@@ -28,14 +28,14 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [ORC-111](https://issues.apache.org/jira/browse/ORC-111) | Make Java tool support DFS |  Major | Java | Junegunn Choi | Junegunn Choi |
 | [ORC-114](https://issues.apache.org/jira/browse/ORC-114) | Typo: presesrveData → preserveData |  Trivial | Java | Seth Fitzsimmons | Seth Fitzsimmons |
-| [ORC-117](https://issues.apache.org/jira/browse/ORC-117) | ConvertTreeReaderFactory gets a ArrayIndexOutOfBoundsException with added columns |  Major | evolution | Owen O\'Malley | Owen O\'Malley |
+| [ORC-117](https://issues.apache.org/jira/browse/ORC-117) | ConvertTreeReaderFactory gets a ArrayIndexOutOfBoundsException with added columns |  Major | evolution | Owen O'Malley | Owen O'Malley |
 
 
 ### BUG FIXES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [ORC-115](https://issues.apache.org/jira/browse/ORC-115) | Unable to write string data into ORC file (or at least read it back) |  Major | Java | Scott Wells | Owen O\'Malley |
-| [ORC-118](https://issues.apache.org/jira/browse/ORC-118) | fix Java findColumn from getting null pointers when columns aren\'t mapped |  Major | . | Owen O\'Malley | Owen O\'Malley |
+| [ORC-115](https://issues.apache.org/jira/browse/ORC-115) | Unable to write string data into ORC file (or at least read it back) |  Major | Java | Scott Wells | Owen O'Malley |
+| [ORC-118](https://issues.apache.org/jira/browse/ORC-118) | fix Java findColumn from getting null pointers when columns aren't mapped |  Major | . | Owen O'Malley | Owen O'Malley |
 
 

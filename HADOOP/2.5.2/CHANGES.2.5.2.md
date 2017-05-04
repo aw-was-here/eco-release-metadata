@@ -27,7 +27,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-7274](https://issues.apache.org/jira/browse/HDFS-7274) | Disable SSLv3 in HttpFS |  Blocker | webhdfs | Robert Kanter | Robert Kanter |
-| [HADOOP-11243](https://issues.apache.org/jira/browse/HADOOP-11243) | SSLFactory shouldn\'t allow SSLv3 |  Blocker | . | Wei Yan | Wei Yan |
+| [HADOOP-11243](https://issues.apache.org/jira/browse/HADOOP-11243) | SSLFactory shouldn't allow SSLv3 |  Blocker | . | Wei Yan | Wei Yan |
 | [HADOOP-11260](https://issues.apache.org/jira/browse/HADOOP-11260) | Patch up Jetty to disable SSLv3 |  Blocker | security | Karthik Kambatla | Mike Yoder |
 | [HDFS-7391](https://issues.apache.org/jira/browse/HDFS-7391) | Renable SSLv2Hello in HttpFS |  Blocker | webhdfs | Robert Kanter | Robert Kanter |
 | [HADOOP-11307](https://issues.apache.org/jira/browse/HADOOP-11307) | create-release script should run git clean first |  Blocker | scripts | Karthik Kambatla | Karthik Kambatla |

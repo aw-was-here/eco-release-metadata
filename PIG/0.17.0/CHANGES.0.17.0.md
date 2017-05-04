@@ -58,7 +58,7 @@
 | [PIG-4951](https://issues.apache.org/jira/browse/PIG-4951) | Rename PIG\_ATS\_ENABLED constant |  Major | . | Daniel Dai | Adam Szita |
 | [PIG-5026](https://issues.apache.org/jira/browse/PIG-5026) | Remove src/META-INF/services/org.apache.hadoop.mapreduce.protocol.ClientProtocolProvider |  Minor | . | Nandor Kollar | Nandor Kollar |
 | [PIG-5037](https://issues.apache.org/jira/browse/PIG-5037) | Add api getDisplayString to PigStats |  Major | . | Jeff Zhang | Jeff Zhang |
-| [PIG-5053](https://issues.apache.org/jira/browse/PIG-5053) | Can\'t change HDFS user home in e2e tests using Ant |  Minor | . | Nandor Kollar | Nandor Kollar |
+| [PIG-5053](https://issues.apache.org/jira/browse/PIG-5053) | Can't change HDFS user home in e2e tests using Ant |  Minor | . | Nandor Kollar | Nandor Kollar |
 | [PIG-5036](https://issues.apache.org/jira/browse/PIG-5036) | Remove biggish from e2e input dataset |  Major | e2e harness | Daniel Dai | Daniel Dai |
 | [PIG-5034](https://issues.apache.org/jira/browse/PIG-5034) | Remove org.apache.hadoop.hive.serde2.objectinspector.primitive package |  Minor | . | Nandor Kollar | Nandor Kollar |
 | [PIG-4939](https://issues.apache.org/jira/browse/PIG-4939) | QueryParserUtils.setHdfsServers(QueryParserUtils.java:104) should not be called for non-dfs methods |  Minor | impl | Siddhi Mehta | Adam Szita |

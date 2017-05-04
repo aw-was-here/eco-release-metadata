@@ -41,7 +41,7 @@
 | [FLINK-5807](https://issues.apache.org/jira/browse/FLINK-5807) | improved wording for doc home page |  Minor | Documentation | David Anderson | David Anderson |
 | [FLINK-5805](https://issues.apache.org/jira/browse/FLINK-5805) | improve docs for ProcessFunction |  Minor | Documentation | David Anderson | David Anderson |
 | [FLINK-5800](https://issues.apache.org/jira/browse/FLINK-5800) | Make sure that the CheckpointStreamFactory is instantiated once per operator only |  Major | State Backends, Checkpointing | Stephan Ewen | Stephan Ewen |
-| [FLINK-5705](https://issues.apache.org/jira/browse/FLINK-5705) | webmonitor\'s request/response use UTF-8 explicitly |  Major | Webfrontend | shijinkui | shijinkui |
+| [FLINK-5705](https://issues.apache.org/jira/browse/FLINK-5705) | webmonitor's request/response use UTF-8 explicitly |  Major | Webfrontend | shijinkui | shijinkui |
 | [FLINK-5837](https://issues.apache.org/jira/browse/FLINK-5837) | improve readability of the queryable state docs |  Minor | Documentation | David Anderson | David Anderson |
 | [FLINK-5876](https://issues.apache.org/jira/browse/FLINK-5876) | Mention Scala type fallacies for queryable state client serializers |  Major | Documentation | Ufuk Celebi |  |
 | [FLINK-5894](https://issues.apache.org/jira/browse/FLINK-5894) | HA docs are misleading re: state backends |  Major | Documentation | David Anderson |  |
@@ -58,7 +58,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [FLINK-5678](https://issues.apache.org/jira/browse/FLINK-5678) | User-defined TableFunctions do not support all types of parameters |  Major | Table API & SQL | Timo Walther | Jark Wu |
-| [FLINK-5628](https://issues.apache.org/jira/browse/FLINK-5628) | CheckpointStatsTracker implements Serializable but isn\'t |  Blocker | Local Runtime | Chesnay Schepler | Ufuk Celebi |
+| [FLINK-5628](https://issues.apache.org/jira/browse/FLINK-5628) | CheckpointStatsTracker implements Serializable but isn't |  Blocker | Local Runtime | Chesnay Schepler | Ufuk Celebi |
 | [FLINK-5644](https://issues.apache.org/jira/browse/FLINK-5644) | Task#lastCheckpointSize metric broken |  Major | Metrics, Streaming | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-5708](https://issues.apache.org/jira/browse/FLINK-5708) | we should remove duplicated configuration options |  Minor | Documentation | Yelei Feng |  |
 | [FLINK-5652](https://issues.apache.org/jira/browse/FLINK-5652) | Memory leak in AsyncDataStream |  Major | DataStream API | Dmitry Golubets | Till Rohrmann |
@@ -79,7 +79,7 @@
 | [FLINK-5934](https://issues.apache.org/jira/browse/FLINK-5934) | Scheduler in ExecutionGraph null if failure happens in ExecutionGraph.restoreLatestCheckpointedState |  Major | Distributed Coordination | Till Rohrmann | Till Rohrmann |
 | [FLINK-5945](https://issues.apache.org/jira/browse/FLINK-5945) | Close function in OuterJoinOperatorBase#executeOnCollections |  Major | Core | Greg Hogan | Greg Hogan |
 | [FLINK-5965](https://issues.apache.org/jira/browse/FLINK-5965) | Typo on DropWizard wrappers |  Trivial | Documentation | Francisco Sokol |  |
-| [FLINK-6002](https://issues.apache.org/jira/browse/FLINK-6002) | Documentation: \'MacOS X\' under \'Download and Start Flink\' in Quickstart page is not rendered correctly |  Trivial | Documentation | Bowen Li |  |
+| [FLINK-6002](https://issues.apache.org/jira/browse/FLINK-6002) | Documentation: 'MacOS X' under 'Download and Start Flink' in Quickstart page is not rendered correctly |  Trivial | Documentation | Bowen Li |  |
 | [FLINK-6025](https://issues.apache.org/jira/browse/FLINK-6025) | User code ClassLoader not used when KryoSerializer fallbacks to serialization for copying |  Major | Type Serialization System | Tzu-Li (Gordon) Tai | Tzu-Li (Gordon) Tai |
 | [FLINK-5942](https://issues.apache.org/jira/browse/FLINK-5942) | Harden ZooKeeperStateHandleStore to deal with corrupted data |  Major | State Backends, Checkpointing | Till Rohrmann | Till Rohrmann |
 | [FLINK-5940](https://issues.apache.org/jira/browse/FLINK-5940) | ZooKeeperCompletedCheckpointStore cannot handle broken state handles |  Major | State Backends, Checkpointing | Till Rohrmann | Till Rohrmann |
@@ -95,7 +95,7 @@
 | [FLINK-6000](https://issues.apache.org/jira/browse/FLINK-6000) | Can not start HA cluster with start-cluster.sh |  Major | Startup Shell Scripts | Dawid Wysakowicz | Dawid Wysakowicz |
 | [FLINK-6170](https://issues.apache.org/jira/browse/FLINK-6170) | Some checkpoint metrics rely on latest stat snapshot |  Major | Metrics, State Backends, Checkpointing, Webfrontend | Ufuk Celebi | Ufuk Celebi |
 | [FLINK-6133](https://issues.apache.org/jira/browse/FLINK-6133) | fix build status in README.md |  Minor | Build System | Bowen Li | Bowen Li |
-| [FLINK-5972](https://issues.apache.org/jira/browse/FLINK-5972) | Don\'t allow shrinking merging windows |  Blocker | DataStream API | Aljoscha Krettek | Aljoscha Krettek |
+| [FLINK-5972](https://issues.apache.org/jira/browse/FLINK-5972) | Don't allow shrinking merging windows |  Blocker | DataStream API | Aljoscha Krettek | Aljoscha Krettek |
 | [FLINK-6182](https://issues.apache.org/jira/browse/FLINK-6182) | Fix possible NPE in SourceStreamTask |  Minor | Local Runtime | Ufuk Celebi |  |
 | [FLINK-6207](https://issues.apache.org/jira/browse/FLINK-6207) | Duplicate type serializers for async snapshots of CopyOnWriteStateTable |  Major | State Backends, Checkpointing | Stefan Richter | Stefan Richter |
 | [FLINK-6181](https://issues.apache.org/jira/browse/FLINK-6181) | Zookeeper scripts use invalid regex |  Major | Build System, Startup Shell Scripts | Robert Metzger | Robert Metzger |

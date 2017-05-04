@@ -34,7 +34,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [BIGTOP-2738](https://issues.apache.org/jira/browse/BIGTOP-2738) | spark-worker fails to start |  Critical | spark | Amir Sanjar | Amir Sanjar |
-| [BIGTOP-2737](https://issues.apache.org/jira/browse/BIGTOP-2737) | Spark charm doesn\'t handle HA or examples well |  Minor | deployment | Kevin W Monroe | Kevin W Monroe |
+| [BIGTOP-2737](https://issues.apache.org/jira/browse/BIGTOP-2737) | Spark charm doesn't handle HA or examples well |  Minor | deployment | Kevin W Monroe | Kevin W Monroe |
 | [BIGTOP-2748](https://issues.apache.org/jira/browse/BIGTOP-2748) | Fix a puppet compatibilty issue |  Major | toolchain | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-2749](https://issues.apache.org/jira/browse/BIGTOP-2749) | puppet: use jessie package on jessie, not trusty |  Major | debian | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-2750](https://issues.apache.org/jira/browse/BIGTOP-2750) | puppet: increase compatibility with future versions |  Major | deployment | Olaf Flebbe | Olaf Flebbe |

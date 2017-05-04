@@ -37,7 +37,7 @@
 | [HADOOP-3678](https://issues.apache.org/jira/browse/HADOOP-3678) | Avoid spurious "DataXceiver: java.io.IOException: Connection reset by peer" errors in DataNode log |  Blocker | . | Raghu Angadi | Raghu Angadi |
 | [HADOOP-3813](https://issues.apache.org/jira/browse/HADOOP-3813) | RPC queue overload of JobTracker |  Major | . | Christian Kunz | Amareshwari Sriramadasu |
 | [HADOOP-3859](https://issues.apache.org/jira/browse/HADOOP-3859) | 1000  concurrent read on a single file failing  the task/client |  Blocker | . | Koji Noguchi | Johan Oskarsson |
-| [HADOOP-3931](https://issues.apache.org/jira/browse/HADOOP-3931) | Bug in MapTask.MapOutputBuffer.collect leads to an unnecessary and harmful \'reset\' |  Blocker | . | Arun C Murthy | Chris Douglas |
+| [HADOOP-3931](https://issues.apache.org/jira/browse/HADOOP-3931) | Bug in MapTask.MapOutputBuffer.collect leads to an unnecessary and harmful 'reset' |  Blocker | . | Arun C Murthy | Chris Douglas |
 | [HADOOP-4773](https://issues.apache.org/jira/browse/HADOOP-4773) | namenode startup error, hadoop-user-namenode.pid permission denied. |  Critical | . | Focus |  |
 
 

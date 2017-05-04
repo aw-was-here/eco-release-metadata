@@ -51,7 +51,7 @@ Fixed broken compilation in TestSubmitJob after the patch for HDFS-2895.
 
 ---
 
-* [HDFS-2731](https://issues.apache.org/jira/browse/HDFS-2731) | *Major* | **HA: Autopopulate standby name dirs if they\'re empty**
+* [HDFS-2731](https://issues.apache.org/jira/browse/HDFS-2731) | *Major* | **HA: Autopopulate standby name dirs if they're empty**
 
 The HA NameNode may now be started with the "-bootstrapStandby" flag. This causes it to copy the namespace information and most recent checkpoint from its HA pair, and save it to local storage, allowing an HA setup to be bootstrapped without use of rsync or external tools.
 
@@ -72,7 +72,7 @@ The fsck "move" option is no longer destructive. It copies the accessible blocks
 
 ---
 
-* [HADOOP-8154](https://issues.apache.org/jira/browse/HADOOP-8154) | *Major* | **DNS#getIPs shouldn\'t silently return the local host IP for bogus interface names**
+* [HADOOP-8154](https://issues.apache.org/jira/browse/HADOOP-8154) | *Major* | **DNS#getIPs shouldn't silently return the local host IP for bogus interface names**
 
 **WARNING: No release note provided for this change.**
 
@@ -137,7 +137,7 @@ The daemon stop action no longer returns failure when stopping an already stoppe
 
 * [HDFS-3094](https://issues.apache.org/jira/browse/HDFS-3094) | *Major* | **add -nonInteractive and -force option to namenode -format command**
 
-The \'namenode -format\' command now supports the flags \'-nonInteractive\' and \'-force\' to improve usefulness without user input.
+The 'namenode -format' command now supports the flags '-nonInteractive' and '-force' to improve usefulness without user input.
 
 
 ---

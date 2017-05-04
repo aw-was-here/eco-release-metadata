@@ -39,7 +39,7 @@ After this change, the timestamp of the row will be the latest timestamp of all 
 
 * [HIVE-12958](https://issues.apache.org/jira/browse/HIVE-12958) | *Major* | **Make embedded Jetty server more configurable**
 
-A new property \'templeton.jetty.configuration\' can be set pointing to an XML file in webhcat configuration file to enable the embedded Jetty configuration from such file.
+A new property 'templeton.jetty.configuration' can be set pointing to an XML file in webhcat configuration file to enable the embedded Jetty configuration from such file.
 
    \<property\>
      \<name\>templeton.jetty.configuration\</name\>
@@ -193,7 +193,7 @@ LLAP: ZK registry throws at shutdown due to slf4j trying to initialize a log4j l
 
 * [HIVE-12653](https://issues.apache.org/jira/browse/HIVE-12653) | *Major* | **The property  "serialization.encoding" in the class "org.apache.hadoop.hive.contrib.serde2.MultiDelimitSerDe" does not work**
 
-add \'serialization.encoding\' and suport GBK charset for the class \'org.apache.hadoop.hive.contrib.serde2.MultiDelimitSerDe\' ,please test it.
+add 'serialization.encoding' and suport GBK charset for the class 'org.apache.hadoop.hive.contrib.serde2.MultiDelimitSerDe' ,please test it.
 
 
 ---

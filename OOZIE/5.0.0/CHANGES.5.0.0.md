@@ -50,7 +50,7 @@
 | [OOZIE-2771](https://issues.apache.org/jira/browse/OOZIE-2771) | Allow retrieving keystore and truststore passwords from Hadoop Credential Provider |  Major | . | Attila Sasvari | Attila Sasvari |
 | [OOZIE-2786](https://issues.apache.org/jira/browse/OOZIE-2786) | Pass Oozie workflow ID and settings to Spark application configuration |  Critical | action | Xiaobin Zheng | Xiaobin Zheng |
 | [OOZIE-807](https://issues.apache.org/jira/browse/OOZIE-807) | Docs can be explicit about multiple sub-workflow definitions being possible |  Trivial | docs | Harsh J | Harsh J |
-| [OOZIE-2830](https://issues.apache.org/jira/browse/OOZIE-2830) | Use tarLongFileMode with \'gnu\' in the assembly plugin\'s configuration |  Trivial | . | Attila Sasvari | Attila Sasvari |
+| [OOZIE-2830](https://issues.apache.org/jira/browse/OOZIE-2830) | Use tarLongFileMode with 'gnu' in the assembly plugin's configuration |  Trivial | . | Attila Sasvari | Attila Sasvari |
 | [OOZIE-2393](https://issues.apache.org/jira/browse/OOZIE-2393) | Allow table drop in hcat prepare |  Minor | core | Muhammad Ehsan ul Haque | Abhishek Bafna |
 | [OOZIE-2838](https://issues.apache.org/jira/browse/OOZIE-2838) | TestClassUtils,TestJsonUtils,TestWritableUtils,TestXmlUtils shall not be an Oozie  XTestCase |  Trivial | . | Attila Sasvari | Attila Sasvari |
 | [OOZIE-2831](https://issues.apache.org/jira/browse/OOZIE-2831) | Update maven-project-info-reports-plugin to 2.9 |  Trivial | . | Attila Sasvari | Attila Sasvari |
@@ -92,12 +92,12 @@
 | [OOZIE-2820](https://issues.apache.org/jira/browse/OOZIE-2820) | Fix more spelling errors in exceptions and logging |  Trivial | core | Grant Sohn | Laszlo Zeke |
 | [OOZIE-2835](https://issues.apache.org/jira/browse/OOZIE-2835) | TestIOUtils shall not be an XTestCase |  Trivial | . | Attila Sasvari | Attila Sasvari |
 | [OOZIE-2817](https://issues.apache.org/jira/browse/OOZIE-2817) | Increase test case stability in pre-commit job |  Major | . | Peter Cseh | Peter Cseh |
-| [OOZIE-2739](https://issues.apache.org/jira/browse/OOZIE-2739) | Remove property expansion pattern from ShellMain\'s log4j properties content |  Minor | action | Harsh J | Harsh J |
+| [OOZIE-2739](https://issues.apache.org/jira/browse/OOZIE-2739) | Remove property expansion pattern from ShellMain's log4j properties content |  Minor | action | Harsh J | Harsh J |
 | [OOZIE-2850](https://issues.apache.org/jira/browse/OOZIE-2850) | Fix default callback notifications |  Trivial | . | Attila Sasvari | Attila Sasvari |
 | [OOZIE-2457](https://issues.apache.org/jira/browse/OOZIE-2457) | Oozie log parsing regex consume more than 90% cpu |  Blocker | . | Satish Subhashrao Saley | Satish Subhashrao Saley |
-| [OOZIE-2862](https://issues.apache.org/jira/browse/OOZIE-2862) | Coord change command doesn\'t change job to running if job was killed without creating any actions |  Major | . | Purshotam Shah | Purshotam Shah |
+| [OOZIE-2862](https://issues.apache.org/jira/browse/OOZIE-2862) | Coord change command doesn't change job to running if job was killed without creating any actions |  Major | . | Purshotam Shah | Purshotam Shah |
 | [OOZIE-2864](https://issues.apache.org/jira/browse/OOZIE-2864) | Maven artifacts for package com.codahale.metrics have inconsistent groupId |  Major | . | Andras Piros | Andras Piros |
-| [OOZIE-2818](https://issues.apache.org/jira/browse/OOZIE-2818) | Can\'t overwrite oozie.action.max.output.data on a per-workflow basis |  Major | . | Peter Cseh | Attila Sasvari |
+| [OOZIE-2818](https://issues.apache.org/jira/browse/OOZIE-2818) | Can't overwrite oozie.action.max.output.data on a per-workflow basis |  Major | . | Peter Cseh | Attila Sasvari |
 | [OOZIE-2870](https://issues.apache.org/jira/browse/OOZIE-2870) | non working examples in oozie documentation coordinator spec |  Major | docs | Clemens Valiente | Andras Piros |
 
 

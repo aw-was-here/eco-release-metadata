@@ -60,7 +60,7 @@
 | [FALCON-1895](https://issues.apache.org/jira/browse/FALCON-1895) | Refactoring of FalconCLI and FalconClient |  Major | client | Praveen Adlakha | Praveen Adlakha |
 | [FALCON-1916](https://issues.apache.org/jira/browse/FALCON-1916) | Allow RM principal to be specified in Cluster entity |  Major | common | Venkat Ranganathan | Venkat Ranganathan |
 | [FALCON-1942](https://issues.apache.org/jira/browse/FALCON-1942) | Allow Falcon server and client classpath to be customizable |  Major | . | Venkat Ranganathan | Venkat Ranganathan |
-| [FALCON-1963](https://issues.apache.org/jira/browse/FALCON-1963) | Falcon CLI should provide detailed hints if the user\'s command is invalid |  Major | . | Ying Zheng | Ying Zheng |
+| [FALCON-1963](https://issues.apache.org/jira/browse/FALCON-1963) | Falcon CLI should provide detailed hints if the user's command is invalid |  Major | . | Ying Zheng | Ying Zheng |
 | [FALCON-1979](https://issues.apache.org/jira/browse/FALCON-1979) | Update HttpClient versions to close security vulnerabilities |  Major | . | Balu Vellanki | Balu Vellanki |
 | [FALCON-1981](https://issues.apache.org/jira/browse/FALCON-1981) | Remove runtime superfluous jar dependencies - pom.xml cleanup |  Major | build-tools | Venkatesan Ramachandran | Venkatesan Ramachandran |
 | [FALCON-1802](https://issues.apache.org/jira/browse/FALCON-1802) | Workflow Builder for scheduling based on Data for Process in case of Native Scheduler |  Major | . | pavan kumar kolamuri | pavan kumar kolamuri |
@@ -125,7 +125,7 @@
 | [FALCON-1957](https://issues.apache.org/jira/browse/FALCON-1957) | Documentation on using Hadoop credential provider for sensitive properties |  Major | . | Ying Zheng | Ying Zheng |
 | [FALCON-1943](https://issues.apache.org/jira/browse/FALCON-1943) | Extension API/CLI fails when authorization is enabled |  Major | . | Sowmya Ramesh | Sowmya Ramesh |
 | [FALCON-1964](https://issues.apache.org/jira/browse/FALCON-1964) | Should delete temporary JKS file after IT tests for credential provider alias |  Major | . | Ying Zheng | Ying Zheng |
-| [FALCON-1961](https://issues.apache.org/jira/browse/FALCON-1961) | Should return error if an extension job doesn\'t exist for delete/suspend/resume/schedule operations |  Major | . | Ying Zheng | Ying Zheng |
+| [FALCON-1961](https://issues.apache.org/jira/browse/FALCON-1961) | Should return error if an extension job doesn't exist for delete/suspend/resume/schedule operations |  Major | . | Ying Zheng | Ying Zheng |
 | [FALCON-1973](https://issues.apache.org/jira/browse/FALCON-1973) | Falcon build failure due checkstyle issue |  Major | . | Peeyush Bishnoi | Peeyush Bishnoi |
 | [FALCON-1975](https://issues.apache.org/jira/browse/FALCON-1975) | Getting NoSuchMethodError when calling isNoneEmpty |  Major | . | Ying Zheng | Ying Zheng |
 | [FALCON-1974](https://issues.apache.org/jira/browse/FALCON-1974) | Cluster update : Allow superuser to update bundle/coord of dependent entities |  Major | . | Balu Vellanki | Balu Vellanki |
@@ -156,7 +156,7 @@
 | [FALCON-2034](https://issues.apache.org/jira/browse/FALCON-2034) | Make numThreads and timeOut configurable In ConfigurationStore init |  Critical | . | Pallavi Rao | sandeep samudrala |
 | [FALCON-2036](https://issues.apache.org/jira/browse/FALCON-2036) | Update twiki on entity list operation with up-to-date REST API path |  Major | . | Ying Zheng | Ying Zheng |
 | [FALCON-2038](https://issues.apache.org/jira/browse/FALCON-2038) | When all Optional input instances are missing, we should not suffix partition |  Major | . | Pallavi Rao | Pallavi Rao |
-| [FALCON-2035](https://issues.apache.org/jira/browse/FALCON-2035) | Entity list operation without type parameter doesn\'t work when authorization is enabled |  Major | . | Ying Zheng | Ying Zheng |
+| [FALCON-2035](https://issues.apache.org/jira/browse/FALCON-2035) | Entity list operation without type parameter doesn't work when authorization is enabled |  Major | . | Ying Zheng | Ying Zheng |
 | [FALCON-1931](https://issues.apache.org/jira/browse/FALCON-1931) | multiCluster tag is missing for Multiple Cluster scenarios |  Major | regression | Murali Ramasami | Murali Ramasami |
 | [FALCON-2045](https://issues.apache.org/jira/browse/FALCON-2045) | Enhance document on registry point in cluster specifiction for Hive HA mode |  Major | . | Ying Zheng | Ying Zheng |
 | [FALCON-2051](https://issues.apache.org/jira/browse/FALCON-2051) | Falcon post-processing services are not getting invoked |  Blocker | general | Peeyush Bishnoi | Venkatesan Ramachandran |
@@ -166,7 +166,7 @@
 | [FALCON-2037](https://issues.apache.org/jira/browse/FALCON-2037) | HiveDR Extension tests are failed in Secure mode with clusterForJobNNKerberosPrincipal not found |  Critical | replication | Murali Ramasami | Sowmya Ramesh |
 | [FALCON-2058](https://issues.apache.org/jira/browse/FALCON-2058) | s3 tests with dummy url no longer compatible with latest HDFS |  Major | . | Ying Zheng | Ying Zheng |
 | [FALCON-2048](https://issues.apache.org/jira/browse/FALCON-2048) | Cluster submission failed in yarn-cluster mode |  Critical | general | Murali Ramasami | Peeyush Bishnoi |
-| [FALCON-2056](https://issues.apache.org/jira/browse/FALCON-2056) | HiveDR doesn\'t work with multiple users |  Major | replication | Murali Ramasami | Sowmya Ramesh |
+| [FALCON-2056](https://issues.apache.org/jira/browse/FALCON-2056) | HiveDR doesn't work with multiple users |  Major | replication | Murali Ramasami | Sowmya Ramesh |
 | [FALCON-2050](https://issues.apache.org/jira/browse/FALCON-2050) | Configure jetty parent classloader to be prioritized over webapp classloader |  Major | common | Venkat Ranganathan | Venkat Ranganathan |
 | [FALCON-2061](https://issues.apache.org/jira/browse/FALCON-2061) | Falcon CLI shows hadoop classpath loading info in the console |  Major | client | Murali Ramasami | Balu Vellanki |
 | [FALCON-2076](https://issues.apache.org/jira/browse/FALCON-2076) | Server fails to start since extension.store.uri is not defined in startup.properties |  Major | prism | Pragya Mittal | Balu Vellanki |

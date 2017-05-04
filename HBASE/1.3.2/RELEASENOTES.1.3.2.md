@@ -30,9 +30,9 @@ If users of the Thrift 1 Server enable proxy user support without enabling the p
 
 ---
 
-* [HBASE-17877](https://issues.apache.org/jira/browse/HBASE-17877) | *Major* | **Improve HBase\'s byte[] comparator**
+* [HBASE-17877](https://issues.apache.org/jira/browse/HBASE-17877) | *Major* | **Improve HBase's byte[] comparator**
 
-updated the lexicographic byte array comparator to use a slightly more optimized version similar to the one available in the guava library that compares only the first index where left[index] != right[index]. The comparator also returns the diff directly instead of mapping it to -1, 0, +1 range as was being done in the earlier version. We have seen significant performance gains, calculated in terms of throughput (ops/ms) with these changes ranging from approx 20% for smaller byte arrays upto 200 bytes and almost 100% for large byte array sizes that are in few KB\'s. We benchmarked with upto 16KB arrays and the general trend indicates that the performance improvement increases as the size of the byte array increases.
+updated the lexicographic byte array comparator to use a slightly more optimized version similar to the one available in the guava library that compares only the first index where left[index] != right[index]. The comparator also returns the diff directly instead of mapping it to -1, 0, +1 range as was being done in the earlier version. We have seen significant performance gains, calculated in terms of throughput (ops/ms) with these changes ranging from approx 20% for smaller byte arrays upto 200 bytes and almost 100% for large byte array sizes that are in few KB's. We benchmarked with upto 16KB arrays and the general trend indicates that the performance improvement increases as the size of the byte array increases.
 
 
 ---

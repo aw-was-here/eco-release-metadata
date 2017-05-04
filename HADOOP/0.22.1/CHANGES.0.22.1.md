@@ -24,7 +24,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [HADOOP-6453](https://issues.apache.org/jira/browse/HADOOP-6453) | Hadoop wrapper script shouldn\'t ignore an existing JAVA\_LIBRARY\_PATH |  Minor | scripts | Chad Metcalf |  |
+| [HADOOP-6453](https://issues.apache.org/jira/browse/HADOOP-6453) | Hadoop wrapper script shouldn't ignore an existing JAVA\_LIBRARY\_PATH |  Minor | scripts | Chad Metcalf |  |
 
 
 ### NEW FEATURES:
@@ -57,14 +57,14 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [MAPREDUCE-2420](https://issues.apache.org/jira/browse/MAPREDUCE-2420) | JobTracker should be able to renew delegation token over HTTP |  Major | . | Boris Shkolnik | Boris Shkolnik |
-| [MAPREDUCE-2452](https://issues.apache.org/jira/browse/MAPREDUCE-2452) | Delegation token cancellation shouldn\'t hold global JobTracker lock |  Major | jobtracker | Devaraj Das | Devaraj Das |
+| [MAPREDUCE-2452](https://issues.apache.org/jira/browse/MAPREDUCE-2452) | Delegation token cancellation shouldn't hold global JobTracker lock |  Major | jobtracker | Devaraj Das | Devaraj Das |
 | [HADOOP-7621](https://issues.apache.org/jira/browse/HADOOP-7621) | alfredo config should be in a file not readable by users |  Critical | security | Alejandro Abdelnur | Aaron T. Myers |
 | [HDFS-2698](https://issues.apache.org/jira/browse/HDFS-2698) | BackupNode is downloading image from NameNode for every checkpoint |  Major | namenode | Konstantin Shvachko | Konstantin Shvachko |
 | [HDFS-1910](https://issues.apache.org/jira/browse/HDFS-1910) | when dfs.name.dir and dfs.name.edits.dir are same fsimage will be saved twice every time |  Minor | namenode | Gokul |  |
 | [MAPREDUCE-3593](https://issues.apache.org/jira/browse/MAPREDUCE-3593) | MAPREDUCE Impersonation is not working in 22 |  Major | job submission | Mayank Bansal | Mayank Bansal |
 | [MAPREDUCE-3725](https://issues.apache.org/jira/browse/MAPREDUCE-3725) | Hadoop 22 hadoop job -list returns user name as NULL |  Major | client | Mayank Bansal | Mayank Bansal |
 | [HDFS-2718](https://issues.apache.org/jira/browse/HDFS-2718) | Optimize OP\_ADD in edits loading |  Major | namenode | Konstantin Shvachko | Konstantin Shvachko |
-| [HDFS-2877](https://issues.apache.org/jira/browse/HDFS-2877) | If locking of a storage dir fails, it will remove the other NN\'s lock file on exit |  Major | namenode | Todd Lipcon | Todd Lipcon |
+| [HDFS-2877](https://issues.apache.org/jira/browse/HDFS-2877) | If locking of a storage dir fails, it will remove the other NN's lock file on exit |  Major | namenode | Todd Lipcon | Todd Lipcon |
 | [HADOOP-7680](https://issues.apache.org/jira/browse/HADOOP-7680) | TestHardLink fails on Mac OS X, when gnu stat is in path |  Major | . | Milind Bhandarkar | Milind Bhandarkar |
 | [HDFS-2991](https://issues.apache.org/jira/browse/HDFS-2991) | failure to load edits: ClassCastException |  Blocker | namenode | Todd Lipcon | Todd Lipcon |
 | [MAPREDUCE-4164](https://issues.apache.org/jira/browse/MAPREDUCE-4164) | Hadoop 22 Exception thrown after task completion causes its reexecution |  Major | tasktracker | Mayank Bansal | Mayank Bansal |
@@ -72,14 +72,14 @@
 | [HDFS-3368](https://issues.apache.org/jira/browse/HDFS-3368) | Missing blocks due to bad DataNodes coming up and down. |  Major | namenode | Konstantin Shvachko | Konstantin Shvachko |
 | [MAPREDUCE-2178](https://issues.apache.org/jira/browse/MAPREDUCE-2178) | Race condition in LinuxTaskController permissions handling |  Major | security, task-controller | Todd Lipcon | Benoy Antony |
 | [MAPREDUCE-4314](https://issues.apache.org/jira/browse/MAPREDUCE-4314) | Synchronization in JvmManager for 0.22 branch |  Major | tasktracker | Konstantin Shvachko | Benoy Antony |
-| [MAPREDUCE-2377](https://issues.apache.org/jira/browse/MAPREDUCE-2377) | task-controller fails to parse configuration if it doesn\'t end in \\n |  Major | task-controller | Todd Lipcon | Benoy Antony |
+| [MAPREDUCE-2377](https://issues.apache.org/jira/browse/MAPREDUCE-2377) | task-controller fails to parse configuration if it doesn't end in \\n |  Major | task-controller | Todd Lipcon | Benoy Antony |
 | [MAPREDUCE-4318](https://issues.apache.org/jira/browse/MAPREDUCE-4318) | TestRecoveryManager should not use raw and deprecated configuration parameters. |  Major | test | Konstantin Shvachko | Benoy Antony |
 | [MAPREDUCE-4360](https://issues.apache.org/jira/browse/MAPREDUCE-4360) | Capacity Scheduler Hierarchical leaf queue does not honor the max capacity of container queue |  Major | . | Mayank Bansal | Mayank Bansal |
 | [HDFS-1584](https://issues.apache.org/jira/browse/HDFS-1584) | Need to check TGT and renew if needed when fetching delegation tokens using HFTP |  Major | security | Kan Zhang | Benoy Antony |
 | [HDFS-3402](https://issues.apache.org/jira/browse/HDFS-3402) | Fix hdfs scripts for secure datanodes |  Minor | scripts, security | Benoy Antony | Benoy Antony |
 | [HADOOP-7115](https://issues.apache.org/jira/browse/HADOOP-7115) | Add a cache for getpwuid\_r and getpwgid\_r calls |  Major | . | Arun C Murthy | Alejandro Abdelnur |
 | [MAPREDUCE-4404](https://issues.apache.org/jira/browse/MAPREDUCE-4404) | Adding Test case for TestMRJobClient to verify the user name |  Minor | client | Mayank Bansal | Mayank Bansal |
-| [MAPREDUCE-5706](https://issues.apache.org/jira/browse/MAPREDUCE-5706) | toBeDeleted parent directories aren\'t being cleaned up |  Major | security | Robert Kanter | Robert Kanter |
+| [MAPREDUCE-5706](https://issues.apache.org/jira/browse/MAPREDUCE-5706) | toBeDeleted parent directories aren't being cleaned up |  Major | security | Robert Kanter | Robert Kanter |
 
 
 ### SUB-TASKS:

@@ -40,10 +40,10 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-5759](https://issues.apache.org/jira/browse/HADOOP-5759) | IllegalArgumentException when CombineFileInputFormat is used as job InputFormat |  Major | . | Amareshwari Sriramadasu | Amareshwari Sriramadasu |
-| [MAPREDUCE-826](https://issues.apache.org/jira/browse/MAPREDUCE-826) | harchive doesn\'t use ToolRunner / harchive returns 0 even if the job fails with exception |  Trivial | harchive | Koji Noguchi | Koji Noguchi |
+| [MAPREDUCE-826](https://issues.apache.org/jira/browse/MAPREDUCE-826) | harchive doesn't use ToolRunner / harchive returns 0 even if the job fails with exception |  Trivial | harchive | Koji Noguchi | Koji Noguchi |
 | [MAPREDUCE-112](https://issues.apache.org/jira/browse/MAPREDUCE-112) | Reduce Input Records and Reduce Output Records counters are not being set when using the new Mapreduce reducer API |  Blocker | . | Jothi Padmanabhan | Jothi Padmanabhan |
 | [HADOOP-6231](https://issues.apache.org/jira/browse/HADOOP-6231) | Allow caching of filesystem instances to be disabled on a per-instance basis |  Major | fs | Tom White | Ben Slusky |
-| [MAPREDUCE-979](https://issues.apache.org/jira/browse/MAPREDUCE-979) | JobConf.getMemoryFor{Map\|Reduce}Task doesn\'t fallback to newer config knobs when mapred.taskmaxvmem is set to DISABLED\_MEMORY\_LIMIT of -1 |  Blocker | jobtracker, tasktracker | Arun C Murthy | Sreekanth Ramakrishnan |
+| [MAPREDUCE-979](https://issues.apache.org/jira/browse/MAPREDUCE-979) | JobConf.getMemoryFor{Map\|Reduce}Task doesn't fallback to newer config knobs when mapred.taskmaxvmem is set to DISABLED\_MEMORY\_LIMIT of -1 |  Blocker | jobtracker, tasktracker | Arun C Murthy | Sreekanth Ramakrishnan |
 | [HDFS-677](https://issues.apache.org/jira/browse/HDFS-677) | Rename failure due to quota results in deletion of src directory |  Blocker | namenode | Suresh Srinivas | Suresh Srinivas |
 | [HDFS-579](https://issues.apache.org/jira/browse/HDFS-579) | HADOOP-3792 update of DfsTask incomplete |  Major | hdfs-client | Christian Kunz | Christian Kunz |
 | [MAPREDUCE-1070](https://issues.apache.org/jira/browse/MAPREDUCE-1070) | Deadlock in FairSchedulerServlet |  Major | . | Todd Lipcon | Todd Lipcon |
@@ -71,10 +71,10 @@
 | [HDFS-872](https://issues.apache.org/jira/browse/HDFS-872) | DFSClient 0.20.1 is incompatible with HDFS 0.20.2 |  Major | datanode, hdfs-client | Bassam Tabbara | Todd Lipcon |
 | [MAPREDUCE-1010](https://issues.apache.org/jira/browse/MAPREDUCE-1010) | Adding tests for changes in archives. |  Minor | harchive | Mahadev konar | Mahadev konar |
 | [HADOOP-6506](https://issues.apache.org/jira/browse/HADOOP-6506) | Failing tests prevent the rest of test targets from execution. |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
-| [HADOOP-6524](https://issues.apache.org/jira/browse/HADOOP-6524) | Contrib tests are failing Clover\'ed build |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
+| [HADOOP-6524](https://issues.apache.org/jira/browse/HADOOP-6524) | Contrib tests are failing Clover'ed build |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
 | [HDFS-927](https://issues.apache.org/jira/browse/HDFS-927) | DFSInputStream retries too many times for new block locations |  Critical | hdfs-client | Todd Lipcon | Todd Lipcon |
 | [HADOOP-5611](https://issues.apache.org/jira/browse/HADOOP-5611) | C++ libraries do not build on Debian Lenny |  Critical | . | Todd Lipcon | Todd Lipcon |
-| [MAPREDUCE-1251](https://issues.apache.org/jira/browse/MAPREDUCE-1251) | c++ utils doesn\'t compile |  Major | . | Eli Collins | Eli Collins |
+| [MAPREDUCE-1251](https://issues.apache.org/jira/browse/MAPREDUCE-1251) | c++ utils doesn't compile |  Major | . | Eli Collins | Eli Collins |
 | [HADOOP-5612](https://issues.apache.org/jira/browse/HADOOP-5612) | Some c++ scripts are not chmodded before ant execution |  Major | build | Todd Lipcon | Todd Lipcon |
 | [HADOOP-6575](https://issues.apache.org/jira/browse/HADOOP-6575) | Tests do not run on 0.20 branch |  Major | . | Chris Douglas | Chris Douglas |
 | [HADOOP-6576](https://issues.apache.org/jira/browse/HADOOP-6576) | TestStreamingStatus is failing on 0.20 branch |  Major | . | Chris Douglas | Todd Lipcon |

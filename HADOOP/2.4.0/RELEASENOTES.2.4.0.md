@@ -58,18 +58,18 @@ I just committed this. Thank you Chu.
 
 ---
 
-* [HDFS-5776](https://issues.apache.org/jira/browse/HDFS-5776) | *Major* | **Support \'hedged\' reads in DFSClient**
+* [HDFS-5776](https://issues.apache.org/jira/browse/HDFS-5776) | *Major* | **Support 'hedged' reads in DFSClient**
 
-If a read from a block is slow, start up another parallel, \'hedged\' read against a different block replica.  We then take the result of which ever read returns first (the outstanding read is cancelled).  This \'hedged\' read feature will help rein in the outliers, the odd read that takes a long time because it hit a bad patch on the disc, etc.
+If a read from a block is slow, start up another parallel, 'hedged' read against a different block replica.  We then take the result of which ever read returns first (the outstanding read is cancelled).  This 'hedged' read feature will help rein in the outliers, the odd read that takes a long time because it hit a bad patch on the disc, etc.
 
-This feature is off by default.  To enable this feature, set \<code\>dfs.client.hedged.read.threadpool.size\</code\> to a positive number.  The threadpool size is how many threads to dedicate to the running of these \'hedged\', concurrent reads in your client.
+This feature is off by default.  To enable this feature, set \<code\>dfs.client.hedged.read.threadpool.size\</code\> to a positive number.  The threadpool size is how many threads to dedicate to the running of these 'hedged', concurrent reads in your client.
 
-Then set \<code\>dfs.client.hedged.read.threshold.millis\</code\> to the number of milliseconds to wait before starting up a \'hedged\' read.  For example, if you set this property to 10, then if a read has not returned within 10 milliseconds, we will start up a new read against a different block replica.
+Then set \<code\>dfs.client.hedged.read.threshold.millis\</code\> to the number of milliseconds to wait before starting up a 'hedged' read.  For example, if you set this property to 10, then if a read has not returned within 10 milliseconds, we will start up a new read against a different block replica.
 
 This feature emits new metrics:
 
 + hedgedReadOps
-+ hedgeReadOpsWin -- how many times the hedged read \'beat\' the original read
++ hedgeReadOpsWin -- how many times the hedged read 'beat' the original read
 + hedgedReadOpsInCurThread -- how many times we went to do a hedged read but we had to run it in the current thread because dfs.client.hedged.read.threadpool.size was at a maximum.
 
 
@@ -100,7 +100,7 @@ The hadoop.rpc.protection configuration property previously supported specifying
 
 * [HDFS-6055](https://issues.apache.org/jira/browse/HDFS-6055) | *Major* | **Change default configuration to limit file name length in HDFS**
 
-The default configuration of HDFS now sets dfs.namenode.fs-limits.max-component-length to 255 for improved interoperability with other file system implementations.  This limits each component of a file system path to a maximum of 255 bytes in UTF-8 encoding.  Attempts to create new files that violate this rule will fail with an error.  Existing files that violate the rule are not effected.  Previously, dfs.namenode.fs-limits.max-component-length was set to 0 (ignored).  If necessary, it is possible to set the value back to 0 in the cluster\'s configuration to restore the old behavior.
+The default configuration of HDFS now sets dfs.namenode.fs-limits.max-component-length to 255 for improved interoperability with other file system implementations.  This limits each component of a file system path to a maximum of 255 bytes in UTF-8 encoding.  Attempts to create new files that violate this rule will fail with an error.  Existing files that violate the rule are not effected.  Previously, dfs.namenode.fs-limits.max-component-length was set to 0 (ignored).  If necessary, it is possible to set the value back to 0 in the cluster's configuration to restore the old behavior.
 
 
 ---

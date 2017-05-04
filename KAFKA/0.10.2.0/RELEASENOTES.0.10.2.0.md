@@ -27,7 +27,7 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 The method {{directoryForTask}} attempts to create a task directory but will silently fail to do so as it calls {{taskDir.mkdir();}} which will only create the leaf directory. 
 
-Calling {{taskDir.mkdirs();}} (note the \'s\') will create the entire path if any parent directory is missing.
+Calling {{taskDir.mkdirs();}} (note the 's') will create the entire path if any parent directory is missing.
 
 The constructor also attempts to create a bunch of directories using the former method and should be reviewed as part of any fix.
 

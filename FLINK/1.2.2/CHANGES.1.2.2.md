@@ -39,7 +39,7 @@
 | [FLINK-6311](https://issues.apache.org/jira/browse/FLINK-6311) | NPE in FlinkKinesisConsumer if source was closed before run |  Major | Kinesis Connector | Tzu-Li (Gordon) Tai | mingleizhang |
 | [FLINK-5623](https://issues.apache.org/jira/browse/FLINK-5623) | TempBarrier dam has been closed |  Major | Local Runtime | Greg Hogan | Greg Hogan |
 | [FLINK-6176](https://issues.apache.org/jira/browse/FLINK-6176) | Add JARs to CLASSPATH deterministically |  Major | Core | Scott Kidder | Greg Hogan |
-| [FLINK-6398](https://issues.apache.org/jira/browse/FLINK-6398) | RowSerializer\'s duplicate should always return a new instance |  Major | Core | Kurt Young | Kurt Young |
+| [FLINK-6398](https://issues.apache.org/jira/browse/FLINK-6398) | RowSerializer's duplicate should always return a new instance |  Major | Core | Kurt Young | Kurt Young |
 | [FLINK-6059](https://issues.apache.org/jira/browse/FLINK-6059) | Reject DataSet\<Row\> and DataStream\<Row\> without RowTypeInformation |  Major | Table API & SQL | Fabian Hueske | Fabian Hueske |
 
 

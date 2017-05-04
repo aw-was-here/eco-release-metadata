@@ -25,7 +25,7 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 * [HDFS-8226](https://issues.apache.org/jira/browse/HDFS-8226) | *Blocker* | **Non-HA rollback compatibility broken**
 
-Non-HA rollback steps have been changed. Run the rollback command on the namenode (\`bin/hdfs namenode -rollback\`) before starting cluster with \'-rollback\' option using (sbin/start-dfs.sh -rollback).
+Non-HA rollback steps have been changed. Run the rollback command on the namenode (\`bin/hdfs namenode -rollback\`) before starting cluster with '-rollback' option using (sbin/start-dfs.sh -rollback).
 
 
 ---

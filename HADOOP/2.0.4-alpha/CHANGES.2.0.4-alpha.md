@@ -44,7 +44,7 @@
 | [HADOOP-9301](https://issues.apache.org/jira/browse/HADOOP-9301) | hadoop client servlet/jsp/jetty/tomcat JARs creating conflicts in Oozie & HttpFS |  Blocker | build | Roman Shaposhnik | Alejandro Abdelnur |
 | [HADOOP-9299](https://issues.apache.org/jira/browse/HADOOP-9299) | kerberos name resolution is kicking in even when kerberos is not configured |  Blocker | security | Roman Shaposhnik | Daryn Sharp |
 | [MAPREDUCE-5053](https://issues.apache.org/jira/browse/MAPREDUCE-5053) | java.lang.InternalError from decompression codec cause reducer to fail |  Major | . | Robert Parker | Robert Parker |
-| [HADOOP-9399](https://issues.apache.org/jira/browse/HADOOP-9399) | protoc maven plugin doesn\'t work on mvn 3.0.2 |  Minor | build | Todd Lipcon | Konstantin Boudnik |
+| [HADOOP-9399](https://issues.apache.org/jira/browse/HADOOP-9399) | protoc maven plugin doesn't work on mvn 3.0.2 |  Minor | build | Todd Lipcon | Konstantin Boudnik |
 | [YARN-470](https://issues.apache.org/jira/browse/YARN-470) | Support a way to disable resource monitoring on the NodeManager |  Major | nodemanager | Hitesh Shah | Siddharth Seth |
 | [MAPREDUCE-5006](https://issues.apache.org/jira/browse/MAPREDUCE-5006) | streaming tests failing |  Major | contrib/streaming | Alejandro Abdelnur | Sandy Ryza |
 | [HDFS-4581](https://issues.apache.org/jira/browse/HDFS-4581) | DataNode#checkDiskError should not be called on network errors |  Major | datanode | Rohit Kochar | Rohit Kochar |
@@ -71,6 +71,6 @@
 | [HDFS-4566](https://issues.apache.org/jira/browse/HDFS-4566) | Webdhfs token cancelation should use authentication |  Major | webhdfs | Daryn Sharp | Daryn Sharp |
 | [HDFS-4567](https://issues.apache.org/jira/browse/HDFS-4567) | Webhdfs does not need a token for token operations |  Major | webhdfs | Daryn Sharp | Daryn Sharp |
 | [HDFS-4577](https://issues.apache.org/jira/browse/HDFS-4577) | Webhdfs operations should declare if authentication is required |  Major | webhdfs | Daryn Sharp | Daryn Sharp |
-| [HDFS-4548](https://issues.apache.org/jira/browse/HDFS-4548) | Webhdfs doesn\'t renegotiate SPNEGO token |  Blocker | . | Daryn Sharp | Daryn Sharp |
+| [HDFS-4548](https://issues.apache.org/jira/browse/HDFS-4548) | Webhdfs doesn't renegotiate SPNEGO token |  Blocker | . | Daryn Sharp | Daryn Sharp |
 
 
