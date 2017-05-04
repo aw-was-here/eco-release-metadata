@@ -66,11 +66,6 @@ common_rdm falcon 0.10 1.0
 
 common_rdm flink 1.1.5 2.0.0
 
-common_rdm hbase 1.1.11 2.0.0 HBase
-
-common_rdm hive 1.1.2 1.4.0
-common_rdm hive 2.1.2 3.0.0
-
 common_rdm mahout 0.13.0 2.0.0
 
 common_rdm oozie 4.3.0 5.0.0
@@ -84,6 +79,14 @@ common_rdm pig 0.15.1 1.0.0
 common_rdm zookeeper 3.5.2 4.0.0
 
 # Here are the problematic ones:
+
+common_rdm hbase 1.1.11 1.1.99 HBase
+common_rdm hbase 1.2.7 1.2.99 HBase
+common_rdm hbase 1.3.2 1.3.99 HBase
+common_rdm hbase 1.4.1 2.0.0 HBase
+
+common_rdm hive 1.1.2 1.4.0
+common_rdm hive 2.1.2 3.0.0
 
 common_rdm kafka 0.10.1.2 1.0.0
 
